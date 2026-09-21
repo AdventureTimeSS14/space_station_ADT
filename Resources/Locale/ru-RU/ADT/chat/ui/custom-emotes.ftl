@@ -1,8 +1,11 @@
-adt-chatbox-custom-emotes = Свои эмоуты:
-adt-chatbox-custom-emotes-button = Подтвердить
-adt-chatbox-custom-emotes-tooltip =
+adt-custom-emotes-open = Свои эмоуты…
+adt-custom-emotes-title = Свои эмоуты
+adt-custom-emotes-apply = Применить
+adt-custom-emotes-hint =
     Одна замена на строку, в формате "триггер=эмоут".
-    Если сообщение целиком совпало с триггером, вместо него отправится эмоут.
-    Работает только в Рядом, Шёпоте и Эмоутах.
-adt-chatbox-custom-emotes-placeholder =
-    ??=наклоняет голову
+    Триггер вырезается из сообщения, вместо него отправляется эмоут.
+    Работает в каналах Рядом, Шёпот и Эмоции.
+adt-custom-emotes-placeholder =
+    ???=наклоняет голову
+adt-custom-emotes-status = Замен распознано: { $count }
+adt-custom-emotes-status-bad = Замен распознано: { $count }, строк с ошибкой: { $bad }

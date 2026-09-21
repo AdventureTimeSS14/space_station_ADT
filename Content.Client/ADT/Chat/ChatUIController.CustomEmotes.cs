@@ -1,5 +1,6 @@
 using System.Text.RegularExpressions;
 using Content.Client.ADT.Chat;
+using Content.Client.ADT.Chat.UI;
 using Content.Shared.ADT.CCVar;
 using Content.Shared.Chat;
 using Content.Client.UserInterface.Systems.Chat.Widgets;
@@ -16,7 +17,7 @@ public sealed partial class ChatUIController
 {
     private List<(Regex Regex, string Emote)> _customEmotes = new();
 
-    public event Action<string>? CustomEmotesUpdated;
+    private CustomEmotesWindow? _customEmotesWindow;
 
     private void InitializeCustomEmotes()
     {
@@ -26,7 +27,9 @@ public sealed partial class ChatUIController
             UpdateCustomEmotes(saved, true);
     }
 
-    public void UpdateCustomEmotes(string newEmotes, bool firstLoad = false)
+    public void UpdateCustomEmotes(string newEmotes) => UpdateCustomEmotes(newEmotes, false);
+
+    public void UpdateCustomEmotes(string newEmotes, bool firstLoad)
     {
         if (!firstLoad)
         {
@@ -35,8 +38,24 @@ public sealed partial class ChatUIController
         }
 
         _customEmotes = CustomEmoteParser.Parse(newEmotes);
+    }
 
-        CustomEmotesUpdated?.Invoke(newEmotes);
+    public void OpenCustomEmotesWindow()
+    {
+        if (_customEmotesWindow is { Disposed: false, IsOpen: true })
+        {
+            _customEmotesWindow.MoveToFront();
+            return;
+        }
+
+        if (_customEmotesWindow is null or { Disposed: true })
+        {
+            _customEmotesWindow = new CustomEmotesWindow();
+            _customEmotesWindow.OnApply += UpdateCustomEmotes;
+        }
+
+        _customEmotesWindow.SetEntries(_config.GetCVar(ADTCCVars.ChatCustomEmotes));
+        _customEmotesWindow.OpenCentered();
     }
 
     private bool TrySendCustomEmote(ChatBox box, ChatSelectChannel channel, string text)

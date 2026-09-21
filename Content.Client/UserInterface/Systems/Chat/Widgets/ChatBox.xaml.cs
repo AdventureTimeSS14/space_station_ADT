@@ -47,7 +47,7 @@ public partial class ChatBox : UIWidget
         ChatInput.ChannelSelector.OnChannelSelect += OnChannelSelect;
         ChatInput.FilterButton.Popup.OnChannelFilter += OnChannelFilter;
         ChatInput.FilterButton.Popup.OnNewHighlights += OnNewHighlights;
-        ChatInput.FilterButton.Popup.OnNewCustomEmotes += OnNewCustomEmotes; // ADT-Tweak
+        ChatInput.FilterButton.Popup.OnOpenCustomEmotes += OnOpenCustomEmotes; // ADT-Tweak
         // ADT-Tweak start
         ChatInput.OnSearchButtonPressed += ToggleSearch;
         ChatSearch.OnSearchChanged += OnSearchTextChanged;
@@ -57,7 +57,6 @@ public partial class ChatBox : UIWidget
         _searchController = UserInterfaceManager.GetUIController<ChatSearchController>(); // ADT-Tweak
         _controller.MessageAdded += OnMessageAdded;
         _controller.HighlightsUpdated += OnHighlightsUpdated;
-        _controller.CustomEmotesUpdated += OnCustomEmotesUpdated; // ADT-Tweak
         _controller.RegisterChat(this);
     }
 
@@ -138,17 +137,10 @@ public partial class ChatBox : UIWidget
         ChatInput.FilterButton.Popup.UpdateHighlights(highlights);
     }
 
-    // ADT-Tweak start
-    private void OnNewCustomEmotes(string customEmotes)
+    private void OnOpenCustomEmotes() // ADT-Tweak
     {
-        _controller.UpdateCustomEmotes(customEmotes);
+        _controller.OpenCustomEmotesWindow();
     }
-
-    private void OnCustomEmotesUpdated(string customEmotes)
-    {
-        ChatInput.FilterButton.Popup.UpdateCustomEmotes(customEmotes);
-    }
-    // ADT-Tweak end
 
     private void OnChannelSelect(ChatSelectChannel channel)
     {
