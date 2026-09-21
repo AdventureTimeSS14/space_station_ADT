@@ -26,7 +26,6 @@ public sealed partial class HereticRitualSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IComponentFactory _componentFactory = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly HereticSystem _heretic = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -219,18 +218,10 @@ public sealed partial class HereticRitualSystem : EntitySystem
     {
         base.Initialize();
 
-        _tagToEntity = BuildTagToEntityMap();
-        SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
-
         SubscribeLocalEvent<HereticRitualRuneComponent, InteractHandEvent>(OnInteract);
         SubscribeLocalEvent<HereticRitualRuneComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<HereticRitualRuneComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<HereticRitualRuneComponent, HereticRitualMessage>(OnRitualChosenMessage);
-    }
-
-    private void OnPrototypesReloaded(PrototypesReloadedEventArgs args)
-    {
-        _tagToEntity = BuildTagToEntityMap();
     }
 
     private void OnInteract(Entity<HereticRitualRuneComponent> ent, ref InteractHandEvent args)
@@ -394,7 +385,8 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
         if (Loc.TryGetString($"heretic-guide-tag-{tag}", out var name))
             return name;
-        if (_tagToEntity?.TryGetValue(tag, out var entityProtoId) == true
+
+        if (TagToEntity.TryGetValue(tag, out var entityProtoId)
             && _proto.TryIndex<EntityPrototype>(entityProtoId, out var entityProto)
             && !string.IsNullOrEmpty(entityProto.Name))
             return entityProto.Name;
@@ -404,13 +396,16 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
     private Dictionary<string, string>? _tagToEntity;
 
+
+    private Dictionary<string, string> TagToEntity => _tagToEntity ??= BuildTagToEntityMap();
+
     private Dictionary<string, string> BuildTagToEntityMap()
     {
         var map = new Dictionary<string, string>();
 
         foreach (var proto in _proto.EnumeratePrototypes<EntityPrototype>())
         {
-            if (proto.Abstract || !proto.TryGetComponent<TagComponent>(out var tags, _componentFactory))
+            if (proto.Abstract || !proto.TryGetComponent<TagComponent>(out var tags))
                 continue;
 
             foreach (var tag in tags.Tags)

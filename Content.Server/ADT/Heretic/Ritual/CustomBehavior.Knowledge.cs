@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Server.Heretic.EntitySystems;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
@@ -6,7 +7,6 @@ using Content.Shared.Store.Components;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 using Robust.Server.Containers;
-using System.Linq;
 
 namespace Content.Server.Heretic.Ritual;
 
