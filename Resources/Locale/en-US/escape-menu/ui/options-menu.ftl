@@ -116,6 +116,7 @@ ui-options-binds-explanation = Click to change binding, right-click to clear
 ui-options-unbound = Unbound
 ui-options-bind-reset = Reset
 ui-options-key-prompt = Press a key...
+ui-options-key-conflict = This key is already bound to another action
 
 ui-options-header-movement = Movement
 ui-options-header-camera = Camera

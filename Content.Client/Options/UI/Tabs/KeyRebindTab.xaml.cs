@@ -352,6 +352,47 @@ namespace Content.Client.Options.UI.Tabs
             {
                 UpdateKeyControl(control);
             }
+
+            UpdateConflictStates();
+        }
+
+        /// <summary>
+        ///     Пересчитывает подсветку конфликтующих клавиш для всех кнопок.
+        ///     Клавиша считается занятой, если точно такая же комбинация (клавиша + модификаторы)
+        ///     назначена какому-либо другому действию
+        /// </summary>
+        private void UpdateConflictStates()
+        {
+            var usageMap =
+                new Dictionary<(Keyboard.Key, Keyboard.Key, Keyboard.Key, Keyboard.Key), HashSet<BoundKeyFunction>>();
+
+            foreach (var binding in _inputManager.AllBindings)
+            {
+                var combo = GetBindingCombo(binding);
+                if (!usageMap.TryGetValue(combo, out var functions))
+                {
+                    functions = new HashSet<BoundKeyFunction>();
+                    usageMap[combo] = functions;
+                }
+
+                functions.Add(binding.Function);
+            }
+
+            foreach (var control in _keyControls.Values)
+            {
+                control.BindButton1.UpdateConflictState(usageMap);
+                control.BindButton2.UpdateConflictState(usageMap);
+            }
+        }
+
+        /// <summary>
+        ///     Возвращает нормализованную комбинацию клавиши, где порядок модификаторов не имеет значения
+        /// </summary>
+        private static (Keyboard.Key, Keyboard.Key, Keyboard.Key, Keyboard.Key) GetBindingCombo(IKeyBinding binding)
+        {
+            var mods = new[] { binding.Mod1, binding.Mod2, binding.Mod3 };
+            Array.Sort(mods);
+            return (binding.BaseKey, mods[0], mods[1], mods[2]);
         }
 
         private void UpdateKeyControl(KeyControl control)
@@ -419,10 +460,13 @@ namespace Content.Client.Options.UI.Tabs
             if (removal && _currentlyRebinding?.KeyControl == keyControl)
             {
                 // Don't do update if the removal was from initiating a rebind.
+                // Still refresh conflicts, since removing a binding may free up another key
+                UpdateConflictStates();
                 return;
             }
 
             UpdateKeyControl(keyControl);
+            UpdateConflictStates();
 
             if (_currentlyRebinding == keyControl.BindButton1 || _currentlyRebinding == keyControl.BindButton2)
             {
@@ -594,6 +638,9 @@ namespace Content.Client.Options.UI.Tabs
 
         private sealed class BindButton : Control
         {
+            // Цвет текста клавиши, когда она занята другим действием.
+            private static readonly Color ConflictColor = Color.FromHex("#FF5555");
+
             private readonly KeyRebindTab _tab;
             public readonly KeyControl KeyControl;
             public readonly Button Button;
@@ -649,6 +696,34 @@ namespace Content.Client.Options.UI.Tabs
             public void UpdateText()
             {
                 Button.Text = Binding?.GetKeyString() ?? Loc.GetString("ui-options-unbound");
+            }
+
+            /// <summary>
+            ///     Подсвечивает клавишу красным текстом, если её комбинация занята другим действием,
+            ///     и добавляет подсказку о конфликте. В противном случае снимает подсветку
+            /// </summary>
+            public void UpdateConflictState(
+                Dictionary<(Keyboard.Key, Keyboard.Key, Keyboard.Key, Keyboard.Key), HashSet<BoundKeyFunction>> usageMap)
+            {
+                var hasConflict = false;
+                if (Binding != null
+                    && usageMap.TryGetValue(KeyRebindTab.GetBindingCombo(Binding), out var functions)
+                    && functions.Count > 1)
+                {
+                    // Комбинация используется более чем одним действием => конфликт
+                    hasConflict = true;
+                }
+
+                if (hasConflict)
+                {
+                    Button.Label.FontColorOverride = ConflictColor;
+                    Button.ToolTip = Loc.GetString("ui-options-key-conflict");
+                }
+                else
+                {
+                    Button.Label.FontColorOverride = null;
+                    Button.ToolTip = null;
+                }
             }
         }
     }
