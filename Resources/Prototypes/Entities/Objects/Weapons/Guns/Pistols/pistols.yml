@@ -118,13 +118,11 @@
       gun_chamber: !type:ContainerSlot
   - type: StaticPrice
     price: 1000
-    # ADT-Tweak-Start: Goobstation Tweak Start
-  - type: Multishot # Goobstation V
+# ADT TWEAK START
+  - type: Multishot
     spreadMultiplier: 2
     spreadAddition: 15
     staminaDamage: 1.5
-  # ADT-Tweak-End: Goobstation Tweak End
-# ADT TWEAK START
   - type: AttachableHolder
     slots:
       rmc-aslot-underbarrel:
@@ -234,12 +232,10 @@
       gun_chamber: !type:ContainerSlot
   - type: StaticPrice
     price: 1500
-  # ADT-Tweak-Start: Goobstation Tweak Start
-  - type: Multishot # Goobstation V
+# ADT TWEAK START
+  - type: Multishot
     spreadMultiplier: 2
     spreadAddition: 15
-  # ADT-Tweak-End: Goobstation Tweak End
-# ADT TWEAK START
   - type: AttachableHolder
     slots:
       rmc-aslot-underbarrel:
@@ -295,13 +291,11 @@
       path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
   - type: StealTarget
     stealGroup: OfficerHandgun
-  # ADT-Tweak-Start: Goobstation Tweak Start
-  - type: Multishot # Goobstation V
+# ADT TWEAK START
+  - type: Multishot
     spreadMultiplier: 2
     spreadAddition: 15
     staminaDamage: 1.5
-  # ADT-Tweak-End: Goobstation Tweak End
-# ADT TWEAK START
   - type: AttachableHolder
     slots:
       rmc-aslot-underbarrel:

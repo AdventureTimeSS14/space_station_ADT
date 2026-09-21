@@ -626,9 +626,9 @@
     tags:
     - Sidearm
     - LaserWeapon
-  # ADT-Tweak-Start: Goobstation Tweak Start
-  - type: Multishot # Goobstation V
+# ADT TWEAK START
+  - type: Multishot
     spreadMultiplier: 2
     spreadAddition: 20
     staminaDamage: 1.5
-  # ADT-Tweak-End: Goobstation Tweak End
+# ADT TWEAK END

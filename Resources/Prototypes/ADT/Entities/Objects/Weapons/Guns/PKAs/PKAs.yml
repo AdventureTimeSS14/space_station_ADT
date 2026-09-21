@@ -47,12 +47,12 @@
     slots:
     - suitStorage
     - Belt
-  # ADT-Tweak-Start: Goobstation Tweak Start
+# ADT TWEAK START
   - type: Multishot # Goobstation V
     spreadMultiplier: 2
     spreadAddition: 20
     staminaDamage: 1.5
-  # ADT-Tweak-End: Goobstation Tweak End
+# ADT TWEAK END
 
 - type: entity
   name: proto-kinetic repeater
