@@ -211,11 +211,15 @@ public sealed partial class ADTRitualMenuWindow : FancyWindow
 
     private static string ThingList(ADTRitualPrototype proto)
     {
-        var names = proto.RequiredThings.Select(thing => thing.Amount > 1
-            ? Loc.GetString("adt-ritual-req-thing-amount", ("name", Loc.GetString(thing.Name)), ("amount", thing.Amount))
-            : Loc.GetString(thing.Name));
+        return string.Join(", ", proto.RequiredThings.Select(ThingName));
+    }
 
-        return string.Join(", ", names);
+    private static string ThingName(ADTRitualThing thing)
+    {
+        if (thing.Amount > 1)
+            return Loc.GetString("adt-ritual-req-thing-amount", ("name", Loc.GetString(thing.Name)), ("amount", thing.Amount));
+
+        return Loc.GetString(thing.Name);
     }
 
     private void BuildPrice(ADTRitualPrototype proto, ADTRitualEntry entry)
@@ -237,7 +241,7 @@ public sealed partial class ADTRitualMenuWindow : FancyWindow
         if (eaten.Count > 0 && proto.DeleteThingsOnSuccess)
         {
             AddLine(PriceList, Loc.GetString("adt-ritual-price-consumes",
-                ("things", string.Join(", ", eaten.Select(t => Loc.GetString(t.Name))))));
+                ("things", string.Join(", ", eaten.Select(ThingName)))));
         }
         else if (proto.RequiredThings.Count > 0)
         {

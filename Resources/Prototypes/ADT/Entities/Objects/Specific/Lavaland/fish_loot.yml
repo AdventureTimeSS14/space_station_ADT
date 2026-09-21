@@ -44,7 +44,7 @@
   id: ADTWhetstoneCrabShell
   parent: BaseItem
   name: whetstone
-  description: A shard of ash crab shell, rough enough to put an edge on a blade. Good for one sharpening.
+  description: A shard of ash crab shell, rough enough to put an edge on a blade. Good for two sharpenings.
   components:
   - type: Sprite
     sprite: ADT/Objects/Specific/Lavaland/Fishing/fish_loot.rsi
