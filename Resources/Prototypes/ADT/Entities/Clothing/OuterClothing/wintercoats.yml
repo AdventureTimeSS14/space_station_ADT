@@ -58,3 +58,29 @@
     sprite: ADT/Clothing/OuterClothing/WinterCoats/hoody_white.rsi
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/WinterCoats/hoody_white.rsi
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ADTClothingOuterFurCoatHeart
+  name: fur coat
+  description: A white fur coat embroidered with many bright red hearts.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/fur_coat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/fur_coat.rsi
+  - type: StaticPrice
+    price: 120
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ADTClothingOuterLowerFurCoat
+  name: fur coat
+  description: An ordinary fur coat made of white fur.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/lower_fur_coat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/lower_fur_coat.rsi
+  - type: StaticPrice
+    price: 120

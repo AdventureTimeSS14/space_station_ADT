@@ -1,0 +1,127 @@
+#New Year
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsElf
+  name: elf hat
+  description: A hat of a real worker. With glued ears.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Head/Hats/elf_hat.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Head/Hats/elf_hat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsSnowMaiden
+  name: snow maiden's hat
+  description: A hat of a Snow Maiden.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Head/Hats/hat_snow_maiden.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Head/Hats/hat_snow_maiden.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHornsDeer
+  name: deer horns
+  description: A horns of Santa's helpers.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Head/Hats/deer_horns.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Head/Hats/deer_horns.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+      - state: equipped-HELMET-linght
+        shader: unshaded
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatChristmas
+  name: christmas hat
+  description: A hat to celebrate christmas.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Head/Hats/hat_christmas.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Head/Hats/hat_christmas.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsMonkeyHoliday
+  name: monkey holiday hat
+  description: A holiday hat for monkeys.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Head/Hats/hat_monkey_holiday.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Head/Hats/hat_monkey_holiday.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsCatHoliday
+  name: cat holiday hat
+  description: A holiday hat for cats.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Head/Hats/hat_cat_holiday.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Head/Hats/hat_cat_holiday.rsi
+  - type: Tag
+    tags:
+    - CatWearable
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadChristmasFlower
+  name: christmas flower
+  description: A flower on your head
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Head/Hats/hat_flower.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Head/Hats/hat_flower.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatDedMoroz
+  suffix: New Year
+  name: hat ded moroz
+  description: "It is hat ded moroz"
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Head/Hats/ded_morozhat.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Head/Hats/ded_morozhat.rsi
+
+# - type: entity
+#   parent: ClothingOuterBase
+#   id: ADTClothingOuterDedMoroz
+#   suffix: New Year
+#   name: Ded Moroz suit
+#   description: Suit clothing ded moroz
+#   components:
+#   - type: Sprite
+#     sprite: ADT/ADTGlobalEvents/NewYears/Clothing/OuterClothing/Fun/ded_morozsuitouter.rsi
+#   - type: Clothing
+#     sprite: ADT/ADTGlobalEvents/NewYears/Clothing/OuterClothing/Fun/ded_morozsuitouter.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsAntenna
+  name: antennas
+  description: For better pilot synchronization.
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Head/Hats/antennas.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Head/Hats/antennas.rsi #спрайты от Умы

@@ -47,3 +47,10 @@ ent-ADTClothingHeadHelmetHardsuitRaiderCommon = мусорный шлем нал
     .desc = Самодельный скафандр для великого ограбления
 ent-ADTClothingHeadHelmetHardsuitIanHero = шлем скафандра корги
     .desc = Вам определённо хочется погладить его по голове
+
+ent-ADTClothingHeadHelmetHardsuitEVENTServant = шлем скафандра прислуги рассвета
+    .desc = На шлеме светящийся розовым цветом T-образный символ. Сам же шлем сделан из крепкого сплава.
+ent-ADTClothingHeadHelmetHardsuitEVENTMed = шлем скафандра медика рассвета
+    .desc = На шлеме светящийся розовым цветом T-образный символ. Сам же шлем сделан из крепкого сплава.
+ent-ADTClothingHeadHelmetHardsuitEVENTsunshine = шлем скафандра владыки рассвета
+    .desc = На шлеме одна вертикальная фиолетовая линия, которая светится. Сам же шлем сделан из крепчайшего сплава.

@@ -1618,16 +1618,20 @@ entities:
   - uid: 2156
     components:
     - type: Transform
-      pos: 7.4215255,-6.6813684
-      parent: 2
-- proto: ADTFishingRodGolden
+      parent: 25
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+- proto: ADTMaterialBScrystal
   entities:
-  - uid: 21
+  - uid: 27
     components:
     - type: Transform
-      pos: 5.7921906,-3.6779065
-      parent: 2
-- proto: ADTFishTropical
+      parent: 25
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+- proto: ADTSofaRedLeftSide
   entities:
   - uid: 22
     components:

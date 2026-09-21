@@ -1,0 +1,51 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by discord:LunaLita#0840",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "red_balls"
+        },
+        {
+            "name": "silver_balls"
+        },
+        {
+            "name": "golden_balls"
+        },
+        {
+            "name": "silver_star"
+        },
+        {
+            "name": "golden_star"
+        },
+        {
+            "name": "red_star"
+        },
+        {
+            "name": "silver_mishura"
+        },
+        {
+            "name": "golden_mishura"
+        },
+        {
+            "name": "red_mishura"
+        },
+        {
+            "name": "goldenstar_garland"
+        },
+        {
+            "name": "silverstar_garland"
+        },
+        {
+            "name": "basestar_garland"
+        },
+        {
+            "name": "shiny_garland"
+        }
+    ]
+}
+

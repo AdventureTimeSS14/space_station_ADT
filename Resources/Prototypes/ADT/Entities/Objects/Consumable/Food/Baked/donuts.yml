@@ -1,0 +1,29 @@
+- type: entity
+  name: candy spooky
+  parent: FoodDonutPlain
+  id: ADTFoodDonutSpooky
+  description: candy spooky
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/donuts.rsi
+    state: spooky
+  - type: Tag
+    tags:
+    - ADTMothFriendlyFood
+    - ADTCandies
+
+- type: entity
+  name: candy spooky jelly
+  parent: FoodDonutJellyPlain
+  id: ADTFoodDonutJellySpooky
+  description: candy spooky jelly
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/donuts.rsi
+    state: jelly-spooky
+  - type: Tag
+    tags:
+    - ADTMothFriendlyFood
+    - ADTCandies

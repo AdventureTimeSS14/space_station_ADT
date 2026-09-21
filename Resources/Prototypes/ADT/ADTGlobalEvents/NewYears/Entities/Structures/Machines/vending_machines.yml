@@ -1,0 +1,33 @@
+- type: entity
+  parent: VendingMachine
+  id: ADTVendingMachineNewYear
+  name: NewYearMate
+  description: A vending machine for New Year things.
+  suffix: New Year
+  components:
+  - type: VendingMachine
+    pack: ADTNewYearMateInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+  #- type: Advertise
+  #  pack: ClothesMateAds
+  - type: Speech
+  # - type: Tag
+  # tags:
+  #   - DroneUsable
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Structures/Machines/VendingMachines/newyearmate.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.8
+    energy: 1.6
+    color: "#1ca9d4"

@@ -1,0 +1,23 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomNewYearDrinkSpawner
+  name: random new year drink spawner
+  suffix: New Year
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: ADT/ADTGlobalEvents/NewYears/Objects/Consumable/Drinks/new_year.rsi
+        state: sbiten_cinnamon_lemon
+  - type: RandomSpawner
+    offset: 0
+    prototypes:
+      - ADTMulledWineGlass
+      - ADTMulledWineColdGlass
+      - ADTChampagneMandarinGlass
+      - ADTChristmasMilkshakeGlass
+      - ADTTeaCinnamonLemonGlass
+      - ADTSbitenCinnamonLemonGlass
+      - ADTHotCocoaGlass
+      - ADTHotChocolateGlass
+      - ADTHotChocolateAllergicGlass

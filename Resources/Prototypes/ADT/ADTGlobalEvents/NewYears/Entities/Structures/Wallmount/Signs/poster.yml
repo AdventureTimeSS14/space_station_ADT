@@ -1,0 +1,38 @@
+#Новогодние постеры
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterNewYear
+  name: "2569"
+  description: Poster that celebrates New Year on Earth.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Structures/Wallmounts/poster_new_year.rsi
+    state: new_year
+  - type: PointLight
+    radius: 3
+    energy: 2
+    color: "#5469e6"
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterNewYear2
+  name: happy new year
+  description: Poster that celebrates New Year on Earth.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Structures/Wallmounts/poster_new_year.rsi
+    state: new_year2
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterNewYear3
+  name: new year tayaran
+  description: Poster that celebrates New Year on Earth.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Structures/Wallmounts/poster_new_year.rsi
+    state: new_year3

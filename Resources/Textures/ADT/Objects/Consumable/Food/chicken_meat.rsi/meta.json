@@ -1,0 +1,38 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by discord:prazat911 для Времени Приключений MRP",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "raw_wing"
+        },
+        {
+            "name": "raw_leg"
+        },
+        {
+            "name": "chicken_baked"
+        },
+        {
+            "name": "chicken_baked_wvegs"
+        },
+        {
+            "name": "leg_cooked"
+        },
+        {
+            "name": "wing_cooked"
+        },
+        {
+            "name": "plate"
+        },
+        {
+            "name": "baked_slice"
+        },
+        {
+            "name": "baked_stuffed_slice"
+        }
+    ]
+}
