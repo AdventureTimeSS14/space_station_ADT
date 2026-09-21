@@ -257,12 +257,19 @@ public abstract partial class GameTest
         {
             PreFinalizeHook?.Invoke();
 
-            if (!_pairDestroyed)
-                await Pair.CleanReturnAsync();
-            else
-                await Pair.DisposeAsync();
-
-            RestoreLostFailure(); // ADT-Tweak
+            // ADT-Tweak-Start
+            try
+            {
+                if (!_pairDestroyed)
+                    await Pair.CleanReturnAsync();
+                else
+                    await Pair.DisposeAsync();
+            }
+            finally
+            {
+                RestoreLostFailure();
+            }
+            // ADT-Tweak-End
         }
     }
 }
