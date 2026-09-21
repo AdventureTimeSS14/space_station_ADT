@@ -169,6 +169,8 @@
         volume: -6
     Salute:
       collection: Salutes
+    Blink:
+      collection: Blink
 
 - type: emoteSounds
   id: ADTMaleTajaran
@@ -649,6 +651,8 @@
       path: /Audio/ADT/IPC/pink_scream1.ogg
     IPCCuteScared:
       path: /Audio/ADT/IPC/pink_scream2.ogg
+    Meow:
+      collection: KerfusMeow
 
 - type: emoteSounds
   id: MaleUrsus
@@ -1075,6 +1079,8 @@
       collection: Salutes
     Purse:
       path: /Audio/Effects/thudswoosh.ogg
+    Blink:
+      collection: Blink
 
 - type: emoteSounds
   id: MaleButcher

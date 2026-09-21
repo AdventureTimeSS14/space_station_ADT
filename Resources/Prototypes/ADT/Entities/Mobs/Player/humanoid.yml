@@ -61,6 +61,7 @@
         settings: short
     - type: Loadout
       prototypes: [ ADTERTLeaderGear ]
+    - type: ADTTenCodeKnowledge
     - type: RandomMetadata
       nameSegments:
       - ADTCmndNamesFirstMilitary
@@ -582,6 +583,7 @@
   id: ADTCmndCBURNAgent
   components:
     - type: MindShield
+    - type: ADTTenCodeKnowledge
     - type: Loadout
       prototypes: [ADTCmndCBURNGear]
     - type: GhostRole

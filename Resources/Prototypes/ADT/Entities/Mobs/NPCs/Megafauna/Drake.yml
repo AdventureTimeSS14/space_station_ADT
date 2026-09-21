@@ -291,6 +291,9 @@
     - id: ADTMaterialSinew1
       amount: 3
       maxAmount: 5
+    - id: ADTAshDrakeHide
+      amount: 1
+      maxAmount: 2
 
 - type: entity
   id: MobDrake
