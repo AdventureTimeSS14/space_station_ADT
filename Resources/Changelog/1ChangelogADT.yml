@@ -15505,3 +15505,10 @@ Entries:
     id: 1943
     pr_number: 3365
     time: '2026-09-21T21:22:34Z'
+  - author: Sierras
+    changes:
+      - {message: 'Изменены эмоции драска, добавляя новые звуки на зевок и выдох',
+        type: Tweak}
+    id: 1944
+    pr_number: 3371
+    time: '2026-09-21T21:51:08Z'
