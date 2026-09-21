@@ -18559,6 +18559,54 @@ entities:
     components:
     - type: Transform
       parent: 68
+    - type: ModSuitMod
+      components:
+        head:
+        - netsync: True
+          type: Appearance
+        - netsync: True
+          radiatingBehaviourId: radiating
+          blinkingBehaviourId: blinking
+          wattage: 0.8
+          selfToggleActionEntity: null
+          toggleActionEntity: null
+          toggleOnInteract: True
+          toggleAction: ActionToggleLight
+          addPrefix: True
+          turnOffSound: !type:SoundPathSpecifier
+            params:
+              variation: null
+              playOffsetSeconds: 0
+              loop: False
+              referenceDistance: 1
+              rolloffFactor: 1
+              maxDistance: 15
+              pitch: 1
+              volume: 0
+            path: /Audio/Items/flashlight_off.ogg
+          turnOnFailSound: !type:SoundPathSpecifier
+            params:
+              variation: null
+              playOffsetSeconds: 0
+              loop: False
+              referenceDistance: 1
+              rolloffFactor: 1
+              maxDistance: 15
+              pitch: 1
+              volume: 0
+            path: /Audio/Machines/button.ogg
+          turnOnSound: !type:SoundPathSpecifier
+            params:
+              variation: null
+              playOffsetSeconds: 0
+              loop: False
+              referenceDistance: 1
+              rolloffFactor: 1
+              maxDistance: 15
+              pitch: 1
+              volume: 0
+            path: /Audio/Items/flashlight_on.ogg
+          activated: False
           type: HandheldLight
         - netsync: True
           type: LightBehaviour
