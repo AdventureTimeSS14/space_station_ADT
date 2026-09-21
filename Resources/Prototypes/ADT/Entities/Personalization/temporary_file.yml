@@ -200,5 +200,15 @@
           - Sidearm
           - CaptainSabre
           - HighRiskItem
+   - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      weapon: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
   - type: ExplosionResistance
     damageCoefficient: 0.1
