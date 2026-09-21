@@ -1,0 +1,51 @@
+- type: material
+  id: ADTLeather
+  stackEntity: ADTMaterialLeather1
+  name: materials-adt-leather
+  unit: materials-unit-piece
+  icon: { sprite: ADT/Objects/Specific/Lavaland/Tribal/leather.rsi, state: icon }
+  color: "#7A4E2D"
+  price: 0.5
+
+- type: stack
+  parent: BaseMediumStack
+  id: ADTLeather
+  name: stack-adt-leather
+  icon: { sprite: ADT/Objects/Specific/Lavaland/Tribal/leather.rsi, state: icon }
+  spawn: ADTMaterialLeather1
+
+- type: entity
+  parent: MaterialBase
+  id: ADTMaterialLeather
+  name: leather
+  description: A by-product of animal processing.
+  suffix: Full
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/Tribal/leather.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: Stack
+    stackType: ADTLeather
+    count: 10
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      ADTLeather: 100
+
+- type: entity
+  parent: ADTMaterialLeather
+  id: ADTMaterialLeather1
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: ADTMaterialLeather
+  id: ADTMaterialLeather2
+  suffix: 2
+  components:
+  - type: Stack
+    count: 2

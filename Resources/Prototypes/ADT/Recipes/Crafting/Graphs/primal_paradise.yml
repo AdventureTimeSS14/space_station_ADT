@@ -90,7 +90,7 @@
       steps:
       - material: GoliathHide
         amount: 1
-      - material: Cloth
+      - material: ADTLeather
         amount: 1
         doAfter: 6
   - node: footwraps
@@ -114,7 +114,7 @@
       steps:
       - tag: ADTAshDrakeHide
         name: ash drake hide
-      - material: Cloth
+      - material: ADTLeather
         amount: 1
         doAfter: 6
   - node: footwraps
@@ -136,7 +136,7 @@
     edges:
     - to: gloves
       steps:
-      - material: Cloth
+      - material: ADTLeather
         amount: 2
       - material: GoliathHide
         amount: 1
@@ -160,7 +160,7 @@
     edges:
     - to: gloves
       steps:
-      - material: Cloth
+      - material: ADTLeather
         amount: 1
       - material: ADTWeaverChitin
         amount: 3
@@ -518,7 +518,7 @@
     edges:
     - to: mantle
       steps:
-      - material: Cloth
+      - material: ADTLeather
         amount: 4
         doAfter: 4
   - node: mantle
@@ -530,6 +530,28 @@
   startNode: start
   targetNode: mantle
   category: construction-category-clothing
+  objectType: Item
+
+- type: constructionGraph
+  id: ADTLeatherTanning
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: leather
+      steps:
+      - material: GoliathHide
+        amount: 1
+        doAfter: 5
+  - node: leather
+    entity: ADTMaterialLeather2
+
+- type: construction
+  id: ADTLeatherTanning
+  graph: ADTLeatherTanning
+  startNode: start
+  targetNode: leather
+  category: construction-category-materials
   objectType: Item
 
 - type: constructionGraph
