@@ -688,14 +688,14 @@
     tags:
     - ADTCelecernEmotes
   icon: ADT/Interface/Emotes/clop.png
-  chatMessages: [цокает копытом]
+  chatMessages: [стучит копытом]
   chatTriggers:
-    - цокает копытом
-    - цокает копытом.
-    - цокает
-    - цокнуть копытом
-    - clop
-    - clops
+    - стучит копытом
+    - стучит копытом.
+    - стукнуть копытом
+    - топает копытом
+    - hoof stomp
+    - stomps hoof
 
 - type: emote
   id: ADTCelecernEarFlick
@@ -705,10 +705,11 @@
     tags:
     - ADTCelecernEmotes
   icon: ADT/Interface/Emotes/ear_flick.png
-  chatMessages: [шевелит ушами]
+  chatMessages: [дёргает ухом]
   chatTriggers:
-    - шевелит ушами
-    - шевелит ушами.
-    - шевельнуть ушами
-    - дёргает ушами
+    - дёргает ухом
+    - дёргает ухом.
+    - дергает ухом
+    - дёрнуть ухом
+    - дернуть ухом
     - ear flick

@@ -483,3 +483,8 @@
     - /Audio/ADT/Voice/Celecern/snort-1.ogg
     - /Audio/ADT/Voice/Celecern/snort-2.ogg
     - /Audio/ADT/Voice/Celecern/snort-3.ogg
+
+- type: soundCollection
+  id: ADTCelecernClop
+  files:
+    - /Audio/ADT/Voice/Celecern/hoof_stomp.ogg

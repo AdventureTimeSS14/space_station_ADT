@@ -61,10 +61,10 @@
       limit: 3
       required: false
     enum.HumanoidVisualLayers.RFoot:
-      limit: 2
+      limit: 5
       required: false
     enum.HumanoidVisualLayers.LFoot:
-      limit: 2
+      limit: 5
       required: false
     enum.HumanoidVisualLayers.Overlay:
       limit: 1

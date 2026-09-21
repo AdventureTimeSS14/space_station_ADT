@@ -99,6 +99,8 @@
   bodyPart: Tail
   groupWhitelist: [Celecern]
   sprites:
+  - sprite: ADT/Mobs/Species/Celecern/parts.rsi
+    state: tail
   - sprite: ADT/Mobs/Customization/Celecern/tails_of_celecern.rsi
     state: celecern_tail
 
@@ -107,6 +109,8 @@
   bodyPart: Tail
   groupWhitelist: []
   sprites:
+  - sprite: ADT/Mobs/Species/Celecern/parts.rsi
+    state: tail_waggin
   - sprite: ADT/Mobs/Customization/Celecern/tails_of_celecern.rsi
     state: celecern_tail_waggin
 
@@ -115,6 +119,8 @@
   bodyPart: Tail
   groupWhitelist: [Celecern]
   sprites:
+  - sprite: ADT/Mobs/Species/Celecern/parts.rsi
+    state: meduim_tail
   - sprite: ADT/Mobs/Customization/Celecern/tails_of_celecern.rsi
     state: celecern_tail_medium
 
@@ -123,6 +129,8 @@
   bodyPart: Tail
   groupWhitelist: []
   sprites:
+  - sprite: ADT/Mobs/Species/Celecern/parts.rsi
+    state: meduim_tail_waggin
   - sprite: ADT/Mobs/Customization/Celecern/tails_of_celecern.rsi
     state: celecern_tail_medium_waggin
 
@@ -131,6 +139,8 @@
   bodyPart: Tail
   groupWhitelist: [Celecern]
   sprites:
+  - sprite: ADT/Mobs/Species/Celecern/parts.rsi
+    state: chill_tail
   - sprite: ADT/Mobs/Customization/Celecern/tails_of_celecern.rsi
     state: celecern_chill_tail
 
@@ -139,6 +149,8 @@
   bodyPart: Tail
   groupWhitelist: []
   sprites:
+  - sprite: ADT/Mobs/Species/Celecern/parts.rsi
+    state: chill_tail_waggin
   - sprite: ADT/Mobs/Customization/Celecern/tails_of_celecern.rsi
     state: celecern_chill_tail_waggin
 
@@ -147,6 +159,8 @@
   bodyPart: Tail
   groupWhitelist: [Celecern]
   sprites:
+  - sprite: ADT/Mobs/Species/Celecern/parts.rsi
+    state: tail
   - sprite: ADT/Mobs/Customization/Celecern/tails_of_celecern.rsi
     state: kist_tail
 
@@ -155,6 +169,8 @@
   bodyPart: Tail
   groupWhitelist: []
   sprites:
+  - sprite: ADT/Mobs/Species/Celecern/parts.rsi
+    state: tail_waggin
   - sprite: ADT/Mobs/Customization/Celecern/tails_of_celecern.rsi
     state: kist_tail_waggin
 
@@ -179,6 +195,8 @@
   bodyPart: Tail
   groupWhitelist: [Celecern]
   sprites:
+  - sprite: ADT/Mobs/Species/Celecern/parts.rsi
+    state: tail
   - sprite: ADT/Mobs/Customization/Celecern/tails_of_celecern.rsi
     state: long
 
@@ -187,6 +205,8 @@
   bodyPart: Tail
   groupWhitelist: []
   sprites:
+  - sprite: ADT/Mobs/Species/Celecern/parts.rsi
+    state: tail_waggin
   - sprite: ADT/Mobs/Customization/Celecern/tails_of_celecern.rsi
     state: long_waggin
 
@@ -211,6 +231,8 @@
   bodyPart: Tail
   groupWhitelist: [Celecern]
   sprites:
+  - sprite: ADT/Mobs/Species/Celecern/parts.rsi
+    state: meduim_tail
   - sprite: ADT/Mobs/Customization/Celecern/tails_of_celecern.rsi
     state: long_mediun
 
@@ -219,6 +241,8 @@
   bodyPart: Tail
   groupWhitelist: []
   sprites:
+  - sprite: ADT/Mobs/Species/Celecern/parts.rsi
+    state: meduim_tail_waggin
   - sprite: ADT/Mobs/Customization/Celecern/tails_of_celecern.rsi
     state: long_medium_waggin
 
@@ -227,6 +251,8 @@
   bodyPart: Tail
   groupWhitelist: [Celecern]
   sprites:
+  - sprite: ADT/Mobs/Species/Celecern/parts.rsi
+    state: tail
   - sprite: ADT/Mobs/Customization/Celecern/tails_of_celecern.rsi
     state: up
 
@@ -235,6 +261,8 @@
   bodyPart: Tail
   groupWhitelist: []
   sprites:
+  - sprite: ADT/Mobs/Species/Celecern/parts.rsi
+    state: tail_waggin
   - sprite: ADT/Mobs/Customization/Celecern/tails_of_celecern.rsi
     state: up_waggin
 

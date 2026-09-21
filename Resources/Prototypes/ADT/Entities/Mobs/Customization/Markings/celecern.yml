@@ -896,7 +896,7 @@
 
 - type: marking
   id: ADTCelecernLegBandage1Left
-  bodyPart: LLeg
+  bodyPart: LFoot
   groupWhitelist: [Celecern]
   sprites:
   - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
@@ -904,7 +904,7 @@
 
 - type: marking
   id: ADTCelecernLegBandage1Right
-  bodyPart: RLeg
+  bodyPart: RFoot
   groupWhitelist: [Celecern]
   sprites:
   - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
@@ -912,7 +912,7 @@
 
 - type: marking
   id: ADTCelecernLegBandage2Left
-  bodyPart: LLeg
+  bodyPart: LFoot
   groupWhitelist: [Celecern]
   sprites:
   - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
@@ -920,7 +920,7 @@
 
 - type: marking
   id: ADTCelecernLegBandage2Right
-  bodyPart: RLeg
+  bodyPart: RFoot
   groupWhitelist: [Celecern]
   sprites:
   - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
@@ -928,7 +928,7 @@
 
 - type: marking
   id: ADTCelecernLegBandage3Left
-  bodyPart: LLeg
+  bodyPart: LFoot
   groupWhitelist: [Celecern]
   sprites:
   - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
@@ -936,7 +936,7 @@
 
 - type: marking
   id: ADTCelecernLegBandage3Right
-  bodyPart: RLeg
+  bodyPart: RFoot
   groupWhitelist: [Celecern]
   sprites:
   - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
@@ -944,7 +944,7 @@
 
 - type: marking
   id: ADTCelecernLegScar1Left
-  bodyPart: LLeg
+  bodyPart: LFoot
   groupWhitelist: [Celecern]
   sprites:
   - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
@@ -952,7 +952,7 @@
 
 - type: marking
   id: ADTCelecernLegScar1Right
-  bodyPart: RLeg
+  bodyPart: RFoot
   groupWhitelist: [Celecern]
   sprites:
   - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
@@ -960,7 +960,7 @@
 
 - type: marking
   id: ADTCelecernLegScar2Left
-  bodyPart: LLeg
+  bodyPart: LFoot
   groupWhitelist: [Celecern]
   sprites:
   - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
@@ -968,7 +968,7 @@
 
 - type: marking
   id: ADTCelecernLegScar2Right
-  bodyPart: RLeg
+  bodyPart: RFoot
   groupWhitelist: [Celecern]
   sprites:
   - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
@@ -976,7 +976,7 @@
 
 - type: marking
   id: ADTCelecernLegScar3Left
-  bodyPart: LLeg
+  bodyPart: LFoot
   groupWhitelist: [Celecern]
   sprites:
   - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
@@ -984,7 +984,7 @@
 
 - type: marking
   id: ADTCelecernLegScar3Right
-  bodyPart: RLeg
+  bodyPart: RFoot
   groupWhitelist: [Celecern]
   sprites:
   - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
@@ -992,7 +992,7 @@
 
 - type: marking
   id: ADTCelecernLegPattern1Left
-  bodyPart: LLeg
+  bodyPart: LFoot
   groupWhitelist: [Celecern]
   sprites:
   - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
@@ -1000,7 +1000,7 @@
 
 - type: marking
   id: ADTCelecernLegPattern1Right
-  bodyPart: RLeg
+  bodyPart: RFoot
   groupWhitelist: [Celecern]
   sprites:
   - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
@@ -1008,7 +1008,7 @@
 
 - type: marking
   id: ADTCelecernLegPattern2Left
-  bodyPart: LLeg
+  bodyPart: LFoot
   groupWhitelist: [Celecern]
   sprites:
   - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
@@ -1016,7 +1016,7 @@
 
 - type: marking
   id: ADTCelecernLegPattern2Right
-  bodyPart: RLeg
+  bodyPart: RFoot
   groupWhitelist: [Celecern]
   sprites:
   - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
@@ -1024,7 +1024,7 @@
 
 - type: marking
   id: ADTCelecernLegPattern3Left
-  bodyPart: LLeg
+  bodyPart: LFoot
   groupWhitelist: [Celecern]
   sprites:
   - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
@@ -1032,7 +1032,7 @@
 
 - type: marking
   id: ADTCelecernLegPattern3Right
-  bodyPart: RLeg
+  bodyPart: RFoot
   groupWhitelist: [Celecern]
   sprites:
   - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
@@ -1040,7 +1040,7 @@
 
 - type: marking
   id: ADTCelecernLegPattern4Left
-  bodyPart: LLeg
+  bodyPart: LFoot
   groupWhitelist: [Celecern]
   sprites:
   - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
@@ -1048,7 +1048,7 @@
 
 - type: marking
   id: ADTCelecernLegPattern4Right
-  bodyPart: RLeg
+  bodyPart: RFoot
   groupWhitelist: [Celecern]
   sprites:
   - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
@@ -1056,7 +1056,7 @@
 
 - type: marking
   id: ADTCelecernLegFurLeft
-  bodyPart: LLeg
+  bodyPart: LFoot
   groupWhitelist: [Celecern]
   sprites:
   - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
@@ -1064,7 +1064,7 @@
 
 - type: marking
   id: ADTCelecernLegFurRight
-  bodyPart: RLeg
+  bodyPart: RFoot
   groupWhitelist: [Celecern]
   sprites:
   - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
@@ -1072,7 +1072,7 @@
 
 - type: marking
   id: ADTCelecernLegGradientLeft
-  bodyPart: LLeg
+  bodyPart: LFoot
   groupWhitelist: [Celecern]
   sprites:
   - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
@@ -1080,7 +1080,7 @@
 
 - type: marking
   id: ADTCelecernLegGradientRight
-  bodyPart: RLeg
+  bodyPart: RFoot
   groupWhitelist: [Celecern]
   sprites:
   - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
