@@ -194,7 +194,7 @@
   - type: ItemSlots
     slots:
       weapon:
-        name: Оружие
+        name: item
         whitelist:
           tags:
           - Sidearm
