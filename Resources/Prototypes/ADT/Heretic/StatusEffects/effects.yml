@@ -69,13 +69,9 @@
   name: last refuge
   components:
   - type: HereticCloakedStatusEffect
-  - type: LastRefuge
-    hadStealth: true
-    hadGodmode: true
-    hadSlowdownImmunity: true
-  - type: Godmode
-  - type: Stealth
-  - type: SpeedModifierImmunity
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: LastRefuge
 
 - type: entity
   parent: MobStatusEffectBase

@@ -20,6 +20,7 @@ public sealed partial class HereticAbilitySystem
     {
         base.SubscribeLock();
         SubscribeLocalEvent<GhoulComponent, EventHereticShapeshift>(OnShapeshift);
+        SubscribeLocalEvent<HereticComponent, EventHereticShapeshift>(OnShapeshiftHeretic);
 
         SubscribeLocalEvent<ShapeshiftActionComponent, HereticShapeshiftMessage>(OnShapeshiftMessage);
     }
@@ -36,7 +37,7 @@ public sealed partial class HereticAbilitySystem
 
         _ui.CloseUi(ent.Owner, key);
 
-        if (!HasComp<GhoulComponent>(user))
+        if (!HasComp<GhoulComponent>(user) && !HasComp<HereticComponent>(user))
             return;
 
         if (!TryComp(ent, out ActionComponent? action) || !_actions.ValidAction((ent, action)))
@@ -84,9 +85,20 @@ public sealed partial class HereticAbilitySystem
 
     private void OnShapeshift(Entity<GhoulComponent> ent, ref EventHereticShapeshift args)
     {
+        TryOpenShapeshift(ent, ref args);
+    }
+
+    private void OnShapeshiftHeretic(Entity<HereticComponent> ent, ref EventHereticShapeshift args)
+    {
+        TryOpenShapeshift(ent, ref args);
+    }
+
+    private void TryOpenShapeshift(EntityUid ent, ref EventHereticShapeshift args)
+    {
         if (args.Handled || !HasComp<ShapeshiftActionComponent>(args.Action))
             return;
 
+        args.Handled = true;
         _ui.TryOpenUi(args.Action.Owner, HereticShapeshiftUiKey.Key, ent);
     }
 }

@@ -4,9 +4,11 @@ using Content.Shared.CombatMode;
 using Content.Shared.Hands.Components;
 using Content.Shared.Heretic.Components;
 using Content.Shared.Heretic.Components.PathSpecific.Blade;
+using Content.Shared.ADT.Grab;
 using Content.Shared.ADT.Heretic.Systems;
 using Content.Shared.ADT.Heretic.Systems.PathSpecific.Lock;
 using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Stunnable;
 using Content.Shared.Verbs;
@@ -31,6 +33,17 @@ public sealed partial class ChampionHookSystem : EntitySystem
 
         SubscribeLocalEvent<HandsComponent, GetVerbsEvent<AlternativeVerb>>(OnGetAltVerb);
         SubscribeLocalEvent<ChampionHookComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<ChampionHookComponent, PullStoppedMessage>(OnPullStopped);
+    }
+
+    private void OnPullStopped(Entity<ChampionHookComponent> ent, ref PullStoppedMessage args)
+    {
+        if (ent.Comp.HookedMob == args.PulledUid)
+        {
+            ent.Comp.HookedMob = null;
+            ent.Comp.Weapon = null;
+            Dirty(ent);
+        }
     }
 
     private void OnShutdown(Entity<ChampionHookComponent> ent, ref ComponentShutdown args)
@@ -83,7 +96,7 @@ public sealed partial class ChampionHookSystem : EntitySystem
         if (!_stun.TryKnockdown(target.Owner, hook.KnockdownTime, autoStand: false))
             return;
 
-        if (!_pulling.TryStartPull(user, target, force: true))
+        if (!_pulling.TryStartPull(user, target, grabStageOverride: GrabStage.Hard, escapeAttemptModifier: 0f, force: true))
             return;
 
         hook.HookedMob = target;

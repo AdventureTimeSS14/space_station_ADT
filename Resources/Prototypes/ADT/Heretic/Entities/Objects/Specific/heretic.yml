@@ -129,6 +129,8 @@
   - type: TimerTrigger
     delay: 5
   - type: SmokeOnTrigger
+    keysIn:
+    - timer
     duration: 20
     spreadAmount: 10
     solution:
@@ -136,8 +138,35 @@
       - ReagentId: EldritchRust
         Quantity: 50
   - type: EmitSoundOnTrigger
+    keysIn:
+    - timer
     sound:
       collection: ExplosionSmall
+    positional: true
+  - type: EmpOnTrigger
+    keysIn:
+    - timer
+    range: 5
+    energyConsumption: 50000
+    disableDuration: 30
+  - type: ExplodeOnTrigger
+    keysIn:
+    - timer
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 6
+    intensitySlope: 2
+    totalIntensity: 60
+    canCreateVacuum: false
+  - type: RustInRadiusOnTrigger
+    keysIn:
+    - timer
+    Range: 3
+    LookupRange: 0.5
+    RustStrength: 10
+  - type: DeleteOnTrigger
+    keysIn:
+    - timer
   - type: Tag
     tags:
     - GrenadeIgnoreCosmicField

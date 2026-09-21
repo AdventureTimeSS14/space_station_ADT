@@ -71,7 +71,7 @@ public sealed partial class HereticAbilitySystem
         _gun.ShootProjectile(plume, dir, Vector2.Zero, uid, uid, args.Speed);
     }
 
-    private void RustObjectsInRadius(MapCoordinates mapPos,
+    public void RustObjectsInRadius(MapCoordinates mapPos,
         float radius,
         string tileRune,
         float lookupRange,
