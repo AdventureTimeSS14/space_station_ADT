@@ -261,6 +261,19 @@
   - type: ADTMobLoot
     loots:
       ADTKineticTrophyPoisonFang: 0.1
+  - type: Butcherable
+    butcheringType: Knife
+    butcherDelay: 6
+    spawned:
+    - id: UraniumOre1
+      amount: 2
+    - id: MaterialBones1
+      amount: 2
+    - id: ADTMaterialSinew1
+    - id: ADTMaterialWeaverChitin1
+      amount: 3
+    - id: FoodMeatSpider
+      amount: 2
 
 - type: entity
   name: Shock Spider

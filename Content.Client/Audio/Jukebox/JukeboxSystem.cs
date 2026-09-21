@@ -178,7 +178,7 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
 
             var baseVolume = MapToRange(comp.Volume, comp.MinSlider, comp.MaxSlider, comp.MinVolume, comp.MaxVolume);
             var newVolume = baseVolume + _ambientMusicSlider;
-            _audio.SetVolume(uid, newVolume, audioComp);
+            _audio.SetVolume(comp.AudioStream.Value, newVolume, audioComp);
         }
     }
 

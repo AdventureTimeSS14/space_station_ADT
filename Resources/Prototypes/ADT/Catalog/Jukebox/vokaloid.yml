@@ -1,0 +1,35 @@
+- type: jukebox
+  id: ADTTetoris
+  name: 1. Tetoris - Kasane Teto
+  path:
+    path: /Audio/ADT/Jukebox/vokaloid/Tetoris.ogg
+
+- type: jukebox
+  id: ADTIelloElegy
+  name: 2. Iello Elegy - Rusino, Hatsune Miku
+  path:
+    path: /Audio/ADT/Jukebox/vokaloid/Iello-Elegy.ogg
+
+- type: jukebox
+  id: ADTLoopingTheRooms
+  name: 3. Looping the Rooms - Rusino, Hatsune Miku
+  path:
+    path: /Audio/ADT/Jukebox/vokaloid/Looping-The-Rooms.ogg
+
+- type: jukebox
+  id: ADTHeartNonsense
+  name: 4. Heart nonsense - Hatsune Miku
+  path:
+    path: /Audio/ADT/Jukebox/vokaloid/Heart-Nonsense.ogg
+
+- type: jukebox
+  id: ADTFukkireta
+  name: 5. Fukkireta - Kasane Teto
+  path:
+    path: /Audio/ADT/Jukebox/vokaloid/Fukkireta.ogg
+
+- type: jukebox
+  id: ADTKt'sOfficialGuideToCoolness
+  name: 6. Kt's official guide to coolness - Ferry
+  path:
+    path: /Audio/ADT/Jukebox/vokaloid/Kt's-official-guide-to-coolness.ogg

@@ -1,0 +1,297 @@
+- type: entity
+  id: ADTCookingScroll
+  parent: BaseItem
+  name: cooking scroll
+  description: A parchment made of human skin. It holds everything one needs to know about feeding a hungry tribe.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/cooking_scroll.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: Appearance
+  - type: Paper
+    content: adt-cooking-scroll-content
+  - type: ActivatableUI
+    key: enum.PaperUiKey.Key
+    requiresComplex: false
+  - type: UserInterface
+    interfaces:
+      enum.PaperUiKey.Key:
+        type: PaperBoundUserInterface
+
+- type: entity
+  id: ADTGuillotine
+  parent: ADTBoneAxe
+  name: guillotine
+  description: A massive, menacing saw-axe built around the bone growth of a blind reaper. Perfect for killing monsters and butchering them afterwards.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/guillotine.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Weapons/Melee/guillotine.rsi
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Melee/guillotine.rsi
+  - type: MeleeWeapon
+    wideAnimationRotation: 135
+    swingLeft: true
+    attackRate: 0.75
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+    damage:
+      types:
+        Blunt: 7
+        Slash: 10
+        Structural: 15
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Slash: 18
+  - type: Sharp
+    butcherDelayModifier: 0.5
+  - type: Construction
+    graph: ADTGuillotine
+    node: guillotine
+
+- type: entity
+  id: ADTFoodGraceOfLazis
+  parent: FoodMeatBase
+  name: grace of lazis portion
+  description: A slab of meat cut from a massive monument to a glorious hunt. Unbelievably tasty.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/grace_of_lazis.rsi
+    state: icon
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 4
+        - ReagentId: Fat
+          Quantity: 3
+  - type: Tag
+    tags:
+    - Meat
+
+- type: entity
+  id: ADTBoneSplint
+  parent: BaseHealingItem
+  name: bone splint
+  description: A splint of polished bone lashed with sinew. Holds a broken limb together well enough to walk it off.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/medical.rsi
+    state: brutepack
+  - type: Item
+    heldPrefix: brutepack
+  - type: Healing
+    damageContainers:
+    - Biological
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
+    damage:
+      types:
+        Blunt: -8
+        Slash: -6
+    healingBeginSound:
+      path: "/Audio/Items/Medical/brutepack_begin.ogg"
+    healingEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
+  - type: Stack
+    stackType: ADTBoneSplint
+    count: 5
+  - type: Tag
+    tags:
+    - Brutepack
+
+- type: entity
+  id: ADTBoneSplint1
+  parent: ADTBoneSplint
+  suffix: Single
+  components:
+  - type: Stack
+    stackType: ADTBoneSplint
+    count: 1
+
+- type: entity
+  id: ADTClothBandage
+  parent: BaseHealingItem
+  name: cloth bandage
+  description: Strips of ash-soaked cloth. Crude, but they stop the bleeding.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/medical.rsi
+    state: gauze
+  - type: Item
+    heldPrefix: gauze
+  - type: Healing
+    damageContainers:
+    - Biological
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
+    damage:
+      types:
+        Slash: -5
+        Piercing: -3
+    bloodlossModifier: -8
+    healingBeginSound:
+      path: "/Audio/Items/Medical/ointment_begin.ogg"
+    healingEndSound:
+      path: "/Audio/Items/Medical/ointment_end.ogg"
+  - type: Stack
+    stackType: ADTClothBandage
+    count: 5
+  - type: Tag
+    tags:
+    - Gauze
+
+- type: entity
+  id: ADTClothBandage1
+  parent: ADTClothBandage
+  suffix: Single
+  components:
+  - type: Stack
+    stackType: ADTClothBandage
+    count: 1
+
+- type: entity
+  id: ADTMushroomOintment
+  parent: BaseHealingItem
+  name: mushroom ointment
+  description: A cold paste ground from ash flora. Soothes burns and acid alike.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/medical.rsi
+    state: ointment
+  - type: Item
+    heldPrefix: ointment
+  - type: Healing
+    damageContainers:
+    - Biological
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
+    damage:
+      types:
+        Heat: -6
+        Caustic: -3
+    healingBeginSound:
+      path: "/Audio/Items/Medical/ointment_begin.ogg"
+    healingEndSound:
+      path: "/Audio/Items/Medical/ointment_end.ogg"
+  - type: Stack
+    stackType: ADTMushroomOintment
+    count: 5
+  - type: Tag
+    tags:
+    - Ointment
+
+- type: entity
+  id: ADTMushroomOintment1
+  parent: ADTMushroomOintment
+  suffix: Single
+  components:
+  - type: Stack
+    stackType: ADTMushroomOintment
+    count: 1
+
+- type: entity
+  id: ADTPrimitiveMedkit
+  parent: ADTMedPouch
+  name: primitive medicine kit
+  description: A pouch of bone splints, cloth strips and mushroom paste. Everything the tribe has instead of a surgeon.
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTBoneSplint
+    - id: ADTClothBandage
+    - id: ADTMushroomOintment
+  - type: Construction
+    graph: ADTPrimitiveMedkit
+    node: medkit
+
+- type: entity
+  id: ADTFoodLavalandVeggieMeal
+  parent: FoodInjectableBase
+  name: veggie meal
+  description: Ash flora, cactus fruit and whatever else grew this season, baked on hot stone.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
+    state: veggie_meal
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 6
+
+- type: entity
+  id: ADTFoodLavalandFineMeal
+  parent: FoodInjectableBase
+  name: fine meal
+  description: Monster meat and mushrooms roasted together. The tribe calls this a feast.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
+    state: fine_meal
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 14
+        - ReagentId: Vitamin
+          Quantity: 6
+        - ReagentId: Fat
+          Quantity: 4
+
+- type: entity
+  id: ADTFoodThaliLazisWing
+  parent: FoodInjectableBase
+  name: thali of lazis with wing
+  description: A stone platter of ash flora around a roasted watcher wing.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
+    state: thali_lazis_wing
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 35
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 16
+        - ReagentId: Vitamin
+          Quantity: 8
+        - ReagentId: Fat
+          Quantity: 4
+
+- type: entity
+  id: ADTFoodThaliLazisCacti
+  parent: ADTFoodThaliLazisWing
+  name: thali of lazis with cactus
+  description: A stone platter of ash flora around baked cactus flesh.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
+    state: thali_lazis_cacti
+
+- type: entity
+  id: ADTFoodThaliLazisCrunchie
+  parent: ADTFoodThaliLazisWing
+  name: thali of lazis with crunchies
+  description: A stone platter of ash flora around crunchy roasted shells.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
+    state: thali_lazis_crunchie

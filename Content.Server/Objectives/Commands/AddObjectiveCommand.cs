@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Content.Server.ADT.Antag;
 using Content.Server.Administration;
 using Content.Shared.Administration;
 using Content.Shared.Mind;
@@ -17,6 +18,7 @@ public sealed class AddObjectiveCommand : LocalizedEntityCommands
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly ObjectivesSystem _objectives = default!;
+    [Dependency] private readonly AntagDelayedObjectivesSystem _antagDelayedObjectives = default!; // ADT-Tweak
 
     public override string Command => "addobjective";
 
@@ -51,7 +53,10 @@ public sealed class AddObjectiveCommand : LocalizedEntityCommands
         {
             // can fail for other reasons so dont pretend to be right
             shell.WriteError(Loc.GetString("cmd-addobjective-adding-failed"));
+            return; // ADT-Tweak
         }
+
+        _antagDelayedObjectives.NotifyObjectivesUpdated(mindId); // ADT-Tweak
     }
 
     public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)

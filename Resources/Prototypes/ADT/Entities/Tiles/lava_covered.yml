@@ -1,0 +1,7 @@
+- type: entity
+  id: ADTFloorLavaCovered
+  parent: FloorLavaEntity
+  suffix: Covered
+  components:
+  - type: TileEntityEffect
+    effects: []

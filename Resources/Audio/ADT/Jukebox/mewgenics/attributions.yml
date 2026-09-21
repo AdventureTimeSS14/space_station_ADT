@@ -1,0 +1,29 @@
+- files: ["cat_chase.ogg"]
+  license: "Custom"
+  copyright: "Ridiculon - Cat Chase."
+  source: "https://www.youtube.com/watch?v=1QE9kx9MF1s&list=RD1QE9kx9MF1s&start_radio=1"
+
+- files: ["eatin_rats.ogg"]
+  license: "Custom"
+  copyright: "Ridiculon - Eatin Rats."
+  source: "https://www.youtube.com/watch?v=4vXArJnemSA&list=RD4vXArJnemSA&start_radio=1"
+
+- files: ["guillotina.ogg"]
+  license: "Custom"
+  copyright: "Ridiculon - Guillotina."
+  source: "https://www.youtube.com/watch?v=5EFI-BV9EJY&list=RD5EFI-BV9EJY&start_radio=1"
+
+- files: ["chumbucket_kitty.ogg"]
+  license: "Custom"
+  copyright: "Ridiculon - Chumbucket Kitty."
+  source: "https://www.youtube.com/watch?v=qsF_QNpDyBw&list=RDqsF_QNpDyBw&start_radio=1"
+
+- files: ["flush.ogg"]
+  license: "Custom"
+  copyright: "Ridiculon - Flush."
+  source: "https://www.youtube.com/watch?v=BKlAS-jBcew&list=RDBKlAS-jBcew&start_radio=1"
+
+- files: ["kitty_march.ogg"]
+  license: "Custom"
+  copyright: "Ridiculon - Kitty March."
+  source: "https://www.youtube.com/watch?v=3Fd5-fQSMV4&list=RD3Fd5-fQSMV4&start_radio=1"

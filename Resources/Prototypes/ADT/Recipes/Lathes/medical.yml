@@ -125,3 +125,16 @@
   completetime: 2
   materials:
     Plastic: 100
+
+- type: latheRecipe
+  id: ADTWeaponMedbeamCivil
+  result: ADTWeaponMedbeamCivil
+  completetime: 3
+  materials:
+    Steel: 500
+    Plastic: 500
+    Glass: 300
+    Silver: 300
+    Plasma: 300
+    ADTBScrystal: 200
+    Copper: 500
