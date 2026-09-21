@@ -1011,3 +1011,6 @@
 
 - type: Tag
   id: RMCTankFlamerMakeshift
+
+- type: Tag
+  id: ADTWeaverChitin
