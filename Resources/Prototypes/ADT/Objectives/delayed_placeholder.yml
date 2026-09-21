@@ -1,0 +1,14 @@
+- type: entity
+  parent: BaseObjective
+  id: ObjectiveDelayedPlaceholder
+  components:
+  - type: Objective
+    difficulty: 0
+    unique: false
+    issuer: objective-issuer-syndicate
+    icon:
+      sprite: ADT/Objects/Specific/cybersun_uplink.rsi
+      state: icon
+  - type: AntagDelayedObjectives
+    sets: []
+    maxDifficulty: 0

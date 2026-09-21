@@ -5,12 +5,19 @@
     HereticSacrificeObjective: 1
     HereticSacrificeHeadObjective: 1
 
+- type: weightedRandom
+  id: ADTTraitorObjectiveGroups
+  weights:
+    TraitorObjectiveGroupSteal: 1
+    TraitorObjectiveGroupState: 1
+    TraitorObjectiveGroupSocial: 1
+    TraitorObjectiveGroupNukieDisk: 0.05
+
 # TraitorLight - облегчённые цели без полноценных убийств
 - type: weightedRandom
   id: TraitorLightObjectiveGroups
   weights:
     TraitorLightObjectiveGroupSteal: 1
-    TraitorLightObjectiveGroupTeachLesson: 1
     TraitorLightObjectiveGroupState: 1
     TraitorLightObjectiveGroupSocial: 1
 
@@ -31,11 +38,6 @@
     ADTMobileDefibrillatorStealObjective: 1
 
 - type: weightedRandom
-  id: TraitorLightObjectiveGroupTeachLesson
-  weights:
-    TeachLessonRandomPersonObjective: 1
-
-- type: weightedRandom
   id: TraitorLightObjectiveGroupState
   weights:
     EscapeShuttleObjective: 0.6
@@ -45,3 +47,26 @@
   id: TraitorLightObjectiveGroupSocial
   weights:
     RandomTraitorProgressObjective: 1
+
+- type: weightedRandom
+  id: DelayedTraitorObjectiveGroups
+  weights:
+    DelayedTraitorObjectiveGroupKill: 1
+    DelayedTraitorObjectiveGroupTeach: 1
+    DelayedTraitorObjectiveGroupEscape: 1
+
+- type: weightedRandom
+  id: DelayedTraitorObjectiveGroupKill
+  weights:
+    KillRandomHeadObjective: 1
+    KillRandomPersonObjective: 1
+
+- type: weightedRandom
+  id: DelayedTraitorObjectiveGroupTeach
+  weights:
+    TeachLessonRandomPersonObjective: 1
+
+- type: weightedRandom
+  id: DelayedTraitorObjectiveGroupEscape
+  weights:
+    EscapeShuttleObjective: 1

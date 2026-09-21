@@ -11,6 +11,7 @@ using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
+using Content.Shared.Maps;
 using Content.Shared.Popups;
 using Content.Shared.Temperature;
 using Content.Shared.Weapons.Ranged.Components;
@@ -42,6 +43,8 @@ public abstract class SharedRMCFlamerSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly RMCMapSystem _rmcMap = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
+    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
 
     public override void Initialize()
     {
@@ -105,6 +108,13 @@ public abstract class SharedRMCFlamerSystem : EntitySystem
     {
         if (args.Cancelled)
             return;
+
+        if (IsInContainer(args.User))
+        {
+            args.Cancelled = true;
+            args.Message = Loc.GetString("rmc-flamer-in-container");
+            return;
+        }
 
         if (TryGetTankSolution(ent, out var solution, out _) &&
             solution.Value.Comp.Solution.Volume >= ent.Comp.CostPer)
@@ -265,6 +275,9 @@ public abstract class SharedRMCFlamerSystem : EntitySystem
         EntityCoordinates fromCoordinates,
         EntityCoordinates toCoordinates)
     {
+        if (user != null && IsInContainer(user.Value))
+            return;
+
         if (!CanShootFlamer(flamer, fromCoordinates, toCoordinates, out var tiles, out var solution, out var reagent, out var tank))
             return;
 
@@ -298,6 +311,11 @@ public abstract class SharedRMCFlamerSystem : EntitySystem
         [NotNullWhen(true)] out List<LineTile>? tiles)
     {
         return CanShootFlamer(flamer, fromCoordinates, toCoordinates, out tiles, out _, out _, out _);
+    }
+
+    public bool IsInContainer(EntityUid user)
+    {
+        return _container.IsEntityOrParentInContainer(user);
     }
 
     public bool TryGetFuelColor(Entity<RMCFlamerAmmoProviderComponent> flamer, out Color color)
@@ -364,11 +382,10 @@ public abstract class SharedRMCFlamerSystem : EntitySystem
 
         tiles = _line.DrawLine(fromCoordinates, toCoordinates, flamer.Comp.DelayPer, range, out _, true, reagent.FireSpread);
 
-        if (tiles.Count > 0)
-            tiles.RemoveAt(0);
-
         var origin = _transform.ToMapCoordinates(fromCoordinates).Position;
         tiles.RemoveAll(tile => (_transform.ToMapCoordinates(tile.Coordinates).Position - origin).LengthSquared() < 0.25f);
+
+        tiles.RemoveAll(tile => !HasFloor(tile.Coordinates));
 
         if (tiles.Count == 0)
         {
@@ -377,6 +394,19 @@ public abstract class SharedRMCFlamerSystem : EntitySystem
         }
 
         return true;
+    }
+
+    private bool HasFloor(EntityCoordinates coordinates)
+    {
+        var mapCoordinates = _transform.ToMapCoordinates(coordinates);
+        if (!_mapManager.TryFindGridAt(mapCoordinates, out var gridUid, out var grid))
+            return false;
+
+        var indices = _map.WorldToTile(gridUid, grid, mapCoordinates.Position);
+        if (!_map.TryGetTileDef(grid, indices, out var tile))
+            return false;
+
+        return tile.ID != ContentTileDefinition.SpaceID;
     }
 
     private bool TryGetTankSolution(
@@ -473,6 +503,10 @@ public abstract class SharedRMCFlamerSystem : EntitySystem
                     continue;
 
                 comp.Tiles.Remove(tile);
+
+                if (!HasFloor(tile.Coordinates))
+                    break;
+
                 var fire = Spawn(comp.Spawn, tile.Coordinates);
 
                 EnsureComp<RMCDamageOnCollideComponent>(fire, out var collide);
