@@ -60,7 +60,7 @@
 - type: marking
   id: ADTDemonrigth_eye
   bodyPart: Eyes
-  groupWhitelist: [Demon]
+  groupWhitelist: [Demon, Celecern]
   coloring:
     default:
       type:
@@ -73,7 +73,7 @@
 - type: marking
   id: ADTDemonleft_eye
   bodyPart: Eyes
-  groupWhitelist: [Demon]
+  groupWhitelist: [Demon, Celecern]
   coloring:
     default:
       type:

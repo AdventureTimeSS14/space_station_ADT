@@ -686,3 +686,55 @@
     - громко издает пламенные звуки
     - громко разгорается
     - громко полыхает
+
+## Celecern
+- type: emote
+  id: ADTCelecernSnort
+  name: chat-emote-name-adt-celecern-snort
+  category: Vocal
+  whitelist:
+    tags:
+    - ADTCelecernEmotes
+  icon: ADT/Interface/Emotes/Vocal/snort.png
+  chatMessages: [фыркает]
+  chatTriggers:
+    - фыркает
+    - фыркает.
+    - фыркает!
+    - фыркнуть
+    - snort
+    - snorts
+
+- type: emote
+  id: ADTCelecernClop
+  name: chat-emote-name-adt-celecern-clop
+  category: General
+  whitelist:
+    tags:
+    - ADTCelecernEmotes
+  icon: ADT/Interface/Emotes/clop.png
+  chatMessages: [стучит копытом]
+  chatTriggers:
+    - стучит копытом
+    - стучит копытом.
+    - стукнуть копытом
+    - топает копытом
+    - hoof stomp
+    - stomps hoof
+
+- type: emote
+  id: ADTCelecernEarFlick
+  name: chat-emote-name-adt-celecern-ear-flick
+  category: General
+  whitelist:
+    tags:
+    - ADTCelecernEmotes
+  icon: ADT/Interface/Emotes/ear_flick.png
+  chatMessages: [дёргает ухом]
+  chatTriggers:
+    - дёргает ухом
+    - дёргает ухом.
+    - дергает ухом
+    - дёрнуть ухом
+    - дернуть ухом
+    - ear flick

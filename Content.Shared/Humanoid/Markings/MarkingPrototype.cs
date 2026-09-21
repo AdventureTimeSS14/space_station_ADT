@@ -49,9 +49,12 @@ namespace Content.Shared.Humanoid.Markings
             return new Marking(ID, Sprites.Count);
         }
 
-        //ADT tweak - allow markings to support shaders
-        [DataField("shader")]
+        //ADT-Tweak-Start
+        [DataField]
         public string? Shader { get; private set; } = null;
-        //ADT tweak impstation edit
+
+        [DataField]
+        public List<HumanoidVisualLayers>? HidesLayers;
+        // ADT-Tweak-End
     }
 }

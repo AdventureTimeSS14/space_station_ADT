@@ -22,6 +22,7 @@
     #ADT_Species Start
     - Resomi
     - DemonSpecies
+    - CelecernSpecies
     - DraskSpecies
     - Felinid
     - KoboltSpecies
@@ -95,6 +96,7 @@
     # #Corvax-Species-End
     # ADT-Tweak start
     - DemonSpecies
+    - CelecernSpecies
     - VulpkaninSpecies
     - KoboltSpecies
     - DraskSpecies
