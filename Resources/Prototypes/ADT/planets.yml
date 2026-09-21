@@ -45,6 +45,14 @@
       maxRadius: 210
       entries:
       - prototype: ADTWorldAnvilRoomMarker
+    # Деревня пеплоходцев
+    - minBudget: 1
+      maxBudget: 1
+      minSpacing: 24
+      minDistanceFromCenter: 100
+      maxRadius: 210
+      entries:
+      - prototype: LavaDungeonAshVillage
     # /datum/spawn_pool/lavaland_fauna - rand(100, 150)
     - minBudget: 100
       maxBudget: 150
