@@ -144,6 +144,8 @@ public sealed class OsWindowManager
     private Vector2 _dragScreen;
     private Vector2 _dragValue;
 
+    private uint _focusFrame;
+
     public event Action? OnWindowsChanged;
 
     public Func<OsWindow, UIBox2?> TaskbarAnchor = _ => null;
@@ -151,6 +153,8 @@ public sealed class OsWindowManager
     public IReadOnlyList<OsWindow> Windows => _windows;
 
     public OsWindow? Focused { get; private set; }
+
+    public bool FocusedThisFrame => _focusFrame == _context.Timing.CurFrame;
 
     public OsWindowManager(OsAppRegistry registry, OsContext context)
     {
@@ -302,6 +306,7 @@ public sealed class OsWindowManager
         var changed = Focused != window;
 
         Focused = window;
+        _focusFrame = _context.Timing.CurFrame;
 
         foreach (var other in _windows)
         {

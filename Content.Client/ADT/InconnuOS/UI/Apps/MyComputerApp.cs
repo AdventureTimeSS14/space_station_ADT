@@ -8,6 +8,7 @@ namespace Content.Client.ADT.InconnuOS.UI.Apps;
 public sealed class MyComputerApp : OsAppControl
 {
     private readonly BoxContainer _drives;
+    private readonly List<OsListRow> _rows = new();
 
     private readonly OsInfoRow _os;
     private readonly OsInfoRow _publisher;
@@ -93,6 +94,7 @@ public sealed class MyComputerApp : OsAppControl
         _user.Value = state.UserName;
 
         _drives.RemoveAllChildren();
+        _rows.Clear();
 
         foreach (var drive in state.Drives)
         {
@@ -102,11 +104,13 @@ public sealed class MyComputerApp : OsAppControl
 
     private Control BuildDrive(OsDriveState drive)
     {
-        var used = drive.Disk.TotalSize;
+        var extra = drive.Disk.DisplayExtra;
+        var total = drive.Capacity + extra;
+        var free = Math.Max(0L, drive.Capacity - drive.Disk.TotalSize);
 
         var bar = new OsUsageBar(Context.Accent)
         {
-            Fraction = drive.Capacity <= 0 ? 0f : used / (float) drive.Capacity,
+            Fraction = total <= 0 ? 0f : (float) ((total - free) / (double) total),
             HorizontalExpand = true,
             Margin = new Thickness(10f, 2f, 10f, 6f),
         };
@@ -121,15 +125,15 @@ public sealed class MyComputerApp : OsAppControl
 
         var row = new OsListRow(drive.Removable ? OsAppIcon.Disk : OsAppIcon.Computer, title, trailing, Context.Accent);
 
-        row.OnSelected += () => OpenDrive(drive);
-        row.OnActivated += () => OpenDrive(drive);
+        _rows.Add(row);
 
-        var free = Math.Max(0, drive.Capacity - used);
+        row.OnSelected += () => SelectRow(row);
+        row.OnActivated += () => OpenDrive(drive);
 
         var usage = new OsInfoRow(Loc.GetString("os-mycomputer-drive-usage"),
             Loc.GetString("os-mycomputer-drive-usage-value",
                 ("free", OsFormat.Size(free)),
-                ("total", OsFormat.Size(drive.Capacity))));
+                ("total", OsFormat.Size(total))));
 
         return new OsPanel
         {
@@ -148,6 +152,14 @@ public sealed class MyComputerApp : OsAppControl
                 },
             },
         };
+    }
+
+    private void SelectRow(OsListRow selected)
+    {
+        foreach (var row in _rows)
+        {
+            row.Selected = row == selected;
+        }
     }
 
     private void OpenDrive(OsDriveState drive)

@@ -1,3 +1,4 @@
+using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.InconnuOS.Components;
@@ -49,6 +50,9 @@ public sealed partial class ADTOperatingSystemComponent : Component
 
     [DataField]
     public int MaxCommandLength = 256;
+
+    [DataField]
+    public SoundSpecifier? BootSound;
 
     [ViewVariables]
     public TimeSpan BootedAt;

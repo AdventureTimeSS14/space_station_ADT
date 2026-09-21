@@ -108,6 +108,21 @@ public sealed partial class OsDisk
         }
     }
 
+    public long DisplayExtra
+    {
+        get
+        {
+            var extra = 0L;
+
+            foreach (var file in Files)
+            {
+                extra += Math.Max(0L, file.ShownSize - file.Size);
+            }
+
+            return extra;
+        }
+    }
+
     public int IndexOf(string path)
     {
         for (var i = 0; i < Files.Count; i++)

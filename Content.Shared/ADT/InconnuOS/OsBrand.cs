@@ -2,9 +2,9 @@ namespace Content.Shared.ADT.InconnuOS;
 
 public static class OsBrand
 {
-    public const string Name = "InconnuOS";
+    public const string Name = "InconnuOS™";
 
-    public const string Publisher = "Schrodinger Entertainment";
+    public const string Publisher = "Schrodinger Entertainment™";
 
     public const string Version = "4.04";
 

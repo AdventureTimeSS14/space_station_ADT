@@ -601,12 +601,12 @@ public sealed class OsCaptionButton : Control
                 break;
 
             case OsCaptionKind.Maximize when _window.Maximized:
-                DrawSquare(handle, center + new Vector2(scale * 2f, -scale * 2f), arm - scale * 2f, scale, color);
-                DrawSquare(handle, center + new Vector2(-scale, scale), arm - scale * 2f, scale, color);
+                DrawSquare(handle, center + new Vector2(scale * 2f, -scale * 2f), arm - scale * 2f, color);
+                DrawSquare(handle, center + new Vector2(-scale, scale), arm - scale * 2f, color);
                 break;
 
             case OsCaptionKind.Maximize:
-                DrawSquare(handle, center, arm, scale, color);
+                DrawSquare(handle, center, arm, color);
                 break;
 
             case OsCaptionKind.Close:
@@ -616,11 +616,16 @@ public sealed class OsCaptionButton : Control
         }
     }
 
-    private static void DrawSquare(DrawingHandleScreen handle, Vector2 center, float half, float line, Color color)
+    private static void DrawSquare(DrawingHandleScreen handle, Vector2 center, float half, Color color)
     {
-        handle.DrawRect(new UIBox2(center.X - half, center.Y - half, center.X + half, center.Y - half + line), color);
-        handle.DrawRect(new UIBox2(center.X - half, center.Y + half - line, center.X + half, center.Y + half), color);
-        handle.DrawRect(new UIBox2(center.X - half, center.Y - half, center.X - half + line, center.Y + half), color);
-        handle.DrawRect(new UIBox2(center.X + half - line, center.Y - half, center.X + half, center.Y + half), color);
+        var topLeft = new Vector2(center.X - half, center.Y - half);
+        var topRight = new Vector2(center.X + half, center.Y - half);
+        var bottomLeft = new Vector2(center.X - half, center.Y + half);
+        var bottomRight = new Vector2(center.X + half, center.Y + half);
+
+        handle.DrawLine(topLeft, topRight, color);
+        handle.DrawLine(topRight, bottomRight, color);
+        handle.DrawLine(bottomRight, bottomLeft, color);
+        handle.DrawLine(bottomLeft, topLeft, color);
     }
 }

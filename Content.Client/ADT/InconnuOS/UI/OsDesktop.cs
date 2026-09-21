@@ -23,6 +23,8 @@ public sealed class OsDesktop : Control
     private readonly Font _font;
     private readonly Font _fontBold;
 
+    private string? _selectedIcon;
+
     public event Action<OsPowerAction>? OnPowerPicked;
 
     public OsDesktop(OsContext context, OsWindowManager manager, IGameTiming timing)
@@ -111,13 +113,52 @@ public sealed class OsDesktop : Control
             if (!_context.Prototypes.TryIndex(id, out var app) || !app.OnDesktop)
                 continue;
 
-            var icon = new OsDesktopIcon(app, _context.Accent);
+            var icon = new OsDesktopIcon(app, _context.Accent)
+            {
+                Selected = _selectedIcon == app.ID,
+            };
+
             var picked = app;
 
+            icon.OnSelected += () => SelectIcon(picked.ID);
             icon.OnPressed += () => _manager.Open(picked, null);
+            icon.OnContextMenu += screen => ShowIconMenu(picked, screen);
 
             _icons.AddChild(icon);
         }
+    }
+
+    private void SelectIcon(string? id)
+    {
+        _selectedIcon = id;
+
+        foreach (var child in _icons.Children)
+        {
+            if (child is OsDesktopIcon icon)
+                icon.Selected = icon.Proto.ID == id;
+        }
+    }
+
+    private void ShowIconMenu(ADTOsAppPrototype app, Vector2 screen)
+    {
+        var entries = new List<OsMenuEntry>
+        {
+            new(Loc.GetString("os-desktop-icon-menu-open"), () => _manager.Open(app, null)),
+            OsMenuEntry.Line(),
+            new(Loc.GetString("os-desktop-icon-menu-properties"), () => ShowIconProperties(app)),
+        };
+
+        ShowMenu(screen, entries);
+    }
+
+    private void ShowIconProperties(ADTOsAppPrototype app)
+    {
+        var text = Loc.GetString(app.Name);
+
+        if (app.Description is { } description)
+            text += ": " + Loc.GetString(description);
+
+        Toast(text);
     }
 
     protected override Vector2 ArrangeOverride(Vector2 finalSize)
@@ -173,6 +214,7 @@ public sealed class OsDesktop : Control
 
         if (args.Function == EngineKeyFunctions.UIRightClick)
         {
+            SelectIcon(null);
             ShowMenu(args.PointerLocation.Position, BuildDesktopMenu());
             args.Handle();
             return;
@@ -181,6 +223,7 @@ public sealed class OsDesktop : Control
         if (args.Function != EngineKeyFunctions.UIClick)
             return;
 
+        SelectIcon(null);
         _start.Close();
     }
 
@@ -341,13 +384,20 @@ public sealed class OsDesktop : Control
 
 public sealed class OsDesktopIcon : Control
 {
+    public readonly ADTOsAppPrototype Proto;
+
     private readonly Color _accent;
     private bool _hovered;
 
+    public bool Selected;
+
+    public event Action? OnSelected;
     public event Action? OnPressed;
+    public event Action<Vector2>? OnContextMenu;
 
     public OsDesktopIcon(ADTOsAppPrototype proto, Color accent)
     {
+        Proto = proto;
         _accent = accent;
 
         MouseFilter = MouseFilterMode.Stop;
@@ -388,21 +438,37 @@ public sealed class OsDesktopIcon : Control
     {
         base.KeyBindDown(args);
 
+        if (args.Function == EngineKeyFunctions.UIRightClick)
+        {
+            OnSelected?.Invoke();
+            OnContextMenu?.Invoke(args.PointerLocation.Position);
+            args.Handle();
+            return;
+        }
+
         if (args.Function != EngineKeyFunctions.UIClick)
             return;
 
-        OnPressed?.Invoke();
+        if (OsDoubleClick.Check("desktop:" + Proto.ID))
+        {
+            OnPressed?.Invoke();
+        }
+        else
+        {
+            OnSelected?.Invoke();
+        }
+
         args.Handle();
     }
 
     protected override void Draw(DrawingHandleScreen handle)
     {
-        if (_hovered)
+        if (_hovered || Selected)
         {
             var scale = UIScale;
 
             OsDraw.RoundedRect(handle, new UIBox2(2f * scale, 2f * scale, PixelWidth - 2f * scale, PixelHeight - 2f * scale),
-                4f * scale, _accent.WithAlpha(0.18f));
+                4f * scale, _accent.WithAlpha(Selected ? 0.35f : 0.18f));
         }
 
         base.Draw(handle);

@@ -176,6 +176,9 @@ public sealed class OsRoot : Control
 
     private void OnAnyKeyBindDown(Control control)
     {
+        if (_manager.FocusedThisFrame)
+            return;
+
         for (var current = control; current != null; current = current.Parent)
         {
             if (current is not OsWindow window)

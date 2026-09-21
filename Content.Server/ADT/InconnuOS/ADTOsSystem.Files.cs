@@ -133,7 +133,6 @@ public sealed partial class ADTOsSystem
 
         var root = OsPath.GetRoot(comp.Drive);
 
-        AddDefault(comp.Disk, root + "README.txt", OsFileKind.Text, Loc.GetString("os-file-readme"), false);
         AddDefault(comp.Disk, root + "LICENSE.txt", OsFileKind.Text, Loc.GetString("os-file-license"), true);
         AddDefault(comp.Disk, root + "system.log", OsFileKind.Log, Loc.GetString("os-file-syslog",
             ("machine", comp.MachineName)), true);

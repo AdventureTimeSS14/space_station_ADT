@@ -5,10 +5,13 @@ namespace Content.Client.ADT.LogicCircuit.UI;
 
 public static class LogicDraw
 {
+    private const int CornerSegments = 6;
+
+    private static readonly Vector2[] CornerBuffer = new Vector2[2 + 4 * (CornerSegments + 1)];
+
     public static void RoundedRect(DrawingHandleScreen handle, UIBox2 box, float radius, Color color)
     {
-        var maxRadius = MathF.Min(box.Width, box.Height) / 2f;
-        radius = Math.Clamp(radius, 0f, maxRadius);
+        radius = Math.Clamp(radius, 0f, MathF.Min(box.Width, box.Height) / 2f);
 
         if (radius <= 0.5f)
         {
@@ -16,14 +19,18 @@ public static class LogicDraw
             return;
         }
 
-        handle.DrawRect(new UIBox2(box.Left + radius, box.Top, box.Right - radius, box.Bottom), color);
-        handle.DrawRect(new UIBox2(box.Left, box.Top + radius, box.Left + radius, box.Bottom - radius), color);
-        handle.DrawRect(new UIBox2(box.Right - radius, box.Top + radius, box.Right, box.Bottom - radius), color);
+        var count = 0;
 
-        handle.DrawCircle(new Vector2(box.Left + radius, box.Top + radius), radius, color);
-        handle.DrawCircle(new Vector2(box.Right - radius, box.Top + radius), radius, color);
-        handle.DrawCircle(new Vector2(box.Left + radius, box.Bottom - radius), radius, color);
-        handle.DrawCircle(new Vector2(box.Right - radius, box.Bottom - radius), radius, color);
+        CornerBuffer[count++] = box.Center;
+
+        AddCorner(ref count, new Vector2(box.Right - radius, box.Top + radius), radius, -90f);
+        AddCorner(ref count, new Vector2(box.Right - radius, box.Bottom - radius), radius, 0f);
+        AddCorner(ref count, new Vector2(box.Left + radius, box.Bottom - radius), radius, 90f);
+        AddCorner(ref count, new Vector2(box.Left + radius, box.Top + radius), radius, 180f);
+
+        CornerBuffer[count++] = CornerBuffer[1];
+
+        handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, CornerBuffer.AsSpan(0, count), color);
     }
 
     public static void RoundedTop(DrawingHandleScreen handle, UIBox2 box, float radius, Color color)
@@ -36,11 +43,28 @@ public static class LogicDraw
             return;
         }
 
-        handle.DrawRect(new UIBox2(box.Left + radius, box.Top, box.Right - radius, box.Bottom), color);
-        handle.DrawRect(new UIBox2(box.Left, box.Top + radius, box.Right, box.Bottom), color);
+        var count = 0;
 
-        handle.DrawCircle(new Vector2(box.Left + radius, box.Top + radius), radius, color);
-        handle.DrawCircle(new Vector2(box.Right - radius, box.Top + radius), radius, color);
+        CornerBuffer[count++] = box.Center;
+
+        AddCorner(ref count, new Vector2(box.Right - radius, box.Top + radius), radius, -90f);
+        CornerBuffer[count++] = new Vector2(box.Right, box.Bottom);
+        CornerBuffer[count++] = new Vector2(box.Left, box.Bottom);
+        AddCorner(ref count, new Vector2(box.Left + radius, box.Top + radius), radius, 180f);
+
+        CornerBuffer[count++] = CornerBuffer[1];
+
+        handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, CornerBuffer.AsSpan(0, count), color);
+    }
+
+    private static void AddCorner(ref int count, Vector2 center, float radius, float startDegrees)
+    {
+        for (var i = 0; i <= CornerSegments; i++)
+        {
+            var angle = (startDegrees + 90f * i / CornerSegments) * MathF.PI / 180f;
+
+            CornerBuffer[count++] = center + new Vector2(MathF.Cos(angle), MathF.Sin(angle)) * radius;
+        }
     }
 
     public const int VerticesPerSegment = 6;

@@ -109,6 +109,8 @@ public sealed class OsListRow : Control
 
     public bool Selected;
 
+    public string ClickKey;
+
     public event Action? OnSelected;
     public event Action? OnActivated;
 
@@ -117,6 +119,7 @@ public sealed class OsListRow : Control
     public OsListRow(OsAppIcon icon, string text, string? trailing, Color accent)
     {
         _accent = accent;
+        ClickKey = text;
 
         MouseFilter = MouseFilterMode.Stop;
         MinHeight = 22f;
@@ -186,11 +189,11 @@ public sealed class OsListRow : Control
         if (args.Function != EngineKeyFunctions.UIClick)
             return;
 
-        if (Selected)
+        if (OsDoubleClick.Check(ClickKey))
         {
             OnActivated?.Invoke();
         }
-        else
+        else if (!Selected)
         {
             OnSelected?.Invoke();
         }

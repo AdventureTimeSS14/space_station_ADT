@@ -2,6 +2,7 @@ using Content.Shared.ADT.InconnuOS;
 using Content.Shared.ADT.InconnuOS.Components;
 using Content.Shared.Emp;
 using Content.Shared.Power;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.InconnuOS;
@@ -10,6 +11,8 @@ public sealed partial class ADTOsSystem : SharedADTOsSystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IComponentFactory _factory = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {
@@ -56,6 +59,8 @@ public sealed partial class ADTOsSystem : SharedADTOsSystem
         comp.Running = true;
         comp.Crashed = false;
         comp.BootedAt = _timing.CurTime;
+
+        OnBooted(ent);
     }
 
     public void PowerOff(Entity<ADTOperatingSystemComponent> ent)
@@ -65,6 +70,8 @@ public sealed partial class ADTOsSystem : SharedADTOsSystem
         comp.Running = false;
         comp.Crashed = false;
         comp.BootedAt = TimeSpan.Zero;
+
+        _appearance.SetData(ent.Owner, ADTOsVisuals.Running, false);
 
         _ui.CloseUi(ent.Owner, ADTComputerUiKey.Key);
     }
@@ -93,8 +100,15 @@ public sealed partial class ADTOsSystem : SharedADTOsSystem
         ent.Comp.BootedAt = _timing.CurTime;
 
         RestoreKernel(ent);
+        OnBooted(ent);
 
         UpdateUiState(ent);
+    }
+
+    private void OnBooted(Entity<ADTOperatingSystemComponent> ent)
+    {
+        _appearance.SetData(ent.Owner, ADTOsVisuals.Running, true);
+        _audio.PlayPvs(ent.Comp.BootSound, ent.Owner);
     }
 
     private static string GenerateMachineName(EntityUid uid)

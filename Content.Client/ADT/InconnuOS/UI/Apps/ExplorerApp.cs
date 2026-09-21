@@ -2,16 +2,25 @@ using System.Numerics;
 using Content.Shared.ADT.InconnuOS;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
+using Robust.Shared.Timing;
 
 namespace Content.Client.ADT.InconnuOS.UI.Apps;
 
 public sealed class ExplorerApp : OsAppControl
 {
+    private const long SlowDeleteSize = 1024L * 1024 * 1024;
+    private const float SlowDeleteSeconds = 15f;
+
     private readonly BoxContainer _drives;
     private readonly BoxContainer _files;
     private readonly LineEdit _address;
     private readonly LineEdit _prompt;
     private readonly Label _status;
+
+    private readonly OsPanel _deletePanel;
+    private readonly Label _deleteTitle;
+    private readonly Label _deleteProgress;
+    private readonly OsUsageBar _deleteBar;
 
     private readonly Button _up;
     private readonly Button _back;
@@ -21,6 +30,10 @@ public sealed class ExplorerApp : OsAppControl
     private string _path = string.Empty;
     private string? _selected;
     private string? _renaming;
+
+    private string? _deleting;
+    private long _deletingSize;
+    private float _deletingElapsed;
 
     public ExplorerApp()
     {
@@ -105,11 +118,59 @@ public sealed class ExplorerApp : OsAppControl
             Margin = new Thickness(10f, 4f, 10f, 6f),
         };
 
+        _deleteTitle = new Label
+        {
+            Modulate = OsStyle.Text,
+            ClipText = true,
+        };
+
+        _deleteProgress = new Label
+        {
+            Modulate = OsStyle.TextDim,
+            ClipText = true,
+            HorizontalExpand = true,
+            VerticalAlignment = VAlignment.Center,
+        };
+
+        _deleteBar = new OsUsageBar(OsStyle.Error)
+        {
+            HorizontalExpand = true,
+            Margin = new Thickness(0f, 4f, 0f, 4f),
+        };
+
+        var cancel = OsWidgets.Small(Loc.GetString("os-explorer-deleting-cancel"));
+
+        cancel.OnPressed += _ => CancelDelete();
+
+        _deletePanel = new OsPanel
+        {
+            Visible = false,
+            Margin = new Thickness(6f, 4f, 6f, 0f),
+            Children =
+            {
+                new BoxContainer
+                {
+                    Orientation = BoxContainer.LayoutOrientation.Vertical,
+                    Margin = new Thickness(10f, 6f, 6f, 6f),
+                    Children =
+                    {
+                        _deleteTitle,
+                        _deleteBar,
+                        new BoxContainer
+                        {
+                            Orientation = BoxContainer.LayoutOrientation.Horizontal,
+                            Children = { _deleteProgress, cancel },
+                        },
+                    },
+                },
+            },
+        };
+
         AddChild(new BoxContainer
         {
             Orientation = BoxContainer.LayoutOrientation.Vertical,
             VerticalExpand = true,
-            Children = { toolbar, middle, _prompt, _status },
+            Children = { toolbar, middle, _deletePanel, _prompt, _status },
         });
 
         _address.OnTextEntered += args => Navigate(args.Text, true);
@@ -239,6 +300,7 @@ public sealed class ExplorerApp : OsAppControl
                 Context.Accent)
             {
                 Selected = OsPath.GetDriveLetter(_path) == char.ToUpperInvariant(drive.Letter),
+                ClickKey = root,
             };
 
             row.OnSelected += () => Navigate(root, true);
@@ -260,11 +322,12 @@ public sealed class ExplorerApp : OsAppControl
 
             var trailing = file.IsDirectory
                 ? null
-                : OsFormat.Size(file.Size);
+                : OsFormat.Size(file.ShownSize);
 
             var row = new OsListRow(OsWidgets.IconFor(file), file.Name, trailing, Context.Accent)
             {
                 Selected = _selected != null && _selected.Equals(file.Path, OsPath.Comparison),
+                ClickKey = file.Path,
             };
 
             row.OnSelected += () => Select(entry.Path);
@@ -275,7 +338,7 @@ public sealed class ExplorerApp : OsAppControl
         }
 
         var drive = Context.GetDriveOf(_path);
-        var free = drive == null ? 0 : Math.Max(0, drive.Capacity - drive.Disk.TotalSize);
+        var free = drive == null ? 0L : Math.Max(0L, drive.Capacity - drive.Disk.TotalSize);
 
         _status.Text = Loc.GetString("os-explorer-status",
             ("count", files.Count),
@@ -473,10 +536,104 @@ public sealed class ExplorerApp : OsAppControl
 
     private void Delete(string path)
     {
+        var size = MeasureDelete(path);
+
+        if (size < SlowDeleteSize)
+        {
+            SendDelete(path);
+            return;
+        }
+
+        if (_deleting != null)
+        {
+            Context.Toast(Loc.GetString("os-explorer-deleting-busy"));
+            return;
+        }
+
+        _deleting = path;
+        _deletingSize = size;
+        _deletingElapsed = 0f;
+
+        _deleteTitle.Text = Loc.GetString("os-explorer-deleting-title", ("name", OsPath.GetName(path)));
+        _deletePanel.Visible = true;
+
+        UpdateDeleteProgress();
+    }
+
+    private long MeasureDelete(string path)
+    {
+        if (Context.GetDriveOf(path) is not { } drive)
+            return 0L;
+
+        var size = 0L;
+
+        foreach (var file in drive.Disk.Files)
+        {
+            if (file.Path.Equals(path, OsPath.Comparison) || OsPath.IsInside(file.Path, path))
+                size += file.ShownSize;
+        }
+
+        return size;
+    }
+
+    private void SendDelete(string path)
+    {
         Context.Send(new ADTOsFileDeleteMessage(path));
 
         if (_selected == path)
             _selected = null;
+    }
+
+    private void CancelDelete()
+    {
+        if (_deleting == null)
+            return;
+
+        Context.Toast(Loc.GetString("os-explorer-deleting-cancelled", ("name", OsPath.GetName(_deleting))));
+
+        StopDelete();
+    }
+
+    private void StopDelete()
+    {
+        _deleting = null;
+        _deletingSize = 0L;
+        _deletingElapsed = 0f;
+
+        _deletePanel.Visible = false;
+    }
+
+    private void UpdateDeleteProgress()
+    {
+        var fraction = Math.Clamp(_deletingElapsed / SlowDeleteSeconds, 0f, 1f);
+        var remaining = (int) MathF.Ceiling(SlowDeleteSeconds - _deletingElapsed);
+
+        _deleteBar.Fraction = fraction;
+        _deleteProgress.Text = Loc.GetString("os-explorer-deleting-progress",
+            ("done", OsFormat.Size((long) (_deletingSize * (double) fraction))),
+            ("total", OsFormat.Size(_deletingSize)),
+            ("seconds", Math.Max(0, remaining)));
+    }
+
+    protected override void FrameUpdate(FrameEventArgs args)
+    {
+        base.FrameUpdate(args);
+
+        if (_deleting == null)
+            return;
+
+        _deletingElapsed += args.DeltaSeconds;
+
+        if (_deletingElapsed < SlowDeleteSeconds)
+        {
+            UpdateDeleteProgress();
+            return;
+        }
+
+        var path = _deleting;
+
+        StopDelete();
+        SendDelete(path);
     }
 
     private void CopyTo(string path, char letter)
@@ -495,6 +652,6 @@ public sealed class ExplorerApp : OsAppControl
         Context.Toast(Loc.GetString("os-explorer-properties",
             ("name", file.Name),
             ("kind", kind),
-            ("size", OsFormat.Size(file.Size))));
+            ("size", OsFormat.Size(file.ShownSize))));
     }
 }

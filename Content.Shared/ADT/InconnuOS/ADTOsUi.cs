@@ -11,6 +11,12 @@ public enum ADTComputerUiKey : byte
 }
 
 [Serializable, NetSerializable]
+public enum ADTOsVisuals : byte
+{
+    Running,
+}
+
+[Serializable, NetSerializable]
 public enum OsPowerAction : byte
 {
     Reboot = 0,

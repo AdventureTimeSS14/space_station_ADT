@@ -3,17 +3,31 @@ namespace Content.Client.ADT.InconnuOS.UI;
 public static class OsFormat
 {
     private const long Kilobyte = 1024;
-    private const long Megabyte = 1024 * 1024;
+
+    private static readonly string[] Units =
+    {
+        "os-size-kilobytes",
+        "os-size-megabytes",
+        "os-size-gigabytes",
+        "os-size-terabytes",
+        "os-size-petabytes",
+    };
 
     public static string Size(long bytes)
     {
         if (bytes < Kilobyte)
             return Loc.GetString("os-size-bytes", ("size", bytes));
 
-        if (bytes < Megabyte)
-            return Loc.GetString("os-size-kilobytes", ("size", Number(bytes / (double) Kilobyte)));
+        var value = bytes / (double) Kilobyte;
+        var unit = 0;
 
-        return Loc.GetString("os-size-megabytes", ("size", Number(bytes / (double) Megabyte)));
+        while (value >= Kilobyte && unit < Units.Length - 1)
+        {
+            value /= Kilobyte;
+            unit++;
+        }
+
+        return Loc.GetString(Units[unit], ("size", Number(value)));
     }
 
     private static string Number(double value)
