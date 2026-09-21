@@ -1,0 +1,147 @@
+- type: entity
+  parent: [BaseItem, BaseMagicContraband]
+  id: LabyrinthHandbook
+  name: labyrinth handbook
+  description: A book containing the laws and regulations of the Locked Labyrinth.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/Entities/heretichandbook.rsi
+    layers:
+    - state: icon
+  - type: Item
+    size: Small
+    sprite: ADT/Heretic/Entities/heretichandbook.rsi
+  - type: LabyrinthHandbook
+  - type: LabyrinthHandbookCharges
+    wallProto: WallLabyrinth
+  - type: Tag
+    tags:
+    - HereticItem
+
+- type: entity
+  parent: [BaseItem, BaseMagicContraband]
+  id: Serpentclave
+  name: serpentclave
+  description: A strange key made of bones. You can tell by glance that no door will accept it.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/Entities/serpentclave.rsi
+    layers:
+    - state: icon
+  - type: Item
+    size: Small
+  - type: Serpentclave
+  - type: Tag
+    tags:
+    - HereticItem
+
+- type: entity
+  parent: PassengerIDCard
+  id: EldritchIdCard
+  suffix: Heretic
+  components:
+  - type: EldritchIdCard
+    portal: LockPortal
+
+- type: entity
+  id: LockPortal
+  name: crack in reality
+  description: A crack in space, impossibly deep and painful to the eyes. Definitely not safe.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/Effects/effects.rsi
+    layers:
+    - state: realitycrack
+    drawdepth: OverMobs
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        layer:
+        - HighImpassable
+        - MidImpassable
+        - LowImpassable
+        hard: false
+  - type: Physics
+    bodyType: Static
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: LockPortal
+  - type: Clickable
+
+- type: entity
+  id: WallLabyrinth
+  name: labyrinth pages
+  description: A field of papers flying in the air, repulsing heathens with impossible force.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: TimedDespawn
+    lifetime: 15
+  - type: Tag
+    tags:
+    - Wall
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - SpecialWallLayer
+        layer:
+        - SpecialWallLayer
+  - type: Airtight
+  - type: Sprite
+    sprite: ADT/Heretic/Entities/paper_wall.rsi
+    layers:
+    - state: icon
+  - type: LabyrinthWall
+  - type: ContainmentField
+  - type: Clickable
+
+- type: entity
+  id: LabyrinthTear
+  name: ???
+  description: It stares back. There's no reason to remain. Run.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    scale: 3, 3
+    drawdepth: HighFloorObjects
+    sprite: ADT/Heretic/Effects/effects.rsi
+    state: bhole3
+  - type: PointLight
+    enabled: true
+    radius: 20
+    energy: 2
+    color: "#53277e"
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 1.5
+        layer:
+        - SlipLayer
+        mask:
+        - ItemMask
+        density: 1000
+        hard: false
+  - type: LabyrinthPortal
+  - type: Tag
+    tags:
+    - ForceHereticMinion

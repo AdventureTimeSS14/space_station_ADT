@@ -145,6 +145,9 @@
   components:
   - type: Organ
     category: HandLeft
+  - type: Tag # ADT-Tweak
+    tags:
+    - Hand
   - type: HandOrgan
     handID: left
     data:
@@ -168,6 +171,9 @@
   components:
   - type: Organ
     category: HandRight
+  - type: Tag # ADT-Tweak
+    tags:
+    - Hand
   - type: HandOrgan
     handID: right
     data:

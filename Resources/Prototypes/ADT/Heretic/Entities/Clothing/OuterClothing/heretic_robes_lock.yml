@@ -1,0 +1,27 @@
+- type: entity
+  id: ADTClothingOuterArmorHereticLock
+  parent: ClothingOuterArmorHeretic
+  name: shifting guise
+  description: A shaded cloak favored by heretics of the Lock path. Familiarity is treachery, even to oneself.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/Clothing/OuterClothing/lock_armor.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Heretic/Clothing/OuterClothing/lock_armor.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHatHoodHereticLock
+    slot: head
+  - type: DigitalCamouflage
+
+- type: entity
+  id: ADTClothingHeadHatHoodHereticLock
+  parent: ClothingHeadHatHoodHeretic
+  name: shifting hood
+  description: A drawn hood that hides you from cameras and distant eyes.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/Clothing/Head/lock_hood.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Heretic/Clothing/Head/lock_hood.rsi

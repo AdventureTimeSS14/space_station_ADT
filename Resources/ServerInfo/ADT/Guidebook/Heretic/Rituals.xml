@@ -42,15 +42,26 @@
 
   # Побочные ритуалы
 
-  <GuideHereticRitualEmbed Ritual="ArmorerRitual" CycleOutput="ClothingOuterArmorHeretic, ADTClothingOuterArmorHereticAsh, ADTClothingOuterArmorHereticBlade, ADTClothingOuterArmorHereticFlesh, ADTClothingOuterArmorHereticVoid, ADTClothingOuterArmorHereticRust, ADTClothingOuterArmorHereticCosmos"/>
+  <GuideHereticRitualEmbed Ritual="ArmorerRitual" CycleOutput="ClothingOuterArmorHeretic, ADTClothingOuterArmorHereticAsh, ADTClothingOuterArmorHereticBlade, ADTClothingOuterArmorHereticFlesh, ADTClothingOuterArmorHereticVoid, ADTClothingOuterArmorHereticRust, ADTClothingOuterArmorHereticCosmos, ADTClothingOuterArmorHereticLock"/>
   <GuideHereticRitualEmbed Ritual="AshenEyesRitual"/>
   <GuideHereticRitualEmbed Ritual="PriestRitual"/>
   <GuideHereticRitualEmbed Ritual="VoidCloak"/>
   <GuideHereticRitualEmbed Ritual="ScorchingShark"/>
   <GuideHereticRitualEmbed Ritual="RustedRitual"/>
   <GuideHereticRitualEmbed Ritual="CarvingKnife"/>
+  <GuideHereticRitualEmbed Ritual="RitualLionhunterRifle"/>
+  <GuideHereticRitualEmbed Ritual="RitualLionhunterRifleAmmunition"/>
+  <GuideHereticRitualEmbed Ritual="RitualEtherOfTheNewborn"/>
+  <GuideHereticRitualEmbed Ritual="RitualEldritchCoin"/>
+  <GuideHereticRitualEmbed Ritual="RitualUnfathomableCurio"/>
+  <GuideHereticRitualEmbed Ritual="RitualMawedCrucible"/>
+  <GuideHereticRitualEmbed Ritual="RitualRustSowerGrenade"/>
+  <GuideHereticRitualEmbed Ritual="RitualPhylacteryOfDamnation"/>
+  <GuideHereticRitualEmbed Ritual="RitualCodexMorbus"/>
+  <GuideHereticRitualEmbed Ritual="RitualGreavesOfTheProphet"/>
+  <GuideHereticRitualEmbed Ritual="RitualMaidInTheMirror"/>
 
   # Ритуалы путей
 
-  Ритуалы конкретных путей лежат на страницах самих путей: [textlink="Пепел" link="ADTHereticPathAsh"], [textlink="Клинок" link="ADTHereticPathBlade"], [textlink="Плоть" link="ADTHereticPathFlesh"], [textlink="Пустота" link="ADTHereticPathVoid"], [textlink="Ржавчина" link="ADTHereticPathRust"], [textlink="Космос" link="ADTHereticPathCosmos"].
+  Ритуалы конкретных путей лежат на страницах самих путей: [textlink="Пепел" link="ADTHereticPathAsh"], [textlink="Клинок" link="ADTHereticPathBlade"], [textlink="Плоть" link="ADTHereticPathFlesh"], [textlink="Пустота" link="ADTHereticPathVoid"], [textlink="Ржавчина" link="ADTHereticPathRust"], [textlink="Космос" link="ADTHereticPathCosmos"], [textlink="Замок" link="ADTHereticPathLock"].
 </Document>

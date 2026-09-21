@@ -8,6 +8,7 @@ guide-entry-heretic-path-flesh = Путь Плоти
 guide-entry-heretic-path-void = Путь Пустоты
 guide-entry-heretic-path-rust = Путь Ржавчины
 guide-entry-heretic-path-cosmos = Путь Космоса
+guide-entry-heretic-path-lock = Путь Замка
 guide-entry-heretic-blades = Клинки
 guide-entry-heretic-gear = Снаряжение и слуги
 guide-entry-heretic-tips = Хитрости и провалы

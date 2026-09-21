@@ -1,0 +1,68 @@
+- type: entity
+  parent: [ DrinkBase, BaseMagicContraband ]
+  id: PotionCrucibleSoul
+  name: brew of the crucible soul
+  description: Wood grows around the walls of the Mansus. But as any Tellers teacher knows, the Mansus has no walls.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/items.rsi
+    state: crucible_soul
+  - type: Icon
+    sprite: ADT/Heretic/items.rsi
+    state: crucible_soul
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 5
+        reagents:
+        - ReagentId: CrucibleSoul
+          Quantity: 5
+  - type: Tag
+    tags:
+    - HereticItem
+
+- type: entity
+  parent: [ DrinkBase, BaseMagicContraband ]
+  id: PotionDuskDawn
+  name: brew of dusk and dawn
+  description: The higher I climb, the more I see.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/items.rsi
+    state: clarity
+  - type: Icon
+    sprite: ADT/Heretic/items.rsi
+    state: clarity
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 5
+        reagents:
+        - ReagentId: DuskAndDawn
+          Quantity: 5
+  - type: Tag
+    tags:
+    - HereticItem
+
+- type: entity
+  parent: [ DrinkBase, BaseMagicContraband ]
+  id: PotionWoundedSoldier
+  name: brew of the wounded soldier
+  description: Not all doors are wounds, but all wounds are doors.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/items.rsi
+    state: marshal
+  - type: Icon
+    sprite: ADT/Heretic/items.rsi
+    state: marshal
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 5
+        reagents:
+        - ReagentId: WoundedSoldier
+          Quantity: 5
+  - type: Tag
+    tags:
+    - HereticItem
