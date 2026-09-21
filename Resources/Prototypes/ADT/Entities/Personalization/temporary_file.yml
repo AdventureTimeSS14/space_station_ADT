@@ -162,7 +162,7 @@
   id: ADTClothingMaskNeckGaiterModShinoba
   name: modified neck gaiter
   description: Breathable gaiters — what more could you ask for?
-  suffix: Personal, shinoba
+  suffix: sponsor, shinoba
   components:
   - type: Sprite
     sprite: Clothing/Mask/neckgaiter.rsi
@@ -184,7 +184,7 @@
   id: ADTClothingBeltWeaponHolsterArmyShinoba
   name: army pouch
   description: A durable belt featuring a weapon mount and a spacious compartment. It is distinguished by its reinforced construction.
-  suffix: Personal, shinoba
+  suffix: sponsor, shinoba
   components:
   - type: Sprite
     sprite: ADT/Personalization/Shinoba/holster_army.rsi
