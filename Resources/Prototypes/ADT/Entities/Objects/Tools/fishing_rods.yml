@@ -19,6 +19,8 @@
         ejectSound:
           path: /Audio/Effects/pop.ogg
   - type: ContainerContainer
+    containers:
+      bait: !type:ContainerSlot
   - type: UserInterface
     interfaces:
       enum.ADTFishingUiKey.Key:
