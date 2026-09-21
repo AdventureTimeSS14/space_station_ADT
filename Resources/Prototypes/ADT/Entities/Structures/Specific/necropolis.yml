@@ -6,8 +6,8 @@
   components:
   - type: Sprite
     sprite: ADT/Structures/Specific/necropolis_gate.rsi
+    rotation: 270
     drawdepth: Doors
-    snapCardinals: true
     layers:
     - state: gate
       map: ["enum.DoorVisualLayers.Base"]
@@ -50,7 +50,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-1.45,-0.45,1.45,0.45"
+          bounds: "-0.45,-1.45,0.45,1.45"
         density: 1000
         mask:
         - MachineMask
@@ -65,9 +65,6 @@
   components:
   - type: AccessReader
     access: [["ADTAshWalker"]]
-  - type: Physics
-    bodyType: Static
-    canCollide: false
 
 - type: entity
   id: ADTNecropolisArch
@@ -77,14 +74,17 @@
   components:
   - type: Sprite
     sprite: ADT/Structures/Specific/necropolis_arch.rsi
+    rotation: 270
     state: arch
     drawdepth: BlastDoors
     offset: 0,0.75
-    snapCardinals: true
   - type: Transform
     anchored: true
     noRot: true
   - type: AshStormImmune
+  - type: Physics
+    bodyType: Static
+    canCollide: false
 
 - type: entity
   id: ADTNecropolisGateSubstrate
@@ -94,9 +94,9 @@
   components:
   - type: Sprite
     sprite: ADT/Structures/Specific/necropolis_gate.rsi
+    rotation: 270
     state: substrate
     drawdepth: FloorObjects
-    snapCardinals: true
   - type: Transform
     anchored: true
     noRot: true
