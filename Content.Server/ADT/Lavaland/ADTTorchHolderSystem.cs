@@ -156,7 +156,10 @@ public sealed class ADTTorchHolderSystem : EntitySystem
 
     private EntityUid? GetTorch(Entity<ADTTorchHolderComponent> ent)
     {
-        if (!_itemSlots.TryGetSlot(ent.Owner, ent.Comp.Slot, out var slot))
+        if (!TryComp<ItemSlotsComponent>(ent, out var slots))
+            return null;
+
+        if (!_itemSlots.TryGetSlot(ent.Owner, ent.Comp.Slot, out var slot, slots))
             return null;
 
         return slot.Item;
