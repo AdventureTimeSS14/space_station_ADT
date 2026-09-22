@@ -456,6 +456,7 @@ namespace Content.Client.Options.UI.Tabs
         {
             if (!_keyControls.TryGetValue(bind.Function, out var keyControl))
             {
+                UpdateConflictStates(); // ADT-Tweak: Refresh conflicts caused by bindings outside this settings tab.
                 return;
             }
 
