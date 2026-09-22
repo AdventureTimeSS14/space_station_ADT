@@ -1,5 +1,4 @@
-//
-
+using System.Linq;
 using Content.Server.Heretic.EntitySystems;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
@@ -63,7 +62,8 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
 
         if (_missingTags.Count > 0)
         {
-            var missing = string.Join(", ", _missingTags);
+            var ritualSystem = args.EntityManager.System<HereticRitualSystem>();
+            var missing = string.Join(", ", _missingTags.Select(tag => ritualSystem.GetRitualItemName(tag)));
             outstr = Loc.GetString("heretic-ritual-fail-items", ("itemlist", missing));
             return false;
         }

@@ -126,7 +126,9 @@ public partial class XenobiologySystem
         {
             var selectedBreed = ent.Comp.Breed;
 
-            if (_random.Prob(ent.Comp.MutationChance) && ent.Comp.PotentialMutations.Count > 0)
+            if (i == 0 && ent.Comp.MutationChance >= 1f && ent.Comp.MaxMutation is { } maxMutation)
+                selectedBreed = maxMutation;
+            else if (_random.Prob(ent.Comp.MutationChance) && ent.Comp.PotentialMutations.Count > 0)
                 selectedBreed = _random.Pick(ent.Comp.PotentialMutations);
 
             var sl = SpawnSlime(ent, ent.Comp.DefaultSlimeProto, selectedBreed);

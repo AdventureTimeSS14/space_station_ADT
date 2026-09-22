@@ -205,6 +205,9 @@
   components:
   - type: VendingMachine
     pack: ADTIceCreamVendInventory
+    initialStockQuality: 0.33
+    dispenseOnHitChance: 0.25
+    dispenseOnHitThreshold: 2
     offState: off
     brokenState: broken
     normalState: normal-unshaded
