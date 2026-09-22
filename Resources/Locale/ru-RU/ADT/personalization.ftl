@@ -1183,10 +1183,14 @@ ent-ADTClothingUniformHeatResistantJumpsuitIllumy = жаропрочный см�
     .desc = Строгий багровый смокинг, сшитый из плотной ткани, способной выдерживать сильный жар. Даже рядом с открытым пламенем он сохраняет безупречный вид.
     .suffix = { "Спонсорское, Unlumination" }
 
-ent-ADTClothingMaskNeckGaiterModShinoba = модифицированный шейный гетр
+Вent-ADTClothingMaskNeckGaiterModShinoba = модифицированный шейный гетр
     .desc = Гетр с возможностью дышать, что ещё надо для счастья?
     .suffix = { "Спонсорское, shinoba" }
 
 ent-ADTClothingBeltWeaponHolsterArmyShinoba = армейский подсумок
     .desc = Прочный пояс с креплением для оружия и вместительным отделением. Имеет усиленную конструкцию.
     .suffix = { "Спонсорское, shinoba" }
+
+ent-ADTPlushieProximaLunnyykat = плюшевая Проксима
+    .desc = Перед тобой маленькая зелёная молька, держащая пиво Проксима... Похоже из-за страха и неуверенности она не хочет общаться с тобой. Пахнет пивом и криоксадоном.
+    .suffix = { "Спонсорское, Lunnyykat" }

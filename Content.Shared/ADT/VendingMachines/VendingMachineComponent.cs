@@ -228,6 +228,8 @@ namespace Content.Shared.ADT.VendingMachines
         [DataField, ViewVariables(VVAccess.ReadWrite)]
         public Dictionary<string, uint> ReturnedInventory = new();
 
+        public const string ReturnedItemsContainerId = "ADTVendingReturnedItems";
+
     }
 
     [Serializable, NetSerializable, DataDefinition]
