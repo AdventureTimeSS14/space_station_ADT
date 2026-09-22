@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Shared.ADT.AshWalker.Components;
 using Content.Shared.ADT.Rituals;
 using Content.Shared.DoAfter;
+using Content.Shared.Ghost;
 using Content.Shared.Gibbing;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
@@ -220,6 +221,9 @@ public sealed partial class ADTRitualSystem : EntitySystem
             return true;
 
         if (!HasComp<HumanoidProfileComponent>(uid) || _mobState.IsDead(uid))
+            return false;
+
+        if (HasComp<GhostComponent>(uid))
             return false;
 
         return ritual.AllowedSpecies.Count == 0 || IsAllowedSpecies(uid, ritual.AllowedSpecies);
