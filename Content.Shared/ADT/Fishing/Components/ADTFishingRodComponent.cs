@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.Fishing.Components;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ADTFishingRodComponent : Component
 {
     [DataField]
@@ -27,6 +27,15 @@ public sealed partial class ADTFishingRodComponent : Component
 
     [DataField]
     public EntProtoId Bobber = "ADTFishingBobber";
+
+    [DataField]
+    public EntProtoId CastAction = "ADTActionFishingCast";
+
+    [DataField, AutoNetworkedField]
+    public EntityUid? CastActionEntity;
+
+    [DataField]
+    public float CastRange = 6f;
 
     [DataField]
     public SoundSpecifier ThrowSound = new SoundPathSpecifier("/Audio/ADT/Fishing/fishing_rod_throw.ogg");

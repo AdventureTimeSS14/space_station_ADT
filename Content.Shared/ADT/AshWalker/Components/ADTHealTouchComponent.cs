@@ -1,4 +1,5 @@
 using Content.Shared.Damage;
+using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -22,7 +23,13 @@ public sealed partial class ADTHealTouchComponent : Component
     };
 
     [DataField]
+    public FixedPoint2 BloodRestore = 40;
+
+    [DataField]
     public bool CanHealSelf = true;
+
+    [DataField]
+    public EntProtoId HealEffect = "ADTEffectHealBusyFlash";
 
     [DataField]
     public EntProtoId ActionId = "ADTActionHealTouch";

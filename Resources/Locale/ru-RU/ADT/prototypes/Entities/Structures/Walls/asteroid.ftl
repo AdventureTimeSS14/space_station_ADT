@@ -101,3 +101,7 @@ ent-ADTWallRockSandBS = { ent-WallRock }
 ent-ADTWallRockChromiteBS = { ent-WallRock }
     .desc = Рудная жила, богатая блюспейс кристаллами.
     .suffix = Блюспейс кристалл
+
+ent-ADTWallRockBasaltSandstone = { ent-WallRockBasalt }
+    .desc = Базальтовая жила с прожилками песчаника.
+    .suffix = Песчаник

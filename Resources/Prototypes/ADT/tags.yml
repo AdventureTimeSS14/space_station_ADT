@@ -1020,3 +1020,45 @@
 
 - type: Tag
   id: ADTWeaverChitin
+
+- type: Tag
+  id: LavaDungeonAshVillage
+
+- type: Tag
+  id: ADTCartilagePads
+
+- type: Tag
+  id: ADTCartilageGreaves
+
+- type: Tag
+  id: ADTSpearBone
+
+- type: Tag
+  id: ADTBowImprovised
+
+- type: Tag
+  id: ADTGoliathMeat
+
+- type: Tag
+  id: ADTSpearChitin
+
+- type: Tag
+  id: ADTBowBone
+
+- type: Tag
+  id: ADTArrowWooden
+
+- type: Tag
+  id: ADTGemRuby
+
+- type: Tag
+  id: ADTSinewRestraints
+
+- type: Tag
+  id: ADTBoneKnifeEel
+
+- type: Tag
+  id: ADTGoliathCloak
+
+- type: Tag
+  id: ADTBow

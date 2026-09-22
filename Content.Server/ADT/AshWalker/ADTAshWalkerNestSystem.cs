@@ -1,5 +1,7 @@
 using Content.Shared.ADT.AshWalker.Components;
 using Content.Shared.ADT.Salvage.Components;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
@@ -16,6 +18,7 @@ namespace Content.Server.ADT.AshWalker;
 
 public sealed class ADTAshWalkerNestSystem : EntitySystem
 {
+    [Dependency] private readonly SharedBloodstreamSystem _blood = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly GibbingSystem _gibbing = default!;
@@ -121,7 +124,7 @@ public sealed class ADTAshWalkerNestSystem : EntitySystem
 
     private void Heal(Entity<ADTAshWalkerNestComponent> ent)
     {
-        if (ent.Comp.AuraHealing.Empty)
+        if (ent.Comp.AuraHealing.Empty && ent.Comp.AuraBloodRestore <= 0)
             return;
 
         var tribe = new HashSet<Entity<ADTAshWalkerComponent>>();
@@ -132,7 +135,17 @@ public sealed class ADTAshWalkerNestSystem : EntitySystem
             if (_mobState.IsDead(walker.Owner))
                 continue;
 
-            _damageable.TryChangeDamage(walker.Owner, ent.Comp.AuraHealing, true, origin: ent.Owner);
+            if (!ent.Comp.AuraHealing.Empty)
+                _damageable.TryChangeDamage(walker.Owner, ent.Comp.AuraHealing, true, origin: ent.Owner);
+
+            if (!TryComp<BloodstreamComponent>(walker.Owner, out var bloodstream))
+                continue;
+
+            if (ent.Comp.AuraBloodRestore > 0)
+                _blood.TryModifyBloodLevel((walker.Owner, bloodstream), ent.Comp.AuraBloodRestore);
+
+            if (bloodstream.BleedAmount > 0)
+                _blood.TryModifyBleedAmount((walker.Owner, bloodstream), -bloodstream.BleedAmount);
         }
     }
 

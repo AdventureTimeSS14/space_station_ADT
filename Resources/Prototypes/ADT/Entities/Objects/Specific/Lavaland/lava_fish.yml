@@ -37,7 +37,7 @@
   - type: Sprite
     state: ash_crab
   - type: ADTFish
-    difficulty: 0.25
+    difficulty: 0.17
     favoriteBait: ADTFishingBaitAshEater
   - type: Butcherable
     butcheringType: Knife
@@ -56,7 +56,7 @@
   - type: Sprite
     state: dead_horseman
   - type: ADTFish
-    difficulty: 0.3
+    difficulty: 0.21
     favoriteBait: ADTFishingBaitBloodyLeach
   - type: Butcherable
     butcheringType: Knife
@@ -76,7 +76,7 @@
   - type: Sprite
     state: shellfish
   - type: ADTFish
-    difficulty: 0.4
+    difficulty: 0.28
     favoriteBait: ADTFishingBaitGoldgrubLarva
   - type: Butcherable
     butcheringType: Knife
@@ -96,7 +96,7 @@
   - type: Sprite
     state: bottom_eel
   - type: ADTFish
-    difficulty: 0.5
+    difficulty: 0.35
     favoriteBait: ADTFishingBaitAshEater
   - type: Butcherable
     butcheringType: Knife
@@ -115,7 +115,7 @@
   - type: Sprite
     state: red_devourer
   - type: ADTFish
-    difficulty: 0.7
+    difficulty: 0.49
     favoriteBait: ADTFishingBaitBloodyLeach
   - type: Butcherable
     butcheringType: Knife
@@ -138,7 +138,7 @@
   - type: Sprite
     state: magma_hammerhead
   - type: ADTFish
-    difficulty: 0.65
+    difficulty: 0.45
     favoriteBait: ADTFishingBaitGoldgrubLarva
   - type: Butcherable
     butcheringType: Knife
@@ -157,7 +157,7 @@
   - type: Sprite
     state: blind_reaper
   - type: ADTFish
-    difficulty: 0.6
+    difficulty: 0.42
     favoriteBait: ADTFishingBaitAshEater
   - type: MeleeWeapon
     wideAnimationRotation: 45
@@ -184,7 +184,7 @@
   - type: Sprite
     state: herald_of_carnage
   - type: ADTFish
-    difficulty: 0.85
+    difficulty: 0.59
     favoriteBait: ADTFishingBaitBloodyLeach
   - type: Butcherable
     butcheringType: Knife
@@ -208,7 +208,7 @@
   - type: Sprite
     state: sulfuric_tramp
   - type: ADTFish
-    difficulty: 0.55
+    difficulty: 0.39
     favoriteBait: ADTFishingBaitGoldgrubLarva
   - type: ADTButcherSmoke
     duration: 10
