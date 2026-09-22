@@ -7,6 +7,17 @@
   - type: TTS
   - type: BreathingImmunity
   - type: AshStormImmune
+  - type: GhostRole
+    name: ghost-role-information-adt-ash-walker-name
+    description: ghost-role-information-adt-ash-walker-description
+    rules: ghost-role-information-adt-ash-walker-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: ADTAshWalker
+  - type: GhostTakeoverAvailable
+  - type: Hunger
+    baseDecayRate: 0.023333333
   - type: NightVision
     innate: true
     effectPrototype: ADTEffectNightVisionMedium
@@ -214,11 +225,14 @@
   id: ADTMobAshWalkerShaman
   components:
   - type: ADTAshWalker
-    shaman: true
     whitelist:
       tags:
       - ADTBow
       - ADTBowImprovised
+    shaman: true
+  - type: GhostRole
+    name: ghost-role-information-adt-ash-walker-shaman-name
+    description: ghost-role-information-adt-ash-walker-shaman-description
   - type: LanguageSpeaker
     languages:
       Draconic: Speak

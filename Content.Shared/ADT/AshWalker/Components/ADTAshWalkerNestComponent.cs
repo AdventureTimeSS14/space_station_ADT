@@ -32,6 +32,9 @@ public sealed partial class ADTAshWalkerNestComponent : Component
     public DamageSpecifier AuraHealing = new();
 
     [DataField]
+    public FixedPoint2 AuraBloodRestore = 5;
+
+    [DataField]
     public EntProtoId Egg = "ADTAshWalkerEgg";
 
     [DataField]
