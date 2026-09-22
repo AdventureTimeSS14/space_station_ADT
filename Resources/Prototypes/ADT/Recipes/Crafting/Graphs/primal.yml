@@ -462,7 +462,7 @@
         amount: 20
         doAfter: 5
   - node: wall
-    entity: ADTStonebrickWall
+    entity: WallSandstone
     edges:
     - to: start
       completed:
