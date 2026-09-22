@@ -6,7 +6,6 @@
   components:
   - type: Sprite
     sprite: ADT/Structures/Specific/necropolis_gate.rsi
-    rotation: 270
     drawdepth: Doors
     layers:
     - state: gate
@@ -23,8 +22,10 @@
   - type: Appearance
   - type: AnimationPlayer
   - type: Occluder
-    boundingBox: "-0.45,-1.45,0.45,1.45"
+    boundingBox: "-1.45,-0.45,1.45,1.2"
   - type: Door
+    openDrawDepth: BlastDoors
+    closedDrawDepth: BlastDoors
     canCrush: false
     performCollisionCheck: false
     bumpOpen: false
@@ -50,7 +51,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.45,-1.45,0.45,1.45"
+          bounds: "-1.45,-0.45,1.45,0.7"
         density: 1000
         mask:
         - MachineMask
@@ -74,7 +75,6 @@
   components:
   - type: Sprite
     sprite: ADT/Structures/Specific/necropolis_arch.rsi
-    rotation: 270
     state: arch
     drawdepth: BlastDoors
     offset: 0,0.75
@@ -94,9 +94,8 @@
   components:
   - type: Sprite
     sprite: ADT/Structures/Specific/necropolis_gate.rsi
-    rotation: 270
     state: substrate
-    drawdepth: FloorObjects
+    drawdepth: HighFloorObjects
   - type: Transform
     anchored: true
     noRot: true
@@ -104,6 +103,9 @@
   - type: Tag
     tags:
     - HideContextMenu
+  - type: Physics
+    bodyType: Static
+    canCollide: false
 
 - type: entity
   id: ADTTribalOven
