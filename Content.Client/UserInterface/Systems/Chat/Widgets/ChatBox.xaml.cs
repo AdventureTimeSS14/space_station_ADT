@@ -137,10 +137,12 @@ public partial class ChatBox : UIWidget
         ChatInput.FilterButton.Popup.UpdateHighlights(highlights);
     }
 
-    private void OnOpenCustomEmotes() // ADT-Tweak
+    // ADT-Tweak-Start
+    private void OnOpenCustomEmotes()
     {
         _controller.OpenCustomEmotesWindow();
     }
+    // ADT-Tweak-End
 
     private void OnChannelSelect(ChatSelectChannel channel)
     {

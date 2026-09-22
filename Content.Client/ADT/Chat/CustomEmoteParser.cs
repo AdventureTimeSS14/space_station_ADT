@@ -88,7 +88,7 @@ public static class CustomEmoteParser
 
         foreach (var (regex, candidate) in entries)
         {
-            var match = regex.Match(cleaned);
+            var match = regex.Match(text);
 
             if (!match.Success)
                 continue;
