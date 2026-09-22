@@ -1183,7 +1183,7 @@ ent-ADTClothingUniformHeatResistantJumpsuitIllumy = жаропрочный см�
     .desc = Строгий багровый смокинг, сшитый из плотной ткани, способной выдерживать сильный жар. Даже рядом с открытым пламенем он сохраняет безупречный вид.
     .suffix = { "Спонсорское, Unlumination" }
 
-Вent-ADTClothingMaskNeckGaiterModShinoba = модифицированный шейный гетр
+ent-ADTClothingMaskNeckGaiterModShinoba = модифицированный шейный гетр
     .desc = Гетр с возможностью дышать, что ещё надо для счастья?
     .suffix = { "Спонсорское, shinoba" }
 
