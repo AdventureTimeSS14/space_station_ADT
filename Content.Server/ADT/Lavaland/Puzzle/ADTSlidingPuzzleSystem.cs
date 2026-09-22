@@ -119,7 +119,6 @@ public sealed class ADTSlidingPuzzleSystem : EntitySystem
 
             var id = _random.PickAndTake(leftIds);
             var element = Spawn($"{puzzle.Comp.ElementProtoPrefix}{id}", coords);
-            _transform.AnchorEntity(element, Transform(element));
 
             var comp = EnsureComp<ADTSlidingPuzzleElementComponent>(element);
             comp.Source = puzzle;
@@ -138,8 +137,7 @@ public sealed class ADTSlidingPuzzleSystem : EntitySystem
             return;
 
         var coords = _map.GridTileToLocal(gridUid, grid, tile);
-        var piece = Spawn($"{puzzle.Comp.PieceProtoPrefix}{pieceId}", coords);
-        _transform.AnchorEntity(piece, Transform(piece));
+        Spawn($"{puzzle.Comp.PieceProtoPrefix}{pieceId}", coords);
     }
 
     private bool IsSolvable(Entity<ADTSlidingPuzzleComponent> puzzle)
@@ -261,8 +259,12 @@ public sealed class ADTSlidingPuzzleSystem : EntitySystem
         if (args.Handled)
             return;
 
-        if (!TryComp<ADTSlidingPuzzleComponent>(element.Comp.Source, out var puzzle) || puzzle.Finished)
+        if (TerminatingOrDeleted(element.Comp.Source) ||
+            !TryComp<ADTSlidingPuzzleComponent>(element.Comp.Source, out var puzzle) ||
+            puzzle.Finished)
+        {
             return;
+        }
 
         var puzzleEnt = (element.Comp.Source, puzzle);
 
@@ -324,8 +326,12 @@ public sealed class ADTSlidingPuzzleSystem : EntitySystem
 
     private void OnElementShutdown(Entity<ADTSlidingPuzzleElementComponent> element, ref ComponentShutdown args)
     {
-        if (!TryComp<ADTSlidingPuzzleComponent>(element.Comp.Source, out var puzzle) || puzzle.Finished)
+        if (TerminatingOrDeleted(element.Comp.Source) ||
+            !TryComp<ADTSlidingPuzzleComponent>(element.Comp.Source, out var puzzle) ||
+            puzzle.Finished)
+        {
             return;
+        }
 
         puzzle.Elements.Remove(element);
         Validate((element.Comp.Source, puzzle));
