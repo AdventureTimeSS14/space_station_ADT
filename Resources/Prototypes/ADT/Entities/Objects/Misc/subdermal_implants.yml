@@ -393,11 +393,11 @@
     targetUser: true
     components:
     - type: KnockedDown
-  - type: StaminaRestoreOnTrigger # полностью восстанавливает стамину и выводит из стамкрита
+  - type: StaminaRestoreOnTrigger
     keysIn:
     - delayed
     targetUser: true
-  - type: PopupOnTrigger # сообщение видит только сам носитель
+  - type: PopupOnTrigger
     keysIn:
     - delayed
     targetUser: true
