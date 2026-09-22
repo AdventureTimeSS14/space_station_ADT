@@ -1,0 +1,41 @@
+- type: jukebox
+  id: ADTTheOnlyThingTheyFearIsYou
+  name: 1. The Only Thing They Fear Is You - Mick Gordon
+  path:
+    path: /Audio/ADT/Jukebox/digger/The-Only-Thing-They-Fear-Is-You.ogg
+
+- type: jukebox
+  id: ADTDoomCrossingEternalHorizons
+  name: 2. Doom Crossing Eternal Horizons - The Chalkeaters
+  path:
+    path: /Audio/ADT/Jukebox/digger/Doom-Crossing-Eternal-Horizons.ogg
+
+- type: jukebox
+  id: ADTDiggyDiggyHole
+  name: 3. Diggy Diggy Hole - Wind Rose
+  path:
+    path: /Audio/ADT/Jukebox/digger/Diggy-Diggy-Hole.ogg
+
+- type: jukebox
+  id: ADTRockAndStone
+  name: 4. Rock and Stone - Wind Rose
+  path:
+    path: /Audio/ADT/Jukebox/digger/Rock-And-Stone.ogg
+
+- type: jukebox
+  id: ADTReignOfTerror
+  name: 5. Reign of Terror - Sabaton
+  path:
+    path: /Audio/ADT/Jukebox/digger/Reign-Of-Terror.ogg
+
+- type: jukebox
+  id: ADTRUN
+  name: 6. RUN! - Sophus Alf Agerbæk-Larsen, Troels Rohde Jørgensen
+  path:
+    path: /Audio/ADT/Jukebox/digger/RUN!.ogg
+
+- type: jukebox
+  id: ADTSonne
+  name: 7. Sonne - Rammstein
+  path:
+    path: /Audio/ADT/Jukebox/digger/Sonne.ogg

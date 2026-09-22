@@ -11,6 +11,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
+using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Pointing;
@@ -31,6 +32,7 @@ public sealed partial class SlimeSpeechSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _speedModifier = default!;
+    [Dependency] private readonly NameModifierSystem _nameModifier = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
@@ -146,7 +148,7 @@ public sealed partial class SlimeSpeechSystem : EntitySystem
         slime.Comp.FollowingTarget = speaker;
         slime.Comp.NextFollowUpdate = TimeSpan.Zero;
         EnsureComp<SlimeFollowingComponent>(slime);
-        SayForCommand(slime, Loc.GetString("slime-speech-follow", ("target", speaker)), speaker);
+        SayForCommand(slime, Loc.GetString("slime-speech-follow", ("slime", slime), ("target", speaker)), speaker);
         return true;
     }
 
@@ -271,7 +273,7 @@ public sealed partial class SlimeSpeechSystem : EntitySystem
 
         _factions.AggroEntity(new Entity<FactionExceptionComponent?>(slime, default), target);
         RefreshSpeed(slime);
-        SayForCommand(slime, Loc.GetString("slime-speech-attack", ("target", target)), speaker);
+        SayForCommand(slime, Loc.GetString("slime-speech-attack", ("slime", slime), ("target", _nameModifier.GetBaseName(target))), speaker);
     }
 
     private void CancelAttackOrder(Entity<SlimeComponent> slime, EntityUid speaker)

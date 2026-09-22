@@ -196,8 +196,14 @@ public sealed class TendrilSystem : EntitySystem
                 if (!TryComp<TendrilMobComponent>(mob, out var mobComp))
                     continue;
 
-                if (mobComp.BaseAggroRadius is { } baseRadius && TryComp<HTNComponent>(mob, out var htn))
-                    htn.Blackboard.SetValue(AggroVisionRadiusKey, baseRadius);
+                if (TryComp<HTNComponent>(mob, out var htn))
+                {
+                    htn.Blackboard.Remove<EntityUid>(TargetKey);
+                    htn.Blackboard.Remove<EntityCoordinates>(TargetCoordinatesKey);
+
+                    if (mobComp.BaseAggroRadius is { } baseRadius)
+                        htn.Blackboard.SetValue(AggroVisionRadiusKey, baseRadius);
+                }
 
                 mobComp.BaseAggroRadius = null;
             }

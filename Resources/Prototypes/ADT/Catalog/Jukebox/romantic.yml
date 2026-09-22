@@ -1,0 +1,65 @@
+- type: jukebox
+  id: ADTCreep
+  name: 1. Creep - Radiohead
+  path:
+    path: /Audio/ADT/Jukebox/romantic/Creep.ogg
+
+- type: jukebox
+  id: ADTNoSurprises
+  name: 2. No Surprises - Radiohead
+  path:
+    path: /Audio/ADT/Jukebox/romantic/No-Surprises.ogg
+
+- type: jukebox
+  id: ADTOchenOchen
+  name: 3. Очень-очень - hehehe
+  path:
+    path: /Audio/ADT/Jukebox/romantic/ochen-ochen.ogg
+
+- type: jukebox
+  id: ADTMedvedica
+  name: 4. Медведица - Мумий Тролль
+  path:
+    path: /Audio/ADT/Jukebox/romantic/Medvedica.ogg
+
+- type: jukebox
+  id: ADTSolnce
+  name: 5. Как я спасал солнце - ssshhhiiittt!!!
+  path:
+    path: /Audio/ADT/Jukebox/romantic/solnce.ogg
+
+- type: jukebox
+  id: ADTtancuy
+  name: 6. Танцуй! - Сплин
+  path:
+    path: /Audio/ADT/Jukebox/romantic/tancui.ogg
+
+- type: jukebox
+  id: ADTSmisl
+  name: 7. Смысла было бы больше - Дегид
+  path:
+    path: /Audio/ADT/Jukebox/romantic/smisl.ogg
+
+- type: jukebox
+  id: ADTAtractcion
+  name: 8. Аттракцион - Дегид
+  path:
+    path: /Audio/ADT/Jukebox/romantic/atrac.ogg
+
+- type: jukebox
+  id: ADTSurf
+  name: 9. Сёрф - Дегид
+  path:
+    path: /Audio/ADT/Jukebox/romantic/serf.ogg
+
+- type: jukebox
+  id: ADTPlastinki
+  name: 10. Пластинки - Дурной Вкус
+  path:
+    path: /Audio/ADT/Jukebox/romantic/plastinki.ogg
+
+- type: jukebox
+  id: ADTDrug
+  name: 11. Друг - Дайте танк (!)
+  path:
+    path: /Audio/ADT/Jukebox/romantic/drug.ogg

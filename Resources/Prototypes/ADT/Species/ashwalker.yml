@@ -1,0 +1,99 @@
+- type: species
+  id: ADTAshWalkerSpecies
+  name: species-name-adt-ashwalker
+  roundStart: false
+  prototype: ADTMobAshWalker
+  dollPrototype: ADTAppearanceAshWalker
+  defaultSkinTone: "#7a5c3a"
+  skinColoration: Hues
+  maleFirstNames: NamesReptilianMale
+  femaleFirstNames: NamesReptilianFemale
+  naming: FirstDashFirst
+  category: Special
+  shortDesc: species-short-desc-adt-ashwalker
+  description: "/ServerInfo/ADT/SpeciesDescriptions/AshWalker.xml"
+  pros:
+  - Не нуждаются в дыхании.
+  - Получают на 10% меньше физического урона.
+  - Быстрее передвигаются по Лаваленду.
+  - Лечатся рядом с гнездом.
+  - Могут высечь огонь прямо из пасти.
+  special:
+  - Не понимают технологию и не могут пользоваться огнестрельным оружием.
+  cons:
+  - Получают на 30% больше урона от холода.
+  defaultLanguages:
+  - Draconic
+  maxAge: 70
+  oldAge: 45
+  youngAge: 20
+  minAge: 12
+
+- type: species
+  id: ADTAshWalkerShamanSpecies
+  name: species-name-adt-ashwalker-shaman
+  roundStart: false
+  prototype: ADTMobAshWalkerShaman
+  dollPrototype: ADTAppearanceAshWalkerShaman
+  defaultSkinTone: "#6b6a4a"
+  skinColoration: Hues
+  maleFirstNames: NamesReptilianMale
+  femaleFirstNames: NamesReptilianFemale
+  naming: FirstDashFirst
+  category: Special
+  shortDesc: species-short-desc-adt-ashwalker-shaman
+  description: "/ServerInfo/ADT/SpeciesDescriptions/AshWalkerShaman.xml"
+  pros:
+  - Не нуждаются в дыхании.
+  - Владеют Прикосновением шамана, заживляющим раны соплеменников.
+  - Чувствуют направление до священных мест Лазиса.
+  - Быстрее передвигаются по Лазису.
+  - Могут высечь огонь прямо из пасти.
+  special:
+  - Проводят племенные ритуалы, недоступные остальным.
+  - Не понимают технологию и не могут пользоваться огнестрельным оружием.
+  - В племени может быть только один шаман, пока ритуал не приведёт второго.
+  cons:
+  - Получают на 15% больше физического урона и урона от огня.
+  - Получают на 30% больше урона от холода.
+  defaultLanguages:
+  - Draconic
+  maxAge: 70
+  oldAge: 45
+  youngAge: 20
+  minAge: 12
+
+- type: species
+  id: ADTDraconidSpecies
+  name: species-name-adt-draconid
+  roundStart: false
+  prototype: ADTMobDraconid
+  dollPrototype: ADTAppearanceDraconid
+  defaultSkinTone: "#110101"
+  skinColoration: Hues
+  maleFirstNames: NamesReptilianMale
+  femaleFirstNames: NamesReptilianFemale
+  naming: FirstDashFirst
+  category: Special
+  shortDesc: species-short-desc-adt-draconid
+  description: "/ServerInfo/ADT/SpeciesDescriptions/Draconid.xml"
+  pros:
+  - Не нуждаются в дыхании.
+  - Получают на 20% меньше физического урона и на 10% меньше урона от огня.
+  - Не горят в пепельной буре и почти не боятся жара.
+  - Всегда передвигаются быстрее сородичей.
+  - Рвут врагов когтями сильнее любого пеплоходца.
+  special:
+  - Возносятся из пеплоходцев только через Ритуал Души.
+  - Чёрная чешуя, тёмно-красные глаза и драконьи рога вместо привычного облика.
+  cons:
+  - Лапы не влезают ни в обувь, ни в носки.
+  - Получают на 30% больше урона от холода.
+  defaultLanguages:
+  - GalacticCommon
+  - Draconic
+  - CintaTaj
+  maxAge: 90
+  oldAge: 50
+  youngAge: 30
+  minAge: 12

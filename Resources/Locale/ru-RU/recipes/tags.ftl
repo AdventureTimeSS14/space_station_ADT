@@ -47,6 +47,8 @@ construction-graph-tag-power-cell = батарея
 construction-graph-tag-potato-battery = картофельная батарея
 construction-graph-tag-super-compact-ai-chip = сверхкомпактный чип ИИ
 construction-graph-tag-micro-manipulator = манипулятор
+construction-graph-tag-empty-bottle = пустая бутылка
+construction-graph-tag-extinguisher = огнетушитель
 # other
 construction-graph-tag-light-bulb = лампочка
 construction-graph-tag-second-light-bulb = вторую лампочку
@@ -140,3 +142,16 @@ construction-graph-tag-fire-helmet = пожарный шлем
 construction-graph-tag-spationaut-hardsuit = лёгкий скафандр утилизатора
 # clothing
 construction-graph-tag-backpack = рюкзак
+
+# lavaland
+construction-graph-tag-ash-drake-hide = шкура пепельного дракона
+construction-graph-tag-goliath-cloak = плащ из голиафа
+construction-graph-tag-improvised-shortbow = самодельный короткий лук
+construction-graph-tag-wooden-arrow = деревянная стрела
+construction-graph-tag-sinew-restraints = путы из сухожилий
+construction-graph-tag-bone-spear = костяное копьё
+construction-graph-tag-raw-goliath-meat = сырое мясо голиафа
+construction-graph-tag-cartilage-greaves = хрящевые поножи
+construction-graph-tag-cartilage-shoulder-pads = хрящевые наплечники
+construction-graph-tag-eel-bone-knife = костяной нож из угря
+construction-graph-tag-ruby = рубин

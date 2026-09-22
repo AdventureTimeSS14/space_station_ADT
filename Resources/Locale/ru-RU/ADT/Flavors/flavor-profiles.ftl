@@ -104,3 +104,6 @@ flavor-complex-adtyupistrawberry = как химозный клубничный 
 flavor-complex-adtyupiwatermelon = как химозный арбузный сок и беззаботное детство
 
 flavor-complex-waffle-cake = как вафли и варёная сгущёнка
+
+flavor-base-adtash = пеплом
+flavor-complex-adthopelessness = безнадёжностью

@@ -24,5 +24,8 @@
         children:
         - id: ADTFishingRod
         - id: ADTFishingRodGoon
+        - id: ADTFishingBaitAshEater
+        - id: ADTFishingBaitBloodyLeach
+        - id: ADTFishingBaitGoldgrubLarva
         - id: ClothingHeadFishCap
         - id: ADTDrinkBeerCanPack
