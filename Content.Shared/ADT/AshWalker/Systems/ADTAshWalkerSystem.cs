@@ -1,6 +1,7 @@
 using Content.Shared.ADT.AshWalker.Components;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Ranged.Events;
+using Content.Shared.Whitelist;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.ADT.AshWalker.Systems;
@@ -9,6 +10,7 @@ public sealed class ADTAshWalkerSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
 
     public override void Initialize()
     {
@@ -23,6 +25,9 @@ public sealed class ADTAshWalkerSystem : EntitySystem
             return;
 
         if (args.Cancelled)
+            return;
+
+        if (_whitelist.IsWhitelistPass(ent.Comp.Whitelist, args.Used))
             return;
 
         args.Cancel();

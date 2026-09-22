@@ -46,6 +46,11 @@
       projectiles: !type:ContainerSlot
   - type: ContainerAmmoProvider
     container: projectiles
+  # ADT-Tweak-Start
+  - type: Tag
+    tags:
+    - ADTBow
+  # ADT-Tweak-End
 
 - type: entity
   id: BowImprovised
@@ -56,6 +61,7 @@
   - type: Tag
     tags:
     - ADTBowImprovised
+    - ADTBow
   # ADT-Tweak-End
   - type: Sprite
     layers:

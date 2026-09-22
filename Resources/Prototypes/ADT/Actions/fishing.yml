@@ -1,5 +1,4 @@
 - type: entity
-  id: ActionStartFishing
   id: ADTActionFishingCast
   name: Cast the line
   description: Cast the bait into the distance. Deep water hides bigger fish.
@@ -17,24 +16,5 @@
     checkCanAccess: false
     range: 15
   - type: WorldTargetAction
-    event: !type:ThrowFishingLureActionEvent
-
-- type: entity
-  id: ActionStopFishing
-  components:
-  - type: Action
-    icon:
-      sprite: ADT/Objects/Specific/Fishing/goon_rod.rsi
-      state: icon
-    sound:
-      path: /Audio/ADT/Items/Fishing/fishing_rod_reel.ogg
-    itemIconStyle: NoItem
-  - type: InstantAction
-    event: !type:PullFishingLureActionEvent
-    itemIconStyle: BigAction
-    useDelay: 2
-  - type: TargetAction
-    checkCanAccess: false
-    range: 6
-  - type: WorldTargetAction
     event: !type:ADTFishingCastActionEvent
+
