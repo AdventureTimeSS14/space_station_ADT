@@ -60,9 +60,9 @@ public sealed class ADTFishingSystem : EntitySystem
 
         var userPos = _transform.GetMapCoordinates(args.Performer);
         var targetPos = _transform.ToMapCoordinates(args.Target);
+        var dist = (userPos.Position - targetPos.Position).Length();
 
-        if (userPos.MapId != targetPos.MapId ||
-            (userPos.Position - targetPos.Position).Length() > ent.Comp.CastRange)
+        if (userPos.MapId != targetPos.MapId || dist > ent.Comp.CastRange)
         {
             _popup.PopupEntity(Loc.GetString("adt-fishing-too-far"), ent.Owner, args.Performer);
             return;
@@ -85,7 +85,6 @@ public sealed class ADTFishingSystem : EntitySystem
             return false;
 
         var indices = _map.TileIndicesFor(gridUid, grid, coords);
-
         foreach (var uid in _map.GetAnchoredEntities(gridUid, grid, indices))
         {
             if (!TryComp<ADTFishingSpotComponent>(uid, out var spotComp))
@@ -100,6 +99,7 @@ public sealed class ADTFishingSystem : EntitySystem
 
     private void TryStartFishing(Entity<ADTFishingRodComponent> ent, EntityUid user, Entity<ADTFishingSpotComponent> spot)
     {
+
         if (!spot.Comp.CanBeFished || (spot.Comp.LavalandOnly && !IsLavaland(spot.Owner)))
         {
             _popup.PopupEntity(Loc.GetString("adt-fishing-nothing-lives"), ent.Owner, user);
@@ -131,6 +131,8 @@ public sealed class ADTFishingSystem : EntitySystem
             NeedHand = true,
             BlockDuplicate = true,
             CancelDuplicate = true,
+            RequireCanInteract = false,
+            DistanceThreshold = null,
         };
 
         if (!_doAfter.TryStartDoAfter(doAfter))
@@ -147,6 +149,7 @@ public sealed class ADTFishingSystem : EntitySystem
 
     private void OnDoAfter(Entity<ADTFishingRodComponent> ent, ref ADTFishingDoAfterEvent args)
     {
+
         if (args.Target is not { } target || !TryComp<ADTFishingSpotComponent>(target, out var spotComp))
         {
             EndCast(ent, null);

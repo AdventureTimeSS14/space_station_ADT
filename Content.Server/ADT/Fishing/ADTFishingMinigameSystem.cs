@@ -207,7 +207,7 @@ public sealed class ADTFishingMinigameSystem : EntitySystem
 
         RaiseNetworkEvent(new ADTFishCaughtEvent(GetNetEntity(user), from, fishProto), Filter.Pvs(spot));
 
-        var fish = Spawn(fishProto, Transform(spot).Coordinates);
+        var fish = Spawn(fishProto, Transform(user).Coordinates);
 
         _hands.PickupOrDrop(user, fish);
         _audio.PlayPvs(rod.Comp.CatchSound, rod.Owner);
