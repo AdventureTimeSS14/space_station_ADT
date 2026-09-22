@@ -40,10 +40,6 @@ public static class CustomEmoteParser
     }
 
     /// <summary>
-    /// Триггер должен стоять отдельным словом: в начале строки или после пробела,
-    /// и перед знаком препинания, пробелом или концом строки.
-    /// </summary>
-    /// <summary>
     /// Сколько строк не удалось разобрать — показывается в окне настройки.
     /// </summary>
     public static int CountInvalidLines(string raw)
@@ -61,6 +57,10 @@ public static class CustomEmoteParser
         return bad;
     }
 
+    /// <summary>
+    /// Триггер должен стоять отдельным словом: в начале строки или после пробела,
+    /// и перед знаком препинания, пробелом или концом строки.
+    /// </summary>
     public static Regex BuildTriggerRegex(string trigger)
     {
         var escaped = Regex.Escape(trigger);

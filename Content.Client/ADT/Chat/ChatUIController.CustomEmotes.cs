@@ -1,9 +1,9 @@
 using System.Text.RegularExpressions;
 using Content.Client.ADT.Chat;
 using Content.Client.ADT.Chat.UI;
+using Content.Client.UserInterface.Systems.Chat.Widgets;
 using Content.Shared.ADT.CCVar;
 using Content.Shared.Chat;
-using Content.Client.UserInterface.Systems.Chat.Widgets;
 using Robust.Shared.Console;
 using Robust.Shared.Utility;
 
