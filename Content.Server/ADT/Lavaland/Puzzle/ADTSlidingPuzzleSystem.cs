@@ -13,9 +13,9 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.Lavaland.Puzzle;
 
@@ -57,7 +57,7 @@ public sealed class ADTSlidingPuzzleSystem : EntitySystem
         SubscribeLocalEvent<ADTSlidingPuzzleComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<ADTSlidingPuzzleElementComponent, InteractHandEvent>(OnElementInteract);
         SubscribeLocalEvent<ADTSlidingPuzzleElementComponent, ComponentShutdown>(OnElementShutdown);
-        SubscribeLocalEvent<ADTSlidingPuzzleComponent, ComponentShutdown>(OnPuzzleShutdown);
+        SubscribeLocalEvent<ADTSlidingPuzzleComponent, EntityTerminatingEvent>(OnPuzzleTerminating);
         SubscribeLocalEvent<ADTPrisonCubeComponent, UseInHandEvent>(OnPrisonCubeUse);
     }
 
@@ -457,7 +457,7 @@ public sealed class ADTSlidingPuzzleSystem : EntitySystem
         return false;
     }
 
-    private void OnPuzzleShutdown(Entity<ADTSlidingPuzzleComponent> puzzle, ref ComponentShutdown args)
+    private void OnPuzzleTerminating(Entity<ADTSlidingPuzzleComponent> puzzle, ref EntityTerminatingEvent args)
     {
         if (puzzle.Comp.Prisoner is { } prisoner)
             ReleasePrisoner(puzzle, prisoner);
@@ -465,7 +465,7 @@ public sealed class ADTSlidingPuzzleSystem : EntitySystem
 
     private void ReleasePrisoner(Entity<ADTSlidingPuzzleComponent> puzzle, EntityUid prisoner)
     {
-        if (prisoner is not { Valid: true })
+        if (TerminatingOrDeleted(prisoner))
             return;
 
         RemComp<AdminFrozenComponent>(prisoner);
@@ -512,9 +512,12 @@ public sealed class ADTSlidingPuzzleSystem : EntitySystem
 
         var puzzleUid = Spawn(cube.Comp.PuzzleProto, Transform(user).Coordinates);
 
-        if (!TryComp<ADTSlidingPuzzleComponent>(puzzleUid, out var puzzle))
+        if (TerminatingOrDeleted(puzzleUid) ||
+            !TryComp<ADTSlidingPuzzleComponent>(puzzleUid, out var puzzle) ||
+            puzzle.Elements.Count == 0)
         {
             QueueDel(puzzleUid);
+            _popup.PopupEntity(Loc.GetString("prison-cube-no-space"), user, user);
             return;
         }
 

@@ -1,6 +1,7 @@
 sliding-puzzle-solved = Головоломка решена! Загадочные колонны рассыпаются, обнажая награду.
 sliding-puzzle-blocked = Колонна не двигается.
 prison-cube-activated = Тюремный куб поглощает вас!
+prison-cube-no-space = Рядом нет места для тюремного куба.
 prison-cube-released = Тюремный куб рассыпается, и вы выпадаете наружу.
 
 ent-ADTPuzzlePillar1 = загадочная колонна

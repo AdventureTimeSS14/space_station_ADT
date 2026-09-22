@@ -8,7 +8,6 @@
     mode: SnapgridCenter
   components:
   - type: Transform
-    anchored: true
   - type: Clickable
   - type: Sprite
     sprite: ADT/Misc/puzzle.rsi
@@ -84,7 +83,6 @@
     mode: SnapgridCenter
   components:
   - type: Transform
-    anchored: true
   - type: Clickable
   - type: Sprite
     sprite: ADT/Misc/puzzle.rsi
