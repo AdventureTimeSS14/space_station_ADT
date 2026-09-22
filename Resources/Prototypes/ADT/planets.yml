@@ -52,7 +52,7 @@
       minDistanceFromCenter: 100
       maxRadius: 210
       entries:
-      - prototype: LavaDungeonAshVillage
+      - prototype: ADTLavaDungeonAshVillage
     # /datum/spawn_pool/lavaland_fauna - rand(100, 150)
     - minBudget: 100
       maxBudget: 150
