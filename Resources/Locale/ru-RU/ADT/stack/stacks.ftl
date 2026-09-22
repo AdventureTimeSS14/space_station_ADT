@@ -44,3 +44,9 @@ stack-adt-weaver-chitin =
 stack-adt-bone-splint = костяная шина
 stack-adt-cloth-bandage = тряпичный бинт
 stack-adt-mushroom-ointment = грибная мазь
+stack-adt-leather =
+    { $amount ->
+        [1] кусок кожи
+        [few] куска кожи
+       *[other] кусков кожи
+    }

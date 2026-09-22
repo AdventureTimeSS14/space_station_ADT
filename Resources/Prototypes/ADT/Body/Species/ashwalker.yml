@@ -4,7 +4,23 @@
   parent: BaseSpeciesMobOrganic
   id: ADTMobAshWalkerBase
   components:
+  - type: TTS
   - type: BreathingImmunity
+  - type: AshStormImmune
+  - type: GhostRole
+    name: ghost-role-information-adt-ash-walker-name
+    description: ghost-role-information-adt-ash-walker-description
+    rules: ghost-role-information-adt-ash-walker-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: ADTAshWalker
+  - type: GhostTakeoverAvailable
+  - type: Hunger
+    baseDecayRate: 0.023333333
+  - type: NightVision
+    innate: true
+    effectPrototype: ADTEffectNightVisionMedium
   - type: ADTIgnite
   - type: ADTLavalandSpeed
   - type: NpcFactionMember
@@ -25,6 +41,7 @@
   - type: LanguageSpeaker
     languages:
       Draconic: Speak
+      ADTAshWalkerCollectiveMind: Understand
   - type: LizardAccent
   - type: Speech
     speechSounds: Lizard
@@ -117,6 +134,28 @@
   components:
   - type: HumanoidProfile
     species: ADTAshWalkerSpecies
+  - type: InitialBody
+    organs:
+      Torso: OrganReptilianTorso
+      Head: OrganReptilianHead
+      ArmLeft: OrganReptilianArmLeft
+      ArmRight: OrganReptilianArmRight
+      HandRight: OrganReptilianHandRight
+      HandLeft: OrganReptilianHandLeft
+      LegLeft: OrganReptilianLegLeft
+      LegRight: OrganReptilianLegRight
+      FootLeft: OrganReptilianFootLeft
+      FootRight: OrganReptilianFootRight
+      Brain: OrganReptilianBrain
+      Eyes: OrganReptilianEyes
+      Tongue: OrganReptilianTongue
+      Appendix: OrganReptilianAppendix
+      Ears: OrganReptilianEars
+      Lungs: OrganReptilianLungs
+      Heart: OrganReptilianHeart
+      Stomach: ADTOrganAshWalkerStomach
+      Liver: OrganReptilianLiver
+      Kidneys: OrganReptilianKidneys
 
 - type: entity
   save: false
@@ -126,8 +165,11 @@
   - ADTAppearanceAshWalker
   id: ADTMobAshWalker
   components:
-  - type: RandomHumanoidAppearance
   - type: ADTAshWalker
+    whitelist:
+      tags:
+      - ADTBow
+      - ADTBowImprovised
   - type: Damageable
     damageModifierSet: ADTAshWalkerScale
 
@@ -151,6 +193,28 @@
   components:
   - type: HumanoidProfile
     species: ADTAshWalkerShamanSpecies
+  - type: InitialBody
+    organs:
+      Torso: OrganReptilianTorso
+      Head: OrganReptilianHead
+      ArmLeft: OrganReptilianArmLeft
+      ArmRight: OrganReptilianArmRight
+      HandRight: OrganReptilianHandRight
+      HandLeft: OrganReptilianHandLeft
+      LegLeft: OrganReptilianLegLeft
+      LegRight: OrganReptilianLegRight
+      FootLeft: OrganReptilianFootLeft
+      FootRight: OrganReptilianFootRight
+      Brain: OrganReptilianBrain
+      Eyes: OrganReptilianEyes
+      Tongue: OrganReptilianTongue
+      Appendix: OrganReptilianAppendix
+      Ears: OrganReptilianEars
+      Lungs: OrganReptilianLungs
+      Heart: OrganReptilianHeart
+      Stomach: ADTOrganAshWalkerStomach
+      Liver: OrganReptilianLiver
+      Kidneys: OrganReptilianKidneys
 
 - type: entity
   save: false
@@ -160,13 +224,33 @@
   - ADTAppearanceAshWalkerShaman
   id: ADTMobAshWalkerShaman
   components:
-  - type: RandomHumanoidAppearance
   - type: ADTAshWalker
+    whitelist:
+      tags:
+      - ADTBow
+      - ADTBowImprovised
     shaman: true
+  - type: GhostRole
+    name: ghost-role-information-adt-ash-walker-shaman-name
+    description: ghost-role-information-adt-ash-walker-shaman-description
+  - type: LanguageSpeaker
+    languages:
+      Draconic: Speak
+      ADTAshWalkerCollectiveMind: Speak
   - type: ADTLavalandSpeed
     walkModifier: 1.11
     sprintModifier: 1.11
   - type: ADTHealTouch
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
+  - type: ShowHealthIcons
+    damageContainers:
+    - Biological
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
   - type: ADTNecropolisCompass
   - type: UserInterface
     interfaces:
@@ -355,3 +439,10 @@
     heatDamage:
       types:
         Heat: 1.5
+
+- type: entity
+  parent: OrganReptilianStomach
+  id: ADTOrganAshWalkerStomach
+  components:
+  - type: Stomach
+    isSpecialDigestibleExclusive: false

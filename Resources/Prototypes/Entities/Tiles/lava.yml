@@ -60,13 +60,19 @@
     - ADTLavaFishAshCrab
     - ADTLavaFishDeadHorseman
     - ADTLavaFishShellfish
-    deepFish:
     - ADTLavaFishBottomEel
     - ADTLavaFishRedDevourer
     - ADTLavaFishMagmaHammerhead
     - ADTLavaFishBlindReaper
     - ADTLavaFishHeraldOfCarnage
     - ADTLavaFishSulfuricTramp
+    #deepFish:
+    #- ADTLavaFishBottomEel
+    #- ADTLavaFishRedDevourer
+    #- ADTLavaFishMagmaHammerhead
+    #- ADTLavaFishBlindReaper
+    #- ADTLavaFishHeraldOfCarnage
+    #- ADTLavaFishSulfuricTramp
   # ADT-Fishing-End
   - type: Tag
     tags:

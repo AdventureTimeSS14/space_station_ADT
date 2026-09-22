@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.Fishing.Components;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ADTFishingSpotComponent : Component
 {
     [DataField]
@@ -37,7 +37,7 @@ public sealed partial class ADTFishingSpotComponent : Component
     [DataField]
     public TimeSpan KrillDelay = TimeSpan.FromSeconds(5);
 
-    [ViewVariables]
+    [ViewVariables, AutoNetworkedField]
     public bool? Deep;
 
     [ViewVariables]
