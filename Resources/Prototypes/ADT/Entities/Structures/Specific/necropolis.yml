@@ -158,6 +158,9 @@
   - type: Transform
     anchored: true
     noRot: true
+  - type: Construction
+    graph: ADTAshDryingRackCraft
+    node: rack
   - type: Storage
     grid:
     - 0,0,5,2

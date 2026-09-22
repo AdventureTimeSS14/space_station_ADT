@@ -117,6 +117,9 @@
   - type: Stack
     stackType: ADTBoneSplint
     count: 1
+  - type: Construction
+    graph: ADTBoneSplintCraft
+    node: splint
 
 - type: entity
   id: ADTClothBandage

@@ -49,3 +49,6 @@
   components:
   - type: Stack
     count: 2
+  - type: Construction
+    graph: ADTLeatherTanning
+    node: leather
