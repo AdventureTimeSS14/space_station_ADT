@@ -353,9 +353,10 @@ namespace Content.Client.Options.UI.Tabs
                 UpdateKeyControl(control);
             }
 
-            UpdateConflictStates();
+            UpdateConflictStates(); // ADT-Tweak: Refresh keybind conflict highlights.
         }
 
+        // ADT-Tweak-Start
         /// <summary>
         ///     Пересчитывает подсветку конфликтующих клавиш для всех кнопок.
         ///     Клавиша считается занятой, если точно такая же комбинация (клавиша + модификаторы)
@@ -394,6 +395,7 @@ namespace Content.Client.Options.UI.Tabs
             Array.Sort(mods);
             return (binding.BaseKey, mods[0], mods[1], mods[2]);
         }
+        // ADT-Tweak-End
 
         private void UpdateKeyControl(KeyControl control)
         {
@@ -460,18 +462,18 @@ namespace Content.Client.Options.UI.Tabs
             if (removal && _currentlyRebinding?.KeyControl == keyControl)
             {
                 // Don't do update if the removal was from initiating a rebind.
-                // Still refresh conflicts, since removing a binding may free up another key
-                UpdateConflictStates();
+                UpdateConflictStates(); // ADT-Tweak: Refresh conflicts, since removing a binding may free up another key.
                 return;
             }
 
             UpdateKeyControl(keyControl);
-            UpdateConflictStates();
 
             if (_currentlyRebinding == keyControl.BindButton1 || _currentlyRebinding == keyControl.BindButton2)
             {
                 _currentlyRebinding = null;
             }
+
+            UpdateConflictStates(); // ADT-Tweak: Refresh keybind conflict highlights.
         }
 
         private void InputManagerOnFirstChanceOnKeyEvent(KeyEventArgs keyEvent, KeyEventType type)
@@ -638,8 +640,10 @@ namespace Content.Client.Options.UI.Tabs
 
         private sealed class BindButton : Control
         {
-            // Цвет текста клавиши, когда она занята другим действием.
+            // ADT-Tweak-Start
+            // Цвет текста клавиши, когда она занята другим действием
             private static readonly Color ConflictColor = Color.FromHex("#FF5555");
+            // ADT-Tweak-End
 
             private readonly KeyRebindTab _tab;
             public readonly KeyControl KeyControl;
@@ -698,6 +702,7 @@ namespace Content.Client.Options.UI.Tabs
                 Button.Text = Binding?.GetKeyString() ?? Loc.GetString("ui-options-unbound");
             }
 
+            // ADT-Tweak-Start
             /// <summary>
             ///     Подсвечивает клавишу красным текстом, если её комбинация занята другим действием,
             ///     и добавляет подсказку о конфликте. В противном случае снимает подсветку
@@ -705,6 +710,13 @@ namespace Content.Client.Options.UI.Tabs
             public void UpdateConflictState(
                 Dictionary<(Keyboard.Key, Keyboard.Key, Keyboard.Key, Keyboard.Key), HashSet<BoundKeyFunction>> usageMap)
             {
+                if (_tab._currentlyRebinding == this)
+                {
+                    Button.Label.FontColorOverride = null;
+                    Button.ToolTip = null;
+                    return;
+                }
+
                 var hasConflict = false;
                 if (Binding != null
                     && usageMap.TryGetValue(KeyRebindTab.GetBindingCombo(Binding), out var functions)
@@ -725,6 +737,7 @@ namespace Content.Client.Options.UI.Tabs
                     Button.ToolTip = null;
                 }
             }
+            // ADT-Tweak-End
         }
     }
 }
