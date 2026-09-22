@@ -9,47 +9,81 @@
       state: core
       color: "#595959"
       shader: XenoMetallic
-  - type: Reactive
-    reactions:
-    - reagents: [ Water ]
-      methods: [ Touch, Injection ]
-      effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:CreateEntityReactionEffect
-        entity: SheetGlass1
-        number: 15
-      - !type:CreateEntityReactionEffect
-        entity: SheetRGlass1
-        number: 5
-    - reagents: [ Plasma ]
-      methods: [ Touch, Injection ]
-      effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:CreateEntityReactionEffect
-        entity: SheetSteel1
-        number: 15
-      - !type:CreateEntityReactionEffect
-        entity: SheetPlasteel1
-        number: 5
-    - reagents: [ Blood ]
-      methods: [ Touch, Injection ]
-      effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction-fail" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: SlimeExtract
+    extractReactions:
+    - MetalSlimeExtractWaterReaction
+    - MetalSlimeExtractPlasmaReaction
+    - MetalSlimeExtractBloodReaction
   - type: Tag
     tags:
     - XenobiologyMetalExtract
+
+- type: extractReaction
+  id: MetalSlimeExtractWaterReaction
+  requirements:
+    Water: 1
+  effects:
+  - effect: !type:PopupMessage
+      type: Pvs
+      messages: [ "xeno-extract-reaction" ]
+    scalingOffset: 0
+  - effect: !type:PlaySoundEffect
+      sound: /Audio/Effects/Chemistry/bubbles.ogg
+    scalingOffset: 0
+  - effect: !type:CreateEntityReactionEffect
+      entity: SheetGlass1
+      number: 15
+    scalingOffset: 1
+  - effect: !type:CreateEntityReactionEffect
+      entity: SheetRGlass1
+      number: 5
+    scalingOffset: 1
+  shouldDelete: false
+
+- type: extractReaction
+  id: MetalSlimeExtractPlasmaReaction
+  requirements:
+    Plasma: 1
+  effects:
+  - effect: !type:PopupMessage
+      type: Pvs
+      messages: [ "xeno-extract-reaction" ]
+    scalingOffset: 0
+  - effect: !type:PlaySoundEffect
+      sound: /Audio/Effects/Chemistry/bubbles.ogg
+    scalingOffset: 0
+  - effect: !type:CreateEntityReactionEffect
+      entity: SheetSteel1
+      number: 15
+    scalingOffset: 1
+  - effect: !type:CreateEntityReactionEffect
+      entity: SheetPlasteel1
+      number: 5
+    scalingOffset: 1
+  shouldDelete: false
+
+- type: extractReaction
+  id: MetalSlimeExtractBloodReaction
+  requirements:
+    Blood: 1
+  effects:
+  - effect: !type:PopupMessage
+      type: Pvs
+      messages: [ "xeno-extract-reaction" ]
+    scalingOffset: 0
+  - effect: !type:PlaySoundEffect
+      sound: /Audio/Effects/Chemistry/bubbles.ogg
+    scalingOffset: 0
+  - effect: !type:SpawnEntityFromTable
+      number: 1
+      entityTable: !type:NestedSelector
+        tableId: XenobioDrinkTable
+      offset: 0.2
+    scalingOffset: 1
+  - effect: !type:SpawnEntityFromTable
+      number: 1
+      entityTable: !type:NestedSelector
+        tableId: XenobioFoodTable
+      offset: 0.2
+    scalingOffset: 1
+  shouldDelete: true

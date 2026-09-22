@@ -7,8 +7,12 @@
   discipline: Biochemical
   tier: 2
   cost: 10000
-  genericUnlocks:
-  - unlockDescription: research-unlock-med-assembler-pens-1
+  recipeUnlocks:
+  - ADTMedipenEmergency
+  - ADTMedipenAntiPoison
+  - ADTMedipenBrute
+  - ADTMedipenBurn
+  - ADTMedipenRad
   position: 2,0
   requiredTech:
   - ADTIndustrialMedicine
@@ -22,8 +26,12 @@
   discipline: Biochemical
   tier: 2
   cost: 17500
-  genericUnlocks:
-  - unlockDescription: research-unlock-med-assembler-pens-2
+  recipeUnlocks:
+  - ADTMedipenPuncturase
+  - ADTMedipenPyrazine
+  - ADTMedipenHemostasis
+  - ADTMedipenStimulant
+  - ADTMedipenCrisis
   position: 2,1
   requiredTech:
   - ADTMedAssemblerPens1
@@ -37,8 +45,10 @@
   discipline: Biochemical
   tier: 3
   cost: 20000
-  genericUnlocks:
-  - unlockDescription: research-unlock-med-assembler-pens-3
+  recipeUnlocks:
+  - ADTMedipenLacerinol
+  - ADTMedipenBruizine
+  - ADTMedipenEthylredoxrazine
   position: 1,1
   requiredTech:
   - ADTMedAssemblerPens2
