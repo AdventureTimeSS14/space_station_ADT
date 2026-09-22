@@ -994,10 +994,10 @@
 
 # cyborg
 
-- type: entity
-  parent: ADTBasePDA
-  id: ADTCyborgPDA
-  name: cyborg PDA
-  components:
-  - type: Pda
-    id: ADTCyborgIDCard
+#- type: entity
+#  parent: ADTBasePDA
+#  id: ADTCyborgPDA
+#  name: cyborg PDA
+#  components:
+#  - type: Pda
+#    id: ADTCyborgIDCard
