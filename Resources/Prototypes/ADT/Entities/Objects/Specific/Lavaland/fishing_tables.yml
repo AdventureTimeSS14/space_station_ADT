@@ -19,6 +19,8 @@
       weight: 2
     - id: ADTAshDrakeHide
       weight: 1
+    - id: ADTGemRuby
+      weight: 1
     - id: ADTMaterialWeaverChitin
       weight: 3
     - id: ADTFoodCactusBerry
@@ -43,3 +45,16 @@
   - type: EntityTableSpawner
     table: !type:NestedSelector
       tableId: ADTLavalandMinorLootTable
+
+- type: entityTable
+  id: ADTBasaltDigBaitTable
+  table: !type:GroupSelector
+    children:
+    - id: ADTFishingBaitAshEater
+      weight: 42
+    - id: ADTFishingBaitBloodyLeach
+      weight: 33
+    - id: ADTFishingBaitGoldgrubLarva
+      weight: 24
+    - id: ADTFoodCharredKrill
+      weight: 1

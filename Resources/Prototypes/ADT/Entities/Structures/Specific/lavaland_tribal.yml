@@ -140,6 +140,9 @@
           3: { state: grace_of_lazis3 }
           4: { state: grace_of_lazis4 }
   - type: ADTGraceOfLazis
+  - type: Construction
+    graph: ADTGraceOfLazisCraft
+    node: grace
   - type: Transform
     anchored: true
     noRot: true

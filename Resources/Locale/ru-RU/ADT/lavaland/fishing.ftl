@@ -97,3 +97,6 @@ ent-ADTMaterialWeaverChitin1 = { ent-ADTMaterialWeaverChitin }
     .desc = { ent-ADTMaterialWeaverChitin.desc }
 ent-ADTClothingNeckGemNecklace = самоцветное ожерелье
     .desc = Простое ожерелье с гнездом для самоцвета.
+
+adt-bait-dig-nothing = Вы перекапываете базальт, но ничего не находите.
+adt-bait-dig-found = Вы выкапываете из базальта { $bait }!

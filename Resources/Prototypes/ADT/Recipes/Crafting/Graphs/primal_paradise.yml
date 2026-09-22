@@ -1,0 +1,794 @@
+- type: constructionGraph
+  id: ADTSkullCodpiece
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: codpiece
+      steps:
+      - material: Bones
+        amount: 2
+      - material: GoliathHide
+        amount: 1
+        doAfter: 2
+  - node: codpiece
+    entity: ADTClothingNeckSkullCodpiece
+
+- type: construction
+  id: ADTSkullCodpiece
+  graph: ADTSkullCodpiece
+  startNode: start
+  targetNode: codpiece
+  category: construction-category-clothing
+  objectType: Item
+
+- type: constructionGraph
+  id: ADTHunterBelt
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: belt
+      steps:
+      - material: ADTSinew
+        amount: 4
+      - material: GoliathHide
+        amount: 2
+        doAfter: 4
+  - node: belt
+    entity: ADTClothingBeltHunter
+
+- type: construction
+  id: ADTHunterBelt
+  graph: ADTHunterBelt
+  startNode: start
+  targetNode: belt
+  category: construction-category-clothing
+  objectType: Item
+
+- type: constructionGraph
+  id: ADTDrakeArmor
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: armor
+      steps:
+      - material: Bones
+        amount: 10
+      - material: ADTSinew
+        amount: 2
+      - tag: ADTAshDrakeHide
+        name: construction-graph-tag-ash-drake-hide
+      - tag: ADTAshDrakeHide
+        name: construction-graph-tag-ash-drake-hide
+      - tag: ADTAshDrakeHide
+        name: construction-graph-tag-ash-drake-hide
+      - tag: ADTAshDrakeHide
+        name: construction-graph-tag-ash-drake-hide
+      - tag: ADTAshDrakeHide
+        name: construction-graph-tag-ash-drake-hide
+        doAfter: 6
+  - node: armor
+    entity: ADTClothingOuterDrakeArmor
+
+- type: construction
+  id: ADTDrakeArmor
+  graph: ADTDrakeArmor
+  startNode: start
+  targetNode: armor
+  category: construction-category-clothing
+  objectType: Item
+
+- type: constructionGraph
+  id: ADTFootwrapsGoliath
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: footwraps
+      steps:
+      - material: GoliathHide
+        amount: 1
+      - material: ADTLeather
+        amount: 1
+        doAfter: 6
+  - node: footwraps
+    entity: ADTClothingShoesFootwrapsGoliath
+
+- type: construction
+  id: ADTFootwrapsGoliath
+  graph: ADTFootwrapsGoliath
+  startNode: start
+  targetNode: footwraps
+  category: construction-category-clothing
+  objectType: Item
+
+- type: constructionGraph
+  id: ADTFootwrapsDragon
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: footwraps
+      steps:
+      - tag: ADTAshDrakeHide
+        name: construction-graph-tag-ash-drake-hide
+      - material: ADTLeather
+        amount: 1
+        doAfter: 6
+  - node: footwraps
+    entity: ADTClothingShoesFootwrapsDragon
+
+- type: construction
+  id: ADTFootwrapsDragon
+  graph: ADTFootwrapsDragon
+  startNode: start
+  targetNode: footwraps
+  category: construction-category-clothing
+  objectType: Item
+
+- type: constructionGraph
+  id: ADTGoliathGloves
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: gloves
+      steps:
+      - material: ADTLeather
+        amount: 2
+      - material: GoliathHide
+        amount: 1
+        doAfter: 2
+  - node: gloves
+    entity: ADTClothingHandsGoliathGloves
+
+- type: construction
+  id: ADTGoliathGloves
+  graph: ADTGoliathGloves
+  startNode: start
+  targetNode: gloves
+  category: construction-category-clothing
+  objectType: Item
+
+- type: constructionGraph
+  id: ADTWeaverGloves
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: gloves
+      steps:
+      - material: ADTLeather
+        amount: 1
+      - material: ADTWeaverChitin
+        amount: 3
+        doAfter: 2
+  - node: gloves
+    entity: ADTClothingHandsWeaverGloves
+
+- type: construction
+  id: ADTWeaverGloves
+  graph: ADTWeaverGloves
+  startNode: start
+  targetNode: gloves
+  category: construction-category-clothing
+  objectType: Item
+
+- type: constructionGraph
+  id: ADTPathfinderCloak
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: cloak
+      steps:
+      - tag: ADTGoliathCloak
+        name: construction-graph-tag-goliath-cloak
+      - material: GoliathHide
+        amount: 2
+      - material: ADTWeaverChitin
+        amount: 6
+      - material: Bones
+        amount: 5
+      - material: ADTSinew
+        amount: 5
+        doAfter: 5
+  - node: cloak
+    entity: ADTClothingOuterPathfinderCloak
+
+- type: construction
+  id: ADTPathfinderCloak
+  graph: ADTPathfinderCloak
+  startNode: start
+  targetNode: cloak
+  category: construction-category-clothing
+  objectType: Item
+
+- type: constructionGraph
+  id: ADTPathfinderTreads
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: treads
+      steps:
+      - material: ADTSinew
+        amount: 2
+      - material: ADTWeaverChitin
+        amount: 2
+        doAfter: 5
+  - node: treads
+    entity: ADTClothingShoesPathfinderTreads
+
+- type: construction
+  id: ADTPathfinderTreads
+  graph: ADTPathfinderTreads
+  startNode: start
+  targetNode: treads
+  category: construction-category-clothing
+  objectType: Item
+
+- type: constructionGraph
+  id: ADTWeaverQuiver
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: quiver
+      steps:
+      - material: ADTWeaverChitin
+        amount: 4
+        doAfter: 8
+  - node: quiver
+    entity: ADTClothingBeltQuiverWeaver
+
+- type: construction
+  id: ADTWeaverQuiver
+  graph: ADTWeaverQuiver
+  startNode: start
+  targetNode: quiver
+  category: construction-category-clothing
+  objectType: Item
+
+- type: constructionGraph
+  id: ADTFirebrand
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: firebrand
+      steps:
+      - material: WoodPlank
+        amount: 2
+        doAfter: 10
+  - node: firebrand
+    entity: ADTFirebrand
+
+- type: construction
+  id: ADTFirebrand
+  graph: ADTFirebrand
+  startNode: start
+  targetNode: firebrand
+  category: construction-category-utilities
+  objectType: Item
+
+- type: constructionGraph
+  id: ADTBoneSplintCraft
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: splint
+      steps:
+      - material: Bones
+        amount: 2
+      - material: ADTSinew
+        amount: 1
+        doAfter: 2
+  - node: splint
+    entity: ADTBoneSplint1
+
+- type: construction
+  id: ADTBoneSplintCraft
+  graph: ADTBoneSplintCraft
+  startNode: start
+  targetNode: splint
+  category: construction-category-utilities
+  objectType: Item
+
+- type: constructionGraph
+  id: ADTSurgeryBagPrimitive
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: bag
+      steps:
+      - material: Bones
+        amount: 6
+      - material: ADTSinew
+        amount: 3
+        doAfter: 4
+  - node: bag
+    entity: ADTSurgeryBagPrimitive
+
+- type: construction
+  id: ADTSurgeryBagPrimitive
+  graph: ADTSurgeryBagPrimitive
+  startNode: start
+  targetNode: bag
+  category: construction-category-utilities
+  objectType: Item
+
+- type: constructionGraph
+  id: ADTShieldGoliath
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: shield
+      steps:
+      - material: Bones
+        amount: 4
+      - material: GoliathHide
+        amount: 2
+        doAfter: 6
+  - node: shield
+    entity: ADTShieldGoliath
+
+- type: construction
+  id: ADTShieldGoliath
+  graph: ADTShieldGoliath
+  startNode: start
+  targetNode: shield
+  category: construction-category-weapons
+  objectType: Item
+
+- type: constructionGraph
+  id: ADTBowBone
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: bow
+      steps:
+      - tag: ADTBowImprovised
+        name: construction-graph-tag-improvised-shortbow
+      - material: Bones
+        amount: 4
+      - material: GoliathHide
+        amount: 2
+      - material: ADTSinew
+        amount: 2
+        doAfter: 8
+  - node: bow
+    entity: ADTBowBone
+
+- type: construction
+  id: ADTBowBone
+  graph: ADTBowBone
+  startNode: start
+  targetNode: bow
+  category: construction-category-weapons
+  objectType: Item
+
+- type: constructionGraph
+  id: ADTArrowWooden
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: bundle
+      steps:
+      - material: Bones
+        amount: 1
+      - material: WoodPlank
+        amount: 1
+        doAfter: 2
+  - node: bundle
+    entity: ADTArrowWoodenBundle
+
+- type: construction
+  id: ADTArrowWooden
+  graph: ADTArrowWooden
+  startNode: start
+  targetNode: bundle
+  category: construction-category-weapons
+  objectType: Item
+
+- type: constructionGraph
+  id: ADTArrowBoneTipped
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: bundle
+      steps:
+      - tag: ADTArrowWooden
+        name: construction-graph-tag-wooden-arrow
+      - tag: ADTArrowWooden
+        name: construction-graph-tag-wooden-arrow
+      - tag: ADTArrowWooden
+        name: construction-graph-tag-wooden-arrow
+      - material: Bones
+        amount: 1
+      - material: ADTSinew
+        amount: 2
+      - material: ADTWeaverChitin
+        amount: 2
+        doAfter: 4
+  - node: bundle
+    entity: ADTArrowBoneTippedBundle
+
+- type: construction
+  id: ADTArrowBoneTipped
+  graph: ADTArrowBoneTipped
+  startNode: start
+  targetNode: bundle
+  category: construction-category-weapons
+  objectType: Item
+
+- type: constructionGraph
+  id: ADTArrowJagged
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: bundle
+      steps:
+      - tag: ADTArrowWooden
+        name: construction-graph-tag-wooden-arrow
+      - tag: ADTArrowWooden
+        name: construction-graph-tag-wooden-arrow
+      - tag: ADTArrowWooden
+        name: construction-graph-tag-wooden-arrow
+      - material: ADTRazorTeeth
+        amount: 1
+      - material: ADTWeaverChitin
+        amount: 1
+        doAfter: 4
+  - node: bundle
+    entity: ADTArrowJaggedBundle
+
+- type: construction
+  id: ADTArrowJagged
+  graph: ADTArrowJagged
+  startNode: start
+  targetNode: bundle
+  category: construction-category-weapons
+  objectType: Item
+
+- type: constructionGraph
+  id: ADTBolaSkull
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: bola
+      steps:
+      - tag: ADTSinewRestraints
+        name: construction-graph-tag-sinew-restraints
+      - tag: ADTSinewRestraints
+        name: construction-graph-tag-sinew-restraints
+      - material: Bones
+        amount: 3
+        doAfter: 2
+  - node: bola
+    entity: ADTBolaSkull
+
+- type: construction
+  id: ADTBolaSkull
+  graph: ADTBolaSkull
+  startNode: start
+  targetNode: bola
+  category: construction-category-weapons
+  objectType: Item
+
+- type: constructionGraph
+  id: ADTNutcracker
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: nutcracker
+      steps:
+      - material: Bones
+        amount: 2
+      - material: ADTWeaverChitin
+        amount: 2
+        doAfter: 4
+  - node: nutcracker
+    entity: ADTNutcracker
+
+- type: construction
+  id: ADTNutcracker
+  graph: ADTNutcracker
+  startNode: start
+  targetNode: nutcracker
+  category: construction-category-weapons
+  objectType: Item
+
+- type: constructionGraph
+  id: ADTHideMantle
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: mantle
+      steps:
+      - material: ADTLeather
+        amount: 4
+        doAfter: 4
+  - node: mantle
+    entity: ADTClothingNeckHideMantle
+
+- type: construction
+  id: ADTHideMantle
+  graph: ADTHideMantle
+  startNode: start
+  targetNode: mantle
+  category: construction-category-clothing
+  objectType: Item
+
+- type: constructionGraph
+  id: ADTLeatherTanning
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: leather
+      steps:
+      - material: GoliathHide
+        amount: 1
+        doAfter: 5
+  - node: leather
+    entity: ADTMaterialLeather2
+
+- type: construction
+  id: ADTLeatherTanning
+  graph: ADTLeatherTanning
+  startNode: start
+  targetNode: leather
+  category: construction-category-materials
+  objectType: Item
+
+- type: constructionGraph
+  id: ADTRake
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: rake
+      steps:
+      - material: WoodPlank
+        amount: 5
+        doAfter: 2
+  - node: rake
+    entity: ADTRake
+
+- type: construction
+  id: ADTRake
+  graph: ADTRake
+  startNode: start
+  targetNode: rake
+  category: construction-category-utilities
+  objectType: Item
+
+- type: constructionGraph
+  id: ADTBucketWooden
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: bucket
+      steps:
+      - material: WoodPlank
+        amount: 3
+        doAfter: 2
+  - node: bucket
+    entity: ADTBucketWooden
+
+- type: construction
+  id: ADTBucketWooden
+  graph: ADTBucketWooden
+  startNode: start
+  targetNode: bucket
+  category: construction-category-utilities
+  objectType: Item
+
+- type: constructionGraph
+  id: ADTAshDryingRackCraft
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: rack
+      steps:
+      - material: WoodPlank
+        amount: 2
+      - material: ADTSinew
+        amount: 1
+        doAfter: 15
+  - node: rack
+    entity: ADTAshDryingRack
+
+- type: construction
+  id: ADTAshDryingRackCraft
+  graph: ADTAshDryingRackCraft
+  startNode: start
+  targetNode: rack
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: constructionGraph
+  id: ADTGraceOfLazisCraft
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: grace
+      steps:
+      - tag: ADTSpearBone
+        name: construction-graph-tag-bone-spear
+      - tag: ADTGoliathMeat
+        name: construction-graph-tag-raw-goliath-meat
+      - tag: ADTGoliathMeat
+        name: construction-graph-tag-raw-goliath-meat
+      - tag: ADTGoliathMeat
+        name: construction-graph-tag-raw-goliath-meat
+      - tag: ADTGoliathMeat
+        name: construction-graph-tag-raw-goliath-meat
+      - tag: ADTGoliathMeat
+        name: construction-graph-tag-raw-goliath-meat
+      - tag: ADTGoliathMeat
+        name: construction-graph-tag-raw-goliath-meat
+      - tag: ADTGoliathMeat
+        name: construction-graph-tag-raw-goliath-meat
+      - tag: ADTGoliathMeat
+        name: construction-graph-tag-raw-goliath-meat
+      - tag: ADTGoliathMeat
+        name: construction-graph-tag-raw-goliath-meat
+      - tag: ADTGoliathMeat
+        name: construction-graph-tag-raw-goliath-meat
+      - tag: ADTGoliathMeat
+        name: construction-graph-tag-raw-goliath-meat
+      - tag: ADTGoliathMeat
+        name: construction-graph-tag-raw-goliath-meat
+      - tag: ADTGoliathMeat
+        name: construction-graph-tag-raw-goliath-meat
+      - tag: ADTGoliathMeat
+        name: construction-graph-tag-raw-goliath-meat
+      - tag: ADTGoliathMeat
+        name: construction-graph-tag-raw-goliath-meat
+      - tag: ADTGoliathMeat
+        name: construction-graph-tag-raw-goliath-meat
+      - tag: ADTGoliathMeat
+        name: construction-graph-tag-raw-goliath-meat
+      - tag: ADTGoliathMeat
+        name: construction-graph-tag-raw-goliath-meat
+        doAfter: 6
+  - node: grace
+    entity: ADTGraceOfLazis
+
+- type: construction
+  id: ADTGraceOfLazisCraft
+  graph: ADTGraceOfLazisCraft
+  startNode: start
+  targetNode: grace
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: constructionGraph
+  id: ADTCartilageArmor
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: pads
+      steps:
+      - material: ADTCartilagePlate
+        amount: 2
+      - material: Cloth
+        amount: 3
+      - material: ADTSinew
+        amount: 1
+        doAfter: 4
+    - to: greaves
+      steps:
+      - material: ADTCartilagePlate
+        amount: 2
+      - material: Cloth
+        amount: 3
+      - material: ADTSinew
+        amount: 2
+        doAfter: 4
+  - node: pads
+    entity: ADTClothingOuterCartilagePads
+    edges:
+    - to: armor
+      steps:
+      - tag: ADTCartilageGreaves
+        name: construction-graph-tag-cartilage-greaves
+        doAfter: 2
+  - node: greaves
+    entity: ADTClothingOuterCartilageGreaves
+    edges:
+    - to: armor
+      steps:
+      - tag: ADTCartilagePads
+        name: construction-graph-tag-cartilage-shoulder-pads
+        doAfter: 2
+  - node: armor
+    entity: ADTClothingOuterCartilageArmor
+
+- type: construction
+  id: ADTCartilagePads
+  graph: ADTCartilageArmor
+  startNode: start
+  targetNode: pads
+  category: construction-category-clothing
+  objectType: Item
+
+- type: construction
+  id: ADTCartilageGreaves
+  graph: ADTCartilageArmor
+  startNode: start
+  targetNode: greaves
+  category: construction-category-clothing
+  objectType: Item
+
+- type: constructionGraph
+  id: ADTSpearChitin
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: spear
+      steps:
+      - tag: ADTSpearBone
+        name: construction-graph-tag-bone-spear
+      - material: ADTSinew
+        amount: 3
+      - material: ADTWeaverChitin
+        amount: 8
+        doAfter: 7.5
+  - node: spear
+    entity: ADTSpearChitin
+    edges:
+    - to: embrace
+      steps:
+      - material: ADTSinew
+        amount: 1
+      - tag: ADTBoneKnifeEel
+        name: construction-graph-tag-eel-bone-knife
+      - tag: ADTGemRuby
+        name: construction-graph-tag-ruby
+        doAfter: 7.5
+  - node: embrace
+    entity: ADTSpearHerBitingEmbrace
+
+- type: construction
+  id: ADTSpearChitin
+  graph: ADTSpearChitin
+  startNode: start
+  targetNode: spear
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTSpearHerBitingEmbrace
+  graph: ADTSpearChitin
+  startNode: start
+  targetNode: embrace
+  category: construction-category-weapons
+  objectType: Item

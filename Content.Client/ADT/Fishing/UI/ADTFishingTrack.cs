@@ -1,9 +1,11 @@
 using System.Numerics;
 using Content.Shared.ADT.Fishing.Components;
+using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Shared.Input;
 using Robust.Shared.Maths;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Client.ADT.Fishing.UI;
@@ -33,6 +35,9 @@ public sealed class ADTFishingTrack : Control
     private float _progress = 0.4f;
     private float _glow;
 
+    private EntProtoId? _fishProto;
+    private Texture? _fishTexture;
+
     public ADTFishingTrack()
     {
         IoCManager.InjectDependencies(this);
@@ -55,6 +60,12 @@ public sealed class ADTFishingTrack : Control
         _hook = MathHelper.Lerp(_hook, comp.HookPosition, t);
         _progress = MathHelper.Lerp(_progress, comp.Progress, t);
         _hookSize = comp.HookSize;
+
+        if (comp.Fish.Id != null && _fishProto != comp.Fish)
+        {
+            _fishProto = comp.Fish;
+            _fishTexture = _entMan.System<SpriteSystem>().GetPrototypeIcon(comp.Fish).Default;
+        }
 
         var onTarget = Math.Abs(comp.FishPosition - comp.HookPosition) <= comp.HookSize / 2f;
         var target = onTarget ? 1f : 0f;
@@ -89,7 +100,16 @@ public sealed class ADTFishingTrack : Control
         var fishCenter = new Vector2(track.Left + trackWidth / 2f, fishY);
 
         handle.DrawCircle(fishCenter, fishRadius * 1.8f, FishColor.WithAlpha(0.18f));
-        handle.DrawCircle(fishCenter, fishRadius, FishColor);
+
+        if (_fishTexture != null)
+        {
+            var half = new Vector2(trackWidth, trackWidth) * 0.4f;
+            handle.DrawTextureRect(_fishTexture, new UIBox2(fishCenter - half, fishCenter + half));
+        }
+        else
+        {
+            handle.DrawCircle(fishCenter, fishRadius, FishColor);
+        }
 
         var barLeft = track.Right + box.Width * 0.12f;
         var barWidth = Math.Max(10f, box.Width * 0.14f);
