@@ -1,0 +1,43 @@
+- type: markingsGroup
+  parent: Undergarments
+  id: ADTLavalandDyesOnly
+
+- type: marking
+  id: ADTLavalandDyesCinnabar
+  bodyPart: Chest
+  groupWhitelist: [ ADTLavalandDyesOnly ]
+  sprites:
+  - sprite: ADT/Mobs/Customization/lavaland_dyes.rsi
+    state: cinnabar_dyes
+
+- type: marking
+  id: ADTLavalandDyesCrimson
+  bodyPart: Chest
+  groupWhitelist: [ ADTLavalandDyesOnly ]
+  sprites:
+  - sprite: ADT/Mobs/Customization/lavaland_dyes.rsi
+    state: crimson_dyes
+
+- type: marking
+  id: ADTLavalandDyesIndigo
+  bodyPart: Chest
+  groupWhitelist: [ ADTLavalandDyesOnly ]
+  sprites:
+  - sprite: ADT/Mobs/Customization/lavaland_dyes.rsi
+    state: indigo_dyes
+
+- type: marking
+  id: ADTLavalandDyesMint
+  bodyPart: Chest
+  groupWhitelist: [ ADTLavalandDyesOnly ]
+  sprites:
+  - sprite: ADT/Mobs/Customization/lavaland_dyes.rsi
+    state: mint_dyes
+
+- type: marking
+  id: ADTLavalandDyesAmber
+  bodyPart: Chest
+  groupWhitelist: [ ADTLavalandDyesOnly ]
+  sprites:
+  - sprite: ADT/Mobs/Customization/lavaland_dyes.rsi
+    state: amber_dyes

@@ -32,6 +32,8 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
 using Content.Server.Speech.Components;
+using Content.Shared.Zombies;
+using Robust.Shared.Player;
 using System.Linq;
 
 namespace Content.Server.ADT.Xenobiology.Systems;
@@ -229,6 +231,9 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         if (args.Handled || args.Cancelled)
             return;
 
+        if (!CanLatch(ent, target))
+            return;
+
         Latch(ent, target);
         args.Handled = true;
     }
@@ -316,6 +321,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
     public bool CanLatch(Entity<SlimeComponent> ent, EntityUid target)
     {
         return !(IsLatched(ent)
+            || HasComp<ZombieComponent>(ent)
             || _mobState.IsDead(target)
             || !_actionBlocker.CanInteract(ent, target)
             || !HasComp<MobStateComponent>(target)
@@ -347,6 +353,8 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         if (Deleted(target))
             return;
 
+        var biteDirection = (_xform.GetWorldPosition(target) - _xform.GetWorldPosition(ent.Owner)).Normalized();
+
         _xform.SetCoordinates(ent, Transform(target).Coordinates);
         _xform.SetParent(ent, target);
         if (TryComp<InputMoverComponent>(ent, out var inpm))
@@ -365,6 +373,13 @@ public sealed partial class SlimeLatchSystem : EntitySystem
 
         _audio.PlayEntity(ent.Comp.EatSound, ent, ent);
         _popup.PopupEntity(Loc.GetString("slime-action-latch-success", ("slime", ent), ("target", target)), ent, PopupType.SmallCaution);
+
+        var vector = biteDirection;
+        RaiseNetworkEvent(new SlimeBiteAnimationMessage()
+        {
+            Entity = GetNetEntity(ent.Owner, MetaData(ent.Owner)),
+            Angle = Angle.FromWorldVec(vector),
+        }, Filter.Pvs(ent.Owner, 0.5F));
     }
 
     public void Unlatch(Entity<SlimeComponent> ent)

@@ -489,7 +489,7 @@
     Dead:
       sprite: Mobs/Silicon/station_ai.rsi
       state: ai_dead
-
+ 
 - type: stationAiCustomization
   id: Honey
   parent: StationAiIconBase

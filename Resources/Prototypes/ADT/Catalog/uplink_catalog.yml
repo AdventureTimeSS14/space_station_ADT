@@ -50,6 +50,25 @@
       - NukeOpsUplink
 
 - type: listing
+  id: ADTUplinkFlamethrowerBundle
+  name: uplink-flamethrower-name
+  description: uplink-flamethrower-description
+  icon: { sprite: _RMC14/Objects/Weapons/Guns/Flamethrower/lpo80.rsi, state: icon}
+  productEntity: ADTClothingBackpackDuffelSyndicateFilledFlamethrower
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 12
+  cost:
+    Telecrystal: 18
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
   id: ADTUplinkFireAxeFlaming
   name: uplink-fire-axe-flaming-name
   description: uplink-fire-axe-flaming-desc
@@ -766,6 +785,17 @@
     Telecrystal: 16
   categories:
     - UplinkImplants
+
+- type: listing
+  id: ADTUplinkMedbeam
+  name: uplink-medbeam-name
+  description: uplink-medbeam-desc
+  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Battery/healgun.rsi, state: icon }
+  productEntity: ADTWeaponMedbeamSyndicate
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkChemicals
 
 #UplinkAllies
 

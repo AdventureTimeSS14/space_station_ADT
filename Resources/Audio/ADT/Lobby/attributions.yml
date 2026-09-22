@@ -1,7 +1,12 @@
 - files: ["The_Wrong_Party.ogg"]
-  license: "CC-BY-NC-SA-3.0"
+  license: "CC-BY-3.0"
   copyright: "The Wrong Party by Leon Riskin."
   source: "https://gamemusicandsoundeffects.com/product/the-wrong-party/"
+
+- files: ["friday_night.ogg"]
+  license: "Custom"
+  copyright: "Friday Night by Leon Riskin. Royalty-free license (https://gamemusicandsoundeffects.com/license/). Purchased for the Space Station 14: Adventure Time project (Order #3539 05.11.2023)"
+  source: "https://gamemusicandsoundeffects.com/product/friday-night/"
 
 - files: ["Gift_of_Adventure_from_Conjurer.ogg"]
   license: "CC-BY-NC-SA-3.0"

@@ -501,7 +501,7 @@
       drink:
         maxVol: 30
         reagents:
-        - ReagentId: ADTStypticPowder
+        - ReagentId: ADTStypticPowderPatch
           Quantity: 30
 
 - type: entity
@@ -514,5 +514,5 @@
       drink:
         maxVol: 30
         reagents:
-        - ReagentId: ADTSilverSulfadiazine
+        - ReagentId: ADTSilverSulfadiazinePatch
           Quantity: 30
