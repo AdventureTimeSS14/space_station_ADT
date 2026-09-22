@@ -15586,3 +15586,13 @@ Entries:
     id: 1949
     pr_number: 3420
     time: '2026-09-22T14:30:33Z'
+  - author: Inconnu
+    changes:
+      - {message: что добавили, type: Add}
+      - {message: что убрали, type: Remove}
+      - {message: что подправили, type: Tweak}
+      - {message: что исправили, type: Fix}
+      - {message: Исправлен учёт призраков в ритуалах пеплоходцев, type: Fix}
+    id: 1950
+    pr_number: 3419
+    time: '2026-09-22T15:29:48Z'
