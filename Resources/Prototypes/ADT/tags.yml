@@ -920,6 +920,9 @@
 - type: Tag
   id: XenoVacNozzle
 
+- type: Tag
+  id: XenobiologyRainbowExtract
+
 # XENOBIO - END
 
 - type: Tag
