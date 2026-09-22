@@ -25,7 +25,7 @@
   - type: ExaminableSolution
     solution: extract
   - type: SlimeExtract
-  - type: Reactive
+    containerName: extract
   - type: StatusEffects # used for jittering and stuff
     allowed:
     - Jitter
