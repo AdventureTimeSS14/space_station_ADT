@@ -5,7 +5,8 @@
   name: fish
   description: Water-born creature from the infinite sea... Or toilet.
   components:
-  - type: Fish
+  - type: ADTFish
+    difficulty: 0.3
   - type: StaticPrice
     price: 250
   - type: Butcherable
@@ -20,6 +21,8 @@
   name: rare fish
   description: Water-born creature from the infinite sea... Or toilet.
   components:
+  - type: ADTFish
+    difficulty: 0.6
   - type: StaticPrice
     price: 750
 

@@ -1248,6 +1248,15 @@
   name: basalt
   parent: WallRock
   components:
+  # ADT-Tweak-Start
+  - type: Gatherable
+    toolWhitelist:
+      tags:
+      - Pickaxe
+    loot:
+      All: !type:NestedSelector
+        tableId: ADTBasaltRockLootTable
+  # ADT-Tweak-End
   - type: Icon
     sprite: Structures/Walls/rock.rsi
     state: rock_wall
