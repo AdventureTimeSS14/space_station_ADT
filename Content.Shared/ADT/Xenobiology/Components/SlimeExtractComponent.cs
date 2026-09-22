@@ -1,5 +1,6 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Content.Shared.ADT.Xenobiology;
 
 namespace Content.Shared.ADT.Xenobiology.Components;
 

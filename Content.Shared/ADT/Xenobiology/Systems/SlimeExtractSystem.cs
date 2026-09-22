@@ -1,3 +1,5 @@
+using System.Linq;
+using Content.Shared.ADT.Xenobiology;
 using Content.Shared.ADT.Xenobiology.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
@@ -5,6 +7,7 @@ using Content.Shared.Chemistry.Reagent;
 using Content.Shared.EntityEffects;
 using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
+using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
@@ -20,6 +23,7 @@ public sealed partial class SlimeExtractSystem : EntitySystem
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
     {
@@ -55,6 +59,9 @@ public sealed partial class SlimeExtractSystem : EntitySystem
 
     private void OnSolutionChanged(Entity<SlimeExtractComponent> entity, ref SolutionContainerChangedEvent args)
     {
+        if (_net.IsClient)
+            return;
+
         if (TerminatingOrDeleted(entity.Owner))
             return;
 
@@ -81,6 +88,9 @@ public sealed partial class SlimeExtractSystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
+        if (_net.IsClient)
+            return;
+
         var query = EntityQueryEnumerator<SlimeExtractComponent, SlimeExtractActiveReactionComponent>();
         while (query.MoveNext(out var uid, out var slimeExtractComponent, out var activeReactionComponent))
         {
@@ -89,15 +99,19 @@ public sealed partial class SlimeExtractSystem : EntitySystem
 
             bool wasActivated = false;
             bool shouldDelete = false;
-            foreach (var reactionPair in activeReactionComponent.ActiveReactions)
+            List<ProtoId<ExtractReactionPrototype>>? completed = null;
+            foreach (var reactionKey in activeReactionComponent.ActiveReactions.Keys.ToArray())
             {
-                if (reactionPair.Value > _gameTiming.CurTime)
+                if (!activeReactionComponent.ActiveReactions.TryGetValue(reactionKey, out var deadline))
+                    continue;
+
+                if (deadline > _gameTiming.CurTime)
                     continue;
 
                 if (!_solutionContainerSystem.TryGetSolution(uid, slimeExtractComponent.ContainerName, out _, out var currentSolution))
                     continue;
 
-                var reaction = _prototypeManager.Index<ExtractReactionPrototype>(reactionPair.Key);
+                var reaction = _prototypeManager.Index<ExtractReactionPrototype>(reactionKey);
                 if (!IsSolutionRequirementFulfilled(reaction.Requirements, currentSolution))
                     continue;
 
@@ -116,8 +130,16 @@ public sealed partial class SlimeExtractSystem : EntitySystem
                 }
 
                 wasActivated = true;
+                completed ??= new();
+                completed.Add(reactionKey);
                 if (reaction.ShouldDelete)
                     shouldDelete = true;
+            }
+
+            if (completed != null)
+            {
+                foreach (var completedReaction in completed)
+                    activeReactionComponent.ActiveReactions.Remove(completedReaction);
             }
 
             if (wasActivated)
@@ -129,10 +151,18 @@ public sealed partial class SlimeExtractSystem : EntitySystem
     }
 
     private void OnPaused(Entity<SlimeExtractActiveReactionComponent> entity, ref EntityPausedEvent args)
-        => entity.Comp.CurrentlyPaused = true;
+    {
+        if (_net.IsClient)
+            return;
+
+        entity.Comp.CurrentlyPaused = true;
+    }
 
     private void OnUnpaused(Entity<SlimeExtractActiveReactionComponent> entity, ref EntityUnpausedEvent args)
     {
+        if (_net.IsClient)
+            return;
+
         entity.Comp.CurrentlyPaused = false;
         foreach (var activeReaction in entity.Comp.ActiveReactions.Keys)
         {
