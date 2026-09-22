@@ -59,15 +59,15 @@
       - material: ADTSinew
         amount: 2
       - tag: ADTAshDrakeHide
-        name: ash drake hide
+        name: construction-graph-tag-ash-drake-hide
       - tag: ADTAshDrakeHide
-        name: ash drake hide
+        name: construction-graph-tag-ash-drake-hide
       - tag: ADTAshDrakeHide
-        name: ash drake hide
+        name: construction-graph-tag-ash-drake-hide
       - tag: ADTAshDrakeHide
-        name: ash drake hide
+        name: construction-graph-tag-ash-drake-hide
       - tag: ADTAshDrakeHide
-        name: ash drake hide
+        name: construction-graph-tag-ash-drake-hide
         doAfter: 6
   - node: armor
     entity: ADTClothingOuterDrakeArmor
@@ -113,7 +113,7 @@
     - to: footwraps
       steps:
       - tag: ADTAshDrakeHide
-        name: ash drake hide
+        name: construction-graph-tag-ash-drake-hide
       - material: ADTLeather
         amount: 1
         doAfter: 6
@@ -185,7 +185,7 @@
     - to: cloak
       steps:
       - tag: ADTGoliathCloak
-        name: goliath cloak
+        name: construction-graph-tag-goliath-cloak
       - material: GoliathHide
         amount: 2
       - material: ADTWeaverChitin
@@ -355,7 +355,7 @@
     - to: bow
       steps:
       - tag: ADTBowImprovised
-        name: improvised shortbow
+        name: construction-graph-tag-improvised-shortbow
       - material: Bones
         amount: 4
       - material: GoliathHide
@@ -407,11 +407,11 @@
     - to: bundle
       steps:
       - tag: ADTArrowWooden
-        name: wooden arrow
+        name: construction-graph-tag-wooden-arrow
       - tag: ADTArrowWooden
-        name: wooden arrow
+        name: construction-graph-tag-wooden-arrow
       - tag: ADTArrowWooden
-        name: wooden arrow
+        name: construction-graph-tag-wooden-arrow
       - material: Bones
         amount: 1
       - material: ADTSinew
@@ -439,11 +439,11 @@
     - to: bundle
       steps:
       - tag: ADTArrowWooden
-        name: wooden arrow
+        name: construction-graph-tag-wooden-arrow
       - tag: ADTArrowWooden
-        name: wooden arrow
+        name: construction-graph-tag-wooden-arrow
       - tag: ADTArrowWooden
-        name: wooden arrow
+        name: construction-graph-tag-wooden-arrow
       - material: ADTRazorTeeth
         amount: 1
       - material: ADTWeaverChitin
@@ -469,9 +469,9 @@
     - to: bola
       steps:
       - tag: ADTSinewRestraints
-        name: sinew restraints
+        name: construction-graph-tag-sinew-restraints
       - tag: ADTSinewRestraints
-        name: sinew restraints
+        name: construction-graph-tag-sinew-restraints
       - material: Bones
         amount: 3
         doAfter: 2
@@ -635,43 +635,43 @@
     - to: grace
       steps:
       - tag: ADTSpearBone
-        name: bone spear
+        name: construction-graph-tag-bone-spear
       - tag: ADTGoliathMeat
-        name: raw goliath meat
+        name: construction-graph-tag-raw-goliath-meat
       - tag: ADTGoliathMeat
-        name: raw goliath meat
+        name: construction-graph-tag-raw-goliath-meat
       - tag: ADTGoliathMeat
-        name: raw goliath meat
+        name: construction-graph-tag-raw-goliath-meat
       - tag: ADTGoliathMeat
-        name: raw goliath meat
+        name: construction-graph-tag-raw-goliath-meat
       - tag: ADTGoliathMeat
-        name: raw goliath meat
+        name: construction-graph-tag-raw-goliath-meat
       - tag: ADTGoliathMeat
-        name: raw goliath meat
+        name: construction-graph-tag-raw-goliath-meat
       - tag: ADTGoliathMeat
-        name: raw goliath meat
+        name: construction-graph-tag-raw-goliath-meat
       - tag: ADTGoliathMeat
-        name: raw goliath meat
+        name: construction-graph-tag-raw-goliath-meat
       - tag: ADTGoliathMeat
-        name: raw goliath meat
+        name: construction-graph-tag-raw-goliath-meat
       - tag: ADTGoliathMeat
-        name: raw goliath meat
+        name: construction-graph-tag-raw-goliath-meat
       - tag: ADTGoliathMeat
-        name: raw goliath meat
+        name: construction-graph-tag-raw-goliath-meat
       - tag: ADTGoliathMeat
-        name: raw goliath meat
+        name: construction-graph-tag-raw-goliath-meat
       - tag: ADTGoliathMeat
-        name: raw goliath meat
+        name: construction-graph-tag-raw-goliath-meat
       - tag: ADTGoliathMeat
-        name: raw goliath meat
+        name: construction-graph-tag-raw-goliath-meat
       - tag: ADTGoliathMeat
-        name: raw goliath meat
+        name: construction-graph-tag-raw-goliath-meat
       - tag: ADTGoliathMeat
-        name: raw goliath meat
+        name: construction-graph-tag-raw-goliath-meat
       - tag: ADTGoliathMeat
-        name: raw goliath meat
+        name: construction-graph-tag-raw-goliath-meat
       - tag: ADTGoliathMeat
-        name: raw goliath meat
+        name: construction-graph-tag-raw-goliath-meat
         doAfter: 6
   - node: grace
     entity: ADTGraceOfLazis
@@ -718,7 +718,7 @@
     - to: armor
       steps:
       - tag: ADTCartilageGreaves
-        name: cartilage greaves
+        name: construction-graph-tag-cartilage-greaves
         doAfter: 2
   - node: greaves
     entity: ADTClothingOuterCartilageGreaves
@@ -726,7 +726,7 @@
     - to: armor
       steps:
       - tag: ADTCartilagePads
-        name: cartilage shoulder pads
+        name: construction-graph-tag-cartilage-shoulder-pads
         doAfter: 2
   - node: armor
     entity: ADTClothingOuterCartilageArmor
@@ -756,7 +756,7 @@
     - to: spear
       steps:
       - tag: ADTSpearBone
-        name: bone spear
+        name: construction-graph-tag-bone-spear
       - material: ADTSinew
         amount: 3
       - material: ADTWeaverChitin
@@ -770,9 +770,9 @@
       - material: ADTSinew
         amount: 1
       - tag: ADTBoneKnifeEel
-        name: eel bone knife
+        name: construction-graph-tag-eel-bone-knife
       - tag: ADTGemRuby
-        name: ruby
+        name: construction-graph-tag-ruby
         doAfter: 7.5
   - node: embrace
     entity: ADTSpearHerBitingEmbrace
