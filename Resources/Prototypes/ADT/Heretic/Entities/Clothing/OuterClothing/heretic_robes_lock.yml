@@ -14,10 +14,14 @@
     slot: head
   - type: DigitalCamouflage
   - type: VoiceMask
+  - type: UserInterface
+    interfaces:
+      enum.VoiceMaskUIKey.Key:
+        type: VoiceMaskBoundUserInterface
+  - type: FootstepModifier
+    slots: OUTERCLOTHING
   - type: ClothingGrantComponent
     component:
-    - type: FootstepModifier
-      footstepSoundCollection: null
     - type: ForestAdmonitionsEntity
       revealDuration: 0
       selfVisibility: 1

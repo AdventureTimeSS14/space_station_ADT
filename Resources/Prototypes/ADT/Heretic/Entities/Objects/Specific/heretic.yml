@@ -24,10 +24,10 @@
     delay: 2.0
   - type: Appearance
   - type: ItemToggle
+  - type: EldritchInfluenceDrainer
   - type: ComponentToggler
     components:
     - type: HereticMagicItem
-    - type: EldritchInfluenceDrainer
     - type: TransmutationRuneScriber
   - type: ItemToggleSize
     activatedSize: Normal
@@ -161,9 +161,9 @@
   - type: RustInRadiusOnTrigger
     keysIn:
     - timer
-    Range: 3
-    LookupRange: 0.5
-    RustStrength: 10
+    range: 3
+    lookupRange: 0.5
+    rustStrength: 10
   - type: DeleteOnTrigger
     keysIn:
     - timer

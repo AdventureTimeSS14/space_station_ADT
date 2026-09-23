@@ -41,11 +41,11 @@
       map: [ "base" ]
   - type: Item
     sprite: ADT/Heretic/book_morbus.rsi
+  - type: EldritchInfluenceDrainer
+    time: 2
   - type: ComponentToggler
     components:
     - type: HereticMagicItem
-    - type: EldritchInfluenceDrainer
-      Time: 2
     - type: TransmutationRuneScriber
       time: 2.5
   - type: Tag

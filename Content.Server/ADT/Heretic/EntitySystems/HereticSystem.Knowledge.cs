@@ -74,9 +74,6 @@ public sealed partial class HereticSystem
         if (string.IsNullOrWhiteSpace(ent.Comp.CurrentPath) && !data.SideKnowledge)
             ent.Comp.CurrentPath = data.Path;
 
-        if (!string.IsNullOrWhiteSpace(ent.Comp.CurrentPath) && body is { } bodyUid)
-            EnsureComp<HereticAuraComponent>(bodyUid);
-
         // make sure we only progress when buying current path knowledge
         if (data.Stage > ent.Comp.PathStage && data.Path == ent.Comp.CurrentPath)
             ent.Comp.PathStage = data.Stage;

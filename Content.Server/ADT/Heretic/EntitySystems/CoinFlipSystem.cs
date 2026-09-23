@@ -59,28 +59,41 @@ public sealed partial class CoinFlipSystem : SharedCoinFlipSystem
 
     private void ApplySideEffect(Entity<CoinFlipComponent> ent, CoinSide side, EntityUid user)
     {
-        var lookup = _lookup.GetEntitiesInRange(ent, 5f);
-
+        var target = FindNearestDoor(ent.Owner, 2f);
+        if (target == null)
+            return;
         if (side.Effect == "toggle_bolts")
         {
-            foreach (var target in lookup)
-            {
-                if (!TryComp<DoorBoltComponent>(target, out var bolts))
-                    continue;
-
-                _door.SetBoltsDown((target, bolts), !bolts.BoltsDown);
-            }
-
+            if (!TryComp<DoorBoltComponent>(target.Value, out var bolts))
+                return;
+            _door.SetBoltsDown((target.Value, bolts), !bolts.BoltsDown);
             return;
         }
+        if (side.Effect != "toggle_doors")
+            return;
+        if (!TryComp<DoorComponent>(target.Value, out var door))
+            return;
+        if (door.State is DoorState.Closed or DoorState.Denying)
+            _door.StartOpening(target.Value, door);
+    }
 
-        foreach (var target in lookup)
+    private EntityUid? FindNearestDoor(EntityUid coin, float range)
+    {
+        var coinCoords = Transform(coin).Coordinates;
+        EntityUid? nearest = null;
+        var nearestDist = float.MaxValue;
+        foreach (var target in _lookup.GetEntitiesInRange(coin, range))
         {
             if (!HasComp<DoorComponent>(target))
                 continue;
-
-            _door.TryToggleDoor(target, user: user);
+            if (!coinCoords.TryDistance(EntityManager, Transform(target).Coordinates, out var dist))
+                continue;
+            if (dist >= nearestDist)
+                continue;
+            nearestDist = dist;
+            nearest = target;
         }
+        return nearest;
     }
 
     private void OnInit(Entity<CoinFlipComponent> ent, ref MapInitEvent args)

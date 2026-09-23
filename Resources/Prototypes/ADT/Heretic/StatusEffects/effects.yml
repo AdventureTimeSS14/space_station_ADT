@@ -131,7 +131,9 @@
   components:
   - type: StatusEffectAlert
     alert: WoundedSoldier
-  - type: WoundedSoldier
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: WoundedSoldier
 
 - type: entity
   parent: StatusEffectSlowdown
