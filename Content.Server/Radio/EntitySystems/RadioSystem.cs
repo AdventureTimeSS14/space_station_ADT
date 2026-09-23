@@ -1,4 +1,5 @@
 using Content.Server.Administration.Logs;
+using Content.Server.ADT.StationAi; // ADT-Tweak
 using Content.Server.Chat.Systems;
 using Content.Server.Power.Components;
 using Content.Shared.Access.Components;
@@ -40,6 +41,7 @@ public sealed class RadioSystem : EntitySystem
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly LanguageSystem _language = default!;  // ADT Languages
     [Dependency] private readonly SharedRadioJobIconSystem _radioJobIcon = default!; // ADT-Tweak
+    [Dependency] private readonly AiEyeTeleportSystem _aiEyeTeleport = default!; // ADT-Tweak
     [Dependency] private readonly ADTTenCodeSystem _tenCode = default!; // ADT-Tweak
 
     // set used to prevent radio feedback loops.
@@ -72,16 +74,17 @@ public sealed class RadioSystem : EntitySystem
         if (TryComp(uid, out ActorComponent? actor))
         {
             // ADT-Tweak start
+            var chatMsg = _language.CanUnderstand(uid, args.Language)
+                ? args.ChatMsg
+                : args.UnknownLanguageChatMsg;
+
             if (_deafness.TryInterceptRadio(uid, actor.PlayerSession, args.Message, args.MessageSource))
                 return;
-            // ADT-Tweak end
 
-            // ADT Languages start
-            if (_language.CanUnderstand(uid, args.Language))
-                _netMan.ServerSendMessage(args.ChatMsg, actor.PlayerSession.Channel);
-            else
-                _netMan.ServerSendMessage(args.UnknownLanguageChatMsg, actor.PlayerSession.Channel);
-            // ADT Languages end
+            chatMsg = _aiEyeTeleport.TryAddRadioEyeLink(uid, chatMsg, args.MessageSource) ?? chatMsg;
+
+            _netMan.ServerSendMessage(chatMsg, actor.PlayerSession.Channel);
+            // ADT-Tweak end
         }
     }
 

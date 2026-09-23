@@ -1,5 +1,3 @@
-//
-
 using Content.Server.Chat.Managers;
 using Content.Server.Heretic.Components;
 using Content.Server.Heretic.Components.PathSpecific;
@@ -312,28 +310,73 @@ public sealed partial class HereticRitualSystem : EntitySystem
     private void SendRitualRequirements(EntityUid user, HereticRitualPrototype ritual)
     {
         if (ritual.RequiredTags == null || ritual.RequiredTags.Count == 0)
-            return;
+        {
+            if (ritual.CustomBehaviors?.Any(x => x is RitualKnowledgeBehavior) == true
+                && _heretic.TryGetHereticComponent(user, out var heretic, out _))
+            {
+                var tags = _heretic.TryGetRequiredKnowledgeTags((user, heretic));
+                if (tags is { Count: > 0 })
+                {
+                    var sb = new StringBuilder();
+                    sb.AppendLine(Loc.GetString("heretic-ritual-info-header", ("name", Loc.GetString(ritual.LocName))));
 
-        var sb = new StringBuilder();
-        sb.AppendLine(Loc.GetString("heretic-ritual-info-header", ("name", Loc.GetString(ritual.LocName))));
+                    foreach (var tag in tags)
+                    {
+                        AppendRequirementLine(sb, tag, 1);
+                    }
+
+                    if (sb.Length > 0)
+                        SendRequirementsMessage(user, Loc.GetString("heretic-ritual-info-requirements", ("requirements", sb.ToString())));
+                }
+
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(ritual.LocDesc))
+                return;
+
+            var desc = new StringBuilder();
+            desc.AppendLine(Loc.GetString("heretic-ritual-info-header", ("name", Loc.GetString(ritual.LocName))));
+            desc.AppendLine(Loc.GetString(ritual.LocDesc));
+
+            SendRequirementsMessage(user, Loc.GetString("heretic-ritual-info-requirements", ("requirements", desc.ToString())));
+            return;
+        }
+
+        var requirements = new StringBuilder();
+        requirements.AppendLine(Loc.GetString("heretic-ritual-info-header", ("name", Loc.GetString(ritual.LocName))));
 
         foreach (var (tag, amount) in ritual.RequiredTags)
         {
-            if (!_proto.TryIndex<HereticRitualItemPrototype>(tag, out var icon))
-                continue;
+            AppendRequirementLine(requirements, tag, amount);
+        }
 
-            var itemName = Loc.GetString(icon.Name);
+        if (requirements.Length == 0)
+            return;
+
+        SendRequirementsMessage(user, Loc.GetString("heretic-ritual-info-requirements", ("requirements", requirements.ToString())));
+    }
+
+    private void AppendRequirementLine(StringBuilder sb, string tag, float amount)
+    {
+        var itemName = GetRitualItemName(tag);
+
+        if (_proto.TryIndex<HereticRitualItemPrototype>(tag, out var icon))
+        {
             sb.AppendLine(Loc.GetString("heretic-ritual-info-item",
                 ("item", itemName),
                 ("amount", amount),
                 ("icon", icon.ID),
                 ("tooltip", itemName)));
         }
+        else
+        {
+            sb.AppendLine(Loc.GetString("heretic-ritual-info-item-plain", ("item", itemName), ("amount", amount)));
+        }
+    }
 
-        if (sb.Length == 0)
-            return;
-
-        var message = Loc.GetString("heretic-ritual-info-requirements", ("requirements", sb.ToString()));
+    private void SendRequirementsMessage(EntityUid user, string message)
+    {
         var wrapped = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
 
         if (_player.TryGetSessionByEntity(user, out var session))
@@ -346,11 +389,43 @@ public sealed partial class HereticRitualSystem : EntitySystem
                 Color.FromSrgb(new Color(186, 85, 211)));
     }
 
-    private string GetRitualItemName(string tag)
+    public string GetRitualItemName(string tag)
     {
         if (_proto.TryIndex<HereticRitualItemPrototype>(tag, out var icon))
             return Loc.GetString(icon.Name);
 
+        if (Loc.TryGetString($"heretic-guide-tag-{tag}", out var name))
+            return name;
+
+        if (TagToEntity.TryGetValue(tag, out var entityProtoId)
+            && _proto.TryIndex<EntityPrototype>(entityProtoId, out var entityProto)
+            && !string.IsNullOrEmpty(entityProto.Name))
+            return entityProto.Name;
+
         return tag;
+    }
+
+    private Dictionary<string, string>? _tagToEntity;
+
+
+    private Dictionary<string, string> TagToEntity => _tagToEntity ??= BuildTagToEntityMap();
+
+    private Dictionary<string, string> BuildTagToEntityMap()
+    {
+        var map = new Dictionary<string, string>();
+
+        foreach (var proto in _proto.EnumeratePrototypes<EntityPrototype>())
+        {
+            if (proto.Abstract || !proto.TryGetComponent<TagComponent>(out var tags))
+                continue;
+
+            foreach (var tag in tags.Tags)
+            {
+                if (!map.ContainsKey(tag.Id))
+                    map.Add(tag.Id, proto.ID);
+            }
+        }
+
+        return map;
     }
 }

@@ -8,52 +8,68 @@
     - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
       color: "#79F6FC"
-  - type: Reactive
-    reactions:
-    - reagents: [ Water ]
-      methods: [ Touch, Injection ]
-      effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:AreaReactionEffect
-        duration: 10
-        prototypeId: Foam
-        sound:
-          path: /Audio/Effects/extinguish.ogg
-    - reagents: [ Plasma ]
-      methods: [ Touch, Injection ]
-      effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction-reagent" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:ConvertReagent
-        solutionName: extract
-        removeReagent: Plasma
-        addReagent: FrostOil
-        removeAmount: 1
-        addAmount: 1
-    - reagents: [ Blood ]
-      methods: [ Touch, Injection ]
-      effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction-reagent" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:ConvertReagent
-        solutionName: extract
-        removeReagent: Blood
-        addReagent: XenobioJellyBlue
-        removeAmount: 1
-        addAmount: 1
+  - type: SlimeExtract
+    extractReactions:
+    - BlueSlimeExtractWaterReaction
+    - BlueSlimeExtractPlasmaReaction
+    - BlueSlimeExtractBloodReaction
   - type: Tag
     tags:
     - XenobiologyBlueExtract
+
+- type: extractReaction
+  id: BlueSlimeExtractWaterReaction
+  requirements:
+    Water: 1
+  effects:
+  - effect: !type:PopupMessage
+      type: Pvs
+      messages: [ "xeno-extract-reaction" ]
+    scalingOffset: 0
+  - effect: !type:PlaySoundEffect
+      sound: /Audio/Effects/Chemistry/bubbles.ogg
+    scalingOffset: 0
+  - effect: !type:AreaReactionEffect
+      duration: 10
+      prototypeId: Foam
+      sound:
+        path: /Audio/Effects/extinguish.ogg
+    scalingOffset: 1
+  shouldDelete: false
+
+- type: extractReaction
+  id: BlueSlimeExtractPlasmaReaction
+  requirements:
+    Plasma: 1
+  effects:
+  - effect: !type:PopupMessage
+      type: Pvs
+      messages: [ "xeno-extract-reaction-reagent" ]
+    scalingOffset: 0
+  - effect: !type:PlaySoundEffect
+      sound: /Audio/Effects/Chemistry/bubbles.ogg
+    scalingOffset: 0
+  - effect: !type:AddReagentToSolution
+      reagent: FrostOil
+      solution: extract
+    scalingFactor: 1
+    scalingOffset: 0
+  shouldDelete: false
+
+- type: extractReaction
+  id: BlueSlimeExtractBloodReaction
+  requirements:
+    Blood: 15
+  effects:
+  - effect: !type:PopupMessage
+      type: Pvs
+      messages: [ "xeno-extract-reaction-reagent" ]
+    scalingOffset: 0
+  - effect: !type:PlaySoundEffect
+      sound: /Audio/Effects/Chemistry/bubbles.ogg
+    scalingOffset: 0
+  - effect: !type:CreateEntityReactionEffect
+      entity: SlimeStabilizerPotion
+      number: 1
+    scalingOffset: 1
+  shouldDelete: false
