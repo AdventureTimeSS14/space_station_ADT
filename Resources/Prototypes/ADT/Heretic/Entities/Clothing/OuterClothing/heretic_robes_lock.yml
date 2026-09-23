@@ -13,6 +13,20 @@
     clothingPrototype: ADTClothingHeadHatHoodHereticLock
     slot: head
   - type: DigitalCamouflage
+  - type: VoiceMask
+  - type: UserInterface
+    interfaces:
+      enum.VoiceMaskUIKey.Key:
+        type: VoiceMaskBoundUserInterface
+  - type: FootstepModifier
+    slots: OUTERCLOTHING
+  - type: ClothingGrantComponent
+    component:
+    - type: ForestAdmonitionsEntity
+      revealDuration: 0
+      selfVisibility: 1
+      revealDistance: 7
+      revealDistanceSoft: 6
 
 - type: entity
   id: ADTClothingHeadHatHoodHereticLock

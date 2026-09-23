@@ -44,4 +44,6 @@
     interfaces:
       enum.HereticShapeshiftUiKey.Key:
         type: HereticShapeshiftBoundUserInterface
+        interactionRange: -1
+        requireInputValidation: false
   - type: HereticAction

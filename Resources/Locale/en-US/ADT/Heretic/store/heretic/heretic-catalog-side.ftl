@@ -175,7 +175,7 @@ knowledge-path-side-t2-morbus-desc =
     The Codex Cicatrix whispers of a greater tome, one bound in suffering and written in blood.
 
     Allows you to transmute a Codex Cicatrix and sacrifice a humanoid on your rune to create a Codex Morbus.
-    The Codex Morbus functions as a faster rune scriber and drains influence to restore your vitality.
+    The Codex Morbus functions as a faster rune scriber and drains reality shifts four times faster.
 
 # ADT: Greaves of the Prophet
 knowledge-path-side-t2-greaves-name = Greaves of the Prophet

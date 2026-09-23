@@ -19,7 +19,7 @@ public sealed partial class HereticAbilitySystem
     protected override void SubscribeLock()
     {
         base.SubscribeLock();
-        SubscribeLocalEvent<GhoulComponent, EventHereticShapeshift>(OnShapeshift);
+        SubscribeLocalEvent<EventHereticShapeshift>(OnShapeshift);
 
         SubscribeLocalEvent<ShapeshiftActionComponent, HereticShapeshiftMessage>(OnShapeshiftMessage);
     }
@@ -36,10 +36,10 @@ public sealed partial class HereticAbilitySystem
 
         _ui.CloseUi(ent.Owner, key);
 
-        if (!HasComp<GhoulComponent>(user))
+        if (!Heretic.IsHereticOrGhoul(user))
             return;
 
-        if (!TryComp(ent, out ActionComponent? action) || !_actions.ValidAction((ent, action)))
+        if (!TryComp(ent, out ActionComponent? action))
             return;
 
         // We have to do this shit because otherwise actor isn't removed from client ui actors list and ui remains
@@ -82,11 +82,14 @@ public sealed partial class HereticAbilitySystem
             });
     }
 
-    private void OnShapeshift(Entity<GhoulComponent> ent, ref EventHereticShapeshift args)
+    private void OnShapeshift(EventHereticShapeshift args)
     {
-        if (args.Handled || !HasComp<ShapeshiftActionComponent>(args.Action))
+        if (!HasComp<ShapeshiftActionComponent>(args.Action))
             return;
 
-        _ui.TryOpenUi(args.Action.Owner, HereticShapeshiftUiKey.Key, ent);
+        if (!Heretic.IsHereticOrGhoul(args.Performer))
+            return;
+
+        _ui.TryOpenUi(args.Action.Owner, HereticShapeshiftUiKey.Key, args.Performer);
     }
 }

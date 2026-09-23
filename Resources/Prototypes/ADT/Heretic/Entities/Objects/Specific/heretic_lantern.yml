@@ -19,6 +19,8 @@
     range: 4
     duration: 4
     fireStacks: 2
+  - type: UseDelay
+    delay: 5
   - type: Tag
     tags:
     - HereticItem

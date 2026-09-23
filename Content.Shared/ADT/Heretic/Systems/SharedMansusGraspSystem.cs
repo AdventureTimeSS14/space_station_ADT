@@ -12,6 +12,7 @@ using Content.Shared.Damage.Prototypes;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
 using Content.Shared.Eye.Blinding.Systems;
+using Content.Shared.FixedPoint;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Components;
 using Content.Shared.Mind;
@@ -233,6 +234,13 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                          HasComp<HereticRitualRuneComponent>(
                              target)) // If we have rust grasp and targeting a wall (or a catwalk) - do nothing, let other methods handle that. Also don't damage transmutation rune.
                     return false;
+                else if (TryComp(target, out DamageableComponent? mechDamageable) && HasComp<Content.Shared.Mech.Components.MechComponent>(target))
+                {
+                    _damage.TryChangeDamage((target, mechDamageable),
+                        new DamageSpecifier(_proto.Index<DamageTypePrototype>("Shock"), 1000),
+                        ignoreResistances: true,
+                        origin: performer);
+                }
                 else if (TryComp(target, out DamageableComponent? damageable) && // Is it even damageable?
                          !_tag.HasTag(target, "Meat") && // Is it not organic body part or organ?
                          !HasComp<ShadowCloakEntityComponent>(target) && // No instakilling shadow cloak heretics

@@ -104,7 +104,7 @@
     sprite: ADT/Heretic/Blades/blade_blade.rsi
     state: icon
   requiredTags:
-    Knife: 4
+    Knife: 2
   output:
     HereticBladeBlade: 1
   limit: 2 # ADT: max 2 blades

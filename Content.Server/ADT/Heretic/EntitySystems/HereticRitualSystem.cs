@@ -1,5 +1,6 @@
 using Content.Server.Chat.Managers;
 using Content.Server.Heretic.Components;
+using Content.Server.Heretic.Components.PathSpecific;
 using Content.Server.Heretic.Ritual;
 using Content.Shared.ADT.Heretic.Prototypes;
 using Content.Shared.Chat;
@@ -18,6 +19,7 @@ using Content.Shared.Examine;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.Stacks;
 using Robust.Shared.Containers;
+using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Heretic.EntitySystems;
@@ -35,6 +37,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
     [Dependency] private readonly GhoulSystem _ghoul = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public SoundSpecifier RitualSuccessSound = new SoundPathSpecifier("/Audio/ADT/Heretic/castsummon.ogg");
 
@@ -196,6 +199,9 @@ public sealed partial class HereticRitualSystem : EntitySystem
                 if (ghoulQuery.TryComp(spawned, out var ghoul))
                     _ghoul.SetBoundHeretic(spawned, performer);
 
+                if (TryComp(spawned, out LabyrinthPortalComponent? labyrinthPortal))
+                    labyrinthPortal.HereticMind = mind;
+
                 if (limited == null)
                     continue;
 
@@ -270,10 +276,16 @@ public sealed partial class HereticRitualSystem : EntitySystem
             return;
         }
 
+        if (_timing.CurTime < ent.Comp.NextRitualTime)
+            return;
+
         var successAnimation = _proto.Index(heretic.ChosenRitual.Value).RuneSuccessAnimation;
 
         if (!TryDoRitual(args.User, mind, heretic, ent, heretic.ChosenRitual.Value))
             return;
+
+        ent.Comp.NextRitualTime = _timing.CurTime + TimeSpan.FromSeconds(1);
+        Dirty(ent);
 
         if (successAnimation)
             RitualSuccess(ent, args.User);

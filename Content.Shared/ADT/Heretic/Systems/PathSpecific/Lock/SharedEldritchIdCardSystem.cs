@@ -1,6 +1,7 @@
 //
 
 using System.Linq;
+using Content.Shared.Access;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.DoAfter;
@@ -12,6 +13,7 @@ using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
@@ -135,10 +137,10 @@ public abstract partial class SharedEldritchIdCardSystem : EntitySystem
 
         var target = args.Target.Value;
 
-        if (TryComp(target, out IdCardComponent? idCard))
+        if (_idCard.TryFindIdCard(target, out var victimCard) && victimCard.Owner != args.User)
         {
             args.Handled = true;
-            EatCard(ent, (target, idCard), args.User);
+            EatCard(ent, victimCard, args.User);
             return;
         }
 
@@ -233,7 +235,9 @@ public abstract partial class SharedEldritchIdCardSystem : EntitySystem
         if (TryComp(idCard, out AccessComponent? access))
         {
             var existing = _access.TryGetTags(ent) ?? [];
-            _access.TrySetTags(ent, existing.Union(access.Tags));
+            var merged = new HashSet<ProtoId<AccessLevelPrototype>>(existing);
+            merged.UnionWith(access.Tags);
+            _access.TrySetTags(ent, merged);
         }
 
         _audio.PlayPredicted(ent.Comp.EatSound, Transform(idCard.Owner).Coordinates, user);
