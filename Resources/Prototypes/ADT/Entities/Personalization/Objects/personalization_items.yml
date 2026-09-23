@@ -4245,5 +4245,38 @@
   - type: Edible
     useSound: *PlushieSharkSound
 
+# Etvy
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieEtvy
+  name: Plushie Yuriy
+  description: A soft plush toy made in the likeness of Yuriy. It looks shiny and bright..
+  suffix: Personal, Etvy
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/etvy_yuriy_pushie.rsi
+    state: icon
+  - type: EmitSoundOnUse
+    handle: false
+    sound: null
+  - type: EmitSoundOnActivate
+    sound: &PlushieYuriySound
+      collection: ADTToySqueakYuriyTrixter
+  - type: EmitSoundOnCollide
+    sound: *PlushieYuriySound
+  - type: EmitSoundOnLand
+    sound: *PlushieYuriySound
+  - type: EmitSoundOnTrigger
+    sound: *PlushieYuriySound
+  - type: MeleeWeapon
+    soundHit: *PlushieYuriySound
+  - type: TriggerOnUse
+  - type: Speech
+    speechSounds: Squeak
+  - type: SpeakOnTrigger
+    pack: ADTFigurinesPlushieYuriyTrixter
+  - type: TTS
+    voice: johnny
+
 
 #SPONSOR-ITEMS-END
