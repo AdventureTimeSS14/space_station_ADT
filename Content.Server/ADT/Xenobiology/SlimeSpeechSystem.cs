@@ -168,6 +168,7 @@ public sealed partial class SlimeSpeechSystem : EntitySystem
 
         StopFollowing(slime);
         _slimeLatch.Unlatch(slime);
+        RemCompDeferred<SlimeRetaliateComponent>(slime);
 
         foreach (var hostile in hostiles)
         {

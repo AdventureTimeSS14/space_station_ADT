@@ -11,6 +11,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Weapons.Melee.Events;
+using Robust.Shared.Map;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -99,9 +100,16 @@ public sealed partial class SlimeRetaliateSystem : EntitySystem
 
         if (TryComp<FactionExceptionComponent>(slime, out var exception))
         {
-            exception.Ignored.Remove(betrayer);
-            if (TryComp<FactionExceptionTrackerComponent>(betrayer, out var tracker))
-                tracker.Entities.Remove(slime);
+            var remainingIgnored = new List<EntityUid>(exception.Ignored);
+            remainingIgnored.Remove(betrayer);
+            var hostiles = new List<EntityUid>(exception.Hostiles);
+
+            RemComp<FactionExceptionComponent>(slime);
+
+            if (hostiles.Count > 0)
+                _factions.AggroEntities(new Entity<FactionExceptionComponent?>(slime, default), hostiles);
+            if (remainingIgnored.Count > 0)
+                _factions.IgnoreEntities(new Entity<FactionExceptionComponent?>(slime, default), remainingIgnored);
         }
     }
 
