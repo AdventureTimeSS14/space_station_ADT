@@ -50,8 +50,9 @@ namespace Content.Server.AruMoon.Plasmacutter
             int value,
             BatteryComponent? battery = null)
         {
-            if (!Resolve(uid, ref battery) && !HasComp<PowerCellSlotComponent>(uid))
+            if (!Resolve(uid, ref battery, logMissing: false) && !HasComp<PowerCellSlotComponent>(uid))
                 return;
+
             if (battery != null && _batterySystem.IsFull((uid, battery)))
                 value = 0;
             _materialStorage.TryChangeStorageLimit(uid, value);
