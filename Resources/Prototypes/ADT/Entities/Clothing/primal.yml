@@ -87,6 +87,9 @@
   - type: FireProtection
     reduction: 0.5
   - type: GroupExamine
+  - type: Tag
+    tags:
+    - ADTGoliathCloak
   - type: Construction
     graph: ADTGoliathCloak
     node: cloak

@@ -788,6 +788,11 @@
     sprite: Structures/Walls/sandstone.rsi
   - type: Icon
     sprite: Structures/Walls/sandstone.rsi
+  # ADT-Tweak-Start
+  - type: Construction
+    graph: ADTStonebrickWall
+    node: wall
+  # ADT-Tweak-End
   - type: RCDDeconstructable
     cost: 6
     delay: 8

@@ -191,3 +191,297 @@
   targetNode: cloak
   category: construction-category-clothing
   objectType: Item
+
+- type: constructionGraph
+  id: ADTLavaFishingRodTribal
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: rod
+      steps:
+      - material: Bones
+        amount: 2
+      - material: ADTSinew
+        amount: 1
+        doAfter: 4
+  - node: rod
+    entity: ADTLavaFishingRodTribal
+
+- type: construction
+  id: ADTLavaFishingRodTribal
+  graph: ADTLavaFishingRodTribal
+  startNode: start
+  targetNode: rod
+  category: construction-category-tools
+  objectType: Item
+
+- type: constructionGraph
+  id: ADTAshTotemWooden
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: totem
+      steps:
+      - material: WoodPlank
+        amount: 30
+      - material: GoliathHide
+        amount: 1
+        doAfter: 15
+  - node: totem
+    entity: ADTAshTotemWooden
+
+- type: construction
+  id: ADTAshTotemWooden
+  graph: ADTAshTotemWooden
+  startNode: start
+  targetNode: totem
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: constructionGraph
+  id: ADTAshTotemBone
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: totem
+      steps:
+      - material: WoodPlank
+        amount: 15
+      - material: ADTSandstone
+        amount: 15
+      - material: Bones
+        amount: 3
+        doAfter: 15
+  - node: totem
+    entity: ADTAshTotemBone
+
+- type: construction
+  id: ADTAshTotemBone
+  graph: ADTAshTotemBone
+  startNode: start
+  targetNode: totem
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: constructionGraph
+  id: ADTAshTotemStone
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: totem
+      steps:
+      - material: ADTSandstone
+        amount: 30
+      - material: ADTSinew
+        amount: 2
+        doAfter: 15
+  - node: totem
+    entity: ADTAshTotemStone
+
+- type: construction
+  id: ADTAshTotemStone
+  graph: ADTAshTotemStone
+  startNode: start
+  targetNode: totem
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: constructionGraph
+  id: ADTTorchHolder
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: frame
+      steps:
+      - material: WoodPlank
+        amount: 2
+        doAfter: 3
+  - node: frame
+    entity: ADTTorchHolderFrame
+    edges:
+    - to: holder
+      completed:
+      - !type:SnapToGrid { }
+      steps:
+      - tool: Anchoring
+        doAfter: 4
+  - node: holder
+    entity: ADTTorchHolder
+    edges:
+    - to: frame
+      completed:
+      - !type:SpawnPrototype
+        prototype: ADTTorchHolderFrame
+        amount: 1
+      - !type:DeleteEntity { }
+      steps:
+      - tool: Prying
+        doAfter: 4
+
+- type: construction
+  id: ADTTorchHolderFrame
+  graph: ADTTorchHolder
+  startNode: start
+  targetNode: frame
+  category: construction-category-tools
+  objectType: Item
+
+- type: constructionGraph
+  id: ADTWoodenStool
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: stool
+      steps:
+      - material: WoodPlank
+        amount: 2
+        doAfter: 5
+  - node: stool
+    entity: ADTWoodenStool
+
+- type: construction
+  id: ADTWoodenStool
+  graph: ADTWoodenStool
+  startNode: start
+  targetNode: stool
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: constructionGraph
+  id: ADTGuillotine
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: guillotine
+      steps:
+      - tag: ADTBoneAxe
+        name: construction-graph-tag-adt-bone-axe
+        icon:
+          sprite: ADT/Objects/Weapons/Melee/bone_axe.rsi
+          state: icon
+      - tag: ADTCircularSawBlade
+        name: construction-graph-tag-adt-saw-blade
+        icon:
+          sprite: ADT/Objects/Specific/Lavaland/Fishing/fish_loot.rsi
+          state: circular_saw_blade
+        doAfter: 5
+  - node: guillotine
+    entity: ADTGuillotine
+
+- type: construction
+  id: ADTGuillotine
+  graph: ADTGuillotine
+  startNode: start
+  targetNode: guillotine
+  category: construction-category-weapons
+  objectType: Item
+
+- type: constructionGraph
+  id: ADTPrimitiveMedkit
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: medkit
+      steps:
+      - material: Bones
+        amount: 6
+      - material: ADTSinew
+        amount: 3
+        doAfter: 5
+  - node: medkit
+    entity: ADTPrimitiveMedkit
+
+- type: construction
+  id: ADTPrimitiveMedkit
+  graph: ADTPrimitiveMedkit
+  startNode: start
+  targetNode: medkit
+  category: construction-category-utilities
+  objectType: Item
+
+- type: constructionGraph
+  id: ADTFishingPouch
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: pouch
+      steps:
+      - material: Cloth
+        amount: 3
+      - material: ADTSinew
+        amount: 1
+        doAfter: 4
+  - node: pouch
+    entity: ADTFishingPouch
+
+- type: construction
+  id: ADTFishingPouch
+  graph: ADTFishingPouch
+  startNode: start
+  targetNode: pouch
+  category: construction-category-utilities
+  objectType: Item
+
+- type: constructionGraph
+  id: ADTStonebrickWall
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: wall
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - material: ADTSandstone
+        amount: 20
+        doAfter: 5
+  - node: wall
+    entity: WallSandstone
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: ADTMaterialSandstone1
+        amount: 15
+      - !type:DeleteEntity { }
+      steps:
+      - tool: Prying
+        doAfter: 6
+
+- type: construction
+  id: ADTStonebrickWall
+  graph: ADTStonebrickWall
+  startNode: start
+  targetNode: wall
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked

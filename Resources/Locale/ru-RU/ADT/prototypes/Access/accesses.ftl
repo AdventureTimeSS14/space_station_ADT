@@ -9,3 +9,4 @@ id-card-access-level-spacesec-external = Внешний SEC
 id-card-access-level-spacesec-security = Служба Безопасности SEC
 id-card-access-level-spacesec-armory = Оружейный SEC
 id-card-access-level-spacesec-command = Командование SEC
+id-card-access-level-adt-ashwalker = Племенной

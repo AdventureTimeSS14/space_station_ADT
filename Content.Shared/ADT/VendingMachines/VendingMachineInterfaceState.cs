@@ -1,18 +1,39 @@
+using Robust.Shared.GameObjects;
+using Robust.Shared.Maths;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.ADT.VendingMachines
 {
+    [Serializable, NetSerializable, DataDefinition]
+    public sealed partial class ReturnedItemDisplay
+    {
+        [DataField]
+        public string? Label;
+
+        [DataField]
+        public float FillFraction;
+
+        [DataField]
+        public Color? FillColor;
+    }
+
     [NetSerializable, Serializable]
     public sealed class VendingMachineInterfaceState : BoundUserInterfaceState
     {
         public List<VendingMachineInventoryEntry> Inventory;
         public double PriceMultiplier;
         public int Credits;
-        public VendingMachineInterfaceState(List<VendingMachineInventoryEntry> inventory, double priceMultiplier, int credits)
+
+        public Dictionary<string, ReturnedItemDisplay> ReturnedItems = new();
+
+        public VendingMachineInterfaceState(List<VendingMachineInventoryEntry> inventory, double priceMultiplier, int credits,
+            Dictionary<string, ReturnedItemDisplay>? returnedItems = null)
         {
             Inventory = inventory;
             PriceMultiplier = priceMultiplier;
             Credits = credits;
+            if (returnedItems != null)
+                ReturnedItems = returnedItems;
         }
     }
 
