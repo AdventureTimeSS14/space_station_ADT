@@ -249,9 +249,6 @@ public partial class XenobiologySystem
         slime.ShouldHaveShader = breed.ShouldHaveShader;
         slime.Shader = breed.Shader;
 
-        if (slime.ShouldHaveShader && slime.Shader != null)
-            _appearance.SetData(ent, XenoSlimeVisuals.Shader, slime.Shader);
-
         _appearance.SetData(ent, XenoSlimeVisuals.Color, slime.SlimeColor);
         _mobGrowth.SetBaseName(ent, Loc.GetString(breed.BreedName));
     }
