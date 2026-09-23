@@ -128,7 +128,7 @@ public sealed class AiEyeTeleportSystem : EntitySystem
     private void TeleportEye(EntityUid aiUid, Entity<StationAiCoreComponent?> core, EntityUid target)
     {
         var eye = core.Comp!.RemoteEntity!.Value;
-        _xforms.SetCoordinates(eye, Transform(target).Coordinates);
+        _xforms.SetMapCoordinates(eye, _xforms.GetMapCoordinates(target));
         _popup.PopupEntity(Loc.GetString("ai-eye-teleport-success", ("name", Name(target))), eye, aiUid);
     }
 
