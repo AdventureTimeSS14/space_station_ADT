@@ -6,6 +6,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -25,8 +26,6 @@ public sealed class ADTFishingMinigameSystem : EntitySystem
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
 
     private static readonly SoundSpecifier BiteSound = new SoundPathSpecifier("/Audio/ADT/Items/Fishing/fishing_rod_reel.ogg");
-
-    private const float BreakDistance = 4f;
 
     private const float HookAcceleration = 2.1f;
     private const float HookGravity = 1.5f;
@@ -59,6 +58,7 @@ public sealed class ADTFishingMinigameSystem : EntitySystem
         comp.Difficulty = Math.Clamp(difficulty, 0f, 1f);
         comp.Efficiency = rod.Comp.Efficiency;
         comp.HookSize = rod.Comp.HookSize;
+        comp.BreakDistance = rod.Comp.CastRange + 1f;
         comp.FishPosition = _random.NextFloat(0.25f, 0.75f);
         comp.FishTarget = comp.FishPosition;
         comp.NextFishMove = _timing.CurTime;
@@ -149,8 +149,7 @@ public sealed class ADTFishingMinigameSystem : EntitySystem
 
         if (userPos.MapId != spotPos.MapId)
             return false;
-
-        return (userPos.Position - spotPos.Position).Length() <= BreakDistance;
+        return (userPos.Position - spotPos.Position).Length() <= ent.Comp.BreakDistance;
     }
 
     private void MoveFish(Entity<ADTFishingMinigameComponent> ent, float frameTime)
@@ -202,10 +201,13 @@ public sealed class ADTFishingMinigameSystem : EntitySystem
         var user = ent.Comp.User;
         var spot = ent.Comp.Spot;
         var fishProto = ent.Comp.Fish;
+        var from = GetNetCoordinates(Transform(spot).Coordinates);
 
         Stop(ent, rod);
 
-        var fish = Spawn(fishProto, Transform(spot).Coordinates);
+        RaiseNetworkEvent(new ADTFishCaughtEvent(GetNetEntity(user), from, fishProto), Filter.Pvs(spot));
+
+        var fish = Spawn(fishProto, Transform(user).Coordinates);
 
         _hands.PickupOrDrop(user, fish);
         _audio.PlayPvs(rod.Comp.CatchSound, rod.Owner);

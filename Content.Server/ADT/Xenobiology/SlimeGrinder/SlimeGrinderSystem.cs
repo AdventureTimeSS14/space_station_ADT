@@ -187,7 +187,7 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
         grinder.Comp.ProcessingTimer += physics.FixturesMass * grinder.Comp.ProcessingTimePerUnitMass * grinder.Comp.WorkTimeMultiplier;
 
         var extractProto = _xenobio.GetProducedExtract((toProcess, slime));
-        var extractQuantity = (int)MathF.Round(slime.ExtractsProduced * grinder.Comp.ExtractMultiplier);
+        var extractQuantity = (int)MathF.Round((slime.ExtractsProduced + slime.SlimeSteroidAmount) * grinder.Comp.ExtractMultiplier);
 
         if (!grinder.Comp.YieldQueue.ContainsKey(extractProto))
             grinder.Comp.YieldQueue.Add(extractProto, extractQuantity);

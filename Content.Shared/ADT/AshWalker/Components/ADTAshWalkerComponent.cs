@@ -1,3 +1,4 @@
+using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.ADT.AshWalker.Components;
@@ -16,4 +17,7 @@ public sealed partial class ADTAshWalkerComponent : Component
 
     [ViewVariables]
     public TimeSpan NextGunPopup;
+
+    [DataField]
+    public EntityWhitelist? Whitelist;
 }
