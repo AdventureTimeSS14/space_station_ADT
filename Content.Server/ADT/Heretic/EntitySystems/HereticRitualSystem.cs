@@ -3,6 +3,7 @@
 using Content.Server.Chat.Managers;
 using Content.Server.Heretic.Components;
 using Content.Server.Heretic.Components.PathSpecific;
+using Content.Server.Heretic.Ritual;
 using Content.Shared.ADT.Heretic.Prototypes;
 using Content.Shared.Chat;
 using Content.Shared.Heretic.Prototypes;
