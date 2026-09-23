@@ -52,11 +52,6 @@
       - !type:TargetInRangePrecondition
         targetKey: Target
         rangeKey: MeleeRange
-      services:
-      - !type:UtilityService
-        id: MeleeService
-        proto: NearbyMeleeTargets
-        key: Target
 
 - type: htnCompound
   id: XenoSlimeFoodCompound
