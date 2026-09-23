@@ -15607,3 +15607,9 @@ Entries:
     id: 1951
     pr_number: 3424
     time: '2026-09-23T13:44:52Z'
+  - author: SchrodingerCutie, Etvy
+    changes:
+      - {message: Исправлен артефакт звуков при нулевой громкости окружения., type: Fix}
+    id: 1952
+    pr_number: 3423
+    time: '2026-09-23T13:51:46Z'
