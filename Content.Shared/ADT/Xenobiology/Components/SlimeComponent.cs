@@ -197,4 +197,19 @@ public sealed partial class SlimeComponent : Component
 
     [DataField]
     public TimeSpan StopDuration = TimeSpan.FromSeconds(10);
+
+    [DataField]
+    public TimeSpan RetaliateDuration = TimeSpan.FromSeconds(8);
+
+    [DataField]
+    public float RetaliateMaxDistance = 15f;
+
+    /// <summary>
+    /// Шанс взрослого слайма уронить в стан
+    /// </summary>
+    [DataField]
+    public float AdultKnockdownChance = 0.15f;
+
+    [DataField]
+    public TimeSpan AdultKnockdownDuration = TimeSpan.FromSeconds(4);
 }

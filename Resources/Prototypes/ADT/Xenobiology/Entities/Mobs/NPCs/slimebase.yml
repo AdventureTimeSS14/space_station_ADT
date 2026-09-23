@@ -77,7 +77,7 @@
         Asphyxiation: -1.0
     maxSaturation: 15
   - type: Damageable
-    damageModifierSet: Slime
+    damageModifierSet: SlimeXenobio
   - type: Injurable
     damageContainer: Biological
   - type: Bloodstream
