@@ -1,0 +1,76 @@
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: ADTClothingOuterArmorMishailArmoredJacketSecOfficer
+  name: the armored jacket of an sec officer
+  description: You think it was a caretaker's jacket once. But you can't prove it violates the sixth clause of the general security SOP.
+  suffix: Personal, Mishail
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Mishail_armored_jacket_sec_officer.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Personalization/Mishail_armored_jacket_sec_officer.rsi
+
+- type: entity
+  parent: ADTClothingBlueshieldArmor
+  id: ADTClothingOuterBSArmor
+  name: tattered ceremonial armor of the "Blue Shield" officer.
+  description: This armor piece was made specifically to order for officer "Blue Shield" O.G. This armor provides excellent protection against bullets and moderate protection against impacts and cuts. There is a tiny graffiti with a pink pig on the back.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Raven559/blue_shield_ceremonial_armor.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/Raven559/blue_shield_ceremonial_armor.rsi
+
+- type: entity
+  parent: ADTSponsorClothingOuterArmorBase
+  id: ADTClothingOuterArmorUma
+  name: Uma`s armor vest
+  description: A Type III heavy bulletproof vest that excels in protecting the wearer against traditional projectile weaponry and explosives to a minor extent.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/uma_armor.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/uma_armor.rsi
+
+
+
+#Sir_talter
+- type: entity
+  parent: [ClothingOuterArmorBasic, BadgeOnClothing]
+  id: ADTClothingOuterArmorMinerSirtalter
+  name: plated explorer suit
+  description: This explorer suit is reinforced with goliath hides. The pinnacle of mining ingenuity and Lavaland's own madness in the field of defense.
+  suffix: Personal, Sir_talter
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/sirtalter_armorminer.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/sirtalter_armorminer.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.7
+    coolingCoefficient: 1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.4
+        Piercing: 0.95
+        Heat: 0.6
+        Caustic: 0.7
+  - type: ExplosionResistance
+    damageCoefficient: 0.70
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetMinerSirtalter
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      badge: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+      toggleable-clothing: !type:ContainerSlot {}
+

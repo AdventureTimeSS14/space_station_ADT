@@ -1,0 +1,216 @@
+# Kivchik
+- type: entity
+  parent: ADTSponsorClothingNeckBase
+  id: ADTClothingNeckKivchikCloak
+  suffix: Kivchik
+  name: black cloak of retribution
+  description: A neat black raincoat with golden stripes and clasps.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/kivchikset_cloak.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: ADTSponsorClothingNeckBase
+  id: ADTClothingNeckLuckyratCloak
+  name: captain of bar cloak
+  description: captain of bar cloak
+  suffix: Personal, luckyrat
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/luckyrat/luckyrat_cloak.rsi
+
+- type: entity
+  parent: ADTSponsorClothingNeckBase
+  id: ADTClothingNeckShipTestRedLis
+  name: dark-red shamag
+  description: A large square cotton handkerchief, dyed in a dark color, without any decorative elements such as a plaid or fringe.
+  suffix: Personal, RedLis
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/RedLis/shiptest_shamag.rsi
+
+
+- type: entity
+  parent: [ClothingNeckMantleCap, ADTSponsorClothing]
+  id: ADTClothingNeckMathemat1kaMantle
+  name: white captain's mantle
+  description: A formal white mantle to drape around the shoulders.
+  suffix: Personal, Mathemat1ka, For all sponsor
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/mathemat1ka_mantle.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/mathemat1ka_mantle.rsi
+
+- type: entity
+  parent: [ClothingNeckCloakCap, ADTSponsorClothing]
+  id: ADTClothingNeckMathemat1kaCloak
+  name: white captain's cloak
+  description: A pompous and comfy white cloak with gold trim.
+  suffix: Personal, Mathemat1ka, For all sponsor
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/mathemat1ka_cloak.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/mathemat1ka_cloak.rsi
+
+- type: entity
+  parent: ADTSponsorClothingNeckBase
+  id: ADTClothingNeckRaven559SecOfficerMantle
+  name: A tattered ceremonial mantle of an sec officer
+  description: A firefight with heretics, revolutionaries, nuclear operatives, and a crew member who kicked him out of the department is a typical Tuesday for this owner. This mantle is the power of kleptomania and the lethal consequences of the GAMMA code. It smells like blood.
+  suffix: Personal, Raven559
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Raven559/mantle_sec_officer.rsi
+
+- type: entity
+  parent: ADTSponsorClothingNeckBase
+  id: ADTClothingNeckRaven559OfficerBlueShieldMantle
+  name: the tattered ceremonial mantle of the blue shield officer
+  description: A firefight with heretics, revolutionaries, nuclear operatives, and a crew member who kicked him out of the department is a typical Tuesday for this OSS. This mantle is the power of kleptomania and the lethal consequences of attacking a member of the command staff.
+  suffix: Personal, Raven559
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Raven559/mantle_officer_blue_shield.rsi
+
+
+#ADMIRAL_DEATH
+- type: entity
+  parent: ADTSponsorClothingNeckBase
+  id: ADTAdmiralDeathQMMantle
+  suffix: Personal, ADMIRAL_DEATH
+  name: Elite Quartermaster’s Cloak with Epaulettes
+  description: Elegant and imposing, the cloak immediately proclaims the high status of its wearer, a quartermaster of an elite military unit. The silhouette is strict yet noble, the elongated cut emphasises the wearer’s dignified bearing, while the thoughtful details reveal functionality without sacrificing aesthetics.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/admiral_deathqmmantle.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Personalization/admiral_deathqmmantle.rsi
+  - type: Item
+    size: Normal
+
+# honelin111
+- type: entity
+  parent: ADTSponsorClothingNeckBase
+  id: ADTClothingNeckHonelin111Choker
+  suffix: Personal, Honelin111
+  name: choker with a bell
+  description: A choker with a golden bell that jingles as you walk
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/honelin111_choker.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Personalization/honelin111_choker.rsi
+  - type: Item
+    size: Small
+  - type: FootstepModifier
+    slots: NECK
+    footstepSoundCollection:
+      collection: FootstepJester
+      params:
+        variation: 0.07
+
+- type: entity
+  parent: ADTSponsorClothingUniformSkirtBase
+  id: ADTSponsorClothingUniformHonelin111Dress
+  name: dress
+  description: The dress is red, highlighting the figure, with long sleeves and a V-neckline that reveals the valley between the breasts. On the side, the dress has a diagonal cut that creates an asymmetrical hem.
+  suffix: Personal, honelin111
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/honelin111_dress.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/honelin111_dress.rsi
+
+# SikRit
+- type: entity
+  parent: ADTSponsorClothingNeckBase
+  id: ADTClothingNeckSikRitDemonicWings
+  suffix: Personal, SikRit
+  name: demonic wings
+  description: Small wings that seem to have no use for the wearer. You can see that they tremble depending on the wearer's desire. You can feel a strange aura coming from the wearer of these wings.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/SikRi_demonic_wings.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Personalization/SikRi_demonic_wings.rsi
+  - type: Item
+    size: Normal
+
+# NSFW
+- type: entity
+  parent: ADTSponsorClothingNeckBase
+  id: ADTClothingNeckSentinel
+  name: sentinel cloak
+  description: An elegant robe given to the eternal guardians who watch over the order of the world.
+  suffix: Personal, NSFW
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/nsfw_cloak.rsi
+  - type: StaticPrice
+    price: 1984
+
+- type: entity
+  parent: ADTSponsorClothingNeckBase
+  id: ADTClothingNeck1AltiusDarkBrownCloak
+  suffix: Personal, 1Altius
+  name: dark brown cloak
+  description: A dark brown cloak with gold accents, flowing from the wearer’s shoulders.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/1Altius_dark_brown_cloak.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Personalization/1Altius_dark_brown_cloak.rsi
+  - type: Item
+    size: Normal
+
+- type: entity
+  parent: ADTSponsorClothingNeckBase
+  id: ADTClothingNeckSaintMadmanMantle
+  suffix: Personal, saint_madman
+  name: SaintMadmanNeck
+  description: The Aristocrat's neck
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/saint_madman_neck.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Personalization/saint_madman_neck.rsi
+  - type: Item
+    size: Normal
+
+- type: entity
+  parent: ADTSponsorClothingNeckBase
+  id: ADTClothingNeckUmaChoker
+  name: Uma`s choker
+  description: Uma`s choker
+  suffix: Sponsor, Uma
+  components:
+    - type: Sprite
+      sprite: ADT/Personalization/uma_choker.rsi
+
+- type: entity
+  parent: ADTSponsorClothingNeckBase
+  id: ADTClothingNeckBolperCloak
+  suffix: Bolper
+  name: Bolper`s cloak
+  description: Plus five percent coolness.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/bolper_cloak.rsi
+
+- type: entity
+  parent: ADTSponsorClothingNeckBase
+  id: ADTClothingNeckPyotrCloak
+  name: Pyotr's cloak
+  description: Dark green with gold thread cloak.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/pyotr_cloak.rsi

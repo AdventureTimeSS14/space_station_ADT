@@ -1,0 +1,259 @@
+- type: entity
+  name: Pyotr's sabre
+  parent: BaseItem
+  id: ADTPyotrSabre
+  description: A ceremonial weapon belonging to the Pyotr Shahin. Heavier than stadart captain`s sabre.
+  components:
+  - type: Sharp
+  - type: Sprite
+    sprite: ADT/Personalization/pyotr_sabre.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1.2
+    damage:
+      types:
+        Slash: 22
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  # - type: Reflect
+  #   enabled: true
+  #   reflectProb: .5 # TODO: Дорабоатть компонент, ругается на поле spread вместе с enabled
+  #   spread: 90
+  - type: Item
+    size: Huge
+    sprite: ADT/Personalization/pyotr_sabre.rsi
+  - type: DisarmMalus
+  - type: Tag
+    tags:
+    - CaptainSabre
+
+#Bolper
+- type: entity
+  name: Bolper's katana
+  parent: BaseSword
+  id: ADTBolperKatana
+  description: Plus five percent to damage.
+  suffix: Bolper
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/bolper_katana.rsi
+  - type: MeleeWeapon
+    attackRate: 1.5
+    damage:
+      types:
+        Slash: 15
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    sprite: ADT/Personalization/bolper_katana.rsi
+  - type: Tag
+    tags:
+    - Katana
+  - type: DisarmMalus
+
+ #Rip_Zoro
+- type: entity
+  name: The legendary katana
+  parent: BaseSword
+  id: ADTZoroKatana
+  description: The katana of a great swordsman...
+  suffix: Rip_Zoro
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/rip_zoro_katana.rsi
+  - type: MeleeWeapon
+    attackRate: 1.5
+    damage:
+      types:
+        Slash: 15
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    sprite: ADT/Personalization/rip_zoro_katana.rsi
+  - type: Tag
+    tags:
+    - Katana
+
+# - type: entity
+#   name: Prazat Chainsword
+#   parent: BaseItem
+#   id: ADTWeaponMeleePrasatChainsword
+#   description: Prazat Chainsword
+#   suffix: Personal, PrazzzCool999
+#   components:
+#   - type: Sharp
+#   - type: Sprite
+#     sprite: ADT/Personalization/prazat_chainsword_icon.rsi
+#     layers:
+#     - state: icon
+#       map: [ "enum.ToggleableVisuals.Layer" ]
+#     - state: icon_chainsword
+#       visible: false
+#       map: [ "chainsword" ]
+#   - type: MeleeWeapon
+#     attackRate: 1.6
+#     damage:
+#       types:
+#         Blunt: 2.5
+#         Structural: 5
+#     soundHit:
+#         path: "/Audio/Weapons/smash.ogg"
+#   - type: Item
+#     sprite: ADT/Personalization/prazat_chainsword.rsi
+#   - type: DisarmMalus
+#   - type: Tag
+#     tags:
+#     - ADTWeaponMeleePrasatChainsword
+#     - CaptainSabre
+#   - type: Appearance
+#   - type: ItemToggle
+#     soundActivate:
+#       path: /Audio/Weapons/chainsawwield.ogg
+#       params:
+#         volume: -3
+#     soundDeactivate:
+#       path: /Audio/Weapons/chainsawwield.ogg
+#       params:
+#         volume: -3
+#   - type: ItemToggleActiveSound
+#     activeSound:
+#       path: /Audio/Weapons/chainsawidle.ogg
+#   - type: UseDelay
+#     delay: 1.5
+#   - type: ItemToggleMeleeWeapon
+#     activatedSoundOnHit:
+#       path: /Audio/Weapons/chainsaw.ogg
+#       params:
+#         variation: 0.250
+#     activatedSoundOnHitNoDamage:
+#       path: /Audio/Weapons/chainsaw.ogg
+#       params:
+#         variation: 0.250
+#         volume: -10
+#     activatedSoundOnSwing:
+#       path: /Audio/Weapons/chainsaw.ogg
+#       params:
+#         variation: 0.125
+#     activatedDamage:
+#       types:
+#         Slash: 15
+#         Piercing: 2.5
+#         Structural: 30
+#   - type: ToggleableVisuals
+#     spriteLayer: chainsword
+#     inhandVisuals:
+#       left:
+#       - state: inhand-left-chainsword
+#       right:
+#       - state: inhand-right-chainsword
+#   - type: GenericVisualizer
+#     visuals:
+#       enum.ToggleableVisuals.Enabled:
+#         enum.ToggleableVisuals.Layer:
+#           True: {state: icon_chainsword}
+#           False: {state: icon}
+#   - type: PointLight
+#     enabled: false
+#     radius: 1.1
+#     energy: 0.1
+#     color: "#ffffe2"
+#     netsync: false
+#   - type: ItemTogglePointLight
+
+- type: entity
+  name: saeros klevetz
+  parent: [ BaseSword, BaseCommandContraband ]
+  id: ADTSaerosKlevetz
+  description: ADTSaerosKlevetz
+  suffix: Personal, Melima, Farrellka
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/saeros_klevetz.rsi
+  - type: MeleeWeapon
+    attackRate: 1.5
+    damage:
+      types:
+        Piercing: 20 #cmon, it has to be at least BETTER than the rest.
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Reflect
+    reflectProb: .1
+    spread: 90
+  - type: Item
+    sprite: ADT/Personalization/saeros_klevetz.rsi
+  - type: DisarmMalus
+  - type: Clothing
+    sprite: ADT/Personalization/saeros_klevetz.rsi
+    slots: [belt]
+    equipSound:
+      path: /Audio/Items/belt_equip.ogg
+    quickEquip: false
+
+- type: entity
+  name: Faust dirk
+  parent: [ BaseSword, BaseCommandContraband ]
+  id: ADTFaustDirk
+  description: A ceremonial weapon
+  components:
+  - type: Sharp
+  - type: Sprite
+    sprite: ADT/Personalization/FaustNetzach/faust_dirk.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1.5
+    damage:
+      types:
+        Slash: 17
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Reflect
+    reflectProb: .1
+    spread: 90
+  - type: Item
+    size: Large
+    sprite: ADT/Personalization/FaustNetzach/faust_dirk.rsi
+    shape:
+    - 0,0,0,2
+  - type: DisarmMalus
+  - type: Tag
+    tags:
+    - CaptainSabre
+
+# stryz_ani
+- type: entity
+  parent: [ BaseSword, BaseMajorContraband ]
+  id: ADTStryzAniKatana
+  name: cyber katana
+  description: A new branch in the creation of katanas from the best masters this katana is made to order from the Syndicates cursed katana. Upon inspection, it contains a strange mechanism related to gloves
+  suffix: Personal, stryz_ani
+  components:
+  - type: Tag
+    tags:
+    - ADTStryzAniKatana
+  - type: Sprite
+    sprite: ADT/Personalization/stryz_ani/katana.rsi
+  - type: MeleeWeapon
+    wideAnimationRotation: -65
+    attackRate: 1.2
+    damage:
+      types:
+        Slash: 14
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    shape:
+    - 0,0,0,3
+  - type: Clothing
+    sprite: ADT/Personalization/stryz_ani/katana.rsi
+    slots:
+    - Back
+    - Belt
+  - type: ThrowingAngle
+    angle: 225
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 10
+        Piercing: 12
+  - type: DisarmMalus
+  - type: PickableWeapon

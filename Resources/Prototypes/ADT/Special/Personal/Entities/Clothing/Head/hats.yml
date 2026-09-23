@@ -1,0 +1,273 @@
+#кепка Мендозы
+- type: entity
+  parent: ADTSponsorClothingHeadBase
+  id: ADTClothingHeadHatsMendozaCap
+  name: Mendoza`s cap
+  description: The purple cap of a certain Alexei Mendoza. At the back is a large cross drawn with a marker. Next to it are fourteen more of the same small crosses. The owner of the cap jokes that this is the number of his escapes from brig.
+  suffix: Именное, Armorkillerd
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/mendosa_soft.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/mendosa_soft.rsi
+
+- type: entity
+  parent: ADTSponsorClothingHeadBase
+  id: ADTClothingHeadHatKivchikBerete
+  suffix: Kivchik
+  name: blue beret of retribution
+  description: A beautiful black beret. He smells like berries.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/kivchikset_beret.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/kivchikset_beret.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+
+- type: entity
+  parent: ADTSponsorClothingHeadBase
+  id: ADTClothingHeadHatsJohanCap
+  name: Johans`s cap
+  description: Looks strange but cool
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/johan_cap.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/johan_cap.rsi
+
+- type: entity
+  parent: ADTSponsorClothingHeadBase
+  id: ADTClothingHeadHatsSatanHoop
+  name: hoop with spikes
+  description: hoop with spikes
+  suffix: Именное, Schrodinger
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/hoop_spikes.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/hoop_spikes.rsi
+
+- type: entity
+  parent: ADTSponsorClothingHeadBase
+  id: ADTClothingHeadFeatherHairpin
+  name: feather hairpin
+  suffix: Personal, kiwi_fruit
+  description: feather hairpin
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/feather_hairpin.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/feather_hairpin.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHelmetMinerSirtalter
+  name: explorers plated hood
+  description: A way to protect your head from danger as crazy as the mind of the person who came up with it.
+  suffix: Personal, Sir_talter
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/mining_helmet_sirtalter.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/mining_helmet_sirtalter.rsi
+  - type: IngestionBlocker
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.95
+        Heat: 0.85
+  - type: Tag
+    tags:
+    - HidesHair
+
+- type: entity
+  parent: ADTSponsorClothingHeadBase
+  id: ADTClothingHeadHatsLuckyrat
+  name: captain of bar cylinder
+  description: captain of bar cylinder
+  suffix: Personal, luckyrat
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/luckyrat/luckyrat_hat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/luckyrat/luckyrat_hat.rsi
+
+
+- type: entity
+  parent: ADTSponsorClothingHeadBase
+  id: ADTClothingHeadHatsFaustCap
+  name: Faust cap
+  description: Standart officer`s cap
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/FaustNetzach/faust_cap.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/FaustNetzach/faust_cap.rsi
+
+- type: entity
+  parent: ADTSponsorClothingHeadBase
+  id: ADTClothingHeadHatsShipTestRedLis
+  name: beret
+  description: A hat with a golden symbol, possibly belonging to a specific branch of the military.
+  suffix: Personal, RedLis
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/RedLis/shiptest_beret.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/RedLis/shiptest_beret.rsi
+
+
+- type: entity
+  parent: [ClothingHeadHatCapcap, ADTSponsorClothingHeadBase]
+  id: ADTClothingHeadMathemat1kaCapCap
+  name: white captain's cap cap
+  description: A grand, stylish white cap worn by the Captain. Shows the station who's in charge.
+  suffix: Personal, Mathemat1ka, For all sponsor
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/mathemat1ka_capcap.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/mathemat1ka_capcap.rsi
+
+- type: entity
+  parent: [ClothingHeadBase, BaseFoldable]
+  id: ADTAdmiraldeathushanka
+  name: the Quartermaster's Elite Ushanka
+  description: A ushaka, with a golden pickaxe on the front and an emblem on the left side. It looks rather worn and old...
+  suffix: Personal, ADMIRAL_DEATH
+  components:
+  - type: Clothing
+    sprite: ADT/Personalization/admiral_deathqmusnka.rsi
+  - type: Appearance
+  - type: AddAccentClothing
+    accent: RussianAccent
+  - type: Foldable
+    canFoldInsideContainer: true
+  - type: FoldableClothing
+    foldedEquippedPrefix: up
+    foldedHeldPrefix: up
+  - type: Sprite
+    sprite: ADT/Personalization/admiral_deathqmusnka.rsi
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: icon-up
+      map: ["foldedLayer"]
+      visible: false
+  - type: TemperatureProtection ##ADT-Tweak start
+    heatingCoefficient: 1.025
+    coolingCoefficient: 0.5 ##ADT-Tweak end
+
+- type: entity
+  parent: ADTSponsorClothingHeadBase
+  id: ADTClothingHeadHatHonelin111Flower
+  name: decorative flower
+  description: A decorative flower used as a head ornament.
+  suffix: Personal, honelin111
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/honelin111_flower_head.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/honelin111_flower_head.rsi
+
+- type: entity
+  parent: ADTSponsorClothingHeadBase
+  id: ADTClothingHeadSponsorRedKandzasi
+  name: red kandzasi
+  description: A traditional Japanese hair ornament. It consists of a gold-plated brass frame and red silk ribbons.
+  suffix: Sponsor
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/sponsor/RedKandzasi.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: Clothing
+    sprite: ADT/Personalization/sponsor/RedKandzasi.rsi
+
+- type: entity
+  parent: ADTSponsorClothingHeadBase
+  id: ADTClothingHeadSponsorBlueKandzasi
+  name: blue kandzasi
+  description: A traditional Japanese hair ornament. It consists of a gold-plated brass frame and blue silk ribbons.
+  suffix: Sponsor
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/sponsor/BlueKandzasi.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: Clothing
+    sprite: ADT/Personalization/sponsor/BlueKandzasi.rsi
+
+- type: entity
+  parent: ADTSponsorClothingHeadBase
+  id: ADTClothingHeadHatsPyotrCap
+  name: Pyotr`s cap
+  description: Standart officer`s cap from Pyotr Shahin`s homeworld
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/pyotr_cap.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/pyotr_cap.rsi
+
+- type: entity
+  parent: ADTSponsorClothingHeadBase
+  id: ADTClothingHeadHatsRipCap
+  name: the colonel's cap
+  description: An officer's cap custom-made by Colonel Anderson. A symbol of the highest officer rank and the pride of the Trans-Solar Federation.
+  suffix: Personal, Ripchik
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/ripchik_cap.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/ripchik_cap.rsi
+
+# Moon_so_red
+- type: entity
+  parent: ADTSponsorClothingHeadBase
+  id: ADTClothingHeadHatMoon_so_redHat
+  suffix: Moon_so_red
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/moon_so_red_hat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/moon_so_red_hat.rsi
+
+#ПразатДерВахед
+- type: entity
+  parent: ADTSponsorClothingHeadBase
+  id: ADTClothingHeadHatPrazatBeret
+  suffix: Personal, PrazzzCool999
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/prazat_beret.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/prazat_beret.rsi
+  - type: StaticPrice
+    price: 95
+
+# Mathemat1ka
+- type: entity
+  parent: [ClothingHeadCaptainHat, ADTSponsorClothing]
+  id: ADTClothingHeadMathemat1kaHat
+  name: white captain's hat
+  description: A special white captain's hat with gold trim.
+  suffix: Personal, Mathemat1ka, For all sponsor
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/mathemat1ka_hat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/mathemat1ka_hat.rsi
+
+- type: entity
+  parent: ClothingHeadBandMerc
+  id: ADTClothingHeadBandMercAntillion
+  name: mercenary bandana
+  description: mercenary bandana
+  suffix: Personal, antillion

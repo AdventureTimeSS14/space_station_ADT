@@ -1,0 +1,263 @@
+# Conjurer
+- type: entity
+  parent: ADTSponsorClothingOuterStorageBase
+  id: ADTClothingOuterCoatJohanCoat
+  name: Johans`s Coat
+  description: White coat with blue strips? YOS.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/johan_coat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/johan_coat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.7
+        Heat: 0.8
+
+# Shrodinger
+- type: entity
+  parent: ADTSponsorClothingOuterStorageBase
+  id: ADTClothingOuterCoatSchroCoat
+  name: Schrodinger`s Coat
+  description: This dark coat is heavier than look
+  components:
+  - type: Storage
+    grid:
+    - 0,0,4,2
+    maxItemSize: Normal
+  - type: Sprite
+    sprite: ADT/Personalization/schrodinger_coat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/schrodinger_coat.rsi
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTCigarSchrodingerCase
+        - id: FlippoSchrodingerLighter
+        - id: SpeedLoaderMagnum
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.7
+        Heat: 0.8
+
+# Pyotr
+- type: entity
+  parent: ADTSponsorClothingOuterStorageBase
+  id: ADTClothingOuterCoatPyotrCoat
+  name: Pyotr`s Coat
+  description: This dark coat is heavier than look
+  components:
+  - type: Storage
+    grid:
+    - 0,0,3,1
+    maxItemSize: Normal
+  - type: Sprite
+    sprite: ADT/Personalization/pyotr_coat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/pyotr_coat.rsi
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: CigarGoldCase
+        - id: Lighter
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.7
+        Heat: 0.8
+
+# Bolper
+- type: entity
+  parent: ADTSponsorClothingOuterStorageBase
+  id: ADTClothingOuterBolperCoat
+  name: Bolper trenchcoat
+  description: Plus five percent coolness.
+  suffix: Bolper
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/bolper_trenchcoat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/bolper_trenchcoat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+
+- type: entity
+  parent: ADTSponsorClothingOuterStorageBase
+  id: ADTClothingOuterRipCoat
+  name: TSF officer's tunic
+  description: The Trans-Solar Federation officer's tunic, tailor-made for Colonel Anderson. Worn and stiff, almost like a general's! It smells of expensive perfume.
+  suffix: Personal, Ripchik
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/ripchik_greatcoat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/ripchik_greatcoat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.7
+        Piercing: 0.75
+        Heat: 0.65
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+
+- type: entity
+  parent: ADTSponsorClothingOuterStorageBase
+  id: ADTClothingOuterMoon_so_redCoat
+  suffix: Moon_so_red
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/moon_so_red_coat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/moon_so_red_coat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Cold: 0.95
+
+#MleM
+- type: entity
+  parent: ADTSponsorClothingOuterStorageBase
+  id: ADTClothingOuterCoatOktyabrina
+  name: Oktyabrina coat
+  description: Oktyabrina coat.
+  suffix: Personal, MleM
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/oktyabrina_coat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/oktyabrina_coat.rsi
+
+- type: entity
+  parent: ADTSponsorClothingOuterStorageFoldableBase
+  id: ADTClothingOuterCoatPrazat
+  name: Prazat coat
+  description: Prazat coat.
+  suffix: Personal, PrazzzCool999
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/prazat_coat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/prazat_coat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.7
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: Storage
+    grid:
+    - 0,0,4,2
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ADTClothingUniformJumpsuitPrazatMentik
+  name: Prazat clothing
+  description: Prazat clothing
+  suffix: Personal, PrazzzCool999
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/prazat_mentik.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/prazat_mentik.rsi
+    slots:
+    - outerClothing
+    - neck
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+- type: entity
+  parent: ADTSponsorClothingOuterStorageBase
+  id: ADTClothingOuterCoatSaintMadman
+  name: SaintMadmanCoat
+  description: yeaaaaagain
+  suffix: Personal, saint_madman
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/saint_madman_coat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/saint_madman_coat.rsi
+  - type: Storage
+    grid:
+    - 0,0,4,2
+    maxItemSize: Normal
+
+- type: entity
+  parent: ADTSponsorClothingOuterStorageBase
+  id: ADTClothingOuterCoatShipTestRedLis
+  name: trench coat
+  description: A trench coat with a turn-down collar, a double-breasted closure, and a red belt that has no practical use.
+  suffix: Personal, RedLis
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/RedLis/shiptest_trenchcoat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/RedLis/shiptest_trenchcoat.rsi
+  - type: Storage
+    grid:
+    - 0,0,4,2
+    maxItemSize: Normal
+
+- type: entity
+  parent: ADTSponsorClothingOuterStorageBase
+  id: ADTClothingOuterCoatJacketShipTestRedLis
+  name: jacket
+  description: The jacket, made of high-strength materials, is dark in color and features a prominent emblem on the back.
+  suffix: Personal, Altius, RedLis
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/RedLis/shiptest_jacket.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/RedLis/shiptest_jacket.rsi
+  - type: Storage
+    grid:
+    - 0,0,4,2
+    maxItemSize: Normal
+
+- type: entity
+  parent: [ClothingOuterCoatCaptain, ADTSponsorClothingOuterStorageBase]
+  id: ADTClothingOuterMathemat1kaCoat
+  name: white captain's jacket
+  description: A pristine white captain's jacket with gold inlays.
+  suffix: Personal, Mathemat1ka, For all sponsor
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/mathemat1ka_coat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/mathemat1ka_coat.rsi
+
+- type: entity
+  parent: ADTSponsorClothingOuterStorageBase
+  id: ADTClothingOuterHonelin111Jacket
+  name: leather jacket
+  description: A slightly worn leather jacket with a stand collar and a barely visible shoulder patch
+  suffix: Personal, honelin111
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/honelin111_jacket.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/honelin111_jacket.rsi

@@ -1,0 +1,356 @@
+- type: entity
+  id: ADTBriefcaseBrownRedLis
+  name: Pyotr`s briefcase
+  parent: BriefcaseBrown
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTClothingNeckShipTestRedLis
+        - id: ADTClothingHeadHatsShipTestRedLis
+        - id: ADTClothingShoesShipTestRedLis
+        - id: ADTClothingOuterCoatJacketShipTestRedLis
+        - id: ADTClothingUniformPyotrOfficialSuit
+        - id: ADTClothingOuterCoatShipTestRedLis
+
+- type: entity
+  id: ADTBriefcaseBrownPushnoY
+  name: Pyotr`s briefcase
+  parent: BriefcaseBrown
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTClothingUniformPushnoYJumpsuit
+        - id: ADTClothingHandsPushnoYGloves
+
+- type: entity
+  id: ADTBriefcaseBrownRaven559
+  name: Pyotr`s briefcase
+  parent: BriefcaseBrown
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTClothingHeadBSHelmet
+        - id: ADTClothingNeckRaven559OfficerBlueShieldMantle
+        - id: ADTClothingOuterBSArmor
+
+- type: entity
+  id: ADTBriefcaseBrownNikLi
+  name: Pyotr`s briefcase
+  parent: BriefcaseBrown
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTClothingNeckShipTestRedLis
+        - id: ADTClothingHeadHatsShipTestRedLis
+        - id: ADTClothingShoesShipTestRedLis
+
+- type: entity
+  id: ADTBriefcaseBrownHonelin111
+  name: Pyotr`s briefcase
+  parent: BriefcaseBrown
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTClothingHeadHatHonelin111Flower
+        - id: ADTClothingEarHonelin111GoldenEarring
+        - id: ADTClothingOuterHonelin111Jacket
+        - id: ADTClothingHandsHonelin111Gloves
+        - id: ADTSponsorClothingUniformHonelin111Dress
+        - id: ADTSponsorClothingUniformHonelin111Shirt
+        - id: ADTClothingNeckHonelin111Choker
+
+- type: entity
+  id: ADTBriefcaseBrownMoon_so_red
+  name: Pyotr`s briefcase
+  parent: BriefcaseBrown
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTClothingHeadHatMoon_so_redHat
+        - id: ADTMoon_so_redWand
+        - id: ADTClothingOuterMoon_so_redCoat
+        - id: ADTClothingEyesMoon_so_redGlasses
+
+- type: entity
+  id: ADTBriefcaseBrownPrazatCool
+  name: Pyotr`s briefcase
+  parent: BriefcaseBrown
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTPrazatWhip
+        - id: ADTClothingUniformJumpsuitPrazatMentik
+        - id: ADTWeaponCasePrazat
+        - id: ADTClothingUniformJumpsuitPrazatOfficial
+        - id: ADTClothingUniformJumpsuitPrazatUlan
+        - id: ADTTransCubePrazatCool
+
+- type: entity
+  id: ADTBriefcaseBrownSaintMadman
+  name: Pyotr`s briefcase
+  parent: BriefcaseBrown
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTClothingOuterCoatSaintMadman
+        - id: ADTClothingUniformJumpsuitSaintMadmanClothing
+        - id: ADTClothingNeckSaintMadmanMantle
+        - id: ClothingHeadHatHolyWatermelon
+
+- type: entity
+  id: ADTBriefcaseBrownSchrodinger
+  name: Schrodinger`s briefcase
+  parent: ADTBriefcaseCentcomm
+  suffix: Filled
+  components:
+  - type: Storage
+    grid:
+    - 0,0,6,5
+  #- type: Storage
+  #  maxItemSize: Ginormous
+  #  maxTotalWeight: 0
+  #  maxSlots: 50 #By this ignore maxTotalWeight
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingShoesBootsLaceup
+        - id: ClothingHandsGlovesCombat
+        - id: ClothingEyesGlassesSunglasses
+        - id: ClothingMaskGasCentcom
+        - id: ClothingUniformJumpsuitCentcomAgent
+        - id: ADTWeaponRevolverDeckardGold
+        - id: CentcomPDA
+          # - id: ADTClothingNeckMantleCentComm # TODO: Добавить мантию ЦентКом
+        - id: ClothingHeadsetAltCentCom
+        - id: ADTClothingOuterCoatSchroCoat
+          # - id: ADTClothingNeckNanoTrasenPinSchrodinger # TODO: Добавить пин
+
+- type: entity
+  id: ADTWeaponCasePrazat
+  name: weapon case Prazat
+  description: weapon case Prazat
+  parent: [BaseStorageItem, BaseBagOpenClose]
+  suffix: Personal, PrazzzCool999
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/prazat_weaponcase.rsi
+    state: closed
+    layers:
+    - state: closed
+      map: ["closeLayer"]
+    - state: open
+      map: ["openLayer"]
+      visible: false
+    - state: pistolhawk
+      map: ["pistolhawk"]
+      visible: false
+    - state: pistolmaria
+      map: ["pistolmaria"]
+      visible: false
+  - type: Appearance
+  - type: Item
+    sprite: ADT/Personalization/prazat_weaponcase.rsi
+    size: Normal
+  - type: Storage
+    grid:
+    - 0,0,4,2
+    maxItemSize: Small
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTWeaponPistolPrazatHawk
+        - id: ADTWeaponPistolMaria
+        - id: MagazineMagnum
+        - id: ADTMagazineMagnumLesser
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 12
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+  - type: ItemCounter
+    count:
+      tags: [ADTWeaponPistolPrazatHawk, ADTWeaponPistolMaria]
+    composite: true
+    layerStates:
+    - pistolhawk
+    - pistolmaria
+
+- type: entity
+  id: ADTPremiumCaseKimerk
+  name: premium case
+  description: premium case desc
+  parent: [BaseStorageItem, BaseBagOpenClose]
+  suffix: Personal, kimer_k
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Kimer_k/kimer_k_premium_case.rsi
+    state: closed
+    layers:
+    - state: closed
+      map: ["closeLayer"]
+    - state: open
+      map: ["openLayer"]
+      visible: false
+    # Слои заполнения
+    - state: full-item-open
+      map: ["full-item-open"]
+      visible: false
+    - state: bez_trex
+      map: ["bez_trex"]
+      visible: false
+    - state: bez_dvux
+      map: ["bez_dvux"]
+      visible: false
+    - state: bez_loshki
+      map: ["bez_loshki"]
+      visible: false
+  - type: Appearance
+  - type: Item
+    sprite: ADT/Personalization/Kimer_k/kimer_k_premium_case.rsi
+    size: Normal
+  - type: Storage
+    grid:
+    - 0,0,4,2
+    maxItemSize: Small
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTGoldPlatedDrinkJigger
+        - id: ADTGoldPlatedDrinkJigger
+        - id: ADTGoldPlatedBarSpoon
+        - id: ADTGoldPlatedDrinkShaker
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 12
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+  - type: ItemCounter
+    count:
+      tags:
+        - ADTGoldPlatedDrinkJiggerTag
+        - ADTGoldPlatedBarSpoonTag
+        - ADTGoldPlatedDrinkShakerTag
+    composite: true
+    layerStates:
+      - full-item-open
+      - bez_trex
+      - bez_dvux
+      - bez_loshki
+
+- type: entity
+  id: ADTFamilyBusinessWeaponCase
+  name: weapon case
+  description: A weapon case specially designed for the Evenwood family.
+  suffix: Personal, Minokaa, Cethet, NikSAN
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/minokaa_cethet_niksan_weapon_case.rsi
+    layers:
+    - state: closed
+    - state: lock
+      shader: unshaded
+  - type: Item
+    sprite: ADT/Personalization/minokaa_cethet_niksan_weapon_case.rsi
+    size: Normal
+  - type: ActivatableUI
+    key: enum.MiningVoucherUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.MiningVoucherUiKey.Key:
+        type: MiningVoucherBoundUserInterface
+  - type: MiningVoucher
+    kits:
+    - ADTFamilyBusinessWeaponCasePinkKit
+    - ADTFamilyBusinessWeaponCasePurpleKit
+    - ADTFamilyBusinessWeaponCaseRedKit
+    typeDropPlace: InHands
+
+- type: thiefBackpackSet
+  id: ADTFamilyBusinessWeaponCasePinkKit
+  name: family-business-pistol-pink-name
+  description: family-business-pistol-pink-description
+  sprite:
+    sprite: ADT/Personalization/minokaa_cethet_niksan_family_business.rsi
+    state: icon_pink
+  content:
+  - ADTFamilyBusinessWeaponCasePink
+
+- type: thiefBackpackSet
+  id: ADTFamilyBusinessWeaponCasePurpleKit
+  name: family-business-pistol-purple-name
+  description: family-business-pistol-purple-description
+  sprite:
+    sprite: ADT/Personalization/minokaa_cethet_niksan_family_business.rsi
+    state: icon_purple
+  content:
+  - ADTFamilyBusinessWeaponCasePurple
+
+- type: thiefBackpackSet
+  id: ADTFamilyBusinessWeaponCaseRedKit
+  name: family-business-pistol-red-name
+  description: family-business-pistol-red-description
+  sprite:
+    sprite: ADT/Personalization/minokaa_cethet_niksan_family_business.rsi
+    state: icon_red
+  content:
+  - ADTFamilyBusinessWeaponCaseRed
+
+- type: entity
+  id: ADTFamilyBusinessWeaponCasePink
+  parent: ADTFamilyBusinessWeaponCaseStorageBase
+  suffix: Personal, Minokaa, Cethet, NikSAN, Pink
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTFamilyBusinessLaserPistolPink
+
+- type: entity
+  id: ADTFamilyBusinessWeaponCasePurple
+  parent: ADTFamilyBusinessWeaponCaseStorageBase
+  suffix: Personal, Minokaa, Cethet, NikSAN, Purple
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTFamilyBusinessLaserPistolPurple
+
+- type: entity
+  id: ADTFamilyBusinessWeaponCaseRed
+  parent: ADTFamilyBusinessWeaponCaseStorageBase
+  suffix: Personal, Minokaa, Cethet, NikSAN, Red
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTFamilyBusinessLaserPistolRed

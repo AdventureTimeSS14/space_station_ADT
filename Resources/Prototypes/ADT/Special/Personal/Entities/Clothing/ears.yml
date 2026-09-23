@@ -1,0 +1,37 @@
+
+
+- type: entity
+  parent: ADTSponsorClothing
+  id: ADTClothingEarSponsorEarring
+  name: gold earring
+  description: Minimalist black round earrings. You can barely feel them when you wear them.
+  suffix: Sponsor
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/earring.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: Clothing
+    sprite: ADT/Personalization/earring.rsi
+    slots:
+    - ears
+    - ears2
+
+- type: entity
+  parent: ADTSponsorClothing
+  id: ADTClothingEarHonelin111GoldenEarring
+  name: gold earring
+  description: A piece of jewelry made of a dark gold alloy, with a history that is far from simple—just like the person who wears it.
+  suffix: Personal, Honelin111
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/honelin111_golden_earrings.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: Clothing
+    sprite: ADT/Personalization/honelin111_golden_earrings.rsi
+    slots:
+    - ears
+    - ears2

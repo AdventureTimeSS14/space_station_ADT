@@ -1,0 +1,191 @@
+- type: entity
+  parent: ADTClothingSponsorHandsBase
+  id: ADTClothingHandsKivchikGloves
+  suffix: Kivchik
+  name: black gloves of retribution
+  description: 'Beautiful black gloves with a gold stripe and red inscription: "ALMD"'
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/kivchikset_gloves.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/kivchikset_gloves.rsi
+  - type: Fiber
+    fiberColor: fibers-black
+
+- type: entity
+  parent: ADTClothingSponsorHandsBase
+  id: ADTClothingHandsKiwiFruitBracelet
+  suffix: Personal, kiwi_fruit
+  name: green bead bracelet
+  description: A beaded bracelet on a strong fishing line. Clearly handmade, and though not very skillfully, but diligently. Alternation of the usual and long beads of green color makes up a certain message in Morse code.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/kiwi_fruit_bracelet.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/kiwi_fruit_bracelet.rsi
+
+- type: entity
+  parent: ADTClothingSponsorHandsBase
+  id: ADTClothingHandsCuffsFaust
+  name: mangette
+  description: mangette
+  suffix: Personal, Faust Netzach
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/FaustNetzach/faust_cuffs.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/FaustNetzach/faust_cuffs.rsi
+  - type: Fiber
+    fiberColor: fibers-white
+
+- type: entity
+  parent: [ClothingHandsGlovesCaptain, ADTClothingSponsorHandsBase]
+  id: ADTClothingHandsMathemat1kaGloves
+  name: white captain gloves
+  description: Elegant white captain's gloves with gold trim.
+  suffix: Personal, Mathemat1ka, For all sponsor
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/mathemat1ka_gloves.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/mathemat1ka_gloves.rsi
+
+- type: entity
+  parent: ClothingHandsGlovesSyntheticBase
+  id: ADTClothingHandsHonelin111Gloves
+  name: gloves
+  description: The gloves that come with the dress are a striking addition to the outfit.
+  suffix: Personal, honelin111
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/honelin111_gloves.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/honelin111_gloves.rsi
+
+# stryz_ani
+- type: entity
+  parent: ClothingHandsGlovesSyntheticBase
+  id: ADTClothingHandsStryzAniPullingGloves
+  name: cyber combat gloves
+  description: Gloves with blood-red metal plates on the wrist, the first phalanx of the index finger, and the base of the thumb. The gloves feature a mechanism that allows the katana to be returned to the user's hands.
+  suffix: Personal, stryz_ani
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/stryz_ani/gloves.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/stryz_ani/gloves.rsi
+  - type: PullingGloves
+  - type: ActionGrant
+    actions:
+    - ActionWeaponPull
+  - type: ItemActionGrant
+    actions:
+    - ActionWeaponPull
+    activeIfWorn: true
+
+- type: entity
+  parent: ADTClothingSponsorHandsBase
+  id: ADTClothingHandsBolperGloves
+  name: Bolper`s gloves
+  description: I`ll protect your hand.
+  suffix: Bolper
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/bolper_gloves.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/bolper_gloves.rsi
+  - type: Insulated
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
+
+- type: entity
+  parent: ADTClothingSponsorHandsBase
+  id: ADTClothingHandsPangaariBracelet
+  suffix: Personal, Pangaari
+  name: blue bead bracelet
+  description: A bracelet made of beads on a strong fishing line. It is clearly handmade with great care. The alternating use of regular and long blue beads forms a message in Morse code.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/pangaari_bracelet.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/pangaari_bracelet.rsi
+
+#PushnoY
+- type: entity
+  parent: ADTClothingSponsorHandsBase
+  id: ADTClothingHandsPushnoYGloves
+  suffix: PushnoY
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/pushnoY_gloves.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/pushnoY_gloves.rsi
+
+- type: entity
+  parent: ADTClothingSponsorHandsBase
+  id: ADTClothingHandsAnagiriGloves
+  name: Anagiri Gloves
+  description: Anagiri Gloves
+  suffix: Sponsor, Anagiri
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/anagiri_gloves.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/anagiri_gloves.rsi
+  - type: Fiber
+    fiberColor: fibers-black
+  - type: FingerprintMask
+
+- type: entity
+  parent: ADTClothingSponsorHandsBase
+  id: ADTClothingHandsKringeGloves
+  name: Kringe`s gloves
+  description: I`ll protect your hand.
+  suffix: Personal, kringe
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/kringe-gloves.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/kringe-gloves.rsi
+  - type: Insulated
+  - type: Fiber
+    fiberColor: fibers-leather
+  - type: FingerprintMask
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsGlovesPowergloveArcher
+  name: power gloves
+  description: Now I'm playin' with power! Wait... they're turned off. #Use "Now I'm playin' with power! BAM!" for when they're turned on
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/archeron/powerglove_archer.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/archeron/powerglove_archer.rsi
+  - type: Fiber
+    fiberMaterial: fibers-nanomachines
+  - type: FingerprintMask
+
+#maksim_soko
+- type: entity
+  parent: BaseItem
+  id: ADTRingSoko
+  name: Ring Soko
+  description: Ring Soko
+  suffix: Personal, maksim_soko
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/sokoring.rsi
+    state: icon
+  - type: PhysicalComposition
+    materialComposition:
+      Gold: 100
+  - type: StaticPrice
+    price: 1000
+  - type: Item
+    size: Tiny

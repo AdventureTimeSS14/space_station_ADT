@@ -1,0 +1,126 @@
+# dedurog / Урог-Джаха
+- type: entity
+  name: Urog-Djah's gold crowbar
+  parent: Crowbar
+  id: ADTUrogCrowbarGold
+  components:
+    - type: Tag
+      tags:
+        - Crowbar
+    - type: Sprite
+      sprite: ADT/Personalization/gold-crowbar.rsi
+      state: icon
+    - type: Item
+      sprite: ADT/Personalization/gold-crowbar.rsi
+      size: Small #ADT_Tweaks - ломы снова лезут в карман
+      heldPrefix: gold
+
+# Moon_so_red
+- type: entity
+  parent: BaseItem
+  id: ADTMoon_so_redWand
+  suffix: Moon_so_red
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/moon_so_red_wand.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 3
+        Structural: 2
+    soundHit:
+      collection: MetalThud
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 4
+        Structural: 4
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,3,0
+  - type: UseDelay
+    delay: 1
+  - type: PhysicalComposition
+    materialComposition:
+      Wood: 250
+  - type: Prying
+
+- type: entity
+  parent: BaseBallBat
+  id: ADTStryzAniAssaultSledgehammer
+  name: assault sledgehammer
+  description: A simple assault sledgehammer with a wide-swinging handle is perfect for breaking down doors. It has a tape with an inscription in a language you don't understand.
+  suffix: Personal, stryz_ani
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/stryz_ani/assault_sledgehammer.rsi
+    state: icon
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 13
+        Structural: 7.5
+    soundHit: "/Audio/ADT/Weapons/Melee/bat.ogg"
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 12
+        Structural: 12.5
+  - type: UseDelay
+    delay: 1
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,3
+    storedSprite:
+      state: storage
+      sprite: ADT/Personalization/stryz_ani/assault_sledgehammer.rsi
+
+- type: entity
+  parent: BaseCrowbar
+  id: ADTSharpCrowbar
+  name: shipboard crowbar with engraving
+  description: This crowbar has a pointed tail, perfect for protection. It has an engraving of I. M.
+  suffix: Personal, not_pou
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/not_pou_sharp_crowbar.rsi
+    state: icon
+  - type: Item
+    storedSprite:
+      sprite: ADT/Personalization/not_pou_sharp_crowbar.rsi
+      state: storage
+    storedRotation: -90
+  - type: MeleeWeapon
+    wideAnimationRotation: 65
+    damage:
+      types:
+        Piercing: 10
+    angle: 0
+    animation: WeaponArcThrust
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PolygonShape
+          vertices:
+            - -0.40,-0.30
+            - -0.30,-0.40
+            - 0.40,0.30
+            - 0.30,0.40
+        density: 20
+        mask:
+          - ItemMask
+        restitution: 0.3
+        friction: 0.2
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 12
+  - type: ThrowingAngle
+    angle: 245
+  - type: EmbeddableProjectile
+    offset: -0.15,0.0

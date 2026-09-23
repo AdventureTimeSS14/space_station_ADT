@@ -1,0 +1,18 @@
+- type: entity
+  parent: WeaponKineticSpear
+  id: ADTWeaponKineticGlephSirtalter
+  name: kinetic spear
+  description: A long-ranged melee weapon which trades damage for a two-tile reach, similar to reagent/bone spears.
+  suffix: Personal, Sir_talter
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/sirtalter_crusher_spear.rsi
+    state: icon
+  - type: Item
+    size: Ginormous
+    sprite: ADT/Personalization/sirtalter_crusher_spear-inhands.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/sirtalter_crusher_spear.rsi
+    quickEquip: false
+    slots:
+    - suitStorage

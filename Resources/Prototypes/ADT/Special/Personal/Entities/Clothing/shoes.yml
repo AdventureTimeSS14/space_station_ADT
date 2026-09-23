@@ -1,0 +1,97 @@
+
+- type: entity
+  parent: ADTSponsorClothingShoesBase
+  id: ADTClothingShoesKivchikBoots
+  suffix: Kivchik
+  name: boots of retribution
+  description: Black boots with metal inserts. Look reliable.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/kivchikset_boots.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/kivchikset_boots.rsi
+  - type: Matchbox
+
+- type: entity
+  parent: ADTSponsorClothingShoesBase
+  id: ADTClothingShoesLuckyrat
+  name: captain of bar shoes
+  description: captain of bar shoes
+  suffix: Personal, luckyrat
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/luckyrat/luckyrat_boots.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/luckyrat/luckyrat_boots.rsi
+  - type: Matchbox
+
+- type: entity
+  parent: ADTSponsorClothingShoesBase
+  id: ADTClothingShoesShipTestRedLis
+  name: army boots
+  description: These boots have a high shaft and a thick tread, with reinforced toe and heel areas for added foot protection.
+  suffix: Personal, RedLis
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/RedLis/shiptest_boots.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/RedLis/shiptest_boots.rsi
+  - type: Matchbox
+
+- type: entity
+  parent: [ClothingShoesBootsLaceup, ADTSponsorClothingShoesBase]
+  id: ADTClothingShoesMathemat1kaBoots
+  name: white laceup shoes
+  description: Elegant white laceup shoes with enhanced grip and comfort.
+  suffix: Personal, Mathemat1ka, For all sponsor
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/mathemat1ka_boots.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/mathemat1ka_boots.rsi
+
+- type: entity
+  parent: ADTSponsorClothingShoesBase
+  id: ADTClothingShoesBolperBoots
+  suffix: Bolper
+  name: Bolper`s boots
+  description: Plus five percent speed.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/bolper_boots.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/bolper_boots.rsi
+  - type: Matchbox
+
+- type: entity
+  parent: ClothingShoesBootsMagBase
+  id: ADTClothingShoesBootsMagKringe
+  name: kringe magnetic boots
+  description: kringe magnetic boots
+  suffix: Personal, kringe
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/kringe-magboots.rsi
+    layers:
+    - state: icon
+      map: [ "enum.ToggleableVisuals.Layer" ]
+  - type: Clothing
+    sprite: ADT/Personalization/kringe-magboots.rsi
+  - type: ToggleClothing
+    action: ADTActionToggleMagbootsKringe
+    mustEquip: false
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.85
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+#экшон на магбуты тут же для удобства
+- type: entity
+  id: ADTActionToggleMagbootsKringe
+  parent: ActionToggleMagboots
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon: { sprite: ADT/Personalization/kringe-magboots.rsi, state: icon }
+    iconOn: { sprite: ADT/Personalization/kringe-magboots.rsi, state: icon-on }

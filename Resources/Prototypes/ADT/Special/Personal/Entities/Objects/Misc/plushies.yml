@@ -1,0 +1,1190 @@
+# Ale_xan_der
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieMa
+  name: Ma
+  description: It looks like a soft and cute blondie.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_ma
+
+# PushnoY
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieEvgeniy
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_evgeniy
+
+# Conjurer
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieIohan
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_iohan
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieBob
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_bob
+
+# Eddiemercury
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieMigel
+  name: Djessie plushie
+  suffix: Personal, eddiemercury
+  description: It looks like a soft and cute blondie.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_migel
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieJungar
+  name: Djessie plushie
+  description: It looks like a soft and cute blondie.
+  suffix: Personal, eddiemercury
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_jungar
+  - type: EmitSoundOnUse
+    sound: "/Audio/Animals/mouse_squeak.ogg"
+  - type: EmitSoundOnActivate
+    sound: "/Audio/Animals/mouse_squeak.ogg"
+  - type: EmitSoundOnCollide
+    sound:
+      collection: ToySqueak
+  - type: EmitSoundOnLand
+    sound:
+      collection: ToyFall
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: ToySqueak
+  - type: UseDelay
+    delay: 3
+  - type: Speech
+    speechSounds: Squeak
+  - type: SpeakOnTrigger
+    pack: ADTFigurinesPlushieJungar
+  - type: Vocal
+    sounds:
+      Male: Mouse
+      Female: Mouse
+      Unsexed: Mouse
+    wilhelmProbability: 0.001
+  - type: Edible
+    requiresSpecialDigestion: true
+    useSound:
+      collection: ToySqueak
+    delay: 900
+
+# Maestro_HLT
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieFritz
+  name: Ellis plushie
+  description: It looks like a soft and cute atmos.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_ellis
+
+# MADIAL
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieRicker
+  name: Djessie plushie
+  description: It looks like a soft and cute blondie.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_riker
+
+# Syrel
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieLya
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_lya
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieAyus
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_ayus
+
+# Pangaari
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushiePochita
+  name: Plush pochita
+  description: A plush dog toy with a chainsaw blade sticking out of its head
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_pochita
+  - type: Item
+    sprite: ADT/Personalization/toys.rsi
+    inhandVisuals:
+      left:
+      - state: pochita-inhand-left
+      right:
+      - state: pochita-inhand-right
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieAaron
+  name: Plush Aaron
+  description: A plush toy of a red-haired guy whose image seems very familiar to you. You just want to scratch your fists on his face.
+  suffix: Personal, Pangaari
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_aaron
+
+# D1night
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieDekus
+  name: Djessie plushie
+  description: It looks like a soft and cute blondie.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_dekus
+
+# Не помню сикей, персонаж был слайм с именем Афи
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieAfi
+  name: Djessie plushie
+  description: It looks like a soft and cute blondie.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_afi
+
+# Koff
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieKoff
+  name: Djessie plushie
+  description: It looks like a soft and cute blondie.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_koff
+
+# Остальные игрушки админов
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieFries
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_fries
+
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieIlumi
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_ilumi
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieJan
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_jan
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieJason
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_jason
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieKus
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_kus
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieLilit
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_lilit
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieLuke
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_luke
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieNova
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_nova
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushiePeter
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_peter
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieRebecca
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_rebecca
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieSchrodinger
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_schrodinger
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieTerenty
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_terenty
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieUvarov
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_uvarov
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieValtor
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_valtor
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieDarina
+  name: Darina plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_darina
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieAkula
+  name: Darina plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_akula
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushiePrazat
+  name: Prazat Dar Vahed plushie
+  description: It looks like a cute little human doll... But in fact, this is a doll of a man who has done a lot of terrible things, who regrets and reproaches himself for it every day...
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_prazat
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieLo
+  name: Lo Vud plushie
+  description: A plush version of a once-living mime. It seems the toy got wet, as if someone was crying into it. She looks unhappy. It smells like space drugs.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_lo
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieSati
+  name: Sati plushie
+  description: Arcana's toy, looks tired... And hey, what kind of clothes is she wearing? If you look closely, you will notice that a tag is sewn to the strange black and scarlet robe "Remember that your lives are worth more than a couple of credits!"
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_sati
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieUma
+  name: Uma plushie
+  description: Soft and so cute!
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_uma
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieTimrika
+  name: Timrika plushie
+  description: It looks like a soft, cute and woolly tyaranka! However, bone drawings have their own history.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_timrika
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieAmira
+  name: Amira plushie
+  description: It looks like a soft and cute research director.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_amira
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieOvai
+  name: Ovai plushie
+  description: It looks like a soft and cute atmos.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_ovai
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieAzalia
+  name: Azalia plushie
+  description: It looks like a soft and cute blondie.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_azalia
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieSofy
+  name: Sofy plushie
+  description: It looks like a soft and cute blondie.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_sofy
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieLiexer
+  name: Ketua
+  description: It looks like a soft and cute blondie.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_liexer
+
+# Bobo
+- type: entity
+  parent: BasePlushie
+  id: PlushieBobo
+  name: bobo plushie
+  description: This is a toy made of different types of fabric with stuffing inside.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_bobo
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Talk/arachnid.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: Edible
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieEmma
+  name: Emma
+  description: No
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_emma
+    scale: 0.9, 0.9
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/Toys/rawr.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Items/Toys/rawr.ogg
+
+# Hollowing
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieHollowing
+  name: Weaver
+  description: weaver
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_hollowing
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieKelly
+  name: plush Kelly
+  description: A seemingly ordinary toy with a lemon-and-lemon-grass scent. The scarf was clearly knotted by someone after it was made, and there's a tag on it that reads, "From the Red Fox."
+  suffix: Personal, kiwi_fruit
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_kelly
+
+ # Mina0, От Арчи и Пани для глупеньке Мио на 8-ое марта
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieMio
+  name: Mio plushie
+  description: Soft plushie
+  suffix: Именное, Mina0
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/mina0/minaplushie.rsi
+    state: icon
+    scale: 0.8, 0.8
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/mina0/minaplushie.rsi
+    slots:
+    - HEAD
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieDionaIneedPizza486
+  name: Diona in red hat plushie
+  description: A pleasantly rustling toy in the shape of Diona. Now with a hat!
+  suffix: Personal, ineedpizza486
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_ineedpizza486
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/Toys/toy_rustle.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/Toys/toy_rustle.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Items/Toys/toy_rustle.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Items/Toys/toy_rustle.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Items/Toys/toy_rustle.ogg
+  - type: Edible
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Items/Toys/toy_rustle.ogg
+  - type: SolutionContainerManager
+    solutions:
+      plushie:
+        maxVol: 1
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieAnagiri
+  name: Anagiri plushie
+  description: Anagiri plushie
+  suffix: Personal, Anagiri
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_anagiri
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/ADT/Items/TheManWhoSoldTheWorld/alert.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Items/TheManWhoSoldTheWorld/alert.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/ADT/Items/TheManWhoSoldTheWorld/alert.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/ADT/Items/TheManWhoSoldTheWorld/alert.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/ADT/Items/TheManWhoSoldTheWorld/alert.ogg
+  - type: Edible
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Items/Toys/toy_rustle.ogg
+  - type: SolutionContainerManager
+    solutions:
+      plushie:
+        maxVol: 1
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+  - type: Whistle
+    distance: 5
+
+#Couatl
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieAzil
+  name: Plushie Azil
+  description: Plushie Azil
+  suffix: Personal, Couatl
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/plushie_azil.rsi
+    state: icon
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/plushie_azil.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "0, 0.04"
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: Edible
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+
+#kugooergooer
+- type: entity
+  parent: BaseFigurine
+  id: ADTPlushieGiPatter
+  name: Plushie GiPatter
+  description: Plushie GiPatter
+  suffix: Personal, kugooergooer
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_gipatter
+  # - type: EmitSoundOnUse
+  #   sound:
+  #     path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  # - type: EmitSoundOnActivate
+  #   sound:
+  #     path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: Edible
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+    solution: drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 0
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+    damage:
+      types:
+        Blunt: 0
+  # - type: EmitSoundOnTrigger
+  #   sound:
+  #     path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: SpeakOnTrigger
+    pack: FigurinesGiPatter
+
+- type: localizedDataset
+  id: FigurinesGiPatter
+  values:
+    prefix: figurines-gipatter-
+    count: 3
+
+#KapitanOgonek
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieKapitanOgonek
+  name: Plushie Ray Kulakov
+  description: Plushie Ray Kulakov
+  suffix: Personal, KapitanOgonek
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_raykulakov
+
+#Farrellka и Melima (ныне Nelderiss)
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieDianaSaeros
+  name: Plushie Diana Saeros
+  description: Plushie Diana Saeros
+  suffix: Personal, Melima, Farrellka
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_dianasaeros
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieMelimaSaeros
+  name: Plushie Melima Saeros
+  description: Plushie Melima Saeros
+  suffix: Personal, Melima, Farrellka
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_melimasaeros
+
+#Morulu
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieMorulu
+  name: Plushie Morulu
+  description: Plushie Morulu
+  suffix: Personal, k236v2
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_morulu
+
+#Glide
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieGlide
+  name: Plushie Glide
+  description: Plushie Glide
+  suffix: Personal, Glide
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/plushie_glide.rsi
+    state: icon
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/plushie_glide.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "0, 0.04"
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Slime/slime_squish.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Slime/slime_squish.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Slime/slime_squish.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Slime/slime_squish.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Voice/Slime/slime_squish.ogg
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: SlimePlushie
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieVictor
+  name: Plushie Victor
+  description: Plushie Victor
+  suffix: Personal, Glide
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/plushie_glide_victor.rsi
+    state: icon
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/plushie_glide_victor.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "0, 0.04"
+
+#AginiMoto
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieRose
+  name: plushie Rose
+  description: The symbol of atmosia. A girl who smells like freon, home, and comfort. The cutest felinidka. The well-deserved atmos of 2024 and the best girlfriend, wife, and mother.
+  suffix: Personal, AginiMoto
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_rozik
+
+#Blenik
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieNinaKonogar
+  name: plushie Nina Konogar
+  description: A beautiful fluffy plush toy of the captain, looking like a mix of a fox and a felinid, with a very large super fluffy tail. There is a small red ring on the hand. It is clear that the plush toy was made to order. It smells like some kind of pleasant perfume.
+  suffix: Personal, Blenik
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_nina_konogar
+
+#GG_Marshmelow
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieDell
+  name: Della's toy
+  description: He went through many legal procedures, was convicted of numerous violations in the security structures, but always sought to protect the crew at all costs. He drinks, but only when he can. You feel safer.
+  suffix: Personal, GG_Marshmelow
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_dell
+
+#GG_Dove_Dove_
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushietajaran
+  name: plushie tajaran
+  description: Tajaran is a soft, fluffy toy, and it is strongly discouraged to squeeze it!
+  suffix: Personal, _Dove_Dove_
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_tajaran
+  - type: Item
+    sprite: ADT/Personalization/toys.rsi
+    inhandVisuals:
+      left:
+      - state: tajaran-inhand-left
+      right:
+      - state: tajaran-inhand-right
+  - type: EmitSoundOnUse
+    sound: &PlushieFelinidSound
+      collection: ADTTajaranToySounds
+      params:
+        volume: 5
+  - type: EmitSoundOnLand
+    sound: *PlushieFelinidSound
+  - type: EmitSoundOnActivate
+    sound: *PlushieFelinidSound
+  - type: EmitSoundOnTrigger
+    sound: *PlushieFelinidSound
+  - type: EmitSoundOnCollide
+    sound: *PlushieFelinidSound
+  - type: Edible
+    useSound: *PlushieFelinidSound
+  - type: MeleeWeapon
+    soundHit: &PlushieTajaranMeleeWeaponSound
+      path: /Audio/ADT/Felinid/cat_hiss1.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieRykoslave
+  name: plushie toy Rykoslave
+  description: The toy is a plump teddy bear, and it was produced in small quantities due to low demand. It looks lonely and hungry. On the tag, you can see a rough inscription that reads, "Feed me!"
+  suffix: Personal, VLIND
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_rykoslave
+  - type: Item
+    sprite: ADT/Personalization/toys.rsi
+    inhandVisuals:
+      left:
+      - state: rykoslave-inhand-left
+      right:
+      - state: rykoslave-inhand-right
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/toys.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: rykoslave-equipped-HELMET
+        offset: "0, 0.06"
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieEmiliaEvenwood
+  name: Plushie Emilia
+  description: A soft plush toy made in the likeness of Emilia. It looks harmless enough, until you give it a squeeze.
+  suffix: Personal, Minokaa
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/minokaa_emilia_plushie.rsi
+    state: icon
+  - type: EmitSoundOnUse
+    handle: false
+    sound: null
+  - type: EmitSoundOnActivate
+    sound: &PlushieEmiliaSound
+      collection: ADTToySqueakEmiliaEvenwood
+  - type: EmitSoundOnCollide
+    sound: *PlushieEmiliaSound
+  - type: EmitSoundOnLand
+    sound: *PlushieEmiliaSound
+  - type: EmitSoundOnTrigger
+    sound: *PlushieEmiliaSound
+  - type: MeleeWeapon
+    soundHit: *PlushieEmiliaSound
+  - type: TriggerOnUse
+  - type: Speech
+    speechSounds: Squeak
+  - type: SpeakOnTrigger
+    pack: ADTFigurinesPlushieEmiliaEvenwood
+  - type: TTS
+    voice: mitakind
+
+#honelin111
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushiekramol
+  name: plush Kramol
+  description: A plush toy that resembles the girl from the service department. When you hold it close, you can smell a strong, bitter tobacco scent with hints of cherry and vanilla.
+  suffix: Personal, honelin111
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_kramol
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushiekrosh
+  name: plush bunny
+  description: A plain, worn-out, and soft teddy bear with a small metal bell on its neck that makes a clear but short sound when it moves.
+  suffix: Personal, honelin111
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_krosh
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushietil
+  name: plush Til
+  description:  A plush toy of the suspicious passenger. Even when you look at the toy, you can feel his scowling gaze, filled with skepticism and hostility towards you.
+  suffix: Personal, honelin111
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_til
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieLeia
+  name: plush Leia
+  description:  A toy that looks stern and seems to be staring right into your soul, mocking you.
+  suffix: Personal, honelin111
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_leia
+
+- type: entity
+  parent: PlushieMoth
+  id: ADTPlushieDreamer
+  name: plush Dreamer
+  description: A plush toy of the azure louam, the size of two slightly large apples. It smells like a mixture of all kinds of fruits, as well as the scent of lily buds. If you were allergic, you would have been sneezing for a long time, as if you had inhaled flower pollen.
+  suffix: Personal, Mintal1t
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_dreamer
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieMilkyWay
+  name: plush Milky Way
+  description: A cute luam toy that resembles... What was his name?
+  suffix: Personal, Wollfee
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_milky_way
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieSupernova
+  name: plush Supernova
+  description: A hastily made novakid toy in an Atmos uniform, smelling of freon and plasma.
+  suffix: Personal, alivepillow
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_supernova
+  - type: EmitSoundOnUse
+    sound: &PlushieNovakidSound
+      collection: ADTNovakidToySounds
+      params:
+        volume: 5
+  - type: EmitSoundOnLand
+    sound: *PlushieNovakidSound
+  - type: EmitSoundOnActivate
+    sound: *PlushieNovakidSound
+  - type: EmitSoundOnTrigger
+    sound: *PlushieNovakidSound
+  - type: EmitSoundOnCollide
+    sound: *PlushieNovakidSound
+  - type: Edible
+    useSound: *PlushieNovakidSound
+  - type: MeleeWeapon
+    soundHit: &PlushieNovakidMeleeWeaponSound
+      path: /Audio/ADT/Novakid/novakid_scream04.ogg
+
+#karmafom
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieSani
+  name: plushie toy sani
+  description: plushie toy sani
+  suffix: Personal, karmafom
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_sani
+  - type: Item
+    sprite: ADT/Personalization/toys.rsi
+    inhandVisuals:
+      left:
+      - state: sani-inhand-left
+      right:
+      - state: sani-inhand-right
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/toys.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: sani-equipped-HELMET
+        offset: "0, 0.06"
+
+#BarCow
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieSif
+  name: plushie toy sif
+  description: plushie toy sif
+  suffix: Personal, Barcow
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_sif
+  - type: Item
+    sprite: ADT/Personalization/toys.rsi
+    inhandVisuals:
+      left:
+      - state: sif-inhand-left
+      right:
+      - state: sif-inhand-right
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/toys.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: sif-equipped-HELMET
+        offset: "0, 0.06"
+
+- type: entity
+  parent: PlushieMoth
+  id: ADTPlushieIvy
+  name: plush Ivy
+  description: A plush toy of a sleepy moth, the size of half a watermelon. It emits a berry-like fragrance mixed with some kind of medicine that only it can discern. The toy’s antennae are a bit crumpled and chewed, and on its back there’s a warning label about the danger of poisoning for small Luamams.
+  suffix: Personal, Hugiron_shch
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/plushie_ivy.rsi
+    state: icon
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/plushie_ivy.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "0, 0.0"
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/ADT/Voice/Moth/moth_yawn.ogg
+      params:
+        volume: -5
+  - type: EmitSoundOnLand
+    sound: &PlushieMothSound
+      path: /Audio/Voice/Moth/moth_chitter.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/ADT/Voice/Moth/moth_yawn.ogg
+      params:
+        volume: -5
+  - type: EmitSoundOnTrigger
+    sound: *PlushieMothSound
+  - type: EmitSoundOnCollide
+    sound: *PlushieMothSound
+  - type: MeleeWeapon
+    soundHit: *PlushieMothSound
+  - type: Edible
+    useSound: *PlushieMothSound
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieAreya
+  name: plush Areya
+  description: A plush blue, cute arcanum. It emits a berry-like fragrance mixed with the scent of some incomprehensible medicines that even the most experienced chemists wouldn’t be able to identify... On the back, there’s a label that reads “Mommy arkan.”
+  suffix: Personal, Swap_Inky2
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/plushie_areya.rsi
+    state: icon
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/plushie_areya.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "0, 0.0"
+  - type: EmitSoundOnUse
+    sound: &PlushieSharkSound
+      path: /Audio/Items/Toys/rawr.ogg
+  - type: EmitSoundOnLand
+    sound: *PlushieSharkSound
+  - type: EmitSoundOnTrigger
+    sound: *PlushieSharkSound
+  - type: EmitSoundOnActivate
+    sound: *PlushieSharkSound
+  - type: EmitSoundOnCollide
+    sound: *PlushieSharkSound
+  - type: MeleeWeapon
+    wideAnimationRotation: 90
+    soundHit: *PlushieSharkSound
+    animation: WeaponArcBite
+  - type: Edible
+    useSound: *PlushieSharkSound

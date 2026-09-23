@@ -1,0 +1,37 @@
+- type: entity
+  id: ADTFamilyBusinessWeaponCaseStorageBase
+  name: weapon case
+  description: A weapon case specially designed for the Evenwood family.
+  suffix: Personal, Minokaa, Cethet, NikSAN
+  parent: BaseStorageItem
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/minokaa_cethet_niksan_weapon_case.rsi
+    state: closed
+    layers:
+    - state: closed
+      map: [base]
+    - state: lock
+      shader: unshaded
+      map: ["enum.LockVisualLayers.Lock"]
+  - type: Appearance
+  - type: Item
+    sprite: ADT/Personalization/minokaa_cethet_niksan_weapon_case.rsi
+    size: Normal
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,1,1
+  - type: Lock
+  - type: LockedStorage
+  - type: LockVisuals
+    stateLocked: lock
+    stateUnlocked: unlock
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        base:
+          True: { state: open }
+          False: { state: closed }

@@ -1,0 +1,259 @@
+#Rip_Zoro
+- type: entity
+  parent: [ClothingBeltBase, ClothingSlotBase]
+  id: ADTClothingBeltZoroSheath
+  suffix: Rip_Zoro
+  name: The scabbard of the legendary katana
+  description: The scabbard of a legendary swordsman...
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/rip_zoro_sheats.rsi
+    state: sheath
+  - type: Clothing
+    sprite: ADT/Personalization/rip_zoro_sheats.rsi
+    quickEquip: false
+    slots:
+    - belt
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        name: Katana
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags:
+          - Katana
+  - type: ItemMapper
+    mapLayers:
+      sheath-sabre:
+        whitelist:
+          tags:
+          - Katana
+  - type: Appearance
+
+#Syrel
+- type: entity
+  parent: [ClothingBeltBase, ClothingSlotBase, BaseCommandContraband]
+  id: ADTSyrelClothingBeltSheath
+  name: axe sheath
+  description: A sturdy leather sheath for the captain's battle axe.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/syrel_sheath.rsi
+    state: sheath
+  - type: Clothing
+    sprite: ADT/Personalization/syrel_sheath.rsi
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        name: Battle Axe
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags:
+          - ADTSyrelBattleAxe
+  - type: ItemMapper
+    mapLayers:
+      sheath-sabre:
+        whitelist:
+          tags:
+          - ADTSyrelBattleAxe
+  - type: Appearance
+
+- type: entity
+  parent: [ClothingBeltSheath, ADTSponsorClothing]
+  id: ADTClothingBeltMathemat1kaSheath
+  name: white sabre sheath
+  description: An ornate white sheath designed to hold your personal blade.
+  suffix: Personal, Mathemat1ka, For all sponsor
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/mathemat1ka_sheath.rsi
+    state: sheath
+  - type: Clothing
+    sprite: ADT/Personalization/mathemat1ka_sheath.rsi
+
+- type: entity
+  id: ADTClothingBeltMathemat1kaSheathFilled
+  parent: ADTClothingBeltMathemat1kaSheath
+  suffix: Filled, Personal, Mathemat1ka, For all sponsor
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - CaptainSabre
+
+#Svet217
+- type: entity
+  parent: [ClothingBeltBase, ClothingSlotBase]
+  id: ADTClothingBeltKnifeCase
+  name: knife case
+  description: Case designed for storing and carrying the KS-43 "Cherry"
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/svet217_KS-43_Cherry_case.rsi
+    state: sheath
+  - type: Clothing
+    sprite: ADT/Personalization/svet217_KS-43_Cherry_case.rsi
+  - type: Item
+    storedRotation: -90
+    size: Small
+  - type: ItemSlots
+    slots:
+      item:
+        name: KnifeKS43Cherry
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/ADT/Items/knife-taken-into.ogg
+        ejectSound: /Audio/ADT/Items/knife-taken-out.ogg
+        whitelist:
+          tags:
+          - ADTSvet217KnifeKS43Cherry
+  - type: ItemMapper
+    mapLayers:
+      sheath-knife:
+        whitelist:
+          tags:
+          - ADTSvet217KnifeKS43Cherry
+  - type: Appearance
+
+- type: entity
+  parent: [ClothingBeltBase, ClothingSlotBase]
+  id: ADTClothingBeltStryzAniSheath
+  name: cyber sheath
+  description: The scabbard is so electrified that it can explode and tear the wearer apart at the slightest touch, but it is still the perfect holder for your katana.
+  suffix: Personal, stryz_ani
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/stryz_ani/sheath.rsi
+    state: sheath
+  - type: Clothing
+    sprite: ADT/Personalization/stryz_ani/sheath.rsi
+    quickEquip: false
+    slots:
+    - belt
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        name: Katana
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags:
+          - ADTStryzAniKatana
+  - type: ItemMapper
+    mapLayers:
+      sheath-katana:
+        whitelist:
+          tags:
+          - ADTStryzAniKatana
+  - type: Appearance
+
+- type: entity
+  parent: [ADTSponsorClothing, ClothingSlotBase]
+  id: ADTClothingBackBolperSheath
+  suffix: Bolper
+  name: Bolper`s katana sheath
+  description: I`m ready to fight.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/bolper_sheaths.rsi
+    state: sheath
+  - type: Clothing
+    sprite: ADT/Personalization/bolper_sheaths.rsi
+    quickEquip: false
+    slots:
+    - back
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        name: Katana
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags:
+          - Katana
+  - type: ItemMapper
+    mapLayers:
+      sheath-sabre:
+        whitelist:
+          tags:
+          - Katana
+  - type: Appearance
+  - type: PhysicalComposition
+    materialComposition:
+      Cloth: 50
+  - type: StaticPrice
+    price: 20
+#  - type: Clothing
+#    quickEquip: false
+#    slots:
+#    - back
+
+- type: entity
+  parent: ClothingBeltBase
+  id: ADTPortableYV2Recharger
+  name: YV-2 portable recharger
+  description: High-tech recharger adapted for portability.
+  suffix: Personal, KonnorSmith
+  components:
+  - type: Appearance
+  - type: Item
+    size: Large # ADT tweak
+    sprite: ADT/Personalization/yv2recharger.rsi
+  - type: Sprite
+    sprite: ADT/Personalization/yv2recharger.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Personalization/yv2recharger.rsi
+    slots: [belt, neck]
+    equipSound:
+      path: /Audio/Items/belt_equip.ogg
+    quickEquip: false
+  - type: Charger
+    chargeRate: 20 # ADT tweak
+    slotId: charger_slot
+    portable: true
+  # - type: PowerChargerVisuals
+  - type: ApcPowerReceiver
+    needsPower: false
+    powerLoad: 1
+  - type: StaticPrice
+    price: 500
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+  - type: ContainerContainer
+    containers:
+      charger_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      charger_slot:
+        name: оружие
+        startingItem: ADTWeaponPistolYV2
+        ejectOnInteract: true
+        whitelist:
+          tags:
+          - YV2Pistol
+  - type: ItemMapper
+    mapLayers:
+      yv2:
+        whitelist:
+          tags:
+          - YV2Pistol
+    sprite: ADT/Personalization/yv2recharger.rsi

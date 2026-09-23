@@ -1,0 +1,51 @@
+- type: entity
+  parent: ADTSponsorClothingUniformSkirtBase
+  id: ADTClothingUniformKivchikJumpskirt
+  suffix: Kivchik
+  name: black jumpsuit of retribution
+  description: Black jumpsuit with golden stripes and red bandage.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/kivchikset_skirt.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/kivchikset_skirt.rsi
+
+- type: entity
+  parent: [ClothingUniformJumpskirtCapFormalDress, ADTSponsorClothingUniformBase]
+  id: ADTClothingUniformMathemat1kaDress
+  name: white captain's formal dress
+  description: A white dress for special occasions with gold accents.
+  suffix: Personal, Mathemat1ka, For all sponsor
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/mathemat1ka_dress.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/mathemat1ka_dress.rsi
+
+
+- type: entity
+  parent: ADTSponsorClothingUniformSkirtBase
+  id: ADTSponsorClothingUniformHonelin111Shirt
+  name: shirt
+  description: A shirt with several unbuttoned buttons at the collar, tucked into trousers adorned with a leather belt with a two-pronged buckle.
+  suffix: Personal, honelin111
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/honelin111_shirt.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/honelin111_shirt.rsi
+
+
+
+# kiwi_fruit
+- type: entity
+  parent: ADTSponsorClothingUniformSkirtBase
+  id: ADTSponsorClothingUniformSkirtKiwi
+  suffix: kiwi_fruit
+  name: dark green jumpskirt
+  description: dark green jumpskirt
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/kiwi_jumpskirt.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/kiwi_jumpskirt.rsi

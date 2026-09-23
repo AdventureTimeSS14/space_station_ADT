@@ -1,0 +1,33 @@
+- type: entity
+  id: ADTClothingBackpackDuffelAnagiriFilled
+  name: Pyotr`s briefcase
+  parent: ADTClothingBackpackDuffelAnagiri
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingNeckScarfStripedSyndieRed
+        - id: ADTClothingHandsAnagiriGloves
+        - id: ADTAnagiriHomemadeexplanter
+        - id: ClothingUniformJumpsuitTacticool
+        - id: ClothingHeadHatSyndieMAA
+        - id: ADTClothingFootBlackBoots
+
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ADTClothingBackpackDuffelKringeStuff
+  name: bag of kringe personal clothes
+  description: bag of kringe personal clothes
+  suffix: Personal, kringe
+  components:
+    - type: EntityTableContainerFill
+      containers:
+        storagebase: !type:AllSelector
+          children:
+          - id: ADTClothingOuterHardsuitKringe
+          - id: ADTClothingHandsKringeGloves
+          - id: ADTClothingShoesBootsMagKringe
+          - id: ADTClothingUniformJumpsuitKringeClothing
+          - id: ADTWhistleKringe

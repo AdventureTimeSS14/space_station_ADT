@@ -1,0 +1,99 @@
+#FaustNetzachDrink
+- type: entity
+  parent: DrinkCanBaseFull
+  id: ADTDrinkFlecheCan
+  name: банка Flèche
+  description: Освежающее кофе в баночке!
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTFlecheDrink
+          Quantity: 30
+      grindable:
+        reagents:
+        - ReagentId: Aluminium
+          Quantity: 4
+        - ReagentId: Iron
+          Quantity: 1
+  - type: Sprite
+    sprite: ADT/Personalization/FaustNetzach/faust_drink.rsi
+  - type: Item
+    sprite: ADT/Personalization/FaustNetzach/faust_drink.rsi
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.2
+        density: 5
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/punch1.ogg
+    embedOnThrow: True
+  - type: ThrowingAngle
+    angle: 0
+  - type: LandAtCursor
+  - type: Ammo
+    muzzleFlash: null
+  - type: Projectile
+    deleteOnCollide: false
+    onlyCollideWhenShot: true
+    damage:
+      types:
+        Blunt: 1
+        Cold: 3 # Refreshing
+
+- type: reagent
+  id: ADTFlecheDrink
+  name: fleche-name
+  parent: BaseDrink
+  desc: fleche-desc
+  physicalDesc: reagent-physical-desc-whitecoffee
+  flavor: adtfleche
+  color: "#d2b48c"
+  metabolisms:
+    Metabolites:
+      effects:
+      - !type:SatiateThirst
+        factor: 5
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        time: 3.0
+        type: Remove
+      - !type:AdjustReagent
+        reagent: Theobromine
+        amount: 0.01
+      - !type:AdjustReagent
+        reagent: Epinephrine
+        amount: 0.1
+      - !type:AdjustReagent
+        reagent: Sugar
+        amount: 0.3
+      - !type:HealthChange
+        damage:
+          types:
+             Heat: -0.005
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/coffeeglass.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: flavor
+  id: adtfleche
+  flavorType: Complex
+  description: кофейно и освежающе

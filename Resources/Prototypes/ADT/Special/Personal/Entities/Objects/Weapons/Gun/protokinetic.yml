@@ -1,0 +1,24 @@
+#Sir_talter
+- type: entity
+  name: proto-kinetic pistol
+  id: ADTWeaponProtoKineticPistolSirtalter
+  parent: ADTWeaponProtoKineticPistol
+  description: The Pistol trades base damage, and range, for double mod capacity, making it a truely customizable PKA.
+  suffix: Personal, Sir_talter
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/sirtalterpkpistol.rsi
+    layers:
+    - state: icon
+    - state: animation-icon
+      visible: false
+      map: [ "empty-icon" ]
+  - type: Item
+    sprite: ADT/Personalization/sirtalterpkpistol.rsi
+    size: Small
+  - type: Clothing
+    sprite: ADT/Personalization/sirtalterpkpistol.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+    - Belt

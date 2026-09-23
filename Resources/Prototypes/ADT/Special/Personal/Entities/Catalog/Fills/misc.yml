@@ -1,0 +1,176 @@
+# Pyotr
+- type: entity
+  parent: ClothingBeltSheath
+  id: ADTClothingBeltPyotrSheath
+  name: Pyotr`s sabre sheath
+  description: An ornate sheath designed to hold an officer's blade.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/pyotr_sheath.rsi
+    state: sheath
+  - type: Clothing
+    sprite: ADT/Personalization/pyotr_sheath.rsi
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        name: Sabre
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        whitelist:
+          tags:
+          - CaptainSabre
+  - type: ItemMapper
+    mapLayers:
+      sheath-sabre:
+        whitelist:
+          tags:
+          - CaptainSabre
+  - type: ContainerFill
+    containers:
+      item:
+      - ADTPyotrSabre
+  - type: Appearance
+
+#Закомментировано, но не будет удалено полностью в случае необходимости оперативно вернуться к этим вещам
+
+# - type: entity
+#   parent: ClothingBeltSheath
+#   id: ADTClothingBeltPrazatSheath
+#   name: Prazat sheath
+#   description: Prazat sheath
+#   suffix: Personal, PrazzzCool999
+#   components:
+#   - type: Sprite
+#     sprite: ADT/Personalization/prazat_sheath.rsi
+#   - type: Clothing
+#     sprite: ADT/Personalization/prazat_sheath.rsi
+#   - type: Item
+#     size: Ginormous
+#   - type: ItemSlots
+#     slots:
+#       item:
+#         name: Sabre
+#         insertVerbText: sheath-insert-verb
+#         ejectVerbText: sheath-eject-verb
+#         insertSound: /Audio/Items/sheath.ogg
+#         ejectSound: /Audio/Items/unsheath.ogg
+#         whitelist:
+#           tags:
+#           - CaptainSabre
+#   - type: ItemMapper
+#     mapLayers:
+#       sheath-sabre:
+#         whitelist:
+#           tags:
+#           - CaptainSabre
+#           - ADTWeaponMeleePrasatChainsword
+#   - type: ContainerFill
+#     containers:
+#       item:
+#       - ADTWeaponMeleePrasatChainsword
+#   - type: Appearance
+#   - type: ClothingSpeedModifier
+#     walkModifier: 0.95
+#     sprintModifier: 0.95
+#   - type: Storage
+#     grid:
+#     - 0,0,5,1
+#     maxItemSize: Small
+#   - type: UserInterface
+#     interfaces:
+#       enum.StorageUiKey.Key:
+#         type: StorageBoundUserInterface
+#   - type: ContainerContainer
+#     containers:
+#       storagebase: !type:Container
+#         ents: []
+#       item: !type:ContainerSlot
+
+- type: entity
+  parent: ClothingBeltSheath
+  id: ADTClothingBeltPrazatSheath
+  name: Prazat sheath
+  description: Prazat sheath
+  suffix: Personal, PrazzzCool999
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/prazat_sheath2.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/prazat_sheath2.rsi
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        name: Sabre
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags:
+          - CaptainSabre
+  - type: ItemMapper
+    mapLayers:
+      sheath-sabre:
+        whitelist:
+          tags:
+          - CaptainSabre
+          - ADTWeaponMeleePrasatChainsword
+  - type: Appearance
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: Storage
+    grid:
+    - 0,0,5,1
+    maxItemSize: Small
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+      item: !type:ContainerSlot
+  - type: Construction
+    graph: ADTBeltSheathTransforms
+    node: icon
+
+#Faust Netzach
+- type: entity
+  parent: ClothingBeltSheath
+  id: ADTClothingBeltFaustSheath
+  name: Faust`s dirk sheath
+  description: An ornate sheath designed to hold an officer's blade.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/FaustNetzach/faust_sheath.rsi
+    state: sheath
+  - type: Clothing
+    sprite: ADT/Personalization/FaustNetzach/faust_sheath.rsi
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        name: Sabre
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        whitelist:
+          tags:
+          - CaptainSabre
+  - type: ItemMapper
+    mapLayers:
+      sheath-sabre:
+        whitelist:
+          tags:
+          - CaptainSabre
+  - type: ContainerFill
+    containers:
+      item:
+      - ADTFaustDirk
+  - type: Appearance

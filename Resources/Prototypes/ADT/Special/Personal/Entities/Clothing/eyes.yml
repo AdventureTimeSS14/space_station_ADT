@@ -1,0 +1,26 @@
+- type: entity
+  parent: ADTSponsorClothingEyesBase
+  id: ADTClothingEyesMoon_so_redGlasses
+  suffix: Moon_so_red
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/moon_so_red_glasses.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/moon_so_red_glasses.rsi
+
+- type: entity
+  parent: ClothingEyesGlassesMercenary
+  id: ADTClothingEyesGlassesMercenaryAntillion
+  name: mercenary glasses
+  description: Glasses made for combat, to protect the eyes from bright blinding flashes.
+  suffix: Personal, antillion
+  components:
+  - type: Sprite
+    sprite: Clothing/Eyes/Glasses/mercglasses.rsi
+  - type: Clothing
+    sprite: Clothing/Eyes/Glasses/mercglasses.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+  - type: IdentityBlocker
+    coverage: EYES
