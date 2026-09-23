@@ -783,7 +783,7 @@ public sealed partial class ThunderdomeRuleSystem : EntitySystem
 
             foreach (var container in _container.GetAllContainers(current, containerManager))
             {
-                foreach (var contained in container.ContainedEntities)
+                foreach (var contained in container.ContainedEntities.ToArray())
                 {
                     toCheck.Enqueue(contained);
 
