@@ -197,3 +197,15 @@
     size: Small
   - type: ADTPrisonCube
     puzzleProto: ADTPrisonCubePuzzle
+
+- type: entity
+  id: ADTSlidingPuzzleRoomMarker
+  parent: ADTBaseRoomMarker
+  name: sliding puzzle ruin spawner
+  components:
+  - type: ADTRoomFill
+    clearExisting: true
+    rotation: false
+    roomWhitelist:
+      tags:
+      - ADTSlidingPuzzle
