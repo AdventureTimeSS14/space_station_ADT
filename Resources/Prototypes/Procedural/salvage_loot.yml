@@ -108,6 +108,42 @@
         - proto: WeaponTeslaGun
           prob: 0.1
           cost: 2
+        - proto: microreactor
+          cost: 5
+        - proto: ClothingHandsGlovesCombat
+          cost: 3
+        - proto: CigPackSyndicate
+          cost: 4
+        - proto: Emag
+          cost: 25
+          prob: 0.001
+        - proto: NukeDiskFake
+          cost: 10
+        - proto: EnergySword
+          cost: 20
+          prob: 0.02
+        - proto: FireAxeFlaming
+          cost: 15
+          prob: 0.02
+        - proto: HoloparasiteInjector
+          cost: 50
+          prob: 0.001
+        - proto: StorageImplanter
+          cost: 20
+          prob: 0.001
+        - proto: MicroBombImplanter
+          cost: 30
+          prob: 0.001
+        - proto: C4
+          cost: 5
+        - proto: ClothingEyesGlassesThermal
+          cost: 5
+          prob: 0.5
+        - proto: ClothingEyesHudOmni
+          prob: 0.0001
+          cost: 50
+        - proto: JawsOfLife
+          cost: 10
 
 # Mob loot table
 

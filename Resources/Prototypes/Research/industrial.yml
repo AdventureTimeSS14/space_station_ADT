@@ -47,7 +47,7 @@
     state: empty
   discipline: Industrial
   tier: 1
-  cost: 7500
+  cost: 15000
   recipeUnlocks:
   - PowerCellHigh
   - TurboItemRechargerCircuitboard
@@ -261,7 +261,6 @@
   requiredTech:
   - ADTCompactTechnologies
   - ADTIndustrialMODsuitMODs
-  # ADT Research Console Rework end
 
 #ADT TWEAK
 # - type: technology

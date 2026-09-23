@@ -20,9 +20,6 @@ public abstract partial class SharedSalvageSystem : EntitySystem
     [Dependency] protected readonly IConfigurationManager CfgManager = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
 
-    /// <summary>
-    /// Main loot table for salvage expeditions.
-    /// </summary>
     public static readonly ProtoId<SalvageLootPrototype> ExpeditionsLootProto = "SalvageLoot";
 
     public string GetFTLName(LocalizedDatasetPrototype dataset, int seed)
@@ -33,63 +30,78 @@ public abstract partial class SharedSalvageSystem : EntitySystem
 
     public SalvageMission GetMission(SalvageDifficultyPrototype difficulty, int seed)
     {
-        // This is on shared to ensure the client display for missions and what the server generates are consistent
         var modifierBudget = difficulty.ModifierBudget;
         var rand = new System.Random(seed);
 
-        // Run budget in order of priority
-        // - Biome
-        // - Lighting
-        // - Atmos
         var biome = GetMod<SalvageBiomeModPrototype>(rand, ref modifierBudget);
         var light = GetBiomeMod<SalvageLightMod>(biome.ID, rand, ref modifierBudget);
         var temp = GetBiomeMod<SalvageTemperatureMod>(biome.ID, rand, ref modifierBudget);
         var air = GetBiomeMod<SalvageAirMod>(biome.ID, rand, ref modifierBudget);
         var dungeon = GetBiomeMod<SalvageDungeonModPrototype>(biome.ID, rand, ref modifierBudget);
+
         var factionProtos = _proto.EnumeratePrototypes<SalvageFactionPrototype>().ToList();
         factionProtos.Sort((x, y) => string.Compare(x.ID, y.ID, StringComparison.Ordinal));
-        var faction = factionProtos[rand.Next(factionProtos.Count)];
+        var faction = factionProtos.Count > 0 ? factionProtos[seed % factionProtos.Count] : _proto.EnumeratePrototypes<SalvageFactionPrototype>().First();
 
         var mods = new List<string>();
 
-        if (air.Description != string.Empty)
+        if (air != null && air.Description != string.Empty)
         {
             mods.Add(Loc.GetString(air.Description));
         }
 
-        // only show the description if there is an atmosphere since wont matter otherwise
-        if (temp.Description != string.Empty && !air.Space)
+        if (temp != null && air != null && temp.Description != string.Empty && !air.Space)
         {
             mods.Add(Loc.GetString(temp.Description));
         }
 
-        if (light.Description != string.Empty)
+        if (light != null && light.Description != string.Empty)
         {
             mods.Add(Loc.GetString(light.Description));
         }
 
         var duration = TimeSpan.FromSeconds(CfgManager.GetCVar(CCVars.SalvageExpeditionDuration));
 
-        return new SalvageMission(seed, dungeon.ID, faction.ID, biome.ID, air.ID, temp.Temperature, light.Color, duration, mods);
+        return new SalvageMission(
+            seed,
+            dungeon?.ID ?? "SalvageAsteroidDungeon",
+            faction.ID,
+            biome.ID,
+            air?.ID ?? "SpaceAir",
+            temp?.Temperature ?? 293.15f,
+            light?.Color ?? Color.White,
+            duration,
+            mods
+        );
     }
 
-    public T GetBiomeMod<T>(string biome, System.Random rand, ref float rating) where T : class, IPrototype, IBiomeSpecificMod
+    private T? GetBiomeMod<T>(Dictionary<string, T> mods, System.Random rand, ref float rating) where T : ISalvageMod
+    {
+        if (mods.Count == 0)
+            return default;
+
+        // Копируем ref-переменную в локальную, чтобы использовать в лямбде
+        var currentRating = rating;
+        var options = mods.Values.Where(x => x.Cost <= currentRating).ToList();
+
+        if (options.Count == 0)
+            options = mods.Values.ToList();
+
+        if (options.Count == 0)
+            return default;
+
+        var mod = options[rand.Next(options.Count)];
+        rating -= mod.Cost;
+        return mod;
+    }
+
+    private T GetBiomeMod<T>(string biomeId, System.Random rand, ref float rating) where T : class, IPrototype
     {
         var mods = _proto.EnumeratePrototypes<T>().ToList();
-        mods.Sort((x, y) => string.Compare(x.ID, y.ID, StringComparison.Ordinal));
-        rand.Shuffle(mods);
+        if (mods.Count == 0)
+            throw new InvalidOperationException();
 
-        foreach (var mod in mods)
-        {
-            if (mod.Cost > rating || (mod.Biomes != null && !mod.Biomes.Contains(biome)))
-                continue;
-
-            rating -= mod.Cost;
-
-            return mod;
-        }
-
-        throw new InvalidOperationException();
+        return mods[rand.Next(mods.Count)];
     }
 
     public T GetMod<T>(System.Random rand, ref float rating) where T : class, IPrototype, ISalvageMod
@@ -104,11 +116,16 @@ public abstract partial class SharedSalvageSystem : EntitySystem
                 continue;
 
             rating -= mod.Cost;
-
             return mod;
         }
 
-        throw new InvalidOperationException();
+        if (mods.Count > 0)
+        {
+            var fallbackMod = mods[rand.Next(mods.Count)];
+            rating -= fallbackMod.Cost;
+            return fallbackMod;
+        }
+
+        return _proto.EnumeratePrototypes<T>().First();
     }
 }
-

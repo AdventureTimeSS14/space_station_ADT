@@ -53,11 +53,15 @@ public abstract partial class SharedXenoArtifactSystem
     /// <exception cref="ArgumentException">Throws if requested index doesn't exist on artifact. </exception>
     public Entity<XenoArtifactNodeComponent> GetNode(Entity<XenoArtifactComponent> ent, int index)
     {
+        if (index < 0 || index >= ent.Comp.NodeVertices.Length)
+            return default;
+
         if (ent.Comp.NodeVertices[index] is { } netUid && GetEntity(netUid) is var uid && _nodeQuery.TryComp(uid, out var comp))
             return (uid, comp);
 
-        throw new ArgumentException($"index {index} does not correspond to an existing node in {ToPrettyString(ent)}");
+        return default;
     }
+
 
     /// <summary>
     /// Tries to get node entity with node component from artifact by index of node inside artifact nodes collection.

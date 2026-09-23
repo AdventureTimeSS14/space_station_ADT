@@ -45,6 +45,7 @@
   id: ADTPowerPack
   recipes:
   - ADTPowerCellHyperRecipe
+  - PowerCellMicroreactor
 
 - type: latheRecipePack
   id: ADTIndustrialCharger

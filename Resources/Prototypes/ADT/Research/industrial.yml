@@ -102,13 +102,13 @@
   name: research-technology-advanced-energy
   icon:
     sprite: Objects/Power/power_cells.rsi
-    state: hyper
+    state: microreactor
   discipline: Industrial
   tier: 2
-  cost: 10000
+  cost: 30000
   recipeUnlocks:
+    - PowerCellMicroreactor
     - ADTPowerCellHyperRecipe
-    - ADTIndustrialChargerCircuitboard
   position: -1,-1  # ADT-Tweak I have to move it
   requiredTech:
   - AdvancedPowercells

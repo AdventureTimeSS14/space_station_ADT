@@ -77,12 +77,9 @@
   cost: 7500
   recipeUnlocks:
   - ClothingShoesBootsMagSci
-  #- ClothingShoesBootsMoon # ADT tweak - убираем луноходы
-  # ADT Research Console Rework start
   position: 1,0
   requiredTech:
   - AlternativeResearch
-  # ADT Research Console Rework end
 
 - type: technology
   id: AnomalyCoreHarnessing
@@ -160,6 +157,36 @@
   # ADT Research Console Rework end
 
 - type: technology
+  id: NightVisionGlasses
+  name: research-technology-night-tech
+  icon:
+    sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
+    state: icon
+  discipline: Experimental
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - ClothingEyesNightVisionRecipe
+  position: 1,-2
+  requiredTech:
+  - MagnetsTech
+
+- type: technology
+  id: ThermalGlasses
+  name: research-technology-thermal-tech
+  icon:
+    sprite: Clothing/Eyes/Glasses/thermal.rsi
+    state: icon
+  discipline: Experimental
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - ClothingEyesGlassesThermalRecipe
+  position: 1,2
+  requiredTech:
+  - NightVisionGlasses
+
+- type: technology
   id: GravityManipulation
   name: research-technology-gravity-manipulation
   icon:
@@ -206,11 +233,11 @@
     state: icon
   discipline: Experimental
   tier: 3
-  cost: 10000
+  cost: 40000
   recipeUnlocks:
   - DeviceDesynchronizer
   requiredTech:
-  - ADTBluespaceMining
+  - CrystalManipulation
   # ADT Research Console Rework start
   position: 5,-3
   # ADT Research Console Rework end

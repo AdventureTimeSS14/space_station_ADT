@@ -963,3 +963,29 @@
   parent: BaseNeckClothingRecipe
   id: ClothingNeckScarfStripedPurple
   result: ClothingNeckScarfStripedPurple
+
+- type: latheRecipe
+  parent: BaseHatRecipe
+  id: ClothingEyesGlassesThermalRecipe
+  result: ClothingEyesGlassesThermal
+  categories:
+  - Hats
+  completetime: 5
+  materials:
+    Steel: 2000
+    Glass: 1500
+    Plasma: 1000
+    Uranium: 500
+
+- type: latheRecipe
+  parent: BaseHatRecipe
+  id: ClothingEyesNightVisionRecipe
+  result: ClothingEyesNightVision
+  categories:
+  - Hats
+  completetime: 5
+  materials:
+    Steel: 2000
+    Glass: 2000
+    Plasma: 1000
+    Gold: 1000

@@ -9,9 +9,9 @@
   cost: 15000
   recipeUnlocks:
   - ADTMaterialBScrystalArt
-  position: 2,-2
+  position: 4,-3
   requiredTech:
-  - AlternativeResearch
+  - BasicAnomalousResearch
 
 - type: technology
   id: ADTAiRemoteBrain
@@ -24,9 +24,9 @@
   cost: 15000
   recipeUnlocks:
   - ADTAiRemoteBrain
-  position: 2,-3
+  position: 2,-2
   requiredTech:
-  - CrystalManipulation
+  - BasicAnomalousResearch
 
 - type: technology
   id: ADTModsuitBase
@@ -58,12 +58,12 @@
     state: ansible_crystal
   discipline: Experimental
   tier: 2
-  cost: 40000
+  cost: 30000
   recipeUnlocks:
   - ADTMachineBluespaceHarvesterCircuitboard
-  position: 4,-3
+  position: 4,-2
   requiredTech:
-  - BasicAnomalousResearch
+  - CrystalManipulation
 
 - type: technology
   id: BasicXenobiology
@@ -92,9 +92,9 @@
     state: cannon_east
   discipline: Experimental
   tier: 3
-  cost: 15100
+  cost: 30000
   recipeUnlocks:
   - ArtilleryComputerCircuitboard
   position: 4,-4
   requiredTech:
-  - ADTBluespaceMining
+  - CrystalManipulation

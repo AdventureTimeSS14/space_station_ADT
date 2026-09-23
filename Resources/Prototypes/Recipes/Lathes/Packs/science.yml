@@ -38,6 +38,8 @@
   - ClothingBackpackDuffelHolding
   - ADTBotanistBagOfHolding #ADT-Tweak
   - ADTClothingBeltManipulator # ADT-Tweak
+  - ClothingEyesGlassesThermalRecipe
+  - ClothingEyesNightVisionRecipe
 
 - type: latheRecipePack
   id: PowerCells
