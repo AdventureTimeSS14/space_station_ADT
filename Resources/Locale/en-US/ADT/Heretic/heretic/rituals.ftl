@@ -102,3 +102,8 @@ heretic-ritual-flesh-ascend = Priest's Final Hymn
 ## void path
 heretic-ritual-void-blade = Glimmer of Winter
 heretic-ritual-void-ascend = Waltz at the End of Time
+
+heretic-ritual-info-header = Ritual: {$name}
+heretic-ritual-info-requirements = [font size=16]{$requirements}[/font]
+heretic-ritual-info-item = - {$item} [icon src="{$icon}" tooltip="{$tooltip}" size=32] x{$amount}
+heretic-ritual-info-item-plain = - {$item} x{$amount}

@@ -1,0 +1,112 @@
+- type: entity
+  id: ADTAshTotemBase
+  parent: BaseStructure
+  abstract: true
+  name: totem
+  description: A perfectly ordinary totem! Looks neat.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Specific/ashwalker_totems.rsi
+    drawdepth: Mobs
+    noRot: true
+    offset: 0,0.5
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: ADTRitualTotem
+  - type: ADTDyed
+  - type: AshStormImmune
+  - type: Damageable
+  - type: Injurable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 1000
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+        - BulletImpassable
+
+- type: entity
+  id: ADTAshTotemWooden
+  parent: ADTAshTotemBase
+  name: wooden totem
+  description: A massive statue carved out of a solid piece of wood. The pattern on it vaguely resembles a human face twisted in a grimace of horror.
+  components:
+  - type: Sprite
+    layers:
+    - state: totem_wooden
+    - state: totem_wooden_cinnabar
+      map: [ "dye" ]
+      visible: false
+  - type: ADTDyeVisuals
+    prefix: totem_wooden
+  - type: Construction
+    graph: ADTAshTotemWooden
+    node: totem
+
+- type: entity
+  id: ADTAshTotemStone
+  parent: ADTAshTotemBase
+  name: stone totem
+  description: A massive stone statue with the skull of a slain beast lashed to it. The sinews holding the skull in place sway slowly in the wind.
+  components:
+  - type: Sprite
+    layers:
+    - state: totem_stone
+    - state: totem_stone_cinnabar
+      map: [ "dye" ]
+      visible: false
+  - type: ADTDyeVisuals
+    prefix: totem_stone
+  - type: Construction
+    graph: ADTAshTotemStone
+    node: totem
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+
+- type: entity
+  id: ADTAshTotemBone
+  parent: ADTAshTotemBase
+  name: bone totem
+  description: A massive statue made from a huge bone. You do not know which animal it belonged to, and you clearly do not want to find out.
+  components:
+  - type: Sprite
+    layers:
+    - state: totem_bone
+    - state: totem_bone_cinnabar
+      map: [ "dye" ]
+      visible: false
+  - type: ADTDyeVisuals
+    prefix: totem_bone
+  - type: Construction
+    graph: ADTAshTotemBone
+    node: totem

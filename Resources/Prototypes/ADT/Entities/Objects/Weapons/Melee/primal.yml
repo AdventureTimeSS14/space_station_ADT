@@ -91,6 +91,9 @@
   - type: Construction
     graph: ADTBoneAxe
     node: axe
+  - type: Tag
+    tags:
+    - ADTBoneAxe
 
 - type: entity
   name: sinew restraints
@@ -119,6 +122,10 @@
   - type: PhysicalComposition
     materialComposition:
       ADTSinew: 100
+  - type: Tag
+    tags:
+    - Handcuffs
+    - ADTSinewRestraints
   - type: Construction
     graph: ADTSinewRestraints
     node: restraints
