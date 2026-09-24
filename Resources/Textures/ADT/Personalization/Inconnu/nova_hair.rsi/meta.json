@@ -1,0 +1,19 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-4.0",
+    "copyright": "Made by Pangaari(discord: pangaari)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "hair",
+            "directions": 4
+        },
+        {
+            "name": "rubber",
+            "directions": 4
+        }
+    ]
+}
