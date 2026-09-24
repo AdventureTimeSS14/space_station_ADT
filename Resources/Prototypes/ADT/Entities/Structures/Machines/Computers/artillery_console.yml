@@ -46,12 +46,6 @@
         enum.WiresVisualLayers.MaintenancePanel:
           True: { visible: false }
           False: { visible: true }
-      enum.EdgeConnectionVisuals.ConnectionMask:
-        computerLayerBody:
-          None: { state: computer, sprite: Structures/Machines/computers.rsi }
-          West: { state: computer_r, sprite: ADT/Structures/Machines/computers.rsi }
-          East: { state: computer_l, sprite: ADT/Structures/Machines/computers.rsi }
-          East, West: { state: computer_l_r, sprite: ADT/Structures/Machines/computers.rsi }
   - type: LitOnPowered
   - type: PointLight
     radius: 1.5
