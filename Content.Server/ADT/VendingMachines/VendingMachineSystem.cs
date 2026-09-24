@@ -17,14 +17,19 @@ using Content.Shared.ADT.Economy;
 using Content.Shared.ADT.VendingMachines;
 using Content.Shared.Cargo;
 using Content.Shared.Cargo.Components;
+using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.Components.SolutionManager;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
+using Content.Shared.FixedPoint;
 using Content.Shared.Destructible;
 using Content.Shared.DoAfter;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Emp;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
+using Content.Shared.Labels.EntitySystems;
 using Content.Shared.PDA;
 using Content.Shared.Popups;
 using Content.Shared.Power;
@@ -37,6 +42,7 @@ using Content.Shared.VendingMachines;
 using Content.Shared.Wall;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
+using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -61,6 +67,8 @@ namespace Content.Server.ADT.VendingMachines
         [Dependency] private readonly StationSystem _stationSystem = default!;
         [Dependency] private readonly SharedPointLightSystem _light = default!;
         [Dependency] private readonly EmagSystem _emag = default!;
+        [Dependency] private readonly LabelSystem _label = default!;
+        [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
 
         private const float WallVendEjectDistanceFromWall = 1f;
 
@@ -116,12 +124,61 @@ namespace Content.Server.ADT.VendingMachines
             }
         }
 
-        private void UpdateVendingMachineInterfaceState(EntityUid uid, VendingMachineComponent component)
+        public void UpdateVendingMachineInterfaceState(EntityUid uid, VendingMachineComponent component)
         {
             var state = new VendingMachineInterfaceState(GetAllInventory(uid, component), component.PriceMultiplier,
-                component.Credits);
+                component.Credits, BuildReturnedItemDisplays(uid, component));
 
             _userInterfaceSystem.SetUiState(uid, VendingMachineUiKey.Key, state);
+        }
+
+        private Dictionary<string, ReturnedItemDisplay> BuildReturnedItemDisplays(EntityUid uid, VendingMachineComponent component)
+        {
+            var result = new Dictionary<string, ReturnedItemDisplay>();
+
+            if (!EntityManager.TryGetComponent(uid, out ContainerManagerComponent? containers)
+                || !containers.Containers.TryGetValue(VendingMachineComponent.ReturnedItemsContainerId, out var container))
+            {
+                return result;
+            }
+
+            var seen = new HashSet<string>();
+            for (var i = container.ContainedEntities.Count - 1; i >= 0; i--)
+            {
+                var ent = container.ContainedEntities[i];
+                if (!TryComp<MetaDataComponent>(ent, out var meta) || meta.EntityPrototype?.ID is not { } protoId)
+                    continue;
+
+                if (!seen.Add(protoId))
+                    continue;
+
+                result[protoId] = BuildReturnedItemDisplay(ent);
+            }
+
+            return result;
+        }
+
+        private ReturnedItemDisplay BuildReturnedItemDisplay(EntityUid ent)
+        {
+            var display = new ReturnedItemDisplay
+            {
+                Label = _label.GetLabelText(ent),
+            };
+
+            string? solutionName = null;
+            if (TryComp<SolutionContainerVisualsComponent>(ent, out var visuals))
+                solutionName = visuals.SolutionName;
+
+            if (_solutionContainer.TryGetSolution(ent, solutionName, out _, out var solution)
+                && solution.Volume > FixedPoint2.Zero
+                && solution.MaxVolume > FixedPoint2.Zero)
+            {
+                display.FillFraction = solution.FillFraction;
+                if (visuals is { ChangeColor: true })
+                    display.FillColor = solution.GetColor(PrototypeManager);
+            }
+
+            return display;
         }
 
         private void OnInventoryEjectMessage(EntityUid uid, VendingMachineComponent component, VendingMachineEjectMessage args)
@@ -252,6 +309,7 @@ namespace Content.Server.ADT.VendingMachines
         private void OnAfterActivatableUIOpen(EntityUid uid, VendingMachineComponent component, AfterActivatableUIOpenEvent args)
         {
             SendUserInfo(uid, args.User);
+            UpdateVendingMachineInterfaceState(uid, component);
         }
 
         private void SendUserInfo(EntityUid uid, EntityUid user)

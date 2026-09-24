@@ -662,3 +662,30 @@
         - state: gibtonite_inactive
           visible: false
           map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
+
+- type: entity
+  id: ADTWallRockBasaltSandstone
+  parent: WallRockBasalt
+  description: A basalt vein interspersed with sandstone.
+  suffix: Sandstone
+  components:
+  - type: Gatherable
+    toolWhitelist:
+      tags:
+      - Pickaxe
+    loot:
+      All: !type:NestedSelector
+        tableId: ADTBasaltRockLootTable
+  - type: Sprite
+    layers:
+    - state: rock_bauxite
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - state: rock_wall
+    - map: [ "enum.EdgeLayer.South" ]
+      state: rock_wall_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: rock_wall_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: rock_wall_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: rock_wall_west

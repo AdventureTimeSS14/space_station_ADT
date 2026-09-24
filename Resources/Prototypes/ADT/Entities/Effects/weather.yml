@@ -209,6 +209,7 @@
   parent: WeatherBase
   id: ADTLavalandWeatherAshfall
   components:
+  - type: ADTRefillDugTiles
   - type: WeatherStatusEffect
     damage:
       types:
