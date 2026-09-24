@@ -1,0 +1,38 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Paradise at https://github.com/ParadiseSS13/Paradise/blob/master/icons/obj/lavaland/lava_fishing.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "ash_crab"
+        },
+        {
+            "name": "dead_horseman"
+        },
+        {
+            "name": "shellfish"
+        },
+        {
+            "name": "bottom_eel"
+        },
+        {
+            "name": "red_devourer"
+        },
+        {
+            "name": "magma_hammerhead"
+        },
+        {
+            "name": "blind_reaper"
+        },
+        {
+            "name": "herald_of_carnage"
+        },
+        {
+            "name": "sulfuric_tramp"
+        }
+    ]
+}

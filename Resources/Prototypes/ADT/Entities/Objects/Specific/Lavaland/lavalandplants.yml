@@ -36,6 +36,7 @@
   - type: Tag
     tags:
     - Fruit
+    - ADTCactusBerry
 
 - type: entity
   abstract: true

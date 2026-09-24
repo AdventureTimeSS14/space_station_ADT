@@ -39,6 +39,9 @@
         key: FleeTarget
         keyCoordinates: FleeTargetCoordinates
     - !type:HTNPrimitiveTask
+      operator: !type:ADTKeyExistsOperator
+        key: ADTFleeCoordinates
+    - !type:HTNPrimitiveTask
       operator: !type:MoveToOperator
         targetKey: ADTFleeCoordinates
         pathfindInPlanning: false

@@ -1,5 +1,6 @@
 using Content.Server.ADT.Salvage.Components;
 using Content.Server.Medical;
+using Content.Shared.ADT.Salvage.Components;
 using Content.Shared.Body;
 using Content.Shared.Body.Components;
 using Content.Shared.Damage.Components;
@@ -43,6 +44,9 @@ public sealed partial class JaunterPortalSystem : EntitySystem
     private void OnKillPortalEntered(EntityUid uid, JaunterKillPortalComponent comp, ref StartCollideEvent args)
     {
         if (args.OtherEntity == default)
+            return;
+
+        if (HasComp<MegafaunaComponent>(args.OtherEntity))
             return;
 
         QueueDel(args.OtherEntity);
@@ -183,6 +187,9 @@ public sealed partial class JaunterPortalSystem : EntitySystem
         var otherUid = args.OtherEntity;
 
         if (otherUid == default)
+            return;
+
+        if (HasComp<MegafaunaComponent>(otherUid))
             return;
 
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Items/Mining/fultext_launch.ogg"), args.OtherEntity);

@@ -780,6 +780,7 @@
           Quantity: 3
   - type: Item
     heldPrefix: bones
+    size: Small # ADT-Tweak
 
 - type: entity
   parent: MaterialBones
