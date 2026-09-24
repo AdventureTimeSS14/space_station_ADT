@@ -157,6 +157,25 @@
           tags:
             - TrashBag
     sprite: Objects/Vehicles/janicart.rsi
+  - type: ADTJanicartUpgradeable
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+      key_slot: !type:ContainerSlot {}
+      trashbag_slot: !type:ContainerSlot {}
+      mop_slot: !type:ContainerSlot {}
+      bucket_slot: !type:ContainerSlot {}
+      plunger_slot: !type:ContainerSlot {}
+      goldenplunger_slot: !type:ContainerSlot {}
+      wetfloorsign_slot4: !type:ContainerSlot {}
+      wetfloorsign_slot3: !type:ContainerSlot {}
+      wetfloorsign_slot2: !type:ContainerSlot {}
+      wetfloorsign_slot1: !type:ContainerSlot {}
+      lightreplacer_slot: !type:ContainerSlot {}
+      spraybottle_slot:  !type:ContainerSlot {}
+      janicart_upgrades: !type:Container
+        ents: []
   - type: Appearance
 
 - type: entity

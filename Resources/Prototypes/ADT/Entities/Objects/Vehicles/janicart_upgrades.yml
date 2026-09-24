@@ -1,0 +1,50 @@
+- type: entity
+  parent: BaseItem
+  id: ADTJanicartUpgradeBuffer
+  name: janicart buffer upgrade
+  description: A floor buffer module for the janicart. Washes puddles around the vehicle while it is being driven.
+  components:
+  - type: Sprite
+    sprite: ADT/Misc/car_update.rsi
+    state: janicart_upgrade_buffer
+  - type: Item
+    size: Small
+  - type: ADTJanicartUpgrade
+    tags: [ ADTJanicartUpgradeBuffer ]
+    examineText: janicart-upgrade-examine-buffer
+  - type: ADTJanicartBuffer
+    range: 2
+
+- type: entity
+  parent: BaseItem
+  id: ADTJanicartUpgradeVacuum
+  name: janicart vacuum upgrade
+  description: A vacuum module for the janicart. Collects trash into the loaded trash bag while the vehicle is being driven.
+  components:
+  - type: Sprite
+    sprite: ADT/Misc/car_update.rsi
+    state: janicart_upgrade_vacuum
+  - type: Item
+    size: Small
+  - type: ADTJanicartUpgrade
+    tags: [ ADTJanicartUpgradeVacuum ]
+    examineText: janicart-upgrade-examine-vacuum
+  - type: ADTJanicartVacuum
+    range: 2
+
+- type: entity
+  parent: BaseItem
+  id: ADTJanicartUpgradeSpeed
+  name: janicart speed upgrade
+  description: A speed module for the janicart. Boosts the vehicle's movement speed by 30%.
+  components:
+  - type: Sprite
+    sprite: ADT/Misc/car_update.rsi
+    state: janicart_upgrade_speed
+  - type: Item
+    size: Small
+  - type: ADTJanicartUpgrade
+    tags: [ ADTJanicartUpgradeSpeed ]
+    examineText: janicart-upgrade-examine-speed
+  - type: ADTJanicartSpeed
+    speedMultiplier: 1.3
