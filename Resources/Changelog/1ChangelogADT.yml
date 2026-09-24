@@ -15620,3 +15620,10 @@ Entries:
     id: 1953
     pr_number: 3433
     time: '2026-09-24T17:43:01Z'
+  - author: CrimeMoot
+    changes:
+      - {message: Дворфы теперь вновь могут видеть залежи руды в зоне 4 тайтлов вокруг
+          себя., type: Fix}
+    id: 1954
+    pr_number: 3434
+    time: '2026-09-24T17:45:47Z'
