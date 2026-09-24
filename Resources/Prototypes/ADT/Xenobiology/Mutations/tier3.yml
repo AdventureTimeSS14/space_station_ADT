@@ -36,8 +36,6 @@
   id: GoldMutation
   producedExtract: GoldSlimeExtract
   slimeColor: "#e8b923"
-  shouldHaveShader: true
-  shader: XenoMetallic
   maxOffspring: 4
   mutationChance: 0.45
   potentialMutations:
