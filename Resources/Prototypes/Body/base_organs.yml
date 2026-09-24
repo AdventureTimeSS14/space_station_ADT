@@ -21,6 +21,9 @@
   parent: BaseItem
   components:
   - type: Organ
+  - type: Tag # ADT-Tweak
+    tags:
+    - Trash
 
 - type: entity
   id: OrganBaseOrganic
@@ -45,6 +48,7 @@
     - Raw
     - Meat
     - Organ
+    - Trash # ADT-Tweak
 
 - type: entity
   parent: OrganBase
@@ -295,6 +299,7 @@
   - type: Tag # ADT-Tweak
     tags:
     - Brain
+    - Trash
 
 - type: entity
   parent: OrganBase
@@ -317,10 +322,11 @@
   - type: VisualOrganMarkings
     markingData:
       layers:
-      - Eyes
+  - Eyes
   - type: Tag # ADT-Tweak
     tags:
     - Eyes
+    - Trash
 
 - type: entity
   parent: OrganBase
@@ -387,6 +393,7 @@
   - type: Tag # ADT-Tweak
     tags:
     - Lungs
+    - Trash
 
 - type: entity
   parent: OrganBase
@@ -407,6 +414,7 @@
   - type: Tag # ADT-Tweak
     tags:
     - Heart
+    - Trash
 
 - type: entity
   parent: OrganBase
@@ -433,6 +441,7 @@
   - type: Tag # ADT-Tweak
     tags:
     - Stomach
+    - Trash
 
 - type: entity
   parent: OrganBase
@@ -454,6 +463,7 @@
   - type: Tag # ADT-Tweak
     tags:
     - Liver
+    - Trash
 
 - type: entity
   parent: OrganBase
