@@ -397,6 +397,13 @@
   name: raw goliath meat
   description: A slab of goliath meat. It's not very edible now, but it cooks great in lava.
   components:
+  # ADT-Tweak-Start
+  - type: Tag
+    tags:
+    - Raw
+    - Meat
+    - ADTGoliathMeat
+  # ADT-Tweak-End
   - type: Sprite
     state: goliath
   - type: SolutionContainerManager

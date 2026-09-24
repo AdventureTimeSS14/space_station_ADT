@@ -153,6 +153,9 @@
   parent: ADTSimpleMobBaselavaland
   description: A worm that grows fat from eating everything in its sight. Seems to enjoy precious metals and other shiny things, hence the name.
   components:
+  - type: Tag
+    tags:
+    - ADTGoldgrub
   - type: Sprite
     drawdepth: Mobs
     sprite: ADT/Mobs/Lavaland/goldgrub.rsi

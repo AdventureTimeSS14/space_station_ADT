@@ -2,7 +2,10 @@ using System.Linq;
 using Content.Server.NPC.Components;
 using Content.Server.NPC.HTN;
 using Content.Shared.Actions;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Random.Helpers;
+using Robust.Server.GameObjects;
+using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
@@ -15,6 +18,10 @@ public sealed class NPCUseActionOnTargetSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly TransformSystem _transform = default!;
+
+    private const float MaxActionRange = 20f;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -70,10 +77,39 @@ public sealed class NPCUseActionOnTargetSystem : EntitySystem
             if (_timing.CurTime < comp.LastAction + TimeSpan.FromSeconds(comp.Delay))
                 continue;
 
+            if (TerminatingOrDeleted(uid) || _mobState.IsDead(uid))
+                continue;
+
             if (!htn.Blackboard.TryGetValue<EntityUid>(comp.TargetKey, out var target, EntityManager))
                 continue;
 
+            if (!IsValidTarget(target) || GetDistance(uid, target) is not { } distance || distance > MaxActionRange)
+            {
+                htn.Blackboard.Remove<EntityUid>(comp.TargetKey);
+                htn.Blackboard.Remove<EntityCoordinates>("TargetCoordinates");
+                continue;
+            }
+
             TryUseAction((uid, comp), target);
         }
+    }
+
+    private bool IsValidTarget(EntityUid target)
+    {
+        if (!target.IsValid() || TerminatingOrDeleted(target))
+            return false;
+
+        return !_mobState.IsDead(target);
+    }
+
+    private float? GetDistance(EntityUid uid, EntityUid target)
+    {
+        var ourCoords = _transform.GetMapCoordinates(uid);
+        var targetCoords = _transform.GetMapCoordinates(target);
+
+        if (ourCoords.MapId == MapId.Nullspace || ourCoords.MapId != targetCoords.MapId)
+            return null;
+
+        return (ourCoords.Position - targetCoords.Position).Length();
     }
 }

@@ -26,6 +26,7 @@
     starvingSlowdownModifier: 0
   - type: Slime
     breed: GreyMutation
+    maxMutation: RainbowMutation
   - type: Sprite
     noRot: true
     drawdepth: OverMobs

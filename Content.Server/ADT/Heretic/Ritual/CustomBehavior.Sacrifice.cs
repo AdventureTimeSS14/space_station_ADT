@@ -267,5 +267,11 @@ namespace Content.Server.Heretic.Ritual;
                 && !lookupSystem.GetEntitiesIntersecting(xformSystem.ToMapCoordinates(newCoords), LookupFlags.Static).Any())
                 break;
         }
+
+        if (transformComponent.GridUid != null && transformComponent.MapUid is { } mapUid)
+        {
+            xformSystem.SetCoordinates(uid, new EntityCoordinates(mapUid, xformSystem.ToWorldPosition(transformComponent.Coordinates)));
+            xformSystem.AttachToGridOrMap(uid);
+        }
     }
 }
