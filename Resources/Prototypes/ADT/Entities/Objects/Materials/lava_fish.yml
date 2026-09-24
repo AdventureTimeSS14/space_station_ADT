@@ -1,0 +1,108 @@
+- type: material
+  id: ADTCartilagePlate
+  stackEntity: ADTMaterialCartilagePlate1
+  name: materials-adt-cartilage-plate
+  unit: materials-unit-piece
+  icon: { sprite: ADT/Objects/Specific/Lavaland/Fishing/fish_loot.rsi, state: cartilage_plate }
+  color: "#8B2F3A"
+  price: 0.6
+
+- type: stack
+  parent: BaseMediumStack
+  id: ADTCartilagePlate
+  name: stack-adt-cartilage-plate
+  icon: { sprite: ADT/Objects/Specific/Lavaland/Fishing/fish_loot.rsi, state: cartilage_plate }
+  spawn: ADTMaterialCartilagePlate1
+
+- type: entity
+  parent: MaterialBase
+  id: ADTMaterialCartilagePlate
+  name: thick cartilage plate
+  description: A cartilage plate taken from a shellfish. It has begun to lose its blood red colour, but it is just as tough as before.
+  suffix: Full
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/Fishing/fish_loot.rsi
+    state: cartilage_plate
+  - type: Item
+    size: Small
+  - type: Stack
+    stackType: ADTCartilagePlate
+    count: 5
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      ADTCartilagePlate: 100
+  - type: Tag
+    tags:
+    - ADTLavaFishPart
+
+- type: entity
+  parent: ADTMaterialCartilagePlate
+  id: ADTMaterialCartilagePlate1
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1
+
+- type: material
+  id: ADTRazorTeeth
+  stackEntity: ADTMaterialRazorTeeth1
+  name: materials-adt-razor-teeth
+  unit: materials-unit-piece
+  icon: { sprite: ADT/Objects/Specific/Lavaland/Fishing/fish_loot.rsi, state: razor_sharp_teeth }
+  color: "#D8D0C0"
+  price: 0.7
+
+- type: stack
+  parent: BaseMediumStack
+  id: ADTRazorTeeth
+  name: stack-adt-razor-teeth
+  icon: { sprite: ADT/Objects/Specific/Lavaland/Fishing/fish_loot.rsi, state: razor_sharp_teeth }
+  spawn: ADTMaterialRazorTeeth1
+
+- type: entity
+  parent: MaterialBase
+  id: ADTMaterialRazorTeeth
+  name: razor sharp teeth
+  description: Razor sharp teeth taken from the maw of a lava predator. Perfect for arrows.
+  suffix: Full
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/Fishing/fish_loot.rsi
+    state: razor_sharp_teeth
+  - type: Item
+    size: Small
+  - type: Stack
+    stackType: ADTRazorTeeth
+    count: 5
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      ADTRazorTeeth: 100
+  - type: Tag
+    tags:
+    - ADTLavaFishPart
+
+- type: entity
+  parent: ADTMaterialRazorTeeth
+  id: ADTMaterialRazorTeeth1
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: ADTBoneKnife
+  id: ADTBoneKnifeEel
+  name: eel bone knife
+  description: The razor sharp tail of a bottom eel, fitted with a wrapped handle. The tribe uses it as a spear tip just as often.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/Fishing/fish_loot.rsi
+    state: eel_knife
+  - type: Tag
+    tags:
+    - Knife
+    - ADTLavaFishPart
+    - ADTBoneKnifeEel
