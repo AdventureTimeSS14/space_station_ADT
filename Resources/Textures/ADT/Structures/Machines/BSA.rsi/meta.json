@@ -14,13 +14,13 @@
             "name": "build_2"
         },
         {
-            "name": "base"
+            "name": "computer"
         },
         {
             "name": "board"
         },
         {
-            "name": "screen",
+            "name": "generic",
             "delays": [
                 [
                     0.1,
