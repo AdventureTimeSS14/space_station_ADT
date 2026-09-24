@@ -160,6 +160,7 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
         if (!_container.TryGetContainer(ent, ent.Comp.UpgradesContainerId, out var container))
             return;
 
+        SetModulesActive(ent, false);
         _container.EmptyContainer(container);
         _audio.PlayPredicted(ent.Comp.RemoveSound, ent, user);
 
@@ -170,7 +171,6 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
         }
 
         OnUpgradesChanged(ent);
-        SetModulesActive(ent, false);
     }
 
     private void OnUpgradesChanged(Entity<ADTJanicartUpgradeableComponent> ent)
