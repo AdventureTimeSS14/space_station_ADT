@@ -26,7 +26,7 @@
 
 - type: marking
   id: ADTNovaHairRubberInconnu
-  bodyPart: Hair
+  bodyPart: HeadTop
   groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Personalization/Inconnu/nova_hair.rsi
