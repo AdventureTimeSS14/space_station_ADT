@@ -41,7 +41,7 @@
   - type: InnateMiningScannerViewer
     pingSound: null
     viewRange: 4
-  # ADT-Twea end
+  # ADT-Tweak end
 
 - type: entity
   parent:
