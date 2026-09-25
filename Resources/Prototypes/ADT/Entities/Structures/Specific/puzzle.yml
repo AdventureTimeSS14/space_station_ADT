@@ -103,6 +103,7 @@
         - MobMask
         layer:
         - MidImpassable
+        - HighImpassable
   - type: ADTSlidingPuzzleElement
 
 - type: entity
@@ -169,7 +170,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: ADTSlidingPuzzle
-    rewardProto: ADTPrisonCube
+    rewardProto: ADTCrateNecropolisPuzzle
     megafaunaProto: MobDrake
 
 - type: entity
@@ -182,6 +183,7 @@
   - type: ADTSlidingPuzzle
     megafaunaChance: 0
     emptyTileId: 5
+    returnCubeProto: ADTPrisonCube
 
 - type: entity
   parent: BaseItem

@@ -25,7 +25,7 @@ public sealed partial class ADTSlidingPuzzleComponent : Component
     public string PieceProtoPrefix = "ADTPuzzlePieceFloor";
 
     /// <summary>
-    /// Шанс заспавнить мегафауну вместо награды, если её нет на карте.
+    /// Шанс заспавнить мегафауну в дополнение к награде, если её нет на карте.
     /// </summary>
     [DataField]
     public float MegafaunaChance = 0.25f;
@@ -44,6 +44,12 @@ public sealed partial class ADTSlidingPuzzleComponent : Component
 
     [ViewVariables]
     public EntityUid? Prisoner;
+
+    [DataField]
+    public EntProtoId? ReturnCubeProto;
+
+    [ViewVariables]
+    public EntityUid? GeneratedGrid;
 }
 
 [RegisterComponent]

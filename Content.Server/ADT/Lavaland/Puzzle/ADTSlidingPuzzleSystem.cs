@@ -2,13 +2,18 @@ using System.Numerics;
 using Content.Server.Administration.Logs;
 using Content.Shared.ADT.Lavaland.Puzzle;
 using Content.Shared.Camera;
+using Content.Shared.Cuffs.Components;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Mech.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
+using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -29,14 +34,20 @@ public sealed class ADTSlidingPuzzleSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
     private const string PrisonerContainerId = "prisoner";
+
+    private const float PushRadius = 3f;
+    private const float PushDistance = 3.5f;
+    private const float ThrowSpeed = 20f;
 
     private const string FloorTile = "ADTFloorCult";
 
@@ -65,7 +76,7 @@ public sealed class ADTSlidingPuzzleSystem : EntitySystem
         SubscribeLocalEvent<ADTSlidingPuzzleElementComponent, InteractHandEvent>(OnElementInteract);
         SubscribeLocalEvent<ADTSlidingPuzzleElementComponent, ComponentShutdown>(OnElementShutdown);
         SubscribeLocalEvent<ADTSlidingPuzzleComponent, EntityTerminatingEvent>(OnPuzzleTerminating);
-        SubscribeLocalEvent<ADTPrisonCubeComponent, UseInHandEvent>(OnPrisonCubeUse);
+        SubscribeLocalEvent<ADTPrisonCubeComponent, AfterInteractEvent>(OnPrisonCubeUse);
     }
 
     private void OnMapInit(Entity<ADTSlidingPuzzleComponent> puzzle, ref MapInitEvent args)
@@ -97,7 +108,18 @@ public sealed class ADTSlidingPuzzleSystem : EntitySystem
             return false;
         }
 
+        if (_mapManager.TryFindGridAt(_transform.GetMapCoordinates(puzzle), out var foundGrid, out var foundComp))
+        {
+            gridUid = foundGrid;
+            grid = foundComp;
+            var tile = _map.WorldToTile(gridUid, grid, xform.WorldPosition);
+            _transform.SetCoordinates(puzzle, _map.GridTileToLocal(gridUid, grid, tile));
+            center = tile;
+            return true;
+        }
+
         var gridEnt = _mapManager.CreateGridEntity(xform.MapID);
+        puzzle.Comp.GeneratedGrid = gridEnt;
         var gridXform = Transform(gridEnt);
         _transform.SetWorldPosition((gridEnt, gridXform), _transform.GetMapCoordinates(puzzle).Position);
         _transform.SetCoordinates(puzzle, new EntityCoordinates(gridEnt, Vector2.Zero));
@@ -123,18 +145,24 @@ public sealed class ADTSlidingPuzzleSystem : EntitySystem
 
     private void ClearPuzzleTiles(EntityUid gridUid, MapGridComponent grid, Vector2i center)
     {
+        var anchored = new List<EntityUid>();
+
         for (var spotId = 1; spotId <= 9; spotId++)
         {
             var tile = center + TileOffsets[spotId - 1];
 
-            foreach (var uid in _map.GetAnchoredEntities(gridUid, grid, tile))
+            _map.GetAnchoredEntities(new Entity<MapGridComponent>(gridUid, grid), tile, anchored);
+
+            foreach (var uid in anchored)
             {
                 if (HasComp<ADTSlidingPuzzleComponent>(uid) || HasComp<ADTSlidingPuzzleElementComponent>(uid))
                     continue;
 
                 if (TryComp<PhysicsComponent>(uid, out var physics) && physics.BodyType == BodyType.Static)
-                    QueueDel(uid);
+                    Del(uid);
             }
+
+            anchored.Clear();
         }
     }
 
@@ -266,20 +294,21 @@ public sealed class ADTSlidingPuzzleSystem : EntitySystem
         SwapElements(puzzle, a, b);
     }
 
+    private void MoveElementTo(EntityUid element, EntityCoordinates coords)
+    {
+        var xform = Transform(element);
+        _transform.Unanchor(element, xform);
+        _transform.SetCoordinates(element, coords);
+        _transform.AnchorEntity(element, Transform(element));
+    }
+
     private void SwapElements(Entity<ADTSlidingPuzzleComponent> puzzle, EntityUid a, EntityUid b)
     {
         var aCoords = Transform(a).Coordinates;
         var bCoords = Transform(b).Coordinates;
 
-        var aXform = Transform(a);
-        var bXform = Transform(b);
-
-        _transform.Unanchor(a, aXform);
-        _transform.Unanchor(b, bXform);
-        _transform.SetCoordinates(a, bCoords);
-        _transform.SetCoordinates(b, aCoords);
-        _transform.AnchorEntity(a, Transform(a));
-        _transform.AnchorEntity(b, Transform(b));
+        MoveElementTo(a, bCoords);
+        MoveElementTo(b, aCoords);
     }
 
     private Vector2i GetCenterTile(
@@ -396,10 +425,7 @@ public sealed class ADTSlidingPuzzleSystem : EntitySystem
             return false;
 
         var coords = _map.GridTileToLocal(gridUid, grid, target);
-        var xform = Transform(element);
-        _transform.Unanchor(element, xform);
-        _transform.SetCoordinates(element, coords);
-        _transform.AnchorEntity(element, Transform(element));
+        MoveElementTo(element, coords);
 
         return true;
     }
@@ -510,17 +536,16 @@ public sealed class ADTSlidingPuzzleSystem : EntitySystem
 
     private void DispenseReward(Entity<ADTSlidingPuzzleComponent> puzzle)
     {
+        if (puzzle.Comp.RewardProto is { } reward)
+            Spawn(reward, Transform(puzzle).Coordinates);
+
         if (puzzle.Comp.MegafaunaProto is { } megafauna &&
             puzzle.Comp.MegafaunaChance > 0f &&
             _random.Prob(puzzle.Comp.MegafaunaChance) &&
             !HasLivingMegafauna(puzzle, megafauna))
         {
             Spawn(megafauna, Transform(puzzle).Coordinates);
-            return;
         }
-
-        if (puzzle.Comp.RewardProto is { } reward)
-            Spawn(reward, Transform(puzzle).Coordinates);
     }
 
     private bool HasLivingMegafauna(Entity<ADTSlidingPuzzleComponent> puzzle, EntProtoId proto)
@@ -548,6 +573,15 @@ public sealed class ADTSlidingPuzzleSystem : EntitySystem
     {
         if (puzzle.Comp.Prisoner is { } prisoner)
             ReleasePrisoner(puzzle, prisoner);
+
+        foreach (var element in puzzle.Comp.Elements)
+        {
+            if (Exists(element))
+                QueueDel(element);
+        }
+
+        if (puzzle.Comp.GeneratedGrid is { } grid && Exists(grid))
+            QueueDel(grid);
     }
 
     private void ReleasePrisoner(Entity<ADTSlidingPuzzleComponent> puzzle, EntityUid prisoner)
@@ -556,6 +590,7 @@ public sealed class ADTSlidingPuzzleSystem : EntitySystem
             return;
 
         RemComp<BlockMovementComponent>(prisoner);
+        RemComp<GodmodeComponent>(prisoner);
 
         if (HasComp<ContainerManagerComponent>(puzzle.Owner))
         {
@@ -567,6 +602,9 @@ public sealed class ADTSlidingPuzzleSystem : EntitySystem
         }
 
         puzzle.Comp.Prisoner = null;
+
+        if (puzzle.Comp.ReturnCubeProto is { } cubeProto)
+            Spawn(cubeProto, Transform(puzzle).Coordinates);
 
         _popup.PopupEntity(Loc.GetString("prison-cube-released"), prisoner, prisoner);
     }
@@ -584,31 +622,71 @@ public sealed class ADTSlidingPuzzleSystem : EntitySystem
             $"{ToPrettyString(prisoner)} was imprisoned inside {ToPrettyString(puzzle.Owner)}");
     }
 
-    private void OnPrisonCubeUse(Entity<ADTPrisonCubeComponent> cube, ref UseInHandEvent args)
+    private void PushAwayNearbyMobs(EntityUid target)
     {
-        if (args.Handled)
+        var mapCoords = _transform.GetMapCoordinates(target);
+        var inRange = _lookup.GetEntitiesInRange(mapCoords, PushRadius);
+
+        foreach (var uid in inRange)
+        {
+            if (uid == target || !HasComp<MobStateComponent>(uid))
+                continue;
+
+            if (_container.IsEntityInContainer(uid))
+                continue;
+
+            var direction = _transform.GetMapCoordinates(uid).Position - mapCoords.Position;
+            if (direction.LengthSquared() < 0.01f)
+                direction = new Vector2(_random.NextFloat(-1f, 1f), _random.NextFloat(-1f, 1f));
+
+            _throwing.TryThrow(uid, direction.Normalized() * PushDistance, ThrowSpeed, playSound: false, doSpin: false);
+        }
+    }
+
+    private void OnPrisonCubeUse(Entity<ADTPrisonCubeComponent> cube, ref AfterInteractEvent args)
+    {
+        if (args.Handled || args.Target is not { } target)
             return;
 
-        var user = args.User;
-
-        if (!TryComp<MobStateComponent>(user, out var mobState) || mobState.CurrentState != MobState.Alive)
+        if (target == args.User)
             return;
 
-        var puzzleUid = Spawn(cube.Comp.PuzzleProto, Transform(user).Coordinates);
+        if (HasComp<MechComponent>(target))
+        {
+            _popup.PopupEntity(Loc.GetString("prison-cube-mech"), args.User, args.User);
+            return;
+        }
+
+        if (!TryComp<MobStateComponent>(target, out var mobState))
+            return;
+
+        var isCuffed = TryComp<CuffableComponent>(target, out var cuffable) && cuffable.CuffedHandCount > 0;
+        if (!isCuffed && mobState.CurrentState is not (MobState.Critical or MobState.Dead))
+        {
+            _popup.PopupEntity(Loc.GetString("prison-cube-invalid-state"), args.User, args.User);
+            return;
+        }
+
+        var puzzleUid = Spawn(cube.Comp.PuzzleProto, Transform(target).Coordinates);
 
         if (TerminatingOrDeleted(puzzleUid) ||
             !TryComp<ADTSlidingPuzzleComponent>(puzzleUid, out var puzzle) ||
             puzzle.Elements.Count == 0)
         {
             QueueDel(puzzleUid);
-            _popup.PopupEntity(Loc.GetString("prison-cube-no-space"), user, user);
+            _popup.PopupEntity(Loc.GetString("prison-cube-no-space"), args.User, args.User);
             return;
         }
 
-        Imprison(user, (puzzleUid, puzzle));
+        Imprison(target, (puzzleUid, puzzle));
 
-        _audio.PlayPvs(cube.Comp.ActivateSound, user);
-        _popup.PopupEntity(Loc.GetString("prison-cube-activated"), user, user, PopupType.Medium);
+        _damageable.ClearAllDamage(target);
+        EnsureComp<GodmodeComponent>(target);
+        PushAwayNearbyMobs(target);
+
+        _audio.PlayPvs(cube.Comp.ActivateSound, target);
+        _popup.PopupEntity(Loc.GetString("prison-cube-activated"), target, target, PopupType.Medium);
+        _popup.PopupEntity(Loc.GetString("prison-cube-sealed-user", ("target", target)), args.User, args.User);
 
         QueueDel(cube.Owner);
 
