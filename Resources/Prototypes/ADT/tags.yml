@@ -1010,6 +1010,9 @@
   id: ADTMagazineMagnumLesser
 
 - type: Tag
+  id: ADTCelecernEmotes
+
+- type: Tag
   id: RMCTankFlamerFmW60
 
 - type: Tag
