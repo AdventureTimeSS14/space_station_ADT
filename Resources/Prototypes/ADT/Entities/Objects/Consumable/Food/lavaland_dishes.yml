@@ -16,13 +16,9 @@
           Quantity: 6
         - ReagentId: Protein
           Quantity: 6
-  - type: TriggerOnIngested
-  - type: EntityEffectOnTrigger
-    targetUser: true
+  - type: ADTStatusEffectsOnIngest
     effects:
-    - !type:ModifyStatusEffect
-      effectProto: ADTStatusEffectFreakyLegs
-      time: 60
+      ADTStatusEffectFreakyLegs: 60
 
 - type: entity
   parent: FoodInjectableBase
@@ -106,13 +102,9 @@
           Quantity: 6
         - ReagentId: Protein
           Quantity: 6
-  - type: TriggerOnIngested
-  - type: EntityEffectOnTrigger
-    targetUser: true
+  - type: ADTStatusEffectsOnIngest
     effects:
-    - !type:ModifyStatusEffect
-      effectProto: ADTStatusEffectLavalandVision
-      time: 300
+      ADTStatusEffectLavalandVision: 300
 
 - type: entity
   parent: FoodInjectableBase
@@ -209,13 +201,9 @@
           Quantity: 6
         - ReagentId: Beer
           Quantity: 7
-  - type: TriggerOnIngested
-  - type: EntityEffectOnTrigger
-    targetUser: true
+  - type: ADTStatusEffectsOnIngest
     effects:
-    - !type:ModifyStatusEffect
-      effectProto: ADTStatusEffectTemperatureStabilize
-      time: 300
+      ADTStatusEffectTemperatureStabilize: 300
 
 - type: entity
   parent: FoodInjectableBase
@@ -233,13 +221,9 @@
         reagents:
         - ReagentId: Protein
           Quantity: 2
-  - type: TriggerOnIngested
-  - type: EntityEffectOnTrigger
-    targetUser: true
+  - type: ADTStatusEffectsOnIngest
     effects:
-    - !type:ModifyStatusEffect
-      effectProto: ADTStatusEffectBleedingFix
-      time: 30
+      ADTStatusEffectBleedingFix: 30
 
 - type: entity
   parent: FoodInjectableBase
@@ -280,13 +264,9 @@
           Quantity: 6
         - ReagentId: Protein
           Quantity: 6
-  - type: TriggerOnIngested
-  - type: EntityEffectOnTrigger
-    targetUser: true
+  - type: ADTStatusEffectsOnIngest
     effects:
-    - !type:ModifyStatusEffect
-      effectProto: ADTStatusEffectLavalandNightVision
-      time: 450
+      ADTStatusEffectLavalandNightVision: 450
 
 - type: entity
   parent: FoodInjectableBase
@@ -348,13 +328,9 @@
           Quantity: 6
         - ReagentId: Protein
           Quantity: 6
-  - type: TriggerOnIngested
-  - type: EntityEffectOnTrigger
-    targetUser: true
+  - type: ADTStatusEffectsOnIngest
     effects:
-    - !type:ModifyStatusEffect
-      effectProto: ADTStatusEffectBloodRegen
-      time: 300
+      ADTStatusEffectBloodRegen: 300
 
 - type: entity
   parent: FoodInjectableBase

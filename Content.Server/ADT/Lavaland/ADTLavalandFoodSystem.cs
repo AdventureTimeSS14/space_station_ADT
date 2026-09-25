@@ -27,6 +27,7 @@ public sealed class ADTLavalandFoodSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedEntityEffectsSystem _effects = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly TemperatureSystem _temperature = default!;
 
     public override void Initialize()
@@ -42,6 +43,7 @@ public sealed class ADTLavalandFoodSystem : EntitySystem
         SubscribeLocalEvent<ADTCureCurseComponent, ExaminedEvent>(OnCureCurseExamined);
         SubscribeLocalEvent<ADTCureCurseComponent, IngestedEvent>(OnCureCurseIngested);
         SubscribeLocalEvent<ADTEatOnThrowHitComponent, ThrowDoHitEvent>(OnThrowHit);
+        SubscribeLocalEvent<ADTStatusEffectsOnIngestComponent, IngestedEvent>(OnStatusEffectsIngested);
     }
 
     private void OnPeriodicApplied(Entity<ADTPeriodicEffectsStatusEffectComponent> ent, ref StatusEffectAppliedEvent args)
@@ -108,6 +110,14 @@ public sealed class ADTLavalandFoodSystem : EntitySystem
 
         EnsureComp<ADTImplantedLegionCoreComponent>(args.Target);
         _popup.PopupEntity(Loc.GetString("adt-cure-curse-implanted"), args.Target, args.Target);
+    }
+
+    private void OnStatusEffectsIngested(Entity<ADTStatusEffectsOnIngestComponent> ent, ref IngestedEvent args)
+    {
+        foreach (var (effect, duration) in ent.Comp.Effects)
+        {
+            _status.TryUpdateStatusEffectDuration(args.Target, effect, duration);
+        }
     }
 
     private void OnThrowHit(Entity<ADTEatOnThrowHitComponent> ent, ref ThrowDoHitEvent args)
