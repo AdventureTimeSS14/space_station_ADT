@@ -37,6 +37,11 @@
     species: Dwarf
   - type: ScaleVisuals
     scale: 1, 0.8
+  # ADT-Tweak start
+  - type: InnateMiningScannerViewer
+    pingSound: null
+    viewRange: 4
+  # ADT-Tweak end
 
 - type: entity
   parent:

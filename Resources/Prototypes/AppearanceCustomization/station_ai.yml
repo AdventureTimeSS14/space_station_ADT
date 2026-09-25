@@ -11,6 +11,51 @@
   - StationAiIconDorf
   - StationAiIconHeartline
   - StationAiIconSmiley
+  #ADT-Tweak-Start
+  - Red
+  - U
+  - Mono
+  - Static
+  - Cheerful
+  - Stern
+  - Wierd
+  - Gentoo
+  - Nanotrasen
+  - Database
+  - Goon
+  - President
+  - Serithi
+  - Alien
+  - Sheltered
+  - Fabulous
+  - Wasp
+  - Eager
+  - EagerOld
+  - Royal
+  - Ravensdale
+  - Bored
+  - Magma
+  - Triumvirate
+  - Ahasuerus
+  - Godfrey
+  - Angryface
+  - Soviet
+  - Matrix
+  - Glitchman
+  - Lonestar
+  - Hourglass
+  - Helios
+  - Rainbow
+  - Thinking
+  - Jackfrost
+  - Moth
+  - 4Chan
+  - Terminal
+  - Honey
+  - Hal9000
+  - Painter
+  - Painter2
+  #ADT-Tweak-End
 
 - type: stationAiCustomizationGroup
   id: StationAiHolograms
