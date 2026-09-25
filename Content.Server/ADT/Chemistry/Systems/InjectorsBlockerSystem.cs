@@ -49,8 +49,17 @@ public sealed class InjectorsBlockerSystem : EntitySystem
         if (TryComp<InjectorComponent>(injectorUid, out var injector))
             return injector.IgnoreBlockers;
 
-        if (TryComp<BaseSolutionInjectOnEventComponent>(injectorUid, out var eventInjector))
-            return eventInjector.IgnoreBlockers;
+        if (TryComp<MeleeChemicalInjectorComponent>(injectorUid, out var meleeInjector))
+            return meleeInjector.IgnoreBlockers;
+
+        if (TryComp<SolutionInjectOnProjectileHitComponent>(injectorUid, out var projectileInjector))
+            return projectileInjector.IgnoreBlockers;
+
+        if (TryComp<SolutionInjectOnEmbedComponent>(injectorUid, out var embedInjector))
+            return embedInjector.IgnoreBlockers;
+
+        if (TryComp<SolutionInjectWhileEmbeddedComponent>(injectorUid, out var overtimeInjector))
+            return overtimeInjector.IgnoreBlockers;
 
         return false;
     }

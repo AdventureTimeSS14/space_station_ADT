@@ -85,14 +85,34 @@ public sealed class ArrestWarrantSystem : EntitySystem
                 StampedColor = Color.FromHex("#006600")
             }]);
 
+        EntityUid? hosFax = null;
+        EntityUid? wardenFax = null;
+        EntityUid? secFax = null;
+        EntityUid? supportFax = null;
+        EntityUid? captainFax = null;
         var query = EntityQueryEnumerator<FaxMachineComponent>();
-        while (query.MoveNext(out var faxUid, out var fax))
+        while (query.MoveNext(out var faxUid, out _))
         {
-            if (!IsSecurityFax(faxUid) || _station.GetOwningStation(faxUid) != station)
+            if (_station.GetOwningStation(faxUid) != station)
                 continue;
 
-            _fax.Receive(faxUid, printout, null, fax);
+            if (hosFax == null && IsHosFax(faxUid))
+                hosFax = faxUid;
+            else if (wardenFax == null && IsWardenFax(faxUid))
+                wardenFax = faxUid;
+            else if (secFax == null && IsSecFax(faxUid))
+                secFax = faxUid;
+            else if (supportFax == null && IsSupportFax(faxUid))
+                supportFax = faxUid;
+            else if (captainFax == null && IsCaptainFax(faxUid))
+                captainFax = faxUid;
         }
+
+        var target = hosFax ?? wardenFax ?? secFax ?? supportFax ?? captainFax;
+        if (target == null)
+            return;
+
+        _fax.Receive(target.Value, printout);
     }
 
     private string GetRandomOperator()
@@ -101,27 +121,64 @@ public sealed class ArrestWarrantSystem : EntitySystem
         return Loc.GetString(_random.Pick(dataset.Values));
     }
 
-    private bool IsSecurityFax(EntityUid uid) // todo: хардкод пиздец, ну а чё сделать если факсов СБ нет только по имени искать.
+    private string? GetFaxName(EntityUid uid)
     {
-        if (!TryComp<FaxMachineComponent>(uid, out var fax))
+        return TryComp<FaxMachineComponent>(uid, out var fax) ? fax.FaxName.Trim().ToLower() : null;
+    }
+
+    private bool IsHosFax(EntityUid uid)
+    {
+        var name = GetFaxName(uid);
+        if (name == null)
             return false;
 
-        var name = fax.FaxName.Trim().ToLower();
+        return name is "гсб" or "hos" or "head of security"
+            || name.StartsWith("гсб") || name.StartsWith("офис гсб") || name.StartsWith("кабинет гсб")
+            || name.StartsWith("кабинет главы службы безопасности")
+            || name.StartsWith("head of security") || name.StartsWith("hos ")
+            || name.StartsWith("hos's");
+    }
 
-        if (name is "security" or "brig" or "hos" or "warden" or "detective" or "prison" or "perma"
-            or "бриг" or "гсб" or "пермабриг" or "охрана")
-            return true;
+    private bool IsWardenFax(EntityUid uid)
+    {
+        var name = GetFaxName(uid);
+        if (name == null)
+            return false;
 
-        if (name.StartsWith("head of security") || name.StartsWith("hos ")
-            || name.StartsWith("hos's") || name.StartsWith("warden") || name.StartsWith("detective")
-            || name.StartsWith("prison ") || name.StartsWith("perma"))
-            return true;
+        return name is "warden" or "warden's office" or "смотритель"
+            || name.StartsWith("warden") || name.StartsWith("офис смотрителя")
+            || name.StartsWith("кабинет смотрителя");
+    }
 
-        if (name.StartsWith("бриг") || name.StartsWith("офис гсб") || name.StartsWith("офис сб")
-            || name.StartsWith("приемная сб") || name.StartsWith("брифинговая зона сб")
-            || name.EndsWith("сб") || name.EndsWith("гсб") || name.Contains("пермабриг"))
-            return true;
+    private bool IsSecFax(EntityUid uid)
+    {
+        var name = GetFaxName(uid);
+        if (name == null)
+            return false;
 
-        return false;
+        return name is "security" or "security office" or "brig" or "prison" or "courtroom"
+            or "бриг" or "сб" or "охрана"
+            || name.StartsWith("security ") || name.StartsWith("brig ") || name.StartsWith("prison ")
+            || name.StartsWith("бриг") || name.StartsWith("офис сб") || name.StartsWith("приемная сб")
+            || name.StartsWith("брифинговая зона сб")
+            || name.EndsWith("сб");
+    }
+
+    private bool IsSupportFax(EntityUid uid)
+    {
+        var name = GetFaxName(uid);
+        if (name == null)
+            return false;
+
+        return name is "detective" or "detective's office" or "детектив"
+            || name.StartsWith("detective") || name.StartsWith("офис детектива")
+            || name.StartsWith("кабинет детектива") || name.StartsWith("офис бригмеда")
+            || name.StartsWith("кабинет бригмеда");
+    }
+
+    private bool IsCaptainFax(EntityUid uid)
+    {
+        return TryComp<MetaDataComponent>(uid, out var meta)
+            && meta.EntityPrototype?.ID == "FaxMachineCaptain";
     }
 }

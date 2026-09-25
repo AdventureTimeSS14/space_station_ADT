@@ -40,6 +40,9 @@ public sealed partial class ADTFishingMinigameComponent : Component
     public float Efficiency = 1f;
 
     [ViewVariables]
+    public float BreakDistance = 4f;
+
+    [ViewVariables, AutoNetworkedField]
     public EntProtoId Fish;
 
     [ViewVariables]

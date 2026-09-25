@@ -1,16 +1,85 @@
 - type: entity
-  parent: BaseComputer
+  parent: BaseStructureComputer
   id: ArtilleryConsole
   name: artillery control console
   description: A control console for firing an artillery cannon.
+  placement:
+    mode: SnapgridCenter
   components:
+  - type: Animateable
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        collection: GlassSmash
+  - type: ApcPowerReceiver
+    powerLoad: 50
+  - type: PowerState
+    idlePowerDraw: 50
+    workingPowerDraw: 500
+  - type: UIPowerState
+  - type: ExtensionCableReceiver
+  - type: ActivatableUIRequiresPower
   - type: Sprite
     sprite: ADT/Structures/Machines/BSA.rsi
     layers:
     - map: ["computerLayerBody"]
-      state: base
+      state: computer
     - map: ["computerLayerScreen"]
-      state: screen
+      state: generic
+  - type: EdgeConnection
+    connectionKey: other
+  - type: ItemSlots
+    slots:
+      pai_slot:
+        name: Personal AI Device
+        ejectOnInteract: false
+        whitelist:
+          components:
+          - PAI
+  - type: GenericVisualizer
+    visuals:
+      enum.ComputerVisuals.Powered:
+        computerLayerScreen:
+          True: { visible: true, shader: unshaded }
+          False: { visible: false }
+      enum.WiresVisuals.MaintenancePanelState:
+        enum.WiresVisualLayers.MaintenancePanel:
+          True: { visible: false }
+          False: { visible: true }
+  - type: LitOnPowered
+  - type: PointLight
+    radius: 1.5
+    energy: 3.0
+    enabled: false
+    mask: /Textures/ADT/Effects/Lightmasks/circle_c.png
+    autoRot: true
+    castShadows: false
+  - type: EmitSoundOnUIOpen
+    sound:
+      collection: Keyboard
+      params:
+        volume: -1
+        variation: 0.10
+        pitch: 1.10
+    blacklist:
+      tags:
+      - NoConsoleSound
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+        ents: []
+      pai_slot: !type:ContainerSlot {}
+  - type: LightningTarget
+    priority: 1
+  - type: RequireProjectileTarget
+  - type: Electrified
+    enabled: false
+    usesApcPower: true
+  - type: WiresPanel
+  - type: WiresVisuals
+  - type: Wires
+    boardName: wires-board-name-computer
+    layoutId: Computer
   - type: ArtilleryConsole
   - type: ActivatableUI
     key: enum.ArtilleryConsoleUiKey.Key

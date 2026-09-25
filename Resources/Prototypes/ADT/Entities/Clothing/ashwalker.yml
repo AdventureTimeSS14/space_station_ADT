@@ -41,6 +41,9 @@
     sprite: ADT/Clothing/Neck/hide_mantle.rsi
   - type: Clothing
     sprite: ADT/Clothing/Neck/hide_mantle.rsi
+  - type: Construction
+    graph: ADTHideMantle
+    node: mantle
 
 - type: entity
   parent: ClothingHandsBase
@@ -52,6 +55,9 @@
     sprite: ADT/Clothing/Hands/goliath_gloves.rsi
   - type: Clothing
     sprite: ADT/Clothing/Hands/goliath_gloves.rsi
+  - type: Construction
+    graph: ADTGoliathGloves
+    node: gloves
   - type: Armor
     modifiers:
       coefficients:

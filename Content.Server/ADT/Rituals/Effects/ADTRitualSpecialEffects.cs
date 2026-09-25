@@ -1,7 +1,10 @@
 using System.Linq;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Polymorph.Systems;
+using Content.Shared.ADT.Language;
 using Content.Shared.ADT.Rituals;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
@@ -186,12 +189,20 @@ public sealed partial class ADTRitualSentienceEffect : ADTRitualEffect
     [DataField]
     public ProtoId<NpcFactionPrototype> Faction = "ADTAshWalker";
 
+    [DataField]
+    public ProtoId<LanguagePrototype> SpokenLanguage = "Draconic";
+
+    [DataField]
+    public ProtoId<LanguagePrototype> CollectiveMindLanguage = "ADTAshWalkerCollectiveMind";
+
     public override void Effect(IEntityManager entMan, ADTRitualArgs args)
     {
         var damageable = entMan.System<DamageableSystem>();
         var mobState = entMan.System<MobStateSystem>();
         var mobThreshold = entMan.System<MobThresholdSystem>();
         var factions = entMan.System<NpcFactionSystem>();
+        var language = entMan.System<SharedLanguageSystem>();
+        var blood = entMan.System<SharedBloodstreamSystem>();
 
         foreach (var target in entMan.System<ADTRitualSystem>().GetTargets(args, Target))
         {
@@ -208,6 +219,18 @@ public sealed partial class ADTRitualSentienceEffect : ADTRitualEffect
 
             factions.ClearFactions(target);
             factions.AddFaction(target, Faction);
+
+            var speaker = entMan.EnsureComponent<LanguageSpeakerComponent>(target);
+            language.AddSpokenLanguage(target, SpokenLanguage, LanguageKnowledge.Speak, speaker);
+            language.AddSpokenLanguage(target, CollectiveMindLanguage, LanguageKnowledge.Understand, speaker);
+
+            if (entMan.TryGetComponent<BloodstreamComponent>(target, out var bloodstream))
+            {
+                blood.TryRegulateBloodLevel((target, bloodstream), bloodstream.BloodReferenceSolution.Volume, 1f);
+
+                if (bloodstream.BleedAmount > 0)
+                    blood.TryModifyBleedAmount((target, bloodstream), -bloodstream.BleedAmount);
+            }
 
             if (entMan.HasComponent<GhostRoleComponent>(target))
                 continue;
