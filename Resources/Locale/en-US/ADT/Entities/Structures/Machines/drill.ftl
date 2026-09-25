@@ -18,6 +18,7 @@ drill-unload-empty = The drill's storage is empty
 drill-unload-no-box = You must move an ore box up to the drill before you can unload it
 drill-unload-success = You unloaded { $count } items into the ore box
 drill-unload-full = The ore box is full. Some items were left in the drill
+drill-unload-incompatible = The ore box can't hold { $count } item(s). They were left in the drill
 drill-examine-braces = Braces: { $count }/{ $required }
 drill-examine-active = The drill is running
 drill-examine-error = The drill is stopped due to an error. A manual override is required

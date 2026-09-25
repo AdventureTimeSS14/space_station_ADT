@@ -17,7 +17,6 @@ using Content.Shared.Random.Helpers;
 using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Verbs;
-using Content.Shared.Whitelist;
 using Content.Shared.Wires;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -37,7 +36,6 @@ public sealed class ADTDrillSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedStorageSystem _storage = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
     [Dependency] private readonly PowerStateSystem _powerState = default!;
@@ -322,17 +320,13 @@ public sealed class ADTDrillSystem : EntitySystem
         }
 
         EntityUid? oreBox = null;
-        var firstItem = container.ContainedEntities[0];
         foreach (var ent in _lookup.GetEntitiesInRange(uid, drill.UnloadRange, LookupFlags.Dynamic | LookupFlags.Sundries))
         {
-            if (!TryComp<StorageComponent>(ent, out var storage))
-                continue;
-
-            if (_whitelist.IsWhitelistFail(storage.Whitelist, firstItem))
-                continue;
-
-            oreBox = ent;
-            break;
+            if (TryComp<StorageComponent>(ent, out _))
+            {
+                oreBox = ent;
+                break;
+            }
         }
 
         if (oreBox == null)
@@ -343,13 +337,22 @@ public sealed class ADTDrillSystem : EntitySystem
 
         var items = container.ContainedEntities.ToArray();
         var moved = 0;
+        var rejected = 0;
         foreach (var item in items)
         {
+            if (!_storage.CanInsert(oreBox.Value, item, out _))
+            {
+                rejected++;
+                continue;
+            }
+
             if (_storage.Insert(oreBox.Value, item, out _, user: user))
                 moved++;
         }
 
-        if (moved < items.Length)
+        if (rejected > 0)
+            _popup.PopupEntity(Loc.GetString("drill-unload-incompatible", ("count", rejected)), uid, user);
+        else if (moved < items.Length)
             _popup.PopupEntity(Loc.GetString("drill-unload-full"), uid, user);
 
         _adminLog.Add(LogType.Action, LogImpact.Low,
