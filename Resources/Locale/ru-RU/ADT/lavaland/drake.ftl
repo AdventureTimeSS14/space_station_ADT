@@ -1,0 +1,11 @@
+adt-drake-devour = { CAPITALIZE($drake) } пожирает { $target }!
+adt-drake-death = { CAPITALIZE($drake) } распадается в кучу костей, его плоть осыпается.
+adt-drake-fire-line-hit = Вас поражает огненное дыхание дрейка!
+adt-drake-fire-rain = С неба льётся огонь!
+adt-drake-swoop-rise = { CAPITALIZE($drake) } взмывает высоко вверх!
+adt-drake-swoop-crush = { CAPITALIZE($drake) } обрушивается на { $target }, раздавливая насмерть!
+adt-drake-swoop-throw = { CAPITALIZE($target) } отбрасывается в сторону от дрейка!
+adt-drake-lava-pools = Вокруг вас начинают образовываться лужи лавы!
+adt-drake-lava-hit = Вы рухнули в лаву!
+adt-drake-arena = { CAPITALIZE($drake) } заключает вас в арену огня!
+adt-drake-escape-enrage = { CAPITALIZE($drake) } начинает ярко светиться, пока его раны закрываются!

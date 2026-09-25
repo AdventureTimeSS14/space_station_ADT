@@ -97,7 +97,7 @@
     minSpacing: 70
     avoidRooms: true
     bosses:
-    #- DrakeDungeMarker # Выведен из пулла до реворка.
+    - DrakeDungeMarker
     - ADTMegaFaunaBubblegum
     - BloodMinerDungeMarker
     - ADTHierophantArenaSpawner
