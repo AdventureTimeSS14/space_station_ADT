@@ -21,6 +21,8 @@
           East: { state: television, sprite: Structures/Machines/computers.rsi }
           West: { state: television, sprite: Structures/Machines/computers.rsi }
           East, West: { state: television, sprite: Structures/Machines/computers.rsi }
+  - type: EdgeConnection
+    connectionKey: other
   # ADT-Tweak end
   - type: Computer
     board: ComputerTelevisionCircuitboard
