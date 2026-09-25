@@ -224,7 +224,15 @@ public sealed partial class GunSystem : SharedGunSystem
         {
             var targeted = EnsureComp<TargetedProjectileComponent>(uid);
             targeted.Target = target;
-            targeted.TargetCoords = gun.Comp.ShootCoordinates; // ADT-Crawling-Abuse-Tweak
+            // ADT-Crawling-Abuse-Tweak start
+            targeted.TargetCoords = null;
+            if (gun.Comp.ShootCoordinates is { } shootCoords)
+            {
+                var shootMap = TransformSystem.ToMapCoordinates(shootCoords);
+                if (_map.TryGetMap(shootMap.MapId, out var shootMapUid))
+                    targeted.TargetCoords = new EntityCoordinates(shootMapUid.Value, shootMap.Position);
+            }
+            // ADT-Crawling-Abuse-Tweak end
             Dirty(uid, targeted);
         }
 
