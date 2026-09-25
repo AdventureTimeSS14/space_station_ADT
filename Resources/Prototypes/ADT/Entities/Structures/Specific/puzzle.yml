@@ -1,0 +1,214 @@
+- type: entity
+  id: ADTPuzzlePieceFloor1
+  parent: BaseStructure
+  name: puzzle piece
+  description: A piece of a larger picture.
+  categories: [ HideSpawnMenu ]
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Clickable
+  - type: Sprite
+    sprite: ADT/Misc/puzzle.rsi
+    state: puzzle_1
+    drawdepth: LowFloors
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  parent: ADTPuzzlePieceFloor1
+  id: ADTPuzzlePieceFloor2
+  components:
+  - type: Sprite
+    state: puzzle_2
+
+- type: entity
+  parent: ADTPuzzlePieceFloor1
+  id: ADTPuzzlePieceFloor3
+  components:
+  - type: Sprite
+    state: puzzle_3
+
+- type: entity
+  parent: ADTPuzzlePieceFloor1
+  id: ADTPuzzlePieceFloor4
+  components:
+  - type: Sprite
+    state: puzzle_4
+
+- type: entity
+  parent: ADTPuzzlePieceFloor1
+  id: ADTPuzzlePieceFloor5
+  components:
+  - type: Sprite
+    state: puzzle_5
+
+- type: entity
+  parent: ADTPuzzlePieceFloor1
+  id: ADTPuzzlePieceFloor6
+  components:
+  - type: Sprite
+    state: puzzle_6
+
+- type: entity
+  parent: ADTPuzzlePieceFloor1
+  id: ADTPuzzlePieceFloor7
+  components:
+  - type: Sprite
+    state: puzzle_7
+
+- type: entity
+  parent: ADTPuzzlePieceFloor1
+  id: ADTPuzzlePieceFloor8
+  components:
+  - type: Sprite
+    state: puzzle_8
+
+- type: entity
+  parent: ADTPuzzlePieceFloor1
+  id: ADTPuzzlePieceFloor9
+  components:
+  - type: Sprite
+    state: puzzle_9
+
+- type: entity
+  id: ADTPuzzlePillar1
+  parent: BaseStructure
+  name: mysterious pillar
+  description: Puzzling...
+  categories: [ HideSpawnMenu ]
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Clickable
+  - type: Sprite
+    sprite: ADT/Misc/puzzle.rsi
+    state: pillar_1
+    drawdepth: Mobs
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      puzzle:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 500
+        mask:
+        - MobMask
+        layer:
+        - MidImpassable
+        - HighImpassable
+  - type: ADTSlidingPuzzleElement
+
+- type: entity
+  parent: ADTPuzzlePillar1
+  id: ADTPuzzlePillar2
+  components:
+  - type: Sprite
+    state: pillar_2
+
+- type: entity
+  parent: ADTPuzzlePillar1
+  id: ADTPuzzlePillar3
+  components:
+  - type: Sprite
+    state: pillar_3
+
+- type: entity
+  parent: ADTPuzzlePillar1
+  id: ADTPuzzlePillar4
+  components:
+  - type: Sprite
+    state: pillar_4
+
+- type: entity
+  parent: ADTPuzzlePillar1
+  id: ADTPuzzlePillar5
+  components:
+  - type: Sprite
+    state: pillar_5
+
+- type: entity
+  parent: ADTPuzzlePillar1
+  id: ADTPuzzlePillar6
+  components:
+  - type: Sprite
+    state: pillar_6
+
+- type: entity
+  parent: ADTPuzzlePillar1
+  id: ADTPuzzlePillar7
+  components:
+  - type: Sprite
+    state: pillar_7
+
+- type: entity
+  parent: ADTPuzzlePillar1
+  id: ADTPuzzlePillar8
+  components:
+  - type: Sprite
+    state: pillar_8
+
+- type: entity
+  parent: ADTPuzzlePillar1
+  id: ADTPuzzlePillar9
+  components:
+  - type: Sprite
+    state: pillar_9
+
+- type: entity
+  id: ADTSlidingPuzzle
+  parent: MarkerBase
+  name: sliding puzzle generator
+  description: Generates a sliding puzzle around itself.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ADTSlidingPuzzle
+    rewardProto: ADTCrateNecropolisPuzzle
+    megafaunaProto: MobDrake
+
+- type: entity
+  id: ADTPrisonCubePuzzle
+  parent: MarkerBase
+  name: prison cube generator
+  categories: [ HideSpawnMenu ]
+  description: Generates a prison cube puzzle around itself.
+  components:
+  - type: ADTSlidingPuzzle
+    megafaunaChance: 0
+    emptyTileId: 5
+    returnCubeProto: ADTPrisonCube
+
+- type: entity
+  parent: BaseItem
+  id: ADTPrisonCube
+  name: prison cube
+  description: Dusty cube with a humanoid imprint on it.
+  components:
+  - type: Sprite
+    sprite: ADT/Misc/puzzle.rsi
+    state: prison_cube
+  - type: StaticPrice
+    price: 33333
+  - type: Item
+    size: Small
+  - type: ADTPrisonCube
+    puzzleProto: ADTPrisonCubePuzzle
+
+- type: entity
+  id: ADTSlidingPuzzleRoomMarker
+  parent: ADTBaseRoomMarker
+  name: sliding puzzle ruin spawner
+  components:
+  - type: ADTRoomFill
+    clearExisting: true
+    rotation: false
+    roomWhitelist:
+      tags:
+      - ADTSlidingPuzzle

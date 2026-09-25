@@ -23,6 +23,8 @@ public sealed class EdgeConnectionSystem : EntitySystem
 
     public override void Initialize()
     {
+        base.Initialize();
+
         _edgeQuery = GetEntityQuery<EdgeConnectionComponent>();
 
         SubscribeLocalEvent<EdgeConnectionComponent, ComponentInit>(OnConnectionInit);
@@ -78,7 +80,8 @@ public sealed class EdgeConnectionSystem : EntitySystem
             return;
         }
 
-        var worldAllowed = RotateDirections(ent.Comp.AllowedDirections, xform.LocalRotation, clockwise: true);
+        var localRotation = xform.LocalRotation;
+        var worldAllowed = RotateDirections(ent.Comp.AllowedDirections, localRotation, clockwise: true);
         var mask = EdgeConnectionDirections.None;
 
         foreach (var (offset, direction, opposite) in CardinalOffsets)
@@ -86,13 +89,13 @@ public sealed class EdgeConnectionSystem : EntitySystem
             if ((worldAllowed & direction) == 0)
                 continue;
 
-            if (HasMatchingNeighbor(ent, xform.LocalRotation, gridUid, grid, tile + offset, ent.Comp.ConnectionKey, opposite))
+            if (HasMatchingNeighbor(ent, localRotation, gridUid, grid, tile + offset, ent.Comp.ConnectionKey, opposite))
                 mask |= direction;
         }
 
-        var localMask = RotateDirections(mask, xform.LocalRotation, clockwise: false);
+        var localMask = RotateDirections(mask, localRotation, clockwise: false);
 
-        if (GetQuarterTurns(xform.LocalRotation) % 2 != 0)
+        if (GetQuarterTurns(localRotation) % 2 != 0)
             localMask = FlipEastWest(localMask);
 
         _appearance.SetData(ent, EdgeConnectionVisuals.ConnectionMask, localMask);
@@ -118,8 +121,7 @@ public sealed class EdgeConnectionSystem : EntitySystem
             if (!otherXform.Anchored)
                 continue;
 
-            var otherQuarterTurns = GetQuarterTurns(otherXform.LocalRotation);
-            if (selfQuarterTurns % 2 != otherQuarterTurns % 2)
+            if (GetQuarterTurns(otherXform.LocalRotation) != selfQuarterTurns)
                 continue;
 
             var otherAllowed = RotateDirections(edge.AllowedDirections, otherXform.LocalRotation, clockwise: true);
@@ -137,19 +139,7 @@ public sealed class EdgeConnectionSystem : EntitySystem
             return;
 
         foreach (var (offset, _, _) in CardinalOffsets)
-        {
-            var anchored = _map.GetAnchoredEntitiesEnumerator(gridUid, grid, tile + offset);
-            while (anchored.MoveNext(out var otherNullable))
-            {
-                if (otherNullable is not { } other)
-                    continue;
-
-                if (!_edgeQuery.TryComp(other, out var edgeComp))
-                    continue;
-
-                RecalculateEntity((other, edgeComp));
-            }
-        }
+            UpdateNeighborsAtTile(gridUid, grid, tile + offset);
     }
 
     private void RecalculateNeighborsAtCoordinates(TransformComponent xform)
@@ -160,18 +150,21 @@ public sealed class EdgeConnectionSystem : EntitySystem
         var tile = _map.TileIndicesFor(gridUid, grid, xform.Coordinates);
 
         foreach (var (offset, _, _) in CardinalOffsets)
+            UpdateNeighborsAtTile(gridUid, grid, tile + offset);
+    }
+
+    private void UpdateNeighborsAtTile(EntityUid gridUid, MapGridComponent grid, Vector2i tile)
+    {
+        var anchored = _map.GetAnchoredEntitiesEnumerator(gridUid, grid, tile);
+        while (anchored.MoveNext(out var otherNullable))
         {
-            var anchored = _map.GetAnchoredEntitiesEnumerator(gridUid, grid, tile + offset);
-            while (anchored.MoveNext(out var otherNullable))
-            {
-                if (otherNullable is not { } other)
-                    continue;
+            if (otherNullable is not { } other)
+                continue;
 
-                if (!_edgeQuery.TryComp(other, out var edgeComp))
-                    continue;
+            if (!_edgeQuery.TryComp(other, out var edgeComp))
+                continue;
 
-                RecalculateEntity((other, edgeComp));
-            }
+            RecalculateEntity((other, edgeComp));
         }
     }
 

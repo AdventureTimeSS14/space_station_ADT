@@ -947,6 +947,9 @@
   id: ADTAshFloraShavings
 
 - type: Tag
+  id: ADTSlidingPuzzle
+
+- type: Tag
   id: ADTMagmaGem
 
 - type: Tag
