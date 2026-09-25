@@ -105,3 +105,6 @@ ent-ADTWallRockChromiteBS = { ent-WallRock }
 ent-ADTWallRockBasaltSandstone = { ent-WallRockBasalt }
     .desc = Базальтовая жила с прожилками песчаника.
     .suffix = Песчаник
+ent-ADTWallRockBasaltGem = { ent-WallRockBasalt }
+    .desc = Базальтовая жила, усеянная самоцветами.
+    .suffix = Самоцветы

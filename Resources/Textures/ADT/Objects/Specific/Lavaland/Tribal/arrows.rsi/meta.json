@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from Paradise at https://github.com/ParadiseSS13/Paradise",
+    "copyright": "Taken from Paradise at https://github.com/ParadiseSS13/Paradise; inhand sprites taken from Paradise SS220 fork at icons/mob/inhands",
     "size": {
         "x": 32,
         "y": 32
@@ -15,6 +15,30 @@
         },
         {
             "name": "wooden"
+        },
+        {
+            "name": "wooden-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "wooden-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "bone-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "jagged-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "bone-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "jagged-inhand-right",
+            "directions": 4
         }
     ]
 }

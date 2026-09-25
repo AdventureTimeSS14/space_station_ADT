@@ -1,0 +1,93 @@
+- type: entity
+  id: ADTLavaBoat
+  name: lava boat
+  description: A boat made of goliath hides, able to float on lava. Needs an oar to move.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Vehicles/lava_boat.rsi
+    state: boat
+    noRot: true
+  - type: ADTLavaBoat
+  - type: Vehicle
+    autoAnimate: false
+    hornSound: null
+    northOver: true
+    southOver: true
+    eastOver: true
+    westOver: true
+  - type: Strap
+    #buckleOffset: "0, 0.06" fix todo
+  - type: InputMover
+  - type: MovementSpeedModifier
+    baseAcceleration: 2.5
+    baseFriction: 0.2
+    baseWalkSpeed: 2.5
+    baseSprintSpeed: 3.3
+  - type: InteractionOutline
+  - type: Pullable
+  - type: Physics
+    bodyType: KinematicController
+    bodyStatus: OnGround
+  - type: Clickable
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.4
+        density: 120
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - TableLayer
+  - type: Appearance
+  - type: ContainerContainer
+  - type: ItemSlots
+    slots:
+      key_slot:
+        name: adt-lava-boat-slot-oar
+        whitelist:
+          requireAll: true
+          tags:
+          - VehicleKey
+          - ADTOar
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Injurable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Construction
+    graph: ADTLavaBoat
+    node: boat
+
+- type: entity
+  parent: BaseItem
+  id: ADTOar
+  name: oar
+  description: A goliath bone oar. Certified for rivers, puddles and lava lakes.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/Tribal/oar.rsi
+    state: icon
+  - type: Item
+    size: Large
+    sprite: ADT/Objects/Specific/Lavaland/Tribal/oar.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 12
+  - type: Construction
+    graph: ADTOar
+    node: oar
+  - type: Tag
+    tags:
+    - VehicleKey
+    - ADTOar

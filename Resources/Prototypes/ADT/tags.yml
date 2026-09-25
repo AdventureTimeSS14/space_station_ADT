@@ -956,6 +956,18 @@
   id: ADTGem
 
 - type: Tag
+  id: ADTGemAmber
+
+- type: Tag
+  id: ADTGemSimple
+
+- type: Tag
+  id: ADTReishi
+
+- type: Tag
+  id: ADTThaliPortion
+
+- type: Tag
   id: ADTAshDrakeHide
 
 - type: Tag
@@ -1065,3 +1077,9 @@
 
 - type: Tag
   id: ADTBow
+
+- type: Tag
+  id: ADTOar
+
+- type: Tag
+  id: ADTCoaltreeLog

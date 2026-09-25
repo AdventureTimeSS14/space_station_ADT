@@ -556,6 +556,11 @@ namespace Content.Server.Construction
         ///          in which case they will also be set as handled.</remarks>
         private void EnqueueEvent(EntityUid uid, ConstructionComponent construction, object args)
         {
+            // ADT-Tweak start
+            if (args is InteractUsingEvent interact && !_adtConstructionRestriction.CanUseGraph(interact.User, construction.Graph))
+                return;
+            // ADT-Tweak end
+
             // For handled events, we will check if the event leads to a valid construction interaction.
             // If it does, we mark the event as handled and then enqueue it as normal.
             if (args is HandledEntityEventArgs handled)

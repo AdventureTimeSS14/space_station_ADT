@@ -97,3 +97,14 @@
       seedId: ADTSeedEmbershroom
     - type: Sprite
       sprite: ADT/Objects/Specific/Hydroponics/ember.rsi
+
+- type: entity
+  parent: SeedBase
+  name: pack of reishi mycelium
+  description: This mycelium grows into something medicinal and relaxing.
+  id: ADTSeedReishiPacket
+  components:
+    - type: Seed
+      seedId: ADTSeedReishi
+    - type: Sprite
+      sprite: ADT/Objects/Specific/Hydroponics/reishi.rsi

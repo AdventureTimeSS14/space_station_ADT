@@ -164,7 +164,7 @@
   - proto: ADTClothingBeltHunter
     positions:
     - 24.7259,17.2596
-  - proto: ADTClothingFootWrapsBrown
+  - proto: ADTClothingShoesFootwrapsGoliath
     positions:
     - 3.5,24.5
   - proto: ADTClothingHandsGoliathGloves
@@ -173,6 +173,9 @@
   - proto: ADTClothingHeadRoach
     positions:
     - 25.5,18.5
+  - proto: ADTClothingHeadShamanSkull
+    positions:
+    - 24.5,18.5
   - proto: ADTCookingScroll
     positions:
     - 5.5,12.5
@@ -1339,6 +1342,11 @@
     rot: 1.5708 rad
     positions:
     - 28.2167,14.3593
+  - proto: ADTSeedReishiPacket
+    positions:
+    - 25.2187,15.8125
+    - 25.0625,15.625
+    - 24.9062,15.4062
   - proto: ADTTorchHolderAncient
     rot: 4.7124 rad
     anchored: true
@@ -1557,7 +1565,7 @@
     - 2.5,29.5
     - 14.5,30.5
     - 18.5,30.5
-  - proto: MaterialCloth1
+  - proto: MaterialCloth10
     positions:
     - 6.5,29.5
   - proto: MaterialWoodPlank1

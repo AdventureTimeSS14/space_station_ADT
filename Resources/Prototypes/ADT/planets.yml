@@ -18,7 +18,15 @@
     safeFalloff: 14
     minRadius: 40
     maxRadius: 230
+    riverNodes: 8
+    riverEntity: FloorLavaEntity
+    riverBridge: Catwalk
     groups:
+    - prototypes: [ ADTLavaDungeonAshVillage ]
+      count: 1
+      minDistanceFromCenter: 150
+      maxDistanceFromCenter: 200
+      clearance: 55
     - prototypes: [ LavaDungeonRoomMarker ]
       roomWhitelist:
         tags:
@@ -53,14 +61,6 @@
       maxRadius: 210
       entries:
       - prototype: ADTWorldAnvilRoomMarker
-    # Деревня пеплоходцев
-    - minBudget: 1
-      maxBudget: 1
-      minSpacing: 24
-      minDistanceFromCenter: 100
-      maxRadius: 210
-      entries:
-      - prototype: ADTLavaDungeonAshVillage
     # /datum/spawn_pool/lavaland_fauna - rand(100, 150)
     - minBudget: 100
       maxBudget: 150
@@ -160,6 +160,7 @@
   biomeMarkerLayers:
   - ADTLavaVeinOreIron
   - ADTLavaVeinSandstone
+  - ADTLavaVeinGem
   - ADTLavaVeinOreQuartz
   - ADTLavaVeinOreCoal
   - ADTLavaVeinOreGold
