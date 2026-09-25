@@ -11,6 +11,7 @@ namespace Content.Client.ADT.Clothing.Accessories;
 
 public sealed class ADTAccessoryVisualsSystem : EntitySystem
 {
+    [Dependency] private readonly ADTAccessorySystem _accessory = default!;
     [Dependency] private readonly IResourceCache _cache = default!;
 
     public override void Initialize()
@@ -23,7 +24,7 @@ public sealed class ADTAccessoryVisualsSystem : EntitySystem
     private void OnGetVisuals(Entity<ADTAccessoryHolderComponent> ent, ref GetEquipmentVisualsEvent args)
     {
         var i = 0;
-        foreach (var accessory in ent.Comp.Container.ContainedEntities)
+        foreach (var accessory in _accessory.GetAccessories(ent))
         {
             if (!TryComp<ADTAccessoryComponent>(accessory, out var comp))
                 continue;

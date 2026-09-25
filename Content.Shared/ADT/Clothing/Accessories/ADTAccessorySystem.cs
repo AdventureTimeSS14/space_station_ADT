@@ -13,6 +13,7 @@ using Content.Shared.Item;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Robust.Shared.Containers;
+using Robust.Shared.Network;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.ADT.Clothing.Accessories;
@@ -21,6 +22,7 @@ public sealed class ADTAccessorySystem : EntitySystem
 {
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
@@ -53,7 +55,7 @@ public sealed class ADTAccessorySystem : EntitySystem
 
     private void OnHolderInit(Entity<ADTAccessoryHolderComponent> ent, ref ComponentInit args)
     {
-        ent.Comp.Container = _container.EnsureContainer<Container>(ent.Owner, ent.Comp.ContainerId);
+        _container.EnsureContainer<Container>(ent.Owner, ent.Comp.ContainerId);
     }
 
     private void OnHolderInteractUsing(Entity<ADTAccessoryHolderComponent> ent, ref InteractUsingEvent args)
@@ -117,7 +119,8 @@ public sealed class ADTAccessorySystem : EntitySystem
 
     public bool CanAttach(Entity<ADTAccessoryHolderComponent> holder, Entity<ADTAccessoryComponent> accessory, EntityUid? user)
     {
-        if (holder.Comp.Container.ContainedEntities.Count >= holder.Comp.MaxAccessories)
+        var attachedAccessories = GetAccessories(holder);
+        if (attachedAccessories.Count >= holder.Comp.MaxAccessories)
         {
             if (user != null)
                 _popup.PopupClient(Loc.GetString("adt-accessory-full", ("holder", holder.Owner)), holder.Owner, user.Value);
@@ -129,7 +132,7 @@ public sealed class ADTAccessorySystem : EntitySystem
             return true;
 
         var proto = MetaData(accessory.Owner).EntityPrototype?.ID;
-        foreach (var attached in holder.Comp.Container.ContainedEntities)
+        foreach (var attached in attachedAccessories)
         {
             if (MetaData(attached).EntityPrototype?.ID != proto)
                 continue;
@@ -151,7 +154,8 @@ public sealed class ADTAccessorySystem : EntitySystem
         if (!CanAttach(holder, (accessory.Owner, accessory.Comp), user))
             return false;
 
-        if (!_container.Insert(accessory.Owner, holder.Comp.Container))
+        var container = _container.EnsureContainer<Container>(holder.Owner, holder.Comp.ContainerId);
+        if (!_container.Insert(accessory.Owner, container))
             return false;
 
         if (user != null)
@@ -162,7 +166,8 @@ public sealed class ADTAccessorySystem : EntitySystem
 
     public bool TryDetach(Entity<ADTAccessoryHolderComponent> holder, EntityUid accessory, EntityUid user)
     {
-        if (!_container.Remove(accessory, holder.Comp.Container))
+        if (!_container.TryGetContainer(holder.Owner, holder.Comp.ContainerId, out var container)
+            || !_container.Remove(accessory, container))
             return false;
 
         _hands.PickupOrDrop(user, accessory);
@@ -176,7 +181,7 @@ public sealed class ADTAccessorySystem : EntitySystem
             return;
 
         var user = args.User;
-        foreach (var accessory in ent.Comp.Container.ContainedEntities)
+        foreach (var accessory in GetAccessories(ent))
         {
             var target = accessory;
             args.Verbs.Add(new AlternativeVerb
@@ -190,12 +195,13 @@ public sealed class ADTAccessorySystem : EntitySystem
 
     private void OnHolderExamined(Entity<ADTAccessoryHolderComponent> ent, ref ExaminedEvent args)
     {
-        if (ent.Comp.Container.ContainedEntities.Count == 0)
+        var accessories = GetAccessories(ent);
+        if (accessories.Count == 0)
             return;
 
         using (args.PushGroup(nameof(ADTAccessoryHolderComponent)))
         {
-            foreach (var accessory in ent.Comp.Container.ContainedEntities)
+            foreach (var accessory in accessories)
             {
                 args.PushMarkup(Loc.GetString("adt-accessory-examine", ("accessory", accessory)));
             }
@@ -226,7 +232,7 @@ public sealed class ADTAccessorySystem : EntitySystem
 
     private void OnHolderEquipped(Entity<ADTAccessoryHolderComponent> ent, ref GotEquippedEvent args)
     {
-        foreach (var accessory in ent.Comp.Container.ContainedEntities)
+        foreach (var accessory in GetAccessories(ent))
         {
             RaiseWornChanged(accessory, args.Equipee, ent.Owner, true);
         }
@@ -234,7 +240,7 @@ public sealed class ADTAccessorySystem : EntitySystem
 
     private void OnHolderUnequipped(Entity<ADTAccessoryHolderComponent> ent, ref GotUnequippedEvent args)
     {
-        foreach (var accessory in ent.Comp.Container.ContainedEntities)
+        foreach (var accessory in GetAccessories(ent))
         {
             RaiseWornChanged(accessory, args.Equipee, ent.Owner, false);
         }
@@ -242,7 +248,7 @@ public sealed class ADTAccessorySystem : EntitySystem
 
     private void OnDamageModify(Entity<ADTAccessoryHolderComponent> ent, ref InventoryRelayedEvent<DamageModifyEvent> args)
     {
-        foreach (var accessory in ent.Comp.Container.ContainedEntities)
+        foreach (var accessory in GetAccessories(ent))
         {
             if (!TryComp<ArmorComponent>(accessory, out var armor))
                 continue;
@@ -253,7 +259,7 @@ public sealed class ADTAccessorySystem : EntitySystem
 
     private void OnCoefficientQuery(Entity<ADTAccessoryHolderComponent> ent, ref InventoryRelayedEvent<CoefficientQueryEvent> args)
     {
-        foreach (var accessory in ent.Comp.Container.ContainedEntities)
+        foreach (var accessory in GetAccessories(ent))
         {
             if (!TryComp<ArmorComponent>(accessory, out var armor))
                 continue;
@@ -269,7 +275,15 @@ public sealed class ADTAccessorySystem : EntitySystem
 
     private void OnHolderTerminating(Entity<ADTAccessoryHolderComponent> ent, ref EntityTerminatingEvent args)
     {
-        _container.EmptyContainer(ent.Comp.Container);
+        if (_net.IsServer && _container.TryGetContainer(ent.Owner, ent.Comp.ContainerId, out var container))
+            _container.EmptyContainer(container);
+    }
+
+    public IReadOnlyList<EntityUid> GetAccessories(Entity<ADTAccessoryHolderComponent> holder)
+    {
+        return _container.TryGetContainer(holder.Owner, holder.Comp.ContainerId, out var container)
+            ? container.ContainedEntities
+            : Array.Empty<EntityUid>();
     }
 
     private bool TryGetWearer(EntityUid holder, out EntityUid wearer)

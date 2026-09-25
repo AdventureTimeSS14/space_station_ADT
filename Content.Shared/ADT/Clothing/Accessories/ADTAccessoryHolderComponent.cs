@@ -1,4 +1,3 @@
-using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.ADT.Clothing.Accessories;
@@ -11,7 +10,4 @@ public sealed partial class ADTAccessoryHolderComponent : Component
 
     [DataField]
     public int MaxAccessories = 5;
-
-    [ViewVariables]
-    public Container Container = default!;
 }
