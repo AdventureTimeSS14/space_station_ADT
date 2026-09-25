@@ -52,6 +52,8 @@
   - type: PowerState
     idlePowerDraw: 150
     workingPowerDraw: 1000
+  - type: Anchorable
+    flags: Anchorable
   - type: ContainerContainer
     containers:
       drill-ore-storage: !type:Container
