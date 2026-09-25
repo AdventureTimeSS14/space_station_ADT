@@ -11,7 +11,7 @@ public sealed partial class ADTHealingVisualsSystem : EntitySystem
 {
     [Dependency] private readonly SharedStealthSystem _stealth = default!;
 
-    private const float StealthVisibilityThreshold = 0.3f;
+    private const float StealthVisibilityThreshold = 0.7f;
 
     public bool TryStartHealEffect(EntityUid target, EntProtoId? effect)
     {
