@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Numerics;
 using Content.Server.Gatherable;
 using Content.Server.Gatherable.Components;
 using Content.Shared.ADT.Drake;
@@ -144,7 +145,7 @@ public sealed class ADTDrakeEffectsSystem : EntitySystem
         ent.Comp.ImpactAt = _timing.CurTime + ent.Comp.Delay;
 
         _audio.PlayPvs(ent.Comp.SpawnSound, ent);
-        Spawn(ent.Comp.FallingProto, Transform(ent).Coordinates);
+        SpawnAttachedTo(ent.Comp.FallingProto, new EntityCoordinates(ent, Vector2.Zero));
     }
 
     private void UpdateMeteors(TimeSpan now)
