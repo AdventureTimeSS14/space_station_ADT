@@ -179,6 +179,8 @@
   bodyPart: Tail
   groupWhitelist: [Celecern]
   sprites:
+  - sprite: ADT/Mobs/Species/Celecern/parts.rsi
+    state: chill_tail
   - sprite: ADT/Mobs/Customization/Celecern/tails_of_celecern.rsi
     state: kist_chill_tail
 
@@ -187,6 +189,8 @@
   bodyPart: Tail
   groupWhitelist: []
   sprites:
+  - sprite: ADT/Mobs/Species/Celecern/parts.rsi
+    state: chill_tail_waggin
   - sprite: ADT/Mobs/Customization/Celecern/tails_of_celecern.rsi
     state: kist_chill_tail_waggin
 

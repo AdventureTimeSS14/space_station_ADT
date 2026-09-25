@@ -113,7 +113,7 @@
 - type: marking
   id: ADTDwarfConstellationLLeg
   bodyPart: LLeg
-  groupWhitelist: [Human, Celecern]
+  groupWhitelist: [Human]
   coloring:
     default:
       type:
@@ -128,7 +128,7 @@
 - type: marking
   id: ADTDwarfConstellationLFoot
   bodyPart: LFoot
-  groupWhitelist: [Human, Celecern]
+  groupWhitelist: [Human]
   coloring:
     default:
       type:

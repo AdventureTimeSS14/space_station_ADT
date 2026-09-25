@@ -1167,7 +1167,7 @@
     Honk:
       collection: BikeHorn
     Sigh:
-      collection: ADTCelecernSigh
+      collection: MaleSigh
     Crying:
       collection: MaleCry
     Whistle:
@@ -1215,7 +1215,7 @@
     Honk:
       collection: CluwneHorn
     Sigh:
-      collection: ADTCelecernSigh
+      collection: FemaleSigh
     Crying:
       collection: FemaleCry
     Whistle:
