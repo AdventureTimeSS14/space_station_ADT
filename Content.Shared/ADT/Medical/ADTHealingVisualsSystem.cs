@@ -13,11 +13,6 @@ public sealed partial class ADTHealingVisualsSystem : EntitySystem
 
     private const float StealthVisibilityThreshold = 0.7f;
 
-    public override void Initialize()
-    {
-        base.Initialize();
-    }
-
     public override void Update(float frameTime)
     {
         var query = EntityQueryEnumerator<ADTHealingVisualsComponent>();
