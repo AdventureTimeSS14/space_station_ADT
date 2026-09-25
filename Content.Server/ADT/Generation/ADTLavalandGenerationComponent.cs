@@ -72,6 +72,9 @@ public sealed partial class ADTLavalandGenerationComponent : Component
 
     [ViewVariables]
     public List<Vector2> Placed = new();
+
+    [ViewVariables]
+    public List<(Vector2 Center, float Radius)> Exclusions = new();
 }
 
 [DataDefinition]
@@ -91,6 +94,12 @@ public sealed partial class LavalandScatterGroup
 
     [DataField]
     public float MinDistanceFromCenter = 40f;
+
+    [DataField]
+    public float? MaxDistanceFromCenter;
+
+    [DataField]
+    public float Clearance;
 
     [DataField]
     public bool AvoidRooms = true;
