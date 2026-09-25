@@ -1,4 +1,3 @@
-using Content.Shared.ADT.Mobs;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
@@ -24,14 +23,10 @@ public sealed class TryCatchBreathSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
-    private const float DoAfterTime = 6f;
-
-    private const string AudioPath = "/Audio/ADT/Alerts/CatchBreath/";
-
     public override void Initialize()
     {
         SubscribeLocalEvent<TryCatchBreathAlertEvent>(OnAlertClicked);
-        SubscribeLocalEvent<TryCatchBreathDoAfterEvent>(OnDoAfter);
+        SubscribeLocalEvent<TryCatchBreathComponent, TryCatchBreathDoAfterEvent>(OnDoAfter);
     }
 
     private void OnAlertClicked(TryCatchBreathAlertEvent ev)
@@ -41,10 +36,13 @@ public sealed class TryCatchBreathSystem : EntitySystem
 
         var uid = ev.User;
 
+        if (!TryComp<TryCatchBreathComponent>(uid, out var comp))
+            return;
+
         if (CompOrNull<MobStateComponent>(uid)?.CurrentState != MobState.SoftCritical)
             return;
 
-        var args = new DoAfterArgs(EntityManager, uid, DoAfterTime, new TryCatchBreathDoAfterEvent(), uid)
+        var args = new DoAfterArgs(EntityManager, uid, comp.DoAfterTime, new TryCatchBreathDoAfterEvent(), uid)
         {
             Broadcast = true,
             BreakOnMove = true,
@@ -58,12 +56,12 @@ public sealed class TryCatchBreathSystem : EntitySystem
         _doAfter.TryStartDoAfter(args);
 
         _popup.PopupEntity(Loc.GetString("catch-breath-try"), uid);
-        _audio.PlayEntity(new SoundPathSpecifier(AudioPath + "catch-breath-try.ogg"), uid, uid);
+        _audio.PlayEntity(new SoundPathSpecifier(comp.AudioPath + "catch-breath-try.ogg"), uid, uid);
 
         _adminLogger.Add(LogType.CatchBreath, LogImpact.Low, $"{ToPrettyString(uid):user} started trying to catch their breath");
     }
 
-    private void OnDoAfter(TryCatchBreathDoAfterEvent ev)
+    private void OnDoAfter(Entity<TryCatchBreathComponent> ent, ref TryCatchBreathDoAfterEvent ev)
     {
         if (!_net.IsServer || ev.Cancelled)
             return;
@@ -73,6 +71,7 @@ public sealed class TryCatchBreathSystem : EntitySystem
         if (CompOrNull<MobStateComponent>(uid)?.CurrentState != MobState.SoftCritical)
             return;
 
+        var audioPath = ent.Comp.AudioPath;
         var roll = _random.NextFloat();
         var damage = new DamageSpecifier();
         string popup;
@@ -108,7 +107,7 @@ public sealed class TryCatchBreathSystem : EntitySystem
         _adminLogger.Add(LogType.CatchBreath, LogImpact.Low, $"{ToPrettyString(uid):user} rolled {roll} trying to catch their breath: {popup}");
 
         _popup.PopupEntity(Loc.GetString(popup), uid);
-        _audio.PlayEntity(new SoundPathSpecifier(AudioPath + sound), uid, uid);
+        _audio.PlayEntity(new SoundPathSpecifier(audioPath + sound), uid, uid);
 
         if (damage.DamageDict.Count > 0)
             _damage.TryChangeDamage(uid, damage);

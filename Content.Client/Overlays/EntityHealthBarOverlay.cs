@@ -140,11 +140,12 @@ public sealed class EntityHealthBarOverlay : Overlay
         var totalDamage = _damageable.GetTotalDamage((uid, dmg));
         if (_mobStateSystem.IsAlive(uid, component))
         {
-            // ADT-Tweak
+            // ADT-Tweak-start
             if (!_mobThresholdSystem.TryGetThresholdForState(uid, MobState.SoftCritical, out var threshold, thresholds) &&
                 !_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Critical, out threshold, thresholds) &&
                 !_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Dead, out threshold, thresholds))
                 return (1, false);
+            // ADT-Tweak-end
 
             var ratio = 1 - ((FixedPoint2)(totalDamage / threshold)).Float();
             return (ratio, false);
@@ -152,13 +153,14 @@ public sealed class EntityHealthBarOverlay : Overlay
 
         if (_mobStateSystem.IsCritical(uid, component))
         {
-            // ADT-Tweak
-            if ((!_mobThresholdSystem.TryGetThresholdForState(uid, MobState.SoftCritical, out var critThreshold, thresholds)
-                    && !_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Critical, out critThreshold, thresholds))
-                || !_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Dead, out var deadThreshold, thresholds))
-            {
+            // ADT-Tweak-start
+            if (!_mobThresholdSystem.TryGetThresholdForState(uid, MobState.SoftCritical, out var critThreshold, thresholds)
+                && !_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Critical, out critThreshold, thresholds))
                 return (1, true);
-            }
+
+            if (!_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Dead, out var deadThreshold, thresholds))
+                return (1, true);
+            // ADT-Tweak-end
 
             var ratio = 1 - ((totalDamage - critThreshold) / (deadThreshold - critThreshold)).Value.Float();
 

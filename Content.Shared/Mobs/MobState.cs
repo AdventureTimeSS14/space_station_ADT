@@ -39,11 +39,6 @@ public enum MobState : byte
 public record struct MobStateChangedEvent(EntityUid Target, MobStateComponent Component, MobState OldMobState,
     MobState NewMobState, EntityUid? Origin = null);
 
-public static class A
-{
-    //^.^
-}
-
 //This is dumb and I hate it but I don't feel like refactoring this garbage
 [Serializable, NetSerializable]
 public enum MobStateVisuals : byte

@@ -228,7 +228,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             desiredType = InGameICChatType.Whisper;
         // ADT-Tweak-end
 
-        // ADT-Tweak
+        // ADT-Tweak-start
         if (_mobStateSystem.IsSoftCritical(source))
         {
             checkRadioPrefix = false;
@@ -236,6 +236,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             if (TryProcessRadioMessage(source, message, out var stripped, out _, true))
                 message = stripped;
         }
+        // ADT-Tweak-end
 
         // ADT Languages start
 
@@ -244,14 +245,13 @@ public sealed partial class ChatSystem : SharedChatSystem
         // Capitalizing the word I only happens in English, so we check language here
         bool shouldCapitalizeTheWordI = (!CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Parent.Name == "en")
             || (CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Name == "en");
-        // ADT-Tweak: SanitizeInGameICMessageLanguages Да это дублирование уже сущетвующей функции, но без проверки на замены
-        string sanitizedMessage = SanitizeInGameICMessageLanguages(source, message, out var emoteStr, shouldCapitalize, shouldPunctuate, shouldCapitalizeTheWordI);
+        string sanitizedMessage = SanitizeInGameICMessageLanguages(source, message, out var emoteStr, shouldCapitalize, shouldPunctuate, shouldCapitalizeTheWordI); // ADT-Tweak
 
         // ADT Languages end
 
         // ADT Alternative speech start
         var altEv = new AlternativeSpeechEvent(sanitizedMessage, false, desiredType);
-        if (checkRadioPrefix && TryProcessRadioMessage(source, sanitizedMessage, out var altSpeechRadioResult, out _, true))
+        if (checkRadioPrefix && TryProcessRadioMessage(source, sanitizedMessage, out var altSpeechRadioResult, out _, true)) // ADT-Tweak
         {
             altEv.Radio = true;
             altEv.Message = altSpeechRadioResult;

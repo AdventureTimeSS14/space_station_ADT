@@ -108,7 +108,7 @@ public partial class MobStateSystem
         // ADT-Tweak-start
         _moveMod.RefreshMovementSpeedModifiers(target);
 
-        if (state is MobState.SoftCritical or MobState.Critical or MobState.Dead) // ADT-Tweak
+        if (state is MobState.SoftCritical or MobState.Critical or MobState.Dead)
         {
             _moveMod.RefreshMovementSpeedModifiers(target);
         }

@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Mobs;
 using Content.Shared.Damage.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Events;
@@ -8,29 +9,17 @@ using Robust.Shared.Player;
 
 namespace Content.Shared.Mobs.Systems;
 
-// ADT-Tweak-start
 public partial class MobStateSystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-
-    private readonly Dictionary<EntityUid, EntityUid> _stateAudio = new();
-
-    private const float SoftCritImmobileDamage = 150f;
-    private const float SoftCritSpeedModifier = 0.35f;
-
-    private static readonly Dictionary<MobState, (string Sound, bool Loop, float Volume)> StateAudio = new()
-    {
-        { MobState.SoftCritical, ("/Audio/ADT/Effects/soft_critical.ogg", true, -6f) },
-        { MobState.Critical, ("/Audio/ADT/Effects/critical.ogg", true, -8f) },
-        { MobState.Alive, ("/Audio/ADT/Effects/backtolife.ogg", false, -4f) },
-    };
 
     private void OnUpdateCanMove(EntityUid uid, MobStateComponent component, ref UpdateCanMoveEvent args)
     {
         if (component.CurrentState == MobState.SoftCritical)
         {
-            if (TryComp<DamageableComponent>(uid, out var damage)
-                && _damageable.GetTotalDamage((uid, damage)) > SoftCritImmobileDamage)
+            if (TryComp<SoftCritComponent>(uid, out var softCrit)
+                && TryComp<DamageableComponent>(uid, out var damage)
+                && _damageable.GetTotalDamage((uid, damage)) > softCrit.ImmobileDamageThreshold)
             {
                 args.Cancel();
             }
@@ -46,7 +35,10 @@ public partial class MobStateSystem
         if (component.CurrentState != MobState.SoftCritical)
             return;
 
-        args.ModifySpeed(SoftCritSpeedModifier, SoftCritSpeedModifier);
+        if (!TryComp<SoftCritComponent>(uid, out var softCrit))
+            return;
+
+        args.ModifySpeed(softCrit.SpeedModifier, softCrit.SpeedModifier);
     }
 
     private void PlayStateAudio(EntityUid uid, MobState state)
@@ -54,7 +46,10 @@ public partial class MobStateSystem
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        if (!StateAudio.TryGetValue(state, out var data))
+        if (!TryComp<SoftCritComponent>(uid, out var softCrit))
+            return;
+
+        if (!SoftCritComponent.StateAudio.TryGetValue(state, out var data))
             return;
 
         if (!TryComp<ActorComponent>(uid, out var actor))
@@ -72,16 +67,21 @@ public partial class MobStateSystem
         if (audio == null)
             return;
 
-        _stateAudio[uid] = audio.Value.Entity;
+        softCrit.StateAudioEntity = audio.Value.Entity;
     }
 
     private void StopStateAudio(EntityUid uid)
     {
-        if (!_stateAudio.Remove(uid, out var audio))
+        if (!TryComp<SoftCritComponent>(uid, out var softCrit))
             return;
 
-        if (Exists(audio))
-            QueueDel(audio);
+        var audio = softCrit.StateAudioEntity;
+        softCrit.StateAudioEntity = null;
+
+        if (audio == null)
+            return;
+
+        if (Exists(audio.Value))
+            QueueDel(audio.Value);
     }
 }
-// ADT-Tweak-end
