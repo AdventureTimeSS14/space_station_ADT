@@ -181,6 +181,7 @@
   components:
   - type: ADTSlidingPuzzle
     megafaunaChance: 0
+    emptyTileId: 5
 
 - type: entity
   parent: BaseItem

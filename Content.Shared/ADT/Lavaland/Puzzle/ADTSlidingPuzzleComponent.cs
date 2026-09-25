@@ -1,7 +1,5 @@
 using Robust.Shared.Audio;
-using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
 
 namespace Content.Shared.ADT.Lavaland.Puzzle;
 
@@ -11,7 +9,7 @@ public sealed partial class ADTSlidingPuzzleComponent : Component
     [ViewVariables]
     public List<EntityUid> Elements = new();
 
-    [ViewVariables]
+    [ViewVariables, DataField]
     public int EmptyTileId = 0;
 
     [ViewVariables]
@@ -46,9 +44,6 @@ public sealed partial class ADTSlidingPuzzleComponent : Component
 
     [ViewVariables]
     public EntityUid? Prisoner;
-
-    [ViewVariables]
-    public Container? PrisonerContainer;
 }
 
 [RegisterComponent]

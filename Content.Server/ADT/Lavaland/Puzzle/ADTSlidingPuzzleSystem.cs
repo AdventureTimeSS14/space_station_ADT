@@ -1,10 +1,10 @@
 using System.Numerics;
 using Content.Server.Administration.Logs;
 using Content.Shared.ADT.Lavaland.Puzzle;
-using Content.Shared.Administration;
 using Content.Shared.Camera;
 using Content.Shared.Database;
 using Content.Shared.Interaction;
+using Content.Shared.Interaction.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -13,6 +13,8 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Physics;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
@@ -25,13 +27,18 @@ public sealed class ADTSlidingPuzzleSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
     private const string PrisonerContainerId = "prisoner";
+
+    private const string FloorTile = "ADTFloorCult";
 
     private static readonly Vector2i[] TileOffsets =
     {
@@ -66,24 +73,69 @@ public sealed class ADTSlidingPuzzleSystem : EntitySystem
         Setup(puzzle);
     }
 
-    private bool CheckSetupLocation(Entity<ADTSlidingPuzzleComponent> puzzle)
+    private bool EnsureSetupGrid(
+        Entity<ADTSlidingPuzzleComponent> puzzle,
+        out EntityUid gridUid,
+        out MapGridComponent grid,
+        out Vector2i center)
     {
         var xform = Transform(puzzle);
 
-        if (xform.GridUid is not { } gridUid || !_gridQuery.TryComp(gridUid, out var grid))
-            return false;
-
-        var center = _map.CoordinatesToTile(gridUid, grid, xform.Coordinates);
-
-        for (var id = 1; id <= 9; id++)
+        if (xform.GridUid is { } existingGrid && _gridQuery.TryComp(existingGrid, out var existingComp))
         {
-            var tile = _map.GetTileRef(gridUid, grid, center + TileOffsets[id - 1]);
-
-            if (tile.Tile.IsEmpty)
-                return false;
+            gridUid = existingGrid;
+            grid = existingComp;
+            center = _map.CoordinatesToTile(gridUid, grid, xform.Coordinates);
+            return true;
         }
 
+        if (xform.MapID == MapId.Nullspace)
+        {
+            gridUid = default;
+            grid = default!;
+            center = default;
+            return false;
+        }
+
+        var gridEnt = _mapManager.CreateGridEntity(xform.MapID);
+        var gridXform = Transform(gridEnt);
+        _transform.SetWorldPosition((gridEnt, gridXform), _transform.GetMapCoordinates(puzzle).Position);
+        _transform.SetCoordinates(puzzle, new EntityCoordinates(gridEnt, Vector2.Zero));
+
+        gridUid = gridEnt;
+        grid = gridEnt.Comp;
+        center = Vector2i.Zero;
         return true;
+    }
+
+    private void EnsurePuzzleFloor(EntityUid gridUid, MapGridComponent grid, Vector2i center)
+    {
+        var floor = _tileDefinitionManager[FloorTile];
+
+        for (var spotId = 1; spotId <= 9; spotId++)
+        {
+            var tile = center + TileOffsets[spotId - 1];
+
+            if (_map.GetTileRef(gridUid, grid, tile).Tile.IsEmpty)
+                _map.SetTile(gridUid, grid, tile, new Tile(floor.TileId));
+        }
+    }
+
+    private void ClearPuzzleTiles(EntityUid gridUid, MapGridComponent grid, Vector2i center)
+    {
+        for (var spotId = 1; spotId <= 9; spotId++)
+        {
+            var tile = center + TileOffsets[spotId - 1];
+
+            foreach (var uid in _map.GetAnchoredEntities(gridUid, grid, tile))
+            {
+                if (HasComp<ADTSlidingPuzzleComponent>(uid) || HasComp<ADTSlidingPuzzleElementComponent>(uid))
+                    continue;
+
+                if (TryComp<PhysicsComponent>(uid, out var physics) && physics.BodyType == BodyType.Static)
+                    QueueDel(uid);
+            }
+        }
     }
 
     private void Setup(Entity<ADTSlidingPuzzleComponent> puzzle)
@@ -91,22 +143,26 @@ public sealed class ADTSlidingPuzzleSystem : EntitySystem
         if (puzzle.Comp.Finished || puzzle.Comp.Elements.Count > 0)
             return;
 
-        if (!CheckSetupLocation(puzzle))
+        if (!EnsureSetupGrid(puzzle, out var gridUid, out var grid, out var center))
         {
             QueueDel(puzzle);
             return;
         }
 
-        var xform = Transform(puzzle);
-        var gridUid = xform.GridUid!.Value;
-        var grid = _gridQuery.GetComponent(gridUid);
-        var center = _map.CoordinatesToTile(gridUid, grid, xform.Coordinates);
+        EnsurePuzzleFloor(gridUid, grid, center);
+        ClearPuzzleTiles(gridUid, grid, center);
 
         var leftIds = new List<int>();
         for (var id = 1; id <= 9; id++)
             leftIds.Add(id);
 
-        puzzle.Comp.EmptyTileId = _random.PickAndTake(leftIds);
+        var emptyTileId = puzzle.Comp.EmptyTileId;
+        if (emptyTileId is >= 1 and <= 9)
+            leftIds.Remove(emptyTileId);
+        else
+            emptyTileId = _random.PickAndTake(leftIds);
+
+        puzzle.Comp.EmptyTileId = emptyTileId;
         puzzle.Comp.Elements.Clear();
 
         for (var spotId = 1; spotId <= 9; spotId++)
@@ -165,7 +221,7 @@ public sealed class ADTSlidingPuzzleSystem : EntitySystem
         if (!TryGetPuzzleGrid(puzzle, out var gridUid, out var grid))
             return result;
 
-        var center = _map.CoordinatesToTile(gridUid, grid, Transform(puzzle).Coordinates);
+        var center = GetCenterTile(puzzle, gridUid, grid);
 
         for (var spotId = 1; spotId <= 9; spotId++)
         {
@@ -201,13 +257,37 @@ public sealed class ADTSlidingPuzzleSystem : EntitySystem
         if (elementA is not { } a || elementB is not { } b)
             return;
 
-        if (!TryComp<ADTSlidingPuzzleElementComponent>(a, out var aComp) ||
-            !TryComp<ADTSlidingPuzzleElementComponent>(b, out var bComp))
+        if (!TryComp<ADTSlidingPuzzleElementComponent>(a, out _) ||
+            !TryComp<ADTSlidingPuzzleElementComponent>(b, out _))
         {
             return;
         }
 
-        (aComp.Id, bComp.Id) = (bComp.Id, aComp.Id);
+        SwapElements(puzzle, a, b);
+    }
+
+    private void SwapElements(Entity<ADTSlidingPuzzleComponent> puzzle, EntityUid a, EntityUid b)
+    {
+        var aCoords = Transform(a).Coordinates;
+        var bCoords = Transform(b).Coordinates;
+
+        var aXform = Transform(a);
+        var bXform = Transform(b);
+
+        _transform.Unanchor(a, aXform);
+        _transform.Unanchor(b, bXform);
+        _transform.SetCoordinates(a, bCoords);
+        _transform.SetCoordinates(b, aCoords);
+        _transform.AnchorEntity(a, Transform(a));
+        _transform.AnchorEntity(b, Transform(b));
+    }
+
+    private Vector2i GetCenterTile(
+        Entity<ADTSlidingPuzzleComponent> puzzle,
+        EntityUid gridUid,
+        MapGridComponent grid)
+    {
+        return _map.CoordinatesToTile(gridUid, grid, Transform(puzzle).Coordinates);
     }
 
     private EntityUid? GetElementAt(Entity<ADTSlidingPuzzleComponent> puzzle, int spotId)
@@ -215,7 +295,7 @@ public sealed class ADTSlidingPuzzleSystem : EntitySystem
         if (!TryGetPuzzleGrid(puzzle, out var gridUid, out var grid))
             return null;
 
-        var center = _map.CoordinatesToTile(gridUid, grid, Transform(puzzle).Coordinates);
+        var center = GetCenterTile(puzzle, gridUid, grid);
         return GetElementAtTile(puzzle, gridUid, grid, center + TileOffsets[spotId - 1]);
     }
 
@@ -285,7 +365,7 @@ public sealed class ADTSlidingPuzzleSystem : EntitySystem
         if (!TryGetPuzzleGrid(puzzle, out var gridUid, out var grid))
             return false;
 
-        var center = _map.CoordinatesToTile(gridUid, grid, Transform(puzzle).Coordinates);
+        var center = GetCenterTile(puzzle, gridUid, grid);
         var current = _map.CoordinatesToTile(gridUid, grid, Transform(element).Coordinates);
 
         var offset = current - center;
@@ -351,7 +431,7 @@ public sealed class ADTSlidingPuzzleSystem : EntitySystem
         if (!TryGetPuzzleGrid(puzzle, out var gridUid, out var grid))
             return;
 
-        var center = _map.CoordinatesToTile(gridUid, grid, Transform(puzzle).Coordinates);
+        var center = GetCenterTile(puzzle, gridUid, grid);
 
         for (var id = 1; id <= 9; id++)
         {
@@ -413,7 +493,7 @@ public sealed class ADTSlidingPuzzleSystem : EntitySystem
 
         if (hasGrid)
         {
-            var center = _map.CoordinatesToTile(gridUid, grid, Transform(puzzle).Coordinates);
+            var center = GetCenterTile(puzzle, gridUid, grid);
             SpawnFloorPiece(puzzle, puzzle.Comp.EmptyTileId, center + TileOffsets[puzzle.Comp.EmptyTileId - 1]);
         }
 
@@ -446,17 +526,18 @@ public sealed class ADTSlidingPuzzleSystem : EntitySystem
     private bool HasLivingMegafauna(Entity<ADTSlidingPuzzleComponent> puzzle, EntProtoId proto)
     {
         var mapId = Transform(puzzle).MapID;
-        var query = EntityQueryEnumerator<MobStateComponent, MetaDataComponent>();
+        var prototype = _prototype.Index(proto);
+        var query = EntityQueryEnumerator<MobStateComponent>();
 
-        while (query.MoveNext(out var uid, out var state, out var meta))
+        while (query.MoveNext(out var uid, out var state))
         {
-            if (state.CurrentState == MobState.Dead)
+            if (state.CurrentState == MobState.Dead || TerminatingOrDeleted(uid))
                 continue;
 
             if (Transform(uid).MapID != mapId)
                 continue;
 
-            if (meta.EntityPrototype?.ID == proto.Id)
+            if (MetaData(uid).EntityPrototype == prototype)
                 return true;
         }
 
@@ -474,7 +555,7 @@ public sealed class ADTSlidingPuzzleSystem : EntitySystem
         if (TerminatingOrDeleted(prisoner))
             return;
 
-        RemComp<AdminFrozenComponent>(prisoner);
+        RemComp<BlockMovementComponent>(prisoner);
 
         if (HasComp<ContainerManagerComponent>(puzzle.Owner))
         {
@@ -486,7 +567,6 @@ public sealed class ADTSlidingPuzzleSystem : EntitySystem
         }
 
         puzzle.Comp.Prisoner = null;
-        puzzle.Comp.PrisonerContainer = null;
 
         _popup.PopupEntity(Loc.GetString("prison-cube-released"), prisoner, prisoner);
     }
@@ -495,11 +575,9 @@ public sealed class ADTSlidingPuzzleSystem : EntitySystem
     {
         puzzle.Comp.Prisoner = prisoner;
 
-        EnsureComp<AdminFrozenComponent>(prisoner);
+        EnsureComp<BlockMovementComponent>(prisoner);
 
         var container = _container.EnsureContainer<Container>(puzzle.Owner, PrisonerContainerId);
-        puzzle.Comp.PrisonerContainer = container;
-
         _container.Insert(prisoner, container);
 
         _adminLog.Add(LogType.Mind, LogImpact.Extreme,
