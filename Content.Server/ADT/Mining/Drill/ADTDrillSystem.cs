@@ -44,6 +44,7 @@ public sealed class ADTDrillSystem : EntitySystem
     [Dependency] private readonly AmbientSoundSystem _ambientSound = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
@@ -60,6 +61,8 @@ public sealed class ADTDrillSystem : EntitySystem
         SubscribeLocalEvent<ADTDrillComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<ADTDrillComponent, PowerChangedEvent>(OnPowerChanged);
         SubscribeLocalEvent<ADTDrillComponent, AnchorStateChangedEvent>(OnAnchorChanged);
+        SubscribeLocalEvent<ADTDrillBraceComponent, ComponentInit>(OnBraceInit);
+        SubscribeLocalEvent<ADTDrillBraceComponent, AnchorStateChangedEvent>(OnBraceAnchorChanged);
     }
 
     public override void Update(float frameTime)
@@ -89,6 +92,43 @@ public sealed class ADTDrillSystem : EntitySystem
     {
         if (drill.Active && !args.Anchored)
             SystemError(uid, drill, Loc.GetString("drill-error-bracing"));
+
+        RefreshAdjacentBraces(uid);
+    }
+
+    private void OnBraceInit(EntityUid uid, ADTDrillBraceComponent component, ComponentInit args)
+    {
+        UpdateBraceConnection(uid);
+    }
+
+    private void OnBraceAnchorChanged(EntityUid uid, ADTDrillBraceComponent component, ref AnchorStateChangedEvent args)
+    {
+        UpdateBraceConnection(uid);
+    }
+
+    private void RefreshAdjacentBraces(EntityUid uid)
+    {
+        ForEachAdjacentAnchored(Transform(uid), ent =>
+        {
+            if (HasComp<ADTDrillBraceComponent>(ent))
+                UpdateBraceConnection(ent);
+        });
+    }
+
+    public void UpdateBraceConnection(EntityUid braceUid)
+    {
+        var xform = Transform(braceUid);
+
+        RefreshAdjacentDrills(braceUid, xform, out var connectedUid);
+
+        if (connectedUid.IsValid())
+        {
+            var delta = Transform(connectedUid).Coordinates.Position - xform.Coordinates.Position;
+            _transform.SetLocalRotation(braceUid, delta.ToWorldAngle());
+        }
+
+        if (TryComp<AppearanceComponent>(braceUid, out _))
+            _appearance.SetData(braceUid, ADTDrillBraceVisuals.Connected, connectedUid.IsValid());
     }
 
     private void TickDrill(EntityUid uid, ADTDrillComponent drill)
@@ -339,6 +379,7 @@ public sealed class ADTDrillSystem : EntitySystem
     private void OnComponentInit(EntityUid uid, ADTDrillComponent component, ComponentInit args)
     {
         _container.EnsureContainer<Container>(uid, component.ContainerId);
+        RefreshAdjacentBraces(uid);
     }
 
     public int CountBraces(EntityUid uid)
