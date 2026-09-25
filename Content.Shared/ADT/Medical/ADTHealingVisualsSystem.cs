@@ -13,6 +13,33 @@ public sealed partial class ADTHealingVisualsSystem : EntitySystem
 
     private const float StealthVisibilityThreshold = 0.7f;
 
+    public override void Initialize()
+    {
+        base.Initialize();
+    }
+
+    public override void Update(float frameTime)
+    {
+        var query = EntityQueryEnumerator<ADTHealingVisualsComponent>();
+        while (query.MoveNext(out var uid, out var visuals))
+        {
+            if (visuals.ActiveEffect is not { } effect || !Exists(effect))
+            {
+                if (visuals.ActiveEffect != null)
+                {
+                    visuals.ActiveEffect = null;
+                    Dirty(uid, visuals);
+                }
+
+                RemCompDeferred<ADTHealingVisualsComponent>(uid);
+                continue;
+            }
+
+            if (IsHiddenByStealth(uid))
+                StopHealEffect(uid);
+        }
+    }
+
     public bool TryStartHealEffect(EntityUid target, EntProtoId? effect)
     {
         if (effect is not { } proto || IsHiddenByStealth(target))
@@ -23,6 +50,16 @@ public sealed partial class ADTHealingVisualsSystem : EntitySystem
             return false;
 
         visuals.ActiveEffect = PredictedSpawnAttachedTo(proto, new EntityCoordinates(target, Vector2.Zero));
+        Dirty(target, visuals);
+        return true;
+    }
+
+    public bool TrySpawnHealEffect(EntityUid target, EntProtoId? effect)
+    {
+        if (effect is not { } proto || IsHiddenByStealth(target))
+            return false;
+
+        PredictedSpawnAttachedTo(proto, new EntityCoordinates(target, Vector2.Zero));
         return true;
     }
 
@@ -32,10 +69,15 @@ public sealed partial class ADTHealingVisualsSystem : EntitySystem
             return;
 
         if (!Exists(visuals.ActiveEffect))
+        {
+            RemCompDeferred<ADTHealingVisualsComponent>(target);
             return;
+        }
 
         PredictedQueueDel(visuals.ActiveEffect.Value);
         visuals.ActiveEffect = null;
+        Dirty(target, visuals);
+        RemCompDeferred<ADTHealingVisualsComponent>(target);
     }
 
     private bool IsHiddenByStealth(EntityUid target)

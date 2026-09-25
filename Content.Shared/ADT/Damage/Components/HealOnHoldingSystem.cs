@@ -72,7 +72,7 @@ public sealed class HealOnHoldingSystem : EntitySystem
             var block = EnsureComp<HealOnHoldingBlockedComponent>(mob.Value);
             block.Expires = curTime + TimeSpan.FromSeconds(component.Interval);
 
-            _healVisuals.TryStartHealEffect(mob.Value, HealEffect);
+            _healVisuals.TrySpawnHealEffect(mob.Value, HealEffect);
 
             var healDamage = component.Damage.Clone();
             foreach (var type in healDamage.DamageDict.Keys)
