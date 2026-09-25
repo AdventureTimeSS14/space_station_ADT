@@ -711,3 +711,14 @@
     - ADTGem
     - ADTGemRuby
     - ADTGemSimple
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadShamanSkull
+  name: shaman skull
+  description: The skull of a long dead animal bolted to the front of a repurposed pan.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Lavaland/shaman_skull.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Lavaland/shaman_skull.rsi

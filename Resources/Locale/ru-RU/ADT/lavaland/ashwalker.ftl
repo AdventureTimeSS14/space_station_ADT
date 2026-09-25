@@ -170,3 +170,8 @@ ent-ADTActionTailSweep = Взмах хвостом
     .desc = Хлестните хвостом вокруг себя, сбивая дыхание всем, кто стоит рядом.
 
 adt-ashwalker-no-spacesuit = Пеплоходцы не носят скафандры чужаков.
+adt-ashwalker-tendril-sacred = Шип некрополя священен. Рука не поднимается его ранить.
+
+ent-ADTMobAshWalkerCorpse = { ent-ADTMobAshWalker }
+    .desc = { ent-ADTMobAshWalker.desc }
+ent-ADTLegionCorpseSpawner = спавнер трупа из легиона

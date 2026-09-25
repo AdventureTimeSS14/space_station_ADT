@@ -698,9 +698,9 @@
   blacklist:
     tags:
     - ADTSiliconEmotes
-  chatMessages: [урчит]
+  chatMessages: [утробно урчит]
   chatTriggers:
-    - урчит
-    - урчит.
+    - утробно урчит
+    - утробно урчит.
     - rumble
     - rumbles

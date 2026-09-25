@@ -65,6 +65,9 @@
         Heat: 0.5
   - type: TemperatureProtection
     heatingCoefficient: 0.4
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
   - type: GroupExamine
   - type: Construction
     graph: ADTLightBoneArmor

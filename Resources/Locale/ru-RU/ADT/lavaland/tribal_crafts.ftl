@@ -105,3 +105,6 @@ adt-goliath-plating-examine-max = Полностью укреплено плас
 adt-goliath-plating-worn = Сначала снимите костюм.
 ent-ADTMaterialGoliathHide5 = { ent-MaterialGoliathHide }
     .desc = { ent-MaterialGoliathHide.desc }
+
+ent-ADTClothingHeadShamanSkull = шаманский череп
+    .desc = Череп давно умершего животного, прикрученный к переделанной сковороде.
