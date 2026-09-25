@@ -15642,3 +15642,10 @@ Entries:
     id: 1956
     pr_number: 3436
     time: '2026-09-25T07:24:35Z'
+  - author: Kerfus & prazat911
+    changes:
+      - {message: Добавлены новые мониторы для ИИ (prazat911)., type: Add}
+      - {message: Исправлено отсутствие ВПшных мониторов в кастомизации ИИ., type: Fix}
+    id: 1957
+    pr_number: 3432
+    time: '2026-09-25T07:49:03Z'
