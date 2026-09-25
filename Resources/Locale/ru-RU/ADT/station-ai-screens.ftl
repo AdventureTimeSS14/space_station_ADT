@@ -39,3 +39,7 @@ station-ai-icon-moth = Мотылёк
 station-ai-icon-4chan = 4chan
 station-ai-icon-terminal = Терминал
 station-ai-icon-honey = Мёд
+station-ai-icon-hal9000 = HAL9000
+station-ai-icon-painter = ХудожнИИк
+station-ai-icon-painter2 = ХудожнИИк (альт.)
+

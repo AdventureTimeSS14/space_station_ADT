@@ -446,3 +446,42 @@
   targetNode: pouch
   category: construction-category-utilities
   objectType: Item
+
+- type: constructionGraph
+  id: ADTStonebrickWall
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: wall
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - material: ADTSandstone
+        amount: 20
+        doAfter: 5
+  - node: wall
+    entity: WallSandstone
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: ADTMaterialSandstone1
+        amount: 15
+      - !type:DeleteEntity { }
+      steps:
+      - tool: Prying
+        doAfter: 6
+
+- type: construction
+  id: ADTStonebrickWall
+  graph: ADTStonebrickWall
+  startNode: start
+  targetNode: wall
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked

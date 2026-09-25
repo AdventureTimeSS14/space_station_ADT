@@ -48,8 +48,8 @@
     sprite: ADT/Objects/Specific/Lavaland/Fishing/rods.rsi
     state: tribal
   - type: ADTFishingRod
-    hookSize: 0.2
-    efficiency: 0.95
+    hookSize: 0.28
+    efficiency: 1.25
   - type: Construction
     graph: ADTLavaFishingRodTribal
     node: rod
@@ -174,3 +174,12 @@
   - type: EntityTableSpawner
     table: !type:NestedSelector
       tableId: ADTRandomFishingBaitTable
+
+- type: entity
+  id: ADTFishCatchEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: Effects
+  - type: AnimationPlayer
+  - type: ADTFishCatchEffect

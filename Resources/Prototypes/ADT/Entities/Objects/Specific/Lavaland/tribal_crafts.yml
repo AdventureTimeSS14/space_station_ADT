@@ -1,0 +1,640 @@
+# Хрящевая броня
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ADTClothingOuterCartilagePads
+  name: cartilage shoulder pads
+  description: Thick cartilage plates tied onto the shoulders. Pair them with greaves to get a full set.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Lavaland/cartilage_pads.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Lavaland/cartilage_pads.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.95
+        Heat: 0.8
+        Caustic: 0.8
+  - type: Tag
+    tags:
+    - ADTCartilagePads
+  - type: Construction
+    graph: ADTCartilageArmor
+    node: pads
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ADTClothingOuterCartilageGreaves
+  name: cartilage greaves
+  description: Thick cartilage plates tied onto the legs. Pair them with shoulder pads to get a full set.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Lavaland/cartilage_greaves.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Lavaland/cartilage_greaves.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.95
+        Heat: 0.8
+        Caustic: 0.8
+  - type: Tag
+    tags:
+    - ADTCartilageGreaves
+  - type: Construction
+    graph: ADTCartilageArmor
+    node: greaves
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ADTClothingOuterCartilageArmor
+  name: cartilage armor
+  description: A full set of thick cartilage plates. Light, sturdy and does not burn.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Lavaland/cartilage_armor.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Lavaland/cartilage_armor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.85
+        Heat: 0.5
+        Caustic: 0.5
+  - type: GroupExamine
+  - type: Construction
+    graph: ADTCartilageArmor
+    node: armor
+
+# Одежда
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckSkullCodpiece
+  name: skull codpiece
+  description: A skull shaped ornament, intended to protect the important things in life.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Lavaland/skull_codpiece.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Lavaland/skull_codpiece.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+  - type: Construction
+    graph: ADTSkullCodpiece
+    node: codpiece
+
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ADTClothingBeltHunter
+  name: hunter's belt
+  description: A belt made of sinew and goliath hide. Holds whatever a hunter needs.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Lavaland/hunter_belt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Lavaland/hunter_belt.rsi
+  - type: Item
+    sprite: ADT/Clothing/Lavaland/hunter_belt.rsi
+  - type: Construction
+    graph: ADTHunterBelt
+    node: belt
+
+- type: entity
+  parent: [ ClothingOuterBaseLarge, AllowSuitStorageClothing ]
+  id: ADTClothingOuterDrakeArmor
+  name: drake armour
+  description: A suit of armour fashioned from the remains of an ash drake.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Lavaland/drake_armor.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Lavaland/drake_armor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.6
+        Heat: 0.2
+        Caustic: 0.3
+  - type: TemperatureProtection
+    heatingCoefficient: 0.1
+  - type: FireProtection
+    reduction: 0.8
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadDrakeHood
+    slot: head
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+  - type: GroupExamine
+  - type: Construction
+    graph: ADTDrakeArmor
+    node: armor
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadDrakeHood
+  name: drake helmet
+  description: The skull of a dragon.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Lavaland/drake_hood.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Lavaland/drake_hood.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.85
+        Heat: 0.5
+
+- type: entity
+  parent: [ ClothingOuterBaseLarge, AllowSuitStorageClothing ]
+  id: ADTClothingOuterPathfinderCloak
+  name: pathfinder cloak
+  description: A thick cloak woven from sinew and hides, designed to protect its wearer from hazardous weather.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Lavaland/pathfinder_cloak.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Lavaland/pathfinder_cloak.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.5
+        Caustic: 0.5
+  - type: TemperatureProtection
+    heatingCoefficient: 0.3
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadPathfinderKasa
+    slot: head
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+  - type: GroupExamine
+  - type: Construction
+    graph: ADTPathfinderCloak
+    node: cloak
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadPathfinderKasa
+  name: pathfinder kasa
+  description: A helmet crafted from bones and sinew meant to protect its wearer from hazardous weather.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Lavaland/pathfinder_kasa.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Lavaland/pathfinder_kasa.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+
+- type: entity
+  parent: ClothingShoesBase
+  id: ADTClothingShoesFootwrapsGoliath
+  name: goliath hide footwraps
+  description: Strips of goliath hide wrapped around the feet.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Lavaland/footwraps_goliath.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Lavaland/footwraps_goliath.rsi
+  - type: Construction
+    graph: ADTFootwrapsGoliath
+    node: footwraps
+
+- type: entity
+  parent: ClothingShoesBase
+  id: ADTClothingShoesFootwrapsDragon
+  name: ash drake hide footwraps
+  description: Strips of ash drake hide wrapped around the feet. Warm to the touch.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Lavaland/footwraps_dragon.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Lavaland/footwraps_dragon.rsi
+  - type: Construction
+    graph: ADTFootwrapsDragon
+    node: footwraps
+
+- type: entity
+  parent: ClothingShoesBase
+  id: ADTClothingShoesPathfinderTreads
+  name: pathfinder treads
+  description: Light boots of sinew and weaver chitin.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Lavaland/pathfinder_treads.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Lavaland/pathfinder_treads.rsi
+  - type: Construction
+    graph: ADTPathfinderTreads
+    node: treads
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsWeaverGloves
+  name: weaver chitin gloves
+  description: Fingerless gloves with plates of weaver chitin sewn onto the knuckles.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Lavaland/weaver_gloves.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Lavaland/weaver_gloves.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+  - type: Construction
+    graph: ADTWeaverGloves
+    node: gloves
+
+- type: entity
+  parent: ClothingBeltQuiver
+  id: ADTClothingBeltQuiverWeaver
+  name: weaver chitin quiver
+  description: A quiver made of weaver chitin. Just one spider!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Lavaland/weaver_quiver.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Lavaland/weaver_quiver.rsi
+  - type: Construction
+    graph: ADTWeaverQuiver
+    node: quiver
+
+# Оружие
+
+- type: entity
+  parent: BaseShield
+  id: ADTShieldGoliath
+  name: goliath shield
+  description: A shield made from interwoven plates of goliath hide.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/Tribal/goliath_shield.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Specific/Lavaland/Tribal/goliath_shield.rsi
+    heldPrefix: null
+  - type: Clothing
+    sprite: ADT/Objects/Specific/Lavaland/Tribal/goliath_shield.rsi
+    quickEquip: false
+    slots:
+    - back
+  - type: Construction
+    graph: ADTShieldGoliath
+    node: shield
+
+- type: entity
+  parent: BaseItem
+  id: ADTSpearChitin
+  name: chitin spear
+  description: A bone spear reinforced with weaver chitin.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/Tribal/chitin_spear.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Specific/Lavaland/Tribal/chitin_spear.rsi
+    size: Large
+  - type: Clothing
+    sprite: ADT/Objects/Specific/Lavaland/Tribal/chitin_spear.rsi
+    quickEquip: false
+    slots:
+    - back
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    range: 1.75
+    damage:
+      types:
+        Piercing: 14
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Piercing: 8
+  - type: ThrowingAngle
+    angle: 225
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 18
+  - type: Sharp
+  - type: Tag
+    tags:
+    - Spear
+    - ADTSpearChitin
+  - type: Construction
+    graph: ADTSpearChitin
+    node: spear
+
+- type: entity
+  parent: ADTSpearChitin
+  id: ADTSpearHerBitingEmbrace
+  name: her biting embrace
+  description: A chitin spear with an eel bone blade and a ruby set into the shaft. It hungers.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/Tribal/her_biting_embrace.rsi
+  - type: Item
+    sprite: ADT/Objects/Specific/Lavaland/Tribal/her_biting_embrace.rsi
+  - type: Clothing
+    sprite: ADT/Objects/Specific/Lavaland/Tribal/her_biting_embrace.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 16
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Piercing: 10
+  - type: Tag
+    tags:
+    - Spear
+  - type: Construction
+    graph: ADTSpearChitin
+    node: embrace
+
+- type: entity
+  parent: BowImprovised
+  id: ADTBowBone
+  name: bone bow
+  description: A bow reinforced with bone and goliath hide.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/Tribal/bone_bow.rsi
+  - type: Item
+    sprite: ADT/Objects/Specific/Lavaland/Tribal/bone_bow.rsi
+  - type: Clothing
+    sprite: ADT/Objects/Specific/Lavaland/Tribal/bone_bow.rsi
+  - type: Gun
+    fireRate: 1.3
+  - type: Tag
+    tags:
+    - ADTBowBone
+  - type: Construction
+    graph: ADTBowBone
+    node: bow
+
+- type: entity
+  parent: BaseArrow
+  id: ADTArrowWooden
+  name: wooden arrow
+  description: A simple arrow with a bone tip.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/Tribal/arrows.rsi
+    layers:
+    - state: wooden
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 20
+  - type: Tag
+    tags:
+    - Arrow
+    - ADTArrowWooden
+
+- type: entity
+  parent: BaseArrow
+  id: ADTArrowBoneTipped
+  name: bone-tipped arrow
+  description: An arrow with a sharpened bone tip and chitin fletching.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/Tribal/arrows.rsi
+    layers:
+    - state: bone
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 30
+
+- type: entity
+  parent: BaseArrow
+  id: ADTArrowJagged
+  name: jagged-tipped arrow
+  description: An arrow with a tip made of razor-sharp fish teeth. Leaves nasty wounds.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/Tribal/arrows.rsi
+    layers:
+    - state: jagged
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 20
+        Slash: 10
+
+- type: entity
+  parent: BaseItem
+  id: ADTArrowBundleBase
+  abstract: true
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/Tribal/arrows.rsi
+
+- type: entity
+  parent: ADTArrowBundleBase
+  id: ADTArrowWoodenBundle
+  name: bundle of wooden arrows
+  description: Three arrows tied together. Use it in hand to untie.
+  components:
+  - type: Sprite
+    state: wooden
+  - type: SpawnItemsOnUse
+    items:
+    - id: ADTArrowWooden
+      amount: 3
+  - type: Construction
+    graph: ADTArrowWooden
+    node: bundle
+
+- type: entity
+  parent: ADTArrowBundleBase
+  id: ADTArrowBoneTippedBundle
+  name: bundle of bone-tipped arrows
+  description: Three arrows tied together. Use it in hand to untie.
+  components:
+  - type: Sprite
+    state: bone
+  - type: SpawnItemsOnUse
+    items:
+    - id: ADTArrowBoneTipped
+      amount: 3
+  - type: Construction
+    graph: ADTArrowBoneTipped
+    node: bundle
+
+- type: entity
+  parent: ADTArrowBundleBase
+  id: ADTArrowJaggedBundle
+  name: bundle of jagged-tipped arrows
+  description: Three arrows tied together. Use it in hand to untie.
+  components:
+  - type: Sprite
+    state: jagged
+  - type: SpawnItemsOnUse
+    items:
+    - id: ADTArrowJagged
+      amount: 3
+  - type: Construction
+    graph: ADTArrowJagged
+    node: bundle
+
+- type: entity
+  parent: Bola
+  id: ADTBolaSkull
+  name: skull bola
+  description: A bola made of sinew restraints and skulls. Heavier than it looks.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/Tribal/skull_bola.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Specific/Lavaland/Tribal/skull_bola.rsi
+  - type: Construction
+    graph: ADTBolaSkull
+    node: bola
+
+- type: entity
+  parent: BaseItem
+  id: ADTNutcracker
+  name: nutcracker
+  description: Bone and chitin tongs. Cracks nuts and, if needed, skulls.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/Tribal/nutcracker.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Specific/Lavaland/Tribal/nutcracker.rsi
+    size: Small
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 6
+  - type: Construction
+    graph: ADTNutcracker
+    node: nutcracker
+
+# Инструменты и прочее
+
+- type: entity
+  parent: BaseStorageItem
+  id: ADTSurgeryBagPrimitive
+  name: surgery bag
+  description: A hide bag with crude surgical tools made of bone.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/Tribal/surgery_bag.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Specific/Lavaland/Tribal/surgery_bag.rsi
+    size: Large
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,5,3
+  - type: StorageFill
+    contents:
+    - id: Scalpel
+    - id: Retractor
+    - id: Hemostat
+    - id: Cautery
+    - id: Saw
+  - type: Construction
+    graph: ADTSurgeryBagPrimitive
+    node: bag
+
+- type: entity
+  parent: HydroponicsToolMiniHoe
+  id: ADTRake
+  name: rake
+  description: A wooden rake for tending the tribe's plants.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/Tribal/rake.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Specific/Lavaland/Tribal/rake.rsi
+  - type: Construction
+    graph: ADTRake
+    node: rake
+
+- type: entity
+  parent: Bucket
+  id: ADTBucketWooden
+  name: wooden bucket
+  description: A bucket made of planks. Holds water and, in a pinch, a head.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/Tribal/wooden_bucket.rsi
+    layers:
+    - state: icon
+  - type: Item
+    sprite: ADT/Objects/Specific/Lavaland/Tribal/wooden_bucket.rsi
+  - type: Clothing
+    sprite: ADT/Objects/Specific/Lavaland/Tribal/wooden_bucket.rsi
+  - type: Construction
+    graph: ADTBucketWooden
+    node: bucket
+
+- type: entity
+  parent: Matchstick
+  id: ADTFirebrand
+  name: firebrand
+  description: A dry stick for making fire. Takes a while to make, as making fire is hard work.
+  components:
+  - type: Construction
+    graph: ADTFirebrand
+    node: firebrand
+
+- type: entity
+  parent: BaseItem
+  id: ADTGemRuby
+  name: ruby
+  description: A red gem. Ashwalkers set them into their finest weapons.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/Tribal/ruby.rsi
+    state: icon
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - ADTGem
+    - ADTGemRuby
+  - type: StaticPrice
+    price: 500
