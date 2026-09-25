@@ -58,6 +58,9 @@ public sealed partial class ADTDrillComponent : Component
     public float UnloadRange = 1.5f;
 
     [DataField]
+    public List<EntProtoId> OreContainers = new();
+
+    [DataField]
     public SoundSpecifier StartSound = new SoundPathSpecifier("/Audio/Items/drill_use.ogg");
 
     [DataField]

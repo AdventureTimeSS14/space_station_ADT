@@ -43,6 +43,7 @@
           2: { state: mining_drill_lights_2, visible: true }
           3: { state: mining_drill_lights_3, visible: true }
   - type: ADTDrill
+    oreContainers: [ OreBox, OreBag ]
   - type: ADTDrillSpawner
     spawnChance: 0.1
     spawnRadius: 5

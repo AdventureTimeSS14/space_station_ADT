@@ -59,8 +59,10 @@ public sealed class ADTDrillSystem : EntitySystem
         SubscribeLocalEvent<ADTDrillComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<ADTDrillComponent, PowerChangedEvent>(OnPowerChanged);
         SubscribeLocalEvent<ADTDrillComponent, AnchorStateChangedEvent>(OnAnchorChanged);
+        SubscribeLocalEvent<ADTDrillComponent, EntityTerminatingEvent>(OnDrillTerminating);
         SubscribeLocalEvent<ADTDrillBraceComponent, ComponentInit>(OnBraceInit);
         SubscribeLocalEvent<ADTDrillBraceComponent, AnchorStateChangedEvent>(OnBraceAnchorChanged);
+        SubscribeLocalEvent<ADTDrillBraceComponent, EntityTerminatingEvent>(OnBraceTerminating);
     }
 
     public override void Update(float frameTime)
@@ -92,6 +94,12 @@ public sealed class ADTDrillSystem : EntitySystem
             SystemError(uid, drill, Loc.GetString("drill-error-bracing"));
 
         RefreshAdjacentBraces(uid);
+        UpdateVisuals(uid, drill);
+    }
+
+    private void OnDrillTerminating(EntityUid uid, ADTDrillComponent component, ref EntityTerminatingEvent args)
+    {
+        RefreshAdjacentBraces(uid);
     }
 
     private void OnBraceInit(EntityUid uid, ADTDrillBraceComponent component, ComponentInit args)
@@ -102,6 +110,11 @@ public sealed class ADTDrillSystem : EntitySystem
     private void OnBraceAnchorChanged(EntityUid uid, ADTDrillBraceComponent component, ref AnchorStateChangedEvent args)
     {
         UpdateBraceConnection(uid);
+    }
+
+    private void OnBraceTerminating(EntityUid uid, ADTDrillBraceComponent component, ref EntityTerminatingEvent args)
+    {
+        RefreshAdjacentDrills(uid, Transform(uid), out _);
     }
 
     private void RefreshAdjacentBraces(EntityUid uid)
@@ -260,25 +273,28 @@ public sealed class ADTDrillSystem : EntitySystem
             return;
         }
 
-        if (!IsOnLavaland(uid))
+        if (!drill.Active)
         {
-            _popup.PopupEntity(Loc.GetString("drill-error-lavaland"), uid, args.User);
-            args.Handled = true;
-            return;
-        }
+            if (!IsOnLavaland(uid))
+            {
+                _popup.PopupEntity(Loc.GetString("drill-error-lavaland"), uid, args.User);
+                args.Handled = true;
+                return;
+            }
 
-        if (!HasValidBracing(uid, drill))
-        {
-            _popup.PopupEntity(Loc.GetString("drill-error-bracing"), uid, args.User);
-            args.Handled = true;
-            return;
-        }
+            if (!HasValidBracing(uid, drill))
+            {
+                _popup.PopupEntity(Loc.GetString("drill-error-bracing"), uid, args.User);
+                args.Handled = true;
+                return;
+            }
 
-        if (!HasPower(uid))
-        {
-            _popup.PopupEntity(Loc.GetString("drill-error-power"), uid, args.User);
-            args.Handled = true;
-            return;
+            if (!HasPower(uid))
+            {
+                _popup.PopupEntity(Loc.GetString("drill-error-power"), uid, args.User);
+                args.Handled = true;
+                return;
+            }
         }
 
         drill.Active = !drill.Active;
@@ -322,11 +338,11 @@ public sealed class ADTDrillSystem : EntitySystem
         EntityUid? oreBox = null;
         foreach (var ent in _lookup.GetEntitiesInRange(uid, drill.UnloadRange, LookupFlags.Dynamic | LookupFlags.Sundries))
         {
-            if (TryComp<StorageComponent>(ent, out _))
-            {
-                oreBox = ent;
-                break;
-            }
+            if (!TryComp<StorageComponent>(ent, out _) || !IsOreContainer(ent, drill))
+                continue;
+
+            oreBox = ent;
+            break;
         }
 
         if (oreBox == null)
@@ -364,6 +380,34 @@ public sealed class ADTDrillSystem : EntitySystem
         UpdateVisuals(uid, drill);
     }
 
+    private bool IsOreContainer(EntityUid uid, ADTDrillComponent drill)
+    {
+        if (!TryComp<MetaDataComponent>(uid, out var meta) || meta.EntityPrototype is not { } proto)
+            return false;
+
+        foreach (var containerId in drill.OreContainers)
+        {
+            if (IsOrDerivesFrom(proto, containerId))
+                return true;
+        }
+
+        return false;
+    }
+
+    private bool IsOrDerivesFrom(EntityPrototype proto, EntProtoId ancestor)
+    {
+        if (proto.ID == ancestor)
+            return true;
+
+        foreach (var parent in proto.Parents)
+        {
+            if (_proto.TryIndex<EntityPrototype>(parent, out var parentProto) && IsOrDerivesFrom(parentProto, ancestor))
+                return true;
+        }
+
+        return false;
+    }
+
     private void OnExamined(EntityUid uid, ADTDrillComponent drill, ExaminedEvent args)
     {
         if (!args.IsInDetailsRange)
@@ -390,6 +434,9 @@ public sealed class ADTDrillSystem : EntitySystem
         var count = 0;
         ForEachAdjacentAnchored(Transform(uid), ent =>
         {
+            if (TerminatingOrDeleted(ent))
+                return;
+
             if (HasComp<ADTDrillBraceComponent>(ent))
                 count++;
         });
@@ -401,6 +448,9 @@ public sealed class ADTDrillSystem : EntitySystem
         var found = EntityUid.Invalid;
         ForEachAdjacentAnchored(xform, ent =>
         {
+            if (TerminatingOrDeleted(ent))
+                return;
+
             if (!TryComp<ADTDrillComponent>(ent, out var drill))
                 return;
 
