@@ -4,6 +4,7 @@ using Content.Server.Fluids.EntitySystems;
 using Content.Shared.ADT.Lavaland.Components;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage.Systems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
@@ -43,8 +44,8 @@ public sealed class ADTFishLootSystem : EntitySystem
 
         if (HasComp<MobStateComponent>(target))
         {
-            var solution = new Solution(ent.Comp.Reagent, ent.Comp.MobAmount);
-            _reactive.ReactionEntity(target, ReactionMethod.Touch, solution);
+            var reagent = new ReagentQuantity(ent.Comp.Reagent, ent.Comp.MobAmount);
+            _reactive.ReactionEntity(target, ReactionMethod.Touch, reagent);
             _popup.PopupEntity(Loc.GetString("adt-acid-bladder-burst-mob", ("target", Identity.Entity(target, EntityManager))), target, PopupType.MediumCaution);
         }
         else if (_tag.HasTag(target, WallTag))
