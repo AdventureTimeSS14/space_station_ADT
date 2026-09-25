@@ -50,3 +50,15 @@ stack-adt-leather =
         [few] куска кожи
        *[other] кусков кожи
     }
+stack-adt-hairless-hide =
+    { $amount ->
+        [1] безволосая шкура
+        [few] безволосые шкуры
+       *[other] безволосых шкур
+    }
+stack-adt-wet-leather =
+    { $amount ->
+        [1] кусок мокрой кожи
+        [few] куска мокрой кожи
+       *[other] кусков мокрой кожи
+    }

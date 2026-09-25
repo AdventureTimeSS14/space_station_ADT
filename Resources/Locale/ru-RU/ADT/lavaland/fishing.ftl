@@ -96,7 +96,11 @@ ent-ADTMaterialWeaverChitin = хитин ткача
 ent-ADTMaterialWeaverChitin1 = { ent-ADTMaterialWeaverChitin }
     .desc = { ent-ADTMaterialWeaverChitin.desc }
 ent-ADTClothingNeckGemNecklace = самоцветное ожерелье
-    .desc = Простое ожерелье с гнездом для самоцвета.
+    .desc = Простое ожерелье с гнездом для самоцвета. Носится на шее или крепится к комбинезону.
 
 adt-bait-dig-nothing = Вы перекапываете базальт, но ничего не находите.
 adt-bait-dig-found = Вы выкапываете из базальта { $bait }!
+adt-acid-bladder-burst-mob = Кислотный пузырёк разрывается, разбрызгивая кислоту по телу { $target }!
+adt-acid-bladder-burst-wall = Кислотный пузырёк разрывается о стену, медленно её расплавляя!
+adt-conductive-organ-no-seed = Внутри нет семян!
+adt-conductive-organ-used = Вы аккуратно втираете проводящий орган в { $target }.

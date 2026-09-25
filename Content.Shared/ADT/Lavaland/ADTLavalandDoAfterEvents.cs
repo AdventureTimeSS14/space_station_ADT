@@ -10,6 +10,21 @@ public sealed partial class ADTGraceCutDoAfterEvent : SimpleDoAfterEvent
 }
 
 [Serializable, NetSerializable]
+public sealed partial class ADTDehairDoAfterEvent : SimpleDoAfterEvent
+{
+}
+
+[Serializable, NetSerializable]
+public sealed partial class ADTGemWeldDoAfterEvent : SimpleDoAfterEvent
+{
+}
+
+[Serializable, NetSerializable]
+public sealed partial class ADTRuperiumCutDoAfterEvent : SimpleDoAfterEvent
+{
+}
+
+[Serializable, NetSerializable]
 public sealed partial class ADTBaitDigDoAfterEvent : DoAfterEvent
 {
     [DataField]
@@ -26,3 +41,6 @@ public sealed partial class ADTBaitDigDoAfterEvent : DoAfterEvent
 
     public override DoAfterEvent Clone() => this;
 }
+
+[Serializable, NetSerializable]
+public sealed partial class ADTGoliathPlateDoAfterEvent : SimpleDoAfterEvent;
