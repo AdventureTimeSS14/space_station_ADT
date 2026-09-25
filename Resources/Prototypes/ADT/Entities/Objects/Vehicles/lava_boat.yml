@@ -83,6 +83,9 @@
     damage:
       types:
         Blunt: 12
+  - type: Construction
+    graph: ADTOar
+    node: oar
   - type: Tag
     tags:
     - VehicleKey

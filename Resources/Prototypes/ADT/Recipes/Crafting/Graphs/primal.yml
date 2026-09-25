@@ -766,7 +766,16 @@
         amount: 3
         doAfter: 1
   - node: soil
-    entity: hydroponicsSoil
+    entity: ADTSandstoneSoilEntity
+
+- type: entity
+  parent: hydroponicsSoil
+  id: ADTSandstoneSoilEntity
+  name: soil
+  components:
+  - type: Construction
+    graph: ADTSandstoneSoil
+    node: soil
 
 - type: construction
   id: ADTSandstoneSoil
@@ -794,7 +803,16 @@
       - material: ADTSandstone
         amount: 1
   - node: sand
-    entity: SpaceQuartz1
+    entity: ADTSandstoneToSandEntity
+
+- type: entity
+  parent: SpaceQuartz1
+  id: ADTSandstoneToSandEntity
+  name: sand
+  components:
+  - type: Construction
+    graph: ADTSandstoneToSand
+    node: sand
 
 - type: construction
   id: ADTSandstoneToSand
