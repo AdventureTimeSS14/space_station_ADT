@@ -1,0 +1,185 @@
+- type: entity
+  id: ADTLavaFishingRodBase
+  parent: ADTBaseFishingRod
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/Fishing/rods.rsi
+  - type: ItemMapper
+    sprite: ADT/Objects/Specific/Lavaland/Fishing/rods.rsi
+    mapLayers:
+      bait_ash_eater:
+        whitelist:
+          tags:
+          - ADTBaitAshEater
+      bait_bloody_leach:
+        whitelist:
+          tags:
+          - ADTBaitBloodyLeach
+      bait_goldgrub_larva:
+        whitelist:
+          tags:
+          - ADTBaitGoldgrubLarva
+  - type: Appearance
+
+- type: entity
+  id: ADTLavaFishingRod
+  parent: ADTLavaFishingRodBase
+  name: ol' reliable
+  description: An old, weathered fishing rod. If it has lasted this long without falling apart, you definitely should not worry about its reliability.
+  components:
+  - type: Sprite
+    layers:
+    - state: rod
+  - type: Icon
+    sprite: ADT/Objects/Specific/Lavaland/Fishing/rods.rsi
+    state: rod
+
+- type: entity
+  id: ADTLavaFishingRodTribal
+  parent: ADTLavaFishingRodBase
+  name: tribal fishing rod
+  description: A primitive bone fishing rod that uses watcher sinew as an extremely durable line. It is not quite clear why this line does not melt in lava.
+  components:
+  - type: Sprite
+    layers:
+    - state: tribal
+  - type: Icon
+    sprite: ADT/Objects/Specific/Lavaland/Fishing/rods.rsi
+    state: tribal
+  - type: ADTFishingRod
+    hookSize: 0.28
+    efficiency: 1.25
+  - type: Construction
+    graph: ADTLavaFishingRodTribal
+    node: rod
+
+- type: entity
+  id: ADTFishingBobber
+  name: bobber
+  categories: [ HideSpawnMenu ]
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/Fishing/bobber.rsi
+    drawdepth: Objects
+    layers:
+    - state: bobber
+
+- type: entity
+  id: ADTFishingBaitBase
+  parent: FoodBase
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/Fishing/bait.rsi
+  - type: Item
+    size: Tiny
+  - type: ADTFishingBait
+  - type: FlavorProfile
+    flavors:
+    - adtash
+    - adthopelessness
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 1
+  - type: Tag
+    tags:
+    - ADTFishingBait
+
+- type: entity
+  id: ADTFishingBaitAshEater
+  parent: ADTFishingBaitBase
+  name: ash eater
+  description: A tiny worm with a mouth full of incredibly sharp teeth. Rumor has it these little ones can grow to the size of a whole city. Ash must flow.
+  components:
+  - type: Sprite
+    state: ash_eater
+  - type: Tag
+    tags:
+    - ADTFishingBait
+    - ADTBaitAshEater
+
+- type: entity
+  id: ADTFishingBaitBloodyLeach
+  parent: ADTFishingBaitBase
+  name: bloody leach
+  description: A parasitic lifeform of Lazis Ardax that clings to bare skin and feeds on its victims. Its belly reddens with the blood it has drunk.
+  components:
+  - type: Sprite
+    state: bloody_leach
+  - type: Tag
+    tags:
+    - ADTFishingBait
+    - ADTBaitBloodyLeach
+
+- type: entity
+  id: ADTFishingBaitGoldgrubLarva
+  parent: ADTFishingBaitBase
+  name: goldgrub larva
+  description: A small worm that feeds on minerals buried in the ash. It is just as skittish as its older kin.
+  components:
+  - type: Sprite
+    state: goldgrub_larva
+  - type: Tag
+    tags:
+    - ADTFishingBait
+    - ADTBaitGoldgrubLarva
+
+- type: entity
+  id: ADTFoodCharredKrill
+  parent: FoodBase
+  name: charred krill
+  description: One of the rarest inhabitants of Lazis Ardax, considered extinct for many years. This shrimp is a favourite treat of the local underlava fauna.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/Fishing/bait.rsi
+    state: charred_krill
+  - type: Item
+    size: Tiny
+  - type: ADTCharredKrill
+  - type: FlavorProfile
+    flavors:
+    - adtash
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 1
+  - type: Tag
+    tags:
+    - ADTCharredKrill
+
+- type: entity
+  id: ADTRandomFishingBaitSpawner
+  parent: MarkerBase
+  name: random bait spawner
+  suffix: 40%
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: ADT/Objects/Specific/Lavaland/Fishing/bait.rsi
+      state: ash_eater
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: ADTRandomFishingBaitTable
+
+- type: entity
+  id: ADTFishCatchEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: Effects
+  - type: AnimationPlayer
+  - type: ADTFishCatchEffect

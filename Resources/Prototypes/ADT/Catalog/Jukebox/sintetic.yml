@@ -1,0 +1,59 @@
+- type: jukebox
+  id: ADTRise
+  name: 1. Rise - Culture Shock
+  path:
+    path: /Audio/ADT/Jukebox/sintetic/Rise.ogg
+
+- type: jukebox
+  id: ADTDarkRain
+  name: 2. Dark Rain - Current Value
+  path:
+    path: /Audio/ADT/Jukebox/sintetic/Dark-Rain.ogg
+
+- type: jukebox
+  id: ADTHoohah
+  name: 3. Hoohah - Fox Stevenson & Curbi
+  path:
+    path: /Audio/ADT/Jukebox/sintetic/Hoohah.ogg
+
+- type: jukebox
+  id: ADTLiveLikeYouWannaLive
+  name: 4. Live Like You Wanna Live - Greenskeepers
+  path:
+    path: /Audio/ADT/Jukebox/sintetic/Live-Like-You-Wanna-Live.ogg
+
+- type: jukebox
+  id: ADTGranite
+  name: 5. Granite - Pendulum
+  path:
+    path: /Audio/ADT/Jukebox/sintetic/Granite.ogg
+
+- type: jukebox
+  id: ADTThePretender
+  name: 6. The Pretender - Infected Mushroom
+  path:
+    path: /Audio/ADT/Jukebox/sintetic/The-Pretender.ogg
+
+- type: jukebox
+  id: ADTPressStartToDie
+  name: 7. Press start to die - Psybolord
+  path:
+    path: /Audio/ADT/Jukebox/sintetic/Press-Start-To-Die.ogg
+
+- type: jukebox
+  id: ADTRAINDROP
+  name: 8. RAINDROP - Ocean Grove
+  path:
+    path: /Audio/ADT/Jukebox/sintetic/RAINDROP.ogg
+
+- type: jukebox
+  id: ADTRefusion
+  name: 9. Refusion - FSTK
+  path:
+    path: /Audio/ADT/Jukebox/sintetic/Refusion.ogg
+
+- type: jukebox
+  id: ADTCyberiaLyr3
+  name: 10. Cyberia Lyr3 - Sewerslvt
+  path:
+    path: /Audio/ADT/Jukebox/sintetic/Cyberia-Lyr3.ogg

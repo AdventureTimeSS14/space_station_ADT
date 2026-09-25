@@ -3,7 +3,6 @@ using Content.Shared.ADT.Xenobiology;
 using Content.Shared.ADT.Xenobiology.Components;
 using Content.Shared.ADT.Xenobiology.Components.Equipment;
 using Content.Shared.ADT.Xenobiology.Systems;
-using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
@@ -111,31 +110,33 @@ public sealed partial class SlimeScannerSystem : EntitySystem
                 slime.SlimeColor.ToHex(),
                 slime.MutationChance,
                 mutations,
-                slime.ExtractsProduced,
+                slime.ExtractsProduced + slime.SlimeSteroidAmount,
                 null,
                 density,
                 maxSlimes,
                 slowdown);
         }
 
-        if (TryComp<SlimeExtractComponent>(target, out var _) &&
-            TryComp<ReactiveComponent>(target, out var reactive) &&
-            reactive.Reactions != null)
+        if (TryComp<SlimeExtractComponent>(target, out var extract))
         {
             var reagents = new List<ExtractReagentInfo>();
-            foreach (var reaction in reactive.Reactions)
+            var seenReagents = new HashSet<string>();
+            foreach (var reactionId in extract.ExtractReactions)
             {
-                if (reaction.Reagents == null)
+                if (!_prot.TryIndex<ExtractReactionPrototype>(reactionId, out var reaction))
                     continue;
 
-                foreach (var reagentId in reaction.Reagents)
+                foreach (var requirement in reaction.Requirements.Keys)
                 {
-                    if (_prot.TryIndex<ReagentPrototype>(reagentId, out var reagentProto))
-                    {
-                        reagents.Add(new ExtractReagentInfo(
-                            reagentProto.ID,
-                            reagentProto.SubstanceColor.ToHex()));
-                    }
+                    if (!_prot.TryIndex<ReagentPrototype>(requirement, out var reagentProto))
+                        continue;
+
+                    if (!seenReagents.Add(reagentProto.ID))
+                        continue;
+
+                    reagents.Add(new ExtractReagentInfo(
+                        reagentProto.ID,
+                        reagentProto.SubstanceColor.ToHex()));
                 }
             }
 

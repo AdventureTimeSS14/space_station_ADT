@@ -124,7 +124,7 @@
   id: MobNovakid
   components:
   - type: Hunger
-    baseDecayRate: 0.025
+    baseDecayRate: 0.03125
     lastAuthoritativeHungerValue: 400
     thresholds:
       Overfed: 400
@@ -236,6 +236,7 @@
     groups:
       Flammable: [ Touch ]
       Extinguish: [ Touch ]
+      Acidic: [ Touch, Ingestion ]
     reactions:
     - reagents: [Water, SpaceCleaner]
       methods: [Touch]

@@ -89,6 +89,8 @@ uplink-BuldogXL-ammo-bundle-name = Набор XL-магазинов для "Бу
 uplink-BuldogXL-ammo-bundle-desc = Набор, содержащий 4-XL магазина для дробовика "Бульдог". Имеет 2 барабана с дробью и 2 барабана с пулями
 uplink-xc67-name = Набор "xC-67"
 uplink-xc67-description = Набор, содержащий штурмовую винтовку хС-67 и три магазина к ней.
+uplink-flamethrower-name = Набор огнемётчика
+uplink-flamethrower-description = Набор, содержащий огнемёт FmW60, баки с топливом и огнетушители.
 uplink-xc67ammo-name = Набор магазинов для xC-67
 uplink-xc67ammo-description = Набор, содержащий четыре расширенных магазина от хС-67 под патрон 6.5 мм ТСФ.
 uplink-AKMS-bundle-name = Набор "АКМ"
@@ -261,3 +263,6 @@ uplink-box-music-disks-desc = Тихо выполнять цели - не ваш
 
 uplink-code-speak-implanter-name = Имплантер Кодового языка
 uplink-code-speak-implanter-desc = Каждый уважающий себя ядерный оперативник знает этот язык. Имплантер замаскирован под обычный имплантер Общегалактического языка.
+
+uplink-medbeam-name = Мед-ган
+uplink-medbeam-desc = Лечащий луч, цепляющийся за цель. Лечит быстрее гражданской версии, но скрещённые лучи взрываются вместе с обоими устройствами.

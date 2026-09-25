@@ -1,0 +1,44 @@
+- files: ["prihodite_v_moy_dom.ogg"]
+  license: "Custom"
+  copyright: "Михаил Круг - Приходите в мой дом."
+  source: "https://www.youtube.com/watch?v=dd7C4sZjA4o&list=RDdd7C4sZjA4o&start_radio=1"
+
+- files: ["vladimirskiy_tsentral.ogg"]
+  license: "Custom"
+  copyright: "Михаил Круг - Владимирский централ."
+  source: "https://www.youtube.com/watch?v=2I-xj0VK978&list=RD2I-xj0VK978&start_radio=1"
+
+- files: ["zolotye_kupola.ogg"]
+  license: "Custom"
+  copyright: "Михаил Круг - Золотые купола."
+  source: "https://www.youtube.com/watch?v=hpuBgLBrhfo&list=RDhpuBgLBrhfo&start_radio=1"
+
+- files: ["zhigan_limon.ogg"]
+  license: "Custom"
+  copyright: "Михаил Круг - Жиган-лимон."
+  source: "https://www.youtube.com/watch?v=Q8IfcK-BQSQ&list=RDQ8IfcK-BQSQ&start_radio=1"
+
+- files: ["frayer.ogg"]
+  license: "Custom"
+  copyright: "Михаил Круг - Фраер."
+  source: "https://www.youtube.com/watch?v=MwKEEH66i3Q&list=RDMwKEEH66i3Q&start_radio=1"
+
+- files: ["ispoved.ogg"]
+  license: "Custom"
+  copyright: "Михаил Круг - Исповедь."
+  source: "https://www.youtube.com/watch?v=2tmWm-NrkjI&list=RD2tmWm-NrkjI&start_radio=1"
+
+- files: ["attestat.ogg"]
+  license: "Custom"
+  copyright: "Бутырка - Аттестат."
+  source: "https://www.youtube.com/watch?v=D_kFQ9oKDaE&list=RDD_kFQ9oKDaE&start_radio=1"
+
+- files: ["kakaya_osen_v_lageryah.ogg"]
+  license: "Custom"
+  copyright: "Бутырка - Какая осень в лагерях."
+  source: "https://www.youtube.com/watch?v=pNLDn1dUEAI&list=RDpNLDn1dUEAI&start_radio=1"
+
+- files: ["sharik.ogg"]
+  license: "Custom"
+  copyright: "Бутырка - Шарик."
+  source: "https://www.youtube.com/watch?v=xjHKLjzVqo8&list=RDxjHKLjzVqo8&start_radio=1"

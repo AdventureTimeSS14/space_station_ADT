@@ -23,6 +23,16 @@
     ClarinetInstrument: 1
     FluteInstrument: 1
     ADTMusicDiskMMachine: 1
+    ADTMusicDiskCosmic: 1
+    ADTMusicDiskFlatout: 1
+    ADTMusicDiskFunc: 1
+    ADTMusicDiskGame: 1
+    ADTMusicDiskGroove: 1
+    ADTMusicDiskMewgenics: 1
+    AADTMusicDiskNostalgia: 1
+    ADTMusicDiskRomantic: 1
+    ADTMusicDiskSintetic: 1
+    ADTMusicDiskVokaloid: 1
   contrabandInventory:
     ToyFigurineMusician: 1
     SuperSynthesizerNoLimitInstrument: 1

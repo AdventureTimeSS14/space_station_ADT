@@ -246,14 +246,14 @@
         250: 0.7
     # ADT-tweak-start: restored moth-specific features
     - type: Sprite
-      scale: 0.92, 0.92
+      scale: 0.90, 0.90
     - type: DashAction
       actionProto: ADTActionDashMoth
     - type: SizeAttributeWhitelist # Frontier
       tall: true
       tallscale: 1
       short: true
-      shortscale: 0.85
+      shortscale: 0.82
     - type: NightVision
       innate: true
       shader: ADTModernNightVisionShaderMedium
@@ -382,11 +382,16 @@
           - ClothMade
           - Paper
           - Pill
-          # ADT-Tweak start: моли могут есть фрукты, овощи, и вайтлистнутую еду
+          # ADT-Tweak start: моли едят любую еду, кроме мяса и снеков
           - Fruit
           - Vegetable
           - ADTMothFriendlyFood
-          # ADT-Tweak end
+      isSpecialDigestibleExclusive: false
+      specialDigestibleBlacklist:
+        tags:
+          - Meat
+          - FoodSnack
+      # ADT-Tweak end
 
 - type: entity
   parent: [OrganBaseLiver, OrganMothInternal, OrganAnimalMetabolizer] # ADT-tweak removed OrganSpriteHumanInternal
