@@ -11,6 +11,7 @@ using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.Legion;
@@ -106,17 +107,8 @@ public sealed class ADTLegionSkullSystem : EntitySystem
 
     private void Infest(Entity<ADTLegionSkullComponent> ent, EntityUid target)
     {
-        if (!TryKill(target, ent.Owner))
+        if (InfestTarget(target, ent.Comp.LegionProto, ent.Comp.InfestMessage, ent.Owner) is not { } legion)
             return;
-
-        var coords = _transform.GetMoverCoordinates(target);
-
-        _popup.PopupCoordinates(
-            Loc.GetString(ent.Comp.InfestMessage, ("target", Identity.Entity(target, EntityManager))),
-            coords,
-            PopupType.LargeCaution);
-
-        var legion = Spawn(ent.Comp.LegionProto, coords);
 
         if (TryComp<NpcFactionMemberComponent>(ent.Owner, out var ourFaction))
         {
@@ -124,13 +116,30 @@ public sealed class ADTLegionSkullSystem : EntitySystem
             _faction.AddFactions(legion, ourFaction.Factions);
         }
 
-        if (TryComp<ADTLegionComponent>(legion, out var legionComp))
-            _legion.TryStoreBody((legion, legionComp), target);
-
         QueueDel(ent.Owner);
     }
 
-    private bool TryKill(EntityUid target, EntityUid origin)
+    public EntityUid? InfestTarget(EntityUid target, EntProtoId legionProto, LocId message, EntityUid? origin = null)
+    {
+        if (!TryKill(target, origin))
+            return null;
+
+        var coords = _transform.GetMoverCoordinates(target);
+
+        _popup.PopupCoordinates(
+            Loc.GetString(message, ("target", Identity.Entity(target, EntityManager))),
+            coords,
+            PopupType.LargeCaution);
+
+        var legion = Spawn(legionProto, coords);
+
+        if (TryComp<ADTLegionComponent>(legion, out var legionComp))
+            _legion.TryStoreBody((legion, legionComp), target);
+
+        return legion;
+    }
+
+    private bool TryKill(EntityUid target, EntityUid? origin)
     {
         if (!TryComp<DamageableComponent>(target, out var damageable))
             return false;

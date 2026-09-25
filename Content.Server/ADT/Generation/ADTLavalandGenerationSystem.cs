@@ -12,7 +12,7 @@ using Robust.Shared.Random;
 
 namespace Content.Server.ADT.Generation;
 
-public sealed class ADTLavalandGenerationSystem : EntitySystem
+public sealed partial class ADTLavalandGenerationSystem : EntitySystem
 {
     [Dependency] private readonly BiomeSystem _biome = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
@@ -184,6 +184,8 @@ public sealed class ADTLavalandGenerationSystem : EntitySystem
                 placed.Add(coords.Position);
             }
         }
+
+        GenerateRivers(ent);
     }
 
     private List<ProtoId<ADTDungeonRoomPrototype>>? BuildRoomQueue(LavalandScatterGroup group)

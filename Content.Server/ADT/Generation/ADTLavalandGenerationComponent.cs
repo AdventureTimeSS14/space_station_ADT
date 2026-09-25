@@ -37,6 +37,36 @@ public sealed partial class ADTLavalandGenerationComponent : Component
     [DataField]
     public List<LavalandScatterGroup> Groups = new();
 
+    [DataField]
+    public int RiverNodes;
+
+    [DataField]
+    public float RiverMinRadius = 60f;
+
+    [DataField]
+    public float RiverMaxRadius = 200f;
+
+    [DataField]
+    public float RiverDetourChance = 0.2f;
+
+    [DataField]
+    public float RiverSpreadChance = 0.25f;
+
+    [DataField]
+    public float RiverSpreadLoss = 0.11f;
+
+    [DataField]
+    public float RiverRoomClearance = 20f;
+
+    [DataField]
+    public EntProtoId? RiverEntity;
+
+    [DataField]
+    public EntProtoId? RiverBridge;
+
+    [DataField]
+    public float RiverBridgeChance = 0.01f;
+
     [ViewVariables]
     public Vector2 BaseCenter = Vector2.Zero;
 
