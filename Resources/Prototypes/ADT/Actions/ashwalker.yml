@@ -72,6 +72,6 @@
     icon:
       sprite: ADT/Interface/Actions/ashwalker.rsi
       state: tail_cut
-    useDelay: 1
+    useDelay: 10
   - type: InstantAction
     event: !type:ADTTailSweepActionEvent
