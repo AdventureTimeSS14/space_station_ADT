@@ -163,9 +163,7 @@ public sealed class ADTDrillSystem : EntitySystem
         }
 
         var budget = _random.Next(drill.MinOrePerDeposit, drill.MaxOrePerDeposit + 1);
-        AddOreToStorage(uid, drill, budget);
-
-        if (drill.Error)
+        if (!TryAddOreToStorage(uid, drill, budget))
             return;
 
         TrySpawnDrillMob(uid);
@@ -188,13 +186,16 @@ public sealed class ADTDrillSystem : EntitySystem
     private bool IsOnLavaland(EntityUid uid)
         => Transform(uid).MapUid is { } map && HasComp<ADTLavalandMapComponent>(map);
 
-    private void AddOreToStorage(EntityUid uid, ADTDrillComponent drill, int budget)
+    private bool TryAddOreToStorage(EntityUid uid, ADTDrillComponent drill, int budget)
     {
         if (budget <= 0)
-            return;
+            return true;
 
         if (!_container.TryGetContainer(uid, drill.ContainerId, out var container))
-            return;
+        {
+            SystemError(uid, drill, Loc.GetString("drill-error-storage"));
+            return false;
+        }
 
         var distribution = _proto.Index<WeightedRandomOrePrototype>(drill.OreDistributionId);
         var xform = Transform(uid);
@@ -204,7 +205,7 @@ public sealed class ADTDrillSystem : EntitySystem
             if (container.ContainedEntities.Count >= GetCapacity(drill))
             {
                 SystemError(uid, drill, Loc.GetString("drill-error-storage"));
-                return;
+                return false;
             }
 
             budget--;
@@ -217,8 +218,14 @@ public sealed class ADTDrillSystem : EntitySystem
 
             var ent = Spawn(ore.OreEntity, xform.Coordinates);
             if (!_container.Insert(ent, container))
+            {
                 QueueDel(ent);
+                SystemError(uid, drill, Loc.GetString("drill-error-storage"));
+                return false;
+            }
         }
+
+        return true;
     }
 
     private void TrySpawnDrillMob(EntityUid uid)
