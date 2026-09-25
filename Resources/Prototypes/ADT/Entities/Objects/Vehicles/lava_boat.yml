@@ -16,7 +16,7 @@
     eastOver: true
     westOver: true
   - type: Strap
-    buckleOffset: "0, 0.06"
+    #buckleOffset: "0, 0.06" fix todo
   - type: InputMover
   - type: MovementSpeedModifier
     baseAcceleration: 2.5
