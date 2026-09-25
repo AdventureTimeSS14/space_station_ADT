@@ -947,10 +947,25 @@
   id: ADTAshFloraShavings
 
 - type: Tag
+  id: ADTSlidingPuzzle
+
+- type: Tag
   id: ADTMagmaGem
 
 - type: Tag
   id: ADTGem
+
+- type: Tag
+  id: ADTGemAmber
+
+- type: Tag
+  id: ADTGemSimple
+
+- type: Tag
+  id: ADTReishi
+
+- type: Tag
+  id: ADTThaliPortion
 
 - type: Tag
   id: ADTAshDrakeHide
@@ -1071,3 +1086,9 @@
 
 - type: Tag
   id: ADTJanicartUpgradeSpeed
+
+- type: Tag
+  id: ADTOar
+
+- type: Tag
+  id: ADTCoaltreeLog

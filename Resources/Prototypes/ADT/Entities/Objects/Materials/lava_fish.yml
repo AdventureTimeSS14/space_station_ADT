@@ -25,6 +25,8 @@
     sprite: ADT/Objects/Specific/Lavaland/Fishing/fish_loot.rsi
     state: cartilage_plate
   - type: Item
+    heldPrefix: cartilage_plate
+    sprite: ADT/Objects/Specific/Lavaland/Fishing/fish_loot.rsi
     size: Small
   - type: Stack
     stackType: ADTCartilagePlate
@@ -72,6 +74,8 @@
     sprite: ADT/Objects/Specific/Lavaland/Fishing/fish_loot.rsi
     state: razor_sharp_teeth
   - type: Item
+    heldPrefix: razor_sharp_teeth
+    sprite: ADT/Objects/Specific/Lavaland/Fishing/fish_loot.rsi
     size: Small
   - type: Stack
     stackType: ADTRazorTeeth
@@ -98,6 +102,8 @@
   name: eel bone knife
   description: The razor sharp tail of a bottom eel, fitted with a wrapped handle. The tribe uses it as a spear tip just as often.
   components:
+  - type: Item
+    heldPrefix: eel_knife
   - type: Sprite
     sprite: ADT/Objects/Specific/Lavaland/Fishing/fish_loot.rsi
     state: eel_knife

@@ -165,7 +165,7 @@
         state: dragon
   - type: ConditionalSpawner
     prototypes:
-      - MobDrake
+      - ADTMegaFaunaDrake
 
 - type: entity
   name: Abomination Spawner
