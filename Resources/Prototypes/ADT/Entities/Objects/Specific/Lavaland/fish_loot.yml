@@ -86,13 +86,7 @@
         reagents:
         - ReagentId: EZNutrient
           Quantity: 30
-  - type: DrainableSolution
-    solution: beaker
-  - type: ExaminableSolution
-    solution: beaker
-  - type: SolutionTransfer
-    canChangeTransferAmount: true
-    maxTransferAmount: 30
+  - type: ADTConductiveOrgan
   - type: Spillable
     solution: beaker
   - type: Tag
@@ -179,6 +173,10 @@
     solution: puddle
   - type: ExaminableSolution
     solution: puddle
+  - type: ADTAcidBladder
+    wallDamage:
+      types:
+        Structural: 100
   - type: Tag
     tags:
     - ADTLavaFishPart

@@ -240,13 +240,9 @@
           Quantity: 10
         - ReagentId: Vitamin
           Quantity: 6
-  - type: TriggerOnIngested
-  - type: EntityEffectOnTrigger
-    targetUser: true
+  - type: ADTStatusEffectsOnIngest
     effects:
-    - !type:ModifyStatusEffect
-      effectProto: ADTStatusEffectForcedSneeze
-      time: 60
+      ADTStatusEffectForcedSneeze: 60
 
 - type: entity
   id: ADTFoodLavalandFineMeal
@@ -268,13 +264,9 @@
           Quantity: 6
         - ReagentId: Fat
           Quantity: 4
-  - type: TriggerOnIngested
-  - type: EntityEffectOnTrigger
-    targetUser: true
+  - type: ADTStatusEffectsOnIngest
     effects:
-    - !type:ModifyStatusEffect
-      effectProto: ADTStatusEffectForcedRumble
-      time: 30
+      ADTStatusEffectForcedRumble: 30
 
 - type: entity
   id: ADTFoodThaliLazisWing
