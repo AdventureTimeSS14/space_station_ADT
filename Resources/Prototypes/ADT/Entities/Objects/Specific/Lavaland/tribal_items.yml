@@ -39,17 +39,20 @@
     attackRate: 0.75
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
+    angle: 180
     damage:
       types:
-        Blunt: 7
-        Slash: 10
+        Blunt: 0
+        Slash: 7
         Structural: 15
   - type: IncreaseDamageOnWield
     damage:
       types:
         Slash: 18
+  - type: ArmorPenetration
+    penetration: 0.3
   - type: Sharp
-    butcherDelayModifier: 0.5
+    butcherDelayModifier: 0.125
   - type: Construction
     graph: ADTGuillotine
     node: guillotine
@@ -85,10 +88,11 @@
   description: A splint of polished bone lashed with sinew. Holds a broken limb together well enough to walk it off.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/medical.rsi
-    state: brutepack
+    sprite: ADT/Objects/Specific/Lavaland/Tribal/tribal_splint.rsi
+    state: icon
   - type: Item
-    heldPrefix: brutepack
+    heldPrefix: splint
+    sprite: ADT/Objects/Specific/Lavaland/Tribal/tribal_splint.rsi
   - type: Healing
     damageContainers:
     - Biological
@@ -236,6 +240,13 @@
           Quantity: 10
         - ReagentId: Vitamin
           Quantity: 6
+  - type: TriggerOnIngested
+  - type: EntityEffectOnTrigger
+    targetUser: true
+    effects:
+    - !type:ModifyStatusEffect
+      effectProto: ADTStatusEffectForcedSneeze
+      time: 60
 
 - type: entity
   id: ADTFoodLavalandFineMeal
@@ -257,6 +268,13 @@
           Quantity: 6
         - ReagentId: Fat
           Quantity: 4
+  - type: TriggerOnIngested
+  - type: EntityEffectOnTrigger
+    targetUser: true
+    effects:
+    - !type:ModifyStatusEffect
+      effectProto: ADTStatusEffectForcedRumble
+      time: 30
 
 - type: entity
   id: ADTFoodThaliLazisWing
@@ -264,6 +282,9 @@
   name: thali of lazis with wing
   description: A stone platter of ash flora around a roasted watcher wing.
   components:
+  - type: Tag
+    tags:
+    - ADTThaliPortion
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
     state: thali_lazis_wing

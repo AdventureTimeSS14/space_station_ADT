@@ -689,3 +689,30 @@
       state: rock_wall_north
     - map: [ "enum.EdgeLayer.West" ]
       state: rock_wall_west
+
+- type: entity
+  id: ADTWallRockBasaltGem
+  parent: WallRockBasalt
+  description: A basalt vein studded with gems.
+  suffix: Gem
+  components:
+  - type: Gatherable
+    toolWhitelist:
+      tags:
+      - Pickaxe
+    loot:
+      All: !type:NestedSelector
+        tableId: ADTGemVeinLootTable
+  - type: Sprite
+    layers:
+    - state: rock_painite
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - state: rock_wall
+    - map: [ "enum.EdgeLayer.South" ]
+      state: rock_wall_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: rock_wall_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: rock_wall_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: rock_wall_west

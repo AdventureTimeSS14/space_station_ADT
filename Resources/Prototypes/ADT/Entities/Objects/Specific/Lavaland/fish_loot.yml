@@ -4,6 +4,8 @@
   name: soft meat
   description: A piece of soft, almost jelly-like meat carved out of a lava fish. Better cooked.
   components:
+  - type: Item
+    heldPrefix: soft_meat
   - type: Sprite
     sprite: ADT/Objects/Specific/Lavaland/Fishing/fish_loot.rsi
     state: soft_meat
@@ -18,6 +20,8 @@
   name: eel filet
   description: A long slice of eel meat. It is still slightly slimy.
   components:
+  - type: Item
+    heldPrefix: eel_filet
   - type: Sprite
     sprite: ADT/Objects/Specific/Lavaland/Fishing/fish_loot.rsi
     state: eel_filet
@@ -32,6 +36,8 @@
   name: predator meat
   description: A slab of meat carved from a lava predator. Tough, stringy and full of protein.
   components:
+  - type: Item
+    heldPrefix: predator_meat
   - type: Sprite
     sprite: ADT/Objects/Specific/Lavaland/Fishing/fish_loot.rsi
     state: predator_meat
@@ -50,6 +56,7 @@
     sprite: ADT/Objects/Specific/Lavaland/Fishing/fish_loot.rsi
     state: crab_shell
   - type: Item
+    heldPrefix: crab_shell
     size: Small
   - type: ADTWhetstone
     uses: 2
@@ -118,6 +125,7 @@
     sprite: ADT/Objects/Specific/Lavaland/Fishing/fish_loot.rsi
     state: circular_saw_blade
   - type: Item
+    heldPrefix: circular_saw_blade
     size: Tiny
   - type: Tag
     tags:
@@ -140,6 +148,7 @@
       visible: false
       map: ["enum.ToggleableVisuals.Layer"]
   - type: Item
+    heldPrefix: bleary_eye
     size: Small
     storedRotation: 0
     inhandVisuals: {}
@@ -157,6 +166,7 @@
     sprite: ADT/Objects/Specific/Lavaland/Fishing/fish_loot.rsi
     state: acid_bladder
   - type: Item
+    heldPrefix: acid_bladder
     size: Tiny
   - type: SolutionContainerManager
     solutions:

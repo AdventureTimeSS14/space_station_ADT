@@ -48,6 +48,10 @@
         components:
         - Gibtonite
       charges: 1
+    - whitelist:
+        tags:
+        - ADTGemAmber
+      charges: 3
     recipes:
     - whitelist:
         tags:

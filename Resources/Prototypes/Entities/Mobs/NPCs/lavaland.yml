@@ -150,6 +150,8 @@
       maxAmount: 1 #ADT tweak
     - id: ADTMaterialSinew1 #ADT tweak
       maxAmount: 2 #ADT tweak
+    - id: ADTGemFrostDiamond # ADT-Tweak
+      prob: 0.3 # ADT-Tweak
 
 - type: entity
   id: MobWatcherMagmawing

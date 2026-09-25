@@ -76,15 +76,20 @@
 # Одежда
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: BaseItem
   id: ADTClothingNeckSkullCodpiece
   name: skull codpiece
-  description: A skull shaped ornament, intended to protect the important things in life.
+  description: A skull shaped ornament, intended to protect the important things in life. Attaches to a jumpsuit.
   components:
   - type: Sprite
     sprite: ADT/Clothing/Lavaland/skull_codpiece.rsi
-  - type: Clothing
+    state: icon
+  - type: Item
+    size: Small
+  - type: ADTAccessory
+    allowDuplicates: false
     sprite: ADT/Clothing/Lavaland/skull_codpiece.rsi
+    equippedState: equipped-NECK
   - type: Armor
     modifiers:
       coefficients:
@@ -190,6 +195,7 @@
     containers:
       toggleable-clothing: !type:ContainerSlot {}
   - type: GroupExamine
+  - type: ADTGoliathPlatable
   - type: Construction
     graph: ADTPathfinderCloak
     node: cloak
@@ -211,6 +217,7 @@
         Blunt: 0.8
         Slash: 0.8
         Piercing: 0.8
+  - type: ADTGoliathPlatable
 
 - type: entity
   parent: ClothingShoesBase
@@ -222,6 +229,18 @@
     sprite: ADT/Clothing/Lavaland/footwraps_goliath.rsi
   - type: Clothing
     sprite: ADT/Clothing/Lavaland/footwraps_goliath.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: null
+      params:
+        volume: -10
   - type: Construction
     graph: ADTFootwrapsGoliath
     node: footwraps
@@ -236,6 +255,19 @@
     sprite: ADT/Clothing/Lavaland/footwraps_dragon.rsi
   - type: Clothing
     sprite: ADT/Clothing/Lavaland/footwraps_dragon.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.9
+        Caustic: 0.95
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: null
+      params:
+        volume: -10
   - type: Construction
     graph: ADTFootwrapsDragon
     node: footwraps
@@ -250,6 +282,9 @@
     sprite: ADT/Clothing/Lavaland/pathfinder_treads.rsi
   - type: Clothing
     sprite: ADT/Clothing/Lavaland/pathfinder_treads.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.85
+    coolingCoefficient: 0.4
   - type: Construction
     graph: ADTPathfinderTreads
     node: treads
@@ -270,6 +305,19 @@
         Blunt: 0.9
         Slash: 0.9
         Piercing: 0.9
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: Punch
+    animation: WeaponArcFist
+    mustBeEquippedToUse: true
+  - type: StaminaDamageOnHit
+    damage: 12.5
+  - type: ADTHitStunChance
+    knockdownChance: 0.2
+    knockdownTime: 2
   - type: Construction
     graph: ADTWeaverGloves
     node: gloves
@@ -332,7 +380,9 @@
     - back
   - type: MeleeWeapon
     wideAnimationRotation: -135
-    range: 1.75
+    range: 2.1
+    angle: 0
+    animation: WeaponArcThrust
     damage:
       types:
         Piercing: 14
@@ -342,13 +392,13 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Piercing: 8
+        Piercing: 10
   - type: ThrowingAngle
     angle: 225
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 18
+        Piercing: 26
   - type: Sharp
   - type: Tag
     tags:
@@ -377,7 +427,15 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Piercing: 10
+        Piercing: 12
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 45
+  - type: ADTBloodlettingOnHit
+    damage:
+      types:
+        Slash: 25
   - type: Tag
     tags:
     - Spear
@@ -412,6 +470,8 @@
   name: wooden arrow
   description: A simple arrow with a bone tip.
   components:
+  - type: Item
+    heldPrefix: wooden
   - type: Sprite
     sprite: ADT/Objects/Specific/Lavaland/Tribal/arrows.rsi
     layers:
@@ -431,6 +491,8 @@
   name: bone-tipped arrow
   description: An arrow with a sharpened bone tip and chitin fletching.
   components:
+  - type: Item
+    heldPrefix: bone
   - type: Sprite
     sprite: ADT/Objects/Specific/Lavaland/Tribal/arrows.rsi
     layers:
@@ -446,6 +508,8 @@
   name: jagged-tipped arrow
   description: An arrow with a tip made of razor-sharp fish teeth. Leaves nasty wounds.
   components:
+  - type: Item
+    heldPrefix: jagged
   - type: Sprite
     sprite: ADT/Objects/Specific/Lavaland/Tribal/arrows.rsi
     layers:
@@ -544,7 +608,12 @@
   - type: MeleeWeapon
     damage:
       types:
-        Blunt: 6
+        Blunt: 3
+  - type: StaminaDamageOnHit
+    damage: 22
+  - type: ADTHitStunChance
+    knockdownChance: 0.3
+    siliconStunChance: 0.3
   - type: Construction
     graph: ADTNutcracker
     node: nutcracker
@@ -622,19 +691,23 @@
     node: firebrand
 
 - type: entity
-  parent: BaseItem
+  parent: ADTGemBase
   id: ADTGemRuby
   name: ruby
   description: A red gem. Ashwalkers set them into their finest weapons.
   components:
+  - type: ADTGem
+    jewelryKey: ruby
   - type: Sprite
-    sprite: ADT/Objects/Specific/Lavaland/Tribal/ruby.rsi
-    state: icon
-  - type: Item
-    size: Tiny
+    layers:
+    - sprite: ADT/Objects/Specific/Lavaland/Tribal/ruby.rsi
+      state: icon
+      map: [ "base" ]
+    - sprite: ADT/Objects/Specific/Lavaland/Gems/gems.rsi
+      state: shine
+      map: [ "shine" ]
   - type: Tag
     tags:
     - ADTGem
     - ADTGemRuby
-  - type: StaticPrice
-    price: 500
+    - ADTGemSimple

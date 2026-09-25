@@ -1339,6 +1339,11 @@
     rot: 1.5708 rad
     positions:
     - 28.2167,14.3593
+  - proto: ADTSeedReishiPacket
+    positions:
+    - 25.2187,15.8125
+    - 25.0625,15.625
+    - 24.9062,15.4062
   - proto: ADTTorchHolderAncient
     rot: 4.7124 rad
     anchored: true

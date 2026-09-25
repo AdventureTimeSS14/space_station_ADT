@@ -686,3 +686,21 @@
     - громко издает пламенные звуки
     - громко разгорается
     - громко полыхает
+
+- type: emote
+  id: ADTRumble
+  name: chat-emote-name-adt-rumble
+  category: Vocal
+  icon: ADT/Interface/Emotes/Vocal/growl.png
+  whitelist:
+    components:
+    - LizardAccent
+  blacklist:
+    tags:
+    - ADTSiliconEmotes
+  chatMessages: [урчит]
+  chatTriggers:
+    - урчит
+    - урчит.
+    - rumble
+    - rumbles

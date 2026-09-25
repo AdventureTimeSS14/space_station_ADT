@@ -118,7 +118,7 @@
     edges:
     - to: cloak
       steps:
-      - material: Cloth
+      - material: ADTLeather
         amount: 2
       - material: ADTSinew
         amount: 2
@@ -135,6 +135,9 @@
   targetNode: restraints
   category: construction-category-misc
   objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
 
 - type: construction
   id: ADTClothingHandsBoneBracers
@@ -143,6 +146,9 @@
   targetNode: bracers
   category: construction-category-clothing
   objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
 
 - type: construction
   id: ADTClothingNeckBoneTalisman
@@ -151,6 +157,9 @@
   targetNode: talisman
   category: construction-category-clothing
   objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
 
 - type: construction
   id: ADTBonePickaxe
@@ -159,6 +168,9 @@
   targetNode: pickaxe
   category: construction-category-tools
   objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
 
 - type: construction
   id: ADTBoneScythe
@@ -167,6 +179,9 @@
   targetNode: scythe
   category: construction-category-weapons
   objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
 
 - type: construction
   id: ADTBoneAxe
@@ -175,6 +190,9 @@
   targetNode: axe
   category: construction-category-weapons
   objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
 
 - type: construction
   id: ADTClothingOuterArmorBoneLight
@@ -183,6 +201,9 @@
   targetNode: armor
   category: construction-category-clothing
   objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
 
 - type: construction
   id: ADTClothingOuterGoliathCloak
@@ -191,6 +212,9 @@
   targetNode: cloak
   category: construction-category-clothing
   objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
 
 - type: constructionGraph
   id: ADTLavaFishingRodTribal
@@ -215,6 +239,9 @@
   targetNode: rod
   category: construction-category-tools
   objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
 
 - type: constructionGraph
   id: ADTAshTotemWooden
@@ -239,6 +266,9 @@
   targetNode: totem
   category: construction-category-structures
   objectType: Structure
+  entityWhitelist:
+    components:
+    - ADTTribeMember
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
@@ -269,6 +299,9 @@
   targetNode: totem
   category: construction-category-structures
   objectType: Structure
+  entityWhitelist:
+    components:
+    - ADTTribeMember
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
@@ -297,6 +330,9 @@
   targetNode: totem
   category: construction-category-structures
   objectType: Structure
+  entityWhitelist:
+    components:
+    - ADTTribeMember
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
@@ -342,6 +378,9 @@
   targetNode: frame
   category: construction-category-tools
   objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
 
 - type: constructionGraph
   id: ADTWoodenStool
@@ -364,6 +403,9 @@
   targetNode: stool
   category: construction-category-furniture
   objectType: Structure
+  entityWhitelist:
+    components:
+    - ADTTribeMember
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
@@ -398,6 +440,9 @@
   targetNode: guillotine
   category: construction-category-weapons
   objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
 
 - type: constructionGraph
   id: ADTPrimitiveMedkit
@@ -422,6 +467,9 @@
   targetNode: medkit
   category: construction-category-utilities
   objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
 
 - type: constructionGraph
   id: ADTFishingPouch
@@ -446,6 +494,9 @@
   targetNode: pouch
   category: construction-category-utilities
   objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
 
 - type: constructionGraph
   id: ADTStonebrickWall
@@ -481,7 +532,277 @@
   targetNode: wall
   category: construction-category-structures
   objectType: Structure
+  entityWhitelist:
+    components:
+    - ADTTribeMember
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
   - !type:TileNotBlocked
+
+- type: constructionGraph
+  id: ADTTribalOvenCraft
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: oven
+      steps:
+      - material: ADTSandstone
+        amount: 20
+        doAfter: 4
+  - node: oven
+    entity: ADTTribalOven
+
+- type: construction
+  id: ADTTribalOvenCraft
+  graph: ADTTribalOvenCraft
+  startNode: start
+  targetNode: oven
+  category: construction-category-structures
+  objectType: Structure
+  entityWhitelist:
+    components:
+    - ADTTribeMember
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: constructionGraph
+  id: ADTLavaBoat
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: boat
+      steps:
+      - material: GoliathHide
+        amount: 3
+        doAfter: 5
+  - node: boat
+    entity: ADTLavaBoat
+
+- type: construction
+  id: ADTLavaBoat
+  graph: ADTLavaBoat
+  startNode: start
+  targetNode: boat
+  category: construction-category-misc
+  objectType: Structure
+  entityWhitelist:
+    components:
+    - ADTTribeMember
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: constructionGraph
+  id: ADTOar
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: oar
+      steps:
+      - material: Bones
+        amount: 2
+        doAfter: 1.5
+  - node: oar
+    entity: ADTOar
+
+- type: construction
+  id: ADTOar
+  graph: ADTOar
+  startNode: start
+  targetNode: oar
+  category: construction-category-misc
+  objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
+
+- type: constructionGraph
+  id: ADTCoaltreeBonfire
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: bonfire
+      steps:
+      - tag: ADTCoaltreeLog
+        name: construction-graph-tag-adt-coaltree-log
+        icon:
+          sprite: ADT/Objects/Consumable/Food/coaltree_log.rsi
+          state: icon
+      - tag: ADTCoaltreeLog
+        name: construction-graph-tag-adt-coaltree-log
+        icon:
+          sprite: ADT/Objects/Consumable/Food/coaltree_log.rsi
+          state: icon
+      - tag: ADTCoaltreeLog
+        name: construction-graph-tag-adt-coaltree-log
+        icon:
+          sprite: ADT/Objects/Consumable/Food/coaltree_log.rsi
+          state: icon
+      - tag: ADTCoaltreeLog
+        name: construction-graph-tag-adt-coaltree-log
+        icon:
+          sprite: ADT/Objects/Consumable/Food/coaltree_log.rsi
+          state: icon
+      - tag: ADTCoaltreeLog
+        name: construction-graph-tag-adt-coaltree-log
+        icon:
+          sprite: ADT/Objects/Consumable/Food/coaltree_log.rsi
+          state: icon
+        doAfter: 4
+  - node: bonfire
+    entity: Bonfire
+
+- type: construction
+  id: ADTCoaltreeBonfire
+  graph: ADTCoaltreeBonfire
+  startNode: start
+  targetNode: bonfire
+  category: construction-category-structures
+  objectType: Structure
+  entityWhitelist:
+    components:
+    - ADTTribeMember
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: constructionGraph
+  id: ADTSandstoneDoor
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: door
+      steps:
+      - material: ADTSandstone
+        amount: 10
+        doAfter: 4
+  - node: door
+    entity: ADTSandstoneDoor
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: ADTMaterialSandstone1
+        amount: 10
+      - !type:DeleteEntity { }
+      steps:
+      - tool: Prying
+        doAfter: 4
+
+- type: construction
+  id: ADTSandstoneDoor
+  graph: ADTSandstoneDoor
+  startNode: start
+  targetNode: door
+  category: construction-category-structures
+  objectType: Structure
+  entityWhitelist:
+    components:
+    - ADTTribeMember
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: constructionGraph
+  id: ADTSandstoneBed
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: bed
+      steps:
+      - material: ADTSandstone
+        amount: 15
+        doAfter: 4
+  - node: bed
+    entity: ADTSandstoneBed
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: ADTMaterialSandstone1
+        amount: 15
+      - !type:DeleteEntity { }
+      steps:
+      - tool: Prying
+        doAfter: 4
+
+- type: construction
+  id: ADTSandstoneBed
+  graph: ADTSandstoneBed
+  startNode: start
+  targetNode: bed
+  category: construction-category-furniture
+  objectType: Structure
+  entityWhitelist:
+    components:
+    - ADTTribeMember
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: constructionGraph
+  id: ADTSandstoneSoil
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: soil
+      steps:
+      - material: ADTSandstone
+        amount: 3
+        doAfter: 1
+  - node: soil
+    entity: hydroponicsSoil
+
+- type: construction
+  id: ADTSandstoneSoil
+  graph: ADTSandstoneSoil
+  startNode: start
+  targetNode: soil
+  category: construction-category-structures
+  objectType: Structure
+  entityWhitelist:
+    components:
+    - ADTTribeMember
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: constructionGraph
+  id: ADTSandstoneToSand
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: sand
+      steps:
+      - material: ADTSandstone
+        amount: 1
+  - node: sand
+    entity: SpaceQuartz1
+
+- type: construction
+  id: ADTSandstoneToSand
+  graph: ADTSandstoneToSand
+  startNode: start
+  targetNode: sand
+  category: construction-category-materials
+  objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember

@@ -18,6 +18,9 @@
     safeFalloff: 14
     minRadius: 40
     maxRadius: 230
+    riverNodes: 8
+    riverEntity: FloorLavaEntity
+    riverBridge: Catwalk
     groups:
     - prototypes: [ LavaDungeonRoomMarker ]
       roomWhitelist:
@@ -152,6 +155,7 @@
   biomeMarkerLayers:
   - ADTLavaVeinOreIron
   - ADTLavaVeinSandstone
+  - ADTLavaVeinGem
   - ADTLavaVeinOreQuartz
   - ADTLavaVeinOreCoal
   - ADTLavaVeinOreGold

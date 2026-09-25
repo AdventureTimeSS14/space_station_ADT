@@ -292,8 +292,8 @@
       amount: 3
       maxAmount: 5
     - id: ADTAshDrakeHide
-      amount: 1
-      maxAmount: 2
+      amount: 10
+    - id: ADTGemDraconicAmber
 
 - type: entity
   id: MobDrake

@@ -4,6 +4,51 @@
   parent: BaseSpeciesMobOrganic
   id: ADTMobAshWalkerBase
   components:
+  - type: ADTTribeMember
+  - type: ADTConstructionRestriction
+    allowedRecipes: &ADTTribeRecipes
+    - ImprovisedBow
+    - ClothingBeltQuiver
+    - ImprovisedArrow
+    - SpearBone
+    - BoneArmor
+    - BoneHelmet
+    - ADTBoneKnife
+    - ADTBoneSword
+    - ADTBoneLongsword
+    - ADTBoneMachete
+    - ADTBoneBattleaxe
+    - Bonfire
+    - BonfireStake
+    - ADTBonfireRecipe
+    - LightTorch
+    - CottonWovenCloth
+    - gauze
+    - rag
+    - FungalSoil
+    - ADTMushroomBowl
+    - WoodWall
+    - WoodDoor
+    - Barricade
+    - BarricadeDirectional
+    - FenceWood
+    - FenceWoodCorner
+    - FenceWoodCornerSmall
+    - FenceWoodEnd
+    - FenceWoodEndSmall
+    - FenceWoodGate
+    - FenceWoodGateSmall
+    - FenceWoodSmall
+    - FenceWoodTJunction
+    - FenceWoodTJunctionSmall
+    - TileWood
+    - ChairWood
+    - ChairWoodBench
+    - TableCounterWood
+    - ShelfWood
+    - ADTGemSatchel
+    - ADTGemNecklace
+    - ADTGemBracers
   - type: TTS
   - type: BreathingImmunity
   - type: AshStormImmune
@@ -405,6 +450,9 @@
   - MobReptilian
   id: ADTMobDraconid
   components:
+  - type: ADTTribeMember
+  - type: ADTConstructionRestriction
+    allowedRecipes: *ADTTribeRecipes
   - type: ADTLavalandSpeed
     everywhere: true
     walkModifier: 1.08

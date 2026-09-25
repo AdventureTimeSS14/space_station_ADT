@@ -1,0 +1,504 @@
+- type: entity
+  parent: FoodInjectableBase
+  id: ADTFoodLavalandFreakyLeg
+  name: freaky leg
+  description: A spider leg roasted with someone's foot. Takes the edge off any pain.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
+    state: freaky_leg
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 17
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 6
+        - ReagentId: Protein
+          Quantity: 6
+  - type: TriggerOnIngested
+  - type: EntityEffectOnTrigger
+    targetUser: true
+    effects:
+    - !type:ModifyStatusEffect
+      effectProto: ADTStatusEffectFreakyLegs
+      time: 60
+
+- type: entity
+  parent: FoodInjectableBase
+  id: ADTFoodLavalandHuntersTreat
+  name: hunter's treat
+  description: A heart stuffed with goliath meat and reishi, wrapped in hide. Food for the strongest hunters.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
+    state: hunters_treat
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 17
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 6
+        - ReagentId: Protein
+          Quantity: 6
+  - type: TriggerOnIngested
+  - type: AddComponentsOnTrigger
+    targetUser: true
+    components:
+    - type: ADTStrongMuscles
+
+- type: entity
+  parent: FoodInjectableBase
+  id: ADTFoodLavalandYumGrub
+  name: yum-grub
+  description: Goldgrub meat baked with mushrooms. Good for the eyes and the head.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
+    state: yum_grub
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Oculine
+          Quantity: 12
+        - ReagentId: Vitamin
+          Quantity: 3
+
+- type: entity
+  parent: FoodInjectableBase
+  id: ADTFoodLavalandAshieKebab
+  name: ashie-kebab
+  description: Organs and a spider leg skewered on a rod. Gets the blood pumping.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
+    state: ashie_kebab
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 27
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 6
+        - ReagentId: Protein
+          Quantity: 6
+        - ReagentId: Ephedrine
+          Quantity: 10
+
+- type: entity
+  parent: FoodInjectableBase
+  id: ADTFoodLavalandTailODead
+  name: tail'o'dead
+  description: A roasted lizard tail with cactus fruit and fire blossom. Sharpens the eyes.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
+    state: tail_o_dead
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 17
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 6
+        - ReagentId: Protein
+          Quantity: 6
+  - type: TriggerOnIngested
+  - type: EntityEffectOnTrigger
+    targetUser: true
+    effects:
+    - !type:ModifyStatusEffect
+      effectProto: ADTStatusEffectLavalandVision
+      time: 300
+
+- type: entity
+  parent: FoodInjectableBase
+  id: ADTFoodLavalandCureCurse
+  name: cure curse
+  description: A bone and two hearts baked together. Tribal lore says it holds the power of the Necropolis.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
+    layers:
+    - state: cure_curse
+      map: [ "enum.ADTCureCurseVisuals.Active" ]
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 17
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 6
+        - ReagentId: Protein
+          Quantity: 6
+  - type: ADTCureCurse
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ADTCureCurseVisuals.Active:
+        enum.ADTCureCurseVisuals.Active:
+          True: { state: cure_curse_active }
+          False: { state: cure_curse }
+
+- type: entity
+  parent: FoodInjectableBase
+  id: ADTFoodLavalandWingsFangsTentacles
+  name: wings'n'fangs'n'tentacles
+  description: Trophies of the hunt, baked into a crunchy snack.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
+    state: wings_n_fangs_n_tentacles
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 17
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 6
+        - ReagentId: Protein
+          Quantity: 6
+  - type: TriggerOnIngested
+  - type: AddComponentsOnTrigger
+    targetUser: true
+    components:
+    - type: ADTTailSweep
+
+- type: entity
+  parent: FoodInjectableBase
+  id: ADTFoodLavalandGoliKernels
+  name: goli-kernels
+  description: Small balls of goliath meat and mushroom leaves.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
+    state: goli_kernels
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 9
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Protein
+          Quantity: 2
+  - type: ADTEatOnThrowHit
+  - type: Edible
+    delay: 0
+
+- type: entity
+  parent: FoodInjectableBase
+  id: ADTFoodLavalandBeerGrubStew
+  name: beer grub stew
+  description: Goldgrub meat stewed in beer with reishi. Keeps you warm.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
+    state: beer_grub_stew
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 22
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Protein
+          Quantity: 6
+        - ReagentId: Beer
+          Quantity: 7
+  - type: TriggerOnIngested
+  - type: EntityEffectOnTrigger
+    targetUser: true
+    effects:
+    - !type:ModifyStatusEffect
+      effectProto: ADTStatusEffectTemperatureStabilize
+      time: 300
+
+- type: entity
+  parent: FoodInjectableBase
+  id: ADTFoodLavalandThickRedPaste
+  name: thick red paste
+  description: A thick paste of wheat, mushroom leaves and blood. Helps with wounds that will not stop bleeding.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
+    state: thick_red_paste
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 7
+        reagents:
+        - ReagentId: Protein
+          Quantity: 2
+  - type: TriggerOnIngested
+  - type: EntityEffectOnTrigger
+    targetUser: true
+    effects:
+    - !type:ModifyStatusEffect
+      effectProto: ADTStatusEffectBleedingFix
+      time: 30
+
+- type: entity
+  parent: FoodInjectableBase
+  id: ADTFoodLavalandBlackBloodSausage
+  name: black blood sausage
+  description: A small blood sausage made of goliath meat and real blood. Very useful if you are in critical condition.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
+    state: black_blood_sausage
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 18
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Protein
+          Quantity: 3
+        - ReagentId: ADTAshiezine
+          Quantity: 6
+
+- type: entity
+  parent: FoodInjectableBase
+  id: ADTFoodLavalandXenoSticks
+  name: xeno sticks
+  description: Xenomorph meat on sticks with reishi. Surprisingly tasty!
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
+    state: xeno_sticks
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 17
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 6
+        - ReagentId: Protein
+          Quantity: 6
+  - type: TriggerOnIngested
+  - type: EntityEffectOnTrigger
+    targetUser: true
+    effects:
+    - !type:ModifyStatusEffect
+      effectProto: ADTStatusEffectLavalandNightVision
+      time: 450
+
+- type: entity
+  parent: FoodInjectableBase
+  id: ADTFoodLavalandEelKatigo
+  name: eel katigo
+  description: Eel filet baked with wheat and blood.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
+    state: eel_katigo
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 16
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
+        - ReagentId: Protein
+          Quantity: 2
+        - ReagentId: Nicotine
+          Quantity: 6
+
+- type: entity
+  parent: FoodInjectableBase
+  id: ADTFoodLavalandPredatoryChowder
+  name: predatory chowder
+  description: A spicy chowder of predatory fish, liver and fire blossoms.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
+    state: predatory_chowder
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
+        - ReagentId: Protein
+          Quantity: 2
+        - ReagentId: Omnizine
+          Quantity: 20
+
+- type: entity
+  parent: FoodInjectableBase
+  id: ADTFoodLavalandAbuGhosh
+  name: abu ghosh
+  description: Goliath meat with wheat and fire blossom in gutlunch milk. Restores the blood.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
+    state: abu_ghosh
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 17
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 6
+        - ReagentId: Protein
+          Quantity: 6
+  - type: TriggerOnIngested
+  - type: EntityEffectOnTrigger
+    targetUser: true
+    effects:
+    - !type:ModifyStatusEffect
+      effectProto: ADTStatusEffectBloodRegen
+      time: 300
+
+- type: entity
+  parent: FoodInjectableBase
+  id: ADTFoodLavalandSoftMeatCubes
+  name: soft meat cubes
+  description: Cooked cubes of soft fish meat.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
+    state: soft_meat_cubes
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 13
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Vitamin
+          Quantity: 3
+        - ReagentId: Protein
+          Quantity: 3
+
+- type: entity
+  parent: FoodInjectableBase
+  id: ADTFoodLavalandPredatoryFishSlab
+  name: cooked predatory fish slab
+  description: A cooked slab of predatory fish.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
+    state: predatory_fish_slab
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Protein
+          Quantity: 6
+
+- type: entity
+  parent: FoodInjectableBase
+  id: ADTFoodLavalandEelRinglets
+  name: eel ringlets
+  description: Cooked rings of eel filet.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
+    state: eel_ringlets
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Protein
+          Quantity: 6
+
+- type: entity
+  id: ADTFoodThaliLazisBacon
+  parent: ADTFoodThaliLazisWing
+  name: thali of lazis with bacon
+  description: A portion from a thali of lazis platter.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
+    state: thali_lazis_bacon
+
+- type: entity
+  id: ADTFoodThaliLazisFish
+  parent: ADTFoodThaliLazisWing
+  name: thali of lazis with fish
+  description: A portion from a thali of lazis platter.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
+    state: thali_lazis_fish
+
+- type: entity
+  id: ADTFoodThaliLazisBungus
+  parent: ADTFoodThaliLazisWing
+  name: thali of lazis with bungus
+  description: A portion from a thali of lazis platter.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
+    state: thali_lazis_bungus
+
+- type: entity
+  parent: BaseStorageItem
+  id: ADTThaliLazisTray
+  name: thali lazis plate
+  description: A large wooden tray meant to hold a huge amount of food.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
+    state: thali_lazis_plate
+  - type: Item
+    size: Normal
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,5,3
+    whitelist:
+      tags:
+      - ADTThaliPortion
+
+- type: entity
+  parent: ADTThaliLazisTray
+  id: ADTThaliLazisTrayFilled
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTFoodThaliLazisWing
+      amount: 2
+    - id: ADTFoodThaliLazisCacti
+      amount: 2
+    - id: ADTFoodThaliLazisCrunchie
+      amount: 2
+    - id: ADTFoodThaliLazisBacon
+      amount: 2
+    - id: ADTFoodThaliLazisFish
+      amount: 2
+    - id: ADTFoodThaliLazisBungus
+      amount: 2
+
+- type: entity
+  parent: FoodMeatBase
+  id: ADTFoodMeatGoldgrub
+  name: goldgrub meat
+  description: Dense, slimy green innards covered in golden hide. Legends say it is prized in traditional medicine, but right now it is quite poisonous.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/goldgrub_meat.rsi
+    state: icon
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
+        - ReagentId: Toxin
+          Quantity: 10
