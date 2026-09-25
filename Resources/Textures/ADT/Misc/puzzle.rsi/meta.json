@@ -1,0 +1,71 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from vgstation13 at https://github.com/vgstation-coders/vgstation13/blob/028ddcfa03ab7a0498baf8a8ac7ef1f02e0dabb8/icons/obj/lavaland/artefacts.dmi and https://github.com/ss220club/Paradise-SS220/blob/67d9dd10e5493fe57b1ba8923ad25832841d64e0/icons/obj/puzzle.dmi, modificated CrimeMoot",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "puzzle_pillar"
+        },
+        {
+            "name": "pillar_1"
+        },
+        {
+            "name": "pillar_2"
+        },
+        {
+            "name": "pillar_3"
+        },
+        {
+            "name": "pillar_4"
+        },
+        {
+            "name": "pillar_5"
+        },
+        {
+            "name": "pillar_6"
+        },
+        {
+            "name": "pillar_7"
+        },
+        {
+            "name": "pillar_8"
+        },
+        {
+            "name": "pillar_9"
+        },
+        {
+            "name": "prison_cube"
+        },
+        {
+            "name": "puzzle_1"
+        },
+        {
+            "name": "puzzle_2"
+        },
+        {
+            "name": "puzzle_3"
+        },
+        {
+            "name": "puzzle_4"
+        },
+        {
+            "name": "puzzle_5"
+        },
+        {
+            "name": "puzzle_6"
+        },
+        {
+            "name": "puzzle_7"
+        },
+        {
+            "name": "puzzle_8"
+        },
+        {
+            "name": "puzzle_9"
+        }
+    ]
+}
