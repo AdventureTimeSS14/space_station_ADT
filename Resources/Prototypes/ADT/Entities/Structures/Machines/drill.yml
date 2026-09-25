@@ -1,0 +1,101 @@
+- type: entity
+  id: ADTDrill
+  parent: BaseMachinePowered
+  components:
+  - type: Appearance
+  - type: WiresVisuals
+  - type: Sprite
+    sprite: ADT/Misc/drill.rsi
+    layers:
+    - state: mining_drill
+      map: [ "enum.ADTDrillVisualLayers.Base" ]
+    - state: mining_drill_active
+      map: [ "enum.ADTDrillVisualLayers.Active" ]
+      visible: false
+    - state: mining_drill_lights_0
+      map: [ "enum.ADTDrillVisualLayers.Lights" ]
+      visible: false
+    - state: mining_drill_lights_error
+      map: [ "enum.ADTDrillVisualLayers.Error" ]
+      visible: false
+    - state: mining_drill_panel
+      map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      visible: false
+  - type: GenericVisualizer
+    visuals:
+      enum.ADTDrillVisuals.Supported:
+        enum.ADTDrillVisualLayers.Base:
+          True: { state: mining_drill_braced }
+          False: { state: mining_drill }
+      enum.ADTDrillVisuals.Active:
+        enum.ADTDrillVisualLayers.Active:
+          True: { visible: true }
+          False: { visible: false }
+      enum.ADTDrillVisuals.Error:
+        enum.ADTDrillVisualLayers.Error:
+          True: { visible: true }
+          False: { visible: false }
+      enum.ADTDrillVisuals.FillLevel:
+        enum.ADTDrillVisualLayers.Lights:
+          -1: { visible: false }
+          0: { state: mining_drill_lights_0, visible: true }
+          1: { state: mining_drill_lights_1, visible: true }
+          2: { state: mining_drill_lights_2, visible: true }
+          3: { state: mining_drill_lights_3, visible: true }
+  - type: ADTDrill
+  - type: ADTDrillSpawner
+    spawnChance: 0.1
+    spawnRadius: 5
+  - type: WiresPanel
+  - type: ApcPowerReceiver
+    powerLoad: 150
+  - type: PowerState
+    idlePowerDraw: 150
+    workingPowerDraw: 1000
+  - type: ContainerContainer
+    containers:
+      drill-ore-storage: !type:Container
+  - type: AmbientSound
+    enabled: false
+    range: 12
+    volume: -6
+    sound:
+      path: /Audio/ADT/Mining/Drill/bur_loop.ogg
+  - type: Transform
+    anchored: true
+  - type: Pullable
+  - type: StaticPrice
+    price: 1000
+
+- type: entity
+  id: ADTDrillBrace
+  parent: BaseMachine
+  components:
+  - type: Sprite
+    sprite: ADT/Misc/drill.rsi
+    layers:
+    - state: mining_brace
+      map: [ "enum.ADTDrillBraceVisualLayers.Base" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ADTDrillBraceVisuals.Connected:
+        enum.ADTDrillBraceVisualLayers.Base:
+          True: { state: mining_brace_active }
+          False: { state: mining_brace }
+  - type: ADTDrillBrace
+  - type: Transform
+    noRot: false
+  - type: StaticPrice
+    price: 200
+
+- type: weightedRandomEntity
+  id: ADTDrillOreSpawns
+  weights:
+    MobSpawnCrabQuartz: 5
+    MobSpawnCrabIron: 5
+    MobSpawnCrabCoal: 5
+    MobSpawnCrabSilver: 3
+    MobSpawnCrabGold: 2
+    MobSpawnCrabUranium: 2
+    MobSpawnCrabBananium: 1
