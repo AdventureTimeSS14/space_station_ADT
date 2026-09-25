@@ -1,11 +1,10 @@
 using Content.Shared.ADT.Lavaland.Components;
-using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
-using Content.Shared.FixedPoint;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Popups;
 using Content.Shared.StatusEffectNew;
-using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.Lavaland;
@@ -14,8 +13,9 @@ public sealed class ADTDragonStrengthStatusEffectSystem : EntitySystem
 {
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -64,16 +64,26 @@ public sealed class ADTDragonStrengthStatusEffectSystem : EntitySystem
         var total = _damageable.GetTotalDamage((target, damageable));
 
         if (total < comp.DamageThreshold)
+        {
+            TryMessage(target, comp.WarMessages, comp.WarChance, PopupType.SmallCaution);
             return;
+        }
 
         var multiplier = MathF.Min(comp.MaxMultiplier, ((total - comp.MultiplierOffset) / comp.MultiplierScale).Float() + 1f);
-        var healing = new DamageSpecifier();
 
         foreach (var (group, amount) in comp.Healing)
         {
-            healing += new DamageSpecifier(_proto.Index(group), -amount * multiplier);
+            _damageable.HealDistributed((target, damageable), -amount * multiplier, group);
         }
 
-        _damageable.TryChangeDamage((target, damageable), healing, true, false);
+        TryMessage(target, comp.HopeMessages, comp.HopeChance, PopupType.Small);
+    }
+
+    private void TryMessage(EntityUid target, List<LocId> messages, float chance, PopupType type)
+    {
+        if (messages.Count == 0 || !_random.Prob(chance))
+            return;
+
+        _popup.PopupEntity(Loc.GetString(_random.Pick(messages)), target, target, type);
     }
 }

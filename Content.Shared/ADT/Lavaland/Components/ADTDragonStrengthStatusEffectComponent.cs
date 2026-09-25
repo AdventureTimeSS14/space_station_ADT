@@ -25,6 +25,18 @@ public sealed partial class ADTDragonStrengthStatusEffectComponent : Component
     [DataField]
     public Dictionary<ProtoId<DamageGroupPrototype>, FixedPoint2> Healing = new();
 
+    [DataField]
+    public float HopeChance = 0.05f;
+
+    [DataField]
+    public float WarChance = 0.02f;
+
+    [DataField]
+    public List<LocId> HopeMessages = new();
+
+    [DataField]
+    public List<LocId> WarMessages = new();
+
     [ViewVariables]
     public EntityUid? Target;
 
