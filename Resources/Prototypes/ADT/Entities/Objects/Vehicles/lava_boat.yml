@@ -42,6 +42,7 @@
         layer:
         - TableLayer
   - type: Appearance
+  - type: ContainerContainer
   - type: ItemSlots
     slots:
       key_slot:
