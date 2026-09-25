@@ -1,7 +1,6 @@
 using Content.Shared.ADT.Janicart;
 using Content.Shared.ADT.Janicart.Components;
 using Content.Shared.Administration.Logs;
-using Content.Shared.Buckle.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
@@ -11,6 +10,7 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
+using Content.Shared.Mind;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Silicons.Borgs.Components;
@@ -37,6 +37,7 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly ItemSlotsSystem _slots = default!;
@@ -60,8 +61,6 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
         SubscribeLocalEvent<ADTJanicartUpgradeableComponent, ADTJanicartUpgradeRemoveDoAfterEvent>(OnRemoveDoAfter);
         SubscribeLocalEvent<ADTJanicartUpgradeableComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<ADTJanicartUpgradeableComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshSpeed);
-        SubscribeLocalEvent<ADTJanicartUpgradeableComponent, StrappedEvent>(OnStrapped);
-        SubscribeLocalEvent<ADTJanicartUpgradeableComponent, UnstrappedEvent>(OnUnstrapped);
 
         SubscribeLocalEvent<ADTJanicartUpgradeComponent, ExaminedEvent>(OnUpgradeExamined);
 
@@ -99,7 +98,7 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
         _audio.PlayPredicted(ent.Comp.InsertSound, ent, user);
         _popup.PopupClient(Loc.GetString("janicart-upgrade-popup-insert", ("upgrade", used), ("vehicle", ent.Owner)), user);
         OnUpgradesChanged(ent);
-        SetModulesActive(ent, IsRidden(ent));
+        AddActiveModule(used);
 
         _adminLog.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(user):player} installed {ToPrettyString(used)} into {ToPrettyString(ent.Owner)}.");
         return true;
@@ -160,7 +159,9 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
         if (!_container.TryGetContainer(ent, ent.Comp.UpgradesContainerId, out var container))
             return;
 
-        SetModulesActive(ent, false);
+        foreach (var upgrade in GetUpgrades(ent))
+            _activeModules.Remove(upgrade.Owner);
+
         _container.EmptyContainer(container);
         _audio.PlayPredicted(ent.Comp.RemoveSound, ent, user);
 
@@ -216,6 +217,9 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
                 continue;
             }
 
+            if (!IsModuleOperated(moduleUid))
+                continue;
+
             if (TryComp<ADTJanicartBufferComponent>(moduleUid, out var buffer)
                 && curTime >= buffer.NextCheck)
             {
@@ -238,14 +242,25 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
         }
     }
 
-    private void OnStrapped(Entity<ADTJanicartUpgradeableComponent> ent, ref StrappedEvent args)
+    private void AddActiveModule(EntityUid moduleUid)
     {
-        SetModulesActive(ent, true);
+        if (HasComp<ADTJanicartBufferComponent>(moduleUid) || HasComp<ADTJanicartVacuumComponent>(moduleUid))
+            _activeModules.Add(moduleUid);
     }
 
-    private void OnUnstrapped(Entity<ADTJanicartUpgradeableComponent> ent, ref UnstrappedEvent args)
+    private bool IsModuleOperated(EntityUid moduleUid)
     {
-        SetModulesActive(ent, false);
+        var host = Transform(moduleUid).ParentUid;
+        if (!Exists(host))
+            return false;
+
+        if (TryComp<VehicleComponent>(host, out var vehicle))
+            return vehicle.Rider != null;
+
+        if (HasComp<BorgChassisComponent>(host))
+            return _mind.TryGetMind(host, out _, out _);
+
+        return false;
     }
 
     private void OnBorgModuleInstalled(Entity<BorgModuleComponent> ent, ref BorgModuleInstalledEvent args)
@@ -253,8 +268,7 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
         if (_timing.ApplyingState)
             return;
 
-        if (HasComp<ADTJanicartBufferComponent>(ent) || HasComp<ADTJanicartVacuumComponent>(ent))
-            _activeModules.Add(ent);
+        AddActiveModule(ent);
     }
 
     private void OnBorgModuleUninstalled(Entity<BorgModuleComponent> ent, ref BorgModuleUninstalledEvent args)
@@ -263,22 +277,6 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
             return;
 
         _activeModules.Remove(ent);
-    }
-
-    private void SetModulesActive(Entity<ADTJanicartUpgradeableComponent> ent, bool active)
-    {
-        foreach (var upgrade in GetUpgrades(ent))
-        {
-            if (active)
-                _activeModules.Add(upgrade.Owner);
-            else
-                _activeModules.Remove(upgrade.Owner);
-        }
-    }
-
-    private bool IsRidden(EntityUid ent)
-    {
-        return TryComp<VehicleComponent>(ent, out var vehicle) && vehicle.Rider != null;
     }
 
     private void WashPuddles(EntityUid moduleUid, ADTJanicartBufferComponent buffer)

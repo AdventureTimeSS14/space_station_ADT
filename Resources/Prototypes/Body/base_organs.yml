@@ -322,7 +322,7 @@
   - type: VisualOrganMarkings
     markingData:
       layers:
-  - Eyes
+      - Eyes
   - type: Tag # ADT-Tweak
     tags:
     - Eyes
