@@ -61,12 +61,6 @@ public sealed partial class ADTDrillComponent : Component
     public List<EntProtoId> OreContainers = new();
 
     [DataField]
-    public SoundSpecifier StartSound = new SoundPathSpecifier("/Audio/Items/drill_use.ogg");
-
-    [DataField]
-    public SoundSpecifier StopSound = new SoundPathSpecifier("/Audio/Items/change_drill.ogg");
-
-    [DataField]
     public SoundSpecifier ErrorSound = new SoundPathSpecifier("/Audio/Machines/buzz-sigh.ogg");
 
     [ViewVariables]

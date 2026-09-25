@@ -239,9 +239,6 @@ public sealed class ADTDrillSystem : EntitySystem
 
     private void SystemError(EntityUid uid, ADTDrillComponent drill, string message)
     {
-        if (drill.Active)
-            _audio.PlayPvs(drill.StopSound, uid);
-
         drill.Active = false;
         drill.Error = true;
         _powerState.TrySetWorkingState(uid, false);
@@ -306,7 +303,6 @@ public sealed class ADTDrillSystem : EntitySystem
             $"{ToPrettyString(args.User)} toggled {ToPrettyString(uid)} {(drill.Active ? "on" : "off")}");
 
         _popup.PopupEntity(Loc.GetString(drill.Active ? "drill-start" : "drill-stop"), uid);
-        _audio.PlayPvs(drill.Active ? drill.StartSound : drill.StopSound, uid);
         UpdateVisuals(uid, drill);
         args.Handled = true;
     }
