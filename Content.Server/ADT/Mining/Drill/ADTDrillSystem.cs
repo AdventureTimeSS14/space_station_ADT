@@ -399,7 +399,7 @@ public sealed class ADTDrillSystem : EntitySystem
         if (proto.ID == ancestor)
             return true;
 
-        foreach (var parent in proto.Parents)
+        foreach (var parent in proto.Parents ?? [])
         {
             if (_proto.TryIndex<EntityPrototype>(parent, out var parentProto) && IsOrDerivesFrom(parentProto, ancestor))
                 return true;
