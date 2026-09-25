@@ -14,3 +14,21 @@
   sprites:
   - sprite: ADT/Personalization/pangaari_feathered.rsi
     state: feathered_wings
+
+- type: marking
+  id: ADTNovaHairInconnu
+  bodyPart: Hair
+  groupWhitelist: [Novakid]
+  sprites:
+  - sprite: ADT/Personalization/Inconnu/nova_hair.rsi
+    state: hair
+  sponsorOnly: true
+
+- type: marking
+  id: ADTNovaHairRubberInconnu
+  bodyPart: HeadTop
+  groupWhitelist: [Novakid]
+  sprites:
+  - sprite: ADT/Personalization/Inconnu/nova_hair.rsi
+    state: rubber
+  sponsorOnly: true
