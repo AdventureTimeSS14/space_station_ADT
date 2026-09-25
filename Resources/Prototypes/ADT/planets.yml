@@ -37,6 +37,14 @@
       maxRadius: 220
       entries:
       - prototype: ADTRandomTendrilSpawner
+    # Загадка с пазлом
+    - minBudget: 1
+      maxBudget: 1
+      minSpacing: 24
+      minDistanceFromCenter: 70
+      maxRadius: 210
+      entries:
+      - prototype: ADTSlidingPuzzleRoomMarker
     # Мировая Кузня
     - minBudget: 1
       maxBudget: 1
