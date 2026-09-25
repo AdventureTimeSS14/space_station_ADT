@@ -17,3 +17,5 @@ construction-name-adt-mushroom-bowl = грибная миска
 construction-description-adt-mushroom-bowl = Миска, сделанная из грибов.
 ent-ADTFoodFireblossom = огнецвет
     .desc = Сорванный огнецвет. Ещё тёплый, словно уголёк.
+ent-ADTFoodReishi = рейши
+    .desc = Ganoderma lucidum: особый гриб, известный своими лечебными и успокаивающими свойствами.

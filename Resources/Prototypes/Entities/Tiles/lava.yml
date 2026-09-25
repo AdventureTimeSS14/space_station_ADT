@@ -60,19 +60,20 @@
     - ADTLavaFishAshCrab
     - ADTLavaFishDeadHorseman
     - ADTLavaFishShellfish
+    deepFish:
     - ADTLavaFishBottomEel
     - ADTLavaFishRedDevourer
     - ADTLavaFishMagmaHammerhead
     - ADTLavaFishBlindReaper
     - ADTLavaFishHeraldOfCarnage
     - ADTLavaFishSulfuricTramp
-    #deepFish:
-    #- ADTLavaFishBottomEel
-    #- ADTLavaFishRedDevourer
-    #- ADTLavaFishMagmaHammerhead
-    #- ADTLavaFishBlindReaper
-    #- ADTLavaFishHeraldOfCarnage
-    #- ADTLavaFishSulfuricTramp
+    shoreTiles:
+    - FloorBasalt
+    shoreBlacklist:
+      tags:
+      - Wall
+      components:
+      - Chasm
   # ADT-Fishing-End
   - type: Tag
     tags:

@@ -584,6 +584,14 @@
     graph: BoneHelmet
     node: helmet
   #ADT-Tweak-Start
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.85
+        Heat: 0.85
+        Caustic: 0.75
   - type: CoveredSlot
     slots: [eyes, mask]
   #ADT-Tweak-End
