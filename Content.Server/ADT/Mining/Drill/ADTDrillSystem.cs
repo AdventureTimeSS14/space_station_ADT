@@ -359,9 +359,11 @@ public sealed class ADTDrillSystem : EntitySystem
         var rejected = 0;
         foreach (var item in items)
         {
-            if (!_storage.CanInsert(oreBox.Value, item, out _))
+            if (!_storage.CanInsert(oreBox.Value, item, out var reason))
             {
-                rejected++;
+                if (reason is "comp-storage-invalid-container" or "comp-storage-too-big")
+                    rejected++;
+
                 continue;
             }
 
