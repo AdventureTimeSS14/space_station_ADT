@@ -1101,6 +1101,7 @@
   - type: Access
     tags:
     - Maintenance
+    - SyndicateAgent # ADT-Tweak: Пока не будут доступы и шлюзы ниндзи будет так.
 
 - type: entity
   parent: [ IDCardStandard, BaseMajorContraband ]
