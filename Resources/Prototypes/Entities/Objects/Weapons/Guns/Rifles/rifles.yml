@@ -118,6 +118,10 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+  # ADT Tweak start
+  - type: FiringPinHolder
+    startingPin: ADTFiringPinSyndicate
+  # ADT Tweak end
 
 - type: entity
   name: M90 GL

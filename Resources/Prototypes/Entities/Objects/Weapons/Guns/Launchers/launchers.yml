@@ -80,6 +80,10 @@
   - type: GunRequiresWield
   - type: StaticPrice
     price: 10000
+  # ADT Tweak start
+  - type: FiringPinHolder
+    startingPin: ADTFiringPinSyndicate
+  # ADT Tweak end
 
 - type: entity
   parent: [ BaseWeaponLauncher, BaseMajorContraband ]
