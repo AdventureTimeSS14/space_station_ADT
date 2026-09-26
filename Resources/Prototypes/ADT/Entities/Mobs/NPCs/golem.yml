@@ -53,7 +53,7 @@
       - SimpleHostile
 
 - type: entity
-  parent: 
+  parent: ADTMobGolem
   id: ADTMobQuartzGolem
   description: A golem made from quartz.
   suffix: Quartz
