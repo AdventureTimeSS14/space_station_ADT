@@ -58,4 +58,5 @@ public enum ADTDrakeSwoopFollowUp : byte
 {
     None,
     LavaSwoopCones,
+    LavaPools,
 }

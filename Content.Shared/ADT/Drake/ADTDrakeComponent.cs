@@ -246,6 +246,12 @@ public sealed partial class ADTDrakeComponent : Component
 
     [ViewVariables]
     public float? BaseLightRadius;
+
+    [ViewVariables]
+    public EntityUid? ManualTarget;
+
+    [DataField]
+    public bool CanDevour = true;
 }
 
 [Serializable, NetSerializable]

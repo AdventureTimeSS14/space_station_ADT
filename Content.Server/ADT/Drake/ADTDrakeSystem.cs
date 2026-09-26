@@ -77,6 +77,9 @@ public sealed class ADTDrakeSystem : EntitySystem
                 continue;
             }
 
+            if (!ent.Comp.CanDevour)
+                continue;
+
             Devour(ent, target);
             return;
         }
@@ -84,7 +87,29 @@ public sealed class ADTDrakeSystem : EntitySystem
         if (living == null)
             return;
 
-        var ev = new ADTDrakeMeleeHitLivingEvent(living.Value);
+        var sequence = EnsureComp<ADTDrakeSequenceComponent>(ent);
+        sequence.Queue.Add(new ADTDrakeStep
+        {
+            ExecuteAt = _timing.CurTime,
+            Type = ADTDrakeStepType.MeleeFollowUp,
+            Target = living,
+        });
+    }
+
+    public void MeleeFollowUp(Entity<ADTDrakeComponent> ent, EntityUid? target)
+    {
+        if (target is not { } victim || TerminatingOrDeleted(victim))
+            return;
+
+        if (_mobState.IsDead(victim))
+        {
+            if (ent.Comp.CanDevour)
+                Devour(ent, victim);
+
+            return;
+        }
+
+        var ev = new ADTDrakeMeleeHitLivingEvent(victim);
         RaiseLocalEvent(ent, ref ev);
     }
 
@@ -135,6 +160,14 @@ public sealed class ADTDrakeSystem : EntitySystem
     public bool TryGetTarget(EntityUid uid, [NotNullWhen(true)] out EntityUid? target)
     {
         target = null;
+
+        if (TryComp<ADTDrakeComponent>(uid, out var drake)
+            && drake.ManualTarget is { } manual
+            && !TerminatingOrDeleted(manual))
+        {
+            target = manual;
+            return true;
+        }
 
         if (TryComp<HTNComponent>(uid, out var htn)
             && htn.Blackboard.TryGetValue<EntityUid>(TargetKey, out var found, EntityManager)

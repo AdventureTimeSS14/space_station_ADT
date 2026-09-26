@@ -448,11 +448,9 @@
   parent:
   - ADTAppearanceDraconid
   - MobReptilian
-  id: ADTMobDraconid
+  id: ADTMobDraconidBase
+  categories: [ HideSpawnMenu ]
   components:
-  - type: ADTTribeMember
-  - type: ADTConstructionRestriction
-    allowedRecipes: *ADTTribeRecipes
   - type: ADTLavalandSpeed
     everywhere: true
     walkModifier: 1.08
@@ -462,12 +460,6 @@
   - type: AshStormImmune
   - type: Inventory
     templateId: ADTDraconid
-  - type: NpcFactionMember
-    factions:
-    - ADTAshWalker
-  - type: Access
-    tags:
-    - ADTAshWalker
   - type: Damageable
     damageModifierSet: ADTDraconidScale
   - type: MeleeWeapon
@@ -487,6 +479,21 @@
     heatDamage:
       types:
         Heat: 1.5
+
+- type: entity
+  save: false
+  parent: ADTMobDraconidBase
+  id: ADTMobDraconid
+  components:
+  - type: ADTTribeMember
+  - type: ADTConstructionRestriction
+    allowedRecipes: *ADTTribeRecipes
+  - type: NpcFactionMember
+    factions:
+    - ADTAshWalker
+  - type: Access
+    tags:
+    - ADTAshWalker
 
 - type: entity
   parent: OrganReptilianStomach

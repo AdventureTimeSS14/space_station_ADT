@@ -27,6 +27,9 @@ public sealed partial class ADTDrakeStep
 
     [DataField]
     public TimeSpan Duration;
+
+    [DataField]
+    public EntityUid? Target;
 }
 
 public enum ADTDrakeStepType : byte
@@ -38,4 +41,5 @@ public enum ADTDrakeStepType : byte
     LavaPool,
     EscapeEnrageMassFire,
     EscapeEnrageEnd,
+    MeleeFollowUp,
 }
