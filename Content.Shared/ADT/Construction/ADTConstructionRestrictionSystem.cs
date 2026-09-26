@@ -10,6 +10,8 @@ public sealed class ADTConstructionRestrictionSystem : EntitySystem
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
 
+    private HashSet<string>? _recipeGraphs;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -21,6 +23,8 @@ public sealed class ADTConstructionRestrictionSystem : EntitySystem
     {
         if (!args.WasModified<ConstructionPrototype>())
             return;
+
+        _recipeGraphs = null;
 
         var query = EntityQueryEnumerator<ADTConstructionRestrictionComponent>();
         while (query.MoveNext(out _, out var comp))
@@ -40,6 +44,18 @@ public sealed class ADTConstructionRestrictionSystem : EntitySystem
     public bool CanUseGraph(EntityUid user, string graph)
     {
         if (!TryComp<ADTConstructionRestrictionComponent>(user, out var restriction))
+            return true;
+
+        if (_recipeGraphs == null)
+        {
+            _recipeGraphs = new();
+            foreach (var recipe in _proto.EnumeratePrototypes<ConstructionPrototype>())
+            {
+                _recipeGraphs.Add(recipe.Graph);
+            }
+        }
+
+        if (!_recipeGraphs.Contains(graph))
             return true;
 
         if (restriction.AllowedGraphs == null)
