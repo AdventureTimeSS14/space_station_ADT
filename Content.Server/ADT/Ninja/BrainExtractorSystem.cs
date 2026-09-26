@@ -344,6 +344,10 @@ public sealed class BrainExtractorSystem : EntitySystem
         }
 
         if (condition.ScansCompleted >= condition.MaxScans)
+        {
+            _popup.PopupEntity(Loc.GetString("brain-extractor-max-scans"), consoleUid, actor, PopupType.MediumCaution);
+            return;
+        }
 
         if (condition.ScannedMinds.Contains(mindId) || condition.ScannedBodies.Contains(body))
         {

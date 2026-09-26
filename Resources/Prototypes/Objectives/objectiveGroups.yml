@@ -137,6 +137,10 @@
 
 # ADT-Tweak start
 - type: weightedRandom
+  id: NinjaObjectiveGroups
+  weights:
+    NinjaNewObjectivesGroup: 1
+- type: weightedRandom
   id: NinjaNewObjectivesGroup
   weights:
     BrainScanObjective: 1

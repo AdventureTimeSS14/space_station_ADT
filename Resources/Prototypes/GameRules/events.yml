@@ -258,7 +258,7 @@
   # ADT-Tweak start
   - type: AntagRandomObjectives
     sets:
-    - groups: NinjaNewObjectivesGroup
+    - groups: NinjaObjectiveGroups
       prob: 0.5
       maxPicks: 2
     maxDifficulty: 3
