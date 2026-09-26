@@ -1,4 +1,4 @@
-adt-mortar-grind-start = Вы начали толочь селезёнку в ступке.
+adt-mortar-grind-start = Вы начали толочь селезёнку в грибной миске.
 adt-mortar-paint-start = Вы начинаете наносить краску на { $target }.
 adt-mortar-paint-body = { $target }: на тело нанесена краска.
 adt-mortar-paint-totem = На { $target } нанесена краска.

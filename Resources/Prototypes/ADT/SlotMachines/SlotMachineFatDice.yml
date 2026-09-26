@@ -34,3 +34,6 @@
       MobIpc:
         types:
           Blunt: 40
+      BorgChassis:
+        types:
+          Blunt: 40
