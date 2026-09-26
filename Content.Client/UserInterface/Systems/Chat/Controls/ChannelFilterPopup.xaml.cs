@@ -34,6 +34,7 @@ public sealed partial class ChannelFilterPopup : Popup
 
     public event Action<ChatChannel, bool>? OnChannelFilter;
     public event Action<string>? OnNewHighlights;
+    public event Action? OnOpenCustomEmotes; // ADT-Tweak
 
     public ChannelFilterPopup()
     {
@@ -51,6 +52,8 @@ public sealed partial class ChannelFilterPopup : Popup
         {
             UpdateHighlights(highlights);
         }
+
+        CustomEmotesButton.OnPressed += _ => OnOpenCustomEmotes?.Invoke(); // ADT-Tweak
     }
 
     public bool IsActive(ChatChannel channel)
@@ -132,6 +135,7 @@ public sealed partial class ChannelFilterPopup : Popup
     {
         OnNewHighlights?.Invoke(Rope.Collapse(HighlightEdit.TextRope));
     }
+
 
     public void UpdateUnread(ChatChannel channel, int? unread)
     {
