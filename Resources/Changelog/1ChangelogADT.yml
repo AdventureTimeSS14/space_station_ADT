@@ -15789,3 +15789,11 @@ Entries:
     id: 1963
     pr_number: 3421
     time: '2026-09-25T21:26:45Z'
+  - author: Inconnu
+    changes:
+      - {message: Добавлен GPS сигнал пепельному дракону., type: Add}
+      - {message: Добавлен уникальный лут пепельного дракона., type: Add}
+      - {message: Исправлены баги связанные с пепельным драконом., type: Fix}
+    id: 1964
+    pr_number: 3443
+    time: '2026-09-26T07:27:14Z'
