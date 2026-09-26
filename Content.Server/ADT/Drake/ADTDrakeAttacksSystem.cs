@@ -97,6 +97,10 @@ public sealed class ADTDrakeAttacksSystem : EntitySystem
                 _drake.SetEscapeEnraged(ent, false);
                 break;
 
+            case ADTDrakeStepType.MeleeFollowUp:
+                _drake.MeleeFollowUp(ent, step.Target);
+                break;
+
             default:
                 throw new ArgumentOutOfRangeException(nameof(step.Type), step.Type, "Unhandled drake step.");
         }
@@ -120,6 +124,9 @@ public sealed class ADTDrakeAttacksSystem : EntitySystem
     {
         if (args.FollowUp == ADTDrakeSwoopFollowUp.LavaSwoopCones)
             LavaSwoopCones(ent);
+
+        if (args.FollowUp == ADTDrakeSwoopFollowUp.LavaPools && args.Target is { } target)
+            LavaPools(ent, target, ent.Comp.LavaPoolsAmount);
 
         if (!args.LavaSuccess)
             ArenaEscapeEnrage(ent);
@@ -235,10 +242,21 @@ public sealed class ADTDrakeAttacksSystem : EntitySystem
         if (meteors && _random.Prob(ent.Comp.FireConeMeteorChance))
             FireRain(ent, target);
 
+        FireConeLines(ent, _transform.GetMapCoordinates(target));
+    }
+
+    public void FireConeAt(Entity<ADTDrakeComponent> ent, MapCoordinates target)
+    {
+        _audio.PlayPvs(ent.Comp.FireSound, ent);
+        FireConeLines(ent, target);
+    }
+
+    private void FireConeLines(Entity<ADTDrakeComponent> ent, MapCoordinates target)
+    {
         if (!TryGetGrid(ent, out var gridUid, out var grid, out var origin))
             return;
 
-        var targetTile = _map.TileIndicesFor(gridUid, grid, _transform.GetMapCoordinates(target));
+        var targetTile = _map.TileIndicesFor(gridUid, grid, target);
 
         foreach (var offset in ent.Comp.FireConeAngles)
         {
