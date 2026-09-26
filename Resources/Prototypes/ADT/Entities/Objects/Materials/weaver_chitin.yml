@@ -53,20 +53,55 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Neck/gem_necklace.rsi
+    layers:
+    - state: icon
+      map: [ "base" ]
   - type: Clothing
     sprite: ADT/Clothing/Neck/gem_necklace.rsi
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ADTJewelryVisuals.Gem:
+        base:
+          none: { state: icon }
+          ruby: { state: ruby }
+          sapphire: { state: sapphire }
+          emerald: { state: emerald }
+          topaz: { state: topaz }
+          rupee: { state: rupee }
+          diamond: { state: diamond }
+          magma: { state: magma }
+          void: { state: void }
+          red: { state: red }
+          purple: { state: purple }
+          phoron: { state: phoron }
+          amber: { state: amber }
   - type: ItemSlots
     slots:
       gem:
         name: adt-gem-necklace-slot
         whitelist:
           tags:
-          - ADTMagmaGem
           - ADTGem
         insertSound:
           path: /Audio/Effects/pop.ogg
         ejectSound:
           path: /Audio/Effects/pop.ogg
   - type: ContainerContainer
+  - type: PointLight
+    enabled: false
+    radius: 3
+    energy: 2
+  - type: ADTGemJewelry
+    namePrefix: adt-jewelry-necklace
+    equippedSlot: NECK
+    keyEffects:
+      amber: ADTStatusEffectDragonStrength
+  - type: ADTAccessory
+    allowDuplicates: false
+    equippedState: equipped-NECK
   - type: StaticPrice
     price: 150
+  - type: Construction
+    graph: ADTGemNecklace
+    node: necklace

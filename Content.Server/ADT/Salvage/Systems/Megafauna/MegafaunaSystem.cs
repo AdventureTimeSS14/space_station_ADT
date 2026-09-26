@@ -27,7 +27,6 @@ public sealed partial class MegafaunaSystem : EntitySystem
         SubscribeLocalEvent<ADTLavalandBoundComponent, EntParentChangedMessage>(OnBoundParentChanged);
         //TODO: SubscribeLocalEvent<ShuttleComponent, FTLStartedEvent>(OnShuttleFTL);
 
-        InitializeDrake();
         InitializeAggro();
     }
 

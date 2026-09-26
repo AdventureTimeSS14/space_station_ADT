@@ -368,6 +368,11 @@
     energy: 2.7
     color: "#4faffb"
     mask: /Textures/ADT/Effects/Lightmasks/circle_b.png # ADT tweak
+  # ADT-Tweak-Start
+  - type: ADTDehairable
+    result: ADTMaterialHairlessHide1
+    multiplier: 3
+  # ADT-Tweak-End
 
 - type: entity
   parent: MaterialBase
@@ -388,6 +393,11 @@
   - type: Tag
     tags:
     - HideCorgi
+  # ADT-Tweak-Start
+  - type: ADTDehairable
+    result: ADTMaterialHairlessHide1
+    multiplier: 3
+  # ADT-Tweak-End
 
 - type: entity
   parent: MaterialBase
@@ -842,6 +852,11 @@
   - type: Tag
     tags:
     - GoliathPlate
+  # ADT-Tweak-Start
+  - type: ADTDehairable
+    result: ADTMaterialHairlessHide1
+    multiplier: 3
+  # ADT-Tweak-End
 
 - type: entity
   parent: MaterialGoliathHide

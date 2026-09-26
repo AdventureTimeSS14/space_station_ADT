@@ -34,6 +34,8 @@
   #ADT-Tweak-Start
   - type: CoveredSlot
     slots: [underwearb, underweart]
+  - type: ADTAccessoryHolder
+    maxAccessories: 5
   #ADT-Tweak-End
 
 - type: entity

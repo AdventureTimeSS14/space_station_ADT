@@ -208,7 +208,7 @@
   - type: ADTBulletDeflect
   - type: Butcherable
     spawned:
-    - id: FoodMeat
+    - id: ADTFoodMeatGoldgrub
       amount: 1
   - type: ADTScavenger
     storeEaten: true
@@ -222,5 +222,6 @@
       SilverOre1: 0.5
       UraniumOre1: 0.4
       DiamondOre1: 0.25
+      ADTGemRuperium: 0.4
   - type: MobPrice
     price: 300

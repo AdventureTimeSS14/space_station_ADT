@@ -20,15 +20,20 @@
     node: bracers
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: BaseItem
   id: ADTClothingNeckBoneTalisman
   name: bone talisman
-  description: A hunter's talisman, some say the old gods smile on those who wear it.
+  description: A hunter's talisman, some say the old gods smile on those who wear it. Attaches to a jumpsuit.
   components:
   - type: Sprite
     sprite: ADT/Clothing/Neck/bone_talisman.rsi
-  - type: Clothing
+    state: icon
+  - type: Item
+    size: Small
+  - type: ADTAccessory
+    allowDuplicates: false
     sprite: ADT/Clothing/Neck/bone_talisman.rsi
+    equippedState: equipped-NECK
   - type: Armor
     modifiers:
       coefficients:
@@ -60,6 +65,9 @@
         Heat: 0.5
   - type: TemperatureProtection
     heatingCoefficient: 0.4
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
   - type: GroupExamine
   - type: Construction
     graph: ADTLightBoneArmor
@@ -86,6 +94,12 @@
     heatingCoefficient: 0.2
   - type: FireProtection
     reduction: 0.5
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadGoliathHood
+    slot: head
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
   - type: GroupExamine
   - type: Tag
     tags:
@@ -93,3 +107,22 @@
   - type: Construction
     graph: ADTGoliathCloak
     node: cloak
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadGoliathHood
+  name: goliath cloak hood
+  description: A protective and concealing hood.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Lavaland/goliath_hood.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Lavaland/goliath_hood.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.95
+        Heat: 0.75

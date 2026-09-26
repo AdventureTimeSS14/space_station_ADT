@@ -190,3 +190,51 @@
     state: icon
   name: alerts-adt-regenerative-core-name
   description: alerts-adt-regenerative-core-desc
+
+- type: alert
+  id: ADTFreakyLegs
+  icons:
+  - sprite: /Textures/ADT/Interface/Alerts/lavaland_food.rsi
+    state: freaky_legs
+  name: alerts-adt-freaky-legs-name
+  description: alerts-adt-freaky-legs-desc
+
+- type: alert
+  id: ADTTailODead
+  icons:
+  - sprite: /Textures/ADT/Interface/Alerts/lavaland_food.rsi
+    state: tail_o_dead
+  name: alerts-adt-tail-o-dead-name
+  description: alerts-adt-tail-o-dead-desc
+
+- type: alert
+  id: ADTBeerGrubStew
+  icons:
+  - sprite: /Textures/ADT/Interface/Alerts/lavaland_food.rsi
+    state: beer_grub_stew
+  name: alerts-adt-beer-grub-stew-name
+  description: alerts-adt-beer-grub-stew-desc
+
+- type: alert
+  id: ADTThickRedPaste
+  icons:
+  - sprite: /Textures/ADT/Interface/Alerts/lavaland_food.rsi
+    state: thick_red_paste
+  name: alerts-adt-thick-red-paste-name
+  description: alerts-adt-thick-red-paste-desc
+
+- type: alert
+  id: ADTXenoSticks
+  icons:
+  - sprite: /Textures/ADT/Interface/Alerts/lavaland_food.rsi
+    state: xeno_sticks
+  name: alerts-adt-xeno-sticks-name
+  description: alerts-adt-xeno-sticks-desc
+
+- type: alert
+  id: ADTAbuGhosh
+  icons:
+  - sprite: /Textures/ADT/Interface/Alerts/lavaland_food.rsi
+    state: abu_ghosh
+  name: alerts-adt-abu-ghosh-name
+  description: alerts-adt-abu-ghosh-desc

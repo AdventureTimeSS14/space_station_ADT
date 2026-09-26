@@ -4,6 +4,51 @@
   parent: BaseSpeciesMobOrganic
   id: ADTMobAshWalkerBase
   components:
+  - type: ADTTribeMember
+  - type: ADTConstructionRestriction
+    allowedRecipes: &ADTTribeRecipes
+    - ImprovisedBow
+    - ClothingBeltQuiver
+    - ImprovisedArrow
+    - SpearBone
+    - BoneArmor
+    - BoneHelmet
+    - ADTBoneKnife
+    - ADTBoneSword
+    - ADTBoneLongsword
+    - ADTBoneMachete
+    - ADTBoneBattleaxe
+    - Bonfire
+    - BonfireStake
+    - ADTBonfireRecipe
+    - LightTorch
+    - CottonWovenCloth
+    - gauze
+    - rag
+    - FungalSoil
+    - ADTMushroomBowl
+    - WoodWall
+    - WoodDoor
+    - Barricade
+    - BarricadeDirectional
+    - FenceWood
+    - FenceWoodCorner
+    - FenceWoodCornerSmall
+    - FenceWoodEnd
+    - FenceWoodEndSmall
+    - FenceWoodGate
+    - FenceWoodGateSmall
+    - FenceWoodSmall
+    - FenceWoodTJunction
+    - FenceWoodTJunctionSmall
+    - TileWood
+    - ChairWood
+    - ChairWoodBench
+    - TableCounterWood
+    - ShelfWood
+    - ADTGemSatchel
+    - ADTGemNecklace
+    - ADTGemBracers
   - type: TTS
   - type: BreathingImmunity
   - type: AshStormImmune
@@ -405,6 +450,9 @@
   - MobReptilian
   id: ADTMobDraconid
   components:
+  - type: ADTTribeMember
+  - type: ADTConstructionRestriction
+    allowedRecipes: *ADTTribeRecipes
   - type: ADTLavalandSpeed
     everywhere: true
     walkModifier: 1.08
@@ -446,3 +494,51 @@
   components:
   - type: Stomach
     isSpecialDigestibleExclusive: false
+
+- type: entity
+  save: false
+  parent: ADTMobAshWalker
+  id: ADTMobAshWalkerCorpse
+  suffix: Dead
+  components:
+  - type: Damageable
+    damage:
+      types:
+        Bloodloss: 49
+        Asphyxiation: 76
+        Slash: 56
+        Blunt: 19
+  - type: Loadout
+    prototypes:
+    - ADTAshWalkerCorpseGear
+    - ADTAshWalkerCorpseGear
+    - ADTAshWalkerCorpseGear
+    - ADTAshWalkerCorpseGear
+    - ADTAshWalkerCorpseGear
+    - ADTAshWalkerCorpseGear
+    - ADTAshWalkerCorpseKnifeGear
+    - ADTAshWalkerCorpseKnifeGear
+    - ADTAshWalkerCorpseKnifeGear
+    - ADTAshWalkerCorpseArmoredGear
+  - type: UnRotting
+  - type: TriggerOnSpawn
+  - type: RemoveComponentsOnTrigger
+    components:
+    - type: GhostRole
+    - type: GhostTakeoverAvailable
+
+- type: entity
+  parent: MarkerBase
+  id: ADTLegionCorpseSpawner
+  name: legion corpse spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+  - type: RandomSpawner
+    offset: 0
+    prototypes:
+    - MobRandomCargoCorpse
+    rarePrototypes:
+    - ADTMobAshWalkerCorpse
+    rareChance: 0.1

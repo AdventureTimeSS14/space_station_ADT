@@ -13,3 +13,16 @@ alerts-cold-comfy-desc = Вы чувствуете приятную прохла
 alerts-adt-regenerative-core-name = Регенеративное ядро
 alerts-adt-regenerative-core-desc = Чёрные щупальца скрепляют ваше тело. Раны затягиваются, а урон больше не замедляет вас.
 
+
+alerts-adt-freaky-legs-name = Жуткие ноги
+alerts-adt-freaky-legs-desc = Поедание человеческих конечностей себя оправдало! Раны больше не замедляют вас.
+alerts-adt-tail-o-dead-name = Хвост мертвеца
+alerts-adt-tail-o-dead-desc = Вы перестали различать цвета, зато отлично видите в темноте.
+alerts-adt-beer-grub-stew-name = Тушёный пивной червь
+alerts-adt-beer-grub-stew-desc = Температура вашего тела стабилизируется в разы быстрее.
+alerts-adt-thick-red-paste-name = Густая красная паста
+alerts-adt-thick-red-paste-desc = Вы чувствуете, как вам становится слегка лучше. Кровотечения могут внезапно затянуться.
+alerts-adt-xeno-sticks-name = Ксено-сетчатка
+alerts-adt-xeno-sticks-desc = Вы начинаете лучше видеть в темноте.
+alerts-adt-abu-ghosh-name = Кроветворение
+alerts-adt-abu-ghosh-desc = Вы чувствуете, что ваша кровь начала восстанавливаться быстрее.
