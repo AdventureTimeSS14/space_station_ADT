@@ -96,10 +96,14 @@ adt-grace-empty = От постамента остаётся лишь одно �
 adt-grace-examine = На постаменте ещё { $portions } порций мяса.
 
 adt-point-of-interest-ash-statue = пепельный тотем
+adt-point-of-interest-ash-village = логово пеплоходцев
+adt-point-of-interest-world-anvil = мировая кузня
 
 construction-graph-tag-adt-bone-axe = костяной топор
 construction-graph-tag-adt-saw-blade = лезвие дисковой пилы
 
+adt-cooking-scroll-window-title = Свиток готовки
+adt-cooking-scroll-search = Поиск блюда или ингредиента...
 adt-cooking-scroll-content =
     Как прокормить племя:
     Мясо голиафа и мягкое мясо лавовых рыб жарится на племенной печи.

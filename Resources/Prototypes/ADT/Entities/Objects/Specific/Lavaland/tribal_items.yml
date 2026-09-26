@@ -9,16 +9,13 @@
     state: icon
   - type: Item
     size: Small
-  - type: Appearance
-  - type: Paper
-    content: adt-cooking-scroll-content
   - type: ActivatableUI
-    key: enum.PaperUiKey.Key
+    key: enum.ADTCookingScrollUiKey.Key
     requiresComplex: false
   - type: UserInterface
     interfaces:
-      enum.PaperUiKey.Key:
-        type: PaperBoundUserInterface
+      enum.ADTCookingScrollUiKey.Key:
+        type: ADTCookingScrollBoundUserInterface
 
 - type: entity
   id: ADTGuillotine
