@@ -1,5 +1,6 @@
 using Content.Shared.ADT.Heretic.Common;
 using Content.Shared.Damage.Components;
+using Content.Shared.Emp;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mech.Components;
@@ -27,12 +28,25 @@ public abstract partial class SharedADTMedbeamSystem : EntitySystem
         SubscribeLocalEvent<ADTMedbeamComponent, ActivateInWorldEvent>(OnActivate);
         SubscribeLocalEvent<ADTMedbeamComponent, DroppedEvent>(OnDropped);
         SubscribeLocalEvent<ADTMedbeamComponent, EntGotInsertedIntoContainerMessage>(OnInserted);
+        SubscribeLocalEvent<ADTMedbeamComponent, EmpPulseEvent>(OnEmpPulse);
+    }
+
+    private void OnEmpPulse(Entity<ADTMedbeamComponent> ent, ref EmpPulseEvent args)
+    {
+        args.Affected = true;
+        DetachBeam(ent);
     }
 
     private void OnAfterInteract(Entity<ADTMedbeamComponent> ent, ref AfterInteractEvent args)
     {
         if (args.Handled || args.Target == null)
             return;
+
+        if (HasComp<EmpDisabledComponent>(ent.Owner))
+        {
+            args.Handled = true;
+            return;
+        }
 
         if (ent.Comp.RequireMech)
         {
@@ -74,6 +88,9 @@ public abstract partial class SharedADTMedbeamSystem : EntitySystem
 
     public virtual void AttachBeam(Entity<ADTMedbeamComponent> ent, EntityUid target)
     {
+        if (HasComp<EmpDisabledComponent>(ent.Owner))
+            return;
+
         ent.Comp.Target = target;
         Dirty(ent);
 
