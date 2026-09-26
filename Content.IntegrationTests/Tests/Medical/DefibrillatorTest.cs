@@ -51,7 +51,7 @@ public sealed class DefibrillatorTest : InteractionTest
         });
 
         // Get the damage needed to kill or crit the target.
-        var critThreshold = mobThresholdsSystem.GetThresholdForState(STarget.Value, MobState.Critical);
+        var critThreshold = mobThresholdsSystem.GetThresholdForState(STarget.Value, MobState.SoftCritical); // ADT-Tweak
         var deathThreshold = mobThresholdsSystem.GetThresholdForState(STarget.Value, MobState.Dead);
         var critDamage = new DamageSpecifier(ProtoMan.Index(BluntDamageTypeId), (critThreshold + deathThreshold) / 2);
         var deathDamage = new DamageSpecifier(ProtoMan.Index(BluntDamageTypeId), deathThreshold);
@@ -96,7 +96,7 @@ public sealed class DefibrillatorTest : InteractionTest
         await RunSeconds((float)cooldown.TotalSeconds);
         await Interact();
 
-        // The target should be revived, but in crit.
-        Assert.That(targetMobState.CurrentState, Is.EqualTo(MobState.Critical), "Target mob was not revived from being defibrillated.");
+        // The target should be revived, but in soft crit.
+        Assert.That(targetMobState.CurrentState, Is.EqualTo(MobState.SoftCritical), "Target mob was not revived from being defibrillated."); // ADT-Tweak
     }
 }

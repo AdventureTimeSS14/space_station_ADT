@@ -15,8 +15,17 @@ public enum MobState : byte
 {
     Invalid = 0,
     Alive = 1,
-    Critical = 2,
-    Dead = 3
+
+    // ADT-Tweak-start
+
+    /// <summary>
+    ///     Barely conscious: the mob is prone, crawls, can only whisper and cannot act.
+    /// </summary>
+    SoftCritical = 2,
+    Critical = 3,
+    Dead = 4
+
+    // ADT-Tweak-end
 }
 
 /// <summary>
@@ -29,11 +38,6 @@ public enum MobState : byte
 /// <param name="Origin">The Entity that caused this state change</param>
 public record struct MobStateChangedEvent(EntityUid Target, MobStateComponent Component, MobState OldMobState,
     MobState NewMobState, EntityUid? Origin = null);
-
-public static class A
-{
-    //^.^
-}
 
 //This is dumb and I hate it but I don't feel like refactoring this garbage
 [Serializable, NetSerializable]

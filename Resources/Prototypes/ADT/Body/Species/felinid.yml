@@ -128,7 +128,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Critical
+      100: SoftCritical
+      142: Critical
       185: Dead
   - type: SizeAttributeWhitelist
     tall: true

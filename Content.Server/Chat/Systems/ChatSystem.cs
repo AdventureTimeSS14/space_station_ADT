@@ -223,6 +223,21 @@ public sealed partial class ChatSystem : SharedChatSystem
         }
         // ADT-Port-End DeltaV - End hushed trait logic
 
+        // ADT-Tweak-start
+        if (desiredType == InGameICChatType.Speak && _mobStateSystem.IsSoftCritical(source))
+            desiredType = InGameICChatType.Whisper;
+        // ADT-Tweak-end
+
+        // ADT-Tweak-start
+        if (_mobStateSystem.IsSoftCritical(source))
+        {
+            checkRadioPrefix = false;
+
+            if (TryProcessRadioMessage(source, message, out var stripped, out _, true))
+                message = stripped;
+        }
+        // ADT-Tweak-end
+
         // ADT Languages start
 
         bool shouldCapitalize = (desiredType != InGameICChatType.Emote);
@@ -230,14 +245,13 @@ public sealed partial class ChatSystem : SharedChatSystem
         // Capitalizing the word I only happens in English, so we check language here
         bool shouldCapitalizeTheWordI = (!CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Parent.Name == "en")
             || (CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Name == "en");
-        // ADT-Tweak: SanitizeInGameICMessageLanguages Да это дублирование уже сущетвующей функции, но без проверки на замены
-        string sanitizedMessage = SanitizeInGameICMessageLanguages(source, message, out var emoteStr, shouldCapitalize, shouldPunctuate, shouldCapitalizeTheWordI);
+        string sanitizedMessage = SanitizeInGameICMessageLanguages(source, message, out var emoteStr, shouldCapitalize, shouldPunctuate, shouldCapitalizeTheWordI); // ADT-Tweak
 
         // ADT Languages end
 
         // ADT Alternative speech start
         var altEv = new AlternativeSpeechEvent(sanitizedMessage, false, desiredType);
-        if (TryProcessRadioMessage(source, sanitizedMessage, out var altSpeechRadioResult, out _, true))
+        if (checkRadioPrefix && TryProcessRadioMessage(source, sanitizedMessage, out var altSpeechRadioResult, out _, true)) // ADT-Tweak
         {
             altEv.Radio = true;
             altEv.Message = altSpeechRadioResult;

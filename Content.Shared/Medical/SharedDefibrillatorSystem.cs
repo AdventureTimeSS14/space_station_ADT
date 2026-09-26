@@ -245,7 +245,7 @@ public abstract class SharedDefibrillatorSystem : EntitySystem
                 _mobThreshold.TryGetThresholdForState(target, MobState.Dead, out var threshold, targetThresholds) &&
                 _damageable.GetTotalDamage(target) < threshold)
             {
-                _mobState.ChangeMobState(target, MobState.Critical, targetMobState, user);
+                _mobState.ChangeMobState(target, MobState.SoftCritical, targetMobState, user); // ADT-Tweak
                 failedRevive = false;
             }
 

@@ -27,6 +27,26 @@
   name: alerts-crawling-name
   description: alerts-crawling-desc
 
+
+- type: alert
+  id: ADTHumanSoftCrit
+  category: Health
+  clickEvent: !type:TryCatchBreathAlertEvent
+  icons:
+  - sprite: /Textures/Interface/Alerts/human_critical.rsi
+    state: critical
+  name: alerts-adt-soft-crit-name
+  description: alerts-adt-soft-crit-desc
+
+- type: alert
+  id: ADTBorgSoftCrit
+  category: Health
+  icons:
+  - sprite: /Textures/Interface/Alerts/borg_critical.rsi
+    state: critical
+  name: alerts-adt-soft-crit-name
+  description: alerts-adt-soft-crit-desc
+
 - type: alert
   id: ADTAlertPolymorph
   icons:
