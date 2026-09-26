@@ -1,4 +1,5 @@
 using Content.Server.Administration.Logs;
+using Content.Server.ADT.StationAi; // ADT-Tweak
 using Content.Server.Chat.Systems;
 using Content.Server.Power.Components;
 using Content.Shared.Access.Components;
@@ -18,8 +19,11 @@ using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
 using Content.Server.ADT.Language;  // ADT Languages
+using Content.Server.ADT.TTS;
 using Content.Shared.ADT.Language;  // ADT Languages
 using Content.Shared.ADT.Loudspeaker.Events;
+using Content.Shared.ADT.TenCodes;
+using Content.Shared.ADT.TTS;
 
 namespace Content.Server.Radio.EntitySystems;
 
@@ -37,6 +41,8 @@ public sealed class RadioSystem : EntitySystem
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly LanguageSystem _language = default!;  // ADT Languages
     [Dependency] private readonly SharedRadioJobIconSystem _radioJobIcon = default!; // ADT-Tweak
+    [Dependency] private readonly AiEyeTeleportSystem _aiEyeTeleport = default!; // ADT-Tweak
+    [Dependency] private readonly ADTTenCodeSystem _tenCode = default!; // ADT-Tweak
 
     // set used to prevent radio feedback loops.
     private readonly HashSet<string> _messages = new();
@@ -68,16 +74,17 @@ public sealed class RadioSystem : EntitySystem
         if (TryComp(uid, out ActorComponent? actor))
         {
             // ADT-Tweak start
+            var chatMsg = _language.CanUnderstand(uid, args.Language)
+                ? args.ChatMsg
+                : args.UnknownLanguageChatMsg;
+
             if (_deafness.TryInterceptRadio(uid, actor.PlayerSession, args.Message, args.MessageSource))
                 return;
-            // ADT-Tweak end
 
-            // ADT Languages start
-            if (_language.CanUnderstand(uid, args.Language))
-                _netMan.ServerSendMessage(args.ChatMsg, actor.PlayerSession.Channel);
-            else
-                _netMan.ServerSendMessage(args.UnknownLanguageChatMsg, actor.PlayerSession.Channel);
-            // ADT Languages end
+            chatMsg = _aiEyeTeleport.TryAddRadioEyeLink(uid, chatMsg, args.MessageSource) ?? chatMsg;
+
+            _netMan.ServerSendMessage(chatMsg, actor.PlayerSession.Channel);
+            // ADT-Tweak end
         }
     }
 
@@ -145,6 +152,8 @@ public sealed class RadioSystem : EntitySystem
             ? FormattedMessage.EscapeText(message)
             : message;
 
+        content = ADTSpeechStress.Strip(content); // ADT-Tweak
+
         // ADT Languages start
         var languageEncodedContent = _language.ObfuscateMessage(messageSource, content, gen.Replacement, gen.ObfuscateSyllables, gen.ReplaceEntireMessage);
 
@@ -168,6 +177,9 @@ public sealed class RadioSystem : EntitySystem
         if (!verbsReplaced && gen.SuffixSpeechVerbs.TryGetValue("Default", out var defaultStrings) && defaultStrings.Count > 0)
             verbStrings = defaultStrings;
         // ADT Languages end
+
+        content = _tenCode.Highlight(messageSource, content); // ADT-Tweak
+        languageEncodedContent = _tenCode.Highlight(messageSource, languageEncodedContent); // ADT-Tweak
 
         var nameWithIcon = GetWrappedNameWithJobIcon(messageSource, name); // ADT-Tweak
 
@@ -200,7 +212,7 @@ public sealed class RadioSystem : EntitySystem
             ChatChannel.Radio,
             message,
             wrappedMessage,
-            NetEntity.Invalid,
+            GetNetEntity(messageSource), // ADT-Tweak: NetEntity.Invalid -> отправитель, чтобы клиент отличал свои сообщения
             null);
 
         // ADT Languages start
@@ -208,7 +220,7 @@ public sealed class RadioSystem : EntitySystem
             ChatChannel.Radio,
             message,
             wrappedEncodedMessage,
-            NetEntity.Invalid,
+            GetNetEntity(messageSource), // ADT-Tweak: NetEntity.Invalid -> отправитель
             null);
         // ADT Languages end
 
@@ -226,6 +238,7 @@ public sealed class RadioSystem : EntitySystem
         var hasActiveServer = HasActiveServer(sourceMapId, channel.ID);
         var sourceServerExempt = _exemptQuery.HasComp(radioSource);
 
+        var ttsReceivers = new List<EntityUid>(); // ADT-Tweak
         var radioQuery = EntityQueryEnumerator<ActiveRadioComponent, TransformComponent>();
         while (canSend && radioQuery.MoveNext(out var receiver, out var radio, out var transform))
         {
@@ -253,7 +266,13 @@ public sealed class RadioSystem : EntitySystem
 
             // send the message
             RaiseLocalEvent(receiver, ref ev);
+            ttsReceivers.Add(receiver); // ADT-Tweak
         }
+
+        // ADT-Tweak-Start
+        var ttsEv = new RadioSpokeEvent(messageSource, message, channel, ttsReceivers, language);
+        RaiseLocalEvent(ref ttsEv);
+        // ADT-Tweak-End
 
         if (name != Name(messageSource))
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Radio message from {ToPrettyString(messageSource):user} as {name} on {channel.LocalizedName}: {message}");

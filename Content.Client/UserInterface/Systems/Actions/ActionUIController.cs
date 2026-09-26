@@ -56,6 +56,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     [UISystemDependency] private readonly InteractionOutlineSystem? _interactionOutline = default;
     [UISystemDependency] private readonly TargetOutlineSystem? _targetOutline = default;
     [UISystemDependency] private readonly SpriteSystem _spriteSystem = default!;
+    [UISystemDependency] private readonly ADT.Heretic.StopTargetingSystem? _stopTargeting = default;
     [UISystemDependency] private readonly ADTActionOrderSystem? _orderSystem = default;
 
     // ADT-Tweak-Start
@@ -121,6 +122,9 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             _actionsSystem.OnActionRemoved += OnActionRemoved;
             _actionsSystem.ActionsUpdated += OnActionsUpdated;
         }
+
+        if (_stopTargeting != null) // ADT Heretic
+            _stopTargeting.StopTargeting += StopTargeting;
 
         UpdateFilterLabel();
         QueueWindowUpdate();
@@ -241,6 +245,9 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             _actionsSystem.OnActionRemoved -= OnActionRemoved;
             _actionsSystem.ActionsUpdated -= OnActionsUpdated;
         }
+
+        if (_stopTargeting != null) // ADT Heretic
+            _stopTargeting.StopTargeting -= StopTargeting;
 
         CommandBinds.Unregister<ActionUIController>();
     }
@@ -497,9 +504,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             else
             {
                 // ADT-Tweak-Start
-                var replaced = _actions[position];
                 _actions[position] = actionId;
-                MarkRemovedFromHotbar(replaced);
                 // ADT-Tweak-End
             }
 
@@ -533,8 +538,17 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             SetAction(button, action, false);
         }
 
+        // ADT-Tweak-Start
         if (dragged.Parent is ActionButtonContainer)
+        {
             SetAction(dragged, swapAction, false);
+        }
+        else if (swapAction != null)
+        {
+            MarkRemovedFromHotbar(swapAction);
+            StoreOrder();
+        }
+        // ADT-Tweak-End
 
         if (_actionsSystem != null)
             _container?.SetActionData(_actionsSystem, _actions.ToArray());

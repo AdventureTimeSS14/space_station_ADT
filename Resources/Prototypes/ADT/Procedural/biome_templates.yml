@@ -106,20 +106,6 @@
       entities:
         - ADTSpawnMobPRandomLavaland
 
-    - !type:BiomeEntityLayer
-      threshold: 0.2
-      noise:
-        seed: 0
-        frequency: 0.05
-        fractalType: FBm
-        octaves: 5
-        lacunarity: 2
-        gain: 0.4
-      allowedTiles:
-        - FloorBasalt
-      entities:
-        - FloorLavaEntity
-
     #undertale lore
     - !type:BiomeEntityLayer
       allowedTiles:
@@ -178,6 +164,7 @@
     - !type:BiomeTileLayer
       threshold: -1
       tile: FloorBasalt
+
 
 # ADT BFUU IcePlanet
 - type: biomeTemplate

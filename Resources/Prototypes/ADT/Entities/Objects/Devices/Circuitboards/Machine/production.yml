@@ -262,7 +262,6 @@
       Glass: 15
       Steel: 15
       CableHV: 5
-
       ADTBScrystalArt: 10
     partRequirements:
       Servo: 20

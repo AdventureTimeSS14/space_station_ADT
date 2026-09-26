@@ -1,5 +1,19 @@
-# ADT-Xenobio-Start
-# Russian text for these lives in Resources/Locale/ru-RU/ADT/actions/xenobiology_console.ftl (ent-<id> pattern).
+- type: entity
+  parent: BaseAction
+  id: ADTActionXenobiologyAnalyzeSlime
+  name: Analyze slime
+  description: Get the info of a slime right under the camera's eye.
+  components:
+  - type: Action
+    priority: -11
+    icon:
+      sprite: ADT/Interface/Actions/xenobiology_console.rsi
+      state: scan_slime
+    itemIconStyle: BigAction
+    checkConsciousness: false
+    checkCanInteract: false
+  - type: InstantAction
+    event: !type:XenobiologyAnalyzeSlimeEvent
 
 - type: entity
   parent: BaseAction
@@ -8,10 +22,13 @@
   description: Grabs a live slime near you into the console's storage.
   components:
   - type: Action
+    priority: -10
     icon:
       sprite: ADT/Interface/Actions/xenobiology_console.rsi
-      state: capture_slime
+      state: grab_slime
     itemIconStyle: BigAction
+    checkConsciousness: false
+    checkCanInteract: false
   - type: InstantAction
     event: !type:XenobiologyCaptureSlimeEvent
 
@@ -22,10 +39,13 @@
   description: Places a stored slime at your current position.
   components:
   - type: Action
+    priority: -9
     icon:
       sprite: ADT/Interface/Actions/xenobiology_console.rsi
-      state: place_slime
+      state: release_slimes
     itemIconStyle: BigAction
+    checkConsciousness: false
+    checkCanInteract: false
   - type: InstantAction
     event: !type:XenobiologyPlaceSlimeEvent
 
@@ -36,10 +56,13 @@
   description: Spawns a live monkey at your position, consuming one from the console's cube stock.
   components:
   - type: Action
+    priority: -8
     icon:
       sprite: ADT/Interface/Actions/xenobiology_console.rsi
-      state: feed_monkey
+      state: place_monkey
     itemIconStyle: BigAction
+    checkConsciousness: false
+    checkCanInteract: false
   - type: InstantAction
     event: !type:XenobiologyFeedMonkeyEvent
 
@@ -50,25 +73,46 @@
   description: Recycles a dead monkey near you into cube stock, via the console's linked recycler.
   components:
   - type: Action
+    priority: -7
     icon:
       sprite: ADT/Interface/Actions/xenobiology_console.rsi
       state: recycle_monkey
     itemIconStyle: BigAction
+    checkConsciousness: false
+    checkCanInteract: false
   - type: InstantAction
     event: !type:XenobiologyRecycleMonkeyEvent
 
 - type: entity
   parent: BaseAction
-  id: ADTActionXenobiologyReturn
-  name: Return to body
-  description: Ends piloting and returns you to your body.
+  id: ADTActionXenobiologyApplyMutationPotion
+  name: Apply mutation potion
+  description: Increase a slime's mutation chance using a stored mutation potion.
   components:
   - type: Action
-    priority: -9
-    itemIconStyle: BigAction
+    priority: -6
     icon:
-      sprite: ADT/Interface/Actions/xenobiology_console.rsi
-      state: return
+      sprite: Interface/Actions/actions_mecha.rsi
+      state: mech_overload_off
+    itemIconStyle: BigAction
+    checkConsciousness: false
+    checkCanInteract: false
   - type: InstantAction
-    event: !type:XenobiologyReturnEvent
-# ADT-Xenobio-End
+    event: !type:XenobiologyApplyMutationPotionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ADTActionXenobiologyApplyStabilizerPotion
+  name: Apply stabilizer potion
+  description: Decrease a slime's mutation chance using a stored stabilizer potion.
+  components:
+  - type: Action
+    priority: -5
+    icon:
+      sprite: Interface/Actions/actions_mecha.rsi
+      state: mech_defense_mode_off
+    itemIconStyle: BigAction
+    checkConsciousness: false
+    checkCanInteract: false
+  - type: InstantAction
+    event: !type:XenobiologyApplyStabilizerPotionEvent

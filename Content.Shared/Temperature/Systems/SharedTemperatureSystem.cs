@@ -33,6 +33,19 @@ public abstract partial class SharedTemperatureSystem : EntitySystem
 
     private void OnTemperatureChanged(Entity<TemperatureSpeedComponent> ent, ref OnTemperatureChangeEvent args)
     {
+        // ADT-Heretic: путь Пустоты иммунен к замедлению от холода
+        if (HasComp<Content.Goobstation.Common.Temperature.Components.SpecialLowTempImmunityComponent>(ent))
+        {
+            if (ent.Comp.CurrentSpeedModifier != null)
+            {
+                ent.Comp.CurrentSpeedModifier = null;
+                ent.Comp.NextSlowdownUpdate = null;
+                Dirty(ent);
+                _movementSpeedModifier.RefreshMovementSpeedModifiers(ent);
+            }
+            return;
+        }
+
         foreach (var (threshold, modifier) in ent.Comp.Thresholds)
         {
             if (args.CurrentTemperature < threshold && args.LastTemperature > threshold ||

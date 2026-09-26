@@ -1,4 +1,4 @@
-flavor-complex-adtconsideredmilk = как сгущенка
+flavor-complex-adtconsideredmilk = как сгущёнка
 flavor-complex-summershade = как прохлада, тень и арбузы
 flavor-complex-wintersun = как молоко с кофе
 flavor-complex-hungoverangel = как избавление от боли в висках
@@ -104,3 +104,6 @@ flavor-complex-adtyupistrawberry = как химозный клубничный 
 flavor-complex-adtyupiwatermelon = как химозный арбузный сок и беззаботное детство
 
 flavor-complex-waffle-cake = как вафли и варёная сгущёнка
+
+flavor-base-adtash = пеплом
+flavor-complex-adthopelessness = безнадёжностью

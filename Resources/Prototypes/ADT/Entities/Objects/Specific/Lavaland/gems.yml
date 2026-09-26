@@ -1,0 +1,416 @@
+- type: entity
+  parent: BaseItem
+  id: ADTGemBase
+  abstract: true
+  components:
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - ADTGem
+  - type: StaticPrice
+    price: 500
+  - type: ADTGem
+    pointValue: 100
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ADTGemVisuals.Analysed:
+        shine:
+          True: { visible: false }
+          False: { visible: true }
+
+- type: entity
+  parent: ADTGemBase
+  id: ADTGemSpecialBase
+  abstract: true
+  components:
+  - type: PointLight
+    enabled: true
+    radius: 4
+    energy: 2
+
+- type: entity
+  parent: ADTGemBase
+  id: ADTGemSapphire
+  name: sapphire
+  description: A blue gem. Pretty, but not much use in the wastes.
+  components:
+  - type: Tag
+    tags:
+    - ADTGem
+    - ADTGemSimple
+  - type: ADTGem
+    jewelryKey: sapphire
+  - type: Sprite
+    layers:
+    - sprite: ADT/Objects/Specific/Lavaland/Tribal/sapphire.rsi
+      state: icon
+      map: [ "base" ]
+    - sprite: ADT/Objects/Specific/Lavaland/Gems/gems.rsi
+      state: shine
+      map: [ "shine" ]
+
+- type: entity
+  parent: ADTGemBase
+  id: ADTGemEmerald
+  name: emerald
+  description: A green gem. Pretty, but not much use in the wastes.
+  components:
+  - type: Tag
+    tags:
+    - ADTGem
+    - ADTGemSimple
+  - type: ADTGem
+    jewelryKey: emerald
+  - type: Sprite
+    layers:
+    - sprite: ADT/Objects/Specific/Lavaland/Tribal/emerald.rsi
+      state: icon
+      map: [ "base" ]
+    - sprite: ADT/Objects/Specific/Lavaland/Gems/gems.rsi
+      state: shine
+      map: [ "shine" ]
+
+- type: entity
+  parent: ADTGemBase
+  id: ADTGemTopaz
+  name: topaz
+  description: An orange gem. Pretty, but not much use in the wastes.
+  components:
+  - type: Tag
+    tags:
+    - ADTGem
+    - ADTGemSimple
+  - type: ADTGem
+    jewelryKey: topaz
+  - type: Sprite
+    layers:
+    - sprite: ADT/Objects/Specific/Lavaland/Tribal/topaz.rsi
+      state: icon
+      map: [ "base" ]
+    - sprite: ADT/Objects/Specific/Lavaland/Gems/gems.rsi
+      state: shine
+      map: [ "shine" ]
+
+- type: entity
+  parent: ADTGemSpecialBase
+  id: ADTGemFrostDiamond
+  name: frost diamond
+  description: A unique diamond taken from icewing watchers. Cold to the touch; press it to your chest to cool down. It can be cut into small diamonds with a welder.
+  components:
+  - type: Sprite
+    layers:
+    - sprite: ADT/Objects/Specific/Lavaland/Gems/gems.rsi
+      state: diamond
+      map: [ "base" ]
+    - sprite: ADT/Objects/Specific/Lavaland/Gems/gems.rsi
+      state: shine
+      map: [ "shine" ]
+  - type: PointLight
+    color: "#62cad5"
+  - type: StaticPrice
+    price: 2000
+  - type: ADTGem
+    jewelryKey: diamond
+    pointValue: 700
+    sheet: MaterialDiamond1
+    sheetAmount: 30
+  - type: ADTGemTemperature
+    delta: -60
+  - type: UseDelay
+    delay: 15
+
+- type: entity
+  parent: ADTGemSpecialBase
+  id: ADTGemRuperium
+  name: ruperium crystal
+  description: A highly radioactive crystalline compound found in the guts of goldgrubs. The shell holds the radiation in - for now.
+  components:
+  - type: Sprite
+    layers:
+    - sprite: ADT/Objects/Specific/Lavaland/Gems/gems.rsi
+      state: rupee
+      map: [ "base" ]
+    - sprite: ADT/Objects/Specific/Lavaland/Gems/gems.rsi
+      state: shine
+      map: [ "shine" ]
+  - type: PointLight
+    color: "#5ECC38"
+  - type: StaticPrice
+    price: 2000
+  - type: ADTGem
+    jewelryKey: rupee
+    pointValue: 500
+    sheet: SheetUranium1
+    sheetAmount: 30
+  - type: ADTRuperium
+  - type: RadiationSource
+    intensity: 3
+    slope: 0.6
+    enabled: false
+  - type: GenericVisualizer
+    visuals:
+      enum.ADTGemVisuals.Analysed:
+        shine:
+          True: { visible: false }
+          False: { visible: true }
+      enum.ADTGemVisuals.Broken:
+        base:
+          True: { state: broken_rupee }
+          False: { state: rupee }
+
+- type: entity
+  parent: ADTGemSpecialBase
+  id: ADTGemBaroxuldium
+  name: stabilized baroxuldium
+  description: A soft crystal found only in the deepest plasma veins. It can be broken down into plasma with a welder.
+  components:
+  - type: Sprite
+    layers:
+    - sprite: ADT/Objects/Specific/Lavaland/Gems/gems.rsi
+      state: phoron
+      map: [ "base" ]
+    - sprite: ADT/Objects/Specific/Lavaland/Gems/gems.rsi
+      state: shine
+      map: [ "shine" ]
+  - type: PointLight
+    color: "#62326a"
+    energy: 4
+  - type: StaticPrice
+    price: 3000
+  - type: ADTGem
+    jewelryKey: phoron
+    pointValue: 1000
+    sheet: SheetPlasma1
+    sheetAmount: 40
+
+- type: entity
+  parent: ADTGemSpecialBase
+  id: ADTGemDilithium
+  name: densified dilithium
+  description: An extremely unusual form of dilithium pulsing with a steady rhythm. The rhythm is easy to pick up on a GPS.
+  components:
+  - type: Sprite
+    layers:
+    - sprite: ADT/Objects/Specific/Lavaland/Gems/gems.rsi
+      state: purple
+      map: [ "base" ]
+    - sprite: ADT/Objects/Specific/Lavaland/Gems/gems.rsi
+      state: shine
+      map: [ "shine" ]
+  - type: PointLight
+    color: "#cc47a6"
+  - type: StaticPrice
+    price: 4000
+  - type: ADTGem
+    jewelryKey: purple
+    pointValue: 1200
+  - type: GpsSignal
+    tag: adt-gps-signal-dilithium
+    description: adt-gps-signal-dilithium-desc
+    color: "#cc47a6"
+
+- type: entity
+  parent: ADTGemSpecialBase
+  id: ADTGemDraconicAmber
+  name: draconic amber
+  description: An extremely fragile mineral formed from the thickened blood of an ash drake. Hunters wear it as a charm; smiths use it to heat the World Anvil.
+  components:
+  - type: Sprite
+    layers:
+    - sprite: ADT/Objects/Specific/Lavaland/Gems/gems.rsi
+      state: amber
+      map: [ "base" ]
+    - sprite: ADT/Objects/Specific/Lavaland/Gems/gems.rsi
+      state: shine
+      map: [ "shine" ]
+  - type: PointLight
+    color: "#FFBF00"
+    energy: 4
+  - type: StaticPrice
+    price: 5000
+  - type: ADTGem
+    jewelryKey: amber
+    pointValue: 1400
+  - type: Tag
+    tags:
+    - ADTGem
+    - ADTGemAmber
+
+- type: entity
+  parent: ADTGemSpecialBase
+  id: ADTGemNullCrystal
+  name: null crystal
+  description: A shard of pure crystallised energy. It trembles in your hand; squeeze it and it will throw you a short distance.
+  components:
+  - type: Sprite
+    layers:
+    - sprite: ADT/Objects/Specific/Lavaland/Gems/gems.rsi
+      state: void
+      map: [ "base" ]
+    - sprite: ADT/Objects/Specific/Lavaland/Gems/gems.rsi
+      state: shine
+      map: [ "shine" ]
+  - type: PointLight
+    color: "#4785a4"
+  - type: StaticPrice
+    price: 6000
+  - type: ADTGem
+    jewelryKey: void
+    pointValue: 1600
+  - type: RandomTeleportOnUse
+    consumeOnUse: false
+    radius:
+      min: 1
+      max: 6
+  - type: UseDelay
+    delay: 40
+
+- type: entity
+  parent: ADTGemSpecialBase
+  id: ADTGemIchorium
+  name: ichorium
+  description: A strange, sticky substance that congeals in the presence of something horrifying and otherworldly.
+  components:
+  - type: Sprite
+    layers:
+    - sprite: ADT/Objects/Specific/Lavaland/Gems/gems.rsi
+      state: red
+      map: [ "base" ]
+    - sprite: ADT/Objects/Specific/Lavaland/Gems/gems.rsi
+      state: shine
+      map: [ "shine" ]
+  - type: PointLight
+    color: "#ac0606"
+    energy: 6
+  - type: StaticPrice
+    price: 7000
+  - type: ADTGem
+    jewelryKey: red
+    pointValue: 1800
+  - type: Currency
+    price:
+      Telecrystal: 10
+
+- type: entity
+  parent: ADTGemSpecialBase
+  id: ADTGemDataCrystal
+  name: bluespace data crystal
+  description: A massive bluespace crystal etched with nanocircuits. It can be broken down into bluespace crystals with a welder.
+  components:
+  - type: Sprite
+    layers:
+    - sprite: ADT/Objects/Specific/Lavaland/Gems/gems.rsi
+      state: data
+      map: [ "base" ]
+    - sprite: ADT/Objects/Specific/Lavaland/Gems/gems.rsi
+      state: shine
+      map: [ "shine" ]
+  - type: PointLight
+    color: "#4245f3"
+    energy: 6
+  - type: StaticPrice
+    price: 10000
+  - type: ADTGem
+    pointValue: 2000
+    sheet: ADTBSore1
+    sheetAmount: 24
+  - type: Tag
+    tags: []
+
+- type: entityTable
+  id: ADTGemRandomTable
+  table: !type:GroupSelector
+    children:
+    - id: ADTGemRuby
+    - id: ADTGemSapphire
+    - id: ADTGemEmerald
+    - id: ADTGemTopaz
+
+- type: entity
+  parent: MarkerBase
+  id: ADTGemRandom
+  name: random gem spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: ADT/Objects/Specific/Lavaland/Tribal/ruby.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: ADTGemRandomTable
+
+- type: entityTable
+  id: ADTGemVeinLootTable
+  table: !type:NestedSelector
+    tableId: ADTGemRandomTable
+    rolls: !type:RangeNumberSelector
+      range: 1, 2
+
+- type: entity
+  parent: BaseStorageItem
+  id: ADTGemSatchel
+  name: gem satchel
+  description: You were expecting something more stylish, like in heist cartoons.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/Gems/gem_satchel.rsi
+    state: icon
+  - type: Item
+    size: Normal
+  - type: Storage
+    maxItemSize: Tiny
+    grid:
+    - 0,0,7,5
+    whitelist:
+      components:
+      - ADTGem
+  - type: Construction
+    graph: ADTGemSatchel
+    node: satchel
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsGemBracers
+  name: gem bracers
+  description: Simple golden bracers with a slot for a gem.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/gem_bracers.rsi
+    layers:
+    - state: icon
+      map: [ "base" ]
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/gem_bracers.rsi
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ADTJewelryVisuals.Gem:
+        base:
+          none: { state: icon }
+          ruby: { state: ruby }
+          sapphire: { state: sapphire }
+          emerald: { state: emerald }
+          topaz: { state: topaz }
+  - type: ItemSlots
+    slots:
+      gem:
+        name: adt-gem-necklace-slot
+        whitelist:
+          tags:
+          - ADTGemSimple
+        insertSound:
+          path: /Audio/Effects/pop.ogg
+        ejectSound:
+          path: /Audio/Effects/pop.ogg
+  - type: ContainerContainer
+  - type: ADTGemJewelry
+    namePrefix: adt-jewelry-bracers
+    equippedSlot: HAND
+  - type: StaticPrice
+    price: 150
+  - type: Construction
+    graph: ADTGemBracers
+    node: bracers

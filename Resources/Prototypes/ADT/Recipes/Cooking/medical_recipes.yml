@@ -3,7 +3,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeEmergencyMedipen
-  name: emergency medipen
+  name: recipe-emergency-medipen
   result: EmergencyMedipen
   time: 5
   group: Medicinal
@@ -17,7 +17,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeAntiPoisonMedipen
-  name: poison auto-injector
+  name: recipe-antipoison-medipen
   result: AntiPoisonMedipen
   time: 5
   group: Medicinal
@@ -31,7 +31,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeBruteAutoInjector
-  name: brute auto-injector
+  name: recipe-brute-auto-injector
   result: BruteAutoInjector
   time: 5
   group: Medicinal
@@ -45,7 +45,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeBurnAutoInjector
-  name: burn auto-injector
+  name: recipe-burn-auto-injector
   result: BurnAutoInjector
   time: 5
   group: Medicinal
@@ -59,7 +59,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeRadAutoInjector
-  name: rad auto-injector
+  name: recipe-rad-auto-injector
   result: RadAutoInjector
   time: 5
   group: Medicinal
@@ -73,7 +73,7 @@
 
 - type: microwaveMealRecipe
   id: RecipePunctAutoInjector
-  name: puncturase auto-injector
+  name: recipe-puncturase-auto-injector
   result: PunctAutoInjector
   time: 5
   group: Medicinal
@@ -87,7 +87,7 @@
 
 - type: microwaveMealRecipe
   id: RecipePyraAutoInjector
-  name: pyrazine auto-injector
+  name: recipe-pyrazine-auto-injector
   result: PyraAutoInjector
   time: 5
   group: Medicinal
@@ -103,7 +103,7 @@
 
 - type: microwaveMealRecipe
   id: RecipePenHemostasis
-  name: hemostasis auto-injector
+  name: recipe-hemostasis-auto-injector
   result: ADTHemostasisAutoInjector
   time: 5
   group: Medicinal
@@ -117,7 +117,7 @@
 
 - type: microwaveMealRecipe
   id: RecipePenStimulant
-  name: stimulant auto-injector
+  name: recipe-stimulant-auto-injector
   result: ADTStimulantAutoInjector
   time: 5
   group: Medicinal
@@ -131,7 +131,7 @@
 
 - type: microwaveMealRecipe
   id: RecipePenCrisisAutoInjector
-  name: crisis auto-injector
+  name: recipe-crisis-auto-injector
   result: ADTCrisisAutoInjector
   time: 5
   group: Medicinal
@@ -145,7 +145,7 @@
 
 - type: microwaveMealRecipe
   id: RecipePenLacerAutoInjector
-  name: lacerinol auto-injector
+  name: recipe-lacerinol-auto-injector
   result: ADTLacerAutoInjector
   time: 5
   group: Medicinal
@@ -159,7 +159,7 @@
 
 - type: microwaveMealRecipe
   id: RecipePenBruizAutoInjector
-  name: bruizine auto-injector
+  name: recipe-bruizine-auto-injector
   result: ADTBruizAutoInjector
   time: 5
   group: Medicinal
@@ -173,7 +173,7 @@
 
 - type: microwaveMealRecipe
   id: RecipePenEthylredoxrazineAutoInjector
-  name: barkeeper's friend auto-injector
+  name: recipe-barkeepers-friend-auto-injector
   result: ADTEthylredoxrazineAutoInjector
   time: 5
   group: Medicinal
@@ -187,7 +187,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeMedicatedSutureAssembler
-  name: medicated suture recipe
+  name: recipe-medicated-suture-assembler
   result: MedicatedSuture
   time: 10
   group: Medicinal
@@ -198,7 +198,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeRegenerativeMeshAssembler
-  name: regenerative mesh recipe
+  name: recipe-regenerative-mesh-assembler
   result: RegenerativeMesh
   time: 10
   group: Medicinal

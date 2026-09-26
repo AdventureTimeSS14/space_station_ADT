@@ -1,4 +1,5 @@
 using Content.Shared.Administration.Logs;
+using Content.Shared.ADT.Medical;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.EntitySystems;
@@ -31,6 +32,7 @@ public sealed class HealingSystem : EntitySystem
     [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private readonly ADTHealingVisualsSystem _healVisuals = default!; // ADT-Tweak
 
     public override void Initialize()
     {
@@ -45,18 +47,34 @@ public sealed class HealingSystem : EntitySystem
     {
 
         if (args.Handled || args.Cancelled)
+        // ADT-Tweak start
+        {
+            _healVisuals.StopHealEffect(target.Owner);
             return;
+        }
+        // ADT-Tweak end
 
         if (!TryComp(args.Used, out HealingComponent? healing))
+        // ADT-Tweak start
+        {
+            _healVisuals.StopHealEffect(target.Owner);
             return;
+        }
+        // ADT-Tweak end
 
         if (!TryComp<InjurableComponent>(target, out var injurable))
+        // ADT-Tweak start
+        {
+            _healVisuals.StopHealEffect(target.Owner);
             return;
+        }
+        // ADT-Tweak end
 
         if (healing.DamageContainers is not null &&
             injurable.DamageContainer is not null &&
             !healing.DamageContainers.Contains(injurable.DamageContainer.Value))
         {
+            _healVisuals.StopHealEffect(target.Owner); // ADT-Tweak
             return;
         }
 
@@ -81,7 +99,12 @@ public sealed class HealingSystem : EntitySystem
             _bloodstreamSystem.TryModifyBloodLevel((target.Owner, bloodstream), healing.ModifyBloodLevel);
 
         if (!_damageable.TryChangeDamage(target.Owner, healing.Damage * _damageable.UniversalTopicalsHealModifier, out var healed, true, origin: args.Args.User) && healing.BloodlossModifier != 0)
+        // ADT-Tweak start
+        {
+            _healVisuals.StopHealEffect(target.Owner);
             return;
+        }
+        // ADT-Tweak end
 
         var total = healed.GetTotal();
 
@@ -118,6 +141,8 @@ public sealed class HealingSystem : EntitySystem
 
         if (!args.Repeat)
         {
+            _healVisuals.StopHealEffect(target.Owner); // ADT-Tweak
+
             _popupSystem.PopupClient(Loc.GetString("medical-item-finished-using", ("item", args.Used)), target.Owner, args.User);
             return;
         }
@@ -228,8 +253,15 @@ public sealed class HealingSystem : EntitySystem
                 BreakOnWeightlessMove = false,
             };
 
-        _doAfter.TryStartDoAfter(doAfterEventArgs);
-        return true;
+        // ADT-Tweak start
+        if (_doAfter.TryStartDoAfter(doAfterEventArgs))
+        {
+            _healVisuals.TryStartHealEffect(target.Owner, healing.Comp.HealEffect);
+            return true;
+        }
+
+        return false;
+        // ADT-Tweak end
     }
 
     /// <summary>

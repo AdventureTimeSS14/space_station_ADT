@@ -372,7 +372,11 @@
   id: ADTBoberFlamethrowerCBURN
   name: boobr-flamethrower-name
   description: boobr-flamethrower-desc
-  productEntity: ADTWeaponFlamethrowerCBURN
+  icon: { sprite: _RMC14/Objects/Weapons/Guns/Flamethrower/m34.rsi, state: icon }
+  productEntity: WeaponCaseNTFlamer
+  conditions:
+    - !type:ListingLimitedStockCondition
+      stock: 1
   cost:
     Productunit: 24
   categories:
@@ -617,8 +621,11 @@
   description: bober-tactical-hammer-desc
   icon: { sprite: ADT/Objects/Weapons/Melee/tactical_hammer.rsi, state: icon }
   productEntity: ADTWeaponsTacticalHammer
+  conditions:
+    - !type:ListingLimitedStockCondition
+      stock: 1
   cost:
-    Productunit: 6
+    Productunit: 8
   categories:
   - ADTUplinkERTWeaponMelee
 
@@ -1322,8 +1329,22 @@
   name: boobr-heavy-shield-name
   description:  boobr-heavy-shield-desc
   productEntity: ADTHeavyShieldERT
+  conditions:
+    - !type:ListingLimitedStockCondition
+      stock: 1
   cost:
-    Productunit: 5
+    Productunit: 8
+  categories:
+  - ADTUplinkERTMisc
+
+- type: listing
+  id: ADTBoberMedbeam
+  name: boobr-medbeam-name
+  description: boobr-medbeam-desc
+  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Battery/healgun.rsi, state: icon }
+  productEntity: ADTWeaponMedbeamERT
+  cost:
+    Productunit: 20
   categories:
   - ADTUplinkERTMisc
 
@@ -1705,7 +1726,7 @@
     - !type:ListingLimitedStockCondition
       stock: 1
   cost:
-    Productunit: 12
+    Productunit: 18
   categories:
   - ADTUplinkERTImplanters
 

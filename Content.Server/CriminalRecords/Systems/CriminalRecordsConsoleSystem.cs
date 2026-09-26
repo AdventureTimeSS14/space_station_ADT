@@ -137,7 +137,10 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
         if (tryGetIdentityShortInfoEvent.Title != null)
             officer = tryGetIdentityShortInfoEvent.Title;
 
-        _criminalRecords.TryChangeStatus(key.Value, msg.Status, msg.Reason, officer);
+        // ADT-Tweak start
+        if (!_criminalRecords.TryChangeStatus(key.Value, msg.Status, msg.Reason, officer))
+            return;
+        // ADT-Tweak end
 
         (string, object)[] args;
         if (reason != null)

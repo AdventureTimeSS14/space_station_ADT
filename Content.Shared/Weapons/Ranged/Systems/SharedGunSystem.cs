@@ -48,6 +48,12 @@ namespace Content.Shared.Weapons.Ranged.Systems;
 
 public abstract partial class SharedGunSystem : EntitySystem
 {
+    // ADT-Tweak-Start
+    private static readonly TimeSpan MinFireRateInterval = TimeSpan.FromSeconds(0.1);
+    private static readonly TimeSpan MaxFireRateInterval = TimeSpan.FromHours(1);
+    private const int MaxCatchUpShots = 100;
+    // ADT-Tweak-End
+
     [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly INetManager _netManager = default!;
@@ -344,10 +350,23 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (gun.Comp.NextFire > curTime)
             return false;
 
-        var fireRate = TimeSpan.FromSeconds(1f / gun.Comp.FireRateModified);
+        // ADT-Tweak-Start
+        var fireRateSeconds = 1d / gun.Comp.FireRateModified;
 
         if (gun.Comp.SelectedMode == SelectiveFire.Burst || gun.Comp.BurstActivated)
-            fireRate = TimeSpan.FromSeconds(1f / gun.Comp.BurstFireRate);
+            fireRateSeconds = 1d / gun.Comp.BurstFireRate;
+
+        if (double.IsNaN(fireRateSeconds) || fireRateSeconds < MinFireRateInterval.TotalSeconds)
+        {
+            fireRateSeconds = MinFireRateInterval.TotalSeconds;
+        }
+        else if (double.IsInfinity(fireRateSeconds) || fireRateSeconds > MaxFireRateInterval.TotalSeconds)
+        {
+            fireRateSeconds = MaxFireRateInterval.TotalSeconds;
+        }
+
+        var fireRate = TimeSpan.FromSeconds(fireRateSeconds);
+        // ADT-Tweak-End
 
         // First shot
         // Previously we checked shotcounter but in some cases all the bullets got dumped at once
@@ -358,11 +377,13 @@ public abstract partial class SharedGunSystem : EntitySystem
         var shots = 0;
         var lastFire = gun.Comp.NextFire;
 
-        while (gun.Comp.NextFire <= curTime)
+        // ADT-Tweak-Start
+        while (gun.Comp.NextFire <= curTime && shots < MaxCatchUpShots)
         {
             gun.Comp.NextFire += fireRate;
             shots++;
         }
+        // ADT-Tweak-End
 
         // NextFire has been touched regardless so need to dirty the gun.
         DirtyField(gun.AsNullable(), nameof(GunComponent.NextFire));

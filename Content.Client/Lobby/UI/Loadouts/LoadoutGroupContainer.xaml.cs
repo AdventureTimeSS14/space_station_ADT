@@ -91,6 +91,17 @@ public sealed partial class LoadoutGroupContainer : BoxContainer
                          : p.GroupBy)
         .ToDictionary(g => g.Key, g => g.ToList());
 
+        // ADT-Tweak-Start
+        var sponsorGroups = groups
+            .Where(g => g.Value.All(p => p.SponsorOnly))
+            .ToList();
+
+        foreach (var group in sponsorGroups)
+        {
+            groups.Remove(group.Key);
+        }
+        // ADT-Tweak-End
+
         foreach (var kvp in groups)
         {
             var protos = kvp.Value;
@@ -154,6 +165,28 @@ public sealed partial class LoadoutGroupContainer : BoxContainer
                 );
             }
         }
+
+        // ADT-Tweak-Start
+        if (sponsorGroups.Count > 0)
+        {
+            LoadoutsContainer.AddChild(new Label
+            {
+                Text = Loc.GetString("adt-sponsor-loadout-category"),
+                StyleClasses = { "LabelHeading" },
+                Margin = new Thickness(5, 8, 5, 2),
+            });
+
+            foreach (var kvp in sponsorGroups)
+            {
+                foreach (var proto in kvp.Value)
+                {
+                    LoadoutsContainer.AddChild(
+                        CreateLoadoutUI(proto, profile, loadout, session, collection, loadoutSystem)
+                    );
+                }
+            }
+        }
+        // ADT-Tweak-End
     }
 
     private ToggleLoadoutButton CreateToggleButton(KeyValuePair<string, List<LoadoutPrototype>> kvp, LoadoutContainer firstElement, SubLoadoutContainer subContainer)

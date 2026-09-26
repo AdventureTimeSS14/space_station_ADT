@@ -1,95 +1,84 @@
+//
+
 using Content.Server.Heretic.Components.PathSpecific;
-using Content.Shared.Body;
+using Content.Shared.ADT.Heretic.Components;
+using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.Damage.Components;
 using Content.Shared.Heretic;
-using Content.Shared.Slippery;
-using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.CombatMode.Pacification;
+using Robust.Shared.Timing;
+using Content.Shared.Heretic.Components.PathSpecific;
+using Content.Shared.Stunnable;
 
 namespace Content.Server.Heretic.Abilities;
 
-public sealed partial class HereticAbilitySystem : EntitySystem
+public sealed partial class HereticAbilitySystem
 {
-    private void SubscribeBlade()
+    protected override void SubscribeBlade()
     {
-        SubscribeLocalEvent<HereticComponent, HereticCuttingEdgeEvent>(OnCuttingEdge);
-        SubscribeLocalEvent<HereticComponent, ShotAttemptedEvent>(OnShootAttempt);
+        base.SubscribeBlade();
 
-        SubscribeLocalEvent<HereticComponent, HereticDanceOfTheBrandEvent>(OnDanceOfTheBrand);
-        SubscribeLocalEvent<HereticComponent, EventHereticRealignment>(OnRealignment);
-        SubscribeLocalEvent<HereticComponent, HereticChampionStanceEvent>(OnChampionStance);
-        SubscribeLocalEvent<HereticComponent, EventHereticFuriousSteel>(OnFuriousSteel);
-
-        SubscribeLocalEvent<HereticComponent, HereticAscensionBladeEvent>(OnAscensionBlade);
+        SubscribeLocalEvent<EventHereticRealignment>(OnRealignment);
+        SubscribeLocalEvent<HereticChampionStanceEvent>(OnChampionStance);
+        SubscribeLocalEvent<EventHereticFuriousSteel>(OnFuriousSteel);
     }
 
-    private void OnCuttingEdge(Entity<HereticComponent> ent, ref HereticCuttingEdgeEvent args)
+    private void OnRealignment(EventHereticRealignment args)
     {
-        ent.Comp.CanShootGuns = false;
-    }
-
-    private void OnShootAttempt(Entity<HereticComponent> ent, ref ShotAttemptedEvent args)
-    {
-        if (ent.Comp.CanShootGuns == false)
-        {
-            _popup.PopupEntity(Loc.GetString("heretic-cant-shoot", ("entity", args.Used)), ent, ent);
-            args.Cancel();
-        }
-    }
-
-    private void OnDanceOfTheBrand(Entity<HereticComponent> ent, ref HereticDanceOfTheBrandEvent args)
-    {
-        EnsureComp<RiposteeComponent>(ent);
-    }
-    
-    private void OnRealignment(Entity<HereticComponent> ent, ref EventHereticRealignment args)
-    {
-        if (!TryUseAbility(ent, args))
+        if (!TryUseAbility(args))
             return;
 
-        _statusEffect.TryRemoveStatusEffect(ent, "Stun");
-        _statusEffect.TryRemoveStatusEffect(ent, "KnockedDown");
+        var ent = args.Performer;
+
+        RemCompDeferred<KnockedDownComponent>(ent);
+        RemCompDeferred<StunnedComponent>(ent);
+
         _statusEffect.TryRemoveStatusEffect(ent, "ForcedSleep");
         _statusEffect.TryRemoveStatusEffect(ent, "Drowsiness");
 
         if (TryComp<StaminaComponent>(ent, out var stam))
         {
             if (stam.StaminaDamage >= stam.CritThreshold)
-            {
                 _stam.ExitStamCrit(ent, stam);
-            }
 
-            stam.StaminaDamage = 0;
-            RemComp<ActiveStaminaComponent>(ent);
+            // ADT: no ToggleStaminaDrain, clear stamina directly
+            _stam.TakeStaminaDamage(ent, -stam.StaminaDamage, stam);
             Dirty(ent, stam);
         }
 
-        _statusEffect.TryAddStatusEffect<PacifiedComponent>(ent, "Pacified", TimeSpan.FromSeconds(10f), true);
+        _standing.Stand(ent);
+        _pulling.StopAllPulls(ent, stopPuller: false);
+        if (_statusEffect.TryAddStatusEffect<PacifiedComponent>(ent, "Pacified", TimeSpan.FromSeconds(10f), true))
+            _statusEffect.TryAddStatusEffect<RealignmentComponent>(ent, "Realignment", TimeSpan.FromSeconds(10f), true);
 
         args.Handled = true;
     }
 
-    private void OnChampionStance(Entity<HereticComponent> ent, ref HereticChampionStanceEvent args)
+    private void OnChampionStance(HereticChampionStanceEvent args)
     {
-
-        EnsureComp<ChampionStanceComponent>(ent);
+        // ADT: no limb dismemberment lock, no shitmed
     }
-    private void OnFuriousSteel(Entity<HereticComponent> ent, ref EventHereticFuriousSteel args)
+
+    private void OnFuriousSteel(EventHereticFuriousSteel args)
     {
-        if (!TryUseAbility(ent, args))
+        if (!TryUseAbility(args))
             return;
 
-        for (int i = 0; i < 3; i++)
-            _pblade.AddProtectiveBlade(ent);
+        var ent = args.Performer;
+
+        _pblade.AddProtectiveBlade(ent);
+        for (var i = 1; i < 3; i++)
+        {
+            Timer.Spawn(TimeSpan.FromSeconds(0.5f * i),
+                () =>
+                {
+                    if (TerminatingOrDeleted(ent))
+                        return;
+
+                    _pblade.AddProtectiveBlade(ent);
+                });
+        }
 
         args.Handled = true;
-    }
-
-    private void OnAscensionBlade(Entity<HereticComponent> ent, ref HereticAscensionBladeEvent args)
-    {
-        EnsureComp<NoSlipComponent>(ent); // epic gamer move
-        RemComp<StaminaComponent>(ent); // no stun
-
-        EnsureComp<SilverMaelstromComponent>(ent);
     }
 }

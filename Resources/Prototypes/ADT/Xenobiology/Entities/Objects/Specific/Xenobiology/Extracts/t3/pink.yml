@@ -8,61 +8,85 @@
     - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
       color: "#ff33cc"
-  - type: Reactive
-    reactions:
-    - reagents: [ Water ]
-      methods: [ Touch, Injection ]
-      effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:MutateNearbyPlantsEntityEffect
-        radius: 5
-    - reagents: [ Plasma ]
-      methods: [ Touch, Injection ]
-      effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction-reagent" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:ConvertReagent
-        solutionName: extract
-        removeReagent: Plasma
-        addReagent: XenobioJellyPink
-        removeAmount: 1
-        addAmount: 1
-    - reagents: [ Blood ]
-      methods: [ Touch, Injection ]
-      effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction-reagent" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:ConvertReagent
-        solutionName: extract
-        removeReagent: Blood
-        addReagent: XenobioGenderFluid
-        removeAmount: 1
-        addAmount: 1
-    - reagents: [ Plasma ]
-      methods: [ Touch, Injection ]
-      effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction-reagent" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:CreateEntityReactionEffect
-        entity: XenobioPinkExtractJelly
-        number: 1
+  - type: SlimeExtract
+    extractReactions:
+    - PinkSlimeExtractWaterReaction
+    - PinkSlimeExtractPlasmaReaction
+    - PinkSlimeExtractBloodReaction
+    - PinkSlimeExtractJellyReaction
   - type: Tag
     tags:
     - XenobiologyPinkExtract
+
+- type: extractReaction
+  id: PinkSlimeExtractWaterReaction
+  requirements:
+    Water: 1
+  effects:
+  - effect: !type:PopupMessage
+      type: Pvs
+      messages: [ "xeno-extract-reaction" ]
+    scalingOffset: 0
+  - effect: !type:PlaySoundEffect
+      sound: /Audio/Effects/Chemistry/bubbles.ogg
+    scalingOffset: 0
+  - effect: !type:MutateNearbyPlantsEntityEffect
+      radius: 5
+    scalingOffset: 1
+  shouldDelete: false
+
+- type: extractReaction
+  id: PinkSlimeExtractPlasmaReaction
+  requirements:
+    Plasma: 1
+  effects:
+  - effect: !type:PopupMessage
+      type: Pvs
+      messages: [ "xeno-extract-reaction-reagent" ]
+    scalingOffset: 0
+  - effect: !type:PlaySoundEffect
+      sound: /Audio/Effects/Chemistry/bubbles.ogg
+    scalingOffset: 0
+  - effect: !type:AddReagentToSolution
+      reagent: XenobioJellyPink
+      solution: extract
+    scalingFactor: 1
+    scalingOffset: 0
+  shouldDelete: false
+
+- type: extractReaction
+  id: PinkSlimeExtractBloodReaction
+  requirements:
+    Blood: 1
+  effects:
+  - effect: !type:PopupMessage
+      type: Pvs
+      messages: [ "xeno-extract-reaction-reagent" ]
+    scalingOffset: 0
+  - effect: !type:PlaySoundEffect
+      sound: /Audio/Effects/Chemistry/bubbles.ogg
+    scalingOffset: 0
+  - effect: !type:AddReagentToSolution
+      reagent: XenobioGenderFluid
+      solution: extract
+    scalingFactor: 1
+    scalingOffset: 0
+  shouldDelete: false
+
+- type: extractReaction
+  id: PinkSlimeExtractJellyReaction
+  requirements:
+    Radium: 1
+  effects:
+  - effect: !type:PopupMessage
+      type: Pvs
+      messages: [ "xeno-extract-reaction-reagent" ]
+    scalingOffset: 0
+  - effect: !type:PlaySoundEffect
+      sound: /Audio/Effects/Chemistry/bubbles.ogg
+    scalingOffset: 0
+  - effect: !type:CreateEntityReactionEffect
+      entity: XenobioPinkExtractJelly
+      number: 1
+    scalingOffset: 1
+  shouldDelete: false

@@ -27,7 +27,10 @@ public sealed partial class ADTShadowlingThrallComponent : Component
     public LocId ExamineText = "shadowling-thrall-examine";
 
     [DataField]
-    public TimeSpan DethrallTime = TimeSpan.FromSeconds(10);
+    public TimeSpan DethrallTime = TimeSpan.FromSeconds(30);
+
+    [DataField]
+    public float DethrallHiveRange = 6f;
 
     [DataField]
     public EntProtoId TumorProto = "ADTShadowTumor";

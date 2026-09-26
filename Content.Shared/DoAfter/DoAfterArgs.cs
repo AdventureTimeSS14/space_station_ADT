@@ -175,6 +175,12 @@ public sealed partial class DoAfterArgs
     #endregion
 
     /// <summary>
+    ///     ADT Heretic: if true, delay is multiplied by GetDoAfterDelayMultiplierEvent handlers.
+    /// </summary>
+    [DataField]
+    public bool MultiplyDelay = true;
+
+    /// <summary>
     ///     Additional conditions that need to be met. Return false to cancel.
     /// </summary>
     [NonSerialized]
@@ -264,6 +270,7 @@ public sealed partial class DoAfterArgs
         BlockDuplicate = other.BlockDuplicate;
         CancelDuplicate = other.CancelDuplicate;
         DuplicateCondition = other.DuplicateCondition;
+        MultiplyDelay = other.MultiplyDelay; // ADT Heretic
 
         // Networked
         NetUser = other.NetUser;

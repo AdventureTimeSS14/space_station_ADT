@@ -88,3 +88,10 @@ ent-AirlockMagistrateGlassLocked = стеклянный шлюз
 ent-AirlockIAAGlassLocked = стеклянный шлюз
     .desc = Он открывается, он закрывается, и он может вас раздавить.
     .suffix = Агент внутренних дел, Закрытый
+
+ent-ADTHighSecCyborgLocked = бронированная дверь
+    .desc = Удерживает плохих снаружи, а хороших внутри.
+    .suffix = Киборг, Закрыт
+ent-ADTHighSecAILocked = бронированная дверь
+    .desc = Удерживает плохих снаружи, а хороших внутри.
+    .suffix = ИИ, Закрыт

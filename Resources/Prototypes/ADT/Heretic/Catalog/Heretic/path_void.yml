@@ -20,6 +20,8 @@
     - Flesh
     - Lock
     - Void
+    - Rust # ADT
+    - Cosmos # ADT
 
 - type: listing
   id: HereticVoidPath2
@@ -39,21 +41,22 @@
     whitelist:
     - Void
 
-- type: listing
-  id: HereticVoidPath3
-  name: knowledge-path-void-s3-name
-  description: knowledge-path-void-s3-desc
-  icon: { sprite: Interface/Alerts/temperature.rsi, state: cold1 }
-  productHereticKnowledge: AristocratWay
-  cost:
-    KnowledgePoint: 1
-  categories:
-  - HereticPathVoid
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-  - !type:HereticPathCondition
-    stage: 2
+# ADT: disabled, AristocratWay not implemented
+#- type: listing
+#  id: HereticVoidPath3
+#  name: knowledge-path-void-s3-name
+#  description: knowledge-path-void-s3-desc
+#  icon: { sprite: Interface/Alerts/temperature.rsi, state: cold1 }
+#  productHereticKnowledge: AristocratWay
+#  cost:
+#    KnowledgePoint: 1
+#  categories:
+#  - HereticPathVoid
+#  conditions:
+#  - !type:ListingLimitedStockCondition
+#    stock: 1
+#  - !type:HereticPathCondition
+#    stage: 2
 
 - type: listing
   id: HereticVoidPath4
@@ -69,7 +72,7 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 3
+    stage: 2 # ADT: AristocratWay disabled, stage threshold lowered
     whitelist:
     - Void
 
@@ -91,6 +94,25 @@
     whitelist:
     - Void
 
+# ADT: Void Prison, side stage 5
+- type: listing
+  id: HereticVoidPathPrison
+  name: knowledge-path-void-prison-name
+  description: knowledge-path-void-prison-desc
+  icon: { sprite: ADT/Heretic/Effects/effects.rsi, state: voidball_effect }
+  productHereticKnowledge: VoidPrison
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathVoid
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 5
+    whitelist:
+    - Void
+
 - type: listing
   id: HereticVoidPath6
   name: knowledge-path-void-s6-name
@@ -106,6 +128,8 @@
     stock: 1
   - !type:HereticPathCondition
     stage: 5
+    whitelist: # ADT
+    - Void
 
 - type: listing
   id: HereticVoidPath7
@@ -140,6 +164,8 @@
     stock: 1
   - !type:HereticPathCondition
     stage: 7
+    whitelist: # ADT
+    - Void
 
 - type: listing
   id: HereticVoidPath9
@@ -156,5 +182,25 @@
     stock: 1
   - !type:HereticPathCondition
     stage: 8
+    whitelist:
+    - Void
+
+# ADT: Void Conduit
+
+- type: listing
+  id: HereticVoidPathConduit
+  name: knowledge-path-void-conduit-name
+  description: knowledge-path-void-conduit-desc
+  icon: { sprite: ADT/Heretic/Effects/effects.rsi, state: voidball_effect }
+  productHereticKnowledge: VoidConduit
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathVoid
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 7
     whitelist:
     - Void

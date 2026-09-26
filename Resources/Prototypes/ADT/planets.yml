@@ -18,7 +18,15 @@
     safeFalloff: 14
     minRadius: 40
     maxRadius: 230
+    riverNodes: 8
+    riverEntity: FloorLavaEntity
+    riverBridge: Catwalk
     groups:
+    - prototypes: [ ADTLavaDungeonAshVillage ]
+      count: 1
+      minDistanceFromCenter: 150
+      maxDistanceFromCenter: 200
+      clearance: 55
     - prototypes: [ LavaDungeonRoomMarker ]
       roomWhitelist:
         tags:
@@ -37,6 +45,14 @@
       maxRadius: 220
       entries:
       - prototype: ADTRandomTendrilSpawner
+    # Загадка с пазлом
+    - minBudget: 1
+      maxBudget: 1
+      minSpacing: 24
+      minDistanceFromCenter: 70
+      maxRadius: 210
+      entries:
+      - prototype: ADTSlidingPuzzleRoomMarker
     # Мировая Кузня
     - minBudget: 1
       maxBudget: 1
@@ -89,11 +105,14 @@
     minSpacing: 70
     avoidRooms: true
     bosses:
-    #- DrakeDungeMarker # Выведен из пулла до реворка.
+    - DrakeDungeMarker
     - ADTMegaFaunaBubblegum
     - BloodMinerDungeMarker
     - ADTHierophantArenaSpawner
   - type: FTLDestination
+  - type: ADTBaitDigging
+    table: !type:NestedSelector
+      tableId: ADTBasaltDigBaitTable
   - type: WeatherScheduler # Regular storms
     stages:
     - duration: # 5-10 minutes of calm
@@ -140,6 +159,8 @@
     - 14
   biomeMarkerLayers:
   - ADTLavaVeinOreIron
+  - ADTLavaVeinSandstone
+  - ADTLavaVeinGem
   - ADTLavaVeinOreQuartz
   - ADTLavaVeinOreCoal
   - ADTLavaVeinOreGold

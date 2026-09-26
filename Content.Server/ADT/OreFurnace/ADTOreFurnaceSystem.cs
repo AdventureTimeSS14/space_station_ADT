@@ -7,6 +7,7 @@ using Content.Shared.ADT.OreFurnace.Prototypes;
 using Content.Shared.ADT.Salvage.Components;
 using Content.Shared.ADT.Salvage.Systems;
 using Content.Shared.Materials;
+using Content.Shared.Materials.OreSilo;
 using Content.Shared.Stacks;
 using Content.Shared.UserInterface;
 using Robust.Server.GameObjects;
@@ -23,7 +24,9 @@ public sealed class ADTOreFurnaceSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedMaterialStorageSystem _materialStorage = default!;
     [Dependency] private readonly SharedStackSystem _stack = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
     public override void Initialize()
     {
@@ -41,12 +44,15 @@ public sealed class ADTOreFurnaceSystem : EntitySystem
             subs.Event<ADTOreFurnaceSmeltMessage>(OnSmelt);
             subs.Event<ADTOreFurnaceSmeltAllMessage>(OnSmeltAll);
             subs.Event<ADTOreFurnaceClaimPointsMessage>(OnClaimPoints);
+            subs.Event<ADTOreFurnaceToggleSiloLinkMessage>(OnToggleSiloLink);
+            subs.Event<ADTOreFurnaceFindSiloMessage>(OnFindSilo);
         });
     }
 
     private void OnMapInit(Entity<ADTOreFurnaceComponent> ent, ref MapInitEvent args)
     {
         _materialStorage.UpdateMaterialWhitelist(ent.Owner);
+        TryAutoLink(ent);
     }
 
     private void OnGetWhitelist(Entity<ADTOreFurnaceComponent> ent, ref GetMaterialWhitelistEvent args)
@@ -136,6 +142,54 @@ public sealed class ADTOreFurnaceSystem : EntitySystem
         UpdateUiState(ent);
     }
 
+    private void OnToggleSiloLink(Entity<ADTOreFurnaceComponent> ent, ref ADTOreFurnaceToggleSiloLinkMessage args)
+    {
+        ent.Comp.SiloLinkEnabled = !ent.Comp.SiloLinkEnabled;
+        Dirty(ent);
+        UpdateUiState(ent);
+    }
+
+    private void OnFindSilo(Entity<ADTOreFurnaceComponent> ent, ref ADTOreFurnaceFindSiloMessage args)
+    {
+        TryAutoLink(ent);
+        UpdateUiState(ent);
+    }
+
+    private List<(EntityUid Silo, float Distance)> GetSilosInRange(Entity<ADTOreFurnaceComponent> ent)
+    {
+        var xform = Transform(ent);
+        var grid = _transform.GetGrid(ent.Owner);
+        var range = ent.Comp.SiloLinkRange;
+
+        var silos = new List<(EntityUid, float)>();
+
+        foreach (var silo in _lookup.GetEntitiesInRange<OreSiloComponent>(xform.Coordinates, range))
+        {
+            if (_transform.GetGrid(silo.Owner) != grid)
+                continue;
+
+            var distance = (Transform(silo).LocalPosition - xform.LocalPosition).LengthSquared();
+            silos.Add((silo, distance));
+        }
+
+        silos.Sort((a, b) => a.Item2.CompareTo(b.Item2));
+        return silos;
+    }
+
+    private void TryAutoLink(Entity<ADTOreFurnaceComponent> ent)
+    {
+        var silos = GetSilosInRange(ent);
+        if (silos.Count == 0)
+            return;
+
+        var silo = silos[0].Silo;
+        if (ent.Comp.Silo != silo)
+        {
+            ent.Comp.Silo = silo;
+            Dirty(ent);
+        }
+    }
+
     public int TrySmelt(Entity<ADTOreFurnaceComponent> ent, OreSmeltRecipePrototype recipe, int amount)
     {
         amount = Math.Min(amount, _furnace.GetMaxSmeltAmount(ent, recipe));
@@ -149,13 +203,41 @@ public sealed class ADTOreFurnaceSystem : EntitySystem
             _materialStorage.TryChangeMaterialAmount(ent.Owner, material, -cost);
         }
 
-        SpawnResult(ent.Owner, recipe.Result, _furnace.GetOutputCount(ent.Comp, amount));
+        var count = _furnace.GetOutputCount(ent.Comp, amount);
+
+        if (!TrySendToSilo(ent, recipe.Result, count))
+            SpawnResult(ent.Owner, recipe.Result, count);
 
         var points = _furnace.GetPointsGain(ent.Comp, recipe, amount);
         if (points > 0)
             _miningPoints.AddPoints(ent.Owner, points);
 
         return amount;
+    }
+
+    private bool TrySendToSilo(Entity<ADTOreFurnaceComponent> ent, EntProtoId result, int count)
+    {
+        if (!ent.Comp.SiloLinkEnabled || ent.Comp.Silo is not { } silo)
+            return false;
+
+        if (!TryComp<MaterialStorageComponent>(silo, out var storage))
+            return false;
+
+        if (!_proto.TryIndex(result, out var proto)
+            || !proto.TryGetComponent<PhysicalCompositionComponent>(out var composition, EntityManager.ComponentFactory))
+            return false;
+
+        var materials = new Dictionary<string, int>();
+        foreach (var (material, volume) in composition.MaterialComposition)
+        {
+            materials[material] = volume * count;
+        }
+
+        if (!_materialStorage.CanChangeMaterialAmount((silo, storage), materials))
+            return false;
+
+        _materialStorage.TryChangeMaterialAmount((silo, storage), materials);
+        return true;
     }
 
     private void SpawnResult(EntityUid uid, EntProtoId result, int count)
@@ -185,6 +267,9 @@ public sealed class ADTOreFurnaceSystem : EntitySystem
     private void UpdateUiState(Entity<ADTOreFurnaceComponent> ent)
     {
         var hasPoints = TryComp<MiningPointsComponent>(ent, out var points);
-        _ui.SetUiState(ent.Owner, ADTOreFurnaceUiKey.Key, new ADTOreFurnaceUpdateState(points?.Points ?? 0, hasPoints));
+        var siloLinked = ent.Comp.Silo is { } linkedSilo && TryComp<OreSiloComponent>(linkedSilo, out _);
+
+        _ui.SetUiState(ent.Owner, ADTOreFurnaceUiKey.Key, new ADTOreFurnaceUpdateState(
+            points?.Points ?? 0, hasPoints, ent.Comp.SiloLinkEnabled, siloLinked));
     }
 }

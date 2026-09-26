@@ -55,7 +55,7 @@
   id: ADTComputerXenobiologyControl
   parent: BaseComputerAiAccess
   name: xenobiology control console
-  description: Lets you pilot a free-flying drone eye through the station's cameras to remotely capture/place slimes and manage a monkey-cube stock.
+  description: Lets you pilot a free-flying drone eye through the station's cameras to remotely capture/place slimes, feed them monkeys and manage a monkey-cube and potion stock.
   components:
   - type: Sprite
     layers:
@@ -64,11 +64,23 @@
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
     - map: ["computerLayerScreen"]
-      state: ai-fixer
+      sprite: ADT/Structures/Machines/xenobiology_console.rsi
+      state: screen
     - map: ["computerLayerKeys"]
       state: tech_key
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+  - type: EyeControlConsole
+    eyeProto: ADTCameraEyeXeno
+    area: AreaXenobio
+    actions:
+    - ADTActionXenobiologyAnalyzeSlime
+    - ADTActionXenobiologyCaptureSlime
+    - ADTActionXenobiologyPlaceSlime
+    - ADTActionXenobiologyFeedMonkey
+    - ADTActionXenobiologyRecycleMonkey
+    - ADTActionXenobiologyApplyMutationPotion
+    - ADTActionXenobiologyApplyStabilizerPotion
   - type: XenobiologyControlConsole
   - type: DeviceNetwork
     deviceNetId: Wired
@@ -81,6 +93,7 @@
     - 0,0,4,4
     maxItemSize: Small
     openOnActivate: false
+    clickInsert: false
     whitelist:
       tags:
       - MonkeyCube

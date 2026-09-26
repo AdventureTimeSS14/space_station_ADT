@@ -1,6 +1,7 @@
 using Content.Shared.ADT.EntityEffects;
 using Content.Shared.EntityEffects;
 using Content.Server.ADT.NPC;
+using Content.Shared.Ghost;
 using Robust.Shared.Map;
 
 namespace Content.Server.ADT.EntityEffects;
@@ -17,6 +18,9 @@ public sealed partial class ChangeFactionNearbyEffectSystem : EntityEffectSystem
 
         foreach (var target in _lookup.GetEntitiesInRange(uid, effect.Radius))
         {
+            if (HasComp<GhostComponent>(target))
+                continue;
+
             _changeFaction.TryChangeFaction(target, effect.NewFaction, out _, effect.Duration);
         }
     }

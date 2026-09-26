@@ -1,0 +1,63 @@
+- type: entity
+  parent: BaseMaterialDoorNavMap
+  id: ADTSandstoneDoor
+  name: sandstone door
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/MineralDoors/sandstone_door.rsi
+  - type: Door
+    openSound:
+      path: /Audio/Effects/stonedoor_openclose.ogg
+    closeSound:
+      path: /Audio/Effects/stonedoor_openclose.ogg
+  - type: Damageable
+    damageModifierSet: Rock
+  - type: Construction
+    graph: ADTSandstoneDoor
+    node: door
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/break_stone.ogg
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ADTMaterialSandstone1:
+            min: 3
+            max: 5
+
+- type: entity
+  parent: Bed
+  id: ADTSandstoneBed
+  name: sandstone plate
+  description: You can sleep on it if you really want to.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/sandstone_bed.rsi
+    state: bed
+  - type: Damageable
+    damageModifierSet: Rock
+  - type: Construction
+    graph: ADTSandstoneBed
+    node: bed
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ADTMaterialSandstone1:
+            min: 5
+            max: 10

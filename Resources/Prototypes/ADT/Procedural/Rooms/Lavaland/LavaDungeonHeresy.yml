@@ -1,8 +1,8 @@
 - type: adtDungeonRoom
   id: LavaDungeonHeresy
   size: 24, 21
-  tags:
-  - LavaDungeon
+  #tags: dunge removed
+  #- LavaDungeon
   legend:
     "a":
       tile: FloorBasalt

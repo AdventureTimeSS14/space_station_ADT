@@ -62,4 +62,9 @@ public sealed partial class HealingComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier? HealingEndSound = null;
+
+    // ADT-Tweak start
+    [DataField, AutoNetworkedField]
+    public EntProtoId? HealEffect = "ADTEffectHealBusy";
+    // ADT-Tweak end
 }

@@ -9,6 +9,7 @@ using Robust.Shared.Prototypes;
 namespace Content.IntegrationTests.Tests;
 
 [TestFixture]
+[Ignore("Отключено, используем свою ADT версию: ADTResearchTest")]
 public sealed class ResearchTest : GameTest
 {
     [Test]

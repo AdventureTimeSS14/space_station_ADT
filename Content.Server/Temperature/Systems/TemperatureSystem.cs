@@ -66,6 +66,13 @@ public sealed partial class TemperatureSystem : SharedTemperatureSystem
 
         var lastTemp = temperature.CurrentTemperature;
         var delta = temperature.CurrentTemperature - temp;
+
+        // ADT Heretic
+        var attemptEv = new TemperatureChangeAttemptEvent(temp, lastTemp, delta);
+        RaiseLocalEvent(uid, attemptEv);
+        if (attemptEv.Cancelled)
+            return;
+
         temperature.CurrentTemperature = temp;
         RaiseLocalEvent(uid, new OnTemperatureChangeEvent(temperature.CurrentTemperature, lastTemp, delta), broadcast: true);
     }
@@ -83,8 +90,16 @@ public sealed partial class TemperatureSystem : SharedTemperatureSystem
         }
 
         float lastTemp = temperature.CurrentTemperature;
-        temperature.CurrentTemperature += heatAmount / GetHeatCapacity(uid, temperature);
-        float delta = temperature.CurrentTemperature - lastTemp;
+        var newTemp = temperature.CurrentTemperature + heatAmount / GetHeatCapacity(uid, temperature);
+        float delta = newTemp - lastTemp;
+
+        // ADT Heretic
+        var attemptEv = new TemperatureChangeAttemptEvent(newTemp, lastTemp, delta);
+        RaiseLocalEvent(uid, attemptEv);
+        if (attemptEv.Cancelled)
+            return;
+
+        temperature.CurrentTemperature = newTemp;
 
         RaiseLocalEvent(uid, new OnTemperatureChangeEvent(temperature.CurrentTemperature, lastTemp, delta), broadcast: true);
     }

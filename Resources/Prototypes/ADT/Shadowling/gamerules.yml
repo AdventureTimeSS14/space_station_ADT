@@ -30,7 +30,7 @@
   components:
   - type: StationEvent
     earliestStart: 30
-    weight: 3
+    weight: 6
     minimumPlayers: 40
     reoccurrenceDelay: 9999
     duration: 1

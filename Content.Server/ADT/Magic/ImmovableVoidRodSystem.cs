@@ -1,5 +1,6 @@
 using Content.Server.Heretic.Components;
 using Content.Shared.ADT.Chaplain.Components;
+using Content.Shared.ADT.Heretic.Systems;
 using Content.Shared.Heretic;
 using Content.Shared.Maps;
 using Content.Shared.Stunnable;
@@ -21,6 +22,7 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly IEntityManager _ent = default!;
     [Dependency] private readonly VoidCurseSystem _voidcurse = default!;
+    [Dependency] private readonly SharedHereticSystem _heretic = default!;
 
     public override void Update(float frameTime)
     {
@@ -54,7 +56,7 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
 
     private void OnCollide(Entity<ImmovableVoidRodComponent> ent, ref StartCollideEvent args)
     {
-        if ((TryComp<HereticComponent>(args.OtherEntity, out var th) && th.CurrentPath == "Void")
+        if ((_heretic.TryGetHereticComponent(args.OtherEntity, out var th, out _) && th.CurrentPath == "Void")
         || HasComp<GhoulComponent>(args.OtherEntity)
         || HasComp<MagicImmunityComponent>(args.OtherEntity))
             return;

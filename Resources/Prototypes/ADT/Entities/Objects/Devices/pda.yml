@@ -991,3 +991,13 @@
   components:
   - type: Pda
     id: ADTCMOIDCard
+
+# cyborg
+
+#- type: entity
+#  parent: ADTBasePDA
+#  id: ADTCyborgPDA
+#  name: cyborg PDA
+#  components:
+#  - type: Pda
+#    id: ADTCyborgIDCard
