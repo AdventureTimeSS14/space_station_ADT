@@ -26,3 +26,10 @@
   - /Audio/ADT/Personalization/minokaa_emilia_plushie/emilia_toy-2.ogg
   - /Audio/ADT/Personalization/minokaa_emilia_plushie/emilia_toy-3.ogg
   - /Audio/ADT/Personalization/minokaa_emilia_plushie/emilia_toy-4.ogg
+
+- type: soundCollection
+  id: ADTToySqueakYuriyTrixter
+  files:
+  - /Audio/ADT/Personalization/etvy_yuriy_plushie/yuriy_toy-1.ogg
+  - /Audio/ADT/Personalization/etvy_yuriy_plushie/yuriy_toy-2.ogg
+  - /Audio/ADT/Personalization/etvy_yuriy_plushie/yuriy_toy-3.ogg

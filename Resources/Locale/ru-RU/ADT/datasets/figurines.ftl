@@ -60,6 +60,12 @@ adt-figurines-plushie-jungar-9 = Я твой талисман удачи!
 adt-figurines-plushie-emilia-evenwood-1 = Йоу
 adt-figurines-plushie-emilia-evenwood-2 = Мамочки-арканочки
 
+adt-figurines-plushie-yuriy-trixter-1 = Фристайло
+adt-figurines-plushie-yuriy-trixter-2 = Эта вечеринка полный отстой
+adt-figurines-plushie-yuriy-trixter-3 = Сделай музыку погромче
+adt-figurines-plushie-yuriy-trixter-4 = Руки прочь от бумбокса
+adt-figurines-plushie-yuriy-trixter-5 = Я не буду ставить твою пластинку
+
 figurines-gipatter-1 = Ez...
 figurines-gipatter-2 = Хватит со своим Бламех-Жуббром
 figurines-gipatter-3 = Во всём виноваты воксы!

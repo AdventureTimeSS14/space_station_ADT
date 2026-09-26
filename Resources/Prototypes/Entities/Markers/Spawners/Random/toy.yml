@@ -44,6 +44,7 @@
     - id: ADTPlushieOctocat
     - id: ADTPlushieSani
     - id: ADTPlushieEmiliaEvenwood
+    - id: ADTPlushieEtvy
     # ADT toys end
     - !type:GroupSelector
       children:
