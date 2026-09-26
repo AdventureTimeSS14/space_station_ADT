@@ -164,13 +164,17 @@
     tags:
     - Sidearm
     - LaserWeapon
-  #ADT-Tweak-Start
+  # ADT TWEAK START
   - type: BatteryAmmoProvider
     proto: ADTYellowLightLaser
     fireCost: 50
   - type: Gun
     fireRate: 4
-  #ADT-Tweak-End
+  - type: Multishot
+    spreadMultiplier: 2
+    spreadAddition: 20
+    staminaDamage: 2.5
+  # ADT TWEAK END
 
 - type: entity
   name: retro laser blaster
@@ -215,6 +219,12 @@
     tags:
     - Sidearm
     - LaserWeapon
+  # ADT TWEAK START
+  - type: Multishot
+    spreadMultiplier: 2
+    spreadAddition: 25
+    staminaDamage: 2
+  # ADT TWEAK END
 
 - type: entity
   name: makeshift laser pistol
@@ -272,6 +282,12 @@
     tags:
     - Sidearm
     - LaserWeapon
+# ADT TWEAK START
+  - type: Multishot
+    spreadMultiplier: 2
+    spreadAddition: 20
+    staminaDamage: 1.5
+# ADT TWEAK END
 
 - type: entity
   name: tesla gun

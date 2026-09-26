@@ -626,3 +626,9 @@
     tags:
     - Sidearm
     - LaserWeapon
+# ADT TWEAK START
+  - type: Multishot
+    spreadMultiplier: 2
+    spreadAddition: 20
+    staminaDamage: 1.5
+# ADT TWEAK END

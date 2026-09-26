@@ -43,6 +43,7 @@ using Content.Shared.ADT.Weapons.Ranged.WearableGun;
 using Content.Shared.Electrocution;
 using Content.Shared.ADT.Crawling.Components;
 using Content.Shared.Inventory.VirtualItem;
+using Content.Goobstation.Common.Weapons.Multishot; // ADT-Tweak 
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
@@ -160,6 +161,7 @@ public abstract partial class SharedGunSystem : EntitySystem
 
     private void OnShootRequest(RequestShootEvent msg, EntitySessionEventArgs args)
     {
+        var gunUid = GetEntity(msg.Gun);
         var user = args.SenderSession.AttachedEntity;
 
         if (user == null ||
@@ -171,6 +173,11 @@ public abstract partial class SharedGunSystem : EntitySystem
 
         if (gun.Owner != GetEntity(msg.Gun))
             return;
+
+        // ADT TWEAK START
+        if (HasComp<MultishotComponent>(gunUid))
+            return;
+        // ADT TWEAK END
 
         // ADT Content start
         if (TryComp<MechPilotComponent>(user.Value, out var mechPilot))
@@ -497,6 +504,8 @@ public abstract partial class SharedGunSystem : EntitySystem
 
         if (shooterEv.Push)
             CauseImpulse(fromCoordinates, toCoordinates.Value, (user, userPhysics));
+        
+        UpdateAmmoCount(gun); // ADT Tweak
         return true;
     }
 
