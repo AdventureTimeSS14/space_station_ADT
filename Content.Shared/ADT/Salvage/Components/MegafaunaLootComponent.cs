@@ -17,6 +17,9 @@ public sealed partial class MegafaunaLootComponent : Component
     public List<EntProtoId> RandomLoot = [];
 
     [DataField]
+    public List<List<EntProtoId>> RandomLootGroups = [];
+
+    [DataField]
     public bool DropOnDeath = true;
 
     [DataField]
