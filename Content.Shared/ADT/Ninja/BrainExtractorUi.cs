@@ -37,8 +37,9 @@ public sealed class BrainExtractorBoundUserInterfaceState : BoundUserInterfaceSt
     public readonly float ScanProgress;
     public readonly bool CanStartScan;
     public readonly string StatusText;
+    public readonly float ScanDurationSeconds;
 
-    public BrainExtractorBoundUserInterfaceState(string? occupantName, bool podConnected, bool podInRange, bool podOccupied, bool isScanning, float scanProgress, bool canStartScan, string statusText)
+    public BrainExtractorBoundUserInterfaceState(string? occupantName, bool podConnected, bool podInRange, bool podOccupied, bool isScanning, float scanProgress, bool canStartScan, string statusText, float scanDurationSeconds)
     {
         OccupantName = occupantName;
         PodConnected = podConnected;
@@ -48,5 +49,6 @@ public sealed class BrainExtractorBoundUserInterfaceState : BoundUserInterfaceSt
         ScanProgress = scanProgress;
         CanStartScan = canStartScan;
         StatusText = statusText;
+        ScanDurationSeconds = scanDurationSeconds;
     }
 }

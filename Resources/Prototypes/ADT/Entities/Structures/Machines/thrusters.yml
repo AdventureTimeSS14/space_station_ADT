@@ -177,6 +177,18 @@
       machine_board: !type:Container
 
 - type: entity
+  id: ADTBigDebugThruster
+  parent: ADTBigThruster
+  name: big thruster
+  description: Big fuckin boy, BBBRRRROOOOOM.
+  suffix: DEBUG
+  placement:
+    mode: AlignTileAny
+  components:
+  - type: Thruster
+    requireSpace: false
+
+- type: entity
   id: ADTMediumLongThruster
   parent: ADTMediumThruster
   name: medium long thruster

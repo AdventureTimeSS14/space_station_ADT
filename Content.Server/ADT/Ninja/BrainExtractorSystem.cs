@@ -5,8 +5,6 @@ using Content.Server.Power.EntitySystems;
 using Content.Shared.ADT.Ninja;
 using Content.Shared.ADT.Ninja.Components;
 using Content.Shared.Bed.Sleep;
-using Content.Shared.Body;
-using Content.Shared.Climbing.Systems;
 using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.DragDrop;
@@ -37,7 +35,6 @@ public sealed class BrainExtractorSystem : EntitySystem
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly ClimbSystem _climb = default!;
 
     public override void Initialize()
     {
@@ -69,17 +66,7 @@ public sealed class BrainExtractorSystem : EntitySystem
             return;
 
         foreach (var port in source.Outputs.Values.SelectMany(v => v))
-        {
-            if (TryComp<BrainExtractorPodComponent>(port, out var pod))
-            {
-                comp.ConnectedPod = port;
-                pod.ConnectedConsole = uid;
-                Dirty(uid, comp);
-                Dirty(port, pod);
-            }
-        }
-        RecheckConnections(uid, comp);
-        UpdateUi(uid, comp);
+            TryConnectPod(uid, comp, port);
     }
 
     private void OnConsoleNewLink(EntityUid uid, BrainExtractorConsoleComponent comp, NewLinkEvent args)
@@ -87,21 +74,28 @@ public sealed class BrainExtractorSystem : EntitySystem
         if (args.SourcePort != BrainExtractorConsoleComponent.PodPort)
             return;
 
-        if (TryComp<BrainExtractorPodComponent>(args.Sink, out var pod))
-        {
-            comp.ConnectedPod = args.Sink;
-            pod.ConnectedConsole = uid;
-            Dirty(uid, comp);
-            Dirty(args.Sink, pod);
-        }
-        RecheckConnections(uid, comp);
-        UpdateUi(uid, comp);
+        TryConnectPod(uid, comp, args.Sink);
+    }
+
+    private void TryConnectPod(EntityUid consoleUid, BrainExtractorConsoleComponent comp, EntityUid podUid)
+    {
+        if (!TryComp<BrainExtractorPodComponent>(podUid, out var pod))
+            return;
+
+        comp.ConnectedPod = podUid;
+        pod.ConnectedConsole = consoleUid;
+        Dirty(consoleUid, comp);
+        Dirty(podUid, pod);
+        RecheckConnections(consoleUid, comp);
+        UpdateUi(consoleUid, comp);
     }
 
     private void OnConsolePortDisconnected(EntityUid uid, BrainExtractorConsoleComponent comp, PortDisconnectedEvent args)
     {
         if (args.Port != BrainExtractorConsoleComponent.PodPort)
             return;
+
+        CancelScan(uid, comp);
 
         if (comp.ConnectedPod != null && TryComp<BrainExtractorPodComponent>(comp.ConnectedPod, out var pod))
         {
@@ -110,8 +104,6 @@ public sealed class BrainExtractorSystem : EntitySystem
         }
 
         comp.ConnectedPod = null;
-        comp.IsScanning = false;
-        comp.ScanEndTime = null;
         Dirty(uid, comp);
         UpdateUi(uid, comp);
     }
@@ -153,11 +145,6 @@ public sealed class BrainExtractorSystem : EntitySystem
         {
             TryEject(uid, comp, args.Actor);
         }
-    }
-
-    private void OnPodInit(EntityUid uid, BrainExtractorPodComponent comp, ComponentInit args)
-    {
-        comp.BodyContainer = _container.EnsureContainer<ContainerSlot>(uid, "brain-extractor-bodyContainer");
     }
 
     private void OnPodInserted(EntityUid uid, BrainExtractorPodComponent comp, EntInsertedIntoContainerMessage args)
@@ -230,19 +217,15 @@ public sealed class BrainExtractorSystem : EntitySystem
         if (!comp.IsScanning)
             return;
 
-        comp.IsScanning = false;
-        comp.ScanEndTime = null;
-        Dirty(consoleUid, comp);
-
         if (comp.ConnectedPod != null && TryComp<BrainExtractorPodComponent>(comp.ConnectedPod, out var pod))
+            StopScan(consoleUid, comp, comp.ConnectedPod.Value, pod);
+        else
         {
-            pod.IsScanning = false;
-            pod.ScanEndTime = null;
-            pod.ScanningNinja = null;
-            Dirty(comp.ConnectedPod.Value, pod);
-            UpdatePodAppearance(comp.ConnectedPod.Value, pod);
+            comp.IsScanning = false;
+            comp.ScanEndTime = null;
+            Dirty(consoleUid, comp);
+            UpdateUi(consoleUid, comp);
         }
-        UpdateUi(consoleUid, comp);
     }
 
     private void CancelScanByPod(EntityUid podUid, BrainExtractorPodComponent pod)
@@ -250,19 +233,29 @@ public sealed class BrainExtractorSystem : EntitySystem
         if (!pod.IsScanning)
             return;
 
+        if (pod.ConnectedConsole != null && TryComp<BrainExtractorConsoleComponent>(pod.ConnectedConsole, out var console))
+            StopScan(pod.ConnectedConsole.Value, console, podUid, pod);
+        else
+        {
+            pod.IsScanning = false;
+            pod.ScanEndTime = null;
+            pod.ScanningNinja = null;
+            Dirty(podUid, pod);
+            UpdatePodAppearance(podUid, pod);
+        }
+    }
+
+    private void StopScan(EntityUid consoleUid, BrainExtractorConsoleComponent console, EntityUid podUid, BrainExtractorPodComponent pod)
+    {
+        console.IsScanning = false;
+        console.ScanEndTime = null;
         pod.IsScanning = false;
         pod.ScanEndTime = null;
         pod.ScanningNinja = null;
+        Dirty(consoleUid, console);
         Dirty(podUid, pod);
         UpdatePodAppearance(podUid, pod);
-
-        if (pod.ConnectedConsole != null && TryComp<BrainExtractorConsoleComponent>(pod.ConnectedConsole, out var console))
-        {
-            console.IsScanning = false;
-            console.ScanEndTime = null;
-            Dirty(pod.ConnectedConsole.Value, console);
-            UpdateUi(pod.ConnectedConsole.Value, console);
-        }
+        UpdateUi(consoleUid, console);
     }
 
     private void TryEject(EntityUid consoleUid, BrainExtractorConsoleComponent comp, EntityUid actor)
@@ -292,6 +285,8 @@ public sealed class BrainExtractorSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("brain-extractor-no-pod"), consoleUid, actor, PopupType.MediumCaution);
             return;
         }
+
+        RecheckConnections(consoleUid, comp);
 
         if (!comp.PodInRange)
         {
@@ -342,11 +337,13 @@ public sealed class BrainExtractorSystem : EntitySystem
             return;
         }
 
-        if (condition.ScansCompleted >= condition.MaxScans)
+        if (comp.ScansCompleted >= comp.MaxScans)
         {
             _popup.PopupEntity(Loc.GetString("brain-extractor-max-scans"), consoleUid, actor, PopupType.MediumCaution);
             return;
         }
+
+        if (condition.ScansCompleted >= condition.MaxScans)
 
         if (condition.ScannedMinds.Contains(mindId) || condition.ScannedBodies.Contains(body))
         {
@@ -404,12 +401,16 @@ public sealed class BrainExtractorSystem : EntitySystem
         var consoleQuery = EntityQueryEnumerator<BrainExtractorConsoleComponent>();
         while (consoleQuery.MoveNext(out var consoleUid, out var console))
         {
-            if (console.IsScanning && console.ScanEndTime != null)
-            {
-                var remaining = console.ScanEndTime.Value - curTime;
-                if (remaining.TotalSeconds <= 0)
-                    continue;
+            if (!console.IsScanning || console.ScanEndTime == null)
+                continue;
 
+            var remaining = console.ScanEndTime.Value - curTime;
+            if (remaining.TotalSeconds <= 0)
+                continue;
+
+            if (console.LastUiUpdate == null || curTime - console.LastUiUpdate.Value >= TimeSpan.FromSeconds(0.2))
+            {
+                console.LastUiUpdate = curTime;
                 UpdateUi(consoleUid, console);
             }
         }
@@ -427,6 +428,13 @@ public sealed class BrainExtractorSystem : EntitySystem
 
         if (!_mind.TryGetMind(body.Value, out var mindId, out _))
         {
+            CancelScanByPod(podUid, pod);
+            return;
+        }
+
+        if (TerminatingOrDeleted(body.Value) || _mobState.IsDead(body.Value))
+        {
+            _popup.PopupEntity(Loc.GetString("brain-extractor-scan-failed"), podUid, PopupType.MediumCaution);
             CancelScanByPod(podUid, pod);
             return;
         }
@@ -470,17 +478,11 @@ public sealed class BrainExtractorSystem : EntitySystem
         condition.ScannedMinds.Add(mindId);
         condition.ScannedBodies.Add(body.Value);
 
+        console.ScansCompleted++;
+
         _statusEffects.TryAddStatusEffectDuration(body.Value, SleepingSystem.StatusEffectForcedSleeping, pod.SleepDuration);
 
-        pod.IsScanning = false;
-        pod.ScanEndTime = null;
-        pod.ScanningNinja = null;
-        console.IsScanning = false;
-        console.ScanEndTime = null;
-        Dirty(podUid, pod);
-        Dirty(consoleUid, console);
-        UpdatePodAppearance(podUid, pod);
-        UpdateUi(consoleUid, console);
+        StopScan(consoleUid, console, podUid, pod);
 
         _popup.PopupEntity(Loc.GetString("brain-extractor-scan-complete", ("target", body.Value)), consoleUid, ninja, PopupType.Large);
     }
@@ -496,21 +498,12 @@ public sealed class BrainExtractorSystem : EntitySystem
         return null;
     }
 
-    private bool IsPodOccupied(BrainExtractorPodComponent comp)
-    {
-        return comp.BodyContainer.ContainedEntity != null;
-    }
-
     private void UpdatePodAppearance(EntityUid podUid, BrainExtractorPodComponent pod)
     {
         if (!TryComp<AppearanceComponent>(podUid, out var appearance))
             return;
         var status = pod.IsScanning ? BrainExtractorStatus.Scanning : BrainExtractorStatus.Idle;
         _appearance.SetData(podUid, BrainExtractorVisuals.Status, status, appearance);
-        if (IsPodOccupied(pod) && !pod.IsScanning)
-        {
-            _appearance.SetData(podUid, BrainExtractorVisuals.Status, BrainExtractorStatus.Idle, appearance);
-        }
     }
 
     private void UpdateUi(EntityUid consoleUid, BrainExtractorConsoleComponent? comp = null)
@@ -552,7 +545,7 @@ public sealed class BrainExtractorSystem : EntitySystem
 
             if (pod.IsScanning && pod.ScanEndTime != null)
             {
-                var total = (pod.ScanEndTime.Value - (pod.ScanEndTime.Value - pod.ScanDuration)).TotalSeconds;
+                var total = pod.ScanDuration.TotalSeconds;
                 var remaining = (pod.ScanEndTime.Value - _timing.CurTime).TotalSeconds;
                 progress = Math.Clamp(1f - (float)(remaining / total), 0f, 1f);
                 isScanning = true;
@@ -580,6 +573,10 @@ public sealed class BrainExtractorSystem : EntitySystem
         if (isScanning)
             canStart = false;
 
-        return new BrainExtractorBoundUserInterfaceState(occupantName, podConnected, podInRange, podOccupied, isScanning, progress, canStart, statusText);
+        var scanDurationSeconds = comp.ConnectedPod != null && TryComp<BrainExtractorPodComponent>(comp.ConnectedPod, out var podComp)
+            ? (float)podComp.ScanDuration.TotalSeconds
+            : 0f;
+
+        return new BrainExtractorBoundUserInterfaceState(occupantName, podConnected, podInRange, podOccupied, isScanning, progress, canStart, statusText, scanDurationSeconds);
     }
 }

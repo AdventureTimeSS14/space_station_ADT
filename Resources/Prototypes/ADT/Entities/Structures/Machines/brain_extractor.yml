@@ -46,7 +46,7 @@
   - type: ApcPowerReceiver
   - type: GuideHelp
     guides:
-    - Cloning
+    - SpaceNinja
 
 - type: entity
   parent: BaseMachinePowered

@@ -238,7 +238,7 @@
         Heat: 0.95
   - type: FootstepModifier
     footstepSoundCollection:
-      collection: null
+      collection: FootstepBoots
       params:
         volume: -10
   - type: Construction
@@ -265,7 +265,7 @@
         Caustic: 0.95
   - type: FootstepModifier
     footstepSoundCollection:
-      collection: null
+      collection: FootstepBoots
       params:
         volume: -10
   - type: Construction

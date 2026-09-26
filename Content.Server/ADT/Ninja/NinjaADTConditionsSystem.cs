@@ -2,8 +2,8 @@ using Content.Server.Objectives.Components;
 using Content.Server.Objectives.Systems;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
-using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Silicons.Laws;
+using Content.Shared.Silicons.Laws.Components;
 
 namespace Content.Server.ADT.Ninja;
 

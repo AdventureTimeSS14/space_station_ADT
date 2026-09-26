@@ -25,4 +25,10 @@ public sealed partial class BrainExtractorConsoleComponent : Component
 
     [DataField]
     public int MaxScans = 2;
+
+    [ViewVariables]
+    public int ScansCompleted;
+
+    [ViewVariables]
+    public TimeSpan? LastUiUpdate;
 }

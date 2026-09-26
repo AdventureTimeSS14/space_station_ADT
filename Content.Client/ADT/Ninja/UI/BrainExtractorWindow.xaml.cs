@@ -9,10 +9,16 @@ namespace Content.Client.ADT.Ninja.UI;
 [GenerateTypedNameReferences]
 public sealed partial class BrainExtractorWindow : DefaultWindow
 {
+    private float _scanDurationSeconds = -1f;
+
     public BrainExtractorWindow()
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
+
+        Title = Loc.GetString("brain-extractor-window-title");
+        TargetLabel.Text = Loc.GetString("brain-extractor-window-target");
+        EjectButton.Text = Loc.GetString("brain-extractor-window-eject");
     }
 
     public void UpdateState(BrainExtractorBoundUserInterfaceState state)
@@ -20,6 +26,11 @@ public sealed partial class BrainExtractorWindow : DefaultWindow
         StatusLabel.SetMarkup(state.StatusText);
         OccupantLabel.SetMarkup(state.OccupantName ?? Loc.GetString("brain-extractor-window-no-occupant"));
         ScanProgress.Value = state.ScanProgress;
+        if (!MathHelper.CloseTo(_scanDurationSeconds, state.ScanDurationSeconds))
+        {
+            _scanDurationSeconds = state.ScanDurationSeconds;
+            StartScanButton.Text = Loc.GetString("brain-extractor-window-start-scan", ("seconds", (int)state.ScanDurationSeconds));
+        }
         StartScanButton.Disabled = !state.CanStartScan;
         EjectButton.Disabled = !state.PodOccupied || state.IsScanning;
         PodStatusLabel.Text = state.PodConnected

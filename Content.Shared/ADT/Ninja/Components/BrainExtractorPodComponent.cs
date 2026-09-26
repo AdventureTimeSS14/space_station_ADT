@@ -32,9 +32,6 @@ public sealed partial class BrainExtractorPodComponent : Component
 
     [DataField]
     public TimeSpan SleepDuration = TimeSpan.FromSeconds(120);
-
-    [DataField]
-    public float MaxDistance = 6f;
 }
 
 [Serializable, NetSerializable]
