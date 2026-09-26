@@ -36,3 +36,43 @@
     polymorphSound: /Audio/ADT/Heretic/voidblink.ogg
     polymorphPopup: null
     allowRepeatedMorphs: true
+
+- type: polymorph
+  id: ShapeshiftStalkerLock
+  configuration:
+    entity: MobGhoulStalkerLock
+    transferName: true
+    transferDamage: true
+    revertOnCrit: true
+    revertOnDeath: true
+    allowRepeatedMorphs: true
+
+- type: polymorph
+  id: ShapeshiftProphetLock
+  configuration:
+    entity: MobGhoulProphetLock
+    transferName: true
+    transferDamage: true
+    revertOnCrit: true
+    revertOnDeath: true
+    allowRepeatedMorphs: true
+
+- type: polymorph
+  id: ShapeshiftFireSharkLock
+  configuration:
+    entity: MobGhoulFireSharkLock
+    transferName: true
+    transferDamage: true
+    revertOnCrit: true
+    revertOnDeath: true
+    allowRepeatedMorphs: true
+
+- type: polymorph
+  id: ShapeshiftRustWalkerLock
+  configuration:
+    entity: MobGhoulRustWalkerLock
+    transferName: true
+    transferDamage: true
+    revertOnCrit: true
+    revertOnDeath: true
+    allowRepeatedMorphs: true

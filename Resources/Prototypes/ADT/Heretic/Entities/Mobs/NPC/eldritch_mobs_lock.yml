@@ -1,0 +1,44 @@
+- type: entity
+  parent: MobGhoulStalker
+  id: MobGhoulStalkerLock
+  suffix: Lock
+  components:
+  - type: Ghoul
+    totalHealth: 180
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 15
+        Piercing: 10
+
+- type: entity
+  parent: MobGhoulProphet
+  id: MobGhoulProphetLock
+  suffix: Lock
+  components:
+  - type: Ghoul
+    totalHealth: 180
+
+- type: entity
+  parent: MobGhoulFireShark
+  id: MobGhoulFireSharkLock
+  suffix: Lock
+  components:
+  - type: Ghoul
+    totalHealth: 180
+
+- type: entity
+  parent: MobGhoulRustWalker
+  id: MobGhoulRustWalkerLock
+  suffix: Lock
+  components:
+  - type: Ghoul
+    totalHealth: 180
+
+- type: weightedRandomEntity
+  id: LabyrinthPortalSpawnTable
+  weights:
+    MobGhoulStalkerLock: 4
+    MobGhoulProphetLock: 2
+    MobGhoulFireSharkLock: 4
+    MobGhoulRustWalkerLock: 4

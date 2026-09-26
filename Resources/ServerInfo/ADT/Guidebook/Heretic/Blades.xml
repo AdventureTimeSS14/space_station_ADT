@@ -20,6 +20,7 @@
   <GuideHereticBladeEmbed Blade="HereticBladeVoid" Path="Void" Bonus="heretic-guide-blade-bonus-void"/>
   <GuideHereticBladeEmbed Blade="HereticBladeRust" Path="Rust" Bonus="heretic-guide-blade-bonus-rust"/>
   <GuideHereticBladeEmbed Blade="HereticBladeCosmos" Path="Cosmos" Bonus="heretic-guide-blade-bonus-cosmos"/>
+  <GuideHereticBladeEmbed Blade="HereticBladeLock" Path="Lock" Bonus="heretic-guide-blade-bonus-lock"/>
 
   # Клинок упыря
 

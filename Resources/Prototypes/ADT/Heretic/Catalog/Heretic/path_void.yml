@@ -78,8 +78,8 @@
 
 - type: listing
   id: HereticVoidPath5
-  name: knowledge-path-void-s5-name
-  description: knowledge-path-void-s5-desc
+  name: knowledge-path-void-blast-name
+  description: knowledge-path-void-blast-desc
   icon: { sprite: ADT/Heretic/abilities_heretic.rsi, state: void_blast }
   productHereticKnowledge: VoidBlast
   cost:

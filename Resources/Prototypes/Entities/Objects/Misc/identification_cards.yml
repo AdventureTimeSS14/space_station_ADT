@@ -23,6 +23,7 @@
     - DoorBumpOpener
     - WhitelistChameleon
     - WhitelistChameleonIdCard
+    - IdCard # ADT-Tweak
   - type: StealTarget
     stealGroup: IDCard
   - type: NanoChatCard # ADT-tweak: Наночат
@@ -88,6 +89,7 @@
     - WhitelistChameleon
     - WhitelistChameleonIdCard
     - HighRiskItem
+    - IdCard # ADT-Tweak
   - type: StealTarget
     stealGroup: CaptainIDCard
 
@@ -976,6 +978,7 @@
   - type: Tag
     tags:
     - DoorBumpOpener
+    - IdCard # ADT-Tweak
   - type: ChameleonClothing
     slot: [idcard]
     default: PassengerIDCard

@@ -10,7 +10,7 @@ using Robust.Client.GameObjects;
 
 namespace Content.Client.ADT.Heretic;
 
-public sealed class ShadowCloakSystem : SharedShadowCloakSystem
+public sealed partial class ShadowCloakSystem : SharedShadowCloakSystem
 {
     [Dependency] private readonly SpriteSystem _sprite = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
