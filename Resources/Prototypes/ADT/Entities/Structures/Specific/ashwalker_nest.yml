@@ -14,6 +14,12 @@
     anchored: true
     noRot: true
   - type: ADTAshWalkerNest
+    limbDrop: OrganHumanFootLeft
+    limbDropChance: 0.5
+    organDrops:
+    - OrganHumanHeart
+    - OrganHumanLiver
+    - OrganHumanKidneys
     auraHealing:
       types:
         Blunt: -0.4
