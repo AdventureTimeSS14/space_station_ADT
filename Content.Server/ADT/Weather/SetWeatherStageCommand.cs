@@ -5,7 +5,6 @@ using Content.Shared.Administration;
 using Robust.Shared.Console;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.Weather;
 
@@ -13,16 +12,15 @@ namespace Content.Server.ADT.Weather;
 public sealed class SetWeatherStageCommand : LocalizedEntityCommands
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
 
     public override string Command => "setweatherstage";
 
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        if (args.Length is < 1 or > 2)
+        if (args.Length is < 1 or > 3)
         {
-            shell.WriteError("Usage: setweatherstage <stageIndex> [mapId]");
+            shell.WriteError("Usage: setweatherstage <stageIndex> [instant] [mapId]");
             return;
         }
 
@@ -33,19 +31,34 @@ public sealed class SetWeatherStageCommand : LocalizedEntityCommands
         }
 
         EntityUid? mapUid = null;
+        var instant = false;
+        int? rawMapId = null;
 
-        if (args.Length == 2)
+        foreach (var arg in args.Skip(1))
         {
-            if (!int.TryParse(args[1], out var rawMapId))
+            if (bool.TryParse(arg, out var parsedInstant))
             {
-                shell.WriteError($"'{args[1]}' is not a valid map id.");
-                return;
+                instant = parsedInstant;
+                continue;
             }
 
-            var mapId = new MapId(rawMapId);
+            if (int.TryParse(arg, out var parsedMapId))
+            {
+                rawMapId = parsedMapId;
+                continue;
+            }
+
+            shell.WriteError($"'{arg}' is neither true/false nor a valid map id.");
+            return;
+        }
+
+        if (rawMapId is { } mapIdValue)
+        {
+
+            var mapId = new MapId(mapIdValue);
             if (!_mapManager.MapExists(mapId))
             {
-                shell.WriteError($"Map {rawMapId} does not exist.");
+                shell.WriteError($"Map {mapIdValue} does not exist.");
                 return;
             }
 
@@ -89,11 +102,12 @@ public sealed class SetWeatherStageCommand : LocalizedEntityCommands
             return;
         }
 
-        scheduler.Stage = stageIndex;
-        scheduler.NextUpdate = _timing.CurTime;
-        _entManager.Dirty(map, scheduler);
+        _entManager.System<WeatherSchedulerSystem>().SetStage(map, scheduler, stageIndex, instant);
 
-        shell.WriteLine($"Weather scheduler on map {map} will advance to stage {stageIndex} on the next tick.");
+        if (instant)
+            shell.WriteLine($"Weather on map {map} was instantly switched to stage {stageIndex}.");
+        else
+            shell.WriteLine($"Weather scheduler on map {map} will advance to stage {stageIndex} on the next tick.");
     }
 
     public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
@@ -102,6 +116,9 @@ public sealed class SetWeatherStageCommand : LocalizedEntityCommands
             return CompletionResult.FromHint("<stage index>");
 
         if (args.Length == 2)
+            return CompletionResult.FromHintOptions(new[] { "true", "false" }, "[instant]");
+
+        if (args.Length == 3)
             return CompletionResult.FromHintOptions(
                 _mapManager.GetAllMapIds().Select(m => m.ToString()),
                 "[map id]");

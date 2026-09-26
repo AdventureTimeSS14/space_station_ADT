@@ -96,15 +96,21 @@ public sealed class ADTWindController : VirtualController
         return _winds.Count > 0;
     }
 
+    public Angle GetWindDirection(ADTWeatherWindComponent wind)
+    {
+        var time = (float) _timing.CurTime.TotalSeconds;
+        var swing = _noise.GetNoise(time * wind.DirectionFrequency, wind.Seed * 128f);
+        return new Angle(wind.BaseDirection.Theta + wind.Spread.Theta * swing);
+    }
+
     private Vector2 GetWindVelocity(ADTWeatherWindComponent wind, float percent)
     {
         var time = (float) _timing.CurTime.TotalSeconds;
 
         var offset = wind.Seed * 128f;
-        var swing = _noise.GetNoise(time * wind.DirectionFrequency, offset);
         var gust = _noise.GetNoise(time * wind.GustFrequency, offset + 64f);
 
-        var direction = new Angle(wind.BaseDirection.Theta + wind.Spread.Theta * swing);
+        var direction = GetWindDirection(wind);
         var speed = wind.Speed * (1f + wind.GustAmplitude * gust) * percent;
 
         if (speed <= 0f)
