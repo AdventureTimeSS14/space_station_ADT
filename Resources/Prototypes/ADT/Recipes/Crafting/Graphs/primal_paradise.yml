@@ -21,6 +21,9 @@
   targetNode: codpiece
   category: construction-category-clothing
   objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
 
 - type: constructionGraph
   id: ADTHunterBelt
@@ -45,6 +48,9 @@
   targetNode: belt
   category: construction-category-clothing
   objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
 
 - type: constructionGraph
   id: ADTDrakeArmor
@@ -79,6 +85,9 @@
   targetNode: armor
   category: construction-category-clothing
   objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
 
 - type: constructionGraph
   id: ADTFootwrapsGoliath
@@ -103,6 +112,9 @@
   targetNode: footwraps
   category: construction-category-clothing
   objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
 
 - type: constructionGraph
   id: ADTFootwrapsDragon
@@ -127,6 +139,9 @@
   targetNode: footwraps
   category: construction-category-clothing
   objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
 
 - type: constructionGraph
   id: ADTGoliathGloves
@@ -151,6 +166,9 @@
   targetNode: gloves
   category: construction-category-clothing
   objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
 
 - type: constructionGraph
   id: ADTWeaverGloves
@@ -175,6 +193,9 @@
   targetNode: gloves
   category: construction-category-clothing
   objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
 
 - type: constructionGraph
   id: ADTPathfinderCloak
@@ -205,6 +226,9 @@
   targetNode: cloak
   category: construction-category-clothing
   objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
 
 - type: constructionGraph
   id: ADTPathfinderTreads
@@ -229,6 +253,9 @@
   targetNode: treads
   category: construction-category-clothing
   objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
 
 - type: constructionGraph
   id: ADTWeaverQuiver
@@ -251,6 +278,9 @@
   targetNode: quiver
   category: construction-category-clothing
   objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
 
 - type: constructionGraph
   id: ADTFirebrand
@@ -273,6 +303,9 @@
   targetNode: firebrand
   category: construction-category-utilities
   objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
 
 - type: constructionGraph
   id: ADTBoneSplintCraft
@@ -297,6 +330,9 @@
   targetNode: splint
   category: construction-category-utilities
   objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
 
 - type: constructionGraph
   id: ADTSurgeryBagPrimitive
@@ -321,6 +357,9 @@
   targetNode: bag
   category: construction-category-utilities
   objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
 
 - type: constructionGraph
   id: ADTShieldGoliath
@@ -345,6 +384,9 @@
   targetNode: shield
   category: construction-category-weapons
   objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
 
 - type: constructionGraph
   id: ADTBowBone
@@ -373,6 +415,9 @@
   targetNode: bow
   category: construction-category-weapons
   objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
 
 - type: constructionGraph
   id: ADTArrowWooden
@@ -397,6 +442,9 @@
   targetNode: bundle
   category: construction-category-weapons
   objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
 
 - type: constructionGraph
   id: ADTArrowBoneTipped
@@ -429,6 +477,9 @@
   targetNode: bundle
   category: construction-category-weapons
   objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
 
 - type: constructionGraph
   id: ADTArrowJagged
@@ -459,6 +510,9 @@
   targetNode: bundle
   category: construction-category-weapons
   objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
 
 - type: constructionGraph
   id: ADTBolaSkull
@@ -485,6 +539,9 @@
   targetNode: bola
   category: construction-category-weapons
   objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
 
 - type: constructionGraph
   id: ADTNutcracker
@@ -509,6 +566,9 @@
   targetNode: nutcracker
   category: construction-category-weapons
   objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
 
 - type: constructionGraph
   id: ADTHideMantle
@@ -531,28 +591,9 @@
   targetNode: mantle
   category: construction-category-clothing
   objectType: Item
-
-- type: constructionGraph
-  id: ADTLeatherTanning
-  start: start
-  graph:
-  - node: start
-    edges:
-    - to: leather
-      steps:
-      - material: GoliathHide
-        amount: 1
-        doAfter: 5
-  - node: leather
-    entity: ADTMaterialLeather2
-
-- type: construction
-  id: ADTLeatherTanning
-  graph: ADTLeatherTanning
-  startNode: start
-  targetNode: leather
-  category: construction-category-materials
-  objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
 
 - type: constructionGraph
   id: ADTRake
@@ -575,6 +616,9 @@
   targetNode: rake
   category: construction-category-utilities
   objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
 
 - type: constructionGraph
   id: ADTBucketWooden
@@ -597,6 +641,9 @@
   targetNode: bucket
   category: construction-category-utilities
   objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
 
 - type: constructionGraph
   id: ADTAshDryingRackCraft
@@ -621,6 +668,9 @@
   targetNode: rack
   category: construction-category-furniture
   objectType: Structure
+  entityWhitelist:
+    components:
+    - ADTTribeMember
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
@@ -683,6 +733,9 @@
   targetNode: grace
   category: construction-category-structures
   objectType: Structure
+  entityWhitelist:
+    components:
+    - ADTTribeMember
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
@@ -738,6 +791,9 @@
   targetNode: pads
   category: construction-category-clothing
   objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
 
 - type: construction
   id: ADTCartilageGreaves
@@ -746,6 +802,9 @@
   targetNode: greaves
   category: construction-category-clothing
   objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
 
 - type: constructionGraph
   id: ADTSpearChitin
@@ -784,6 +843,9 @@
   targetNode: spear
   category: construction-category-weapons
   objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember
 
 - type: construction
   id: ADTSpearHerBitingEmbrace
@@ -792,3 +854,6 @@
   targetNode: embrace
   category: construction-category-weapons
   objectType: Item
+  entityWhitelist:
+    components:
+    - ADTTribeMember

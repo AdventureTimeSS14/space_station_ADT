@@ -1,0 +1,6 @@
+- files:
+  - fleshtostone.ogg
+  - meteorimpact.ogg
+  license: "CC-BY-SA-3.0"
+  copyright: "Ported from ss220-space/Paradise (sound/magic/fleshtostone.ogg, sound/effects/meteorimpact.ogg)"
+  source: "https://github.com/ss220-space/Paradise"

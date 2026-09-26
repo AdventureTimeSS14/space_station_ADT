@@ -44,6 +44,10 @@
         },
         {
             "name": "wielded-plunger"
+        },
+        {
+            "name": "equipped-SUITSTORAGE",
+            "directions": 4
         }
     ]
 }
