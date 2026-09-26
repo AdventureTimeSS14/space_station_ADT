@@ -47,13 +47,34 @@ public sealed partial class ADTLavalandGenerationComponent : Component
     public float RiverMaxRadius = 200f;
 
     [DataField]
-    public float RiverDetourChance = 0.2f;
+    public float RiverMinWidth = 1.5f;
 
     [DataField]
-    public float RiverSpreadChance = 0.25f;
+    public float RiverMaxWidth = 3.5f;
 
     [DataField]
-    public float RiverSpreadLoss = 0.11f;
+    public float RiverMeander = 0.9f;
+
+    [DataField]
+    public float RiverEdgeNoise = 1.2f;
+
+    [DataField]
+    public int RiverSmoothPasses = 3;
+
+    [DataField]
+    public int Lakes;
+
+    [DataField]
+    public float LakeMinRadius = 8f;
+
+    [DataField]
+    public float LakeMaxRadius = 16f;
+
+    [DataField]
+    public float LakeOnRiverChance = 0.5f;
+
+    [DataField]
+    public float LakeIslandChance = 0.3f;
 
     [DataField]
     public float RiverRoomClearance = 20f;
@@ -65,7 +86,10 @@ public sealed partial class ADTLavalandGenerationComponent : Component
     public EntProtoId? RiverBridge;
 
     [DataField]
-    public float RiverBridgeChance = 0.01f;
+    public float RiverBridgeSpacing = 55f;
+
+    [DataField]
+    public int RiverBridgeMaxWidth = 6;
 
     [ViewVariables]
     public Vector2 BaseCenter = Vector2.Zero;

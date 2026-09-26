@@ -4,6 +4,7 @@
   id: ADTBlob
   hostile:
     - NanoTrasen
+    - ADTAshWalker
     - Syndicate
     - Xeno
     - PetsNT

@@ -79,6 +79,7 @@ public sealed class ADTNecropolisCompassSystem : EntitySystem
         {
             BreakOnDamage = false,
             BreakOnMove = false,
+            DistanceThreshold = null,
             NeedHand = false,
             BlockDuplicate = true,
             DuplicateCondition = DuplicateConditions.SameEvent,

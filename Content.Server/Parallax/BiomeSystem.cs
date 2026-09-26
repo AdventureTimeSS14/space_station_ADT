@@ -470,6 +470,7 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
 
             // Load NOW!
             LoadChunk(component, gridUid, grid, chunk, seed);
+            RaiseChunkLoaded(gridUid, chunk); // ADT-Tweak
         }
     }
 
@@ -912,6 +913,7 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
             // Unload NOW!
             tiles ??= new List<(Vector2i, Tile)>(ChunkSize * ChunkSize);
             UnloadChunk(component, gridUid, grid, chunk, seed, tiles);
+            RaiseChunkUnloaded(gridUid, chunk); // ADT-Tweak
         }
     }
 

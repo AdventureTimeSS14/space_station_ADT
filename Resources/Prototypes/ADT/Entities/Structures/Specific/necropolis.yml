@@ -142,6 +142,7 @@
     needsPower: false
   - type: Microwave
     capacity: 10
+    maxItemSize: Large
     validRecipeTypes: TribalOven
   - type: Construction
     graph: ADTTribalOvenCraft

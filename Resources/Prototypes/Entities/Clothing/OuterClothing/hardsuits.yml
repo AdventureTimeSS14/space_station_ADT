@@ -152,7 +152,10 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSalvage
-  - type: ADTGoliathPlatable # ADT-Tweak
+  # ADT-Tweak-Start
+  - type: ADTGoliathPlatable
+    types: [ Blunt, Slash ]
+  # ADT-Tweak-End
   - type: Tag
     tags:
     - Hardsuit
