@@ -79,6 +79,40 @@
     rootTask:
       task: ADTDrakeCompound
   - type: Megafauna
+  - type: MegafaunaLoot
+    crateProto: ADTCrateDrakeLoot
+    loot:
+    - proto: ADTGemDraconicAmber
+    - proto: ADTKineticTrophyAshDrakeSpike
+    - proto: GoldOre
+      max: 10
+    - proto: SilverOre
+      max: 10
+    - proto: DiamondOre
+      max: 5
+    - proto: PlasmaOre
+      max: 15
+    - proto: UraniumOre
+      max: 10
+    - proto: SpaceQuartz
+      max: 15
+    randomLootGroups:
+    - [ ADTSpectralBlade ]
+    - [ ADTLavaStaff ]
+    - [ ADTSpellbookSacredFlame, WeaponWandFireball ]
+    - [ ADTDragonsBlood ]
+    - [ ADTDragonsBloodRefined ]
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: DiamondOre1
+      amount: 5
+    - id: ADTMaterialSinew1
+      amount: 5
+    - id: ADTAshDrakeHide
+      amount: 10
+    - id: MaterialBones1
+      amount: 30
   - type: ADTDrake
     rangedCooldown: 3
     decisionInterval: 2
@@ -109,7 +143,7 @@
     swoopMechDamage: 75
     swoopThrowRange: 3
     lavaPoolsAmount: 30
-    lavaPoolDelay: 0.8
+    lavaPoolDelay: 0.08
     lavaPoolRadius: 1
     lavaPoolResetTime: 6
     arenaWallRadius: 3
