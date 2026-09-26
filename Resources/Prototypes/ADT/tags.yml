@@ -1079,6 +1079,15 @@
   id: ADTBow
 
 - type: Tag
+  id: ADTJanicartUpgradeBuffer
+
+- type: Tag
+  id: ADTJanicartUpgradeVacuum
+
+- type: Tag
+  id: ADTJanicartUpgradeSpeed
+
+- type: Tag
   id: ADTOar
 
 - type: Tag

@@ -17,3 +17,5 @@ research-technology-hydra = Уборочный гранатомёт
 research-technology-manipulator-belt = Роботизированные конечности
 
 research-technology-colormat = Краситель
+
+research-technology-janicart-upgrades = Улучшения уборочной повозки
