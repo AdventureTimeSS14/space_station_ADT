@@ -1,6 +1,7 @@
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Content.Shared.ADT.Construction; // ADT-Tweak
 using Content.Server.Construction.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Construction;
@@ -34,6 +35,7 @@ namespace Content.Server.Construction
         [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
         [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!; // ADT-Tweak
         [Dependency] private readonly SharedContainerSystem _containerSystem = default!;  // ADT-Tweak
+        [Dependency] private readonly ADTConstructionRestrictionSystem _adtConstructionRestriction = default!; // ADT-Tweak
 
         // --- WARNING! LEGACY CODE AHEAD! ---
         // This entire file contains the legacy code for initial construction.
@@ -347,7 +349,8 @@ namespace Content.Server.Construction
                 return false;
             }
 
-            if (_whitelistSystem.IsWhitelistFail(constructionPrototype.EntityWhitelist, user))
+            if (_whitelistSystem.IsWhitelistFail(constructionPrototype.EntityWhitelist, user)
+                || !_adtConstructionRestriction.CanConstruct(user, constructionPrototype)) // ADT-Tweak
             {
                 _popup.PopupEntity(Loc.GetString("construction-system-cannot-start"), user, user);
                 return false;
@@ -432,7 +435,8 @@ namespace Content.Server.Construction
                 return;
             }
 
-            if (_whitelistSystem.IsWhitelistFail(constructionPrototype.EntityWhitelist, user))
+            if (_whitelistSystem.IsWhitelistFail(constructionPrototype.EntityWhitelist, user)
+                || !_adtConstructionRestriction.CanConstruct(user, constructionPrototype)) // ADT-Tweak
             {
                 _popup.PopupEntity(Loc.GetString("construction-system-cannot-start"), user, user);
                 return;

@@ -154,3 +154,28 @@
       entity_storage: !type:AllSelector
         children:
         - id: SuperSynthesizerInstrument
+
+- type: entity
+  id: ADTCrateNecropolisPuzzle
+  parent: ADTCrateNecropolis
+  suffix: Puzzle
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - !type:GroupSelector
+          children:
+          - id: ADTCursedHeart
+          - id: ADTVampirismCrystal
+          - id: ADTKatanacursedShard
+          - id: ADTEverfullMug
+          - id: ADTWispLantern
+          - id: ADTPickaxeDiamond
+          - id: Mjollnir
+          - id: ADTWeaponStaffHealingWeak
+          - id: ADTClothingOuterArmorMinerLight
+          - id: ADTVavilonBook
+          - id: ADTVehicleLavabike
+          - id: ADTWeaponCutterAdv
+        - id: ADTPrisonCube

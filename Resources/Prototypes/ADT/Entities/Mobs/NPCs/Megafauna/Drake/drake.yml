@@ -1,0 +1,176 @@
+- type: entity
+  id: ADTMegaFaunaDrake
+  name: ash drake
+  description: Guardians of the Necropolis.
+  parent: ADTBaseMobMegafauna
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Aliens/Lavaland/drake.rsi
+    drawdepth: Mobs
+    offset: 0,0.5
+    layers:
+    - map:
+      - enum.DamageStateVisualLayers.Base
+      state: dragon
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: dragon
+      Dead:
+        Base: dragon_dead
+  - type: GenericVisualizer
+    visuals:
+      enum.ADTDrakeVisuals.EscapeEnraged:
+        enum.DamageStateVisualLayers.Base:
+          True:
+            color: "#FFFF00"
+          False:
+            color: "#FFFFFF"
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.4
+        density: 80
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 2
+  - type: MovementIgnoreGravity
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      2500: Dead
+  - type: MeleeWeapon
+    attackRate: 0.5
+    damage:
+      types:
+        Blunt: 40
+        Structural: 400
+    range: 1.5
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/demon_attack1.ogg
+      params:
+        variation: 0.125
+  - type: ArmorPenetration
+    penetration: 0.4
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepHeavy
+  - type: PointLight
+    radius: 3
+    energy: 1
+  - type: HTN
+    blackboard:
+      VisionRadius: !type:Single "5"
+      AggroVisionRadius: !type:Single "18"
+      NavSmash: !type:Bool "true"
+      NavInteract: !type:Bool "true"
+      MeleeRange: !type:Single "1.5"
+      MeleeMissChance: !type:Single "0"
+      IdleRange: !type:Single "1"
+      MinimumIdleTime: !type:Single "2"
+      MaximumIdleTime: !type:Single "2"
+    rootTask:
+      task: ADTDrakeCompound
+  - type: Megafauna
+  - type: MegafaunaLoot
+    crateProto: ADTCrateDrakeLoot
+    loot:
+    - proto: ADTGemDraconicAmber
+    - proto: ADTKineticTrophyAshDrakeSpike
+    - proto: GoldOre
+      max: 10
+    - proto: SilverOre
+      max: 10
+    - proto: DiamondOre
+      max: 5
+    - proto: PlasmaOre
+      max: 15
+    - proto: UraniumOre
+      max: 10
+    - proto: SpaceQuartz
+      max: 15
+    randomLootGroups:
+    - [ ADTSpectralBlade ]
+    - [ ADTLavaStaff ]
+    - [ ADTSpellbookSacredFlame, WeaponWandFireball ]
+    - [ ADTDragonsBlood ]
+    - [ ADTDragonsBloodRefined ]
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: DiamondOre1
+      amount: 5
+    - id: ADTMaterialSinew1
+      amount: 5
+    - id: ADTAshDrakeHide
+      amount: 10
+    - id: MaterialBones1
+      amount: 30
+  - type: ADTDrake
+    rangedCooldown: 3
+    decisionInterval: 2
+    angerDamageDivisor: 50
+    maxAnger: 20
+    devourHealFraction: 0.5
+    fireLineRange: 15
+    fireConeAngles: [ -40, 0, 40 ]
+    fireConeMeteorChance: 0.5
+    fireLineDamage: 20
+    fireLineMechDamage: 45
+    fireLineStepDelay: 0.15
+    fireRainRadius: 9
+    fireRainChance: 0.11
+    shootFireChanceBase: 0.1
+    massFireSpiralCount: 12
+    massFireRange: 15
+    massFireTimes: 3
+    massFireWaveDelay: 2.5
+    massFireWaveRecovery: 5
+    massFireEndRecovery: 3
+    lavaSwoopChanceBase: 0.15
+    lavaSwoopCooldown: 100
+    lavaSwoopArenaCooldown: 6
+    lavaSwoopConeDelay: 1
+    lavaSwoopEndRecovery: 4
+    swoopDamage: 75
+    swoopMechDamage: 75
+    swoopThrowRange: 3
+    lavaPoolsAmount: 30
+    lavaPoolDelay: 0.08
+    lavaPoolRadius: 1
+    lavaPoolResetTime: 6
+    arenaWallRadius: 3
+    arenaRadius: 2
+    arenaSafeRing: 2
+    arenaMechSafeRing: 2
+    arenaRounds: 3
+    arenaStartDelay: 1
+    arenaRoundDelay: 2.4
+    arenaLavaResetTime: 1
+    escapeHeal: 250
+    escapeRecovery: 8
+    escapeMassFireDelay: 1
+    escapeSpeedMultiplier: 2
+    escapeLightRadius: 10
+    fireSound:
+      path: /Audio/Magic/fireball.ogg
+      params:
+        variation: 0.125
+    swoopLandSound:
+      path: /Audio/ADT/Drake/meteorimpact.ogg
+      params:
+        variation: 0.125
+    deathSound:
+      path: /Audio/Effects/demon_dies.ogg
+      params:
+        variation: 0.125
+  - type: GpsSignal
+    tag: adt-gps-signal-drake
+    description: adt-gps-signal-drake-desc

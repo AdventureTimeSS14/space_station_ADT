@@ -7,6 +7,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.EntityTable;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
+using Content.Shared.Whitelist;
 using Content.Shared.Wieldable.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
@@ -19,9 +20,11 @@ namespace Content.Server.ADT.Fishing;
 public sealed class ADTFishingSystem : EntitySystem
 {
     [Dependency] private readonly ADTFishingMinigameSystem _minigame = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly IComponentFactory _compFactory = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly ITileDefinitionManager _tileDefs = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
@@ -306,29 +309,36 @@ public sealed class ADTFishingSystem : EntitySystem
             {
                 var indices = center + new Vector2i(x, y);
 
-                if (!_map.TryGetTileRef(gridUid, grid, indices, out var tileRef) || tileRef.Tile.IsEmpty)
-                    continue;
-
-                if (HasSpot(gridUid, grid, indices))
-                    continue;
-
-                return false;
+                if (IsShore(spot.Comp, gridUid, grid, indices))
+                    return false;
             }
         }
 
         return true;
     }
 
-    private bool HasSpot(EntityUid gridUid, MapGridComponent grid, Vector2i indices)
+    private bool IsShore(ADTFishingSpotComponent spot, EntityUid gridUid, MapGridComponent grid, Vector2i indices)
     {
-        var anchored = _map.GetAnchoredEntities(gridUid, grid, indices);
+        if (!_map.TryGetTileRef(gridUid, grid, indices, out var tileRef) || tileRef.Tile.IsEmpty)
+            return false;
 
-        foreach (var uid in anchored)
+        if (spot.ShoreTiles.Count > 0)
         {
-            if (HasComp<ADTFishingSpotComponent>(uid))
-                return true;
+            var tileId = _tileDefs[tileRef.Tile.TypeId].ID;
+
+            if (!spot.ShoreTiles.Contains(tileId))
+                return false;
         }
 
-        return false;
+        foreach (var uid in _map.GetAnchoredEntities(gridUid, grid, indices))
+        {
+            if (HasComp<ADTFishingSpotComponent>(uid))
+                return false;
+
+            if (_whitelist.IsWhitelistPass(spot.ShoreBlacklist, uid))
+                return false;
+        }
+
+        return true;
     }
 }

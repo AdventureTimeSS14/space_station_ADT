@@ -17,9 +17,6 @@ public sealed partial class ADTAshWalkerNestComponent : Component
     public int MeatPerBody = 1;
 
     [DataField]
-    public int MeatPerMegafauna = 20;
-
-    [DataField]
     public float ConsumeRange = 1.5f;
 
     [DataField]
