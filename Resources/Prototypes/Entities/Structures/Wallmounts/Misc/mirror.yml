@@ -35,6 +35,11 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalGlassBreak
+  # ADT-Tweak-start
+  - type: Mirror
+    reflectionOffset: 0.35
+    toleratedDistance: 1.2
+  # ADT-Tweak-end
 
 - type: entity
   parent: Mirror
@@ -43,3 +48,7 @@
   components:
   - type: Sprite
     state: rectangle-mirror
+  # ADT-Tweak-start
+  - type: Mirror
+    reflectionOffset: 0.4
+  # ADT-Tweak-end
