@@ -260,7 +260,7 @@ public record struct BeforeDamageChangedEvent(DamageSpecifier Damage, EntityUid?
 ///
 ///     For example, armor.
 /// </summary>
-public sealed class DamageModifyEvent(DamageSpecifier damage, EntityUid? origin = null)
+public sealed class DamageModifyEvent(DamageSpecifier damage, EntityUid? origin = null, float armorPenetration = 0f)
     : EntityEventArgs, IInventoryRelayEvent
 {
     /// <inheritdoc/>
@@ -284,6 +284,11 @@ public sealed class DamageModifyEvent(DamageSpecifier damage, EntityUid? origin 
     ///     Contains the entity which caused the damage, if any was responsible.
     /// </summary>
     public readonly EntityUid? Origin = origin;
+
+    /// <summary>
+    ///     Armor penetration from the attack (Starlight Hollow Point). Positive ignores armor.
+    /// </summary>
+    public readonly float ArmorPenetration = armorPenetration;
 }
 
 /// <summary>
