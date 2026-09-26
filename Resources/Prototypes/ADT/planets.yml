@@ -18,10 +18,22 @@
     safeFalloff: 14
     minRadius: 40
     maxRadius: 330
-    riverNodes: 13
-    riverMaxRadius: 300
+    riverNodes: 24
+    riverMaxRadius: 320
+    riverMinWidth: 1.5
+    riverMaxWidth: 3.5
+    riverMeander: 0.9
+    riverEdgeNoise: 1.2
+    riverSmoothPasses: 3
+    lakes: 10
+    lakeMinRadius: 10
+    lakeMaxRadius: 22
+    lakeOnRiverChance: 0.5
+    lakeIslandChance: 0.3
     riverEntity: FloorLavaEntity
     riverBridge: Catwalk
+    riverBridgeSpacing: 55
+    riverBridgeMaxWidth: 6
     groups:
     - prototypes: [ ADTLavaDungeonAshVillage ]
       count: 1
@@ -84,7 +96,7 @@
         - prototype: MobWatcherMagmawing
           probability: 0.0075
       - prototype: ADTMobGoldgrub
-        weight: 1
+        weight: 2
       - prototype: ADTMobGutlunch
         weight: 1
         variants:
