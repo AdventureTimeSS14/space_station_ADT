@@ -77,17 +77,6 @@
   - type: Rehydratable
     possibleSpawns:
     - MobMonkey
-    # ADT tweak start
-    - MobMonkey
-    - MobMonkey
-    - MobMonkey
-    - MobMonkey
-    - MobMonkey
-    - MobMonkey
-    - MobMonkey
-    - MobMonkey
-    - ADTMobMonkeyAdvanced
-    # ADT tweak end
   - type: Tag
     tags:
     - Meat
