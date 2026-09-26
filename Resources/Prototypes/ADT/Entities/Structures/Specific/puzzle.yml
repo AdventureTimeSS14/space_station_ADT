@@ -1,9 +1,7 @@
 - type: entity
   id: ADTPuzzlePieceFloor1
-  parent: BaseStructure
   name: puzzle piece
   description: A piece of a larger picture.
-  categories: [ HideSpawnMenu ]
   placement:
     mode: SnapgridCenter
   components:
