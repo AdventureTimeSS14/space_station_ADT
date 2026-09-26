@@ -171,3 +171,6 @@
       path: /Audio/Effects/demon_dies.ogg
       params:
         variation: 0.125
+  - type: GpsSignal
+    tag: adt-gps-signal-drake
+    description: adt-gps-signal-drake-desc
