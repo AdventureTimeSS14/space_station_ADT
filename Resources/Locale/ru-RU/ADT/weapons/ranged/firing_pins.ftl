@@ -11,9 +11,13 @@ firing-pin-fail = Неизвестный пользователь.
 firing-pin-fail-test = Проверка стрельбища не пройдена.
 firing-pin-fail-loyalty = Проверка импланта защиты разума не пройдена.
 firing-pin-fail-dna = Проверка ДНК не пройдена.
+firing-pin-fail-dna-mindshield = Проверка ДНК и импланта защиты разума не пройдена.
 firing-pin-fail-honk = ХОНК!
 firing-pin-fail-holy = Только праведные могут этим пользоваться.
 firing-pin-fail-access = Проверка доступа не пройдена.
 firing-pin-fail-seclevel = Неверный уровень тревоги.
 firing-pin-fail-explorer = На станции из этого стрелять нельзя.
 firing-pin-fail-syndicate = Проверка Синдиката не пройдена.
+
+verb-categories-set-alert-level = Настроить пин на код тревоги
+firing-pin-level-set = Пин настроен на код тревоги { $level }.

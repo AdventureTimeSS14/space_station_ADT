@@ -16,6 +16,7 @@ using Content.Shared.Popups;
 using Content.Shared.Station;
 using Content.Shared.Tag;
 using Content.Shared.Tools.Components;
+using Content.Shared.Verbs;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Whitelist;
@@ -33,6 +34,8 @@ namespace Content.Shared.ADT.FiringPin;
 public sealed partial class FiringPinSystem : EntitySystem
 {
     private const float TestRangeRadius = 10f;
+
+    private static readonly VerbCategory SetAlertLevel = new("verb-categories-set-alert-level", null);
 
     [Dependency] private readonly AccessReaderSystem _accessReader = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
@@ -59,6 +62,7 @@ public sealed partial class FiringPinSystem : EntitySystem
         SubscribeLocalEvent<GunComponent, ShotAttemptedEvent>(OnShotAttempted);
         SubscribeLocalEvent<FiringPinHolderComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<GunComponent, GotEmaggedEvent>(OnEmagged);
+        SubscribeLocalEvent<FiringPinComponent, GetVerbsEvent<Verb>>(OnGetVerbs);
     }
 
     private void OnMapInit(Entity<FiringPinHolderComponent> ent, ref MapInitEvent args)
@@ -180,11 +184,8 @@ public sealed partial class FiringPinSystem : EntitySystem
         }
 
         var pinComp = pin.Value.Comp;
-        if (IsPinAuthorized(pin.Value, args.User))
+        if (IsPinAuthorized(pin.Value, args.User, out var justLinked))
             return;
-
-        var justLinked = pinComp.PinType == FiringPinType.DNA
-            && pinComp.LinkedUser == args.User;
 
         if (!justLinked)
             _popup.PopupPredicted(Loc.GetString(pinComp.FailMessage), ent, args.User);
@@ -204,31 +205,63 @@ public sealed partial class FiringPinSystem : EntitySystem
         args.Cancel();
     }
 
-    private bool IsPinAuthorized(Entity<FiringPinComponent> pin, EntityUid user)
+    private bool IsPinAuthorized(Entity<FiringPinComponent> pin, EntityUid user, out bool justLinked)
     {
-        switch (pin.Comp.PinType)
+        justLinked = false;
+
+        if (pin.Comp.Checks.Count == 0)
+            return true;
+
+        var hasDnaCheck = false;
+
+        foreach (var check in pin.Comp.Checks)
+        {
+            if (check.Type == FiringPinType.DNA)
+            {
+                hasDnaCheck = true;
+                continue;
+            }
+
+            var authorized = IsCheckAuthorized(pin, user, check);
+
+            if (pin.Comp.Logic == FiringPinLogic.All && !authorized)
+                return false;
+
+            if (pin.Comp.Logic == FiringPinLogic.Any && authorized)
+                return true;
+        }
+
+        if (!hasDnaCheck)
+            return pin.Comp.Logic == FiringPinLogic.All;
+
+        var (dnaAuthorized, dnaLinked) = CheckDna(pin, user);
+        justLinked = dnaLinked;
+        return dnaAuthorized;
+    }
+
+    private bool IsCheckAuthorized(Entity<FiringPinComponent> pin, EntityUid user, FiringPinCheck check)
+    {
+        switch (check.Type)
         {
             case FiringPinType.TestRange:
                 return IsNearFiringRange(user);
             case FiringPinType.Implant:
-                return HasImplant(user, pin.Comp.RequiredImplant);
-            case FiringPinType.DNA:
-                return CheckDna(pin, user);
+                return HasImplant(user, check.RequiredImplant);
             case FiringPinType.Clown:
-                return CheckClown(pin, user);
+                return CheckClown(pin, user, check);
             case FiringPinType.Tag:
-                return HasSuit(user, pin.Comp.RequiredSuitTag);
+                return HasSuit(user, check.RequiredSuitTag);
             case FiringPinType.Access:
-                return HasAccess(user, pin.Comp.RequiredAccess);
+                return HasAccess(user, check.RequiredAccess);
             case FiringPinType.SecLevel:
-                return IsSecLevelAuthorized(user, pin.Comp);
+                return IsSecLevelAuthorized(user, check);
             case FiringPinType.Explorer:
                 return _station.GetOwningStation(user) == null;
             case FiringPinType.Component:
-                if (_whitelist.IsWhitelistPass(pin.Comp.RequiredWhitelist, user))
+                if (_whitelist.IsWhitelistPass(check.RequiredWhitelist, user))
                     return true;
 
-                return pin.Comp.PassForFakeMindShield
+                return check.PassForFakeMindShield
                     && TryComp<FakeMindShieldComponent>(user, out var fakeMindShield)
                     && fakeMindShield.IsEnabled;
             case FiringPinType.None:
@@ -237,9 +270,9 @@ public sealed partial class FiringPinSystem : EntitySystem
         }
     }
 
-    private bool IsSecLevelAuthorized(EntityUid user, FiringPinComponent pin)
+    private bool IsSecLevelAuthorized(EntityUid user, FiringPinCheck check)
     {
-        if (pin.AllowedAlertLevels.Count == 0)
+        if (check.AllowedAlertLevels.Count == 0)
             return true;
 
         if (!TryComp<FiringPinAlertLevelCacheComponent>(user, out var cache)
@@ -248,7 +281,64 @@ public sealed partial class FiringPinSystem : EntitySystem
             return true;
         }
 
-        return pin.AllowedAlertLevels.Contains(cache.CurrentLevel);
+        var currentIndex = check.AllowedAlertLevels.IndexOf(cache.CurrentLevel);
+        if (currentIndex < 0)
+            return false;
+
+        if (check.SelectedAlertLevel == null)
+            return true;
+
+        var selectedIndex = check.AllowedAlertLevels.IndexOf(check.SelectedAlertLevel);
+        if (selectedIndex < 0)
+            return true;
+
+        return currentIndex <= selectedIndex;
+    }
+
+    private void OnGetVerbs(Entity<FiringPinComponent> ent, ref GetVerbsEvent<Verb> args)
+    {
+        if (!args.CanAccess || !args.CanInteract)
+            return;
+
+        var check = GetSecLevelCheck(ent);
+        if (check == null || check.AllowedAlertLevels.Count == 0)
+            return;
+
+        var user = args.User;
+
+        foreach (var level in check.AllowedAlertLevels)
+        {
+            var levelCopy = level;
+
+            var verb = new Verb
+            {
+                Text = Loc.GetString($"alert-level-{levelCopy}"),
+                Disabled = check.SelectedAlertLevel == levelCopy,
+                Priority = -check.AllowedAlertLevels.IndexOf(levelCopy),
+                Category = SetAlertLevel,
+                CloseMenu = true,
+                Act = () =>
+                {
+                    check.SelectedAlertLevel = levelCopy;
+                    Dirty(ent);
+
+                    _popup.PopupPredicted(Loc.GetString("firing-pin-level-set", ("level", Loc.GetString($"alert-level-{levelCopy}"))), ent, user);
+                },
+            };
+
+            args.Verbs.Add(verb);
+        }
+    }
+
+    private FiringPinCheck? GetSecLevelCheck(Entity<FiringPinComponent> ent)
+    {
+        foreach (var check in ent.Comp.Checks)
+        {
+            if (check.Type == FiringPinType.SecLevel)
+                return check;
+        }
+
+        return null;
     }
 
     private bool IsNearFiringRange(EntityUid user)
@@ -286,10 +376,10 @@ public sealed partial class FiringPinSystem : EntitySystem
         return false;
     }
 
-    private bool CheckDna(Entity<FiringPinComponent> pin, EntityUid user)
+    private (bool Authorized, bool JustLinked) CheckDna(Entity<FiringPinComponent> pin, EntityUid user)
     {
         if (pin.Comp.LinkedUser != null)
-            return pin.Comp.LinkedUser == user;
+            return (pin.Comp.LinkedUser == user, false);
 
         pin.Comp.LinkedUser = user;
         Dirty(pin);
@@ -297,13 +387,13 @@ public sealed partial class FiringPinSystem : EntitySystem
         if (_timing.IsFirstTimePredicted)
             _popup.PopupPredicted(Loc.GetString("firing-pin-dna-locked"), pin.Owner, user);
 
-        return false;
+        return (false, true);
     }
 
-    private bool CheckClown(Entity<FiringPinComponent> pin, EntityUid user)
+    private bool CheckClown(Entity<FiringPinComponent> pin, EntityUid user, FiringPinCheck check)
     {
         _audio.PlayPredicted(new SoundPathSpecifier("/Audio/Items/bikehorn.ogg"), pin.Owner, user);
-        return pin.Comp.PassForClowns && HasComp<ClumsyComponent>(user);
+        return check.PassForClowns && HasComp<ClumsyComponent>(user);
     }
 
     private bool HasSuit(EntityUid user, ProtoId<TagPrototype>? requiredTag)

@@ -32,7 +32,8 @@
   - type: Sprite
     state: firing_pin_test
   - type: FiringPin
-    pinType: TestRange
+    checks:
+    - type: TestRange
     failMessage: firing-pin-fail-test
 
 - type: entity
@@ -44,11 +45,12 @@
   - type: Sprite
     state: firing_pin_loyalty
   - type: FiringPin
-    pinType: Component
-    requiredWhitelist:
-      components:
-      - MindShield
-    passForFakeMindShield: true
+    checks:
+    - type: Component
+      requiredWhitelist:
+        components:
+        - MindShield
+      passForFakeMindShield: true
     failMessage: firing-pin-fail-loyalty
 
 - type: entity
@@ -60,7 +62,8 @@
   - type: Sprite
     state: firing_pin_dna
   - type: FiringPin
-    pinType: DNA
+    checks:
+    - type: DNA
     failMessage: firing-pin-fail-dna
 
 - type: entity
@@ -70,9 +73,28 @@
   description: A DNA-locked firing pin only authorizing one user. It has a small explosive charge on it.
   components:
   - type: FiringPin
-    pinType: DNA
+    checks:
+    - type: DNA
     failMessage: firing-pin-fail-dna
     selfDestruct: true
+
+- type: entity
+  id: ADTFiringPinDnaMindShield
+  parent: ADTBaseFiringPin
+  name: DNA/mindshield firing pin
+  description: A firing pin which authorizes either the DNA-locked user or anyone protected by a mindshield.
+  components:
+  - type: Sprite
+    state: firing_pin_dna
+  - type: FiringPin
+    checks:
+    - type: Component
+      requiredWhitelist:
+        components:
+        - MindShield
+      passForFakeMindShield: true
+    - type: DNA
+    failMessage: firing-pin-fail-dna-mindshield
 
 - type: entity
   id: ADTFiringPinClown
@@ -84,7 +106,8 @@
     state: firing_pin
     color: "#FFFF00"
   - type: FiringPin
-    pinType: Clown
+    checks:
+    - type: Clown
     forceReplace: true
     failMessage: firing-pin-fail-honk
 
@@ -95,9 +118,10 @@
   description: Advanced clowntech that can convert any firearm into a far more useful object. It has a small nitrobananium charge on it.
   components:
   - type: FiringPin
-    pinType: Clown
+    checks:
+    - type: Clown
+      passForClowns: true
     forceReplace: true
-    passForClowns: true
     failMessage: firing-pin-fail-honk
     selfDestruct: true
 
@@ -108,10 +132,11 @@
   description: A firing pin that only responds to those who are holier than thou.
   components:
   - type: FiringPin
-    pinType: Component
-    requiredWhitelist:
-      components:
-      - Chaplain
+    checks:
+    - type: Component
+      requiredWhitelist:
+        components:
+        - Chaplain
     failMessage: firing-pin-fail-holy
 
 - type: entity
@@ -121,9 +146,10 @@
   description: A firing pin that requires security access to fire.
   components:
   - type: FiringPin
-    pinType: Access
-    requiredAccess:
-    - Security
+    checks:
+    - type: Access
+      requiredAccess:
+      - Security
     failMessage: firing-pin-fail-access
 
 - type: entity
@@ -135,18 +161,21 @@
   - type: Sprite
     state: firing_pin_sec_level
   - type: FiringPin
-    pinType: SecLevel
-    allowedAlertLevels:
-    - blue
-    - violet
-    - yellow
-    - red
-    - gamma
-    - delta
-    - epsilon
-    - amber
-    - altdelta
-    - cascade
+    checks:
+    - type: SecLevel
+      allowedAlertLevels:
+      - green
+      - blue
+      - violet
+      - yellow
+      - red
+      - gamma
+      - delta
+      - epsilon
+      - amber
+      - altdelta
+      - cascade
+      selectedAlertLevel: blue
     failMessage: firing-pin-fail-seclevel
 
 - type: entity
@@ -158,7 +187,8 @@
   - type: Sprite
     state: firing_pin_explorer
   - type: FiringPin
-    pinType: Explorer
+    checks:
+    - type: Explorer
     failMessage: firing-pin-fail-explorer
 
 - type: entity
@@ -170,9 +200,10 @@
   - type: Sprite
     state: firing_pin_red
   - type: FiringPin
-    pinType: Component
-    requiredWhitelist:
-      components:
-      - NukeopsRole
-      - TraitorRole
+    checks:
+    - type: Component
+      requiredWhitelist:
+        components:
+        - NukeopsRole
+        - TraitorRole
     failMessage: firing-pin-fail-syndicate

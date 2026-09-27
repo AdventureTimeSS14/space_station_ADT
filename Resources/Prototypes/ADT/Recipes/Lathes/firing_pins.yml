@@ -53,6 +53,18 @@
     Uranium: 100
 
 - type: latheRecipe
+  id: ADTFiringPinDnaMindShieldRecipe
+  result: ADTFiringPinDnaMindShield
+  categories:
+  - Security
+  completetime: 3
+  materials:
+    Steel: 100
+    Plastic: 100
+    Gold: 100
+    Copper: 100
+
+- type: latheRecipe
   id: ADTFiringPinClownRecipe
   result: ADTFiringPinClown
   categories:
@@ -128,6 +140,7 @@
   - ADTFiringPinLoyaltyRecipe
   - ADTFiringPinDNARecipe
   - ADTFiringPinDNADreddRecipe
+  - ADTFiringPinDnaMindShieldRecipe
   - ADTFiringPinClownRecipe
   - ADTFiringPinClownUltraRecipe
   - ADTFiringPinHolyRecipe
