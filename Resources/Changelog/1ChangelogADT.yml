@@ -15866,3 +15866,9 @@ Entries:
     id: 1971
     pr_number: 3427
     time: '2026-09-27T07:51:39Z'
+  - author: ultradyper && Fineter75
+    changes:
+      - {message: Добавлена Рапира Синдиката в аплинк за 8 ТК., type: Add}
+    id: 1972
+    pr_number: 3449
+    time: '2026-09-27T08:50:38Z'
