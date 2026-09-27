@@ -111,7 +111,7 @@
         sizeMaps:
           32:
             sprite: ADT/Mobs/Species/Celecern/displacement.rsi
-            state: outerclothing
+            state: jumpsuit
       shoes:
         sizeMaps:
           32:
@@ -132,7 +132,7 @@
         sizeMaps:
           32:
             sprite: ADT/Mobs/Species/Celecern/displacement.rsi
-            state: outerclothing
+            state: jumpsuit
       shoes:
         sizeMaps:
           32:
