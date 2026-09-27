@@ -15944,3 +15944,14 @@ Entries:
     id: 1976
     pr_number: 3431
     time: '2026-09-27T13:50:04Z'
+  - author: _kote
+    changes:
+      - {message: что добавили, type: Add}
+      - {message: что убрали, type: Remove}
+      - {message: что подправили, type: Tweak}
+      - {message: что исправили, type: Fix}
+      - {message: 'Эпидемия вампиризма прошла, и экипаж начал отражается в зеркалах.',
+        type: Add}
+    id: 1977
+    pr_number: 3343
+    time: '2026-09-27T14:02:05Z'
