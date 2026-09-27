@@ -15803,3 +15803,11 @@ Entries:
     id: 1965
     pr_number: 3444
     time: '2026-09-26T11:17:30Z'
+  - author: ultradyper, Fineter75, Inconnu
+    changes:
+      - {message: ИИ получил доступ к НаноМаксу., type: Add}
+      - {message: 'Улучшен поиск в НаноМаксе, наконец-то.', type: Tweak}
+      - {message: Исправлен интерфейс НаноМакса., type: Fix}
+    id: 1966
+    pr_number: 3186
+    time: '2026-09-27T07:11:45Z'
