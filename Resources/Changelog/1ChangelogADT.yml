@@ -15955,3 +15955,10 @@ Entries:
     id: 1977
     pr_number: 3343
     time: '2026-09-27T14:02:05Z'
+  - author: FriendlyOne
+    changes:
+      - {message: 'Взрыв ядерки теперь убивает всех мобов, что находятся на том же
+          гриде', type: Tweak}
+    id: 1978
+    pr_number: 3455
+    time: '2026-09-27T14:02:55Z'
