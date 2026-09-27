@@ -72,6 +72,18 @@
   id: MobDiona
   name: Urist McPlants
   components:
+  # ADT-Tweak start
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: SoftCritical
+      170: Critical
+      200: Dead
+  - type: SoftCrit
+    speedModifier: 0.20
+  - type: TryCatchBreath
+    doAfterTime: 8
+  # ADT-Tweak end
   - type: Respirator
     damage:
       types:

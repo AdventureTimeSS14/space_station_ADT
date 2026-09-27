@@ -1,11 +1,13 @@
+using System.Linq;
 using Content.Shared.ADT.AshWalker.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
-using Content.Shared.Gibbing;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Humanoid;
+using Content.Shared.Inventory;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
@@ -21,7 +23,8 @@ public sealed class ADTAshWalkerNestSystem : EntitySystem
     [Dependency] private readonly SharedBloodstreamSystem _blood = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly GibbingSystem _gibbing = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
@@ -80,10 +83,38 @@ public sealed class ADTAshWalkerNestSystem : EntitySystem
 
             ent.Comp.MeatCounter += ent.Comp.MeatPerBody;
 
-            _gibbing.Gib(body.Owner);
+            DevourBody(ent, body.Owner);
 
             Repair(ent);
         }
+    }
+
+    private void DevourBody(Entity<ADTAshWalkerNestComponent> ent, EntityUid body)
+    {
+        foreach (var held in _hands.EnumerateHeld(body).ToList())
+        {
+            _hands.TryDrop(body, held, checkActionBlocker: false, doDropInteraction: false);
+        }
+
+        if (_inventory.TryGetSlots(body, out var slots))
+        {
+            foreach (var slot in slots)
+            {
+                _inventory.TryUnequip(body, slot.Name, silent: true, force: true);
+            }
+        }
+
+        var coords = Transform(body).Coordinates;
+
+        foreach (var organ in ent.Comp.OrganDrops)
+        {
+            Spawn(organ, coords);
+        }
+
+        if (ent.Comp.LimbDrop is { } limb && _random.Prob(ent.Comp.LimbDropChance))
+            Spawn(limb, coords);
+
+        QueueDel(body);
     }
 
     private void SpawnEgg(Entity<ADTAshWalkerNestComponent> ent)

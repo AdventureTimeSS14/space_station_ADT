@@ -77,7 +77,7 @@
         Asphyxiation: -1.0
     maxSaturation: 15
   - type: Damageable
-    damageModifierSet: Slime
+    damageModifierSet: SlimeXenobio
   - type: Injurable
     damageContainer: Biological
   - type: Bloodstream
@@ -210,3 +210,33 @@
       adult:
         sprite: ADT/Xenobiology/Mobs/slimesAdult.rsi
         displayName: mob-slime-stage-adult
+
+- type: entity
+  parent: MobSlimeXenobioAdult
+  categories: [ HideSpawnMenu ]
+  id: MobSlimeXenobioAdultBlue
+  name: blue slime
+  suffix: Adult
+  components:
+  - type: Slime
+    breed: BlueMutation
+
+- type: entity
+  parent: MobSlimeXenobioAdult
+  categories: [ HideSpawnMenu ]
+  id: MobSlimeXenobioAdultGreen
+  name: green slime
+  suffix: Adult
+  components:
+  - type: Slime
+    breed: GreenMutation
+
+- type: entity
+  parent: MobSlimeXenobioAdult
+  categories: [ HideSpawnMenu ]
+  id: MobSlimeXenobioAdultYellow
+  name: yellow slime
+  suffix: Adult
+  components:
+  - type: Slime
+    breed: YellowMutation

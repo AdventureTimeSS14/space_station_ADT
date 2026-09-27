@@ -320,6 +320,7 @@ public sealed class MorphSystem : SharedMorphSystem
         {
             switch (targetState.CurrentState)
             {
+                case MobState.SoftCritical:
                 case MobState.Critical:
                     _popupSystem.PopupClient(Loc.GetString("devour-action-popup-message-fail-target-alive"), uid, uid);
                     break;

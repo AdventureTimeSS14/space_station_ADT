@@ -32,6 +32,26 @@ public sealed class JoinQueueManager
 
     public int ActualPlayersCount => _playerManager.PlayerCount - _queue.Count;
 
+    public int PlayersInQueue => _queue.Count;
+
+    public event Action<ICommonSession>? PlayerJoinedQueue;
+    public event Action<ICommonSession>? PlayerLeftQueue;
+
+    public bool IsInQueue(ICommonSession session)
+    {
+        return _queue.Contains(session);
+    }
+
+    public bool TryBypassQueue(ICommonSession session)
+    {
+        if (!RemoveFromQueue(session))
+            return false;
+
+        SendToGame(session);
+        SendQueueUpdates();
+        return true;
+    }
+
     public void Initialize()
     {
         _netManager.RegisterNetMessage<MsgQueueUpdate>();
@@ -48,7 +68,7 @@ public sealed class JoinQueueManager
         {
             foreach (var session in _queue.ToArray())
             {
-                _queue.Remove(session);
+                RemoveFromQueue(session);
                 SendToGame(session);
             }
         }
@@ -82,11 +102,12 @@ public sealed class JoinQueueManager
             _queue.Add(e.Session);
             SendQueueUpdates();
             QueueCount.Set(_queue.Count);
+            PlayerJoinedQueue?.Invoke(e.Session);
         }
 
         if (e.NewStatus == SessionStatus.Disconnected)
         {
-            var removed = _queue.Remove(e.Session);
+            RemoveFromQueue(e.Session);
 
             ProcessQueue();
         }
@@ -104,12 +125,21 @@ public sealed class JoinQueueManager
             return;
 
         var next = _queue.First();
-        _queue.Remove(next);
+        RemoveFromQueue(next);
 
         SendToGame(next);
 
         SendQueueUpdates();
+    }
+
+    private bool RemoveFromQueue(ICommonSession session)
+    {
+        if (!_queue.Remove(session))
+            return false;
+
         QueueCount.Set(_queue.Count);
+        PlayerLeftQueue?.Invoke(session);
+        return true;
     }
 
     private void SendQueueUpdates()

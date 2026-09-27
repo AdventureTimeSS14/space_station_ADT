@@ -1,6 +1,8 @@
 ﻿using Content.Server.Administration;
+using Content.Server.Corvax.JoinQueue;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
+using Robust.Shared.Player;
 
 namespace Content.Server.Connection;
 
@@ -11,6 +13,8 @@ public sealed class GrantConnectBypassCommand : LocalizedCommands
 
     [Dependency] private readonly IPlayerLocator _playerLocator = default!;
     [Dependency] private readonly IConnectionManager _connectionManager = default!;
+    [Dependency] private readonly ISharedPlayerManager _playerManager = default!; // ADT-Tweak
+    [Dependency] private readonly JoinQueueManager _joinQueue = default!; // ADT-Tweak
 
     public override string Command => "grant_connect_bypass";
 
@@ -44,6 +48,12 @@ public sealed class GrantConnectBypassCommand : LocalizedCommands
         }
 
         _connectionManager.AddTemporaryConnectBypass(info.UserId, duration);
+
+        // ADT-Tweak-Start: let the player through the join queue right away
+        if (_playerManager.TryGetSessionById(info.UserId, out var session))
+            _joinQueue.TryBypassQueue(session);
+        // ADT-Tweak-End
+
         shell.WriteLine(Loc.GetString("cmd-grant_connect_bypass-success", ("user", argPlayer)));
     }
 

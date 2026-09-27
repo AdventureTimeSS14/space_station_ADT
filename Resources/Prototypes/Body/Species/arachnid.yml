@@ -74,6 +74,10 @@
   id: MobArachnid
   name: Urist McWebs
   components:
+  # ADT-Tweak start
+  - type: SoftCrit
+    speedModifier: 0.45
+  # ADT-Tweak end
   - type: Respirator
     damage:
       types:
