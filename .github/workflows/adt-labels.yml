@@ -51,13 +51,15 @@ jobs:
         commentOnDirty: "This pull request has conflicts, please resolve those before we can evaluate the pull request."
 
     - name: "Labels: Review"
-      if: ${{ !cancelled() && (github.event.action == 'opened' || github.event.action == 'review_requested') }}
+      if: ${{ !cancelled() && github.event.pull_request.draft == false
+        && (github.event.action == 'opened' || github.event.action == 'ready_for_review' || github.event.action == 'review_requested') }}
       uses: actions-ecosystem/action-add-labels@v1
       with:
         labels: "Status: Needs Review"
 
     - name: "Labels: Review (remove)"
-      if: ${{ !cancelled() && (github.event.action == 'opened' || github.event.action == 'review_requested') }}
+      if: ${{ !cancelled() && github.event.pull_request.draft == false
+        && (github.event.action == 'opened' || github.event.action == 'ready_for_review' || github.event.action == 'review_requested') }}
       uses: actions-ecosystem/action-remove-labels@v1
       with:
         labels: "Status: Awaiting Changes"
