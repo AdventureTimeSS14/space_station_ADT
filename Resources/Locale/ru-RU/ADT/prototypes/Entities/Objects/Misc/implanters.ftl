@@ -91,3 +91,7 @@ ent-ADTGorlaxFriendlyFireImplanter = имплантер GFF
 ent-ADTCriticalAcidifierImplanter = имплантер "предсмертный растворитель"
     .desc = { ent-BaseImplantOnlyImplanter.desc }
     .suffix = Крит
+
+ent-ADTStimulantsImplanter = имплантер "стимуляторы"
+    .desc = { ent-BaseImplantOnlyImplanter.desc }
+    .suffix = Стимуляторы
