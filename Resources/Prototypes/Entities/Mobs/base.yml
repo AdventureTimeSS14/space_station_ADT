@@ -149,6 +149,7 @@
       - ActionCritFakeDeath
       - ActionCritLastWords
   - type: StoreDamageTakenOnMind
+  - type: StoreBodyAppearanceOnMind # ADT tweak
   - type: Deathgasp
   - type: HealthExaminable
     examinableTypes:
@@ -265,6 +266,12 @@
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Generic_mob_burning
+  # ADT-Tweak-Start
+  - type: RMCStopDropRollVisuals
+  - type: CanBeFirePatted
+  - type: FirePatter
+    stacks: -1
+  # ADT-Tweak-End
 
 # Used for mobs that need to breathe
 - type: entity

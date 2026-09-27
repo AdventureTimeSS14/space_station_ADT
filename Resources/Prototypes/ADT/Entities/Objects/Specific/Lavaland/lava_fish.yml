@@ -1,0 +1,244 @@
+- type: entity
+  id: ADTLavaFishBase
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/Fishing/fish.rsi
+  - type: Item
+    size: Normal
+  - type: ADTFish
+  - type: MeleeWeapon
+    wideAnimationRotation: 45
+    attackRate: 1.0
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Blunt: 10
+  - type: Tag
+    tags:
+    - ADTLavaFish
+
+- type: entity
+  id: ADTLavaFishDeepBase
+  parent: ADTLavaFishBase
+  abstract: true
+  components:
+  - type: Item
+    size: Large
+
+- type: entity
+  id: ADTLavaFishAshCrab
+  parent: ADTLavaFishBase
+  name: ash crab
+  description: A small omnivorous crustacean with a surprisingly tough shell. This species has an odd habit of eating small items it finds. Lava crabs are hunted by other underlava fauna and by the local tribes alike, for their shell, their edible meat and the curious finds in their stomachs.
+  components:
+  - type: Item
+    heldPrefix: ash_crab
+  - type: Sprite
+    state: ash_crab
+  - type: ADTFish
+    difficulty: 0.17
+    favoriteBait: ADTFishingBaitAshEater
+  - type: Butcherable
+    butcheringType: Knife
+    butcherDelay: 6
+    spawned:
+    - id: ADTWhetstoneCrabShell
+    - id: ADTFoodSoftMeat
+    - id: ADTLavalandMinorLootSpawner
+
+- type: entity
+  id: ADTLavaFishDeadHorseman
+  parent: ADTLavaFishBase
+  name: dead horseman
+  description: A small fish that feeds mostly on bloody leaches buried in the ash. It owes its name to its looks - the horseman's head resembles a humanoid skull. The tribes prize it for its spleen, which carries cinnabar particles used to make brown dye.
+  components:
+  - type: Item
+    heldPrefix: dead_horseman
+  - type: Sprite
+    state: dead_horseman
+  - type: ADTFish
+    difficulty: 0.21
+    favoriteBait: ADTFishingBaitBloodyLeach
+  - type: Butcherable
+    butcheringType: Knife
+    butcherDelay: 6
+    spawned:
+    - id: ADTClothingHeadScorchedSkull
+      prob: 0.4
+    - id: ADTFoodSoftMeat
+    - id: ADTLavalandDyeCinnabar
+
+- type: entity
+  id: ADTLavaFishShellfish
+  parent: ADTLavaFishBase
+  name: shellfish
+  description: One of the largest fish found near the shores of Lazis Ardax. Almost its whole body, head included, is covered in crimson cartilage plates tough enough to hold off most predators. Inside, next to the heart, sits a specialized organ the local tribes harvest for farming.
+  components:
+  - type: Item
+    heldPrefix: shellfish
+  - type: Sprite
+    state: shellfish
+  - type: ADTFish
+    difficulty: 0.28
+    favoriteBait: ADTFishingBaitGoldgrubLarva
+  - type: Butcherable
+    butcheringType: Knife
+    butcherDelay: 6
+    spawned:
+    - id: ADTMaterialCartilagePlate1
+      amount: 2
+    - id: ADTConductiveOrgan
+    - id: ADTLavalandDyeCrimson
+
+- type: entity
+  id: ADTLavaFishBottomEel
+  parent: ADTLavaFishDeepBase
+  name: bottom eel
+  description: This long slimy fish lives at great depth, feeding mostly on larvae and smaller fish. To fend off other predators it grew a razor sharp tail, which the local tribes fit onto spears.
+  components:
+  - type: Item
+    heldPrefix: bottom_eel
+  - type: Sprite
+    state: bottom_eel
+  - type: ADTFish
+    difficulty: 0.35
+    favoriteBait: ADTFishingBaitAshEater
+  - type: Butcherable
+    butcheringType: Knife
+    butcherDelay: 6
+    spawned:
+    - id: ADTFoodEelFilet
+    - id: ADTBoneKnifeEel
+    - id: ADTLavalandDyeIndigo
+
+- type: entity
+  id: ADTLavaFishRedDevourer
+  parent: ADTLavaFishDeepBase
+  name: red devourer
+  description: A massive blood red fish with a mouth full of sharp teeth. This one is infamous among the tribes for its aggression, which has killed many a young hunter. The remains of less lucky fishermen are often found in their stomachs.
+  components:
+  - type: Item
+    heldPrefix: red_devourer
+  - type: Sprite
+    state: red_devourer
+  - type: ADTFish
+    difficulty: 0.49
+    favoriteBait: ADTFishingBaitBloodyLeach
+  - type: Butcherable
+    butcheringType: Knife
+    butcherDelay: 6
+    spawned:
+    - id: ADTMaterialRazorTeeth1
+    - id: MaterialBones1
+    - id: ADTRandomFishingBaitSpawner
+      amount: 2
+    - id: ADTLavalandMinorLootSpawner
+      amount: 2
+    - id: ADTLavalandDyeCrimson
+
+- type: entity
+  id: ADTLavaFishMagmaHammerhead
+  parent: ADTLavaFishDeepBase
+  name: magma hammerhead
+  description: A huge dark deep water fish with a head that vaguely resembles a hammer. For all its menace, this fish hunts mostly small crustaceans, pinning them to the bottom with its hammer and crushing their shells. Strange clots sit along the edges of its head, synergizing with regenerative cores.
+  components:
+  - type: Item
+    heldPrefix: magma_hammerhead
+  - type: Sprite
+    state: magma_hammerhead
+  - type: ADTFish
+    difficulty: 0.45
+    favoriteBait: ADTFishingBaitGoldgrubLarva
+  - type: Butcherable
+    butcheringType: Knife
+    butcherDelay: 6
+    spawned:
+    - id: ADTMoltenMass
+      amount: 2
+    - id: ADTLavalandDyeCinnabar
+
+- type: entity
+  id: ADTLavaFishBlindReaper
+  parent: ADTLavaFishDeepBase
+  name: blind reaper
+  description: The smallest of the deep water fish of Lazis Ardax, remarkable not only for its size but for the huge bone growth on its head that looks like a circular saw blade. Being sightless, it uses that blade as a biological sonar to find its way through the lava depths.
+  components:
+  - type: Item
+    heldPrefix: blind_reaper
+  - type: Sprite
+    state: blind_reaper
+  - type: ADTFish
+    difficulty: 0.42
+    favoriteBait: ADTFishingBaitAshEater
+  - type: MeleeWeapon
+    wideAnimationRotation: 45
+    attackRate: 1.0
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+    damage:
+      types:
+        Slash: 12
+  - type: Butcherable
+    butcheringType: Knife
+    butcherDelay: 6
+    spawned:
+    - id: ADTCircularSawBlade
+    - id: ADTFoodPredatorMeat
+    - id: ADTLavalandDyeIndigo
+
+- type: entity
+  id: ADTLavaFishHeraldOfCarnage
+  parent: ADTLavaFishDeepBase
+  name: herald of carnage
+  description: This massive fish, with hundreds of razor sharp teeth in its maw, is the apex predator of the whole underlava world of Lazis Ardax. Its huge green eyes adorn the most celebrated hunters of the local tribes. The remains of other fish are often found in its stomach. And not only fish.
+  components:
+  - type: Item
+    heldPrefix: herald_of_carnage
+  - type: Sprite
+    state: herald_of_carnage
+  - type: ADTFish
+    difficulty: 0.59
+    favoriteBait: ADTFishingBaitBloodyLeach
+  - type: Butcherable
+    butcheringType: Knife
+    butcherDelay: 6
+    spawned:
+    - id: ADTMaterialRazorTeeth1
+      amount: 2
+    - id: MaterialBones1
+      amount: 2
+    - id: ADTFoodPredatorMeat
+    - id: ADTLavalandMinorLootSpawner
+      amount: 3
+    - id: ADTLavalandDyeMint
+
+- type: entity
+  id: ADTLavaFishSulfuricTramp
+  parent: ADTLavaFishDeepBase
+  name: sulfuric tramp
+  description: This fish was never recorded in any study of the fauna of Lazis Ardax - it is an invasive species that got into the lava rivers when a smuggler ship carrying fauna from an unknown acid planet crashed. Apparently these fish found their niche in the food chain.
+  components:
+  - type: Item
+    heldPrefix: sulfuric_tramp
+  - type: Sprite
+    state: sulfuric_tramp
+  - type: ADTFish
+    difficulty: 0.39
+    favoriteBait: ADTFishingBaitGoldgrubLarva
+  - type: ADTButcherSmoke
+    duration: 10
+    spreadAmount: 12
+    solution:
+      reagents:
+      - ReagentId: SulfuricAcid
+        Quantity: 25
+  - type: Butcherable
+    butcheringType: Knife
+    butcherDelay: 6
+    spawned:
+    - id: ADTBlearyEye
+    - id: ADTAcidBladder
+    - id: ADTLavalandDyeAmber

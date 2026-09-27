@@ -1,8 +1,14 @@
 machine-insert-all = { CAPITALIZE($user) } помещает содержимое { $item } в { $machine }.
 
-machine-part-name-servo = Сервопривод
-machine-part-name-scanning-module = Сканирующий модуль
+machine-part-name-servo = сервопривод
+machine-part-name-servo-t3 = пико-серво
+machine-part-name-servo-t4 = фемто-серво
+machine-part-name-scanning-module = сканирующий модуль
+machine-part-name-scanning-module-t4 = трифазный сканирующий модуль
 machine-part-name-micro-laser = Микро-лазер
+machine-part-name-micro-laser-t4 = квад-ультра микро-лазер
+machine-part-name-capacitor-t4 = блюспейс-конденсатор
+machine-part-name-matter-bin-t4 = блюспейс-ёмкость материи
 
 machine-upgrade-increased-by-percentage-extra = Параметр [color=yellow]{ $upgraded }[/color] увеличен на [color={ $color }]{ $percent }%[/color].
 machine-upgrade-decreased-by-percentage-extra = Параметр [color=yellow]{ $upgraded }[/color] уменьшен на [color={ $color }]{ $percent }%[/color].
@@ -29,10 +35,8 @@ machine-upgrade-hydro-nutrition = вместимость питательных 
 machine-upgrade-hydro-nutrition-consume = расход питательных веществ
 machine-upgrade-ore-output = выход ресурсов
 machine-upgrade-ore-points = очки шахтёров
-machine-upgrade-monkey-output = выход кубов обезьян
 machine-upgrade-anomaly-points = генерация очков
 machine-upgrade-assembler-ingredients = требуемые ингредиенты
-machine-upgrade-slime-extract-multiplier = количество экстрактов
 machine-upgrade-cloning-speed = скорость клонирования
 machine-upgrade-cloning-safety = безопасность клонирования
 machine-upgrade-fire-rate = скорострельность
@@ -43,3 +47,5 @@ machine-upgrade-artifact-points = очки исследований
 machine-upgrade-fragment-output = выход фрагментов
 machine-upgrade-fat-extraction = скорость извлечения жира
 machine-upgrade-heat-power = мощность нагрева
+machine-upgrade-metabolism-speed = скорость метаболизма
+machine-upgrade-fuel-consumption = расход топлива

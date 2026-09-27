@@ -153,6 +153,11 @@ public sealed partial class BloodstreamComponent : Component
     [DataField, AutoNetworkedField]
     public Solution BloodReferenceSolution = new([new("Blood", 300)]);
 
+    // ADT-Tweak start
+    [DataField, AutoNetworkedField]
+    public bool CanBeIVDripped = true;
+    // ADT-Tweak end
+
     /// <summary>
     /// Caches the blood data of an entity.
     /// This is modified by DNA on init so it's not savable.

@@ -180,7 +180,7 @@ public sealed class GibtoniteSystem : EntitySystem
     /// </summary>
     private void OnItemInteract(EntityUid uid, GibtoniteComponent comp, ref InteractUsingEvent args)
     {
-        if (HasComp<MiningScannerComponent>(args.Used))
+        if (HasComp<MiningScannerComponent>(args.Used) || HasComp<ADTMagmiteScannerComponent>(args.Used))
         {
             Defuse(uid, comp);
         }
@@ -223,10 +223,16 @@ public sealed class GibtoniteSystem : EntitySystem
 
     private void OnDefusingProjectileHit(Entity<ADTDefuseGibtoniteOnHitComponent> projectile, ref ProjectileHitEvent args)
     {
-        if (!TryComp<GibtoniteComponent>(args.Target, out var gibtonite) || !gibtonite.Active)
+        if (!TryComp<GibtoniteComponent>(args.Target, out var gibtonite) || gibtonite.Extracted)
             return;
 
-        Defuse(args.Target, gibtonite);
+        if (gibtonite.Active)
+        {
+            Defuse(args.Target, gibtonite);
+            return;
+        }
+
+        gibtonite.Triggered = true;
     }
 
     /// <summary>

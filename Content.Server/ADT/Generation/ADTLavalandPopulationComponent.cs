@@ -47,6 +47,9 @@ public sealed partial class ADTLavalandPopulationGroup
     public float RoomClearance = 26f;
 
     [DataField]
+    public float RoomMargin = 4f;
+
+    [DataField]
     public int MaxAttempts = 80;
 
     [DataField]

@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Server.ADT.Generation;
+using Content.Server.ADT.Planet.RestrictedZone;
 using Content.Server.ADT.Procedural;
 using Content.Server.Chat.Managers;
 using Content.Server.Procedural;
@@ -24,6 +25,7 @@ public sealed class ADTLavalandEventSystem : ADTSharedLavalandEventSystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly ADTRestrictedZoneGuardSystem _zone = default!;
 
     private const int MaxAttempts = 200;
 
@@ -183,6 +185,9 @@ public sealed class ADTLavalandEventSystem : ADTSharedLavalandEventSystem
 
             var position = center + offset;
             coords = new EntityCoordinates(map, position);
+
+            if (_zone.TryClamp(map, position, out _))
+                continue;
 
             if (placed.Any(other => Vector2.DistanceSquared(position, other) < spacingSq))
                 continue;

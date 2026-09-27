@@ -18,6 +18,9 @@ public sealed partial class MachineBoardComponent : Component
     // ADT-Tweak start
     [DataField]
     public Dictionary<ProtoId<MachinePartPrototype>, int> PartRequirements = new();
+
+    [DataField]
+    public bool NoUpgrades = false;
     // ADT-Tweak end
 
     /// <summary>

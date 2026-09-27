@@ -21,6 +21,7 @@ using Robust.Shared.Containers;
 using Content.Server.Body.Systems;
 using Content.Shared.Mech.Components;
 using Content.Shared.PowerCell;
+using Content.Shared._RMC14.Weapons.Ranged.Flamer; // ADT-Tweak
 
 namespace Content.Server.Weapons.Ranged.Systems;
 
@@ -30,6 +31,7 @@ public sealed partial class GunSystem : SharedGunSystem
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly SharedRMCFlamerSystem _rmcFlamer = default!; // ADT-Tweak
 
     private const float DamagePitchVariation = 0.05f;
 
@@ -164,6 +166,14 @@ public sealed partial class GunSystem : SharedGunSystem
 
                     Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun, user);
                     break;
+                // ADT-Tweak-start
+                case RMCFlamerAmmoProviderComponent flamer:
+                    if (ent == null)
+                        break;
+
+                    _rmcFlamer.ShootFlamer((ent.Value, flamer), gun, user, fromCoordinates, toCoordinates);
+                    break;
+                // ADT-Tweak-end
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -214,7 +224,15 @@ public sealed partial class GunSystem : SharedGunSystem
         {
             var targeted = EnsureComp<TargetedProjectileComponent>(uid);
             targeted.Target = target;
-            targeted.TargetCoords = gun.Comp.ShootCoordinates; // ADT-Crawling-Abuse-Tweak
+            // ADT-Crawling-Abuse-Tweak start
+            targeted.TargetCoords = null;
+            if (gun.Comp.ShootCoordinates is { } shootCoords)
+            {
+                var shootMap = TransformSystem.ToMapCoordinates(shootCoords);
+                if (_map.TryGetMap(shootMap.MapId, out var shootMapUid))
+                    targeted.TargetCoords = new EntityCoordinates(shootMapUid.Value, shootMap.Position);
+            }
+            // ADT-Crawling-Abuse-Tweak end
             Dirty(uid, targeted);
         }
 

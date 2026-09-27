@@ -74,6 +74,8 @@ public abstract partial class SharedVehicleSystem : EntitySystem
         SubscribeLocalEvent<VehicleComponent, FoldedEvent>(OnVehicleFolded);
 
         SubscribeLocalEvent<InVehicleComponent, GettingPickedUpAttemptEvent>(OnGettingPickedUpAttempt);
+
+        SubscribeLocalEvent<RiderComponent, EntityTerminatingEvent>(OnRiderTerminating);
     }
 
     /// <summary>
@@ -218,6 +220,29 @@ public abstract partial class SharedVehicleSystem : EntitySystem
                 _buckle.Unbuckle(buckled, null);
             }
         }
+    }
+
+    private void OnRiderTerminating(EntityUid uid, RiderComponent component, ref EntityTerminatingEvent args)
+    {
+        if (component.Vehicle is not { } vehicleUid || !TryComp<VehicleComponent>(vehicleUid, out var vehicle))
+            return;
+
+        var dirty = false;
+
+        if (vehicle.Rider == uid)
+        {
+            vehicle.Rider = null;
+            dirty = true;
+        }
+
+        if (vehicle.LastRider == uid)
+        {
+            vehicle.LastRider = null;
+            dirty = true;
+        }
+
+        if (dirty)
+            Dirty(vehicleUid, vehicle);
     }
 
     private void OnVehicleFolded(EntityUid uid, VehicleComponent component, ref FoldedEvent args)

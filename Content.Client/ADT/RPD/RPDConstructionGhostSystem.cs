@@ -1,5 +1,6 @@
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
+using Content.Shared.Atmos.Components;
 using Content.Shared.ADT.RPD;
 using Content.Shared.ADT.RPD.Components;
 using Content.Shared.ADT.RPD.Systems;
@@ -60,7 +61,11 @@ public sealed class RPDConstructionGhostSystem : EntitySystem
         // If the placer has not changed, exit
         _rpdSystem.UpdateCachedPrototype(heldEntity.Value, rpd);
 
-        if (heldEntity == placerEntity && rpd.CachedPrototype.Prototype == placerProto)
+        var layer = (_placementManager.CurrentMode as AlignRPDConstruction)?.Layer ?? AtmosPipeLayer.Primary;
+        var layerProto = _rpdSystem.GetPrototypeForLayer(rpd, layer);
+        var expectedProto = layerProto?.Id ?? rpd.CachedPrototype.Prototype;
+
+        if (heldEntity == placerEntity && expectedProto == placerProto)
             return;
 
         // Create a new placer
@@ -68,8 +73,8 @@ public sealed class RPDConstructionGhostSystem : EntitySystem
         {
             MobUid = heldEntity.Value,
             PlacementOption = PlacementMode,
-            EntityType = rpd.CachedPrototype.Prototype,
-            Range = (int) Math.Ceiling(SharedInteractionSystem.InteractionRange),
+            EntityType = expectedProto,
+            Range = (int) Math.Ceiling(rpd.CachedPrototype.Mode == RpdMode.ConstructObject ? rpd.Range : SharedInteractionSystem.InteractionRange),
             IsTile = false,
             UseEditorContext = false,
         };

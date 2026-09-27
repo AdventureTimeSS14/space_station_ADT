@@ -45,8 +45,6 @@ namespace Content.Client.ADT.Chemistry.UI
                 return;
 
             ReagentList.Children.Clear();
-            //Sort inventory by reagentLabel
-            inventory.Sort((x, y) => string.Compare(x.ReagentLabel, y.ReagentLabel, StringComparison.Ordinal));
 
             foreach (var card in inventory
                          .Select(item => new EnergyReagentCardControl(item)))

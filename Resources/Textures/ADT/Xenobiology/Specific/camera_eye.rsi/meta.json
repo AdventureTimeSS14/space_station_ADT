@@ -1,0 +1,92 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from austation at https://github.com/austation/austation/blob/ca5fe4df0a90897e86a0f9197b49869555dd3839/icons/mob/cameramob.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "marker",
+            "delays": [
+                [
+                    1,
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "generic_camera",
+            "delays": [
+                [
+                    1,
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "abductor_camera",
+            "delays": [
+                [
+                    1,
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "yalp_elor",
+            "delays": [
+                [
+                    1,
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "ratvar_camera",
+            "delays": [
+                [
+                    1,
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "syndi",
+            "delays": [
+                [
+                    1,
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "xeno",
+            "delays": [
+                [
+                    1,
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "darkblue",
+            "delays": [
+                [
+                    1,
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "cyan",
+            "delays": [
+                [
+                    1,
+                    1
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+<Document>
+  # Ксенобиология
+
+  Слаймов разводят ради экстрактов. Каждая порода даёт свой экстракт, экстракт бурно реагирует на воду, плазму или кровь, а результат обменивается в [textlink="консоли ксенобиологических заказов" link="Xenobiology"] на очки исследований.
+
+  <Box>
+    <GuideEntityEmbed Entity="MobSlimeXenobioBaby" Caption=""/>
+    <GuideEntityEmbed Entity="SlimeGrinder" Caption=""/>
+    <GuideEntityEmbed Entity="ComputerScienceXenobiologyBounty" Caption=""/>
+  </Box>
+
+  Вкратце процесс такой: кормите слаймов, ждёте, пока они растут и делятся, при делении появляются новые породы, лишних убиваете водой и перерабатываете в измельчителе, экстракты сдаёте на заказы.
+
+  ## С чего читать
+
+  - [textlink="Основы разведения" link="ADTXenoBasics"]
+  - [textlink="Как появляются новые породы" link="ADTXenoTree"]
+  - [textlink="Реакции экстрактов" link="ADTXenoReactions"]
+</Document>

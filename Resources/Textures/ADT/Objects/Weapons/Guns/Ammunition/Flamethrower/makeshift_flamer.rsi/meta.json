@@ -1,0 +1,23 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from https://github.com/tgstation/tgstation/commit/650492a26d71ba668e89bf97bd97b91a515745be, modified by not_so_big_chungus",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "flametank"
+        },
+        {
+            "name": "flametank_unfinished"
+        },
+        {
+            "name": "flametank_strip1"
+        },
+        {
+            "name": "flametank_strip2"
+        }
+    ]
+}

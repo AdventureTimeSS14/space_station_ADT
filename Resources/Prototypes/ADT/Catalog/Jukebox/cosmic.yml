@@ -1,0 +1,60 @@
+- type: jukebox
+  id: ADTCornfieldChase
+  name: 1. Cornfield Chase - Hans Zimmer
+  path:
+    path: /Audio/ADT/Jukebox/cosmic/Cornfield-Chase.ogg
+
+- type: jukebox
+  id: ADTVirtualInsanity
+  name: 2. Virtual Insanity - Jamiroquai
+  path:
+    path: /Audio/ADT/Jukebox/cosmic/Virtual-Insanity.ogg
+
+- type: jukebox
+  id: ADTSpaceOddity
+  name: 3. Space Oddity - David Bowie
+  path:
+    path: /Audio/ADT/Jukebox/cosmic/Space-Oddity.ogg
+
+- type: jukebox
+  id: ADTSpaceAsshole
+  name: 4. Space Asshole - Chris Remo
+  path:
+    path: /Audio/ADT/Jukebox/cosmic/Spase-Asshole.ogg
+
+- type: jukebox
+  id: ADTLucidityGone
+  name: 5. Lucidity Gone - Cristobal Tapia de Veer
+  path:
+    path: /Audio/ADT/Jukebox/cosmic/Lucidity-Gone.ogg
+
+- type: jukebox
+  id: ADTWashingMachineHeart
+  name: 6. Washing Machine Heart - Mitski
+  path:
+    path: /Audio/ADT/Jukebox/cosmic/Washing-Machine-Hearth.ogg
+
+- type: jukebox
+  id: ADTLetItHappen
+  name: 7. Let it Happen - Tame Impala
+  path:
+    path: /Audio/ADT/Jukebox/cosmic/Let-It-Happen.ogg
+
+- type: jukebox
+  id: ADTLetsGo
+  name: 8. Lets Go - Stuck in the Sound
+  path:
+    path: /Audio/ADT/Jukebox/cosmic/Lets-Go.ogg
+
+- type: jukebox
+  id: ADTDreamy
+  name: 9. Dreamy - Elijah Lee
+  path:
+    path: /Audio/ADT/Jukebox/cosmic/Dreamy.ogg
+
+- type: jukebox
+  id: ADTBasicTheme
+  name: 10. Basic Theme - CJShurup
+  path:
+    path: /Audio/ADT/Jukebox/cosmic/Basic-Theme.ogg
+

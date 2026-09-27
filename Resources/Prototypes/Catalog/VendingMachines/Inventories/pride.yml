@@ -28,13 +28,17 @@
     # ClothingNeckCloakPan: 2
     # ClothingNeckCloakTrans: 2
     # ADT-Tweak-end
-    ClothingHeadHatXmasCrown: 2
+    ADTVendingCategoryHead:  # ADT-Tweak
+        ClothingHeadHatXmasCrown: 2
+        ClothingHeadHatFlowerWreath: 2
+    ADTVendingCategoryAccessories:  # ADT-Tweak
+        ClothingMultipleHeadphones: 2
+    ADTVendingCategoryUniforms:  # ADT-Tweak
+        ClothingUniformColorRainbow: 2
+    ADTVendingCategoryUnderwear:  # ADT-Tweak
+        ClothingUnderSocksCoder: 2
+        ClothingUnderSocksBee: 2
     BedsheetRainbow: 2
-    ClothingMultipleHeadphones: 2
-    ClothingHeadHatFlowerWreath: 2
-    ClothingUniformColorRainbow: 2
-    ClothingUnderSocksCoder: 2
-    ClothingUnderSocksBee: 2
   contrabandInventory:
     ClothingNeckScarfStripedLesbianLong: 2
     ClothingUniformJumpskirtColorRainbow: 2

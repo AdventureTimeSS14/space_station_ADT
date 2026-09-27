@@ -228,3 +228,4 @@ marking-ADTIPCPartLFootDefaultLines = Обычная, левая ступня, �
 marking-ADTIPCPartLFootDefaultLines-l_foot_line_prime = Линия
 marking-ADTIPCPartRFootDefaultLines = Обычная, правая ступня, линия
 marking-ADTIPCPartRFootDefaultLines-r_foot_line_prime = Линия
+marking-ADTIPCScreenBroken = Экран (Сломанный)

@@ -1,6 +1,6 @@
 reagent-name-thermite = термит
 reagent-desc-thermite = Смесь, которая становится крайне горячей при воспламенении.
-reagent-name-napalm = напалм
+reagent-name-napalm = самодельный напалм
 reagent-desc-napalm = Немножко огнеопасен.
 reagent-name-phlogiston = флогистон
 reagent-desc-phlogiston = Подожжёт и заставит вас гореть.

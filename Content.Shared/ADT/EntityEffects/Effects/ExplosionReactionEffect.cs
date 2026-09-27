@@ -34,6 +34,11 @@ public sealed partial class ExplosionReactionEffect : EntityEffect
         var ev = new ExplosionEvent(ExplosionType, MaxIntensity, IntensitySlope, MaxTotalIntensity, IntensityPerUnit, TileBreakScale, Delay, target);
         raiser.RaiseEffectEvent(target, ev, scale, user);
     }
+
+    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+    {
+        return Loc.GetString("entity-effect-guidebook-explosion-reaction");
+    }
 }
 
 public sealed partial class ExplosionEvent : EntityEffectBase<ExplosionEvent>

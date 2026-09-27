@@ -17,9 +17,10 @@ research-technology-reducer = Беспроводная передача энер
 
 research-technology-bluespace-artillery = Блюспейс артиллерия
 
-research-technology-adt-parts = Машинные части
 research-technology-adt-advanced-parts = Улучшенные машинные части
 research-technology-adt-super-parts = Продвинутые машинные части
 research-technology-adt-bluespace-parts = Блюспейс-машинные части
+research-technology-adt-quantum-parts = Квантовые машинные части
 research-technology-adt-rped = РПЕД
 research-technology-adt-bluespace-rped = Блюспейс-РПЕД
+research-technology-adt-bluespace-rpd = Блюспейс-РРТ

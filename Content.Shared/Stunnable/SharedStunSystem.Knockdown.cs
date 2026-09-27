@@ -70,7 +70,7 @@ public abstract partial class SharedStunSystem
         SubscribeLocalEvent<KnockedDownComponent, DidEquipHandEvent>(OnHandEquipped);
         SubscribeLocalEvent<KnockedDownComponent, DidUnequipHandEvent>(OnHandUnequipped);
         SubscribeLocalEvent<KnockedDownComponent, HandCountChangedEvent>(OnHandCountChanged);
-        SubscribeLocalEvent<GravityAffectedComponent, KnockDownAttemptEvent>(OnKnockdownAttempt);
+        //SubscribeLocalEvent<GravityAffectedComponent, KnockDownAttemptEvent>(OnKnockdownAttempt); ADT-Tweak
         SubscribeLocalEvent<GravityAffectedComponent, GetStandUpTimeEvent>(OnGetStandUpTime);
 
         // Handling Alternative Inputs
@@ -614,10 +614,8 @@ public abstract partial class SharedStunSystem
             return;
         }
 
-        RemComp<KnockedDownComponent>(entity); //ADT tweak
-        _standingState.Stand(entity); //ADT tweak
-
         RemComp<KnockedDownComponent>(entity);
+        _standingState.Stand(entity); //ADT tweak
 
         _adminLogger.Add(LogType.Stamina, LogImpact.Medium, $"{ToPrettyString(entity):user} has stood up from knockdown.");
     }

@@ -1,0 +1,32 @@
+<PanelContainer xmlns="https://spacestation14.io"
+                xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                HorizontalExpand="True"
+                Margin="0 0 0 3">
+    <PanelContainer.PanelOverride>
+        <gfx:StyleBoxFlat BackgroundColor="#22202a"/>
+    </PanelContainer.PanelOverride>
+    <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+        <PanelContainer Name="StageBadge" MinWidth="26" VerticalExpand="True">
+            <PanelContainer.PanelOverride>
+                <gfx:StyleBoxFlat BackgroundColor="#8b6fa8"/>
+            </PanelContainer.PanelOverride>
+            <Label Name="StageLabel" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </PanelContainer>
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="8 5 8 5">
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                <TextureRect Name="StageIcon"
+                             VerticalAlignment="Center"
+                             Stretch="KeepAspectCentered"
+                             MinSize="28 28"/>
+                <RichTextLabel Name="NameLabel" VerticalAlignment="Center" HorizontalExpand="True" Margin="8 0 0 0"/>
+                <RichTextLabel Name="CostLabel" VerticalAlignment="Center" Margin="8 0 0 0"/>
+            </BoxContainer>
+            <Collapsible Name="DescriptionCollapsible" HorizontalExpand="True" Margin="0 4 0 0">
+                <CollapsibleHeading Name="DescriptionHeading"/>
+                <CollapsibleBody>
+                    <RichTextLabel Name="DescriptionLabel" HorizontalExpand="True" Margin="10 2 0 4"/>
+                </CollapsibleBody>
+            </Collapsible>
+        </BoxContainer>
+    </BoxContainer>
+</PanelContainer>

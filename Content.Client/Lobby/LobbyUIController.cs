@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Numerics;
 using Content.Client.Body;
 using Content.Client.Guidebook;
 using Content.Client.Inventory;
@@ -22,6 +23,7 @@ using Robust.Client.ResourceManagement;
 using Robust.Client.State;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
+using Robust.Client.UserInterface.CustomControls;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
@@ -50,6 +52,7 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
     private CharacterSetupGui? _characterSetup;
     private HumanoidProfileEditor? _profileEditor;
     private CharacterSetupGuiSavePanel? _savePanel;
+    private CharacterSetupWindow? _characterSetupWindow; // ADT-Tweak 
 
     /// <summary>
     /// This is the characher preview panel in the chat. This should only update if their character updates.
@@ -160,6 +163,7 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
     public void OnStateExited(LobbyState state)
     {
         PreviewPanel?.SetLoaded(false);
+        _characterSetupWindow?.Close(); // ADT-Tweak 
         _profileEditor?.Dispose();
         _characterSetup?.Dispose();
 
@@ -237,6 +241,8 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
         {
             lobbyGui.SwitchState(LobbyGui.LobbyGuiState.Default);
         }
+
+        _characterSetupWindow?.Close(); // ADT-Tweak 
     }
 
     private void OpenSavePanel()
@@ -265,12 +271,72 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
         _savePanel.OpenCentered();
     }
 
+    // ADT Tweak start
+    /// <summary>
+    /// Opens the character editor in its own window, reusing the one from the lobby.
+    /// Used from the ghost gui to edit characters in round.
+    /// </summary>
+    public void OpenCharacterSetupWindow()
+    {
+        if (_characterSetupWindow is { IsOpen: true })
+        {
+            _characterSetupWindow.MoveToFront();
+            return;
+        }
+
+        var (characterGui, _) = EnsureGui();
+
+        characterGui.ReloadCharacterPickers();
+        _profileEditor?.ResetToDefault();
+
+        characterGui.Orphan();
+
+        var window = new CharacterSetupWindow
+        {
+            Title = Loc.GetString("ghost-gui-character-editor-button"),
+        };
+        window.MinSize = window.SetSize = new Vector2(1400, 700);
+
+        window.Contents.AddChild(characterGui);
+
+        window.OnClose += () =>
+        {
+            var lobbyContainer = (_stateManager.CurrentState as LobbyState)?.Lobby?.CharacterSetupState;
+            if (characterGui.Parent != lobbyContainer)
+                characterGui.Orphan();
+
+            _characterSetupWindow = null;
+        };
+
+        _characterSetupWindow = window;
+        window.OpenCentered();
+    }
+
+    private sealed class CharacterSetupWindow : DefaultWindow
+    {
+        public CharacterSetupWindow()
+        {
+            CloseButton.Visible = false;
+        }
+    }
+    // ADT Tweak end
+
     private (CharacterSetupGui, HumanoidProfileEditor) EnsureGui()
     {
         if (_characterSetup != null && _profileEditor != null)
         {
             _characterSetup.Visible = true;
             _profileEditor.Visible = true;
+            // ADT Tweak start
+            if (_stateManager.CurrentState is LobbyState lobbyState
+                && lobbyState.Lobby?.CharacterSetupState is { } container
+                && _characterSetup.Parent != container)
+            {
+                _characterSetupWindow?.Close();
+                _characterSetup.Orphan();
+                container.AddChild(_characterSetup);
+            }
+            // ADT Tweak end
             return (_characterSetup, _profileEditor);
         }
 

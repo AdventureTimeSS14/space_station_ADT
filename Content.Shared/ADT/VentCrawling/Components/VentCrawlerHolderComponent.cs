@@ -15,34 +15,25 @@ public sealed partial class VentCrawlerHolderComponent : Component
     }
 
     [ViewVariables]
-    public float StartingTime { get; set; }
-
-    [ViewVariables]
-    public float TimeLeft { get; set; }
-
-    [ViewVariables]
-    public bool IsMoving { get; set; } = false;
-
-    [ViewVariables]
-    public EntityUid? PreviousTube { get; set; }
-
-    [ViewVariables]
     public EntityUid? NextTube { get; set; }
-
-    [ViewVariables]
-    public Direction PreviousDirection { get; set; } = Direction.Invalid;
 
     [ViewVariables]
     public EntityUid? CurrentTube { get; set; }
 
     [ViewVariables]
-    public bool FirstEntry { get; set; }
-
-    [ViewVariables]
     public Direction CurrentDirection { get; set; } = Direction.Invalid;
 
     [ViewVariables]
+    public Direction DesiredDirection { get; set; } = Direction.Invalid;
+
+    [ViewVariables]
+    public float Progress { get; set; }
+
+    [ViewVariables]
     public bool IsExitingVentCraws { get; set; }
+
+    [ViewVariables]
+    public EntityUid? ExitAction { get; set; }
 
     public static readonly TimeSpan CrawlDelay = TimeSpan.FromSeconds(0.5);
 

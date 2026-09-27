@@ -1,10 +1,9 @@
-using Content.Server.Atmos.Components;
+//
+
+using Content.Shared.Atmos.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Heretic.Prototypes;
-using Content.Shared.Damage.Components;
-using Content.Shared.Atmos.Components;
-using Content.Shared.Damage.Systems;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Heretic.Ritual;
@@ -19,12 +18,19 @@ public sealed partial class RitualAshAscendBehavior : RitualSacrificeBehavior
         if (!base.Execute(args, out outstr))
             return false;
 
+        // ADT: must be reset, otherwise stale uids from a failed attempt let the next one pass
         burningUids = new();
 
         foreach (var uid in uids)
         {
-            if (args.EntityManager.TryGetComponent<FlammableComponent>(uid, out var flam) && flam.OnFire)
+            if (!args.EntityManager.TryGetComponent<FlammableComponent>(uid, out var flam))
+                continue;
+
+            if (flam.OnFire)
                 burningUids.Add(uid);
+
+            if (burningUids.Count >= Max)
+                break;
         }
 
         if (burningUids.Count < Min)
@@ -35,28 +41,5 @@ public sealed partial class RitualAshAscendBehavior : RitualSacrificeBehavior
 
         outstr = null;
         return true;
-    }
-
-    public override void Finalize(RitualData args)
-    {
-        var damageableSystem = args.EntityManager.System<DamageableSystem>();
-        var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
-
-        foreach (var uid in burningUids)
-        {
-            // YES!!! ASH!!!
-            if (args.EntityManager.TryGetComponent<DamageableComponent>(uid, out var dmg))
-            {
-                var prot = (ProtoId<DamageGroupPrototype>)"Burn";
-                var dmgtype = prototypeManager.Index(prot);
-                damageableSystem.TryChangeDamage(uid, new DamageSpecifier(dmgtype, 3984f), true);
-            }
-        }
-
-        uids = burningUids;
-        base.Finalize(args);
-
-        // reset it because blehhh
-        burningUids = new();
     }
 }

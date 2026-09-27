@@ -1,66 +1,42 @@
-using System.Linq;
-using Content.Server.Atmos.EntitySystems;
+//
+
+using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
-using Content.Shared.Humanoid;
-using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Speech.Muting;
 
 namespace Content.Server.Heretic.Ritual;
 
 public sealed partial class RitualMuteGhoulifyBehavior : RitualSacrificeBehavior
 {
-    public override bool Execute(RitualData args, out string? outstr)
-    {
-        var lookupSystem = args.EntityManager.System<EntityLookupSystem>();
-
-        uids = new();
-
-        if (!args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))
-        {
-            outstr = string.Empty;
-            return false;
-        }
-
-        var res = lookupSystem.GetEntitiesInRange(args.Platform, 1.5f);
-        if (res.Count == 0)
-        {
-            outstr = Loc.GetString("heretic-ritual-fail-sacrifice");
-            return false;
-        }
-
-        foreach (var look in res)
-        {
-            if (!args.EntityManager.TryGetComponent<MobStateComponent>(look, out var mobstate)
-                || !args.EntityManager.HasComponent<HumanoidProfileComponent>(look)
-                || mobstate.CurrentState != Shared.Mobs.MobState.Dead)
-                continue;
-
-            uids.Add(look);
-        }
-
-        if (uids.Count < Min)
-        {
-            var needed = (int)Min - uids.Count;
-            outstr = Loc.GetString("heretic-ritual-fail-sacrifice-count", ("current", uids.Count), ("required", (int)Min), ("needed", needed), ("max", (int)Max));
-            return false;
-        }
-
-        outstr = null;
-        return true;
-    }
-
     public override void Finalize(RitualData args)
     {
-        foreach (var uid in uids)
+        if (args is { Limit: > 0, Limited: not null } && args.Limited.Count >= args.Limit)
+            return;
+
+        for (var i = 0; i < Math.Min(uids.Count, Max); i++)
         {
-            var ghoul = new GhoulComponent()
+            var uid = uids[i];
+
+            var minion = args.EntityManager.EnsureComponent<HereticMinionComponent>(uid);
+            minion.BoundHeretic = args.Performer;
+
+            var ghoul = new GhoulComponent
             {
-                TotalHealth = 125f,
+                TotalHealth = 100f,
+                GiveBlade = true,
             };
             args.EntityManager.AddComponent(uid, ghoul, overwrite: true);
             args.EntityManager.EnsureComponent<MutedComponent>(uid);
+            args.EntityManager.EnsureComponent<HereticBladeUserBonusDamageComponent>(uid);
+
+            if (args.Limited == null)
+                continue;
+
+            args.Limited.Add(uid);
+
+            if (args.Limit > 0 && args.Limited.Count >= args.Limit)
+                break;
         }
     }
 }

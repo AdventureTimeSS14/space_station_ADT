@@ -273,7 +273,7 @@ public sealed class PullingSystem : EntitySystem
         if (component.Pulling == null)
             return;
 
-        if (TryComp<PullableComponent>(component.Pulling, out var comp) && (args.State == MobState.Critical || args.State == MobState.Dead))
+        if (TryComp<PullableComponent>(component.Pulling, out var comp) && (args.State == MobState.SoftCritical || args.State == MobState.Critical || args.State == MobState.Dead))
         {
             TryStopPull(component.Pulling.Value, comp);
         }
@@ -460,7 +460,7 @@ public sealed class PullingSystem : EntitySystem
             // Joint shutdown
             if (pullableComp.PullJointId != null)
             {
-                _joints.RemoveJoint(pullableUid, pullableComp.PullJointId);
+                _joints.ClearJoints(pullableUid); // ADT-Tweak
                 pullableComp.PullJointId = null;
             }
 

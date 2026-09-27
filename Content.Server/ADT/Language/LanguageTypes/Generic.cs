@@ -1,5 +1,7 @@
 using Content.Server.Chat.Systems;
 using Content.Shared.ADT.Language;
+using Content.Shared.ADT.TenCodes;
+using Content.Shared.ADT.TTS;
 using Content.Shared.Chat;
 using Content.Shared.Speech;
 using Robust.Shared.Prototypes;
@@ -80,6 +82,12 @@ public sealed partial class Generic : ILanguageType
         if (string.IsNullOrEmpty(coloredMessage))
             return;
 
+        coloredMessage = ADTSpeechStress.Strip(coloredMessage);
+        coloredLanguageMessage = ADTSpeechStress.Strip(coloredLanguageMessage);
+        message = ADTSpeechStress.Strip(message);
+
+        coloredMessage = entMan.System<ADTTenCodeSystem>().Highlight(uid, coloredMessage);
+
         // Apply language color
         if (Color != null)
         {
@@ -148,6 +156,14 @@ public sealed partial class Generic : ILanguageType
         resultObfMessage = FormattedMessage.EscapeText(obfuscatedMessage);
         if (string.IsNullOrEmpty(accentMessage))
             return;
+
+        accentMessage = ADTSpeechStress.Strip(accentMessage);
+        languageMessage = ADTSpeechStress.Strip(languageMessage);
+        obfuscatedMessage = ADTSpeechStress.Strip(obfuscatedMessage);
+        obfuscatedLanguageMessage = ADTSpeechStress.Strip(obfuscatedLanguageMessage);
+        message = ADTSpeechStress.Strip(message);
+
+        accentMessage = entMan.System<ADTTenCodeSystem>().Highlight(uid, accentMessage);
 
         if (WhisperColor != null)
         {

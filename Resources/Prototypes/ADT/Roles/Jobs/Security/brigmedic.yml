@@ -35,6 +35,9 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+      - type: ADTTenCodeKnowledge
 
 - type: startingGear
   id: BrigmedicGear

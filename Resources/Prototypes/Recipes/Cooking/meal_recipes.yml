@@ -2319,20 +2319,20 @@
   - Assembler
   #ADT-Tweak End
 
-- type: microwaveMealRecipe
-  id: RecipeDumplings
-  name: dumplings recipe
-  result: FoodBakedDumplings
-  time: 15
-  group: Savory
-  reagents:
-    Water: 10
-    UncookedAnimalProteins: 6
-  solids:
-    FoodDoughSlice: 3
-  #ADT-Tweak Start
-  recipeType:
-  - Microwave
+#ADT-Tweak Start - рецепт и еда удалены или заменены чтобы не конфликтовать с другими пельменями
+# - type: microwaveMealRecipe
+#   id: RecipeDumplings
+#   name: dumplings recipe
+#   result: FoodBakedDumplings
+#   time: 15
+#   group: Savory
+#   reagents:
+#     Water: 10
+#     UncookedAnimalProteins: 6
+#   solids:
+#     FoodDoughSlice: 3
+#   recipeType:
+#   - Microwave
   #ADT-Tweak End
 
 - type: microwaveMealRecipe

@@ -19,6 +19,21 @@
   - AdvancedEntertainment
 
 - type: technology
+  id: ADTColormat
+  name: research-technology-colormat
+  icon:
+    sprite: ADT/Objects/Devices/colormat.rsi
+    state: colormate
+  discipline: CivilianServices
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - ADTColormatMachineCircuitboard
+  position: 3,-1
+  requiredTech:
+  - AdvancedEntertainment
+
+- type: technology
   id: ADTExoskeletons
   name: research-technology-exoskeletons
   icon:
@@ -43,7 +58,6 @@
   tier: 2
   cost: 12500
   recipeUnlocks:
-    - ADTAdvancedMicrowaveMachineCircuitBoard #Я не против расширения арсенала этой технологии, просто переименуйте её в локализации, если будете добавлять сюда чего-либо
     - ADTCoffeeMachineBluespaceCircuitboard # Окей, братан. Я тебя понял :3
     - ADTKitchenAssemblerMachineCircuitBoard
     - ADTElectricRangeMachineCircuitBoard
@@ -61,26 +75,10 @@
   tier: 2
   cost: 7500
   recipeUnlocks:
-    - ADTHydroponicsTrayAdvancedMachineCircuitboard
     - ADTAdvancedPlantAnalyzer
   position: 1,-1
   requiredTech:
   - Hydroponics
-
-- type: technology
-  id: ADTReagentGrinder
-  name: research-advanced-reagent-grinder
-  icon:
-    sprite: ADT/Structures/Machines/juicer_T2.rsi
-    state: juicer0
-  discipline: CivilianServices
-  tier: 2
-  cost: 5000
-  recipeUnlocks:
-  - ADTAdvancedReagentGrinderMachineCircuitboard
-  requiredTech:
-  - MeatManipulation
-  position: 3,-2
 
 - type: technology
   id: ADTWeaponLauncherHydra

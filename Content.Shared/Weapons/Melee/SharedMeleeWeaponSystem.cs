@@ -314,12 +314,12 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             // to be equipped to be used (E.g boxing gloves).
             if (TryComp(held, out melee) &&
                 !melee.MustBeEquippedToUse)
-            {
+            { 
                 weaponUid = held.Value;
                 return true;
             }
 
-            if (!HasComp<VirtualItemComponent>(held))
+            if (!HasComp<VirtualItemComponent>(held) || !HasFreeHand(entity)) // ADT-Tweka
                 return false;
         }
 
@@ -367,6 +367,22 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         return false;
     }
+
+    // ADT-Tweak start
+    private bool HasFreeHand(EntityUid entity)
+    {
+        if (!TryComp<HandsComponent>(entity, out var hands))
+            return true;
+
+        foreach (var name in _hands.EnumerateHands((entity, hands)))
+        {
+            if (!_hands.TryGetHeldItem((entity, hands), name, out _))
+                return true;
+        }
+
+        return false;
+    }
+    // ADT-Tweak end
 
     public void AttemptLightAttackMiss(EntityUid user, EntityUid weaponUid, MeleeWeaponComponent weapon, EntityCoordinates coordinates)
     {

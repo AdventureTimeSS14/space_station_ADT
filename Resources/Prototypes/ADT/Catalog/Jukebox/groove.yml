@@ -1,0 +1,29 @@
+- type: jukebox
+  id: ADT12juin3049
+  name: 1. 12 juin 3049 - Caravan Palace
+  path:
+    path: /Audio/ADT/Jukebox/groove/12juin3049.ogg
+
+- type: jukebox
+  id: ADTPressure
+  name: 2. Pressure - Klische Marina the Kats
+  path:
+    path: /Audio/ADT/Jukebox/groove/Pressure.ogg
+
+- type: jukebox
+  id: ADTBlackBetty
+  name: 3. Black Betty - Caravan Palace
+  path:
+    path: /Audio/ADT/Jukebox/groove/Black-Betty.ogg
+
+- type: jukebox
+  id: ADT81Special
+  name: 4. 81 Special - Caravan Palace
+  path:
+    path: /Audio/ADT/Jukebox/groove/81-Special.ogg
+
+- type: jukebox
+  id: ADTAllThatGlitters
+  name: 5. All That Glitters - Earl
+  path:
+    path: /Audio/ADT/Jukebox/groove/All-That-Glitters.ogg

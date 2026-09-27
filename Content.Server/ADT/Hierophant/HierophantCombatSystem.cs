@@ -134,7 +134,7 @@ public sealed class HierophantCombatSystem : EntitySystem
             return;
         }
 
-        var belowHalfHealth = IsBelowHalfHealth(ent);
+        var belowHalfHealth = _hierophant.IsBelowHalfHealth(ent);
 
         if (_random.Prob(Math.Clamp(anger * 0.0075f, 0f, 1f)))
         {
@@ -298,25 +298,6 @@ public sealed class HierophantCombatSystem : EntitySystem
             slowness += 1f;
 
         return Math.Clamp(slowness, 1f, 5f);
-    }
-
-    private bool IsBelowHalfHealth(Entity<HierophantComponent> ent)
-    {
-        if (!TryComp<MobThresholdsComponent>(ent, out var thresholds))
-            return false;
-
-        var maxHealth = 0f;
-        foreach (var (damage, _) in thresholds.Thresholds)
-        {
-            if ((float) damage > maxHealth)
-                maxHealth = (float) damage;
-        }
-
-        if (maxHealth <= 0f)
-            return false;
-
-        var taken = (float) _damageable.GetTotalDamage(ent.Owner);
-        return taken >= maxHealth * 0.5f;
     }
 
     private void OnBlinkAction(Entity<HierophantComponent> ent, ref HierophantBlinkActionEvent args)

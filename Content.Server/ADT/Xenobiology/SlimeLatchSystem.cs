@@ -24,12 +24,19 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Body.Systems;
+using Content.Shared.Mech.Components;
 using Content.Shared.Physics;
+using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared.ADT.Silicon.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
 using Content.Server.Speech.Components;
+using Content.Shared.Zombies;
+using Content.Shared.Shuttles.Components;
+using Robust.Shared.Player;
 using System.Linq;
+using System.Numerics;
 
 namespace Content.Server.ADT.Xenobiology.Systems;
 
@@ -90,13 +97,16 @@ public sealed partial class SlimeLatchSystem : EntitySystem
             UpdateHunger((uid, dotComp), (source, slimeComp));
         }
 
-        var query = EntityQueryEnumerator<SlimeComponent>();
-        while (query.MoveNext(out var uid, out var slime))
+        var query = EntityQueryEnumerator<SlimeComponent, SlimeLatchedComponent>();
+        while (query.MoveNext(out var uid, out var slime, out _))
         {
             var slimeEnt = new Entity<SlimeComponent>(uid, slime);
 
             if (!IsLatched(slimeEnt))
+            {
+                RemCompDeferred<SlimeLatchedComponent>(uid);
                 continue;
+            }
 
             var target = slime.LatchedTarget!.Value;
 
@@ -223,6 +233,9 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         if (args.Handled || args.Cancelled)
             return;
 
+        if (!CanLatch(ent, target))
+            return;
+
         Latch(ent, target);
         args.Handled = true;
     }
@@ -245,10 +258,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         // Восполняем голод слайма ТОЛЬКО если он прикреплен
         var addedHunger = (float)ent.Comp.Damage.GetTotal();
         if (TryComp<HungerComponent>(source, out var hunger))
-        {
             _hunger.ModifyHunger(source, addedHunger, hunger);
-            Dirty(source, hunger);
-        }
 
         // Трансфер растворов
         if (!TryComp<BodyComponent>(source, out var bodyComp))
@@ -271,7 +281,11 @@ public sealed partial class SlimeLatchSystem : EntitySystem
             && _solutionContainer.ResolveSolution(ent.Owner, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var blood)
             && _solutionContainer.ResolveSolution(ent.Owner, bloodstream.MetabolitesSolutionName, ref bloodstream.MetabolitesSolution, out var chem))
         {
-            float bloodProportion = (float)(blood.Volume / (chem.Volume + blood.Volume));
+            var totalVolume = chem.Volume + blood.Volume;
+            if (totalVolume == FixedPoint2.Zero)
+                return;
+
+            float bloodProportion = (float)(blood.Volume / totalVolume);
             float chemProportion = 1 - bloodProportion;
             float bloodTransfer = Math.Min(ent.Comp.SuctionUnits * bloodProportion, availableVolume * bloodProportion);
             float chemTransfer = Math.Min(ent.Comp.SuctionUnits * chemProportion, availableVolume * chemProportion);
@@ -297,7 +311,6 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         if (HasComp<MonkeyAccentComponent>(corpse))
         {
             slime.Comp.Friendship = MathF.Min(1f, slime.Comp.Friendship + slime.Comp.FriendshipPerMeal);
-            Dirty(slime);
         }
     }
 
@@ -314,11 +327,21 @@ public sealed partial class SlimeLatchSystem : EntitySystem
     public bool CanLatch(Entity<SlimeComponent> ent, EntityUid target)
     {
         return !(IsLatched(ent)
+            || HasComp<ZombieComponent>(ent)
             || _mobState.IsDead(target)
             || !_actionBlocker.CanInteract(ent, target)
             || !HasComp<MobStateComponent>(target)
             || HasComp<BeingLatchedComponent>(target)
+            || IsRobotic(target)
+            || HasComp<NoFTLComponent>(target)
             || Deleted(target));
+    }
+
+    private bool IsRobotic(EntityUid target)
+    {
+        return HasComp<BorgChassisComponent>(target)
+            || HasComp<MechComponent>(target)
+            || HasComp<SiliconComponent>(target);
     }
 
     public bool NpcTryLatch(Entity<SlimeComponent> ent, EntityUid target)
@@ -337,6 +360,12 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         if (Deleted(target))
             return;
 
+        var biteDirection = _xform.GetWorldPosition(target) - _xform.GetWorldPosition(ent.Owner);
+        if (biteDirection.LengthSquared() < 0.001f)
+            biteDirection = Vector2.UnitY;
+        else
+            biteDirection = biteDirection.Normalized();
+
         _xform.SetCoordinates(ent, Transform(target).Coordinates);
         _xform.SetParent(ent, target);
         if (TryComp<InputMoverComponent>(ent, out var inpm))
@@ -347,6 +376,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
             _physics.SetCanCollide(ent, false, body: physics);
 
         ent.Comp.LatchedTarget = target;
+        EnsureComp<SlimeLatchedComponent>(ent);
 
         EnsureComp<BeingLatchedComponent>(target);
         EnsureComp(target, out SlimeDamageOvertimeComponent comp);
@@ -355,8 +385,12 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         _audio.PlayEntity(ent.Comp.EatSound, ent, ent);
         _popup.PopupEntity(Loc.GetString("slime-action-latch-success", ("slime", ent), ("target", target)), ent, PopupType.SmallCaution);
 
-        Dirty(ent);
-        Dirty(target, comp);
+        var vector = biteDirection;
+        RaiseNetworkEvent(new SlimeBiteAnimationMessage()
+        {
+            Entity = GetNetEntity(ent.Owner, MetaData(ent.Owner)),
+            Angle = Angle.FromWorldVec(vector),
+        }, Filter.Pvs(ent.Owner, 0.5F));
     }
 
     public void Unlatch(Entity<SlimeComponent> ent)
@@ -380,6 +414,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
             _physics.SetCanCollide(ent, true, body: physics);
 
         ent.Comp.LatchedTarget = null;
+        RemCompDeferred<SlimeLatchedComponent>(ent);
     }
 
     #endregion

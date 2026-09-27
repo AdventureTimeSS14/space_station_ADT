@@ -60,3 +60,7 @@ ent-ADTCrateNecropolisWispLantern = { ent-ADTCrateNecropolis }
 ent-ADTCrateNecropolisPickaxeDiamond = { ent-ADTCrateNecropolis }
     .desc = { ent-ADTCrateNecropolis.desc }
     .suffix = Алмазная кирка, Лаваленд
+
+ent-ADTCrateNecropolisPuzzle = { ent-ADTCrateNecropolis }
+    .desc = { ent-ADTCrateNecropolis.desc }
+    .suffix = Головоломка, Лаваленд
