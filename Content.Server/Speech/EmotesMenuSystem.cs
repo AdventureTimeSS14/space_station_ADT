@@ -62,6 +62,7 @@ public sealed partial class EmotesMenuSystem : EntitySystem
             {
                 _popup.PopupEntity(Loc.GetString("emote-menu-already-bound", ("emote", name)), player.Value, player.Value);
                 _actions.RemoveAction(player.Value, existing!);
+                QueueDel(existing.Owner);
                 return;
             }
         }
@@ -77,7 +78,6 @@ public sealed partial class EmotesMenuSystem : EntitySystem
         _metaData.SetEntityName(action, name, metaDataCache);
         _actions.SetIcon((action, action.Comp), proto.Icon);
         _actions.SetEvent(action, new PlayEmoteActionEvent { ProtoId = proto.ID });
-        _actions.SetTemporary(action!, true);
 
         _popup.PopupEntity(Loc.GetString("emote-menu-bound", ("emote", name)), player.Value, player.Value);
     }

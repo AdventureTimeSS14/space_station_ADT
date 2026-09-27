@@ -1,8 +1,12 @@
 ﻿name: CRLF Check
 
+# ADT-Tweak-start
 on:
-  pull_request:
-    types: [ opened, reopened, synchronize, ready_for_review ]
+  workflow_dispatch:
+#on:
+#  pull_request:
+#    types: [ opened, reopened, synchronize, ready_for_review ]
+# ADT-Tweak-end
 
 jobs:
   build:
