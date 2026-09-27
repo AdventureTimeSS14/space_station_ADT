@@ -131,7 +131,7 @@ public sealed partial class FiringPinSystem : EntitySystem
             return;
 
         _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, holderComp.RemovalDelay,
-            new FiringPinRemoveDoAfterEvent { Pin = pin.Value.Owner }, ent.Owner, target: ent.Owner, used: args.Used)
+            new FiringPinRemoveDoAfterEvent { Pin = GetNetEntity(pin.Value.Owner) }, ent.Owner, target: ent.Owner, used: args.Used)
         {
             BreakOnMove = true,
             BreakOnDamage = true,
@@ -147,7 +147,7 @@ public sealed partial class FiringPinSystem : EntitySystem
             return;
 
         var pin = GetInstalledPin(ent);
-        if (pin == null || pin.Value.Owner != args.Pin)
+        if (pin == null || GetNetEntity(pin.Value.Owner) != args.Pin)
             return;
 
         _audio.PlayPredicted(ent.Comp.RemoveSound, ent, args.User);
