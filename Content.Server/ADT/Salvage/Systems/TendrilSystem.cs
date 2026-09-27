@@ -1,10 +1,12 @@
 using System.Linq;
 using System.Numerics;
+using Content.Server.ADT.Lavaland.DayNight;
 using Content.Server.ADT.Salvage.Components;
 using Content.Server.Interaction;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
+using Content.Shared.ADT.AshWalker.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Destructible;
@@ -12,6 +14,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Systems;
+using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
@@ -24,6 +27,7 @@ namespace Content.Server.ADT.Salvage.Systems;
 public sealed class TendrilSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly ADTLavalandDayNightSystem _dayNight = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly InteractionSystem _interaction = default!;
@@ -32,6 +36,7 @@ public sealed class TendrilSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly NPCSystem _npc = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     private const string TargetKey = "Target";
     private const string TargetCoordinatesKey = "TargetCoordinates";
@@ -48,6 +53,7 @@ public sealed class TendrilSystem : EntitySystem
         SubscribeLocalEvent<TendrilComponent, ComponentStartup>(OnTendrilStartup);
         SubscribeLocalEvent<TendrilComponent, DamageChangedEvent>(OnTendrilDamaged);
         SubscribeLocalEvent<TendrilComponent, AttackedEvent>(OnTendrilAttacked);
+        SubscribeLocalEvent<TendrilComponent, BeforeDamageChangedEvent>(OnTendrilBeforeDamage);
         SubscribeLocalEvent<TendrilMobComponent, MobStateChangedEvent>(OnMobState);
     }
 
@@ -61,12 +67,21 @@ public sealed class TendrilSystem : EntitySystem
             if (comp.Aggressor is { } aggressor && (_time.CurTime > comp.AggroEndTime || !IsValidTarget(aggressor)))
                 ClearAggro((uid, comp));
 
-            if (comp.Mobs.Count >= comp.MaxSpawns)
+            var xform = Transform(uid);
+            var maxSpawns = comp.MaxSpawns;
+            var spawnDelay = comp.SpawnDelay;
+
+            if (_dayNight.TryGetNight(xform.MapUid, out var night))
+            {
+                maxSpawns += night.TendrilExtraSpawns;
+                spawnDelay *= night.TendrilDelayMultiplier;
+            }
+
+            if (comp.Mobs.Count >= maxSpawns)
                 continue;
-            if (comp.LastSpawn + TimeSpan.FromSeconds(comp.SpawnDelay) > _time.CurTime)
+            if (comp.LastSpawn + TimeSpan.FromSeconds(spawnDelay) > _time.CurTime)
                 continue;
 
-            var xform = Transform(uid);
             var coords = xform.Coordinates;
             var newCoords = coords.Offset(_random.NextVector2(4));
             for (var i = 0; i < 20; i++)
@@ -108,6 +123,15 @@ public sealed class TendrilSystem : EntitySystem
             return;
 
         Aggro(ent, origin);
+    }
+
+    private void OnTendrilBeforeDamage(Entity<TendrilComponent> ent, ref BeforeDamageChangedEvent args)
+    {
+        if (args.Origin is not { } origin || !HasComp<ADTTribeMemberComponent>(origin))
+            return;
+
+        args.Cancelled = true;
+        _popup.PopupEntity(Loc.GetString("adt-ashwalker-tendril-sacred"), ent.Owner, origin);
     }
 
     private void OnTendrilAttacked(Entity<TendrilComponent> ent, ref AttackedEvent args)

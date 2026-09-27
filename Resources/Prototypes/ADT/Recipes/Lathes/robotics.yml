@@ -515,3 +515,30 @@
     Gold: 100
     Plasma: 50
     Cloth: 500
+
+- type: latheRecipe
+  id: ADTJanicartUpgradeBuffer
+  result: ADTJanicartUpgradeBuffer
+  completetime: 2
+  materials:
+    Steel: 500
+    Plastic: 500
+    Copper: 300
+
+- type: latheRecipe
+  id: ADTJanicartUpgradeVacuum
+  result: ADTJanicartUpgradeVacuum
+  completetime: 2
+  materials:
+    Steel: 500
+    Plastic: 500
+    Copper: 300
+
+- type: latheRecipe
+  id: ADTJanicartUpgradeSpeed
+  result: ADTJanicartUpgradeSpeed
+  completetime: 2
+  materials:
+    Steel: 500
+    Plastic: 500
+    Gold: 200

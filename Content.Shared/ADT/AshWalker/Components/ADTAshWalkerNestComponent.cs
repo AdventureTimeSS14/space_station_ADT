@@ -17,9 +17,6 @@ public sealed partial class ADTAshWalkerNestComponent : Component
     public int MeatPerBody = 1;
 
     [DataField]
-    public int MeatPerMegafauna = 20;
-
-    [DataField]
     public float ConsumeRange = 1.5f;
 
     [DataField]
@@ -39,6 +36,15 @@ public sealed partial class ADTAshWalkerNestComponent : Component
 
     [DataField]
     public EntProtoId ShamanEgg = "ADTAshWalkerShamanEgg";
+
+    [DataField]
+    public EntProtoId? LimbDrop;
+
+    [DataField]
+    public float LimbDropChance;
+
+    [DataField]
+    public List<EntProtoId> OrganDrops = new();
 
     [DataField]
     public TimeSpan Interval = TimeSpan.FromSeconds(1);

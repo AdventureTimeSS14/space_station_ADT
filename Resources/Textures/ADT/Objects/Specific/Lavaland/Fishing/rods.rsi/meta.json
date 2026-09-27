@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from Paradise at https://github.com/ParadiseSS13/Paradise/blob/master/icons/obj/lavaland/lava_fishing.dmi",
+    "copyright": "Taken from Paradise at https://github.com/ParadiseSS13/Paradise/blob/master/icons/obj/lavaland/lava_fishing.dmi; inhand sprites taken from Paradise SS220 fork at icons/mob/inhands",
     "size": {
         "x": 32,
         "y": 32
@@ -21,6 +21,38 @@
         },
         {
             "name": "bait_goldgrub_larva"
+        },
+        {
+            "name": "rod-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "rod-wielded-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "rod-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "rod-wielded-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "tribal-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "tribal-wielded-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "tribal-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "tribal-wielded-inhand-right",
+            "directions": 4
         }
     ]
 }

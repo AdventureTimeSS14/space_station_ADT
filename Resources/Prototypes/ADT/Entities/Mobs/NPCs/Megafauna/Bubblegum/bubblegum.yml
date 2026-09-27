@@ -115,6 +115,7 @@
     - proto: ADTClothingOuterHardsuitHECK
     - proto: ADTClothingHeadHelmetHardsuitHECK
     - proto: ADTKineticTrophyDemonClaws
+    - proto: ADTGemIchorium
     - proto: GoldOre
       max: 10
     - proto: SilverOre

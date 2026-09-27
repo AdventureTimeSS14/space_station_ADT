@@ -85,11 +85,21 @@
         color: "#555555AA"
       Burn:
         sprite: Mobs/Effects/burn_damage.rsi
+  # ADT-Tweak-Start
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Critical
+      100: SoftCritical
+      125: Critical
       150: Dead
+    stateAlertDict:
+      Alive: HumanHealth
+      SoftCritical: ADTHumanSoftCritNoBreath
+      Critical: HumanCrit
+      Dead: HumanDead
+  - type: SoftCrit
+    speedModifier: 0.35
+  # ADT-Tweak-End
   - type: TransferMindOnGib
   - type: Destructible
     thresholds:

@@ -738,3 +738,21 @@
     - дёрнуть ухом
     - дернуть ухом
     - ear flick
+
+- type: emote
+  id: ADTRumble
+  name: chat-emote-name-adt-rumble
+  category: Vocal
+  icon: ADT/Interface/Emotes/Vocal/growl.png
+  whitelist:
+    components:
+    - LizardAccent
+  blacklist:
+    tags:
+    - ADTSiliconEmotes
+  chatMessages: [утробно урчит]
+  chatTriggers:
+    - утробно урчит
+    - утробно урчит.
+    - rumble
+    - rumbles

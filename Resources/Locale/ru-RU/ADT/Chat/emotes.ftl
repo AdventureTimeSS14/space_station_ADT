@@ -47,3 +47,5 @@ chat-emote-name-fiery-sounds = Издать пламенные звуки
 chat-emote-name-adt-celecern-snort = фыркнуть
 chat-emote-name-adt-celecern-clop = стукнуть копытом
 chat-emote-name-adt-celecern-ear-flick = дёрнуть ухом
+# Reptilian
+chat-emote-name-adt-rumble = Урчать

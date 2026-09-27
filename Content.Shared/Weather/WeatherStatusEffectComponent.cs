@@ -64,5 +64,8 @@ public sealed partial class WeatherStatusEffectComponent : Component
 
     [DataField]
     public EntityWhitelist? DamageBlacklist;
+
+    [DataField]
+    public SpriteSpecifier? GroundSprite;
     // ADT Weather Tweak End
 }
