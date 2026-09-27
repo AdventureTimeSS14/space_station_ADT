@@ -15983,3 +15983,9 @@ Entries:
     id: 1980
     pr_number: 3429
     time: '2026-09-27T18:00:59Z'
+  - author: FriendlyOne(главный контриб молей и парамеда)
+    changes:
+      - {message: Мешки для тел теперь невесомы в невесомости., type: Fix}
+    id: 1981
+    pr_number: 3458
+    time: '2026-09-27T21:42:42Z'
