@@ -15977,3 +15977,9 @@ Entries:
     id: 1979
     pr_number: 3338
     time: '2026-09-27T15:19:59Z'
+  - author: Etvy
+    changes:
+      - {message: Добавлен плюшевый Юрий Трикстер, type: Add}
+    id: 1980
+    pr_number: 3429
+    time: '2026-09-27T18:00:59Z'
