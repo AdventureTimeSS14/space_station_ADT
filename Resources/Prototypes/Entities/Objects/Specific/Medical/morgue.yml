@@ -33,6 +33,9 @@
   - type: Clickable
   - type: InteractionOutline
   - type: MovedByPressure
+  # ADT-Tweak start: без этого мешок никогда не невесом и тормозит в космосе
+  - type: GravityAffected
+  # ADT-Tweak end
   - type: Physics
     bodyType: Dynamic
   - type: Transform
