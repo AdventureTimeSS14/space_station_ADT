@@ -2,18 +2,21 @@ using System.Linq;
 using Content.Server.ADT.NanoChat;
 using Content.Server.Administration.Logs;
 using Content.Server.CartridgeLoader;
+using Content.Server.Chat.Managers;
 using Content.Server.Power.Components;
 using Content.Server.Radio;
 using Content.Server.Station.Systems;
 using Content.Shared.Access.Components;
 using Content.Shared.CartridgeLoader;
+using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.ADT.CartridgeLoader.Cartridges;
 using Content.Shared.ADT.NanoChat;
 using Content.Shared.PDA;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
-using JetBrains.Annotations;
+using Robust.Server.Audio;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -29,6 +32,8 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
     [Dependency] private readonly SharedNanoChatSystem _nanoChat = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private readonly AudioSystem _audio = default!;
 
     // Messages in notifications get cut off after this point
     // no point in storing it on the comp
@@ -86,25 +91,25 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         switch (msg.Type)
         {
             case NanoChatUiMessageType.NewChat:
-                HandleNewChat(card, msg);
+                NewChat(card, msg.RecipientNumber, msg.Content, msg.RecipientJob, msg.Actor);
                 break;
             case NanoChatUiMessageType.SelectChat:
-                HandleSelectChat(card, msg);
+                SelectChat(card, msg.RecipientNumber);
                 break;
             case NanoChatUiMessageType.CloseChat:
-                HandleCloseChat(card);
+                CloseChat(card);
                 break;
             case NanoChatUiMessageType.ToggleMute:
-                HandleToggleMute(card);
+                ToggleMute(card);
                 break;
             case NanoChatUiMessageType.DeleteChat:
-                HandleDeleteChat(card, msg);
+                DeleteChat(card, msg.RecipientNumber, msg.Actor);
                 break;
             case NanoChatUiMessageType.SendMessage:
-                HandleSendMessage(ent, card, msg);
+                SendMessage(ent, card, msg.RecipientNumber, msg.Content, ent.Comp.RadioChannel);
                 break;
             case NanoChatUiMessageType.ToggleListNumber:
-                HandleToggleListNumber(card);
+                ToggleListNumber(card);
                 break;
         }
 
@@ -133,18 +138,6 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         return true;
     }
 
-    /// <summary>
-    ///     Handles creation of a new chat conversation.
-    /// </summary>
-    private void HandleNewChat(Entity<NanoChatCardComponent> card, NanoChatUiMessageEvent msg)
-    {
-        NewChat(card, msg.RecipientNumber, msg.Content, msg.RecipientJob, msg.Actor);
-    }
-
-    /// <summary>
-    ///     Creates a new chat conversation on a card.
-    /// </summary>
-    [PublicAPI]
     public void NewChat(Entity<NanoChatCardComponent> card, uint? recipientNumber, string? content, string? recipientJob, EntityUid actor)
     {
         if (recipientNumber == null || content == null || recipientNumber == card.Comp.Number)
@@ -179,18 +172,6 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         UpdateUIForCard(card);
     }
 
-    /// <summary>
-    ///     Handles selecting a chat conversation.
-    /// </summary>
-    private void HandleSelectChat(Entity<NanoChatCardComponent> card, NanoChatUiMessageEvent msg)
-    {
-        SelectChat(card, msg.RecipientNumber);
-    }
-
-    /// <summary>
-    ///     Selects a chat conversation on a card.
-    /// </summary>
-    [PublicAPI]
     public void SelectChat(Entity<NanoChatCardComponent> card, uint? recipientNumber)
     {
         if (recipientNumber == null)
@@ -207,35 +188,11 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         }
     }
 
-    /// <summary>
-    ///     Handles closing the current chat conversation.
-    /// </summary>
-    private void HandleCloseChat(Entity<NanoChatCardComponent> card)
-    {
-        CloseChat(card);
-    }
-
-    /// <summary>
-    ///     Closes the current chat conversation on a card.
-    /// </summary>
-    [PublicAPI]
     public void CloseChat(Entity<NanoChatCardComponent> card)
     {
         _nanoChat.SetCurrentChat((card, card.Comp), null);
     }
 
-    /// <summary>
-    ///     Handles deletion of a chat conversation.
-    /// </summary>
-    private void HandleDeleteChat(Entity<NanoChatCardComponent> card, NanoChatUiMessageEvent msg)
-    {
-        DeleteChat(card, msg.RecipientNumber, msg.Actor);
-    }
-
-    /// <summary>
-    ///     Deletes a chat conversation on a card.
-    /// </summary>
-    [PublicAPI]
     public void DeleteChat(Entity<NanoChatCardComponent> card, uint? recipientNumber, EntityUid actor)
     {
         if (recipientNumber == null || card.Comp.Number == null)
@@ -254,33 +211,12 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         UpdateUIForCard(card);
     }
 
-    /// <summary>
-    ///     Handles toggling notification mute state.
-    /// </summary>
-    private void HandleToggleMute(Entity<NanoChatCardComponent> card)
-    {
-        ToggleMute(card);
-    }
-
-    /// <summary>
-    ///     Toggles notification mute state on a card.
-    /// </summary>
-    [PublicAPI]
     public void ToggleMute(Entity<NanoChatCardComponent> card)
     {
         _nanoChat.SetNotificationsMuted((card, card.Comp), !_nanoChat.GetNotificationsMuted((card, card.Comp)));
         UpdateUIForCard(card);
     }
 
-    private void HandleToggleListNumber(Entity<NanoChatCardComponent> card)
-    {
-        ToggleListNumber(card);
-    }
-
-    /// <summary>
-    ///     Toggles card number visibility in the station directory.
-    /// </summary>
-    [PublicAPI]
     public void ToggleListNumber(Entity<NanoChatCardComponent> card)
     {
         _nanoChat.SetListNumber((card, card.Comp), !_nanoChat.GetListNumber((card, card.Comp)));
@@ -288,19 +224,9 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Handles sending a new message in a chat conversation.
-    /// </summary>
-    private void HandleSendMessage(Entity<NanoChatCartridgeComponent> cartridge,
-        Entity<NanoChatCardComponent> card,
-        NanoChatUiMessageEvent msg)
-    {
-        SendMessage(cartridge, card, msg.RecipientNumber, msg.Content, cartridge.Comp.RadioChannel);
-    }
-
-    /// <summary>
     ///     Sends a NanoChat message from a card, attempting delivery through the radio channel.
     /// </summary>
-    [PublicAPI]
+    /// <param name="sender">The sending entity (cartridge or station AI)</param>
     public void SendMessage(EntityUid sender,
         Entity<NanoChatCardComponent> card,
         uint? recipientNumber,
@@ -328,7 +254,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         );
 
         // Attempt delivery
-        var (deliveryFailed, recipients) = AttemptMessageDeliveryInternal(sender, recipientNumber.Value, channelId);
+        var (deliveryFailed, recipients) = AttemptMessageDelivery(sender, recipientNumber.Value, channelId);
 
         // Update delivery status
         message = message with { DeliveryFailed = deliveryFailed };
@@ -375,8 +301,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
     /// <param name="recipientNumber">The recipient's number</param>
     /// <param name="channelId">The radio channel used for delivery</param>
     /// <returns>Tuple containing delivery status and recipients if found.</returns>
-    [PublicAPI]
-    public (bool failed, List<Entity<NanoChatCardComponent>> recipient) AttemptMessageDeliveryInternal(
+    private (bool failed, List<Entity<NanoChatCardComponent>> recipient) AttemptMessageDelivery(
         EntityUid sender,
         uint recipientNumber,
         ProtoId<RadioChannelPrototype> channelId)
@@ -409,72 +334,52 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         var deliverableRecipients = new List<Entity<NanoChatCardComponent>>();
         foreach (var recipient in foundRecipients)
         {
+            // Cards held by a station AI (e.g. in a core) can receive without a cartridge
+            if (HasComp<StationAiNanoChatComponent>(recipient.Owner))
+            {
+                if (CanReceive(sender, senderStation, recipient.Owner, channel))
+                    deliverableRecipients.Add(recipient);
+
+                continue;
+            }
+
             // Find any cartridges that have this card
-            var foundCartridge = false;
             var cartridgeQuery = EntityQueryEnumerator<NanoChatCartridgeComponent, ActiveRadioComponent>();
             while (cartridgeQuery.MoveNext(out var receiverUid, out var receiverCart, out _))
             {
                 if (receiverCart.Card != recipient.Owner)
                     continue;
 
-                // Check if devices are on same station/map
-                var recipientStation = _station.GetOwningStation(receiverUid);
-
-                // Both entities must be on a station
-                if (recipientStation == null || senderStation == null)
+                if (!CanReceive(sender, senderStation, receiverUid, channel))
                     continue;
 
-                // Must be on same map/station unless long range allowed
-                if (!channel.LongRange && recipientStation != senderStation)
-                    continue;
-
-                // Needs telecomms
-                if (!HasActiveServer(senderStation.Value) || !HasActiveServer(recipientStation.Value))
-                    continue;
-
-                // Check if recipient can receive
-                var receiveAttemptEv = new RadioReceiveAttemptEvent(channel, sender, receiverUid);
-                RaiseLocalEvent(ref receiveAttemptEv);
-                if (receiveAttemptEv.Cancelled)
-                    continue;
-
-                // Found valid cartridge that can receive
                 deliverableRecipients.Add(recipient);
-                foundCartridge = true;
                 break; // Only need one valid cartridge per card
             }
-
-            if (foundCartridge)
-                continue;
-
-            // Cards held by a station AI (e.g. in a core) can receive without a cartridge
-            if (!HasComp<StationAiNanoChatComponent>(recipient.Owner))
-                continue;
-
-            var aiRecipientStation = _station.GetOwningStation(recipient.Owner);
-
-            // Both entities must be on a station
-            if (aiRecipientStation == null || senderStation == null)
-                continue;
-
-            // Must be on same map/station unless long range allowed
-            if (!channel.LongRange && aiRecipientStation != senderStation)
-                continue;
-
-            // Needs telecomms
-            if (!HasActiveServer(senderStation.Value) || !HasActiveServer(aiRecipientStation.Value))
-                continue;
-
-            // Check if recipient can receive
-            var aiReceiveAttemptEv = new RadioReceiveAttemptEvent(channel, sender, recipient.Owner);
-            RaiseLocalEvent(ref aiReceiveAttemptEv);
-            if (aiReceiveAttemptEv.Cancelled)
-                continue;
-
-            deliverableRecipients.Add(recipient);
         }
 
         return (deliverableRecipients.Count == 0, deliverableRecipients);
+    }
+
+    private bool CanReceive(EntityUid sender, EntityUid? senderStation, EntityUid receiver, RadioChannelPrototype channel)
+    {
+        var recipientStation = _station.GetOwningStation(receiver);
+
+        // Both entities must be on a station
+        if (recipientStation == null || senderStation == null)
+            return false;
+
+        // Must be on same map/station unless long range allowed
+        if (!channel.LongRange && recipientStation != senderStation)
+            return false;
+
+        // Needs telecomms
+        if (!HasActiveServer(senderStation.Value) || !HasActiveServer(recipientStation.Value))
+            return false;
+
+        var receiveAttemptEv = new RadioReceiveAttemptEvent(channel, sender, receiver);
+        RaiseLocalEvent(ref receiveAttemptEv);
+        return !receiveAttemptEv.Cancelled;
     }
 
     /// <summary>
@@ -501,8 +406,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
     /// <param name="sender">The sender's card entity</param>
     /// <param name="recipient">The recipient's card entity</param>
     /// <param name="message">The <see cref="NanoChatMessage" /> to deliver</param>
-    [PublicAPI]
-    public void DeliverMessageToRecipient(Entity<NanoChatCardComponent> sender,
+    private void DeliverMessageToRecipient(Entity<NanoChatCardComponent> sender,
         Entity<NanoChatCardComponent> recipient,
         NanoChatMessage message)
     {
@@ -544,8 +448,22 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
                 message.SenderId,
                 senderRecipient with { HasUnread = true });
 
-        if (recipient.Comp.NotificationsMuted ||
-            recipient.Comp.PdaUid is not {} pdaUid ||
+        if (recipient.Comp.NotificationsMuted)
+            return;
+
+        var header = Loc.GetString("nano-chat-new-message-title", ("sender", senderName));
+        var body = Loc.GetString("nano-chat-new-message-body", ("message", TruncateMessage(message.Content)));
+
+        if (TryComp<StationAiNanoChatComponent>(recipient.Owner, out var stationAi))
+        {
+            if (hasSelectedCurrentChat && _ui.IsUiOpen(recipient.Owner, StationAiNanoChatUiKey.Key))
+                return;
+
+            NotifyStationAi((recipient, stationAi), header, body);
+            return;
+        }
+
+        if (recipient.Comp.PdaUid is not {} pdaUid ||
             !TryComp<CartridgeLoaderComponent>(pdaUid, out var loader) ||
             // Don't notify if the recipient has the NanoChat program open with this chat selected.
             (hasSelectedCurrentChat &&
@@ -553,10 +471,27 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
                 HasComp<NanoChatCartridgeComponent>(loader.ActiveProgram)))
             return;
 
-        _cartridge.SendNotification(pdaUid,
-            Loc.GetString("nano-chat-new-message-title", ("sender", senderName)),
-            Loc.GetString("nano-chat-new-message-body", ("message", TruncateMessage(message.Content))),
-            loader);
+        _cartridge.SendNotification(pdaUid, header, body, loader);
+    }
+
+    private void NotifyStationAi(Entity<StationAiNanoChatComponent> ent, string header, string body)
+    {
+        if (!TryComp<ActorComponent>(ent.Owner, out var actor))
+            return;
+
+        var message = FormattedMessage.EscapeText(body);
+        var wrappedMessage = Loc.GetString("pda-notification-message",
+            ("header", header),
+            ("message", message));
+
+        _chatManager.ChatMessageToOne(ChatChannel.Notifications,
+            message,
+            wrappedMessage,
+            EntityUid.Invalid,
+            false,
+            actor.PlayerSession.Channel);
+
+        _audio.PlayGlobal(ent.Comp.NotificationSound, actor.PlayerSession);
     }
 
     /// <summary>
@@ -564,6 +499,9 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
     /// </summary>
     private void UpdateUIForCard(EntityUid cardUid)
     {
+        if (TryComp<StationAiNanoChatComponent>(cardUid, out var stationAi))
+            UpdateStationAiUi((cardUid, stationAi));
+
         // Find any PDA containing this card and update its UI
         var query = EntityQueryEnumerator<NanoChatCartridgeComponent, CartridgeComponent>();
         while (query.MoveNext(out var uid, out var comp, out var cartridge))
@@ -578,8 +516,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
     /// <summary>
     ///     Updates the UI for all PDAs containing a NanoChat cartridge.
     /// </summary>
-    [PublicAPI]
-    public void UpdateUIForAllCards()
+    private void UpdateUIForAllCards()
     {
         // Find any PDA containing this card and update its UI
         var query = EntityQueryEnumerator<NanoChatCartridgeComponent, CartridgeComponent>();
@@ -588,13 +525,18 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
             if (cartridge.LoaderUid is { } loader)
                 UpdateUI((uid, comp), loader);
         }
+
+        var aiQuery = EntityQueryEnumerator<StationAiNanoChatComponent>();
+        while (aiQuery.MoveNext(out var uid, out var comp))
+        {
+            UpdateStationAiUi((uid, comp));
+        }
     }
 
     /// <summary>
     ///     Gets the <see cref="NanoChatRecipient" /> for a given NanoChat number.
     /// </summary>
-    [PublicAPI]
-    public NanoChatRecipient? GetCardInfo(uint number)
+    private NanoChatRecipient? GetCardInfo(uint number)
     {
         // Find card with this number to get its info
         var query = EntityQueryEnumerator<NanoChatCardComponent>();
@@ -639,39 +581,61 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         UpdateUI(ent, args.Loader);
     }
 
+    private List<NanoChatRecipient>? GetContacts(EntityUid? station)
+    {
+        if (station == null)
+            return null;
+
+        var contacts = new List<NanoChatRecipient>();
+
+        var query = AllEntityQuery<NanoChatCardComponent, IdCardComponent>();
+        while (query.MoveNext(out var entityId, out var nanoChatCard, out var idCardComponent))
+        {
+            if (nanoChatCard.ListNumber && nanoChatCard.Number is uint nanoChatNumber && idCardComponent.FullName is string fullName && _station.GetOwningStation(entityId) == station)
+            {
+                contacts.Add(new NanoChatRecipient(nanoChatNumber, fullName, idCardComponent.LocalizedJobTitle));
+            }
+        }
+
+        // Cards held by a station AI are visible in the directory as well
+        var aiJob = Loc.GetString("job-name-station-ai");
+        var aiQuery = AllEntityQuery<NanoChatCardComponent, StationAiNanoChatComponent>();
+        while (aiQuery.MoveNext(out var entityId, out var nanoChatCard, out _))
+        {
+            if (nanoChatCard.ListNumber && nanoChatCard.Number is uint nanoChatNumber && _station.GetOwningStation(entityId) == station)
+            {
+                contacts.Add(new NanoChatRecipient(nanoChatNumber, Name(entityId), aiJob));
+            }
+        }
+
+        contacts.Sort((contactA, contactB) => string.CompareOrdinal(contactA.Name, contactB.Name));
+        return contacts;
+    }
+
+    public void UpdateStationAiUi(Entity<StationAiNanoChatComponent> ent)
+    {
+        if (!TryComp<NanoChatCardComponent>(ent.Owner, out var card))
+            return;
+
+        var state = new NanoChatUiState(card.Recipients,
+            card.Messages,
+            GetContacts(_station.GetOwningStation(ent.Owner)),
+            card.CurrentChat,
+            card.Number ?? 0,
+            card.MaxRecipients,
+            card.NotificationsMuted,
+            card.ListNumber);
+
+        _ui.SetUiState(ent.Owner, StationAiNanoChatUiKey.Key, state);
+    }
+
     private void UpdateUI(Entity<NanoChatCartridgeComponent> ent, EntityUid loader)
     {
-        List<NanoChatRecipient>? contacts;
-        if (_station.GetOwningStation(loader) is { } station)
-        {
+        var station = _station.GetOwningStation(loader);
+        if (station != null)
             ent.Comp.Station = station;
 
-            contacts = [];
-
-            var query = AllEntityQuery<NanoChatCardComponent, IdCardComponent>();
-            while (query.MoveNext(out var entityId, out var nanoChatCard, out var idCardComponent))
-            {
-                if (nanoChatCard.ListNumber && nanoChatCard.Number is uint nanoChatNumber && idCardComponent.FullName is string fullName && _station.GetOwningStation(entityId) == station)
-                {
-                    contacts.Add(new NanoChatRecipient(nanoChatNumber, fullName));
-                }
-            }
-
-            // Cards held by a station AI are visible in the directory as well
-            var aiQuery = AllEntityQuery<NanoChatCardComponent, StationAiNanoChatComponent>();
-            while (aiQuery.MoveNext(out var entityId, out var nanoChatCard, out _))
-            {
-                if (nanoChatCard.ListNumber && nanoChatCard.Number is uint nanoChatNumber && _station.GetOwningStation(entityId) == station)
-                {
-                    contacts.Add(new NanoChatRecipient(nanoChatNumber, Name(entityId)));
-                }
-            }
-            contacts.Sort((contactA, contactB) => string.CompareOrdinal(contactA.Name, contactB.Name));
-        }
-        else
-        {
-            contacts = null;
-        }
+        var contacts = GetContacts(station);
 
         var recipients = new Dictionary<uint, NanoChatRecipient>();
         var messages = new Dictionary<uint, List<NanoChatMessage>>();

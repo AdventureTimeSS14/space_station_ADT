@@ -118,6 +118,18 @@
   id: MobReptilian
   name: Urist McScales
   components:
+  # ADT-Tweak start
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: SoftCritical
+      160: Critical
+      200: Dead
+  - type: SoftCrit
+    speedModifier: 0.40
+  - type: TryCatchBreath
+    doAfterTime: 7
+  # ADT-Tweak end
   - type: Puller
     needsHands: false
   - type: Butcherable
