@@ -97,9 +97,6 @@
           tags:
             - ADTMagazineRifleBibis
   - type: GunExecutionBlacklist
-  - type: FiringPinHolder
-    startingPin: null
-    requiresPin: false
 
 # Пистолет-Пулемёты
 
@@ -162,9 +159,6 @@
           tags:
             - ADTMagazineRifleBibisSoft
   - type: GunExecutionBlacklist
-  - type: FiringPinHolder
-    startingPin: null
-    requiresPin: false
 
 # Винтовки
 
@@ -183,9 +177,6 @@
     capacity: 8
     proto: ADTCartridgeStrikeballBibisReinforced
   - type: GunExecutionBlacklist
-  - type: FiringPinHolder
-    startingPin: null
-    requiresPin: false
 
 - type: entity
   id: MusketBibis
@@ -228,6 +219,3 @@
           tags:
             - ADTMagazineRifleBibisSoftBig
   - type: GunExecutionBlacklist
-  - type: FiringPinHolder
-    startingPin: null
-    requiresPin: false

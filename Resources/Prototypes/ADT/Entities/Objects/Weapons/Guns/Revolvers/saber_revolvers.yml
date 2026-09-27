@@ -116,6 +116,5 @@
     fireCost: 100
   - type: EnergySword
     colorOptions: [ "#1E90FFFF" ]
-  - type: FiringPinHolder
-    startingPin: ADTFiringPinLoyalty
+
 

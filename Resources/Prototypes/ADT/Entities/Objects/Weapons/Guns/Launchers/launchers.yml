@@ -103,7 +103,5 @@
   - type: GunRequiresWield
   - type: Item
     size: Huge
-  - type: FiringPinHolder
-    startingPin: ADTFiringPinSyndicate
 
 

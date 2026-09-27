@@ -66,9 +66,6 @@
     magState: mag
     steps: 1
     zeroVisible: true
-  - type: FiringPinHolder
-    startingPin: null
-    requiresPin: false
 
 - type: entity
   name: TAR-60SF
