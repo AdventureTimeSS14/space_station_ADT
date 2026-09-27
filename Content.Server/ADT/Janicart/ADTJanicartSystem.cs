@@ -49,7 +49,6 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
 
     private readonly HashSet<Entity<PuddleComponent>> _puddles = [];
     private readonly HashSet<Entity<ItemComponent>> _items = [];
-    private readonly HashSet<EntityUid> _activeModules = [];
 
     public override void Initialize()
     {
@@ -98,7 +97,7 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
         _audio.PlayPredicted(ent.Comp.InsertSound, ent, user);
         _popup.PopupClient(Loc.GetString("janicart-upgrade-popup-insert", ("upgrade", used), ("vehicle", ent.Owner)), user);
         OnUpgradesChanged(ent);
-        AddActiveModule(used);
+        AddActiveModule(ent, used);
 
         _adminLog.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(user):player} installed {ToPrettyString(used)} into {ToPrettyString(ent.Owner)}.");
         return true;
@@ -160,7 +159,7 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
             return;
 
         foreach (var upgrade in GetUpgrades(ent))
-            _activeModules.Remove(upgrade.Owner);
+            RemoveActiveModule(ent, upgrade.Owner);
 
         _container.EmptyContainer(container);
         _audio.PlayPredicted(ent.Comp.RemoveSound, ent, user);
@@ -207,45 +206,73 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
         base.Update(frameTime);
 
         var curTime = _timing.CurTime;
-        List<EntityUid>? toRemove = null;
+        List<EntityUid>? hostsToRemove = null;
+        var query = EntityQueryEnumerator<ADTJanicartActiveModulesComponent>();
 
-        foreach (var moduleUid in _activeModules)
+        while (query.MoveNext(out var host, out var active))
         {
-            if (!Exists(moduleUid))
+            List<EntityUid>? toRemove = null;
+
+            foreach (var moduleUid in active.ActiveModules)
             {
-                (toRemove ??= []).Add(moduleUid);
-                continue;
+                if (!Exists(moduleUid))
+                {
+                    (toRemove ??= []).Add(moduleUid);
+                    continue;
+                }
+
+                if (!IsModuleOperated(moduleUid))
+                    continue;
+
+                if (TryComp<ADTJanicartBufferComponent>(moduleUid, out var buffer)
+                    && curTime >= buffer.NextCheck)
+                {
+                    buffer.NextCheck = curTime + buffer.CheckInterval;
+                    WashPuddles(moduleUid, buffer);
+                }
+
+                if (TryComp<ADTJanicartVacuumComponent>(moduleUid, out var vacuum)
+                    && curTime >= vacuum.NextCheck)
+                {
+                    vacuum.NextCheck = curTime + vacuum.CheckInterval;
+                    CollectTrash(moduleUid, vacuum);
+                }
             }
 
-            if (!IsModuleOperated(moduleUid))
-                continue;
-
-            if (TryComp<ADTJanicartBufferComponent>(moduleUid, out var buffer)
-                && curTime >= buffer.NextCheck)
+            if (toRemove != null)
             {
-                buffer.NextCheck = curTime + buffer.CheckInterval;
-                WashPuddles(moduleUid, buffer);
+                foreach (var uid in toRemove)
+                    active.ActiveModules.Remove(uid);
             }
 
-            if (TryComp<ADTJanicartVacuumComponent>(moduleUid, out var vacuum)
-                && curTime >= vacuum.NextCheck)
-            {
-                vacuum.NextCheck = curTime + vacuum.CheckInterval;
-                CollectTrash(moduleUid, vacuum);
-            }
+            if (active.ActiveModules.Count == 0)
+                (hostsToRemove ??= []).Add(host);
         }
 
-        if (toRemove != null)
+        if (hostsToRemove != null)
         {
-            foreach (var uid in toRemove)
-                _activeModules.Remove(uid);
+            foreach (var host in hostsToRemove)
+                RemComp<ADTJanicartActiveModulesComponent>(host);
         }
     }
 
-    private void AddActiveModule(EntityUid moduleUid)
+    private void AddActiveModule(EntityUid host, EntityUid moduleUid)
     {
-        if (HasComp<ADTJanicartBufferComponent>(moduleUid) || HasComp<ADTJanicartVacuumComponent>(moduleUid))
-            _activeModules.Add(moduleUid);
+        if (!HasComp<ADTJanicartBufferComponent>(moduleUid) && !HasComp<ADTJanicartVacuumComponent>(moduleUid))
+            return;
+
+        var active = EnsureComp<ADTJanicartActiveModulesComponent>(host);
+        active.ActiveModules.Add(moduleUid);
+    }
+
+    private void RemoveActiveModule(EntityUid host, EntityUid moduleUid)
+    {
+        if (!TryComp<ADTJanicartActiveModulesComponent>(host, out var active))
+            return;
+
+        active.ActiveModules.Remove(moduleUid);
+        if (active.ActiveModules.Count == 0)
+            RemComp<ADTJanicartActiveModulesComponent>(host);
     }
 
     private bool IsModuleOperated(EntityUid moduleUid)
@@ -268,7 +295,7 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
         if (_timing.ApplyingState)
             return;
 
-        AddActiveModule(ent);
+        AddActiveModule(args.ChassisEnt, ent);
     }
 
     private void OnBorgModuleUninstalled(Entity<BorgModuleComponent> ent, ref BorgModuleUninstalledEvent args)
@@ -276,7 +303,7 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
         if (_timing.ApplyingState)
             return;
 
-        _activeModules.Remove(ent);
+        RemoveActiveModule(args.ChassisEnt, ent);
     }
 
     private void WashPuddles(EntityUid moduleUid, ADTJanicartBufferComponent buffer)
