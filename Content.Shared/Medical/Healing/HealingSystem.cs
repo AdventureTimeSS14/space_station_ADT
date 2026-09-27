@@ -1,4 +1,5 @@
 using Content.Shared.Administration.Logs;
+using Content.Shared.ADT.Medical;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.EntitySystems;
@@ -16,8 +17,6 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Map;
-using System.Numerics;
 
 namespace Content.Shared.Medical.Healing;
 
@@ -33,6 +32,7 @@ public sealed class HealingSystem : EntitySystem
     [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private readonly ADTHealingVisualsSystem _healVisuals = default!; // ADT-Tweak
 
     public override void Initialize()
     {
@@ -49,23 +49,32 @@ public sealed class HealingSystem : EntitySystem
         if (args.Handled || args.Cancelled)
         // ADT-Tweak start
         {
-            if (TryComp(args.Used, out HealingComponent? cancelledHealing))
-                StopHealEffect(args.Used.Value, cancelledHealing);
-
+            _healVisuals.StopHealEffect(target.Owner);
             return;
         }
         // ADT-Tweak end
 
         if (!TryComp(args.Used, out HealingComponent? healing))
+        // ADT-Tweak start
+        {
+            _healVisuals.StopHealEffect(target.Owner);
             return;
+        }
+        // ADT-Tweak end
 
         if (!TryComp<InjurableComponent>(target, out var injurable))
+        // ADT-Tweak start
+        {
+            _healVisuals.StopHealEffect(target.Owner);
             return;
+        }
+        // ADT-Tweak end
 
         if (healing.DamageContainers is not null &&
             injurable.DamageContainer is not null &&
             !healing.DamageContainers.Contains(injurable.DamageContainer.Value))
         {
+            _healVisuals.StopHealEffect(target.Owner); // ADT-Tweak
             return;
         }
 
@@ -90,7 +99,12 @@ public sealed class HealingSystem : EntitySystem
             _bloodstreamSystem.TryModifyBloodLevel((target.Owner, bloodstream), healing.ModifyBloodLevel);
 
         if (!_damageable.TryChangeDamage(target.Owner, healing.Damage * _damageable.UniversalTopicalsHealModifier, out var healed, true, origin: args.Args.User) && healing.BloodlossModifier != 0)
+        // ADT-Tweak start
+        {
+            _healVisuals.StopHealEffect(target.Owner);
             return;
+        }
+        // ADT-Tweak end
 
         var total = healed.GetTotal();
 
@@ -127,7 +141,7 @@ public sealed class HealingSystem : EntitySystem
 
         if (!args.Repeat)
         {
-            StopHealEffect(args.Used.Value, healing); // ADT-Tweak
+            _healVisuals.StopHealEffect(target.Owner); // ADT-Tweak
 
             _popupSystem.PopupClient(Loc.GetString("medical-item-finished-using", ("item", args.Used)), target.Owner, args.User);
             return;
@@ -242,32 +256,13 @@ public sealed class HealingSystem : EntitySystem
         // ADT-Tweak start
         if (_doAfter.TryStartDoAfter(doAfterEventArgs))
         {
-            StartHealEffect(healing, target.Owner);
+            _healVisuals.TryStartHealEffect(target.Owner, healing.Comp.HealEffect);
             return true;
         }
 
         return false;
         // ADT-Tweak end
     }
-
-    // ADT-Tweak start
-    private void StartHealEffect(Entity<HealingComponent> healing, EntityUid target)
-    {
-        if (healing.Comp.HealEffect is not { } effect || Exists(healing.Comp.HealEffectEntity))
-            return;
-
-        healing.Comp.HealEffectEntity = PredictedSpawnAttachedTo(effect, new EntityCoordinates(target, Vector2.Zero));
-    }
-
-    private void StopHealEffect(EntityUid used, HealingComponent healing)
-    {
-        if (!Exists(healing.HealEffectEntity))
-            return;
-
-        PredictedQueueDel(healing.HealEffectEntity.Value);
-        healing.HealEffectEntity = null;
-    }
-    // ADT-Tweak end
 
     /// <summary>
     /// Scales the self-heal penalty based on the amount of damage taken

@@ -12,7 +12,7 @@ using Robust.Shared.Random;
 
 namespace Content.Server.ADT.Generation;
 
-public sealed class ADTLavalandGenerationSystem : EntitySystem
+public sealed partial class ADTLavalandGenerationSystem : EntitySystem
 {
     [Dependency] private readonly BiomeSystem _biome = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
@@ -160,6 +160,7 @@ public sealed class ADTLavalandGenerationSystem : EntitySystem
 
         var placed = comp.Placed;
         placed.Clear();
+        comp.Exclusions.Clear();
 
         foreach (var group in comp.Groups)
         {
@@ -182,8 +183,13 @@ public sealed class ADTLavalandGenerationSystem : EntitySystem
                     _pendingRooms.Add((proto, rooms[next++], coords));
 
                 placed.Add(coords.Position);
+
+                if (group.Clearance > 0f)
+                    comp.Exclusions.Add((coords.Position, group.Clearance));
             }
         }
+
+        GenerateRivers(ent);
     }
 
     private List<ProtoId<ADTDungeonRoomPrototype>>? BuildRoomQueue(LavalandScatterGroup group)
@@ -224,6 +230,17 @@ public sealed class ADTLavalandGenerationSystem : EntitySystem
         return queue;
     }
 
+    public bool IsExcluded(ADTLavalandGenerationComponent comp, Vector2 position)
+    {
+        foreach (var (center, radius) in comp.Exclusions)
+        {
+            if (Vector2.DistanceSquared(position, center) < radius * radius)
+                return true;
+        }
+
+        return false;
+    }
+
     private bool TryFindSpot(
         Entity<ADTLavalandGenerationComponent> ent,
         LavalandScatterGroup group,
@@ -232,16 +249,17 @@ public sealed class ADTLavalandGenerationSystem : EntitySystem
     {
         var comp = ent.Comp;
         var minCenter = MathF.Max(group.MinDistanceFromCenter, comp.MinRadius);
+        var maxCenter = MathF.Min(group.MaxDistanceFromCenter ?? comp.MaxRadius, comp.MaxRadius);
 
         for (var attempt = 0; attempt < comp.MaxAttempts; attempt++)
         {
             var angle = _random.NextFloat(0, MathF.PI * 2);
-            var distance = _random.NextFloat(minCenter, comp.MaxRadius);
+            var distance = _random.NextFloat(minCenter, maxCenter);
             var offset = new Vector2(MathF.Cos(angle) * distance, MathF.Sin(angle) * distance);
 
             coords = new EntityCoordinates(ent.Owner, comp.BaseCenter + offset);
 
-            if (IsValidSpot(coords, group, placed))
+            if (!IsExcluded(comp, coords.Position) && IsValidSpot(coords, group, placed))
                 return true;
         }
 

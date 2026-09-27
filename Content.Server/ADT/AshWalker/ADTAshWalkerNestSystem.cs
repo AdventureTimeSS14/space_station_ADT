@@ -1,11 +1,11 @@
 using Content.Shared.ADT.AshWalker.Components;
-using Content.Shared.ADT.Salvage.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Gibbing;
+using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
@@ -64,12 +64,12 @@ public sealed class ADTAshWalkerNestSystem : EntitySystem
 
     private void Consume(Entity<ADTAshWalkerNestComponent> ent)
     {
-        var bodies = new HashSet<Entity<MobStateComponent>>();
+        var bodies = new HashSet<Entity<HumanoidProfileComponent>>();
         _lookup.GetEntitiesInRange(Transform(ent.Owner).Coordinates, ent.Comp.ConsumeRange, bodies);
 
         foreach (var body in bodies)
         {
-            if (!_mobState.IsIncapacitated(body.Owner, body.Comp))
+            if (!_mobState.IsDead(body.Owner))
                 continue;
 
             _popup.PopupEntity(
@@ -78,9 +78,7 @@ public sealed class ADTAshWalkerNestSystem : EntitySystem
                 PopupType.MediumCaution);
             _audio.PlayPvs(ConsumeSound, ent.Owner);
 
-            ent.Comp.MeatCounter += HasComp<MegafaunaComponent>(body.Owner)
-                ? ent.Comp.MeatPerMegafauna
-                : ent.Comp.MeatPerBody;
+            ent.Comp.MeatCounter += ent.Comp.MeatPerBody;
 
             _gibbing.Gib(body.Owner);
 

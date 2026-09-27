@@ -27,6 +27,7 @@
       types:
         Blunt: 15
   - type: ADTLegion
+    corpseProto: ADTLegionCorpseSpawner
   - type: ADTFlee
     distance: 6
   - type: NpcFactionMember

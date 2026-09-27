@@ -141,7 +141,12 @@
   - type: ApcPowerReceiver
     needsPower: false
   - type: Microwave
-    capacity: 5
+    capacity: 10
+    validRecipeTypes: TribalOven
+  - type: Construction
+    graph: ADTTribalOvenCraft
+    node: oven
+    containers: []
   - type: AshStormImmune
 
 - type: entity
@@ -161,6 +166,8 @@
   - type: Construction
     graph: ADTAshDryingRackCraft
     node: rack
+  - type: ADTDryingRack
+    interval: 2
   - type: Storage
     grid:
     - 0,0,5,2
