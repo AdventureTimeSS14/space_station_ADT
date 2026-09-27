@@ -15818,3 +15818,9 @@ Entries:
     id: 1967
     pr_number: 3384
     time: '2026-09-27T07:12:38Z'
+  - author: Fineter75
+    changes:
+      - {message: Добавлен софт-крит, type: Add}
+    id: 1968
+    pr_number: 3380
+    time: '2026-09-27T07:35:14Z'
