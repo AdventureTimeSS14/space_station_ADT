@@ -111,3 +111,22 @@
   position: 5,1
   requiredTech:
   - FauxAstroTiles
+
+- type: technology
+  id: ADTJanicartUpgrades
+  name: research-technology-janicart-upgrades
+  icon:
+    sprite: ADT/Misc/car_update.rsi
+    state: janicart_upgrade_buffer
+  discipline: CivilianServices
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - ADTJanicartUpgradeBuffer
+  - ADTJanicartUpgradeVacuum
+  - ADTJanicartUpgradeSpeed
+  - ADTBorgModuleJanicartBuffer
+  - ADTBorgModuleJanicartVacuum
+  position: 1,2
+  requiredTech:
+  - AdvancedCleaning
