@@ -196,6 +196,7 @@
       toggleable-clothing: !type:ContainerSlot {}
   - type: GroupExamine
   - type: ADTGoliathPlatable
+    types: [ Blunt, Slash ]
   - type: Construction
     graph: ADTPathfinderCloak
     node: cloak
@@ -218,6 +219,7 @@
         Slash: 0.8
         Piercing: 0.8
   - type: ADTGoliathPlatable
+    types: [ Blunt, Slash ]
 
 - type: entity
   parent: ClothingShoesBase
@@ -460,6 +462,7 @@
   - type: Tag
     tags:
     - ADTBowBone
+    - ADTBow
   - type: Construction
     graph: ADTBowBone
     node: bow

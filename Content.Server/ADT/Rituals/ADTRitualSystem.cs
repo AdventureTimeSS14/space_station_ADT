@@ -303,6 +303,9 @@ public sealed partial class ADTRitualSystem : EntitySystem
                 if (candidate == ent.Owner || invokers.Contains(candidate) || used.Contains(candidate))
                     continue;
 
+                if (HasComp<GhostComponent>(candidate))
+                    continue;
+
                 if (!_whitelist.IsValid(required.Whitelist, candidate))
                     continue;
 
