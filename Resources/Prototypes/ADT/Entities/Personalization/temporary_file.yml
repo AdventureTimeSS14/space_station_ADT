@@ -158,6 +158,62 @@
     sprite: ADT/Personalization/Illumy/heatresistant_tuxedo.rsi
 
 - type: entity
+  parent: ClothingMaskNeckGaiter
+  id: ADTClothingMaskNeckGaiterModShinoba
+  name: modified neck gaiter
+  description: Breathable gaiters — what more could you ask for?
+  suffix: sponsor, shinoba
+  components:
+  - type: Sprite
+    sprite: Clothing/Mask/neckgaiter.rsi
+  - type: Clothing
+    sprite: Clothing/Mask/neckgaiter.rsi
+  - type: IdentityBlocker
+    coverage: MOUTH
+  - type: BreathMask
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+
+- type: entity
+  parent: ClothingBeltMilitaryWebbing
+  id: ADTClothingBeltWeaponHolsterArmyShinoba
+  name: army pouch
+  description: A durable belt featuring a weapon mount and a spacious compartment. It is distinguished by its reinforced construction.
+  suffix: sponsor, shinoba
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Shinoba/holster_army.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Personalization/Shinoba/holster_army.rsi
+  - type: ItemSlots
+    slots:
+      weapon:
+        name: item
+        whitelist:
+          tags:
+          - Sidearm
+          - CaptainSabre
+          - HighRiskItem
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      weapon: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+    
+- type: entity
   parent: BasePlushie
   id: ADTPlushieProximaLunnyykat
   name: plushie Proxima

@@ -241,6 +241,8 @@
     damageCoefficient: 0.90
   - type: ToggleableClothing
     clothingPrototype: ADTClothingHeadHelmetMiner
+  - type: ADTGoliathPlatable
+    upgrade: ADTClothingOuterArmorMinerReinforcedOne
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
@@ -284,6 +286,9 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.75
+  - type: ADTGoliathPlatable
+    types: []
+    upgrade: null
 
 - type: entity
   parent: ADTClothingOuterArmorMiner
@@ -316,6 +321,9 @@
   - type: ClothingSpeedModifier
     walkModifier: 1.2
     sprintModifier: 1.2
+  - type: ADTGoliathPlatable
+    types: []
+    upgrade: null
 
 #Бронежилет скрытого ношения
 
@@ -390,9 +398,8 @@
         occludes: True
         ent: null
       toggleable-clothing: !type:ContainerSlot {}
-  - type: Construction
-    graph: ADTReinforcedMinerArmorOne
-    node: ADTReinforcedMinerArmorOne
+  - type: ADTGoliathPlatable
+    upgrade: ADTClothingOuterArmorMinerReinforcedTwo
   - type: Tag
     tags:
     - ADTMinerArmorOne
@@ -433,9 +440,8 @@
         occludes: True
         ent: null
       toggleable-clothing: !type:ContainerSlot {}
-  - type: Construction
-    graph: ADTReinforcedMinerArmorTwo
-    node: ADTReinforcedMinerArmorTwo
+  - type: ADTGoliathPlatable
+    upgrade: ADTClothingOuterArmorMinerReinforcedFull
   - type: Tag
     tags:
     - ADTMinerArmorTwo
@@ -476,9 +482,6 @@
         occludes: True
         ent: null
       toggleable-clothing: !type:ContainerSlot {}
-  - type: Construction
-    graph: ADTReinforcedMinerArmorFull
-    node: ADTReinforcedMinerArmorFull
 
 - type: entity
   parent: ClothingOuterArmorBasic

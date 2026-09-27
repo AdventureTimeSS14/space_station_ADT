@@ -188,6 +188,38 @@
           Quantity: 4
   - type: Extractable
     grindableSolutionName: food
+  - type: Log
+    spawnCount: 1
   - type: Tag
     tags:
     - ADTLavaFishPart
+    - ADTCoaltreeLog
+
+- type: entity
+  name: reishi
+  parent: FoodProduceBase
+  id: ADTFoodReishi
+  description: "Ganoderma lucidum: a special fungus known for its medicinal and stress relieving properties."
+  components:
+  - type: FlavorProfile
+    flavors:
+    - mushroom
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 12
+        reagents:
+        - ReagentId: ADTMorphine
+          Quantity: 5
+        - ReagentId: Charcoal
+          Quantity: 5
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Hydroponics/reishi.rsi
+  - type: Produce
+    seedId: ADTSeedReishi
+  - type: Extractable
+    grindableSolutionName: food
+  - type: Tag
+    tags:
+    - Mushroom
+    - ADTReishi

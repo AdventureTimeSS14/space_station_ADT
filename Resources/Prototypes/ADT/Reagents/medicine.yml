@@ -788,3 +788,23 @@
         visualType: MediumCaution
         messages: [ "lavaland-extract-overdose" ]
         probability: 0.2
+
+- type: reagent
+  id: ADTAshiezine
+  name: reagent-name-adt-ashiezine
+  group: Medicine
+  desc: reagent-desc-adt-ashiezine
+  physicalDesc: reagent-physical-desc-viscous
+  flavor: medicine
+  color: "#f45555"
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:AdjustReagent
+        conditions:
+        - !type:HasComponentCondition
+          components:
+          - ADTAshWalker
+          guidebookComponentName: reagent-comp-condition-adt-ashwalker
+        reagent: Epinephrine
+        amount: 0.2
