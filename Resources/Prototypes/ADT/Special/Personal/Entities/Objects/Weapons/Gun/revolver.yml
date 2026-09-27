@@ -54,9 +54,6 @@
   - type: Clothing
     sprite: ADT/Personalization/couatl_argument.rsi
   - type: AmmoCounter #ADT-tweak: единственный револьвер со счётчиком патронов
-  - type: Construction
-    graph: ADTPistolTransforms
-    node: icon
 
 - type: entity
   name: Cutter

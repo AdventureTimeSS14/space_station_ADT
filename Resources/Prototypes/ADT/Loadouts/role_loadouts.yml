@@ -19,6 +19,7 @@
   - ADTSocks
   # ADT underwear tweak end
   - ADTPersonalLoadoutLawyer
+  - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobADTPathologist
@@ -44,6 +45,7 @@
   - ADTSocks
   # ADT underwear tweak end
   - ADTPersonalLoadoutCivilian
+  - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobADTRoboticist
@@ -70,6 +72,7 @@
   - ADTSocks
   # ADT underwear tweak end
   - ADTPersonalLoadoutCivilian
+  - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobADTBlueShieldOfficer
@@ -92,6 +95,7 @@
   - ADTSocksBlueshield
   # ADT underwear tweak end
   - ADTPersonalLoadoutBlueShieldOfficer
+  - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobADTCentcomConsultant
@@ -115,6 +119,7 @@
   - ADTTop
   - ADTBottom
   # ADT underwear tweak end
+  - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobADTSeniorPhysician
@@ -140,6 +145,7 @@
   - ADTSocks
   # ADT underwear tweak end
   - ADTPersonalLoadoutCivilian
+  - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobADTSeniorResearcher
@@ -164,6 +170,7 @@
   - GroupSpeciesBreathTool
   # ADT tweak end
   - ADTPersonalLoadoutCivilian
+  - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobADTSeniorEngineer
@@ -188,6 +195,7 @@
   - GroupSpeciesBreathTool
   # ADT tweak end
   - ADTPersonalLoadoutCivilian
+  - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobADTSeniorOfficer
@@ -212,6 +220,7 @@
   - GroupSpeciesBreathToolSecurity
   # ADT tweak end
   - ADTPersonalLoadoutSecurity
+  - ADTPersonalLoadoutPlushie
 
   # brigmedic
 - type: roleLoadout
@@ -241,6 +250,7 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobADTCorrectionsOfficer
@@ -264,6 +274,7 @@
   - GroupSpeciesBreathToolSecurity
   # ADT tweak end
   - ADTPersonalLoadoutCivilian
+  - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: ADTRoleSurvivalCBURN
@@ -292,6 +303,7 @@
   - ADTRacialItems # ADT-Tweak
   - GroupSpeciesBreathTool
   - ADTPersonalLoadoutCivilian
+  - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobADTMiner
@@ -317,3 +329,4 @@
   - ADTRacialItems # ADT-Tweak
   - GroupSpeciesBreathTool
   - ADTPersonalLoadoutCivilian
+  - ADTPersonalLoadoutPlushie

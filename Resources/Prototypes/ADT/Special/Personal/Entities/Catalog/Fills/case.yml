@@ -4,6 +4,9 @@
   parent: BriefcaseBrown
   suffix: Filled
   components:
+  - type: Storage
+    grid:
+    - 0,0,6,5
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
@@ -17,7 +20,7 @@
 
 - type: entity
   id: ADTBriefcaseBrownPushnoY
-  name: Pyotr`s briefcase
+  name: PushnoY`s briefcase
   parent: BriefcaseBrown
   suffix: Filled
   components:
@@ -30,7 +33,7 @@
 
 - type: entity
   id: ADTBriefcaseBrownRaven559
-  name: Pyotr`s briefcase
+  name: Raven559`s briefcase
   parent: BriefcaseBrown
   suffix: Filled
   components:
@@ -44,7 +47,7 @@
 
 - type: entity
   id: ADTBriefcaseBrownNikLi
-  name: Pyotr`s briefcase
+  name: NikLi`s briefcase
   parent: BriefcaseBrown
   suffix: Filled
   components:
@@ -58,10 +61,13 @@
 
 - type: entity
   id: ADTBriefcaseBrownHonelin111
-  name: Pyotr`s briefcase
+  name: Honelin111`s briefcase
   parent: BriefcaseBrown
   suffix: Filled
   components:
+  - type: Storage
+    grid:
+    - 0,0,6,5
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
@@ -76,7 +82,7 @@
 
 - type: entity
   id: ADTBriefcaseBrownMoon_so_red
-  name: Pyotr`s briefcase
+  name: Moon_so_red`s briefcase
   parent: BriefcaseBrown
   suffix: Filled
   components:
@@ -91,10 +97,13 @@
 
 - type: entity
   id: ADTBriefcaseBrownPrazatCool
-  name: Pyotr`s briefcase
+  name: PrazatCool`s briefcase
   parent: BriefcaseBrown
   suffix: Filled
   components:
+  - type: Storage
+    grid:
+    - 0,0,6,5
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
@@ -108,7 +117,7 @@
 
 - type: entity
   id: ADTBriefcaseBrownSaintMadman
-  name: Pyotr`s briefcase
+  name: SaintMadman`s briefcase
   parent: BriefcaseBrown
   suffix: Filled
   components:
@@ -204,7 +213,7 @@
 
 - type: entity
   id: ADTPremiumCaseKimerk
-  name: premium case
+  name: premium case Kimerk
   description: premium case desc
   parent: [BaseStorageItem, BaseBagOpenClose]
   suffix: Personal, kimer_k

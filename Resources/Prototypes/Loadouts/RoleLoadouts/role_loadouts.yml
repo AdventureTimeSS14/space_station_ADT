@@ -20,6 +20,7 @@
   #- CaptainJobTrinkets
   - GroupSpeciesBreathTool
   - ADTPersonalLoadoutCapitan # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobHeadOfPersonnel
@@ -45,6 +46,8 @@
   #- HoPJobTrinkets
   - GroupSpeciesBreathTool
   # - ADTPersonalLoadoutHeadOfPersonnel # ADT-Tweak personals
+  - ADTPersonalLoadoutPlushie
+
 # Silicons
 - type: roleLoadout
   id: JobBorg
@@ -91,6 +94,7 @@
   #- PassengerJobTrinkets
   - GroupSpeciesBreathTool
   - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobBartender
@@ -117,6 +121,7 @@
   # - BartenderJobTrinkets
   - GroupSpeciesBreathTool
   - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobServiceWorker
@@ -141,6 +146,7 @@
   #- ServiceWorkerJobTrinkets
   - GroupSpeciesBreathTool
   - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobChef
@@ -172,6 +178,7 @@
   #- ChefJobTrinkets
   - GroupSpeciesBreathTool
   - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobLibrarian
@@ -194,6 +201,7 @@
   #- LibrarianJobTrinkets
   - GroupSpeciesBreathTool
   - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobLawyer
@@ -219,6 +227,7 @@
   #- LawyerJobTrinkets
   - GroupSpeciesBreathTool
   - ADTPersonalLoadoutLawyer # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobChaplain
@@ -250,6 +259,7 @@
   # ADT chaplain update
   - ADTChaplainBelt
   - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobJanitor
@@ -275,6 +285,7 @@
   # - JanitorJobTrinkets
   - GroupSpeciesBreathTool
   - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobBotanist
@@ -300,6 +311,7 @@
   #- BotanistJobTrinkets
   - GroupSpeciesBreathTool
   - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobClown
@@ -329,6 +341,7 @@
   - ADTRacialItems # ADT-Tweak
   # - ClownJobTrinkets
   - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobMime
@@ -355,6 +368,7 @@
   - ADTRacialItems # ADT-Tweak
   #- MimeJobTrinkets
   - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobMusician
@@ -382,8 +396,10 @@
   - ADTSuperInstruments #ADT-Tweak
   - GroupSpeciesBreathTool
   - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie
 
-# Cargo
+# Cargo  - ADTPersonalLoadoutPlushie
+
 - type: roleLoadout
   id: JobQuartermaster
   groups:
@@ -409,6 +425,7 @@
   #- QuartermasterJobTrinkets
   - GroupSpeciesBreathTool
   - ADTPersonalLoadoutQuarterMaster # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobCargoTechnician
@@ -435,6 +452,7 @@
   #- CargoTechnicianJobTrinkets
   - GroupSpeciesBreathTool
   - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobSalvageSpecialist
@@ -463,6 +481,7 @@
   #- SalvageSpecialistJobTrinkets
   - GroupSpeciesBreathTool
   - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie
 
 # Engineering
 - type: roleLoadout
@@ -490,6 +509,7 @@
   #- ChiefEngineerJobTrinkets
   - GroupSpeciesBreathTool
   - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobTechnicalAssistant
@@ -511,6 +531,7 @@
   #- TechnicalAssistantJobTrinkets
   - GroupSpeciesBreathTool
   - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobStationEngineer
@@ -537,6 +558,7 @@
   #- StationEngineerJobTrinkets
   - GroupSpeciesBreathTool
   - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobAtmosphericTechnician
@@ -565,6 +587,7 @@
   #- AtmosphericTechnicianJobTrinkets
   - GroupSpeciesBreathTool
   - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie
 
 # Science
 - type: roleLoadout
@@ -593,6 +616,7 @@
   #- ResearchDirectorJobTrinkets
   - GroupSpeciesBreathTool
   - ADTPersonalLoadoutResearchDirector # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobScientist
@@ -620,6 +644,7 @@
   #- ScientistJobTrinkets
   - GroupSpeciesBreathTool
   - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobResearchAssistant
@@ -641,6 +666,7 @@
   #- ResearchAssistantJobTrinkets
   - GroupSpeciesBreathTool
   - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie
 
 # Security
 - type: roleLoadout
@@ -667,6 +693,7 @@
   #- HeadofSecurityJobTrinkets
   - GroupSpeciesBreathToolSecurity
   - ADTPersonalLoadoutSecurity # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobWarden
@@ -693,6 +720,7 @@
   #- WardenJobTrinkets
   - GroupSpeciesBreathToolSecurity
   - ADTPersonalLoadoutSecurity # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobSecurityOfficer
@@ -720,6 +748,7 @@
   #- SecurityJobTrinkets
   - GroupSpeciesBreathToolSecurity
   - ADTPersonalLoadoutSecurity # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobDetective
@@ -744,6 +773,7 @@
   #- DetectiveJobTrinkets
   - GroupSpeciesBreathToolSecurity
   - ADTPersonalLoadoutSecurity # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobSecurityCadet
@@ -761,6 +791,7 @@
   - ADTSocks
   # ADT underwear tweak end
   - ADTPersonalLoadoutSecurity # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie
 
 # Wildcards
 - type: roleLoadout
@@ -784,6 +815,7 @@
   #- SecurityCadetJobTrinkets
   - GroupSpeciesBreathToolSecurity
   - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie
 
 # Wildcards
 - type: roleLoadout
@@ -810,6 +842,7 @@
   #- ReporterJobTrinkets
   - GroupSpeciesBreathTool
   - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobPsychologist
@@ -832,6 +865,7 @@
   - ADTRacialItems # ADT-Tweak
   # - PsychologistJobTrinkets
   - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobBoxer
@@ -857,6 +891,7 @@
   #- PsychologistJobTrinkets
   - GroupSpeciesBreathTool
   - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs
 # They will be used without player configuration, thus they will only ever apply what is forced by MinLimit

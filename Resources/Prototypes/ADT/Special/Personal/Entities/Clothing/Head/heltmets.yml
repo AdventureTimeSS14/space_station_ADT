@@ -10,3 +10,14 @@
     sprite: ADT/Personalization/blue_armored_hardhat.rsi
   - type: Clothing
     sprite: ADT/Personalization/blue_armored_hardhat.rsi
+
+- type: entity
+  parent: ClothingHeadHelmetRiot
+  id: ADTClothingHeadBSHelmet
+  name: worn-out ceremonial helmet of an officer of the "Blue Shield"
+  description: A helmet protected from impacts and cuts. The cap symbolizes the power of capitalism and war crimes.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Raven559/blue_shield_ceremonial_helmet.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/Raven559/blue_shield_ceremonial_helmet.rsi

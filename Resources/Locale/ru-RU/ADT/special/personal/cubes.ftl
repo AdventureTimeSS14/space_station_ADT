@@ -6,6 +6,3 @@ ent-ADTTransCubeLemonLimeLord = { ent-ADTBaseTransCube }
 ent-ADTTransCubePrazatCool = { ent-ADTBaseTransCube }
     .desc = { ent-ADTBaseTransCube.desc }
     .suffix = Именное, PrazzzCool999
-ent-ADTTransCubeCouatl = { ent-ADTBaseTransCube }
-    .desc = { ent-ADTBaseTransCube.desc }
-    .suffix = Именное, Couatl

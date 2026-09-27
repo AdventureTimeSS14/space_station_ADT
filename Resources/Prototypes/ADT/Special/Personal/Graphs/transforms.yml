@@ -37,21 +37,3 @@
         doAfter: 1
   - node: icon
     entity: ADTClothingBeltPrazatSheath
-
-- type: constructionGraph
-  id: ADTPistolTransforms
-  start: start
-  graph:
-  - node: start
-    entity: WeaponPistolMk58
-    edges:
-    - to: icon
-      completed:
-      - !type:AdminLog
-        message: "Construction"
-        impact: High
-      steps:
-      - tag: ADTCouatl
-        doAfter: 1
-  - node: icon
-    entity: ADTWeaponRevolverArgumentCouatl

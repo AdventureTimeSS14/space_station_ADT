@@ -32,13 +32,3 @@
   - type: Tag
     tags:
     - ADTPrazatCool
-
-- type: entity
-  parent: ADTBaseTransCube
-  id: ADTTransCubeCouatl
-  components:
-  - type: Sprite
-    state: wrapper
-  - type: Tag
-    tags:
-    - ADTCouatl
