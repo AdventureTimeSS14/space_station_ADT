@@ -1510,7 +1510,8 @@
   description: uplink-firing-pin-syndicate-desc
   icon: { sprite: /Textures/ADT/Objects/Devices/pin.rsi, state: firing_pin_red }
   productEntity: ADTFiringPinSyndicate
-  cost:
-    Telecrystal: 1
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
   categories:
   - UplinkWeaponry
