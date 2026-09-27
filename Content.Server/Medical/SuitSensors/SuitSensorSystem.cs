@@ -66,7 +66,7 @@ public sealed class SuitSensorSystem : SharedSuitSensorSystem
     }
 
     private static bool IsUrgentMobState(MobState state) =>
-        state is MobState.Critical or MobState.Dead;
+        state is MobState.SoftCritical or MobState.Critical or MobState.Dead; // ADT-Tweak
 
     /// <summary>
     /// Clears the report cache and schedules every sensor for an immediate update.

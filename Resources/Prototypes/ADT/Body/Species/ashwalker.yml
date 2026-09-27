@@ -4,6 +4,16 @@
   parent: BaseSpeciesMobOrganic
   id: ADTMobAshWalkerBase
   components:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: SoftCritical
+      160: Critical
+      200: Dead
+  - type: SoftCrit
+    speedModifier: 0.40
+  - type: TryCatchBreath
+    doAfterTime: 7
   - type: ADTTribeMember
   - type: ADTConstructionRestriction
     allowedRecipes: &ADTTribeRecipes
