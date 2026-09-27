@@ -16,6 +16,7 @@
     soundHit:
       collection: MetalThud
   - type: CombatMode
+  - type: ADTBorgMarkerViewer # ADT-Tweak
   - type: NoSlip
   - type: StaticPrice
     price: 1250
@@ -361,6 +362,18 @@
   - type: RandomMetadata
     nameSegments:
     - NamesBorg
+  # ADT-Tweak start
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - FootstepSound
+    - CanPilot
+    - SiliconEmotes
+    - ADTSiliconStealthWhitelist
+    - ADTSiliconEmotes
+    - Unimplantable
+    - ADTVendingCargoAccount
+  # ADT-Tweak end
   - type: NpcFactionMember
     factions:
     - NanoTrasen

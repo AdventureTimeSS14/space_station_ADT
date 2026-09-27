@@ -9,7 +9,7 @@
     powerLoad: 1000
     powerMultiplier: 1
   - type: InjectorBoost # ADT-Tweak (P4A) Ускорение Шприцов на койках и каталках
-  - type: AntiRotOnBuckle
+  - type: StasisBedRot # ADT-Tweak
   - type: HealOnBuckle
     damage:
       types:

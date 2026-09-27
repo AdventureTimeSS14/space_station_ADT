@@ -53,6 +53,10 @@
   - type: IgnitionSource
     temperature: 700
     ignited: true
+  # ADT-Tweak start
+  - type: ParticleEmitter
+    effect: ADTFireContinuous
+  # ADT-Tweak end
   - type: RequireProjectileTarget
 
 - type: entity

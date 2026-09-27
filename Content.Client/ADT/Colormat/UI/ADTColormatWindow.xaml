@@ -1,0 +1,32 @@
+<controls:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:vending="clr-namespace:Content.Client.ADT.VendingMachines.UI"
+    MinSize="440 380"
+    SetSize="460 400">
+    <BoxContainer
+        Orientation="Vertical"
+        Margin="10"
+        SeparationOverride="8">
+        <Label
+            Name="ItemNameLabel"
+            Text="{Loc 'colormat-insert-hint'}"
+            HorizontalAlignment="Center"/>
+        <vending:ClothingColorPicker
+            Name="ColorPicker"
+            Visible="False"/>
+        <BoxContainer
+            Orientation="Horizontal"
+            SeparationOverride="6"
+            HorizontalAlignment="Center">
+            <Button
+                Name="SaveButton"
+                Text="{Loc 'colormat-save'}"
+                Disabled="True"/>
+            <Button
+                Name="EjectButton"
+                Text="{Loc 'colormat-eject'}"
+                Disabled="True"/>
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>

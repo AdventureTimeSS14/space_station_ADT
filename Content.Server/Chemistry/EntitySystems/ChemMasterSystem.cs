@@ -1529,7 +1529,7 @@ namespace Content.Server.Chemistry.EntitySystems
                 // Try to get reagent prototype for the name
                 if (_prototypeManager.TryIndex<ReagentPrototype>(reagentId.Prototype, out var reagentProto))
                 {
-                    var reagentName = Loc.GetString(reagentProto.LocalizedName);
+                    var reagentName = reagentProto.LocalizedName;
                     parts.Add($"{reagentName}:{amount:F0}u");
                 }
             }

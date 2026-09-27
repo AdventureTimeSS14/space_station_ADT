@@ -1,7 +1,6 @@
 - type: latheRecipe
   id: ADTSheetBScrystal
   result: ADTMaterialBScrystal1
-  miningPoints: 40
   completetime: 0
   materials:
     ADTRawBSore: 100
@@ -10,7 +9,6 @@
   id: SheetCopper
   result: ADTSheetCopper1
   completetime: 0
-  miningPoints: 2
   materials:
     RawCopper: 100
 
@@ -25,7 +23,6 @@
   id: SheetZinc
   result: ADTSheetZinc1
   completetime: 0
-  miningPoints: 6
   materials:
     RawZinc: 100
 
@@ -40,7 +37,6 @@
   id: SheetLead
   result: ADTSheetLead1
   completetime: 0
-  miningPoints: 4
   materials:
     RawLead: 100
 

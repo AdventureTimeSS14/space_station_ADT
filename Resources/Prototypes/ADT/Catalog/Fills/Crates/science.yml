@@ -51,3 +51,15 @@
           amount: 1
         - id: NutimovCircuitBoard
           amount: 1
+
+- type: entity
+  parent: CrateScienceSecure
+  id: ADTCrateResearchAndDevelopmentServer
+  name: R&D server crate
+  description: Contains a flatpack of an R&D server. Requires Science access to open.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ADTResearchAndDevelopmentServerFlatpack

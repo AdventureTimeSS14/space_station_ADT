@@ -23,6 +23,7 @@ using Robust.Shared.Timing;
 using Content.Shared.CCVar;
 using Robust.Shared.Configuration;
 using Content.Shared.ADT.CCVar;
+using Content.Server.Traits;
 
 namespace Content.Server.ADT.Economy;
 
@@ -56,7 +57,7 @@ public sealed class BankCardSystem : EntitySystem
 
         SubscribeLocalEvent<BankCardComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
-        SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawned);
+        SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawned, after: [typeof(TraitSystem)]);
     }
 
     public override void Update(float frameTime)
@@ -90,7 +91,7 @@ public sealed class BankCardSystem : EntitySystem
         {
             var salary = GetSalary(account.Mind);
             if (salary > 0)
-                TryChangeBalance(account.AccountId, salary);
+                TryChangeBalance(account.AccountId, salary, allowNegative: account.Balance < 0);
         }
 
         _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("salary-pay-announcement"),
@@ -179,7 +180,11 @@ public sealed class BankCardSystem : EntitySystem
             if (!TryComp(mind.Mind, out MindComponent? mindComponent))
                 return;
 
-            bankAccount.Balance = GetSalary(mind.Mind) + 100;
+            var startingBalance = GetSalary(mind.Mind) + 100;
+            if (TryComp<StartingBalanceComponent>(ev.Mob, out var balanceComp))
+                startingBalance = balanceComp.Balance;
+
+            bankAccount.Balance = startingBalance;
             mindComponent.AddMemory(new Memory("PIN", bankAccount.AccountPin.ToString()));
             mindComponent.AddMemory(new Memory(Loc.GetString("character-info-memories-account-number"),
                 bankAccount.AccountId.ToString()));
@@ -259,7 +264,7 @@ public sealed class BankCardSystem : EntitySystem
         return account.Balance;
     }
 
-    public bool TryChangeBalance(int accountId, int amount)
+    public bool TryChangeBalance(int accountId, int amount, bool allowNegative = false)
     {
         if (!TryGetAccount(accountId, out var account))
             return false;
@@ -282,7 +287,7 @@ public sealed class BankCardSystem : EntitySystem
             return false;
         }
 
-        if (account.Balance + amount < 0)
+        if (account.Balance + amount < 0 && !allowNegative)
             return false;
 
         account.Balance += amount;

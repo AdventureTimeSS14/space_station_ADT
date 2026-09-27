@@ -205,6 +205,11 @@ public sealed partial class GuideMicrowaveEmbed : PanelContainer, IDocumentTag, 
             AppendMachineTexture("/Textures/ADT/Structures/Machines/medical_assembler.rsi", "mediwave-base");
             processingTypes.Add(Loc.GetString("guidebook-food-processing-type-medical-assembler"));
         }
+        if (recipeType.HasFlag(MicrowaveRecipeType.TribalOven))
+        {
+            AppendMachineTexture("/Textures/ADT/Structures/Specific/tribal_oven.rsi", "oven_off");
+            processingTypes.Add(Loc.GetString("guidebook-food-processing-type-tribal-oven"));
+        }
         var processingTypeString = string.Join('/', processingTypes);
         var msg_machine = new FormattedMessage();
         var msg_time = new FormattedMessage();

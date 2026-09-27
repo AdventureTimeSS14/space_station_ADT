@@ -11,6 +11,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
+using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Pointing;
@@ -31,6 +32,7 @@ public sealed partial class SlimeSpeechSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _speedModifier = default!;
+    [Dependency] private readonly NameModifierSystem _nameModifier = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
@@ -73,8 +75,8 @@ public sealed partial class SlimeSpeechSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<SlimeComponent>();
-        while (query.MoveNext(out var uid, out var slime))
+        var query = EntityQueryEnumerator<SlimeComponent, SlimeFollowingComponent>();
+        while (query.MoveNext(out var uid, out var slime, out _))
         {
             UpdateFollowing(uid, slime);
         }
@@ -145,7 +147,8 @@ public sealed partial class SlimeSpeechSystem : EntitySystem
 
         slime.Comp.FollowingTarget = speaker;
         slime.Comp.NextFollowUpdate = TimeSpan.Zero;
-        SayForCommand(slime, Loc.GetString("slime-speech-follow", ("target", speaker)), speaker);
+        EnsureComp<SlimeFollowingComponent>(slime);
+        SayForCommand(slime, Loc.GetString("slime-speech-follow", ("slime", slime), ("target", speaker)), speaker);
         return true;
     }
 
@@ -160,7 +163,6 @@ public sealed partial class SlimeSpeechSystem : EntitySystem
         {
             slime.Comp.Friendship = Math.Max(0f, slime.Comp.Friendship - slime.Comp.FriendshipLossOnRefusal);
             SayForCommand(slime, Loc.GetString("slime-speech-grrr"), speaker);
-            Dirty(slime);
             return true;
         }
 
@@ -205,7 +207,6 @@ public sealed partial class SlimeSpeechSystem : EntitySystem
             if (!order.Slimes.Contains(slime))
                 order.Slimes.Add(slime);
             order.ExpiresAt = _timing.CurTime + PointOrderDuration;
-            Dirty(speaker, order);
 
             // Freeze the slime so it doesn't hunt on its own while waiting.
             FreezeSlime(slime, PointOrderDuration);
@@ -253,7 +254,6 @@ public sealed partial class SlimeSpeechSystem : EntitySystem
         StopFollowing(slime);
         var stopped = EnsureComp<SlimeStoppedComponent>(slime);
         stopped.ExpiresAt = _timing.CurTime + duration;
-        Dirty(slime, stopped);
 
         if (TryComp<HTNComponent>(slime, out var htn))
             _htn.SetHTNEnabled((slime, htn), false);
@@ -273,7 +273,7 @@ public sealed partial class SlimeSpeechSystem : EntitySystem
 
         _factions.AggroEntity(new Entity<FactionExceptionComponent?>(slime, default), target);
         RefreshSpeed(slime);
-        SayForCommand(slime, Loc.GetString("slime-speech-attack", ("target", target)), speaker);
+        SayForCommand(slime, Loc.GetString("slime-speech-attack", ("slime", slime), ("target", _nameModifier.GetBaseName(target))), speaker);
     }
 
     private void CancelAttackOrder(Entity<SlimeComponent> slime, EntityUid speaker)
@@ -319,7 +319,10 @@ public sealed partial class SlimeSpeechSystem : EntitySystem
     private void UpdateFollowing(EntityUid uid, SlimeComponent slime)
     {
         if (slime.FollowingTarget is not { } target)
+        {
+            RemCompDeferred<SlimeFollowingComponent>(uid);
             return;
+        }
 
         if (Deleted(target)
             || _mobState.IsDead(target)
@@ -343,6 +346,7 @@ public sealed partial class SlimeSpeechSystem : EntitySystem
             return;
 
         slime.Comp.FollowingTarget = null;
+        RemCompDeferred<SlimeFollowingComponent>(slime);
         var htn = CompOrNull<HTNComponent>(slime);
         htn?.Blackboard.Remove<EntityCoordinates>(NPCBlackboard.FollowTarget);
     }

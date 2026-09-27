@@ -28,3 +28,12 @@
   - type: StationAiVision
     range: 2
     visionNetwork: AreaXenobio
+
+- type: entity
+  parent: AreaBase
+  id: AreaKitchen
+  name: kitchen area
+  components:
+  - type: Sprite
+    sprite: ADT/Markers/Areas/station.rsi
+    state: kitchen

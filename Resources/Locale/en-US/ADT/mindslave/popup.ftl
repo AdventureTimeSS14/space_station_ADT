@@ -1,6 +1,7 @@
 mindslave-self-use-fail = You cannot enslave yourself!
 mindslave-already-enslaved = Target is already a mind slave!
 mindslave-mindshield-block = Target's mindshield is blocking the implant!
+mindslave-heretic-block = The target's mind resists subjugation - otherworldly wills already guide it!
 mindslave-no-mind = Target has no mind, but the implant is still embedded.
 mindslave-implant-success = You are now completely loyal to { $master }!
 mindslave-implant-removed = You are no longer a mind slave!

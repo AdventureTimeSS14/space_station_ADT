@@ -1,0 +1,165 @@
+- type: entity
+  parent: BaseItem
+  id: SlimeSteroidPotion
+  name: slime steroid potion
+  description: Makes a slime produce more extracts when processed.
+  components:
+  - type: SlimeSteroidPotion
+  - type: Sprite
+    sprite: ADT/Xenobiology/Specific/Xenobiology/slime_potion.rsi
+    layers:
+    - state: slime_potion
+    color: "#501466ff"
+
+- type: entity
+  parent: BaseItem
+  id: SlimeStabilizerPotion
+  name: slime stabilizer potion
+  description: Lowers a slime's mutation chance.
+  components:
+  - type: SlimeStabilizerPotion
+  - type: Sprite
+    sprite: ADT/Xenobiology/Specific/Xenobiology/slime_potion.rsi
+    layers:
+    - state: slime_potion
+    color: "#34cfebff"
+
+- type: entity
+  parent: BaseItem
+  id: SlimeFireproofPotion
+  name: slime fireproof potion
+  description: Grants full fire and heat protection. Has limited uses.
+  components:
+  - type: SlimeFireproofPotion
+  - type: Sprite
+    sprite: ADT/Xenobiology/Specific/Xenobiology/slime_potion.rsi
+    layers:
+    - state: slime_potion
+    color: "#132b6eff"
+
+- type: entity
+  parent: BaseItem
+  id: SlimeBluespaceRadioPotion
+  name: slime bluespace radio potion
+  description: Lets the target always use the radio.
+  components:
+  - type: SlimeBluespaceRadioPotion
+    channels:
+    - "Common"
+  - type: Sprite
+    sprite: ADT/Xenobiology/Specific/Xenobiology/slime_potion.rsi
+    layers:
+    - state: slime_potion
+    color: "#ffffffff"
+
+- type: entity
+  parent: BaseItem
+  id: SlimeExtractEnhancerPotion
+  name: slime extract enhancer potion
+  description: Restores one use to an exhausted slime extract.
+  components:
+  - type: SlimeExtractEnhancerPotion
+  - type: Sprite
+    sprite: ADT/Xenobiology/Specific/Xenobiology/slime_potion.rsi
+    layers:
+    - state: slime_potion
+    color: "#5998b3ff"
+
+- type: entity
+  parent: BaseItem
+  id: SlimeSpeedPotion
+  name: slime speed potion
+  description: Halves the speed penalty of clothing.
+  components:
+  - type: SlimeSpeedPotion
+  - type: Sprite
+    sprite: ADT/Xenobiology/Specific/Xenobiology/slime_potion.rsi
+    layers:
+    - state: slime_potion
+    color: "#fc4e4eff"
+
+- type: entity
+  parent: BaseItem
+  id: SlimeSpeedMechPotion
+  name: slime speed mech potion
+  description: Coats a mech or borg, permanently boosting its movement speed.
+  components:
+  - type: JellyCoating
+    speedMultiplier: 1.3
+  - type: Sprite
+    sprite: ADT/Xenobiology/Specific/Xenobiology/slime_potion.rsi
+    layers:
+    - state: slime_potion
+    color: "#ff3333ff"
+
+- type: entity
+  parent: BaseItem
+  id: SlimeMutationPotion
+  name: slime mutation potion
+  description: Raises a slime's mutation chance.
+  components:
+  - type: SlimeMutationPotion
+  - type: Sprite
+    sprite: ADT/Xenobiology/Specific/Xenobiology/slime_potion.rsi
+    layers:
+    - state: slime_potion
+    color: "#fc4e4eff"
+
+- type: entity
+  parent: BaseItem
+  id: SlimeGenderChangePotion
+  name: slime gender change potion
+  description: Changes the gender of a creature. Pick the gender with verbs.
+  components:
+  - type: SlimeGenderChangePotion
+  - type: Sprite
+    sprite: ADT/Xenobiology/Specific/Xenobiology/slime_potion.rsi
+    layers:
+    - state: slime_potion
+    color: "#fc86cfff"
+
+- type: entity
+  parent: BaseItem
+  id: SlimeNameChangePotion
+  name: slime name change potion
+  description: Renames a sentient creature. Set the new name through the UI.
+  components:
+  - type: SlimeNameChangePotion
+  - type: ActivatableUI
+    key: enum.SlimeNameChangePotionUiKey.Key
+    inHandsOnly: true
+  - type: UserInterface
+    interfaces:
+      enum.SlimeNameChangePotionUiKey.Key:
+        type: SlimeNameChangePotionBoundUserInterface
+  - type: Sprite
+    sprite: ADT/Xenobiology/Specific/Xenobiology/slime_potion.rsi
+    layers:
+    - state: slime_potion
+    color: "#ff94d1ff"
+
+- type: entity
+  parent: BaseItem
+  id: SlimeSentiencePotion
+  name: slime sentience potion
+  description: Makes a creature sentient and offers it to ghosts.
+  components:
+  - type: SlimeSentiencePotion
+  - type: Sprite
+    sprite: ADT/Xenobiology/Specific/Xenobiology/slime_potion.rsi
+    layers:
+    - state: slime_potion
+    color: "#ff94d1ff"
+
+- type: entity
+  parent: BaseItem
+  id: SlimeMindTransferencePotion
+  name: slime mind transference potion
+  description: Transfers your mind into a mindless living creature.
+  components:
+  - type: SlimeMindTransferencePotion
+  - type: Sprite
+    sprite: ADT/Xenobiology/Specific/Xenobiology/slime_potion.rsi
+    layers:
+    - state: slime_potion
+    color: "#300636ff"

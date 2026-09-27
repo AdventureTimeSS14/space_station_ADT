@@ -9,6 +9,7 @@
         children:
         - id: ClothingHeadHatCaptain
         - id: ClothingHeadHatCapcap
+        - id: ClothingHeadCaptainHat # ADT-tweak
         - id: ClothingUniformJumpsuitCapFormal
         - id: ClothingUniformJumpskirtCapFormalDress
         - id: ClothingHandsGlovesCaptain
@@ -74,12 +75,13 @@
         children:
         - id: ClothingHeadHatBeretHoS
         - id: ClothingHeadHatHoshat
+        - id: ClothingHeadHatCapHoS # ADT-tweak
         - id: ClothingMaskNeckGaiter
         - id: ClothingUniformJumpskirtHoSAlt
         - id: ClothingUniformJumpsuitHoSAlt
         - id: ClothingUniformJumpskirtHosFormal
         - id: ClothingUniformJumpsuitHosFormal
-        - id: ClothingOuterWinterHoS
+        # - id: ClothingOuterWinterHoS # ADT-tweak
         - id: ClothingNeckCloakHos
 
 - type: entity

@@ -551,18 +551,24 @@
   
 - type: tile
   id: ADTFloorSepia
+  parent: BaseStationTile
   name: adt-tiles-sepia-floor
   sprite: /Textures/ADT/Tiles/sepia.png
   variants: 1
   placementVariants:
   - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  #canCrowbar: true
+  speedModifier: 0.45
+  itemDrop: FloorTileItemSepia
+
+- type: tile
+  id: ADTFloorBluespace
+  parent: BaseStationTile
+  name: adt-tiles-bluespace-floor
+  sprite: /Textures/ADT/Tiles/bluespace.png
+  speedModifier: 1.55
   footstepSounds:
-    collection: FootstepFloor
-  itemDrop: FloorTileItemSteel
-  heatCapacity: 10000
+    collection: FootstepHoverBorg
+  itemDrop: FloorTileItemBluespace
 
 - type: tile
   id: ADTFloorCarpetLiminal

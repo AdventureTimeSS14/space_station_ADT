@@ -68,6 +68,8 @@ public sealed class AntagRollBonusSystem : EntitySystem
                 FinishRound();
                 break;
         }
+
+        _rollBonus.CheckWipe();
     }
 
     private void FinishRound()

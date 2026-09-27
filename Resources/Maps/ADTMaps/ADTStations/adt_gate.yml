@@ -144690,7 +144690,7 @@ entities:
     - type: Transform
       pos: 2.5193083,200.41022
       parent: 2
-- proto: MicroManipulatorStockPart
+- proto: MatterBinStockPart
   entities:
   - uid: 4227
     components:

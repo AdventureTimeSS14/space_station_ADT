@@ -73,7 +73,7 @@
     interactSuccessString: petting-success-kerfus
     interactFailureString: petting-failure-kerfus
     interactSuccessSound:
-      path: /Audio/ADT/Ambience/Objects/minecraft_cat.ogg
+      collection: KerfusMeow
   - type: Storage
     grid:
     - 0,0,6,3

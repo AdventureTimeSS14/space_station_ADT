@@ -26,7 +26,13 @@
     - PowerCellSmall
     - PowerCellMedium
     - FlashlightLantern
-    - MicroManipulatorStockPart
+    # ADT-Tweak start
+    - CapacitorStockPart
+    - MicroServoStockPart
+    - MatterBinStockPart
+    - ScanningModuleStockPart
+    - MicroLaserStockPart
+    # ADT-Tweak end
     - Beaker
     chance: 0.8
     offset: 0.2
@@ -64,7 +70,13 @@
       - id: ADTSheetLead # ADT Tweak
       - id: ToolboxElectricalFilled
       - id: ToolboxMechanicalFilled
-      - id: MicroManipulatorStockPart
+      # ADT-Tweak start
+      - id: CapacitorStockPart
+      - id: MicroServoStockPart
+      - id: MatterBinStockPart
+      - id: ScanningModuleStockPart
+      - id: MicroLaserStockPart
+      # ADT-Tweak end
     # Rare Group
     - !type:GroupSelector
       weight: 10

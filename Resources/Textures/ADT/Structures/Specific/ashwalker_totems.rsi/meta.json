@@ -1,0 +1,73 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Paradise at https://github.com/ParadiseSS13/Paradise/blob/master/icons/obj/lavaland/grace_of_lazis.dmi",
+    "size": {
+        "x": 32,
+        "y": 64
+    },
+    "states": [
+        {
+            "name": "totem_wooden"
+        },
+        {
+            "name": "totem_wooden_cinnabar"
+        },
+        {
+            "name": "totem_wooden_crimson"
+        },
+        {
+            "name": "totem_wooden_indigo"
+        },
+        {
+            "name": "totem_wooden_mint"
+        },
+        {
+            "name": "totem_wooden_amber"
+        },
+        {
+            "name": "totem_stone",
+            "delays": [
+                [
+                    0.5,
+                    0.5,
+                    0.5,
+                    0.5
+                ]
+            ]
+        },
+        {
+            "name": "totem_stone_cinnabar"
+        },
+        {
+            "name": "totem_stone_crimson"
+        },
+        {
+            "name": "totem_stone_indigo"
+        },
+        {
+            "name": "totem_stone_mint"
+        },
+        {
+            "name": "totem_stone_amber"
+        },
+        {
+            "name": "totem_bone"
+        },
+        {
+            "name": "totem_bone_cinnabar"
+        },
+        {
+            "name": "totem_bone_crimson"
+        },
+        {
+            "name": "totem_bone_indigo"
+        },
+        {
+            "name": "totem_bone_mint"
+        },
+        {
+            "name": "totem_bone_amber"
+        }
+    ]
+}

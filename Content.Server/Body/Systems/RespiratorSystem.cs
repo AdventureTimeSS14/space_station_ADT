@@ -93,6 +93,9 @@ public sealed class RespiratorSystem : EntitySystem
             if (_mobState.IsDead(uid))
                 continue;
 
+            if (HasComp<Content.Goobstation.Common.Body.Components.SpecialBreathingImmunityComponent>(uid)) // ADT Heretic
+                continue;
+
             // ADT tweak start
             if (!_body.TryGetOrgansWithComponent<LungComponent>((uid, body), out var organs))
                 continue;

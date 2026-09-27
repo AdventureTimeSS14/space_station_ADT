@@ -60,6 +60,7 @@ namespace Content.Server.Connection
         [Dependency] private readonly IServerDbManager _db = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly SponsorsManager _sponsorsManager = default!; // Corvax-Sponsors
+        [Dependency] private readonly Content.Server.ADT.Sponsors.SponsorManager _adtSponsors = default!;
         [Dependency] private readonly ILocalizationManager _loc = default!;
         [Dependency] private readonly ServerDbEntryManager _serverDbEntry = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
@@ -407,6 +408,10 @@ namespace Content.Server.Connection
         {
             var isAdmin = await _db.GetAdminDataForAsync(userId) != null;
             var havePriorityJoin = _sponsorsManager.TryGetInfo(userId, out var sponsor) && sponsor.HavePriorityJoin && sponsor.ExpireDate > DateTime.Now; // Corvax-Sponsors + ADT-Sponsors
+            // ADT-Tweak-Start
+            var adtSponsor = await _adtSponsors.EnsureLoadedAsync(userId);
+            havePriorityJoin |= adtSponsor.PriorityJoin;
+            // ADT-Tweak-End
             var wasInGame = EntitySystem.TryGet<GameTicker>(out var ticker) &&
                             ticker.PlayerGameStatuses.TryGetValue(userId, out var status) &&
                             status == PlayerGameStatus.JoinedGame;

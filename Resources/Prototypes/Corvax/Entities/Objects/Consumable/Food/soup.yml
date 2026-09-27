@@ -21,10 +21,10 @@
     - type: SolutionContainerManager
       solutions:
         food:
-          maxVol: 30
+          maxVol: 40 #ADT_Tweak from 30 to 40 - для добавления соусов
           reagents:
             - ReagentId: Nutriment
-              Quantity: 10
+              Quantity: 5  # ADT-Tweak 10 > 5
             - ReagentId: Protein
               Quantity: 20
     - type: Tag

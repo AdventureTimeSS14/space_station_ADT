@@ -24,10 +24,10 @@
     netsync: false
   - type: ApcPowerReceiverBattery
     idleLoad: 65
+    batteryBackup: false
     batteryRechargeRate: 0 #ADT-Tweak: авто-зарядка задаётся частями (Т1 = 10, Т2 = 20, Т3 = 30, Т4 = 40 Вт/с)
     batteryRechargeEfficiency: 0.7 # 1.0 > 0.7
   - type: ApcPowerReceiver
-    powerLoad: 65
   - type: ExtensionCableReceiver
   - type: Anchorable
   - type: Pullable
@@ -78,6 +78,7 @@
     board: EnergyChemDispenserMachineCircuitboard
   - type: ActivatableUI
     key: enum.EnergyReagentDispenserUiKey.Key
+  - type: ActivatableUIRequiresPower
   - type: UserInterface
     interfaces:
       enum.EnergyReagentDispenserUiKey.Key:
@@ -112,11 +113,11 @@
       Sugar: 5
       Sulfur: 5
     tierReagents:
-    #  1: 
-      2: [ TableSalt, Ash, WeldingFuel ]
-      3: [ Acetone, Ammonia, Plasma ]
-      4: [ Phenol, Diethylamine ]
-    tierReagentCost: 8
+      #  1: 
+      2: { TableSalt: 4, Water: 3, WeldingFuel: 8 }
+      3: { Benzene: 10, Hydroxide: 8, Fersilicite: 12 }
+      4: { Uranium: 15, Plasma: 12 }
+      5: { Omnizine: 50, Cognizine: 50, Diethylamine: 10 }
     reagentsEmagged:
       Puncturase: 15
       Pyrazine: 15
@@ -144,6 +145,7 @@
     netsync: false
   - type: ApcPowerReceiverBattery
     idleLoad: 150
+    batteryBackup: false
     batteryRechargeRate: 60
     batteryRechargeEfficiency: 1.0
   - type: EnergyReagentDispenser
@@ -288,4 +290,4 @@
       Whiskey: 12
       Wine: 8
     tierReagents:
-      2: [ Nothing, Ethanol ]
+      2: { Nothing: 4, Ethanol: 8 }

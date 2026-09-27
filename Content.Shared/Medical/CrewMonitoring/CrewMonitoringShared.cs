@@ -242,4 +242,15 @@ public sealed class CrewMonitoringSelectServerMessage : BoundUserInterfaceMessag
         Server = server;
     }
 }
+
+[Serializable, NetSerializable]
+public sealed class CrewMonitoringAiEyeTeleportMessage : BoundUserInterfaceMessage
+{
+    public NetEntity Target { get; }
+
+    public CrewMonitoringAiEyeTeleportMessage(NetEntity target)
+    {
+        Target = target;
+    }
+}
 // ADT-Tweak End

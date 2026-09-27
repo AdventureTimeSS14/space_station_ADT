@@ -27,3 +27,85 @@
         Heat: 5
   - type: TimedDespawn
     lifetime: 1
+
+# ADT: from Goob
+- type: entity
+  parent: BaseBullet
+  id: ProjectileWaveRust
+  name: patron's reach
+  description: Toxic.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/projectiles.rsi
+    layers:
+    - state: eldritch_projectile
+      shader: unshaded
+  # ADT: no Magic in ReflectType
+  - type: Reflective
+    reflective: Energy
+  - type: Projectile
+    damage:
+      types:
+        Poison: 30
+  - type: TimedDespawn
+    lifetime: 2.5
+  - type: RustObjectsInRadius
+    rustStrength: -1
+    rustRadius: 0.8
+  # ADT: Goob Trail not ported
+
+- type: entity
+  parent: BaseBullet
+  id: ProjectileStarBall
+  name: star ball
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/projectiles.rsi
+    layers:
+    - state: star_ball
+      shader: unshaded
+  - type: Physics
+    bodyType: Dynamic
+    linearDamping: 0
+    angularDamping: 0
+  - type: Reflective
+    reflective: None
+  - type: Projectile
+    impactEffect: EffectCosmicExplosion
+    damage:
+      types:
+        Heat: 0
+    soundHit:
+      path: /Audio/ADT/Heretic/cosmic_energy.ogg
+    forceSound: true
+  - type: TimedDespawn
+    lifetime: 15
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.4
+        hard: false
+  - type: StarBlast
+  - type: CosmicTrail
+  - type: TileFrictionModifier
+    modifier: 0
+
+# ADT: own Void Blast projectile
+- type: entity
+  parent: BaseBullet
+  id: ADTProjectileVoidBlastIcicle
+  name: icicle
+  description: Brrrrr.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Structures/Specific/Anomalies/ice_anom.rsi
+  - type: Projectile
+    damage:
+      types:
+        Cold: 15
+        Blunt: 15

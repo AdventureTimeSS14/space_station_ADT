@@ -92,7 +92,6 @@ entities:
       name: Станция ЦентКом
     - type: Transform
       pos: -43.015625,-31.125
-      parent: invalid
     - type: BecomesStation
       id: ADT_Centcomm
     - type: MapGrid

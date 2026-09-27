@@ -823,6 +823,7 @@
       - ADTModsuitModBodycam
       - ADTModsuitModJetpack
       - ADTModsuitModNoslip
+      - ADTModsuitModNightVisionAdvanced
   - type: ContainerFill
     containers:
       cell_slot:

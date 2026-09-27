@@ -41,11 +41,67 @@
   components:
   - type: Sprite
     sprite: Mobs/Ghosts/ghost_human.rsi
-    color: "#fff8"
+    color: "#ffffff" # ADT Tweak
     layers:
     - state: animated
       map: [ "ghostVariant" ]
       shader: unshaded
+    # ADT Tweak Start
+    - map: [ "enum.HumanoidVisualLayers.Chest" ]
+      shader: unshaded
+    # Head
+    - map: [ "enum.HumanoidVisualLayers.Head" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.Snout" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      shader: unshaded
+    # Limbs
+    - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.LArm" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.LFoot" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.RFoot" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.Special" ]
+      shader: unshaded
+    # Clothing
+    - map: [ "jumpsuit" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.LHand" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.RHand" ]
+      shader: unshaded
+    # Stuff that goes over the body but below equipment
+    - map: [ "enum.HumanoidVisualLayers.Overlay" ]
+      shader: unshaded
+    # More equipment
+    - map: [ "shoes" ]
+      shader: unshaded
+    # Stuff that goes in front of equipment
+    - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.SnoutOverlay" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.Hair" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.TailOverlay" ]
+      shader: unshaded
+    # ADT Tweak End
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -79,19 +135,60 @@
   - type: Examiner
     skipChecks: true
   - type: Ghost
-  - type: GhostSpriteState
-    damageMap:
-      Blunt: 3
-      Slash: 3
-      Piercing: 3
-      Heat: 1
-      Cold: 1
-      Shock: 1
-      Radiation: 1
-      Cellular: 1
-      Poison: 1
-      Asphyxiation: 1
-    prefix: "ghost_"
+  # ADT Tweak Start
+    availableClothing:
+      jumpsuit:
+      - ClothingUniformJumpsuitPsychologist
+      - ClothingUniformJumpsuitScientist
+      - ClothingUniformJumpsuitSafari
+      - ClothingUniformJumpsuitSecGrey
+      - ClothingUniformJumpsuitBartender
+      - ClothingUniformJumpsuitBartenderPurple
+      - ClothingUniformJumpsuitChef
+      - ClothingUniformJumpsuitChemistry
+      - ClothingUniformJumpsuitDetective
+      - ClothingUniformJumpsuitHawaiYellow
+      - ClothingUniformJumpsuitHoS
+      - ClothingUniformJumpsuitJanitor
+      - ClothingUniformJumpsuitKimono
+      - ClothingUniformJumpsuitMime
+      - ClothingUniformJumpsuitChaplain
+      - ClothingUniformJumpsuitParamedic
+      - ClothingUniformJumpsuitPirate
+      - ADTClothingUniformJumpsuitBlueshield
+      - ADTClothingUniformJumpsuitGreenSuitLawyer
+      - ADTClothingUniformJumpsuitBarber
+      - ADTClothingUniformCorrectionsOfficer
+      - ADTClothingUniformSquidGamePlayer
+      shoes:
+      - ClothingShoesColorBlack
+      - ClothingShoesColorWhite
+      - ClothingShoesColorBlue
+      - ClothingShoesColorBrown
+      - ClothingShoesColorGreen
+      - ClothingShoesColorOrange
+      - ClothingShoesColorRed
+      - ClothingShoesColorYellow
+      - ClothingShoesColorPurple
+  - type: Inventory 
+    templateId: ghost
+  - type: InventorySlots
+  - type: HumanoidProfile
+  #- type: GhostSpriteState
+  #  damageMap:
+  #    Blunt: 3
+  #    Slash: 3
+  #    Piercing: 3
+  #    Heat: 1
+  #    Cold: 1
+  #    Shock: 1
+  #    Radiation: 1
+  #    Cellular: 1
+  #    Poison: 1
+  #    Asphyxiation: 1
+  #  prefix: "ghost_"
+
+  # ADT Tweak End
   - type: GhostHearing
   - type: ShowElectrocutionHUD
   - type: IntrinsicRadioReceiver

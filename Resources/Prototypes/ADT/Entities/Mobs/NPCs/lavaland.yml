@@ -27,6 +27,7 @@
       types:
         Blunt: 15
   - type: ADTLegion
+    corpseProto: ADTLegionCorpseSpawner
   - type: ADTFlee
     distance: 6
   - type: NpcFactionMember
@@ -261,6 +262,19 @@
   - type: ADTMobLoot
     loots:
       ADTKineticTrophyPoisonFang: 0.1
+  - type: Butcherable
+    butcheringType: Knife
+    butcherDelay: 6
+    spawned:
+    - id: UraniumOre1
+      amount: 2
+    - id: MaterialBones1
+      amount: 2
+    - id: ADTMaterialSinew1
+    - id: ADTMaterialWeaverChitin1
+      amount: 3
+    - id: FoodMeatSpider
+      amount: 2
 
 - type: entity
   name: Shock Spider
@@ -409,7 +423,6 @@
   suffix: AI
   abstract: true
   components:
-  - type: GrabProtection
   - type: Thirst
     thresholds:
       OverHydrated: 200

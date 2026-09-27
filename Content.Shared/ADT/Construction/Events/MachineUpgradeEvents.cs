@@ -41,7 +41,8 @@ public sealed class RefreshPartsEvent : EntityEventArgs
     /// </summary>
     public static float GetTierMultiplier(float tier, float valuePerTier)
     {
-        return 1f + valuePerTier * (tier - 1f);
+        var tiersAbove = tier > 4f ? 3f + (tier - 4f) * 3f : tier - 1f;
+        return 1f + valuePerTier * tiersAbove;
     }
 }
 
@@ -82,5 +83,10 @@ public sealed class UpgradeExamineEvent : EntityEventArgs
             ("percent", (FixedPoint2) Math.Round(100 * MathF.Abs(multiplier - 1), 2)),
             ("color", good ? "#6DFFA5" : "#FF7A7A")) + '\n',
             out _);
+    }
+
+    public void AddUpgradeLine(string text)
+    {
+        _message.TryAddMarkup(text + '\n', out _);
     }
 }

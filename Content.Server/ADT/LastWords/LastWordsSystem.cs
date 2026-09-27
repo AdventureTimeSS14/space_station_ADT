@@ -3,6 +3,7 @@ using Content.Shared.Mind.Components;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Components;
 using Content.Shared.ADT.LastWords;
+using Content.Shared.ADT.TTS;
 using Content.Shared.Chat;
 
 namespace Content.Server.ADT.LastWords;
@@ -20,6 +21,6 @@ public sealed class LastWordsSystem : EntitySystem
         _mindSystem.TryGetMind(uid, out var mindId, out var _);
 
         if (TryComp<LastWordsComponent>(mindId, out var lastWordsComp))
-            lastWordsComp.LastWords = args.Message;
+            lastWordsComp.LastWords = ADTSpeechStress.Strip(args.Message);
     }
 }

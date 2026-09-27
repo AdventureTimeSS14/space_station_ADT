@@ -19,6 +19,8 @@
     quickEquip: false
     slots:
     - back
+    - suitStorage
+    - Belt
   - type: Charger
     chargeRate: 25 # ADT tweak
     slotId: charger_slot

@@ -19,15 +19,15 @@
       - DefaultStationBeaconQMRoom
       - DefaultStationBeaconCERoom
       # Security
-      - DefaultStationBeaconSecurity
-      - DefaultStationBeaconBrig
-      - DefaultStationBeaconBrigMed
+      #- DefaultStationBeaconSecurity
+      #- DefaultStationBeaconBrig
+      #- DefaultStationBeaconBrigMed
       - DefaultStationBeaconWardensOffice
       - DefaultStationBeaconArmory
-      - DefaultStationBeaconPermaBrig
-      - DefaultStationBeaconDetectiveRoom
-      - DefaultStationBeaconCourtroom
-      - DefaultStationBeaconLawOffice
+      #- DefaultStationBeaconPermaBrig
+      #- DefaultStationBeaconDetectiveRoom
+      #- DefaultStationBeaconCourtroom
+      #- DefaultStationBeaconLawOffice
       - DefaultStationBeaconSecurityCheckpoint
       - ADTDefaultStationBeaconDockingAreaSec
       - ADTDefaultStationBeaconSuitsSec

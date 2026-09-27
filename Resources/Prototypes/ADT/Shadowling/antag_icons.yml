@@ -1,0 +1,25 @@
+- type: factionIcon
+  id: ADTShadowlingFaction
+  priority: 11
+  showTo:
+    components:
+    - ShowAntagIcons
+    - ADTShadowling
+    - ADTShadowlingThrall
+    - ADTAscendantShadowling
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/shadowling_faction.rsi
+    state: shadowling
+
+- type: factionIcon
+  id: ADTShadowlingThrallFaction
+  priority: 11
+  showTo:
+    components:
+    - ShowAntagIcons
+    - ADTShadowling
+    - ADTShadowlingThrall
+    - ADTAscendantShadowling
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/shadowling_faction.rsi
+    state: thrall

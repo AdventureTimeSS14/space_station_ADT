@@ -39,7 +39,7 @@ public sealed partial class SuitStorageMenu : RadialMenu
             var button = new RadialMenuButtonWithSector
             {
                 SetSize = new Vector2(64f, 64f),
-                ToolTip = Loc.GetString(proto.Name)
+                ToolTip = proto.Name
             };
 
             var texture = _sprite.GetPrototypeIcon(proto);

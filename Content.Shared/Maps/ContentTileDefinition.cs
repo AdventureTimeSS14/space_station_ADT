@@ -111,6 +111,14 @@ namespace Content.Shared.Maps
         [DataField("mobFriction")]
         public float? MobFriction { get; private set; }
 
+        // ADT-Tweak start
+        /// <summary>
+        ///     Множитель скорости передвижения мобов, стоящих на этой плитке (1 - без эффекта).
+        /// </summary>
+        [DataField("speedModifier")]
+        public float SpeedModifier { get; set; } = 1f;
+        // ADT-Tweak end
+
         /// <summary>
         ///     Accel override for mob mover in <see cref="SharedMoverController"/>
         /// </summary>

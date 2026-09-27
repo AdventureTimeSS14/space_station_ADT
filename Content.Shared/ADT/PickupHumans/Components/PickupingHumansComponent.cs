@@ -1,15 +1,16 @@
-using Content.Shared.ADT.Systems.PickupHumans;
+using Robust.Shared.GameStates;
 
 namespace Content.Shared.ADT.Components.PickupHumans;
 
-[RegisterComponent, AutoGenerateComponentState, Access(typeof(SharedPickupHumansSystem))]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class PickupingHumansComponent : Component
 {
-    public EntityUid User = default;
+    [ViewVariables, AutoNetworkedField]
+    public EntityUid Carried;
 
-    [ViewVariables, DataField("sprintSpeedModifier"), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public float SprintSpeedModifier = 0.7f;
 
-    [ViewVariables, DataField("walkSpeedModifier"), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public float WalkSpeedModifier = 0.6f;
 }

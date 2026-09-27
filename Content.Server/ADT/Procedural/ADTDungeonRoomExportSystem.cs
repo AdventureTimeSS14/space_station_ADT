@@ -3,6 +3,7 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using Content.Server.Decals;
+using Content.Shared.ADT.Procedural;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -18,6 +19,7 @@ public sealed class ADTDungeonRoomExportSystem : EntitySystem
 {
     [Dependency] private readonly DecalSystem _decals = default!;
     [Dependency] private readonly IComponentFactory _factory = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly ISerializationManager _serialization = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDefManager = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
@@ -105,6 +107,9 @@ public sealed class ADTDungeonRoomExportSystem : EntitySystem
         builder.Append("  id: ").Append(roomId).Append('\n');
         builder.Append("  size: ").Append(size.X).Append(", ").Append(size.Y).Append('\n');
 
+        if (_proto.TryIndex<ADTDungeonRoomPrototype>(roomId, out var existing) && existing.Rotate != 0)
+            builder.Append("  rotate: ").Append(existing.Rotate).Append('\n');
+
         var tagList = tags.ToList();
 
         if (tagList.Count > 0)
@@ -149,7 +154,7 @@ public sealed class ADTDungeonRoomExportSystem : EntitySystem
 
     private void AppendEntities(StringBuilder builder, Entity<MapGridComponent> grid, Vector2i min)
     {
-        var groups = new Dictionary<(string Proto, double Rotation, bool Anchored, string Components), List<Vector2>>();
+        var groups = new Dictionary<(string Proto, double Rotation, bool Anchored, string Components, string Missing), List<Vector2>>();
         var children = Transform(grid.Owner).ChildEnumerator;
 
         while (children.MoveNext(out var child))
@@ -163,7 +168,8 @@ public sealed class ADTDungeonRoomExportSystem : EntitySystem
                 continue;
 
             var xform = Transform(child);
-            var key = (proto.ID, xform.LocalRotation.Theta, xform.Anchored, SerializeOverrides(child, proto));
+            var missing = string.Join(',', FindMissingComponents(child, proto));
+            var key = (proto.ID, xform.LocalRotation.Theta, xform.Anchored, SerializeOverrides(child, proto), missing);
 
             groups.GetOrNew(key).Add(xform.LocalPosition - min);
         }
@@ -186,12 +192,44 @@ public sealed class ADTDungeonRoomExportSystem : EntitySystem
             if (key.Components.Length > 0)
                 builder.Append("    components:\n").Append(key.Components);
 
+            if (key.Missing.Length > 0)
+            {
+                builder.Append("    missingComponents:\n");
+
+                foreach (var name in key.Missing.Split(','))
+                {
+                    builder.Append("    - ").Append(name).Append('\n');
+                }
+            }
+
             builder.Append("    positions:\n");
             foreach (var position in positions)
             {
                 builder.Append("    - ").Append(Vector(position)).Append('\n');
             }
         }
+    }
+
+    private List<string> FindMissingComponents(EntityUid uid, EntityPrototype proto)
+    {
+        var missing = new List<string>();
+
+        foreach (var (name, entry) in proto.Components)
+        {
+            if (SkippedComponents.Contains(name))
+                continue;
+
+            var registration = _factory.GetRegistration(entry.Component.GetType());
+
+            if (registration.Unsaved)
+                continue;
+
+            if (!EntityManager.HasComponent(uid, registration.Type))
+                missing.Add(name);
+        }
+
+        missing.Sort(StringComparer.Ordinal);
+        return missing;
     }
 
     private string SerializeOverrides(EntityUid uid, EntityPrototype proto)
@@ -238,12 +276,16 @@ public sealed class ADTDungeonRoomExportSystem : EntitySystem
 
             node.InsertAt(0, "type", new ValueDataNode(registration.Name));
 
-            var lines = node.ToString().TrimEnd('\n', '\r').Split('\n');
+            var lines = node.ToString()
+                .TrimEnd('\n', '\r')
+                .Split('\n')
+                .Select(line => line.TrimEnd('\r'))
+                .Where(line => line != "..." && line != "---")
+                .ToArray();
 
             for (var i = 0; i < lines.Length; i++)
             {
-                var line = lines[i].TrimEnd('\r');
-                builder.Append(i == 0 ? "    - " : "      ").Append(line).Append('\n');
+                builder.Append(i == 0 ? "    - " : "      ").Append(lines[i]).Append('\n');
             }
         }
 

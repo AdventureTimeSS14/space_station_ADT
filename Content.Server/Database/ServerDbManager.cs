@@ -4,6 +4,7 @@ using System.Net;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
+using Content.Server.ADT.Antag;
 using Content.Server.ADT.Thunderdome;
 using Content.Server.Administration.Logs;
 using Content.Shared.ADT.Thunderdome;
@@ -28,7 +29,7 @@ using MSLogLevel = Microsoft.Extensions.Logging.LogLevel;
 
 namespace Content.Server.Database
 {
-    public interface IServerDbManager
+    public partial interface IServerDbManager // ADT-Tweak
     {
         void Init();
 
@@ -321,6 +322,25 @@ namespace Content.Server.Database
         #endregion
         // ADT-Thunderdome-End
 
+        // ADT-AntagRollBonus-Start
+        #region Antag Roll Bonus
+
+        Task<Dictionary<string, int>> GetAntagRollBonusAsync(Guid userId);
+
+        Task SaveAntagRollBonusAsync(
+            IReadOnlyCollection<Guid> reset,
+            IReadOnlyCollection<AntagRollBonusIncrement> increments,
+            int cap);
+
+        Task SetAntagRollBonusAsync(Guid userId, string antag, int missedRounds);
+
+        Task<DateTime> GetAntagRollBonusLastWipeAsync(DateTime now);
+
+        Task WipeAntagRollBonusAsync(DateTime now);
+
+        #endregion
+        // ADT-AntagRollBonus-End
+
         #region Job Whitelists
 
         Task AddJobWhitelist(Guid player, ProtoId<JobPrototype> job);
@@ -388,7 +408,7 @@ namespace Content.Server.Database
         public string? Payload { get; set; }
     }
 
-    public sealed class ServerDbManager : IServerDbManager
+    public sealed partial class ServerDbManager : IServerDbManager // ADT-Tweak
     {
         public static readonly Counter DbReadOpsMetric = Metrics.CreateCounter(
             "db_read_ops",
@@ -1060,6 +1080,41 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.SaveThunderdomeStats(deltas));
         }
         // ADT-Thunderdome-End
+
+        // ADT-AntagRollBonus-Start
+        public Task<Dictionary<string, int>> GetAntagRollBonusAsync(Guid userId)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetAntagRollBonus(userId));
+        }
+
+        public Task SaveAntagRollBonusAsync(
+            IReadOnlyCollection<Guid> reset,
+            IReadOnlyCollection<AntagRollBonusIncrement> increments,
+            int cap)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.SaveAntagRollBonus(reset, increments, cap));
+        }
+
+        public Task SetAntagRollBonusAsync(Guid userId, string antag, int missedRounds)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.SetAntagRollBonus(userId, antag, missedRounds));
+        }
+
+        public Task<DateTime> GetAntagRollBonusLastWipeAsync(DateTime now)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetAntagRollBonusLastWipe(now));
+        }
+
+        public Task WipeAntagRollBonusAsync(DateTime now)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.WipeAntagRollBonus(now));
+        }
+        // ADT-AntagRollBonus-End
 
         public Task<bool> UpsertIPIntelCache(DateTime time, IPAddress ip, float score)
         {

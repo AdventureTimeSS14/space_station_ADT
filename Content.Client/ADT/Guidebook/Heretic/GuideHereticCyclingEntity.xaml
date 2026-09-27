@@ -1,0 +1,10 @@
+<BoxContainer xmlns="https://spacestation14.io"
+              Orientation="Vertical"
+              HorizontalAlignment="Center"
+              Margin="4 0 4 0">
+    <TextureRect Name="Icon"
+                 HorizontalAlignment="Center"
+                 Stretch="KeepAspectCentered"
+                 MinSize="32 32"/>
+    <RichTextLabel Name="CaptionLabel" HorizontalAlignment="Center" Margin="0 2 0 0"/>
+</BoxContainer>

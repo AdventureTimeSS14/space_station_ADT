@@ -1,0 +1,271 @@
+- type: entity
+  id: ADTFoodSoftMeat
+  parent: FoodMeatBase
+  name: soft meat
+  description: A piece of soft, almost jelly-like meat carved out of a lava fish. Better cooked.
+  components:
+  - type: Item
+    heldPrefix: soft_meat
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/Fishing/fish_loot.rsi
+    state: soft_meat
+  - type: Tag
+    tags:
+    - Meat
+    - ADTLavaFishPart
+
+- type: entity
+  id: ADTFoodEelFilet
+  parent: FoodMeatBase
+  name: eel filet
+  description: A long slice of eel meat. It is still slightly slimy.
+  components:
+  - type: Item
+    heldPrefix: eel_filet
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/Fishing/fish_loot.rsi
+    state: eel_filet
+  - type: Tag
+    tags:
+    - Meat
+    - ADTLavaFishPart
+
+- type: entity
+  id: ADTFoodPredatorMeat
+  parent: FoodMeatBase
+  name: predator meat
+  description: A slab of meat carved from a lava predator. Tough, stringy and full of protein.
+  components:
+  - type: Item
+    heldPrefix: predator_meat
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/Fishing/fish_loot.rsi
+    state: predator_meat
+  - type: Tag
+    tags:
+    - Meat
+    - ADTLavaFishPart
+
+- type: entity
+  id: ADTWhetstoneCrabShell
+  parent: BaseItem
+  name: whetstone
+  description: A shard of ash crab shell, rough enough to put an edge on a blade. Good for two sharpenings.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/Fishing/fish_loot.rsi
+    state: crab_shell
+  - type: Item
+    heldPrefix: crab_shell
+    size: Small
+  - type: ADTWhetstone
+    uses: 2
+    maxDamage: 30
+    increment:
+      types:
+        Slash: 2
+  - type: Tag
+    tags:
+    - ADTLavaFishPart
+
+- type: entity
+  id: ADTConductiveOrgan
+  parent: BaseItem
+  name: conductive organ
+  description: A small yellowish sac taken from a shellfish. A potent fertilizer that boosts yield and nutrient levels of a plant.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/Fishing/fish_loot.rsi
+    state: conductive_organ
+  - type: Item
+    size: Tiny
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 30
+        reagents:
+        - ReagentId: EZNutrient
+          Quantity: 30
+  - type: ADTConductiveOrgan
+  - type: Spillable
+    solution: beaker
+  - type: Tag
+    tags:
+    - ADTLavaFishPart
+
+- type: entity
+  id: ADTMoltenMass
+  parent: BaseItem
+  name: gooey molten mass
+  description: A strange clot cut from the head of a magma hammerhead. It synergizes with regenerative cores, holding them together.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/Fishing/fish_loot.rsi
+    state: molten_mass
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - ADTStabilizingSerum
+    - ADTLavaFishPart
+
+- type: entity
+  id: ADTCircularSawBlade
+  parent: BaseItem
+  name: circular saw blade
+  description: A bone growth shaped like a circular saw blade, torn out of a blind reaper's skull. Can be used to improve a bone axe.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/Fishing/fish_loot.rsi
+    state: circular_saw_blade
+  - type: Item
+    heldPrefix: circular_saw_blade
+    size: Tiny
+  - type: Tag
+    tags:
+    - ADTCircularSawBlade
+    - ADTLavaFishPart
+
+- type: entity
+  id: ADTBlearyEye
+  parent: AdvancedMineralScannerUnpowered
+  name: bleary eye
+  description: An eye of a sulfuric tramp, still faintly twitching. It senses minerals hidden in the rock just as well as it once sensed prey.
+  suffix: ""
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/Fishing/fish_loot.rsi
+    layers:
+    - state: bleary_eye
+    - state: bleary_eye
+      shader: unshaded
+      visible: false
+      map: ["enum.ToggleableVisuals.Layer"]
+  - type: Item
+    heldPrefix: bleary_eye
+    size: Small
+    storedRotation: 0
+    inhandVisuals: {}
+  - type: Tag
+    tags:
+    - ADTLavaFishPart
+
+- type: entity
+  id: ADTAcidBladder
+  parent: BaseItem
+  name: acid bladder
+  description: A small acid sac taken from a sulfuric tramp. Its skin is weak enough to burst if thrown at something. Or someone.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/Fishing/fish_loot.rsi
+    state: acid_bladder
+  - type: Item
+    heldPrefix: acid_bladder
+    size: Tiny
+  - type: SolutionContainerManager
+    solutions:
+      puddle:
+        maxVol: 50
+        reagents:
+        - ReagentId: SulfuricAcid
+          Quantity: 50
+  - type: Spillable
+    solution: puddle
+  - type: ExaminableSolution
+    solution: puddle
+  - type: ADTAcidBladder
+    wallDamage:
+      types:
+        Structural: 100
+  - type: Tag
+    tags:
+    - ADTLavaFishPart
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadScorchedSkull
+  name: scorched skull
+  description: The head of a dead horseman, cleaned of scales, blood and organs during butchering. Strikes fear into your enemies.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/scorched_skull.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/scorched_skull.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.85
+        Heat: 0.5
+        Caustic: 0.5
+  - type: GroupExamine
+
+- type: entity
+  id: ADTLavalandDyeBase
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/Fishing/dyes.rsi
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - ADTLavalandDye
+    - ADTLavaFishPart
+
+- type: entity
+  id: ADTLavalandDyeCinnabar
+  parent: ADTLavalandDyeBase
+  name: cinnabar spleen
+  description: A spleen full of cinnabar particles. Ground in a mortar it gives a deep brown dye.
+  components:
+  - type: Sprite
+    state: cinnabar_spleen
+  - type: ADTLavalandDye
+    mortar: ADTMortarCinnabar
+
+- type: entity
+  id: ADTLavalandDyeCrimson
+  parent: ADTLavalandDyeBase
+  name: crimson spleen
+  description: A spleen swollen with blood. Ground in a mortar it gives a crimson dye.
+  components:
+  - type: Sprite
+    state: crimson_spleen
+  - type: ADTLavalandDye
+    mortar: ADTMortarCrimson
+
+- type: entity
+  id: ADTLavalandDyeIndigo
+  parent: ADTLavalandDyeBase
+  name: indigo spleen
+  description: A spleen of a deep water fish. Ground in a mortar it gives a dark blue dye.
+  components:
+  - type: Sprite
+    state: indigo_spleen
+  - type: ADTLavalandDye
+    mortar: ADTMortarIndigo
+
+- type: entity
+  id: ADTLavalandDyeMint
+  parent: ADTLavalandDyeBase
+  name: mint spleen
+  description: A spleen with a faint green shine. Ground in a mortar it gives a mint dye.
+  components:
+  - type: Sprite
+    state: mint_spleen
+  - type: ADTLavalandDye
+    mortar: ADTMortarMint
+
+- type: entity
+  id: ADTLavalandDyeAmber
+  parent: ADTLavalandDyeBase
+  name: amber spleen
+  description: A spleen of a sulfuric tramp. Ground in a mortar it gives an amber dye.
+  components:
+  - type: Sprite
+    state: amber_spleen
+  - type: ADTLavalandDye
+    mortar: ADTMortarAmber

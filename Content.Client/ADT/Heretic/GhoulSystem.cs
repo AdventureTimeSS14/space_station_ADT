@@ -1,3 +1,6 @@
+//
+
+using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.Heretic;
 using Content.Shared.StatusIcon.Components;
 using Robust.Client.Player;
@@ -5,7 +8,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client.ADT.Heretic;
 
-public sealed partial class GhoulSystem : EntitySystem
+public sealed class GhoulSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
@@ -13,36 +16,27 @@ public sealed partial class GhoulSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<HereticComponent, GetStatusIconsEvent>(OnHereticMasterIcons);
-        SubscribeLocalEvent<GhoulComponent, GetStatusIconsEvent>(OnGhoulIcons);
+
+        // ADT: GetStatusIconsEvent is directed, subscribe per-component
+        SubscribeLocalEvent<HereticComponent, GetStatusIconsEvent>(OnGetHereticIcons);
+        SubscribeLocalEvent<HereticMinionComponent, GetStatusIconsEvent>(OnGetMinionIcons);
     }
 
-    /// <summary>
-    /// Show to ghouls who their master is
-    /// </summary>
-    private void OnHereticMasterIcons(Entity<HereticComponent> ent, ref GetStatusIconsEvent args)
+    private void OnGetHereticIcons(Entity<HereticComponent> ent, ref GetStatusIconsEvent args)
     {
-        var player = _player.LocalEntity;
-
-        if (!TryComp<GhoulComponent>(player, out var playerGhoul))
+        if (_player.LocalEntity is not { } player)
             return;
 
-        if (GetNetEntity(ent.Owner) != playerGhoul.BoundHeretic)
+        if (TryComp(player, out HereticMinionComponent? minion) && minion.BoundHeretic == ent.Owner)
+            args.StatusIcons.Add(_prototype.Index(minion.MasterIcon));
+    }
+
+    private void OnGetMinionIcons(Entity<HereticMinionComponent> ent, ref GetStatusIconsEvent args)
+    {
+        if (_player.LocalEntity is not { } player)
             return;
 
-        if (_prototype.TryIndex(playerGhoul.MasterIcon, out var iconPrototype))
-            args.StatusIcons.Add(iconPrototype);
+        if (ent.Comp.BoundHeretic == player)
+            args.StatusIcons.Add(_prototype.Index(ent.Comp.GhoulIcon));
     }
-
-    /// <summary>
-    /// Show an icon for all ghouls to all ghouls and all heretics.
-    /// </summary>
-    private void OnGhoulIcons(Entity<GhoulComponent> ent, ref GetStatusIconsEvent args)
-    {
-        var player = _player.LocalEntity;
-
-        if (_prototype.TryIndex(ent.Comp.GhoulIcon, out var iconPrototype))
-            args.StatusIcons.Add(iconPrototype);
-    }
-
 }

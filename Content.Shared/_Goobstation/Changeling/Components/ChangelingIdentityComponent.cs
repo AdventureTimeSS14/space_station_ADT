@@ -2,6 +2,7 @@
 
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes; // ADT-Tweak
+using Robust.Shared.Enums;
 using Content.Shared.StatusIcon;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -162,6 +163,25 @@ public sealed partial class TransformData
     /// </summary>
     [DataField]
     public EntityUid? SourceBody;
+
+    /// <summary>
+    ///     Sex of the body this identity was taken from. Stored here because the body is usually long gone
+    ///     by the time you transform into it.
+    /// </summary>
+    [DataField]
+    public Sex Sex;
+
+    /// <summary>
+    ///     Grammatical gender of the body this identity was taken from, used for pronouns.
+    /// </summary>
+    [DataField]
+    public Gender Gender;
+
+    /// <summary>
+    ///     Age of the body this identity was taken from.
+    /// </summary>
+    [DataField]
+    public int Age = 18;
     // ADT-Tweak
 
     // ADT-Tweak

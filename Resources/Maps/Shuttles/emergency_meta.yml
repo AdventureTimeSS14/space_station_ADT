@@ -3954,7 +3954,7 @@ entities:
           - 102
     - type: Physics
       canCollide: False
-- proto: MicroManipulatorStockPart
+- proto: CapacitorStockPart
   entities:
   - uid: 120
     components:

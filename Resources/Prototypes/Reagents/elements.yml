@@ -178,7 +178,7 @@
   boilingPoint: 2862.0
   meltingPoint: 1538.0
   metabolisms:
-    Bloodstream:
+    Metabolites: #ADT-Tweak Bloodstream > Metabolites
       metabolismRate: 0.1
       effects:
       - !type:HealthChange
@@ -197,14 +197,12 @@
           type: [ Drask ]
           inverted: true
         amount: 1.5 #ADT-Tweak 0.4 > 1.5
-    # ADT Start
-    Digestion:
-      effects:
+    #ADT-Tweak-Start
       - !type:SatiateHunger
         conditions:
           - !type:MetabolizerTypeCondition
             type: [ Vox ]
-    # ADT End
+    #ADT-Tweak-End
 
 - type: reagent
   id: Lithium

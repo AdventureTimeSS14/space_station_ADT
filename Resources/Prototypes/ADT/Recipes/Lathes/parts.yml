@@ -149,3 +149,41 @@
     Glass: 250
     Silver: 125
     ADTBScrystal: 150
+
+# Tier 5
+- type: latheRecipe
+  id: QuantumScanningModuleStockPart
+  result: QuantumScanningModuleStockPart
+  categories:
+  - Parts
+  completetime: 20
+  materials:
+    Steel: 500
+    Plastic: 500
+    Copper: 300
+    Gold: 300
+    Uranium: 500
+    ADTBScrystal: 300
+    Diamond: 200
+  reagentCost:
+    ADTQuantumCatalyst: 100
+
+- type: latheRecipe
+  parent: QuantumScanningModuleStockPart
+  id: QuantumCapacitorStockPart
+  result: QuantumCapacitorStockPart
+
+- type: latheRecipe
+  parent: QuantumScanningModuleStockPart
+  id: QuantumServoStockPart
+  result: QuantumServoStockPart
+
+- type: latheRecipe
+  parent: QuantumScanningModuleStockPart
+  id: QuantumMicroLaserStockPart
+  result: QuantumMicroLaserStockPart
+
+- type: latheRecipe
+  parent: QuantumScanningModuleStockPart
+  id: QuantumMatterBinStockPart
+  result: QuantumMatterBinStockPart

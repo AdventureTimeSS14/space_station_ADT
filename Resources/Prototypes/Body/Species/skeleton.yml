@@ -127,6 +127,7 @@
     groups:
       Flammable: [ Touch ]
       Extinguish: [ Touch ]
+      Acidic: [ Touch, Ingestion ] # ADT-Tweak
     reactions:
     - reagents: [ Water, SpaceCleaner ]
       methods: [ Touch ]

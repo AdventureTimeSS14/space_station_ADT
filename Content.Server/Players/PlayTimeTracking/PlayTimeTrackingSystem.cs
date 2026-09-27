@@ -39,6 +39,7 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
     [Dependency] private readonly SharedRoleSystem _roles = default!;
     [Dependency] private readonly PlayTimeTrackingManager _tracking = default!;
     [Dependency] private readonly SponsorsManager _sponsorsManager = default!; //ADT-Sponsors-Job
+    [Dependency] private readonly Content.Server.ADT.Sponsors.SponsorManager _adtSponsors = default!;
 
     public override void Initialize()
     {
@@ -245,21 +246,26 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
         if (!_cfg.GetCVar(CCVars.GameRoleTimers))
             return true;
 
-        //ADT-Sponsors-Job-Start
-        var info = _sponsorsManager.TryGetInfo(player.UserId, out var sponsorInfo);
-
-        if (info && sponsorInfo != null)
-        {
-            if (sponsorInfo.AllowJob)
-                return true;
-        }
-        //ADT-Sponsors-Job-End
-
         if (!_tracking.TryGetTrackerTimes(player, out var playTimes))
         {
             Log.Error($"Unable to check playtimes {Environment.StackTrace}");
             playTimes = new Dictionary<string, TimeSpan>();
         }
+
+        return MeetsJobPlaytime(player, job, playTimes);
+    }
+
+    // ADT-Tweak-Start
+    private bool MeetsJobPlaytime(
+        ICommonSession player,
+        ProtoId<JobPrototype> job,
+        IReadOnlyDictionary<string, TimeSpan> playTimes)
+    {
+        if (_adtSponsors.IsJobTimeBypassed(player, job))
+            return true;
+
+        if (_sponsorsManager.TryGetInfo(player.UserId, out var sponsorInfo) && sponsorInfo.AllowJob)
+            return true;
 
         var requirements = _roles.GetRoleRequirements(job);
         return JobRequirements.TryRequirementsMet(
@@ -271,6 +277,7 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
             (HumanoidCharacterProfile?)
             _preferencesManager.GetPreferences(player.UserId).SelectedCharacter);
     }
+    // ADT-Tweak-End
 
     /// <summary>
     /// Checks if the player meets role requirements.
@@ -282,6 +289,11 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
     {
         if (!_cfg.GetCVar(CCVars.GameRoleTimers))
             return true;
+
+        // ADT-Tweak-Start
+        if (_adtSponsors.IsAntagTimeBypassed(player))
+            return true;
+        // ADT-Tweak-End
 
         if (!_tracking.TryGetTrackerTimes(player, out var playTimes))
         {
@@ -337,7 +349,7 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
         for (var i = 0; i < jobs.Count; i++)
         {
             if (_prototypes.Resolve(jobs[i], out var job)
-                && JobRequirements.TryRequirementsMet(job, playTimes, out _, EntityManager, _prototypes, (HumanoidCharacterProfile?) _preferencesManager.GetPreferences(userId).SelectedCharacter))
+                && MeetsJobPlaytime(player, job.ID, playTimes)) // ADT-Tweak
             {
                 continue;
             }

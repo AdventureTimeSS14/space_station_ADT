@@ -1,0 +1,28 @@
+- type: entity
+  name: small blaze
+  parent: Matchstick
+  id: ADTAshWalkerSmallBlaze
+  description: Your own little flame, currently sitting right in your maw.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/small_blaze.rsi
+    layers:
+    - state: icon
+  - type: BurnStateVisuals
+    unlitIcon: icon
+    litIcon: icon
+    burntIcon: icon
+  - type: Item
+    size: Normal
+  - type: ADTSmallBlaze
+  - type: Matchstick
+    duration: 10
+    igniteSound:
+      path: /Audio/Items/match_strike.ogg
+      params:
+        volume: -0.125
+        variation: 0.125
+  - type: PointLight
+    enabled: false
+    radius: 1.5
+    color: orangered
