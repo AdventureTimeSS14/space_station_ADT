@@ -9,6 +9,6 @@
 
 - files:
   - celecern_step1.ogg
-  license: "CC-BY-SA-3.0"
-  copyright: "ИСТОЧНИК НЕ УКАЗАН - уточнить автора звуков перед мержем"
-  source: "ИСТОЧНИК НЕ УКАЗАН - уточнить автора звуков перед мержем"
+  license: "custom"
+  copyright: "Pixabay Content License"
+  source: "https://pixabay.com/service/license-summary/"

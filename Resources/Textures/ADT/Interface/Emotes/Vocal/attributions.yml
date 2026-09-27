@@ -29,6 +29,6 @@
   source: "https://github.com/AdventureTimeSS14/space_station_ADT"
 
 - files: ["snort.png"]
-  license: "CC-BY-SA-3.0"
-  copyright: "ИСТОЧНИК НЕ УКАЗАН(перед мерджем исправить"
-  source: "ИСТОЧНИК НЕ УКАЗАН(перед мерджем исправить"
+  license: "custom"
+  copyright: "Pixabay Content License"
+  source: "https://pixabay.com/service/license-summary/"
