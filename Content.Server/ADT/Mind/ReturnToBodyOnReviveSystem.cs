@@ -22,7 +22,10 @@ public sealed class ReturnToBodyOnReviveSystem : EntitySystem
 
     private void OnMobStateChanged(Entity<SiliconComponent> ent, ref MobStateChangedEvent ev)
     {
-        if (ev.OldMobState != MobState.Dead || ev.NewMobState != MobState.Alive)
+        if (ev.OldMobState != MobState.Dead)
+            return;
+
+        if (ev.NewMobState != MobState.Alive && ev.NewMobState != MobState.SoftCritical)
             return;
 
         var uid = ent.Owner;

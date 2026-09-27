@@ -181,7 +181,6 @@
       Dead: BorgDead
     allowRevives: true
   - type: SoftCrit
-    speedModifier: 0.73
     softCritSound: /Audio/ADT/Effects/soft_critical_ipc.ogg
     reviveSound: /Audio/ADT/Effects/backtolife_ipc.ogg
   - type: NpcFactionMember
