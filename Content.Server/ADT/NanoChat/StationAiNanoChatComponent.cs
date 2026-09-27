@@ -1,4 +1,5 @@
 using Content.Shared.Radio;
+using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.NanoChat;
@@ -24,4 +25,7 @@ public sealed partial class StationAiNanoChatComponent : Component
     /// </summary>
     [DataField]
     public ProtoId<RadioChannelPrototype> RadioChannel = "Common";
+
+    [DataField]
+    public SoundSpecifier NotificationSound = new SoundPathSpecifier("/Audio/Machines/twobeep.ogg");
 }
