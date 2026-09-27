@@ -33,8 +33,6 @@ namespace Content.Shared.ADT.FiringPin;
 
 public sealed partial class FiringPinSystem : EntitySystem
 {
-    private const float TestRangeRadius = 10f;
-
     private static readonly VerbCategory SetAlertLevel = new("verb-categories-set-alert-level", null);
 
     [Dependency] private readonly AccessReaderSystem _accessReader = default!;
@@ -67,27 +65,24 @@ public sealed partial class FiringPinSystem : EntitySystem
 
     private void OnMapInit(Entity<FiringPinHolderComponent> ent, ref MapInitEvent args)
     {
-        var container = _container.EnsureContainer<Container>(ent, ent.Comp.ContainerId);
-
-        if (ent.Comp.StartingPin == null || GetInstalledPin(ent) != null || _net.IsClient)
+        if (_net.IsClient || ent.Comp.StartingPin == null || GetInstalledPin(ent) != null)
             return;
 
+        var container = _container.EnsureContainer<ContainerSlot>(ent, ent.Comp.ContainerId);
         var pin = Spawn(ent.Comp.StartingPin.Value, Transform(ent).Coordinates);
         _container.Insert(pin, container);
     }
 
     public Entity<FiringPinComponent>? GetInstalledPin(Entity<FiringPinHolderComponent> holder)
     {
-        if (!_container.TryGetContainer(holder, holder.Comp.ContainerId, out var container))
-            return null;
-
-        foreach (var contained in container.ContainedEntities)
+        if (!_container.TryGetContainer(holder, holder.Comp.ContainerId, out var container)
+            || container is not ContainerSlot slot
+            || slot.ContainedEntity is not { Valid: true } contained)
         {
-            if (TryComp<FiringPinComponent>(contained, out var pin))
-                return (contained, pin);
+            return null;
         }
 
-        return null;
+        return TryComp<FiringPinComponent>(contained, out var pin) ? (contained, pin) : null;
     }
 
     private void OnInteractUsing(Entity<GunComponent> ent, ref InteractUsingEvent args)
@@ -101,7 +96,7 @@ public sealed partial class FiringPinSystem : EntitySystem
 
             if (_whitelist.IsWhitelistPassOrNull(holder.Whitelist, args.Used))
             {
-                var container = _container.EnsureContainer<Container>(ent, holder.ContainerId);
+                var container = _container.EnsureContainer<ContainerSlot>(ent, holder.ContainerId);
                 var existing = GetInstalledPin((ent.Owner, holder));
 
                 if (existing != null)
@@ -131,11 +126,12 @@ public sealed partial class FiringPinSystem : EntitySystem
         if (!TryComp<FiringPinHolderComponent>(ent, out var holderComp) || !HasComp<ToolComponent>(args.Used))
             return;
 
-        if (GetInstalledPin((ent.Owner, holderComp)) == null)
+        var pin = GetInstalledPin((ent.Owner, holderComp));
+        if (pin == null)
             return;
 
         _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, holderComp.RemovalDelay,
-            new FiringPinRemoveDoAfterEvent(), ent.Owner, target: ent.Owner, used: args.Used)
+            new FiringPinRemoveDoAfterEvent { Pin = pin.Value.Owner }, ent.Owner, target: ent.Owner, used: args.Used)
         {
             BreakOnMove = true,
             BreakOnDamage = true,
@@ -151,7 +147,7 @@ public sealed partial class FiringPinSystem : EntitySystem
             return;
 
         var pin = GetInstalledPin(ent);
-        if (pin == null)
+        if (pin == null || pin.Value.Owner != args.Pin)
             return;
 
         _audio.PlayPredicted(ent.Comp.RemoveSound, ent, args.User);
@@ -197,7 +193,9 @@ public sealed partial class FiringPinSystem : EntitySystem
             if (!_net.IsClient)
             {
                 _explosion.QueueExplosion(ent.Owner, SharedExplosionSystem.DefaultExplosionPrototypeId,
-                    totalIntensity: 2f, slope: 5f, maxTileIntensity: 2f);
+                    totalIntensity: pinComp.SelfDestructTotalIntensity,
+                    slope: pinComp.SelfDestructSlope,
+                    maxTileIntensity: pinComp.SelfDestructMaxTileIntensity);
                 QueueDel(ent.Owner);
             }
         }
@@ -275,11 +273,11 @@ public sealed partial class FiringPinSystem : EntitySystem
         if (check.AllowedAlertLevels.Count == 0)
             return true;
 
-        if (!TryComp<FiringPinAlertLevelCacheComponent>(user, out var cache)
-            || string.IsNullOrEmpty(cache.CurrentLevel))
-        {
+        if (!TryComp<FiringPinAlertLevelCacheComponent>(user, out var cache))
+            return false;
+
+        if (string.IsNullOrEmpty(cache.CurrentLevel))
             return true;
-        }
 
         var currentIndex = check.AllowedAlertLevels.IndexOf(cache.CurrentLevel);
         if (currentIndex < 0)
@@ -290,7 +288,7 @@ public sealed partial class FiringPinSystem : EntitySystem
 
         var selectedIndex = check.AllowedAlertLevels.IndexOf(check.SelectedAlertLevel);
         if (selectedIndex < 0)
-            return true;
+            return false;
 
         return currentIndex <= selectedIndex;
     }
@@ -345,15 +343,15 @@ public sealed partial class FiringPinSystem : EntitySystem
     {
         var userPos = _transform.GetMapCoordinates(user);
 
-        var query = EntityQueryEnumerator<FiringRangeComponent>();
-        while (query.MoveNext(out var range, out _))
+        var query = EntityQueryEnumerator<FiringRangeComponent, TransformComponent>();
+        while (query.MoveNext(out var range, out var comp, out var xform))
         {
-            var rangePos = _transform.GetMapCoordinates(range);
-            if (userPos.MapId == rangePos.MapId
-                && (rangePos.Position - userPos.Position).Length() <= TestRangeRadius)
-            {
+            if (userPos.MapId != xform.MapID)
+                continue;
+
+            var rangePos = _transform.GetWorldPosition(xform);
+            if ((rangePos - userPos.Position).Length() <= comp.Radius)
                 return true;
-            }
         }
 
         return false;
@@ -392,7 +390,7 @@ public sealed partial class FiringPinSystem : EntitySystem
 
     private bool CheckClown(Entity<FiringPinComponent> pin, EntityUid user, FiringPinCheck check)
     {
-        _audio.PlayPredicted(new SoundPathSpecifier("/Audio/Items/bikehorn.ogg"), pin.Owner, user);
+        _audio.PlayPredicted(pin.Comp.FailSound, pin.Owner, user);
         return check.PassForClowns && HasComp<ClumsyComponent>(user);
     }
 

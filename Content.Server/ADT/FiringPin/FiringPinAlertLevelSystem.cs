@@ -42,19 +42,11 @@ public sealed class FiringPinAlertLevelSystem : EntitySystem
     private void UpdateCacheFromStation(EntityUid player)
     {
         var station = _station.GetOwningStation(player);
-        if (station == null || !TryComp<AlertLevelComponent>(station, out var alert))
-        {
-            if (TryComp<FiringPinAlertLevelCacheComponent>(player, out var cache)
-                && !string.IsNullOrEmpty(cache.CurrentLevel))
-            {
-                cache.CurrentLevel = string.Empty;
-                Dirty(player, cache);
-            }
+        var level = station != null && TryComp<AlertLevelComponent>(station, out var alert)
+            ? alert.CurrentLevel
+            : string.Empty;
 
-            return;
-        }
-
-        UpdateCache(player, alert.CurrentLevel);
+        UpdateCache(player, level);
     }
 
     private void UpdateCache(EntityUid player, string level)

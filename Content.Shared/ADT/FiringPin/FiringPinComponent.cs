@@ -1,3 +1,4 @@
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.ADT.FiringPin;
@@ -35,7 +36,19 @@ public sealed partial class FiringPinComponent : Component
     public bool SelfDestruct;
 
     [DataField, AutoNetworkedField]
+    public float SelfDestructTotalIntensity = 2f;
+
+    [DataField, AutoNetworkedField]
+    public float SelfDestructSlope = 5f;
+
+    [DataField, AutoNetworkedField]
+    public float SelfDestructMaxTileIntensity = 2f;
+
+    [DataField, AutoNetworkedField]
     public bool ForceReplace;
+
+    [DataField, AutoNetworkedField]
+    public SoundSpecifier? FailSound = new SoundPathSpecifier("/Audio/Items/bikehorn.ogg");
 
     [DataField, AutoNetworkedField]
     public string FailMessage = "firing-pin-fail";
