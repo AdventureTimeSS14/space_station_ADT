@@ -130,6 +130,12 @@ public sealed class CursedHeartSystem : EntitySystem
                 comp.OriginalCritThreshold = null;
             }
 
+            if (comp.OriginalSoftCritThreshold.HasValue)
+            {
+                _mobThreshold.SetMobStateThreshold(uid, comp.OriginalSoftCritThreshold.Value, MobState.SoftCritical, thresholds);
+                comp.OriginalSoftCritThreshold = null;
+            }
+
             _popup.PopupEntity(Loc.GetString("popup-cursed-heart-start"), uid, uid, PopupType.Large);
             _audio.PlayGlobal(new SoundPathSpecifier("/Audio/ADT/Heretic/heartbeat.ogg"), uid);
         }
@@ -144,6 +150,15 @@ public sealed class CursedHeartSystem : EntitySystem
                 comp.OriginalCritThreshold = currentCrit;
             }
             _mobThreshold.SetMobStateThreshold(uid, FixedPoint2.New(60), MobState.Critical, thresholds);
+
+            if (!comp.OriginalSoftCritThreshold.HasValue &&
+                comp.OriginalCritThreshold.HasValue &&
+                _mobThreshold.TryGetThresholdForState(uid, MobState.SoftCritical, out var currentSoftCrit, thresholds))
+            {
+                comp.OriginalSoftCritThreshold = currentSoftCrit;
+                var softCrit = currentSoftCrit.Value * FixedPoint2.New(60) / comp.OriginalCritThreshold.Value;
+                _mobThreshold.SetMobStateThreshold(uid, softCrit, MobState.SoftCritical, thresholds);
+            }
 
             _popup.PopupEntity(Loc.GetString("popup-cursed-heart-stop"), uid, uid, PopupType.LargeCaution);
             _audio.PlayGlobal(new SoundPathSpecifier("/Audio/ADT/Heretic/heartbeat.ogg"), uid);

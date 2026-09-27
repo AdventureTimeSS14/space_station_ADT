@@ -21,6 +21,11 @@ ent-ActionStationAiAtmosphericAlerts = Интерфейс атмосферной
     .desc = Просмотр интерфейса атмосферной сигнализации.
 ent-ActionStationAiInfo = Просмотреть информацию
     .desc = Просмотрите общую информацию о станции.
+ent-ActionStationAiNanoChat = НаноМакс
+    .desc = Открыть мессенджер НаноМакс.
+
+station-ai-nanochat-window-title = НаноМакс
+
 
 ai-eye-teleport-button = ➤
 ai-eye-teleport-success = Око ИИ перемещено к { $name }

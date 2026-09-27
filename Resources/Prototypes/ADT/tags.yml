@@ -1088,6 +1088,9 @@
   id: ADTJanicartUpgradeSpeed
 
 - type: Tag
+  id: ADTMagicStaff
+
+- type: Tag
   id: ADTOar
 
 - type: Tag
