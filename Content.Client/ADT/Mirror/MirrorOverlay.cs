@@ -1,14 +1,13 @@
 using System.Numerics;
+using Content.Client.Graphics;
 using Content.Shared.ADT.Mirror;
-using Content.Shared.Humanoid;
+using Content.Shared.Stealth.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;
 using Robust.Shared.Graphics;
-using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using DrawDepth = Content.Shared.DrawDepth.DrawDepth;
-using Content.Shared.Stealth.Components;
 
 namespace Content.Client.ADT.Mirror;
 
@@ -16,17 +15,39 @@ public sealed partial class MirrorOverlay : Overlay
 {
     private static readonly ProtoId<ShaderPrototype> StencilClearShader = "StencilClear";
     private static readonly ProtoId<ShaderPrototype> StencilMaskShader = "StencilMask";
-    private static readonly ProtoId<ShaderPrototype> StencilEqualDrawShader = "StencilEqualDraw";
+    private static readonly ProtoId<ShaderPrototype> UnshadedShader = "unshaded";
 
+    private const LookupFlags ReflectionLookupFlags = LookupFlags.Approximate | LookupFlags.Dynamic | LookupFlags.Sundries;
+    private const float MaxReflectionAlpha = 0.9f;
+
+    [Dependency] private IClyde _clyde = default!;
     [Dependency] private IEntityManager _entityManager = default!;
     [Dependency] private IPrototypeManager _prototypeManager = default!;
     private SpriteSystem _sprite = default!;
     private TransformSystem _transform = default!;
-    private ContainerSystem _container = default!;
+    private EntityLookupSystem _lookup = default!;
+    private MirrorSystem _mirror = default!;
 
-    private ShaderInstance _stencilMaskShader;
-    private ShaderInstance _stencilClearShader;
-    private ShaderInstance _stencilEqualDrawShader;
+    private readonly ShaderInstance _stencilMaskShader;
+    private readonly ShaderInstance _stencilClearShader;
+    private readonly ShaderInstance _reflectionShader;
+
+    private readonly OverlayResourceCache<CachedResources> _resources = new();
+    private readonly HashSet<Entity<MirrorReflectionComponent>> _reflections = new();
+    private readonly Dictionary<EntityUid, bool> _canBeSeenCache = new();
+    private readonly Action _renderToTargetAction;
+
+    private DrawingHandleWorld _worldHandle = default!;
+    private Matrix3x2 _worldToTarget;
+    private Matrix3x2 _worldToTargetLinear;
+    private bool _targetFlipped;
+
+    private Entity<SpriteComponent> _targetEntity;
+    private Vector2 _targetPosition;
+    private Angle _targetRotation;
+    private Angle _targetEyeRotation;
+    private Direction? _targetDirection;
+    private bool _drawnAny;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpaceEntities;
 
@@ -36,7 +57,17 @@ public sealed partial class MirrorOverlay : Overlay
 
         _stencilMaskShader = _prototypeManager.Index(StencilMaskShader).Instance();
         _stencilClearShader = _prototypeManager.Index(StencilClearShader).Instance();
-        _stencilEqualDrawShader = _prototypeManager.Index(StencilEqualDrawShader).Instance();
+
+        _reflectionShader = _prototypeManager.Index(UnshadedShader).InstanceUnique();
+        _reflectionShader.Stencil = new StencilParameters
+        {
+            Enabled = true,
+            Ref = 1,
+            Op = StencilOp.Keep,
+            Func = StencilFunc.Equal,
+        };
+
+        _renderToTargetAction = RenderToTarget;
         ZIndex = (int)DrawDepth.BelowMobs;
     }
 
@@ -44,7 +75,8 @@ public sealed partial class MirrorOverlay : Overlay
     {
         _sprite ??= _entityManager.System<SpriteSystem>();
         _transform ??= _entityManager.System<TransformSystem>();
-        _container ??= _entityManager.System<ContainerSystem>();
+        _lookup ??= _entityManager.System<EntityLookupSystem>();
+        _mirror ??= _entityManager.System<MirrorSystem>();
 
         return base.BeforeDraw(args);
     }
@@ -57,175 +89,266 @@ public sealed partial class MirrorOverlay : Overlay
 
         var mapId = args.MapId;
         var worldAabb = args.WorldAABB;
+        CachedResources? res = null;
+
+        _canBeSeenCache.Clear();
+        _drawnAny = false;
 
         var mirrors = _entityManager.AllEntityQueryEnumerator<MirrorComponent, SpriteComponent, TransformComponent>();
-        var mirrorData = new List<(MirrorComponent Component, Vector2 Position, Angle Rotation)>();
-        while (mirrors.MoveNext(out var uid, out var component, out var sprite, out var transform))
-        {
-            if (transform.MapID == mapId)
-            {
-                var position = _sprite.GetSpriteWorldPosition((uid, sprite, transform));
-                var rotation = _transform.GetWorldRotation(transform) + sprite.Rotation;
-                mirrorData.Add((component, position, rotation));
-            }
-        }
-
-        if (mirrorData.Count == 0)
-            return;
-
-        var worldHandle = args.WorldHandle;
-
-        worldHandle.SetTransform(Matrix3x2.Identity);
-        worldHandle.UseShader(_stencilClearShader);
-        worldHandle.DrawRect(worldAabb, Color.White);
-
-        // Сама отрисовка начинается тут
-        // Каждое зеркало делает свою маску и рисует сущности, которые может
-        var mirrorEntities = _entityManager.AllEntityQueryEnumerator<MirrorComponent, SpriteComponent, TransformComponent>();
-        while (mirrorEntities.MoveNext(out var uid, out var mirror, out var sprite, out var transform))
+        while (mirrors.MoveNext(out var uid, out var mirror, out var sprite, out var transform))
         {
             if (transform.MapID != mapId)
                 continue;
 
-            worldHandle.UseShader(_stencilMaskShader);
-
-            _sprite.RenderSprite((uid, sprite), worldHandle, eye.Rotation, _transform.GetWorldRotation(transform),
-                _transform.GetWorldPosition(transform));
-
-            worldHandle.UseShader(_stencilEqualDrawShader);
-            RenderEntities(worldAabb, eye, worldHandle, mapId,
-                (mirror, _sprite.GetSpriteWorldPosition((uid, sprite, transform)),
-                    _transform.GetWorldRotation(transform) + sprite.Rotation));
-
-            worldHandle.UseShader(_stencilClearShader);
-            worldHandle.SetTransform(Matrix3x2.Identity);
-            worldHandle.DrawRect(worldAabb, Color.White);
-        }
-
-        worldHandle.UseShader(null);
-    }
-
-    private void RenderEntities(Box2 worldAabb, IEye eye, DrawingHandleWorld worldHandle, MapId mapId,
-                                (MirrorComponent Component, Vector2 Position, Angle Rotation) mirrorData)
-    {
-        var entities = _entityManager.AllEntityQueryEnumerator<MirrorReflectionComponent, SpriteComponent, TransformComponent>();
-        while (entities.MoveNext(out var uid, out var reflection, out var sprite, out var transform))
-        {
-            var (mirror, mirrorPosition, mirrorRotation) = mirrorData;
-            var sourcePosition = _transform.GetWorldPosition(transform);
-            var normalAngle = mirrorRotation + Angle.FromDegrees(mirror.DirRotation);
-            var normal = normalAngle.ToVec().Normalized();
-
-            if (!CanReflect(uid, reflection, transform, mirrorData, normal, mapId, eye, worldAabb))
+            var (worldPosition, worldRotation) = _transform.GetWorldPositionRotation(transform);
+            var bounds = _sprite.CalculateBounds((uid, sprite), worldPosition, worldRotation, eye.Rotation);
+            if (!bounds.CalcBoundingBox().Intersects(worldAabb))
                 continue;
 
-            var color = sprite.Color;
-            var newColor = GetTransparentColor(uid, color, mirrorPosition, mirror.ToleratedDistance, mirror.FadeFactor);
-            _sprite.SetColor(uid, newColor);
+            res ??= PrepareTarget(args);
 
-            // Тут убираются слои, которые взаимодействуют с маской. Без этого рендер ломается
-            (ISpriteLayer Layer, bool Visible)? removedStencilMask = null;
-            (ISpriteLayer Layer, bool Visible)? removedStencilClear = null;
+            var mirrorPosition = _sprite.GetSpriteWorldPosition((uid, sprite, transform));
+            var normalAngle = worldRotation + sprite.Rotation + mirror.DirRotation;
+            var normal = normalAngle.ToVec().Normalized();
+            var mirrorData = new MirrorData(
+                (uid, sprite),
+                worldPosition,
+                worldRotation,
+                bounds,
+                mirror,
+                mirrorPosition,
+                normalAngle,
+                normal,
+                Vector2.Dot(eye.Position.Position - mirrorPosition, normal),
+                (normalAngle + eye.Rotation + mirror.DirRotation).GetCardinalDir() is Direction.South);
 
-            if (_sprite.LayerMapTryGet((uid, sprite), HumanoidVisualLayers.StencilMask, out var stencilMaskLayer, false))
-            {
-                var stencilMask = sprite[stencilMaskLayer];
-                removedStencilMask = (stencilMask, stencilMask.Visible);
-                stencilMask.Visible = false;
+            RenderEntities(args, eye, res, mirrorData);
+        }
 
-                if (stencilMaskLayer > 0)
-                {
-                    var stencilClear = sprite[stencilMaskLayer - 1];
-                    removedStencilClear = (stencilClear, stencilClear.Visible);
-                    stencilClear.Visible = false;
-                }
-            }
+        if (_drawnAny)
+            args.WorldHandle.UseShader(null);
+    }
 
-            var offsetSourcePosition = sourcePosition + normal * mirror.GatherOffset;
-            var reflectedPosition = offsetSourcePosition - 2f * Vector2.Dot(offsetSourcePosition - mirrorPosition, normal) * normal;
+    private CachedResources PrepareTarget(in OverlayDrawArgs args)
+    {
+        var res = _resources.GetForViewport(args.Viewport, static _ => new CachedResources());
 
-            var scale = sprite.Scale;
+        if (res.Target?.Texture.Size != args.Viewport.Size)
+        {
+            res.Target?.Dispose();
+            res.Target = _clyde.CreateRenderTarget(
+                args.Viewport.Size,
+                new RenderTargetFormatParameters(RenderTargetColorFormat.Rgba8Srgb, true),
+                name: "mirror-reflection");
+        }
 
-            if ((normalAngle + eye.Rotation + mirror.DirRotation).GetCardinalDir() is not Direction.South)
-            {
-                var reflectedFacing = normalAngle * 2f - _transform.GetWorldRotation(transform);
-                var dir = (reflectedFacing + eye.Rotation).GetCardinalDir();
+        _worldHandle = args.WorldHandle;
+        _worldToTarget = args.Viewport.GetWorldToLocalMatrix();
+        _worldToTargetLinear = _worldToTarget with
+        {
+            M31 = 0f,
+            M32 = 0f,
+        };
+        _targetFlipped = _worldToTargetLinear.GetDeterminant() < 0f;
 
-                dir = dir switch
-                {
-                    Direction.West => Direction.East,
-                    Direction.East => Direction.West,
-                    _ => dir,
-                };
+        return res;
+    }
 
-                _sprite.SetScale(uid, new Vector2(-scale.X, scale.Y));
+    private void RenderEntities(in OverlayDrawArgs args, IEye eye, CachedResources res, MirrorData mirrorData)
+    {
+        var mirror = mirrorData.Comp;
 
-                _sprite.RenderSprite((uid, sprite), worldHandle, eye.Rotation, reflectedFacing,
-                    reflectedPosition - normal * mirror.ReflectionOffset, dir);
+        _reflections.Clear();
+        if (mirror.FadeFactor > 0)
+            _lookup.GetEntitiesInRange(args.MapId, mirrorData.Position, mirror.GatherOffset + 1f / mirror.FadeFactor, _reflections, ReflectionLookupFlags);
+        else
+            _lookup.GetEntitiesIntersecting(args.MapId, args.WorldAABB, _reflections, ReflectionLookupFlags);
 
-                _sprite.SetScale(uid, scale);
-            }
-            else
-            {
-                _sprite.SetScale(uid, new Vector2(scale.X, -scale.Y));
+        foreach (var (uid, reflection) in _reflections)
+        {
+            if (!_entityManager.TryGetComponent<SpriteComponent>(uid, out var sprite)
+                || !_entityManager.TryGetComponent<TransformComponent>(uid, out var transform))
+                continue;
 
-                _sprite.RenderSprite((uid, sprite), worldHandle, eye.Rotation, _transform.GetWorldRotation(transform),
-                    reflectedPosition - normal * mirror.ReflectionOffset);
+            var (sourcePosition, sourceRotation) = _transform.GetWorldPositionRotation(transform);
+            if (!CanReflect(uid, reflection, sprite, sourcePosition, mirrorData, args.WorldAABB))
+                continue;
 
-                _sprite.SetScale(uid, scale);
-            }
-
-            if (removedStencilMask != null)
-                removedStencilMask.Value.Layer.Visible = removedStencilMask.Value.Visible;
-
-            if (removedStencilClear != null)
-                removedStencilClear.Value.Layer.Visible = removedStencilClear.Value.Visible;
-
-            worldHandle.UseShader(_stencilEqualDrawShader);
-            _sprite.SetColor(uid, color);
+            RenderReflection(args, (uid, sprite), sourcePosition, sourceRotation, eye, res.Target!, mirrorData);
         }
     }
 
-    private bool CanReflect(EntityUid uid, MirrorReflectionComponent reflection, TransformComponent transform,
-                            (MirrorComponent, Vector2, Angle) mirrorData, Vector2 normal,
-                            MapId mapId, IEye eye, Box2 worldAabb)
+    private void RenderReflection(in OverlayDrawArgs args, Entity<SpriteComponent> entity, Vector2 sourcePosition,
+                                  Angle sourceRotation, IEye eye, IRenderTexture target, MirrorData mirrorData)
     {
-        if (_entityManager.HasComponent<MirrorComponent>(uid) || transform.MapID != mapId)
-            return false;
+        var sprite = entity.Comp;
+        var mirror = mirrorData.Comp;
+        var normal = mirrorData.Normal;
 
-        if (!reflection.Active)
-            return false;
+        var distance = (sourcePosition - mirrorData.Position).Length();
+        var alpha = GetReflectionAlpha(sprite.Color.A, distance, mirror.ToleratedDistance, mirror.FadeFactor);
+        if (alpha <= 0f)
+            return;
 
-        if (!reflection.ReflectIfInvisible && _entityManager.TryGetComponent<StealthComponent>(uid, out var stealth) && stealth.Enabled)
-            return false;
+        var offsetSourcePosition = sourcePosition + normal * mirror.GatherOffset;
+        var reflectedPosition = offsetSourcePosition - 2f * Vector2.Dot(offsetSourcePosition - mirrorData.Position, normal) * normal;
+        var drawPosition = reflectedPosition - normal * mirror.ReflectionOffset;
 
-        var sourcePosition = _transform.GetWorldPosition(transform);
-        if (!worldAabb.Contains(sourcePosition) || _container.IsEntityInContainer(uid))
-            return false;
+        Angle rotation;
+        Direction? direction;
+        Vector2 flipScale;
 
-        var (mirror, mirrorPosition, _) = mirrorData;
+        if (mirrorData.ViewedFromSouth)
+        {
+            rotation = sourceRotation;
+            direction = sprite.EnableDirectionOverride ? sprite.DirectionOverride : null;
+            flipScale = new Vector2(1f, -1f);
+        }
+        else
+        {
+            rotation = mirrorData.NormalAngle * 2f - sourceRotation;
+            direction = (rotation + eye.Rotation).GetCardinalDir() switch
+            {
+                Direction.West => Direction.East,
+                Direction.East => Direction.West,
+                var other => other,
+            };
+            flipScale = new Vector2(-1f, 1f);
+        }
 
-        var entitySide = Vector2.Dot(sourcePosition - mirrorPosition, normal);
-        var viewerSide = Vector2.Dot(eye.Position.Position - mirrorPosition, normal);
-        if (entitySide * viewerSide <= 0f)
-            return false;
+        var scale = sprite.Scale;
+        var localMatrix = sprite.LocalMatrix;
 
-        if (mirror.FadeFactor > 0 && Vector2.Distance(sourcePosition, mirrorPosition) >= mirror.GatherOffset + 1f / mirror.FadeFactor)
-            return false;
+        try
+        {
+            _sprite.SetScale(entity.AsNullable(), scale * flipScale);
+            sprite.LocalMatrix = Matrix3x2.Multiply(sprite.LocalMatrix, _worldToTargetLinear);
 
-        return true;
+            _targetEntity = entity;
+            _targetPosition = Vector2.Transform(drawPosition, _worldToTarget);
+            (_targetRotation, _targetEyeRotation) = GetTargetRotations(sprite, rotation, eye.Rotation);
+            _targetDirection = direction;
+
+            _worldHandle.RenderInRenderTarget(target, _renderToTargetAction, Color.Transparent);
+        }
+        finally
+        {
+            _sprite.SetScale(entity.AsNullable(), scale);
+            sprite.LocalMatrix = localMatrix;
+            _targetEntity = default;
+        }
+
+        _worldHandle.SetTransform(Matrix3x2.Identity);
+        _worldHandle.UseShader(_stencilClearShader);
+        _worldHandle.DrawRect(args.WorldAABB, Color.White);
+        _drawnAny = true;
+
+        _worldHandle.UseShader(_stencilMaskShader);
+        _sprite.RenderSprite(mirrorData.Mirror, _worldHandle, eye.Rotation, mirrorData.WorldRotation, mirrorData.WorldPosition);
+
+        _worldHandle.SetTransform(Matrix3x2.Identity);
+        _worldHandle.UseShader(_reflectionShader);
+        _worldHandle.DrawTextureRect(target.Texture, args.WorldBounds, Color.White.WithAlpha(alpha));
+
+        _worldHandle.SetTransform(Matrix3x2.Identity);
+        _worldHandle.UseShader(_stencilClearShader);
+        _worldHandle.DrawRect(mirrorData.Bounds, Color.White);
     }
 
-    private Color GetTransparentColor(EntityUid uid, Color originalColor, Vector2 mirrorPos, float toleratedDistance, float fadeFactorMod)
+    private (Angle World, Angle Eye) GetTargetRotations(SpriteComponent sprite, Angle worldRotation, Angle eyeRotation)
     {
-        var dist = (_transform.GetWorldPosition(uid) - mirrorPos).Length();
+        if (!_targetFlipped)
+            return (worldRotation, eyeRotation);
 
-        var fadeFactor = MathF.Max(dist - toleratedDistance, 0f);
-        return originalColor.WithAlpha(Math.Clamp(originalColor.A - fadeFactor * fadeFactorMod, 0f, 0.9f));
+        if (sprite.NoRotation)
+            return (worldRotation + eyeRotation * 2f, -eyeRotation);
+
+        var cardinal = sprite.SnapCardinals
+            ? (worldRotation + eyeRotation).Reduced().FlipPositive().RoundToCardinalAngle()
+            : Angle.Zero;
+
+        Angle world = cardinal * 2f - worldRotation;
+        return (world, worldRotation + eyeRotation - world);
+    }
+
+    private void RenderToTarget()
+    {
+        _worldHandle.UseShader(null);
+        _sprite.RenderSprite(_targetEntity, _worldHandle, _targetEyeRotation, _targetRotation, _targetPosition, _targetDirection);
+    }
+
+    private bool CanReflect(EntityUid uid, MirrorReflectionComponent reflection, SpriteComponent sprite,
+                            Vector2 sourcePosition, MirrorData mirrorData, Box2 worldAabb)
+    {
+        if (!sprite.Visible)
+            return false;
+
+        if (!worldAabb.Contains(sourcePosition))
+            return false;
+
+        var mirror = mirrorData.Comp;
+        var offset = sourcePosition - mirrorData.Position;
+
+        if (Vector2.Dot(offset, mirrorData.Normal) * mirrorData.ViewerSide <= 0f)
+            return false;
+
+        if (mirror.FadeFactor > 0)
+        {
+            var maxDistance = mirror.GatherOffset + 1f / mirror.FadeFactor;
+            if (offset.LengthSquared() >= maxDistance * maxDistance)
+                return false;
+        }
+
+        if (_entityManager.HasComponent<MirrorComponent>(uid))
+            return false;
+
+        if (!reflection.ReflectIfInvisible
+            && _entityManager.TryGetComponent<StealthComponent>(uid, out var stealth)
+            && stealth.Enabled)
+            return false;
+
+        if (!_canBeSeenCache.TryGetValue(uid, out var canBeSeen))
+        {
+            canBeSeen = _mirror.CanBeSeenInMirrors(uid);
+            _canBeSeenCache[uid] = canBeSeen;
+        }
+
+        return canBeSeen;
+    }
+
+    private static float GetReflectionAlpha(float originalAlpha, float distance, float toleratedDistance, float fadeFactorMod)
+    {
+        var fadeFactor = MathF.Max(distance - toleratedDistance, 0f);
+        return Math.Clamp(originalAlpha - fadeFactor * fadeFactorMod, 0f, MaxReflectionAlpha);
     }
 
     protected override void DisposeBehavior()
     {
+        _resources.Dispose();
+        _reflectionShader.Dispose();
+
         base.DisposeBehavior();
+    }
+
+    private readonly record struct MirrorData(
+        Entity<SpriteComponent> Mirror,
+        Vector2 WorldPosition,
+        Angle WorldRotation,
+        Box2Rotated Bounds,
+        MirrorComponent Comp,
+        Vector2 Position,
+        Angle NormalAngle,
+        Vector2 Normal,
+        float ViewerSide,
+        bool ViewedFromSouth);
+
+    private sealed class CachedResources : IDisposable
+    {
+        public IRenderTexture? Target;
+
+        public void Dispose()
+        {
+            Target?.Dispose();
+        }
     }
 }

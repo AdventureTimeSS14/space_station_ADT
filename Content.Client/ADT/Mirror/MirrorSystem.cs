@@ -1,4 +1,3 @@
-using Content.Shared.ADT.Mirror;
 using Robust.Client.Graphics;
 
 namespace Content.Client.ADT.Mirror;
@@ -14,17 +13,18 @@ public sealed partial class MirrorSystem : EntitySystem
         _overlay.AddOverlay(new MirrorOverlay());
     }
 
-    public override void FrameUpdate(float frameTime)
+    public override void Shutdown()
     {
-        base.FrameUpdate(frameTime);
+        base.Shutdown();
 
-        var query = EntityQueryEnumerator<MirrorReflectionComponent>();
-        while (query.MoveNext(out var uid, out var comp))
-        {
-            var ev = new CanBeSeenInMirrorsEvent();
-            RaiseLocalEvent(uid, ref ev);
+        _overlay.RemoveOverlay<MirrorOverlay>();
+    }
 
-            comp.Active = !ev.Cancelled;
-        }
+    public bool CanBeSeenInMirrors(EntityUid uid)
+    {
+        var ev = new CanBeSeenInMirrorsEvent();
+        RaiseLocalEvent(uid, ref ev);
+
+        return !ev.Cancelled;
     }
 }

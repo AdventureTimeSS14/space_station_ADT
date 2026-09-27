@@ -1,22 +1,20 @@
-using Robust.Shared.GameStates;
-
 namespace Content.Shared.ADT.Mirror;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
+[RegisterComponent]
 public sealed partial class MirrorComponent : Component
 {
-    [DataField, AutoNetworkedField]
+    [DataField]
     public Angle DirRotation = Angle.FromDegrees(90f);
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public float GatherOffset = 1f;
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public float ReflectionOffset = 0.2f;
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public float FadeFactor = 1f;
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public float ToleratedDistance = 1f;
 }

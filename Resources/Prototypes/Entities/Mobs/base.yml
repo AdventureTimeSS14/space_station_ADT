@@ -77,7 +77,7 @@
   - type: MobMover
   - type: MovementSpeedModifier
   - type: LagCompensation
-  - type: MirrorReflection  # ADT-Tweak: functional mirrors
+  - type: MirrorReflection # ADT-Tweak
 
 - type: entity
   save: false
