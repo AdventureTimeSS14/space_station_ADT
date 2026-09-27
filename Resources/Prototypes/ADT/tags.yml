@@ -1088,6 +1088,9 @@
   id: ADTBow
 
 - type: Tag
+  id: ADTMagicStaff
+
+- type: Tag
   id: ADTOar
 
 - type: Tag

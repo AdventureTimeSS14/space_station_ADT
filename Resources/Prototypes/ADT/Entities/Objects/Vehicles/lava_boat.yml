@@ -10,6 +10,7 @@
   - type: ADTLavaBoat
   - type: Vehicle
     autoAnimate: false
+    useHand: false
     hornSound: null
     northOver: true
     southOver: true
