@@ -3,7 +3,7 @@
   suffix: Advanced
   id: ADTMobMonkeyAdvanced
   parent: MobBaseAncestor
-  description: New church of neo-darwinists actually believe that EVERY animal evolved from a monkey. Tastes like pork, and killing them is both fun and relaxing.
+  description: New church of neo-darwinists actually believe that every animal evolved from a monkey. Tastes like pork, and killing them is both fun and relaxing.
   components:
   - type: NameIdentifier
     group: Monkey
