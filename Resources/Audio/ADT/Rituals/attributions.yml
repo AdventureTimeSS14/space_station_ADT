@@ -1,0 +1,11 @@
+- files:
+  - ritual_start1.ogg
+  - ritual_start2.ogg
+  - ritual_start3.ogg
+  - ritual_success1.ogg
+  - ritual_success2.ogg
+  - ritual_fail1.ogg
+  - ritual_fail2.ogg
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Paradise at https://github.com/ParadiseSS13/Paradise/tree/master/sound/rituals"
+  source: "https://github.com/ParadiseSS13/Paradise"

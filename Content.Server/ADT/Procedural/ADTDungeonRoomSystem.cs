@@ -1,12 +1,15 @@
 using System.Numerics;
 using Content.Server.Decals;
+using Content.Server.Parallax;
 using Content.Shared.ADT.Areas;
 using Content.Shared.ADT.Procedural;
 using Content.Shared.Decals;
 using Content.Shared.Maps;
+using Content.Shared.Parallax.Biomes;
 using Content.Shared.Whitelist;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Maths;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
@@ -26,8 +29,10 @@ public sealed class ADTDungeonRoomSystem : EntitySystem
     [Dependency] private readonly DecalSystem _decals = default!;
     [Dependency] private readonly SharedMapSystem _maps = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly BiomeSystem _biome = default!;
 
     private readonly List<(Vector2i, Tile)> _tiles = new();
+    private readonly List<(Vector2i, Tile)> _biomeReserveBuffer = new();
     private readonly List<ADTDungeonRoomPrototype> _availableRooms = new();
     private readonly Dictionary<ADTComponentOverrides, ComponentRegistry> _registryCache = new();
 
@@ -83,6 +88,18 @@ public sealed class ADTDungeonRoomSystem : EntitySystem
         return Angle.Zero;
     }
 
+    public Angle GetFixedRotation(ADTDungeonRoomPrototype room)
+    {
+        if (room.Rotate == 0)
+            return Angle.Zero;
+
+        if (room.Rotate % 90 != 0)
+            Log.Warning($"Комната {room.ID} развёрнута на {room.Rotate} градусов, округляю до четверти оборота.");
+
+        var quarters = (int) Math.Round(room.Rotate / 90f) & 3;
+        return quarters * Math.PI / 2;
+    }
+
     public void SpawnRoom(
         EntityUid gridUid,
         MapGridComponent grid,
@@ -94,6 +111,9 @@ public sealed class ADTDungeonRoomSystem : EntitySystem
     {
         var originTransform = Matrix3Helpers.CreateTranslation(origin.X, origin.Y);
         var roomRotation = rotation ? GetRoomRotation(room, random) : Angle.Zero;
+
+        roomRotation += GetFixedRotation(room);
+
         var roomTransform = Matrix3Helpers.CreateTransform((Vector2)room.Size / 2f, roomRotation);
         var finalTransform = Matrix3x2.Multiply(roomTransform, originTransform);
 
@@ -242,6 +262,40 @@ public sealed class ADTDungeonRoomSystem : EntitySystem
         }
 
         _maps.SetTiles(gridUid, grid, _tiles);
+
+        ReserveBiomeArea(gridUid, room, roomTransform, tileOffset);
+    }
+
+    private void ReserveBiomeArea(
+        EntityUid gridUid,
+        ADTDungeonRoomPrototype room,
+        Matrix3x2 roomTransform,
+        Vector2 tileOffset)
+    {
+        if (!HasComp<BiomeComponent>(gridUid))
+            return;
+
+        var corners = new[]
+        {
+            Vector2.Transform(tileOffset, roomTransform),
+            Vector2.Transform(new Vector2(room.Size.X, 0) + tileOffset, roomTransform),
+            Vector2.Transform(new Vector2(0, room.Size.Y) + tileOffset, roomTransform),
+            Vector2.Transform(new Vector2(room.Size.X, room.Size.Y) + tileOffset, roomTransform),
+        };
+
+        var min = corners[0];
+        var max = corners[0];
+
+        foreach (var corner in corners)
+        {
+            min = Vector2.Min(min, corner);
+            max = Vector2.Max(max, corner);
+        }
+
+        var bounds = new Box2(min, max).Enlarged(0.5f);
+
+        _biomeReserveBuffer.Clear();
+        _biome.ReserveTiles(gridUid, bounds, _biomeReserveBuffer);
     }
 
     private static int GetQuarterTurns(Angle rotation)
@@ -280,6 +334,7 @@ public sealed class ADTDungeonRoomSystem : EntitySystem
                     group.Rotation + finalRoomRotation);
 
                 _transform.AttachToGridOrMap(ent);
+                RemoveMissing(ent, group);
 
                 if (group.Anchored == null)
                     continue;
@@ -291,6 +346,20 @@ public sealed class ADTDungeonRoomSystem : EntitySystem
                 else if (!group.Anchored.Value && xform.Anchored)
                     _transform.Unanchor(ent, xform);
             }
+        }
+    }
+
+    private void RemoveMissing(EntityUid uid, ADTDungeonRoomEntities group)
+    {
+        foreach (var name in group.MissingComponents)
+        {
+            if (!_factory.TryGetRegistration(name, out var registration))
+            {
+                Log.Error($"Комната ссылается на неизвестный компонент {name} у {group.Proto}");
+                continue;
+            }
+
+            EntityManager.RemoveComponent(uid, registration.Type);
         }
     }
 

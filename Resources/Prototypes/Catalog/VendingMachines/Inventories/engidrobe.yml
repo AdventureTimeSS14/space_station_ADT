@@ -29,7 +29,10 @@
     # ADT tweak start wiki books
     ADTVendingCategoryBooks:
         ADTBookSRPeng: 2
+        ADTBookSRPcmd: 2
+        ADTBookPCDcmd: 2
         ADTBookAtmosSupermatter: 2
+        ADTBookSpaceLaw: 3
     # ADT tweak end wiki books
   contrabandInventory:
     ToyFigurineEngineer: 1

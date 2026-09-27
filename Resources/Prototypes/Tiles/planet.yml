@@ -87,7 +87,25 @@
   id: FloorBasalt
   name: tiles-basalt-floor
   parent: BaseFloorPlanet
-  sprite: /Textures/Tiles/Planet/basalt.png
+  # ADT-Tweak-Start
+  sprite: /Textures/ADT/Tiles/Planet/basalt.png
+  variants: 14
+  placementVariants:
+  - 0.85
+  - 0.0115
+  - 0.0115
+  - 0.0115
+  - 0.0115
+  - 0.0115
+  - 0.0115
+  - 0.0115
+  - 0.0115
+  - 0.0115
+  - 0.0115
+  - 0.0115
+  - 0.0115
+  - 0.0115
+  # ADT-Tweak-End
 
 # Snow
 - type: tile

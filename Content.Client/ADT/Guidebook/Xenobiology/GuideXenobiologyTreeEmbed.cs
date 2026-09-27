@@ -33,6 +33,7 @@ public sealed class GuideXenobiologyTreeEmbed : Control, IDocumentTag, ISearchab
         ["PurpleMutation"] = 135f,
         ["BlueMutation"] = 225f,
         ["MetalMutation"] = 315f,
+        ["RainbowMutation"] = 0f,
         // Второй тир
         ["YellowMutation"] = 0f,
         ["DarkPurpleMutation"] = 90f,

@@ -91,8 +91,8 @@
   id: BluespaceArtillery
   name: research-technology-bluespace-artillery
   icon:
-    sprite: ADT/Structures/BSA.rsi
-    state: cannon_east
+    sprite: ADT/Structures/Machines/BSA.rsi
+    state: computer
   discipline: Experimental
   tier: 3
   cost: 15100

@@ -217,6 +217,11 @@ namespace Content.Shared.GameTicking
         /// </summary>
         public ResolvedSoundSpecifier? RestartSound;
 
+        // ADT-Tweak-start
+        public List<Content.Shared.ADT.RoundEnd.RoundEndStatEntry> RoundReport = new();
+        public Dictionary<string, int> SpeciesCensus = new();
+        // ADT-Tweak-end
+
         public RoundEndMessageEvent(
             string gamemodeTitle,
             string roundEndText,

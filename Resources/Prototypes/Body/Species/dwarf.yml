@@ -37,6 +37,11 @@
     species: Dwarf
   - type: ScaleVisuals
     scale: 1, 0.8
+  # ADT-Tweak start
+  - type: InnateMiningScannerViewer
+    pingSound: null
+    viewRange: 4
+  # ADT-Tweak end
 
 - type: entity
   parent:
@@ -45,6 +50,16 @@
   id: MobDwarf
   name: Urist McHands the Dwarf
   components:
+  # ADT-Tweak start
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: SoftCritical
+      160: Critical
+      200: Dead
+  - type: SoftCrit
+    speedModifier: 0.30
+  # ADT-Tweak end
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:

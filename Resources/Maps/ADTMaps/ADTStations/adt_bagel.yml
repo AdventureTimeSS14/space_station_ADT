@@ -16781,191 +16781,6 @@ entities:
     - type: Transform
       pos: -28.65509,-53.203415
       parent: 2
-- proto: ActionStartFishing
-  entities:
-  - uid: 113
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 112
-    - type: Action
-      originalIconColor: '#FFFFFFFF'
-      container: 112
-- proto: ActionToggleInternals
-  entities:
-  - uid: 83
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 82
-  - uid: 85
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 84
-  - uid: 115
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 114
-    - type: Action
-      originalIconColor: '#FFFFFFFF'
-      container: 114
-  - uid: 118
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 117
-  - uid: 16803
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 16655
-    - type: Action
-      originalIconColor: '#FFFFFFFF'
-      container: 16655
-  - uid: 16821
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 16806
-    - type: Action
-      originalIconColor: '#FFFFFFFF'
-      container: 16806
-  - uid: 16861
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 16825
-    - type: Action
-      originalIconColor: '#FFFFFFFF'
-      container: 16825
-  - uid: 16869
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 16868
-    - type: Action
-      originalIconColor: '#FFFFFFFF'
-      container: 16868
-  - uid: 16877
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 16876
-    - type: Action
-      originalIconColor: '#FFFFFFFF'
-      container: 16876
-  - uid: 16879
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 16878
-    - type: Action
-      originalIconColor: '#FFFFFFFF'
-      container: 16878
-- proto: ActionToggleLight
-  entities:
-  - uid: 28
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 25
-  - uid: 29
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 25
-  - uid: 124
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 123
-    - type: Action
-      originalIconColor: '#FFFFFFFF'
-      container: 123
-  - uid: 126
-    components:
-    - type: Transform
-      parent: 125
-  - uid: 128
-    components:
-    - type: Transform
-      parent: 127
-  - uid: 130
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 129
-    - type: Action
-      originalIconColor: '#FFFFFFFF'
-      container: 129
-  - uid: 132
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 131
-    - type: Action
-      originalIconColor: '#FFFFFFFF'
-      container: 131
-  - uid: 134
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 133
-    - type: Action
-      originalIconColor: '#FFFFFFFF'
-      container: 133
-  - uid: 136
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 135
-    - type: Action
-      originalIconColor: '#FFFFFFFF'
-      container: 135
-- proto: ActionToggleMagboots
-  entities:
-  - uid: 32
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 30
-- proto: ADTActionToggleMODMenu
-  entities:
-  - uid: 75
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 68
-- proto: ADTActionToggleMODPiece
-  entities:
-  - uid: 76
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 68
 - proto: ADTArmchairBlack
   entities:
   - uid: 137
@@ -17996,82 +17811,6 @@ entities:
     components:
     - type: Transform
       parent: 5
-    - type: ModSuit
-      actionEntity: 76
-      actionMenuEntity: 75
-      clothingUids:
-        77: head
-        71: gloves
-        78: outerClothing
-        73: shoes
-    - type: EmitSoundOnCollide
-      nextSound: -5085.7013336
-    - type: ContainerContainer
-      containers:
-        mod-modules-container: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 81
-          - 80
-          - 79
-        modsuit-part: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 77
-          - 71
-          - 78
-          - 73
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: 69
-        modsuit-mod0: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        modsuit-mod1: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        modsuit-mod2: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 76
-          - 75
-    - type: GroupExamine
-      group:
-      - components:
-        - Armor
-        - ClothingSpeedModifier
-        entries:
-        - message: Понижает вашу скорость на [color=yellow]25%[/color].
-          component: ClothingSpeedModifier
-        - message: >-
-            Обеспечивает следующую защиту:
-
-            - [color=yellow]Ударный[/color] урон снижается на [color=lightblue]40%[/color].
-
-            - [color=yellow]Режущий[/color] урон снижается на [color=lightblue]40%[/color].
-
-            - [color=yellow]Колющий[/color] урон снижается на [color=lightblue]40%[/color].
-
-            - [color=yellow]Кислотный[/color] урон снижается на [color=lightblue]30%[/color].
-
-            - [color=aqua] Стамина [/color] урон снижается на [color=lightblue]20%[/color].
-
-            - [color=orange]Взрывной[/color] урон снижается на [color=lightblue]60%[/color].
-          component: Armor
     - type: Physics
       canCollide: False
     - type: Forensics
@@ -18079,7 +17818,6 @@ entities:
       dnas: []
       fibers: []
       fingerprints: []
-    - type: ActionsContainer
     - type: Storage
       savedLocations: {}
       grid:
@@ -18601,14 +18339,6 @@ entities:
     - type: Transform
       pos: 9.300636,5.3916297
       parent: 2
-    - type: FishingRod
-      throwLureActionEntity: 113
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 113
   - uid: 441
     components:
     - type: Transform
@@ -73022,20 +72752,6 @@ entities:
     - type: Transform
       pos: 33.487255,-37.19155
       parent: 2
-    - type: HandheldLight
-      toggleActionEntity: 136
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 136
-    - type: ActionsContainer
 - proto: ClothingHeadHatPurplesoftFlipped
   entities:
   - uid: 10302
@@ -73653,8 +73369,6 @@ entities:
     components:
     - type: Transform
       parent: 5
-    - type: ToggleClothing
-      actionEntity: 32
     - type: SolutionContainerManager
       solutions:
         food:
@@ -73674,16 +73388,6 @@ entities:
       dnas: []
       fibers: []
       fingerprints: []
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 32
-        solution@food: !type:ContainerSlot
-          ent: 31
-    - type: Actions
-      actions: []
     - type: InsideEntityStorage
   - uid: 10383
     components:
@@ -83255,10 +82959,6 @@ entities:
     components:
     - type: Transform
       parent: 5
-    - type: GasTank
-      toggleActionEntity: 85
-    - type: MeleeWeapon
-      nextAttack: -35.6874135
     - type: UseDelay
       delays:
         gasTank:
@@ -83273,12 +82973,6 @@ entities:
       nextSound: -5110.414078
     - type: Physics
       canCollide: False
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 85
     - type: Forensics
       residues: []
       dnas: []
@@ -83303,8 +82997,6 @@ entities:
     components:
     - type: Transform
       parent: 5
-    - type: GasTank
-      toggleActionEntity: 83
     - type: MeleeWeapon
       nextAttack: -35.2302711
     - type: UseDelay
@@ -83321,12 +83013,6 @@ entities:
       nextSound: -5110.414078
     - type: Physics
       canCollide: False
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 83
     - type: Forensics
       residues: []
       dnas: []
@@ -83338,14 +83024,6 @@ entities:
     - type: Transform
       pos: -10.782247,-34.229477
       parent: 2
-    - type: GasTank
-      toggleActionEntity: 115
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 115
   - uid: 11908
     components:
     - type: Transform
@@ -90191,20 +89869,6 @@ entities:
     - type: Transform
       pos: 9.58461,15.587102
       parent: 2
-    - type: HandheldLight
-      toggleActionEntity: 134
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 134
-    - type: ActionsContainer
   - uid: 12722
     components:
     - type: Transform
@@ -90253,36 +89917,6 @@ entities:
     components:
     - type: Transform
       parent: 5
-    - type: HandheldLight
-      selfToggleActionEntity: 29
-      toggleActionEntity: 28
-    - type: MeleeWeapon
-      nextAttack: -36.4842382
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: 26
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 28
-          - 29
-    - type: EmitSoundOnCollide
-      nextSound: -5110.414078
-    - type: Physics
-      canCollide: False
-    - type: Forensics
-      residues: []
-      dnas: []
-      fibers: []
-      fingerprints: []
-    - type: ActionsContainer
-    - type: Actions
-      actions:
-      - 29
     - type: InsideEntityStorage
 - proto: FloorDrain
   entities:
@@ -137306,64 +136940,16 @@ entities:
     - type: Transform
       pos: -61.56755,-19.229242
       parent: 2
-    - type: HandheldLight
-      toggleActionEntity: 124
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 124
-    - type: Physics
-      canCollide: True
-    - type: ActionsContainer
   - uid: 127
     components:
     - type: Transform
       pos: 35.04174,-13.169561
       parent: 2
-    - type: HandheldLight
-      toggleActionEntity: 128
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 128
-    - type: Physics
-      canCollide: True
-    - type: ActionsContainer
   - uid: 131
     components:
     - type: Transform
       pos: -4.560393,-5.2077384
       parent: 2
-    - type: HandheldLight
-      toggleActionEntity: 132
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 132
-    - type: Physics
-      canCollide: True
-    - type: ActionsContainer
   - uid: 19473
     components:
     - type: Transform
@@ -137432,43 +137018,11 @@ entities:
     - type: Transform
       pos: -47.449406,19.443754
       parent: 2
-    - type: HandheldLight
-      toggleActionEntity: 126
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 126
-    - type: Physics
-      canCollide: True
-    - type: ActionsContainer
   - uid: 129
     components:
     - type: Transform
       pos: 44.020344,13.85576
       parent: 2
-    - type: HandheldLight
-      toggleActionEntity: 130
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 130
-    - type: Physics
-      canCollide: True
-    - type: ActionsContainer
   - uid: 19484
     components:
     - type: Transform
@@ -140858,16 +140412,6 @@ entities:
     components:
     - type: Transform
       parent: 116
-    - type: GasTank
-      toggleActionEntity: 118
-    - type: Physics
-      canCollide: False
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 118
     - type: InsideEntityStorage
   - uid: 19825
     components:
@@ -142568,86 +142112,26 @@ entities:
     components:
     - type: Transform
       parent: 21031
-    - type: GasTank
-      toggleActionEntity: 16803
-    - type: Physics
-      canCollide: False
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 16803
   - uid: 16806
     components:
     - type: Transform
       parent: 21032
-    - type: GasTank
-      toggleActionEntity: 16821
-    - type: Physics
-      canCollide: False
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 16821
   - uid: 16825
     components:
     - type: Transform
       parent: 21033
-    - type: GasTank
-      toggleActionEntity: 16861
-    - type: Physics
-      canCollide: False
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 16861
   - uid: 16868
     components:
     - type: Transform
       parent: 21034
-    - type: GasTank
-      toggleActionEntity: 16869
-    - type: Physics
-      canCollide: False
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 16869
   - uid: 16876
     components:
     - type: Transform
       parent: 21035
-    - type: GasTank
-      toggleActionEntity: 16877
-    - type: Physics
-      canCollide: False
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 16877
   - uid: 16878
     components:
     - type: Transform
       parent: 21036
-    - type: GasTank
-      toggleActionEntity: 16879
-    - type: Physics
-      canCollide: False
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 16879
 - proto: PlasmaWindoorSecureCommandLocked
   entities:
   - uid: 20043

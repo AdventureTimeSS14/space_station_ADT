@@ -46,3 +46,5 @@ adt-tiles-admin-black-plating = абсолютно чёрное покрытие
 adt-tiles-admin-grass-realistic-floor = реалистичная трава
 adt-tiles-admin-grass-realistic-light-floor = реалистичная светлая трава
 adt-tiles-admin-grass-realistic-dark-floor = реалистичная тёмная трава
+adt-tiles-necropolis-floor = пол некрополя
+adt-tiles-basalt-dug-floor = вскопанный базальт

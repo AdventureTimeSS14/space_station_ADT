@@ -13,6 +13,7 @@ public sealed class ADTMegafaunaSpawnSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly ADTLavalandGenerationSystem _generation = default!;
 
     private readonly List<(EntProtoId Proto, EntityCoordinates Coords)> _pendingSpawns = new();
 
@@ -100,16 +101,17 @@ public sealed class ADTMegafaunaSpawnSystem : EntitySystem
                 return false;
         }
 
+        TryComp<ADTLavalandGenerationComponent>(ent, out var generation);
+        if (generation != null && _generation.IsExcluded(generation, coords.Position))
+            return false;
+
         if (!comp.AvoidRooms)
             return true;
 
         var clearanceSq = comp.RoomClearance * comp.RoomClearance;
 
-        if (TryComp<ADTLavalandGenerationComponent>(ent, out var generation) &&
-            generation.Placed.Any(room => Vector2.DistanceSquared(coords.Position, room) < clearanceSq))
-        {
+        if (generation != null && generation.Placed.Any(room => Vector2.DistanceSquared(coords.Position, room) < clearanceSq))
             return false;
-        }
 
         if (TryComp<ADTOccupiedRoomsComponent>(ent, out var occupied) &&
             occupied.Rooms.Any(room => room.Enlarged(comp.RoomMargin).Contains(coords.Position)))
