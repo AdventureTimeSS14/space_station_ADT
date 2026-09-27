@@ -628,7 +628,7 @@
     - LaserWeapon
 # ADT TWEAK START
   - type: Multishot
-    spreadMultiplier: 2
+    spreadMultiplier: 2.5
     spreadAddition: 20
-    staminaDamage: 1.5
+    staminaDamage: 4
 # ADT TWEAK END

@@ -171,9 +171,9 @@
   - type: Gun
     fireRate: 4
   - type: Multishot
-    spreadMultiplier: 2
+    spreadMultiplier: 3
     spreadAddition: 20
-    staminaDamage: 2.5
+    staminaDamage: 5
   # ADT TWEAK END
 
 - type: entity
@@ -221,9 +221,9 @@
     - LaserWeapon
   # ADT TWEAK START
   - type: Multishot
-    spreadMultiplier: 2
+    spreadMultiplier: 3
     spreadAddition: 25
-    staminaDamage: 2
+    staminaDamage: 4.5
   # ADT TWEAK END
 
 - type: entity
@@ -284,9 +284,9 @@
     - LaserWeapon
 # ADT TWEAK START
   - type: Multishot
-    spreadMultiplier: 2
+    spreadMultiplier: 3
     spreadAddition: 20
-    staminaDamage: 1.5
+    staminaDamage: 4.5
 # ADT TWEAK END
 
 - type: entity

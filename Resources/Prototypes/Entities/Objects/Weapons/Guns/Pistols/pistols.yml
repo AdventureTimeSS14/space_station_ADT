@@ -120,9 +120,9 @@
     price: 1000
 # ADT TWEAK START
   - type: Multishot
-    spreadMultiplier: 2
+    spreadMultiplier: 2.5
     spreadAddition: 15
-    staminaDamage: 1.5
+    staminaDamage: 3.5
   - type: AttachableHolder
     slots:
       rmc-aslot-underbarrel:
@@ -234,8 +234,9 @@
     price: 1500
 # ADT TWEAK START
   - type: Multishot
-    spreadMultiplier: 2
+    spreadMultiplier: 2.5
     spreadAddition: 15
+    staminaDamage: 3
   - type: AttachableHolder
     slots:
       rmc-aslot-underbarrel:
@@ -293,9 +294,9 @@
     stealGroup: OfficerHandgun
 # ADT TWEAK START
   - type: Multishot
-    spreadMultiplier: 2
+    spreadMultiplier: 2.5
     spreadAddition: 15
-    staminaDamage: 1.5
+    staminaDamage: 3.5
   - type: AttachableHolder
     slots:
       rmc-aslot-underbarrel:

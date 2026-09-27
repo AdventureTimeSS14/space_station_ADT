@@ -23,7 +23,7 @@ public sealed partial class MultishotComponent : Component
     /// Spread multiplier of the gun while dual-wielding.
     /// </summary>
     [DataField]
-    public float SpreadMultiplier = 1.5f;
+    public float SpreadMultiplier = 2.5f;
 
     /// <summary>
     /// Flat spread increase of the gun while dual-wielding.
@@ -35,7 +35,7 @@ public sealed partial class MultishotComponent : Component
     ///  Stamina damage applied to the entity when firing this gun with another one.
     /// </summary>
     [DataField]
-    public float StaminaDamage;
+    public float StaminaDamage = 3.5f;
 
     [DataField]
     public string ExamineMessage = "multishot-component-examine";

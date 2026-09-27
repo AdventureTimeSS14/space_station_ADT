@@ -48,10 +48,10 @@
     - suitStorage
     - Belt
 # ADT TWEAK START
-  - type: Multishot # Goobstation V
-    spreadMultiplier: 2
+  - type: Multishot
+    spreadMultiplier: 3
     spreadAddition: 20
-    staminaDamage: 1.5
+    staminaDamage: 4.5
 # ADT TWEAK END
 
 - type: entity

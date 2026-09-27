@@ -34,7 +34,6 @@ public sealed class SharedMultishotSystem : EntitySystem
         SubscribeLocalEvent<MultishotComponent, GotEquippedHandEvent>(OnEquipWeapon);
         SubscribeLocalEvent<MultishotComponent, GotUnequippedHandEvent>(OnUnequipWeapon);
         SubscribeLocalEvent<MultishotComponent, GunRefreshModifiersEvent>(OnRefreshModifiers);
-        SubscribeLocalEvent<MultishotComponent, GunShotEvent>(OnGunShot);
         SubscribeLocalEvent<MultishotComponent, ExaminedEvent>(OnExamined);
         SubscribeAllEvent<RequestShootEvent>(OnRequestShoot);
     }
@@ -50,24 +49,27 @@ public sealed class SharedMultishotSystem : EntitySystem
         var gunsEnumerator = GetMultishotGuns(user.Value);
         var shootCoords = GetCoordinates(msg.Coordinates);
         var target = GetEntity(msg.Target);
+        var firedGuns = new List<(EntityUid Entity, MultishotComponent Component)>();
 
-        foreach(var gun in gunsEnumerator)
+        foreach (var gun in gunsEnumerator)
         {
             var (gunEnt, gunComp, _) = gun;
 
             if (!HasComp<MultishotComponent>(GetEntity(msg.Gun)) && gunEnt != GetEntity(msg.Gun))
                 continue;
 
-            _gunSystem.AttemptShoot(user.Value, (gunEnt, gunComp), shootCoords, target);
+            if (_gunSystem.AttemptShoot(user.Value, (gunEnt, gunComp), shootCoords, target))
+                firedGuns.Add((gunEnt, gun.Item3));
         }
-    }
 
-    private void OnGunShot(EntityUid uid, MultishotComponent comp, ref GunShotEvent args)
-    {
-        if (!comp.MultishotAffected)
+        if (firedGuns.Count < 2)
             return;
 
-        DealStaminaDamage(uid, comp, args.User);
+        foreach (var (gun, component) in firedGuns)
+        {
+            if (component.MultishotAffected)
+                DealStaminaDamage(gun, component, user.Value);
+        }
     }
 
 
