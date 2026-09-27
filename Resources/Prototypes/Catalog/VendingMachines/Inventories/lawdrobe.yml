@@ -34,6 +34,9 @@
     # ADT tweak start wiki books
     ADTVendingCategoryBooks:
         ADTBookSRPjrd: 2
+        ADTBookSRPcmd: 2
+        ADTBookPCDjrd: 2
+        ADTBookPCDcmd: 2
         ADTBookSpaceLaw: 3
     # ADT tweak end wiki books
     BriefcaseBrown: 2

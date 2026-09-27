@@ -678,7 +678,7 @@ public abstract class SharedRMCFlammableSystem : EntitySystem
             {
                 stepping.Distance = 0;
                 if (CanFireBypassImmunity(fireEntity, uid))
-                    _damageable.TryChangeDamage(uid, tile * ignite.Intensity, true);
+                    _damageable.TryChangeDamage(uid, tile * ignite.Intensity * GetFireDamageMultiplier(uid), true);
             }
         }
 
@@ -697,20 +697,30 @@ public abstract class SharedRMCFlammableSystem : EntitySystem
         }
         else if (CanFireBypassImmunity(fireEntity, uid))
         {
-            var ev = new GetFireProtectionEvent();
-            RaiseLocalEvent(uid, ref ev);
-
-            if (_inventoryQuery.TryComp(uid, out var inv))
-                _inventory.RelayEvent((uid, inv), ref ev);
-
             if (stepping.UpdateAt <= timing)
             {
-                _damageable.TryChangeDamage(uid, ignite.Intensity / 5f * flammable.Damage * ev.Multiplier, true, false);
+                _damageable.TryChangeDamage(uid, ignite.Intensity / 5f * flammable.Damage * GetFireDamageMultiplier(uid), true, false);
                 stepping.UpdateAt = timing + stepping.UpdateTime;
             }
         }
 
         stepping.LastPosition = coords;
+    }
+
+    public float GetFireDamageMultiplier(EntityUid uid)
+    {
+        var ev = new GetFireProtectionEvent();
+        RaiseLocalEvent(uid, ref ev);
+
+        if (_inventoryQuery.TryComp(uid, out var inv))
+            _inventory.RelayEvent((uid, inv), ref ev);
+
+        return ApplyThermalProtection(uid, ev.Multiplier);
+    }
+
+    public virtual float ApplyThermalProtection(EntityUid uid, float fireMultiplier)
+    {
+        return fireMultiplier;
     }
 
     protected virtual bool HasOxygen(EntityUid uid)

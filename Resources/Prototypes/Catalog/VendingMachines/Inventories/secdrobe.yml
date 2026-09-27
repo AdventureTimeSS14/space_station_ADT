@@ -61,7 +61,7 @@
         ADTBookSRPsec: 2
         ADTBookPCDsec: 2
         ADTBookPCDcmd: 2
-        ADTBookSpaceLaw: 2
+        ADTBookSpaceLaw: 3
     # ADT tweak end wiki books
   contrabandInventory:
     ClothingMaskClownSecurity: 1

@@ -37,7 +37,7 @@
     maxStacks: 20
     tileDamage:
       types:
-        Heat: 0.5
+        Heat: 0.2
     burnColor: "#EE6515"
     armorMultiplier: 1
   - type: RMCDamageOnCollide
@@ -45,7 +45,7 @@
     fire: true
     damage:
       types:
-        Heat: 45
+        Heat: 20
     ignoreResistances: false
   - type: TileFireBurnAnchored
     damage:
@@ -77,7 +77,7 @@
     maxStacks: 5
     tileDamage:
       types:
-        Heat: 0.5
+        Heat: 0.2
     burnColor: "#EE6515"
     armorMultiplier: 1
   - type: RMCDamageOnCollide
@@ -85,7 +85,7 @@
     fire: true
     damage:
       types:
-        Heat: 15
+        Heat: 5
     ignoreResistances: false
   - type: TileFireBurnAnchored
     damage:
@@ -118,7 +118,7 @@
     maxStacks: 10
     tileDamage:
       types:
-        Heat: 0.5
+        Heat: 0.2
     armorMultiplier: 1
     burnColor: "#f8e3b2"
   - type: RMCDamageOnCollide
@@ -126,7 +126,7 @@
     fire: true
     damage:
       types:
-        Heat: 10
+        Heat: 5
     ignoreResistances: false
   - type: PointLight
     radius: 5
@@ -167,7 +167,7 @@
     maxStacks: 30
     tileDamage:
       types:
-        Heat: 0.5
+        Heat: 0.2
     armorMultiplier: 1
     burnColor: "#f8e3b2"
     burnsInVacuum: true
@@ -177,7 +177,7 @@
     fire: true
     damage:
       types:
-        Heat: 25
+        Heat: 10
     ignoreResistances: false
   - type: PointLight
     radius: 5

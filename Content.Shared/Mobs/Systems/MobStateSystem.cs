@@ -56,7 +56,7 @@ public partial class MobStateSystem : EntitySystem
     {
         if (!_mobStateQuery.Resolve(target, ref component, false))
             return false;
-        return component.CurrentState == MobState.Critical;
+        return component.CurrentState is MobState.SoftCritical or MobState.Critical; // ADT-Tweak
     }
 
     /// <summary>
@@ -82,7 +82,7 @@ public partial class MobStateSystem : EntitySystem
     {
         if (!_mobStateQuery.Resolve(target, ref component, false))
             return false;
-        return component.CurrentState is MobState.Critical or MobState.Dead;
+        return component.CurrentState is MobState.SoftCritical or MobState.Critical or MobState.Dead; // ADT-Tweak
     }
 
     /// <summary>

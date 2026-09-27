@@ -1,5 +1,5 @@
-using Content.Server.VendingMachines;
-using Content.Shared.VendingMachines;
+using Content.Server.ADT.VendingMachines; // ADT-Tweak
+using Content.Shared.ADT.VendingMachines; // ADT-Tweak
 
 namespace Content.Server.Destructible.Thresholds.Behaviors
 {

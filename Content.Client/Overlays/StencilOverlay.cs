@@ -2,6 +2,8 @@ using System.Numerics;
 using Content.Client.Graphics;
 using Content.Client.Parallax;
 using Content.Client.Weather;
+using Content.Shared.ADT.Weather; // ADT-Tweak
+using Content.Shared.Maps; // ADT-Tweak
 using Content.Shared.Salvage;
 using Content.Shared.StatusEffectNew;
 using Content.Shared.StatusEffectNew.Components;
@@ -23,6 +25,8 @@ public sealed partial class StencilOverlay : Overlay
     private static readonly ProtoId<ShaderPrototype> CircleShader = "WorldGradientCircle";
     private static readonly ProtoId<ShaderPrototype> StencilMask = "StencilMask";
     private static readonly ProtoId<ShaderPrototype> StencilDraw = "StencilDraw";
+    private static readonly ProtoId<ShaderPrototype> StencilClear = "StencilClear"; // ADT-Tweak
+    private static readonly ProtoId<ShaderPrototype> StencilEqualDraw = "StencilEqualDraw"; // ADT-Tweak
 
     [Dependency] private readonly IClyde _clyde = default!;
     [Dependency] private readonly IEntityManager _entManager = default!;
@@ -35,6 +39,8 @@ public sealed partial class StencilOverlay : Overlay
     private readonly SpriteSystem _sprite;
     private readonly WeatherSystem _weather;
     private readonly StatusEffectsSystem _statusEffects;
+    private readonly TurfSystem _turf; // ADT-Tweak
+    private readonly ADTWindController _wind; // ADT-Tweak
     private HashSet<Entity<WeatherStatusEffectComponent, StatusEffectComponent>>? _weatherSet = new();
 
     public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowFOV;
@@ -53,6 +59,8 @@ public sealed partial class StencilOverlay : Overlay
         _weather = weather;
         _statusEffects = statusEffects;
         IoCManager.InjectDependencies(this);
+        _turf = _entManager.System<TurfSystem>(); // ADT-Tweak
+        _wind = _entManager.System<ADTWindController>(); // ADT-Tweak
         _shader = _protoManager.Index(CircleShader).InstanceUnique();
     }
 
@@ -68,6 +76,14 @@ public sealed partial class StencilOverlay : Overlay
             res.Blep?.Dispose();
             res.Blep = _clyde.CreateRenderTarget(args.Viewport.Size, new RenderTargetFormatParameters(RenderTargetColorFormat.Rgba8Srgb), name: "weather-stencil");
         }
+
+        // ADT-Tweak-Start
+        if (res.GroundBlep?.Texture.Size != args.Viewport.Size)
+        {
+            res.GroundBlep?.Dispose();
+            res.GroundBlep = _clyde.CreateRenderTarget(args.Viewport.Size, new RenderTargetFormatParameters(RenderTargetColorFormat.Rgba8Srgb), name: "weather-ground-stencil");
+        }
+        // ADT-Tweak-End
 
         if (_statusEffects.TryEffectsWithComp(mapUid, out _weatherSet))
             DrawWeather(args, res, _weatherSet, invMatrix);
@@ -89,10 +105,12 @@ public sealed partial class StencilOverlay : Overlay
     private sealed class CachedResources : IDisposable
     {
         public IRenderTexture? Blep;
+        public IRenderTexture? GroundBlep; // ADT-Tweak
 
         public void Dispose()
         {
             Blep?.Dispose();
+            GroundBlep?.Dispose(); // ADT-Tweak
         }
     }
 }

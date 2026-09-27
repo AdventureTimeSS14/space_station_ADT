@@ -121,7 +121,7 @@
             - material: Bones
               amount: 4
               doAfter: 2
-            - material: WebSilk
+            - material: Cloth # ADT-Tweak
               amount: 1
               doAfter: 1
     - node: spear

@@ -48,8 +48,9 @@ public sealed class ADTBorgMarkerOverlay : Overlay
             !_entMan.TryGetComponent(local, out ADTBorgMarkerViewerComponent? viewer))
             return;
 
-        var uiScale = (viewport as Control)?.UIScale ?? 1f;
-        var bounds = args.ViewportBounds;
+        var control = viewport as Control;
+        var uiScale = control?.UIScale ?? 1f;
+        var bounds = GetVisibleBounds(args.ViewportBounds, control);
 
         var padding = viewer.ScreenPadding * uiScale;
         var size = viewer.ArrowSize * uiScale;
@@ -66,6 +67,8 @@ public sealed class ADTBorgMarkerOverlay : Overlay
         var extents = new Vector2((right - left) * 0.5f, (bottom - top) * 0.5f);
 
         var handle = args.ScreenHandle;
+
+        handle.SetTransform(Matrix3x2.Identity);
         var query = _entMan.EntityQueryEnumerator<ADTBorgMarkerComponent, TransformComponent>();
 
         while (query.MoveNext(out var uid, out var marker, out var xform))
@@ -96,6 +99,24 @@ public sealed class ADTBorgMarkerOverlay : Overlay
             DrawChevron(handle, position, direction, size * 1.22f, ArmThickness * 1.75f, Outline);
             DrawChevron(handle, position, direction, size, ArmThickness, marker.MarkerColor);
         }
+    }
+
+    private static UIBox2 GetVisibleBounds(UIBox2i viewportBounds, Control? control)
+    {
+        var bounds = new UIBox2(viewportBounds.Left, viewportBounds.Top, viewportBounds.Right, viewportBounds.Bottom);
+
+        if (control == null)
+            return bounds;
+
+        var position = control.GlobalPixelPosition;
+        var size = control.PixelSize;
+        var controlBounds = new UIBox2(position.X, position.Y, position.X + size.X, position.Y + size.Y);
+
+        return new UIBox2(
+            MathF.Max(bounds.Left, controlBounds.Left),
+            MathF.Max(bounds.Top, controlBounds.Top),
+            MathF.Min(bounds.Right, controlBounds.Right),
+            MathF.Min(bounds.Bottom, controlBounds.Bottom));
     }
 
     private static float EdgeScale(Vector2 delta, Vector2 extents)

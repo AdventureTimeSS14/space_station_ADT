@@ -1,12 +1,16 @@
 ﻿name: Build & Test Map Renderer
 
+# ADT-Tweak-start
 on:
-  push:
-    branches: [ master, staging, stable ]
-  merge_group:
-  pull_request:
-    types: [ opened, reopened, synchronize, ready_for_review ]
-    branches: [ master, staging, stable ]
+  workflow_dispatch:
+#on:
+#  push:
+#    branches: [ master, staging, stable ]
+#  merge_group:
+#  pull_request:
+#    types: [ opened, reopened, synchronize, ready_for_review ]
+#    branches: [ master, staging, stable ]
+# ADT-Tweak-end
 
 jobs:
   build:

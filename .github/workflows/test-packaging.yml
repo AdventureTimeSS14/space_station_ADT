@@ -17,14 +17,22 @@ on:
   pull_request:
     types: [ opened, reopened, synchronize, ready_for_review ]
     branches: [ master, staging, stable ]
+    # ADT-Tweak-start
     paths:
-      - '**.cs'
       - '**.csproj'
       - '**.sln'
+      - '**.props'
+      - '**.targets'
       - '**.git**'
-      - '**.yml'
+      - 'Content.Packaging/**'
+      - '.github/workflows/test-packaging.yml'
       - 'RobustToolbox'
       - 'RobustToolbox/**'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+# ADT-Tweak-end
 
 jobs:
   build:

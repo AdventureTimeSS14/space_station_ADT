@@ -1,0 +1,35 @@
+- type: jukebox
+  id: ADTCatChase
+  name: 1. Cat Chase - Ridiculon
+  path:
+    path: /Audio/ADT/Jukebox/mewgenics/Cat-Chase.ogg
+
+- type: jukebox
+  id: ADTEatinRats
+  name: 2. Eatin Rats - Ridiculon
+  path:
+    path: /Audio/ADT/Jukebox/mewgenics/Eatin-Rats.ogg
+
+- type: jukebox
+  id: ADTGuillotina
+  name: 3. Guillotina - Ridiculon
+  path:
+    path: /Audio/ADT/Jukebox/mewgenics/Guillotina.ogg
+
+- type: jukebox
+  id: ADTChumbucketKitty
+  name: 4. Chumbucket Kitty - Ridiculon
+  path:
+    path: /Audio/ADT/Jukebox/mewgenics/Chumbucket-Kitty.ogg
+
+- type: jukebox
+  id: ADTFlush
+  name: 5. Flush - Ridiculon
+  path:
+    path: /Audio/ADT/Jukebox/mewgenics/Flush.ogg
+
+- type: jukebox
+  id: ADTKittyMarch
+  name: 6. Kitty March - Ridiculon
+  path:
+    path: /Audio/ADT/Jukebox/mewgenics/Kitty-March.ogg

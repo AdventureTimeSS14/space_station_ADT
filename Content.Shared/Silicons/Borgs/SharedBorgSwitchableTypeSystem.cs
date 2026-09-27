@@ -1,4 +1,5 @@
 using Content.Shared.Actions;
+using Content.Shared.ADT.Silicons.Borgs;
 using Content.Shared.ADT.TTS;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
@@ -94,9 +95,14 @@ public abstract class SharedBorgSwitchableTypeSystem : EntitySystem
         ent.Comp.SelectTypeAction = null;
         Dirty(ent);
 
-        // _userInterface.CloseUi((ent.Owner, null), BorgSwitchableTypeUiKey.SelectBorgType); // ADT-Borg-Subtype
+        _userInterface.CloseUi((ent.Owner, null), BorgSwitchableTypeUiKey.SelectBorgType);
 
         UpdateEntityAppearance(ent);
+
+        // ADT-Tweak start
+        var ev = new AfterBorgTypeSelectEvent();
+        RaiseLocalEvent(ent, ref ev);
+        // ADT-Tweak end
     }
 
     protected void UpdateEntityAppearance(Entity<BorgSwitchableTypeComponent> entity)

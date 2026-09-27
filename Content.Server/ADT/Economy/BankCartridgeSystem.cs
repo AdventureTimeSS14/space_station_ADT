@@ -49,8 +49,9 @@ public sealed class BankCartridgeSystem : EntitySystem
                 oldAccount.CartridgeUid == uid)
                 oldAccount.CartridgeUid = null;
 
-            if (account.CartridgeUid != null)
-                Comp<BankCartridgeComponent>(account.CartridgeUid.Value).AccountId = null;
+            if (account.CartridgeUid != null &&
+                TryComp<BankCartridgeComponent>(account.CartridgeUid.Value, out var oldCartridge))
+                oldCartridge.AccountId = null;
 
             account.CartridgeUid = uid;
             component.AccountId = args.AccountId;

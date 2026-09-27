@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Content.Shared.ADT.Salvage.Components;
 using Content.Shared.Ghost;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
@@ -91,6 +92,11 @@ public abstract class SharedPortalSystem : EntitySystem
             return;
 
         var subject = args.OtherEntity;
+
+        // ADT-Tweak start
+        if (HasComp<MegafaunaComponent>(subject))
+            return;
+        // ADT-Tweak end
 
         // best not.
         if (Transform(subject).Anchored)

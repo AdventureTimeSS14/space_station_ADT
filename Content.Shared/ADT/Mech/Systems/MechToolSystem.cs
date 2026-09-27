@@ -1,4 +1,5 @@
 using Content.Shared.ADT.Mech.Components;
+using Content.Shared.ADT.Weapons.Medbeam;
 using Content.Shared.Interaction;
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.Equipment.Components;
@@ -32,7 +33,10 @@ public abstract partial class SharedMechToolSystem : EntitySystem
         if (comp.Energy <= 0)
             return;
 
-        if (comp.CurrentSelectedEquipment is not { } equipment || !HasComp<MechToolComponent>(equipment))
+        if (comp.CurrentSelectedEquipment is not { } equipment)
+            return;
+
+        if (!HasComp<MechToolComponent>(equipment) && !HasComp<ADTMedbeamComponent>(equipment))
             return;
 
         args.Used = equipment;

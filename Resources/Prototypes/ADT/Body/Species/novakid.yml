@@ -124,7 +124,7 @@
   id: MobNovakid
   components:
   - type: Hunger
-    baseDecayRate: 0.025
+    baseDecayRate: 0.03125
     lastAuthoritativeHungerValue: 400
     thresholds:
       Overfed: 400
@@ -147,8 +147,11 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      110: Critical
+      110: SoftCritical
+      217: Critical
       325: Dead
+  - type: SoftCrit
+    speedModifier: 0.35
   - type: Explosive
     explosionType: Default
     maxIntensity: 2.5
