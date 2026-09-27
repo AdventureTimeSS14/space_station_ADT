@@ -1,4 +1,4 @@
-﻿using Robust.Shared.Configuration;
+using Robust.Shared.Configuration;
 using Content.Shared.ADT.Supermatter;
 using Content.Shared.ADT.Supermatter.Components;
 using Content.Shared.Atmos;
@@ -491,4 +491,26 @@ public sealed class ADTCCVars
     /// Предел времени в миллисекундах, который все схемы вместе могут занять за один тик.
     public static readonly CVarDef<float> LogicBudgetMs =
         CVarDef.Create("adt.logic.budget_ms", 2f, CVar.SERVERONLY);
+
+    /*
+     * Join Queue
+     */
+
+    public static readonly CVarDef<bool> QueueGamesEnabled =
+        CVarDef.Create("queue.games_enabled", true, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> QueueGamesScoreToSpin =
+        CVarDef.Create("queue.games_score_to_spin", 3, CVar.SERVERONLY);
+
+    public static readonly CVarDef<float> QueueGamesSlotWinChance =
+        CVarDef.Create("queue.games_slot_win_chance", 0.05f, CVar.SERVERONLY);
+
+    public static readonly CVarDef<float> QueueGamesSlotBypassMinutes =
+        CVarDef.Create("queue.games_slot_bypass_minutes", 10f, CVar.SERVERONLY);
+
+    public static readonly CVarDef<float> QueueGamesTurnTime =
+        CVarDef.Create("queue.games_turn_time", 30f, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> HostReservedSlots =
+        CVarDef.Create("queue.host_reserved_slots", 5, CVar.SERVERONLY);
 }
