@@ -126,6 +126,10 @@
       110: SoftCritical
       165: Critical
       220: Dead
+  - type: SoftCrit
+    speedModifier: 0.25
+  - type: TryCatchBreath
+    doAfterTime: 8
   - type: Barotrauma
     damage:
       types:

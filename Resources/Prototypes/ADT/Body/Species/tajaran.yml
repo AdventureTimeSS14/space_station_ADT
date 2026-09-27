@@ -149,6 +149,8 @@
         90: SoftCritical
         145: Critical
         200: Dead
+    - type: SoftCrit
+      speedModifier: 0.45
     - type: RoarAccent
     - type: Damageable
       damageModifierSet: Tajaran

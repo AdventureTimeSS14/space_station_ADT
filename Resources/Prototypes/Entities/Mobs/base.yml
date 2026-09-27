@@ -136,13 +136,10 @@
   - type: Stamina
   - type: StunVisuals
   - type: MobState
-  - type: SoftCrit # ADT-Tweak
-  - type: TryCatchBreath # ADT-Tweak
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: SoftCritical # ADT-Tweak
-      150: Critical # ADT-Tweak
+      100: Critical
       200: Dead
   - type: MobStateActions
     actions:

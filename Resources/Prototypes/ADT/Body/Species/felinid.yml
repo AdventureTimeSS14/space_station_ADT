@@ -131,6 +131,10 @@
       100: SoftCritical
       142: Critical
       185: Dead
+  - type: SoftCrit
+    speedModifier: 0.45
+  - type: TryCatchBreath
+    doAfterTime: 5
   - type: SizeAttributeWhitelist
     tall: true
     tallscale: 1.1

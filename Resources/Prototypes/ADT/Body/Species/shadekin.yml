@@ -212,6 +212,13 @@
       80: SoftCritical
       120: Critical
       160: Dead
+    stateAlertDict:
+      Alive: HumanHealth
+      SoftCritical: ADTHumanSoftCritNoBreath
+      Critical: HumanCrit
+      Dead: HumanDead
+  - type: SoftCrit
+    speedModifier: 0.40
   - type: SlowOnDamage
     speedModifierThresholds:
       42: 0.7
