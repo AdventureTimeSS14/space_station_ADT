@@ -47,19 +47,6 @@ public partial class MobStateSystem : EntitySystem
     }
 
     /// <summary>
-    ///  Check if a Mob is Soft Critical
-    /// </summary>
-    /// <param name="target">Target Entity</param>
-    /// <param name="component">The MobState component owned by the target</param>
-    /// <returns>If the entity is Soft Critical</returns>
-    public bool IsSoftCritical(EntityUid target, MobStateComponent? component = null) // ADT-Tweak
-    {
-        if (!_mobStateQuery.Resolve(target, ref component, false))
-            return false;
-        return component.CurrentState == MobState.SoftCritical;
-    }
-
-    /// <summary>
     ///  Check if a Mob is Critical
     /// </summary>
     /// <param name="target">Target Entity</param>
@@ -70,16 +57,6 @@ public partial class MobStateSystem : EntitySystem
         if (!_mobStateQuery.Resolve(target, ref component, false))
             return false;
         return component.CurrentState is MobState.SoftCritical or MobState.Critical; // ADT-Tweak
-    }
-
-    /// <summary>
-    ///  Check if a Mob is Critical, ignoring soft crit.
-    /// </summary>
-    public bool IsHardCritical(EntityUid target, MobStateComponent? component = null) // ADT-Tweak
-    {
-        if (!_mobStateQuery.Resolve(target, ref component, false))
-            return false;
-        return component.CurrentState == MobState.Critical;
     }
 
     /// <summary>

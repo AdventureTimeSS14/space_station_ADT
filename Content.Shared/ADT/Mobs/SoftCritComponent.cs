@@ -1,4 +1,4 @@
-using Content.Shared.Mobs;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.ADT.Mobs;
@@ -7,17 +7,17 @@ namespace Content.Shared.ADT.Mobs;
 public sealed partial class SoftCritComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public float ImmobileDamageThreshold = 150f;
-
-    [DataField, AutoNetworkedField]
     public float SpeedModifier = 0.35f;
 
-    public static readonly Dictionary<MobState, (string Sound, bool Loop, float Volume)> StateAudio = new()
-    {
-        { MobState.SoftCritical, ("/Audio/ADT/Effects/soft_critical.ogg", true, -6f) },
-        { MobState.Critical, ("/Audio/ADT/Effects/critical.ogg", true, -8f) },
-        { MobState.Alive, ("/Audio/ADT/Effects/backtolife.ogg", false, -4f) },
-    };
+    [DataField]
+    public SoundSpecifier? SoftCritSound = new SoundPathSpecifier("/Audio/ADT/Effects/soft_critical.ogg", AudioParams.Default.WithLoop(true).WithVolume(-6f));
 
-    public EntityUid? StateAudioEntity;
+    [DataField]
+    public SoundSpecifier? CritSound = new SoundPathSpecifier("/Audio/ADT/Effects/critical.ogg", AudioParams.Default.WithLoop(true).WithVolume(-8f));
+
+    [DataField]
+    public SoundSpecifier? ReviveSound = new SoundPathSpecifier("/Audio/ADT/Effects/backtolife.ogg", AudioParams.Default.WithVolume(-4f));
+
+    [ViewVariables]
+    public EntityUid? StateAudio;
 }

@@ -224,15 +224,12 @@ public sealed partial class ChatSystem : SharedChatSystem
         // ADT-Port-End DeltaV - End hushed trait logic
 
         // ADT-Tweak-start
-        if (desiredType == InGameICChatType.Speak && _mobStateSystem.IsSoftCritical(source))
-            desiredType = InGameICChatType.Whisper;
-        // ADT-Tweak-end
-
-        // ADT-Tweak-start
         if (_mobStateSystem.IsSoftCritical(source))
         {
-            checkRadioPrefix = false;
+            if (desiredType == InGameICChatType.Speak)
+                desiredType = InGameICChatType.Whisper;
 
+            checkRadioPrefix = false;
             if (TryProcessRadioMessage(source, message, out var stripped, out _, true))
                 message = stripped;
         }
@@ -251,7 +248,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         // ADT Alternative speech start
         var altEv = new AlternativeSpeechEvent(sanitizedMessage, false, desiredType);
-        if (checkRadioPrefix && TryProcessRadioMessage(source, sanitizedMessage, out var altSpeechRadioResult, out _, true)) // ADT-Tweak
+        if (TryProcessRadioMessage(source, sanitizedMessage, out var altSpeechRadioResult, out _, true))
         {
             altEv.Radio = true;
             altEv.Message = altSpeechRadioResult;
