@@ -225,6 +225,8 @@
       tags:
       - ADTBow
       - ADTBowImprovised
+      - ADTMagicStaff
+      - WizardWand
   - type: Damageable
     damageModifierSet: ADTAshWalkerScale
 
@@ -284,6 +286,8 @@
       tags:
       - ADTBow
       - ADTBowImprovised
+      - ADTMagicStaff
+      - WizardWand
     shaman: true
   - type: GhostRole
     name: ghost-role-information-adt-ash-walker-shaman-name
