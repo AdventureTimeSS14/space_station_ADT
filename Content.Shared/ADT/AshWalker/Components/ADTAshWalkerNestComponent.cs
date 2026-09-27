@@ -38,6 +38,15 @@ public sealed partial class ADTAshWalkerNestComponent : Component
     public EntProtoId ShamanEgg = "ADTAshWalkerShamanEgg";
 
     [DataField]
+    public EntProtoId? LimbDrop;
+
+    [DataField]
+    public float LimbDropChance;
+
+    [DataField]
+    public List<EntProtoId> OrganDrops = new();
+
+    [DataField]
     public TimeSpan Interval = TimeSpan.FromSeconds(1);
 
     [ViewVariables]

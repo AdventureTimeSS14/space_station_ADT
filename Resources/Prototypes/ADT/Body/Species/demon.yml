@@ -117,6 +117,14 @@
   - BaseSpeciesMobOrganic
   id: MobDemon
   components:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: SoftCritical
+      160: Critical
+      200: Dead
+  - type: SoftCrit
+    speedModifier: 0.35
   - type: Wagging
   - type: Speech
     speechSounds: Lizard
