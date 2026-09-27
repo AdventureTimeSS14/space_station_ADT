@@ -47,6 +47,10 @@ public sealed class SharedMultishotSystem : EntitySystem
             return;
 
         var gunsEnumerator = GetMultishotGuns(user.Value);
+        var requestedGun = GetEntity(msg.Gun);
+        if (!gunsEnumerator.Any(gun => gun.Item1 == requestedGun))
+            return;
+
         var shootCoords = GetCoordinates(msg.Coordinates);
         var target = GetEntity(msg.Target);
         var firedGuns = new List<(EntityUid Entity, MultishotComponent Component)>();
@@ -54,9 +58,6 @@ public sealed class SharedMultishotSystem : EntitySystem
         foreach (var gun in gunsEnumerator)
         {
             var (gunEnt, gunComp, _) = gun;
-
-            if (!HasComp<MultishotComponent>(GetEntity(msg.Gun)) && gunEnt != GetEntity(msg.Gun))
-                continue;
 
             if (_gunSystem.AttemptShoot(user.Value, (gunEnt, gunComp), shootCoords, target))
                 firedGuns.Add((gunEnt, gun.Item3));
