@@ -109,12 +109,13 @@ public sealed partial class AudioTab : Control
 
         ChatHighlightSoundPlayButton.OnPressed += _ =>
         {
-            if (DropDownChatHighlightSound.Button.SelectedMetadata is not string path)
+            if (DropDownChatHighlightSound.Button.SelectedMetadata is not string path ||
+                !_entMan.TrySystem<AudioSystem>(out var audio))
                 return;
 
             var gain = SliderChatHighlightSoundVolume.Slider.Value * ContentAudioSystem.MasterVolumeMultiplier;
             var audioParams = AudioParams.Default.WithVolume(SharedAudioSystem.GainToVolume(gain));
-            _entMan.System<AudioSystem>().PlayGlobal(new SoundPathSpecifier(path), Filter.Local(), false, audioParams);
+            audio.PlayGlobal(new SoundPathSpecifier(path), Filter.Local(), false, audioParams);
         };
         // ADT-tweak end
 

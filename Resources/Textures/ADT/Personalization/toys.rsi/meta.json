@@ -321,6 +321,9 @@
         {
             "name": "proxima-equipped-HELMET",
             "directions": 4
+        },
+        {
+            "name": "plushie_yuriy"
         }
     ]
 }
