@@ -15811,3 +15811,10 @@ Entries:
     id: 1966
     pr_number: 3186
     time: '2026-09-27T07:11:45Z'
+  - author: Kerfus
+    changes:
+      - {message: Добавлены недостающие спавнеры мехов., type: Add}
+      - {message: Исправлена локализация спавнеров мехов., type: Fix}
+    id: 1967
+    pr_number: 3384
+    time: '2026-09-27T07:12:38Z'
