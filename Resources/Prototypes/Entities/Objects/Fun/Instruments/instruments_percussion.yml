@@ -57,6 +57,7 @@
       "Kweh": {4: 100} # Defined in space-station-14.sf2
       "Waa": {5: 100} # Defined in space-station-14.sf2
       "Wah": {6: 100} # Defined in space-station-14.sf2
+      "Vox": {85: 0} #ADT-Tweak
   - type: Sprite
     sprite: Objects/Fun/Instruments/microphone.rsi
   - type: Item

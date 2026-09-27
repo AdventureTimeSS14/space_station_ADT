@@ -75,7 +75,7 @@
 
 - type: entity
   id: ADTMedicalAssembler
-  parent: [ BaseMachinePowered, ConstructibleMachine, ADTKitchenAssembler]
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
   name: adt-medical-assembler
   description: Great for medicine, apparently. You don't know how it works.
   components:
@@ -115,17 +115,38 @@
   - type: Machine
     board: ADTMedicalAssemblerMachineCircuitBoard
   - type: AssemblerUpgrade
+  - type: ADTMedicalAssembler
+    medipenStylePrototypes:
+      medipen: ADTCustomMedipen
+      firstaid: ADTCustomMedipenFirstaid
+      hypovolemic: ADTCustomMedipenHypovolemic
+      stimpen: ADTCustomMedipenStimpen
+      oxapen: ADTCustomMedipenOxapen
+      bicpen: ADTCustomMedipenBicpen
+      dexpen: ADTCustomMedipenDexpen
+  - type: ResearchClient
+  - type: TechnologyDatabase
+  - type: ItemSlots
+    slots:
+      beakerSlot:
+        whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
+        whitelist:
+          components:
+          - FitsInDispenser
   - type: ActivatableUI
-    key: enum.MicrowaveUiKey.MedicalAssemblerKey
+    inHandsOnly: false
+    key: enum.MedicalAssemblerUiKey.Key
+  - type: ActivatableUIRequiresPower
   - type: UserInterface
     interfaces:
-      enum.MicrowaveUiKey.MedicalAssemblerKey:
-        type: AssemblerBoundUserInterface
+      enum.MedicalAssemblerUiKey.Key:
+        type: MedicalAssemblerUiBoundUserInterface
   - type: ContainerContainer # Redefined due to inheritance order
     containers:
       microwave_entity_container: !type:Container
       machine_board: !type:Container
       machine_parts: !type:Container
+      beakerSlot: !type:ContainerSlot
 
 
 - type: entity

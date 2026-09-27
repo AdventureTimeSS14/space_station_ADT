@@ -3,6 +3,7 @@ using Content.Server.Chat.Managers;
 using Content.Server.Mind;
 using Content.Server.Popups;
 using Content.Server.Roles;
+using Content.Shared.ADT.Heretic.Systems;
 using Content.Shared.ADT.MindSlave;
 using Content.Shared.ADT.MindSlave.Components;
 using Content.Shared.Chat;
@@ -40,6 +41,7 @@ public sealed class MindSlaveImplanterSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly SharedSubdermalImplantSystem _subdermalImplant = default!;
+    [Dependency] private readonly SharedHereticSystem _hereticSystem = default!;
 
     /// <summary>
     /// Subscribes to <see cref="AfterInteractEvent"/> and <see cref="MindSlaveImplantDoAfterEvent"/>.
@@ -80,6 +82,14 @@ public sealed class MindSlaveImplanterSystem : EntitySystem
             args.Handled = true;
             return;
         }
+        // ADT-Tweak-start
+        if (_hereticSystem.TryGetHereticComponent(target, out _, out _))
+        {
+            _popup.PopupEntity(Loc.GetString("mindslave-heretic-block"), target, user, PopupType.MediumCaution);
+            args.Handled = true;
+            return;
+        }
+        // ADT-Tweak-end
 
         if (_mobState.IsDead(target))
         {
@@ -115,6 +125,11 @@ public sealed class MindSlaveImplanterSystem : EntitySystem
         if (HasComp<MindSlaveComponent>(target) || HasComp<MindShieldComponent>(target) || _mobState.IsDead(target))
             return;
 
+       // ADT-Tweak-start
+        if (_hereticSystem.TryGetHereticComponent(target, out _, out _))
+            return;
+       // ADT-Tweak-end
+        
         var implant = Spawn("MindSlaveImplant", Transform(target).Coordinates);
 
         if (!TryComp<SubdermalImplantComponent>(implant, out var implantComp))

@@ -488,6 +488,16 @@
         Slash: 0.95
         Piercing: 0.95
         Heat: 0.95
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - Inorganic
+    - Silicon
+  - type: ShowHealthIcons
+  - type: ShowJobIcons
+  - type: ShowMindShieldIcons
+  - type: ShowCriminalRecordIcons
+  - type: ShowContrabandDetails
 
 - type: entity
   parent: ClothingMaskGasERT

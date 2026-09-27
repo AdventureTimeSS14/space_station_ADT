@@ -256,6 +256,11 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
             }
             message.AddText($": {reason}");
 
+            // ADT-Tweak start
+            if (criminalRecord.InitiatorName is { } initiator)
+                message.AddText("\n" + Loc.GetString("criminal-records-console-status-initiator", ("initiator", initiator)));
+            // ADT-Tweak end
+
             WantedReason.SetMessage(message);
             WantedReason.Visible = true;
         }

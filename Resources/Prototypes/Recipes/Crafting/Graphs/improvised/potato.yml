@@ -60,7 +60,13 @@
             - material: Cable
               amount: 2
               doAfter: 1
-            - material: Manipulator
-              amount: 2
+            # ADT-Tweak start
+            - machinePart: Capacitor
+              tier: 2
+              name: machine-part-name-capacitor
+            - machinePart: Capacitor
+              tier: 2
+              name: machine-part-name-capacitor
+            # ADT-Tweak end
     - node: potatoaichip
       entity: PotatoAIChip

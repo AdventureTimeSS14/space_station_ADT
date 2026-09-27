@@ -98,7 +98,7 @@ public sealed class ReflectSystem : EntitySystem
         }
     }
 
-    private bool TryReflectProjectile(Entity<ReflectComponent> reflector, EntityUid user, Entity<ProjectileComponent?> projectile)
+    public bool TryReflectProjectile(Entity<ReflectComponent> reflector, EntityUid user, Entity<ProjectileComponent?> projectile) // ADT-Heretic: private -> public
     {
         if (!TryComp<ReflectiveComponent>(projectile, out var reflective) ||
             (reflector.Comp.Reflects & reflective.Reflective) == 0x0 ||
@@ -140,7 +140,7 @@ public sealed class ReflectSystem : EntitySystem
 
         return true;
     }
-    private bool TryReflectHitscan(
+    public bool TryReflectHitscan( // ADT-Heretic: private -> public
         Entity<ReflectComponent> reflector,
         EntityUid user,
         EntityUid? shooter,

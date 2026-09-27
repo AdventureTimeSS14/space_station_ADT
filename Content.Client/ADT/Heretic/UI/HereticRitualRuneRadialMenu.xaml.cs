@@ -1,3 +1,6 @@
+//
+
+using System.Numerics;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
@@ -6,7 +9,6 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using System.Numerics;
 
 namespace Content.Client.ADT.Heretic.UI;
 
@@ -17,6 +19,7 @@ public sealed partial class HereticRitualRuneRadialMenu : RadialMenu
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
     private readonly SpriteSystem _spriteSystem;
+    private readonly HereticSystem _heretic;
 
     public event Action<ProtoId<HereticRitualPrototype>>? SendHereticRitualRuneMessageAction;
 
@@ -27,6 +30,7 @@ public sealed partial class HereticRitualRuneRadialMenu : RadialMenu
         IoCManager.InjectDependencies(this);
         RobustXamlLoader.Load(this);
         _spriteSystem = _entitySystem.GetEntitySystem<SpriteSystem>();
+        _heretic = _entitySystem.GetEntitySystem<HereticSystem>();
     }
 
     public void SetEntity(EntityUid uid)
@@ -43,7 +47,7 @@ public sealed partial class HereticRitualRuneRadialMenu : RadialMenu
 
         var player = _playerManager.LocalEntity;
 
-        if (!_entityManager.TryGetComponent<HereticComponent>(player, out var heretic))
+        if (player == null || !_heretic.TryGetHereticComponent(player.Value, out var heretic, out _))
             return;
 
         foreach (var ritual in heretic.KnownRituals)
@@ -78,7 +82,7 @@ public sealed partial class HereticRitualRuneRadialMenu : RadialMenu
         if (mainControl == null)
             return;
 
-        foreach (var child in mainControl.Children)
+        foreach(var child in mainControl.Children)
         {
             var castChild = child as HereticRitualMenuButton;
 

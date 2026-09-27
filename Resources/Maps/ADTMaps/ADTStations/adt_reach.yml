@@ -2,10 +2,10 @@ meta:
   format: 7
   category: Map
   engineVersion: 277.2.1
-  forkId: SS14_DEV
-  forkVersion: 438b964db8947b3d2603676a468bd138f91486cd
-  time: 06/27/2026 12:33:38
-  entityCount: 4064
+  forkId: ""
+  forkVersion: ""
+  time: 09/19/2026 02:13:53
+  entityCount: 4068
 maps:
 - 1
 grids:
@@ -49,7 +49,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: Map Entity
+      name: NT Reach Station
     - type: Transform
     - type: Map
       mapPaused: True
@@ -4660,6 +4660,54 @@ entities:
     - type: TileHistory
       chunkHistory: {}
     - type: ExplosionAirtightGrid
+    - type: AreaGrid
+      areas:
+        27,38: AreaKitchen
+        27,39: AreaKitchen
+        26,38: AreaKitchen
+        26,39: AreaKitchen
+        25,38: AreaKitchen
+        25,39: AreaKitchen
+        24,38: AreaKitchen
+        24,39: AreaKitchen
+        23,38: AreaKitchen
+        23,39: AreaKitchen
+        24,41: AreaKitchen
+        27,40: AreaKitchen
+        27,41: AreaKitchen
+        27,42: AreaKitchen
+        27,43: AreaKitchen
+        26,40: AreaKitchen
+        26,41: AreaKitchen
+        26,42: AreaKitchen
+        26,43: AreaKitchen
+        25,40: AreaKitchen
+        25,41: AreaKitchen
+        25,42: AreaKitchen
+        25,43: AreaKitchen
+        24,40: AreaKitchen
+        24,42: AreaKitchen
+        24,43: AreaKitchen
+        23,40: AreaKitchen
+        23,41: AreaKitchen
+        23,42: AreaKitchen
+        23,43: AreaKitchen
+        22,40: AreaKitchen
+        22,41: AreaKitchen
+        22,42: AreaKitchen
+        22,43: AreaKitchen
+        21,40: AreaKitchen
+        21,41: AreaKitchen
+        21,42: AreaKitchen
+        21,43: AreaKitchen
+        20,40: AreaKitchen
+        20,41: AreaKitchen
+        20,42: AreaKitchen
+        20,43: AreaKitchen
+        19,40: AreaKitchen
+        19,41: AreaKitchen
+        19,42: AreaKitchen
+        19,43: AreaKitchen
 - proto: ADTArmchairBrown
   entities:
   - uid: 3
@@ -4733,6 +4781,14 @@ entities:
     - type: MetaData
       desc: Тяжёлая штанга для жима. Прямо как на постерах.
       name: штанга
+    - type: Transform
+      parent: 1540
+  - uid: 4065
+    components:
+    - type: Transform
+      parent: 1537
+  - uid: 4066
+    components:
     - type: Transform
       parent: 1540
 - proto: ADTBarSignNeonFlamingo
@@ -4951,6 +5007,17 @@ entities:
     - type: Transform
       pos: 19.5,52.5
       parent: 2
+- proto: ADTPaintingDiploma
+  entities:
+  - uid: 4067
+    components:
+    - type: MetaData
+      desc: Свидетельство о приёмке станции. 20.09.2570
+    - type: Transform
+      pos: 39.5,78.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
 - proto: ADTPaintingMonaLisa
   entities:
   - uid: 34
@@ -5379,6 +5446,13 @@ entities:
     components:
     - type: Transform
       pos: 39.18579,76.15284
+      parent: 2
+- proto: ADTVendingMachineMusician
+  entities:
+  - uid: 53949
+    components:
+    - type: Transform
+      pos: 41.5,41.5
       parent: 2
 - proto: ADTVendingMachinePrazatClothing
   entities:
@@ -30661,12 +30735,5 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 26.5,60.5
-      parent: 2
-- proto: ADTVendingMachineMusician
-  entities:
-  - uid: 53949
-    components:
-    - type: Transform
-      pos: 41.5,41.5
       parent: 2
 ...

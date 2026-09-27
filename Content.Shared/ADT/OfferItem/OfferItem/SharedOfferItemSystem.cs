@@ -1,11 +1,12 @@
-using Content.Shared.Alert;
 using Content.Shared.ADT.Alert.Click;
+using Content.Shared.Alert;
+using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
-using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
-using Robust.Shared.Timing;
+using Robust.Shared.Network;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.OfferItem;
 
@@ -13,212 +14,198 @@ public abstract partial class SharedOfferItemSystem : EntitySystem
 {
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly AlertsSystem _alerts = default!;
+    [Dependency] private readonly INetManager _net = default!;
 
-    [ValidatePrototypeId<AlertPrototype>]
-    protected const string OfferAlert = "Offer";
+    protected static readonly ProtoId<AlertPrototype> OfferAlert = "Offer";
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<OfferItemComponent, InteractUsingEvent>(SetInReceiveMode);
+        SubscribeLocalEvent<OfferItemComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<OfferItemComponent, MoveEvent>(OnMove);
+        SubscribeLocalEvent<OfferItemComponent, DidUnequipHandEvent>(OnDidUnequipHand);
+        SubscribeLocalEvent<OfferItemComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<OfferItemComponent, AcceptOfferAlertEvent>(OnAcceptAlert);
 
         InitializeInteractions();
-
-        SubscribeLocalEvent<OfferItemComponent, AcceptOfferAlertEvent>(OnClickAlertEvent);
     }
 
-    private void OnClickAlertEvent(Entity<OfferItemComponent> ent, ref AcceptOfferAlertEvent ev)
+    private void OnInteractUsing(Entity<OfferItemComponent> ent, ref InteractUsingEvent args)
     {
-        if (ev.Handled || ev.AlertId != OfferAlert)
-            return;
-        ev.Handled = true;
-        Receive(ent!);
-    }
-    /// <summary>
-    /// Accepting the offer and receive item
-    /// </summary>
-    public void Receive(Entity<OfferItemComponent?> ent)
-    {
-        if (!_timing.IsFirstTimePredicted)
+        if (args.Handled || args.User == ent.Owner)
             return;
 
-        if (!Resolve(ent, ref ent.Comp))
+        if (!TryComp<OfferItemComponent>(args.User, out var offer) || !offer.IsInOfferMode)
             return;
 
-        if (!TryComp<OfferItemComponent>(ent.Comp.Target, out var offerItem))
+        if (ent.Comp.IsInReceiveMode)
             return;
 
-        if (offerItem.Hand is null)
+        if (offer.Item is not { } item || item != args.Used)
             return;
 
-        if (ent.Comp.Target is null)
-            return;
+        if (offer.Target is not null)
+            Cancel((args.User, offer), popup: false);
 
-        if (!TryComp<HandsComponent>(ent, out var hands))
-            return;
+        offer.IsInOfferMode = false;
+        offer.Target = ent.Owner;
+        Dirty(args.User, offer);
 
-        if (offerItem.Item is not null)
-        {
-            if (!_hand.TryPickup(ent, offerItem.Item.Value, handsComp: hands))
-            {
-                _popup.PopupClient(Loc.GetString("offer-item-full-hand"), ent, ent);
-                return;
-            }
+        SetReceiveMode(ent, true, args.User);
 
-            _popup.PopupClient(Loc.GetString("offer-item-give",
-                ("item", Identity.Entity(offerItem.Item.Value, EntityManager)),
-                ("target", Identity.Entity(ent, EntityManager))), ent.Comp.Target.Value, ent.Comp.Target.Value);
+        PopupTo(Loc.GetString("offer-item-try-give",
+            ("item", Identity.Entity(item, EntityManager)),
+            ("target", Identity.Entity(ent, EntityManager))), args.User, args.User);
 
-            _popup.PopupPredicted(Loc.GetString("offer-item-give-other",
-                    ("user", Identity.Entity(ent.Comp.Target.Value, EntityManager)),
-                    ("item", Identity.Entity(offerItem.Item.Value, EntityManager)),
-                    ("target", Identity.Entity(ent, EntityManager)))
-                , ent.Comp.Target.Value, ent);
-        }
-
-        offerItem.Item = null;
-        Dirty(ent);
-        UnReceive(ent, ent, offerItem);
-    }
-
-    private void SetInReceiveMode(EntityUid uid, OfferItemComponent component, InteractUsingEvent args)
-    {
-        if (!TryComp<OfferItemComponent>(args.User, out var offerItem))
-            return;
-
-        if (args.User == uid || component.IsInReceiveMode || !offerItem.IsInOfferMode || offerItem.IsInReceiveMode && offerItem.Target != uid)
-            return;
-
-        component.IsInReceiveMode = true;
-        component.Target = args.User;
-
-        Dirty(uid, component);
-
-        offerItem.Target = uid;
-        offerItem.IsInOfferMode = false;
-
-        Dirty(args.User, offerItem);
-
-        if (offerItem.Item == null)
-            return;
-
-        _popup.PopupPredicted(Loc.GetString("offer-item-try-give",
-            ("item", Identity.Entity(offerItem.Item.Value, EntityManager)),
-            ("target", Identity.Entity(uid, EntityManager))), component.Target.Value, component.Target.Value);
-        _popup.PopupClient(Loc.GetString("offer-item-try-give-target",
-            ("user", Identity.Entity(component.Target.Value, EntityManager)),
-            ("item", Identity.Entity(offerItem.Item.Value, EntityManager))), component.Target.Value, uid);
+        PopupTo(Loc.GetString("offer-item-try-give-target",
+            ("user", Identity.Entity(args.User, EntityManager)),
+            ("item", Identity.Entity(item, EntityManager))), args.User, ent.Owner);
 
         args.Handled = true;
     }
 
+    private void OnAcceptAlert(Entity<OfferItemComponent> ent, ref AcceptOfferAlertEvent args)
+    {
+        if (args.Handled || args.AlertId != OfferAlert)
+            return;
+
+        args.Handled = TryReceive(ent);
+    }
+
+    private void OnDidUnequipHand(Entity<OfferItemComponent> ent, ref DidUnequipHandEvent args)
+    {
+        if (ent.Comp.Item != args.Unequipped)
+            return;
+
+        Cancel(ent);
+    }
+
+    private void OnShutdown(Entity<OfferItemComponent> ent, ref ComponentShutdown args)
+    {
+        if (ent.Comp.Target is { } uid && TryComp<OfferItemComponent>(uid, out var partner) && partner.Target == ent.Owner)
+            Reset((uid, partner));
+    }
+
     private void OnMove(EntityUid uid, OfferItemComponent component, MoveEvent args)
     {
-        if (component.Target is null ||
-            _transform.InRange(args.NewPosition,
-                Transform(component.Target.Value).Coordinates,
-                component.MaxOfferDistance)
-            )
+        if (component.Target is not { } target)
             return;
 
-        UnOffer(uid, component);
+        if (_transform.InRange(args.NewPosition, Transform(target).Coordinates, component.MaxOfferDistance))
+            return;
+
+        Cancel((uid, component));
     }
 
-    /// <summary>
-    /// Resets the <see cref="OfferItemComponent"/> of the user and the target
-    /// </summary>
-    protected void UnOffer(EntityUid uid, OfferItemComponent component)
+    public bool TryReceive(Entity<OfferItemComponent> ent)
     {
-        if (!TryComp<HandsComponent>(uid, out var hands) || hands.ActiveHandId is null)
-            return;
+        if (!ent.Comp.IsInReceiveMode || ent.Comp.Target is not { } giverUid)
+            return false;
 
-        if (TryComp<OfferItemComponent>(component.Target, out var offerItem) && component.Target is not null)
+        if (!_actionBlocker.CanInteract(ent.Owner, null))
+            return false;
+
+        if (!_transform.InRange(Transform(ent).Coordinates, Transform(giverUid).Coordinates, ent.Comp.MaxOfferDistance))
         {
-            if (component.Item is not null)
+            Cancel(ent);
+            return false;
+        }
+
+        if (!TryComp<OfferItemComponent>(giverUid, out var giverComp) || giverComp.Item is not { } item)
+        {
+            Cancel(ent, popup: false);
+            return false;
+        }
+
+        if (!TryComp<HandsComponent>(ent, out var hands))
+            return false;
+
+        giverComp.Item = null;
+
+        if (!_hand.TryPickup(ent, item, handsComp: hands))
+        {
+            giverComp.Item = item;
+            PopupTo(Loc.GetString("offer-item-full-hand"), ent, ent);
+            return false;
+        }
+
+        PopupTo(Loc.GetString("offer-item-give",
+            ("item", Identity.Entity(item, EntityManager)),
+            ("target", Identity.Entity(ent, EntityManager))), giverUid, giverUid);
+
+        PopupTo(Loc.GetString("offer-item-give-target",
+            ("user", Identity.Entity(giverUid, EntityManager)),
+            ("item", Identity.Entity(item, EntityManager))), ent, ent);
+
+        Reset((giverUid, giverComp));
+        Reset(ent);
+        return true;
+    }
+
+    public void Cancel(Entity<OfferItemComponent> ent, bool popup = true)
+    {
+        Entity<OfferItemComponent>? partner = null;
+        if (ent.Comp.Target is { } partnerUid && TryComp<OfferItemComponent>(partnerUid, out var partnerComp))
+            partner = (partnerUid, partnerComp);
+
+        if (popup && partner is { } other)
+        {
+            var giver = ent.Comp.Item != null ? ent : other;
+            var receiver = giver.Owner == ent.Owner ? other : ent;
+
+            if (giver.Comp.Item is { } offered)
             {
-                if (!_timing.IsFirstTimePredicted)
-                {
-                    _popup.PopupClient(Loc.GetString("offer-item-no-give",
-                        ("item", Identity.Entity(component.Item.Value, EntityManager)),
-                        ("target", Identity.Entity(component.Target.Value, EntityManager))), uid, uid);
-                    _popup.PopupClient(Loc.GetString("offer-item-no-give-target",
-                        ("user", Identity.Entity(uid, EntityManager)),
-                        ("item", Identity.Entity(component.Item.Value, EntityManager))), uid, component.Target.Value);
-                }
+                PopupTo(Loc.GetString("offer-item-no-give",
+                    ("item", Identity.Entity(offered, EntityManager)),
+                    ("target", Identity.Entity(receiver, EntityManager))), giver, giver);
 
+                PopupTo(Loc.GetString("offer-item-no-give-target",
+                    ("user", Identity.Entity(giver, EntityManager)),
+                    ("item", Identity.Entity(offered, EntityManager))), giver, receiver);
             }
-            else if (offerItem.Item is not null)
-                if (!_timing.IsFirstTimePredicted)
-                {
-                    _popup.PopupClient(Loc.GetString("offer-item-no-give",
-                        ("item", Identity.Entity(offerItem.Item.Value, EntityManager)),
-                        ("target", Identity.Entity(uid, EntityManager))), component.Target.Value, component.Target.Value);
-                    _popup.PopupClient(Loc.GetString("offer-item-no-give-target",
-                        ("user", Identity.Entity(component.Target.Value, EntityManager)),
-                        ("item", Identity.Entity(offerItem.Item.Value, EntityManager))), component.Target.Value, uid);
-                }
-
-            offerItem.IsInOfferMode = false;
-            offerItem.IsInReceiveMode = false;
-            offerItem.Hand = null;
-            offerItem.Target = null;
-            offerItem.Item = null;
-
-            Dirty(component.Target.Value, offerItem);
         }
 
-        component.IsInOfferMode = false;
-        component.IsInReceiveMode = false;
-        component.Hand = null;
-        component.Target = null;
-        component.Item = null;
+        Reset(ent);
 
-        Dirty(uid, component);
+        if (partner is { } partnerEnt && partnerEnt.Comp.Target == ent.Owner)
+            Reset(partnerEnt);
     }
 
-
-    /// <summary>
-    /// Cancels the transfer of the item
-    /// </summary>
-    protected void UnReceive(EntityUid uid, OfferItemComponent? component = null, OfferItemComponent? offerItem = null)
+    private void SetReceiveMode(Entity<OfferItemComponent> ent, bool value, EntityUid? target)
     {
-        if (component is null && !TryComp(uid, out component))
-            return;
+        ent.Comp.IsInReceiveMode = value;
+        ent.Comp.Target = target;
 
-        if (offerItem is null && !TryComp(component.Target, out offerItem))
-            return;
+        if (value)
+            _alerts.ShowAlert(ent.Owner, OfferAlert);
+        else
+            _alerts.ClearAlert(ent.Owner, OfferAlert);
 
-        if (!TryComp<HandsComponent>(uid, out var hands) || hands.ActiveHandId is null ||
-            component.Target is null)
-            return;
-
-        if (offerItem.Item is not null)
-        {
-            _popup.PopupClient(Loc.GetString("offer-item-no-give",
-                ("item", Identity.Entity(offerItem.Item.Value, EntityManager)),
-                ("target", Identity.Entity(uid, EntityManager))), component.Target.Value, component.Target.Value);
-            _popup.PopupClient(Loc.GetString("offer-item-no-give-target",
-                ("user", Identity.Entity(component.Target.Value, EntityManager)),
-                ("item", Identity.Entity(offerItem.Item.Value, EntityManager))), component.Target.Value, uid);
-        }
-
-        if (!offerItem.IsInReceiveMode)
-        {
-            offerItem.Target = null;
-            component.Target = null;
-        }
-
-        offerItem.Item = null;
-        offerItem.Hand = null;
-        component.IsInReceiveMode = false;
-
-        Dirty(uid, component);
+        Dirty(ent);
     }
 
-    /// <summary>
-    /// Returns true if <see cref="OfferItemComponent.IsInOfferMode"/> = true
-    /// </summary>
+    private void Reset(Entity<OfferItemComponent> ent)
+    {
+        if (ent.Comp.IsInReceiveMode)
+            _alerts.ClearAlert(ent.Owner, OfferAlert);
+
+        ent.Comp.IsInOfferMode = false;
+        ent.Comp.IsInReceiveMode = false;
+        ent.Comp.Hand = null;
+        ent.Comp.Item = null;
+        ent.Comp.Target = null;
+
+        Dirty(ent);
+    }
+
+    private void PopupTo(string message, EntityUid uid, EntityUid recipient)
+    {
+        if (_net.IsClient)
+            return;
+
+        _popup.PopupEntity(message, uid, recipient);
+    }
+
     protected bool IsInOfferMode(EntityUid? entity, OfferItemComponent? component = null)
     {
         return entity is not null && Resolve(entity.Value, ref component, false) && component.IsInOfferMode;

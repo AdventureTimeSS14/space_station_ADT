@@ -1,0 +1,121 @@
+<controls:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    Title="{Loc 'medical-assembler-menu-title'}"
+    MinSize="720 420"
+    Resizable="False">
+
+    <BoxContainer Orientation="Vertical" Margin="6" SeparationOverride="6">
+        <PanelContainer>
+            <PanelContainer.PanelOverride>
+                <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+            </PanelContainer.PanelOverride>
+            <BoxContainer Orientation="Horizontal" Margin="6" SeparationOverride="16">
+                <Label Text="{Loc 'medical-assembler-materials-text'}"
+                       StyleClasses="LabelSubText"/>
+                <Label Name="MaterialsLabel"
+                       HorizontalExpand="True"
+                       FontColorOverride="#9d9d9d"/>
+                <Label Text="{Loc 'medical-assembler-beaker-text'}"
+                       StyleClasses="LabelSubText"/>
+                <Label Name="BeakerLabel"
+                       FontColorOverride="#9d9d9d"/>
+            </BoxContainer>
+        </PanelContainer>
+        <TabContainer Name="Tabs" VerticalExpand="True">
+            <BoxContainer Name="RecipesTab" Orientation="Horizontal" VerticalExpand="True" SeparationOverride="6">
+                <PanelContainer MinWidth="300" MaxWidth="300" VerticalExpand="True">
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                    </PanelContainer.PanelOverride>
+                    <ItemList Name="RecipeList"
+                              Margin="5"
+                              VerticalExpand="True"
+                              StyleClasses="transparentBackgroundItemList"
+                              SelectMode="Button"
+                              ItemSeparation="4"/>
+                </PanelContainer>
+                <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" SeparationOverride="4">
+                    <BoxContainer Orientation="Horizontal" SeparationOverride="8" Margin="4 2">
+                        <TextureRect Name="ResultIcon"
+                                     SetSize="32 32"
+                                     Stretch="KeepAspectCentered"/>
+                        <Label Name="ResultNameLabel"
+                               StyleClasses="FontLarge"
+                               VAlign="Center"
+                               HorizontalExpand="True"/>
+                        <Label Name="UnlockStatusLabel"
+                               VAlign="Center"/>
+                    </BoxContainer>
+                    <PanelContainer VerticalExpand="True">
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                        </PanelContainer.PanelOverride>
+                        <RichTextLabel Name="RequirementsLabel"
+                                       Margin="6"
+                                       VerticalExpand="True"/>
+                    </PanelContainer>
+                    <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+                        <Button Name="CraftButton"
+                                Text="{Loc 'medical-assembler-craft-button'}"
+                                StyleClasses="ButtonColorGreen"
+                                HorizontalExpand="True"
+                                Disabled="True"/>
+                        <Button Name="EjectButton"
+                                Text="{Loc 'medical-assembler-eject-button'}"
+                                StyleClasses="ButtonColorRed"
+                                HorizontalExpand="True"/>
+                    </BoxContainer>
+                </BoxContainer>
+            </BoxContainer>
+            <BoxContainer Name="CustomTab" Orientation="Horizontal" VerticalExpand="True" Margin="5" SeparationOverride="10">
+                <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+                    <Label Text="{Loc 'medical-assembler-custom-beaker-text'}"
+                           StyleClasses="LabelSubText"/>
+                    <PanelContainer VerticalExpand="True">
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                        </PanelContainer.PanelOverride>
+                        <ScrollContainer VerticalExpand="True" HorizontalExpand="True">
+                            <BoxContainer Name="CustomBeakerList"
+                                          Orientation="Vertical"
+                                          Margin="4"
+                                          HorizontalExpand="True"
+                                          SeparationOverride="2"/>
+                        </ScrollContainer>
+                    </PanelContainer>
+                </BoxContainer>
+                <BoxContainer Orientation="Vertical" MinWidth="340" MaxWidth="340" VerticalExpand="True" SeparationOverride="6">
+                    <Label Text="{Loc 'medical-assembler-custom-recipe-text'}"
+                           StyleClasses="LabelSubText"/>
+                    <PanelContainer VerticalExpand="True">
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                        </PanelContainer.PanelOverride>
+                        <ScrollContainer VerticalExpand="True" HorizontalExpand="True">
+                            <BoxContainer Name="CustomRecipeList"
+                                          Orientation="Vertical"
+                                          Margin="4"
+                                          HorizontalExpand="True"
+                                          SeparationOverride="2"/>
+                        </ScrollContainer>
+                    </PanelContainer>
+                    <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+                        <Label Text="{Loc 'medical-assembler-custom-style-text'}"
+                               StyleClasses="LabelSubText"
+                               VAlign="Center"/>
+                        <OptionButton Name="CustomStyleButton"
+                                      HorizontalExpand="True"/>
+                    </BoxContainer>
+                    <Label Name="CustomTotalLabel"
+                           HorizontalAlignment="Center"/>
+                    <Button Name="CreateCustomButton"
+                            Text="{Loc 'medical-assembler-custom-create-button'}"
+                            StyleClasses="ButtonColorGreen"
+                            Disabled="True"/>
+                </BoxContainer>
+            </BoxContainer>
+        </TabContainer>
+    </BoxContainer>
+</controls:FancyWindow>

@@ -1,3 +1,4 @@
+using System.Numerics;
 using Content.Shared.ADT.Procedural;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
@@ -44,10 +45,27 @@ public sealed class ADTRoomFillSystem : EntitySystem
                     _random,
                     clearExisting: marker.Comp.ClearExisting,
                     rotation: marker.Comp.Rotation);
+
+                MarkOccupied(gridUid, origin, room.Size, marker.Comp.Rotation);
             }
         }
 
         QueueDel(marker);
+    }
+
+    private void MarkOccupied(EntityUid gridUid, Vector2i origin, Vector2i size, bool rotation)
+    {
+        var center = new Vector2(origin.X + size.X / 2f, origin.Y + size.Y / 2f);
+        var extents = new Vector2(size.X / 2f, size.Y / 2f);
+
+        if (rotation)
+        {
+            var side = MathF.Max(size.X, size.Y) / 2f;
+            extents = new Vector2(side, side);
+        }
+
+        var occupied = EnsureComp<ADTOccupiedRoomsComponent>(gridUid);
+        occupied.Rooms.Add(Box2.CenteredAround(center, extents * 2f));
     }
 
     private ADTDungeonRoomPrototype? ResolveRoom(Entity<ADTRoomFillComponent> marker)

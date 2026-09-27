@@ -1,5 +1,6 @@
 using Content.Shared.CCVar;
 using Content.Shared.Examine;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.SSDIndicator;
 using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
@@ -10,6 +11,7 @@ public sealed class SSDTimerSystem : EntitySystem
 {
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
 	private float _icSsdSleepTime;
 
@@ -26,6 +28,9 @@ public sealed class SSDTimerSystem : EntitySystem
     private void OnExamined(EntityUid uid, SSDIndicatorComponent component, ExaminedEvent args)
     {
         if (!args.IsInDetailsRange || !component.IsSSD)
+            return;
+
+        if (_mobState.IsDead(uid))
             return;
 
 		var timeFellAsleep = component.FallAsleepTime - TimeSpan.FromSeconds(_icSsdSleepTime);

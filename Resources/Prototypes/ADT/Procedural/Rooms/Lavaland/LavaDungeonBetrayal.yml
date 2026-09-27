@@ -1,8 +1,8 @@
 - type: adtDungeonRoom
   id: LavaDungeonBetrayal
   size: 46, 39
-  tags:
-  - LavaDungeon
+  #tags: dunge removed 
+  #- LavaDungeon 
   legend:
     "a":
       tile: FloorBasalt

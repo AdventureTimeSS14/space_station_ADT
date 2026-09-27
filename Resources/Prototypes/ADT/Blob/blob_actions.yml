@@ -3,7 +3,7 @@
 - type: entity
   parent: BaseAction
   id: ADTActionCreateBlobFactory
-  name: Place Factory Blob (80)
+  name: Place Factory Blob (80).
   description: Turns selected normal blob into a factory blob, which will produce up to 3 spores and a blobbernaut if placed next to a core or a node.
   components:
   - type: Action
@@ -141,7 +141,7 @@
   parent: BaseAction
   id: ADTActionTransformToBlob
   name: Transform into a blob
-  description: Instantly destoys your body and creates a blob core. Make sure to stand on a floor tile, otherwise you will simply disappear.
+  description: Instantly destoys your body and creates the blob core. Make sure to stand on a floor tile, otherwise you will simply disappear.
   components:
   - type: Action
     icon:

@@ -27,8 +27,13 @@
                 sprite: Objects/Devices/communication.rsi
                 state: walkietalkie
               doAfter: 5
-            - material: Manipulator
-              amount: 2
+              # ADT-Tweak start
+            - machinePart: Capacitor
+              name: machine-part-name-capacitor
+              doAfter: 5
+            - machinePart: Capacitor
+              name: machine-part-name-capacitor
+            # ADT-Tweak end
               doAfter: 5
     - node: medsecHud
       entity: ClothingEyesHudMedSec

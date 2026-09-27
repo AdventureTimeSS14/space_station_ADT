@@ -1,0 +1,166 @@
+- type: entity
+  id: ADTAshSigil
+  name: ash sigil
+  description: An unfinished rune drawn in the ash.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: ADT/Effects/ash_runes.rsi
+    drawdepth: FloorObjects
+    noRot: true
+    layers:
+    - map: [ "base" ]
+      state: runaash_1
+  - type: RandomSprite
+    available:
+    - base:
+        runaash_1: ""
+        runaash_2: ""
+        runaash_3: ""
+        runaash_4: ""
+        runaash_5: ""
+        runaash_6: ""
+        runaash_7: ""
+        runaash_8: ""
+        runaash_9: ""
+        runaash_10: ""
+        runaash_11: ""
+        runaash_12: ""
+        runaash_13: ""
+        runaash_14: ""
+        runaash_15: ""
+        runaash_16: ""
+        runaash_17: ""
+        runaash_18: ""
+        runaash_19: ""
+        runaash_20: ""
+        runaash_21: ""
+        runaash_22: ""
+        runaash_23: ""
+        runaash_24: ""
+        runaash_25: ""
+        runaash_26: ""
+        runaash_27: ""
+        runaash_28: ""
+        runaash_29: ""
+        runaash_30: ""
+        runaash_31: ""
+        runaash_32: ""
+        runaash_33: ""
+        runaash_34: ""
+        runaash_35: ""
+        runaash_36: ""
+  - type: ADTAshSigil
+
+- type: entity
+  id: ADTAshRuneMark
+  name: ash rune
+  description: A fully functioning rune, ready for ritual work.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Sprite
+    sprite: ADT/Effects/ash_runes.rsi
+    drawdepth: FloorObjects
+    noRot: true
+    visible: false
+    layers:
+    - map: [ "base" ]
+      state: runaash_2
+  - type: RandomSprite
+    available:
+    - base:
+        runaash_1: ""
+        runaash_2: ""
+        runaash_3: ""
+        runaash_4: ""
+        runaash_5: ""
+        runaash_6: ""
+        runaash_7: ""
+        runaash_8: ""
+        runaash_9: ""
+        runaash_10: ""
+        runaash_11: ""
+        runaash_12: ""
+        runaash_13: ""
+        runaash_14: ""
+        runaash_15: ""
+        runaash_16: ""
+        runaash_17: ""
+        runaash_18: ""
+        runaash_19: ""
+        runaash_20: ""
+        runaash_21: ""
+        runaash_22: ""
+        runaash_23: ""
+        runaash_24: ""
+        runaash_25: ""
+        runaash_26: ""
+        runaash_27: ""
+        runaash_28: ""
+        runaash_29: ""
+        runaash_30: ""
+        runaash_31: ""
+        runaash_32: ""
+        runaash_33: ""
+        runaash_34: ""
+        runaash_35: ""
+        runaash_36: ""
+  - type: ADTAshRuneMark
+
+- type: entity
+  id: ADTAshRuneActivation
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 3
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    sprite: ADT/Effects/ashwalker_rune.rsi
+    state: activate
+    drawdepth: Effects
+    noRot: true
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  id: ADTAshRune
+  name: ash rune
+  description: A fully functioning rune, ready for ritual work.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: ADT/Effects/ashwalker_rune.rsi
+    state: rune
+    drawdepth: FloorObjects
+    noRot: true
+  - type: ADTRitualObject
+    categories:
+    - ADTAshWalker
+    allowedSpecies:
+    - ADTAshWalkerSpecies
+    - ADTAshWalkerShamanSpecies
+    - ADTDraconidSpecies
+  - type: UserInterface
+    interfaces:
+      enum.ADTRitualUiKey.Key:
+        type: ADTRitualBoundUserInterface
+      enum.ADTRitualSummonUiKey.Key:
+        type: ADTRitualSummonBoundUserInterface

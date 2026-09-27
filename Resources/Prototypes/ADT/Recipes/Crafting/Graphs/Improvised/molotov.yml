@@ -1,0 +1,58 @@
+- type: constructionGraph
+  id: ADTMolotovGrenade
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: molotov_empty
+      conditions:
+      - !type:MinSolution
+        solution: drink
+        reagent:
+          ReagentId: Napalm
+        quantity: 30
+      steps:
+      - tag: DrinkBottle
+        name: construction-graph-tag-empty-bottle
+        icon:
+          sprite: Objects/Consumable/Drinks/beer.rsi
+          state: icon_empty
+        doAfter: 1
+      - tag: Igniter
+        name: construction-graph-tag-igniter
+        icon:
+          sprite: Objects/Devices/igniter.rsi
+          state: icon
+        doAfter: 1
+  - node: molotov_empty
+    entity: RMCGrenadeMolotovEmpty
+    edges:
+    - to: start
+      conditions:
+      - !type:SolutionEmpty
+        solution: drink
+      steps:
+      - tool: Screwing
+        doAfter: 1
+    - to: molotov_ready
+      conditions: # no dumping out 29u of the fuel then adding wires :)
+      - !type:MinSolution
+        solution: drink
+        reagent:
+          ReagentId: Napalm
+        quantity: 30
+      steps:
+      - material: Cloth
+        amount: 2
+        doAfter: 10
+  - node: molotov_ready
+    entity: RMCGrenadeMolotov
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: MaterialCloth1
+        amount: 2
+      steps:
+      - tool: Cutting
+        doAfter: 10

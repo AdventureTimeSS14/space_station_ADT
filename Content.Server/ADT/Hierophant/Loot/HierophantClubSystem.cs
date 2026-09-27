@@ -23,6 +23,7 @@ public sealed class HierophantClubSystem : EntitySystem
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly HierophantGridSystem _grid = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -50,14 +51,14 @@ public sealed class HierophantClubSystem : EntitySystem
         if (_timing.CurTime < ent.Comp.NextUseAt)
             return;
 
-        var coords = _transform.ToMapCoordinates(args.ClickLocation);
+        var coords = _grid.Anchor(_transform.ToMapCoordinates(args.ClickLocation));
 
-        if (coords.MapId == MapId.Nullspace)
+        if (!coords.IsValid(EntityManager))
             return;
 
-        var userCoords = _transform.GetMapCoordinates(args.User);
+        var userCoords = _grid.Anchor(args.User);
 
-        if (HierophantAttacksSystem.ChebyshevDistance(userCoords, coords) > ent.Comp.Range)
+        if (_grid.TileDistance(userCoords, coords) > ent.Comp.Range)
         {
             _popup.PopupEntity(Loc.GetString("adt-hierophant-club-out-of-range"), args.User, args.User);
             return;
@@ -90,15 +91,15 @@ public sealed class HierophantClubSystem : EntitySystem
 
         ent.Comp.NextUseAt = _timing.CurTime + ent.Comp.MeleeCooldown;
 
-        var coords = _transform.GetMapCoordinates(args.User);
+        var coords = _grid.Anchor(args.HitEntities.Count > 0 ? args.HitEntities[0] : args.User);
 
-        if (args.HitEntities.Count > 0)
-            coords = _transform.GetMapCoordinates(args.HitEntities[0]);
+        if (!coords.IsValid(EntityManager))
+            return;
 
-        _audio.PlayPvs(ent.Comp.TelegraphSound, _transform.ToCoordinates(coords));
-        Spawn("ADTHierophantTelegraph", _transform.ToCoordinates(coords));
+        _audio.PlayPvs(ent.Comp.TelegraphSound, coords);
+        Spawn("ADTHierophantTelegraph", coords);
 
-        foreach (var tile in HierophantAttacksSystem.RangeTiles(coords, 1))
+        foreach (var tile in _grid.RangeTiles(coords, 1))
         {
             SpawnBlast(ent, args.User, tile, ent.Comp.MeleeDamage, true);
         }
@@ -106,10 +107,10 @@ public sealed class HierophantClubSystem : EntitySystem
         UpdateAppearance(ent);
     }
 
-    private void CardinalBlasts(Entity<HierophantClubComponent> ent, EntityUid user, MapCoordinates coords)
+    private void CardinalBlasts(Entity<HierophantClubComponent> ent, EntityUid user, EntityCoordinates coords)
     {
-        _audio.PlayPvs(ent.Comp.TelegraphSound, _transform.ToCoordinates(coords));
-        Spawn("ADTHierophantTelegraphCardinal", _transform.ToCoordinates(coords));
+        _audio.PlayPvs(ent.Comp.TelegraphSound, coords);
+        Spawn("ADTHierophantTelegraphCardinal", coords);
 
         SpawnBlast(ent, user, coords, ent.Comp.CardinalDamage, false);
 
@@ -119,15 +120,14 @@ public sealed class HierophantClubSystem : EntitySystem
         {
             for (var i = 1; i <= range; i++)
             {
-                var tile = new MapCoordinates(coords.Position + dir.ToVec() * i, coords.MapId);
-                SpawnBlast(ent, user, tile, ent.Comp.CardinalDamage, false);
+                SpawnBlast(ent, user, _grid.Offset(coords, dir, i), ent.Comp.CardinalDamage, false);
             }
         }
     }
 
     private void FireChaser(Entity<HierophantClubComponent> ent, EntityUid user, EntityUid target)
     {
-        var chaser = Spawn("ADTHierophantChaser", _transform.GetMoverCoordinates(user));
+        var chaser = Spawn("ADTHierophantChaser", _grid.Anchor(user));
 
         if (!TryComp<HierophantChaserComponent>(chaser, out var comp))
             return;
@@ -143,7 +143,7 @@ public sealed class HierophantClubSystem : EntitySystem
     private EntityUid SpawnBlast(
         Entity<HierophantClubComponent> ent,
         EntityUid user,
-        MapCoordinates coords,
+        EntityCoordinates coords,
         float damage,
         bool monsterDamageBoost)
     {
@@ -207,10 +207,10 @@ public sealed class HierophantClubSystem : EntitySystem
             return;
         }
 
-        var beaconCoords = _transform.GetMapCoordinates(ent.Comp.Beacon.Value);
-        var userCoords = _transform.GetMapCoordinates(user);
+        var beaconCoords = _grid.Anchor(ent.Comp.Beacon.Value);
+        var userCoords = _grid.Anchor(user);
 
-        if (HierophantAttacksSystem.ChebyshevDistance(beaconCoords, userCoords) <= ent.Comp.MinimumTeleportDistance)
+        if (_grid.TileDistance(userCoords, beaconCoords) <= ent.Comp.MinimumTeleportDistance)
         {
             _popup.PopupEntity(Loc.GetString("adt-hierophant-club-too-close"), user, user);
             return;
@@ -244,7 +244,11 @@ public sealed class HierophantClubSystem : EntitySystem
 
         args.Handled = true;
 
-        var coords = _transform.GetMoverCoordinates(args.User);
+        var coords = _grid.Anchor(args.User);
+
+        if (!coords.IsValid(EntityManager))
+            return;
+
         _audio.PlayPvs(ent.Comp.BeaconSound, coords);
         Spawn("ADTHierophantTelegraphTeleport", coords);
 
@@ -275,32 +279,35 @@ public sealed class HierophantClubSystem : EntitySystem
 
         args.Handled = true;
 
-        var destination = _transform.GetMapCoordinates(ent.Comp.Beacon.Value);
-        var source = _transform.GetMapCoordinates(args.User);
+        var sourceMap = _transform.GetMapCoordinates(args.User);
+        var destination = _grid.Anchor(ent.Comp.Beacon.Value);
+        var source = _grid.Anchor(sourceMap);
 
-        _audio.PlayPvs(ent.Comp.TeleportSound, _transform.ToCoordinates(destination));
-        _audio.PlayPvs(ent.Comp.DepartSound, _transform.ToCoordinates(source));
-        Spawn("ADTHierophantTelegraphTeleport", _transform.ToCoordinates(destination));
-        Spawn("ADTHierophantTelegraphTeleport", _transform.ToCoordinates(source));
+        if (!destination.IsValid(EntityManager) || !source.IsValid(EntityManager))
+            return;
 
-        foreach (var tile in HierophantAttacksSystem.RangeTiles(destination, 1))
+        _audio.PlayPvs(ent.Comp.TeleportSound, destination);
+        _audio.PlayPvs(ent.Comp.DepartSound, source);
+        Spawn("ADTHierophantTelegraphTeleport", destination);
+        Spawn("ADTHierophantTelegraphTeleport", source);
+
+        foreach (var tile in _grid.RangeTiles(destination, 1))
         {
             SpawnBlast(ent, args.User, tile, 30f, false);
         }
 
-        foreach (var tile in HierophantAttacksSystem.RangeTiles(source, 1))
+        foreach (var tile in _grid.RangeTiles(source, 1))
         {
             SpawnBlast(ent, args.User, tile, 30f, false);
         }
 
-        foreach (var mob in _lookup.GetEntitiesInRange<MobStateComponent>(source, 1.5f))
+        foreach (var mob in _lookup.GetEntitiesInRange<MobStateComponent>(sourceMap, 1.5f))
         {
             if (HasComp<HierophantComponent>(mob.Owner) && _mobState.IsDead(mob.Owner))
                 continue;
 
-            var mobCoords = _transform.GetMapCoordinates(mob.Owner);
-            var offset = mobCoords.Position - source.Position;
-            _transform.SetMapCoordinates(mob.Owner, new MapCoordinates(destination.Position + offset, destination.MapId));
+            var local = _transform.WithEntityId(_transform.GetMoverCoordinates(mob.Owner), source.EntityId);
+            _transform.SetCoordinates(mob.Owner, destination.Offset(local.Position - source.Position));
         }
 
         UpdateAppearance(ent);

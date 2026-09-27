@@ -6,5 +6,3 @@ ent-MobSlimeXenobioBaby = слайм
 ent-MobSlimeXenobioAdult = слайм
     .desc = Очень похож на желешку. Может, такой же на вкус?
     .suffix = Взрослый
-ent-MobSlimeXenobioBabyPending = неопределённый слайм
-    .desc = { ent-MarkerBase.desc }

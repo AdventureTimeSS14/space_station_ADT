@@ -26,6 +26,10 @@
   - type: Tag
     tags:
     - BodyBag
+  # ADT-Tweak start: задержка на открытие/закрытие
+  - type: StorageOpenDoAfter
+    delay: 0.5
+  # ADT-Tweak end
   - type: Clickable
   - type: InteractionOutline
   - type: MovedByPressure
@@ -124,6 +128,7 @@
     tags:
     - Burnt
     - Trash
+    - Ash # ADT-Heretic: ритуал Обжигающей акулы
   - type: SolutionContainerManager
     solutions:
       food:

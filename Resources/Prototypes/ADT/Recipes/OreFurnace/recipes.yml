@@ -1,0 +1,137 @@
+- type: oreSmeltRecipe
+  id: SmeltSteel
+  result: SheetSteel1
+  miningPoints: 1
+  materials:
+    RawIron: 100
+    Coal: 30
+
+- type: oreSmeltRecipe
+  id: SmeltGlass
+  result: SheetGlass1
+  miningPoints: 1
+  materials:
+    RawQuartz: 100
+
+- type: oreSmeltRecipe
+  id: SmeltPlasma
+  result: SheetPlasma1
+  miningPoints: 15
+  materials:
+    RawPlasma: 100
+
+- type: oreSmeltRecipe
+  id: SmeltUranium
+  result: SheetUranium1
+  miningPoints: 30
+  materials:
+    RawUranium: 100
+
+- type: oreSmeltRecipe
+  id: SmeltGold
+  result: IngotGold1
+  miningPoints: 18
+  materials:
+    RawGold: 100
+
+- type: oreSmeltRecipe
+  id: SmeltSilver
+  result: IngotSilver1
+  miningPoints: 16
+  materials:
+    RawSilver: 100
+
+- type: oreSmeltRecipe
+  id: SmeltBananium
+  result: MaterialBananium1
+  miningPoints: 60
+  materials:
+    RawBananium: 100
+
+- type: oreSmeltRecipe
+  id: SmeltDiamond
+  result: MaterialDiamond1
+  miningPoints: 50
+  materials:
+    RawDiamond: 100
+
+- type: oreSmeltRecipe
+  id: SmeltCopper
+  result: ADTSheetCopper1
+  miningPoints: 2
+  materials:
+    RawCopper: 100
+
+- type: oreSmeltRecipe
+  id: SmeltZinc
+  result: ADTSheetZinc1
+  miningPoints: 6
+  materials:
+    RawZinc: 100
+
+- type: oreSmeltRecipe
+  id: SmeltLead
+  result: ADTSheetLead1
+  miningPoints: 4
+  materials:
+    RawLead: 100
+
+- type: oreSmeltRecipe
+  id: SmeltReinforcedGlass
+  result: SheetRGlass1
+  materials:
+    RawQuartz: 100
+    RawIron: 50
+    Coal: 15
+
+- type: oreSmeltRecipe
+  id: SmeltPlasmaGlass
+  result: SheetPGlass1
+  miningPoints: 16
+  materials:
+    RawQuartz: 100
+    RawPlasma: 100
+
+- type: oreSmeltRecipe
+  id: SmeltReinforcedPlasmaGlass
+  result: SheetRPGlass1
+  miningPoints: 16
+  materials:
+    RawQuartz: 100
+    RawPlasma: 100
+    RawIron: 50
+    Coal: 15
+
+- type: oreSmeltRecipe
+  id: SmeltPlasteel
+  result: SheetPlasteel1
+  miningPoints: 17
+  materials:
+    RawPlasma: 100
+    RawIron: 200
+    Coal: 30
+
+- type: oreSmeltRecipe
+  id: SmeltUraniumGlass
+  result: SheetUGlass1
+  miningPoints: 31
+  materials:
+    RawUranium: 100
+    RawQuartz: 100
+
+- type: oreSmeltRecipe
+  id: SmeltReinforcedUraniumGlass
+  result: SheetRUGlass1
+  miningPoints: 31
+  materials:
+    RawUranium: 100
+    RawQuartz: 100
+    RawIron: 50
+    Coal: 15
+
+- type: oreSmeltRecipe
+  id: SmeltBluespaceCrystal
+  result: ADTMaterialBScrystal1
+  miningPoints: 40
+  materials:
+    ADTRawBSore: 100

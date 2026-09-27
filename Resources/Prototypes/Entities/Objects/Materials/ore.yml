@@ -361,6 +361,12 @@
 ### End ADT Tweak
   - type: Extractable
     grindableSolutionName: coal
+  # ADT-Tweak-Start
+  - type: Edible
+    requiresSpecialDigestion: true
+    utensil: None
+    delay: 3
+  # ADT-Tweak-End
   - type: SolutionContainerManager
     solutions:
       coal:
@@ -375,6 +381,15 @@
           Quantity: 0.2
         - ReagentId: Mercury
           Quantity: 0.1
+      # ADT-Tweak-Start
+      food:
+        maxVol: 12
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Carbon
+          Quantity: 2
+      # ADT-Tweak-End
   - type: PhysicalComposition
     materialComposition:
       Coal: 300   #ADT_Tweak - повышено со 100

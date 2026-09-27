@@ -57,3 +57,135 @@
   storage:
     back:
     - ADTBoxJukeBoxPlayer
+
+# Super Instruments
+
+- type: loadout
+  id: MusicianSuperSynthesizerWhite
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SuperSynthesizerInstrumentWorthy
+  storage:
+    back:
+    - ADTSuperSynthesizerWhiteInstrument
+  groupBy: "supersynthesizer"
+
+- type: loadout
+  id: MusicianSuperSynthesizerBlack
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SuperSynthesizerInstrumentWorthy
+  storage:
+    back:
+    - ADTSuperSynthesizerBlackInstrument
+  groupBy: "supersynthesizer"
+
+- type: loadout
+  id: MusicianSuperSynthesizerAquamarine
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SuperSynthesizerInstrumentWorthy
+  storage:
+    back:
+    - ADTSuperSynthesizerAquamarineInstrument
+  groupBy: "supersynthesizer"
+
+- type: loadout
+  id: MusicianSuperSynthesizerYellow
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SuperSynthesizerInstrumentWorthy
+  storage:
+    back:
+    - ADTSuperSynthesizerYellowInstrument
+  groupBy: "supersynthesizer"
+
+- type: loadout
+  id: MusicianSuperSynthesizerGreen
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SuperSynthesizerInstrumentWorthy
+  storage:
+    back:
+    - ADTSuperSynthesizerGreenInstrument
+  groupBy: "supersynthesizer"
+
+- type: loadout
+  id: MusicianSuperSynthesizerBrown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SuperSynthesizerInstrumentWorthy
+  storage:
+    back:
+    - ADTSuperSynthesizerBrownInstrument
+  groupBy: "supersynthesizer"
+
+- type: loadout
+  id: MusicianSuperSynthesizerRed
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SuperSynthesizerInstrumentWorthy
+  storage:
+    back:
+    - ADTSuperSynthesizerRedInstrument
+  groupBy: "supersynthesizer"
+
+- type: loadout
+  id: MusicianSuperSynthesizerOrange
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SuperSynthesizerInstrumentWorthy
+  storage:
+    back:
+    - ADTSuperSynthesizerOrangeInstrument
+  groupBy: "supersynthesizer"
+
+- type: loadout
+  id: MusicianSuperSynthesizerPink
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SuperSynthesizerInstrumentWorthy
+  storage:
+    back:
+    - ADTSuperSynthesizerPinkInstrument
+  groupBy: "supersynthesizer"
+
+- type: loadout
+  id: MusicianSuperSynthesizerGrey
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SuperSynthesizerInstrumentWorthy
+  storage:
+    back:
+    - ADTSuperSynthesizerGreyInstrument
+  groupBy: "supersynthesizer"
+
+- type: loadout
+  id: MusicianSuperSynthesizerBlue
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SuperSynthesizerInstrumentWorthy
+  storage:
+    back:
+    - ADTSuperSynthesizerBlueInstrument
+  groupBy: "supersynthesizer"
+
+- type: loadout
+  id: MusicianSuperSynthesizerPurple
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SuperSynthesizerInstrumentWorthy
+  storage:
+    back:
+    - ADTSuperSynthesizerPurpleInstrument
+  groupBy: "supersynthesizer"
+
+- type: loadout
+  id: MusicianSuperSynthesizerDarkBlue
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SuperSynthesizerInstrumentWorthy
+  storage:
+    back:
+    - ADTSuperSynthesizerDarkBlueInstrument
+  groupBy: "supersynthesizer"

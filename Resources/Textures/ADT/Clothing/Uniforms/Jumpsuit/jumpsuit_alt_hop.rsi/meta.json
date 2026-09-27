@@ -1,41 +1,49 @@
 {
-  "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Made by JustKekc",
-  "size": {
-    "x": 32,
-    "y": 32
-  },
-  "states": [
-    {
-      "name": "icon"
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by JustKekc, resprite by discord:prazat911",
+    "size": {
+        "x": 32,
+        "y": 32
     },
-    {
-      "name": "equipped-INNERCLOTHING",
-      "directions": 4
-    },
-    {
-      "name": "inhand-left",
-      "directions": 4
-    },
-    {
-      "name": "inhand-right",
-      "directions": 4
-    },
-    {
-      "name": "icon_vest"
-    },
-    {
-      "name": "vest-equipped-INNERCLOTHING",
-      "directions": 4
-    },
-    {
-      "name": "vest-inhand-left",
-      "directions": 4
-    },
-    {
-      "name": "vest-inhand-right",
-      "directions": 4
-    }
-  ]
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "equipped-INNERCLOTHING",
+            "directions": 4
+        },
+        {
+            "name": "inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "icon_vest"
+        },
+        {
+            "name": "vest-equipped-INNERCLOTHING",
+            "directions": 4
+        },
+        {
+            "name": "vest-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "vest-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "equipped-INNERCLOTHING-monkey",
+            "directions": 4
+        },
+        {
+            "name": "vest-equipped-INNERCLOTHING-monkey",
+            "directions": 4
+        }
+    ]
 }

@@ -48,7 +48,7 @@ namespace Content.Server.GameTicking
                 return string.Empty;
             }
 
-            var playerCount = $"{_playerManager.PlayerCount}";
+            var playerCount = $"{_queueManager.ActualPlayersCount}"; // ADT-Tweak-LobbyPlayerCountFix
             var readyCount = _playerGameStatuses.Values.Count(x => x == PlayerGameStatus.ReadyToPlay);
 
             var stationNames = new StringBuilder();

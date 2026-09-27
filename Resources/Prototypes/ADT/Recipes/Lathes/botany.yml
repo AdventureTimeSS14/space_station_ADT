@@ -21,15 +21,6 @@
     Silver: 150
 
 - type: latheRecipe
-  id: ADTHydroponicsTrayAdvancedMachineCircuitboard
-  result: ADTHydroponicsTrayAdvancedMachineCircuitboard
-  completetime: 2
-  materials:
-    Glass: 1000
-    Steel: 500
-    Gold: 500
-
-- type: latheRecipe
   id: ADTBotanistBagOfHolding
   result: ADTBotanistBagOfHolding
   completetime: 5

@@ -133,6 +133,12 @@ public sealed class CryoPodUserMessage : BoundUserInterfaceMessage
     public List<ReagentQuantity>? Beaker;
     public List<ReagentQuantity>? Injecting;
     public bool HasDamage;
+    // ADT Tweak start
+    /// <summary>
+    /// Во сколько раз ускорено усвоение химии (1.1 / 1.25 / 1.4 от тира частей).
+    /// </summary>
+    public float MetabolismSpeedup = 1f;
+    // ADT Tweak end
 
     public CryoPodUserMessage(
         GasMixEntry gasMix,
@@ -140,7 +146,8 @@ public sealed class CryoPodUserMessage : BoundUserInterfaceMessage
         FixedPoint2? beakerCapacity,
         List<ReagentQuantity>? beaker,
         List<ReagentQuantity>? injecting,
-        bool hasDamage)
+        bool hasDamage,
+        float metabolismSpeedup = 1f) // ADT-Tweak
     {
         GasMix = gasMix;
         Health = health;
@@ -148,6 +155,7 @@ public sealed class CryoPodUserMessage : BoundUserInterfaceMessage
         Beaker = beaker;
         Injecting = injecting;
         HasDamage = hasDamage;
+        MetabolismSpeedup = metabolismSpeedup;  // ADT-Tweak
     }
 }
 

@@ -17,6 +17,9 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+      - type: ADTTenCodeKnowledge
   # End ADT Tweak
 
 - type: startingGear

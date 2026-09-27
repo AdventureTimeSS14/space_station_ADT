@@ -137,3 +137,31 @@
           Quantity: 8
         - ReagentId: Vitamin
           Quantity: 5
+
+- type: entity
+  name: animal eyeball soup
+  parent: FoodBowlBase
+  id: ADTFoodSoupAnimalEyeball # TODO Удалить когда рецепты будут по тэгам а не по id
+  description: It's looking back at you...
+  components:
+  - type: FlavorProfile
+    flavors:
+      - tomato
+      - squirming
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: eyeball
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 40
+        reagents:
+          - ReagentId: Nutriment
+            Quantity: 10
+          - ReagentId: Vitamin
+            Quantity: 15
+  - type: Tag
+    tags:
+    - Meat
+    - Soup

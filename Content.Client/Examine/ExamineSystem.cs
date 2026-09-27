@@ -2,6 +2,7 @@ using System.Linq;
 using System.Numerics;
 using System.Threading;
 using Content.Client.Verbs;
+using Content.Shared.ADT.EyeControl;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Input;
@@ -91,6 +92,11 @@ namespace Content.Client.Examine
         {
             if (!Resolve(examiner, ref examinerComp, false))
                 return false;
+
+            // ADT-Tweak start
+            if (HasComp<EyeControlPilotComponent>(examiner))
+                return true;
+            // ADT-Tweak end
 
             if (examinerComp.SkipChecks)
                 return true;

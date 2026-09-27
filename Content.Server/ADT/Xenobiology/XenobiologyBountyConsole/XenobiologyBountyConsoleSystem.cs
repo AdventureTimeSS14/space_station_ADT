@@ -62,12 +62,7 @@ public sealed class XenobiologyBountyConsoleSystem : EntitySystem
 
         if (!IsBountyComplete(args.Actor, bounty, out var bountyEntities))
         {
-            if (_timing.CurTime >= console.Comp.NextDenySoundTime)
-            {
-                console.Comp.NextDenySoundTime = _timing.CurTime + console.Comp.DenySoundDelay;
-                _audio.PlayPvs(console.Comp.DenySound, console);
-            }
-
+            PlayDenySound(console);
             return;
         }
 
@@ -100,12 +95,7 @@ public sealed class XenobiologyBountyConsoleSystem : EntitySystem
         if (TryComp<AccessReaderComponent>(console, out var accessReaderComponent) &&
             !_access.IsAllowed(mob, console, accessReaderComponent))
         {
-            if (_timing.CurTime >= console.Comp.NextDenySoundTime)
-            {
-                console.Comp.NextDenySoundTime = _timing.CurTime + console.Comp.DenySoundDelay;
-                _audio.PlayPvs(console.Comp.DenySound, console);
-            }
-
+            PlayDenySound(console);
             return;
         }
 
@@ -195,6 +185,15 @@ public sealed class XenobiologyBountyConsoleSystem : EntitySystem
     #endregion
 
     #region Helpers
+
+    private void PlayDenySound(Entity<XenobiologyBountyConsoleComponent> console)
+    {
+        if (_timing.CurTime < console.Comp.NextDenySoundTime)
+            return;
+
+        console.Comp.NextDenySoundTime = _timing.CurTime + console.Comp.DenySoundDelay;
+        _audio.PlayPvs(console.Comp.DenySound, console);
+    }
 
     public void UpdateBountyConsoles()
     {

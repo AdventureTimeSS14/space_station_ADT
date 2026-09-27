@@ -225,8 +225,18 @@
   # TODO: uplink in yml
   - type: AntagRandomObjectives
     sets:
-    - groups: TraitorObjectiveGroups
-    maxDifficulty: 8 #ADT-tweak
+  # ADT-Tweak start
+    - groups: ADTTraitorObjectiveGroups
+      maxPicks: 2
+    maxDifficulty: 8
+  - type: AntagDelayedObjectives
+    sets:
+    - groups: DelayedTraitorObjectiveGroups
+      maxPicks: 1
+    maxDifficulty: 3
+    delay: 1800
+    maxDelay: 2100
+  # ADT-Tweak end
   - type: AntagSelection
     agentName: traitor-round-end-agent-name
   - type: DynamicRuleCost
@@ -265,6 +275,11 @@
   - type: AntagRandomObjectives
     sets: []
     maxDifficulty: 0
+  # ADT-Tweak start
+  - type: AntagDelayedObjectives
+    sets: []
+    maxDifficulty: 0
+  # ADT-Tweak end
   - type: AntagSelection
     definitions:
     - prefRoles: [ Traitor ]
@@ -334,6 +349,19 @@
       - type: HeadRevolutionary
       mindRoles:
       - MindRoleHeadRevolutionary
+      # ADT-Tweak-start
+    - prefRoles: [ Rev ]
+      max: 6
+      playerRatio: 10
+      briefing:
+        text: rev-role-greeting
+        color: CornflowerBlue
+        sound: "/Audio/Ambience/Antag/headrev_start.ogg"
+      components:
+      - type: Revolutionary
+      mindRoles:
+      - MindRoleRevolutionary
+      # ADT-Tweak-end
   - type: DynamicRuleCost
     cost: 200
 

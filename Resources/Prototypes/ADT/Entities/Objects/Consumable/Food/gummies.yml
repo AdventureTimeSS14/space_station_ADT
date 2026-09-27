@@ -23,12 +23,10 @@
         maxVol: 5
         reagents:
         - ReagentId: Nutriment
-          Quantity: 5
+          Quantity: 2.5
   - type: Tag
     tags:
-    - FoodSnack
     - ADTGummy
-    - ADTMothFriendlyFood
 
 - type: entity
   name: slime gummy

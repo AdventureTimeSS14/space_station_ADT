@@ -3,3 +3,22 @@
   files:
   - /Audio/ADT/Ambience/Antag/traitor_start.ogg
   - /Audio/Ambience/Antag/traitor_start.ogg
+
+# ADT Heretic: звук выкачивания сдвига реальности (HereticComponent.InfluenceGainSound).
+# Без этой коллекции прототипы еретика валились на валидации.
+- type: soundCollection
+  id: bloodCrawl
+  files:
+  - /Audio/ADT/Heretic/blood3.ogg
+  - /Audio/ADT/Heretic/crack2.ogg
+
+# ADT Heretic: звуки Покрова тени и меток резьбы
+- type: soundCollection
+  id: Curse
+  files:
+  - /Audio/ADT/Heretic/curse/curse1.ogg
+  - /Audio/ADT/Heretic/curse/curse2.ogg
+  - /Audio/ADT/Heretic/curse/curse3.ogg
+  - /Audio/ADT/Heretic/curse/curse4.ogg
+  - /Audio/ADT/Heretic/curse/curse5.ogg
+  - /Audio/ADT/Heretic/curse/curse6.ogg

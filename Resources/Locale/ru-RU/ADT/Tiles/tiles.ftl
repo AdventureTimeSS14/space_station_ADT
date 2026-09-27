@@ -15,6 +15,7 @@ adt-tiles-cult-fire-floor = огненный пол культа
 adt-tiles-cult-hell-floor = адский пол культа
 adt-tiles-cult-floor = пол культа
 adt-tiles-sepia-floor = пол цвета сепия
+adt-tiles-bluespace-floor = блюспейс пол
 
 adt-tiles-wood-large-broken = сломанный большой деревянный пол
 adt-tiles-wood-chess-broken = сломанный шахматный деревянный пол
@@ -45,3 +46,5 @@ adt-tiles-admin-black-plating = абсолютно чёрное покрытие
 adt-tiles-admin-grass-realistic-floor = реалистичная трава
 adt-tiles-admin-grass-realistic-light-floor = реалистичная светлая трава
 adt-tiles-admin-grass-realistic-dark-floor = реалистичная тёмная трава
+adt-tiles-necropolis-floor = пол некрополя
+adt-tiles-basalt-dug-floor = вскопанный базальт

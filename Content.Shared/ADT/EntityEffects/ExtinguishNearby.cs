@@ -10,7 +10,7 @@ public sealed partial class ExtinguishNearby : EntityEffectBase<ExtinguishNearby
     public float Range = 12;
 
     public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => null;
+        => Loc.GetString("entity-effect-guidebook-extinguish-nearby");
 
     public override LogImpact? Impact => LogImpact.Medium;
 }

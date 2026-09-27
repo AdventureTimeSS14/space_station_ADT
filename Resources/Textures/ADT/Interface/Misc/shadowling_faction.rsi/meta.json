@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Paradise 220 at SS13/ss1984/Paradise-master220/icons/mob/hud.dmi",
+    "size": {
+        "x": 8,
+        "y": 8
+    },
+    "states": [
+        {
+            "name": "shadowling"
+        },
+        {
+            "name": "thrall"
+        }
+    ]
+}

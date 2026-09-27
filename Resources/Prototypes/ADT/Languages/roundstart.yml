@@ -841,7 +841,7 @@
 - type: language
   id: Elysian
   roundstart: true
-  uiColor: "#00fc65"
+  uiColor: "#FFF575"
   parent: BaseVocalLanguage
   speech: !type:Generic
     obfuscateSyllables: true

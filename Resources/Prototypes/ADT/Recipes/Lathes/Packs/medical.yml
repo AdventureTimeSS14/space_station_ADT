@@ -7,6 +7,7 @@
   - ADTPillCanister
   - ADTPillPack
   - ADTPlasticBottle
+  - ADTMedicalSprayBottle
   - ADTAutoSurgeon
 
 - type: latheRecipePack
@@ -53,3 +54,8 @@
   id: ADTThermoTech
   recipes:
   - ADTPatchThermo
+
+- type: latheRecipePack
+  id: ADTMedbeamPack
+  recipes:
+  - ADTWeaponMedbeamCivil

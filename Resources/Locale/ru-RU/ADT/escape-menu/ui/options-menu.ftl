@@ -17,6 +17,8 @@ ui-options-function-toggle-crawling = Переключить ползание
 ui-options-function-open-languages-menu = Открыть меню выбора языка
 ui-options-function-offer-item = Передать что-либо
 ui-options-function-pickup-humans = Переключить режим подбора игроков
+ui-options-function-resist = Сопротивляться
+ui-options-function-draw-back-item = Снять предмет со спины
 ui-options-function-toggle-posing = Переключить режим позирования
 ui-options-function-posing-offset-left = Переместиться влево (позирование)
 ui-options-function-posing-offset-right = Переместиться вправо (позирование)
@@ -32,5 +34,15 @@ ui-options-hud-theme-trasenknox = Олдскул
 
 ui-options-show-chat-job-icons = Показывать иконки должностей в чате
 ui-options-show-chat-pointing-icons = Показывать иконки при указании в чате
+
+ui-options-chat-highlight-sound = Звук при выделенном слове в чате
+ui-options-chat-highlight-sound-choice = Звук:
+ui-options-chat-highlight-sound-volume = Громкость звука при выделенном слове
+ui-options-chat-highlight-sound-play = Прослушать
+ui-options-chat-highlight-sound-1 = Уведомление 1
+ui-options-chat-highlight-sound-2 = Уведомление 2
+ui-options-chat-highlight-sound-3 = Уведомление 3
+ui-options-chat-highlight-sound-4 = Уведомление 4
+ui-options-chat-highlight-sound-5 = Уведомление 5
 
 ui-options-function-smart-equip-neck = Умная экипировка на шею

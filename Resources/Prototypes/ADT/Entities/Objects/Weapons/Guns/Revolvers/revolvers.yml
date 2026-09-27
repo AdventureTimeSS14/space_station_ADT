@@ -33,8 +33,6 @@
     sprite: ADT/Objects/Weapons/Guns/Revolvers/unica.rsi
   - type: Clothing
     sprite: ADT/Objects/Weapons/Guns/Revolvers/unica.rsi
-  - type: RunAndGunSpreadModifier
-    modifier: 0.04
   - type: RevolverAmmoProvider
     whitelist:
       tags:

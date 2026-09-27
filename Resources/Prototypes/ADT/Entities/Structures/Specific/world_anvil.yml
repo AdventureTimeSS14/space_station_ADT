@@ -39,12 +39,19 @@
     description: adt-gps-signal-world-anvil-desc
     color: "#FF7A1A"
     sameMapOnly: true
+  - type: GuideHelp
+    guides:
+    - ADTWorldAnvil
   - type: ADTWorldAnvil
     fuels:
     - whitelist:
         components:
         - Gibtonite
       charges: 1
+    - whitelist:
+        tags:
+        - ADTGemAmber
+      charges: 3
     recipes:
     - whitelist:
         tags:

@@ -1,3 +1,4 @@
+using Robust.Shared.Maths;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.Xenobiology;
@@ -23,9 +24,21 @@ public sealed partial class BreedPrototype : IPrototype
     [DataField]
     public EntProtoId ProducedExtract = "GreySlimeExtract";
 
-    /// <summary>
-    /// What components should be given to the slime mob? Usually SlimeComponent.
-    /// </summary>
     [DataField]
-    public ComponentRegistry Components = new();
+    public Color SlimeColor = Color.FromHex("#828282");
+
+    [DataField]
+    public int MaxOffspring = 4;
+
+    [DataField]
+    public float MutationChance = 0.45f;
+
+    [DataField]
+    public HashSet<ProtoId<BreedPrototype>> PotentialMutations = new();
+
+    [DataField]
+    public bool ShouldHaveShader;
+
+    [DataField]
+    public string? Shader;
 }

@@ -97,3 +97,15 @@
     - type: Sprite
       sprite: ADT/Objects/Specific/Medical/auto_surgeon.rsi
       state: icon
+
+- type: entity
+  id: ADTERTMantisDaggersAutoSurgeon
+  parent: ADTBaseSyndicateAutoSurgeonOnlyImplanter
+  name: mantis daggers auto surgeon
+  description: A ERT auto surgeon pre-loaded with Mantis Daggers implant.
+  components:
+    - type: Implanter
+      implant: ADTMantisDaggersImplant
+    - type: Sprite
+      sprite: ADT/Objects/Specific/Medical/auto_surgeon.rsi
+      state: icon

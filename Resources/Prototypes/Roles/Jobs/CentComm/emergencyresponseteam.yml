@@ -148,7 +148,7 @@
     back: ClothingBackpackERTChaplain
     shoes: ClothingShoesBootsMagERT
     mask: ClothingMaskGasERT
-    eyes: ClothingEyesHudMedical
+    eyes: ClothingEyesNightVisionAdvanced
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitERTChaplain
     id: ERTChaplainPDA

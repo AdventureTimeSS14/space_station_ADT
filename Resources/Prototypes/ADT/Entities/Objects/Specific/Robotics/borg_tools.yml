@@ -28,3 +28,11 @@
       moleUsage: 0
     - type: Physics
       bodyType: KinematicController
+
+- type: entity
+  id: ADTBorgResonator
+  parent: ADTResonatorUpgraded
+  components:
+    - type: BatterySelfRecharger
+      autoRecharge: true
+      autoRechargeRate: 6.25

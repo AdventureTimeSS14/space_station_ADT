@@ -14,6 +14,7 @@ namespace Content.Server.ADT.Xenobiology;
 public partial class JellyCoatingSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
 
     public override void Initialize()
@@ -31,6 +32,10 @@ public partial class JellyCoatingSystem : EntitySystem
             return;
 
         var target = args.Target.Value;
+
+        if (TryComp<MechPilotComponent>(target, out var pilot))
+            target = pilot.Mech;
+
         if (HasComp<HumanoidProfileComponent>(target))
             return;
 
@@ -45,6 +50,7 @@ public partial class JellyCoatingSystem : EntitySystem
 
         _popup.PopupEntity(Loc.GetString("jelly-coating-success", ("target", target), ("source", ent.Owner)), target);
         Dirty(target, boosted);
+        _movementSpeedModifier.RefreshMovementSpeedModifiers(target);
 
         _entityManager.PredictedQueueDeleteEntity(ent.Owner);
         args.Handled = true;

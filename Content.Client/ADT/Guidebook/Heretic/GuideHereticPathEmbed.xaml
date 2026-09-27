@@ -1,0 +1,27 @@
+<BoxContainer xmlns="https://spacestation14.io"
+              xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+              xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
+              Orientation="Vertical"
+              Margin="5 4 5 8">
+    <PanelContainer HorizontalExpand="True">
+        <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BackgroundColor="#1c1a22" BorderThickness="1" BorderColor="#4a4458"/>
+        </PanelContainer.PanelOverride>
+        <BoxContainer Orientation="Vertical">
+            <PanelContainer Name="AccentBar" HorizontalExpand="True" MinHeight="5"/>
+            <BoxContainer Orientation="Vertical" Margin="8 6 8 8">
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                    <TextureRect Name="PathIcon"
+                                 VerticalAlignment="Center"
+                                 Stretch="KeepAspectCentered"
+                                 MinSize="32 32"/>
+                    <RichTextLabel Name="PathLabel" VerticalAlignment="Center" HorizontalExpand="True" Margin="8 0 0 0"/>
+                    <RichTextLabel Name="TotalLabel" VerticalAlignment="Center"/>
+                </BoxContainer>
+                <cc:HSeparator Margin="0 6 0 6"/>
+                <RichTextLabel Name="LegendLabel" HorizontalExpand="True" Margin="0 0 0 6"/>
+                <BoxContainer Name="StageContainer" Orientation="Vertical" HorizontalExpand="True"/>
+            </BoxContainer>
+        </BoxContainer>
+    </PanelContainer>
+</BoxContainer>

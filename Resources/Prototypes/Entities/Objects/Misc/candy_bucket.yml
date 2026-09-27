@@ -30,6 +30,7 @@
         - Pill
       tags:
         - FoodSnack
+        - ADTGummy # ADT-Tweak
   - type: ContainerContainer
     containers:
       storagebase: !type:Container

@@ -1,0 +1,9 @@
+- type: cargoProduct
+  id: ADTResearchAndDevelopmentServer
+  icon:
+    sprite: Structures/Machines/server.rsi
+    state: server
+  product: ADTCrateResearchAndDevelopmentServer
+  cost: 10000
+  category: cargoproduct-category-name-science
+  group: market

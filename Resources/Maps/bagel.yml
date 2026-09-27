@@ -113656,7 +113656,7 @@ entities:
     - type: Transform
       pos: 0.5,-66.5
       parent: 60
-- proto: MicroManipulatorStockPart
+- proto: MatterBinStockPart
   entities:
   - uid: 6272
     components:
