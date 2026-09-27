@@ -290,7 +290,7 @@ public sealed partial class FiringPinSystem : EntitySystem
         if (selectedIndex < 0)
             return false;
 
-        return currentIndex <= selectedIndex;
+        return currentIndex >= selectedIndex;
     }
 
     private void OnGetVerbs(Entity<FiringPinComponent> ent, ref GetVerbsEvent<Verb> args)
