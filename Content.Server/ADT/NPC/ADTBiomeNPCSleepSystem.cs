@@ -77,8 +77,6 @@ public sealed class ADTBiomeNPCSleepSystem : EntitySystem
 
         foreach (var npc in _sleeping)
         {
-            RemComp<ADTChunkSleepingNPCComponent>(npc);
-
             if (_mobState.IsIncapacitated(npc))
                 continue;
 
@@ -86,7 +84,10 @@ public sealed class ADTBiomeNPCSleepSystem : EntitySystem
                 continue;
 
             if (TryComp<HTNComponent>(npc, out var htn))
+            {
+                RemComp<ADTChunkSleepingNPCComponent>(npc);
                 _npc.WakeNPC(npc, htn);
+            }
         }
     }
 
