@@ -15917,3 +15917,13 @@ Entries:
     id: 1974
     pr_number: 3450
     time: '2026-09-27T11:01:56Z'
+  - author: ultradyper, Fineter75, Soupcanpyro, CrimeMoot
+    changes:
+      - {message: Добавлен шаттл Клана Паука на котором теперь появляется ниндзя.,
+        type: Add}
+      - {message: 'Добавлено две новые цели для ниндзи: похищение разума и взлом киборга.',
+        type: Add}
+      - {message: Обновлён гайдбук Ниндзи, type: Tweak}
+    id: 1975
+    pr_number: 3264
+    time: '2026-09-27T11:49:27Z'
