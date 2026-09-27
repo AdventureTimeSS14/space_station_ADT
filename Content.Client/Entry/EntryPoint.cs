@@ -47,6 +47,7 @@ using Robust.Shared.Replays;
 using Robust.Shared.Timing;
 using Content.Client.ADT.Export;
 using Content.Client.ADT.Discord;
+using Content.Client.ADT.JoinQueue;
 
 namespace Content.Client.Entry
 {
@@ -80,6 +81,7 @@ namespace Content.Client.Entry
         [Dependency] private readonly SponsorsManager _sponsorsManager = default!; // Corvax-Sponsors
         [Dependency] private readonly Content.Client.ADT.Sponsors.SponsorManager _adtSponsorManager = default!; // ADT-Tweak
         [Dependency] private readonly JoinQueueManager _queueManager = default!; // Corvax-Queue
+        [Dependency] private readonly QueueGamesManager _queueGamesManager = default!; // ADT-Tweak: queue games
         [Dependency] private readonly DiscordAuthManager _discordAuthManager = default!; // Corvax-DiscordAuth
         [Dependency] private readonly ContentReplayPlaybackManager _playbackMan = default!;
         [Dependency] private readonly IResourceManager _resourceManager = default!;
@@ -192,6 +194,7 @@ namespace Content.Client.Entry
             _sponsorsManager.Initialize(); // Corvax-Sponsors
             _adtSponsorManager.Initialize(); // ADT-Tweak
             _queueManager.Initialize(); // Corvax-Queue
+            _queueGamesManager.Initialize(); // ADT-Tweak: queue games
             _discordAuthManager.Initialize(); // Corvax-DiscordAuth
             _discordIdManager.Initialize(); // ADT-Discord
             _exportManager.Initialize();    // ADT Export
