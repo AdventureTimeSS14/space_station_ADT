@@ -31,7 +31,9 @@
         Slash: -0.8
         Piercing: -0.8
         Heat: -0.8
+        Caustic: -0.8
         Cold: -0.8
+        Shock: -0.8
         Poison: -0.8
         Asphyxiation: -1.3
     explosionType: Default

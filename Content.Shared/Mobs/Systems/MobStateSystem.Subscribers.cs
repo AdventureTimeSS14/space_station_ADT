@@ -41,7 +41,7 @@ public partial class MobStateSystem
         SubscribeLocalEvent<MobStateComponent, DropAttemptEvent>(CheckAct);
         SubscribeLocalEvent<MobStateComponent, PickupAttemptEvent>(CheckAct);
         SubscribeLocalEvent<MobStateComponent, StartPullAttemptEvent>(CheckAct);
-        SubscribeLocalEvent<MobStateComponent, UpdateCanMoveEvent>(CheckAct);
+        SubscribeLocalEvent<MobStateComponent, UpdateCanMoveEvent>(OnUpdateCanMove); // ADT-Tweak
         SubscribeLocalEvent<MobStateComponent, StandAttemptEvent>(CheckAct);
         SubscribeLocalEvent<MobStateComponent, PointAttemptEvent>(CheckAct);
         SubscribeLocalEvent<MobStateComponent, TryingToSleepEvent>(OnSleepAttempt);
@@ -72,6 +72,7 @@ public partial class MobStateSystem
         switch (ent.Comp.CurrentState)
         {
             case MobState.Dead:
+            case MobState.SoftCritical: // ADT-Tweak
             case MobState.Critical:
                 args.Cancelled = true;
                 break;
@@ -85,6 +86,7 @@ public partial class MobStateSystem
             case MobState.Alive:
                 //unused
                 break;
+            case MobState.SoftCritical: // ADT-Tweak
             case MobState.Critical:
                 _standing.Stand(target);
                 break;
@@ -125,6 +127,7 @@ public partial class MobStateSystem
                 _appearance.SetData(target, MobStateVisuals.State, MobState.Alive);
                 break;
             }
+            case MobState.SoftCritical: // ADT-Tweak
             case MobState.Critical:
             {
                 Down(target);
@@ -175,6 +178,10 @@ public partial class MobStateSystem
             return;
         }
 
+        // ADT-Tweak
+        if (component.CurrentState == MobState.SoftCritical)
+            return;
+
         CheckAct(uid, component, args);
     }
 
@@ -183,6 +190,7 @@ public partial class MobStateSystem
         switch (component.CurrentState)
         {
             case MobState.Dead:
+            case MobState.SoftCritical: // ADT-Tweak
             case MobState.Critical:
                 args.Cancel();
                 break;

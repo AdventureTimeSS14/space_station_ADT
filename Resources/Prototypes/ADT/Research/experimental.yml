@@ -92,7 +92,7 @@
   name: research-technology-bluespace-artillery
   icon:
     sprite: ADT/Structures/Machines/BSA.rsi
-    state: base
+    state: computer
   discipline: Experimental
   tier: 3
   cost: 15100
