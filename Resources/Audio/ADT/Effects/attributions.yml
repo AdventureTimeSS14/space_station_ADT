@@ -12,3 +12,13 @@
   license: "CC-BY-3.0"
   copyright: "Critical loop unconscious by Orsoniks, SCAV Prototype/Casualties Unknown OST."
   source: "https://scavprototype.wiki.gg/wiki/Soundtrack"
+
+- files: ["backtolife_ipc.ogg"]
+  license: "CC-BY-4.0"
+  copyright: "Original sound made by parabolix on freesound.org, mixed to mono by orange6775 (discord)"
+  source: "https://freesound.org/people/parabolix/sounds/81854/"
+
+- files: ["soft_critical_ipc.ogg"]
+  license: "CC-BY-NC-4.0"
+  copyright: "Original sound made by Timbre on freesound.org, mixed to mono by orange6775 (discord)"
+  source: "https://freesound.org/people/Timbre/sounds/232637/"
