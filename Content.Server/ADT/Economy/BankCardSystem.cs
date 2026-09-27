@@ -245,6 +245,8 @@ public sealed class BankCardSystem : EntitySystem
         return account != null;
     }
 
+    public IReadOnlyList<BankAccount> GetAllAccounts() => _accounts;
+
     public int GetBalance(int accountId)
     {
         if (!TryGetAccount(accountId, out var account))

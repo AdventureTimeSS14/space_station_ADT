@@ -135,10 +135,6 @@
   - type: NoSlip
 # ADT-Tweak-start
   - type: FootstepModifier # Corvax-Sounds
-    footstepSoundCollection:
-      collection: null
-      params:
-        volume: -10
 # ADT-Tweak-end
   - type: Magboots # always have gravity because le suction cups
   - type: ClothingSpeedModifier

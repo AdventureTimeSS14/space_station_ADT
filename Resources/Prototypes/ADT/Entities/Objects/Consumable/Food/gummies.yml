@@ -26,9 +26,7 @@
           Quantity: 2.5
   - type: Tag
     tags:
-    - FoodSnack
     - ADTGummy
-    - ADTMothFriendlyFood
 
 - type: entity
   name: slime gummy

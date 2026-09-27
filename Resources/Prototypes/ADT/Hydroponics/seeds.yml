@@ -283,3 +283,33 @@
       Min: 1
       Max: 1
       PotencyDivisor: 50
+
+- type: seed
+  id: ADTSeedReishi
+  name: seeds-adt-reishi-name
+  noun: seeds-noun-spores
+  displayName: seeds-adt-reishi-display-name
+  plantRsi: ADT/Objects/Specific/Hydroponics/reishi.rsi
+  packetPrototype: ADTSeedReishiPacket
+  productPrototypes:
+    - ADTFoodReishi
+  lifespan: 35
+  endurance: 35
+  maturation: 10
+  production: 5
+  yield: 4
+  potency: 15
+  growthStages: 4
+  lightTolerance: 6
+  waterConsumption: 0.60
+  nutrientConsumption: 0.50
+  idealHeat: 288
+  chemicals:
+    ADTMorphine:
+      Min: 1
+      Max: 5
+      PotencyDivisor: 3
+    Charcoal:
+      Min: 1
+      Max: 5
+      PotencyDivisor: 3
