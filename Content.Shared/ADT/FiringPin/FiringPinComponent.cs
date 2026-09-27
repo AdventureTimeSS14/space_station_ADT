@@ -47,7 +47,7 @@ public sealed partial class FiringPinComponent : Component
     [DataField, AutoNetworkedField]
     public bool ForceReplace;
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public SoundSpecifier? FailSound = new SoundPathSpecifier("/Audio/Items/bikehorn.ogg");
 
     [DataField, AutoNetworkedField]
