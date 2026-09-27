@@ -1,0 +1,53 @@
+- type: entity
+  parent: BaseMachine
+  id: ADTShieldGeneratorDebug
+  name: debug shield generator
+  suffix: Debug
+  description: A debug variant of the shield generator for testing. Requires no support or power and has effectively infinite energy.
+  components:
+  - type: ShieldGenerator
+    requiresAnchor: false
+    requiresConduits: false
+    hacked: true
+    maxChargeBase: 1000000000000000
+    chargePerConduit: 0
+    modes:
+    - Hyperkinetic
+    - Photonic
+    - Humanoids
+    - Anorganic
+    - Atmospheric
+    - Modulate
+    - Bypass
+    - Overcharge
+  - type: Sprite
+    sprite: ADT/Misc/shield.rsi
+    layers:
+    - state: generator0
+      map: [ "enum.ShieldGeneratorVisualLayers.Base" ]
+    - state: capacitor_connected
+      rotation: 0
+      visible: false
+      map: [ "enum.ShieldGeneratorVisualLayers.CapacitorNorth" ]
+    - state: capacitor_connected
+      rotation: 90
+      visible: false
+      map: [ "enum.ShieldGeneratorVisualLayers.CapacitorEast" ]
+    - state: capacitor_connected
+      rotation: 270
+      visible: false
+      map: [ "enum.ShieldGeneratorVisualLayers.CapacitorWest" ]
+  - type: Appearance
+  - type: Transform
+    anchored: false
+  - type: Battery
+    netsync: false
+    startingCharge: 1000000000000000
+    maxCharge: 1000000000000000
+  - type: ExaminableBattery
+  - type: UserInterface
+    interfaces:
+      enum.ShieldGeneratorUiKey.Key:
+        type: ShieldGeneratorBoundUserInterface
+  - type: ActivatableUI
+    key: enum.ShieldGeneratorUiKey.Key

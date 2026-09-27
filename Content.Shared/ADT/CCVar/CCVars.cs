@@ -80,4 +80,15 @@ public sealed class SimpleStationCCVars
     public static readonly CVarDef<float> XenobiologyBreedingSlowdownFactor =
         CVarDef.Create("xenobiology.breeding_slowdown_factor", 0.6f, CVar.SERVERONLY);
 
+    /*
+     * Shields
+     */
+    #region Shields
+
+    /// <summary>Сколько сегментов щита спавнится/удаляется за тик</summary>
+    public static readonly CVarDef<int> ShieldSegmentsPerTick =
+        CVarDef.Create("adt.shield_segments_per_tick", 10, CVar.SERVERONLY);
+
+    #endregion Shields
+
 }

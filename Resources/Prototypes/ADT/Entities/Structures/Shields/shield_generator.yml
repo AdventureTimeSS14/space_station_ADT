@@ -1,0 +1,52 @@
+- type: entity
+  parent: BaseMachine
+  id: ADTShieldGenerator
+  name: advanced shield generator
+  description: A heavy-duty shield generator and capacitor, capable of generating an energy field around the installation. Requires three deployed capacitors to operate.
+  components:
+  - type: ShieldGenerator
+  - type: Sprite
+    sprite: ADT/Misc/shield.rsi
+    layers:
+    - state: generator0
+      map: [ "enum.ShieldGeneratorVisualLayers.Base" ]
+    - state: capacitor_connected
+      rotation: 0
+      visible: false
+      map: [ "enum.ShieldGeneratorVisualLayers.CapacitorNorth" ]
+    - state: capacitor_connected
+      rotation: 90
+      visible: false
+      map: [ "enum.ShieldGeneratorVisualLayers.CapacitorEast" ]
+    - state: capacitor_connected
+      rotation: 270
+      visible: false
+      map: [ "enum.ShieldGeneratorVisualLayers.CapacitorWest" ]
+  - type: Appearance
+  - type: Transform
+    anchored: false
+  - type: NodeContainer
+    examinable: true
+    nodes:
+      input:
+        !type:CableDeviceNode
+        nodeGroupID: HVPower
+  - type: BatteryCharger
+    voltage: High
+    node: input
+  - type: Battery
+    netsync: false
+    startingCharge: 0
+    maxCharge: 100000000 # 100MJ
+  - type: PowerNetworkBattery
+    maxChargeRate: 2250000
+    maxSupply: 0
+    supplyRampTolerance: 5000
+    supplyRampRate: 1000
+  - type: ExaminableBattery
+  - type: UserInterface
+    interfaces:
+      enum.ShieldGeneratorUiKey.Key:
+        type: ShieldGeneratorBoundUserInterface
+  - type: ActivatableUI
+    key: enum.ShieldGeneratorUiKey.Key

@@ -1,0 +1,15 @@
+- type: entity
+  parent: BaseMachine
+  id: ADTShieldConduit
+  name: shield conduit
+  description: A combined conduit and capacitor that transfers and stores massive amounts of energy for the shield generator. Place it next to the generator.
+  components:
+  - type: ShieldConduit
+  - type: Sprite
+    sprite: ADT/Misc/shield.rsi
+    layers:
+    - state: conduit_0
+      map: [ "enum.ShieldConduitVisualLayers.Base" ]
+  - type: Appearance
+  - type: Transform
+    noRot: false
