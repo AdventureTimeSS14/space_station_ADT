@@ -27,6 +27,7 @@
   defaultLanguages:
   - GalacticCommon
   - Arkane
+  - Sondelun
   minAge: 36
   maxAge: 200
   oldAge: 160

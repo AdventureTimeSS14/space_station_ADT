@@ -217,6 +217,7 @@
       GalacticCommon: Speak
       SolCommon: Speak
       Arkane: Speak
+      Sondelun: Speak
   - type: SizeAttributeWhitelist
     tall: true
     tallscale: 1.08
