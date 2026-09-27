@@ -70,6 +70,9 @@ public sealed class ADTDrakeSwoopSystem : EntitySystem
 
     private void OnUpdateCanMove(Entity<ADTDrakeSwoopComponent> ent, ref UpdateCanMoveEvent args)
     {
+        if (ent.Comp.LifeStage > ComponentLifeStage.Running)
+            return;
+
         args.Cancel();
     }
 

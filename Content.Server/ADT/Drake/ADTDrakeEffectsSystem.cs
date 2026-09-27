@@ -276,6 +276,11 @@ public sealed class ADTDrakeEffectsSystem : EntitySystem
 
     private void OnTempLavaDespawn(Entity<ADTDrakeTempLavaComponent> ent, ref TimedDespawnEvent args)
     {
+        RestoreReplaced(ent);
+    }
+
+    public void RestoreReplaced(Entity<ADTDrakeTempLavaComponent> ent)
+    {
         if (ent.Comp.Replaced.Count == 0)
             return;
 
@@ -286,6 +291,8 @@ public sealed class ADTDrakeEffectsSystem : EntitySystem
             var restored = Spawn(replaced.Prototype, coords);
             _transform.SetLocalRotation(restored, replaced.Rotation);
         }
+
+        ent.Comp.Replaced.Clear();
     }
 
     public bool HasLava(EntityUid gridUid, MapGridComponent grid, Vector2i tile, List<EntProtoId> lavaPrototypes)
