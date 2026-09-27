@@ -22,6 +22,7 @@ using Content.Shared.Roles.Components;
 using Content.Shared.Slippery;
 using Content.Shared.Station.Components;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.RoundEnd;
 
@@ -35,6 +36,8 @@ public sealed class RoundEndStatsSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedRoleSystem _roles = default!;
     [Dependency] private readonly StationIntegritySystem _integrity = default!;
+
+    private static readonly ProtoId<JobPrototype> ClownJob = "Clown";
 
     private FirstDeathRecord? _firstDeath;
 
@@ -54,7 +57,8 @@ public sealed class RoundEndStatsSystem : EntitySystem
         SubscribeLocalEvent<MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<SlipperyComponent, SlipEvent>(OnSlip);
         SubscribeLocalEvent<OreMinedEvent>(OnOreMined);
-        SubscribeLocalEvent<DamageableComponent, DamageChangedEvent>(OnDamageChanged);
+        SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawn);
+        SubscribeLocalEvent<RoundEndClownComponent, DamageChangedEvent>(OnClownDamaged);
         SubscribeLocalEvent<BodyComponent, IngestingEvent>(OnIngesting);
     }
 
@@ -94,7 +98,7 @@ public sealed class RoundEndStatsSystem : EntitySystem
     {
         _totalSlips++;
 
-        if (IsClown(ev.Slipped))
+        if (HasComp<RoundEndClownComponent>(ev.Slipped))
             _clownSlips++;
     }
 
@@ -103,13 +107,18 @@ public sealed class RoundEndStatsSystem : EntitySystem
         _oreMined += ev.Amount;
     }
 
-    private void OnDamageChanged(Entity<DamageableComponent> ent, ref DamageChangedEvent args)
+    private void OnPlayerSpawn(PlayerSpawnCompleteEvent ev)
+    {
+        if (ev.JobId == ClownJob.Id)
+            EnsureComp<RoundEndClownComponent>(ev.Mob);
+    }
+
+    private void OnClownDamaged(Entity<RoundEndClownComponent> ent, ref DamageChangedEvent args)
     {
         if (!args.DamageIncreased || args.DamageDelta is not { } delta || delta.GetTotal() < 1)
             return;
 
-        if (IsClown(ent.Owner))
-            _clownsBeaten++;
+        _clownsBeaten++;
     }
 
     private void OnIngesting(Entity<BodyComponent> ent, ref IngestingEvent args)
@@ -131,7 +140,6 @@ public sealed class RoundEndStatsSystem : EntitySystem
         var total = 0;
         var survivors = 0;
         var escapees = 0;
-        var shuttleEscapees = 0;
 
         var query = EntityQueryEnumerator<MindComponent>();
         while (query.MoveNext(out var mindId, out var mind))
@@ -150,7 +158,6 @@ public sealed class RoundEndStatsSystem : EntitySystem
                 continue;
 
             escapees++;
-            shuttleEscapees++;
         }
 
         ev.Add(RoundEndStatCategory.Summary, "round-end-report-station-integrity")
@@ -163,9 +170,6 @@ public sealed class RoundEndStatsSystem : EntitySystem
         {
             ev.Add(RoundEndStatCategory.Summary, "round-end-report-evacuation-rate", 2)
                 .WithRate("value", escapees, total);
-
-            ev.Add(RoundEndStatCategory.Summary, "round-end-report-shuttle-rate", 3)
-                .WithRate("value", shuttleEscapees, total);
         }
 
         ev.Add(RoundEndStatCategory.Summary, "round-end-report-survival-rate", 4)
@@ -353,21 +357,6 @@ public sealed class RoundEndStatsSystem : EntitySystem
         }
 
         return corpses;
-    }
-
-    private bool IsClown(EntityUid uid)
-    {
-        if (!TryComp<MindContainerComponent>(uid, out var mindContainer)
-            || !_mind.TryGetMind(uid, out var mindId, out _, mindContainer))
-            return false;
-
-        foreach (var role in _roles.MindGetAllRoleInfo(mindId))
-        {
-            if (!role.Antagonist && role.Prototype == "Clown")
-                return true;
-        }
-
-        return false;
     }
 
     private struct FirstDeathRecord

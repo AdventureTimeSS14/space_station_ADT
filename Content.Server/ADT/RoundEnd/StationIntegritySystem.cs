@@ -16,6 +16,7 @@ public sealed class StationIntegritySystem : EntitySystem
     private static readonly ProtoId<TagPrototype> WallTag = "Wall";
     private static readonly ProtoId<TagPrototype> WindowTag = "Window";
 
+    private readonly HashSet<EntityUid> _stationGrids = new();
     private StationState? _startState;
 
     public override void Initialize()
@@ -47,10 +48,13 @@ public sealed class StationIntegritySystem : EntitySystem
     private StationState Count()
     {
         var state = new StationState();
+        _stationGrids.Clear();
 
         var grids = EntityQueryEnumerator<StationMemberComponent, MapGridComponent>();
         while (grids.MoveNext(out var gridUid, out _, out var grid))
         {
+            _stationGrids.Add(gridUid);
+
             var tiles = _map.GetAllTilesEnumerator(gridUid, grid);
             while (tiles.MoveNext(out _))
             {
@@ -58,23 +62,45 @@ public sealed class StationIntegritySystem : EntitySystem
             }
         }
 
-        var query = EntityQueryEnumerator<TransformComponent>();
-        while (query.MoveNext(out var uid, out var xform))
+        var doors = EntityQueryEnumerator<DoorComponent, TransformComponent>();
+        while (doors.MoveNext(out _, out _, out var xform))
         {
-            if (xform.GridUid is not { } gridUid2 || !HasComp<StationMemberComponent>(gridUid2))
-                continue;
-
-            if (HasComp<DoorComponent>(uid))
+            if (OnStation(xform))
                 state.Door++;
-            else if (_tags.HasTag(uid, WallTag))
-                state.Wall++;
-            else if (_tags.HasTag(uid, WindowTag))
-                state.Window++;
-            else if (HasComp<MachineComponent>(uid))
+        }
+
+        var machines = EntityQueryEnumerator<MachineComponent, TransformComponent>();
+        while (machines.MoveNext(out _, out _, out var xform))
+        {
+            if (OnStation(xform))
                 state.Machine++;
         }
 
+        var tagged = EntityQueryEnumerator<TagComponent, TransformComponent>();
+        while (tagged.MoveNext(out var uid, out var tag, out var xform))
+        {
+            if (!xform.Anchored)
+                continue;
+
+            var wall = _tags.HasTag(tag, WallTag);
+            if (!wall && !_tags.HasTag(tag, WindowTag))
+                continue;
+
+            if (!OnStation(xform) || HasComp<DoorComponent>(uid))
+                continue;
+
+            if (wall)
+                state.Wall++;
+            else
+                state.Window++;
+        }
+
         return state;
+    }
+
+    private bool OnStation(TransformComponent xform)
+    {
+        return xform.GridUid is { } grid && _stationGrids.Contains(grid);
     }
 
     private sealed class StationState

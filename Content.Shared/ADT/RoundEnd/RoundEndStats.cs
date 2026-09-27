@@ -9,15 +9,11 @@ public enum RoundEndStatCategory : byte
     FirstDeath,
     Economy,
     Misc,
-    Census,
 }
 
 [Serializable, NetSerializable]
 public sealed class RoundEndStatEntry
 {
-    public const string YesLocId = "round-end-report-yes";
-    public const string NoLocId = "round-end-report-no";
-
     public RoundEndStatCategory Category;
     public string LocId = string.Empty;
     public Dictionary<string, string> Args = new();
@@ -58,10 +54,5 @@ public sealed class RoundEndStatEntry
     {
         LocArgs[key] = locId;
         return this;
-    }
-
-    public RoundEndStatEntry WithBool(string key, bool value)
-    {
-        return WithLocArg(key, value ? YesLocId : NoLocId);
     }
 }

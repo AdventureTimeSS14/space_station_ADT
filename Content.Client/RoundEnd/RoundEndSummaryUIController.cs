@@ -41,7 +41,7 @@ public sealed class RoundEndSummaryUIController : UIController,
 
         _window = new RoundEndSummaryWindow(message.GamemodeTitle, message.RoundEndText,
             message.RoundDuration, message.RoundId, message.AllPlayersEndInfo, EntityManager,
-            message.RoundReport, message.SpeciesCensus);
+            message.RoundReport, message.SpeciesCensus); // ADT-Tweak
     }
 
     public void OnSystemLoaded(ClientGameTicker system)

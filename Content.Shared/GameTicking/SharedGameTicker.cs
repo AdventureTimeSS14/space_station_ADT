@@ -1,4 +1,4 @@
-﻿using Content.Shared.Roles;
+using Content.Shared.Roles;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Replays;
@@ -194,8 +194,6 @@ namespace Content.Shared.GameTicking
             public bool Observer;
 
             public bool Connected;
-
-    public bool Escaped;
 
             //ADT-tweak-start
             public string? LastWords;
