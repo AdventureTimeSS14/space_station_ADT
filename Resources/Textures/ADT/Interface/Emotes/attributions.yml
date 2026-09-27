@@ -9,6 +9,6 @@
   source: "https://github.com/Sarahon"
 
 - files: ["clop.png", "ear_flick.png"]
-  license: "custom"
+  license: "Custom"
   copyright: "Pixabay Content License"
   source: "https://pixabay.com/service/license-summary/"
