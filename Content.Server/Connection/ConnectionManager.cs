@@ -330,6 +330,11 @@ namespace Content.Server.Connection
                 softPlayerCount -= _adminManager.ActiveAdmins.Count();
             }
 
+            // ADT-Tweak-Start: reserve last slots before the hard player cap for HOST
+            if (IsHostReservedSlotsDenied(adminData))
+                return (ConnectionDenyReason.Full, Loc.GetString("soft-player-cap-full"), null);
+            // ADT-Tweak-End
+
             // Corvax-Queue-Start
             var isQueueEnabled = _cfg.GetCVar(CCCVars.QueueEnabled);
             if ((softPlayerCount >= _cfg.GetCVar(CCVars.SoftMaxPlayers) && !adminBypass) && !wasInGame && !isPrivileged && !isQueueEnabled)
