@@ -628,6 +628,8 @@
   materials:
     PrinterPaper: 100
 
+#ADT-tweak->
+
 - type: latheRecipe
   id: PrintedDocumentReportproceduralviolationsRecipe
   result: PrintedDocumentReportproceduralviolations
@@ -697,3 +699,4 @@
   applyMaterialDiscount: false
   materials:
     PrinterPaper: 100
+#<-
