@@ -218,8 +218,13 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      85: Critical
+      85: SoftCritical
+      117: Critical
       150: Dead
+  - type: SoftCrit
+    speedModifier: 0.50
+  - type: TryCatchBreath
+    doAfterTime: 5
   - type: Butcherable
     butcheringType: Spike
     spawned:
