@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made for Adventure Time (space_station_ADT)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "muscular",
+      "directions": 4
+    },
+    {
+      "name": "muscular_f",
+      "directions": 4
+    },
+    {
+      "name": "fat",
+      "directions": 4
+    },
+    {
+      "name": "fat_f",
+      "directions": 4
+    }
+  ]
+}
