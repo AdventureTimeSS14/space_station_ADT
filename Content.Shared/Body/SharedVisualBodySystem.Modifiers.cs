@@ -155,6 +155,7 @@ public abstract partial class SharedVisualBodySystem
             Sex = sex,
             SkinColor = appearance.SkinColor,
             EyeColor = appearance.EyeColor,
+            BodyType = appearance.BodyType, // ADT-Tweak
         });
 
         var markingsEvt = new ApplyOrganMarkingsEvent(appearance.Markings);

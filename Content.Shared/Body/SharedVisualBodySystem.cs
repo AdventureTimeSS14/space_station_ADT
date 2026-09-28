@@ -95,6 +95,7 @@ public abstract partial class SharedVisualBodySystem : EntitySystem
         if (!other.Layer.Equals(ent.Comp.Layer))
             return;
 
+        ent.Comp.Profile.BodyType = other.Profile.BodyType; // ADT-Tweak
         SetOrganAppearance(ent, other.Data);
     }
 
@@ -127,6 +128,11 @@ public abstract partial class SharedVisualBodySystem : EntitySystem
             SetOrganColor(ent, ent.Comp.Profile.EyeColor);
         else
             SetOrganColor(ent, ent.Comp.Profile.SkinColor);
+
+        // ADT-Tweak-Start
+        if (ApplyBodyType(ent, data))
+            return;
+        // ADT-Tweak-End
 
         if (ent.Comp.SexStateOverrides is { } overrides && overrides.TryGetValue(data.Sex, out var state))
         {
@@ -171,6 +177,35 @@ public abstract partial class SharedVisualBodySystem : EntitySystem
 
         SetOrganMarkings(ent, resolved);
     }
+
+    // ADT-Tweak-Start
+    private bool ApplyBodyType(Entity<VisualOrganComponent> ent, OrganProfileData data)
+    {
+        if (!ent.Comp.Layer.Equals(HumanoidVisualLayers.Chest))
+            return false;
+
+        if (data.BodyType is { } bodyTypeId && _prototype.TryIndex(bodyTypeId, out var bodyType))
+        {
+            ent.Comp.Data.RsiPath = bodyType.Sprite.ToString();
+            ent.Comp.Data.State = bodyType.GetState(data.Sex);
+            SetOrganAppearance(ent, ent.Comp.Data);
+            return true;
+        }
+
+        if (Prototype(ent) is not { } proto ||
+            !proto.TryGetComponent<VisualOrganComponent>(out var original, EntityManager.ComponentFactory) ||
+            original.Data.RsiPath == null ||
+            original.Data.RsiPath == ent.Comp.Data.RsiPath)
+        {
+            return false;
+        }
+
+        ent.Comp.Data.RsiPath = original.Data.RsiPath;
+        ent.Comp.Data.State = ent.Comp.SexStateOverrides?.GetValueOrDefault(data.Sex) ?? original.Data.State;
+        SetOrganAppearance(ent, ent.Comp.Data);
+        return true;
+    }
+    // ADT-Tweak-End
 }
 
 /// <summary>
