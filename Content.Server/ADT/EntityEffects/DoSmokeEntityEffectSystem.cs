@@ -16,7 +16,7 @@ public sealed partial class DoSmokeEntityEffectSystem : EntityEffectSystem<Trans
     [Dependency] private SmokeSystem _smoke = default!;
     [Dependency] private SpreaderSystem _spreader = default!;
     [Dependency] private SharedTransformSystem _xform = default!;
-    [Dependency] private SharedMapSystem _mapManager default!;
+    [Dependency] private SharedMapSystem _mapManager = default!;
 
     protected override void Effect(Entity<TransformComponent> entity, ref EntityEffectEvent<DoSmokeEntityEffect> args)
     {

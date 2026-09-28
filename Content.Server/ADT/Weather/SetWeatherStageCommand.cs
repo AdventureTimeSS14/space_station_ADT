@@ -12,7 +12,7 @@ namespace Content.Server.ADT.Weather;
 public sealed class SetWeatherStageCommand : LocalizedEntityCommands
 {
     [Dependency] private IEntityManager _entManager = default!;
-    [Dependency] private SharedMapSystem _mapManager default!;
+    [Dependency] private SharedMapSystem _mapManager = default!;
 
     public override string Command => "setweatherstage";
 

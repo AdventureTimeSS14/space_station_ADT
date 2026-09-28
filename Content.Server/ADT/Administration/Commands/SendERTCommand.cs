@@ -24,7 +24,7 @@ namespace Content.Server.ADT.Administration.Commands;
 [AdminCommand(AdminFlags.Admin)]
 public sealed class SendERTCommand : IConsoleCommand
 {
-    [Dependency] private SharedMapSystem _mapManager default!;
+    [Dependency] private SharedMapSystem _mapManager = default!;
     [Dependency] private IAdminLogManager _adminLogger = default!;
     [Dependency] private IEntitySystemManager _system = default!;
     [Dependency] private IEntityManager _entManager = default!;

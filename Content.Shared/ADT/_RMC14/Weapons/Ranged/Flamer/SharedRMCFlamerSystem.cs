@@ -43,7 +43,6 @@ public abstract class SharedRMCFlamerSystem : EntitySystem
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private RMCMapSystem _rmcMap = default!;
     [Dependency] private IPrototypeManager _prototypes = default!;
-    [Dependency] private SharedMapSystem _mapManager default!;
     [Dependency] private SharedMapSystem _map = default!;
 
     public override void Initialize()
@@ -399,7 +398,7 @@ public abstract class SharedRMCFlamerSystem : EntitySystem
     private bool HasFloor(EntityCoordinates coordinates)
     {
         var mapCoordinates = _transform.ToMapCoordinates(coordinates);
-        if (!_mapManager.TryFindGridAt(mapCoordinates, out var gridUid, out var grid))
+        if (!_map.TryFindGridAt(mapCoordinates, out var gridUid, out var grid))
             return false;
 
         var indices = _map.WorldToTile(gridUid, grid, mapCoordinates.Position);

@@ -32,7 +32,6 @@ public sealed class ADTSlidingPuzzleSystem : EntitySystem
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private SharedCameraRecoilSystem _recoil = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;
-    [Dependency] private SharedMapSystem _mapManager default!;
     [Dependency] private SharedContainerSystem _container = default!;
     [Dependency] private DamageableSystem _damageable = default!;
     [Dependency] private SharedMapSystem _map = default!;
@@ -108,7 +107,7 @@ public sealed class ADTSlidingPuzzleSystem : EntitySystem
             return false;
         }
 
-        if (_mapManager.TryFindGridAt(_transform.GetMapCoordinates(puzzle), out var foundGrid, out var foundComp))
+        if (_map.TryFindGridAt(_transform.GetMapCoordinates(puzzle), out var foundGrid, out var foundComp))
         {
             gridUid = foundGrid;
             grid = foundComp;
@@ -118,7 +117,7 @@ public sealed class ADTSlidingPuzzleSystem : EntitySystem
             return true;
         }
 
-        var gridEnt = _mapManager.CreateGridEntity(xform.MapID);
+        var gridEnt = _map.CreateGridEntity(xform.MapID);
         puzzle.Comp.GeneratedGrid = gridEnt;
         var gridXform = Transform(gridEnt);
         _transform.SetWorldPosition((gridEnt, gridXform), _transform.GetMapCoordinates(puzzle).Position);

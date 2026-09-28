@@ -31,7 +31,6 @@ public sealed partial class JumpbootsSystem : SharedJumpbootsSystem
     [Dependency] private SharedDoAfterSystem _doAfter = default!;
     [Dependency] private PuddleSystem _puddle = default!;
     [Dependency] private IComponentFactory _compFact = default!;
-    [Dependency] private SharedMapSystem _mapManager default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private BodySystem _bodySystem = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;

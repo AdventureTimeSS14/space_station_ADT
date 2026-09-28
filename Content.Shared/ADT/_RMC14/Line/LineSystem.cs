@@ -17,7 +17,6 @@ namespace Content.Shared._RMC14.Line;
 
 public sealed class LineSystem : EntitySystem
 {
-    [Dependency] private SharedMapSystem _mapManager default!;
     [Dependency] private SharedMapSystem _mapSystem = default!;
     [Dependency] private SharedPhysicsSystem _physics = default!;
     [Dependency] private TagSystem _tag = default!;

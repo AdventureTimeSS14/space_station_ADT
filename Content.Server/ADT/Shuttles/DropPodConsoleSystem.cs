@@ -46,7 +46,6 @@ public sealed class DropPodConsoleSystem : EntitySystem
     [Dependency] private DamageableSystem _damageable = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private IGameTiming _timing = default!;
-    [Dependency] private SharedMapSystem _mapManager default!;
     [Dependency] private IPlayerManager _playerManager = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private MapSystem _mapSystem = default!;
@@ -581,7 +580,7 @@ public sealed class DropPodConsoleSystem : EntitySystem
 
         const float MinBlacklistDist = 20f;
 
-        if (_mapManager.TryFindGridAt(beaconMapCoords, out var gridUid, out var gridComp))
+        if (_mapSystem.TryFindGridAt(beaconMapCoords, out var gridUid, out var gridComp))
         {
             const int maxTries = 24;
             for (var i = 0; i < maxTries; i++)
@@ -633,7 +632,7 @@ public sealed class DropPodConsoleSystem : EntitySystem
         }
 
         // Last-resort fallback: snap to beacon tile
-        if (_mapManager.TryFindGridAt(beaconMapCoords, out var fallbackGrid, out var fallbackGridComp))
+        if (_mapSystem.TryFindGridAt(beaconMapCoords, out var fallbackGrid, out var fallbackGridComp))
         {
             var tileIdx = _mapSystem.WorldToTile(fallbackGrid, fallbackGridComp, beaconWorldPos);
             var snappedPos = Vector2.Transform(

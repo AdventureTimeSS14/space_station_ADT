@@ -15,7 +15,7 @@ public sealed partial class RandomTeleportNearbySystem : EntityEffectSystem<Tran
     [Dependency] private ExamineSystemShared _examine = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private IRobustRandom _random = default!;
-    [Dependency] private SharedMapSystem _mapManager default!;
+    [Dependency] private SharedMapSystem _mapManager = default!;
 
     protected override void Effect(Entity<TransformComponent> entity, ref EntityEffectEvent<RandomTeleportEvent> args)
     {

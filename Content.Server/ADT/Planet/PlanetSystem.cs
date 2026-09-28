@@ -30,7 +30,6 @@ public sealed class PlanetSystem : EntitySystem
     [Dependency] private MapLoaderSystem _mapLoader = default!;
     [Dependency] private MetaDataSystem _meta = default!;
     [Dependency] private AtmosphereSystem _atmos = default!;
-    [Dependency] private SharedMapSystem _mapManager default!;
     [Dependency] private IConfigurationManager _configManager = default!;
 
     private List<(Vector2i, Tile)> _setTiles = new();

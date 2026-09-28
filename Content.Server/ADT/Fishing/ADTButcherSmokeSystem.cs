@@ -9,7 +9,6 @@ namespace Content.Server.ADT.Fishing;
 
 public sealed class ADTButcherSmokeSystem : EntitySystem
 {
-    [Dependency] private SharedMapSystem _mapManager default!;
     [Dependency] private SharedMapSystem _map = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private SmokeSystem _smoke = default!;
@@ -25,7 +24,7 @@ public sealed class ADTButcherSmokeSystem : EntitySystem
     {
         var mapCoords = _transform.GetMapCoordinates(ent.Owner);
 
-        if (!_mapManager.TryFindGridAt(mapCoords, out var gridUid, out var grid))
+        if (!_map.TryFindGridAt(mapCoords, out var gridUid, out var grid))
             return;
 
         var coords = _map.MapToGrid(gridUid, mapCoords);

@@ -24,7 +24,6 @@ namespace Content.Server.Teleportation;
 
 public sealed class TeleportSystem : EntitySystem
 {
-    [Dependency] private SharedMapSystem _mapManager default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private SharedTransformSystem _xform = default!;
@@ -124,7 +123,7 @@ public sealed class TeleportSystem : EntitySystem
             targetCoords = entityCoords.Offset(GetTeleportVector(radius.Min, extraRadius));
 
             // Try to not teleport into open space
-            if (!_mapManager.TryFindGridAt(targetCoords, out var gridUid, out var grid))
+            if (!_map.TryFindGridAt(targetCoords, out var gridUid, out var grid))
                 continue;
             // Check if we picked a position inside a solid object
             var valid = true;

@@ -26,7 +26,6 @@ namespace Content.Client.ADT.RPD;
 public sealed class AlignRPDConstruction : PlacementMode
 {
     [Dependency] private IEntityManager _entityManager = default!;
-    [Dependency] private SharedMapSystem _mapManager default!;
     [Dependency] private IPlayerManager _playerManager = default!;
     [Dependency] private IStateManager _stateManager = default!;
     [Dependency] private IEyeManager _eyeManager = default!;

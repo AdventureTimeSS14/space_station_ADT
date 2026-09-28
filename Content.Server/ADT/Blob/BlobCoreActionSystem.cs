@@ -47,7 +47,6 @@ public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private DamageableSystem _damageableSystem = default!;
     [Dependency] private MapSystem _mapSystem = default!;
-    [Dependency] private SharedMapSystem _mapManager default!;
     [Dependency] private BlobTileSystem _blobTileSystem = default!;
     //[Dependency] private GridFixtureSystem _gridFixture = default!;
 

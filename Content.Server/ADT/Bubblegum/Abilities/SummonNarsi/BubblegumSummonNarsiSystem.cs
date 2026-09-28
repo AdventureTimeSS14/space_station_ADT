@@ -10,7 +10,7 @@ namespace Content.Server.ADT.Bubblegum.Abilities;
 
 public sealed class BubblegumSummonNarsiSystem : EntitySystem
 {
-    [Dependency] private SharedMapSystem _mapManager default!;
+    [Dependency] private SharedMapSystem _mapManager = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private TurfSystem _turf = default!;

@@ -17,7 +17,6 @@ namespace Content.Client.ADT.AnimatedTiles;
 public sealed class AnimatedTileOverlay : Overlay
 {
     [Dependency] private IEntityManager _entManager = default!;
-    [Dependency] private SharedMapSystem _mapManager default!;
     [Dependency] private IPrototypeManager _protoManager = default!;
     [Dependency] private ITileDefinitionManager _tileDefManager = default!;
     [Dependency] private IGameTiming _timing = default!;
@@ -80,7 +79,7 @@ public sealed class AnimatedTileOverlay : Overlay
         }
 
         _grids.Clear();
-        _mapManager.FindGridsIntersecting(args.MapId, worldAABB, ref _grids);
+        _map.FindGridsIntersecting(args.MapId, worldAABB, ref _grids);
 
         var xformQuery = _entManager.GetEntityQuery<TransformComponent>();
 
