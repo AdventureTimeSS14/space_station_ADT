@@ -1,17 +1,16 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-<<<<<<< HEAD:Content.Client/ADT/VendingMachines/VendingMachineSystem.cs
-using Content.Shared.ADT.VendingMachines;
-=======
+using Content.Client.VendingMachines;
 using Content.Client.VendingMachines.Components;
 using Content.Shared.Power;
 using Content.Shared.Power.EntitySystems;
-using Content.Shared.VendingMachines;
 using Content.Shared.VendingMachines.Components;
->>>>>>> wizards-filtered:Content.Client/VendingMachines/VendingMachineSystem.cs
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
 using Robust.Shared.GameStates;
+using VendingMachineComponent = Content.Shared.ADT.VendingMachines.VendingMachineComponent;
+using VendingMachineComponentState = Content.Shared.ADT.VendingMachines.VendingMachineComponentState;
+using VendingMachineUiKey = Content.Shared.ADT.VendingMachines.VendingMachineUiKey;
 
 namespace Content.Client.ADT.VendingMachines;
 
@@ -27,16 +26,10 @@ public sealed partial class VendingMachineSystem : SharedVendingMachineSystem
         if (!Resolve(entity, ref entity.Comp))
             return;
 
-<<<<<<< HEAD:Content.Client/ADT/VendingMachines/VendingMachineSystem.cs
-        SubscribeLocalEvent<VendingMachineComponent, ComponentHandleState>(OnVendingHandleState);
-        SubscribeLocalEvent<VendingMachineComponent, AppearanceChangeEvent>(OnAppearanceChange);
-        SubscribeLocalEvent<VendingMachineComponent, AnimationCompletedEvent>(OnAnimationCompleted);
-=======
         if (TryGetOpenUi(entity.Owner, out var bui))
         {
             bui.UpdateAmounts();
         }
->>>>>>> wizards-filtered:Content.Client/VendingMachines/VendingMachineSystem.cs
     }
 
     protected override void OnEjectStateChanged(Entity<VendingMachineComponent?> entity, VendingMachineEjectComponent? ejectComponent = null)
@@ -57,49 +50,14 @@ public sealed partial class VendingMachineSystem : SharedVendingMachineSystem
         var fullUiUpdate = !component.Inventory.Keys.SequenceEqual(state.Inventory.Keys) ||
                            !component.EmaggedInventory.Keys.SequenceEqual(state.EmaggedInventory.Keys) ||
                            !component.ContrabandInventory.Keys.SequenceEqual(state.ContrabandInventory.Keys) ||
-<<<<<<< HEAD:Content.Client/ADT/VendingMachines/VendingMachineSystem.cs
-                           !component.ReturnedInventory.Keys.SequenceEqual(state.ReturnedInventory.Keys);
-
-        component.Inventory.Clear();
-        component.EmaggedInventory.Clear();
-        component.ContrabandInventory.Clear();
-        component.ReturnedInventory = new(state.ReturnedInventory);
-
-        foreach (var entry in state.Inventory)
-        {
-            component.Inventory.Add(entry.Key, new(entry.Value));
-        }
-        foreach (var entry in state.EmaggedInventory)
-        {
-            component.EmaggedInventory.Add(entry.Key, new(entry.Value));
-        }
-        foreach (var entry in state.ContrabandInventory)
-        {
-            component.ContrabandInventory.Add(entry.Key, new(entry.Value));
-        }
-
-        if (UISystem.TryGetOpenUi<VendingMachineBoundUserInterface>(uid, VendingMachineUiKey.Key, out var bui))
-        {
-            if (fullUiUpdate)
-            {
-                bui.Refresh();
-            }
-            else
-            {
-                bui.UpdateAmounts();
-            }
-        }
-    }
-
-    protected override void UpdateUI(Entity<VendingMachineComponent?> entity)
-    {
-        if (!Resolve(entity, ref entity.Comp))
-=======
+                           !component.ReturnedInventory.Keys.SequenceEqual(state.ReturnedInventory.Keys) || // ADT-Return
                            component.Contraband != state.Contraband;
 
         component.Contraband = state.Contraband;
         var brokenChanged = component.Broken != state.Broken;
         component.Broken = state.Broken;
+
+        component.ReturnedInventory = new(state.ReturnedInventory); // ADT-Return
 
         CopyInventory(state.Inventory, component.Inventory);
         CopyInventory(state.EmaggedInventory, component.EmaggedInventory);
@@ -109,7 +67,6 @@ public sealed partial class VendingMachineSystem : SharedVendingMachineSystem
             TryUpdateVisualState((uid, component));
 
         if (!TryGetOpenUi(uid, out var bui))
->>>>>>> wizards-filtered:Content.Client/VendingMachines/VendingMachineSystem.cs
             return;
 
         if (fullUiUpdate)
@@ -137,21 +94,9 @@ public sealed partial class VendingMachineSystem : SharedVendingMachineSystem
             !TryComp<SpriteComponent>(uid, out var sprite))
             return;
 
-<<<<<<< HEAD:Content.Client/ADT/VendingMachines/VendingMachineSystem.cs
-        _sprite.LayerSetAutoAnimated((uid, sprite), VendingMachineVisualLayers.BaseUnshaded, true);
-
-        if (!TryComp<AppearanceComponent>(uid, out var appearance) ||
-            !_appearanceSystem.TryGetData<VendingMachineVisualState>(uid, VendingMachineVisuals.VisualState, out var visualState, appearance))
-        {
-            visualState = VendingMachineVisualState.Normal;
-        }
-
-        UpdateAppearance(uid, visualState, component, sprite);
-=======
         TryComp<VendingMachineEjectComponent>(uid, out var eject);
         var visualState = GetVisualState(uid, vend, eject);
         UpdateAppearance(uid, visualState, visuals, eject, sprite);
->>>>>>> wizards-filtered:Content.Client/VendingMachines/VendingMachineSystem.cs
     }
 
     [SubscribeLocalEvent]
@@ -305,13 +250,9 @@ public sealed partial class VendingMachineSystem : SharedVendingMachineSystem
 
         _sprite.LayerSetVisible(sprite.AsNullable(), actualLayer, false);
     }
-<<<<<<< HEAD:Content.Client/ADT/VendingMachines/VendingMachineSystem.cs
-}
-=======
 
     private bool TryGetOpenUi(EntityUid uid, [NotNullWhen(true)] out VendingMachineBoundUserInterface? bui)
     {
         return UISystem.TryGetOpenUi(uid, VendingMachineUiKey.Key, out bui);
     }
-}
->>>>>>> wizards-filtered:Content.Client/VendingMachines/VendingMachineSystem.cs
+}

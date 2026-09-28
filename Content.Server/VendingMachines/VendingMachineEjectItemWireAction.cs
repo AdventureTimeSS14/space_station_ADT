@@ -1,13 +1,10 @@
 using Content.Server.ADT.VendingMachines; // ADT-Tweak
-using Content.Server.Wires;
-<<<<<<< HEAD
-using Content.Shared.ADT.VendingMachines; // ADT-Tweak
-=======
 using Content.Server.VendingMachines.Components;
-using Content.Shared.VendingMachines;
+using Content.Server.Wires;
+using Content.Shared.ADT.VendingMachines; // ADT-Tweak
 using Content.Shared.VendingMachines.Components;
->>>>>>> wizards-filtered
 using Content.Shared.Wires;
+using VendingMachineComponent = Content.Shared.ADT.VendingMachines.VendingMachineComponent; // ADT-Tweak
 
 namespace Content.Server.VendingMachines;
 

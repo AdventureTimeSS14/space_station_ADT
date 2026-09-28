@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-﻿- type: entity
-  parent: BaseItem
-  id: BaseVendingMachineRestock
-=======
 - type: entity
->>>>>>> wizards-filtered
   abstract: true
   parent: [ BaseItem, BaseItemDestructible ]
   id: BaseVendingMachineRestock

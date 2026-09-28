@@ -2,13 +2,14 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+using ADTSharedVendingMachineSystem = Content.Shared.ADT.VendingMachines.SharedVendingMachineSystem; // ADT-Tweak
 
 namespace Content.Shared.VendingMachines.Components;
 
 [RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentState(raiseAfterAutoHandleState: true)]
 [AutoGenerateComponentPause]
-[Access(typeof(SharedVendingMachineSystem))]
+[Access(typeof(SharedVendingMachineSystem), typeof(ADTSharedVendingMachineSystem))] // ADT-Tweak
 public sealed partial class VendingMachineEjectComponent : Component
 {
     /// <summary>

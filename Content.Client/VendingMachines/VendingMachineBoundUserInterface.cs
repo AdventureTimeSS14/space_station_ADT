@@ -8,7 +8,8 @@ using Content.Shared.VendingMachines.Components;
 
 namespace Content.Client.VendingMachines;
 
-public sealed class VendingMachineBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
+// ADT-Tweak: renamed to avoid LooseGetType clash with the ADT BoundUserInterface
+public sealed class VendingMachineBoundUserInterfaceUnused(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
 {
     [ViewVariables]
     private VendingMachineMenu? _menu;

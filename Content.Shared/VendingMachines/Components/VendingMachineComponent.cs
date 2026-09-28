@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.VendingMachines.Components;
 
-[RegisterComponent, NetworkedComponent]
+// ADT-Tweak: disabled registration - ADT VendingMachineComponent is used instead (Content.Shared.ADT.VendingMachines)
 public sealed partial class VendingMachineComponent : Component
 {
     /// <summary>

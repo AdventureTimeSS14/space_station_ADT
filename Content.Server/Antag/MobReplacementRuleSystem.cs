@@ -1,11 +1,7 @@
 using Content.Server.Antag.Mimic;
 using Content.Server.GameTicking.Rules;
 using Content.Shared.GameTicking.Components;
-<<<<<<< HEAD
 using Content.Shared.ADT.VendingMachines; // ADT-Tweak
-=======
-using Content.Shared.VendingMachines.Components;
->>>>>>> wizards-filtered
 using Robust.Shared.Map;
 using Robust.Shared.Random;
 
