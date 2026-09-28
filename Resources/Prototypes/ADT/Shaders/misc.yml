@@ -3,3 +3,12 @@
   kind: source
   path: "/Textures/ADT/Shaders/light_visibility.swsl"
   light_mode: normal
+
+- type: shader
+  id: ADTStencilUnmask
+  kind: source
+  path: "/Textures/Shaders/stencil_mask.swsl"
+  stencil:
+    ref: 0
+    op: Replace
+    func: Always
