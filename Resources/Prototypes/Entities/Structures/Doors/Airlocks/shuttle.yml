@@ -31,8 +31,6 @@
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Standard/shuttle-base.rsi
     layers:
-    - state: docking-clamp
-      offset: 0, -1
     - state: closed
       map: ["enum.DoorVisualLayers.Base"]
     - state: closed_unlit
@@ -52,7 +50,7 @@
       map: ["enum.DoorVisualLayers.BaseEmergencyAccess"]
       shader: unshaded
     - state: panel_open
-      sprite: Structures/Doors/Airlocks/Effects/airlock-effects-shuttle.rsi
+      sprite: Structures/Doors/Airlocks/Effects/airlock-effects.rsi
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
     - state: electrified_ai
       sprite: Interface/Misc/ai_hud.rsi
@@ -162,8 +160,6 @@
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Standard/shuttle-xenoborg.rsi
     layers:
-    - state: docking-clamp
-      offset: 0, -1
     - state: closed
       map: ["enum.DoorVisualLayers.Base"]
     - state: closed_unlit
@@ -183,7 +179,7 @@
       map: ["enum.DoorVisualLayers.BaseEmergencyAccess"]
       shader: unshaded
     - state: panel_open
-      sprite: Structures/Doors/Airlocks/Effects/airlock-effects-shuttle.rsi
+      sprite: Structures/Doors/Airlocks/Effects/airlock-effects.rsi
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
     - state: electrified_ai
       sprite: Interface/Misc/ai_hud.rsi
