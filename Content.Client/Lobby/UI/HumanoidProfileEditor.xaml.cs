@@ -298,6 +298,8 @@ namespace Content.Client.Lobby.UI
             };
             // ADT Species Window end
 
+            InitializeBodyTypes(); // ADT-Tweak
+
             #region Skin
 
             Skin.OnValueChanged += _ =>
@@ -526,6 +528,7 @@ namespace Content.Client.Lobby.UI
                 return;
 
             SpriteView.LoadPreview(Profile, JobOverride, ShowClothes.Pressed);
+            _bodyTypeWindow?.LoadPreview(Profile, JobOverride, ShowClothes.Pressed); // ADT-Tweak
 
             // Check and set the dirty flag to enable the save/reset buttons as appropriate.
             SetDirty();
@@ -561,6 +564,7 @@ namespace Content.Client.Lobby.UI
             UpdateEyePickers();
             UpdateSaveButton();
             UpdateMarkings();
+            UpdateBodyTypeControls(); // ADT-Tweak
             UpdateTTSVoicesControls(); // ADT-Tweak
             UpdateBarkVoicesControls(); // ADT Barks
 
@@ -588,6 +592,7 @@ namespace Content.Client.Lobby.UI
                 return;
 
             _entManager.System<SharedVisualBodySystem>().ApplyProfileTo(SpriteView.PreviewDummy, Profile);
+            _bodyTypeWindow?.SetProfile(Profile); // ADT-Tweak
 
             // Check and set the dirty flag to enable the save/reset buttons as appropriate.
             SetDirty();
@@ -686,6 +691,11 @@ namespace Content.Client.Lobby.UI
 
             _loadoutWindow?.Dispose();
             _loadoutWindow = null;
+
+            // ADT-Tweak-Start
+            _bodyTypeWindow?.Dispose();
+            _bodyTypeWindow = null;
+            // ADT-Tweak-End
 
             _headshotRequestCts?.Cancel();
             _headshotRequestCts = null;

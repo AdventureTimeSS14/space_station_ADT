@@ -1,0 +1,189 @@
+- type: bodyType
+  id: ADTBodyTypeSkinny
+  abstract: true
+  name: body-type-name-skinny
+  order: 0
+  state: skinny
+  sexStates:
+    Female: skinny_f
+
+- type: bodyType
+  id: ADTBodyTypeMuscular
+  abstract: true
+  name: body-type-name-muscular
+  order: 1
+  state: muscular
+  sexStates:
+    Female: muscular_f
+
+- type: bodyType
+  id: ADTBodyTypeFat
+  abstract: true
+  name: body-type-name-fat
+  order: 2
+  state: fat
+  sexStates:
+    Female: fat_f
+
+# Human
+- type: bodyType
+  parent: ADTBodyTypeSkinny
+  id: ADTBodyTypeHumanSkinny
+  species: &ADTBodyTypeHumanSpecies [ Human, Dwarf, Felinid ]
+  sprite: ADT/Mobs/Species/BodyTypes/human.rsi
+
+- type: bodyType
+  parent: ADTBodyTypeMuscular
+  id: ADTBodyTypeHumanMuscular
+  species: *ADTBodyTypeHumanSpecies
+  sprite: ADT/Mobs/Species/BodyTypes/human.rsi
+
+- type: bodyType
+  parent: ADTBodyTypeFat
+  id: ADTBodyTypeHumanFat
+  species: *ADTBodyTypeHumanSpecies
+  sprite: ADT/Mobs/Species/BodyTypes/human.rsi
+
+# Reptilian
+- type: bodyType
+  parent: ADTBodyTypeSkinny
+  id: ADTBodyTypeReptilianSkinny
+  species: &ADTBodyTypeReptilianSpecies [ Reptilian, KoboltSpecies ]
+  sprite: ADT/Mobs/Species/BodyTypes/reptilian.rsi
+
+- type: bodyType
+  parent: ADTBodyTypeMuscular
+  id: ADTBodyTypeReptilianMuscular
+  species: *ADTBodyTypeReptilianSpecies
+  sprite: ADT/Mobs/Species/BodyTypes/reptilian.rsi
+
+- type: bodyType
+  parent: ADTBodyTypeFat
+  id: ADTBodyTypeReptilianFat
+  species: *ADTBodyTypeReptilianSpecies
+  sprite: ADT/Mobs/Species/BodyTypes/reptilian.rsi
+
+# Slime
+- type: bodyType
+  parent: ADTBodyTypeSkinny
+  id: ADTBodyTypeSlimeSkinny
+  species: &ADTBodyTypeSlimeSpecies [ SlimePerson ]
+  sprite: ADT/Mobs/Species/BodyTypes/slime.rsi
+
+- type: bodyType
+  parent: ADTBodyTypeMuscular
+  id: ADTBodyTypeSlimeMuscular
+  species: *ADTBodyTypeSlimeSpecies
+  sprite: ADT/Mobs/Species/BodyTypes/slime.rsi
+
+- type: bodyType
+  parent: ADTBodyTypeFat
+  id: ADTBodyTypeSlimeFat
+  species: *ADTBodyTypeSlimeSpecies
+  sprite: ADT/Mobs/Species/BodyTypes/slime.rsi
+
+# Demon
+- type: bodyType
+  parent: ADTBodyTypeSkinny
+  id: ADTBodyTypeDemonSkinny
+  species: &ADTBodyTypeDemonSpecies [ DemonSpecies ]
+  sprite: ADT/Mobs/Species/BodyTypes/demon.rsi
+
+- type: bodyType
+  parent: ADTBodyTypeMuscular
+  id: ADTBodyTypeDemonMuscular
+  species: *ADTBodyTypeDemonSpecies
+  sprite: ADT/Mobs/Species/BodyTypes/demon.rsi
+
+- type: bodyType
+  parent: ADTBodyTypeFat
+  id: ADTBodyTypeDemonFat
+  species: *ADTBodyTypeDemonSpecies
+  sprite: ADT/Mobs/Species/BodyTypes/demon.rsi
+
+# Novakid
+- type: bodyType
+  parent: ADTBodyTypeSkinny
+  id: ADTBodyTypeNovakidSkinny
+  species: &ADTBodyTypeNovakidSpecies [ NovakidSpecies ]
+  sprite: ADT/Mobs/Species/BodyTypes/novakid.rsi
+
+- type: bodyType
+  parent: ADTBodyTypeMuscular
+  id: ADTBodyTypeNovakidMuscular
+  species: *ADTBodyTypeNovakidSpecies
+  sprite: ADT/Mobs/Species/BodyTypes/novakid.rsi
+
+- type: bodyType
+  parent: ADTBodyTypeFat
+  id: ADTBodyTypeNovakidFat
+  species: *ADTBodyTypeNovakidSpecies
+  sprite: ADT/Mobs/Species/BodyTypes/novakid.rsi
+
+# Tajaran
+- type: bodyType
+  parent: ADTBodyTypeSkinny
+  id: ADTBodyTypeTajaranSkinny
+  species: &ADTBodyTypeTajaranSpecies [ TajaranSpecies ]
+  sprite: ADT/Mobs/Species/BodyTypes/tajaran.rsi
+
+- type: bodyType
+  parent: ADTBodyTypeMuscular
+  id: ADTBodyTypeTajaranMuscular
+  species: *ADTBodyTypeTajaranSpecies
+  sprite: ADT/Mobs/Species/BodyTypes/tajaran.rsi
+
+- type: bodyType
+  parent: ADTBodyTypeFat
+  id: ADTBodyTypeTajaranFat
+  species: *ADTBodyTypeTajaranSpecies
+  sprite: ADT/Mobs/Species/BodyTypes/tajaran.rsi
+
+# Vulpkanin
+- type: bodyType
+  parent: ADTBodyTypeSkinny
+  id: ADTBodyTypeVulpkaninSkinny
+  species: &ADTBodyTypeVulpkaninSpecies [ VulpkaninSpecies, Vulpkanin ]
+  sprite: ADT/Mobs/Species/BodyTypes/vulpkanin.rsi
+
+- type: bodyType
+  parent: ADTBodyTypeMuscular
+  id: ADTBodyTypeVulpkaninMuscular
+  species: *ADTBodyTypeVulpkaninSpecies
+  sprite: ADT/Mobs/Species/BodyTypes/vulpkanin.rsi
+
+- type: bodyType
+  parent: ADTBodyTypeFat
+  id: ADTBodyTypeVulpkaninFat
+  species: *ADTBodyTypeVulpkaninSpecies
+  sprite: ADT/Mobs/Species/BodyTypes/vulpkanin.rsi
+
+# Ursus
+- type: bodyType
+  parent: ADTBodyTypeMuscular
+  id: ADTBodyTypeUrsusMuscular
+  species: &ADTBodyTypeUrsusSpecies [ UrsusSpecies ]
+  sprite: ADT/Mobs/Species/BodyTypes/ursus.rsi
+
+- type: bodyType
+  parent: ADTBodyTypeFat
+  id: ADTBodyTypeUrsusFat
+  species: *ADTBodyTypeUrsusSpecies
+  sprite: ADT/Mobs/Species/BodyTypes/ursus.rsi
+
+# Arachnid, unsexed
+- type: bodyType
+  id: ADTBodyTypeArachnidSkinny
+  name: body-type-name-skinny
+  order: 0
+  species: [ Arachnid ]
+  sprite: ADT/Mobs/Species/BodyTypes/arachnid.rsi
+  state: skinny
+
+- type: bodyType
+  id: ADTBodyTypeArachnidFat
+  name: body-type-name-fat
+  order: 2
+  species: [ Arachnid ]
+  sprite: ADT/Mobs/Species/BodyTypes/arachnid.rsi
+  state: fat

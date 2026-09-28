@@ -39,13 +39,14 @@ public sealed partial class TTSSystem
 
         var needed = new bool[VariantCount];
         var listeners = new List<TTSListener>();
+        var heard = new HashSet<EntityUid>();
 
         foreach (var receiver in args.Receivers)
         {
-            if (!TryGetHeadsetListener(receiver, out var session, out var listener))
+            if (!TryGetRadioListener(receiver, out var session, out var listener))
                 continue;
 
-            if (listener == args.Source)
+            if (listener == args.Source || !heard.Add(listener))
                 continue;
 
             if (_deafness.IsDeafened(listener))
@@ -82,20 +83,22 @@ public sealed partial class TTSSystem
             effect: GetChannelEffect(args.Channel.ID));
     }
 
-    private bool TryGetHeadsetListener(EntityUid receiver, out ICommonSession session, out EntityUid listener)
+    private bool TryGetRadioListener(EntityUid receiver, out ICommonSession session, out EntityUid listener)
     {
         session = default!;
         listener = default;
 
-        if (!HasComp<HeadsetComponent>(receiver))
+        if (HasComp<IntrinsicRadioReceiverComponent>(receiver))
+            listener = receiver;
+        else if (HasComp<HeadsetComponent>(receiver))
+            listener = Transform(receiver).ParentUid;
+        else
             return false;
 
-        var wearer = Transform(receiver).ParentUid;
-        if (!wearer.IsValid() || !TryComp<ActorComponent>(wearer, out var actor))
+        if (!listener.IsValid() || !TryComp<ActorComponent>(listener, out var actor))
             return false;
 
         session = actor.PlayerSession;
-        listener = wearer;
         return true;
     }
 

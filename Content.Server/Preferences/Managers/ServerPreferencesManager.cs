@@ -15,6 +15,7 @@ using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences;
 using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Roles;
+using Content.Shared.ADT.BodyTypes; // ADT-Tweak
 using Content.Shared.ADT.Language;
 using Content.Shared.ADT.SpeechBarks;
 using Content.Shared.Traits;
@@ -192,7 +193,8 @@ namespace Content.Server.Preferences.Managers
                     Color.FromHex(profile.EyeColor),
                     HairColorSerializer.Deserialize(profile.HairColor), // ADT-tweak: supports gradient (JSON array) and legacy single hex
                     Color.FromHex(profile.SkinColor),
-                    markings
+                    markings,
+                    profile.BodyType is { } bodyType ? new ProtoId<BodyTypePrototype>(bodyType) : (ProtoId<BodyTypePrototype>?) null // ADT-Tweak
                 ),
                 spawnPriority,
                 jobs,

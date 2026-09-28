@@ -33,6 +33,7 @@
   - type: Clickable
   - type: InteractionOutline
   - type: MovedByPressure
+  - type: GravityAffected # ADT-Tweak
   - type: Physics
     bodyType: Dynamic
   - type: Transform
