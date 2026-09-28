@@ -184,12 +184,6 @@ public abstract partial class SharedADTMedbeamSystem : EntitySystem
         if (args.Handled || ent.Comp.Modes.Count == 0)
             return;
 
-        if (HasComp<EmpDisabledComponent>(ent.Owner))
-        {
-            args.Handled = true;
-            return;
-        }
-
         TrySetMode(ent, (ent.Comp.CurrentModeIndex + 1) % ent.Comp.Modes.Count, args.User);
         args.Handled = true;
     }
@@ -226,6 +220,9 @@ public abstract partial class SharedADTMedbeamSystem : EntitySystem
     private void TrySetMode(Entity<ADTMedbeamComponent> ent, int index, EntityUid? user = null)
     {
         if (index < 0 || index >= ent.Comp.Modes.Count || ent.Comp.CurrentModeIndex == index)
+            return;
+
+        if (HasComp<EmpDisabledComponent>(ent.Owner))
             return;
 
         if (Timing.CurTime < ent.Comp.NextModeSwitchTime)
