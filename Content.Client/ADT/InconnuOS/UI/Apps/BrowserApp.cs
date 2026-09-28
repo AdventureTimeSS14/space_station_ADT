@@ -29,6 +29,8 @@ public sealed class BrowserApp : OsAppControl
 
     public BrowserApp()
     {
+        NanoNet.EnsureWarm();
+
         _back = OsWidgets.Small("<");
         _forward = OsWidgets.Small(">");
         _reload = OsWidgets.Small(Loc.GetString("os-browser-reload"));

@@ -8,6 +8,47 @@ public static class NanoNet
     private const string AllowedHost = "nanonet.nt";
     private const string Tld = ".nt";
 
+    private static readonly string ErrorTitle;
+    private static readonly string ErrorBody;
+    private static readonly string HomeTitle;
+    private static readonly string HomeWelcome;
+    private static readonly string HomeLinkNews;
+    private static readonly string HomeLinkAbout;
+    private static readonly string NewsTitle;
+    private static readonly string NewsBody;
+    private static readonly string AboutTitle;
+    private static readonly string AboutBody;
+    private static readonly string LinkHome;
+    private static readonly string NotFoundTitle;
+    private static readonly string NotFoundPageBefore;
+    private static readonly string NotFoundPageAfter;
+    private static readonly string NotFoundSiteBefore;
+    private static readonly string NotFoundSiteAfter;
+
+    static NanoNet()
+    {
+        ErrorTitle = Loc.GetString("nanonet-error-title");
+        ErrorBody = Loc.GetString("nanonet-error-body");
+        HomeTitle = Loc.GetString("nanonet-home-title");
+        HomeWelcome = Loc.GetString("nanonet-home-welcome");
+        HomeLinkNews = Loc.GetString("nanonet-home-link-news");
+        HomeLinkAbout = Loc.GetString("nanonet-home-link-about");
+        NewsTitle = Loc.GetString("nanonet-news-title");
+        NewsBody = Loc.GetString("nanonet-news-body");
+        AboutTitle = Loc.GetString("nanonet-about-title");
+        AboutBody = Loc.GetString("nanonet-about-body");
+        LinkHome = Loc.GetString("nanonet-link-home");
+        NotFoundTitle = Loc.GetString("nanonet-notfound-title");
+        NotFoundPageBefore = Loc.GetString("nanonet-notfound-page-before");
+        NotFoundPageAfter = Loc.GetString("nanonet-notfound-page-after");
+        NotFoundSiteBefore = Loc.GetString("nanonet-notfound-site-before");
+        NotFoundSiteAfter = Loc.GetString("nanonet-notfound-site-after");
+    }
+
+    public static void EnsureWarm()
+    {
+    }
+
     public static bool IsAllowedHost(string url)
     {
         if (!TryParse(url, out var host, out _))
@@ -19,14 +60,14 @@ public static class NanoNet
     public static (HttpStatusCode Status, string Html) Render(string url)
     {
         if (!TryParse(url, out var host, out var path))
-            return (HttpStatusCode.BadRequest, Page(Loc.GetString("nanonet-error-title"), $"<h1>{Loc.GetString("nanonet-error-title")}</h1><p>{Loc.GetString("nanonet-error-body")}</p>"));
+            return (HttpStatusCode.BadRequest, Page(ErrorTitle, $"<h1>{ErrorTitle}</h1><p>{ErrorBody}</p>"));
 
         return (host.ToLowerInvariant(), path.TrimEnd('/')) switch
         {
-            (AllowedHost, "") => (HttpStatusCode.OK, Page(Loc.GetString("nanonet-home-title"), Home())),
-            (AllowedHost, "/news") => (HttpStatusCode.OK, Page(Loc.GetString("nanonet-news-title"), News())),
-            (AllowedHost, "/about") => (HttpStatusCode.OK, Page(Loc.GetString("nanonet-about-title"), About())),
-            _ => (HttpStatusCode.NotFound, Page(Loc.GetString("nanonet-notfound-title"), NotFound(path))),
+            (AllowedHost, "") => (HttpStatusCode.OK, Page(HomeTitle, Home())),
+            (AllowedHost, "/news") => (HttpStatusCode.OK, Page(NewsTitle, News())),
+            (AllowedHost, "/about") => (HttpStatusCode.OK, Page(AboutTitle, About())),
+            _ => (HttpStatusCode.NotFound, Page(NotFoundTitle, NotFound(path))),
         };
     }
 
@@ -43,12 +84,14 @@ public static class NanoNet
 
     public static string PlayerSiteNotFound(string label)
     {
+        var host = HtmlEncode(NanoNetDomain.GetHost(label));
+
         var body = $"""
-            <h1>{Loc.GetString("nanonet-notfound-title")}</h1>
-            <p>{Loc.GetString("nanonet-notfound-site", ("host", HtmlEncode(NanoNetDomain.GetHost(label))))}</p>
+            <h1>{NotFoundTitle}</h1>
+            <p>{NotFoundSiteBefore} {host} {NotFoundSiteAfter}</p>
             """;
 
-        return Page(Loc.GetString("nanonet-notfound-title"), body);
+        return Page(NotFoundTitle, body);
     }
 
     internal static bool TryParse(string url, out string host, out string path)
@@ -109,11 +152,11 @@ public static class NanoNet
     private static string Home()
     {
         return $"""
-            <h1>{Loc.GetString("nanonet-home-title")}</h1>
-            <p>{Loc.GetString("nanonet-home-welcome")}</p>
+            <h1>{HomeTitle}</h1>
+            <p>{HomeWelcome}</p>
             <ul>
-                <li><a href="http://nanonet.nt/news">{Loc.GetString("nanonet-home-link-news")}</a></li>
-                <li><a href="http://nanonet.nt/about">{Loc.GetString("nanonet-home-link-about")}</a></li>
+                <li><a href="http://nanonet.nt/news">{HomeLinkNews}</a></li>
+                <li><a href="http://nanonet.nt/about">{HomeLinkAbout}</a></li>
             </ul>
             """;
     }
@@ -121,27 +164,27 @@ public static class NanoNet
     private static string News()
     {
         return $"""
-            <h1>{Loc.GetString("nanonet-news-title")}</h1>
-            <p>{Loc.GetString("nanonet-news-body")}</p>
-            <p><a href="http://nanonet.nt/">{Loc.GetString("nanonet-link-home")}</a></p>
+            <h1>{NewsTitle}</h1>
+            <p>{NewsBody}</p>
+            <p><a href="http://nanonet.nt/">{LinkHome}</a></p>
             """;
     }
 
     private static string About()
     {
         return $"""
-            <h1>{Loc.GetString("nanonet-about-title")}</h1>
-            <p>{Loc.GetString("nanonet-about-body")}</p>
-            <p><a href="http://nanonet.nt/">{Loc.GetString("nanonet-link-home")}</a></p>
+            <h1>{AboutTitle}</h1>
+            <p>{AboutBody}</p>
+            <p><a href="http://nanonet.nt/">{LinkHome}</a></p>
             """;
     }
 
     private static string NotFound(string path)
     {
         return $"""
-            <h1>{Loc.GetString("nanonet-notfound-title")}</h1>
-            <p>{Loc.GetString("nanonet-notfound-page", ("path", HtmlEncode(path)))}</p>
-            <p><a href="http://nanonet.nt/">{Loc.GetString("nanonet-link-home")}</a></p>
+            <h1>{NotFoundTitle}</h1>
+            <p>{NotFoundPageBefore} {HtmlEncode(path)} {NotFoundPageAfter}</p>
+            <p><a href="http://nanonet.nt/">{LinkHome}</a></p>
             """;
     }
 }

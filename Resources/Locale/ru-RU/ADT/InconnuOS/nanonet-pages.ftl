@@ -15,5 +15,7 @@ nanonet-about-body = NanoNet — внутренняя сеть NanoTrasen.
 nanonet-link-home = На главную
 
 nanonet-notfound-title = 404
-nanonet-notfound-page = Страница { $path } не найдена.
-nanonet-notfound-site = Сайт { $host } не опубликован.
+nanonet-notfound-page-before = Страница
+nanonet-notfound-page-after = не найдена.
+nanonet-notfound-site-before = Сайт
+nanonet-notfound-site-after = не опубликован.
