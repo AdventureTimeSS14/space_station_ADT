@@ -871,6 +871,22 @@
     state: tattoo
 
 - type: marking
+  id: ADTCelecernBodyTattooHandLeft
+  bodyPart: LHand
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: tattoo
+
+- type: marking
+  id: ADTCelecernBodyTattooHandRight
+  bodyPart: RHand
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: tattoo
+
+- type: marking
   id: ADTCelecernBodyShetka
   bodyPart: Special
   groupWhitelist: [Celecern]

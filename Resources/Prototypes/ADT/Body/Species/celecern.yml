@@ -183,11 +183,11 @@
     soundHit:
       path: /Audio/Weapons/pierce.ogg
     angle: 30
-    animation: WeaponArcPunch
+    animation: WeaponArcClaw
     damage:
       types:
-        Slash: 2
-        Piercing: 3
+        Blunt: 0.9
+        Slash: 4
   - type: Temperature
     currentTemperature: 310.15
     specificHeat: 46
@@ -216,13 +216,14 @@
     languages:
       GalacticCommon: Speak
       SolCommon: Speak
-      Arkane: Speak
       Sondelun: Speak
   - type: SizeAttributeWhitelist
     tall: true
     tallscale: 1.08
     short: true
     shortscale: 0.92
+  - type: Puller
+    needsHands: false
 
 - type: entity
   parent: OrganBaseOrganic
