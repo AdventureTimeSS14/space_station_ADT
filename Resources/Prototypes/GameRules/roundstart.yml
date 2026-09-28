@@ -64,20 +64,12 @@
     rules:
     - id: Thief
       prob: 0.5
-<<<<<<< ours
     #ADT-Tweak-Start
     #- id: SubWizard
     #  prob: 0.05
     #ADT-Tweak-End
-||||||| base
-    - id: SubWizard
-      prob: 0.05
-=======
-    - id: SubWizard
-      prob: 0.05
     - id: Changeling
       prob: 0.25
->>>>>>> theirs
 
 - type: entity
   parent: BaseGameRule
@@ -280,7 +272,6 @@
     - !type:FixedAntagCount
       proto: TraitorReinforcement
 
-<<<<<<< ours
 # ADT: Закомментировано из-за использования генокрада от Goob Station
 # - type: entity
 #   id: Changeling
@@ -320,78 +311,6 @@
 #   - type: AntagObjectives
 #     objectives:
 #     - ChangelingSurviveObjective
-||||||| base
-- type: entity
-  id: Changeling
-  parent: BaseGameRule
-  components:
-  - type: GameRule
-    minPlayers: 25
-  - type: AntagSelection
-    agentName: changeling-round-end-agent-name
-    selectionTime: IntraPlayerSpawn
-    definitions:
-    - prefRoles: [ Changeling ]
-      max: 3
-      playerRatio: 15
-      briefing:
-        text: changeling-role-greeting
-        color: Red
-        sound: /Audio/Ambience/Antag/changeling_start.ogg
-      components:
-      - type: ChangelingDevour
-      - type: ChangelingIdentity
-      - type: ChangelingTransform
-      - type: ActionGrant
-        actions:
-        - ActionChangelingStore
-      # TODO: Make it so the changeling gamerule changeling can inherit from the changeling store preset somehow
-      - type: Store
-        name: store-preset-name-changeling
-        categories:
-        - ChangelingAbilities
-        currencyWhitelist:
-        - ChangelingDNA
-        balance:
-          ChangelingDNA: 50
-      mindRoles:
-      - MindRoleChangeling
-  - type: AntagObjectives
-    objectives:
-    - ChangelingSurviveObjective
-=======
-- type: entity
-  id: Changeling
-  parent: [BaseGameRule, BaseRoundstartAntagRule]
-  components:
-  - type: ChangelingRule
-  - type: GameRule
-    minPlayers: 20
-    delay:
-      min: 240
-      max: 420
-    cancelPresetOnTooFewPlayers: false
-  - type: AntagSelection
-    agentName: changeling-round-end-agent-name
-    antags:
-    - !type:LinearAntagCount
-      proto: Changeling
-      playerRatio: 15
-      range:
-        min: 1
-        max: 3
-  - type: AntagRandomObjectives
-    sets:
-    - groups: ChangelingObjectiveGroupDevourDummy
-      maxPicks: 1
-    - groups: ChangelingObjectiveGroupEscapeDummy
-      maxPicks: 1
-    - groups: ChangelingObjectiveGroupKillDummy
-      maxPicks: 1
-    maxDifficulty: 8
-  - type: DynamicRuleCost
-    cost: 75
->>>>>>> theirs
 
 - type: entity
   id: Revolutionary

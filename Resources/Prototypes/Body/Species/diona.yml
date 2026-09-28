@@ -322,9 +322,6 @@
   id: BaseNymphingOrgan
   components:
   - type: Nymph
-    blacklist:
-      components:
-      - ChangelingTransform
 
 - type: entity
   parent: [ OrganDionaBrain, BaseNymphingOrgan ]

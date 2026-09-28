@@ -1,169 +1,179 @@
-﻿using Content.Shared.Actions;
-using Content.Shared.Body.Components;
-using Content.Shared.Body.Systems;
-using Content.Shared.Changeling.Components;
-using Content.Shared.Damage.Systems;
-using Content.Shared.Ghost;
-using Content.Shared.Ghost.Systems;
-using Content.Shared.IdentityManagement;
-using Content.Shared.Mobs;
-using Content.Shared.Mobs.Systems;
-using Content.Shared.Popups;
-using Robust.Shared.Audio.Systems;
+// ADT: Закомментировано из-за использования генокрада от Goob Station
+// using Content.Shared.Actions;
+// using Content.Shared.Body.Components;
+// using Content.Shared.Body.Systems;
+// using Content.Shared.Changeling.Components;
+// using Content.Shared.Damage.Systems;
+// using Content.Shared.Ghost;
+// using Content.Shared.Ghost.Systems;
+// using Content.Shared.IdentityManagement;
+// using Content.Shared.Mobs;
+// using Content.Shared.Mobs.Systems;
+// using Content.Shared.Popups;
+// using Robust.Shared.Audio.Systems;
 
-namespace Content.Shared.Changeling.Systems;
+// namespace Content.Shared.Changeling.Systems;
 
-public sealed partial class RegenerativeStasisSystem : EntitySystem
-{
-    [Dependency] private SharedActionsSystem _actions = default!;
-    [Dependency] private SharedAudioSystem _audio = default!;
-    [Dependency] private SharedPopupSystem _popup = default!;
-    [Dependency] private MetaDataSystem _metaData = default!;
-    [Dependency] private MobStateSystem _mobs = default!;
-    [Dependency] private DamageableSystem _damage = default!;
-    [Dependency] private BloodstreamSystem _bloodstream = default!;
-    [Dependency] private SharedDeathgaspSystem _deathgasp = default!;
+// public sealed partial class RegenerativeStasisSystem : EntitySystem
+// {
+//     [Dependency] private SharedActionsSystem _actions = default!;
+//     [Dependency] private SharedAudioSystem _audio = default!;
+//     [Dependency] private SharedPopupSystem _popup = default!;
+//     [Dependency] private MetaDataSystem _metaData = default!;
+//     [Dependency] private MobStateSystem _mobs = default!;
+//     [Dependency] private DamageableSystem _damage = default!;
+//     [Dependency] private BloodstreamSystem _bloodstream = default!;
+//     [Dependency] private SharedDeathgaspSystem _deathgasp = default!;
 
-    [SubscribeLocalEvent]
-    private void OnMapInit(Entity<RegenerativeStasisActionComponent> ent, ref MapInitEvent args)
-    {
-        ent.Comp.InitialName = MetaData(ent).EntityName;
-        ent.Comp.InitialDescription = MetaData(ent).EntityDescription;
-        Dirty(ent);
-    }
+//     [SubscribeLocalEvent]
+//     private void OnMapInit(Entity<RegenerativeStasisActionComponent> ent, ref MapInitEvent args)
+//     {
+//         ent.Comp.InitialName = MetaData(ent).EntityName;
+//         ent.Comp.InitialDescription = MetaData(ent).EntityDescription;
+//         Dirty(ent);
+//     }
 
-    [SubscribeLocalEvent]
-    private void OnStateChanged(Entity<RegenerativeStasisActionComponent> ent, ref ActionRelayedEvent<MobStateChangedEvent> args)
-    {
-        // If we are revived cancel the stasis.
-        if (args.Args.NewMobState == MobState.Alive && ent.Comp.IsInStasis)
-            CancelStasis(ent.AsNullable());
-    }
+//     [SubscribeLocalEvent]
+//     private void OnStateChanged(Entity<RegenerativeStasisActionComponent> ent, ref ActionRelayedEvent<MobStateChangedEvent> args)
+//     {
+//         // If we are revived cancel the stasis.
+//         if (args.Args.NewMobState == MobState.Alive && ent.Comp.IsInStasis)
+//             CancelStasis(ent.AsNullable());
+//     }
 
-    [SubscribeLocalEvent]
-    private void OnMoveGhost(Entity<RegenerativeStasisActionComponent> ent, ref ActionRelayedEvent<GhostAttemptEvent> args)
-    {
-        if (ent.Comp.AllowGhosting || !ent.Comp.IsInStasis)
-            return;
+//     [SubscribeLocalEvent]
+//     private void OnMoveGhost(Entity<RegenerativeStasisActionComponent> ent, ref ActionRelayedEvent<GhostAttemptEvent> args)
+//     {
+//         if (ent.Comp.AllowGhosting || !ent.Comp.IsInStasis)
+//             return;
 
-        args.Args.Cancelled = true;
-    }
+//         args.Args.Cancelled = true;
+//     }
 
-    [SubscribeLocalEvent]
-    private void OnStasisUse(Entity<RegenerativeStasisActionComponent> ent, ref ChangelingStasisActionEvent args)
-    {
-        if (ent.Comp.IsInStasis)
-        {
-            ExitStasis((ent, ent.Comp), args.Performer);
-            args.Handled = true; //Only handle when exiting, as we don't need the useDelay otherwise.
-            return;
-        }
+//     [SubscribeLocalEvent]
+//     private void OnStasisUse(Entity<RegenerativeStasisActionComponent> ent, ref ChangelingStasisActionEvent args)
+//     {
+//         if (ent.Comp.IsInStasis)
+//         {
+//             ExitStasis((ent, ent.Comp), args.Performer);
+//             args.Handled = true; //Only handle when exiting, as we don't need the useDelay otherwise.
+//             return;
+//         }
 
-        EnterStasis((ent, ent.Comp), args.Performer);
-    }
+//         EnterStasis((ent, ent.Comp), args.Performer);
+//     }
 
-    /// <summary>
-    /// Enter the stasis and set the action cooldown depending on the damage you have taken.
-    /// </summary>
-    public void EnterStasis(Entity<RegenerativeStasisActionComponent?> ent, EntityUid target)
-    {
-        if (!Resolve(ent.Owner, ref ent.Comp))
-            return;
+//     [SubscribeLocalEvent]
+//     private void OnHeadslugTookBody(Entity<RegenerativeStasisActionComponent> ent, ref ActionRelayedEvent<BodyTakenByHeadslugEvent> args)
+//     {
+//         if (args.Args.StartStasis)
+//             EnterStasis(ent.AsNullable(), args.Args.Target, args.Args.StasisDurationMultiplier);
+//     }
 
-        if (ent.Comp.IsInStasis)
-            return;
+//     /// <summary>
+//     /// Enter the stasis and set the action cooldown depending on the damage you have taken.
+//     /// </summary>
+//     public void EnterStasis(Entity<RegenerativeStasisActionComponent?> ent, EntityUid target, float durationMultiplier = 1f)
+//     {
+//         if (!Resolve(ent.Owner, ref ent.Comp))
+//             return;
 
-        // If going from Alive to Dead fake a death gasp.
-        // If going from Critical to Dead then DeathGaspSystem is already doing this,
-        // so we don't want to do it twice.
-        if (_mobs.IsAlive(target))
-            _deathgasp.Deathgasp(target);
+//         if (ent.Comp.IsInStasis)
+//             return;
 
-        // Die temporarily until we revive.
-        // Ghosting will be blocked while in stasis.
-        if (!_mobs.IsDead(target))
-            _mobs.ChangeMobState(target, MobState.Dead);
+//         // If going from Alive to Dead fake a death gasp.
+//         // If going from Critical to Dead then DeathGaspSystem is already doing this,
+//         // so we don't want to do it twice.
+//         if (_mobs.IsAlive(target))
+//             _deathgasp.Deathgasp(target);
 
-        _popup.PopupEntity(Loc.GetString("changeling-stasis-enter"), target, target, PopupType.MediumCaution);
+//         // Die temporarily until we revive.
+//         // Ghosting will be blocked while in stasis.
+//         if (!_mobs.IsDead(target))
+//             _mobs.ChangeMobState(target, MobState.Dead);
 
-        ent.Comp.IsInStasis = true;
-        Dirty(ent);
+//         _popup.PopupEntity(Loc.GetString("changeling-stasis-enter"), target, target, PopupType.MediumCaution);
 
-        var stasisDuration = ent.Comp.MinStasisCooldown;
+//         ent.Comp.IsInStasis = true;
+//         Dirty(ent);
 
-        stasisDuration += ent.Comp.BonusCooldownPerDamage * (double)_damage.GetTotalDamage(target);
-        stasisDuration = new TimeSpan(Math.Clamp(stasisDuration.Ticks, ent.Comp.MinStasisCooldown.Ticks, ent.Comp.MaxStasisCooldown.Ticks)); // No clamp method for TimeSpans
+//         var stasisDuration = ent.Comp.MinStasisCooldown;
 
-        _metaData.SetEntityName(ent, Loc.GetString("changeling-stasis-active-name"));
-        _metaData.SetEntityDescription(ent, Loc.GetString("changeling-stasis-active-desc"));
+//         stasisDuration += ent.Comp.BonusCooldownPerDamage * (double)_damage.GetTotalDamage(target);
+//         var calculatedDuration = (long)(Math.Clamp(stasisDuration.Ticks, ent.Comp.MinStasisCooldown.Ticks, ent.Comp.MaxStasisCooldown.Ticks) * durationMultiplier); // No clamp method for TimeSpans
+//         stasisDuration = new TimeSpan(calculatedDuration);
 
-        _actions.SetToggled(ent.Owner, ent.Comp.IsInStasis);
-        _actions.SetCooldown(ent.Owner, stasisDuration);
-    }
+//         _metaData.SetEntityName(ent, Loc.GetString("changeling-stasis-active-name"));
+//         _metaData.SetEntityDescription(ent, Loc.GetString("changeling-stasis-active-desc"));
 
-    /// <summary>
-    /// Exit the stasis and heal all damage and bloodloss.
-    /// TODO: Maybe add a some sort of rejuvenate lite so that we can also heal some status effects?
-    /// </summary>
-    public void ExitStasis(Entity<RegenerativeStasisActionComponent?> ent, EntityUid target)
-    {
-        if (!Resolve(ent, ref ent.Comp))
-            return;
+//         _actions.SetToggled(ent.Owner, ent.Comp.IsInStasis);
+//         _actions.SetCooldown(ent.Owner, stasisDuration);
+//     }
 
-        if (!ent.Comp.IsInStasis)
-            return;
+//     /// <summary>
+//     /// Exit the stasis and heal all damage and bloodloss.
+//     /// TODO: Maybe add a some sort of rejuvenate lite so that we can also heal some status effects?
+//     /// </summary>
+//     public void ExitStasis(Entity<RegenerativeStasisActionComponent?> ent, EntityUid target)
+//     {
+//         if (!Resolve(ent, ref ent.Comp))
+//             return;
 
-        // Heal all damage.
-        _damage.ClearAllDamage(target);
+//         if (!ent.Comp.IsInStasis)
+//             return;
 
-        // Heal bloodloss and stop bleeding.
-        if (TryComp<BloodstreamComponent>(target, out var bloodstream))
-        {
-            _bloodstream.TryRegulateBloodLevel((target, bloodstream), bloodstream.BloodReferenceSolution.MaxVolume);
-            _bloodstream.TryModifyBleedAmount((target, bloodstream), -bloodstream.BleedAmount);
-        }
+//         // Heal all damage.
+//         _damage.ClearAllDamage(target);
 
-        // Revive.
-        _mobs.ChangeMobState(target, MobState.Alive);
+//         // Heal bloodloss and stop bleeding.
+//         if (TryComp<BloodstreamComponent>(target, out var bloodstream))
+//         {
+//             _bloodstream.TryRegulateBloodLevel((target, bloodstream), bloodstream.BloodReferenceSolution.MaxVolume);
+//             _bloodstream.TryModifyBleedAmount((target, bloodstream), -bloodstream.BleedAmount);
+//         }
 
-        _popup.PopupEntity(Loc.GetString("changeling-stasis-exit"), Loc.GetString("changeling-stasis-exit-others", ("user", Identity.Entity(target, EntityManager))), target, target, PopupType.MediumCaution);
-        _audio.PlayPredicted(ent.Comp.ExitSound, target, target);
+//         // Revive.
+//         _mobs.ChangeMobState(target, MobState.Alive);
 
-        ent.Comp.IsInStasis = false;
-        Dirty(ent);
+//         _popup.PopupEntity(Loc.GetString("changeling-stasis-exit"), Loc.GetString("changeling-stasis-exit-others", ("user", Identity.Entity(target, EntityManager))), target, target, PopupType.MediumCaution);
+//         _audio.PlayPredicted(ent.Comp.ExitSound, target, target);
 
-        if (ent.Comp.InitialName != null)
-            _metaData.SetEntityName(ent, ent.Comp.InitialName);
-        if (ent.Comp.InitialDescription != null)
-            _metaData.SetEntityDescription(ent, ent.Comp.InitialDescription);
+//         ent.Comp.IsInStasis = false;
+//         Dirty(ent);
 
-        _actions.SetToggled(ent.Owner, ent.Comp.IsInStasis);
-    }
+//         if (ent.Comp.InitialName != null)
+//             _metaData.SetEntityName(ent, ent.Comp.InitialName);
+//         if (ent.Comp.InitialDescription != null)
+//             _metaData.SetEntityDescription(ent, ent.Comp.InitialDescription);
 
-    /// <summary>
-    /// Cancel the stasis without healing.
-    /// </summary>
-    public void CancelStasis(Entity<RegenerativeStasisActionComponent?> ent)
-    {
-        if (!Resolve(ent, ref ent.Comp))
-            return;
+//         _actions.SetToggled(ent.Owner, ent.Comp.IsInStasis);
+//     }
 
-        if (!ent.Comp.IsInStasis)
-            return;
+//     /// <summary>
+//     /// Cancel the stasis without healing.
+//     /// </summary>
+//     public void CancelStasis(Entity<RegenerativeStasisActionComponent?> ent)
+//     {
+//         if (!Resolve(ent, ref ent.Comp))
+//             return;
 
-        ent.Comp.IsInStasis = false;
-        Dirty(ent);
+//         if (!ent.Comp.IsInStasis)
+//             return;
 
-        if (ent.Comp.InitialName != null)
-            _metaData.SetEntityName(ent, ent.Comp.InitialName);
-        if (ent.Comp.InitialDescription != null)
-            _metaData.SetEntityDescription(ent, ent.Comp.InitialDescription);
+//         ent.Comp.IsInStasis = false;
+//         Dirty(ent);
 
-        _actions.SetToggled(ent.Owner, ent.Comp.IsInStasis);
-    }
-}
+//         if (ent.Comp.InitialName != null)
+//             _metaData.SetEntityName(ent, ent.Comp.InitialName);
+//         if (ent.Comp.InitialDescription != null)
+//             _metaData.SetEntityDescription(ent, ent.Comp.InitialDescription);
 
-/// <summary>
-/// Action event for entering/leaving the stasis.
-/// </summary>
-public sealed partial class ChangelingStasisActionEvent : InstantActionEvent;
+//         _actions.SetToggled(ent.Owner, ent.Comp.IsInStasis);
+//         _actions.SetCooldown(ent.Owner, ent.Comp.MinStasisCooldown); // Don't allow entering stasis right after cancelling it.
+//     }
+// }
+
+// /// <summary>
+// /// Action event for entering/leaving the stasis.
+// /// </summary>
+// public sealed partial class ChangelingStasisActionEvent : InstantActionEvent;

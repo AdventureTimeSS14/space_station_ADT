@@ -1,58 +1,46 @@
-<<<<<<< ours
 // ADT: Закомментировано из-за использования генокрада от Goob Station
+// using Content.Shared.Changeling.Components;
 // using Content.Shared.Changeling.Systems;
-||||||| base
-using Content.Shared.Changeling.Systems;
-=======
-using Content.Shared.Changeling.Components;
-using Content.Shared.Changeling.Systems;
-using Robust.Shared.GameStates;
->>>>>>> theirs
+// using Robust.Shared.GameStates;
 
 // namespace Content.Server.Changeling.Systems;
 
-<<<<<<< ours
-// public sealed class ChangelingIdentitySystem : SharedChangelingIdentitySystem;
-||||||| base
-public sealed class ChangelingIdentitySystem : SharedChangelingIdentitySystem;
-=======
-public sealed partial class ChangelingIdentitySystem : SharedChangelingIdentitySystem
-{
-    public override void Initialize()
-    {
-        base.Initialize();
+// public sealed partial class ChangelingIdentitySystem : SharedChangelingIdentitySystem
+// {
+//     public override void Initialize()
+//     {
+//         base.Initialize();
 
-        SubscribeLocalEvent<ChangelingIdentityComponent, ComponentGetState>(OnGetState);
-    }
+//         SubscribeLocalEvent<ChangelingIdentityComponent, ComponentGetState>(OnGetState);
+//     }
 
-    private void OnGetState(Entity<ChangelingIdentityComponent> entity, ref ComponentGetState args)
-    {
-        List<ChangelingNetworkedIdentityData> sentIdentities = new();
+//     private void OnGetState(Entity<ChangelingIdentityComponent> entity, ref ComponentGetState args)
+//     {
+//         List<ChangelingNetworkedIdentityData> sentIdentities = new();
 
-        foreach (var identity in entity.Comp.ConsumedIdentities)
-        {
-            ChangelingNetworkedIdentityData netData = new()
-            {
-                Identity = GetNetEntity(identity.Identity),
-                Original = GetNetEntity(identity.Original),
-                OriginalJob = identity.OriginalJob,
-                OriginalName = identity.OriginalName,
-                Starting = identity.Starting,
-                GrantedDna = identity.GrantedDna,
-            };
+//         foreach (var identity in entity.Comp.ConsumedIdentities)
+//         {
+//             ChangelingNetworkedIdentityData netData = new()
+//             {
+//                 Identity = GetNetEntity(identity.Identity),
+//                 Original = GetNetEntity(identity.Original),
+//                 OriginalJob = identity.OriginalJob,
+//                 OriginalName = identity.OriginalName,
+//                 Starting = identity.Starting,
+//                 GrantedDna = identity.GrantedDna,
+//             };
 
-            sentIdentities.Add(netData);
-        }
+//             sentIdentities.Add(netData);
+//         }
 
-        var current = entity.Comp.CurrentIdentity;
+//         var current = entity.Comp.CurrentIdentity;
 
-        var netCurrent = GetNetEntity(current);
+//         var netCurrent = GetNetEntity(current);
 
-        args.State = new ChangelingIdentityComponentState(
-            sentIdentities,
-            netCurrent,
-            entity.Comp.IdentityCloningSettings,
-            entity.Comp.MaxStoredDisguises);
-    }
-}
->>>>>>> theirs
+//         args.State = new ChangelingIdentityComponentState(
+//             sentIdentities,
+//             netCurrent,
+//             entity.Comp.IdentityCloningSettings,
+//             entity.Comp.MaxStoredDisguises);
+//     }
+// }

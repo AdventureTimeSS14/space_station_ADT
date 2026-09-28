@@ -1,5 +1,5 @@
 // ADT: Закомментировано из-за использования генокрада от Goob Station
-// namespace Content.Server.GameTicking.Rules.Components;
+// namespace Content.Shared.GameTicking.Rules.Components;
 
 // /// <summary>
 // /// Gamerule component for handling a changeling antagonist.

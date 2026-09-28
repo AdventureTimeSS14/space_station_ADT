@@ -1,32 +1,14 @@
-<<<<<<< ours
 // ADT: Закомментировано из-за использования генокрада от Goob Station
 // using Content.Shared.Changeling.Systems;
+// using Content.Shared.Chemistry.Components;
 // using Content.Shared.Damage;
 // using Content.Shared.Damage.Prototypes;
+// using Content.Shared.FixedPoint;
+// using Content.Shared.Store;
 // using Content.Shared.Whitelist;
 // using Robust.Shared.Audio;
 // using Robust.Shared.GameStates;
 // using Robust.Shared.Prototypes;
-||||||| base
-using Content.Shared.Changeling.Systems;
-using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
-using Content.Shared.Whitelist;
-using Robust.Shared.Audio;
-using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
-=======
-using Content.Shared.Changeling.Systems;
-using Content.Shared.Chemistry.Components;
-using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
-using Content.Shared.FixedPoint;
-using Content.Shared.Store;
-using Content.Shared.Whitelist;
-using Robust.Shared.Audio;
-using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
->>>>>>> theirs
 
 // namespace Content.Shared.Changeling.Components;
 
@@ -90,7 +72,8 @@ using Robust.Shared.Prototypes;
 //     public TimeSpan DevourWindupTime = TimeSpan.FromSeconds(2);
 
 //     /// <summary>
-//     /// The time it takes to FULLY consume someones identity.
+//     /// The time it takes to consume someones identity.
+//     /// Starts after the windup.
 //     /// </summary>
 //     [DataField, AutoNetworkedField]
 //     public TimeSpan DevourConsumeTime = TimeSpan.FromSeconds(10);
@@ -109,9 +92,8 @@ using Robust.Shared.Prototypes;
 //     {
 //         DamageDict = new()
 //         {
-//             { "Slash", 10},
-//             { "Piercing", 10 },
-//             { "Blunt", 5 },
+//             { "Slash", 15},
+//             { "Piercing", 15 },
 //         },
 //     };
 
@@ -123,13 +105,18 @@ using Robust.Shared.Prototypes;
 //     {
 //         DamageDict = new()
 //         {
-//             { "Slash", 20},
-//             { "Piercing", 20 },
-//             { "Blunt", 10 },
+//             { "Slash", 60},
+//             { "Piercing", 60 },
+//             { "Caustic", 100 },
 //         },
 //     };
 
-<<<<<<< ours
+//     /// <summary>
+//     /// Solution that will be spilled at the location of the devoured entity when finished.
+//     /// </summary>
+//     [DataField, AutoNetworkedField]
+//     public Solution? DevourSpill = new([new("LivingTissue", 10)]);
+
 //     /// <summary>
 //     /// The list of protective damage types capable of preventing a devour if over the threshold.
 //     /// </summary>
@@ -140,35 +127,6 @@ using Robust.Shared.Prototypes;
 //         "Piercing",
 //         "Blunt",
 //     };
-||||||| base
-    /// <summary>
-    /// The list of protective damage types capable of preventing a devour if over the threshold.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public List<ProtoId<DamageTypePrototype>> ProtectiveDamageTypes = new()
-    {
-        "Slash",
-        "Piercing",
-        "Blunt",
-    };
-=======
-    /// <summary>
-    /// Solution that will be spilled at the location of the devoured entity when finished.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public Solution? DevourSpill = new([new("LivingTissue", 10)]);
-
-    /// <summary>
-    /// The list of protective damage types capable of preventing a devour if over the threshold.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public List<ProtoId<DamageTypePrototype>> ProtectiveDamageTypes = new()
-    {
-        "Slash",
-        "Piercing",
-        "Blunt",
-    };
->>>>>>> theirs
 
 //     /// <summary>
 //     /// The percentage of ANY brute damage resistance that will prevent devouring.
@@ -176,44 +134,48 @@ using Robust.Shared.Prototypes;
 //     [DataField, AutoNetworkedField]
 //     public float DevourPreventionPercentageThreshold = 0.1f;
 
-<<<<<<< ours
+//     /// <summary>
+//     /// DNA awarded for successfully devouring a new identity.
+//     /// </summary>
+//     [DataField, AutoNetworkedField]
+//     public Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> DevourDnaReward = new()
+//     {
+//         { "ChangelingDNA", 10 }
+//     };
+
+//     /// <summary>
+//     /// What to show on examine while the changeling's devour is in the windup stage.
+//     /// </summary>
+//     [DataField]
+//     public LocId? WindupExamine = "changeling-devour-doafter-windup";
+
+//     /// <summary>
+//     /// What to show on examine while the changeling is currently devouring somebody.
+//     /// </summary>
+//     [DataField]
+//     public LocId? DevourExamine = "changeling-devour-doafter";
+
 //     public override bool SendOnlyToOwner => true;
 // }
-||||||| base
-    public override bool SendOnlyToOwner => true;
-}
-=======
-    /// <summary>
-    /// DNA awarded for successfully devouring a new identity.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> DevourDnaReward = new()
-    {
-        { "ChangelingDNA", 10 }
-    };
 
-    public override bool SendOnlyToOwner => true;
-}
+// /// <summary>
+// /// Event raised on the changeling and broadcast when a given changeling devours an entity.
+// /// </summary>
+// /// <param name="Changeling">The changeling devouring this entity.</param>
+// /// <param name="Devoured">The entity that was devoured.</param>
+// /// <param name="ObtainedIdentity">Whether the changeling is going to be given the target's identity after devouring.</param>
+// /// <param name="Unique">Whether the changeling has never had the identity of this target before.</param>
+// /// <param name="GrantedDna">Whether this devour has granted the changeling Dna.</param>
+// [ByRefEvent]
+// public record struct ChangelingDevouredEvent(EntityUid Changeling, EntityUid Devoured, bool ObtainedIdentity, bool Unique, bool GrantedDna);
 
-/// <summary>
-/// Event raised on the changeling and broadcast when a given changeling devours an entity.
-/// </summary>
-/// <param name="Changeling">The changeling devouring this entity.</param>
-/// <param name="Devoured">The entity that was devoured.</param>
-/// <param name="ObtainedIdentity">Whether the changeling is going to be given the target's identity after devouring.</param>
-/// <param name="Unique">Whether the changeling has never had the identity of this target before.</param>
-/// <param name="GrantedDna">Whether this devour has granted the changeling Dna.</param>
-[ByRefEvent]
-public record struct ChangelingDevouredEvent(EntityUid Changeling, EntityUid Devoured, bool ObtainedIdentity, bool Unique, bool GrantedDna);
-
-/// <summary>
-/// Event raised on an entity when devoured by a changeling.
-/// </summary>
-/// <param name="Changeling">The changeling devouring this entity.</param>
-/// <param name="Devoured">The entity that was devoured.</param>
-/// <param name="ObtainedIdentity">Whether the changeling is going to be given the target's identity after devouring.</param>
-/// <param name="Unique">Whether the changeling has never had the identity of this target before.</param>
-/// <param name="GrantedDna">Whether this devour has granted the changeling Dna.</param>
-[ByRefEvent]
-public record struct ChangelingGotDevouredEvent(EntityUid Changeling, EntityUid Devoured, bool ObtainedIdentity, bool Unique, bool GrantedDna);
->>>>>>> theirs
+// /// <summary>
+// /// Event raised on an entity when devoured by a changeling.
+// /// </summary>
+// /// <param name="Changeling">The changeling devouring this entity.</param>
+// /// <param name="Devoured">The entity that was devoured.</param>
+// /// <param name="ObtainedIdentity">Whether the changeling is going to be given the target's identity after devouring.</param>
+// /// <param name="Unique">Whether the changeling has never had the identity of this target before.</param>
+// /// <param name="GrantedDna">Whether this devour has granted the changeling Dna.</param>
+// [ByRefEvent]
+// public record struct ChangelingGotDevouredEvent(EntityUid Changeling, EntityUid Devoured, bool ObtainedIdentity, bool Unique, bool GrantedDna);
