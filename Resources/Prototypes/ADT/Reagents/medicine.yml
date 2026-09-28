@@ -17,9 +17,8 @@
         visualType: Small
         messages: [ "medicine-effect-headache" ]
         probability: 0.05
-      - !type:GenericStatusEffect
-        key: Adrenaline
-        component: IgnoreSlowOnDamage
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectAdrenaline
         time: 20
       - !type:HealthChange
         conditions:
@@ -338,9 +337,8 @@
     Bloodstream:
       metabolismRate: 1
       effects:
-      - !type:GenericStatusEffect
-        key: Adrenaline
-        component: IgnoreSlowOnDamage
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectAdrenaline
         time: 60
       - !type:EvenHealthChange
         damage:

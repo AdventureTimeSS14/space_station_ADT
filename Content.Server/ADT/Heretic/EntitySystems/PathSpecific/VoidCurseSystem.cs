@@ -7,13 +7,16 @@ using Content.Shared.ADT.Heretic.Systems;
 using Content.Shared.Atmos;
 using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffect;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.Heretic.EntitySystems.PathSpecific;
 
 public sealed class VoidCurseSystem : SharedVoidCurseSystem
 {
     [Dependency] private readonly TemperatureSystem _temp = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
+    [Dependency] private readonly Content.Shared.StatusEffectNew.StatusEffectsSystem _statusEffect = default!;
+
+    private static readonly EntProtoId MuteEffect = "StatusEffectMuted";
 
     public override void Update(float frameTime)
     {
@@ -55,6 +58,6 @@ public sealed class VoidCurseSystem : SharedVoidCurseSystem
             _temp.ForceChangeTemperature(ent, Math.Clamp(t, Atmospherics.TCMB, Atmospherics.Tmax), temp);
         }
 
-        _statusEffect.TryAddStatusEffect<MutedComponent>(ent, "Muted", TimeSpan.FromSeconds(5), true);
+        _statusEffect.TryUpdateStatusEffectDuration(ent, MuteEffect, TimeSpan.FromSeconds(5));
     }
 }

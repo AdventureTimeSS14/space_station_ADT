@@ -1,4 +1,4 @@
-﻿<<<<<<< ours
+<<<<<<< ours
 using Content.Shared.Damage.Components;
 using Content.Shared.StatusEffectNew;
 

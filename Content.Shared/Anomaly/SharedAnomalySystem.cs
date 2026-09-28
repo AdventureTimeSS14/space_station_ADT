@@ -26,32 +26,6 @@ namespace Content.Shared.Anomaly;
 
 public abstract partial class SharedAnomalySystem : EntitySystem
 {
-<<<<<<< ours
-    [Dependency] protected readonly IGameTiming Timing = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] protected readonly IRobustRandom Random = default!;
-    [Dependency] protected readonly ISharedAdminLogManager AdminLog = default!;
-    [Dependency] protected readonly SharedAudioSystem Audio = default!;
-    [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] protected readonly SharedPopupSystem Popup = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
-||||||| base
-    [Dependency] protected readonly IGameTiming Timing = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] protected readonly IRobustRandom Random = default!;
-    [Dependency] protected readonly ISharedAdminLogManager AdminLog = default!;
-    [Dependency] protected readonly SharedAudioSystem Audio = default!;
-    [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] protected readonly SharedPopupSystem Popup = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-=======
     [Dependency] protected IGameTiming Timing = default!;
     [Dependency] private INetManager _net = default!;
     [Dependency] protected IRobustRandom Random = default!;
@@ -64,7 +38,6 @@ public abstract partial class SharedAnomalySystem : EntitySystem
     [Dependency] private SharedMapSystem _map = default!;
 
     [Dependency] private EntityQuery<PhysicsComponent> _physQuery = default!;
->>>>>>> theirs
 
     public override void Initialize()
     {
@@ -425,18 +398,15 @@ public abstract partial class SharedAnomalySystem : EntitySystem
 
         if (gridUid == null || !TryComp(gridUid, out grid))
         {
-            if (_mapManager.TryFindGridAt(mapCoords.MapId, worldPos, out var foundGridUid, out var foundGrid))
+            if (_map.TryFindGridAt(mapCoords.MapId, worldPos, out var foundGridUid, out var foundGrid))
             {
                 gridUid = foundGridUid;
                 grid = foundGrid;
             }
             else
             {
-                foreach (var gUid in _mapManager.GetAllGrids(mapCoords.MapId))
+                foreach (var (gUid, gComp) in _map.GetAllGrids(mapCoords.MapId))
                 {
-                    if (!TryComp(gUid, out MapGridComponent? gComp))
-                        continue;
-
                     var gridPos = _transform.GetWorldPosition(gUid);
                     if (Vector2.Distance(gridPos, worldPos) <= settings.MaxRange)
                     {

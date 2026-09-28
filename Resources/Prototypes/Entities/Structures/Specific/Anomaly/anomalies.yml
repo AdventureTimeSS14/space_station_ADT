@@ -37,13 +37,6 @@
     sprite: Structures/Specific/anomaly.rsi
   - type: InteractionOutline
   - type: Clickable
-<<<<<<< ours
-  - type: Damageable
-  - type: Injurable
-||||||| base
-  - type: Damageable
-=======
->>>>>>> theirs
   - type: Appearance
   - type: AnimationPlayer
   - type: Damageable

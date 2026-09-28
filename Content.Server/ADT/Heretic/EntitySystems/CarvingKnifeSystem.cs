@@ -58,6 +58,7 @@ public sealed class CarvingKnifeSystem : EntitySystem
 
     private static readonly ProtoId<TagPrototype> CarvingTag = "HereticCarving";
     private static readonly EntProtoId AlertEffect = "CarvingAlertedStatusEffect";
+    private static readonly EntProtoId MuteEffect = "StatusEffectMuted";
 
     public override void Initialize()
     {
@@ -123,20 +124,8 @@ public sealed class CarvingKnifeSystem : EntitySystem
     {
         _stamina.TakeStaminaDamage(args.Victim, ent.Comp.StaminaDamage);
 
-        if (!TryComp(args.Victim, out StatusEffectsComponent? status))
-            return;
-
-        _status.TryAddStatusEffect<BlindnessStatusEffectComponent>(args.Victim,
-            BlindnessSystem.BlindingStatusEffect,
-            ent.Comp.BlindnessTime,
-            true,
-            status);
-
-        _status.TryAddStatusEffect<MutedComponent>(args.Victim,
-            "Muted",
-            ent.Comp.MuteTime,
-            true,
-            status);
+        _statusNew.TryUpdateStatusEffectDuration(args.Victim, BlindnessSystem.BlindingStatusEffect, ent.Comp.BlindnessTime);
+        _statusNew.TryUpdateStatusEffectDuration(args.Victim, MuteEffect, ent.Comp.MuteTime);
     }
 
     private void OnAlertTriggered(Entity<AlertCarvingComponent> ent, ref TrapTriggeredEvent args)

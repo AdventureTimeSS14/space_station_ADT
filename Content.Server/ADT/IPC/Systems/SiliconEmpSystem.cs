@@ -21,6 +21,9 @@ namespace Content.Server.ADT.Silicon.Systems;
 public sealed class SiliconEmpSystem : EntitySystem
 {
     [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private readonly Content.Shared.StatusEffectNew.StatusEffectsSystem _statusNew = default!;
+
+    private static readonly EntProtoId MuteEffect = "StatusEffectMuted";
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedStutteringSystem _stuttering = default!;
@@ -65,10 +68,10 @@ public sealed class SiliconEmpSystem : EntitySystem
             _status.TryAddStatusEffect<PacifiedComponent>(uid, "Pacified", duration * 0.5, true, statusComp);
 
         if (_random.Prob(0.4f)) // Какие-то неадекватно низкие шансы тут, буквально 2-8 процентов. Ребят, это слишком мало для ЭМИ
-            _status.TryAddStatusEffect<MutedComponent>(uid, "Muted", duration * 0.5, true, statusComp);
+            _statusNew.TryUpdateStatusEffectDuration(uid, MuteEffect, duration * 0.5);
 
         if (_random.Prob(0.3f))
-            _status.TryAddStatusEffect<BlindnessStatusEffectComponent>(uid, BlindnessSystem.BlindingStatusEffect, duration * 0.5, true, statusComp);
+            _statusNew.TryUpdateStatusEffectDuration(uid, BlindnessSystem.BlindingStatusEffect, duration * 0.5);
 
         _damage.TryChangeDamage(uid, new DamageSpecifier(_proto.Index<DamageTypePrototype>("Shock"), _random.Next(20, 40)));
 

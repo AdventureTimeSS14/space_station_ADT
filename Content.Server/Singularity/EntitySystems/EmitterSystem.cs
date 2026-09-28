@@ -5,14 +5,9 @@ using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Projectiles;
 using Content.Server.Weapons.Ranged.Systems;
-<<<<<<< ours
 using Content.Shared.ADT.Construction;
 using Content.Shared.ADT.Construction.Events;
 using Content.Shared.Construction;
-||||||| base
-using Content.Shared.Construction;
-=======
->>>>>>> theirs
 using Content.Shared.Database;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Interaction;
@@ -52,10 +47,6 @@ namespace Content.Server.Singularity.EntitySystems
             SubscribeLocalEvent<EmitterComponent, ActivateInWorldEvent>(OnActivate);
             SubscribeLocalEvent<EmitterComponent, AnchorStateChangedEvent>(OnAnchorStateChanged);
             SubscribeLocalEvent<EmitterComponent, SignalReceivedEvent>(OnSignalReceived);
-<<<<<<< ours
-            SubscribeLocalEvent<EmitterComponent, DestructionAttemptEvent>(OnDestructionAttempted);
-            SubscribeLocalEvent<EmitterComponent, MachineDeconstructedEvent>(OnDeconstructed); // you shouldn't be able to deconstruct locked emitters but out of scope to fix
-            SubscribeLocalEvent<EmitterComponent, LockToggledEvent>(OnLockToggled);
         // ADT-Tweak start
             SubscribeLocalEvent<EmitterComponent, RefreshPartsEvent>(OnPartsRefresh);
             SubscribeLocalEvent<EmitterComponent, UpgradeExamineEvent>(OnUpgradeExamine);
@@ -71,12 +62,6 @@ namespace Content.Server.Singularity.EntitySystems
         {
             args.AddPercentageUpgrade("machine-upgrade-fire-rate", component.FireRateMultiplier, benefit: true);
         // ADT-Tweak end
-||||||| base
-            SubscribeLocalEvent<EmitterComponent, DestructionAttemptEvent>(OnDestructionAttempted);
-            SubscribeLocalEvent<EmitterComponent, MachineDeconstructedEvent>(OnDeconstructed); // you shouldn't be able to deconstruct locked emitters but out of scope to fix
-            SubscribeLocalEvent<EmitterComponent, LockToggledEvent>(OnLockToggled);
-=======
->>>>>>> theirs
         }
 
         private void OnAnchorStateChanged(EntityUid uid, EmitterComponent component, ref AnchorStateChangedEvent args)
