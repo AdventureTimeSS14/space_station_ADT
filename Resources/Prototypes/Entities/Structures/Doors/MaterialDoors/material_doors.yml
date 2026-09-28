@@ -219,7 +219,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 30
+        damage: 80
       behaviors:
       - *SoundWoodDestroy
       - !type:SpawnEntitiesBehavior
