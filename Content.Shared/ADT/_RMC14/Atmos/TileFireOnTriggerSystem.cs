@@ -9,7 +9,7 @@ namespace Content.Shared._RMC14.Atmos;
 public sealed class TileFireOnTriggerSystem : XOnTriggerSystem<TileFireOnTriggerComponent>
 {
     [Dependency] private SharedAudioSystem _audio = default!;
-    [Dependency] private IMapManager _map = default!;
+    [Dependency] private SharedMapSystem _map = default!;
     [Dependency] private SharedRMCFlammableSystem _flammable = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
 

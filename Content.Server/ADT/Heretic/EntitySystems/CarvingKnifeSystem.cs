@@ -52,7 +52,7 @@ public sealed class CarvingKnifeSystem : EntitySystem
     [Dependency] private PullingSystem _pulling = default!;
     [Dependency] private HereticSystem _heretic = default!;
 
-    [Dependency] private IMapManager _mapMan = default!;
+    [Dependency] private SharedMapSystem _mapMan = default!;
     [Dependency] private IPrototypeManager _prototype = default!;
     [Dependency] private IChatManager _chatManager = default!;
 

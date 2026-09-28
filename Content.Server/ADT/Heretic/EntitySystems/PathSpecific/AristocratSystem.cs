@@ -50,7 +50,7 @@ public sealed class AristocratSystem : EntitySystem
     [Dependency] private TileSystem _tile = default!;
     [Dependency] private IRobustRandom _rand = default!;
     [Dependency] private IPrototypeManager _prot = default!;
-    [Dependency] private IMapManager _mapMan = default!;
+    [Dependency] private SharedMapSystem _mapMan = default!;
     [Dependency] private AtmosphereSystem _atmos = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private SharedPopupSystem _popup = default!;

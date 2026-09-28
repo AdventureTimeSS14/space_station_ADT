@@ -17,7 +17,7 @@ public sealed partial class ChainFireballSystem : EntitySystem
     [Dependency] private PopupSystem _popup = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private PhysicsSystem _physics = default!;
-    [Dependency] private IMapManager _mapMan = default!;
+    [Dependency] private SharedMapSystem _mapMan = default!;
 
     public override void Initialize()
     {

@@ -37,7 +37,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
     [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private IComponentFactory _compFactory = default!;
     [Dependency] private INetManager _net = default!;
-    [Dependency] private IMapManager _mapMan = default!;
+    [Dependency] private SharedMapSystem _mapMan = default!;
 
     [Dependency] private SharedDoorSystem _door = default!;
     [Dependency] private DamageableSystem _damage = default!;

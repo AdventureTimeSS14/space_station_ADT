@@ -29,7 +29,7 @@ namespace Content.Shared.ADT.Heretic.Systems;
 public abstract class SharedStarMarkSystem : EntitySystem
 {
     [Dependency] private INetManager _net = default!;
-    [Dependency] private IMapManager _mapMan = default!;
+    [Dependency] private SharedMapSystem _mapMan = default!;
     [Dependency] private IGameTiming _timing = default!;
 
     [Dependency] private EntityLookupSystem _lookup = default!;
