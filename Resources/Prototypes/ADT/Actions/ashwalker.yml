@@ -61,3 +61,17 @@
   - type: EntityTargetAction
     canTargetSelf: false
     event: !type:ADTEmpathActionEvent
+
+- type: entity
+  id: ADTActionTailSweep
+  name: Tail sweep
+  description: Swing your tail around, knocking the wind out of everyone nearby.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon:
+      sprite: ADT/Interface/Actions/ashwalker.rsi
+      state: tail_cut
+    useDelay: 10
+  - type: InstantAction
+    event: !type:ADTTailSweepActionEvent

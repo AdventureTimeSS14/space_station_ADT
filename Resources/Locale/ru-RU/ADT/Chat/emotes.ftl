@@ -43,3 +43,6 @@ chat-emote-name-flap-wings = Хлопать крыльями
 # Novakid
 chat-emote-msg-fiery-sounds = издаёт пламенные звуки
 chat-emote-name-fiery-sounds = Издать пламенные звуки
+
+# Reptilian
+chat-emote-name-adt-rumble = Урчать

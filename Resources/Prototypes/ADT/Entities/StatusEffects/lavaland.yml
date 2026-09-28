@@ -18,3 +18,143 @@
   - type: GrantComponentsStatusEffect
     components:
     - type: IgnoreSlowOnDamage
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTStatusEffectDragonStrength
+  name: dragon strength
+  components:
+  - type: ADTDragonStrengthStatusEffect
+    interval: 3
+    damageThreshold: 70
+    multiplierOffset: 60
+    multiplierScale: 50
+    maxMultiplier: 3
+    healing:
+      Brute: 0.5
+      Burn: 0.5
+      Airloss: 1
+    hopeMessages:
+    - adt-dragon-strength-hope-1
+    - adt-dragon-strength-hope-2
+    - adt-dragon-strength-hope-3
+    - adt-dragon-strength-hope-4
+    - adt-dragon-strength-hope-5
+    - adt-dragon-strength-hope-6
+    - adt-dragon-strength-hope-7
+    - adt-dragon-strength-hope-8
+    - adt-dragon-strength-hope-9
+    - adt-dragon-strength-hope-10
+    warMessages:
+    - adt-dragon-strength-war-1
+    - adt-dragon-strength-war-2
+    - adt-dragon-strength-war-3
+    - adt-dragon-strength-war-4
+    - adt-dragon-strength-war-5
+    - adt-dragon-strength-war-6
+    - adt-dragon-strength-war-7
+    - adt-dragon-strength-war-8
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTStatusEffectForcedRumble
+  name: forced rumble
+  components:
+  - type: ADTPeriodicEffectsStatusEffect
+    effects:
+    - !type:Emote
+      emote: ADTRumble
+      showInChat: true
+      force: true
+      probability: 0.2
+      conditions:
+      - !type:HasComponentCondition
+        components:
+        - LizardAccent
+        guidebookComponentName: reagent-comp-condition-adt-lizard-accent
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTStatusEffectForcedSneeze
+  name: forced sneeze
+  components:
+  - type: ADTPeriodicEffectsStatusEffect
+    effects:
+    - !type:Emote
+      emote: Sneeze
+      showInChat: true
+      force: true
+      probability: 0.3
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTStatusEffectFreakyLegs
+  name: freaky legs
+  components:
+  - type: StatusEffectAlert
+    alert: ADTFreakyLegs
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: IgnoreSlowOnDamage
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTStatusEffectLavalandVision
+  name: lavaland vision
+  components:
+  - type: StatusEffectAlert
+    alert: ADTTailODead
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: Monochromacy
+    - type: NightVision
+      innate: true
+      effectPrototype: ADTEffectNightVisionMedium
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTStatusEffectTemperatureStabilize
+  name: temperature stabilization
+  components:
+  - type: StatusEffectAlert
+    alert: ADTBeerGrubStew
+  - type: ADTTemperatureStabilizeStatusEffect
+    step: 3
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTStatusEffectBleedingFix
+  name: bleeding fix
+  components:
+  - type: StatusEffectAlert
+    alert: ADTThickRedPaste
+  - type: ADTPeriodicEffectsStatusEffect
+    effects:
+    - !type:ModifyBleed
+      amount: -100
+      probability: 0.07
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTStatusEffectLavalandNightVision
+  name: xeno retina
+  components:
+  - type: StatusEffectAlert
+    alert: ADTXenoSticks
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: NightVision
+      innate: true
+      effectPrototype: ADTEffectNightVisionMedium
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTStatusEffectBloodRegen
+  name: blood regeneration
+  components:
+  - type: StatusEffectAlert
+    alert: ADTAbuGhosh
+  - type: ADTPeriodicEffectsStatusEffect
+    effects:
+    - !type:ModifyBloodLevel
+      amount: 0.2

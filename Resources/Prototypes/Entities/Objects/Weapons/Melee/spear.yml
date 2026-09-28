@@ -195,6 +195,20 @@
     - Spear
     - ADTSpearBone
     - ScurretWearable
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 11
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Piercing: 9
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 22
+  - type: ArmorPenetration
+    penetration: 0.15
   # ADT-Tweak-End
   - type: Sprite
     sprite: Objects/Weapons/Melee/bone_spear.rsi

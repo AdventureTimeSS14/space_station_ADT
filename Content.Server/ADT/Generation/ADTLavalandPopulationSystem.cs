@@ -14,6 +14,7 @@ namespace Content.Server.ADT.Generation;
 
 public sealed class ADTLavalandPopulationSystem : EntitySystem
 {
+    [Dependency] private readonly ADTLavalandGenerationSystem _generation = default!;
     [Dependency] private readonly BiomeSystem _biome = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -167,7 +168,7 @@ public sealed class ADTLavalandPopulationSystem : EntitySystem
         var clearanceSq = clearance * clearance;
 
         if (TryComp<ADTLavalandGenerationComponent>(ent, out var generation) &&
-            generation.Placed.Any(room => Vector2.DistanceSquared(spot, room) < clearanceSq))
+            (_generation.IsExcluded(generation, spot) || generation.Placed.Any(room => Vector2.DistanceSquared(spot, room) < clearanceSq)))
         {
             return true;
         }

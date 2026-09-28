@@ -21,6 +21,84 @@
         },
         {
             "name": "thali_lazis_crunchie"
+        },
+        {
+            "name": "freaky_leg"
+        },
+        {
+            "name": "hunters_treat"
+        },
+        {
+            "name": "yum_grub"
+        },
+        {
+            "name": "ashie_kebab"
+        },
+        {
+            "name": "tail_o_dead"
+        },
+        {
+            "name": "cure_curse"
+        },
+        {
+            "name": "cure_curse_active",
+            "delays": [
+                [
+                    0.6,
+                    0.15,
+                    0.15,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "wings_n_fangs_n_tentacles"
+        },
+        {
+            "name": "goli_kernels"
+        },
+        {
+            "name": "beer_grub_stew"
+        },
+        {
+            "name": "thick_red_paste"
+        },
+        {
+            "name": "black_blood_sausage"
+        },
+        {
+            "name": "xeno_sticks"
+        },
+        {
+            "name": "eel_katigo"
+        },
+        {
+            "name": "predatory_chowder"
+        },
+        {
+            "name": "abu_ghosh"
+        },
+        {
+            "name": "soft_meat_cubes"
+        },
+        {
+            "name": "predatory_fish_slab"
+        },
+        {
+            "name": "eel_ringlets"
+        },
+        {
+            "name": "thali_lazis_bacon"
+        },
+        {
+            "name": "thali_lazis_fish"
+        },
+        {
+            "name": "thali_lazis_bungus"
+        },
+        {
+            "name": "thali_lazis_plate"
         }
     ]
 }

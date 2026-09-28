@@ -34,6 +34,8 @@
   name: ash crab
   description: A small omnivorous crustacean with a surprisingly tough shell. This species has an odd habit of eating small items it finds. Lava crabs are hunted by other underlava fauna and by the local tribes alike, for their shell, their edible meat and the curious finds in their stomachs.
   components:
+  - type: Item
+    heldPrefix: ash_crab
   - type: Sprite
     state: ash_crab
   - type: ADTFish
@@ -53,6 +55,8 @@
   name: dead horseman
   description: A small fish that feeds mostly on bloody leaches buried in the ash. It owes its name to its looks - the horseman's head resembles a humanoid skull. The tribes prize it for its spleen, which carries cinnabar particles used to make brown dye.
   components:
+  - type: Item
+    heldPrefix: dead_horseman
   - type: Sprite
     state: dead_horseman
   - type: ADTFish
@@ -73,6 +77,8 @@
   name: shellfish
   description: One of the largest fish found near the shores of Lazis Ardax. Almost its whole body, head included, is covered in crimson cartilage plates tough enough to hold off most predators. Inside, next to the heart, sits a specialized organ the local tribes harvest for farming.
   components:
+  - type: Item
+    heldPrefix: shellfish
   - type: Sprite
     state: shellfish
   - type: ADTFish
@@ -93,6 +99,8 @@
   name: bottom eel
   description: This long slimy fish lives at great depth, feeding mostly on larvae and smaller fish. To fend off other predators it grew a razor sharp tail, which the local tribes fit onto spears.
   components:
+  - type: Item
+    heldPrefix: bottom_eel
   - type: Sprite
     state: bottom_eel
   - type: ADTFish
@@ -112,6 +120,8 @@
   name: red devourer
   description: A massive blood red fish with a mouth full of sharp teeth. This one is infamous among the tribes for its aggression, which has killed many a young hunter. The remains of less lucky fishermen are often found in their stomachs.
   components:
+  - type: Item
+    heldPrefix: red_devourer
   - type: Sprite
     state: red_devourer
   - type: ADTFish
@@ -135,6 +145,8 @@
   name: magma hammerhead
   description: A huge dark deep water fish with a head that vaguely resembles a hammer. For all its menace, this fish hunts mostly small crustaceans, pinning them to the bottom with its hammer and crushing their shells. Strange clots sit along the edges of its head, synergizing with regenerative cores.
   components:
+  - type: Item
+    heldPrefix: magma_hammerhead
   - type: Sprite
     state: magma_hammerhead
   - type: ADTFish
@@ -154,6 +166,8 @@
   name: blind reaper
   description: The smallest of the deep water fish of Lazis Ardax, remarkable not only for its size but for the huge bone growth on its head that looks like a circular saw blade. Being sightless, it uses that blade as a biological sonar to find its way through the lava depths.
   components:
+  - type: Item
+    heldPrefix: blind_reaper
   - type: Sprite
     state: blind_reaper
   - type: ADTFish
@@ -181,6 +195,8 @@
   name: herald of carnage
   description: This massive fish, with hundreds of razor sharp teeth in its maw, is the apex predator of the whole underlava world of Lazis Ardax. Its huge green eyes adorn the most celebrated hunters of the local tribes. The remains of other fish are often found in its stomach. And not only fish.
   components:
+  - type: Item
+    heldPrefix: herald_of_carnage
   - type: Sprite
     state: herald_of_carnage
   - type: ADTFish
@@ -205,6 +221,8 @@
   name: sulfuric tramp
   description: This fish was never recorded in any study of the fauna of Lazis Ardax - it is an invasive species that got into the lava rivers when a smuggler ship carrying fauna from an unknown acid planet crashed. Apparently these fish found their niche in the food chain.
   components:
+  - type: Item
+    heldPrefix: sulfuric_tramp
   - type: Sprite
     state: sulfuric_tramp
   - type: ADTFish
