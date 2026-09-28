@@ -12,6 +12,9 @@ public sealed partial class ADTDryableComponent : Component
     public float DryingTemperature = 500f;
 
     [DataField]
+    public float HeatedDryingTemperature = 373.15f;
+
+    [DataField]
     public int Wetness = 30;
 
     [ViewVariables]

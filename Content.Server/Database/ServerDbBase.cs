@@ -232,6 +232,7 @@ namespace Content.Server.Database
             profile.Gender = humanoid.Gender.ToString();
             profile.EyeColor = appearance.EyeColor.ToHex();
             profile.SkinColor = appearance.SkinColor.ToHex();
+            profile.BodyType = appearance.BodyType?.Id; // ADT-Tweak
             profile.SpawnPriority = (int) humanoid.SpawnPriority;
             profile.OrganMarkings = JsonSerializer.SerializeToDocument(dataNode.ToJsonNode());
             // ADT-Tweak-Start

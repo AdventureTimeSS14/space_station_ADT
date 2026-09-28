@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared.ADT.Weather.Components;
 using Content.Shared.Light.Components;
 using Content.Shared.Light.EntitySystems;
 using Content.Shared.Maps;
@@ -24,6 +25,7 @@ public abstract class SharedWeatherSystem : EntitySystem
 
     [Dependency] private readonly EntityQuery<BlockWeatherComponent> _blockQuery = default!;
     [Dependency] private readonly EntityQuery<WeatherStatusEffectComponent> _weatherQuery = default!;
+    [Dependency] private readonly EntityQuery<ADTWeatherShelterComponent> _shelterQuery = default!; // ADT-Tweak
 
     public static readonly TimeSpan StartupTime = TimeSpan.FromSeconds(15);
     public static readonly TimeSpan ShutdownTime = TimeSpan.FromSeconds(15);
@@ -35,6 +37,11 @@ public abstract class SharedWeatherSystem : EntitySystem
 
         if (!Resolve(ent, ref ent.Comp1))
             return false;
+
+        // ADT-Tweak-Start
+        if (_shelterQuery.HasComponent(ent))
+            return false;
+        // ADT-Tweak-End
 
         if (Resolve(ent, ref ent.Comp2, false) && _roof.IsRooved((ent, ent.Comp1, ent.Comp2), tileRef.GridIndices))
             return false;
