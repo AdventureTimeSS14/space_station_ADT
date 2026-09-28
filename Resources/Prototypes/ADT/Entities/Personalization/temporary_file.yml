@@ -329,6 +329,9 @@
   - type: UseDelayOnTrigger
   - type: UseDelayTriggerCondition # prevent spam
   - type: TriggerOnActivate
+  - type: TriggerOnUse
+  - type: Speech
+    speechSounds: Squeak
   - type: SpeakOnTrigger
     pack: ADTPlushieKusuk
 
@@ -395,14 +398,14 @@
 - type: entity
   parent: [ClothingHeadBandBase, ADTClothingMaskBandTudibideb]
   id: ADTClothingHeadBandTudibideb
-  name: scull bandana
+  name: skull bandana
   suffix: Personal, Tudibideb
 
 - type: entity
   parent: ClothingMaskBandanaBase
   id: ADTClothingMaskBandTudibideb
-  name: scull bandana
-  description: scull bandana
+  name: skull bandana
+  description: skull bandana
   suffix: Personal, Tudibideb
   components:
   - type: Sprite
