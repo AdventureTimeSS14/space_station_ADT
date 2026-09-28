@@ -111,7 +111,7 @@
   id: MobFelinid
   components:
   - type: Hunger
-    baseDecayRate: 0.024
+    baseDecayRate: 0.03
   - type: Respirator
     damage:
       types:
@@ -128,8 +128,13 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Critical
+      100: SoftCritical
+      142: Critical
       185: Dead
+  - type: SoftCrit
+    speedModifier: 0.45
+  - type: TryCatchBreath
+    doAfterTime: 5
   - type: SizeAttributeWhitelist
     tall: true
     tallscale: 1.1

@@ -46,12 +46,23 @@
       projectiles: !type:ContainerSlot
   - type: ContainerAmmoProvider
     container: projectiles
+  # ADT-Tweak-Start
+  - type: Tag
+    tags:
+    - ADTBow
+  # ADT-Tweak-End
 
 - type: entity
   id: BowImprovised
   parent: BaseBow
   name: improvised shortbow
   components:
+  # ADT-Tweak-Start
+  - type: Tag
+    tags:
+    - ADTBowImprovised
+    - ADTBow
+  # ADT-Tweak-End
   - type: Sprite
     layers:
     - state: unwielded

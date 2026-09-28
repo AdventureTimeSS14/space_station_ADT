@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.ADT.Thunderdome;
 using Content.Shared.Humanoid;
 using Content.Server.EUI;
@@ -783,7 +784,7 @@ public sealed partial class ThunderdomeRuleSystem : EntitySystem
 
             foreach (var container in _container.GetAllContainers(current, containerManager))
             {
-                foreach (var contained in container.ContainedEntities)
+                foreach (var contained in container.ContainedEntities.ToArray())
                 {
                     toCheck.Enqueue(contained);
 

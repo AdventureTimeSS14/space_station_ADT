@@ -83,8 +83,8 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
                     RaiseLocalEvent(ent, ev);
                     if (ev.Cancelled)
                         continue;
-                    list.Add(ent);
                 }
+                list.Add(ent);
                 // ADT Injector blocking end
             }
             TryInjectTargets((entity.Owner, entity.Comp), list, args.User);
