@@ -590,9 +590,6 @@
   targetNode: boat
   category: construction-category-misc
   objectType: Structure
-  entityWhitelist:
-    components:
-    - ADTTribeMember
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
@@ -619,9 +616,6 @@
   targetNode: oar
   category: construction-category-misc
   objectType: Item
-  entityWhitelist:
-    components:
-    - ADTTribeMember
 
 - type: constructionGraph
   id: ADTCoaltreeBonfire
