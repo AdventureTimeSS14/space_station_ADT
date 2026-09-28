@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Server.Body;
 using Content.Shared.ADT.EntityEffects;
 using Content.Shared.Body;
@@ -51,9 +52,9 @@ public sealed partial class SexChangeSystem : EntityEffectSystem<HumanoidProfile
 
         _identity.QueueIdentityUpdate(entity);
 
-        if (TryComp<VisualBodyComponent>(entity, out var _))
+        if (_visualBody.TryGatherMarkingsData(entity.Owner, null, out var profiles, out _, out _))
         {
-            _visualBody.ApplyProfile(entity, new OrganProfileData { Sex = newSex });
+            _visualBody.ApplyProfiles(entity, profiles.ToDictionary(pair => pair.Key, pair => pair.Value with { Sex = newSex }));
         }
     }
 }

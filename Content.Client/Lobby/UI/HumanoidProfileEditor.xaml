@@ -83,6 +83,13 @@
                                     <Control HorizontalExpand="True"/>
                                     <OptionButton Name="PronounsButton" HorizontalAlignment="Right" />
                                 </BoxContainer>
+                                <!-- ADT-Tweak-Start: body type -->
+                                <BoxContainer Name="BodyTypeContainer" HorizontalExpand="True" Visible="False">
+                                    <Label Text="{Loc 'humanoid-profile-editor-body-type-label'}" />
+                                    <Control HorizontalExpand="True"/>
+                                    <Button Name="BodyTypeButton" HorizontalAlignment="Right" ToggleMode="True" />
+                                </BoxContainer>
+                                <!-- ADT-Tweak-End -->
                                 <!-- Show clothing -->
                                 <BoxContainer HorizontalExpand="True">
                                     <Label Text="{Loc 'humanoid-profile-editor-clothing'}" />

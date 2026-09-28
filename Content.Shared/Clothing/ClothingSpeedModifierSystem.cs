@@ -12,7 +12,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.Clothing;
 
-public sealed class ClothingSpeedModifierSystem : EntitySystem
+public sealed partial class ClothingSpeedModifierSystem : EntitySystem // ADT-Tweak
 {
     [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly ItemToggleSystem _toggle = default!;
