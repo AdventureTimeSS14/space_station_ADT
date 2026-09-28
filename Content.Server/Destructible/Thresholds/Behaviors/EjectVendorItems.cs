@@ -1,13 +1,5 @@
-<<<<<<< ours
 using Content.Server.ADT.VendingMachines; // ADT-Tweak
 using Content.Shared.ADT.VendingMachines; // ADT-Tweak
-||||||| base
-using Content.Server.VendingMachines;
-using Content.Shared.VendingMachines;
-=======
-using Content.Server.VendingMachines;
-using Content.Shared.VendingMachines.Components;
->>>>>>> theirs
 
 namespace Content.Server.Destructible.Thresholds.Behaviors;
 
@@ -48,4 +40,4 @@ public sealed partial class EjectVendorItems : IThresholdBehavior
             vendingMachineSystem.EjectRandom(owner, throwItem: true, forceEject: true);
         }
     }
-}
+}

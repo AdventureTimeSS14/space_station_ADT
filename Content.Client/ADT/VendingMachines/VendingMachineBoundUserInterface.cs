@@ -1,6 +1,8 @@
 using Content.Client.ADT.VendingMachines.UI;
 using Content.Shared.ADT.VendingMachines;
+using Content.Shared.VendingMachines.Components;
 using Robust.Client.UserInterface;
+using VendingMachineComponent = Content.Shared.ADT.VendingMachines.VendingMachineComponent;
 
 namespace Content.Client.ADT.VendingMachines;
 
@@ -53,7 +55,7 @@ public sealed class VendingMachineBoundUserInterface : BoundUserInterface
         if (!IsOpened || _menu == null)
             return;
 
-        var enabled = EntMan.TryGetComponent(Owner, out VendingMachineComponent? bendy) && !bendy.Ejecting;
+        var enabled = EntMan.TryGetComponent(Owner, out VendingMachineEjectComponent? eject) && !eject.Ejecting;
 
         var system = EntMan.System<VendingMachineSystem>();
         _cachedInventory = system.GetAllInventory(Owner);

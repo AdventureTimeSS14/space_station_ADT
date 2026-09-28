@@ -1,13 +1,6 @@
 using Content.Server.ADT.VendingMachines; // ADT-Tweak
 using Content.Server.Wires;
-<<<<<<< ours
 using Content.Shared.ADT.VendingMachines; // ADT-Tweak
-||||||| base
-using Content.Shared.VendingMachines;
-=======
-using Content.Shared.VendingMachines;
-using Content.Shared.VendingMachines.Components;
->>>>>>> theirs
 using Content.Shared.Wires;
 
 namespace Content.Server.VendingMachines;

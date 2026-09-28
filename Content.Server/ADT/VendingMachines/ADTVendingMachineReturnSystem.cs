@@ -11,7 +11,9 @@ using Content.Shared.Storage;
 using Content.Shared.Storage.Components;
 using Content.Shared.Throwing;
 using Content.Shared.Verbs;
+using Content.Shared.VendingMachines.Components;
 using Robust.Shared.Audio.Systems;
+using VendingMachineComponent = Content.Shared.ADT.VendingMachines.VendingMachineComponent;
 using Robust.Shared.Containers;
 using Robust.Shared.Random;
 
@@ -111,9 +113,12 @@ public sealed class ADTVendingMachineReturnSystem : EntitySystem
 
             if (args.ThrowItem)
             {
-                var range = component.NonLimitedEjectRange;
+                if (!TryComp<VendingMachineEjectComponent>(uid, out var eject))
+                    return;
+
+                var range = eject.NonLimitedEjectRange;
                 var direction = new Vector2(_random.NextFloat(-range, range), _random.NextFloat(-range, range));
-                _throwingSystem.TryThrow(returned, direction, component.NonLimitedEjectForce);
+                _throwingSystem.TryThrow(returned, direction, eject.NonLimitedEjectForce);
             }
         }
     }
@@ -132,7 +137,7 @@ public sealed class ADTVendingMachineReturnSystem : EntitySystem
 
     private void Deny(EntityUid uid, VendingMachineComponent component)
     {
-        _vending.Deny(uid, component);
+        _vending.Deny((uid, component));
     }
 
     public void PaintClothing(EntityUid uid, Color? color)

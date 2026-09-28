@@ -31,8 +31,7 @@ public sealed class VendingMachineInventorySerializer :
                     ? new ValidatedValueNode(keyNode)
                     : new ErrorNode(keyNode, $"Vending category {key} was not found!");
 
-                valValidation = serializationManager.ValidateNode<Dictionary<string, uint>, MappingDataNode,
-                    PrototypeIdDictionarySerializer<uint, EntityPrototype>>((MappingDataNode)valNode, context);
+                valValidation = serializationManager.ValidateNode<Dictionary<string, uint>>((MappingDataNode)valNode, context); // ADT-Tweak: PrototypeIdDictionarySerializer removed in engine v289
             }
             else
             {
