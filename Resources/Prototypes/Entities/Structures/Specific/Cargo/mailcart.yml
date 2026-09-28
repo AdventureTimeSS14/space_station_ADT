@@ -1,8 +1,8 @@
 # Mailcart
 - type: entity
-  parent: [BaseStructureDynamic, StructureWheeled, StructureHealthContainer]
-  id: MailCart
   name: mail cart
+  id: MailCart
+  parent: [BaseStructureDynamic, StructureWheeled]
   description: Deliver packages with style and efficiency.
   components:
   - type: Sprite
@@ -37,24 +37,20 @@
         layer:
         - LargeMobLayer
   - type: Damageable
-    damageModifierSet: PlasticMod
+    damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
+    - trigger: !type:DamageTrigger
+        damage: 200
       behaviors:
       - !type:EmptyAllContainersBehaviour
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
-          params:
-            volume: -3
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          SheetPlastic1:
-            min: 0
-            max: 2
   - type: ItemMapper
     mapLayers:
       package_1:

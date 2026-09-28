@@ -11,6 +11,7 @@
     damage:
       types:
         Blunt: 6
+        Structural: 2
     animation: WeaponArcPunch
   - type: Item
     size: Small

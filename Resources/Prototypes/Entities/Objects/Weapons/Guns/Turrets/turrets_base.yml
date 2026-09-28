@@ -50,18 +50,20 @@
 
 - type: entity
   abstract: true
-  parent: StructureHealthMachineStrong
   id: BaseTurretDestructible
   components:
   - type: Damageable
-    damageModifierSet: SteelMod
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 275
+        damage: 300
         # TODO: Construction graph
       behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalGlassBreak

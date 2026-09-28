@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ BaseDeltaPressureGlass, StructureHealthBarrierWeak ]
+  parent: BaseDeltaPressureGlass
   id: InflatableWall
   name: inflatable barricade
   description: An inflated membrane. Activate to deflate. Do not puncture.
@@ -21,16 +21,17 @@
         layer:
         - WallLayer
   - type: Damageable
-    damageModifierSet: PlasticMod
+    damageModifierSet: Inflatable
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 30
+        damage: 20
       behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          path: /Audio/Effects/balloon-pop.ogg
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: DisassembleOnAltVerb
     prototypeToSpawn: InflatableWallStack1
     disassembleTime: 3
@@ -42,7 +43,7 @@
     mode: SnapgridCenter
 
 - type: entity
-  parent: [ BaseStructure, BaseDeltaPressureGlass, StructureHealthBarrierWeak ]
+  parent: [ BaseStructure, BaseDeltaPressureGlass ]
   id: InflatableDoor
   name: inflatable door
   description: An inflated membrane. Activate to deflate. Now with a door. Do not puncture.
@@ -83,16 +84,17 @@
   - type: Appearance
   - type: Airtight
   - type: Damageable
-    damageModifierSet: PlasticMod
+    damageModifierSet: Inflatable
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 30
+        damage: 20
       behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          path: /Audio/Effects/balloon-pop.ogg
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: DisassembleOnAltVerb
     prototypeToSpawn: InflatableDoorStack1
     disassembleTime: 3

@@ -29,6 +29,8 @@
   - type: ApcPowerReceiver
     powerLoad: 1000
   - type: ExtensionCableReceiver
+  - type: Damageable
+    damageModifierSet: Metallic
   - type: Destructible
     thresholds:
     - trigger: !type:DamageTrigger

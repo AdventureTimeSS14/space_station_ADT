@@ -1,12 +1,10 @@
 - type: entity
-  abstract: true
-  parent: BaseSignWeak
+  parent: BaseSign
   id: BaseFlag
+  abstract: true
   components:
   - type: Sprite
     sprite: Structures/Wallmounts/flags.rsi
-  - type: Damageable
-    damageModifierSet: ThreadMod
 
 - type: entity
   parent: BaseFlag

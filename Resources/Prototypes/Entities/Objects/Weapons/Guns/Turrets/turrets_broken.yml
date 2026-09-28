@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ BaseStructure, StructureHealthFurnitureStrong ]
+  parent: BaseStructure
   id: WeaponTurretSyndicateBroken
   name: ballistic turret (broken)
   description: A ballistic machine gun auto-turret.
@@ -12,13 +12,16 @@
     layers:
     - state: syndie_broken
   - type: Damageable
-    damageModifierSet: SteelMod
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 80
+        damage: 450
       behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalGlassBreak

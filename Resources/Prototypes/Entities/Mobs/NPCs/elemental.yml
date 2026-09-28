@@ -68,7 +68,7 @@
     factions:
       - SimpleHostile
   - type: Injurable
-    damageContainer: StructuralBiological
+    damageContainer: StructuralInorganic
 
 - type: entity
   parent: MobOreCrab

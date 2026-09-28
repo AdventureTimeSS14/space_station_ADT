@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ BaseStructureDynamic, BasePaperLabelableVisualized, StructureHealthContainer ]
+  parent: [ BaseStructureDynamic, BasePaperLabelableVisualized ]
   id: CrateArtifactContainer
   name: artifact container
   description: Used to safely contain and move artifacts.
@@ -54,16 +54,17 @@
     - type: PlaceableSurface
       isPlaceable: false
     - type: Damageable
-      damageModifierSet: PlasteelMod
+      damageModifierSet: StructuralMetallicStrong
+    - type: Injurable
+      damageContainer: StructuralInorganic
     - type: Destructible
       thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 100
+          damage: 50
         behaviors:
-        - !type:PlaySoundBehavior
-          sound:
-            collection: MetalGlassBreak
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
     - type: Appearance
     - type: EntityStorageVisuals
       stateDoorOpen: artifact_container_open
@@ -93,7 +94,7 @@
       price: 250
 
 - type: entity
-  parent: [ BaseStorageItem, StructureHealthContainerWeak ]
+  parent: BaseStorageItem
   id: HandheldArtifactContainer
   name: handheld artifact container
   description: A handheld case used to safely contain and move small artifacts.
@@ -136,16 +137,17 @@
       path: /Audio/Items/toolbox_drop.ogg
   - type: LockVisuals
   - type: Damageable
-    damageModifierSet: PlasteelMod
+    damageModifierSet: StructuralMetallicStrong
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 60
+        damage: 50
       behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalGlassBreak
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
   - type: PaperLabel
     labelSlot:
       insertVerbText: Attach Label

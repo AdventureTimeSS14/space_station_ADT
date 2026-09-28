@@ -1,6 +1,6 @@
 - type: entity
   id: ResearchAndDevelopmentServer
-  parent: [ BaseMachinePowered, ConstructibleMachine, StructureHealthMachineStrong ]
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
   name: R&D server
   description: Contains the collective knowledge of the station's scientists. Destroying it would send them back to the stone age. You don't want that do you?
   components:
@@ -36,24 +36,22 @@
   - type: WiresVisuals
   - type: Machine
     board: ResearchAndDevelopmentServerMachineCircuitboard
-  - type: Damageable
-    damageModifierSet: PlasmaMod
   - type: Destructible
     thresholds:
-    - trigger: &DamageMachineStrong
+    - trigger:
         !type:DamageTrigger
-        damage: 275
+        damage: 300
       behaviors:
-      - !type:ChangeConstructionNodeBehavior
-        node: machineFrame
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
       - !type:SpawnEntitiesBehavior
         spawn:
-          SheetPlasma1:
+          SheetSteel1:
             min: 1
-            max: 3
+            max: 2
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -73,8 +71,8 @@
     - Science
 
 - type: entity
-  parent: [ BaseMachinePowered, StructureHealthMachineStrong ]
   id: BaseResearchAndDevelopmentPointSource
+  parent: BaseMachinePowered
   name: "base R&D point source"
   # We should make this abstract once there are actual point sources.
   components:
@@ -107,20 +105,22 @@
         enum.PowerDeviceVisualLayers.Powered:
           True: {visible: true}
           False: {visible: false}
-  - type: Damageable
-    damageModifierSet: PlasteelMod
   - type: Destructible
     thresholds:
-    - trigger: *DamageMachineStrong
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
       behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
       - !type:SpawnEntitiesBehavior
         spawn:
-          SheetPlasteel1:
+          SheetSteel1:
             min: 1
-            max: 5
+            max: 1
   - type: GuideHelp
     guides:
     - Science

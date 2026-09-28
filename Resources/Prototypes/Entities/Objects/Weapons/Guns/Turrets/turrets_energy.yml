@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: [BaseWeaponEnergyTurretIndestructible, ConstructibleMachine, StructureHealthMachineStrong]
+  parent: [BaseWeaponEnergyTurretIndestructible, ConstructibleMachine]
   id: WeaponEnergyTurretStationBase
   name: sentry turret
   description: A high-tech autonomous weapons system designed to keep unauthorized personnel out of sensitive areas.
@@ -83,10 +83,12 @@
     - proto: BulletEnergyTurretLaser
       fireCost: 100
   - type: DeployableTurret
-    retractedDamageModifierSetId: PlasteelMod
-    deployedDamageModifierSetId: SteelMod
+    retractedDamageModifierSetId: Metallic
+    deployedDamageModifierSetId: FlimsyMetallic
   - type: Damageable
-    damageModifierSet: PlasteelMod
+    damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Repairable
     doAfterDelay: 10
     allowSelfRepair: false
@@ -94,20 +96,24 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 175
+        damage: 300
       behaviors:
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Breakage" ]
     - trigger:
         !type:DamageTrigger
-        damage: 275
+        damage: 600
       behaviors:
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
       - !type:ChangeConstructionNodeBehavior
         node: machineFrame
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
   - type: DeviceNetwork
     deviceNetId: Wired
     receiveFrequencyId: TurretControl

@@ -1,26 +1,18 @@
 - type: entity
   abstract: true
-  parent: [ BaseStructureDynamic, SmallConstructibleMachine, BaseSmallConstructibleMachineDestructible ]
+  parent: [ BaseStructureDynamic, SmallConstructibleMachine ]
   id: SurveillanceWirelessCameraBase
   name: wireless camera
   description: A camera. It's watching you. Kinda.
-  placement:
-    mode: SnapgridCenter
   components:
     - type: InteractionOutline
     - type: Eye
     - type: WirelessNetworkConnection
       range: 200
     - type: Damageable
-      damageModifierSet: GlassMod
-    - type: Destructible
-      thresholds:
-      - trigger: !type:DamageTrigger
-          damage: 100
-        behaviors:
-        - !type:PlaySoundBehavior
-          sound:
-            collection: MetalGlassBreak
+      damageModifierSet: Metallic
+    - type: Injurable
+      damageContainer: StructuralInorganic
     - type: Rotatable
       rotateWhileAnchored: true
     - type: Fixtures
@@ -46,6 +38,8 @@
       interfaces:
         enum.SurveillanceCameraSetupUiKey.Camera:
           type: SurveillanceCameraSetupBoundUi
+  placement:
+    mode: SnapgridCenter
 
 - type: entity
   abstract: true

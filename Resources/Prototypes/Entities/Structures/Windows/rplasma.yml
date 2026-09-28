@@ -1,5 +1,5 @@
 - type: entity
-  parent: [BaseDeltaPressureReinforcedPlasma, BaseWindowStructure, BaseRCDResistant, StructureHealthBarrierStrong]
+  parent: [BaseDeltaPressureReinforcedPlasma, BaseWindowStructure, BaseRCDResistant]
   id: ReinforcedPlasmaWindow
   name: reinforced plasma window
   components:
@@ -9,14 +9,16 @@
     sprite: Structures/Windows/window-plasma-reinf.rsi
     state: full
   - type: Damageable
-    damageModifierSet: GlassReinforcedPlasmaMod
+    damageModifierSet: RGlass
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: RadiationBlocker
     resistance: 4
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 120
+        damage: 150
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -29,6 +31,8 @@
           PartRodMetal:
             min: 1
             max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: IconSmooth
     base: rpwindow
   - type: Construction
@@ -45,7 +49,7 @@
     price: 132
 
 - type: entity
-  parent: [BaseDeltaPressureReinforcedPlasmaQuarter, BaseWindowStructureDirectional, BaseRCDResistant, StructureHealthBarrier]
+  parent: [BaseDeltaPressureReinforcedPlasmaQuarter, BaseWindowStructureDirectional, BaseRCDResistant]
   id: PlasmaReinforcedWindowDirectional
   name: directional reinforced plasma window
   components:
@@ -66,14 +70,16 @@
     damageOverlay:
       sprite: Structures/Windows/cracks_directional.rsi
   - type: Damageable
-    damageModifierSet: GlassReinforcedPlasmaMod
+    damageModifierSet: RGlass
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: RadiationBlocker
     resistance: 2
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 80
+        damage: 75
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -86,6 +92,8 @@
           PartRodMetal:
             min: 1
             max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: StaticPrice
     price: 66
 

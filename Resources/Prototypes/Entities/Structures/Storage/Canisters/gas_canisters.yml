@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: [ BaseStructureDynamic, BasePaperLabelableVisualized, StructureHealthContainerStrong ]
+  parent: [ BaseStructureDynamic, BasePaperLabelableVisualized ]
   id: GasCanister
   name: gas canister
   description: A canister that can contain any type of gas. It can be attached to connector ports using a wrench.
@@ -67,18 +67,22 @@
     interfaces:
       enum.GasCanisterUiKey.Key:
         type: GasCanisterBoundUserInterface
-  - type: Damageable
-    damageModifierSet: PlasteelMod
   - type: Destructible
     thresholds:
-    - trigger: &DamageContainerStrong
+    - trigger: &DamageTrigger300
         !type:DamageTrigger
-        damage: 140
+        damage: 300
       behaviors:
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
       - !type:DumpCanisterBehavior
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Physics
     bodyType: Dynamic
   - type: Fixtures
@@ -163,13 +167,21 @@
         temperature: 293.15
     - type: Destructible
       thresholds:
-      - trigger: *DamageContainerStrong
+      - trigger:
+          !type:DamageTrigger
+          damage: 300
         behaviors:
+        - !type:PlaySoundBehavior
+          sound:
+            collection: MetalBreak
         - !type:SpawnEntitiesBehavior
           spawn:
             StorageCanisterBroken:
               min: 1
               max: 1
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:DumpCanisterBehavior
 
 # Filled canisters, contain 1871.71051 moles each
 
@@ -204,7 +216,7 @@
       temperature: 293.15
   - type: Destructible
     thresholds:
-    - trigger: *DamageContainerStrong
+    - trigger: *DamageTrigger300
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
@@ -241,7 +253,7 @@
       temperature: 293.15
   - type: Destructible
     thresholds:
-    - trigger: *DamageContainerStrong
+    - trigger: *DamageTrigger300
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
@@ -293,7 +305,7 @@
         temperature: 293.15
     - type: Destructible
       thresholds:
-      - trigger: *DamageContainerStrong
+      - trigger: *DamageTrigger300
         behaviors:
         - !type:SpawnEntitiesBehavior
           spawn:
@@ -345,7 +357,7 @@
         temperature: 293.15
     - type: Destructible
       thresholds:
-      - trigger: *DamageContainerStrong
+      - trigger: *DamageTrigger300
         behaviors:
         - !type:SpawnEntitiesBehavior
           spawn:
@@ -399,7 +411,7 @@
         temperature: 293.15
     - type: Destructible
       thresholds:
-      - trigger: *DamageContainerStrong
+      - trigger: *DamageTrigger300
         behaviors:
         - !type:SpawnEntitiesBehavior
           spawn:
@@ -438,7 +450,7 @@
         temperature: 293.15
     - type: Destructible
       thresholds:
-      - trigger: *DamageContainerStrong
+      - trigger: *DamageTrigger300
         behaviors:
         - !type:SpawnEntitiesBehavior
           spawn:
@@ -477,7 +489,7 @@
         temperature: 293.15
     - type: Destructible
       thresholds:
-      - trigger: *DamageContainerStrong
+      - trigger: *DamageTrigger300
         behaviors:
         - !type:SpawnEntitiesBehavior
           spawn:
@@ -514,7 +526,7 @@
         temperature: 293.15
     - type: Destructible
       thresholds:
-      - trigger: *DamageContainerStrong
+      - trigger: *DamageTrigger300
         behaviors:
         - !type:SpawnEntitiesBehavior
           spawn:
@@ -553,7 +565,7 @@
         temperature: 293.15
     - type: Destructible
       thresholds:
-      - trigger: *DamageContainerStrong
+      - trigger: *DamageTrigger300
         behaviors:
         - !type:SpawnEntitiesBehavior
           spawn:
@@ -592,7 +604,7 @@
       temperature: 293.15
   - type: Destructible
     thresholds:
-    - trigger: *DamageContainerStrong
+    - trigger: *DamageTrigger300
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
@@ -621,18 +633,16 @@
 # Broke Entities
 
 - type: entity
-  parent: [ BaseStructureDynamic, StructureHealthContainerWeak ]
+  parent: BaseStructureDynamic
   id: GasCanisterBrokenBase
   name: broken gas canister
   description: A broken gas canister. Not useless yet, as it can be salvaged for high quality materials.
   components:
-    - type: Damageable
-      damageModifierSet: PlasteelMod
     - type: Destructible
       thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 60
+          damage: 100
         behaviors:
         - !type:PlaySoundBehavior
           sound:
@@ -642,6 +652,12 @@
             SheetPlasteel1:
               min: 1
               max: 2
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - type: Damageable
+      damageModifierSet: Metallic
+    - type: Injurable
+      damageContainer: Inorganic
     - type: InteractionOutline
     - type: Sprite
       sprite: Structures/Storage/canister.rsi
@@ -661,7 +677,7 @@
           - MachineLayer
     - type: PhysicalComposition
       materialComposition:
-        Plasteel: 200
+        Steel: 500
     - type: StaticPrice
       price: 125
 

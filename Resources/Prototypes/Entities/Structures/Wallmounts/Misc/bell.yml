@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ BaseWallmountMetallic, StructureHealthFurnitureStrong ]
+  parent: BaseWallmountMetallic
   id: BoxingBell
   name: boxing bell
   description: Ding ding!
@@ -18,19 +18,14 @@
         path:
           "/Audio/Weapons/boxingbell.ogg"
   - type: Appearance
-  - type: Damageable
-    damageModifierSet: BrassMod
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 80
+        damage: 150
       behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          SheetBrass1:
-            min: 1
-            max: 2

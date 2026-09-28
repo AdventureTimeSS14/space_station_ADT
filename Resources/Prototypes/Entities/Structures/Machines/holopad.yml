@@ -90,8 +90,6 @@
   - type: Wires
     boardName: wires-board-name-holopad
     layoutId: Holopad
-  - type: Damageable
-    damageModifierSet: GlassMod
   - type: Destructible
     thresholds:
     - trigger:

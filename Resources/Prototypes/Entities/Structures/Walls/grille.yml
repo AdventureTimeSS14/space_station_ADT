@@ -1,22 +1,12 @@
 - type: entity
-  parent: [ BaseStructure, StructureHealthBarrier ]
+  parent: BaseStructure
   id: Grille
   name: grille
-  description: A flimsy framework of iron rods.
   placement:
     mode: SnapgridCenter
     snap:
     - Wall
   components:
-  - type: MeleeSound
-    soundGroups:
-      Brute:
-        path:
-          "/Audio/Weapons/grille_hit.ogg"
-  - type: RCDDeconstructable
-    cost: 6
-    delay: 4
-    fx: EffectRCDDeconstruct4
   - type: CanBuildWindowOnTop
   - type: Anchorable
     flags:
@@ -40,6 +30,10 @@
     index: 0
     key: walls
     base: grille
+  - type: Damageable
+    damageModifierSet: PerforatedMetallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Electrified
     requirePower: true
     noWindowInTile: true
@@ -77,35 +71,43 @@
           True: { visible: True }
           False: { visible: False }
   - type: AnimationPlayer
-  - type: Damageable
-    damageModifierSet: SteelMod
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 80
+        damage: 200 #excess damage (nuke?). avoid computational cost of spawning entities.
       behaviors:
-      - &SpawnRod !type:SpawnEntitiesBehavior
-        spawn:
-          PartRodMetal1:
-            min: 0
-            max: 1
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
       - !type:ChangeConstructionNodeBehavior
         node: grilleBroken
-      - !type:PlaySoundBehavior
-        sound:
-          path: "/Audio/Weapons/grille_hit.ogg"
+      - !type:DoActsBehavior
+        acts: ["Breakage"]
   - type: Construction
     graph: Grille
     node: grille
 
 ### DIAGONAL
 - type: entity
-  parent: Grille
+  parent: BaseStructure
   id: GrilleDiagonal
   name: diagonal grille
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
   components:
+  - type: CanBuildWindowOnTop
+  - type: Anchorable
+    flags:
+    - Anchorable
+  - type: Rotatable
   - type: Sprite
+    drawdepth: Walls
     sprite: Structures/Walls/grille-diagonal.rsi
     layers:
     - state: state0
@@ -122,6 +124,31 @@
     mode: Diagonal
     key: grilles
     base: state
+  - type: PlacementReplacement
+    key: grilles
+  - type: Damageable
+    damageModifierSet: PerforatedMetallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  - type: Electrified
+    requirePower: true
+    noWindowInTile: true
+    highVoltageNode: high
+    mediumVoltageNode: medium
+    lowVoltageNode: low
+  - type: NodeContainer
+    nodes:
+      high:
+        !type:CableDeviceNode
+        nodeGroupID: HVPower
+      medium:
+        !type:CableDeviceNode
+        nodeGroupID: MVPower
+      low:
+        !type:CableDeviceNode
+        nodeGroupID: Apc
+  - type: Physics
+    bodyType: Static
   - type: Fixtures
     fixtures:
       fix1:
@@ -135,14 +162,38 @@
         - FullTileMask
         layer:
         - GlassLayer
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ElectrifiedVisuals.ShowSparks:
+        enum.ElectrifiedLayers.Sparks:
+          True: { visible: True }
+          False: { visible: False }
+  - type: AnimationPlayer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200 #excess damage (nuke?). avoid computational cost of spawning entities.
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:ChangeConstructionNodeBehavior
+        node: grilleBroken
+      - !type:DoActsBehavior
+        acts: ["Breakage"]
   - type: Construction
     graph: GrilleDiagonal
     node: grilleDiagonal
 
 ### BROKEN
 - type: entity
-  parent: [ BaseStructure, StructureHealthFurnitureWeak ]
   id: GrilleBroken
+  parent: BaseStructure
   name: grille
   description: A flimsy framework of iron rods. It has seen better days.
   components:
@@ -169,14 +220,16 @@
     tags:
     - ForceNoFixRotations
   - type: Damageable
-    damageModifierSet: SteelMod
+    damageModifierSet: FlimsyMetallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 5
+        damage: 10
       behaviors:
-      - *SpawnRod
-      - !type:PlaySoundBehavior
-        sound:
-          path: "/Audio/Weapons/grille_hit.ogg"
+      - !type:ChangeConstructionNodeBehavior
+        node: start
+      - !type:DoActsBehavior
+        acts: ["Destruction"]

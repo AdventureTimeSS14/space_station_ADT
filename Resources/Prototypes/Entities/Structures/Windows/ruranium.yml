@@ -1,5 +1,5 @@
 - type: entity
-  parent: [BaseDeltaPressureReinforcedPlasma, BaseWindowStructure, BaseRCDResistant, StructureHealthBarrierStrong]
+  parent: [BaseDeltaPressureReinforcedPlasma, BaseWindowStructure, BaseRCDResistant]
   id: ReinforcedUraniumWindow
   name: reinforced uranium window
   components:
@@ -9,12 +9,14 @@
     sprite: Structures/Windows/window-uranium-reinf.rsi
     state: full
   - type: Damageable
-    damageModifierSet: GlassReinforcedMod
+    damageModifierSet: RGlass
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 120
+        damage: 225
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -27,6 +29,8 @@
           PartRodMetal:
             min: 1
             max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: IconSmooth
     base: ruwindow
   - type: Construction
@@ -45,7 +49,7 @@
     resistance: 5
 
 - type: entity
-  parent: [BaseDeltaPressureReinforcedPlasmaQuarter, BaseWindowStructureDirectional, BaseRCDResistant, StructureHealthBarrier]
+  parent: [BaseDeltaPressureReinforcedPlasmaQuarter, BaseWindowStructureDirectional, BaseRCDResistant]
   id: UraniumReinforcedWindowDirectional
   name: directional reinforced uranium window
   components:
@@ -66,12 +70,14 @@
     damageOverlay:
       sprite: Structures/Windows/cracks_directional.rsi
   - type: Damageable
-    damageModifierSet: GlassReinforcedMod
+    damageModifierSet: RGlass
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 80
+        damage: 113
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -84,6 +90,8 @@
           PartRodMetal:
             min: 1
             max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: StaticPrice
     price: 110
   - type: RadiationBlocker

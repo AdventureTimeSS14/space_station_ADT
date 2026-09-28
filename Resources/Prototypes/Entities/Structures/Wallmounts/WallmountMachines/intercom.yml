@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ BaseWallmountMachine, StructureHealthMachineWeak ]
+  parent: BaseWallmountMachine
   id: BaseIntercom
   name: intercom
   description: An intercom. For when the station just needs to know something.
@@ -83,14 +83,13 @@
         !type:DamageTrigger
         damage: 100
       behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalGlassBreak
           params:
             volume: -4
-      - !type:EmptyContainersBehaviour
-        containers:
-        - key_slots
   - type: GenericVisualizer
     visuals:
       enum.WiresVisualLayers.MaintenancePanel:
@@ -111,7 +110,7 @@
           False: { visible: false }
 
 - type: entity
-  parent: [ BaseWallmountMetallic, StructureHealthMachineFlimsy ]
+  parent: BaseWallmountMetallic
   id: IntercomAssembly
   name: intercom assembly
   description: An intercom. It doesn't seem very helpful right now.
@@ -129,8 +128,10 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 50
+        damage: 100
       behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalGlassBreak

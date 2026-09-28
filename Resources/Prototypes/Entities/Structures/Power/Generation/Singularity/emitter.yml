@@ -1,7 +1,7 @@
 - type: entity
-  parent: [ SmallConstructibleMachine, StructureHealthMachineStrong ]
   id: Emitter
   name: emitter
+  parent: SmallConstructibleMachine
   description: A heavy duty industrial laser. Shoots non-stop when turned on.
   placement:
     mode: SnapgridCenter
@@ -66,7 +66,9 @@
         !type:CableDeviceNode
         nodeGroupID: MVPower
   - type: Damageable
-    damageModifierSet: PlasteelMod
+    damageModifierSet: StructuralMetallicStrong
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: ActiveRadio
     channels:
     - Engineering
@@ -74,7 +76,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 275
+        damage: 200
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -84,6 +86,8 @@
           SheetSteel1:
             min: 5
             max: 5
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: Anchorable
   - type: Pullable
   - type: Rotatable

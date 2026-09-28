@@ -310,6 +310,7 @@
       types:
         Blunt: 5
         Slash: 10
+        Structural: 5
 
 - type: entity
   parent: [BaseMobArgocyte, BaseSlicingRefinable]
@@ -340,6 +341,7 @@
       types:
         Blunt: 15
         Slash: 5
+        Structural: 5
   - type: MovementSpeedModifier
     baseSprintSpeed : 6.5
     baseWalkSpeed: 5
@@ -372,6 +374,7 @@
       types:
         Blunt: 10
         Slash: 15
+        Structural: 10
   - type: MovementSpeedModifier
     baseSprintSpeed : 3.5
     baseWalkSpeed: 3
@@ -416,6 +419,7 @@
     damage:
       types:
         Blunt: 25
+        Structural: 25
   - type: MovementSpeedModifier
     baseSprintSpeed : 3
     baseWalkSpeed: 3
@@ -460,3 +464,4 @@
     damage:
       types:
         Blunt: 75
+        Structural: 50

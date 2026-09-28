@@ -1,11 +1,11 @@
 ﻿# base
 
 - type: entity
-  abstract: true
-  parent: [ BaseMachinePowered, BaseMachineDestructible ]
   id: BaseVendingMachine
+  parent: [ BaseMachinePowered, BaseMachineDestructible ]
   name: vending machine
   description: Just add capitalism!
+  abstract: true
   components:
   - type: ActionGrant
     actions:
@@ -36,19 +36,19 @@
         layer:
         - MachineLayer
         density: 200
-  - type: Damageable
-    damageModifierSet: GlassReinforcedMod
   - type: Destructible
     thresholds:
     - trigger: !type:DamageTrigger
         damage: 175
-      behaviors: &BehaviorVendorDestroy
+      behaviors:
       - !type:PlaySoundBehavior
         sound:
           collection: MetalGlassBreak
     - trigger: !type:DamageTrigger
         damage: 75
-      behaviors: &BehaviorVendorBreak
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Breakage" ]
       - !type:EjectVendorItems
   - type: Repairable
     doAfterDelay: 8
@@ -118,8 +118,8 @@
     normalState: normal-unshaded
 
 - type: entity
-  parent: [ BaseWallmountMachine, StructureHealthMachineWeak ]
   id: VendingMachineWallmount
+  parent: BaseWallmountMachine
   name: vending machine
   abstract: true
   components:
@@ -131,18 +131,29 @@
     enabled: false
     sound:
       path: /Audio/Ambience/Objects/vending_machine_hum.ogg
-  - type: Damageable
-    damageModifierSet: GlassReinforcedMod
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
         damage: 100
-      behaviors: *BehaviorVendorDestroy
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Breakage"]
+      - !type:EjectVendorItems
     - trigger:
         !type:DamageTrigger
-        damage: 50
-      behaviors: *BehaviorVendorBreak
+        damage: 200
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
   - type: Repairable
     doAfterDelay: 8
   - type: ActivatableUI

@@ -1,5 +1,4 @@
 - type: entity
-  parent: StructureHealthMachineWeak
   id: TwoWayLever
   name: two way lever
   description: A two way lever.
@@ -27,26 +26,17 @@
             Middle: { state: switch-off }
             Left: { state: switch-rev }
     - type: Damageable
-      damageModifierSet: SteelMod
+      damageModifierSet: Metallic
+    - type: Injurable
+      damageContainer: Inorganic
     - type: Destructible
       thresholds:
       - trigger:
           !type:DamageTrigger
           damage: 100
         behaviors:
-        - !type:PlaySoundBehavior
-          sound:
-            collection: MetalBreak
-            params:
-              volume: -4
-        - !type:SpawnEntitiesBehavior
-          spawn:
-            SheetSteel1:
-              min: 0
-              max: 1
-            PartRodMetal1:
-              min: 0
-              max: 1
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
     - type: Construction
       graph: LeverGraph
       node: LeverNode

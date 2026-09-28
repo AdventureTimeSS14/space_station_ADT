@@ -8,7 +8,7 @@
     - Syndicate
 
 - type: entity
-  parent: [ BaseWeaponBallisticTurretIndestructible, StructureHealthMachineWeak ]
+  parent: BaseWeaponBallisticTurretIndestructible
   id: WeaponTurretSyndicateDisposable
   name: disposable ballistic turret
   suffix: Syndicate, Disposable
@@ -17,13 +17,16 @@
     factions:
     - Syndicate
   - type: Damageable
-    damageModifierSet: SteelMod
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
         damage: 100
       behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
       - !type:TriggerBehavior
   - type: Gun
     fireRate: 2
@@ -78,7 +81,7 @@
     - AllHostile
 
 - type: entity
-  parent: [ BaseWeaponBallisticTurretIndestructible, StructureHealthMachine ]
+  parent: BaseWeaponBallisticTurretIndestructible
   id: WeaponTurretXeno
   name: xeno turret
   suffix: Xeno
@@ -107,16 +110,18 @@
         path: /Audio/Animals/snake_hiss.ogg
   - type: Damageable
   - type: Injurable
-    damageContainer: StructuralBiological
+    damageContainer: Biological
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 175
+        damage: 100
       behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
-          collection: gib
+          path: /Audio/Effects/gib1.ogg
       - !type:SpawnEntitiesBehavior
         spawn:
           FoodMeatXeno:

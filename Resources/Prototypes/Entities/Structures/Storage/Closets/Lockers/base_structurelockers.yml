@@ -1,7 +1,7 @@
 - type: entity
-  abstract: true
-  parent: [ ClosetBase, StructureHealthContainer ]
   id: LockerBase
+  parent: ClosetBase
+  abstract: true
   components:
   - type: AccessReader
   - type: Lock
@@ -33,13 +33,17 @@
   - type: Paintable
     group: Locker
   - type: Damageable
-    damageModifierSet: PlasteelMod
+    damageModifierSet: StructuralMetallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 150
       behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak

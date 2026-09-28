@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: [SolutionTank, SolutionGinormous, BaseWallmountMetallic, StructureHealthContainerFlimsy]
+  parent: [SolutionTank, SolutionGinormous, BaseWallmountMetallic]
   id: BaseDispenser
   components:
   - type: Sprite
@@ -24,13 +24,15 @@
         solution: tank
     - trigger:
         !type:DamageTrigger
-        damage: 20
+        damage: 10
       behaviors:
       - !type:SpillBehavior
         solution: tank
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
   - type: DrainableSolution
     solution: tank
   - type: ReagentTank

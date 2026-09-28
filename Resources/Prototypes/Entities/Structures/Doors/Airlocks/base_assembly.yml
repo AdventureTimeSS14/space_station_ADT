@@ -1,6 +1,5 @@
 #Base
 - type: entity
-  parent: StructureHealthDoorWeak
   id: AirlockAssembly
   name: airlock assembly
   description: It opens, it closes, and maybe crushes you.
@@ -29,7 +28,9 @@
     anchored: true
     noRot: true
   - type: Damageable
-    damageModifierSet: SteelMod
+    damageModifierSet: StructuralMetallicStrong
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: RCDDeconstructable
     cost: 6
     delay: 8
@@ -38,13 +39,10 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 300
       behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-          params:
-            volume: -4
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
   - type: Construction
     graph: Airlock
     node: assembly

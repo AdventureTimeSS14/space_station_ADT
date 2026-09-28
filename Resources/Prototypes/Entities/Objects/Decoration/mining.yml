@@ -1,5 +1,4 @@
 - type: entity
-  parent: StructureHealthFurnitureWeak
   id: WoodenSign
   name: wooden sign
   description: He's pointing somewhere.
@@ -19,7 +18,9 @@
           bounds: "-0.35,-0.4,0.35,0.4"
         density: 100
   - type: Damageable
-    damageModifierSet: WoodMod
+    damageModifierSet: Wood
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: MeleeSound
     soundGroups:
       Brute:
@@ -30,13 +31,10 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 5
+        damage: 10
       behaviors:
-      - &SoundWoodDestroy !type:PlaySoundBehavior
-        sound:
-          collection: WoodDestroy
-          params:
-            volume: -4
+      - !type:DoActsBehavior
+          acts: [ "Destruction" ]
       - !type:SpawnEntitiesBehavior
         spawn:
           Log:
@@ -53,7 +51,7 @@
 
 - type: entity
   abstract: true
-  parent: [ BaseStructure, StructureHealthFurniture ]
+  parent: BaseStructure
   id: BaseWoodenSupport
   placement:
     mode: SnapgridCenter
@@ -64,19 +62,9 @@
     noRot: true
     sprite: Objects/Decoration/mines.rsi
   - type: Damageable
-    damageModifierSet: WoodMod
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 40
-      behaviors:
-      - *SoundWoodDestroy
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          Log:
-            min: 1
-            max: 3
+    damageModifierSet: Wood
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Physics
     bodyType: Static
   - type: MeleeSound
@@ -103,6 +91,19 @@
         layer:
         - WallLayer
         density: 1000
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Log:
+            min: 1
+            max: 3
 
 - type: entity
   parent: BaseWoodenSupport
@@ -144,6 +145,19 @@
         layer:
         - WallLayer
         density: 1000
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+      - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Log:
+            min: 2
+            max: 5
 
 - type: entity
   parent: BaseWoodenSupport
@@ -152,3 +166,16 @@
   - type: Wall
   - type: Sprite
     state: support_wall_broken
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Log:
+            min: 1
+            max: 3

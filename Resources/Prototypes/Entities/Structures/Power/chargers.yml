@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: [BaseMachinePowered, ConstructibleMachine]
+  parent: [BaseMachinePowered, ConstructibleMachine, BaseConstructibleMachineDestructible]
   id: BaseRecharger
   placement:
     mode: SnapgridCenter
@@ -17,12 +17,22 @@
     powerLoad: 1 # same as draw given in ChargerComponent.PassiveDraw; increased when it is actually charging something
   - type: Anchorable
     delay: 1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 175
+      behaviors:
+      - !type:EmptyAllContainersBehaviour
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
   - type: StaticPrice
     price: 75
 
 - type: entity
   abstract: true
-  parent: [ BaseRecharger, BaseSmallConstructibleMachineDestructible ]
+  parent: BaseRecharger
   id: BaseItemRecharger
   components:
   - type: Sprite
@@ -51,18 +61,6 @@
       machine_board: !type:Container
       machine_parts: !type:Container
   - type: RequireProjectileTarget
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:EmptyContainersBehaviour
-        containers:
-        - charger_slot
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
 
 - type: entity
   parent: BaseItemRecharger
@@ -121,8 +119,6 @@
         - MachineMask
         layer:
         - MachineLayer
-  - type: Damageable
-    damageModifierSet: PlasteelMod
   - type: LitOnPowered
   - type: PointLight
     radius: 1.5
@@ -233,7 +229,7 @@
           - PotatoBattery
 
 - type: entity
-  parent: [ BaseRecharger, BaseConstructibleMachineDestructible ]
+  parent: BaseRecharger
   id: BorgCharger
   name: cyborg recharging station
   description: A stationary charger for various robotic and cyborg entities. Surprisingly spacious.
@@ -319,15 +315,6 @@
         - MachineMask
         layer:
         - MachineLayer
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 175
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
 
 - type: entity
   parent: BorgCharger

@@ -31,7 +31,7 @@
     containers:
       - clonepod-bodyContainer
   - type: Damageable
-    damageModifierSet: GlassReinforcedMod
+    damageModifierSet: StrongMetallic
   - type: Destructible
     thresholds:
     - trigger: !type:DamageTrigger

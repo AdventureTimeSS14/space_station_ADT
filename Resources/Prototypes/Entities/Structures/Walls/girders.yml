@@ -1,7 +1,8 @@
 - type: entity
-  abstract: true
+  id: Girder
   parent: BaseStructureDynamic
-  id: BaseGirder
+  name: girder
+  description: A large structural assembly made out of metal; It requires a layer of metal before it can be considered a wall.
   components:
   - type: Transform
     anchored: true
@@ -20,13 +21,6 @@
         layer:
         - GlassAirlockLayer
   - type: InteractionOutline
-
-- type: entity
-  parent: [ BaseGirder, StructureHealthBarrier ]
-  id: Girder
-  name: girder
-  description: A large structural assembly made out of metal; It requires a layer of metal before it can be considered a wall.
-  components:
   - type: Construction
     graph: Girder
     node: girder
@@ -34,18 +28,22 @@
     sprite: Structures/Walls/solid.rsi
     state: wall_girder
   - type: Damageable
-    damageModifierSet: SteelMod
+    damageModifierSet: StructuralMetallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 80
+        damage: 50
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
           SheetSteel1:
-            min: 0
-            max: 2
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
@@ -53,7 +51,7 @@
     price: 30
 
 - type: entity
-  parent: [ BaseGirder, StructureHealthBarrierWeak ]
+  parent: Girder
   id: ReinforcedGirder
   name: reinforced girder
   description: A large structural assembly made out of metal and plasteel; It requires a layer of plasteel before it can be considered a reinforced wall.
@@ -64,25 +62,16 @@
   - type: Construction
     graph: Girder
     node: reinforcedGirder
-  - type: Damageable
-    damageModifierSet: PlasteelMod
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 30
+        damage: 50
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
           SheetPlasteel1:
-            min: 0
-            max: 2
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-          params:
-            volume: -4
-      - !type:ChangeConstructionNodeBehavior
-        node: girder
+            min: 1
+            max: 1
   - type: StaticPrice
     price: 130

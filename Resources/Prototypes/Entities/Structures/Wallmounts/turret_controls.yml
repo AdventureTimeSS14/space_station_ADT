@@ -1,13 +1,8 @@
 - type: entity
-  parent: StructureHealthMachine
   id: WeaponEnergyTurretControlPanelFrame
   name: sentry turret control panel assembly
   description: An incomplete wall-mounted assembly for a sentry turret control panel.
   categories: [ HideSpawnMenu ]
-  placement:
-    mode: SnapgridCenter
-    snap:
-    - Wallmount
   components:
   - type: Sprite
     noRot: false
@@ -16,18 +11,24 @@
     layers:
     - state: base
   - type: Damageable
-    damageModifierSet: SteelMod
+    damageModifierSet: StructuralMetallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
-    - trigger: &DamageMachineNormal
+    - trigger:
         !type:DamageTrigger
-        damage: 175
+        damage: 200
       behaviors:
       - !type:PlaySoundBehavior
         sound:
           collection: MetalGlassBreak
           params:
             volume: -4
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: Transform
     anchored: true
   - type: WallMount
@@ -41,6 +42,10 @@
     node: frame
     containers:
     - board
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wallmount
 
 - type: entity
   abstract: true
@@ -77,22 +82,6 @@
           -1: { state: safe }
           0: { state: stun }
           1: { state: lethal }
-  - type: Damageable
-    damageModifierSet: GlassReinforcedMod
-  - type: Destructible
-    thresholds:
-    - trigger: *DamageMachineNormal
-      behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          ShardGlass:
-            min: 0
-            max: 1
-      - !type:EmptyContainersBehaviour
-        containers:
-        - board
-      - !type:ChangeConstructionNodeBehavior
-        node: frame
   - type: StationAiWhitelist
   - type: DeployableTurretController
     accessGroups:

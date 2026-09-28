@@ -1,5 +1,4 @@
 - type: entity
-  parent: StructureHealthFurnitureStrong
   id: ChurchBell
   name: church bell
   description: You feel your soul grow ever closer to the realms beyond for every chime this bell tolls...
@@ -28,18 +27,16 @@
   - type: Fixtures
   - type: InteractionOutline
   - type: Damageable
-    damageModifierSet: BrassMod
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 80
+        damage: 150
       behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          SheetBrass1:
-            min: 1
-            max: 2

@@ -23,7 +23,7 @@
 
 - type: entity
   abstract: true
-  parent: [ CablePhysBase, StructureHealthContainerWeak ] # contains electricity :o)
+  parent: CablePhysBase
   id: CableBase
   components:
   - type: Visibility
@@ -32,16 +32,17 @@
     drawdepth: ThinWire
     visible: false
   - type: Damageable
-    damageModifierSet: SteelMod
+    damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
-    - trigger: &DamageContainerWeak
+    - trigger:
         !type:DamageTrigger
-        damage: 60
+        damage: 50
       behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          path: /Audio/Effects/cig_snuff.ogg # Temporary but fits weirdly well
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
   - type: SubFloorHide
   - type: Electrified
     onHandInteract: false
@@ -81,7 +82,9 @@
     cableType: HighVoltage
   - type: Destructible
     thresholds:
-    - trigger: *DamageContainerWeak
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
@@ -131,7 +134,9 @@
     cableType: MediumVoltage
   - type: Destructible
     thresholds:
-    - trigger: *DamageContainerWeak
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
@@ -176,7 +181,9 @@
     cableType: Apc
   - type: Destructible
     thresholds:
-    - trigger: *DamageContainerWeak
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:

@@ -76,7 +76,7 @@
     - Firelock
 
 - type: entity
-  parent: [ BaseWindowStructure, StructureHealthBarrier ]
+  parent: BaseWindowStructure
   id: Window
   components:
   - type: Sprite
@@ -85,12 +85,14 @@
     sprite: Structures/Windows/window-base.rsi
     state: full
   - type: Damageable
-    damageModifierSet: GlassMod
+    damageModifierSet: Glass
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
-    - trigger: &DamageBarrierNormal
+    - trigger:
         !type:DamageTrigger
-        damage: 80
+        damage: 50
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -100,6 +102,8 @@
           ShardGlass:
             min: 1
             max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
   parent: Window
@@ -194,7 +198,7 @@
     node: windowDirectional
 
 - type: entity
-  parent: [ BaseWindowStructureDirectional, StructureHealthBarrierWeak ]
+  parent: BaseWindowStructureDirectional
   id: WindowDirectional
   components:
   - type: Sprite
@@ -204,12 +208,14 @@
     sprite: Structures/Windows/directional.rsi
     state: window
   - type: Damageable
-    damageModifierSet: GlassMod
+    damageModifierSet: Glass
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 30
+        damage: 25
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -219,6 +225,8 @@
           ShardGlass:
             min: 1
             max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
   parent: WindowDirectional

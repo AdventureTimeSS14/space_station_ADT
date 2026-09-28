@@ -1,9 +1,8 @@
 # Base
 
 - type: entity
-  abstract: true
-  parent: StructureHealthContainerWeak
   id: DisposalPipeBase
+  abstract: true
   placement:
     mode: SnapgridCenter
     snap:
@@ -34,16 +33,26 @@
     anchored: true
   - type: Anchorable
   - type: Damageable
-    damageModifierSet: SteelMod
+    damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 60
+        damage: 100 #excess damage (nuke?). avoid computational cost of spawning entities.
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
       behaviors:
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: ["Breakage"]
       - !type:ChangeConstructionNodeBehavior
         node: broken
   - type: Rotatable

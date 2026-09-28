@@ -1,7 +1,7 @@
 - type: entity
   id: PlasmaWindow
   name: plasma window
-  parent: [BaseDeltaPressurePlasma, BaseWindowStructure, BaseRCDResistant, StructureHealthBarrier]
+  parent: [BaseDeltaPressurePlasma, BaseWindowStructure, BaseRCDResistant]
   components:
   - type: Sprite
     sprite: Structures/Windows/window-plasma.rsi
@@ -9,12 +9,14 @@
     sprite: Structures/Windows/window-plasma.rsi
     state: full
   - type: Damageable
-    damageModifierSet: GlassPlasmaMod
+    damageModifierSet: Glass
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 80
+        damage: 75
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -24,6 +26,8 @@
           ShardGlassPlasma:
             min: 1
             max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: IconSmooth
     base: pwindow
   - type: Construction
@@ -43,7 +47,7 @@
 
 - type: entity
   id: PlasmaWindowDirectional
-  parent: [BaseDeltaPressurePlasmaQuarter, BaseWindowStructureDirectional, BaseRCDResistant, StructureHealthBarrierWeak]
+  parent: [BaseDeltaPressurePlasmaQuarter, BaseWindowStructureDirectional, BaseRCDResistant]
   name: directional plasma window
   description: Don't smudge up the glass down there.
   components:
@@ -64,12 +68,14 @@
     damageOverlay:
       sprite: Structures/Windows/cracks_directional.rsi
   - type: Damageable
-    damageModifierSet: GlassPlasmaMod
+    damageModifierSet: Glass
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 30
+        damage: 37
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -79,6 +85,8 @@
           ShardGlassPlasma:
             min: 1
             max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: StaticPrice
     price: 50
   - type: RadiationBlocker

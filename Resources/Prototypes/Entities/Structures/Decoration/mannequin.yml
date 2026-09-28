@@ -1,6 +1,6 @@
 - type: entity
   id: Mannequin
-  parent: [BaseStructureDynamic, StripableInventoryBase, StructureHealthFurniture]
+  parent: [BaseStructureDynamic, StripableInventoryBase]
   name: mannequin
   description: It can wear any clothing with style.
   components:
@@ -38,17 +38,21 @@
     graph: Mannequin
     node: mannequin
   - type: Damageable
-    damageModifierSet: WoodMod
+    damageModifierSet: Wood
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 40
+        damage: 200
       behaviors:
       - !type:PlaySoundBehavior
         sound:
           collection: WoodDestroy
       - !type:EmptyAllContainersBehaviour
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: ContainerContainer
     containers:
       jumpsuit: !type:ContainerSlot

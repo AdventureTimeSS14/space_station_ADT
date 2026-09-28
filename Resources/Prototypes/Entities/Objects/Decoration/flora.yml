@@ -1,11 +1,8 @@
-## Natural structures one might find on a planet or in an arboretum
-#region Bases
-
 - type: entity
-  abstract: true
   id: BaseRock
   name: boulder
   description: Heavy as a really heavy thing.
+  abstract: true
   components:
   - type: Clickable
   - type: Sprite
@@ -24,12 +21,23 @@
         - HalfWallLayer
         - Opaque
   - type: Climbable
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
-  abstract: true
-  parent: StructureHealthFurnitureStrong
   id: BaseTree
   description: Yep, it's a tree.
+  abstract: true
   components:
   - type: SpriteFade
   - type: Clickable
@@ -49,21 +57,21 @@
         density: 1000
         layer:
         - WallLayer
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: MeleeSound
     soundGroups:
       Brute:
         path: /Audio/Effects/chop.ogg
         params:
           variation: 0.05
-  - type: Damageable
-    damageModifierSet: WoodMod
-  - type: Injurable
-    damageContainer: StructuralBiological
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 80
+        damage: 50
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -71,6 +79,8 @@
           params:
             volume: 5
             variation: 0.05
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
       - !type:SpawnEntitiesBehavior
         spawn:
           Log:
@@ -133,11 +143,8 @@
         layer:
         - WallLayer
 
-#endregion
-#region Rocks
-
 - type: entity
-  parent: [ BaseRock, StructureHealthFurnitureStrong ]
+  parent: BaseRock
   id: FloraRockSolid
   components:
   - type: Sprite
@@ -150,32 +157,21 @@
         rocksolid01: ""
         rocksolid02: ""
         rocksolid03: ""
-  - type: Damageable
-    damageModifierSet: RockMod
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 80
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          path: /Audio/Effects/break_stone.ogg
 
 - type: entity
-  parent: [ BaseRock, StructureHealthFurnitureWeak ]
-  id: FloraStalagmite
   name: stalagmite
   description: Natural stone spikes.
+  parent: BaseRock
+  id: FloraStalagmite
   components:
-  - type: Damageable
-    damageModifierSet: RockMod
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
         damage: 5
       behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
           collection: GlassBreak
@@ -212,9 +208,6 @@
         grey_stalagmite4: ""
         grey_stalagmite5: ""
         grey_stalagmite6: ""
-
-#endregion
-#region Trees
 
 - type: entity
   parent: BaseTree
@@ -398,12 +391,10 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 80
+        damage: 50
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
           MobLuminousObject:
             min: 0
             max: 1
-
-#endregion

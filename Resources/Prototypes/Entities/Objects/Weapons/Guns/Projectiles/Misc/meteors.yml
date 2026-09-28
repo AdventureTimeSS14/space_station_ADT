@@ -72,7 +72,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 50
+        damage: 100
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -107,7 +107,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 150
+        damage: 300
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -147,7 +147,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 450
+        damage: 500
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -175,7 +175,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 900
+        damage: 1200
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -215,7 +215,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 1500
+        damage: 3000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -254,7 +254,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 1500
+        damage: 3000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -294,7 +294,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 1500
+        damage: 3000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -336,7 +336,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 1500
+        damage: 3000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]

@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ BaseWallmountMachine, StructureHealthMachineFlimsy ]
+  parent: BaseWallmountMachine
   id: FireAlarm
   name: fire alarm
   description: A fire alarm. Spicy!
@@ -84,17 +84,21 @@
     graph: FireAlarm
     node: fire_alarm
   - type: Damageable
-    damageModifierSet: PlasticMod
+    damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: GuideHelp
     guides:
     - Networking
   - type: Destructible
     thresholds:
-    - trigger: &DamageMachineFlimsy
+    - trigger:
         !type:DamageTrigger
-        damage: 50
+        damage: 80
       behaviors:
-      - &SoundMetalGlassBreak !type:PlaySoundBehavior
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
         sound:
           collection: MetalGlassBreak
           params:
@@ -102,7 +106,7 @@
   - type: StationAiWhitelist
 
 - type: entity
-  parent: [ BaseWallmountMetallic, StructureHealthMachineFlimsy ]
+  parent: BaseWallmountMetallic
   id: FireAlarmAssembly
   name: fire alarm assembly
   description: A fire alarm assembly. Very mild.
@@ -122,10 +126,16 @@
   - type: Construction
     graph: FireAlarm
     node: assembly
-  - type: Damageable
-    damageModifierSet: PlasticMod
   - type: Destructible
     thresholds:
-    - trigger: *DamageMachineFlimsy
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
       behaviors:
-      - *SoundMetalGlassBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+          params:
+            volume: -4

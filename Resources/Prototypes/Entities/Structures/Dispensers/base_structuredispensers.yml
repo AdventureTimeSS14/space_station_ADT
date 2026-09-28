@@ -37,7 +37,9 @@
   - type: Anchorable
   - type: Pullable
   - type: Damageable
-    damageModifierSet: PlasticMod
+    damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:

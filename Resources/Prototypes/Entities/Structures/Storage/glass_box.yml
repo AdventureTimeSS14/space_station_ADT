@@ -27,7 +27,7 @@
     delay: 4
 
 - type: entity
-  parent: [BaseGlassBox, BaseItemCabinetGlass, StructureHealthContainer]
+  parent: [BaseGlassBox, BaseItemCabinetGlass]
   id: GlassBox
   name: glass box
   description: A sturdy showcase for an expensive exhibit.
@@ -69,17 +69,19 @@
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Storage/glassbox.rsi
+  - type: Damageable
+    damageModifierSet: Glass
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: MeleeSound
     soundGroups:
       Brute:
         collection: GlassSmash
-  - type: Damageable
-    damageModifierSet: GlassMod
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 150
       behaviors:
       - !type:EmptyAllContainersBehaviour
       - !type:PlaySoundBehavior
@@ -97,6 +99,8 @@
             max: 2
       - !type:ChangeConstructionNodeBehavior
         node: brokenGlassBox
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
   parent: GlassBox
@@ -143,7 +147,7 @@
   suffix: AntiqueLaser, Filled, Open
 
 - type: entity
-  parent: [ BaseGlassBox, StructureHealthContainerWeak ]
+  parent: BaseGlassBox
   id: GlassBoxFrame
   name: glass box frame
   description: A glassless sturdy showcase for an expensive exhibit.
@@ -157,12 +161,14 @@
     node: boxMissingWires
   - type: Climbable
   - type: Damageable
-    damageModifierSet: WoodMod
+    damageModifierSet: Wood
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 60
+        damage: 100
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -172,6 +178,8 @@
           MaterialWoodPlank1:
             min: 2
             max: 5
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
 
 - type: entity
   parent: GlassBoxFrame
@@ -191,7 +199,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 60
+        damage: 100
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:

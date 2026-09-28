@@ -2,7 +2,7 @@
 
 - type: entity
   abstract: true
-  parent: [ BaseMachine, StructureHealthMachineWeak ]
+  parent: BaseMachine
   id: BaseGenerator
   description: A high efficiency thermoelectric generator.
   name: generator
@@ -43,7 +43,9 @@
     supplyRampTolerance: 500
   - type: Anchorable # Reduces anchor time to 1 second
   - type: Damageable
-    damageModifierSet: SteelMod
+    damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: PacifismDangerousAttack
   - type: Destructible
     thresholds:
@@ -51,6 +53,8 @@
         !type:DamageTrigger
         damage: 100
       behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
@@ -123,7 +127,7 @@
 # Construction Frames
 
 - type: entity
-  parent: [ BaseWallmountMetallic, StructureHealthMachineFlimsy ]
+  parent: BaseWallmountMetallic
   categories: [ HideSpawnMenu ]
   id: BaseGeneratorWallmountFrame
   name: wallmount generator frame
@@ -137,15 +141,6 @@
   - type: Construction
     graph: WallmountGenerator
     node: frame
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 50
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
 
 # Generators in use
 
@@ -280,7 +275,7 @@
     - Power
 
 - type: entity
-  parent: [ BaseRTG, StructureHealthMachineStrong ]
+  parent: BaseRTG
   id: GeneratorRTG
   name: RTG
   description: A Radioisotope Thermoelectric Generator for long term power.
@@ -290,28 +285,28 @@
     state: rtg
   - type: PowerMonitoringDevice
     state: rtg
-  - type: Damageable
-    damageModifierSet: GlassReinforcedMod
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 275
+        damage: 300
       behaviors:
       - !type:PlaySoundBehavior
         sound:
-          collection: MetalGlassBreak
+          collection: MetalBreak
       - !type:SpawnEntitiesBehavior
         offset: 0
         spawn:
           GeneratorRTGDamaged:
             min: 1
             max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 # TODO: need radioactive fallout when destroyed
 
 - type: entity
-  parent: [ BaseRTG, StructureHealthMachineFlimsy ]
+  parent: BaseRTG
   id: GeneratorRTGDamaged
   name: damaged RTG
   description: A Radioisotope Thermoelectric Generator for long term power. This one has damaged shielding.
@@ -325,8 +320,6 @@
     state: rtg_damaged
   - type: RadiationSource # ideally only when opened.
     intensity: 2
-  - type: Damageable
-    damageModifierSet: PreciousMetalMod
   - type: Destructible
     thresholds:
     - trigger:
@@ -344,3 +337,5 @@
           SheetUranium1:
             min: 1
             max: 5
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

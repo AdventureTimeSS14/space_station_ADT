@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ BaseMachinePowered, StructureHealthMachineWeak ]
+  parent: BaseMachinePowered
   id: FaxMachineBase
   name: long range fax machine
   description: Bluespace technologies on the application of bureaucracy.
@@ -41,6 +41,8 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
   - type: ActivatableUI
     key: enum.FaxUiKey.Key
   - type: ActivatableUIRequiresPower

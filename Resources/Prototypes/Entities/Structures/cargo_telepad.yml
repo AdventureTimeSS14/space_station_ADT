@@ -29,6 +29,8 @@
     - state: idle
       map: [ "enum.CargoTelepadLayers.Beam" ]
       shader: unshaded
+  - type: Damageable
+    damageModifierSet: StructuralMetallicStrong
   - type: Destructible
     thresholds:
     - trigger: !type:DamageTrigger

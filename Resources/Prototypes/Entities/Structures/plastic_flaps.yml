@@ -1,7 +1,7 @@
 - type: entity
-  abstract: true
-  parent: [ BaseStructureDynamic, StructureHealthBarrier ]
   id: PlasticFlapsBase
+  parent: BaseStructureDynamic
+  abstract: true
   placement:
     mode: SnapgridCenter
   components:
@@ -29,18 +29,17 @@
         layer:
         - MidImpassable
   - type: Damageable
-    damageModifierSet: PlasticMod
+    damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 80
+        damage: 100
       behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          SheetPlastic1:
-            min: 1
-            max: 3
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
   - type: StaticPrice
     price: 100
   - type: IconSmooth

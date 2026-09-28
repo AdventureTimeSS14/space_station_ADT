@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ BaseItem, BaseItemDestructible ]
+  parent: BaseItem
   id: LogicEmptyCircuit
   name: empty circuit
   description: Something seems to be missing.

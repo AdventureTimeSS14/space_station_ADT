@@ -1,5 +1,4 @@
 - type: entity
-  parent: StructureHealthMachineStrong
   id: AmeController
   name: AME controller
   description: It's a controller for the antimatter engine.
@@ -30,18 +29,22 @@
         layer:
         - WallLayer
   - type: Damageable
-    damageModifierSet: PlasteelMod
+    damageModifierSet: StructuralMetallicStrong
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 275
+        damage: 100
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
-          SheetPlasteel1:
+          SheetSteel1:
             min: 1
-            max: 3
+            max: 1
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
   - type: Transform
     anchored: true
     noRot: true
@@ -120,7 +123,6 @@
     bodyType: Dynamic
 
 - type: entity
-  parent: StructureHealthMachineStrong
   id: AmeShielding
   name: AME shielding
   description: Keeps the antimatter in and the matter out.
@@ -155,18 +157,22 @@
         layer:
         - WallLayer
   - type: Damageable
-    damageModifierSet: PlasteelMod
+    damageModifierSet: StructuralMetallicStrong
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 275
+        damage: 100
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
-          SheetPlasteel1:
+          SheetSteel1:
             min: 1
             max: 2
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
   - type: Transform
     anchored: true
   - type: IconSmooth

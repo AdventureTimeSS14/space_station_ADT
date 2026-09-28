@@ -1,5 +1,4 @@
 ﻿- type: entity
-  parent: StructureHealthMachineWeak
   id: DisposalMachineFrame
   name: high pressure machine frame
   description: A machine frame made to withstand the amount of pressure used in the station's disposal system.
@@ -30,7 +29,9 @@
     graph: DisposalMachine
     node: frame
   - type: Damageable
-    damageModifierSet: SteelMod
+    damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -42,6 +43,8 @@
           collection: MetalBreak
       - !type:ChangeConstructionNodeBehavior
         node: start
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: Sprite
     sprite: Structures/Piping/high_pressure_machine_frame.rsi
     layers:

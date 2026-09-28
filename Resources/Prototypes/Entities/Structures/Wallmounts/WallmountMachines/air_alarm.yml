@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ BaseWallmountMachine, StructureHealthMachineWeak ]
+  parent: BaseWallmountMachine
   id: AirAlarm
   name: air alarm
   description: An air alarm. Alarms... air?
@@ -84,12 +84,18 @@
   - type: Construction
     graph: AirAlarm
     node: air_alarm
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
         damage: 100
       behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalGlassBreak
@@ -101,7 +107,7 @@
     - DeviceMonitoringAndControl
 
 - type: entity
-  parent: [ BaseWallmountMetallic, StructureHealthMachineFlimsy ]
+  parent: BaseWallmountMetallic
   id: AirAlarmAssembly
   name: air alarm assembly
   description: An air alarm. Doesn't look like it'll be alarming air any time soon.
@@ -127,8 +133,10 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 50
+        damage: 15
       behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalGlassBreak

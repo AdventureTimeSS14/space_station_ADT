@@ -68,7 +68,7 @@
   - type: Machine
     board: PortableScrubberMachineCircuitBoard
   - type: Damageable
-    damageModifierSet: GlassMod
+    damageModifierSet: Metallic
   - type: Destructible
     thresholds:
     - trigger:
@@ -141,6 +141,8 @@
   - type: GasThermoMachine
     temperatureTolerance: 0.2
     atmospheric: true
+  - type: Damageable
+    damageModifierSet: Metallic
   - type: Destructible
     thresholds:
     - trigger:
