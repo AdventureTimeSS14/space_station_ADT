@@ -5,6 +5,7 @@
   description: A small handheld device designed to disrupt energy barriers. It disrupts the shield in a small radius around itself. Can be recharged with a regular recharger.
   components:
   - type: HandheldShieldDiffuser
+    activePowerUse: 5
   - type: Sprite
     sprite: ADT/Misc/shield.rsi
     layers:

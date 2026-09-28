@@ -20,7 +20,10 @@ shield-status-overloaded = Status: OVERLOADED
 # Handheld diffuser examine
 shield-handheld-enabled = It is enabled.
 shield-handheld-disabled = It is disabled.
-shield-handheld-uses-left = It has enough charge for about {$amount} more uses.
+shield-handheld-uses-left = It has enough charge for about {$amount} more seconds of operation.
+
+uplink-adt-shield-handheld-diffuser-name = Portable Shield Diffuser
+uplink-adt-shield-handheld-diffuser-desc = A small handheld device designed to disrupt energy barriers. It disrupts shields in a small radius around itself. Runs on a standard power cell.
 
 # Shield modes
 shield-mode-hyperkinetic = Hyperkinetic Projectiles

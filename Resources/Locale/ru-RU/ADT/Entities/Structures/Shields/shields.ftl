@@ -39,7 +39,10 @@ shield-status-overloaded = Статус: ПЕРЕГРУЗКА
 # Handheld diffuser examine
 shield-handheld-enabled = Он включён.
 shield-handheld-disabled = Он выключен.
-shield-handheld-uses-left = Ему хватит заряда ещё примерно на {$amount} применений.
+shield-handheld-uses-left = Ему хватит заряда ещё примерно на {$amount} секунд работы.
+
+uplink-adt-shield-handheld-diffuser-name = портативный рассеиватель щита
+uplink-adt-shield-handheld-diffuser-desc = Небольшое ручное устройство, предназначенное для разрушения энергетических барьеров. Рассеивает щиты в небольшом радиусе вокруг себя. Работает от стандартной батареи.
 
 # Shield modes
 shield-mode-hyperkinetic = Гиперкинетические снаряды

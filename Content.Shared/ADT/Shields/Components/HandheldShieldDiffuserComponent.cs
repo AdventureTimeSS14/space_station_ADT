@@ -9,7 +9,7 @@ public sealed partial class HandheldShieldDiffuserComponent : Component
 {
     [DataField] public bool Enabled;
 
-    [DataField] public float ActivePowerUse = 10000.0f;
+    [DataField] public float ActivePowerUse = 5f;
 
     [DataField] public float DiffuseDuration = 20f;
 
