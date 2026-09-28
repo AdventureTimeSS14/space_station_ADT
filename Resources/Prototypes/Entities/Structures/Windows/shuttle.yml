@@ -4,9 +4,9 @@
   name: shuttle window
   components:
   - type: Sprite
-    sprite: Structures/Windows/window-shuttle.rsi
+    sprite: Structures/Windows/shuttle_window.rsi
   - type: Icon
-    sprite: Structures/Windows/window-shuttle.rsi
+    sprite: Structures/Windows/shuttle_window.rsi
     state: full
   - type: Repairable
     fuelCost: 15
@@ -60,7 +60,7 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/window-diagonal-shuttle.rsi
+    sprite: Structures/Windows/shuttle_window_diagonal.rsi
     state: state0
   - type: Tag
     tags:
@@ -68,10 +68,10 @@
     - Window
   - type: IconSmooth
     mode: Diagonal
-    key: walls
+    key: windows
     base: state
   - type: Icon
-    sprite: Structures/Windows/window-diagonal-shuttle.rsi
+    sprite: Structures/Windows/shuttle_window_diagonal.rsi
     state: state0
   - type: Fixtures
     fixtures:
@@ -93,4 +93,4 @@
     - East
   - type: DamageVisuals
     damageOverlay:
-      sprite: Structures/Windows/cracks-diagonal.rsi
+      sprite: Structures/Windows/cracks_diagonal.rsi

@@ -6,11 +6,10 @@
   suffix: Wall broken
   components:
   - type: Sprite
-    sprite: Structures/Wallmounts/station-map.rsi
-    offset: 0, -0.25
+    sprite: Structures/Machines/station_map.rsi
     drawdepth: WallMountedItems
     layers:
-    - state: broken
+    - state: station_map_broken
   - type: Destructible
     thresholds:
     - trigger:
@@ -35,16 +34,15 @@
   - type: Appearance
   - type: StationMap
   - type: Sprite
-    sprite: Structures/Wallmounts/station-map.rsi
-    offset: 0, -0.25
+    sprite: Structures/Machines/station_map.rsi
     layers:
-    - state: base
+    - state: station_map0
     - state: unshaded
       shader: unshaded
       map: [ "enum.PowerDeviceVisualLayers.Powered" ]
   - type: Icon
-    sprite: Structures/Wallmounts/station-map.rsi
-    state: base
+    sprite: Structures/Machines/station_map.rsi
+    state: station_map0
   - type: GenericVisualizer
     visuals:
       enum.PowerDeviceVisuals.Powered:
@@ -110,19 +108,18 @@
   - type: WallMount
     arc: 360
   - type: Sprite
-    sprite: Structures/Wallmounts/station-map.rsi
-    offset: 0, -0.25
+    sprite: Structures/Machines/station_map.rsi
     layers:
-    - state: frame0
+    - state: station_map_frame1
       map: [ "enum.ConstructionVisuals.Layer" ]
   - type: Appearance
   - type: GenericVisualizer
     visuals:
       enum.ConstructionVisuals.Key:
         enum.ConstructionVisuals.Layer:
-          assembly: { state: frame0 }
-          wired: { state: frame1 }
-          electronics: { state: frame2 }
+          assembly: { state: station_map_frame0 }
+          wired: { state: station_map_frame1 }
+          electronics: { state: station_map_frame2 }
   - type: Construction
     graph: StationMap
     node: assembly

@@ -2,17 +2,16 @@
   id: BlastDoor
   parent: BaseShutter
   name: blast door
-  description: Blast-retardant AND fire-retardant!
+  description: This one says 'BLAST DONGER'.
   components:
   - type: AccessReader
     containerAccessProvider: board
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-blastdoor.rsi
+    sprite: Structures/Doors/Shutters/blastdoor.rsi
     layers:
     - state: closed
       map: ["enum.DoorVisualLayers.Base"]
     - state: welded
-      sprite: Structures/Doors/Airlocks/Effects/airlock-effects.rsi
       map: ["enum.WeldableLayers.BaseWelded"]
   - type: Door
     closeTimeOne: 0.4
@@ -52,11 +51,6 @@
     messagePerceivedByOthers: comp-window-knock
     interactSuccessSound:
       path: /Audio/Effects/glass_knock.ogg
-  - type: IconSmooth
-    key: walls
-    mode: NoSprite
-  - type: PlacementReplacement
-    key: blastdoors
 
 - type: entity
   id: BlastDoorOpen
@@ -78,10 +72,10 @@
   id: BlastDoorFrame
   parent: BaseStructureDynamic
   name: blast door frame
-  description: Blast-retardant AND fire-retardant!
+  description: This one says 'BLAST DONGER'.
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-blastdoor.rsi
+    sprite: Structures/Doors/Shutters/blastdoor.rsi
     state: assembly
   - type: InteractionOutline
   - type: Damageable
@@ -121,17 +115,14 @@
 - type: entity
   parent: BlastDoor
   id: BlastDoorXeno
-  name: exodermis blast door
+  name: xeno blast door
   description: Don't lose an arm!
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/exo-blastdoor.rsi
+    sprite: Structures/Doors/Shutters/xeno_blastdoor.rsi
     layers:
     - state: closed
       map: ["enum.DoorVisualLayers.Base"]
-    - state: welded
-      sprite: Structures/Doors/Airlocks/Effects/airlock-effects.rsi
-      map: ["enum.WeldableLayers.BaseWelded"]
   - type: Door
     closeTimeOne: 0.4
     closeTimeTwo: 0.7
@@ -143,6 +134,9 @@
     crushDamage:
       types:
         Blunt: 25 # yowch
+  - type: IconSmooth
+    key: chitin
+    mode: NoSprite
 
 - type: entity
   parent: BlastDoorXeno
@@ -163,11 +157,11 @@
 - type: entity
   parent: BaseStructureDynamic
   id: BlastDoorXenoFrame
-  name: exodermis blast door frame
-  description: Blast-retardant AND fire-retardant!
+  name: xeno blast door frame
+  description: This one says 'BLAST DONGER'.
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/exo-blastdoor.rsi
+    sprite: Structures/Doors/Shutters/xeno_blastdoor.rsi
     state: assembly
   - type: InteractionOutline
   - type: Damageable
@@ -207,18 +201,14 @@
 - type: entity
   parent: BlastDoor
   id: BlastDoorXenoborg
-  name: mechadermis blast door
+  name: xenoborg blast door
   description: Don't lose a head!
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-blastdoor.rsi
+    sprite: Structures/Doors/Shutters/xenoborg_blastdoor.rsi
     layers:
     - state: closed
       map: ["enum.DoorVisualLayers.Base"]
-    - state: welded
-      sprite: Structures/Doors/Airlocks/Effects/airlock-effects.rsi
-      map: ["enum.WeldableLayers.BaseWelded"]
-      visible: true
   - type: Door
     closeTimeOne: 0.4
     closeTimeTwo: 0.7

@@ -4,7 +4,7 @@
   suffix: Freezer
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/service-freezer.rsi
+    sprite: Structures/Doors/Airlocks/Standard/freezer.rsi
   - type: Wires
     layoutId: AirlockService
 
@@ -14,7 +14,7 @@
   suffix: Engineering
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/engineering-base.rsi
+    sprite: Structures/Doors/Airlocks/Standard/engineering.rsi
   - type: Wires
     layoutId: AirlockEngineering
 
@@ -24,7 +24,7 @@
   suffix: Atmospherics
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/engineering-atmos.rsi
+    sprite: Structures/Doors/Airlocks/Standard/atmospherics.rsi
 
 - type: entity
   parent: Airlock
@@ -32,7 +32,7 @@
   suffix: Cargo
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/cargo-base.rsi
+    sprite: Structures/Doors/Airlocks/Standard/cargo.rsi
   - type: Wires
     layoutId: AirlockCargo
 
@@ -42,7 +42,7 @@
   suffix: Salvage
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/cargo-salvage.rsi
+    sprite: Structures/Doors/Airlocks/Standard/salvage.rsi
   - type: Wires
     layoutId: AirlockCargo
 
@@ -52,7 +52,7 @@
   suffix: Hydroponics
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/service-botany.rsi
+    sprite: Structures/Doors/Airlocks/Standard/hydroponics.rsi
   - type: Wires
     layoutId: AirlockService
 
@@ -62,7 +62,7 @@
   suffix: Medical
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/medical-base.rsi
+    sprite: Structures/Doors/Airlocks/Standard/medical.rsi
   - type: Wires
     layoutId: AirlockMedical
 
@@ -72,7 +72,7 @@
   suffix: Virology
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/medical-viro.rsi
+    sprite: Structures/Doors/Airlocks/Standard/virology.rsi
 
 - type: entity
   parent: AirlockMedical
@@ -80,7 +80,7 @@
   suffix: Chemistry
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/medical-chem.rsi
+    sprite: Structures/Doors/Airlocks/Standard/chemistry.rsi
 
 - type: entity
   parent: Airlock
@@ -88,7 +88,7 @@
   suffix: Science
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/science-base.rsi
+    sprite: Structures/Doors/Airlocks/Standard/science.rsi
   - type: Wires
     layoutId: AirlockScience
 
@@ -98,7 +98,7 @@
   suffix: Command
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/command-base.rsi
+    sprite: Structures/Doors/Airlocks/Standard/command.rsi
   - type: WiresPanelSecurity
     securityLevel: medSecurity
   - type: Wires
@@ -110,7 +110,7 @@
   suffix: Security
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/security-base.rsi
+    sprite: Structures/Doors/Airlocks/Standard/security.rsi
   - type: Wires
     layoutId: AirlockSecurity
 
@@ -120,7 +120,7 @@
   name: maintenance access
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
+    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
 
 - type: entity
   parent: AirlockSecurity # if you get syndie door somehow it counts as sec
@@ -128,7 +128,7 @@
   suffix: Syndicate
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/syndicate-base.rsi
+    sprite: Structures/Doors/Airlocks/Standard/syndicate.rsi
 
 - type: entity
   parent: AirlockCargo
@@ -136,7 +136,7 @@
   suffix: Mining(Salvage)
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/cargo-mining.rsi
+    sprite: Structures/Doors/Airlocks/Standard/mining.rsi
   - type: Wires
     layoutId: AirlockCargo
   - type: Paintable
@@ -148,7 +148,7 @@
   suffix: Central Command
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/centcomm-base.rsi
+    sprite: Structures/Doors/Airlocks/Standard/centcomm.rsi
 
 - type: entity
   parent: Airlock
@@ -156,54 +156,17 @@
   name: airtight hatch
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-hatch.rsi
+    sprite: Structures/Doors/Airlocks/Standard/hatch.rsi
   - type: Paintable
     group: null
 
 - type: entity
   parent: Airlock
   id: AirlockXenoborg
-  name: mechadermis airlock
+  name: xenoborg airlock
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/exo-xenoborg.rsi
-    layers:
-    - state: closed
-      map: ["enum.DoorVisualLayers.Base"]
-    - state: closed_unlit
-      shader: unshaded
-      sprite: Structures/Doors/Airlocks/Effects/airlock-effects-exo-xenoborg.rsi
-      map: ["enum.DoorVisualLayers.BaseUnlit"]
-      visible: true
-    - state: welded
-      sprite: Structures/Doors/Airlocks/Effects/airlock-effects-exo.rsi
-      map: ["enum.WeldableLayers.BaseWelded"]
-    - state: bolted_unlit
-      shader: unshaded
-      sprite: Structures/Doors/Airlocks/Effects/airlock-effects-exo-xenoborg.rsi
-      map: ["enum.DoorVisualLayers.BaseBolted"]
-    - state: emergency_unlit
-      sprite: Structures/Doors/Airlocks/Effects/airlock-effects-exo-xenoborg.rsi
-      map: ["enum.DoorVisualLayers.BaseEmergencyAccess"]
-      shader: unshaded
-    - state: panel_open
-      sprite: Structures/Doors/Airlocks/Effects/airlock-effects.rsi
-      map: ["enum.WiresVisualLayers.MaintenancePanel"]
-    - state: electrified_ai
-      sprite: Interface/Misc/ai_hud.rsi
-      shader: unshaded
-      visible: false
-      map: ["enum.ElectrifiedLayers.HUD"]
-    - state: electrified
-      sprite: Effects/electricity.rsi
-      shader: unshaded
-      visible: false
-      map: ["enum.ElectrifiedLayers.Sparks"]
-    - state: sparks
-      sprite: Structures/Doors/Airlocks/Effects/airlock-effects.rsi
-      map: ["enum.DoorVisualLayers.BaseEmagging"]
-      shader: unshaded
-      visible: false
+    sprite: Structures/Doors/Airlocks/Standard/xenoborg.rsi
   - type: Paintable
     group: null
 
@@ -213,7 +176,7 @@
   name: maintenance hatch
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-hatch-maints.rsi
+    sprite: Structures/Doors/Airlocks/Standard/hatch_maint.rsi
   - type: Paintable
     group: null
 
@@ -224,7 +187,7 @@
   suffix: Syndicate
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-hatch-syndicate.rsi
+    sprite: Structures/Doors/Airlocks/Standard/hatch_syndicate.rsi
 
 # Glass
 - type: entity
@@ -233,7 +196,7 @@
   suffix: Engineering
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/engineering-base.rsi
+    sprite: Structures/Doors/Airlocks/Glass/engineering.rsi
   - type: Wires
     layoutId: AirlockEngineering
 
@@ -243,7 +206,7 @@
   suffix: Maintenance
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/airlock-maints.rsi
+    sprite: Structures/Doors/Airlocks/Glass/maint.rsi
 
 - type: entity
   parent: AirlockEngineeringGlass
@@ -251,7 +214,7 @@
   suffix: Atmospherics
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/engineering-atmos.rsi
+    sprite: Structures/Doors/Airlocks/Glass/atmospherics.rsi
 
 - type: entity
   parent: AirlockGlass
@@ -259,7 +222,7 @@
   suffix: Cargo
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/cargo-base.rsi
+    sprite: Structures/Doors/Airlocks/Glass/cargo.rsi
   - type: Wires
     layoutId: AirlockCargo
 
@@ -269,7 +232,7 @@
   suffix: Salvage
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/cargo-salvage.rsi
+    sprite: Structures/Doors/Airlocks/Glass/salvage.rsi
   - type: Wires
     layoutId: AirlockCargo
 
@@ -279,7 +242,7 @@
   suffix: Hydroponics
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/service-botany.rsi
+    sprite: Structures/Doors/Airlocks/Glass/hydroponics.rsi
   - type: Wires
     layoutId: AirlockService
 
@@ -289,7 +252,7 @@
   suffix: Medical
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/medical-base.rsi
+    sprite: Structures/Doors/Airlocks/Glass/medical.rsi
   - type: Wires
     layoutId: AirlockMedical
 
@@ -299,7 +262,7 @@
   suffix: Chemistry
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/medical-chem.rsi
+    sprite: Structures/Doors/Airlocks/Glass/chemistry.rsi
 
 - type: entity
   parent: AirlockMedicalGlass
@@ -307,7 +270,7 @@
   suffix: Virology
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/medical-viro.rsi
+    sprite: Structures/Doors/Airlocks/Glass/virology.rsi
 
 - type: entity
   parent: AirlockGlass
@@ -315,7 +278,7 @@
   suffix: Science
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/science-base.rsi
+    sprite: Structures/Doors/Airlocks/Glass/science.rsi
   - type: Wires
     layoutId: AirlockScience
 
@@ -325,7 +288,7 @@
   suffix: Command
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/command-base.rsi
+    sprite: Structures/Doors/Airlocks/Glass/command.rsi
   - type: WiresPanelSecurity
     securityLevel: medSecurity
   - type: Wires
@@ -337,7 +300,7 @@
   suffix: Security
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/security-base.rsi
+    sprite: Structures/Doors/Airlocks/Glass/security.rsi
   - type: Wires
     layoutId: AirlockSecurity
 
@@ -347,7 +310,7 @@
   suffix: Syndicate
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/syndicate-base.rsi
+    sprite: Structures/Doors/Airlocks/Glass/syndicate.rsi
 
 - type: entity
   parent: AirlockCargoGlass
@@ -355,7 +318,7 @@
   suffix: Mining(Salvage)
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/cargo-mining.rsi
+    sprite: Structures/Doors/Airlocks/Glass/mining.rsi
   - type: Paintable
     group: null
 
@@ -365,7 +328,7 @@
   suffix: Central Command
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/centcomm-base.rsi
+    sprite: Structures/Doors/Airlocks/Glass/centcomm.rsi
 
 - type: entity
   parent: AirlockGlass
@@ -373,100 +336,24 @@
   suffix: Service
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/airlock-base.rsi
+    sprite: Structures/Doors/Airlocks/Glass/basic.rsi
 
 - type: entity
   parent: Airlock
   id: AirlockXeno
-  suffix: Exo
-  name: exodermis airlock
+  suffix: Xeno
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/exo-base.rsi
-    layers:
-    - state: closed
-      map: ["enum.DoorVisualLayers.Base"]
-    - state: closed_unlit
-      shader: unshaded
-      sprite: Structures/Doors/Airlocks/Effects/airlock-effects-exo.rsi
-      map: ["enum.DoorVisualLayers.BaseUnlit"]
-      visible: true
-    - state: welded
-      sprite: Structures/Doors/Airlocks/Effects/airlock-effects-exo.rsi
-      map: ["enum.WeldableLayers.BaseWelded"]
-    - state: bolted_unlit
-      shader: unshaded
-      sprite: Structures/Doors/Airlocks/Effects/airlock-effects-exo.rsi
-      map: ["enum.DoorVisualLayers.BaseBolted"]
-    - state: emergency_unlit
-      sprite: Structures/Doors/Airlocks/Effects/airlock-effects-exo.rsi
-      map: ["enum.DoorVisualLayers.BaseEmergencyAccess"]
-      shader: unshaded
-    - state: panel_open
-      sprite: Structures/Doors/Airlocks/Effects/airlock-effects.rsi
-      map: ["enum.WiresVisualLayers.MaintenancePanel"]
-    - state: electrified_ai
-      sprite: Interface/Misc/ai_hud.rsi
-      shader: unshaded
-      visible: false
-      map: ["enum.ElectrifiedLayers.HUD"]
-    - state: electrified
-      sprite: Effects/electricity.rsi
-      shader: unshaded
-      visible: false
-      map: ["enum.ElectrifiedLayers.Sparks"]
-    - state: sparks
-      sprite: Structures/Doors/Airlocks/Effects/airlock-effects.rsi
-      map: ["enum.DoorVisualLayers.BaseEmagging"]
-      shader: unshaded
-      visible: false
+    sprite: Structures/Doors/Airlocks/Standard/xeno.rsi
   - type: Paintable
     group: null
 
 - type: entity
   parent: AirlockGlass
   id: AirlockGlassXeno
-  suffix: Exo
-  name: resin exodermis airlock
+  suffix: Xeno
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/exo-base.rsi
-    layers:
-    - state: closed
-      map: ["enum.DoorVisualLayers.Base"]
-    - state: closed_unlit
-      shader: unshaded
-      sprite: Structures/Doors/Airlocks/Effects/airlock-effects-exo.rsi
-      map: ["enum.DoorVisualLayers.BaseUnlit"]
-      visible: true
-    - state: welded
-      sprite: Structures/Doors/Airlocks/Effects/airlock-effects-exo.rsi
-      map: ["enum.WeldableLayers.BaseWelded"]
-    - state: bolted_unlit
-      shader: unshaded
-      sprite: Structures/Doors/Airlocks/Effects/airlock-effects-exo.rsi
-      map: ["enum.DoorVisualLayers.BaseBolted"]
-    - state: emergency_unlit
-      sprite: Structures/Doors/Airlocks/Effects/airlock-effects-exo.rsi
-      map: ["enum.DoorVisualLayers.BaseEmergencyAccess"]
-      shader: unshaded
-    - state: panel_open
-      sprite: Structures/Doors/Airlocks/Effects/airlock-effects.rsi
-      map: ["enum.WiresVisualLayers.MaintenancePanel"]
-    - state: electrified_ai
-      sprite: Interface/Misc/ai_hud.rsi
-      shader: unshaded
-      visible: false
-      map: ["enum.ElectrifiedLayers.HUD"]
-    - state: electrified
-      sprite: Effects/electricity.rsi
-      shader: unshaded
-      visible: false
-      map: ["enum.ElectrifiedLayers.Sparks"]
-    - state: sparks
-      sprite: Structures/Doors/Airlocks/Effects/airlock-effects.rsi
-      map: ["enum.DoorVisualLayers.BaseEmagging"]
-      shader: unshaded
-      visible: false
+    sprite: Structures/Doors/Airlocks/Glass/xeno.rsi
   - type: Paintable
     group: null

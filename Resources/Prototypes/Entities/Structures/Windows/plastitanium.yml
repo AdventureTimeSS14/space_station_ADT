@@ -45,8 +45,6 @@
         layer:
         - WallLayer
         density: 4000
-  - type: PlacementReplacement
-    key: walls
   - type: StructureAlignerPylon
     pylons:
     - Door
@@ -60,12 +58,12 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/window-plastitanium.rsi
+    sprite: Structures/Windows/plastitanium_window.rsi
   - type: Icon
-    sprite: Structures/Windows/window-plastitanium.rsi
+    sprite: Structures/Windows/plastitanium_window.rsi
     state: full
   - type: IconSmooth
-    key: walls
+    key: windows
     base: ptwindow
   - type: Airtight
   - type: Fixtures
@@ -134,18 +132,18 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/window-diagonal-plastitanium.rsi
+    sprite: Structures/Windows/plastitanium_window_diagonal.rsi
     state: state0
   - type: Tag
     tags:
     - Diagonal
     - Window
   - type: Icon
-    sprite: Structures/Windows/window-diagonal-plastitanium.rsi
+    sprite: Structures/Windows/plastitanium_window_diagonal.rsi
     state: state0
   - type: IconSmooth
     mode: Diagonal
-    key: walls
+    key: windows
     base: state
   - type: Fixtures
     fixtures:
@@ -206,7 +204,7 @@
     damageDivisor: 20
     trackAllDamage: true
     damageOverlay:
-      sprite: Structures/Windows/cracks-diagonal.rsi
+      sprite: Structures/Windows/cracks_diagonal.rsi
   - type: Repairable
     fuelCost: 15
     doAfterDelay: 3

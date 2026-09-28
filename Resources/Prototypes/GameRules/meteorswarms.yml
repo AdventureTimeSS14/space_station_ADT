@@ -51,6 +51,7 @@
     MeteorRockPlasma: 2
     MeteorRockDiamond: 2
     MeteorRockUranium: 0.5
+    MeteorRockBananium: 0.5
 
 # Event Schedulers
 

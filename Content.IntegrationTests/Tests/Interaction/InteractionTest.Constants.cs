@@ -13,7 +13,7 @@ public abstract partial class InteractionTest
     protected const string Plating = "Plating";
     protected const string PlatingRCD = "PlatingRCD";
     protected const string Lattice = "Lattice";
-    protected const string PlatingSnow = "PlatingSnow";
+    protected const string PlatingBrass = "PlatingBrass";
 
     // Structures
     protected const string Airlock = "Airlock";

@@ -72,14 +72,13 @@
   - type: Appearance
   - type: WiresVisuals
   - type: Sprite
-    sprite: Structures/Wallmounts/air-alarm.rsi
-    offset: 0, -0.25
+    sprite: Structures/Wallmounts/air_monitors.rsi
     layers:
-    - state: base
+    - state: alarmp
+      map: ["airAlarmBase"]
     - state: alarm0
-      shader: unshaded
       map: ["airAlarmState"] # TODO: fire alarm enum
-    - state: panel
+    - state: alarmx
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Construction
     graph: AirAlarm
@@ -113,17 +112,17 @@
   description: An air alarm. Doesn't look like it'll be alarming air any time soon.
   components:
   - type: Sprite
-    sprite: Structures/Wallmounts/air-alarm.rsi
+    sprite: Structures/Wallmounts/air_monitors.rsi
     layers:
-    - state: panel
+    - state: alarm_b1
       map: [ "enum.ConstructionVisuals.Layer" ]
   - type: Appearance
   - type: GenericVisualizer
     visuals:
       enum.ConstructionVisuals.Key:
         enum.ConstructionVisuals.Layer:
-          assembly: { state: panel }
-          electronics: { state: panel }
+          assembly: { state: alarm_b1 }
+          electronics: { state: alarm_b1 }
   - type: Construction
     graph: AirAlarm
     node: assembly
@@ -142,3 +141,26 @@
           collection: MetalGlassBreak
           params:
             volume: -4
+
+- type: entity
+  id: AirAlarmXeno
+  parent: AirAlarm
+  description: An alien air alarm. Hopefully they didn't breathe poison.
+  components:
+  - type: Sprite
+    sprite: Structures/Wallmounts/air_monitors_xeno.rsi
+    layers:
+    - state: alarmp
+      map: ["airAlarmBase"]  # TODO: fire alarm enum
+    - state: alarm0
+      map: ["airAlarmState"]
+    - state: alarmx
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+
+- type: entity
+  id: AirAlarmAssemblyXeno
+  parent: AirAlarmAssembly
+  description: An alien air alarm. Why are the wires pulsating?...
+  components:
+  - type: Sprite
+    sprite: Structures/Wallmounts/air_monitors_xeno.rsi

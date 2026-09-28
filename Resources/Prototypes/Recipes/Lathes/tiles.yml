@@ -162,6 +162,21 @@
 
 - type: latheRecipe
   parent: BaseSteelTileRecipe
+  id: FloorTileItemSteelOffset
+  result: FloorTileItemSteelOffset
+
+- type: latheRecipe
+  parent: BaseSteelTileRecipe
+  id: FloorTileItemSteelDiagonalMini
+  result: FloorTileItemSteelDiagonalMini
+
+- type: latheRecipe
+  parent: BaseSteelTileRecipe
+  id: FloorTileItemSteelDiagonal
+  result: FloorTileItemSteelDiagonal
+
+- type: latheRecipe
+  parent: BaseSteelTileRecipe
   id: FloorTileItemSteelHerringbone
   result: FloorTileItemSteelHerringbone
 
@@ -172,6 +187,11 @@
 
 - type: latheRecipe
   parent: BaseSteelTileRecipe
+  id: FloorTileItemSteelMono
+  result: FloorTileItemSteelMono
+
+- type: latheRecipe
+  parent: BaseSteelTileRecipe
   id: FloorTileItemSteelPavement
   result: FloorTileItemSteelPavement
 
@@ -179,6 +199,11 @@
   parent: BaseSteelTileRecipe
   id: FloorTileItemSteelPavementVertical
   result: FloorTileItemSteelPavementVertical
+
+- type: latheRecipe
+  parent: BaseSteelTileRecipe
+  id: FloorTileItemSteelSlatsContinuous
+  result: FloorTileItemSteelSlatsContinuous
 
 - type: latheRecipe
   parent: BaseSteelTileRecipe
@@ -195,6 +220,16 @@
   parent: BaseDarkTileRecipe
   id: FloorTileItemDark
   result: FloorTileItemDark
+
+- type: latheRecipe
+  parent: BaseDarkTileRecipe
+  id: FloorTileItemDarkDiagonalMini
+  result: FloorTileItemDarkDiagonalMini
+
+- type: latheRecipe
+  parent: BaseDarkTileRecipe
+  id: FloorTileItemDarkDiagonal
+  result: FloorTileItemDarkDiagonal
 
 - type: latheRecipe
   parent: BaseDarkTileRecipe
@@ -223,6 +258,16 @@
 
 - type: latheRecipe
   parent: BaseDarkTileRecipe
+  id: FloorTileItemDarkOffset
+  result: FloorTileItemDarkOffset
+
+- type: latheRecipe
+  parent: BaseDarkTileRecipe
+  id: FloorTileItemDarkSlatsContinuous
+  result: FloorTileItemDarkSlatsContinuous
+
+- type: latheRecipe
+  parent: BaseDarkTileRecipe
   id: FloorTileItemDarkVerticalSlatsBordered
   result: FloorTileItemDarkVerticalSlatsBordered
 
@@ -231,11 +276,31 @@
   id: FloorTileItemDarkHorizontalSlatsBordered
   result: FloorTileItemDarkHorizontalSlatsBordered
 
+- type: latheRecipe
+  parent: BaseDarkTileRecipe
+  id: FloorTileItemDarkSquiggly
+  result: FloorTileItemDarkSquiggly
+
 # White steel tiles
 - type: latheRecipe
   parent: BaseWhiteTileRecipe
   id: FloorTileItemWhite
   result: FloorTileItemWhite
+
+- type: latheRecipe
+  parent: BaseWhiteTileRecipe
+  id: FloorTileItemWhiteOffset
+  result: FloorTileItemWhiteOffset
+
+- type: latheRecipe
+  parent: BaseWhiteTileRecipe
+  id: FloorTileItemWhiteDiagonalMini
+  result: FloorTileItemWhiteDiagonalMini
+
+- type: latheRecipe
+  parent: BaseWhiteTileRecipe
+  id: FloorTileItemWhiteDiagonal
+  result: FloorTileItemWhiteDiagonal
 
 - type: latheRecipe
   parent: BaseWhiteTileRecipe
@@ -264,6 +329,11 @@
 
 - type: latheRecipe
   parent: BaseWhiteTileRecipe
+  id: FloorTileItemWhiteSlatsContinuous
+  result: FloorTileItemWhiteSlatsContinuous
+
+- type: latheRecipe
+  parent: BaseWhiteTileRecipe
   id: FloorTileItemWhiteVerticalSlatsBordered
   result: FloorTileItemWhiteVerticalSlatsBordered
 
@@ -280,6 +350,11 @@
 
 - type: latheRecipe
   parent: BaseMaintTileRecipe
+  id: FloorTileItemTechmaint
+  result: FloorTileItemTechmaint
+
+- type: latheRecipe
+  parent: BaseMaintTileRecipe
   id: FloorTileItemSteelMaint
   result: FloorTileItemSteelMaint
 
@@ -291,8 +366,38 @@
 # Industrial
 - type: latheRecipe
   parent: BaseIndustrialTileRecipe
+  id: FloorTileItemMining
+  result: FloorTileItemMining
+
+- type: latheRecipe
+  parent: BaseIndustrialTileRecipe
+  id: FloorTileItemMiningDark
+  result: FloorTileItemMiningDark
+
+- type: latheRecipe
+  parent: BaseIndustrialTileRecipe
+  id: FloorTileItemMiningLight
+  result: FloorTileItemMiningLight
+
+- type: latheRecipe
+  parent: BaseIndustrialTileRecipe
+  id: FloorTileItemElevatorShaft
+  result: FloorTileItemElevatorShaft
+
+- type: latheRecipe
+  parent: BaseIndustrialTileRecipe
+  id: FloorTileItemRockVault
+  result: FloorTileItemRockVault
+
+- type: latheRecipe
+  parent: BaseIndustrialTileRecipe
   id: FloorTileItemMetalDiamond
   result: FloorTileItemMetalDiamond
+
+- type: latheRecipe
+  parent: BaseIndustrialTileRecipe
+  id: FloorTileItemShowroom
+  result: FloorTileItemShowroom
 
 - type: latheRecipe
   parent: BaseIndustrialTileRecipe
@@ -347,6 +452,51 @@
   id: FloorTileItemConcreteSmooth
   result: FloorTileItemConcreteSmooth
 
+- type: latheRecipe
+  parent: BaseConcreteTileRecipe
+  id: FloorTileItemGrayConcrete
+  result: FloorTileItemGrayConcrete
+
+- type: latheRecipe
+  parent: BaseConcreteTileRecipe
+  id: FloorTileItemGrayConcreteMono
+  result: FloorTileItemGrayConcreteMono
+
+- type: latheRecipe
+  parent: BaseConcreteTileRecipe
+  id: FloorTileItemGrayConcreteSmooth
+  result: FloorTileItemGrayConcreteSmooth
+
+- type: latheRecipe
+  parent: BaseConcreteTileRecipe
+  id: FloorTileItemOldConcrete
+  result: FloorTileItemOldConcrete
+
+- type: latheRecipe
+  parent: BaseConcreteTileRecipe
+  id: FloorTileItemOldConcreteMono
+  result: FloorTileItemOldConcreteMono
+
+- type: latheRecipe
+  parent: BaseConcreteTileRecipe
+  id: FloorTileItemOldConcreteSmooth
+  result: FloorTileItemOldConcreteSmooth
+
+- type: latheRecipe
+  parent: BaseConcreteTileRecipe
+  id: FloorTileItemIronsandConcrete
+  result: FloorTileItemIronsandConcrete
+
+- type: latheRecipe
+  parent: BaseConcreteTileRecipe
+  id: FloorTileItemIronsandConcreteMono
+  result: FloorTileItemIronsandConcreteMono
+
+- type: latheRecipe
+  parent: BaseConcreteTileRecipe
+  id: FloorTileItemIronsandConcreteSmooth
+  result: FloorTileItemIronsandConcreteSmooth
+
 # Faux
 - type: latheRecipe
   parent: BaseFauxTileRecipe
@@ -367,6 +517,11 @@
   parent: BaseFauxTileRecipe
   id: FauxTileDarkAstroGrass
   result: FloorTileItemDarkAstroGrass
+
+- type: latheRecipe
+  parent: BaseFauxTileRecipe
+  id: FauxTileLightAstroGrass
+  result: FloorTileItemLightAstroGrass
 
 - type: latheRecipe
   parent: BaseFauxTileRecipe
@@ -413,6 +568,24 @@
   parent: BaseMarbleTileRecipe
   id: FloorTileItemDarkMarble
   result: FloorTileItemDarkMarble
+
+- type: latheRecipe
+  parent: BaseMarbleTileRecipe
+  id: FloorTileItemUraniumMarble
+  result: FloorTileItemUraniumMarble
+  materials:
+    Steel: 25
+    Glass: 25
+    Uranium: 25
+
+- type: latheRecipe
+  parent: BaseMarbleTileRecipe
+  id: FloorTileItemPlasmaMarble
+  result: FloorTileItemPlasmaMarble
+  materials:
+    Steel: 25
+    Glass: 25
+    Plasma: 25
 
 # Shuttle
 - type: latheRecipe
@@ -473,8 +646,18 @@
 
 - type: latheRecipe
   parent: BaseCarpetTileRecipe
+  id: FloorTileItemArcadeBlue2
+  result: FloorTileItemArcadeBlue2
+
+- type: latheRecipe
+  parent: BaseCarpetTileRecipe
   id: FloorTileItemArcadeRed
   result: FloorTileItemArcadeRed
+
+- type: latheRecipe
+  parent: BaseCarpetTileRecipe
+  id: FloorTileItemEighties
+  result: FloorTileItemEighties
 
 - type: latheRecipe
   parent: BaseCarpetTileRecipe

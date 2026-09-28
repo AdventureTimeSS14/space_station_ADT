@@ -8,13 +8,16 @@
     snap:
     - Wall
   components:
+  - type: FloorOccluder
   - type: Transform
     anchored: true
   - type: SyncSprite
   - type: Clickable
   - type: Sprite
-    sprite: Tiles/TileEntities/liquid-water.rsi
+    sprite: Tiles/Planet/water.rsi
     drawdepth: BelowFloor
+    layers:
+      - state: shoreline_water
   - type: Solution
     id: pool
     solution:
@@ -38,7 +41,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.25, -0.25, 0.25, 0.25"
+          bounds: "-0.5,-0.5,0.5,0.5"
         layer:
           - SlipLayer
         mask:
@@ -59,22 +62,3 @@
   - type: TileEntityEffect
     effects:
     - !type:Extinguish
-  - type: IconSmooth
-    key: water
-    base: water
-    additionalKeys:
-    - walls
-  - type: PlacementReplacement
-    key: tileOverlay
-
-- type: entity
-  parent: FloorWaterEntity
-  id: FloorSwimmingPoolEntity
-  name: swimming pool
-  description: Refreshing and relaxing!
-  components:
-  - type: FloorOccluder
-  - type: Sprite
-    sprite: Tiles/TileEntities/swimming-pool.rsi
-  - type: IconSmooth
-    key: pool

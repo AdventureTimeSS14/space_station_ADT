@@ -10,7 +10,7 @@
     - Anchorable
   - type: Rotatable
   - type: Sprite
-    sprite: Structures/Specific/plastic-flaps.rsi
+    sprite: Structures/plastic_flaps.rsi
     state: plasticflaps
     drawdepth: Mobs
   - type: Physics
@@ -42,11 +42,6 @@
         acts: ["Destruction"]
   - type: StaticPrice
     price: 100
-  - type: IconSmooth
-    key: walls
-    mode: NoSprite
-  - type: PlacementReplacement
-    key: walls
   - type: StructureAligner
   - type: StructureAlignerPylon
 

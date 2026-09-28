@@ -26,16 +26,19 @@
   - type: SyncSprite
   - type: Clickable
   - type: Sprite
-    sprite: Tiles/TileEntities/liquid-lava.rsi
+    sprite: Tiles/Planet/lava.rsi
     drawdepth: BelowFloor
+    layers:
+      - state: lava
+        shader: unshaded
   - type: Icon
-    sprite: Tiles/TileEntities/liquid-lava.rsi
+    sprite: Tiles/Planet/lava.rsi
     state: full
   - type: IconSmooth
-    key: lava
-    base: water
+    key: floor
     additionalKeys:
     - walls
+    base: lava
   - type: Physics
     bodyType: Static
   - type: Fixtures
@@ -53,5 +56,3 @@
   - type: Tag
     tags:
       - HideContextMenu
-  - type: PlacementReplacement
-    key: tileOverlay

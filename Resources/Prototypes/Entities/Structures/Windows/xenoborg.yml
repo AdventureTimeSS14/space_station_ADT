@@ -1,14 +1,14 @@
 - type: entity
   id: XenoborgWindow
   parent: PlastitaniumWindow
-  name: mechadermis window
+  name: xenoborg window
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/exo-resin-borg.rsi
+    sprite: Structures/Windows/xenoborg.rsi
   - type: Icon
-    sprite: Structures/Windows/exo-resin-borg.rsi
+    sprite: Structures/Windows/xenoborg.rsi
     state: full
   - type: IconSmooth
-    key: walls
+    key: windows
     base: xenoborg

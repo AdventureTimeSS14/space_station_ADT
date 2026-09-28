@@ -89,14 +89,14 @@ public abstract partial class SharedTurnstileSystem : EntitySystem
                 if (!_accessReader.IsAllowed(args.OtherEntity, ent))
                 {
                     _audio.PlayPredicted(ent.Comp.DenySound, ent, args.OtherEntity);
-                    PlayAnimation(ent, TurnstileStates.Deny);
+                    PlayAnimation(ent, ent.Comp.DenyState);
                 }
             }
 
             return;
         }
         // if they passed through:
-        PlayAnimation(ent, TurnstileStates.Spin);
+        PlayAnimation(ent, ent.Comp.SpinState);
         _audio.PlayPredicted(ent.Comp.TurnSound, ent, args.OtherEntity);
     }
 
@@ -128,7 +128,7 @@ public abstract partial class SharedTurnstileSystem : EntitySystem
         return diff < Math.PI / 4;
     }
 
-    protected virtual void PlayAnimation(EntityUid uid, TurnstileStates state)
+    protected virtual void PlayAnimation(EntityUid uid, string stateId)
     {
 
     }

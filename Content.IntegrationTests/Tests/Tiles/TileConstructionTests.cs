@@ -102,22 +102,22 @@ public sealed class TileConstructionTests : InteractionTest
     }
 
     /// <summary>
-    /// Test snowPlating -> floor -> snowPlating using tilestacking
+    /// Test brassPlating -> floor -> brassPlating using tilestacking
     /// </summary>
     [Test]
     public async Task BrassPlatingPlace()
     {
-        await SetTile(PlatingSnow);
+        await SetTile(PlatingBrass);
 
-        // Snow Plating -> Tile
+        // Brass Plating -> Tile
         await InteractUsing(FloorItem);
         Assert.That(HandSys.GetActiveItem((SEntMan.GetEntity(Player), Hands)), Is.Null);
         await AssertTile(Floor);
         AssertGridCount(1);
 
-        // Tile -> Snow Plating
+        // Tile -> Brass Plating
         await InteractUsing(Pry);
-        await AssertTile(PlatingSnow);
+        await AssertTile(PlatingBrass);
         AssertGridCount(1);
         await AssertEntityLookup((FloorItem, 1));
     }
