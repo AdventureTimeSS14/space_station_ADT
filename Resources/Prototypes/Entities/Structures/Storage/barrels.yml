@@ -196,14 +196,11 @@
   id: BaseBarrelChemRadioactiveFilledUranium
   suffix: Uranium
   components:
-<<<<<<< ours
-  - type: SolutionContainerManager
-    solutions:
-      tank:
-        maxVol: 500
-        reagents:
-        - ReagentId: Uranium
-          Quantity: 500
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Uranium
+        Quantity: 960
 
 
 # ADT-Tweak Start: New open barrels with fill stages sprites
@@ -631,18 +628,3 @@
   - type: RadiationSource # ADT-Tweak
     intensity: 0 # ADT-Tweak
 # ADT-Tweak End
-||||||| base
-  - type: SolutionContainerManager
-    solutions:
-      tank:
-        maxVol: 500
-        reagents:
-        - ReagentId: Uranium
-          Quantity: 500
-=======
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: Uranium
-        Quantity: 960
->>>>>>> theirs

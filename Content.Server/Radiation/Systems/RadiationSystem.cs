@@ -11,25 +11,10 @@ namespace Content.Server.Radiation.Systems;
 
 public sealed partial class RadiationSystem : SharedRadiationSystem
 {
-<<<<<<< ours
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedStackSystem _stack = default!;
-    [Dependency] private readonly SharedMapSystem _maps = default!;
-||||||| base
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedStackSystem _stack = default!;
-    [Dependency] private readonly SharedMapSystem _maps = default!;
-    [Dependency] private readonly IParallelManager _parallel = default!;
-=======
     [Dependency] private IConfigurationManager _cfg = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private SharedStackSystem _stack = default!;
     [Dependency] private SharedMapSystem _maps = default!;
->>>>>>> theirs
 
     [Dependency] private EntityQuery<RadiationReceiverComponent> _receiverQuery = default!;
     [Dependency] private EntityQuery<RadiationBlockingContainerComponent> _blockerQuery = default!;

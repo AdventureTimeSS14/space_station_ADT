@@ -25,63 +25,27 @@
   id: Drunk
 
 - type: statusEffect
-<<<<<<< ours
-  id: SlurredSpeech
-
-- type: statusEffect
-  id: Muted
-  alert: Muted
-||||||| base
-  id: SlurredSpeech
-
-- type: statusEffect
-  id: PressureImmunity
-
-- type: statusEffect
-  id: Muted
-  alert: Muted
-=======
   id: SlurredSpeechr
->>>>>>> theirs
 
 - type: statusEffect
   id: Corporeal
   alert: Corporeal
 
 - type: statusEffect
-<<<<<<< ours
-  id: TemporaryBlindness
-
-- type: statusEffect
   id: Pacified #cannot attack
 
+# ADT-Tweak start
 - type: statusEffect
-  id: RatvarianLanguage #Praise him
+  id: SlurredSpeech
 
 - type: statusEffect
-  id: Flashed
+  id: Muted
+  alert: Muted
+
+- type: statusEffect
+  id: TemporaryBlindness
 
 - type: statusEffect
   id: Adrenaline
   alert: Adrenaline
-||||||| base
-  id: TemporaryBlindness
-
-- type: statusEffect
-  id: Pacified #cannot attack
-
-- type: statusEffect
-  id: RatvarianLanguage #Praise him
-
-- type: statusEffect
-  id: Flashed
-
-- type: statusEffect
-  id: RadiationProtection
-
-- type: statusEffect
-  id: Adrenaline
-  alert: Adrenaline
-=======
-  id: Pacified #cannot attack
->>>>>>> theirs
+# ADT-Tweak end
