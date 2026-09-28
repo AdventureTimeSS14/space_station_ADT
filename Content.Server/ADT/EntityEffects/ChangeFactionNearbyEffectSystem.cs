@@ -8,8 +8,8 @@ namespace Content.Server.ADT.EntityEffects;
 
 public sealed partial class ChangeFactionNearbyEffectSystem : EntityEffectSystem<TransformComponent, ChangeFactionNearbyEffect>
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly ChangeFactionStatusEffectSystem _changeFaction = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private ChangeFactionStatusEffectSystem _changeFaction = default!;
 
     protected override void Effect(Entity<TransformComponent> entity, ref EntityEffectEvent<ChangeFactionNearbyEffect> args)
     {

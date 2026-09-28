@@ -31,23 +31,23 @@ namespace Content.Server.Bible;
 
 public sealed class ChaplainSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ActionBlockerSystem _blocker = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly InventorySystem _invSystem = default!;
-    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly UseDelaySystem _delay = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly EuiManager _euiManager = null!;
-    [Dependency] private readonly SharedMindSystem _mindSystem = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ActionBlockerSystem _blocker = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private InventorySystem _invSystem = default!;
+    [Dependency] private MobStateSystem _mobStateSystem = default!;
+    [Dependency] private PopupSystem _popupSystem = default!;
+    [Dependency] private SharedActionsSystem _actionsSystem = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private UseDelaySystem _delay = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private AlertsSystem _alerts = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private EuiManager _euiManager = null!;
+    [Dependency] private SharedMindSystem _mindSystem = default!;
+    [Dependency] private ISharedPlayerManager _player = default!;
 
     public override void Initialize()
     {

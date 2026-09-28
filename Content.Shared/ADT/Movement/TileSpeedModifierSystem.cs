@@ -7,8 +7,8 @@ using Robust.Shared.Map;
 namespace Content.Shared.ADT.Movement;
 public sealed class TileSpeedModifierSystem : EntitySystem
 {
-    [Dependency] private readonly TurfSystem _turf = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _speedModifier = default!;
+    [Dependency] private TurfSystem _turf = default!;
+    [Dependency] private MovementSpeedModifierSystem _speedModifier = default!;
 
     public override void Initialize()
     {

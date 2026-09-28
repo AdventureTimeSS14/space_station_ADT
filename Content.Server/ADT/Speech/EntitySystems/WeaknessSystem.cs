@@ -9,8 +9,8 @@ namespace Content.Server.ADT.Speech.EntitySystems
 {
     public sealed class WeaknessSystem : SharedWeaknessSystem
     {
-        [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
-        [Dependency] private readonly IRobustRandom _random = default!;
+        [Dependency] private StatusEffectsSystem _statusEffectsSystem = default!;
+        [Dependency] private IRobustRandom _random = default!;
 
         public override void Initialize()
         {

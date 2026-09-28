@@ -38,23 +38,23 @@ namespace Content.Server.ComponentalActions.EntitySystems;
 
 public sealed partial class ComponentalActionsSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly StoreSystem _store = default!;
-    [Dependency] private readonly ActionsSystem _action = default!;
-    [Dependency] private readonly UplinkSystem _uplink = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly PolymorphSystem _polymorph = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly ISerializationManager _serialization = default!;
-    [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly TagSystem _tagSystem = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
-    [Dependency] private readonly EntityManager _entityManager = default!;
-    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly GibbingSystem _gibbingSystem = default!;
-    [Dependency] private readonly SharedMindSystem _mindSystem = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private StoreSystem _store = default!;
+    [Dependency] private ActionsSystem _action = default!;
+    [Dependency] private UplinkSystem _uplink = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private PolymorphSystem _polymorph = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
+    [Dependency] private ISerializationManager _serialization = default!;
+    [Dependency] private ActionContainerSystem _actionContainer = default!;
+    [Dependency] private AlertsSystem _alerts = default!;
+    [Dependency] private TagSystem _tagSystem = default!;
+    [Dependency] private StatusEffectsSystem _status = default!;
+    [Dependency] private EntityManager _entityManager = default!;
+    [Dependency] private SharedStaminaSystem _stamina = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private GibbingSystem _gibbingSystem = default!;
+    [Dependency] private SharedMindSystem _mindSystem = default!;
     public override void Initialize()
     {
         base.Initialize();

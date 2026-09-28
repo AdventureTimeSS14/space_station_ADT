@@ -13,10 +13,10 @@ namespace Content.Server.ADT.OpenSign;
 
 public sealed class OpenSignSystem : EntitySystem
 {
-    [Dependency] private readonly DeviceLinkSystem _deviceLink = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly PowerReceiverSystem _powerReceiver = default!;
+    [Dependency] private DeviceLinkSystem _deviceLink = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private PowerReceiverSystem _powerReceiver = default!;
 
     public override void Initialize()
     {

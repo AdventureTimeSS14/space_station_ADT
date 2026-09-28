@@ -13,7 +13,7 @@ namespace Content.Client.ADT.Xenobiology.UI;
 [GenerateTypedNameReferences]
 public sealed partial class XenobiologyConsoleStatusControl : Control
 {
-    [Dependency] private readonly IResourceCache _resources = default!;
+    [Dependency] private IResourceCache _resources = default!;
 
     public XenobiologyConsoleStatusControl()
     {

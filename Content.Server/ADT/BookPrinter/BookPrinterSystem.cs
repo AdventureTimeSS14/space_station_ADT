@@ -33,19 +33,19 @@ namespace Content.Server.ADT.BookPrinter
     [UsedImplicitly]
     public sealed partial class BookPrinterSystem : EntitySystem
     {
-        [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-        [Dependency] private readonly SharedAudioSystem _audio = default!;
-        [Dependency] private readonly SharedAmbientSoundSystem _ambientSoundSystem = default!;
-        [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
-        [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
-        [Dependency] private readonly IChatManager _chatManager = default!;
-        [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
-        [Dependency] private readonly AccessReaderSystem _accessReader = default!;
-        [Dependency] private readonly PopupSystem _popupSystem = default!;
-        [Dependency] private readonly MetaDataSystem _metaData = default!;
-        [Dependency] private readonly PaperSystem _paperSystem = default!;
-        [Dependency] private readonly TagSystem _tag = default!;
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
+        [Dependency] private IAdminLogManager _adminLogger = default!;
+        [Dependency] private SharedAudioSystem _audio = default!;
+        [Dependency] private SharedAmbientSoundSystem _ambientSoundSystem = default!;
+        [Dependency] private UserInterfaceSystem _userInterfaceSystem = default!;
+        [Dependency] private AppearanceSystem _appearanceSystem = default!;
+        [Dependency] private IChatManager _chatManager = default!;
+        [Dependency] private ItemSlotsSystem _itemSlotsSystem = default!;
+        [Dependency] private AccessReaderSystem _accessReader = default!;
+        [Dependency] private PopupSystem _popupSystem = default!;
+        [Dependency] private MetaDataSystem _metaData = default!;
+        [Dependency] private PaperSystem _paperSystem = default!;
+        [Dependency] private TagSystem _tag = default!;
+        [Dependency] private IGameTiming _gameTiming = default!;
 
         public readonly List<SharedBookPrinterEntry> BookPrinterEntries = new();
         private readonly GlobalBookPrinterCooldownManager _globalCooldown = new();

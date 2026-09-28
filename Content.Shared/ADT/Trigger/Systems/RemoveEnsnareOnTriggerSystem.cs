@@ -8,8 +8,8 @@ namespace Content.Shared.ADT.Trigger;
 
 public sealed class RemoveEnsnareOnTriggerSystem : XOnTriggerSystem<RemoveEnsnareOnTriggerComponent>
 {
-    [Dependency] private readonly SharedEnsnareableSystem _ensnareable = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _speedModifier = default!;
+    [Dependency] private SharedEnsnareableSystem _ensnareable = default!;
+    [Dependency] private MovementSpeedModifierSystem _speedModifier = default!;
 
     protected override void OnTrigger(Entity<RemoveEnsnareOnTriggerComponent> ent, EntityUid target, ref TriggerEvent args)
     {

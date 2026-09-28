@@ -25,7 +25,7 @@ namespace Content.Server.Administration.Systems;
 
 public sealed partial class AdminVerbSystem
 {
-    [Dependency] private readonly AdminTestArenaVariableSystem _adminTestArenaVariableSystem = default!;
+    [Dependency] private AdminTestArenaVariableSystem _adminTestArenaVariableSystem = default!;
 
     private void AdminTestArenaVariableVerbs(GetVerbsEvent<Verb> args)
     {

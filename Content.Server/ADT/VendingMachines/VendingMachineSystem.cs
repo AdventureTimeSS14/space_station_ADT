@@ -54,21 +54,21 @@ namespace Content.Server.ADT.VendingMachines
 {
     public sealed class VendingMachineSystem : SharedVendingMachineSystem
     {
-        [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly AccessReaderSystem _accessReader = default!;
-        [Dependency] private readonly PricingSystem _pricing = default!;
-        [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
-        [Dependency] private readonly SpeakOnUIClosedSystem _speakOnUIClosed = default!;
-        [Dependency] private readonly BankCardSystem _bankCard = default!;
-        [Dependency] private readonly TagSystem _tag = default!;
-        [Dependency] private readonly StackSystem _stackSystem = default!;
-        [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
-        [Dependency] private readonly ADTVendingMachineReturnSystem _vendingReturn = default!;
-        [Dependency] private readonly CargoSystem _cargoSystem = default!;
-        [Dependency] private readonly StationSystem _stationSystem = default!;
-        [Dependency] private readonly EmagSystem _emag = default!;
-        [Dependency] private readonly LabelSystem _label = default!;
-        [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+        [Dependency] private IRobustRandom _random = default!;
+        [Dependency] private AccessReaderSystem _accessReader = default!;
+        [Dependency] private PricingSystem _pricing = default!;
+        [Dependency] private ThrowingSystem _throwingSystem = default!;
+        [Dependency] private SpeakOnUIClosedSystem _speakOnUIClosed = default!;
+        [Dependency] private BankCardSystem _bankCard = default!;
+        [Dependency] private TagSystem _tag = default!;
+        [Dependency] private StackSystem _stackSystem = default!;
+        [Dependency] private UserInterfaceSystem _userInterfaceSystem = default!;
+        [Dependency] private ADTVendingMachineReturnSystem _vendingReturn = default!;
+        [Dependency] private CargoSystem _cargoSystem = default!;
+        [Dependency] private StationSystem _stationSystem = default!;
+        [Dependency] private EmagSystem _emag = default!;
+        [Dependency] private LabelSystem _label = default!;
+        [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
 
         private const float WallVendEjectDistanceFromWall = 1f;
 

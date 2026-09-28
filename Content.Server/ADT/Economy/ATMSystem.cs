@@ -19,14 +19,14 @@ namespace Content.Server.ADT.Economy;
 
 public sealed class ATMSystem : SharedATMSystem
 {
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly BankCardSystem _bankCardSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly StackSystem _stackSystem = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] private readonly ContainerSystem _container = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
+    [Dependency] private BankCardSystem _bankCardSystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private StackSystem _stackSystem = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private SharedAudioSystem _audioSystem = default!;
+    [Dependency] private ContainerSystem _container = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
 
     public override void Initialize()

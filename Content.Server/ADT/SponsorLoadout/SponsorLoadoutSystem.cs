@@ -7,9 +7,9 @@ namespace Content.Server.ADT.SponsorLoadout;
 
 public sealed class SponsorLoadoutSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly StationSpawningSystem _spawn = default!;
-    [Dependency] private readonly SponsorsManager _sponsorsManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private StationSpawningSystem _spawn = default!;
+    [Dependency] private SponsorsManager _sponsorsManager = default!;
 
     public override void Initialize()
     {

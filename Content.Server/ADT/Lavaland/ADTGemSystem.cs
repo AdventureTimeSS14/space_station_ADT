@@ -17,14 +17,14 @@ namespace Content.Server.ADT.Lavaland;
 
 public sealed class ADTGemSystem : EntitySystem
 {
-    [Dependency] private readonly MiningPointsSystem _points = default!;
-    [Dependency] private readonly RadiationSystem _radiation = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedToolSystem _tool = default!;
-    [Dependency] private readonly StackSystem _stack = default!;
-    [Dependency] private readonly TemperatureSystem _temperature = default!;
+    [Dependency] private MiningPointsSystem _points = default!;
+    [Dependency] private RadiationSystem _radiation = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedToolSystem _tool = default!;
+    [Dependency] private StackSystem _stack = default!;
+    [Dependency] private TemperatureSystem _temperature = default!;
 
     public override void Initialize()
     {

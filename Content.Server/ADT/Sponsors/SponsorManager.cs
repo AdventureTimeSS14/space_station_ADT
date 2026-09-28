@@ -16,11 +16,11 @@ namespace Content.Server.ADT.Sponsors;
 /// </summary>
 public sealed partial class SponsorManager : SharedSponsorManager
 {
-    [Dependency] private readonly IServerNetManager _netMgr = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IServerDbManager _db = default!;
-    [Dependency] private readonly IPlayerManager _players = default!;
-    [Dependency] private readonly ILogManager _logManager = default!;
+    [Dependency] private IServerNetManager _netMgr = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IServerDbManager _db = default!;
+    [Dependency] private IPlayerManager _players = default!;
+    [Dependency] private ILogManager _logManager = default!;
 
     private ISawmill _sawmill = default!;
 

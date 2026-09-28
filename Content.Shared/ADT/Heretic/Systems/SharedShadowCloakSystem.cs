@@ -21,18 +21,18 @@ namespace Content.Shared.ADT.Heretic.Systems;
 
 public abstract class SharedShadowCloakSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _modifier = default!;
-    [Dependency] private readonly DamageableSystem _dmg = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private StatusEffectsSystem _status = default!;
+    [Dependency] private TagSystem _tag = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private MovementSpeedModifierSystem _modifier = default!;
+    [Dependency] private DamageableSystem _dmg = default!;
+    [Dependency] private StandingStateSystem _standing = default!;
 
     private EntityQuery<ShadowCloakEntityComponent> _cloakQuery;
 

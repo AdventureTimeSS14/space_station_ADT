@@ -16,13 +16,13 @@ namespace Content.Shared.ADT.Chemistry.Systems;
 
 public sealed class ADTMedicalSpraySystem : EntitySystem
 {
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly ReactiveSystem _reactive = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private readonly UseDelaySystem _useDelay = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private ReactiveSystem _reactive = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private UseDelaySystem _useDelay = default!;
 
     public bool TryBlockExposedSkin(Entity<InjectorComponent> injector, EntityUid user, EntityUid target)
     {

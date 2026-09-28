@@ -17,19 +17,19 @@ namespace Content.Shared.ADT.Xenobiology.Systems;
 
 public sealed partial class XenobiologySystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly HungerSystem _hunger = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedJitteringSystem _jitter = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly IConfigurationManager _configuration = default!;
-    [Dependency] private readonly MobGrowthSystem _mobGrowth = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private HungerSystem _hunger = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private SharedContainerSystem _containerSystem = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedJitteringSystem _jitter = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private IConfigurationManager _configuration = default!;
+    [Dependency] private MobGrowthSystem _mobGrowth = default!;
 
     public override void Initialize()
     {

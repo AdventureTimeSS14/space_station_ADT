@@ -29,22 +29,22 @@ namespace Content.Shared._RMC14.Weapons.Ranged.Flamer;
 
 public abstract class SharedRMCFlamerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedRMCOnCollideSystem _onCollide = default!;
-    [Dependency] private readonly LineSystem _line = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedRMCFlammableSystem _rmcFlammable = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
-    [Dependency] private readonly SolutionTransferSystem _solutionTransfer = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly RMCMapSystem _rmcMap = default!;
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedRMCOnCollideSystem _onCollide = default!;
+    [Dependency] private LineSystem _line = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedRMCFlammableSystem _rmcFlammable = default!;
+    [Dependency] private SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private SolutionTransferSystem _solutionTransfer = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private RMCMapSystem _rmcMap = default!;
+    [Dependency] private IPrototypeManager _prototypes = default!;
+    [Dependency] private IMapManager _mapManager = default!;
+    [Dependency] private SharedMapSystem _map = default!;
 
     public override void Initialize()
     {

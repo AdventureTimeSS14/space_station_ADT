@@ -9,9 +9,9 @@ namespace Content.Client.ADT.InconnuOS.UI;
 [UsedImplicitly]
 public sealed class ADTComputerBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
-    [Dependency] private readonly IResourceCache _cache = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IPrototypeManager _prototypes = default!;
+    [Dependency] private IResourceCache _cache = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private InconnuOsWindow? _window;
 

@@ -8,7 +8,7 @@ namespace Content.Server.ADT.FiringPin;
 
 public sealed class FiringPinAlertLevelSystem : EntitySystem
 {
-    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private StationSystem _station = default!;
 
     public override void Initialize()
     {

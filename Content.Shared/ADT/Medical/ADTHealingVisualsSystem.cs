@@ -9,7 +9,7 @@ namespace Content.Shared.ADT.Medical;
 
 public sealed partial class ADTHealingVisualsSystem : EntitySystem
 {
-    [Dependency] private readonly SharedStealthSystem _stealth = default!;
+    [Dependency] private SharedStealthSystem _stealth = default!;
 
     private const float StealthVisibilityThreshold = 0.7f;
 

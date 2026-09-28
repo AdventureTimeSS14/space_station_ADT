@@ -23,18 +23,18 @@ namespace Content.Server.ADT.Bubblegum;
 
 public sealed class BubblegumSystem : EntitySystem
 {
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _speed = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedEyeSystem _eye = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly MegafaunaSystem _megafauna = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private AppearanceSystem _appearance = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private MovementSpeedModifierSystem _speed = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedEyeSystem _eye = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private MegafaunaSystem _megafauna = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
 
     public override void Initialize()
     {

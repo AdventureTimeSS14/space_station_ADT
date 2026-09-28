@@ -12,9 +12,9 @@ namespace Content.Client.ADT.Ghost;
 [GenerateTypedNameReferences]
 public sealed partial class GhostInfo : FancyWindow
 {
-    [Dependency] private readonly IClipboardManager _clipboard = null!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
+    [Dependency] private IClipboardManager _clipboard = null!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private IEntitySystemManager _entitySystem = default!;
     private readonly ClientGameTicker _gameTicker;
     public float AccumulatedTime;
 

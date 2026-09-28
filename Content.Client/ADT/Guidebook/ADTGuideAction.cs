@@ -9,9 +9,9 @@ namespace Content.Client.ADT.Guidebook;
 
 public sealed class ADTGuideAction : ADTGuideEntry, IDocumentTag
 {
-    [Dependency] private readonly IComponentFactory _componentFactory = default!;
-    [Dependency] private readonly IEntitySystemManager _systems = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private IComponentFactory _componentFactory = default!;
+    [Dependency] private IEntitySystemManager _systems = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     private readonly SpriteSystem _sprite;
 

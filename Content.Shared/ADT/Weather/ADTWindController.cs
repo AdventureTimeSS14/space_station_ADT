@@ -17,10 +17,10 @@ namespace Content.Shared.ADT.Weather;
 
 public sealed class ADTWindController : VirtualController
 {
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedWeatherSystem _weather = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private SharedWeatherSystem _weather = default!;
 
     private readonly Dictionary<EntityUid, (Entity<ADTWeatherWindComponent> Wind, Vector2 Velocity)> _winds = new();
 

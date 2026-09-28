@@ -8,7 +8,7 @@ namespace Content.Server.ADT.Construction.Systems;
 
 public sealed class GrillMachinePartsSystem : EntitySystem
 {
-    [Dependency] private readonly SharedEntityHeaterSystem _heater = default!;
+    [Dependency] private SharedEntityHeaterSystem _heater = default!;
 
     public override void Initialize()
     {

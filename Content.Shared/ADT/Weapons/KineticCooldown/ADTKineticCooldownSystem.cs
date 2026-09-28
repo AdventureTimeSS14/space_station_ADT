@@ -11,10 +11,10 @@ namespace Content.Shared.ADT.Weapons.KineticCooldown;
 
 public sealed class ADTKineticCooldownSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedGunSystem _gun = default!;
-    [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedGunSystem _gun = default!;
+    [Dependency] private SharedMeleeWeaponSystem _melee = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {

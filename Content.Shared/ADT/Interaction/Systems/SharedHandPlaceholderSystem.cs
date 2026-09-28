@@ -18,11 +18,11 @@ namespace Content.Shared.ADT.Interaction.Systems;
 [UsedImplicitly]
 public sealed partial class HandPlaceholderSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly MetaDataSystem _metadata = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private MetaDataSystem _metadata = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     public override void Initialize()
     {

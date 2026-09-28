@@ -12,7 +12,7 @@ namespace Content.Client.ADT.Fishing.UI;
 
 public sealed class ADTFishingTrack : Control
 {
-    [Dependency] private readonly IEntityManager _entMan = default!;
+    [Dependency] private IEntityManager _entMan = default!;
 
     private static readonly Color Frame = Color.FromHex("#2B1A12");
     private static readonly Color TrackTop = Color.FromHex("#3D1C0E");

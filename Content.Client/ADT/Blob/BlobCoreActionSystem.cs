@@ -9,7 +9,7 @@ namespace Content.Client.ADT.Blob;
 
 public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
 {
-    [Dependency] private readonly MeleeWeaponSystem _meleeWeaponSystem = default!;
+    [Dependency] private MeleeWeaponSystem _meleeWeaponSystem = default!;
 
     public override void Initialize()
     {

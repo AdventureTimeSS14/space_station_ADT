@@ -6,8 +6,8 @@ namespace Content.Server.ADT.TTS;
 
 public sealed partial class TTSSystem
 {
-    [Dependency] private readonly AreaSystem _area = default!;
-    [Dependency] private readonly IComponentFactory _componentFactory = default!;
+    [Dependency] private AreaSystem _area = default!;
+    [Dependency] private IComponentFactory _componentFactory = default!;
 
     private string? ResolveEffect(EntityUid uid, TTSComponent component)
     {

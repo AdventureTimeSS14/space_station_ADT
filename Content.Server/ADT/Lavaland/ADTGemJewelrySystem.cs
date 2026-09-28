@@ -12,13 +12,13 @@ namespace Content.Server.ADT.Lavaland;
 
 public sealed class ADTGemJewelrySystem : EntitySystem
 {
-    [Dependency] private readonly ClothingSystem _clothing = default!;
-    [Dependency] private readonly MetaDataSystem _meta = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedItemSystem _item = default!;
-    [Dependency] private readonly SharedPointLightSystem _light = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private ClothingSystem _clothing = default!;
+    [Dependency] private MetaDataSystem _meta = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedItemSystem _item = default!;
+    [Dependency] private SharedPointLightSystem _light = default!;
+    [Dependency] private StatusEffectsSystem _status = default!;
 
     private const string NoGem = "none";
 

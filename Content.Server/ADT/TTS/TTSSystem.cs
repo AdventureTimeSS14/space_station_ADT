@@ -21,14 +21,14 @@ namespace Content.Server.ADT.TTS;
 
 public sealed partial class TTSSystem : EntitySystem
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IRobustRandom _rng = default!;
-    [Dependency] private readonly ADTDeafnessSystem _deafness = default!;
-    [Dependency] private readonly ExamineSystem _examineSystem = default!;
-    [Dependency] private readonly LanguageSystem _language = default!;
-    [Dependency] private readonly SharedTransformSystem _xforms = default!;
-    [Dependency] private readonly TTSManager _ttsManager = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IRobustRandom _rng = default!;
+    [Dependency] private ADTDeafnessSystem _deafness = default!;
+    [Dependency] private ExamineSystem _examineSystem = default!;
+    [Dependency] private LanguageSystem _language = default!;
+    [Dependency] private SharedTransformSystem _xforms = default!;
+    [Dependency] private TTSManager _ttsManager = default!;
 
     /// <summary>
     /// What a specific listener should hear.

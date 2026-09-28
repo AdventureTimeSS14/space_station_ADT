@@ -7,9 +7,9 @@ namespace Content.Shared.ADT.MiningShop;
 
 public abstract class SharedMiningShopSystem : EntitySystem
 {
-    [Dependency] private readonly MiningPointsSystem _miningPoints = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
+    [Dependency] private MiningPointsSystem _miningPoints = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private IPrototypeManager _prototypes = default!;
 
 
     public override void Initialize()

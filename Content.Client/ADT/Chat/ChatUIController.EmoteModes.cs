@@ -18,7 +18,7 @@ namespace Content.Client.UserInterface.Systems.Chat;
 
 public sealed partial class ChatUIController
 {
-    [Dependency] private readonly IClientConsoleHost _consoleHost = default!;
+    [Dependency] private IClientConsoleHost _consoleHost = default!;
     [UISystemDependency] private readonly SpriteSystem? _sprite = default;
 
     private enum EmoteMode : byte

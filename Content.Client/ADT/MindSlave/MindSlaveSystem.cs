@@ -12,8 +12,8 @@ namespace Content.Client.ADT.MindSlave;
 /// </summary>
 public sealed class MindSlaveSystem : EntitySystem
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     public override void Initialize()
     {

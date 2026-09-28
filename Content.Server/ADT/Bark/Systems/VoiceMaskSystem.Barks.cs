@@ -8,7 +8,7 @@ namespace Content.Server.VoiceMask;
 
 public partial class VoiceMaskSystem
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
 
     private void InitializeBarks()
     {

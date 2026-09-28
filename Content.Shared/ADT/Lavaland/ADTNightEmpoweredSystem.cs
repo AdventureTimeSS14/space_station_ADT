@@ -7,7 +7,7 @@ namespace Content.Shared.ADT.Lavaland;
 
 public sealed class ADTNightEmpoweredSystem : EntitySystem
 {
-    [Dependency] private readonly MovementSpeedModifierSystem _speed = default!;
+    [Dependency] private MovementSpeedModifierSystem _speed = default!;
 
     public override void Initialize()
     {

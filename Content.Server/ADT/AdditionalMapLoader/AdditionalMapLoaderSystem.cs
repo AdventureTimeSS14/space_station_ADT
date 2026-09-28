@@ -7,9 +7,9 @@
 //
 // public sealed class AdditionalMapLoaderSystem : EntitySystem
 // {
-//     [Dependency] private readonly GameTicker _gameTicker = default!;
-//     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-//     [Dependency] private readonly IMapManager _mapManager = default!;
+//     [Dependency] private GameTicker _gameTicker = default!;
+//     [Dependency] private IPrototypeManager _prototypeManager = default!;
+//     [Dependency] private IMapManager _mapManager = default!;
 //
 //     public override void Initialize()
 //     {

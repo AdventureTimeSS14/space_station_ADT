@@ -10,7 +10,7 @@ public sealed class SyllableSystem : SharedSyllableSystem
 {
     private const string Vowels = "аеёиоуыэюяАЕЁИОУЫЭЮЯ";
 
-    [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
+    [Dependency] private StatusEffectsSystem _statusEffectsSystem = default!;
 
     public override void Initialize()
     {

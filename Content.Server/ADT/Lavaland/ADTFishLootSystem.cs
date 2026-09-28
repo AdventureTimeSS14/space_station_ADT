@@ -18,12 +18,12 @@ namespace Content.Server.ADT.Lavaland;
 
 public sealed class ADTFishLootSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly PlantHolderSystem _plantHolder = default!;
-    [Dependency] private readonly PuddleSystem _puddle = default!;
-    [Dependency] private readonly ReactiveSystem _reactive = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private PlantHolderSystem _plantHolder = default!;
+    [Dependency] private PuddleSystem _puddle = default!;
+    [Dependency] private ReactiveSystem _reactive = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private TagSystem _tag = default!;
 
     private static readonly ProtoId<TagPrototype> WallTag = "Wall";
 

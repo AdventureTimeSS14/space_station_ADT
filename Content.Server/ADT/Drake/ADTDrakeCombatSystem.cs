@@ -11,15 +11,15 @@ namespace Content.Server.ADT.Drake;
 
 public sealed class ADTDrakeCombatSystem : EntitySystem
 {
-    [Dependency] private readonly ADTDrakeAttacksSystem _attacks = default!;
-    [Dependency] private readonly ADTDrakeSystem _drake = default!;
-    [Dependency] private readonly ADTDrakeSwoopSystem _swoop = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly NPCSystem _npc = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private ADTDrakeAttacksSystem _attacks = default!;
+    [Dependency] private ADTDrakeSystem _drake = default!;
+    [Dependency] private ADTDrakeSwoopSystem _swoop = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private NPCSystem _npc = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {

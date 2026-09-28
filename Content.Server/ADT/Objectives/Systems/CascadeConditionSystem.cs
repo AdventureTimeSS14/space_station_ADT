@@ -9,9 +9,9 @@ namespace Content.Server.ADT.Objectives.Systems;
 
 public sealed class CascadeConditionSystem : EntitySystem
 {
-    [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
-    [Dependency] private readonly StationSystem _stationSystem = default!;
-    [Dependency] private readonly CheckSupermatterSystem _supermatter = default!;
+    [Dependency] private AlertLevelSystem _alertLevelSystem = default!;
+    [Dependency] private StationSystem _stationSystem = default!;
+    [Dependency] private CheckSupermatterSystem _supermatter = default!;
 
     public override void Initialize()
     {

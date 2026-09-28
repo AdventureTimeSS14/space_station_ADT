@@ -13,7 +13,7 @@ namespace Content.Client.Administration.UI.Tabs.AdminTab
     [UsedImplicitly]
     public sealed partial class EchoChatPanelWindow : DefaultWindow
     {
-        [Dependency] private readonly IClientConsoleHost _consoleHost = default!;
+        [Dependency] private IClientConsoleHost _consoleHost = default!;
 
         private int _selectedTypeId = 0;
 

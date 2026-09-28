@@ -8,8 +8,8 @@ namespace Content.Server.ADT.EntityEffects;
 
 public sealed partial class ExtinguishNearbySystem : EntityEffectSystem<TransformComponent, ExtinguishNearby>
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly FlammableSystem _flammable = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private FlammableSystem _flammable = default!;
 
     protected override void Effect(Entity<TransformComponent> entity, ref EntityEffectEvent<ExtinguishNearby> args)
     {

@@ -19,11 +19,11 @@ namespace Content.Server.ADT.Heretic.EntitySystems;
 
 public sealed class IceCubeSystem : SharedIceCubeSystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
-    [Dependency] private readonly FixtureSystem _fixtures = default!;
-    [Dependency] private readonly ActionBlockerSystem _blocker = default!;
-    [Dependency] private readonly TemperatureSystem _temperature = default!;
+    [Dependency] private FixtureSystem _fixtures = default!;
+    [Dependency] private ActionBlockerSystem _blocker = default!;
+    [Dependency] private TemperatureSystem _temperature = default!;
 
     private const string IceCubeFixture = "ice-cube-fixture";
 

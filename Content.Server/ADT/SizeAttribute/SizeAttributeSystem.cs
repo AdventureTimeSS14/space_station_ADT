@@ -10,10 +10,10 @@ namespace Content.Server.ADT.SizeAttribute
 {
     public sealed class SizeAttributeSystem : EntitySystem
     {
-        [Dependency] private readonly IEntityManager _entityManager = default!;
-        [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-        [Dependency] private readonly AppearanceSystem _appearance = default!;
-        [Dependency] private readonly FixtureSystem _fixtures = default!;
+        [Dependency] private IEntityManager _entityManager = default!;
+        [Dependency] private SharedPhysicsSystem _physics = default!;
+        [Dependency] private AppearanceSystem _appearance = default!;
+        [Dependency] private FixtureSystem _fixtures = default!;
         public override void Initialize()
         {
             base.Initialize();

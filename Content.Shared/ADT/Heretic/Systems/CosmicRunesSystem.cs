@@ -18,16 +18,16 @@ namespace Content.Shared.ADT.Heretic.Systems;
 
 public sealed class CosmicRunesSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
-    [Dependency] private readonly PullingSystem _pulling = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedStarMarkSystem _starMark = default!;
-    [Dependency] private readonly SharedHereticAbilitySystem _heretic = default!;
+    [Dependency] private PullingSystem _pulling = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedStarMarkSystem _starMark = default!;
+    [Dependency] private SharedHereticAbilitySystem _heretic = default!;
 
     public override void Initialize()
     {

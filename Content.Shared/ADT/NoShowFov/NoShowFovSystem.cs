@@ -5,7 +5,7 @@ namespace Content.Client.ADT.NoShowFov;
 
 public sealed class NoShowFovSystem : EntitySystem
 {
-    [Dependency] private readonly SharedEyeSystem _eye = default!;
+    [Dependency] private SharedEyeSystem _eye = default!;
     public override void Initialize()
     {
         base.Initialize();

@@ -40,26 +40,26 @@ namespace Content.Shared.ADT.Heretic.Systems;
 
 public abstract class SharedHereticBladeSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
-    [Dependency] private readonly SharedHereticCombatMarkSystem _combatMark = default!;
-    [Dependency] private readonly SharedRottingSystem _rotting = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly CosmosComboSystem _combo = default!;
-    [Dependency] private readonly SharedStarMarkSystem _starMark = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
-    [Dependency] private readonly SharedCombatModeSystem _combat = default!;
-    [Dependency] private readonly SharedVoidCurseSystem _voidCurse = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedHereticSystem _heretic = default!;
-    [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedTransformSystem _xform = default!;
+    [Dependency] private SharedHereticCombatMarkSystem _combatMark = default!;
+    [Dependency] private SharedRottingSystem _rotting = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private CosmosComboSystem _combo = default!;
+    [Dependency] private SharedStarMarkSystem _starMark = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedMeleeWeaponSystem _melee = default!;
+    [Dependency] private SharedCombatModeSystem _combat = default!;
+    [Dependency] private SharedVoidCurseSystem _voidCurse = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedHereticSystem _heretic = default!;
+    [Dependency] private SharedBloodstreamSystem _bloodstream = default!;
 
     private const float BleedHealPerLivingHit = 0.5f;
 
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private INetManager _net = default!;
 
     public override void Initialize()
     {

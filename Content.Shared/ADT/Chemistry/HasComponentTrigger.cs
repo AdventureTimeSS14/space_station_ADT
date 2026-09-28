@@ -8,7 +8,7 @@ namespace Content.Shared.Destructible.Thresholds.Triggers;
 [DataDefinition]
 public sealed partial class HasComponentTrigger : IThresholdTrigger
 {
-    [Dependency] private readonly EntityManager _entityManager = default!;
+    [Dependency] private EntityManager _entityManager = default!;
 
     /// <summary>
     /// Набор имён компонентов для проверки.

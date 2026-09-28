@@ -29,18 +29,18 @@ namespace Content.Server.ADT.Predictor;
 //ADT-Tweak: Predictor Machine
 public sealed class PredictorMachineSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly BankCardSystem _bankCard = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly PowerReceiverSystem _powerReceiver = default!;
-    [Dependency] private readonly VomitSystem _vomit = default!;
-    [Dependency] private readonly EmagSystem _emag = default!;
-    [Dependency] private readonly SharedToolSystem _toolSystem = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private BankCardSystem _bankCard = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private SharedBloodstreamSystem _bloodstream = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private AppearanceSystem _appearance = default!;
+    [Dependency] private PowerReceiverSystem _powerReceiver = default!;
+    [Dependency] private VomitSystem _vomit = default!;
+    [Dependency] private EmagSystem _emag = default!;
+    [Dependency] private SharedToolSystem _toolSystem = default!;
 
     public override void Initialize()
     {

@@ -18,7 +18,7 @@ namespace Content.Client.ADT.Lobby.UI;
 [GenerateTypedNameReferences]
 public sealed partial class BodyTypeWindow : FancyWindow
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     public event Action<ProtoId<BodyTypePrototype>?>? OnBodyTypeSelected;
 

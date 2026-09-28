@@ -16,8 +16,8 @@ namespace Content.Client.ADT.VendingMachines.UI;
 
 public sealed class VendingItemIcon : Control
 {
-    [Dependency] private readonly IComponentFactory _componentFactory = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IComponentFactory _componentFactory = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
 
     private readonly List<IconLayer> _layers = [];
     private Vector2 _contentSize;

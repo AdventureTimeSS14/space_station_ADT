@@ -16,13 +16,13 @@ namespace Content.Server.ADT.Weapons.Medbeam;
 
 public sealed class ADTMedbeamSystem : SharedADTMedbeamSystem
 {
-    [Dependency] private readonly DamageableSystem _damage = default!;
-    [Dependency] private readonly ExamineSystemShared _examine = default!;
-    [Dependency] private readonly SharedBloodstreamSystem _blood = default!;
-    [Dependency] private readonly ExplosionSystem _explosion = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly MechSystem _mech = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
+    [Dependency] private DamageableSystem _damage = default!;
+    [Dependency] private ExamineSystemShared _examine = default!;
+    [Dependency] private SharedBloodstreamSystem _blood = default!;
+    [Dependency] private ExplosionSystem _explosion = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private MechSystem _mech = default!;
+    [Dependency] private SharedTransformSystem _xform = default!;
 
     public override void Update(float frameTime)
     {

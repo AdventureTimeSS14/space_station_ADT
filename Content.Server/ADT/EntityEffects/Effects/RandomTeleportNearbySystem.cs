@@ -11,11 +11,11 @@ namespace Content.Server.ADT.EntityEffects.Effects;
 
 public sealed partial class RandomTeleportNearbySystem : EntityEffectSystem<TransformComponent, RandomTeleportEvent>
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly ExamineSystemShared _examine = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private ExamineSystemShared _examine = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IMapManager _mapManager = default!;
 
     protected override void Effect(Entity<TransformComponent> entity, ref EntityEffectEvent<RandomTeleportEvent> args)
     {

@@ -17,10 +17,10 @@ namespace Content.Client.ADT.TTS;
 
 public sealed class TTSSystem : EntitySystem
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IResourceManager _res = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IResourceManager _res = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private ISharedPlayerManager _playerManager = default!;
 
     private ISawmill _sawmill = default!;
     private static readonly MemoryContentRoot ContentRoot = new();

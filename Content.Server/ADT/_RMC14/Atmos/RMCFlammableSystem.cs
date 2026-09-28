@@ -13,9 +13,9 @@ namespace Content.Server._RMC14.Atmos;
 
 public sealed class RMCFlammableSystem : SharedRMCFlammableSystem
 {
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private readonly FlammableSystem _flammable = default!;
-    [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
+    [Dependency] private ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private FlammableSystem _flammable = default!;
+    [Dependency] private AtmosphereSystem _atmosphere = default!;
 
     private const float ThermalProtectionWeight = 0.5f;
 

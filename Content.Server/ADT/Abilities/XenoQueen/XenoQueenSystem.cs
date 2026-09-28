@@ -17,13 +17,13 @@ namespace Content.Server.ADT.Abilities.XenoQueen
 {
     public sealed class XenoQueenSystem : EntitySystem
     {
-        [Dependency] private readonly PopupSystem _popupSystem = default!;
-        [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-        [Dependency] private readonly IPrototypeManager _proto = default!;
-        [Dependency] private readonly TurfSystem _turf = default!;
-        [Dependency] private readonly IMapManager _mapMan = default!;
-        [Dependency] private readonly AlertsSystem _alerts = default!;
-        [Dependency] private readonly SharedContainerSystem _container = default!;
+        [Dependency] private PopupSystem _popupSystem = default!;
+        [Dependency] private SharedActionsSystem _actionsSystem = default!;
+        [Dependency] private IPrototypeManager _proto = default!;
+        [Dependency] private TurfSystem _turf = default!;
+        [Dependency] private IMapManager _mapMan = default!;
+        [Dependency] private AlertsSystem _alerts = default!;
+        [Dependency] private SharedContainerSystem _container = default!;
 
         public override void Initialize()
         {

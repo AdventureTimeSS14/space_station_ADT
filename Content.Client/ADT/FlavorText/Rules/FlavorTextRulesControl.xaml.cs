@@ -11,7 +11,7 @@ namespace Content.Client.ADT.FlavorText.Rules;
 [GenerateTypedNameReferences]
 public sealed partial class FlavorTextRulesControl : BoxContainer
 {
-    [Dependency] private readonly DocumentParsingManager _parsingMan = default!;
+    [Dependency] private DocumentParsingManager _parsingMan = default!;
 
     public FlavorTextRulesControl()
     {

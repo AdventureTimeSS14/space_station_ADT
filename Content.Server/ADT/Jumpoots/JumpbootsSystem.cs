@@ -22,24 +22,24 @@ namespace Content.Server.Clothing.EntitySystems;
 
 public sealed partial class JumpbootsSystem : SharedJumpbootsSystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly HandsSystem _handsSystem = default!;
-    [Dependency] private readonly InventorySystem _inventorySystem = default!;
-    [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
-    [Dependency] private readonly EmpSystem _emp = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly PuddleSystem _puddle = default!;
-    [Dependency] private readonly IComponentFactory _compFact = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly BodySystem _bodySystem = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly PhysicsSystem _physics = default!;
-    [Dependency] private readonly GunSystem _gunSystem = default!;
-    [Dependency] private readonly ThrowingSystem _throwing = default!;
-    [Dependency] private readonly ActionsSystem _action = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private HandsSystem _handsSystem = default!;
+    [Dependency] private InventorySystem _inventorySystem = default!;
+    [Dependency] private BloodstreamSystem _bloodstreamSystem = default!;
+    [Dependency] private EmpSystem _emp = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private PuddleSystem _puddle = default!;
+    [Dependency] private IComponentFactory _compFact = default!;
+    [Dependency] private IMapManager _mapManager = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private BodySystem _bodySystem = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private PhysicsSystem _physics = default!;
+    [Dependency] private GunSystem _gunSystem = default!;
+    [Dependency] private ThrowingSystem _throwing = default!;
+    [Dependency] private ActionsSystem _action = default!;
 
     public override void Initialize()
     {

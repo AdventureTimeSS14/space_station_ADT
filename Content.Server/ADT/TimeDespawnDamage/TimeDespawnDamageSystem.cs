@@ -20,14 +20,14 @@ using Content.Shared.Forensics.Components;
 using Content.Shared.Damage.Systems;
 public sealed class TimeDespawnDamageSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly HandsSystem _hands = default!;
-    [Dependency] private readonly PhysicsSystem _physics = default!;
-    [Dependency] private readonly StationRecordsSystem _stationRecords = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private HandsSystem _hands = default!;
+    [Dependency] private PhysicsSystem _physics = default!;
+    [Dependency] private StationRecordsSystem _stationRecords = default!;
 
     public override void Initialize()
     {

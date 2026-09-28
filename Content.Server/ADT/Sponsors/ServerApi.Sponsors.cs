@@ -14,7 +14,7 @@ namespace Content.Server.Administration;
 
 public sealed partial class ServerApi
 {
-    [Dependency] private readonly SponsorManager _sponsors = default!;
+    [Dependency] private SponsorManager _sponsors = default!;
 
     private void RegisterSponsorHandlers()
     {

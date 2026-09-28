@@ -8,7 +8,7 @@ namespace Content.Server.ADT.Language;
 
 public sealed partial class LanguageSystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
     private void InitializeTraits()
     {
         SubscribeLocalEvent<DeafTraitComponent, MapInitEvent>(OnDeafInit);

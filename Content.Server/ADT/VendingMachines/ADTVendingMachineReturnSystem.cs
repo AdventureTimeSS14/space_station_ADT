@@ -21,12 +21,12 @@ namespace Content.Server.ADT.VendingMachines;
 
 public sealed class ADTVendingMachineReturnSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
-    [Dependency] private readonly VendingMachineSystem _vending = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ThrowingSystem _throwingSystem = default!;
+    [Dependency] private VendingMachineSystem _vending = default!;
 
     public override void Initialize()
     {

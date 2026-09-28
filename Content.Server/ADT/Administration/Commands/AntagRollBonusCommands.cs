@@ -15,9 +15,9 @@ namespace Content.Server.ADT.Administration.Commands;
 [AdminCommand(AdminFlags.Server | AdminFlags.Permissions)]
 public sealed class CheckAntagBonusCommand : IConsoleCommand
 {
-    [Dependency] private readonly AntagRollBonusManager _rollBonus = default!;
-    [Dependency] private readonly IPlayerLocator _playerLocator = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private AntagRollBonusManager _rollBonus = default!;
+    [Dependency] private IPlayerLocator _playerLocator = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
 
     public string Command => "checkantagbonus";
     public string Description => "Shows the stored antag roll bonus of a player.";
@@ -70,10 +70,10 @@ public sealed class CheckAntagBonusCommand : IConsoleCommand
 [AdminCommand(AdminFlags.Server | AdminFlags.Permissions)]
 public sealed class ChangeAntagBonusCommand : IConsoleCommand
 {
-    [Dependency] private readonly AntagRollBonusManager _rollBonus = default!;
-    [Dependency] private readonly IPlayerLocator _playerLocator = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private AntagRollBonusManager _rollBonus = default!;
+    [Dependency] private IPlayerLocator _playerLocator = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     public const string AllRolesKeyword = "all";
 

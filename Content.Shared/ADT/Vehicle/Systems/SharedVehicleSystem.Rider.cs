@@ -10,7 +10,7 @@ namespace Content.Shared.Vehicle;
 
 public abstract partial class SharedVehicleSystem
 {
-    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
     private void InitializeRider()
     {
         SubscribeLocalEvent<RiderComponent, ComponentGetState>(OnRiderGetState);

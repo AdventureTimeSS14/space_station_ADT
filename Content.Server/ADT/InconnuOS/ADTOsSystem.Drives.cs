@@ -9,7 +9,7 @@ namespace Content.Server.ADT.InconnuOS;
 
 public sealed partial class ADTOsSystem
 {
-    [Dependency] private readonly ItemSlotsSystem _slots = default!;
+    [Dependency] private ItemSlotsSystem _slots = default!;
 
     public const string DriveSlot = "adt_os_drive";
     private const string DefaultCircuitName = "схема";

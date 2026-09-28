@@ -13,10 +13,10 @@ namespace Content.Server.ADT.EntityEffects;
 
 public sealed partial class DoSmokeEntityEffectSystem : EntityEffectSystem<TransformComponent, DoSmokeEntityEffect>
 {
-    [Dependency] private readonly SmokeSystem _smoke = default!;
-    [Dependency] private readonly SpreaderSystem _spreader = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private SmokeSystem _smoke = default!;
+    [Dependency] private SpreaderSystem _spreader = default!;
+    [Dependency] private SharedTransformSystem _xform = default!;
+    [Dependency] private IMapManager _mapManager = default!;
 
     protected override void Effect(Entity<TransformComponent> entity, ref EntityEffectEvent<DoSmokeEntityEffect> args)
     {

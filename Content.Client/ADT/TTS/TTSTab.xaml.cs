@@ -15,9 +15,9 @@ namespace Content.Client.ADT.TTS;
 [GenerateTypedNameReferences]
 public sealed partial class TTSTab : Control
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly Content.Client.ADT.Sponsors.SponsorManager _adtSponsors = default!;
-    [Dependency] private readonly Robust.Client.Player.IPlayerManager _players = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private Content.Client.ADT.Sponsors.SponsorManager _adtSponsors = default!;
+    [Dependency] private Robust.Client.Player.IPlayerManager _players = default!;
 
     public event Action<string>? OnVoiceSelected;
     public event Action<string>? OnPreviewRequested;

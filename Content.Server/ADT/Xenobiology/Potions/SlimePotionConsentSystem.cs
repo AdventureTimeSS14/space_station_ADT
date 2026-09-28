@@ -14,13 +14,13 @@ namespace Content.Server.ADT.Xenobiology.Potions;
 
 public sealed partial class SlimePotionConsentSystem : EntitySystem
 {
-    [Dependency] private readonly EuiManager _eui = default!;
-    [Dependency] private readonly HumanoidProfileSystem _humanoid = default!;
-    [Dependency] private readonly SharedLanguageSystem _language = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private EuiManager _eui = default!;
+    [Dependency] private HumanoidProfileSystem _humanoid = default!;
+    [Dependency] private SharedLanguageSystem _language = default!;
+    [Dependency] private ISharedPlayerManager _player = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

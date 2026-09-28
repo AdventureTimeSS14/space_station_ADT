@@ -14,9 +14,9 @@ public sealed class ColorTintOverlay : Overlay
 {
     private static readonly ProtoId<ShaderPrototype> ColorTintShader = "ColorTint";
 
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IEntityManager _entity = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IEntityManager _entity = default!;
 
     public override bool RequestScreenTexture => true;
     public override OverlaySpace Space => OverlaySpace.WorldSpace;

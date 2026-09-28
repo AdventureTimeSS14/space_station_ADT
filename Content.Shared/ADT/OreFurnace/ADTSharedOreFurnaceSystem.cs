@@ -7,8 +7,8 @@ namespace Content.Shared.ADT.OreFurnace;
 
 public sealed class ADTSharedOreFurnaceSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly SharedMaterialStorageSystem _materialStorage = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private SharedMaterialStorageSystem _materialStorage = default!;
 
     public List<OreSmeltRecipePrototype> GetRecipes(ADTOreFurnaceComponent component)
     {

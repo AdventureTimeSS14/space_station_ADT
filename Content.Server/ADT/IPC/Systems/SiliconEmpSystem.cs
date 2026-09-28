@@ -20,16 +20,16 @@ namespace Content.Server.ADT.Silicon.Systems;
 
 public sealed class SiliconEmpSystem : EntitySystem
 {
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
-    [Dependency] private readonly Content.Shared.StatusEffectNew.StatusEffectsSystem _statusNew = default!;
+    [Dependency] private StatusEffectsSystem _status = default!;
+    [Dependency] private Content.Shared.StatusEffectNew.StatusEffectsSystem _statusNew = default!;
 
     private static readonly EntProtoId MuteEffect = "StatusEffectMuted";
-    [Dependency] private readonly StunSystem _stun = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedStutteringSystem _stuttering = default!;
-    [Dependency] private readonly SharedSlurredSystem _slurredSystem = default!;
-    [Dependency] private readonly DamageableSystem _damage = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private StunSystem _stun = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedStutteringSystem _stuttering = default!;
+    [Dependency] private SharedSlurredSystem _slurredSystem = default!;
+    [Dependency] private DamageableSystem _damage = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     public override void Initialize()
     {

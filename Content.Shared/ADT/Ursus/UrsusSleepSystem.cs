@@ -17,12 +17,12 @@ namespace Content.Shared.ADT.Ursus;
 
 public sealed class UrsusSleepSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly DamageableSystem _damage = default!;
-    [Dependency] private readonly SleepingSystem _sleepingSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private DamageableSystem _damage = default!;
+    [Dependency] private SleepingSystem _sleepingSystem = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private static readonly EntProtoId UrsusSleepActionId = "ActionUrsusSleep";
 

@@ -16,9 +16,9 @@ namespace Content.Server.GameTicking.Rules;
 /// </summary>
 public sealed class PiratesRuleSystem : GameRuleSystem<PiratesRuleComponent>
 {
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly PricingSystem _pricingSystem = default!;
-    [Dependency] private readonly MapLoaderSystem _map = default!;
+    [Dependency] private IMapManager _mapManager = default!;
+    [Dependency] private PricingSystem _pricingSystem = default!;
+    [Dependency] private MapLoaderSystem _map = default!;
 
 
     /// <inheritdoc/>

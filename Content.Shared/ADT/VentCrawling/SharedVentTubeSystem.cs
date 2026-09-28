@@ -8,7 +8,7 @@ namespace Content.Shared.ADT.VentCrawling;
 
 public sealed class SharedVentTubeSystem : EntitySystem
 {
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
+    [Dependency] private SharedMapSystem _mapSystem = default!;
 
     public EntityUid? NextTubeFor(EntityUid target, Direction nextDirection, VentCrawlerTubeComponent? targetTube = null)
     {

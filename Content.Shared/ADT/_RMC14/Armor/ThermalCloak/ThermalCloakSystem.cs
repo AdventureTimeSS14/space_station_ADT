@@ -30,16 +30,16 @@ namespace Content.Shared._RMC14.Armor.ThermalCloak;
 /// </summary>
 public sealed class ThermalCloakSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedHideableHumanoidLayersSystem _humanoidLayers = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedSpaceNinjaSystem _ninja = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedHideableHumanoidLayersSystem _humanoidLayers = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private SharedSpaceNinjaSystem _ninja = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
 
     public override void Initialize()
     {

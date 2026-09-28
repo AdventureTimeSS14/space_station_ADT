@@ -7,7 +7,7 @@ namespace Content.Server.ADT.EntityEffects.Effects;
 
 public sealed partial class WashCreamPieReactionSystem : EntityEffectSystem<CreamPiedComponent, WashCreamPieReaction>
 {
-    [Dependency] private readonly SharedCreamPieSystem _creamPie = default!;
+    [Dependency] private SharedCreamPieSystem _creamPie = default!;
 
     protected override void Effect(Entity<CreamPiedComponent> entity, ref EntityEffectEvent<WashCreamPieReaction> args)
     {

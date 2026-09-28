@@ -5,7 +5,7 @@ namespace Content.Client.ADT.Thunderdome;
 
 public sealed partial class ThunderdomeUISystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     private ThunderdomeRevivalWindow? _revivalWindow;
     private ThunderdomeLeaderboardWindow? _leaderboardWindow;

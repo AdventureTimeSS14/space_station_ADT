@@ -11,10 +11,10 @@ namespace Content.Server.Resist;
 
 public sealed class EscapeMechSystem : EntitySystem // Копия существующей системы с изменениями под клешни мехов
 {
-    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-    [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
+    [Dependency] private SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] private PopupSystem _popupSystem = default!;
+    [Dependency] private SharedContainerSystem _containerSystem = default!;
+    [Dependency] private ActionBlockerSystem _actionBlockerSystem = default!;
 
     public override void Initialize()
     {

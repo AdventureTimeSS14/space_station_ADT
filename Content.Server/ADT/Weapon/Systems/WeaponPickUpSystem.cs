@@ -10,10 +10,10 @@ namespace Content.Server.ADT.Weapon.Systems;
 /// </summary>
 public sealed class WeaponPickUpSystem : EntitySystem
 {
-    [Dependency] private readonly HandsSystem _hands = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private HandsSystem _hands = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private PopupSystem _popup = default!;
 
     public override void Initialize()
     {

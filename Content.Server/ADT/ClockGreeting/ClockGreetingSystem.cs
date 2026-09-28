@@ -11,8 +11,8 @@ public sealed class ClockGreetingSystem : EntitySystem
     private const int GameYearOffset = 544;
     private const int EarthTimeOffsetHours = 3;
 
-    [Dependency] private readonly GameTicker _ticker = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private GameTicker _ticker = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private readonly HashSet<NetUserId> _greeted = new();
 

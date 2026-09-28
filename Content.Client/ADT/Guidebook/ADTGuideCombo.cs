@@ -10,8 +10,8 @@ namespace Content.Client.ADT.Guidebook;
 
 public sealed class ADTGuideCombo : ADTGuideEntry, IDocumentTag
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IResourceCache _resource = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IResourceCache _resource = default!;
 
     private const string IntentsRsi = "/Textures/ADT/Interface/Misc/intents_big.rsi";
 

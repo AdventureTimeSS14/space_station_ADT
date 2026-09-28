@@ -14,12 +14,12 @@ public sealed class ADTLinkedBodiesSystem : EntitySystem
 {
     private static readonly EntProtoId SwapAction = "ADTActionLinkedBodySwap";
 
-    [Dependency] private readonly IAdminLogManager _adminLog = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly PvsOverrideSystem _pvsOverride = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private IAdminLogManager _adminLog = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
+    [Dependency] private MindSystem _mind = default!;
+    [Dependency] private PvsOverrideSystem _pvsOverride = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {

@@ -18,16 +18,16 @@ namespace Content.Shared.ADT.Heretic.Systems;
 
 public sealed class InfusedItemSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private INetManager _net = default!;
 
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedRatvarianLanguageSystem _language = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedItemSystem _item = default!;
-    [Dependency] private readonly SharedMansusGraspSystem _grasp = default!;
-    [Dependency] private readonly SharedHereticSystem _heretic = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedRatvarianLanguageSystem _language = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedItemSystem _item = default!;
+    [Dependency] private SharedMansusGraspSystem _grasp = default!;
+    [Dependency] private SharedHereticSystem _heretic = default!;
 
 
     public override void Initialize()

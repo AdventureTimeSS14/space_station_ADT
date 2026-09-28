@@ -11,10 +11,10 @@ namespace Content.Server.ADT.Silicons.StationAi;
 
 public sealed partial class StationAiInfoSystem : EntitySystem
 {
-    [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly ActionsSystem _action = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly IEntityManager _entity = default!;
+    [Dependency] private UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private ActionsSystem _action = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private IEntityManager _entity = default!;
 
     public override void Initialize()
     {

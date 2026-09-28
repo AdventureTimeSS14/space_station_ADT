@@ -21,16 +21,16 @@ namespace Content.Server.ADT.StationAi;
 
 public sealed class AiEyeTeleportSystem : EntitySystem
 {
-    [Dependency] private readonly SharedStationAiSystem _stationAi = default!;
-    [Dependency] private readonly StationAiVisionSystem _vision = default!;
-    [Dependency] private readonly SharedSuitSensorSystem _suitSensors = default!;
-    [Dependency] private readonly SharedMapSystem _maps = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedTransformSystem _xforms = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
-    [Dependency] private readonly IChatManager _chat = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private SharedStationAiSystem _stationAi = default!;
+    [Dependency] private StationAiVisionSystem _vision = default!;
+    [Dependency] private SharedSuitSensorSystem _suitSensors = default!;
+    [Dependency] private SharedMapSystem _maps = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedTransformSystem _xforms = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private ISharedPlayerManager _player = default!;
+    [Dependency] private IChatManager _chat = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private EntityQuery<BroadphaseComponent> _broadphaseQuery = default!;
     private EntityQuery<MapGridComponent> _gridQuery = default!;

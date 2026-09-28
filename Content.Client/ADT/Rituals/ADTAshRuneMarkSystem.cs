@@ -5,7 +5,7 @@ namespace Content.Client.ADT.Rituals;
 
 public sealed class ADTAshRuneMarkSystem : EntitySystem
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {

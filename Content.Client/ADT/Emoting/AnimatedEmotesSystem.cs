@@ -12,8 +12,8 @@ namespace Content.Client.Emoting;
 
 public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
 {
-    [Dependency] private readonly AnimationPlayerSystem _anim = default!;
-    [Dependency] private readonly IPrototypeManager _prot = default!;
+    [Dependency] private AnimationPlayerSystem _anim = default!;
+    [Dependency] private IPrototypeManager _prot = default!;
 
     public override void Initialize()
     {

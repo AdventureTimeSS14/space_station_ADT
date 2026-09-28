@@ -22,15 +22,15 @@ namespace Content.Server.ADT.Shadowling;
 
 public sealed class ADTShadowlingSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedLanguageSystem _language = default!;
-    [Dependency] private readonly NpcFactionSystem _faction = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
-    [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
-    [Dependency] private readonly SharedNightVisionSystem _nightVision = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedLanguageSystem _language = default!;
+    [Dependency] private NpcFactionSystem _faction = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private MobThresholdSystem _mobThreshold = default!;
+    [Dependency] private SharedVisualBodySystem _visualBody = default!;
+    [Dependency] private SharedNightVisionSystem _nightVision = default!;
+    [Dependency] private StatusEffectsSystem _statusEffects = default!;
 
     public static readonly ProtoId<LanguagePrototype> HivemindLanguage = "ADTShadowlingCollectiveMind";
     public static readonly ProtoId<NpcFactionPrototype> ShadowlingFaction = "ADTShadowling";

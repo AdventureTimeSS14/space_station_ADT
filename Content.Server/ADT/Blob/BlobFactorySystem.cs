@@ -19,9 +19,9 @@ namespace Content.Server.ADT.Blob;
 
 public sealed class BlobFactorySystem : EntitySystem
 {
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
 
 
     public override void Initialize()

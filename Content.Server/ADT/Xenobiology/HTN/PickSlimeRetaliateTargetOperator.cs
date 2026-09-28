@@ -11,8 +11,8 @@ namespace Content.Server.ADT.Xenobiology.HTN;
 
 public sealed partial class PickSlimeRetaliateTargetOperator : HTNOperator
 {
-    [Dependency] private readonly IEntityManager _ent = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IEntityManager _ent = default!;
+    [Dependency] private IGameTiming _timing = default!;
     private PathfindingSystem _pathfinding = default!;
     private MobStateSystem _mobState = default!;
 

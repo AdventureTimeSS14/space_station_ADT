@@ -13,8 +13,8 @@ namespace Content.Shared.ADT.SS40k.Turrets.Systems;
 
 public sealed class TurretControllerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedMindSystem _mindSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private SharedMindSystem _mindSystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
 
     public override void Initialize()
     {

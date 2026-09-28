@@ -52,36 +52,36 @@ namespace Content.Server.ADT.Supermatter.Systems;
 
 public sealed partial class SupermatterSystem : EntitySystem
 {
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly AlertLevelSystem _alert = default!;
-    [Dependency] private readonly RadiationSystem _radiation = default!;
-    [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly DoAfterSystem _doAfter = default!;
-    [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
-    [Dependency] private readonly ExamineSystem _examine = default!;
-    [Dependency] private readonly ExplosionSystem _explosion = default!;
-    [Dependency] private readonly GravityWellSystem _gravityWell = default!;
-    [Dependency] private readonly LightningSystem _lightning = default!;
-    [Dependency] private readonly ParacusiaSystem _paracusia = default!;
-    [Dependency] private readonly PointLightSystem _light = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly RadioSystem _radio = default!;
-    [Dependency] private readonly SharedAmbientSoundSystem _ambient = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedDeviceLinkSystem _link = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly IAdminLogManager _adminLog = default!;
-    [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly IConfigurationManager _config = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly RoundEndSystem _roundEnd = default!;
-    [Dependency] private readonly HallucinationsSystem _hallucinations = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private AppearanceSystem _appearance = default!;
+    [Dependency] private AlertLevelSystem _alert = default!;
+    [Dependency] private RadiationSystem _radiation = default!;
+    [Dependency] private AtmosphereSystem _atmosphere = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private DoAfterSystem _doAfter = default!;
+    [Dependency] private EntityLookupSystem _entityLookup = default!;
+    [Dependency] private ExamineSystem _examine = default!;
+    [Dependency] private ExplosionSystem _explosion = default!;
+    [Dependency] private GravityWellSystem _gravityWell = default!;
+    [Dependency] private LightningSystem _lightning = default!;
+    [Dependency] private ParacusiaSystem _paracusia = default!;
+    [Dependency] private PointLightSystem _light = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private RadioSystem _radio = default!;
+    [Dependency] private SharedAmbientSoundSystem _ambient = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedDeviceLinkSystem _link = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private IAdminLogManager _adminLog = default!;
+    [Dependency] private IChatManager _chatManager = default!;
+    [Dependency] private IConfigurationManager _config = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private RoundEndSystem _roundEnd = default!;
+    [Dependency] private HallucinationsSystem _hallucinations = default!;
+    [Dependency] private TagSystem _tag = default!;
 
     public override void Initialize()
     {

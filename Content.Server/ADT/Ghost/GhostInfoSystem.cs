@@ -9,10 +9,10 @@ namespace Content.Server.ADT.Ghost;
 
 public sealed partial class GhostInfoSystem : EntitySystem
 {
-    [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly ActionsSystem _action = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly IEntityManager _entity = default!;
+    [Dependency] private UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private ActionsSystem _action = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private IEntityManager _entity = default!;
 
     public override void Initialize()
     {

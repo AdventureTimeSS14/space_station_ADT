@@ -21,14 +21,14 @@ using Robust.Shared.Utility;
 namespace Content.Server.ADT.MedicalAssembler;
 public sealed class ADTMedicalAssemblerSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
-    [Dependency] private readonly PowerReceiverSystem _power = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedResearchSystem _research = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private PowerReceiverSystem _power = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedResearchSystem _research = default!;
+    [Dependency] private SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private SharedUserInterfaceSystem _ui = default!;
 
     public override void Initialize()
     {
