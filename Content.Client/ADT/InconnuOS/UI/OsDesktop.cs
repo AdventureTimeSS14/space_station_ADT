@@ -200,7 +200,8 @@ public sealed class OsDesktop : Control
 
     private void ArrangeStartMenu(float deskHeight)
     {
-        var height = MathF.Min(340f, MathF.Max(160f, deskHeight - 16f));
+        var available = MathF.Max(160f, deskHeight - 16f);
+        var height = MathF.Min(_start.PreferredHeight, available);
         var slide = (1f - Math.Clamp(_start.Appear, 0f, 1f)) * height;
 
         var top = deskHeight - height + slide;

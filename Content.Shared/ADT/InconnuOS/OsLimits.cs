@@ -30,6 +30,12 @@ public enum OsValidationError : byte
     DiskFull,
     BadCircuit,
     RecursiveMove,
+    DomainInvalid,
+    DomainReserved,
+    DomainNotOwned,
+    DomainNotFound,
+    SiteTooLarge,
+    TooManySites,
 }
 
 public static class OsErrors

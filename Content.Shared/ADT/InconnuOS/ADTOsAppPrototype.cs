@@ -26,6 +26,8 @@ public enum OsAppIcon : byte
     Tasks,
     Devices,
     Disk,
+    Browser,
+    SiteBuilder,
 }
 
 [Prototype("osApp")]

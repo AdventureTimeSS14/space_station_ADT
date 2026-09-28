@@ -25,6 +25,7 @@ public sealed partial class ADTOsSystem : SharedADTOsSystem
         InitializeUi();
         InitializeDrives();
         InitializeShell();
+        InitializeNanoNet();
     }
 
     private void OnMapInit(Entity<ADTOperatingSystemComponent> ent, ref MapInitEvent args)
@@ -149,4 +150,6 @@ public sealed partial class ADTOsSystem : SharedADTOsSystem
     partial void InitializeDrives();
 
     partial void InitializeShell();
+
+    partial void InitializeNanoNet();
 }

@@ -38,6 +38,13 @@ public sealed class OsContext
 
     public Color Accent => State.Settings.Accent;
 
+    private int _nanoNetRequestId;
+
+    public int NextNanoNetRequestId()
+    {
+        return ++_nanoNetRequestId;
+    }
+
     public OsContext(
         IPrototypeManager prototypes,
         IResourceCache cache,
