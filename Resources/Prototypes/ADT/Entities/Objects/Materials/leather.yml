@@ -49,6 +49,82 @@
   components:
   - type: Stack
     count: 2
-  - type: Construction
-    graph: ADTLeatherTanning
-    node: leather
+
+- type: stack
+  parent: BaseMediumStack
+  id: ADTHairlessHide
+  name: stack-adt-hairless-hide
+  icon: { sprite: ADT/Objects/Specific/Lavaland/Tribal/hairless_hide.rsi, state: icon }
+  spawn: ADTMaterialHairlessHide1
+
+- type: entity
+  parent: MaterialBase
+  id: ADTMaterialHairlessHide
+  name: hairless hide
+  description: A hide scraped clean of hair. It still has to be soaked in water.
+  suffix: Full
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/Tribal/hairless_hide.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: Stack
+    stackType: ADTHairlessHide
+    count: 30
+  - type: ADTSoakable
+    result: ADTMaterialWetLeather1
+    reagent: Water
+    amount: 10
+
+- type: entity
+  parent: ADTMaterialHairlessHide
+  id: ADTMaterialHairlessHide1
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1
+
+- type: stack
+  parent: BaseMediumStack
+  id: ADTWetLeather
+  name: stack-adt-wet-leather
+  icon: { sprite: ADT/Objects/Specific/Lavaland/Tribal/wet_leather.rsi, state: icon }
+  spawn: ADTMaterialWetLeather1
+
+- type: entity
+  parent: MaterialBase
+  id: ADTMaterialWetLeather
+  name: wet leather
+  description: Soaked leather ready for drying. Smells distinctly wet.
+  suffix: Full
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/Tribal/wet_leather.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: Stack
+    stackType: ADTWetLeather
+    count: 30
+  - type: AtmosExposed
+  - type: ADTDryable
+    result: ADTMaterialLeather1
+    dryingTemperature: 500
+    wetness: 30
+
+- type: entity
+  parent: ADTMaterialWetLeather
+  id: ADTMaterialWetLeather1
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: MaterialGoliathHide
+  id: ADTMaterialGoliathHide5
+  suffix: 5
+  components:
+  - type: Stack
+    count: 5

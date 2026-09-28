@@ -1,0 +1,13 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="{Loc 'adt-cooking-scroll-window-title'}"
+                      MinSize="560 400"
+                      SetSize="620 720">
+    <BoxContainer Orientation="Vertical" Margin="6 6 6 6">
+        <RichTextLabel Name="Header" Margin="4 0 4 6" />
+        <LineEdit Name="SearchBar" PlaceHolder="{Loc 'adt-cooking-scroll-search'}" Margin="0 0 0 6" />
+        <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+            <BoxContainer Name="RecipeList" Orientation="Vertical" HorizontalExpand="True" />
+        </ScrollContainer>
+    </BoxContainer>
+</controls:FancyWindow>

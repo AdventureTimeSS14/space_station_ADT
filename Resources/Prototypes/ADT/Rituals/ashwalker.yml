@@ -249,20 +249,11 @@
   - !type:ADTRitualRechargeEffect
     amount: 1
     blacklist: [ ADTRitualPower ]
-  # TODO remake to legion infect
   disasterEffects:
-  - !type:ADTRitualComponentsEffect
+  - !type:ADTRitualLegionInfestEffect
     target: RandomTribesman
-    overwrite: true
-    components:
-    - type: PassiveDamage
-      allowedStates: [ Alive ]
-      damage:
-        types:
-          Poison: 0.3
-  - !type:ADTRitualMessageEffect
-    target: RandomTribesman
-    message: adt-ritual-restoration-tumour
+    legion: ADTMobLegion
+    message: adt-ritual-restoration-infest
 
 - type: adtRitual
   id: ADTRitualPopulation

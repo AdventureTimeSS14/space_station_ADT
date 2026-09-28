@@ -28,6 +28,10 @@
   name: ol' reliable
   description: An old, weathered fishing rod. If it has lasted this long without falling apart, you definitely should not worry about its reliability.
   components:
+  - type: Wieldable
+    wieldedInhandPrefix: rod-wielded
+  - type: Item
+    heldPrefix: rod
   - type: Sprite
     layers:
     - state: rod
@@ -41,6 +45,10 @@
   name: tribal fishing rod
   description: A primitive bone fishing rod that uses watcher sinew as an extremely durable line. It is not quite clear why this line does not melt in lava.
   components:
+  - type: Wieldable
+    wieldedInhandPrefix: tribal-wielded
+  - type: Item
+    heldPrefix: tribal
   - type: Sprite
     layers:
     - state: tribal
@@ -101,6 +109,8 @@
   name: ash eater
   description: A tiny worm with a mouth full of incredibly sharp teeth. Rumor has it these little ones can grow to the size of a whole city. Ash must flow.
   components:
+  - type: Item
+    heldPrefix: ash_eater
   - type: Sprite
     state: ash_eater
   - type: Tag
@@ -114,6 +124,8 @@
   name: bloody leach
   description: A parasitic lifeform of Lazis Ardax that clings to bare skin and feeds on its victims. Its belly reddens with the blood it has drunk.
   components:
+  - type: Item
+    heldPrefix: bloody_leach
   - type: Sprite
     state: bloody_leach
   - type: Tag
@@ -127,6 +139,8 @@
   name: goldgrub larva
   description: A small worm that feeds on minerals buried in the ash. It is just as skittish as its older kin.
   components:
+  - type: Item
+    heldPrefix: goldgrub_larva
   - type: Sprite
     state: goldgrub_larva
   - type: Tag
@@ -144,6 +158,7 @@
     sprite: ADT/Objects/Specific/Lavaland/Fishing/bait.rsi
     state: charred_krill
   - type: Item
+    heldPrefix: charred_krill
     size: Tiny
   - type: ADTCharredKrill
   - type: FlavorProfile

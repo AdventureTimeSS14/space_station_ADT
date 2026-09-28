@@ -670,6 +670,14 @@ namespace Content.Server.GameTicking
                 listOfPlayerInfoFinal,
                 sound
             );
+
+            // ADT-Tweak-start
+            var statsEv = new Content.Shared.ADT.RoundEnd.RoundEndStatsCollectEvent();
+            RaiseLocalEvent(ref statsEv);
+            roundEndMessageEvent.RoundReport = statsEv.Entries;
+            roundEndMessageEvent.SpeciesCensus = statsEv.SpeciesCensus;
+            // ADT-Tweak-end
+
             RaiseNetworkEvent(roundEndMessageEvent);
             RaiseLocalEvent(roundEndMessageEvent);
             RaiseLocalEvent(new RoundEndedEvent(RoundId, roundDuration)); // Corvax
