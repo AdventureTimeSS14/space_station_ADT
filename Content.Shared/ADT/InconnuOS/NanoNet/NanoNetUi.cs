@@ -5,11 +5,13 @@ namespace Content.Shared.ADT.InconnuOS.NanoNet;
 [Serializable, NetSerializable]
 public sealed class ADTOsNanoNetPublishMessage : BoundUserInterfaceMessage
 {
+    public readonly int RequestId;
     public readonly string Domain;
     public readonly string Html;
 
-    public ADTOsNanoNetPublishMessage(string domain, string html)
+    public ADTOsNanoNetPublishMessage(int requestId, string domain, string html)
     {
+        RequestId = requestId;
         Domain = domain;
         Html = html;
     }
@@ -18,10 +20,12 @@ public sealed class ADTOsNanoNetPublishMessage : BoundUserInterfaceMessage
 [Serializable, NetSerializable]
 public sealed class ADTOsNanoNetUnpublishMessage : BoundUserInterfaceMessage
 {
+    public readonly int RequestId;
     public readonly string Domain;
 
-    public ADTOsNanoNetUnpublishMessage(string domain)
+    public ADTOsNanoNetUnpublishMessage(int requestId, string domain)
     {
+        RequestId = requestId;
         Domain = domain;
     }
 }
@@ -29,13 +33,15 @@ public sealed class ADTOsNanoNetUnpublishMessage : BoundUserInterfaceMessage
 [Serializable, NetSerializable]
 public sealed class ADTOsNanoNetStatusMessage : BoundUserInterfaceMessage
 {
+    public readonly int RequestId;
     public readonly string Domain;
     public readonly bool Published;
     public readonly string OwnerName;
     public readonly TimeSpan PublishedAt;
 
-    public ADTOsNanoNetStatusMessage(string domain, bool published, string ownerName, TimeSpan publishedAt)
+    public ADTOsNanoNetStatusMessage(int requestId, string domain, bool published, string ownerName, TimeSpan publishedAt)
     {
+        RequestId = requestId;
         Domain = domain;
         Published = published;
         OwnerName = ownerName;

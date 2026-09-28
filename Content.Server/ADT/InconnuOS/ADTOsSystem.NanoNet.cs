@@ -3,14 +3,18 @@ using Content.Shared.ADT.InconnuOS;
 using Content.Shared.ADT.InconnuOS.Components;
 using Content.Shared.ADT.InconnuOS.NanoNet;
 using Content.Shared.GameTicking;
+using Robust.Server.Player;
+using Robust.Shared.Network;
 
 namespace Content.Server.ADT.InconnuOS;
 
 public sealed partial class ADTOsSystem
 {
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
+
     private readonly Dictionary<string, NanoNetSite> _sites = new(StringComparer.OrdinalIgnoreCase);
 
-    private sealed record NanoNetSite(string Owner, string Html, TimeSpan PublishedAt);
+    private sealed record NanoNetSite(NetUserId OwnerId, string OwnerName, string Html, TimeSpan PublishedAt);
 
     partial void InitializeNanoNet()
     {
@@ -31,6 +35,9 @@ public sealed partial class ADTOsSystem
         if (!CanOperate(ent))
             return;
 
+        if (!_playerManager.TryGetSessionByEntity(args.Actor, out var session))
+            return;
+
         if (!NanoNetDomain.TryNormalizeLabel(args.Domain, out var label, out var error))
         {
             Deny(ent, args.Actor, error, args.Domain);
@@ -43,9 +50,9 @@ public sealed partial class ADTOsSystem
             return;
         }
 
-        var owner = GetUserName(args.Actor);
+        var ownerId = session.UserId;
 
-        if (_sites.TryGetValue(label, out var existing) && existing.Owner != owner)
+        if (_sites.TryGetValue(label, out var existing) && existing.OwnerId != ownerId)
         {
             Deny(ent, args.Actor, OsValidationError.DomainNotOwned, label);
             return;
@@ -59,7 +66,7 @@ public sealed partial class ADTOsSystem
                 return;
             }
 
-            var ownedByThisPlayer = _sites.Values.Count(s => s.Owner == owner);
+            var ownedByThisPlayer = _sites.Values.Count(s => s.OwnerId == ownerId);
             if (ownedByThisPlayer >= NanoNetLimits.MaxSitesPerOwner)
             {
                 Deny(ent, args.Actor, OsValidationError.TooManySites, NanoNetLimits.MaxSitesPerOwner.ToString());
@@ -67,16 +74,20 @@ public sealed partial class ADTOsSystem
             }
         }
 
+        var ownerName = GetUserName(args.Actor);
         var publishedAt = _timing.CurTime;
-        _sites[label] = new NanoNetSite(owner, args.Html, publishedAt);
+        _sites[label] = new NanoNetSite(ownerId, ownerName, args.Html, publishedAt);
 
         _ui.ServerSendUiMessage(ent.Owner, ADTComputerUiKey.Key,
-            new ADTOsNanoNetStatusMessage(label, true, owner, publishedAt), args.Actor);
+            new ADTOsNanoNetStatusMessage(args.RequestId, label, true, ownerName, publishedAt), args.Actor);
     }
 
     private void OnNanoNetUnpublish(Entity<ADTOperatingSystemComponent> ent, ref ADTOsNanoNetUnpublishMessage args)
     {
         if (!CanOperate(ent))
+            return;
+
+        if (!_playerManager.TryGetSessionByEntity(args.Actor, out var session))
             return;
 
         if (!NanoNetDomain.TryNormalizeLabel(args.Domain, out var label, out var error))
@@ -91,7 +102,7 @@ public sealed partial class ADTOsSystem
             return;
         }
 
-        if (existing.Owner != GetUserName(args.Actor))
+        if (existing.OwnerId != session.UserId)
         {
             Deny(ent, args.Actor, OsValidationError.DomainNotOwned, label);
             return;
@@ -100,7 +111,7 @@ public sealed partial class ADTOsSystem
         _sites.Remove(label);
 
         _ui.ServerSendUiMessage(ent.Owner, ADTComputerUiKey.Key,
-            new ADTOsNanoNetStatusMessage(label, false, string.Empty, TimeSpan.Zero), args.Actor);
+            new ADTOsNanoNetStatusMessage(args.RequestId, label, false, string.Empty, TimeSpan.Zero), args.Actor);
     }
 
     private void OnNanoNetFetchRequest(Entity<ADTOperatingSystemComponent> ent, ref ADTOsNanoNetFetchRequestMessage args)
@@ -108,10 +119,12 @@ public sealed partial class ADTOsSystem
         if (!CanOperate(ent) || !args.Actor.IsValid())
             return;
 
-        if (_sites.TryGetValue(args.Domain, out var site))
+        var lookup = args.Domain.Trim().ToLowerInvariant();
+
+        if (_sites.TryGetValue(lookup, out var site))
         {
             _ui.ServerSendUiMessage(ent.Owner, ADTComputerUiKey.Key,
-                new ADTOsNanoNetFetchResponseMessage(args.RequestId, args.Domain, args.Path, true, site.Html, site.Owner),
+                new ADTOsNanoNetFetchResponseMessage(args.RequestId, args.Domain, args.Path, true, site.Html, site.OwnerName),
                 args.Actor);
             return;
         }

@@ -32,7 +32,10 @@ public sealed class SiteBuilderApp : OsAppControl
     private bool _closeAsked;
 
     private string? _publishedDomain;
+    private int? _pendingRequestId;
     private bool _subscribed;
+
+    private string? _pendingSave;
 
     public SiteBuilderApp()
     {
@@ -155,8 +158,22 @@ public sealed class SiteBuilderApp : OsAppControl
     {
         base.OnStateChanged();
 
-        if (!_dirty && _path != null && Context.FindFile(_path) is { } file && file.Text != _saved)
-            SetText(file.Text);
+        if (_path != null && Context.FindFile(_path) is { } file)
+        {
+            if (_pendingSave != null)
+            {
+                if (file.Text == _pendingSave)
+                {
+                    _saved = _pendingSave;
+                    _pendingSave = null;
+                    _dirty = Current() != _saved;
+                }
+            }
+            else if (!_dirty && file.Text != _saved)
+            {
+                SetText(file.Text);
+            }
+        }
 
         Refresh();
     }
@@ -201,13 +218,18 @@ public sealed class SiteBuilderApp : OsAppControl
         if (message is not ADTOsNanoNetStatusMessage status)
             return;
 
+        if (status.RequestId != _pendingRequestId)
+            return;
+
+        _pendingRequestId = null;
+
         if (status.Published)
         {
             _publishedDomain = status.Domain;
             _publishStatus.Text = Loc.GetString("os-sitebuilder-published",
                 ("host", NanoNetDomain.GetHost(status.Domain)));
         }
-        else if (status.Domain == _publishedDomain)
+        else
         {
             _publishedDomain = null;
             _publishStatus.Text = Loc.GetString("os-sitebuilder-not-published");
@@ -234,7 +256,10 @@ public sealed class SiteBuilderApp : OsAppControl
 
         _domain.Text = label;
 
-        Context.Send(new ADTOsNanoNetPublishMessage(label, html));
+        var id = Context.NextNanoNetRequestId();
+        _pendingRequestId = id;
+
+        Context.Send(new ADTOsNanoNetPublishMessage(id, label, html));
     }
 
     private void Unpublish()
@@ -242,7 +267,10 @@ public sealed class SiteBuilderApp : OsAppControl
         if (_publishedDomain == null)
             return;
 
-        Context.Send(new ADTOsNanoNetUnpublishMessage(_publishedDomain));
+        var id = Context.NextNanoNetRequestId();
+        _pendingRequestId = id;
+
+        Context.Send(new ADTOsNanoNetUnpublishMessage(id, _publishedDomain));
     }
 
     private void TogglePreview()
@@ -326,8 +354,7 @@ public sealed class SiteBuilderApp : OsAppControl
 
         Context.Send(new ADTOsFileWriteMessage(_path, OsFileKind.Text, text, null));
 
-        _saved = text;
-        _dirty = false;
+        _pendingSave = text;
 
         Refresh();
     }

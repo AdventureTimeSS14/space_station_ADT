@@ -31,7 +31,7 @@ os-browser-reload = Обновить
 os-browser-home = Домой
 os-browser-loading = Загрузка { $url }…
 
-os-sitebuilder-domain-placeholder = мой-сайт
+os-sitebuilder-domain-placeholder = my-site
 os-sitebuilder-publish = Опубликовать
 os-sitebuilder-unpublish = Снять с публикации
 os-sitebuilder-preview = Предпросмотр

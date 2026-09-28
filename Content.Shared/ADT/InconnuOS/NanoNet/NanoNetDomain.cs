@@ -12,10 +12,18 @@ public static class NanoNetDomain
         "nanonet", "www", "news", "about", "mail", "ftp", "admin", "root", "system", "api", "null", "localhost", "test",
     };
 
-    public static bool TryNormalizeLabel(string input, out string label, out OsValidationError error)
+    public static bool TryNormalizeLabel(string? input, out string label, out OsValidationError error)
     {
-        label = input.Trim().ToLowerInvariant();
+        label = string.Empty;
         error = OsValidationError.None;
+
+        if (input == null)
+        {
+            error = OsValidationError.DomainInvalid;
+            return false;
+        }
+
+        label = input.Trim().ToLowerInvariant();
 
         if (label.Length < MinLabelLength || label.Length > MaxLabelLength)
         {
