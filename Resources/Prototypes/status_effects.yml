@@ -33,19 +33,3 @@
 
 - type: statusEffect
   id: Pacified #cannot attack
-
-# ADT-Tweak start
-- type: statusEffect
-  id: SlurredSpeech
-
-- type: statusEffect
-  id: Muted
-  alert: Muted
-
-- type: statusEffect
-  id: TemporaryBlindness
-
-- type: statusEffect
-  id: Adrenaline
-  alert: Adrenaline
-# ADT-Tweak end
