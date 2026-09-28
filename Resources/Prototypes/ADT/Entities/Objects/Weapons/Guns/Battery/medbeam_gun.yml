@@ -24,15 +24,28 @@
   components:
   - type: ADTMedbeam
     bloodRestore: 0.2
-    damage:
-      types:
-        Blunt: -0.8
-        Slash: -0.8
-        Piercing: -0.8
-        Heat: -0.8
-        Cold: -0.8
-        Poison: -0.8
-        Asphyxiation: -1.3
+    modes:
+    - name: medbeam-mode-brute
+      damage:
+        types:
+          Blunt: -0.8
+          Slash: -0.8
+          Piercing: -0.8
+    - name: medbeam-mode-burn
+      damage:
+        types:
+          Heat: -0.8
+          Shock: -0.8
+          Cold: -0.8
+          Caustic: -0.8
+    - name: medbeam-mode-toxin
+      damage:
+        types:
+          Poison: -0.8
+    - name: medbeam-mode-airloss
+      damage:
+        types:
+          Asphyxiation: -1.3
     explosionType: Default
     explosionTotalIntensity: 50
     explosionIntensitySlope: 2
