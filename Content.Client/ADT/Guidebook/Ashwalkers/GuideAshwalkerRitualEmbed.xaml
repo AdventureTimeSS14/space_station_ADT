@@ -1,0 +1,33 @@
+<BoxContainer xmlns="https://spacestation14.io"
+              xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+              xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
+              Orientation="Vertical"
+              Margin="5 4 5 4">
+    <PanelContainer HorizontalExpand="True">
+        <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BackgroundColor="#1c1a22" BorderThickness="1" BorderColor="#4a4458"/>
+        </PanelContainer.PanelOverride>
+        <BoxContainer Orientation="Vertical">
+            <PanelContainer Name="AccentBar" HorizontalExpand="True" MinHeight="4"/>
+            <BoxContainer Orientation="Vertical" Margin="8 6 8 8">
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                    <PanelContainer Name="DyeSwatch" MinSize="20 20" VerticalAlignment="Center"/>
+                    <RichTextLabel Name="NameLabel" VerticalAlignment="Center" Margin="8 0 0 0"/>
+                </BoxContainer>
+                <RichTextLabel Name="BadgeLabel" Margin="0 4 0 0" Visible="False"/>
+                <cc:HSeparator Margin="0 6 0 6"/>
+                <RichTextLabel Name="DescriptionLabel" HorizontalExpand="True"/>
+                <BoxContainer Name="StatsContainer" Orientation="Vertical" Margin="0 8 0 0"/>
+                <BoxContainer Name="RequiredBox" Orientation="Vertical" Margin="0 8 0 0" Visible="False">
+                    <RichTextLabel Name="RequiredHeader"/>
+                    <WrapContainer Name="RequiredContainer" HorizontalExpand="True" Margin="0 4 0 0"/>
+                </BoxContainer>
+                <BoxContainer Name="RiskContainer" Orientation="Vertical" Margin="0 8 0 0"/>
+                <BoxContainer Name="QuirkBox" Orientation="Vertical" Margin="0 8 0 0" Visible="False">
+                    <RichTextLabel Name="QuirkHeader"/>
+                    <RichTextLabel Name="QuirkLabel" HorizontalExpand="True" Margin="0 4 0 0"/>
+                </BoxContainer>
+            </BoxContainer>
+        </BoxContainer>
+    </PanelContainer>
+</BoxContainer>
