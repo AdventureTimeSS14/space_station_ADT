@@ -25,7 +25,7 @@ os-app-devices-desc = Что подключено к портам машины.
 os-app-site-builder = Конструктор сайтов
 os-app-site-builder-desc = Редактор страниц для публикации в NanoNet.
 
-os-app-browser = NanoNet
+os-app-browser = Amelia
 os-app-browser-desc = Обозреватель внутренней сети NanoTrasen.
 os-browser-reload = Обновить
 os-browser-home = Домой

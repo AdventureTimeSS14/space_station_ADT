@@ -9,7 +9,7 @@ public static class NanoNetDomain
 
     public static readonly HashSet<string> ReservedLabels = new(StringComparer.OrdinalIgnoreCase)
     {
-        "nanonet", "www", "news", "about", "mail", "ftp", "admin", "root", "system", "api", "null", "localhost", "test",
+        "nanonet", "www", "news", "about", "mail", "ftp", "admin", "root", "system", "api", "null", "localhost", "test", "synd",
     };
 
     public static bool TryNormalizeLabel(string? input, out string label, out OsValidationError error)

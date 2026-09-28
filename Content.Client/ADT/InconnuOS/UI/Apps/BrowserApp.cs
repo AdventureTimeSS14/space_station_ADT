@@ -11,6 +11,13 @@ namespace Content.Client.ADT.InconnuOS.UI.Apps;
 public sealed class BrowserApp : OsAppControl
 {
     private const string HomeUrl = "http://nanonet.nt/";
+    private const string DisplayScheme = "ntnet://";
+    private const string RealScheme = "http://";
+
+    private static readonly (string Host, string Scheme)[] SecretSchemes =
+    {
+        ("synd.space", "synd://"),
+    };
 
     private readonly WebViewControl _web;
     private readonly LineEdit _address;
@@ -167,7 +174,7 @@ public sealed class BrowserApp : OsAppControl
         ctx.DoRespondStream(new MemoryStream(bytes), "text/html", status);
 
         if (ctx.IsNavigation)
-            _address.Text = ctx.Url;
+            _address.Text = ToDisplay(ctx.Url);
     }
 
     private void BeginFetch(string label, string path, string url)
@@ -217,13 +224,33 @@ public sealed class BrowserApp : OsAppControl
         _status.Visible = loading;
 
         if (loading && url != null)
-            _status.Text = Loc.GetString("os-browser-loading", ("url", url));
+            _status.Text = Loc.GetString("os-browser-loading", ("url", ToDisplay(url)));
     }
 
     private void Navigate(string url)
     {
-        _address.Text = url;
+        _address.Text = ToDisplay(url);
         _web.Url = url;
+    }
+
+    private static string ToDisplay(string realUrl)
+    {
+        var fragmentIndex = realUrl.IndexOf('#');
+        if (fragmentIndex >= 0)
+            realUrl = realUrl[..fragmentIndex];
+
+        if (!realUrl.StartsWith(RealScheme, StringComparison.OrdinalIgnoreCase))
+            return realUrl;
+
+        var rest = realUrl[RealScheme.Length..];
+
+        foreach (var (host, scheme) in SecretSchemes)
+        {
+            if (rest.StartsWith(host, StringComparison.OrdinalIgnoreCase))
+                return scheme + rest;
+        }
+
+        return DisplayScheme + rest;
     }
 
     private static string NormalizeUrl(string text)
@@ -233,8 +260,16 @@ public sealed class BrowserApp : OsAppControl
         if (text.Length == 0)
             return HomeUrl;
 
-        if (!text.Contains("://"))
-            text = "http://" + text;
+        foreach (var (_, scheme) in SecretSchemes)
+        {
+            if (text.StartsWith(scheme, StringComparison.OrdinalIgnoreCase))
+                return RealScheme + text[scheme.Length..];
+        }
+
+        if (text.StartsWith(DisplayScheme, StringComparison.OrdinalIgnoreCase))
+            text = RealScheme + text[DisplayScheme.Length..];
+        else if (!text.Contains("://"))
+            text = RealScheme + text;
 
         return text;
     }

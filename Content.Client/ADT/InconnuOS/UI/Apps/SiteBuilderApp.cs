@@ -240,6 +240,9 @@ public sealed class SiteBuilderApp : OsAppControl
 
     private void Publish()
     {
+        if (_pendingRequestId != null)
+            return;
+
         if (!NanoNetDomain.TryNormalizeLabel(_domain.Text, out var label, out var error))
         {
             Context.Toast(OsErrors.GetMessage(error, _domain.Text));
@@ -260,17 +263,21 @@ public sealed class SiteBuilderApp : OsAppControl
         _pendingRequestId = id;
 
         Context.Send(new ADTOsNanoNetPublishMessage(id, label, html));
+
+        RefreshPublishState();
     }
 
     private void Unpublish()
     {
-        if (_publishedDomain == null)
+        if (_pendingRequestId != null || _publishedDomain == null)
             return;
 
         var id = Context.NextNanoNetRequestId();
         _pendingRequestId = id;
 
         Context.Send(new ADTOsNanoNetUnpublishMessage(id, _publishedDomain));
+
+        RefreshPublishState();
     }
 
     private void TogglePreview()
@@ -280,36 +287,38 @@ public sealed class SiteBuilderApp : OsAppControl
             _previewing = false;
 
             if (_preview != null)
-            {
-                _contentSlot.RemoveChild(_preview);
-                _preview = null;
-            }
+                _preview.Visible = false;
 
-            _contentSlot.AddChild(_text);
+            _text.Visible = true;
             _previewToggle.Text = Loc.GetString("os-sitebuilder-preview");
             return;
         }
 
         _previewing = true;
-        _contentSlot.RemoveChild(_text);
+        _text.Visible = false;
 
-        var preview = new WebViewControl
+        if (_preview == null)
         {
-            HorizontalExpand = true,
-            VerticalExpand = true,
-        };
+            var preview = new WebViewControl
+            {
+                HorizontalExpand = true,
+                VerticalExpand = true,
+            };
 
-        preview.AddResourceRequestHandler(ctx =>
-        {
-            var bytes = Encoding.UTF8.GetBytes(Current());
-            ctx.DoRespondStream(new MemoryStream(bytes), "text/html");
-        });
+            preview.AddResourceRequestHandler(ctx =>
+            {
+                var bytes = Encoding.UTF8.GetBytes(Current());
+                ctx.DoRespondStream(new MemoryStream(bytes), "text/html");
+            });
 
-        _preview = preview;
-        _contentSlot.AddChild(preview);
+            _preview = preview;
+            _contentSlot.AddChild(preview);
+        }
+
+        _preview.Visible = true;
 
         _previewRevision++;
-        preview.Url = $"http://sitebuilder.local/preview#_r={_previewRevision}";
+        _preview.Url = $"http://sitebuilder.local/preview#_r={_previewRevision}";
 
         _previewToggle.Text = Loc.GetString("os-sitebuilder-edit");
     }
@@ -403,7 +412,10 @@ public sealed class SiteBuilderApp : OsAppControl
 
     private void RefreshPublishState()
     {
-        _unpublish.Disabled = _publishedDomain == null;
+        var busy = _pendingRequestId != null;
+
+        _publish.Disabled = busy;
+        _unpublish.Disabled = busy || _publishedDomain == null;
 
         _publishStatus.Text = _publishedDomain == null
             ? Loc.GetString("os-sitebuilder-not-published")
