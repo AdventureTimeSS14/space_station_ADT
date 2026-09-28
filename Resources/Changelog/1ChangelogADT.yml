@@ -16014,3 +16014,21 @@ Entries:
     id: 1984
     pr_number: 3459
     time: '2026-09-28T09:42:35Z'
+  - author: Inconnu && Filo
+    changes:
+      - {message: что добавили, type: Add}
+      - {message: что убрали, type: Remove}
+      - {message: что подправили, type: Tweak}
+      - {message: что исправили -->, type: Fix}
+      - {message: Добавлено пипи, type: Add}
+      - {message: Удалено пупу, type: Remove}
+      - {message: Изменена унга, type: Tweak}
+      - {message: Исправлена бунга -->, type: Fix}
+      - {message: что добавили, type: Add}
+      - {message: что убрали, type: Remove}
+      - {message: что подправили, type: Tweak}
+      - {message: что исправили, type: Fix}
+      - {message: 'Добавлена новая раса: Селецерны.', type: Add}
+    id: 1985
+    pr_number: 3414
+    time: '2026-09-28T16:31:53Z'
