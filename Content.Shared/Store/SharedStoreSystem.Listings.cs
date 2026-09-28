@@ -1,4 +1,4 @@
-﻿<<<<<<< ours
+<<<<<<< ours
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Mind;
 using Content.Shared.Store.Components;

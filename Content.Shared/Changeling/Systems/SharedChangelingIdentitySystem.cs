@@ -1,4 +1,4 @@
-﻿<<<<<<< ours
+<<<<<<< ours
 // ADT: Закомментировано из-за использования генокрада от Goob Station
 // using System.Linq;
 // using System.Numerics;

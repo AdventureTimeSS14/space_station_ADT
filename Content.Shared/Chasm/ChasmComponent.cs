@@ -1,4 +1,4 @@
-﻿<<<<<<< ours
+<<<<<<< ours
 // using Robust.Shared.Audio; ADT-Tweak
 ||||||| base
 using Robust.Shared.Audio;
