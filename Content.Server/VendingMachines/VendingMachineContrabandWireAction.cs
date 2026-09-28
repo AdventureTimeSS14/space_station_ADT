@@ -1,6 +1,11 @@
 using Content.Server.ADT.VendingMachines; // ADT-Tweak
 using Content.Server.Wires;
+<<<<<<< HEAD
 using Content.Shared.ADT.VendingMachines; // ADT-Tweak
+=======
+using Content.Shared.VendingMachines;
+using Content.Shared.VendingMachines.Components;
+>>>>>>> wizards-filtered
 using Content.Shared.Wires;
 
 namespace Content.Server.VendingMachines;
@@ -12,8 +17,8 @@ public sealed partial class VendingMachineContrabandWireAction : BaseToggleWireA
 
     public override Color Color { get; set; } = Color.Green;
     public override string Name { get; set; } = "wire-name-vending-contraband";
-    public override object? StatusKey { get; } = ContrabandWireKey.StatusKey;
-    public override object? TimeoutKey { get; } = ContrabandWireKey.TimeoutKey;
+    public override object StatusKey => ContrabandWireKey.StatusKey;
+    public override object TimeoutKey => ContrabandWireKey.TimeoutKey;
 
     public override void Initialize()
     {
@@ -38,7 +43,7 @@ public sealed partial class VendingMachineContrabandWireAction : BaseToggleWireA
     {
         if (EntityManager.TryGetComponent(owner, out VendingMachineComponent? vending))
         {
-            _vendingMachineSystem.SetContraband(owner, !vending.Contraband, vending);
+            _vendingMachineSystem.SetContraband((owner, vending), !vending.Contraband);
         }
     }
 

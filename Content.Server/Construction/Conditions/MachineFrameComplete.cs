@@ -113,7 +113,11 @@ namespace Content.Server.Construction.Conditions
 
                 var examineName = constructionSys.GetExamineName(info);
                 args.PushMarkup(Loc.GetString("construction-condition-machine-frame-required-element-entry",
+<<<<<<< HEAD
                                     ("amount", amount), // ADT-Tweak: was info.Amount (showed full amount instead of remaining)
+=======
+                                    ("amount", info.Amount),
+>>>>>>> wizards-filtered
                                     ("elementName", examineName)));
             }
 

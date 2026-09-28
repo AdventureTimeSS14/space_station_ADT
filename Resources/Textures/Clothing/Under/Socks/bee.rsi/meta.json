@@ -1,7 +1,11 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
+<<<<<<< HEAD
   "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/c838ba21dae97db345e0113f99596decd1d66039, fix digi sprites by DreamlyJack",
+=======
+  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/c838ba21dae97db345e0113f99596decd1d66039, Inhands by Prole0 (GitHub)",
+>>>>>>> wizards-filtered
   "size": {
     "x": 32,
     "y": 32
@@ -12,6 +16,14 @@
     },
     {
       "name": "equipped-FEET",
+      "directions": 4
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
       "directions": 4
     }
   ]

@@ -8,6 +8,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Mech;
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.Equipment.Components;
+using Content.Shared.Vehicle.Systems;
 using Content.Shared.Whitelist;
 
 namespace Content.Server.Mech.Systems;
@@ -15,6 +16,7 @@ namespace Content.Server.Mech.Systems;
 /// <summary>
 /// Handles the insertion of mech equipment into mechs.
 /// </summary>
+<<<<<<< HEAD
 public sealed class MechEquipmentSystem : SharedMechEquipmentSystem // ADT - Parent changed
 {
     [Dependency] private readonly MechSystem _mech = default!;
@@ -22,6 +24,15 @@ public sealed class MechEquipmentSystem : SharedMechEquipmentSystem // ADT - Par
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly MechEquipmentLimitSystem _equipmentLimit = default!;
+=======
+public sealed partial class MechEquipmentSystem : EntitySystem
+{
+    [Dependency] private MechSystem _mech = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private VehicleSystem _vehicle = default!;
+>>>>>>> wizards-filtered
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -49,7 +60,7 @@ public sealed class MechEquipmentSystem : SharedMechEquipmentSystem // ADT - Par
         if (mechComp.Broken)
             return;
 
-        if (args.User == mechComp.PilotSlot.ContainedEntity)
+        if (args.User == _vehicle.GetOperatorOrNull(mech))
             return;
 
         if (mechComp.EquipmentContainer.ContainedEntities.Count >= mechComp.MaxEquipmentAmount)

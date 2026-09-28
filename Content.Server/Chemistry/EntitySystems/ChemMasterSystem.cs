@@ -8,6 +8,7 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
+using Content.Shared.DragDrop;
 using Content.Shared.FixedPoint;
 using Content.Shared.Labels.EntitySystems;
 using Content.Shared.Storage;
@@ -32,8 +33,9 @@ namespace Content.Server.Chemistry.EntitySystems
     /// <seealso cref="ChemMasterComponent"/>
     /// </summary>
     [UsedImplicitly]
-    public sealed class ChemMasterSystem : EntitySystem
+    public sealed partial class ChemMasterSystem : EntitySystem
     {
+<<<<<<< HEAD
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly AudioSystem _audioSystem = default!;
         [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
@@ -43,6 +45,16 @@ namespace Content.Server.Chemistry.EntitySystems
         [Dependency] private readonly LabelSystem _labelSystem = default!;
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!; //ADT-Tweak
+=======
+        [Dependency] private PopupSystem _popupSystem = default!;
+        [Dependency] private AudioSystem _audioSystem = default!;
+        [Dependency] private SharedSolutionContainerSystem _solutionContainerSystem = default!;
+        [Dependency] private ItemSlotsSystem _itemSlotsSystem = default!;
+        [Dependency] private UserInterfaceSystem _userInterfaceSystem = default!;
+        [Dependency] private StorageSystem _storageSystem = default!;
+        [Dependency] private LabelSystem _labelSystem = default!;
+        [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+>>>>>>> wizards-filtered
 
         private static readonly EntProtoId PillPrototypeId = "Pill";
 
@@ -51,11 +63,20 @@ namespace Content.Server.Chemistry.EntitySystems
             base.Initialize();
 
             SubscribeLocalEvent<ChemMasterComponent, ComponentStartup>(SubscribeUpdateUiState);
+<<<<<<< HEAD
             SubscribeLocalEvent<ChemMasterComponent, SolutionContainerChangedEvent>(SubscribeUpdateUiState);
             // ADT-Tweak Start: Cutted
             // SubscribeLocalEvent<ChemMasterComponent, EntInsertedIntoContainerMessage>(SubscribeUpdateUiState);
             // SubscribeLocalEvent<ChemMasterComponent, EntRemovedFromContainerMessage>(SubscribeUpdateUiState);
             // ADT-Tweak End
+=======
+            SubscribeLocalEvent<ChemMasterComponent, SolutionChangedEvent>(SubscribeUpdateUiState);
+            SubscribeLocalEvent<ChemMasterComponent, EntInsertedIntoContainerMessage>(SubscribeUpdateUiState);
+            SubscribeLocalEvent<ChemMasterComponent, EntRemovedFromContainerMessage>(SubscribeUpdateUiState);
+            // Subscribing to DragDropTargetEvent is a quick fix to ensure the UI updates when fluids are dragged and dropped into the ChemMaster, since Shared.Fluids.EntitySystems.SolutionDumpingSystem.cs bypasses UpdateChemicals().
+            // TODO: Remove when proper support for infinite volume solutions is added.
+            SubscribeLocalEvent<ChemMasterComponent, DragDropTargetEvent>(SubscribeUpdateUiState);
+>>>>>>> wizards-filtered
             SubscribeLocalEvent<ChemMasterComponent, BoundUIOpenedEvent>(SubscribeUpdateUiState);
 
             // ADT-Tweak Start: Bottle/Pill Containers now updates individually and separately from UI window.
@@ -481,8 +502,15 @@ namespace Content.Server.Chemistry.EntitySystems
 
         private void OnContainerRemoved(Entity<ChemMasterComponent> chemMaster, ref EntRemovedFromContainerMessage args)
         {
+<<<<<<< HEAD
             // Check if this removal is from one of our pill containers
             if (IsPillContainerStorage(chemMaster, args.Container?.Owner))
+=======
+            var container = _itemSlotsSystem.GetItemOrNull(chemMaster.Owner, SharedChemMaster.InputSlotName);
+            if (container is null ||
+                !_solutionContainerSystem.TryGetFitsInDispenser(container.Value, out var containerSoln, out var containerSolution) ||
+                !_solutionContainerSystem.TryGetSolution(chemMaster.Owner, SharedChemMaster.BufferSolutionName, out _, out var bufferSolution))
+>>>>>>> wizards-filtered
             {
                 UpdateUiState(chemMaster);
                 return;
@@ -692,6 +720,7 @@ namespace Content.Server.Chemistry.EntitySystems
             }
             else
             {
+<<<<<<< HEAD
                 container = _itemSlotsSystem.GetItemOrNull(chemMaster, SharedChemMaster.InputSlotName);
                 if (container is null ||
                     !_solutionContainerSystem.TryGetFitsInDispenser(container.Value, out var containerEntity, out containerSolution))
@@ -748,6 +777,11 @@ namespace Content.Server.Chemistry.EntitySystems
                 Entity<SolutionComponent>? containerSoln;
 
                 if (chemMaster.Comp.SelectedBottleForFill >= 0 && chemMaster.Comp.StoredBottles[chemMaster.Comp.SelectedBottleForFill] is { } bottle)
+=======
+                var container = _itemSlotsSystem.GetItemOrNull(chemMaster.Owner, SharedChemMaster.InputSlotName);
+                if (container is not null &&
+                    _solutionContainerSystem.TryGetFitsInDispenser(container.Value, out var containerSolution, out _))
+>>>>>>> wizards-filtered
                 {
                     container = bottle;
                     if (!_solutionContainerSystem.TryGetSolution(container.Value, SharedChemMaster.BottleSolutionName, out containerSoln, out var containerSolution))
@@ -778,6 +812,19 @@ namespace Content.Server.Chemistry.EntitySystems
         private void OnCreatePillsMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterCreatePillsMessage message)
         {
             var user = message.Actor;
+<<<<<<< HEAD
+=======
+            var maybeContainer = _itemSlotsSystem.GetItemOrNull(chemMaster.Owner, SharedChemMaster.OutputSlotName);
+            if (maybeContainer is not { Valid: true } container
+                || !TryComp(container, out StorageComponent? storage))
+            {
+                return; // output can't fit pills
+            }
+
+            // Ensure the number is valid.
+            if (message.Number == 0 || !_storageSystem.HasSpace((container, storage)))
+                return;
+>>>>>>> wizards-filtered
 
             // Ensure the amount is valid.
             if (message.Dosage == 0 || message.Dosage > chemMaster.Comp.PillDosageLimit)
@@ -797,6 +844,7 @@ namespace Content.Server.Chemistry.EntitySystems
                     totalVolume += FixedPoint2.New(amount);
                 }
 
+<<<<<<< HEAD
                 // Calculate how many pills we can create based on available volume and dosage
 
                 var pillsToCreate = (int)message.Number;
@@ -812,10 +860,17 @@ namespace Content.Server.Chemistry.EntitySystems
 
                 // Find available slots for storage
                 var (totalAvailableSlots, availableSlots) = FindAvailablePillSlotsForCreation(chemMaster, pillsToCreate);
+=======
+                _solutionContainerSystem.EnsureSolution(item, SharedChemMaster.PillSolutionName, out var itemSolution);
+                itemSolution.Comp.Solution.MaxVolume = message.Dosage;
+
+                _solutionContainerSystem.TryAddSolution(itemSolution, withdrawal.SplitSolution(message.Dosage));
+>>>>>>> wizards-filtered
 
                 // Only create pills that can fit in available slots
                 var actualPillsToCreate = Math.Min(pillsToCreate, totalAvailableSlots);
 
+<<<<<<< HEAD
                 if (actualPillsToCreate == 0)
                 {
                     _popupSystem.PopupCursor(Loc.GetString("chem-master-pills-created",
@@ -975,6 +1030,10 @@ namespace Content.Server.Chemistry.EntitySystems
                     _popupSystem.PopupCursor(Loc.GetString("chem-master-pills-created",
                         ("created", actualPillsToCreate), ("requested", (int)message.Number)), user);
                 }
+=======
+                // Log pill creation by a user
+                _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(user):user} printed {ToPrettyString(item):pill} {SharedSolutionContainerSystem.ToPrettyString(itemSolution.Comp.Solution)}");
+>>>>>>> wizards-filtered
             }
             else
             {
@@ -1096,6 +1155,15 @@ namespace Content.Server.Chemistry.EntitySystems
         private void OnOutputToBottleMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterOutputToBottleMessage message)
         {
             var user = message.Actor;
+<<<<<<< HEAD
+=======
+            var maybeContainer = _itemSlotsSystem.GetItemOrNull(chemMaster.Owner, SharedChemMaster.OutputSlotName);
+            if (maybeContainer is not { Valid: true } container
+                || !_solutionContainerSystem.TryGetSolution(container, SharedChemMaster.BottleSolutionName, out var soln, out var solution))
+            {
+                return; // output can't fit reagents
+            }
+>>>>>>> wizards-filtered
 
             // Ensure the amount is valid.
             if (message.Dosage == 0 || message.Dosage > chemMaster.Comp.BottleDosageLimit)
@@ -1404,9 +1472,63 @@ namespace Content.Server.Chemistry.EntitySystems
 
             if (solution.Volume == 0)
             {
+<<<<<<< HEAD
                 if (user.HasValue)
                     _popupSystem.PopupCursor(Loc.GetString("chem-master-window-buffer-empty-text"), user.Value);
                 return false;
+=======
+                case ChemMasterDrawSource.Internal:
+                    if (!_solutionContainerSystem.TryGetSolution(chemMaster.Owner, SharedChemMaster.BufferSolutionName, out _, out solution))
+                        return false;
+
+                    if (solution.Volume == 0)
+                    {
+                        if (user is { } uid)
+                            _popupSystem.PopupCursor(Loc.GetString("chem-master-window-buffer-empty-text"), uid);
+
+                        return false;
+                    }
+                    if (neededVolume > solution.Volume)
+                    {
+                        if (user is { } uid)
+                            _popupSystem.PopupCursor(Loc.GetString("chem-master-window-buffer-low-text"), uid);
+
+                        return false;
+                    }
+
+                    break;
+
+                case ChemMasterDrawSource.External:
+                    if (_itemSlotsSystem.GetItemOrNull(chemMaster.Owner, SharedChemMaster.InputSlotName) is not {} container)
+                    {
+                        if (user.HasValue)
+                            _popupSystem.PopupCursor(Loc.GetString("chem-master-window-no-beaker-text"), user.Value);
+                        return false;
+                    }
+
+                    if (!_solutionContainerSystem.TryGetFitsInDispenser(container, out soln, out solution))
+                        return false;
+
+                    if (solution.Volume == 0)
+                    {
+                        if (user is { } uid)
+                            _popupSystem.PopupCursor(Loc.GetString("chem-master-window-beaker-empty-text"), uid);
+
+                        return false;
+                    }
+                    if (neededVolume > solution.Volume)
+                    {
+                        if (user is { } uid)
+                            _popupSystem.PopupCursor(Loc.GetString("chem-master-window-beaker-low-text"), uid);
+
+                        return false;
+                    }
+
+                    break;
+
+                default:
+                    return false;
+>>>>>>> wizards-filtered
             }
 
             // Get selected reagents for creation
@@ -1547,7 +1669,9 @@ namespace Content.Server.Chemistry.EntitySystems
 
         private void ClickSound(Entity<ChemMasterComponent> chemMaster)
         {
-            _audioSystem.PlayPvs(chemMaster.Comp.ClickSound, chemMaster, AudioParams.Default.WithVolume(-2f));
+            var audioParams = chemMaster.Comp.ClickSound?.Params ?? AudioParams.Default;
+            audioParams = audioParams.AddVolume(-2f);
+            _audioSystem.PlayPvs(chemMaster.Comp.ClickSound, chemMaster, audioParams);
         }
 
         private ContainerInfo? BuildInputContainerInfo(EntityUid? container)

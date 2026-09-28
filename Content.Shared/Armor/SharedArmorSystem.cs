@@ -12,9 +12,9 @@ namespace Content.Shared.Armor;
 /// <summary>
 ///     This handles logic relating to <see cref="ArmorComponent" />
 /// </summary>
-public abstract class SharedArmorSystem : EntitySystem
+public abstract partial class SharedArmorSystem : EntitySystem
 {
-    [Dependency] private readonly ExamineSystemShared _examine = default!;
+    [Dependency] private ExamineSystemShared _examine = default!;
 
     /// <inheritdoc />
     public override void Initialize()
@@ -95,25 +95,36 @@ public abstract class SharedArmorSystem : EntitySystem
         {
             msg.PushNewline();
 
+<<<<<<< HEAD
             var armorType = Loc.GetString("armor-damage-type-" + coefficientArmor.Key.ToLower());
             var coefficient = MathF.Round((1f - coefficientArmor.Value) * 100, 1);  // ADT tweak
             bool decrease = coefficient >= 0;                            // ADT tweak
 
             msg.AddMarkupOrThrow(Loc.GetString("armor-coefficient-value" + (decrease ? String.Empty : "-increase"), // ADT tweak
+=======
+            // TODO: probably make these prototype fields or have a test that they all exist
+            var armorType = Loc.GetString("armor-damage-type-" + coefficientArmor.Key.Id.ToLower());
+            msg.AddMarkupOrThrow(Loc.GetString("armor-coefficient-value",
+>>>>>>> wizards-filtered
                 ("type", armorType),
                 ("value", Math.Abs(coefficient))    // ADT tweak
             ));
         }
 
-        foreach (var flatArmor in armorModifiers.FlatReduction)
+        foreach (var flatArmor in armorModifiers.FlatReductions)
         {
             msg.PushNewline();
 
+<<<<<<< HEAD
             var armorType = Loc.GetString("armor-damage-type-" + flatArmor.Key.ToLower());
             var coefficient = flatArmor.Value;      // ADT tweak
             bool decrease = flatArmor.Value >= 0;   // ADT tweak
 
             msg.AddMarkupOrThrow(Loc.GetString("armor-reduction-value" + (decrease ? String.Empty : "-increase"),   // ADT tweak
+=======
+            var armorType = Loc.GetString("armor-damage-type-" + flatArmor.Key.Id.ToLower());
+            msg.AddMarkupOrThrow(Loc.GetString("armor-reduction-value",
+>>>>>>> wizards-filtered
                 ("type", armorType),
                 ("value", Math.Abs(coefficient))    // ADT tweak
             ));

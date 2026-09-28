@@ -4,6 +4,7 @@
     sprite: Clothing/OuterClothing/Armor/bulletproof.rsi
     state: icon
   product: CrateSecurityArmor
+<<<<<<< HEAD
   cost: 900 #ADT Tweak
   category: cargoproduct-category-name-security
   group: market
@@ -15,6 +16,9 @@
     state: icon
   product: CrateSecurityHelmet
   cost: 550
+=======
+  cost: 1750
+>>>>>>> wizards-filtered
   category: cargoproduct-category-name-security
   group: market
 
@@ -25,16 +29,6 @@
     state: base
   product: CrateSecurityNonlethal
   cost: 4000
-  category: cargoproduct-category-name-security
-  group: market
-
-- type: cargoProduct
-  id: SecuritySupplies
-  icon:
-    sprite: Objects/Storage/boxes.rsi
-    state: box_security
-  product: CrateSecuritySupplies
-  cost: 500
   category: cargoproduct-category-name-security
   group: market
 

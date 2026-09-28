@@ -13,6 +13,7 @@
     - !type:DepartmentTimeRequirement
       department: Cargo
       time: 10h
+<<<<<<< HEAD
     - !type:OverallPlaytimeRequirement
       time: 144000 #40 hrs
      # ADT-Tweak start
@@ -26,10 +27,11 @@
       - Vox
       #ADT tweak end
   weight: 10
+=======
+>>>>>>> wizards-filtered
   startingGear: QuartermasterGear
   icon: "JobIconQuarterMaster"
   supervisors: job-supervisors-captain
-  canBeAntag: false
   access:
   - Cargo
   - Salvage

@@ -11,6 +11,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Server.NPC.Systems;
 
+<<<<<<< HEAD
 // ADT: Система была полностью переписан, заменяйте при апстриме на нашу версию.
 
 public sealed class NPCUseActionOnTargetSystem : EntitySystem
@@ -22,6 +23,11 @@ public sealed class NPCUseActionOnTargetSystem : EntitySystem
     [Dependency] private readonly TransformSystem _transform = default!;
 
     private const float MaxActionRange = 20f;
+=======
+public sealed partial class NPCUseActionOnTargetSystem : EntitySystem
+{
+    [Dependency] private SharedActionsSystem _actions = default!;
+>>>>>>> wizards-filtered
 
     /// <inheritdoc/>
     public override void Initialize()

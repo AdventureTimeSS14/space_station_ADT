@@ -50,6 +50,17 @@
   components:
   - type: AllCapsAccent
 
+<<<<<<< HEAD
+=======
+# Causes you to speak like a servant of Ratvar.
+- type: entity
+  parent: SpeechStatusEffectBase
+  id: StatusEffectRatvarianLanguage
+  name: ratvarian language patterns
+  components:
+  - type: RatvarianLanguage
+
+>>>>>>> wizards-filtered
 # Causes you to tark rike a dog. Woof!
 - type: entity
   parent: SpeechStatusEffectBase

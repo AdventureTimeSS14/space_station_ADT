@@ -16,8 +16,9 @@ using Robust.Shared.Network;
 
 namespace Content.Server.Administration;
 
-public sealed class BanPanelEui : BaseEui
+public sealed partial class BanPanelEui : BaseEui
 {
+<<<<<<< HEAD
     [Dependency] private readonly IBanManager _banManager = default!;
     [Dependency] private readonly IEntityManager _entities = default!;
     [Dependency] private readonly ILogManager _log = default!;
@@ -26,6 +27,14 @@ public sealed class BanPanelEui : BaseEui
     [Dependency] private readonly IAdminManager _admins = default!;
     [Dependency] private readonly IDiscordBanInfoSender _discordBanInfoSender = default!;
     [Dependency] private readonly IServerDbManager _dbManager = default!;
+=======
+    [Dependency] private IBanManager _banManager = default!;
+    [Dependency] private IEntityManager _entities = default!;
+    [Dependency] private ILogManager _log = default!;
+    [Dependency] private IPlayerLocator _playerLocator = default!;
+    [Dependency] private IChatManager _chat = default!;
+    [Dependency] private IAdminManager _admins = default!;
+>>>>>>> wizards-filtered
 
     private readonly ISawmill _sawmill;
 

@@ -365,7 +365,7 @@
     fiberColor: fibers-black
 
 - type: entity
-  parent: [ BaseSecurityCargoContraband, ClothingHandsGlovesCombat ]
+  parent: [ BaseSecurityCargoContraband, ClothingHandsGlovesCombat, BaseSlicingRefinable ]
   id: ClothingHandsMercGlovesCombat
   name: mercenary combat gloves
   description: High-quality combat gloves to protect hands from mechanical damage during combat.
@@ -374,9 +374,8 @@
     sprite: Clothing/Hands/Gloves/mercbattle.rsi
   - type: Clothing
     sprite: Clothing/Hands/Gloves/mercbattle.rsi
-  - type: Butcherable
-    butcheringType: Knife
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: ClothingHandsGlovesMercFingerless
   - type: Fiber
     fiberMaterial: fibers-insulative
@@ -657,6 +656,9 @@
           False: {state: knuckleduster_off}
   - type: ToggleClothing
     action: ActionToggleKnuckleDustersStun
+  - type: ItemToggleExaminableStatus
+  - type: ItemToggleRequiresCharge
+    requiredCharge: 50
   - type: ItemToggle
     predictable: false
     soundActivate:
@@ -674,8 +676,6 @@
       params:
         variation: 0.250
         volume: 5
-  - type: Stunbaton
-    energyPerUse: 50
   - type: ItemToggleMeleeWeapon
     activatedDamage:
       types:
@@ -687,6 +687,10 @@
         Blunt: 8
     bluntStaminaDamageFactor: 2.0
     animation: WeaponArcFist
+  - type: MeleeBatteryHitsLeft
+  - type: StaminaDamageOnHitRequiresToggle
+  - type: StaminaDamageOnHitRequiresCharge
+    requiredCharge: 50
   - type: StaminaDamageOnHit
     damage: 35
     sound: /Audio/Weapons/egloves.ogg
@@ -701,6 +705,10 @@
     guides:
     - Security
     - Antagonists
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - Stunbaton
 
 - type: entity #Admeme
   parent: ClothingHandsKnuckleDusters

@@ -4,6 +4,7 @@ using Content.Server.GameTicking.Rules;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Shared.GameTicking.Components;
 using Robust.Shared.GameObjects;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.IntegrationTests.Tests.GameRules
@@ -13,6 +14,8 @@ namespace Content.IntegrationTests.Tests.GameRules
     public sealed class RuleMaxTimeRestartTest : GameTest
     {
         public override PoolSettings PoolSettings => new() { InLobby = true };
+
+        private static readonly EntProtoId MaxTimeRestartGameRule = "MaxTimeRestart";
 
         [Test]
         public async Task RestartTest()
@@ -37,8 +40,12 @@ namespace Content.IntegrationTests.Tests.GameRules
             EntityUid maxTimeRuleUid = EntityUid.Invalid; // ADT-tweak
             await server.WaitPost(() =>
             {
+<<<<<<< HEAD
                 sGameTicker.StartGameRule("MaxTimeRestart", out var ruleEntity);
                 maxTimeRuleUid = ruleEntity; // ADT-Tweak
+=======
+                sGameTicker.StartGameRule(MaxTimeRestartGameRule, out var ruleEntity);
+>>>>>>> wizards-filtered
                 Assert.That(entityManager.TryGetComponent<MaxTimeRestartRuleComponent>(ruleEntity, out maxTime));
             });
 

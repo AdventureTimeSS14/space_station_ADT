@@ -82,11 +82,15 @@ public abstract partial class SharedGunSystem
         }
 
         Audio.PlayPredicted(component.SoundMode, uid, user);
+<<<<<<< HEAD
         Popup(Loc.GetString("gun-selected-mode", ("mode", GetLocSelector(fire))), uid, user);
 
         var ev = new RMCFireModeChangedEvent(); // ADT TWEAK
         RaiseLocalEvent(uid, ref ev); // ADT TWEAK
 
+=======
+        PopupSystem.PopupEntity(Loc.GetString("gun-selected-mode", ("mode", GetLocSelector(fire))), uid, user);
+>>>>>>> wizards-filtered
         Dirty(uid, component);
     }
 

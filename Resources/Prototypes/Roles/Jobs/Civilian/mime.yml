@@ -47,12 +47,20 @@
   components:
   - type: Action
     priority: -1
+<<<<<<< HEAD
     useDelay: 25
     icon:
     # ADT-Tweak start
       sprite: ADT/Interface/Actions/mime.rsi
       state: mime_bigwall
     # ADT-Tweak end
+=======
+    useDelay: 30
+  - type: Sprite
+    sprite: Structures/Walls/solid.rsi
+    layers:
+    - state: full
+>>>>>>> wizards-filtered
   - type: InstantAction
     event: !type:InvisibleWallActionEvent
 

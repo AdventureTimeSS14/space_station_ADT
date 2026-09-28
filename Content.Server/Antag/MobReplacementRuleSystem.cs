@@ -1,16 +1,19 @@
 using Content.Server.Antag.Mimic;
 using Content.Server.GameTicking.Rules;
-using Content.Server.GameTicking.Rules.Components;
 using Content.Shared.GameTicking.Components;
+<<<<<<< HEAD
 using Content.Shared.ADT.VendingMachines; // ADT-Tweak
+=======
+using Content.Shared.VendingMachines.Components;
+>>>>>>> wizards-filtered
 using Robust.Shared.Map;
 using Robust.Shared.Random;
 
 namespace Content.Server.Antag;
 
-public sealed class MobReplacementRuleSystem : GameRuleSystem<MobReplacementRuleComponent>
+public sealed partial class MobReplacementRuleSystem : GameRuleSystem<MobReplacementRuleComponent>
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     protected override void Started(EntityUid uid, MobReplacementRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {

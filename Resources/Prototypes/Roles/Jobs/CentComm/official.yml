@@ -6,8 +6,12 @@
   setPreference: false
   startingGear: CentcommGear
   icon: "JobIconNanotrasen"
+<<<<<<< HEAD
   supervisors: job-supervisors-centcom # Corvax-JobSupervisors
   canBeAntag: false
+=======
+  supervisors: job-supervisors-hos
+>>>>>>> wizards-filtered
   accessGroups:
   - AllAccess
   # Start ADT Tweak

@@ -1,6 +1,6 @@
 ﻿- type: entity
   name: candle
-  parent: BaseItem
+  parent: [ BaseItem, BaseItemDestructible ]
   id: Candle
   description: A thin wick threaded through fat.
   components:
@@ -41,6 +41,7 @@
     - type: FireVisuals
       sprite: Objects/Misc/candles.rsi
       normalState: fire-big
+    - type: SpookyExtinguishable
     - type: ToggleableVisuals
       spriteLayer: null
       inhandVisuals:
@@ -51,6 +52,7 @@
         - state: inhand-right-flame
           shader: unshaded
     - type: Damageable
+<<<<<<< HEAD
       damageModifierSet: ADTCandle # ADT tweak
     - type: Injurable
     - type: Destructible
@@ -61,6 +63,9 @@
         behaviors:
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
+=======
+      damageModifierSet: Wood
+>>>>>>> wizards-filtered
 
 - type: entity
   name: red candle
@@ -168,15 +173,6 @@
       normalState: fire-small
     - type: Flammable
       firestacksOnIgnite: 2.0
-    - type: Destructible
-      thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 60
-        behaviors:
-        - !type:SpawnEntitiesBehavior
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
 
 - type: entity
   name: small red candle

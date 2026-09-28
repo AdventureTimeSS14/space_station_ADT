@@ -18,6 +18,7 @@ using Content.Client.IoC;
 using Content.Client.Launcher;
 using Content.Client.Lobby;
 using Content.Client.MainMenu;
+using Content.Client.Overlays;
 using Content.Client.Parallax.Managers;
 using Content.Client.Players.PlayTimeTracking;
 using Content.Client.Playtime;
@@ -51,8 +52,9 @@ using Content.Client.ADT.JoinQueue;
 
 namespace Content.Client.Entry
 {
-    public sealed class EntryPoint : GameClient
+    public sealed partial class EntryPoint : GameClient
     {
+<<<<<<< HEAD
         [Dependency] private readonly IBaseClient _baseClient = default!;
         [Dependency] private readonly IGameController _gameController = default!;
         [Dependency] private readonly IStateManager _stateManager = default!;
@@ -94,6 +96,42 @@ namespace Content.Client.Entry
         [Dependency] private readonly DiscordIdManager _discordIdManager = default!;  // ADT export
         [Dependency] private readonly ClientsidePlaytimeTrackingManager _clientsidePlaytimeManager = default!;
         [Dependency] private readonly ClientFeedbackManager _feedbackManager = null!;
+=======
+        [Dependency] private IBaseClient _baseClient = default!;
+        [Dependency] private IGameController _gameController = default!;
+        [Dependency] private IStateManager _stateManager = default!;
+        [Dependency] private IComponentFactory _componentFactory = default!;
+        [Dependency] private IPrototypeManager _prototypeManager = default!;
+        [Dependency] private IClientAdminManager _adminManager = default!;
+        [Dependency] private IParallaxManager _parallaxManager = default!;
+        [Dependency] private IConfigurationManager _configManager = default!;
+        [Dependency] private IStylesheetManager _stylesheetManager = default!;
+        [Dependency] private IScreenshotHook _screenshotHook = default!;
+        [Dependency] private FullscreenHook _fullscreenHook = default!;
+        [Dependency] private ChangelogManager _changelogManager = default!;
+        [Dependency] private ViewportManager _viewportManager = default!;
+        [Dependency] private IUserInterfaceManager _userInterfaceManager = default!;
+        [Dependency] private IInputManager _inputManager = default!;
+        [Dependency] private IOverlayManager _overlayManager = default!;
+        [Dependency] private IChatManager _chatManager = default!;
+        [Dependency] private IClientPreferencesManager _clientPreferencesManager = default!;
+        [Dependency] private EuiManager _euiManager = default!;
+        [Dependency] private IVoteManager _voteManager = default!;
+        [Dependency] private DocumentParsingManager _documentParsingManager = default!;
+        [Dependency] private GhostKickManager _ghostKick = default!;
+        [Dependency] private ExtendedDisconnectInformationManager _extendedDisconnectInformation = default!;
+        [Dependency] private JobRequirementsManager _jobRequirements = default!;
+        [Dependency] private ContentLocalizationManager _contentLoc = default!;
+        [Dependency] private ContentReplayPlaybackManager _playbackMan = default!;
+        [Dependency] private IResourceManager _resourceManager = default!;
+        [Dependency] private IReplayLoadManager _replayLoad = default!;
+        [Dependency] private ILogManager _logManager = default!;
+        [Dependency] private DebugMonitorManager _debugMonitorManager = default!;
+        [Dependency] private TitleWindowManager _titleWindowManager = default!;
+        [Dependency] private IEntitySystemManager _entitySystemManager = default!;
+        [Dependency] private ClientsidePlaytimeTrackingManager _clientsidePlaytimeManager = default!;
+        [Dependency] private ClientFeedbackManager _feedbackManager = null!;
+>>>>>>> wizards-filtered
 
         public override void PreInit()
         {
@@ -121,7 +159,6 @@ namespace Content.Client.Entry
 
             _prototypeManager.RegisterIgnore("utilityQuery");
             _prototypeManager.RegisterIgnore("utilityCurvePreset");
-            _prototypeManager.RegisterIgnore("accent");
             _prototypeManager.RegisterIgnore("gasReaction");
             _prototypeManager.RegisterIgnore("seed"); // Seeds prototypes are server-only.
             _prototypeManager.RegisterIgnore("objective");
@@ -185,6 +222,7 @@ namespace Content.Client.Entry
 
             _overlayManager.AddOverlay(new SingularityOverlay());
             _overlayManager.AddOverlay(new RadiationPulseOverlay());
+            _overlayManager.AddOverlay(new ScreechShockWaveOverlay());
             _chatManager.Initialize();
             _clientPreferencesManager.Initialize();
             _euiManager.Initialize();

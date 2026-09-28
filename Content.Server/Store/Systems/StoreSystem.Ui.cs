@@ -1,7 +1,11 @@
 using System.Linq;
 using Content.Server.Actions;
 using Content.Server.Administration.Logs;
+<<<<<<< HEAD
 using Content.Server.Heretic.EntitySystems;
+=======
+using Content.Shared.Mindshield;
+>>>>>>> wizards-filtered
 using Content.Server.Stack;
 using Content.Server.Store.Components;
 using Content.Shared.Actions;
@@ -9,20 +13,27 @@ using Content.Shared.ADT.ManifestListings; // ADT-tweak
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
 using Content.Shared.Hands.EntitySystems;
+<<<<<<< HEAD
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Mindshield.Components;
+=======
+>>>>>>> wizards-filtered
 using Content.Shared.NPC.Systems;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
 using Content.Shared.UserInterface;
 using Robust.Shared.Audio.Systems;
+<<<<<<< HEAD
 using Robust.Shared.Prototypes;
+=======
+>>>>>>> wizards-filtered
 
 namespace Content.Server.Store.Systems;
 
 public sealed partial class StoreSystem
 {
+<<<<<<< HEAD
     [Dependency] private readonly IAdminLogManager _admin = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
@@ -33,6 +44,17 @@ public sealed partial class StoreSystem
     [Dependency] private readonly StackSystem _stack = default!;
      // goobstation - heretics
     [Dependency] private readonly HereticSystem _heretic = default!;
+=======
+    [Dependency] private IAdminLogManager _admin = default!;
+    [Dependency] private ActionContainerSystem _actionContainer = default!;
+    [Dependency] private ActionsSystem _actions = default!;
+    [Dependency] private ActionUpgradeSystem _actionUpgrade = default!;
+    [Dependency] private NpcFactionSystem _npcFaction = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private StackSystem _stack = default!;
+    [Dependency] private MindShieldSystem _mindShield = default!;
+>>>>>>> wizards-filtered
 
     private void InitializeUi()
     {
@@ -142,6 +164,13 @@ public sealed partial class StoreSystem
             component.BalanceSpent[currency] += amount;
         }
 
+        //apply components
+        if (listing.ProductComponents != null)
+        {
+            if (ProtoMan.Resolve(listing.ProductComponents, out var productComponentsEntity))
+                EntityManager.AddComponents(buyer, productComponentsEntity.Components);
+        }
+
         //spawn entity
         if (listing.ProductEntity != null)
         {
@@ -235,7 +264,8 @@ public sealed partial class StoreSystem
             logImpact = LogImpact.High;
             logExtraInfo = ", but was not from an expected faction";
 
-            if (HasComp<MindShieldComponent>(buyer))
+            _mindShield.GetMindshieldStatus(buyer, out var isMindshielded, out _);
+            if (isMindshielded)
             {
                 logImpact = LogImpact.Extreme;
                 logExtraInfo += " while also possessing a mindshield";
@@ -244,7 +274,11 @@ public sealed partial class StoreSystem
 
         _admin.Add(LogType.StorePurchase,
             logImpact,
+<<<<<<< HEAD
             $"{ToPrettyString(buyer):player} purchased listing \"{ListingLocalisationHelpers.GetLocalisedNameOrEntityName(listing, Proto)}\" from {ToPrettyString(uid)}{logExtraInfo}.");
+=======
+            $"{ToPrettyString(buyer):player} purchased listing \"{ListingLocalisationHelpers.GetLocalisedNameOrEntityName(listing, ProtoMan)}\" from {ToPrettyString(uid)}{logExtraInfo}.");
+>>>>>>> wizards-filtered
 
         listing.PurchaseAmount++; //track how many times something has been purchased
 
@@ -286,7 +320,11 @@ public sealed partial class StoreSystem
             return;
 
         //make sure a malicious client didn't send us random shit
+<<<<<<< HEAD
         if (!Proto.TryIndex<CurrencyPrototype>(msg.Currency, out var proto))
+=======
+        if (!ProtoMan.TryIndex<CurrencyPrototype>(msg.Currency, out var proto))
+>>>>>>> wizards-filtered
             return;
 
         //we need an actually valid entity to spawn. This check has been done earlier, but just in case.

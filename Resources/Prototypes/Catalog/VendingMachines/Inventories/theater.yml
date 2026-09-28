@@ -80,10 +80,24 @@
         # ADT-Tweak-end
     Gohei: 2
     FoodPoppy: 1
+<<<<<<< HEAD
     # ADT-Tweak-start
     ADTBoxTeto: 1
     BoxPerformer: 1
     # ADT-Tweak-end
+=======
+    ClothingHeadHatGladiator: 1
+    ClothingUniformJumpsuitGladiator: 1
+    ClothingHeadHatCowboyBrown: 1
+    ClothingHeadHatCowboyBlack: 1
+    ClothingHeadHatCowboyWhite: 1
+    ClothingHeadHatCowboyGrey: 1
+    ClothingShoesBootsCowboyBrown: 1
+    ClothingShoesBootsCowboyBlack: 1
+    ClothingShoesBootsCowboyWhite: 1
+    ClothingHeadHatWizardFake: 1
+    ClothingOuterWizardFake: 1
+>>>>>>> wizards-filtered
   contrabandInventory:
     ClothingHeadHatRichard: 1
     ToyFigurineBoxer: 1

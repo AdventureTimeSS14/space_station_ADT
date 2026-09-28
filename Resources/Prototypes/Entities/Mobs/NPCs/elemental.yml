@@ -68,7 +68,10 @@
   - type: NpcFactionMember
     factions:
       - SimpleHostile
+<<<<<<< HEAD
   - type: Damageable
+=======
+>>>>>>> wizards-filtered
   - type: Injurable
     damageContainer: StructuralInorganic
 - type: entity
@@ -391,7 +394,6 @@
     solution: bloodstream
   - type: DrainableSolution
     solution: bloodstream
-  - type: ForceAttack
 
 - type: entity
   parent: MarkerBase

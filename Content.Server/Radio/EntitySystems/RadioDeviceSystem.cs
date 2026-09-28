@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 using System.Linq;
 using Content.Server.Chat.Systems;
 using Content.Server.Interaction;
@@ -11,13 +12,13 @@ using Content.Shared.Interaction;
 using Content.Shared.Power;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
+=======
+>>>>>>> wizards-filtered
 using Content.Shared.Radio.EntitySystems;
-using Content.Shared.Speech;
-using Content.Shared.Speech.Components;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Radio.EntitySystems;
 
+<<<<<<< HEAD
 /// <summary>
 ///     This system handles radio speakers and microphones (which together form a hand-held radio).
 /// </summary>
@@ -266,3 +267,7 @@ public sealed class RadioDeviceSystem : SharedRadioDeviceSystem
         Dirty(ent);
     }
 }
+=======
+/// <inheritdoc/>
+public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem;
+>>>>>>> wizards-filtered

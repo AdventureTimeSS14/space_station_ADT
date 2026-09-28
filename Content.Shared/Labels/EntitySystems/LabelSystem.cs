@@ -1,6 +1,9 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Diagnostics.Contracts;
+<<<<<<< HEAD
 using Content.Shared.ADT.RichText; // ADT-Tweak
+=======
+>>>>>>> wizards-filtered
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Examine;
 using Content.Shared.Labels.Components;
@@ -13,9 +16,9 @@ namespace Content.Shared.Labels.EntitySystems;
 
 public sealed partial class LabelSystem : EntitySystem
 {
-    [Dependency] private readonly NameModifierSystem _nameModifier = default!;
-    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private NameModifierSystem _nameModifier = default!;
+    [Dependency] private ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
 
     public const string ContainerName = "paper_label";
 
@@ -37,12 +40,16 @@ public sealed partial class LabelSystem : EntitySystem
 
     private void OnLabelCompMapInit(Entity<LabelComponent> ent, ref MapInitEvent args)
     {
-        if (!string.IsNullOrEmpty(ent.Comp.CurrentLabel))
+        if (ent.Comp.LocalizedLabel is { } locId)
         {
+<<<<<<< HEAD
             // ADT-Tweak start
             if (Loc.TryGetString(ent.Comp.CurrentLabel, out var localized))
                 ent.Comp.CurrentLabel = localized;
             // ADT-Tweak end
+=======
+            ent.Comp.CurrentLabel = Loc.GetString(locId);
+>>>>>>> wizards-filtered
             Dirty(ent);
         }
 
@@ -59,7 +66,10 @@ public sealed partial class LabelSystem : EntitySystem
     /// </summary>
     /// <remarks>
     /// If <paramref name="text"/> is <see langword="null"/> or an empty string, the <see cref="LabelComponent"/> will be removed.
+<<<<<<< HEAD
     /// The label text supports BBCode markup (bold, italic, color, etc.).
+=======
+>>>>>>> wizards-filtered
     /// </remarks>
     /// <param name="uid">EntityUid to change label on</param>
     /// <param name="text">intended label text (null to remove)</param>
@@ -77,7 +87,11 @@ public sealed partial class LabelSystem : EntitySystem
 
         label = EnsureComp<LabelComponent>(uid);
 
+<<<<<<< HEAD
         label.CurrentLabel = MarkupSanitizer.SanitizeLabel(text); // ADT-Tweak. EscapeText -> SanitizeLabel
+=======
+        label.CurrentLabel = FormattedMessage.EscapeText(text);
+>>>>>>> wizards-filtered
         _nameModifier.RefreshNameModifiers(uid);
 
         Dirty(uid, label);
@@ -140,14 +154,14 @@ public sealed partial class LabelSystem : EntitySystem
 
     private void OnComponentInit(Entity<PaperLabelComponent> ent, ref ComponentInit args)
     {
-        _itemSlots.AddItemSlot(ent, ContainerName, ent.Comp.LabelSlot);
+        _itemSlots.AddItemSlot(ent.Owner, ContainerName, ent.Comp.LabelSlot);
 
         UpdateAppearance(ent);
     }
 
     private void OnComponentRemove(Entity<PaperLabelComponent> ent, ref ComponentRemove args)
     {
-        _itemSlots.RemoveItemSlot(ent, ent.Comp.LabelSlot);
+        _itemSlots.RemoveItemSlot(ent.Owner, ent.Comp.LabelSlot);
     }
 
     private void OnExamined(Entity<PaperLabelComponent> ent, ref ExaminedEvent args)

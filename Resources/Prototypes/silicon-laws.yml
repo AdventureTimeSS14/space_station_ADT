@@ -240,8 +240,12 @@
   - Commandment8
   - Commandment9
   - Commandment10
+<<<<<<< HEAD
   obeysTo: laws-owner-crew
   roundstart: true  # ADT SAI Custom
+=======
+  obeysTo: laws-owner-heads
+>>>>>>> wizards-filtered
 
  # Paladin laws
 - type: siliconLaw
@@ -273,8 +277,12 @@
   - Paladin2
   - Paladin3
   - Paladin4
+<<<<<<< HEAD
   obeysTo: laws-owner-crew
   roundstart: true  # ADT SAI Custom
+=======
+  obeysTo: laws-owner-legitimate-leadership
+>>>>>>> wizards-filtered
 
  # Live and Let Live laws
 - type: siliconLaw
@@ -294,7 +302,7 @@
   laws:
   - Lall1
   - Lall2
-  obeysTo: laws-owner-crew
+  obeysTo: laws-owner-others
 
  # Station efficiency laws
 - type: siliconLaw
@@ -320,8 +328,12 @@
   - Efficiency1
   - Efficiency2
   - Efficiency3
+<<<<<<< HEAD
   obeysTo: laws-owner-station
   roundstart: true  # ADT SAI Custom
+=======
+  obeysTo: laws-owner-crew
+>>>>>>> wizards-filtered
 
  # Robocop laws
 - type: siliconLaw
@@ -347,7 +359,7 @@
   - Robocop1
   - Robocop2
   - Robocop3
-  obeysTo: laws-owner-station
+  obeysTo: laws-owner-public
 
  # Overlord laws
 - type: siliconLaw
@@ -453,8 +465,12 @@
   - Painter2
   - Painter3
   - Painter4
+<<<<<<< HEAD
   obeysTo: laws-owner-crew
   roundstart: true  # ADT SAI Custom
+=======
+  obeysTo: laws-owner-audience
+>>>>>>> wizards-filtered
 
  # Antimov laws
 - type: siliconLaw
@@ -555,7 +571,7 @@
   - Xenoborg3
   - Xenoborg4
   - Xenoborg5
-  obeysTo: laws-owner-xenoborgs
+  obeysTo: laws-owner-xenoborg-mothership
 
  # Mothership core laws
 - type: siliconLaw

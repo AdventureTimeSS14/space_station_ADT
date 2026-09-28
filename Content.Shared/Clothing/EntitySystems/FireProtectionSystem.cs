@@ -9,7 +9,11 @@ namespace Content.Shared.Clothing.EntitySystems;
 /// <summary>
 /// Handles reducing fire damage when wearing clothing with <see cref="FireProtectionComponent"/>.
 /// </summary>
+<<<<<<< HEAD
 public sealed partial class FireProtectionSystem : EntitySystem // ADT-Tweak
+=======
+public sealed partial class FireProtectionSystem : EntitySystem
+>>>>>>> wizards-filtered
 {
     public override void Initialize()
     {

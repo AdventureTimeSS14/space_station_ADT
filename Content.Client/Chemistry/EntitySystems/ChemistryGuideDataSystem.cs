@@ -4,19 +4,17 @@ using Content.Shared.Atmos.Prototypes;
 using Content.Shared.Body;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
-using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Kitchen.Components;
-using Content.Shared.Prototypes;
 using Robust.Shared.Prototypes;
 
 namespace Content.Client.Chemistry.EntitySystems;
 
 /// <inheritdoc/>
-public sealed class ChemistryGuideDataSystem : SharedChemistryGuideDataSystem
+public sealed partial class ChemistryGuideDataSystem : SharedChemistryGuideDataSystem
 {
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
 
     private static readonly ProtoId<MixingCategoryPrototype> DefaultMixingCategory = "DummyMix";
     private static readonly ProtoId<MixingCategoryPrototype> DefaultGrindCategory = "DummyGrind";
@@ -32,7 +30,7 @@ public sealed class ChemistryGuideDataSystem : SharedChemistryGuideDataSystem
 
         SubscribeNetworkEvent<ReagentGuideRegistryChangedEvent>(OnReceiveRegistryUpdate);
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
-        OnPrototypesReloaded(null);
+        LoadPrototypes(null);
     }
 
     private void OnReceiveRegistryUpdate(ReagentGuideRegistryChangedEvent message)
@@ -49,18 +47,27 @@ public sealed class ChemistryGuideDataSystem : SharedChemistryGuideDataSystem
         }
     }
 
-    private void OnPrototypesReloaded(PrototypesReloadedEventArgs? ev)
+    private void OnPrototypesReloaded(PrototypesReloadedEventArgs ev)
+    {
+        LoadPrototypes(ev);
+    }
+
+    private void LoadPrototypes(PrototypesReloadedEventArgs? args)
     {
         // this doesn't check what prototypes are being reloaded because, to be frank, we use a lot of them.
         _reagentSources.Clear();
+<<<<<<< HEAD
         // ADT-Fix-Start: инициализация всех известных реагентов
         foreach (var reagent in PrototypeManager.EnumeratePrototypes<ReagentPrototype>())
+=======
+        foreach (var reagent in ProtoMan.EnumeratePrototypes<ReagentPrototype>())
+>>>>>>> wizards-filtered
         {
             _reagentSources[reagent.ID] = new();
         }
         // ADT-Fix-End
 
-        foreach (var reaction in PrototypeManager.EnumeratePrototypes<ReactionPrototype>())
+        foreach (var reaction in ProtoMan.EnumeratePrototypes<ReactionPrototype>())
         {
             if (!reaction.Source)
                 continue;
@@ -81,7 +88,7 @@ public sealed class ChemistryGuideDataSystem : SharedChemistryGuideDataSystem
             }
         }
 
-        foreach (var gas in PrototypeManager.EnumeratePrototypes<GasPrototype>())
+        foreach (var gas in ProtoMan.EnumeratePrototypes<GasPrototype>())
         {
             if (gas.Reagent == null)
                 continue;
@@ -101,15 +108,24 @@ public sealed class ChemistryGuideDataSystem : SharedChemistryGuideDataSystem
 
         // store the names of the entities used so we don't get repeats in the guide.
         var usedNames = new List<string>();
-        foreach (var entProto in PrototypeManager.EnumeratePrototypes<EntityPrototype>())
+        foreach (var entProto in ProtoMan.EnumeratePrototypes<EntityPrototype>())
         {
             if (entProto.Abstract || usedNames.Contains(entProto.Name))
                 continue;
 
-            if (!entProto.TryGetComponent<ExtractableComponent>(out var extractableComponent, EntityManager.ComponentFactory))
+            if (!entProto.TryComp(out ExtractableComponent? extractableComponent, Factory))
                 continue;
 
+<<<<<<< HEAD
             if (entProto.HasComponent<OrganComponent>() || entProto.HasComponent<PillComponent>()) // ADT-Tweak
+=======
+            //these bloat the hell out of blood/fat
+            if (entProto.HasComp<OrganComponent>(Factory))
+                continue;
+
+            //these feel obvious...
+            if (entProto.HasComp<PillComponent>(Factory))
+>>>>>>> wizards-filtered
                 continue;
 
             if (extractableComponent.JuiceSolution is { } juiceSolution)
@@ -135,8 +151,7 @@ public sealed class ChemistryGuideDataSystem : SharedChemistryGuideDataSystem
 
 
             if (extractableComponent.GrindableSolutionName is { } grindableSolutionId &&
-                entProto.TryGetComponent<SolutionContainerManagerComponent>(out var manager, EntityManager.ComponentFactory) &&
-                _solutionContainer.TryGetSolution(manager, grindableSolutionId, out var grindableSolution))
+                _solutionContainer.TryGetSolution(entProto, grindableSolutionId, out var grindableSolution))
             {
                 var data = new ReagentEntitySourceData(
                     new() { DefaultGrindCategory },

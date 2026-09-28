@@ -10,9 +10,13 @@ namespace Content.Server.Anomaly.Effects;
 /// <summary>
 /// This handles logic and events relating to <see cref="GravityAnomalyComponent"/> and <seealso cref="AnomalySystem"/>
 /// </summary>
-public sealed class GravityAnomalySystem : SharedGravityAnomalySystem
+public sealed partial class GravityAnomalySystem : SharedGravityAnomalySystem
 {
+<<<<<<< HEAD
     [Dependency] private readonly RadiationSystem _radiation = default!;
+=======
+    [Dependency] private RadiationSystem _radiation = default!;
+>>>>>>> wizards-filtered
 
     /// <inheritdoc/>
     public override void Initialize()

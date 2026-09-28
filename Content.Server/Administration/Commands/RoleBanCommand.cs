@@ -14,8 +14,9 @@ using Robust.Shared.Prototypes;
 namespace Content.Server.Administration.Commands;
 
 [AdminCommand(AdminFlags.Ban)]
-public sealed class RoleBanCommand : IConsoleCommand
+public sealed partial class RoleBanCommand : IConsoleCommand
 {
+<<<<<<< HEAD
     [Dependency] private readonly IPlayerLocator _locator = default!;
     [Dependency] private readonly IBanManager _bans = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
@@ -23,6 +24,13 @@ public sealed class RoleBanCommand : IConsoleCommand
     [Dependency] private readonly IDiscordBanInfoSender _discordBanInfoSender = default!;
     [Dependency] private readonly ILogManager _log = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+=======
+    [Dependency] private IPlayerLocator _locator = default!;
+    [Dependency] private IBanManager _bans = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private ILogManager _log = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+>>>>>>> wizards-filtered
 
     private ISawmill? _sawmill;
 

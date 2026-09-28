@@ -24,8 +24,9 @@ using Content.Shared.Actions;
 
 namespace Content.Shared.Anomaly;
 
-public abstract class SharedAnomalySystem : EntitySystem
+public abstract partial class SharedAnomalySystem : EntitySystem
 {
+<<<<<<< HEAD
     [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] protected readonly IRobustRandom Random = default!;
@@ -38,6 +39,20 @@ public abstract class SharedAnomalySystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
+=======
+    [Dependency] protected IGameTiming Timing = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] protected IRobustRandom Random = default!;
+    [Dependency] protected ISharedAdminLogManager AdminLog = default!;
+    [Dependency] protected SharedAudioSystem Audio = default!;
+    [Dependency] protected SharedAppearanceSystem Appearance = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] protected SharedPopupSystem Popup = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+
+    [Dependency] private EntityQuery<PhysicsComponent> _physQuery = default!;
+>>>>>>> wizards-filtered
 
     public override void Initialize()
     {
@@ -104,7 +119,7 @@ public abstract class SharedAnomalySystem : EntitySystem
         var powerMod = 1f;
         if (component.CurrentBehavior != null)
         {
-            var beh = _prototype.Index<AnomalyBehaviorPrototype>(component.CurrentBehavior);
+            var beh = ProtoMan.Index<AnomalyBehaviorPrototype>(component.CurrentBehavior);
             powerMod = beh.PulsePowerModifier;
         }
         var ev = new AnomalyPulseEvent(uid, component.Stability, component.Severity, powerMod);
@@ -170,7 +185,7 @@ public abstract class SharedAnomalySystem : EntitySystem
         var powerMod = 1f;
         if (component.CurrentBehavior != null)
         {
-            var beh = _prototype.Index<AnomalyBehaviorPrototype>(component.CurrentBehavior);
+            var beh = ProtoMan.Index<AnomalyBehaviorPrototype>(component.CurrentBehavior);
             powerMod = beh.PulsePowerModifier;
         }
 
@@ -311,7 +326,7 @@ public abstract class SharedAnomalySystem : EntitySystem
         //Apply behavior modifier
         if (component.CurrentBehavior != null)
         {
-            var behavior = _prototype.Index(component.CurrentBehavior.Value);
+            var behavior = ProtoMan.Index(component.CurrentBehavior.Value);
             lenght *= behavior.PulseFrequencyModifier;
         }
         return lenght;
@@ -438,7 +453,6 @@ public abstract class SharedAnomalySystem : EntitySystem
         if (tilerefs.Count == 0)
             return null;
 
-        var physQuery = GetEntityQuery<PhysicsComponent>();
         var resultList = new List<TileRef>();
         while (resultList.Count < amount)
         {
@@ -466,7 +480,7 @@ public abstract class SharedAnomalySystem : EntitySystem
                 var valid = true;
                 foreach (var ent in _map.GetAnchoredEntities(gridUid.Value, grid, tileref.GridIndices)) // ADT-Tweak
                 {
-                    if (!physQuery.TryGetComponent(ent, out var body))
+                    if (!_physQuery.TryGetComponent(ent, out var body))
                         continue;
 
                     if (body.BodyType != BodyType.Static ||

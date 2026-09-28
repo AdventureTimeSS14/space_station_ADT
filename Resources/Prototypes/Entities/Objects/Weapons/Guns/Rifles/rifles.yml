@@ -120,6 +120,7 @@
   - type: Appearance
 
 - type: entity
+<<<<<<< HEAD
   name: M90 GL
   parent: [BaseWeaponRifle, BaseSyndicateContraband, ADTBaseAttachableHolder] #ADT-tweak: аттачблс холдер
   id: WeaponRifleM90GrenadeLauncher
@@ -192,6 +193,8 @@
   - type: Appearance
 
 - type: entity
+=======
+>>>>>>> wizards-filtered
   name: Lecter
   parent: [BaseWeaponRifle, BaseSecurityContraband, ADTBaseAttachableHolder] # ADT TWEAK
   id: WeaponRifleLecter

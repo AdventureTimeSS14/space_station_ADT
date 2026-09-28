@@ -4,7 +4,6 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Overlays;
 using Content.Shared.StatusIcon;
 using Content.Shared.StatusIcon.Components;
-using Robust.Shared.Prototypes;
 using Content.Shared.Damage.Components;
 
 namespace Content.Client.Overlays;
@@ -12,10 +11,8 @@ namespace Content.Client.Overlays;
 /// <summary>
 /// Shows a healthy icon on mobs.
 /// </summary>
-public sealed class ShowHealthIconsSystem : EquipmentHudSystem<ShowHealthIconsComponent>
+public sealed partial class ShowHealthIconsSystem : EquipmentHudSystem<ShowHealthIconsComponent>
 {
-    [Dependency] private readonly IPrototypeManager _prototypeMan = default!;
-
     [ViewVariables]
     public HashSet<string> DamageContainers = new();
 
@@ -76,18 +73,28 @@ public sealed class ShowHealthIconsSystem : EquipmentHudSystem<ShowHealthIconsCo
         var result = new List<HealthIconPrototype>();
 
         // Here you could check health status, diseases, mind status, etc. and pick a good icon, or multiple depending on whatever.
+<<<<<<< HEAD
         // ADT-Tweak Start: New healing containers
         if (injurableComp.DamageContainer == "Biological"
             || injurableComp.DamageContainer == "ADTBiologicalShadekin"
             || injurableComp.DamageContainer == "ADTBiologicalDrask")
         // ADT-Tweak End
+=======
+        if (injurableComp?.DamageContainer == "Biological")
+>>>>>>> wizards-filtered
         {
             if (TryComp<MobStateComponent>(entity, out var state))
             {
                 // Since there is no MobState for a rotting mob, we have to deal with this case first.
+<<<<<<< HEAD
                 if (HasComp<RottingComponent>(entity) && _prototypeMan.Resolve(injurableComp.RottingIcon, out var rottingIcon))
                     result.Add(rottingIcon);
                 else if (injurableComp.HealthIcons.TryGetValue(state.CurrentState, out var value) && _prototypeMan.Resolve(value, out var icon))
+=======
+                if (HasComp<RottingComponent>(entity) && ProtoMan.Resolve(injurableComp.RottingIcon, out var rottingIcon))
+                    result.Add(rottingIcon);
+                else if (injurableComp.HealthIcons.TryGetValue(state.CurrentState, out var value) && ProtoMan.Resolve(value, out var icon))
+>>>>>>> wizards-filtered
                     result.Add(icon);
             }
         }

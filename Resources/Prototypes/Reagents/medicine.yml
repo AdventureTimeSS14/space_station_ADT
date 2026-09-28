@@ -230,6 +230,7 @@
   metabolisms:
     Bloodstream:
       effects:
+<<<<<<< HEAD
         - !type:EvenHealthChange
           conditions:
           - !type:MetabolizerTypeCondition
@@ -250,6 +251,22 @@
             type: [ Drask ]
             inverted: false
           amount: 1
+=======
+      - !type:AdjustTemperature
+        amount: 80000 # Heats you up as it metabolizes necessitating constant cooling.
+      - !type:EvenHealthChange
+        conditions:
+        - !type:TemperatureCondition
+          # taken from tg, must be below freezing.
+          max: 273.15
+        damage:
+        # todo scale with temp like SS13
+          Airloss: -3
+          Brute: -2
+          Burn: -2
+          Toxin: -2
+
+>>>>>>> wizards-filtered
 - type: reagent
   id: Doxarubixadone
   name: reagent-name-doxarubixadone
@@ -265,7 +282,7 @@
         - !type:HealthChange
           conditions:
           - !type:TemperatureCondition
-            max: 213.0
+            max: 273.15
           damage:
             types:
              Cellular: -3 # ADT tweak
@@ -543,9 +560,8 @@
       - !type:ModifyKnockdown
         time: 0.75
         type: Remove
-      - !type:GenericStatusEffect
-        key: Adrenaline # Guess what epinephrine is...
-        component: IgnoreSlowOnDamage
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectAdrenaline # Guess what epinephrine is...
         time: 5 # lingers less than hivemind reagent to give it a niche
 
 - type: reagent
@@ -660,7 +676,8 @@
             Heat: -0.33
             Shock: -0.33
             Cold: -0.33
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: -10
         conditions:
         - !type:ReagentCondition
@@ -697,12 +714,12 @@
         conditions:
         - !type:TemperatureCondition
           max: 293.15
-        amount: 100000 # thermal energy, not temperature!
+        amount: 1000000 # thermal energy, not temperature!
       - !type:AdjustTemperature
         conditions:
         - !type:TemperatureCondition
           min: 293.15
-        amount: -10000
+        amount: -1000000
       - !type:PopupMessage
         type: Local
         visualType: Medium
@@ -741,7 +758,11 @@
         conditions:
           - !type:ReagentCondition
             reagent: Barozine
+<<<<<<< HEAD
             min: 60    #ADT_Tweak - изменено значение передозировки для борьбы с набегаторами
+=======
+            min: 30
+>>>>>>> wizards-filtered
       - !type:ModifyStatusEffect
         effectProto: StatusEffectPressureImmunity
         type: Add
@@ -869,14 +890,14 @@
           conditions:
             - !type:ReagentCondition
               reagent: Ambuzol
-              min: 10
+              min: 15
     Digestion:
       effects:
         - !type:CureZombieInfection
           conditions:
             - !type:ReagentCondition
               reagent: Ambuzol
-              min: 10
+              min: 15
 
 - type: reagent
   id: AmbuzolPlus
@@ -929,7 +950,8 @@
   metabolisms:
     Bloodstream:
       effects:
-        - !type:SatiateThirst
+        - !type:Satiate
+          satiationType: Thirst
           factor: 6
         - !type:ModifyBloodLevel
           conditions:
@@ -1072,7 +1094,8 @@
     Bloodstream:
       effects:
       # what the hell, this isn't satiating at all!!
-      - !type:SatiateHunger
+      - !type:Satiate
+        satiationType: Hunger
         factor: -1
 
   # Should heal quite literally everything, use in very small amounts
@@ -1398,6 +1421,7 @@
         damage:
           types:
             Blunt: -2.25 # 9 per u
+<<<<<<< HEAD
       # ADT-Tweak-Start
       - !type:Vomit
         conditions:
@@ -1407,6 +1431,10 @@
         probability: 0.4
       # ADT-Tweak-End
       - !type:SatiateHunger
+=======
+      - !type:Satiate
+        satiationType: Hunger
+>>>>>>> wizards-filtered
         factor: -1
       - !type:HealthChange
         conditions:
@@ -1429,7 +1457,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 3
       - !type:HealthChange
         conditions:
@@ -1581,10 +1610,12 @@
   metabolisms:
     Bloodstream:
       effects:
+      - !type:AdjustTemperature
+        amount: 80000 # Heats you up as it metabolizes necessitating constant cooling.
       - !type:EvenHealthChange
         conditions:
         - !type:TemperatureCondition
-          max: 213.0
+          max: 273.15
         damage:
           Brute: -1.5 # ADT tweak 3 > 1.5
           Burn: -2 # ADT tweak 3 > 2
@@ -1711,7 +1742,6 @@
       effects:
       - !type:Emote
         emote: Yawn
-        showInChat: true
         probability: 0.1
       - !type:ModifyStatusEffect
         effectProto: StatusEffectDrowsiness

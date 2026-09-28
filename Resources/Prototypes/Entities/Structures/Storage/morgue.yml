@@ -34,7 +34,7 @@
         mask:
         - MachineMask
         layer:
-        - HalfWallLayer
+        - MachineLayer
   - type: EntityStorage
     isCollidableWhenOpen: true
     showContents: false
@@ -74,6 +74,7 @@
   - type: AntiRottingContainer
   - type: StaticPrice
     price: 200
+<<<<<<< HEAD
 # ADT tweak Start
   - type: ItemSlots
   - type: PaperLabel
@@ -91,6 +92,9 @@
             - Document
     sprite: ADT/Structures/Storage/morgue.rsi
 # ADT tweak End
+=======
+  - type: RequireProjectileTarget
+>>>>>>> wizards-filtered
 
 - type: entity
   id: Crematorium
@@ -161,3 +165,4 @@
           False: { visible: false }
   - type: Transform
     anchored: true
+  - type: RequireProjectileTarget

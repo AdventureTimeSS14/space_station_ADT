@@ -3,7 +3,10 @@ using Content.Server.Radiation.Components;
 using Content.Server.Radiation.Events;
 using Content.Shared.Radiation.Components;
 using Content.Shared.Radiation.Systems;
+<<<<<<< HEAD
 using Content.Shared.Singularity.Components; // ADT-Tweak
+=======
+>>>>>>> wizards-filtered
 using Robust.Shared.Collections;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Timing;
@@ -23,8 +26,11 @@ public partial class RadiationSystem
     {
         public EntityUid? GridUid => Entity.Comp2.GridUid;
         public float Slope => Entity.Comp1.Slope;
+<<<<<<< HEAD
         public float TerminalDecayDistance => Entity.Comp1.TerminalDecayDistance; // ADT-Tweak
         public float TerminalDecaySlope => Entity.Comp1.TerminalDecaySlope; // ADT-Tweak
+=======
+>>>>>>> wizards-filtered
         public TransformComponent Transform => Entity.Comp2;
     }
 
@@ -142,6 +148,7 @@ public partial class RadiationSystem
         var dir = destWorld - source.WorldPosition;
         var dist = dir.Length();
 
+<<<<<<< HEAD
         // ADT-Tweak start
         // EventHorizon: radiation originates from the event horizon boundary, not center
         if (TryComp(source.Entity.Owner, out EventHorizonComponent? horizon))
@@ -150,11 +157,14 @@ public partial class RadiationSystem
         }
         // ADT-Tweak end
 
+=======
+>>>>>>> wizards-filtered
         // check if receiver is too far away
         if (dist > GridcastMaxDistance)
             return null;
 
         // will it even reach destination considering distance penalty
+<<<<<<< HEAD
         // ADT-Tweak start
         var rads = dist > 0 ? source.Intensity / dist : source.Intensity;
         if (dist > source.TerminalDecayDistance)
@@ -162,6 +172,9 @@ public partial class RadiationSystem
             rads -= source.TerminalDecaySlope * (dist - source.TerminalDecayDistance);
         }
         // ADT-Tweak end
+=======
+        var rads = source.Intensity - source.Slope * dist;
+>>>>>>> wizards-filtered
         if (rads < MinIntensity)
             return null;
 
@@ -190,7 +203,11 @@ public partial class RadiationSystem
         // Avoids having to do a lookup per source*receiver.
         var box = Box2.FromTwoPoints(source.WorldPosition, destWorld);
         _grids.Clear();
+<<<<<<< HEAD
         _mapManager.FindGridsIntersecting(mapId, box, ref _grids, true);
+=======
+        _maps.FindGridsIntersecting(mapId, box, ref _grids, true);
+>>>>>>> wizards-filtered
 
         // gridcast through each grid and try to hit some radiation blockers
         // the ray will be updated with each grid that has some blockers
@@ -311,16 +328,25 @@ public partial class RadiationSystem
             (int)Math.Floor(dstLocal.Y / grid.Comp1.TileSize));
 
         // iterate tiles in grid line from source to destination
+<<<<<<< HEAD
         // ADT-Tweak start
         // Use AdvancedGridRaycast for multiplicative resistance calculation
         foreach (var (point, distInCell) in AdvancedGridRaycast(sourceGrid, destGrid))
+=======
+        var line = new GridLineEnumerator(sourceGrid, destGrid);
+        while (line.MoveNext())
+>>>>>>> wizards-filtered
         {
             if (!resistanceMap.TryGetValue(point, out var resData))
                 continue;
+<<<<<<< HEAD
 
             var passRatioFromRadResistance = 1f / (resData > 1 ? (resData / 2) : 1);
             var passthroughRatio = MathF.Pow(passRatioFromRadResistance, distInCell);
             ray.Rads *= passthroughRatio;
+=======
+            ray.Rads -= resData;
+>>>>>>> wizards-filtered
 
             // save data for debug
             if (saveVisitedTiles)
@@ -379,4 +405,8 @@ public partial class RadiationSystem
 
         return rads;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> wizards-filtered

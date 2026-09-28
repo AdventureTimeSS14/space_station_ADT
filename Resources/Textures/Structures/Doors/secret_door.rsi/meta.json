@@ -11,6 +11,7 @@
             "name": "assembly"
         },
         {
+<<<<<<< HEAD
             "name": "closed",
             "directions": 1,
             "delays": [
@@ -22,6 +23,12 @@
         {
             "name": "closing",
             "directions": 1,
+=======
+            "name": "closed"
+        },
+        {
+            "name": "closing",
+>>>>>>> wizards-filtered
             "delays": [
                 [
                     0.2,
@@ -34,6 +41,7 @@
             ]
         },
         {
+<<<<<<< HEAD
             "name": "open",
             "directions": 1,
             "delays": [
@@ -45,6 +53,12 @@
         {
             "name": "opening",
             "directions": 1,
+=======
+            "name": "open"
+        },
+        {
+            "name": "opening",
+>>>>>>> wizards-filtered
             "delays": [
                 [
                     0.2,

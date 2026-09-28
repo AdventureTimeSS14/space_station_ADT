@@ -79,12 +79,16 @@ public sealed class PrototypeSaveTest : GameTest
             prototypes.Add(prototype);
         }
 
+<<<<<<< HEAD
         // ADT-Tweak start
         TestContext.Out.WriteLine($"UninitializedSaveTest: testing {prototypes.Count} prototypes.");
 
         var failures = new List<string>();
         // ADT-Tweak end
         var context = new TestEntityUidContext();
+=======
+        var context = new TestEntityUidContext(seriMan);
+>>>>>>> wizards-filtered
 
         await server.WaitAssertion(() =>
         {
@@ -249,9 +253,9 @@ public sealed class PrototypeSaveTest : GameTest
         public string WritingComponent = string.Empty;
         public EntityPrototype? Prototype;
 
-        public TestEntityUidContext()
+        public TestEntityUidContext(ISerializationManager ser)
         {
-            SerializerProvider = new();
+            SerializerProvider = new(ser);
             SerializerProvider.RegisterSerializer(this);
         }
 

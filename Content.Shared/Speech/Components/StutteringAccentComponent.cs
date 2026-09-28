@@ -1,7 +1,21 @@
+<<<<<<< HEAD
 namespace Content.Shared.Speech.Components;
 
 [RegisterComponent]
 public sealed partial class StutteringAccentComponent : Component
+=======
+using Content.Shared.Speech.EntitySystems;
+using Robust.Shared.GameStates;
+
+namespace Content.Shared.Speech.Components;
+
+/// <summary>
+/// S-s-s-stuttering!
+/// </summary>
+[RegisterComponent, NetworkedComponent]
+[Access(typeof(StutteringSystem))]
+public sealed partial class StutteringAccentComponent : BaseAccentComponent
+>>>>>>> wizards-filtered
 {
     /// <summary>
     /// Percentage chance that a stutter will occur if it matches.
@@ -26,4 +40,8 @@ public sealed partial class StutteringAccentComponent : Component
     /// </summary>
     [DataField]
     public float CutRandomProb = 0.05f;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> wizards-filtered

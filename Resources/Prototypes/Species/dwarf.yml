@@ -5,6 +5,7 @@
   prototype: MobDwarf
   dollPrototype: AppearanceDwarf
   skinColoration: HumanToned
+<<<<<<< HEAD
   # ADT start
   shortDesc: species-short-desc-dwarf
   pros:
@@ -25,3 +26,12 @@
   youngAge: 51
   oldAge: 101
   # ADT end
+=======
+  defaultSoundsBySex:
+  - UnisexDwarf
+  - FemaleDwarf
+  - UnisexDwarf
+  voices:
+  - UnisexDwarf
+  - FemaleDwarf
+>>>>>>> wizards-filtered

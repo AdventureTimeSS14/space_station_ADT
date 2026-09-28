@@ -5,11 +5,47 @@
   setPreference: true 
   objective: roles-antag-rev-head-objective
   guides: [ Revolutionaries ]
+  tags:
+  - OnStation
+  - Roundstart
   requirements:
   - !type:OverallPlaytimeRequirement
+<<<<<<< HEAD
     time: 30h # Corvax-RoleTime 1
     
 # ADT-Tweak-start
+=======
+    time: 1h
+
+- type: antagSpecifier
+  abstract: true
+  parent: RestrictedAntag
+  id: BaseRev
+  name: revolutionary
+  prefRoles:
+  - GenericTeamAntagonist # For antag ban purposes
+  components:
+  - type: Revolutionary
+
+- type: antagSpecifier
+  parent: BaseRev
+  id: HeadRev
+  prefRoles:
+  - HeadRev
+  briefing:
+    text: head-rev-role-greeting
+    color: CornflowerBlue
+    sound: "/Audio/Ambience/Antag/headrev_start.ogg"
+  startingGear: HeadRevGear
+  components:
+  - type: Revolutionary
+  - type: HeadRevolutionary
+  mindRoles:
+  - MindRoleHeadRevolutionary
+
+# TODO: Make it so creating new revolutionaries uses antag prototypes! This saves a *lot* of boilerplate for conversion antags.
+
+>>>>>>> wizards-filtered
 - type: antag
   id: Rev
   name: roles-antag-rev-name
@@ -17,6 +53,7 @@
   setPreference: true
   objective: roles-antag-rev-objective
   guides: [ Revolutionaries ]
+<<<<<<< HEAD
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 10h
@@ -27,6 +64,11 @@
     department: Medical
     time: 5h
  # ADT-Tweak-end
+=======
+  tags:
+  - OnStation
+  - Converted
+>>>>>>> wizards-filtered
 
 - type: startingGear
   id: HeadRevGear

@@ -18,6 +18,7 @@
 
 // namespace Content.Shared.Changeling.Systems;
 
+<<<<<<< HEAD
 // public sealed class ChangelingClonerSystem : EntitySystem
 // {
 //     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
@@ -31,6 +32,20 @@
 //     [Dependency] private readonly SharedChangelingIdentitySystem _changelingIdentity = default!;
 //     [Dependency] private readonly SharedForensicsSystem _forensics = default!;
 //     [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
+=======
+public sealed partial class ChangelingClonerSystem : EntitySystem
+{
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedCloningSystem _cloning = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedChangelingIdentitySystem _changelingIdentity = default!;
+    [Dependency] private ForensicsSystem _forensics = default!;
+    [Dependency] private SharedVisualBodySystem _visualBody = default!;
+>>>>>>> wizards-filtered
 
 //     public override void Initialize()
 //     {
@@ -147,11 +162,19 @@
 //         if (!_doAfter.TryStartDoAfter(args))
 //             return false;
 
+<<<<<<< HEAD
 //         var userIdentity = Identity.Entity(user, EntityManager);
 //         var targetIdentity = Identity.Entity(target, EntityManager);
 //         var userMsg = Loc.GetString("changeling-cloner-component-draw-user", ("user", userIdentity), ("target", targetIdentity));
 //         var targetMsg = Loc.GetString("changeling-cloner-component-draw-target", ("user", userIdentity), ("target", targetIdentity));
 //         _popup.PopupClient(userMsg, target, user);
+=======
+        var userIdentity = Identity.Entity(user, EntityManager);
+        var targetIdentity = Identity.Entity(target, EntityManager);
+        var userMsg = Loc.GetString("changeling-cloner-component-draw-user", ("user", userIdentity), ("target", targetIdentity));
+        var targetMsg = Loc.GetString("changeling-cloner-component-draw-target", ("user", userIdentity), ("target", targetIdentity));
+        _popup.PopupEntity(userMsg, target, user);
+>>>>>>> wizards-filtered
 
 //         if (user != target) // don't show the warning if using the item on yourself
 //             _popup.PopupEntity(targetMsg, user, target, PopupType.LargeCaution);
@@ -183,11 +206,19 @@
 //         if (!_doAfter.TryStartDoAfter(args))
 //             return false;
 
+<<<<<<< HEAD
 //         var userIdentity = Identity.Entity(user, EntityManager);
 //         var targetIdentity = Identity.Entity(target, EntityManager);
 //         var userMsg = Loc.GetString("changeling-cloner-component-inject-user", ("user", userIdentity), ("target", targetIdentity));
 //         var targetMsg = Loc.GetString("changeling-cloner-component-inject-target", ("user", userIdentity), ("target", targetIdentity));
 //         _popup.PopupClient(userMsg, target, user);
+=======
+        var userIdentity = Identity.Entity(user, EntityManager);
+        var targetIdentity = Identity.Entity(target, EntityManager);
+        var userMsg = Loc.GetString("changeling-cloner-component-inject-user", ("user", userIdentity), ("target", targetIdentity));
+        var targetMsg = Loc.GetString("changeling-cloner-component-inject-target", ("user", userIdentity), ("target", targetIdentity));
+        _popup.PopupEntity(userMsg, target, user);
+>>>>>>> wizards-filtered
 
 //         if (user != target) // don't show the warning if using the item on yourself
 //             _popup.PopupEntity(targetMsg, user, target, PopupType.LargeCaution);
@@ -210,6 +241,7 @@
 //         if (!HasComp<HumanoidProfileComponent>(target))
 //             return; // cloning only works for humanoids at the moment
 
+<<<<<<< HEAD
 //         if (!_prototype.Resolve(ent.Comp.Settings, out var settings))
 //             return;
 
@@ -221,6 +253,19 @@
 //         ent.Comp.State = ChangelingClonerState.Filled;
 //         _appearance.SetData(ent.Owner, ChangelingClonerVisuals.State, ChangelingClonerState.Filled);
 //         Dirty(ent);
+=======
+        _adminLogger.Add(LogType.Identity,
+            $"{user} is using {ent.Owner} to draw DNA from {target}.");
+
+        // Make a copy of the target on a paused map, so that we can apply their components later.
+        ent.Comp.ClonedBackup = _changelingIdentity.CloneToPausedMap(ent.Comp.Settings, target);
+        if (ent.Comp.ClonedBackup == null)
+            return;
+
+        ent.Comp.State = ChangelingClonerState.Filled;
+        _appearance.SetData(ent.Owner, ChangelingClonerVisuals.State, ChangelingClonerState.Filled);
+        Dirty(ent);
+>>>>>>> wizards-filtered
 
 //         _audio.PlayPredicted(ent.Comp.DrawSound, target, user);
 //         _forensics.TransferDna(ent, target);
@@ -240,8 +285,13 @@
 //         if (!HasComp<HumanoidProfileComponent>(target))
 //             return; // cloning only works for humanoids at the moment
 
+<<<<<<< HEAD
 //         if (!_prototype.Resolve(ent.Comp.Settings, out var settings))
 //             return;
+=======
+        if (!ProtoMan.Resolve(ent.Comp.Settings, out var settings))
+            return;
+>>>>>>> wizards-filtered
 
 //         _audio.PlayPredicted(ent.Comp.InjectSound, target, user);
 //         _forensics.TransferDna(ent, target); // transfer DNA before overwriting it
@@ -284,9 +334,15 @@
 //         if (user == null)
 //             return;
 
+<<<<<<< HEAD
 //         _popup.PopupClient(Loc.GetString("changeling-cloner-component-reset-popup"), user.Value, user.Value);
 //     }
 // }
+=======
+        _popup.PopupEntity(Loc.GetString("changeling-cloner-component-reset-popup"), user.Value, user.Value);
+    }
+}
+>>>>>>> wizards-filtered
 
 // /// <summary>
 // /// Doafter event for drawing a DNA sample.

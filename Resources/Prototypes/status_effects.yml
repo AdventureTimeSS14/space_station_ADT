@@ -25,17 +25,22 @@
   id: Drunk
 
 - type: statusEffect
+<<<<<<< HEAD
   id: SlurredSpeech
 
 - type: statusEffect
   id: Muted
   alert: Muted
+=======
+  id: SlurredSpeechr
+>>>>>>> wizards-filtered
 
 - type: statusEffect
   id: Corporeal
   alert: Corporeal
 
 - type: statusEffect
+<<<<<<< HEAD
   id: TemporaryBlindness
 
 - type: statusEffect
@@ -50,3 +55,6 @@
 - type: statusEffect
   id: Adrenaline
   alert: Adrenaline
+=======
+  id: Pacified #cannot attack
+>>>>>>> wizards-filtered

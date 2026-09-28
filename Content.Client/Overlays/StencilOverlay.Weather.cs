@@ -4,23 +4,22 @@ using Content.Shared.Light.Components;
 using Content.Shared.StatusEffectNew.Components;
 using Content.Shared.Weather;
 using Robust.Client.Graphics;
-using Robust.Shared.Map.Components;
 
 namespace Content.Client.Overlays;
 
 public sealed partial class StencilOverlay
 {
+<<<<<<< HEAD
     private List<Entity<MapGridComponent>> _grids = new();
     private readonly Dictionary<EntityUid, Vector2> _weatherOffsets = new(); // ADT-Tweak
 
+=======
+>>>>>>> wizards-filtered
     private void DrawWeather(
         in OverlayDrawArgs args,
-        CachedResources res,
-        HashSet<Entity<WeatherStatusEffectComponent, StatusEffectComponent>> weathers,
-        Matrix3x2 invMatrix)
+        HashSet<Entity<WeatherStatusEffectComponent, StatusEffectComponent>> weathers)
     {
         var worldHandle = args.WorldHandle;
-        var mapId = args.MapId;
         var worldAABB = args.WorldAABB;
         var worldBounds = args.WorldBounds;
         var position = args.Viewport.Eye?.Position.Position ?? Vector2.Zero;
@@ -28,36 +27,15 @@ public sealed partial class StencilOverlay
         // Cut out the irrelevant bits via stencil
         // This is why we don't just use parallax; we might want specific tiles to get drawn over
         // particularly for planet maps or stations.
-        worldHandle.RenderInRenderTarget(res.Blep!,
-            () =>
+        var stencil = _gridStencil.GetTileStencil(args,
+            "weather-blocked",
+            "weather-blocked-grid-stencil",
+            (grid, tile) =>
             {
-                var xformQuery = _entManager.GetEntityQuery<TransformComponent>();
-                _grids.Clear();
-
-                // idk if this is safe to cache in a field and clear sloth help
-                _mapManager.FindGridsIntersecting(mapId, worldAABB, ref _grids);
-
-                foreach (var grid in _grids)
-                {
-                    var matrix = _transform.GetWorldMatrix(grid, xformQuery);
-                    var matty = Matrix3x2.Multiply(matrix, invMatrix);
-                    worldHandle.SetTransform(matty);
-                    _entManager.TryGetComponent(grid.Owner, out RoofComponent? roofComp);
-
-                    foreach (var tile in _map.GetTilesIntersecting(grid.Owner, grid, worldAABB))
-                    {
-                        // Ignored tiles for stencil
-                        if (_weather.CanWeatherAffect((grid.Owner, grid, roofComp), tile))
-                            continue;
-
-                        var gridTile = new Box2(tile.GridIndices * grid.Comp.TileSize,
-                            (tile.GridIndices + Vector2i.One) * grid.Comp.TileSize);
-
-                        worldHandle.DrawRect(gridTile, Color.White);
-                    }
-                }
-            },
-            Color.Transparent);
+                _entManager.TryGetComponent(grid.Owner, out RoofComponent? roofComp);
+                // Ignored tiles for stencil.
+                return !_weather.CanWeatherAffect((grid.Owner, grid.Comp, roofComp), tile);
+            });
 
         // ADT-Tweak-Start
         var curTime = _timing.RealTime;
@@ -80,7 +58,12 @@ public sealed partial class StencilOverlay
 
         worldHandle.SetTransform(Matrix3x2.Identity);
         worldHandle.UseShader(_protoManager.Index(StencilMask).Instance());
+<<<<<<< HEAD
         worldHandle.DrawTextureRect(res.Blep!.Texture, worldBounds);
+=======
+        worldHandle.DrawTextureRect(stencil.Texture, worldBounds);
+        var curTime = _timing.RealTime;
+>>>>>>> wizards-filtered
 
         foreach (var (uid, weather, status) in weathers)
         {

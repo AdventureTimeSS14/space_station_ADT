@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 using System.Diagnostics.CodeAnalysis;
+=======
+﻿using System.Diagnostics.CodeAnalysis;
+>>>>>>> wizards-filtered
 using Content.Shared.Mind;
 using Content.Shared.Store.Components;
 using Robust.Shared.Prototypes;
@@ -8,6 +12,7 @@ namespace Content.Shared.Store;
 
 public abstract partial class SharedStoreSystem
 {
+<<<<<<< HEAD
     /// <summary>
     /// Refreshes all listings on a store.
     /// Do not use if you don't know what you're doing.
@@ -29,6 +34,12 @@ public abstract partial class SharedStoreSystem
                     continue;
                 }
 
+=======
+
+<<<<<<<< HEAD:Content.Server/Store/Systems/StoreSystem.Listings.cs
+}
+========
+>>>>>>> wizards-filtered
                 foreach (var (modifierSourceId, costModifier) in previousStateListingItem.CostModifiersBySourceId)
                 {
                     found.AddCostModifier(modifierSourceId, costModifier);
@@ -46,7 +57,11 @@ public abstract partial class SharedStoreSystem
     public HashSet<ListingDataWithCostModifiers> GetAllListings()
     {
         var clones = new HashSet<ListingDataWithCostModifiers>();
+<<<<<<< HEAD
         foreach (var prototype in Proto.EnumeratePrototypes<ListingPrototype>())
+=======
+        foreach (var prototype in ProtoMan.EnumeratePrototypes<ListingPrototype>())
+>>>>>>> wizards-filtered
         {
             clones.Add(new ListingDataWithCostModifiers(prototype));
         }
@@ -62,7 +77,11 @@ public abstract partial class SharedStoreSystem
     /// <returns>Whether or not the listing was added successfully</returns>
     public bool TryAddListing(StoreComponent component, string listingId)
     {
+<<<<<<< HEAD
         if (!Proto.TryIndex<ListingPrototype>(listingId, out var proto))
+=======
+        if (!ProtoMan.TryIndex<ListingPrototype>(listingId, out var proto))
+>>>>>>> wizards-filtered
         {
             Log.Error("Attempted to add invalid listing.");
             return false;
@@ -119,18 +138,37 @@ public abstract partial class SharedStoreSystem
             if (listing.Conditions != null)
             {
                 var args = new ListingConditionArgs(GetBuyerMind(buyer), storeEntity, listing, EntityManager);
+<<<<<<< HEAD
                 var conditionsMet = true;
+=======
+                var locked = false;
+                var failed = false;
+>>>>>>> wizards-filtered
 
                 foreach (var condition in listing.Conditions)
                 {
                     if (!condition.Condition(args))
                     {
+<<<<<<< HEAD
                         conditionsMet = false;
+=======
+                        if (condition.Lock)
+                            locked = true;
+                        else
+                            failed = true;
+
+>>>>>>> wizards-filtered
                         break;
                     }
                 }
 
+<<<<<<< HEAD
                 if (!conditionsMet)
+=======
+                listing.Locked = locked && !failed;
+
+                if (failed)
+>>>>>>> wizards-filtered
                     continue;
             }
 
@@ -181,4 +219,9 @@ public abstract partial class SharedStoreSystem
         found = null!;
         return false;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>>> wizards-filtered:Content.Shared/Store/SharedStoreSystem.Listings.cs
+>>>>>>> wizards-filtered

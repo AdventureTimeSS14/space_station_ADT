@@ -1,26 +1,21 @@
 ﻿using System.Text;
 using Content.Server.Destructible;
-using Content.Shared.Speech.Components;
-using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Systems;
 using Content.Shared.FixedPoint;
-using Content.Shared.Power.EntitySystems;
-using Content.Shared.PowerCell;
-using Content.Shared.Speech;
+using Content.Shared.Speech.Components;
+using Content.Shared.Speech.EntitySystems;
+
 using Robust.Shared.Random;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Audio;
 
 namespace Content.Server.Speech.EntitySystems;
 
-public sealed class DamagedSiliconAccentSystem : EntitySystem
+public sealed partial class DamagedSiliconAccentSystem : SharedDamagedSiliconAccentSystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedBatterySystem _battery = default!;
-    [Dependency] private readonly PowerCellSystem _powerCell = default!;
-    [Dependency] private readonly DestructibleSystem _destructibleSystem = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private DestructibleSystem _destructibleSystem = default!;
 
+<<<<<<< HEAD
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     public override void Initialize()
     {
@@ -141,6 +136,9 @@ public sealed class DamagedSiliconAccentSystem : EntitySystem
     }
 
     private string CorruptDamage(string message, FixedPoint2 totalDamage, Entity<DamagedSiliconAccentComponent> ent)
+=======
+    protected override string CorruptDamage(string message, FixedPoint2 totalDamage, Entity<DamagedSiliconAccentComponent> ent)
+>>>>>>> wizards-filtered
     {
         var outMsg = new StringBuilder();
 

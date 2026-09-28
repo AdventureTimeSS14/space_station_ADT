@@ -35,8 +35,6 @@
       - Ghost
   - type: ContentEye
     maxZoom: 1.2, 1.2
-  - type: NameIdentifier
-    group: GenericNumber
   - type: GhostRole
     makeSentient: true
     name: ghost-role-information-revenant-name
@@ -87,7 +85,14 @@
     - NamesRevenantType
     - NamesRevenantAdjective
     - NamesRevenantTheme
+<<<<<<< HEAD
     # - of # ADT CHANGE
+=======
+    nameFormat: name-format-revenant
+  - type: Grammar
+    attributes:
+      proper: true
+>>>>>>> wizards-filtered
   - type: Speech
     speechVerb: Ghost
   - type: ShowHealthBars
@@ -101,4 +106,8 @@
     tags:
     - SlowImmune
     - KnockdownImmune
+<<<<<<< HEAD
     - NoPaint #ADT tweak
+=======
+    - AllowPortalTraversal
+>>>>>>> wizards-filtered

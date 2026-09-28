@@ -13,12 +13,16 @@ using JukeboxComponent = Content.Shared.Audio.Jukebox.JukeboxComponent;
 
 namespace Content.Server.Audio.Jukebox;
 
-public sealed class JukeboxSystem : SharedJukeboxSystem
+public sealed partial class JukeboxSystem : SharedJukeboxSystem
 {
+<<<<<<< HEAD
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!; // ADT-Tweak
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!; // ADT-Tweak
+=======
+    [Dependency] private AppearanceSystem _appearanceSystem = default!;
+>>>>>>> wizards-filtered
 
     public override void Initialize()
     {
@@ -382,7 +386,7 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
         else
         {
             if (string.IsNullOrEmpty(ent.Comp.SelectedSongId) ||
-                !_protoManager.Resolve(ent.Comp.SelectedSongId, out var jukeboxProto))
+                !ProtoMan.Resolve(ent.Comp.SelectedSongId, out var jukeboxProto))
             {
                 return false;
             }

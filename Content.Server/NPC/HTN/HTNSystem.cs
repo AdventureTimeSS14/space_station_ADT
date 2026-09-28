@@ -17,10 +17,17 @@ namespace Content.Server.NPC.HTN;
 
 public sealed partial class HTNSystem : EntitySystem
 {
+<<<<<<< HEAD
     [Dependency] private readonly IAdminManager _admin = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly NPCSystem _npc = default!;
     [Dependency] private readonly NPCUtilitySystem _utility = default!;
+=======
+    [Dependency] private IAdminManager _admin = default!;
+    [Dependency] private NPCSystem _npc = default!;
+    [Dependency] private NPCUtilitySystem _utility = default!;
+
+>>>>>>> wizards-filtered
     private readonly JobQueue _planQueue = new(0.004);
 
     private readonly HashSet<ICommonSession> _subscribers = new();
@@ -76,7 +83,7 @@ public sealed partial class HTNSystem : EntitySystem
 
         // Add dependencies for all operators.
         // We put code on operators as I couldn't think of a clean way to put it on systems.
-        foreach (var compound in _prototypeManager.EnumeratePrototypes<HTNCompoundPrototype>())
+        foreach (var compound in ProtoMan.EnumeratePrototypes<HTNCompoundPrototype>())
         {
             UpdateCompound(compound);
         }
@@ -312,7 +319,7 @@ public sealed partial class HTNSystem : EntitySystem
 
         if (task is HTNCompoundTask compTask)
         {
-            var compound = _prototypeManager.Index<HTNCompoundPrototype>(compTask.Task);
+            var compound = ProtoMan.Index<HTNCompoundPrototype>(compTask.Task);
             level++;
             text.AppendLine(compound.ID);
             var branches = compound.Branches;
@@ -485,7 +492,7 @@ public sealed partial class HTNSystem : EntitySystem
 
         var job = new HTNPlanJob(
             0.02,
-            _prototypeManager,
+            ProtoMan,
             component.RootTask,
             component.Blackboard.ShallowClone(), branchTraversal, cancelToken.Token);
 
@@ -515,7 +522,7 @@ public sealed partial class HTNSystem : EntitySystem
         }
         else if (task is HTNCompoundTask compTask)
         {
-            var compound = _prototypeManager.Index<HTNCompoundPrototype>(compTask.Task);
+            var compound = ProtoMan.Index<HTNCompoundPrototype>(compTask.Task);
             builder.AppendLine(buffer + $"Compound: {task}");
 
             for (var i = 0; i < compound.Branches.Count; i++)

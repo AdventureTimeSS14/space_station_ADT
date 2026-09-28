@@ -5,11 +5,19 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Eye.Blinding.Systems;
 
+<<<<<<< HEAD
 public sealed class BlindnessSystem : EntitySystem
 {
     public static readonly EntProtoId BlindingStatusEffect = "StatusEffectBlindness";
 
     [Dependency] private readonly BlindableSystem _blindableSystem = default!;
+=======
+public sealed partial class BlindnessSystem : EntitySystem
+{
+    public static readonly EntProtoId BlindingStatusEffect = "StatusEffectBlindness";
+
+    [Dependency] private BlindableSystem _blindableSystem = default!;
+>>>>>>> wizards-filtered
 
     public override void Initialize()
     {
@@ -44,4 +52,8 @@ public sealed class BlindnessSystem : EntitySystem
         ev.Cancelled = true;
         args.Args = ev;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> wizards-filtered

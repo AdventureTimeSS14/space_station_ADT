@@ -1,5 +1,4 @@
 using Content.Server.Administration.Logs;
-using Content.Server.Body.Systems;
 using Content.Server.Chat.Managers;
 using Content.Server.Jittering;
 using Content.Server.Mind;
@@ -7,7 +6,6 @@ using Content.Server.Stunnable;
 using Content.Shared.Anomaly;
 using Content.Shared.Anomaly.Components;
 using Content.Shared.Anomaly.Effects;
-using Content.Shared.Body.Components;
 using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.Gibbing;
@@ -18,12 +16,12 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Anomaly.Effects;
 
-public sealed class InnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
+public sealed partial class InnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
 {
+<<<<<<< HEAD
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
     [Dependency] private readonly AnomalySystem _anomaly = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -37,6 +35,19 @@ public sealed class InnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IComponentFactory _compFactory = default!; // ADT-tweak
     [Dependency] private readonly StunSystem _stun = default!;
+=======
+    [Dependency] private IAdminLogManager _adminLog = default!;
+    [Dependency] private AnomalySystem _anomaly = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private GibbingSystem _gibbing = default!;
+    [Dependency] private IChatManager _chat = default!;
+    [Dependency] private ISharedPlayerManager _player = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private JitteringSystem _jitter = default!;
+    [Dependency] private MindSystem _mind = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private StunSystem _stun = default!;
+>>>>>>> wizards-filtered
 
     private readonly Color _messageColor = Color.FromSrgb(new Color(201, 22, 94));
 
@@ -89,7 +100,7 @@ public sealed class InnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
 
     private void AddAnomalyToBody(Entity<InnerBodyAnomalyComponent> ent)
     {
-        if (!_proto.Resolve(ent.Comp.InjectionProto, out var injectedAnom))
+        if (!ProtoMan.Resolve(ent.Comp.InjectionProto, out var injectedAnom))
             return;
 
         if (ent.Comp.Injected)
@@ -218,6 +229,7 @@ public sealed class InnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
         if (!ent.Comp.Injected)
             return;
 
+<<<<<<< HEAD
         // ADT-tweak start: Remove only the specific components that were added by the anomaly
         var metadata = MetaData(ent);
         foreach (var reg in ent.Comp.AddedComponentRegistrations)
@@ -227,6 +239,10 @@ public sealed class InnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
         }
         ent.Comp.AddedComponentRegistrations.Clear();
         // ADT-tweak end
+=======
+        if (ProtoMan.Resolve(ent.Comp.InjectionProto, out var injectedAnom))
+            EntityManager.RemoveComponents(ent, injectedAnom.Components);
+>>>>>>> wizards-filtered
 
         _stun.TryUpdateParalyzeDuration(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration));
 

@@ -20,15 +20,23 @@ namespace Content.Client.Options.UI.Tabs;
 [GenerateTypedNameReferences]
 public sealed partial class AudioTab : Control
 {
+<<<<<<< HEAD
     [Dependency] private readonly IAudioManager _audio = default!;
     [Dependency] private readonly IClientAdminManager _admin = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IEntityManager _entMan = default!; // ADT-tweak
+=======
+    [Dependency] private IAudioManager _audio = default!;
+    [Dependency] private IClientAdminManager _admin = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+>>>>>>> wizards-filtered
 
     public AudioTab()
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
+
+        Control.AddOptionDropDown(CVars.AudioDevice, DropDownAudioDevice, BuildAudioDeviceOptions());
 
         var masterVolume = Control.AddOptionPercentSlider(
             CVars.AudioMasterVolume,
@@ -87,6 +95,8 @@ public sealed partial class AudioTab : Control
         Control.AddOptionCheckBox(ADTCCVars.BossMusicEnabled, BossMusicCheckBox); // ADT Boss music
         Control.AddOptionCheckBox(CCVars.AdminSoundsEnabled, AdminSoundsCheckBox);
         Control.AddOptionCheckBox(CCVars.BwoinkSoundEnabled, BwoinkSoundCheckBox);
+        Control.AddOptionCheckBox(CCVars.AudioHrtf, AudioHrtfCheckBox);
+        Control.AddOptionCheckBox(CVars.AudioMuteUnfocused, MuteUnfocusedCheckBox);
 
         // ADT-tweak start
         Control.AddOptionCheckBox(ADTCCVars.ChatHighlightSoundEnabled, ChatHighlightSoundCheckBox);
@@ -146,5 +156,30 @@ public sealed partial class AudioTab : Control
         // TODO: I was thinking of giving OptionsTabControlRow a flag to "set CVar immediately", but I'm deferring that
         // until there's a proper system for enforcing people don't close the window with pending changes.
         _audio.SetMasterGain(value);
+    }
+
+    private List<OptionDropDownCVar<string>.ValueOption> BuildAudioDeviceOptions()
+    {
+        var options = new List<OptionDropDownCVar<string>.ValueOption>();
+
+        options.Add(new OptionDropDownCVar<string>.ValueOption(
+            string.Empty,
+            Loc.GetString("ui-options-audio-device-default")));
+
+        foreach (var device in _audio.GetAudioDevices())
+        {
+            options.Add(new OptionDropDownCVar<string>.ValueOption(device, FormatAudioDeviceLabel(device)));
+        }
+
+        return options;
+    }
+
+    private static string FormatAudioDeviceLabel(string device)
+    {
+        const string openAlSoftPrefix = "OpenAL Soft on ";
+        if (device.StartsWith(openAlSoftPrefix, StringComparison.Ordinal))
+            return IAudioManager.ConvertAudioDeviceNameForDisplay(device);
+
+        return device;
     }
 }

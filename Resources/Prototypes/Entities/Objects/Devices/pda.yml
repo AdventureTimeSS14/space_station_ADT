@@ -54,7 +54,8 @@
       PDA-pen: !type:ContainerSlot {}
       PDA-pai: !type:ContainerSlot {}
       Cartridge-Slot: !type:ContainerSlot {}
-      program-container: !type:Container
+      preinstalled-program-container: !type:Container
+      removable-program-container: !type:Container
   - type: ItemSlots
   - type: Clothing
     quickEquip: false
@@ -79,6 +80,7 @@
     range: 500
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
+<<<<<<< HEAD
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
@@ -86,6 +88,8 @@
       - NewsReaderCartridge
       - NanoChatCartridge # ADT-tweak: Наночат
       - ADTWalletCartridge # ADT-Economy
+=======
+>>>>>>> wizards-filtered
     cartridgeSlot:
       priority: -1
       name: device-pda-slot-component-slot-name-cartridge
@@ -94,7 +98,18 @@
       whitelist:
         components:
           - Cartridge
+<<<<<<< HEAD
     diskSpace: 8 # ADT tweak
+=======
+  - type: EntityTableContainerFill
+    containers:
+      preinstalled-program-container: !type:AllSelector
+        children:
+        - id: CrewManifestCartridge
+        - id: NotekeeperCartridge
+        - id: NanoTaskCartridge
+        - id: NewsReaderCartridge
+>>>>>>> wizards-filtered
   - type: ActivatableUI
     key: enum.PdaUiKey.Key
     singleUser: true
@@ -153,6 +168,7 @@
   id: BaseSecurityPDA
   abstract: true
   components:
+<<<<<<< HEAD
   - type: CartridgeLoader
     preinstalled:
     - CrewManifestCartridge
@@ -163,12 +179,24 @@
     - NanoChatCartridge # ADT-tweak: Наночат
     - ADTWalletCartridge # ADT-Economy
     diskSpace: 8 # ADT tweak
+=======
+  - type: EntityTableContainerFill
+    containers:
+      preinstalled-program-container: !type:AllSelector
+        children:
+        - id: CrewManifestCartridge
+        - id: NotekeeperCartridge
+        - id: NanoTaskCartridge
+        - id: NewsReaderCartridge
+        - id: WantedListCartridge
+>>>>>>> wizards-filtered
 
 - type: entity
   parent: BasePDA
   id: BaseMedicalPDA
   abstract: true
   components:
+<<<<<<< HEAD
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     preinstalled:
@@ -180,6 +208,17 @@
       - NanoChatCartridge # ADT-tweak: Наночат
       - ADTWalletCartridge # ADT-Economy
     diskSpace: 8 # ADT tweak
+=======
+  - type: EntityTableContainerFill
+    containers:
+      preinstalled-program-container: !type:AllSelector
+        children:
+        - id: CrewManifestCartridge
+        - id: NotekeeperCartridge
+        - id: NanoTaskCartridge
+        - id: NewsReaderCartridge
+        - id: MedTekCartridge
+>>>>>>> wizards-filtered
 
 - type: entity
   parent: BasePDA
@@ -424,11 +463,14 @@
       whitelist:
         components:
         - Cartridge
+<<<<<<< HEAD
     preinstalled:
     - CrewManifestCartridge
     - NewsReaderCartridge
     - NanoChatCartridge # ADT-tweak: Наночат
     - ADTWalletCartridge # ADT-Economy
+=======
+>>>>>>> wizards-filtered
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
@@ -439,7 +481,19 @@
     accentHColor: "#333333"
   - type: Icon
     state: pda-mime
+<<<<<<< HEAD
   - type: Muted # for random sentience eventывыв
+=======
+  - type: EntityTableContainerFill
+    containers:
+      preinstalled-program-container: !type:AllSelector
+        children:
+        - id: CrewManifestCartridge
+        - id: NewsReaderCartridge
+  - type: PermanentStatusEffects # for random sentience event
+    statusEffects:
+    - TraitStatusEffectMuted
+>>>>>>> wizards-filtered
 
 - type: entity
   name: chaplain PDA
@@ -496,6 +550,7 @@
     accentVColor: "#a23e3e"
   - type: Icon
     state: pda-qm
+<<<<<<< HEAD
   - type: CartridgeLoader
     preinstalled:
     - CrewManifestCartridge
@@ -506,6 +561,17 @@
     - NanoChatCartridge # ADT-tweak: Наночат
     - ADTWalletCartridge # ADT-Economy
     diskSpace: 8 # ADT tweak
+=======
+  - type: EntityTableContainerFill
+    containers:
+      preinstalled-program-container: !type:AllSelector
+        children:
+        - id: CrewManifestCartridge
+        - id: NotekeeperCartridge
+        - id: NanoTaskCartridge
+        - id: NewsReaderCartridge
+        - id: AstroNavCartridge
+>>>>>>> wizards-filtered
 
 - type: entity
   parent: BasePDA
@@ -543,6 +609,7 @@
     accentVColor: "#8900c9"
   - type: Icon
     state: pda-miner
+<<<<<<< HEAD
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     preinstalled:
@@ -554,6 +621,17 @@
       - NanoChatCartridge # ADT-tweak: Наночат
       - ADTWalletCartridge # ADT-Economy
     diskSpace: 8 # ADT tweak
+=======
+  - type: EntityTableContainerFill
+    containers:
+      preinstalled-program-container: !type:AllSelector
+        children:
+        - id: CrewManifestCartridge
+        - id: NotekeeperCartridge
+        - id: NanoTaskCartridge
+        - id: NewsReaderCartridge
+        - id: AstroNavCartridge
+>>>>>>> wizards-filtered
 
 - type: entity
   parent: BasePDA
@@ -928,6 +1006,7 @@
     accentHColor: "#447987"
   - type: Icon
     state: pda-hos
+<<<<<<< HEAD
   - type: CartridgeLoader
     preinstalled:
     - CrewManifestCartridge
@@ -938,6 +1017,18 @@
     - LogProbeCartridge
     - NanoChatCartridge # ADT-tweak: Наночат
     - ADTWalletCartridge # ADT-Economy
+=======
+  - type: EntityTableContainerFill
+    containers:
+      preinstalled-program-container: !type:AllSelector
+        children:
+        - id: CrewManifestCartridge
+        - id: NotekeeperCartridge
+        - id: NanoTaskCartridge
+        - id: NewsReaderCartridge
+        - id: WantedListCartridge
+        - id: LogProbeCartridge
+>>>>>>> wizards-filtered
 
 - type: entity
   parent: BaseSecurityPDA
@@ -999,6 +1090,7 @@
     borderColor: "#00842e"
   - type: Icon
     state: pda-centcom
+<<<<<<< HEAD
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     preinstalled:
@@ -1011,6 +1103,20 @@
       - LogProbeCartridge
       - AstroNavCartridge
       - NanoChatCartridge # ADT-tweak: Наночат
+=======
+  - type: EntityTableContainerFill
+    containers:
+      preinstalled-program-container: !type:AllSelector
+        children:
+        - id: CrewManifestCartridge
+        - id: NotekeeperCartridge
+        - id: NanoTaskCartridge
+        - id: NewsReaderCartridge
+        - id: MedTekCartridge
+        - id: WantedListCartridge
+        - id: LogProbeCartridge
+        - id: AstroNavCartridge
+>>>>>>> wizards-filtered
 
 - type: entity
   parent: CentcomPDA
@@ -1026,8 +1132,8 @@
     scanDelay: 0
     silent: true
   - type: CartridgeLoader
-    uiKey: enum.PdaUiKey.Key
     notificationsEnabled: false
+<<<<<<< HEAD
     diskSpace: 10 # ADT tweak
     preinstalled:
       - CrewManifestCartridge
@@ -1039,6 +1145,20 @@
       - MedTekCartridge
       - AstroNavCartridge
       - NanoChatCartridge # ADT-tweak: Наночат
+=======
+  - type: EntityTableContainerFill
+    containers:
+      preinstalled-program-container: !type:AllSelector
+        children:
+        - id: CrewManifestCartridge
+        - id: NotekeeperCartridge
+        - id: NanoTaskCartridge
+        - id: NewsReaderCartridge
+        - id: LogProbeCartridge
+        - id: WantedListCartridge
+        - id: MedTekCartridge
+        - id: AstroNavCartridge
+>>>>>>> wizards-filtered
   - type: Tag #  Ignore Chameleon tags
     tags:
     - DoorBumpOpener
@@ -1152,12 +1272,21 @@
     borderColor: "#891417"
   - type: Icon
     state: pda-syndi
+<<<<<<< HEAD
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     preinstalled:
       - NotekeeperCartridge
       - NanoChatCartridge # ADT-tweak: Наночат
       - NanoTaskCartridge
+=======
+  - type: EntityTableContainerFill
+    containers:
+      preinstalled-program-container: !type:AllSelector
+        children:
+        - id: NotekeeperCartridge
+        - id: NanoTaskCartridge
+>>>>>>> wizards-filtered
 
 - type: entity
   parent: [ SyndiPDA, BaseSyndicateContraband ]
@@ -1190,12 +1319,13 @@
        pda-syndi-corpsman
   - type: Icon
     state: pda-syndi-corpsman
-  - type: CartridgeLoader
-    uiKey: enum.PdaUiKey.Key
-    preinstalled:
-      - NotekeeperCartridge
-      - NanoTaskCartridge
-      - MedTekCartridge
+  - type: EntityTableContainerFill
+    containers:
+      preinstalled-program-container: !type:AllSelector
+        children:
+        - id: NotekeeperCartridge
+        - id: NanoTaskCartridge
+        - id: MedTekCartridge
 
 - type: entity
   parent: [ SyndiOperativePDA, BaseSyndicateContraband ]
@@ -1233,6 +1363,7 @@
     accentVColor: "#447987"
   - type: Icon
     state: pda-ert
+<<<<<<< HEAD
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     preinstalled:
@@ -1245,6 +1376,20 @@
       - LogProbeCartridge
       - AstroNavCartridge
       - NanoChatCartridge # ADT-tweak: Наночат
+=======
+  - type: EntityTableContainerFill
+    containers:
+      preinstalled-program-container: !type:AllSelector
+        children:
+        - id: CrewManifestCartridge
+        - id: NotekeeperCartridge
+        - id: NanoTaskCartridge
+        - id: NewsReaderCartridge
+        - id: MedTekCartridge
+        - id: WantedListCartridge
+        - id: LogProbeCartridge
+        - id: AstroNavCartridge
+>>>>>>> wizards-filtered
 
 - type: entity
   parent: ERTLeaderPDA
@@ -1341,6 +1486,25 @@
 
 - type: entity
   parent: BasePDA
+  id: TramDriverPDA
+  name: tram driver PDA
+  description: A serious driver will always arrive on time.
+  components:
+  - type: Pda
+    id: TramDriverIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-tramdriver
+  - type: PdaBorderColor
+    borderColor: "#454a50"
+    accentVColor: "#ffc500"
+  - type: Icon
+    state: pda-tramdriver
+
+- type: entity
+  parent: BasePDA
   id: ReporterPDA
   name: reporter PDA
   description: Smells like freshly printed press.
@@ -1417,6 +1581,7 @@
     borderColor: "#774705"
   - type: Icon
     state: pda-detective
+<<<<<<< HEAD
   - type: CartridgeLoader
     preinstalled:
     - CrewManifestCartridge
@@ -1427,6 +1592,18 @@
     - LogProbeCartridge
     - NanoChatCartridge # ADT-tweak: Наночат
     - ADTWalletCartridge # ADT-Economy
+=======
+  - type: EntityTableContainerFill
+    containers:
+      preinstalled-program-container: !type:AllSelector
+        children:
+        - id: CrewManifestCartridge
+        - id: NotekeeperCartridge
+        - id: NanoTaskCartridge
+        - id: NewsReaderCartridge
+        - id: WantedListCartridge
+        - id: LogProbeCartridge
+>>>>>>> wizards-filtered
 
 - type: entity
   parent: BaseMedicalPDA
@@ -1447,6 +1624,7 @@
     accentVColor: "#d7d7d0"
   - type: Icon
     state: pda-brigmedic
+<<<<<<< HEAD
   - type: CartridgeLoader
     preinstalled:
     - CrewManifestCartridge
@@ -1457,6 +1635,18 @@
     - MedTekCartridge
     - NanoChatCartridge # ADT-tweak: Наночат
     - ADTWalletCartridge # ADT-Economy
+=======
+  - type: EntityTableContainerFill
+    containers:
+      preinstalled-program-container: !type:AllSelector
+        children:
+        - id: CrewManifestCartridge
+        - id: NotekeeperCartridge
+        - id: NanoTaskCartridge
+        - id: NewsReaderCartridge
+        - id: WantedListCartridge
+        - id: MedTekCartridge
+>>>>>>> wizards-filtered
 
 - type: entity
   parent: ClownPDA
@@ -1570,7 +1760,7 @@
   description: Smells like postage stamps and shuttle fuel.
   components:
   - type: Pda
-    id: CargoIDCard
+    id: SeniorCourierIDCard
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:

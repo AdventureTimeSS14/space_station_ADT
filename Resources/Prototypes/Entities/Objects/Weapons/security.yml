@@ -12,10 +12,11 @@
     layers:
     - state: stunbaton_off
       map: [ "enum.ToggleableVisuals.Layer" ]
-  - type: Stunbaton
-    energyPerUse: 50
+  - type: ItemToggleExaminableStatus
+  - type: ItemToggleRequiresCharge
+    requiredCharge: 50
   - type: ItemToggle
-    predictable: false
+    onActivate: false
     soundActivate:
       collection: sparks
       params:
@@ -43,6 +44,11 @@
     bluntStaminaDamageFactor: 2.0
     angle: 60
     animation: WeaponArcThrust
+    undamagedAlertThreshold: 0
+  - type: MeleeBatteryHitsLeft
+  - type: StaminaDamageOnHitRequiresToggle
+  - type: StaminaDamageOnHitRequiresCharge
+    requiredCharge: 50
   - type: StaminaDamageOnHit
     damage: 35
     sound: /Audio/Weapons/egloves.ogg
@@ -77,10 +83,9 @@
   - type: StaticPrice
     price: 80
   - type: Riggable
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      battery:
-        maxVol: 5
+    - SolutionRiggable
   - type: InjectableSolution
     solution: battery
   - type: DrawableSolution
@@ -97,11 +102,17 @@
     guides:
     - Security
     - Antagonists
+<<<<<<< HEAD
   - type: MeleeBlacklist #ADT tweak start
     blacklist:
       tags:
       - ADTBatonBlocker
   #ADT tweak end
+=======
+  - type: Tag
+    tags:
+    - Stunbaton
+>>>>>>> wizards-filtered
 
 - type: entity
   name: truncheon
@@ -157,6 +168,7 @@
         visible: false
         shader: unshaded
     - type: Flash
+    - type: RevolutionaryConverter
     - type: LimitedCharges
       maxCharges: 5
     - type: MeleeWeapon
@@ -199,7 +211,7 @@
 
 - type: entity
   name: portable flasher
-  parent: [BaseMachine, BaseSecurityContraband]
+  parent: [BaseMachine, BaseSecurityContraband, BaseMachineDestructible]
   id: PortableFlasher
   description: An ultrabright flashbulb with a proximity trigger, useful for making an area security-only.
   components:
@@ -243,3 +255,11 @@
       guides:
       - Security
       - Antagonists
+    - type: Destructible
+      thresholds:
+      - trigger: !type:DamageTrigger
+          damage: 175
+        behaviors:
+        - !type:PlaySoundBehavior
+          sound:
+            collection: MetalGlassBreak

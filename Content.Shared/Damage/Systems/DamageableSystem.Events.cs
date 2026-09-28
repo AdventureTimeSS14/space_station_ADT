@@ -133,7 +133,7 @@ public sealed partial class DamageableSystem
     {
         _supportedTypesByContainer.Clear();
 
-        foreach (var proto in _prototypeManager.EnumeratePrototypes<DamageContainerPrototype>())
+        foreach (var proto in ProtoMan.EnumeratePrototypes<DamageContainerPrototype>())
         {
             var set = new HashSet<ProtoId<DamageTypePrototype>>();
             _supportedTypesByContainer[proto.ID] = set;
@@ -145,7 +145,7 @@ public sealed partial class DamageableSystem
 
             foreach (var groupId in proto.SupportedGroups)
             {
-                var group = _prototypeManager.Index(groupId);
+                var group = ProtoMan.Index(groupId);
                 foreach (var type in group.DamageTypes)
                 {
                     set.Add(type);
@@ -159,7 +159,7 @@ public sealed partial class DamageableSystem
     /// </summary>
     private void DamageableInit(Entity<DamageableComponent> ent, ref ComponentInit _)
     {
-        ent.Comp.Damage.GetDamagePerGroup(_prototypeManager, ent.Comp.DamagePerGroup);
+        ent.Comp.Damage.GetDamagePerGroup(ProtoMan, ent.Comp.DamagePerGroup);
         ent.Comp.TotalDamage = ent.Comp.Damage.GetTotal();
     }
 
@@ -189,8 +189,13 @@ public sealed partial class DamageableSystem
     {
         args.State = new DamageableComponentState(
             _netMan.IsServer ? ent.Comp.Damage : ent.Comp.Damage.Clone(),
+<<<<<<< HEAD
             _netMan.IsServer ? ent.Comp.DamagePerGroup : new Dictionary<ProtoId<DamageGroupPrototype>, FixedPoint2>(), // ADT-Tweak
             ent.Comp.DamageModifierSetId
+=======
+            ent.Comp.DamageModifierSetId,
+            ent.Comp.Displacement
+>>>>>>> wizards-filtered
         );
     }
 
@@ -200,6 +205,10 @@ public sealed partial class DamageableSystem
             return;
 
         ent.Comp.DamageModifierSetId = state.ModifierSetId;
+<<<<<<< HEAD
+=======
+        ent.Comp.Displacement = state.Displacement;
+>>>>>>> wizards-filtered
 
         // Has the damage actually changed?
         var newDamage = state.Damage.Clone();
@@ -216,6 +225,34 @@ public sealed partial class DamageableSystem
         if (!delta.Empty)
         // ADT-Tweak end
             OnEntityDamageChanged(ent, delta);
+    }
+
+    private void OnDamageDealt(Entity<InjurableComponent> ent, ref DamageDealtEvent args)
+    {
+        if (!_damageableQuery.TryGetComponent(ent, out var damageable))
+            return;
+
+        var damageDone = new DamageSpecifier();
+
+        damageDone.DamageDict.EnsureCapacity(args.Damage.DamageDict.Count);
+
+        var dict = damageable.Damage.DamageDict;
+        foreach (var (type, value) in args.Damage.DamageDict)
+        {
+            if (!SupportsType(ent.Comp.DamageContainer, type))
+                continue;
+
+            var oldValue = dict.GetValueOrDefault(type);
+            var newValue = FixedPoint2.Max(FixedPoint2.Zero, oldValue + value);
+            if (newValue == oldValue)
+                continue;
+
+            dict[type] = newValue;
+            damageDone.DamageDict[type] = newValue - oldValue;
+        }
+
+        if (!damageDone.Empty)
+            OnEntityDamageChanged((ent, damageable), damageDone, args.InterruptsDoAfters, args.Origin);
     }
 
     private void OnDamageDealt(Entity<InjurableComponent> ent, ref DamageDealtEvent args)

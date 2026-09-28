@@ -14,11 +14,6 @@
   name: tiles-dirt-planet-floor
   sprite: /Textures/Tiles/Planet/dirt.rsi/dirt.png
   variants: 4
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
 
 # Desert
 - type: tile
@@ -27,6 +22,7 @@
   name: tiles-desert-floor
   sprite: /Textures/Tiles/Planet/Desert/desert.png
   variants: 6
+<<<<<<< HEAD
   placementVariants:
 # Corvax-Mapping-Start: Better visual look
   - 0.75
@@ -42,19 +38,14 @@
   heatCapacity: 10000
   weather: true
   indestructible: true
+=======
+>>>>>>> wizards-filtered
 
 - type: tile
   id: FloorLowDesert
   name: tiles-low-desert-floor
   sprite: /Textures/Tiles/Planet/Desert/low_desert.png
   variants: 6
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
 
 # Grass
 - type: tile
@@ -63,11 +54,6 @@
   name: tiles-grass-planet-floor
   sprite: /Textures/Tiles/Planet/Grass/grass.png
   variants: 4
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
   edgeSpritePriority: 1
   edgeSprites:
     SouthEast: /Textures/Tiles/Planet/Grass/single_edge.png

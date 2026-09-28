@@ -1,7 +1,11 @@
 {
     "version": 1,
     "license": "CC-BY-NC-SA-3.0",
+<<<<<<< HEAD
     "copyright": "Taken from TGstation at commit https://github.com/tgstation/tgstation/commit/b5fa92d6918b2e4ea0bc0eef05fdcf2f8fb082a5, edited by ratyyy and not_so_big_chungus, icon-prot made by Username228",
+=======
+    "copyright": "Taken and modified by Taral from goonstation at commit https://github.com/goonstation/goonstation/pull/2816/commits/b99c5dff45a6527bbf698bc00f7d24b8ca75a806 and then further modified by EmoGarbage404",
+>>>>>>> wizards-filtered
     "size": {
         "x": 32,
         "y": 32
@@ -11,9 +15,12 @@
             "name": "icon"
         },
         {
+<<<<<<< HEAD
             "name": "icon-prot"
         },
         {
+=======
+>>>>>>> wizards-filtered
             "name": "inhand-left",
             "directions": 4
         },
@@ -36,6 +43,12 @@
         {
             "name": "equipped-SUITSTORAGE",
             "directions": 4
+<<<<<<< HEAD
+=======
+        },
+        {
+            "name": "storage"
+>>>>>>> wizards-filtered
         }
     ]
 }

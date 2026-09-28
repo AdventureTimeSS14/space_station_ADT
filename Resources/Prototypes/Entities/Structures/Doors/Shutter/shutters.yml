@@ -106,6 +106,8 @@
     interactSuccessSound:
       collection: FenceRattle
   - type: BlockWeather
+  - type: StructureAligner
+  - type: StructureAlignerPylon
 
 - type: entity
   id: ShuttersNormal

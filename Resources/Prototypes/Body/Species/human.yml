@@ -8,6 +8,7 @@
     enum.HumanoidVisualLayers.Hair:
       limit: 3 #ADT-tweak 1>3
       required: false
+      weight: 1
     enum.HumanoidVisualLayers.FacialHair:
       limit: 2 #ADT-tweak 1>2
       required: false
@@ -156,7 +157,11 @@
     hideableLayers:
     - enum.HumanoidVisualLayers.Hair
     - enum.HumanoidVisualLayers.Snout
+<<<<<<< HEAD
     - enum.HumanoidVisualLayers.SnoutOverlay # ADT-Tweak
+=======
+    - enum.HumanoidVisualLayers.FacialHair
+>>>>>>> wizards-filtered
 
 - type: entity
   parent: [ OrganBaseArmLeft, OrganHumanExternal ]

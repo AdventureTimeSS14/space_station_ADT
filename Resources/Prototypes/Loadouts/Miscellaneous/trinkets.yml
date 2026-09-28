@@ -247,6 +247,7 @@
 #     - ClothingNeckGoldAutismPin
 #ADT end
 
+<<<<<<< HEAD
 # Canes
 # The white cane is intentionally not included here. Thats for the blind.
 - type: loadout
@@ -314,3 +315,12 @@
     back:
     - Cane
   groupBy: "canes"
+=======
+# Towels
+- type: loadout
+  id: TowelColorWhite
+  storage:
+    back:
+    - TowelColorWhite
+  groupBy: "towels"
+>>>>>>> wizards-filtered

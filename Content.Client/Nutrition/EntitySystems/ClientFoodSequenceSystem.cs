@@ -5,9 +5,9 @@ using Robust.Shared.Utility;
 
 namespace Content.Client.Nutrition.EntitySystems;
 
-public sealed class ClientFoodSequenceSystem : SharedFoodSequenceSystem
+public sealed partial class ClientFoodSequenceSystem : SharedFoodSequenceSystem
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {

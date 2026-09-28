@@ -1,6 +1,15 @@
 # Miscellaneous
 
 - type: loadoutGroup
+  id: Glasses
+  name: loadout-group-glasses
+  minLimit: 0
+  loadouts:
+  - Glasses
+  - GlassesJamjar
+  - GlassesJensen
+
+- type: loadoutGroup
   id: Trinkets
   name: loadout-group-trinkets
   minLimit: 0
@@ -18,6 +27,7 @@
   - CigPackBlack
   - CigarCase
   - CigarGold
+<<<<<<< HEAD
   #ADT-tweak-start
   # - ClothingNeckLGBTPin
   # - ClothingNeckAromanticPin
@@ -104,6 +114,43 @@
   - Glasses
   - GlassesJamjar
   - GlassesJensen
+=======
+  - BoxFolderBaseThreePapers
+  - BoxFolderPlasticClipboardThreePapers
+  - BoxFolderClipboardThreePapers
+  - ClothingNeckLGBTPin
+  - ClothingNeckAllyPin
+  - ClothingNeckAromanticPin
+  - ClothingNeckAsexualPin
+  - ClothingNeckAroacePin
+  - ClothingNeckBisexualPin
+  - ClothingNeckGayPin
+  - ClothingNeckIntersexPin
+  - ClothingNeckLesbianPin
+  - ClothingNeckNonBinaryPin
+  - ClothingNeckPansexualPin
+  - ClothingNeckPluralPin
+  - ClothingNeckOmnisexualPin
+  - ClothingNeckGenderqueerPin
+  - ClothingNeckGenderfluidPin
+  - ClothingNeckTransPin
+  - ClothingNeckAutismPin
+  - ClothingNeckGoldAutismPin
+  - TowelColorWhite
+
+- type: loadoutGroup
+  id: AssistiveItems
+  name: loadout-group-assistive-items
+  minLimit: 0
+  maxLimit: 1 # Increase this limit in the future once there's more assistive items than just canes!
+  loadouts:
+  - OffsetCane
+  - OffsetCaneWood
+  - OffsetCaneClown
+  - OffsetCaneMime
+  - OffsetCaneNT
+  - Cane
+>>>>>>> wizards-filtered
 
 - type: loadoutGroup
   id: GroupTankHarness
@@ -779,6 +826,7 @@
   - MimeSuspendersRed
   - MimeSuspendersBlack
 
+<<<<<<< HEAD
 - type: loadoutGroup
   id: SurvivalMime
   name: loadout-group-survival-mime
@@ -794,6 +842,8 @@
   # ADT-Loadout-Species-End
   - LoadoutSpeciesVoxNitrogen
 
+=======
+>>>>>>> wizards-filtered
 #- type: loadoutGroup
 #  id: MimeJobTrinkets
 #  name: loadout-group-jobtrinkets
@@ -1618,12 +1668,16 @@
   - DetectiveArmorVest
   - DetectiveCoat
   - DetectiveCoatGrey
+<<<<<<< HEAD
   # ADT-Loadouts-Start
   - ADTDetectiveCoatDark
   - ADTDetectiveCoatOld
   - DetectiveCoatInvestigator
   - ADTArmorVestHidden
   # ADT-Loadouts-End
+=======
+  - SecurityOfficerWintercoat
+>>>>>>> wizards-filtered
 
 - type: loadoutGroup
   id: DetectiveJobTrinkets
@@ -1724,10 +1778,54 @@
 #  minLimit: 0
 #  loadouts:
 
+<<<<<<< HEAD
+# Other
+
+=======
+>>>>>>> wizards-filtered
+- type: loadoutGroup
+  id: TramDriverJumpsuit
+  name: loadout-group-tramdriver-jumpsuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - TramDriverJumpsuit
+
+- type: loadoutGroup
+  id: TramDriverOuterClothing
+  name: loadout-group-tramdriver-outerclothing
+  minLimit: 0
+  loadouts:
+  - TramDriverSuit
+
+- type: loadoutGroup
+  id: TramDriverHat
+  name: loadout-group-tramdriver-hat
+  loadouts:
+  - TramDriverHat
+
+- type: loadoutGroup
+  id: TramDriverGloves
+  name: loadout-group-tramdriver-gloves
+  minLimit: 0
+  loadouts:
+  - TramDriverGlovesWhite
+  - TramDriverGlovesBlack
+
 # Other
 
 - type: loadoutGroup
-  id: SurvivalSyndicate
+  id: SurvivalExtendedAntag # Larger survival box containing food/water, used by antags that spawn off-station (e.g ninjas, wizards)
+  name: loadout-group-survival-extended
+  minLimit: 2
+  hidden: true
+  loadouts:
+  - EmergencyNitrogenExtendedAntag
+  - EmergencyOxygenExtendedAntag
+  - LoadoutSpeciesVoxNitrogen
+
+- type: loadoutGroup
+  id: SurvivalSyndicate # Larger survival box containing food, used by syndicate operatives that spawn off-station (e.g nukies)
   name: loadout-group-survival-syndicate
   minLimit: 2
   hidden: true
@@ -1742,7 +1840,7 @@
   # ADT-Loadout-Species-End
 
 - type: loadoutGroup
-  id: SurvivalMilitaryDouble
+  id: SurvivalMilitaryDouble # Survival box mostly used by ERT/deathsquad
   name: loadout-group-survival-military
   minLimit: 2
   hidden: true

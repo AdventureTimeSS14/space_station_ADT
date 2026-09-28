@@ -24,8 +24,22 @@
   # - type: StutteringAccent
   - type: DrunkStatusEffect
 
+<<<<<<< HEAD
 # ADT-Tweak: PainNumbnessTraitStatusEffect and StatusEffectHemophiliaTrait moved to
 # Resources/Prototypes/ADT/Traits/status_effects.yml (customized values).
+=======
+- type: entity
+  abstract: true
+  parent: MobStatusEffectBase
+  id: PainNumbnessStatusEffectBase
+  components:
+  - type: StatusEffect
+    whitelist:
+      components:
+      - MobState
+      - MobThresholds
+  - type: PainNumbnessStatusEffect
+>>>>>>> wizards-filtered
 
 - type: entity
   parent: BloodstreamStatusEffectDebuff
@@ -46,9 +60,21 @@
     bleedAmountMultiplier: 1.33
 
 - type: entity
-  parent: [ PainNumbnessTraitStatusEffect, MobStatusEffectDebuff ]
+  parent: [ PainNumbnessStatusEffectBase, MobStatusEffectDebuff ]
   id: StatusEffectPainNumbness
   name: pain numbness
+
+# Ignore movement slowdown from damage thresholds.
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectAdrenaline
+  name: adrenaline
+  components:
+  - type: IgnoreSlowOnDamage
+  - type: StatusEffectAlert
+    alert: Adrenaline
+  - type: ExaminableStatusEffect
+    messageId: status-effect-examine-adrenaline
 
 - type: entity
   parent: MobStatusEffectBase

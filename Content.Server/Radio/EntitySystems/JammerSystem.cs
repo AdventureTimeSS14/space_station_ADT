@@ -1,5 +1,7 @@
+using Content.Shared.Radio;
 using Content.Shared.Radio.EntitySystems;
 using Content.Shared.Radio.Components;
+using Content.Shared.FixedPoint;
 
 namespace Content.Server.Radio.EntitySystems;
 
@@ -27,7 +29,11 @@ public sealed partial class JammerSystem : SharedJammerSystem
             args.Cancelled = true;
     }
 
+<<<<<<< HEAD
     public bool ShouldCancel(EntityUid sourceUid, int frequency) // ADT-Tweak
+=======
+    private bool ShouldCancel(EntityUid sourceUid, FixedPoint2 frequency)
+>>>>>>> wizards-filtered
     {
         var source = Transform(sourceUid).Coordinates;
         var query = EntityQueryEnumerator<ActiveRadioJammerComponent, RadioJammerComponent, TransformComponent>();

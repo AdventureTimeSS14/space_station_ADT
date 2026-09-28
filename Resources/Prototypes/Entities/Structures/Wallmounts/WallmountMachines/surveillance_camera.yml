@@ -79,6 +79,7 @@
     price: 200
   - type: Destructible
     thresholds:
+<<<<<<< HEAD
       - trigger:
           !type:DamageTrigger
           damage: 50 # ADT-tweak: 200 -> 50
@@ -96,6 +97,19 @@
               collection: MetalBreak
               params:
                 volume: -8
+=======
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -8
+>>>>>>> wizards-filtered
   placement:
     mode: SnapgridCenter
     snap:

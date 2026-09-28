@@ -14,6 +14,7 @@ public sealed partial class PressureImmunityStatusEffectSystem : EntitySystem
 
     [Dependency] private BarotraumaSystem _barotrauma = default!;
 
+<<<<<<< HEAD
     public override void Initialize()
     {
         base.Initialize();
@@ -23,16 +24,27 @@ public sealed partial class PressureImmunityStatusEffectSystem : EntitySystem
         SubscribeLocalEvent<PressureImmunityStatusEffectComponent, StatusEffectRelayedEvent<RefreshPressureImmunityEvent>>(OnRefreshPressureImmunity);
     }
 
+=======
+    [SubscribeLocalEvent]
+>>>>>>> wizards-filtered
     private void OnPressureImmunityStatusApplied(Entity<PressureImmunityStatusEffectComponent> ent, ref StatusEffectAppliedEvent args)
     {
         _barotrauma.RefreshPressureImmunity(args.Target);
     }
 
+<<<<<<< HEAD
+=======
+    [SubscribeLocalEvent]
+>>>>>>> wizards-filtered
     private void OnPressureImmunityStatusRemoved(Entity<PressureImmunityStatusEffectComponent> ent, ref StatusEffectRemovedEvent args)
     {
         _barotrauma.RefreshPressureImmunity(args.Target);
     }
 
+<<<<<<< HEAD
+=======
+    [SubscribeLocalEvent]
+>>>>>>> wizards-filtered
     private void OnRefreshPressureImmunity(Entity<PressureImmunityStatusEffectComponent> ent, ref StatusEffectRelayedEvent<RefreshPressureImmunityEvent> args)
     {
         args.Args = args.Args with { IsImmune = true };

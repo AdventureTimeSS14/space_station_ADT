@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.Antag;
 using Content.Server.EUI;
@@ -16,29 +17,30 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mind.Components;
-using Content.Shared.Mindshield.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
+using Content.Shared.Revolutionary;
 using Content.Shared.Revolutionary.Components;
 using Content.Shared.Roles.Components;
 using Content.Shared.Stunnable;
-using Content.Shared.Zombies;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.ADT.Heretic.Systems;
 using Robust.Shared.Player;
+using Content.Shared.Mindshield;
 
 namespace Content.Server.GameTicking.Rules;
 
 /// <summary>
 /// Where all the main stuff for Revolutionaries happens (Assigning Head Revs, Command on station, and checking for the game to end.)
 /// </summary>
-public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleComponent>
+public sealed partial class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleComponent>
 {
+<<<<<<< HEAD
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
     [Dependency] private readonly EuiManager _euiMan = default!;
@@ -54,6 +56,23 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
     [Dependency] private readonly SharedHereticSystem _heretic = default!;
+=======
+    [Dependency] private AntagSelectionSystem _antag = default!;
+    [Dependency] private EmergencyShuttleSystem _emergencyShuttle = default!;
+    [Dependency] private EuiManager _euiMan = default!;
+    [Dependency] private IAdminLogManager _adminLogManager = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private ISharedPlayerManager _player = default!;
+    [Dependency] private MindSystem _mind = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private NpcFactionSystem _npcFaction = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private RoleSystem _role = default!;
+    [Dependency] private RoundEndSystem _roundEnd = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private StationSystem _stationSystem = default!;
+    [Dependency] private MindShieldSystem _mindShield = default!;
+>>>>>>> wizards-filtered
 
     //Used in OnPostFlash, no reference to the rule component is available
     public readonly ProtoId<NpcFactionPrototype> RevolutionaryNpcFaction = "Revolutionary";
@@ -105,7 +124,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         var index = (commandLost ? 1 : 0) | (revsLost ? 2 : 0);
         args.AddLine(Loc.GetString(Outcomes[index]));
 
-        var sessionData = _antag.GetAntagIdentifiers(uid);
+        var sessionData = _antag.GetAntagIdentifiers(uid).ToList();
         args.AddLine(Loc.GetString("rev-headrev-count", ("initialCount", sessionData.Count)));
         foreach (var (mind, data, name) in sessionData)
         {
@@ -142,12 +161,10 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         if (!_mind.TryGetMind(ev.Target, out var mindId, out var mind) && !alwaysConvertible)
             return;
 
-        if (HasComp<RevolutionaryComponent>(ev.Target) ||
-            HasComp<MindShieldComponent>(ev.Target) ||
-            !HasComp<HumanoidProfileComponent>(ev.Target) &&
+        if (!HasComp<HumanoidProfileComponent>(ev.Target) &&
             !alwaysConvertible ||
             !_mobState.IsAlive(ev.Target) ||
-            HasComp<ZombieComponent>(ev.Target))
+            !HasComp<RevolutionaryConverterComponent>(ev.Used))
         {
             return;
         }
@@ -170,6 +187,13 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             return;
         }
         //ADT rerev end
+
+        var attemptConvertEv = new AttemptConvertRevolutionaryEvent();
+        RaiseLocalEvent(ev.Target, ref attemptConvertEv);
+
+        _mindShield.GetMindshieldStatus(ev.Target, out var isMindshielded, out _);
+        if (attemptConvertEv.Cancelled || isMindshielded)
+            return;
 
         _npcFaction.AddFaction(ev.Target, RevolutionaryNpcFaction);
         var revComp = EnsureComp<RevolutionaryComponent>(ev.Target);

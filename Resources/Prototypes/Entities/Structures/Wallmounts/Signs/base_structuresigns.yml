@@ -20,5 +20,12 @@
     snapCardinals: true
   - type: StaticPrice
     price: 20
+<<<<<<< HEAD
   - type: Transform
     anchored: true
+=======
+  # Hacky wacky - It inherit anchorable from "BaseWallmount", none of the BaseSign children are designed to be anchorable
+  - type: Anchorable
+    flags:
+    - None
+>>>>>>> wizards-filtered

@@ -7,15 +7,23 @@ using Robust.Shared.Random; //ADT-Tweak
 namespace Content.Client.Chasm;
 
 /// <summary>
-///     Handles the falling animation for entities that fall into a chasm.
+/// Handles the falling animation for entities that fall into an entity with <see cref="ChasmComponent"/>.
 /// </summary>
-public sealed class ChasmFallingVisualsSystem : EntitySystem
+public sealed partial class ChasmFallingVisualsSystem : EntitySystem
 {
+<<<<<<< HEAD
     [Dependency] private readonly AnimationPlayerSystem _anim = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
     [Dependency] private readonly IRobustRandom _random = default!; //ADT-Tweak
+=======
+    [Dependency] private AnimationPlayerSystem _anim = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
+>>>>>>> wizards-filtered
 
-    private readonly string _chasmFallAnimationKey = "chasm_fall";
+    [Dependency] private EntityQuery<AnimationPlayerComponent> _animationPlayerQuery;
+    [Dependency] private EntityQuery<SpriteComponent> _spriteQuery;
+
+    private const string ChasmFallAnimationKey = "chasm_fall";
 
     public override void Initialize()
     {
@@ -25,16 +33,17 @@ public sealed class ChasmFallingVisualsSystem : EntitySystem
         SubscribeLocalEvent<ChasmFallingComponent, ComponentRemove>(OnComponentRemove);
     }
 
-    private void OnComponentInit(EntityUid uid, ChasmFallingComponent component, ComponentInit args)
+    private void OnComponentInit(Entity<ChasmFallingComponent> entity, ref ComponentInit args)
     {
-        if (!TryComp<SpriteComponent>(uid, out var sprite) ||
-            TerminatingOrDeleted(uid))
+        if (!_spriteQuery.TryComp(entity, out var sprite) ||
+            TerminatingOrDeleted(entity))
         {
             return;
         }
 
-        component.OriginalScale = sprite.Scale;
+        entity.Comp.OriginalScale = sprite.Scale;
 
+<<<<<<< HEAD
         if (!TryComp<AnimationPlayerComponent>(uid, out var player))
             return;
 
@@ -67,19 +76,52 @@ public sealed class ChasmFallingVisualsSystem : EntitySystem
         //ADT-Tweak-End
 
         return new Animation()
+=======
+        if (!_animationPlayerQuery.TryComp(entity, out var player) ||
+            _anim.HasRunningAnimation(player, ChasmFallAnimationKey))
+>>>>>>> wizards-filtered
         {
-            Length = length,
+            return;
+        }
+
+        _anim.Play((entity, player), GetFallingAnimation(entity.Comp), ChasmFallAnimationKey);
+    }
+
+    private void OnComponentRemove(Entity<ChasmFallingComponent> entity, ref ComponentRemove args)
+    {
+        if (!_spriteQuery.TryComp(entity, out var sprite))
+        {
+            return;
+        }
+
+        _sprite.SetScale((entity, sprite), entity.Comp.OriginalScale);
+
+        if (!_animationPlayerQuery.TryComp(entity, out var player) ||
+            !_anim.HasRunningAnimation(player, ChasmFallAnimationKey))
+        {
+            return;
+        }
+
+        _anim.Stop((entity, player), ChasmFallAnimationKey);
+    }
+
+    private static Animation GetFallingAnimation(ChasmFallingComponent component)
+    {
+        return new Animation
+        {
+            Length = component.AnimationTime,
             AnimationTracks =
             {
-                new AnimationTrackComponentProperty()
+                new AnimationTrackComponentProperty
                 {
                     ComponentType = typeof(SpriteComponent),
                     Property = nameof(SpriteComponent.Scale),
                     KeyFrames =
                     {
                         new AnimationTrackProperty.KeyFrame(component.OriginalScale, 0.0f),
-                        new AnimationTrackProperty.KeyFrame(component.AnimationScale, length.Seconds),
+                        new AnimationTrackProperty.KeyFrame(component.AnimationScale, component.AnimationTime.Seconds),
                     },
+<<<<<<< HEAD
                     InterpolationMode = AnimationInterpolationMode.Cubic
                 //ADT-Tweak-Start
                 },
@@ -96,6 +138,11 @@ public sealed class ChasmFallingVisualsSystem : EntitySystem
                 //ADT-Tweak-End
                 }
             }
+=======
+                    InterpolationMode = AnimationInterpolationMode.Cubic,
+                },
+            },
+>>>>>>> wizards-filtered
         };
     }
 }

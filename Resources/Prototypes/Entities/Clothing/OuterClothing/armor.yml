@@ -5,7 +5,7 @@
 #Basic armor vest for inheritance
 - type: entity
   abstract: true
-  parent: [ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseSecurityContraband]
+  parent: [ ClothingOuterBaseMedium, AllowSuitStorageClothing ]
   id: ClothingOuterArmorBase
   name: armor vest
   description: A standard Type I armored vest that provides decent protection against most types of damage.
@@ -24,9 +24,13 @@
   - type: ExplosionResistance
     damageCoefficient: 0.90
 
-#Standard armor vest, allowed for security and bartenders
+#Standard armor vest, allowed for security only
 - type: entity
+<<<<<<< HEAD
   parent: [ BaseSecurityBartenderContraband, ClothingOuterArmorBase, BadgeOnClothing] # ADT-Tweak
+=======
+  parent: [ BaseSecurityContraband, ClothingOuterArmorBase ]
+>>>>>>> wizards-filtered
   id: ClothingOuterArmorBasic
   components:
   - type: Tag
@@ -35,9 +39,9 @@
     - ADTArmorSacrafice # ADT-Tweak
 
 
-#Alternate / slim basic armor vest
+#Alternate / slim basic armor vest, allowed for security and bartenders
 - type: entity
-  parent: ClothingOuterArmorBasic
+  parent: [ BaseSecurityBartenderContraband, ClothingOuterArmorBasic ]
   id: ClothingOuterArmorBasicSlim
   name: armor vest
   suffix: slim
@@ -54,7 +58,7 @@
 ### End ADT Tweak
 
 - type: entity
-  parent: ClothingOuterArmorBase
+  parent: ClothingOuterArmorBasic
   id: ClothingOuterArmorBulletproof
   name: bulletproof vest
   description: A Type III heavy bulletproof vest that excels in protecting the wearer against traditional projectile weaponry and explosives to a minor extent.
@@ -74,7 +78,7 @@
     damageCoefficient: 0.80
 
 - type: entity
-  parent: ClothingOuterArmorBase
+  parent: ClothingOuterArmorBasic
   id: ClothingOuterArmorReflective
   name: reflective vest
   description: An armored vest with advanced shielding to protect against energy weapons.
@@ -98,7 +102,11 @@
 
 #Detective's vest
 - type: entity
+<<<<<<< HEAD
   parent: [ClothingOuterArmorBase, BaseSecurityContraband, BadgeOnClothing] # ADT-Tweak
+=======
+  parent: [ClothingOuterArmorBasic, BaseSecurityContraband]
+>>>>>>> wizards-filtered
   id: ClothingOuterVestDetective
   name: detective's vest
   description: A hard-boiled private investigator's armored vest.
@@ -186,7 +194,7 @@
 
 #Elite web vest
 - type: entity
-  parent: [ClothingOuterArmorBase, AllowSuitStorageClothing, BaseSyndicateContraband]
+  parent: [ClothingOuterArmorBase, TemperatureProtection, ClothingOuterStorageBase, BaseSyndicateContraband]
   id: ClothingOuterVestWebElite
   name: elite web vest
   description: A synthetic armor vest. This one has added webbing and heat resistant fibers.
@@ -195,9 +203,6 @@
     sprite: Clothing/OuterClothing/Vests/elitevest.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Vests/elitevest.rsi
-  - type: TemperatureProtection
-    heatingCoefficient: 0.1
-    coolingCoefficient: 0.1
   - type: Armor
     modifiers:
       coefficients:
@@ -208,9 +213,12 @@
         Heat: 0.3
         Radiation: 0.5
         Caustic: 0.5
+<<<<<<< HEAD
   - type: StaminaResistance
     damageCoefficient: 0.7
   # ADT-tweak-End
+=======
+>>>>>>> wizards-filtered
   - type: FireProtection
     reduction: 0.85
   - type: StaticPrice
@@ -261,8 +269,6 @@
         Heat: 0.35
         Radiation: 0.5 # ADT-Tweak
         Caustic: 0.5
-  - type: ExplosionResistance
-    damageCoefficient: 0.35
   - type: StaminaResistance # do not add these to other equipment or mobs, we don't want to microbalance these everywhere
     damageCoefficient: 0.45
   - type: ClothingSpeedModifier
@@ -275,9 +281,6 @@
       outerClothing:
       - state: equipped-OUTERCLOTHING-light
         shader: unshaded
-      outerClothing-vox:
-      - state: equipped-OUTERCLOTHING-light-vox
-        shader: unshaded
   - type: ItemTogglePointLight
   - type: Appearance
   - type: HandheldLight
@@ -289,7 +292,7 @@
     color: "#80ff80"
     radius: 5
     energy: 2
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ConeSingle
     autoRot: true
     netsync: false
   - type: LightBehaviour

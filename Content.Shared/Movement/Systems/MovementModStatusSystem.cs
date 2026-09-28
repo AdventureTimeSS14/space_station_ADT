@@ -17,7 +17,7 @@ namespace Content.Shared.Movement.Systems;
 /// could occupy same prototype, but be aware that this will make controlling duration of effect
 /// extra 'challenging', as it will be shared too.
 /// </remarks>
-public sealed class MovementModStatusSystem : EntitySystem
+public sealed partial class MovementModStatusSystem : EntitySystem
 {
     public static readonly EntProtoId ReagentSpeed = "ReagentSpeedStatusEffect";
     public static readonly EntProtoId VomitingSlowdown = "VomitingSlowdownStatusEffect";
@@ -25,21 +25,33 @@ public sealed class MovementModStatusSystem : EntitySystem
     public static readonly EntProtoId FlashSlowdown = "FlashSlowdownStatusEffect";
     public static readonly EntProtoId StatusEffectFriction = "StatusEffectFriction";
 
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeedModifier = default!;
+    [Dependency] private StatusEffectsSystem _status = default!;
 
     public override void Initialize()
     {
+        SubscribeLocalEvent<MovementModStatusEffectComponent, StatusEffectAppliedEvent>(OnMovementModApplied);
         SubscribeLocalEvent<MovementModStatusEffectComponent, StatusEffectRemovedEvent>(OnMovementModRemoved);
         SubscribeLocalEvent<MovementModStatusEffectComponent, StatusEffectRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnRefreshRelay);
+        SubscribeLocalEvent<FrictionStatusEffectComponent, StatusEffectAppliedEvent>(OnFrictionStatusEffectApplied);
         SubscribeLocalEvent<FrictionStatusEffectComponent, StatusEffectRemovedEvent>(OnFrictionStatusEffectRemoved);
         SubscribeLocalEvent<FrictionStatusEffectComponent, StatusEffectRelayedEvent<RefreshFrictionModifiersEvent>>(OnRefreshFrictionStatus);
         SubscribeLocalEvent<FrictionStatusEffectComponent, StatusEffectRelayedEvent<TileFrictionEvent>>(OnRefreshTileFrictionStatus);
     }
 
+    private void OnMovementModApplied(Entity<MovementModStatusEffectComponent> ent, ref StatusEffectAppliedEvent args)
+    {
+        _movementSpeedModifier.RefreshMovementSpeedModifiers(args.Target);
+    }
+
     private void OnMovementModRemoved(Entity<MovementModStatusEffectComponent> ent, ref StatusEffectRemovedEvent args)
     {
         TryUpdateMovementStatus(args.Target, (ent, ent), 1f);
+    }
+
+    private void OnFrictionStatusEffectApplied(Entity<FrictionStatusEffectComponent> ent, ref StatusEffectAppliedEvent args)
+    {
+        _movementSpeedModifier.RefreshFrictionModifiers(args.Target);
     }
 
     private void OnFrictionStatusEffectRemoved(Entity<FrictionStatusEffectComponent> entity, ref StatusEffectRemovedEvent args)

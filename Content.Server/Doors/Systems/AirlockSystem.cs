@@ -1,16 +1,16 @@
+<<<<<<< HEAD
 using Content.Server.Power.Components;
 using Content.Server.Shuttles.Components;
 using Content.Server.Wires;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Doors.Components;
+=======
+>>>>>>> wizards-filtered
 using Content.Shared.Doors.Systems;
-using Content.Shared.Interaction;
-using Content.Shared.Power;
-using Content.Shared.Wires;
-using Robust.Shared.Player;
 
 namespace Content.Server.Doors.Systems;
 
+<<<<<<< HEAD
 public sealed class AirlockSystem : SharedAirlockSystem
 {
     [Dependency] private readonly WiresSystem _wiresSystem = default!;
@@ -102,3 +102,6 @@ public sealed class AirlockSystem : SharedAirlockSystem
         }
     }
 }
+=======
+public sealed partial class AirlockSystem : SharedAirlockSystem;
+>>>>>>> wizards-filtered

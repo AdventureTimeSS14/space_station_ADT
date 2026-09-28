@@ -15,6 +15,7 @@
     #  time: 5h
     - !type:DepartmentTimeRequirement
       department: Security
+<<<<<<< HEAD
       time: 55h # ADT-Tweak
     - !type:TraitsRequirement #Corvax-TraitsRequirement
       inverted: true
@@ -28,10 +29,12 @@
       - Shadekin
   # ADT RESTRICT End
   weight: 10
+=======
+      time: 10h
+>>>>>>> wizards-filtered
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"
   supervisors: job-supervisors-captain
-  canBeAntag: false
   access:
   - HeadOfSecurity
   - Command
@@ -76,5 +79,6 @@
   job: HeadOfSecurity
   hasMindShield: true
   equipment:
+    head: ClothingHeadHatBeretHoS
     mask: ClothingMaskGasSecurity
     neck: ClothingNeckCloakHos

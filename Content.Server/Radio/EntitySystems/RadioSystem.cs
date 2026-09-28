@@ -1,6 +1,11 @@
 using Content.Server.Administration.Logs;
+<<<<<<< HEAD
 using Content.Server.ADT.StationAi; // ADT-Tweak
+=======
+using Content.Server.Chat.Managers;
+>>>>>>> wizards-filtered
 using Content.Server.Chat.Systems;
+using Content.Server.Ghost;
 using Content.Server.Power.Components;
 using Content.Shared.Access.Components;
 using Content.Shared.ADT.Radio.Components;
@@ -9,12 +14,12 @@ using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
+using Content.Shared.Radio.EntitySystems;
 using Content.Shared.Speech;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
@@ -27,11 +32,10 @@ using Content.Shared.ADT.TTS;
 
 namespace Content.Server.Radio.EntitySystems;
 
-/// <summary>
-///     This system handles intrinsic radios and the general process of converting radio messages into chat messages.
-/// </summary>
-public sealed class RadioSystem : EntitySystem
+/// <inheritdoc/>
+public sealed partial class RadioSystem : SharedRadioSystem
 {
+<<<<<<< HEAD
     [Dependency] private readonly INetManager _netMan = default!;
     [Dependency] private readonly ADT.Deafness.ADTDeafnessSystem _deafness = default!;
     [Dependency] private readonly IReplayRecordingManager _replay = default!;
@@ -43,21 +47,37 @@ public sealed class RadioSystem : EntitySystem
     [Dependency] private readonly SharedRadioJobIconSystem _radioJobIcon = default!; // ADT-Tweak
     [Dependency] private readonly AiEyeTeleportSystem _aiEyeTeleport = default!; // ADT-Tweak
     [Dependency] private readonly ADTTenCodeSystem _tenCode = default!; // ADT-Tweak
+=======
+    [Dependency] private INetManager _netMan = default!;
+    [Dependency] private IReplayRecordingManager _replay = default!;
+    [Dependency] private IAdminLogManager _adminLogger = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private IChatManager _chatManager = default!;
+    [Dependency] private GhostSystem _ghost = default!;
+    [Dependency] private EntityQuery<TelecomExemptComponent> _exemptQuery = default!;
+>>>>>>> wizards-filtered
 
     // set used to prevent radio feedback loops.
     private readonly HashSet<string> _messages = new();
 
+<<<<<<< HEAD
     private EntityQuery<TelecomExemptComponent> _exemptQuery;
     private EntityQuery<RadioJobIconComponent> _radioJobIconQuery; // ADT-Tweak
 
+=======
+>>>>>>> wizards-filtered
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<IntrinsicRadioReceiverComponent, RadioReceiveEvent>(OnIntrinsicReceive);
         SubscribeLocalEvent<IntrinsicRadioTransmitterComponent, EntitySpokeEvent>(OnIntrinsicSpeak);
+<<<<<<< HEAD
 
         _exemptQuery = GetEntityQuery<TelecomExemptComponent>();
         _radioJobIconQuery = GetEntityQuery<RadioJobIconComponent>(); // ADT-Tweak
+=======
+>>>>>>> wizards-filtered
     }
 
     private void OnIntrinsicSpeak(EntityUid uid, IntrinsicRadioTransmitterComponent component, EntitySpokeEvent args)
@@ -71,6 +91,7 @@ public sealed class RadioSystem : EntitySystem
 
     private void OnIntrinsicReceive(EntityUid uid, IntrinsicRadioReceiverComponent component, ref RadioReceiveEvent args)
     {
+<<<<<<< HEAD
         if (TryComp(uid, out ActorComponent? actor))
         {
             // ADT-Tweak start
@@ -102,6 +123,31 @@ public sealed class RadioSystem : EntitySystem
     /// <param name="messageSource">Entity that spoke the message</param>
     /// <param name="radioSource">Entity that picked up the message and will send it, e.g. headset</param>
     public void SendRadioMessage(EntityUid messageSource, string message, RadioChannelPrototype channel, EntityUid radioSource, bool escapeMarkup = true, LanguagePrototype? languageOverride = null)
+=======
+        if (!TryComp(uid, out ActorComponent? actor))
+            return;
+
+        var msg = args.ChatMsg;
+        if (_ghost.CanGhostWarp(actor.PlayerSession, out _))
+        {
+            msg = new MsgChatMessage
+            {
+                Message = new ChatMessage(args.ChatMsg.Message)
+                {
+                    WrappedMessage = _chatManager.PrependFollowButtonIfAppropriate(
+                        args.ChatMsg.Message.WrappedMessage,
+                        args.MessageSource,
+                        actor.PlayerSession.Channel),
+                },
+            };
+        }
+
+        _netMan.ServerSendMessage(msg, actor.PlayerSession.Channel);
+    }
+
+    /// <inheritdoc/>
+    public override void SendRadioMessage(EntityUid messageSource, string message, RadioChannelPrototype channel, EntityUid radioSource, bool escapeMarkup = true)
+>>>>>>> wizards-filtered
     {
         // TODO if radios ever garble / modify messages, feedback-prevention needs to be handled better than this.
         if (!_messages.Add(message))
@@ -121,7 +167,7 @@ public sealed class RadioSystem : EntitySystem
         name = FormattedMessage.EscapeText(name);
 
         SpeechVerbPrototype speech;
-        if (evt.SpeechVerb != null && _prototype.Resolve(evt.SpeechVerb, out var evntProto))
+        if (evt.SpeechVerb != null && ProtoMan.Resolve(evt.SpeechVerb, out var evntProto))
             speech = evntProto;
         else
             speech = _chat.GetSpeechVerb(messageSource, message);

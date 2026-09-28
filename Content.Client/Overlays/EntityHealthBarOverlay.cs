@@ -107,7 +107,7 @@ public sealed class EntityHealthBarOverlay : Overlay
             var yOffset = bounds.Height * EyeManager.PixelsPerMeter / 2 - 3f;
             var widthOfMob = bounds.Width * EyeManager.PixelsPerMeter;
 
-            var position = new Vector2(-widthOfMob / EyeManager.PixelsPerMeter / 2, yOffset / EyeManager.PixelsPerMeter);
+            var position = new Vector2(sprite.Offset.X - widthOfMob / EyeManager.PixelsPerMeter / 2, sprite.Offset.Y + yOffset / EyeManager.PixelsPerMeter);
             var color = GetProgressColor(deathProgress.ratio, deathProgress.inCrit);
 
             // Hardcoded width of the progress bar because it doesn't match the texture.
@@ -140,9 +140,13 @@ public sealed class EntityHealthBarOverlay : Overlay
         var totalDamage = _damageable.GetTotalDamage((uid, dmg));
         if (_mobStateSystem.IsAlive(uid, component))
         {
+<<<<<<< HEAD
             // ADT-Tweak-start
             if (!_mobThresholdSystem.TryGetThresholdForState(uid, MobState.SoftCritical, out var threshold, thresholds) &&
                 !_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Critical, out threshold, thresholds) &&
+=======
+            if (!_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Critical, out var threshold, thresholds) &&
+>>>>>>> wizards-filtered
                 !_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Dead, out threshold, thresholds))
                 return (1, false);
             // ADT-Tweak-end

@@ -58,6 +58,7 @@
       damageContainer: StructuralInorganic
     - type: Destructible
       thresholds:
+<<<<<<< HEAD
         - trigger:
             !type:DamageTrigger
             damage: 50
@@ -74,6 +75,14 @@
         blacklist:
           tags:
           - Book
+=======
+      - trigger:
+          !type:DamageTrigger
+          damage: 50
+        behaviors:
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
+>>>>>>> wizards-filtered
     - type: Appearance
     - type: EntityStorageVisuals
       stateDoorOpen: open
@@ -152,12 +161,12 @@
     damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 50
-        behaviors:
-          - !type:DoActsBehavior
-            acts: ["Destruction"]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
   - type: PaperLabel
     labelSlot:
       insertVerbText: Attach Label

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿using System.Diagnostics.CodeAnalysis;
+=======
+using System.Diagnostics.CodeAnalysis;
+>>>>>>> wizards-filtered
 using System.Linq;
 using Content.Shared.FixedPoint;
 using Content.Shared.Implants;
@@ -18,6 +22,7 @@ namespace Content.Shared.Store;
 /// </summary>
 public abstract partial class SharedStoreSystem : EntitySystem
 {
+<<<<<<< HEAD
     [Dependency] protected readonly IPrototypeManager Proto = default!;
     [Dependency] protected readonly SharedMindSystem Mind = default!;
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
@@ -26,6 +31,76 @@ public abstract partial class SharedStoreSystem : EntitySystem
 
     [Dependency] protected readonly EntityQuery<StoreComponent> StoreQuery = default!;
     [Dependency] protected readonly EntityQuery<RemoteStoreComponent> RemoteStoreQuery = default!;
+=======
+    [Dependency] protected SharedMindSystem Mind = default!;
+    [Dependency] protected SharedPopupSystem Popup = default!;
+    [Dependency] protected SharedStackSystem Stack = default!;
+    [Dependency] protected SharedUserInterfaceSystem UI = default!;
+
+    [Dependency] protected EntityQuery<StoreComponent> StoreQuery = default!;
+    [Dependency] protected EntityQuery<RemoteStoreComponent> RemoteStoreQuery = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<CurrencyComponent, AfterInteractEvent>(OnAfterInteract);
+        SubscribeLocalEvent<RemoteStoreComponent, GetStoreEvent>(OnGetStore);
+        SubscribeLocalEvent<RemoteStoreComponent, ImplantRelayEvent<GetStoreEvent>>((x, ref y) =>
+        {
+            var ev = y.Args;
+            OnGetStore(x, ref ev);
+            y.Args = ev;
+        });
+        SubscribeLocalEvent<RemoteStoreComponent, ImplantRelayEvent<CurrencyInsertAttemptEvent>>(OnImplantInsertAttempt);
+        SubscribeLocalEvent<StoreComponent, IntrinsicStoreActionEvent>(OnIntrinsicStoreAction);
+    }
+
+    private void OnGetStore(Entity<RemoteStoreComponent> entity, ref GetStoreEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (!StoreQuery.TryComp(entity.Comp.Store, out var store))
+            return;
+
+        args.Store = (entity.Comp.Store.Value, store);
+    }
+
+    private void OnImplantInsertAttempt(Entity<RemoteStoreComponent> implant, ref ImplantRelayEvent<CurrencyInsertAttemptEvent> args)
+    {
+        var ev = args.Args;
+
+        // Only allow insertion if the person implanted is doing the action.
+        if (ev.User == ev.Target)
+            ev.TargetOverride = implant;
+        else
+            ev.Cancel();
+
+        args.Args = ev;
+    }
+
+    private void OnAfterInteract(EntityUid uid, CurrencyComponent component, AfterInteractEvent args)
+    {
+        if (args.Handled || !args.CanReach || args.Target is not { } target)
+            return;
+
+        if (!TryGetStore(target, out var store))
+            return;
+
+        var ev = new CurrencyInsertAttemptEvent(args.User, target, args.Used, store.Value.Comp);
+        RaiseLocalEvent(target, ev);
+        if (ev.Cancelled)
+            return;
+
+        if (!TryAddCurrency((uid, component), (store.Value, store.Value.Comp)))
+            return;
+
+        args.Handled = true;
+        var msg = Loc.GetString("store-currency-inserted", ("used", args.Used), ("target", ev.TargetOverride ?? target));
+        Popup.PopupEntity(msg, target, args.User);
+    }
+>>>>>>> wizards-filtered
 
     public override void Initialize()
     {
@@ -153,7 +228,11 @@ public abstract partial class SharedStoreSystem : EntitySystem
     /// <param name="uid"></param>
     /// <param name="component"></param>
     /// <returns>The value of the currency</returns>
+<<<<<<< HEAD
     public Dictionary<string, FixedPoint2> GetCurrencyValue(EntityUid uid, CurrencyComponent component)
+=======
+    public Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> GetCurrencyValue(EntityUid uid, CurrencyComponent component)
+>>>>>>> wizards-filtered
     {
         var amount = EntityManager.GetComponentOrNull<StackComponent>(uid)?.Count ?? 1;
         return component.Price.ToDictionary(v => v.Key, p => p.Value * amount);
@@ -197,7 +276,11 @@ public abstract partial class SharedStoreSystem : EntitySystem
     /// <param name="uid"></param>
     /// <param name="store">The store to add it to</param>
     /// <returns>Whether or not the currency was succesfully added</returns>
+<<<<<<< HEAD
     public bool TryAddCurrency(Dictionary<string, FixedPoint2> currency, EntityUid uid, StoreComponent? store = null)
+=======
+    public bool TryAddCurrency(Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> currency, EntityUid uid, StoreComponent? store = null)
+>>>>>>> wizards-filtered
     {
         if (!Resolve(uid, ref store))
             return false;
@@ -219,6 +302,7 @@ public abstract partial class SharedStoreSystem : EntitySystem
         return true;
     }
 
+<<<<<<< HEAD
     // ADT-Tweak start: heretic
     public bool TrySetCurrency(Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> currency, EntityUid uid, StoreComponent? store = null)
     {
@@ -256,6 +340,8 @@ public abstract partial class SharedStoreSystem : EntitySystem
     }
     // ADT-Tweak end: heretic
 
+=======
+>>>>>>> wizards-filtered
     private void OnIntrinsicStoreAction(Entity<StoreComponent> ent, ref IntrinsicStoreActionEvent args)
     {
         ToggleUi(args.Performer, ent.Owner, ent.Comp);
@@ -269,7 +355,10 @@ public record struct GetStoreEvent
     public Entity<StoreComponent>? Store;
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> wizards-filtered
 public sealed class CurrencyInsertAttemptEvent : CancellableEntityEventArgs
 {
     public readonly EntityUid User;
@@ -287,4 +376,9 @@ public sealed class CurrencyInsertAttemptEvent : CancellableEntityEventArgs
         Used = used;
         Store = store;
     }
+<<<<<<< HEAD
 }
+=======
+}
+
+>>>>>>> wizards-filtered

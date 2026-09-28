@@ -1,23 +1,46 @@
 ﻿{
     "version": 1,
     "license": "CC0-1.0",
-    "copyright": "Created by TiniestShark (github)",
+    "copyright": "Created by TiniestShark (github).",
     "size": {
         "x": 32,
         "y": 32
     },
     "states": [
         {
+<<<<<<< HEAD
             "name": "armblade"
+=======
+            "name": "background"
+        },
+        {
+            "name": "frame"
+        },
+        {
+            "name": "transform"
+        },
+        {
+            "name": "devour"
+>>>>>>> wizards-filtered
         },
         {
             "name": "devour_on"
         },
         {
+<<<<<<< HEAD
             "name": "devour"
         },
         {
             "name": "transform"
+=======
+            "name": "armblade"
+        },
+        {
+            "name": "stasis_enter"
+        },
+        {
+            "name": "stasis_exit"
+>>>>>>> wizards-filtered
         }
     ]
 }

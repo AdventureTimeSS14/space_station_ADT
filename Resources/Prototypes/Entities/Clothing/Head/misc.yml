@@ -64,17 +64,24 @@
   - type: Sprite
     sprite: Clothing/Head/Misc/pumpkin.rsi
   - type: Clothing
-    sprite: Clothing/Head/Misc/pumpkin.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-helmet
   - type: IngestionBlocker
   - type: IdentityBlocker
   - type: PointLight
     enabled: false
     radius: 3
     energy: 1
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ConeSingle
     autoRot: true
     color: "#cc6600"
     netsync: false
+  - type: ToggleableVisuals
+    clothingVisuals:
+      head:
+      - state: equipped-helmet-light
+        shader: unshaded
   - type: ItemSlots
     slots:
       cell_slot:
@@ -85,11 +92,20 @@
     - HeadTop
     - HeadSide
     - FacialHair
+<<<<<<< HEAD
 # ADT-Tweak-Start
   - type: Construction
     graph: PumpkinHat
     node: pumpkin_hat
 # ADT-Tweak-End
+=======
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+>>>>>>> wizards-filtered
 
 - type: entity
   parent: ClothingHeadBase
@@ -207,8 +223,8 @@
     proto: regal
   - type: StaticPrice
     price: 3000
-  - type: AddAccentClothing
-    accent: MobsterAccent
+  - type: MobsterAccent
+    relayAccent: true
 
 - type: entity
   parent: [ ClothingHeadBase ] #, BaseSyndicateContraband ] # BRUH # ADT Remove cringe
@@ -223,8 +239,8 @@
     sprite: Clothing/Head/Hats/catears.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/catears.rsi
-  - type: AddAccentClothing
-    accent: OwOAccent
+  - type: OwOAccent
+    relayAccent: true
   - type: StaticPrice
     price: 15000
 
@@ -247,8 +263,8 @@
     sprite: Clothing/Head/Hats/catears.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/catears.rsi
-  - type: AddAccentClothing
-    accent: OwOAccent
+  - type: OwOAccent
+    relayAccent: true
 
 - type: entity
   parent: BaseToggleAction
@@ -267,8 +283,8 @@
     sprite: Clothing/Head/Hats/dogears.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/dogears.rsi
-  - type: AddAccentClothing
-    accent: BarkAccent
+  - type: BarkAccent
+    relayAccent: true
 
 - type: entity
   parent: ClothingHeadBase
@@ -307,7 +323,7 @@
     - FacialHair
 
 - type: entity
-  parent: Clothing
+  parent: [SolutionDrink, Clothing]
   id: WaterDropletHat
   name: water droplet
   description: Makes 8-eyed friends 8 times more adorable!
@@ -333,13 +349,12 @@
       - water
   - type: DrainableSolution
     solution: drink
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 2
-        reagents:
-        - ReagentId: Water
-          Quantity: 2
+  - type: Solution
+    solution:
+      maxVol: 2 # Droplets are pretty small.
+      reagents:
+      - ReagentId: Water
+        Quantity: 2
   - type: DamageOnHighSpeedImpact
     minimumSpeed: 0.1
     damage:

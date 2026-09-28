@@ -25,11 +25,11 @@ using static Robust.Client.UserInterface.Controls.BaseButton;
 namespace Content.Client.UserInterface.Systems.Character;
 
 [UsedImplicitly]
-public sealed class CharacterUIController : UIController, IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>, IOnSystemChanged<CharacterInfoSystem>
+public sealed partial class CharacterUIController : UIController, IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>, IOnSystemChanged<CharacterInfoSystem>
 {
-    [Dependency] private readonly IEntityManager _ent = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IEntityManager _ent = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
 
     [UISystemDependency] private readonly CharacterInfoSystem _characterInfo = default!;
     [UISystemDependency] private readonly SpriteSystem _sprite = default!;
@@ -130,14 +130,18 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
             return;
         }
 
+<<<<<<< HEAD
         var (entity, job, objectives, briefing, entityName, memories) = data; //ADT-Economy
+=======
+        var (entity, objectives, briefing, jobId, entityName) = data;
+>>>>>>> wizards-filtered
 
         _window.SpriteView.SetEntity(entity);
 
         UpdateRoleType();
-
+        var job = _prototypeManager.Index(jobId);
         _window.NameLabel.Text = entityName;
-        _window.SubText.Text = job;
+        _window.SubText.Text = job != null ? Loc.GetString(job.Name) : null;
         _window.Objectives.RemoveAllChildren();
         _window.ObjectivesLabel.Visible = objectives.Any();
         _window.Memories.RemoveAllChildren(); //ADT-Economy

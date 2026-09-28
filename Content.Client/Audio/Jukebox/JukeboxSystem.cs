@@ -13,13 +13,12 @@ using JukeboxComponent = Content.Shared.Audio.Jukebox.JukeboxComponent;
 namespace Content.Client.Audio.Jukebox;
 
 
-public sealed class JukeboxSystem : SharedJukeboxSystem
+public sealed partial class JukeboxSystem : SharedJukeboxSystem
 {
-    [Dependency] private readonly IPrototypeManager _protoManager = default!;
-    [Dependency] private readonly AnimationPlayerSystem _animationPlayer = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private AnimationPlayerSystem _animationPlayer = default!;
+    [Dependency] private SharedAppearanceSystem _appearanceSystem = default!;
+    [Dependency] private SharedUserInterfaceSystem _uiSystem = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     // ADT-Tweak start
     [Dependency] private readonly IConfigurationManager _cfg = default!;
@@ -35,14 +34,18 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
         SubscribeLocalEvent<JukeboxComponent, AnimationCompletedEvent>(OnAnimationCompleted);
         SubscribeLocalEvent<JukeboxComponent, AfterAutoHandleStateEvent>(OnJukeboxAfterState);
 
+<<<<<<< HEAD
         _protoManager.PrototypesReloaded += OnProtoReload;
         _cfg.OnValueChanged(CCVars.AmbientMusicVolume, OnAmbientMusicVolumeChanged, true); // ADT-Tweak
+=======
+        ProtoMan.PrototypesReloaded += OnProtoReload;
+>>>>>>> wizards-filtered
     }
 
     public override void Shutdown()
     {
         base.Shutdown();
-        _protoManager.PrototypesReloaded -= OnProtoReload;
+        ProtoMan.PrototypesReloaded -= OnProtoReload;
     }
 
     private void OnProtoReload(PrototypesReloadedEventArgs obj)

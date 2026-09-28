@@ -12,6 +12,7 @@
 #      time: 21600 #6 hrs
     - !type:DepartmentTimeRequirement
       department: Engineering
+<<<<<<< HEAD
       time: 10h # ADT-Tweak
 #    - !type:OverallPlaytimeRequirement
 #      time: 144000 #40 hrs
@@ -25,10 +26,12 @@
       - Vox
       #ADT tweak end
   weight: 10
+=======
+      time: 10h
+>>>>>>> wizards-filtered
   startingGear: ChiefEngineerGear
   icon: "JobIconChiefEngineer"
   supervisors: job-supervisors-captain
-  canBeAntag: false
   access:
   - Maintenance
   - Engineering

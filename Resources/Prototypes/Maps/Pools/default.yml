@@ -1,6 +1,7 @@
 - type: gameMapPool
   id: DefaultMapPool
   maps:
+<<<<<<< HEAD
   # - Bagel
   # - Box
   # - Elkridge
@@ -64,3 +65,15 @@
   # - ADT_GeminiNewYear
   # - ADT_PieNewYear
   # - ADT_SalternNewYear
+=======
+  - Bagel
+  - Box
+  - Elkridge
+  - Marathon
+  - Packed
+  - Plasma
+  - Exo
+  - Snowball
+  - Sushi
+  - Tram2
+>>>>>>> wizards-filtered

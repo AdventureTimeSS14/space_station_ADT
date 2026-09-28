@@ -25,4 +25,8 @@
         children:
         - id: MobCatShadow
         - id: ArtifactFragment1
+<<<<<<< HEAD
     offset: 0.05
+=======
+    offset: 0.05
+>>>>>>> wizards-filtered

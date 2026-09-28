@@ -174,6 +174,7 @@
   id: MobMoth
   name: Urist McFluff
   components:
+<<<<<<< HEAD
     # ADT-Tweak start
     - type: MobThresholds
       thresholds:
@@ -271,6 +272,60 @@
       shader: ADTModernNightVisionShaderMedium
       effectPrototype: ADTEffectNightVisionMedium
   # ADT-tweak-end
+=======
+  - type: Damageable
+    damageModifierSet: Moth
+  - type: ZombieAccentOverride
+    accent: zombieMoth
+  - type: Speech
+    speechVerb: Moth
+    allowedEmotes: ['Chitter', 'Squeak', 'Flap']
+  - type: TypingIndicator
+    proto: moth
+  - type: CreamPied
+    sprite:
+      sprite: Effects/creampie.rsi
+      state: creampie_moth
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: InsectBlood
+        Quantity: 600
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#808A51"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
+  - type: MothAccent
+  - type: Vocal
+    emoteSounds: UnisexMoth
+  - type: BodyEmotes
+    soundsId: MothBodyEmotes
+  - type: MovementSpeedModifier
+    baseWeightlessAcceleration: 1.5 # Move around more easily in space.
+    baseWeightlessFriction: 1
+    baseWeightlessModifier: 1
+  - type: Flammable
+    damage:
+      types:
+        Heat: 2.5 # moths burn more easily
+  - type: TemperatureDamage # Moths hate the heat and thrive in the cold.
+    heatDamageThreshold: 314.15
+    coldDamageThreshold: 230
+    coldDamage:
+      types:
+        Cold: 0.05 # per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat: 3 # per second, scales with temperature & other constants
+  - type: TemperatureSpeed
+    thresholds:
+      289: 0.9
+      275: 0.8
+      250: 0.7
+>>>>>>> wizards-filtered
 
 - type: entity
   parent: OrganBaseOrganic

@@ -12,6 +12,7 @@
   femaleLastNames: NamesArachnidLast # Corvax-LastnameGender
   sexes:
   - Unsexed
+<<<<<<< HEAD
   # ADT start
   shortDesc: species-short-desc-spider
   pros:
@@ -32,3 +33,11 @@
   - GalacticCommon
   - Arachnid
   # ADT end
+=======
+  defaultSoundsBySex:
+  - UnisexArachnid
+  - UnisexArachnid
+  - UnisexArachnid
+  voices:
+  - UnisexArachnid
+>>>>>>> wizards-filtered

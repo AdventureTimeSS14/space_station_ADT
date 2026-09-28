@@ -15,13 +15,13 @@ using Content.Goobstation.Common.Atmos;
 
 namespace Content.Server.Atmos.EntitySystems
 {
-    public sealed class BarotraumaSystem : EntitySystem
+    public sealed partial class BarotraumaSystem : EntitySystem
     {
-        [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
-        [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-        [Dependency] private readonly AlertsSystem _alertsSystem = default!;
-        [Dependency] private readonly IAdminLogManager _adminLogger= default!;
-        [Dependency] private readonly InventorySystem _inventorySystem = default!;
+        [Dependency] private AtmosphereSystem _atmosphereSystem = default!;
+        [Dependency] private DamageableSystem _damageableSystem = default!;
+        [Dependency] private AlertsSystem _alertsSystem = default!;
+        [Dependency] private IAdminLogManager _adminLogger = default!;
+        [Dependency] private InventorySystem _inventorySystem = default!;
 
         private const float UpdateTimer = 1f;
         private float _timer;
@@ -32,10 +32,16 @@ namespace Content.Server.Atmos.EntitySystems
             SubscribeLocalEvent<PressureProtectionComponent, GotUnequippedEvent>(OnPressureProtectionUnequipped);
             SubscribeLocalEvent<PressureProtectionComponent, ComponentStartup>(OnUpdateResistance);
             SubscribeLocalEvent<PressureProtectionComponent, ComponentRemove>(OnUpdateResistance);
+<<<<<<< HEAD
 
             SubscribeLocalEvent<BarotraumaComponent, MapInitEvent>(OnBarotraumaInit);
         }
 
+=======
+        }
+
+        [SubscribeLocalEvent]
+>>>>>>> wizards-filtered
         private void OnBarotraumaInit(Entity<BarotraumaComponent> ent, ref MapInitEvent args)
         {
             RefreshPressureImmunity(ent, ent.Comp);
@@ -54,17 +60,17 @@ namespace Content.Server.Atmos.EntitySystems
 
         private void OnPressureProtectionEquipped(EntityUid uid, PressureProtectionComponent pressureProtection, GotEquippedEvent args)
         {
-            if (TryComp<BarotraumaComponent>(args.Equipee, out var barotrauma) && barotrauma.ProtectionSlots.Contains(args.Slot))
+            if (TryComp<BarotraumaComponent>(args.EquipTarget, out var barotrauma) && barotrauma.ProtectionSlots.Contains(args.Slot))
             {
-                UpdateCachedResistances(args.Equipee, barotrauma);
+                UpdateCachedResistances(args.EquipTarget, barotrauma);
             }
         }
 
         private void OnPressureProtectionUnequipped(EntityUid uid, PressureProtectionComponent pressureProtection, GotUnequippedEvent args)
         {
-            if (TryComp<BarotraumaComponent>(args.Equipee, out var barotrauma) && barotrauma.ProtectionSlots.Contains(args.Slot))
+            if (TryComp<BarotraumaComponent>(args.EquipTarget, out var barotrauma) && barotrauma.ProtectionSlots.Contains(args.Slot))
             {
-                UpdateCachedResistances(args.Equipee, barotrauma);
+                UpdateCachedResistances(args.EquipTarget, barotrauma);
             }
         }
 

@@ -25,12 +25,20 @@
   - type: ActiveEdgeSpreader
   - type: EdgeSpreader
     id: Smoke
+<<<<<<< HEAD
   - type: SolutionContainerManager
     solutions:
       solutionArea:
         maxVol: 600
         canReact: false
   - type: SupermatterIgnore # ADT-Tweak
+=======
+  - type: Solution
+    id: solutionArea
+    solution:
+      maxVol: 600 # Required for it to spawn correctly, but should be removed in the future:tm: Arguably could move the solution to SmokeComponent as well considering it's nonreactive
+      canReact: false
+>>>>>>> wizards-filtered
 
 - type: entity
   parent: BaseFoam
@@ -103,6 +111,7 @@
   - type: SmoothEdge
   - type: IconSmooth
     mode: NoSprite
+    key: foam
   - type: FoamVisuals
     animationTime: 0.6
     animationState: foam-dissolve

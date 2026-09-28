@@ -45,6 +45,10 @@
         layer:
         - WallLayer
         density: 4000
+  - type: StructureAlignerPylon
+    pylons:
+    - Door
+    - Firelock
 
 - type: entity
   id: PlastitaniumWindowSquareBase
@@ -88,12 +92,6 @@
   components:
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 1000
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 500
@@ -192,12 +190,6 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 1000
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
         damage: 500
       behaviors:
       - !type:PlaySoundBehavior
@@ -226,9 +218,12 @@
     damageModifierSet: RGlass
   - type: Injurable
     damageContainer: StructuralInorganic
+<<<<<<< HEAD
   #ADT-Tweak-Start
   - type: Tag
     tags:
     - Diagonal
     - Window
   #ADT-Tweak-End
+=======
+>>>>>>> wizards-filtered

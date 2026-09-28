@@ -36,5 +36,10 @@
         !type:DamageTrigger
         damage: 25
       behaviors:
+<<<<<<< HEAD
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
+=======
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+>>>>>>> wizards-filtered

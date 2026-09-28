@@ -6,6 +6,7 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security
+<<<<<<< HEAD
       time: 50h # Corvax-RoleTime
     # ADT-Tweak start
     - !type:TraitsRequirement
@@ -20,10 +21,12 @@
       - Vox
       - Shadekin
   # ADT RESTRICT End
+=======
+      time: 10h
+>>>>>>> wizards-filtered
   startingGear: WardenGear
   icon: "JobIconWarden"
   supervisors: job-supervisors-hos
-  canBeAntag: false
   access:
   - Security
   - Brig

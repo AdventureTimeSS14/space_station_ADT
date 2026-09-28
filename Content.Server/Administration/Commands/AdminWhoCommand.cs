@@ -7,12 +7,17 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Administration.Commands;
 
+<<<<<<< HEAD
 [AdminCommand(AdminFlags.Adminchat)] //ADT tweak
 
 public sealed class AdminWhoCommand : LocalizedCommands
+=======
+[AdminCommand(AdminFlags.AdminWho)]
+public sealed partial class AdminWhoCommand : LocalizedCommands
+>>>>>>> wizards-filtered
 {
-    [Dependency] private readonly IAfkManager _afkManager = default!;
-    [Dependency] private readonly IAdminManager _adminManager = default!;
+    [Dependency] private IAfkManager _afkManager = default!;
+    [Dependency] private IAdminManager _adminManager = default!;
 
     public override string Command => "adminwho";
 

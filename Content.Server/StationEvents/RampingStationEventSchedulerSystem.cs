@@ -7,12 +7,18 @@ using Robust.Server.Player; // ADT-tweak
 
 namespace Content.Server.StationEvents;
 
-public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingStationEventSchedulerComponent>
+public sealed partial class RampingStationEventSchedulerSystem : GameRuleSystem<RampingStationEventSchedulerComponent>
 {
+<<<<<<< HEAD
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EventManagerSystem _event = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!; // ADT-tweak
+=======
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private EventManagerSystem _event = default!;
+    [Dependency] private GameTicker _gameTicker = default!;
+>>>>>>> wizards-filtered
 
     /// <summary>
     /// Returns the ChaosModifier which increases as round time increases to a point.

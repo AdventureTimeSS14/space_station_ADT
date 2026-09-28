@@ -10,6 +10,7 @@
   metabolisms:
     Metabolites:
       effects:
+<<<<<<< HEAD
       - !type:SatiateHunger
       - !type:HealthChange # ADT-Tweak start
         damage:
@@ -22,6 +23,10 @@
         amount: -0.1
       - !type:ModifyBloodLevel
         amount: 0.25 # ADT-Tweak end
+=======
+      - !type:Satiate
+        satiationType: Hunger
+>>>>>>> wizards-filtered
   plantMetabolism:
   - !type:PlantAdjustNutrition
     amount: 1.5
@@ -48,7 +53,8 @@
       # Helps you stop bleeding to an extent.
       - !type:ModifyBleed
         amount: -0.25
-      - !type:SatiateHunger #Numbers are balanced with this in mind + it helps limit how much healing you can get from food
+      - !type:Satiate #Numbers are balanced with this in mind + it helps limit how much healing you can get from food
+        satiationType: Hunger
   # Lets plants benefit too
   plantMetabolism:
   - !type:PlantAdjustNutrition
@@ -73,8 +79,14 @@
         damage:
           Brute: -0.6 #ADT-Tweak -0.4 -> -0.6
       - !type:ModifyBloodLevel
+<<<<<<< HEAD
         amount: 2 # ADT-Tweak 1 -> 2
       - !type:SatiateHunger
+=======
+        amount: 1 # weaker than iron but pretty good all things considered
+      - !type:Satiate
+        satiationType: Hunger
+>>>>>>> wizards-filtered
   pricePerUnit: 3
 
 - type: reagent
@@ -89,7 +101,8 @@
   metabolisms:
     Metabolites:
       effects:
-      - !type:SatiateHunger
+      - !type:Satiate
+        satiationType: Hunger
         conditions:
         - !type:ReagentCondition #Only satiates when eaten with nutriment
           reagent: Nutriment

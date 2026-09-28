@@ -14,8 +14,9 @@ using Robust.Shared.Timing;
 
 namespace Content.Server.Medical.CrewMonitoring;
 
-public sealed class CrewMonitoringServerSystem : EntitySystem
+public sealed partial class CrewMonitoringServerSystem : EntitySystem
 {
+<<<<<<< HEAD
     // ADT-Tweak Start - New Monitor: publish/subscriber fields
     // [Dependency] private readonly SuitSensorSystem _sensors = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
@@ -36,6 +37,12 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
     /// <summary>True when any crew-monitor console is listening to any server.</summary>
     public bool HasAnySubscribers => _serversWithSubscribers > 0;
     // ADT-Tweak End
+=======
+    [Dependency] private SuitSensorSystem _sensors = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private DeviceNetworkSystem _deviceNetworkSystem = default!;
+    [Dependency] private SingletonDeviceNetServerSystem _singletonServerSystem = default!;
+>>>>>>> wizards-filtered
 
 
     public override void Initialize()

@@ -7,10 +7,10 @@ using Robust.Client.GameObjects;
 
 namespace Content.Client.Doors;
 
-public sealed class AirlockSystem : SharedAirlockSystem
+public sealed partial class AirlockSystem : SharedAirlockSystem
 {
-    [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private AppearanceSystem _appearanceSystem = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -66,6 +66,11 @@ public sealed class AirlockSystem : SharedAirlockSystem
         if (!comp.AnimatePanel)
             return;
 
+        // For some reason the open panel sprite is used for both open and
+        // closed sprites. I really don't get it.
+        door.OpenSpriteStates.Add((WiresVisualLayers.MaintenancePanel, comp.OpenPanelSpriteState));
+        door.ClosedSpriteStates.Add((WiresVisualLayers.MaintenancePanel, comp.OpenPanelSpriteState));
+
         ((Animation)door.OpeningAnimation).AnimationTracks.Add(new AnimationTrackSpriteFlick()
         {
             LayerKey = WiresVisualLayers.MaintenancePanel,
@@ -84,19 +89,12 @@ public sealed class AirlockSystem : SharedAirlockSystem
         if (args.Sprite == null)
             return;
 
-        var boltedVisible = false;
-        var emergencyLightsVisible = false;
-        var unlitVisible = false;
-
         if (!_appearanceSystem.TryGetData<DoorState>(uid, DoorVisuals.State, out var state, args.Component))
             state = DoorState.Closed;
 
-        if (_appearanceSystem.TryGetData<bool>(uid, PowerDeviceVisuals.Powered, out var powered, args.Component)
-            && powered)
-        {
-            boltedVisible = _appearanceSystem.TryGetData<bool>(uid, DoorVisuals.BoltLights, out var lights, args.Component)
-                            && lights && (state == DoorState.Closed || state == DoorState.Welded);
+        _appearanceSystem.TryGetData<bool>(uid, PowerDeviceVisuals.Powered, out var hasPower, args.Component);
 
+<<<<<<< HEAD
             emergencyLightsVisible = _appearanceSystem.TryGetData<bool>(uid, DoorVisuals.EmergencyLights, out var eaLights, args.Component) && eaLights;
             unlitVisible =
                     (state == DoorState.Closing
@@ -105,23 +103,44 @@ public sealed class AirlockSystem : SharedAirlockSystem
                 || (state == DoorState.Open && comp.OpenUnlitVisible)
                 || (state == DoorState.Closed && comp.OpenUnlitVisible)) // Corvax-Resprite-Airlocks-Edit
                     && !boltedVisible && !emergencyLightsVisible;
+=======
+        var showBaseUnlit = false;
+        var showBolted = false;
+        var showEmergency = false;
+
+        if (hasPower)
+        {
+            _appearanceSystem.TryGetData<bool>(uid, DoorVisuals.BoltLights, out var boltedVisible, args.Component);
+            showBolted = boltedVisible && (state == DoorState.Closed || state == DoorState.Welded);
+
+            _appearanceSystem.TryGetData<bool>(uid, DoorVisuals.EmergencyLights, out var emergencyVisible, args.Component);
+            showEmergency = emergencyVisible;
+
+            if (!showBolted && !showEmergency)
+            {
+                if (state == DoorState.Closing || state == DoorState.Opening || state == DoorState.Denying)
+                    showBaseUnlit = true;
+
+                if (state == DoorState.Open && comp.OpenUnlitVisible)
+                    showBaseUnlit = true;
+
+                _appearanceSystem.TryGetData<bool>(uid, DoorVisuals.ClosedLights, out var closedLightsVisible, args.Component);
+                if (state == DoorState.Closed && closedLightsVisible)
+                    showBaseUnlit = true;
+            }
+>>>>>>> wizards-filtered
         }
 
-        _sprite.LayerSetVisible((uid, args.Sprite), DoorVisualLayers.BaseUnlit, unlitVisible);
-        _sprite.LayerSetVisible((uid, args.Sprite), DoorVisualLayers.BaseBolted, boltedVisible);
+        _sprite.LayerSetVisible((uid, args.Sprite), DoorVisualLayers.BaseUnlit, showBaseUnlit);
+        _sprite.LayerSetVisible((uid, args.Sprite), DoorVisualLayers.BaseBolted, showBolted);
         if (comp.EmergencyAccessLayer)
         {
-            _sprite.LayerSetVisible(
-                (uid, args.Sprite),
-                DoorVisualLayers.BaseEmergencyAccess,
-                    emergencyLightsVisible
-                &&  state != DoorState.Open
-                &&  state != DoorState.Opening
-                &&  state != DoorState.Closing
-                && !boltedVisible
-            );
+            var isDoorIdle = state != DoorState.Open && state != DoorState.Opening && state != DoorState.Closing;
+            _sprite.LayerSetVisible((uid, args.Sprite), DoorVisualLayers.BaseEmergencyAccess,
+                showEmergency && isDoorIdle && !showBolted);
         }
 
+<<<<<<< HEAD
         // ADT-Tweak. Чиним анимацию открывания/закрывания, которая ломалась после перезахода
         // switch (state)
         // {
@@ -135,5 +154,19 @@ public sealed class AirlockSystem : SharedAirlockSystem
         //         break;
         // }
         // ADT-Tweak end.
+=======
+        if (comp.OpenUnlitVisible)
+        {
+            switch (state)
+            {
+                case DoorState.Open:
+                    _sprite.LayerSetRsiState((uid, args.Sprite), DoorVisualLayers.BaseUnlit, comp.OpenSpriteState);
+                    break;
+                case DoorState.Closed:
+                    _sprite.LayerSetRsiState((uid, args.Sprite), DoorVisualLayers.BaseUnlit, comp.ClosedSpriteState);
+                    break;
+            }
+        }
+>>>>>>> wizards-filtered
     }
 }

@@ -1,10 +1,13 @@
+<<<<<<< HEAD
 ﻿- type: entity
+=======
+- type: entity
+  parent: [BaseDeltaPressurePlasma, BaseWindowStructure, BaseRCDResistant]
+>>>>>>> wizards-filtered
   id: UraniumWindow
   name: uranium window
-  parent: [BaseDeltaPressurePlasma, WindowRCDResistant]
   components:
   - type: Sprite
-    drawdepth: WallTops
     sprite: Structures/Windows/uranium_window.rsi
   - type: Icon
     sprite: Structures/Windows/uranium_window.rsi
@@ -15,12 +18,6 @@
     damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 200
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 100
@@ -53,14 +50,9 @@
     resistance: 5 # ADT-Tweak
 
 - type: entity
+  parent: [BaseDeltaPressurePlasmaQuarter, BaseWindowStructureDirectional, BaseRCDResistant]
   id: UraniumWindowDirectional
-  parent: [BaseDeltaPressurePlasmaQuarter, WindowDirectionalRCDResistant]
   name: directional uranium window
-  description: Don't smudge up the glass down there.
-  placement:
-    mode: SnapgridCenter
-    snap:
-    - Window
   components:
   - type: Sprite
     sprite: Structures/Windows/directional.rsi
@@ -78,14 +70,12 @@
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks_directional.rsi
+  - type: Damageable
+    damageModifierSet: Glass
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 50
@@ -104,6 +94,37 @@
     price: 100
   - type: RadiationBlocker
     resistance: 3 # ADT-Tweak
+
+- type: entity
+  parent: UraniumWindowDirectional
+  id: UraniumWindowDirectionalCorner
+  suffix: Corner
+  components:
+  - type: Sprite
+    sprite: Structures/Windows/directional.rsi
+    state: uranium_window_corner
+  - type: Icon
+    sprite: Structures/Windows/directional.rsi
+    state: uranium_window_corner
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,-0.28125,-0.28125"
+        density: 1500
+        mask:
+        - FullTileMask
+        layer:
+        - GlassLayer
+  - type: Construction
+    graph: WindowDirectionalCorner
+    node: uraniumWindowDirectionalCorner
+  - type: DamageVisuals
+    thresholds: [5, 10, 20]
+    trackAllDamage: true
+    damageOverlay:
+      sprite: Structures/Windows/cracks_directional_corner.rsi
 
 - type: entity
   parent: UraniumWindow

@@ -1,7 +1,11 @@
 {
     "version": 1,
     "license": "CC-BY-NC-SA-3.0",
+<<<<<<< HEAD
     "copyright": "Taken from goonstation at commit https://github.com/goonstation/goonstation/commit/8c9738746d1222a80dddff25af1bceda58bbccac and created by Flaborized and discord: unlumy",
+=======
+    "copyright": "Taken from goonstation at commit https://github.com/goonstation/goonstation/commit/8c9738746d1222a80dddff25af1bceda58bbccac and created by Flaborized.",
+>>>>>>> wizards-filtered
     "size": {
         "x": 32,
         "y": 32
@@ -96,6 +100,7 @@
         },
         {
             "name": "ancientball6"
+<<<<<<< HEAD
         },
         {
             "name": "bloodyone_piece1"
@@ -108,6 +113,8 @@
         },
         {
             "name": "forerunners_piece2"
+=======
+>>>>>>> wizards-filtered
         }
     ]
 }

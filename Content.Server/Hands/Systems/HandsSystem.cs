@@ -26,8 +26,9 @@ using Content.Shared.Inventory.VirtualItem;
 
 namespace Content.Server.Hands.Systems
 {
-    public sealed class HandsSystem : SharedHandsSystem
+    public sealed partial class HandsSystem : SharedHandsSystem
     {
+<<<<<<< HEAD
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly StackSystem _stackSystem = default!;
@@ -38,6 +39,16 @@ namespace Content.Server.Hands.Systems
         [Dependency] private readonly GrabThrownSystem _grabThrown = default!; // ADT Grab
 
         private EntityQuery<PhysicsComponent> _physicsQuery;
+=======
+        [Dependency] private IGameTiming _timing = default!;
+        [Dependency] private IRobustRandom _random = default!;
+        [Dependency] private StackSystem _stackSystem = default!;
+        [Dependency] private ActionBlockerSystem _actionBlockerSystem = default!;
+        [Dependency] private SharedTransformSystem _transformSystem = default!;
+        [Dependency] private PullingSystem _pullingSystem = default!;
+        [Dependency] private ThrowingSystem _throwingSystem = default!;
+        [Dependency] private EntityQuery<PhysicsComponent> _physicsQuery = default!;
+>>>>>>> wizards-filtered
 
         /// <summary>
         /// Items dropped when the holder falls down will be launched in
@@ -61,8 +72,6 @@ namespace Content.Server.Hands.Systems
             CommandBinds.Builder
                 .Bind(ContentKeyFunctions.ThrowItemInHand, new PointerInputCmdHandler(HandleThrowItem))
                 .Register<HandsSystem>();
-
-            _physicsQuery = GetEntityQuery<PhysicsComponent>();
         }
 
         public override void Shutdown()
@@ -74,7 +83,28 @@ namespace Content.Server.Hands.Systems
 
         private void GetComponentState(EntityUid uid, HandsComponent hands, ref ComponentGetState args)
         {
-            args.State = new HandsComponentState(hands);
+            // If we only switch hands don't send a full state.
+            if (args.FromTick > hands.CreationTick && hands.LastUnclassifiedDirty >= args.FromTick)
+            {
+                var aspects = EntityManager.GetModifiedAspects(hands, args.FromTick);
+
+                if (aspects == ActiveHandIdIndex)
+                {
+                    args.State = new HandsComponentActiveHandDeltaState(hands.ActiveHandId);
+                    return;
+                }
+            }
+
+            // Get full state.
+            args.State = new HandsComponentState(
+                hands.ActiveHandId,
+                hands.Hands,
+                hands.SortedHands,
+                hands.ShowInHands,
+                hands.HandDisplacement,
+                hands.LeftHandDisplacement,
+                hands.RightHandDisplacement,
+                hands.CanBeStripped);
         }
 
 

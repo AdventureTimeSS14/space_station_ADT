@@ -54,6 +54,7 @@
 //     canRestock:
 //     - InteractionTestVendingInventoryOther
 
+<<<<<<< HEAD
 // - type: entity
 //   id: {VendingMachineProtoId}
 //   parent: VendingMachine
@@ -64,6 +65,19 @@
 //   - type: Sprite
 //     sprite: error.rsi
 // ";
+=======
+- type: entity
+  id: {VendingMachineProtoId}
+  parent: BaseVendingMachine
+  components:
+  - type: VendingMachine
+    pack: InteractionTestVendingInventory
+  - type: VendingMachineEject
+    ejectDelay: 0 # no delay to speed up tests
+  - type: Sprite
+    sprite: error.rsi
+";
+>>>>>>> wizards-filtered
 
 //     [Test]
 //     public async Task InteractUITest()

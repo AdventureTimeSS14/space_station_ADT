@@ -1,7 +1,11 @@
 {
   "version": 2,
   "license": "CC-BY-SA-3.0",
+<<<<<<< HEAD
   "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/fbbddbb0122f655232165b6ab5e237ea8d178eca",
+=======
+  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/bfc9c6ba8126ee8c41564d68c4bfb9ce37faa8f8, inhands by TiniestShark (Github)",
+>>>>>>> wizards-filtered
   "size": {
     "x": 32,
     "y": 32

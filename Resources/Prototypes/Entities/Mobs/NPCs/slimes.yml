@@ -1,7 +1,7 @@
 ﻿- type: entity
   name: basic slime
   id: BaseMobAdultSlimes
-  parent: [ BaseMobSlimes, SimpleMobBase, MobCombat ]
+  parent: [ BaseMobSlimes, SimpleMobBase, MobCombat, BaseSlicingRefinable, MobNightVision, BaseMobDestructible ]
   abstract: true
   description: It looks so much like jelly. I wonder what it tastes like?
   components:
@@ -37,9 +37,8 @@
     tags:
     - FootstepSound
     - DoorBumpOpener
-  - type: Butcherable
-    butcheringType: Knife
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeatSlime
       amount: 2
   - type: Respirator
@@ -187,9 +186,14 @@
       rules: ghost-role-information-angry-slimes-rules
       mindRoles:
       - MindRoleGhostRoleTeamAntagonist
+<<<<<<< HEAD
 #      raffle:
 #        settings: short ADT tweak для быстрого захода на рольку
     - type: ForceAttack
+=======
+      raffle:
+        settings: short
+>>>>>>> wizards-filtered
 
 - type: entity
   name: green slime
@@ -228,9 +232,14 @@
       rules: ghost-role-information-angry-slimes-rules
       mindRoles:
       - MindRoleGhostRoleTeamAntagonist
+<<<<<<< HEAD
 #      raffle:
 #        settings: short ADT tweak для быстрого захода на рольку
     - type: ForceAttack
+=======
+      raffle:
+        settings: short
+>>>>>>> wizards-filtered
 
 - type: entity
   name: yellow slime
@@ -268,6 +277,11 @@
       rules: ghost-role-information-angry-slimes-rules
       mindRoles:
       - MindRoleGhostRoleTeamAntagonist
+<<<<<<< HEAD
 #      raffle:
 #        settings: short ADT tweak для быстрого захода на рольку
     - type: ForceAttack
+=======
+      raffle:
+        settings: short
+>>>>>>> wizards-filtered

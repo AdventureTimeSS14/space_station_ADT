@@ -10,12 +10,18 @@ using Robust.Shared.Prototypes;
 namespace Content.Server.Administration.Commands;
 
 [AdminCommand(AdminFlags.Fun)]
-public sealed class TippyCommand : LocalizedEntityCommands
+public sealed partial class TippyCommand : LocalizedEntityCommands
 {
+<<<<<<< HEAD
     [Dependency] private readonly SharedTipsSystem _tips = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+=======
+    [Dependency] private SharedTipsSystem _tips = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IPlayerManager _player = default!;
+>>>>>>> wizards-filtered
 
     public override string Command => "tippy";
 
@@ -98,10 +104,14 @@ public sealed class TippyCommand : LocalizedEntityCommands
 }
 
 [AdminCommand(AdminFlags.Fun)]
-public sealed class TipCommand : LocalizedEntityCommands
+public sealed partial class TipCommand : LocalizedEntityCommands
 {
+<<<<<<< HEAD
     [Dependency] private readonly SharedTipsSystem _tips = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+=======
+    [Dependency] private SharedTipsSystem _tips = default!;
+>>>>>>> wizards-filtered
 
     public override string Command => "tip";
 

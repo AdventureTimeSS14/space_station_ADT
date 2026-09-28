@@ -27,8 +27,14 @@ namespace Content.Client.Chemistry.UI
     [GenerateTypedNameReferences]
     public sealed partial class ChemMasterWindow : FancyWindow
     {
+<<<<<<< HEAD
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
+=======
+        [Dependency] private IPrototypeManager _prototypeManager = default!;
+        [Dependency] private IEntityManager _entityManager = default!;
+
+>>>>>>> wizards-filtered
         private readonly SpriteSystem _sprite;
 
         public event Action<BaseButton.ButtonEventArgs, ReagentButton, int, bool>? OnReagentButtonPressed; //ADT-Tweak: New delegate args
@@ -703,11 +709,27 @@ namespace Content.Client.Chemistry.UI
             if (!addReagentButtons)
                 return null; // Return an empty list if reagentTransferButton creation is disabled.
 
+<<<<<<< HEAD
             // ADT-Tweak-Start: Use the appropriate toggle (buffer vs. pill) when determining the text
             var isTransfer = BufferTransferButton.Pressed;
             var text = isTransfer
                 ? "transfer"
                 : "discard";
+=======
+            var buttonConfigs = new (string text, ChemMasterReagentAmount amount, string styleClass)[]
+            {
+                ("1", ChemMasterReagentAmount.U1, StyleClass.ButtonOpenBoth),
+                ("5", ChemMasterReagentAmount.U5, StyleClass.ButtonOpenBoth),
+                ("10", ChemMasterReagentAmount.U10, StyleClass.ButtonOpenBoth),
+                ("15", ChemMasterReagentAmount.U15, StyleClass.ButtonOpenBoth),
+                ("20", ChemMasterReagentAmount.U20, StyleClass.ButtonOpenBoth),
+                ("30", ChemMasterReagentAmount.U30, StyleClass.ButtonOpenBoth),
+                ("40", ChemMasterReagentAmount.U40, StyleClass.ButtonOpenBoth),
+                ("60", ChemMasterReagentAmount.U60, StyleClass.ButtonOpenBoth),
+                ("120", ChemMasterReagentAmount.U120, StyleClass.ButtonOpenBoth),
+                (Loc.GetString("chem-master-window-buffer-all-amount"), ChemMasterReagentAmount.All, StyleClass.ButtonOpenLeft),
+            };
+>>>>>>> wizards-filtered
 
             var reagentTransferButton = MakeReagentButton(
                 Loc.GetString($"chem-master-window-{text}-button"),

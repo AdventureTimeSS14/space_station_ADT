@@ -3,9 +3,9 @@
 # ability to have applied colors yet in GUIs. And also inhands... -Swept
 
 - type: entity
-  id: CableStack
   abstract: true
-  parent: BaseItem
+  parent: [SolutionCompositeSmallStackable, BaseItem, BaseItemDestructible]
+  id: CableStack
   name: cable stack
   suffix: Full
   components:
@@ -16,6 +16,7 @@
     stackType: Cable
   - type: Sprite
     sprite: Objects/Tools/cable-coils.rsi
+  - type: Appearance
   - type: Item
     sprite: Objects/Tools/cable-coils.rsi
     size: Small
@@ -48,6 +49,7 @@
     # ADT Tweak End
   - type: Damageable
     damageModifierSet: Metallic
+<<<<<<< HEAD
   - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
@@ -58,6 +60,10 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
+=======
+  - type: Extractable
+    grindableSolutionName: composite
+>>>>>>> wizards-filtered
 
 - type: entity
   id: CableHVStack
@@ -83,6 +89,7 @@
   - type: CablePlacer
     cablePrototypeID: CableHV
     blockingWireType: HighVoltage
+<<<<<<< HEAD
   - type: Appearance
   - type: Extractable
     grindableSolutionName: hvcable
@@ -105,6 +112,17 @@
         Shock: -10
         Caustic: -10
     # ADT Tweak End
+=======
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Iron
+        Quantity: 2.5
+      - ReagentId: Copper
+        Quantity: 2
+      - ReagentId: Carbon #steel-reinforced
+        Quantity: 0.5
+>>>>>>> wizards-filtered
 
 - type: entity
   parent: CableHVStack
@@ -127,7 +145,7 @@
     count: 1
 
 - type: entity
-  parent: CableStack
+  parent: [SolutionCompositeCable, CableStack]
   id: CableMVStack
   name: MV cable coil
   suffix: Full
@@ -146,21 +164,23 @@
     - state: coilmv-30
       map: ["base"]
   - type: Item
-    heldPrefix: coilmv
+    heldPrefix: composite
   - type: CablePlacer
     cablePrototypeID: CableMV
     blockingWireType: MediumVoltage
-  - type: Appearance
-  - type: Extractable
-    grindableSolutionName: mvcable
-  - type: SolutionContainerManager
-    solutions:
-      mvcable:
-        reagents:
-        - ReagentId: Iron
-          Quantity: 3
-        - ReagentId: Copper
-          Quantity: 2
+
+- type: entity
+  abstract: true
+  parent: SolutionCompositeSmallStackable
+  id: SolutionCompositeCable
+  components:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Iron
+        Quantity: 3
+      - ReagentId: Copper
+        Quantity: 2
 
 - type: entity
   parent: CableMVStack
@@ -183,7 +203,7 @@
     count: 1
 
 - type: entity
-  parent: CableStack
+  parent: [SolutionCompositeCable, CableStack]
   id: CableApcStack
   name: LV cable coil
   description: Low-Voltage stack of wires for connecting APCs to machines and other purposes.
@@ -205,6 +225,7 @@
   - type: CablePlacer
     cablePrototypeID: CableApcExtension
     blockingWireType: Apc
+<<<<<<< HEAD
   - type: Appearance
   - type: Extractable
     grindableSolutionName: lvcable
@@ -232,6 +253,8 @@
     healingEndSound:
       path: "/Audio/Items/Medical/brutepack_end.ogg"
 ##Corvax-species-end
+=======
+>>>>>>> wizards-filtered
 
 - type: entity
   parent: CableApcStack

@@ -2,7 +2,11 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs.Components;
+<<<<<<< HEAD
 using Content.Shared.Movement.Systems; // ADT-Tweak
+=======
+using Content.Shared.Popups;
+>>>>>>> wizards-filtered
 using Content.Shared.Standing;
 using Robust.Shared.Timing;
 
@@ -11,6 +15,7 @@ namespace Content.Shared.Mobs.Systems;
 [Virtual]
 public partial class MobStateSystem : EntitySystem
 {
+<<<<<<< HEAD
     [Dependency] private readonly ActionBlockerSystem _blocker = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
@@ -20,14 +25,22 @@ public partial class MobStateSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _moveMod = default!; // ADT-Tweak
     private ISawmill _sawmill = default!;
+=======
+    [Dependency] private ActionBlockerSystem _blocker = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private StandingStateSystem _standing = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+>>>>>>> wizards-filtered
 
-    private EntityQuery<MobStateComponent> _mobStateQuery;
+    [Dependency] private EntityQuery<MobStateComponent> _mobStateQuery = default!;
 
     public override void Initialize()
     {
-        _sawmill = _logManager.GetSawmill("MobState");
-        _mobStateQuery = GetEntityQuery<MobStateComponent>();
         base.Initialize();
+
         SubscribeEvents();
     }
 

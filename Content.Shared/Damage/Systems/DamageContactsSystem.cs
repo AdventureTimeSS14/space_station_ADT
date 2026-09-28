@@ -7,12 +7,14 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.Damage.Systems;
 
-public sealed class DamageContactsSystem : EntitySystem
+public sealed partial class DamageContactsSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
+
+    [Dependency] private EntityQuery<DamageContactsComponent> _damageQuery = default!;
 
     public override void Initialize()
     {
@@ -101,12 +103,22 @@ public sealed class DamageContactsSystem : EntitySystem
         if (!TryComp<DamagedByContactComponent>(otherUid, out var damagedByContact)) // ADT-Tweak
             return;
 
+<<<<<<< HEAD
         // ADT-Tweak start
         damagedByContact.Sources.Remove(uid);
 
         if (damagedByContact.Sources.Count == 0)
         {
             RemComp<DamagedByContactComponent>(otherUid);
+=======
+        foreach (var ent in _physics.GetContactingEntities(otherUid, body))
+        {
+            if (ent == uid)
+                continue;
+
+            if (_damageQuery.HasComponent(ent))
+                return;
+>>>>>>> wizards-filtered
         }
         // ADT-Tweak end
     }

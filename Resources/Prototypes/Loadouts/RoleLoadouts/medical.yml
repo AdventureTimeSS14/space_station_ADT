@@ -15,6 +15,7 @@
   - ChiefMedicalOfficerNeck
   - ADTChiefMedicalOfficerEars # ADT tweak
   - ChiefMedicalOfficerShoes
+<<<<<<< HEAD
   - MedicalEyewear
   - ADTCMOPDA # ADT tweak
   # ADT underwear tweak start
@@ -22,6 +23,10 @@
   - ADTBottomCMO
   - ADTSocks
   # ADT underwear tweak end
+=======
+  - Glasses
+  - AssistiveItems
+>>>>>>> wizards-filtered
   - SurvivalMedical
   - Trinkets
  # - ChiefMedicalOfficerJobTrinkets
@@ -41,12 +46,17 @@
   - MedicalDoctorOuterClothing
   - MedicalShoes
   - MedicalDoctorPDA
+<<<<<<< HEAD
   - MedicalEyewear
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+=======
+  - Glasses
+  - AssistiveItems
+>>>>>>> wizards-filtered
   - SurvivalMedical
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -60,6 +70,7 @@
   - GroupTankHarness
   - MedicalInternJumpsuit
   - MedicalBackpack
+<<<<<<< HEAD
   - MedicalEyewear
   - ADTMedicalBelt # ADT tweak
   - ADTMedicalInternPDA # ADT tweak
@@ -68,6 +79,10 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+=======
+  - Glasses
+  - AssistiveItems
+>>>>>>> wizards-filtered
   - SurvivalMedical
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -85,11 +100,16 @@
   - ChemistBackpack
   - ChemistOuterClothing
   - MedicalShoes
+<<<<<<< HEAD
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+=======
+  - Glasses
+  - AssistiveItems
+>>>>>>> wizards-filtered
   - SurvivalMedical
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -112,12 +132,17 @@
   # ADT tweak End
   - ParamedicOuterClothing
   - ParamedicShoes
+<<<<<<< HEAD
   - MedicalEyewear
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+=======
+  - Glasses
+  - AssistiveItems
+>>>>>>> wizards-filtered
   - SurvivalMedical
   - Trinkets
   - ADTSprayPaints # ADT-Tweak

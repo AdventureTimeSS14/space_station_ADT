@@ -133,7 +133,6 @@
   - type: Puller
     needsHands: false
   - type: Butcherable
-    butcheringType: Spike
     spawned:
     - id: FoodMeatLizard
       amount: 5
@@ -196,10 +195,7 @@
       sprite: Effects/creampie.rsi
       state: creampie_lizard
   - type: Vocal
-    sounds:
-      Male: MaleReptilian
-      Female: FemaleReptilian
-      Unsexed: MaleReptilian
+    emoteSounds: MaleReptilian
   - type: BodyEmotes
     soundsId: ReptilianBodyEmotes
   - type: Damageable
@@ -213,11 +209,8 @@
     damage:
       types:
         Slash: 5
-  - type: Temperature
-    currentTemperature: 310.15
-    specificHeat: 42
   - type: TemperatureDamage
-    heatDamageThreshold: 400
+    heatDamageThreshold: 321.15
     coldDamageThreshold: 285
     coldDamage:
       types:

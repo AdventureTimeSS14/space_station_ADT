@@ -12,13 +12,17 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.Clothing;
 
+<<<<<<< HEAD
 public sealed partial class ClothingSpeedModifierSystem : EntitySystem // ADT-Tweak
+=======
+public sealed partial class ClothingSpeedModifierSystem : EntitySystem
+>>>>>>> wizards-filtered
 {
-    [Dependency] private readonly ExamineSystemShared _examine = default!;
-    [Dependency] private readonly ItemToggleSystem _toggle = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!;
+    [Dependency] private ExamineSystemShared _examine = default!;
+    [Dependency] private ItemToggleSystem _toggle = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeed = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private StandingStateSystem _standing = default!;
 
     public override void Initialize()
     {
@@ -124,7 +128,7 @@ public sealed partial class ClothingSpeedModifierSystem : EntitySystem // ADT-Tw
             return;
 
         // make sentient boots slow or fast too
-        _movementSpeed.RefreshMovementSpeedModifiers(ent);
+        _movementSpeed.RefreshMovementSpeedModifiers(ent.Owner);
 
         if (_container.TryGetContainingContainer((ent.Owner, null, null), out var container))
         {

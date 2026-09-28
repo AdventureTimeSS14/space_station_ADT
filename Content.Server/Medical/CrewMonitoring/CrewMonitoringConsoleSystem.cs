@@ -28,8 +28,9 @@ using Content.Shared.Roles;
 
 namespace Content.Server.Medical.CrewMonitoring;
 
-public sealed class CrewMonitoringConsoleSystem : EntitySystem
+public sealed partial class CrewMonitoringConsoleSystem : EntitySystem
 {
+<<<<<<< HEAD
     [Dependency] private readonly PowerCellSystem _cell = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     // ADT-Tweak Start - New Monitor: server subscriber
@@ -58,6 +59,10 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
     private float _consoleUpdateAccumulator;
     private List<Entity<MapGridComponent>> _navMapGridBuffer = new();
     // ADT-Tweak End
+=======
+    [Dependency] private PowerCellSystem _cell = default!;
+    [Dependency] private UserInterfaceSystem _uiSystem = default!;
+>>>>>>> wizards-filtered
 
     public override void Initialize()
     {

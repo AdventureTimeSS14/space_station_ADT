@@ -16,7 +16,6 @@ using Content.Shared.GameTicking;
 using Content.Shared.Mind;
 using Content.Shared.Roles;
 using Robust.Server;
-using Robust.Server.GameObjects;
 using Robust.Server.GameStates;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
@@ -26,7 +25,6 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Console;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -38,20 +36,19 @@ namespace Content.Server.GameTicking
 {
     public sealed partial class GameTicker : SharedGameTicker
     {
-        [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-        [Dependency] private readonly IBanManager _banManager = default!;
-        [Dependency] private readonly IBaseServer _baseServer = default!;
-        [Dependency] private readonly IChatManager _chatManager = default!;
-        [Dependency] private readonly IConsoleHost _consoleHost = default!;
-        [Dependency] private readonly IGameMapManager _gameMapManager = default!;
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly ILogManager _logManager = default!;
-        [Dependency] private readonly IMapManager _mapManager = default!;
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly IRobustRandom _robustRandom = default!;
+        [Dependency] private IAdminLogManager _adminLogger = default!;
+        [Dependency] private IBanManager _banManager = default!;
+        [Dependency] private IBaseServer _baseServer = default!;
+        [Dependency] private IChatManager _chatManager = default!;
+        [Dependency] private IConsoleHost _consoleHost = default!;
+        [Dependency] private IGameMapManager _gameMapManager = default!;
+        [Dependency] private IGameTiming _gameTiming = default!;
+        [Dependency] private ILogManager _logManager = default!;
+        [Dependency] private IRobustRandom _robustRandom = default!;
 #if EXCEPTION_TOLERANCE
-        [Dependency] private readonly IRuntimeLog _runtimeLog = default!;
+        [Dependency] private IRuntimeLog _runtimeLog = default!;
 #endif
+<<<<<<< HEAD
         [Dependency] private readonly IServerPreferencesManager _prefsManager = default!;
         [Dependency] private readonly IServerDbManager _db = default!;
         [Dependency] private readonly ChatSystem _chatSystem = default!;
@@ -72,6 +69,26 @@ namespace Content.Server.GameTicking
         [Dependency] private readonly SharedRoleSystem _roles = default!;
         [Dependency] private readonly ServerDbEntryManager _dbEntryManager = default!;
         [Dependency] private readonly DamageableSystem _damageable = default!;
+=======
+        [Dependency] private IServerPreferencesManager _prefsManager = default!;
+        [Dependency] private IServerDbManager _db = default!;
+        [Dependency] private ChatSystem _chatSystem = default!;
+        [Dependency] private MapLoaderSystem _loader = default!;
+        [Dependency] private SharedMapSystem _map = default!;
+        [Dependency] private GhostSystem _ghost = default!;
+        [Dependency] private SharedMindSystem _mind = default!;
+        [Dependency] private PlayTimeTrackingSystem _playTimeTrackings = default!;
+        [Dependency] private PvsOverrideSystem _pvsOverride = default!;
+        [Dependency] private ServerUpdateManager _serverUpdates = default!;
+        [Dependency] private SharedAudioSystem _audio = default!;
+        [Dependency] private StationJobsSystem _stationJobs = default!;
+        [Dependency] private StationSpawningSystem _stationSpawning = default!;
+        [Dependency] private SharedTransformSystem _transform = default!;
+        [Dependency] private UserDbDataManager _userDb = default!;
+        [Dependency] private MetaDataSystem _metaData = default!;
+        [Dependency] private SharedRoleSystem _roles = default!;
+        [Dependency] private ServerDbEntryManager _dbEntryManager = default!;
+>>>>>>> wizards-filtered
 
         [ViewVariables] private bool _initialized;
         [ViewVariables] private bool _postInitialized;
@@ -100,7 +117,7 @@ namespace Content.Server.GameTicking
             InitializePlayer();
             InitializeLobbyBackground();
             InitializeGamePreset();
-            DebugTools.Assert(_prototypeManager.Index(FallbackOverflowJob).Name == FallbackOverflowJobName,
+            DebugTools.Assert(ProtoMan.Index(FallbackOverflowJob).Name == FallbackOverflowJobName,
                 "Overflow role does not have the correct name!");
             InitializeGameRules();
             InitializeReplays();
@@ -139,6 +156,11 @@ namespace Content.Server.GameTicking
             base.Update(frameTime);
             UpdateRoundFlow(frameTime);
             UpdateGameRules();
+        }
+
+        public static int GetRoundId(IEntitySystemManager esm)
+        {
+            return esm.GetEntitySystemOrNull<GameTicker>()?.RoundId ?? 0;
         }
     }
 }

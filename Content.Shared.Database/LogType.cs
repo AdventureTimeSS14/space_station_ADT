@@ -484,6 +484,7 @@ public enum LogType
     /// </summary>
     Connection = 104,
 
+<<<<<<< HEAD
     // ADT Start
     /// <summary>
     /// A player grabbed another player
@@ -495,4 +496,10 @@ public enum LogType
     /// </summary>
     CatchBreath = 106,
     // ADT End
+=======
+    /// <summary>
+    /// Silicon law changes.
+    /// </summary>
+    SiliconLaw = 105,
+>>>>>>> wizards-filtered
 }

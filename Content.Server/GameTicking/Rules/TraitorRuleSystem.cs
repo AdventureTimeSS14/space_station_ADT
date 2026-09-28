@@ -2,7 +2,6 @@ using Content.Server.Antag;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Mind;
 using Content.Server.Objectives;
-using Content.Server.PDA.Ringer;
 using Content.Server.Traitor.Uplink;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mind;
@@ -13,19 +12,22 @@ using Content.Shared.Roles;
 using Content.Shared.Roles.Components;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Roles.RoleCodeword;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
 using Content.Server.Codewords;
+<<<<<<< HEAD
 using Content.Shared.Bed.Cryostorage;
 using Robust.Shared.Map;
+=======
+>>>>>>> wizards-filtered
 
 namespace Content.Server.GameTicking.Rules;
 
-public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
+public sealed partial class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
 {
     private static readonly Color TraitorCodewordColor = Color.FromHex("#cc3b3b");
+<<<<<<< HEAD
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly SharedJobSystem _jobs = default!;
     [Dependency] private readonly MindSystem _mindSystem = default!;
@@ -36,6 +38,18 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     [Dependency] private readonly SharedRoleSystem _roleSystem = default!;
     [Dependency] private readonly UplinkSystem _uplink = default!;
     [Dependency] private readonly CodewordSystem _codewordSystem = default!;
+=======
+
+    [Dependency] private AntagSelectionSystem _antag = default!;
+    [Dependency] private SharedJobSystem _jobs = default!;
+    [Dependency] private MindSystem _mindSystem = default!;
+    [Dependency] private NpcFactionSystem _npcFaction = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedRoleCodewordSystem _roleCodewordSystem = default!;
+    [Dependency] private SharedRoleSystem _roleSystem = default!;
+    [Dependency] private UplinkSystem _uplink = default!;
+    [Dependency] private CodewordSystem _codewordSystem = default!;
+>>>>>>> wizards-filtered
 
     public override void Initialize()
     {
@@ -72,7 +86,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
             briefing = Loc.GetString("traitor-role-codewords-short", ("codewords", string.Join(", ", factionCodewords)));
         }
 
-        var issuer = _random.Pick(_prototypeManager.Index(component.ObjectiveIssuers));
+        var issuer = _random.Pick(ProtoMan.Index(component.ObjectiveIssuers));
 
         // Uplink code will go here if applicable, but we still need the variable if there aren't any
         Note[]? code = null;

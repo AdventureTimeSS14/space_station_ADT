@@ -1,4 +1,4 @@
-﻿using Content.Client.FeedbackPopup;
+using Content.Client.FeedbackPopup;
 using Content.Client.Gameplay;
 using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.Guidebook;
@@ -17,16 +17,17 @@ using static Robust.Client.UserInterface.Controls.BaseButton;
 namespace Content.Client.UserInterface.Systems.EscapeMenu;
 
 [UsedImplicitly]
-public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>
+public sealed partial class EscapeUIController : UIController, IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>
 {
-    [Dependency] private readonly IClientConsoleHost _console = default!;
-    [Dependency] private readonly IUriOpener _uri = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly ChangelogUIController _changelog = default!;
-    [Dependency] private readonly InfoUIController _info = default!;
-    [Dependency] private readonly OptionsUIController _options = default!;
-    [Dependency] private readonly GuidebookUIController _guidebook = default!;
-    [Dependency] private readonly FeedbackPopupUIController _feedback = null!;
+    [Dependency] private IClientConsoleHost _console = default!;
+    [Dependency] private IUriOpener _uri = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private ChangelogUIController _changelog = default!;
+    [Dependency] private InfoUIController _info = default!;
+    [Dependency] private OptionsUIController _options = default!;
+    [Dependency] private GuidebookUIController _guidebook = default!;
+    [Dependency] private FeedbackPopupUIController _feedback = null!;
+    [Dependency] private ILocalizationManager _loc = default!;
 
     private Options.UI.EscapeMenu? _escapeWindow;
 
@@ -101,6 +102,7 @@ public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayS
             _console.ExecuteCommand("quit");
         };
 
+<<<<<<< HEAD
         // ADT-Tweak-start
         _escapeWindow.WebSiteButton.OnPressed += _ =>
         {
@@ -108,6 +110,13 @@ public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayS
         };
         _escapeWindow.WebSiteButton.Visible = _cfg.GetCVar(CCVars.InfoLinksWebsite) != "";
         // ADT-Tweak-end
+=======
+        _escapeWindow.AdminRemarksButton.OnPressed += _ =>
+        {
+            CloseEscapeWindow();
+            _console.ExecuteCommand("adminremarks");
+        };
+>>>>>>> wizards-filtered
 
         _escapeWindow.WikiButton.OnPressed += _ =>
         {
@@ -122,6 +131,8 @@ public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayS
         // Hide wiki button if we don't have a link for it.
         _escapeWindow.WikiButton.Visible = _cfg.GetCVar(CCVars.InfoLinksWiki) != "";
 
+        _cfg.OnValueChanged(CCVars.SeeOwnNotes, OnSeeOwnNotesChanged, true);
+
         CommandBinds.Builder
             .Bind(EngineKeyFunctions.EscapeMenu,
                 InputCmdHandler.FromDelegate(_ => ToggleWindow()))
@@ -130,6 +141,8 @@ public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayS
 
     public void OnStateExited(GameplayState state)
     {
+        _cfg.UnsubValueChanged(CCVars.SeeOwnNotes, OnSeeOwnNotesChanged);
+
         if (_escapeWindow != null)
         {
             _escapeWindow.Dispose();
@@ -137,6 +150,17 @@ public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayS
         }
 
         CommandBinds.Unregister<EscapeUIController>();
+    }
+
+    private void OnSeeOwnNotesChanged(bool seeOwnNotes)
+    {
+        if (_escapeWindow == null)
+            return;
+
+        _escapeWindow.AdminRemarksButton.Disabled = !seeOwnNotes;
+        _escapeWindow.AdminRemarksButton.ToolTip = !seeOwnNotes
+            ? _loc.GetString("ui-escape-remarks-button-disabled")
+            : null;
     }
 
     private void EscapeButtonOnOnPressed(ButtonEventArgs obj)

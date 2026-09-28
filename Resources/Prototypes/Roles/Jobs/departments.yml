@@ -14,8 +14,14 @@
   id: Civilian
   name: department-Civilian
   description: department-Civilian-description
+<<<<<<< HEAD
   color: "#8AD44A" # ADT-Tweak
   weight: -4 # ADT EDIT
+=======
+  color: "#9FED58"
+  weight: -10
+  ignoreForDepartmentFallback: true
+>>>>>>> wizards-filtered
   roles:
   - Bartender
   - Botanist
@@ -31,8 +37,13 @@
   - Reporter
   - Visitor
   - ServiceWorker
+<<<<<<< HEAD
   - ADTBarber # ADT-Tweak
+=======
+  - TramDriver
+>>>>>>> wizards-filtered
 
+# Please kill this
 - type: department
   id: CentralCommand
   name: department-CentralCommand
@@ -70,6 +81,7 @@
   - HeadOfSecurity
   - ResearchDirector
   - Quartermaster
+<<<<<<< HEAD
   # - CentralCommandOfficial втф ADT
   # - CBURN
   # - ERTLeader
@@ -79,6 +91,18 @@
   # - ERTSecurity
   # - ERTEngineer
   # - DeathSquad
+=======
+  # Please kill these
+  - CentralCommandOfficial
+  - CBURN
+  - ERTLeader
+  - ERTChaplain
+  - ERTJanitor
+  - ERTMedical
+  - ERTSecurity
+  - ERTEngineer
+  - DeathSquad
+>>>>>>> wizards-filtered
   primary: false
 
 - type: department
@@ -160,6 +184,7 @@
   id: Specific
   name: department-Specific
   description: department-Specific-description
+<<<<<<< HEAD
   color: "#29282f"
   weight: -10 # ADT EDIT
   roles:
@@ -167,4 +192,13 @@
   - Psychologist
   # - Pilot # Corvax-Pilot
   - ADTBarber # ADT-Tweak
+=======
+  color: "#9FED58"
+  weight: 10
+  ignoreForDepartmentFallback: true
+  roles:
+  - Reporter
+  - Psychologist
+  - TramDriver
+>>>>>>> wizards-filtered
   primary: false

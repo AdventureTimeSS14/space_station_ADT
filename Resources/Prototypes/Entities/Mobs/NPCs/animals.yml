@@ -1,6 +1,6 @@
 - type: entity
   name: bat
-  parent: [ SimpleMobBase, FlyingMobBase, MobCombat ]
+  parent: [ SimpleMobBase, FlyingMobBase, MobCombat, BaseSlicingRefinable, MobNightVision ]
   id: MobBat
   description: Some cultures find them terrifying, others crunchy on the teeth.
   components:
@@ -36,8 +36,8 @@
         Base: dead
       Dead:
         Base: dead
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeat
       amount: 1
   - type: InteractionPopup
@@ -94,7 +94,7 @@
 
 - type: entity
   name: bee
-  parent: [ SimpleMobBase, FlyingMobBase ]
+  parent: [ SolutionFood, SolutionTiny, SimpleMobBase, FlyingMobBase, BaseSlicingRefinable ]
   id: MobBee
   description: Nice to have, but you can't build a civilization on a foundation of honey alone.
   components:
@@ -137,15 +137,13 @@
         Base: dead
   - type: Extractable
     grindableSolutionName: food
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: GroundBee
-          Quantity: 1
-  - type: Butcherable
-    spawned:
-    - id: null # Should give nothing when you butcher it so we set the item id it needs to spawn to null
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: GroundBee
+        Quantity: 1
+  - type: ToolRefinable
+    refineResult: [] # Should give nothing when you butcher it so we set the item id it needs to spawn to null
   - type: Item
     size: Tiny
   - type: Tag
@@ -211,7 +209,7 @@
 
 - type: entity
   name: chicken
-  parent: SimpleMobBase
+  parent: [SimpleMobBase, BaseSlicingRefinable, BaseMobDestructible, BaseExaminableHunger]
   id: MobChicken
   description: Comes before an egg, and IS a dinosaur!
   components:
@@ -251,6 +249,7 @@
     breedChance: 0.05
     birthPopup: reproductive-laid-egg-popup
     makeOffspringInfant: false
+    minHungerThreshold: Peckish
     partnerWhitelist:
       tags:
       - Chicken
@@ -267,6 +266,13 @@
         Base: dead-0
       Dead:
         Base: dead-0
+<<<<<<< HEAD
+=======
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodMeatChicken
+      amount: 1
+>>>>>>> wizards-filtered
   - type: InteractionPopup
     successChance: 0.8
     interactSuccessString: petting-success-bird
@@ -279,10 +285,29 @@
       reagents:
       - ReagentId: Blood
         Quantity: 100
+<<<<<<< HEAD
   - type: EggLayer
     eggSpawn:
     - id: ADTFoodEggLaid # ADT: FoodEgg<ADTFoodEggLaid
   - type: ExaminableHunger
+=======
+  - type: EntityProducerAction
+    insufficientSatiationPopup: action-popup-lay-egg-too-hungry
+    userPopup: action-popup-lay-egg-user
+    othersPopup: action-popup-lay-egg-others
+  - type: SatiationProduction
+    delay: 60
+    delayMax: 120
+    satiationUsage: 60
+    minimumSatiation: 60
+    automaticForPlayers: false
+  - type: EntityProducer
+    table:
+      id: FoodEgg
+  - type: ActionGrant
+    actions:
+    - ActionAnimalLayEgg
+>>>>>>> wizards-filtered
   - type: ReplacementAccent
     accent: chicken
   - type: SentienceTarget
@@ -361,23 +386,16 @@
     - MobChicken1
     - MobChicken2
     intervalSeconds: 20
-    minimumEntitiesSpawned: 1
-    maximumEntitiesSpawned: 1
   - type: TimedDespawn #delete the egg after the chicken spawns
     lifetime: 21
 
 - type: entity
-  name: cockroach
-  parent: SimpleMobBase
-  id: MobCockroach
-  description: This station is just crawling with bugs.
+  abstract: true
+  parent: [SolutionFood, SolutionTiny, SimpleMobBase, BaseSlicingRefinable, MobNightVision]
+  id: BaseCockroach
   components:
   - type: Sprite
     drawdepth: SmallMobs
-    sprite: Mobs/Animals/cockroach.rsi
-    layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
-      state: cockroach
   - type: Item
     size: Tiny
   # ADT-Tweak start
@@ -408,14 +426,6 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.5
     baseSprintSpeed : 5
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: cockroach
-      Critical:
-        Base: cockroach_dead
-      Dead:
-        Base: cockroach_dead
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:
@@ -427,18 +437,19 @@
     - horrible
     - terrible
     - chewy
-  - type: Hunger
-    baseDecayRate: 0.25
+  - type: Satiation
+    satiations:
+      Hunger:
+        prototype: CockroachHunger
   - type: Extractable
     grindableSolutionName: food
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Slime
-          Quantity: 5
-  - type: Butcherable
-    spawned:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Slime
+        Quantity: 10
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeatSlime
   - type: Damageable
     damageModifierSet: Cockroach
@@ -448,6 +459,7 @@
     tags:
     - Trash
     - VimPilot
+<<<<<<< HEAD
   # ADT-Tweak
   - type: MobCollision
     enabled: false
@@ -460,6 +472,8 @@
   #     behaviors:
   #     - !type:GibBehavior { }
   # ADT-Tweak
+=======
+>>>>>>> wizards-filtered
   - type: NonSpreaderZombie
   - type: StepTrigger
     requiredTriggeredSpeed: 1
@@ -477,6 +491,35 @@
       types:
         Piercing: 0
   - type: SupermatterIgnore # ADT-Tweak
+
+- type: entity
+  parent: BaseCockroach
+  id: MobCockroach
+  name: cockroach
+  description: This station is just crawling with bugs.
+  components:
+  - type: Sprite
+    sprite: Mobs/Animals/cockroach.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: cockroach
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: cockroach
+      Critical:
+        Base: cockroach_dead
+      Dead:
+        Base: cockroach_dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 10
+      behaviors:
+      - !type:GibBehavior
+        recursive: false
 
 - type: entity
   name: glockroach
@@ -506,13 +549,10 @@
   - type: NpcFactionMember
     factions:
     - SimpleHostile
-  - type: Butcherable
-    spawned:
-    - id: FoodMeatSlime
 
 - type: entity
   name: mothroach
-  parent: [ BaseMobMothroach, MobCockroach ]
+  parent: [ BaseMobMothroach, BaseCockroach, BaseSlicingRefinable ]
   id: MobMothroach
   description: This is the adorable by-product of multiple attempts at genetically mixing mothpeople with cockroaches.
   components:
@@ -588,6 +628,8 @@
     weightlessAcceleration: 1.5
     weightlessFriction: 1
     baseWeightlessModifier: 1
+  - type: NameIdentifier
+    group: AdjectivePrefix
   - type: Damageable
     damageModifierSet: Moth
   - type: Injurable
@@ -605,8 +647,13 @@
       types:
         Asphyxiation: -0.5
   - type: CombatMode
-  - type: Butcherable
-    spawned:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Slime
+        Quantity: 20
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeatSlime
       amount: 2
   - type: Extractable
@@ -616,12 +663,16 @@
   - type: ZombieAccentOverride
     accent: zombieMoth
   - type: Vocal
+<<<<<<< HEAD
     sounds:
       # Start-ADT Tweak Нианы
       Male: MaleMoth
       Female: FemaleMoth
       Unsexed: MaleMoth
       # End-ADT Tweak Нианы
+=======
+    emoteSounds: UnisexMoth
+>>>>>>> wizards-filtered
     wilhelmProbability: 0.001
   - type: BodyEmotes
     soundsId: MothBodyEmotes
@@ -697,7 +748,7 @@
 
 - type: entity
   name: mallard duck #Quack
-  parent: SimpleMobBase
+  parent: [SimpleMobBase, BaseSlicingRefinable, BaseMobDestructible, BaseExaminableHunger]
   id: MobDuckMallard
   description: An adorable mallard duck, it's fluffy and soft!
   components:
@@ -727,6 +778,7 @@
     breedChance: 0.05
     birthPopup: reproductive-laid-egg-popup
     makeOffspringInfant: false
+    minHungerThreshold: Peckish
     partnerWhitelist:
       tags:
       - Duck
@@ -743,8 +795,8 @@
         Base: dead-0
       Dead:
         Base: dead-0
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeatDuck
       amount: 1
   - type: InteractionPopup
@@ -759,10 +811,29 @@
       reagents:
       - ReagentId: Blood
         Quantity: 100
+<<<<<<< HEAD
   - type: EggLayer
     eggSpawn:
     - id: ADTFoodEggLaid # ADT: FoodEgg<ADTFoodEggLaid
   - type: ExaminableHunger
+=======
+  - type: EntityProducerAction
+    insufficientSatiationPopup: action-popup-lay-egg-too-hungry
+    userPopup: action-popup-lay-egg-user
+    othersPopup: action-popup-lay-egg-others
+  - type: SatiationProduction
+    delay: 60
+    delayMax: 120
+    satiationUsage: 60
+    minimumSatiation: 60
+    automaticForPlayers: false
+  - type: EntityProducer
+    table:
+      id: FoodEgg
+  - type: ActionGrant
+    actions:
+    - ActionAnimalLayEgg
+>>>>>>> wizards-filtered
   - type: ReplacementAccent
     accent: duck
   - type: SentienceTarget
@@ -823,14 +894,12 @@
       - MobDuckWhite
       - MobDuckBrown
       intervalSeconds: 20
-      minimumEntitiesSpawned: 1
-      maximumEntitiesSpawned: 1
     - type: TimedDespawn #delete the egg after the chicken spawns
       lifetime: 21
 
 - type: entity
   name: butterfly
-  parent: [ SimpleMobBase, FlyingMobBase ]
+  parent: [ SolutionFood, SolutionTiny, SimpleMobBase, FlyingMobBase, BaseSlicingRefinable ]
   id: MobButterfly
   description: Despite popular misconceptions, it's not actually made of butter.
   components:
@@ -873,15 +942,13 @@
         Base: dead
   - type: Extractable
     grindableSolutionName: food
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 1
-  - type: Butcherable
-    spawned:
-    - id: null # Should give nothing when you butcher it so we set the item id it needs to spawn to null
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: UncookedAnimalProteins
+        Quantity: 1
+  - type: ToolRefinable
+    refineResult: [] # Should give nothing when you butcher it so we set the item id it needs to spawn to null
   - type: Item
     size: Tiny
   - type: Tag
@@ -907,7 +974,7 @@
 
 - type: entity
   name: cow
-  parent: [ SimpleMobBase, BaseMobRuminant ]
+  parent: [ BaseMobRuminant, SimpleMobBase, BaseSlicingRefinable, BaseMobDestructible, BaseExaminableHunger ]
   id: MobCow
   description: Moo.
   components:
@@ -922,6 +989,7 @@
     - DoorBumpOpener
     - Cow
   - type: Reproductive
+    minHungerThreshold: Peckish
     partnerWhitelist:
       tags:
       - Cow
@@ -948,8 +1016,9 @@
         Base: dead
       Dead:
         Base: dead
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
+<<<<<<< HEAD
       udder:
         maxVol: 250
         reagents:
@@ -970,11 +1039,21 @@
   - type: ExaminableHunger
   - type: Butcherable
     spawned:
+=======
+    - SolutionUdder
+  - type: HarvestableSolution
+    solutionName: udder
+    verbText: udder-system-verb-milk
+    emptyMessage: udder-system-dry
+    successMessage: udder-system-success
+  - type: ToolRefinable
+    refineResult:
+>>>>>>> wizards-filtered
     - id: FoodMeat
       amount: 5
   - type: Grammar
     attributes:
-      gender: female # Here because of UdderComponent
+      gender: female # Milk-producing animals are female.
   - type: InteractionPopup
     successChance: 0.7
     interactDelay: 2 # Avoids overlapping SFX due to spam - these SFX are a little longer than the typical 1 second.
@@ -997,8 +1076,30 @@
     - FoodRecipes
 
 - type: entity
+  parent: SolutionLarge
+  id: SolutionUdder
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: udder # TODO This should really use a different id...
+    solution:
+      reagents:
+      - ReagentId: Milk
+        Quantity: 30
+  - type: SatiationProduction
+    producer: Parent
+    delay: 30
+    minimumSatiationThreshold: Peckish
+  # TODO: toxins from bloodstream !?
+  - type: SolutionProducer
+    generated:
+      reagents:
+      - ReagentId: Milk
+        Quantity: 25
+
+- type: entity
   name: crab
-  parent: [ SimpleMobBase, BaseMobHemocyanin ]
+  parent: [ SimpleMobBase, BaseMobHemocyanin, BaseSlicingRefinable, BaseMobDestructible ]
   id: MobCrab
   description: A folk legend goes around that his claw snaps spacemen out of existence over distasteful remarks. Be polite and tolerant for your own safety.
   components:
@@ -1040,8 +1141,8 @@
         Base: dead
       Dead:
         Base: dead
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeatCrab
       amount: 2
   - type: InteractionPopup
@@ -1067,7 +1168,7 @@
 
 - type: entity
   name: goat
-  parent: [ SimpleMobBase, BaseMobRuminant ]
+  parent: [ BaseMobRuminant, SimpleMobBase, BaseSlicingRefinable, BaseMobDestructible, BaseExaminableHunger ]
   id: MobGoat
   description: Her spine consists of long sharp segments, no wonder she is so grumpy.
   components:
@@ -1095,6 +1196,7 @@
     - DoorBumpOpener
     - Goat
   - type: Reproductive
+    minHungerThreshold: Peckish
     partnerWhitelist:
       tags:
       - Goat
@@ -1110,8 +1212,9 @@
         Base: dead
       Dead:
         Base: dead
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
+<<<<<<< HEAD
       udder:
         maxVol: 250
         reagents:
@@ -1133,6 +1236,15 @@
     growthDelay: 20
   - type: ExaminableHunger
   - type: Wooly
+=======
+    - SolutionUdderGoat
+    - SolutionWool
+  - type: HarvestableSolution
+    solutionName: udder
+    verbText: udder-system-verb-milk
+    emptyMessage: udder-system-dry
+    successMessage: udder-system-success
+>>>>>>> wizards-filtered
   - type: Edible
     destroyOnEmpty: false
     solution: wool
@@ -1141,21 +1253,18 @@
   - type: FlavorProfile
     flavors:
     - fiber
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeat
       amount: 4
   - type: Grammar
     attributes:
-      gender: female # Here because of UdderComponent
+      gender: female # Milk-producing animals are female.
   - type: Speech
     speechSounds: Goat
     speechVerb: Goat
   - type: Vocal
-    sounds:
-      Female: Goat
-      Male: Goat
-      Unsexed: Goat
+    emoteSounds: Goat
   - type: BleatingAccent
   - type: InteractionPopup
     successChance: 0.2
@@ -1180,10 +1289,245 @@
       GalacticCommon: Understand
       # End ADT tweak
 
+- type: entity
+  parent: SolutionUdder
+  id: SolutionUdderGoat
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: MilkGoat
+        Quantity: 30
+  - type: SatiationProduction
+    delay: 20
+  - type: SolutionProducer
+    generated:
+      reagents:
+      - ReagentId: MilkGoat
+        Quantity: 25
+
+- type: entity
+  parent: SolutionLarge
+  id: SolutionWool
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: wool
+  - type: SatiationProduction
+    producer: Parent
+    minimumSatiationThreshold: Peckish
+  - type: SolutionProducer
+    generated:
+      reagents:
+      - ReagentId: Fiber
+        Quantity: 25
+
+- type: entity
+  abstract: true
+  parent: [BaseMobRuminant, BaseSlicingRefinable, BaseExaminableHunger]
+  id: MobSheepBase
+  name: sheepBase
+  description: A sheep.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - state: sheep_bare
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+      visible: true
+      sprite: Mobs/Animals/sheep.rsi
+    # this wooly layer relates to the shearable component.
+    - state: sheep_wool
+      map: [ "wooly" ]
+      visible: true
+      sprite: Mobs/Animals/sheep.rsi
+  - type: GenericVisualizer
+    visuals:
+      enum.ShearableVisuals.Shearable:
+        wooly:
+          True: {visible: true}
+          False: {visible: false}
+      enum.MobStateVisuals.State:
+        wooly:
+          Alive: {state: sheep_wool}
+          Dead: {state: sheep_wool_dead}
+          Critical: {state: sheep_wool_dead}
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 150
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Tag
+    tags:
+    # let moths eat wool directly
+    - ClothMade
+    - DoorBumpOpener
+    - Sheep
+  - type: Reproductive
+    partnerWhitelist:
+      tags:
+      - Sheep
+    offspring:
+    - id: MobSheep
+  - type: ReproductivePartner
+  - type: Appearance
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: sheep_bare
+      Critical:
+        Base: sheep_dead
+      Dead:
+        Base: sheep_dead
+  - type: SolutionManager
+    solutions:
+    - SolutionUdderSheep
+    - SolutionWoolSheep
+  - type: HarvestableSolution
+    solutionName: udder
+    verbText: udder-system-verb-milk
+    emptyMessage: udder-system-dry
+    successMessage: udder-system-success
+  - type: Shearable
+    targetSolutionName: wool
+    shearedProductId: MaterialCotton1 # Cotton is spawned because there is no wool item.
+    solutionPerProduct: 2.5 # 1 Cotton contains 2.5 Fibre, therefore this is the same.
+    toolQuality: Shearing
+    shearableMarkupText: sheep-shearable-examine-markup
+    unShearableMarkupText: sheep-not-shearable-examine-markup
+  - type: Edible
+    destroyOnEmpty: false
+    solution: wool
+    requiresSpecialDigestion: true
+    requireDead: false
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodMeat
+      amount: 4
+  - type: Grammar
+    attributes:
+      gender: female # Milk-producing animals are female.
+  - type: Speech
+    speechSounds: Sheep
+    speechVerb: Sheep
+  - type: Vocal
+    emoteSounds: Sheep
+  - type: BleatingAccent
+  - type: InteractionPopup
+    successChance: 0.8 #SHEEP so FRIEND!!! HUG! SQUISHY! SOFT!
+    interactDelay: 1
+    interactSuccessString: petting-success-sheep
+    interactFailureString: petting-failure-sheep
+    interactSuccessSpawn: EffectHearts #🥰
+    interactSuccessSound:
+      collection: Sheep
+      params:
+        variation: 0.05
+  - type: Perishable
+    molsPerSecondPerUnitMass: 0.0015
+  - type: NpcFactionMember
+    factions:
+    - Passive
+  - type: HTN
+    rootTask:
+      task: RuminantCompound
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 0.6
+    baseSprintSpeed: 0.8
+  - type: GuideHelp
+    guides:
+    - Chef
+    - FoodRecipes
+
+- type: entity
+  parent: SolutionUdder
+  id: SolutionUdderSheep
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: MilkSheep
+        Quantity: 25
+  - type: SatiationProduction
+    delay: 20
+  - type: SolutionProducer
+    generated:
+      reagents:
+      - ReagentId: MilkSheep
+        Quantity: 25
+
+- type: entity
+  parent: SolutionWool
+  id: SolutionWoolSheep
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Fiber
+        Quantity: 25
+
+- type: entity
+  parent: SolutionWool
+  id: SolutionWoolSheepRainbow
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: SpaceDrugs
+        Quantity: 25
+  - type: SolutionProducer
+    generated:
+      reagents:
+      - ReagentId: SpaceDrugs
+        Quantity: 25
+
+- type: entity
+  parent: [ MobSheepBase, SimpleMobBase, BaseMobDestructible ]
+  id: MobSheep
+  name: sheep
+  description: An adorable genetically engineered chemical factory producing milk and cotton.
+
+- type: entity
+  parent: MobSheep
+  id: MobSheepRainbow
+  name: rainbow sheep
+  description: A sheep; this one seems... glowy.
+  components:
+  - type: PointLight
+    radius: 1.5
+    energy: 0.5
+  - type: RgbLightController
+    layers: [ 1 ]
+  - type: Shearable
+    targetSolutionName: wool
+    shearedProductId: LeavesCannabisRainbow
+    solutionPerProduct: 6 # How much solution should it take to spawn 1 product?
+    toolQuality: Shearing
+    shearableMarkupText: rainbow-sheep-shearable-examine-markup
+    unShearableMarkupText: rainbow-sheep-not-shearable-examine-markup
+    verb: rainbow-sheep-shearable-verb
+  - type: SolutionManager
+    solutions:
+    - SolutionUdderSheep
+    - SolutionWoolSheepRainbow
+  - type: FlavorProfile
+    flavors:
+    - leafy
+
 # Note that we gotta make this bitch vomit someday when you feed it anthrax or sumthin. Needs to be a small item thief too and aggressive if attacked.
 - type: entity
   name: goose
-  parent: SimpleMobBase
+  parent: [SimpleMobBase, BaseSlicingRefinable, BaseMobDestructible]
   id: MobGoose
   description: Its stomach and mind are an enigma beyond human comprehension.
   components:
@@ -1212,8 +1556,8 @@
         Base: dead
       Dead:
         Base: dead
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeatChicken
       amount: 2
   - type: InteractionPopup # TODO: Make it so there's a separate chance to make certain animals outright hostile towards you.
@@ -1234,7 +1578,7 @@
 
 - type: entity
   name: gorilla
-  parent: [ SimpleMobBase, MobCombat ]
+  parent: [ SimpleMobBase, MobCombat, BaseMobDestructible ]
   id: MobGorilla
   description: Smashes, roars, looks cool. Don't stand near one.
   components:
@@ -1264,8 +1608,8 @@
         Base: dead
       Dead:
         Base: dead
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeat
       amount: 4
   - type: Bloodstream
@@ -1318,6 +1662,8 @@
   - SimpleMobBase
   - MobCombat
   - StripableInventoryBase
+  - BaseSlicingRefinable
+  - BaseMobDestructible
   id: MobKangaroo
   description: A large marsupial herbivore. It has powerful hind legs, with nails that resemble long claws.
   components:
@@ -1347,8 +1693,8 @@
     templateId: kangaroo
   - type: ReplacementAccent
     accent: kangaroo
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeat
   - type: DamageStateVisuals
     states:
@@ -1370,8 +1716,7 @@
     rules: ghost-role-information-nonantagonist-rules
   - type: GhostTakeoverAvailable
   - type: Vocal
-    sounds:
-      Unsexed: Kangaroo
+    emoteSounds: Kangaroo
   - type: Puller
     needsHands: false
   - type: StaminaDamageOnHit
@@ -1410,7 +1755,7 @@
 - type: entity
   name: genetic ancestor
   id: MobBaseAncestor
-  parent: [BaseMobAnimal, SimpleMobBase, StripableInventoryBase]
+  parent: [BaseMobAnimal, SimpleMobBase, StripableInventoryBase, BaseMobDestructible]
   description: The genetic bipedal ancestor of... Uh... Something. Yeah, there's definitely something on the station that descended from whatever this is.
   abstract: true
   components:
@@ -1463,9 +1808,8 @@
     - map: [ "mask" ]
     - map: [ "head" ]
   - type: Hands
-    activeHandId: Hand
-    hands:
-      Hand:
+    startingHands:
+      hand_left:
         location: Left
   - type: ComplexInteraction
   - type: CreamPied
@@ -1494,7 +1838,6 @@
         Blunt: 3
         Piercing: 3
   - type: Butcherable
-    butcheringType: Spike
     spawned:
     - id: FoodMeat
       amount: 3
@@ -1565,6 +1908,7 @@
     description: ghost-role-information-monkey-description
     rules: ghost-role-information-nonantagonist-rules
   - type: GhostTakeoverAvailable
+<<<<<<< HEAD
   # ADT-Tweak start
   - type: VentCrawler
     allowInventory: false
@@ -1581,6 +1925,11 @@
     clumsySound:
       path: /Audio/Animals/monkey_scream.ogg
 
+=======
+  - type: PermanentStatusEffects
+    statusEffects:
+    - StatusEffectClumsyMonkey
+>>>>>>> wizards-filtered
 
 - type: entity
   name: monkey
@@ -1654,10 +2003,7 @@
     speechVerb: Reptilian
     allowedEmotes: ['Thump']
   - type: Vocal
-    sounds:
-      Male: MaleReptilian
-      Female: FemaleReptilian
-      Unsexed: MaleReptilian
+    emoteSounds: MaleReptilian
   - type: BodyEmotes
     soundsId: ReptilianBodyEmotes
   - type: TypingIndicator
@@ -1688,9 +2034,6 @@
       types:
         Slash: 5
         Piercing: 4
-  - type: Temperature
-    currentTemperature: 310.15
-    specificHeat: 42
   - type: TemperatureDamage
     heatDamageThreshold: 360
     coldDamageThreshold: 285
@@ -1732,7 +2075,6 @@
           horns_double: Inherit
           horns_kobold_ears: Inherit
   - type: Butcherable
-    butcheringType: Spike
     spawned:
     - id: FoodMeat
       amount: 2
@@ -1763,6 +2105,7 @@
   parent: MobBaseKobold
   description: Cousins to the sentient race of lizard people, kobolds blend in with their natural habitat and are as nasty as monkeys; ready to pull out your hair and stab you to death.
   components:
+<<<<<<< HEAD
   - type: Clumsy
     gunShootFailDamage:
       types:
@@ -1778,6 +2121,11 @@
   - type: VentCrawler
     allowInventory: false
   # ADT-Tweak end
+=======
+  - type: PermanentStatusEffects
+    statusEffects:
+    - StatusEffectClumsyKobold
+>>>>>>> wizards-filtered
 
 - type: entity
   id: MobBaseSyndicateKobold
@@ -1826,7 +2174,11 @@
 
 - type: entity
   name: mouse
+<<<<<<< HEAD
   parent: [ SimpleMobBase, BaseMobAnimal ]
+=======
+  parent: [SimpleMobBase, BaseMobAnimal, SolutionVermin, BaseSlicingRefinable, MobNightVision]
+>>>>>>> wizards-filtered
   id: MobMouse
   description: Squeak!
   components:
@@ -1904,6 +2256,8 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.5
     baseSprintSpeed : 5
+  - type: NameIdentifier
+    group: AdjectivePrefix
   - type: DamageStateVisuals
     states:
       Alive:
@@ -1916,33 +2270,16 @@
   - type: FlavorProfile
     flavors:
     - meaty
-  - type: Thirst
-    startingThirst: 25  # spawn with Okay thirst state
-    thresholds:
-      OverHydrated: 35
-      Okay: 25
-      Thirsty: 15
-      Parched: 10
-      Dead: 0
-    baseDecayRate: 0.04
-  - type: Hunger
-    thresholds:
-      Overfed: 35
-      Okay: 25
-      Peckish: 15
-      Starving: 10
-      Dead: 0
-    baseDecayRate: 0.5 # I'm very hungry! Give me. The cheese.
+  - type: Satiation
+    satiations:
+      Hunger:
+        prototype: MouseHunger
+      Thirst:
+        prototype: MouseThirst
   - type: Extractable
     grindableSolutionName: food
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 3
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeatRat
       amount: 1
 # ADT-Tweak-start
@@ -1970,10 +2307,7 @@
       types:
         Blunt: 0.1
   - type: Vocal
-    sounds:
-      Male: Mouse
-      Female: Mouse
-      Unsexed: Mouse
+    emoteSounds: Mouse
     wilhelmProbability: 0.001
   # TODO: Remove CombatMode when Prototype Composition is added
   - type: CombatMode
@@ -2021,6 +2355,17 @@
         recursive: false
 
 - type: entity
+  abstract: true
+  parent: [SolutionFood, SolutionTiny]
+  id: SolutionVermin
+  components:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: UncookedAnimalProteins
+        Quantity: 15
+
+- type: entity
   parent: MobMouse
   suffix: Dead
   save: false
@@ -2036,22 +2381,6 @@
         Slash: 7
         Blunt: 3
   - type: Injurable
-
-- type: entity
-  parent: MobMouse
-  id: MobMouseAdmeme
-  suffix: Admeme
-  components:
-  # allow admeme mouse to eat pills
-  - type: IgnoreBadFood
-  # intended for swarms that eat pills so only temporary
-  - type: TimedDespawn
-    lifetime: 60
-  - type: Hunger
-    baseDecayRate: 10 # always hungry
-    starvingSlowdownModifier: 1
-  - type: Thirst
-    baseDecayRate: 10 # always thirsty
 
 - type: entity
   parent: MobMouse
@@ -2079,7 +2408,6 @@
       Dead:
         Base: splat-1
   - type: Item
-    size: Tiny
     heldPrefix: 1
 
 - type: entity
@@ -2108,7 +2436,6 @@
       Dead:
         Base: splat-2
   - type: Item
-    size: Tiny
     heldPrefix: 2
 
 - type: entity
@@ -2139,16 +2466,15 @@
       reagents:
       - ReagentId: UnstableMutagen
         Quantity: 50
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 3
-        - ReagentId: Uranium
-          Quantity: 10
-  - type: Butcherable
-    spawned:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: UncookedAnimalProteins
+        Quantity: 5
+      - ReagentId: Uranium
+        Quantity: 10
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeatRat
       amount: 1
     - id: SheetUranium1
@@ -2160,7 +2486,7 @@
 
 - type: entity
   name: lizard #Weh
-  parent: SimpleMobBase
+  parent: [SimpleMobBase, BaseSlicingRefinable, BaseMobDestructible]
   id: MobLizard
   description: A harmless dragon.
   components:
@@ -2193,8 +2519,8 @@
         Base: dead
       Dead:
         Base: dead
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeatLizard
       amount: 1
   - type: InteractionPopup
@@ -2217,10 +2543,9 @@
     tags:
     - VimPilot
 
-
 - type: entity
   name: slug
-  parent: SimpleMobBase
+  parent: [SimpleMobBase, BaseSlicingRefinable, BaseMobDestructible]
   id: MobSlug
   description: And they called this a lizard?
   components:
@@ -2254,8 +2579,8 @@
         Base: dead
       Dead:
         Base: dead
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeat
       amount: 1
   - type: InteractionPopup
@@ -2272,7 +2597,7 @@
 
 - type: entity
   name: frog
-  parent: SimpleMobBase
+  parent: [SimpleMobBase, BaseSlicingRefinable]
   id: MobFrog
   description: Hop hop hop. Lookin' moist.
   components:
@@ -2313,8 +2638,8 @@
         Base: dead
       Dead:
         Base: dead
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeat
       amount: 1
   - type: InteractionPopup
@@ -2344,7 +2669,7 @@
 
 # Would be cool to have some functionality for the parrot to be able to sit on stuff
 - type: entity
-  parent: [ SimpleMobBase, FlyingMobBase ]
+  parent: [ SimpleMobBase, FlyingMobBase, BaseSlicingRefinable, BaseMobDestructible ]
   id: MobParrotBase
   name: parrot
   abstract: true
@@ -2378,16 +2703,15 @@
         Base: dead
       Dead:
         Base: dead
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeat
       amount: 1
   - type: Speech
     speechSounds: Parrot
     speechVerb: Parrot
   - type: Vocal
-    sounds:
-      Unsexed: Parrot
+    emoteSounds: Parrot
   - type: ActiveListener
   - type: Vocalizer
   - type: RadioVocalizer
@@ -2454,7 +2778,7 @@
 
 - type: entity
   name: penguin
-  parent: SimpleMobBase
+  parent: [SimpleMobBase, BaseSlicingRefinable, BaseMobDestructible]
   id: MobPenguin
   description: Their lives are constant pain due to their inner-body knees.
   components:
@@ -2484,8 +2808,8 @@
         Base: penguin_dead
       Dead:
         Base: penguin_dead
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeatPenguin
       amount: 3
   - type: InteractionPopup
@@ -2501,9 +2825,6 @@
   - type: NpcFactionMember
     factions:
     - Passive
-  - type: Temperature
-    currentTemperature: 310.15
-    specificHeat: 46
   - type: TemperatureDamage
     heatDamageThreshold: 335
     coldDamageThreshold: 230
@@ -2593,7 +2914,7 @@
   # I have included a snake_hiss.ogg sound file so if you want to use that be my guest
 - type: entity
   name: snake
-  parent: SimpleMobBase
+  parent: [SimpleMobBase, BaseSlicingRefinable, BaseMobDestructible]
   id: MobSnake
   description: Hissss! Bites aren't poisonous.
   components:
@@ -2624,8 +2945,8 @@
         Base: dead
       Dead:
         Base: dead
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeatSnake
       amount: 1
   - type: InteractionPopup
@@ -2644,7 +2965,7 @@
     damageContainer: Biological
 
 - type: entity
-  parent: [ SimpleMobBase, BaseMobHemocyanin, MobCombat ]
+  parent: [ SimpleMobBase, BaseMobHemocyanin, MobCombat, BaseSlicingRefinable, MobNightVision, BaseMobDestructible ]
   id: MobSpiderBase
   abstract: true
   components:
@@ -2661,8 +2982,8 @@
         - MobMask
         layer:
         - MobLayer
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeatSpider
       amount: 2
   - type: CombatMode
@@ -2670,16 +2991,9 @@
     thresholds:
       0: Alive
       90: Dead
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      melee:
-        maxVol: 30
-  - type: SolutionRegeneration
-    solution: melee
-    generated:
-      reagents:
-      - ReagentId: Mechanotoxin
-        Quantity: 1
+    - SolutionVenomSpider
   - type: MeleeChemicalInjector
     transferAmount: 0.75
     solution: melee
@@ -2708,10 +3022,7 @@
     speechSounds: Arachnid
     allowedEmotes: ['Click', 'Chitter']
   - type: Vocal
-    sounds:
-      Male: UnisexArachnid
-      Female: UnisexArachnid
-      Unsexed: UnisexArachnid
+    emoteSounds: UnisexArachnid
   - type: TypingIndicator
     proto: spider
   - type: Tag
@@ -2726,6 +3037,7 @@
       path: /Audio/Items/crowbar.ogg
   - type: SupermatterIgnore # ADT-Tweak
   - type: PassiveDamage # Slight passive regen. Assuming one damage type, comes out to about 4 damage a minute from base.yml.
+    intervalHaltOnDamageTaken: 5s
     allowedStates:
     - Alive
     damage:
@@ -2739,6 +3051,17 @@
         Shock: -0.03
   - type: NightVision # ADT-Tweak
     innate: true
+
+- type: entity
+  parent: [SolutionWeapon, SolutionTiny]
+  id: SolutionVenomSpider
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SolutionRegeneration
+    generated:
+      reagents:
+      - ReagentId: Mechanotoxin
+        Quantity: 1
 
 - type: entity
   parent: MobSpiderBase
@@ -2765,7 +3088,6 @@
   - type: GhostVisibleAntag
     name: ghost-role-information-giant-spider-name
   - type: GhostTakeoverAvailable
-  - type: ForceAttack
 
 - type: entity
   name: tarantula
@@ -2812,7 +3134,7 @@
 
 - type: entity
   name: clown spider
-  parent: MobSpiderAngryBase
+  parent: [MobSpiderAngryBase, BaseSlicingRefinable]
   id: MobClownSpider
   abstract: true # ADT tweak для разных пауков
   description: Combines the two most terrifying things in existence, spiders and clowns.
@@ -2823,10 +3145,10 @@
       - map: ["enum.DamageStateVisualLayers.Base"]
         state: clown
         sprite: Mobs/Animals/clownspider.rsi
-    - type: Butcherable
-      spawned:
-        - id: MaterialBananium1
-          amount: 1
+    - type: ToolRefinable
+      refineResult:
+      - id: MaterialBananium1
+        amount: 1
     - type: DamageStateVisuals
       states:
         Alive:
@@ -2860,6 +3182,7 @@
         reagents:
         - ReagentId: Laughter
           Quantity: 150
+
 - type: entity
   name: wizard spider
   parent: ADTMobBaseSpiderVentCrawler # ADT tweak для разных пауков
@@ -2874,7 +3197,7 @@
 
 - type: entity
   name: possum
-  parent: [SimpleMobBase, StripableInventoryBase]
+  parent: [SimpleMobBase, StripableInventoryBase, BaseSlicingRefinable, BaseMobDestructible]
   id: MobPossum
   description: '"O Possum! My Possum!" -- Walt Whitman, 1865'
   components:
@@ -2907,8 +3230,8 @@
         Base: possum_dead
       Dead:
         Base: possum_dead
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeat
       amount: 3
   - type: InteractionPopup
@@ -2947,7 +3270,7 @@
 
 - type: entity
   name: raccoon
-  parent: [SimpleMobBase, StripableInventoryBase]
+  parent: [SimpleMobBase, StripableInventoryBase, BaseSlicingRefinable, BaseMobDestructible]
   id: MobRaccoon
   description: Trash panda!
   components:
@@ -2980,8 +3303,8 @@
         Base: raccoon_dead
       Dead:
         Base: raccoon_dead
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeat
       amount: 3
   - type: InteractionPopup
@@ -3000,7 +3323,7 @@
 
 - type: entity
   name: fox
-  parent: [SimpleMobBase, StripableInventoryBase]
+  parent: [SimpleMobBase, StripableInventoryBase, BaseSlicingRefinable, BaseMobDestructible]
   id: MobFox
   description: They're a fox.
   components:
@@ -3040,8 +3363,8 @@
         Base: fox_dead
       Dead:
         Base: fox_dead
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeat
       amount: 3
   - type: InteractionPopup
@@ -3082,7 +3405,7 @@
 
 - type: entity
   abstract: true
-  parent: [SimpleMobBase, StripableInventoryBase]
+  parent: [SimpleMobBase, StripableInventoryBase, BaseMobDestructible]
   id: MobCorgiBase
   name: corgi
   description: Finally, a space corgi!
@@ -3110,7 +3433,28 @@
         - MobLayer
   - type: Inventory
     speciesId: dog
-    templateId: pet
+    templateId: Corgi
+    displacements:
+      belt:
+        sizeMaps:
+          32:
+            sprite: Mobs/Pets/displacements.rsi
+            state: corgi_belt_displacement
+      ears:
+        sizeMaps:
+          32:
+            sprite: Mobs/Pets/displacements.rsi
+            state: corgi_belt_displacement
+      head:
+        sizeMaps:
+          32:
+            sprite: Mobs/Pets/displacements.rsi
+            state: corgi_head_displacement
+      mask:
+        sizeMaps:
+          32:
+            sprite: Mobs/Pets/displacements.rsi
+            state: corgi_mask_displacement
   - type: InteractionPopup
     interactSuccessString: petting-success-dog
     interactFailureString: petting-failure-generic
@@ -3130,7 +3474,7 @@
   #    state: creampie_corgi
 
 - type: entity
-  parent: MobCorgiBase
+  parent: [MobCorgiBase, BaseSlicingRefinable]
   id: MobCorgi
   components:
   - type: DamageStateVisuals
@@ -3141,8 +3485,8 @@
         Base: corgi_dead
       Dead:
         Base: corgi_dead
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeat
       amount: 2
   # ADT Commented
@@ -3210,9 +3554,12 @@
     damageModifierSet: Infernal
   - type: Injurable
     damageContainer: BiologicalMetaphysical
+<<<<<<< HEAD
   - type: Temperature
     currentTemperature: 310.15
     specificHeat: 42
+=======
+>>>>>>> wizards-filtered
   - type: TemperatureDamage
     heatDamageThreshold: 4000 #They come from hell, so..
     coldDamageThreshold: 260
@@ -3252,7 +3599,7 @@
 
 - type: entity
   name: cat
-  parent: [SimpleMobBase, StripableInventoryBase]
+  parent: [SimpleMobBase, StripableInventoryBase, BaseSlicingRefinable, BaseMobDestructible]
   id: MobCat
   description: Feline pet, very funny.
   components:
@@ -3288,8 +3635,8 @@
   - type: Speech
     speechSounds: Cat
     speechVerb: SmallMob
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeat
       amount: 3
   # ADT Commented
@@ -3408,7 +3755,7 @@
 - type: entity
   name: space cat
   id: MobCatSpace
-  parent: MobCat
+  parent: [MobCat, BaseSlicingRefinable]
   description: Feline pet, prepared for the worst.
   components:
   - type: Sprite
@@ -3431,7 +3778,13 @@
     tags:
       - DoorBumpOpener
   - type: MovementAlwaysTouching
+<<<<<<< HEAD
   - type: SpecialPressureImmunity
+=======
+  - type: PermanentStatusEffects
+    statusEffects:
+    - StatusEffectPressureImmunity
+>>>>>>> wizards-filtered
   - type: ProtectedFromStepTriggers
   - type: Insulated
   - type: InteractionPopup
@@ -3482,8 +3835,8 @@
         Base: kitten_dead
       Dead:
         Base: kitten_dead
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeat
       amount: 1
   - type: MobPrice
@@ -3499,7 +3852,7 @@
 
 - type: entity
   name: sloth
-  parent: [SimpleMobBase, StripableInventoryBase]
+  parent: [SimpleMobBase, StripableInventoryBase, BaseSlicingRefinable, BaseMobDestructible]
   id: MobSloth
   description: Very slow animal. For people with low energy.
   components:
@@ -3535,8 +3888,8 @@
         Base: sloth_dead
       Dead:
         Base: sloth_dead
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeat
       amount: 3
   - type: InteractionPopup
@@ -3556,7 +3909,7 @@
 
 - type: entity
   name: ferret
-  parent: [SimpleMobBase, StripableInventoryBase]
+  parent: [SimpleMobBase, StripableInventoryBase, BaseSlicingRefinable, BaseMobDestructible]
   id: MobFerret
   description: Just a silly little guy!
   components:
@@ -3589,8 +3942,8 @@
         Base: ferret_dead
       Dead:
         Base: ferret_dead
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeat
       amount: 3
   - type: InteractionPopup
@@ -3610,7 +3963,7 @@
 
 - type: entity
   name: hamster
-  parent: [ SimpleMobBase, MobCombat, StripableInventoryBase]
+  parent: [ SimpleMobBase, MobCombat, StripableInventoryBase, BaseSlicingRefinable, MobNightVision]
   id: MobHamster
   description: A cute, fluffy, robust hamster.
   components:
@@ -3687,22 +4040,24 @@
   - type: FlavorProfile
     flavors:
     - meaty
-  - type: Hunger
-    baseDecayRate: 0.3
+  - type: Satiation
+    satiations:
+      Hunger:
+        prototype: HamsterHunger
   - type: Extractable
     grindableSolutionName: food
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Blood
-          Quantity: 55
-        - ReagentId: Fat
-          Quantity: 5
-  - type: Butcherable
-    spawned:
+  - type: Solution
+    id: food
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: Blood # TODO Instead of this, eat from the bloodstream directly
+        Quantity: 55
+      - ReagentId: Fat
+        Quantity: 5
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeat
       amount: 1
 # ADT-Tweak-start
@@ -3772,7 +4127,7 @@
 
 - type: entity
   name: pig
-  parent: [SimpleMobBase, StripableInventoryBase]
+  parent: [SimpleMobBase, StripableInventoryBase, BaseSlicingRefinable, BaseMobDestructible]
   id: MobPig
   description: Oink.
   components:
@@ -3802,6 +4157,7 @@
     - Pig
     - VimPilot
   - type: Reproductive
+    minHungerThreshold: Peckish
     partnerWhitelist:
       tags:
       - Pig
@@ -3816,8 +4172,8 @@
         Base: dead
       Dead:
         Base: dead
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeatBacon
       amount: 6
   - type: Grammar
@@ -3843,7 +4199,7 @@
 
 - type: entity
   name: diona nymph
-  parent: [BaseMobAnimal, SimpleMobBase, StripableInventoryBase]
+  parent: [BaseMobAnimal, SimpleMobBase, StripableInventoryBase, BaseSlicingRefinable, BaseMobDestructible]
   id: MobDionaNymph
   description: It's like a cat, only.... branch-ier.
   components:
@@ -3883,8 +4239,8 @@
         Base: nymph_sleep
       Dead:
         Base: nymph_dead
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: MaterialWoodPlank1
       amount: 2
   - type: InteractionPopup
@@ -3909,10 +4265,7 @@
     speechSounds: Alto
     allowedEmotes: ['Chirp']
   - type: Vocal
-    sounds:
-      Male: UnisexDiona
-      Female: UnisexDiona
-      Unsexed: UnisexDiona
+    emoteSounds: UnisexDiona
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -3960,7 +4313,7 @@
 
 - type: entity
   name: reindeer buck
-  parent: [ SimpleMobBase, MobCombat ]
+  parent: [ SimpleMobBase, MobCombat, BaseSlicingRefinable, BaseMobDestructible ]
   id: MobReindeerBuck
   description: You think it can pull a sleigh?
   components:
@@ -3997,8 +4350,8 @@
         Base: reindeer_buck_dead
       Dead:
         Base: reindeer_buck_dead
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeat
       amount: 4
   - type: Bloodstream
@@ -4054,77 +4407,3 @@
         Base: reindeer_doe_dead
       Dead:
         Base: reindeer_doe_dead
-
-- type: entity
-  parent: MobCorgiBase
-  id: MobCorgiSmart
-  name: smart corgi
-  description: An unusually smart dog.
-  components:
-  # Use corgi sprite, need to add handcuff layer
-  - type: Sprite
-    layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
-      state: corgi
-    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
-      color: "#ffffff"
-      sprite: Objects/Misc/handcuffs.rsi # Would do a custom dog handcuff sprite but unfortunately handcuffs have their overlay baked-in to the cuff itself so this is mostly filler
-      state: body-overlay-2
-      visible: false
-  - type: UserInterface
-    interfaces:
-      enum.StrippingUiKey.Key:
-        type: StrippableBoundUserInterface
-      enum.StorageUiKey.Key:
-        type: StorageBoundUserInterface
-  # Custom inventory template
-  - type: Inventory
-    speciesId: dog
-    templateId: SmartCorgi
-    displacements:
-      belt:
-        sizeMaps:
-          32:
-            sprite: Mobs/Pets/displacements.rsi
-            state: corgi_belt_displacement
-      ears:
-        sizeMaps:
-          32:
-            sprite: Mobs/Pets/displacements.rsi
-            state: corgi_belt_displacement
-      head:
-        sizeMaps:
-          32:
-            sprite: Mobs/Pets/displacements.rsi
-            state: corgi_head_displacement
-  - type: Hands # HANDS!
-    activeHandId: Right
-    hands:
-      Right:
-        location: Right
-      Left:
-        location: Left
-  - type: Puller
-  - type: Cuffable # bad dog!
-  - type: BlockWriting # dogs can't write, paws unwieldy; mouth-writing is a myth
-  - type: Stripping
-  - type: ComplexInteraction
-  # Implement custom borgi body type
-  - type: RotationVisuals
-    defaultRotation: 90
-    horizontalRotation: 180
-  - type: Grammar
-    attributes:
-      gender: epicene # Gender neutral
-      proper: true
-  - type: Tag
-    tags:
-    - VimPilot
-    - CanPilot
-    - DoorBumpOpener
-  - type: StatusIcon
-    bounds: -0.5,-0.5,0.5,0.5
-  - type: JobStatus # marks them as crew
-  - type: NpcFactionMember
-    factions:
-    - NanoTrasen

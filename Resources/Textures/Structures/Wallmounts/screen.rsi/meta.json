@@ -1,14 +1,21 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
+<<<<<<< HEAD
     "copyright": "From tgstation: https://github.com/tgstation/tgstation/blob/master/icons/obj/machines/status_display.dmi",
+=======
+    "copyright": "screen by AftrLite (GitHub), outer_frame and screen edited by whatston3 (GitHub)",
+>>>>>>> wizards-filtered
     "size": {
-      "x": 32,
-      "y": 32
+        "x": 32,
+        "y": 32
     },
     "states": [
-      {
-        "name": "screen"
-      }
+        {
+            "name": "outer_frame"
+        },
+        {
+            "name": "screen"
+        }
     ]
 }

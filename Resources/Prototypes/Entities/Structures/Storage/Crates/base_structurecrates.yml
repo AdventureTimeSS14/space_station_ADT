@@ -1,30 +1,19 @@
+<<<<<<< HEAD
 ﻿- type: entity
+=======
+- type: entity
+  abstract: true
+>>>>>>> wizards-filtered
   parent: [ BaseStructureDynamic, BasePaperLabelableVisualized ]
-  id: CrateGeneric
-  categories: [ HideSpawnMenu ]
+  id: BaseCrate
   name: crate
   description: A large container for items.
   components:
   - type: Animateable
   - type: Transform
     noRot: true
-  - type: Icon
-    sprite: Structures/Storage/Crates/generic.rsi
-    state: icon
   - type: Sprite
     noRot: true
-    sprite: Structures/Storage/Crates/generic.rsi
-    layers:
-    - state: base
-      map: ["enum.StorageVisualLayers.Base"]
-    - state: closed
-      map: ["enum.StorageVisualLayers.Door"]
-    - state: welded
-      visible: false
-      map: ["enum.WeldableLayers.BaseWelded"]
-    - state: paper
-      sprite: Structures/Storage/Crates/labels.rsi
-      map: ["enum.PaperLabelVisuals.Layer"]
   - type: InteractionOutline
   - type: Physics
   - type: Fixtures
@@ -41,6 +30,38 @@
   - type: EntityStorage
   - type: PlaceableSurface
     isPlaceable: false # defaults to closed.
+  - type: EntityStorageVisuals
+    stateDoorOpen: open
+    stateDoorClosed: closed
+  - type: ContainerContainer
+    containers:
+      entity_storage: !type:Container
+      paper_label: !type:ContainerSlot
+  - type: StaticPrice
+    price: 75
+  - type: RequireProjectileTarget
+
+- type: entity
+  parent: BaseCrate
+  id: CrateGeneric
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Icon
+    sprite: Structures/Storage/Crates/generic.rsi
+    state: icon
+  - type: Sprite
+    sprite: Structures/Storage/Crates/generic.rsi
+    layers:
+    - state: base
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: closed
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      map: ["enum.PaperLabelVisuals.Layer"]
   - type: Damageable
     damageModifierSet: Metallic
   - type: Injurable
@@ -56,6 +77,7 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
+<<<<<<< HEAD
   - type: EntityStorageVisuals
     stateDoorOpen: open
     stateDoorClosed: closed
@@ -87,12 +109,13 @@
       paper_label: !type:ContainerSlot
   - type: StaticPrice
     price: 75
+=======
+>>>>>>> wizards-filtered
   - type: Construction
     graph: CrateGenericSteel
     node: crategenericsteel
     containers:
-      - entity_storage
-  - type: RequireProjectileTarget
+    - entity_storage
 
 - type: entity
   parent: CrateGeneric
@@ -130,6 +153,7 @@
       offset: "-0.5,0"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: Damageable
+<<<<<<< HEAD
     damageModifierSet: Metallic #ADT_Tweak - чтобы их можно было в принципе сломать ломиком
   - type: Injurable
     damageContainer: StructuralInorganic
@@ -144,6 +168,9 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
+=======
+    damageModifierSet: StructuralMetallic
+>>>>>>> wizards-filtered
   - type: Construction
     graph: CrateSecure
     node: cratesecure

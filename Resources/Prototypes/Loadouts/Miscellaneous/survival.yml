@@ -66,7 +66,7 @@
     proto: OxygenBreather
   storage:
     back:
-    - BoxHug
+    - BoxSurvivalHug
 
 - type: loadout
   id: EmergencyNitrogenClown
@@ -75,6 +75,7 @@
     proto: NitrogenBreather
   storage:
     back:
+<<<<<<< HEAD
     - BoxHugNitrogen
 
 # Mime
@@ -140,6 +141,9 @@
   storage:
     back:
     - BoxMimeMoth
+=======
+    - BoxSurvivalHugNitrogen
+>>>>>>> wizards-filtered
 
 # Engineering / Extended
 - type: loadout
@@ -198,7 +202,26 @@
     back:
     - BoxSurvivalSecurityNitrogen
 
-# Syndicate
+# Antagonist
+
+- type: loadout
+  id: EmergencyOxygenExtendedAntag
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenBreather
+  storage:
+    back:
+    - BoxSurvivalDeluxeExtended
+
+- type: loadout
+  id: EmergencyNitrogenExtendedAntag
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: NitrogenBreather
+  storage:
+    back:
+    - BoxSurvivalDeluxeExtendedNitrogen
+
 - type: loadout
   id: EmergencyOxygenSyndicate
   effects:

@@ -5,6 +5,7 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Forensics;
+using Content.Shared.Forensics.Systems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Implants.Components;
 using Content.Shared.Interaction;
@@ -27,13 +28,20 @@ public abstract partial class SharedImplanterSystem : EntitySystem
     [Dependency] private DamageableSystem _damageable = default!;
     [Dependency] private EntityWhitelistSystem _whitelist = default!;
     [Dependency] private IGameTiming _timing = default!;
+<<<<<<< HEAD
     [Dependency] private IPrototypeManager _proto = default!;
+=======
+>>>>>>> wizards-filtered
     [Dependency] private ItemSlotsSystem _itemSlots = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private SharedContainerSystem _container = default!;
     [Dependency] private SharedDoAfterSystem _doAfter = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
+<<<<<<< HEAD
+=======
+    [Dependency] private ForensicsSystem _forensics = default!;
+>>>>>>> wizards-filtered
     [Dependency] private SharedUserInterfaceSystem _ui = default!;
 
     [Dependency] private EntityQuery<SubdermalImplantComponent> _implantCompQuery;
@@ -63,7 +71,11 @@ public abstract partial class SharedImplanterSystem : EntitySystem
         if (ent.Comp.Implant != null)
             ent.Comp.ImplanterSlot.StartingItem = ent.Comp.Implant;
 
+<<<<<<< HEAD
         _itemSlots.AddItemSlot(ent, ImplanterComponent.ImplanterSlotId, ent.Comp.ImplanterSlot);
+=======
+        _itemSlots.AddItemSlot(ent.Owner, ImplanterComponent.ImplanterSlotId, ent.Comp.ImplanterSlot);
+>>>>>>> wizards-filtered
     }
 
     private void OnMapInit(Entity<ImplanterComponent> ent, ref MapInitEvent args)
@@ -118,7 +130,11 @@ public abstract partial class SharedImplanterSystem : EntitySystem
                 // show popup to the user saying implant failed
                 var name = Identity.Name(target, EntityManager, args.User);
                 var msg = Loc.GetString("implanter-component-implant-failed", ("implant", implant), ("target", name));
+<<<<<<< HEAD
                 _popup.PopupClient(msg, target, args.User);
+=======
+                _popup.PopupEntity(msg, target, args.User);
+>>>>>>> wizards-filtered
                 // prevent further interaction since popup was shown
                 args.Handled = true;
                 return;
@@ -200,7 +216,11 @@ public abstract partial class SharedImplanterSystem : EntitySystem
         if (!_doAfter.TryStartDoAfter(args))
             return;
 
+<<<<<<< HEAD
         _popup.PopupClient(Loc.GetString("injector-component-needle-injecting-user"), target, user);
+=======
+        _popup.PopupEntity(Loc.GetString("injector-component-needle-injecting-user"), target, user);
+>>>>>>> wizards-filtered
 
         if (user != target)
         {
@@ -225,7 +245,11 @@ public abstract partial class SharedImplanterSystem : EntitySystem
         if (!_doAfter.TryStartDoAfter(args))
             return;
 
+<<<<<<< HEAD
         _popup.PopupClient(Loc.GetString("injector-component-needle-injecting-user"), target, user);
+=======
+        _popup.PopupEntity(Loc.GetString("injector-component-needle-injecting-user"), target, user);
+>>>>>>> wizards-filtered
 
         if (user != target)
         {
@@ -287,8 +311,12 @@ public abstract partial class SharedImplanterSystem : EntitySystem
         else
             ImplantMode(ent);
 
+<<<<<<< HEAD
         var ev = new TransferDnaEvent { Donor = target, Recipient = ent.Owner };
         RaiseLocalEvent(target, ref ev);
+=======
+        _forensics.TransferDna(ent, target);
+>>>>>>> wizards-filtered
 
         Dirty(ent);
     }
@@ -425,7 +453,11 @@ public abstract partial class SharedImplanterSystem : EntitySystem
         var failedPermanentMessage = Loc.GetString("implanter-draw-failed-permanent",
             ("implant", implantName),
             ("target", targetName));
+<<<<<<< HEAD
         _popup.PopupClient(failedPermanentMessage, target, user);
+=======
+        _popup.PopupEntity(failedPermanentMessage, target, user);
+>>>>>>> wizards-filtered
     }
 
     /// <summary>
@@ -436,8 +468,7 @@ public abstract partial class SharedImplanterSystem : EntitySystem
         _container.Remove(implant, implantContainer);
         _container.Insert(implant, implanterContainer);
 
-        var ev = new TransferDnaEvent { Donor = target, Recipient = implanter };
-        RaiseLocalEvent(target, ref ev);
+        _forensics.TransferDna(implanter, target);
     }
 
     /// <summary>
@@ -448,7 +479,11 @@ public abstract partial class SharedImplanterSystem : EntitySystem
         _damageable.TryChangeDamage(user, ent.Comp.DeimplantFailureDamage, ignoreResistances: true, origin: ent.Owner);
         var userName = Identity.Entity(user, EntityManager);
         var failedCatastrophicallyMessage = Loc.GetString("implanter-draw-failed-catastrophically", ("user", userName));
+<<<<<<< HEAD
         _popup.PopupPredicted(failedCatastrophicallyMessage, user, user, PopupType.MediumCaution);
+=======
+        _popup.PopupEntity(failedCatastrophicallyMessage, user, user, PopupType.MediumCaution);
+>>>>>>> wizards-filtered
         _audio.PlayPredicted(ent.Comp.ImplanterDrawFailSound, ent, user);
     }
 
@@ -504,7 +539,11 @@ public abstract partial class SharedImplanterSystem : EntitySystem
         if (!Resolve(ent, ref ent.Comp, false))
             return;
 
+<<<<<<< HEAD
         if (implant != null && _proto.TryIndex<EntityPrototype>(implant, out var proto)) // TODO: Why???
+=======
+        if (implant != null && ProtoMan.TryIndex<EntityPrototype>(implant, out var proto)) // TODO: Why???
+>>>>>>> wizards-filtered
             ent.Comp.DeimplantChosen = proto;
 
         UpdateUi(ent!);

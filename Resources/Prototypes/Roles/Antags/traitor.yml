@@ -5,9 +5,28 @@
   setPreference: true
   objective: roles-antag-syndicate-agent-objective
   guides: [ Traitors ]
+  tags:
+  - OnStation
+  - Roundstart
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 30h # Corvax-RoleTime 1
+
+- type: antagSpecifier
+  abstract: true
+  parent: RestrictedAntag
+  id: BaseTraitor
+
+- type: antagSpecifier
+  parent: BaseTraitor
+  id: Traitor
+  prefRoles:
+  - Traitor
+  blacklist:
+    components:
+    - AntagImmune
+  mindRoles:
+  - MindRoleTraitor
 
 - type: antag
   id: TraitorSleeper
@@ -16,11 +35,34 @@
   setPreference: true
   objective: roles-antag-syndicate-agent-sleeper-objective
   guides: [ Traitors ]
+<<<<<<< HEAD
   # ADT add start
+=======
+  tags:
+  - OnStation
+  - Midround
+>>>>>>> wizards-filtered
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 108000 # 30h
   # ADT add end
+
+- type: antagSpecifier
+  parent: BaseTraitor
+  id: TraitorSleeper
+  prefRoles:
+  - TraitorSleeper
+  mindRoles:
+  - MindRoleTraitorSleeper
+
+- type: antagSpecifier
+  parent: BaseTraitor
+  id: TraitorReinforcement
+  prefRoles:
+  - Traitor
+  - GenericTeamAntagonist # Matters for Antag bans.
+  mindRoles:
+  - MindRoleTraitorReinforcement
 
 # Syndicate Operative Outfit - Monkey
 - type: startingGear

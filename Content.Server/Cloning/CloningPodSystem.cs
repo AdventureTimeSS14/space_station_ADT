@@ -39,8 +39,9 @@ using Content.Shared.Damage.Systems;
 
 namespace Content.Server.Cloning;
 
-public sealed class CloningPodSystem : EntitySystem
+public sealed partial class CloningPodSystem : EntitySystem
 {
+<<<<<<< HEAD
     [Dependency] private readonly DeviceLinkSystem _signalSystem = default!;
     [Dependency] private readonly IPlayerManager _playerManager = null!;
     [Dependency] private readonly EuiManager _euiManager = null!;
@@ -67,6 +68,29 @@ public sealed class CloningPodSystem : EntitySystem
     [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     // ADT-Tweak end
+=======
+    [Dependency] private DeviceLinkSystem _signalSystem = default!;
+    [Dependency] private IPlayerManager _playerManager = null!;
+    [Dependency] private EuiManager _euiManager = null!;
+    [Dependency] private CloningConsoleSystem _cloningConsoleSystem = default!;
+    [Dependency] private ContainerSystem _containerSystem = default!;
+    [Dependency] private MobStateSystem _mobStateSystem = default!;
+    [Dependency] private PowerReceiverSystem _powerReceiverSystem = default!;
+    [Dependency] private IRobustRandom _robustRandom = default!;
+    [Dependency] private AtmosphereSystem _atmosphereSystem = default!;
+    [Dependency] private SharedTransformSystem _transformSystem = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private PuddleSystem _puddleSystem = default!;
+    [Dependency] private ChatSystem _chatSystem = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private IConfigurationManager _configManager = default!;
+    [Dependency] private MaterialStorageSystem _material = default!;
+    [Dependency] private PopupSystem _popupSystem = default!;
+    [Dependency] private SharedMindSystem _mindSystem = default!;
+    [Dependency] private CloningSystem _cloning = default!;
+    [Dependency] private EmagSystem _emag = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+>>>>>>> wizards-filtered
 
     public readonly Dictionary<MindComponent, EntityUid> ClonesWaitingForMind = new();
     public readonly ProtoId<CloningSettingsPrototype> SettingsId = "CloningPod";

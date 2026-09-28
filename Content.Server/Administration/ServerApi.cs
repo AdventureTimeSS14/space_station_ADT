@@ -58,6 +58,7 @@ public sealed partial class ServerApi : IPostInjectInit
         CCVars.PanicBunkerCustomReason.Name,
     ];
 
+<<<<<<< HEAD
     [Dependency] private readonly IStatusHost _statusHost = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
@@ -79,6 +80,24 @@ public sealed partial class ServerApi : IPostInjectInit
     [Dependency] private readonly IServerDbManager _dbManager = default!;
     [Dependency] private readonly IBanManager _bans = default!;
     [Dependency] private readonly IDiscordBanInfoSender _discordBanInfoSender = default!;
+=======
+    [Dependency] private IStatusHost _statusHost = default!;
+    [Dependency] private IConfigurationManager _config = default!;
+    [Dependency] private ISharedPlayerManager _playerManager = default!;
+    [Dependency] private ISharedAdminManager _adminManager = default!;
+    [Dependency] private IGameMapManager _gameMapManager = default!;
+    [Dependency] private IServerNetManager _netManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IComponentFactory _componentFactory = default!;
+    [Dependency] private ITaskManager _taskManager = default!;
+    [Dependency] private EntityManager _entityManager = default!;
+    [Dependency] private ILogManager _logManager = default!;
+    [Dependency] private IEntitySystemManager _entitySystemManager = default!;
+    [Dependency] private ILocalizationManager _loc = default!;
+    [Dependency] private IPlayerLocator _locator = default!;
+    [Dependency] private IBanManager _bans = default!;
+    [Dependency] private IServerDbManager _db = default!;
+>>>>>>> wizards-filtered
 
     private string _token = string.Empty;
     private ISawmill _sawmill = default!;

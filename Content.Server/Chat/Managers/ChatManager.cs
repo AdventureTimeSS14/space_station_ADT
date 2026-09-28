@@ -5,6 +5,7 @@ using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Administration.Systems;
 using Content.Server.Discord.DiscordLink;
+using Content.Server.Ghost;
 using Content.Server.Players.RateLimiting;
 using Content.Server.Preferences.Managers;
 using Content.Shared.Administration;
@@ -14,6 +15,7 @@ using Content.Shared.Database;
 using Content.Shared.Mind;
 using Content.Shared.Players.RateLimiting;
 using Robust.Shared.Configuration;
+using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Replays;
@@ -38,6 +40,7 @@ internal sealed partial class ChatManager : IChatManager
         { "revolutionary", "#aa00ff" }
     };
 
+<<<<<<< HEAD
     [Dependency] private readonly IReplayRecordingManager _replay = default!;
     [Dependency] private readonly IServerNetManager _netManager = default!;
     [Dependency] private readonly IAdminManager _adminManager = default!;
@@ -53,8 +56,23 @@ internal sealed partial class ChatManager : IChatManager
     [Dependency] private readonly Content.Server.ADT.Sponsors.SponsorManager _adtSponsors = default!;
     [Dependency] private readonly DiscordWebhook _discord = default!;
     [Dependency] private readonly ILogManager _logManager = default!;
+=======
+    [Dependency] private IReplayRecordingManager _replay = default!;
+    [Dependency] private IServerNetManager _netManager = default!;
+    [Dependency] private IAdminManager _adminManager = default!;
+    [Dependency] private IAdminLogManager _adminLogger = default!;
+    [Dependency] private IServerPreferencesManager _preferencesManager = default!;
+    [Dependency] private IConfigurationManager _configurationManager = default!;
+    [Dependency] private INetConfigurationManager _netConfigManager = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private PlayerRateLimitManager _rateLimitManager = default!;
+    [Dependency] private ISharedPlayerManager _player = default!;
+    [Dependency] private DiscordChatLink _discordLink = default!;
+    [Dependency] private ILogManager _logManager = default!;
+    [Dependency] private ILocalizationManager _localizationManager = default!;
+>>>>>>> wizards-filtered
 
-    private ISawmill _sawmill = default!;
+    private ISawmill? _sawmill = default!;
 
     /// <summary>
     /// The maximum length a player-sent message can be sent
@@ -123,8 +141,11 @@ internal sealed partial class ChatManager : IChatManager
     {
         var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", FormattedMessage.EscapeText(message)));
         ChatMessageToAll(ChatChannel.Server, message, wrappedMessage, EntityUid.Invalid, hideChat: false, recordReplay: true, colorOverride: colorOverride);
-        _sawmill.Info(message);
 
+        // _sawmill might have not been initialized when DispatchServerAnnouncement is called
+        // during server setup when some cvars are changed
+        _sawmill?.Info(message);
+        
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Server announcement: {message}");
     }
 
@@ -485,12 +506,35 @@ internal sealed partial class ChatManager : IChatManager
 
     #region Utility
 
+    private bool IsValidWarpDestination(EntityUid source)
+    {
+        if (!source.Valid)
+            return false;
+
+        if (!_entityManager.TryGetComponent(source, out TransformComponent? transform))
+            return false;
+
+        return transform.MapID != MapId.Nullspace;
+    }
+
+    public string PrependFollowButtonIfAppropriate(string wrappedMessage, EntityUid source, INetChannel recipient)
+    {
+        if (IsValidWarpDestination(source) && ShouldShowFollowButton(recipient))
+        {
+            var btnText = _localizationManager.GetString("chat-manager-follow-button");
+            return $"[cmdlink=\"{btnText}\" command=\"{GhostFollowEntityCommand.CommandName} {_entityManager.GetNetEntity(source)}\" /] " + wrappedMessage;
+        }
+
+        return wrappedMessage;
+    }
+
     public void ChatMessageToOne(ChatChannel channel, string message, string wrappedMessage, EntityUid source, bool hideChat, INetChannel client, Color? colorOverride = null, bool recordReplay = false, string? audioPath = null, float audioVolume = 0, NetUserId? author = null)
     {
         var user = author == null ? null : EnsurePlayer(author);
         var netSource = _entityManager.GetNetEntity(source);
         user?.AddEntity(netSource);
 
+        wrappedMessage = PrependFollowButtonIfAppropriate(wrappedMessage, source, client);
         var msg = new ChatMessage(channel, message, wrappedMessage, netSource, user?.Key, hideChat, colorOverride, audioPath, audioVolume);
         _netManager.ServerSendMessage(new MsgChatMessage() { Message = msg }, client);
 
@@ -533,8 +577,12 @@ internal sealed partial class ChatManager : IChatManager
         var netSource = _entityManager.GetNetEntity(source);
         user?.AddEntity(netSource);
 
-        var msg = new ChatMessage(channel, message, wrappedMessage, netSource, user?.Key, hideChat, colorOverride, audioPath, audioVolume);
-        _netManager.ServerSendToMany(new MsgChatMessage() { Message = msg }, clients);
+        foreach (var client in clients)
+        {
+            var customWrapMessage = PrependFollowButtonIfAppropriate(wrappedMessage, source, client);
+            var msg = new ChatMessage(channel, message, customWrapMessage, netSource, user?.Key, hideChat, colorOverride, audioPath, audioVolume);
+            _netManager.ServerSendMessage(new MsgChatMessage { Message = msg }, client);
+        }
 
         if (!recordReplay)
             return;
@@ -542,6 +590,7 @@ internal sealed partial class ChatManager : IChatManager
         if ((channel & ChatChannel.AdminRelated) == 0 ||
             _configurationManager.GetCVar(CCVars.ReplayRecordAdminChat))
         {
+            var msg = new ChatMessage(channel, message, wrappedMessage, netSource, user?.Key, hideChat, colorOverride, audioPath, audioVolume);
             _replay.RecordServerMessage(msg);
         }
     }
@@ -602,6 +651,22 @@ internal sealed partial class ChatManager : IChatManager
     }
 
     #endregion
+
+    private bool ShouldShowFollowButton(INetChannel recipient)
+    {
+        if (!_player.TryGetSessionByChannel(recipient, out var session))
+            return false;
+
+        if (_entityManager.TrySystem(out GhostSystem? ghost))
+        {
+            if (!ghost.CanGhostWarp(session, out _))
+            {
+                return false;
+            }
+        }
+
+        return _netConfigManager.GetClientCVar(recipient, CCVars.InterfaceChatFollowButton);
+    }
 }
 
 public enum OOCChatType : byte

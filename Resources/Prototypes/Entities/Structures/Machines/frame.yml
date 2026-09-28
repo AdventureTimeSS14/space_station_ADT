@@ -6,6 +6,7 @@
   placement:
     mode: SnapgridCenter
   components:
+<<<<<<< HEAD
     - type: Transform
       anchored: true
     - type: Physics
@@ -66,6 +67,59 @@
       sprite: Structures/Machines/parts.rsi
       state: box_0
       snapCardinals: true
+=======
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.5,0.25,0.5"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Anchorable
+  - type: Rotatable
+  - type: Pullable
+  - type: Construction
+    containers:
+      - machine_board
+      - machine_parts
+    graph: Machine
+    node: missingWires
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: start
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Sprite
+    sprite: Structures/Machines/parts.rsi
+    state: box_0
+    snapCardinals: true
+>>>>>>> wizards-filtered
 
 - type: entity
   id: MachineFrame
@@ -74,6 +128,7 @@
   placement:
     mode: SnapgridCenter
   components:
+<<<<<<< HEAD
     - type: Transform
       anchored: true
     - type: Physics
@@ -144,6 +199,69 @@
           whitelist:
             components:
             - MachineBoard
+=======
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.5,0.25,0.5"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Anchorable
+  - type: Rotatable
+  - type: Pullable
+  - type: Construction
+    graph: Machine
+    node: machineFrame
+    defaultTarget: machine
+    containers:
+    - machine_board
+    - machine_parts
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: missingWires
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: MachineFrame
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: Sprite
+    sprite: Structures/Machines/parts.rsi
+    state: box_1
+    snapCardinals: true
+  - type: Appearance
+  - type: ItemMapper
+    mapLayers:
+      box_2:
+        minCount: 1
+        whitelist:
+          components:
+          - MachineBoard
+>>>>>>> wizards-filtered
 
 - type: entity
   id: MachineFrameDestroyed
@@ -152,6 +270,7 @@
   placement:
     mode: SnapgridCenter
   components:
+<<<<<<< HEAD
     - type: InteractionOutline
     - type: Transform
       anchored: true
@@ -187,3 +306,34 @@
     - type: Sprite
       sprite: Structures/Machines/parts.rsi
       state: destroyed
+=======
+  - type: InteractionOutline
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Physics
+    bodyType: Static
+  - type: Construction
+    graph: Machine
+    node: destroyedMachineFrame
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 3
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Sprite
+    sprite: Structures/Machines/parts.rsi
+    state: destroyed
+>>>>>>> wizards-filtered

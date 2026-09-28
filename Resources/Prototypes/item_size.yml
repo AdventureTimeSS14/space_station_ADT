@@ -38,7 +38,7 @@
   defaultShape:
   - 0,0,3,3
 
-# Picture furry gf
+# Items that are so big they only fit in bluespace storages
 - type: itemSize
   id: Ginormous
   weight: 32
@@ -46,6 +46,7 @@
   defaultShape:
   - 0,0,5,5
 
+<<<<<<< HEAD
 # ADT-Tweak-Start
 - type: itemSize
   id: SpecialCanister
@@ -54,3 +55,12 @@
   defaultShape:
   - 0,0,1,1
 # ADT-Tweak-Start
+=======
+# Picture furry gf
+- type: itemSize
+  id: Colossal
+  weight: 64
+  name: item-component-size-Colossal
+  defaultShape:
+  - 0,0,6,5
+>>>>>>> wizards-filtered

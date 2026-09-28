@@ -12,6 +12,7 @@
   - type: Tag
     tags:
     - HighRiskItem
+    - FitInTeleporterConsole
   - type: StealTarget
     stealGroup: HandTeleporter
 
@@ -27,6 +28,13 @@
     sprite: /Textures/Objects/Devices/hand_teleporter.rsi
     layers:
     - state: icon
+<<<<<<< HEAD
+=======
+      color: green
+  - type: Tag
+    tags:
+    - FitInTeleporterConsole
+>>>>>>> wizards-filtered
   - type: HandTeleporter
     allowPortalsOnDifferentGrids: true
     allowPortalsOnDifferentMaps: true

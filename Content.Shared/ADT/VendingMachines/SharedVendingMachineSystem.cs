@@ -1,19 +1,17 @@
 using System.Linq;
-using Content.Shared.Access.Components;
-using Content.Shared.Access.Systems;
-using Content.Shared.Advertise.Components;
-using Content.Shared.Advertise.Systems;
 using Content.Shared.Destructible;
 using Content.Shared.DoAfter;
 using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
-using Content.Shared.Emp;
-using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.UserInterface;
+<<<<<<< HEAD:Content.Shared/ADT/VendingMachines/SharedVendingMachineSystem.cs
 using Content.Shared.VendingMachines;
 using Robust.Shared.Audio;
+=======
+using Content.Shared.VendingMachines.Components;
+>>>>>>> wizards-filtered:Content.Shared/VendingMachines/SharedVendingMachineSystem.cs
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -24,6 +22,7 @@ namespace Content.Shared.ADT.VendingMachines;
 
 public abstract partial class SharedVendingMachineSystem : EntitySystem
 {
+<<<<<<< HEAD:Content.Shared/ADT/VendingMachines/SharedVendingMachineSystem.cs
     [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] protected readonly IPrototypeManager PrototypeManager = default!;
     [Dependency] protected readonly SharedAudioSystem Audio = default!;
@@ -37,10 +36,21 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
     [Dependency] private readonly SharedPointLightSystem _lightSystem = default!;
     [Dependency] protected SharedUserInterfaceSystem UISystem = default!;
     [Dependency] private readonly SharedSpeakOnUIClosedSystem _speakOnUIClosed = default!;
+=======
+    [Dependency] protected IGameTiming Timing = default!;
+    [Dependency] protected SharedAudioSystem Audio = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedPowerReceiverSystem _receiver = default!;
+    [Dependency] protected SharedPopupSystem Popup = default!;
+    [Dependency] protected SharedUserInterfaceSystem UISystem = default!;
+    [Dependency] protected IRobustRandom Randomizer = default!;
+    [Dependency] private EmagSystem _emag = default!;
+>>>>>>> wizards-filtered:Content.Shared/VendingMachines/SharedVendingMachineSystem.cs
 
     public override void Initialize()
     {
         base.Initialize();
+<<<<<<< HEAD:Content.Shared/ADT/VendingMachines/SharedVendingMachineSystem.cs
         SubscribeLocalEvent<VendingMachineComponent, ComponentGetState>(OnVendingGetState);
         SubscribeLocalEvent<VendingMachineComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<VendingMachineComponent, GotEmaggedEvent>(OnEmagged);
@@ -50,18 +60,22 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         SubscribeLocalEvent<VendingMachineComponent, BreakageEventArgs>(OnBreak);
 
         SubscribeLocalEvent<VendingMachineRestockComponent, AfterInteractEvent>(OnAfterInteract);
+=======
+
+        Subs.BuiEvents<VendingMachineComponent>(VendingMachineUiKey.Key, subs =>
+        {
+            subs.Event<VendingMachineEjectMessage>(OnInventoryEjectMessage);
+        });
+>>>>>>> wizards-filtered:Content.Shared/VendingMachines/SharedVendingMachineSystem.cs
     }
 
+    [SubscribeLocalEvent]
     private void OnVendingGetState(Entity<VendingMachineComponent> entity, ref ComponentGetState args)
     {
         var component = entity.Comp;
-
-        var inventory = new Dictionary<string, VendingMachineInventoryEntry>();
-        var emaggedInventory = new Dictionary<string, VendingMachineInventoryEntry>();
-        var contrabandInventory = new Dictionary<string, VendingMachineInventoryEntry>();
-
-        foreach (var weh in component.Inventory)
+        var state = new VendingMachineComponentState
         {
+<<<<<<< HEAD:Content.Shared/ADT/VendingMachines/SharedVendingMachineSystem.cs
             inventory[weh.Key] = new(weh.Value.Type, weh.Value.ID, weh.Value.Amount, weh.Value.Price, weh.Value.MaxAmount, weh.Value.Category);
         }
 
@@ -81,23 +95,41 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
             EmaggedInventory = emaggedInventory,
             ContrabandInventory = contrabandInventory,
             ReturnedInventory = new(component.ReturnedInventory),
+=======
+>>>>>>> wizards-filtered:Content.Shared/VendingMachines/SharedVendingMachineSystem.cs
             Contraband = component.Contraband,
-            EjectEnd = component.EjectEnd,
-            DenyEnd = component.DenyEnd,
-            DispenseOnHitEnd = component.DispenseOnHitEnd,
             Broken = component.Broken,
         };
+
+        CopyInventory(component.Inventory, state.Inventory);
+        CopyInventory(component.EmaggedInventory, state.EmaggedInventory);
+        CopyInventory(component.ContrabandInventory, state.ContrabandInventory);
+
+        args.State = state;
+    }
+
+    protected static void CopyInventory(
+        Dictionary<string, VendingMachineInventoryEntry> source,
+        Dictionary<string, VendingMachineInventoryEntry> target)
+    {
+        target.Clear();
+
+        foreach (var entry in source)
+        {
+            target.Add(entry.Key, new(entry.Value));
+        }
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<VendingMachineComponent>();
+        var query = EntityQueryEnumerator<VendingMachineComponent, VendingMachineEjectComponent>();
         var curTime = Timing.CurTime;
 
-        while (query.MoveNext(out var uid, out var comp))
+        while (query.MoveNext(out var uid, out var comp, out var eject))
         {
+<<<<<<< HEAD:Content.Shared/ADT/VendingMachines/SharedVendingMachineSystem.cs
             if (comp.Ejecting)
             {
                 if (curTime > comp.EjectEnd)
@@ -143,11 +175,19 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         }
     }
 
+=======
+            UpdateEjectState((uid, comp, eject), curTime);
+        }
+    }
+
+    [SubscribeLocalEvent]
+>>>>>>> wizards-filtered:Content.Shared/VendingMachines/SharedVendingMachineSystem.cs
     protected virtual void OnMapInit(EntityUid uid, VendingMachineComponent component, MapInitEvent args)
     {
         RestockInventoryFromPrototype(uid, component, component.InitialStockQuality);
     }
 
+<<<<<<< HEAD:Content.Shared/ADT/VendingMachines/SharedVendingMachineSystem.cs
     protected virtual void EjectItem(EntityUid uid, VendingMachineComponent? vendComponent = null, bool forceEject = false) { }
 
     /// <summary>
@@ -321,6 +361,9 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         Dirty(uid, component);
     }
 
+=======
+    [SubscribeLocalEvent]
+>>>>>>> wizards-filtered:Content.Shared/VendingMachines/SharedVendingMachineSystem.cs
     private void OnEmagged(EntityUid uid, VendingMachineComponent component, ref GotEmaggedEvent args)
     {
         if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
@@ -338,6 +381,41 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
             component.AllForFree = true;
             Dirty(uid, component);
         }
+    }
+
+    [SubscribeLocalEvent]
+    private void OnActivatableUIOpenAttempt(EntityUid uid, VendingMachineComponent component, ActivatableUIOpenAttemptEvent args)
+    {
+        if (component.Broken)
+            args.Cancel();
+    }
+
+    [SubscribeLocalEvent]
+    private void OnBreak(EntityUid uid, VendingMachineComponent vendComponent, BreakageEventArgs eventArgs)
+    {
+        vendComponent.Broken = true;
+        Dirty(uid, vendComponent);
+
+        UISystem.CloseUi(uid, VendingMachineUiKey.Key);
+    }
+
+    protected virtual void UpdateUI(Entity<VendingMachineComponent?> entity) { }
+
+    public void RestockInventoryFromPrototype(EntityUid uid,
+        VendingMachineComponent? component = null, float restockQuality = 1f)
+    {
+        if (!Resolve(uid, ref component))
+        {
+            return;
+        }
+
+        if (!ProtoMan.TryIndex(component.PackPrototypeId, out VendingMachineInventoryPrototype? packPrototype))
+            return;
+
+        AddInventoryFromPrototype(uid, packPrototype.StartingInventory, InventoryType.Regular, component, restockQuality);
+        AddInventoryFromPrototype(uid, packPrototype.EmaggedInventory, InventoryType.Emagged, component, restockQuality);
+        AddInventoryFromPrototype(uid, packPrototype.ContrabandInventory, InventoryType.Contraband, component, restockQuality);
+        Dirty(uid, component);
     }
 
     /// <summary>
@@ -388,7 +466,11 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         return GetAllInventory(uid, component).Where(inventoryEntry => inventoryEntry.Amount > 0).ToList();
     }
 
+<<<<<<< HEAD:Content.Shared/ADT/VendingMachines/SharedVendingMachineSystem.cs
     private void AddInventoryFromPrototype(EntityUid uid, IEnumerable<(string Id, uint Amount, string? Category)> entries,
+=======
+    private void AddInventoryFromPrototype(EntityUid uid, Dictionary<EntProtoId, uint>? entries,
+>>>>>>> wizards-filtered:Content.Shared/VendingMachines/SharedVendingMachineSystem.cs
         InventoryType type,
         VendingMachineComponent? component = null, float restockQuality = 1.0f)
     {
@@ -415,6 +497,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
 
         foreach (var (id, amount, category) in entries)
         {
+<<<<<<< HEAD:Content.Shared/ADT/VendingMachines/SharedVendingMachineSystem.cs
             if (PrototypeManager.TryIndex<EntityPrototype>(id, out var proto))
             {
                 var restock = amount;
@@ -442,10 +525,32 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
                     inventory.Add(id, new VendingMachineInventoryEntry(type, id, restock, price, amount, category));
                 }
                 //ADT-Economy-End
+=======
+            if (!ProtoMan.HasIndex<EntityPrototype>(id)) continue;
+            var restock = amount;
+            var chanceOfMissingStock = 1 - restockQuality;
+
+            var result = Randomizer.NextFloat(0, 1);
+            if (result < chanceOfMissingStock)
+            {
+                restock = (uint) Math.Floor(amount * result / chanceOfMissingStock);
+>>>>>>> wizards-filtered:Content.Shared/VendingMachines/SharedVendingMachineSystem.cs
             }
+
+            if (inventory.TryGetValue(id, out var entry))
+                // Prevent a machine's stock from going over three times
+                // the prototype's normal amount. This is an arbitrary
+                // number and meant to be a convenience for someone
+                // restocking a machine who doesn't want to force vend out
+                // all the items just to restock one empty slot without
+                // losing the rest of the restock.
+                entry.Amount = Math.Min(entry.Amount + amount, 3 * restock);
+            else
+                inventory.Add(id, new VendingMachineInventoryEntry(type, id, restock));
         }
     }
 
+<<<<<<< HEAD:Content.Shared/ADT/VendingMachines/SharedVendingMachineSystem.cs
     protected virtual int GetEntryPrice(EntityPrototype proto)
     {
         return 25;
@@ -465,4 +570,6 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
 
         UISystem.CloseUi(uid, VendingMachineUiKey.Key);
     }
+=======
+>>>>>>> wizards-filtered:Content.Shared/VendingMachines/SharedVendingMachineSystem.cs
 }

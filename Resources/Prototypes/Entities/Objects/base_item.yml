@@ -1,7 +1,7 @@
 - type: entity
-  name: "item"
-  id: BaseItem
   abstract: true
+  id: BaseItem
+  name: "item"
   components:
   - type: Item
     size: Small
@@ -46,6 +46,25 @@
   - type: DamageExaminable
   - type: Rotatable
     increment: 30
+<<<<<<< HEAD
+=======
+
+- type: entity
+  abstract: true
+  id: BaseItemDestructible # Should be replaced by a variety of destruction bases, possibly combined with drink_base_materials.yml
+  components:
+  - type: Damageable
+  - type: Injurable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+>>>>>>> wizards-filtered
 
 - type: entity
   name: "storage item"
@@ -194,6 +213,16 @@
     sound: !type:SoundPathSpecifier
       path: /Audio/Items/Culinary/chop.ogg
 
+<<<<<<< HEAD
+=======
+- type: entity
+  abstract: true
+  parent: BaseSlicingRefinable
+  id: BaseSlicingRefinableFood
+  components:
+  - type: ToolRefinableSolution
+
+>>>>>>> wizards-filtered
 # For entities with a hidden container slot that can be opened with a tool
 - type: entity
   abstract: true

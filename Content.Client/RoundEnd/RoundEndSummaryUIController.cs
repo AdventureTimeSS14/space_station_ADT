@@ -10,10 +10,10 @@ using Robust.Shared.Player;
 namespace Content.Client.RoundEnd;
 
 [UsedImplicitly]
-public sealed class RoundEndSummaryUIController : UIController,
+public sealed partial class RoundEndSummaryUIController : UIController,
     IOnSystemLoaded<ClientGameTicker>
 {
-    [Dependency] private readonly IInputManager _input = default!;
+    [Dependency] private IInputManager _input = default!;
 
     private RoundEndSummaryWindow? _window;
 
@@ -40,8 +40,12 @@ public sealed class RoundEndSummaryUIController : UIController,
             return;
 
         _window = new RoundEndSummaryWindow(message.GamemodeTitle, message.RoundEndText,
+<<<<<<< HEAD
             message.RoundDuration, message.RoundId, message.AllPlayersEndInfo, EntityManager,
             message.RoundReport, message.SpeciesCensus); // ADT-Tweak
+=======
+            message.RoundDuration, message.RoundId, message.AllPlayersEndInfo);
+>>>>>>> wizards-filtered
     }
 
     public void OnSystemLoaded(ClientGameTicker system)

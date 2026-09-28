@@ -5,9 +5,13 @@ using Robust.Client.Graphics;
 
 namespace Content.Client.Radiation.Systems;
 
+<<<<<<< HEAD
 public sealed class RadiationSystem : SharedRadiationSystem
+=======
+public sealed partial class RadiationSystem : SharedRadiationSystem
+>>>>>>> wizards-filtered
 {
-    [Dependency] private readonly IOverlayManager _overlayMan = default!;
+    [Dependency] private IOverlayManager _overlayMan = default!;
 
     public List<DebugRadiationRay>? Rays;
     public Dictionary<NetEntity, Dictionary<Vector2i, float>>? ResistanceGrids;

@@ -15,23 +15,27 @@ public abstract partial class SharedHandsSystem
 {
     private void InitializeRelay()
     {
-        SubscribeLocalEvent<HandsComponent, GetEyeOffsetRelayedEvent>(RelayEvent);
         SubscribeLocalEvent<HandsComponent, GetEyePvsScaleRelayedEvent>(RelayEvent);
         SubscribeLocalEvent<HandsComponent, RefreshMovementSpeedModifiersEvent>(RelayEvent);
         SubscribeLocalEvent<HandsComponent, CheckMagicItemEvent>(RelayEvent); // goob edit - heretics
 
         // By-ref events.
+        SubscribeLocalEvent<HandsComponent, GetEyeOffsetRelayedEvent>(RefRelayEvent);
         SubscribeLocalEvent<HandsComponent, ExtinguishEvent>(RefRelayEvent);
         SubscribeLocalEvent<HandsComponent, ProjectileReflectAttemptEvent>(RefRelayEvent);
         SubscribeLocalEvent<HandsComponent, HitScanReflectAttemptEvent>(RefRelayEvent);
         SubscribeLocalEvent<HandsComponent, WieldAttemptEvent>(RefRelayEvent);
         SubscribeLocalEvent<HandsComponent, UnwieldAttemptEvent>(RefRelayEvent);
         SubscribeLocalEvent<HandsComponent, TargetHandcuffedEvent>(RefRelayEvent);
+<<<<<<< HEAD
 
         // ADT Grab - relay grab events to held items
         SubscribeLocalEvent<HandsComponent, FindGrabbingItemEvent>(RefRelayEvent);
         SubscribeLocalEvent<HandsComponent, StopGrabbingItemPullEvent>(RefRelayEvent);
         SubscribeLocalEvent<HandsComponent, GrabModifierEvent>(RefRelayEvent);
+=======
+        SubscribeLocalEvent<HandsComponent, RefreshWeightlessModifiersEvent>(RefRelayEvent);
+>>>>>>> wizards-filtered
     }
 
     private void RelayEvent<T>(Entity<HandsComponent> entity, ref T args) where T : EntityEventArgs

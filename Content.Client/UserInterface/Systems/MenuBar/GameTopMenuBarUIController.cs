@@ -14,8 +14,9 @@ using Content.Client.ADT.UserInterface.Systems.Language;
 
 namespace Content.Client.UserInterface.Systems.MenuBar;
 
-public sealed class GameTopMenuBarUIController : UIController
+public sealed partial class GameTopMenuBarUIController : UIController
 {
+<<<<<<< HEAD
     [Dependency] private readonly EscapeUIController _escape = default!;
     [Dependency] private readonly AdminUIController _admin = default!;
     [Dependency] private readonly CharacterUIController _character = default!;
@@ -26,6 +27,17 @@ public sealed class GameTopMenuBarUIController : UIController
     [Dependency] private readonly GuidebookUIController _guidebook = default!;
     [Dependency] private readonly EmotesUIController _emotes = default!;
     [Dependency] private readonly LanguageMenuUIController _language = default!;    // ADT Languages
+=======
+    [Dependency] private EscapeUIController _escape = default!;
+    [Dependency] private AdminUIController _admin = default!;
+    [Dependency] private CharacterUIController _character = default!;
+    [Dependency] private CraftingUIController _crafting = default!;
+    [Dependency] private AHelpUIController _ahelp = default!;
+    [Dependency] private ActionUIController _action = default!;
+    [Dependency] private SandboxUIController _sandbox = default!;
+    [Dependency] private GuidebookUIController _guidebook = default!;
+    [Dependency] private EmotesUIController _emotes = default!;
+>>>>>>> wizards-filtered
 
     private GameTopMenuBar? GameTopMenuBar => UIManager.GetActiveUIWidgetOrNull<GameTopMenuBar>();
 

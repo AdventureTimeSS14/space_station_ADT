@@ -14,9 +14,10 @@ using Robust.Shared.Console;
 namespace Content.Server.Administration.Commands;
 
 [AdminCommand(AdminFlags.Ban)]
-public sealed class BanCommand : LocalizedCommands
+public sealed partial class BanCommand : LocalizedCommands
 {
 
+<<<<<<< HEAD
     [Dependency] private readonly IPlayerLocator _locator = default!;
     [Dependency] private readonly IBanManager _bans = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
@@ -25,6 +26,13 @@ public sealed class BanCommand : LocalizedCommands
     [Dependency] private readonly IDiscordBanInfoSender _discordBanInfoSender = default!;
     [Dependency] private readonly IServerDbManager _dbManager = default!;
     [Dependency] private readonly IAdminManager _adminManager = default!;
+=======
+    [Dependency] private IPlayerLocator _locator = default!;
+    [Dependency] private IBanManager _bans = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private ILogManager _logManager = default!;
+>>>>>>> wizards-filtered
 
     public override string Command => "ban";
 

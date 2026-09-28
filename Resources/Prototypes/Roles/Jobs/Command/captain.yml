@@ -15,6 +15,7 @@
       time: 4h
     - !type:DepartmentTimeRequirement
       department: Security
+<<<<<<< HEAD
       time: 4h # ADT-Tweak 4
 #    - !type:DepartmentTimeRequirement
 #      department: Command
@@ -32,11 +33,16 @@
       - Vox
   # ADT RESTRICT End
   weight: 20
+=======
+      time: 4h
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 4h
+>>>>>>> wizards-filtered
   startingGear: CaptainGear
   icon: "JobIconCaptain"
   joinNotifyCrew: true
   supervisors: job-supervisors-centcom
-  canBeAntag: false
   accessGroups:
   - ADTAccessCaptain #ADT-tweak - полный доступ ко всем станционным дверям, кроме ЦК и ОСЩ
   special:

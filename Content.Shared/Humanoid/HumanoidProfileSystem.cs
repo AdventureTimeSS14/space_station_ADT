@@ -11,11 +11,15 @@ using Robust.Shared.Enums;
 
 namespace Content.Shared.Humanoid;
 
-public sealed class HumanoidProfileSystem : EntitySystem
+public sealed partial class HumanoidProfileSystem : EntitySystem
 {
+<<<<<<< HEAD
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly GrammarSystem _grammar = default!;
     [Dependency] private readonly SharedLanguageSystem _language = default!;
+=======
+    [Dependency] private GrammarSystem _grammar = default!;
+>>>>>>> wizards-filtered
 
     public override void Initialize()
     {
@@ -51,9 +55,19 @@ public sealed class HumanoidProfileSystem : EntitySystem
         ent.Comp.Gender = profile.Gender;
         ent.Comp.Age = profile.Age;
         ent.Comp.Species = profile.Species;
+<<<<<<< HEAD
         SetSex(ent, profile.Sex);
         Dirty(ent);
 
+=======
+        ent.Comp.Voice = profile.Voice;
+        ent.Comp.Sex = profile.Sex;
+        Dirty(ent);
+
+        var voiceChanged = new VoiceChangedEvent(ent.Comp.Voice, profile.Voice);
+        RaiseLocalEvent(ent, ref voiceChanged);
+
+>>>>>>> wizards-filtered
         if (TryComp<GrammarComponent>(ent, out var grammar))
         {
             _grammar.SetGender((ent, grammar), profile.Gender);
@@ -100,7 +114,7 @@ public sealed class HumanoidProfileSystem : EntitySystem
     /// </summary>
     public string GetSpeciesRepresentation(ProtoId<SpeciesPrototype> species)
     {
-        if (_prototype.TryIndex(species, out var speciesPrototype))
+        if (ProtoMan.TryIndex(species, out var speciesPrototype))
             return Loc.GetString(speciesPrototype.Name);
 
         Log.Error("Tried to get representation of unknown species: {speciesId}");
@@ -112,7 +126,7 @@ public sealed class HumanoidProfileSystem : EntitySystem
     /// </summary>
     public string GetAgeRepresentation(ProtoId<SpeciesPrototype> species, int age)
     {
-        if (!_prototype.TryIndex(species, out var speciesPrototype))
+        if (!ProtoMan.TryIndex(species, out var speciesPrototype))
         {
             Log.Error("Tried to get age representation of species that couldn't be indexed: " + species);
             return Loc.GetString("identity-age-young");

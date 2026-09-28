@@ -35,6 +35,7 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
     private List<BarkPrototype> _barks = new(); // ADT Barks
 
     private string? _verb;
+<<<<<<< HEAD
     // ADT-Tweak start
     private ProtoId<JobIconPrototype>? _currentJobIconId;
 
@@ -51,6 +52,11 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
         _spriteSystem = _entitySystemManager.GetEntitySystem<SpriteSystem>();
         // ADT-Tweak end
 
+=======
+    public VoiceMaskNameChangeWindow()
+    {
+        RobustXamlLoader.Load(this);
+>>>>>>> wizards-filtered
         NameSelectorSet.OnPressed += _ =>
         {
             OnNameChange?.Invoke(NameSelector.Text);
@@ -122,6 +128,7 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
             SpeechVerbSelector.SelectId(id);
     }
 
+<<<<<<< HEAD
     // ADT-Tweak-Start
     private void ReloadVoices(IPrototypeManager proto)
     {
@@ -240,12 +247,15 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
     // ADT-Tweak end Job Icons
 
     public void UpdateState(string name, string voice, string barkId, float barkPitch, string? verb, string? jobIconId = null, bool active = false, bool accentHide = false)
+=======
+    public void UpdateState(string name, string? verb, bool active, bool accentHide, LocId titleText)
+>>>>>>> wizards-filtered
     {
         NameSelector.Text = name;
         _verb = verb;
         ToggleButton.Pressed = active;
         ToggleAccentButton.Pressed = accentHide;
-
+        Title = Loc.GetString(titleText);
         for (int id = 0; id < SpeechVerbSelector.ItemCount; id++)
         {
             if (string.Equals(verb, SpeechVerbSelector.GetItemMetadata(id)))

@@ -10,11 +10,15 @@ using Robust.Shared.Physics.Events;
 
 namespace Content.Shared.Damage.Systems;
 
-public sealed class RequireProjectileTargetSystem : EntitySystem
+public sealed partial class RequireProjectileTargetSystem : EntitySystem
 {
+<<<<<<< HEAD
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!; // ADT Anti-Lying-Warrior
+=======
+    [Dependency] private SharedContainerSystem _container = default!;
+>>>>>>> wizards-filtered
 
     public override void Initialize()
     {

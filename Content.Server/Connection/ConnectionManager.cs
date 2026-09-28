@@ -55,6 +55,7 @@ namespace Content.Server.Connection
     /// </summary>
     public sealed partial class ConnectionManager : IConnectionManager
     {
+<<<<<<< HEAD
         [Dependency] private readonly IPlayerManager _plyMgr = default!;
         [Dependency] private readonly IServerNetManager _netMgr = default!;
         [Dependency] private readonly IServerDbManager _db = default!;
@@ -70,6 +71,21 @@ namespace Content.Server.Connection
         [Dependency] private readonly IHttpClientHolder _http = default!;
         [Dependency] private readonly IAdminManager _adminManager = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
+=======
+        [Dependency] private IPlayerManager _plyMgr = default!;
+        [Dependency] private IServerNetManager _netMgr = default!;
+        [Dependency] private IServerDbManager _db = default!;
+        [Dependency] private IConfigurationManager _cfg = default!;
+        [Dependency] private ILocalizationManager _loc = default!;
+        [Dependency] private ServerDbEntryManager _serverDbEntry = default!;
+        [Dependency] private IPrototypeManager _prototypeManager = default!;
+        [Dependency] private IGameTiming _gameTiming = default!;
+        [Dependency] private ILogManager _logManager = default!;
+        [Dependency] private IChatManager _chatManager = default!;
+        [Dependency] private IHttpClientHolder _http = default!;
+        [Dependency] private IAdminManager _adminManager = default!;
+        [Dependency] private IEntityManager _entityManager = default!;
+>>>>>>> wizards-filtered
 
         private GameTicker? _ticker;
 

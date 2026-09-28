@@ -1,6 +1,6 @@
 ﻿- type: entity
   abstract: true
-  parent: BaseItem
+  parent: MaterialBase
   id: IngotBase
   description: A heavy metal ingot stamped with the Nanotrasen logo.
   components:
@@ -8,15 +8,13 @@
     sprite: Objects/Materials/ingots.rsi
   - type: Item
     sprite: Objects/Materials/ingots.rsi
-    size: Normal
-  - type: StaticPrice
-    price: 0
   - type: Tag
     tags:
     - Ingot
     - ConstructionMaterial
   - type: Damageable
     damageModifierSet: Metallic
+<<<<<<< HEAD
   - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
@@ -27,6 +25,8 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+=======
+>>>>>>> wizards-filtered
 
 - type: entity
   parent: IngotBase
@@ -34,6 +34,7 @@
   name: gold bar
   suffix: Full
   components:
+<<<<<<< HEAD
 # Start ADT Tweak
   - type: Tag
     tags:
@@ -41,6 +42,8 @@
       - ConstructionMaterial
 # End ADT Tweak
   - type: Material
+=======
+>>>>>>> wizards-filtered
   - type: PhysicalComposition
     materialComposition:
       Gold: 100
@@ -58,15 +61,11 @@
       map: ["base"]
   - type: Item
     heldPrefix: gold
-  - type: Appearance
-  - type: Extractable
-    grindableSolutionName: gold
-  - type: SolutionContainerManager
-    solutions:
-      gold:
-        reagents:
-        - ReagentId: Gold
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Gold
+        Quantity: 10
 
 - type: entity
   parent: IngotGold
@@ -85,6 +84,7 @@
   name: silver bar
   suffix: Full
   components:
+<<<<<<< HEAD
 # Start ADT Tweak
   - type: Tag
     tags:
@@ -92,6 +92,8 @@
       - ConstructionMaterial
 # End ADT Tweak
   - type: Material
+=======
+>>>>>>> wizards-filtered
   - type: PhysicalComposition
     materialComposition:
       Silver: 100
@@ -109,15 +111,11 @@
       map: ["base"]
   - type: Item
     heldPrefix: silver
-  - type: Appearance
-  - type: Extractable
-    grindableSolutionName: gold
-  - type: SolutionContainerManager
-    solutions:
-      gold:
-        reagents:
-        - ReagentId: Silver
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Silver
+        Quantity: 10
 
 - type: entity
   parent: IngotSilver

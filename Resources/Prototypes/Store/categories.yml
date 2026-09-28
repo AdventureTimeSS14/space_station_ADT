@@ -125,10 +125,24 @@
 
 #changeling
 #todo: add actual categories when changeling design/abilities are fleshed out
+<<<<<<< HEAD
 # ADT: Закомментировано из-за использования генокрада от Goob Station
 # - type: storeCategory
 #   id: ChangelingAbilities
 #   name: store-category-abilities
+=======
+- type: storeCategory
+  id: ChangelingStoreCombat
+  name: store-category-combat
+
+- type: storeCategory
+  id: ChangelingStoreUtility
+  name: store-category-utility
+
+- type: storeCategory
+  id: ChangelingStoreStealth
+  name: store-category-stealth
+>>>>>>> wizards-filtered
 
 - type: storeCategory
   id: DiscountedItems

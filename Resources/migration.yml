@@ -8,6 +8,7 @@
 # WallSolid: Window
 # Table: null
 
+<<<<<<< HEAD
 # ADT ERT 2024-07-20
 ERTSpawnerEngineering: null
 ERTSpawnerLeader: null
@@ -15,6 +16,36 @@ ERTSpawnerMedical: null
 ERTSpawnerSrcurity: null
 ERTSpawnerJanitor: null
 ERTSpawnerCBURN: null
+=======
+#ADT-Tweak-Start
+ButtonFrameWhite: ButtonFrameExit
+EnergyGate: Turnstile
+EnergyGateAirtight: Turnstile
+EnergyGateGenpopEnter: TurnstileGenpopEnter
+EnergyGateGenpopLeave: TurnstileGenpopLeave
+FloorSwimmingPoolEntity: FloorWaterEntity
+StatueOrnateClown: StatueBananiumClown
+WallConcrete: WallCobblebrick
+WallMarble: WallRiveted
+WindoorArmoryLocked: WindoorSecureArmoryLocked
+WindoorBrigLocked: WindoorSecureBrigLocked
+WindoorChemistryLocked: WindoorSecureChemistryLocked
+WindoorCommandLocked: WindoorSecureCommandLocked
+WindoorEngineeringLocked: WindoorSecureEngineeringLocked
+WindoorExternalLocked: WindoorSecureExternalLocked
+WindoorHeadOfPersonnelLocked: WindoorSecureHeadOfPersonnelLocked
+WindoorMedicalLocked: WindoorSecureMedicalLocked
+WindoorResearchDirectorLocked: WindoorSecureResearchDirectorLocked
+WindoorSalvageLocked: WindoorSecureSalvageLocked
+WindoorScienceLocked: WindoorSecureScienceLocked
+WindoorSecurityLawyerLocked: WindoorSecureSecurityLawyerLocked
+WindoorSecurityLocked: WindoorSecureSecurityLocked
+PlasmaWindoorArmoryLocked: PlasmaWindoorSecureArmoryLocked
+PlasmaWindoorCommandLocked: PlasmaWindoorSecureCommandLocked
+PlasmaWindoorScienceLocked: PlasmaWindoorSecureScienceLocked
+PlasmaWindoorSecurityLocked: PlasmaWindoorSecureSecurityLocked
+#ADT-Tweak-End
+>>>>>>> wizards-filtered
 
 # 2023-07-03
 ClothingHeadHelmetHelmet: ClothingHeadHelmetBasic
@@ -190,6 +221,7 @@ SpyCrewMonitorEmpty: null
 SyndiCrewMonitor: null
 SyndiCrewMonitorEmpty: null
 
+<<<<<<< HEAD
 #ADT vehicles migration undone
 SpawnVehicleWheelchair: ADTSpawnVehicleWheelchair
 SpawnVehicleWheelchairFolded: ADTSpawnVehicleWheelchairFolded
@@ -219,6 +251,36 @@ SpawnVehicleSecway: ADTSpawnVehicleSecway
 SpawnVehicleJanicart: ADTSpawnVehicleJanicart
 VehicleJanicart: ADTVehicleJanicart
 VehicleJanicartDestroyed: ADTVehicleJanicartDestroyed
+=======
+#SpawnVehicleWheelchair: null
+SpawnVehicleWheelchairFolded: null
+#VehicleWheelchair: null
+VehicleWheelchairFolded: null
+VehicleSecwayStealObjective: null
+#VehicleKeyJanicart: null
+VehicleKeySecway: null
+VehicleKeyATV: null
+VehicleKeySkeleton: null
+VehicleKeySyndicateSegway: null
+VehicleKeySkeletonMotorcycle: null
+VehicleSecway: null
+VehicleATV: null
+VehicleSyndicateSegway: null
+VehicleSkeletonMotorcycle: null
+VehicleUnicycle: null
+VehicleUnicycleFolded: null
+ActionVehicleHorn: null
+CrateFunATV: null
+CrateFunSyndicateSegway: null
+MobTaxiBot: null
+# MobSupplyBot: null
+SpawnVehicleMotobike: null
+SpawnVehicleATV: null
+SpawnVehicleSecway: null
+#SpawnVehicleJanicart: null
+#VehicleJanicart: null
+VehicleJanicartDestroyed: null
+>>>>>>> wizards-filtered
 
 # 2024-02-01
 YellowOxygenTank: OxygenTank
@@ -544,7 +606,7 @@ PresentRandomAsh: PresentRandomCoal
 CrateCrewMonitoringBoards: CrateCrewMonitoring
 
 # 2024-11-25
-CrateSlimepersonLifeSupport: CrateNitrogenInternals
+CrateSlimepersonLifeSupport: CrateEmergencyEVA
 
 # 2024-12-01
 DungeonMasterCircuitBoard: GameMasterCircuitBoard
@@ -815,6 +877,10 @@ VimChassis: null
 # 2025-08-01
 FoodDonutJellySlugcat: FoodDonutJellyScurret
 
+# 2025-08-06
+TrashBagBlue: TrashBagHolding
+BagOfSummoningGarbage: null
+
 # 2025-08-11
 ClothingUniformJumpsuitChiefEngineerNT: ClothingUniformJumpsuitChiefEngineer
 ClothingUniformJumpsuitParamedicNT: ClothingUniformJumpsuitParamedic
@@ -840,6 +906,10 @@ ToySkeleton: ToyFigurineSkeleton
 
 # 2025-10-28
 DrinkKiraSpecial: DrinkOrangeLimeSodaGlass
+
+# 2025-12-02
+GhostWarpPoint: null
+DefaultStationBeaconGhost: null
 
 # 2025-11-08
 DebugSMES: SMESBasicEmpty
@@ -928,6 +998,7 @@ CrateVendingMachineRestockChangFilled: VendingMachineRestockChang
 CrateVendingMachineRestockDiscountDansFilled: VendingMachineRestockDiscountDans
 CrateVendingMachineRestockDonutFilled: VendingMachineRestockDonut
 
+<<<<<<< HEAD
 # 2026-06-03 ADT-Claner
 ADTSpawnPointEvilBot: null
 HeadSlime: null
@@ -1049,3 +1120,74 @@ SiliconChargerIndustrial: BorgCharger
 
 # ADT 07.09.2026
 LockerCorrectionOfficer: ADTLockerCorrectionOfficer
+=======
+# 2026-03-28
+# The great solutions YAML nuke
+FoodMeatSnail: MobSnail
+
+# 2026-04-25
+CratePartsT3: null
+CratePartsT3T4: null
+CratePartsT4: null
+
+#2027-07-17
+WeaponRifleM90GrenadeLauncher: null
+
+# 2026-07-18
+SheetGlassLingering0: null
+SheetRGlassLingering0: null
+SheetRPGlassLingering0: null
+SheetSteelLingering0: null
+SheetPlasteelLingering0: null
+SheetPlasmaLingering0: null
+PartRodMetalLingering0: null
+FloorTileItemSteelLingering0: null
+FloorTileItemWhiteLingering0: null
+FloorTileItemDarkLingering0: null
+SoapBorg: Soap
+Ointment10Lingering: Ointment
+RegenerativeMeshLingering0: null
+Brutepack10Lingering: Brutepack
+MedicatedSutureLingering0: null
+Bloodpack10Lingering: Bloodpack
+Gauze10Lingering: Gauze
+BorgVial: ChemistryEmptyVial
+BorgBeaker: Beaker
+CableHVStackLingering10: CableHVStack10
+CableMVStackLingering10: CableMVStack10
+CableApcStackLingering10: CableApcStack10
+
+# 2026-07-19
+BoxHugNitrogen: BoxSurvivalHugNitrogen
+BoxMime: BoxSurvival
+BoxMimeNitrogen: BoxSurvivalNitrogen
+BoxMimeMoth: BoxSurvival
+
+# 2026-07-19
+CrateChemistryVials: null
+CrateSecurityHelmet: null
+CrateEmergencyInternals: CrateEmergencyEVA
+CrateEmergencyInternalsLarge: CrateEmergencyEVA
+CrateNitrogenInternals: CrateEmergencyEVA
+CrateServiceCleanerGrenades: CrateJanitorialCleanerGrenades
+CrateServiceColorfulLights: CrateJanitorialColorfulLights
+CrateServiceHolidayLights: CrateJanitorialHolidayLights
+CrateMousetrapBoxes: CrateJanitorialMousetraps
+CrateServiceReplacementLights: CrateJanitorialReplacementLights
+CrateServiceJanitorialSupplies: CrateJanitorialSupplies
+CrateMaterialTextiles: CrateMaterialCloth
+CrateFoodBarSupply: CrateServiceBarSupply
+CrateFoodCooking: CrateServiceCooking
+CrateFoodDinnerware: CrateServiceDinnerware
+CrateFoodGetMore: CrateServiceGetMore
+CrateEngineeringGyroscope: CrateSpaceGyroscope
+CrateEngineeringJetpack: CrateSpaceMiniJetpack
+CrateEngineeringMiniJetpack: CrateSpaceMiniJetpack
+CrateEngineeringShuttle: CrateSpaceShuttlePower
+CrateEngineeringThruster: CrateSpaceThruster
+
+LightReplacer: LightReplacerFilled
+
+#2026-08-18
+DrinkNeurotoxinGlass: null
+>>>>>>> wizards-filtered

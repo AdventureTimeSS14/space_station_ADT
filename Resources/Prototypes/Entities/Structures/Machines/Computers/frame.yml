@@ -1,10 +1,14 @@
+<<<<<<< HEAD
 ﻿- type: entity
   id: BaseStructureComputer
   parent: BaseStructure
+=======
+- type: entity
+>>>>>>> wizards-filtered
   abstract: true
+  parent: BaseStructure
+  id: BaseStructureComputerIndestructible
   components:
-  - type: Physics
-    bodyType: Static
   - type: Fixtures
     fixtures:
       fix1:
@@ -21,9 +25,17 @@
   - type: Anchorable
   - type: Construction
     graph: Computer
-    node: frameUnsecured
   - type: Sprite
     drawdepth: Objects
+
+- type: entity
+  abstract: true
+  parent: BaseStructureComputerIndestructible
+  id: BaseStructureComputer
+  components:
+  - type: Construction
+    graph: Computer
+    node: frameUnsecured
   - type: Damageable
     damageModifierSet: Electronic
   - type: Injurable
@@ -65,7 +77,7 @@
           monitorUnsecured: { state: 4 }
 
 - type: entity
-  parent: BaseStructureComputer
+  parent: BaseStructureComputerIndestructible
   id: ComputerBroken
   name: broken computer
   description: This computer has seen better days.
@@ -73,6 +85,10 @@
   - type: Construction
     graph: Computer
     node: monitorBroken
+  - type: Damageable
+    damageModifierSet: Electronic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Sprite
     sprite: Structures/Machines/computers.rsi
     drawdepth: Objects
@@ -95,12 +111,6 @@
   # ADT-Tweak end
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 50

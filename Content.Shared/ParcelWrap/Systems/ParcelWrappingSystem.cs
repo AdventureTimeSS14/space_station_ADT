@@ -18,6 +18,7 @@ namespace Content.Shared.ParcelWrap.Systems;
 /// <seealso cref="WrappedParcelComponent"/>
 public sealed partial class ParcelWrappingSystem : EntitySystem
 {
+<<<<<<< HEAD
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
 
@@ -29,6 +30,17 @@ public sealed partial class ParcelWrappingSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+=======
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedChargesSystem _charges = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedItemSystem _item = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+>>>>>>> wizards-filtered
 
     /// <inheritdoc/>
     public override void Initialize()

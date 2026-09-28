@@ -1,9 +1,17 @@
+<<<<<<< HEAD
 using Content.Shared.Damage.Components;
+=======
+﻿using Content.Shared.Damage.Components;
+>>>>>>> wizards-filtered
 using Content.Shared.StatusEffectNew;
 
 namespace Content.Shared.Damage.Systems;
 
+<<<<<<< HEAD
 public sealed class DamageModifierStatusEffectSystem : EntitySystem
+=======
+public sealed partial class DamageModifierStatusEffectSystem : EntitySystem
+>>>>>>> wizards-filtered
 {
     public override void Initialize()
     {
@@ -16,4 +24,8 @@ public sealed class DamageModifierStatusEffectSystem : EntitySystem
     {
         args.Args.Damage = DamageSpecifier.ApplyModifierSet(args.Args.Damage, status.Comp.Modifiers);
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> wizards-filtered

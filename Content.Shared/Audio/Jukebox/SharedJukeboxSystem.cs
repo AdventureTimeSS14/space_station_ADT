@@ -9,8 +9,9 @@ using Robust.Shared.Random;
 
 namespace Content.Shared.Audio.Jukebox;
 
-public abstract class SharedJukeboxSystem : EntitySystem
+public abstract partial class SharedJukeboxSystem : EntitySystem
 {
+<<<<<<< HEAD
     /// ADT-Tweak start
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
@@ -188,6 +189,9 @@ public abstract class SharedJukeboxSystem : EntitySystem
     protected virtual void StopJukebox(Entity<JukeboxComponent> ent) { }
     protected virtual void UpdateMusicList(Entity<JukeboxComponent> ent) { }
     /// ADT-Tweak end
+=======
+    [Dependency] protected SharedAudioSystem Audio = default!;
+>>>>>>> wizards-filtered
 
     /// <summary>
     /// Returns whether or not the given jukebox is currently playing a song.

@@ -9,8 +9,9 @@ using Robust.Shared.Timing;
 
 namespace Content.Server.Medical.SuitSensors;
 
-public sealed class SuitSensorSystem : SharedSuitSensorSystem
+public sealed partial class SuitSensorSystem : SharedSuitSensorSystem
 {
+<<<<<<< HEAD
     // ADT-Tweak Start - New Monitor: idle/wake report pipeline fields
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly CrewMonitoringServerSystem _monitoringServers = default!;
@@ -92,6 +93,11 @@ public sealed class SuitSensorSystem : SharedSuitSensorSystem
         _lastReported.Remove(ent.Owner);
     }
     // ADT-Tweak End
+=======
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private DeviceNetworkSystem _deviceNetworkSystem = default!;
+    [Dependency] private SingletonDeviceNetServerSystem _singletonServerSystem = default!;
+>>>>>>> wizards-filtered
 
     public override void Update(float frameTime)
     {

@@ -8,14 +8,12 @@ using Content.Shared.Hands;
 using Content.Shared.Item;
 using Content.Shared.Rounding;
 using Robust.Client.GameObjects;
-using Robust.Shared.Prototypes;
 
 namespace Content.Client.Chemistry.Visualizers;
 
-public sealed class SolutionContainerVisualsSystem : VisualizerSystem<SolutionContainerVisualsComponent>
+public sealed partial class SolutionContainerVisualsSystem : VisualizerSystem<SolutionContainerVisualsComponent>
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly ItemSystem _itemSystem = default!;
+    [Dependency] private ItemSystem _itemSystem = default!;
 
     public override void Initialize()
     {
@@ -82,6 +80,13 @@ public sealed class SolutionContainerVisualsSystem : VisualizerSystem<SolutionCo
                 changeColor = reagentProto.MetamorphicChangeColor;
                 fillSprite = reagentProto.MetamorphicSprite ?? fillSprite;
             }
+<<<<<<< HEAD
+=======
+            else if (reagentProto?.MetamorphicSprite == null)
+                // The reagent has no metamorphic sprite, but the default one
+                // will still be used. So we set the fill to visible.
+                SpriteSystem.LayerSetVisible(ent, fillLayer, true);
+>>>>>>> wizards-filtered
             else
                 SpriteSystem.LayerSetVisible(ent, fillLayer, false);
         }
@@ -131,7 +136,11 @@ public sealed class SolutionContainerVisualsSystem : VisualizerSystem<SolutionCo
                 args.Component))
             return null;
 
+<<<<<<< HEAD
         var reagentProto = _prototype.Index<ReagentPrototype>(baseOverride);
+=======
+        var reagentProto = ProtoMan.Index<ReagentPrototype>(baseOverride);
+>>>>>>> wizards-filtered
 
         if (SpriteSystem.LayerMapTryGet(ent, component.OverlayLayer, out var overlayLayer, false))
             SpriteSystem.LayerSetVisible(ent, overlayLayer, reagentProto.MetamorphicSprite is null);

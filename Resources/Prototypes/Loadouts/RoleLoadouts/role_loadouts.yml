@@ -9,12 +9,16 @@
   - CaptainJumpsuit
   - CaptainBackpack
   - CaptainOuterClothing
+<<<<<<< HEAD
   - ADTRacialItems # ADT-Tweak
   # ADT underwear tweak start
   - ADTTopCap
   - ADTBottomCap
   - ADTSocksCaptain
   # ADT underwear tweak end
+=======
+  - AssistiveItems
+>>>>>>> wizards-filtered
   - Survival
   - Trinkets
   #- CaptainJobTrinkets
@@ -33,11 +37,15 @@
   - HoPOuterClothing
   - ADTHoPShoes #ADT-Tweak
   - Glasses
+<<<<<<< HEAD
   # ADT underwear tweak start
   - ADTTopHOP
   - ADTBottomHOP
   - ADTSocksHOP
   # ADT underwear tweak end
+=======
+  - AssistiveItems
+>>>>>>> wizards-filtered
   - Survival
   - Trinkets
   - ADTRacialItems # ADT-Tweak
@@ -75,6 +83,7 @@
   - PassengerOuterClothing
   - PassengerShoes
   - Glasses
+<<<<<<< HEAD
   - ADTPassengerPDA # ADT-Tweak
   - ADTPassengerHead # ADT-Tweak
   - ADTPassengerGlasses # ADT-Tweak
@@ -83,6 +92,9 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+=======
+  - AssistiveItems
+>>>>>>> wizards-filtered
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -102,12 +114,16 @@
   - BartenderOuterClothing
   - ADTBartenderShoes #ADT-Tweak
   - Glasses
+<<<<<<< HEAD
   - ADTBartenderPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+=======
+  - AssistiveItems
+>>>>>>> wizards-filtered
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -125,12 +141,16 @@
   - ADTServiceWorkerGloves #ADT-tweak
   - ADTServiceWorkerShoes #ADT-Tweak
   - Glasses
+<<<<<<< HEAD
   - ADTServiceWorkerPDA # ADT-Tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+=======
+  - AssistiveItems
+>>>>>>> wizards-filtered
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -152,6 +172,7 @@
   - ADTChefGloves # ADT-Tweak
   - ADTChefShoes #ADT-Tweak
   - Glasses
+<<<<<<< HEAD
   # ADT-Tweak-Start
   - ADTChefPocket1
   - ADTChefPDA
@@ -161,6 +182,9 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+=======
+  - AssistiveItems
+>>>>>>> wizards-filtered
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -176,12 +200,16 @@
   - LibrarianJumpsuit
   - LibrarianBackpack # ADT tweak
   - Glasses
+<<<<<<< HEAD
   - ADTLibrarianPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+=======
+  - AssistiveItems
+>>>>>>> wizards-filtered
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -200,12 +228,16 @@
   - ADTLawyerGloves # ADT-Tweak
   - LawyerShoes # ADT tweak
   - Glasses
+<<<<<<< HEAD
   - ADTlawyerID # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+=======
+  - AssistiveItems
+>>>>>>> wizards-filtered
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -228,12 +260,16 @@
   - ADTChaplainShoes #ADT-Tweak
   - ChaplainBible
   - Glasses
+<<<<<<< HEAD
   - ADTChaplainPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+=======
+  - AssistiveItems
+>>>>>>> wizards-filtered
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -254,12 +290,16 @@
   - CommonBackpack
   - JanitorOuterClothing
   - Glasses
+<<<<<<< HEAD
   - ADTJanitorPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+=======
+  - AssistiveItems
+>>>>>>> wizards-filtered
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -277,6 +317,7 @@
   - BotanistBackpack
   - BotanistOuterClothing
   - Glasses
+<<<<<<< HEAD
   - ADTBotanistPDA # ADT tweak
   - ADTBotanistShoes #ADT-Tweak
   # ADT underwear tweak start
@@ -284,6 +325,9 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+=======
+  - AssistiveItems
+>>>>>>> wizards-filtered
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -305,6 +349,7 @@
   - ADTClownGloves #ADT-tweak
   - ClownShoes
   - Glasses
+<<<<<<< HEAD
   - ADTClownPocket1 #ADT-tweak
   - ADTClownPocket2 #ADT-tweak
   - ADTClownPDA # ADT tweak
@@ -313,6 +358,9 @@
   - ADTBottom
   - ADTSocksClown
   # ADT underwear tweak end
+=======
+  - AssistiveItems
+>>>>>>> wizards-filtered
   - SurvivalClown
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -333,12 +381,17 @@
   - ADTMimeShoes #ADT-Tweak
   - MimeBelt
   - Glasses
+<<<<<<< HEAD
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
   - ADTSocksMime
   # ADT underwear tweak end
   - SurvivalMime
+=======
+  - AssistiveItems
+  - Survival
+>>>>>>> wizards-filtered
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
   - ADTRacialItems # ADT-Tweak
@@ -354,20 +407,28 @@
   - CommonBackpack
   - ADTMusicianGloves # ADT-tweak
   - MusicianOuterClothing
+  - Instruments
   - Glasses
+<<<<<<< HEAD
   - ADTMusicianPDA # ADT-tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+=======
+  - AssistiveItems
+>>>>>>> wizards-filtered
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
   - ADTRacialItems # ADT-Tweak
   #- MusicianJobTrinkets
+<<<<<<< HEAD
   - Instruments
   - ADTSuperInstruments #ADT-Tweak
+=======
+>>>>>>> wizards-filtered
   - GroupSpeciesBreathTool
 
 # Cargo
@@ -384,12 +445,16 @@
   - QuartermasterOuterClothing
   - QuartermasterShoes
   - Glasses
+<<<<<<< HEAD
   - ADTQuartermasterPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTopQM
   - ADTBottomQM
   - ADTSocks
   # ADT underwear tweak end
+=======
+  - AssistiveItems
+>>>>>>> wizards-filtered
   - Survival
   - Trinkets
   - ADTRacialItems # ADT-Tweak
@@ -408,12 +473,16 @@
   - CargoTechnicianShoes
   # - CargoTechnicianID # ADT tweak - убрал, чтобы не было дубляжа с КПК
   - Glasses
+<<<<<<< HEAD
   - ADTCargoPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+=======
+  - AssistiveItems
+>>>>>>> wizards-filtered
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -435,12 +504,16 @@
   - SalvageSpecialistOuterClothing
   - SalvageSpecialistShoes
   - Glasses
+<<<<<<< HEAD
   - ADTSalvagePDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+=======
+  - AssistiveItems
+>>>>>>> wizards-filtered
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -463,11 +536,15 @@
   - ChiefEngineerNeck
   - ChiefEngineerOuterClothing
   - ChiefEngineerShoes
+<<<<<<< HEAD
   # ADT underwear tweak start
   - ADTTopCE
   - ADTBottomCE
   - ADTSocks
   # ADT underwear tweak end
+=======
+  - AssistiveItems
+>>>>>>> wizards-filtered
   - SurvivalExtended
   - Trinkets
   - ADTRacialItems # ADT-Tweak
@@ -481,12 +558,16 @@
   - GroupTankHarness
   - TechnicalAssistantJumpsuit
   - StationEngineerBackpack
+<<<<<<< HEAD
   - ADTEngineeringBelt # ADT-TWEAK
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+=======
+  - AssistiveItems
+>>>>>>> wizards-filtered
   - SurvivalExtended
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -507,11 +588,15 @@
   - StationEngineerOuterClothing
   - StationEngineerShoes
   - StationEngineerID
+<<<<<<< HEAD
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+=======
+  - AssistiveItems
+>>>>>>> wizards-filtered
   - SurvivalExtended
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -533,12 +618,16 @@
   - ADTEngineeringGlasses # ADT-TWEAK
   - AtmosphericTechnicianOuterClothing
   - AtmosphericTechnicianShoes
+<<<<<<< HEAD
   - ADTAtmosPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+=======
+  - AssistiveItems
+>>>>>>> wizards-filtered
   - SurvivalExtended
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -561,12 +650,16 @@
   - ScientistGloves
   - ResearchDirectorShoes
   - Glasses
+<<<<<<< HEAD
   - ADTRnDPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTopRD
   - ADTBottomRD
   - ADTSocks
   # ADT underwear tweak end
+=======
+  - AssistiveItems
+>>>>>>> wizards-filtered
   - Survival
   - Trinkets
   - ADTRacialItems # ADT-Tweak
@@ -587,11 +680,15 @@
   - ScientistShoes
   - ScientistPDA
   - Glasses
+<<<<<<< HEAD
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+=======
+  - AssistiveItems
+>>>>>>> wizards-filtered
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -607,11 +704,15 @@
   - ResearchAssistantJumpsuit
   - ScientistBackpack
   - Glasses
+<<<<<<< HEAD
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+=======
+  - AssistiveItems
+>>>>>>> wizards-filtered
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -632,12 +733,16 @@
   - SecurityBelt
   - HeadofSecurityOuterClothing
   - SecurityShoes
+<<<<<<< HEAD
   - ADTHosPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTopHOS
   - ADTBottomHOS
   - ADTSocksHOS
   # ADT underwear tweak end
+=======
+  - AssistiveItems
+>>>>>>> wizards-filtered
   - SurvivalSecurity
   - Trinkets
   - ADTRacialItems # ADT-Tweak
@@ -658,11 +763,15 @@
   - SecurityBelt
   - WardenOuterClothing
   - SecurityShoes
+<<<<<<< HEAD
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+=======
+  - AssistiveItems
+>>>>>>> wizards-filtered
   - SurvivalSecurity
   - Trinkets
   - ADTRacialItems # ADT-Tweak
@@ -684,11 +793,15 @@
   - SecurityShoes
   - SecurityPDA
   - SecurityBelt
+<<<<<<< HEAD
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+=======
+  - AssistiveItems
+>>>>>>> wizards-filtered
   - SurvivalSecurity
   - Trinkets
   - ADTRacialItems # ADT-Tweak
@@ -705,6 +818,7 @@
   - DetectiveJumpsuit
   - SecurityBackpack
   - DetectiveOuterClothing
+<<<<<<< HEAD
   - DetectiveShoes # ADT tweak
   - ADTDetectivePDA #ADT tweak
   # ADT underwear tweak start
@@ -712,6 +826,10 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+=======
+  - SecurityShoes
+  - AssistiveItems
+>>>>>>> wizards-filtered
   - SurvivalSecurity
   - Trinkets
   - ADTRacialItems # ADT-Tweak
@@ -725,6 +843,7 @@
   - SecurityCadetNeckADT # ADT-Loadouts
   - SecurityCadetJumpsuit
   - SecurityBackpack
+  - AssistiveItems
   - SurvivalSecurity
   - Trinkets
   - ADTRacialItems # ADT-Tweak
@@ -767,6 +886,7 @@
   - ReporterOuterClothing
   - CommonBackpack
   - Glasses
+<<<<<<< HEAD
   - ADTReporterPDA #ADT-tweak
   - ADTReporterShoes #ADT-Tweak
   # ADT underwear tweak start
@@ -774,6 +894,9 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+=======
+  - AssistiveItems
+>>>>>>> wizards-filtered
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -789,6 +912,7 @@
   - PsychologistJumpsuit
   - MedicalBackpack
   - Glasses
+<<<<<<< HEAD
   - ADTPsychologistPDA # ADT tweak
   - ADTPsychologistShoes #ADT-Tweak
   # ADT underwear tweak start
@@ -796,6 +920,9 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+=======
+  - AssistiveItems
+>>>>>>> wizards-filtered
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -824,6 +951,21 @@
   - ADTRacialItems # ADT-Tweak
   # - BoxerJobTrinkets
   #- PsychologistJobTrinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobTramDriver
+  groups:
+  - GroupTankHarness
+  - CommonBackpack
+  - TramDriverJumpsuit
+  - TramDriverOuterClothing #Vest and such
+  - TramDriverHat
+  - TramDriverGloves
+  - Glasses
+  - Survival
+  - Trinkets
+  #- TramDriverJobTrinkets
   - GroupSpeciesBreathTool
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs
@@ -865,6 +1007,13 @@
   - GroupTankHarness
 
 - type: roleLoadout
+  id: RoleSurvivalExtendedAntag # Used by antagonists that spawn off-station (e.g wizards)
+  groups:
+  - SurvivalExtendedAntag
+  - GroupSpeciesBreathTool
+  - GroupTankHarness
+
+- type: roleLoadout
   id: RoleSurvivalMedical
   groups:
   - SurvivalMedical
@@ -902,6 +1051,12 @@
   groups:
   - GroupEVATank
   - SurvivalExtended
+
+- type: roleLoadout
+  id: RoleSurvivalEVAAntag # Used by antagonists that spawn off-station AND in space (e.g ninjas)
+  groups:
+  - GroupEVATank
+  - SurvivalExtendedAntag
 
 - type: roleLoadout
   id: RoleSurvivalSpaceNinja
