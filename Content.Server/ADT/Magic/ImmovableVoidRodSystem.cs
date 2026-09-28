@@ -16,7 +16,6 @@ namespace Content.Server.Magic;
 public sealed partial class ImmovableVoidRodSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prot = default!;
-    [Dependency] private readonly IMapManager _map = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly TileSystem _tile = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;

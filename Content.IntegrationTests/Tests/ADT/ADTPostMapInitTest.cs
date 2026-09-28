@@ -242,7 +242,7 @@ public sealed class ADTPostMapInitTest : GameTest
         var pair = Pair;
         var server = pair.Server;
 
-        var mapManager = server.ResolveDependency<IMapManager>();
+        var mapManager = server.ResolveDependency<IEntitySystemManager>().GetEntitySystem<SharedMapSystem>();
         var entManager = server.ResolveDependency<IEntityManager>();
         var mapLoader = entManager.System<MapLoaderSystem>();
         var mapSystem = entManager.System<SharedMapSystem>();
@@ -361,7 +361,7 @@ public sealed class ADTPostMapInitTest : GameTest
     private void CheckGameMap(
         GameMapPrototype mapProto,
         RobustIntegrationTest.ServerIntegrationInstance server,
-        IMapManager mapManager,
+        SharedMapSystem mapManager,
         IEntityManager entManager,
         MapLoaderSystem mapLoader,
         SharedMapSystem mapSystem,
@@ -534,7 +534,7 @@ public sealed class ADTPostMapInitTest : GameTest
     private void CheckLoadedMap(
         GameMapPrototype mapProto,
         RobustIntegrationTest.ServerIntegrationInstance server,
-        IMapManager mapManager,
+        SharedMapSystem mapManager,
         IEntityManager entManager,
         MapLoaderSystem mapLoader,
         SharedMapSystem mapSystem,

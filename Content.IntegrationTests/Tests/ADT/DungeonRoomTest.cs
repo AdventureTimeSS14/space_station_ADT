@@ -176,7 +176,7 @@ public sealed class DungeonRoomTest : GameTest
         var server = Pair.Server;
         var entMan = server.EntMan;
         var protoMan = server.ResolveDependency<IPrototypeManager>();
-        var mapManager = server.ResolveDependency<IMapManager>();
+        var mapManager = server.ResolveDependency<IEntitySystemManager>().GetEntitySystem<SharedMapSystem>();
         var random = server.ResolveDependency<IRobustRandom>();
         var mapSystem = entMan.System<SharedMapSystem>();
         var rooms = entMan.System<ADTDungeonRoomSystem>();

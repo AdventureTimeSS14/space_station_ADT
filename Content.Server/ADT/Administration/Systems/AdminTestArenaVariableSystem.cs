@@ -23,7 +23,7 @@ namespace Content.Server.Administration.Systems;
 /// </summary>
 public sealed class AdminTestArenaVariableSystem : EntitySystem
 {
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedMapSystem _mapManager = default!;
     [Dependency] private readonly MapLoaderSystem _map = default!;
     [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
 
@@ -51,12 +51,12 @@ public sealed class AdminTestArenaVariableSystem : EntitySystem
             }
         }
 
-        ArenaMap[key] = _mapManager.GetMapEntityId(_mapManager.CreateMap());
+        ArenaMap[key] = _mapManager.CreateMap();
         _metaDataSystem.SetEntityName(ArenaMap[key], $"{prefixNameAdminRoom}M-{admin.Name}");
 
-        if (_map.TryLoadGrid(Comp<MapComponent>(ArenaMap[key]).MapId, new ResPath(pathGridAdminRoom), out var grids))
+        if (_map.TryLoadGrid(Comp<MapComponent>(ArenaMap[key]).MapId, new ResPath(pathGridAdminRoom), out var grid))
         {
-            var firstGrid = grids.GetValueOrDefault();
+            var firstGrid = grid.Value;
             _metaDataSystem.SetEntityName(firstGrid, $"{prefixNameAdminRoom}G-{admin.Name}");
             ArenaGrid[key] = firstGrid;
         }

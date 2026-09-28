@@ -44,7 +44,7 @@ namespace Content.Shared.ADT.Heretic.Systems.Abilities;
 
 public abstract partial class SharedHereticAbilitySystem : EntitySystem
 {
-    [Dependency] private readonly IMapManager _mapMan = default!;
+    [Dependency] private readonly SharedMapSystem _mapMan = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
     [Dependency] private readonly INetManager _net = default!;
 

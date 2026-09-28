@@ -26,7 +26,6 @@ namespace Content.Client.ADT.RPD;
 public sealed class AlignRPDConstruction : PlacementMode
 {
     [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IStateManager _stateManager = default!;
     [Dependency] private readonly IEyeManager _eyeManager = default!;
@@ -96,7 +95,7 @@ public sealed class AlignRPDConstruction : PlacementMode
     public override void AlignPlacementMode(ScreenCoordinates mouseScreen)
     {
         _unalignedMouseCoords = ScreenToCursorGrid(mouseScreen);
-        MouseCoords = _unalignedMouseCoords.AlignWithClosestGridTile(SearchBoxSize, _entityManager, _mapManager);
+        MouseCoords = _unalignedMouseCoords.AlignWithClosestGridTile(SearchBoxSize, _entityManager);
 
         var gridId = _transformSystem.GetGrid(MouseCoords);
 

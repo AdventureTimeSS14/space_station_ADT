@@ -17,7 +17,7 @@ public sealed partial class ChainFireballSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly PhysicsSystem _physics = default!;
-    [Dependency] private readonly IMapManager _mapMan = default!;
+    [Dependency] private readonly SharedMapSystem _mapMan = default!;
 
     public override void Initialize()
     {
@@ -86,7 +86,7 @@ public sealed partial class ChainFireballSystem : EntitySystem
         var fromMap = fromCoords.ToMap(EntityManager, _transform);
         var spawnCoords = _mapMan.TryFindGridAt(fromMap, out var gridUid, out _)
             ? fromCoords.WithEntityId(gridUid, EntityManager)
-            : new(_mapMan.GetMapEntityId(fromMap.MapId), fromMap.Position);
+            : new(_mapMan.GetMapOrInvalid(fromMap.MapId), fromMap.Position);
 
 
         var direction = toCoords.ToMapPos(EntityManager, _transform) -

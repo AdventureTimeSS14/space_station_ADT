@@ -18,7 +18,6 @@ using Content.Shared.Hands.EntitySystems;
 namespace Content.Server.ADT.VentCrawling;
 public sealed class VentCrawlerTubeSystem : EntitySystem
 {
-    [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly SharedVentCrawableSystem _ventCrawableSystem = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;

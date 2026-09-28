@@ -21,7 +21,6 @@ namespace Content.Server.ADT.Abilities.XenoQueen
         [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
         [Dependency] private readonly IPrototypeManager _proto = default!;
         [Dependency] private readonly TurfSystem _turf = default!;
-        [Dependency] private readonly IMapManager _mapMan = default!;
         [Dependency] private readonly AlertsSystem _alerts = default!;
         [Dependency] private readonly SharedContainerSystem _container = default!;
 

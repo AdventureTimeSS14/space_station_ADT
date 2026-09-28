@@ -6,7 +6,7 @@ namespace Content.Server.ADT.Hierophant;
 
 public sealed class HierophantGridSystem : EntitySystem
 {
-    [Dependency] private readonly IMapManager _mapMan = default!;
+    [Dependency] private readonly SharedMapSystem _mapMan = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public EntityCoordinates Anchor(MapCoordinates coords)

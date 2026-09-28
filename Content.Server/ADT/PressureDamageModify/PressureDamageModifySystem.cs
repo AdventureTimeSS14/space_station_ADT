@@ -22,7 +22,6 @@ public sealed partial class PressureDamageModifySystem : EntitySystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly PhysicsSystem _physics = default!;
-    [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
 
     public override void Initialize()

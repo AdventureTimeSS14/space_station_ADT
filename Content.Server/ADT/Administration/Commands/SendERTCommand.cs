@@ -24,7 +24,7 @@ namespace Content.Server.ADT.Administration.Commands;
 [AdminCommand(AdminFlags.Admin)]
 public sealed class SendERTCommand : IConsoleCommand
 {
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedMapSystem _mapManager = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IEntitySystemManager _system = default!;
     [Dependency] private readonly IEntityManager _entManager = default!;
@@ -149,8 +149,8 @@ public sealed class SendERTCommand : IConsoleCommand
                 return;
             }
 
-            var mapId = _mapManager.CreateMap();
-            _system.GetEntitySystem<MetaDataSystem>().SetEntityName(_mapManager.GetMapEntityId(mapId), Loc.GetString("sent-ert-map-name"));
+            _mapManager.CreateMap(out var mapId);
+            _system.GetEntitySystem<MetaDataSystem>().SetEntityName(_mapManager.GetMapOrInvalid(mapId), Loc.GetString("sent-ert-map-name"));
             var opts = new DeserializationOptions {StoreYamlUids = true, InitializeMaps = true};
             _system.GetEntitySystem<MapLoaderSystem>().TryLoadGrid(mapId, new ResPath(gridPath), out _, opts);
             shell.WriteLine($"Карта {gridPath} успешно загружена! :з");

@@ -15,7 +15,7 @@ public sealed partial class RandomTeleportNearbySystem : EntityEffectSystem<Tran
     [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedMapSystem _mapManager = default!;
 
     protected override void Effect(Entity<TransformComponent> entity, ref EntityEffectEvent<RandomTeleportEvent> args)
     {
@@ -57,7 +57,7 @@ public sealed partial class RandomTeleportNearbySystem : EntityEffectSystem<Tran
             }
             else
             {
-                var mapEntity = _mapManager.GetMapEntityId(mapId);
+                var mapEntity = _mapManager.GetMapOrInvalid(mapId);
                 _transform.SetCoordinates(target, targetXform, new EntityCoordinates(mapEntity, newPos));
             }
         }

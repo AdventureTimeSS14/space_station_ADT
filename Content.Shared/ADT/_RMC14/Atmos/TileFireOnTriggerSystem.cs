@@ -9,7 +9,6 @@ namespace Content.Shared._RMC14.Atmos;
 public sealed class TileFireOnTriggerSystem : XOnTriggerSystem<TileFireOnTriggerComponent>
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly IMapManager _map = default!;
     [Dependency] private readonly SharedRMCFlammableSystem _flammable = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
@@ -18,7 +17,7 @@ public sealed class TileFireOnTriggerSystem : XOnTriggerSystem<TileFireOnTrigger
         var coords = _transform.GetMoverCoordinates(target);
         _audio.PlayPvs(ent.Comp.Sound, coords);
 
-        var tile = coords.SnapToGrid(EntityManager, _map);
+        var tile = coords.SnapToGrid(EntityManager);
         _flammable.SpawnFireDiamond(ent.Comp.Spawn, tile, ent.Comp.Range, ent.Comp.Intensity, ent.Comp.Duration);
 
         args.Handled = true;

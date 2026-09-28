@@ -12,7 +12,7 @@ namespace Content.Server.ADT.Heretic.EntitySystems.PathSpecific;
 
 public sealed class RustSpreaderSystem : EntitySystem
 {
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedMapSystem _mapManager = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
 
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
