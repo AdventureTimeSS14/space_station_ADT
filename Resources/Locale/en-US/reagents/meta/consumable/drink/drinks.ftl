@@ -43,16 +43,9 @@ reagent-desc-milk = An opaque white liquid produced by the mammary glands of mam
 reagent-name-milk-goat = goats milk
 reagent-desc-milk-goat = An opaque white liquid produced by a goat. High buttermilk content.
 
-<<<<<<< ours
-reagent-name-milk-sheep = sheep milk
-reagent-desc-milk-sheep = An opaque white liquid produced by a sheep. High buttermilk content.
-
-||||||| base
-=======
 reagent-name-milk-sheep = sheep's milk
 reagent-desc-milk-sheep = An opaque white liquid produced by a sheep. High in fat.
 
->>>>>>> theirs
 reagent-name-milk-oat = oat milk
 reagent-desc-milk-oat = Surprisingly tasty.
 

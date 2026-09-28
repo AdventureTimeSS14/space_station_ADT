@@ -6,7 +6,6 @@ round-end-summary-window-gamemode-name-label = The game mode was [color=white]{$
 round-end-summary-window-duration-label = It lasted for [color=yellow]{$hours} hours, {$minutes} minutes, and {$seconds} seconds.
 round-end-summary-window-player-info-if-observer-text = [color=gray]{$playerOOCName}[/color] was [color=lightblue]{$playerICName}[/color], an observer.
 round-end-summary-window-player-info-if-not-observer-text = [color=gray]{$playerOOCName}[/color] was [color={$icNameColor}]{$playerICName}[/color] playing role of [color=orange]{$playerRole}[/color].
-<<<<<<< ours
 
 # ADT
 round-end-report-tab-title = Report
@@ -45,8 +44,6 @@ round-end-report-battered-survivor = Most battered survivor: [color=orange]{$nam
 
 round-end-report-species-header = Species this shift: [color=white]{$count}[/color]
 round-end-report-species-line = {$species} - [color=white]{$count}[/color]
-||||||| base
-=======
 round-end-summary-window-player-manifest-tab-search-placeholder = Search players, roles, types...
 round-end-summary-window-player-manifest-tab-sort-character = Character
 round-end-summary-window-player-manifest-tab-sort-role = Role
@@ -56,4 +53,3 @@ round-end-summary-window-player-manifest-tab-sort-player-type-antag = Antagonist
 round-end-summary-window-player-manifest-tab-sort-player-type-crew = Crew
 round-end-summary-window-player-manifest-tab-sort-player-type-observer = Observer
 
->>>>>>> theirs

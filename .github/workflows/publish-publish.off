@@ -19,12 +19,8 @@ jobs:
     - uses: actions/checkout@v7
       with:
         submodules: 'recursive'
-<<<<<<< HEAD:.github/workflows/publish-publish.off
-
-=======
         fetch-depth: 0
         filter: blob:none
->>>>>>> wizards-filtered:.github/workflows/publish.yml
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v5
       with:
@@ -89,19 +85,11 @@ jobs:
         GITHUB_REPOSITORY: ${{ vars.GITHUB_REPOSITORY }}
         FORK_ID: ${{ vars.FORK_ID_PUBLIC }}
 
-<<<<<<< HEAD:.github/workflows/publish-publish.off
 #    - name: Publish changelog (Discord)
 #      run: Tools/actions_changelogs_since_last_run.py
 #      env:
 #        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #        DISCORD_WEBHOOK_URL: ${{ secrets.CHANGELOG_DISCORD_WEBHOOK }}
-=======
-    - name: Publish changelog (Discord)
-      run: Tools/actions_changelogs_since_last_run.py
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        DISCORD_WEBHOOK_URL: ${{ secrets.CHANGELOG_DISCORD_WEBHOOK }}
->>>>>>> wizards-filtered:.github/workflows/publish.yml
 
 #    - name: Publish changelog (RSS)
 #      run: Tools/actions_changelog_rss.py

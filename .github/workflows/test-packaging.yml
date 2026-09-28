@@ -28,20 +28,12 @@ on:
       - '.github/workflows/test-packaging.yml'
       - 'RobustToolbox'
       - 'RobustToolbox/**'
+    # ADT-Tweak-end
 
-<<<<<<< ours
-concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
-# ADT-Tweak-end
-
-||||||| base
-=======
 concurrency:
   group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.event.pull_request.number || github.ref }}
   cancel-in-progress: ${{ github.event_name != 'merge_group' }}
 
->>>>>>> theirs
 jobs:
   build:
     name: Test Packaging
