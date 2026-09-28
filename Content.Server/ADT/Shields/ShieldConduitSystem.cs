@@ -48,7 +48,7 @@ public sealed partial class ShieldConduitSystem : EntitySystem
             return;
 
         _popup.PopupClient(Loc.GetString("shield-conduit-cant-unanchor"), uid, args.User);
-        args.Cancelled = true;
+        args.Cancel();
     }
 
     private void OnConduitShutdown(EntityUid uid, ShieldConduitComponent conduit, ComponentShutdown args)

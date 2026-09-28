@@ -106,7 +106,7 @@ public sealed partial class ShieldGeneratorSystem : EntitySystem
             return;
 
         _popup.PopupClient(Loc.GetString("shield-generator-cant-unanchor"), uid, args.User);
-        args.Cancelled = true;
+        args.Cancel();
     }
 
     private void OnAnchorChanged(EntityUid uid, ShieldGeneratorComponent gen, ref AnchorStateChangedEvent args)
