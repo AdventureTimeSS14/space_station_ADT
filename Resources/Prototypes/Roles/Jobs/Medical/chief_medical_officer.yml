@@ -14,7 +14,7 @@
 #      time: 5h
     - !type:DepartmentTimeRequirement
       department: Medical
-<<<<<<< HEAD
+<<<<<<< ours
       time: 10h # ADT-Tweak 10h
 #    - !type:OverallPlaytimeRequirement
 #      time: 144000 #40 hrs
@@ -29,9 +29,12 @@
       - Vox
     # ADT-Tweak: End
   weight: 10
+||||||| base
+      time: 10h
+  weight: 10
 =======
       time: 10h
->>>>>>> wizards-filtered
+>>>>>>> theirs
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"
   supervisors: job-supervisors-captain

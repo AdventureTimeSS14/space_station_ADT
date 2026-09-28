@@ -379,19 +379,22 @@
   - type: Sprite
     layers:
     - state: plain
-<<<<<<< HEAD
+<<<<<<< ours
   - type: SliceableFood
     slice: FoodBreadPlainSlice
   - type: Tag #ADT_Tweak - делаем хлеб съедобным для молей
     tags:
     - Bread
     - ADTMothFriendlyFood
+||||||| base
+  - type: SliceableFood
+    slice: FoodBreadPlainSlice
 =======
   - type: ToolRefinable
     refineResult:
     - id: FoodBreadPlainSlice
       amount: 8
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   name: bread slice
@@ -727,7 +730,7 @@
   components:
   - type: Sprite
     state: crostini
-<<<<<<< HEAD
+<<<<<<< ours
   - type: SolutionContainerManager
     solutions:
       food:
@@ -746,6 +749,20 @@
     - Bread
     - Slice
     - ADTMothFriendlyFood
+||||||| base
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 2
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 0.5
+        - ReagentId: Vitamin
+          Quantity: 0.1
+        - ReagentId: TableSalt
+          Quantity: 0.1
+        - ReagentId: Blackpepper
+          Quantity: 0.1
 =======
   - type: Solution
     solution:
@@ -758,7 +775,7 @@
         Quantity: 0.1
       - ReagentId: Blackpepper
         Quantity: 0.1
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   parent: FoodBreadBaguetteSlice
@@ -801,7 +818,7 @@
       - bread
   - type: Sprite
     state: buttered-toast
-<<<<<<< HEAD
+<<<<<<< ours
   - type: SolutionContainerManager
     solutions:
       food:
@@ -816,6 +833,16 @@
     - Bread
     - Slice
     - ADTMothFriendlyFood
+||||||| base
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 1
 =======
   - type: Solution
     solution:
@@ -824,7 +851,7 @@
         Quantity: 10
       - ReagentId: Butter
         Quantity: 2.5
->>>>>>> wizards-filtered
+>>>>>>> theirs
 # Tastes like bread, butter.
 
 - type: entity
@@ -865,7 +892,7 @@
   - type: Sprite
     layers:
     - state: garlic-slice
-<<<<<<< HEAD
+<<<<<<< ours
   - type: SolutionContainerManager
     solutions:
       food:
@@ -880,6 +907,16 @@
     - Bread
     - Slice
     - ADTMothFriendlyFood
+||||||| base
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 6
+        - ReagentId: Vitamin
+          Quantity: 5
 =======
   - type: Solution
     solution:
@@ -892,7 +929,7 @@
         Quantity: 4
       - ReagentId: Butter
         Quantity: 2.5
->>>>>>> wizards-filtered
+>>>>>>> theirs
 # Tastes like garlic, Italy.
 
 - type: entity

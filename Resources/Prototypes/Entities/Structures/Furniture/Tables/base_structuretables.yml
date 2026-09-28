@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-﻿- type: entity
-  id: TableBase
-=======
 - type: entity
   abstract: true
->>>>>>> wizards-filtered
   parent: BaseStructure
   id: TableBase
   name: table

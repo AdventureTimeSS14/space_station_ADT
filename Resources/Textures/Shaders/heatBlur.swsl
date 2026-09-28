@@ -31,8 +31,4 @@ void fragment()
     highp vec2 distortedUV = UV + (distortion * strength_scale * heatStrength);
 
     COLOR = zTextureSpec(SCREEN_TEXTURE, distortedUV);
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> wizards-filtered

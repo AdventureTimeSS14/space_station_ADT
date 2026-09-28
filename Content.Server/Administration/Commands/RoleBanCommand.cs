@@ -1,4 +1,4 @@
-using Content.Server.Administration.Managers;
+﻿using Content.Server.Administration.Managers;
 using Content.Server.ADT.Discord;
 using Content.Server.ADT.Discord.Bans;
 using Content.Server.ADT.Discord.Bans.PayloadGenerators;
@@ -16,12 +16,18 @@ namespace Content.Server.Administration.Commands;
 [AdminCommand(AdminFlags.Ban)]
 public sealed partial class RoleBanCommand : IConsoleCommand
 {
-<<<<<<< HEAD
+<<<<<<< ours
     [Dependency] private readonly IPlayerLocator _locator = default!;
     [Dependency] private readonly IBanManager _bans = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IServerDbManager _dbManager = default!;
     [Dependency] private readonly IDiscordBanInfoSender _discordBanInfoSender = default!;
+    [Dependency] private readonly ILogManager _log = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+||||||| base
+    [Dependency] private readonly IPlayerLocator _locator = default!;
+    [Dependency] private readonly IBanManager _bans = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly ILogManager _log = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
 =======
@@ -30,7 +36,7 @@ public sealed partial class RoleBanCommand : IConsoleCommand
     [Dependency] private IConfigurationManager _cfg = default!;
     [Dependency] private ILogManager _log = default!;
     [Dependency] private IPrototypeManager _proto = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
     private ISawmill? _sawmill;
 

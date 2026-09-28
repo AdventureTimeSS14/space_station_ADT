@@ -245,7 +245,7 @@
             "name": "Zookeeper"
         },
         {
-<<<<<<< HEAD
+<<<<<<< ours
             "name": "Nanotrasen"
         },
         {
@@ -256,12 +256,14 @@
         },
         {
             "name": "Changeling"
+||||||| base
+            "name": "Zombie"
 =======
             "name": "Zombie"
         },
         {
             "name": "TramDriver"
->>>>>>> wizards-filtered
+>>>>>>> theirs
         }
     ]
 }

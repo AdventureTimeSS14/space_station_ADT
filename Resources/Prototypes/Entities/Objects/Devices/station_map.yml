@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-﻿- type: entity
-  parent: BaseItem
-=======
 - type: entity
   parent: [ BaseItem, BaseItemDestructible ]
->>>>>>> wizards-filtered
   id: BaseHandheldStationMap
   name: station map
   description: Displays a readout of the current station.

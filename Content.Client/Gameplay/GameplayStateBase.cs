@@ -239,7 +239,7 @@ namespace Content.Client.Gameplay
                 var transformSystem = _entitySystemManager.GetEntitySystem<SharedTransformSystem>();
                 var mapSystem = _entitySystemManager.GetEntitySystem<MapSystem>();
 
-<<<<<<< HEAD
+<<<<<<< ours
                 // ADT Tweak start
                 if (_mapManager.MapExists(mousePosWorld.MapId))
                 {
@@ -252,11 +252,15 @@ namespace Content.Client.Gameplay
                     coordinates = EntityCoordinates.Invalid;
                 }
                 // ADT Tweak end
+||||||| base
+                coordinates = _mapManager.TryFindGridAt(mousePosWorld, out var uid, out _) ?
+                    mapSystem.MapToGrid(uid, mousePosWorld) :
+                    transformSystem.ToCoordinates(mousePosWorld);
 =======
                 coordinates = mapSystem.TryFindGridAt(mousePosWorld, out var uid, out _) ?
                     mapSystem.MapToGrid(uid, mousePosWorld) :
                     transformSystem.ToCoordinates(mousePosWorld);
->>>>>>> wizards-filtered
+>>>>>>> theirs
             }
             else
             {

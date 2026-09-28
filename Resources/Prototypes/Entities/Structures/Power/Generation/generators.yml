@@ -1,4 +1,4 @@
-﻿# Base Generator
+# Base Generator
 
 - type: entity
   abstract: true
@@ -247,6 +247,14 @@
     range: 5
     sound:
       path: /Audio/Ambience/Objects/buzzing.ogg
+<<<<<<< ours
+  - type: RTGHeat ## ADT-Tweak start
+    heatPerSecond: 0.1
+    heatInterval: 1
+    maxTemperature: 373.15
+    ## ADT Tweak end
+||||||| base
+=======
   - type: Sprite
     sprite: Structures/Power/Generation/rtg.rsi
     snapCardinals: true
@@ -269,6 +277,7 @@
     onBump: false
     requirePower: true
     highVoltageNode: output
+>>>>>>> theirs
   - type: GuideHelp
     guides:
     - RTG
@@ -285,43 +294,6 @@
     state: rtg
   - type: PowerMonitoringDevice
     state: rtg
-<<<<<<< HEAD
-  - type: AmbientSound
-    range: 5
-    sound:
-      path: /Audio/Ambience/Objects/buzzing.ogg
-  - type: RTGHeat ## ADT-Tweak start
-    heatPerSecond: 0.1
-    heatInterval: 1
-    maxTemperature: 373.15
-    ## ADT Tweak end
-  - type: GuideHelp
-    guides:
-    - RTG
-    - Power
-  - type: Destructible
-    thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 600
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-      - trigger:
-          !type:DamageTrigger
-          damage: 300
-        behaviors:
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalBreak
-          - !type:SpawnEntitiesBehavior
-            spawn:
-              GeneratorRTGDamaged:
-                min: 1
-                max: 1
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-=======
   - type: Destructible
     thresholds:
     - trigger:
@@ -340,7 +312,6 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
 
->>>>>>> wizards-filtered
 # TODO: need radioactive fallout when destroyed
 
 - type: entity

@@ -41,13 +41,17 @@
     - state: portal-red
   - type: PointLight
     color: OrangeRed
-<<<<<<< HEAD
+<<<<<<< ours
     radius: 3
     energy: 3 # ADT tweak 1 > 3
     netsync: false
     mask: /Textures/ADT/Effects/Lightmasks/circle_rings.png # ADT tweak
+||||||| base
+    radius: 3
+    energy: 1
+    netsync: false
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   parent: BasePortal
@@ -58,78 +62,55 @@
     - state: portal-blue
   - type: PointLight
     color: SkyBlue
-<<<<<<< HEAD
+<<<<<<< ours
     radius: 3
     energy: 3 # ADT tweak 1 > 3
     netsync: false
     mask: /Textures/ADT/Effects/Lightmasks/circle_rings.png # ADT tweak
 
-- type: entity
-  id: PortalArtifact
-  parent: ADTBasePortalInterMap ### ADT Tweak
+||||||| base
+    radius: 3
+    energy: 1
+    netsync: false
+    
 =======
 
+>>>>>>> theirs
 - type: entity
+<<<<<<< ours
+  id: PortalArtifact
+  parent: ADTBasePortalInterMap ### ADT Tweak
+||||||| base
+  id: PortalArtifact
+  parent: BasePortal
+=======
   parent: BasePortal
   id: PortalArtifact
->>>>>>> wizards-filtered
+>>>>>>> theirs
   components:
   - type: Sprite
     layers:
     - state: portal-artifact
   - type: PointLight
     color: "#ed85c2"
-<<<<<<< HEAD
+<<<<<<< ours
     radius: 3
     energy: 3 # ADT tweak 1 > 3
     netsync: false
     mask: /Textures/ADT/Effects/Lightmasks/circle_rings.png # ADT tweak
+||||||| base
+    radius: 3
+    energy: 1
+    netsync: false
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: TimedDespawn
     lifetime: 1
   - type: Portal
     canTeleportToOtherMaps: true
 
 - type: entity
-<<<<<<< HEAD
-  id: PortalGatewayBlue
-  parent: BasePortal
-  components:
-  - type: Sprite
-    noRot: true
-    sprite: Structures/Machines/gateway.rsi
-    color: SkyBlue
-    layers:
-    - state: portal
-  - type: PointLight
-    color: SkyBlue
-    radius: 5 # ADT tweak 3 > 5
-    energy: 1
-    netsync: false
-    mask: /Textures/ADT/Effects/Lightmasks/circle_rings.png # ADT tweak
-
-- type: entity
-  id: PortalGatewayOrange
-  parent: BasePortal
-  components:
-  - type: Sprite
-    noRot: true
-    sprite: Structures/Machines/gateway.rsi
-    color: OrangeRed
-    layers:
-    - state: portal
-  - type: PointLight
-    color: OrangeRed
-    radius: 5 # ADT tweak 3 > 5
-    energy: 1
-    netsync: false
-    mask: /Textures/ADT/Effects/Lightmasks/circle_rings.png # ADT tweak
-
-- type: entity
-=======
   parent: [ BasePortal, BaseShadow ]
->>>>>>> wizards-filtered
   id: ShadowPortal
   name: shadow rift
   description: Looks unstable.
@@ -142,13 +123,6 @@
     color: "#793a80dd"
   - type: PointLight
     color: "#793a80dd"
-<<<<<<< HEAD
-    radius: 3
-    energy: 3 # ADT tweak 1 > 3
-    netsync: false
-    mask: /Textures/ADT/Effects/Lightmasks/circle_rings.png # ADT tweak
-=======
->>>>>>> wizards-filtered
   - type: AmbientSound
     range: 6
     volume: -3
@@ -188,6 +162,17 @@
     - state: portal
   - type: PointLight
     color: SkyBlue
+<<<<<<< ours
+    radius: 5 # ADT tweak 3 > 5
+    energy: 1
+    netsync: false
+    mask: /Textures/ADT/Effects/Lightmasks/circle_rings.png # ADT tweak
+||||||| base
+    radius: 3
+    energy: 1
+    netsync: false
+=======
+>>>>>>> theirs
 
 - type: entity
   parent: BasePortalGateway
@@ -199,3 +184,61 @@
     - state: portal
   - type: PointLight
     color: OrangeRed
+<<<<<<< ours
+    radius: 5 # ADT tweak 3 > 5
+    energy: 1
+    netsync: false
+    mask: /Textures/ADT/Effects/Lightmasks/circle_rings.png # ADT tweak
+
+- type: entity
+  id: ShadowPortal
+  name: shadow rift
+  description: Looks unstable.
+  parent: [ BasePortal, BaseShadow ]
+  components:
+  - type: Portal
+    arrivalSound: /Audio/Items/hiss.ogg
+    departureSound: /Audio/Items/hiss.ogg
+  - type: Sprite
+    state: portal-artifact
+    color: "#793a80dd"
+  - type: PointLight
+    color: "#793a80dd"
+    radius: 3
+    energy: 3 # ADT tweak 1 > 3
+    netsync: false
+    mask: /Textures/ADT/Effects/Lightmasks/circle_rings.png # ADT tweak
+  - type: AmbientSound
+    range: 6
+    volume: -3
+    sound:
+      path: /Audio/Ambience/anomaly_scary.ogg
+||||||| base
+    radius: 3
+    energy: 1
+    netsync: false
+
+- type: entity
+  id: ShadowPortal
+  name: shadow rift
+  description: Looks unstable.
+  parent: [ BasePortal, BaseShadow ]
+  components:
+  - type: Portal
+    arrivalSound: /Audio/Items/hiss.ogg
+    departureSound: /Audio/Items/hiss.ogg
+  - type: Sprite
+    state: portal-artifact
+    color: "#793a80dd"
+  - type: PointLight
+    color: "#793a80dd"
+    radius: 3
+    energy: 1
+    netsync: false
+  - type: AmbientSound
+    range: 6
+    volume: -3
+    sound:
+      path: /Audio/Ambience/anomaly_scary.ogg
+=======
+>>>>>>> theirs

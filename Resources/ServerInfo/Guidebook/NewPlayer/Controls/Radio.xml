@@ -8,11 +8,13 @@
 
 Шёпот могут услышать только те, кто находятся рядом с вами. Вы автоматически говорите шёпотом, когда передаете сообщение по радиосвязи.
 
-<<<<<<< HEAD
+<<<<<<< ours
 Эмоции - это жесты или звуки, которые вы издаете. Может быть видим для любого, кто не имеет перк "слепота". Во время игры вы часто увидите мимов, общающихся жестами.
+||||||| base
+Emotes are gestures that you make. Can be recieved by anyone who is not blinded. You will often see mimes do many emotes.
 =======
 Emotes are gestures that you make. Can be received by anyone who is not blinded. You will often see mimes do many emotes.
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 Сообщения шёпотом можно отправить, начав свое сообщение с [color=#a4885c][keybind="FocusWhisperChatWindow"/][/color]. Жесты, в свою очередь, отправляются, если начать сообщение с ([color=#a4885c]@[/color]).
 Вы можете перемещаться между всеми текстовыми каналами, нажимая на клавишу [keybind="CycleChatChannelForward"/].
@@ -47,23 +49,10 @@ Emotes are gestures that you make. Can be received by anyone who is not blinded.
 
 Осмотрев стандартную гарнитуру инженерного отдела, вы сможете увидеть такие каналы, как [color=#32cd32]Общий[/color] и [color=#f37746]Инженерный[/color], потому что гарнитура инженерного отдела по умолчанию имеет данные [color=#a4885c]ключи шифрования[/color].
 
-<<<<<<< HEAD
-=======
-## Encryption Keys
-[color=#a4885c]Encryption keys[/color] give you access to their respective channel.
-
-Examining our engineering headset from earlier shows us [color=#32cd32]Common[/color] and [color=#f37746]Engineering[/color] because an engineer's headset starts with those [color=#a4885c]encryption keys[/color].
-
->>>>>>> wizards-filtered
 <Box>
   <GuideEntityEmbed Entity="EncryptionKeyCommon"/>
   <GuideEntityEmbed Entity="EncryptionKeyEngineering"/>
 </Box>
-<<<<<<< HEAD
-=======
-
-You can take out encryption keys by using a [color=#a4885c]screwdriver[/color] on a headset. New encryption keys are put into headsets by clicking on one with an encryption key in your hand.
->>>>>>> wizards-filtered
 
 Вы можете вытащить ключи шифрования каналов, использовав [color=#a4885c]отвёртку[/color]. Новые ключи шифрования вставляются с помощью нажатия ключом по гарнитуре.
 

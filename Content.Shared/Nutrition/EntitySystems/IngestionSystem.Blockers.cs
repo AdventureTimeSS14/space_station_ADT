@@ -1,8 +1,5 @@
 using System.Linq;
-<<<<<<< HEAD
 using Content.Shared.ADT.Traits;
-=======
->>>>>>> wizards-filtered
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Clothing;
 using Content.Shared.Containers.ItemSlots;

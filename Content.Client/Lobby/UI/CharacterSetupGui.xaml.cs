@@ -65,7 +65,7 @@ namespace Content.Client.Lobby.UI
             StatsButton.OnPressed += _ => new PlaytimeStatsWindow().OpenCentered();
 
             _cfg.OnValueChanged(CCVars.SeeOwnNotes, p => AdminRemarksButton.Visible = p, true);
-<<<<<<< HEAD
+<<<<<<< ours
             // // Corvax-Sponsors-Start // ADT COmmented
             // if (IoCManager.Instance!.TryResolveType<ISponsorWindowCreator>(out var creator))
             // {
@@ -73,9 +73,10 @@ namespace Content.Client.Lobby.UI
             //     SponsorButton.OnPressed += _ => creator.OpenWindow();
             // }
             // // Corvax-Sponsors-End
+||||||| base
 =======
             _cfg.OnValueChanged(CCVars.GameMaxCharacterSlots, _ => ReloadCharacterPickers());
->>>>>>> wizards-filtered
+>>>>>>> theirs
         }
 
         /// <summary>

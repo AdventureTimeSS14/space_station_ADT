@@ -186,14 +186,18 @@
       rules: ghost-role-information-angry-slimes-rules
       mindRoles:
       - MindRoleGhostRoleTeamAntagonist
-<<<<<<< HEAD
+<<<<<<< ours
 #      raffle:
 #        settings: short ADT tweak для быстрого захода на рольку
+    - type: ForceAttack
+||||||| base
+      raffle:
+        settings: short
     - type: ForceAttack
 =======
       raffle:
         settings: short
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   name: green slime
@@ -232,14 +236,18 @@
       rules: ghost-role-information-angry-slimes-rules
       mindRoles:
       - MindRoleGhostRoleTeamAntagonist
-<<<<<<< HEAD
+<<<<<<< ours
 #      raffle:
 #        settings: short ADT tweak для быстрого захода на рольку
+    - type: ForceAttack
+||||||| base
+      raffle:
+        settings: short
     - type: ForceAttack
 =======
       raffle:
         settings: short
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   name: yellow slime
@@ -277,11 +285,15 @@
       rules: ghost-role-information-angry-slimes-rules
       mindRoles:
       - MindRoleGhostRoleTeamAntagonist
-<<<<<<< HEAD
+<<<<<<< ours
 #      raffle:
 #        settings: short ADT tweak для быстрого захода на рольку
+    - type: ForceAttack
+||||||| base
+      raffle:
+        settings: short
     - type: ForceAttack
 =======
       raffle:
         settings: short
->>>>>>> wizards-filtered
+>>>>>>> theirs

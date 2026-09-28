@@ -12,12 +12,13 @@
   # - Wizard # ADT-Tweak
   - Zombies
   - Xenoborgs
-<<<<<<< HEAD
+<<<<<<< ours
   - ADTBlob # ADT-Tweak
   - ADTShadowling # ADT-Tweak
+||||||| base
 =======
   - Changelings
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - MinorAntagonists
 
 - type: guideEntry

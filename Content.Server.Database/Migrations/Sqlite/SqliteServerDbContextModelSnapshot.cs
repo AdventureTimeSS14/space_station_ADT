@@ -1019,16 +1019,12 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("connection_log", (string)null);
                 });
 
-<<<<<<< HEAD
+<<<<<<< ours
             modelBuilder.Entity("Content.Server.Database.DiscordUser", b =>
-=======
-            modelBuilder.Entity("Content.Server.Database.CustomVoteLog", b =>
->>>>>>> wizards-filtered
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER")
-<<<<<<< HEAD
                         .HasColumnName("discord_user_id");
 
                     b.Property<string>("DiscordId")
@@ -1076,7 +1072,15 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.HasIndex("ProfileRoleLoadoutId");
 
                     b.ToTable("extra_loadout_data", (string)null);
+                });
+
+||||||| base
 =======
+            modelBuilder.Entity("Content.Server.Database.CustomVoteLog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
                         .HasColumnName("custom_vote_log_id");
 
                     b.Property<Guid?>("InitiatorId")
@@ -1134,9 +1138,9 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasName("PK_custom_vote_log_option");
 
                     b.ToTable("custom_vote_log_option", (string)null);
->>>>>>> wizards-filtered
                 });
 
+>>>>>>> theirs
             modelBuilder.Entity("Content.Server.Database.IPIntelCache", b =>
                 {
                     b.Property<int>("Id")
@@ -1462,14 +1466,19 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("species");
 
+<<<<<<< ours
                     b.Property<string>("Voice")
-<<<<<<< HEAD
                         .IsRequired()
-=======
->>>>>>> wizards-filtered
                         .HasColumnType("TEXT")
                         .HasColumnName("voice");
 
+||||||| base
+=======
+                    b.Property<string>("Voice")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("voice");
+
+>>>>>>> theirs
                     b.HasKey("Id")
                         .HasName("PK_profile");
 
@@ -2292,7 +2301,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("Server");
                 });
 
-<<<<<<< HEAD
+<<<<<<< ours
             modelBuilder.Entity("Content.Server.Database.ExtraLoadoutData", b =>
                 {
                     b.HasOne("Content.Server.Database.ProfileRoleLoadout", "RoleLoadout")
@@ -2303,6 +2312,9 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasConstraintName("FK_extra_loadout_data_profile_role_loadout_profile_role_loadout_id");
 
                     b.Navigation("RoleLoadout");
+                });
+
+||||||| base
 =======
             modelBuilder.Entity("Content.Server.Database.CustomVoteLog", b =>
                 {
@@ -2335,9 +2347,9 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasConstraintName("FK_custom_vote_log_option_custom_vote_log_vote_id");
 
                     b.Navigation("Vote");
->>>>>>> wizards-filtered
                 });
 
+>>>>>>> theirs
             modelBuilder.Entity("Content.Server.Database.Job", b =>
                 {
                     b.HasOne("Content.Server.Database.Profile", "Profile")

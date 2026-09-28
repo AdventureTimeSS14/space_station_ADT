@@ -1,10 +1,12 @@
-<<<<<<< HEAD
-﻿// using Robust.Shared.Audio; ADT-Tweak
+﻿<<<<<<< ours
+// using Robust.Shared.Audio; ADT-Tweak
+||||||| base
+using Robust.Shared.Audio;
 =======
-﻿using Content.Shared.Chat.Prototypes;
+using Content.Shared.Chat.Prototypes;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -20,11 +22,14 @@ public sealed partial class ChasmComponent : Component
     /// Entities allowed to fall into the hole. If null, anything not on the blacklist can fall into the hole. If both
     /// are null, anything can.
     /// </summary>
-<<<<<<< HEAD
+<<<<<<< ours
     //ADT-Tweak-Start
     //[DataField("fallingSound")]
     //public SoundSpecifier FallingSound = new SoundPathSpecifier("/Audio/Effects/falling.ogg");
     //ADT-Tweak-End
+||||||| base
+    [DataField("fallingSound")]
+    public SoundSpecifier FallingSound = new SoundPathSpecifier("/Audio/Effects/falling.ogg");
 =======
     [DataField]
     public EntityWhitelist? Whitelist;
@@ -47,7 +52,7 @@ public sealed partial class ChasmComponent : Component
     /// </summary>
     [DataField]
     public ProtoId<EmotePrototype>? Emote = "Scream";
->>>>>>> wizards-filtered
+>>>>>>> theirs
 }
 
 /// <summary>

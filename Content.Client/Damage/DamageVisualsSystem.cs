@@ -154,12 +154,16 @@ public sealed partial class DamageVisualsSystem : VisualizerSystem<DamageVisuals
 
         // If the damage container on our entity's DamageableComponent
         // is not null, we can try to check through its groups.
+<<<<<<< ours
         if (injurableComponent.DamageContainer != null
-<<<<<<< HEAD
             && _prototypeManager.Resolve<DamageContainerPrototype>(injurableComponent.DamageContainer, out var damageContainer))
+||||||| base
+        if (damageComponent.DamageContainerID != null
+            && _prototypeManager.Resolve<DamageContainerPrototype>(damageComponent.DamageContainerID, out var damageContainer))
 =======
+        if (injurableComponent.DamageContainer != null
             && ProtoMan.Resolve<DamageContainerPrototype>(injurableComponent.DamageContainer, out var damageContainer))
->>>>>>> wizards-filtered
+>>>>>>> theirs
         {
             // Are we using damage overlay sprites by group?
             // Check if the container matches the supported groups,

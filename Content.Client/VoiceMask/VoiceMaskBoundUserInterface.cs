@@ -57,11 +57,13 @@ public sealed partial class VoiceMaskBoundUserInterface : BoundUserInterface
             return;
         }
 
-<<<<<<< HEAD
+<<<<<<< ours
         _window.UpdateState(cast.Name, cast.Voice, cast.Bark, cast.Pitch, cast.Verb, cast.JobIconId, cast.Active, cast.AccentHide);
+||||||| base
+        _window.UpdateState(cast.Name, cast.Verb, cast.Active, cast.AccentHide);
 =======
         _window.UpdateState(cast.Name, cast.Verb, cast.Active, cast.AccentHide, cast.TitleText);
->>>>>>> wizards-filtered
+>>>>>>> theirs
     }
 
     protected override void Dispose(bool disposing)

@@ -1,4 +1,4 @@
-﻿# Stack
+# Stack
 - type: stack
   id: Fulton
   name: stack-fulton
@@ -71,7 +71,7 @@
     drawdepth: SmallObjects
     sprite: Objects/Tools/fulton.rsi
     state: extraction_pack
-<<<<<<< HEAD
+<<<<<<< ours
   - type: Damageable
   - type: Injurable
     damageContainer: Inorganic
@@ -83,8 +83,19 @@
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
+||||||| base
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   id: Fulton1

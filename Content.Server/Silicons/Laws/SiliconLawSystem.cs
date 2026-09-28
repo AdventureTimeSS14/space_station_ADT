@@ -33,7 +33,7 @@ namespace Content.Server.Silicons.Laws;
 /// <inheritdoc/>
 public sealed partial class SiliconLawSystem : SharedSiliconLawSystem
 {
-<<<<<<< HEAD
+<<<<<<< ours
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
@@ -43,6 +43,14 @@ public sealed partial class SiliconLawSystem : SharedSiliconLawSystem
     [Dependency] private readonly EmagSystem _emag = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;
+||||||| base
+    [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly SharedRoleSystem _roles = default!;
+    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
+    [Dependency] private readonly EmagSystem _emag = default!;
 =======
     [Dependency] private IChatManager _chatManager = default!;
     [Dependency] private SharedMindSystem _mind = default!;
@@ -51,7 +59,7 @@ public sealed partial class SiliconLawSystem : SharedSiliconLawSystem
     [Dependency] private UserInterfaceSystem _userInterface = default!;
     [Dependency] private EmagSystem _emag = default!;
     [Dependency] private ISharedAdminLogManager _adminLogger = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
     private static readonly ProtoId<SiliconLawsetPrototype> DefaultCrewLawset = "Crewsimov";
 
@@ -135,7 +143,7 @@ public sealed partial class SiliconLawSystem : SharedSiliconLawSystem
         TryComp(uid, out IntrinsicRadioTransmitterComponent? intrinsicRadio);
         var radioChannels = intrinsicRadio?.Channels;
 
-<<<<<<< HEAD
+<<<<<<< ours
         // ADT-Tweak start
         var laws = GetLaws(uid).Laws;
         var lawData = new List<SiliconLawData>(laws.Count);
@@ -146,9 +154,11 @@ public sealed partial class SiliconLawSystem : SharedSiliconLawSystem
         // ADT-Tweak end
 
         var state = new SiliconLawBuiState(lawData, radioChannels);
+||||||| base
+        var state = new SiliconLawBuiState(GetLaws(uid).Laws, radioChannels);
 =======
         var state = new SiliconLawBuiState(GetLaws(uid).Laws, radioChannels, component.Version);
->>>>>>> wizards-filtered
+>>>>>>> theirs
         _userInterface.SetUiState(args.Entity, SiliconLawsUiKey.Key, state);
     }
 
@@ -386,7 +396,6 @@ public sealed partial class SiliconLawSystem : SharedSiliconLawSystem
         ///ADT AI Custom law start
         UpdateBorgsNTLaws(lawset.Laws);
     }
-<<<<<<< HEAD
     private void UpdateBorgsNTLaws(List<SiliconLaw> newLaws)
     {
         var headRevs = AllEntityQuery<SiliconLawProviderComponent, NpcFactionMemberComponent>();
@@ -409,7 +418,9 @@ public sealed partial class SiliconLawSystem : SharedSiliconLawSystem
 
         component.Lawset.Laws = newLaws;
     }
+<<<<<<< ours
     // ADT-Tweak-AiRemoteControl-End
+||||||| base
 =======
 
     /// <summary>
@@ -463,7 +474,7 @@ public sealed partial class SiliconLawSystem : SharedSiliconLawSystem
             }
         }
     }
->>>>>>> wizards-filtered
+>>>>>>> theirs
 }
 
 [ToolshedCommand, AdminCommand(AdminFlags.Admin)]

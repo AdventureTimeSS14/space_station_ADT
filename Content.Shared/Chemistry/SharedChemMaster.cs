@@ -193,12 +193,36 @@ namespace Content.Shared.Chemistry
     [Serializable, NetSerializable]
     public sealed class ChemMasterSelectPillCanisterForCreationMessage : BoundUserInterfaceMessage
     {
+<<<<<<< ours
         public readonly int CanisterIndex;
 
         public ChemMasterSelectPillCanisterForCreationMessage(int canisterIndex)
         {
             CanisterIndex = canisterIndex;
         }
+||||||| base
+        U1 = 1,
+        U5 = 5,
+        U10 = 10,
+        U15 = 15,
+        U20 = 20,
+        U25 = 25,
+        U30 = 30,
+        U50 = 50,
+        U100 = 100,
+        All,
+=======
+        U1 = 1,
+        U5 = 5,
+        U10 = 10,
+        U15 = 15,
+        U20 = 20,
+        U30 = 30,
+        U40 = 40,
+        U60 = 60,
+        U120 = 120,
+        All,
+>>>>>>> theirs
     }
 
     // Reagent amount selection messages
@@ -244,53 +268,7 @@ namespace Content.Shared.Chemistry
         Transfer,
         Discard,
     }
-<<<<<<< HEAD
     // ADT-Tweak End
-=======
-
-    public enum ChemMasterSortingType : byte
-    {
-        None = 0,
-        Alphabetical = 1,
-        Quantity = 2,
-        Latest = 3,
-    }
-
-    [Serializable, NetSerializable]
-    public sealed class ChemMasterSortingTypeCycleMessage : BoundUserInterfaceMessage;
-
-
-    public enum ChemMasterReagentAmount
-    {
-        U1 = 1,
-        U5 = 5,
-        U10 = 10,
-        U15 = 15,
-        U20 = 20,
-        U30 = 30,
-        U40 = 40,
-        U60 = 60,
-        U120 = 120,
-        All,
-    }
-
-    public enum ChemMasterDrawSource
-    {
-        Internal,
-        External,
-    }
-
-    public static class ChemMasterReagentAmountToFixedPoint
-    {
-        public static FixedPoint2 GetFixedPoint(this ChemMasterReagentAmount amount)
-        {
-            if (amount == ChemMasterReagentAmount.All)
-                return FixedPoint2.MaxValue;
-            else
-                return FixedPoint2.New((int)amount);
-        }
-    }
->>>>>>> wizards-filtered
 
     /// <summary>
     /// Information about the capacity and contents of a container for display in the UI

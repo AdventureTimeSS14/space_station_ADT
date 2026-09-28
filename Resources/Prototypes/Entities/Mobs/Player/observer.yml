@@ -198,7 +198,7 @@
   - type: NightVision
     netsync: false
     enabled: false
-<<<<<<< HEAD
+<<<<<<< ours
   # ADT-Tweak-start
   - type: LanguageSpeaker
     languages:
@@ -211,6 +211,7 @@
       enum.GhostInfoUiKey.Key:
         type: GhostInfoBoundUserInterface
   # ADT-Tweak-end
+||||||| base
 =======
     prioritized: false
     relayOverlay: false # In case default values change
@@ -218,7 +219,7 @@
     overlayColor: '#FFFFFF00'
     noiseAmount: 0 # In case default values change
     noiseMultiplier: 0 # In case default values change
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 # proto for player ghosts specifically
 - type: entity
@@ -229,12 +230,13 @@
   - type: Tag
     tags:
     - AllowGhostShownByEvent
-<<<<<<< HEAD
+<<<<<<< ours
   - type: GhostInfo # ADT-Tweak
+||||||| base
 =======
     - AllowPortalTraversal
     - PreventPortalCollision
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   parent: BaseMentalAction

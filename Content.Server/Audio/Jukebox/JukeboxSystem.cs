@@ -15,14 +15,17 @@ namespace Content.Server.Audio.Jukebox;
 
 public sealed partial class JukeboxSystem : SharedJukeboxSystem
 {
-<<<<<<< HEAD
+<<<<<<< ours
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!; // ADT-Tweak
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!; // ADT-Tweak
+||||||| base
+    [Dependency] private readonly IPrototypeManager _protoManager = default!;
+    [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
 =======
     [Dependency] private AppearanceSystem _appearanceSystem = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
     public override void Initialize()
     {

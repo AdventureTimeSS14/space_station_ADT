@@ -1,13 +1,7 @@
-<<<<<<< HEAD
-﻿- type: entity
-  id: StorageTank
-  parent: BaseStructureDynamic
-=======
 - type: entity
   abstract: true
   parent: [SolutionTank, SolutionGinormous, BaseStructureDynamic]
   id: StorageTankIndestructible
->>>>>>> wizards-filtered
   name: storage tank
   description: A liquids storage tank.
   components:

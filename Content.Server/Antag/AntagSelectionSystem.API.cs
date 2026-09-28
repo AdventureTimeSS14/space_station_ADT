@@ -48,30 +48,8 @@ public sealed partial class AntagSelectionSystem
         return count;
     }
 
-<<<<<<< HEAD
-    // goob edit
-    public List<ICommonSession> GetAliveConnectedPlayers(IList<ICommonSession> pool)
-    {
-        var l = new List<ICommonSession>();
-        foreach (var session in pool)
-        {
-            if (session.Status is SessionStatus.Disconnected or SessionStatus.Zombie)
-                continue;
-            l.Add(session);
-        }
-        return l;
-    }
-    // goob edit end
-
-    /// <summary>
-    /// Gets the number of antagonists that should be present for a given antag definition based on the provided pool.
-    /// A null pool will simply use the player count.
-    /// </summary>
-    public int GetTargetAntagCount(Entity<AntagSelectionComponent> ent, int? playerCount, AntagSelectionDefinition def)
-=======
     [PublicAPI]
     public IEnumerable<ICommonSession> GetActivePlayers()
->>>>>>> wizards-filtered
     {
         return GetActivePlayers(_playerManager.Sessions);
     }
@@ -162,6 +140,20 @@ public sealed partial class AntagSelectionSystem
         Log.Error($"Error, attempted to get the antag count for an antagonist, {proto.ID} not included in gamerule: {ToPrettyString(gameRule)}");
         return 0;
     }
+
+    // goob edit
+    public List<ICommonSession> GetAliveConnectedPlayers(IList<ICommonSession> pool)
+    {
+        var l = new List<ICommonSession>();
+        foreach (var session in pool)
+        {
+            if (session.Status is SessionStatus.Disconnected or SessionStatus.Zombie)
+                continue;
+            l.Add(session);
+        }
+        return l;
+    }
+    // goob edit end
 
     /// <summary>
     /// Do not use this if you don't know what you're doing. This is public for test purposes only.

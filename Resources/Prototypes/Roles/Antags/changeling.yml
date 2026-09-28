@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+﻿<<<<<<< ours
 # ADT: Закомментировано из-за использования генокрада от Goob Station
 # - type: antag
 #   id: Changeling
@@ -6,8 +6,15 @@
 #   antagonist: true
 #   setPreference: false # TODO: set this to true once Changeling exits WIP status
 #   objective: roles-antag-changeling-objective
+||||||| base
+- type: antag
+  id: Changeling
+  name: roles-antag-changeling-name
+  antagonist: true
+  setPreference: false # TODO: set this to true once Changeling exits WIP status
+  objective: roles-antag-changeling-objective
 =======
-﻿- type: antag
+- type: antag
   id: Changeling
   name: roles-antag-changeling-name
   antagonist: true
@@ -61,4 +68,4 @@
       ChangelingDNA: 60
   mindRoles:
   - MindRoleChangeling
->>>>>>> wizards-filtered
+>>>>>>> theirs

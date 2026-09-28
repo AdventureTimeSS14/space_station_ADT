@@ -70,7 +70,6 @@
     - Power
 
     # Core functionality
-<<<<<<< HEAD
     - type: PortableGenerator
       startSoundEmpty: { collection: GeneratorTugEmpty }
       startSound: { collection: GeneratorTug }
@@ -98,28 +97,6 @@
       receiveFrequencyId: BasicDevice
     - type: WirelessNetworkConnection
       range: 200
-=======
-  - type: PortableGenerator
-    startSoundEmpty: { collection: GeneratorTugEmpty }
-    startSound: { collection: GeneratorTug }
-  - type: FuelGenerator
-  - type: PowerSupplier
-    supplyRate: 3000
-    supplyRampRate: 500
-    supplyRampTolerance: 500
-    enabled: false
-  - type: DeviceLinkSink
-    ports:
-    - On
-    - Off
-    - Toggle
-  - type: GeneratorSignalControl
-  - type: DeviceNetwork
-    deviceNetId: Wireless
-    receiveFrequencyId: BasicDevice
-  - type: WirelessNetworkConnection
-    range: 200
->>>>>>> wizards-filtered
 
 - type: entity
   abstract: true

@@ -144,7 +144,7 @@ namespace Content.Shared.Movement.Pulling.Systems;
 /// </summary>
 public sealed partial class PullingSystem : EntitySystem
 {
-<<<<<<< HEAD
+<<<<<<< ours
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly ActionBlockerSystem _blocker = default!;
@@ -158,6 +158,20 @@ public sealed partial class PullingSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedVirtualItemSystem _virtualSystem = default!;
     [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
+||||||| base
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly ActionBlockerSystem _blocker = default!;
+    [Dependency] private readonly AlertsSystem _alertsSystem = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _modifierSystem = default!;
+    [Dependency] private readonly SharedJointSystem _joints = default!;
+    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
+    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
+    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly HeldSpeedModifierSystem _clothingMoveSpeed = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedVirtualItemSystem _virtual = default!;
 =======
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private ISharedAdminLogManager _adminLogger = default!;
@@ -172,7 +186,7 @@ public sealed partial class PullingSystem : EntitySystem
     [Dependency] private HeldSpeedModifierSystem _clothingMoveSpeed = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private SharedVirtualItemSystem _virtual = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
     public override void Initialize()
     {
@@ -793,8 +807,8 @@ public sealed partial class PullingSystem : EntitySystem
         StopPulling(pullableUid, pullable);
         return true;
     }
+<<<<<<< ours
 
-<<<<<<< HEAD
     // Goobstation - Helper
     public void StopAllPulls(EntityUid uid, bool stopPullable = true, bool stopPuller = true) // Goobstation
     {
@@ -810,7 +824,10 @@ public sealed partial class PullingSystem : EntitySystem
     public EntityUid GetRelayedEntity(EntityUid uid)
     {
         return uid;
+    }
+||||||| base
 =======
+
     /// <summary>
     /// Copies compatible datafields of <see cref="PullerComponent"/> onto the target entity.
     /// </summary>
@@ -826,6 +843,6 @@ public sealed partial class PullingSystem : EntitySystem
         targetComp.NeedsHands = source.Comp.NeedsHands;
         targetComp.PullingAlert = source.Comp.PullingAlert;
         Dirty(target, targetComp);
->>>>>>> wizards-filtered
     }
+>>>>>>> theirs
 }

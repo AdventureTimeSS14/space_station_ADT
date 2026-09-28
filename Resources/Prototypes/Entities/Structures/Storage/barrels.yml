@@ -196,7 +196,7 @@
   id: BaseBarrelChemRadioactiveFilledUranium
   suffix: Uranium
   components:
-<<<<<<< HEAD
+<<<<<<< ours
   - type: SolutionContainerManager
     solutions:
       tank:
@@ -631,10 +631,18 @@
   - type: RadiationSource # ADT-Tweak
     intensity: 0 # ADT-Tweak
 # ADT-Tweak End
+||||||| base
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 500
+        reagents:
+        - ReagentId: Uranium
+          Quantity: 500
 =======
   - type: Solution
     solution:
       reagents:
       - ReagentId: Uranium
         Quantity: 960
->>>>>>> wizards-filtered
+>>>>>>> theirs

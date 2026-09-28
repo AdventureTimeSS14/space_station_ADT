@@ -129,21 +129,6 @@ namespace Content.Server.StationEvents.Events
         {
             base.Ended(uid, component, gameRule, args);
 
-<<<<<<< HEAD
-=======
-            foreach (var entity in component.Unpowered)
-            {
-                if (Deleted(entity))
-                    continue;
-
-                if (TryComp(entity, out ApcComponent? apcComponent))
-                {
-                    if (!apcComponent.MainBreakerEnabled)
-                        _apcSystem.ApcToggleBreaker(entity, apcComponent);
-                }
-            }
-
->>>>>>> wizards-filtered
             // Can't use the default EndAudio
             component.AnnounceCancelToken?.Cancel();
             component.AnnounceCancelToken = new CancellationTokenSource();

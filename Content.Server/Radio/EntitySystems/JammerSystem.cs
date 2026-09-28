@@ -29,11 +29,13 @@ public sealed partial class JammerSystem : SharedJammerSystem
             args.Cancelled = true;
     }
 
-<<<<<<< HEAD
+<<<<<<< ours
     public bool ShouldCancel(EntityUid sourceUid, int frequency) // ADT-Tweak
+||||||| base
+    private bool ShouldCancel(EntityUid sourceUid, int frequency)
 =======
     private bool ShouldCancel(EntityUid sourceUid, FixedPoint2 frequency)
->>>>>>> wizards-filtered
+>>>>>>> theirs
     {
         var source = Transform(sourceUid).Coordinates;
         var query = EntityQueryEnumerator<ActiveRadioJammerComponent, RadioJammerComponent, TransformComponent>();

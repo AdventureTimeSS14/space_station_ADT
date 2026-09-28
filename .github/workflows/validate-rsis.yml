@@ -2,7 +2,7 @@ name: RSI Validator
 
 # ADT-Tweak-start
 on:
-<<<<<<< HEAD
+<<<<<<< ours
   workflow_dispatch:
 #on:
 #  push:
@@ -12,6 +12,13 @@ on:
 #    paths:
 #      - '**.rsi/**'
 # ADT-Tweak-end
+||||||| base
+  push:
+    branches: [ master, staging, stable ]
+  merge_group:
+  pull_request:
+    paths:
+      - '**.rsi/**'
 =======
   push:
     branches: [ master, staging, stable ]
@@ -20,7 +27,7 @@ on:
     types: [ opened, reopened, synchronize, ready_for_review ]
     paths:
       - '**.rsi/**'
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.event.pull_request.number || github.ref }}

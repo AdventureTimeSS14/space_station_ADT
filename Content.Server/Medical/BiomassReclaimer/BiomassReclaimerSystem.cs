@@ -216,15 +216,17 @@ namespace Content.Server.Medical.BiomassReclaimer
                 _solution.ResolveSolution(toProcess, stream.BloodSolutionName, ref stream.BloodSolution, out var solution))
             {
                 component.BloodReagents = solution.Clone();
-<<<<<<< HEAD
+<<<<<<< ours
                 // ADT-Tweak-Start
                 if (component.BloodReagents.Volume > FixedPoint2.Zero)
                     component.BloodReagents.ScaleSolution(50 / component.BloodReagents.Volume);
                 // ADT-Tweak-End
+||||||| base
+                component.BloodReagents.ScaleSolution(50 / component.BloodReagents.Volume);
 =======
                 var scale = component.BloodReagents.Volume <= FixedPoint2.Zero ? 0 : 50 / component.BloodReagents.Volume;
                 component.BloodReagents.ScaleSolution(scale);
->>>>>>> wizards-filtered
+>>>>>>> theirs
             }
             if (TryComp<ToolRefinableComponent>(toProcess, out var refinable))
             {

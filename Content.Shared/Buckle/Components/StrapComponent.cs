@@ -91,19 +91,21 @@ public sealed partial class StrapComponent : Component
     /// </summary>
     [DataField]
     public bool BuckleOnInteractHand = true;
+<<<<<<< ours
 
-<<<<<<< HEAD
     // ADT-Tweak-Start
     [DataField]
     public bool ForceBuckle = true;
     // ADT-Tweak-End
+||||||| base
 =======
+
     /// <summary>
     /// Whether being buckled to this entity should change the buckled ent's drawdepth.
     /// </summary>
     [DataField]
     public bool ModifyBuckleDrawDepth = true;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 }
 
 public enum StrapPosition

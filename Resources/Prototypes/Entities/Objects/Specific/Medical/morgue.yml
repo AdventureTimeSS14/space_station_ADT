@@ -129,8 +129,16 @@
     tags:
     - Burnt
     - Trash
-<<<<<<< HEAD
+<<<<<<< ours
     - Ash # ADT-Heretic: ритуал Обжигающей акулы
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: Ash
+          Quantity: 10
+||||||| base
   - type: SolutionContainerManager
     solutions:
       food:
@@ -144,7 +152,7 @@
       reagents:
       - ReagentId: Ash
         Quantity: 15
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: SolutionSpiker
     sourceSolution: food
     ignoreEmpty: true

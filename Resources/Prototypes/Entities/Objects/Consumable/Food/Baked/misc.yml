@@ -8,7 +8,7 @@
   components:
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/misc.rsi
-<<<<<<< HEAD
+<<<<<<< ours
   - type: SolutionContainerManager
     solutions:
       food:
@@ -16,13 +16,21 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 2.5 # ADT-Tweak 5 > 2.5
+||||||| base
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 6
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
 =======
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 10
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Item
     size: Tiny
 
@@ -187,7 +195,7 @@
   components:
   - type: Sprite
     state: cookie-oatmeal
-<<<<<<< HEAD
+<<<<<<< ours
   - type: SolutionContainerManager
     solutions:
       food:
@@ -200,8 +208,18 @@
   - type: Tag  #ADT_Tweak - делаем овсяное печенье съедобным для молей
     tags:
     - ADTMothFriendlyFood
+||||||| base
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 8
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 1
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   name: raisin cookie
@@ -429,7 +447,7 @@
     layers:
       - state: tray
       - state: waffles
-<<<<<<< HEAD
+<<<<<<< ours
   - type: SolutionContainerManager
     solutions:
       food:
@@ -447,8 +465,18 @@
     count: 3
     slice: ADTFoodFrozenIceCreamCone
   #ADT-Tweak-End
+||||||| base
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 1
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   name: soy waffles
@@ -506,7 +534,7 @@
   - type: Sprite
     state: cannoli
 
-<<<<<<< HEAD
+<<<<<<< ours
 #ADT_Tweak-Start - рецепт и еда удалены или заменены чтобы не конфликтовать с другими пельменями
 # - type: entity
 #   name: dumplings
@@ -534,6 +562,32 @@
 #     - Meat
 #ADT_Tweak-End - рецепт и еда удалены или заменены чтобы не конфликтовать с другими пельменями
  
+||||||| base
+- type: entity
+  name: dumplings
+  parent: FoodBakedBase
+  id: FoodBakedDumplings
+  description: Average recipe for meat in doughs.
+  components:
+  - type: Sprite
+    state: dumplings
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Protein
+          Quantity: 2
+  - type: FlavorProfile
+    flavors:
+      - meaty
+      - bread
+  - type: Tag
+    tags:
+    - Meat
+
 =======
 - type: entity
   name: dumplings
@@ -558,7 +612,7 @@
     tags:
     - Meat
 
->>>>>>> wizards-filtered
+>>>>>>> theirs
 - type: entity
   name: chèvre chaud
   parent: FoodBakedBase
@@ -750,7 +804,7 @@
         - oily
     - type: Sprite
       state: onionrings
-<<<<<<< HEAD
+<<<<<<< ours
     - type: SolutionContainerManager
       solutions:
         food:
@@ -765,6 +819,18 @@
     - type: Tag
       tags:
       - ADTMothFriendlyFood #ADT_Tweak - делаем луковые кольца съедобными для молей
+||||||| base
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 4
+          reagents:
+          - ReagentId: Nutriment
+            Quantity: 1
+          - ReagentId: Allicin
+            Quantity: 1
+          - ReagentId: Vitamin
+            Quantity: 1
 =======
     - type: Solution
       solution:
@@ -775,7 +841,7 @@
           Quantity: 1
         - ReagentId: Vitamin
           Quantity: 1
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   parent: [SolutionSmall, FoodBakedBase]
@@ -795,7 +861,7 @@
       - butter
   - type: Sprite
     state: croissant
-<<<<<<< HEAD
+<<<<<<< ours
   - type: SolutionContainerManager
     solutions:
       food:
@@ -810,6 +876,18 @@
   - type: Tag
     tags:
     - ADTMothFriendlyFood #ADT_Tweak - делаем круассаны съедобными для молей
+||||||| base
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 7
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
+        - ReagentId: Butter
+          Quantity: 2
+        - ReagentId: Vitamin
+          Quantity: 1
 =======
   - type: Solution
     solution:
@@ -818,7 +896,7 @@
         Quantity: 20
       - ReagentId: Butter
         Quantity: 2.5
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   parent: FoodBakedCroissant

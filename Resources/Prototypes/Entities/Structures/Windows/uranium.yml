@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-﻿- type: entity
-=======
 - type: entity
   parent: [BaseDeltaPressurePlasma, BaseWindowStructure, BaseRCDResistant]
->>>>>>> wizards-filtered
   id: UraniumWindow
   name: uranium window
   components:

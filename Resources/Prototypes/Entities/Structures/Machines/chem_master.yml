@@ -88,7 +88,7 @@
         whitelist:
           tags:
           - Bottle
-<<<<<<< HEAD
+<<<<<<< ours
       # ADT port start pAI modernization
       pai_slot:
         name: Personal AI Device
@@ -100,11 +100,16 @@
   - type: SolutionContainerManager
     solutions:
       buffer: {}
+||||||| base
+          - PillCanister
+  - type: SolutionContainerManager
+    solutions:
+      buffer: {}
 =======
           - PillCanister
   - type: Solution # Chemmaster is special in how it interacts with reagents. For now.
     id: buffer
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: DumpableSolution
     solution: buffer
     unlimited: true
@@ -112,12 +117,13 @@
     guides:
     - Chemicals
     - Chemist
-<<<<<<< HEAD
+<<<<<<< ours
   # ADT-Sound-Update-Start
   - type: Tag
     tags:
       - ADTChemistryAmbience
   # ADT-Sound-Update-End
+||||||| base
 =======
   - type: AmbientMusicMarkerMedical
->>>>>>> wizards-filtered
+>>>>>>> theirs

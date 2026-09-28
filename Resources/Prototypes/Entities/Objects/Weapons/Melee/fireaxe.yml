@@ -43,20 +43,24 @@
     quickEquip: false
     slots:
     - back
-<<<<<<< HEAD
+<<<<<<< ours
     - suitStorage #ADT_Tweak - чтобы вешать на спину
-  - type: Tool
-    qualities:
-      - Prying
-      - AdvancedPrying # ADT-Axe-Great-Return
+||||||| base
 =======
     - suitStorage
+>>>>>>> theirs
   - type: Tool
     qualities:
+<<<<<<< ours
+      - Prying
+      - AdvancedPrying # ADT-Axe-Great-Return
+||||||| base
+      - Prying
+=======
     - Prying
     - Slicing
     - Sawing
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: ToolTileCompatible
   - type: Prying
   - type: UseDelay
@@ -95,7 +99,7 @@
     quickEquip: false
     slots:
     - back
-<<<<<<< HEAD
+<<<<<<< ours
     - suitStorage #ADT_Tweak - чтобы вешать на спину
 # ADT-Tweak-Start
   - type: Item
@@ -107,6 +111,7 @@
     guides:
     - ADTMaAxe
 # ADT-Tweak-End
+||||||| base
 =======
     - suitStorage
->>>>>>> wizards-filtered
+>>>>>>> theirs

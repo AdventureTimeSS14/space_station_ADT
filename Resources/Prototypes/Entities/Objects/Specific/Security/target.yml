@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-﻿- type: entity
-  id: BaseTarget
-  parent: BaseStructureDynamic
-=======
 - type: entity
->>>>>>> wizards-filtered
   abstract: true
   parent: BaseStructureDynamic
   id: BaseTargetIndestructible
@@ -100,28 +94,3 @@
   - type: Sprite
     sprite: Objects/Specific/Security/target.rsi
     state: target_f
-<<<<<<< HEAD
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 4000
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 2000
-      behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          SheetSteel:
-            min: 10
-            max: 10
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-=======
->>>>>>> wizards-filtered

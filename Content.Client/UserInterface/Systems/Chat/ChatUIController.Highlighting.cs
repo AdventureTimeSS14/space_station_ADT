@@ -163,15 +163,17 @@ public sealed partial class ChatUIController : IOnSystemChanged<CharacterInfoSys
         if (!_charInfoIsAttach)
             return;
 
-<<<<<<< HEAD
+<<<<<<< ours
         // ADT tweak start: Fixed tuple deconstruction syntax to match CharacterData structure
         var entityUid = data.Entity;
         var job = data.Job;
         var entityName = data.EntityName;
         // ADT tweak end
+||||||| base
+        var (_, job, _, _, entityName) = data;
 =======
         var (_, _, _, job, entityName) = data;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
         // Mark this entity's name as our character name for the "UpdateHighlights" function.
         var newHighlights = "@" + entityName;
@@ -191,22 +193,30 @@ public sealed partial class ChatUIController : IOnSystemChanged<CharacterInfoSys
             // ADT tweak end
         }
 
-<<<<<<< HEAD
+<<<<<<< ours
         // Convert the job title to kebab-case and use it as a key for the loc file.
         var jobKey = job?.Replace(' ', '-').ToLower() ?? string.Empty; // ADT tweak: Added null check
-
-        if (!string.IsNullOrEmpty(jobKey) && _loc.TryGetString($"highlights-{jobKey}", out var jobMatches))
-            newHighlights += '\n' + jobMatches.Replace(", ", "\n");
+||||||| base
+        // Convert the job title to kebab-case and use it as a key for the loc file.
+        var jobKey = job.Replace(' ', '-').ToLower();
 =======
         if (job != null)
         {
             // Convert the job title to kebab-case and use it as a key for the loc file.
             var jobKey = job.Value.Id.Replace(' ', '-').ToLower();
+>>>>>>> theirs
 
+<<<<<<< ours
+        if (!string.IsNullOrEmpty(jobKey) && _loc.TryGetString($"highlights-{jobKey}", out var jobMatches))
+            newHighlights += '\n' + jobMatches.Replace(", ", "\n");
+||||||| base
+        if (_loc.TryGetString($"highlights-{jobKey}", out var jobMatches))
+            newHighlights += '\n' + jobMatches.Replace(", ", "\n");
+=======
             if (_loc.TryGetString($"highlights-{jobKey}", out var jobMatches))
                 newHighlights += '\n' + jobMatches.Replace(", ", "\n");
         }
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
         _autoHighlights = newHighlights;
         ReloadHighlights();

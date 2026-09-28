@@ -19,17 +19,19 @@ namespace Content.Server.Stack
     [UsedImplicitly]
     public sealed partial class StackSystem : SharedStackSystem
     {
-<<<<<<< HEAD
+<<<<<<< ours
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!; // ADT-Tweak
         [Dependency] private readonly QuickDialogSystem _quickDialog = default!; // ADT-Tweak for system own split
+||||||| base
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 =======
         [Dependency] private SharedHandsSystem _hands = default!;
         [Dependency] private SharedPopupSystem _popup = default!;
         [Dependency] private SharedTransformSystem _transform = default!;
 
         [Dependency] private EntityQuery<StackComponent> _stackQuery;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
         #region Spawning
 
@@ -289,7 +291,7 @@ namespace Content.Server.Stack
 
         #endregion
         #endregion
-<<<<<<< HEAD
+<<<<<<< ours
         #region Event Handlers
 
         /// <inheritdoc />
@@ -351,7 +353,30 @@ namespace Content.Server.Stack
         }
         // ADT-Tweak end
         #endregion
+||||||| base
+        #region Event Handlers
+
+        /// <inheritdoc />
+        protected override void UserSplit(Entity<StackComponent> stack, Entity<TransformComponent?> user, int amount)
+        {
+            if (!Resolve(user.Owner, ref user.Comp, false))
+                return;
+
+            if (amount <= 0)
+            {
+                Popup.PopupCursor(Loc.GetString("comp-stack-split-too-small"), user.Owner, PopupType.Medium);
+                return;
+            }
+
+            if (Split(stack.AsNullable(), amount, user.Comp.Coordinates) is not { } split)
+                return;
+
+            Hands.PickupOrDrop(user.Owner, split);
+
+            Popup.PopupCursor(Loc.GetString("comp-stack-split"), user.Owner);
+        }
+        #endregion
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
     }
 }

@@ -265,14 +265,17 @@
                     0.3
                 ]
             ]
+<<<<<<< ours
         },
         {
-<<<<<<< HEAD
             "name": "equipped-IDCARD",
             "directions": 4
+||||||| base
 =======
+        },
+        {
             "name": "pda-tramdriver"
->>>>>>> wizards-filtered
+>>>>>>> theirs
         }
     ]
 }

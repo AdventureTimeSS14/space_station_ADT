@@ -8,13 +8,14 @@ using Content.Shared.Camera;
 using Content.Shared.CCVar;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
-<<<<<<< HEAD
+<<<<<<< ours
 using Content.Shared.Mech.Components;
 using Content.Shared._RMC14.Weapons.Ranged.Flamer; // ADT-Tweak
+||||||| base
 =======
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Physics;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 using Content.Shared.Weapons.Hitscan.Components;
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
@@ -43,9 +44,22 @@ namespace Content.Client.Weapons.Ranged.Systems;
 
 public sealed partial class GunSystem : SharedGunSystem
 {
-<<<<<<< HEAD
+<<<<<<< ours
     [Dependency] private readonly AnimationPlayerSystem _animPlayer = default!;
     [Dependency] private readonly SharedRMCFlamerSystem _rmcFlamer = default!; // ADT-Tweak
+    [Dependency] private readonly IEyeManager _eyeManager = default!;
+    [Dependency] private readonly IInputManager _inputManager = default!;
+    [Dependency] private readonly InputSystem _inputSystem = default!;
+    [Dependency] private readonly IOverlayManager _overlayManager = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly IStateManager _state = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
+    [Dependency] private readonly SharedMapSystem _maps = default!;
+    [Dependency] private readonly SharedTransformSystem _xform = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
+||||||| base
+    [Dependency] private readonly AnimationPlayerSystem _animPlayer = default!;
     [Dependency] private readonly IEyeManager _eyeManager = default!;
     [Dependency] private readonly IInputManager _inputManager = default!;
     [Dependency] private readonly InputSystem _inputSystem = default!;
@@ -72,7 +86,7 @@ public sealed partial class GunSystem : SharedGunSystem
     [Dependency] private SharedTransformSystem _xform = default!;
     [Dependency] private SpriteSystem _sprite = default!;
     [Dependency] private SpriteTreeSystem _spriteTree = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
     public static readonly EntProtoId HitscanProto = "HitscanEffect";
     private GunTargetEntityComparer _comparer = default!;

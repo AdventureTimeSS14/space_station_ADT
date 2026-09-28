@@ -49,11 +49,7 @@ public abstract partial class SharedSalvageSystem
         {
             case AsteroidOffering: // ADT Tweak- returning of asteroid offering:3 BFUU
                 var configId = _asteroidConfigs[rand.Next(_asteroidConfigs.Count)];
-<<<<<<< HEAD
-                var configProto = _proto.Index(configId);
-=======
                 var configProto = ProtoMan.Index(configId);
->>>>>>> wizards-filtered
                 var layers = new Dictionary<string, int>();
 
                 var data = new DungeonData();

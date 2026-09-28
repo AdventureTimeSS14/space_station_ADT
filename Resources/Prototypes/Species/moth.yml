@@ -6,7 +6,7 @@
   defaultSkinTone: "#ffda93"
   dollPrototype: AppearanceMoth
   skinColoration: Hues
-<<<<<<< HEAD
+<<<<<<< ours
   # ADT-name-custom
   maleFirstNames: first_male_moth
   femaleFirstNames: first_female_moth
@@ -36,6 +36,10 @@
   oldAge: 45
   youngAge: 27
   # ADT end
+||||||| base
+  maleFirstNames: NamesMothFirstMale
+  femaleFirstNames: NamesMothFirstFemale
+  lastNames: NamesMothLast
 =======
   maleFirstNames: NamesMothFirstMale
   femaleFirstNames: NamesMothFirstFemale
@@ -46,4 +50,4 @@
   - UnisexMoth
   voices:
   - UnisexMoth
->>>>>>> wizards-filtered
+>>>>>>> theirs

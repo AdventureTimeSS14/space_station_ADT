@@ -145,8 +145,10 @@
   unit: materials-unit-piece
   icon: { sprite: Objects/Materials/materials.rsi, state: diamond }
   color: "#80ffff"
-<<<<<<< HEAD
+<<<<<<< ours
   price: 4 # big diamond gaslit us so hard diamonds actually became extremely rare
+||||||| base
+  price: 20 # big diamond gaslit us so hard diamonds actually became extremely rare
 =======
   price: 20 # big diamond gaslit us so hard diamonds actually became extremely rare
 
@@ -158,4 +160,4 @@
   icon: { sprite: Objects/Materials/xenoborg_crystal.rsi, state: crystal-1 }
   color: "#3d94ff"
   price: 2 # $200 for 1 unit # crystal pretty!
->>>>>>> wizards-filtered
+>>>>>>> theirs

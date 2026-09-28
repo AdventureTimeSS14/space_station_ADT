@@ -10,16 +10,18 @@ public sealed partial class ProjectileSpellEvent : WorldTargetActionEvent
     /// </summary>
     [DataField(required: true)]
     public EntProtoId Prototype;
+<<<<<<< ours
 
-<<<<<<< HEAD
     // ADT-Heretic: скорость снаряда настраивается (дефолт 25f — прежнее поведение ADT)
     [DataField]
     public float Speed = 25f;
+||||||| base
 =======
+
     /// <summary>
     /// How fast the projectile should travel
     /// </summary>
     [DataField]
     public float ProjectileSpeed = 25f;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 }

@@ -12,17 +12,24 @@ using Content.Shared.ADT.Thunderdome;
 namespace Content.Client.UserInterface.Systems.Ghost;
 
 // TODO hud refactor BEFORE MERGE fix ghost gui being too far up
-<<<<<<< HEAD
+<<<<<<< ours
 public sealed partial class GhostUIController : UIController, IOnSystemChanged<GhostSystem> // ADT - now this class is partial
-{
-    [Dependency] private readonly IEntityManager _entManager = default!; // ADT-tweak
-    [Dependency] private readonly IEntityNetworkManager _net = default!;
+||||||| base
+public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSystem>
 =======
 public sealed partial class GhostUIController : UIController, IOnSystemChanged<GhostSystem>
+>>>>>>> theirs
 {
+<<<<<<< ours
+    [Dependency] private readonly IEntityManager _entManager = default!; // ADT-tweak
+    [Dependency] private readonly IEntityNetworkManager _net = default!;
+||||||| base
+    [Dependency] private readonly IEntityNetworkManager _net = default!;
+
+=======
     [Dependency] private IEntityNetworkManager _net = default!;
 
->>>>>>> wizards-filtered
+>>>>>>> theirs
     [UISystemDependency] private readonly GhostSystem? _system = default;
 
     private GhostGui? Gui => UIManager.GetActiveUIWidgetOrNull<GhostGui>();
@@ -154,13 +161,14 @@ public sealed partial class GhostUIController : UIController, IOnSystemChanged<G
         Gui.CharacterEditorPressed += CharacterEditorPressed; // ADT-Tweak 
         Gui.TargetWindow.WarpClicked += OnWarpClicked;
         Gui.TargetWindow.OnGhostnadoClicked += OnGhostnadoClicked;
-<<<<<<< HEAD
+<<<<<<< ours
         Gui.ThunderdomePressed += ThunderdomePressed; // ADT-Tweak
         Gui.ThunderdomeLeaderboardPressed += ThunderdomeLeaderboardPressed; // ADT-Tweak
+||||||| base
 =======
         Gui.TargetWindow.OnWarpToRandomFollowedClicked += OnWarpToRandomFollowedClicked;
         Gui.TargetWindow.OnWarpToRandomClicked += OnWarpToRandomClicked;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
         UpdateGui();
     }

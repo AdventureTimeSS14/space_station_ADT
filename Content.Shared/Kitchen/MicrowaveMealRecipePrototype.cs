@@ -2,13 +2,16 @@ using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;
 using Content.Shared.Research.Prototypes;
 using Robust.Shared.Prototypes;
-<<<<<<< HEAD
+<<<<<<< ours
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.Serialization; // ADT-Tweak
+||||||| base
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 namespace Content.Shared.Kitchen
 {
@@ -31,13 +34,8 @@ namespace Content.Shared.Kitchen
         [DataField("reagents")]
         private Dictionary<ProtoId<ReagentPrototype>, FixedPoint2> _ingsReagents = new();
 
-<<<<<<< HEAD
-        [DataField("solids", customTypeSerializer: typeof(PrototypeIdDictionarySerializer<FixedPoint2, EntityPrototype>))]
-        private Dictionary<string, FixedPoint2> _ingsSolids = new();
-=======
         [DataField("solids")]
         private Dictionary<EntProtoId, FixedPoint2> _ingsSolids = new();
->>>>>>> wizards-filtered
 
         [DataField(required: true)]
         public EntProtoId Result;

@@ -24,12 +24,14 @@ namespace Content.Server.GameTicking
         /// <summary>
         ///     For access to CVars in status responses.
         /// </summary>
-<<<<<<< HEAD
+<<<<<<< ours
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly JoinQueueManager _queueManager = default!; // Corvax-Queue
+||||||| base
+        [Dependency] private readonly IConfigurationManager _cfg = default!;
 =======
         [Dependency] private IConfigurationManager _cfg = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
         /// <summary>
         ///     For access to the round ID in status responses.
         /// </summary>

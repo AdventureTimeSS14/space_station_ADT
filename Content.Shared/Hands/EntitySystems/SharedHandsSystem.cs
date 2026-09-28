@@ -72,12 +72,14 @@ public abstract partial class SharedHandsSystem
         var container = EnsureComp<ContainerManagerComponent>(ent);
         foreach (var id in ent.Comp.Hands.Keys)
         {
-<<<<<<< HEAD
+<<<<<<< ours
             ContainerSystem.EnsureContainer<ContainerSlot>(ent, id, container).OccludesLight = false; // ADT-Tweak
+||||||| base
+            ContainerSystem.EnsureContainer<ContainerSlot>(ent, id, container);
 =======
             var slot = ContainerSystem.EnsureContainer<ContainerSlot>(ent, id, container);
             slot.OccludesLight = false;
->>>>>>> wizards-filtered
+>>>>>>> theirs
         }
     }
 

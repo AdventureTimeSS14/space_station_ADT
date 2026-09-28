@@ -319,11 +319,13 @@
     sprite: Clothing/OuterClothing/Misc/hospitalgown.rsi
 
 - type: entity
-<<<<<<< HEAD
+<<<<<<< ours
   parent: ClothingOuterStorageBase # ADT-Tweak: карманы
+||||||| base
+  parent: ClothingOuterBase
 =======
   parent: ClothingOuterJacketBase
->>>>>>> wizards-filtered
+>>>>>>> theirs
   id: ClothingOuterFlannelRed
   name: red flannel jacket
   description: An old fashioned red flannel jacket for space autumn.
@@ -357,11 +359,13 @@
         color: "#000000"
 
 - type: entity
-<<<<<<< HEAD
+<<<<<<< ours
   parent: ClothingOuterStorageBase # ADT-Tweak: карманы
+||||||| base
+  parent: ClothingOuterBase
 =======
   parent: ClothingOuterJacketBase
->>>>>>> wizards-filtered
+>>>>>>> theirs
   id: ClothingOuterFlannelBlue
   name: blue flannel jacket
   description: An old fashioned blue flannel jacket for space autumn.
@@ -395,11 +399,13 @@
         color: "#000000"
 
 - type: entity
-<<<<<<< HEAD
+<<<<<<< ours
   parent: ClothingOuterStorageBase # ADT-Tweak: карманы
+||||||| base
+  parent: ClothingOuterBase
 =======
   parent: ClothingOuterJacketBase
->>>>>>> wizards-filtered
+>>>>>>> theirs
   id: ClothingOuterFlannelGreen
   name: green flannel jacket
   description: An old fashioned green flannel jacket for space autumn.

@@ -1,10 +1,13 @@
 using System.Numerics;
-<<<<<<< HEAD
+<<<<<<< ours
 using Content.Server.Forensics;
 using Content.Server.Stack;
 using Content.Shared.Destructible;
+||||||| base
+using Content.Server.Forensics;
+using Content.Server.Stack;
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
 using Content.Shared.Destructible.Thresholds;
 using Content.Shared.Forensics.Components;
 using Content.Shared.Prototypes;

@@ -16,7 +16,7 @@ namespace Content.Server.Medical.CrewMonitoring;
 
 public sealed partial class CrewMonitoringServerSystem : EntitySystem
 {
-<<<<<<< HEAD
+<<<<<<< ours
     // ADT-Tweak Start - New Monitor: publish/subscriber fields
     // [Dependency] private readonly SuitSensorSystem _sensors = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
@@ -37,12 +37,17 @@ public sealed partial class CrewMonitoringServerSystem : EntitySystem
     /// <summary>True when any crew-monitor console is listening to any server.</summary>
     public bool HasAnySubscribers => _serversWithSubscribers > 0;
     // ADT-Tweak End
+||||||| base
+    [Dependency] private readonly SuitSensorSystem _sensors = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly DeviceNetworkSystem _deviceNetworkSystem = default!;
+    [Dependency] private readonly SingletonDeviceNetServerSystem _singletonServerSystem = default!;
 =======
     [Dependency] private SuitSensorSystem _sensors = default!;
     [Dependency] private IGameTiming _gameTiming = default!;
     [Dependency] private DeviceNetworkSystem _deviceNetworkSystem = default!;
     [Dependency] private SingletonDeviceNetServerSystem _singletonServerSystem = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 
     public override void Initialize()

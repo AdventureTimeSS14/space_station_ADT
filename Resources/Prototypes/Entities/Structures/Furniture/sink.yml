@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-﻿- type: entity
-  name: sink
-=======
 - type: entity
   parent: [SolutionTank, SolutionHuge]
->>>>>>> wizards-filtered
   id: SinkEmpty
   name: sink
   description: The faucets have been tightened to the maximum possible torque but are still known to drip.
@@ -118,19 +113,8 @@
   parent: SinkStemless
   suffix: Water
   components:
-<<<<<<< HEAD
-  - type: SolutionContainerManager
-    solutions:
-      drainBuffer:
-        maxVol: 100
-      tank:
-        reagents:
-        - ReagentId: Water
-          Quantity: 500
-=======
   - type: Solution
     solution:
       reagents:
       - ReagentId: Water
         Quantity: 480
->>>>>>> wizards-filtered

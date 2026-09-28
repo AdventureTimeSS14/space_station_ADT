@@ -119494,12 +119494,14 @@ entities:
       desc: In honor of the architects who value work safety so much, they built a singularity in the middle of the station.
     - type: Transform
       parent: 60
-<<<<<<< HEAD
+<<<<<<< ours
 - proto: MatterBinStockPart
+||||||| base
+- proto: MicroManipulatorStockPart
 =======
       pos: 0.5,-66.5
 - proto: MicroManipulatorStockPart
->>>>>>> wizards-filtered
+>>>>>>> theirs
   entities:
   - uid: 6272
     components:

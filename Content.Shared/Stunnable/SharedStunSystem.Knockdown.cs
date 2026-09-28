@@ -391,13 +391,16 @@ public abstract partial class SharedStunSystem
         if (!IntersectingStandingColliders(entity.Owner))
             return false;
 
-<<<<<<< HEAD
+<<<<<<< ours
         _popup.PopupClient(Loc.GetString("knockdown-component-stand-no-room"), entity, entity, PopupType.SmallCaution);
         //SetAutoStand(entity.Owner); //ADT-tweak
+||||||| base
+        _popup.PopupClient(Loc.GetString("knockdown-component-stand-no-room"), entity, entity, PopupType.SmallCaution);
+        SetAutoStand(entity.Owner);
 =======
         _popup.PopupEntity(Loc.GetString("knockdown-component-stand-no-room"), entity, entity, PopupType.SmallCaution);
         SetAutoStand(entity.Owner);
->>>>>>> wizards-filtered
+>>>>>>> theirs
         return true;
 
     }

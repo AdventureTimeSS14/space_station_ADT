@@ -83,7 +83,7 @@
       - copypasta
   - type: Sprite
     state: copypasta
-<<<<<<< HEAD
+<<<<<<< ours
   - type: SolutionContainerManager
     solutions:
       food:
@@ -94,6 +94,14 @@
   - type: Tag #ADT_Tweak - делаем пасту съедобной для молей
     tags:
     - ADTMothFriendlyFood
+||||||| base
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 80
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 70
 =======
   - type: Solution
     solution:
@@ -102,7 +110,7 @@
         Quantity: 90
       - ReagentId: Vitamin
         Quantity: 10
->>>>>>> wizards-filtered
+>>>>>>> theirs
 # Tastes like pasta, bad humor.
 
 - type: entity
@@ -184,7 +192,7 @@
       - butter
   - type: Sprite
     state: butter
-<<<<<<< HEAD
+<<<<<<< ours
   - type: SolutionContainerManager
     solutions:
       food:
@@ -195,6 +203,14 @@
   - type: Tag #ADT_Tweak - делаем пасту съедобной для молей
     tags:
     - ADTMothFriendlyFood
+||||||| base
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 23
 =======
   - type: Solution
     solution:
@@ -203,5 +219,5 @@
         Quantity: 30
       - ReagentId: Butter
         Quantity: 5
->>>>>>> wizards-filtered
+>>>>>>> theirs
 # Tastes like pasta, butter.

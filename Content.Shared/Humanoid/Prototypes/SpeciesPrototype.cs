@@ -4,11 +4,13 @@ using Content.Shared.Chat.Prototypes;
 using Content.Shared.Dataset;
 using Content.Shared.Humanoid.Markings;
 using Robust.Shared.Prototypes;
-<<<<<<< HEAD
+<<<<<<< ours
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Utility;
+||||||| base
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 namespace Content.Shared.Humanoid.Prototypes;
 

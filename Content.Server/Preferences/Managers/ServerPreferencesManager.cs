@@ -3,12 +3,13 @@ using System.Linq;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
-<<<<<<< HEAD
+<<<<<<< ours
 using Content.Server.ADT;
 using Content.Server.Corvax.Sponsors;
+||||||| base
 =======
 using Content.Server.Afk;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 using Content.Server.Database;
 using Content.Shared.Body;
 using Content.Shared.CCVar;
@@ -40,7 +41,7 @@ namespace Content.Server.Preferences.Managers
     /// </summary>
     public sealed partial class ServerPreferencesManager : IServerPreferencesManager, IPostInjectInit
     {
-<<<<<<< HEAD
+<<<<<<< ours
         [Dependency] private readonly IServerNetManager _netManager = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly IServerDbManager _db = default!;
@@ -48,6 +49,17 @@ namespace Content.Server.Preferences.Managers
         [Dependency] private readonly IDependencyCollection _dependencies = default!;
         [Dependency] private readonly SponsorsManager _sponsors = default!;
         [Dependency] private readonly Content.Server.ADT.Sponsors.SponsorManager _adtSponsors = default!;
+        [Dependency] private readonly ILogManager _log = default!;
+        [Dependency] private readonly UserDbDataManager _userDb = default!;
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private readonly MarkingManager _marking = default!;
+        [Dependency] private readonly ISerializationManager _serialization = default!;
+||||||| base
+        [Dependency] private readonly IServerNetManager _netManager = default!;
+        [Dependency] private readonly IConfigurationManager _cfg = default!;
+        [Dependency] private readonly IServerDbManager _db = default!;
+        [Dependency] private readonly IPlayerManager _playerManager = default!;
+        [Dependency] private readonly IDependencyCollection _dependencies = default!;
         [Dependency] private readonly ILogManager _log = default!;
         [Dependency] private readonly UserDbDataManager _userDb = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
@@ -65,7 +77,7 @@ namespace Content.Server.Preferences.Managers
         [Dependency] private IPrototypeManager _prototypeManager = default!;
         [Dependency] private MarkingManager _marking = default!;
         [Dependency] private ISerializationManager _serialization = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 
         // Cache player prefs on the server so we don't need as much async hell related to them.
@@ -341,12 +353,14 @@ namespace Content.Server.Preferences.Managers
                 return;
             }
 
-<<<<<<< HEAD
+<<<<<<< ours
             if (slot < 0 || slot >= GetMaxUserCharacterSlots(userId)) // Corvax-Sponsors
+||||||| base
+            if (slot < 0 || slot >= MaxCharacterSlots)
 =======
 
             if (slot < 0)
->>>>>>> wizards-filtered
+>>>>>>> theirs
             {
                 return;
             }

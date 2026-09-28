@@ -2,7 +2,7 @@
   id: ConveyorGraph
   start: start
   graph:
-<<<<<<< HEAD
+<<<<<<< ours
     - node: start
       edges:
         - to: entity
@@ -10,6 +10,36 @@
             - tag: ConveyorAssembly
               icon:
                 sprite: ADT/Structures/conveyor.rsi # ADT-Tweak: Resprite
+                state: conveyor_loose
+              name: construction-graph-tag-conveyor-belt-assembly
+              doAfter: 2
+    - node: item
+      entity: ConveyorBeltAssembly
+      actions:
+        - !type:SetAnchor
+          value: false
+    - node: entity
+      entity: ConveyorBelt
+      actions:
+        - !type:SetAnchor
+          value: true
+        - !type:SnapToGrid
+      edges:
+        - to: item
+          steps:
+            - tool: Prying
+              doAfter: 3
+          completed:
+            - !type:SetAnchor
+              value: false
+||||||| base
+    - node: start
+      edges:
+        - to: entity
+          steps:
+            - tag: ConveyorAssembly
+              icon:
+                sprite: Structures/conveyor.rsi
                 state: conveyor_loose
               name: construction-graph-tag-conveyor-belt-assembly
               doAfter: 2
@@ -59,4 +89,4 @@
       steps:
       - tool: Prying
         doAfter: 3
->>>>>>> wizards-filtered
+>>>>>>> theirs

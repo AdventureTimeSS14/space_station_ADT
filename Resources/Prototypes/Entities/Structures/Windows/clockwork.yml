@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-﻿- type: entity
-=======
 - type: entity
   parent: BaseWindowStructure
->>>>>>> wizards-filtered
   id: ClockworkWindow
   name: clockwork window
   description: Don't smudge up the brass down there.

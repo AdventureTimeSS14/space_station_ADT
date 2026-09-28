@@ -24,11 +24,13 @@ public sealed partial class MechComponent : Component
     /// <summary>
     /// The maximum amount of damage the mech can take.
     /// </summary>
-<<<<<<< HEAD
+<<<<<<< ours
     [DataField("maxintegrity"), AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]  // ADT Mech
+||||||| base
+    [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
 =======
     [DataField, AutoNetworkedField]
->>>>>>> wizards-filtered
+>>>>>>> theirs
     public FixedPoint2 MaxIntegrity = 250;
 
     /// <summary>

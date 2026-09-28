@@ -195,16 +195,18 @@ public abstract partial class SharedBuckleSystem
 
     private void OnBuckleUpdateCanMove(EntityUid uid, BuckleComponent component, UpdateCanMoveEvent args)
     {
-<<<<<<< HEAD
+<<<<<<< ours
         if (component.Buckled &&
             !HasComp<VehicleComponent>(component.BuckledTo)) // ADT vehicles back
+||||||| base
+        if (component.Buckled)
 =======
         // If we're relaying then don't cancel.
         if (HasComp<RelayInputMoverComponent>(uid))
             return;
 
         if (component.Buckled)
->>>>>>> wizards-filtered
+>>>>>>> theirs
             args.Cancel();
     }
 

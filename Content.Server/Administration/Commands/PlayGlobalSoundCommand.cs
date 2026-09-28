@@ -15,18 +15,23 @@ namespace Content.Server.Administration.Commands;
 [AdminCommand(AdminFlags.Fun)]
 public sealed partial class PlayGlobalSoundCommand : IConsoleCommand
 {
-<<<<<<< HEAD
+<<<<<<< ours
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly IResourceManager _res = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+||||||| base
+    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly IPrototypeManager _protoManager = default!;
+    [Dependency] private readonly IResourceManager _res = default!;
 =======
     [Dependency] private IEntityManager _entManager = default!;
     [Dependency] private IPlayerManager _playerManager = default!;
     [Dependency] private IPrototypeManager _protoManager = default!;
     [Dependency] private IResourceManager _res = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
     public string Command => "playglobalsound";
     public string Description => Loc.GetString("play-global-sound-command-description");

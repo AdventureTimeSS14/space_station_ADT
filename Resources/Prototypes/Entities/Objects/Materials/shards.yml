@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   abstract: true
   parent: MaterialBase
   id: ShardBase
@@ -56,7 +56,7 @@
   - type: SpaceGarbage
   - type: Damageable
     damageModifierSet: Glass
-<<<<<<< HEAD
+<<<<<<< ours
   - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
@@ -67,8 +67,17 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+||||||| base
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: StepTrigger
     intersectRatio: 0.2
   - type: PreventableStepTrigger
@@ -241,20 +250,6 @@
     damage:
       types:
         Piercing: 5
-<<<<<<< HEAD
-  - type: Extractable
-    grindableSolutionName: shardcglass
-  - type: SolutionContainerManager
-    solutions:
-      shardcglass:
-        reagents:
-        - ReagentId: Silicon
-          Quantity: 5
-        - ReagentId: Zinc
-          Quantity: 1.65
-        - ReagentId: Copper
-          Quantity: 3.35
-=======
   - type: Solution
     solution:
       reagents:
@@ -262,4 +257,3 @@
         Quantity: 5
       - ReagentId: Brass
         Quantity: 5
->>>>>>> wizards-filtered

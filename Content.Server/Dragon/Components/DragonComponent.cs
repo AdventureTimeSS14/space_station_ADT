@@ -2,11 +2,13 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.NPC.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
-<<<<<<< HEAD
+<<<<<<< ours
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Content.Shared.Damage;
+||||||| base
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 namespace Content.Server.Dragon
 {

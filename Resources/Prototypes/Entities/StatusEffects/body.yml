@@ -24,9 +24,30 @@
   # - type: StutteringAccent
   - type: DrunkStatusEffect
 
-<<<<<<< HEAD
+<<<<<<< ours
 # ADT-Tweak: PainNumbnessTraitStatusEffect and StatusEffectHemophiliaTrait moved to
 # Resources/Prototypes/ADT/Traits/status_effects.yml (customized values).
+
+- type: entity
+||||||| base
+- type: entity
+  parent: MobStatusEffectBase
+  id: PainNumbnessTraitStatusEffect
+  components:
+  - type: StatusEffect
+    whitelist:
+      components:
+      - MobState
+      - MobThresholds
+  - type: PainNumbnessStatusEffect
+
+- type: entity
+  parent: BloodstreamStatusEffectBase
+  id: StatusEffectHemophiliaTrait
+  components:
+  - type: HemophiliaStatusEffect
+
+- type: entity
 =======
 - type: entity
   abstract: true
@@ -39,9 +60,9 @@
       - MobState
       - MobThresholds
   - type: PainNumbnessStatusEffect
->>>>>>> wizards-filtered
 
 - type: entity
+>>>>>>> theirs
   parent: BloodstreamStatusEffectDebuff
   id: StatusEffectAnticoagulant # Decreases the amount of blood coagulation when bleeding.
   name: thin blood

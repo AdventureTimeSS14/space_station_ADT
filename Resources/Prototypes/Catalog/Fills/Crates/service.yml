@@ -20,12 +20,21 @@
           amount: 2
         - id: DrinkTomatoJuice
           amount: 2
+<<<<<<< ours
+        - id: BoxCleanerGrenades
+        - id: WireBrush
+||||||| base
+        - id: BoxCleanerGrenades
+        - id: WireBrush
+          amount: 2
+=======
         - id: DrinkWaterBottleFull
           amount: 2
         - id: DrinkSodaWaterCan
           amount: 2
         - id: DrinkCreamCarton
           amount: 2
+>>>>>>> theirs
 
 - type: entity
   parent: CrateFreezer
@@ -52,15 +61,8 @@
           amount: 3
         - id: FoodCondimentBottleEnzyme
           amount: 2
-<<<<<<< HEAD
-        - id: Plunger
-          amount: 2
-        - id: BoxCleanerGrenades
-        - id: WireBrush
-=======
         - id: FoodContainerEgg
           amount: 2
->>>>>>> wizards-filtered
 
 - type: entity
   parent: CratePlastic
@@ -237,11 +239,13 @@
         - id: NewtonCradle
         - id: BoxEnvelope
         - id: BrbSign
-<<<<<<< HEAD
+<<<<<<< ours
         - id: ADTBureaucraticBelt # ADT-Tweak
-=======
->>>>>>> wizards-filtered
         - id: DeskBell
+||||||| base
+=======
+        - id: DeskBell
+>>>>>>> theirs
 
 - type: entity
   parent: CrateGenericSteel

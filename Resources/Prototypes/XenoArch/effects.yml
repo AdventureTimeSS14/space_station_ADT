@@ -684,13 +684,15 @@
       table: !type:GroupSelector
         children:
         - id: MobMonkey
-<<<<<<< HEAD
+<<<<<<< ours
           weight: 85.0 # ADT tweak
         - id: ADTMobMonkeyAdvanced # ADT tweak
           weight: 10.0 # ADT tweak
+||||||| base
+          weight: 95.0
 =======
           weight: 95
->>>>>>> wizards-filtered
+>>>>>>> theirs
         - id: MobGorilla
           weight: 5
 

@@ -179,7 +179,7 @@ entities:
           1,-6:
             0: 4867
         chunkSize: 4
-<<<<<<< HEAD
+<<<<<<< ours
     - type: NukeOpsShuttle # ADT-drone-console-tweak
     - type: DecalGrid
       chunkCollection:
@@ -511,8 +511,339 @@ entities:
             id: syndlogo8
           decals:
             19: 0,-6
+||||||| base
+    - type: DecalGrid
+      chunkCollection:
+        version: 2
+        nodes:
+        - node:
+            color: '#FFFFFFFF'
+            id: Arrows
+          decals:
+            115: -6,-24
+        - node:
+            color: '#FFFFFFFF'
+            id: Bot
+          decals:
+            112: -6,-27
+            113: -6,-26
+            114: -6,-25
+        - node:
+            color: '#79150096'
+            id: Box
+          decals:
+            110: -6,-21
+            111: -5,-21
+        - node:
+            color: '#DE3A3A96'
+            id: BrickTileSteelCornerNe
+          decals:
+            10: 0,-4
+            43: 0,-9
+            51: 4,-20
+        - node:
+            color: '#DE3A3A96'
+            id: BrickTileSteelCornerNw
+          decals:
+            11: -2,-4
+            42: -2,-9
+            45: -2,-20
+        - node:
+            color: '#DE3A3A96'
+            id: BrickTileSteelCornerSe
+          decals:
+            36: 0,-14
+            50: 4,-22
+            76: 3,-18
+        - node:
+            color: '#DE3A3A96'
+            id: BrickTileSteelCornerSw
+          decals:
+            37: -2,-14
+            46: -2,-22
+            75: -5,-18
+        - node:
+            color: '#DE3A3A96'
+            id: BrickTileSteelLineE
+          decals:
+            6: 0,-7
+            9: 0,-5
+            32: 0,-11
+            33: 0,-10
+            34: 0,-12
+            35: 0,-13
+            52: 4,-21
+        - node:
+            color: '#DE3A3A96'
+            id: BrickTileSteelLineN
+          decals:
+            12: -1,-4
+            53: 3,-20
+            54: 2,-20
+            55: 1,-20
+            56: 0,-20
+            63: 0,-16
+            64: 1,-16
+            65: 2,-16
+            66: -2,-16
+            67: -3,-16
+            68: -4,-16
+        - node:
+            color: '#DE3A3A96'
+            id: BrickTileSteelLineS
+          decals:
+            47: 0,-22
+            48: 1,-22
+            49: 2,-22
+            69: 2,-18
+            70: 1,-18
+            71: 0,-18
+            72: -2,-18
+            73: -3,-18
+            74: -4,-18
+        - node:
+            color: '#DE3A3A96'
+            id: BrickTileSteelLineW
+          decals:
+            7: -2,-7
+            8: -2,-5
+            38: -2,-13
+            39: -2,-12
+            40: -2,-11
+            41: -2,-10
+        - node:
+            color: '#79150096'
+            id: BrickTileWhiteCornerNe
+          decals:
+            104: -5,-22
+        - node:
+            color: '#79150096'
+            id: BrickTileWhiteCornerNw
+          decals:
+            103: -7,-22
+        - node:
+            color: '#79150096'
+            id: BrickTileWhiteCornerSe
+          decals:
+            105: -5,-24
+        - node:
+            color: '#79150096'
+            id: BrickTileWhiteCornerSw
+          decals:
+            106: -7,-24
+        - node:
+            color: '#79150096'
+            id: BrickTileWhiteLineE
+          decals:
+            102: -5,-23
+        - node:
+            color: '#79150096'
+            id: BrickTileWhiteLineN
+          decals:
+            109: -6,-22
+        - node:
+            color: '#79150096'
+            id: BrickTileWhiteLineS
+          decals:
+            107: -6,-24
+        - node:
+            color: '#79150096'
+            id: BrickTileWhiteLineW
+          decals:
+            108: -7,-23
+        - node:
+            color: '#79150096'
+            id: Delivery
+          decals:
+            116: -1,-23
+        - node:
+            color: '#DE3A3A96'
+            id: DeliveryGreyscale
+          decals:
+            13: 1,-6
+            31: -3,-6
+            83: -1,-19
+            84: -3,-21
+            85: -1,-15
+            86: 4,-17
+            87: -6,-17
+            88: -5,-15
+            89: 3,-15
+            90: -1,-8
+        - node:
+            color: '#DE3A3A96'
+            id: HalfTileOverlayGreyscale
+          decals:
+            29: -4,-7
+        - node:
+            color: '#DE3A3A96'
+            id: HalfTileOverlayGreyscale180
+          decals:
+            25: -4,-4
+            26: -5,-4
+        - node:
+            color: '#DE3A3A96'
+            id: HalfTileOverlayGreyscale90
+          decals:
+            27: -6,-6
+            28: -6,-5
+        - node:
+            color: '#DE3A3A96'
+            id: MonoOverlay
+          decals:
+            23: -5,-6
+            24: -4,-5
+        - node:
+            color: '#DE3A3A96'
+            id: WarnCornerGreyscaleNE
+          decals:
+            81: 3,-16
+        - node:
+            color: '#DE3A3A96'
+            id: WarnCornerGreyscaleNW
+          decals:
+            80: -5,-16
+        - node:
+            color: '#FFFFFFFF'
+            id: WarnCornerSmallNE
+          decals:
+            99: -7,-24
+        - node:
+            color: '#FFFFFFFF'
+            id: WarnCornerSmallNW
+          decals:
+            98: -5,-24
+        - node:
+            color: '#FFFFFFFF'
+            id: WarnCornerSmallSE
+          decals:
+            97: -7,-22
+        - node:
+            color: '#FFFFFFFF'
+            id: WarnCornerSmallSW
+          decals:
+            101: -5,-22
+        - node:
+            color: '#FFFFFFFF'
+            id: WarnLineE
+          decals:
+            3: -4,-23
+            4: -4,-24
+            5: -4,-25
+            95: -7,-23
+        - node:
+            color: '#DE3A3A96'
+            id: WarnLineGreyscaleE
+          decals:
+            78: 3,-17
+        - node:
+            color: '#DE3A3A96'
+            id: WarnLineGreyscaleN
+          decals:
+            44: -1,-9
+            59: -1,-20
+            82: -1,-16
+        - node:
+            color: '#DE3A3A96'
+            id: WarnLineGreyscaleS
+          decals:
+            57: -1,-22
+            60: 3,-22
+            77: -1,-18
+        - node:
+            color: '#DE3A3A96'
+            id: WarnLineGreyscaleW
+          decals:
+            58: -2,-21
+            79: -5,-17
+        - node:
+            color: '#FFFFFFFF'
+            id: WarnLineN
+          decals:
+            91: -5,-28
+            92: -6,-28
+            93: -7,-28
+            100: -6,-22
+        - node:
+            color: '#FFFFFFFF'
+            id: WarnLineS
+          decals:
+            94: -5,-23
+        - node:
+            color: '#FFFFFFFF'
+            id: WarnLineW
+          decals:
+            96: -6,-24
+        - node:
+            angle: 1.5707963267948966 rad
+            color: '#FFFFFFFF'
+            id: WarningLine
+          decals:
+            0: -4,-22
+            1: -4,-21
+            2: -4,-20
+        - node:
+            color: '#FFFFFFFF'
+            id: WoodTrimThinEndN
+          decals:
+            62: 3,-4
+        - node:
+            color: '#FFFFFFFF'
+            id: WoodTrimThinEndS
+          decals:
+            61: 3,-5
+        - node:
+            color: '#FFFFFFFF'
+            id: syndlogo10
+          decals:
+            20: -2,-7
+        - node:
+            color: '#FFFFFFFF'
+            id: syndlogo11
+          decals:
+            21: -1,-7
+        - node:
+            color: '#FFFFFFFF'
+            id: syndlogo12
+          decals:
+            22: 0,-7
+        - node:
+            color: '#FFFFFFFF'
+            id: syndlogo2
+          decals:
+            14: -2,-5
+        - node:
+            color: '#FFFFFFFF'
+            id: syndlogo3
+          decals:
+            15: -1,-5
+        - node:
+            color: '#FFFFFFFF'
+            id: syndlogo4
+          decals:
+            16: 0,-5
+        - node:
+            color: '#FFFFFFFF'
+            id: syndlogo5
+          decals:
+            30: -3,-6
+        - node:
+            color: '#FFFFFFFF'
+            id: syndlogo6
+          decals:
+            17: -2,-6
+        - node:
+            color: '#FFFFFFFF'
+            id: syndlogo7
+          decals:
+            18: -1,-6
+        - node:
+            color: '#FFFFFFFF'
+            id: syndlogo8
+          decals:
+            19: 0,-6
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
     - type: IFF
       flags: Hide
       color: '#FFC000FF'

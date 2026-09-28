@@ -40,7 +40,7 @@ namespace Content.Server.GameTicking.Rules;
 /// </summary>
 public sealed partial class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleComponent>
 {
-<<<<<<< HEAD
+<<<<<<< ours
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
     [Dependency] private readonly EuiManager _euiMan = default!;
@@ -56,6 +56,21 @@ public sealed partial class RevolutionaryRuleSystem : GameRuleSystem<Revolutiona
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
     [Dependency] private readonly SharedHereticSystem _heretic = default!;
+||||||| base
+    [Dependency] private readonly AntagSelectionSystem _antag = default!;
+    [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
+    [Dependency] private readonly EuiManager _euiMan = default!;
+    [Dependency] private readonly IAdminLogManager _adminLogManager = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly ISharedPlayerManager _player = default!;
+    [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly RoleSystem _role = default!;
+    [Dependency] private readonly RoundEndSystem _roundEnd = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly StationSystem _stationSystem = default!;
 =======
     [Dependency] private AntagSelectionSystem _antag = default!;
     [Dependency] private EmergencyShuttleSystem _emergencyShuttle = default!;
@@ -72,7 +87,7 @@ public sealed partial class RevolutionaryRuleSystem : GameRuleSystem<Revolutiona
     [Dependency] private SharedStunSystem _stun = default!;
     [Dependency] private StationSystem _stationSystem = default!;
     [Dependency] private MindShieldSystem _mindShield = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
     //Used in OnPostFlash, no reference to the rule component is available
     public readonly ProtoId<NpcFactionPrototype> RevolutionaryNpcFaction = "Revolutionary";

@@ -11,12 +11,14 @@ namespace Content.Server.Mind.Commands;
 [AdminCommand(AdminFlags.Admin)]
 public sealed partial class MakeSentientCommand : LocalizedEntityCommands
 {
-<<<<<<< HEAD
+<<<<<<< ours
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly IEntityManager _entManager = default!; // ADT-Tweak
+||||||| base
+    [Dependency] private readonly MindSystem _mindSystem = default!;
 =======
     [Dependency] private MindSystem _mindSystem = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
     public override string Command => "makesentient";
 

@@ -6,13 +6,16 @@ using Robust.Shared.Console;
 
 namespace Content.Server.Administration.Commands;
 
-<<<<<<< HEAD
+<<<<<<< ours
 [AdminCommand(AdminFlags.Permissions)] // Corvax-DiscordRoles
+public sealed class PlayTimeAddOverallCommand : IConsoleCommand
+||||||| base
+[AdminCommand(AdminFlags.Moderator)]
 public sealed class PlayTimeAddOverallCommand : IConsoleCommand
 =======
 [AdminCommand(AdminFlags.Moderator)]
 public sealed partial class PlayTimeAddOverallCommand : IConsoleCommand
->>>>>>> wizards-filtered
+>>>>>>> theirs
 {
     [Dependency] private IPlayerManager _playerManager = default!;
     [Dependency] private PlayTimeTrackingManager _playTimeTracking = default!;
@@ -63,13 +66,16 @@ public sealed partial class PlayTimeAddOverallCommand : IConsoleCommand
     }
 }
 
-<<<<<<< HEAD
+<<<<<<< ours
 [AdminCommand(AdminFlags.Permissions)] // Corvax-DiscordRoles
+public sealed class PlayTimeAddRoleCommand : IConsoleCommand
+||||||| base
+[AdminCommand(AdminFlags.Moderator)]
 public sealed class PlayTimeAddRoleCommand : IConsoleCommand
 =======
 [AdminCommand(AdminFlags.Moderator)]
 public sealed partial class PlayTimeAddRoleCommand : IConsoleCommand
->>>>>>> wizards-filtered
+>>>>>>> theirs
 {
     [Dependency] private IPlayerManager _playerManager = default!;
     [Dependency] private PlayTimeTrackingManager _playTimeTracking = default!;

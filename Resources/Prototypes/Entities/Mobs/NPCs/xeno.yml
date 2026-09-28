@@ -1,4 +1,4 @@
-﻿# Hacky for the stress test so don't even consider adding to this
+# Hacky for the stress test so don't even consider adding to this
 - type: entity
   name: burrower
   id: MobXeno
@@ -97,10 +97,12 @@
         Base: dead
   - type: Puller
   - type: Butcherable
-<<<<<<< HEAD
+<<<<<<< ours
     butcheringType: knife # ADT-Tweak butcheringType: Spike
+||||||| base
+    butcheringType: Spike
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
     spawned:
     - id: FoodMeatXeno
       amount: 2 # ADT-Tweak 5 -> 2
@@ -656,10 +658,6 @@
     - SolutionVenomDale
   - type: MeleeChemicalInjector
     transferAmount: 1
-<<<<<<< HEAD
-    solution: bite
-    pierceArmor: true
-=======
     solution: melee
     pierceArmor: true
 
@@ -675,4 +673,3 @@
         Quantity: 50
       - ReagentId: TranexamicAcid
         Quantity: 50
->>>>>>> wizards-filtered

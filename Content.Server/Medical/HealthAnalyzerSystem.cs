@@ -21,12 +21,13 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
 using Content.Server.Body.Systems;
-<<<<<<< HEAD
+<<<<<<< ours
 using Content.Shared.Inventory;
 using Content.Shared.Verbs;
+||||||| base
 =======
 using Content.Shared.Body.Systems;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 namespace Content.Server.Medical;
 

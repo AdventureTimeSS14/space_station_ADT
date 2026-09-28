@@ -1,10 +1,12 @@
 using Content.Client.Interactable.Components;
-<<<<<<< HEAD
+<<<<<<< ours
 using Content.Client.StatusIcon;
 using Content.Shared.ADT.Stealth.Components;
+||||||| base
+using Content.Client.StatusIcon;
 =======
 using Content.Client.Graphics;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
 using Content.Shared.Tag;
@@ -20,15 +22,19 @@ public sealed partial class StealthSystem : SharedStealthSystem
 {
     private static readonly ProtoId<ShaderPrototype> Shader = "Stealth";
 
-<<<<<<< HEAD
+<<<<<<< ours
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
+||||||| base
+    [Dependency] private readonly IPrototypeManager _protoMan = default!;
+    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 =======
     [Dependency] private SharedTransformSystem _transformSystem = default!;
     [Dependency] private SpriteSystem _sprite = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
     private ShaderInstance _shader = default!;
 

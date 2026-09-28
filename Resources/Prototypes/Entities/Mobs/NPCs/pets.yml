@@ -1,4 +1,4 @@
-﻿# Bounds Guide
+# Bounds Guide
 #1D2L3U4R
 
 # This prototype is used as a parent by unique named pets (e.g Pun Pun, Ian, Hamlet)
@@ -204,7 +204,7 @@
     - VimPilot
   - type: StealTarget
     stealGroup: AnimalNamedCat
-<<<<<<< HEAD
+<<<<<<< ours
     # ADT tweak start
   - type: LanguageSpeaker
     languages:
@@ -212,11 +212,12 @@
       GalacticCommon: Understand
     # ADT tweak end
 
+||||||| base
 =======
   - type: SpeakOnException
     speechCooldown: 3m
     chanceSpeakNoAccent: 0.01
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   parent: [ BaseUniquePet, MobCatCalico ]
@@ -944,12 +945,15 @@
     voice: angry_neco_arc
 
 - type: entity
-<<<<<<< HEAD
+<<<<<<< ours
   name: Pun Pun
   parent: ADTMobMonkeyAdvanced # ADT tweak
+||||||| base
+  name: Pun Pun
+  parent: MobMonkey
 =======
   parent: [ BaseUniquePet, MobMonkey ]
->>>>>>> wizards-filtered
+>>>>>>> theirs
   id: MobMonkeyPunpun
   name: Pun Pun
   description: A prominent representative of monkeys with unlimited access to alcohol.

@@ -67,7 +67,12 @@ humanoid-profile-editor-traits-tab = Traits
 humanoid-profile-editor-no-traits = No traits available
 
 humanoid-profile-editor-trait-count-hint = Points available: [{$current}/{$max}]
-<<<<<<< HEAD
+<<<<<<< ours
+||||||| base
+
+trait-category-disabilities = Disabilities
+trait-category-speech = Speech traits
+trait-category-quirks = Quirks
 =======
 
 trait-category-disabilities = Disabilities
@@ -79,4 +84,4 @@ humanoid-profile-editor-voice-masculine = Masculine
 humanoid-profile-editor-voice-feminine = Feminine
 humanoid-profile-editor-voice-neutral = Neutral
 humanoid-profile-editor-voice-none = Unnamed Voice
->>>>>>> wizards-filtered
+>>>>>>> theirs

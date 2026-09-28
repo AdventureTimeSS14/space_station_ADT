@@ -123,16 +123,17 @@
   - type: BypassInteractionChecks
   - type: ExplosionResistance
     damageCoefficient: 0
-<<<<<<< HEAD
+<<<<<<< ours
   # Corvax-Start
   - type: MovementSpeedModifier
     baseWalkSpeed: 30
   # Corvax-End
   - type: SupermatterImmune # ADT-Tweak
+||||||| base
 =======
   - type: GluedImmune
   - type: LubedImmune
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   abstract: true
@@ -170,11 +171,14 @@
   description: View a Communications Interface.
   components:
   - type: Action
-<<<<<<< HEAD
+<<<<<<< ours
     icon: { sprite: Corvax/Interface/adminactions.rsi, state: comms_console } # Corvax-Resprite
     iconOn: { sprite: Corvax/Interface/adminactions.rsi, state: comms_console }
+||||||| base
+    icon: { sprite: Interface/Actions/actions_ai.rsi, state: comms_console }
+    iconOn: { sprite: Interface/Actions/actions_ai.rsi, state: comms_console }
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
     keywords: [ "AI", "console", "interface" ]
     priority: -4
   - type: Sprite
@@ -191,11 +195,14 @@
   description: View a Mass Scanner Interface.
   components:
   - type: Action
-<<<<<<< HEAD
+<<<<<<< ours
     icon: { sprite: Corvax/Interface/adminactions.rsi, state: mass_scanner } # Corvax-Resprite
     iconOn: { sprite: Corvax/Interface/adminactions.rsi, state: mass_scanner }
+||||||| base
+    icon: { sprite: Interface/Actions/actions_ai.rsi, state: mass_scanner }
+    iconOn: { sprite: Interface/Actions/actions_ai.rsi, state: comms_console }
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
     keywords: [ "AI", "console", "interface" ]
     priority: -6
   - type: Sprite
@@ -228,11 +235,14 @@
   description: View a Crew Monitoring Interface.
   components:
   - type: Action
-<<<<<<< HEAD
+<<<<<<< ours
     icon: { sprite: Corvax/Interface/adminactions.rsi, state: crew_monitor } # Corvax-Resprite
     iconOn: { sprite: Corvax/Interface/adminactions.rsi, state: crew_monitor }
+||||||| base
+    icon: { sprite: Interface/Actions/actions_ai.rsi, state: crew_monitor }
+    iconOn: { sprite: Interface/Actions/actions_ai.rsi, state: crew_monitor }
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
     keywords: [ "AI", "console", "interface" ]
     priority: -8
   - type: Sprite
@@ -249,11 +259,14 @@
   description: View a Station Records Interface.
   components:
   - type: Action
-<<<<<<< HEAD
+<<<<<<< ours
     icon: { sprite: Corvax/Interface/adminactions.rsi, state: station_records } # Corvax-Resprite
     iconOn: { sprite: Corvax/Interface/adminactions.rsi, state: station_records }
+||||||| base
+    icon: { sprite: Interface/Actions/actions_ai.rsi, state: station_records }
+    iconOn: { sprite: Interface/Actions/actions_ai.rsi, state: station_records }
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
     keywords: [ "AI", "console", "interface" ]
     priority: -7
   - type: Sprite

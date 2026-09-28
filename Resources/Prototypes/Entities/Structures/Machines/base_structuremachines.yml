@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   abstract: true
   parent: BaseStructure
   id: BaseMachine
@@ -28,12 +28,17 @@
   id: BaseMachineDestructible
   components:
   - type: Damageable
-<<<<<<< HEAD
+<<<<<<< ours
     damageModifierSet: StructuralMetallic
-=======
->>>>>>> wizards-filtered
   - type: Injurable
     damageContainer: StructuralInorganic
+||||||| base
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
+=======
+  - type: Injurable
+    damageContainer: StructuralInorganic
+>>>>>>> theirs
   - type: Destructible
     thresholds:
     - trigger: !type:DamageTrigger
@@ -100,9 +105,6 @@
   parent: ConstructibleMachine
   id: SmallConstructibleMachine
   components:
-<<<<<<< HEAD
-    - type: RequireProjectileTarget
-=======
     - type: RequireProjectileTarget
 
 - type: entity
@@ -121,4 +123,3 @@
         node: machineFrame
       - !type:DoActsBehavior
         acts: ["Destruction"]
->>>>>>> wizards-filtered

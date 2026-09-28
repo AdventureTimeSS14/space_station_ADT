@@ -157,15 +157,18 @@ public abstract partial class SharedSmartFridgeSystem : EntitySystem
         if (_accessReader.IsAllowed(user, machine))
             return true;
 
-<<<<<<< HEAD
+<<<<<<< ours
         // ADT-Tweak Start: Predicted -> Server
         _popup.PopupEntity(Loc.GetString("smart-fridge-component-try-eject-access-denied"), machine, user);
         _audio.PlayPvs(machine.Comp.SoundDeny, machine);
         // ADT-Tweak End
+||||||| base
+        _popup.PopupPredicted(Loc.GetString("smart-fridge-component-try-eject-access-denied"), machine, user);
+        _audio.PlayPredicted(machine.Comp.SoundDeny, machine, user);
 =======
         _audio.PlayPredicted(machine.Comp.SoundDeny, machine, user);
         _popup.PopupEntity(Loc.GetString("smart-fridge-component-try-eject-access-denied"), machine, user);
->>>>>>> wizards-filtered
+>>>>>>> theirs
         return false;
     }
 
@@ -176,14 +179,17 @@ public abstract partial class SharedSmartFridgeSystem : EntitySystem
 
         if (!ent.Comp.ContainedEntries.TryGetValue(args.Entry, out var contained))
         {
-<<<<<<< HEAD
+<<<<<<< ours
             // ADT-Tweak Start: Predicted -> Server
             _popup.PopupEntity(Loc.GetString("smart-fridge-component-try-eject-unknown-entry"), ent, args.Actor);
              _audio.PlayPvs(ent.Comp.SoundDeny, ent);
+||||||| base
+            _audio.PlayPredicted(ent.Comp.SoundDeny, ent, args.Actor);
+            _popup.PopupPredicted(Loc.GetString("smart-fridge-component-try-eject-unknown-entry"), ent, args.Actor);
 =======
             _audio.PlayPredicted(ent.Comp.SoundDeny, ent, args.Actor);
             _popup.PopupEntity(Loc.GetString("smart-fridge-component-try-eject-unknown-entry"), ent, args.Actor);
->>>>>>> wizards-filtered
+>>>>>>> theirs
             return;
             // ADT-Tweak End
         }
@@ -234,15 +240,18 @@ public abstract partial class SharedSmartFridgeSystem : EntitySystem
             return;
         }
 
-<<<<<<< HEAD
+<<<<<<< ours
         ent.Comp.ContainedEntries.Remove(args.Entry);
         ent.Comp.Entries.Remove(args.Entry);
 
         Dirty(ent);
+||||||| base
+        _audio.PlayPredicted(ent.Comp.SoundDeny, ent, args.Actor);
+        _popup.PopupPredicted(Loc.GetString("smart-fridge-component-try-eject-out-of-stock"), ent, args.Actor);
 =======
         _audio.PlayPredicted(ent.Comp.SoundDeny, ent, args.Actor);
         _popup.PopupEntity(Loc.GetString("smart-fridge-component-try-eject-out-of-stock"), ent, args.Actor);
->>>>>>> wizards-filtered
+>>>>>>> theirs
     }
     //ADT-Tweak End
 

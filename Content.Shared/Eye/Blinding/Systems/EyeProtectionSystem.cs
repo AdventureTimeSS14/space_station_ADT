@@ -57,11 +57,7 @@ namespace Content.Shared.Eye.Blinding.Systems
             var statusTimeSpan = TimeSpan.FromSeconds(time * MathF.Sqrt(blindable.EyeDamage));
             _statusEffectsSystem.TryAddStatusEffectDuration(args.User, BlindnessSystem.BlindingStatusEffect, statusTimeSpan);
         }
-<<<<<<< HEAD
-        
-=======
 
->>>>>>> wizards-filtered
         private void OnWelderToggled(EntityUid uid, RequiresEyeProtectionComponent component, ItemToggledEvent args)
         {
             component.Toggled = args.Activated;

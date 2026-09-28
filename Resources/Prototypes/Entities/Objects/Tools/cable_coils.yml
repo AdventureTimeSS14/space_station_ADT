@@ -1,4 +1,4 @@
-﻿# If you're looking at the rsi for this file, you'll probably be confused why
+# If you're looking at the rsi for this file, you'll probably be confused why
 # I didn't just use an alpha for most of this stuff. Well icons don't have the
 # ability to have applied colors yet in GUIs. And also inhands... -Swept
 
@@ -49,9 +49,18 @@
     # ADT Tweak End
   - type: Damageable
     damageModifierSet: Metallic
-<<<<<<< HEAD
+<<<<<<< ours
   - type: Injurable
     damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+||||||| base
   - type: Destructible
     thresholds:
     - trigger:
@@ -63,7 +72,7 @@
 =======
   - type: Extractable
     grindableSolutionName: composite
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   id: CableHVStack
@@ -89,7 +98,7 @@
   - type: CablePlacer
     cablePrototypeID: CableHV
     blockingWireType: HighVoltage
-<<<<<<< HEAD
+<<<<<<< ours
   - type: Appearance
   - type: Extractable
     grindableSolutionName: hvcable
@@ -112,6 +121,20 @@
         Shock: -10
         Caustic: -10
     # ADT Tweak End
+||||||| base
+  - type: Appearance
+  - type: Extractable
+    grindableSolutionName: hvcable
+  - type: SolutionContainerManager
+    solutions:
+      hvcable:
+        reagents:
+        - ReagentId: Iron
+          Quantity: 3
+        - ReagentId: Copper
+          Quantity: 2
+        - ReagentId: Carbon #steel-reinforced
+          Quantity: 1
 =======
   - type: Solution
     solution:
@@ -122,7 +145,7 @@
         Quantity: 2
       - ReagentId: Carbon #steel-reinforced
         Quantity: 0.5
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   parent: CableHVStack
@@ -225,7 +248,7 @@
   - type: CablePlacer
     cablePrototypeID: CableApcExtension
     blockingWireType: Apc
-<<<<<<< HEAD
+<<<<<<< ours
   - type: Appearance
   - type: Extractable
     grindableSolutionName: lvcable
@@ -253,8 +276,20 @@
     healingEndSound:
       path: "/Audio/Items/Medical/brutepack_end.ogg"
 ##Corvax-species-end
+||||||| base
+  - type: Appearance
+  - type: Extractable
+    grindableSolutionName: lvcable
+  - type: SolutionContainerManager
+    solutions:
+      lvcable:
+        reagents:
+        - ReagentId: Iron
+          Quantity: 3
+        - ReagentId: Copper
+          Quantity: 2
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   parent: CableApcStack

@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   abstract: true
   parent: MaterialBase
   id: PartBase
@@ -10,7 +10,7 @@
     sprite: Objects/Materials/parts.rsi
   - type: Damageable
     damageModifierSet: FlimsyMetallic
-<<<<<<< HEAD
+<<<<<<< ours
   - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
@@ -21,8 +21,17 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+||||||| base
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Tag
     tags:
     - ConstructionMaterial

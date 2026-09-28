@@ -1,4 +1,4 @@
-﻿- type: markingsGroup
+- type: markingsGroup
   parent: Undergarments
   id: Diona
   onlyGroupWhitelisted: true
@@ -91,11 +91,16 @@
     damageRecovery:
       types:
         Asphyxiation: -1.0
-<<<<<<< HEAD
+<<<<<<< ours
   - type: Hunger
     baseDecayRate: 0.010375 # ADT-Tweak: было 0.0083, стало > 0.010375
   - type: Thirst
     baseDecayRate: 0.010375 # ADT-Tweak: было 0.0083, стало > 0.010375
+||||||| base
+  - type: Hunger
+    baseDecayRate: 0.0083
+  - type: Thirst
+    baseDecayRate: 0.0083
 =======
   - type: Satiation
     satiations:
@@ -103,7 +108,7 @@
         prototype: DionaHunger
       Thirst:
         prototype: DionaThirst
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Damageable
     damageModifierSet: Diona
   - type: Injurable

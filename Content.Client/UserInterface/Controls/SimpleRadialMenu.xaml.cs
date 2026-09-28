@@ -4,11 +4,12 @@ using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
-<<<<<<< HEAD
+<<<<<<< ours
 using Robust.Shared.Input;
+||||||| base
 =======
 using Robust.Client.UserInterface.XAML;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;

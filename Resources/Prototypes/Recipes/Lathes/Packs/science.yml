@@ -24,12 +24,14 @@
   - SignallerAdvanced
   # - DeviceQuantumSpinInverter # ADT-Tweak
   - DeviceDesynchronizer
-<<<<<<< HEAD
+<<<<<<< ours
   # - ClothingBackpackHarmpack # ADT-Tweak
+||||||| base
+  - ClothingBackpackHarmpack
 =======
   - ClothingBackpackHarmpack
   - TeleporterChipBlank
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: latheRecipePack
   id: ScienceClothing
@@ -111,17 +113,18 @@
   - APECircuitboard
   - ArtifactAnalyzerMachineCircuitboard
   - ArtifactCrusherMachineCircuitboard
-<<<<<<< HEAD
+<<<<<<< ours
   # ADT-Tweak-Start
   - XenobiologyBountyComputerCircuitboard # ADT-Tweak
   - ADTXenobiologyControlComputerCircuitboard # ADT-Tweak
   - SlimeGrinderMachineCircuitboard # ADT-Tweak
   - ADTXenobiologyMonkeyRecyclerMachineCircuitboard # ADT-Tweak
   # ADT-Tweak-End
+||||||| base
 =======
   - StationTeleportersControlCircuitboard
   - StationTeleporterMachineCircuitboard
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: latheRecipePack
   id: CameraBoards

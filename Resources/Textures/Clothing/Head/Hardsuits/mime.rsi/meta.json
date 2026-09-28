@@ -1,5 +1,5 @@
 {
-<<<<<<< HEAD
+<<<<<<< ours
   "version": 1,
   "license": "CC-BY-SA-3.0",
   "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/4f6190e2895e09116663ef282d3ce1d8b35c032e, sprited by Fazansen(https://github.com/Fazansen), modified for Vox by TrixxedHeart. Reptilian states sprited by Roudenn(https://github.com/Roudenn).",
@@ -10,7 +10,27 @@
   "states": [
     {
       "name": "icon"
+||||||| base
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/4f6190e2895e09116663ef282d3ce1d8b35c032e, sprited by Fazansen(https://github.com/Fazansen), modified for Vox by TrixxedHeart",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+=======
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/4f6190e2895e09116663ef282d3ce1d8b35c032e, sprited by Fazansen(https://github.com/Fazansen), modified for Vox by TrixxedHeart. Left/Right sprite mirroring fixed by Dogbone10.",
+    "size": {
+        "x": 32,
+        "y": 32
+>>>>>>> theirs
     },
+<<<<<<< ours
     {
       "name": "icon-flash"
     },
@@ -39,14 +59,28 @@
       "directions": 4
     }
   ]
-=======
-    "version": 1,
-    "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/4f6190e2895e09116663ef282d3ce1d8b35c032e, sprited by Fazansen(https://github.com/Fazansen), modified for Vox by TrixxedHeart. Left/Right sprite mirroring fixed by Dogbone10.",
-    "size": {
-        "x": 32,
-        "y": 32
+||||||| base
+    {
+      "name": "icon-flash"
     },
+    {
+      "name": "off-equipped-HELMET",
+      "directions": 4
+    },
+    {
+      "name": "on-equipped-HELMET",
+      "directions": 4
+    },
+    {
+      "name": "off-equipped-HELMET-vox",
+      "directions": 4
+    },
+    {
+      "name": "on-equipped-HELMET-vox",
+      "directions": 4
+    }
+  ]
+=======
     "states": [
         {
             "name": "icon"
@@ -82,5 +116,5 @@
             "directions": 4
         }
     ]
->>>>>>> wizards-filtered
+>>>>>>> theirs
 }

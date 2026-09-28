@@ -54,7 +54,7 @@ namespace Content.Client.Entry
 {
     public sealed partial class EntryPoint : GameClient
     {
-<<<<<<< HEAD
+<<<<<<< ours
         [Dependency] private readonly IBaseClient _baseClient = default!;
         [Dependency] private readonly IGameController _gameController = default!;
         [Dependency] private readonly IStateManager _stateManager = default!;
@@ -96,6 +96,41 @@ namespace Content.Client.Entry
         [Dependency] private readonly DiscordIdManager _discordIdManager = default!;  // ADT export
         [Dependency] private readonly ClientsidePlaytimeTrackingManager _clientsidePlaytimeManager = default!;
         [Dependency] private readonly ClientFeedbackManager _feedbackManager = null!;
+||||||| base
+        [Dependency] private readonly IBaseClient _baseClient = default!;
+        [Dependency] private readonly IGameController _gameController = default!;
+        [Dependency] private readonly IStateManager _stateManager = default!;
+        [Dependency] private readonly IComponentFactory _componentFactory = default!;
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private readonly IClientAdminManager _adminManager = default!;
+        [Dependency] private readonly IParallaxManager _parallaxManager = default!;
+        [Dependency] private readonly IConfigurationManager _configManager = default!;
+        [Dependency] private readonly IStylesheetManager _stylesheetManager = default!;
+        [Dependency] private readonly IScreenshotHook _screenshotHook = default!;
+        [Dependency] private readonly FullscreenHook _fullscreenHook = default!;
+        [Dependency] private readonly ChangelogManager _changelogManager = default!;
+        [Dependency] private readonly ViewportManager _viewportManager = default!;
+        [Dependency] private readonly IUserInterfaceManager _userInterfaceManager = default!;
+        [Dependency] private readonly IInputManager _inputManager = default!;
+        [Dependency] private readonly IOverlayManager _overlayManager = default!;
+        [Dependency] private readonly IChatManager _chatManager = default!;
+        [Dependency] private readonly IClientPreferencesManager _clientPreferencesManager = default!;
+        [Dependency] private readonly EuiManager _euiManager = default!;
+        [Dependency] private readonly IVoteManager _voteManager = default!;
+        [Dependency] private readonly DocumentParsingManager _documentParsingManager = default!;
+        [Dependency] private readonly GhostKickManager _ghostKick = default!;
+        [Dependency] private readonly ExtendedDisconnectInformationManager _extendedDisconnectInformation = default!;
+        [Dependency] private readonly JobRequirementsManager _jobRequirements = default!;
+        [Dependency] private readonly ContentLocalizationManager _contentLoc = default!;
+        [Dependency] private readonly ContentReplayPlaybackManager _playbackMan = default!;
+        [Dependency] private readonly IResourceManager _resourceManager = default!;
+        [Dependency] private readonly IReplayLoadManager _replayLoad = default!;
+        [Dependency] private readonly ILogManager _logManager = default!;
+        [Dependency] private readonly DebugMonitorManager _debugMonitorManager = default!;
+        [Dependency] private readonly TitleWindowManager _titleWindowManager = default!;
+        [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
+        [Dependency] private readonly ClientsidePlaytimeTrackingManager _clientsidePlaytimeManager = default!;
+        [Dependency] private readonly ClientFeedbackManager _feedbackManager = null!;
 =======
         [Dependency] private IBaseClient _baseClient = default!;
         [Dependency] private IGameController _gameController = default!;
@@ -131,7 +166,7 @@ namespace Content.Client.Entry
         [Dependency] private IEntitySystemManager _entitySystemManager = default!;
         [Dependency] private ClientsidePlaytimeTrackingManager _clientsidePlaytimeManager = default!;
         [Dependency] private ClientFeedbackManager _feedbackManager = null!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
         public override void PreInit()
         {

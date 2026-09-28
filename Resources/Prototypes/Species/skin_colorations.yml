@@ -20,11 +20,16 @@
 
 - type: skinColoration
   id: VoxFeathers
-<<<<<<< HEAD
+<<<<<<< ours
   strategy: !type:ClampedHsvColoration
     hue: [0.081, 0.75] 
     saturation: [0.0, 0.8] 
     value: [0.2, 0.9]
+||||||| base
+  strategy: !type:ClampedHsvColoration
+    hue: [0.081, 0.48]
+    saturation: [0.2, 0.8]
+    value: [0.36, 0.55]
 =======
   strategy: !type:HueNodeClampedHsvColoration
     nodes:
@@ -43,7 +48,7 @@
     - hue: 1
       saturation: [ 0.2, 0.5 ]
       value: [ 0.36, 0.5 ]
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: skinColoration
   id: HumanToned

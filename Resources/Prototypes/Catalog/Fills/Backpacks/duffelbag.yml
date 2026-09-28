@@ -355,7 +355,7 @@
         - id: PillCanisterAmbuzolPlus
         # ADT-Tweak end
         - id: WeaponRevolverPython
-<<<<<<< HEAD
+<<<<<<< ours
         - id: ADTMagazineBoxMagnumLesserIncendiary # ADT tweak
         # ADT-Tweak start
         # - id: SyringeRomerol 
@@ -363,11 +363,16 @@
         # - id: PillAmbuzol
         #   amount: 3
         # ADT-Tweak end
+||||||| base
+        - id: MagazineBoxMagnumIncendiary
+        - id: PillAmbuzolPlus
+        - id: PillAmbuzol
+          amount: 3
 =======
         - id: MagazineBoxMagnumIncendiary
         - id: PillCanisterAmbuzol
           amount: 5
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateMedicalBundle

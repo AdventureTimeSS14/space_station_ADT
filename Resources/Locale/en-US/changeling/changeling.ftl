@@ -1,11 +1,14 @@
-<<<<<<< HEAD
-﻿# roles-antag-changeling-name = Changeling
+<<<<<<< ours
+# roles-antag-changeling-name = Changeling
 # roles-antag-changeling-objective = A intelligent predator that assumes the identities of its victims.
+||||||| base
+roles-antag-changeling-name = Changeling
+roles-antag-changeling-objective = A intelligent predator that assumes the identities of its victims.
 =======
 # antag selection
 roles-antag-changeling-name = Changeling
 roles-antag-changeling-objective = A intelligent predator that assumes the identities of its victims.
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 # devour
 changeling-devour-attempt-failed-cannot-devour = We cannot devour this!

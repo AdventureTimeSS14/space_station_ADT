@@ -254,10 +254,16 @@
       types:
         Piercing: 6
         Poison: 4
-<<<<<<< HEAD
+<<<<<<< ours
   # ADT-tweak-start
   - type: SolutionContainerManager
+||||||| base
+  - type: SolutionContainerManager
+=======
+  - type: SolutionManager
+>>>>>>> theirs
     solutions:
+<<<<<<< ours
       melee:
         reagents:
         - ReagentId: ChloralHydrate
@@ -271,11 +277,14 @@
       reagents:
       - ReagentId: ChloralHydrate
         Quantity: 2
+||||||| base
+      melee:
+        reagents:
+        - ReagentId: ChloralHydrate
+          Quantity: 80
 =======
-  - type: SolutionManager
-    solutions:
     - SolutionVenomSpiderSpace
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: MeleeChemicalInjector
     solution: melee
     transferAmount: 2
@@ -352,7 +361,7 @@
           BaseUnshaded: glow
         Dead:
           Base: dead_spacecobra
-<<<<<<< HEAD
+<<<<<<< ours
     - type: Butcherable
       spawned:
         - id: FoodMeatSnake
@@ -367,6 +376,16 @@
       factions:
         - ADTSpaceMobs
   # ADT-tweak-end
+||||||| base
+    - type: Butcherable
+      spawned:
+        - id: FoodMeatSnake
+          amount: 2
+        - id: UraniumOre1
+          amount: 1
+        - id: ClothingShoesSnakeskinBoots
+          amount: 1
+          prob: 0.3
 =======
     - type: ToolRefinable
       refineResult:
@@ -377,7 +396,7 @@
       - id: ClothingShoesSnakeskinBoots
         amount: 1
         prob: 0.3
->>>>>>> wizards-filtered
+>>>>>>> theirs
     - type: Bloodstream
       bloodReferenceSolution:
         reagents:

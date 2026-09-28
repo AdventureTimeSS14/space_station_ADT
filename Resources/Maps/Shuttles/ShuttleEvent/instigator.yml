@@ -1674,12 +1674,15 @@ entities:
           occludes: True
         paper_label: !type:ContainerSlot
           ent: null
-<<<<<<< HEAD
+<<<<<<< ours
+- proto: ClothingBeltMilitaryWebbing
+||||||| base
+- proto: ClothingBeltAssault
 =======
           showEnts: False
           occludes: True
->>>>>>> wizards-filtered
 - proto: ClothingBeltMilitaryWebbing
+>>>>>>> theirs
   entities:
   - uid: 475
     components:

@@ -30,13 +30,7 @@ public sealed partial class TemperatureComponent : Component, IHeatContainer
     /// Divide that by the thickness of skin of about 2mm giving us a final value of 150
     /// Source: https://pmc.ncbi.nlm.nih.gov/articles/PMC8953946/
     /// </summary>
-<<<<<<< HEAD
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float SpecificHeat = 50f;
-
-    /// <summary>
-    /// How well does the air surrounding you merge into your body temperature?
-    /// </summary>
+<<<<<<< ours
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float AtmosTemperatureTransferEfficiency = 0.1f;
 
@@ -60,6 +54,9 @@ public sealed partial class TemperatureComponent : Component, IHeatContainer
     [ViewVariables(VVAccess.ReadWrite)]
     public float? CurrentSpeedModifier;
     // ADT end
+||||||| base
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public float AtmosTemperatureTransferEfficiency = 0.1f;
 =======
     /// <remarks>
     /// This value should be multiplied by a surface area value based on the amount of area in contact.
@@ -67,5 +64,5 @@ public sealed partial class TemperatureComponent : Component, IHeatContainer
     /// </remarks>
     [DataField]
     public float ThermalConductivity = 150f;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 }

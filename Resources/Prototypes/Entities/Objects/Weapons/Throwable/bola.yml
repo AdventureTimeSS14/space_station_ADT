@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-﻿- type: entity
-  name: bola
-=======
 - type: entity
   abstract: true
->>>>>>> wizards-filtered
   parent: [BaseItem, BaseSecurityContraband]
   id: BaseBola
   name: bola

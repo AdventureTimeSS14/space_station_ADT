@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: DecoratedFirTree
   parent: BaseStructure
   name: decorated fir tree
@@ -25,25 +25,6 @@
     damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
-<<<<<<< HEAD
-      - trigger:
-          !type:DamageTrigger
-          damage: 400
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-      - trigger:
-          !type:DamageTrigger
-          damage: 75
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-          - !type:SpawnEntitiesBehavior
-            spawn:
-              Log:
-                min: 2
-                max: 8
-=======
     - trigger:
         !type:DamageTrigger
         damage: 75
@@ -55,4 +36,3 @@
           Log:
             min: 2
             max: 8
->>>>>>> wizards-filtered

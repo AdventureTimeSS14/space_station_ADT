@@ -17,11 +17,12 @@ public sealed class PowerStatePrototypeTest : GameTest
     /// depending on the current power state.
     /// </summary>
     [Test]
-<<<<<<< HEAD
+<<<<<<< ours
     [Ignore("Временное решение")] // ADT-тестовое временное решение
+||||||| base
 =======
     [RunOnSide(Side.Server)]
->>>>>>> wizards-filtered
+>>>>>>> theirs
     public async Task AssertApcPowerMatchesPowerState()
     {
         using (Assert.EnterMultipleScope())
@@ -56,11 +57,14 @@ public sealed class PowerStatePrototypeTest : GameTest
                         Is.EqualTo(expectedLoad),
                         $"Entity prototype '{prototype.ID}' has mismatched power draw between PowerStateComponent and SharedApcPowerReceiverComponent.");
                 }
-<<<<<<< HEAD
+<<<<<<< ours
             });
         });
 
         await pair.CleanReturnAsync();
+||||||| base
+            });
+        });
 =======
                 else
                 {
@@ -71,6 +75,6 @@ public sealed class PowerStatePrototypeTest : GameTest
                 }
             }
         }
->>>>>>> wizards-filtered
+>>>>>>> theirs
     }
 }

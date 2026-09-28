@@ -15,7 +15,7 @@ namespace Content.Server.Medical;
 
 public sealed partial class CryoPodSystem : SharedCryoPodSystem
 {
-<<<<<<< HEAD
+<<<<<<< ours
     [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
     [Dependency] private readonly GasCanisterSystem _gasCanisterSystem = default!;
     [Dependency] private readonly GasAnalyzerSystem _gasAnalyzerSystem = default!;
@@ -23,6 +23,13 @@ public sealed partial class CryoPodSystem : SharedCryoPodSystem
     [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly PowerReceiverSystem _power = default!;
+||||||| base
+    [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
+    [Dependency] private readonly GasCanisterSystem _gasCanisterSystem = default!;
+    [Dependency] private readonly GasAnalyzerSystem _gasAnalyzerSystem = default!;
+    [Dependency] private readonly HealthAnalyzerSystem _healthAnalyzerSystem = default!;
+    [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
 =======
     [Dependency] private AtmosphereSystem _atmosphereSystem = default!;
     [Dependency] private GasCanisterSystem _gasCanisterSystem = default!;
@@ -30,7 +37,7 @@ public sealed partial class CryoPodSystem : SharedCryoPodSystem
     [Dependency] private HealthAnalyzerSystem _healthAnalyzerSystem = default!;
     [Dependency] private NodeContainerSystem _nodeContainer = default!;
     [Dependency] private DamageableSystem _damageable = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 
     public override void Initialize()

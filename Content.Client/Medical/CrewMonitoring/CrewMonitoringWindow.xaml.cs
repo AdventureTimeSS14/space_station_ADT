@@ -31,16 +31,19 @@ namespace Content.Client.Medical.CrewMonitoring;
 [GenerateTypedNameReferences]
 public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - New Monitor new parent
 {
-<<<<<<< HEAD
+<<<<<<< ours
     private static readonly List<CrewMonitoringServerEntry> EmptyServerList = new();     //ADT-Tweak - New Monitor: Servers
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IResourceCache _resourceCache = default!;  // ADT-Tweak - New Monitor: cache
     [Dependency] private readonly IPlayerManager _player = default!; // ADT-Tweak: AI eye teleport
+||||||| base
+    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 =======
     [Dependency] private IEntityManager _entManager = default!;
     [Dependency] private IPrototypeManager _prototypeManager = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
     private readonly SharedTransformSystem _transformSystem;
     private readonly SpriteSystem _spriteSystem;
 

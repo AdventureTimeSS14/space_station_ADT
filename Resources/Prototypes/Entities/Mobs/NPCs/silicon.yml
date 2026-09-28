@@ -1,4 +1,4 @@
-﻿# Used for generic robotic entities (like Hivelords)
+# Used for generic robotic entities (like Hivelords)
 - type: entity
   save: false
   abstract: true
@@ -429,11 +429,13 @@
     enabled: false
     radius: 8 # ADT tweak 3.5 > 8
     softness: 2
-<<<<<<< HEAD
+<<<<<<< ours
     mask: /Textures/ADT/Effects/Lightmasks/cone_composed_b.png # ADT tweak
+||||||| base
+    mask: /Textures/Effects/LightMasks/cone.png
 =======
     lightMask: ConeSingle
->>>>>>> wizards-filtered
+>>>>>>> theirs
     autoRot: true
   - type: FootstepModifier
     footstepSoundCollection:

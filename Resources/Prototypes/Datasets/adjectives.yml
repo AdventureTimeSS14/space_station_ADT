@@ -2,8 +2,10 @@
   id: Adjectives
   values:
     prefix: adjectives-dataset-
-<<<<<<< HEAD
+<<<<<<< ours
     count: 956 # Corvax-MRP-Edit
+||||||| base
+    count: 396
 =======
     count: 422
->>>>>>> wizards-filtered
+>>>>>>> theirs

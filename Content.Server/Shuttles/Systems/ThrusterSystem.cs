@@ -256,21 +256,25 @@ public sealed partial class ThrusterSystem : EntitySystem
             // If no parent change doesn't matter for angular.
             if (component.Type == ThrusterType.Angular)
             {
-<<<<<<< HEAD
+<<<<<<< ours
                 oldShuttleComponent.AngularThrust -= GetThrust(component); // ADT-Tweak
-                DebugTools.Assert(oldShuttleComponent.AngularThrusters.Contains(uid));
-                oldShuttleComponent.AngularThrusters.Remove(uid);
-
-                shuttleComponent.AngularThrust += GetThrust(component); // ADT-Tweak
+||||||| base
+                oldShuttleComponent.AngularThrust -= component.Thrust;
 =======
                 var angularThrust = component.Thrust * GetInertiaThresholdScale((uid, component), xform);
 
                 oldShuttleComponent.AngularThrust -= angularThrust;
+>>>>>>> theirs
                 DebugTools.Assert(oldShuttleComponent.AngularThrusters.Contains(uid));
                 oldShuttleComponent.AngularThrusters.Remove(uid);
 
+<<<<<<< ours
+                shuttleComponent.AngularThrust += GetThrust(component); // ADT-Tweak
+||||||| base
+                shuttleComponent.AngularThrust += component.Thrust;
+=======
                 shuttleComponent.AngularThrust += angularThrust;
->>>>>>> wizards-filtered
+>>>>>>> theirs
                 DebugTools.Assert(!shuttleComponent.AngularThrusters.Contains(uid));
                 shuttleComponent.AngularThrusters.Add(uid);
                 return;
@@ -376,11 +380,13 @@ public sealed partial class ThrusterSystem : EntitySystem
 
                 break;
             case ThrusterType.Angular:
-<<<<<<< HEAD
+<<<<<<< ours
                 shuttleComponent.AngularThrust += GetThrust(component); // ADT-Tweak
+||||||| base
+                shuttleComponent.AngularThrust += component.Thrust;
 =======
                 shuttleComponent.AngularThrust += component.Thrust * GetInertiaThresholdScale((uid, component), xform);
->>>>>>> wizards-filtered
+>>>>>>> theirs
                 DebugTools.Assert(!shuttleComponent.AngularThrusters.Contains(uid));
                 shuttleComponent.AngularThrusters.Add(uid);
                 break;
@@ -467,11 +473,13 @@ public sealed partial class ThrusterSystem : EntitySystem
                 shuttleComponent.LinearThrusters[direction].Remove(uid);
                 break;
             case ThrusterType.Angular:
-<<<<<<< HEAD
+<<<<<<< ours
                 shuttleComponent.AngularThrust -= GetThrust(component); // ADT-Tweak
+||||||| base
+                shuttleComponent.AngularThrust -= component.Thrust;
 =======
                 shuttleComponent.AngularThrust -= component.Thrust * GetInertiaThresholdScale((uid, component), xform);
->>>>>>> wizards-filtered
+>>>>>>> theirs
                 DebugTools.Assert(shuttleComponent.AngularThrusters.Contains(uid));
                 shuttleComponent.AngularThrusters.Remove(uid);
                 break;

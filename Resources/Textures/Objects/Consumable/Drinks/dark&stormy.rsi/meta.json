@@ -1,5 +1,5 @@
 {
-<<<<<<< HEAD
+<<<<<<< ours
   "version": 1,
   "license": "CC-BY-SA-4.0",
   "copyright": "by ko4erga (discord)",
@@ -10,7 +10,22 @@
   "states": [
     {
       "name": "icon"
+||||||| base
+    "version": 1,
+    "size":
+    {
+        "x": 32,
+        "y": 32
+=======
+    "version": 1,
+    "license": "CC-BY-NC-SA-3.0",
+    "copyright": "Made by SharkSnake98 on Github",
+    "size": {
+        "x": 32,
+        "y": 32
+>>>>>>> theirs
     },
+<<<<<<< ours
     {
       "name": "icon_empty"
     },
@@ -34,14 +49,35 @@
     }
   ]
 }
-=======
-    "version": 1,
+||||||| base
     "license": "CC-BY-NC-SA-3.0",
     "copyright": "Made by SharkSnake98 on Github",
-    "size": {
-        "x": 32,
-        "y": 32
-    },
+    "states":
+    [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "icon_empty"
+        },
+        {
+            "name": "fill-1"
+        },
+        {
+            "name": "fill-2"
+        },
+        {
+            "name": "fill-3"
+        },
+        {
+            "name": "fill-4"
+        },
+        {
+            "name": "fill-5"
+        }
+    ]
+}
+=======
     "states": [
         {
             "name": "icon"
@@ -66,4 +102,4 @@
         }
     ]
 }
->>>>>>> wizards-filtered
+>>>>>>> theirs

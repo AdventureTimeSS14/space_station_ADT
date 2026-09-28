@@ -1,16 +1,43 @@
-﻿- type: entity
+- type: entity
   id: BaseShowcaseRobot
   abstract: true
   parent: BaseStructure
   name: security robot showcase
   description: A non-functional replica of an old security robot.
   components:
-<<<<<<< HEAD
+<<<<<<< ours
     - type: Anchorable
     - type: Damageable
       damageModifierSet: Metallic
     - type: Injurable
       damageContainer: StructuralInorganic
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 150
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+        - trigger:
+            !type:DamageTrigger
+            damage: 75
+          behaviors:
+            - !type:PlaySoundBehavior
+              sound:
+                collection: MetalBreak
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                PartRodMetal1:
+                  min: 5
+                  max: 10
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+||||||| base
+    - type: Anchorable
+    - type: Damageable
+      damageContainer: StructuralInorganic
+      damageModifierSet: Metallic
     - type: Destructible
       thresholds:
         - trigger:
@@ -57,7 +84,7 @@
             max: 10
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   id: ShowcaseRobot

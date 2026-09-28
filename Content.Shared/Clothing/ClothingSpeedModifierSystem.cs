@@ -12,11 +12,13 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.Clothing;
 
-<<<<<<< HEAD
+<<<<<<< ours
 public sealed partial class ClothingSpeedModifierSystem : EntitySystem // ADT-Tweak
+||||||| base
+public sealed class ClothingSpeedModifierSystem : EntitySystem
 =======
 public sealed partial class ClothingSpeedModifierSystem : EntitySystem
->>>>>>> wizards-filtered
+>>>>>>> theirs
 {
     [Dependency] private ExamineSystemShared _examine = default!;
     [Dependency] private ItemToggleSystem _toggle = default!;

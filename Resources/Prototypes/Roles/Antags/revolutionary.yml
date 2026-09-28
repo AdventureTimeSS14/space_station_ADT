@@ -10,10 +10,13 @@
   - Roundstart
   requirements:
   - !type:OverallPlaytimeRequirement
-<<<<<<< HEAD
+<<<<<<< ours
     time: 30h # Corvax-RoleTime 1
     
 # ADT-Tweak-start
+||||||| base
+    time: 1h
+
 =======
     time: 1h
 
@@ -45,7 +48,7 @@
 
 # TODO: Make it so creating new revolutionaries uses antag prototypes! This saves a *lot* of boilerplate for conversion antags.
 
->>>>>>> wizards-filtered
+>>>>>>> theirs
 - type: antag
   id: Rev
   name: roles-antag-rev-name
@@ -53,7 +56,7 @@
   setPreference: true
   objective: roles-antag-rev-objective
   guides: [ Revolutionaries ]
-<<<<<<< HEAD
+<<<<<<< ours
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 10h
@@ -64,11 +67,12 @@
     department: Medical
     time: 5h
  # ADT-Tweak-end
+||||||| base
 =======
   tags:
   - OnStation
   - Converted
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: startingGear
   id: HeadRevGear

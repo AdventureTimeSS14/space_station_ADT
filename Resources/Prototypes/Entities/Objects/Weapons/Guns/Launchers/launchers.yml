@@ -21,14 +21,19 @@
       - 0,0,6,3
   - type: StaticPrice
     price: 500
-<<<<<<< HEAD
+<<<<<<< ours
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
         ents: []
   - type: GunExecutionBlacklist #ADT-tweak
+||||||| base
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Gun
     fireRate: 1
     projectileSpeed: 25 # Slower than a bullet, same speed as our old projectile limit.
@@ -39,12 +44,15 @@
       path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
 
 - type: entity
-<<<<<<< HEAD
+<<<<<<< ours
   name: china lake
   parent: [BaseWeaponLauncher, BaseGunWieldable, BaseSyndicateContraband, ADTBaseMagneticGun] # ADT TWEAK
+||||||| base
+  name: china lake
+  parent: [BaseWeaponLauncher, BaseSyndicateContraband]
 =======
   parent: [ BaseWeaponLauncher, BaseSyndicateContraband ]
->>>>>>> wizards-filtered
+>>>>>>> theirs
   id: WeaponLauncherChinaLake
   name: china lake
   description: PLOOP.
@@ -86,13 +94,8 @@
   - type: BallisticAmmoProvider
     whitelist:
       tags:
-<<<<<<< HEAD
         - Grenade
     capacity: 1 # ADT-Tweak DeBugg
-=======
-      - Grenade
-    capacity: 3
->>>>>>> wizards-filtered
     proto: GrenadeFrag
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
@@ -255,10 +258,91 @@
   - type: Appearance
 
 - type: entity
+<<<<<<< ours
+  name: pirate cannon
+  parent: BaseWeaponLauncher
+  id: WeaponLauncherPirateCannon
+  description: Kaboom!
+  components:
+    - type: Sprite
+      sprite: Objects/Weapons/Guns/Launchers/pirate_cannon.rsi
+      layers:
+        - state: icon
+          map: ["enum.GunVisualLayers.Base"]
+    - containers:
+        balistic-ammo: !type:Container
+          ents: []
+        ballistic-ammo: !type:Container
+          ents: []
+      type: ContainerContainer
+    - type: Clothing
+      sprite: Objects/Weapons/Guns/Launchers/pirate_cannon.rsi
+    # - type: RunAndGunSpreadModifier #ADT-tweak
+    - type: Gun
+      fireRate: 0.2 # ADT-Tweak 1 -> 0.2
+      soundGunshot:
+        path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
+    - type: BallisticAmmoProvider
+      whitelist:
+        tags:
+          - CannonBall
+      capacity: 1
+      proto: CannonBall
+      soundInsert:
+        path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+
+- type: entity
+  name: tether gun
+  parent:
+  - BaseItem
+  - PowerCellSlotMediumItem
+  id: WeaponTetherGun
+  description: Manipulates gravity around objects to fling them at high velocities.
+||||||| base
+  name: pirate cannon
+  parent: BaseWeaponLauncher
+  id: WeaponLauncherPirateCannon
+  description: Kaboom!
+  components:
+    - type: Sprite
+      sprite: Objects/Weapons/Guns/Launchers/pirate_cannon.rsi
+      layers:
+        - state: icon
+          map: ["enum.GunVisualLayers.Base"]
+    - containers:
+        balistic-ammo: !type:Container
+          ents: []
+        ballistic-ammo: !type:Container
+          ents: []
+      type: ContainerContainer
+    - type: Clothing
+      sprite: Objects/Weapons/Guns/Launchers/pirate_cannon.rsi
+    - type: Gun
+      fireRate: 1
+      soundGunshot:
+        path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
+    - type: BallisticAmmoProvider
+      whitelist:
+        tags:
+          - CannonBall
+      capacity: 1
+      proto: CannonBall
+      soundInsert:
+        path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+
+- type: entity
+  name: tether gun
+  parent:
+  - BaseItem
+  - PowerCellSlotMediumItem
+  id: WeaponTetherGun
+  description: Manipulates gravity around objects to fling them at high velocities.
+=======
   parent: [ BaseItem, BaseXenoborgContraband ]
   id: WeaponRocketLauncherXenoborg
   name: XB MRL-97-D # Xenoborg Multi Rocket Launcher 97 D (Demolition)
   description: A alien rocket launcher fitted with special demolition rockets.
+>>>>>>> theirs
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Launchers/xb_mlr.rsi
@@ -303,34 +387,6 @@
   name: pirate cannon
   description: Kaboom!
   components:
-<<<<<<< HEAD
-    - type: Sprite
-      sprite: Objects/Weapons/Guns/Launchers/pirate_cannon.rsi
-      layers:
-        - state: icon
-          map: ["enum.GunVisualLayers.Base"]
-    - containers:
-        balistic-ammo: !type:Container
-          ents: []
-        ballistic-ammo: !type:Container
-          ents: []
-      type: ContainerContainer
-    - type: Clothing
-      sprite: Objects/Weapons/Guns/Launchers/pirate_cannon.rsi
-    # - type: RunAndGunSpreadModifier #ADT-tweak
-    - type: Gun
-      fireRate: 0.2 # ADT-Tweak 1 -> 0.2
-      soundGunshot:
-        path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
-    - type: BallisticAmmoProvider
-      whitelist:
-        tags:
-          - CannonBall
-      capacity: 1
-      proto: CannonBall
-      soundInsert:
-        path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
-=======
   - type: Sprite
     sprite: Objects/Weapons/Guns/Launchers/pirate_cannon.rsi
     layers:
@@ -356,14 +412,13 @@
     proto: CannonBall
     soundInsert:
       path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
->>>>>>> wizards-filtered
 
 - type: entity
   parent: BaseItem
   id: WeaponGrapplingGun
   name: grappling gun
   components:
-<<<<<<< HEAD
+<<<<<<< ours
     - type: Item
       size: Small
       shape:
@@ -397,6 +452,39 @@
             False: { state: base-unshaded-off }
     - type: PacifismAllowedGun
     - type: GunExecutionBlacklist #ADT-tweak
+||||||| base
+    - type: Item
+      size: Small
+      shape:
+      - 0,0,1,0
+      - 0,1,0,1
+      storedOffset: 0,-6
+    - type: AmmoCounter
+    - type: GrapplingGun
+    - type: Gun
+      soundGunshot: /Audio/Weapons/Guns/Gunshots/harpoon.ogg
+      fireRate: 0.5
+      clumsyProof: true
+    - type: BasicEntityAmmoProvider
+      proto: GrapplingHook
+      capacity: 1
+    - type: Sprite
+      sprite: Objects/Weapons/Guns/Launchers/grappling_gun.rsi
+      layers:
+        - state: base
+        - state: base-unshaded
+          map: [ "unshaded" ]
+          visible: true
+    - type: UseDelay
+      delay: 1.5
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.TetherVisualsStatus.Key:
+          unshaded:
+            True: { state: base-unshaded }
+            False: { state: base-unshaded-off }
+    - type: PacifismAllowedGun
 =======
   - type: Sprite
     sprite: Objects/Weapons/Guns/Launchers/grappling_gun.rsi
@@ -430,7 +518,7 @@
           True: { state: base-unshaded }
           False: { state: base-unshaded-off }
   - type: PacifismAllowedGun
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 # Admeme
 - type: entity

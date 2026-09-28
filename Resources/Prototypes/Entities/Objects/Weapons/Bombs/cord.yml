@@ -1,4 +1,4 @@
-﻿# Explosive cable below
+# Explosive cable below
 - type: entity
   parent: [ CableStack, BaseSecurityContraband ]
   id: CableDetStack
@@ -28,7 +28,20 @@
       - ExCable
     overTile: true
   - type: Appearance
-<<<<<<< HEAD
+<<<<<<< ours
+  - type: Extractable
+    grindableSolutionName: excable
+  - type: SolutionContainerManager
+    solutions:
+      mvcable:
+        reagents:
+        - ReagentId: Thermite
+          Quantity: 3
+        - ReagentId: Charcoal
+          Quantity: 2
+  - type: Damageable
+  - type: Injurable
+||||||| base
   - type: Extractable
     grindableSolutionName: excable
   - type: SolutionContainerManager
@@ -48,8 +61,8 @@
         Quantity: 3
       - ReagentId: Charcoal
         Quantity: 2
->>>>>>> wizards-filtered
   - type: Injurable
+>>>>>>> theirs
     damageContainer: StructuralInorganic
   - type: Destructible # should have the same general explosive behavior as in cables.yml & detonator.yml
     thresholds:

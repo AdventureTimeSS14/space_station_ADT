@@ -1,4 +1,4 @@
-﻿# TODO move all of this to tiles once tile smoothing is supported
+# TODO move all of this to tiles once tile smoothing is supported
 - type: entity
   parent: BaseStructure
   id: CarpetBase
@@ -298,9 +298,4 @@
   - type: ToolRefinable
     refineResult:
     - id: MaterialCardboard1
-<<<<<<< HEAD
-      amount: 1
   - type: TrayScanReveal
-=======
-  - type: TrayScanReveal
->>>>>>> wizards-filtered

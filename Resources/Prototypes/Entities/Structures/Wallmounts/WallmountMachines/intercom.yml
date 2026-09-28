@@ -78,7 +78,7 @@
     - key_slots
   - type: Destructible
     thresholds:
-<<<<<<< HEAD
+<<<<<<< ours
       - trigger:
           !type:DamageTrigger
           damage: 200
@@ -106,6 +106,24 @@
               collection: MetalGlassBreak
               params:
                 volume: -4
+||||||| base
+      - trigger:
+          !type:DamageTrigger
+          damage: 200
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalGlassBreak
+              params:
+                volume: -4
 =======
     - trigger:
         !type:DamageTrigger
@@ -118,7 +136,7 @@
           collection: MetalGlassBreak
           params:
             volume: -4
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: GenericVisualizer
     visuals:
       enum.WiresVisualLayers.MaintenancePanel:

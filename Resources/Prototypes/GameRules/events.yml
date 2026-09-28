@@ -275,7 +275,7 @@
   # ADT-Tweak end
   - type: AntagSelection
     agentName: ninja-round-end-agent-name
-<<<<<<< HEAD
+<<<<<<< ours
     definitions:
     - spawnerPrototype: SpawnPointGhostSpaceNinja
       min: 1
@@ -305,11 +305,39 @@
         nameFormat: name-format-ninja
       mindRoles:
       - MindRoleNinja
+||||||| base
+    definitions:
+    - spawnerPrototype: SpawnPointGhostSpaceNinja
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: SpaceNinjaGear
+      roleLoadout:
+      - RoleSurvivalSpaceNinja
+      briefing:
+        text: ninja-role-greeting
+        color: Green
+        sound: /Audio/Misc/ninja_greeting.ogg
+      components:
+      - type: SpaceNinja
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      - type: AutoImplant
+        implants:
+        - DeathAcidifierImplant
+      - type: RandomMetadata
+        nameSegments:
+        - NamesNinjaTitle
+        - NamesNinja
+        nameFormat: name-format-ninja
+      mindRoles:
+      - MindRoleNinja
 =======
     antags:
     - !type:FixedAntagCount
       proto: SpaceNinja
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: DynamicRuleCost
     cost: 75
 
@@ -360,10 +388,19 @@
   components:
   - type: StationEvent
     weight: 1 # rare
-<<<<<<< HEAD
+<<<<<<< ours
     duration: 1
     earliestStart: 40 # Corvax-MRP # 30
+||||||| base
+    duration: null
+    earliestStart: 30
+=======
+    duration: null
+    occursDuringRoundEnd: false
+    earliestStart: 30
+>>>>>>> theirs
     reoccurrenceDelay: 60
+<<<<<<< ours
     minimumPlayers: 1000  #ADT-Tweak - де факто отключаем визарда 10 > 1000
   - type: AntagSelection
     agentName: wizard-round-end-name
@@ -394,13 +431,39 @@
       mindRoles:
       - MindRoleWizard
 #      - MindRoleWizard
-=======
-    duration: null
-    occursDuringRoundEnd: false
-    earliestStart: 30
-    reoccurrenceDelay: 60
+||||||| base
     minimumPlayers: 30
->>>>>>> wizards-filtered
+  - type: AntagSelection
+    agentName: wizard-round-end-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostWizard
+      min: 1
+      max: 1
+      playerRatio: 1
+      pickPlayer: false
+      startingGear: WizardBlueGear
+      roleLoadout:
+      - RoleSurvivalExtended
+      briefing:
+        text: wizard-role-greeting
+        color: Turquoise
+        # TODO: Need Wizard Start sound
+        #sound: "/Audio/Ambience/Antag/wizard_start.ogg"
+      # TODO: WizardComp as needed
+      components:
+      - type: NpcFactionMember
+        factions:
+        - Wizard
+      - type: RandomMetadata
+        nameSegments:
+        - NamesWizardFirst
+        - NamesWizardLast
+        nameFormat: name-format-wizard
+      mindRoles:
+      - MindRoleWizard
+=======
+    minimumPlayers: 30
+>>>>>>> theirs
 
 # disabled until event is rewritten to be more interesting
 #- type: entity
@@ -449,7 +512,7 @@
     weight: 5
     startAnnouncement: station-event-power-grid-check-start-announcement
     endAnnouncement: station-event-power-grid-check-end-announcement
-<<<<<<< HEAD
+<<<<<<< ours
     duration: 60
     maxDuration: 120
     # ADT Start
@@ -458,6 +521,13 @@
       # params:
       #   volume: -4
       collection: ADTPowerOff
+||||||| base
+    startAudio:
+      path: /Audio/Announcements/power_off.ogg
+      params:
+        volume: -4
+    duration: 60
+    maxDuration: 120
 =======
     startAudio:
       path: /Audio/Announcements/power_off.ogg
@@ -465,7 +535,7 @@
         volume: -4
     duration: 50
     maxDuration: 100
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: PowerGridCheckRule
     endSound:
       collection: ADTPowerOn
@@ -604,9 +674,9 @@
     table: !type:GroupSelector
       rolls: 4, 8
       children:
+<<<<<<< ours
       - id: ADTMobClownSpider # ADT tweak
 
-<<<<<<< HEAD
 # ADT zombie remove
 # - type: entity
 #   id: ZombieOutbreak
@@ -646,7 +716,47 @@
 #       mindComponents:
 #       - type: InitialInfectedRole
 #         prototype: InitialInfected
+||||||| base
+      - id: MobClownSpider
+
+- type: entity
+  id: ZombieOutbreak
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    earliestStart: 90
+    minimumPlayers: 40
+    weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
+    duration: 1
+    occursDuringRoundEnd: false
+  - type: ZombieRule
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ InitialInfected ]
+      max: 3
+      playerRatio: 10
+      blacklist:
+        components:
+        - ZombieImmune
+        - AntagImmune
+      briefing:
+        text: zombie-patientzero-role-greeting
+        color: Plum
+        sound: "/Audio/Ambience/Antag/zombie_start.ogg"
+      components:
+      - type: PendingZombie #less time to prepare than normal
+        minInitialInfectedGrace: 300
+        maxInitialInfectedGrace: 450
+      - type: ZombifyOnDeath
+      - type: IncurableZombie
+      - type: InitialInfected
+      mindRoles:
+      - MindRoleInitialInfected
+  - type: DynamicRuleCost
+    cost: 200
 =======
+      - id: MobClownSpider
+
 - type: entity
   id: ZombieOutbreak
   parent: BaseGameRule
@@ -667,7 +777,7 @@
         max: 3
   - type: DynamicRuleCost
     cost: 200
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   parent: [ BaseAntagGhostRoleRule, BaseNukeopsRule ]

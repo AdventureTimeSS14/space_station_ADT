@@ -74,11 +74,18 @@
   description: Stains your teeth.
   components:
   - type: Sprite
-<<<<<<< HEAD
+<<<<<<< ours
     #ADT-Tweak-Start
     sprite: ADT/Objects/Consumable/Food/cake.rsi
     state: blueberry
     #ADT-Tweak-End
+  - type: SliceableFood
+    slice: FoodCakeBlueberrySlice
+||||||| base
+    layers:
+    - state: plain
+    - state: alpha-filling
+      color: blue
   - type: SliceableFood
     slice: FoodCakeBlueberrySlice
 =======
@@ -90,7 +97,7 @@
     refineResult:
     - id: FoodCakeBlueberrySlice
       amount: 8
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Tag
     tags:
     - Cake
@@ -343,11 +350,18 @@
   description: A cake with added orange.
   components:
   - type: Sprite
-<<<<<<< HEAD
+<<<<<<< ours
     #ADT-Tweak-Start
     sprite: ADT/Objects/Consumable/Food/cake.rsi
     state: orange
     #ADT-Tweak-End
+  - type: SliceableFood
+    slice: FoodCakeOrangeSlice
+||||||| base
+    layers:
+    - state: plain
+    - state: alpha-filling
+      color: "#ff9900"
   - type: SliceableFood
     slice: FoodCakeOrangeSlice
 =======
@@ -359,7 +373,7 @@
     refineResult:
     - id: FoodCakeOrangeSlice
       amount: 8
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Tag
     tags:
     - Cake
@@ -405,11 +419,18 @@
   description: A cake with added lime.
   components:
   - type: Sprite
-<<<<<<< HEAD
+<<<<<<< ours
     #ADT-Tweak-Start
     sprite: ADT/Objects/Consumable/Food/cake.rsi
     state: lime
     #ADT-Tweak-End
+  - type: SliceableFood
+    slice: FoodCakeLimeSlice
+||||||| base
+    layers:
+    - state: plain
+    - state: alpha-filling
+      color: "#00ff00"
   - type: SliceableFood
     slice: FoodCakeLimeSlice
 =======
@@ -421,7 +442,7 @@
     refineResult:
     - id: FoodCakeLimeSlice
       amount: 8
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Tag
     tags:
     - Cake
@@ -467,11 +488,18 @@
   description: A cake with added lemon.
   components:
   - type: Sprite
-<<<<<<< HEAD
+<<<<<<< ours
     #ADT-Tweak-Start
     sprite: ADT/Objects/Consumable/Food/cake.rsi
     state: lemon
     #ADT-Tweak-End
+  - type: SliceableFood
+    slice: FoodCakeLemonSlice
+||||||| base
+    layers:
+    - state: plain
+    - state: alpha-filling
+      color: "#ffff00"
   - type: SliceableFood
     slice: FoodCakeLemonSlice
 =======
@@ -483,7 +511,7 @@
     refineResult:
     - id: FoodCakeLemonSlice
       amount: 8
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Tag
     tags:
     - Cake
@@ -608,11 +636,28 @@
   description: A cake with added chocolate.
   components:
   - type: Sprite
-<<<<<<< HEAD
+<<<<<<< ours
     #ADT-Tweak-Start
     sprite: ADT/Objects/Consumable/Food/cake.rsi
     state: chocolate
     #ADT-Tweak-End
+  - type: SliceableFood
+    slice: FoodCakeChocolateSlice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 55
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 40
+        - ReagentId: Theobromine
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 5
+||||||| base
+    layers:
+    - state: alpha
+      color: "#ba672e"
   - type: SliceableFood
     slice: FoodCakeChocolateSlice
   - type: SolutionContainerManager
@@ -647,7 +692,7 @@
         Quantity: 8
       - ReagentId: Theobromine
         Quantity: 8
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Item
     inhandVisuals:
       left:
@@ -694,11 +739,18 @@
   description: A cake centred with apple.
   components:
   - type: Sprite
-<<<<<<< HEAD
+<<<<<<< ours
     #ADT-Tweak-Start
     sprite: ADT/Objects/Consumable/Food/cake.rsi
     state: apple
     #ADT-Tweak-End
+  - type: SliceableFood
+    slice: FoodCakeAppleSlice
+||||||| base
+    layers:
+    - state: plain
+    - state: alpha-filling
+      color: "#ff4300"
   - type: SliceableFood
     slice: FoodCakeAppleSlice
 =======
@@ -710,7 +762,7 @@
     refineResult:
     - id: FoodCakeAppleSlice
       amount: 8
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Tag
     tags:
     - Cake
@@ -809,11 +861,24 @@
   description: A hollow cake with real pumpkin.
   components:
   - type: Sprite
-<<<<<<< HEAD
+<<<<<<< ours
     #ADT-Tweak-Start
     sprite: ADT/Objects/Consumable/Food/cake.rsi
     state: pumpkin
     #ADT-Tweak-End
+  - type: SliceableFood
+    slice: FoodCakePumpkinSlice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 60
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 35
+        - ReagentId: Vitamin
+          Quantity: 15
+||||||| base
+    state: pumpkinspice
   - type: SliceableFood
     slice: FoodCakePumpkinSlice
   - type: SolutionContainerManager
@@ -840,7 +905,7 @@
         Quantity: 16
       - ReagentId: Sugar
         Quantity: 10
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Tag
     tags:
     - Cake
@@ -939,7 +1004,7 @@
   description: Happy Birthday little clown...
   components:
   - type: Sprite
-<<<<<<< HEAD
+<<<<<<< ours
     #ADT-Tweak-Start
     sprite: ADT/Objects/Consumable/Food/cake.rsi
     layers:
@@ -950,13 +1015,17 @@
     #ADT-Tweak-End
   - type: SliceableFood
     slice: FoodCakeBirthdaySlice
+||||||| base
+    state: birthday
+  - type: SliceableFood
+    slice: FoodCakeBirthdaySlice
 =======
     state: birthday
   - type: ToolRefinable
     refineResult:
     - id: FoodCakeBirthdaySlice
       amount: 8
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Item
     #ADT-Tweak-Start
     inhandVisuals:
@@ -1062,11 +1131,26 @@
   description: A spaceman's trumpet frosted cake.
   components:
   - type: Sprite
-<<<<<<< HEAD
+<<<<<<< ours
     #ADT-Tweak-Start
     sprite: ADT/Objects/Consumable/Food/cake.rsi
     state: spaceman
     #ADT-Tweak-End
+  - type: SliceableFood
+    slice: FoodCakeSpacemanSlice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 55
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 30
+        - ReagentId: Vitamin
+          Quantity: 5
+        - ReagentId: PolypyryliumOligomers
+          Quantity: 15
+||||||| base
+    state: trumpet
   - type: SliceableFood
     slice: FoodCakeSpacemanSlice
   - type: SolutionContainerManager
@@ -1097,7 +1181,7 @@
         Quantity: 10
       - ReagentId: PolypyryliumOligomers
         Quantity: 12
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Item
     #ADT-Tweak-Start
     inhandVisuals:

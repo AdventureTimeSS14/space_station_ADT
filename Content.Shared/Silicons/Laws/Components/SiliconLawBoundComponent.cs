@@ -18,7 +18,7 @@ public sealed partial class SiliconLawBoundComponent : Component
     /// </summary>
     [DataField]
     public EntityUid? LastLawProvider;
-<<<<<<< HEAD
+<<<<<<< ours
     // START-ADT TWEAK FIx
     /// <summary>
     /// The sound that plays for the Silicon player
@@ -27,6 +27,7 @@ public sealed partial class SiliconLawBoundComponent : Component
     [DataField]
     public SoundSpecifier? LawUploadSound = new SoundPathSpecifier("/Audio/Misc/cryo_warning.ogg");
     // ADT-END
+||||||| base
 =======
 
     /// <summary>
@@ -34,7 +35,7 @@ public sealed partial class SiliconLawBoundComponent : Component
     /// </summary>
     [DataField]
     public int Version = 1;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 }
 
 /// <summary>
@@ -73,12 +74,14 @@ public sealed class SiliconLawBuiState : BoundUserInterfaceState
     public HashSet<ProtoId<RadioChannelPrototype>>? RadioChannels;
     public int Version;
 
-<<<<<<< HEAD
+<<<<<<< ours
     public SiliconLawBuiState(List<SiliconLawData> laws, HashSet<ProtoId<RadioChannelPrototype>>? radioChannels) // ADT-Tweak
 
+||||||| base
+    public SiliconLawBuiState(List<SiliconLaw> laws, HashSet<ProtoId<RadioChannelPrototype>>? radioChannels)
 =======
     public SiliconLawBuiState(List<SiliconLaw> laws, HashSet<ProtoId<RadioChannelPrototype>>? radioChannels, int version)
->>>>>>> wizards-filtered
+>>>>>>> theirs
     {
         Laws = laws;
         RadioChannels = radioChannels;

@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-﻿- type: entity
-  parent: BaseItem
-=======
 - type: entity
   parent: [BaseItem, SolutionDart]
->>>>>>> wizards-filtered
   id: Dart
   name: dart
   description: Light throwing dart for playing darts. Don't get in the eye!

@@ -23,13 +23,6 @@ public sealed partial class BlockingComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid? User;
 
-    /// <summary>
-    /// Is it currently raised and using its <see cref="ActiveBlockFraction"/>?
-    /// </summary>
-    [DataField, AutoNetworkedField]
-<<<<<<< HEAD
-    public bool IsBlocking;
-
     //ADT-Tweak-Start
 
     /// <summary>
@@ -56,12 +49,10 @@ public sealed partial class BlockingComponent : Component
     //ADT-Tweak-End
 
     /// <summary>
-    /// The ID for the fixture that's dynamically created when blocking
+    /// Is it currently raised and using its <see cref="ActiveBlockFraction"/>?
     /// </summary>
-    public const string BlockFixtureID = "blocking-active";
-=======
+    [DataField, AutoNetworkedField]
     public bool IsRaised;
->>>>>>> wizards-filtered
 
     /// <summary>
     /// The shape of the blocking fixture that will be dynamically spawned

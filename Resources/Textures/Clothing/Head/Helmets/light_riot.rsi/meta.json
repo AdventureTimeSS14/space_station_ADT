@@ -1,5 +1,5 @@
 {
-<<<<<<< HEAD
+<<<<<<< ours
   "version": 1,
   "license": "CC-BY-SA-3.0",
   "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/2fea0a59470c476cf3f927833d3918d89cbe6af8. Vox state by Flareguy for SS14; colors tweaked by saintmuntzer",
@@ -10,24 +10,17 @@
   "states": [
     {
       "name": "icon"
-    },
+||||||| base
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/d90c7e5de6f6d94596c164da78dbc8d3cd35bb99 and modified by Flareguy for SS14; colors tweaked by saintmuntzer",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
     {
-      "name": "equipped-HELMET",
-      "directions": 4
-    },
-    {
-      "name": "equipped-HELMET-vox",
-      "directions": 4
-    },
-    {
-      "name": "inhand-left",
-      "directions": 4
-    },
-    {
-      "name": "inhand-right",
-      "directions": 4
-    }
-  ]
+      "name": "icon"
 =======
     "version": 1,
     "license": "CC-BY-SA-3.0",
@@ -35,6 +28,7 @@
     "size": {
         "x": 32,
         "y": 32
+>>>>>>> theirs
     },
     "states": [
         {
@@ -76,5 +70,4 @@
             "directions": 4
         }
     ]
->>>>>>> wizards-filtered
 }

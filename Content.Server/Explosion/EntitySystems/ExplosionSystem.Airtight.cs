@@ -253,11 +253,13 @@ public sealed partial class ExplosionSystem
         {
             // TODO EXPLOSION SYSTEM
             // cache explosion type damage.
-<<<<<<< HEAD
+<<<<<<< ours
             if (!_prototypeManager.Resolve(id, out var explosionType))
+||||||| base
+            if (!_prototypeManager.Resolve(id, out ExplosionPrototype? explosionType))
 =======
             if (!ProtoMan.Resolve(id, out var explosionType))
->>>>>>> wizards-filtered
+>>>>>>> theirs
                 continue;
 
             // evaluate the damage that this damage type would do to this entity
@@ -270,6 +272,7 @@ public sealed partial class ExplosionSystem
                 if (!_damageableSystem.CanBeDamagedBy((uid, injurable), type))
                     continue;
 
+<<<<<<< ours
                 var modifier = mod;
                 if (explosionComp != null)
                 {
@@ -283,11 +286,7 @@ public sealed partial class ExplosionSystem
                     if (modifiers.Coefficients.TryGetValue(type, out var armorMod))
                         modifier *= armorMod;
 
-<<<<<<< HEAD
                     if (modifiers.FlatReduction.TryGetValue(type, out var flat))
-=======
-                    if (modifiers.FlatReductions.TryGetValue(type, out var flat))
->>>>>>> wizards-filtered
                     {
                         if (flat > 0)
                         {
@@ -301,16 +300,72 @@ public sealed partial class ExplosionSystem
                 }
 
                 damagePerIntensity += value * Math.Max(0, modifier);
+||||||| base
+                // TODO EXPLOSION SYSTEM
+                // add a variant of the event that gets raised once, instead of once per prototype.
+                // Or better yet, just calculate this manually w/o the event.
+                // The event mainly exists for indirect resistances via things like inventory & clothing
+                // But this shouldn't matter for airtight entities.
+                var ev = new GetExplosionResistanceEvent(explosionType.ID);
+                RaiseLocalEvent(uid, ref ev);
+
+                damagePerIntensity += value * mod * Math.Max(0, ev.DamageCoefficient);
+=======
+                var modifier = mod;
+                if (explosionComp != null)
+                {
+                    modifier *= explosionComp.DamageCoefficient;
+                    if (explosionComp.Modifiers.TryGetValue(explosionType.ID, out var typeMod))
+                        modifier *= typeMod;
+                }
+
+                if (modifiers != null)
+                {
+                    if (modifiers.Coefficients.TryGetValue(type, out var armorMod))
+                        modifier *= armorMod;
+
+                    if (modifiers.FlatReductions.TryGetValue(type, out var flat))
+                    {
+                        if (flat > 0)
+                        {
+                            // If the flat modifier is reducing damage, we cache the extra damage per intensity for later!
+                            var intensity = flat / value;
+                            var damage = damageThresholds.GetValueOrDefault(intensity);
+                            damageThresholds[intensity] = value * Math.Max(0, modifier) + damage;
+                            continue;
+                        }
+                    }
+                }
+
+                damagePerIntensity += value * Math.Max(0, modifier);
+>>>>>>> theirs
             }
 
-<<<<<<< HEAD
+<<<<<<< ours
             explosionTolerance[index] = GetExplosionTolerance(uid, totalDamageTarget, damagePerIntensity, damageThresholds);
+        }
+    }
+||||||| base
+            var toleranceValue = damagePerIntensity > 0
+                ? (float) ((totalDamageTarget - _damageableSystem.GetTotalDamage((uid, damageable))) / damagePerIntensity)
+                : ToleranceValues.Invulnerable;
 =======
             explosionTolerance[index] += GetExplosionTolerance(uid, totalDamageTarget, damagePerIntensity, damageThresholds);
->>>>>>> wizards-filtered
         }
     }
 
+    private FixedPoint2 GetExplosionTolerance(EntityUid uid,
+        FixedPoint2 totalDamageTarget,
+        FixedPoint2 damagePerIntensity,
+        SortedDictionary<FixedPoint2, FixedPoint2> damageThresholds)
+    {
+        return GetExplosionTolerance(totalDamageTarget - _damageableSystem.GetTotalDamage(uid),
+            damagePerIntensity,
+            damageThresholds);
+    }
+>>>>>>> theirs
+
+<<<<<<< ours
     private FixedPoint2 GetExplosionTolerance(EntityUid uid,
         FixedPoint2 totalDamageTarget,
         FixedPoint2 damagePerIntensity,
@@ -348,6 +403,37 @@ public sealed partial class ExplosionSystem
             damagePerIntensity += damage;
             tolerance = intensity + damageTarget / damagePerIntensity;
             prevIntensity = intensity;
+||||||| base
+            explosionTolerance[index] = toleranceValue;
+=======
+    private FixedPoint2 GetExplosionTolerance(FixedPoint2 damageTarget,
+        FixedPoint2 damagePerIntensity,
+        SortedDictionary<FixedPoint2, FixedPoint2> damageThresholds)
+    {
+        var tolerance = damagePerIntensity > 0 ? damageTarget / damagePerIntensity : ToleranceValues.Invulnerable;
+        var prevIntensity = FixedPoint2.Zero;
+        /*
+         * Calculated through a pretty simple equation which relies on this dictionary being sorted.
+         * We precalculate the intensity at which an explosion's damage type exceeds the flat reduction of an entity's armor
+         * That is done above and stored in our `damageThresholds` SortedDictionary. If you can find a more mem efficient way to do this be my guest,
+         * but these values *have* to be sorted.
+         */
+        foreach (var (intensity, damage) in damageThresholds)
+        {
+            // Check if the object would break before hitting this threshold, if so, return the current tolerance value
+            if (intensity > tolerance)
+                return tolerance;
+
+            /*
+             * If the object breaks after this threshold, reduce the HP left by the amount of HP lost between the last flat reduction and this one
+             * Then adjust our damagePerIntensity and new tolerance values accordingly.
+             * Lastly store this intensity value so we can calculate the delta next loop.
+             */
+            damageTarget -= (intensity - prevIntensity) * damagePerIntensity;
+            damagePerIntensity += damage;
+            tolerance = intensity + damageTarget / damagePerIntensity;
+            prevIntensity = intensity;
+>>>>>>> theirs
         }
 
         return tolerance;

@@ -167,145 +167,6 @@ public sealed partial class TextScreenSystem : VisualizerSystem<TextScreenVisual
     /// <summary>
     /// Update handler - keep timers and scrolling text up to date.
     /// </summary>
-<<<<<<< HEAD
-    private void OnTimerFinish(EntityUid uid, TextScreenVisualsComponent screen)
-    {
-        screen.TextToDraw = screen.Text;
-
-        if (!TryComp<TextScreenTimerComponent>(uid, out var timer) || !TryComp<SpriteComponent>(uid, out var sprite))
-            return;
-
-        foreach (var key in timer.LayerStatesToDraw.Keys)
-            SpriteSystem.RemoveLayer((uid, sprite), key);
-
-        RemComp<TextScreenTimerComponent>(uid);
-
-        ResetText(uid, screen);
-        BuildTextLayers(uid, screen, sprite);
-        DrawLayers(uid, screen.LayerStatesToDraw);
-    }
-
-    /// <summary>
-    ///     Converts string to string?[] based on
-    ///     <see cref="TextScreenVisualsComponent.RowLength"/> and <see cref="TextScreenVisualsComponent.Rows"/>.
-    /// </summary>
-    private string?[] SegmentText(string text, TextScreenVisualsComponent component)
-    {
-        int segment = component.RowLength;
-        var segmented = new string?[Math.Min(component.Rows, (text.Length - 1) / segment + 1)];
-
-        // populate segmented with a string sliding window using Substring.
-        // (Substring(5, 5) will return the 5 characters starting from 5th index)
-        // the Mins are for the very short string case, the very long string case, and to not OOB the end of the string.
-        for (int i = 0; i < Math.Min(text.Length, segment * component.Rows); i += segment)
-            segmented[i / segment] = text.Substring(i, Math.Min(text.Length - i, segment)).Trim();
-
-        return segmented;
-    }
-
-    /// <summary>
-    ///     Clears <see cref="TextScreenVisualsComponent.LayerStatesToDraw"/>, and instantiates new blank defaults.
-    /// </summary>
-    private void ResetText(EntityUid uid, TextScreenVisualsComponent component, SpriteComponent? sprite = null)
-    {
-        if (!Resolve(uid, ref sprite))
-            return;
-
-        foreach (var key in component.LayerStatesToDraw.Keys)
-            SpriteSystem.RemoveLayer((uid, sprite), key);
-
-        component.LayerStatesToDraw.Clear();
-
-        for (var row = 0; row < component.Rows; row++)
-            for (var i = 0; i < component.RowLength; i++)
-            {
-                var key = TextMapKey + row + "_" + i; // ADT-Tweak
-                SpriteSystem.LayerMapReserve((uid, sprite), key);
-                component.LayerStatesToDraw.Add(key, null);
-                SpriteSystem.LayerSetRsi((uid, sprite), key, new ResPath(TextPath));
-                SpriteSystem.LayerSetColor((uid, sprite), key, component.Color);
-                SpriteSystem.LayerSetRsiState((uid, sprite), key, DefaultState);
-            }
-    }
-
-    /// <summary>
-    ///     Sets the states in the <see cref="TextScreenVisualsComponent.LayerStatesToDraw"/> to match the component
-    ///     <see cref="TextScreenVisualsComponent.TextToDraw"/> string?[].
-    /// </summary>
-    /// <remarks>
-    ///     Remember to set <see cref="TextScreenVisualsComponent.TextToDraw"/> to a string?[] first.
-    /// </remarks>
-    private void BuildTextLayers(EntityUid uid, TextScreenVisualsComponent component, SpriteComponent? sprite = null)
-    {
-        if (!Resolve(uid, ref sprite))
-            return;
-
-        for (var rowIdx = 0; rowIdx < Math.Min(component.TextToDraw.Length, component.Rows); rowIdx++)
-        {
-            var row = component.TextToDraw[rowIdx];
-            if (row == null)
-                continue;
-            var min = Math.Min(row.Length, component.RowLength);
-
-            for (var chr = 0; chr < min; chr++)
-            {
-                component.LayerStatesToDraw[TextMapKey + rowIdx + "_" + chr] = GetStateFromChar(row[chr]); // ADT-Tweak
-                SpriteSystem.LayerSetOffset(
-                    (uid, sprite),
-                    TextMapKey + rowIdx + "_" + chr, // ADT-Tweak
-                    Vector2.Multiply(
-                        new Vector2((chr - min / 2f + 0.5f) * CharWidth, -rowIdx * component.RowOffset),
-                        TextScreenVisualsComponent.PixelSize
-                        ) + component.TextOffset
-                );
-            }
-        }
-    }
-
-    /// <summary>
-    ///     Populates timer.LayerStatesToDraw & the sprite component's layer dict with calculated offsets.
-    /// </summary>
-    private void BuildTimerLayers(EntityUid uid, TextScreenTimerComponent timer, TextScreenVisualsComponent screen)
-    {
-        if (!TryComp<SpriteComponent>(uid, out var sprite))
-            return;
-
-        var time = TimeToString(
-            (_gameTiming.CurTime - timer.Target).Duration(),
-            false,
-            screen.HourFormat, screen.MinuteFormat, screen.SecondFormat
-            );
-
-        var min = Math.Min(time.Length, screen.RowLength);
-
-        for (var i = 0; i < min; i++)
-        {
-            timer.LayerStatesToDraw[TimerMapKey + i] = GetStateFromChar(time[i]);
-            SpriteSystem.LayerSetOffset(
-                (uid, sprite),
-                TimerMapKey + i,
-                Vector2.Multiply(
-                    new Vector2((i - min / 2f + 0.5f) * CharWidth, 0f),
-                    TextScreenVisualsComponent.PixelSize
-                    ) + screen.TimerOffset
-            );
-        }
-    }
-
-    /// <summary>
-    ///     Draws a LayerStates dict by setting the sprite states individually.
-    /// </summary>
-    private void DrawLayers(EntityUid uid, Dictionary<string, string?> layerStates, SpriteComponent? sprite = null)
-    {
-        if (!Resolve(uid, ref sprite))
-            return;
-
-        foreach (var (key, state) in layerStates.Where(pairs => pairs.Value != null))
-            SpriteSystem.LayerSetRsiState((uid, sprite), key, state);
-    }
-
-=======
->>>>>>> wizards-filtered
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -488,12 +349,28 @@ public sealed partial class TextScreenSystem : VisualizerSystem<TextScreenVisual
         {
             for (var i = 0; i <= screen.RowLength; i++) // Extra index needed for scrolling.
             {
+<<<<<<< ours
+                var key = TextMapKey + row + "_" + i; // ADT-Tweak
+                SpriteSystem.LayerMapReserve((uid, sprite), key);
+                component.LayerStatesToDraw.Add(key, null);
+                SpriteSystem.LayerSetRsi((uid, sprite), key, new ResPath(TextPath));
+                SpriteSystem.LayerSetColor((uid, sprite), key, component.Color);
+                SpriteSystem.LayerSetRsiState((uid, sprite), key, DefaultState);
+||||||| base
+                var key = TextMapKey + row + i;
+                SpriteSystem.LayerMapReserve((uid, sprite), key);
+                component.LayerStatesToDraw.Add(key, null);
+                SpriteSystem.LayerSetRsi((uid, sprite), key, new ResPath(TextPath));
+                SpriteSystem.LayerSetColor((uid, sprite), key, component.Color);
+                SpriteSystem.LayerSetRsiState((uid, sprite), key, DefaultState);
+=======
                 var key = TextMapKey + row + i;
                 var layerIndex = SpriteSystem.LayerMapReserve(sprite, key);
                 screen.LayerStatesToDraw.Add(key, null);
                 SpriteSystem.LayerSetRsi(sprite, layerIndex, new ResPath(TextPath));
                 SpriteSystem.LayerSetColor(sprite, layerIndex, screen.Color);
                 SpriteSystem.LayerSetRsiState(sprite, layerIndex, DefaultState);
+>>>>>>> theirs
             }
         }
 
@@ -531,13 +408,35 @@ public sealed partial class TextScreenSystem : VisualizerSystem<TextScreenVisual
 
             for (var chr = 0; chr < min; chr++)
             {
+<<<<<<< ours
+                component.LayerStatesToDraw[TextMapKey + rowIdx + "_" + chr] = GetStateFromChar(row[chr]); // ADT-Tweak
+||||||| base
+                component.LayerStatesToDraw[TextMapKey + rowIdx + chr] = GetStateFromChar(row[chr]);
+=======
                 screen.LayerStatesToDraw[TextMapKey + rowIdx + chr] = GetStateFromChar(row[chr]);
+>>>>>>> theirs
                 SpriteSystem.LayerSetOffset(
+<<<<<<< ours
+                    (uid, sprite),
+                    TextMapKey + rowIdx + "_" + chr, // ADT-Tweak
+                    Vector2.Multiply(
+                        new Vector2((chr - min / 2f + 0.5f) * CharWidth, -rowIdx * component.RowOffset),
+                        TextScreenVisualsComponent.PixelSize
+                        ) + component.TextOffset
+||||||| base
+                    (uid, sprite),
+                    TextMapKey + rowIdx + chr,
+                    Vector2.Multiply(
+                        new Vector2((chr - min / 2f + 0.5f) * CharWidth, -rowIdx * component.RowOffset),
+                        TextScreenVisualsComponent.PixelSize
+                        ) + component.TextOffset
+=======
                     sprite,
                     TextMapKey + rowIdx + chr,
                     screen.TextOffset + Vector2.Multiply(
                         new Vector2((chr - min / 2f + 0.5f) * CharWidth, -rowIdx * screen.RowOffset),
                         TextScreenVisualsComponent.PixelSize)
+>>>>>>> theirs
                 );
             }
         }

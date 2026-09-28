@@ -1,4 +1,4 @@
-using System.Text;
+﻿using System.Text;
 using Content.Server.Administration.Managers;
 using Content.Server.Afk;
 using Content.Shared.Administration;
@@ -7,14 +7,17 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Administration.Commands;
 
-<<<<<<< HEAD
+<<<<<<< ours
 [AdminCommand(AdminFlags.Adminchat)] //ADT tweak
 
+public sealed class AdminWhoCommand : LocalizedCommands
+||||||| base
+[AdminCommand(AdminFlags.AdminWho)]
 public sealed class AdminWhoCommand : LocalizedCommands
 =======
 [AdminCommand(AdminFlags.AdminWho)]
 public sealed partial class AdminWhoCommand : LocalizedCommands
->>>>>>> wizards-filtered
+>>>>>>> theirs
 {
     [Dependency] private IAfkManager _afkManager = default!;
     [Dependency] private IAdminManager _adminManager = default!;

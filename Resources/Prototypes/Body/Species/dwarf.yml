@@ -107,7 +107,7 @@
           state: dwarfism_hand_right
   - type: HumanoidProfile
     species: Dwarf
-<<<<<<< HEAD
+<<<<<<< ours
   - type: ScaleVisuals
     scale: 1, 0.8
   # ADT-Tweak start
@@ -115,6 +115,9 @@
     pingSound: null
     viewRange: 4
   # ADT-Tweak end
+||||||| base
+  - type: ScaleVisuals
+    scale: 1, 0.8
 =======
 
 - type: displacementData
@@ -124,7 +127,7 @@
       32:
         sprite: Mobs/Species/Human/displacement.rsi
         state: dwarfism
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   parent:
@@ -162,11 +165,12 @@
     accent: scottish
   - type: Speech
     speechSounds: Bass
-<<<<<<< HEAD
+<<<<<<< ours
   # ADT-Tweak: Start
   - type: TypingIndicator
     proto: ADTdwarf
   # ADT-Tweak: End
+||||||| base
 =======
   - type: CreamPied
     displacement: Dwarfism
@@ -176,7 +180,7 @@
     displacement: Dwarfism
   - type: InnerBodyAnomalyVisuals
     displacement: Dwarfism
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   parent: OrganBaseOrganic

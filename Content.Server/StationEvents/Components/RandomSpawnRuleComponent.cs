@@ -12,7 +12,7 @@ public sealed partial class RandomSpawnRuleComponent : Component
     /// <summary>
     /// The entity to be spawned.
     /// </summary>
-<<<<<<< HEAD
+<<<<<<< ours
     [DataField("prototype", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string Prototype = string.Empty;
 
@@ -29,8 +29,11 @@ public sealed partial class RandomSpawnRuleComponent : Component
     [DataField]
     public int MaxCount = 1;
     // ADT-Port-Europe-End
+||||||| base
+    [DataField("prototype", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+    public string Prototype = string.Empty;
 =======
     [DataField(required: true)]
     public EntProtoId Prototype;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 }

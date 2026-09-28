@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-﻿- type: entity
-=======
 - type: entity
   parent: [BaseDeltaPressureReinforcedGlass, BaseWindowStructure, BaseRCDResistant]
->>>>>>> wizards-filtered
   id: ShuttleWindow
   name: shuttle window
   components:

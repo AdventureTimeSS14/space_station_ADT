@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-using System.Linq;
-=======
 ﻿using System.Linq;
->>>>>>> wizards-filtered
 using Content.Shared.FixedPoint;
 using Content.Shared.PDA.Ringer;
 using Content.Shared.Store.Components;
@@ -106,8 +102,4 @@ public abstract partial class SharedStoreSystem
             UI.SetUiState((uid, ui), StoreUiKey.Key, state);
         }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> wizards-filtered

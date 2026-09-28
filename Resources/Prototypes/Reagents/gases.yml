@@ -16,11 +16,13 @@
       - !type:Oxygenate
         conditions:
         - !type:MetabolizerTypeCondition
-<<<<<<< HEAD
+<<<<<<< ours
           type: [ Human, Animal, Rat, Plant, Arachnid, Moth, Drask, Resomi, Novakid, Ursus ] # ADT-Tweak
+||||||| base
+          type: [ Human, Animal, Rat, Plant ]
 =======
           type: [ Human, Animal, Rat, Plant, Arachnid ]
->>>>>>> wizards-filtered
+>>>>>>> theirs
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
         conditions:

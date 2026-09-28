@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-﻿- type: entity
-  id: Window
-=======
 - type: entity
   abstract: true
->>>>>>> wizards-filtered
   parent: [BaseDeltaPressureGlass, BaseStructure]
   id: BaseWindowStructure
   name: window
@@ -41,13 +36,17 @@
         - FullTileMask
         layer:
         - GlassLayer
-<<<<<<< HEAD
+<<<<<<< ours
   - type: Damageable
     damageModifierSet: Glass
   - type: Injurable
     damageContainer: StructuralInorganic
+||||||| base
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Glass
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: ExaminableDamage
     messages: WindowMessages
   - type: Repairable
@@ -77,8 +76,9 @@
   - type: StaticPrice
     price: 100
   - type: BlockWeather
-<<<<<<< HEAD
+<<<<<<< ours
   - type: CanBuildWindowOnTopRPD # ADT-RPD
+||||||| base
 =======
   - type: StructureAlignerPylon
     pylons:
@@ -114,7 +114,7 @@
             max: 2
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   parent: Window
@@ -187,13 +187,17 @@
         layer:
         - GlassLayer
   - type: Repairable
-<<<<<<< HEAD
+<<<<<<< ours
   - type: Damageable
     damageModifierSet: Glass
   - type: Injurable
     damageContainer: StructuralInorganic
+||||||| base
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Glass
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: ExaminableDamage
     messages: WindowMessages
   - type: RCDDeconstructable

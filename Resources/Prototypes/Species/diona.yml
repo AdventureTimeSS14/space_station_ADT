@@ -13,7 +13,7 @@
   naming: TheFirstofLast
   sexes:
   - Unsexed
-<<<<<<< HEAD
+<<<<<<< ours
   # ADT start
   shortDesc: species-short-desc-diona
   description: "/ServerInfo/ADT/SpeciesDescriptions/Diona.xml"
@@ -41,6 +41,7 @@
   oldAge: 91
   youngAge: 26
   # ADT end
+||||||| base
 =======
   defaultSoundsBySex:
   - UnisexDiona
@@ -48,4 +49,4 @@
   - UnisexDiona
   voices:
   - UnisexDiona
->>>>>>> wizards-filtered
+>>>>>>> theirs

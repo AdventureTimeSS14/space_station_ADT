@@ -25,19 +25,22 @@ public sealed class CharacterInfoEvent : EntityEventArgs
     public readonly string? Briefing;
     public readonly Dictionary<string, string> Memory; //ADT-Economy
 
-<<<<<<< HEAD
+<<<<<<< ours
     public CharacterInfoEvent(NetEntity netEntity, string jobTitle, Dictionary<string, List<ObjectiveInfo>> objectives, string? briefing, Dictionary<string, string> memory) //ADT-Economy
+||||||| base
+    public CharacterInfoEvent(NetEntity netEntity, string jobTitle, Dictionary<string, List<ObjectiveInfo>> objectives, string? briefing)
 =======
     public CharacterInfoEvent(NetEntity netEntity, Dictionary<string, List<ObjectiveInfo>> objectives, string? briefing, ProtoId<JobPrototype>? job)
->>>>>>> wizards-filtered
+>>>>>>> theirs
     {
         NetEntity = netEntity;
         Objectives = objectives;
         Briefing = briefing;
-<<<<<<< HEAD
+<<<<<<< ours
         Memory = memory; //ADT-Economy
+||||||| base
 =======
         Job = job;
->>>>>>> wizards-filtered
+>>>>>>> theirs
     }
 }

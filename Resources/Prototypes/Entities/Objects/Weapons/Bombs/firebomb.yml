@@ -1,4 +1,4 @@
-﻿# ied crafted from random stuff
+# ied crafted from random stuff
 # ideally it would be dynamic and work by actually sparking the solution but that doesnt exist yet :(
 # with that you could make napalm ied instead of welding fuel with no additional complexity
 - type: entity
@@ -41,12 +41,15 @@
   - type: AnimationPlayer
   - type: TimerTriggerVisuals
     unprimedSprite: base
-<<<<<<< HEAD
+<<<<<<< ours
   - type: Damageable
   - type: Injurable
     damageContainer: Inorganic
+||||||| base
+  - type: Damageable
+    damageContainer: Inorganic
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Destructible
     thresholds:
     - trigger:

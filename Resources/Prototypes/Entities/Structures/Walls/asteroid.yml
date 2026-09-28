@@ -1,4 +1,4 @@
-﻿#TODO: Someone should probably move the ore vein prototypes into their own file, or otherwise split this up in some way. This should not be 1.5k lines long.
+#TODO: Someone should probably move the ore vein prototypes into their own file, or otherwise split this up in some way. This should not be 1.5k lines long.
 
 # Anyway
 # See WallRock variants for the remappings.
@@ -31,10 +31,13 @@
   - type: MiningScannerViewable
   - type: Damageable
     damageModifierSet: Rock
+<<<<<<< ours
   - type: Injurable
     damageContainer: StructuralInorganic
-<<<<<<< HEAD
+||||||| base
 =======
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Fixtures
     fixtures:
       fix1:
@@ -54,7 +57,7 @@
   name: asteroid rock
   description: A rocky asteroid.
   components:
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Destructible
     thresholds:
     - trigger:
@@ -68,7 +71,7 @@
           path: /Audio/Effects/break_stone.ogg
           params:
             volume: -6
-<<<<<<< HEAD
+<<<<<<< ours
   - type: SoundOnGather #ADT plasmacutters start
   - type: Gatherable
     toolWhitelist:
@@ -85,8 +88,20 @@
         layer:
         - WallLayer
         density: 2000
+||||||| base
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 2000
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   abstract: true

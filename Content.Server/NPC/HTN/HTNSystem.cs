@@ -17,17 +17,10 @@ namespace Content.Server.NPC.HTN;
 
 public sealed partial class HTNSystem : EntitySystem
 {
-<<<<<<< HEAD
-    [Dependency] private readonly IAdminManager _admin = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly NPCSystem _npc = default!;
-    [Dependency] private readonly NPCUtilitySystem _utility = default!;
-=======
     [Dependency] private IAdminManager _admin = default!;
     [Dependency] private NPCSystem _npc = default!;
     [Dependency] private NPCUtilitySystem _utility = default!;
 
->>>>>>> wizards-filtered
     private readonly JobQueue _planQueue = new(0.004);
 
     private readonly HashSet<ICommonSession> _subscribers = new();

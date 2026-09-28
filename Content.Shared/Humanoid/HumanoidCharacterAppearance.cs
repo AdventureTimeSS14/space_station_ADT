@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-﻿using System.Linq;
-using System.Numerics;
-using Content.Shared.ADT.BodyTypes; // ADT-Tweak
-=======
 ﻿using System.Numerics;
->>>>>>> wizards-filtered
+using Content.Shared.ADT.BodyTypes; // ADT-Tweak
 using Content.Shared.Body;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
@@ -147,7 +142,7 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
             _ => strategy.ClosestSkinColor(new Color(random.NextFloat(1), random.NextFloat(1), random.NextFloat(1), 1)),
         };
 
-<<<<<<< HEAD
+<<<<<<< ours
         var newHairColor = random.Pick(HairStyles.RealisticHairColors);
         newHairColor = newHairColor
             .WithRed(RandomizeColor(newHairColor.R))
@@ -162,6 +157,8 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
             return MathHelper.Clamp01(channel + random.Next(-25, 25) / 100f);
         }
         // ADT-Tweak end
+||||||| base
+        return new HumanoidCharacterAppearance(newEyeColor, newSkinColor, new());
 =======
         return skinColor;
     }
@@ -207,7 +204,7 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
         // Safety step. Most systems which called Random() also called this, and not doing so caused issues with markings.
         // In the future it could *maybe* be removed, but it's probably worth the extra CPU cycles to validate this info.
         return EnsureValid(appearance, species, sex);
->>>>>>> wizards-filtered
+>>>>>>> theirs
     }
 
     public static Color ClampColor(Color color)

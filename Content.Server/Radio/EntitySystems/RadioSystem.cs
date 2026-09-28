@@ -1,9 +1,10 @@
 using Content.Server.Administration.Logs;
-<<<<<<< HEAD
+<<<<<<< ours
 using Content.Server.ADT.StationAi; // ADT-Tweak
+||||||| base
 =======
 using Content.Server.Chat.Managers;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 using Content.Server.Chat.Systems;
 using Content.Server.Ghost;
 using Content.Server.Power.Components;
@@ -35,7 +36,7 @@ namespace Content.Server.Radio.EntitySystems;
 /// <inheritdoc/>
 public sealed partial class RadioSystem : SharedRadioSystem
 {
-<<<<<<< HEAD
+<<<<<<< ours
     [Dependency] private readonly INetManager _netMan = default!;
     [Dependency] private readonly ADT.Deafness.ADTDeafnessSystem _deafness = default!;
     [Dependency] private readonly IReplayRecordingManager _replay = default!;
@@ -47,6 +48,13 @@ public sealed partial class RadioSystem : SharedRadioSystem
     [Dependency] private readonly SharedRadioJobIconSystem _radioJobIcon = default!; // ADT-Tweak
     [Dependency] private readonly AiEyeTeleportSystem _aiEyeTeleport = default!; // ADT-Tweak
     [Dependency] private readonly ADTTenCodeSystem _tenCode = default!; // ADT-Tweak
+||||||| base
+    [Dependency] private readonly INetManager _netMan = default!;
+    [Dependency] private readonly IReplayRecordingManager _replay = default!;
+    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
 =======
     [Dependency] private INetManager _netMan = default!;
     [Dependency] private IReplayRecordingManager _replay = default!;
@@ -56,28 +64,34 @@ public sealed partial class RadioSystem : SharedRadioSystem
     [Dependency] private IChatManager _chatManager = default!;
     [Dependency] private GhostSystem _ghost = default!;
     [Dependency] private EntityQuery<TelecomExemptComponent> _exemptQuery = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
     // set used to prevent radio feedback loops.
     private readonly HashSet<string> _messages = new();
 
-<<<<<<< HEAD
+<<<<<<< ours
     private EntityQuery<TelecomExemptComponent> _exemptQuery;
     private EntityQuery<RadioJobIconComponent> _radioJobIconQuery; // ADT-Tweak
 
+||||||| base
+    private EntityQuery<TelecomExemptComponent> _exemptQuery;
+
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<IntrinsicRadioReceiverComponent, RadioReceiveEvent>(OnIntrinsicReceive);
         SubscribeLocalEvent<IntrinsicRadioTransmitterComponent, EntitySpokeEvent>(OnIntrinsicSpeak);
-<<<<<<< HEAD
+<<<<<<< ours
 
         _exemptQuery = GetEntityQuery<TelecomExemptComponent>();
         _radioJobIconQuery = GetEntityQuery<RadioJobIconComponent>(); // ADT-Tweak
+||||||| base
+
+        _exemptQuery = GetEntityQuery<TelecomExemptComponent>();
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
     }
 
     private void OnIntrinsicSpeak(EntityUid uid, IntrinsicRadioTransmitterComponent component, EntitySpokeEvent args)
@@ -91,7 +105,7 @@ public sealed partial class RadioSystem : SharedRadioSystem
 
     private void OnIntrinsicReceive(EntityUid uid, IntrinsicRadioReceiverComponent component, ref RadioReceiveEvent args)
     {
-<<<<<<< HEAD
+<<<<<<< ours
         if (TryComp(uid, out ActorComponent? actor))
         {
             // ADT-Tweak start
@@ -108,24 +122,14 @@ public sealed partial class RadioSystem : SharedRadioSystem
             // ADT-Tweak end
         }
     }
-
-    /// <summary>
-    /// Send radio message to all active radio listeners
-    /// </summary>
-    public void SendRadioMessage(EntityUid messageSource, string message, ProtoId<RadioChannelPrototype> channel, EntityUid radioSource, bool escapeMarkup = true)
-    {
-        SendRadioMessage(messageSource, message, _prototype.Index(channel), radioSource, escapeMarkup: escapeMarkup);
+||||||| base
+        if (TryComp(uid, out ActorComponent? actor))
+            _netMan.ServerSendMessage(args.ChatMsg, actor.PlayerSession.Channel);
     }
-
-    /// <summary>
-    /// Send radio message to all active radio listeners
-    /// </summary>
-    /// <param name="messageSource">Entity that spoke the message</param>
-    /// <param name="radioSource">Entity that picked up the message and will send it, e.g. headset</param>
-    public void SendRadioMessage(EntityUid messageSource, string message, RadioChannelPrototype channel, EntityUid radioSource, bool escapeMarkup = true, LanguagePrototype? languageOverride = null)
 =======
         if (!TryComp(uid, out ActorComponent? actor))
             return;
+>>>>>>> theirs
 
         var msg = args.ChatMsg;
         if (_ghost.CanGhostWarp(actor.PlayerSession, out _))
@@ -145,9 +149,24 @@ public sealed partial class RadioSystem : SharedRadioSystem
         _netMan.ServerSendMessage(msg, actor.PlayerSession.Channel);
     }
 
+<<<<<<< ours
+    /// <summary>
+    /// Send radio message to all active radio listeners
+    /// </summary>
+    /// <param name="messageSource">Entity that spoke the message</param>
+    /// <param name="radioSource">Entity that picked up the message and will send it, e.g. headset</param>
+    public void SendRadioMessage(EntityUid messageSource, string message, RadioChannelPrototype channel, EntityUid radioSource, bool escapeMarkup = true, LanguagePrototype? languageOverride = null)
+||||||| base
+    /// <summary>
+    /// Send radio message to all active radio listeners
+    /// </summary>
+    /// <param name="messageSource">Entity that spoke the message</param>
+    /// <param name="radioSource">Entity that picked up the message and will send it, e.g. headset</param>
+    public void SendRadioMessage(EntityUid messageSource, string message, RadioChannelPrototype channel, EntityUid radioSource, bool escapeMarkup = true)
+=======
     /// <inheritdoc/>
     public override void SendRadioMessage(EntityUid messageSource, string message, RadioChannelPrototype channel, EntityUid radioSource, bool escapeMarkup = true)
->>>>>>> wizards-filtered
+>>>>>>> theirs
     {
         // TODO if radios ever garble / modify messages, feedback-prevention needs to be handled better than this.
         if (!_messages.Add(message))

@@ -12,12 +12,13 @@ using Content.Shared.GameTicking;
 using Content.Shared.Maps;
 using Content.Shared.Preferences;
 using Content.Shared.Roles.Jobs;
-<<<<<<< HEAD
+<<<<<<< ours
 using Content.Shared.Roles;
 using Robust.Shared.GameObjects;
+||||||| base
 =======
 using Content.Shared.Station.Components;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 
@@ -197,13 +198,15 @@ public sealed class JobTest : GameTest
         Assert.That(ticker.RunLevel, Is.EqualTo(GameRunLevel.PreRoundLobby));
         Assert.That(pair.Client.AttachedEntity, Is.Null);
 
-<<<<<<< HEAD
+<<<<<<< ours
         pair.Server.CfgMan.SetCVar(CCVars.GameLobbyFallbackEnabled, false); // ADT-tweak: Disable fallback to prevent round restart if preset fails
 
         await pair.SetJobPriorities((Passenger, JobPriority.Medium), (Engineer, JobPriority.High));
+||||||| base
+        await pair.SetJobPriorities((Passenger, JobPriority.Medium), (Engineer, JobPriority.High));
 =======
         await pair.SetJobPriorities((Passenger, JobPriority.Never), (Engineer, JobPriority.High));
->>>>>>> wizards-filtered
+>>>>>>> theirs
         ticker.ToggleReadyAll(true);
         await pair.Server.WaitPost(() => ticker.StartRound());
 

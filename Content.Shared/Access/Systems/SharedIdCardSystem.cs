@@ -19,7 +19,7 @@ namespace Content.Shared.Access.Systems;
 
 public abstract partial class SharedIdCardSystem : EntitySystem
 {
-<<<<<<< HEAD
+<<<<<<< ours
     [Dependency] private readonly IConfigurationManager _cfgManager = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -29,6 +29,16 @@ public abstract partial class SharedIdCardSystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedRadioJobIconSystem _radioJobIcon = default!; // ADT-Tweak
+    [Dependency] private readonly SharedJobStatusSystem _jobStatus = default!;
+||||||| base
+    [Dependency] private readonly IConfigurationManager _cfgManager = default!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedAccessSystem _access = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly InventorySystem _inventorySystem = default!;
+    [Dependency] private readonly MetaDataSystem _metaSystem = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedJobStatusSystem _jobStatus = default!;
 =======
     [Dependency] private IConfigurationManager _cfgManager = default!;
@@ -40,7 +50,7 @@ public abstract partial class SharedIdCardSystem : EntitySystem
     [Dependency] private MetaDataSystem _metaSystem = default!;
     [Dependency] private SharedJobStatusSystem _jobStatus = default!;
     [Dependency] private SharedAgentIdCardSystem _agentIdCard = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
     // CCVar.
     private int _maxNameLength;
@@ -183,12 +193,14 @@ public abstract partial class SharedIdCardSystem : EntitySystem
         return true;
     }
 
-<<<<<<< HEAD
+<<<<<<< ours
     public bool TryChangeJobIcon(EntityUid uid, JobIconPrototype jobIcon, IdCardComponent? id = null, EntityUid? player = null, string? jobNameOverride = null) // ADT-Tweak
+||||||| base
+    public bool TryChangeJobIcon(EntityUid uid, JobIconPrototype jobIcon, IdCardComponent? id = null, EntityUid? player = null)
 =======
     /// <returns> True if the job icon changed, false if nothing changed. </returns>
     public bool TryChangeJobIcon(EntityUid uid, JobIconPrototype jobIcon, IdCardComponent? id = null, EntityUid? player = null)
->>>>>>> wizards-filtered
+>>>>>>> theirs
     {
         if (!Resolve(uid, ref id))
         {

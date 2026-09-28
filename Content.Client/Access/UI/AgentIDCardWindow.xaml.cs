@@ -36,26 +36,33 @@ public sealed partial class AgentIDCardWindow : FancyWindow
         NameLineEdit.OnTextEntered += e => CommitName(e.Text);
         NameLineEdit.OnFocusExit += e => CommitName(e.Text);
 
-<<<<<<< HEAD
+        JobLineEdit.OnTextEntered += e => CommitJob(e.Text);
+        JobLineEdit.OnFocusExit += e => CommitJob(e.Text);
+
+<<<<<<< ours
         private const int MaxNumberLength = 4; // ADT-tweak: Same as NewChatPopup
 
         public event Action<string>? OnNameChanged;
         public event Action<string>? OnJobChanged;
+||||||| base
+        public event Action<string>? OnNameChanged;
+        public event Action<string>? OnJobChanged;
+=======
+        NameLineEdit.IsValid = s => s.Length <= _cfgManager.GetCVar(CCVars.MaxNameLength);
+        JobLineEdit.IsValid = s => s.Length <= _cfgManager.GetCVar(CCVars.MaxIdJobLength);
+>>>>>>> theirs
 
+<<<<<<< ours
         public event Action<uint>? OnNumberChanged; // ADT-tweak: Add event for number changes
 
         public event Action<ProtoId<JobIconPrototype>>? OnJobIconChanged;
+||||||| base
+        public event Action<ProtoId<JobIconPrototype>>? OnJobIconChanged;
 =======
-        JobLineEdit.OnTextEntered += e => CommitJob(e.Text);
-        JobLineEdit.OnFocusExit += e => CommitJob(e.Text);
-
-        NameLineEdit.IsValid = s => s.Length <= _cfgManager.GetCVar(CCVars.MaxNameLength);
-        JobLineEdit.IsValid = s => s.Length <= _cfgManager.GetCVar(CCVars.MaxIdJobLength);
->>>>>>> wizards-filtered
-
         AgentTabs.SetTabTitle(0, Loc.GetString("agent-id-ui-tab-settings"));
         AgentTabs.SetTabTitle(1, Loc.GetString("agent-id-ui-tab-job-icons"));
     }
+>>>>>>> theirs
 
     /// <summary>
     /// Creates the job icons tab.
@@ -79,7 +86,12 @@ public sealed partial class AgentIDCardWindow : FancyWindow
             var groupButton = CreateGroupButton(groupProto, jobGroupButtonGroup);
             groupButton.OnPressed += _ => SetJobIcons(groupProto.Icons);
 
-<<<<<<< HEAD
+            JobGroupGrid.AddChild(groupButton);
+
+            firstGroupButton ??= groupButton;
+            firstGroupIcons ??= groupProto.Icons;
+
+<<<<<<< ours
             JobLineEdit.OnTextEntered += e => OnJobChanged?.Invoke(e.Text);
             JobLineEdit.OnFocusExit += e => OnJobChanged?.Invoke(e.Text);
 
@@ -109,14 +121,10 @@ public sealed partial class AgentIDCardWindow : FancyWindow
         {
             NumberLineEdit.Text = number?.ToString("D4") ?? "";
              // ADT-tweak-end
-        }
+||||||| base
+            JobLineEdit.OnTextEntered += e => OnJobChanged?.Invoke(e.Text);
+            JobLineEdit.OnFocusExit += e => OnJobChanged?.Invoke(e.Text);
 =======
-            JobGroupGrid.AddChild(groupButton);
->>>>>>> wizards-filtered
-
-            firstGroupButton ??= groupButton;
-            firstGroupIcons ??= groupProto.Icons;
-
             // Prefer the group that actually contains the card's current icon so
             // the opened window shows the relevant set rather than always the first.
             if (matchingGroupButton == null && groupProto.Icons.Contains(currentIcon))
@@ -124,6 +132,7 @@ public sealed partial class AgentIDCardWindow : FancyWindow
                 matchingGroupButton = groupButton;
                 matchingGroupIcons = groupProto.Icons;
             }
+>>>>>>> theirs
         }
 
         var selectedButton = matchingGroupButton ?? firstGroupButton;

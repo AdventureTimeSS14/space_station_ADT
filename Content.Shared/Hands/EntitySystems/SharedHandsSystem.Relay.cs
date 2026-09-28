@@ -27,15 +27,16 @@ public abstract partial class SharedHandsSystem
         SubscribeLocalEvent<HandsComponent, WieldAttemptEvent>(RefRelayEvent);
         SubscribeLocalEvent<HandsComponent, UnwieldAttemptEvent>(RefRelayEvent);
         SubscribeLocalEvent<HandsComponent, TargetHandcuffedEvent>(RefRelayEvent);
-<<<<<<< HEAD
+<<<<<<< ours
 
         // ADT Grab - relay grab events to held items
         SubscribeLocalEvent<HandsComponent, FindGrabbingItemEvent>(RefRelayEvent);
         SubscribeLocalEvent<HandsComponent, StopGrabbingItemPullEvent>(RefRelayEvent);
         SubscribeLocalEvent<HandsComponent, GrabModifierEvent>(RefRelayEvent);
+||||||| base
 =======
         SubscribeLocalEvent<HandsComponent, RefreshWeightlessModifiersEvent>(RefRelayEvent);
->>>>>>> wizards-filtered
+>>>>>>> theirs
     }
 
     private void RelayEvent<T>(Entity<HandsComponent> entity, ref T args) where T : EntityEventArgs

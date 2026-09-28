@@ -32,17 +32,25 @@ namespace Content.Server.Atmos.EntitySystems
             SubscribeLocalEvent<PressureProtectionComponent, GotUnequippedEvent>(OnPressureProtectionUnequipped);
             SubscribeLocalEvent<PressureProtectionComponent, ComponentStartup>(OnUpdateResistance);
             SubscribeLocalEvent<PressureProtectionComponent, ComponentRemove>(OnUpdateResistance);
-<<<<<<< HEAD
+<<<<<<< ours
 
             SubscribeLocalEvent<BarotraumaComponent, MapInitEvent>(OnBarotraumaInit);
-        }
+||||||| base
 
+            SubscribeLocalEvent<PressureImmunityComponent, ComponentInit>(OnPressureImmuneInit);
+            SubscribeLocalEvent<PressureImmunityComponent, ComponentRemove>(OnPressureImmuneRemove);
 =======
+>>>>>>> theirs
         }
 
-        [SubscribeLocalEvent]
->>>>>>> wizards-filtered
+<<<<<<< ours
         private void OnBarotraumaInit(Entity<BarotraumaComponent> ent, ref MapInitEvent args)
+||||||| base
+        private void OnPressureImmuneInit(EntityUid uid, PressureImmunityComponent pressureImmunity, ComponentInit args)
+=======
+        [SubscribeLocalEvent]
+        private void OnBarotraumaInit(Entity<BarotraumaComponent> ent, ref MapInitEvent args)
+>>>>>>> theirs
         {
             RefreshPressureImmunity(ent, ent.Comp);
         }

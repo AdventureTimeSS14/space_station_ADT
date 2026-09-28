@@ -8,8 +8,10 @@
     },
     "states": [
         {
-<<<<<<< HEAD
+<<<<<<< ours
             "name": "armblade"
+||||||| base
+            "name": "transform"
 =======
             "name": "background"
         },
@@ -18,20 +20,19 @@
         },
         {
             "name": "transform"
-        },
-        {
-            "name": "devour"
->>>>>>> wizards-filtered
+>>>>>>> theirs
         },
         {
             "name": "devour_on"
         },
         {
-<<<<<<< HEAD
             "name": "devour"
         },
         {
+<<<<<<< ours
             "name": "transform"
+||||||| base
+            "name": "armblade"
 =======
             "name": "armblade"
         },
@@ -40,7 +41,7 @@
         },
         {
             "name": "stasis_exit"
->>>>>>> wizards-filtered
+>>>>>>> theirs
         }
     ]
 }

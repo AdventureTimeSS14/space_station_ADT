@@ -17,12 +17,18 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.Traits;
 
-<<<<<<< HEAD
+<<<<<<< ours
 /// <summary>
 /// Server system that validates and applies traits to players on spawn.
 /// </summary>
 public sealed class TraitSystem : EntitySystem
+||||||| base
+public sealed class TraitSystem : EntitySystem
+=======
+public sealed partial class TraitSystem : EntitySystem
+>>>>>>> theirs
 {
+<<<<<<< ours
     [Dependency] private readonly IComponentFactory _factory = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly ILogManager _log = default!;
@@ -34,12 +40,14 @@ public sealed class TraitSystem : EntitySystem
 
     private int _maxTraitCount;
     private int _maxTraitPoints;
+||||||| base
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly SharedHandsSystem _sharedHandsSystem = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
 =======
-public sealed partial class TraitSystem : EntitySystem
-{
     [Dependency] private SharedHandsSystem _sharedHandsSystem = default!;
     [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
     public override void Initialize()
     {
@@ -55,9 +63,18 @@ public sealed partial class TraitSystem : EntitySystem
     {
         // Check if player's job allows traits
         if (args.JobId == null ||
-<<<<<<< HEAD
+<<<<<<< ours
             !_prototype.TryIndex<JobPrototype>(args.JobId, out var jobProto) ||
             !jobProto.ApplyTraits)
+||||||| base
+            !_prototypeManager.Resolve<JobPrototype>(args.JobId, out var protoJob) ||
+            !protoJob.ApplyTraits)
+        {
+=======
+            !ProtoMan.Resolve<JobPrototype>(args.JobId, out var protoJob) ||
+            !protoJob.ApplyTraits)
+        {
+>>>>>>> theirs
             return;
 
         // Validate and collect valid traits
@@ -125,7 +142,13 @@ public sealed partial class TraitSystem : EntitySystem
 
         foreach (var traitId in selectedTraits)
         {
+<<<<<<< ours
             if (!_prototype.TryIndex(traitId, out var trait))
+||||||| base
+            if (!_prototypeManager.TryIndex<TraitPrototype>(traitId, out var traitPrototype))
+=======
+            if (!ProtoMan.TryIndex<TraitPrototype>(traitId, out var traitPrototype))
+>>>>>>> theirs
             {
                 Log.Warning($"Unknown trait ID in player preferences: {traitId}");
                 continue;
@@ -394,54 +417,11 @@ public sealed partial class TraitSystem : EntitySystem
         if (_inventory.TryGetSlotEntity(player, "back", out var backpack) &&
             _container.TryGetContainer(backpack.Value, "storagebase", out var container) &&
             _container.Insert(item, container))
-=======
-            !ProtoMan.Resolve<JobPrototype>(args.JobId, out var protoJob) ||
-            !protoJob.ApplyTraits)
->>>>>>> wizards-filtered
         {
             return;
         }
 
-<<<<<<< HEAD
         Log.Debug($"Could not put trait item {effect.Item} into backpack, leaving at feet");
-=======
-        foreach (var traitId in args.Profile.TraitPreferences)
-        {
-            if (!ProtoMan.TryIndex<TraitPrototype>(traitId, out var traitPrototype))
-            {
-                Log.Error($"No trait found with ID {traitId}!");
-                return;
-            }
-
-            if (_whitelistSystem.IsWhitelistFail(traitPrototype.Whitelist, args.Mob) ||
-                _whitelistSystem.IsWhitelistPass(traitPrototype.Blacklist, args.Mob))
-                continue;
-
-            // Add all components required by the prototype
-            if (traitPrototype.Components.Count > 0)
-                EntityManager.AddComponents(args.Mob, traitPrototype.Components, false);
-
-            // Add all JobSpecials required by the prototype
-            foreach (var special in traitPrototype.Specials)
-            {
-                special.AfterEquip(args.Mob);
-            }
-
-            // Add item required by the trait
-            if (traitPrototype.TraitGear == null)
-                continue;
-
-            if (!TryComp(args.Mob, out HandsComponent? handsComponent))
-                continue;
-
-            var coords = Transform(args.Mob).Coordinates;
-            var inhandEntity = Spawn(traitPrototype.TraitGear, coords);
-            _sharedHandsSystem.TryPickup(args.Mob,
-                inhandEntity,
-                checkActionBlocker: false,
-                handsComp: handsComponent);
-        }
->>>>>>> wizards-filtered
     }
 }
 // Система полностью переписана под ADT, под новые трейты

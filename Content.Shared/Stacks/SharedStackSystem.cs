@@ -211,8 +211,8 @@ public abstract partial class SharedStackSystem : EntitySystem
 
             args.Verbs.Add(verb);
         }
+<<<<<<< ours
 
-<<<<<<< HEAD
         // ADT-Tweak start: Add custom split amount option
         AlternativeVerb custom = new()
         {
@@ -224,7 +224,9 @@ public abstract partial class SharedStackSystem : EntitySystem
         };
         args.Verbs.Add(custom);
         // ADT-Tweak end
+||||||| base
 =======
+
         var half = (ent.Comp.Count + 1) / 2;
         AlternativeVerb halve = new()
         {
@@ -234,7 +236,7 @@ public abstract partial class SharedStackSystem : EntitySystem
             Priority = ent.Comp.HalfOnAltInteract ? 1 : priority - 1,
         };
         args.Verbs.Add(halve);
->>>>>>> wizards-filtered
+>>>>>>> theirs
     }
 
     #endregion

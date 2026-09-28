@@ -146,7 +146,7 @@
     tags:
     - CanPilot
     - SiliconEmotes
-<<<<<<< HEAD
+<<<<<<< ours
   # ADT-Tweak-start
   - type: LanguageSpeaker
     languages:
@@ -158,6 +158,7 @@
   - type: ContentEye
   # ADT-Tweak-end
 
+||||||| base
 =======
   - type: Item
     inhandVisuals:
@@ -165,7 +166,7 @@
       - state: base-inhand-left
       right:
       - state: base-inhand-right
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   parent: [ PersonalAI, BaseSyndicateContraband]

@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-﻿using Content.Client.Administration.Managers;
-=======
 using Content.Client.Administration.Managers;
 using Content.Client.Audio.Midi;
->>>>>>> wizards-filtered
 using Content.Client.Changelog;
 using Content.Client.Chat.Managers;
 using Content.Client.Clickable;

@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: [ BaseStructureDynamic, BasePaperLabelableVisualized ]
   id: CrateArtifactContainer
   name: artifact container
@@ -58,7 +58,6 @@
       damageContainer: StructuralInorganic
     - type: Destructible
       thresholds:
-<<<<<<< HEAD
         - trigger:
             !type:DamageTrigger
             damage: 50
@@ -75,14 +74,6 @@
         blacklist:
           tags:
           - Book
-=======
-      - trigger:
-          !type:DamageTrigger
-          damage: 50
-        behaviors:
-        - !type:DoActsBehavior
-          acts: ["Destruction"]
->>>>>>> wizards-filtered
     - type: Appearance
     - type: EntityStorageVisuals
       stateDoorOpen: open

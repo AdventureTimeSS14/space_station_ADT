@@ -73,28 +73,36 @@ public sealed partial class ShowHealthIconsSystem : EquipmentHudSystem<ShowHealt
         var result = new List<HealthIconPrototype>();
 
         // Here you could check health status, diseases, mind status, etc. and pick a good icon, or multiple depending on whatever.
-<<<<<<< HEAD
+<<<<<<< ours
         // ADT-Tweak Start: New healing containers
         if (injurableComp.DamageContainer == "Biological"
             || injurableComp.DamageContainer == "ADTBiologicalShadekin"
             || injurableComp.DamageContainer == "ADTBiologicalDrask")
         // ADT-Tweak End
+||||||| base
+        if (damageableComponent?.DamageContainerID == "Biological")
 =======
         if (injurableComp?.DamageContainer == "Biological")
->>>>>>> wizards-filtered
+>>>>>>> theirs
         {
             if (TryComp<MobStateComponent>(entity, out var state))
             {
                 // Since there is no MobState for a rotting mob, we have to deal with this case first.
-<<<<<<< HEAD
+<<<<<<< ours
                 if (HasComp<RottingComponent>(entity) && _prototypeMan.Resolve(injurableComp.RottingIcon, out var rottingIcon))
-                    result.Add(rottingIcon);
-                else if (injurableComp.HealthIcons.TryGetValue(state.CurrentState, out var value) && _prototypeMan.Resolve(value, out var icon))
+||||||| base
+                if (HasComp<RottingComponent>(entity) && _prototypeMan.Resolve(damageableComponent.RottingIcon, out var rottingIcon))
 =======
                 if (HasComp<RottingComponent>(entity) && ProtoMan.Resolve(injurableComp.RottingIcon, out var rottingIcon))
+>>>>>>> theirs
                     result.Add(rottingIcon);
+<<<<<<< ours
+                else if (injurableComp.HealthIcons.TryGetValue(state.CurrentState, out var value) && _prototypeMan.Resolve(value, out var icon))
+||||||| base
+                else if (damageableComponent.HealthIcons.TryGetValue(state.CurrentState, out var value) && _prototypeMan.Resolve(value, out var icon))
+=======
                 else if (injurableComp.HealthIcons.TryGetValue(state.CurrentState, out var value) && ProtoMan.Resolve(value, out var icon))
->>>>>>> wizards-filtered
+>>>>>>> theirs
                     result.Add(icon);
             }
         }

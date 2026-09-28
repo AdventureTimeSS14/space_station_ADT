@@ -22,7 +22,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-<<<<<<< HEAD
+<<<<<<< ours
 using System.Linq;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Random.Helpers;
@@ -31,8 +31,13 @@ using Content.Shared.Clothing.Components;
 using Content.Shared.ADT.Novakid;
 using Content.Shared.ADT.Silicon;
 // ADT-Tweak-End
+||||||| base
+using System.Linq;
+using Content.Shared.Movement.Systems;
+using Content.Shared.Random.Helpers;
+using Content.Shared.Clothing.Components;
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 namespace Content.Shared.Flash;
 
@@ -83,14 +88,21 @@ public abstract partial class SharedFlashSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-<<<<<<< HEAD
+<<<<<<< ours
 
         SubscribeLocalEvent<FlashComponent, MeleeHitEvent>(OnFlashMeleeHit);
         SubscribeLocalEvent<FlashComponent, UseInHandEvent>(OnFlashUseInHand);
         SubscribeLocalEvent<FlashComponent, LightToggleEvent>(OnLightToggle);
         SubscribeLocalEvent<PermanentBlindnessComponent, FlashAttemptEvent>(OnPermanentBlindnessFlashAttempt);
+||||||| base
+
+        SubscribeLocalEvent<FlashComponent, MeleeHitEvent>(OnFlashMeleeHit);
+        SubscribeLocalEvent<FlashComponent, UseInHandEvent>(OnFlashUseInHand);
+        SubscribeLocalEvent<FlashComponent, LightToggleEvent>(OnLightToggle);
+        SubscribeLocalEvent<PermanentBlindnessComponent, FlashAttemptEvent>(OnPermanentBlindnessFlashAttempt);
+        SubscribeLocalEvent<TemporaryBlindnessComponent, FlashAttemptEvent>(OnTemporaryBlindnessFlashAttempt);
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
         Subs.SubscribeWithRelay<FlashImmunityComponent, FlashAttemptEvent>(OnFlashImmunityFlashAttempt, held: false);
     }
 
@@ -318,7 +330,7 @@ public abstract partial class SharedFlashSystem : EntitySystem
 
         _audio.PlayPredicted(sound, source, user, AudioParams.Default.WithVolume(1f).WithMaxDistance(3f));
     }
-<<<<<<< HEAD
+<<<<<<< ours
 
     // Handle the flash visuals
     // TODO: Replace this with something like sprite flick once that exists to get rid of the update loop.
@@ -370,6 +382,53 @@ public abstract partial class SharedFlashSystem : EntitySystem
         }
         // ADT-Tweak-End
     }
+||||||| base
+
+    // Handle the flash visuals
+    // TODO: Replace this with something like sprite flick once that exists to get rid of the update loop.
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var curTime = _timing.CurTime;
+        var query = EntityQueryEnumerator<ActiveFlashComponent>();
+        while (query.MoveNext(out var uid, out var active))
+        {
+            // reset the visuals and remove the component
+            if (active.ActiveUntil < curTime)
+            {
+                _appearance.SetData(uid, FlashVisuals.Flashing, false);
+                RemCompDeferred<ActiveFlashComponent>(uid);
+            }
+        }
+    }
+
+    private void OnPermanentBlindnessFlashAttempt(Entity<PermanentBlindnessComponent> ent, ref FlashAttemptEvent args)
+    {
+        // check for total blindness
+        if (ent.Comp.Blindness == 0)
+            args.Cancelled = true;
+    }
+
+    private void OnTemporaryBlindnessFlashAttempt(Entity<TemporaryBlindnessComponent> ent, ref FlashAttemptEvent args)
+    {
+        args.Cancelled = true;
+    }
+
+    private void OnFlashImmunityFlashAttempt(Entity<FlashImmunityComponent> ent, ref FlashAttemptEvent args)
+    {
+        if (TryComp<MaskComponent>(ent, out var mask) && mask.IsToggled)
+            return;
+
+        if (ent.Comp.Enabled)
+            args.Cancelled = true;
+    }
+
+    private void OnExamine(Entity<FlashImmunityComponent> ent, ref ExaminedEvent args)
+    {
+        if (ent.Comp.ShowInExamine)
+            args.PushMarkup(Loc.GetString("flash-protection"));
+    }
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
 }

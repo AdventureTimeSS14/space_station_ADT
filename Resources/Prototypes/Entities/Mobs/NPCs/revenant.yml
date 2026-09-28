@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: MobRevenant
   parent:
   - Incorporeal
@@ -85,14 +85,16 @@
     - NamesRevenantType
     - NamesRevenantAdjective
     - NamesRevenantTheme
-<<<<<<< HEAD
+<<<<<<< ours
     # - of # ADT CHANGE
+||||||| base
+    nameFormat: name-format-revenant
 =======
     nameFormat: name-format-revenant
   - type: Grammar
     attributes:
       proper: true
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Speech
     speechVerb: Ghost
   - type: ShowHealthBars
@@ -106,8 +108,9 @@
     tags:
     - SlowImmune
     - KnockdownImmune
-<<<<<<< HEAD
+<<<<<<< ours
     - NoPaint #ADT tweak
+||||||| base
 =======
     - AllowPortalTraversal
->>>>>>> wizards-filtered
+>>>>>>> theirs

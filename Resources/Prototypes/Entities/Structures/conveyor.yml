@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: ConveyorBelt
   name: conveyor belt
   description: A conveyor belt, commonly used to transport large numbers of items elsewhere quite quickly.
@@ -13,13 +13,16 @@
     anchored: true
   - type: Anchorable
   - type: Sprite
-<<<<<<< HEAD
+<<<<<<< ours
     sprite: ADT/Structures/conveyor.rsi # ADT-Tweak: Resprite
+    state: conveyor_stopped_cw
+||||||| base
+    sprite: Structures/conveyor.rsi
     state: conveyor_stopped_cw
 =======
     sprite: Structures/conveyor.rsi
     state: conveyor_stopped
->>>>>>> wizards-filtered
+>>>>>>> theirs
     drawdepth: HighFloorObjects
   - type: SyncSprite
   - type: ApcPowerReceiver
@@ -81,8 +84,11 @@
   description: A conveyor belt assembly. Used to construct a conveyor belt.
   components:
   - type: Sprite
-<<<<<<< HEAD
+<<<<<<< ours
     sprite: ADT/Structures/conveyor.rsi # ADT-Tweak: Resprite
+    state: conveyor_loose
+||||||| base
+    sprite: Structures/conveyor.rsi
     state: conveyor_loose
 =======
     sprite: Structures/conveyor.rsi
@@ -91,14 +97,12 @@
       map: [ "base" ]
   - type: Item
     size: Normal
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Construction
     graph: ConveyorGraph
     node: item
   - type: StackPrice
     price: 40
-<<<<<<< HEAD
-=======
   - type: Stack
     stackType: ConveyorBeltStack
     count: 1
@@ -109,4 +113,3 @@
     - conveyor_loose_2
     - conveyor_loose_3
   - type: Appearance
->>>>>>> wizards-filtered

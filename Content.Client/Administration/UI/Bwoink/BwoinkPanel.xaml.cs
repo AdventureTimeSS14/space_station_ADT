@@ -16,11 +16,12 @@ namespace Content.Client.Administration.UI.Bwoink
     [GenerateTypedNameReferences]
     public sealed partial class BwoinkPanel : BoxContainer
     {
-<<<<<<< HEAD
+<<<<<<< ours
         // ADT-Tweak start. Система тегов в АХелп
         public int SelectedTypeTagId = 0; // Переменная для хранение выбранного тега
         public int LastTagId { get; private set; } = -1; // Переменная для хранения последнего выбора тега
         // ADT-Tweak end.
+||||||| base
 =======
         private static readonly Type[] AllowedTags = new Type[]
         {
@@ -33,7 +34,7 @@ namespace Content.Client.Administration.UI.Bwoink
             typeof(ItalicTag),
         };
 
->>>>>>> wizards-filtered
+>>>>>>> theirs
         private readonly Action<string> _messageSender;
         private readonly bool _canSendMessages; // ADT-Tweak
 

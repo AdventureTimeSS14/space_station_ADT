@@ -537,11 +537,13 @@
       - !type:PopupMessage
         conditions:
         - !type:MetabolizerTypeCondition
-<<<<<<< HEAD
+<<<<<<< ours
           type: [ Animal, Vox, Vulpkanin, Ursus, Reptilian, XenobioSlime, Novakid, Slime] # ADT-Tweak
+||||||| base
+          type: [ Animal, Vox ]
 =======
           type: [ Animal, Vox, Arachnid ]
->>>>>>> wizards-filtered
+>>>>>>> theirs
           inverted: true
         type: Local
         visualType: MediumCaution
@@ -550,23 +552,29 @@
       - !type:Vomit
         probability: 0.1
         conditions:
-<<<<<<< HEAD
+<<<<<<< ours
           - !type:MetabolizerTypeCondition
             type: [ Animal, Vox, Plant, Ursus, Reptilian, XenobioSlime, Novakid, Slime ] # ADT-Tweak
             inverted: true
-      - !type:HealthChange
-        conditions:
+||||||| base
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Vox, Ursus, Felinid, Reptilian, XenobioSlime, Novakid, Slime ] # ADT-Tweak
+          type: [ Animal, Vox, Plant ]
+          inverted: true
 =======
         - !type:MetabolizerTypeCondition
           type: [ Animal, Vox, Plant, Arachnid ]
           inverted: true
+>>>>>>> theirs
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
+<<<<<<< ours
+          type: [ Animal, Vox, Ursus, Felinid, Reptilian, XenobioSlime, Novakid, Slime ] # ADT-Tweak
+||||||| base
+          type: [ Animal, Vox, Plant ]
+=======
           type: [ Animal, Vox, Plant, Arachnid ]
->>>>>>> wizards-filtered
+>>>>>>> theirs
           inverted: true
         damage:
           types:
@@ -581,11 +589,13 @@
       - !type:AdjustReagent
         conditions:
         - !type:MetabolizerTypeCondition
-<<<<<<< HEAD
+<<<<<<< ours
           type: [ Animal, Ursus, Reptilian, Felinid] # ADT-Tweak
+||||||| base
+          type: [ Animal ]
 =======
           type: [ Animal, Arachnid ]
->>>>>>> wizards-filtered
+>>>>>>> theirs
         reagent: Protein
         amount: 0.5
       - !type:AdjustReagent

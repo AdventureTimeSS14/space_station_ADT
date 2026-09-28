@@ -37,7 +37,7 @@ namespace Content.Server.GameTicking.Presets
         /// If specified, the gamemode will only be run with these maps.
         /// If none are elligible, the global fallback will be used.
         /// </summary>
-<<<<<<< HEAD
+<<<<<<< ours
         [DataField("supportedMaps", customTypeSerializer: typeof(PrototypeIdSerializer<GameMapPoolPrototype>))]
         public string? MapPool;
 
@@ -56,9 +56,12 @@ namespace Content.Server.GameTicking.Presets
         [DataField]
         public int? BannedRound = 0;
         //ADT-Tweak-End
+||||||| base
+        [DataField("supportedMaps", customTypeSerializer: typeof(PrototypeIdSerializer<GameMapPoolPrototype>))]
+        public string? MapPool;
 =======
         [DataField("supportedMaps")]
         public ProtoId<GameMapPoolPrototype>? MapPool;
->>>>>>> wizards-filtered
+>>>>>>> theirs
     }
 }

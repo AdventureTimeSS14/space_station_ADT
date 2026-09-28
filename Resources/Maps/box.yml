@@ -137760,12 +137760,14 @@ entities:
     components:
     - type: Transform
       parent: 8364
-<<<<<<< HEAD
+<<<<<<< ours
 - proto: ScanningModuleStockPart
+||||||| base
+- proto: MicroManipulatorStockPart
 =======
       pos: 40.21878,-29.572002
 - proto: MicroManipulatorStockPart
->>>>>>> wizards-filtered
+>>>>>>> theirs
   entities:
   - uid: 16355
     components:

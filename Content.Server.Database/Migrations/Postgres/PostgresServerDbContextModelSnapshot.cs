@@ -1082,16 +1082,12 @@ namespace Content.Server.Database.Migrations.Postgres
                         });
                 });
 
-<<<<<<< HEAD
+<<<<<<< ours
             modelBuilder.Entity("Content.Server.Database.DiscordUser", b =>
-=======
-            modelBuilder.Entity("Content.Server.Database.CustomVoteLog", b =>
->>>>>>> wizards-filtered
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
-<<<<<<< HEAD
                         .HasColumnName("discord_user_id");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
@@ -1143,7 +1139,15 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.HasIndex("ProfileRoleLoadoutId");
 
                     b.ToTable("extra_loadout_data", (string)null);
+                });
+
+||||||| base
 =======
+            modelBuilder.Entity("Content.Server.Database.CustomVoteLog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
                         .HasColumnName("custom_vote_log_id");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
@@ -1203,9 +1207,9 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasName("PK_custom_vote_log_option");
 
                     b.ToTable("custom_vote_log_option", (string)null);
->>>>>>> wizards-filtered
                 });
 
+>>>>>>> theirs
             modelBuilder.Entity("Content.Server.Database.IPIntelCache", b =>
                 {
                     b.Property<int>("Id")
@@ -1545,14 +1549,19 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("text")
                         .HasColumnName("species");
 
+<<<<<<< ours
                     b.Property<string>("Voice")
-<<<<<<< HEAD
                         .IsRequired()
-=======
->>>>>>> wizards-filtered
                         .HasColumnType("text")
                         .HasColumnName("voice");
 
+||||||| base
+=======
+                    b.Property<string>("Voice")
+                        .HasColumnType("text")
+                        .HasColumnName("voice");
+
+>>>>>>> theirs
                     b.HasKey("Id")
                         .HasName("PK_profile");
 
@@ -2397,7 +2406,7 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Navigation("Server");
                 });
 
-<<<<<<< HEAD
+<<<<<<< ours
             modelBuilder.Entity("Content.Server.Database.ExtraLoadoutData", b =>
                 {
                     b.HasOne("Content.Server.Database.ProfileRoleLoadout", "RoleLoadout")
@@ -2408,6 +2417,9 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasConstraintName("FK_extra_loadout_data_profile_role_loadout_profile_role_loadou~");
 
                     b.Navigation("RoleLoadout");
+                });
+
+||||||| base
 =======
             modelBuilder.Entity("Content.Server.Database.CustomVoteLog", b =>
                 {
@@ -2440,9 +2452,9 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasConstraintName("FK_custom_vote_log_option_custom_vote_log_vote_id");
 
                     b.Navigation("Vote");
->>>>>>> wizards-filtered
                 });
 
+>>>>>>> theirs
             modelBuilder.Entity("Content.Server.Database.Job", b =>
                 {
                     b.HasOne("Content.Server.Database.Profile", "Profile")

@@ -11,10 +11,19 @@ namespace Content.Server.Medical.SuitSensors;
 
 public sealed partial class SuitSensorSystem : SharedSuitSensorSystem
 {
-<<<<<<< HEAD
+<<<<<<< ours
     // ADT-Tweak Start - New Monitor: idle/wake report pipeline fields
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly CrewMonitoringServerSystem _monitoringServers = default!;
+||||||| base
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly DeviceNetworkSystem _deviceNetworkSystem = default!;
+    [Dependency] private readonly SingletonDeviceNetServerSystem _singletonServerSystem = default!;
+=======
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private DeviceNetworkSystem _deviceNetworkSystem = default!;
+    [Dependency] private SingletonDeviceNetServerSystem _singletonServerSystem = default!;
+>>>>>>> theirs
 
     private static readonly TimeSpan CoordinatesUpdateRate = TimeSpan.FromSeconds(0.5);
 
@@ -93,11 +102,6 @@ public sealed partial class SuitSensorSystem : SharedSuitSensorSystem
         _lastReported.Remove(ent.Owner);
     }
     // ADT-Tweak End
-=======
-    [Dependency] private IGameTiming _gameTiming = default!;
-    [Dependency] private DeviceNetworkSystem _deviceNetworkSystem = default!;
-    [Dependency] private SingletonDeviceNetServerSystem _singletonServerSystem = default!;
->>>>>>> wizards-filtered
 
     public override void Update(float frameTime)
     {

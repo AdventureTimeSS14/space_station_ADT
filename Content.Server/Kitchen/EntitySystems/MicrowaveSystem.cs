@@ -38,7 +38,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-<<<<<<< HEAD
+<<<<<<< ours
 using Content.Shared.Stacks;
 using Content.Server.Construction.Components;
 using Content.Shared.Chat;
@@ -51,16 +51,25 @@ using Content.Shared.ADT.Construction.Components; // ADT-Tweak: machine parts
 using Content.Shared.ADT.Construction.Events; // ADT-Tweak: machine parts
 using Content.Shared.ADT.Kitchem.Components; // ADT-Tweak
 using Content.Shared.Power.EntitySystems;
-
-namespace Content.Server.Kitchen.EntitySystems
-{
-    public sealed partial class MicrowaveSystem : EntitySystem // ADT-Tweak: add partial
+||||||| base
+using Content.Shared.Stacks;
+using Content.Server.Construction.Components;
+using Content.Shared.Chat;
+using Content.Shared.Damage.Components;
+using Content.Shared.Power.EntitySystems;
+using Content.Shared.Temperature.Components;
 =======
+>>>>>>> theirs
 
 namespace Content.Server.Kitchen.EntitySystems
 {
+<<<<<<< ours
+    public sealed partial class MicrowaveSystem : EntitySystem // ADT-Tweak: add partial
+||||||| base
+    public sealed class MicrowaveSystem : EntitySystem
+=======
     public sealed partial class MicrowaveSystem : EntitySystem
->>>>>>> wizards-filtered
+>>>>>>> theirs
     {
         [Dependency] private DeviceLinkSystem _deviceLink = default!;
         [Dependency] private SharedPopupSystem _popupSystem = default!;

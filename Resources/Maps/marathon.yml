@@ -111102,12 +111102,14 @@ entities:
     components:
     - type: Transform
       parent: 30
-<<<<<<< HEAD
+<<<<<<< ours
 - proto: MatterBinStockPart
+||||||| base
+- proto: MicroManipulatorStockPart
 =======
       pos: -17.966362,-18.358541
 - proto: MicroManipulatorStockPart
->>>>>>> wizards-filtered
+>>>>>>> theirs
   entities:
   - uid: 20967
     components:

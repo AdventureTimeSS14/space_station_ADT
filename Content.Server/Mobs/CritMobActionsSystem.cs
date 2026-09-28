@@ -8,11 +8,13 @@ using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffectNew;
 using Robust.Server.Console;
 using Robust.Shared.Player;
-<<<<<<< HEAD
+<<<<<<< ours
 using Content.Shared.Speech.Muting;
 using Content.Shared.Chat;
+||||||| base
+using Content.Shared.Speech.Muting;
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 namespace Content.Server.Mobs;
 

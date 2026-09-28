@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-﻿- type: entity
-=======
 - type: entity
   parent: [BaseDeltaPressureReinforcedPlasma, BaseWindowStructure, BaseRCDResistant]
->>>>>>> wizards-filtered
   id: ReinforcedUraniumWindow
   name: reinforced uranium window
   components:
@@ -75,11 +71,13 @@
       sprite: Structures/Windows/cracks_directional.rsi
   - type: Damageable
     damageModifierSet: RGlass
+<<<<<<< ours
   - type: Injurable
-<<<<<<< HEAD
+||||||| base
 =======
+  - type: Injurable
     damageContainer: StructuralInorganic
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Destructible
     thresholds:
     - trigger:

@@ -38,7 +38,7 @@
       - medicine
   - type: Sprite
     state: bagel-poppy
-<<<<<<< HEAD
+<<<<<<< ours
   - type: SolutionContainerManager
     solutions:
       food:
@@ -52,6 +52,16 @@
   - type: Item
     size: Tiny
   #ADT-Tweak end
+||||||| base
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 12
+        reagents:
+        - ReagentId: Bicaridine
+          Quantity: 5
+        - ReagentId: Nutriment
+          Quantity: 5
 =======
   - type: Solution
     solution:
@@ -60,7 +70,7 @@
         Quantity: 5
       - ReagentId: Nutriment
         Quantity: 10
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   parent: FoodBagelBase
@@ -79,7 +89,7 @@
   - type: Tag
     tags:
     - ClothMade
-<<<<<<< HEAD
+<<<<<<< ours
   - type: SolutionContainerManager
     solutions:
       food:
@@ -94,6 +104,17 @@
     size: Tiny
   #ADT-Tweak end
 
+||||||| base
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 12
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2.5
+        - ReagentId: Fiber
+          Quantity: 2.5
+
 =======
   - type: Solution
     solution:
@@ -102,4 +123,4 @@
         Quantity: 5
       - ReagentId: Fiber
         Quantity: 5
->>>>>>> wizards-filtered
+>>>>>>> theirs

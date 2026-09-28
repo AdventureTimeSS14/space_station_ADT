@@ -103,22 +103,33 @@ public sealed partial class DamageContactsSystem : EntitySystem
         if (!TryComp<DamagedByContactComponent>(otherUid, out var damagedByContact)) // ADT-Tweak
             return;
 
-<<<<<<< HEAD
+<<<<<<< ours
         // ADT-Tweak start
         damagedByContact.Sources.Remove(uid);
-
-        if (damagedByContact.Sources.Count == 0)
+||||||| base
+        var damageQuery = GetEntityQuery<DamageContactsComponent>();
+        foreach (var ent in _physics.GetContactingEntities(otherUid, body))
         {
-            RemComp<DamagedByContactComponent>(otherUid);
+            if (ent == uid)
+                continue;
 =======
         foreach (var ent in _physics.GetContactingEntities(otherUid, body))
         {
             if (ent == uid)
                 continue;
+>>>>>>> theirs
 
+<<<<<<< ours
+        if (damagedByContact.Sources.Count == 0)
+        {
+            RemComp<DamagedByContactComponent>(otherUid);
+||||||| base
+            if (damageQuery.HasComponent(ent))
+                return;
+=======
             if (_damageQuery.HasComponent(ent))
                 return;
->>>>>>> wizards-filtered
+>>>>>>> theirs
         }
         // ADT-Tweak end
     }

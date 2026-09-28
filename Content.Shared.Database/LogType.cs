@@ -483,8 +483,8 @@ public enum LogType
     /// Events related to players connecting/disconnecting.
     /// </summary>
     Connection = 104,
+<<<<<<< ours
 
-<<<<<<< HEAD
     // ADT Start
     /// <summary>
     /// A player grabbed another player
@@ -496,10 +496,12 @@ public enum LogType
     /// </summary>
     CatchBreath = 106,
     // ADT End
+||||||| base
 =======
+
     /// <summary>
     /// Silicon law changes.
     /// </summary>
     SiliconLaw = 105,
->>>>>>> wizards-filtered
+>>>>>>> theirs
 }

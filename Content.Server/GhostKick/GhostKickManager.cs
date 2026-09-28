@@ -50,15 +50,18 @@ public sealed partial class GhostKickManager
 [AdminCommand(AdminFlags.Moderator)]
 public sealed partial class GhostKickCommand : LocalizedEntityCommands
 {
-<<<<<<< HEAD
+<<<<<<< ours
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly GhostKickManager _ghostKick = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IAdminManager _adminManager = default!;
+||||||| base
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly GhostKickManager _ghostKick = default!;
 =======
     [Dependency] private IPlayerManager _playerManager = default!;
     [Dependency] private GhostKickManager _ghostKick = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
     public override string Command => "ghostkick";
 

@@ -91258,12 +91258,8 @@ entities:
     components:
     - type: Transform
       parent: 1
-<<<<<<< HEAD
-- proto: CapacitorStockPart
-=======
       pos: 53.57206,56.691376
 - proto: MicroManipulatorStockPart
->>>>>>> wizards-filtered
   entities:
   - uid: 11550
     components:
@@ -91888,8 +91884,14 @@ entities:
     components:
     - type: Transform
       parent: 1
+<<<<<<< ours
+- proto: CapacitorStockPart
+||||||| base
+- proto: MicroManipulatorStockPart
+=======
       pos: 53.5,92.5
 - proto: PlasmaCanister
+>>>>>>> theirs
   entities:
   - uid: 6961
     components:

@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunny
   name: bunny ears
@@ -92,12 +92,13 @@
     - HeadTop
     - HeadSide
     - FacialHair
-<<<<<<< HEAD
+<<<<<<< ours
 # ADT-Tweak-Start
   - type: Construction
     graph: PumpkinHat
     node: pumpkin_hat
 # ADT-Tweak-End
+||||||| base
 =======
   - type: Item
     inhandVisuals:
@@ -105,7 +106,7 @@
       - state: inhand-left
       right:
       - state: inhand-right
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   parent: ClothingHeadBase

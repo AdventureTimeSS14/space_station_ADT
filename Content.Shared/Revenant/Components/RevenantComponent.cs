@@ -5,12 +5,14 @@ using Content.Shared.Store;
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-<<<<<<< HEAD
+<<<<<<< ours
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Content.Shared.Chemistry.Components;
 using Robust.Shared.Audio;
+||||||| base
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 namespace Content.Shared.Revenant.Components;
 
@@ -153,7 +155,7 @@ public sealed partial class RevenantComponent : Component
     /// <summary>
     /// How close to the light the entity has to be in order to be zapped.
     /// </summary>
-<<<<<<< HEAD
+<<<<<<< ours
     [ViewVariables(VVAccess.ReadWrite), DataField("overloadZapRadius")]
     public float OverloadZapRadius = 4.5f;
 
@@ -162,10 +164,13 @@ public sealed partial class RevenantComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("overloadSound")]
     public string OverloadSound = "/Audio/ADT/revenant-blight.ogg";   // ADT Revenant sounds
+||||||| base
+    [ViewVariables(VVAccess.ReadWrite), DataField("overloadZapRadius")]
+    public float OverloadZapRadius = 2f;
 =======
     [DataField]
     public float OverloadZapRadius = 2f;
->>>>>>> wizards-filtered
+>>>>>>> theirs
     #endregion
 
     #region Blight Ability

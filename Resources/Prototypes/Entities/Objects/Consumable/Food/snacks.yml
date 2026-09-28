@@ -11,7 +11,7 @@
       - FoodSnack
   - type: Sprite
     sprite: Objects/Consumable/Food/snacks.rsi
-<<<<<<< HEAD
+<<<<<<< ours
   - type: SolutionContainerManager
     solutions:
       food:
@@ -19,13 +19,21 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 5 # ADT-Tweak 10 > 5
+||||||| base
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30 # Room for extra condiments
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
 =======
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 10
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Item
     sprite: Objects/Consumable/Food/snacks.rsi
     heldPrefix: packet
@@ -147,7 +155,7 @@
     tags:
       - FoodSnack
       - ReptilianFood
-<<<<<<< HEAD
+<<<<<<< ours
   - type: SolutionContainerManager
     solutions:
       food:
@@ -164,6 +172,18 @@
     count: 4
     slice: ADTFoodSnackChocolateBarChunk
   #ADT-Tweak-End
+||||||| base
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Theobromine
+          Quantity: 3
+        - ReagentId: CocoaPowder
+          Quantity: 1
 =======
   - type: Solution
     solution:
@@ -174,7 +194,7 @@
         Quantity: 3
       - ReagentId: CocoaPowder
         Quantity: 2
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   parent: FoodSnackBase
@@ -394,7 +414,7 @@
   - type: Item
     heldPrefix: chinese1
     storedOffset: 1,-2
-<<<<<<< HEAD
+<<<<<<< ours
   - type: SolutionContainerManager
     solutions:
       food:
@@ -402,6 +422,16 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 5 # ADT-Tweak 10 > 5
+        - ReagentId: Soysauce
+          Quantity: 2
+||||||| base
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30 # Room for extra condiments
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
         - ReagentId: Soysauce
           Quantity: 2
 =======
@@ -412,7 +442,7 @@
         Quantity: 10
       - ReagentId: Soysauce
         Quantity: 2
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Edible
     trash:
     - FoodPacketChowMeinTrash
@@ -433,7 +463,7 @@
   - type: Item
     heldPrefix: chinese2
     storedOffset: 0,-2
-<<<<<<< HEAD
+<<<<<<< ours
   - type: SolutionContainerManager
     solutions:
       food:
@@ -441,6 +471,18 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 5 # ADT-Tweak 10 > 5
+        - ReagentId: CapsaicinOil
+          Quantity: 2
+        - ReagentId: Soysauce
+          Quantity: 2
+||||||| base
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30 # Room for extra condiments
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
         - ReagentId: CapsaicinOil
           Quantity: 2
         - ReagentId: Soysauce
@@ -455,7 +497,7 @@
         Quantity: 2
       - ReagentId: Soysauce
         Quantity: 2
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Edible
     trash:
     - FoodPacketDanDanTrash
@@ -471,7 +513,7 @@
       - fortunecookie
   - type: Sprite
     state: cookie_fortune
-<<<<<<< HEAD
+<<<<<<< ours
   - type: SolutionContainerManager
     solutions:
       food:
@@ -479,6 +521,14 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 0.5 # ADT-Tweak 1 > 0.5
+||||||| base
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 1
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 1
 =======
   - type: Solution
     solution:
@@ -486,7 +536,7 @@
       reagents:
       - ReagentId: Nutriment
         Quantity: 1
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Item
     sprite: Objects/Consumable/Food/snacks.rsi
     heldPrefix: cookie_fortune
@@ -537,7 +587,7 @@
       - ReptilianFood
   - type: Sprite
     state: nutribrick-open
-<<<<<<< HEAD
+<<<<<<< ours
   - type: SolutionContainerManager
     solutions:
       food:
@@ -545,8 +595,16 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 10 # ADT-Tweak 20 > 10
+||||||| base
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 20
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   parent: BaseItem
@@ -586,7 +644,7 @@
   - type: Item
     heldPrefix: mre-brownie-open
     storedOffset: -1,-1
-<<<<<<< HEAD
+<<<<<<< ours
   - type: SolutionContainerManager
     solutions:
       food:
@@ -594,6 +652,16 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 5 # ADT-Tweak 10 > 5
+        - ReagentId: Theobromine
+          Quantity: 3
+||||||| base
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
         - ReagentId: Theobromine
           Quantity: 3
 =======
@@ -604,7 +672,7 @@
         Quantity: 5
       - ReagentId: Theobromine
         Quantity: 1
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   parent: FoodSnackBase

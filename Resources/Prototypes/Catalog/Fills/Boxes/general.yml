@@ -331,11 +331,12 @@
     whitelist:
       tags:
         - TrashBag
-<<<<<<< HEAD
+<<<<<<< ours
         - TrashBagBlue
+||||||| base
 =======
         - TrashBagHolding
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Sprite
     layers:
       - state: box

@@ -30,7 +30,7 @@ namespace Content.Server.Medical.CrewMonitoring;
 
 public sealed partial class CrewMonitoringConsoleSystem : EntitySystem
 {
-<<<<<<< HEAD
+<<<<<<< ours
     [Dependency] private readonly PowerCellSystem _cell = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     // ADT-Tweak Start - New Monitor: server subscriber
@@ -59,10 +59,13 @@ public sealed partial class CrewMonitoringConsoleSystem : EntitySystem
     private float _consoleUpdateAccumulator;
     private List<Entity<MapGridComponent>> _navMapGridBuffer = new();
     // ADT-Tweak End
+||||||| base
+    [Dependency] private readonly PowerCellSystem _cell = default!;
+    [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
 =======
     [Dependency] private PowerCellSystem _cell = default!;
     [Dependency] private UserInterfaceSystem _uiSystem = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
     public override void Initialize()
     {

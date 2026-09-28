@@ -1,10 +1,11 @@
 using System.Numerics;
-<<<<<<< HEAD
+<<<<<<< ours
 using Content.Shared.ADT.Language;
 using Content.Shared.ADT.SpeechBarks;
+||||||| base
 =======
 using Content.Shared.Chat.Prototypes;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences;
@@ -107,9 +108,11 @@ public sealed partial class HumanoidCharacterProfileV1
 
     public HumanoidCharacterProfile ToV2()
     {
-<<<<<<< HEAD
+<<<<<<< ours
         // ADT-tweak:
         return new(Name, FlavorText, Species, Voice, Age, Sex, Gender, Appearance.ToV2(Species), SpawnPriority, JobPriorities, PreferenceUnavailable, AntagPreferences, TraitPreferences, Loadouts, Bark, Languages, OOCNotes, HeadshotUrl, ExploitableInfo);
+||||||| base
+        return new(Name, FlavorText, Species, Age, Sex, Gender, Appearance.ToV2(Species), SpawnPriority, JobPriorities, PreferenceUnavailable, AntagPreferences, TraitPreferences, Loadouts);
 =======
         return new(Name, FlavorText, Species, Age, Sex, GetDefaultVoice(Species, Sex), Gender, Appearance.ToV2(Species), SpawnPriority, JobPriorities, PreferenceUnavailable, AntagPreferences, TraitPreferences, Loadouts);
     }
@@ -121,7 +124,7 @@ public sealed partial class HumanoidCharacterProfileV1
 
         var speciesPrototye = prototypeManager.Index(species);
         return speciesPrototye.DefaultSoundsBySex[(int)sex];
->>>>>>> wizards-filtered
+>>>>>>> theirs
     }
 }
 

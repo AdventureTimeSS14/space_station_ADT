@@ -56,7 +56,7 @@ def main():
         # it will get the old changelog from the GitHub API
         last_changelog_stream = get_last_changelog()
 
-<<<<<<< HEAD
+<<<<<<< ours
     most_recent = get_most_recent_workflow(session)
     last_sha = most_recent['head_commit']['id']
     print(f"Last successful publish job was {most_recent['id']}: {last_sha}")
@@ -66,15 +66,25 @@ def main():
         last_changelog = yaml.safe_load(get_last_changelog(session, last_sha, changelog_file))
         with open(changelog_file, "r") as f:
             cur_changelog = yaml.safe_load(f)
-
-        diff = diff_changelog(last_changelog, cur_changelog)
-        send_to_discord(diff)
-    # Corvax-MultiChangelog-End
+||||||| base
+    last_changelog = yaml.safe_load(last_changelog_stream)
+    with open(CHANGELOG_FILE, "r") as f:
+        cur_changelog = yaml.safe_load(f)
 =======
     last_changelog = yaml.safe_load(last_changelog_stream)
     with open(CHANGELOG_FILE, "r", encoding="utf-8-sig") as f:
         cur_changelog = yaml.safe_load(f)
+>>>>>>> theirs
 
+<<<<<<< ours
+        diff = diff_changelog(last_changelog, cur_changelog)
+        send_to_discord(diff)
+    # Corvax-MultiChangelog-End
+||||||| base
+    diff = diff_changelog(last_changelog, cur_changelog)
+    message_lines = changelog_entries_to_message_lines(diff)
+    send_message_lines(message_lines)
+=======
     diff = diff_changelog(last_changelog, cur_changelog)
     message_lines = changelog_entries_to_message_lines(diff)
 
@@ -83,7 +93,7 @@ def main():
         return
 
     send_message_lines(message_lines)
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 
 def get_most_recent_workflow(

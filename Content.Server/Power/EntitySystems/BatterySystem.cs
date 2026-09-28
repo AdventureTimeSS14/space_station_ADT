@@ -5,10 +5,7 @@ using Content.Shared.Rejuvenate;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Power.EntitySystems;
-<<<<<<< HEAD
-=======
 
->>>>>>> wizards-filtered
 public sealed partial class BatterySystem : SharedBatterySystem
 {
     public override void Initialize()

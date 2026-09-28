@@ -7,12 +7,13 @@ using Content.Shared.ADT.CharecterFlavor;
 using Content.Shared.ADT.Language;
 using Content.Shared.ADT.SpeechBarks;
 using Content.Shared.CCVar;
-<<<<<<< HEAD
+<<<<<<< ours
 using Content.Shared.ADT.TTS;
+||||||| base
 =======
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.EntityEffects.Effects;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
@@ -43,7 +44,7 @@ namespace Content.Shared.Preferences
     public sealed partial class HumanoidCharacterProfile
     {
         public static readonly ProtoId<SpeciesPrototype> DefaultSpecies = "Human";
-<<<<<<< HEAD
+<<<<<<< ours
         public const string DefaultVoice = "VoiceHuman";
         public static readonly Dictionary<Sex, string> DefaultSexVoice = new()
         {
@@ -52,10 +53,12 @@ namespace Content.Shared.Preferences
             { Sex.Unsexed, "VoiceHuman" }
         };
         private static readonly Regex RestrictedNameRegex = new("[^A-Za-zА-Яа-яёЁ0-9' _.<>^%~ -]"); //ADT-Tweak
+||||||| base
+        private static readonly Regex RestrictedNameRegex = new(@"[^A-Za-z0-9 '\-]");
 =======
         public static readonly ProtoId<EmoteSoundsPrototype> DefaultVoice = "MaleHuman";
         private static readonly Regex RestrictedNameRegex = new(@"[^A-Za-z0-9 '\-]");
->>>>>>> wizards-filtered
+>>>>>>> theirs
         private static readonly Regex ICNameCaseRegex = new(@"^(?<word>\w)|\b(?<word>\w)(?=\w*$)");
 
         public const int MaxNameLength = 96;    // ну тип ADT
@@ -369,25 +372,6 @@ namespace Content.Shared.Preferences
             var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
             var random = IoCManager.Resolve<IRobustRandom>();
 
-<<<<<<< HEAD
-            var sex = Sex.Unsexed;
-            var age = 18;
-            HashSet<ProtoId<LanguagePrototype>> languages = new();  // ADT Languages
-            if (prototypeManager.TryIndex<SpeciesPrototype>(species, out var speciesPrototype))
-            {
-                sex = random.Pick(speciesPrototype.Sexes);
-                age = random.Next(speciesPrototype.MinAge, speciesPrototype.OldAge); // people don't look and keep making 119 year old characters with zero rp, cap it at middle aged
-                languages = speciesPrototype.DefaultLanguages.ToHashSet();  // ADT Languages
-            }
-
-            // ADT-Tweak-Start
-            var voiceId = random.Pick(prototypeManager
-                .EnumeratePrototypes<TTSVoicePrototype>()
-                .Where(o => CanHaveVoice(o, sex, species)).ToArray()
-            ).ID;
-            // ADT-Tweak-End
-
-=======
             var pool = prototypeManager.EnumeratePrototypes<SpeciesPrototype>()
                 .Where(x => ignoredSpecies == null ? x.RoundStart : x.RoundStart && !ignoredSpecies.Contains(x.ID))
                 .ToArray();
@@ -422,16 +406,46 @@ namespace Content.Shared.Preferences
         {
             var random = IoCManager.Resolve<IRobustRandom>();
 
+<<<<<<< ours
+            var sex = Sex.Unsexed;
+            var age = 18;
+            HashSet<ProtoId<LanguagePrototype>> languages = new();  // ADT Languages
+            if (prototypeManager.TryIndex<SpeciesPrototype>(species, out var speciesPrototype))
+            {
+                sex = random.Pick(speciesPrototype.Sexes);
+                age = random.Next(speciesPrototype.MinAge, speciesPrototype.OldAge); // people don't look and keep making 119 year old characters with zero rp, cap it at middle aged
+                languages = speciesPrototype.DefaultLanguages.ToHashSet();  // ADT Languages
+            }
+||||||| base
+            var sex = Sex.Unsexed;
+            var age = 18;
+            if (prototypeManager.TryIndex<SpeciesPrototype>(species, out var speciesPrototype))
+            {
+                sex = random.Pick(speciesPrototype.Sexes);
+                age = random.Next(speciesPrototype.MinAge, speciesPrototype.OldAge); // people don't look and keep making 119 year old characters with zero rp, cap it at middle aged
+            }
+=======
             var sex = random.Pick(species.Sexes);
             return sex;
         }
+>>>>>>> theirs
 
+<<<<<<< ours
+            // ADT-Tweak-Start
+            var voiceId = random.Pick(prototypeManager
+                .EnumeratePrototypes<TTSVoicePrototype>()
+                .Where(o => CanHaveVoice(o, sex, species)).ToArray()
+            ).ID;
+            // ADT-Tweak-End
+
+||||||| base
+=======
         /// <summary>
         /// Picks a random gender using species sex;
         /// </summary>
         public static Gender RandomGender(Sex sex)
         {
->>>>>>> wizards-filtered
+>>>>>>> theirs
             var gender = Gender.Epicene;
 
             switch (sex)
@@ -456,17 +470,6 @@ namespace Content.Shared.Preferences
             var baseProfile = new HumanoidCharacterProfile();
             if (ignoredSpecies != null)
             {
-<<<<<<< HEAD
-                Name = name,
-                Sex = sex,
-                Age = age,
-                Gender = gender,
-                Species = species,
-                Voice = voiceId, // ADT-Tweak
-                Appearance = HumanoidCharacterAppearance.Random(species, sex),
-                _languages = languages,
-            };
-=======
                 baseProfile.Species = RandomSpecies(ignoredSpecies);
             }
             var profile = Random(config, baseProfile);
@@ -486,6 +489,25 @@ namespace Content.Shared.Preferences
             var profile = new HumanoidCharacterProfile();
             if ((randomizeCfg & RandomizeCfg.Species) != 0)
             {
+<<<<<<< ours
+                Name = name,
+                Sex = sex,
+                Age = age,
+                Gender = gender,
+                Species = species,
+                Voice = voiceId, // ADT-Tweak
+                Appearance = HumanoidCharacterAppearance.Random(species, sex),
+                _languages = languages,
+            };
+||||||| base
+                Name = name,
+                Sex = sex,
+                Age = age,
+                Gender = gender,
+                Species = species,
+                Appearance = HumanoidCharacterAppearance.Random(species, sex),
+            };
+=======
                 profile.Species = RandomSpecies();
             }
             else
@@ -522,7 +544,7 @@ namespace Content.Shared.Preferences
                 RandomizeConfigAll ^ RandomizeCfg.Species,
                 new HumanoidCharacterProfile().WithSpecies(species)
             );
->>>>>>> wizards-filtered
+>>>>>>> theirs
         }
 
         public HumanoidCharacterProfile WithName(string name)
@@ -1180,11 +1202,12 @@ namespace Content.Shared.Preferences
             hashCode.Add(Species);
             hashCode.Add(Age);
             hashCode.Add((int)Sex);
-<<<<<<< HEAD
+<<<<<<< ours
             hashCode.Add(Voice); // ADT-Tweak
+||||||| base
 =======
             hashCode.Add(Voice);
->>>>>>> wizards-filtered
+>>>>>>> theirs
             hashCode.Add((int)Gender);
             hashCode.Add(Appearance);
             hashCode.Add((int)SpawnPriority);

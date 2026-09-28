@@ -608,7 +608,7 @@
     - Meat
   - type: Sprite
     state: xeno
-<<<<<<< HEAD
+<<<<<<< ours
   - type: SolutionContainerManager
     solutions:
       food:
@@ -622,6 +622,16 @@
   - type: SliceableFood
     count: 3
     slice: FoodMeatXenoCutlet
+||||||| base
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: SulfuricAcid
+          Quantity: 20
+  - type: SliceableFood
+    count: 3
+    slice: FoodMeatXenoCutlet
 =======
   - type: Solution
     solution:
@@ -632,7 +642,7 @@
     refineResult:
     - id: FoodMeatXenoCutlet
       amount: 5
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Item
     storedOffset: -2,1
     inhandVisuals:
@@ -1658,7 +1668,7 @@
       - acid
   - type: Sprite
     state: xenocutlet
-<<<<<<< HEAD
+<<<<<<< ours
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1669,13 +1679,20 @@
         - ReagentId: Siderlac
           Quantity: 1
         # ADT-Tweak-End
+||||||| base
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: SulfuricAcid
+          Quantity: 20
 =======
   - type: Solution
     solution:
       reagents:
       - ReagentId: SulfuricAcid
         Quantity: 6
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Construction
     graph: XenoCutlet
     node: start
@@ -1960,7 +1977,7 @@
   components:
   - type: Sprite
     state: xenocutlet-cooked
-<<<<<<< HEAD
+<<<<<<< ours
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1973,8 +1990,17 @@
         - ReagentId: Siderlac
           Quantity: 3
         # ADT-Tweak-End
+||||||| base
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 1
+        - ReagentId: Protein
+          Quantity: 1
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Construction
     graph: XenoCutlet
     node: xeno cutlet

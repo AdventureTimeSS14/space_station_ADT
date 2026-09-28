@@ -79,8 +79,10 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-<<<<<<< HEAD
+<<<<<<< ours
     sprite: ADT/Clothing/Head/Hardsuits/paramedic_hardsuithead.rsi # ADT tweak респрайт от празата
+||||||| base
+    sprite: Clothing/Head/Hardsuits/paramedhelm.rsi
 =======
     sprite: Clothing/Head/Hardsuits/paramedhelm.rsi
     layers:
@@ -89,30 +91,41 @@
       visible: false
       shader: unshaded
       map: [ "light" ]
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: HandheldLight
     addPrefix: false
   - type: ToggleableVisuals
     spriteLayer: light
     clothingVisuals:
       head:
-<<<<<<< HEAD
+<<<<<<< ours
       - state: equipped-HELMET #ADT tweak start
+||||||| base
+      - state: equipped-head-light
+      head-vox:
+      - state: equipped-head-light-vox
+=======
+      - state: equipped-head-light
+        shader: unshaded
+>>>>>>> theirs
   - type: Clothing
     clothingVisuals:
       head:
+<<<<<<< ours
       - state: equipped-HELMET #ADT tweak end удалены головы воксов
   - type: TemperatureProtection
     heatingCoefficient: 0.1
     coolingCoefficient: 0.1
-=======
-      - state: equipped-head-light
-        shader: unshaded
-  - type: Clothing
-    clothingVisuals:
-      head:
+||||||| base
       - state: equipped-head
->>>>>>> wizards-filtered
+      head-vox:
+      - state: equipped-head-vox
+  - type: TemperatureProtection
+    heatingCoefficient: 0.1
+    coolingCoefficient: 0.1
+=======
+      - state: equipped-head
+>>>>>>> theirs
   - type: Armor
     modifiers:
       coefficients:

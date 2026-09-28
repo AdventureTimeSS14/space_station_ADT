@@ -1,12 +1,7 @@
-<<<<<<< HEAD
-﻿- type: entity
-  id: WindoorAssembly
-=======
 - type: entity
   abstract: true
   parent: BaseStructure
   id: BaseWindoorAssembly
->>>>>>> wizards-filtered
   name: windoor assembly
   description: It opens, it closes, and you can see through it!
   placement:

@@ -16,29 +16,19 @@ using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
 using Content.Server.Codewords;
-<<<<<<< HEAD
+<<<<<<< ours
 using Content.Shared.Bed.Cryostorage;
 using Robust.Shared.Map;
+||||||| base
+using Robust.Shared.Map;
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 namespace Content.Server.GameTicking.Rules;
 
 public sealed partial class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
 {
     private static readonly Color TraitorCodewordColor = Color.FromHex("#cc3b3b");
-<<<<<<< HEAD
-    [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly SharedJobSystem _jobs = default!;
-    [Dependency] private readonly MindSystem _mindSystem = default!;
-    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedRoleCodewordSystem _roleCodewordSystem = default!;
-    [Dependency] private readonly SharedRoleSystem _roleSystem = default!;
-    [Dependency] private readonly UplinkSystem _uplink = default!;
-    [Dependency] private readonly CodewordSystem _codewordSystem = default!;
-=======
 
     [Dependency] private AntagSelectionSystem _antag = default!;
     [Dependency] private SharedJobSystem _jobs = default!;
@@ -49,7 +39,6 @@ public sealed partial class TraitorRuleSystem : GameRuleSystem<TraitorRuleCompon
     [Dependency] private SharedRoleSystem _roleSystem = default!;
     [Dependency] private UplinkSystem _uplink = default!;
     [Dependency] private CodewordSystem _codewordSystem = default!;
->>>>>>> wizards-filtered
 
     public override void Initialize()
     {
