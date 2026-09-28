@@ -2,7 +2,7 @@
   parent: BaseMachine
   id: ADTShieldDiffuser
   name: shield diffuser
-  description: A small underfloor device specifically designed to disrupt energy barriers. It disrupts shields on directly adjacent tiles. Commonly installed around exterior airlocks to prevent shields from blocking EVA access.
+  description: A small underfloor device specifically designed to disrupt energy barriers. It disrupts the shield directly above it. Commonly installed near exterior airlocks to prevent shields from blocking EVA access.
   components:
   - type: ShieldDiffuser
   - type: Sprite

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Numerics;
+using Content.Server.Shuttles.Components;
 using Content.Shared.ADT.CCVar;
 using Content.Shared.ADT.Shields;
 using Content.Shared.GameTicking;
@@ -9,6 +10,7 @@ using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Maths;
+using Robust.Shared.Physics.Components;
 
 namespace Content.Server.ADT.Shields;
 
@@ -16,6 +18,8 @@ namespace Content.Server.ADT.Shields;
 public sealed partial class ShieldGridSystem : EntitySystem
 {
     [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly ShieldSegmentSystem _segment = default!;
     [Dependency] private readonly ShieldDiffusionSystem _diffusion = default!;
@@ -25,6 +29,9 @@ public sealed partial class ShieldGridSystem : EntitySystem
 
     /// <summary>Кэш hull-тайлов по гриду.</summary>
     private readonly Dictionary<EntityUid, HashSet<Vector2i>> _hullCache = new();
+
+    /// <summary>Тайлы корпуса, исключённые из поля из-за стыковочных шлюзов (перед ними должен быть проход).</summary>
+    private readonly Dictionary<EntityUid, HashSet<Vector2i>> _dockExclusionsByGrid = new();
 
     /// <summary>Генераторы по гриду, чтобы OnTileChanged не перебирал все генераторы раунда.</summary>
     private readonly Dictionary<EntityUid, HashSet<EntityUid>> _generatorsByGrid = new();
@@ -47,12 +54,17 @@ public sealed partial class ShieldGridSystem : EntitySystem
         new(-1, 0),
     };
 
+    private const float CoverageProbeSize = 0.6f;
+
+    private static readonly Vector2 TileCenterOffset = new(0.5f, 0.5f);
+
     public override void Initialize()
     {
         SubscribeLocalEvent<TileChangedEvent>(OnTileChanged);
         SubscribeLocalEvent<GridRemovalEvent>(OnGridRemoved);
         SubscribeLocalEvent<ShieldSegmentRemovedEvent>(OnSegmentRemoved);
         SubscribeLocalEvent<ShieldGeneratorComponent, ComponentShutdown>(OnGeneratorShutdown);
+        SubscribeLocalEvent<PhysicsComponent, MoveEvent>(OnGridMoved);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
     }
 
@@ -66,6 +78,7 @@ public sealed partial class ShieldGridSystem : EntitySystem
     {
         _segmentsByTile.Clear();
         _hullCache.Clear();
+        _dockExclusionsByGrid.Clear();
         _generatorsByGrid.Clear();
         _pendingSpawns.Clear();
         _pendingDeletes.Clear();
@@ -143,7 +156,34 @@ public sealed partial class ShieldGridSystem : EntitySystem
             }
         }
 
+        var exclusions = GetDockExclusions(gridUid, grid);
+        _dockExclusionsByGrid[gridUid] = exclusions;
+        result.ExceptWith(exclusions);
+
         _hullCache[gridUid] = result;
+        return result;
+    }
+
+    /// <summary>
+    ///     Тайл перед стыковочным шлюзом поле не должно перекрывать место
+    /// </summary>
+    private HashSet<Vector2i> GetDockExclusions(EntityUid gridUid, MapGridComponent grid)
+    {
+        var result = new HashSet<Vector2i>();
+        var query = EntityQueryEnumerator<DockingComponent>();
+        while (query.MoveNext(out var dockUid, out _))
+        {
+            var dockXform = Transform(dockUid);
+            if (dockXform.GridUid != gridUid)
+                continue;
+
+            var dockTile = _map.LocalToTile(gridUid, grid, dockXform.Coordinates);
+            var frontVec = dockXform.LocalRotation.ToWorldVec();
+            var frontTile = dockTile + new Vector2i((int) MathF.Round(frontVec.X), (int) MathF.Round(frontVec.Y));
+            if (IsSpace(gridUid, grid, frontTile))
+                result.Add(frontTile);
+        }
+
         return result;
     }
 
@@ -231,17 +271,30 @@ public sealed partial class ShieldGridSystem : EntitySystem
         if (_diffusion.IsDiffused(gridUid, idx))
             return;
 
+        var coords = _map.GridTileToLocal(gridUid, grid, idx);
+        if (IsCoveredByForeignGrid(gridUid, coords))
+            return;
+
         if (_segmentsByTile.TryGetValue((gridUid, idx), out var existing))
         {
-            if (Exists(existing) && gen.Segments.Contains(existing))
-                return;
+            if (Exists(existing))
+            {
+                if (gen.Segments.Contains(existing))
+                    return;
+
+                if (TryComp<ShieldSegmentComponent>(existing, out var existingSeg)
+                    && existingSeg.Generator is { } owner
+                    && owner != genUid
+                    && TryComp<ShieldGeneratorComponent>(owner, out var ownerGen)
+                    && ownerGen.Running == ShieldRunningState.Running)
+                    return;
+
+                QueueDel(existing);
+            }
 
             _segmentsByTile.Remove((gridUid, idx));
-            if (Exists(existing))
-                QueueDel(existing);
         }
 
-        var coords = new EntityCoordinates(gridUid, (idx + new Vector2(0.5f, 0.5f)) * grid.TileSize);
         var segment = Spawn(gen.SegmentProto, coords);
         var segComp = Comp<ShieldSegmentComponent>(segment);
         segComp.Generator = genUid;
@@ -251,6 +304,117 @@ public sealed partial class ShieldGridSystem : EntitySystem
         gen.Tiles[idx] = new ShieldTileData();
         _segmentsByTile[(gridUid, idx)] = segment;
         _segment.UpdateSegmentVisuals(segment, segComp, gen);
+    }
+
+    private List<Entity<MapGridComponent>> _gridQueryBuffer = new();
+
+    private bool IsCoveredByForeignGrid(EntityUid gridUid, EntityCoordinates coords)
+    {
+        var xform = Transform(gridUid);
+        if (xform.MapUid == null)
+            return false;
+
+        var worldPos = _transform.ToWorldPosition(coords);
+        var box = Box2.CenteredAround(worldPos, new Vector2(CoverageProbeSize, CoverageProbeSize));
+        _gridQueryBuffer.Clear();
+        _mapManager.FindGridsIntersecting(xform.MapID, box, ref _gridQueryBuffer);
+        foreach (var grid in _gridQueryBuffer)
+        {
+            if (grid.Owner != gridUid)
+                return true;
+        }
+
+        return false;
+    }
+
+    private void EnsureSegment(EntityUid genUid, ShieldGeneratorComponent gen, EntityUid gridUid, MapGridComponent grid, Vector2i tile, bool shouldExist)
+    {
+        var existing = GetSegmentAt(gridUid, tile);
+
+        if (shouldExist)
+        {
+            if (!Exists(existing))
+                SpawnSegment(genUid, gen, gridUid, grid, tile);
+            return;
+        }
+
+        if (!Exists(existing))
+            return;
+
+        if (TryComp<ShieldSegmentComponent>(existing, out var segComp) && segComp.Generator != genUid)
+            return;
+
+        gen.Segments.Remove(existing);
+        gen.DamagedTiles.Remove(tile);
+        gen.Tiles.Remove(tile);
+        _segmentsByTile.Remove((gridUid, tile));
+        QueueDel(existing);
+    }
+
+    private void OnGridMoved(EntityUid uid, PhysicsComponent phys, ref MoveEvent args)
+    {
+        if (_generatorsByGrid.Count == 0)
+            return;
+
+        // MoveEvent подписан на PhysicsComponent, поэтому фильтруем до гридов.
+        if (!TryComp<MapGridComponent>(uid, out var movedGrid))
+            return;
+
+        var movedXform = Transform(uid);
+        if (movedXform.MapUid == null)
+            return;
+
+        var movedWorldMatrix = _transform.GetWorldMatrix(uid);
+        var movedBounds = movedWorldMatrix.TransformBox(movedGrid.LocalAABB).Enlarged(movedGrid.TileSize * 2f);
+
+        foreach (var (genGridUid, generators) in _generatorsByGrid)
+        {
+            if (genGridUid == uid)
+                continue;
+
+            if (!_hullCache.TryGetValue(genGridUid, out var hull))
+                continue;
+
+            if (!TryComp<MapGridComponent>(genGridUid, out var genGrid))
+                continue;
+
+            var genXform = Transform(genGridUid);
+            if (genXform.MapUid == null || genXform.MapID != movedXform.MapID)
+                continue;
+
+            var genWorldMatrix = _transform.GetWorldMatrix(genGridUid);
+            var genBounds = genWorldMatrix.TransformBox(genGrid.LocalAABB);
+            if (!genBounds.Intersects(movedBounds))
+                continue;
+
+            var tileScale = genGrid.TileSize;
+            var minTile = _map.WorldToTile(genGridUid, genGrid, movedBounds.BottomLeft);
+            var maxTile = _map.WorldToTile(genGridUid, genGrid, movedBounds.TopRight);
+
+            for (var x = minTile.X; x <= maxTile.X; x++)
+            {
+                for (var y = minTile.Y; y <= maxTile.Y; y++)
+                {
+                    var tile = new Vector2i(x, y);
+                    if (!hull.Contains(tile))
+                        continue;
+
+                    var worldPos = Vector2.Transform((tile + TileCenterOffset) * tileScale, genWorldMatrix);
+                    var covered = movedBounds.Contains(worldPos);
+
+                    foreach (var genUid in generators)
+                    {
+                        if (!TryComp<ShieldGeneratorComponent>(genUid, out var gen))
+                            continue;
+
+                        if (gen.Running != ShieldRunningState.Running)
+                            continue;
+
+                        EnsureSegment(genUid, gen, genGridUid, genGrid, tile, !covered);
+                    }
+                }
+            }
+        }
     }
 
     public void RemoveAllSegments(EntityUid genUid, ShieldGeneratorComponent gen)
@@ -298,28 +462,17 @@ public sealed partial class ShieldGridSystem : EntitySystem
             if (gen.Running != ShieldRunningState.Running)
                 continue;
 
+            var exclusions = _dockExclusionsByGrid.TryGetValue(gridUid, out var excl) ? excl : null;
             foreach (var change in ev.Changes)
             {
                 var changed = change.GridIndices;
                 foreach (var cand in GetAffectedCandidates(changed))
                 {
                     var needs = IsSpace(gridUid, gridComp, cand) && HasNonSpaceNeighbor(gridUid, gridComp, cand);
-                    var existing = GetSegmentAt(gridUid, cand);
+                    if (needs && exclusions != null && exclusions.Contains(cand))
+                        needs = false;
 
-                    if (needs && !Exists(existing))
-                    {
-                        SpawnSegment(genUid, gen, gridUid, gridComp, cand);
-                    }
-                    else if (!needs && Exists(existing))
-                    {
-                        if (gen.Segments.Remove(existing))
-                        {
-                            gen.DamagedTiles.Remove(cand);
-                            gen.Tiles.Remove(cand);
-                            _segmentsByTile.Remove((gridUid, cand));
-                            QueueDel(existing);
-                        }
-                    }
+                    EnsureSegment(genUid, gen, gridUid, gridComp, cand, needs);
                 }
             }
         }
@@ -327,9 +480,13 @@ public sealed partial class ShieldGridSystem : EntitySystem
 
     private void UpdateHullCacheForTile(EntityUid gridUid, MapGridComponent grid, HashSet<Vector2i> hull, Vector2i changed)
     {
+        var exclusions = _dockExclusionsByGrid.TryGetValue(gridUid, out var excl) ? excl : null;
         foreach (var cand in GetAffectedCandidates(changed))
         {
             var isHull = IsSpace(gridUid, grid, cand) && HasNonSpaceNeighbor(gridUid, grid, cand);
+            if (isHull && exclusions != null && exclusions.Contains(cand))
+                isHull = false;
+
             if (isHull)
                 hull.Add(cand);
             else
@@ -347,6 +504,7 @@ public sealed partial class ShieldGridSystem : EntitySystem
     private void OnGridRemoved(GridRemovalEvent ev)
     {
         _hullCache.Remove(ev.EntityUid);
+        _dockExclusionsByGrid.Remove(ev.EntityUid);
         _generatorsByGrid.Remove(ev.EntityUid);
 
         if (_segmentsByTile.Count == 0)

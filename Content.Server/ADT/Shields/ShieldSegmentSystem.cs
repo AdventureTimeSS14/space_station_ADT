@@ -60,6 +60,7 @@ public sealed partial class ShieldSegmentSystem : EntitySystem
     {
         SubscribeLocalEvent<ShieldSegmentComponent, BeforeDamageChangedEvent>(OnBeforeDamage);
         SubscribeLocalEvent<ShieldSegmentComponent, StartCollideEvent>(OnCollide);
+        SubscribeLocalEvent<ShieldSegmentComponent, PreventCollideEvent>(OnPreventCollide);
         SubscribeLocalEvent<ShieldSegmentComponent, ComponentShutdown>(OnShutdown);
     }
 
@@ -103,6 +104,27 @@ public sealed partial class ShieldSegmentSystem : EntitySystem
         var shock = new DamageSpecifier(_proto.Index<DamageTypePrototype>(SharedShieldSystem.HeatTypeId), gen.OverchargeShockDamage);
         _damageable.TryChangeDamage(other, shock, origin: uid);
         TakeDamage(uid, seg, genUid, gen, gen.OverchargeFieldStrain, ShieldDamType.Em, uid);
+    }
+
+    private void OnPreventCollide(EntityUid uid, ShieldSegmentComponent seg, ref PreventCollideEvent args)
+    {
+        if (seg.Generator is not { } genUid || !TryComp<ShieldGeneratorComponent>(genUid, out var gen))
+            return;
+
+        var humanoidsOn = gen.Modes.HasMode(ShieldModes.Humanoids);
+        var anorganicOn = gen.Modes.HasMode(ShieldModes.Anorganic);
+        if (!humanoidsOn && !anorganicOn)
+            return;
+
+        if (!TryComp<InjurableComponent>(args.OtherEntity, out var injurable)
+            || injurable.DamageContainer is not { } container)
+            return;
+
+        var isHumanoid = gen.HumanoidContainers.Contains(container);
+        var isAnorganic = gen.AnorganicContainers.Contains(container);
+
+        if ((isHumanoid && !humanoidsOn) || (isAnorganic && !anorganicOn))
+            args.Cancelled = true;
     }
 
     private void OnShutdown(EntityUid uid, ShieldSegmentComponent seg, ComponentShutdown args)

@@ -11,6 +11,17 @@
     hacked: true
     maxChargeBase: 1000000000000000
     chargePerConduit: 0
+    humanoidContainers:
+    - Biological
+    - BiologicalMetaphysical
+    - ADTBiologicalDrask
+    - ADTBiologicalShadekin
+    anorganicContainers:
+    - SiliconIpc
+    - Inorganic
+    - StructuralInorganic
+    - Silicon
+    - ADTSiliconDamageContainer
     modes:
     - Hyperkinetic
     - Photonic

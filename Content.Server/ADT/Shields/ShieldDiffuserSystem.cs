@@ -1,4 +1,5 @@
 using Content.Shared.ADT.Shields;
+using Content.Shared.Emp;
 using Content.Shared.Interaction;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -10,7 +11,7 @@ using Robust.Shared.Maths;
 
 namespace Content.Server.ADT.Shields;
 
-/// <summary>Напольный рассеиватель: разгоняет щит крестом вокруг себя и не даёт полю восстановиться на этих тайлах.</summary>
+/// <summary>Напольный рассеиватель: убирает щит прямо над собой и не даёт полю восстановиться на этой плитке.</summary>
 public sealed partial class ShieldDiffuserSystem : EntitySystem
 {
     [Dependency] private readonly SharedMapSystem _map = default!;
@@ -27,6 +28,8 @@ public sealed partial class ShieldDiffuserSystem : EntitySystem
         SubscribeLocalEvent<ShieldDiffuserComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<ShieldDiffuserComponent, ActivateInWorldEvent>(OnActivate);
         SubscribeLocalEvent<ShieldDiffuserComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<ShieldDiffuserComponent, EmpPulseEvent>(OnEmpPulse);
+        SubscribeLocalEvent<ShieldDiffuserComponent, EmpDisabledRemovedEvent>(OnEmpDisabledRemoved);
     }
 
     private void OnMapInit(EntityUid uid, ShieldDiffuserComponent comp, MapInitEvent args)
@@ -63,6 +66,23 @@ public sealed partial class ShieldDiffuserSystem : EntitySystem
         SetSuppression(uid, comp, false);
     }
 
+    private void OnEmpPulse(EntityUid uid, ShieldDiffuserComponent comp, ref EmpPulseEvent args)
+    {
+        comp.Alarm = MathF.Max(comp.Alarm, comp.AlarmDuration);
+        args.Affected = true;
+        args.Disabled = true;
+        UpdateVisuals(uid, comp);
+    }
+
+    private void OnEmpDisabledRemoved(EntityUid uid, ShieldDiffuserComponent comp, ref EmpDisabledRemovedEvent args)
+    {
+        if (comp.Alarm <= 0)
+            return;
+
+        comp.Alarm = 0;
+        UpdateVisuals(uid, comp);
+    }
+
     private void SetSuppression(EntityUid uid, ShieldDiffuserComponent comp, bool enabled)
     {
         if (!enabled)
@@ -73,44 +93,30 @@ public sealed partial class ShieldDiffuserSystem : EntitySystem
             return;
         }
 
-        var tiles = GetAffectedTiles(uid);
-        if (tiles == null)
+        if (GetAffectedTile(uid) is not { } affected)
             return;
 
-        var (gridUid, list) = tiles.Value;
-        foreach (var tile in list)
-        {
-            _diffusion.Add(gridUid, tile, comp.DiffuseRefresh);
-            comp.DiffusedTiles.Add((gridUid, tile));
-        }
+        _diffusion.Add(affected.Grid, affected.Tile, comp.DiffuseRefresh);
+        comp.DiffusedTiles.Add((affected.Grid, affected.Tile));
     }
 
-    private (EntityUid Grid, List<Vector2i> Tiles)? GetAffectedTiles(EntityUid uid)
+    private (EntityUid Grid, Vector2i Tile)? GetAffectedTile(EntityUid uid)
     {
         var xform = Transform(uid);
         if (xform.GridUid is not { } gridUid || !TryComp<MapGridComponent>(gridUid, out var grid))
             return null;
 
-        var center = _map.TileIndicesFor(gridUid, grid, xform.Coordinates);
-        var list = new List<Vector2i> { center };
-        foreach (var dir in ShieldGridSystem.CardinalVectors)
-            list.Add(center + dir);
-        return (gridUid, list);
+        return (gridUid, _map.TileIndicesFor(gridUid, grid, xform.Coordinates));
     }
 
     private void DiffuseAround(EntityUid uid, ShieldDiffuserComponent comp)
     {
-        var tiles = GetAffectedTiles(uid);
-        if (tiles == null)
+        if (GetAffectedTile(uid) is not { } affected)
             return;
 
-        var (gridUid, list) = tiles.Value;
-        foreach (var tile in list)
-        {
-            var seg = _grid.GetSegmentAt(gridUid, tile);
-            if (Exists(seg) && TryComp<ShieldSegmentComponent>(seg, out var segComp))
-                _segment.Diffuse(seg, segComp, comp.DiffuseRefresh);
-        }
+        var seg = _grid.GetSegmentAt(affected.Grid, affected.Tile);
+        if (Exists(seg) && TryComp<ShieldSegmentComponent>(seg, out var segComp))
+            _segment.Diffuse(seg, segComp, comp.DiffuseRefresh);
     }
 
     private void UpdateVisuals(EntityUid uid, ShieldDiffuserComponent comp)

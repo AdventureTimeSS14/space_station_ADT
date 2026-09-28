@@ -118,7 +118,11 @@ public sealed partial class ShieldGeneratorSystem : EntitySystem
 
     private void OnEmagged(EntityUid uid, ShieldGeneratorComponent gen, ref GotEmaggedEvent args)
     {
+        if (gen.Hacked)
+            return;
+
         gen.Hacked = true;
+        args.Handled = true;
         _audio.PlayPvs(HackSound, Transform(uid).Coordinates, AudioParams.Default.WithVolume(2f));
         UpdateUiState(uid, gen);
     }
@@ -245,7 +249,7 @@ public sealed partial class ShieldGeneratorSystem : EntitySystem
             gen.CurrentUpkeep = upkeep;
             _battery.ChangeCharge((uid, runningBattery), -upkeep);
 
-            if (_battery.GetCharge((uid, runningBattery)) <= 0)
+            if (_battery.GetCharge((uid, runningBattery)) <= 0 && gen.Overloaded <= 0)
                 OverloadField(uid, gen);
         }
 

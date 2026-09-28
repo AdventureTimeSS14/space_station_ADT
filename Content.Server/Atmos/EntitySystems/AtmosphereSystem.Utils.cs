@@ -142,10 +142,11 @@ public partial class AtmosphereSystem
                 break;
         }
 
-        // ADT fork: unanchored shield segments (sitting in space) can't carry AirtightComponent,
+        // ADT-Tweak start: unanchored shield segments (sitting in space) can't carry AirtightComponent,
         // so their blocked directions are merged in from a registry instead. No-op without shields.
         if (ShieldAirtightRegistry.HasAny)
             blockedDirs |= ShieldAirtightRegistry.GetBlockedDirections(uid, tile);
+        // ADT-Tweak end
 
         return new AirtightData(blockedDirs, noAirWhenBlocked, fixVacuum);
     }

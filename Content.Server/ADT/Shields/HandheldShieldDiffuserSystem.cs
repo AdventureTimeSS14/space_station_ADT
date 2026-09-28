@@ -34,6 +34,7 @@ public sealed partial class HandheldShieldDiffuserSystem : EntitySystem
     [Dependency] private readonly ShieldDiffusionSystem _diffusion = default!;
 
     private const string ClickSound = "/Audio/Machines/button.ogg";
+    private const string BuzzSound = "/Audio/Machines/buzz-two.ogg";
     private const string SparklesProto = "ADTShieldSparkles";
     private const double ProcessInterval = 1.0;
 
@@ -83,6 +84,13 @@ public sealed partial class HandheldShieldDiffuserSystem : EntitySystem
         {
             SetEnabled(uid, comp, false);
             _audio.PlayPvs(ClickSound, Transform(uid).Coordinates);
+            args.Handled = true;
+            return;
+        }
+
+        if (!_powerCell.TryGetBatteryFromEntityOrSlot(uid, out var battery))
+        {
+            _audio.PlayPvs(BuzzSound, Transform(uid).Coordinates);
             args.Handled = true;
             return;
         }

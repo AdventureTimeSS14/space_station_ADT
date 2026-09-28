@@ -87,7 +87,7 @@ public sealed class SimpleStationCCVars
 
     /// <summary>Сколько сегментов щита спавнится/удаляется за тик</summary>
     public static readonly CVarDef<int> ShieldSegmentsPerTick =
-        CVarDef.Create("adt.shield_segments_per_tick", 10, CVar.SERVERONLY);
+        CVarDef.Create("adt.shield_segments_per_tick", 1, CVar.SERVERONLY);
 
     #endregion Shields
 

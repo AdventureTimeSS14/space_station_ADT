@@ -2,7 +2,7 @@
   parent: [ BaseItem, PowerCellSlotMediumItem ]
   id: ADTShieldHandheldDiffuser
   name: portable shield diffuser
-  description: A small handheld device designed to disrupt energy barriers. It disrupts shields on directly adjacent tiles, in a similar way the floor mounted variant does. It is, however, portable and run by an internal battery. Can be recharged with a regular recharger.
+  description: A small handheld device designed to disrupt energy barriers. It disrupts the shield in a small radius around itself. Can be recharged with a regular recharger.
   components:
   - type: HandheldShieldDiffuser
   - type: Sprite

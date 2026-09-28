@@ -4,13 +4,15 @@ using Robust.Shared.Maths;
 
 namespace Content.Shared.ADT.Shields;
 
-/// <summary>Напольный рассеиватель: разгоняет щит крестом вокруг себя.</summary>
+/// <summary>Напольный рассеиватель: убирает щит прямо над собой.</summary>
 [RegisterComponent]
 public sealed partial class ShieldDiffuserComponent : Component
 {
     [DataField] public bool Enabled = true;
 
     [DataField] public float Alarm;
+
+    [DataField] public float AlarmDuration = 30f;
 
     [DataField] public float DiffuseRefresh = 5f;
 

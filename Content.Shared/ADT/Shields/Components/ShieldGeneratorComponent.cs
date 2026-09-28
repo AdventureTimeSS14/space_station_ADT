@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Content.Shared.Damage.Prototypes;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Maths;
 using Robust.Shared.Prototypes;
@@ -71,6 +72,10 @@ public sealed partial class ShieldGeneratorComponent : Component
     [DataField] public bool RequiresAnchor = true;
 
     [DataField] public bool RequiresConduits = true;
+
+    [DataField] public HashSet<ProtoId<DamageContainerPrototype>> HumanoidContainers = new();
+
+    [DataField] public HashSet<ProtoId<DamageContainerPrototype>> AnorganicContainers = new();
 
     public TimeSpan NextUpdate;
     public TimeSpan NextUiUpdate;

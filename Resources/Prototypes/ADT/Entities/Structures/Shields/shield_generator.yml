@@ -5,6 +5,17 @@
   description: A heavy-duty shield generator and capacitor, capable of generating an energy field around the installation. Requires three deployed capacitors to operate.
   components:
   - type: ShieldGenerator
+    humanoidContainers:
+    - Biological
+    - BiologicalMetaphysical
+    - ADTBiologicalDrask
+    - ADTBiologicalShadekin
+    anorganicContainers:
+    - SiliconIpc
+    - Inorganic
+    - StructuralInorganic
+    - Silicon
+    - ADTSiliconDamageContainer
   - type: Sprite
     sprite: ADT/Misc/shield.rsi
     layers:
