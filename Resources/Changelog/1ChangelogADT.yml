@@ -16008,3 +16008,9 @@ Entries:
     id: 1983
     pr_number: 3389
     time: '2026-09-28T08:09:02Z'
+  - author: (Автор изменения)
+    changes:
+      - {message: Добавлены именные вещи и предметы, type: Add}
+    id: 1984
+    pr_number: 3459
+    time: '2026-09-28T09:42:35Z'
