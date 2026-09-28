@@ -41,6 +41,9 @@ shield-handheld-enabled = Он включён.
 shield-handheld-disabled = Он выключен.
 shield-handheld-uses-left = Ему хватит заряда ещё примерно на {$amount} секунд работы.
 
+shield-generator-cant-unanchor = Нельзя открутить генератор, пока поле активно.
+shield-conduit-cant-unanchor = Нельзя открутить конденсатор, пока поле активно.
+
 uplink-adt-shield-handheld-diffuser-name = портативный рассеиватель щита
 uplink-adt-shield-handheld-diffuser-desc = Небольшое ручное устройство, предназначенное для разрушения энергетических барьеров. Рассеивает щиты в небольшом радиусе вокруг себя. Работает от стандартной батареи.
 

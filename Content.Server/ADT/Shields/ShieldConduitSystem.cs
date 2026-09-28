@@ -1,6 +1,9 @@
 using Content.Shared.ADT.Shields;
+using Content.Shared.Construction.Components;
+using Content.Shared.Popups;
 using Robust.Server.GameObjects;
 using Robust.Shared.GameObjects;
+using Robust.Shared.Localization;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Maths;
 
@@ -10,6 +13,7 @@ public sealed partial class ShieldConduitSystem : EntitySystem
 {
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly ShieldGeneratorSystem _generator = default!;
 
@@ -25,6 +29,7 @@ public sealed partial class ShieldConduitSystem : EntitySystem
     {
         SubscribeLocalEvent<ShieldConduitComponent, ComponentInit>(OnConduitInit);
         SubscribeLocalEvent<ShieldConduitComponent, AnchorStateChangedEvent>(OnConduitAnchorChanged);
+        SubscribeLocalEvent<ShieldConduitComponent, UnanchorAttemptEvent>(OnConduitUnanchorAttempt);
         SubscribeLocalEvent<ShieldConduitComponent, ComponentShutdown>(OnConduitShutdown);
     }
 
@@ -33,6 +38,18 @@ public sealed partial class ShieldConduitSystem : EntitySystem
 
     private void OnConduitAnchorChanged(EntityUid uid, ShieldConduitComponent conduit, ref AnchorStateChangedEvent args)
         => UpdateConduitConnection(uid, conduit);
+
+    private void OnConduitUnanchorAttempt(EntityUid uid, ShieldConduitComponent conduit, UnanchorAttemptEvent args)
+    {
+        if (conduit.Generator is not { } genUid)
+            return;
+
+        if (!TryComp<ShieldGeneratorComponent>(genUid, out var gen) || gen.Running != ShieldRunningState.Running)
+            return;
+
+        _popup.PopupClient(Loc.GetString("shield-conduit-cant-unanchor"), uid, args.User);
+        args.Cancelled = true;
+    }
 
     private void OnConduitShutdown(EntityUid uid, ShieldConduitComponent conduit, ComponentShutdown args)
     {

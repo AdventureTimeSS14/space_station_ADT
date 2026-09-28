@@ -3,14 +3,17 @@ using System.Linq;
 using System.Numerics;
 using Content.Server.Power.Components;
 using Content.Shared.ADT.Shields;
+using Content.Shared.Construction.Components;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Emp;
+using Content.Shared.Popups;
 using Content.Shared.Power.Components;
 using Content.Shared.Power.EntitySystems;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameObjects;
+using Robust.Shared.Localization;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Maths;
@@ -28,6 +31,7 @@ public sealed partial class ShieldGeneratorSystem : EntitySystem
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedEmpSystem _emp = default!;
     [Dependency] private readonly ShieldGridSystem _grid = default!;
@@ -52,6 +56,7 @@ public sealed partial class ShieldGeneratorSystem : EntitySystem
     {
         SubscribeLocalEvent<ShieldGeneratorComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<ShieldGeneratorComponent, AnchorStateChangedEvent>(OnAnchorChanged);
+        SubscribeLocalEvent<ShieldGeneratorComponent, UnanchorAttemptEvent>(OnUnanchorAttempt);
         SubscribeLocalEvent<ShieldGeneratorComponent, GotEmaggedEvent>(OnEmagged);
         SubscribeLocalEvent<ShieldGeneratorComponent, EntityTerminatingEvent>(OnTerminating);
 
@@ -93,6 +98,15 @@ public sealed partial class ShieldGeneratorSystem : EntitySystem
 
         if (gen.Running == ShieldRunningState.Running)
             _grid.GenerateField(uid, gen);
+    }
+
+    private void OnUnanchorAttempt(EntityUid uid, ShieldGeneratorComponent gen, UnanchorAttemptEvent args)
+    {
+        if (gen.Running != ShieldRunningState.Running)
+            return;
+
+        _popup.PopupClient(Loc.GetString("shield-generator-cant-unanchor"), uid, args.User);
+        args.Cancelled = true;
     }
 
     private void OnAnchorChanged(EntityUid uid, ShieldGeneratorComponent gen, ref AnchorStateChangedEvent args)
