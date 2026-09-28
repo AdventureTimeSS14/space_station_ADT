@@ -1,11 +1,7 @@
 {
-    "version": 2,
+    "version": 1,
     "license": "CC-BY-SA-3.0",
-<<<<<<< HEAD:Resources/Textures/Objects/Weapons/Guns/Rifles/carbine.rsi/meta.json
-    "copyright": "Taken from Polaris at https://github.com/PolarisSS13/Polaris/commit/ff87150c3dfc387c46db7d1c956abf19ddff7819, backpack sprite by Peptide, backpack sling sprite edited by Boaz1111, M90GL resprited by Inconnu(discord), in hand resprited by armorkillerd, wielded made by egor2444(discord)",
-=======
     "copyright": "Modified by noxypaws based on the bass guitar artwork created by EmoGarbage404 and RiceMar.",
->>>>>>> wizards-filtered:Resources/Textures/Objects/Fun/Instruments/bassguitarfretless.rsi/meta.json
     "size": {
         "x": 32,
         "y": 32
@@ -29,25 +25,6 @@
         {
             "name": "inhand-right",
             "directions": 4
-<<<<<<< HEAD:Resources/Textures/Objects/Weapons/Guns/Rifles/carbine.rsi/meta.json
-        },
-        {
-            "name": "equipped-BACKPACK",
-            "directions": 4
-        },
-		{
-            "name": "equipped-SUITSTORAGE",
-            "directions": 4
-        },
-		{
-            "name": "wielded-inhand-left",
-            "directions": 4
-        },
-		{
-            "name": "wielded-inhand-right",
-            "directions": 4
-=======
->>>>>>> wizards-filtered:Resources/Textures/Objects/Fun/Instruments/bassguitarfretless.rsi/meta.json
         }
     ]
 }

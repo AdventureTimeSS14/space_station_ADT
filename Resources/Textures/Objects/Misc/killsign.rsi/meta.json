@@ -98,22 +98,14 @@
             ]
         },
         {
-<<<<<<< ours
-            "name": "sign",
-            "directions": 1
-        },
-        {
-            "name": "icon",
-            "directions": 1
-||||||| base
-            "name": "icon",
-            "directions": 1
-=======
             "name": "icon"
->>>>>>> theirs
         },
         {
             "name": "icon-hidden"
+        },
+        {
+            "name": "sign",
+            "directions": 1
         }
     ]
 }

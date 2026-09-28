@@ -14,10 +14,6 @@
             "name": "id_overlay_wide"
         },
         {
-            "name": "equipped-BELT",
-            "directions": 4
-        },
-        {
             "name": "inhand-left",
             "directions": 4
         },
@@ -227,17 +223,6 @@
             "name": "pda-ert"
         },
         {
-            "name": "pda-ds",
-            "delays": [
-                [
-                    0.9,
-                    0.9,
-                    0.9,
-                    0.9
-                ]
-            ]
-        },
-        {
             "name": "pda-cluwne"
         },
         {
@@ -265,17 +250,28 @@
                     0.3
                 ]
             ]
-<<<<<<< ours
+        },
+        {
+            "name": "pda-tramdriver"
+        },
+        {
+            "name": "equipped-BELT",
+            "directions": 4
+        },
+        {
+            "name": "pda-ds",
+            "delays": [
+                [
+                    0.9,
+                    0.9,
+                    0.9,
+                    0.9
+                ]
+            ]
         },
         {
             "name": "equipped-IDCARD",
             "directions": 4
-||||||| base
-=======
-        },
-        {
-            "name": "pda-tramdriver"
->>>>>>> theirs
         }
     ]
 }

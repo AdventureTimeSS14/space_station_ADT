@@ -37,27 +37,11 @@
             "directions": 4
         },
         {
-<<<<<<< ours
-            "name": "equipped-HELMET-unshade",
-            "directions": 4
-        },
-        {
-            "name": "off-equipped-HELMET-vox",
-||||||| base
-            "name": "off-equipped-HELMET-vox",
-=======
             "name": "equipped-head-unshaded-vox",
->>>>>>> theirs
             "directions": 4
         },
         {
-<<<<<<< ours
-            "name": "off-equipped-HELMET-dog",
-||||||| base
-            "name": "off-equipped-HELMET-reptilian",
-=======
             "name": "equipped-head-reptilian",
->>>>>>> theirs
             "directions": 4
         },
         {
@@ -65,33 +49,15 @@
             "directions": 4
         },
         {
-<<<<<<< ours
-            "name": "off-equipped-HELMET-reptilian",
-||||||| base
-            "name": "on-equipped-HELMET-vox",
-=======
             "name": "equipped-head-unshaded-reptilian",
->>>>>>> theirs
             "directions": 4
         },
         {
-<<<<<<< ours
-            "name": "off-equipped-HELMET-vulpkanin",
-||||||| base
-            "name": "on-equipped-HELMET-reptilian",
-=======
             "name": "equipped-head-vulpkanin",
->>>>>>> theirs
             "directions": 4
         },
         {
-<<<<<<< ours
-            "name": "on-equipped-HELMET-reptilian",
-||||||| base
-            "name": "off-equipped-HELMET-vulpkanin",
-=======
             "name": "equipped-head-light-vulpkanin",
->>>>>>> theirs
             "directions": 4
         },
         {
@@ -99,11 +65,34 @@
             "directions": 4
         },
         {
-            "name": "on-equipped-HELMET-vox",
+            "name": "equipped-HELMET-unshade",
+            "directions": 4
+        },
+        {
+            "name": "off-equipped-HELMET-dog",
             "directions": 4
         },
         {
             "name": "on-equipped-HELMET-dog",
+            "directions": 4
+        },
+        {
+            "name": "icon-flash"
+        },
+        {
+            "name": "off-equipped-HELMET",
+            "directions": 4
+        },
+        {
+            "name": "off-equipped-HELMET-vox",
+            "directions": 4
+        },
+        {
+            "name": "on-equipped-HELMET",
+            "directions": 4
+        },
+        {
+            "name": "on-equipped-HELMET-vox",
             "directions": 4
         }
     ]

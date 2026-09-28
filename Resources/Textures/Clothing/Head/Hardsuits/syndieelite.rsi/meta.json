@@ -1,15 +1,8 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-<<<<<<< ours
     "copyright": "Made by Prazat. Vox states by Flareguy for Space Station 14. Vulpkanin and Reptilian states by TiniestShark (Github).",
-||||||| base
-    "copyright": "Taken from vg at commit https://github.com/vgstation-coders/vgstation13/commit/a16e41020a93479e9a7e2af343b1b74f7f2a61bd. Vox states by Flareguy for Space Station 14. Vulpkanin and Reptilian states by TiniestShark (Github).",
 
-=======
-    "copyright": "Taken from vg at commit https://github.com/vgstation-coders/vgstation13/commit/a16e41020a93479e9a7e2af343b1b74f7f2a61bd. Vox states by Flareguy for Space Station 14. Vulpkanin, Reptilian & Light states by TiniestShark (Github).",
-
->>>>>>> theirs
     "size": {
         "x": 32,
         "y": 32

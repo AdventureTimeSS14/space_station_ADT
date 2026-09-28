@@ -1,14 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-<<<<<<< ours
-    "copyright": "Taken from tgstation https://github.com/tgstation/tgstation/blob/master/icons/mob/clothing/head.dmi. Vox states taken from paradise at https://github.com/ParadiseSS13/Paradise/blob/765461f14aa4dd4f1edc33242c667843134678b5/icons/mob/clothing/species/vox/head.dmi. Dog states modified from base states by @Aisfae(facebook).",
-  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/2fea0a59470c476cf3f927833d3918d89cbe6af8. Vox states taken from paradise at https://github.com/ParadiseSS13/Paradise/blob/765461f14aa4dd4f1edc33242c667843134678b5/icons/mob/clothing/species/vox/head.dmi",
-||||||| base
-    "copyright": "Taken from tgstation https://github.com/tgstation/tgstation/blob/master/icons/mob/clothing/head.dmi. Vox states taken from paradise at https://github.com/ParadiseSS13/Paradise/blob/765461f14aa4dd4f1edc33242c667843134678b5/icons/mob/clothing/species/vox/head.dmi.",
-=======
-    "copyright": "Taken from tgstation https://github.com/tgstation/tgstation/blob/master/icons/mob/clothing/head.dmi. Vox states taken from paradise at https://github.com/ParadiseSS13/Paradise/blob/765461f14aa4dd4f1edc33242c667843134678b5/icons/mob/clothing/species/vox/head.dmi, lights by TiniestShark (Github)",
->>>>>>> theirs
+    "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/2fea0a59470c476cf3f927833d3918d89cbe6af8. Vox states taken from paradise at https://github.com/ParadiseSS13/Paradise/blob/765461f14aa4dd4f1edc33242c667843134678b5/icons/mob/clothing/species/vox/head.dmi, lights by TiniestShark (Github)",
     "size": {
         "x": 32,
         "y": 32
@@ -29,17 +22,7 @@
             "directions": 4
         },
         {
-<<<<<<< ours
-            "name": "off-equipped-HELMET-dog",
-            "directions": 4
-        },
-        {
-            "name": "off-inhand-left",
-||||||| base
-            "name": "off-inhand-left",
-=======
             "name": "equipped-helmet-vox",
->>>>>>> theirs
             "directions": 4
         },
         {
@@ -55,21 +38,19 @@
             "directions": 4
         },
         {
-<<<<<<< ours
-            "name": "on-equipped-HELMET-dog",
-            "directions": 4
-        },
-        {
-            "name": "on-inhand-left",
-||||||| base
-            "name": "on-inhand-left",
-=======
             "name": "inhand-left-light",
->>>>>>> theirs
             "directions": 4
         },
         {
             "name": "inhand-right-light",
+            "directions": 4
+        },
+        {
+            "name": "off-equipped-HELMET-dog",
+            "directions": 4
+        },
+        {
+            "name": "on-equipped-HELMET-dog",
             "directions": 4
         }
     ]

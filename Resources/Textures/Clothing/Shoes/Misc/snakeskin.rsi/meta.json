@@ -1,34 +1,10 @@
 {
-<<<<<<< ours
-  "version": 1,
-  "license": "CC-BY-NC-3.0",
-  "copyright": "Made by Nimfar11 (GitHub) for Space Station 14, fix digi sprites by DreamlyJack",
-  "size": {
-    "x": 32,
-    "y": 32
-  },
-  "states": [
-    {
-      "name": "icon"
-||||||| base
-  "version": 1,
-  "license": "CC-BY-NC-3.0",
-  "copyright": "Made by Nimfar11 (GitHub) for Space Station 14",
-  "size": {
-    "x": 32,
-    "y": 32
-  },
-  "states": [
-    {
-      "name": "icon"
-=======
     "version": 1,
     "license": "CC-BY-NC-3.0",
-    "copyright": "Made by Nimfar11 (GitHub) for Space Station 14",
+    "copyright": "Made by Nimfar11 (GitHub) for Space Station 14, fix digi sprites by DreamlyJack",
     "size": {
         "x": 32,
         "y": 32
->>>>>>> theirs
     },
     "states": [
         {

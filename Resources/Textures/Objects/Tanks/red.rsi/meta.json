@@ -1,34 +1,10 @@
 {
-<<<<<<< ours
-  "version": 2,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/e1142f20f5e4661cb6845cfcf2dd69f864d67432. Suit and back storages drawn by Ubaser. Resprite icon from tgstation, other resprite by minokaa(discord)",
-  "size": {
-    "x": 32,
-    "y": 32
-  },
-  "states": [
-    {
-      "name": "icon"
-||||||| base
-  "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/e1142f20f5e4661cb6845cfcf2dd69f864d67432. Suit and back storages drawn by Ubaser.",
-  "size": {
-    "x": 32,
-    "y": 32
-  },
-  "states": [
-    {
-      "name": "icon"
-=======
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/e1142f20f5e4661cb6845cfcf2dd69f864d67432. Suit and back storages drawn by Ubaser. Integrity stages by Princess-Cheeseballs (Github)",
+    "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/e1142f20f5e4661cb6845cfcf2dd69f864d67432. Suit and back storages drawn by Ubaser. Resprite icon from tgstation, other resprite by minokaa(discord). Integrity stages by Princess-Cheeseballs (Github)",
     "size": {
         "x": 32,
         "y": 32
->>>>>>> theirs
     },
     "states": [
         {

@@ -1,114 +1,11 @@
 {
-<<<<<<< ours
-  "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Made by Tamioki(discord). Vox states by Flareguy for Space Station 14. Vulpkanin and Reptilian states by TiniestShark (Github), taken from paradisestation at commit https://github.com/ParadiseSS13/Paradise/commit/f09526480788c2e18fff8c16c4318fd6b4272c10.",
-  "size": {
-    "x": 32,
-    "y": 32
-  },
-  "states": [
-    {
-      "name": "icon"
-||||||| base
-  "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from paradisestation at commit https://github.com/ParadiseSS13/Paradise/commit/f09526480788c2e18fff8c16c4318fd6b4272c10. Vox states by Flareguy for Space Station 14. Vulpkanin and Reptilian states by TiniestShark (Github).",
-  "size": {
-    "x": 32,
-    "y": 32
-  },
-  "states": [
-    {
-      "name": "icon"
-=======
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from paradisestation at commit https://github.com/ParadiseSS13/Paradise/commit/f09526480788c2e18fff8c16c4318fd6b4272c10. Vox states by Flareguy for Space Station 14. Vulpkanin, Reptilian and Light states by TiniestShark (Github).",
+    "copyright": "Made by Tamioki(discord). Vox states by Flareguy for Space Station 14. Vulpkanin and Reptilian states by TiniestShark (Github), taken from paradisestation at commit https://github.com/ParadiseSS13/Paradise/commit/f09526480788c2e18fff8c16c4318fd6b4272c10.",
     "size": {
         "x": 32,
         "y": 32
->>>>>>> theirs
     },
-<<<<<<< ours
-    {
-      "name": "icon-flash"
-    },
-    {
-      "name": "equipped-HELMET",
-      "directions": 4
-    },
-    {
-      "name": "equipped-HELMET-unshaded",
-      "directions": 4
-    },
-    {
-      "name": "equipped-HELMET-vox",
-      "directions": 4
-    },
-    {
-      "name": "equipped-HELMET-light",
-      "directions": 4
-    },
-    {
-      "name": "equipped-HELMET-vulp",
-      "directions": 4
-    },
-    {
-      "name": "on-equipped-HELMET-reptilian",
-      "directions": 4
-    },
-    {
-      "name": "off-equipped-HELMET-reptilian",
-      "directions": 4
-    },
-    {
-      "name": "on-equipped-HELMET-vulpkanin",
-      "directions": 4
-    },
-    {
-      "name": "off-equipped-HELMET-vulpkanin",
-      "directions": 4
-    }
-  ]
-||||||| base
-    {
-      "name": "icon-flash"
-    },
-    {
-      "name": "off-equipped-HELMET",
-      "directions": 4
-    },
-    {
-      "name": "off-equipped-HELMET-vox",
-      "directions": 4
-    },
-    {
-      "name": "off-equipped-HELMET-reptilian",
-      "directions": 4
-    },
-    {
-      "name": "on-equipped-HELMET",
-      "directions": 4
-    },
-    {
-      "name": "on-equipped-HELMET-vox",
-      "directions": 4
-    },
-    {
-      "name": "on-equipped-HELMET-reptilian",
-      "directions": 4
-    },
-    {
-      "name": "off-equipped-HELMET-vulpkanin",
-      "directions": 4
-    },
-    {
-      "name": "on-equipped-HELMET-vulpkanin",
-      "directions": 4
-    }
-  ]
-=======
     "states": [
         {
             "name": "icon"
@@ -166,7 +63,26 @@
         {
             "name": "equipped-head-light-vulpkanin",
             "directions": 4
-        }
+        },
+        {
+      "name": "equipped-HELMET",
+      "directions": 4
+    },
+        {
+      "name": "equipped-HELMET-unshaded",
+      "directions": 4
+    },
+        {
+      "name": "equipped-HELMET-vox",
+      "directions": 4
+    },
+        {
+      "name": "equipped-HELMET-light",
+      "directions": 4
+    },
+        {
+      "name": "equipped-HELMET-vulp",
+      "directions": 4
+    }
     ]
->>>>>>> theirs
 }

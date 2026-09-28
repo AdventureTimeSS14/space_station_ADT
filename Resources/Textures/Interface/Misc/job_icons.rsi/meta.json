@@ -107,6 +107,9 @@
             "name": "Librarian"
         },
         {
+            "name": "MedicalDoctor"
+        },
+        {
             "name": "MedicalIntern"
         },
         {
@@ -125,10 +128,10 @@
             "name": "Musician"
         },
         {
-            "name": "Pilot"
+            "name": "Nanotrasen"
         },
         {
-            "name": "MedicalDoctor"
+            "name": "Ninja"
         },
         {
             "name": "NoId"
@@ -173,7 +176,7 @@
             "name": "Scientist"
         },
         {
-            "name": "IAA"
+            "name": "SecurityCadet"
         },
         {
             "name": "SecurityOfficer"
@@ -239,31 +242,22 @@
             "name": "Wizard"
         },
         {
-            "name": "Zombie"
-        },
-        {
             "name": "Zookeeper"
         },
         {
-<<<<<<< ours
-            "name": "Nanotrasen"
-        },
-        {
-            "name": "SecurityCadet"
-        },
-        {
-            "name": "Ninja"
-        },
-        {
-            "name": "Changeling"
-||||||| base
-            "name": "Zombie"
-=======
             "name": "Zombie"
         },
         {
             "name": "TramDriver"
->>>>>>> theirs
+        },
+        {
+            "name": "Pilot"
+        },
+        {
+            "name": "IAA"
+        },
+        {
+            "name": "Changeling"
         }
     ]
 }

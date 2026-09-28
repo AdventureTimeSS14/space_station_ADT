@@ -1,109 +1,11 @@
 {
-<<<<<<< ours
-  "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Sprited by Nimfar11 (Github) for Space Station 14, inhands by mubururu_ (github), all modified by discord:prazat911",
-  "size": {
-    "x": 32,
-    "y": 32
-  },
-  "states": [
-    {
-        "name": "brain"
-||||||| base
-  "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Sprited by Nimfar11 (Github) for Space Station 14, inhands by mubururu_ (github)",
-  "size": {
-    "x": 32,
-    "y": 32
-  },
-  "states": [
-    {
-      "name": "brain"
-=======
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Sprited by Nimfar11 (Github) for Space Station 14, eyes & inhands by mubururu_ (github)",
+    "copyright": "Sprited by Nimfar11 (Github) for Space Station 14, inhands by mubururu_ (github), all modified by discord:prazat911",
     "size": {
         "x": 32,
         "y": 32
->>>>>>> theirs
     },
-<<<<<<< ours
-    {
-        "name": "brain-inhand-left",
-        "directions": 4
-    },
-    {
-        "name": "brain-inhand-right",
-        "directions": 4
-    },
-    {
-        "name": "lungs-inhand-left",
-        "directions": 4
-    },
-    {
-        "name": "lungs-inhand-right",
-        "directions": 4
-    },
-    {
-        "name": "lung-l"
-    },
-    {
-        "name": "lung-r"
-    },
-    {
-        "name": "core-inhand-left",
-        "directions": 4
-    },
-    {
-        "name": "core-inhand-right",
-        "directions": 4
-    },
-    {
-        "name": "core"
-    },
-    {
-        "name": "eyeball-l"
-    },
-    {
-        "name": "eyeball-r"
-    },
-    {
-        "name": "eyeballs-inhand-left",
-        "directions": 4
-    },
-    {
-        "name": "eyeballs-inhand-right",
-        "directions": 4
-    }
-  ]
-||||||| base
-    {
-      "name": "brain-inhand-left",
-      "directions": 4
-    },
-    {
-        "name": "brain-inhand-right",
-        "directions": 4
-    },
-    {
-        "name": "lungs-inhand-left",
-        "directions": 4
-    },
-    {
-        "name": "lungs-inhand-right",
-        "directions": 4
-    },
-    {
-      "name": "lung-l"
-    },
-    {
-      "name": "lung-r"
-    }
-  ]
-=======
     "states": [
         {
             "name": "brain"
@@ -135,7 +37,25 @@
         },
         {
             "name": "lung-r"
-        }
+        },
+        {
+        "name": "core-inhand-left",
+        "directions": 4
+    },
+        {
+        "name": "core-inhand-right",
+        "directions": 4
+    },
+        {
+        "name": "core"
+    },
+        {
+        "name": "eyeballs-inhand-left",
+        "directions": 4
+    },
+        {
+        "name": "eyeballs-inhand-right",
+        "directions": 4
+    }
     ]
->>>>>>> theirs
 }

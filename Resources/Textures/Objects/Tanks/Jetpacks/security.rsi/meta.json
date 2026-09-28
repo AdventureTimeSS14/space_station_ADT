@@ -1,13 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-<<<<<<< ours
-    "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/1592a112e3d33eec4a0704b518a138d5a976f455. Dog states modified from base states by Sparlight (GitHub).",
-||||||| base
-    "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/1592a112e3d33eec4a0704b518a138d5a976f455.",
-=======
-    "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/1592a112e3d33eec4a0704b518a138d5a976f455. Integrity stages by Princess-Cheeseballs (Github)",
->>>>>>> theirs
+    "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/1592a112e3d33eec4a0704b518a138d5a976f455. Dog states modified from base states by Sparlight (GitHub).. Integrity stages by Princess-Cheeseballs (Github)",
     "size": {
         "x": 32,
         "y": 32
@@ -62,14 +56,6 @@
             ]
         },
         {
-            "name": "equipped-BACKPACK-dog",
-            "directions": 4
-        },
-        {
-            "name": "on-equipped-BACKPACK-dog",
-            "directions": 4
-        },
-        {
             "name": "equipped-SUITSTORAGE",
             "directions": 4
         },
@@ -94,17 +80,6 @@
                     0.2
                 ]
             ]
-<<<<<<< ours
-        },
-        {
-            "name": "equipped-SUITSTORAGE-dog",
-            "directions": 4
-        },
-        {
-            "name": "on-equipped-SUITSTORAGE-dog",
-            "directions": 4
-||||||| base
-=======
         },
         {
             "name": "mask"
@@ -123,7 +98,22 @@
         },
         {
             "name": "integrity-unshaded-4"
->>>>>>> theirs
+        },
+        {
+            "name": "equipped-BACKPACK-dog",
+            "directions": 4
+        },
+        {
+            "name": "on-equipped-BACKPACK-dog",
+            "directions": 4
+        },
+        {
+            "name": "equipped-SUITSTORAGE-dog",
+            "directions": 4
+        },
+        {
+            "name": "on-equipped-SUITSTORAGE-dog",
+            "directions": 4
         }
     ]
 }

@@ -1,12 +1,7 @@
 {
   "version": 1,
-<<<<<<< HEAD:Resources/Textures/Clothing/Uniforms/Jumpsuit/qmturtle.rsi/meta.json
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Derived from qmturtleneck sprite from beestation at commit https://github.com/BeeStation/BeeStation-Hornet/commit/a11e7468ca552cfc97c9164c69ccdafff09e794c and modified by Emisse for Space Station 14, fix digi sprited by DreamlyJack, edited by Deenkaide (github) for ss14, upgraded by discord:prazat911, folded-equipped-INNERCLOTHING by Minokaa",
-=======
   "license": "CC-BY-3.0",
   "copyright": "By ketufaispikinut",
->>>>>>> wizards-filtered:Resources/Textures/Clothing/Uniforms/Jumpsuits/Service/tramdriver.rsi/meta.json
   "size": {
     "x": 32,
     "y": 32
@@ -17,14 +12,6 @@
     },
     {
       "name": "equipped-INNERCLOTHING",
-      "directions": 4
-    },
-    {
-      "name": "folded-equipped-INNERCLOTHING",
-      "directions": 4
-    },
-    {
-      "name": "equipped-INNERCLOTHING-monkey",
       "directions": 4
     },
     {

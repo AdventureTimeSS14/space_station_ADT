@@ -1,13 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-<<<<<<< ours
-  "copyright": "Taken from  https://github.com/tgstation/tgstation + edited by Skilets",
-||||||| base
-  "copyright": "Taken from TauCetiClassic at commit https://github.com/TauCetiStation/TauCetiClassic/tree/23b5c47245804dd24507b75f250de5e87d34e294",
-=======
-  "copyright": "Taken from TauCetiClassic at commit https://github.com/TauCetiStation/TauCetiClassic/tree/23b5c47245804dd24507b75f250de5e87d34e294 and modified by AsnDen (github)",
->>>>>>> theirs
+  "copyright": "Taken from  https://github.com/tgstation/tgstation + edited by Skilets and modified by AsnDen (github)",
   "size": {
     "x": 32,
     "y": 32

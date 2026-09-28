@@ -1,4 +1,4 @@
-﻿{
+{
     "version": 1,
     "license": "CC0-1.0",
     "copyright": "Created by TiniestShark (github).",
@@ -8,11 +8,6 @@
     },
     "states": [
         {
-<<<<<<< ours
-            "name": "armblade"
-||||||| base
-            "name": "transform"
-=======
             "name": "background"
         },
         {
@@ -20,20 +15,14 @@
         },
         {
             "name": "transform"
->>>>>>> theirs
-        },
-        {
-            "name": "devour_on"
         },
         {
             "name": "devour"
         },
         {
-<<<<<<< ours
-            "name": "transform"
-||||||| base
-            "name": "armblade"
-=======
+            "name": "devour_on"
+        },
+        {
             "name": "armblade"
         },
         {
@@ -41,7 +30,6 @@
         },
         {
             "name": "stasis_exit"
->>>>>>> theirs
         }
     ]
 }

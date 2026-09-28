@@ -1,13 +1,7 @@
 {
-  "version": 2,
+  "version": 1,
   "license": "CC-BY-SA-3.0",
-<<<<<<< ours
-  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/fbbddbb0122f655232165b6ab5e237ea8d178eca",
-||||||| base
-  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/bfc9c6ba8126ee8c41564d68c4bfb9ce37faa8f8",
-=======
-  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/bfc9c6ba8126ee8c41564d68c4bfb9ce37faa8f8, inhands by TiniestShark (Github)",
->>>>>>> theirs
+  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/fbbddbb0122f655232165b6ab5e237ea8d178eca, inhands by TiniestShark (Github)",
   "size": {
     "x": 32,
     "y": 32

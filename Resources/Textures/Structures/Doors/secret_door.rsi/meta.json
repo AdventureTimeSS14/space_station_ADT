@@ -11,7 +11,6 @@
             "name": "assembly"
         },
         {
-<<<<<<< ours
             "name": "closed",
             "directions": 1,
             "delays": [
@@ -19,21 +18,10 @@
                     1.0
                 ]
             ]
-||||||| base
-            "name": "closed",
-            "directions": 4
-=======
-            "name": "closed"
->>>>>>> theirs
         },
         {
             "name": "closing",
-<<<<<<< ours
             "directions": 1,
-||||||| base
-            "directions": 4,
-=======
->>>>>>> theirs
             "delays": [
                 [
                     0.2,
@@ -46,7 +34,6 @@
             ]
         },
         {
-<<<<<<< ours
             "name": "open",
             "directions": 1,
             "delays": [
@@ -54,21 +41,10 @@
                     1.0
                 ]
             ]
-||||||| base
-            "name": "open",
-            "directions": 4
-=======
-            "name": "open"
->>>>>>> theirs
         },
         {
             "name": "opening",
-<<<<<<< ours
             "directions": 1,
-||||||| base
-            "directions": 4,
-=======
->>>>>>> theirs
             "delays": [
                 [
                     0.2,
