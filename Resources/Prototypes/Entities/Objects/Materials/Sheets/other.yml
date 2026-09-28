@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   abstract: true
   parent: BaseSheet
   id: SheetOtherBase
@@ -8,7 +8,7 @@
     sprite: Objects/Materials/Sheets/other.rsi
   - type: Item
     sprite: Objects/Materials/Sheets/other.rsi
-<<<<<<< HEAD
+<<<<<<< ours
     size: Normal
   - type: Tag
     tags:
@@ -30,8 +30,28 @@
     solutions:
       paper:
         canReact: false
+||||||| base
+    size: Normal
+  - type: Tag
+    tags:
+    - Sheet
+    - ConstructionMaterial
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      paper:
+        canReact: false
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   parent: SheetOtherBase
@@ -103,7 +123,7 @@
       map: ["base"]
   - type: Item
     heldPrefix: plasma
-<<<<<<< HEAD
+<<<<<<< ours
   - type: Appearance
   - type: Extractable
     grindableSolutionName: plasma
@@ -120,13 +140,24 @@
     - SheetPlasma # ADT-Heretic: ритуал Обжигающей акулы
     - ConstructionMaterial #ADT tweak
     - NoPaint #ADT tweak
+||||||| base
+  - type: Appearance
+  - type: Extractable
+    grindableSolutionName: plasma
+  - type: SolutionContainerManager
+    solutions:
+      plasma:
+        reagents:
+        - ReagentId: Plasma
+          Quantity: 10
+        canReact: false
 =======
   - type: Solution
     solution:
       reagents:
       - ReagentId: Plasma
         Quantity: 10
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   parent: SheetPlasma
@@ -159,13 +190,16 @@
     tags:
     - Plastic
     - Sheet
-<<<<<<< HEAD
+<<<<<<< ours
     - ConstructionMaterial #ADT tweak
     - NoPaint #ADT tweak
   - type: Material
+||||||| base
+    - ConstructionMaterial
+  - type: Material
 =======
     - ConstructionMaterial
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: PhysicalComposition
     materialComposition:
       Plastic: 100
@@ -219,7 +253,7 @@
   name: uranium
   suffix: Full
   components:
-<<<<<<< HEAD
+<<<<<<< ours
 ### Start ADT Tweak
   - type: Tag
     tags:
@@ -228,8 +262,10 @@
       - ConstructionMaterial
 ### End ADT Tweak
   - type: Material
+||||||| base
+  - type: Material
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Edible
     transferAmount: 10
     solution: composite

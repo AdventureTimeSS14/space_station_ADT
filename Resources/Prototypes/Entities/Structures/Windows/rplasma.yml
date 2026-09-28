@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-﻿- type: entity
-=======
 - type: entity
   parent: [BaseDeltaPressureReinforcedPlasma, BaseWindowStructure, BaseRCDResistant]
->>>>>>> wizards-filtered
   id: ReinforcedPlasmaWindow
   name: reinforced plasma window
   components:
@@ -75,11 +71,13 @@
       sprite: Structures/Windows/cracks_directional.rsi
   - type: Damageable
     damageModifierSet: RGlass
+<<<<<<< ours
   - type: Injurable
-<<<<<<< HEAD
+||||||| base
 =======
+  - type: Injurable
     damageContainer: StructuralInorganic
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: RadiationBlocker
     resistance: 4 # ADT tweak
   - type: Destructible

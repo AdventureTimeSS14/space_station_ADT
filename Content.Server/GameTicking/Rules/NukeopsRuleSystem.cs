@@ -40,15 +40,19 @@ using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using System.Data;
 using System.Linq;
-<<<<<<< HEAD
+<<<<<<< ours
 using Content.Shared.Station.Components;
 using Content.Shared.Store.Components;
 using Robust.Shared.Prototypes;
 using Content.Shared.CombatMode.Pacification;
+||||||| base
+using Content.Shared.Station.Components;
+using Content.Shared.Store.Components;
+using Robust.Shared.Prototypes;
 =======
 using System.Text;
 using Content.Shared.StationRecords.Systems;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -141,10 +145,12 @@ public sealed partial class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleCompon
             args.AddLine(text);
         }
 
-<<<<<<< HEAD
+<<<<<<< ours
         // ADT-tweak-start
         /*
         args.AddLine(Loc.GetString($"{component.LocalePrefix}list-start"));
+||||||| base
+        args.AddLine(Loc.GetString("nukeops-list-start"));
 =======
         // Print disk location if nuke didn't explode and is not armed
         List<WinCondition> diskWinConditions = [WinCondition.NukeDiskOnCentCom, WinCondition.NukeDiskNotOnCentCom];
@@ -204,7 +210,7 @@ public sealed partial class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleCompon
         }
 
         args.AddLine(Loc.GetString("nukeops-list-start"));
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
         var antags = _antag.GetAntagIdentifiers(uid);
 

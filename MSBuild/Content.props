@@ -11,11 +11,15 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
-<<<<<<< HEAD
+<<<<<<< ours
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors> <!-- ADT: We have a lot of warnings, and we don't want to fail the build because of them. -->
+    <WarningsNotAsErrors>CS0618,CS0672,CS0612,CS1062,CS1064,NU1900,NU1901,NU1902,NU1903,NU1904</WarningsNotAsErrors>
+||||||| base
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsNotAsErrors>CS0618,CS0672,CS0612,CS1062,CS1064,NU1903</WarningsNotAsErrors>
 =======
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
->>>>>>> wizards-filtered
     <WarningsNotAsErrors>CS0618,CS0672,CS0612,CS1062,CS1064,NU1900,NU1901,NU1902,NU1903,NU1904</WarningsNotAsErrors>
+>>>>>>> theirs
   </PropertyGroup>
 </Project>

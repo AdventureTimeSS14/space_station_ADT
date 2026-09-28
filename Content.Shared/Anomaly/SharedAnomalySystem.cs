@@ -26,7 +26,7 @@ namespace Content.Shared.Anomaly;
 
 public abstract partial class SharedAnomalySystem : EntitySystem
 {
-<<<<<<< HEAD
+<<<<<<< ours
     [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] protected readonly IRobustRandom Random = default!;
@@ -39,6 +39,18 @@ public abstract partial class SharedAnomalySystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
+||||||| base
+    [Dependency] protected readonly IGameTiming Timing = default!;
+    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] protected readonly IRobustRandom Random = default!;
+    [Dependency] protected readonly ISharedAdminLogManager AdminLog = default!;
+    [Dependency] protected readonly SharedAudioSystem Audio = default!;
+    [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] protected readonly SharedPopupSystem Popup = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
 =======
     [Dependency] protected IGameTiming Timing = default!;
     [Dependency] private INetManager _net = default!;
@@ -52,7 +64,7 @@ public abstract partial class SharedAnomalySystem : EntitySystem
     [Dependency] private SharedMapSystem _map = default!;
 
     [Dependency] private EntityQuery<PhysicsComponent> _physQuery = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
     public override void Initialize()
     {

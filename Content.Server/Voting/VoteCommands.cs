@@ -20,14 +20,17 @@ namespace Content.Server.Voting
     [AnyCommand]
     public sealed partial class CreateVoteCommand : LocalizedEntityCommands
     {
-<<<<<<< HEAD
+<<<<<<< ours
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
         [Dependency] private readonly IVoteManager _voteManager = default!;
         [Dependency] private readonly IAdminManager _adminManager = default!;
+||||||| base
+        [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+        [Dependency] private readonly IVoteManager _voteManager = default!;
 =======
         [Dependency] private IAdminLogManager _adminLogger = default!;
         [Dependency] private IVoteManager _voteManager = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
         public override string Command => "createvote";
 

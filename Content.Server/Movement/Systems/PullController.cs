@@ -79,7 +79,7 @@ public sealed partial class PullController : VirtualController
     /// </summary>
     private const float ThresholdRotAngle = 22.5f;
 
-<<<<<<< HEAD
+<<<<<<< ours
     private EntityQuery<PhysicsComponent> _physicsQuery;
     private EntityQuery<PullableComponent> _pullableQuery;
     private EntityQuery<PullerComponent> _pullerQuery;
@@ -91,23 +91,35 @@ public sealed partial class PullController : VirtualController
     private readonly List<EntityUid> _densityRestoreBuffer = new();
     // ADT-tweak end
 
+||||||| base
+    private EntityQuery<PhysicsComponent> _physicsQuery;
+    private EntityQuery<PullableComponent> _pullableQuery;
+    private EntityQuery<PullerComponent> _pullerQuery;
+    private EntityQuery<TransformComponent> _xformQuery;
+
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
     public override void Initialize()
     {
         CommandBinds.Builder
             .Bind(ContentKeyFunctions.MovePulledObject, new PointerInputCmdHandler(OnRequestMovePulledObject))
             .Register<PullController>();
 
-<<<<<<< HEAD
+<<<<<<< ours
         _physicsQuery = GetEntityQuery<PhysicsComponent>();
         _pullableQuery = GetEntityQuery<PullableComponent>();
         _pullerQuery = GetEntityQuery<PullerComponent>();
         _xformQuery = GetEntityQuery<TransformComponent>();
         _fixturesQuery = GetEntityQuery<FixturesComponent>(); // ADT-tweak
 
+||||||| base
+        _physicsQuery = GetEntityQuery<PhysicsComponent>();
+        _pullableQuery = GetEntityQuery<PullableComponent>();
+        _pullerQuery = GetEntityQuery<PullerComponent>();
+        _xformQuery = GetEntityQuery<TransformComponent>();
+
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
         UpdatesAfter.Add(typeof(MoverController));
         // ADT-tweak start
         SubscribeLocalEvent<PullableComponent, PullStartedMessage>(OnPullStarted);

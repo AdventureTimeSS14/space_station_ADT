@@ -31,7 +31,7 @@ namespace Content.Shared.Medical;
 /// </summary>
 public abstract partial class SharedDefibrillatorSystem : EntitySystem
 {
-<<<<<<< HEAD
+<<<<<<< ours
     [Dependency] private readonly SharedChatSystem _chat = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
@@ -78,6 +78,31 @@ public abstract partial class SharedDefibrillatorSystem : EntitySystem
     }
     // ADT-Tweak-end
 
+||||||| base
+    [Dependency] private readonly SharedChatSystem _chat = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly SharedElectrocutionSystem _electrocution = default!;
+    [Dependency] private readonly ISharedPlayerManager _player = default!;
+    [Dependency] private readonly ItemToggleSystem _toggle = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly PowerCellSystem _powerCell = default!;
+    [Dependency] private readonly SharedRottingSystem _rotting = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly UseDelaySystem _useDelay = default!;
+    [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
+
+    private readonly HashSet<EntityUid> _interacters = new();
+
+    public override void Initialize()
+    {
+        SubscribeLocalEvent<DefibrillatorComponent, AfterInteractEvent>(OnAfterInteract);
+        SubscribeLocalEvent<DefibrillatorComponent, DefibrillatorZapDoAfterEvent>(OnDoAfter);
+    }
+
 =======
     [Dependency] private SharedChatSystem _chat = default!;
     [Dependency] private DamageableSystem _damageable = default!;
@@ -98,7 +123,7 @@ public abstract partial class SharedDefibrillatorSystem : EntitySystem
     private readonly HashSet<EntityUid> _interactors = new();
 
     [SubscribeLocalEvent]
->>>>>>> wizards-filtered
+>>>>>>> theirs
     private void OnAfterInteract(Entity<DefibrillatorComponent> ent, ref AfterInteractEvent args)
     {
         if (args.Handled || args.Target is not { } target)
@@ -268,7 +293,7 @@ public abstract partial class SharedDefibrillatorSystem : EntitySystem
                 _mobThreshold.TryGetThresholdForState(target, MobState.Dead, out var threshold, targetThresholds) &&
                 _damageable.GetTotalDamage(target) < threshold) //is their current health above their death threshold
             {
-<<<<<<< HEAD
+<<<<<<< ours
                 // ADT-Tweak-start
                 var reviveState = MobState.Critical;
                 if (_mobThreshold.TryGetThresholdForState(target, MobState.SoftCritical, out _, targetThresholds) &&
@@ -278,9 +303,11 @@ public abstract partial class SharedDefibrillatorSystem : EntitySystem
 
                 _mobState.ChangeMobState(target, reviveState, targetMobState, user);
                 // ADT-Tweak-end
+||||||| base
+                _mobState.ChangeMobState(target, MobState.Critical, targetMobState, user);
 =======
                 _mobState.ChangeMobState(target, MobState.Critical, targetMobState, user); //if so revive them
->>>>>>> wizards-filtered
+>>>>>>> theirs
                 failedRevive = false;
             }
 

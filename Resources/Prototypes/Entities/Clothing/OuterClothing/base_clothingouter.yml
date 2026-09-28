@@ -147,13 +147,41 @@
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
   - type: ClothingSpeedModifier
-<<<<<<< HEAD
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: ProtectedFromStepTriggers
+    slots: WITHOUT_POCKET
+  - type: DamageOnInteractProtection
+    damageProtection:
+      flatReductions:
+        Heat: 10 # the average lightbulb only does around four damage!
+    slots: OUTERCLOTHING
+  - type: HideLayerClothing
+    slots:
+    - Tail
+
+- type: entity
+  abstract: true
+  parent: [ ClothingOuterEVASuitBase, GeigerCounterClothing ]
+  id: ClothingOuterHardsuitBase
+  name: base hardsuit
+  components:
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+  - type: ClothingSpeedModifier
     walkModifier: 0.6
     sprintModifier: 0.6
-  - type: HeldSpeedModifier
   - type: Item
+<<<<<<< ours
 #    size: Ginormous
     size: Huge # ADT-Tweak
+||||||| base
+    size: Ginormous
+=======
+    size: Ginormous
+    shape:
+    - 0,0,4,5
+>>>>>>> theirs
   - type: Armor
     modifiers:
       coefficients:
@@ -164,6 +192,8 @@
         Radiation: 0.25
   - type: ToggleableClothing
     slot: head
+    verbText: toggle-clothing-verb-helmet
+    action: ActionToggleSuitPiece
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
@@ -172,10 +202,7 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
-=======
-    walkModifier: 0.8
-    sprintModifier: 0.8
->>>>>>> wizards-filtered
+<<<<<<< ours
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
   - type: DamageOnInteractProtection
@@ -193,20 +220,40 @@
   - type: HideLayerClothing
     slots:
     - Tail
+||||||| base
+  - type: ProtectedFromStepTriggers
+    slots: WITHOUT_POCKET
+  - type: DamageOnInteractProtection
+    damageProtection:
+      flatReductions:
+        Heat: 10 # the average lightbulb only does around four damage!
+    slots: OUTERCLOTHING
+  - type: HideLayerClothing
+    slots:
+    - Tail
+=======
+>>>>>>> theirs
 
 - type: entity
+  parent: ClothingOuterEVASuitBase
+  id: ClothingOuterEVASuitBaseToggleable
   abstract: true
-  parent: [ ClothingOuterEVASuitBase, GeigerCounterClothing ]
-  id: ClothingOuterHardsuitBase
-  name: base hardsuit
   components:
+<<<<<<< ours
+# SlotBlocker blocked until UI change
+#  - type: SlotBlock
+#    slots: [innerclothing, feet]
   - type: PressureProtection
-    highPressureMultiplier: 0.3
+    highPressureMultiplier: 0.6
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.01 # Not complete protection from fire
+    coolingCoefficient: 0.01
   - type: ClothingSpeedModifier
-    walkModifier: 0.6
-    sprintModifier: 0.6
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
   - type: Item
-<<<<<<< HEAD
     size: Huge
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
@@ -225,18 +272,33 @@
   - type: HideLayerClothing
     slots:
     - Tail
+||||||| base
+# SlotBlocker blocked until UI change
+#  - type: SlotBlock
+#    slots: [innerclothing, feet]
+  - type: PressureProtection
+    highPressureMultiplier: 0.6
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.01 # Not complete protection from fire
+    coolingCoefficient: 0.01
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
+  - type: Item
+    size: Huge
+  - type: ProtectedFromStepTriggers
+    slots: WITHOUT_POCKET
+  - type: DamageOnInteractProtection
+    damageProtection:
+      flatReductions:
+        Heat: 10 # the average lightbulb only does around four damage!
+    slots: OUTERCLOTHING
+  - type: HideLayerClothing
+    slots:
+    - Tail
 =======
-    size: Ginormous
-    shape:
-    - 0,0,4,5
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.90
-        Slash: 0.90
-        Piercing: 0.95
-        Heat: 0.90
-        Radiation: 0.25
   - type: ToggleableClothing
     slot: head
     verbText: toggle-clothing-verb-helmet
@@ -244,25 +306,7 @@
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
-  - type: GroupExamine
-  - type: Tag
-    tags:
-    - Hardsuit
-    - WhitelistChameleon
->>>>>>> wizards-filtered
-
-- type: entity
-  parent: ClothingOuterEVASuitBase
-  id: ClothingOuterEVASuitBaseToggleable
-  abstract: true
-  components:
-  - type: ToggleableClothing
-    slot: head
-    verbText: toggle-clothing-verb-helmet
-    action: ActionToggleSuitPiece
-  - type: ContainerContainer
-    containers:
-      toggleable-clothing: !type:ContainerSlot {}
+>>>>>>> theirs
 
 - type: entity
   abstract: true

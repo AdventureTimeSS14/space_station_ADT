@@ -22,15 +22,18 @@ public sealed partial class DamageableSystem : EntitySystem
     [Dependency] private SharedChemistryGuideDataSystem _chemistryGuideData = default!;
     [Dependency] private SharedExplosionSystem _explosion = default!;
 
-<<<<<<< HEAD
+<<<<<<< ours
     [Dependency] private readonly EntityQuery<AppearanceComponent> _appearanceQuery = default!;
     [Dependency] private readonly EntityQuery<DamageableComponent> _damageableQuery = default!;
     [Dependency] private readonly EntityQuery<InjurableComponent> _injurableQuery = default!;
+||||||| base
+    private EntityQuery<AppearanceComponent> _appearanceQuery;
+    private EntityQuery<DamageableComponent> _damageableQuery;
 =======
     [Dependency] private EntityQuery<AppearanceComponent> _appearanceQuery = default!;
     [Dependency] private EntityQuery<DamageableComponent> _damageableQuery = default!;
     [Dependency] private EntityQuery<InjurableComponent> _injurableQuery = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
     public float UniversalAllDamageModifier { get; private set; } = 1f;
     public float UniversalAllHealModifier { get; private set; } = 1f;
@@ -114,9 +117,6 @@ public sealed partial class DamageableSystem : EntitySystem
         }
         return damageTypes;
     }
-<<<<<<< HEAD
-}
-=======
 
     public void CopyComponent(Entity<DamageableComponent?> entity, EntityUid clone)
     {
@@ -131,4 +131,3 @@ public sealed partial class DamageableSystem : EntitySystem
         Dirty(clone, cloneComp);
     }
 }
->>>>>>> wizards-filtered

@@ -15,7 +15,7 @@
       time: 2.5h
     - !type:DepartmentTimeRequirement
       department: Security
-<<<<<<< HEAD
+<<<<<<< ours
       time: 2.5h # ADT-Tweak 2.5h
 #    - !type:DepartmentTimeRequirement
 #      department: Command
@@ -32,12 +32,18 @@
       - Vox
       #ADT tweak end
   weight: 20
+||||||| base
+      time: 2.5h
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 2.5h
+  weight: 20
 =======
       time: 2.5h
     - !type:DepartmentTimeRequirement
       department: Command
       time: 2.5h
->>>>>>> wizards-filtered
+>>>>>>> theirs
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"
   supervisors: job-supervisors-captain

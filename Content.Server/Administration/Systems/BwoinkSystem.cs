@@ -34,7 +34,7 @@ namespace Content.Server.Administration.Systems
     {
         private const string RateLimitKey = "AdminHelp";
 
-<<<<<<< HEAD
+<<<<<<< ours
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly IAdminManager _adminManager = default!;
         [Dependency] private readonly IConfigurationManager _config = default!;
@@ -46,6 +46,17 @@ namespace Content.Server.Administration.Systems
         [Dependency] private readonly IServerDbManager _dbManager = default!;
         [Dependency] private readonly PlayerRateLimitManager _rateLimit = default!;
         [Dependency] private readonly IServerPreferencesManager _preferencesManager = default!;
+||||||| base
+        [Dependency] private readonly IPlayerManager _playerManager = default!;
+        [Dependency] private readonly IAdminManager _adminManager = default!;
+        [Dependency] private readonly IConfigurationManager _config = default!;
+        [Dependency] private readonly IGameTiming _timing = default!;
+        [Dependency] private readonly IPlayerLocator _playerLocator = default!;
+        [Dependency] private readonly GameTicker _gameTicker = default!;
+        [Dependency] private readonly SharedMindSystem _minds = default!;
+        [Dependency] private readonly IAfkManager _afkManager = default!;
+        [Dependency] private readonly IServerDbManager _dbManager = default!;
+        [Dependency] private readonly PlayerRateLimitManager _rateLimit = default!;
 =======
         [Dependency] private IPlayerManager _playerManager = default!;
         [Dependency] private IAdminManager _adminManager = default!;
@@ -57,7 +68,7 @@ namespace Content.Server.Administration.Systems
         [Dependency] private IAfkManager _afkManager = default!;
         [Dependency] private IServerDbManager _dbManager = default!;
         [Dependency] private PlayerRateLimitManager _rateLimit = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
         [GeneratedRegex(@"^https://discord\.com/api/webhooks/(\d+)/((?!.*/).*)$")]
         private static partial Regex DiscordRegex();
@@ -731,7 +742,7 @@ namespace Content.Server.Administration.Systems
             if (_rateLimit.CountAction(eventArgs.SenderSession, RateLimitKey) != RateLimitStatus.Allowed)
                 return;
 
-<<<<<<< HEAD
+<<<<<<< ours
             var escapedText = FormattedMessage.EscapeText(message.Text);
 
             string bwoinkText;
@@ -776,9 +787,37 @@ namespace Content.Server.Administration.Systems
             }
 
             bwoinkText = $"{(message.AdminOnly ? Loc.GetString("bwoink-message-admin-only") : !message.PlaySound ? Loc.GetString("bwoink-message-silent") : "")} {bwoinkText}: {escapedText}";
+||||||| base
+            var escapedText = FormattedMessage.EscapeText(message.Text);
+
+            string bwoinkText;
+            string adminPrefix = "";
+
+            //Getting an administrator position
+            if (_config.GetCVar(CCVars.AhelpAdminPrefix) && senderAdmin is not null && senderAdmin.Title is not null)
+            {
+                adminPrefix = $"[bold]\\[{senderAdmin.Title}\\][/bold] ";
+            }
+
+            if (senderAdmin is not null &&
+                senderAdmin.Flags ==
+                AdminFlags.Adminhelp) // Mentor. Not full admin. That's why it's colored differently.
+            {
+                bwoinkText = $"[color=purple]{adminPrefix}{senderSession.Name}[/color]";
+            }
+            else if (senderAdmin is not null && senderAdmin.HasFlag(AdminFlags.Adminhelp))
+            {
+                bwoinkText = $"[color=red]{adminPrefix}{senderSession.Name}[/color]";
+            }
+            else
+            {
+                bwoinkText = $"{senderSession.Name}";
+            }
+
+            bwoinkText = $"{(message.AdminOnly ? Loc.GetString("bwoink-message-admin-only") : !message.PlaySound ? Loc.GetString("bwoink-message-silent") : "")} {bwoinkText}: {escapedText}";
 =======
             _afkManager.PlayerDidAction(senderSession);
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
             // If it's not an admin / admin chooses to keep the sound and message is not an admin only message, then play it.
             var playSound = (!senderAHelpAdmin || message.PlaySound) && !message.AdminOnly;

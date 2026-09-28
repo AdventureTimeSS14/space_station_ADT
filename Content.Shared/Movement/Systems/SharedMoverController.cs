@@ -96,16 +96,17 @@ public abstract partial class SharedMoverController : VirtualController
 
         InitializeInput();
         InitializeRelay();
-<<<<<<< HEAD
+<<<<<<< ours
         InitializeTileMovement(); // ADT-Tweak
         InitializeInvertRun(); // ADT tweak
         // ADT-Tweak-Start
         InitializeDrunkDrift();
         // ADT-Tweak-End
+||||||| base
 =======
 
         Subs.CVar(_configManager, CCVars.TileFrictionModifier, value => _frictionModifier = value, true);
->>>>>>> wizards-filtered
+>>>>>>> theirs
         Subs.CVar(_configManager, CCVars.RelativeMovement, value => _relativeMovement = value, true);
         Subs.CVar(_configManager, CCVars.MinFriction, value => _minDamping = value, true);
         Subs.CVar(_configManager, CCVars.AirFriction, value => _airDamping = value, true);

@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-﻿- type: entity
-  parent: BaseItem
-=======
 - type: entity
   parent: [SolutionFood, BaseItem]
->>>>>>> wizards-filtered
   id: BasePaper
   abstract: true
   components:
@@ -34,15 +29,22 @@
   - type: Injurable
   - type: Destructible
     thresholds:
-<<<<<<< HEAD
+<<<<<<< ours
     - trigger:
         !type:DamageTrigger
         damage: 100
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
+||||||| base
+    - trigger: # Excess damage, don't spawn entities
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
     - trigger:
         !type:DamageTrigger
         damage: 15
@@ -61,11 +63,19 @@
     flavors:
     - paper
   - type: BadFood
-<<<<<<< HEAD
+<<<<<<< ours
   - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 2.5 # I consider paper to be like material sheets, so we divide their capacity by 12
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 1
+||||||| base
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 1
         reagents:
         - ReagentId: Fiber
           Quantity: 1
@@ -76,7 +86,7 @@
       reagents:
       - ReagentId: Fiber
         Quantity: 1.25
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Item
     size: Tiny
     inhandVisuals:
@@ -117,11 +127,13 @@
       enum.PaperUiKey.Key:
         type: PaperBoundUserInterface
   - type: FaxableObject
-<<<<<<< HEAD
+<<<<<<< ours
+||||||| base
+  - type: PaperVisuals
 =======
   - type: PaperVisualizer
   - type: PaperVisuals
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: StationAiWhitelist
   # ADT-Tweak start
   - type: Material
@@ -594,14 +606,16 @@
       - !type:EmptyAllContainersBehaviour
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-<<<<<<< HEAD
+<<<<<<< ours
 # ADT-tweak start
   - type: Construction
     graph: PaperEnvelope
     node: done
 # ADT-tweak end
   - type: StationAiWhitelist
+||||||| base
+  - type: StationAiWhitelist
 =======
   - type: Injurable
   - type: StationAiWhitelist
->>>>>>> wizards-filtered
+>>>>>>> theirs

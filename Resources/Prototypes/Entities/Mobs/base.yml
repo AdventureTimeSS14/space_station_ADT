@@ -1,4 +1,4 @@
-﻿# The literal bare minimum needed to be a controllable mob. Cannot move but can interact.
+# The literal bare minimum needed to be a controllable mob. Cannot move but can interact.
 - type: entity
   abstract: true
   save: false
@@ -306,11 +306,12 @@
     bloodlossHealDamage:
       types:
         Bloodloss: -1
-<<<<<<< HEAD
+<<<<<<< ours
     # ADT-Tweak start
     bloodRefreshAmount: 0.3
     bleedReductionAmount: 0.3
     # ADT-Tweak end
+||||||| base
 =======
 
 # Used for mobs that should slightly see in the dark
@@ -323,4 +324,4 @@
     prioritized: false
     relayOverlay: false # In case default value ever changes
     lightingColor: '#FFFFFF15' # Basically makes it impossible for things to be "Pitch black" but can still be dark.
->>>>>>> wizards-filtered
+>>>>>>> theirs

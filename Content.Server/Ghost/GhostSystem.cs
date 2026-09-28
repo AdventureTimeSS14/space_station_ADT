@@ -23,14 +23,16 @@ using Content.Shared.Database;
 using Content.Shared.Eye;
 using Content.Shared.FixedPoint;
 using Content.Shared.Follower;
-<<<<<<< HEAD
+<<<<<<< ours
 using Content.Shared.DisplacementMap;
+using Content.Shared.Ghost;
+||||||| base
 using Content.Shared.Ghost;
 =======
 using Content.Shared.Follower.Components;
 using Content.Shared.Ghost.Components;
 using Content.Shared.Ghost.Systems;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 using Content.Shared.GhostTypes;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
@@ -71,7 +73,7 @@ namespace Content.Server.Ghost
     /// </summary>
     public sealed partial class GhostSystem : SharedGhostSystem
     {
-<<<<<<< HEAD
+<<<<<<< ours
         [Dependency] private readonly SharedActionsSystem _actions = default!;
         [Dependency] private readonly IAdminLogManager _adminLog = default!;
         [Dependency] private readonly SharedEyeSystem _eye = default!;
@@ -102,6 +104,38 @@ namespace Content.Server.Ghost
         [Dependency] private readonly StationRecordsSystem _records = default!; // ADT-TWEAK
         [Dependency] private readonly HumanoidProfileSystem _humanoidProfile = default!;
         [Dependency] private readonly StoreBodyAppearanceOnMindSystem _bodyAppearance = default!;
+
+        private EntityQuery<GhostComponent> _ghostQuery;
+        private EntityQuery<PhysicsComponent> _physicsQuery;
+||||||| base
+        [Dependency] private readonly SharedActionsSystem _actions = default!;
+        [Dependency] private readonly IAdminLogManager _adminLog = default!;
+        [Dependency] private readonly SharedEyeSystem _eye = default!;
+        [Dependency] private readonly FollowerSystem _followerSystem = default!;
+        [Dependency] private readonly JobSystem _jobs = default!;
+        [Dependency] private readonly EntityLookupSystem _lookup = default!;
+        [Dependency] private readonly MindSystem _minds = default!;
+        [Dependency] private readonly MobStateSystem _mobState = default!;
+        [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+        [Dependency] private readonly ISharedPlayerManager _player = default!;
+        [Dependency] private readonly TransformSystem _transformSystem = default!;
+        [Dependency] private readonly VisibilitySystem _visibilitySystem = default!;
+        [Dependency] private readonly MetaDataSystem _metaData = default!;
+        [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private readonly IConfigurationManager _configurationManager = default!;
+        [Dependency] private readonly IChatManager _chatManager = default!;
+        [Dependency] private readonly SharedMindSystem _mind = default!;
+        [Dependency] private readonly GameTicker _gameTicker = default!;
+        [Dependency] private readonly DamageableSystem _damageable = default!;
+        [Dependency] private readonly SharedPopupSystem _popup = default!;
+        [Dependency] private readonly IRobustRandom _random = default!;
+        [Dependency] private readonly TagSystem _tag = default!;
+        [Dependency] private readonly NameModifierSystem _nameMod = default!;
+        [Dependency] private readonly GhostSpriteStateSystem _ghostState = default!;
+
+        private EntityQuery<GhostComponent> _ghostQuery;
+        private EntityQuery<PhysicsComponent> _physicsQuery;
 =======
         [Dependency] private SharedActionsSystem _actions = default!;
         [Dependency] private IAdminLogManager _adminLog = default!;
@@ -127,11 +161,11 @@ namespace Content.Server.Ghost
         [Dependency] private TagSystem _tag = default!;
         [Dependency] private NameModifierSystem _nameMod = default!;
         [Dependency] private GhostSpriteStateSystem _ghostState = default!;
->>>>>>> wizards-filtered
 
         [Dependency] private EntityQuery<GhostComponent> _ghostQuery = default!;
         [Dependency] private EntityQuery<FollowerComponent> _followerQuery = default!;
         [Dependency] private EntityQuery<PhysicsComponent> _physicsQuery = default!;
+>>>>>>> theirs
 
         private static readonly ProtoId<TagPrototype> AllowGhostShownByEventTag = "AllowGhostShownByEvent";
         private static readonly ProtoId<DamageTypePrototype> AsphyxiationDamageType = "Asphyxiation";
@@ -356,7 +390,7 @@ namespace Content.Server.Ghost
                 return;
             }
 
-<<<<<<< HEAD
+<<<<<<< ours
             if (IsHiddenFromGhostWarps(target) || !IsValidWarpTarget(target))
             {
                 Log.Warning($"User {args.SenderSession.Name} tried to warp to an invalid/hidden target: {ToPrettyString(target)}");
@@ -364,9 +398,11 @@ namespace Content.Server.Ghost
             }
 
             WarpTo(attached, target);
+||||||| base
+            WarpTo(attached, target);
 =======
             WarpTo(attached, realTarget);
->>>>>>> wizards-filtered
+>>>>>>> theirs
         }
 
         private void OnGhostWarpToTargetRequest(GhostWarpToTargetRequestEvent msg, EntitySessionEventArgs args)
@@ -379,12 +415,15 @@ namespace Content.Server.Ghost
         /// </summary>
         private void OnGhostnadoRequest(GhostnadoRequestEvent msg, EntitySessionEventArgs args)
         {
-<<<<<<< HEAD
+<<<<<<< ours
             if (args.SenderSession.AttachedEntity is not { Valid: true } uid
+                || !_ghostQuery.HasComp(uid))
+||||||| base
+            if (args.SenderSession.AttachedEntity is not {} uid
                 || !_ghostQuery.HasComp(uid))
 =======
             if (!CanGhostWarp(args.SenderSession, out var uid))
->>>>>>> wizards-filtered
+>>>>>>> theirs
             {
                 Log.Warning($"User {args.SenderSession.Name} tried to ghostnado without being a ghost.");
                 return;
@@ -465,6 +504,7 @@ namespace Content.Server.Ghost
 
             while (query.MoveNext(out var entity, out var mindContainer))
             {
+<<<<<<< ours
                 if (IsHiddenFromGhostWarps(entity))
                     continue;
 
@@ -545,12 +585,23 @@ namespace Content.Server.Ghost
 
                     warps.Add(warp);
                 }
+||||||| base
+                yield return new GhostWarp(GetNetEntity(uid), warp.Location ?? Name(uid), true);
+=======
+                yield return new GhostWarp(GetNetEntity(uid), warp.Location == null ? Name(uid) : Loc.GetString(warp.Location), true);
+>>>>>>> theirs
             }
 
             return warps;
         }
 
+<<<<<<< ours
         private string? GetVisibleAntagName(EntityUid entity, RoleCacheComponent roleCache)
+||||||| base
+        private IEnumerable<GhostWarp> GetPlayerWarps(EntityUid except)
+=======
+        private IEnumerable<GhostWarp> GetPlayerWarps(EntityUid? except = null)
+>>>>>>> theirs
         {
             if (roleCache.VisibleAntagName is { } cached)
                 return cached;
@@ -616,19 +667,7 @@ namespace Content.Server.Ghost
 
             while (allQuery.MoveNext(out var uid, out var warp))
             {
-<<<<<<< HEAD
                 if (IsHiddenFromGhostWarps(uid) || !IsValidWarpTarget(uid))
-=======
-                yield return new GhostWarp(GetNetEntity(uid), warp.Location == null ? Name(uid) : Loc.GetString(warp.Location), true);
-            }
-        }
-
-        private IEnumerable<GhostWarp> GetPlayerWarps(EntityUid? except = null)
-        {
-            foreach (var player in _player.Sessions)
-            {
-                if (player.AttachedEntity is not {Valid: true} attached)
->>>>>>> wizards-filtered
                     continue;
 
                 var newWarp = new GhostWarp(GetNetEntity(uid), warp.Location ?? Name(uid), "", Description(uid), null);

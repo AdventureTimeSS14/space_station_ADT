@@ -94,13 +94,16 @@
       whitelist:
         components:
         - NukeDisk
-<<<<<<< HEAD
+<<<<<<< ours
     alertLevelOnActivate: delta
     alertLevelOnDeactivate: red # Corvax-Announcements
+||||||| base
+    alertLevelOnActivate: delta
+    alertLevelOnDeactivate: green
 =======
     alertLevelOnActivate: DeltaNuke
     alertLevelOnDeactivate: Green
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: InteractionOutline
   - type: ActivatableUI
     key: enum.NukeUiKey.Key
@@ -120,7 +123,7 @@
     stealGroup: NuclearBomb
   - type: WarpPoint
     follow: true
-<<<<<<< HEAD
+<<<<<<< ours
     location: nuclear bomb
     blacklist:
       tags:
@@ -129,9 +132,14 @@
     tags:
     - ADTVaultAmbience  # ADT-Sound-Update
     - GhostOnlyWarp
+||||||| base
+    location: nuclear bomb
+    blacklist:
+      tags:
+      - GhostOnlyWarp
 =======
     location: location-nuclear-bomb
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: FTLSmashImmune
   - type: SupermatterImmune # ADT-Tweak
 

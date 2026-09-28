@@ -13,11 +13,14 @@ using Content.Server.Pointing.Components;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
 using Content.Server.Roles;
-<<<<<<< HEAD
+<<<<<<< ours
+using Content.Server.Speech.Components;
+using Content.Shared.Speech.Components;
+||||||| base
 using Content.Server.Speech.Components;
 =======
->>>>>>> wizards-filtered
 using Content.Shared.Speech.Components;
+>>>>>>> theirs
 using Content.Server.Storage.EntitySystems;
 using Content.Server.Tabletop;
 using Content.Shared.Actions;

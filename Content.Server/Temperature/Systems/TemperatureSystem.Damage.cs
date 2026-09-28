@@ -25,13 +25,20 @@ public sealed partial class TemperatureSystem
     [Dependency] private IAdminLogManager _adminLogger = default!;
     [Dependency] private IGameTiming _gameTiming = default!;
 
+<<<<<<< ours
     [Dependency] private EntityQuery<TemperatureDamageComponent> _tempDamageQuery = default!;
     [Dependency] private EntityQuery<ContainerTemperatureComponent> _containerTemperatureQuery = default!;
     [Dependency] private EntityQuery<ThermalRegulatorComponent> _thermalRegulatorQuery = default!;
-<<<<<<< HEAD
     [Dependency] private TagSystem _tagSystem = default!; // ADT tweak
+||||||| base
+    private EntityQuery<TemperatureDamageComponent> _tempDamageQuery;
+    private EntityQuery<ContainerTemperatureComponent> _containerTemperatureQuery;
+    private EntityQuery<ThermalRegulatorComponent> _thermalRegulatorQuery;
 =======
->>>>>>> wizards-filtered
+    [Dependency] private EntityQuery<TemperatureDamageComponent> _tempDamageQuery = default!;
+    [Dependency] private EntityQuery<ContainerTemperatureComponent> _containerTemperatureQuery = default!;
+    [Dependency] private EntityQuery<ThermalRegulatorComponent> _thermalRegulatorQuery = default!;
+>>>>>>> theirs
 
     /// <summary>
     ///     All the components that will have their damage updated at the end of the tick.
@@ -103,12 +110,14 @@ public sealed partial class TemperatureSystem
         var heatDamageThreshold = entity.Comp.ParentHeatDamageThreshold ?? entity.Comp.HeatDamageThreshold;
         var coldDamageThreshold = entity.Comp.ParentColdDamageThreshold ?? entity.Comp.ColdDamageThreshold;
 
-<<<<<<< HEAD
+<<<<<<< ours
         if (temperature.CurrentTemperature >= heatDamageThreshold &&
             !HasComp<Content.Goobstation.Common.Temperature.Components.SpecialHighTempImmunityComponent>(entity)) // ADT Heretic
+||||||| base
+        if (temperature.CurrentTemperature >= heatDamageThreshold)
 =======
         if (temperature.Temperature >= heatDamageThreshold)
->>>>>>> wizards-filtered
+>>>>>>> theirs
         {
             if (!entity.Comp.TakingDamage)
             {
@@ -120,12 +129,14 @@ public sealed partial class TemperatureSystem
             var tempDamage = c / (1 + a * Math.Pow(Math.E, -heatK * diff)) - y;
             _damageable.TryChangeDamage(entity.Owner, entity.Comp.HeatDamage * tempDamage * deltaTime.TotalSeconds, ignoreResistances: true, interruptsDoAfters: false);
         }
-<<<<<<< HEAD
+<<<<<<< ours
         else if (temperature.CurrentTemperature <= coldDamageThreshold &&
                  !HasComp<Content.Goobstation.Common.Temperature.Components.SpecialLowTempImmunityComponent>(entity)) // ADT Heretic
+||||||| base
+        else if (temperature.CurrentTemperature <= coldDamageThreshold)
 =======
         else if (temperature.Temperature <= coldDamageThreshold)
->>>>>>> wizards-filtered
+>>>>>>> theirs
         {
             if (!entity.Comp.TakingDamage)
             {

@@ -22,18 +22,18 @@ public sealed partial class SolutionComponent : Component
     /// The name of this solution. This value should *never* change once the solution is initialized.
     /// </summary>
     [DataField]
+<<<<<<< ours
+    [Access(typeof(SharedSolutionContainerSystem), Other = AccessPermissions.ReadWriteExecute)] // ADT-Tweak
+||||||| base
+=======
     [Access(typeof(SharedSolutionContainerSystem))]
     public string Id = DefaultSolutionId;
 
     /// <summary>
     /// <para>The reagents the entity is composed of and their temperature.</para>
     /// </summary>
-<<<<<<< HEAD
-    [DataField]
-    [Access(typeof(SharedSolutionContainerSystem), Other = AccessPermissions.ReadWriteExecute)] // ADT-Tweak
-=======
     [DataField, AlwaysPushInheritance]
->>>>>>> wizards-filtered
+>>>>>>> theirs
     public Solution Solution = new();
 }
 

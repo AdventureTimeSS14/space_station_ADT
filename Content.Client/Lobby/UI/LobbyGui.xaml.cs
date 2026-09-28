@@ -16,7 +16,7 @@ namespace Content.Client.Lobby.UI
     [GenerateTypedNameReferences]
     public sealed partial class LobbyGui : UIScreen
     {
-<<<<<<< HEAD
+<<<<<<< ours
         [Dependency] private readonly IClientConsoleHost _consoleHost = default!;
         [Dependency] private readonly SponsorsManager _sponsorsManager = default!;
         [Dependency] private readonly Content.Client.ADT.Sponsors.SponsorManager _adtSponsors = default!; // ADT-Tweak
@@ -31,9 +31,11 @@ namespace Content.Client.Lobby.UI
         private static readonly Color ColorGreen = Color.FromHex("#5DA130");   // Зелёный
         private static readonly Color ColorOrange = Color.FromHex("#FFA500");  // Оранжевый
         // (ADT-Const-End)
+||||||| base
+        [Dependency] private readonly IClientConsoleHost _consoleHost = default!;
 =======
         [Dependency] private IClientConsoleHost _consoleHost = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
         public LobbyGui()
         {

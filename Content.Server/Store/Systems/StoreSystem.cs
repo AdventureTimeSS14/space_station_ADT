@@ -81,8 +81,4 @@ public sealed partial class StoreSystem : SharedStoreSystem
 
         ToggleUi(args.Performer, store, store.Comp, entity, entity.Comp);
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> wizards-filtered

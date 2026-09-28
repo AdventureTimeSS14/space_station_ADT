@@ -22,7 +22,7 @@
     - !type:LinearAntagCount
       proto: Thief
       playerRatio: 20
-<<<<<<< HEAD
+<<<<<<< ours
       lateJoinAdditional: true
       allowNonHumans: true
       multiAntagSetting: NotExclusive
@@ -37,11 +37,25 @@
       - MindRoleThief
       briefing:
         sound: "/Audio/Misc/thief_greeting.ogg"
+||||||| base
+      lateJoinAdditional: true
+      allowNonHumans: true
+      multiAntagSetting: NotExclusive
+      startingGear: ThiefGear
+      components:
+      - type: Pacified
+      - type: Thieving
+        stripTimeReduction: 2
+        stealthy: true
+      mindRoles:
+      - MindRoleThief
+      briefing:
+        sound: "/Audio/Misc/thief_greeting.ogg"
 =======
       range:
         min: 1
         max: 3
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: DynamicRuleCost
     cost: 75
   - type: GameRule

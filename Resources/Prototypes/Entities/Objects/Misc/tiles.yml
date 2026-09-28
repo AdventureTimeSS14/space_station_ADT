@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: BaseItem
   id: FloorTileItemBase
   description: These could work as a pretty decent throwing weapon.
@@ -2283,7 +2283,7 @@
     - Plating
     - FloorMowedAstroGrass
   - type: Stack
-<<<<<<< HEAD
+<<<<<<< ours
     stackType: FloorTileAstroGrass
   #ADT-Tweak-Start
   - type: PhysicalComposition
@@ -2295,9 +2295,11 @@
       - Sheet
       - NoPaint
   #ADT-Tweak-End
+||||||| base
+    stackType: FloorTileAstroGrass
 =======
     stackType: FloorTileMowedAstroGrass
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   id: FloorTileItemJungleAstroGrass

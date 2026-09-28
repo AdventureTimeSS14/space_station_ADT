@@ -50,13 +50,16 @@ public sealed partial class PaperSystem : EntitySystem
         SubscribeLocalEvent<RandomPaperContentComponent, MapInitEvent>(OnRandomPaperContentMapInit);
 
         SubscribeLocalEvent<ActivateOnPaperOpenedComponent, PaperWriteEvent>(OnPaperWrite);
-<<<<<<< HEAD
+<<<<<<< ours
 
         SubscribeLocalEvent<PaperComponent, GetVerbsEvent<AlternativeVerb>>(AddSignVerb); // ADT-Tweak: Signing alt verb event listener.
 
         _paperQuery = GetEntityQuery<PaperComponent>();
+||||||| base
+
+        _paperQuery = GetEntityQuery<PaperComponent>();
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
     }
 
     private void OnMapInit(Entity<PaperComponent> entity, ref MapInitEvent args)

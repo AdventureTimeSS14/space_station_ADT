@@ -15,13 +15,16 @@ public sealed partial class RadioChannelPrototype : IPrototype
     /// <summary>
     /// Human-readable name for the channel.
     /// </summary>
-<<<<<<< HEAD
+<<<<<<< ours
     [DataField("name")]
     public string Name { get; private set; } = string.Empty;
+||||||| base
+    [DataField("name")]
+    public LocId Name { get; private set; } = string.Empty;
 =======
     [DataField]
     public LocId Name { get; private set; } = string.Empty;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
     [ViewVariables(VVAccess.ReadOnly)]
     public string LocalizedName => Loc.GetString(Name);
@@ -41,7 +44,13 @@ public sealed partial class RadioChannelPrototype : IPrototype
     /// <summary>
     /// Color used to display the channel.
     /// </summary>
-<<<<<<< HEAD
+    [DataField]
+    public Color Color { get; private set; } = Color.Lime;
+
+    /// <summary>
+    /// Whether the channel can transmit across different stations without a telecommunications server.
+    /// </summary>
+<<<<<<< ours
     [DataField("longRange"), ViewVariables]
     public bool LongRange = false;
 
@@ -49,14 +58,11 @@ public sealed partial class RadioChannelPrototype : IPrototype
     [DataField("translate"), ViewVariables]
     public bool TranslateSpeech = false;
     // Lang end
+||||||| base
+    [DataField("longRange"), ViewVariables]
+    public bool LongRange = false;
 =======
     [DataField]
-    public Color Color { get; private set; } = Color.Lime;
-
-    /// <summary>
-    /// Whether the channel can transmit across different stations without a telecommunications server.
-    /// </summary>
-    [DataField]
     public bool LongRange;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 }

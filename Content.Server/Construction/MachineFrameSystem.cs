@@ -16,20 +16,26 @@ namespace Content.Server.Construction;
 
 public sealed partial class MachineFrameSystem : EntitySystem
 {
-<<<<<<< HEAD
+<<<<<<< ours
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly ConstructionSystem _construction = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly PartExchangerSystem _partExchanger = default!; // ADT-Tweak: RPED
+||||||| base
+    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly StackSystem _stack = default!;
+    [Dependency] private readonly ConstructionSystem _construction = default!;
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
 =======
     [Dependency] private SharedContainerSystem _container = default!;
     [Dependency] private TagSystem _tag = default!;
     [Dependency] private StackSystem _stack = default!;
     [Dependency] private ConstructionSystem _construction = default!;
     [Dependency] private SharedPopupSystem _popupSystem = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
     public override void Initialize()
     {

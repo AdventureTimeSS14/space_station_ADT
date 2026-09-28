@@ -39,7 +39,7 @@
     - id: PlushieArachind
     - id: PlushiePenguin
     - id: PlushieVulp
-<<<<<<< HEAD
+<<<<<<< ours
     # ADT toys start
     - id: ADTPlushieOwl
     - id: ADTPlushieOctocat
@@ -47,10 +47,11 @@
     - id: ADTPlushieEmiliaEvenwood
     - id: ADTPlushieEtvy
     # ADT toys end
+||||||| base
 =======
     - id: PlushieSheep
     - id: PlushieSpaceSheep
->>>>>>> wizards-filtered
+>>>>>>> theirs
     - !type:GroupSelector
       children:
       - id: PlushieBee

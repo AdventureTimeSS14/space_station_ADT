@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-﻿using System.Diagnostics.CodeAnalysis;
-=======
 using System.Diagnostics.CodeAnalysis;
->>>>>>> wizards-filtered
 using System.Linq;
 using Content.Shared.FixedPoint;
 using Content.Shared.Implants;
@@ -22,13 +18,16 @@ namespace Content.Shared.Store;
 /// </summary>
 public abstract partial class SharedStoreSystem : EntitySystem
 {
-<<<<<<< HEAD
+<<<<<<< ours
     [Dependency] protected readonly IPrototypeManager Proto = default!;
     [Dependency] protected readonly SharedMindSystem Mind = default!;
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
     [Dependency] protected readonly SharedStackSystem Stack = default!;
     [Dependency] protected readonly SharedUserInterfaceSystem UI = default!;
 
+    [Dependency] protected readonly EntityQuery<StoreComponent> StoreQuery = default!;
+    [Dependency] protected readonly EntityQuery<RemoteStoreComponent> RemoteStoreQuery = default!;
+||||||| base
     [Dependency] protected readonly EntityQuery<StoreComponent> StoreQuery = default!;
     [Dependency] protected readonly EntityQuery<RemoteStoreComponent> RemoteStoreQuery = default!;
 =======
@@ -100,7 +99,7 @@ public abstract partial class SharedStoreSystem : EntitySystem
         var msg = Loc.GetString("store-currency-inserted", ("used", args.Used), ("target", ev.TargetOverride ?? target));
         Popup.PopupEntity(msg, target, args.User);
     }
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
     public override void Initialize()
     {
@@ -216,6 +215,7 @@ public abstract partial class SharedStoreSystem : EntitySystem
 
         entity.Comp.Store = store;
     }
+<<<<<<< ours
 
         /// <summary>
     /// Gets the value from an entity's currency component.
@@ -228,11 +228,7 @@ public abstract partial class SharedStoreSystem : EntitySystem
     /// <param name="uid"></param>
     /// <param name="component"></param>
     /// <returns>The value of the currency</returns>
-<<<<<<< HEAD
     public Dictionary<string, FixedPoint2> GetCurrencyValue(EntityUid uid, CurrencyComponent component)
-=======
-    public Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> GetCurrencyValue(EntityUid uid, CurrencyComponent component)
->>>>>>> wizards-filtered
     {
         var amount = EntityManager.GetComponentOrNull<StackComponent>(uid)?.Count ?? 1;
         return component.Price.ToDictionary(v => v.Key, p => p.Value * amount);
@@ -276,11 +272,7 @@ public abstract partial class SharedStoreSystem : EntitySystem
     /// <param name="uid"></param>
     /// <param name="store">The store to add it to</param>
     /// <returns>Whether or not the currency was succesfully added</returns>
-<<<<<<< HEAD
     public bool TryAddCurrency(Dictionary<string, FixedPoint2> currency, EntityUid uid, StoreComponent? store = null)
-=======
-    public bool TryAddCurrency(Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> currency, EntityUid uid, StoreComponent? store = null)
->>>>>>> wizards-filtered
     {
         if (!Resolve(uid, ref store))
             return false;
@@ -302,7 +294,6 @@ public abstract partial class SharedStoreSystem : EntitySystem
         return true;
     }
 
-<<<<<<< HEAD
     // ADT-Tweak start: heretic
     public bool TrySetCurrency(Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> currency, EntityUid uid, StoreComponent? store = null)
     {
@@ -340,8 +331,6 @@ public abstract partial class SharedStoreSystem : EntitySystem
     }
     // ADT-Tweak end: heretic
 
-=======
->>>>>>> wizards-filtered
     private void OnIntrinsicStoreAction(Entity<StoreComponent> ent, ref IntrinsicStoreActionEvent args)
     {
         ToggleUi(args.Performer, ent.Owner, ent.Comp);
@@ -353,12 +342,100 @@ public record struct GetStoreEvent
 {
     public readonly bool Handled => Store != null;
     public Entity<StoreComponent>? Store;
+||||||| base
+=======
+
+        /// <summary>
+    /// Gets the value from an entity's currency component.
+    /// Scales with stacks.
+    /// </summary>
+    /// <remarks>
+    /// If this result is intended to be used with <see cref="TryAddCurrency(Robust.Shared.GameObjects.Entity{Shared.Store.Components.CurrencyComponent?},Robust.Shared.GameObjects.Entity{Content.Shared.Store.Components.StoreComponent?})"/>,
+    /// consider using <see cref="TryAddCurrency(Robust.Shared.GameObjects.Entity{Shared.Store.Components.CurrencyComponent?},Robust.Shared.GameObjects.Entity{Content.Shared.Store.Components.StoreComponent?})"/> instead to ensure that the currency is consumed in the process.
+    /// </remarks>
+    /// <param name="uid"></param>
+    /// <param name="component"></param>
+    /// <returns>The value of the currency</returns>
+    public Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> GetCurrencyValue(EntityUid uid, CurrencyComponent component)
+    {
+        var amount = EntityManager.GetComponentOrNull<StackComponent>(uid)?.Count ?? 1;
+        return component.Price.ToDictionary(v => v.Key, p => p.Value * amount);
+    }
+
+    /// <summary>
+    /// Tries to add a currency to a store's balance. Note that if successful, this will consume the currency in the process.
+    /// </summary>
+    public bool TryAddCurrency(Entity<CurrencyComponent?> currency, Entity<StoreComponent?> store)
+    {
+        if (!Resolve(currency.Owner, ref currency.Comp))
+            return false;
+
+        if (!Resolve(store.Owner, ref store.Comp))
+            return false;
+
+        var value = currency.Comp.Price;
+        if (TryComp(currency.Owner, out StackComponent? stack) && stack.Count != 1)
+        {
+            value = currency.Comp.Price
+                .ToDictionary(v => v.Key, p => p.Value * stack.Count);
+        }
+
+        if (!TryAddCurrency(value, store, store.Comp))
+            return false;
+
+        // Avoid having the currency accidentally be re-used. E.g., if multiple clients try to use the currency in the
+        // same tick
+        currency.Comp.Price.Clear();
+        if (stack != null)
+            Stack.SetCount((currency.Owner, stack), 0);
+
+        QueueDel(currency);
+        return true;
+    }
+
+    /// <summary>
+    /// Tries to add a currency to a store's balance
+    /// </summary>
+    /// <param name="currency">The value to add to the store</param>
+    /// <param name="uid"></param>
+    /// <param name="store">The store to add it to</param>
+    /// <returns>Whether or not the currency was succesfully added</returns>
+    public bool TryAddCurrency(Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> currency, EntityUid uid, StoreComponent? store = null)
+    {
+        if (!Resolve(uid, ref store))
+            return false;
+
+        //verify these before values are modified
+        foreach (var type in currency)
+        {
+            if (!store.CurrencyWhitelist.Contains(type.Key))
+                return false;
+        }
+
+        foreach (var type in currency)
+        {
+            if (!store.Balance.TryAdd(type.Key, type.Value))
+                store.Balance[type.Key] += type.Value;
+        }
+
+        UpdateUserInterface(null, uid, store);
+        return true;
+    }
+
+    private void OnIntrinsicStoreAction(Entity<StoreComponent> ent, ref IntrinsicStoreActionEvent args)
+    {
+        ToggleUi(args.Performer, ent.Owner, ent.Comp);
+    }
 }
 
-<<<<<<< HEAD
+[ByRefEvent]
+public record struct GetStoreEvent
+{
+    public readonly bool Handled => Store != null;
+    public Entity<StoreComponent>? Store;
+>>>>>>> theirs
+}
 
-=======
->>>>>>> wizards-filtered
 public sealed class CurrencyInsertAttemptEvent : CancellableEntityEventArgs
 {
     public readonly EntityUid User;
@@ -376,9 +453,5 @@ public sealed class CurrencyInsertAttemptEvent : CancellableEntityEventArgs
         Used = used;
         Store = store;
     }
-<<<<<<< HEAD
-}
-=======
 }
 
->>>>>>> wizards-filtered

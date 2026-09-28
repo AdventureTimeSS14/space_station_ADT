@@ -24,11 +24,13 @@ namespace Content.Shared.Inventory.VirtualItem;
 /// and <see cref="InventoryUiController"/>, see the <see cref="VirtualItemComponent"/>
 /// references there for more information
 /// </remarks>
-<<<<<<< HEAD
+<<<<<<< ours
 public abstract partial class SharedVirtualItemSystem : EntitySystem    // ADT Grab tweak - класс теперь partial
+||||||| base
+public abstract class SharedVirtualItemSystem : EntitySystem
 =======
 public abstract partial class SharedVirtualItemSystem : EntitySystem
->>>>>>> wizards-filtered
+>>>>>>> theirs
 {
     [Dependency] private SharedContainerSystem _containerSystem = default!;
     [Dependency] private SharedItemSystem _itemSystem = default!;

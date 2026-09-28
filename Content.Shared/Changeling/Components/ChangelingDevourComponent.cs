@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+<<<<<<< ours
 // ADT: Закомментировано из-за использования генокрада от Goob Station
 // using Content.Shared.Changeling.Systems;
 // using Content.Shared.Damage;
@@ -7,6 +7,14 @@
 // using Robust.Shared.Audio;
 // using Robust.Shared.GameStates;
 // using Robust.Shared.Prototypes;
+||||||| base
+using Content.Shared.Changeling.Systems;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
+using Content.Shared.Whitelist;
+using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 =======
 using Content.Shared.Changeling.Systems;
 using Content.Shared.Chemistry.Components;
@@ -18,7 +26,7 @@ using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 // namespace Content.Shared.Changeling.Components;
 
@@ -121,7 +129,7 @@ using Robust.Shared.Prototypes;
 //         },
 //     };
 
-<<<<<<< HEAD
+<<<<<<< ours
 //     /// <summary>
 //     /// The list of protective damage types capable of preventing a devour if over the threshold.
 //     /// </summary>
@@ -132,6 +140,17 @@ using Robust.Shared.Prototypes;
 //         "Piercing",
 //         "Blunt",
 //     };
+||||||| base
+    /// <summary>
+    /// The list of protective damage types capable of preventing a devour if over the threshold.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public List<ProtoId<DamageTypePrototype>> ProtectiveDamageTypes = new()
+    {
+        "Slash",
+        "Piercing",
+        "Blunt",
+    };
 =======
     /// <summary>
     /// Solution that will be spilled at the location of the devoured entity when finished.
@@ -149,7 +168,7 @@ using Robust.Shared.Prototypes;
         "Piercing",
         "Blunt",
     };
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 //     /// <summary>
 //     /// The percentage of ANY brute damage resistance that will prevent devouring.
@@ -157,9 +176,12 @@ using Robust.Shared.Prototypes;
 //     [DataField, AutoNetworkedField]
 //     public float DevourPreventionPercentageThreshold = 0.1f;
 
-<<<<<<< HEAD
+<<<<<<< ours
 //     public override bool SendOnlyToOwner => true;
 // }
+||||||| base
+    public override bool SendOnlyToOwner => true;
+}
 =======
     /// <summary>
     /// DNA awarded for successfully devouring a new identity.
@@ -194,4 +216,4 @@ public record struct ChangelingDevouredEvent(EntityUid Changeling, EntityUid Dev
 /// <param name="GrantedDna">Whether this devour has granted the changeling Dna.</param>
 [ByRefEvent]
 public record struct ChangelingGotDevouredEvent(EntityUid Changeling, EntityUid Devoured, bool ObtainedIdentity, bool Unique, bool GrantedDna);
->>>>>>> wizards-filtered
+>>>>>>> theirs

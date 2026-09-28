@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeaverHat
   name: beaver hat
@@ -1557,9 +1557,6 @@
   - type: Sprite
     sprite: Clothing/Head/Hats/mitre_clown.rsi
   - type: Clothing
-<<<<<<< HEAD
-    sprite: Clothing/Head/Hats/mitre_clown.rsi
-=======
     sprite: Clothing/Head/Hats/mitre_clown.rsi
 
 - type: entity
@@ -1577,4 +1574,3 @@
     - ClothMade
     - Recyclable
     - WhitelistChameleon
->>>>>>> wizards-filtered

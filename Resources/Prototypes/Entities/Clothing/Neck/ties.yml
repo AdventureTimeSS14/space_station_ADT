@@ -1,13 +1,18 @@
 - type: entity
   abstract: true
   parent: ClothingNeckBase
+<<<<<<< ours
   id: ClothingNeckTieBase
-<<<<<<< HEAD
   abstract: true
   components:
   - type: Item
     storedRotation: -45
+
+- type: entity
+  parent: ClothingNeckTieBase
+||||||| base
 =======
+  id: ClothingNeckTieBase
   name: tie
   description: A neosilk clip-on tie.
   components:
@@ -18,10 +23,10 @@
     - WhitelistChameleon
     - HamsterWearable
     - MonkeyWearable
->>>>>>> wizards-filtered
 
 - type: entity
   parent: ClothingNeckTieBase
+>>>>>>> theirs
   id: ClothingNeckTieRed
   name: red tie
   description: A neosilk clip-on red tie.

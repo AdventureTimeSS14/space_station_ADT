@@ -40,12 +40,14 @@ public sealed partial class RoundEndSummaryUIController : UIController,
             return;
 
         _window = new RoundEndSummaryWindow(message.GamemodeTitle, message.RoundEndText,
-<<<<<<< HEAD
+<<<<<<< ours
             message.RoundDuration, message.RoundId, message.AllPlayersEndInfo, EntityManager,
             message.RoundReport, message.SpeciesCensus); // ADT-Tweak
+||||||| base
+            message.RoundDuration, message.RoundId, message.AllPlayersEndInfo, EntityManager);
 =======
             message.RoundDuration, message.RoundId, message.AllPlayersEndInfo);
->>>>>>> wizards-filtered
+>>>>>>> theirs
     }
 
     public void OnSystemLoaded(ClientGameTicker system)

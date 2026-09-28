@@ -9,7 +9,7 @@
   maleFirstNames: NamesReptilianMale
   femaleFirstNames: NamesReptilianFemale
   naming: FirstDashFirst
-<<<<<<< HEAD
+<<<<<<< ours
   # ADT start
   shortDesc: species-short-desc-reptilian
   description: "/ServerInfo/ADT/SpeciesDescriptions/Unath.xml"
@@ -31,6 +31,7 @@
   oldAge: 50
   youngAge: 30
   # ADT end
+||||||| base
 =======
   defaultSoundsBySex:
   - MaleReptilian
@@ -39,4 +40,4 @@
   voices:
   - MaleReptilian
   - FemaleReptilian
->>>>>>> wizards-filtered
+>>>>>>> theirs

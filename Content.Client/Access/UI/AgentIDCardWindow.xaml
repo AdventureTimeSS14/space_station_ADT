@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+<<<<<<< ours
 <DefaultWindow xmlns="https://spacestation14.io"
             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
             Title="{Loc agent-id-menu-title}">
@@ -11,6 +11,19 @@
         <Label Name="CurrentNumber" Text="{Loc 'agent-id-card-current-number'}" />
         <LineEdit Name="NumberLineEdit" PlaceHolder="#0000" />
         <!-- ADT-tweak-end -->
+        <Label Text="{Loc 'agent-id-card-job-icon-label'}"/>
+        <GridContainer Name="IconGrid" Columns="10">
+            <!-- Job icon buttons are generated in the code -->
+        </GridContainer>
+||||||| base
+<DefaultWindow xmlns="https://spacestation14.io"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            Title="{Loc agent-id-menu-title}">
+    <BoxContainer Orientation="Vertical" SeparationOverride="4" MinWidth="150">
+        <Label Name="CurrentName" Text="{Loc 'agent-id-card-current-name'}" />
+        <LineEdit Name="NameLineEdit" />
+        <Label Name="CurrentJob" Text="{Loc 'agent-id-card-current-job'}" />
+        <LineEdit Name="JobLineEdit" />
         <Label Text="{Loc 'agent-id-card-job-icon-label'}"/>
         <GridContainer Name="IconGrid" Columns="10">
             <!-- Job icon buttons are generated in the code -->
@@ -85,6 +98,6 @@
             <TextureRect StyleClasses="NTLogoDark" Stretch="KeepAspectCentered"
                     VerticalAlignment="Center" HorizontalAlignment="Right" SetSize="19 19" />
         </BoxContainer>
->>>>>>> wizards-filtered
+>>>>>>> theirs
     </BoxContainer>
 </controls:FancyWindow>

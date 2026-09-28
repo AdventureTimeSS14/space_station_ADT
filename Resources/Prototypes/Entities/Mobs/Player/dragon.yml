@@ -1,10 +1,11 @@
-<<<<<<< HEAD
-﻿- type: entity
-  parent: [ SimpleSpaceMobBase, FlyingMobBase ] # ADT-Tweak (removed BaseSlicingRefinable)
-=======
 - type: entity
+<<<<<<< ours
+  parent: [ SimpleSpaceMobBase, FlyingMobBase ] # ADT-Tweak (removed BaseSlicingRefinable)
+||||||| base
+  parent: [ SimpleSpaceMobBase, FlyingMobBase ]
+=======
   parent: [ SimpleSpaceMobBase, FlyingMobBase, BaseSlicingRefinable, MobNightVision, BaseMobDestructible ]
->>>>>>> wizards-filtered
+>>>>>>> theirs
   id: BaseMobDragon
   suffix: ""
   name: space dragon
@@ -127,15 +128,18 @@
     updateInterval: 0.25
     metabolizerTypes: [ Dragon ]
     stages: [ Digestion, Bloodstream ]
-<<<<<<< HEAD
+<<<<<<< ours
 # ADT-Tweak-start
   - type: Butcherable
     butcheringType: Knife
     spawned:
+||||||| base
+  - type: Butcherable
+    spawned:
 =======
   - type: ToolRefinable
     refineResult:
->>>>>>> wizards-filtered
+>>>>>>> theirs
     - id: FoodMeatDragon
       amount: 4 # ADT-Tweak
 # ADT-Tweak-end
@@ -169,11 +173,13 @@
       components:
       - MobState
       - Door
-<<<<<<< HEAD
+<<<<<<< ours
       - Item # ADT-Tweak
       tags:
+||||||| base
+      tags:
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
       - Wall
   - type: Tag
     tags:
@@ -256,19 +262,26 @@
       0: Alive
       200: Dead
   # less meat spawned since it's a lot easier to kill
-<<<<<<< HEAD
+<<<<<<< ours
 # ADT-Tweak-start
   - type: Butcherable
     butcheringType: Knife
     spawned:
-    - id: FoodMeatDragon
-      amount: 2 # ADT-Tweak
-# ADT-Tweak-end
+||||||| base
+  - type: Butcherable
+    spawned:
 =======
   - type: ToolRefinable
     refineResult:
+>>>>>>> theirs
     - id: FoodMeatDragon
->>>>>>> wizards-filtered
+<<<<<<< ours
+      amount: 2 # ADT-Tweak
+# ADT-Tweak-end
+||||||| base
+      amount: 1
+=======
+>>>>>>> theirs
   - type: MeleeWeapon
     damage:
       types:
@@ -314,11 +327,13 @@
       components:
       - MobState
       - Door
-<<<<<<< HEAD
+<<<<<<< ours
       - Item
       tags:
+||||||| base
+      tags:
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
       - Wall
     event: !type:DevourActionEvent
 

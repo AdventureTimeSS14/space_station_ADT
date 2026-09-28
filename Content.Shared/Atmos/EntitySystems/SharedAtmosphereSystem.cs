@@ -24,10 +24,6 @@ public abstract partial class SharedAtmosphereSystem : EntitySystem
     {
         base.Initialize();
 
-<<<<<<< HEAD
-        _internalsQuery = GetEntityQuery<InternalsComponent>();
-=======
->>>>>>> wizards-filtered
         InitializeBreathTool();
         InitializeGases();
         InitializeCVars();

@@ -35,6 +35,48 @@ namespace Content.Server.Dragon;
 
 public sealed partial class DragonSystem : EntitySystem
 {
+<<<<<<< ours
+    [Dependency] private readonly CarpRiftsConditionSystem _carpRifts = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
+    [Dependency] private readonly NpcFactionSystem _faction = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly TurfSystem _turf = default!;
+    [Dependency] private readonly GibbingSystem _gibbing = default!;
+    [Dependency] private readonly SmokeSystem _smoke = default!;
+
+    // ADT-Tweak-start
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly StunSystem _stun = default!;
+    [Dependency] private readonly ISerializationManager _serManager = default!;
+    [Dependency] private readonly DamageableSystem _damage = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly NPCSystem _npc = default!;
+    // ADT-Tweak-end
+
+    private EntityQuery<CarpRiftsConditionComponent> _objQuery;
+||||||| base
+    [Dependency] private readonly CarpRiftsConditionSystem _carpRifts = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
+    [Dependency] private readonly NpcFactionSystem _faction = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly TurfSystem _turf = default!;
+    [Dependency] private readonly GibbingSystem _gibbing = default!;
+    [Dependency] private readonly SmokeSystem _smoke = default!;
+
+    private EntityQuery<CarpRiftsConditionComponent> _objQuery;
+=======
     [Dependency] private CarpRiftsConditionSystem _carpRifts = default!;
     [Dependency] private SharedMindSystem _mind = default!;
     [Dependency] private MovementSpeedModifierSystem _movement = default!;
@@ -49,20 +91,8 @@ public sealed partial class DragonSystem : EntitySystem
     [Dependency] private GibbingSystem _gibbing = default!;
     [Dependency] private SmokeSystem _smoke = default!;
 
-<<<<<<< HEAD
-    // ADT-Tweak-start
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly StunSystem _stun = default!;
-    [Dependency] private readonly ISerializationManager _serManager = default!;
-    [Dependency] private readonly DamageableSystem _damage = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly NPCSystem _npc = default!;
-    // ADT-Tweak-end
-
-    private EntityQuery<CarpRiftsConditionComponent> _objQuery;
-=======
     [Dependency] private EntityQuery<CarpRiftsConditionComponent> _carpRiftsConditionQuery = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
     /// <summary>
     /// Minimum distance between 2 rifts allowed.
@@ -76,7 +106,7 @@ public sealed partial class DragonSystem : EntitySystem
 
     private const int RiftsAllowed = 3;
 
-<<<<<<< HEAD
+<<<<<<< ours
     public override void Initialize()
     {
         base.Initialize();
@@ -95,8 +125,23 @@ public sealed partial class DragonSystem : EntitySystem
         // ADT-Tweak-end
     }
 
+||||||| base
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        _objQuery = GetEntityQuery<CarpRiftsConditionComponent>();
+
+        SubscribeLocalEvent<DragonComponent, MapInitEvent>(OnInit);
+        SubscribeLocalEvent<DragonComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<DragonComponent, DragonSpawnRiftActionEvent>(OnSpawnRift);
+        SubscribeLocalEvent<DragonComponent, RefreshMovementSpeedModifiersEvent>(OnDragonMove);
+        SubscribeLocalEvent<DragonComponent, MobStateChangedEvent>(OnMobStateChanged);
+        SubscribeLocalEvent<DragonComponent, EntityZombifiedEvent>(OnZombified);
+    }
+
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -249,11 +294,13 @@ public sealed partial class DragonSystem : EntitySystem
         Comp<DragonRiftComponent>(carpUid).Dragon = uid;
     }
 
-<<<<<<< HEAD
+<<<<<<< ours
+||||||| base
+    // TODO: just make this a move speed modifier component???
 =======
     // TODO: just make this a move speed modifier component???
     [SubscribeLocalEvent]
->>>>>>> wizards-filtered
+>>>>>>> theirs
     private void OnDragonMove(EntityUid uid, DragonComponent component, RefreshMovementSpeedModifiersEvent args)
     {
         if (component.Weakened)

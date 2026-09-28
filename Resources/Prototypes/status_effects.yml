@@ -25,22 +25,31 @@
   id: Drunk
 
 - type: statusEffect
-<<<<<<< HEAD
+<<<<<<< ours
   id: SlurredSpeech
+
+- type: statusEffect
+  id: Muted
+  alert: Muted
+||||||| base
+  id: SlurredSpeech
+
+- type: statusEffect
+  id: PressureImmunity
 
 - type: statusEffect
   id: Muted
   alert: Muted
 =======
   id: SlurredSpeechr
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: statusEffect
   id: Corporeal
   alert: Corporeal
 
 - type: statusEffect
-<<<<<<< HEAD
+<<<<<<< ours
   id: TemporaryBlindness
 
 - type: statusEffect
@@ -55,6 +64,24 @@
 - type: statusEffect
   id: Adrenaline
   alert: Adrenaline
+||||||| base
+  id: TemporaryBlindness
+
+- type: statusEffect
+  id: Pacified #cannot attack
+
+- type: statusEffect
+  id: RatvarianLanguage #Praise him
+
+- type: statusEffect
+  id: Flashed
+
+- type: statusEffect
+  id: RadiationProtection
+
+- type: statusEffect
+  id: Adrenaline
+  alert: Adrenaline
 =======
   id: Pacified #cannot attack
->>>>>>> wizards-filtered
+>>>>>>> theirs

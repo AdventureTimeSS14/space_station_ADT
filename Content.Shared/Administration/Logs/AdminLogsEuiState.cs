@@ -28,11 +28,13 @@ public static class AdminLogsEuiMsg
     [Serializable, NetSerializable]
     public sealed class SetLogFilter : EuiMessageBase
     {
-<<<<<<< HEAD
+<<<<<<< ours
         public SetLogFilter(string? search = null, bool invertTypes = false, HashSet<LogType>? types = null, HashSet<Guid>? selectedPlayers = null) // ADT-Tweak
+||||||| base
+        public SetLogFilter(string? search = null, bool invertTypes = false, HashSet<LogType>? types = null)
 =======
         public SetLogFilter(string? search = null, List<Guid>? players = null, bool invertTypes = false, HashSet<LogType>? types = null)
->>>>>>> wizards-filtered
+>>>>>>> theirs
         {
             Search = search;
             Players = players;

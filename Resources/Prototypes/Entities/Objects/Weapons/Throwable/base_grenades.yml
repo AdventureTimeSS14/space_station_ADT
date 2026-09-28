@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-﻿- type: entity # Starts fuse after taking 10 damage.
-  parent: BaseItem
-=======
 - type: entity
->>>>>>> wizards-filtered
   abstract: true
   parent: BaseItem
   id: GrenadeBase

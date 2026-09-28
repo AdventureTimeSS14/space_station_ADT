@@ -27,14 +27,9 @@ namespace Content.Client.Chemistry.UI
     [GenerateTypedNameReferences]
     public sealed partial class ChemMasterWindow : FancyWindow
     {
-<<<<<<< HEAD
+<<<<<<< ours
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
-=======
-        [Dependency] private IPrototypeManager _prototypeManager = default!;
-        [Dependency] private IEntityManager _entityManager = default!;
-
->>>>>>> wizards-filtered
         private readonly SpriteSystem _sprite;
 
         public event Action<BaseButton.ButtonEventArgs, ReagentButton, int, bool>? OnReagentButtonPressed; //ADT-Tweak: New delegate args
@@ -709,27 +704,11 @@ namespace Content.Client.Chemistry.UI
             if (!addReagentButtons)
                 return null; // Return an empty list if reagentTransferButton creation is disabled.
 
-<<<<<<< HEAD
             // ADT-Tweak-Start: Use the appropriate toggle (buffer vs. pill) when determining the text
             var isTransfer = BufferTransferButton.Pressed;
             var text = isTransfer
                 ? "transfer"
                 : "discard";
-=======
-            var buttonConfigs = new (string text, ChemMasterReagentAmount amount, string styleClass)[]
-            {
-                ("1", ChemMasterReagentAmount.U1, StyleClass.ButtonOpenBoth),
-                ("5", ChemMasterReagentAmount.U5, StyleClass.ButtonOpenBoth),
-                ("10", ChemMasterReagentAmount.U10, StyleClass.ButtonOpenBoth),
-                ("15", ChemMasterReagentAmount.U15, StyleClass.ButtonOpenBoth),
-                ("20", ChemMasterReagentAmount.U20, StyleClass.ButtonOpenBoth),
-                ("30", ChemMasterReagentAmount.U30, StyleClass.ButtonOpenBoth),
-                ("40", ChemMasterReagentAmount.U40, StyleClass.ButtonOpenBoth),
-                ("60", ChemMasterReagentAmount.U60, StyleClass.ButtonOpenBoth),
-                ("120", ChemMasterReagentAmount.U120, StyleClass.ButtonOpenBoth),
-                (Loc.GetString("chem-master-window-buffer-all-amount"), ChemMasterReagentAmount.All, StyleClass.ButtonOpenLeft),
-            };
->>>>>>> wizards-filtered
 
             var reagentTransferButton = MakeReagentButton(
                 Loc.GetString($"chem-master-window-{text}-button"),
@@ -1095,6 +1074,13 @@ namespace Content.Client.Chemistry.UI
             for (int i = 0; i < PillContainerStorageButtons.Length; i++)
             {
                 var button = PillContainerStorageButtons[i];
+||||||| base
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private readonly IEntityManager _entityManager = default!;
+=======
+        [Dependency] private IPrototypeManager _prototypeManager = default!;
+        [Dependency] private IEntityManager _entityManager = default!;
+>>>>>>> theirs
 
                 var containerIndex = i / 10;
                 var slotIndex = i % 10;
@@ -1215,6 +1201,7 @@ namespace Content.Client.Chemistry.UI
 
         private void UpdatePillContainerContents(ChemMasterBoundUserInterfaceState state)
         {
+<<<<<<< ours
             PillContainerContentsInfo.Children.Clear();
 
             if (state.SelectedPillContainerSlot < 0 || state.SelectedPillContainerSlot >= PillContainerStorageButtons.Length)
@@ -1229,6 +1216,41 @@ namespace Content.Client.Chemistry.UI
                 PillContainerContentsInfo.Children.Add(new Label { Text = Loc.GetString("chem-master-window-no-pill-selected-text") });
                 return;
             }
+||||||| base
+            if (!addReagentButtons)
+                return new List<ReagentButton>(); // Return an empty list if reagentTransferButton creation is disabled.
+
+            var buttonConfigs = new (string text, ChemMasterReagentAmount amount, string styleClass)[]
+            {
+                ("1", ChemMasterReagentAmount.U1, StyleClass.ButtonOpenBoth),
+                ("5", ChemMasterReagentAmount.U5, StyleClass.ButtonOpenBoth),
+                ("10", ChemMasterReagentAmount.U10, StyleClass.ButtonOpenBoth),
+                ("15", ChemMasterReagentAmount.U15, StyleClass.ButtonOpenBoth),
+                ("20", ChemMasterReagentAmount.U20, StyleClass.ButtonOpenBoth),
+                ("25", ChemMasterReagentAmount.U25, StyleClass.ButtonOpenBoth),
+                ("30", ChemMasterReagentAmount.U30, StyleClass.ButtonOpenBoth),
+                ("50", ChemMasterReagentAmount.U50, StyleClass.ButtonOpenBoth),
+                ("100", ChemMasterReagentAmount.U100, StyleClass.ButtonOpenBoth),
+                (Loc.GetString("chem-master-window-buffer-all-amount"), ChemMasterReagentAmount.All, StyleClass.ButtonOpenLeft),
+            };
+=======
+            if (!addReagentButtons)
+                return new List<ReagentButton>(); // Return an empty list if reagentTransferButton creation is disabled.
+
+            var buttonConfigs = new (string text, ChemMasterReagentAmount amount, string styleClass)[]
+            {
+                ("1", ChemMasterReagentAmount.U1, StyleClass.ButtonOpenBoth),
+                ("5", ChemMasterReagentAmount.U5, StyleClass.ButtonOpenBoth),
+                ("10", ChemMasterReagentAmount.U10, StyleClass.ButtonOpenBoth),
+                ("15", ChemMasterReagentAmount.U15, StyleClass.ButtonOpenBoth),
+                ("20", ChemMasterReagentAmount.U20, StyleClass.ButtonOpenBoth),
+                ("30", ChemMasterReagentAmount.U30, StyleClass.ButtonOpenBoth),
+                ("40", ChemMasterReagentAmount.U40, StyleClass.ButtonOpenBoth),
+                ("60", ChemMasterReagentAmount.U60, StyleClass.ButtonOpenBoth),
+                ("120", ChemMasterReagentAmount.U120, StyleClass.ButtonOpenBoth),
+                (Loc.GetString("chem-master-window-buffer-all-amount"), ChemMasterReagentAmount.All, StyleClass.ButtonOpenLeft),
+            };
+>>>>>>> theirs
 
             // Header - only show volume info (same as bottles)
             var headerHBox = new BoxContainer

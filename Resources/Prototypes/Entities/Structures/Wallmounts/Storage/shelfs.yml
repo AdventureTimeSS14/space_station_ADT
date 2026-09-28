@@ -1,4 +1,4 @@
-﻿# Parents
+# Parents
 - type: entity
   abstract: true
   parent: BaseWallmount
@@ -11,11 +11,14 @@
     sprite: Structures/Storage/Shelfs/wood.rsi
     state: base
   - type: Damageable
-<<<<<<< HEAD
+<<<<<<< ours
+    damageModifierSet: Wood
+  - type: Injurable
+||||||| base
     damageModifierSet: Wood
 =======
->>>>>>> wizards-filtered
   - type: Injurable
+>>>>>>> theirs
     damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
@@ -106,11 +109,13 @@
     state: base
   - type: Damageable
     damageModifierSet: Metallic
-<<<<<<< HEAD
+<<<<<<< ours
   - type: Injurable
     damageContainer: StructuralInorganic
+||||||| base
+    damageContainer: StructuralInorganic
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Destructible
     thresholds:
     - trigger: *DamageTrigger50
@@ -138,11 +143,13 @@
     state: base
   - type: Damageable
     damageModifierSet: Glass
-<<<<<<< HEAD
+<<<<<<< ours
   - type: Injurable
     damageContainer: StructuralInorganic
+||||||| base
+    damageContainer: StructuralInorganic
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Destructible
     thresholds:
     - trigger: *DamageTrigger50

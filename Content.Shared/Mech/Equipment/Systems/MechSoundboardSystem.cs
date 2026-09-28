@@ -29,8 +29,8 @@ public sealed partial class MechSoundboardSystem : EntitySystem
         {
             Sounds = new List<ProtoId<SoundCollectionPrototype>>(comp.Sounds.Count)
         };
+<<<<<<< ours
 
-<<<<<<< HEAD
         // ADT-Tweak-Start
         try
         {
@@ -41,7 +41,10 @@ public sealed partial class MechSoundboardSystem : EntitySystem
             return;
         }
         // ADT-Tweak-End
+||||||| base
+        args.States.Add(GetNetEntity(uid), state);
 =======
+
         foreach (var sound in comp.Sounds)
         {
             if (sound.Collection is { } collection)
@@ -49,7 +52,7 @@ public sealed partial class MechSoundboardSystem : EntitySystem
         }
 
         args.States.Add(GetNetEntity(uid), state);
->>>>>>> wizards-filtered
+>>>>>>> theirs
     }
 
     private void OnSoundboardMessage(EntityUid uid, MechSoundboardComponent comp, MechEquipmentUiMessageRelayEvent args)

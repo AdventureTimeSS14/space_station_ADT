@@ -2,11 +2,13 @@ using System.Linq;
 using Content.Server.Administration;
 using Content.Server.Administration.Managers;
 using Content.Server.Afk;
-<<<<<<< HEAD
+<<<<<<< ours
 using Content.Server.Afk.Events;
 using Content.Server.Corvax.Sponsors;
+||||||| base
+using Content.Server.Afk.Events;
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
 using Content.Server.Preferences.Managers;
@@ -34,7 +36,7 @@ namespace Content.Server.Players.PlayTimeTracking;
 /// </summary>
 public sealed partial class PlayTimeTrackingSystem : EntitySystem
 {
-<<<<<<< HEAD
+<<<<<<< ours
     [Dependency] private readonly IAdminManager _adminManager = default!;
     [Dependency] private readonly IAfkManager _afk = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
@@ -45,6 +47,15 @@ public sealed partial class PlayTimeTrackingSystem : EntitySystem
     [Dependency] private readonly PlayTimeTrackingManager _tracking = default!;
     [Dependency] private readonly SponsorsManager _sponsorsManager = default!; //ADT-Sponsors-Job
     [Dependency] private readonly Content.Server.ADT.Sponsors.SponsorManager _adtSponsors = default!;
+||||||| base
+    [Dependency] private readonly IAdminManager _adminManager = default!;
+    [Dependency] private readonly IAfkManager _afk = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly IServerPreferencesManager _preferencesManager = default!;
+    [Dependency] private readonly IPrototypeManager _prototypes = default!;
+    [Dependency] private readonly SharedRoleSystem _roles = default!;
+    [Dependency] private readonly PlayTimeTrackingManager _tracking = default!;
 =======
     [Dependency] private IAdminManager _adminManager = default!;
     [Dependency] private IAfkManager _afk = default!;
@@ -53,7 +64,7 @@ public sealed partial class PlayTimeTrackingSystem : EntitySystem
     [Dependency] private IServerPreferencesManager _preferencesManager = default!;
     [Dependency] private SharedRoleSystem _roles = default!;
     [Dependency] private PlayTimeTrackingManager _tracking = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
     public override void Initialize()
     {
@@ -362,13 +373,16 @@ public sealed partial class PlayTimeTrackingSystem : EntitySystem
 
         for (var i = 0; i < jobs.Count; i++)
         {
-<<<<<<< HEAD
+<<<<<<< ours
             if (_prototypes.Resolve(jobs[i], out var job)
                 && MeetsJobPlaytime(player, job.ID, playTimes)) // ADT-Tweak
+||||||| base
+            if (_prototypes.Resolve(jobs[i], out var job)
+                && JobRequirements.TryRequirementsMet(job, playTimes, out _, EntityManager, _prototypes, (HumanoidCharacterProfile?) _preferencesManager.GetPreferences(userId).SelectedCharacter))
 =======
             if (ProtoMan.Resolve(jobs[i], out var job)
                 && JobRequirements.TryRequirementsMet(job, playTimes, out _, EntityManager, ProtoMan, (HumanoidCharacterProfile?) _preferencesManager.GetPreferences(userId).SelectedCharacter))
->>>>>>> wizards-filtered
+>>>>>>> theirs
             {
                 continue;
             }

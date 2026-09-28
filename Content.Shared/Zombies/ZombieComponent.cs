@@ -156,7 +156,7 @@ public sealed partial class ZombieComponent : Component
     /// <summary>
     /// The blood reagents to give the zombie. In case you want zombies that bleed milk, or something.
     /// </summary>
-<<<<<<< HEAD
+<<<<<<< ours
     [DataField("newBloodReagent", customTypeSerializer: typeof(PrototypeIdSerializer<ReagentPrototype>))]
     public string NewBloodReagent = "ZombieBlood";
 
@@ -184,8 +184,10 @@ public sealed partial class ZombieComponent : Component
     /// The blood reagents to give the zombie. In case you want zombies that bleed milk, or something.
     /// </summary>
     [DataField("newBloodReagents")]
+||||||| base
+    [DataField("newBloodReagents")]
 =======
     [DataField]
->>>>>>> wizards-filtered
+>>>>>>> theirs
     public Solution NewBloodReagents = new([new("ZombieBlood", 1)]);
 }

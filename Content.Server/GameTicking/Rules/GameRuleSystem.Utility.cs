@@ -8,11 +8,13 @@ using Content.Shared.Station.Components;
 using Robust.Shared.Collections;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
-<<<<<<< HEAD
+<<<<<<< ours
 using Robust.Shared.Random;
-=======
->>>>>>> wizards-filtered
 using Robust.Shared.Utility;
+||||||| base
+=======
+using Robust.Shared.Utility;
+>>>>>>> theirs
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -98,8 +100,16 @@ public abstract partial class GameRuleSystem<T> where T: IComponent
         targetCoords = EntityCoordinates.Invalid;
         targetGrid = EntityUid.Invalid;
 
-<<<<<<< HEAD
+<<<<<<< ours
         if (GetStationMainGrid(station.Comp) is not { } grid)
+            return false;
+||||||| base
+        // Weight grid choice by tilecount
+        var weights = new Dictionary<Entity<MapGridComponent>, float>();
+        foreach (var possibleTarget in station.Comp.Grids)
+        {
+            if (!TryComp<MapGridComponent>(possibleTarget, out var comp))
+                continue;
 =======
         // Weight grid choice by tilecount
         var totalTiles = 0;
@@ -108,7 +118,16 @@ public abstract partial class GameRuleSystem<T> where T: IComponent
         {
             if (!TryComp<MapGridComponent>(possibleTarget, out var comp))
                 continue;
+>>>>>>> theirs
 
+<<<<<<< ours
+        targetGrid = grid.Owner;
+        return TryFindTileOnGrid(grid, out tile, out targetCoords);
+    }
+||||||| base
+            weights.Add((possibleTarget, comp), _map.GetAllTiles(possibleTarget, comp).Count());
+        }
+=======
             // Get the tile count for the given grid.
             var tileCount = _map.GetFilledTileCount((possibleTarget, comp));
 
@@ -119,18 +138,9 @@ public abstract partial class GameRuleSystem<T> where T: IComponent
                 totalTiles += tileCount;
             }
         }
+>>>>>>> theirs
 
-        if (grids.Count == 0)
-        {
-            targetGrid = EntityUid.Invalid;
->>>>>>> wizards-filtered
-            return false;
-
-<<<<<<< HEAD
-        targetGrid = grid.Owner;
-        return TryFindTileOnGrid(grid, out tile, out targetCoords);
-    }
-
+<<<<<<< ours
     protected Entity<MapGridComponent>? GetStationMainGrid(StationDataComponent station)
     {
         if ((station.Grids.FirstOrNull(HasComp<BecomesStationComponent>) ?? _station.GetLargestGrid(station.Owner)) is not
@@ -139,7 +149,21 @@ public abstract partial class GameRuleSystem<T> where T: IComponent
 
         return (grid, gridComp);
     }
+||||||| base
+        if (weights.Count == 0)
+        {
+            targetGrid = EntityUid.Invalid;
+            return false;
+        }
+=======
+        if (grids.Count == 0)
+        {
+            targetGrid = EntityUid.Invalid;
+            return false;
+        }
+>>>>>>> theirs
 
+<<<<<<< ours
     protected bool TryFindTileOnGrid(Entity<MapGridComponent> grid,
         out Vector2i tile,
         out EntityCoordinates targetCoords,
@@ -151,9 +175,16 @@ public abstract partial class GameRuleSystem<T> where T: IComponent
         var aabb = grid.Comp.LocalAABB;
 
         for (var i = 0; i < tries; i++)
+||||||| base
+        (targetGrid, var gridComp) = RobustRandom.Pick(weights);
+
+        var found = false;
+        var aabb = gridComp.LocalAABB;
+
+        for (var i = 0; i < 10; i++)
 =======
         for (var i = 0; i < numAttempts; i++)
->>>>>>> wizards-filtered
+>>>>>>> theirs
         {
             // Find random tile within list.
             var nextTileIndex = RobustRandom.Next(totalTiles);
@@ -170,11 +201,6 @@ public abstract partial class GameRuleSystem<T> where T: IComponent
                     continue;
                 }
 
-<<<<<<< HEAD
-            tile = new Vector2i(randomX, randomY);
-            if (_atmosphere.IsTileSpace(grid.Owner, Transform(grid.Owner).MapUid, tile)
-                || _atmosphere.IsTileAirBlocked(grid.Owner, tile, mapGridComp: grid.Comp))
-=======
                 (targetGrid, gridComp) = grid.Entity;
 
                 // Empty list: hasn't been queried yet - get our tiles.
@@ -201,6 +227,16 @@ public abstract partial class GameRuleSystem<T> where T: IComponent
                 break;
             }
 
+<<<<<<< ours
+            tile = new Vector2i(randomX, randomY);
+            if (_atmosphere.IsTileSpace(grid.Owner, Transform(grid.Owner).MapUid, tile)
+                || _atmosphere.IsTileAirBlocked(grid.Owner, tile, mapGridComp: grid.Comp))
+||||||| base
+            tile = new Vector2i(randomX, randomY);
+            if (_atmosphere.IsTileSpace(targetGrid, Transform(targetGrid).MapUid, tile)
+                || _atmosphere.IsTileAirBlockedCached(targetGrid, tile))
+            {
+=======
             // Out of valid tiles, return early.
             if (randomTileRef is not { } tileRef)
                 return false;
@@ -209,16 +245,21 @@ public abstract partial class GameRuleSystem<T> where T: IComponent
             if (_atmosphere.IsTileSpace(targetGrid, Transform(targetGrid).MapUid, tileRef.GridIndices)
                 || _atmosphere.IsTileAirBlockedCached(targetGrid, tileRef.GridIndices))
             {
->>>>>>> wizards-filtered
+>>>>>>> theirs
                 continue;
 
-<<<<<<< HEAD
+<<<<<<< ours
             targetCoords = _map.GridTileToLocal(grid.Owner, grid.Comp, tile);
+            return true;
+||||||| base
+            found = true;
+            targetCoords = _map.GridTileToLocal(targetGrid, gridComp, tile);
+            break;
 =======
             targetCoords = _map.GridTileToLocal(targetGrid, gridComp, tileRef.GridIndices);
             tile = tileRef.GridIndices;
->>>>>>> wizards-filtered
             return true;
+>>>>>>> theirs
         }
 
         return false;

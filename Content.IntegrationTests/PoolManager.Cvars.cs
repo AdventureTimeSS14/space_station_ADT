@@ -35,15 +35,17 @@ public static partial class PoolManager
         (CCVars.AutosaveEnabled.Name, "false"),
         (CCVars.InteractionRateLimitCount.Name, "9999999"),
         (CCVars.InteractionRateLimitPeriod.Name, "0.1"),
-<<<<<<< HEAD
+<<<<<<< ours
         (ADTCCVars.GhostbarEnabled.Name, "false"), // ADT-Tweak
         (ADTCCVars.PlanetSpawnerEnabled.Name, "false"), // ADT-Tweak
         (ADTCCVars.BiomeGenerationEnabled.Name, "false"), // ADT-Tweak
         (ADTCCVars.OverpressurePipeDamageEnabled.Name, "false"), // ADT-Tweak: отключаем урон трубам от давления в тестах
         // (CCVars.MovementMobPushing.Name, "false"), // ADT-Tweak
+||||||| base
+        (CCVars.MovementMobPushing.Name, "false"),
 =======
         (CCVars.MovementMobPushing.Name, "false"),
         (CCVars.ResourceUploadingStoreDeletionDays.Name, "0"),
->>>>>>> wizards-filtered
+>>>>>>> theirs
     };
 }

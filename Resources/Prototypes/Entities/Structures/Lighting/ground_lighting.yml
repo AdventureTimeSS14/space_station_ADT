@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-﻿- type: entity
-=======
 - type: entity
   parent: BaseStructure
->>>>>>> wizards-filtered
   id: LightPostSmall
   name: post light
   suffix: Always Powered

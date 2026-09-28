@@ -448,11 +448,13 @@ namespace Content.Server.Database
         public string? Payload { get; set; }
     }
 
-<<<<<<< HEAD
+<<<<<<< ours
     public sealed partial class ServerDbManager : IServerDbManager // ADT-Tweak
+||||||| base
+    public sealed class ServerDbManager : IServerDbManager
 =======
     public sealed partial class ServerDbManager : IServerDbManager
->>>>>>> wizards-filtered
+>>>>>>> theirs
     {
         public static readonly Counter DbReadOpsMetric = Metrics.CreateCounter(
             "db_read_ops",

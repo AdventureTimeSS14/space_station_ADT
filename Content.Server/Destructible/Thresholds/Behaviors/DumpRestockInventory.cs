@@ -3,13 +3,16 @@ using Robust.Shared.Random;
 using Content.Shared.ADT.VendingMachines; // ADT-Tweak
 using Content.Shared.Destructible.Thresholds;
 using Content.Shared.Stacks;
-<<<<<<< HEAD
+<<<<<<< ours
 using Content.Shared.Prototypes;
 using Content.Shared.VendingMachines; // ADT-Tweak
+||||||| base
+using Content.Shared.Prototypes;
+using Content.Shared.VendingMachines;
 =======
 using Content.Shared.VendingMachines;
 using Content.Shared.VendingMachines.Components;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 namespace Content.Server.Destructible.Thresholds.Behaviors;
 
@@ -22,13 +25,16 @@ namespace Content.Server.Destructible.Thresholds.Behaviors;
 public sealed partial class DumpRestockInventory : IThresholdBehavior
 {
     /// <summary>
-<<<<<<< HEAD
+<<<<<<< ours
     ///     Spawns a random amount of items from one of the canRestock
+    ///     inventory entries on a VendingMachineRestock component.
+||||||| base
+    ///     Spawns a portion of the total items from one of the canRestock
     ///     inventory entries on a VendingMachineRestock component.
 =======
     ///     The percent of each inventory entry that will be salvaged
     ///     upon destruction of the package.
->>>>>>> wizards-filtered
+>>>>>>> theirs
     /// </summary>
     [DataField(required: true)]
     public float Percent = 0.5f;
@@ -38,7 +44,7 @@ public sealed partial class DumpRestockInventory : IThresholdBehavior
 
     public void Execute(EntityUid owner, DestructibleSystem system, EntityUid? cause = null)
     {
-<<<<<<< HEAD
+<<<<<<< ours
         /// ADT-Tweak start
         /// <summary>
         ///     The percent of each inventory entry that will be salvaged
@@ -46,19 +52,31 @@ public sealed partial class DumpRestockInventory : IThresholdBehavior
         /// </summary>
         ///[DataField("percent", required: true)]
         ///public float Percent = 0.5f;
+||||||| base
+        /// <summary>
+        ///     The percent of each inventory entry that will be salvaged
+        ///     upon destruction of the package.
+        /// </summary>
+        [DataField("percent", required: true)]
+        public float Percent = 0.5f;
+=======
+        if (!system.EntityManager.TryGetComponent<VendingMachineRestockComponent>(owner, out var packagecomp) ||
+            !system.EntityManager.TryGetComponent<TransformComponent>(owner, out var xform))
+            return;
+>>>>>>> theirs
 
+<<<<<<< ours
         [DataField("count")]
         public MinMax Count = new(2, 5);
         // ADT-Tweak end
         [DataField("offset")]
         public float Offset { get; set; } = 0.5f;
+||||||| base
+        [DataField("offset")]
+        public float Offset { get; set; } = 0.5f;
 =======
-        if (!system.EntityManager.TryGetComponent<VendingMachineRestockComponent>(owner, out var packagecomp) ||
-            !system.EntityManager.TryGetComponent<TransformComponent>(owner, out var xform))
-            return;
-
         var randomInventory = system.Random.Pick(packagecomp.CanRestock);
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
         if (!system.PrototypeManager.TryIndex(randomInventory, out VendingMachineInventoryPrototype? packPrototype))
             return;
@@ -69,10 +87,7 @@ public sealed partial class DumpRestockInventory : IThresholdBehavior
 
             if (toSpawn == 0) continue;
 
-<<<<<<< HEAD
-            if (!system.PrototypeManager.TryIndex(randomInventory, out VendingMachineInventoryPrototype? packPrototype))
-                return;
-
+<<<<<<< ours
             // ADT-Tweak start
             var inventory = VendingMachineInventoryData.Flatten(packPrototype.StartingInventory).ToList(); // ADT-Tweak
             if (inventory.Count == 0)
@@ -95,6 +110,27 @@ public sealed partial class DumpRestockInventory : IThresholdBehavior
                     var spawned = system.EntityManager.SpawnEntity(entityId, xform.Coordinates.Offset(system.Random.NextVector2(-Offset, Offset)));
                     system.EntityManager.GetComponent<TransformComponent>(spawned).LocalRotation = system.Random.NextAngle();
                 }
+||||||| base
+            foreach (var (entityId, count) in packPrototype.StartingInventory)
+            {
+                var toSpawn = (int) Math.Round(count * Percent);
+
+                if (toSpawn == 0) continue;
+
+                if (EntityPrototypeHelpers.HasComponent<StackComponent>(entityId, system.PrototypeManager, system.EntityManager.ComponentFactory))
+                {
+                    var spawned = system.EntityManager.SpawnEntity(entityId, xform.Coordinates.Offset(system.Random.NextVector2(-Offset, Offset)));
+                    system.StackSystem.SetCount((spawned, null), toSpawn);
+                    system.EntityManager.GetComponent<TransformComponent>(spawned).LocalRotation = system.Random.NextAngle();
+                }
+                else
+                {
+                    for (var i = 0; i < toSpawn; i++)
+                    {
+                        var spawned = system.EntityManager.SpawnEntity(entityId, xform.Coordinates.Offset(system.Random.NextVector2(-Offset, Offset)));
+                        system.EntityManager.GetComponent<TransformComponent>(spawned).LocalRotation = system.Random.NextAngle();
+                    }
+                }
 =======
             if (system.PrototypeManager.TryIndex(entityId, out var entProto)
                 && entProto.HasComp<StackComponent>(system.EntityManager.ComponentFactory))
@@ -106,7 +142,7 @@ public sealed partial class DumpRestockInventory : IThresholdBehavior
             {
                 for (var i = 0; i < toSpawn; i++)
                     system.EntityManager.SpawnAttachedTo(entityId, xform.Coordinates.Offset(system.Random.NextVector2(-Offset, Offset)), rotation: system.Random.NextAngle());
->>>>>>> wizards-filtered
+>>>>>>> theirs
             }
         }
     }

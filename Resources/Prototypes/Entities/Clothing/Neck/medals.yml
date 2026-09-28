@@ -21,7 +21,7 @@
     sprite: Clothing/Neck/Medals/bronzeheart.rsi
   - type: Clothing
     sprite: Clothing/Neck/Medals/bronzeheart.rsi
-<<<<<<< HEAD
+<<<<<<< ours
   - type: Tag
     tags:
       - Medal
@@ -36,8 +36,13 @@
       enum.CrewMedalUiKey.Key:
         type: CrewMedalBoundUserInterface
     # ADT tweak end
+||||||| base
+  - type: Tag
+    tags:
+      - Medal
+      - WhitelistChameleon
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   parent: ClothingNeckMedalBase
@@ -51,7 +56,7 @@
     sprite: Clothing/Neck/Medals/gold.rsi
   - type: StealTarget
     stealGroup: ClothingNeckGoldmedal
-<<<<<<< HEAD
+<<<<<<< ours
   - type: Tag
     tags:
       - Medal
@@ -66,8 +71,13 @@
       enum.CrewMedalUiKey.Key:
         type: CrewMedalBoundUserInterface
     # ADT tweak end
+||||||| base
+  - type: Tag
+    tags:
+      - Medal
+      - WhitelistChameleon
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   parent: ClothingNeckMedalBase
@@ -79,7 +89,7 @@
     sprite: Clothing/Neck/Medals/cargomedal.rsi
   - type: Clothing
     sprite: Clothing/Neck/Medals/cargomedal.rsi
-<<<<<<< HEAD
+<<<<<<< ours
   - type: Tag
     tags:
       - Medal
@@ -94,8 +104,13 @@
       enum.CrewMedalUiKey.Key:
         type: CrewMedalBoundUserInterface
     # ADT tweak end
+||||||| base
+  - type: Tag
+    tags:
+      - Medal
+      - WhitelistChameleon
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   parent: ClothingNeckMedalBase
@@ -107,7 +122,7 @@
     sprite: Clothing/Neck/Medals/engineermedal.rsi
   - type: Clothing
     sprite: Clothing/Neck/Medals/engineermedal.rsi
-<<<<<<< HEAD
+<<<<<<< ours
   - type: Tag
     tags:
       - Medal
@@ -122,8 +137,13 @@
       enum.CrewMedalUiKey.Key:
         type: CrewMedalBoundUserInterface
     # ADT tweak end
+||||||| base
+  - type: Tag
+    tags:
+      - Medal
+      - WhitelistChameleon
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   parent: ClothingNeckMedalBase
@@ -135,7 +155,7 @@
     sprite: Clothing/Neck/Medals/medicalmedal.rsi
   - type: Clothing
     sprite: Clothing/Neck/Medals/medicalmedal.rsi
-<<<<<<< HEAD
+<<<<<<< ours
   - type: Tag
     tags:
       - Medal
@@ -150,8 +170,13 @@
       enum.CrewMedalUiKey.Key:
         type: CrewMedalBoundUserInterface
     # ADT tweak end
+||||||| base
+  - type: Tag
+    tags:
+      - Medal
+      - WhitelistChameleon
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   parent: ClothingNeckMedalBase
@@ -163,7 +188,7 @@
     sprite: Clothing/Neck/Medals/sciencemedal.rsi
   - type: Clothing
     sprite: Clothing/Neck/Medals/sciencemedal.rsi
-<<<<<<< HEAD
+<<<<<<< ours
   - type: Tag
     tags:
       - Medal
@@ -178,8 +203,13 @@
       enum.CrewMedalUiKey.Key:
         type: CrewMedalBoundUserInterface
     # ADT tweak end
+||||||| base
+  - type: Tag
+    tags:
+      - Medal
+      - WhitelistChameleon
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   parent: ClothingNeckMedalBase
@@ -191,7 +221,7 @@
     sprite: Clothing/Neck/Medals/securitymedal.rsi
   - type: Clothing
     sprite: Clothing/Neck/Medals/securitymedal.rsi
-<<<<<<< HEAD
+<<<<<<< ours
   - type: Tag
     tags:
       - Medal
@@ -206,8 +236,13 @@
       enum.CrewMedalUiKey.Key:
         type: CrewMedalBoundUserInterface
     # ADT tweak end
+||||||| base
+  - type: Tag
+    tags:
+      - Medal
+      - WhitelistChameleon
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   parent: ClothingNeckMedalBase
@@ -221,7 +256,7 @@
     sprite: Clothing/Neck/Medals/clownmedal.rsi
   - type: StealTarget
     stealGroup: ClothingNeckClownmedal
-<<<<<<< HEAD
+<<<<<<< ours
   - type: Tag
     tags:
       - Medal
@@ -236,5 +271,10 @@
       enum.CrewMedalUiKey.Key:
         type: CrewMedalBoundUserInterface
     # ADT tweak end
+||||||| base
+  - type: Tag
+    tags:
+      - Medal
+      - WhitelistChameleon
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs

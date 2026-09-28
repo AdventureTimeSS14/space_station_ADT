@@ -28,7 +28,7 @@ namespace Content.Shared.Medical.SuitSensors;
 
 public abstract partial class SharedSuitSensorSystem : EntitySystem
 {
-<<<<<<< HEAD
+<<<<<<< ours
     // [Dependency] private readonly SharedStationSystem _stationSystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
@@ -50,6 +50,24 @@ public abstract partial class SharedSuitSensorSystem : EntitySystem
     /// </summary>
     private readonly Dictionary<EntityUid, EntityUid> _onMobSensorsByWearer = new();
     // ADT-Tweak End
+
+||||||| base
+    [Dependency] private readonly SharedStationSystem _stationSystem = default!;
+    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
+    [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly SharedIdCardSystem _idCardSystem = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
+
+    private EntityQuery<SuitSensorComponent> _sensorQuery;
 =======
     [Dependency] private SharedStationSystem _stationSystem = default!;
     [Dependency] private MobStateSystem _mobStateSystem = default!;
@@ -66,8 +84,8 @@ public abstract partial class SharedSuitSensorSystem : EntitySystem
     [Dependency] private DamageableSystem _damageable = default!;
 
     [Dependency] private EntityQuery<SuitSensorComponent> _sensorQuery = default!;
->>>>>>> wizards-filtered
 
+>>>>>>> theirs
     public override void Initialize()
     {
         base.Initialize();
@@ -87,8 +105,26 @@ public abstract partial class SharedSuitSensorSystem : EntitySystem
         SubscribeLocalEvent<SuitSensorComponent, EntGotInsertedIntoContainerMessage>(OnInsert);
         SubscribeLocalEvent<SuitSensorComponent, EntGotRemovedFromContainerMessage>(OnRemove);
         SubscribeLocalEvent<SuitSensorComponent, SuitSensorChangeDoAfterEvent>(OnSuitSensorDoAfter);
-<<<<<<< HEAD
+<<<<<<< ours
 
+||||||| base
+
+        _sensorQuery = GetEntityQuery<SuitSensorComponent>();
+    }
+
+    /// <summary>
+    /// Checks whether the sensor is assigned to a station or not
+    /// and tries to assign an unassigned sensor to a station if it's currently on a grid.
+    /// </summary>
+    /// <returns>True if the sensor is assigned to a station or assigning it was successful. False otherwise.</returns>
+    public bool CheckSensorAssignedStation(Entity<SuitSensorComponent> sensor)
+    {
+        if (!sensor.Comp.StationId.HasValue && Transform(sensor.Owner).GridUid == null)
+            return false;
+
+        sensor.Comp.StationId = _stationSystem.GetOwningStation(sensor.Owner);
+        Dirty(sensor);
+        return sensor.Comp.StationId.HasValue;
 =======
     }
 
@@ -105,7 +141,7 @@ public abstract partial class SharedSuitSensorSystem : EntitySystem
         sensor.Comp.StationId = _stationSystem.GetOwningStation(sensor.Owner);
         Dirty(sensor);
         return sensor.Comp.StationId.HasValue;
->>>>>>> wizards-filtered
+>>>>>>> theirs
     }
 
     private void OnMapInit(Entity<SuitSensorComponent> ent, ref MapInitEvent args)
@@ -522,15 +558,18 @@ public abstract partial class SharedSuitSensorSystem : EntitySystem
                         userJobDepartments.Add(Loc.GetString(departmentProto.Name));
                 }
 
-<<<<<<< HEAD
+<<<<<<< ours
                 if (userJobDepartments.Count == 0)
                     userJobDepartments = null;
             }
             // ADT-Tweak End
+||||||| base
+            foreach (var department in card.Comp.JobDepartments)
+                userJobDepartments.Add(Loc.GetString(_proto.Index(department).Name));
 =======
             foreach (var department in card.Comp.JobDepartments)
                 userJobDepartments.Add(Loc.GetString(ProtoMan.Index(department).Name));
->>>>>>> wizards-filtered
+>>>>>>> theirs
         }
 
         userJobDepartments ??= SuitSensorStatus.NoDepartments;  // ADT-Tweak - New Monitor
@@ -578,25 +617,32 @@ public abstract partial class SharedSuitSensorSystem : EntitySystem
 
                 if (userTransform.GridUid != null)
                 {
-<<<<<<< HEAD
+<<<<<<< ours
                     coordinates = new EntityCoordinates(userTransform.GridUid.Value,
                         Vector2.Transform(_transform.GetWorldPosition(userTransform, xformQuery),
                             _transform.GetInvWorldMatrix(xformQuery.GetComponent(userTransform.GridUid.Value), xformQuery)));
+||||||| base
+                    coordinates = new EntityCoordinates(transform.GridUid.Value,
+                        Vector2.Transform(_transform.GetWorldPosition(transform, xformQuery),
+                            _transform.GetInvWorldMatrix(xformQuery.GetComponent(transform.GridUid.Value), xformQuery)));
 =======
                     coordinates = new EntityCoordinates(transform.GridUid.Value,
                         Vector2.Transform(_transform.GetWorldPosition(transform),
                             _transform.GetInvWorldMatrix(transform.GridUid.Value)));
->>>>>>> wizards-filtered
+>>>>>>> theirs
                 }
                 else if (userTransform.MapUid != null)
                 {
-<<<<<<< HEAD
+<<<<<<< ours
                     coordinates = new EntityCoordinates(userTransform.MapUid.Value,
                         _transform.GetWorldPosition(userTransform, xformQuery));
+||||||| base
+                    coordinates = new EntityCoordinates(transform.MapUid.Value,
+                        _transform.GetWorldPosition(transform, xformQuery));
 =======
                     coordinates = new EntityCoordinates(transform.MapUid.Value,
                         _transform.GetWorldPosition(transform));
->>>>>>> wizards-filtered
+>>>>>>> theirs
                 }
                 else
                 {

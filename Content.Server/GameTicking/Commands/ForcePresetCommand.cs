@@ -14,14 +14,17 @@ namespace Content.Server.GameTicking.Commands
     [AdminCommand(AdminFlags.Round)]
     public sealed partial class ForcePresetCommand : LocalizedEntityCommands
     {
-<<<<<<< HEAD
+<<<<<<< ours
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly GameTicker _ticker = default!;
         [Dependency] private readonly IAdminLogManager _adminLogger = default!; // ADT-Tweak
+||||||| base
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private readonly GameTicker _ticker = default!;
 =======
         [Dependency] private IPrototypeManager _prototypeManager = default!;
         [Dependency] private GameTicker _ticker = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
         public override string Command => "forcepreset";
 

@@ -29,19 +29,22 @@ public abstract partial class SharedNavMapSystem : EntitySystem
     [Dependency] private TagSystem _tagSystem = default!;
     [Dependency] private INetManager _net = default!;
 
-<<<<<<< HEAD
+<<<<<<< ours
     // ADT-Tweak Start - New Monitor: Wall/Window tags split (was WallTags = Wall+Window)
     // private static readonly ProtoId<TagPrototype>[] WallTags = {"Wall", "Window"};
     private static readonly ProtoId<TagPrototype> WallTag = "Wall";
     private static readonly ProtoId<TagPrototype> WindowTag = "Window";
     // ADT-Tweak End
     private EntityQuery<NavMapDoorComponent> _doorQuery;
+||||||| base
+    private static readonly ProtoId<TagPrototype>[] WallTags = {"Wall", "Window"};
+    private EntityQuery<NavMapDoorComponent> _doorQuery;
 =======
     [Dependency] private EntityQuery<NavMapDoorComponent> _doorQuery;
     [Dependency] private EntityQuery<WallComponent> _wallQuery;
 
     private static readonly ProtoId<TagPrototype>[] WallTags = ["Window"];
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
     public override void Initialize()
     {
@@ -74,7 +77,7 @@ public abstract partial class SharedNavMapSystem : EntitySystem
         if (_doorQuery.HasComp(uid))
             return NavMapChunkType.Airlock;
 
-<<<<<<< HEAD
+<<<<<<< ours
         // ADT-Tweak Start - New Monitor: Window wins over Wall (was HasAnyTag WallTags → Wall)
         // if (_tagSystem.HasAnyTag(uid, WallTags))
         //     return NavMapChunkType.Wall;
@@ -83,9 +86,11 @@ public abstract partial class SharedNavMapSystem : EntitySystem
             return NavMapChunkType.Window;
 
         if (_tagSystem.HasTag(uid, WallTag))
+||||||| base
+        if (_tagSystem.HasAnyTag(uid, WallTags))
 =======
         if (_wallQuery.HasComp(uid) || _tagSystem.HasAnyTag(uid, WallTags))
->>>>>>> wizards-filtered
+>>>>>>> theirs
             return NavMapChunkType.Wall;
         // ADT-Tweak End
 

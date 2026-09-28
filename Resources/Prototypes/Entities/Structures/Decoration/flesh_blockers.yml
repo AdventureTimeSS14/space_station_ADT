@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: FleshBlocker
   parent: BaseStructure
   name: flesh clump
@@ -36,10 +36,5 @@
         !type:DamageTrigger
         damage: 25
       behaviors:
-<<<<<<< HEAD
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-=======
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
->>>>>>> wizards-filtered

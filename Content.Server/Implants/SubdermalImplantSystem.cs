@@ -2,8 +2,44 @@ using Content.Shared.Implants;
 
 namespace Content.Server.Implants;
 
-<<<<<<< HEAD
+<<<<<<< ours
 public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem;
+||||||| base
+public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
+{
+    [Dependency] private readonly StoreSystem _store = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<StoreComponent, ImplantRelayEvent<AfterInteractUsingEvent>>(OnStoreRelay);
+    }
+
+    // TODO: This shouldn't be in the SubdermalImplantSystem
+    private void OnStoreRelay(EntityUid uid, StoreComponent store, ImplantRelayEvent<AfterInteractUsingEvent> implantRelay)
+    {
+        var args = implantRelay.Event;
+
+        if (args.Handled)
+            return;
+
+        // can only insert into yourself to prevent uplink checking with renault
+        if (args.Target != args.User)
+            return;
+
+        if (!TryComp<CurrencyComponent>(args.Used, out var currency))
+            return;
+
+        // same as store code, but message is only shown to yourself
+        if (!_store.TryAddCurrency((args.Used, currency), (uid, store)))
+            return;
+
+        args.Handled = true;
+        var msg = Loc.GetString("store-currency-inserted-implant", ("used", args.Used));
+        _popup.PopupEntity(msg, args.User, args.User);
+    }
+}
 =======
 public sealed partial class SubdermalImplantSystem : SharedSubdermalImplantSystem;
->>>>>>> wizards-filtered
+>>>>>>> theirs

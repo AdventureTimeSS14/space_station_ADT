@@ -95,17 +95,20 @@ public abstract partial class SharedArmorSystem : EntitySystem
         {
             msg.PushNewline();
 
-<<<<<<< HEAD
+<<<<<<< ours
             var armorType = Loc.GetString("armor-damage-type-" + coefficientArmor.Key.ToLower());
             var coefficient = MathF.Round((1f - coefficientArmor.Value) * 100, 1);  // ADT tweak
             bool decrease = coefficient >= 0;                            // ADT tweak
 
             msg.AddMarkupOrThrow(Loc.GetString("armor-coefficient-value" + (decrease ? String.Empty : "-increase"), // ADT tweak
+||||||| base
+            var armorType = Loc.GetString("armor-damage-type-" + coefficientArmor.Key.ToLower());
+            msg.AddMarkupOrThrow(Loc.GetString("armor-coefficient-value",
 =======
             // TODO: probably make these prototype fields or have a test that they all exist
             var armorType = Loc.GetString("armor-damage-type-" + coefficientArmor.Key.Id.ToLower());
             msg.AddMarkupOrThrow(Loc.GetString("armor-coefficient-value",
->>>>>>> wizards-filtered
+>>>>>>> theirs
                 ("type", armorType),
                 ("value", Math.Abs(coefficient))    // ADT tweak
             ));
@@ -115,16 +118,19 @@ public abstract partial class SharedArmorSystem : EntitySystem
         {
             msg.PushNewline();
 
-<<<<<<< HEAD
+<<<<<<< ours
             var armorType = Loc.GetString("armor-damage-type-" + flatArmor.Key.ToLower());
             var coefficient = flatArmor.Value;      // ADT tweak
             bool decrease = flatArmor.Value >= 0;   // ADT tweak
 
             msg.AddMarkupOrThrow(Loc.GetString("armor-reduction-value" + (decrease ? String.Empty : "-increase"),   // ADT tweak
+||||||| base
+            var armorType = Loc.GetString("armor-damage-type-" + flatArmor.Key.ToLower());
+            msg.AddMarkupOrThrow(Loc.GetString("armor-reduction-value",
 =======
             var armorType = Loc.GetString("armor-damage-type-" + flatArmor.Key.Id.ToLower());
             msg.AddMarkupOrThrow(Loc.GetString("armor-reduction-value",
->>>>>>> wizards-filtered
+>>>>>>> theirs
                 ("type", armorType),
                 ("value", Math.Abs(coefficient))    // ADT tweak
             ));

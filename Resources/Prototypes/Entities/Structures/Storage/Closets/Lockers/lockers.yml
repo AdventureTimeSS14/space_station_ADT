@@ -35,7 +35,20 @@
   - type: Paintable
     group: null # not shaped like other lockers
 
-<<<<<<< HEAD
+<<<<<<< ours
+||||||| base
+# Basic
+- type: entity
+  id: LockerSteel
+  parent: LockerBaseSecure
+  name: secure closet
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: secure
+    stateDoorOpen: secure_open
+    stateDoorClosed: secure_door
+
 =======
 # Basic
 - type: entity
@@ -49,7 +62,7 @@
     stateDoorOpen: secure_open
     stateDoorClosed: secure_door
 
->>>>>>> wizards-filtered
+>>>>>>> theirs
 # Cargo
 - type: entity
   id: LockerQuarterMaster

@@ -16,15 +16,11 @@ namespace Content.Server.Salvage;
 
 public sealed partial class SalvageSystem
 {
-<<<<<<< HEAD
-    [Dependency] private readonly IRuntimeLog _runtimeLog = default!;
-=======
     [Dependency] private IRuntimeLog _runtimeLog = default!;
 
     [Dependency] private EntityQuery<SalvageMobRestrictionsComponent> _salvMobQuery = default!;
     [Dependency] private EntityQuery<MobStateComponent> _mobStateQuery = default!;
 
->>>>>>> wizards-filtered
     private static readonly ProtoId<RadioChannelPrototype> MagnetChannel = "Supply";
 
     private List<(Entity<TransformComponent> Entity, EntityUid MapUid, Vector2 LocalPosition)> _detachEnts = new();

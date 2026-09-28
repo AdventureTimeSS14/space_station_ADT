@@ -5,11 +5,13 @@ using Robust.Client.Graphics;
 
 namespace Content.Client.Radiation.Systems;
 
-<<<<<<< HEAD
+<<<<<<< ours
 public sealed class RadiationSystem : SharedRadiationSystem
+||||||| base
+public sealed class RadiationSystem : EntitySystem
 =======
 public sealed partial class RadiationSystem : SharedRadiationSystem
->>>>>>> wizards-filtered
+>>>>>>> theirs
 {
     [Dependency] private IOverlayManager _overlayMan = default!;
 

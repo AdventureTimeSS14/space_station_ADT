@@ -31,7 +31,7 @@ public sealed class AddTests : GameTest
     [Test]
     public async Task AddAndGetSingleLog()
     {
-<<<<<<< HEAD
+<<<<<<< ours
         var pair = Pair;
         var server = pair.Server;
         var sEntities = server.ResolveDependency<IEntityManager>();
@@ -39,8 +39,15 @@ public sealed class AddTests : GameTest
         var sAdminLogSystem = server.ResolveDependency<IAdminLogManager>();
         var sDatabase = server.ResolveDependency<IServerDbManager>(); // ADT-Tweak.
 
+||||||| base
+        var pair = Pair;
+        var server = pair.Server;
+        var sEntities = server.ResolveDependency<IEntityManager>();
+
+        var sAdminLogSystem = server.ResolveDependency<IAdminLogManager>();
+
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
         var guid = Guid.NewGuid();
 
         await Pair.CreateTestMap();
@@ -54,12 +61,14 @@ public sealed class AddTests : GameTest
 
         await PoolManager.WaitUntil(Server, async () =>
         {
-<<<<<<< HEAD
+<<<<<<< ours
             // ADT-Tweak. Используем базу данных вместо лог-манагера как и в других тестах. Пытаемся чинить тест
             var logs = sDatabase.GetAdminLogsJson(new LogFilter
+||||||| base
+            var logs = sAdminLogSystem.CurrentRoundJson(new LogFilter
 =======
             var logs = _sAdminLogManager.CurrentRoundJson(new LogFilter
->>>>>>> wizards-filtered
+>>>>>>> theirs
             {
                 Search = guid.ToString()
             });

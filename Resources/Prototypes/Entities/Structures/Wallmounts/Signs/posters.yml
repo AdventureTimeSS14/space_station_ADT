@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-﻿- type: entity
-=======
 - type: entity
   abstract: true
->>>>>>> wizards-filtered
   parent: BaseSign
   id: PosterBase
   components:

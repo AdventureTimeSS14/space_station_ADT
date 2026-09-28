@@ -60,11 +60,13 @@
     storedRotation: -90
   - type: PointLight
     enabled: false
-<<<<<<< HEAD
+<<<<<<< ours
     mask: /Textures/ADT/Effects/Lightmasks/cone_composed_b.png # ADT tweak
+||||||| base
+    mask: /Textures/Effects/LightMasks/cone.png
 =======
     lightMask: ConeSingle
->>>>>>> wizards-filtered
+>>>>>>> theirs
     autoRot: true
     radius: 10 # ADT tweak
     netsync: false

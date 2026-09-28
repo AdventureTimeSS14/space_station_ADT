@@ -94,12 +94,16 @@
   - type: Tag
     tags:
     - WhitelistChameleon
-<<<<<<< HEAD
+<<<<<<< ours
   # - type: HideLayerClothing # ADT-Tweak: fix-tail
   #   slots:
   #   - Tail
+||||||| base
+  - type: HideLayerClothing
+    slots:
+    - Tail
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   parent: [ClothingOuterBaseLarge, GeigerCounterClothing, AllowSuitStorageClothing]
@@ -159,14 +163,17 @@
     parent: true
     components:
     - type: Stealth
-<<<<<<< HEAD
+<<<<<<< ours
       minVisibility: -0.6 #ADT_Tweak
       lastVisibility: -0.6 #ADT_Tweak
+||||||| base
+      minVisibility: 0.1
+      lastVisibility: 0.1
 =======
       minVisibility: 0.1
       lastVisibility: 0.1
       shimmerFrequency: 0.05
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: PowerCellDraw
     drawRate: 3.2 # #ADT_Tweak 1.8 -> 3.2
   - type: ToggleCellDraw

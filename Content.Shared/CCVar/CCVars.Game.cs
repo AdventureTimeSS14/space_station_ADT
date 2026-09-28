@@ -454,8 +454,8 @@ public sealed partial class CCVars
     /// </remarks>
     public static readonly CVarDef<int> TileStackLimit =
         CVarDef.Create("game.tile_stack_limit", 5, CVar.SERVER | CVar.REPLICATED);
+<<<<<<< ours
 
-<<<<<<< HEAD
     // ADT-Tweak-Start
     /// <summary>
     ///     The prototype to use for dynamic random.
@@ -463,7 +463,9 @@ public sealed partial class CCVars
     public static readonly CVarDef<string> DynamicRandomWeightPrototype =
         CVarDef.Create("game.dynamic_weight_prototype", "DynamicRandom", CVar.SERVERONLY);
     //ADT-Tweak-End
+||||||| base
 =======
+
     /// <summary>
     /// The list of jobs that will be enabled on newly created characters.
     /// The first job will be set to High priority, subsequent ones to Medium.
@@ -486,5 +488,5 @@ public sealed partial class CCVars
     /// </summary>
     public static readonly CVarDef<bool> WallMountFade =
         CVarDef.Create("game.wallmount_fade", true, CVar.SERVER | CVar.REPLICATED);
->>>>>>> wizards-filtered
+>>>>>>> theirs
 }

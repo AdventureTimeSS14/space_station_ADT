@@ -1,16 +1,20 @@
-<<<<<<< HEAD
+<<<<<<< ours
 // ADT: Закомментировано из-за использования генокрада от Goob Station
 // using Content.Shared.Changeling.Systems;
+||||||| base
+using Content.Shared.Changeling.Systems;
 =======
 using Content.Shared.Changeling.Components;
 using Content.Shared.Changeling.Systems;
 using Robust.Shared.GameStates;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 // namespace Content.Server.Changeling.Systems;
 
-<<<<<<< HEAD
+<<<<<<< ours
 // public sealed class ChangelingIdentitySystem : SharedChangelingIdentitySystem;
+||||||| base
+public sealed class ChangelingIdentitySystem : SharedChangelingIdentitySystem;
 =======
 public sealed partial class ChangelingIdentitySystem : SharedChangelingIdentitySystem
 {
@@ -51,4 +55,4 @@ public sealed partial class ChangelingIdentitySystem : SharedChangelingIdentityS
             entity.Comp.MaxStoredDisguises);
     }
 }
->>>>>>> wizards-filtered
+>>>>>>> theirs

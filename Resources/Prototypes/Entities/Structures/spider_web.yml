@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-﻿- type: entity
-  id: SpiderWebBase
-=======
 - type: entity
->>>>>>> wizards-filtered
   abstract: true
   id: SpiderWebBase
   placement:
@@ -28,8 +23,16 @@
   - type: Physics
   - type: Damageable
     damageModifierSet: Wood
+<<<<<<< ours
   - type: Injurable
-<<<<<<< HEAD
+  - type: Temperature
+  - type: TemperatureDamage
+    heatDamage:
+      types:
+        Heat: 5
+    coldDamage: {}
+    coldDamageThreshold: 0
+||||||| base
   - type: Temperature
   - type: TemperatureDamage
     heatDamage:
@@ -38,7 +41,8 @@
     coldDamage: {}
     coldDamageThreshold: 0
 =======
->>>>>>> wizards-filtered
+  - type: Injurable
+>>>>>>> theirs
   - type: Flammable
     fireSpread: true
     damage:
@@ -130,14 +134,6 @@
       - sweet
   - type: Edible
     delay: 2
-<<<<<<< HEAD
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Sugar
-          Quantity: 2
-=======
   - type: Solution
     solution:
       reagents:
@@ -147,4 +143,3 @@
         Quantity: 2.5
       - ReagentId: SpaceLube
         Quantity: 2.5
->>>>>>> wizards-filtered

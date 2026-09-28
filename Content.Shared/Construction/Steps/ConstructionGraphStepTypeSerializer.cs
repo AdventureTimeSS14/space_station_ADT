@@ -47,7 +47,7 @@ namespace Content.Shared.Construction.Steps
                 return typeof(PartAssemblyConstructionGraphStep);
             }
 
-<<<<<<< HEAD
+<<<<<<< ours
             // ADT-Tweak start
             if (node.Has("machinePart"))
             {
@@ -55,9 +55,10 @@ namespace Content.Shared.Construction.Steps
             }
             // ADT-Tweak end
 
+||||||| base
 =======
             // See Read below if you are adding new types
->>>>>>> wizards-filtered
+>>>>>>> theirs
             return null;
         }
 

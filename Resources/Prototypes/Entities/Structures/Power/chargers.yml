@@ -164,7 +164,7 @@
           - Stunbaton
           components:
           - BatteryAmmoProvider
-<<<<<<< HEAD
+<<<<<<< ours
           - Stunbaton
         #ADT-Tweak-Start
         #  - PowerCell
@@ -172,9 +172,12 @@
             - ADTEnergyShield
             - ADTResonator
         #ADT-Tweak-End
+||||||| base
+          - Stunbaton
+          - PowerCell
 =======
           - PowerCell
->>>>>>> wizards-filtered
+>>>>>>> theirs
         blacklist:
           tags:
           - PotatoBattery
@@ -199,16 +202,17 @@
       charger_slot:
         ejectOnInteract: true
         whitelist:
-<<<<<<< HEAD
+<<<<<<< ours
           # ADT-Tweak-Start
           tags:
           - ADTEnergyShield
           - ADTResonator
           # ADT-Tweak-End
+||||||| base
 =======
           tags:
           - Stunbaton
->>>>>>> wizards-filtered
+>>>>>>> theirs
           components:
           - BatteryAmmoProvider
           - PowerCell
@@ -246,16 +250,17 @@
       charger_slot:
         ejectOnInteract: true
         whitelist:
-<<<<<<< HEAD
+<<<<<<< ours
           # ADT-Tweak-Start
           tags:
           - ADTEnergyShield
           - ADTResonator
           # ADT-Tweak-End
+||||||| base
 =======
           tags:
           - Stunbaton
->>>>>>> wizards-filtered
+>>>>>>> theirs
           components:
           - BatteryAmmoProvider
         blacklist:

@@ -92724,12 +92724,14 @@ entities:
     components:
     - type: Transform
       parent: 2
-<<<<<<< HEAD
+<<<<<<< ours
 - proto: MicroLaserStockPart
+||||||| base
+- proto: MicroManipulatorStockPart
 =======
       pos: 17.48831,-15.298716
 - proto: MicroManipulatorStockPart
->>>>>>> wizards-filtered
+>>>>>>> theirs
   entities:
   - uid: 12746
     components:

@@ -7,7 +7,7 @@
   startingGear: ADTCBURNGear # ADT tweak
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
-<<<<<<< HEAD
+<<<<<<< ours
   canBeAntag: false
   requirements:
   - !type:OverallPlaytimeRequirement
@@ -15,8 +15,10 @@
   - !type:DepartmentTimeRequirement
     department: Security
     time: 20h # ADT-tweak
+||||||| base
+  canBeAntag: false
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
   accessGroups:
   - AllAccess
   access:

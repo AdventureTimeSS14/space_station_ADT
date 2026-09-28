@@ -18,11 +18,13 @@ jobs:
       with:
         submodules: 'recursive'
     - name: Setup .NET Core
-<<<<<<< HEAD
+<<<<<<< ours
       uses: actions/setup-dotnet@v4
+||||||| base
+      uses: actions/setup-dotnet@v3.2.0
 =======
       uses: actions/setup-dotnet@v5
->>>>>>> wizards-filtered
+>>>>>>> theirs
       with:
         dotnet-version: 10.0.x
 
@@ -62,8 +64,9 @@ jobs:
       env:
         PUBLISH_TOKEN: ${{ secrets.PUBLISH_TOKEN_TEST }}
         GITHUB_REPOSITORY: ${{ vars.GITHUB_REPOSITORY }}
-<<<<<<< HEAD
+<<<<<<< ours
         FORK_ID: ${{ vars.FORK_ID_TEST }}
+||||||| base
 =======
 
     - name: Publish changelog (RSS)
@@ -71,4 +74,4 @@ jobs:
       run: Tools/actions_changelog_rss.py
       env:
         CHANGELOG_RSS_KEY: ${{ secrets.CHANGELOG_RSS_KEY }}
->>>>>>> wizards-filtered
+>>>>>>> theirs

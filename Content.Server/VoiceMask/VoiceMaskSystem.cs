@@ -11,11 +11,12 @@ using Content.Shared.Inventory;
 using Content.Shared.Lock;
 using Content.Shared.Popups;
 using Content.Shared.Speech;
-<<<<<<< HEAD
+<<<<<<< ours
 using Content.Shared.StatusIcon;
+||||||| base
 =======
 using Content.Shared.Speech.EntitySystems;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 using Content.Shared.VoiceMask;
 using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
@@ -24,9 +25,19 @@ namespace Content.Server.VoiceMask;
 
 public sealed partial class VoiceMaskSystem : EntitySystem
 {
-<<<<<<< HEAD
+<<<<<<< ours
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly LockSystem _lock = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly IdentitySystem _identity = default!;
+||||||| base
+    [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly IConfigurationManager _cfgManager = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
@@ -48,7 +59,7 @@ public sealed partial class VoiceMaskSystem : EntitySystem
     ///  Used for innate voice masks, which need to be able to create their own UIs.
     /// </summary>
     private const string UiGeneratedName = "VoiceMaskBoundUserInterface";
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
     // CCVar.
     private int _maxNameLength;
@@ -289,12 +300,8 @@ public sealed partial class VoiceMaskSystem : EntitySystem
         if (_lock.IsLocked(uid) || !component.Action.HasValue || component.ActionEntity.HasValue) // ADT-Tweak
             return;
 
-<<<<<<< HEAD
+<<<<<<< ours
         _actions.AddAction(args.Wearer, ref component.ActionEntity, component.Action.Value.Id, uid); // ADT-Tweak
-=======
-        component.Active = false;
-        _actions.AddAction(args.Wearer, ref component.ActionEntity, component.Action, uid);
->>>>>>> wizards-filtered
     }
 
     // ADT-Tweak start
@@ -302,6 +309,12 @@ public sealed partial class VoiceMaskSystem : EntitySystem
     {
         _actions.RemoveAction(component.ActionEntity);
         component.ActionEntity = null;
+||||||| base
+        _actions.AddAction(args.Wearer, ref component.ActionEntity, component.Action, uid);
+=======
+        component.Active = false;
+        _actions.AddAction(args.Wearer, ref component.ActionEntity, component.Action, uid);
+>>>>>>> theirs
     }
     // ADT-Tweak end
 
@@ -322,11 +335,13 @@ public sealed partial class VoiceMaskSystem : EntitySystem
     private void UpdateUI(Entity<VoiceMaskComponent> entity)
     {
         if (_uiSystem.HasUi(entity, VoiceMaskUIKey.Key))
-<<<<<<< HEAD
+<<<<<<< ours
             _uiSystem.SetUiState(entity.Owner, VoiceMaskUIKey.Key, new VoiceMaskBuiState(GetCurrentVoiceName(entity), entity.Comp.VoiceId, entity.Comp.BarkId, entity.Comp.BarkPitch, entity.Comp.VoiceMaskSpeechVerb, entity.Comp.Active, entity.Comp.AccentHide, entity.Comp.VoiceMaskJobIcon)); // ADT-Tweak
+||||||| base
+            _uiSystem.SetUiState(entity.Owner, VoiceMaskUIKey.Key, new VoiceMaskBuiState(GetCurrentVoiceName(entity), entity.Comp.VoiceMaskSpeechVerb, entity.Comp.Active, entity.Comp.AccentHide));
 =======
             _uiSystem.SetUiState(entity.Owner, VoiceMaskUIKey.Key, new VoiceMaskBuiState(GetCurrentVoiceName(entity), entity.Comp.VoiceMaskSpeechVerb, entity.Comp.Active, entity.Comp.AccentHide, entity.Comp.TitleText));
->>>>>>> wizards-filtered
+>>>>>>> theirs
     }
     #endregion
 
@@ -345,9 +360,5 @@ public sealed partial class VoiceMaskSystem : EntitySystem
         args.SpeechVerb = entity.Comp.VoiceMaskSpeechVerb ?? args.SpeechVerb;
     }
     #endregion
-<<<<<<< HEAD
-}
-=======
 }
 
->>>>>>> wizards-filtered

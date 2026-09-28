@@ -53,13 +53,10 @@ public abstract partial class SharedCryoPodSystem : EntitySystem
     [Dependency] protected SharedUserInterfaceSystem UI = default!;
     [Dependency] private StandingStateSystem _standingState = default!;
 
-<<<<<<< HEAD
-=======
     [Dependency] private EntityQuery<BloodstreamComponent> _bloodstreamQuery = default!;
     [Dependency] private EntityQuery<ItemSlotsComponent> _itemSlotsQuery = default!;
     [Dependency] private EntityQuery<FitsInDispenserComponent> _dispenserQuery = default!;
 
->>>>>>> wizards-filtered
     public override void Initialize()
     {
         base.Initialize();

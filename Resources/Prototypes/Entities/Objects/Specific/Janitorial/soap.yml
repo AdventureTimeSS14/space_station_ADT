@@ -81,15 +81,16 @@
       map: ["enum.SolutionContainerLayers.Fill"]
   - type: Residue
     residueColor: residue-green
-<<<<<<< HEAD
+<<<<<<< ours
   - type: PaintRemover #ADT tweak
+||||||| base
 =======
   - type: Solution
     solution:
       reagents:
       - ReagentId: SoapReagent
         Quantity: 60
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   parent: Soap
@@ -131,11 +132,13 @@
     residueColor: residue-brown
 
 - type: entity
-<<<<<<< HEAD
+<<<<<<< ours
   parent: [Soap] #, BaseSyndicateContraband] # ADT Remove cringe
+||||||| base
+  parent: [BaseSoap, BaseSyndicateContraband]
 =======
   parent: [Soap, BaseSyndicateContraband]
->>>>>>> wizards-filtered
+>>>>>>> theirs
   id: SoapSyndie
   description: An untrustworthy bar of soap. Smells of fear.
   components:

@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: BaseComputerAiAccess
   id: ComputerAlert
   name: atmospheric alerts computer
@@ -35,7 +35,7 @@
           2: { state: alert-1 }
           3: { state: alert-2 }
           4: { state: alert-2 }
-<<<<<<< HEAD
+<<<<<<< ours
       enum.WiresVisuals.MaintenancePanelState:
         enum.WiresVisualLayers.MaintenancePanel:
           True: { visible: false }
@@ -48,8 +48,13 @@
           East: { state: computer_l, sprite: ADT/Structures/Machines/computers.rsi }
           East, West: { state: computer_l_r, sprite: ADT/Structures/Machines/computers.rsi }
       # ADT-Tweak end
+||||||| base
+      enum.WiresVisuals.MaintenancePanelState:
+        enum.WiresVisualLayers.MaintenancePanel:
+          True: { visible: false }
+          False: { visible: true }
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: AtmosAlertsComputer
   - type: ActivatableUI
     singleUser: true
@@ -355,11 +360,12 @@
         type: PowerMonitoringConsoleBoundUserInterface
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
-<<<<<<< HEAD
+<<<<<<< ours
   - type: StationAiWhitelist #ADT-Tweak
+||||||| base
 =======
   - type: AmbientMusicMarkerEngineering
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   parent: BaseComputerAiAccess
@@ -499,11 +505,12 @@
     receiveFrequencyId: CrewMonitor
   - type: WirelessNetworkConnection
     range: 1200
-<<<<<<< HEAD
+<<<<<<< ours
   - type: StationAiWhitelist #ADT-Tweak
+||||||| base
 =======
   - type: AmbientMusicMarkerMedical
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   parent: BaseComputerAiAccess
@@ -831,10 +838,7 @@
     damageModifierSet: StructuralMetallicStrong
   - type: Injurable
     damageContainer: StructuralInorganic
-<<<<<<< HEAD
-=======
 
->>>>>>> wizards-filtered
 - type: entity
   parent: ComputerComms
   id: SyndicateComputerComms
@@ -1426,7 +1430,7 @@
           computerLayerKeys:
             True: { visible: true, shader: unshaded }
             False: { visible: true }
-<<<<<<< HEAD
+<<<<<<< ours
         enum.WiresVisuals.MaintenancePanelState:
           enum.WiresVisualLayers.MaintenancePanel:
             True: { visible: false }
@@ -1439,8 +1443,13 @@
             East: { state: computer_l, sprite: ADT/Structures/Machines/computers.rsi }
             East, West: { state: computer_l_r, sprite: ADT/Structures/Machines/computers.rsi }
         # ADT-Tweak end
+||||||| base
+        enum.WiresVisuals.MaintenancePanelState:
+          enum.WiresVisualLayers.MaintenancePanel:
+            True: { visible: false }
+            False: { visible: true }
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
     - type: SalvageExpeditionConsole
     - type: ActivatableUI
       key: enum.SalvageConsoleUiKey.Expedition

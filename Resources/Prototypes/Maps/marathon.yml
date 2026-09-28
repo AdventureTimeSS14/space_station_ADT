@@ -2,14 +2,17 @@
   id: Marathon
   mapName: 'Marathon Station'
   mapPath: /Maps/marathon.yml
-<<<<<<< HEAD
+<<<<<<< ours
   # Corvax-start
   minPlayers: 25
   maxPlayers: 55
   # Corvax-end
+||||||| base
+  minPlayers: 35
+  maxPlayers: 70
 =======
   minPlayers: 45
->>>>>>> wizards-filtered
+>>>>>>> theirs
   stations:
     Marathon:
       stationProto: StandardNanotrasenStation
@@ -22,40 +25,35 @@
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/emergency_rod.yml
         - type: StationJobs
+<<<<<<< ours
           availableJobs:
-<<<<<<< HEAD
             #service
+||||||| base
+          availableJobs: # 61 jobs total w/o latejoins & interns, 76 jobs total w/ latejoins & interns
+            #command (7)
+=======
+          availableJobs:
+            #command (7)
+>>>>>>> theirs
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
+<<<<<<< ours
             Bartender: [ 2, 2 ]
             Botanist: [ 2, 3 ]
             Chef: [ 2, 2 ]
             Janitor: [ 1, 2 ]
-            Chaplain: [ 1, 1 ]
-            Librarian: [ 1, 1 ]
-            ServiceWorker: [ 2, 2 ]
-            #engineering
-            ChiefEngineer: [ 1, 1 ]
-            AtmosphericTechnician: [ 3, 3 ]
-            StationEngineer: [ 4, 4 ]
-            TechnicalAssistant: [ 3, 3 ]
-            #medical
-            ChiefMedicalOfficer: [ 1, 1 ]
-            Chemist: [ 2, 2 ]
-            MedicalDoctor: [ 4, 4 ]
-            MedicalIntern: [ 3, 3 ]
-            Psychologist: [ 1, 1 ]
-            Paramedic: [ 1, 1 ]
-            #science
-            ResearchDirector: [ 1, 1 ]
-            Scientist: [ 4, 4 ]
-            ResearchAssistant: [ 3, 3 ]
-            #security
+||||||| base
             HeadOfSecurity: [ 1, 1 ]
+            ChiefMedicalOfficer: [ 1, 1 ]
+            ChiefEngineer: [ 1, 1 ]
+            ResearchDirector: [ 1, 1 ]
+            Quartermaster: [ 1, 1 ]
+            #service (11 - 13)
+            Bartender: [ 2, 2 ]
+            Botanist: [ 2, 3 ]
+            Chef: [ 2, 2 ]
+            Janitor: [ 1, 2 ]
 =======
-            #command (7)
-            Captain: [ 1, 1 ]
-            HeadOfPersonnel: [ 1, 1 ]
             HeadOfSecurity: [ 1, 1 ]
             ChiefMedicalOfficer: [ 1, 1 ]
             ChiefEngineer: [ 1, 1 ]
@@ -66,44 +64,98 @@
             Botanist: [ 2, 2 ]
             Chef: [ 1, 1 ]
             Janitor: [ 2, 2 ]
+>>>>>>> theirs
             Chaplain: [ 1, 1 ]
             Librarian: [ 1, 1 ]
+<<<<<<< ours
+            ServiceWorker: [ 2, 2 ]
+            #engineering
+            ChiefEngineer: [ 1, 1 ]
+            AtmosphericTechnician: [ 3, 3 ]
+||||||| base
+            ServiceWorker: [ 2, 2 ]
+            #engineering (7)
+            AtmosphericTechnician: [ 3, 3 ]
+=======
             ServiceWorker: [ 1, 1 ]
             #engineering (6-8)
             AtmosphericTechnician: [ 2, 2 ]
+>>>>>>> theirs
             StationEngineer: [ 4, 4 ]
+<<<<<<< ours
+            TechnicalAssistant: [ 3, 3 ]
+            #medical
+            ChiefMedicalOfficer: [ 1, 1 ]
+||||||| base
+            TechnicalAssistant: [ 3, 3 ] #intern, not counted
+            #medical (8)
+=======
             TechnicalAssistant: [ 2, 2 ]
             #medical (8-8)
+>>>>>>> theirs
             Chemist: [ 2, 2 ]
+<<<<<<< ours
+            MedicalDoctor: [ 4, 4 ]
+            MedicalIntern: [ 3, 3 ]
+            Psychologist: [ 1, 1 ]
+||||||| base
+            MedicalDoctor: [ 4, 4 ]
+            MedicalIntern: [ 3, 3 ] #intern, not counted
+            Psychologist: [ 1, 1 ]
+=======
             MedicalDoctor: [ 3, 3 ]
+>>>>>>> theirs
             Paramedic: [ 1, 1 ]
+<<<<<<< ours
+            #science
+            ResearchDirector: [ 1, 1 ]
+||||||| base
+            #science (4)
+=======
             MedicalIntern: [ 2, 2 ]
             #science (6-6)
+>>>>>>> theirs
             Scientist: [ 4, 4 ]
+<<<<<<< ours
+            ResearchAssistant: [ 3, 3 ]
+            #security
+            HeadOfSecurity: [ 1, 1 ]
+||||||| base
+            ResearchAssistant: [ 3, 3 ] #intern, not counted
+            #security (12)
+=======
             ResearchAssistant: [ 2, 2 ]
             #security (10-11)
->>>>>>> wizards-filtered
+>>>>>>> theirs
             Warden: [ 1, 1 ]
             SecurityOfficer: [ 5, 5 ]
             Detective: [ 1, 1 ]
-<<<<<<< HEAD
+<<<<<<< ours
             SecurityCadet: [ 4, 4 ]
             #Lawyer: [ 2, 2 ] # Corvax-IAA
             #supply
             Quartermaster: [ 1, 1 ]
-            SalvageSpecialist: [ 3, 3 ]
-            CargoTechnician: [ 3, 3 ]
-            #civilian
-            Passenger: [ -1, -1 ]
+||||||| base
+            SecurityCadet: [ 4, 4 ] #intern, not counted
+            Lawyer: [ 2, 2 ]
+            #supply (6)
 =======
             SecurityCadet: [ 2, 2 ]
             Lawyer: [ 1, 1 ]
             #supply (6)
+>>>>>>> theirs
             SalvageSpecialist: [ 3, 3 ]
             CargoTechnician: [ 3, 3 ]
+<<<<<<< ours
+            #civilian
+            Passenger: [ -1, -1 ]
+||||||| base
+            #civilian (3+)
+            Passenger: [ -1, -1 ] #infinite, not counted
+=======
             #civilian (2-3 + overflow)
             Passenger: [ -1, -1 ] #infinite, not counted
->>>>>>> wizards-filtered
+>>>>>>> theirs
             Clown: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]

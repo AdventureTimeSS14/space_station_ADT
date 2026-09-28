@@ -470,8 +470,4 @@ public sealed partial class StatusEffectsSystem
                 yield return (effect, status,  comp);
         }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> wizards-filtered

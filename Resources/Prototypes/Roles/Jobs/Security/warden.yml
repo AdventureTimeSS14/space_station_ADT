@@ -6,7 +6,7 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security
-<<<<<<< HEAD
+<<<<<<< ours
       time: 50h # Corvax-RoleTime
     # ADT-Tweak start
     - !type:TraitsRequirement
@@ -21,9 +21,12 @@
       - Vox
       - Shadekin
   # ADT RESTRICT End
+||||||| base
+      time: 10h
+  weight: 5
 =======
       time: 10h
->>>>>>> wizards-filtered
+>>>>>>> theirs
   startingGear: WardenGear
   icon: "JobIconWarden"
   supervisors: job-supervisors-hos

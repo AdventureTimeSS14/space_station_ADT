@@ -24,7 +24,7 @@ public sealed partial class GeneralRecord : Control
     public GeneralRecord(GeneralStationRecord record, bool canDelete, uint? id, IEntityManager ent, IPrototypeManager prototypeManager)
     {
         RobustXamlLoader.Load(this);
-<<<<<<< HEAD
+<<<<<<< ours
         // ADT Station Records Showcase Start
         _ui = UserInterfaceManager.GetUIController<LobbyUIController>();
         _ent = ent;
@@ -40,6 +40,15 @@ public sealed partial class GeneralRecord : Control
         Gender.SetMessage(Loc.GetString("general-station-record-console-record-gender",
             ("gender", Loc.GetString("station-records-sex-" + record.Profile.Sex.ToString().ToLower()))), defaultColor: Color.White);
         // // ADT Station Records Showcase End
+||||||| base
+        RecordName.Text = record.Name;
+        Age.Text = Loc.GetString("general-station-record-console-record-age", ("age", record.Age.ToString()));
+        Title.Text = Loc.GetString("general-station-record-console-record-title",
+            ("job", Loc.GetString(record.JobTitle)));
+        var species = Loc.GetString(prototypeManager.Index<SpeciesPrototype>(record.Species).Name);
+        Species.Text = Loc.GetString("general-station-record-console-record-species", ("species", species));
+        Gender.Text = Loc.GetString("general-station-record-console-record-gender",
+            ("gender", record.Gender.ToString()));
 =======
         RecordName.Text = record.Name;
         Age.Text = Loc.GetString("general-station-record-console-record-age", ("age", record.Age.ToString()));
@@ -49,7 +58,7 @@ public sealed partial class GeneralRecord : Control
         Species.Text = Loc.GetString("general-station-record-console-record-species", ("species", species));
         Gender.Text = Loc.GetString("general-station-record-console-record-gender",
             ("gender", record.Gender.ToString()));
->>>>>>> wizards-filtered
+>>>>>>> theirs
         Fingerprint.Text = Loc.GetString("general-station-record-console-record-fingerprint",
             ("fingerprint", record.Fingerprint ?? Loc.GetString("generic-not-available-shorthand")));
         Dna.Text = Loc.GetString("general-station-record-console-record-dna",

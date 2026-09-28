@@ -30,7 +30,7 @@
                 <!-- ADT Boss music end -->
                 <CheckBox Name="AdminSoundsCheckBox" Text="{Loc 'ui-options-admin-sounds'}" />
                 <CheckBox Name="BwoinkSoundCheckBox" Text="{Loc 'ui-options-bwoink-sound'}" />
-<<<<<<< HEAD
+<<<<<<< ours
                 <!-- ADT-tweak start -->
                 <CheckBox Name="ChatHighlightSoundCheckBox" Text="{Loc 'ui-options-chat-highlight-sound'}" />
                 <BoxContainer Orientation="Horizontal" SeparationOverride="4">
@@ -41,10 +41,11 @@
                 <ui:OptionSlider Name="SliderChatHighlightSoundVolume" Title="{Loc 'ui-options-chat-highlight-sound-volume'}"
                                  Margin="0 0 0 8" />
                 <!-- ADT-tweak end -->
+||||||| base
 =======
                 <CheckBox Name="AudioHrtfCheckBox" Text="{Loc 'ui-options-audio-hrtf'}" />
                 <CheckBox Name="MuteUnfocusedCheckBox" Text="{Loc 'ui-options-mute-unfocused'}" />
->>>>>>> wizards-filtered
+>>>>>>> theirs
             </BoxContainer>
         </BoxContainer>
         <ui:OptionsTabControlRow Name="Control" Access="Public" />

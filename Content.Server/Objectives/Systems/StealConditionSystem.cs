@@ -17,7 +17,7 @@ namespace Content.Server.Objectives.Systems;
 
 public sealed partial class StealConditionSystem : EntitySystem
 {
-<<<<<<< HEAD
+<<<<<<< ours
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
@@ -28,6 +28,16 @@ public sealed partial class StealConditionSystem : EntitySystem
     [Dependency] private readonly CheckSupermatterSystem _supermatter = default!; // ADT-Tweak
 
     private EntityQuery<ContainerManagerComponent> _containerQuery;
+||||||| base
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly MetaDataSystem _metaData = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
+    [Dependency] private readonly SharedObjectivesSystem _objectives = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+
+    private EntityQuery<ContainerManagerComponent> _containerQuery;
 =======
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private MetaDataSystem _metaData = default!;
@@ -36,7 +46,7 @@ public sealed partial class StealConditionSystem : EntitySystem
     [Dependency] private SharedObjectivesSystem _objectives = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private EntityQuery<ContainerManagerComponent> _containerQuery = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
     private HashSet<Entity<TransformComponent>> _nearestEnts = new();
     private HashSet<EntityUid> _countedItems = new();
@@ -53,7 +63,7 @@ public sealed partial class StealConditionSystem : EntitySystem
     /// start checks of target acceptability, and generation of start values.
     private void OnAssigned(Entity<StealConditionComponent> condition, ref ObjectiveAssignedEvent args)
     {
-<<<<<<< HEAD
+<<<<<<< ours
         // ADT-Tweak
         if (condition.Comp.Supermatter && !_supermatter.SupermatterCheck())
         {
@@ -63,10 +73,12 @@ public sealed partial class StealConditionSystem : EntitySystem
         // ADT-Tweak
 
         List<StealTargetComponent?> targetList = new();
+||||||| base
+        List<StealTargetComponent?> targetList = new();
 =======
         var minSize = condition.Comp.MinCollectionSize;
         var maxSize = condition.Comp.MaxCollectionSize;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
         if (condition.Comp.VerifyMapExistence)
         {

@@ -21,23 +21,11 @@
             "directions": 4
         },
         {
-<<<<<<< HEAD
-            "name": "equipped-HELMET-unshade",
-            "directions": 4
-        },
-        {
-            "name": "off-equipped-HELMET-vox",
-            "directions": 4
-        },
-        {
-            "name": "off-equipped-HELMET-dog",
-=======
             "name": "equipped-head-light",
             "directions": 4
         },
         {
             "name": "equipped-head-unshaded",
->>>>>>> wizards-filtered
             "directions": 4
         },
         {
@@ -45,47 +33,69 @@
             "directions": 4
         },
         {
-<<<<<<< HEAD
-            "name": "off-equipped-HELMET-reptilian",
-=======
             "name": "equipped-head-light-vox",
             "directions": 4
         },
         {
-            "name": "equipped-head-unshaded-vox",
->>>>>>> wizards-filtered
+<<<<<<< ours
+            "name": "equipped-HELMET-unshade",
             "directions": 4
         },
         {
-            "name": "equipped-head-reptilian",
-            "directions": 4
-        },
-        {
-<<<<<<< HEAD
-            "name": "on-equipped-HELMET-reptilian",
-            "directions": 4
-        },
-        {
-            "name": "on-equipped-HELMET-vulpkanin",
+            "name": "off-equipped-HELMET-vox",
+||||||| base
+            "name": "off-equipped-HELMET-vox",
 =======
+            "name": "equipped-head-unshaded-vox",
+>>>>>>> theirs
+            "directions": 4
+        },
+        {
+<<<<<<< ours
+            "name": "off-equipped-HELMET-dog",
+||||||| base
+            "name": "off-equipped-HELMET-reptilian",
+=======
+            "name": "equipped-head-reptilian",
+>>>>>>> theirs
+            "directions": 4
+        },
+        {
             "name": "equipped-head-light-reptilian",
             "directions": 4
         },
         {
+<<<<<<< ours
+            "name": "off-equipped-HELMET-reptilian",
+||||||| base
+            "name": "on-equipped-HELMET-vox",
+=======
             "name": "equipped-head-unshaded-reptilian",
+>>>>>>> theirs
             "directions": 4
         },
         {
+<<<<<<< ours
+            "name": "off-equipped-HELMET-vulpkanin",
+||||||| base
+            "name": "on-equipped-HELMET-reptilian",
+=======
             "name": "equipped-head-vulpkanin",
+>>>>>>> theirs
             "directions": 4
         },
         {
+<<<<<<< ours
+            "name": "on-equipped-HELMET-reptilian",
+||||||| base
+            "name": "off-equipped-HELMET-vulpkanin",
+=======
             "name": "equipped-head-light-vulpkanin",
+>>>>>>> theirs
             "directions": 4
         },
         {
             "name": "equipped-head-unshaded-vulpkanin",
->>>>>>> wizards-filtered
             "directions": 4
         },
         {

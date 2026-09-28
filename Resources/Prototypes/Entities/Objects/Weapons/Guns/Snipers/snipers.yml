@@ -40,11 +40,13 @@
 
 - type: entity
   name: Kardashev-Mosin
-<<<<<<< HEAD
+<<<<<<< ours
   parent: [BaseWeaponSniper, BaseGunWieldable, BaseSyndicateContraband, ADTBaseAttachableHolder] #ADT_Tweak
+||||||| base
+  parent: [BaseWeaponSniper, BaseGunWieldable, BaseMajorContraband]
 =======
   parent: [BaseWeaponSniper, BaseGunWieldable, SolutionDart, BaseMajorContraband]
->>>>>>> wizards-filtered
+>>>>>>> theirs
   id: WeaponSniperMosin
   description: A true relic, the Kardashev-Mosin has served in nearly every armed conflict since its creation 670 years ago. The bolt-action design of the rifle remains virtually identical to its original design, whether used for hunting, sniping, or endless trench warfare. Loads 10 rounds of .30 rifle.
   components:
@@ -74,8 +76,27 @@
     soundHit:
       collection: GenericHit
   - type: AltFireMelee
-<<<<<<< HEAD
+<<<<<<< ours
 #ADT_Tweak END
+||||||| base
+    attackType: Heavy
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 2
+  - type: MeleeChemicalInjector
+    solution: melee
+  - type: RefillableSolution
+    solution: melee
+  - type: InjectableSolution
+    solution: melee
+  - type: SolutionTransfer
+    maxTransferAmount: 2
+  - type: Sharp
+    butcherDelayModifier: 2 #It's a bayonet
+  - type: GunRequiresWield
+  - type: StaticPrice
+    price: 500
 =======
     attackType: Heavy
   - type: MeleeChemicalInjector
@@ -92,7 +113,7 @@
   - type: GunRequiresWield
   - type: StaticPrice
     price: 500
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   name: Hristov

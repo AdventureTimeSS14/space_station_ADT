@@ -21,13 +21,23 @@ public sealed partial class MobStateComponent : Component
     [DataField, AutoNetworkedField]
     public MobState CurrentState = MobState.Alive; //default mobstate is always the lowest state level
 
-<<<<<<< HEAD
+<<<<<<< ours
         [DataField]
         [AutoNetworkedField]
         public HashSet<MobState> AllowedStates = new()
             {
                 MobState.Alive,
                 MobState.SoftCritical, // ADT-Tweak
+                MobState.Critical,
+                MobState.Dead
+            };
+    }
+||||||| base
+        [DataField]
+        [AutoNetworkedField]
+        public HashSet<MobState> AllowedStates = new()
+            {
+                MobState.Alive,
                 MobState.Critical,
                 MobState.Dead
             };
@@ -40,5 +50,5 @@ public sealed partial class MobStateComponent : Component
         MobState.Critical,
         MobState.Dead
     };
->>>>>>> wizards-filtered
+>>>>>>> theirs
 }

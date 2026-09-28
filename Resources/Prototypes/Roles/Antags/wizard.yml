@@ -19,8 +19,10 @@
   requirements: # I hate time locked roles but this should be enough time for someone to be acclimated
   - !type:OverallPlaytimeRequirement
     time: 5h
-<<<<<<< HEAD
+<<<<<<< ours
   # guides: [ Wizard ] # ADT-Tweak
+||||||| base
+  guides: [ Wizard ]
 =======
 
 - type: antagSpecifier
@@ -47,6 +49,6 @@
     nameFormat: name-format-wizard
   mindRoles:
   - MindRoleWizard
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 # See wizard_startinggear for wiz start gear options

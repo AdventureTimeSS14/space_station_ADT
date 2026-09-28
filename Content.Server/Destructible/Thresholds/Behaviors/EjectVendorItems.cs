@@ -1,10 +1,13 @@
-<<<<<<< HEAD
+<<<<<<< ours
 using Content.Server.ADT.VendingMachines; // ADT-Tweak
 using Content.Shared.ADT.VendingMachines; // ADT-Tweak
+||||||| base
+using Content.Server.VendingMachines;
+using Content.Shared.VendingMachines;
 =======
 using Content.Server.VendingMachines;
 using Content.Shared.VendingMachines.Components;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 namespace Content.Server.Destructible.Thresholds.Behaviors;
 

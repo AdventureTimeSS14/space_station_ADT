@@ -95,7 +95,7 @@ public sealed partial class DecalPlacementSystem : EntitySystem
 
                 _erasing = true;
 
-<<<<<<< HEAD
+<<<<<<< ours
                 // ADT-Tweak start
                 if (_singleErase && _decalId != null)
                 {
@@ -106,9 +106,11 @@ public sealed partial class DecalPlacementSystem : EntitySystem
                     RaiseNetworkEvent(new RequestDecalRemovalEvent(GetNetCoordinates(coords)));
                 }
                 // ADT-Tweak end
+||||||| base
+                RaiseNetworkEvent(new RequestDecalRemovalEvent(GetNetCoordinates(coords)));
 =======
                 RaisePredictiveEvent(new RequestDecalRemovalEvent(GetNetCoordinates(coords)));
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
                 return true;
             }, (session, coords, uid) =>

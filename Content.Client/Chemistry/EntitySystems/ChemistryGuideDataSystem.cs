@@ -56,12 +56,14 @@ public sealed partial class ChemistryGuideDataSystem : SharedChemistryGuideDataS
     {
         // this doesn't check what prototypes are being reloaded because, to be frank, we use a lot of them.
         _reagentSources.Clear();
-<<<<<<< HEAD
+<<<<<<< ours
         // ADT-Fix-Start: инициализация всех известных реагентов
+        foreach (var reagent in PrototypeManager.EnumeratePrototypes<ReagentPrototype>())
+||||||| base
         foreach (var reagent in PrototypeManager.EnumeratePrototypes<ReagentPrototype>())
 =======
         foreach (var reagent in ProtoMan.EnumeratePrototypes<ReagentPrototype>())
->>>>>>> wizards-filtered
+>>>>>>> theirs
         {
             _reagentSources[reagent.ID] = new();
         }
@@ -116,8 +118,15 @@ public sealed partial class ChemistryGuideDataSystem : SharedChemistryGuideDataS
             if (!entProto.TryComp(out ExtractableComponent? extractableComponent, Factory))
                 continue;
 
-<<<<<<< HEAD
+<<<<<<< ours
             if (entProto.HasComponent<OrganComponent>() || entProto.HasComponent<PillComponent>()) // ADT-Tweak
+||||||| base
+            //these bloat the hell out of blood/fat
+            if (entProto.HasComponent<OrganComponent>())
+                continue;
+
+            //these feel obvious...
+            if (entProto.HasComponent<PillComponent>())
 =======
             //these bloat the hell out of blood/fat
             if (entProto.HasComp<OrganComponent>(Factory))
@@ -125,7 +134,7 @@ public sealed partial class ChemistryGuideDataSystem : SharedChemistryGuideDataS
 
             //these feel obvious...
             if (entProto.HasComp<PillComponent>(Factory))
->>>>>>> wizards-filtered
+>>>>>>> theirs
                 continue;
 
             if (extractableComponent.JuiceSolution is { } juiceSolution)

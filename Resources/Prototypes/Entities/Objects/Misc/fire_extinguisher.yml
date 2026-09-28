@@ -37,7 +37,7 @@
     verbToggleOn: fire-extinguisher-component-verb-remove
     verbToggleOff: fire-extinguisher-component-verb-engage
   - type: SpraySafety
-<<<<<<< HEAD
+<<<<<<< ours
   - type: SelfSpray # ADT-Tweak
   - type: MeleeWeapon
     wideAnimationRotation: 180
@@ -46,8 +46,16 @@
         Blunt: 10
     soundHit:
       path: /Audio/Weapons/smash.ogg
+||||||| base
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    damage:
+      types:
+        Blunt: 10
+    soundHit:
+      path: /Audio/Weapons/smash.ogg
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Tool
     qualities:
     - Rolling

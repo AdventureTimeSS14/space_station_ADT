@@ -83,7 +83,7 @@ public sealed partial class StealthComponent : Component
 [Serializable, NetSerializable]
 public sealed class StealthComponentState(float stealthLevel, TimeSpan? lastUpdated, bool enabled, float shimmerFrequency) : ComponentState
 {
-<<<<<<< HEAD
+<<<<<<< ours
     public readonly float Visibility;
     public readonly TimeSpan? LastUpdated;
     public readonly bool Enabled;
@@ -96,10 +96,21 @@ public sealed class StealthComponentState(float stealthLevel, TimeSpan? lastUpda
         Enabled = enabled;
         Desc = desc;    // ADT tweak
     }
+||||||| base
+    public readonly float Visibility;
+    public readonly TimeSpan? LastUpdated;
+    public readonly bool Enabled;
+
+    public StealthComponentState(float stealthLevel, TimeSpan? lastUpdated, bool enabled)
+    {
+        Visibility = stealthLevel;
+        LastUpdated = lastUpdated;
+        Enabled = enabled;
+    }
 =======
     public readonly float Visibility = stealthLevel;
     public readonly TimeSpan? LastUpdated = lastUpdated;
     public readonly bool Enabled = enabled;
     public readonly float ShimmerFrequency = shimmerFrequency;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 }

@@ -11,14 +11,17 @@ namespace Content.Client.Chasm;
 /// </summary>
 public sealed partial class ChasmFallingVisualsSystem : EntitySystem
 {
-<<<<<<< HEAD
+<<<<<<< ours
     [Dependency] private readonly AnimationPlayerSystem _anim = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
     [Dependency] private readonly IRobustRandom _random = default!; //ADT-Tweak
+||||||| base
+    [Dependency] private readonly AnimationPlayerSystem _anim = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 =======
     [Dependency] private AnimationPlayerSystem _anim = default!;
     [Dependency] private SpriteSystem _sprite = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
     [Dependency] private EntityQuery<AnimationPlayerComponent> _animationPlayerQuery;
     [Dependency] private EntityQuery<SpriteComponent> _spriteQuery;
@@ -43,43 +46,8 @@ public sealed partial class ChasmFallingVisualsSystem : EntitySystem
 
         entity.Comp.OriginalScale = sprite.Scale;
 
-<<<<<<< HEAD
-        if (!TryComp<AnimationPlayerComponent>(uid, out var player))
-            return;
-
-        if (_anim.HasRunningAnimation(player, _chasmFallAnimationKey))
-            return;
-
-        _anim.Play((uid, player), GetFallingAnimation(component), _chasmFallAnimationKey);
-    }
-
-    private void OnComponentRemove(EntityUid uid, ChasmFallingComponent component, ComponentRemove args)
-    {
-        if (!TryComp<SpriteComponent>(uid, out var sprite))
-            return;
-
-        _sprite.SetScale((uid, sprite), component.OriginalScale);
-
-        if (!TryComp<AnimationPlayerComponent>(uid, out var player))
-            return;
-
-        if (_anim.HasRunningAnimation(player, _chasmFallAnimationKey))
-            _anim.Stop((uid, player), _chasmFallAnimationKey);
-    }
-
-    private Animation GetFallingAnimation(ChasmFallingComponent component)
-    {
-        var length = component.AnimationTime;
-        //ADT-Tweak-Start
-        var direction = _random.Prob(0.5f) ? 1 : -1;
-        var totalRotation = _random.NextFloat(360f, 720f) * direction;
-        //ADT-Tweak-End
-
-        return new Animation()
-=======
         if (!_animationPlayerQuery.TryComp(entity, out var player) ||
             _anim.HasRunningAnimation(player, ChasmFallAnimationKey))
->>>>>>> wizards-filtered
         {
             return;
         }
@@ -107,7 +75,21 @@ public sealed partial class ChasmFallingVisualsSystem : EntitySystem
 
     private static Animation GetFallingAnimation(ChasmFallingComponent component)
     {
+<<<<<<< ours
+        var length = component.AnimationTime;
+        //ADT-Tweak-Start
+        var direction = _random.Prob(0.5f) ? 1 : -1;
+        var totalRotation = _random.NextFloat(360f, 720f) * direction;
+        //ADT-Tweak-End
+
+        return new Animation()
+||||||| base
+        var length = component.AnimationTime;
+
+        return new Animation()
+=======
         return new Animation
+>>>>>>> theirs
         {
             Length = component.AnimationTime,
             AnimationTracks =
@@ -121,7 +103,7 @@ public sealed partial class ChasmFallingVisualsSystem : EntitySystem
                         new AnimationTrackProperty.KeyFrame(component.OriginalScale, 0.0f),
                         new AnimationTrackProperty.KeyFrame(component.AnimationScale, component.AnimationTime.Seconds),
                     },
-<<<<<<< HEAD
+<<<<<<< ours
                     InterpolationMode = AnimationInterpolationMode.Cubic
                 //ADT-Tweak-Start
                 },
@@ -138,11 +120,15 @@ public sealed partial class ChasmFallingVisualsSystem : EntitySystem
                 //ADT-Tweak-End
                 }
             }
+||||||| base
+                    InterpolationMode = AnimationInterpolationMode.Cubic
+                }
+            }
 =======
                     InterpolationMode = AnimationInterpolationMode.Cubic,
                 },
             },
->>>>>>> wizards-filtered
+>>>>>>> theirs
         };
     }
 }

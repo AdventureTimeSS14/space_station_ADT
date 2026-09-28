@@ -22,14 +22,17 @@ public abstract partial class SharedWeatherSystem : EntitySystem
     [Dependency] private SharedRoofSystem _roof = default!;
     [Dependency] private StatusEffectsSystem _statusEffects = default!;
 
-<<<<<<< HEAD
+<<<<<<< ours
     [Dependency] private readonly EntityQuery<BlockWeatherComponent> _blockQuery = default!;
     [Dependency] private readonly EntityQuery<WeatherStatusEffectComponent> _weatherQuery = default!;
     [Dependency] private readonly EntityQuery<ADTWeatherShelterComponent> _shelterQuery = default!; // ADT-Tweak
+||||||| base
+    private EntityQuery<BlockWeatherComponent> _blockQuery;
+    private EntityQuery<WeatherStatusEffectComponent> _weatherQuery;
 =======
     [Dependency] private EntityQuery<BlockWeatherComponent> _blockQuery = default!;
     [Dependency] private EntityQuery<WeatherStatusEffectComponent> _weatherQuery = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
     public static readonly TimeSpan StartupTime = TimeSpan.FromSeconds(15);
     public static readonly TimeSpan ShutdownTime = TimeSpan.FromSeconds(15);

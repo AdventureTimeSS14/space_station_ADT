@@ -40,12 +40,13 @@ public sealed partial class StencilOverlay : Overlay
     private readonly SpriteSystem _sprite;
     private readonly WeatherSystem _weather;
     private readonly StatusEffectsSystem _statusEffects;
-<<<<<<< HEAD
+<<<<<<< ours
     private readonly TurfSystem _turf; // ADT-Tweak
     private readonly ADTWindController _wind; // ADT-Tweak
+||||||| base
 =======
     private GridStencilSystem _gridStencil = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
     private HashSet<Entity<WeatherStatusEffectComponent, StatusEffectComponent>>? _weatherSet = new();
 
     public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowFOV;
@@ -64,12 +65,13 @@ public sealed partial class StencilOverlay : Overlay
         _weather = weather;
         _statusEffects = statusEffects;
         IoCManager.InjectDependencies(this);
-<<<<<<< HEAD
+<<<<<<< ours
         _turf = _entManager.System<TurfSystem>(); // ADT-Tweak
         _wind = _entManager.System<ADTWindController>(); // ADT-Tweak
+||||||| base
 =======
         _gridStencil = _entManager.System<GridStencilSystem>();
->>>>>>> wizards-filtered
+>>>>>>> theirs
         _shader = _protoManager.Index(CircleShader).InstanceUnique();
     }
 

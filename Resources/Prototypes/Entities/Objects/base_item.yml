@@ -44,10 +44,13 @@
     noRot: false
   - type: Pullable
   - type: DamageExaminable
+<<<<<<< ours
   - type: Rotatable
     increment: 30
-<<<<<<< HEAD
+||||||| base
 =======
+  - type: Rotatable
+    increment: 30
 
 - type: entity
   abstract: true
@@ -64,7 +67,7 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   name: "storage item"
@@ -197,6 +200,7 @@
           name: power-cell-slot-component-slot-name-default
           startingItem: PowerCellHigh
 
+<<<<<<< ours
 - type: entity
   abstract: true
   id: BaseSlicingRefinable
@@ -213,8 +217,24 @@
     sound: !type:SoundPathSpecifier
       path: /Audio/Items/Culinary/chop.ogg
 
-<<<<<<< HEAD
+||||||| base
 =======
+- type: entity
+  abstract: true
+  id: BaseSlicingRefinable
+  components:
+  - type: ToolRefinable
+    qualityNeeded: Slicing
+    verbText: refined-slice-verb-name
+    verbDefaultTooltip: refined-slice-verb-message-default
+    toolMissingQualityTooltip: refined-slice-verb-message-tool
+    startRefinePopupType: small
+    popupForUser: refined-butchered-success
+    popupForOther: refined-butchered-success-others
+    verbIcon: Interface/VerbIcons/cutlery.svg.192dpi.png
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Items/Culinary/chop.ogg
+
 - type: entity
   abstract: true
   parent: BaseSlicingRefinable
@@ -222,7 +242,7 @@
   components:
   - type: ToolRefinableSolution
 
->>>>>>> wizards-filtered
+>>>>>>> theirs
 # For entities with a hidden container slot that can be opened with a tool
 - type: entity
   abstract: true

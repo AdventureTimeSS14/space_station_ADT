@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+<<<<<<< ours
 // ADT: Закомментировано из-за использования генокрада от Goob Station
 // using Content.Client.Stylesheets.Palette;
 // using Content.Client.UserInterface.Controls;
@@ -6,6 +6,13 @@
 // using Content.Shared.Changeling.Systems;
 // using JetBrains.Annotations;
 // using Robust.Client.UserInterface;
+||||||| base
+using Content.Client.Stylesheets.Palette;
+using Content.Client.UserInterface.Controls;
+using Content.Shared.Changeling.Components;
+using Content.Shared.Changeling.Systems;
+using JetBrains.Annotations;
+using Robust.Client.UserInterface;
 =======
 using Content.Client.Stylesheets.Palette;
 using Content.Client.UserInterface.Controls;
@@ -14,17 +21,24 @@ using Content.Shared.Changeling.Systems;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 using Robust.Shared.Utility;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 // namespace Content.Client.Changeling.UI;
 
-<<<<<<< HEAD
+<<<<<<< ours
 // [UsedImplicitly]
 // public sealed partial class ChangelingTransformBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
 // {
 //     private SimpleRadialMenu? _menu;
 //     private static readonly Color SelectedOptionBackground = Palettes.Green.Element.WithAlpha(128);
 //     private static readonly Color SelectedOptionHoverBackground = Palettes.Green.HoveredElement.WithAlpha(128);
+||||||| base
+[UsedImplicitly]
+public sealed partial class ChangelingTransformBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
+{
+    private SimpleRadialMenu? _menu;
+    private static readonly Color SelectedOptionBackground = Palettes.Green.Element.WithAlpha(128);
+    private static readonly Color SelectedOptionHoverBackground = Palettes.Green.HoveredElement.WithAlpha(128);
 =======
 [UsedImplicitly]
 public sealed partial class ChangelingTransformBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
@@ -34,7 +48,7 @@ public sealed partial class ChangelingTransformBoundUserInterface(EntityUid owne
     private static readonly Color DisabledOptionBackground = Palettes.Slate.Element.WithAlpha(128);
     private static readonly Color SelectedOptionHoverBackground = Palettes.Green.HoveredElement.WithAlpha(128);
     private static readonly Color DisabledOptionHoverBackground = Palettes.Slate.HoveredElement.WithAlpha(128);
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 //     protected override void Open()
 //     {
@@ -50,27 +64,34 @@ public sealed partial class ChangelingTransformBoundUserInterface(EntityUid owne
 //         if (_menu == null)
 //             return;
 
-<<<<<<< HEAD
+<<<<<<< ours
 //         if (!EntMan.TryGetComponent<ChangelingIdentityComponent>(Owner, out var lingIdentity))
 //             return;
-
-//         var models = ConvertToButtons(lingIdentity.ConsumedIdentities.Keys, lingIdentity?.CurrentIdentity);
+||||||| base
+        if (!EntMan.TryGetComponent<ChangelingIdentityComponent>(Owner, out var lingIdentity))
+            return;
 =======
         if (!EntMan.TryGetComponent<ChangelingIdentityComponent>(Owner, out var lingIdentity))
             return;
         
         var manualDrop = true;
+>>>>>>> theirs
 
+<<<<<<< ours
+//         var models = ConvertToButtons(lingIdentity.ConsumedIdentities.Keys, lingIdentity?.CurrentIdentity);
+||||||| base
+        var models = ConvertToButtons(lingIdentity.ConsumedIdentities.Keys, lingIdentity?.CurrentIdentity);
+=======
         if (EntMan.TryGetComponent<ChangelingTransformComponent>(Owner, out var lingTransform))
             manualDrop = lingTransform.ManualDrop;
             
         var models = ConvertToButtons(lingIdentity.ConsumedIdentities, lingIdentity.CurrentIdentity, manualDrop);
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 //         _menu.SetButtons(models);
 //     }
 
-<<<<<<< HEAD
+<<<<<<< ours
 //     private IEnumerable<RadialMenuOptionBase> ConvertToButtons(
 //         IEnumerable<EntityUid> identities,
 //         EntityUid? currentIdentity
@@ -81,16 +102,17 @@ public sealed partial class ChangelingTransformBoundUserInterface(EntityUid owne
 //         {
 //             if (!EntMan.TryGetComponent<MetaDataComponent>(identity, out var metadata))
 //                 continue;
-
-//             var option = new RadialMenuActionOption<NetEntity>(SendIdentitySelect, EntMan.GetNetEntity(identity))
-//             {
-//                 IconSpecifier = RadialMenuIconSpecifier.With(identity),
-//                 ToolTip = metadata.EntityName,
-//                 BackgroundColor = (currentIdentity == identity) ? SelectedOptionBackground : null,
-//                 HoverBackgroundColor = (currentIdentity == identity) ? SelectedOptionHoverBackground : null
-//             };
-//             buttons.Add(option);
-//         }
+||||||| base
+    private IEnumerable<RadialMenuOptionBase> ConvertToButtons(
+        IEnumerable<EntityUid> identities,
+        EntityUid? currentIdentity
+    )
+    {
+        var buttons = new List<RadialMenuOptionBase>();
+        foreach (var identity in identities)
+        {
+            if (!EntMan.TryGetComponent<MetaDataComponent>(identity, out var metadata))
+                continue;
 =======
     private IEnumerable<RadialMenuOptionBase> ConvertToButtons(
         IEnumerable<ChangelingIdentityData> identities,
@@ -105,7 +127,29 @@ public sealed partial class ChangelingTransformBoundUserInterface(EntityUid owne
         {
             if (identity.Identity == null)
                 continue;
+>>>>>>> theirs
 
+<<<<<<< ours
+//             var option = new RadialMenuActionOption<NetEntity>(SendIdentitySelect, EntMan.GetNetEntity(identity))
+//             {
+//                 IconSpecifier = RadialMenuIconSpecifier.With(identity),
+//                 ToolTip = metadata.EntityName,
+//                 BackgroundColor = (currentIdentity == identity) ? SelectedOptionBackground : null,
+//                 HoverBackgroundColor = (currentIdentity == identity) ? SelectedOptionHoverBackground : null
+//             };
+//             buttons.Add(option);
+//         }
+||||||| base
+            var option = new RadialMenuActionOption<NetEntity>(SendIdentitySelect, EntMan.GetNetEntity(identity))
+            {
+                IconSpecifier = RadialMenuIconSpecifier.With(identity),
+                ToolTip = metadata.EntityName,
+                BackgroundColor = (currentIdentity == identity) ? SelectedOptionBackground : null,
+                HoverBackgroundColor = (currentIdentity == identity) ? SelectedOptionHoverBackground : null
+            };
+            buttons.Add(option);
+        }
+=======
             // Options for selecting identities.
             var option = new RadialMenuActionOption<NetEntity>(SendIdentitySelect, EntMan.GetNetEntity(identity.Identity.Value))
             {
@@ -142,17 +186,23 @@ public sealed partial class ChangelingTransformBoundUserInterface(EntityUid owne
             };
             buttons.Add(dropMenuButton);
         }
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 //         return buttons;
 //     }
 
-<<<<<<< HEAD
+<<<<<<< ours
 //     private void SendIdentitySelect(NetEntity identityId)
 //     {
 //         SendPredictedMessage(new ChangelingTransformIdentitySelectMessage(identityId));
 //     }
 // }
+||||||| base
+    private void SendIdentitySelect(NetEntity identityId)
+    {
+        SendPredictedMessage(new ChangelingTransformIdentitySelectMessage(identityId));
+    }
+}
 =======
     private void SendIdentitySelect(NetEntity identityId)
     {
@@ -164,4 +214,4 @@ public sealed partial class ChangelingTransformBoundUserInterface(EntityUid owne
         SendPredictedMessage(new ChangelingTransformIdentityDropMessage(identityId));
     }
 }
->>>>>>> wizards-filtered
+>>>>>>> theirs

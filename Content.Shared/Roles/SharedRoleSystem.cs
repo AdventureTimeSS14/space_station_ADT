@@ -1,9 +1,12 @@
-<<<<<<< HEAD
+<<<<<<< ours
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.ADT.Roles;
+||||||| base
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
 using Content.Shared.Administration.Logs;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
@@ -28,12 +31,20 @@ namespace Content.Shared.Roles;
 
 public abstract partial class SharedRoleSystem : EntitySystem
 {
-<<<<<<< HEAD
+<<<<<<< ours
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] protected readonly ISharedPlayerManager Player = default!;
     [Dependency] private readonly EntityWhitelistSystem ADTlist = default!;
+    [Dependency] private readonly SharedMindSystem _minds = default!;
+    [Dependency] private readonly IPrototypeManager _prototypes = default!;
+||||||| base
+    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] protected readonly ISharedPlayerManager Player = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly SharedMindSystem _minds = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
 =======
@@ -43,7 +54,7 @@ public abstract partial class SharedRoleSystem : EntitySystem
     [Dependency] protected ISharedPlayerManager Player = default!;
     [Dependency] private EntityWhitelistSystem _whitelist = default!;
     [Dependency] private SharedMindSystem _minds = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
     private JobRequirementOverridePrototype? _requirementOverride;
 

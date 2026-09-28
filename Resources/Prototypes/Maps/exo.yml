@@ -51,16 +51,21 @@
             Warden: [ 1, 1 ]
             SecurityOfficer: [ 5, 5 ]
             Detective: [ 1, 1 ]
-<<<<<<< HEAD
+<<<<<<< ours
             SecurityCadet: [ 4, 4 ]
             #Lawyer: [ 2, 2 ] Corvax test
+            #supply
+            Quartermaster: [ 1, 1 ]
+||||||| base
+            SecurityCadet: [ 4, 4 ]
+            Lawyer: [ 2, 2 ]
             #supply
             Quartermaster: [ 1, 1 ]
 =======
             SecurityCadet: [ 2, 2 ]
             Lawyer: [ 1, 1 ]
             #supply (6)
->>>>>>> wizards-filtered
+>>>>>>> theirs
             SalvageSpecialist: [ 3, 3 ]
             CargoTechnician: [ 3, 3 ]
             #civilian (2-3 + overflow)

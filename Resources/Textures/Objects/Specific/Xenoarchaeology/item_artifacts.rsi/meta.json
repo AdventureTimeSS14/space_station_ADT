@@ -1,11 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-NC-SA-3.0",
-<<<<<<< HEAD
     "copyright": "Taken from goonstation at commit https://github.com/goonstation/goonstation/commit/8c9738746d1222a80dddff25af1bceda58bbccac and created by Flaborized. ano11/ano11_on created by brainfood#7460 and discord: unlumy. Inhands created by brainfood#7460 and modified by EmoGarbage404 (github)",
-=======
-    "copyright": "Taken from goonstation at commit https://github.com/goonstation/goonstation/commit/8c9738746d1222a80dddff25af1bceda58bbccac and created by Flaborized. ano11/ano11_on created by brainfood#7460. Inhands created by brainfood#7460 and modified by EmoGarbage404 (github)",
->>>>>>> wizards-filtered
     "size": {
         "x": 32,
         "y": 32
@@ -274,7 +270,6 @@
         {
             "name": "ano11-inhand-right",
             "directions": 4
-<<<<<<< HEAD
         },
         {
             "name": "ano12"
@@ -319,8 +314,6 @@
         {
             "name": "ano13-inhand-right",
             "directions": 4
-=======
->>>>>>> wizards-filtered
         }
     ]
 }

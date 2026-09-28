@@ -4,14 +4,16 @@ using Content.Shared.Item;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
-<<<<<<< HEAD
+<<<<<<< ours
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Content.Shared.Kitchen; // ADT-Tweak
 using Robust.Shared.Serialization; // ADT-Tweak
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Content.Shared.Kitchen.Components; // ADT-Tweak
+||||||| base
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 namespace Content.Server.Kitchen.Components
 {
@@ -21,13 +23,15 @@ namespace Content.Server.Kitchen.Components
         [DataField]
         public float CookTimeMultiplier = 1;
 
-<<<<<<< HEAD
+<<<<<<< ours
         [DataField("cookTimeScalingConstant")]
         public float CookTimeScalingConstant = 0.5f;
         [DataField("baseHeatMultiplier"), ViewVariables(VVAccess.ReadWrite)]
+||||||| base
+        [DataField("baseHeatMultiplier"), ViewVariables(VVAccess.ReadWrite)]
 =======
         [DataField]
->>>>>>> wizards-filtered
+>>>>>>> theirs
         public float BaseHeatMultiplier = 100;
 
         [DataField]

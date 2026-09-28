@@ -11,13 +11,15 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.EntityTable;
 using Content.Shared.Prototypes;
 using Content.Shared.Storage.EntitySystems;
-<<<<<<< HEAD
+<<<<<<< ours
 using Content.Shared.ADT.VendingMachines; // ADT-Tweak
 using Content.Shared.VendingMachines; // ADT-Tweak
+||||||| base
+using Content.Shared.VendingMachines;
 =======
 using Content.Shared.VendingMachines;
 using Content.Shared.VendingMachines.Components;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 using Content.Shared.Wires;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;

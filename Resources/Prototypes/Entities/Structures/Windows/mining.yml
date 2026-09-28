@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-﻿- type: entity
-=======
 - type: entity
   parent: [BaseWindowStructure, BaseRCDResistant]
->>>>>>> wizards-filtered
   id: MiningWindow
   name: mining window
   components:

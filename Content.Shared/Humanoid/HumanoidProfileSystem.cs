@@ -13,13 +13,16 @@ namespace Content.Shared.Humanoid;
 
 public sealed partial class HumanoidProfileSystem : EntitySystem
 {
-<<<<<<< HEAD
+<<<<<<< ours
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly GrammarSystem _grammar = default!;
     [Dependency] private readonly SharedLanguageSystem _language = default!;
+||||||| base
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly GrammarSystem _grammar = default!;
 =======
     [Dependency] private GrammarSystem _grammar = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
     public override void Initialize()
     {
@@ -55,19 +58,26 @@ public sealed partial class HumanoidProfileSystem : EntitySystem
         ent.Comp.Gender = profile.Gender;
         ent.Comp.Age = profile.Age;
         ent.Comp.Species = profile.Species;
-<<<<<<< HEAD
+<<<<<<< ours
         SetSex(ent, profile.Sex);
-        Dirty(ent);
-
+||||||| base
+        ent.Comp.Sex = profile.Sex;
 =======
         ent.Comp.Voice = profile.Voice;
         ent.Comp.Sex = profile.Sex;
+>>>>>>> theirs
         Dirty(ent);
 
+<<<<<<< ours
+||||||| base
+        var sexChanged = new SexChangedEvent(ent.Comp.Sex, profile.Sex);
+        RaiseLocalEvent(ent, ref sexChanged);
+
+=======
         var voiceChanged = new VoiceChangedEvent(ent.Comp.Voice, profile.Voice);
         RaiseLocalEvent(ent, ref voiceChanged);
 
->>>>>>> wizards-filtered
+>>>>>>> theirs
         if (TryComp<GrammarComponent>(ent, out var grammar))
         {
             _grammar.SetGender((ent, grammar), profile.Gender);

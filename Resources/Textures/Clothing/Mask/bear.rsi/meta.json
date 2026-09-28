@@ -1,11 +1,13 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-<<<<<<< HEAD
+<<<<<<< ours
   "copyright": "Taken from tgstation at commit https://github.com/dannno/-tg-station/blob/a51c5a85d327f562004cef2f36c081ad0d95fd9a/icons/obj/clothing/masks.dmi, digi made by kuro(388673708753027083). Reptilian edit by Nairod(Github)",
+||||||| base
+  "copyright": "Taken from tgstation at commit https://github.com/dannno/-tg-station/blob/a51c5a85d327f562004cef2f36c081ad0d95fd9a/icons/obj/clothing/masks.dmi. Reptilian edit by Nairod(Github)",
 =======
   "copyright": "Taken from tgstation at commit https://github.com/dannno/-tg-station/blob/a51c5a85d327f562004cef2f36c081ad0d95fd9a/icons/obj/clothing/masks.dmi. Reptilian edit by Nairod(Github), Inhands by Prole0 (GitHub)",
->>>>>>> wizards-filtered
+>>>>>>> theirs
   "size": {
     "x": 32,
     "y": 32

@@ -57,11 +57,13 @@ public sealed partial class ServerGlobalSoundSystem : SharedGlobalSoundSystem
 
     public void DispatchStationEventMusic(EntityUid source, ResolvedSoundSpecifier specifier, StationEventMusicType type, AudioParams? audioParams = null) // ADT-Heretic: audioParams
     {
-<<<<<<< HEAD
+<<<<<<< ours
         var audio = audioParams ?? AudioParams.Default.WithVolume(-8);
+||||||| base
+        var audio = AudioParams.Default.WithVolume(-8);
 =======
         var audio = AudioParams.Default.AddVolume(-8);
->>>>>>> wizards-filtered
+>>>>>>> theirs
         var msg = new StationEventMusicEvent(specifier, type, audio);
 
         var filter = GetStationAndPvs(source);

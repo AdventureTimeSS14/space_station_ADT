@@ -15,7 +15,7 @@ namespace Content.Client.Ghost
 {
     public sealed partial class GhostSystem : SharedGhostSystem
     {
-<<<<<<< HEAD
+<<<<<<< ours
         [Dependency] private readonly IClientConsoleHost _console = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly SharedActionsSystem _actions = default!;
@@ -28,6 +28,13 @@ namespace Content.Client.Ghost
         private static readonly ProtoId<ShaderPrototype> BodyShaderId = "GhostBody";
         private ShaderInstance _bodyShader = default!;
         // ADT Tweak End
+||||||| base
+        [Dependency] private readonly IClientConsoleHost _console = default!;
+        [Dependency] private readonly IPlayerManager _playerManager = default!;
+        [Dependency] private readonly SharedActionsSystem _actions = default!;
+        [Dependency] private readonly PointLightSystem _pointLightSystem = default!;
+        [Dependency] private readonly ContentEyeSystem _contentEye = default!;
+        [Dependency] private readonly SpriteSystem _sprite = default!;
 =======
         [Dependency] private IClientConsoleHost _console = default!;
         [Dependency] private IPlayerManager _playerManager = default!;
@@ -35,7 +42,7 @@ namespace Content.Client.Ghost
         [Dependency] private ContentEyeSystem _contentEye = default!;
         [Dependency] private SpriteSystem _sprite = default!;
         [Dependency] private SharedNightVisionSystem _nv = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
         public int AvailableGhostRoleCount { get; private set; }
 

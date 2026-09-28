@@ -1,4 +1,4 @@
-﻿﻿using System.Linq;
+﻿using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Administration.Managers;
@@ -142,11 +142,13 @@ public sealed partial class AdminLogsEui : BaseEui
         }
     }
 
-<<<<<<< HEAD
+<<<<<<< ours
     public void SetLogFilter(string? search = null, bool invertTypes = false, HashSet<LogType>? types = null, HashSet<Guid>? selectedPlayers = null) // ADT-Tweak
+||||||| base
+    public void SetLogFilter(string? search = null, bool invertTypes = false, HashSet<LogType>? types = null)
 =======
     public void SetLogFilter(string? search = null, List<Guid>? players = null, bool invertTypes = false, HashSet<LogType>? types = null)
->>>>>>> wizards-filtered
+>>>>>>> theirs
     {
         var message = new SetLogFilter(
             search,

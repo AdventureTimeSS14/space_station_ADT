@@ -1,9 +1,11 @@
 using System.Diagnostics.CodeAnalysis;
+<<<<<<< ours
 using System.Diagnostics.Contracts;
-<<<<<<< HEAD
 using Content.Shared.ADT.RichText; // ADT-Tweak
+||||||| base
 =======
->>>>>>> wizards-filtered
+using System.Diagnostics.Contracts;
+>>>>>>> theirs
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Examine;
 using Content.Shared.Labels.Components;
@@ -42,14 +44,16 @@ public sealed partial class LabelSystem : EntitySystem
     {
         if (ent.Comp.LocalizedLabel is { } locId)
         {
-<<<<<<< HEAD
+<<<<<<< ours
             // ADT-Tweak start
             if (Loc.TryGetString(ent.Comp.CurrentLabel, out var localized))
                 ent.Comp.CurrentLabel = localized;
             // ADT-Tweak end
+||||||| base
+            ent.Comp.CurrentLabel = Loc.GetString(ent.Comp.CurrentLabel);
 =======
             ent.Comp.CurrentLabel = Loc.GetString(locId);
->>>>>>> wizards-filtered
+>>>>>>> theirs
             Dirty(ent);
         }
 
@@ -64,13 +68,17 @@ public sealed partial class LabelSystem : EntitySystem
     /// <summary>
     /// Add, change, or remove a label on an entity.
     /// </summary>
+<<<<<<< ours
     /// <remarks>
     /// If <paramref name="text"/> is <see langword="null"/> or an empty string, the <see cref="LabelComponent"/> will be removed.
-<<<<<<< HEAD
     /// The label text supports BBCode markup (bold, italic, color, etc.).
-=======
->>>>>>> wizards-filtered
     /// </remarks>
+||||||| base
+=======
+    /// <remarks>
+    /// If <paramref name="text"/> is <see langword="null"/> or an empty string, the <see cref="LabelComponent"/> will be removed.
+    /// </remarks>
+>>>>>>> theirs
     /// <param name="uid">EntityUid to change label on</param>
     /// <param name="text">intended label text (null to remove)</param>
     /// <param name="label">label component for resolve</param>
@@ -87,11 +95,13 @@ public sealed partial class LabelSystem : EntitySystem
 
         label = EnsureComp<LabelComponent>(uid);
 
-<<<<<<< HEAD
+<<<<<<< ours
         label.CurrentLabel = MarkupSanitizer.SanitizeLabel(text); // ADT-Tweak. EscapeText -> SanitizeLabel
+||||||| base
+        label.CurrentLabel = text == null ? null : FormattedMessage.EscapeText(text);
 =======
         label.CurrentLabel = FormattedMessage.EscapeText(text);
->>>>>>> wizards-filtered
+>>>>>>> theirs
         _nameModifier.RefreshNameModifiers(uid);
 
         Dirty(uid, label);

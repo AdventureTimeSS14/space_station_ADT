@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-﻿- type: entity
-  parent: BaseItem
-=======
 - type: entity
   parent: [SolutionBeaker, SolutionSmall, BaseItem]
->>>>>>> wizards-filtered
   id: BaseBeaker
   abstract: true
   components:

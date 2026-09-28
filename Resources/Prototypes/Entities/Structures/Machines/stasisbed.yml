@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: StasisBed
   name: stasis bed
   parent: [ BaseMachinePowered, ConstructibleMachine, BaseConstructibleMachineDestructible ]
@@ -64,9 +64,5 @@
   - type: GuideHelp
     guides:
     - MedicalDoctor
-<<<<<<< HEAD
-  - type: PowerSwitch
-=======
   - type: PowerSwitch
   - type: AmbientMusicMarkerMedical
->>>>>>> wizards-filtered

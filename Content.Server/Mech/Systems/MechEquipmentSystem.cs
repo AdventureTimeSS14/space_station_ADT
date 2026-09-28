@@ -16,23 +16,32 @@ namespace Content.Server.Mech.Systems;
 /// <summary>
 /// Handles the insertion of mech equipment into mechs.
 /// </summary>
-<<<<<<< HEAD
+<<<<<<< ours
 public sealed class MechEquipmentSystem : SharedMechEquipmentSystem // ADT - Parent changed
+||||||| base
+public sealed class MechEquipmentSystem : EntitySystem
+=======
+public sealed partial class MechEquipmentSystem : EntitySystem
+>>>>>>> theirs
 {
+<<<<<<< ours
     [Dependency] private readonly MechSystem _mech = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly MechEquipmentLimitSystem _equipmentLimit = default!;
+||||||| base
+    [Dependency] private readonly MechSystem _mech = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
 =======
-public sealed partial class MechEquipmentSystem : EntitySystem
-{
     [Dependency] private MechSystem _mech = default!;
     [Dependency] private SharedDoAfterSystem _doAfter = default!;
     [Dependency] private PopupSystem _popup = default!;
     [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private VehicleSystem _vehicle = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
     /// <inheritdoc/>
     public override void Initialize()

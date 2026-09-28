@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   abstract: true
   parent: [BaseMob, MobCombat]
   id: MobElementalBase
@@ -68,11 +68,14 @@
   - type: NpcFactionMember
     factions:
       - SimpleHostile
-<<<<<<< HEAD
+<<<<<<< ours
+  - type: Damageable
+  - type: Injurable
+||||||| base
   - type: Damageable
 =======
->>>>>>> wizards-filtered
   - type: Injurable
+>>>>>>> theirs
     damageContainer: StructuralInorganic
 - type: entity
   parent: MobOreCrab

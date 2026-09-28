@@ -46,23 +46,28 @@ namespace Content.Client.UserInterface.Systems.Actions;
 
 public sealed partial class ActionUIController : UIController, IOnStateChanged<GameplayState>, IOnSystemChanged<ActionsSystem>
 {
-<<<<<<< HEAD
+<<<<<<< ours
     [Dependency] private readonly IOverlayManager _overlays = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IInputManager _input = default!;
     [Dependency] private readonly IStateManager _stateManager = default!;
+||||||| base
+    [Dependency] private readonly IOverlayManager _overlays = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly IInputManager _input = default!;
 =======
     [Dependency] private IOverlayManager _overlays = default!;
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private IPlayerManager _playerManager = default!;
     [Dependency] private IInputManager _input = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
     [UISystemDependency] private readonly ActionsSystem? _actionsSystem = default;
     [UISystemDependency] private readonly InteractionOutlineSystem? _interactionOutline = default;
     [UISystemDependency] private readonly TargetOutlineSystem? _targetOutline = default;
-<<<<<<< HEAD
+<<<<<<< ours
     [UISystemDependency] private readonly SpriteSystem _spriteSystem = default!;
     [UISystemDependency] private readonly ADT.Heretic.StopTargetingSystem? _stopTargeting = default;
     [UISystemDependency] private readonly ADTActionOrderSystem? _orderSystem = default;
@@ -72,8 +77,10 @@ public sealed partial class ActionUIController : UIController, IOnStateChanged<G
     private ADTActionOrderSystem? ActionOrder => IsMapping ? null : _orderSystem;
     private bool _showRemovedOnly;
     // ADT-Tweak-End
+||||||| base
+    [UISystemDependency] private readonly SpriteSystem _spriteSystem = default!;
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
     private ActionButtonContainer? _container;
     private readonly List<EntityUid?> _actions = new();

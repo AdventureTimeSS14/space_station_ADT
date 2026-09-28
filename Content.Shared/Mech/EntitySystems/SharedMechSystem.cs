@@ -31,7 +31,7 @@ namespace Content.Shared.Mech.EntitySystems;
 /// </summary>
 public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
 {
-<<<<<<< HEAD
+<<<<<<< ours
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
@@ -68,16 +68,45 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
 
         InitializeADT();
         // ADT Mech end
+||||||| base
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
+    [Dependency] private readonly SharedMoverController _mover = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+
+    /// <inheritdoc/>
+    public override void Initialize()
+    {
+        SubscribeLocalEvent<MechComponent, MechToggleEquipmentEvent>(OnToggleEquipmentAction);
+        SubscribeLocalEvent<MechComponent, MechEjectPilotEvent>(OnEjectPilotEvent);
+        SubscribeLocalEvent<MechComponent, UserActivateInWorldEvent>(RelayInteractionEvent);
+        SubscribeLocalEvent<MechComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<MechComponent, DestructionEventArgs>(OnDestruction);
+        SubscribeLocalEvent<MechComponent, EntityStorageIntoContainerAttemptEvent>(OnEntityStorageDump);
+        SubscribeLocalEvent<MechComponent, GetAdditionalAccessEvent>(OnGetAdditionalAccess);
+        SubscribeLocalEvent<MechComponent, DragDropTargetEvent>(OnDragDrop);
+        SubscribeLocalEvent<MechComponent, CanDropTargetEvent>(OnCanDragDrop);
+
+        SubscribeLocalEvent<MechPilotComponent, GetMeleeWeaponEvent>(OnGetMeleeWeapon);
+        SubscribeLocalEvent<MechPilotComponent, CanAttackFromContainerEvent>(OnCanAttackFromContainer);
+        SubscribeLocalEvent<MechPilotComponent, AttackAttemptEvent>(OnAttackAttempt);
+
+        InitializeRelay();
     }
 
-    // ADT Commented
-    // private void OnToggleEquipmentAction(EntityUid uid, MechComponent component, MechToggleEquipmentEvent args)
-    // {
-    //     if (args.Handled)
-    //         return;
-    //     args.Handled = true;
-    //     CycleEquipment(uid);
-    // }
+    private void OnToggleEquipmentAction(EntityUid uid, MechComponent component, MechToggleEquipmentEvent args)
+    {
+        if (args.Handled)
+            return;
+        args.Handled = true;
+        CycleEquipment(uid);
 =======
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private INetManager _net = default!;
@@ -97,10 +126,23 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
             return;
         args.Handled = true;
         CycleEquipment(uid);
+>>>>>>> theirs
     }
->>>>>>> wizards-filtered
 
+<<<<<<< ours
+    // ADT Commented
+    // private void OnToggleEquipmentAction(EntityUid uid, MechComponent component, MechToggleEquipmentEvent args)
+    // {
+    //     if (args.Handled)
+    //         return;
+    //     args.Handled = true;
+    //     CycleEquipment(uid);
+    // }
+
+||||||| base
+=======
     [SubscribeLocalEvent]
+>>>>>>> theirs
     private void OnEjectPilotEvent(EntityUid uid, MechComponent component, MechEjectPilotEvent args)
     {
         if (args.Handled)
@@ -205,11 +247,8 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
     private void RemoveUser(EntityUid mech, EntityUid pilot)
     {
         RemComp<InteractionRelayComponent>(pilot);
-<<<<<<< HEAD
         RemCompDeferred<ProtectedFromStepTriggersComponent>(pilot); // ADT-Tweak
 
-=======
->>>>>>> wizards-filtered
         _actions.RemoveProvidedActions(pilot, mech);
 
         // ADT-Mech-Start
@@ -424,27 +463,7 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
         if (user == null)
             return;
 
-        _userInterface.TryToggleUi(uid, MechUiKey.Key, user.Value);
-        UpdateUserInterface(uid, component);
-    }
-
-<<<<<<< HEAD
-    /// <summary>
-    /// Attempts to eject the current pilot from the mech
-    /// </summary>
-    /// <param name="uid"></param>
-    /// <param name="component"></param>
-    /// <returns>Whether or not the pilot was ejected.</returns>
-    public bool TryEject(EntityUid uid, MechComponent? component = null)
-    {
-        if (!Resolve(uid, ref component))
-            return false;
-
-        if (component.PilotSlot.ContainedEntity == null)
-            return false;
-
-        var pilot = component.PilotSlot.ContainedEntity.Value;
-
+<<<<<<< ours
         RemoveUser(uid, pilot);
         _container.RemoveEntity(uid, pilot);
         UpdateAppearance(uid, component);
@@ -459,30 +478,38 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
         RemComp<ShowHealthBarsComponent>(pilot);
         // ADT Content end
         return true;
+||||||| base
+        RemoveUser(uid, pilot);
+        _container.RemoveEntity(uid, pilot);
+        UpdateAppearance(uid, component);
+        return true;
+=======
+        _userInterface.TryToggleUi(uid, MechUiKey.Key, user.Value);
+        UpdateUserInterface(uid, component);
+>>>>>>> theirs
     }
 
-    private void OnGetMeleeWeapon(EntityUid uid, MechPilotComponent component, GetMeleeWeaponEvent args)
-=======
     [SubscribeLocalEvent]
     private void OnGetMeleeWeapon(Entity<VehicleOperatorComponent> ent, ref GetMeleeWeaponEvent args)
->>>>>>> wizards-filtered
     {
         if (args.Handled)
             return;
 
-<<<<<<< HEAD
+<<<<<<< ours
         // ADT-Mech-Start
         if (HasComp<MechControlLockedComponent>(uid))
             return;
         // ADT-Mech-Start
 
         if (!TryComp<MechComponent>(component.Mech, out var mech))
+||||||| base
+        if (!TryComp<MechComponent>(component.Mech, out var mech))
 =======
         if (ent.Comp.Vehicle is not { } vehicle)
->>>>>>> wizards-filtered
             return;
 
         if (!TryComp<MechComponent>(vehicle, out var mech))
+>>>>>>> theirs
             return;
 
         var weapon = mech.CurrentSelectedEquipment ?? vehicle;
@@ -490,7 +517,7 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
         args.Handled = true;
     }
 
-<<<<<<< HEAD
+<<<<<<< ours
     private void OnCanAttackFromContainer(EntityUid uid, MechPilotComponent component, CanAttackFromContainerEvent args)
     {
         args.CanAttack = !HasComp<MechControlLockedComponent>(uid); // ADT-Mech-Tweak
@@ -510,8 +537,20 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
         // ADT-Mech-End
     }
 
+||||||| base
+    private void OnCanAttackFromContainer(EntityUid uid, MechPilotComponent component, CanAttackFromContainerEvent args)
+    {
+        args.CanAttack = true;
+    }
+
+    private void OnAttackAttempt(EntityUid uid, MechPilotComponent component, AttackAttemptEvent args)
+    {
+        if (args.Target == component.Mech)
+            args.Cancel();
+    }
+
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
     private void UpdateAppearance(EntityUid uid, MechComponent? component = null,
         AppearanceComponent? appearance = null)
     {
@@ -555,16 +594,6 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
         if (args.NewOperator is null && args.OldOperator is not null)
             _userInterface.CloseUi(ent.Owner, MechUiKey.Key);
     }
-<<<<<<< HEAD
-
-    private void OnCanDragDrop(EntityUid uid, MechComponent component, ref CanDropTargetEvent args)
-    {
-        args.Handled = true;
-
-        args.CanDrop |= !component.Broken && CanInsert(uid, args.Dragged, component);
-    }
-=======
->>>>>>> wizards-filtered
 }
 
 /// <summary>

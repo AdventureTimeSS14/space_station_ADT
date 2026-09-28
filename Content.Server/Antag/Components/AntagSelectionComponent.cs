@@ -98,19 +98,7 @@ public enum AntagSelectionTime : byte
     /// <summary>
     /// Antag roles are *never* selected. Instead, this definition only makes ghost roles.
     /// </summary>
-<<<<<<< HEAD
-    [DataField]
-    public int Min = 1;
-
-    /// <summary>
-    /// The maximum number of this antag.
-    /// </summary>
-    [DataField]
-    public int Max = 1;
-
-    /// <summary>
-    /// A range used to randomly select <see cref="Min"/>
-    /// </summary>
+<<<<<<< ours
     [DataField]
     public MinMax? MinRange;
 
@@ -241,7 +229,128 @@ public partial struct BriefingData
     /// </summary>
     [DataField]
     public SoundSpecifier? Sound;
+||||||| base
+    [DataField]
+    public MinMax? MinRange;
+
+    /// <summary>
+    /// A range used to randomly select <see cref="Max"/>
+    /// </summary>
+    [DataField]
+    public MinMax? MaxRange;
+
+    /// <summary>
+    /// a player to antag ratio: used to determine the amount of antags that will be present.
+    /// </summary>
+    [DataField]
+    public int PlayerRatio = 10;
+
+    /// <summary>
+    /// Whether or not players should be picked to inhabit this antag or not.
+    /// If no players are left and <see cref="SpawnerPrototype"/> is set, it will make a ghost role.
+    /// </summary>
+    [DataField]
+    public bool PickPlayer = true;
+
+    /// <summary>
+    /// If true, players that latejoin into a round have a chance of being converted into antagonists.
+    /// </summary>
+    [DataField]
+    public bool LateJoinAdditional = false;
+
+    //todo: find out how to do this with minimal boilerplate: filler department, maybe?
+    //public HashSet<ProtoId<JobPrototype>> JobBlacklist = new()
+
+    /// <remarks>
+    /// Mostly just here for legacy compatibility and reducing boilerplate
+    /// </remarks>
+    [DataField]
+    public bool AllowNonHumans = false;
+
+    /// <summary>
+    /// A whitelist for selecting which players can become this antag.
+    /// </summary>
+    [DataField]
+    public EntityWhitelist? Whitelist;
+
+    /// <summary>
+    /// A blacklist for selecting which players can become this antag.
+    /// </summary>
+    [DataField]
+    public EntityWhitelist? Blacklist;
+
+    /// <summary>
+    /// Components added to the player.
+    /// </summary>
+    [DataField]
+    public ComponentRegistry Components = new();
+
+    /// <summary>
+    /// Components added to the player's mind.
+    /// Do NOT use this to add role-type components. Add those as MindRoles instead
+    /// </summary>
+    [DataField]
+    public ComponentRegistry MindComponents = new();
+
+    /// <summary>
+    /// List of Mind Role Prototypes to be added to the player's mind.
+    /// </summary>
+    [DataField]
+    public List<EntProtoId>? MindRoles;
+
+    /// <summary>
+    /// A set of starting gear that's equipped to the player.
+    /// </summary>
+    [DataField]
+    public ProtoId<StartingGearPrototype>? StartingGear;
+
+    /// <summary>
+    /// A list of role loadouts, from which a randomly selected one will be equipped.
+    /// </summary>
+    [DataField]
+    public List<ProtoId<RoleLoadoutPrototype>>? RoleLoadout;
+
+    /// <summary>
+    /// A briefing shown to the player.
+    /// </summary>
+    [DataField]
+    public BriefingData? Briefing;
+
+    /// <summary>
+    /// A spawner used to defer the selection of this particular definition.
+    /// </summary>
+    /// <remarks>
+    /// Not the cleanest way of doing this code but it's just an odd specific behavior.
+    /// Sue me.
+    /// </remarks>
+    [DataField]
+    public EntProtoId? SpawnerPrototype;
+}
+
+/// <summary>
+/// Contains data used to generate a briefing.
+/// </summary>
+[DataDefinition]
+public partial struct BriefingData
+{
+    /// <summary>
+    /// The text shown
+    /// </summary>
+    [DataField]
+    public LocId? Text;
+
+    /// <summary>
+    /// The color of the text.
+    /// </summary>
+    [DataField]
+    public Color? Color;
+
+    /// <summary>
+    /// The sound played.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier? Sound;
 =======
     Never,
->>>>>>> wizards-filtered
+>>>>>>> theirs
 }

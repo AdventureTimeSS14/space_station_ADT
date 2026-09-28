@@ -41,7 +41,7 @@ namespace Content.Server.Cloning;
 
 public sealed partial class CloningPodSystem : EntitySystem
 {
-<<<<<<< HEAD
+<<<<<<< ours
     [Dependency] private readonly DeviceLinkSystem _signalSystem = default!;
     [Dependency] private readonly IPlayerManager _playerManager = null!;
     [Dependency] private readonly EuiManager _euiManager = null!;
@@ -68,6 +68,28 @@ public sealed partial class CloningPodSystem : EntitySystem
     [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     // ADT-Tweak end
+||||||| base
+    [Dependency] private readonly DeviceLinkSystem _signalSystem = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = null!;
+    [Dependency] private readonly EuiManager _euiManager = null!;
+    [Dependency] private readonly CloningConsoleSystem _cloningConsoleSystem = default!;
+    [Dependency] private readonly ContainerSystem _containerSystem = default!;
+    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
+    [Dependency] private readonly PowerReceiverSystem _powerReceiverSystem = default!;
+    [Dependency] private readonly IRobustRandom _robustRandom = default!;
+    [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
+    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly PuddleSystem _puddleSystem = default!;
+    [Dependency] private readonly ChatSystem _chatSystem = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly IConfigurationManager _configManager = default!;
+    [Dependency] private readonly MaterialStorageSystem _material = default!;
+    [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private readonly SharedMindSystem _mindSystem = default!;
+    [Dependency] private readonly CloningSystem _cloning = default!;
+    [Dependency] private readonly EmagSystem _emag = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
 =======
     [Dependency] private DeviceLinkSystem _signalSystem = default!;
     [Dependency] private IPlayerManager _playerManager = null!;
@@ -90,7 +112,7 @@ public sealed partial class CloningPodSystem : EntitySystem
     [Dependency] private CloningSystem _cloning = default!;
     [Dependency] private EmagSystem _emag = default!;
     [Dependency] private DamageableSystem _damageable = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
     public readonly Dictionary<MindComponent, EntityUid> ClonesWaitingForMind = new();
     public readonly ProtoId<CloningSettingsPrototype> SettingsId = "CloningPod";

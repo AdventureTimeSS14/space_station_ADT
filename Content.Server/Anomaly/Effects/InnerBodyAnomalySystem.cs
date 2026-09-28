@@ -21,7 +21,7 @@ namespace Content.Server.Anomaly.Effects;
 
 public sealed partial class InnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
 {
-<<<<<<< HEAD
+<<<<<<< ours
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
     [Dependency] private readonly AnomalySystem _anomaly = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -35,6 +35,19 @@ public sealed partial class InnerBodyAnomalySystem : SharedInnerBodyAnomalySyste
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IComponentFactory _compFactory = default!; // ADT-tweak
     [Dependency] private readonly StunSystem _stun = default!;
+||||||| base
+    [Dependency] private readonly IAdminLogManager _adminLog = default!;
+    [Dependency] private readonly AnomalySystem _anomaly = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly GibbingSystem _gibbing = default!;
+    [Dependency] private readonly IChatManager _chat = default!;
+    [Dependency] private readonly ISharedPlayerManager _player = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private readonly JitteringSystem _jitter = default!;
+    [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly StunSystem _stun = default!;
 =======
     [Dependency] private IAdminLogManager _adminLog = default!;
     [Dependency] private AnomalySystem _anomaly = default!;
@@ -47,7 +60,7 @@ public sealed partial class InnerBodyAnomalySystem : SharedInnerBodyAnomalySyste
     [Dependency] private MindSystem _mind = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private StunSystem _stun = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
     private readonly Color _messageColor = Color.FromSrgb(new Color(201, 22, 94));
 
@@ -229,7 +242,7 @@ public sealed partial class InnerBodyAnomalySystem : SharedInnerBodyAnomalySyste
         if (!ent.Comp.Injected)
             return;
 
-<<<<<<< HEAD
+<<<<<<< ours
         // ADT-tweak start: Remove only the specific components that were added by the anomaly
         var metadata = MetaData(ent);
         foreach (var reg in ent.Comp.AddedComponentRegistrations)
@@ -239,10 +252,13 @@ public sealed partial class InnerBodyAnomalySystem : SharedInnerBodyAnomalySyste
         }
         ent.Comp.AddedComponentRegistrations.Clear();
         // ADT-tweak end
+||||||| base
+        if (_proto.Resolve(ent.Comp.InjectionProto, out var injectedAnom))
+            EntityManager.RemoveComponents(ent, injectedAnom.Components);
 =======
         if (ProtoMan.Resolve(ent.Comp.InjectionProto, out var injectedAnom))
             EntityManager.RemoveComponents(ent, injectedAnom.Components);
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
         _stun.TryUpdateParalyzeDuration(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration));
 

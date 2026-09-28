@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-﻿- type: entity
-  id: BaseStructureComputer
-  parent: BaseStructure
-=======
 - type: entity
->>>>>>> wizards-filtered
   abstract: true
   parent: BaseStructure
   id: BaseStructureComputerIndestructible

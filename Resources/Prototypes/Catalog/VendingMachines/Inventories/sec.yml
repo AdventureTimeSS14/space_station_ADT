@@ -1,7 +1,7 @@
 - type: vendingMachineInventory
   id: SecTechInventory
   startingInventory:
-<<<<<<< HEAD
+<<<<<<< ours
     ADTVendingCategoryProtection: # ADT-Tweak
         GrenadeFlashBang: 4
         TearGasGrenade: 4
@@ -28,6 +28,27 @@
         ClothingBeltSecurityWebbing: 5
         RadioHandheldSecurity: 5
         ADTClothingNeckBodyCamera: 3 #ADT-tweak
+||||||| base
+    SecurityWhistle: 5
+    Handcuffs: 8
+    GrenadeFlashBang: 4
+    TearGasGrenade: 4
+    ClusterBangFull: 2
+    GrenadeStinger: 4
+    Flash: 5
+    Tourniquet: 5
+    FlashlightSeclite: 5
+    ClothingEyesGlassesSunglasses: 2
+    ClothingEyesHudSecurity: 2
+    ClothingEyesEyepatchHudSecurity: 2
+    ClothingBeltSecurityWebbing: 5
+    CombatKnife: 3
+    Zipties: 12
+    RiotShield: 2
+    RiotLaserShield: 2
+    RiotBulletShield: 2
+    RadioHandheldSecurity: 5
+    Bola: 6
 =======
     SecurityWhistle: 5
     Handcuffs: 8
@@ -49,7 +70,7 @@
     RiotBulletShield: 2
     RadioHandheldSecurity: 5
     SecurityBola: 6
->>>>>>> wizards-filtered
+>>>>>>> theirs
   # security officers need to follow a diet regimen!
   contrabandInventory:
     WeaponMeleeNeedle: 2

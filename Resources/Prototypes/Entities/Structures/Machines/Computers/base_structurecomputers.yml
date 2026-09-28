@@ -60,7 +60,7 @@
         computerLayerKeys:
           True: { visible: true, shader: unshaded }
           False: { visible: true, shader: shaded }
-<<<<<<< HEAD
+<<<<<<< ours
       enum.WiresVisuals.MaintenancePanelState:
         enum.WiresVisualLayers.MaintenancePanel:
           True: { visible: false }
@@ -73,18 +73,25 @@
           East: { state: computer_l, sprite: ADT/Structures/Machines/computers.rsi }
           East, West: { state: computer_l_r, sprite: ADT/Structures/Machines/computers.rsi }
       # ADT-Tweak end
+||||||| base
+      enum.WiresVisuals.MaintenancePanelState:
+        enum.WiresVisualLayers.MaintenancePanel:
+          True: { visible: false }
+          False: { visible: true }
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: LitOnPowered
   - type: PointLight
     radius: 1.5
     energy: 3.0
     enabled: false
-<<<<<<< HEAD
+<<<<<<< ours
     mask: /Textures/ADT/Effects/Lightmasks/circle_c.png # ADT tweak
+||||||| base
+    mask: /Textures/Effects/LightMasks/cone.png
 =======
     lightMask: ConeSingle
->>>>>>> wizards-filtered
+>>>>>>> theirs
     autoRot: true
 #    offset: "0, 0.4" # shine from the top, not bottom of the computer # ADT tweak
     castShadows: false

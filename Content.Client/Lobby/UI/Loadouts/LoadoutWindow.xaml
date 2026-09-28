@@ -1,11 +1,14 @@
 <loadout:BaseLoadoutWindow xmlns="https://spacestation14.io"
          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-<<<<<<< HEAD
+<<<<<<< ours
          xmlns:loadout="clr-namespace:Content.Client.Lobby.UI.Loadouts"
+         xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+||||||| base
+         xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
          xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
 =======
          xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
->>>>>>> wizards-filtered
+>>>>>>> theirs
          SetSize="800 800"
          MinSize="800 128">
     <BoxContainer Orientation="Vertical" VerticalExpand="True">

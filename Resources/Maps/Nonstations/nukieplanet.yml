@@ -9407,12 +9407,14 @@ entities:
     components:
     - type: Transform
       parent: 104
-<<<<<<< HEAD
+<<<<<<< ours
 - proto: EnergyChemDispenserBuffed
+||||||| base
+- proto: ChemDispenser
 =======
       pos: -0.5,-1.5
 - proto: ChemDispenser
->>>>>>> wizards-filtered
+>>>>>>> theirs
   entities:
   - uid: 2539
     components:

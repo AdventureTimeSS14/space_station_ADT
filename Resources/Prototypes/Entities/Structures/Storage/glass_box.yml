@@ -162,11 +162,13 @@
   - type: Climbable
   - type: Damageable
     damageModifierSet: Wood
+<<<<<<< ours
   - type: Injurable
-<<<<<<< HEAD
+||||||| base
 =======
+  - type: Injurable
     damageContainer: StructuralInorganic
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Destructible
     thresholds:
     - trigger:
@@ -209,11 +211,3 @@
           ShardGlassReinforced:
             min: 1
             max: 1
-<<<<<<< HEAD
-          MaterialWoodPlank1:
-            min: 2
-            max: 5
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-=======
->>>>>>> wizards-filtered

@@ -47,7 +47,7 @@
     expectedFaction:
     - Wizard
 
-<<<<<<< HEAD
+<<<<<<< ours
 # ADT: Закомментировано из-за использования генокрада от Goob Station
 # - type: entity
 #   id: StorePresetChangeling
@@ -59,6 +59,17 @@
 #     - ChangelingAbilities
 #     currencyWhitelist:
 #     - ChangelingDNA
+||||||| base
+- type: entity
+  id: StorePresetChangeling
+  abstract: true
+  components:
+  - type: Store
+    name: store-preset-name-changeling
+    categories:
+    - ChangelingAbilities
+    currencyWhitelist:
+    - ChangelingDNA
 =======
 - type: entity
   id: StorePresetChangeling
@@ -72,7 +83,7 @@
     - ChangelingStoreUtility
     currencyWhitelist:
     - ChangelingDNA
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   parent: StorePresetUplink

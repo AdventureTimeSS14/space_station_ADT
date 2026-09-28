@@ -1,19 +1,23 @@
-<<<<<<< HEAD
+<<<<<<< ours
 // ADT: Закомментировано из-за использования генокрада от Goob Station
 // using Content.Shared.Cloning;
 // using Robust.Shared.GameStates;
 // using Robust.Shared.Prototypes;
+||||||| base
+using Content.Shared.Cloning;
+using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 =======
 using Content.Shared.Cloning;
 using Content.Shared.Roles;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 // namespace Content.Shared.Changeling.Components;
 
-<<<<<<< HEAD
+<<<<<<< ours
 // /// <summary>
 // /// The storage component for Changelings, it handles the link between a changeling and its consumed identities
 // /// that exist on a paused map.
@@ -29,22 +33,22 @@ using Robust.Shared.Serialization;
 //     // TODO: This should be handled via a relation system in the future.
 //     [DataField, AutoNetworkedField]
 //     public Dictionary<EntityUid, EntityUid?> ConsumedIdentities = new();
-
-//     /// <summary>
-//     /// The currently assumed identity.
-//     /// </summary>
-//     [DataField, AutoNetworkedField]
-//     public EntityUid? CurrentIdentity;
-
-//     /// <summary>
-//     /// The cloning settings passed to the CloningSystem, contains a list of all components to copy or have handled by their
-//     /// respective systems.
-//     /// </summary>
-//     [DataField]
-//     public ProtoId<CloningSettingsPrototype> IdentityCloningSettings = "ChangelingCloningSettings";
-
-//     public override bool SendOnlyToOwner => true;
-// }
+||||||| base
+/// <summary>
+/// The storage component for Changelings, it handles the link between a changeling and its consumed identities
+/// that exist on a paused map.
+/// </summary>
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(raiseAfterAutoHandleState: true)]
+public sealed partial class ChangelingIdentityComponent : Component
+{
+    /// <summary>
+    /// The list of entities that exist on a paused map. They are paused clones of the victims that the ling has consumed, with all relevant components copied from the original.
+    /// The key is the EntityUid of the stored identity, the value is the original entity the identity came from.
+    /// The value will be set to null if that entity is deleted.
+    /// </summary>
+    // TODO: This should be handled via a relation system in the future.
+    [DataField, AutoNetworkedField]
+    public Dictionary<EntityUid, EntityUid?> ConsumedIdentities = new();
 =======
 /// <summary>
 /// The storage component for Changelings, it handles the link between a changeling and its consumed identities
@@ -63,20 +67,58 @@ public sealed partial class ChangelingIdentityComponent : Component
     /// </remarks>
     [DataField]
     public List<ChangelingIdentityData> ConsumedIdentities = new();
+>>>>>>> theirs
 
+<<<<<<< ours
+//     /// <summary>
+//     /// The currently assumed identity.
+//     /// </summary>
+//     [DataField, AutoNetworkedField]
+//     public EntityUid? CurrentIdentity;
+||||||| base
+    /// <summary>
+    /// The currently assumed identity.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public EntityUid? CurrentIdentity;
+=======
     /// <summary>
     /// The currently assumed identity.
     /// </summary>
     [DataField]
     public EntityUid? CurrentIdentity;
+>>>>>>> theirs
 
+<<<<<<< ours
+//     /// <summary>
+//     /// The cloning settings passed to the CloningSystem, contains a list of all components to copy or have handled by their
+//     /// respective systems.
+//     /// </summary>
+//     [DataField]
+//     public ProtoId<CloningSettingsPrototype> IdentityCloningSettings = "ChangelingCloningSettings";
+||||||| base
+    /// <summary>
+    /// The cloning settings passed to the CloningSystem, contains a list of all components to copy or have handled by their
+    /// respective systems.
+    /// </summary>
+    [DataField]
+    public ProtoId<CloningSettingsPrototype> IdentityCloningSettings = "ChangelingCloningSettings";
+=======
     /// <summary>
     /// The cloning settings to use when cloning a devoured identity to the paused map.
     /// This contains a whitelist of all components that need to be backed up so that the changeling can transform into them later.
     /// </summary>
     [DataField]
     public ProtoId<CloningSettingsPrototype> IdentityCloningSettings = "ChangelingCloningSettings";
+>>>>>>> theirs
 
+<<<<<<< ours
+//     public override bool SendOnlyToOwner => true;
+// }
+||||||| base
+    public override bool SendOnlyToOwner => true;
+}
+=======
     /// <summary>
     /// Maximum number of stored disguises, including the changeling's starting identity.
     /// </summary>
@@ -204,4 +246,4 @@ public sealed partial class ChangelingNetworkedIdentityData
 /// <param name="NewIdentity">Whether this is the first time an identity was gained.</param>
 [ByRefEvent]
 public record struct ChangelingGainedOrUpdatedIdentityEvent(EntityUid Changeling, ChangelingIdentityData Identity, bool NewIdentity);
->>>>>>> wizards-filtered
+>>>>>>> theirs

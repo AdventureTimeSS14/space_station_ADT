@@ -25,26 +25,44 @@ namespace Content.Shared.Implants;
 
 public abstract partial class SharedImplanterSystem : EntitySystem
 {
+<<<<<<< ours
     [Dependency] private DamageableSystem _damageable = default!;
     [Dependency] private EntityWhitelistSystem _whitelist = default!;
     [Dependency] private IGameTiming _timing = default!;
-<<<<<<< HEAD
     [Dependency] private IPrototypeManager _proto = default!;
-=======
->>>>>>> wizards-filtered
     [Dependency] private ItemSlotsSystem _itemSlots = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private SharedContainerSystem _container = default!;
     [Dependency] private SharedDoAfterSystem _doAfter = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
-<<<<<<< HEAD
-=======
-    [Dependency] private ForensicsSystem _forensics = default!;
->>>>>>> wizards-filtered
     [Dependency] private SharedUserInterfaceSystem _ui = default!;
 
     [Dependency] private EntityQuery<SubdermalImplantComponent> _implantCompQuery;
+||||||| base
+    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+    [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+=======
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private ForensicsSystem _forensics = default!;
+    [Dependency] private SharedUserInterfaceSystem _ui = default!;
+
+    [Dependency] private EntityQuery<SubdermalImplantComponent> _implantCompQuery;
+>>>>>>> theirs
 
     public override void Initialize()
     {
@@ -61,6 +79,7 @@ public abstract partial class SharedImplanterSystem : EntitySystem
         SubscribeLocalEvent<ImplanterComponent, UseInHandEvent>(OnUseInHand);
         SubscribeLocalEvent<ImplanterComponent, GetVerbsEvent<InteractionVerb>>(OnVerb);
         SubscribeLocalEvent<ImplanterComponent, DeimplantChangeVerbMessage>(OnSelected);
+<<<<<<< ours
 
         SubscribeLocalEvent<ImplanterComponent, ImplantEvent>(OnImplant);
         SubscribeLocalEvent<ImplanterComponent, DrawEvent>(OnDraw);
@@ -71,11 +90,7 @@ public abstract partial class SharedImplanterSystem : EntitySystem
         if (ent.Comp.Implant != null)
             ent.Comp.ImplanterSlot.StartingItem = ent.Comp.Implant;
 
-<<<<<<< HEAD
         _itemSlots.AddItemSlot(ent, ImplanterComponent.ImplanterSlotId, ent.Comp.ImplanterSlot);
-=======
-        _itemSlots.AddItemSlot(ent.Owner, ImplanterComponent.ImplanterSlotId, ent.Comp.ImplanterSlot);
->>>>>>> wizards-filtered
     }
 
     private void OnMapInit(Entity<ImplanterComponent> ent, ref MapInitEvent args)
@@ -103,10 +118,31 @@ public abstract partial class SharedImplanterSystem : EntitySystem
             return;
 
         args.PushMarkup(Loc.GetString("implanter-contained-implant-text", ("desc", ent.Comp.ImplantData.Item2)));
+||||||| base
+=======
+
+        SubscribeLocalEvent<ImplanterComponent, ImplantEvent>(OnImplant);
+        SubscribeLocalEvent<ImplanterComponent, DrawEvent>(OnDraw);
     }
 
-    private void OnImplanterAfterInteract(Entity<ImplanterComponent> ent, ref AfterInteractEvent args)
+    private void OnComponentInit(Entity<ImplanterComponent> ent, ref ComponentInit args)
     {
+        if (ent.Comp.Implant != null)
+            ent.Comp.ImplanterSlot.StartingItem = ent.Comp.Implant;
+
+        _itemSlots.AddItemSlot(ent.Owner, ImplanterComponent.ImplanterSlotId, ent.Comp.ImplanterSlot);
+>>>>>>> theirs
+    }
+
+<<<<<<< ours
+    private void OnImplanterAfterInteract(Entity<ImplanterComponent> ent, ref AfterInteractEvent args)
+||||||| base
+    private void OnImplanterInit(EntityUid uid, ImplanterComponent component, ComponentInit args)
+=======
+    private void OnMapInit(Entity<ImplanterComponent> ent, ref MapInitEvent args)
+>>>>>>> theirs
+    {
+<<<<<<< ours
         if (args.Target == null || !args.CanReach || args.Handled)
             return;
 
@@ -130,11 +166,144 @@ public abstract partial class SharedImplanterSystem : EntitySystem
                 // show popup to the user saying implant failed
                 var name = Identity.Name(target, EntityManager, args.User);
                 var msg = Loc.GetString("implanter-component-implant-failed", ("implant", implant), ("target", name));
-<<<<<<< HEAD
                 _popup.PopupClient(msg, target, args.User);
+                // prevent further interaction since popup was shown
+                args.Handled = true;
+                return;
+            }
+||||||| base
+        if (component.Implant != null)
+            component.ImplanterSlot.StartingItem = component.Implant;
 =======
+        ent.Comp.DeimplantChosen ??= ent.Comp.DeimplantWhitelist.FirstOrNull();
+        Dirty(ent);
+    }
+>>>>>>> theirs
+
+<<<<<<< ours
+            // Implant self instantly, otherwise try to inject the target.
+            if (args.User == target)
+                Implant(target, target, ent);
+            else
+                TryImplant(ent, args.User, target);
+        }
+
+        args.Handled = true;
+    }
+
+    private void OnVerb(Entity<ImplanterComponent> ent, ref GetVerbsEvent<InteractionVerb> args)
+    {
+        if (!args.CanAccess || !args.CanInteract)
+            return;
+||||||| base
+        _itemSlots.AddItemSlot(uid, ImplanterComponent.ImplanterSlotId, component.ImplanterSlot);
+=======
+    private void OnEntInserted(Entity<ImplanterComponent> ent, ref EntInsertedIntoContainerMessage args)
+    {
+        if (_timing.ApplyingState)
+            return; // Already networked with the same game state.
+>>>>>>> theirs
+
+<<<<<<< ours
+        var user = args.User;
+        if (ent.Comp.CurrentMode == ImplanterToggleMode.Draw)
+        {
+            args.Verbs.Add(new InteractionVerb
+            {
+                Text = Loc.GetString("implanter-set-draw-verb"),
+                Act = () => TryOpenUi(ent.AsNullable(), user)
+            });
+        }
+    }
+||||||| base
+        component.DeimplantChosen ??= component.DeimplantWhitelist.FirstOrNull();
+=======
+        if (args.Container.ID != ImplanterComponent.ImplanterSlotId)
+            return;
+>>>>>>> theirs
+
+<<<<<<< ours
+    private void OnUseInHand(Entity<ImplanterComponent> ent, ref UseInHandEvent args)
+    {
+        if (ent.Comp.CurrentMode == ImplanterToggleMode.Draw)
+            TryOpenUi(ent.AsNullable(), args.User);
+||||||| base
+        Dirty(uid, component);
+=======
+        var implantData = MetaData(args.Entity);
+        ent.Comp.ImplantData = (implantData.EntityName, implantData.EntityDescription);
+        Dirty(ent);
+>>>>>>> theirs
+    }
+
+<<<<<<< ours
+    private void OnSelected(Entity<ImplanterComponent> ent, ref DeimplantChangeVerbMessage args)
+||||||| base
+    private void OnEntInserted(EntityUid uid, ImplanterComponent component, EntInsertedIntoContainerMessage args)
+=======
+    private void OnExamine(Entity<ImplanterComponent> ent, ref ExaminedEvent args)
+>>>>>>> theirs
+    {
+<<<<<<< ours
+        ent.Comp.DeimplantChosen = args.Implant;
+        Dirty(ent);
+        SetSelectedDeimplant(ent.AsNullable(), args.Implant);
+||||||| base
+        var implantData = Comp<MetaDataComponent>(args.Entity);
+        component.ImplantData = (implantData.EntityName, implantData.EntityDescription);
+=======
+        if (!ent.Comp.ImplanterSlot.HasItem || !args.IsInDetailsRange)
+            return;
+
+        args.PushMarkup(Loc.GetString("implanter-contained-implant-text", ("desc", ent.Comp.ImplantData.Item2)));
+>>>>>>> theirs
+    }
+
+<<<<<<< ours
+    private void TryOpenUi(Entity<ImplanterComponent?> ent, EntityUid user)
+||||||| base
+    private void OnExamine(EntityUid uid, ImplanterComponent component, ExaminedEvent args)
+=======
+    private void OnImplanterAfterInteract(Entity<ImplanterComponent> ent, ref AfterInteractEvent args)
+>>>>>>> theirs
+    {
+<<<<<<< ours
+        if (!Resolve(ent, ref ent.Comp))
+||||||| base
+        if (!component.ImplanterSlot.HasItem || !args.IsInDetailsRange)
+=======
+        if (args.Target == null || !args.CanReach || args.Handled)
+            return;
+
+        var target = args.Target.Value;
+        if (!CheckTarget(target, ent.Comp.Whitelist, ent.Comp.Blacklist))
+>>>>>>> theirs
+            return;
+
+<<<<<<< ours
+        _ui.TryToggleUi(ent.Owner, DeimplantUiKey.Key, user);
+        ent.Comp.DeimplantChosen ??= ent.Comp.DeimplantWhitelist.FirstOrNull();
+        Dirty(ent);
+||||||| base
+        args.PushMarkup(Loc.GetString("implanter-contained-implant-text", ("desc", component.ImplantData.Item2)));
+=======
+        // TODO: Rework drawing to work with implant cases when surgery is in
+        if (ent.Comp.CurrentMode == ImplanterToggleMode.Draw && !ent.Comp.ImplantOnly)
+        {
+            TryDraw(ent, args.User, target);
+        }
+        else
+        {
+            if (!CanImplant(args.User, target, ent, out var implant, out _))
+            {
+                // no popup if implant doesn't exist
+                if (implant == null)
+                    return;
+
+                // show popup to the user saying implant failed
+                var name = Identity.Name(target, EntityManager, args.User);
+                var msg = Loc.GetString("implanter-component-implant-failed", ("implant", implant), ("target", name));
                 _popup.PopupEntity(msg, target, args.User);
->>>>>>> wizards-filtered
                 // prevent further interaction since popup was shown
                 args.Handled = true;
                 return;
@@ -148,7 +317,15 @@ public abstract partial class SharedImplanterSystem : EntitySystem
         }
 
         args.Handled = true;
+>>>>>>> theirs
     }
+<<<<<<< ours
+
+    /// <summary>
+    /// Checks if the target already has the same implant prototype implanted.
+    /// </summary>
+||||||| base
+=======
 
     private void OnVerb(Entity<ImplanterComponent> ent, ref GetVerbsEvent<InteractionVerb> args)
     {
@@ -192,6 +369,7 @@ public abstract partial class SharedImplanterSystem : EntitySystem
     /// <summary>
     /// Checks if the target already has the same implant prototype implanted.
     /// </summary>
+>>>>>>> theirs
     public bool CheckSameImplant(EntityUid target, EntityUid implant)
     {
         if (!TryComp<ImplantedComponent>(target, out var implanted))
@@ -216,13 +394,17 @@ public abstract partial class SharedImplanterSystem : EntitySystem
         if (!_doAfter.TryStartDoAfter(args))
             return;
 
-<<<<<<< HEAD
+<<<<<<< ours
         _popup.PopupClient(Loc.GetString("injector-component-needle-injecting-user"), target, user);
-=======
-        _popup.PopupEntity(Loc.GetString("injector-component-needle-injecting-user"), target, user);
->>>>>>> wizards-filtered
 
         if (user != target)
+||||||| base
+        if (component.CurrentMode == ImplanterToggleMode.Draw)
+=======
+        _popup.PopupEntity(Loc.GetString("injector-component-needle-injecting-user"), target, user);
+
+        if (user != target)
+>>>>>>> theirs
         {
             var userName = Identity.Entity(user, EntityManager);
             _popup.PopupEntity(Loc.GetString("implanter-component-implanting-target", ("user", userName)), user, target);
@@ -245,17 +427,26 @@ public abstract partial class SharedImplanterSystem : EntitySystem
         if (!_doAfter.TryStartDoAfter(args))
             return;
 
-<<<<<<< HEAD
+<<<<<<< ours
         _popup.PopupClient(Loc.GetString("injector-component-needle-injecting-user"), target, user);
-=======
-        _popup.PopupEntity(Loc.GetString("injector-component-needle-injecting-user"), target, user);
->>>>>>> wizards-filtered
 
         if (user != target)
         {
             var userName = Identity.Entity(user, EntityManager);
             _popup.PopupEntity(Loc.GetString("implanter-component-draw-target", ("user", userName)), user, target);
         }
+||||||| base
+        if (component.CurrentMode == ImplanterToggleMode.Draw)
+            TryOpenUi(uid, args.User, component);
+=======
+        _popup.PopupEntity(Loc.GetString("injector-component-needle-injecting-user"), target, user);
+
+        if (user != target)
+        {
+            var userName = Identity.Entity(user, EntityManager);
+            _popup.PopupEntity(Loc.GetString("implanter-component-draw-target", ("user", userName)), user, target);
+        }
+>>>>>>> theirs
     }
 
     private void OnImplant(Entity<ImplanterComponent> ent, ref ImplantEvent args)
@@ -311,12 +502,15 @@ public abstract partial class SharedImplanterSystem : EntitySystem
         else
             ImplantMode(ent);
 
-<<<<<<< HEAD
+<<<<<<< ours
         var ev = new TransferDnaEvent { Donor = target, Recipient = ent.Owner };
+        RaiseLocalEvent(target, ref ev);
+||||||| base
+        var ev = new TransferDnaEvent { Donor = target, Recipient = implanter };
         RaiseLocalEvent(target, ref ev);
 =======
         _forensics.TransferDna(ent, target);
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
         Dirty(ent);
     }
@@ -453,11 +647,7 @@ public abstract partial class SharedImplanterSystem : EntitySystem
         var failedPermanentMessage = Loc.GetString("implanter-draw-failed-permanent",
             ("implant", implantName),
             ("target", targetName));
-<<<<<<< HEAD
         _popup.PopupClient(failedPermanentMessage, target, user);
-=======
-        _popup.PopupEntity(failedPermanentMessage, target, user);
->>>>>>> wizards-filtered
     }
 
     /// <summary>
@@ -479,12 +669,15 @@ public abstract partial class SharedImplanterSystem : EntitySystem
         _damageable.TryChangeDamage(user, ent.Comp.DeimplantFailureDamage, ignoreResistances: true, origin: ent.Owner);
         var userName = Identity.Entity(user, EntityManager);
         var failedCatastrophicallyMessage = Loc.GetString("implanter-draw-failed-catastrophically", ("user", userName));
-<<<<<<< HEAD
+<<<<<<< ours
         _popup.PopupPredicted(failedCatastrophicallyMessage, user, user, PopupType.MediumCaution);
+        _audio.PlayPredicted(ent.Comp.ImplanterDrawFailSound, ent, user);
+||||||| base
+        _popup.PopupEntity(failedCatastrophicallyMessage, user, PopupType.MediumCaution);
 =======
         _popup.PopupEntity(failedCatastrophicallyMessage, user, user, PopupType.MediumCaution);
->>>>>>> wizards-filtered
         _audio.PlayPredicted(ent.Comp.ImplanterDrawFailSound, ent, user);
+>>>>>>> theirs
     }
 
     /// <summary>
@@ -539,12 +732,16 @@ public abstract partial class SharedImplanterSystem : EntitySystem
         if (!Resolve(ent, ref ent.Comp, false))
             return;
 
-<<<<<<< HEAD
+<<<<<<< ours
         if (implant != null && _proto.TryIndex<EntityPrototype>(implant, out var proto)) // TODO: Why???
+            ent.Comp.DeimplantChosen = proto;
+||||||| base
+        if (implant != null && _proto.TryIndex(implant, out EntityPrototype? proto))
+            component.DeimplantChosen = proto;
 =======
         if (implant != null && ProtoMan.TryIndex<EntityPrototype>(implant, out var proto)) // TODO: Why???
->>>>>>> wizards-filtered
             ent.Comp.DeimplantChosen = proto;
+>>>>>>> theirs
 
         UpdateUi(ent!);
         Dirty(ent);

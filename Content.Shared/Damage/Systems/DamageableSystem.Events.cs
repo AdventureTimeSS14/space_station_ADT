@@ -189,13 +189,17 @@ public sealed partial class DamageableSystem
     {
         args.State = new DamageableComponentState(
             _netMan.IsServer ? ent.Comp.Damage : ent.Comp.Damage.Clone(),
-<<<<<<< HEAD
+<<<<<<< ours
             _netMan.IsServer ? ent.Comp.DamagePerGroup : new Dictionary<ProtoId<DamageGroupPrototype>, FixedPoint2>(), // ADT-Tweak
             ent.Comp.DamageModifierSetId
+||||||| base
+            ent.Comp.DamageContainerID,
+            ent.Comp.DamageModifierSetId,
+            ent.Comp.HealthBarThreshold
 =======
             ent.Comp.DamageModifierSetId,
             ent.Comp.Displacement
->>>>>>> wizards-filtered
+>>>>>>> theirs
         );
     }
 
@@ -205,10 +209,12 @@ public sealed partial class DamageableSystem
             return;
 
         ent.Comp.DamageModifierSetId = state.ModifierSetId;
-<<<<<<< HEAD
+<<<<<<< ours
+||||||| base
+        ent.Comp.HealthBarThreshold = state.HealthBarThreshold;
 =======
         ent.Comp.Displacement = state.Displacement;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
         // Has the damage actually changed?
         var newDamage = state.Damage.Clone();

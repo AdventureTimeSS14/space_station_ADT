@@ -2,11 +2,13 @@ using Content.Shared.ADT.CCVar;
 using Content.Client.Popups;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.RCD;
-<<<<<<< HEAD
+<<<<<<< ours
+||||||| base
+using Content.Shared.RCD.Components;
 =======
 using Content.Shared.RCD.Components;
 using Content.Shared.RCD.Systems;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 using JetBrains.Annotations;
 using Content.Shared.RCD.Components;
 using Robust.Client.Graphics;
@@ -40,15 +42,19 @@ public sealed partial class RCDMenuBoundUserInterface : BoundUserInterface
             ["Lighting"] = ("rcd-component-lighting", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RCD/lighting.png"))),
         };
 
-<<<<<<< HEAD
+<<<<<<< ours
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
     [Dependency] private readonly IInputManager _inputManager = default!; // ADT Radial menu settings
     [Dependency] private readonly IClyde _displayManager = default!; // ADT Radial menu settings
     [Dependency] private readonly IConfigurationManager _cfg = default!; // ADT Radial menu settings
 
+||||||| base
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
+
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
     private SimpleRadialMenu? _menu;
 
     public RCDMenuBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
@@ -157,7 +163,7 @@ public sealed partial class RCDMenuBoundUserInterface : BoundUserInterface
 
     private string GetTooltip(RCDPrototype proto)
     {
-<<<<<<< HEAD
+<<<<<<< ours
         string tooltip;
 
         if (proto.Mode is RcdMode.ConstructTile or RcdMode.ConstructObject
@@ -171,9 +177,23 @@ public sealed partial class RCDMenuBoundUserInterface : BoundUserInterface
             tooltip = Loc.GetString(proto.SetName);
         }
 
+||||||| base
+        string tooltip;
+
+        if (proto.Mode is RcdMode.ConstructTile or RcdMode.ConstructObject
+            && proto.Prototype != null
+            && _prototypeManager.TryIndex(proto.Prototype, out var entProto)) // don't use Resolve because this can be a tile
+        {
+            tooltip = Loc.GetString(entProto.Name);
+        }
+        else
+        {
+            tooltip = Loc.GetString(proto.SetName);
+        }
+
 =======
         var tooltip = _rcd.GetPrototypeName(proto);
->>>>>>> wizards-filtered
+>>>>>>> theirs
         tooltip = OopsConcat(char.ToUpper(tooltip[0]).ToString(), tooltip.Remove(0, 1));
 
         return tooltip;

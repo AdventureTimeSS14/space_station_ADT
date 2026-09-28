@@ -35,11 +35,18 @@
   name: ice bucket
   description: A special bucket of refreshy ice. Prohibited use for challenge with the same name!
   components:
-<<<<<<< HEAD
+<<<<<<< ours
   # ADT-Tweak-Start
   - type: Item
     size: Normal
   # ADT-Tweak-End
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: Ice
+          Quantity: 200
+||||||| base
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -54,7 +61,7 @@
       reagents:
       - ReagentId: Ice
         Quantity: 240
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Sprite
     sprite: Objects/Consumable/Drinks/icebucket.rsi
     state: icon

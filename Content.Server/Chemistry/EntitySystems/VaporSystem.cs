@@ -37,7 +37,7 @@ namespace Content.Server.Chemistry.EntitySystems
 
         private void HandleCollide(Entity<VaporComponent> entity, ref StartCollideEvent args)
         {
-<<<<<<< HEAD
+<<<<<<< ours
             if (!TryComp(entity.Owner, out SolutionContainerManagerComponent? contents)) return;
 
             foreach (var (_, soln) in _solutionContainerSystem.EnumerateSolutions((entity.Owner, contents)))
@@ -55,10 +55,18 @@ namespace Content.Server.Chemistry.EntitySystems
                 }
                 // ADT-Tweak end
             }
+||||||| base
+            if (!TryComp(entity.Owner, out SolutionContainerManagerComponent? contents)) return;
+
+            foreach (var (_, soln) in _solutionContainerSystem.EnumerateSolutions((entity.Owner, contents)))
+            {
+                var solution = soln.Comp.Solution;
+                _reactive.DoEntityReaction(args.OtherEntity, solution, ReactionMethod.Touch);
+            }
 =======
             var solution = Comp<SolutionComponent>(entity).Solution;
             _reactive.DoEntityReaction(args.OtherEntity, solution, ReactionMethod.Touch);
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
             // ADT-Tweak-Start
             var power = 7;

@@ -88,7 +88,7 @@ public sealed partial class EmitterComponent : Component
     /// </summary>
     [DataField]
     public Dictionary<ProtoId<SinkPortPrototype>, EntProtoId> SetTypePorts = new();
-<<<<<<< HEAD
+<<<<<<< ours
 
     /// <summary>
     /// The radio channel to broadcast on when something happens to this emitter
@@ -130,8 +130,45 @@ public sealed partial class EmitterComponent : Component
     [DataField]
     public float FireRateMultiplier = 1f;
     // ADT-Tweak-End
+||||||| base
+
+    /// <summary>
+    /// The radio channel to broadcast on when something happens to this emitter
+    /// </summary>
+    [DataField]
+    public ProtoId<RadioChannelPrototype> RadioChannel = "Engineering";
+
+    /// <summary>
+    /// Whether a radio channel should be alerted if anything happens to this emitter (i.e. emitters near singularity/tesla containment)
+    /// </summary>
+    [DataField]
+    public bool AlertRadio = false;
+
+    /// <summary>
+    /// Localized string to use when this emitter is destroyed and AlertRadio is set to true
+    /// </summary>
+    [DataField]
+    public LocId LocDestroyed = "emitter-destroyed-broadcast";
+
+    /// <summary>
+    /// Localized string to use when this emitter is deconstructed and AlertRadio is set to true
+    /// </summary>
+    [DataField]
+    public LocId LocDeconstructed = "emitter-deconstructed-broadcast";
+
+    /// <summary>
+    /// Localized string to use when this emitter is unlocked and AlertRadio is set to true
+    /// </summary>
+    [DataField]
+    public LocId LocUnlocked = "emitter-unlocked-broadcast";
+
+    /// <summary>
+    /// Localized string to use when this emitter is unpowered and AlertRadio is set to true
+    /// </summary>
+    [DataField]
+    public LocId LocUnpowered = "emitter-unpowered-broadcast";
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
 }
 
 [NetSerializable, Serializable]

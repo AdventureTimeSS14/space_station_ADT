@@ -19,7 +19,7 @@ namespace Content.Shared.Abilities.Mime;
 
 public sealed partial class MimePowersSystem : EntitySystem
 {
-<<<<<<< HEAD
+<<<<<<< ours
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly AlertsSystem _alertsSystem = default!;
@@ -28,6 +28,14 @@ public sealed partial class MimePowersSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
+||||||| base
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
+    [Dependency] private readonly AlertsSystem _alertsSystem = default!;
+    [Dependency] private readonly TurfSystem _turf = default!;
+    [Dependency] private readonly IMapManager _mapMan = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 =======
     public static readonly EntProtoId MutedEffect = "StatusEffectMimeMuted";
 
@@ -38,7 +46,7 @@ public sealed partial class MimePowersSystem : EntitySystem
     [Dependency] private TurfSystem _turf = default!;
     [Dependency] private SharedContainerSystem _container = default!;
     [Dependency] private IGameTiming _timing = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
     public override void Initialize()
     {
@@ -107,13 +115,16 @@ public sealed partial class MimePowersSystem : EntitySystem
         var xform = Transform(ent);
         // Get the tile in front of the mime
         var offsetValue = xform.LocalRotation.ToWorldVec();
-<<<<<<< HEAD
+<<<<<<< ours
         var directionPos = xform.Coordinates.Offset(offsetValue).SnapToGrid(EntityManager, _mapMan); //ADT-Tweak
         var tile = _turf.GetTileRef(directionPos);
+||||||| base
+        var coords = xform.Coordinates.Offset(offsetValue).SnapToGrid(EntityManager, _mapMan);
+        var tile = _turf.GetTileRef(coords);
 =======
         var coords = xform.Coordinates.Offset(offsetValue).SnapToGrid(EntityManager);
         var tile = _turf.GetTileRef(coords);
->>>>>>> wizards-filtered
+>>>>>>> theirs
         if (tile == null)
             return;
 

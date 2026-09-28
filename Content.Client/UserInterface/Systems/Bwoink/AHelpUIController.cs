@@ -491,12 +491,14 @@ public sealed class AdminAHelpUIHandler : IAHelpUIHandler
         if (_activePanelMap.TryGetValue(channelId, out var existingPanel))
             return existingPanel;
 
-<<<<<<< HEAD
+<<<<<<< ours
         _activePanelMap[channelId] = existingPanel = new BwoinkPanel(text => SendMessageAction?.Invoke(channelId, text, Window?.Bwoink.PlaySound.Pressed ?? true, Window?.Bwoink.AdminOnly.Pressed ?? false),
         isUserAHelp: false); // ADT-Tweak. Система тегов в АХелп, добавлено isUserAHelp: false
+||||||| base
+        _activePanelMap[channelId] = existingPanel = new BwoinkPanel(text => SendMessageAction?.Invoke(channelId, text, Window?.Bwoink.PlaySound.Pressed ?? true, Window?.Bwoink.AdminOnly.Pressed ?? false));
 =======
         _activePanelMap[channelId] = existingPanel = new BwoinkPanel(text => SendMessageAction?.Invoke(channelId, text, Control?.PlaySound.Pressed ?? true, Control?.AdminOnly.Pressed ?? false));
->>>>>>> wizards-filtered
+>>>>>>> theirs
         existingPanel.InputTextChanged += text => InputTextChanged?.Invoke(channelId, text);
         existingPanel.Visible = false;
         if (!Control!.BwoinkArea.Children.Contains(existingPanel))
@@ -599,14 +601,17 @@ public sealed class UserAHelpUIHandler : IAHelpUIHandler
     private bool EnsureInit(bool relayActive)
     {
         if (_window is { Disposed: false })
-<<<<<<< HEAD
+<<<<<<< ours
             return;
         _chatPanel = new BwoinkPanel(text => SendMessageAction?.Invoke(_ownerId, text, true, false),
         isUserAHelp: true); // ADT-Tweak. Система тегов в АХелп, добавлено isUserAHelp: true
+||||||| base
+            return;
+        _chatPanel = new BwoinkPanel(text => SendMessageAction?.Invoke(_ownerId, text, true, false));
 =======
             return false;
         _chatPanel = new BwoinkPanel(text => SendMessageAction?.Invoke(_ownerId, text, true, false));
->>>>>>> wizards-filtered
+>>>>>>> theirs
         _chatPanel.InputTextChanged += text => InputTextChanged?.Invoke(_ownerId, text);
         _chatPanel.RelayedToDiscordLabel.Visible = relayActive;
         _window = new DefaultWindow()

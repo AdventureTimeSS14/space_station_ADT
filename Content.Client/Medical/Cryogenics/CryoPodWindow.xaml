@@ -2,12 +2,15 @@
                xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
                xmlns:health="clr-namespace:Content.Client.HealthAnalyzer.UI"
                xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
-<<<<<<< HEAD
+<<<<<<< ours
                xmlns:cryogenics="clr-namespace:Content.Client.Medical.Cryogenics"
                MinSize="320 300"
+||||||| base
+               xmlns:cryogenics="clr-namespace:Content.Client.Medical.Cryogenics"
+               MinSize="250 300"
 =======
                MinSize="250 300"
->>>>>>> wizards-filtered
+>>>>>>> theirs
                Resizable="False">
 
     <Label Name="LoadingPlaceHolder"

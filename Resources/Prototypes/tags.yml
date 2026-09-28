@@ -1485,13 +1485,16 @@
   id: TrashBag # Storage whitelist: BoxTrashbag, ClothingBeltJanitor, JanitorialTrolley. ItemMapper: JanitorialTrolley
 
 - type: Tag
-<<<<<<< HEAD
+<<<<<<< ours
   id: TrashBagBlue # Storage whitelist: BoxTrashbag
-=======
-  id: TrashBagHolding # Storage whitelist: BoxTrashbag, ClothingBeltJanitor, JanitorialTrolley. ItemMapper: JanitorialTrolley
->>>>>>> wizards-filtered
 
 - type: Tag
+||||||| base
+=======
+  id: TrashBagHolding # Storage whitelist: BoxTrashbag, ClothingBeltJanitor, JanitorialTrolley. ItemMapper: JanitorialTrolley
+
+- type: Tag
+>>>>>>> theirs
   id: Truncheon # Storage whitelist: ClothingBeltSecurity
 
 - type: Tag

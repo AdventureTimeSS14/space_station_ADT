@@ -102,9 +102,10 @@
     price: 100
   - type: Appearance
   - type: WiresVisuals
-<<<<<<< HEAD
+<<<<<<< ours
   - type: RadioJobIconOverride # ADT-Tweak
     iconId: JobIconMachine
+||||||| base
 =======
   - type: VendingMachineEject
   - type: VendingMachineDispenseOnHit
@@ -120,7 +121,7 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   id: VendingMachineWallmount
@@ -264,12 +265,14 @@
     pack: BoozeOMatInventory
   - type: VendingMachineVisuals
     denyState: deny-unshaded
-<<<<<<< HEAD
+<<<<<<< ours
     loopDeny: false
     allForFree: true # ADT-Economy
+||||||| base
+    loopDeny: false
 =======
     loopDenyAnimation: false
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: DatasetVocalizer
     dataset: BoozeOMatAds
   - type: SpeakOnUIClosed
@@ -301,12 +304,14 @@
     pack: BoozeOMatInventory
   - type: VendingMachineVisuals
     denyState: deny-unshaded
-<<<<<<< HEAD
+<<<<<<< ours
     allForFree: true # ADT-Economy
+    loopDeny: false
+||||||| base
     loopDeny: false
 =======
     loopDenyAnimation: false
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: DatasetVocalizer
     dataset: BruiseOMatAds
   - type: SpeakOnUIClosed
@@ -822,13 +827,17 @@
   components:
   - type: VendingMachine
     pack: MagiVendInventory
-<<<<<<< HEAD
+<<<<<<< ours
     offState: off
     brokenState: broken
     normalState: normal-unshaded
     allForFree: true # ADT-Economy
+||||||| base
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: DatasetVocalizer
     dataset: MagiVendAds
   - type: SpeakOnUIClosed
@@ -919,11 +928,13 @@
     offState: off-civilian
     ejectState: eject-unshaded
     denyState: deny-unshaded
-<<<<<<< HEAD
+<<<<<<< ours
     ejectDelay: 0.6
     allForFree: true # ADT-Economy
+||||||| base
+    ejectDelay: 0.6
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: DatasetVocalizer
     dataset: NanoMedAds
   - type: SpeakOnUIClosed
@@ -1909,13 +1920,17 @@
   components:
   - type: VendingMachine
     pack: SyndieDrobeInventory
-<<<<<<< HEAD
+<<<<<<< ours
     offState: off
     brokenState: broken
     normalState: normal-unshaded
     allForFree: true # ADT-Economy
+||||||| base
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: DatasetVocalizer
     dataset: SyndieDrobeAds
   - type: SpeakOnUIClosed
@@ -2149,11 +2164,13 @@
   - type: VendingMachineVisuals
     normalState: normal
     denyState: deny
-<<<<<<< HEAD
+<<<<<<< ours
     ejectDelay: 2
     allForFree: true # ADT-Economy
+||||||| base
+    ejectDelay: 2
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/chemvend.rsi
     layers:
@@ -2184,11 +2201,13 @@
   - type: VendingMachineVisuals
     normalState: normal
     denyState: deny
-<<<<<<< HEAD
+<<<<<<< ours
     ejectDelay: 2
     allForFree: true # ADT-Economy
+||||||| base
+    ejectDelay: 2
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: AccessReader
     access: [["SyndicateAgent"]]
 

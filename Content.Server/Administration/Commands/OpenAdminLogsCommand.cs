@@ -24,7 +24,7 @@ public sealed partial class OpenAdminLogsCommand : LocalizedEntityCommands
             return;
         }
 
-<<<<<<< HEAD
+<<<<<<< ours
         var ui = new AdminLogsEui();
         _euiManager.OpenEui(ui, player);
 
@@ -36,6 +36,9 @@ public sealed partial class OpenAdminLogsCommand : LocalizedEntityCommands
                 ui.SetLogFilter(selectedPlayers: [playerData.UserId.UserId]);
         }
         // ADT-Tweak-End
+||||||| base
+        var ui = new AdminLogsEui();
+        _euiManager.OpenEui(ui, player);
 =======
         Guid? player = null;
 
@@ -66,6 +69,6 @@ public sealed partial class OpenAdminLogsCommand : LocalizedEntityCommands
 
         var options = _players.Sessions.Select(c => c.Name).OrderBy(c => c).ToArray();
         return CompletionResult.FromHintOptions(options, Loc.GetString("cmd-admin-logs-hint"));
->>>>>>> wizards-filtered
+>>>>>>> theirs
     }
 }

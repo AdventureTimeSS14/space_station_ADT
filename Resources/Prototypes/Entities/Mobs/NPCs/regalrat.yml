@@ -124,21 +124,20 @@
     attributes:
       proper: true
       gender: male
-  - type: GuideHelp
-    guides:
-    - MinorAntagonists
-<<<<<<< HEAD
-  - type: Grammar
-    attributes:
-      gender: male
+<<<<<<< ours
   - type: Sharp
   - type: TTS # Corvax-TTS
     voice: dude
   - type: GrabProtection #ADT tweak
+||||||| base
+  - type: Sharp
 =======
+  - type: GuideHelp
+    guides:
+    - MinorAntagonists
   - type: Tool
     qualities: [ Slicing ]
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   id: MobRatKingBuff

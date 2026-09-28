@@ -10,24 +10,22 @@ using Content.Shared.Tag;
 using Content.Shared.Verbs;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
-<<<<<<< HEAD
-using Robust.Shared.Prototypes;
-
-=======
->>>>>>> wizards-filtered
 namespace Content.Server.Storage.EntitySystems;
 
 public sealed partial class StorageSystem : SharedStorageSystem
 {
-<<<<<<< HEAD
+<<<<<<< ours
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     // ADT-TWeak Start
     [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     // ADT-TWeak End
 
+||||||| base
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
+
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
     public override void Initialize()
     {
         base.Initialize();

@@ -266,13 +266,18 @@
         Base: dead-0
       Dead:
         Base: dead-0
-<<<<<<< HEAD
+<<<<<<< ours
+||||||| base
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatChicken
+      amount: 1
 =======
   - type: ToolRefinable
     refineResult:
     - id: FoodMeatChicken
       amount: 1
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: InteractionPopup
     successChance: 0.8
     interactSuccessString: petting-success-bird
@@ -285,10 +290,15 @@
       reagents:
       - ReagentId: Blood
         Quantity: 100
-<<<<<<< HEAD
+<<<<<<< ours
   - type: EggLayer
     eggSpawn:
     - id: ADTFoodEggLaid # ADT: FoodEgg<ADTFoodEggLaid
+  - type: ExaminableHunger
+||||||| base
+  - type: EggLayer
+    eggSpawn:
+    - id: FoodEgg
   - type: ExaminableHunger
 =======
   - type: EntityProducerAction
@@ -307,7 +317,7 @@
   - type: ActionGrant
     actions:
     - ActionAnimalLayEgg
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: ReplacementAccent
     accent: chicken
   - type: SentienceTarget
@@ -459,7 +469,7 @@
     tags:
     - Trash
     - VimPilot
-<<<<<<< HEAD
+<<<<<<< ours
   # ADT-Tweak
   - type: MobCollision
     enabled: false
@@ -472,8 +482,18 @@
   #     behaviors:
   #     - !type:GibBehavior { }
   # ADT-Tweak
+||||||| base
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 10
+      behaviors:
+      - !type:GibBehavior
+        recursive: false
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: NonSpreaderZombie
   - type: StepTrigger
     requiredTriggeredSpeed: 1
@@ -663,16 +683,21 @@
   - type: ZombieAccentOverride
     accent: zombieMoth
   - type: Vocal
-<<<<<<< HEAD
+<<<<<<< ours
     sounds:
       # Start-ADT Tweak Нианы
       Male: MaleMoth
       Female: FemaleMoth
       Unsexed: MaleMoth
       # End-ADT Tweak Нианы
+||||||| base
+    sounds:
+      Male: UnisexMoth
+      Female: UnisexMoth
+      Unsexed: UnisexMoth
 =======
     emoteSounds: UnisexMoth
->>>>>>> wizards-filtered
+>>>>>>> theirs
     wilhelmProbability: 0.001
   - type: BodyEmotes
     soundsId: MothBodyEmotes
@@ -811,10 +836,15 @@
       reagents:
       - ReagentId: Blood
         Quantity: 100
-<<<<<<< HEAD
+<<<<<<< ours
   - type: EggLayer
     eggSpawn:
     - id: ADTFoodEggLaid # ADT: FoodEgg<ADTFoodEggLaid
+  - type: ExaminableHunger
+||||||| base
+  - type: EggLayer
+    eggSpawn:
+    - id: FoodEgg
   - type: ExaminableHunger
 =======
   - type: EntityProducerAction
@@ -833,7 +863,7 @@
   - type: ActionGrant
     actions:
     - ActionAnimalLayEgg
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: ReplacementAccent
     accent: duck
   - type: SentienceTarget
@@ -1018,7 +1048,7 @@
         Base: dead
   - type: SolutionManager
     solutions:
-<<<<<<< HEAD
+<<<<<<< ours
       udder:
         maxVol: 250
         reagents:
@@ -1039,6 +1069,19 @@
   - type: ExaminableHunger
   - type: Butcherable
     spawned:
+||||||| base
+      udder:
+        maxVol: 250
+        reagents:
+        - ReagentId: Milk
+          Quantity: 30
+  - type: Udder
+    reagentId: Milk
+    quantityPerUpdate: 25
+    growthDelay: 30
+  - type: ExaminableHunger
+  - type: Butcherable
+    spawned:
 =======
     - SolutionUdder
   - type: HarvestableSolution
@@ -1048,7 +1091,7 @@
     successMessage: udder-system-success
   - type: ToolRefinable
     refineResult:
->>>>>>> wizards-filtered
+>>>>>>> theirs
     - id: FoodMeat
       amount: 5
   - type: Grammar
@@ -1214,7 +1257,7 @@
         Base: dead
   - type: SolutionManager
     solutions:
-<<<<<<< HEAD
+<<<<<<< ours
       udder:
         maxVol: 250
         reagents:
@@ -1236,6 +1279,20 @@
     growthDelay: 20
   - type: ExaminableHunger
   - type: Wooly
+||||||| base
+      udder:
+        maxVol: 250
+        reagents:
+        - ReagentId: MilkGoat
+          Quantity: 30
+      wool:
+        maxVol: 250
+  - type: Udder
+    reagentId: MilkGoat
+    quantityPerUpdate: 25
+    growthDelay: 20
+  - type: ExaminableHunger
+  - type: Wooly
 =======
     - SolutionUdderGoat
     - SolutionWool
@@ -1244,7 +1301,7 @@
     verbText: udder-system-verb-milk
     emptyMessage: udder-system-dry
     successMessage: udder-system-success
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Edible
     destroyOnEmpty: false
     solution: wool
@@ -1908,7 +1965,7 @@
     description: ghost-role-information-monkey-description
     rules: ghost-role-information-nonantagonist-rules
   - type: GhostTakeoverAvailable
-<<<<<<< HEAD
+<<<<<<< ours
   # ADT-Tweak start
   - type: VentCrawler
     allowInventory: false
@@ -1925,11 +1982,24 @@
     clumsySound:
       path: /Audio/Animals/monkey_scream.ogg
 
+||||||| base
+  - type: Clumsy
+    gunShootFailDamage:
+      types:
+        Blunt: 5
+        Piercing: 4
+        Heat: 3
+    catchingFailDamage:
+      types:
+        Blunt: 1
+    clumsySound:
+      path: /Audio/Animals/monkey_scream.ogg
+
 =======
   - type: PermanentStatusEffects
     statusEffects:
     - StatusEffectClumsyMonkey
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   name: monkey
@@ -2105,7 +2175,7 @@
   parent: MobBaseKobold
   description: Cousins to the sentient race of lizard people, kobolds blend in with their natural habitat and are as nasty as monkeys; ready to pull out your hair and stab you to death.
   components:
-<<<<<<< HEAD
+<<<<<<< ours
   - type: Clumsy
     gunShootFailDamage:
       types:
@@ -2121,11 +2191,23 @@
   - type: VentCrawler
     allowInventory: false
   # ADT-Tweak end
+||||||| base
+  - type: Clumsy
+    gunShootFailDamage:
+      types:
+        Blunt: 2
+        Piercing: 7
+        Heat: 3
+    catchingFailDamage:
+      types:
+        Blunt: 1
+    clumsySound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
 =======
   - type: PermanentStatusEffects
     statusEffects:
     - StatusEffectClumsyKobold
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   id: MobBaseSyndicateKobold
@@ -2174,11 +2256,15 @@
 
 - type: entity
   name: mouse
-<<<<<<< HEAD
+<<<<<<< ours
   parent: [ SimpleMobBase, BaseMobAnimal ]
+||||||| base
+  parent:
+  - SimpleMobBase
+  - BaseMobAnimal
 =======
   parent: [SimpleMobBase, BaseMobAnimal, SolutionVermin, BaseSlicingRefinable, MobNightVision]
->>>>>>> wizards-filtered
+>>>>>>> theirs
   id: MobMouse
   description: Squeak!
   components:
@@ -3552,14 +3638,20 @@
         Quantity: 150
   - type: Damageable
     damageModifierSet: Infernal
+<<<<<<< ours
   - type: Injurable
     damageContainer: BiologicalMetaphysical
-<<<<<<< HEAD
+  - type: Temperature
+    currentTemperature: 310.15
+    specificHeat: 42
+||||||| base
   - type: Temperature
     currentTemperature: 310.15
     specificHeat: 42
 =======
->>>>>>> wizards-filtered
+  - type: Injurable
+    damageContainer: BiologicalMetaphysical
+>>>>>>> theirs
   - type: TemperatureDamage
     heatDamageThreshold: 4000 #They come from hell, so..
     coldDamageThreshold: 260
@@ -3778,13 +3870,15 @@
     tags:
       - DoorBumpOpener
   - type: MovementAlwaysTouching
-<<<<<<< HEAD
+<<<<<<< ours
   - type: SpecialPressureImmunity
+||||||| base
+  - type: PressureImmunity
 =======
   - type: PermanentStatusEffects
     statusEffects:
     - StatusEffectPressureImmunity
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: ProtectedFromStepTriggers
   - type: Insulated
   - type: InteractionPopup

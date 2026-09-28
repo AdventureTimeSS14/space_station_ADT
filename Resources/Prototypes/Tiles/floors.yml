@@ -810,15 +810,22 @@
   parent: BaseStationTile
   name: tiles-white-shuttle-floor
   sprite: /Textures/Tiles/shuttlewhite.png
-<<<<<<< HEAD
+<<<<<<< ours
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepFloor
+||||||| base
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
 =======
   variants: 4
->>>>>>> wizards-filtered
+>>>>>>> theirs
   itemDrop: FloorTileItemShuttleWhite
 
 - type: tile
@@ -826,15 +833,22 @@
   parent: BaseStationTile
   name: tiles-grey-shuttle-floor
   sprite: /Textures/Tiles/shuttlegrey.png
-<<<<<<< HEAD
+<<<<<<< ours
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepFloor
+||||||| base
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
 =======
   variants: 4
->>>>>>> wizards-filtered
+>>>>>>> theirs
   itemDrop: FloorTileItemShuttleGrey
 
 - type: tile
@@ -842,15 +856,22 @@
   parent: BaseStationTile
   name: tiles-black-shuttle-floor
   sprite: /Textures/Tiles/shuttleblack.png
-<<<<<<< HEAD
+<<<<<<< ours
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepFloor
+||||||| base
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
 =======
   variants: 4
->>>>>>> wizards-filtered
+>>>>>>> theirs
   itemDrop: FloorTileItemShuttleBlack
 
 - type: tile
@@ -858,15 +879,22 @@
   parent: BaseStationTile
   name: tiles-blue-shuttle-floor
   sprite: /Textures/Tiles/shuttleblue.png
-<<<<<<< HEAD
+<<<<<<< ours
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepFloor
+||||||| base
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
 =======
   variants: 4
->>>>>>> wizards-filtered
+>>>>>>> theirs
   itemDrop: FloorTileItemShuttleBlue
 
 - type: tile
@@ -874,15 +902,22 @@
   parent: BaseStationTile
   name: tiles-orange-shuttle-floor
   sprite: /Textures/Tiles/shuttleorange.png
-<<<<<<< HEAD
+<<<<<<< ours
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepFloor
+||||||| base
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
 =======
   variants: 4
->>>>>>> wizards-filtered
+>>>>>>> theirs
   itemDrop: FloorTileItemShuttleOrange
 
 - type: tile
@@ -890,15 +925,22 @@
   parent: BaseStationTile
   name: tiles-purple-shuttle-floor
   sprite: /Textures/Tiles/shuttlepurple.png
-<<<<<<< HEAD
+<<<<<<< ours
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepFloor
+||||||| base
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
 =======
   variants: 4
->>>>>>> wizards-filtered
+>>>>>>> theirs
   itemDrop: FloorTileItemShuttlePurple
 
 - type: tile
@@ -906,15 +948,22 @@
   parent: BaseStationTile
   name: tiles-red-shuttle-floor
   sprite: /Textures/Tiles/shuttlered.png
-<<<<<<< HEAD
+<<<<<<< ours
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepFloor
+||||||| base
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
 =======
   variants: 4
->>>>>>> wizards-filtered
+>>>>>>> theirs
   itemDrop: FloorTileItemShuttleRed
 
 
@@ -1425,7 +1474,7 @@
   parent: [ BaseStationTile, FloorGrass ]
   id: FloorMowedAstroGrass
   name: tiles-mowed-astro-grass
-<<<<<<< HEAD
+<<<<<<< ours
   sprite: /Textures/Corvax/Tiles/mowed_grass.png #Corvax
   variants: 4
   placementVariants:
@@ -1436,10 +1485,13 @@
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Cutting ]
+||||||| base
+  isSubfloor: false
+  deconstructTools: [ Cutting ]
 =======
   footstepSounds:
     collection: FootstepGrass
->>>>>>> wizards-filtered
+>>>>>>> theirs
   itemDrop: FloorTileItemMowedAstroGrass
   weather: false # Corvax
 

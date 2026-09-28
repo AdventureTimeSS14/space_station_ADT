@@ -7,7 +7,7 @@
   startingGear: DeathSquadGear
   icon: "ADTJobIconDeathSquad" #ADT-Tweak
   supervisors: job-supervisors-centcom
-<<<<<<< HEAD
+<<<<<<< ours
   canBeAntag: false
   requirements:
   - !type:OverallPlaytimeRequirement
@@ -15,8 +15,10 @@
   - !type:DepartmentTimeRequirement
     department: Security
     time: 40h # adt tweak
+||||||| base
+  canBeAntag: false
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
   accessGroups:
   - AllAccess
   access:

@@ -1,11 +1,13 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-<<<<<<< HEAD
+<<<<<<< ours
     "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/1592a112e3d33eec4a0704b518a138d5a976f455. Dog states modified from base states by Sparlight (GitHub).",
+||||||| base
+    "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/1592a112e3d33eec4a0704b518a138d5a976f455.",
 =======
     "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/1592a112e3d33eec4a0704b518a138d5a976f455. Integrity stages by Princess-Cheeseballs (Github)",
->>>>>>> wizards-filtered
+>>>>>>> theirs
     "size": {
         "x": 32,
         "y": 32
@@ -92,16 +94,19 @@
                     0.2
                 ]
             ]
+<<<<<<< ours
         },
         {
-<<<<<<< HEAD
             "name": "equipped-SUITSTORAGE-dog",
             "directions": 4
         },
         {
             "name": "on-equipped-SUITSTORAGE-dog",
             "directions": 4
+||||||| base
 =======
+        },
+        {
             "name": "mask"
         },
         {
@@ -118,7 +123,7 @@
         },
         {
             "name": "integrity-unshaded-4"
->>>>>>> wizards-filtered
+>>>>>>> theirs
         }
     ]
 }

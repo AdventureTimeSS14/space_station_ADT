@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-﻿- type: entity
-=======
 - type: entity
   abstract: true
->>>>>>> wizards-filtered
   parent: [ BaseStructureDynamic, BasePaperLabelableVisualized ]
   id: BaseCrate
   name: crate
@@ -77,7 +73,7 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
-<<<<<<< HEAD
+<<<<<<< ours
   - type: EntityStorageVisuals
     stateDoorOpen: open
     stateDoorClosed: closed
@@ -109,8 +105,18 @@
       paper_label: !type:ContainerSlot
   - type: StaticPrice
     price: 75
+||||||| base
+  - type: EntityStorageVisuals
+    stateDoorOpen: open
+    stateDoorClosed: closed
+  - type: ContainerContainer
+    containers:
+      entity_storage: !type:Container
+      paper_label: !type:ContainerSlot
+  - type: StaticPrice
+    price: 75
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Construction
     graph: CrateGenericSteel
     node: crategenericsteel
@@ -153,7 +159,7 @@
       offset: "-0.5,0"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: Damageable
-<<<<<<< HEAD
+<<<<<<< ours
     damageModifierSet: Metallic #ADT_Tweak - чтобы их можно было в принципе сломать ломиком
   - type: Injurable
     damageContainer: StructuralInorganic
@@ -168,9 +174,23 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
+||||||| base
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
 =======
     damageModifierSet: StructuralMetallic
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Construction
     graph: CrateSecure
     node: cratesecure

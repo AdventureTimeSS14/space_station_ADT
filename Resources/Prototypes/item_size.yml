@@ -45,8 +45,8 @@
   name: item-component-size-Ginormous
   defaultShape:
   - 0,0,5,5
+<<<<<<< ours
 
-<<<<<<< HEAD
 # ADT-Tweak-Start
 - type: itemSize
   id: SpecialCanister
@@ -55,7 +55,9 @@
   defaultShape:
   - 0,0,1,1
 # ADT-Tweak-Start
+||||||| base
 =======
+
 # Picture furry gf
 - type: itemSize
   id: Colossal
@@ -63,4 +65,4 @@
   name: item-component-size-Colossal
   defaultShape:
   - 0,0,6,5
->>>>>>> wizards-filtered
+>>>>>>> theirs

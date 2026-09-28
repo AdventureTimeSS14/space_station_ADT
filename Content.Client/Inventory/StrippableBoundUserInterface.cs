@@ -118,14 +118,9 @@ namespace Content.Client.Inventory
 
             _strippingMenu = this.CreateWindowCenteredLeft<StrippingMenu>();
             _strippingMenu.OnDirty += UpdateMenu;
-<<<<<<< HEAD
             _strippingMenu.Title = Loc.GetString("strippable-bound-user-interface-stripping-menu-title", ("ownerName", Identity.Name(Owner, EntMan)));
 
             _strippingMenu?.OpenCenteredAt(new Vector2(0.25f, 0.25f)); // ADT tweak
-=======
-            _strippingMenu.Title = Loc.GetString("strippable-bound-user-interface-stripping-menu-title",
-                ("ownerName", Identity.Name(Owner, EntMan)));
->>>>>>> wizards-filtered
         }
 
         protected override void Dispose(bool disposing)

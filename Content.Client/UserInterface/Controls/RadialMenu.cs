@@ -247,16 +247,20 @@ public abstract class RadialMenuButtonBase : BaseButton
     /// <inheritdoc />
     protected override void KeyBindUp(GUIBoundKeyEventArgs args)
     {
-<<<<<<< HEAD
+<<<<<<< ours
         // ADT-Tweak-Start
         if (args.Function == EngineKeyFunctions.UIClick
             || args.Function == ContentKeyFunctions.AltActivateItemInWorld
             || (args.Function == EngineKeyFunctions.UIRightClick && AllowRightClick))
         // ADT-Tweak-End
         {
+||||||| base
+        if (args.Function == EngineKeyFunctions.UIClick
+            || args.Function == ContentKeyFunctions.AltActivateItemInWorld)
+        {
 =======
         if (args.Function.IsClickOrAltClick())
->>>>>>> wizards-filtered
+>>>>>>> theirs
             base.KeyBindUp(args);
     }
 

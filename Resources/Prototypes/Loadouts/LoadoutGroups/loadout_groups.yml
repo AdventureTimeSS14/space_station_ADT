@@ -27,7 +27,7 @@
   - CigPackBlack
   - CigarCase
   - CigarGold
-<<<<<<< HEAD
+<<<<<<< ours
   #ADT-tweak-start
   # - ClothingNeckLGBTPin
   # - ClothingNeckAromanticPin
@@ -102,18 +102,28 @@
   - ADTFlowerWreath2
   - ADTFlowerWreath3
   - ADTFlowerWreath4
-  - OffsetCane
-  - OffsetCaneWood
-  # ADT-Tweak-End
-
-- type: loadoutGroup
-  id: Glasses
-  name: loadout-group-glasses
-  minLimit: 0
-  loadouts:
-  - Glasses
-  - GlassesJamjar
-  - GlassesJensen
+||||||| base
+  - BoxFolderBaseThreePapers
+  - BoxFolderPlasticClipboardThreePapers
+  - BoxFolderClipboardThreePapers
+  - ClothingNeckLGBTPin
+  - ClothingNeckAllyPin
+  - ClothingNeckAromanticPin
+  - ClothingNeckAsexualPin
+  - ClothingNeckAroacePin
+  - ClothingNeckBisexualPin
+  - ClothingNeckGayPin
+  - ClothingNeckIntersexPin
+  - ClothingNeckLesbianPin
+  - ClothingNeckNonBinaryPin
+  - ClothingNeckPansexualPin
+  - ClothingNeckPluralPin
+  - ClothingNeckOmnisexualPin
+  - ClothingNeckGenderqueerPin
+  - ClothingNeckGenderfluidPin
+  - ClothingNeckTransPin
+  - ClothingNeckAutismPin
+  - ClothingNeckGoldAutismPin
 =======
   - BoxFolderBaseThreePapers
   - BoxFolderPlasticClipboardThreePapers
@@ -144,13 +154,41 @@
   minLimit: 0
   maxLimit: 1 # Increase this limit in the future once there's more assistive items than just canes!
   loadouts:
+>>>>>>> theirs
   - OffsetCane
   - OffsetCaneWood
+<<<<<<< ours
+  # ADT-Tweak-End
+
+- type: loadoutGroup
+  id: Glasses
+  name: loadout-group-glasses
+  minLimit: 0
+  loadouts:
+  - Glasses
+  - GlassesJamjar
+  - GlassesJensen
+||||||| base
   - OffsetCaneClown
   - OffsetCaneMime
   - OffsetCaneNT
   - Cane
->>>>>>> wizards-filtered
+  - TowelColorWhite
+
+- type: loadoutGroup
+  id: Glasses
+  name: loadout-group-glasses
+  minLimit: 0
+  loadouts:
+  - Glasses
+  - GlassesJamjar
+  - GlassesJensen
+=======
+  - OffsetCaneClown
+  - OffsetCaneMime
+  - OffsetCaneNT
+  - Cane
+>>>>>>> theirs
 
 - type: loadoutGroup
   id: GroupTankHarness
@@ -826,7 +864,7 @@
   - MimeSuspendersRed
   - MimeSuspendersBlack
 
-<<<<<<< HEAD
+<<<<<<< ours
 - type: loadoutGroup
   id: SurvivalMime
   name: loadout-group-survival-mime
@@ -842,8 +880,20 @@
   # ADT-Loadout-Species-End
   - LoadoutSpeciesVoxNitrogen
 
+||||||| base
+- type: loadoutGroup
+  id: SurvivalMime
+  name: loadout-group-survival-mime
+  minLimit: 2
+  hidden: true
+  loadouts:
+  - EmergencyNitrogenMime
+  - EmergencyOxygenMime
+  - EmergencySpeciesMothMime
+  - LoadoutSpeciesVoxNitrogen
+
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
 #- type: loadoutGroup
 #  id: MimeJobTrinkets
 #  name: loadout-group-jobtrinkets
@@ -1668,16 +1718,17 @@
   - DetectiveArmorVest
   - DetectiveCoat
   - DetectiveCoatGrey
-<<<<<<< HEAD
+<<<<<<< ours
   # ADT-Loadouts-Start
   - ADTDetectiveCoatDark
   - ADTDetectiveCoatOld
   - DetectiveCoatInvestigator
   - ADTArmorVestHidden
   # ADT-Loadouts-End
+||||||| base
 =======
   - SecurityOfficerWintercoat
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: loadoutGroup
   id: DetectiveJobTrinkets
@@ -1778,11 +1829,6 @@
 #  minLimit: 0
 #  loadouts:
 
-<<<<<<< HEAD
-# Other
-
-=======
->>>>>>> wizards-filtered
 - type: loadoutGroup
   id: TramDriverJumpsuit
   name: loadout-group-tramdriver-jumpsuit

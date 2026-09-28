@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: [BaseMob, StripableInventoryBase]
   id: BaseBorgChassisNotIonStormable
   name: cyborg
@@ -163,12 +163,14 @@
     emoteSounds: UnisexSilicon
     wilhelmProbability: 0
   - type: DamagedSiliconAccent
-<<<<<<< HEAD
+<<<<<<< ours
 # ADT borgs start
+||||||| base
+  - type: UnblockableSpeech
 =======
     damageAtMaxCorruption: 300
   - type: UnblockableSpeech
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepBorg
@@ -203,11 +205,13 @@
     # ADT-Tweak-End
   - type: LockedWiresPanel
   - type: Damageable
-<<<<<<< HEAD
+<<<<<<< ours
     damageModifierSet: ADTBorgChassis # ADT-Tweak
-=======
->>>>>>> wizards-filtered
   - type: Injurable
+||||||| base
+=======
+  - type: Injurable
+>>>>>>> theirs
     damageContainer: Silicon
   - type: HandheldLight
     toggleOnInteract: false
@@ -237,11 +241,13 @@
       isLooped: true
   - type: PointLight
     enabled: false
-<<<<<<< HEAD
+<<<<<<< ours
     mask: /Textures/ADT/Effects/Lightmasks/cone_composed_b.png # ADT tweak
+||||||| base
+    mask: /Textures/Effects/LightMasks/cone.png
 =======
     lightMask: ConeSingle
->>>>>>> wizards-filtered
+>>>>>>> theirs
     autoRot: true
     radius: 9 # ADT tweak 3 > 9
     netsync: false
@@ -283,9 +289,10 @@
   id: BaseBorgChassis
   components:
   - type: IonStormTarget
-<<<<<<< HEAD
+<<<<<<< ours
   - type: RadioJobIconOverride # ADT-Tweak
     iconId: JobIconBorg
+||||||| base
 =======
   - type: Destructible
     generateOverkillThreshold: false
@@ -313,7 +320,7 @@
         - cell_slot
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   abstract: true

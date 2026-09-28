@@ -150,14 +150,7 @@
   parent: [ StatusEffectWoozy, StatusEffectSlurred, StatusEffectClumsyDrunk ]
   id: StatusEffectDrunk
   name: drunk
-<<<<<<< HEAD
-=======
-  components:
-  - type: ExaminableStatusEffect
-    messageId: status-effect-examine-drunk
-  - type: StatusEffectAlert
-    alert: DrunkAlert
->>>>>>> wizards-filtered
+<<<<<<< ours
 
 # Prevents the target from seeing
 - type: entity
@@ -170,9 +163,26 @@
       components:
       - MobState
       - Blindable
-<<<<<<< HEAD
   - type: BlindnessStatusEffect
+||||||| base
 =======
+  components:
+  - type: ExaminableStatusEffect
+    messageId: status-effect-examine-drunk
+  - type: StatusEffectAlert
+    alert: DrunkAlert
+
+# Prevents the target from seeing
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: StatusEffectBlindness
+  name: temporary blindness
+  components:
+  - type: StatusEffect
+    whitelist:
+      components:
+      - MobState
+      - Blindable
       requireAll: true
   - type: BlindnessStatusEffect
   - type: ExaminableStatusEffect
@@ -191,4 +201,4 @@
       - Blindable
       requireAll: true
   - type: FlashedStatusEffect
->>>>>>> wizards-filtered
+>>>>>>> theirs

@@ -1,11 +1,13 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-<<<<<<< HEAD
+<<<<<<< ours
   "copyright": "Made by brainfood1183 (Github) for Space Station 14",
+||||||| base
+  "copyright": "Made by brainfood1183 (Github) for Space Station 14 and modified by Flareguy",
 =======
   "copyright": "Made by brainfood1183 (Github) for Space Station 14 and modified by Flareguy. Revamped by AftrLite.",
->>>>>>> wizards-filtered
+>>>>>>> theirs
   "size": {
     "x": 32,
     "y": 32

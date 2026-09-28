@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-﻿# When adding new food also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\food_meal.yml
-=======
 # When adding new food also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\food_meal.yml
 # This is actually soups AND salads. Wild.
->>>>>>> wizards-filtered
 
 - type: entity
   abstract: true
@@ -233,7 +229,7 @@
     layers:
     - state: bowl
     - state: caesar
-<<<<<<< HEAD
+<<<<<<< ours
   - type: SolutionContainerManager
     solutions:
       food:
@@ -247,6 +243,16 @@
     tags:
     - ADTMothFriendlyFood
     - Soup
+||||||| base
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 15
+        - ReagentId: Vitamin
+          Quantity: 30
 =======
   - type: Solution
     solution:
@@ -259,7 +265,7 @@
         Quantity: 5
       - ReagentId: Allicin
         Quantity: 1
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   name: kimchi salad
@@ -577,7 +583,7 @@
     layers:
     - state: bowl
     - state: oatmeal
-<<<<<<< HEAD
+<<<<<<< ours
   - type: SolutionContainerManager
     solutions:
       food:
@@ -593,8 +599,20 @@
     tags:
     - ADTMothFriendlyFood
     - Soup
+||||||| base
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 7
+        - ReagentId: Vitamin
+          Quantity: 2
+        - ReagentId: Milk
+          Quantity: 10
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   name: space liberty duff
@@ -1026,7 +1044,7 @@
     - state: bowl2
     - state: miso
         #rip milo
-<<<<<<< HEAD
+<<<<<<< ours
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1038,8 +1056,20 @@
             Quantity: 3
           - ReagentId: Water
             Quantity: 10
+||||||| base
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 40
+        reagents:
+          - ReagentId: Nutriment
+            Quantity: 9
+          - ReagentId: Vitamin
+            Quantity: 3
+          - ReagentId: Water
+            Quantity: 10
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Tag
     tags:
     - Meat

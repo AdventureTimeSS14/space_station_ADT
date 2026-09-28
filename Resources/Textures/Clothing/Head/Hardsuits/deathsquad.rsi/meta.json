@@ -1,5 +1,5 @@
 {
-<<<<<<< HEAD
+<<<<<<< ours
   "version": 1,
   "license": "CC-BY-SA-3.0",
   "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/4f6190e2895e09116663ef282d3ce1d8b35c032e, edited by Emisse for SS14. Vox state by Flareguy for SS14. Vulpkanin states by TiniestShark (Github)",
@@ -11,7 +11,27 @@
   "states": [
     {
       "name": "icon"
+||||||| base
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/4f6190e2895e09116663ef282d3ce1d8b35c032e, edited by Emisse for SS14. Vox state by Flareguy for SS14. Vulpkanin states by TiniestShark (Github)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+=======
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/4f6190e2895e09116663ef282d3ce1d8b35c032e, edited by Emisse for SS14. Vox state by Flareguy for SS14. Vulpkanin & Unshaded states by TiniestShark (Github)",
+    "size": {
+        "x": 32,
+        "y": 32
+>>>>>>> theirs
     },
+<<<<<<< ours
     {
       "name": "icon-flash"
     },
@@ -36,14 +56,21 @@
       "directions": 4
     }
   ]
-=======
-    "version": 1,
-    "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/4f6190e2895e09116663ef282d3ce1d8b35c032e, edited by Emisse for SS14. Vox state by Flareguy for SS14. Vulpkanin & Unshaded states by TiniestShark (Github)",
-    "size": {
-        "x": 32,
-        "y": 32
+||||||| base
+    {
+      "name": "equipped-HELMET",
+      "directions": 4
     },
+    {
+      "name": "equipped-HELMET-vox",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HELMET-vulpkanin",
+      "directions": 4
+    }
+  ]
+=======
     "states": [
         {
             "name": "icon"
@@ -76,5 +103,5 @@
             "directions": 4
         }
     ]
->>>>>>> wizards-filtered
+>>>>>>> theirs
 }

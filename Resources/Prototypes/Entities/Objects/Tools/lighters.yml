@@ -41,13 +41,6 @@
     radius: 1.1 #smallest possible
     color: orange
   - type: ItemTogglePointLight
-  # ADT Tweak Start
-  - type: StaticPrice
-    price: 80
-  - type: Tag
-    tags:
-    - ADTLighter
-  # ADT Tweak END
   - type: PhysicalComposition
 
 - type: entity
@@ -105,6 +98,69 @@
         shader: unshaded
   - type: Item
     sprite: Objects/Tools/Lighters/lighters.rsi
+<<<<<<< ours
+  - type: UseDelay
+  - type: RefillableSolution
+    solution: Welder
+  - type: SolutionContainerManager
+    solutions:
+      Welder:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 8
+        maxVol: 8 #uses less fuel than a welder, so this isnt as bad as it looks
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    damage:
+      types:
+        Blunt: 0
+  - type: Welder
+    fuelConsumption: 0.01
+    fuelLitCost: 0.1
+    tankSafe: true
+  - type: PointLight
+    enabled: false
+    netsync: false
+    radius: 1.1 #smallest possible
+    color: orange
+  - type: ItemTogglePointLight
+  # ADT Tweak Start
+  - type: StaticPrice
+    price: 80
+  - type: Tag
+    tags:
+    - ADTLighter
+  # ADT Tweak END
+  - type: PhysicalComposition
+||||||| base
+  - type: UseDelay
+  - type: RefillableSolution
+    solution: Welder
+  - type: SolutionContainerManager
+    solutions:
+      Welder:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 8
+        maxVol: 8 #uses less fuel than a welder, so this isnt as bad as it looks
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    damage:
+      types:
+        Blunt: 0
+  - type: Welder
+    fuelConsumption: 0.01
+    fuelLitCost: 0.1
+    tankSafe: true
+  - type: PointLight
+    enabled: false
+    netsync: false
+    radius: 1.1 #smallest possible
+    color: orange
+  - type: ItemTogglePointLight
+  - type: PhysicalComposition
+=======
+>>>>>>> theirs
 
 - type: entity
   parent: Lighter
@@ -127,7 +183,7 @@
     available:
       - skin:
           cheap_icon_base: Rainbow
-<<<<<<< HEAD
+<<<<<<< ours
   - type: SolutionContainerManager
     solutions:
       Welder:
@@ -139,11 +195,19 @@
   - type: StaticPrice
     price: 40
   # ADT Tweak END
+||||||| base
+  - type: SolutionContainerManager
+    solutions:
+      Welder:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 4
+        maxVol: 4 #uses less fuel than a welder, so this isnt as bad as it looks
 =======
   - type: Welder
     fuelConsumption: 0.02
     fuelLitCost: 0.2
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   parent: [ SolutionLighter, BaseLighter ]
@@ -177,6 +241,30 @@
       - state: inhand-right-flame
         shader: unshaded
   - type: PointLight
+<<<<<<< ours
+    enabled: false
+    netsync: false
+    radius: 1.2 #slightly stronger than the other lighters
+    color: orange
+  - type: ItemTogglePointLight
+  - type: UseDelay
+  - type: IgnitionSource
+    ignited: false
+  # ADT Tweak Start
+  - type: Tag
+    tags:
+    - ADTLighter
+  # ADT Tweak END
+||||||| base
+    enabled: false
+    netsync: false
+    radius: 1.2 #slightly stronger than the other lighters
+    color: orange
+  - type: ItemTogglePointLight
+  - type: UseDelay
+  - type: IgnitionSource
+    ignited: false
+=======
     radius: 1.5
     color: yellow
   - type: ComponentToggler
@@ -185,6 +273,7 @@
       damage:
         types:
           Heat: 2
+>>>>>>> theirs
 
 ## Flippos
 
@@ -273,28 +362,6 @@
       right:
       - state: zippo-inhand-right-flame
         shader: unshaded
-<<<<<<< HEAD
-  - type: MeleeWeapon
-    wideAnimationRotation: 180
-    damage:
-      types:
-        Blunt: 1 # does a little bit of damage on hit when off
-  - type: PointLight
-    enabled: false
-    netsync: false
-    radius: 1.2 #slightly stronger than the other lighters
-    color: orange
-  - type: ItemTogglePointLight
-  - type: UseDelay
-  - type: IgnitionSource
-    ignited: false
-  # ADT Tweak Start
-  - type: Tag
-    tags:
-    - ADTLighter
-  # ADT Tweak END
-=======
->>>>>>> wizards-filtered
 
 - type: entity
   parent: FlippoLighter
@@ -417,8 +484,19 @@
     fuelReagent: Plasma
   - type: PointLight
     radius: 4 #Excessively powerful
-<<<<<<< HEAD
+<<<<<<< ours
     color: "#7FFFD4"
+  - type: RefillableSolution
+    solution: Welder
+  - type: SolutionContainerManager
+    solutions:
+      Welder:
+        reagents:
+        - ReagentId: Plasma
+          Quantity: 999
+        maxVol: 999
+||||||| base
+    color: Gold
   - type: RefillableSolution
     solution: Welder
   - type: SolutionContainerManager
@@ -430,7 +508,7 @@
         maxVol: 999
 =======
     color: Gold
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Tool
     useSound:
       collection: Welder

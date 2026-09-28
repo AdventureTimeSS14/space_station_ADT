@@ -29,12 +29,15 @@ public sealed class PrototypeSaveTest : GameTest
     {
         // The only prototypes that should get ignored are those that REQUIRE setup to get a sprite. At that point it is
         // the responsibility of the spawner to ensure that a valid sprite is set.
+<<<<<<< ours
         "VirtualItem",
-<<<<<<< HEAD
         "HandPlaceholder" // ADT
+||||||| base
+        "VirtualItem"
 =======
+        "VirtualItem",
         "DetachedBody"
->>>>>>> wizards-filtered
+>>>>>>> theirs
     };
 
     [Test]

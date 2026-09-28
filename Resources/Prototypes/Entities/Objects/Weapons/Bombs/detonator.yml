@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-﻿- type: entity
-  parent: [ BaseItem, BaseSecurityContraband ]
-=======
 - type: entity
   parent: [ BaseItem, BaseItemDestructible, BaseSecurityContraband ]
->>>>>>> wizards-filtered
   id: EmptyDetonator
   name: detonator cap
   description: A detonator cap. Requires a trigger and wire.
@@ -20,11 +15,14 @@
   - type: Construction
     graph: DetonatorGraph
     node: emptyDetonator
-<<<<<<< HEAD
+<<<<<<< ours
+  - type: Damageable
+  - type: Injurable
+||||||| base
   - type: Damageable
 =======
->>>>>>> wizards-filtered
   - type: Injurable
+>>>>>>> theirs
     damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:

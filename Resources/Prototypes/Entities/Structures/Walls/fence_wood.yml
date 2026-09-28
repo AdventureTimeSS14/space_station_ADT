@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-﻿- type: entity
-=======
 - type: entity
   abstract: true
->>>>>>> wizards-filtered
   parent: BaseStructure
   id: BaseFenceWood
   name: wooden fence
@@ -446,10 +442,6 @@
       path: /Audio/Effects/door_close.ogg
   - type: Construction
     graph: FenceWood
-<<<<<<< HEAD
-    node: gate_small
-=======
     node: gate_small
 
 #endregion
->>>>>>> wizards-filtered

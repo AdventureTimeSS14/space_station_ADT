@@ -27,9 +27,9 @@
         },
         {
             "name": "folder-stamp-inverse"
+<<<<<<< ours
         },
         {
-<<<<<<< HEAD
             "name": "folder-valentine-white"
         },
         {
@@ -40,14 +40,17 @@
         },
         {
             "name": "folder-valentine-red-overlay-paper"
+||||||| base
 =======
+        },
+        {
             "name": "inhand-left",
             "directions": 4
         },
         {
             "name": "inhand-right",
             "directions": 4
->>>>>>> wizards-filtered
+>>>>>>> theirs
         }
     ]
 }

@@ -7,7 +7,7 @@
   Они являются катализаторами хаоса, конфликтов и тайн на Космической Станции 14, а также представляют собой вызов для Nanotrasen и её [color=#cb0000]службы безопасности[/color].
   Вы можете ожидать, что они будут действовать в нарушение Космического Закона, и им часто ставятся задачи, включающие кражу, скрытность и убийства.
 
-<<<<<<< HEAD
+<<<<<<< ours
   Эти недобросовестные деятели чаще всего наняты или поддерживаются [color=#ff0000]Синдикатом[/color], конкурирующей организацией с Nanotrasen, которая хочет лишь одного — увидеть её уничтоженной.
 
   ## Различные антагонисты
@@ -19,6 +19,16 @@
   - [textlink="Космические ниндзя" link="SpaceNinja"], мастера шпионажа и саботажа с особым снаряжением.
   - [textlink="Зомби" link="Zombies"], которые жаждут плоти каждого члена экипажа и существа на борту.
   - [textlink="Различные негуманоидные существа" link="MinorAntagonists"], которые обычно атакуют всё, что движется.
+||||||| base
+  ## Various Antagonists
+  Antagonists can take many forms, like:
+  - [textlink="Traitors" link="Traitors"] amongst the crew who must assassinate, steal and deceive.
+  - [textlink="Thieves" link="Thieves"] driven by kleptomania, determined to get their fix using their special tools.
+  - [textlink="Revolutionaries" link="Revolutionaries"] who are intent on taking control of the station from the inside.
+  - [textlink="Nuclear operatives" link="Nuclear Operatives"], with the goal of infiltrating and destroying the station.
+  - [textlink="Space Ninjas" link="SpaceNinja"], masters of espionage and sabotage with special gear.
+  - [textlink="Zombies" link="Zombies"] that crave the flesh of every crew member and creature on board.
+  - [textlink="Various non-humanoid creatures" link="MinorAntagonists"] that generally attack anything that moves.
 =======
   ## Various Antagonists
   Antagonists can take many forms, like:
@@ -30,5 +40,5 @@
   - [textlink="Space Ninjas" link="SpaceNinja"], masters of espionage and sabotage with special gear.
   - [textlink="Zombies" link="Zombies"] that crave the flesh of every crew member and creature on board.
   - [textlink="Various non-humanoid creatures" link="MinorAntagonists"] that generally attack anything that moves.
->>>>>>> wizards-filtered
+>>>>>>> theirs
 </Document>

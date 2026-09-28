@@ -9,12 +9,15 @@ namespace Content.Client.Overlays;
 
 public sealed partial class StencilOverlay
 {
-<<<<<<< HEAD
+<<<<<<< ours
     private List<Entity<MapGridComponent>> _grids = new();
     private readonly Dictionary<EntityUid, Vector2> _weatherOffsets = new(); // ADT-Tweak
 
+||||||| base
+    private List<Entity<MapGridComponent>> _grids = new();
+
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
     private void DrawWeather(
         in OverlayDrawArgs args,
         HashSet<Entity<WeatherStatusEffectComponent, StatusEffectComponent>> weathers)
@@ -58,13 +61,19 @@ public sealed partial class StencilOverlay
 
         worldHandle.SetTransform(Matrix3x2.Identity);
         worldHandle.UseShader(_protoManager.Index(StencilMask).Instance());
-<<<<<<< HEAD
+<<<<<<< ours
         worldHandle.DrawTextureRect(res.Blep!.Texture, worldBounds);
+
+||||||| base
+        worldHandle.DrawTextureRect(res.Blep!.Texture, worldBounds);
+        var curTime = _timing.RealTime;
+
+
 =======
         worldHandle.DrawTextureRect(stencil.Texture, worldBounds);
         var curTime = _timing.RealTime;
->>>>>>> wizards-filtered
 
+>>>>>>> theirs
         foreach (var (uid, weather, status) in weathers)
         {
             var alpha = _weather.GetWeatherPercent((uid, status));

@@ -1,13 +1,6 @@
-<<<<<<< HEAD
-﻿- type: entity
-  id: HolosignWetFloor
-  name: wet floor sign
-  description: The words flicker as if they mean nothing.
-=======
 - type: entity
   abstract: true
   id: BaseHoloSign
->>>>>>> wizards-filtered
   placement:
     mode: SnapgridCenter
   components:
@@ -137,8 +130,9 @@
       radius: 3
       color: red
     - type: Climbable
-<<<<<<< HEAD
+<<<<<<< ours
     - type: Clickable
+||||||| base
 =======
     - type: Destructible
       thresholds:
@@ -148,7 +142,7 @@
         behaviors:
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   parent: BaseHoloSign

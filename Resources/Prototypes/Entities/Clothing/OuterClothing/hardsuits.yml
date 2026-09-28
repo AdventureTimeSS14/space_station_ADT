@@ -174,11 +174,13 @@
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-<<<<<<< HEAD
+<<<<<<< ours
     damageCoefficient: 0.7 # ADT-tweak 0.3 -> 0.7
+||||||| base
+    damageCoefficient: 0.3
 =======
     damageCoefficient: 0.5
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Armor
     modifiers:
       coefficients:
@@ -352,11 +354,14 @@
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
-<<<<<<< HEAD
+<<<<<<< ours
+||||||| base
+  - type: ExplosionResistance
+    damageCoefficient: 0.4
 =======
   - type: ExplosionResistance
     damageCoefficient: 0.5
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Armor
     modifiers:
       coefficients:
@@ -728,11 +733,13 @@
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-<<<<<<< HEAD
+<<<<<<< ours
     damageCoefficient: 0.1
+||||||| base
+    damageCoefficient: 0.2
 =======
     damageCoefficient: 0.3
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: FireProtection
     reduction: 0.8
   - type: StaminaResistance # do not add these to other equipment or mobs, we don't want to microbalance these everywhere
@@ -752,7 +759,14 @@
   # ADT-Tweak-End
   - type: Item
     size: Huge
-<<<<<<< HEAD
+<<<<<<< ours
+||||||| base
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSyndieElite
 =======
     shape:
     - 0,0,3,3
@@ -762,7 +776,7 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieElite
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: Tag
     tags:
     - Hardsuit

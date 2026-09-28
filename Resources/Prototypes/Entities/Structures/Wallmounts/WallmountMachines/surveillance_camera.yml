@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   abstract: true
   id: SurveillanceCameraBase
   name: camera
@@ -79,7 +79,7 @@
     price: 200
   - type: Destructible
     thresholds:
-<<<<<<< HEAD
+<<<<<<< ours
       - trigger:
           !type:DamageTrigger
           damage: 50 # ADT-tweak: 200 -> 50
@@ -89,6 +89,24 @@
       - trigger:
           !type:DamageTrigger
           damage: 25 # ADT-tweak: 100 -> 25
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+              params:
+                volume: -8
+||||||| base
+      - trigger:
+          !type:DamageTrigger
+          damage: 200
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
@@ -109,7 +127,7 @@
           collection: MetalBreak
           params:
             volume: -8
->>>>>>> wizards-filtered
+>>>>>>> theirs
   placement:
     mode: SnapgridCenter
     snap:

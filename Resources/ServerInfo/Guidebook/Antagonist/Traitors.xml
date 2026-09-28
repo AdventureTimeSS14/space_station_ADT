@@ -14,9 +14,28 @@
   <Box>
     <GuideEntityEmbed Entity="Telecrystal" Caption="Телекристаллы"/>
   </Box>
-<<<<<<< HEAD
+<<<<<<< ours
   - [color=#a4885c]Телекристаллы[/color] в количестве 20 штук по умолчанию находятся в Аплинке агента. Предатели могут обмениваться [color=#a4885c]телекристаллами[/color] друг с другом, чтобы увеличить свои возможности.
   - Открыв свой [color=#a4885c]КПК[/color] и установив определённую комбинацию букв рингтона-кода даёт, вы получите доступ к аплинку и множеству возможностей для борьбы со станцией и её экипажем.
+  <Box>
+  <GuideEntityEmbed Entity="PassengerPDA" Caption="КПК"/>
+  </Box>
+  Убедитесь, что закрываете Аплинк в своём [color=#a4885c]КПК[/color], чтобы его никто не увидел, если получит к нему доступ!
+  - Для покупки доступны разные предметы:
+||||||| base
+  Traitors are antagonists employed by the [color=#ff0000]Syndicate.[/color] You are a sleeper agent who has access to various tools and weapons through your [bold]uplink[/bold].
+  You also receive [bold]codewords[/bold] to identify other agents, and a coordinated team of traitors can have [italic]brutal results.[/italic]
+
+  Anyone besides [textlink="department heads" link="Command"] or members of [textlink="Security" link="Security"] can be a traitor.
+
+  ## Uplink & Activation
+  The [color=cyan]uplink[/color] is your most important tool as a traitor. You can exchange the 20 [color=red]telecrystals[/color] (TC) you start with for items that will help you with your objectives.
+
+  By pressing [color=yellow][bold][keybind="OpenCharacterMenu"][/bold][/color], you'll see your personal uplink code. [bold]Setting your PDA's ringtone as this code will open the uplink.[/bold]
+  Pressing [color=yellow][bold][keybind="OpenCharacterMenu"][/bold][/color] also lets you view your objectives and the codewords.
+
+  If you do not have a PDA when you are activated, an [color=cyan]uplink implant[/color] is provided [bold]for the full [color=red]TC[/color] price of the implant.[/bold]
+  It can be accessed from your hotbar.
 =======
   Traitors are antagonists employed by the [color=#ff0000]Syndicate.[/color] You are a sleeper agent who has access to various tools and weapons through your [bold]uplink[/bold].
   You also receive [bold]codewords[/bold] to identify other agents, and a coordinated team of traitors can have [italic]brutal results.[/italic]
@@ -31,12 +50,7 @@
 
   If you do not have a PDA when you are activated, an [color=cyan]uplink implant[/color] is provided [bold]for the full [color=red]TC[/color] price of the implant.[/bold]
   It can be accessed from your hotbar.
->>>>>>> wizards-filtered
-  <Box>
-  <GuideEntityEmbed Entity="PassengerPDA" Caption="КПК"/>
-  </Box>
-  Убедитесь, что закрываете Аплинк в своём [color=#a4885c]КПК[/color], чтобы его никто не увидел, если получит к нему доступ!
-  - Для покупки доступны разные предметы:
+>>>>>>> theirs
   <Box>
     <GuideEntityEmbed Entity="WeaponPistolViper" Caption="Огнестрельное оружие"/>
     <GuideEntityEmbed Entity="FireAxe" State="icon" Caption="Оружие ближнего боя"/>

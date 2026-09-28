@@ -40,17 +40,9 @@ public sealed partial class CargoSystem : SharedCargoSystem
     [Dependency] private RadioSystem _radio = default!;
     [Dependency] private IdentitySystem _identity = default!;
 
-<<<<<<< HEAD
-
-    private EntityQuery<TransformComponent> _xformQuery;
-    private EntityQuery<CargoSellBlacklistComponent> _blacklistQuery;
-    private EntityQuery<MobStateComponent> _mobQuery;
-    private EntityQuery<TradeStationComponent> _tradeQuery;
-=======
     [Dependency] private EntityQuery<CargoSellBlacklistComponent> _cargoSellBlacklistQuery = default!;
     [Dependency] private EntityQuery<MobStateComponent> _mobStateQuery = default!;
     [Dependency] private EntityQuery<TradeStationComponent> _tradeStationQuery = default!;
->>>>>>> wizards-filtered
 
     private HashSet<EntityUid> _setEnts = new();
     private List<EntityUid> _listEnts = new();

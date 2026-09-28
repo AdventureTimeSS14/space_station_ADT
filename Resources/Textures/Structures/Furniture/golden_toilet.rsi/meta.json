@@ -6,11 +6,14 @@
         "x": 32,
         "y": 32
     },
-<<<<<<< HEAD
+<<<<<<< ours
     "license": "CC-BY-NC-SA-3.0",
     "copyright": "by Ko4erga (discord)",
+||||||| base
+    "license": "CC-BY-NC-SA-3.0",
+    "copyright": "Made by brainfood1183 (github) for ss14, modified Nimfar11",
 =======
->>>>>>> wizards-filtered
+>>>>>>> theirs
     "states": [
         {
             "name": "condisposal",

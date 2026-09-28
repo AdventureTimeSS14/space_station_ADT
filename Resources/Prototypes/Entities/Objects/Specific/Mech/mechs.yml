@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: BaseMech
   save: false
   abstract: true
@@ -6,18 +6,19 @@
   - type: MobMover
   - type: Mech
   - type: MechAir
-<<<<<<< HEAD
+<<<<<<< ours
 # ADT-Tweak-start
   - type: Prying
     pryPowered: false
 # ADT-Tweak-end
+||||||| base
 =======
   - type: Vehicle
     canAttack: true
   - type: ContainerVehicle
     containerId: "mech-pilot-slot"
   - type: ContainerVehicleEntry
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: AirFilter
     # everything except oxygen and nitrogen
     gases:
@@ -102,15 +103,18 @@
       storagebase: !type:Container #ADT edit
         ents: []
   - type: Damageable
-<<<<<<< HEAD
+<<<<<<< ours
     damageModifierSet: ADTMechDamageModifierSet  # ADT tweak mech rebalance
   - type: Injurable
     damageContainer: StructuralInorganic #ADT tweak - чтобы мехи получали и структурный урон
+||||||| base
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
 =======
     damageModifierSet: Metallic
   - type: Injurable
     damageContainer: Inorganic
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: FootstepModifier
     footstepSoundCollection:
       path: /Audio/Mecha/mechmove03.ogg
@@ -179,8 +183,11 @@
     baseState: ripley
     openState: ripley-open
     brokenState: ripley-broken
-<<<<<<< HEAD
+<<<<<<< ours
     mechToPilotDamageMultiplier: 0.5 # ADT tweak 0.75 to 0.5
+    pilotWhitelist:
+||||||| base
+    mechToPilotDamageMultiplier: 0.75
     pilotWhitelist:
 =======
   - type: Vehicle
@@ -193,7 +200,7 @@
         Heat: 0.75
         Shock: 0.75
     operatorWhitelist:
->>>>>>> wizards-filtered
+>>>>>>> theirs
       components:
         - HumanoidProfile
   - type: VehicleHandBlocker
@@ -256,21 +263,12 @@
     baseState: honker
     openState: honker-open
     brokenState: honker-broken
-<<<<<<< HEAD
+<<<<<<< ours
     mechToPilotDamageMultiplier: 0.5 # ADT tweak 0.75 to 0.5
     pilotWhitelist:
-      components:
-      - HumanoidProfile
-    # ADT Start
-    equipmentWhitelist:
-      tags:
-      - ADTMechEquipmentGeneral
-      - ADTMechEquipmentClown
-  - type: MovementSpeedModifier
-    baseWalkSpeed: 1.875
-    baseSprintSpeed: 3.375
-    # ADT End
-
+||||||| base
+    mechToPilotDamageMultiplier: 0.5
+    pilotWhitelist:
 =======
   - type: Vehicle
     transferDamageModifier:
@@ -282,11 +280,25 @@
         Heat: 0.5
         Shock: 0.5
     operatorWhitelist:
+>>>>>>> theirs
       components:
       - HumanoidProfile
+<<<<<<< ours
+    # ADT Start
+    equipmentWhitelist:
+      tags:
+      - ADTMechEquipmentGeneral
+      - ADTMechEquipmentClown
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1.875
+    baseSprintSpeed: 3.375
+    # ADT End
+
+||||||| base
+=======
   - type: VehicleHandBlocker
     blockedHands: 2
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   parent: MechHonker

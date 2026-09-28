@@ -21,11 +21,7 @@
     - Weakness #ADT-Weakness-Tweak
     - Electrocution
     - Pacified
-<<<<<<< HEAD
-    - Flashed 
-=======
     - Flashed
->>>>>>> wizards-filtered
     - Adrenaline
   - type: Buckle
   # - type: StandingState ADT-tweak: а оно нам нудно?

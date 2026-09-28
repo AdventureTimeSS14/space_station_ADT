@@ -34,12 +34,14 @@ public sealed partial class JukeboxSystem : SharedJukeboxSystem
         SubscribeLocalEvent<JukeboxComponent, AnimationCompletedEvent>(OnAnimationCompleted);
         SubscribeLocalEvent<JukeboxComponent, AfterAutoHandleStateEvent>(OnJukeboxAfterState);
 
-<<<<<<< HEAD
+<<<<<<< ours
         _protoManager.PrototypesReloaded += OnProtoReload;
         _cfg.OnValueChanged(CCVars.AmbientMusicVolume, OnAmbientMusicVolumeChanged, true); // ADT-Tweak
+||||||| base
+        _protoManager.PrototypesReloaded += OnProtoReload;
 =======
         ProtoMan.PrototypesReloaded += OnProtoReload;
->>>>>>> wizards-filtered
+>>>>>>> theirs
     }
 
     public override void Shutdown()

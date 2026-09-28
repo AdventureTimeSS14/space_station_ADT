@@ -95,13 +95,15 @@ public sealed partial class SiliconLawMenu : FancyWindow
 
     public void Update(EntityUid uid, SiliconLawBuiState state)
     {
-<<<<<<< HEAD
+<<<<<<< ours
         state.Laws.Sort((a, b) => string.Compare(a.Order, b.Order, StringComparison.Ordinal)); // ADT-Tweak
+||||||| base
+        state.Laws.Sort();
 =======
         _owner = uid;
 
         state.Laws.Sort();
->>>>>>> wizards-filtered
+>>>>>>> theirs
         LawDisplayContainer.Children.Clear();
         Version.Text = Loc.GetString("laws-window-footer-right", ("version", state.Version));
 

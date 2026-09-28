@@ -1,4 +1,4 @@
-﻿# Base SMES
+# Base SMES
 - type: entity
   abstract: true
   id: BaseSMES
@@ -88,9 +88,10 @@
       mediumVoltageNode: output
     - type: Damageable
       damageModifierSet: StructuralMetallicStrong
-<<<<<<< HEAD
+<<<<<<< ours
     - type: Injurable
       damageContainer: StructuralInorganic
+||||||| base
 =======
     - type: Destructible
       thresholds:
@@ -100,7 +101,7 @@
         - !type:PlaySoundBehavior
           sound:
             collection: MetalBreak
->>>>>>> wizards-filtered
+>>>>>>> theirs
     - type: BatterySensor
     - type: DeviceNetwork
       deviceNetId: AtmosDevices

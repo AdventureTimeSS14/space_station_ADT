@@ -15,11 +15,16 @@ namespace Content.Client.Body;
 
 public sealed partial class VisualBodySystem : SharedVisualBodySystem
 {
-<<<<<<< HEAD
+<<<<<<< ours
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly DisplacementMapSystem _displacement = default!;
     [Dependency] private readonly Content.Client.ADT.Humanoid.MarkingLayerHiderSystem _markingHider = default!; // ADT-Tweak
+    [Dependency] private readonly MarkingManager _marking = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
+||||||| base
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly MarkingManager _marking = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
 =======
@@ -27,7 +32,7 @@ public sealed partial class VisualBodySystem : SharedVisualBodySystem
     [Dependency] private DisplacementMapSystem _displacement = default!;
     [Dependency] private MarkingManager _marking = default!;
     [Dependency] private SpriteSystem _sprite = default!;
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
     public override void Initialize()
     {
@@ -211,12 +216,15 @@ public sealed partial class VisualBodySystem : SharedVisualBodySystem
                 || !_sprite.TryGetLayer(target, index, out var bodypartLayer, true))
                 continue;
 
+<<<<<<< ours
             ent.Comp.MarkingsDisplacement.TryGetValue(proto.BodyPart, out var displacement);
 
-<<<<<<< HEAD
+||||||| base
 =======
+            ent.Comp.MarkingsDisplacement.TryGetValue(proto.BodyPart, out var displacement);
+
             var numDisplacements = 0;
->>>>>>> wizards-filtered
+>>>>>>> theirs
             for (var i = 0; i < proto.Sprites.Count; i++)
             {
                 var sprite = proto.Sprites[i];
@@ -229,7 +237,7 @@ public sealed partial class VisualBodySystem : SharedVisualBodySystem
 
                 if (!_sprite.LayerMapTryGet(target, layerId, out var spriteLayer, false))
                 {
-<<<<<<< HEAD
+<<<<<<< ours
                     // ADT-Tweak-Start: wizden nubody refactor dropped applying MarkingPrototype.Shader
                     var layerData = new PrototypeLayerData
                     {
@@ -240,6 +248,10 @@ public sealed partial class VisualBodySystem : SharedVisualBodySystem
                     var layer = _sprite.AddLayer(target, layerData, index + i + 1);
                     _sprite.LayerMapSet(target, layerId, layer);
                     // ADT-Tweak-End
+||||||| base
+                    var layer = _sprite.AddLayer(target, sprite, index + i + 1);
+                    _sprite.LayerMapSet(target, layerId, layer);
+                    _sprite.LayerSetSprite(target, layerId, rsi);
 =======
                     // Having three separate indices and a magic +1 is cursed, but:
                     // - index refers to the index of the organ the marking is applied to
@@ -252,17 +264,19 @@ public sealed partial class VisualBodySystem : SharedVisualBodySystem
                     _sprite.LayerMapSet(target, layerId, spriteLayer);
                     _sprite.LayerSetSprite(target, spriteLayer, rsi);
                     _sprite.LayerSetVisible(target, spriteLayer, bodypartLayer.Visible);
->>>>>>> wizards-filtered
+>>>>>>> theirs
                 }
 
                 if (marking.MarkingColors is not null && i < marking.MarkingColors.Count)
                     _sprite.LayerSetColor(target, spriteLayer, marking.MarkingColors[i]);
                 else
-<<<<<<< HEAD
+<<<<<<< ours
                     _sprite.LayerSetColor(target, layerId, Color.White);
 
                 if (displacement != null && proto.CanBeDisplaced)
                     _displacement.TryAddDisplacement(displacement, (target, target.Comp), index + i + 1, layerId, out _);
+||||||| base
+                    _sprite.LayerSetColor(target, layerId, Color.White);
 =======
                     _sprite.LayerSetColor(target, spriteLayer, Color.White);
 
@@ -286,7 +300,7 @@ public sealed partial class VisualBodySystem : SharedVisualBodySystem
                     // TODO: fix this when LayerSetShader is moved out of component
                     target.Comp.LayerSetShader(index + i + 1 + numDisplacements, shader);
                 }
->>>>>>> wizards-filtered
+>>>>>>> theirs
             }
 
             applied.Add(marking);
@@ -300,6 +314,7 @@ public sealed partial class VisualBodySystem : SharedVisualBodySystem
 
     private void RemoveMarkings(Entity<VisualOrganMarkingsComponent> ent, Entity<SpriteComponent?> target)
     {
+<<<<<<< ours
         if (!Resolve(target, ref target.Comp))
             return;
 
@@ -307,6 +322,12 @@ public sealed partial class VisualBodySystem : SharedVisualBodySystem
         _markingHider.SetHiddenByOrgan(target.Owner, ent.Owner, new());
         // ADT-Tweak-End
 
+||||||| base
+=======
+        if (!Resolve(target, ref target.Comp))
+            return;
+
+>>>>>>> theirs
         foreach (var marking in ent.Comp.AppliedMarkings)
         {
             if (!_marking.TryGetMarking(marking, out var proto))

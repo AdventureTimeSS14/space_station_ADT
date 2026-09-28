@@ -102,17 +102,18 @@
     guides:
     - Security
     - Antagonists
-<<<<<<< HEAD
+<<<<<<< ours
   - type: MeleeBlacklist #ADT tweak start
     blacklist:
       tags:
       - ADTBatonBlocker
   #ADT tweak end
+||||||| base
 =======
   - type: Tag
     tags:
     - Stunbaton
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 - type: entity
   name: truncheon

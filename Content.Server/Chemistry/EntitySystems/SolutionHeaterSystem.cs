@@ -84,15 +84,21 @@ public sealed partial class SolutionHeaterSystem : EntitySystem
             var energy = heater.HeatPerSecond * frameTime;
             foreach (var heatingEntity in placer.PlacedEntities)
             {
-<<<<<<< HEAD
+<<<<<<< ours
                 if (!TryComp<SolutionContainerManagerComponent>(heatingEntity, out var container))
                     continue;
 
                 var energy = heater.HeatPerSecond * heater.HeatMultiplier * frameTime; // ADT-Tweak
                 foreach (var (_, soln) in _solutionContainer.EnumerateSolutions((heatingEntity, container)))
+||||||| base
+                if (!TryComp<SolutionContainerManagerComponent>(heatingEntity, out var container))
+                    continue;
+
+                var energy = heater.HeatPerSecond * frameTime;
+                foreach (var (_, soln) in _solutionContainer.EnumerateSolutions((heatingEntity, container)))
 =======
                 foreach (var (_, soln) in _solutionContainer.EnumerateSolutions(heatingEntity))
->>>>>>> wizards-filtered
+>>>>>>> theirs
                 {
                     _solutionContainer.AddThermalEnergy(soln, energy);
                 }

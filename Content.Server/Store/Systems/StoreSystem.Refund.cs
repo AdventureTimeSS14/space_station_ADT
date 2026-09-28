@@ -10,12 +10,13 @@ namespace Content.Server.Store.Systems;
 
 public sealed partial class StoreSystem
 {
-<<<<<<< HEAD
+<<<<<<< ours
     [Dependency] private readonly IGameTiming _timing = default!;
+||||||| base
 =======
     [Dependency] private IGameTiming _timing = default!;
 
->>>>>>> wizards-filtered
+>>>>>>> theirs
     private void InitializeRefund()
     {
         SubscribeLocalEvent<StoreComponent, EntityTerminatingEvent>(OnStoreTerminating);

@@ -35,13 +35,14 @@
   setPreference: true
   objective: roles-antag-syndicate-agent-sleeper-objective
   guides: [ Traitors ]
-<<<<<<< HEAD
+<<<<<<< ours
   # ADT add start
+||||||| base
 =======
   tags:
   - OnStation
   - Midround
->>>>>>> wizards-filtered
+>>>>>>> theirs
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 108000 # 30h

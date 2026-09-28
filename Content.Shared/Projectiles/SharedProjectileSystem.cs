@@ -279,8 +279,8 @@ public record struct ProjectileShotEvent;
 /// </summary>
 [ByRefEvent]
 public record struct ProjectileHitEvent(DamageSpecifier Damage, EntityUid Target, EntityUid? Shooter = null);
+<<<<<<< ours
 
-<<<<<<< HEAD
 // ADT TornadoTech TWEAK START
 public sealed class ProjectileHitAttemptEvent(DamageSpecifier damage, EntityUid target, EntityUid? shooter = null) : CancellableEntityEventArgs
 {
@@ -296,10 +296,12 @@ public sealed class HitScanHitAttemptEvent(EntityUid? shooter, EntityUid target,
     public readonly EntityUid SourceItem = sourceItem;
 }
 // ADT TornadoTech TWEAK END
+||||||| base
 =======
+
 /// <summary>
 /// Raised before a projectile hits an entity
 /// </summary>
 [ByRefEvent]
 public record struct BeforeProjectileHitEvent(DamageSpecifier Damage, EntityUid Target, EntityUid? Shooter = null);
->>>>>>> wizards-filtered
+>>>>>>> theirs

@@ -21,18 +21,19 @@
     grid:
     - 0,0,6,3
     maxItemSize: Huge
-<<<<<<< HEAD
+<<<<<<< ours
     # ADT Start
     blacklist:
       tags:
       - ADTOreBag
     # ADT End
+||||||| base
 =======
     blacklist:
       tags:
         - TrashBag
         - TrashBagHolding
->>>>>>> wizards-filtered
+>>>>>>> theirs
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
@@ -309,14 +310,18 @@
   name: death squad backpack
   description: Holds the kit of CentComm's most feared agents.
   components:
-<<<<<<< HEAD
+<<<<<<< ours
     - type: Storage
       grid:
       - 0,0,15,9 # ADT-Tweak-Start
+||||||| base
+    - type: Storage
+      grid:
+      - 0,0,7,6
 =======
   - type: Sprite
     sprite: Clothing/Back/Backpacks/ertsec.rsi
->>>>>>> wizards-filtered
+>>>>>>> theirs
 
 #Syndicate
 - type: entity
