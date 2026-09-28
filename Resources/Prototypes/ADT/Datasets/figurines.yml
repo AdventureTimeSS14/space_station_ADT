@@ -58,3 +58,8 @@
     prefix: adt-figurines-plushie-proxima-
     count: 3
 
+- type: localizedDataset
+  id: ADTFigurineTheokayaFriendlyOne
+  values:
+    prefix: adt-figurines-theokaya-
+    count: 3

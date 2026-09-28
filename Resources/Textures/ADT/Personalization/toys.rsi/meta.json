@@ -308,6 +308,18 @@
             "name": "plushie_el"
         },
         {
+            "name": "el-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "el-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "el-equipped-HELMET",
+            "directions": 4
+        },
+        {
             "name": "plushie_proxima"
         },
         {
@@ -320,6 +332,17 @@
         },
         {
             "name": "proxima-equipped-HELMET",
+            "directions": 4
+        },
+        {
+            "name": "plushie_theokai"
+        },
+        {
+            "name": "theokai-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "theokai-inhand-right",
             "directions": 4
         }
     ]
