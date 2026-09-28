@@ -13,13 +13,13 @@ namespace Content.Server.ADT.Mime;
 
 public sealed class MimeSilenceSystem : EntitySystem
 {
-    [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly Content.Shared.StatusEffectNew.StatusEffectsSystem _statusEffects = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private IChatManager _chatManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private SharedActionsSystem _actionsSystem = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private PopupSystem _popupSystem = default!;
+    [Dependency] private Content.Shared.StatusEffectNew.StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
 
     private static readonly EntProtoId MuteEffect = "StatusEffectMuted";
 

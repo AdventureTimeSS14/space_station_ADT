@@ -50,9 +50,9 @@ namespace Content.Server.ADT.Supermatter.Systems;
 
 public sealed class SupermatterKudzuOnCollideSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
 
 
 

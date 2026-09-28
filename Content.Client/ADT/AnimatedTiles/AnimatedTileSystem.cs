@@ -7,11 +7,11 @@ namespace Content.Client.ADT.AnimatedTiles;
 
 public sealed class AnimatedTileSystem : EntitySystem
 {
-    [Dependency] private readonly IOverlayManager _overlayManager = default!;
-    [Dependency] private readonly IPrototypeManager _protoManager = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private IOverlayManager _overlayManager = default!;
+    [Dependency] private IPrototypeManager _protoManager = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     private AnimatedTileOverlay? _overlay;
 

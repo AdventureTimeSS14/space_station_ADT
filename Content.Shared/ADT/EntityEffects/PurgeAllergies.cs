@@ -13,7 +13,7 @@ namespace Content.Shared.EntityEffects.Effects;
 /// </summary>
 public sealed partial class PurgeAllergiesEntityEffectSystem : EntityEffectSystem<AllergicComponent, PurgeAllergies>
 {
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainerSystem = default!;
 
     protected override void Effect(Entity<AllergicComponent> entity, ref EntityEffectEvent<PurgeAllergies> args)
     {

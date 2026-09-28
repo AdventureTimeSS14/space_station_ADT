@@ -14,10 +14,10 @@ public sealed class ADTLavalandDayNightSystem : EntitySystem
 {
     private static readonly TimeSpan TransitionMargin = TimeSpan.FromSeconds(1);
 
-    [Dependency] private readonly GameTicker _ticker = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly NpcFactionSystem _faction = default!;
+    [Dependency] private GameTicker _ticker = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
+    [Dependency] private NpcFactionSystem _faction = default!;
 
     private readonly List<EntityUid> _toCalm = new();
 

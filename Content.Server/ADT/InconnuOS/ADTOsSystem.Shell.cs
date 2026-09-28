@@ -7,8 +7,8 @@ namespace Content.Server.ADT.InconnuOS;
 
 public sealed partial class ADTOsSystem
 {
-    [Dependency] private readonly IReflectionManager _reflection = default!;
-    [Dependency] private readonly IDynamicTypeFactory _types = default!;
+    [Dependency] private IReflectionManager _reflection = default!;
+    [Dependency] private IDynamicTypeFactory _types = default!;
 
     private readonly Dictionary<string, OsShellCommand> _commands = new();
 

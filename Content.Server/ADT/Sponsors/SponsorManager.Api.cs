@@ -10,7 +10,7 @@ namespace Content.Server.ADT.Sponsors;
 
 public sealed partial class SponsorManager
 {
-    [Dependency] private readonly IAdminLogManager _adminLog = default!;
+    [Dependency] private IAdminLogManager _adminLog = default!;
 
     public async Task<SponsorTier?> CreateTierAsync(SponsorTier tier, string actor)
     {

@@ -10,10 +10,10 @@ namespace Content.Server.ADT.Hierophant; // todo move to shared maybe
 
 public sealed class HierophantTileMovementSystem : EntitySystem
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly HierophantSystem _hierophant = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private HierophantSystem _hierophant = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     private const float CheckInterval = 0.5f;
 

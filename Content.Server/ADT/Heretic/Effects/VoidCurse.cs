@@ -17,7 +17,7 @@ public sealed partial class VoidCurse : EntityEffectBase<VoidCurse>
 
 public sealed partial class VoidCurseEffectSystem : EntityEffectSystem<MetaDataComponent, VoidCurse>
 {
-    [Dependency] private readonly VoidCurseSystem _voidCurse = default!;
+    [Dependency] private VoidCurseSystem _voidCurse = default!;
 
     protected override void Effect(Entity<MetaDataComponent> entity, ref EntityEffectEvent<VoidCurse> args)
     {

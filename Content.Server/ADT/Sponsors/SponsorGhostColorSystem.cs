@@ -6,7 +6,7 @@ namespace Content.Server.ADT.Sponsors;
 
 public sealed class SponsorGhostColorSystem : EntitySystem
 {
-    [Dependency] private readonly SponsorManager _sponsors = default!;
+    [Dependency] private SponsorManager _sponsors = default!;
 
     public override void Initialize()
     {

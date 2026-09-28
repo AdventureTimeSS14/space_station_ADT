@@ -11,8 +11,8 @@ namespace Content.Server.ADT.Objectives.Systems;
 /// </summary>
 public sealed class TeachLessonConditionSystem : EntitySystem
 {
-    [Dependency] private readonly CodeConditionSystem _codeCondition = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private CodeConditionSystem _codeCondition = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
 
     public override void Initialize()
     {

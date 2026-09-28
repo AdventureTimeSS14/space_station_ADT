@@ -25,10 +25,10 @@ public sealed class GasTileThermalVisionOverlay : Overlay
 
     public override bool RequestScreenTexture => true;
 
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly SharedMapSystem _mapManager = default!;
-    [Dependency] private readonly IClyde _clyde = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private SharedMapSystem _mapManager default!;
+    [Dependency] private IClyde _clyde = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     private GasTileOverlaySystem? _gasTileOverlay;
     private OccluderSystem? _occluder;

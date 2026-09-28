@@ -26,7 +26,7 @@ namespace Content.Server.Administration.Systems;
 
 public sealed partial class AdminVerbSystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     private void AddAdminTimeOperSpawnVerbs(GetVerbsEvent<Verb> args)
     {

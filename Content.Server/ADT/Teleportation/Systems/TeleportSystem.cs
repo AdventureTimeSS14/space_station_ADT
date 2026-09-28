@@ -24,16 +24,16 @@ namespace Content.Server.Teleportation;
 
 public sealed class TeleportSystem : EntitySystem
 {
-    [Dependency] private readonly SharedMapSystem _mapManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
-    [Dependency] private readonly PullingSystem _pullingSystem = default!;
-    [Dependency] private readonly IAdminLogManager _alog = default!;
-    [Dependency] private readonly StackSystem _stack = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IPrototypeManager _prot = default!;
+    [Dependency] private SharedMapSystem _mapManager default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedTransformSystem _xform = default!;
+    [Dependency] private PullingSystem _pullingSystem = default!;
+    [Dependency] private IAdminLogManager _alog = default!;
+    [Dependency] private StackSystem _stack = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private IPrototypeManager _prot = default!;
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
 

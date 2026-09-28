@@ -13,8 +13,8 @@ namespace Content.Client.ADT.Heretic.UI;
 [UsedImplicitly]
 public sealed class CarvingKnifeBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private readonly IClyde _displayManager = default!;
-    [Dependency] private readonly IInputManager _inputManager = default!;
+    [Dependency] private IClyde _displayManager = default!;
+    [Dependency] private IInputManager _inputManager = default!;
 
     [NonSerialized] private CarvingKnifeMenu? _menu;
 

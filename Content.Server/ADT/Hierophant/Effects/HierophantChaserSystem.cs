@@ -9,10 +9,10 @@ namespace Content.Server.ADT.Hierophant.Effects;
 
 public sealed class HierophantChaserSystem : EntitySystem
 {
-    [Dependency] private readonly HierophantGridSystem _grid = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private HierophantGridSystem _grid = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     private static readonly Direction[] Cardinals =
     {

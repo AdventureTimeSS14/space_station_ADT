@@ -20,16 +20,16 @@ namespace Content.Shared.ADT.Heretic.Systems;
 
 public abstract class SharedStarGazerSystem : EntitySystem
 {
-    [Dependency] protected readonly IGameTiming Timing = default!;
-    [Dependency] protected readonly SharedTransformSystem Xform = default!;
+    [Dependency] protected IGameTiming Timing = default!;
+    [Dependency] protected SharedTransformSystem Xform = default!;
 
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedHereticAbilitySystem _hereticAbility = default!;
-    [Dependency] private readonly SharedHereticSystem _heretic = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedStarMarkSystem _starMark = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private SharedHereticAbilitySystem _hereticAbility = default!;
+    [Dependency] private SharedHereticSystem _heretic = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private MovementSpeedModifierSystem _movement = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedStarMarkSystem _starMark = default!;
 
     protected const string JointId = "stargaze";
 

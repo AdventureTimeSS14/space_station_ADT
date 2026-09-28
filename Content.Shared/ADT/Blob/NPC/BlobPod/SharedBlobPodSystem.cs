@@ -15,7 +15,7 @@ namespace Content.Shared.ADT.Blob.NPC.BlobPod;
 
 public abstract class SharedBlobPodSystem : EntitySystem
 {
-    [Dependency] private readonly MobStateSystem _mobs = default!;
+    [Dependency] private MobStateSystem _mobs = default!;
 
 
     private EntityQuery<HumanoidProfileComponent> _query;

@@ -13,8 +13,8 @@ namespace Content.Shared.ADT.Heretic.Systems;
 
 public abstract class SharedVoidCurseSystem : EntitySystem
 {
-    [Dependency] private readonly MovementSpeedModifierSystem _modifier = default!;
-    [Dependency] private readonly SharedHereticSystem _heretic = default!;
+    [Dependency] private MovementSpeedModifierSystem _modifier = default!;
+    [Dependency] private SharedHereticSystem _heretic = default!;
 
     public override void Initialize()
     {

@@ -7,8 +7,8 @@ namespace Content.Server.ADT.ZombieJump.Preconditions;
 
 public sealed partial class ZombieJumpCooldownPrecondition : HTNPrecondition
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
 
     [DataField("cooldown")]
     public float Cooldown = 10f;

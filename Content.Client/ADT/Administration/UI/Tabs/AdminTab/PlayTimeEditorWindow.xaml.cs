@@ -17,7 +17,7 @@ namespace Content.Client.Administration.UI.Tabs.AdminTab
     [UsedImplicitly]
     public sealed partial class PlayTimeEditorWindow : DefaultWindow
     {
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private IPrototypeManager _prototypeManager = default!;
         private readonly IClientConsoleHost _consoleHost;
         private readonly List<(string Name, string Tracker)> _allRoles = new();
 

@@ -19,7 +19,7 @@ namespace Content.Client.ADT.Chemistry.UI
     [GenerateTypedNameReferences]
     public sealed partial class ReagentAnalyzerWindow : DefaultWindow
     {
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private IPrototypeManager _prototypeManager = default!;
 
         /// <summary>
         /// Create and initialize the dispenser UI client-side. Creates the basic layout,

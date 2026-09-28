@@ -19,11 +19,11 @@ namespace Content.Shared.ADT.Xenobiology.Systems;
 /// </summary>
 public sealed partial class SlimeExtractSystem : EntitySystem
 {
-    [Dependency] private readonly SharedEntityEffectsSystem _entityEffectsSystem = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private SharedEntityEffectsSystem _entityEffectsSystem = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private INetManager _net = default!;
 
     public override void Initialize()
     {

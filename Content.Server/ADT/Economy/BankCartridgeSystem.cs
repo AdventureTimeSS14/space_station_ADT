@@ -8,9 +8,9 @@ namespace Content.Server.ADT.Economy;
 
 public sealed class BankCartridgeSystem : EntitySystem
 {
-    [Dependency] private readonly CartridgeLoaderSystem? _cartridgeLoaderSystem = default!;
-    [Dependency] private readonly BankCardSystem _bankCardSystem = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private CartridgeLoaderSystem? _cartridgeLoaderSystem = default!;
+    [Dependency] private BankCardSystem _bankCardSystem = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {

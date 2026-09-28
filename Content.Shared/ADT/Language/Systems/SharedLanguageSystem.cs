@@ -13,10 +13,10 @@ namespace Content.Shared.ADT.Language;
 
 public abstract class SharedLanguageSystem : EntitySystem
 {
-    [Dependency] protected readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly INetManager _netMan = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] protected IRobustRandom _random = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private INetManager _netMan = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
 
     public override void Initialize()
     {

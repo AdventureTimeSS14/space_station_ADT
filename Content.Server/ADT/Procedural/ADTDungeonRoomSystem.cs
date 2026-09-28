@@ -21,15 +21,15 @@ namespace Content.Server.ADT.Procedural;
 
 public sealed class ADTDungeonRoomSystem : EntitySystem
 {
-    [Dependency] private readonly IComponentFactory _factory = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly ISerializationManager _serialization = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDefManager = default!;
-    [Dependency] private readonly AreaSystem _areas = default!;
-    [Dependency] private readonly DecalSystem _decals = default!;
-    [Dependency] private readonly SharedMapSystem _maps = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly BiomeSystem _biome = default!;
+    [Dependency] private IComponentFactory _factory = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private ISerializationManager _serialization = default!;
+    [Dependency] private ITileDefinitionManager _tileDefManager = default!;
+    [Dependency] private AreaSystem _areas = default!;
+    [Dependency] private DecalSystem _decals = default!;
+    [Dependency] private SharedMapSystem _maps = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private BiomeSystem _biome = default!;
 
     private readonly List<(Vector2i, Tile)> _tiles = new();
     private readonly List<(Vector2i, Tile)> _biomeReserveBuffer = new();

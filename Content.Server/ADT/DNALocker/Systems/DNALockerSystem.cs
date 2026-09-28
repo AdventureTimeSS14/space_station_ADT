@@ -16,11 +16,11 @@ namespace Content.Server.DNALocker;
 
 public sealed partial class DNALockerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] private readonly ExplosionSystem _explosion = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedAudioSystem _audioSystem = default!;
+    [Dependency] private ExplosionSystem _explosion = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private IAdminLogManager _adminLogger = default!;
 
     public override void Initialize()
     {

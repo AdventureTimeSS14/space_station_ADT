@@ -7,7 +7,7 @@ namespace Content.Client.ADT.PaperOrigami;
 
 public sealed class PaperOrigamiSystem : EntitySystem
 {
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
+    [Dependency] private AppearanceSystem _appearance = default!;
 
     public override void Initialize()
     {

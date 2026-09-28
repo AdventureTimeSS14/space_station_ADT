@@ -22,15 +22,15 @@ namespace Content.Server.Heretic.EntitySystems;
 
 public sealed class EldritchInfluenceSystem : EntitySystem
 {
-    [Dependency] private readonly SharedDoAfterSystem _doafter = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly HereticSystem _heretic = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly IChatManager _chatMan = default!;
-    [Dependency] private readonly IPlayerManager _playerMan = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedEntityEffectsSystem _effect = default!;
+    [Dependency] private SharedDoAfterSystem _doafter = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private HereticSystem _heretic = default!;
+    [Dependency] private MindSystem _mind = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private IChatManager _chatMan = default!;
+    [Dependency] private IPlayerManager _playerMan = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedEntityEffectsSystem _effect = default!;
 
     public override void Initialize()
     {

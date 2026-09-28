@@ -24,17 +24,17 @@ namespace Content.Server.Heretic.EntitySystems;
 
 public sealed partial class HereticRitualSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly HereticSystem _heretic = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedStackSystem _stack = default!;
-    [Dependency] private readonly GhoulSystem _ghoul = default!;
-    [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private HereticSystem _heretic = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedUserInterfaceSystem _uiSystem = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedStackSystem _stack = default!;
+    [Dependency] private GhoulSystem _ghoul = default!;
+    [Dependency] private IChatManager _chatManager = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     public SoundSpecifier RitualSuccessSound = new SoundPathSpecifier("/Audio/ADT/Heretic/castsummon.ogg");
 

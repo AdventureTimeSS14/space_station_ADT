@@ -34,15 +34,15 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
     [UsedImplicitly]
     public sealed class EnergyReagentDispenserSystem : EntitySystem
     {
-        [Dependency] private readonly AudioSystem _audioSystem = default!;
-        [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
-        [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
-        [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly BatterySystem _battery = default!;
-        [Dependency] private readonly SharedContainerSystem _container = default!;
-        [Dependency] private readonly SharedPowerReceiverSystem _powerReceiver = default!;
-        [Dependency] private readonly ConstructionSystem _construction = default!;
+        [Dependency] private AudioSystem _audioSystem = default!;
+        [Dependency] private SharedSolutionContainerSystem _solutionContainerSystem = default!;
+        [Dependency] private ItemSlotsSystem _itemSlotsSystem = default!;
+        [Dependency] private UserInterfaceSystem _userInterfaceSystem = default!;
+        [Dependency] private IPrototypeManager _prototypeManager = default!;
+        [Dependency] private BatterySystem _battery = default!;
+        [Dependency] private SharedContainerSystem _container = default!;
+        [Dependency] private SharedPowerReceiverSystem _powerReceiver = default!;
+        [Dependency] private ConstructionSystem _construction = default!;
 
         public override void Initialize()
         {

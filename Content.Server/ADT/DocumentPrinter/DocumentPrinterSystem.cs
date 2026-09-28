@@ -13,9 +13,9 @@ public sealed class DocumentPrinterSystem : EntitySystem
 {
     const int TIME_YEAR_SPACE_STATION_ADT = 544;
 
-    [Dependency] private readonly GameTicker _ticker = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
+    [Dependency] private GameTicker _ticker = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private SharedAudioSystem _audioSystem = default!;
 
     public override void Initialize()
     {

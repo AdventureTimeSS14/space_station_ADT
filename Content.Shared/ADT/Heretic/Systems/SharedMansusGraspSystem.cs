@@ -34,24 +34,25 @@ namespace Content.Shared.ADT.Heretic.Systems;
 
 public abstract class SharedMansusGraspSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IComponentFactory _compFactory = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IComponentFactory _compFactory = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private IMapManager _mapMan = default!;
 
-    [Dependency] private readonly SharedDoorSystem _door = default!;
-    [Dependency] private readonly DamageableSystem _damage = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
-    [Dependency] private readonly StatusEffectNew.StatusEffectsSystem _statusNew = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly BackStabSystem _backstab = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly SharedVoidCurseSystem _voidCurse = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedStarMarkSystem _starMark = default!;
-    [Dependency] private readonly NpcFactionSystem _faction = default!;
+    [Dependency] private SharedDoorSystem _door = default!;
+    [Dependency] private DamageableSystem _damage = default!;
+    [Dependency] private StatusEffectsSystem _statusEffect = default!;
+    [Dependency] private StatusEffectNew.StatusEffectsSystem _statusNew = default!;
+    [Dependency] private TagSystem _tag = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private BackStabSystem _backstab = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private SharedVoidCurseSystem _voidCurse = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedStarMarkSystem _starMark = default!;
+    [Dependency] private NpcFactionSystem _faction = default!;
 
     public bool TryApplyGraspEffectAndMark(EntityUid user,
         HereticComponent hereticComp,

@@ -12,8 +12,8 @@ namespace Content.Shared.Mech.EntitySystems;
 /// </summary>
 public sealed class MechOverloadSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {

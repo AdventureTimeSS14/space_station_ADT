@@ -15,8 +15,8 @@ namespace Content.Client.ADT.Traits;
 /// </summary>
 public sealed class PainNumbnessOverlaySystem : EntitySystem
 {
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IOverlayManager _overlayManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IOverlayManager _overlayManager = default!;
 
     private DamageOverlay? _damageOverlay;
     private bool _hasPainNumbness;

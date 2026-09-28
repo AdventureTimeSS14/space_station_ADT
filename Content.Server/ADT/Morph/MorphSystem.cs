@@ -46,26 +46,26 @@ namespace Content.Server.ADT.Morph;
 
 public sealed class MorphSystem : SharedMorphSystem
 {
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private readonly ChatSystem _chatSystem = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedChameleonProjectorSystem _chameleon = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly HungerSystem _hunger = default!;
-    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private readonly MobThresholdSystem _threshold = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
-    [Dependency] private readonly StunSystem _stun = default!;
-    [Dependency] private readonly WeldableSystem _weldable = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private ChatSystem _chatSystem = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedChameleonProjectorSystem _chameleon = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private HungerSystem _hunger = default!;
+    [Dependency] private SharedAudioSystem _audioSystem = default!;
+    [Dependency] private SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private MobThresholdSystem _threshold = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private StunSystem _stun = default!;
+    [Dependency] private WeldableSystem _weldable = default!;
+    [Dependency] private StandingStateSystem _standing = default!;
+    [Dependency] private TransformSystem _transform = default!;
     private static readonly ProtoId<DamageGroupPrototype> BruteDamageGroup = "Brute";
     private static readonly ProtoId<DamageGroupPrototype> BurnDamageGroup = "Burn";
     public override void Initialize()

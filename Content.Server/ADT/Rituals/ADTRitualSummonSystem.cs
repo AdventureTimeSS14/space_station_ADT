@@ -6,8 +6,8 @@ namespace Content.Server.ADT.Rituals;
 
 public sealed class ADTRitualSummonSystem : EntitySystem
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
 
     public override void Initialize()
     {

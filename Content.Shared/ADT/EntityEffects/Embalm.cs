@@ -5,7 +5,7 @@ namespace Content.Shared.EntityEffects.Effects;
 
 public sealed partial class Embalm : EntityEffectBase<Embalm>
 {
-    [Dependency] private readonly IEntityManager _entMan = default!;
+    [Dependency] private IEntityManager _entMan = default!;
 
     public override void RaiseEvent(
         EntityUid uid,

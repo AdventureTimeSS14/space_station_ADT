@@ -21,7 +21,7 @@ namespace Content.Client.Medical.CrewMonitoring;
 public sealed partial class CrewMonitoringNavMapControl : NavMapControl
 {
     // #ADT-Tweak Start - New Monitor: radar/navmap fields + corner alert UI
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedMapSystem _mapManager default!;
     [Dependency] private readonly IParallelManager _parallel = default!;
 
     public NetEntity? Focus;

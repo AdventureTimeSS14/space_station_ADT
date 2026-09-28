@@ -18,8 +18,8 @@ namespace Content.Client.ADT.Guidebook.Ashwalkers;
 [UsedImplicitly, GenerateTypedNameReferences]
 public sealed partial class GuideAshwalkerGearEmbed : BoxContainer, IDocumentTag, ISearchableControl
 {
-    [Dependency] private readonly ILogManager _logManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private ILogManager _logManager = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     private readonly ISawmill _sawmill;
 

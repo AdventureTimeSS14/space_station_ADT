@@ -12,7 +12,7 @@ namespace Content.Client.ADT.CartridgeLoader.Cartridges;
 [GenerateTypedNameReferences]
 public sealed partial class NanoChatUiFragment : BoxContainer
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private readonly NewChatPopup _newChatPopup;
     private uint? _currentChat;

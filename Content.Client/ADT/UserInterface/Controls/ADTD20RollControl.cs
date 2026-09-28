@@ -10,7 +10,7 @@ namespace Content.Client.ADT.UserInterface.Controls;
 
 public sealed class ADTD20RollControl : TextureRect
 {
-    [Dependency] private readonly IEntitySystemManager _entitySystems = default!;
+    [Dependency] private IEntitySystemManager _entitySystems = default!;
 
     public const string DiceRsiPath = "Objects/Fun/dice.rsi";
     private const int SwapCount = 18;

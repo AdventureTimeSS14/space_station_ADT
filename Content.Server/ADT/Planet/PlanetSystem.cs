@@ -23,14 +23,15 @@ namespace Content.Server.ADT.Planet;
 
 public sealed class PlanetSystem : EntitySystem
 {
-    [Dependency] private readonly ADTLavalandGenerationSystem _lavaland = default!;
-    [Dependency] private readonly BiomeSystem _biome = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly MapSystem _map = default!;
-    [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
-    [Dependency] private readonly MetaDataSystem _meta = default!;
-    [Dependency] private readonly AtmosphereSystem _atmos = default!;
-    [Dependency] private readonly IConfigurationManager _configManager = default!;
+    [Dependency] private ADTLavalandGenerationSystem _lavaland = default!;
+    [Dependency] private BiomeSystem _biome = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private MapSystem _map = default!;
+    [Dependency] private MapLoaderSystem _mapLoader = default!;
+    [Dependency] private MetaDataSystem _meta = default!;
+    [Dependency] private AtmosphereSystem _atmos = default!;
+    [Dependency] private SharedMapSystem _mapManager default!;
+    [Dependency] private IConfigurationManager _configManager = default!;
 
     private List<(Vector2i, Tile)> _setTiles = new();
 

@@ -8,7 +8,7 @@ namespace Content.Server.ADT.Administration.Commands;
 [AdminCommand(AdminFlags.Debug)]
 public sealed class EntCountCommand : IConsoleCommand
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
 
     private static Dictionary<string, int>? _snapshot;
 

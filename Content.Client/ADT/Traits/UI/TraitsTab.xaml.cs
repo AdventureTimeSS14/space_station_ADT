@@ -16,10 +16,10 @@ namespace Content.Client.ADT.Traits.UI;
 [GenerateTypedNameReferences]
 public sealed partial class TraitsTab : BoxContainer
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly Content.Client.ADT.Sponsors.SponsorManager _adtSponsors = default!;
-    [Dependency] private readonly Robust.Client.Player.IPlayerManager _players = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private Content.Client.ADT.Sponsors.SponsorManager _adtSponsors = default!;
+    [Dependency] private Robust.Client.Player.IPlayerManager _players = default!;
 
     /// <summary>
     /// Event fired when trait selection changes.

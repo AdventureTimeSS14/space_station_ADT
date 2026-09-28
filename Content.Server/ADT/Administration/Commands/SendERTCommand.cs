@@ -24,13 +24,13 @@ namespace Content.Server.ADT.Administration.Commands;
 [AdminCommand(AdminFlags.Admin)]
 public sealed class SendERTCommand : IConsoleCommand
 {
-    [Dependency] private readonly SharedMapSystem _mapManager = default!;
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly IEntitySystemManager _system = default!;
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IChatManager _chat = default!;
-    [Dependency] private readonly IResourceManager _resourceManager = default!;
+    [Dependency] private SharedMapSystem _mapManager default!;
+    [Dependency] private IAdminLogManager _adminLogger = default!;
+    [Dependency] private IEntitySystemManager _system = default!;
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IChatManager _chat = default!;
+    [Dependency] private IResourceManager _resourceManager = default!;
 
     public string Command => "sendert";
     public string Description => Loc.GetString("send-ert-description");

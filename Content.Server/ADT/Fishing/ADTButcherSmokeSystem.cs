@@ -9,10 +9,10 @@ namespace Content.Server.ADT.Fishing;
 
 public sealed class ADTButcherSmokeSystem : EntitySystem
 {
-    [Dependency] private readonly SharedMapSystem _mapManager = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SmokeSystem _smoke = default!;
+    [Dependency] private SharedMapSystem _mapManager default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SmokeSystem _smoke = default!;
 
     public override void Initialize()
     {

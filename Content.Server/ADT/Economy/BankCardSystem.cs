@@ -29,21 +29,21 @@ namespace Content.Server.ADT.Economy;
 
 public sealed class BankCardSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
-    [Dependency] private readonly IdCardSystem _idCardSystem = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly CargoSystem _cargo = default!;
-    [Dependency] private readonly ChatSystem _chatSystem = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly InventorySystem _inventorySystem = default!;
-    [Dependency] private readonly BankCartridgeSystem _bankCartridge = default!;
-    [Dependency] private readonly JobSystem _job = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly CartridgeLoaderSystem _cartridgeLoader = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IConfigurationManager _configManager = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IPrototypeManager _protoMan = default!;
+    [Dependency] private IdCardSystem _idCardSystem = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private CargoSystem _cargo = default!;
+    [Dependency] private ChatSystem _chatSystem = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private InventorySystem _inventorySystem = default!;
+    [Dependency] private BankCartridgeSystem _bankCartridge = default!;
+    [Dependency] private JobSystem _job = default!;
+    [Dependency] private GameTicker _gameTicker = default!;
+    [Dependency] private CartridgeLoaderSystem _cartridgeLoader = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IConfigurationManager _configManager = default!;
 
     private const int SalaryDelay = 2700;
 

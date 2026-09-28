@@ -8,7 +8,7 @@ namespace Content.Client.ADT.Weapons.KineticCooldown;
 
 public sealed class ADTKineticCooldownVisualsSystem : EntitySystem
 {
-    [Dependency] private readonly IUserInterfaceManager _ui = default!;
+    [Dependency] private IUserInterfaceManager _ui = default!;
 
     private const string GraphicName = "ADTKineticCooldownGraphic";
 

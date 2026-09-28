@@ -12,7 +12,7 @@ namespace Content.Server.ADT.Sponsors;
 /// </summary>
 public sealed partial class SponsorManager
 {
-    [Dependency] private readonly SponsorsManager _legacy = default!;
+    [Dependency] private SponsorsManager _legacy = default!;
 
     private bool _legacyBridge;
 

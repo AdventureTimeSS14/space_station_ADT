@@ -14,8 +14,8 @@ namespace Content.Server.Heretic.Abilities;
 
 public sealed partial class HereticAbilitySystem
 {
-    [Dependency] private readonly MapSystem _map = default!;
-    [Dependency] private readonly TransformSystem _xform = default!;
+    [Dependency] private MapSystem _map = default!;
+    [Dependency] private TransformSystem _xform = default!;
 
     protected override void SubscribeAsh()
     {

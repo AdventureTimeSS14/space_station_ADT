@@ -13,8 +13,8 @@ namespace Content.Server.ADT.Heretic.EntitySystems.PathSpecific;
 
 public sealed class VoidCurseSystem : SharedVoidCurseSystem
 {
-    [Dependency] private readonly TemperatureSystem _temp = default!;
-    [Dependency] private readonly Content.Shared.StatusEffectNew.StatusEffectsSystem _statusEffect = default!;
+    [Dependency] private TemperatureSystem _temp = default!;
+    [Dependency] private Content.Shared.StatusEffectNew.StatusEffectsSystem _statusEffect = default!;
 
     private static readonly EntProtoId MuteEffect = "StatusEffectMuted";
 

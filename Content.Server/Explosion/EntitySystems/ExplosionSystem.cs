@@ -36,7 +36,7 @@ namespace Content.Server.Explosion.EntitySystems;
 public sealed partial class ExplosionSystem : SharedExplosionSystem
 {
 <<<<<<< ours
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedMapSystem _mapManager default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
@@ -69,7 +69,7 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
     private EntityQuery<AirtightComponent> _airtightQuery;
     private EntityQuery<TileHistoryComponent> _tileHistoryQuery;
 ||||||| base
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedMapSystem _mapManager default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;

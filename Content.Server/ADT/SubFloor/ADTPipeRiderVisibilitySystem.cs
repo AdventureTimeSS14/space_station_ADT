@@ -5,7 +5,7 @@ namespace Content.Server.ADT.SubFloor;
 
 public sealed class ADTPipeRiderVisibilitySystem : EntitySystem
 {
-    [Dependency] private readonly SharedEyeSystem _eye = default!;
+    [Dependency] private SharedEyeSystem _eye = default!;
 
     public override void Initialize()
     {

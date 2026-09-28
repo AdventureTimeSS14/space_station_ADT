@@ -13,9 +13,9 @@ namespace Content.Server.ADT.Xenobiology;
 [Virtual]
 public partial class JellyCoatingSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeedModifier = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
 
     public override void Initialize()
     {

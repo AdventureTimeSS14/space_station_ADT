@@ -9,7 +9,7 @@ namespace Content.Server.ADT.LogicCircuit;
 
 public sealed partial class ADTLogicCircuitSystem : SharedADTLogicCircuitSystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private bool _logicEnabled = true;
     private int _tickInterval = 2;

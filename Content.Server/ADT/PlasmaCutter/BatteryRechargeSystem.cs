@@ -17,9 +17,9 @@ namespace Content.Server.AruMoon.Plasmacutter
     /// </summary>
     public sealed class BatteryRechargeSystem : EntitySystem
     {
-        [Dependency] private readonly MaterialStorageSystem _materialStorage = default!;
-        [Dependency] private readonly BatterySystem _batterySystem = default!;
-        [Dependency] private readonly PowerCellSystem _powerCell = default!;
+        [Dependency] private MaterialStorageSystem _materialStorage = default!;
+        [Dependency] private BatterySystem _batterySystem = default!;
+        [Dependency] private PowerCellSystem _powerCell = default!;
 
 
         public override void Initialize()

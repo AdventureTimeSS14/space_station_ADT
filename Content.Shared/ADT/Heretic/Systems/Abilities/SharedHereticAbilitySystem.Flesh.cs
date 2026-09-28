@@ -12,8 +12,8 @@ namespace Content.Shared.ADT.Heretic.Systems.Abilities;
 
 public abstract partial class SharedHereticAbilitySystem
 {
-    [Dependency] private readonly HungerSystem _hunger = default!;
-    [Dependency] private readonly ThirstSystem _thirst = default!;
+    [Dependency] private HungerSystem _hunger = default!;
+    [Dependency] private ThirstSystem _thirst = default!;
 
     protected virtual void SubscribeFlesh()
     {

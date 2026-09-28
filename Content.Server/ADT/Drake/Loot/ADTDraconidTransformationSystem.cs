@@ -24,15 +24,15 @@ namespace Content.Server.ADT.Drake.Loot;
 
 public sealed partial class ADTDraconidTransformationSystem : EntityEffectSystem<HumanoidProfileComponent, ADTDraconidTransformation>
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly HumanoidProfileSystem _humanoid = default!;
-    [Dependency] private readonly HungerSystem _hunger = default!;
-    [Dependency] private readonly NpcFactionSystem _faction = default!;
-    [Dependency] private readonly PolymorphSystem _polymorph = default!;
-    [Dependency] private readonly SharedLanguageSystem _language = default!;
-    [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
-    [Dependency] private readonly ThirstSystem _thirst = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private HumanoidProfileSystem _humanoid = default!;
+    [Dependency] private HungerSystem _hunger = default!;
+    [Dependency] private NpcFactionSystem _faction = default!;
+    [Dependency] private PolymorphSystem _polymorph = default!;
+    [Dependency] private SharedLanguageSystem _language = default!;
+    [Dependency] private SharedVisualBodySystem _visualBody = default!;
+    [Dependency] private ThirstSystem _thirst = default!;
 
     protected override void Effect(Entity<HumanoidProfileComponent> entity, ref EntityEffectEvent<ADTDraconidTransformation> args)
     {

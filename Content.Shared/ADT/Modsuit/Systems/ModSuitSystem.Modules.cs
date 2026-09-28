@@ -14,8 +14,8 @@ namespace Content.Shared.ADT.ModSuits;
 
 public sealed partial class ModSuitSystem
 {
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-    [Dependency] private readonly SharedArmorSystem _armor = default!;
+    [Dependency] private SharedContainerSystem _containerSystem = default!;
+    [Dependency] private SharedArmorSystem _armor = default!;
 
     private void InitializeModules()
     {

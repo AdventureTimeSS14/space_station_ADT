@@ -11,8 +11,8 @@ namespace Content.Shared.ADT.Traits;
 
 public abstract class SharedQuirksSystem : EntitySystem
 {
-    [Dependency] protected readonly IRobustRandom _random = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
+    [Dependency] protected IRobustRandom _random = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeed = default!;
 
     public override void Initialize()
     {

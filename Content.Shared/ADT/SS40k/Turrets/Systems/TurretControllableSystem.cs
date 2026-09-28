@@ -12,9 +12,9 @@ namespace Content.Shared.ADT.SS40k.Turrets.Systems;
 public sealed class TurretControllableSystem : EntitySystem
 {
 
-    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-    [Dependency] private readonly SharedMindSystem _mindSystem = default!;
-    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
+    [Dependency] private SharedActionsSystem _actionsSystem = default!;
+    [Dependency] private SharedMindSystem _mindSystem = default!;
+    [Dependency] private MobStateSystem _mobStateSystem = default!;
 
     public override void Initialize()
     {

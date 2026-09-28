@@ -7,8 +7,8 @@ namespace Content.Client.ADT.InconnuOS;
 
 public sealed class ADTOsSystem : SharedADTOsSystem
 {
-    [Dependency] private readonly IReflectionManager _reflection = default!;
-    [Dependency] private readonly IDynamicTypeFactory _factory = default!;
+    [Dependency] private IReflectionManager _reflection = default!;
+    [Dependency] private IDynamicTypeFactory _factory = default!;
 
     public OsAppRegistry Apps = default!;
 

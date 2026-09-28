@@ -5,7 +5,7 @@ namespace Content.Shared.ADT.Chalkboard;
 
 public sealed class ChalkboardSystem : EntitySystem
 {
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
 
     public override void Initialize()
     {

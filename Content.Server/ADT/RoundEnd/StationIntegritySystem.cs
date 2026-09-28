@@ -10,8 +10,8 @@ namespace Content.Server.ADT.RoundEnd;
 
 public sealed class StationIntegritySystem : EntitySystem
 {
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly TagSystem _tags = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private TagSystem _tags = default!;
 
     private static readonly ProtoId<TagPrototype> WallTag = "Wall";
     private static readonly ProtoId<TagPrototype> WindowTag = "Window";

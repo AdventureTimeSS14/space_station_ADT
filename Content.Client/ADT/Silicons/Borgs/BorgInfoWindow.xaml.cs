@@ -12,10 +12,10 @@ namespace Content.Client.ADT.Silicons.Borgs;
 [GenerateTypedNameReferences]
 public sealed partial class BorgInfoWindow : FancyWindow
 {
-    [Dependency] private readonly IClipboardManager _clipboard = null!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
-    [Dependency] private readonly IEntityManager _entity = default!;
+    [Dependency] private IClipboardManager _clipboard = null!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private IEntitySystemManager _entitySystem = default!;
+    [Dependency] private IEntityManager _entity = default!;
     private readonly ClientGameTicker _gameTicker;
     public float AccumulatedTime;
     private List<EntityUid> _modules = new();

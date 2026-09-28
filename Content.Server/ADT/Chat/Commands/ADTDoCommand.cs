@@ -8,7 +8,7 @@ namespace Content.Server.ADT.Chat.Commands;
 [AnyCommand]
 public sealed class ADTDoCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly ADTDoEmoteSystem _doEmote = default!;
+    [Dependency] private ADTDoEmoteSystem _doEmote = default!;
 
     public override string Command => "do";
 

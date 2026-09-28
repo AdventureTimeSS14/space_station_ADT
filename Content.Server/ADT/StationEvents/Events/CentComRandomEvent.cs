@@ -14,9 +14,9 @@ public sealed class CentComRandomEvent : StationEventSystem<CentComRandomEventCo
 {
     const int TIME_YEAR_SPACE_STATION_ADT = 544;
 
-    [Dependency] private readonly ChatSystem _chatSystem = default!;
-    [Dependency] private readonly FaxSystem _fax = default!;
-    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private ChatSystem _chatSystem = default!;
+    [Dependency] private FaxSystem _fax = default!;
+    [Dependency] private StationSystem _station = default!;
 
     protected override void Added(EntityUid uid, CentComRandomEventComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {

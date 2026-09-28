@@ -8,9 +8,9 @@ namespace Content.Client.ADT.Sponsors;
 
 public sealed partial class SponsorManager : SharedSponsorManager
 {
-    [Dependency] private readonly IClientNetManager _netMgr = default!;
-    [Dependency] private readonly IPlayerManager _players = default!;
-    [Dependency] private readonly IBaseClient _client = default!;
+    [Dependency] private IClientNetManager _netMgr = default!;
+    [Dependency] private IPlayerManager _players = default!;
+    [Dependency] private IBaseClient _client = default!;
 
     private SponsorData _data = SponsorData.Empty;
     private bool _systemsReady;

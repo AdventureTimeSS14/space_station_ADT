@@ -14,13 +14,13 @@ namespace Content.Server.ADT.Silicons.Borgs;
 
 public sealed partial class BorgInfoSystem : EntitySystem
 {
-    [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly ActionsSystem _action = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly PowerCellSystem _powerCell = default!;
-    [Dependency] private readonly BorgSystem _borg = default!;
-    [Dependency] private readonly IEntityManager _entity = default!;
-    [Dependency] private readonly SharedBatterySystem _battery = default!;
+    [Dependency] private UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private ActionsSystem _action = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private PowerCellSystem _powerCell = default!;
+    [Dependency] private BorgSystem _borg = default!;
+    [Dependency] private IEntityManager _entity = default!;
+    [Dependency] private SharedBatterySystem _battery = default!;
 
     public override void Initialize()
     {

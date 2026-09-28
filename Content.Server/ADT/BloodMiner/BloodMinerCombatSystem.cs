@@ -12,13 +12,13 @@ namespace Content.Server.ADT.BloodMiner;
 
 public sealed class BloodMinerCombatSystem : EntitySystem
 {
-    [Dependency] private readonly BloodMinerDashSystem _dash = default!;
-    [Dependency] private readonly BloodMinerSystem _miner = default!;
-    [Dependency] private readonly GunSystem _gun = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly NPCSystem _npc = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private BloodMinerDashSystem _dash = default!;
+    [Dependency] private BloodMinerSystem _miner = default!;
+    [Dependency] private GunSystem _gun = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private NPCSystem _npc = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     private const float MinShootDistance = 1.5f;
 

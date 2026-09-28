@@ -8,7 +8,7 @@ namespace Content.Shared.Heretic.Systems;
 
 public sealed class HereticClothingSystem : EntitySystem
 {
-    [Dependency] private readonly SharedHereticSystem _heretic = default!;
+    [Dependency] private SharedHereticSystem _heretic = default!;
 
     public override void Initialize()
     {

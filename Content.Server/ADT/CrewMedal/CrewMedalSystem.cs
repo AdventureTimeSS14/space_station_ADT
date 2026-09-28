@@ -12,8 +12,8 @@ namespace Content.Server.ADT.CrewMedal;
 
 public sealed class CrewMedalSystem : SharedCrewMedalSystem
 {
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
 
     public override void Initialize()
     {

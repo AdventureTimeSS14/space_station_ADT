@@ -8,9 +8,9 @@ namespace Content.Server.ADT.EntityEffects.Effects;
 
 public sealed partial class SpawnEntityFromTableEffectSystem : EntityEffectSystem<TransformComponent, SpawnEntityFromTable>
 {
-    [Dependency] private readonly EntityTableSystem _entityTable = default!;
-    [Dependency] private readonly IRobustRandom _robustRandom = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private EntityTableSystem _entityTable = default!;
+    [Dependency] private IRobustRandom _robustRandom = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     protected override void Effect(Entity<TransformComponent> entity, ref EntityEffectEvent<SpawnEntityFromTable> args)
     {

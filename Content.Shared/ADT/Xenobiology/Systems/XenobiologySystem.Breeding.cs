@@ -21,11 +21,11 @@ namespace Content.Shared.ADT.Xenobiology.Systems;
 
 public partial class XenobiologySystem
 {
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private readonly BodySystem _body = default!;
-    [Dependency] private readonly StomachSystem _stomach = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly NpcFactionSystem _factions = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private BodySystem _body = default!;
+    [Dependency] private StomachSystem _stomach = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private NpcFactionSystem _factions = default!;
 
     private void SubscribeBreeding()
     {

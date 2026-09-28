@@ -18,12 +18,12 @@ namespace Content.Server.ADT.Mind;
 /// </summary>
 public sealed partial class TemporaryMindSystem : EntitySystem
 {
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly MindExamineSystem _mindEx = default!;
-    [Dependency] private readonly GhostSystem _ghost = default!;
-    [Dependency] private readonly MetaDataSystem _meta = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private MindSystem _mind = default!;
+    [Dependency] private MindExamineSystem _mindEx = default!;
+    [Dependency] private GhostSystem _ghost = default!;
+    [Dependency] private MetaDataSystem _meta = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
 
     public override void Initialize()
     {

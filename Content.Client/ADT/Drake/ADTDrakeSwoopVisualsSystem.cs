@@ -13,8 +13,8 @@ namespace Content.Client.ADT.Drake;
 
 public sealed class ADTDrakeSwoopVisualsSystem : EntitySystem
 {
-    [Dependency] private readonly AnimationPlayerSystem _animationPlayer = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private AnimationPlayerSystem _animationPlayer = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     private const string AnimationKey = "adt-drake-swoop";
     private const string ShadowState = "shadow";

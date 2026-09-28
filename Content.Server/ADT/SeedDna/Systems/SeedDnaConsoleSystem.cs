@@ -13,7 +13,7 @@ namespace Content.Server.ADT.SeedDna.Systems;
 [UsedImplicitly]
 public sealed class SeedDnaConsoleSystem : SharedSeedDnaConsoleSystem
 {
-    [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
+    [Dependency] private UserInterfaceSystem _userInterface = default!;
 
     public override void Initialize()
     {

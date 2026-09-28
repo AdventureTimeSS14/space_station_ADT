@@ -7,7 +7,7 @@ namespace Content.Shared.ADT.SeedDna.Systems;
 [UsedImplicitly]
 public abstract class SharedSeedDnaConsoleSystem : EntitySystem
 {
-    [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
+    [Dependency] private ItemSlotsSystem _itemSlotsSystem = default!;
 
     public override void Initialize()
     {

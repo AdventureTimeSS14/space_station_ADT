@@ -15,8 +15,8 @@ namespace Content.Client.GhostTypes;
 
 public sealed class GhostBodyVisualsSystem : EntitySystem
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
-    [Dependency] private readonly MarkingManager _marking = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
+    [Dependency] private MarkingManager _marking = default!;
 
     private static readonly string GhostVariantLayer = "ghostVariant";
 

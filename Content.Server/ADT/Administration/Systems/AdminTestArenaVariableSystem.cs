@@ -23,9 +23,9 @@ namespace Content.Server.Administration.Systems;
 /// </summary>
 public sealed class AdminTestArenaVariableSystem : EntitySystem
 {
-    [Dependency] private readonly SharedMapSystem _mapManager = default!;
-    [Dependency] private readonly MapLoaderSystem _map = default!;
-    [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
+    [Dependency] private SharedMapSystem _mapManager default!;
+    [Dependency] private MapLoaderSystem _map = default!;
+    [Dependency] private MetaDataSystem _metaDataSystem = default!;
 
 
     public Dictionary<(NetUserId, string), EntityUid> ArenaMap { get; private set; } = new();

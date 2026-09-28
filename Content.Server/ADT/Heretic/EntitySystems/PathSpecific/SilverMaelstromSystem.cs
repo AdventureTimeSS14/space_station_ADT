@@ -6,7 +6,7 @@ namespace Content.Server.Heretic.EntitySystems.PathSpecific;
 
 public sealed class SilverMaelstromSystem : EntitySystem
 {
-    [Dependency] private readonly ProtectiveBladeSystem _pblade = default!;
+    [Dependency] private ProtectiveBladeSystem _pblade = default!;
 
     public override void Initialize()
     {

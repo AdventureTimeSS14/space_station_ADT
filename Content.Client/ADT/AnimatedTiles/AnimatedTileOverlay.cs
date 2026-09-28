@@ -16,11 +16,11 @@ namespace Content.Client.ADT.AnimatedTiles;
 /// </summary>
 public sealed class AnimatedTileOverlay : Overlay
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly SharedMapSystem _mapManager = default!;
-    [Dependency] private readonly IPrototypeManager _protoManager = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDefManager = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private SharedMapSystem _mapManager default!;
+    [Dependency] private IPrototypeManager _protoManager = default!;
+    [Dependency] private ITileDefinitionManager _tileDefManager = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private readonly SpriteSystem _sprite;
     private readonly SharedMapSystem _map;

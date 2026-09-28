@@ -10,8 +10,8 @@ namespace Content.Shared.ADT.Ninja;
 
 public abstract class SharedBrainExtractorSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly ClimbSystem _climb = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private ClimbSystem _climb = default!;
 
     public override void Initialize()
     {

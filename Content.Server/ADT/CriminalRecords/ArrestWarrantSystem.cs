@@ -19,13 +19,13 @@ namespace Content.Server.ADT.CriminalRecords;
 
 public sealed class ArrestWarrantSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IdCardSystem _idCard = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly StationRecordsSystem _records = default!;
-    [Dependency] private readonly CriminalRecordsSystem _criminalRecords = default!;
-    [Dependency] private readonly FaxSystem _fax = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IdCardSystem _idCard = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private StationRecordsSystem _records = default!;
+    [Dependency] private CriminalRecordsSystem _criminalRecords = default!;
+    [Dependency] private FaxSystem _fax = default!;
 
     private const string WarrantReasonsDataset = "ArrestWarrantReasons";
     private const string OperatorNamesDataset = "CentComOperatorNames";

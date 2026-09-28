@@ -42,26 +42,26 @@ namespace Content.Server.Heretic.EntitySystems;
 
 public sealed class MansusGraspSystem : SharedMansusGraspSystem
 {
-    [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
-    [Dependency] private readonly SharedMapSystem _mapManager = default!;
-    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly RatvarianLanguageSystem _language = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly UseDelaySystem _delay = default!;
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly HereticAbilitySystem _ability = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly HereticSystem _heretic = default!;
-    [Dependency] private readonly SharedBatterySystem _battery = default!;
-    [Dependency] private readonly PowerCellSystem _powerCell = default!;
+    [Dependency] private ITileDefinitionManager _tileDefinitionManager = default!;
+    [Dependency] private SharedMapSystem _mapManager default!;
+    [Dependency] private SharedStaminaSystem _stamina = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private RatvarianLanguageSystem _language = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private StatusEffectsSystem _statusEffect = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private TagSystem _tag = default!;
+    [Dependency] private UseDelaySystem _delay = default!;
+    [Dependency] private SharedMapSystem _mapSystem = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private HereticAbilitySystem _ability = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private HereticSystem _heretic = default!;
+    [Dependency] private SharedBatterySystem _battery = default!;
+    [Dependency] private PowerCellSystem _powerCell = default!;
 
     public static readonly SoundSpecifier DefaultSound = new SoundPathSpecifier("/Audio/Items/welder.ogg");
 

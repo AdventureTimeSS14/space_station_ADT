@@ -28,17 +28,17 @@ namespace Content.Server.ADT.Ghostbar;
 
 public sealed class GhostBarSystem : EntitySystem
 {
-    [Dependency] private readonly SharedWeatherSystem _weathersystem = default!;
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
-    [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly GameTicker _ticker = default!;
-    [Dependency] private readonly StationSpawningSystem _spawningSystem = default!;
-    [Dependency] private readonly TraitSystem _traits = default!;
-    [Dependency] private readonly MindSystem _mindSystem = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly StealthSystem _stealth = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private SharedWeatherSystem _weathersystem = default!;
+    [Dependency] private SharedMapSystem _mapSystem = default!;
+    [Dependency] private MapLoaderSystem _mapLoader = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private GameTicker _ticker = default!;
+    [Dependency] private StationSpawningSystem _spawningSystem = default!;
+    [Dependency] private TraitSystem _traits = default!;
+    [Dependency] private MindSystem _mindSystem = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private StealthSystem _stealth = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
     public GhostBarMapPrototype? GhostBarMap;   // Существует для того, чтобы посетители гост бара спавнились соответственно его настройкам. Если значение равно null во время раунда - что-то сломано
 
 

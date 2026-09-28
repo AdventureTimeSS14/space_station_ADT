@@ -11,8 +11,8 @@ namespace Content.Server.ADT.Heretic.EntitySystems;
 // ADT: server-side bible-cleanse part of CosmicRunesSystem
 public sealed class CosmicRuneBibleSystem : EntitySystem
 {
-    [Dependency] private readonly UseDelaySystem _useDelay = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private UseDelaySystem _useDelay = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {

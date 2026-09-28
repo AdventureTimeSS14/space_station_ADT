@@ -6,8 +6,8 @@ namespace Content.Client.ADT.Humanoid;
 
 public sealed class MarkingLayerHiderSystem : EntitySystem
 {
-    [Dependency] private readonly MarkingManager _marking = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private MarkingManager _marking = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     public void SetHiddenByOrgan(EntityUid body, EntityUid organ, List<Marking> applied)
     {

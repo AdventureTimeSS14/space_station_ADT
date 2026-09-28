@@ -13,10 +13,10 @@ namespace Content.Client.Mech;
 /// <inheritdoc/>
 public sealed partial class MechSystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IUserInterfaceManager _ui = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IUserInterfaceManager _ui = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private void InitializeADT()
     {

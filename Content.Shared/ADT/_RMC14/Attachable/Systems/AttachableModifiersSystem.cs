@@ -13,11 +13,11 @@ namespace Content.Shared._RMC14.Attachable.Systems;
 
 public sealed partial class AttachableModifiersSystem : EntitySystem
 {
-    [Dependency] private readonly AttachableHolderSystem _attachableHolderSystem = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
-    [Dependency] private readonly RMCSelectiveFireSystem _rmcSelectiveFireSystem = default!;
-    [Dependency] private readonly RMCWieldableSystem _wieldableSystem = default!;
+    [Dependency] private AttachableHolderSystem _attachableHolderSystem = default!;
+    [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private ExamineSystemShared _examineSystem = default!;
+    [Dependency] private RMCSelectiveFireSystem _rmcSelectiveFireSystem = default!;
+    [Dependency] private RMCWieldableSystem _wieldableSystem = default!;
 
     private const string modifierExamineColour = "yellow";
 

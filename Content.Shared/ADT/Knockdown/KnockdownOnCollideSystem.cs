@@ -22,7 +22,7 @@ namespace Content.Shared.ADT.Collision.Knockdown;
 
 public sealed class KnockdownOnCollideSystem : EntitySystem
 {
-    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
 
     public override void Initialize()
     {

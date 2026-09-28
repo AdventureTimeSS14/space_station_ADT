@@ -28,11 +28,11 @@ public sealed class RPDMenuBoundUserInterface : BoundUserInterface
             ["Devices"] = ("rpd-component-Devices", new SpriteSpecifier.Texture(new ResPath("/Textures/ADT/Interface/Radial/RPD/Devices.png"))),
         };
 
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
-    [Dependency] private readonly IInputManager _inputManager = default!; // ADT Radial menu settings
-    [Dependency] private readonly IClyde _displayManager = default!; // ADT Radial menu settings
-    [Dependency] private readonly IConfigurationManager _cfg = default!; // ADT Radial menu settings
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private ISharedPlayerManager _playerManager = default!;
+    [Dependency] private IInputManager _inputManager = default!; // ADT Radial menu settings
+    [Dependency] private IClyde _displayManager = default!; // ADT Radial menu settings
+    [Dependency] private IConfigurationManager _cfg = default!; // ADT Radial menu settings
 
     private SimpleRadialMenu? _menu;
 
