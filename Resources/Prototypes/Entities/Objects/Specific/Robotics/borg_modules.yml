@@ -1576,7 +1576,7 @@
           tags:
           - CableCoil
     - hand:
-        emptyRepresentative: FloorTileItemExoBorg
+        emptyRepresentative: FloorTileItemXenoborg # ADT-Tweak
         emptyLabel: borg-slot-tiles-empty
         whitelist:
           components:

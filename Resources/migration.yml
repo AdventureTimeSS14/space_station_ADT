@@ -8,6 +8,35 @@
 # WallSolid: Window
 # Table: null
 
+#ADT-Tweak-Start
+ButtonFrameWhite: ButtonFrameExit
+EnergyGate: Turnstile
+EnergyGateAirtight: Turnstile
+EnergyGateGenpopEnter: TurnstileGenpopEnter
+EnergyGateGenpopLeave: TurnstileGenpopLeave
+FloorSwimmingPoolEntity: FloorWaterEntity
+StatueOrnateClown: StatueBananiumClown
+WallConcrete: WallCobblebrick
+WallMarble: WallRiveted
+WindoorArmoryLocked: WindoorSecureArmoryLocked
+WindoorBrigLocked: WindoorSecureBrigLocked
+WindoorChemistryLocked: WindoorSecureChemistryLocked
+WindoorCommandLocked: WindoorSecureCommandLocked
+WindoorEngineeringLocked: WindoorSecureEngineeringLocked
+WindoorExternalLocked: WindoorSecureExternalLocked
+WindoorHeadOfPersonnelLocked: WindoorSecureHeadOfPersonnelLocked
+WindoorMedicalLocked: WindoorSecureMedicalLocked
+WindoorResearchDirectorLocked: WindoorSecureResearchDirectorLocked
+WindoorSalvageLocked: WindoorSecureSalvageLocked
+WindoorScienceLocked: WindoorSecureScienceLocked
+WindoorSecurityLawyerLocked: WindoorSecureSecurityLawyerLocked
+WindoorSecurityLocked: WindoorSecureSecurityLocked
+PlasmaWindoorArmoryLocked: PlasmaWindoorSecureArmoryLocked
+PlasmaWindoorCommandLocked: PlasmaWindoorSecureCommandLocked
+PlasmaWindoorScienceLocked: PlasmaWindoorSecureScienceLocked
+PlasmaWindoorSecurityLocked: PlasmaWindoorSecureSecurityLocked
+#ADT-Tweak-End
+
 # 2023-07-03
 ClothingHeadHelmetHelmet: ClothingHeadHelmetBasic
 ClothingHeadHelmetHelmetOld: ClothingHeadHelmetBasic
