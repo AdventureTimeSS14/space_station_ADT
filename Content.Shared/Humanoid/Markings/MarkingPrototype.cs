@@ -56,12 +56,6 @@ namespace Content.Shared.Humanoid.Markings
             return new Marking(ID, Sprites.Count);
         }
 
-<<<<<<< HEAD
-        //ADT tweak - allow markings to support shaders
-        [DataField("shader")]
-        public string? Shader { get; private set; } = null;
-        //ADT tweak impstation edit
-=======
         /// <summary>
         /// Chance this marking will be added by appearance randomizer.
         /// </summary>
@@ -70,6 +64,14 @@ namespace Content.Shared.Humanoid.Markings
         /// </remarks>
         [DataField]
         public float RandomWeight = 1f;
->>>>>>> wizards-filtered
+
+        //ADT-Tweak-Start
+        [DataField]
+        public string? Shader { get; private set; } = null;
+
+        [DataField]
+        public List<HumanoidVisualLayers>? HidesLayers;
+        // ADT-Tweak-End
+
     }
 }
