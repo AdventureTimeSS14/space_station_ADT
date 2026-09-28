@@ -6,7 +6,7 @@
   description: It looks like a soft and cute blondie.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_ma
 
 # PushnoY
@@ -17,7 +17,7 @@
   description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_evgeniy
 
 # Conjurer
@@ -28,7 +28,7 @@
   description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_iohan
 
 - type: entity
@@ -38,7 +38,7 @@
   description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_bob
 
 # Eddiemercury
@@ -50,7 +50,7 @@
   description: It looks like a soft and cute blondie.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_migel
 
 - type: entity
@@ -61,7 +61,7 @@
   suffix: Personal, eddiemercury
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_jungar
   - type: EmitSoundOnUse
     sound: "/Audio/Animals/mouse_squeak.ogg"
@@ -102,7 +102,7 @@
   description: It looks like a soft and cute atmos.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_ellis
 
 # MADIAL
@@ -113,7 +113,7 @@
   description: It looks like a soft and cute blondie.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_riker
 
 # Syrel
@@ -124,7 +124,7 @@
   description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_lya
 
 - type: entity
@@ -134,7 +134,7 @@
   description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_ayus
 
 # Pangaari
@@ -145,10 +145,10 @@
   description: A plush dog toy with a chainsaw blade sticking out of its head
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_pochita
   - type: Item
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     inhandVisuals:
       left:
       - state: pochita-inhand-left
@@ -163,7 +163,7 @@
   suffix: Personal, Pangaari
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_aaron
 
 # D1night
@@ -174,7 +174,7 @@
   description: It looks like a soft and cute blondie.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_dekus
 
 # Не помню сикей, персонаж был слайм с именем Афи
@@ -185,7 +185,7 @@
   description: It looks like a soft and cute blondie.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_afi
 
 # Koff
@@ -196,7 +196,7 @@
   description: It looks like a soft and cute blondie.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_koff
 
 # Остальные игрушки админов
@@ -207,7 +207,7 @@
   description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_fries
 
 
@@ -218,7 +218,7 @@
   description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_ilumi
 
 - type: entity
@@ -228,7 +228,7 @@
   description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_jan
 
 - type: entity
@@ -238,7 +238,7 @@
   description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_jason
 
 - type: entity
@@ -248,7 +248,7 @@
   description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_kus
 
 - type: entity
@@ -258,7 +258,7 @@
   description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_lilit
 
 - type: entity
@@ -268,7 +268,7 @@
   description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_luke
 
 - type: entity
@@ -278,7 +278,7 @@
   description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_nova
 
 - type: entity
@@ -288,7 +288,7 @@
   description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_peter
 
 - type: entity
@@ -298,7 +298,7 @@
   description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_rebecca
 
 - type: entity
@@ -308,7 +308,7 @@
   description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_schrodinger
 
 - type: entity
@@ -318,7 +318,7 @@
   description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_terenty
 
 - type: entity
@@ -328,7 +328,7 @@
   description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_uvarov
 
 - type: entity
@@ -338,7 +338,7 @@
   description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_valtor
 
 - type: entity
@@ -348,7 +348,7 @@
   description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_darina
 
 - type: entity
@@ -358,7 +358,7 @@
   description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_akula
 
 - type: entity
@@ -368,7 +368,7 @@
   description: It looks like a cute little human doll... But in fact, this is a doll of a man who has done a lot of terrible things, who regrets and reproaches himself for it every day...
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_prazat
 
 - type: entity
@@ -378,7 +378,7 @@
   description: A plush version of a once-living mime. It seems the toy got wet, as if someone was crying into it. She looks unhappy. It smells like space drugs.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_lo
 
 - type: entity
@@ -388,7 +388,7 @@
   description: Arcana's toy, looks tired... And hey, what kind of clothes is she wearing? If you look closely, you will notice that a tag is sewn to the strange black and scarlet robe "Remember that your lives are worth more than a couple of credits!"
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_sati
 
 - type: entity
@@ -398,7 +398,7 @@
   description: Soft and so cute!
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_uma
 
 - type: entity
@@ -408,7 +408,7 @@
   description: It looks like a soft, cute and woolly tyaranka! However, bone drawings have their own history.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_timrika
 
 - type: entity
@@ -418,7 +418,7 @@
   description: It looks like a soft and cute research director.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_amira
 
 - type: entity
@@ -428,7 +428,7 @@
   description: It looks like a soft and cute atmos.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_ovai
 
 - type: entity
@@ -438,7 +438,7 @@
   description: It looks like a soft and cute blondie.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_azalia
 
 - type: entity
@@ -448,7 +448,7 @@
   description: It looks like a soft and cute blondie.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_sofy
 
 - type: entity
@@ -458,7 +458,7 @@
   description: It looks like a soft and cute blondie.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_liexer
 
 # Bobo
@@ -469,7 +469,7 @@
   description: This is a toy made of different types of fabric with stuffing inside.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_bobo
   - type: EmitSoundOnUse
     sound:
@@ -498,7 +498,7 @@
   description: No
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_emma
     scale: 0.9, 0.9
   - type: EmitSoundOnUse
@@ -516,7 +516,7 @@
   description: weaver
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_hollowing
 
 - type: entity
@@ -527,7 +527,7 @@
   suffix: Personal, kiwi_fruit
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_kelly
 
  # Mina0, От Арчи и Пани для глупеньке Мио на 8-ое марта
@@ -540,12 +540,12 @@
   suffix: Именное, Mina0
   components:
   - type: Sprite
-    sprite: ADT/Personalization/mina0/minaplushie.rsi
+    sprite: ADT/Special/mina0/minaplushie.rsi
     state: icon
     scale: 0.8, 0.8
   - type: Clothing
     quickEquip: false
-    sprite: ADT/Personalization/mina0/minaplushie.rsi
+    sprite: ADT/Special/mina0/minaplushie.rsi
     slots:
     - HEAD
 
@@ -557,7 +557,7 @@
   suffix: Personal, ineedpizza486
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_ineedpizza486
   - type: EmitSoundOnUse
     sound:
@@ -597,7 +597,7 @@
   suffix: Personal, Anagiri
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_anagiri
   - type: EmitSoundOnUse
     sound:
@@ -640,11 +640,11 @@
   suffix: Personal, Couatl
   components:
   - type: Sprite
-    sprite: ADT/Personalization/plushie_azil.rsi
+    sprite: ADT/Special/plushie_azil.rsi
     state: icon
   - type: Clothing
     quickEquip: false
-    sprite: ADT/Personalization/plushie_azil.rsi
+    sprite: ADT/Special/plushie_azil.rsi
     slots:
     - HEAD
     clothingVisuals:
@@ -680,7 +680,7 @@
   suffix: Personal, kugooergooer
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_gipatter
   # - type: EmitSoundOnUse
   #   sound:
@@ -728,7 +728,7 @@
   suffix: Personal, KapitanOgonek
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_raykulakov
 
 #Farrellka и Melima (ныне Nelderiss)
@@ -740,7 +740,7 @@
   suffix: Personal, Melima, Farrellka
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_dianasaeros
 
 - type: entity
@@ -751,7 +751,7 @@
   suffix: Personal, Melima, Farrellka
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_melimasaeros
 
 #Morulu
@@ -763,7 +763,7 @@
   suffix: Personal, k236v2
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_morulu
 
 #Glide
@@ -775,11 +775,11 @@
   suffix: Personal, Glide
   components:
   - type: Sprite
-    sprite: ADT/Personalization/plushie_glide.rsi
+    sprite: ADT/Special/plushie_glide.rsi
     state: icon
   - type: Clothing
     quickEquip: false
-    sprite: ADT/Personalization/plushie_glide.rsi
+    sprite: ADT/Special/plushie_glide.rsi
     slots:
     - HEAD
     clothingVisuals:
@@ -814,11 +814,11 @@
   suffix: Personal, Glide
   components:
   - type: Sprite
-    sprite: ADT/Personalization/plushie_glide_victor.rsi
+    sprite: ADT/Special/plushie_glide_victor.rsi
     state: icon
   - type: Clothing
     quickEquip: false
-    sprite: ADT/Personalization/plushie_glide_victor.rsi
+    sprite: ADT/Special/plushie_glide_victor.rsi
     slots:
     - HEAD
     clothingVisuals:
@@ -835,7 +835,7 @@
   suffix: Personal, AginiMoto
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_rozik
 
 #Blenik
@@ -847,7 +847,7 @@
   suffix: Personal, Blenik
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_nina_konogar
 
 #GG_Marshmelow
@@ -859,7 +859,7 @@
   suffix: Personal, GG_Marshmelow
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_dell
 
 #GG_Dove_Dove_
@@ -871,10 +871,10 @@
   suffix: Personal, _Dove_Dove_
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_tajaran
   - type: Item
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     inhandVisuals:
       left:
       - state: tajaran-inhand-left
@@ -907,10 +907,10 @@
   suffix: Personal, VLIND
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_rykoslave
   - type: Item
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     inhandVisuals:
       left:
       - state: rykoslave-inhand-left
@@ -918,7 +918,7 @@
       - state: rykoslave-inhand-right
   - type: Clothing
     quickEquip: false
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     slots:
     - HEAD
     clothingVisuals:
@@ -934,7 +934,7 @@
   suffix: Personal, Minokaa
   components:
   - type: Sprite
-    sprite: ADT/Personalization/minokaa_emilia_plushie.rsi
+    sprite: ADT/Special/minokaa_emilia_plushie.rsi
     state: icon
   - type: EmitSoundOnUse
     handle: false
@@ -967,7 +967,7 @@
   suffix: Personal, honelin111
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_kramol
 
 - type: entity
@@ -978,7 +978,7 @@
   suffix: Personal, honelin111
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_krosh
 
 - type: entity
@@ -989,7 +989,7 @@
   suffix: Personal, honelin111
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_til
 
 - type: entity
@@ -1000,7 +1000,7 @@
   suffix: Personal, honelin111
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_leia
 
 - type: entity
@@ -1011,7 +1011,7 @@
   suffix: Personal, Mintal1t
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_dreamer
 
 - type: entity
@@ -1022,7 +1022,7 @@
   suffix: Personal, Wollfee
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_milky_way
 
 - type: entity
@@ -1033,7 +1033,7 @@
   suffix: Personal, alivepillow
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_supernova
   - type: EmitSoundOnUse
     sound: &PlushieNovakidSound
@@ -1064,10 +1064,10 @@
   suffix: Personal, karmafom
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_sani
   - type: Item
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     inhandVisuals:
       left:
       - state: sani-inhand-left
@@ -1075,7 +1075,7 @@
       - state: sani-inhand-right
   - type: Clothing
     quickEquip: false
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     slots:
     - HEAD
     clothingVisuals:
@@ -1092,10 +1092,10 @@
   suffix: Personal, Barcow
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     state: plushie_sif
   - type: Item
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     inhandVisuals:
       left:
       - state: sif-inhand-left
@@ -1103,7 +1103,7 @@
       - state: sif-inhand-right
   - type: Clothing
     quickEquip: false
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/toys.rsi
     slots:
     - HEAD
     clothingVisuals:
@@ -1119,11 +1119,11 @@
   suffix: Personal, Hugiron_shch
   components:
   - type: Sprite
-    sprite: ADT/Personalization/plushie_ivy.rsi
+    sprite: ADT/Special/plushie_ivy.rsi
     state: icon
   - type: Clothing
     quickEquip: false
-    sprite: ADT/Personalization/plushie_ivy.rsi
+    sprite: ADT/Special/plushie_ivy.rsi
     slots:
     - HEAD
     clothingVisuals:
@@ -1160,11 +1160,11 @@
   suffix: Personal, Swap_Inky2
   components:
   - type: Sprite
-    sprite: ADT/Personalization/plushie_areya.rsi
+    sprite: ADT/Special/plushie_areya.rsi
     state: icon
   - type: Clothing
     quickEquip: false
-    sprite: ADT/Personalization/plushie_areya.rsi
+    sprite: ADT/Special/plushie_areya.rsi
     slots:
     - HEAD
     clothingVisuals:

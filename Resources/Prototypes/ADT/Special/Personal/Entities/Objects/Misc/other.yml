@@ -11,7 +11,7 @@
         - id: ADTSchrodingerCigar
           amount: 8
   - type: Sprite
-    sprite: ADT/Personalization/melnikov_case.rsi
+    sprite: ADT/Special/melnikov_case.rsi
 
 - type: entity
   id: ADTSchrodingerCigar
@@ -138,7 +138,7 @@
   suffix: Именное, Урог-Джах
   components:
   - type: Sprite
-    sprite: ADT/Personalization/urog_card.rsi
+    sprite: ADT/Special/urog_card.rsi
     state: icon
   - type: PresetIdCard
     job: Bartender
@@ -151,10 +151,10 @@
   suffix: Personal, Anagiri
   components:
   - type: Sprite
-    sprite: ADT/Personalization/anagiri_homemade_explanter.rsi
+    sprite: ADT/Special/anagiri_homemade_explanter.rsi
     state: implanter0
   - type: Item
-    sprite: ADT/Personalization/anagiri_homemade_explanter.rsi
+    sprite: ADT/Special/anagiri_homemade_explanter.rsi
     inhandVisuals:
       left:
       - state: implanter-inhand-left
@@ -168,7 +168,7 @@
   suffix: Personal, kringe
   components:
   - type: Sprite
-    sprite: ADT/Personalization/kringe-whistle.rsi
+    sprite: ADT/Special/kringe-whistle.rsi
     state: icon
   - type: Whistle
     distance: 10
@@ -194,7 +194,7 @@
   suffix: Personal, kimer_k
   components:
   - type: Sprite
-    sprite: ADT/Personalization/Kimer_k/kimer_k_shaker.rsi
+    sprite: ADT/Special/Kimer_k/kimer_k_shaker.rsi
   - type: Tag
     tags:
     - ADTGoldPlatedDrinkShakerTag
@@ -207,10 +207,10 @@
   suffix: Personal, kimer_k
   components:
   - type: Sprite
-    sprite: ADT/Personalization/Kimer_k/kimer_k_spoon.rsi
+    sprite: ADT/Special/Kimer_k/kimer_k_spoon.rsi
     state: spoon
   - type: Item
-    sprite: ADT/Personalization/Kimer_k/kimer_k_spoon.rsi
+    sprite: ADT/Special/Kimer_k/kimer_k_spoon.rsi
   - type: Tag
     tags:
     - Metal
@@ -224,7 +224,7 @@
   suffix: Personal, kimer_k
   components:
   - type: Sprite
-    sprite: ADT/Personalization/Kimer_k/kimer_k_jigger.rsi
+    sprite: ADT/Special/Kimer_k/kimer_k_jigger.rsi
   - type: Tag
     tags:
     - ADTGoldPlatedDrinkJiggerTag
@@ -238,5 +238,5 @@
   suffix: Personal, durachilqa
   components:
   - type: Sprite
-    sprite: ADT/Personalization/durachilqa_dice.rsi
+    sprite: ADT/Special/durachilqa_dice.rsi
     state: d20_20

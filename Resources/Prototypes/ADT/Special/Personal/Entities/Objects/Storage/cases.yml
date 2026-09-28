@@ -8,7 +8,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: ADT/Personalization/minokaa_cethet_niksan_weapon_case.rsi
+    sprite: ADT/Special/minokaa_cethet_niksan_weapon_case.rsi
     state: closed
     layers:
     - state: closed
@@ -18,7 +18,7 @@
       map: ["enum.LockVisualLayers.Lock"]
   - type: Appearance
   - type: Item
-    sprite: ADT/Personalization/minokaa_cethet_niksan_weapon_case.rsi
+    sprite: ADT/Special/minokaa_cethet_niksan_weapon_case.rsi
     size: Normal
   - type: Storage
     maxItemSize: Normal

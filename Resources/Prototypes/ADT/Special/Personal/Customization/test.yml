@@ -3,7 +3,7 @@
   bodyPart: HeadTop
   sponsorOnly: true
   sprites:
-  - sprite: ADT/Personalization/pangaari_feathered.rsi
+  - sprite: ADT/Special/pangaari_feathered.rsi
     state: feathered_ears
 
 - type: marking
@@ -11,7 +11,7 @@
   bodyPart: Tail
   sponsorOnly: true
   sprites:
-  - sprite: ADT/Personalization/pangaari_feathered.rsi
+  - sprite: ADT/Special/pangaari_feathered.rsi
     state: feathered_wings
 
 - type: marking
@@ -19,5 +19,5 @@
   bodyPart: Tail
   sponsorOnly: true
   sprites:
-  - sprite: ADT/Personalization/SikRi_demonic_wings.rsi
+  - sprite: ADT/Special/SikRi_demonic_wings.rsi
     state: wings

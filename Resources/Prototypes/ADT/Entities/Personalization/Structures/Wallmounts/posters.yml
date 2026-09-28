@@ -11,5 +11,5 @@
   suffix: Personal, Syrel
   components:
   - type: Sprite
-    sprite: ADT/Personalization/syrel_aria_poster.rsi
+    sprite: ADT/Special/syrel_aria_poster.rsi
     state: aria

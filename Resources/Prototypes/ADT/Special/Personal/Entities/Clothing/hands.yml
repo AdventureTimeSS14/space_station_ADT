@@ -6,9 +6,9 @@
   description: 'Beautiful black gloves with a gold stripe and red inscription: "ALMD"'
   components:
   - type: Sprite
-    sprite: ADT/Personalization/kivchikset_gloves.rsi
+    sprite: ADT/Special/kivchikset_gloves.rsi
   - type: Clothing
-    sprite: ADT/Personalization/kivchikset_gloves.rsi
+    sprite: ADT/Special/kivchikset_gloves.rsi
   - type: Fiber
     fiberColor: fibers-black
 
@@ -20,9 +20,9 @@
   description: A beaded bracelet on a strong fishing line. Clearly handmade, and though not very skillfully, but diligently. Alternation of the usual and long beads of green color makes up a certain message in Morse code.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/kiwi_fruit_bracelet.rsi
+    sprite: ADT/Special/kiwi_fruit_bracelet.rsi
   - type: Clothing
-    sprite: ADT/Personalization/kiwi_fruit_bracelet.rsi
+    sprite: ADT/Special/kiwi_fruit_bracelet.rsi
 
 - type: entity
   parent: ADTClothingSponsorHandsBase
@@ -32,9 +32,9 @@
   suffix: Personal, Faust Netzach
   components:
   - type: Sprite
-    sprite: ADT/Personalization/FaustNetzach/faust_cuffs.rsi
+    sprite: ADT/Special/FaustNetzach/faust_cuffs.rsi
   - type: Clothing
-    sprite: ADT/Personalization/FaustNetzach/faust_cuffs.rsi
+    sprite: ADT/Special/FaustNetzach/faust_cuffs.rsi
   - type: Fiber
     fiberColor: fibers-white
 
@@ -46,9 +46,9 @@
   suffix: Personal, Mathemat1ka, For all sponsor
   components:
   - type: Sprite
-    sprite: ADT/Personalization/mathemat1ka_gloves.rsi
+    sprite: ADT/Special/mathemat1ka_gloves.rsi
   - type: Clothing
-    sprite: ADT/Personalization/mathemat1ka_gloves.rsi
+    sprite: ADT/Special/mathemat1ka_gloves.rsi
 
 - type: entity
   parent: ClothingHandsGlovesSyntheticBase
@@ -58,9 +58,9 @@
   suffix: Personal, honelin111
   components:
   - type: Sprite
-    sprite: ADT/Personalization/honelin111_gloves.rsi
+    sprite: ADT/Special/honelin111_gloves.rsi
   - type: Clothing
-    sprite: ADT/Personalization/honelin111_gloves.rsi
+    sprite: ADT/Special/honelin111_gloves.rsi
 
 # stryz_ani
 - type: entity
@@ -71,9 +71,9 @@
   suffix: Personal, stryz_ani
   components:
   - type: Sprite
-    sprite: ADT/Personalization/stryz_ani/gloves.rsi
+    sprite: ADT/Special/stryz_ani/gloves.rsi
   - type: Clothing
-    sprite: ADT/Personalization/stryz_ani/gloves.rsi
+    sprite: ADT/Special/stryz_ani/gloves.rsi
   - type: PullingGloves
   - type: ActionGrant
     actions:
@@ -91,9 +91,9 @@
   suffix: Bolper
   components:
   - type: Sprite
-    sprite: ADT/Personalization/bolper_gloves.rsi
+    sprite: ADT/Special/bolper_gloves.rsi
   - type: Clothing
-    sprite: ADT/Personalization/bolper_gloves.rsi
+    sprite: ADT/Special/bolper_gloves.rsi
   - type: Insulated
   - type: Armor
     modifiers:
@@ -111,9 +111,9 @@
   description: A bracelet made of beads on a strong fishing line. It is clearly handmade with great care. The alternating use of regular and long blue beads forms a message in Morse code.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/pangaari_bracelet.rsi
+    sprite: ADT/Special/pangaari_bracelet.rsi
   - type: Clothing
-    sprite: ADT/Personalization/pangaari_bracelet.rsi
+    sprite: ADT/Special/pangaari_bracelet.rsi
 
 #PushnoY
 - type: entity
@@ -122,9 +122,9 @@
   suffix: PushnoY
   components:
   - type: Sprite
-    sprite: ADT/Personalization/pushnoY_gloves.rsi
+    sprite: ADT/Special/pushnoY_gloves.rsi
   - type: Clothing
-    sprite: ADT/Personalization/pushnoY_gloves.rsi
+    sprite: ADT/Special/pushnoY_gloves.rsi
 
 - type: entity
   parent: ADTClothingSponsorHandsBase
@@ -134,9 +134,9 @@
   suffix: Sponsor, Anagiri
   components:
   - type: Sprite
-    sprite: ADT/Personalization/anagiri_gloves.rsi
+    sprite: ADT/Special/anagiri_gloves.rsi
   - type: Clothing
-    sprite: ADT/Personalization/anagiri_gloves.rsi
+    sprite: ADT/Special/anagiri_gloves.rsi
   - type: Fiber
     fiberColor: fibers-black
   - type: FingerprintMask
@@ -149,9 +149,9 @@
   suffix: Personal, kringe
   components:
   - type: Sprite
-    sprite: ADT/Personalization/kringe-gloves.rsi
+    sprite: ADT/Special/kringe-gloves.rsi
   - type: Clothing
-    sprite: ADT/Personalization/kringe-gloves.rsi
+    sprite: ADT/Special/kringe-gloves.rsi
   - type: Insulated
   - type: Fiber
     fiberColor: fibers-leather
@@ -164,9 +164,9 @@
   description: Now I'm playin' with power! Wait... they're turned off. #Use "Now I'm playin' with power! BAM!" for when they're turned on
   components:
   - type: Sprite
-    sprite: ADT/Personalization/archeron/powerglove_archer.rsi
+    sprite: ADT/Special/archeron/powerglove_archer.rsi
   - type: Clothing
-    sprite: ADT/Personalization/archeron/powerglove_archer.rsi
+    sprite: ADT/Special/archeron/powerglove_archer.rsi
   - type: Fiber
     fiberMaterial: fibers-nanomachines
   - type: FingerprintMask
@@ -180,7 +180,7 @@
   suffix: Personal, maksim_soko
   components:
   - type: Sprite
-    sprite: ADT/Personalization/sokoring.rsi
+    sprite: ADT/Special/sokoring.rsi
     state: icon
   - type: PhysicalComposition
     materialComposition:

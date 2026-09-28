@@ -9,7 +9,7 @@
     - VehicleKey
     - ADTKeyPangaariBike
   - type: Sprite
-    sprite: ADT/Personalization/pangaari_bike.rsi
+    sprite: ADT/Special/pangaari_bike.rsi
     state: keys
 
 - type: entity
@@ -24,7 +24,7 @@
     northOverride: -0.1
     southOverride: 0.1
   - type: Sprite
-    sprite: ADT/Personalization/pangaari_bike.rsi
+    sprite: ADT/Special/pangaari_bike.rsi
     layers:
     - state: vehicle
       map: ["enum.VehicleVisualLayers.AutoAnimate"]

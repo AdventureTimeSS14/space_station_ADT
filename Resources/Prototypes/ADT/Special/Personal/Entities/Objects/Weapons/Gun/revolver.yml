@@ -5,7 +5,7 @@
   description: A rare, custom-built revolver. Use when there is no time for Voight-Kampff test. Uses .45 magnum ammo.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/decard_gold.rsi
+    sprite: ADT/Special/decard_gold.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -38,7 +38,7 @@
   suffix: Revolver, Personal, Couatl
   components:
   - type: Sprite
-    sprite: ADT/Personalization/couatl_argument.rsi
+    sprite: ADT/Special/couatl_argument.rsi
     layers:
     - state: icon
       map: ["enum.GunVisualLayers.Base"]
@@ -52,7 +52,7 @@
   - type: StaticPrice
     price: 1500
   - type: Clothing
-    sprite: ADT/Personalization/couatl_argument.rsi
+    sprite: ADT/Special/couatl_argument.rsi
   - type: AmmoCounter #ADT-tweak: единственный револьвер со счётчиком патронов
 
 - type: entity
@@ -74,7 +74,7 @@
     - type: BatteryRecharge
       multiplier: 1.25
     - type: Sprite
-      sprite: ADT/Personalization/cutter_blad.rsi
+      sprite: ADT/Special/cutter_blad.rsi
       state: icon
     - type: Gun
       fireRate: 0.8

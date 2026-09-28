@@ -6,10 +6,10 @@
   description: An ornate sheath designed to hold an officer's blade.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/pyotr_sheath.rsi
+    sprite: ADT/Special/pyotr_sheath.rsi
     state: sheath
   - type: Clothing
-    sprite: ADT/Personalization/pyotr_sheath.rsi
+    sprite: ADT/Special/pyotr_sheath.rsi
   - type: Item
     size: Ginormous
   - type: ItemSlots
@@ -43,9 +43,9 @@
 #   suffix: Personal, PrazzzCool999
 #   components:
 #   - type: Sprite
-#     sprite: ADT/Personalization/prazat_sheath.rsi
+#     sprite: ADT/Special/prazat_sheath.rsi
 #   - type: Clothing
-#     sprite: ADT/Personalization/prazat_sheath.rsi
+#     sprite: ADT/Special/prazat_sheath.rsi
 #   - type: Item
 #     size: Ginormous
 #   - type: ItemSlots
@@ -96,9 +96,9 @@
   suffix: Personal, PrazzzCool999
   components:
   - type: Sprite
-    sprite: ADT/Personalization/prazat_sheath2.rsi
+    sprite: ADT/Special/prazat_sheath2.rsi
   - type: Clothing
-    sprite: ADT/Personalization/prazat_sheath2.rsi
+    sprite: ADT/Special/prazat_sheath2.rsi
   - type: Item
     size: Ginormous
   - type: ItemSlots
@@ -148,10 +148,10 @@
   description: An ornate sheath designed to hold an officer's blade.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/FaustNetzach/faust_sheath.rsi
+    sprite: ADT/Special/FaustNetzach/faust_sheath.rsi
     state: sheath
   - type: Clothing
-    sprite: ADT/Personalization/FaustNetzach/faust_sheath.rsi
+    sprite: ADT/Special/FaustNetzach/faust_sheath.rsi
   - type: Item
     size: Ginormous
   - type: ItemSlots

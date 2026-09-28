@@ -167,7 +167,7 @@
   suffix: Personal, PrazzzCool999
   components:
   - type: Sprite
-    sprite: ADT/Personalization/prazat_weaponcase.rsi
+    sprite: ADT/Special/prazat_weaponcase.rsi
     state: closed
     layers:
     - state: closed
@@ -183,7 +183,7 @@
       visible: false
   - type: Appearance
   - type: Item
-    sprite: ADT/Personalization/prazat_weaponcase.rsi
+    sprite: ADT/Special/prazat_weaponcase.rsi
     size: Normal
   - type: Storage
     grid:
@@ -219,7 +219,7 @@
   suffix: Personal, kimer_k
   components:
   - type: Sprite
-    sprite: ADT/Personalization/Kimer_k/kimer_k_premium_case.rsi
+    sprite: ADT/Special/Kimer_k/kimer_k_premium_case.rsi
     state: closed
     layers:
     - state: closed
@@ -242,7 +242,7 @@
       visible: false
   - type: Appearance
   - type: Item
-    sprite: ADT/Personalization/Kimer_k/kimer_k_premium_case.rsi
+    sprite: ADT/Special/Kimer_k/kimer_k_premium_case.rsi
     size: Normal
   - type: Storage
     grid:
@@ -283,13 +283,13 @@
   parent: BaseItem
   components:
   - type: Sprite
-    sprite: ADT/Personalization/minokaa_cethet_niksan_weapon_case.rsi
+    sprite: ADT/Special/minokaa_cethet_niksan_weapon_case.rsi
     layers:
     - state: closed
     - state: lock
       shader: unshaded
   - type: Item
-    sprite: ADT/Personalization/minokaa_cethet_niksan_weapon_case.rsi
+    sprite: ADT/Special/minokaa_cethet_niksan_weapon_case.rsi
     size: Normal
   - type: ActivatableUI
     key: enum.MiningVoucherUiKey.Key
@@ -309,7 +309,7 @@
   name: family-business-pistol-pink-name
   description: family-business-pistol-pink-description
   sprite:
-    sprite: ADT/Personalization/minokaa_cethet_niksan_family_business.rsi
+    sprite: ADT/Special/minokaa_cethet_niksan_family_business.rsi
     state: icon_pink
   content:
   - ADTFamilyBusinessWeaponCasePink
@@ -319,7 +319,7 @@
   name: family-business-pistol-purple-name
   description: family-business-pistol-purple-description
   sprite:
-    sprite: ADT/Personalization/minokaa_cethet_niksan_family_business.rsi
+    sprite: ADT/Special/minokaa_cethet_niksan_family_business.rsi
     state: icon_purple
   content:
   - ADTFamilyBusinessWeaponCasePurple
@@ -329,7 +329,7 @@
   name: family-business-pistol-red-name
   description: family-business-pistol-red-description
   sprite:
-    sprite: ADT/Personalization/minokaa_cethet_niksan_family_business.rsi
+    sprite: ADT/Special/minokaa_cethet_niksan_family_business.rsi
     state: icon_red
   content:
   - ADTFamilyBusinessWeaponCaseRed

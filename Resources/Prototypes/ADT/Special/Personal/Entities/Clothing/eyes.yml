@@ -4,9 +4,9 @@
   suffix: Moon_so_red
   components:
   - type: Sprite
-    sprite: ADT/Personalization/moon_so_red_glasses.rsi
+    sprite: ADT/Special/moon_so_red_glasses.rsi
   - type: Clothing
-    sprite: ADT/Personalization/moon_so_red_glasses.rsi
+    sprite: ADT/Special/moon_so_red_glasses.rsi
 
 - type: entity
   parent: ClothingEyesGlassesMercenary

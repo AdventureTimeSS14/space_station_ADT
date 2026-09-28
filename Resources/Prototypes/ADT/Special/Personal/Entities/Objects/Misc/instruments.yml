@@ -10,8 +10,8 @@
     allowProgramChange: true
     respectMidiLimits: false
   - type: Sprite
-    sprite: ADT/Personalization/Rock_guitar.rsi
+    sprite: ADT/Special/Rock_guitar.rsi
     state: icon
   - type: Item
     size: Normal
-    sprite: ADT/Personalization/Rock_guitar.rsi
+    sprite: ADT/Special/Rock_guitar.rsi

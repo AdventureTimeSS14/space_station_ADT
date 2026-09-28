@@ -7,7 +7,7 @@
   - type: Action
     useDelay: 240
     icon:
-      sprite: ADT/Personalization/stryz_ani/katana.rsi
+      sprite: ADT/Special/stryz_ani/katana.rsi
       state: icon
   - type: InstantAction
     event: !type:WeaponPullActionEvent {}

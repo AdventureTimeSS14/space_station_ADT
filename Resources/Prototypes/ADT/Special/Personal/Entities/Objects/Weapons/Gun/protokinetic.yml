@@ -7,17 +7,17 @@
   suffix: Personal, Sir_talter
   components:
   - type: Sprite
-    sprite: ADT/Personalization/sirtalterpkpistol.rsi
+    sprite: ADT/Special/sirtalterpkpistol.rsi
     layers:
     - state: icon
     - state: animation-icon
       visible: false
       map: [ "empty-icon" ]
   - type: Item
-    sprite: ADT/Personalization/sirtalterpkpistol.rsi
+    sprite: ADT/Special/sirtalterpkpistol.rsi
     size: Small
   - type: Clothing
-    sprite: ADT/Personalization/sirtalterpkpistol.rsi
+    sprite: ADT/Special/sirtalterpkpistol.rsi
     quickEquip: false
     slots:
     - suitStorage

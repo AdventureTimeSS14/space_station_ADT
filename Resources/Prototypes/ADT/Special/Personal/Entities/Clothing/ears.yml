@@ -8,12 +8,12 @@
   suffix: Sponsor
   components:
   - type: Sprite
-    sprite: ADT/Personalization/earring.rsi
+    sprite: ADT/Special/earring.rsi
     state: icon
   - type: Item
     size: Small
   - type: Clothing
-    sprite: ADT/Personalization/earring.rsi
+    sprite: ADT/Special/earring.rsi
     slots:
     - ears
     - ears2
@@ -26,12 +26,12 @@
   suffix: Personal, Honelin111
   components:
   - type: Sprite
-    sprite: ADT/Personalization/honelin111_golden_earrings.rsi
+    sprite: ADT/Special/honelin111_golden_earrings.rsi
     state: icon
   - type: Item
     size: Small
   - type: Clothing
-    sprite: ADT/Personalization/honelin111_golden_earrings.rsi
+    sprite: ADT/Special/honelin111_golden_earrings.rsi
     slots:
     - ears
     - ears2

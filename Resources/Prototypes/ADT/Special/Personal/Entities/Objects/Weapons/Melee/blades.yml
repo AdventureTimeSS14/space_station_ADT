@@ -6,7 +6,7 @@
   components:
   - type: Sharp
   - type: Sprite
-    sprite: ADT/Personalization/pyotr_sabre.rsi
+    sprite: ADT/Special/pyotr_sabre.rsi
     state: icon
   - type: MeleeWeapon
     attackRate: 1.2
@@ -21,7 +21,7 @@
   #   spread: 90
   - type: Item
     size: Huge
-    sprite: ADT/Personalization/pyotr_sabre.rsi
+    sprite: ADT/Special/pyotr_sabre.rsi
   - type: DisarmMalus
   - type: Tag
     tags:
@@ -36,7 +36,7 @@
   suffix: Bolper
   components:
   - type: Sprite
-    sprite: ADT/Personalization/bolper_katana.rsi
+    sprite: ADT/Special/bolper_katana.rsi
   - type: MeleeWeapon
     attackRate: 1.5
     damage:
@@ -45,7 +45,7 @@
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
-    sprite: ADT/Personalization/bolper_katana.rsi
+    sprite: ADT/Special/bolper_katana.rsi
   - type: Tag
     tags:
     - Katana
@@ -60,7 +60,7 @@
   suffix: Rip_Zoro
   components:
   - type: Sprite
-    sprite: ADT/Personalization/rip_zoro_katana.rsi
+    sprite: ADT/Special/rip_zoro_katana.rsi
   - type: MeleeWeapon
     attackRate: 1.5
     damage:
@@ -69,7 +69,7 @@
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
-    sprite: ADT/Personalization/rip_zoro_katana.rsi
+    sprite: ADT/Special/rip_zoro_katana.rsi
   - type: Tag
     tags:
     - Katana
@@ -83,7 +83,7 @@
 #   components:
 #   - type: Sharp
 #   - type: Sprite
-#     sprite: ADT/Personalization/prazat_chainsword_icon.rsi
+#     sprite: ADT/Special/prazat_chainsword_icon.rsi
 #     layers:
 #     - state: icon
 #       map: [ "enum.ToggleableVisuals.Layer" ]
@@ -99,7 +99,7 @@
 #     soundHit:
 #         path: "/Audio/Weapons/smash.ogg"
 #   - type: Item
-#     sprite: ADT/Personalization/prazat_chainsword.rsi
+#     sprite: ADT/Special/prazat_chainsword.rsi
 #   - type: DisarmMalus
 #   - type: Tag
 #     tags:
@@ -168,7 +168,7 @@
   suffix: Personal, Melima, Farrellka
   components:
   - type: Sprite
-    sprite: ADT/Personalization/saeros_klevetz.rsi
+    sprite: ADT/Special/saeros_klevetz.rsi
   - type: MeleeWeapon
     attackRate: 1.5
     damage:
@@ -180,10 +180,10 @@
     reflectProb: .1
     spread: 90
   - type: Item
-    sprite: ADT/Personalization/saeros_klevetz.rsi
+    sprite: ADT/Special/saeros_klevetz.rsi
   - type: DisarmMalus
   - type: Clothing
-    sprite: ADT/Personalization/saeros_klevetz.rsi
+    sprite: ADT/Special/saeros_klevetz.rsi
     slots: [belt]
     equipSound:
       path: /Audio/Items/belt_equip.ogg
@@ -197,7 +197,7 @@
   components:
   - type: Sharp
   - type: Sprite
-    sprite: ADT/Personalization/FaustNetzach/faust_dirk.rsi
+    sprite: ADT/Special/FaustNetzach/faust_dirk.rsi
     state: icon
   - type: MeleeWeapon
     attackRate: 1.5
@@ -211,7 +211,7 @@
     spread: 90
   - type: Item
     size: Large
-    sprite: ADT/Personalization/FaustNetzach/faust_dirk.rsi
+    sprite: ADT/Special/FaustNetzach/faust_dirk.rsi
     shape:
     - 0,0,0,2
   - type: DisarmMalus
@@ -231,7 +231,7 @@
     tags:
     - ADTStryzAniKatana
   - type: Sprite
-    sprite: ADT/Personalization/stryz_ani/katana.rsi
+    sprite: ADT/Special/stryz_ani/katana.rsi
   - type: MeleeWeapon
     wideAnimationRotation: -65
     attackRate: 1.2
@@ -244,7 +244,7 @@
     shape:
     - 0,0,0,3
   - type: Clothing
-    sprite: ADT/Personalization/stryz_ani/katana.rsi
+    sprite: ADT/Special/stryz_ani/katana.rsi
     slots:
     - Back
     - Belt

@@ -96,7 +96,7 @@
   suffix: Personal, PrazzzCool999
   components:
   - type: Sprite
-    sprite: ADT/Personalization/prazat_whip.rsi
+    sprite: ADT/Special/prazat_whip.rsi
     state: icon
   - type: Item
     size: Large
@@ -126,7 +126,7 @@
     tags:
     - Stunbaton
   - type: Sprite
-    sprite: ADT/Personalization/uma_stunbaton.rsi
+    sprite: ADT/Special/uma_stunbaton.rsi
     layers:
     - state: stunbaton_off
     - state: stunbaton_on
@@ -184,7 +184,7 @@
   - type: ItemToggleSize
     activatedSize: Normal
   - type: Clothing
-    sprite: ADT/Personalization/uma_stunbaton.rsi
+    sprite: ADT/Special/uma_stunbaton.rsi
     quickEquip: false
     slots:
     - Belt
@@ -262,7 +262,7 @@
   suffix: Personal, Minokaa, Cethet
   components:
   - type: Sprite
-    sprite: ADT/Personalization/minokaa_cethet_elegant_whip.rsi
+    sprite: ADT/Special/minokaa_cethet_elegant_whip.rsi
     state: icon
   - type: Item
     size: Small

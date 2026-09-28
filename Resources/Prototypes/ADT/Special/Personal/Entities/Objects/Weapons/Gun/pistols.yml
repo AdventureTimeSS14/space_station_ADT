@@ -5,14 +5,14 @@
   description: Standard issue sidearm for civilian protection.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/tp17.rsi
+    sprite: ADT/Special/tp17.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: ADT/Personalization/tp17.rsi
+    sprite: ADT/Special/tp17.rsi
   - type: Gun
     minAngle: 4
     maxAngle: 6
@@ -54,7 +54,7 @@
   suffix: Personal, PrazzzCool999
   components:
   - type: Sprite
-    sprite: ADT/Personalization/maria_pistol.rsi
+    sprite: ADT/Special/maria_pistol.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -77,9 +77,9 @@
     shape:
     - 0,0,1,0
     - 0,1,0,1
-    sprite: ADT/Personalization/maria_pistol.rsi
+    sprite: ADT/Special/maria_pistol.rsi
   - type: Clothing
-    sprite: ADT/Personalization/maria_pistol.rsi
+    sprite: ADT/Special/maria_pistol.rsi
   - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/ADT/Weapons/Guns/Cock/44-bolt-close.ogg
@@ -116,7 +116,7 @@
   suffix: Personal, PrazzzCool999
   components:
   - type: Sprite
-    sprite: ADT/Personalization/hawk_pistol.rsi
+    sprite: ADT/Special/hawk_pistol.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -127,9 +127,9 @@
     - Sidearm
     - ADTWeaponPistolPrazatHawk
   - type: Item
-    sprite: ADT/Personalization/hawk_pistol_inhand.rsi
+    sprite: ADT/Special/hawk_pistol_inhand.rsi
   - type: Clothing
-    sprite: ADT/Personalization/hawk_pistol_inhand.rsi
+    sprite: ADT/Special/hawk_pistol_inhand.rsi
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -172,11 +172,11 @@
   suffix: Sponsor, Uma
   components:
   - type: Sprite
-    sprite: ADT/Personalization/uma_pistol.rsi
+    sprite: ADT/Special/uma_pistol.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: ADT/Personalization/uma_pistol.rsi
+    sprite: ADT/Special/uma_pistol.rsi

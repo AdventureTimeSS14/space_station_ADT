@@ -5,7 +5,7 @@
   description: A zippo lighter with a red metal coating. There are two letters on the case that stand for "Johan Kresta.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/flippolighter_johan.rsi
+    sprite: ADT/Special/flippolighter_johan.rsi
     layers:
     - state: zippo_icon_base
       map: ["base"]
@@ -36,7 +36,7 @@
   - type: ItemToggleHot
   - type: Item
     size: Tiny
-    sprite: ADT/Personalization/flippolighter_johan.rsi
+    sprite: ADT/Special/flippolighter_johan.rsi
     heldPrefix: zippo
   - type: Appearance
   - type: GenericVisualizer
@@ -92,7 +92,7 @@
   description: A zippo lighter with a red metal coating.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/archeron/lighter.rsi
+    sprite: ADT/Special/archeron/lighter.rsi
     layers:
     - state: closed
       map: ["base"]
@@ -125,7 +125,7 @@
   - type: ItemToggleHot
   - type: Item
     size: Tiny
-    sprite: ADT/Personalization/archeron/lighter.rsi
+    sprite: ADT/Special/archeron/lighter.rsi
   - type: Appearance
   - type: GenericVisualizer
     visuals:

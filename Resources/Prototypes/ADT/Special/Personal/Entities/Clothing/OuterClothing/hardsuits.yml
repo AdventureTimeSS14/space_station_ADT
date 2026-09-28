@@ -10,12 +10,12 @@
     graph: ADTParamedicHardsuitTransforms
     node: icon
   - type: Sprite
-    sprite: ADT/Personalization/lemon_paramedic_hardsuit.rsi
+    sprite: ADT/Special/lemon_paramedic_hardsuit.rsi
     layers:
     - state: icon
   - type: Appearance
   - type: Clothing
-    sprite: ADT/Personalization/lemon_paramedic_hardsuit.rsi
+    sprite: ADT/Special/lemon_paramedic_hardsuit.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
@@ -87,9 +87,9 @@
   suffix: Personal, LemonLimeLord
   components:
   - type: Sprite
-    sprite: ADT/Personalization/lemon_paramedic_helmet.rsi
+    sprite: ADT/Special/lemon_paramedic_helmet.rsi
   - type: Clothing
-    sprite: ADT/Personalization/lemon_paramedic_helmet.rsi
+    sprite: ADT/Special/lemon_paramedic_helmet.rsi
   - type: TemperatureProtection
     heatingCoefficient: 0.1
     coolingCoefficient: 0.1
@@ -116,11 +116,11 @@
   suffix: Personal, Rache11
   components:
   - type: Sprite
-    sprite: ADT/Personalization/rachel_hardsuit.rsi
+    sprite: ADT/Special/rachel_hardsuit.rsi
     layers:
     - state: icon
   - type: Clothing
-    sprite: ADT/Personalization/rachel_hardsuit.rsi
+    sprite: ADT/Special/rachel_hardsuit.rsi
   - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 1.0
@@ -151,7 +151,7 @@
   suffix: Personal, Rache11
   components:
   - type: Sprite
-    sprite: ADT/Personalization/rachel_hardsuit_helmet.rsi
+    sprite: ADT/Special/rachel_hardsuit_helmet.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -170,9 +170,9 @@
   suffix: Personal, kringe
   components:
   - type: Sprite
-    sprite: ADT/Personalization/kringe-hardsuit.rsi
+    sprite: ADT/Special/kringe-hardsuit.rsi
   - type: Clothing
-    sprite: ADT/Personalization/kringe-hardsuit.rsi
+    sprite: ADT/Special/kringe-hardsuit.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.7
     lowPressureMultiplier: 1000
@@ -203,7 +203,7 @@
   suffix: Personal, kringe
   components:
   - type: Sprite
-    sprite: ADT/Personalization/kringe-hardsuit-helmet.rsi
+    sprite: ADT/Special/kringe-hardsuit-helmet.rsi
     layers:
     - state: icon
     - state: icon-unshaded
