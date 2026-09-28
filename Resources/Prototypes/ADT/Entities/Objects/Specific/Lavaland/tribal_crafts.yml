@@ -239,10 +239,7 @@
         Piercing: 0.95
         Heat: 0.95
   - type: FootstepModifier
-    footstepSoundCollection:
-      collection: null
-      params:
-        volume: -10
+    footstepSoundCollection: null
   - type: Construction
     graph: ADTFootwrapsGoliath
     node: footwraps
@@ -266,10 +263,7 @@
         Heat: 0.9
         Caustic: 0.95
   - type: FootstepModifier
-    footstepSoundCollection:
-      collection: null
-      params:
-        volume: -10
+    footstepSoundCollection: null
   - type: Construction
     graph: ADTFootwrapsDragon
     node: footwraps
