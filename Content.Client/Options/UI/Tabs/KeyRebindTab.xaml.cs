@@ -353,15 +353,10 @@ namespace Content.Client.Options.UI.Tabs
                 UpdateKeyControl(control);
             }
 
-            UpdateConflictStates(); // ADT-Tweak: Refresh keybind conflict highlights.
+            UpdateConflictStates(); // ADT-Tweak
         }
 
         // ADT-Tweak-Start
-        /// <summary>
-        ///     Пересчитывает подсветку конфликтующих клавиш для всех кнопок.
-        ///     Клавиша считается занятой, если точно такая же комбинация (клавиша + модификаторы)
-        ///     назначена какому-либо другому действию
-        /// </summary>
         private void UpdateConflictStates()
         {
             var usageMap =
@@ -386,9 +381,6 @@ namespace Content.Client.Options.UI.Tabs
             }
         }
 
-        /// <summary>
-        ///     Возвращает нормализованную комбинацию клавиши, где порядок модификаторов не имеет значения
-        /// </summary>
         private static (Keyboard.Key, Keyboard.Key, Keyboard.Key, Keyboard.Key) GetBindingCombo(IKeyBinding binding)
         {
             var mods = new[] { binding.Mod1, binding.Mod2, binding.Mod3 };
@@ -456,14 +448,14 @@ namespace Content.Client.Options.UI.Tabs
         {
             if (!_keyControls.TryGetValue(bind.Function, out var keyControl))
             {
-                UpdateConflictStates(); // ADT-Tweak: Refresh conflicts caused by bindings outside this settings tab.
+                UpdateConflictStates(); // ADT-Tweak
                 return;
             }
 
             if (removal && _currentlyRebinding?.KeyControl == keyControl)
             {
                 // Don't do update if the removal was from initiating a rebind.
-                UpdateConflictStates(); // ADT-Tweak: Refresh conflicts, since removing a binding may free up another key.
+                UpdateConflictStates(); // ADT-Tweak
                 return;
             }
 
@@ -474,7 +466,7 @@ namespace Content.Client.Options.UI.Tabs
                 _currentlyRebinding = null;
             }
 
-            UpdateConflictStates(); // ADT-Tweak: Refresh keybind conflict highlights.
+            UpdateConflictStates(); // ADT-Tweak
         }
 
         private void InputManagerOnFirstChanceOnKeyEvent(KeyEventArgs keyEvent, KeyEventType type)
@@ -641,10 +633,7 @@ namespace Content.Client.Options.UI.Tabs
 
         private sealed class BindButton : Control
         {
-            // ADT-Tweak-Start
-            // Цвет текста клавиши, когда она занята другим действием
-            private static readonly Color ConflictColor = Color.FromHex("#FF5555");
-            // ADT-Tweak-End
+            private static readonly Color ConflictColor = Color.FromHex("#FF5555");  // ADT-Tweak
 
             private readonly KeyRebindTab _tab;
             public readonly KeyControl KeyControl;
@@ -704,10 +693,6 @@ namespace Content.Client.Options.UI.Tabs
             }
 
             // ADT-Tweak-Start
-            /// <summary>
-            ///     Подсвечивает клавишу красным текстом, если её комбинация занята другим действием,
-            ///     и добавляет подсказку о конфликте. В противном случае снимает подсветку
-            /// </summary>
             public void UpdateConflictState(
                 Dictionary<(Keyboard.Key, Keyboard.Key, Keyboard.Key, Keyboard.Key), HashSet<BoundKeyFunction>> usageMap)
             {
@@ -723,7 +708,6 @@ namespace Content.Client.Options.UI.Tabs
                     && usageMap.TryGetValue(KeyRebindTab.GetBindingCombo(Binding), out var functions)
                     && functions.Count > 1)
                 {
-                    // Комбинация используется более чем одним действием => конфликт
                     hasConflict = true;
                 }
 
