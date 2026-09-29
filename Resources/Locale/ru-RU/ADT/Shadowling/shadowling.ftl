@@ -38,6 +38,7 @@ shadowling-icy-veins-immune = Порыв ледяного воздуха обв�
 
 # Enthrall
 shadowling-enthrall-invalid = Эта цель не подходит.
+shadowling-enthrall-mindshield = У этой цели щит разума, блокирующий ваши силы. Подчинить её нельзя.
 shadowling-enthrall-begin-self = Цель верна. Вы начинаете процесс подчинения.
 shadowling-enthrall-begin-target = { $user } смотрит на вас. Вы чувствуете, как ваша голова начинает пульсировать.
 shadowling-enthrall-stage = { $stage ->
