@@ -32,6 +32,11 @@
       components:
       - HumanoidProfile
       - MobState
+    blacklist:
+      components:
+      - MindShield
+      - MobIpc
+      - NovakidGlowing
   - type: TargetAction
     range: 1.5
 
