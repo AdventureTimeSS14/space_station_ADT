@@ -14,18 +14,10 @@ namespace Content.Shared.Blocking;
 
 public sealed partial class BlockingSystem
 {
-<<<<<<< ours
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedBatterySystem _batterySystem = default!; //ADT-Tweak
-    [Dependency] private readonly ItemToggleSystem _itemToggleSystem = default!; //ADT-Tweak
-||||||| base
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-=======
     [Dependency] private DamageableSystem _damageable = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
->>>>>>> theirs
+    [Dependency] private SharedBatterySystem _batterySystem = default!; //ADT-Tweak
+    [Dependency] private ItemToggleSystem _itemToggleSystem = default!; //ADT-Tweak
 
     private void InitializeUser()
     {
@@ -66,7 +58,6 @@ public sealed partial class BlockingSystem
         if (args.Damage.GetTotal() <= 0)
             return;
 
-<<<<<<< ours
         // A shield should only block damage it can itself absorb. To determine that we need the Damageable component on it.
         if (!TryComp<DamageableComponent>(item, out var dmgComp))
             return;
@@ -79,20 +70,8 @@ public sealed partial class BlockingSystem
         }
         //ADT-Tweak-End
 
-        var blockFraction = blocking.IsBlocking ? blocking.ActiveBlockFraction : blocking.PassiveBlockFraction;
-        var modifier = blocking.IsBlocking ? blocking.ActiveBlockDamageModifier : blocking.PassiveBlockDamageModifer;
-||||||| base
-        // A shield should only block damage it can itself absorb. To determine that we need the Damageable component on it.
-        if (!TryComp<DamageableComponent>(item, out var dmgComp))
-            return;
-
-        var blockFraction = blocking.IsBlocking ? blocking.ActiveBlockFraction : blocking.PassiveBlockFraction;
-        var modifier = blocking.IsBlocking ? blocking.ActiveBlockDamageModifier : blocking.PassiveBlockDamageModifer;
-=======
         var blockFraction = blocking.IsRaised ? blocking.ActiveBlockFraction : blocking.PassiveBlockFraction;
->>>>>>> theirs
         blockFraction = Math.Clamp(blockFraction, 0, 1);
-<<<<<<< ours
 
         //ADT-Tweak-Start
         blockFraction = ApplyBatteryLimitToBlockFraction(item, blocking, blockFraction, args.OriginalDamage);
@@ -102,83 +81,30 @@ public sealed partial class BlockingSystem
         //ADT-Tweak-End
 
         _damageable.TryChangeDamage((item, dmgComp), blockFraction * args.OriginalDamage);
-||||||| base
-        _damageable.TryChangeDamage((item, dmgComp), blockFraction * args.OriginalDamage);
-=======
->>>>>>> theirs
 
         // This is how much damage the shield is attempting to block
         var split = args.OriginalDamage * blockFraction;
         var damage = _damageable.ChangeDamage(item, split);
 
-<<<<<<< ours
         //ADT-Tweak-Start
         if (blocking.IsCharging && HasEnoughBatteryCharge(item, blocking))
         {
-            UserStopBlocking(uid, component);
+            UserStopBlocking(entity);
             return;
         }
         //ADT-Tweak-End
 
-        args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, modify);
-
-        if (blocking.IsBlocking && !args.Damage.Equals(args.OriginalDamage))
-        {
-            _audio.PlayPvs(blocking.BlockSound, uid);
-        }
-    }
-||||||| base
-        args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, modify);
-
-        if (blocking.IsBlocking && !args.Damage.Equals(args.OriginalDamage))
-        {
-            _audio.PlayPvs(blocking.BlockSound, uid);
-        }
-    }
-=======
         // Of the damage that went through, reduce by the appropriate blocking modifiers.
         var modifier = GetBlockingModifier((item, blocking));
         var blowthrough = DamageSpecifier.ApplyModifierSet(split, modifier);
->>>>>>> theirs
 
-<<<<<<< ours
-    private void OnDamageModified(EntityUid uid, BlockingComponent component, DamageModifyEvent args)
-    {
-        //ADT-Tweak-Start
-        if (component.IsToggle)
-        {
-            if (TryComp<ItemToggleComponent>(uid, out var itemToggle) && !itemToggle.Activated)
-                return;
-        }
-        //ADT-Tweak-End
-
-        var modifier = component.IsBlocking ? component.ActiveBlockDamageModifier : component.PassiveBlockDamageModifer;
-        if (modifier == null)
-        {
-            return;
-        }
-||||||| base
-    private void OnDamageModified(EntityUid uid, BlockingComponent component, DamageModifyEvent args)
-    {
-        var modifier = component.IsBlocking ? component.ActiveBlockDamageModifier : component.PassiveBlockDamageModifer;
-        if (modifier == null)
-        {
-            return;
-        }
-=======
         args.Damage *= 1f - blockFraction;
         args.Damage += blowthrough;
->>>>>>> theirs
 
-<<<<<<< ours
-        args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, modifier);
-        ConsumeBatteryCharge(uid, component, (float)args.Damage.GetTotal()); //ADT-Tweak
-||||||| base
-        args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, modifier);
-=======
+        ConsumeBatteryCharge(item, blocking, (float)args.Damage.GetTotal()); //ADT-Tweak
+
         if (blocking.IsRaised && damage.AnyPositive())
             _audio.PlayPvs(blocking.BlockSound, entity);
->>>>>>> theirs
     }
 
     private void OnEntityTerminating(Entity<BlockingUserComponent> entity, ref EntityTerminatingEvent args)
@@ -219,8 +145,7 @@ public sealed partial class BlockingSystem
         _popupSystem.PopupPredicted(Loc.GetString("inducer-empty"), entity, entity);
 
         if (entity.Comp.User != null)
-            StopBlockingHelper(entity, entity.Comp, entity.Comp.User.Value);
-
+            StopBlocking(entity, entity.Comp.User.Value);
     }
 
     private float ApplyBatteryLimitToBlockFraction(EntityUid uid, BlockingComponent component, float blockFraction, DamageSpecifier originalDamage)

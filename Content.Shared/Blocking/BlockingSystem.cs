@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Shared.Actions;
 using Content.Shared.Blocking.Components;
 using Content.Shared.Damage;
@@ -18,14 +18,15 @@ using Content.Shared.Toggleable;
 using Content.Shared.Verbs;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Timing;
 using Robust.Shared.Toolshed.Syntax;
 using Robust.Shared.Utility;
-using Content.Shared.Item.ItemToggle.Components; //ADT-Tweak
 
 namespace Content.Shared.Blocking;
 
 public sealed partial class BlockingSystem : EntitySystem
 {
+    [Dependency] private IGameTiming _timing = default!;
     [Dependency] private ActionContainerSystem _actionContainer = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private ExamineSystemShared _examine = default!;
@@ -64,20 +65,12 @@ public sealed partial class BlockingSystem : EntitySystem
 
     private void OnMapInit(Entity<BlockingComponent> entity, ref MapInitEvent args)
     {
-<<<<<<< ours
-        if (component.IsHasBlockingToggle) //ADT-Tweak
-            _actionContainer.EnsureAction(uid, ref component.BlockingToggleActionEntity, component.BlockingToggleAction);
-        Dirty(uid, component);
-||||||| base
-        _actionContainer.EnsureAction(uid, ref component.BlockingToggleActionEntity, component.BlockingToggleAction);
-        Dirty(uid, component);
-=======
         if (!CanBlock(entity.AsNullable()))
             return;
 
-        _actionContainer.EnsureAction(entity, ref entity.Comp.BlockingToggleActionEntity, entity.Comp.BlockingToggleAction);
+        if (entity.Comp.IsHasBlockingToggle) //ADT-Tweak
+            _actionContainer.EnsureAction(entity, ref entity.Comp.BlockingToggleActionEntity, entity.Comp.BlockingToggleAction);
         DirtyField(entity, entity.Comp, nameof(BlockingComponent.BlockingToggleActionEntity));
->>>>>>> theirs
     }
 
     private void OnItemToggled(Entity<BlockingComponent> entity, ref ItemToggledEvent args)
@@ -106,14 +99,10 @@ public sealed partial class BlockingSystem : EntitySystem
 
     private void OnDrop(Entity<BlockingComponent> entity, ref DroppedEvent args)
     {
-<<<<<<< ours
-        if (component.IsHasBlockingToggle) //ADT-Tweak
-            args.AddAction(ref component.BlockingToggleActionEntity, component.BlockingToggleAction);
-||||||| base
-        args.AddAction(ref component.BlockingToggleActionEntity, component.BlockingToggleAction);
-=======
         StopBlocking(entity, args.User);
->>>>>>> theirs
+
+        if (entity.Comp.IsHasBlockingToggle) //ADT-Tweak
+            args.AddAction(ref entity.Comp.BlockingToggleActionEntity, entity.Comp.BlockingToggleAction);
     }
 
     private void OnGetActions(Entity<BlockingComponent> entity, ref GetItemActionsEvent args)
@@ -121,23 +110,15 @@ public sealed partial class BlockingSystem : EntitySystem
         args.AddAction(ref entity.Comp.BlockingToggleActionEntity, entity.Comp.BlockingToggleAction);
     }
 
-<<<<<<< ours
-        //ADT-Tweak-Start
-        if (!component.IsHasBlockingToggle)
-            return;
-        //ADT-Tweak-End
-
-        var blockQuery = GetEntityQuery<BlockingComponent>();
-        var handQuery = GetEntityQuery<HandsComponent>();
-||||||| base
-        var blockQuery = GetEntityQuery<BlockingComponent>();
-        var handQuery = GetEntityQuery<HandsComponent>();
-=======
-    private void OnToggleAction(Entity<BlockingComponent> entity, ref ToggleActionEvent args)
+private void OnToggleAction(Entity<BlockingComponent> entity, ref ToggleActionEvent args)
     {
         if (args.Handled || !CanBlock(entity.AsNullable()))
             return;
->>>>>>> theirs
+
+        //ADT-Tweak-Start
+        if (!entity.Comp.IsHasBlockingToggle)
+            return;
+        //ADT-Tweak-End
 
         if (!_handQuery.TryGetComponent(args.Performer, out var hands))
             return;
@@ -327,7 +308,7 @@ public sealed partial class BlockingSystem : EntitySystem
         DirtyField(entity, entity.Comp, nameof(BlockingComponent.User));
 
         //To make sure that this bodytype doesn't get set as anything but the original
-        if (EnsureComp<BlockingUserComponent>(user, out var userComp))
+        if (_timing.ApplyingState || EnsureComp<BlockingUserComponent>(user, out var userComp))
             return;
 
         userComp.BlockingItem = entity;
@@ -382,26 +363,18 @@ public sealed partial class BlockingSystem : EntitySystem
         if (!args.CanInteract || !args.CanAccess)
             return;
 
-<<<<<<< ours
-        //ADT-Tweak-Start
-        if (component.IsToggle)
+//ADT-Tweak-Start
+        if (entity.Comp.IsToggle)
         {
-            if (TryComp<ItemToggleComponent>(uid, out var itemToggle) && !itemToggle.Activated)
+            if (TryComp<ItemToggleComponent>(entity, out var itemToggle) && !itemToggle.Activated)
             {
                 return;
             }
         }
         //ADT-Tweak-End
 
-        var fraction = component.IsBlocking ? component.ActiveBlockFraction : component.PassiveBlockFraction;
-        var modifier = component.IsBlocking ? component.ActiveBlockDamageModifier : component.PassiveBlockDamageModifer;
-||||||| base
-        var fraction = component.IsBlocking ? component.ActiveBlockFraction : component.PassiveBlockFraction;
-        var modifier = component.IsBlocking ? component.ActiveBlockDamageModifier : component.PassiveBlockDamageModifer;
-=======
         var fraction = entity.Comp.IsRaised ? entity.Comp.ActiveBlockFraction : entity.Comp.PassiveBlockFraction;
         var modifier = GetBlockingModifier(entity);
->>>>>>> theirs
 
         var msg = new FormattedMessage();
         msg.AddMarkupOrThrow(Loc.GetString("blocking-fraction", ("value", MathF.Round(fraction * 100, 1))));
