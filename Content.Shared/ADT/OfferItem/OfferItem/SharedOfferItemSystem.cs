@@ -26,8 +26,20 @@ public abstract partial class SharedOfferItemSystem : EntitySystem
         SubscribeLocalEvent<OfferItemComponent, DidUnequipHandEvent>(OnDidUnequipHand);
         SubscribeLocalEvent<OfferItemComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<OfferItemComponent, AcceptOfferAlertEvent>(OnAcceptAlert);
+        SubscribeNetworkEvent<OfferItemDeclineEvent>(OnDeclineOffer);
 
         InitializeInteractions();
+    }
+
+    private void OnDeclineOffer(OfferItemDeclineEvent msg, EntitySessionEventArgs args)
+    {
+        if (_net.IsClient || args.SenderSession.AttachedEntity is not { } uid)
+            return;
+
+        if (!TryComp<OfferItemComponent>(uid, out var comp) || !comp.IsInReceiveMode)
+            return;
+
+        Cancel((uid, comp));
     }
 
     private void OnInteractUsing(Entity<OfferItemComponent> ent, ref InteractUsingEvent args)
@@ -182,6 +194,7 @@ public abstract partial class SharedOfferItemSystem : EntitySystem
             _alerts.ClearAlert(ent.Owner, OfferAlert);
 
         Dirty(ent);
+        OnOfferChanged(ent);
     }
 
     private void Reset(Entity<OfferItemComponent> ent)
@@ -196,6 +209,11 @@ public abstract partial class SharedOfferItemSystem : EntitySystem
         ent.Comp.Target = null;
 
         Dirty(ent);
+        OnOfferChanged(ent);
+    }
+
+    protected virtual void OnOfferChanged(Entity<OfferItemComponent> ent)
+    {
     }
 
     private void PopupTo(string message, EntityUid uid, EntityUid recipient)
