@@ -1,9 +1,5 @@
 using Content.Shared.Chat;
-<<<<<<< HEAD:Content.Server/Radio/RadioEvent.cs
-using Content.Shared.Radio;
 using Content.Shared.ADT.Language;  // ADT Languages
-=======
->>>>>>> wizards-filtered:Content.Shared/Radio/RadioEvent.cs
 
 namespace Content.Shared.Radio;
 

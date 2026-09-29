@@ -8,7 +8,8 @@ using Content.Shared.Power.EntitySystems;
 using Content.Shared.Radio.Components;
 using Content.Shared.Speech;
 using Content.Shared.Speech.Components;
-
+using Content.Shared.ADT.Language;  // ADT Languages
+using Robust.Shared.Audio.Systems; // ADT-Tweak
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Radio.EntitySystems;
@@ -24,6 +25,7 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
     [Dependency] private SharedRadioSystem _radio = default!;
     [Dependency] private SharedPowerReceiverSystem _power = default!;
     [Dependency] private SharedInteractionSystem _interaction = default!;
+    [Dependency] private SharedAudioSystem _audio = default!; // ADT-Tweak
 
     // Used to prevent a shitter from using a bunch of radios to spam chat.
     private readonly HashSet<(string, EntityUid, RadioChannelPrototype)> _recentlySent = [];
@@ -255,6 +257,13 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
         if (ent.Owner == args.RadioSource)
             return;
 
+        // ADT-Tweak start
+        if (ent.Comp.SoundOnReceive != null)
+        {
+            _audio.PlayPvs(ent.Comp.SoundOnReceive, ent.Owner);
+        }
+        // ADT-Tweak end
+
         var nameEv = new TransformSpeakerNameEvent(args.MessageSource, Name(args.MessageSource));
         RaiseLocalEvent(args.MessageSource, nameEv);
 
@@ -265,10 +274,11 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
         // log to chat so people can identity the speaker/source, but avoid clogging ghost chat if there are many radios
         _chat.TrySendInGameICMessage(ent.Owner,
             args.Message,
-            InGameICChatType.Whisper,
+            ent.Comp.SpeechMode, // ADT-Tweak
             ChatTransmitRange.GhostRangeLimit,
             nameOverride: name,
-            checkRadioPrefix: false);
+            checkRadioPrefix: false,
+            language: args.Language); // ADT-Tweak
     }
 
     [SubscribeLocalEvent]

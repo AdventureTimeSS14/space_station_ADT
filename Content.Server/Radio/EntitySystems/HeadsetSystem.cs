@@ -16,20 +16,11 @@ namespace Content.Server.Radio.EntitySystems;
 
 public sealed partial class HeadsetSystem : SharedHeadsetSystem
 {
-<<<<<<< ours
-    [Dependency] private readonly INetManager _netMan = default!;
-    [Dependency] private readonly ADT.Deafness.ADTDeafnessSystem _deafness = default!;
-    [Dependency] private readonly RadioSystem _radio = default!;
-    [Dependency] private readonly LanguageSystem _language = default!;  // ADT Languages
-    [Dependency] private readonly PopupSystem _popup = default!; // ADT Radio Block
-    [Dependency] private readonly ILocalizationManager _loc = default!; // ADT Radio Block
-||||||| base
-    [Dependency] private readonly INetManager _netMan = default!;
-    [Dependency] private readonly RadioSystem _radio = default!;
-=======
     [Dependency] private INetManager _netMan = default!;
+    [Dependency] private ADT.Deafness.ADTDeafnessSystem _deafness = default!;
     [Dependency] private RadioSystem _radio = default!;
->>>>>>> theirs
+    [Dependency] private LanguageSystem _language = default!;  // ADT Languages
+    [Dependency] private PopupSystem _popup = default!; // ADT Radio Block
 
     public override void Initialize()
     {
