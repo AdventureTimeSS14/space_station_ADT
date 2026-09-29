@@ -339,15 +339,6 @@
   - type: Construction
     graph: ModularGrenadeGraph
     node: emptyCase
-<<<<<<< ours
-  - type: Damageable
-  - type: Injurable
-    damageContainer: Inorganic
-||||||| base
-  - type: Damageable
-    damageContainer: Inorganic
-=======
->>>>>>> theirs
   - type: Destructible
     thresholds:
     - trigger:

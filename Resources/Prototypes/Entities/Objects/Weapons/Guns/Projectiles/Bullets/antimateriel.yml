@@ -8,13 +8,8 @@
     damage:
       types:
         Piercing: 75
-<<<<<<< HEAD:Resources/Prototypes/Entities/Objects/Weapons/Guns/Ammunition/Projectiles/antimateriel.yml
         Structural: 130 # ADT-Tweak 226 -> 130
     penetrationThreshold: 360
-=======
-        Structural: 100
-    penetrationThreshold: 601
->>>>>>> wizards-filtered:Resources/Prototypes/Entities/Objects/Weapons/Guns/Projectiles/Bullets/antimateriel.yml
     penetrationDamageTypeRequirement:
     - Structural
   - type: StaminaDamageOnCollide

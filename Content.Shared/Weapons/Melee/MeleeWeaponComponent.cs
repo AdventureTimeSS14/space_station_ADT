@@ -173,7 +173,6 @@ public sealed partial class MeleeWeaponComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool MustBeEquippedToUse = false;
-<<<<<<< ours
 
     // ADT Disarm tweak start
     [AutoNetworkedField]
@@ -190,8 +189,6 @@ public sealed partial class MeleeWeaponComponent : Component
     [DataField]
     public int ShovesToDisarm = 3;
     // ADT Disarm tweak end
-||||||| base
-=======
 
     /// <summary>
     /// The last entity hit that the weapon was unable to damage.
@@ -216,7 +213,6 @@ public sealed partial class MeleeWeaponComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     public int UndamagedSwings = 0;
->>>>>>> theirs
 }
 
 /// <summary>

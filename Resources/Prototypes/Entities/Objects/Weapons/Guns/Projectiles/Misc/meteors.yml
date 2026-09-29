@@ -1,9 +1,5 @@
-<<<<<<< HEAD:Resources/Prototypes/Entities/Objects/Weapons/Guns/Projectiles/meteors.yml
-﻿- type: entity
-=======
 - type: entity
   abstract: true
->>>>>>> wizards-filtered:Resources/Prototypes/Entities/Objects/Weapons/Guns/Projectiles/Misc/meteors.yml
   id: BaseMeteor
   name: meteor
   description: You prefer them when they're burning up in the atmosphere.

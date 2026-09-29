@@ -1,10 +1,6 @@
 using System.Numerics;
-<<<<<<< ours
-using Content.Shared.ADT.Chaplain.Components;
-||||||| base
-=======
 using Content.Shared.ActionBlocker;
->>>>>>> theirs
+using Content.Shared.ADT.Chaplain.Components;
 using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Coordinates.Helpers;
@@ -277,13 +273,7 @@ public abstract partial class SharedMagicSystem : EntitySystem
         var ent = Spawn(ev.Prototype, fromMap);
         var direction = _transform.ToMapCoordinates(toCoords).Position -
                          fromMap.Position;
-<<<<<<< ours
-        _gunSystem.ShootProjectile(ent, direction, userVelocity, ev.Performer, ev.Performer, ev.Speed); // ADT-Heretic: скорость из события
-||||||| base
-        _gunSystem.ShootProjectile(ent, direction, userVelocity, ev.Performer, ev.Performer, 25f);
-=======
         _gunSystem.ShootProjectile(ent, direction, userVelocity, ev.Performer, ev.Performer, ev.ProjectileSpeed);
->>>>>>> theirs
     }
     // End Projectile Spells
     #endregion

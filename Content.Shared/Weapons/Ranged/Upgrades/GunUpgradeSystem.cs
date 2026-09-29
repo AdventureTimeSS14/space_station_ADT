@@ -19,29 +19,13 @@ namespace Content.Shared.Weapons.Ranged.Upgrades;
 
 public sealed partial class GunUpgradeSystem : EntitySystem
 {
-<<<<<<< ours
-    [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedGunSystem _gun = default!;
-    [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-||||||| base
-    [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedGunSystem _gun = default!;
-    [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-=======
     [Dependency] private ISharedAdminLogManager _adminLog = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private SharedContainerSystem _container = default!;
     [Dependency] private SharedGunSystem _gun = default!;
     [Dependency] private EntityWhitelistSystem _entityWhitelist = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
->>>>>>> theirs
+    [Dependency] private DamageableSystem _damageableSystem = default!; // ADT-Tweak
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -126,7 +110,6 @@ public sealed partial class GunUpgradeSystem : EntitySystem
         if (_entityWhitelist.IsWhitelistFail(ent.Comp.Whitelist, args.Used))
             return;
 
-<<<<<<< ours
         //ADT tweak start
         // if (GetCurrentUpgradeTags(ent).ToHashSet().IsSupersetOf(upgradeComponent.Tags))
         // {
@@ -134,31 +117,11 @@ public sealed partial class GunUpgradeSystem : EntitySystem
         //     return;
         // }
         //ADT tweak end
-||||||| base
-        if (GetCurrentUpgradeTags(ent).ToHashSet().IsSupersetOf(upgradeComponent.Tags))
-        {
-            _popup.PopupPredicted(Loc.GetString("upgradeable-gun-popup-already-present"), ent, args.User);
-            return;
-        }
-=======
-        if (GetCurrentUpgradeTags(ent).ToHashSet().IsSupersetOf(upgradeComponent.Tags))
-        {
-            _popup.PopupEntity(Loc.GetString("upgradeable-gun-popup-already-present"), ent, args.User);
-            return;
-        }
->>>>>>> theirs
 
         args.Handled = _container.Insert(args.Used, _container.GetContainer(ent, ent.Comp.UpgradesContainerId));
         _audio.PlayPredicted(ent.Comp.InsertSound, ent, args.User);
         _popup.PopupEntity(Loc.GetString("gun-upgrade-popup-insert", ("upgrade", args.Used),("gun", ent.Owner)), args.User, args.User);
         _gun.RefreshModifiers(ent.Owner);
-<<<<<<< ours
-        args.Handled = _container.Insert(args.Used, _container.GetContainer(ent, ent.Comp.UpgradesContainerId));
-        _gun.RefreshModifiers(ent.Owner); // ADT-Tweak
-||||||| base
-        args.Handled = _container.Insert(args.Used, _container.GetContainer(ent, ent.Comp.UpgradesContainerId));
-=======
->>>>>>> theirs
 
         _adminLog.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(args.User):player} inserted gun upgrade {ToPrettyString(args.Used)} into {ToPrettyString(ent.Owner)}.");
     }

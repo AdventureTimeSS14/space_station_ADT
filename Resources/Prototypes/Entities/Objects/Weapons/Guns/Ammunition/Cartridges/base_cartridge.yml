@@ -16,33 +16,6 @@
           - ItemMask
         restitution: 0.3  # fite me
         friction: 0.2
-<<<<<<< ours
-  - type: Damageable
-    damageModifierSet: StrongMetallic # We only want explosions breaking them (for the most part)
-  - type: Injurable
-    damageContainer: StructuralInorganic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 75
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-||||||| base
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: StrongMetallic # We only want explosions breaking them (for the most part)
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 75
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-=======
->>>>>>> theirs
   - type: Tag
     tags:
     - Cartridge

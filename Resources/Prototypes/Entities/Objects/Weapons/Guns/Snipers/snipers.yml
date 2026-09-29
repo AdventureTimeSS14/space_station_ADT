@@ -40,13 +40,7 @@
 
 - type: entity
   name: Kardashev-Mosin
-<<<<<<< ours
   parent: [BaseWeaponSniper, BaseGunWieldable, BaseSyndicateContraband, ADTBaseAttachableHolder] #ADT_Tweak
-||||||| base
-  parent: [BaseWeaponSniper, BaseGunWieldable, BaseMajorContraband]
-=======
-  parent: [BaseWeaponSniper, BaseGunWieldable, SolutionDart, BaseMajorContraband]
->>>>>>> theirs
   id: WeaponSniperMosin
   description: A true relic, the Kardashev-Mosin has served in nearly every armed conflict since its creation 670 years ago. The bolt-action design of the rifle remains virtually identical to its original design, whether used for hunting, sniping, or endless trench warfare. Loads 10 rounds of .30 rifle.
   components:
@@ -76,44 +70,7 @@
     soundHit:
       collection: GenericHit
   - type: AltFireMelee
-<<<<<<< ours
 #ADT_Tweak END
-||||||| base
-    attackType: Heavy
-  - type: SolutionContainerManager
-    solutions:
-      melee:
-        maxVol: 2
-  - type: MeleeChemicalInjector
-    solution: melee
-  - type: RefillableSolution
-    solution: melee
-  - type: InjectableSolution
-    solution: melee
-  - type: SolutionTransfer
-    maxTransferAmount: 2
-  - type: Sharp
-    butcherDelayModifier: 2 #It's a bayonet
-  - type: GunRequiresWield
-  - type: StaticPrice
-    price: 500
-=======
-    attackType: Heavy
-  - type: MeleeChemicalInjector
-    solution: melee
-  - type: RefillableSolution
-    solution: melee
-  - type: InjectableSolution
-    solution: melee
-  - type: SolutionTransfer
-    maxTransferAmount: 2
-  - type: Tool
-    qualities: [ Slicing ]
-    speedModifier: 0.5 #It's a bayonet
-  - type: GunRequiresWield
-  - type: StaticPrice
-    price: 500
->>>>>>> theirs
 
 - type: entity
   name: Hristov

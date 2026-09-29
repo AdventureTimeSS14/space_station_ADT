@@ -46,7 +46,6 @@ public sealed partial class ProjectileSystem : SharedProjectileSystem
             return;
         }
 
-<<<<<<< ours
         // ADT TornadoTech Tweak Start
         var hitAttempt = new ProjectileHitAttemptEvent(component.Damage, target, component.Shooter);
         RaiseLocalEvent(target, hitAttempt);
@@ -54,14 +53,9 @@ public sealed partial class ProjectileSystem : SharedProjectileSystem
             return;
         // ADT TornadoTech Tweak End
 
-        var ev = new ProjectileHitEvent(component.Damage * _damageableSystem.UniversalProjectileDamageModifier, target, component.Shooter);
-||||||| base
-        var ev = new ProjectileHitEvent(component.Damage * _damageableSystem.UniversalProjectileDamageModifier, target, component.Shooter);
-=======
         var damageEv = new BeforeProjectileHitEvent(component.Damage, target, component.Shooter);
         RaiseLocalEvent(uid, ref damageEv);
         var ev = new ProjectileHitEvent(damageEv.Damage * _damageableSystem.UniversalProjectileDamageModifier, target, component.Shooter);
->>>>>>> theirs
         RaiseLocalEvent(uid, ref ev);
 
         var otherName = ToPrettyString(target);

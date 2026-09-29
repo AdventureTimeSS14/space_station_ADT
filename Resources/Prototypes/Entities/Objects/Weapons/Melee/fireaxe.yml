@@ -43,24 +43,13 @@
     quickEquip: false
     slots:
     - back
-<<<<<<< ours
-    - suitStorage #ADT_Tweak - чтобы вешать на спину
-||||||| base
-=======
     - suitStorage
->>>>>>> theirs
   - type: Tool
     qualities:
-<<<<<<< ours
-      - Prying
-      - AdvancedPrying # ADT-Axe-Great-Return
-||||||| base
-      - Prying
-=======
     - Prying
+    - AdvancedPrying # ADT-Axe-Great-Return
     - Slicing
     - Sawing
->>>>>>> theirs
   - type: ToolTileCompatible
   - type: Prying
   - type: UseDelay
@@ -80,6 +69,7 @@
     wideAnimationRotation: 135
     swingLeft: true
   - type: Item
+    sprite: Objects/Weapons/Melee/fireaxeflaming.rsi # ADT-Tweak
     shape:
     - 1,0,2,5
     - 0,0,0,2
@@ -99,11 +89,8 @@
     quickEquip: false
     slots:
     - back
-<<<<<<< ours
-    - suitStorage #ADT_Tweak - чтобы вешать на спину
+    - suitStorage
 # ADT-Tweak-Start
-  - type: Item
-    sprite: Objects/Weapons/Melee/fireaxeflaming.rsi
   - type: WeaponMartialArt
     martialArtsForm: SyndicateAxe
     combos: SyndicateAxeMoves
@@ -111,7 +98,3 @@
     guides:
     - ADTMaAxe
 # ADT-Tweak-End
-||||||| base
-=======
-    - suitStorage
->>>>>>> theirs

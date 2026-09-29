@@ -426,27 +426,7 @@ public abstract partial class SharedGrapplingGunSystem : VirtualController
     /// </summary>
     private void RefreshJointRelay(Entity<GrapplingProjectileEmbedComponent> entity)
     {
-<<<<<<< ours
-        if (!Timing.IsFirstTimePredicted || !args.Weapon.HasValue || !_entities.TryGetComponent<GrapplingGunComponent>(args.Weapon, out var grapple))
-            return;
-        // ADT fix start
-        if (!args.Shooter.HasValue || !args.Weapon.HasValue)
-            return;
-        // ADT fix end
-
-        var grapplePos = _transform.GetWorldPosition(args.Weapon.Value);
-        var hookPos = _transform.GetWorldPosition(uid);
-        if ((grapplePos - hookPos).Length() >= grapple.RopeMaxLength)
-||||||| base
-        if (!Timing.IsFirstTimePredicted || !args.Weapon.HasValue || !_entities.TryGetComponent<GrapplingGunComponent>(args.Weapon, out var grapple))
-            return;
-
-        var grapplePos = _transform.GetWorldPosition(args.Weapon.Value);
-        var hookPos = _transform.GetWorldPosition(uid);
-        if ((grapplePos - hookPos).Length() >= grapple.RopeMaxLength)
-=======
         foreach (var hook in entity.Comp.GrapplingProjectiles)
->>>>>>> theirs
         {
             if (!HasComp<GrapplingProjectileComponent>(hook) || !TryComp<JointComponent>(hook, out var jointComp))
                 continue;

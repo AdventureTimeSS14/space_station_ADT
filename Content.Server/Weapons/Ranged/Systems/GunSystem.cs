@@ -26,19 +26,9 @@ namespace Content.Server.Weapons.Ranged.Systems;
 
 public sealed partial class GunSystem : SharedGunSystem
 {
-<<<<<<< ours
-    [Dependency] private readonly PricingSystem _pricing = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedRMCFlamerSystem _rmcFlamer = default!; // ADT-Tweak
-||||||| base
-    [Dependency] private readonly PricingSystem _pricing = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-=======
     [Dependency] private PricingSystem _pricing = default!;
     [Dependency] private SharedMapSystem _map = default!;
->>>>>>> theirs
+    [Dependency] private SharedRMCFlamerSystem _rmcFlamer = default!; // ADT-Tweak
 
     private const float DamagePitchVariation = 0.05f;
 

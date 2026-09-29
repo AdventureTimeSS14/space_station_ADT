@@ -12,15 +12,9 @@ namespace Content.Shared.Damage.Systems;
 
 public sealed partial class RequireProjectileTargetSystem : EntitySystem
 {
-<<<<<<< ours
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!; // ADT Anti-Lying-Warrior
-||||||| base
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-=======
     [Dependency] private SharedContainerSystem _container = default!;
->>>>>>> theirs
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private MobStateSystem _mobState = default!; // ADT Anti-Lying-Warrior
 
     public override void Initialize()
     {

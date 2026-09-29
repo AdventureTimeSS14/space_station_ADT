@@ -87,13 +87,8 @@
     deployedDamageModifierSetId: FlimsyMetallic
   - type: Damageable
     damageModifierSet: Metallic
-<<<<<<< ours
-  - type: Injurable
-||||||| base
-=======
   - type: Injurable
     damageContainer: StructuralInorganic
->>>>>>> theirs
   - type: Repairable
     doAfterDelay: 10
     allowSelfRepair: false

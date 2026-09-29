@@ -1166,7 +1166,7 @@ CratePartsT3T4: null
 CratePartsT4: null
 
 #2027-07-17
-WeaponRifleM90GrenadeLauncher: null
+# WeaponRifleM90GrenadeLauncher: null # ADT-Tweak
 
 # 2026-07-18
 SheetGlassLingering0: null

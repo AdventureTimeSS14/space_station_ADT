@@ -15,14 +15,7 @@
   - type: Construction
     graph: DetonatorGraph
     node: emptyDetonator
-<<<<<<< ours
-  - type: Damageable
   - type: Injurable
-||||||| base
-  - type: Damageable
-=======
-  - type: Injurable
->>>>>>> theirs
     damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
