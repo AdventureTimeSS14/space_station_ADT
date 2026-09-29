@@ -17,7 +17,7 @@
 - type: entity
   id: ADTActionShadowlingEnthrall
   name: Порабощение
-  description: Подчинить живого и находящегося в сознании гуманоида своей воле. Щит разума это блокирует.
+  description: Подчинить живого и находящегося в сознании гуманоида своей воле. Не работает на КПБ, новакидов и с имплантом защиты разума.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
