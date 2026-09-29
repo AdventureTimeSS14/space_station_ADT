@@ -284,6 +284,178 @@
       proto: MinecraftHarp
       sound: /Audio/ADT/Voice/Vocal-Barks/minecraft_harp.ogg
 
+#Mysok
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieKusuk
+  name: plush Kusuk
+  description: plush Kusuk
+  suffix: Personal, Mysok
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_kusuk
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/toys.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: kusuk-equipped-HELMET
+        offset: "0, 0.0625"
+  - type: Item
+    sprite: ADT/Personalization/toys.rsi
+    inhandVisuals:
+      left:
+      - state: kusuk-inhand-left
+      right:
+      - state: kusuk-inhand-right
+  - type: EmitSoundOnUse
+    sound: &PlushieVulpSound
+      path: /Audio/Voice/Vulpkanin/howl.ogg
+      params:
+        volume: -5
+  - type: EmitSoundOnLand
+    sound: *PlushieVulpSound
+  - type: EmitSoundOnActivate
+    sound: *PlushieVulpSound
+  - type: EmitSoundOnTrigger
+    sound: *PlushieVulpSound
+  - type: MeleeWeapon
+    soundHit: *PlushieVulpSound
+  - type: UseDelay
+    delay: 5
+  - type: UseDelayOnTrigger
+  - type: UseDelayTriggerCondition # prevent spam
+  - type: TriggerOnActivate
+  - type: TriggerOnUse
+  - type: Speech
+    speechSounds: Squeak
+  - type: SpeakOnTrigger
+    pack: ADTPlushieKusuk
+
+- type: localizedDataset
+  id: ADTPlushieKusuk
+  values:
+    prefix: plushie-kusuk-
+    count: 4
+
+#prodan_fan
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieNirkin
+  name: plush Nirkin
+  description: plush Nirkin
+  suffix: Personal, prodan_fan
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_nirkin
+  - type: Item
+    sprite: ADT/Personalization/toys.rsi
+    inhandVisuals:
+      left:
+      - state: nirkin-inhand-left
+      right:
+      - state: nirkin-inhand-right
+  - type: EmitSoundOnUse
+    sound:
+      collection: ADTToySqueakNirkin
+      params:
+        volume: -5
+  - type: EmitSoundOnLand
+    sound:
+      collection: ADTToySqueakNirkin
+      params:
+        volume: -5
+  - type: EmitSoundOnActivate
+    sound:
+      collection: ADTToySqueakNirkin
+      params:
+        volume: -5
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: ADTToySqueakNirkin
+      params:
+        volume: -5
+  - type: MeleeWeapon
+    soundHit:
+      collection: ADTToySqueakNirkin
+      params:
+        volume: -5
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/toys.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: nirkin-equipped-HELMET
+        offset: "0, 0.0625"
+
+#Tudibideb
+- type: entity
+  parent: [ClothingHeadBandBase, ADTClothingMaskBandTudibideb]
+  id: ADTClothingHeadBandTudibideb
+  name: skull bandana
+  suffix: Personal, Tudibideb
+
+- type: entity
+  parent: ClothingMaskBandanaBase
+  id: ADTClothingMaskBandTudibideb
+  name: skull bandana
+  description: skull bandana
+  suffix: Personal, Tudibideb
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/tudibideb_bandana.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/tudibideb_bandana.rsi
+  - type: BreathMask
+
+#RiverSpirit
+- type: entity
+  parent: ClothingOuterEVASuitBase
+  id: ADTClothingOuterSuitRiverSpirit
+  name: plasmamen suit
+  description: plasmamen suit
+  suffix: Personal, RiverSpirit
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/riverspirit_plasmaman_eva.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/riverspirit_plasmaman_eva.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
+  - type: TemperatureProtection
+    heatingCoefficient: 0.75
+    coolingCoefficient: 0.5
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetRiverSpirit
+    slot: head
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+- type: entity
+  parent: ClothingHeadEVAHelmetBase
+  id: ADTClothingHeadHelmetRiverSpirit
+  name: plasmamen helmet
+  description: plasmamen helmet
+  suffix: Personal, RiverSpirit
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/riverspirit_plasmaman_helmet.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/riverspirit_plasmaman_helmet.rsi
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
 - type: entity
   parent: BasePlushie
   id: ADTPlushieEtvy
