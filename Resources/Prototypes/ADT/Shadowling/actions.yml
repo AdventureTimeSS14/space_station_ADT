@@ -34,7 +34,6 @@
       - MobState
     blacklist:
       components:
-      - MindShield
       - MobIpc
       - NovakidGlowing
   - type: TargetAction

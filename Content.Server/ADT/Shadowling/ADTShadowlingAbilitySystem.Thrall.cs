@@ -1,6 +1,7 @@
 using Content.Shared.ADT.NightVision;
 using Content.Shared.ADT.Shadowling;
 using Content.Shared.DoAfter;
+using Content.Shared.Mindshield.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
@@ -104,6 +105,14 @@ public sealed partial class ADTShadowlingAbilitySystem
         {
             if (!quiet)
                 _popup.PopupEntity(Loc.GetString("shadowling-enthrall-invalid"), user, user);
+
+            return false;
+        }
+
+        if (HasComp<MindShieldComponent>(target))
+        {
+            if (!quiet)
+                _popup.PopupEntity(Loc.GetString("shadowling-enthrall-mindshield"), user, user, PopupType.MediumCaution);
 
             return false;
         }
