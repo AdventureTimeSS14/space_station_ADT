@@ -30,12 +30,8 @@ public sealed partial class StationAiVisionSystem : EntitySystem
     private readonly HashSet<Entity<StationAiVisionComponent>> _seeds = new();
     private readonly HashSet<Vector2i> _viewportTiles = new();
 
-<<<<<<< HEAD:Content.Shared/Silicons/StationAi/Systems/StationAiVisionSystem.cs
-    private EntityQuery<OccluderComponent> _occluderQuery;
-    private EntityQuery<AreaGridComponent> _areaGridQuery;
+private EntityQuery<AreaGridComponent> _areaGridQuery;
 
-=======
->>>>>>> wizards-filtered:Content.Shared/Silicons/StationAi/StationAiVisionSystem.cs
     // Dummy set
     private readonly HashSet<Vector2i> _singleTiles = new();
 
@@ -52,12 +48,8 @@ public sealed partial class StationAiVisionSystem : EntitySystem
     {
         base.Initialize();
 
-<<<<<<< HEAD:Content.Shared/Silicons/StationAi/Systems/StationAiVisionSystem.cs
-        _occluderQuery = GetEntityQuery<OccluderComponent>();
-        _areaGridQuery = GetEntityQuery<AreaGridComponent>(); // ADT-tweak
+_areaGridQuery = GetEntityQuery<AreaGridComponent>(); // ADT-tweak
 
-=======
->>>>>>> wizards-filtered:Content.Shared/Silicons/StationAi/StationAiVisionSystem.cs
         _seedJob = new()
         {
             System = this,

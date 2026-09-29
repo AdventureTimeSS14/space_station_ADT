@@ -33,33 +33,16 @@ namespace Content.Server.Silicons.Laws;
 /// <inheritdoc/>
 public sealed partial class SiliconLawSystem : SharedSiliconLawSystem
 {
-<<<<<<< ours
-    [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly SharedRoleSystem _roles = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
-    [Dependency] private readonly EmagSystem _emag = default!;
-    [Dependency] private readonly NpcFactionSystem _faction = default!;
-    [Dependency] private readonly TagSystem _tagSystem = default!;
-||||||| base
-    [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly SharedRoleSystem _roles = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
-    [Dependency] private readonly EmagSystem _emag = default!;
-=======
     [Dependency] private IChatManager _chatManager = default!;
     [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
     [Dependency] private SharedRoleSystem _roles = default!;
     [Dependency] private StationSystem _station = default!;
     [Dependency] private UserInterfaceSystem _userInterface = default!;
     [Dependency] private EmagSystem _emag = default!;
+    [Dependency] private NpcFactionSystem _faction = default!;
+    [Dependency] private TagSystem _tagSystem = default!;
     [Dependency] private ISharedAdminLogManager _adminLogger = default!;
->>>>>>> theirs
 
     private static readonly ProtoId<SiliconLawsetPrototype> DefaultCrewLawset = "Crewsimov";
 
@@ -143,22 +126,7 @@ public sealed partial class SiliconLawSystem : SharedSiliconLawSystem
         TryComp(uid, out IntrinsicRadioTransmitterComponent? intrinsicRadio);
         var radioChannels = intrinsicRadio?.Channels;
 
-<<<<<<< ours
-        // ADT-Tweak start
-        var laws = GetLaws(uid).Laws;
-        var lawData = new List<SiliconLawData>(laws.Count);
-        foreach (var law in laws)
-        {
-            lawData.Add(SiliconLawData.FromSiliconLaw(law));
-        }
-        // ADT-Tweak end
-
-        var state = new SiliconLawBuiState(lawData, radioChannels);
-||||||| base
-        var state = new SiliconLawBuiState(GetLaws(uid).Laws, radioChannels);
-=======
-        var state = new SiliconLawBuiState(GetLaws(uid).Laws, radioChannels, component.Version);
->>>>>>> theirs
+var state = new SiliconLawBuiState(GetLaws(uid).Laws, radioChannels, component.Version);
         _userInterface.SetUiState(args.Entity, SiliconLawsUiKey.Key, state);
     }
 
@@ -418,10 +386,7 @@ public sealed partial class SiliconLawSystem : SharedSiliconLawSystem
 
         component.Lawset.Laws = newLaws;
     }
-<<<<<<< ours
-    // ADT-Tweak-AiRemoteControl-End
-||||||| base
-=======
+// ADT-Tweak-AiRemoteControl-End
 
     /// <summary>
     /// Updates the version on a target SiliconLawBoundComponent. This is used in the law UI as flair to show the
@@ -474,7 +439,6 @@ public sealed partial class SiliconLawSystem : SharedSiliconLawSystem
             }
         }
     }
->>>>>>> theirs
 }
 
 [ToolshedCommand, AdminCommand(AdminFlags.Admin)]

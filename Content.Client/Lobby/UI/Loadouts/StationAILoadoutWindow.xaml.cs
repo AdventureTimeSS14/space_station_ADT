@@ -129,10 +129,7 @@ public sealed partial class StationAILoadoutWindow : BaseLoadoutWindow, ILoadout
         foreach (var lawId in _lawset.Laws)
         {
             var law = protoMan.Index<SiliconLawPrototype>(lawId);
-            // ADT-Tweak start
-            var lawData = SiliconLawData.FromSiliconLaw(law);
-            var display = new LawDisplay(EntityUid.Invalid, lawData, null)
-            // ADT-Tweak end
+            var display = new LawDisplay(law)
             {
                 Margin = new(4)
             };

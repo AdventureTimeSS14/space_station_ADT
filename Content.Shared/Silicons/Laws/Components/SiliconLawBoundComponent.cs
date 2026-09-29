@@ -18,7 +18,6 @@ public sealed partial class SiliconLawBoundComponent : Component
     /// </summary>
     [DataField]
     public EntityUid? LastLawProvider;
-<<<<<<< ours
     // START-ADT TWEAK FIx
     /// <summary>
     /// The sound that plays for the Silicon player
@@ -27,15 +26,12 @@ public sealed partial class SiliconLawBoundComponent : Component
     [DataField]
     public SoundSpecifier? LawUploadSound = new SoundPathSpecifier("/Audio/Misc/cryo_warning.ogg");
     // ADT-END
-||||||| base
-=======
 
     /// <summary>
     /// Version to display on the law panel. Increments whenever the laws are changed
     /// </summary>
     [DataField]
     public int Version = 1;
->>>>>>> theirs
 }
 
 /// <summary>
@@ -70,66 +66,15 @@ public enum SiliconLawsUiKey : byte
 [Serializable, NetSerializable]
 public sealed class SiliconLawBuiState : BoundUserInterfaceState
 {
-    public List<SiliconLawData> Laws; // ADT-Tweak
+    public List<SiliconLaw> Laws;
     public HashSet<ProtoId<RadioChannelPrototype>>? RadioChannels;
     public int Version;
 
-<<<<<<< ours
-    public SiliconLawBuiState(List<SiliconLawData> laws, HashSet<ProtoId<RadioChannelPrototype>>? radioChannels) // ADT-Tweak
-
-||||||| base
-    public SiliconLawBuiState(List<SiliconLaw> laws, HashSet<ProtoId<RadioChannelPrototype>>? radioChannels)
-=======
     public SiliconLawBuiState(List<SiliconLaw> laws, HashSet<ProtoId<RadioChannelPrototype>>? radioChannels, int version)
->>>>>>> theirs
     {
         Laws = laws;
         RadioChannels = radioChannels;
         Version = version;
     }
 }
-
-// ADT-Tweak start
-/// <summary>
-/// Serializable data for a silicon law, used for UI state.
-/// </summary>
-[NetSerializable, Serializable]
-public sealed class SiliconLawData
-{
-    public string LawString = string.Empty;
-    public string Order = string.Empty;
-    public string? LawIdentifierOverride;
-
-    public SiliconLawData()
-    {
-    }
-
-    public SiliconLawData(string lawString, string order, string? lawIdentifierOverride)
-    {
-        LawString = lawString;
-        Order = order;
-        LawIdentifierOverride = lawIdentifierOverride;
-    }
-
-    public static SiliconLawData FromSiliconLaw(SiliconLaw law)
-    {
-        return new SiliconLawData(law.LawString, law.Order.ToString(), law.LawIdentifierOverride);
-    }
-
-    public override bool Equals(object? obj)
-    {
-        if (obj is not SiliconLawData other)
-            return false;
-
-        return LawString == other.LawString
-               && Order == other.Order
-               && LawIdentifierOverride == other.LawIdentifierOverride;
-    }
-
-    public override int GetHashCode()
-    {
-        return HashCode.Combine(LawString, Order, LawIdentifierOverride);
-    }
-}
-// ADT-Tweak end
 

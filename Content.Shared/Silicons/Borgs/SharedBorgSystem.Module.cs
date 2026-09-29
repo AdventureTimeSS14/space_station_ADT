@@ -239,16 +239,8 @@ public abstract partial class SharedBorgSystem
 
             if (item is { } pickUp)
             {
-<<<<<<< ours
                 _hands.DoPickup(chassis, slot.HandId, pickUp, hands);
                 if (!slot.ForceRemovable && slot.Hand.Whitelist == null && slot.Hand.Blacklist == null)
-||||||| base
-                _hands.DoPickup(chassis, handId, pickUp, hands);
-                if (!hand.ForceRemovable && hand.Hand.Whitelist == null && hand.Hand.Blacklist == null)
-=======
-                _hands.DoPickup(chassis, handId, pickUp, hands);
-                if (IsItemInHandUnremovable(hand))
->>>>>>> theirs
                 {
                     EnsureComp<UnremoveableComponent>(pickUp);
                 }

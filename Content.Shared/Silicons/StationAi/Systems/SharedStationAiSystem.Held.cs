@@ -17,12 +17,6 @@ public abstract partial class SharedStationAiSystem
      * Added when an entity is inserted into a StationAiCore.
      */
 
-<<<<<<< HEAD:Content.Shared/Silicons/StationAi/Systems/SharedStationAiSystem.Held.cs
-	//TODO: Fix this, please
-	private const string JobNameLocId = "job-name-station-ai";
-
-=======
->>>>>>> wizards-filtered:Content.Shared/Silicons/StationAi/SharedStationAiSystem.Held.cs
     private void InitializeHeld()
     {
         SubscribeLocalEvent<StationAiRadialMessage>(OnRadialMessage);
@@ -36,11 +30,7 @@ public abstract partial class SharedStationAiSystem
         SubscribeLocalEvent<StationAiHeldComponent, TryGetIdentityShortInfoEvent>(OnTryGetIdentityShortInfo);
     }
 
-<<<<<<< HEAD:Content.Shared/Silicons/StationAi/Systems/SharedStationAiSystem.Held.cs
-	private void OnTryGetIdentityShortInfo(TryGetIdentityShortInfoEvent args)
-=======
     private void OnTryGetIdentityShortInfo(Entity<StationAiHeldComponent> ent, ref TryGetIdentityShortInfoEvent args)
->>>>>>> wizards-filtered:Content.Shared/Silicons/StationAi/SharedStationAiSystem.Held.cs
     {
         if (args.Handled)
             return;

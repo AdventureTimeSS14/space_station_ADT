@@ -46,48 +46,6 @@ namespace Content.Server.Silicons.StationAi;
 
 public sealed partial class StationAiSystem : SharedStationAiSystem
 {
-<<<<<<< ours
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedTransformSystem _xforms = default!;
-    [Dependency] private readonly ContainerSystem _container = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly RoleSystem _roles = default!;
-    [Dependency] private readonly ItemSlotsSystem _slots = default!;
-    [Dependency] private readonly GhostSystem _ghost = default!;
-    [Dependency] private readonly ToggleableGhostRoleSystem _ghostrole = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly DestructibleSystem _destructible = default!;
-    [Dependency] private readonly SharedBatterySystem _battery = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedPopupSystem _popups = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly StationJobsSystem _stationJobs = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!; // ADT-Tweak
-    [Dependency] private readonly SiliconLawSystem _law = default!; // ADT-Tweak
-    [Dependency] private readonly GameTicker _ticker = default!; // ADT-Tweak
-||||||| base
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedTransformSystem _xforms = default!;
-    [Dependency] private readonly ContainerSystem _container = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly RoleSystem _roles = default!;
-    [Dependency] private readonly ItemSlotsSystem _slots = default!;
-    [Dependency] private readonly GhostSystem _ghost = default!;
-    [Dependency] private readonly ToggleableGhostRoleSystem _ghostrole = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly DestructibleSystem _destructible = default!;
-    [Dependency] private readonly SharedBatterySystem _battery = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedPopupSystem _popups = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly StationJobsSystem _stationJobs = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-=======
     [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private SharedTransformSystem _xforms = default!;
     [Dependency] private ContainerSystem _container = default!;
@@ -105,7 +63,9 @@ public sealed partial class StationAiSystem : SharedStationAiSystem
     [Dependency] private StationJobsSystem _stationJobs = default!;
     [Dependency] private MobStateSystem _mobState = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;
->>>>>>> theirs
+    [Dependency] private ISharedPlayerManager _player = default!; // ADT-Tweak
+    [Dependency] private SiliconLawSystem _law = default!; // ADT-Tweak
+    [Dependency] private GameTicker _ticker = default!; // ADT-Tweak
 
     private readonly HashSet<Entity<StationAiCoreComponent>> _stationAiCores = new();
 
