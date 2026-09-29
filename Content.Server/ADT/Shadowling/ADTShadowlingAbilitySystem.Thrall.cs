@@ -1,5 +1,7 @@
 using Content.Shared.ADT.NightVision;
 using Content.Shared.ADT.Shadowling;
+using Content.Shared.ADT.Silicon;
+using Content.Shared.ADT.Novakid;
 using Content.Shared.DoAfter;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Humanoid;
@@ -113,6 +115,22 @@ public sealed partial class ADTShadowlingAbilitySystem
         {
             if (!quiet)
                 _popup.PopupEntity(Loc.GetString("shadowling-enthrall-mindshield"), user, user, PopupType.MediumCaution);
+
+            return false;
+        }
+
+        if (HasComp<MobIpcComponent>(target))
+        {
+            if (!quiet)
+                _popup.PopupEntity(Loc.GetString("shadowling-enthrall-ipc"), user, user, PopupType.MediumCaution);
+
+            return false;
+        }
+
+        if (HasComp<NovakidGlowingComponent>(target))
+        {
+            if (!quiet)
+                _popup.PopupEntity(Loc.GetString("shadowling-enthrall-novakid"), user, user, PopupType.MediumCaution);
 
             return false;
         }
