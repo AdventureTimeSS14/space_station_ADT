@@ -8,6 +8,7 @@ using Content.Shared.Destructible;
 using Content.Shared.FixedPoint;
 using Content.Shared.Gibbing;
 using Content.Shared.Interaction;
+using Content.Shared.Nutrition.Components; // ADT-Tweak
 using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Storage;
@@ -152,7 +153,7 @@ public sealed partial class ToolRefinableSystem : EntitySystem
             var rndSeed = SharedRandomExtensions.HashCodeCombine((int)_gameTiming.CurTick.Value, args.User.Id, uid.Id);
             var rng = new RobustRandom();
             rng.SetSeed(rndSeed);
-            SpawnRefinement(component.RefineResult, uid, rng);
+            SpawnRefinement(component.RefineResult, uid, rng, args.User, args.Used.Value); // ADT-Tweak
         }
 
         if (component.Sound != null)
@@ -162,9 +163,14 @@ public sealed partial class ToolRefinableSystem : EntitySystem
         _destructible.DestroyEntity(uid);
     }
 
-    private void SpawnRefinement(List<EntitySpawnEntry> spawnList, EntityUid source, IRobustRandom rng)
+    private void SpawnRefinement(List<EntitySpawnEntry> spawnList, EntityUid source, IRobustRandom rng, EntityUid user, EntityUid used) // ADT-Tweak
     {
         var spawns = EntitySpawnCollection.GetSpawns(spawnList, rng);
+        // ADT-Tweak-Start
+        var modifyEv = new ButcherSpawnsModifyEvent(user, used, spawns);
+        RaiseLocalEvent(source, ref modifyEv);
+        spawns = modifyEv.Spawns;
+        // ADT-Tweak-End
         var spawned = new List<EntityUid>(spawns.Count);
 
         if (_container.TryGetContainingContainer(source, out var container))

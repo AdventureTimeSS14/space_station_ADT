@@ -47,12 +47,16 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared.Tools;
+using Content.Shared.Tools.Systems;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.Supermatter.Systems;
 
 public sealed partial class SupermatterSystem : EntitySystem
 {
     [Dependency] private AppearanceSystem _appearance = default!;
+    [Dependency] private SharedToolSystem _tool = default!;
     [Dependency] private AlertLevelSystem _alert = default!;
     [Dependency] private RadiationSystem _radiation = default!;
     [Dependency] private AtmosphereSystem _atmosphere = default!;
@@ -82,6 +86,8 @@ public sealed partial class SupermatterSystem : EntitySystem
     [Dependency] private RoundEndSystem _roundEnd = default!;
     [Dependency] private HallucinationsSystem _hallucinations = default!;
     [Dependency] private TagSystem _tag = default!;
+
+    private static readonly ProtoId<ToolQualityPrototype> SlicingQuality = "Slicing";
 
     public override void Initialize()
     {
@@ -205,7 +211,7 @@ public sealed partial class SupermatterSystem : EntitySystem
         if (sm.SliverRemoved)
             return;
 
-        if (HasComp<SharpComponent>(args.Used))
+        if (_tool.HasQuality(args.Used, SlicingQuality))
         {
             var doAfterArgs = new DoAfterArgs(EntityManager, args.User, 30f, new SupermatterTamperDoAfterEvent(), args.Target)
             {

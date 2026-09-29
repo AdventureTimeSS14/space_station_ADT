@@ -6,16 +6,22 @@ using Content.Shared.Interaction;
 using Content.Shared.Kitchen.Components;
 using Content.Shared.Popups;
 using Content.Shared.Whitelist;
+using Content.Shared.Tools;
+using Content.Shared.Tools.Systems;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.Lavaland;
 
 public sealed class ADTGraceOfLazisSystem : EntitySystem
 {
     [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private SharedToolSystem _tool = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] private SharedDoAfterSystem _doAfter = default!;
     [Dependency] private SharedHandsSystem _hands = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
+
+    private static readonly ProtoId<ToolQualityPrototype> SlicingQuality = "Slicing";
 
     public override void Initialize()
     {
@@ -57,7 +63,7 @@ public sealed class ADTGraceOfLazisSystem : EntitySystem
         if (ent.Comp.Whitelist != null)
             return _whitelist.IsWhitelistPass(ent.Comp.Whitelist, used);
 
-        return HasComp<SharpComponent>(used);
+        return _tool.HasQuality(used, SlicingQuality);
     }
 
     private void OnCut(Entity<ADTGraceOfLazisComponent> ent, ref ADTGraceCutDoAfterEvent args)

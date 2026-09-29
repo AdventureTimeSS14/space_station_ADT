@@ -9,14 +9,20 @@ using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
+using Content.Shared.Tools;
+using Content.Shared.Tools.Systems;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.Fishing;
 
 public sealed class ADTWhetstoneSystem : EntitySystem
 {
     [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private SharedToolSystem _tool = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
+
+    private static readonly ProtoId<ToolQualityPrototype> SlicingQuality = "Slicing";
 
     public override void Initialize()
     {
@@ -105,7 +111,7 @@ public sealed class ADTWhetstoneSystem : EntitySystem
 
     private bool IsSharp(EntityUid uid, MeleeWeaponComponent melee)
     {
-        if (HasComp<SharpComponent>(uid))
+        if (_tool.HasQuality(uid, SlicingQuality))
             return true;
 
         return melee.Damage.DamageDict.TryGetValue("Slash", out var slash) && slash > 0

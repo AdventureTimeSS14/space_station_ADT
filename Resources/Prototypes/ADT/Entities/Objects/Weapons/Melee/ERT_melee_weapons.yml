@@ -4,7 +4,9 @@
   id: ADTWeaponsTacticalAxe
   description: A very sharp axe blade.
   components:
-  - type: Sharp
+  - type: Tool
+    qualities:
+    - Slicing
   - type: Sprite
     sprite: ADT/Objects/Weapons/Melee/tactical_axe.rsi
     state: icon
@@ -75,7 +77,9 @@
   id: ADTWeaponChainsword
   description: Chainsword
   components:
-  - type: Sharp
+  - type: Tool
+    qualities:
+    - Slicing
   - type: Sprite
     sprite: ADT/Objects/Weapons/Melee/chainsword_icon.rsi
     layers:

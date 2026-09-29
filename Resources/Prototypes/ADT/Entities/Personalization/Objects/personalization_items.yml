@@ -829,7 +829,9 @@
   id: ADTPyotrSabre
   description: A ceremonial weapon belonging to the Pyotr Shahin. Heavier than stadart captain`s sabre.
   components:
-  - type: Sharp
+  - type: Tool
+    qualities:
+    - Slicing
   - type: Sprite
     sprite: ADT/Personalization/pyotr_sabre.rsi
     state: icon
@@ -2294,7 +2296,6 @@
       # - ADTTelescopicBaton
       - CombatKnife
       - Knife
-  - type: Sharp
   - type: Execution
     doAfterDuration: 4.0
   - type: Utensil
@@ -3183,7 +3184,6 @@
   id: ADTFaustDirk
   description: A ceremonial weapon
   components:
-  - type: Sharp
   - type: Sprite
     sprite: ADT/Personalization/FaustNetzach/faust_dirk.rsi
     state: icon

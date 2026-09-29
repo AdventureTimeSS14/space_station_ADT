@@ -92,7 +92,9 @@
     layers:
       - sprite:  ADT/Objects/Materials/gibtonite.rsi
         state: gibtonite-shard
-  - type: Sharp
+  - type: Tool
+    qualities:
+    - Slicing
   - type: SupermatterImmune
 
 - type: entity

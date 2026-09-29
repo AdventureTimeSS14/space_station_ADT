@@ -213,7 +213,9 @@
         volume: 1
   - type: MeleeRequiresWield
   - type: Unremoveable
-  - type: Sharp
+  - type: Tool
+    qualities:
+    - Slicing
   - type: Sprite
     sprite: ADT/Objects/Weapons/Melee/divinechainsaw.rsi
     state: icon
@@ -359,7 +361,9 @@
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-inanimate
     weight: 0.50
-  - type: Sharp
+  - type: Tool
+    qualities:
+    - Slicing
   - type: Execution
     doAfterDuration: 3.0
   - type: HolyDamage
