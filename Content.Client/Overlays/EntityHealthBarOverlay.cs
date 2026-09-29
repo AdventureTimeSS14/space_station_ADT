@@ -140,18 +140,9 @@ public sealed class EntityHealthBarOverlay : Overlay
         var totalDamage = _damageable.GetTotalDamage((uid, dmg));
         if (_mobStateSystem.IsAlive(uid, component))
         {
-<<<<<<< ours
-            // ADT-Tweak-start
+// ADT-Tweak-start
             if (!_mobThresholdSystem.TryGetThresholdForState(uid, MobState.SoftCritical, out var threshold, thresholds) &&
                 !_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Critical, out threshold, thresholds) &&
-||||||| base
-            if (dmg.HealthBarThreshold != null && totalDamage < dmg.HealthBarThreshold)
-                return null;
-
-            if (!_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Critical, out var threshold, thresholds) &&
-=======
-            if (!_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Critical, out var threshold, thresholds) &&
->>>>>>> theirs
                 !_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Dead, out threshold, thresholds))
                 return (1, false);
             // ADT-Tweak-end

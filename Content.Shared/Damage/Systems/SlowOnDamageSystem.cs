@@ -4,12 +4,8 @@ using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
 using Content.Shared.Inventory;
 using Content.Shared.Movement.Systems;
-<<<<<<< ours
 //using Content.Shared.ADT.Damage.Components; //adt чо блять
-||||||| base
-=======
 using Content.Shared.StatusEffectNew;
->>>>>>> theirs
 
 namespace Content.Shared.Damage.Systems;
 

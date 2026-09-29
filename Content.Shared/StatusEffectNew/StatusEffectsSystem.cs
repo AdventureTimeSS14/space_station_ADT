@@ -50,14 +50,8 @@ public sealed partial class StatusEffectsSystem : EntitySystem
             if (_timing.CurTime < effect.EndEffectTime)
                 continue;
 
-            //ADT-Tweak-start
-            if (effect.AppliedTo is { } appliedTo
-                && _containerQuery.TryComp(appliedTo, out var containerComp)
-                && containerComp.ActiveStatusEffects != null)
-            {
-                _container.Remove(ent, containerComp.ActiveStatusEffects, reparent: false, force: true);
-            }
-            //ADT-tweak-end
+            if (effect.AppliedTo is null)
+                continue;
 
             PredictedQueueDel(ent);
         }
@@ -80,6 +74,9 @@ public sealed partial class StatusEffectsSystem : EntitySystem
 
     private void OnEntityInserted(Entity<StatusEffectContainerComponent> ent, ref EntInsertedIntoContainerMessage args)
     {
+        if (_timing.ApplyingState)
+            return;
+
         if (args.Container.ID != StatusEffectContainerComponent.ContainerId)
             return;
 

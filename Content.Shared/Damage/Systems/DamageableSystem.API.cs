@@ -17,20 +17,6 @@ public sealed partial class DamageableSystem
         return _supportedTypesByContainer[container.Value].Contains(type);
     }
 
-<<<<<<< ours
-    public DamageModifierSet? GetDamageModifierSet(Entity<DamageableComponent?> entity)
-    {
-        if (!_damageableQuery.Resolve(entity, ref entity.Comp, false)
-            || entity.Comp.DamageModifierSetId is not { } proto
-            || !_prototypeManager.Resolve(proto, out var modifierSet)
-           )
-            return null;
-
-        return modifierSet;
-    }
-
-||||||| base
-=======
     public DamageModifierSet? GetDamageModifierSet(Entity<DamageableComponent?> entity)
     {
         if (!_damageableQuery.Resolve(entity, ref entity.Comp, false)
@@ -42,7 +28,6 @@ public sealed partial class DamageableSystem
         return modifierSet;
     }
 
->>>>>>> theirs
     /// <summary>
     ///     Directly sets the damage in a damageable component.
     /// </summary>

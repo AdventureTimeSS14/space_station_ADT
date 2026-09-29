@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: MobStatusEffectBase
   id: BloodstreamStatusEffectBase
   abstract: true
@@ -24,31 +24,9 @@
   # - type: StutteringAccent
   - type: DrunkStatusEffect
 
-<<<<<<< ours
 # ADT-Tweak: PainNumbnessTraitStatusEffect and StatusEffectHemophiliaTrait moved to
 # Resources/Prototypes/ADT/Traits/status_effects.yml (customized values).
 
-- type: entity
-||||||| base
-- type: entity
-  parent: MobStatusEffectBase
-  id: PainNumbnessTraitStatusEffect
-  components:
-  - type: StatusEffect
-    whitelist:
-      components:
-      - MobState
-      - MobThresholds
-  - type: PainNumbnessStatusEffect
-
-- type: entity
-  parent: BloodstreamStatusEffectBase
-  id: StatusEffectHemophiliaTrait
-  components:
-  - type: HemophiliaStatusEffect
-
-- type: entity
-=======
 - type: entity
   abstract: true
   parent: MobStatusEffectBase
@@ -62,7 +40,6 @@
   - type: PainNumbnessStatusEffect
 
 - type: entity
->>>>>>> theirs
   parent: BloodstreamStatusEffectDebuff
   id: StatusEffectAnticoagulant # Decreases the amount of blood coagulation when bleeding.
   name: thin blood
@@ -119,3 +96,11 @@
   components:
   - type: StaminaModifierStatusEffect
     modifier: 1.5
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectNightVision
+  name: Night Vision
+  components:
+    - type: NightVision
+      relayOverlay: True

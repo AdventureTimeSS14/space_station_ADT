@@ -64,31 +64,6 @@ public sealed partial class DamageableComponent : Component
     [DataField("radiationDamageTypes")]
     // ReSharper disable once UseCollectionExpression - Cannot refactor this as it's a potential sandbox violation.
     public List<ProtoId<DamageTypePrototype>> RadiationDamageTypeIDs = new() { "Radiation" };
-<<<<<<< ours
-||||||| base
-
-    /// <summary>
-    ///     Group types that affect the pain overlay.
-    /// </summary>
-    ///     TODO: Add support for adding damage types specifically rather than whole damage groups
-    [DataField]
-    // ReSharper disable once UseCollectionExpression - Cannot refactor this as it's a potential sandbox volation.
-    public List<ProtoId<DamageGroupPrototype>> PainDamageGroups = new() { "Brute", "Burn" };
-
-    [DataField]
-    public Dictionary<MobState, ProtoId<HealthIconPrototype>> HealthIcons = new()
-    {
-        { MobState.Alive, "HealthIconFine" },
-        { MobState.Critical, "HealthIconCritical" },
-        { MobState.Dead, "HealthIconDead" },
-    };
-
-    [DataField]
-    public ProtoId<HealthIconPrototype> RottingIcon = "HealthIconRotting";
-
-    [DataField]
-    public FixedPoint2? HealthBarThreshold;
-=======
 
     /// <summary>
     /// Sets the displacement map used for any of the DamageVisuals sprites for this entity.
@@ -96,37 +71,18 @@ public sealed partial class DamageableComponent : Component
     /// </summary>
     [DataField]
     public ProtoId<DisplacementDataPrototype>? Displacement;
->>>>>>> theirs
 }
 
 [Serializable, NetSerializable]
 public sealed class DamageableComponentState(
     DamageSpecifier damage,
-<<<<<<< ours
     Dictionary<ProtoId<DamageGroupPrototype>, FixedPoint2> damagePerGroup, // ADT-Tweak
-    ProtoId<DamageModifierSetPrototype>? modifierSetId)
-||||||| base
-    ProtoId<DamageContainerPrototype>? damageContainerId,
-    ProtoId<DamageModifierSetPrototype>? modifierSetId,
-    FixedPoint2? healthBarThreshold)
-=======
     ProtoId<DamageModifierSetPrototype>? modifierSetId,
     ProtoId<DisplacementDataPrototype>? displacement)
->>>>>>> theirs
     : ComponentState
 {
     public readonly DamageSpecifier Damage = damage;
-<<<<<<< ours
     public readonly Dictionary<ProtoId<DamageGroupPrototype>, FixedPoint2> DamagePerGroup = damagePerGroup; // ADT-Tweak
-||||||| base
-    public readonly ProtoId<DamageContainerPrototype>? DamageContainerId = damageContainerId;
-=======
->>>>>>> theirs
     public readonly ProtoId<DamageModifierSetPrototype>? ModifierSetId = modifierSetId;
-<<<<<<< ours
-||||||| base
-    public readonly FixedPoint2? HealthBarThreshold = healthBarThreshold;
-=======
     public readonly ProtoId<DisplacementDataPrototype>? Displacement = displacement;
->>>>>>> theirs
 }

@@ -189,17 +189,9 @@ public sealed partial class DamageableSystem
     {
         args.State = new DamageableComponentState(
             _netMan.IsServer ? ent.Comp.Damage : ent.Comp.Damage.Clone(),
-<<<<<<< ours
             _netMan.IsServer ? ent.Comp.DamagePerGroup : new Dictionary<ProtoId<DamageGroupPrototype>, FixedPoint2>(), // ADT-Tweak
-            ent.Comp.DamageModifierSetId
-||||||| base
-            ent.Comp.DamageContainerID,
-            ent.Comp.DamageModifierSetId,
-            ent.Comp.HealthBarThreshold
-=======
             ent.Comp.DamageModifierSetId,
             ent.Comp.Displacement
->>>>>>> theirs
         );
     }
 
@@ -209,12 +201,7 @@ public sealed partial class DamageableSystem
             return;
 
         ent.Comp.DamageModifierSetId = state.ModifierSetId;
-<<<<<<< ours
-||||||| base
-        ent.Comp.HealthBarThreshold = state.HealthBarThreshold;
-=======
         ent.Comp.Displacement = state.Displacement;
->>>>>>> theirs
 
         // Has the damage actually changed?
         var newDamage = state.Damage.Clone();
@@ -231,34 +218,6 @@ public sealed partial class DamageableSystem
         if (!delta.Empty)
         // ADT-Tweak end
             OnEntityDamageChanged(ent, delta);
-    }
-
-    private void OnDamageDealt(Entity<InjurableComponent> ent, ref DamageDealtEvent args)
-    {
-        if (!_damageableQuery.TryGetComponent(ent, out var damageable))
-            return;
-
-        var damageDone = new DamageSpecifier();
-
-        damageDone.DamageDict.EnsureCapacity(args.Damage.DamageDict.Count);
-
-        var dict = damageable.Damage.DamageDict;
-        foreach (var (type, value) in args.Damage.DamageDict)
-        {
-            if (!SupportsType(ent.Comp.DamageContainer, type))
-                continue;
-
-            var oldValue = dict.GetValueOrDefault(type);
-            var newValue = FixedPoint2.Max(FixedPoint2.Zero, oldValue + value);
-            if (newValue == oldValue)
-                continue;
-
-            dict[type] = newValue;
-            damageDone.DamageDict[type] = newValue - oldValue;
-        }
-
-        if (!damageDone.Empty)
-            OnEntityDamageChanged((ent, damageable), damageDone, args.InterruptsDoAfters, args.Origin);
     }
 
     private void OnDamageDealt(Entity<InjurableComponent> ent, ref DamageDealtEvent args)

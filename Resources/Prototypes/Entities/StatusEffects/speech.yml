@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: MobStatusEffectDebuff
   id: SpeechStatusEffectBase
   abstract: true
@@ -42,17 +42,6 @@
   components:
   - type: OwOAccent
 
-<<<<<<< ours
-# Causes you to shout everything.
-- type: entity
-  parent: SpeechStatusEffectBase
-  id: StatusEffectAllCaps
-  name: allcapsaccent
-  components:
-  - type: AllCapsAccent
-
-||||||| base
-=======
 # Causes you to shout everything.
 - type: entity
   parent: SpeechStatusEffectBase
@@ -69,7 +58,6 @@
   components:
   - type: RatvarianLanguage
 
->>>>>>> theirs
 # Causes you to tark rike a dog. Woof!
 - type: entity
   parent: SpeechStatusEffectBase
