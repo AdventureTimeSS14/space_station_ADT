@@ -8,6 +8,7 @@ using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.Player;
 using Robust.Shared.Configuration;
+using Robust.Shared.Player;
 using Robust.Shared.Utility;
 
 namespace Content.Client.ADT.OfferItem;
@@ -21,7 +22,7 @@ public sealed class OfferItemSystem : SharedOfferItemSystem
     [Dependency] private readonly IEyeManager _eye = default!;
 
     private OfferItemWindow? _window;
-    private bool _dismissed;
+    private (EntityUid Giver, EntityUid Item)? _dismissedOffer;
     private bool _suppressDismiss;
 
     public override void Initialize()
@@ -29,6 +30,8 @@ public sealed class OfferItemSystem : SharedOfferItemSystem
         base.Initialize();
         Subs.CVar(_cfg, ADTCCVars.OfferModeIndicatorsPointShow, OnShowOfferIndicatorsChanged, true);
         SubscribeLocalEvent<OfferItemComponent, AfterAutoHandleStateEvent>(OnAfterAutoHandleState);
+        SubscribeLocalEvent<LocalPlayerAttachedEvent>(OnPlayerAttached);
+        SubscribeLocalEvent<LocalPlayerDetachedEvent>(OnPlayerDetached);
     }
 
     public override void Shutdown()
@@ -48,6 +51,18 @@ public sealed class OfferItemSystem : SharedOfferItemSystem
     {
         if (IsRelevant(ent.Owner))
             UpdateWindow();
+    }
+
+    private void OnPlayerAttached(LocalPlayerAttachedEvent args)
+    {
+        _dismissedOffer = null;
+        UpdateWindow();
+    }
+
+    private void OnPlayerDetached(LocalPlayerDetachedEvent args)
+    {
+        _dismissedOffer = null;
+        CloseWindow();
     }
 
     private bool IsRelevant(EntityUid uid)
@@ -71,10 +86,10 @@ public sealed class OfferItemSystem : SharedOfferItemSystem
             return;
         }
 
-        if (_dismissed
-            || comp.Target is not { } giver
+        if (comp.Target is not { } giver
             || !TryComp<OfferItemComponent>(giver, out var giverComp)
-            || giverComp.Item is not { } item)
+            || giverComp.Item is not { } item
+            || _dismissedOffer == (giver, item))
             return;
 
         if (_window == null)
@@ -98,7 +113,7 @@ public sealed class OfferItemSystem : SharedOfferItemSystem
 
     private void OnDeclinePressed()
     {
-        _dismissed = true;
+        RememberDismissedOffer();
         RaiseNetworkEvent(new OfferItemDeclineEvent());
         CloseWindow(resetDismissed: false);
     }
@@ -108,13 +123,37 @@ public sealed class OfferItemSystem : SharedOfferItemSystem
         _window = null;
 
         if (!_suppressDismiss)
-            _dismissed = true;
+            RememberDismissedOffer();
+    }
+
+    private void RememberDismissedOffer()
+    {
+        if (TryGetCurrentOffer(out var giver, out var item))
+            _dismissedOffer = (giver, item);
+    }
+
+    private bool TryGetCurrentOffer(out EntityUid giver, out EntityUid item)
+    {
+        giver = default;
+        item = default;
+
+        if (_playerManager.LocalEntity is not { } local
+            || !TryComp<OfferItemComponent>(local, out var comp)
+            || !comp.IsInReceiveMode
+            || comp.Target is not { } target
+            || !TryComp<OfferItemComponent>(target, out var giverComp)
+            || giverComp.Item is not { } offered)
+            return false;
+
+        giver = target;
+        item = offered;
+        return true;
     }
 
     private void CloseWindow(bool resetDismissed = true)
     {
         if (resetDismissed)
-            _dismissed = false;
+            _dismissedOffer = null;
 
         if (_window == null)
             return;
