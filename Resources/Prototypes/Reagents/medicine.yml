@@ -743,22 +743,10 @@
         conditions:
           - !type:ReagentCondition
             reagent: Barozine
-<<<<<<< ours
             min: 60    #ADT_Tweak - изменено значение передозировки для борьбы с набегаторами
       - !type:ModifyStatusEffect
         effectProto: StatusEffectPressureImmunity
         type: Add
-||||||| base
-            min: 30
-      - !type:GenericStatusEffect
-        key: PressureImmunity
-        component: PressureImmunity
-=======
-            min: 30
-      - !type:ModifyStatusEffect
-        effectProto: StatusEffectPressureImmunity
-        type: Add
->>>>>>> theirs
       - !type:GenericStatusEffect
         key: Stutter
         component: StutteringAccent
@@ -1414,7 +1402,6 @@
         damage:
           types:
             Blunt: -2.25 # 9 per u
-<<<<<<< ours
       # ADT-Tweak-Start
       - !type:Vomit
         conditions:
@@ -1424,12 +1411,6 @@
         probability: 0.4
       # ADT-Tweak-End
       - !type:SatiateHunger
-||||||| base
-      - !type:SatiateHunger
-=======
-      - !type:Satiate
-        satiationType: Hunger
->>>>>>> theirs
         factor: -1
       - !type:HealthChange
         conditions:
