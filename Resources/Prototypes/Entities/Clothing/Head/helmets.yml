@@ -44,20 +44,13 @@
 
 #Security Helmet
 - type: entity
-<<<<<<< ours
-  parent: [ClothingHeadHelmetArmoredBase, BaseSecurityContraband, BaseFoldable] #ADT-Tweak
-||||||| base
-  parent: [ClothingHeadHelmetArmoredBase, BaseSecurityContraband]
-=======
   parent: [ClothingHeadHelmetArmoredBase, BaseFoldable, BaseSecurityContraband]
->>>>>>> theirs
   id: ClothingHeadHelmetBasic
   name: security helmet
   description: Standard security gear. Protects the head from impacts, and comes with a visor which can be lowered to protect the eyes.
   components:
   - type: Sprite
     sprite: Clothing/Head/Helmets/security.rsi
-<<<<<<< ours
   #ADT-Tweak-Start
     layers:
     - state: icon
@@ -66,26 +59,24 @@
       map: ["foldedLayer"]
       visible: false
   #ADT-Tweak-End
-||||||| base
-=======
-    layers:
-    - state: icon
-      map: [ "unfoldedLayer" ]
-    - state: icon-visor
-      map: [ "foldedLayer" ]
-      visible: false
->>>>>>> theirs
   - type: Clothing
     sprite: Clothing/Head/Helmets/security.rsi
   - type: Tag
     tags:
     - WhitelistChameleon
     - SecurityHelmet
-<<<<<<< ours
+
   #ADT-Tweak-Start
-  #- type: HideLayerClothing
-  #  layers:
-  #    Hair: HEAD
+#  - type: Foldable
+#    canFoldInsideContainer: true
+#    unfoldVerbText: fold-raise-visor-verb
+#    foldVerbText: fold-lower-visor-verb
+#  - type: FoldableClothing
+#    foldedEquippedPrefix: visor
+#    foldedHeldPrefix: visor
+#  - type: HideLayerClothing
+#    layers:
+#      Hair: HEAD
   #ADT-Tweak-End
   #ADT-Tweak-Start
   - type: Foldable
@@ -99,22 +90,6 @@
   - type: CoveredSlot
     slots: [eyes]
   #ADT-Tweak-End
-||||||| base
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
-=======
-  - type: Foldable
-    canFoldInsideContainer: true
-    unfoldVerbText: fold-raise-visor-verb
-    foldVerbText: fold-lower-visor-verb
-  - type: FoldableClothing
-    foldedEquippedPrefix: visor
-    foldedHeldPrefix: visor
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
->>>>>>> theirs
 
 #Mercenary Helmet
 - type: entity
@@ -211,36 +186,27 @@
         Blunt: 0.8
         Slash: 0.8
         Piercing: 0.95
-<<<<<<< ours
+
   #ADT-Tweak-Start
-  #- type: HideLayerClothing
-  #  layers:
-  #    Hair: HEAD
+#  - type: Foldable
+#    canFoldInsideContainer: true
+#    unfoldVerbText: fold-lower-visor-verb
+#    foldVerbText: fold-raise-visor-verb
+#  - type: FoldableClothing
+#    foldedEquippedPrefix: visor
+#    foldedHeldPrefix: visor
+#  - type: Tag
+#    tags:
+#    - WhitelistChameleon
+#    - SecurityHelmet
+#  - type: HideLayerClothing
+#    layers:
+#      Hair: HEAD
   #ADT-Tweak-End
   #ADT-Tweak-Start
   - type: CoveredSlot
     slots: [eyes, mask, ears]
   #ADT-Tweak-End
-||||||| base
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
-=======
-  - type: Foldable
-    canFoldInsideContainer: true
-    unfoldVerbText: fold-lower-visor-verb
-    foldVerbText: fold-raise-visor-verb
-  - type: FoldableClothing
-    foldedEquippedPrefix: visor
-    foldedHeldPrefix: visor
-  - type: Tag
-    tags:
-    - WhitelistChameleon
-    - SecurityHelmet
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
->>>>>>> theirs
 
 #Bombsuit Helmet
 - type: entity
@@ -482,20 +448,10 @@
       Hair: HEAD
       Snout: HEAD
   - type: BreathMask
-<<<<<<< ours
   #ADT-Tweak-Start
   - type: CoveredSlot
     slots: [eyes, mask, ears]
   #ADT-Tweak-End
-||||||| base
-=======
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      right:
-      - state: inhand-right
->>>>>>> theirs
 
 #Chitinous Helmet
 - type: entity
@@ -705,13 +661,7 @@
 
 #Justice Helmet
 - type: entity
-<<<<<<< ours
-  parent: [ClothingHeadHelmetArmoredBase, BaseSecurityContraband] #ADT-Tweak
-||||||| base
-  parent: ClothingHeadHelmetBasic
-=======
   parent: [ClothingHeadHelmetArmoredBase, BaseSecurityContraband]
->>>>>>> theirs
   id: ClothingHeadHelmetJustice
   name: justice helm
   description: Advanced security gear. Protects the station from ne'er-do-wells.
@@ -780,11 +730,14 @@
   - type: Construction
     graph: HelmetJustice
     node: helmet
-<<<<<<< ours
   #ADT-Tweak-Start
-  #- type: HideLayerClothing
-  #  layers:
-  #    Hair: HEAD
+#  - type: HideLayerClothing
+#    layers:
+#      Hair: HEAD
+#  - type: Tag
+#    tags:
+#    - WhitelistChameleon
+#    - SecurityHelmet
   #ADT-Tweak-End
   #ADT-Tweak-Start
   - type: CoveredSlot
@@ -794,19 +747,6 @@
     - WhitelistChameleon
     - SecurityHelmet
   #ADT-Tweak-End
-||||||| base
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
-=======
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
-  - type: Tag
-    tags:
-    - WhitelistChameleon
-    - SecurityHelmet
->>>>>>> theirs
 
 - type: entity
   parent: ClothingHeadHelmetJustice
