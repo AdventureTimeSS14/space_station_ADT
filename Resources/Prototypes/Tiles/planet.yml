@@ -22,7 +22,6 @@
   name: tiles-desert-floor
   sprite: /Textures/Tiles/Planet/Desert/desert.png
   variants: 6
-<<<<<<< ours
   placementVariants:
 # Corvax-Mapping-Start: Better visual look
   - 0.75
@@ -38,16 +37,6 @@
   heatCapacity: 10000
   weather: true
   indestructible: true
-||||||| base
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-=======
->>>>>>> theirs
 
 - type: tile
   id: FloorLowDesert
