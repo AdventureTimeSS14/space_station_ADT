@@ -20,26 +20,12 @@ namespace Content.Shared.Chemistry.EntitySystems;
 /// </summary>
 public sealed partial class SolutionTransferSystem : EntitySystem
 {
-<<<<<<< ours
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!; // ADT-Tweak
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-||||||| base
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-=======
     [Dependency] private ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private SharedSolutionContainerSystem _solution = default!;
     [Dependency] private SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private IGameTiming _gameTiming = default!; // ADT-Tweak
     [Dependency] private SharedDoAfterSystem _doAfter = default!;
->>>>>>> theirs
 
     [Dependency] private EntityQuery<RefillableSolutionComponent> _refillableQuery = default!;
     [Dependency] private EntityQuery<DrainableSolutionComponent> _drainableQuery = default!;

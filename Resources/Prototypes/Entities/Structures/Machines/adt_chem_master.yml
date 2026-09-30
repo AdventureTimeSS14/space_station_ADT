@@ -1,7 +1,7 @@
-- type: entity
-  id: ChemMaster
+﻿- type: entity
+  id: ADTChemMaster
   parent: [ BaseMachinePowered, ConstructibleMachine, BaseConstructibleMachineDestructible ]
-  name: ChemMaster 4000
+  name: ChemMaster 5000
   description: An industrial grade chemical manipulator with pill and bottle production included.
   placement:
     mode: SnapgridCenter
@@ -24,8 +24,11 @@
         whitelist:
           components:
           - FitsInDispenser
-  - type: ChemMaster
+  - type: ADTChemMaster
     pillDosageLimit: 20
+    bottleDosageLimit: 30
+    maxPills: 30
+    maxBottles: 20
   - type: Physics
     bodyType: Static
   - type: Fixtures
@@ -48,12 +51,12 @@
         sound:
           collection: MetalGlassBreak
   - type: ActivatableUI
-    key: enum.ChemMasterUiKey.Key
+    key: enum.ADTChemMasterUiKey.Key
   - type: ActivatableUIRequiresPower
   - type: UserInterface
     interfaces:
-      enum.ChemMasterUiKey.Key:
-        type: ChemMasterBoundUserInterface
+      enum.ADTChemMasterUiKey.Key:
+        type: ADTChemMasterBoundUserInterface
   - type: ApcPowerReceiver
     powerLoad: 250
   - type: Appearance
@@ -71,6 +74,7 @@
     containers:
       beakerSlot: !type:ContainerSlot
       outputSlot: !type:ContainerSlot
+      pai_slot: !type:ContainerSlot {} #ADT-Tweak: PAI
       machine_board: !type:Container
       machine_parts: !type:Container
   - type: ItemSlots
@@ -84,9 +88,17 @@
         whitelist:
           tags:
           - Bottle
-          - PillCanister
-  - type: Solution # Chemmaster is special in how it interacts with reagents. For now.
-    id: buffer
+      # ADT port start pAI modernization
+      pai_slot:
+        name: Personal AI Device
+        ejectOnInteract: false
+        whitelist:
+          components:
+          - PAI
+      # ADT port end pAI modernization
+  - type: SolutionContainerManager
+    solutions:
+      buffer: {}
   - type: DumpableSolution
     solution: buffer
     unlimited: true
@@ -94,4 +106,8 @@
     guides:
     - Chemicals
     - Chemist
-  - type: AmbientMusicMarkerMedical
+  # ADT-Sound-Update-Start
+  - type: Tag
+    tags:
+      - ADTChemistryAmbience
+  # ADT-Sound-Update-End
