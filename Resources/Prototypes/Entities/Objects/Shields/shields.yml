@@ -16,7 +16,6 @@
       heldPrefix: riot
     - type: Blocking
       passiveBlockModifier:
-<<<<<<< ours
         coefficients:
           Blunt: 0.9
           Slash: 0.9
@@ -28,20 +27,6 @@
           Slash: 0.8
           Piercing: 3.5 # ADT shieldnerf
           Heat: 3.5 # ADT shieldnerf
-||||||| base
-        coefficients:
-          Blunt: 0.9
-          Slash: 0.9
-          Piercing: 0.9
-          Heat: 0.9
-      activeBlockModifier:
-        coefficients:
-          Blunt: 0.8
-          Slash: 0.8
-          Piercing: 0.8
-          Heat: 0.8
-=======
->>>>>>> theirs
         flatReductions:
           Blunt: 10
           Slash: 10
@@ -109,7 +94,6 @@
       price: 90
     - type: Blocking
       passiveBlockModifier:
-<<<<<<< ours
         coefficients:
           Blunt: 0.7
           Slash: 0.7
@@ -121,16 +105,6 @@
           Slash: 0.5
           Piercing: 3.5 # ADT shieldnerf
           Heat: 3.5 # ADT shieldnerf
-||||||| base
-        coefficients:
-          Blunt: 0.7
-          Slash: 0.7
-      activeBlockModifier:
-        coefficients:
-          Blunt: 0.5
-          Slash: 0.5
-=======
->>>>>>> theirs
         flatReductions:
           Blunt: 15
           Slash: 15
@@ -149,7 +123,6 @@
       heldPrefix: riot_laser
     - type: Blocking
       passiveBlockModifier:
-<<<<<<< ours
         coefficients:
          Blunt: 2 # ADT shieldnerf
          Slash: 2 # ADT shieldnerf
@@ -161,14 +134,6 @@
          Slash: 2 # ADT shieldnerf
          Piercing: 2 # ADT shieldnerf
          Heat: 0.5
-||||||| base
-        coefficients:
-          Heat: 0.7
-      activeBlockModifier:
-        coefficients:
-          Heat: 0.5
-=======
->>>>>>> theirs
         flatReductions:
           Blunt: 5
           Slash: 10
@@ -187,7 +152,6 @@
       heldPrefix: riot_bullet
     - type: Blocking
       passiveBlockModifier:
-<<<<<<< ours
         coefficients:
           Blunt: 1.3 # ADT shieldnerf
           Slash: 1.3 # ADT shieldnerf
@@ -197,14 +161,6 @@
           Blunt: 1.3 # ADT shieldnerf
           Slash: 1.3 # ADT shieldnerf
           Piercing: 0.5
-||||||| base
-        coefficients:
-          Piercing: 0.7
-      activeBlockModifier:
-        coefficients:
-          Piercing: 0.5
-=======
->>>>>>> theirs
         flatReductions:
           Blunt: 10
           Slash: 5
@@ -225,7 +181,6 @@
       heldPrefix: buckler
     - type: Blocking
       passiveBlockModifier:
-<<<<<<< ours
         coefficients:
           Blunt: 0.95
           Slash: 0.95
@@ -237,20 +192,6 @@
           Slash: 0.85
           Piercing: 0.65 #ADT tweak 0.85 -> 0.65
           Heat: 1.5 #ADT tweak 2 -> 1.5
-||||||| base
-        coefficients:
-          Blunt: 0.95
-          Slash: 0.95
-          Piercing: 0.95
-          Heat: 2
-      activeBlockModifier:
-        coefficients:
-          Blunt: 0.85
-          Slash: 0.85
-          Piercing: 0.85
-          Heat: 2
-=======
->>>>>>> theirs
         flatReductions:
           Blunt: 5
           Slash: 5
@@ -261,7 +202,6 @@
       node: woodenBuckler
     - type: Destructible
       thresholds:
-<<<<<<< ours
         - trigger:
             !type:DamageTrigger
             damage: 80 #ADT tweak 60 -> 80
@@ -282,43 +222,6 @@
                 MaterialWoodPlank:
                   min: 5
                   max: 5
-||||||| base
-        - trigger:
-            !type:DamageTrigger
-            damage: 60
-          behaviors:
-            - !type:DoActsBehavior
-              acts: [ "Destruction" ]
-        - trigger:
-            !type:DamageTrigger
-            damage: 30 #Weaker shield
-          behaviors:
-            - !type:DoActsBehavior
-              acts: [ "Destruction" ]
-            - !type:PlaySoundBehavior
-              sound:
-                collection: WoodDestroy
-            - !type:SpawnEntitiesBehavior
-              spawn:
-                MaterialWoodPlank:
-                  min: 5
-                  max: 5
-=======
-      - trigger:
-          !type:DamageTrigger
-          damage: 75 #Weaker shield
-        behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-        - !type:PlaySoundBehavior
-          sound:
-            collection: WoodDestroy
-        - !type:SpawnEntitiesBehavior
-          spawn:
-            MaterialWoodPlank:
-              min: 5
-              max: 5
->>>>>>> theirs
     - type: StaticPrice
       price: 150
 #ADT tweak start
@@ -379,7 +282,6 @@
       state: makeshift-icon
     - type: Item
       heldPrefix: metal
-<<<<<<< ours
     - type: Blocking
       passiveBlockModifier:
         coefficients:
@@ -402,33 +304,11 @@
           Slash: 0.5
           Piercing: 0.5
           Heat: 1
-||||||| base
-    - type: Blocking
-      passiveBlockModifier:
-        coefficients:
-          Blunt: 0.95
-          Slash: 0.95
-          Piercing: 0.95
-          Heat: 0.9
-      activeBlockModifier:
-        coefficients:
-          Blunt: 0.85
-          Slash: 0.85
-          Piercing: 0.85
-          Heat: 0.8
-        flatReductions:
-          Blunt: 0.5
-          Slash: 0.5
-          Piercing: 0.5
-          Heat: 1
-=======
->>>>>>> theirs
     - type: Construction
       graph: MakeshiftShield
       node: makeshiftShield
     - type: Destructible
       thresholds:
-<<<<<<< ours
         - trigger:
             !type:DamageTrigger
             damage: 70 #ADT tweak 40 -> 70
@@ -457,43 +337,6 @@
       - back
       - suitStorage
 #ADT tweak end
-||||||| base
-        - trigger:
-            !type:DamageTrigger
-            damage: 40
-          behaviors:
-            - !type:DoActsBehavior
-              acts: [ "Destruction" ]
-        - trigger:
-            !type:DamageTrigger
-            damage: 20 #Very weak shield
-          behaviors:
-            - !type:DoActsBehavior
-              acts: [ "Destruction" ]
-            - !type:PlaySoundBehavior
-              sound:
-                collection: MetalBreak
-            - !type:SpawnEntitiesBehavior
-              spawn:
-                SheetSteel:
-                  min: 1
-                  max: 2
-=======
-      - trigger:
-          !type:DamageTrigger
-          damage: 75
-        behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-        - !type:PlaySoundBehavior
-          sound:
-            collection: MetalBreak
-        - !type:SpawnEntitiesBehavior
-          spawn:
-            SheetSteel:
-              min: 1
-              max: 2
->>>>>>> theirs
 
 - type: entity
   name: web shield
@@ -650,7 +493,6 @@
       isToggle: true #ADT-Tweak
       passiveBlockModifier:
         coefficients:
-<<<<<<< ours
           Blunt: 1.5 # ADT-Tweak 1 -> 1.5
           Slash: 0.9
           Piercing: 0.85
@@ -661,20 +503,6 @@
           Slash: 0.85
           Piercing: 0.5
           Heat: 0.4
-||||||| base
-          Blunt: 1.0
-          Slash: 0.9
-          Piercing: 0.85
-          Heat: 0.6
-      activeBlockModifier:
-        coefficients:
-          Blunt: 1.2
-          Slash: 0.85
-          Piercing: 0.5
-          Heat: 0.4
-=======
-          Heat: 0.5
->>>>>>> theirs
         flatReductions:
           Blunt: 5
           Piercing: 10

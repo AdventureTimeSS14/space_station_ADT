@@ -196,12 +196,7 @@
     delay: 0.0
 
 - type: entity
-<<<<<<< ours
-||||||| base
-  parent: BaseHypospray
-=======
   parent: BaseHypoInjector # I plan to resize medipens to 1x2 eventually:tm:
->>>>>>> theirs
   id: ChemicalMedipen
   parent: BaseHypospray
   name: chemical medipen
@@ -236,15 +231,11 @@
     maxFillLevels: 1
     changeColor: false
     emptySpriteName: firstaid_empty
-<<<<<<< ours
+    solutionName: hypospray
   - type: Tag
     tags:
     - Trash
     - ADTMedipen # ADT Tweak
-||||||| base
-=======
-    solutionName: hypospray
->>>>>>> theirs
   - type: PhysicalComposition
     materialComposition:
       Plastic: 50
@@ -269,32 +260,6 @@
     maxFillLevels: 1
     changeColor: false
     emptySpriteName: medipen_empty
-<<<<<<< ours
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 15
-        reagents:
-        - ReagentId: Epinephrine
-          Quantity: 12
-        - ReagentId: TranexamicAcid
-          Quantity: 3
-    #ADT Tweak Start
-  - type: Tag
-    tags:
-    - ADTMedipen
-    # ADT Tweak END
-||||||| base
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 15
-        reagents:
-        - ReagentId: Epinephrine
-          Quantity: 12
-        - ReagentId: TranexamicAcid
-          Quantity: 3
-=======
   - type: Solution
     solution:
       reagents:
@@ -302,7 +267,11 @@
         Quantity: 15
       - ReagentId: TranexamicAcid
         Quantity: 5
->>>>>>> theirs
+    #ADT Tweak Start
+  - type: Tag
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
 
 - type: entity
   parent: ChemicalMedipen
@@ -331,32 +300,6 @@
     maxFillLevels: 1
     changeColor: false
     emptySpriteName: penacid_empty
-<<<<<<< ours
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 15
-        reagents:
-        - ReagentId: Ultravasculine
-          Quantity: 10
-        - ReagentId: Epinephrine
-          Quantity: 5
-    #ADT Tweak Start
-  - type: Tag
-    tags:
-    - ADTMedipen
-    # ADT Tweak END
-||||||| base
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 15
-        reagents:
-        - ReagentId: Ultravasculine
-          Quantity: 10
-        - ReagentId: Epinephrine
-          Quantity: 5
-=======
   - type: Solution
     solution:
       reagents:
@@ -364,7 +307,11 @@
         Quantity: 15
       - ReagentId: Epinephrine
         Quantity: 5
->>>>>>> theirs
+    #ADT Tweak Start
+  - type: Tag
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
 
 - type: entity
   parent: ChemicalMedipen
@@ -393,32 +340,6 @@
     maxFillLevels: 1
     changeColor: false
     emptySpriteName: bicpen_empty
-<<<<<<< ours
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 20
-        reagents:
-        - ReagentId: Bicaridine
-          Quantity: 15
-        - ReagentId: TranexamicAcid
-          Quantity: 5
-    #ADT Tweak Start
-  - type: Tag
-    tags:
-    - ADTMedipen
-    # ADT Tweak END
-||||||| base
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 20
-        reagents:
-        - ReagentId: Bicaridine
-          Quantity: 15
-        - ReagentId: TranexamicAcid
-          Quantity: 5
-=======
   - type: Solution
     solution:
       reagents:
@@ -426,7 +347,11 @@
         Quantity: 15
       - ReagentId: TranexamicAcid
         Quantity: 5
->>>>>>> theirs
+    #ADT Tweak Start
+  - type: Tag
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
 
 - type: entity
   parent: ChemicalMedipen
@@ -455,32 +380,6 @@
     maxFillLevels: 1
     changeColor: false
     emptySpriteName: dermpen_empty
-<<<<<<< ours
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 20
-        reagents:
-        - ReagentId: Dermaline
-          Quantity: 10
-        - ReagentId: Leporazine
-          Quantity: 10
-    #ADT Tweak Start
-  - type: Tag
-    tags:
-    - ADTMedipen
-    # ADT Tweak END
-||||||| base
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 20
-        reagents:
-        - ReagentId: Dermaline
-          Quantity: 10
-        - ReagentId: Leporazine
-          Quantity: 10
-=======
   - type: Solution
     solution:
       reagents:
@@ -488,7 +387,11 @@
         Quantity: 10
       - ReagentId: Leporazine
         Quantity: 10
->>>>>>> theirs
+    #ADT Tweak Start
+  - type: Tag
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
 
 - type: entity
   parent: ChemicalMedipen
@@ -517,32 +420,6 @@
     maxFillLevels: 1
     changeColor: false
     emptySpriteName: arithpen_empty
-<<<<<<< ours
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 20
-        reagents:
-        - ReagentId: Arithrazine
-          Quantity: 15
-        - ReagentId: Bicaridine
-          Quantity: 5
-    #ADT Tweak Start
-  - type: Tag
-    tags:
-    - ADTMedipen
-    # ADT Tweak END
-||||||| base
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 20
-        reagents:
-        - ReagentId: Arithrazine
-          Quantity: 15
-        - ReagentId: Bicaridine
-          Quantity: 5
-=======
   - type: Solution
     solution:
       reagents:
@@ -550,7 +427,11 @@
         Quantity: 10
       - ReagentId: Bicaridine
         Quantity: 10
->>>>>>> theirs
+    #ADT Tweak Start
+  - type: Tag
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
 
 - type: entity
   parent: ChemicalMedipen
@@ -579,32 +460,6 @@
     maxFillLevels: 1
     changeColor: false
     emptySpriteName: punctpen_empty
-<<<<<<< ours
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 15
-        reagents:
-        - ReagentId: Puncturase
-          Quantity: 10
-        - ReagentId: TranexamicAcid
-          Quantity: 5
-    #ADT Tweak Start
-  - type: Tag
-    tags:
-    - ADTMedipen
-    # ADT Tweak END
-||||||| base
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 15
-        reagents:
-        - ReagentId: Puncturase
-          Quantity: 10
-        - ReagentId: TranexamicAcid
-          Quantity: 5
-=======
   - type: Solution
     solution:
       reagents:
@@ -614,7 +469,11 @@
         Quantity: 5
       - ReagentId: Nothing # Needed for visuals to work, idk what else to put here :P
         Quantity: 3
->>>>>>> theirs
+    #ADT Tweak Start
+  - type: Tag
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
 
 - type: entity
   parent: ChemicalMedipen
@@ -643,32 +502,6 @@
     maxFillLevels: 1
     changeColor: false
     emptySpriteName: pyrapen_empty
-<<<<<<< ours
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 20
-        reagents:
-        - ReagentId: Pyrazine
-          Quantity: 10
-        - ReagentId: Dermaline
-          Quantity: 10
-    #ADT Tweak Start
-  - type: Tag
-    tags:
-    - ADTMedipen
-    # ADT Tweak END
-||||||| base
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 20
-        reagents:
-        - ReagentId: Pyrazine
-          Quantity: 10
-        - ReagentId: Dermaline
-          Quantity: 10
-=======
   - type: Solution
     solution:
       reagents:
@@ -676,7 +509,11 @@
         Quantity: 10
       - ReagentId: Dermaline
         Quantity: 10
->>>>>>> theirs
+    #ADT Tweak Start
+  - type: Tag
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
 
 - type: entity
   parent: ChemicalMedipen
@@ -705,32 +542,6 @@
     maxFillLevels: 1
     changeColor: false
     emptySpriteName: dexpen_empty
-<<<<<<< ours
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 40
-        reagents:
-        - ReagentId: Saline
-          Quantity: 20
-        - ReagentId: DexalinPlus
-          Quantity: 20
-    #ADT Tweak Start
-  - type: Tag
-    tags:
-    - ADTMedipen
-    # ADT Tweak END
-||||||| base
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 40
-        reagents:
-        - ReagentId: Saline
-          Quantity: 20
-        - ReagentId: DexalinPlus
-          Quantity: 20
-=======
   - type: Solution
     solution:
       reagents:
@@ -738,7 +549,11 @@
         Quantity: 10
       - ReagentId: DexalinPlus
         Quantity: 10
->>>>>>> theirs
+    #ADT Tweak Start
+  - type: Tag
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
 
 - type: entity
   parent: ChemicalMedipen
@@ -767,32 +582,6 @@
     maxFillLevels: 1
     changeColor: false
     emptySpriteName: hypovolemic_empty
-<<<<<<< ours
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 30
-        reagents:
-          - ReagentId: Leporazine
-            Quantity: 10
-          - ReagentId: Barozine
-            Quantity: 20
-    #ADT Tweak Start
-  - type: Tag
-    tags:
-    - ADTMedipen
-    # ADT Tweak END
-||||||| base
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 30
-        reagents:
-          - ReagentId: Leporazine
-            Quantity: 10
-          - ReagentId: Barozine
-            Quantity: 20
-=======
   - type: Solution
     solution:
       reagents:
@@ -800,7 +589,11 @@
         Quantity: 10
       - ReagentId: Barozine
         Quantity: 10
->>>>>>> theirs
+    #ADT Tweak Start
+  - type: Tag
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
 
 - type: entity
   abstract: true
@@ -938,18 +731,10 @@
   id: Hypopen
   suffix: Hypopen
   components:
-<<<<<<< ours
   - type: SolutionContainerManager
     solutions:
       hypospray:
         maxVol: 15 #ADT Tweak 10>15
-||||||| base
-  - type: SolutionContainerManager
-    solutions:
-      hypospray:
-        maxVol: 10
-=======
->>>>>>> theirs
   - type: RefillableSolution
     solution: hypospray
     refillTime: 0 # ADT-Tweak 0.75 -> 0
@@ -1004,28 +789,6 @@
     maxFillLevels: 1
     changeColor: false
     emptySpriteName: medipen_empty
-<<<<<<< ours
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 60
-        reagents:
-        - ReagentId: JuiceThatMakesYouWeh
-          Quantity: 60
-  #ADT Tweak Start
-  - type: Tag
-    tags:
-    - ADTMedipen
-  # ADT Tweak END
-||||||| base
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 60
-        reagents:
-        - ReagentId: JuiceThatMakesYouWeh
-          Quantity: 60
-=======
   - type: Solution
     solution:
       reagents:
@@ -1046,4 +809,8 @@
       reagents:
       - ReagentId: JuiceThatMakesYouWeh
         Quantity: 60 # Need at least 50 to transform
->>>>>>> theirs
+  #ADT Tweak Start
+  - type: Tag
+    tags:
+    - ADTMedipen
+  # ADT Tweak END

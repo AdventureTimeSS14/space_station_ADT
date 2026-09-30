@@ -339,14 +339,7 @@
   id: LightTubeCrystalBlue
   components:
   - type: LightBulb
-<<<<<<< ours
     color: "#91c8f8" # ADT-Sound-Update
-||||||| base
-    color: "#39a1ff"
-=======
-    color: "#39a1ff"
-    shortName: comp-light-bulb-blue
->>>>>>> theirs
   - type: Construction
     graph: BlueLight
     node: icon
@@ -361,14 +354,7 @@
   id: LightTubeCrystalYellow
   components:
   - type: LightBulb
-<<<<<<< ours
     color: "#f4f764" # ADT-Sound-Update
-||||||| base
-    color: "#ffde46"
-=======
-    color: "#ffde46"
-    shortName: comp-light-bulb-yellow
->>>>>>> theirs
   - type: Construction
     graph: YellowLight
     node: icon
@@ -383,14 +369,7 @@
   id: LightTubeCrystalPink
   components:
   - type: LightBulb
-<<<<<<< ours
     color: "#f8b8e3" # ADT-Sound-Update
-||||||| base
-    color: "#ff66cc"
-=======
-    color: "#ff66cc"
-    shortName: comp-light-bulb-pink
->>>>>>> theirs
   - type: Construction
     graph: PinkLight
     node: icon
@@ -405,14 +384,7 @@
   id: LightTubeCrystalOrange
   components:
   - type: LightBulb
-<<<<<<< ours
     color: "#ff924e" # ADT-Sound-Update
-||||||| base
-    color: "#ff8227"
-=======
-    color: "#ff8227"
-    shortName: comp-light-bulb-orange
->>>>>>> theirs
   - type: Construction
     graph: OrangeLight
     node: icon
@@ -446,14 +418,7 @@
   id: LightTubeCrystalRed
   components:
   - type: LightBulb
-<<<<<<< ours
     color: "#fa3c3c" # ADT-Sound-Update
-||||||| base
-    color: "#fb4747"
-=======
-    color: "#fb4747"
-    shortName: comp-light-bulb-red
->>>>>>> theirs
   - type: Construction
     graph: RedLight
     node: icon
@@ -468,14 +433,7 @@
   id: LightTubeCrystalGreen
   components:
   - type: LightBulb
-<<<<<<< ours
     color: "#6ffb4f" # ADT-Sound-Update
-||||||| base
-    color: "#52ff39"
-=======
-    color: "#52ff39"
-    shortName: comp-light-bulb-green
->>>>>>> theirs
   - type: Construction
     graph: GreenLight
     node: icon
@@ -509,14 +467,7 @@
   id: LightBulbCrystalCyan
   components:
   - type: LightBulb
-<<<<<<< ours
     color: "#92f2f5" # ADT-Sound-Update
-||||||| base
-    color: "#47f8ff"
-=======
-    color: "#47f8ff"
-    shortName: comp-light-bulb-cyan
->>>>>>> theirs
   - type: Construction
     graph: CyanLightBulb
     node: icon
@@ -531,14 +482,7 @@
   id: LightBulbCrystalBlue
   components:
   - type: LightBulb
-<<<<<<< ours
     color: "#91c8f8" # ADT-Sound-Update
-||||||| base
-    color: "#39a1ff"
-=======
-    color: "#39a1ff"
-    shortName: comp-light-bulb-blue
->>>>>>> theirs
   - type: Construction
     graph: BlueLightBulb
     node: icon
@@ -553,14 +497,7 @@
   id: LightBulbCrystalYellow
   components:
   - type: LightBulb
-<<<<<<< ours
     color: "#f4f764" # ADT-Sound-Update
-||||||| base
-    color: "#ffde46"
-=======
-    color: "#ffde46"
-    shortName: comp-light-bulb-yellow
->>>>>>> theirs
   - type: Construction
     graph: YellowLightBulb
     node: icon
@@ -575,14 +512,7 @@
   id: LightBulbCrystalPink
   components:
   - type: LightBulb
-<<<<<<< ours
     color: "#f8b8e3" # ADT-Sound-Update
-||||||| base
-    color: "#ff66cc"
-=======
-    color: "#ff66cc"
-    shortName: comp-light-bulb-pink
->>>>>>> theirs
   - type: Construction
     graph: PinkLightBulb
     node: icon
@@ -597,14 +527,7 @@
   id: LightBulbCrystalOrange
   components:
   - type: LightBulb
-<<<<<<< ours
     color: "#ff924e" # ADT-Sound-Update
-||||||| base
-    color: "#ff8227"
-=======
-    color: "#ff8227"
-    shortName: comp-light-bulb-orange
->>>>>>> theirs
   - type: Construction
     graph: OrangeLightBulb
     node: icon
@@ -638,14 +561,7 @@
   id: LightBulbCrystalRed
   components:
   - type: LightBulb
-<<<<<<< ours
     color: "#fa3c3c" # ADT-Sound-Update
-||||||| base
-    color: "#fb4747"
-=======
-    color: "#fb4747"
-    shortName: comp-light-bulb-red
->>>>>>> theirs
   - type: Construction
     graph: RedLightBulb
     node: icon
@@ -660,14 +576,7 @@
   id: LightBulbCrystalGreen
   components:
   - type: LightBulb
-<<<<<<< ours
     color: "#6ffb4f" # ADT-Sound-Update
-||||||| base
-    color: "#52ff39"
-=======
-    color: "#52ff39"
-    shortName: comp-light-bulb-green
->>>>>>> theirs
   - type: Construction
     graph: GreenLightBulb
     node: icon

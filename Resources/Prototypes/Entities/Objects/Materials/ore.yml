@@ -37,7 +37,6 @@
     state: gold
   - type: PhysicalComposition
     materialComposition:
-<<<<<<< ours
       RawGold: 300   #ADT_Tweak - повышено со 100
   - type: Extractable
     grindableSolutionName: goldore
@@ -47,19 +46,6 @@
         reagents:
         - ReagentId: Gold
           Quantity: 10
-||||||| base
-      RawGold: 100
-  - type: Extractable
-    grindableSolutionName: goldore
-  - type: SolutionContainerManager
-    solutions:
-      goldore:
-        reagents:
-        - ReagentId: Gold
-          Quantity: 10
-=======
-      RawGold: 100
->>>>>>> theirs
   - type: Item
     heldPrefix: gold
   - type: Tag
@@ -111,7 +97,6 @@
     stackType: SteelOre
   - type: Sprite
     state: iron
-<<<<<<< ours
 ### Start ADT Tweak
   - type: Tag
     tags:
@@ -119,13 +104,8 @@
     - Ore
 ### End ADT Tweak
   - type: Material
-||||||| base
-  - type: Material
-=======
->>>>>>> theirs
   - type: PhysicalComposition
     materialComposition:
-<<<<<<< ours
       RawIron: 300   #ADT_Tweak - повышено со 100
   - type: Extractable
     grindableSolutionName: ironore
@@ -135,19 +115,6 @@
         reagents:
         - ReagentId: Iron
           Quantity: 10
-||||||| base
-      RawIron: 100
-  - type: Extractable
-    grindableSolutionName: ironore
-  - type: SolutionContainerManager
-    solutions:
-      ironore:
-        reagents:
-        - ReagentId: Iron
-          Quantity: 10
-=======
-      RawIron: 100
->>>>>>> theirs
   - type: Item
     heldPrefix: iron
 
@@ -204,7 +171,6 @@
     state: silver
   - type: PhysicalComposition
     materialComposition:
-<<<<<<< ours
       RawSilver: 300   #ADT_Tweak - повышено со 100
   - type: Extractable
     grindableSolutionName: silverore
@@ -214,19 +180,6 @@
         reagents:
         - ReagentId: Silver
           Quantity: 10
-||||||| base
-      RawSilver: 100
-  - type: Extractable
-    grindableSolutionName: silverore
-  - type: SolutionContainerManager
-    solutions:
-      silverore:
-        reagents:
-        - ReagentId: Silver
-          Quantity: 10
-=======
-      RawSilver: 100
->>>>>>> theirs
   - type: Item
     heldPrefix: silver
   - type: Tag
@@ -252,7 +205,6 @@
     stackType: SpaceQuartz
   - type: Sprite
     state: spacequartz
-<<<<<<< ours
   - type: Material
 ### Start ADT Tweak
   - type: Tag
@@ -260,13 +212,8 @@
     - ADTQuarzOre
     - Ore
 ### End ADT Tweak
-||||||| base
-  - type: Material
-=======
->>>>>>> theirs
   - type: PhysicalComposition
     materialComposition:
-<<<<<<< ours
       RawQuartz: 300   #ADT_Tweak - повышено со 100
   - type: Extractable
     grindableSolutionName: quartzore
@@ -276,19 +223,6 @@
         reagents:
         - ReagentId: Silicon
           Quantity: 10
-||||||| base
-      RawQuartz: 100
-  - type: Extractable
-    grindableSolutionName: quartzore
-  - type: SolutionContainerManager
-    solutions:
-      quartzaore:
-        reagents:
-        - ReagentId: Silicon
-          Quantity: 10
-=======
-      RawQuartz: 100
->>>>>>> theirs
   - type: Item
     heldPrefix: spacequartz
 
@@ -376,7 +310,6 @@
     stackType: Coal
   - type: Sprite
     state: coal
-<<<<<<< ours
   - type: Material
 ### Start ADT Tweak
   - type: Tag
@@ -392,48 +325,6 @@
     utensil: None
     delay: 3
   # ADT-Tweak-End
-  - type: SolutionContainerManager
-    solutions:
-      coal:
-        reagents:
-        - ReagentId: Carbon
-          Quantity: 8.4
-        - ReagentId: Ammonia
-          Quantity: 0.8
-        - ReagentId: Hydrogen
-          Quantity: 0.5
-        - ReagentId: Sulfur
-          Quantity: 0.2
-        - ReagentId: Mercury
-          Quantity: 0.1
-      # ADT-Tweak-Start
-      food:
-        maxVol: 12
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Carbon
-          Quantity: 2
-      # ADT-Tweak-End
-||||||| base
-  - type: Material
-  - type: Extractable
-    grindableSolutionName: coal
-  - type: SolutionContainerManager
-    solutions:
-      coal:
-        reagents:
-        - ReagentId: Carbon
-          Quantity: 8.4
-        - ReagentId: Ammonia
-          Quantity: 0.8
-        - ReagentId: Hydrogen
-          Quantity: 0.5
-        - ReagentId: Sulfur
-          Quantity: 0.2
-        - ReagentId: Mercury
-          Quantity: 0.1
-=======
   - type: Solution
     solution:
       reagents:
@@ -447,7 +338,15 @@
         Quantity: 0.2
       - ReagentId: Mercury
         Quantity: 0.1
->>>>>>> theirs
+      # ADT-Tweak-Start
+      food:
+        maxVol: 12
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Carbon
+          Quantity: 2
+      # ADT-Tweak-End
   - type: PhysicalComposition
     materialComposition:
       Coal: 300   #ADT_Tweak - повышено со 100
@@ -498,32 +397,9 @@
     state: salt
   - type: PhysicalComposition
     materialComposition:
-<<<<<<< ours
       RawSalt: 300   #ADT_Tweak - повышено со 100
   - type: Extractable
     grindableSolutionName: saltore
-  - type: SolutionContainerManager
-    solutions:
-      saltore:
-        reagents:
-        - ReagentId: TableSalt
-          Quantity: 10
-        - ReagentId: Iodine
-          Quantity: 5
-||||||| base
-      RawSalt: 100
-  - type: Extractable
-    grindableSolutionName: saltore
-  - type: SolutionContainerManager
-    solutions:
-      saltore:
-        reagents:
-        - ReagentId: TableSalt
-          Quantity: 10
-        - ReagentId: Iodine
-          Quantity: 5
-=======
-      RawSalt: 100
   - type: Solution
     solution:
       reagents:
@@ -531,7 +407,6 @@
         Quantity: 9.99
       - ReagentId: Iodine
         Quantity: 0.01
->>>>>>> theirs
   - type: Item
     heldPrefix: salt
 

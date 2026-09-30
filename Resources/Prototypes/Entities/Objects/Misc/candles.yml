@@ -52,7 +52,6 @@
         - state: inhand-right-flame
           shader: unshaded
     - type: Damageable
-<<<<<<< ours
       damageModifierSet: ADTCandle # ADT tweak
     - type: Injurable
     - type: Destructible
@@ -63,19 +62,7 @@
         behaviors:
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
-||||||| base
       damageModifierSet: Wood
-    - type: Destructible
-      thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 100
-        behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-=======
-      damageModifierSet: Wood
->>>>>>> theirs
 
 - type: entity
   name: red candle

@@ -17,36 +17,6 @@
     - Steel # ADT: rust ritual
   - type: Damageable
     damageModifierSet: Metallic
-<<<<<<< ours
-  - type: Injurable
-    damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-  - type: SolutionContainerManager
-    solutions:
-      steel:
-        canReact: false
-||||||| base
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-  - type: SolutionContainerManager
-    solutions:
-      steel:
-        canReact: false
-=======
->>>>>>> theirs
   - type: GuideHelp
     guides:
     - ExpandingRepairingStation
@@ -86,18 +56,16 @@
       map: ["base"]
   - type: Item
     heldPrefix: steel
-<<<<<<< ours
   - type: Appearance
   - type: Extractable
     grindableSolutionName: steel
-  - type: SolutionContainerManager
-    solutions:
-      steel:
-        reagents:
-        - ReagentId: Iron
-          Quantity: 8.8
-        - ReagentId: Carbon
-          Quantity: 0.9
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Iron
+        Quantity: 9
+      - ReagentId: Carbon
+        Quantity: 1
   # ADT-UPD-Start
   - type: Tag
     tags:
@@ -107,27 +75,6 @@
     - ConstructionMaterial
     - Steel
   # ADT-UPD-End
-||||||| base
-  - type: Appearance
-  - type: Extractable
-    grindableSolutionName: steel
-  - type: SolutionContainerManager
-    solutions:
-      steel:
-        reagents:
-        - ReagentId: Iron
-          Quantity: 9
-        - ReagentId: Carbon
-          Quantity: 1
-=======
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: Iron
-        Quantity: 9
-      - ReagentId: Carbon
-        Quantity: 1
->>>>>>> theirs
 
 - type: entity
   parent: SheetSteel
