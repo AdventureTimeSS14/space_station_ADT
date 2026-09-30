@@ -348,31 +348,20 @@
       storagebase: !type:AllSelector
         children:
         # ADT-Tweak start
-        - id: LauncherSyringe 
+        - id: LauncherSyringe
         - id: MiniSyringe
           amount: 6
         - id: ChemistryBottleRomerol
         - id: PillCanisterAmbuzolPlus
         # ADT-Tweak end
         - id: WeaponRevolverPython
-<<<<<<< ours
         - id: ADTMagazineBoxMagnumLesserIncendiary # ADT tweak
         # ADT-Tweak start
-        # - id: SyringeRomerol 
+        # - id: SyringeRomerol
         # - id: PillAmbuzolPlus # ADT-Tweak
         # - id: PillAmbuzol
-        #   amount: 3
+        #   amount: 5
         # ADT-Tweak end
-||||||| base
-        - id: MagazineBoxMagnumIncendiary
-        - id: PillAmbuzolPlus
-        - id: PillAmbuzol
-          amount: 3
-=======
-        - id: MagazineBoxMagnumIncendiary
-        - id: PillCanisterAmbuzol
-          amount: 5
->>>>>>> theirs
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateMedicalBundle
