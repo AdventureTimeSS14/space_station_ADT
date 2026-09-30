@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   abstract: true
   parent: [SolutionFood, SolutionToolNormal, Clothing, BaseSlicingRefinable]
   id: UnsensoredClothingUniformBase
@@ -53,7 +53,7 @@
   parent: UnsensoredClothingUniformBase
   id: ClothingUniformBase
   components:
-  - type: SuitSensor
+  - type: ADTSuitSensor
   # #ADT-Tweak Start - New Monitor: Deprecated
   # - type: DeviceNetwork
   #   deviceNetId: Wireless

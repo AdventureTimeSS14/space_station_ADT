@@ -1,4 +1,4 @@
-meta:
+﻿meta:
   format: 7
   category: Map
   engineVersion: 288.0.1
@@ -9407,14 +9407,7 @@ entities:
     components:
     - type: Transform
       parent: 104
-<<<<<<< ours
 - proto: EnergyChemDispenserBuffed
-||||||| base
-- proto: ChemDispenser
-=======
-      pos: -0.5,-1.5
-- proto: ChemDispenser
->>>>>>> theirs
   entities:
   - uid: 2539
     components:

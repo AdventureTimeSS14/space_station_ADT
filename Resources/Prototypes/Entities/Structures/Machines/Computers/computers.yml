@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: BaseComputerAiAccess
   id: ComputerAlert
   name: atmospheric alerts computer
@@ -473,14 +473,14 @@
   - type: Computer
     board: CrewMonitoringComputerCircuitboard
   - type: ActivatableUI
-    key: enum.CrewMonitoringUIKey.Key
+    key: enum.ADTCrewMonitoringUiKey.Key
   - type: UserInterface
     interfaces:
-        enum.CrewMonitoringUIKey.Key:
-          type: CrewMonitoringBoundUserInterface
+        enum.ADTCrewMonitoringUiKey.Key:
+          type: ADTCrewMonitoringBoundUserInterface
         enum.WiresUiKey.Key:
           type: WiresBoundUserInterface
-  - type: CrewMonitoringConsole
+  - type: ADTCrewMonitoringConsole
   #ADT-Tweak Start - New Monitor:
   - type: PdaBorderColor
     borderColor: "#6B6B6B"
@@ -493,6 +493,7 @@
   - type: WirelessNetworkConnection
     range: 1200
   - type: AmbientMusicMarkerMedical
+  - type: StationAiWhitelist #ADT-Tweak
 
 - type: entity
   parent: BaseComputerAiAccess

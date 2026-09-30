@@ -1,4 +1,4 @@
-- type: trait
+﻿- type: trait
   id: Tall
   name: trait-tall-name
   description: trait-tall-desc
@@ -119,7 +119,7 @@
     - IPC
   rewriteComponents: true
   components:
-  - type: SuitSensor
+  - type: ADTSuitSensor
     onMob: true
     sensorsTime: 6
   # ADT-Tweak Start - New Monitor: Deprecated

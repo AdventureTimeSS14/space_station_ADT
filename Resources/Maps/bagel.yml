@@ -1,4 +1,4 @@
-meta:
+﻿meta:
   format: 7
   category: Map
   engineVersion: 289.0.0
@@ -119494,14 +119494,7 @@ entities:
       desc: In honor of the architects who value work safety so much, they built a singularity in the middle of the station.
     - type: Transform
       parent: 60
-<<<<<<< ours
 - proto: MatterBinStockPart
-||||||| base
-- proto: MicroManipulatorStockPart
-=======
-      pos: 0.5,-66.5
-- proto: MicroManipulatorStockPart
->>>>>>> theirs
   entities:
   - uid: 6272
     components:

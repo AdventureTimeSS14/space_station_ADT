@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitDeathSquad
   name: death squad uniform
@@ -39,7 +39,7 @@
     sprite: Clothing/Uniforms/Jumpsuit/punpun.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/punpun.rsi
-  - type: SuitSensor
+  - type: ADTSuitSensor
     controlsLocked: false
     randomMode: false
     mode: SensorCords
@@ -495,7 +495,7 @@
 #        color: "#ff8300"
 #      - state: prisoner-equipped-INNERCLOTHING
 # ADT tweak end
-  - type: SuitSensor
+  - type: ADTSuitSensor
     controlsLocked: true
     randomMode: false
     mode: SensorCords
@@ -845,7 +845,7 @@
     - type: Clothing
       sprite: Clothing/Uniforms/Jumpsuit/tacticool.rsi
     # Too cool for sensors to be on
-    - type: SuitSensor
+    - type: ADTSuitSensor
       randomMode: false
       mode: SensorOff
 

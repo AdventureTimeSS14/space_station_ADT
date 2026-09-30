@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: [MobObserverBase, InventoryBase]
   id: AdminObserver
   name: admin observer
@@ -68,8 +68,8 @@
         type: RadarConsoleBoundUserInterface
       enum.CargoConsoleUiKey.Orders:
         type: CargoOrderConsoleBoundUserInterface
-      enum.CrewMonitoringUIKey.Key:
-        type: CrewMonitoringBoundUserInterface
+      enum.ADTCrewMonitoringUiKey.Key:
+        type: ADTCrewMonitoringBoundUserInterface
       enum.GeneralStationRecordConsoleKey.Key:
       # who the fuck named this bruh
         type: GeneralStationRecordConsoleBoundUserInterface
@@ -83,7 +83,7 @@
         toggleAction: ActionAGhostShowRadar
       enum.CargoConsoleUiKey.Orders:
         toggleAction: ActionAGhostShowCargo
-      enum.CrewMonitoringUIKey.Key:
+      enum.ADTCrewMonitoringUiKey.Key:
         toggleAction: ActionAGhostShowCrewMonitoring
       enum.GeneralStationRecordConsoleKey.Key:
         toggleAction: ActionAGhostShowStationRecords
@@ -97,7 +97,7 @@
   - type: RadarConsole
     followEntity: true
   - type: CargoOrderConsole
-  - type: CrewMonitoringConsole
+  - type: ADTCrewMonitoringConsole
     suppressCritAlertSound: true #ADT-Tweak: NewMonitor — no beep from aghost intrinsic UI
   - type: GeneralStationRecordConsole
     canDeleteEntries: true
@@ -228,7 +228,7 @@
     layers:
     - state: crew_monitor
   - type: InstantAction
-    event: !type:ToggleIntrinsicUIEvent { key: enum.CrewMonitoringUIKey.Key }
+    event: !type:ToggleIntrinsicUIEvent { key: enum.ADTCrewMonitoringUiKey.Key }
 
 - type: entity
   parent: BaseAGhostAction

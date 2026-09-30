@@ -1,4 +1,4 @@
-meta:
+﻿meta:
   format: 7
   category: Map
   engineVersion: 289.0.0
@@ -91884,14 +91884,7 @@ entities:
     components:
     - type: Transform
       parent: 1
-<<<<<<< ours
 - proto: CapacitorStockPart
-||||||| base
-- proto: MicroManipulatorStockPart
-=======
-      pos: 53.5,92.5
-- proto: PlasmaCanister
->>>>>>> theirs
   entities:
   - uid: 6961
     components:

@@ -1,14 +1,14 @@
-//
+﻿//
 
 using System.Linq;
 using System.Numerics;
 using Content.Shared.ADT.Heretic;
+using Content.Server.ADT.Medical.SuitSensors;
 using Content.Server.ADT.Objectives.Components;
 using Content.Server.Heretic.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Chat.Managers;
 using Content.Server.Heretic.EntitySystems;
-using Content.Server.Medical.SuitSensors;
 using Content.Server.Objectives.Components;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Shared.Chat;
@@ -23,7 +23,6 @@ using Content.Shared.Mind;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Store.Components;
 using Content.Server.Atmos.EntitySystems;
-using Content.Shared.Medical.SuitSensor;
 using Content.Shared.Mobs;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
@@ -192,7 +191,7 @@ namespace Content.Server.Heretic.Ritual;
     private void SafeSacrifice(RitualData args, EntityUid uid)
     {
         var entMan = args.EntityManager;
-        var suitSensorSystem = entMan.System<SuitSensorSystem>();
+        var suitSensorSystem = entMan.System<ADTSuitSensorSystem>();
         var sharedMindSystem = entMan.System<SharedMindSystem>();
         var chatManager = IoCManager.Resolve<IChatManager>();
         var player = IoCManager.Resolve<ISharedPlayerManager>();
@@ -224,7 +223,7 @@ namespace Content.Server.Heretic.Ritual;
         }
 
         // coord sensors so the body can be found
-        suitSensorSystem.SetAllSensors(uid, SuitSensorMode.SensorCords);
+        suitSensorSystem.SetAllSensors(uid, ADTSuitSensorMode.SensorCords);
     }
 
     /// <summary>

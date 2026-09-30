@@ -1,4 +1,4 @@
-##ADT Sponsor Base for clothing
+﻿##ADT Sponsor Base for clothing
 ##Sponsor Gloves
 - type: entity
   abstract: true
@@ -21,7 +21,7 @@
   parent: UnsensoredClothingUniformBase
   id: ADTSponsorClothingUniformBase
   components:
-  - type: SuitSensor
+  - type: ADTSuitSensor
   # ADT-Tweak Start - New Monitor: Deprecated
   # - type: DeviceNetwork
   #   deviceNetId: Wireless

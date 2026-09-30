@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: ActionStationAiInfo
   name: View Information
   description: View the information of your chassis and station.
@@ -35,7 +35,7 @@
     keywords: [ "AI", "console", "interface" ]
     priority: -8
   - type: InstantAction
-    event: !type:ToggleIntrinsicUIEvent { key: enum.CrewMonitoringUIKey.Key }
+    event: !type:ToggleIntrinsicUIEvent { key: enum.ADTCrewMonitoringUiKey.Key }
 
 - type: entity
   id: ActionStationAiStationRecords

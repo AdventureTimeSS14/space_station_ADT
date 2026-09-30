@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   abstract: true
   parent: ClothingUniformBase
   id: ClothingUniformRandom
@@ -28,7 +28,7 @@
         map: [ "decor" ]
       - state: mask_null
         map: [ "overlay" ]
-  - type: SuitSensor
+  - type: ADTSuitSensor
 
 - type: entity
   parent: ClothingUniformRandom

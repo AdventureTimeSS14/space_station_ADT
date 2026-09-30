@@ -1,4 +1,4 @@
-using Content.Shared.Medical.SuitSensor;
+﻿using Content.Shared.ADT.Medical.SuitSensors;
 using Robust.Shared.Map;
 
 namespace Content.Server.ADT.Medical.SuitSensors;
@@ -8,8 +8,8 @@ namespace Content.Server.ADT.Medical.SuitSensors;
 /// (replaces continuous device-network packets while idle).
 /// </summary>
 [ByRefEvent]
-public readonly record struct SuitSensorReportEvent(
+public readonly record struct ADTSuitSensorReportEvent(
     EntityUid Sensor,
     EntityUid Wearer,
-    SuitSensorStatus Status,
+    ADTSuitSensorStatus Status,
     MapCoordinates WorldPosition);
