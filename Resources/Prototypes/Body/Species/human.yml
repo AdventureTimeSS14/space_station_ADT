@@ -98,7 +98,6 @@
     spawned:
     - id: FoodMeatHuman
       amount: 5
-<<<<<<< ours
   # ADT-Tweak start
   - type: LanguageSpeaker
     languages:
@@ -113,15 +112,6 @@
 
 - type: entity
   parent: OrganBaseOrganic
-||||||| base
-
-- type: entity
-  parent: OrganBase
-=======
-
-- type: entity
-  parent: OrganBaseOrganic
->>>>>>> theirs
   id: OrganHuman
   abstract: true
   suffix: human
@@ -167,12 +157,7 @@
     hideableLayers:
     - enum.HumanoidVisualLayers.Hair
     - enum.HumanoidVisualLayers.Snout
-<<<<<<< ours
     - enum.HumanoidVisualLayers.SnoutOverlay # ADT-Tweak
-||||||| base
-=======
-    - enum.HumanoidVisualLayers.FacialHair
->>>>>>> theirs
 
 - type: entity
   parent: [ OrganBaseArmLeft, OrganHumanExternal ]
