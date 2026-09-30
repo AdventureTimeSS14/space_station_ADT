@@ -130,10 +130,7 @@
       radius: 3
       color: red
     - type: Climbable
-<<<<<<< ours
     - type: Clickable
-||||||| base
-=======
     - type: Destructible
       thresholds:
       - trigger:
@@ -142,7 +139,6 @@
         behaviors:
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
->>>>>>> theirs
 
 - type: entity
   parent: BaseHoloSign

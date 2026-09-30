@@ -4,7 +4,6 @@
   name: crew monitoring server
   description: Receives and relays the status of all active suit sensors on the station.
   components:
-<<<<<<< ours
     - type: Sprite
       sprite: Structures/Machines/server.rsi
       snapCardinals: true
