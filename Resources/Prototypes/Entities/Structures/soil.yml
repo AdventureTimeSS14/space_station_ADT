@@ -21,7 +21,6 @@
         - FullTileMask
         layer:
         - FullTileMask
-<<<<<<< ours
   - type: Damageable
     damageModifierSet: Metallic
   - type: Injurable
@@ -34,20 +33,6 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
-||||||| base
-  - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Metallic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 50
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-=======
->>>>>>> theirs
   - type: Sprite
     noRot: true
   - type: PlantTray
