@@ -76,13 +76,10 @@ public sealed partial class AddictionSymptomsSystem : EntitySystem
             if (!channel.InWithdrawal)
                 continue;
 
-            // Никотин не заикается и не трясётся всю ломку: дрожь только на тяжёлой стадии.
-            // Тяга, кашель и муть в глазах живут отдельно.
+            // Никотин не заикается и не трясётся: тяга, кашель, муть и слабость живут отдельно.
             if (channel.Kind == AddictionKind.Nicotine)
             {
                 nicotineStage = Math.Max(nicotineStage, channel.Stage);
-                if (channel.Stage >= 3)
-                    jitterStage = Math.Max(jitterStage, 2);
             }
             else
             {
@@ -120,7 +117,7 @@ public sealed partial class AddictionSymptomsSystem : EntitySystem
         else if (nicotineStage == 0)
         {
             // Снимаем дрожь, только когда ломки с дрожью больше нет.
-            // Лёгкая никотиновая ломка дрожь не включает и чужую не гасит.
+            // Никотиновая ломка дрожь не включает и чужую не гасит.
             RemComp<JitteringComponent>(uid);
         }
 
