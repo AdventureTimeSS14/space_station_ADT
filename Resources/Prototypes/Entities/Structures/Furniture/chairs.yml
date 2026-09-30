@@ -34,7 +34,6 @@
   - type: Pullable
   - type: Damageable
     damageModifierSet: Metallic
-<<<<<<< ours
   - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
@@ -54,28 +53,6 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
-||||||| base
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 50
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-=======
-  - type: Injurable
-    damageContainer: Inorganic
->>>>>>> theirs
   - type: StaticPrice
     price: 40 # ADT-tweak
 
@@ -461,22 +438,7 @@
     graph: Seat
     node: chairFolding
   - type: DamageExaminable
-<<<<<<< ours
   - type: GravityAffected #ADT-Tweak
-||||||| base
-=======
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 50
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
->>>>>>> theirs
 
 - type: entity
   parent: ChairFolding
