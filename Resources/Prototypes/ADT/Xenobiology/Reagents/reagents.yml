@@ -23,7 +23,7 @@
           type: [ Slime ]
           inverted: true
         - !type:MobStateCondition
-          mobstate: Critical
+          mobstates: [ SoftCritical, Critical ]
         damage:
           types:
             Asphyxiation: -2
