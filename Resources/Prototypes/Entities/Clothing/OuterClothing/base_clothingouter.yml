@@ -172,16 +172,10 @@
     walkModifier: 0.6
     sprintModifier: 0.6
   - type: Item
-<<<<<<< ours
 #    size: Ginormous
     size: Huge # ADT-Tweak
-||||||| base
-    size: Ginormous
-=======
-    size: Ginormous
     shape:
     - 0,0,4,5
->>>>>>> theirs
   - type: Armor
     modifiers:
       coefficients:
@@ -202,7 +196,7 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
-<<<<<<< ours
+# ADT-Tweak-Start
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
   - type: DamageOnInteractProtection
@@ -210,95 +204,18 @@
       flatReductions:
         Heat: 10 # the average lightbulb only does around four damage!
     slots: OUTERCLOTHING
-  # - type: HideLayerClothing # ADT-Tweak: fix-tail
-  #   slots:
-  #   - Tail
-  #ADT-Tweak-Start
   - type: CoveredSlot
     slots: [innerclothing, gloves, feet, underwearb, underweart, socks]
-  #ADT-Tweak-End
   - type: HideLayerClothing
     slots:
     - Tail
-||||||| base
-  - type: ProtectedFromStepTriggers
-    slots: WITHOUT_POCKET
-  - type: DamageOnInteractProtection
-    damageProtection:
-      flatReductions:
-        Heat: 10 # the average lightbulb only does around four damage!
-    slots: OUTERCLOTHING
-  - type: HideLayerClothing
-    slots:
-    - Tail
-=======
->>>>>>> theirs
+# ADT-Tweak-End
 
 - type: entity
   parent: ClothingOuterEVASuitBase
   id: ClothingOuterEVASuitBaseToggleable
   abstract: true
   components:
-<<<<<<< ours
-# SlotBlocker blocked until UI change
-#  - type: SlotBlock
-#    slots: [innerclothing, feet]
-  - type: PressureProtection
-    highPressureMultiplier: 0.6
-    lowPressureMultiplier: 1000
-  - type: TemperatureProtection
-    heatingCoefficient: 0.01 # Not complete protection from fire
-    coolingCoefficient: 0.01
-  - type: ClothingSpeedModifier
-    walkModifier: 0.8
-    sprintModifier: 0.8
-  - type: HeldSpeedModifier
-  - type: Item
-    size: Huge
-  - type: ProtectedFromStepTriggers
-    slots: WITHOUT_POCKET
-  - type: DamageOnInteractProtection
-    damageProtection:
-      flatReductions:
-        Heat: 10 # the average lightbulb only does around four damage!
-    slots: OUTERCLOTHING
-  # - type: HideLayerClothing # ADT-Tweak: fix-tail
-  #   slots:
-  #   - Tail
-  #ADT-Tweak-Start
-  - type: CoveredSlot
-    slots: [innerclothing, gloves, feet, underwearb, underweart, socks]
-  #ADT-Tweak-End
-  - type: HideLayerClothing
-    slots:
-    - Tail
-||||||| base
-# SlotBlocker blocked until UI change
-#  - type: SlotBlock
-#    slots: [innerclothing, feet]
-  - type: PressureProtection
-    highPressureMultiplier: 0.6
-    lowPressureMultiplier: 1000
-  - type: TemperatureProtection
-    heatingCoefficient: 0.01 # Not complete protection from fire
-    coolingCoefficient: 0.01
-  - type: ClothingSpeedModifier
-    walkModifier: 0.8
-    sprintModifier: 0.8
-  - type: HeldSpeedModifier
-  - type: Item
-    size: Huge
-  - type: ProtectedFromStepTriggers
-    slots: WITHOUT_POCKET
-  - type: DamageOnInteractProtection
-    damageProtection:
-      flatReductions:
-        Heat: 10 # the average lightbulb only does around four damage!
-    slots: OUTERCLOTHING
-  - type: HideLayerClothing
-    slots:
-    - Tail
-=======
   - type: ToggleableClothing
     slot: head
     verbText: toggle-clothing-verb-helmet
@@ -306,7 +223,6 @@
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
->>>>>>> theirs
 
 - type: entity
   abstract: true
