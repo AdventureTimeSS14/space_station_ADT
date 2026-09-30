@@ -23,7 +23,6 @@
   - type: Physics
   - type: Damageable
     damageModifierSet: Wood
-<<<<<<< ours
   - type: Injurable
   - type: Temperature
   - type: TemperatureDamage
@@ -32,17 +31,6 @@
         Heat: 5
     coldDamage: {}
     coldDamageThreshold: 0
-||||||| base
-  - type: Temperature
-  - type: TemperatureDamage
-    heatDamage:
-      types:
-        Heat: 5
-    coldDamage: {}
-    coldDamageThreshold: 0
-=======
-  - type: Injurable
->>>>>>> theirs
   - type: Flammable
     fireSpread: true
     damage:
