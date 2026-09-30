@@ -106,35 +106,18 @@
     - state: icon
   - type: Appearance
   - type: Clothing
-<<<<<<< ours
     sprite: ADT/Clothing/OuterClothing/Hardsuits/paramedic_hardsuit.rsi # ADT tweak респрайт от празата
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
-||||||| base
-    sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
-  - type: PressureProtection
-    highPressureMultiplier: 0.5
-    lowPressureMultiplier: 1000
-=======
-    sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
->>>>>>> theirs
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
     requireActivated: false
-<<<<<<< ours
   - type: HeldSpeedModifier
   - type: TemperatureProtection
     heatingCoefficient: 0.01 # ADT-Tweak 0.1 -> 0.01
     coolingCoefficient: 0.01 # ADT-Tweak 0.1 -> 0.01
-||||||| base
-  - type: HeldSpeedModifier
-  - type: TemperatureProtection
-    heatingCoefficient: 0.1
-    coolingCoefficient: 0.1
-=======
->>>>>>> theirs
   - type: Armor
     modifiers:
       coefficients:
