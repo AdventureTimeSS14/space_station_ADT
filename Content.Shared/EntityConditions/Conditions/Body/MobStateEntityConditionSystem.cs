@@ -1,4 +1,5 @@
-﻿using Content.Shared.Mobs;
+﻿using System.Linq; // ADT-Tweak
+using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Prototypes;
 
@@ -37,7 +38,15 @@ public sealed partial class MobStateCondition : EntityConditionBase<MobStateCond
     [DataField]
     public MobState[]? Mobstates;
 
-    public override string EntityConditionGuidebookText(IPrototypeManager prototype) =>
-        Loc.GetString("entity-condition-guidebook-mob-state-condition",
-            ("state", Mobstates is { Length: > 0 } states ? string.Join(", ", states) : Mobstate.ToString())); // ADT-Tweak
+    // ADT-Tweak-Start
+    public override string EntityConditionGuidebookText(IPrototypeManager prototype)
+    {
+        var states = Mobstates is { Length: > 0 } list ? list : [Mobstate];
+        var names = states.Select(x =>
+            Loc.GetString($"entity-condition-guidebook-mob-state-{x.ToString().ToLowerInvariant()}"));
+
+        return Loc.GetString("entity-condition-guidebook-mob-state-condition",
+            ("state", string.Join($" {Loc.GetString("generic-or")} ", names)));
+    }
+    // ADT-Tweak-End
 }
