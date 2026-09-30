@@ -102,10 +102,16 @@ public sealed partial class AddictionComponent : Component
     public float NicotineCoughChance = 0.45f;
 
     /// <summary>
-    /// Шанс кашля на средней и тяжёлой никотиновой ломке.
+    /// Шанс кашля на средней никотиновой ломке, на каждом поп-апе.
     /// </summary>
     [DataField]
     public float NicotineSevereCoughChance = 0.7f;
+
+    /// <summary>
+    /// Как часто кашель на тяжёлой никотиновой ломке. Не привязан к поп-апам.
+    /// </summary>
+    [DataField]
+    public TimeSpan NicotineSevereCoughInterval = TimeSpan.FromMinutes(2);
 
     /// <summary>
     /// Как долго держатся симптомы после последнего продления (дрожь и статус-эффекты).
@@ -260,6 +266,12 @@ public sealed partial class AddictionChannel
     /// </summary>
     [DataField]
     public TimeSpan NextPopupTime;
+
+    /// <summary>
+    /// Время следующего кашля на тяжёлой никотиновой ломке.
+    /// </summary>
+    [DataField]
+    public TimeSpan NextCoughTime;
 
     /// <summary>
     /// Время следующего продления симптомов (чтобы не дёргать DoJitter каждый тик).

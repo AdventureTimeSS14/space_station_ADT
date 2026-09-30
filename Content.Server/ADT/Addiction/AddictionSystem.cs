@@ -137,6 +137,8 @@ public sealed partial class AddictionSystem : EntitySystem
             TryNicotineCough(uid, comp, channel, stage);
         }
 
+        TryNicotineSevereCough(uid, comp, channel, stage);
+
         UpdateNicotineAlert(uid, comp, channel, dead);
     }
 
@@ -211,10 +213,32 @@ public sealed partial class AddictionSystem : EntitySystem
         if (channel.Kind != AddictionKind.Nicotine || stage < 1)
             return;
 
+        if (stage >= 3)
+            return;
+
         var chance = stage >= 2 ? comp.NicotineSevereCoughChance : comp.NicotineCoughChance;
         if (!_random.Prob(chance))
             return;
 
+        _chat.TryEmoteWithChat(uid, comp.CoughEmote);
+    }
+
+    /// <summary>
+    /// Тяжёлая никотиновая ломка: кашель раз в NicotineSevereCoughInterval, первый — сразу при входе в стадию.
+    /// </summary>
+    private void TryNicotineSevereCough(EntityUid uid, AddictionComponent comp, AddictionChannel channel, int stage)
+    {
+        if (channel.Kind != AddictionKind.Nicotine || stage < 3)
+        {
+            if (channel.NextCoughTime != TimeSpan.Zero)
+                channel.NextCoughTime = TimeSpan.Zero;
+            return;
+        }
+
+        if (channel.NextCoughTime != TimeSpan.Zero && _timing.CurTime < channel.NextCoughTime)
+            return;
+
+        channel.NextCoughTime = _timing.CurTime + comp.NicotineSevereCoughInterval;
         _chat.TryEmoteWithChat(uid, comp.CoughEmote);
     }
 
@@ -274,6 +298,7 @@ public sealed partial class AddictionSystem : EntitySystem
     {
         channel.InWithdrawal = false;
         channel.Stage = 0;
+        channel.NextCoughTime = TimeSpan.Zero;
         RaiseSymptomsChanged(uid);
     }
 
