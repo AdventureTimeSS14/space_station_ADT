@@ -11,7 +11,7 @@ using Robust.Shared.Timing;
 namespace Content.Server.ADT.Addiction;
 
 /// <summary>
-/// Применяет симптомы ломки (дрожь, косноязычие, слабость, галлюцинации).
+/// Применяет симптомы ломки (дрожь, косноязычие, слабость, галлюцинации, никотиновая муть).
 public sealed partial class AddictionSymptomsSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -64,28 +64,38 @@ public sealed partial class AddictionSymptomsSystem : EntitySystem
 
     private void RefreshSymptoms(EntityUid uid, AddictionComponent comp)
     {
-        var anyWithdrawal = false;
-        var maxStage = 0;
+        var jitterStage = 0;
         var wantSlurred = false;
         var wantStutter = false;
         var wantWeakness = false;
         var wantMonochromacy = false;
+        var nicotineStage = 0;
 
         foreach (var channel in comp.Channels)
         {
             if (!channel.InWithdrawal)
                 continue;
 
-            anyWithdrawal = true;
-            maxStage = Math.Max(maxStage, channel.Stage);
-
-            // Стадия 2 (средняя): косноязычие (алкоголь) или заикание (остальное)
-            if (channel.Stage >= 2)
+            // Никотин не заикается и не трясётся всю ломку: дрожь только на тяжёлой стадии.
+            // Тяга, кашель и муть в глазах живут отдельно.
+            if (channel.Kind == AddictionKind.Nicotine)
             {
-                if (channel.Kind == AddictionKind.Alcohol)
-                    wantSlurred = true;
-                else
-                    wantStutter = true;
+                nicotineStage = Math.Max(nicotineStage, channel.Stage);
+                if (channel.Stage >= 3)
+                    jitterStage = Math.Max(jitterStage, 2);
+            }
+            else
+            {
+                jitterStage = Math.Max(jitterStage, channel.Stage);
+
+                // Стадия 2 (средняя): косноязычие (алкоголь) или заикание (наркотики и прочее)
+                if (channel.Stage >= 2)
+                {
+                    if (channel.Kind == AddictionKind.Alcohol)
+                        wantSlurred = true;
+                    else
+                        wantStutter = true;
+                }
             }
 
             // Стадия 3 (тяжёлая): слабость, у наркотиков монохромный мир
@@ -97,10 +107,9 @@ public sealed partial class AddictionSymptomsSystem : EntitySystem
             }
         }
 
-        // Дрожь
-        if (anyWithdrawal)
+        if (jitterStage > 0)
         {
-            var amplitude = maxStage switch
+            var amplitude = jitterStage switch
             {
                 1 => comp.MildJitterAmplitude,
                 2 => comp.MediumJitterAmplitude,
@@ -108,8 +117,10 @@ public sealed partial class AddictionSymptomsSystem : EntitySystem
             };
             _jitter.DoJitter(uid, comp.SymptomDuration, refresh: true, amplitude, comp.JitterFrequency);
         }
-        else
+        else if (nicotineStage == 0)
         {
+            // Снимаем дрожь, только когда ломки с дрожью больше нет.
+            // Лёгкая никотиновая ломка дрожь не включает и чужую не гасит.
             RemComp<JitteringComponent>(uid);
         }
 
@@ -137,6 +148,19 @@ public sealed partial class AddictionSymptomsSystem : EntitySystem
             if (HasComp<MonochromacyComponent>(uid))
                 RemComp<MonochromacyComponent>(uid);
             comp.WithdrawalMonochromacyApplied = false;
+        }
+
+        // Средняя и тяжёлая никотиновая ломка: картинка плывёт. Лёгкая обходится тягой и кашлем.
+        if (nicotineStage >= 2)
+        {
+            var duration = nicotineStage >= 3 ? comp.NicotineSevereWoozyDuration : comp.NicotineWoozyDuration;
+            _status.TrySetStatusEffectDuration(uid, comp.WoozyEffect, duration);
+            comp.NicotineWoozyApplied = true;
+        }
+        else if (comp.NicotineWoozyApplied)
+        {
+            _status.TryRemoveStatusEffect(uid, comp.WoozyEffect);
+            comp.NicotineWoozyApplied = false;
         }
     }
 }

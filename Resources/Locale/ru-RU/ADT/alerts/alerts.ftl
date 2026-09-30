@@ -27,3 +27,5 @@ alerts-adt-xeno-sticks-name = Ксено-сетчатка
 alerts-adt-xeno-sticks-desc = Вы начинаете лучше видеть в темноте.
 alerts-adt-abu-ghosh-name = Кроветворение
 alerts-adt-abu-ghosh-desc = Вы чувствуете, что ваша кровь начала восстанавливаться быстрее.
+alerts-nicotine-craving-name = [color=#c4a574]Никотиновая зависимость[/color]
+alerts-nicotine-craving-desc = Организм требует никотин. [color=#ffb020]Горящая[/color] сигарета — доза ещё держится, на иконке таймер до ломки. [color=#b0b0b0]Потухшая[/color] — лёгкая ломка. [color=#e05a3c]Сгоревшая[/color] — средняя или тяжёлая: кашель, муть в глазах, а под конец дрожь и слабость. Затяжка снимает ломку.

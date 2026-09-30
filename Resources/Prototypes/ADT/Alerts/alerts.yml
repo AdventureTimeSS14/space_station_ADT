@@ -237,3 +237,18 @@
     state: abu_ghosh
   name: alerts-adt-abu-ghosh-name
   description: alerts-adt-abu-ghosh-desc
+
+# Тяга к никотину. 0 — недавно курил (таймер до ломки), 1 — лёгкая ломка, 2 — средняя и тяжёлая.
+- type: alert
+  id: NicotineCraving
+  icons:
+  - sprite: /Textures/Objects/Consumable/Smokeables/Cigarettes/cigarette.rsi
+    state: lit-icon
+  - sprite: /Textures/Objects/Consumable/Smokeables/Cigarettes/cigarette.rsi
+    state: unlit-icon
+  - sprite: /Textures/Objects/Consumable/Smokeables/Cigarettes/cigarette.rsi
+    state: burnt-icon
+  name: alerts-nicotine-craving-name
+  description: alerts-nicotine-craving-desc
+  minSeverity: 0
+  maxSeverity: 2

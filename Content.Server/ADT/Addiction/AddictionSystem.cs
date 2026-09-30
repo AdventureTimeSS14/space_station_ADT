@@ -3,13 +3,16 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Server.Chat.Systems;
 using Content.Server.Popups;
 using Content.Server.Traits;
 using Content.Shared.ADT.Addiction;
 using Content.Shared.ADT.Body.Allergies;
+using Content.Shared.Alert;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.GameTicking;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -31,6 +34,8 @@ public sealed partial class AddictionSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly AlertsSystem _alerts = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
 
     public override void Initialize()
     {
@@ -79,6 +84,8 @@ public sealed partial class AddictionSystem : EntitySystem
             if (channel.InWithdrawal)
                 StopWithdrawal(uid, channel);
 
+            WarnNicotineCraving(uid, comp, channel, timeSinceDose, dead);
+            UpdateNicotineAlert(uid, comp, channel, dead);
             return;
         }
 
@@ -89,25 +96,34 @@ public sealed partial class AddictionSystem : EntitySystem
             {
                 channel.WasAddicted = false;
                 if (!dead)
-                    _popup.PopupEntity(Loc.GetString($"addiction-cured-{KindLoc(channel.Kind)}"), uid, uid);
+                    _popup.PopupEntity(Loc.GetString($"addiction-cured-{KindLoc(channel.Kind)}"), uid, uid, PopupType.Medium);
             }
 
             if (channel.InWithdrawal)
                 StopWithdrawal(uid, channel);
 
+            UpdateNicotineAlert(uid, comp, channel, dead);
             return;
         }
 
         if (dead)
+        {
+            UpdateNicotineAlert(uid, comp, channel, dead);
             return;
+        }
 
         // Ломка: тяжесть сразу равна стадии зависимости (1 - лёгкая, 2 - средняя, 3 - тяжёлая).
+        // Никотин исключение: даже при тяжёлой зависимости ломка нарастает по времени без сигареты.
         // Стадия может смягчиться во время ломки (лечение детоксином, долгое воздержание) -
         // тогда симптомы пересчитываются.
-        var stage = AddictionStage.FromLevel(channel.Level);
+        var stage = WithdrawalStage(comp, channel, timeSinceDose);
 
         if (!channel.InWithdrawal || channel.Stage != stage)
         {
+            // Новая ступень никотиновой ломки сразу говорит о себе, не дожидаясь следующего интервала.
+            if (channel.InWithdrawal && stage > channel.Stage)
+                channel.NextPopupTime = TimeSpan.Zero;
+
             channel.InWithdrawal = true;
             channel.Stage = stage;
             RaiseSymptomsChanged(uid);
@@ -115,10 +131,125 @@ public sealed partial class AddictionSystem : EntitySystem
 
         if (_timing.CurTime >= channel.NextPopupTime)
         {
-            channel.NextPopupTime = _timing.CurTime + comp.PopupInterval;
-            // Ключи поп-апов индексируются 0/1/2 (лёгкая/средняя/тяжёлая)
-            _popup.PopupEntity(Loc.GetString($"addiction-withdrawal-{KindLoc(channel.Kind)}-{stage - 1}"), uid, uid);
+            var interval = channel.Kind == AddictionKind.Nicotine ? comp.NicotinePopupInterval : comp.PopupInterval;
+            channel.NextPopupTime = _timing.CurTime + interval;
+            _popup.PopupEntity(WithdrawalPopup(comp, channel, stage), uid, uid, WithdrawalPopupType(channel.Kind, stage));
+            TryNicotineCough(uid, comp, channel, stage);
         }
+
+        UpdateNicotineAlert(uid, comp, channel, dead);
+    }
+
+    /// <summary>
+    /// Стадия ломки. У никотина не прыгает сразу к стадии зависимости:
+    /// сначала тяга, потом муть, и только потом дрожь со слабостью.
+    /// Выше стадии самой зависимости не поднимается.
+    /// </summary>
+    private static int WithdrawalStage(AddictionComponent comp, AddictionChannel channel, TimeSpan timeSinceDose)
+    {
+        var cap = AddictionStage.FromLevel(channel.Level);
+        if (channel.Kind != AddictionKind.Nicotine)
+            return cap;
+
+        var overdue = timeSinceDose - comp.WithdrawalDelay;
+        var byTime = overdue >= comp.NicotineStage3After ? 3
+            : overdue >= comp.NicotineStage2After ? 2
+            : 1;
+
+        return Math.Min(cap, byTime);
+    }
+
+    /// <summary>
+    /// Заранее говорит никотинщику, что таймер на иконке подходит к концу.
+    /// </summary>
+    private void WarnNicotineCraving(EntityUid uid, AddictionComponent comp, AddictionChannel channel, TimeSpan timeSinceDose, bool dead)
+    {
+        if (dead || channel.Kind != AddictionKind.Nicotine || channel.CravingWarned)
+            return;
+
+        if (channel.Level < comp.Threshold)
+            return;
+
+        if (timeSinceDose < comp.WithdrawalDelay * comp.NicotineCravingWarning)
+            return;
+
+        channel.CravingWarned = true;
+        var idx = _random.Next(Math.Max(1, comp.NicotineCravingPopupVariants));
+        _popup.PopupEntity(Loc.GetString($"addiction-craving-nicotine-{idx}"), uid, uid, PopupType.Medium);
+    }
+
+    private string WithdrawalPopup(AddictionComponent comp, AddictionChannel channel, int stage)
+    {
+        var locStage = stage - 1;
+        if (channel.Kind != AddictionKind.Nicotine)
+            return Loc.GetString($"addiction-withdrawal-{KindLoc(channel.Kind)}-{locStage}");
+
+        var count = Math.Max(1, comp.NicotinePopupVariants);
+        var idx = _random.Next(count);
+        if (count > 1 && idx == channel.LastPopupIndex)
+            idx = (idx + 1) % count;
+
+        channel.LastPopupIndex = idx;
+        return Loc.GetString($"addiction-withdrawal-nicotine-{locStage}-{idx}");
+    }
+
+    private static PopupType WithdrawalPopupType(AddictionKind kind, int stage)
+    {
+        if (kind != AddictionKind.Nicotine)
+            return PopupType.Small;
+
+        return stage switch
+        {
+            >= 3 => PopupType.LargeCaution,
+            2 => PopupType.MediumCaution,
+            _ => PopupType.Medium,
+        };
+    }
+
+    private void TryNicotineCough(EntityUid uid, AddictionComponent comp, AddictionChannel channel, int stage)
+    {
+        if (channel.Kind != AddictionKind.Nicotine || stage < 1)
+            return;
+
+        var chance = stage >= 2 ? comp.NicotineSevereCoughChance : comp.NicotineCoughChance;
+        if (!_random.Prob(chance))
+            return;
+
+        _chat.TryEmoteWithChat(uid, comp.CoughEmote);
+    }
+
+    /// <summary>
+    /// Иконка справа: горящая сигарета с таймером, пока доза держится, и всё более мёртвая картинка в ломке.
+    /// </summary>
+    private void UpdateNicotineAlert(EntityUid uid, AddictionComponent comp, AddictionChannel channel, bool dead)
+    {
+        if (channel.Kind != AddictionKind.Nicotine)
+            return;
+
+        if (dead || channel.Level < comp.Threshold)
+        {
+            _alerts.ClearAlert(uid, comp.NicotineAlert);
+            return;
+        }
+
+        short severity;
+        (TimeSpan, TimeSpan)? cooldown = null;
+
+        if (!channel.InWithdrawal)
+        {
+            severity = 0;
+            cooldown = (channel.LastDoseTime, channel.LastDoseTime + comp.WithdrawalDelay);
+        }
+        else if (channel.Stage <= 1)
+        {
+            severity = 1;
+        }
+        else
+        {
+            severity = 2;
+        }
+
+        _alerts.ShowAlert(uid, comp.NicotineAlert, severity, cooldown, showCooldown: cooldown != null);
     }
 
     /// <summary>
@@ -202,19 +333,25 @@ public sealed partial class AddictionSystem : EntitySystem
         channel.Level = MathF.Min(100f, channel.Level + amount);
         channel.LastDoseTime = _timing.CurTime;
         channel.NextPopupTime = TimeSpan.Zero;
+        channel.CravingWarned = false;
+
+        var popupType = channel.Kind == AddictionKind.Nicotine ? PopupType.Medium : PopupType.Small;
 
         // Доза снимает ломку (поп-ап только если ломка реально была)
         if (channel.InWithdrawal)
         {
             StopWithdrawal(uid, channel);
-            _popup.PopupEntity(Loc.GetString($"addiction-dose-{KindLoc(channel.Kind)}"), uid, uid);
+            _popup.PopupEntity(Loc.GetString($"addiction-dose-{KindLoc(channel.Kind)}"), uid, uid, popupType);
         }
         // Первое превышение порога - подсадка
         else if (!channel.WasAddicted && channel.Level >= comp.Threshold)
         {
             channel.WasAddicted = true;
-            _popup.PopupEntity(Loc.GetString($"addiction-begin-{KindLoc(channel.Kind)}"), uid, uid);
+            _popup.PopupEntity(Loc.GetString($"addiction-begin-{KindLoc(channel.Kind)}"), uid, uid, popupType);
         }
+
+        if (channel.Kind == AddictionKind.Nicotine)
+            UpdateNicotineAlert(uid, comp, channel, _mobState.IsDead(uid));
     }
 
     /// <summary>

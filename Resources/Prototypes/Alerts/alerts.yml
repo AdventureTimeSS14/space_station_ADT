@@ -25,6 +25,7 @@
     - category: Temperature
     - category: Hunger
     - category: Thirst
+    - alertType: NicotineCraving # ADT nicotine addiction
     - alertType: Magboots
     - alertType: Rooted
     - alertType: Pacified
