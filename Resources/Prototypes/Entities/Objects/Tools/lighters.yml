@@ -98,7 +98,6 @@
         shader: unshaded
   - type: Item
     sprite: Objects/Tools/Lighters/lighters.rsi
-<<<<<<< ours
   - type: UseDelay
   - type: RefillableSolution
     solution: Welder
@@ -132,35 +131,6 @@
     - ADTLighter
   # ADT Tweak END
   - type: PhysicalComposition
-||||||| base
-  - type: UseDelay
-  - type: RefillableSolution
-    solution: Welder
-  - type: SolutionContainerManager
-    solutions:
-      Welder:
-        reagents:
-        - ReagentId: WeldingFuel
-          Quantity: 8
-        maxVol: 8 #uses less fuel than a welder, so this isnt as bad as it looks
-  - type: MeleeWeapon
-    wideAnimationRotation: 180
-    damage:
-      types:
-        Blunt: 0
-  - type: Welder
-    fuelConsumption: 0.01
-    fuelLitCost: 0.1
-    tankSafe: true
-  - type: PointLight
-    enabled: false
-    netsync: false
-    radius: 1.1 #smallest possible
-    color: orange
-  - type: ItemTogglePointLight
-  - type: PhysicalComposition
-=======
->>>>>>> theirs
 
 - type: entity
   parent: Lighter
@@ -183,7 +153,6 @@
     available:
       - skin:
           cheap_icon_base: Rainbow
-<<<<<<< ours
   - type: SolutionContainerManager
     solutions:
       Welder:
@@ -195,19 +164,9 @@
   - type: StaticPrice
     price: 40
   # ADT Tweak END
-||||||| base
-  - type: SolutionContainerManager
-    solutions:
-      Welder:
-        reagents:
-        - ReagentId: WeldingFuel
-          Quantity: 4
-        maxVol: 4 #uses less fuel than a welder, so this isnt as bad as it looks
-=======
   - type: Welder
     fuelConsumption: 0.02
     fuelLitCost: 0.2
->>>>>>> theirs
 
 - type: entity
   parent: [ SolutionLighter, BaseLighter ]
@@ -241,30 +200,8 @@
       - state: inhand-right-flame
         shader: unshaded
   - type: PointLight
-<<<<<<< ours
     enabled: false
     netsync: false
-    radius: 1.2 #slightly stronger than the other lighters
-    color: orange
-  - type: ItemTogglePointLight
-  - type: UseDelay
-  - type: IgnitionSource
-    ignited: false
-  # ADT Tweak Start
-  - type: Tag
-    tags:
-    - ADTLighter
-  # ADT Tweak END
-||||||| base
-    enabled: false
-    netsync: false
-    radius: 1.2 #slightly stronger than the other lighters
-    color: orange
-  - type: ItemTogglePointLight
-  - type: UseDelay
-  - type: IgnitionSource
-    ignited: false
-=======
     radius: 1.5
     color: yellow
   - type: ComponentToggler
@@ -273,7 +210,11 @@
       damage:
         types:
           Heat: 2
->>>>>>> theirs
+  # ADT Tweak Start
+  - type: Tag
+    tags:
+    - ADTLighter
+  # ADT Tweak END
 
 ## Flippos
 
@@ -484,7 +425,6 @@
     fuelReagent: Plasma
   - type: PointLight
     radius: 4 #Excessively powerful
-<<<<<<< ours
     color: "#7FFFD4"
   - type: RefillableSolution
     solution: Welder
@@ -495,20 +435,7 @@
         - ReagentId: Plasma
           Quantity: 999
         maxVol: 999
-||||||| base
     color: Gold
-  - type: RefillableSolution
-    solution: Welder
-  - type: SolutionContainerManager
-    solutions:
-      Welder:
-        reagents:
-        - ReagentId: Plasma
-          Quantity: 999
-        maxVol: 999
-=======
-    color: Gold
->>>>>>> theirs
   - type: Tool
     useSound:
       collection: Welder
