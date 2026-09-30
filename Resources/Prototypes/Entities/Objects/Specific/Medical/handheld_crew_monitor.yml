@@ -23,18 +23,18 @@
     state: icon
     # ADT-Tweak-End
   - type: ActivatableUI
-    key: enum.CrewMonitoringUIKey.Key
+    key: enum.ADTCrewMonitoringUiKey.Key
   - type: UserInterface
     interfaces:
-      enum.CrewMonitoringUIKey.Key:
-        type: CrewMonitoringBoundUserInterface
+      enum.ADTCrewMonitoringUiKey.Key:
+        type: ADTCrewMonitoringBoundUserInterface
   - type: ADTCrewMonitoringConsole
     departments: [] # ADT-Tweak: No parameters == full access
   # ADT-Tweak Start - New Monitor
   - type: PdaBorderColor
     borderColor: "#C9CFE3"
     accentVColor: "#609EFF"
-  - type: CrewMonitoringUiVisuals
+  - type: ADTCrewMonitoringUiVisuals
     themeColor: "#609EFF"
   # #ADT-Tweak End
   - type: DeviceNetwork

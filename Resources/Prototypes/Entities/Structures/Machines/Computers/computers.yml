@@ -486,11 +486,11 @@
   - type: Computer
     board: CrewMonitoringComputerCircuitboard
   - type: ActivatableUI
-    key: enum.CrewMonitoringUIKey.Key
+    key: enum.ADTCrewMonitoringUiKey.Key
   - type: UserInterface
     interfaces:
-        enum.CrewMonitoringUIKey.Key:
-          type: CrewMonitoringBoundUserInterface
+        enum.ADTCrewMonitoringUiKey.Key:
+          type: ADTCrewMonitoringBoundUserInterface
         enum.WiresUiKey.Key:
           type: WiresBoundUserInterface
   - type: ADTCrewMonitoringConsole

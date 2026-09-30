@@ -89,8 +89,8 @@
     interfaces:
       enum.RadarConsoleUiKey.Key:
         type: RadarConsoleBoundUserInterface
-      enum.CrewMonitoringUIKey.Key:
-        type: CrewMonitoringBoundUserInterface
+      enum.ADTCrewMonitoringUiKey.Key:
+        type: ADTCrewMonitoringBoundUserInterface
       enum.GeneralStationRecordConsoleKey.Key:
         type: GeneralStationRecordConsoleBoundUserInterface
       enum.SiliconLawsUiKey.Key:
@@ -111,7 +111,7 @@
     uis:
       enum.RadarConsoleUiKey.Key:
         toggleAction: ActionStationAiRadar #ADT-Tweak
-      enum.CrewMonitoringUIKey.Key:
+      enum.ADTCrewMonitoringUiKey.Key:
         toggleAction: ActionStationAiCrewMonitoring #ADT-Tweak
       enum.GeneralStationRecordConsoleKey.Key:
         toggleAction: ActionStationAiStationRecords #ADT-Tweak
