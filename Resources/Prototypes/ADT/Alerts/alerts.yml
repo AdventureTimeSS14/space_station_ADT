@@ -242,11 +242,11 @@
 - type: alert
   id: NicotineCraving
   icons:
-  - sprite: /Textures/Objects/Consumable/Smokeables/Cigarettes/cigarette.rsi
+  - sprite: /Textures/ADT/Interface/Alerts/nicotine_craving.rsi
     state: lit-icon
-  - sprite: /Textures/Objects/Consumable/Smokeables/Cigarettes/cigarette.rsi
+  - sprite: /Textures/ADT/Interface/Alerts/nicotine_craving.rsi
     state: unlit-icon
-  - sprite: /Textures/Objects/Consumable/Smokeables/Cigarettes/cigarette.rsi
+  - sprite: /Textures/ADT/Interface/Alerts/nicotine_craving.rsi
     state: burnt-icon
   name: alerts-nicotine-craving-name
   description: alerts-nicotine-craving-desc
