@@ -106,7 +106,7 @@ public sealed class NanoNetSystem : EntitySystem
             var display = $"{builtIn.Scheme ?? DisplayScheme}://{host}{path}";
 
             return builtIn.Pages.TryGetValue(path, out var page)
-                ? new NanoNetResponse(url, display, true, RenderPage(builtIn, page))
+                ? new NanoNetResponse(url, display, true, RenderPage(builtIn, page, path))
                 : new NanoNetResponse(url, display, false, RenderPageNotFound(builtIn, path));
         }
 
@@ -313,7 +313,7 @@ public sealed class NanoNetSystem : EntitySystem
         return schemeIndex < 0 ? url : $"{RealScheme}{url[schemeIndex..]}";
     }
 
-    private string RenderPage(NanoNetSitePrototype site, NanoNetPage page)
+    private string RenderPage(NanoNetSitePrototype site, NanoNetPage page, string path)
     {
         var title = HtmlEncode(Loc.GetString(page.Title));
 
@@ -332,7 +332,31 @@ public sealed class NanoNetSystem : EntitySystem
             body.Append("</ul>");
         }
 
+        if (path == "/" && site.ID == HomeSite.Id)
+            body.Append(RenderDirectory());
+
         return RenderDocument(title, body.ToString(), site.Style);
+    }
+
+    private string RenderDirectory()
+    {
+        var title = HtmlEncode(Loc.GetString("nanonet-directory-title"));
+
+        if (_sites.Count == 0)
+            return $"<h2>{title}</h2><p>{HtmlEncode(Loc.GetString("nanonet-directory-empty"))}</p>";
+
+        var body = new StringBuilder();
+        body.Append($"<h2>{title}</h2><ul>");
+
+        foreach (var (label, site) in _sites.OrderByDescending(entry => entry.Value.PublishedAt))
+        {
+            var host = NanoNetDomain.GetHost(label);
+            body.Append(
+                $"<li><a href=\"{RealScheme}://{host}/\">{HtmlEncode(host)}</a> — {HtmlEncode(site.OwnerName)}</li>");
+        }
+
+        body.Append("</ul>");
+        return body.ToString();
     }
 
     private string RenderPageNotFound(NanoNetSitePrototype site, string path)

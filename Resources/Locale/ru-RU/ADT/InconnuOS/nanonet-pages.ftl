@@ -2,6 +2,8 @@ nanonet-home-title = NanoNet
 nanonet-home-welcome = Добро пожаловать во внутреннюю сеть NanoTrasen.
 nanonet-home-link-news = Новости
 nanonet-home-link-about = О сети
+nanonet-directory-title = Каталог сайтов
+nanonet-directory-empty = Пока никто ничего не опубликовал.
 
 nanonet-news-title = Новости станции
 nanonet-news-body = Сегодня в столовой закончился кофе. Персонал в панике.
