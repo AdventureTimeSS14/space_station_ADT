@@ -1,16 +1,16 @@
 ent-ADTBriefcaseBrownRedLis = чемодан личных вещей
     .desc = Чемоданчик с личными вещами сотрудника. Ничего необычного.
-ent-ADTBriefcaseBrownPushnoY
-    .desc = Чемоданчик с личными вещами сотрудника. Ничего необычного.
-ent-ADTBriefcaseBrownRaven559
-    .desc = Чемоданчик с личными вещами сотрудника. Ничего необычного.
-ent-ADTBriefcaseBrownNikLi
-    .desc = Чемоданчик с личными вещами сотрудника. Ничего необычного.
-ent-ADTBriefcaseBrownHonelin111
-    .desc = Чемоданчик с личными вещами сотрудника. Ничего необычного.
-ent-ADTBriefcaseBrownMoon_so_red
-    .desc = Чемоданчик с личными вещами сотрудника. Ничего необычного.
-ent-ADTBriefcaseBrownPrazatCool
-    .desc = Чемоданчик с личными вещами сотрудника. Ничего необычного.
-ent-ADTBriefcaseBrownSaintMadman
-    .desc = Чемоданчик с личными вещами сотрудника. Ничего необычного.
+ent-ADTBriefcaseBrownPushnoY = { ent-ADTBriefcaseBrownRedLis }
+    .desc = { ent-ADTBriefcaseBrownRedLis.desc }
+ent-ADTBriefcaseBrownRaven559 = { ent-ADTBriefcaseBrownRedLis }
+    .desc = { ent-ADTBriefcaseBrownRedLis.desc }
+ent-ADTBriefcaseBrownNikLi = { ent-ADTBriefcaseBrownRedLis }
+    .desc = { ent-ADTBriefcaseBrownRedLis.desc }
+ent-ADTBriefcaseBrownHonelin111 = { ent-ADTBriefcaseBrownRedLis }
+    .desc = { ent-ADTBriefcaseBrownRedLis.desc }
+ent-ADTBriefcaseBrownMoon_so_red = { ent-ADTBriefcaseBrownRedLis }
+    .desc = { ent-ADTBriefcaseBrownRedLis.desc }
+ent-ADTBriefcaseBrownPrazatCool = { ent-ADTBriefcaseBrownRedLis }
+    .desc = { ent-ADTBriefcaseBrownRedLis.desc }
+ent-ADTBriefcaseBrownSaintMadman = { ent-ADTBriefcaseBrownRedLis }
+    .desc = { ent-ADTBriefcaseBrownRedLis.desc }
