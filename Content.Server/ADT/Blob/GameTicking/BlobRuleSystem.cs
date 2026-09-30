@@ -6,7 +6,7 @@ using Content.Shared.ADT.Blob;
 using Content.Server.ADT.Blob.Components;
 using Content.Shared.ADT.Blob.Components;
 using Content.Shared.ADT.Objectives;
-using Content.Server.AlertLevel;
+using Content.Shared.AlertLevel; // ADT-Tweak
 using Content.Server.Antag;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;

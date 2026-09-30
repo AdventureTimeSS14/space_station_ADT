@@ -92,7 +92,7 @@
     healingLightEffect: EvilLightEffect
   - type: Summonable
     summonEntity: SpawnPointGhostCerberus
-    respawnTime: 300
+    respawnCooldown: 300 # ADT-Tweak
   - type: Sprite
     sprite: Objects/Specific/Chapel/necronomicon.rsi
   - type: Item
