@@ -4,7 +4,6 @@
   description: job-description-rd
   playTimeTracker: JobResearchDirector
   requirements:
-<<<<<<< ours
     #- !type:RoleTimeRequirement
     #  role: JobScientist
     #  time: 5h
@@ -22,22 +21,6 @@
       - Vox
     # ADT-Tweak: End
   weight: 10
-||||||| base
-  - !type:RoleTimeRequirement
-    role: JobScientist
-    time: 5h
-  - !type:DepartmentTimeRequirement
-    department: Science
-    time: 10h
-  weight: 10
-=======
-  - !type:RoleTimeRequirement
-    role: JobScientist
-    time: 5h
-  - !type:DepartmentTimeRequirement
-    department: Science
-    time: 10h
->>>>>>> theirs
   startingGear: ResearchDirectorGear
   icon: "JobIconResearchDirector"
   supervisors: job-supervisors-captain
