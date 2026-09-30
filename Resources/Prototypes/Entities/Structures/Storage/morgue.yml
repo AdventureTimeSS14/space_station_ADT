@@ -74,7 +74,6 @@
   - type: AntiRottingContainer
   - type: StaticPrice
     price: 200
-<<<<<<< ours
 # ADT tweak Start
   - type: ItemSlots
   - type: PaperLabel
@@ -92,10 +91,6 @@
             - Document
     sprite: ADT/Structures/Storage/morgue.rsi
 # ADT tweak End
-||||||| base
-=======
-  - type: RequireProjectileTarget
->>>>>>> theirs
 
 - type: entity
   id: Crematorium
