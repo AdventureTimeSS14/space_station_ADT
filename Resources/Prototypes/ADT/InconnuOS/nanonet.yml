@@ -25,7 +25,7 @@
 
 - type: nanoNetSite
   id: NanoNetSyndicate
-  host: synd.space
+  host: synd.shadow
   scheme: synd
   style: |
     body { background:#0a0000; color:#d8c3c3; font-family:monospace; margin:0; padding:24px; }
