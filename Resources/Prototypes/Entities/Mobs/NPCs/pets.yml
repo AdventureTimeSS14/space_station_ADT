@@ -204,20 +204,15 @@
     - VimPilot
   - type: StealTarget
     stealGroup: AnimalNamedCat
-<<<<<<< ours
     # ADT tweak start
   - type: LanguageSpeaker
     languages:
       Cat: Speak
       GalacticCommon: Understand
     # ADT tweak end
-
-||||||| base
-=======
   - type: SpeakOnException
     speechCooldown: 3m
     chanceSpeakNoAccent: 0.01
->>>>>>> theirs
 
 - type: entity
   parent: [ BaseUniquePet, MobCatCalico ]
@@ -945,15 +940,7 @@
     voice: angry_neco_arc
 
 - type: entity
-<<<<<<< ours
-  name: Pun Pun
-  parent: ADTMobMonkeyAdvanced # ADT tweak
-||||||| base
-  name: Pun Pun
-  parent: MobMonkey
-=======
-  parent: [ BaseUniquePet, MobMonkey ]
->>>>>>> theirs
+  parent: [ BaseUniquePet, ADTMobMonkeyAdvanced ] # ADT tweak заменил MobMonkey на ADTMobMonkeyAdvanced
   id: MobMonkeyPunpun
   name: Pun Pun
   description: A prominent representative of monkeys with unlimited access to alcohol.
