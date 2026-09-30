@@ -24,6 +24,9 @@
   - type: TimedDespawn
     lifetime: 0.22 # roughly 5.5 tiles
   - type: GatheringProjectile
+# ADT-Tweak-start
+  - type: PressureDamageModify
+# ADT-Tweak-end
 
 - type: entity
   parent: BaseBullet
@@ -72,19 +75,17 @@
   - type: DamageMarkerOnCollide
     whitelist:
       components:
-      - MobState
+      - Fauna # ADT-Tweak
     damage:
       types:
-        Blunt: 18
-        Slash: 4
+        Blunt: 70 # ADT-Tweak
+        Slash: 5 # ADT-Tweak
   - type: Projectile
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
         Blunt: 0
   # Short lifespan
-  - type: TimedDespawn
-    lifetime: 0.4
 
 # Deals less damage, glaive has better HP recovery
 - type: entity

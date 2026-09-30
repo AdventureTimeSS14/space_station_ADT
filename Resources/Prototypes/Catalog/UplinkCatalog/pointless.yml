@@ -57,7 +57,7 @@
   description: uplink-cat-ears-desc
   productEntity: ClothingHeadHatCatEars
   cost:
-    Telecrystal: 26
+    Telecrystal: 10 # ADT-Tweak
   categories:
   - UplinkPointless
   conditions:
@@ -145,7 +145,7 @@
   description: uplink-balloon-desc
   productEntity: BalloonSyn
   cost:
-    Telecrystal: 20
+    Telecrystal: 10 # ADT-Tweak
   categories:
   - UplinkPointless
   conditions:

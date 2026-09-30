@@ -1,5 +1,5 @@
 - type: entity
-  parent: [UnsensoredClothingUniformSkirtBase, BaseSyndicateContraband]
+  parent: [UnsensoredClothingUniformSkirtBase] # ADT-Tweak
   id: ClothingUniformJumpskirtOperative
   name: operative jumpskirt
   description: Uniform for elite syndicate operatives performing tactical operations in deep space.

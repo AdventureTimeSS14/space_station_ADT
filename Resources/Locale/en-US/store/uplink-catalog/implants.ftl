@@ -38,3 +38,8 @@ uplink-fake-mindshield-desc = An implant which can be toggled to trick Heads-up 
 
 uplink-voice-mask-implanter-name = Identity Mask Implanter
 uplink-voice-mask-implanter-desc = Modifies your vocal cords and facial structure to be able to mimic anyone you could imagine. Be sure to set your name before speaking, or else you'll give yourself away.
+
+# ADT-Tweak-start
+uplink-mindslave-implanter-name = MindSlave Implanter
+uplink-mindslave-implanter-desc = A disposable syringe loaded with a MindSlave bio-chip. Use on a target to make them completely loyal to you.
+# ADT-Tweak-end
