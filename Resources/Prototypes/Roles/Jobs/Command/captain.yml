@@ -15,7 +15,6 @@
       time: 4h
     - !type:DepartmentTimeRequirement
       department: Security
-<<<<<<< ours
       time: 4h # ADT-Tweak 4
 #    - !type:DepartmentTimeRequirement
 #      department: Command
@@ -33,18 +32,6 @@
       - Vox
   # ADT RESTRICT End
   weight: 20
-||||||| base
-      time: 4h
-    - !type:DepartmentTimeRequirement
-      department: Command
-      time: 4h
-  weight: 20
-=======
-      time: 4h
-    - !type:DepartmentTimeRequirement
-      department: Command
-      time: 4h
->>>>>>> theirs
   startingGear: CaptainGear
   icon: "JobIconCaptain"
   joinNotifyCrew: true
