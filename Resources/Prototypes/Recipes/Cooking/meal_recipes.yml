@@ -386,17 +386,12 @@
   solids:
     FoodBreadBun: 1
     FoodMealRibs: 1
-<<<<<<< ours
-    FoodOnionSlice: 1
+    FoodOnionSlice: 5
   #ADT-Tweak Start
   recipeType:
   - Oven
   #ADT-Tweak End
-||||||| base
-    FoodOnionSlice: 1
-=======
-    FoodOnionSlice: 5
->>>>>>> theirs
+
 
 - type: microwaveMealRecipe
   id: RecipeMimeBurger
@@ -584,17 +579,11 @@
     Milk: 5
   solids:
     FoodDough: 1
-<<<<<<< ours
-    FoodCheeseSlice: 2
+    FoodCheeseSlice: 1
   #ADT-Tweak Start
   recipeType:
   - Oven
   #ADT-Tweak End
-||||||| base
-    FoodCheeseSlice: 2
-=======
-    FoodCheeseSlice: 1
->>>>>>> theirs
 
 - type: microwaveMealRecipe
   id: RecipeMeatBread
@@ -605,17 +594,11 @@
   solids:
     FoodDough: 1
     FoodMeatCutlet: 2
-<<<<<<< ours
-    FoodCheeseSlice: 2
+    FoodCheeseSlice: 1
   #ADT-Tweak Start
   recipeType:
   - Oven
   #ADT-Tweak End
-||||||| base
-    FoodCheeseSlice: 2
-=======
-    FoodCheeseSlice: 1
->>>>>>> theirs
 
 - type: microwaveMealRecipe
   id: RecipeMimanaBread
@@ -627,17 +610,11 @@
     Nothing: 5
   solids:
     FoodDough: 1
-<<<<<<< ours
-    FoodMimana: 1
+    FoodMimana: 2
   #ADT-Tweak Start
   recipeType:
   - Oven
   #ADT-Tweak End
-||||||| base
-    FoodMimana: 1
-=======
-    FoodMimana: 2
->>>>>>> theirs
 
 - type: microwaveMealRecipe
   id: RecipeBread
@@ -688,17 +665,12 @@
   solids:
     FoodDough: 1
     FoodMeatSpiderCutlet: 2
-<<<<<<< ours
-    FoodCheeseSlice: 2
+    FoodCheeseSlice: 1
   #ADT-Tweak Start
   recipeType:
   - Oven
   #ADT-Tweak End
-||||||| base
-    FoodCheeseSlice: 2
-=======
-    FoodCheeseSlice: 1
->>>>>>> theirs
+
 
 - type: microwaveMealRecipe
   id: RecipeTofuBread
@@ -708,17 +680,11 @@
   group: Breads
   solids:
     FoodDough: 1
-<<<<<<< ours
-    FoodTofu: 1
+    FoodTofuSlice: 1
   #ADT-Tweak Start
   recipeType:
   - Oven
   #ADT-Tweak End
-||||||| base
-    FoodTofu: 1
-=======
-    FoodTofuSlice: 1
->>>>>>> theirs
 
 - type: microwaveMealRecipe
   id: RecipeXenoMeatBread
@@ -1080,17 +1046,11 @@
   group: Pasta
   solids:
     FoodNoodlesBoiled: 1
-<<<<<<< ours
-    FoodMeatMeatball: 2
+    FoodMeatMeatball: 1
   #ADT-Tweak Start
   recipeType:
   - Oven
   #ADT-Tweak End
-||||||| base
-    FoodMeatMeatball: 2
-=======
-    FoodMeatMeatball: 1
->>>>>>> theirs
 
 - type: microwaveMealRecipe
   id: RecipeButterNoodles
@@ -1100,17 +1060,11 @@
   group: Pasta
   solids:
     FoodNoodlesBoiled: 1
-<<<<<<< ours
-    FoodButter: 1
+    FoodButterSlice: 2
   #ADT-Tweak Start
   recipeType:
   - Oven
   #ADT-Tweak End
-||||||| base
-    FoodButter: 1
-=======
-    FoodButterSlice: 2
->>>>>>> theirs
 
 - type: microwaveMealRecipe
   id: RecipeChowMein
@@ -1426,17 +1380,11 @@
     Soysauce: 10
   solids:
     FoodBowlBig: 1
-<<<<<<< ours
-    FoodMeatXenoCutlet: 2
+    FoodMeatXenoCutlet: 5
   #ADT-Tweak Start
   recipeType:
   - Oven
   #ADT-Tweak End
-||||||| base
-    FoodMeatXenoCutlet: 2
-=======
-    FoodMeatXenoCutlet: 5
->>>>>>> theirs
 
 - type: microwaveMealRecipe
   id: RecipeWingFangChuSoupSpider
@@ -1537,17 +1485,11 @@
   reagents:
     Water: 10
   solids:
-<<<<<<< ours
-    FoodMeatSnail: 1
+    MobSnail: 1
   #ADT-Tweak Start
   recipeType:
   - Microwave
   #ADT-Tweak End
-||||||| base
-    FoodMeatSnail: 1
-=======
-    MobSnail: 1
->>>>>>> theirs
 
 - type: microwaveMealRecipe
   id: RecipeEscargotSoup
@@ -1832,17 +1774,11 @@
   reagents:
     TableSalt: 1
   solids:
-<<<<<<< ours
-    FoodMeatFish: 2
+    FoodMeatFish: 1
   #ADT-Tweak Start
   recipeType:
   - Assembler
   #ADT-Tweak End
-||||||| base
-    FoodMeatFish: 2
-=======
-    FoodMeatFish: 1
->>>>>>> theirs
 
 - type: microwaveMealRecipe
   id: RecipeMisoColaSoup
@@ -2151,17 +2087,11 @@
   group: Cake
   solids:
     FoodCakePlain: 1
-<<<<<<< ours
-    FoodCarrot: 3
+    FoodCarrot: 2
   #ADT-Tweak Start
   recipeType:
   - Assembler
   #ADT-Tweak End
-||||||| base
-    FoodCarrot: 3
-=======
-    FoodCarrot: 2
->>>>>>> theirs
 
 - type: microwaveMealRecipe
   id: RecipeLemonCake
@@ -2391,7 +2321,6 @@
     FoodBreadSausage: 1
     OrganAnimalHeart: 1
     FoodSpaceshroomCooked: 1
-<<<<<<< ours
   #ADT-Tweak Start
   recipeType:
   - Assembler
@@ -2412,33 +2341,7 @@
 #   recipeType:
 #   - Microwave
   #ADT-Tweak End
-||||||| base
 
-- type: microwaveMealRecipe
-  id: RecipeDumplings
-  name: dumplings recipe
-  result: FoodBakedDumplings
-  time: 15
-  group: Savory
-  reagents:
-    Water: 10
-    UncookedAnimalProteins: 6
-  solids:
-    FoodDoughSlice: 3
-=======
-
-- type: microwaveMealRecipe
-  id: RecipeDumplings
-  name: dumplings recipe
-  result: FoodBakedDumplings
-  time: 15
-  group: Savory
-  reagents:
-    Water: 10
-    UncookedAnimalProteins: 2
-  solids:
-    FoodDoughSlice: 1
->>>>>>> theirs
 
 - type: microwaveMealRecipe
   id: RecipeBrownies
@@ -2691,23 +2594,13 @@
   time: 20
   group: Savory
   solids:
-<<<<<<< ours
-    FoodChiliPepper: 2
-    FoodMeatCutlet: 1
-    FoodCorn: 1
+    FoodChiliPepper: 1
+    FoodMeatCutlet: 2
+    FoodDoughTortillaFlat: 1
   #ADT-Tweak Start
   recipeType:
   - Oven
   #ADT-Tweak End
-||||||| base
-    FoodChiliPepper: 2
-    FoodMeatCutlet: 1
-    FoodCorn: 1
-=======
-    FoodChiliPepper: 1
-    FoodMeatCutlet: 2
-    FoodDoughTortillaFlat: 1
->>>>>>> theirs
 
 # SALADS: These should be moved out of the microwave as soon as possible
 - type: microwaveMealRecipe
@@ -2751,20 +2644,12 @@
     Vinaigrette: 5
   solids:
     FoodBowlBig: 1
-<<<<<<< ours
-    FoodOnionRed: 1
-    FoodCabbage: 1
+    FoodOnionRed: 2
+    FoodCabbage: 2
   #ADT-Tweak Start
   recipeType:
   - Assembler
   #ADT-Tweak End
-||||||| base
-    FoodOnionRed: 1
-    FoodCabbage: 1
-=======
-    FoodOnionRed: 2
-    FoodCabbage: 2
->>>>>>> theirs
 
 - type: microwaveMealRecipe
   id: RecipeCaesarSalad
@@ -2830,17 +2715,11 @@
     FoodOrange: 1
     FoodApple: 1
     FoodGrape: 1
-<<<<<<< ours
-    FoodWatermelonSlice: 2
+    FoodWatermelonSlice: 1
   #ADT-Tweak Start
   recipeType:
   - Assembler
   #ADT-Tweak End
-||||||| base
-    FoodWatermelonSlice: 2
-=======
-    FoodWatermelonSlice: 1
->>>>>>> theirs
 
 - type: microwaveMealRecipe
   id: RecipeJungleSalad
@@ -2853,17 +2732,11 @@
     FoodBanana: 1
     FoodApple: 1
     FoodGrape: 1
-<<<<<<< ours
-    FoodWatermelonSlice: 2
+    FoodWatermelonSlice: 1
   #ADT-Tweak Start
   recipeType:
   - Assembler
   #ADT-Tweak End
-||||||| base
-    FoodWatermelonSlice: 2
-=======
-    FoodWatermelonSlice: 1
->>>>>>> theirs
 
 - type: microwaveMealRecipe
   id: RecipeWatermelonFruitBowlSalad
@@ -3110,17 +2983,11 @@
   time: 15
   solids:
     FoodButter: 1
-<<<<<<< ours
-    LeavesCannabis: 6
+    LeavesCannabis: 1
   #ADT-Tweak Start
   recipeType:
   - Microwave
   #ADT-Tweak End
-||||||| base
-    LeavesCannabis: 6
-=======
-    LeavesCannabis: 1
->>>>>>> theirs
 
 - type: microwaveMealRecipe
   id: RecipeCannabisBrownies
@@ -3149,18 +3016,12 @@
   solids:
     FoodCorn: 1
     FoodPlate: 1
-<<<<<<< ours
-    FoodButter: 1
+    FoodButterSlice: 1
   #ADT-Tweak Start
   recipeType:
   - Oven
   - Microwave
   #ADT-Tweak End
-||||||| base
-    FoodButter: 1
-=======
-    FoodButterSlice: 1
->>>>>>> theirs
 
 - type: microwaveMealRecipe
   id: RecipePeaSoup
@@ -3172,18 +3033,12 @@
     FoodPeaPod: 3
     FoodBowlBig: 1
   reagents:
-<<<<<<< ours
-    Water: 10
+    Water: 20
   #ADT-Tweak Start
   recipeType:
   - Oven
   - Microwave
   #ADT-Tweak End
-||||||| base
-    Water: 10
-=======
-    Water: 20
->>>>>>> theirs
 
 - type: microwaveMealRecipe
   id: RecipeTacoShell
@@ -3192,7 +3047,6 @@
   time: 5
   group: Breads
   solids:
-<<<<<<< ours
     FoodDoughTortillaFlat: 1 # one third of a standard bread dough recipe
   #ADT-Tweak Start
   recipeType:
@@ -3212,13 +3066,7 @@
 #     FoodMeatChickenCutlet: 1
 #     FoodCheeseSlice: 1
 # End ADT Tweak
-||||||| base
-    FoodDoughTortillaFlat: 1 # one third of a standard bread dough recipe
 
-=======
-    FoodDoughTortillaFlat: 1 # one eighth a standard bread dough recipe
-
->>>>>>> theirs
 - type: microwaveMealRecipe
   id: RecipeTacoBeef
   name: beef taco recipe
