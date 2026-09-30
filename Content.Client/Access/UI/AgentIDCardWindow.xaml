@@ -1,34 +1,3 @@
-<<<<<<< ours
-<DefaultWindow xmlns="https://spacestation14.io"
-            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-            Title="{Loc agent-id-menu-title}">
-    <BoxContainer Orientation="Vertical" SeparationOverride="4" MinWidth="150">
-        <Label Name="CurrentName" Text="{Loc 'agent-id-card-current-name'}" />
-        <LineEdit Name="NameLineEdit" />
-        <Label Name="CurrentJob" Text="{Loc 'agent-id-card-current-job'}" />
-        <LineEdit Name="JobLineEdit" />
-        <!-- ADT-tweak-start -->
-        <Label Name="CurrentNumber" Text="{Loc 'agent-id-card-current-number'}" />
-        <LineEdit Name="NumberLineEdit" PlaceHolder="#0000" />
-        <!-- ADT-tweak-end -->
-        <Label Text="{Loc 'agent-id-card-job-icon-label'}"/>
-        <GridContainer Name="IconGrid" Columns="10">
-            <!-- Job icon buttons are generated in the code -->
-        </GridContainer>
-||||||| base
-<DefaultWindow xmlns="https://spacestation14.io"
-            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-            Title="{Loc agent-id-menu-title}">
-    <BoxContainer Orientation="Vertical" SeparationOverride="4" MinWidth="150">
-        <Label Name="CurrentName" Text="{Loc 'agent-id-card-current-name'}" />
-        <LineEdit Name="NameLineEdit" />
-        <Label Name="CurrentJob" Text="{Loc 'agent-id-card-current-job'}" />
-        <LineEdit Name="JobLineEdit" />
-        <Label Text="{Loc 'agent-id-card-job-icon-label'}"/>
-        <GridContainer Name="IconGrid" Columns="10">
-            <!-- Job icon buttons are generated in the code -->
-        </GridContainer>
-=======
 <controls:FancyWindow xmlns="https://spacestation14.io"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
@@ -60,6 +29,10 @@
                             <LineEdit Name="NameLineEdit" SelectAllOnFocus="True" />
                             <Label Margin="4 2" Text="{Loc 'agent-id-ui-input-job'}" />
                             <LineEdit Name="JobLineEdit" SelectAllOnFocus="True" />
+                            <!-- ADT-tweak-start -->
+                            <Label Margin="4 2" Text="{Loc 'agent-id-card-current-number'}" />
+                            <LineEdit Name="NumberLineEdit" PlaceHolder="#0000" />
+                            <!-- ADT-tweak-end -->
                         </BoxContainer>
                     </ScrollContainer>
 
@@ -98,6 +71,5 @@
             <TextureRect StyleClasses="NTLogoDark" Stretch="KeepAspectCentered"
                     VerticalAlignment="Center" HorizontalAlignment="Right" SetSize="19 19" />
         </BoxContainer>
->>>>>>> theirs
     </BoxContainer>
 </controls:FancyWindow>

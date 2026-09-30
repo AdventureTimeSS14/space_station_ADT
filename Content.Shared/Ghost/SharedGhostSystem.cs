@@ -1,5 +1,6 @@
 using Content.Shared.Emoting;
 using Content.Shared.Examine;
+using Content.Shared.Ghost.Components; // ADT-Tweak
 using Content.Shared.Hands;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
