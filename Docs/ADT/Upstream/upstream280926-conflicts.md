@@ -6,56 +6,56 @@
 
 В коммите лежит версия ADT. Если нужна версия оффов: `git checkout wizards-filtered -- <файл>`.
 
-- [ ] `Resources/Textures/Clothing/Back/Backpacks/atmospherics.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Backpacks/backpack.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Backpacks/brigmedic.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Backpacks/captain.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Backpacks/cargo.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Backpacks/chemistry.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Backpacks/engineering.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Backpacks/genetics.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Backpacks/hydroponics.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Backpacks/medical.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Backpacks/mime.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Backpacks/science.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Backpacks/security.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Backpacks/virology.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Duffels/atmospherics.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Duffels/brigmedic.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Duffels/captain.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Duffels/cargo.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Duffels/chemistry.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Duffels/clown.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Duffels/duffel.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Duffels/engineering.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Duffels/genetics.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Duffels/hydroponics.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Duffels/medical.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Duffels/mime.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Duffels/salvage.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Duffels/science.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Duffels/security.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Duffels/syndicate.rsi/ammo-equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Duffels/syndicate.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Duffels/syndicate.rsi/med-equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Duffels/virology.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Satchels/atmospherics.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Satchels/brigmedic.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Satchels/captain.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Satchels/cargo.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Satchels/chemistry.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Satchels/engineering.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Satchels/genetics.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Satchels/hydroponics.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Satchels/leather.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Satchels/medical.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Satchels/satchel.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Satchels/science.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Satchels/security.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Back/Satchels/virology.rsi/equipped-BACKPACK.png`
-- [ ] `Resources/Textures/Clothing/Head/Hardhats/armored.rsi/light-icon.png`
-- [ ] `Resources/Textures/Clothing/Head/Hardhats/blue.rsi/light-icon.png`
-- [ ] `Resources/Textures/Clothing/Head/Hardhats/dark_yellow.rsi/light-icon.png`
+- [x] `Resources/Textures/Clothing/Back/Backpacks/atmospherics.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Backpacks/backpack.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Backpacks/brigmedic.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Backpacks/captain.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Backpacks/cargo.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Backpacks/chemistry.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Backpacks/engineering.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Backpacks/genetics.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Backpacks/hydroponics.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Backpacks/medical.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Backpacks/mime.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Backpacks/science.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Backpacks/security.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Backpacks/virology.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Duffels/atmospherics.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Duffels/brigmedic.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Duffels/captain.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Duffels/cargo.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Duffels/chemistry.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Duffels/clown.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Duffels/duffel.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Duffels/engineering.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Duffels/genetics.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Duffels/hydroponics.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Duffels/medical.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Duffels/mime.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Duffels/salvage.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Duffels/science.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Duffels/security.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Duffels/syndicate.rsi/ammo-equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Duffels/syndicate.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Duffels/syndicate.rsi/med-equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Duffels/virology.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Satchels/atmospherics.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Satchels/brigmedic.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Satchels/captain.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Satchels/cargo.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Satchels/chemistry.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Satchels/engineering.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Satchels/genetics.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Satchels/hydroponics.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Satchels/leather.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Satchels/medical.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Satchels/satchel.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Satchels/science.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Satchels/security.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Back/Satchels/virology.rsi/equipped-BACKPACK.png`
+- [x] `Resources/Textures/Clothing/Head/Hardhats/armored.rsi/light-icon.png`
+- [x] `Resources/Textures/Clothing/Head/Hardhats/blue.rsi/light-icon.png`
+- [x] `Resources/Textures/Clothing/Head/Hardhats/dark_yellow.rsi/light-icon.png`
 - [ ] `Resources/Textures/Clothing/Head/Hardhats/orange.rsi/light-icon.png`
 - [ ] `Resources/Textures/Clothing/Head/Hardhats/red.rsi/light-icon.png`
 - [ ] `Resources/Textures/Clothing/Head/Hardhats/white.rsi/light-icon.png`
@@ -187,64 +187,64 @@
 ## Изменены у нас, удалены у оффов (в коммите оставлена наша версия)
 
 - [ ] `.github/workflows/build-docfx.off`
-- [ ] `Content.Client/Speech/EntitySystems/StutteringSystem.cs`
-- [ ] `Content.Client/UserInterface/Systems/DamageOverlays/DamageOverlayUiController.cs`
-- [ ] `Content.Server/AlertLevel/AlertLevelSystem.cs`
-- [ ] `Content.Server/Antag/AntagSelectionPlayerPool.cs`
-- [ ] `Content.Server/Bible/BibleSystem.cs`
-- [ ] `Content.Server/Bible/Components/BibleComponent.cs`
-- [ ] `Content.Server/Bible/Components/SummonableComponent.cs`
-- [ ] `Content.Server/Botany/Components/BotanySwabComponent.cs`
-- [ ] `Content.Server/Botany/Components/PlantHolderComponent.cs`
-- [ ] `Content.Server/Botany/Components/SeedComponent.cs`
-- [ ] `Content.Server/Botany/Components/SeedExtractorComponent.cs`
-- [ ] `Content.Server/Botany/SeedPrototype.cs`
-- [ ] `Content.Server/Botany/Systems/BotanySwabSystem.cs`
-- [ ] `Content.Server/Botany/Systems/PlantHolderSystem.cs`
-- [ ] `Content.Server/Botany/Systems/SeedExtractorSystem.cs`
-- [ ] `Content.Server/Disposal/Unit/DisposableSystem.cs`
-- [ ] `Content.Server/EntityEffects/Effects/Botany/PlantAttributes/PlantAdjustPotencyEntityEffectSystem.cs`
-- [ ] `Content.Server/EntityEffects/Effects/Botany/PlantAttributes/PlantDestroySeedsEntityEffectSystem.cs`
-- [ ] `Content.Server/EntityEffects/Effects/Botany/PlantAttributes/PlantDiethylamineEntityEffectSystem.cs`
-- [ ] `Content.Server/EntityEffects/Effects/Botany/PlantAttributes/PlantRestoreSeedsEntityEffectSystem.cs`
-- [ ] `Content.Server/EntityEffects/Effects/Botany/PlantAttributes/RobustHarvestEntityEffectSystem.cs`
-- [ ] `Content.Server/Gateway/Components/GatewayGeneratorComponent.cs`
-- [ ] `Content.Server/Gateway/Systems/GatewayGeneratorSystem.cs`
-- [ ] `Content.Server/Gatherable/GatherableSystem.cs`
-- [ ] `Content.Server/Kitchen/EntitySystems/SharpSystem.cs`
-- [ ] `Content.Server/Mobs/DeathgaspComponent.cs`
-- [ ] `Content.Server/Nutrition/Components/SliceableFoodComponent.cs`
-- [ ] `Content.Server/Speech/EntitySystems/BarkAccentSystem.cs`
-- [ ] `Content.Server/Speech/EntitySystems/FrontalLispSystem.cs`
-- [ ] `Content.Server/Speech/EntitySystems/MothAccentSystem.cs`
-- [ ] `Content.Server/Speech/EntitySystems/OwOAccentSystem.cs`
-- [ ] `Content.Server/Speech/EntitySystems/ScrambledAccentSystem.cs`
-- [ ] `Content.Server/Speech/EntitySystems/SlurredSystem.cs`
-- [ ] `Content.Server/Speech/EntitySystems/SpanishAccentSystem.cs`
-- [ ] `Content.Server/Speech/EntitySystems/StutteringSystem.cs`
-- [ ] `Content.Server/Speech/EntitySystems/VocalSystem.cs`
-- [ ] `Content.Server/Speech/EntitySystems/VoiceOverrideSystem.cs`
-- [ ] `Content.Server/Speech/SpeechNoiseSystem.cs`
-- [ ] `Content.Server/StationRecords/Systems/StationRecordsSystem.cs`
+- [x] `Content.Client/Speech/EntitySystems/StutteringSystem.cs`
+- [x] `Content.Client/UserInterface/Systems/DamageOverlays/DamageOverlayUiController.cs`
+- [x] `Content.Server/AlertLevel/AlertLevelSystem.cs`
+- [x] `Content.Server/Antag/AntagSelectionPlayerPool.cs`
+- [x] `Content.Server/Bible/BibleSystem.cs`
+- [x] `Content.Server/Bible/Components/BibleComponent.cs`
+- [x] `Content.Server/Bible/Components/SummonableComponent.cs`
+- [x] `Content.Server/Botany/Components/BotanySwabComponent.cs`
+- [x] `Content.Server/Botany/Components/PlantHolderComponent.cs`
+- [x] `Content.Server/Botany/Components/SeedComponent.cs`
+- [x] `Content.Server/Botany/Components/SeedExtractorComponent.cs`
+- [x] `Content.Server/Botany/SeedPrototype.cs`
+- [x] `Content.Server/Botany/Systems/BotanySwabSystem.cs`
+- [x] `Content.Server/Botany/Systems/PlantHolderSystem.cs`
+- [x] `Content.Server/Botany/Systems/SeedExtractorSystem.cs`
+- [x] `Content.Server/Disposal/Unit/DisposableSystem.cs`
+- [x] `Content.Server/EntityEffects/Effects/Botany/PlantAttributes/PlantAdjustPotencyEntityEffectSystem.cs`
+- [x] `Content.Server/EntityEffects/Effects/Botany/PlantAttributes/PlantDestroySeedsEntityEffectSystem.cs`
+- [x] `Content.Server/EntityEffects/Effects/Botany/PlantAttributes/PlantDiethylamineEntityEffectSystem.cs`
+- [x] `Content.Server/EntityEffects/Effects/Botany/PlantAttributes/PlantRestoreSeedsEntityEffectSystem.cs`
+- [x] `Content.Server/EntityEffects/Effects/Botany/PlantAttributes/RobustHarvestEntityEffectSystem.cs`
+- [x] `Content.Server/Gateway/Components/GatewayGeneratorComponent.cs`
+- [x] `Content.Server/Gateway/Systems/GatewayGeneratorSystem.cs`
+- [x] `Content.Server/Gatherable/GatherableSystem.cs`
+- [x] `Content.Server/Kitchen/EntitySystems/SharpSystem.cs`
+- [x] `Content.Server/Mobs/DeathgaspComponent.cs`
+- [x] `Content.Server/Nutrition/Components/SliceableFoodComponent.cs`
+- [x] `Content.Server/Speech/EntitySystems/BarkAccentSystem.cs`
+- [x] `Content.Server/Speech/EntitySystems/FrontalLispSystem.cs`
+- [x] `Content.Server/Speech/EntitySystems/MothAccentSystem.cs`
+- [x] `Content.Server/Speech/EntitySystems/OwOAccentSystem.cs`
+- [x] `Content.Server/Speech/EntitySystems/ScrambledAccentSystem.cs`
+- [x] `Content.Server/Speech/EntitySystems/SlurredSystem.cs`
+- [x] `Content.Server/Speech/EntitySystems/SpanishAccentSystem.cs`
+- [x] `Content.Server/Speech/EntitySystems/StutteringSystem.cs`
+- [x] `Content.Server/Speech/EntitySystems/VocalSystem.cs`
+- [x] `Content.Server/Speech/EntitySystems/VoiceOverrideSystem.cs`
+- [x] `Content.Server/Speech/SpeechNoiseSystem.cs`
+- [x] `Content.Server/StationRecords/Systems/StationRecordsSystem.cs`
 - [ ] `Content.Shared/ADT/VendingMachines/VendingMachineComponent.cs`
-- [ ] `Content.Shared/Access/SharedAgentIDCardSystem.cs`
-- [ ] `Content.Shared/Clumsy/ClumsySystem.cs`
-- [ ] `Content.Shared/Containers/ItemSlot/ItemSlotsComponent.cs`
-- [ ] `Content.Shared/Containers/ItemSlot/ItemSlotsSystem.cs`
-- [ ] `Content.Shared/Ghost/SharedGhostSystem.cs`
-- [ ] `Content.Shared/Nutrition/Components/HungerComponent.cs`
-- [ ] `Content.Shared/Nutrition/Components/ThirstComponent.cs`
-- [ ] `Content.Shared/Speech/EntitySystems/SharedSlurredSystem.cs`
-- [ ] `Content.Shared/Speech/EntitySystems/SharedStutteringSystem.cs`
-- [ ] `Resources/Locale/en-US/store/uplink-catalog.ftl`
-- [ ] `Resources/Maps/fland.yml`
-- [ ] `Resources/Prototypes/Catalog/uplink_catalog.yml`
-- [ ] `Resources/Prototypes/Entities/Clothing/Uniforms/jumpskirts.yml`
-- [ ] `Resources/Prototypes/Entities/Clothing/Uniforms/jumpsuits.yml`
-- [ ] `Resources/Prototypes/Entities/Objects/Weapons/Guns/Projectiles/projectiles.yml`
-- [ ] `Resources/Prototypes/Hydroponics/seeds.yml`
-- [ ] `Resources/Prototypes/Maps/fland.yml`
-- [ ] `Resources/Prototypes/Maps/oasis.yml`
+- [x] `Content.Shared/Access/SharedAgentIDCardSystem.cs`
+- [x] `Content.Shared/Clumsy/ClumsySystem.cs`
+- [x] `Content.Shared/Containers/ItemSlot/ItemSlotsComponent.cs`
+- [x] `Content.Shared/Containers/ItemSlot/ItemSlotsSystem.cs`
+- [x] `Content.Shared/Ghost/SharedGhostSystem.cs`
+- [x] `Content.Shared/Nutrition/Components/HungerComponent.cs`
+- [x] `Content.Shared/Nutrition/Components/ThirstComponent.cs`
+- [x] `Content.Shared/Speech/EntitySystems/SharedSlurredSystem.cs`
+- [x] `Content.Shared/Speech/EntitySystems/SharedStutteringSystem.cs`
+- [x] `Resources/Locale/en-US/store/uplink-catalog.ftl`
+- [x] `Resources/Maps/fland.yml`
+- [x] `Resources/Prototypes/Catalog/uplink_catalog.yml`
+- [x] `Resources/Prototypes/Entities/Clothing/Uniforms/jumpskirts.yml`
+- [x] `Resources/Prototypes/Entities/Clothing/Uniforms/jumpsuits.yml`
+- [x] `Resources/Prototypes/Entities/Objects/Weapons/Guns/Projectiles/projectiles.yml`
+- [x] `Resources/Prototypes/Hydroponics/seeds.yml`
+- [x] `Resources/Prototypes/Maps/fland.yml`
+- [x] `Resources/Prototypes/Maps/oasis.yml`
 - [ ] `Resources/Textures/Clothing/Head/Hardhats/armored.rsi/on-equipped-HELMET.png`
 - [ ] `Resources/Textures/Clothing/Head/Hardhats/armored.rsi/on-inhand-left.png`
 - [ ] `Resources/Textures/Clothing/Head/Hardhats/armored.rsi/on-inhand-right.png`
@@ -349,15 +349,15 @@
 
 ## Удалены у нас, изменены у оффов (в коммите оставлена версия оффов)
 
-- [ ] `.github/workflows/no-submodule-update.yml`
+- [x] `.github/workflows/no-submodule-update.yml`
 - [ ] `Content.Client/Research/UI/ResearchConsoleMenu.xaml`
 - [ ] `Content.Client/Research/UI/ResearchConsoleMenu.xaml.cs`
 - [ ] `Content.Client/VendingMachines/UI/VendingMachineMenu.xaml.cs`
 - [ ] `Content.Client/VendingMachines/VendingMachineBoundUserInterface.cs`
 - [ ] `Content.Server/VendingMachines/VendingMachineSystem.cs`
 - [ ] `Content.Shared/VendingMachines/VendingMachineInterfaceState.cs`
-- [ ] `Resources/Prototypes/Chemistry/metabolizer_types.yml`
-- [ ] `Resources/Prototypes/GameRules/unknown_shuttles.yml`
+- [x] `Resources/Prototypes/Chemistry/metabolizer_types.yml`
+- [x] `Resources/Prototypes/GameRules/unknown_shuttles.yml`
 - [ ] `Resources/Textures/Clothing/Head/Hardsuits/ERThelmets/ertengineer.rsi/equipped-head.png`
 - [ ] `Resources/Textures/Clothing/Head/Hardsuits/ERThelmets/ertjanitor.rsi/equipped-head.png`
 - [ ] `Resources/Textures/Clothing/Head/Hardsuits/ERThelmets/ertleader.rsi/equipped-head-vox.png`
@@ -372,9 +372,9 @@
 
 ## Добавлены у нас, у оффов переименованы или изменены
 
-- [ ] `Content.Shared/Eye/Blinding/Components/BlindnessStatusEffectComponent.cs.cs`
-- [ ] `Content.Shared/Speech/Components/NyaAccentComponent.cs`
-- [ ] `Content.Shared/Speech/Components/NyaAccentSystem.cs`
+- [x] `Content.Shared/Eye/Blinding/Components/BlindnessStatusEffectComponent.cs.cs`
+- [x] `Content.Shared/Speech/Components/NyaAccentComponent.cs`
+- [x] `Content.Shared/Speech/Components/NyaAccentSystem.cs`
 - [ ] `Resources/Textures/Clothing/Head/Hardsuits/ERThelmets/ertengineer.rsi/equipped-HELMET-vox.png`
 - [ ] `Resources/Textures/Clothing/Head/Hardsuits/ERThelmets/ertjanitor.rsi/equipped-HELMET-vox.png`
 - [ ] `Resources/Textures/Clothing/Head/Hardsuits/deathsquad.rsi/off-equipped-HELMET-vox.png`
@@ -462,14 +462,14 @@
 
 - [ ] `Content.Client/ADT/VendingMachines/Components/VendingMachineVisualsComponent.cs`
 - [ ] `Content.Client/ADT/VendingMachines/VendingMachineVisuals.cs`
-- [ ] `Content.Shared/Eye/Blinding/Components/BlindnessStatusEffectComponent.cs`
+- [x] `Content.Shared/Eye/Blinding/Components/BlindnessStatusEffectComponent.cs`
 - [ ] `Resources/Textures/Clothing/Head/Hardsuits/ERThelmets/ertengineer.rsi/equipped-head-vox.png`
 - [ ] `Resources/Textures/Clothing/Head/Hardsuits/ERThelmets/ertjanitor.rsi/equipped-head-vox.png`
 - [ ] `Resources/Textures/Clothing/Head/Hardsuits/deathsquad.rsi/equipped-head-vox.png`
 
 ## Удалены с обеих сторон
 
-- [ ] `Content.Shared/Eye/Blinding/Components/TemporaryBlindnessComponent.cs`
+- [x] `Content.Shared/Eye/Blinding/Components/TemporaryBlindnessComponent.cs`
 - [ ] `Resources/Textures/Clothing/Head/Hardsuits/ERThelmets/ertengineer.rsi/off-equipped-HELMET-vox.png`
 - [ ] `Resources/Textures/Clothing/Head/Hardsuits/ERThelmets/ertjanitor.rsi/off-equipped-HELMET-vox.png`
 - [ ] `Resources/Textures/Clothing/Head/Hardsuits/deathsquad.rsi/equipped-HELMET-vox.png`
