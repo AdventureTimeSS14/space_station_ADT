@@ -18,6 +18,7 @@ public sealed class NinjaADTConditionsSystem : EntitySystem
 
         SubscribeLocalEvent<BrainScanConditionComponent, ObjectiveGetProgressEvent>(OnBrainScanGetProgress);
         SubscribeLocalEvent<BorgHackConditionComponent, ObjectiveGetProgressEvent>(OnBorgHackGetProgress);
+        SubscribeLocalEvent<BorgHackConditionComponent, RequirementCheckEvent>(OnBorgHackRequirementCheck);
 
         SubscribeLocalEvent<EmagSiliconLawComponent, SiliconEmaggedEvent>(OnBorgEmagged);
     }
@@ -42,6 +43,21 @@ public sealed class NinjaADTConditionsSystem : EntitySystem
             return;
         }
         args.Progress = MathF.Min(comp.BorgsHacked / (float) target, 1f);
+    }
+
+    private void OnBorgHackRequirementCheck(EntityUid uid, BorgHackConditionComponent comp, ref RequirementCheckEvent args)
+    {
+        if (args.Cancelled)
+            return;
+
+        var query = EntityQueryEnumerator<EmagSiliconLawComponent>();
+        while (query.MoveNext(out var borg, out _))
+        {
+            if (!TerminatingOrDeleted(borg))
+                return;
+        }
+
+        args.Cancelled = true;
     }
 
     private void OnBorgEmagged(Entity<EmagSiliconLawComponent> ent, ref SiliconEmaggedEvent args)
