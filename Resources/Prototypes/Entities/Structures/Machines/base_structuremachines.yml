@@ -28,17 +28,9 @@
   id: BaseMachineDestructible
   components:
   - type: Damageable
-<<<<<<< ours
     damageModifierSet: StructuralMetallic
   - type: Injurable
     damageContainer: StructuralInorganic
-||||||| base
-    damageContainer: StructuralInorganic
-    damageModifierSet: StructuralMetallic
-=======
-  - type: Injurable
-    damageContainer: StructuralInorganic
->>>>>>> theirs
   - type: Destructible
     thresholds:
     - trigger: !type:DamageTrigger
