@@ -163,14 +163,7 @@
     emoteSounds: UnisexSilicon
     wilhelmProbability: 0
   - type: DamagedSiliconAccent
-<<<<<<< ours
 # ADT borgs start
-||||||| base
-  - type: UnblockableSpeech
-=======
-    damageAtMaxCorruption: 300
-  - type: UnblockableSpeech
->>>>>>> theirs
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepBorg
@@ -205,13 +198,8 @@
     # ADT-Tweak-End
   - type: LockedWiresPanel
   - type: Damageable
-<<<<<<< ours
     damageModifierSet: ADTBorgChassis # ADT-Tweak
   - type: Injurable
-||||||| base
-=======
-  - type: Injurable
->>>>>>> theirs
     damageContainer: Silicon
   - type: HandheldLight
     toggleOnInteract: false
@@ -283,11 +271,8 @@
   id: BaseBorgChassis
   components:
   - type: IonStormTarget
-<<<<<<< ours
   - type: RadioJobIconOverride # ADT-Tweak
     iconId: JobIconBorg
-||||||| base
-=======
   - type: Destructible
     generateOverkillThreshold: false
     thresholds:
@@ -314,7 +299,6 @@
         - cell_slot
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
->>>>>>> theirs
 
 - type: entity
   abstract: true
