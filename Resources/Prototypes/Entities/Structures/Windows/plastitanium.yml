@@ -216,7 +216,6 @@
     doAfterDelay: 3
   - type: Damageable
     damageModifierSet: RGlass
-<<<<<<< ours
   - type: Injurable
     damageContainer: StructuralInorganic
   #ADT-Tweak-Start
@@ -225,8 +224,3 @@
     - Diagonal
     - Window
   #ADT-Tweak-End
-||||||| base
-=======
-  - type: Injurable
-    damageContainer: StructuralInorganic
->>>>>>> theirs
