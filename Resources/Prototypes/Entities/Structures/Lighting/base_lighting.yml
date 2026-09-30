@@ -29,27 +29,13 @@
       state: glow
       shader: unshaded
   - type: PointLight
-<<<<<<< ours
     # ADT-Sound-Update-Start
     color: "#FAFFFF" # 5000K color temp
     energy: 0.9
-    radius: 8
+    radius: 10
     softness: 2.1
     # ADT-Sound-Update-End
-    offset: "0, -0.5"
-||||||| base
-    color: "#FFE4CE" # 5000K color temp
-    energy: 0.8
-    radius: 10
-    softness: 1
-    offset: "0, -0.5"
-=======
-    color: "#FFE4CE" # 5000K color temp
-    energy: 0.8
-    radius: 10
-    softness: 1
     offset: "0, 0.495"
->>>>>>> theirs
   - type: Damageable
     damageModifierSet: Metallic
   - type: Injurable
@@ -205,22 +191,10 @@
   suffix: Always Powered, LED
   components:
   - type: PointLight
-<<<<<<< ours
     radius: 12
     energy: 1.3
     softness: 1
     color: "#FAFFFF" # ADT-Sound-Update
-||||||| base
-    radius: 10
-    energy: 2.5
-    softness: 0.9
-    color: "#EEEEFF"
-=======
-    radius: 15
-    energy: 1
-    softness: 0.9
-    color: "#EEEEFF"
->>>>>>> theirs
 
 #Exterior lights
 - type: entity
@@ -262,29 +236,14 @@
     hasLampOnSpawn: SodiumLightTube
   - type: PointLight
     radius: 10
-<<<<<<< ours
-    energy: 2.5
-    softness: 0.9
+    energy: 4
+    softness: 0.5
     color: "#fac16a" # ADT-Sound-Update
   - type: DamageOnInteract
     damage:
       types:
         Heat: 2
     popupText: powered-light-component-burn-hand
-||||||| base
-    energy: 2.5
-    softness: 0.9
-    color: "#FFAF38"
-  - type: DamageOnInteract
-    damage:
-      types:
-        Heat: 2
-    popupText: powered-light-component-burn-hand
-=======
-    energy: 4
-    softness: 0.5
-    color: "#FFAF38"
->>>>>>> theirs
 
 - type: entity
   parent: AlwaysPoweredWallLight
@@ -315,28 +274,11 @@
       state: base
     # ADT-Sound-Update-Start
     - type: PointLight
-<<<<<<< ours
-      energy: 0.9
-      radius: 5
-||||||| base
-      energy: 1.0
+      energy: 1
       radius: 6
-=======
-      color: "#FFD1A3"
-      energy: 1.0
-      radius: 6
->>>>>>> theirs
       softness: 1.1
       enabled: true
-<<<<<<< ours
     # ADT-Sound-Update-End
-    - type: Physics
-      bodyType: Static
-||||||| base
-    - type: Physics
-      bodyType: Static
-=======
->>>>>>> theirs
     - type: Fixtures
       fixtures:
         fix1:
@@ -348,15 +290,6 @@
           - None
           layer:
           - TabletopMachineLayer
-<<<<<<< ours
-    - type: Damageable
-    - type: Injurable
-      damageContainer: Inorganic
-||||||| base
-    - type: Damageable
-      damageContainer: Inorganic
-=======
->>>>>>> theirs
     - type: Destructible
       thresholds:
       - trigger:
@@ -462,13 +395,7 @@
     radius: 6
     energy: 1
     softness: 3
-<<<<<<< ours
     color: "#fcc489" # ADT-Sound-Update
-||||||| base
-    color: "#FF8A0C"
-=======
-    color: "#FF9833"
->>>>>>> theirs
   - type: PoweredLight
     hasLampOnSpawn: WarmLightBulb
   - type: DamageOnInteract
@@ -507,16 +434,8 @@
     radius: 5
     energy: 0.6
     offset: "0, 0.4"
-<<<<<<< ours
     color: "#c8fb95" # ADT-Sound-Update
     mask: /Textures/Effects/LightMasks/double_cone.png
-||||||| base
-    color: "#7CFC00"
-    mask: /Textures/Effects/LightMasks/double_cone.png
-=======
-    color: "#7CFC00"
-    lightMask: ConeDouble
->>>>>>> theirs
   - type: ApcPowerReceiver
   - type: ExtensionCableReceiver
   - type: Battery
@@ -571,12 +490,7 @@
     radius: 8
     energy: 3
     softness: 0.5
-<<<<<<< ours
     color: "#92f2f5" # ADT-Sound-Update
-||||||| base
-    color: "#47f8ff"
-=======
->>>>>>> theirs
   - type: DamageOnInteract
     damage:
       types:
@@ -592,11 +506,6 @@
     radius: 8
     energy: 3
     softness: 0.5
-<<<<<<< ours
-    color: "#92f2f5" # ADT-Sound-Update
-||||||| base
-    color: "#47f8ff"
-=======
 
 - type: entity
   parent: PoweredlightColor
@@ -615,7 +524,6 @@
   components:
   - type: PointLight
     color: "#47f8ff"
->>>>>>> theirs
 
 - type: entity
   parent: PoweredlightColor
@@ -625,7 +533,6 @@
   - type: PoweredLight
     hasLampOnSpawn: LightTubeCrystalBlue
   - type: PointLight
-<<<<<<< ours
     radius: 8
     energy: 3
     softness: 0.5
@@ -635,19 +542,6 @@
       types:
         Heat: 2
     popupText: powered-light-component-burn-hand
-||||||| base
-    radius: 8
-    energy: 3
-    softness: 0.5
-    color: "#39a1ff"
-  - type: DamageOnInteract
-    damage:
-      types:
-        Heat: 2
-    popupText: powered-light-component-burn-hand
-=======
-    color: "#39a1ff"
->>>>>>> theirs
 
 - type: entity
   parent: AlwaysPoweredlightColor
@@ -655,19 +549,10 @@
   suffix: Always Powered, Blue
   components:
   - type: PointLight
-<<<<<<< ours
     radius: 8
     energy: 3
     softness: 0.5
     color: "#91c8f8" # ADT-Sound-Update
-||||||| base
-    radius: 8
-    energy: 3
-    softness: 0.5
-    color: "#39a1ff"
-=======
-    color: "#39a1ff"
->>>>>>> theirs
 
 - type: entity
   parent: PoweredlightColor
@@ -677,7 +562,6 @@
   - type: PoweredLight
     hasLampOnSpawn: LightTubeCrystalYellow
   - type: PointLight
-<<<<<<< ours
     radius: 8
     energy: 3
     softness: 0.5
@@ -687,19 +571,6 @@
       types:
         Heat: 2
     popupText: powered-light-component-burn-hand
-||||||| base
-    radius: 8
-    energy: 3
-    softness: 0.5
-    color: "#ffde46"
-  - type: DamageOnInteract
-    damage:
-      types:
-        Heat: 2
-    popupText: powered-light-component-burn-hand
-=======
-    color: "#ffde46"
->>>>>>> theirs
 
 - type: entity
   parent: AlwaysPoweredlightColor
@@ -707,19 +578,10 @@
   suffix: Always Powered, Yellow
   components:
   - type: PointLight
-<<<<<<< ours
     radius: 8
     energy: 3
     softness: 0.5
     color: "#f4f764" # ADT-Sound-Update
-||||||| base
-    radius: 8
-    energy: 3
-    softness: 0.5
-    color: "#ffde46"
-=======
-    color: "#ffde46"
->>>>>>> theirs
 
 - type: entity
   parent: PoweredlightColor
@@ -729,7 +591,6 @@
   - type: PoweredLight
     hasLampOnSpawn: LightTubeCrystalPink
   - type: PointLight
-<<<<<<< ours
     radius: 8
     energy: 3
     softness: 0.5
@@ -739,19 +600,6 @@
       types:
         Heat: 2
     popupText: powered-light-component-burn-hand
-||||||| base
-    radius: 8
-    energy: 3
-    softness: 0.5
-    color: "#ff66cc"
-  - type: DamageOnInteract
-    damage:
-      types:
-        Heat: 2
-    popupText: powered-light-component-burn-hand
-=======
-    color: "#ff66cc"
->>>>>>> theirs
 
 - type: entity
   parent: AlwaysPoweredlightColor
@@ -759,19 +607,10 @@
   suffix: Always Powered, Pink
   components:
   - type: PointLight
-<<<<<<< ours
     radius: 8
     energy: 3
     softness: 0.5
     color: "#f8b8e3" # ADT-Sound-Update
-||||||| base
-    radius: 8
-    energy: 3
-    softness: 0.5
-    color: "#ff66cc"
-=======
-    color: "#ff66cc"
->>>>>>> theirs
 
 - type: entity
   parent: PoweredlightColor
@@ -781,7 +620,6 @@
   - type: PoweredLight
     hasLampOnSpawn: LightTubeCrystalOrange
   - type: PointLight
-<<<<<<< ours
     radius: 8
     energy: 3
     softness: 0.5
@@ -791,19 +629,6 @@
       types:
         Heat: 2
     popupText: powered-light-component-burn-hand
-||||||| base
-    radius: 8
-    energy: 3
-    softness: 0.5
-    color: "#ff8227"
-  - type: DamageOnInteract
-    damage:
-      types:
-        Heat: 2
-    popupText: powered-light-component-burn-hand
-=======
-    color: "#ff8227"
->>>>>>> theirs
 
 - type: entity
   parent: AlwaysPoweredlightColor
@@ -811,19 +636,10 @@
   suffix: Always Powered, Orange
   components:
   - type: PointLight
-<<<<<<< ours
     radius: 8
     energy: 3
     softness: 0.5
     color: "#ff894e" # ADT-Sound-Update
-||||||| base
-    radius: 8
-    energy: 3
-    softness: 0.5
-    color: "#ff8227"
-=======
-    color: "#ff8227"
->>>>>>> theirs
 
 - type: entity
   parent: PoweredlightColor
@@ -853,7 +669,6 @@
   - type: PoweredLight
     hasLampOnSpawn: LightTubeCrystalRed
   - type: PointLight
-<<<<<<< ours
     radius: 8
     energy: 3
     softness: 0.5
@@ -863,19 +678,6 @@
       types:
         Heat: 2
     popupText: powered-light-component-burn-hand
-||||||| base
-    radius: 8
-    energy: 3
-    softness: 0.5
-    color: "#fb4747"
-  - type: DamageOnInteract
-    damage:
-      types:
-        Heat: 2
-    popupText: powered-light-component-burn-hand
-=======
-    color: "#fb4747"
->>>>>>> theirs
 
 - type: entity
   parent: AlwaysPoweredlightColor
@@ -883,19 +685,10 @@
   suffix: Always Powered, Red
   components:
   - type: PointLight
-<<<<<<< ours
     radius: 8
     energy: 3
     softness: 0.5
     color: "#fb4747" # ADT-Sound-Update
-||||||| base
-    radius: 8
-    energy: 3
-    softness: 0.5
-    color: "#fb4747"
-=======
-    color: "#fb4747"
->>>>>>> theirs
 
 - type: entity
   parent: PoweredlightColor
@@ -905,7 +698,6 @@
   - type: PoweredLight
     hasLampOnSpawn: LightTubeCrystalGreen
   - type: PointLight
-<<<<<<< ours
     radius: 8
     energy: 3
     softness: 0.5
@@ -915,19 +707,6 @@
       types:
         Heat: 2
     popupText: powered-light-component-burn-hand
-||||||| base
-    radius: 8
-    energy: 3
-    softness: 0.5
-    color: "#52ff39"
-  - type: DamageOnInteract
-    damage:
-      types:
-        Heat: 2
-    popupText: powered-light-component-burn-hand
-=======
-    color: "#52ff39"
->>>>>>> theirs
 
 - type: entity
   parent: AlwaysPoweredlightColor
@@ -935,16 +714,7 @@
   suffix: Always Powered, Green
   components:
   - type: PointLight
-<<<<<<< ours
     radius: 8
     energy: 3
     softness: 0.5
     color: "#6ffb4f" # ADT-Sound-Update
-||||||| base
-    radius: 8
-    energy: 3
-    softness: 0.5
-    color: "#52ff39"
-=======
-    color: "#52ff39"
->>>>>>> theirs
