@@ -1,6 +1,6 @@
 using System.Linq;
 using System.Text;
-using Content.Server.Botany;
+using Content.Shared.Botany.Items.Components; // ADT-Tweak
 using Content.Server.Power.EntitySystems;
 using Content.Shared.ADT.Medical;
 using Content.Shared.Chemistry.Reagent;
