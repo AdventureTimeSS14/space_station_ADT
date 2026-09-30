@@ -322,6 +322,25 @@
     entity: ADTBannerDrask
 
 - type: constructionGraph
+  id: ADTBannerElysium
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: banner
+      completed:
+        - !type:SnapToGrid
+          southRotation: true
+      steps:
+      - material: MetalRod
+        amount: 3
+      - material: Cloth
+        amount: 5
+        doAfter: 3
+  - node: banner
+    entity: ADTBannerElysium
+
+- type: constructionGraph
   id: ADTBannerClown
   start: start
   graph:

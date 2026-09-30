@@ -28,6 +28,13 @@
   - /Audio/ADT/Personalization/minokaa_emilia_plushie/emilia_toy-4.ogg
 
 - type: soundCollection
+  id: ADTToySqueakNirkin
+  files:
+  - /Audio/ADT/Personalization/nirkin_plushie/cat_meow1.ogg
+  - /Audio/ADT/Personalization/nirkin_plushie/cat_meow2.ogg
+  - /Audio/ADT/Personalization/nirkin_plushie/cat_meow3.ogg
+  
+- type: soundCollection
   id: ADTToySqueakYuriyTrixter
   files:
   - /Audio/ADT/Personalization/etvy_yuriy_plushie/yuriy_toy-1.ogg

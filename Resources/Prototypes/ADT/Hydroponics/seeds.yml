@@ -303,7 +303,10 @@
   lightTolerance: 6
   waterConsumption: 0.60
   nutrientConsumption: 0.50
-  idealHeat: 288
+  idealHeat: 320
+  heatTolerance: 60
+  lowPressureTolerance: 20
+  highPressureTolerance: 140
   chemicals:
     ADTMorphine:
       Min: 1
