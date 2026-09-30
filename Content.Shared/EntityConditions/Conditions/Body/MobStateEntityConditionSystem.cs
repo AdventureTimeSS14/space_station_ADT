@@ -12,6 +12,14 @@ public sealed partial class MobStateEntityConditionSystem : EntityConditionSyste
 {
     protected override void Condition(Entity<MobStateComponent> entity, ref EntityConditionEvent<MobStateCondition> args)
     {
+        // ADT-Tweak-Start
+        if (args.Condition.Mobstates is { Length: > 0 } states)
+        {
+            args.Result = Array.IndexOf(states, entity.Comp.CurrentState) >= 0;
+            return;
+        }
+        // ADT-Tweak-End
+
         if (entity.Comp.CurrentState == args.Condition.Mobstate)
             args.Result = true;
     }
@@ -23,6 +31,13 @@ public sealed partial class MobStateCondition : EntityConditionBase<MobStateCond
     [DataField]
     public MobState Mobstate = MobState.Alive;
 
+    /// <summary>
+    /// ADT-Tweak: если задан, условие проходит при любом из перечисленных состояний.
+    /// </summary>
+    [DataField]
+    public MobState[]? Mobstates;
+
     public override string EntityConditionGuidebookText(IPrototypeManager prototype) =>
-        Loc.GetString("entity-condition-guidebook-mob-state-condition", ("state", Mobstate));
+        Loc.GetString("entity-condition-guidebook-mob-state-condition",
+            ("state", Mobstates is { Length: > 0 } states ? string.Join(", ", states) : Mobstate.ToString())); // ADT-Tweak
 }
