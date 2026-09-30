@@ -23,3 +23,4 @@ os-error-publish-cooldown = Подождите { $detail } с. перед сле
 os-error-site-forbidden-markup = Сайт отклонён: тег { $detail } запрещён.
 os-error-site-scripts-forbidden = Сайт отклонён: JavaScript на сайтах доступен только спонсорам.
 os-error-site-rejected = Сайт отклонён автомодерацией.
+os-error-nano-net-unavailable = Сеть NanoNet ещё загружается, попробуйте чуть позже.

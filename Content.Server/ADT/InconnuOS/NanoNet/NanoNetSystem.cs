@@ -8,6 +8,7 @@ using Content.Shared.ADT.InconnuOS.NanoNet;
 using Content.Shared.ADT.Sponsors;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
+using Robust.Shared.Asynchronous;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -29,6 +30,7 @@ public sealed class NanoNetSystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IServerDbManager _db = default!;
     [Dependency] private readonly ISharedSponsorManager _sponsors = default!;
+    [Dependency] private readonly ITaskManager _task = default!;
 
     private static readonly ProtoId<NanoNetSitePrototype> HomeSite = "NanoNetHome";
 
@@ -37,6 +39,8 @@ public sealed class NanoNetSystem : EntitySystem
     private const string RealScheme = "http";
 
     private const string Tld = ".nt";
+
+    private static readonly TimeSpan StorageRetryDelay = TimeSpan.FromSeconds(30);
 
     private const string DefaultStyle = """
         body { background:#0d1117; color:#c9d1d9; font-family:sans-serif; margin:0; padding:24px; }
@@ -47,19 +51,21 @@ public sealed class NanoNetSystem : EntitySystem
     private readonly Dictionary<string, NanoNetSite> _sites = new(StringComparer.OrdinalIgnoreCase);
     private readonly Dictionary<string, NanoNetSitePrototype> _builtIn = new(StringComparer.OrdinalIgnoreCase);
     private readonly Dictionary<NetUserId, TimeSpan> _nextPublish = new();
-    private readonly HashSet<string> _pendingDeletes = new(StringComparer.OrdinalIgnoreCase);
+    private readonly Dictionary<string, NanoNetStoredSite?> _writes = new(StringComparer.OrdinalIgnoreCase);
 
     private NanoNetAutomod _automod = default!;
 
-    private Task _storage = Task.CompletedTask;
+    private Task _loadTask = Task.CompletedTask;
+    private Task _writeTask = Task.CompletedTask;
+    private bool _loaded;
+    private TimeSpan _nextStorageRetry;
 
     private sealed record NanoNetSite(
         NetUserId OwnerId,
         string OwnerName,
         string Html,
         DateTime PublishedAt,
-        bool Persistent,
-        bool Dirty);
+        bool Persistent);
 
     public readonly record struct NanoNetSiteInfo(string Label, string OwnerName, NetUserId Owner, bool Persistent);
 
@@ -73,54 +79,31 @@ public sealed class NanoNetSystem : EntitySystem
         RebuildBuiltIn();
         RebuildAutomod();
 
-        _storage = LoadStored();
+        _loadTask = LoadStored();
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        if (_timing.RealTime < _nextStorageRetry)
+            return;
+
+        if (!_loaded && _loadTask.IsCompleted)
+            _loadTask = LoadStored();
+
+        if (_writes.Count > 0 && _writeTask.IsCompleted)
+            _writeTask = Flush();
     }
 
     private void OnRoundRestart(RoundRestartCleanupEvent args)
     {
-        var upsert = new List<NanoNetStoredSite>();
-
-        foreach (var (label, site) in _sites)
+        foreach (var label in _sites.Where(e => !e.Value.Persistent).Select(e => e.Key).ToList())
         {
-            if (site.Persistent && site.Dirty)
-                upsert.Add(new NanoNetStoredSite(label, site.OwnerId.UserId, site.OwnerName, site.Html, site.PublishedAt));
+            _sites.Remove(label);
         }
 
-        var delete = new HashSet<string>(_pendingDeletes, StringComparer.OrdinalIgnoreCase);
-        delete.ExceptWith(upsert.Select(s => s.Label));
-
-        _sites.Clear();
-        _pendingDeletes.Clear();
         _nextPublish.Clear();
-
-        _storage = SyncAndReload(_storage, upsert, delete);
-    }
-
-    private async Task SyncAndReload(Task previous, List<NanoNetStoredSite> upsert, HashSet<string> delete)
-    {
-        await previous;
-
-        if (upsert.Count > 0 || delete.Count > 0)
-        {
-            try
-            {
-                await _db.SyncNanoNetSitesAsync(upsert, delete);
-            }
-            catch (Exception e)
-            {
-                Log.Error($"Failed to save NanoNet sites, will retry next round: {e}");
-
-                foreach (var site in upsert)
-                {
-                    _sites.TryAdd(site.Label,
-                        new NanoNetSite(new NetUserId(site.UserId), site.OwnerName, site.Html, site.PublishedAt, true, true));
-                }
-
-                _pendingDeletes.UnionWith(delete);
-            }
-        }
-
-        await LoadStored();
     }
 
     private async Task LoadStored()
@@ -133,15 +116,68 @@ public sealed class NanoNetSystem : EntitySystem
         }
         catch (Exception e)
         {
-            Log.Error($"Failed to load NanoNet sites: {e}");
+            Log.Error($"Failed to load NanoNet sites, publishing is disabled until it succeeds: {e}");
+            _nextStorageRetry = _timing.RealTime + StorageRetryDelay;
             return;
         }
 
         foreach (var site in stored)
         {
+            if (_writes.ContainsKey(site.Label))
+                continue;
+
             _sites.TryAdd(site.Label,
-                new NanoNetSite(new NetUserId(site.UserId), site.OwnerName, site.Html, site.PublishedAt, true, false));
+                new NanoNetSite(new NetUserId(site.UserId), site.OwnerName, site.Html, site.PublishedAt, true));
         }
+
+        _loaded = true;
+    }
+
+    private void QueueWrite(string label, NanoNetStoredSite? site)
+    {
+        _writes[label] = site;
+
+        if (_writeTask.IsCompleted)
+            _writeTask = Flush();
+    }
+
+    private async Task Flush()
+    {
+        var batch = new Dictionary<string, NanoNetStoredSite?>(_writes, StringComparer.OrdinalIgnoreCase);
+
+        var upsert = batch.Values.OfType<NanoNetStoredSite>().ToList();
+        var delete = batch.Where(e => e.Value == null).Select(e => e.Key).ToList();
+
+        try
+        {
+            await _db.SyncNanoNetSitesAsync(upsert, delete);
+        }
+        catch (Exception e)
+        {
+            Log.Error($"Failed to save {batch.Count} NanoNet site changes, retrying later: {e}");
+            _nextStorageRetry = _timing.RealTime + StorageRetryDelay;
+            return;
+        }
+
+        foreach (var (label, written) in batch)
+        {
+            if (_writes.TryGetValue(label, out var current) && ReferenceEquals(current, written))
+                _writes.Remove(label);
+        }
+    }
+
+    public void FlushForShutdown()
+    {
+        for (var attempt = 0; attempt < 3 && (_writes.Count > 0 || !_writeTask.IsCompleted); attempt++)
+        {
+            if (_writeTask.IsCompleted)
+                _writeTask = Flush();
+
+            _task.BlockWaitOnTask(_writeTask);
+        }
+
+        if (_writes.Count > 0)
+            Log.Error($"{_writes.Count} NanoNet site changes were lost on shutdown");
     }
 
     private void OnPrototypesReloaded(PrototypesReloadedEventArgs args)
@@ -215,6 +251,12 @@ public sealed class NanoNetSystem : EntitySystem
         if (!TryNormalizeLabel(domain, out label, out error))
             return false;
 
+        if (!_loaded)
+        {
+            error = OsValidationError.NanoNetUnavailable;
+            return false;
+        }
+
         var maxSiteLength = _cfg.GetCVar(NanoNetCVars.MaxSiteLength);
 
         if (html.Length > maxSiteLength)
@@ -281,14 +323,15 @@ public sealed class NanoNetSystem : EntitySystem
         }
 
         var persistent = _sponsors.TryGetData(session, out var sponsor) && sponsor.NanoNetPersistSites;
-
-        if (persistent)
-            _pendingDeletes.Remove(label);
-        else if (existing is { Persistent: true })
-            _pendingDeletes.Add(label);
+        var site = new NanoNetSite(owner, ownerName, html, DateTime.UtcNow, persistent);
 
         publishedAt = now;
-        _sites[label] = new NanoNetSite(owner, ownerName, html, DateTime.UtcNow, persistent, true);
+        _sites[label] = site;
+
+        if (persistent)
+            QueueWrite(label, new NanoNetStoredSite(label, owner.UserId, ownerName, html, site.PublishedAt));
+        else if (existing is { Persistent: true })
+            QueueWrite(label, null);
 
         _adminLog.Add(LogType.NanoNet, LogImpact.Low,
             $"{ToPrettyString(actor):player} published NanoNet site {label} ({html.Length} chars, persistent: {persistent})");
@@ -303,6 +346,12 @@ public sealed class NanoNetSystem : EntitySystem
             return false;
 
         detail = label;
+
+        if (!_loaded)
+        {
+            error = OsValidationError.NanoNetUnavailable;
+            return false;
+        }
 
         if (!_sites.TryGetValue(label, out var existing))
         {
@@ -319,7 +368,7 @@ public sealed class NanoNetSystem : EntitySystem
         _sites.Remove(label);
 
         if (existing.Persistent)
-            _pendingDeletes.Add(label);
+            QueueWrite(label, null);
 
         _adminLog.Add(LogType.NanoNet, LogImpact.Low, $"{ToPrettyString(actor):player} unpublished NanoNet site {label}");
         return true;
@@ -339,14 +388,17 @@ public sealed class NanoNetSystem : EntitySystem
         if (label.EndsWith(Tld, StringComparison.Ordinal))
             label = label[..^Tld.Length];
 
-        if (!_sites.Remove(label, out var site))
+        var found = _sites.Remove(label, out var site);
+
+        if (!found && _loaded)
             return false;
 
-        if (site.Persistent)
-            _pendingDeletes.Add(label);
+        if (site == null || site.Persistent)
+            QueueWrite(label, null);
 
+        var owner = site == null ? "unknown (not loaded yet)" : $"{site.OwnerName} ({site.OwnerId})";
         _adminLog.Add(LogType.NanoNet, LogImpact.Medium,
-            $"{admin} force-unpublished NanoNet site {label} owned by {site.OwnerName} ({site.OwnerId})");
+            $"{admin} force-unpublished NanoNet site {label} owned by {owner}");
         return true;
     }
 

@@ -40,6 +40,7 @@ public enum OsValidationError : byte
     SiteForbiddenMarkup,
     SiteScriptsForbidden,
     SiteRejected,
+    NanoNetUnavailable,
 }
 
 public static class OsErrors

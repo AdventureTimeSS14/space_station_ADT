@@ -226,6 +226,9 @@ namespace Content.Server.Entry
 
         protected override void Dispose(bool disposing)
         {
+            if (IoCManager.Resolve<IEntitySystemManager>().TryGetEntitySystem<Content.Server.ADT.InconnuOS.NanoNet.NanoNetSystem>(out var nanoNet)) // ADT-Tweak
+                nanoNet.FlushForShutdown(); // ADT-Tweak
+
             var dest = _cfg.GetCVar(CCVars.DestinationFile);
             if (!string.IsNullOrEmpty(dest))
             {
