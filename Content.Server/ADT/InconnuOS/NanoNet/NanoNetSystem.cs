@@ -1,8 +1,11 @@
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
+using Content.Server.Database;
 using Content.Shared.ADT.InconnuOS;
 using Content.Shared.ADT.InconnuOS.NanoNet;
+using Content.Shared.ADT.Sponsors;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
 using Robust.Shared.Configuration;
@@ -24,6 +27,8 @@ public sealed class NanoNetSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly IServerDbManager _db = default!;
+    [Dependency] private readonly ISharedSponsorManager _sponsors = default!;
 
     private static readonly ProtoId<NanoNetSitePrototype> HomeSite = "NanoNetHome";
 
@@ -42,10 +47,21 @@ public sealed class NanoNetSystem : EntitySystem
     private readonly Dictionary<string, NanoNetSite> _sites = new(StringComparer.OrdinalIgnoreCase);
     private readonly Dictionary<string, NanoNetSitePrototype> _builtIn = new(StringComparer.OrdinalIgnoreCase);
     private readonly Dictionary<NetUserId, TimeSpan> _nextPublish = new();
+    private readonly HashSet<string> _pendingDeletes = new(StringComparer.OrdinalIgnoreCase);
 
     private NanoNetAutomod _automod = default!;
 
-    private sealed record NanoNetSite(NetUserId OwnerId, string OwnerName, string Html, TimeSpan PublishedAt);
+    private Task _storage = Task.CompletedTask;
+
+    private sealed record NanoNetSite(
+        NetUserId OwnerId,
+        string OwnerName,
+        string Html,
+        DateTime PublishedAt,
+        bool Persistent,
+        bool Dirty);
+
+    public readonly record struct NanoNetSiteInfo(string Label, string OwnerName, NetUserId Owner, bool Persistent);
 
     public override void Initialize()
     {
@@ -56,12 +72,76 @@ public sealed class NanoNetSystem : EntitySystem
 
         RebuildBuiltIn();
         RebuildAutomod();
+
+        _storage = LoadStored();
     }
 
     private void OnRoundRestart(RoundRestartCleanupEvent args)
     {
+        var upsert = new List<NanoNetStoredSite>();
+
+        foreach (var (label, site) in _sites)
+        {
+            if (site.Persistent && site.Dirty)
+                upsert.Add(new NanoNetStoredSite(label, site.OwnerId.UserId, site.OwnerName, site.Html, site.PublishedAt));
+        }
+
+        var delete = new HashSet<string>(_pendingDeletes, StringComparer.OrdinalIgnoreCase);
+        delete.ExceptWith(upsert.Select(s => s.Label));
+
         _sites.Clear();
+        _pendingDeletes.Clear();
         _nextPublish.Clear();
+
+        _storage = SyncAndReload(_storage, upsert, delete);
+    }
+
+    private async Task SyncAndReload(Task previous, List<NanoNetStoredSite> upsert, HashSet<string> delete)
+    {
+        await previous;
+
+        if (upsert.Count > 0 || delete.Count > 0)
+        {
+            try
+            {
+                await _db.SyncNanoNetSitesAsync(upsert, delete);
+            }
+            catch (Exception e)
+            {
+                Log.Error($"Failed to save NanoNet sites, will retry next round: {e}");
+
+                foreach (var site in upsert)
+                {
+                    _sites.TryAdd(site.Label,
+                        new NanoNetSite(new NetUserId(site.UserId), site.OwnerName, site.Html, site.PublishedAt, true, true));
+                }
+
+                _pendingDeletes.UnionWith(delete);
+            }
+        }
+
+        await LoadStored();
+    }
+
+    private async Task LoadStored()
+    {
+        List<NanoNetStoredSite> stored;
+
+        try
+        {
+            stored = await _db.GetNanoNetSitesAsync();
+        }
+        catch (Exception e)
+        {
+            Log.Error($"Failed to load NanoNet sites: {e}");
+            return;
+        }
+
+        foreach (var site in stored)
+        {
+            _sites.TryAdd(site.Label,
+                new NanoNetSite(new NetUserId(site.UserId), site.OwnerName, site.Html, site.PublishedAt, true, false));
+        }
     }
 
     private void OnPrototypesReloaded(PrototypesReloadedEventArgs args)
@@ -113,7 +193,7 @@ public sealed class NanoNetSystem : EntitySystem
         var displayUrl = $"{DisplayScheme}://{host}{path}";
 
         if (host.EndsWith(Tld, StringComparison.Ordinal) && _sites.TryGetValue(host[..^Tld.Length], out var site))
-            return new NanoNetResponse(url, displayUrl, true, site.Html);
+            return new NanoNetResponse(url, displayUrl, true, NanoNetWidgets.Apply(site.Html));
 
         return new NanoNetResponse(url, displayUrl, false, RenderSiteNotFound(host));
     }
@@ -200,11 +280,18 @@ public sealed class NanoNetSystem : EntitySystem
             }
         }
 
+        var persistent = _sponsors.TryGetData(session, out var sponsor) && sponsor.NanoNetPersistSites;
+
+        if (persistent)
+            _pendingDeletes.Remove(label);
+        else if (existing is { Persistent: true })
+            _pendingDeletes.Add(label);
+
         publishedAt = now;
-        _sites[label] = new NanoNetSite(owner, ownerName, NanoNetWidgets.Apply(html), publishedAt);
+        _sites[label] = new NanoNetSite(owner, ownerName, html, DateTime.UtcNow, persistent, true);
 
         _adminLog.Add(LogType.NanoNet, LogImpact.Low,
-            $"{ToPrettyString(actor):player} published NanoNet site {label} ({html.Length} chars)");
+            $"{ToPrettyString(actor):player} published NanoNet site {label} ({html.Length} chars, persistent: {persistent})");
         return true;
     }
 
@@ -231,7 +318,35 @@ public sealed class NanoNetSystem : EntitySystem
 
         _sites.Remove(label);
 
+        if (existing.Persistent)
+            _pendingDeletes.Add(label);
+
         _adminLog.Add(LogType.NanoNet, LogImpact.Low, $"{ToPrettyString(actor):player} unpublished NanoNet site {label}");
+        return true;
+    }
+
+    public IEnumerable<NanoNetSiteInfo> GetSites()
+    {
+        return _sites
+            .OrderByDescending(e => e.Value.PublishedAt)
+            .Select(e => new NanoNetSiteInfo(e.Key, e.Value.OwnerName, e.Value.OwnerId, e.Value.Persistent));
+    }
+
+    public bool TryForceUnpublish(string domain, string admin)
+    {
+        var label = domain.Trim().ToLowerInvariant();
+
+        if (label.EndsWith(Tld, StringComparison.Ordinal))
+            label = label[..^Tld.Length];
+
+        if (!_sites.Remove(label, out var site))
+            return false;
+
+        if (site.Persistent)
+            _pendingDeletes.Add(label);
+
+        _adminLog.Add(LogType.NanoNet, LogImpact.Medium,
+            $"{admin} force-unpublished NanoNet site {label} owned by {site.OwnerName} ({site.OwnerId})");
         return true;
     }
 

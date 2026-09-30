@@ -462,6 +462,49 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.ToTable("admin_watchlists", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.AdtNanoNetSite", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("adt_nano_net_site_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Html")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("html");
+
+                    b.Property<string>("Label")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("label");
+
+                    b.Property<string>("OwnerName")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("owner_name");
+
+                    b.Property<DateTime>("PublishedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("published_at");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("user_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_adt_nano_net_site");
+
+                    b.HasIndex("Label")
+                        .IsUnique();
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("adt_nano_net_site", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.AdtSponsorGrant", b =>
                 {
                     b.Property<int>("Id")
