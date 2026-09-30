@@ -217,6 +217,13 @@ public sealed class SiteBuilderApp : OsAppControl
 
     private void OnServerMessage(BoundUserInterfaceMessage message)
     {
+        if (message is ADTOsErrorMessage && _pendingRequestId != null)
+        {
+            _pendingRequestId = null;
+            RefreshPublishState();
+            return;
+        }
+
         if (message is not ADTOsNanoNetStatusMessage status)
             return;
 
