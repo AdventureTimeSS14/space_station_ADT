@@ -30,28 +30,6 @@
         Slash: 3.5
   - type: Damageable
     damageModifierSet: Glass
-<<<<<<< ours
-  - type: Injurable
-    damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-||||||| base
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-=======
->>>>>>> theirs
   - type: StaticPrice
     price: 50
 
