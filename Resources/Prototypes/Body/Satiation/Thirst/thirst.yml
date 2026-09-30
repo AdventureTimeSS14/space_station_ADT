@@ -57,7 +57,7 @@
 - type: satiation
   id: DionaThirst
   parent: NormalSatiationThirst
-  baseChangeRate: -0.2
+  baseChangeRate: 0.010375 # ADT-Tweak: было -0,2, стало > 0.010375
 
 - type: entity
   abstract: true
