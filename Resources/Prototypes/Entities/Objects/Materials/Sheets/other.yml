@@ -8,50 +8,6 @@
     sprite: Objects/Materials/Sheets/other.rsi
   - type: Item
     sprite: Objects/Materials/Sheets/other.rsi
-<<<<<<< ours
-    size: Normal
-  - type: Tag
-    tags:
-    - Sheet
-    - ConstructionMaterial
-    - NoPaint #ADT tweak
-  - type: Damageable
-  - type: Injurable
-    damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-  - type: SolutionContainerManager
-    solutions:
-      paper:
-        canReact: false
-||||||| base
-    size: Normal
-  - type: Tag
-    tags:
-    - Sheet
-    - ConstructionMaterial
-  - type: Damageable
-    damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-  - type: SolutionContainerManager
-    solutions:
-      paper:
-        canReact: false
-=======
->>>>>>> theirs
 
 - type: entity
   parent: SheetOtherBase
@@ -123,41 +79,20 @@
       map: ["base"]
   - type: Item
     heldPrefix: plasma
-<<<<<<< ours
   - type: Appearance
   - type: Extractable
     grindableSolutionName: plasma
-  - type: SolutionContainerManager
-    solutions:
-      plasma:
-        reagents:
-        - ReagentId: Plasma
-          Quantity: 10
-        canReact: false
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Plasma
+        Quantity: 10
   - type: Tag
     tags:
     - Sheet
     - SheetPlasma # ADT-Heretic: ритуал Обжигающей акулы
     - ConstructionMaterial #ADT tweak
     - NoPaint #ADT tweak
-||||||| base
-  - type: Appearance
-  - type: Extractable
-    grindableSolutionName: plasma
-  - type: SolutionContainerManager
-    solutions:
-      plasma:
-        reagents:
-        - ReagentId: Plasma
-          Quantity: 10
-        canReact: false
-=======
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: Plasma
-        Quantity: 10
->>>>>>> theirs
 
 - type: entity
   parent: SheetPlasma
@@ -190,16 +125,9 @@
     tags:
     - Plastic
     - Sheet
-<<<<<<< ours
     - ConstructionMaterial #ADT tweak
     - NoPaint #ADT tweak
   - type: Material
-||||||| base
-    - ConstructionMaterial
-  - type: Material
-=======
-    - ConstructionMaterial
->>>>>>> theirs
   - type: PhysicalComposition
     materialComposition:
       Plastic: 100
@@ -253,7 +181,6 @@
   name: uranium
   suffix: Full
   components:
-<<<<<<< ours
 ### Start ADT Tweak
   - type: Tag
     tags:
@@ -262,10 +189,6 @@
       - ConstructionMaterial
 ### End ADT Tweak
   - type: Material
-||||||| base
-  - type: Material
-=======
->>>>>>> theirs
   - type: Edible
     transferAmount: 10
     solution: composite
