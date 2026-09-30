@@ -15,17 +15,9 @@ namespace Content.Server.Audio.Jukebox;
 
 public sealed partial class JukeboxSystem : SharedJukeboxSystem
 {
-<<<<<<< ours
-    [Dependency] private readonly IPrototypeManager _protoManager = default!;
-    [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!; // ADT-Tweak
-    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!; // ADT-Tweak
-||||||| base
-    [Dependency] private readonly IPrototypeManager _protoManager = default!;
-    [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
-=======
     [Dependency] private AppearanceSystem _appearanceSystem = default!;
->>>>>>> theirs
+    [Dependency] private IGameTiming _gameTiming = default!; // ADT-Tweak
+    [Dependency] private ItemSlotsSystem _itemSlots = default!; // ADT-Tweak
 
     public override void Initialize()
     {
@@ -77,7 +69,7 @@ public sealed partial class JukeboxSystem : SharedJukeboxSystem
     private void PlayTrack(Entity<JukeboxComponent> ent)
     {
         if (string.IsNullOrEmpty(ent.Comp.SelectedSongId) ||
-            !_protoManager.Resolve(ent.Comp.SelectedSongId, out var jukeboxProto))
+            !ProtoMan.Resolve(ent.Comp.SelectedSongId, out var jukeboxProto))
         {
             return;
         }

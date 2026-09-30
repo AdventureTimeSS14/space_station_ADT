@@ -11,13 +11,12 @@ namespace Content.Shared.Audio.Jukebox;
 
 public abstract partial class SharedJukeboxSystem : EntitySystem
 {
-<<<<<<< ours
     /// ADT-Tweak start
-    [Dependency] private readonly IPrototypeManager _protoManager = default!;
-    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
-    [Dependency] protected readonly SharedAudioSystem Audio = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private IPrototypeManager _protoManager = default!;
+    [Dependency] private ItemSlotsSystem _itemSlots = default!;
+    [Dependency] protected SharedAudioSystem Audio = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
 
     public const string DiskSlotId = "music_disk";
     public override void Initialize()
@@ -189,11 +188,6 @@ public abstract partial class SharedJukeboxSystem : EntitySystem
     protected virtual void StopJukebox(Entity<JukeboxComponent> ent) { }
     protected virtual void UpdateMusicList(Entity<JukeboxComponent> ent) { }
     /// ADT-Tweak end
-||||||| base
-    [Dependency] protected readonly SharedAudioSystem Audio = default!;
-=======
-    [Dependency] protected SharedAudioSystem Audio = default!;
->>>>>>> theirs
 
     /// <summary>
     /// Returns whether or not the given jukebox is currently playing a song.
