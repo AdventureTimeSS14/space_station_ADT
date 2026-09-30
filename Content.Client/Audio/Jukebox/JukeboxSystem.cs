@@ -21,8 +21,8 @@ public sealed partial class JukeboxSystem : SharedJukeboxSystem
     [Dependency] private SpriteSystem _sprite = default!;
 
     // ADT-Tweak start
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     private static float _ambientMusicSlider;
     // / ADT-Tweak end
@@ -34,14 +34,8 @@ public sealed partial class JukeboxSystem : SharedJukeboxSystem
         SubscribeLocalEvent<JukeboxComponent, AnimationCompletedEvent>(OnAnimationCompleted);
         SubscribeLocalEvent<JukeboxComponent, AfterAutoHandleStateEvent>(OnJukeboxAfterState);
 
-<<<<<<< ours
-        _protoManager.PrototypesReloaded += OnProtoReload;
-        _cfg.OnValueChanged(CCVars.AmbientMusicVolume, OnAmbientMusicVolumeChanged, true); // ADT-Tweak
-||||||| base
-        _protoManager.PrototypesReloaded += OnProtoReload;
-=======
         ProtoMan.PrototypesReloaded += OnProtoReload;
->>>>>>> theirs
+        _cfg.OnValueChanged(CCVars.AmbientMusicVolume, OnAmbientMusicVolumeChanged, true); // ADT-Tweak
     }
 
     public override void Shutdown()
