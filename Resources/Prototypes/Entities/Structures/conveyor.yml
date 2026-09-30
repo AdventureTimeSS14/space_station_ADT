@@ -13,16 +13,8 @@
     anchored: true
   - type: Anchorable
   - type: Sprite
-<<<<<<< ours
     sprite: ADT/Structures/conveyor.rsi # ADT-Tweak: Resprite
     state: conveyor_stopped_cw
-||||||| base
-    sprite: Structures/conveyor.rsi
-    state: conveyor_stopped_cw
-=======
-    sprite: Structures/conveyor.rsi
-    state: conveyor_stopped
->>>>>>> theirs
     drawdepth: HighFloorObjects
   - type: SyncSprite
   - type: ApcPowerReceiver
@@ -84,20 +76,8 @@
   description: A conveyor belt assembly. Used to construct a conveyor belt.
   components:
   - type: Sprite
-<<<<<<< ours
     sprite: ADT/Structures/conveyor.rsi # ADT-Tweak: Resprite
     state: conveyor_loose
-||||||| base
-    sprite: Structures/conveyor.rsi
-    state: conveyor_loose
-=======
-    sprite: Structures/conveyor.rsi
-    layers:
-    - state: conveyor_loose
-      map: [ "base" ]
-  - type: Item
-    size: Normal
->>>>>>> theirs
   - type: Construction
     graph: ConveyorGraph
     node: item
