@@ -171,7 +171,6 @@
   id: AmbienceStation
   files:
     - /Audio/Ambience/shipambience.ogg
-<<<<<<< HEAD:Resources/Prototypes/audio.yml
 
 # Rules
 - type: rules
@@ -260,5 +259,3 @@
   id: OnMapGrid
   rules:
     - !type:OnMapGridRule
-=======
->>>>>>> wizards-filtered:Resources/Prototypes/AmbientMusic/collections.yml

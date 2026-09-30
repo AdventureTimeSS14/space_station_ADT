@@ -13,15 +13,6 @@
       state: rev_corruption
     itemIconStyle: BigAction
     useDelay: 15
-<<<<<<< ours
-||||||| base
-    icon: Interface/Actions/defile.png
-=======
-    itemIconStyle: BigAction
-  - type: Sprite
-    layers:
-    - texture: Interface/Actions/defile.png
->>>>>>> theirs
   - type: InstantAction
     event: !type:RevenantDefileActionEvent
 
@@ -29,17 +20,11 @@
   id: ActionRevenantOverloadLights
   components:
   - type: Action
-<<<<<<< ours
     icon:
       sprite: Interface/Actions/revenant.rsi
       state: rev_blackout
     itemIconStyle: BigAction
-||||||| base
-    icon: Interface/Actions/overloadlight.png
-=======
->>>>>>> theirs
     useDelay: 20
-    itemIconStyle: BigAction
   - type: Sprite
     layers:
     - texture: Interface/Actions/overloadlight.png
@@ -62,15 +47,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-<<<<<<< ours
-    icon:
-      sprite: Interface/Actions/revenant.rsi
-      state: rev_malafucturing
-    itemIconStyle: BigAction
-||||||| base
-    icon: Interface/Actions/malfunction.png
-=======
->>>>>>> theirs
     useDelay: 20
     itemIconStyle: BigAction
   - type: Sprite
