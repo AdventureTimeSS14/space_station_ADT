@@ -1,33 +1,21 @@
 ﻿using Content.Shared.ActionBlocker;
-<<<<<<< ours
 using Content.Shared.ADT.Salvage.Components;
 //ADT-Tweak-Start
 //using Content.Shared.Buckle.Components;
 using Content.Shared.Mind.Components;
 //ADT-Tweak-End
-||||||| base
-=======
 using Content.Shared.Chat;
->>>>>>> theirs
 using Content.Shared.Movement.Events;
 using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Weapons.Misc;
-<<<<<<< ours
-using Robust.Shared.Network;
+using Content.Shared.Whitelist;
+using JetBrains.Annotations;
+
 //ADT-Tweak-Start
 //using Robust.Shared.Audio;
 //using Robust.Shared.Audio.Systems;
 //ADT-Tweak-End
 //using Robust.Shared.Physics.Components; ADT-Tweak
-
-||||||| base
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Network;
-=======
-using Content.Shared.Whitelist;
-using JetBrains.Annotations;
-using Robust.Shared.Audio.Systems;
->>>>>>> theirs
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
@@ -38,28 +26,12 @@ namespace Content.Shared.Chasm;
 /// </summary>
 public sealed partial class ChasmSystem : EntitySystem
 {
-<<<<<<< ours
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly ActionBlockerSystem _blocker = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedGrapplingGunSystem _grapple = default!;
-    //ADT-Tweak-Start
-    //[Dependency] private readonly SharedAudioSystem _audio = default!;
-    //ADT-Tweak-End
-||||||| base
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly ActionBlockerSystem _blocker = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedGrapplingGunSystem _grapple = default!;
-=======
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private ActionBlockerSystem _blocker = default!;
     [Dependency] private EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private SharedAudioSystem _audio = default!;
+    //[Dependency] privateS haredAudioSystem _audio = default!; //ADT-Tweak-Start
     [Dependency] private SharedChatSystem _chat = default!;
     [Dependency] private SharedGrapplingGunSystem _grapple = default!;
->>>>>>> theirs
 
     [Dependency] private EntityQuery<ChasmComponent> _chasmQuery;
     [Dependency] private EntityQuery<ChasmFallingComponent> _chasmFallingQuery;
@@ -75,7 +47,6 @@ public sealed partial class ChasmSystem : EntitySystem
             if (_timing.CurTime < chasm.NextDeletionTime)
                 continue;
 
-<<<<<<< ours
             // ADT Jaunter start
             RemComp<ChasmFallingComponent>(uid);
             _blocker.UpdateCanMove(uid);
@@ -85,10 +56,7 @@ public sealed partial class ChasmSystem : EntitySystem
             if (ev.Cancelled)
                 continue;
             // ADT Jaunter end
-            QueueDel(uid);
-||||||| base
-            QueueDel(uid);
-=======
+
             var chasmEvent = new EntityCompletedFallingIntoChasmEvent((uid, chasm));
             RaiseLocalEvent(chasm.FallingInto, ref chasmEvent);
             if (_chasmQuery.TryComp(chasm.FallingInto, out var chasmComp))
@@ -102,7 +70,6 @@ public sealed partial class ChasmSystem : EntitySystem
             }
 
             PredictedQueueDel(uid);
->>>>>>> theirs
         }
     }
 
@@ -114,21 +81,6 @@ public sealed partial class ChasmSystem : EntitySystem
         if (_chasmFallingQuery.HasComp(args.Tripper))
             return;
 
-<<<<<<< ours
-        StartFalling(uid, component, args.Tripper);
-    }
-
-    public void StartFalling(EntityUid chasm, ChasmComponent component, EntityUid tripper) //ADT-Tweak
-    {
-        var falling = AddComp<ChasmFallingComponent>(tripper);
-||||||| base
-        StartFalling(uid, component, args.Tripper);
-    }
-
-    public void StartFalling(EntityUid chasm, ChasmComponent component, EntityUid tripper, bool playSound = true)
-    {
-        var falling = AddComp<ChasmFallingComponent>(tripper);
-=======
         // Check the white-/blacklists and inform on rejection.
         if (!(entity.Comp.Whitelist == null && entity.Comp.Blacklist == null ||
               _whitelist.CheckBoth(args.Tripper, entity.Comp.Blacklist, entity.Comp.Whitelist)))
@@ -137,7 +89,6 @@ public sealed partial class ChasmSystem : EntitySystem
             RaiseLocalEvent(entity, ref rejected);
             return;
         }
->>>>>>> theirs
 
         // Give an opportunity to cancel the fall for whatever reason.
         var checkEvent = new EntityStartFallingAttemptEvent(args.Tripper);
@@ -145,17 +96,7 @@ public sealed partial class ChasmSystem : EntitySystem
         if (checkEvent.Cancelled)
             return;
 
-<<<<<<< ours
-        //ADT-Tweak-Start
-        //if (playSound)
-        //    _audio.PlayPredicted(component.FallingSound, chasm, tripper);
-        //ADT-Tweak-End
-||||||| base
-        if (playSound)
-            _audio.PlayPredicted(component.FallingSound, chasm, tripper);
-=======
         StartFalling(entity.AsNullable(), args.Tripper);
->>>>>>> theirs
     }
 
     [SubscribeLocalEvent]
@@ -226,8 +167,10 @@ public sealed partial class ChasmSystem : EntitySystem
         falling.NextDeletionTime = _timing.CurTime + falling.DeletionTime;
         _blocker.UpdateCanMove(tripper);
 
-        if (playSound)
-            _audio.PlayPredicted(chasm.Comp.FallingSound, chasm, tripper);
+        //ADT-Tweak-Start
+        //if (playSound)
+        //    _audio.PlayPredicted(chasm.Comp.FallingSound, chasm, tripper);
+        //ADT-Tweak-End
 
         if (playEmote && chasm.Comp.Emote is { } emote)
             _chat.TryEmoteWithChat(tripper, emote);

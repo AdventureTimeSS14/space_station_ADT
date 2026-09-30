@@ -11,17 +11,9 @@ namespace Content.Client.Chasm;
 /// </summary>
 public sealed partial class ChasmFallingVisualsSystem : EntitySystem
 {
-<<<<<<< ours
-    [Dependency] private readonly AnimationPlayerSystem _anim = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
-    [Dependency] private readonly IRobustRandom _random = default!; //ADT-Tweak
-||||||| base
-    [Dependency] private readonly AnimationPlayerSystem _anim = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
-=======
     [Dependency] private AnimationPlayerSystem _anim = default!;
     [Dependency] private SpriteSystem _sprite = default!;
->>>>>>> theirs
+    [Dependency] private IRobustRandom _random = default!; //ADT-Tweak
 
     [Dependency] private EntityQuery<AnimationPlayerComponent> _animationPlayerQuery;
     [Dependency] private EntityQuery<SpriteComponent> _spriteQuery;
@@ -73,23 +65,14 @@ public sealed partial class ChasmFallingVisualsSystem : EntitySystem
         _anim.Stop((entity, player), ChasmFallAnimationKey);
     }
 
-    private static Animation GetFallingAnimation(ChasmFallingComponent component)
+    private Animation GetFallingAnimation(ChasmFallingComponent component)
     {
-<<<<<<< ours
-        var length = component.AnimationTime;
         //ADT-Tweak-Start
         var direction = _random.Prob(0.5f) ? 1 : -1;
         var totalRotation = _random.NextFloat(360f, 720f) * direction;
         //ADT-Tweak-End
 
-        return new Animation()
-||||||| base
-        var length = component.AnimationTime;
-
-        return new Animation()
-=======
         return new Animation
->>>>>>> theirs
         {
             Length = component.AnimationTime,
             AnimationTracks =
@@ -103,32 +86,22 @@ public sealed partial class ChasmFallingVisualsSystem : EntitySystem
                         new AnimationTrackProperty.KeyFrame(component.OriginalScale, 0.0f),
                         new AnimationTrackProperty.KeyFrame(component.AnimationScale, component.AnimationTime.Seconds),
                     },
-<<<<<<< ours
                     InterpolationMode = AnimationInterpolationMode.Cubic
                 //ADT-Tweak-Start
                 },
-                new AnimationTrackComponentProperty()
+                new AnimationTrackComponentProperty
                 {
                     ComponentType = typeof(SpriteComponent),
                     Property = nameof(SpriteComponent.Rotation),
                     KeyFrames =
                     {
                         new AnimationTrackProperty.KeyFrame(Angle.Zero, 0.0f),
-                        new AnimationTrackProperty.KeyFrame(Angle.FromDegrees(totalRotation), length.Seconds),
+                        new AnimationTrackProperty.KeyFrame(Angle.FromDegrees(totalRotation), component.AnimationTime.Seconds),
                     },
                     InterpolationMode = AnimationInterpolationMode.Linear
                 //ADT-Tweak-End
                 }
             }
-||||||| base
-                    InterpolationMode = AnimationInterpolationMode.Cubic
-                }
-            }
-=======
-                    InterpolationMode = AnimationInterpolationMode.Cubic,
-                },
-            },
->>>>>>> theirs
         };
     }
 }
