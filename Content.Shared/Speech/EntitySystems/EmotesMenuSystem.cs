@@ -1,13 +1,10 @@
 ﻿using Content.Shared.Chat;
-<<<<<<< HEAD:Content.Server/Speech/EmotesMenuSystem.cs
 using Content.Server.Chat.Systems;
 using Robust.Shared.Prototypes;
 using Content.Shared.Actions;
 using Content.Shared.Popups;
 using Content.Shared.ADT.Actions.Events;
 using Content.Shared.ADT.Chat;
-=======
->>>>>>> wizards-filtered:Content.Shared/Speech/EntitySystems/EmotesMenuSystem.cs
 
 namespace Content.Shared.Speech.EntitySystems;
 
@@ -15,12 +12,12 @@ public sealed partial class EmotesMenuSystem : EntitySystem
 {
     [Dependency] private SharedChatSystem _chat = default!;
 
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
 
     // ADT-Tweak-Start
-    public static readonly EntProtoId EmoteBindActionProtoId = "ADTActionEmoteBindBase";
+    public static EntProtoId EmoteBindActionProtoId = "ADTActionEmoteBindBase";
     // ADT-Tweak-End
 
     public override void Initialize()
@@ -53,7 +50,7 @@ public sealed partial class EmotesMenuSystem : EntitySystem
         if (!player.HasValue)
             return;
 
-        if (!_prototypeManager.Resolve(msg.ProtoId, out var proto) || proto.ChatTriggers.Count == 0)
+        if (!ProtoMan.Resolve(msg.ProtoId, out var proto) || proto.ChatTriggers.Count == 0)
             return;
 
         var name = Loc.GetString(proto.Name);
