@@ -19,36 +19,6 @@
   requirements: # I hate time locked roles but this should be enough time for someone to be acclimated
   - !type:OverallPlaytimeRequirement
     time: 5h
-<<<<<<< ours
   # guides: [ Wizard ] # ADT-Tweak
-||||||| base
-  guides: [ Wizard ]
-=======
-
-- type: antagSpecifier
-  parent: RestrictedAntag
-  id: Wizard
-  spawnerPrototype: SpawnPointGhostWizard
-  startingGear: WizardBlueGear
-  roleLoadout:
-  - RoleSurvivalExtendedAntag
-  briefing:
-    text: wizard-role-greeting
-    color: Turquoise
-    # TODO: Need Wizard Start sound
-    #sound: "/Audio/Ambience/Antag/wizard_start.ogg"
-  # TODO: WizardComp as needed
-  components:
-  - type: NpcFactionMember
-    factions:
-    - Wizard
-  - type: RandomMetadata
-    nameSegments:
-    - NamesWizardFirst
-    - NamesWizardLast
-    nameFormat: name-format-wizard
-  mindRoles:
-  - MindRoleWizard
->>>>>>> theirs
 
 # See wizard_startinggear for wiz start gear options
