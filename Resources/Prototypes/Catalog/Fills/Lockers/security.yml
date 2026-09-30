@@ -117,143 +117,39 @@
       prob: 0.02
 
 # moved to ADT
-# - type: entity
-#   id: LockerBrigmedicFilled
-#   suffix: Brigmedic, Filled
-#   parent: LockerBrigmedic
-#   components:
-#   - type: EntityTableContainerFill
-#     containers:
-#       entity_storage: !type:NestedSelector
-#         tableId: FillLockerBrigmedic
-#   - type: StorageFill
-#     contents:
-#       - id: FlashlightSeclite
-#         prob: 0.8
-#       - id: WeaponDisabler
-#       - id: ClothingUniformJumpsuitSecGrey
-#         prob: 0.3
-#       - id: ClothingHeadHelmetBasic
-#       - id: ClothingOuterArmorBasic
-#       - id: ClothingBeltSecurityFilled
-#       - id: Flash
-#         prob: 0.5
-#       - id: ClothingEyesGlassesSecurity
-#       - id: ClothingHeadsetSecurity
-#       - id: ClothingHandsGlovesColorBlack
-#       - id: ClothingShoesBootsJack
-#       - id: WeaponMeleeNeedle
-#         prob: 0.1
-#       - id: ClothingOuterCoatSecurityOvercoat # Corvax-SecFashion
-#         prob: 0.2
-#       - id: HoloprojectorSecurity
-#         prob: 0.6
-
-<<<<<<< ours
-# - type: entity
-#   id: LockerBrigmedicFilled
-#   suffix: Brigmedic, Filled
-#   parent: LockerBrigmedic
-#   components:
-#   - type: StorageFill
-#     contents:
-#       - id: ClothingEyesGlassesSecurity
-#       - id: WeaponDisabler
-#       - id: TrackingImplanter
-#         amount: 2
-#       - id: ClothingOuterHardsuitBrigmedic
-#       - id: BoxSterileMask
-#       - id: ClothingHeadHatBeretBrigmedic              Actual in ADT folder
-#       - id: ClothingOuterCoatAMG
-#       - id: ClothingUniformJumpsuitBrigmedic
-#       - id: ClothingUniformJumpskirtBrigmedic
-#       - id: ClothingUniformJumpskirtOfLife
-#         prob: 0.1
-#       - id: MedkitFilled
-#       - id: MedkitCombatFilled
-#         prob: 0.6
-#       - id: MedkitAdvancedFilled
-#         prob: 0.4
-#       - id: MedkitOxygenFilled
-#         prob: 0.3
-#       - id: MedkitBruteFilled
-#         prob: 0.3
-#       - id: MedkitToxinFilled
-#         prob: 0.3
-#       - id: MedkitBurnFilled
-#         prob: 0.7
-#       - id: ClothingNeckCloakMoth #bzzz Moth-pocalypse
-#         prob: 0.15
-||||||| base
-- type: entityTable
-  id: FillLockerBrigmedic
-  table: !type:AllSelector
-    children:
-    - id: ClothingEyesGlassesSecurity
-    - id: WeaponTaser
-    - id: WeaponDisabler
-    - id: TrackingImplanter
-      amount: 2
-    - id: ClothingOuterHardsuitBrigmedic
-    - id: BoxSterileMask
-    - id: ClothingHeadHatBeretBrigmedic
-    - id: ClothingOuterCoatAMG
-    - id: ClothingUniformJumpsuitBrigmedic
-    - id: ClothingUniformJumpskirtBrigmedic
-    - id: ClothingUniformJumpskirtOfLife
-      prob: 0.1
-    - id: MedkitFilled
-    - !type:GroupSelector
-      prob: 0.7
-      children:
-      - id: MedkitCombatFilled
-        weight: 1.6
-      - id: MedkitAdvancedFilled
-      - id: MedkitOxygenFilled
-        weight: 0.8
-      - id: MedkitBruteFilled
-        weight: 0.8
-      - id: MedkitToxinFilled
-        weight: 0.8
-      - id: MedkitBurnFilled
-        weight: 1.8
-    - id: ClothingNeckCloakMoth #bzzz Moth-pocalypse
-      prob: 0.15
-=======
-- type: entityTable
-  id: FillLockerBrigmedic
-  table: !type:AllSelector
-    children:
-    - id: ClothingEyesGlassesSecurity
-    - id: WeaponDisabler
-    - id: TrackingImplanter
-      amount: 2
-    - id: ClothingOuterHardsuitBrigmedic
-    - id: BoxSterileMask
-    - id: ClothingHeadHatBeretBrigmedic
-    - id: ClothingOuterCoatAMG
-    - id: ClothingUniformJumpsuitBrigmedic
-    - id: ClothingUniformJumpskirtBrigmedic
-    - id: ClothingUniformJumpskirtOfLife
-      prob: 0.1
-    - id: MedkitFilled
-    - !type:GroupSelector
-      prob: 0.7
-      children:
-      - id: MedkitCombatFilled
-        weight: 1.6
-      - id: MedkitAdvancedFilled
-      - id: MedkitOxygenFilled
-        weight: 0.8
-      - id: MedkitBruteFilled
-        weight: 0.8
-      - id: MedkitToxinFilled
-        weight: 0.8
-      - id: MedkitBurnFilled
-        weight: 1.8
-    - id: ClothingNeckCloakMoth #bzzz Moth-pocalypse
-      prob: 0.15
->>>>>>> theirs
+#- type: entityTable
+#  id: FillLockerBrigmedic
+#  table: !type:AllSelector
+#    children:
+#    - id: ClothingEyesGlassesSecurity
+#    - id: WeaponDisabler
+#    - id: TrackingImplanter
+#      amount: 2
+#    - id: ClothingOuterHardsuitBrigmedic
+#    - id: BoxSterileMask
+#    - id: ClothingHeadHatBeretBrigmedic
+#    - id: ClothingOuterCoatAMG
+#    - id: ClothingUniformJumpsuitBrigmedic
+#    - id: ClothingUniformJumpskirtBrigmedic
+#    - id: ClothingUniformJumpskirtOfLife
+#      prob: 0.1
+#    - id: MedkitFilled
+#    - !type:GroupSelector
+#      prob: 0.7
+#      children:
+#      - id: MedkitCombatFilled
+#        weight: 1.6
+#      - id: MedkitAdvancedFilled
+#      - id: MedkitOxygenFilled
+#        weight: 0.8
+#      - id: MedkitBruteFilled
+#        weight: 0.8
+#      - id: MedkitToxinFilled
+#        weight: 0.8
+#      - id: MedkitBurnFilled
+#        weight: 1.8
+#    - id: ClothingNeckCloakMoth #bzzz Moth-pocalypse
+#      prob: 0.15
 
 - type: entity
   id: LockerDetectiveFilled

@@ -92,21 +92,17 @@
     - HeadTop
     - HeadSide
     - FacialHair
-<<<<<<< ours
 # ADT-Tweak-Start
   - type: Construction
     graph: PumpkinHat
     node: pumpkin_hat
 # ADT-Tweak-End
-||||||| base
-=======
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left
       right:
       - state: inhand-right
->>>>>>> theirs
 
 - type: entity
   parent: ClothingHeadBase

@@ -21,11 +21,6 @@
     sprite: Clothing/Neck/Medals/bronzeheart.rsi
   - type: Clothing
     sprite: Clothing/Neck/Medals/bronzeheart.rsi
-<<<<<<< ours
-  - type: Tag
-    tags:
-      - Medal
-      - WhitelistChameleon
     # ADT tweak start
   - type: CrewMedal
   - type: ActivatableUI
@@ -36,13 +31,6 @@
       enum.CrewMedalUiKey.Key:
         type: CrewMedalBoundUserInterface
     # ADT tweak end
-||||||| base
-  - type: Tag
-    tags:
-      - Medal
-      - WhitelistChameleon
-=======
->>>>>>> theirs
 
 - type: entity
   parent: ClothingNeckMedalBase
@@ -56,11 +44,6 @@
     sprite: Clothing/Neck/Medals/gold.rsi
   - type: StealTarget
     stealGroup: ClothingNeckGoldmedal
-<<<<<<< ours
-  - type: Tag
-    tags:
-      - Medal
-      - WhitelistChameleon
     # ADT tweak start
   - type: CrewMedal
   - type: ActivatableUI
@@ -71,13 +54,6 @@
       enum.CrewMedalUiKey.Key:
         type: CrewMedalBoundUserInterface
     # ADT tweak end
-||||||| base
-  - type: Tag
-    tags:
-      - Medal
-      - WhitelistChameleon
-=======
->>>>>>> theirs
 
 - type: entity
   parent: ClothingNeckMedalBase
@@ -89,11 +65,6 @@
     sprite: Clothing/Neck/Medals/cargomedal.rsi
   - type: Clothing
     sprite: Clothing/Neck/Medals/cargomedal.rsi
-<<<<<<< ours
-  - type: Tag
-    tags:
-      - Medal
-      - WhitelistChameleon
     # ADT tweak start
   - type: CrewMedal
   - type: ActivatableUI
@@ -104,13 +75,6 @@
       enum.CrewMedalUiKey.Key:
         type: CrewMedalBoundUserInterface
     # ADT tweak end
-||||||| base
-  - type: Tag
-    tags:
-      - Medal
-      - WhitelistChameleon
-=======
->>>>>>> theirs
 
 - type: entity
   parent: ClothingNeckMedalBase
@@ -122,11 +86,6 @@
     sprite: Clothing/Neck/Medals/engineermedal.rsi
   - type: Clothing
     sprite: Clothing/Neck/Medals/engineermedal.rsi
-<<<<<<< ours
-  - type: Tag
-    tags:
-      - Medal
-      - WhitelistChameleon
     # ADT tweak start
   - type: CrewMedal
   - type: ActivatableUI
@@ -137,13 +96,6 @@
       enum.CrewMedalUiKey.Key:
         type: CrewMedalBoundUserInterface
     # ADT tweak end
-||||||| base
-  - type: Tag
-    tags:
-      - Medal
-      - WhitelistChameleon
-=======
->>>>>>> theirs
 
 - type: entity
   parent: ClothingNeckMedalBase
@@ -155,11 +107,6 @@
     sprite: Clothing/Neck/Medals/medicalmedal.rsi
   - type: Clothing
     sprite: Clothing/Neck/Medals/medicalmedal.rsi
-<<<<<<< ours
-  - type: Tag
-    tags:
-      - Medal
-      - WhitelistChameleon
     # ADT tweak start
   - type: CrewMedal
   - type: ActivatableUI
@@ -170,13 +117,6 @@
       enum.CrewMedalUiKey.Key:
         type: CrewMedalBoundUserInterface
     # ADT tweak end
-||||||| base
-  - type: Tag
-    tags:
-      - Medal
-      - WhitelistChameleon
-=======
->>>>>>> theirs
 
 - type: entity
   parent: ClothingNeckMedalBase
@@ -188,11 +128,6 @@
     sprite: Clothing/Neck/Medals/sciencemedal.rsi
   - type: Clothing
     sprite: Clothing/Neck/Medals/sciencemedal.rsi
-<<<<<<< ours
-  - type: Tag
-    tags:
-      - Medal
-      - WhitelistChameleon
     # ADT tweak start
   - type: CrewMedal
   - type: ActivatableUI
@@ -203,13 +138,6 @@
       enum.CrewMedalUiKey.Key:
         type: CrewMedalBoundUserInterface
     # ADT tweak end
-||||||| base
-  - type: Tag
-    tags:
-      - Medal
-      - WhitelistChameleon
-=======
->>>>>>> theirs
 
 - type: entity
   parent: ClothingNeckMedalBase
@@ -221,11 +149,6 @@
     sprite: Clothing/Neck/Medals/securitymedal.rsi
   - type: Clothing
     sprite: Clothing/Neck/Medals/securitymedal.rsi
-<<<<<<< ours
-  - type: Tag
-    tags:
-      - Medal
-      - WhitelistChameleon
     # ADT tweak start
   - type: CrewMedal
   - type: ActivatableUI
@@ -236,13 +159,6 @@
       enum.CrewMedalUiKey.Key:
         type: CrewMedalBoundUserInterface
     # ADT tweak end
-||||||| base
-  - type: Tag
-    tags:
-      - Medal
-      - WhitelistChameleon
-=======
->>>>>>> theirs
 
 - type: entity
   parent: ClothingNeckMedalBase
@@ -256,11 +172,6 @@
     sprite: Clothing/Neck/Medals/clownmedal.rsi
   - type: StealTarget
     stealGroup: ClothingNeckClownmedal
-<<<<<<< ours
-  - type: Tag
-    tags:
-      - Medal
-      - WhitelistChameleon
     # ADT tweak start
   - type: CrewMedal
   - type: ActivatableUI
@@ -271,10 +182,3 @@
       enum.CrewMedalUiKey.Key:
         type: CrewMedalBoundUserInterface
     # ADT tweak end
-||||||| base
-  - type: Tag
-    tags:
-      - Medal
-      - WhitelistChameleon
-=======
->>>>>>> theirs

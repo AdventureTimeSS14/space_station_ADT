@@ -697,32 +697,6 @@
   targetNode: bananiumStatue
 
 - type: construction
-<<<<<<< ours
-||||||| base
-  id: BananiumAltar
-  graph: BananiumAltarGraph
-  startNode: start
-  targetNode: bananiumAltar
-  category: construction-category-structures
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canRotate: false
-  canBuildInImpassable: false
-  conditions:
-    - !type:TileNotBlocked
-
-- type: construction
-=======
-  parent: BaseStructureFullTile
-  id: BananiumAltar
-  graph: BananiumAltarGraph
-  targetNode: bananiumAltar
-# endregion Decoration
-
-# region Miscallaneous
-- type: construction
-  parent: BaseStructureFullTileDirectional
->>>>>>> theirs
   id: SolidSecretDoor
   name: recipes-secret-door-name
   description: recipes-secret-door-desc

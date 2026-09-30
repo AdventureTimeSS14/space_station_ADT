@@ -24,15 +24,9 @@
         - id: EmergencyOxygenTankFilled
         - id: EmergencyMedipen
         - id: Flare
-<<<<<<< ours
         - id: FoodSnackNutribrick
         - id: DrinkWaterBottleFull
         - id: SpaceMedipen # ADT rework - add SpaceMedipen in all survival box
-||||||| base
-        - id: FoodSnackNutribrick
-        - id: DrinkWaterBottleFull
-=======
->>>>>>> theirs
   - type: Sprite
     layers:
     - state: internals
@@ -52,15 +46,9 @@
         - id: EmergencyNitrogenTankFilled
         - id: EmergencyMedipen
         - id: Flare
-<<<<<<< ours
         - id: FoodSnackNutribrick
         - id: DrinkWaterBottleFull
         - id: SpaceMedipen # ADT-Tweak
-||||||| base
-        - id: FoodSnackNutribrick
-        - id: DrinkWaterBottleFull
-=======
->>>>>>> theirs
   - type: Sprite
     layers:
     - state: internals
@@ -80,15 +68,9 @@
         - id: ExtendedEmergencyOxygenTankFilled
         - id: EmergencyMedipen
         - id: Flare
-<<<<<<< ours
         - id: FoodSnackNutribrick
         - id: DrinkWaterBottleFull
         - id: SpaceMedipen # ADT-Tweak
-||||||| base
-        - id: FoodSnackNutribrick
-        - id: DrinkWaterBottleFull
-=======
->>>>>>> theirs
   - type: Sprite
     layers:
     - state: internals
@@ -108,15 +90,9 @@
         - id: ExtendedEmergencyNitrogenTankFilled
         - id: EmergencyMedipen
         - id: Flare
-<<<<<<< ours
         - id: FoodSnackNutribrick
         - id: DrinkWaterBottleFull
         - id: SpaceMedipen # ADT-Tweak
-||||||| base
-        - id: FoodSnackNutribrick
-        - id: DrinkWaterBottleFull
-=======
->>>>>>> theirs
   - type: Sprite
     layers:
     - state: internals
@@ -136,7 +112,6 @@
         - id: EmergencyOxygenTankFilled
         - id: EmergencyMedipen
         - id: Flare
-<<<<<<< ours
         - id: FoodSnackNutribrick
         - id: DrinkWaterBottleFull
         - id: SpaceMedipen # ADT-Tweak
@@ -144,15 +119,6 @@
     layers:
     - state: internals
     - state: emergencytank
-||||||| base
-        - id: FoodSnackNutribrick
-        - id: DrinkWaterBottleFull
-  - type: Sprite
-    layers:
-    - state: internals
-    - state: emergencytank
-=======
->>>>>>> theirs
 
 - type: entity
   parent: BoxSurvivalNitrogen
@@ -168,15 +134,9 @@
         - id: EmergencyNitrogenTankFilled
         - id: EmergencyMedipen
         - id: Flare
-<<<<<<< ours
         - id: FoodSnackNutribrick
         - id: DrinkWaterBottleFull
         - id: SpaceMedipen # ADT-Tweak
-||||||| base
-        - id: FoodSnackNutribrick
-        - id: DrinkWaterBottleFull
-=======
->>>>>>> theirs
   - type: Sprite
     layers:
     - state: internals
@@ -196,7 +156,6 @@
         - id: EmergencyOxygenTankFilled
         - id: EmergencyMedipen
         - id: Flare
-<<<<<<< ours
         - id: FoodSnackNutribrick
         - id: DrinkWaterBottleFull
         - id: SpaceMedipen # ADT-Tweak
@@ -204,15 +163,6 @@
     layers:
     - state: internals
     - state: emergencytank
-||||||| base
-        - id: FoodSnackNutribrick
-        - id: DrinkWaterBottleFull
-  - type: Sprite
-    layers:
-    - state: internals
-    - state: emergencytank
-=======
->>>>>>> theirs
 
 - type: entity
   parent: BoxSurvivalNitrogen
@@ -228,15 +178,9 @@
         - id: EmergencyNitrogenTankFilled
         - id: EmergencyMedipen
         - id: Flare
-<<<<<<< ours
         - id: FoodSnackNutribrick
         - id: DrinkWaterBottleFull
         - id: SpaceMedipen # ADT-Tweak
-||||||| base
-        - id: FoodSnackNutribrick
-        - id: DrinkWaterBottleFull
-=======
->>>>>>> theirs
   - type: Sprite
     layers:
     - state: internals
@@ -255,7 +199,6 @@
         - id: EmergencyFunnyOxygenTankFilled
         - id: EmergencyMedipen
         - id: Flare
-<<<<<<< ours
         - id: FoodSnackNutribrick
         - id: DrinkWaterBottleFull
         - id: SpaceMedipen # ADT-Tweak
@@ -263,15 +206,6 @@
     tags:
     - BoxCardboard
     - BoxHug
-||||||| base
-        - id: FoodSnackNutribrick
-        - id: DrinkWaterBottleFull
-  - type: Tag
-    tags:
-    - BoxCardboard
-    - BoxHug
-=======
->>>>>>> theirs
 
 - type: entity
   parent: BoxSurvivalHug
@@ -286,19 +220,11 @@
         - id: EmergencyNitrogenTankFilled # This should probably be replaced by an equivalent to the funny emergency oxygen tank, once that exists
         - id: EmergencyMedipen
         - id: Flare
-<<<<<<< ours
         - id: FoodSnackNutribrick
         - id: DrinkWaterBottleFull
         - id: SpaceMedipen # ADT-Tweak
   - type: Label
     currentLabel: reagent-name-nitrogen
-||||||| base
-        - id: FoodSnackNutribrick
-        - id: DrinkWaterBottleFull
-  - type: Label
-    currentLabel: reagent-name-nitrogen
-=======
->>>>>>> theirs
 
 # Primarily intended for antagonists that spawn outside the station (e.g ninjas, wizards)
 # Contains food and water because, unlike normal crew, we don't want to force them to seek food mid-round.
@@ -319,17 +245,7 @@
         - id: Flare
         - id: FoodSnackNutribrick
         - id: DrinkWaterBottleFull
-<<<<<<< ours
         - id: SpaceMedipen # ADT-Tweak
-||||||| base
-
-=======
-  - type: Sprite
-    layers:
-    - state: internals
-    - state: extendedtank
-
->>>>>>> theirs
 - type: entity
   parent: BoxSurvivalDeluxeExtended
   id: BoxSurvivalDeluxeExtendedNitrogen
@@ -351,7 +267,6 @@
     layers:
     - state: internals
     - state: nitrogentank
-<<<<<<< ours
   - type: Label
     currentLabel: reagent-name-nitrogen
 
@@ -371,32 +286,7 @@
         - id: FoodBreadCottonNutriBatard
         - id: DrinkWaterBottleFull
         - id: SpaceMedipen # ADT-Tweak
-||||||| base
-  - type: Label
-    currentLabel: reagent-name-nitrogen
 
-- type: entity
-  parent: BoxSurvival
-  id: BoxMimeMoth
-  suffix: Mime, Emergency moth
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: ClothingMaskBreath
-        - id: EmergencyOxygenTankFilled
-        - id: EmergencyMedipen
-        - id: Flare
-        - id: FoodBreadCottonNutriBatard
-        - id: DrinkWaterBottleFull
-
-=======
-
-# Intended for nukies (or similar syndicate operatives).
-# Contains food because we don't want to force nukies to go get lunch in the middle of a mission.
-# Not enough space left to fit the water bottle (syndie gas mask is 1x2), but that's not a problem since the nukies have a whole bar on the nukie planet.
->>>>>>> theirs
 - type: entity
   parent: BoxCardboard
   id: BoxSurvivalSyndicate

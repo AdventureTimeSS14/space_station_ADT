@@ -1,19 +1,11 @@
 ﻿- type: localizedDataset
   id: NamesDeathCommandoFirst
   values:
-<<<<<<< ours
     prefix: names-death-commando-dataset-
     count: 158 # Corvax-MRP-Edit
-||||||| base
-    prefix: names-death-commando-dataset-
-    count: 59
-=======
-    prefix: names-death-commando-first-dataset-
-    count: 62
 
 - type: localizedDataset
   id: NamesDeathCommandoLast
   values:
     prefix: names-death-commando-last-dataset-
     count: 58
->>>>>>> theirs

@@ -425,16 +425,10 @@
       - CombatKnife
       - Truncheon
       - HandGrenade
-<<<<<<< ours
       # ADT-Tweak start.
       - ADTBola
       - ADTTelescopicBaton
       # ADT-Tweak end.
-      components:
-||||||| base
-      components:
-=======
->>>>>>> theirs
       - Stunbaton
       components:
       - FlashOnTrigger

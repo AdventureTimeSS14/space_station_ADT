@@ -26,13 +26,7 @@
 
 #Standard armor vest, allowed for security only
 - type: entity
-<<<<<<< ours
   parent: [ BaseSecurityBartenderContraband, ClothingOuterArmorBase, BadgeOnClothing] # ADT-Tweak
-||||||| base
-  parent: [ BaseSecurityBartenderContraband, ClothingOuterArmorBase]
-=======
-  parent: [ BaseSecurityContraband, ClothingOuterArmorBase ]
->>>>>>> theirs
   id: ClothingOuterArmorBasic
   components:
   - type: Tag
@@ -104,13 +98,7 @@
 
 #Detective's vest
 - type: entity
-<<<<<<< ours
-  parent: [ClothingOuterArmorBase, BaseSecurityContraband, BadgeOnClothing] # ADT-Tweak
-||||||| base
-  parent: [ClothingOuterArmorBase, BaseSecurityContraband]
-=======
-  parent: [ClothingOuterArmorBasic, BaseSecurityContraband]
->>>>>>> theirs
+  parent: [ClothingOuterArmorBasic, BaseSecurityContraband, BadgeOnClothing] # ADT-Tweak
   id: ClothingOuterVestDetective
   name: detective's vest
   description: A hard-boiled private investigator's armored vest.
@@ -217,15 +205,9 @@
         Heat: 0.3
         Radiation: 0.5
         Caustic: 0.5
-<<<<<<< ours
   - type: StaminaResistance
     damageCoefficient: 0.7
   # ADT-tweak-End
-||||||| base
-  - type: ExplosionResistance
-    damageCoefficient: 0.5
-=======
->>>>>>> theirs
   - type: FireProtection
     reduction: 0.85
   - type: StaticPrice

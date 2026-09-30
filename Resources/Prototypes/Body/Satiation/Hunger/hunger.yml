@@ -92,4 +92,4 @@
 - type: satiation
   id: DionaHunger
   parent: NormalSatiationHunger
-  baseChangeRate: -0.0083
+  baseChangeRate: 0.010375 # ADT-Tweak: было 0.0083, стало > 0.010375
