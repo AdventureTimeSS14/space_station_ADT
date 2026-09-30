@@ -2,14 +2,12 @@ namespace Content.Shared.ADT.InconnuOS.NanoNet;
 
 public static class NanoNetDomain
 {
-    public const string ApexHost = "nanonet.nt";
-
     public const int MinLabelLength = 3;
     public const int MaxLabelLength = 24;
 
     public static readonly HashSet<string> ReservedLabels = new(StringComparer.OrdinalIgnoreCase)
     {
-        "nanonet", "www", "news", "about", "mail", "ftp", "admin", "root", "system", "api", "null", "localhost", "test", "synd",
+        "nanonet", "www", "news", "about", "mail", "ftp", "admin", "root", "system", "api", "null", "localhost", "test",
     };
 
     public static bool TryNormalizeLabel(string? input, out string label, out OsValidationError error)

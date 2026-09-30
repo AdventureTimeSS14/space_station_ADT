@@ -36,6 +36,10 @@ public enum OsValidationError : byte
     DomainNotFound,
     SiteTooLarge,
     TooManySites,
+    PublishCooldown,
+    SiteForbiddenMarkup,
+    SiteScriptsForbidden,
+    SiteRejected,
 }
 
 public static class OsErrors

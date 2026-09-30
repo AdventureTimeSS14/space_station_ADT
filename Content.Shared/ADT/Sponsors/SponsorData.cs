@@ -31,6 +31,8 @@ public sealed class SponsorData
 
     public bool PriorityJoin { get; private init; }
     public int ExtraCharacterSlots { get; private init; }
+    public bool NanoNetLargeSites { get; private init; }
+    public bool NanoNetPersistSites { get; private init; }
 
     public DateTime? NextExpiry { get; private init; }
 
@@ -110,7 +112,9 @@ public sealed class SponsorData
                             || benefits.AllowCustomGhostColor
                             || benefits.DiscordRoles.Count > 0
                             || benefits.PriorityJoin
-                            || benefits.ExtraCharacterSlots > 0;
+                            || benefits.ExtraCharacterSlots > 0
+                            || benefits.NanoNetLargeSites
+                            || benefits.NanoNetPersistSites;
 
         return new SponsorData
         {
@@ -132,6 +136,8 @@ public sealed class SponsorData
             DiscordRoles = benefits.DiscordRoles.ToFrozenSet(),
             PriorityJoin = benefits.PriorityJoin,
             ExtraCharacterSlots = benefits.ExtraCharacterSlots,
+            NanoNetLargeSites = benefits.NanoNetLargeSites,
+            NanoNetPersistSites = benefits.NanoNetPersistSites,
             NextExpiry = nextExpiry,
             Tiers = tiers,
             HasAnyBenefit = hasAnyBenefit,

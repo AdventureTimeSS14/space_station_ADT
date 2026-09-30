@@ -74,6 +74,8 @@ adt-sponsor-editor-color-apply = Применить
 
 adt-sponsor-editor-other = Прочее
 adt-sponsor-editor-priority-join = Приоритетный вход
+adt-sponsor-editor-nanonet-large-sites = Большие сайты NanoNet
+adt-sponsor-editor-nanonet-persist = Сохранение сайтов NanoNet в БД
 adt-sponsor-editor-extra-slots = Доп. слотов персонажей
 
 # Окно "Информация о вашем статусе спонсора"
@@ -106,6 +108,8 @@ adt-sponsor-info-row-ooc = Цвет ника в ООС
 adt-sponsor-info-row-ooc-custom = Свой цвет ника в ООС
 adt-sponsor-info-row-ghost = Цвет призрака
 adt-sponsor-info-row-priority = Приоритетный вход на сервер
+adt-sponsor-info-row-nanonet-large-sites = Большие сайты NanoNet
+adt-sponsor-info-row-nanonet-persist = Сайты NanoNet переживают рестарт
 adt-sponsor-info-row-slots = Дополнительные слоты персонажей
 adt-sponsor-info-row-legacy-tier = Уровень подписки
 adt-sponsor-info-row-expires = Действует до

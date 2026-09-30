@@ -42,6 +42,8 @@ public sealed class SponsorBenefitsEditor : BoxContainer
 
     private readonly LineEdit _discordRoles;
     private readonly CheckBox _priorityJoin;
+    private readonly CheckBox _nanoNetLargeSites;
+    private readonly CheckBox _nanoNetPersistSites;
     private readonly LineEdit _extraSlots;
 
     public SponsorBenefitsEditor()
@@ -94,6 +96,8 @@ public sealed class SponsorBenefitsEditor : BoxContainer
         _discordRoles = AddField(Loc.GetString("adt-sponsor-editor-discord-roles"), "1054908932868538449");
 
         _priorityJoin = AddCheck(Loc.GetString("adt-sponsor-editor-priority-join"));
+        _nanoNetLargeSites = AddCheck(Loc.GetString("adt-sponsor-editor-nanonet-large-sites"));
+        _nanoNetPersistSites = AddCheck(Loc.GetString("adt-sponsor-editor-nanonet-persist"));
         _extraSlots = AddField(Loc.GetString("adt-sponsor-editor-extra-slots"), "0");
     }
 
@@ -122,6 +126,8 @@ public sealed class SponsorBenefitsEditor : BoxContainer
 
         _discordRoles.Text = string.Join(", ", benefits.DiscordRoles);
         _priorityJoin.Pressed = benefits.PriorityJoin;
+        _nanoNetLargeSites.Pressed = benefits.NanoNetLargeSites;
+        _nanoNetPersistSites.Pressed = benefits.NanoNetPersistSites;
         _extraSlots.Text = benefits.ExtraCharacterSlots.ToString(CultureInfo.InvariantCulture);
     }
 
@@ -143,6 +149,8 @@ public sealed class SponsorBenefitsEditor : BoxContainer
             AllowCustomGhostColor = _customGhostColor.Pressed,
             DiscordRoles = SplitRoles(_discordRoles.Text),
             PriorityJoin = _priorityJoin.Pressed,
+            NanoNetLargeSites = _nanoNetLargeSites.Pressed,
+            NanoNetPersistSites = _nanoNetPersistSites.Pressed,
             OocColor = _hasOocColor.Pressed ? _oocColor.Color : null,
             GhostColors = _ghostColors.GetColors(),
             ExtraCharacterSlots = ParseInt(_extraSlots.Text),

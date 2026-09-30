@@ -53,14 +53,12 @@ public sealed class ADTOsNanoNetStatusMessage : BoundUserInterfaceMessage
 public sealed class ADTOsNanoNetFetchRequestMessage : BoundUserInterfaceMessage
 {
     public readonly int RequestId;
-    public readonly string Domain;
-    public readonly string Path;
+    public readonly string Url;
 
-    public ADTOsNanoNetFetchRequestMessage(int requestId, string domain, string path)
+    public ADTOsNanoNetFetchRequestMessage(int requestId, string url)
     {
         RequestId = requestId;
-        Domain = domain;
-        Path = path;
+        Url = url;
     }
 }
 
@@ -68,19 +66,17 @@ public sealed class ADTOsNanoNetFetchRequestMessage : BoundUserInterfaceMessage
 public sealed class ADTOsNanoNetFetchResponseMessage : BoundUserInterfaceMessage
 {
     public readonly int RequestId;
-    public readonly string Domain;
-    public readonly string Path;
+    public readonly string Url;
+    public readonly string DisplayUrl;
     public readonly bool Found;
     public readonly string Html;
-    public readonly string OwnerName;
 
-    public ADTOsNanoNetFetchResponseMessage(int requestId, string domain, string path, bool found, string html, string ownerName)
+    public ADTOsNanoNetFetchResponseMessage(int requestId, string url, string displayUrl, bool found, string html)
     {
         RequestId = requestId;
-        Domain = domain;
-        Path = path;
+        Url = url;
+        DisplayUrl = displayUrl;
         Found = found;
         Html = html;
-        OwnerName = ownerName;
     }
 }

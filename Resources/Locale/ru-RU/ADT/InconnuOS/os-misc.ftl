@@ -19,3 +19,7 @@ os-error-domain-not-owned = Домен { $detail } уже занят други�
 os-error-domain-not-found = Домен { $detail } не опубликован.
 os-error-site-too-large = Страница длиннее { $detail } символов.
 os-error-too-many-sites = Превышен лимит опубликованных сайтов ({ $detail }).
+os-error-publish-cooldown = Подождите { $detail } с. перед следующей публикацией.
+os-error-site-forbidden-markup = Сайт отклонён: тег { $detail } запрещён.
+os-error-site-scripts-forbidden = Сайт отклонён: JavaScript на сайтах доступен только спонсорам.
+os-error-site-rejected = Сайт отклонён автомодерацией.

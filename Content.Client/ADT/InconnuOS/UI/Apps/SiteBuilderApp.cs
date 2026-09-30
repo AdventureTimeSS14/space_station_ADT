@@ -1,10 +1,11 @@
 using System.IO;
 using System.Text;
+using Content.Client.ADT.Sponsors;
 using Content.Shared.ADT.InconnuOS;
 using Content.Shared.ADT.InconnuOS.NanoNet;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
-using Robust.Client.WebView;
+using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
 
 namespace Content.Client.ADT.InconnuOS.UI.Apps;
@@ -22,7 +23,8 @@ public sealed class SiteBuilderApp : OsAppControl
     private readonly Button _unpublish;
     private readonly Button _previewToggle;
 
-    private WebViewControl? _preview;
+    private OsWebView? _preview;
+    private string _previewHtml = string.Empty;
     private int _previewRevision;
     private bool _previewing;
 
@@ -250,10 +252,11 @@ public sealed class SiteBuilderApp : OsAppControl
         }
 
         var html = Current();
+        var maxSiteLength = IoCManager.Resolve<IConfigurationManager>().GetCVar(NanoNetCVars.MaxSiteLength);
 
-        if (html.Length > NanoNetLimits.MaxSiteLength)
+        if (html.Length > maxSiteLength)
         {
-            Context.Toast(OsErrors.GetMessage(OsValidationError.SiteTooLarge, NanoNetLimits.MaxSiteLength.ToString()));
+            Context.Toast(OsErrors.GetMessage(OsValidationError.SiteTooLarge, maxSiteLength.ToString()));
             return;
         }
 
@@ -299,15 +302,21 @@ public sealed class SiteBuilderApp : OsAppControl
 
         if (_preview == null)
         {
-            var preview = new WebViewControl
+            var preview = new OsWebView
             {
                 HorizontalExpand = true,
                 VerticalExpand = true,
             };
 
-            preview.AddResourceRequestHandler(ctx =>
+            preview.Web.AddResourceRequestHandler(ctx =>
             {
-                var bytes = Encoding.UTF8.GetBytes(Current());
+                if (!ctx.IsNavigation)
+                {
+                    ctx.DoCancel();
+                    return;
+                }
+
+                var bytes = Encoding.UTF8.GetBytes("﻿" + _previewHtml);
                 ctx.DoRespondStream(new MemoryStream(bytes), "text/html");
             });
 
@@ -317,8 +326,9 @@ public sealed class SiteBuilderApp : OsAppControl
 
         _preview.Visible = true;
 
+        _previewHtml = Current();
         _previewRevision++;
-        _preview.Url = $"http://sitebuilder.local/preview#_r={_previewRevision}";
+        _preview.Web.Url = $"http://sitebuilder.local/preview#_r={_previewRevision}";
 
         _previewToggle.Text = Loc.GetString("os-sitebuilder-edit");
     }
@@ -354,14 +364,22 @@ public sealed class SiteBuilderApp : OsAppControl
 
         var text = Current();
 
-        if (text.Length > Context.State.Limits.MaxFileLength)
+        var hasNanoNetLargeSites = IoCManager.Resolve<SponsorManager>().Data.NanoNetLargeSites;
+        var limit = Context.State.Limits.MaxFileLength;
+
+        if (hasNanoNetLargeSites)
         {
-            Context.Toast(OsErrors.GetMessage(OsValidationError.FileTooLong,
-                Context.State.Limits.MaxFileLength.ToString()));
+            var maxSiteLength = IoCManager.Resolve<IConfigurationManager>().GetCVar(NanoNetCVars.MaxSiteLength);
+            limit = Math.Max(limit, maxSiteLength);
+        }
+
+        if (text.Length > limit)
+        {
+            Context.Toast(OsErrors.GetMessage(OsValidationError.FileTooLong, limit.ToString()));
             return;
         }
 
-        Context.Send(new ADTOsFileWriteMessage(_path, OsFileKind.Text, text, null));
+        Context.Send(new ADTOsFileWriteMessage(_path, OsFileKind.Text, text, null, hasNanoNetLargeSites));
 
         _pendingSave = text;
 

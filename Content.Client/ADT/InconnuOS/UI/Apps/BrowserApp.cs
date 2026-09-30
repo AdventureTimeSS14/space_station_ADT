@@ -10,15 +10,7 @@ namespace Content.Client.ADT.InconnuOS.UI.Apps;
 
 public sealed class BrowserApp : OsAppControl
 {
-    private const string HomeUrl = "http://nanonet.nt/";
-    private const string DisplayScheme = "ntnet://";
-    private const string RealScheme = "http://";
-
-    private static readonly (string Host, string Scheme)[] SecretSchemes =
-    {
-        ("synd.space", "synd://"),
-    };
-
+    private readonly OsWebView _view;
     private readonly WebViewControl _web;
     private readonly LineEdit _address;
     private readonly Button _back;
@@ -29,15 +21,16 @@ public sealed class BrowserApp : OsAppControl
 
     private bool _subscribed;
 
-    private int? _pendingRequestId;
-    private string? _pendingUrl;
+    private readonly List<string> _history = new();
+    private int _historyIndex = -1;
 
-    private (int RequestId, string Label, string Path, string Html, HttpStatusCode Status)? _answer;
+    private int? _pendingRequestId;
+    private bool _pendingPushesHistory;
+
+    private ADTOsNanoNetFetchResponseMessage? _page;
 
     public BrowserApp()
     {
-        NanoNet.EnsureWarm();
-
         _back = OsWidgets.Small("<");
         _forward = OsWidgets.Small(">");
         _reload = OsWidgets.Small(Loc.GetString("os-browser-reload"));
@@ -63,11 +56,13 @@ public sealed class BrowserApp : OsAppControl
             Visible = false,
         };
 
-        _web = new WebViewControl
+        _view = new OsWebView
         {
             HorizontalExpand = true,
             VerticalExpand = true,
         };
+
+        _web = _view.Web;
 
         _web.AddBeforeBrowseHandler(OnBeforeBrowse);
         _web.AddResourceRequestHandler(OnResourceRequest);
@@ -76,14 +71,16 @@ public sealed class BrowserApp : OsAppControl
         {
             Orientation = BoxContainer.LayoutOrientation.Vertical,
             VerticalExpand = true,
-            Children = { toolbar, _status, _web },
+            Children = { toolbar, _status, _view },
         });
 
-        _back.OnPressed += _ => _web.GoBack();
-        _forward.OnPressed += _ => _web.GoForward();
-        _reload.OnPressed += _ => _web.Reload();
-        _home.OnPressed += _ => Navigate(HomeUrl);
-        _address.OnTextEntered += args => Navigate(NormalizeUrl(args.Text));
+        _back.OnPressed += _ => StepHistory(-1);
+        _forward.OnPressed += _ => StepHistory(1);
+        _reload.OnPressed += _ => Reload();
+        _home.OnPressed += _ => Fetch(string.Empty, true);
+        _address.OnTextEntered += args => Fetch(args.Text, true);
+
+        UpdateButtons();
     }
 
     public override void OnOpen(string? argument)
@@ -98,7 +95,7 @@ public sealed class BrowserApp : OsAppControl
 
         SetTitle(Loc.GetString("os-app-browser"));
 
-        Navigate(argument is { Length: > 0 } ? NormalizeUrl(argument) : HomeUrl);
+        Fetch(argument ?? string.Empty, true);
     }
 
     protected override void Dispose(bool disposing)
@@ -113,164 +110,118 @@ public sealed class BrowserApp : OsAppControl
 
     private void OnBeforeBrowse(IBeforeBrowseContext ctx)
     {
-        if (!NanoNet.IsAllowedHost(ctx.Url))
-        {
-            ctx.DoCancel();
-            return;
-        }
-
-        if (!NanoNet.TryParse(ctx.Url, out var host, out var path))
-            return;
-
-        var label = NanoNet.GetLabel(host);
-
-        if (label.Length == 0)
-            return;
-
-        if (_answer is { } answer && answer.Label == label && answer.Path == path)
+        if (IsCurrentPage(ctx.Url))
             return;
 
         ctx.DoCancel();
-        BeginFetch(label, path, ctx.Url);
+
+        if (ctx.UserGesture)
+            Fetch(ctx.Url, true);
     }
 
     private void OnResourceRequest(IRequestHandlerContext ctx)
     {
-        if (!NanoNet.IsAllowedHost(ctx.Url))
+        if (_page == null || !IsCurrentPage(ctx.Url))
         {
             ctx.DoCancel();
             return;
         }
 
-        if (!NanoNet.TryParse(ctx.Url, out var host, out var path))
-        {
-            ctx.DoCancel();
-            return;
-        }
-
-        var label = NanoNet.GetLabel(host);
-
-        if (label.Length == 0)
-        {
-            var (status, html) = NanoNet.Render(ctx.Url);
-            Respond(ctx, status, html);
-            return;
-        }
-
-        if (_answer is { } answer && answer.Label == label && answer.Path == path)
-        {
-            Respond(ctx, answer.Status, answer.Html);
-            _answer = null;
-            return;
-        }
-
-        ctx.DoCancel();
-    }
-
-    private void Respond(IRequestHandlerContext ctx, HttpStatusCode status, string html)
-    {
-        var bytes = Encoding.UTF8.GetBytes(html);
+        var bytes = Encoding.UTF8.GetBytes("﻿" + _page.Html);
+        var status = _page.Found ? HttpStatusCode.OK : HttpStatusCode.NotFound;
 
         ctx.DoRespondStream(new MemoryStream(bytes), "text/html", status);
-
-        if (ctx.IsNavigation)
-            _address.Text = ToDisplay(ctx.Url);
     }
 
-    private void BeginFetch(string label, string path, string url)
+    private bool IsCurrentPage(string url)
+    {
+        if (_page == null)
+            return false;
+
+        var fragmentIndex = url.IndexOf('#');
+        if (fragmentIndex >= 0)
+            url = url[..fragmentIndex];
+
+        return string.Equals(url, _page.Url, StringComparison.OrdinalIgnoreCase);
+    }
+
+    private void StepHistory(int delta)
+    {
+        var index = _historyIndex + delta;
+        if (index < 0 || index >= _history.Count)
+            return;
+
+        _historyIndex = index;
+        Fetch(_history[index], false);
+    }
+
+    private void Reload()
+    {
+        if (_historyIndex >= 0)
+            Fetch(_history[_historyIndex], false);
+    }
+
+    private void Fetch(string url, bool pushHistory)
     {
         var id = Context.NextNanoNetRequestId();
 
         _pendingRequestId = id;
-        _pendingUrl = url;
+        _pendingPushesHistory = pushHistory;
 
-        SetLoading(true, url);
+        SetLoading(true);
 
-        Context.Send(new ADTOsNanoNetFetchRequestMessage(id, label, path));
+        Context.Send(new ADTOsNanoNetFetchRequestMessage(id, url.Trim()));
     }
 
     private void OnServerMessage(BoundUserInterfaceMessage message)
     {
-        if (message is not ADTOsNanoNetFetchResponseMessage resp)
-            return;
-
-        if (_pendingRequestId != resp.RequestId)
+        if (message is not ADTOsNanoNetFetchResponseMessage resp || _pendingRequestId != resp.RequestId)
             return;
 
         _pendingRequestId = null;
-        var url = _pendingUrl;
-        _pendingUrl = null;
+        SetLoading(false);
 
-        SetLoading(false, null);
-
-        if (url == null)
+        if (resp.Url.Length == 0)
+        {
+            Context.Toast(Loc.GetString("os-browser-bad-url"));
             return;
+        }
 
-        var html = resp.Found ? resp.Html : NanoNet.PlayerSiteNotFound(resp.Domain);
-        var status = resp.Found ? HttpStatusCode.OK : HttpStatusCode.NotFound;
+        if (_pendingPushesHistory)
+        {
+            _history.RemoveRange(_historyIndex + 1, _history.Count - _historyIndex - 1);
+            _history.Add(resp.Url);
+            _historyIndex = _history.Count - 1;
+        }
+        else if (_historyIndex >= 0)
+        {
+            _history[_historyIndex] = resp.Url;
+        }
 
-        _answer = (resp.RequestId, resp.Domain, resp.Path, html, status);
+        _page = resp;
+        _address.Text = resp.DisplayUrl;
+        _web.Url = resp.Url;
 
-        _web.Url = $"{url}#_ln={resp.RequestId}";
+        UpdateButtons();
     }
 
-    private void SetLoading(bool loading, string? url)
+    private void SetLoading(bool loading)
     {
-        _back.Disabled = loading;
-        _forward.Disabled = loading;
-        _reload.Disabled = loading;
-        _home.Disabled = loading;
-
         _status.Visible = loading;
 
-        if (loading && url != null)
-            _status.Text = Loc.GetString("os-browser-loading", ("url", ToDisplay(url)));
+        if (loading)
+            _status.Text = Loc.GetString("os-browser-loading");
+
+        UpdateButtons();
     }
 
-    private void Navigate(string url)
+    private void UpdateButtons()
     {
-        _address.Text = ToDisplay(url);
-        _web.Url = url;
-    }
+        var loading = _pendingRequestId != null;
 
-    private static string ToDisplay(string realUrl)
-    {
-        var fragmentIndex = realUrl.IndexOf('#');
-        if (fragmentIndex >= 0)
-            realUrl = realUrl[..fragmentIndex];
-
-        if (!realUrl.StartsWith(RealScheme, StringComparison.OrdinalIgnoreCase))
-            return realUrl;
-
-        var rest = realUrl[RealScheme.Length..];
-
-        foreach (var (host, scheme) in SecretSchemes)
-        {
-            if (rest.StartsWith(host, StringComparison.OrdinalIgnoreCase))
-                return scheme + rest;
-        }
-
-        return DisplayScheme + rest;
-    }
-
-    private static string NormalizeUrl(string text)
-    {
-        text = text.Trim();
-
-        if (text.Length == 0)
-            return HomeUrl;
-
-        foreach (var (_, scheme) in SecretSchemes)
-        {
-            if (text.StartsWith(scheme, StringComparison.OrdinalIgnoreCase))
-                return RealScheme + text[scheme.Length..];
-        }
-
-        if (text.StartsWith(DisplayScheme, StringComparison.OrdinalIgnoreCase))
-            text = RealScheme + text[DisplayScheme.Length..];
-        else if (!text.Contains("://"))
-            text = RealScheme + text;
-
-        return text;
+        _back.Disabled = loading || _historyIndex <= 0;
+        _forward.Disabled = loading || _historyIndex >= _history.Count - 1;
+        _reload.Disabled = loading || _historyIndex < 0;
+        _home.Disabled = loading;
     }
 }

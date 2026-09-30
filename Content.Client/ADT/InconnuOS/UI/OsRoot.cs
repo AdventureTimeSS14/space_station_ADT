@@ -73,6 +73,11 @@ public sealed class OsRoot : Control
         UpdateScreens();
     }
 
+    public void CloseAllWindows()
+    {
+        _manager.CloseAll();
+    }
+
     public void SetState(ADTOsBuiState state)
     {
         var rebooted = state.BootedAt != _bootedAt;

@@ -480,6 +480,8 @@ public sealed class SponsorPanelWindow : DefaultWindow
         AddFlag(lines, "все спонсорские лодауты", benefits.AllLoadouts);
         AddFlag(lines, "все спонсорские маркинги", benefits.AllMarkings);
         AddFlag(lines, "приоритетный вход", benefits.PriorityJoin);
+        AddFlag(lines, "Большие сайты NanoNet", benefits.NanoNetLargeSites);
+        AddFlag(lines, "Сайты NanoNet переживают рестарт", benefits.NanoNetPersistSites);
         AddFlag(lines, "свой цвет ника", benefits.AllowCustomOocColor);
         AddFlag(lines, "свой цвет призрака", benefits.AllowCustomGhostColor);
 

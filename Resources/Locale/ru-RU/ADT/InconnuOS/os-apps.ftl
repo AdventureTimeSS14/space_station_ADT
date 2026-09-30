@@ -29,7 +29,8 @@ os-app-browser = Amelia
 os-app-browser-desc = Обозреватель внутренней сети NanoTrasen.
 os-browser-reload = Обновить
 os-browser-home = Домой
-os-browser-loading = Загрузка { $url }…
+os-browser-loading = Загрузка…
+os-browser-bad-url = Некорректный адрес
 
 os-sitebuilder-domain-placeholder = my-site
 os-sitebuilder-publish = Опубликовать

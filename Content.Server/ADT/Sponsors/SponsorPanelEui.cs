@@ -269,6 +269,8 @@ public sealed class SponsorPanelEui : BaseEui
             AllowCustomGhostColor = data.AllowCustomGhostColor,
             PriorityJoin = data.PriorityJoin,
             ExtraCharacterSlots = data.ExtraCharacterSlots,
+            NanoNetLargeSites = data.NanoNetLargeSites,
+            NanoNetPersistSites = data.NanoNetPersistSites,
         };
 
         benefits.ExcludedDepartments.UnionWith(data.ExcludedDepartments);

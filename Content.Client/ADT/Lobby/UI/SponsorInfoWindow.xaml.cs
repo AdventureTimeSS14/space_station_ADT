@@ -226,6 +226,8 @@ public sealed partial class SponsorInfoWindow : DefaultWindow
         AddSection(Loc.GetString("adt-sponsor-info-section-other"));
 
         AddFlagRow(Loc.GetString("adt-sponsor-info-row-priority"), data.PriorityJoin);
+        AddFlagRow(Loc.GetString("adt-sponsor-info-row-nanonet-large-sites"), data.NanoNetLargeSites);
+        AddFlagRow(Loc.GetString("adt-sponsor-info-row-nanonet-persist"), data.NanoNetPersistSites);
         AddRow(Loc.GetString("adt-sponsor-info-row-slots"),
             data.ExtraCharacterSlots > 0 ? $"+{data.ExtraCharacterSlots}" : Loc.GetString("adt-sponsor-info-none"),
             data.ExtraCharacterSlots > 0 ? ColorYes : ColorNo);
