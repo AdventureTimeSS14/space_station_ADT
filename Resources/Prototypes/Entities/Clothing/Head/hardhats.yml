@@ -17,13 +17,7 @@
       - state: equipped-helmet
   - type: PointLight
     enabled: false
-<<<<<<< ours
-    mask: /Textures/ADT/Effects/Lightmasks/cone_composed_b.png # ADT tweak
-||||||| base
-    mask: /Textures/Effects/LightMasks/cone.png
-=======
     lightMask: ConeSingle
->>>>>>> theirs
     autoRot: true
     radius: 11 # ADT tweak 7 > 11
     netsync: false

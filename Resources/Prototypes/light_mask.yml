@@ -6,7 +6,7 @@
 # West(Pointing left) = 270
 - type: lightMask
   id: ConeSingle
-  maskPath: /Textures/Effects/LightMasks/cone.png
+  maskPath: /Textures/ADT/Effects/Lightmasks/cone_composed_b.png # ADT tweak
   lightCones:
   - direction: 0
     innerWidth: 30

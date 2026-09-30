@@ -73,13 +73,7 @@
     enabled: false
     radius: 7 # ADT tweak 3 > 7
     energy: 1
-<<<<<<< ours
-    mask: /Textures/ADT/Effects/Lightmasks/cone_composed_b.png # ADT tweak
-||||||| base
-    mask: /Textures/Effects/LightMasks/cone.png
-=======
     lightMask: ConeSingle
->>>>>>> theirs
     autoRot: true
     netsync: false
   - type: Appearance
@@ -252,13 +246,7 @@
     enabled: false
     radius: 6 # ADT tweak 3 > 6
     energy: 2
-<<<<<<< ours
-    mask: /Textures/ADT/Effects/Lightmasks/cone_composed_b.png # ADT tweak
-||||||| base
-    mask: /Textures/Effects/LightMasks/cone.png
-=======
     lightMask: ConeSingle
->>>>>>> theirs
     autoRot: true
     netsync: false
   - type: Appearance
