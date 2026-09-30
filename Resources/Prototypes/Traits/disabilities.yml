@@ -125,7 +125,6 @@
   blacklist:
     components:
       - BorgChassis
-<<<<<<< ours
   departmentBlacklist:
     - Command
     - Security
@@ -134,15 +133,6 @@
     - !type:AddCompsEffect
       components:
         - type: Muted
-||||||| base
-  components:
-    - type: Muted
-=======
-  specials:
-  - !type:ApplyStatusEffectSpecial
-    statusEffects:
-    - TraitStatusEffectMuted
->>>>>>> theirs
 
 - type: trait
   id: Paracusia
@@ -165,7 +155,6 @@
   name: trait-painnumbness-name
   description: trait-painnumbness-desc
   category: Disabilities
-<<<<<<< ours
   cost: -1
   effects:
     - !type:AddCompsEffect
@@ -173,24 +162,12 @@
         - type: PainNumbnessStatusEffect
           hideHealthAlert: true
           hidePainOverlay: true
-||||||| base
-  specials:
-  - !type:ApplyStatusEffectSpecial
-    statusEffects:
-    - PainNumbnessTraitStatusEffect
-=======
-  specials:
-  - !type:ApplyStatusEffectSpecial
-    statusEffects:
-    - TraitStatusEffectPainNumbness
->>>>>>> theirs
 
 - type: trait
   id: Hemophilia
   name: trait-hemophilia-name
   description: trait-hemophilia-desc
   category: Disabilities
-<<<<<<< ours
   cost: -1
   effects:
     - !type:AddCompsEffect
@@ -201,17 +178,6 @@
   speciesBlacklist:
     - IPC
     - NovakidSpecies
-||||||| base
-  specials:
-  - !type:ApplyStatusEffectSpecial
-    statusEffects:
-    - StatusEffectHemophiliaTrait
-=======
-  specials:
-  - !type:ApplyStatusEffectSpecial
-    statusEffects:
-    - TraitStatusEffectHemophilia
->>>>>>> theirs
 
 - type: trait
   id: ImpairedMobility
