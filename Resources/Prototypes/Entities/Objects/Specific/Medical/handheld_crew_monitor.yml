@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   name: handheld crew monitor
   categories: [ DoNotMap ]
   parent: [ BaseHandheldComputer, BaseGrandTheftContraband ]
@@ -28,7 +28,7 @@
     interfaces:
       enum.CrewMonitoringUIKey.Key:
         type: CrewMonitoringBoundUserInterface
-  - type: CrewMonitoringConsole
+  - type: ADTCrewMonitoringConsole
     departments: [] # ADT-Tweak: No parameters == full access
   # ADT-Tweak Start - New Monitor
   - type: PdaBorderColor

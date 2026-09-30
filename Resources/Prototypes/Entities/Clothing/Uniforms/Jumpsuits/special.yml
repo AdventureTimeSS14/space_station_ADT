@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]
   id: ClothingUniformJumpsuitPyjamaSyndicateBlack
   name: black syndicate pyjamas
@@ -55,7 +55,7 @@
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuits/Special/tacticool.rsi
   # Too cool for sensors to be on
-  - type: SuitSensor
+  - type: ADTSuitSensor
     randomMode: false
     mode: SensorOff
 

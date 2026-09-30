@@ -1,4 +1,4 @@
-meta:
+﻿meta:
   format: 7
   category: Map
   engineVersion: 289.0.0
@@ -111102,14 +111102,7 @@ entities:
     components:
     - type: Transform
       parent: 30
-<<<<<<< ours
 - proto: MatterBinStockPart
-||||||| base
-- proto: MicroManipulatorStockPart
-=======
-      pos: -17.966362,-18.358541
-- proto: MicroManipulatorStockPart
->>>>>>> theirs
   entities:
   - uid: 20967
     components:

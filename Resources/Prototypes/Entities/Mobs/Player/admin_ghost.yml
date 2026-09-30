@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: [MobObserverBase, InventoryBase]
   id: AdminObserver
   name: admin observer
@@ -97,7 +97,7 @@
   - type: RadarConsole
     followEntity: true
   - type: CargoOrderConsole
-  - type: CrewMonitoringConsole
+  - type: ADTCrewMonitoringConsole
     suppressCritAlertSound: true #ADT-Tweak: NewMonitor — no beep from aghost intrinsic UI
   - type: GeneralStationRecordConsole
     canDeleteEntries: true

@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: [ClothingUniformBase, BaseChameleon]
   id: ClothingUniformJumpsuitChameleon
   name: black jumpsuit
@@ -28,7 +28,7 @@
       - state: equipped-FEET
         color: "#1d1d1d"
       - state: soles-equipped-FEET
-  - type: SuitSensor
+  - type: ADTSuitSensor
     randomMode: false
     mode: SensorOff
   - type: Tag

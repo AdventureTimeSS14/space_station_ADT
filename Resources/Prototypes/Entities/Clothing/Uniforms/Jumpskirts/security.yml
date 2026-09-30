@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDetective
   name: hard-worn suitskirt
@@ -107,7 +107,7 @@
       - state: equipped-INNERCLOTHING
         color: "#ff8300"
       - state: prisoner-equipped-INNERCLOTHING
-  - type: SuitSensor
+  - type: ADTSuitSensor
     controlsLocked: true
     randomMode: false
     mode: SensorCords
