@@ -618,12 +618,6 @@ public abstract partial class SharedMoverController : VirtualController
 
         mobMover.StepSoundDistance -= distanceNeeded;
 
-        if (FootstepModifierQuery.TryComp(uid, out var moverModifier))
-        {
-            sound = moverModifier.FootstepSoundCollection;
-            return sound != null;
-        }
-
         // ADT-Tweak-Start
         if (_inventory.TryGetInventoryEntity<FootstepModifierComponent>((uid, null), out var footstepEnt)
             && footstepEnt.Comp != null)
@@ -631,7 +625,15 @@ public abstract partial class SharedMoverController : VirtualController
             sound = footstepEnt.Comp.FootstepSoundCollection;
             return sound != null;
         }
+        // ADT-Tweak-End
 
+        if (FootstepModifierQuery.TryComp(uid, out var moverModifier))
+        {
+            sound = moverModifier.FootstepSoundCollection;
+            return sound != null;
+        }
+
+        // ADT-Tweak-Start
         bool haveShoes = _inventory.TryGetSlotEntity(uid, "shoes", out _)
             || _tags.HasTag(uid, SiliconFootstepSoundTag);
         return TryGetFootstepSound(uid, xform, haveShoes, out sound, tileDef: tileDef);

@@ -155,6 +155,8 @@ public sealed partial class StencilOverlay
         worldHandle.SetTransform(Matrix3x2.Identity);
         worldHandle.UseShader(_protoManager.Index(StencilMask).Instance());
         worldHandle.DrawTextureRect(res.GroundBlep!.Texture, worldBounds);
+        worldHandle.UseShader(_protoManager.Index(StencilUnmask).Instance());
+        worldHandle.DrawTextureRect(res.Blep!.Texture, worldBounds);
 
         foreach (var (uid, weather, status) in weathers)
         {
