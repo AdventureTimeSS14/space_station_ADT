@@ -1,5 +1,3 @@
-using System.Numerics;
-using Content.Shared.ADT.Alert.Click;
 using Content.Shared.ADT.OfferItem;
 using Content.Shared.ADT.CCVar;
 using Content.Shared.Alert;
@@ -7,9 +5,9 @@ using Content.Shared.IdentityManagement;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.Player;
+using Robust.Client.UserInterface;
+using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Configuration;
-using Robust.Shared.Player;
-using Robust.Shared.Utility;
 
 namespace Content.Client.ADT.OfferItem;
 
@@ -20,147 +18,88 @@ public sealed class OfferItemSystem : SharedOfferItemSystem
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IInputManager _inputManager = default!;
     [Dependency] private readonly IEyeManager _eye = default!;
+    [Dependency] private readonly IUserInterfaceManager _ui = default!;
 
-    private OfferItemWindow? _window;
-    private (EntityUid Giver, EntityUid Item)? _dismissedOffer;
-    private bool _suppressDismiss;
+    private LayoutContainer? _root;
+    private OfferItemIcon? _icon;
 
     public override void Initialize()
     {
         base.Initialize();
         Subs.CVar(_cfg, ADTCCVars.OfferModeIndicatorsPointShow, OnShowOfferIndicatorsChanged, true);
-        SubscribeLocalEvent<OfferItemComponent, AfterAutoHandleStateEvent>(OnAfterAutoHandleState);
-        SubscribeLocalEvent<LocalPlayerAttachedEvent>(OnPlayerAttached);
-        SubscribeLocalEvent<LocalPlayerDetachedEvent>(OnPlayerDetached);
     }
 
     public override void Shutdown()
     {
-        CloseWindow();
+        ClearIcon();
         _overlayManager.RemoveOverlay<OfferItemIndicatorsOverlay>();
         base.Shutdown();
     }
 
-    private void OnAfterAutoHandleState(Entity<OfferItemComponent> ent, ref AfterAutoHandleStateEvent args)
+    public override void FrameUpdate(float frameTime)
     {
-        if (IsRelevant(ent.Owner))
-            UpdateWindow();
+        base.FrameUpdate(frameTime);
+        UpdateIcon();
     }
 
-    protected override void OnOfferChanged(Entity<OfferItemComponent> ent)
-    {
-        if (IsRelevant(ent.Owner))
-            UpdateWindow();
-    }
-
-    private void OnPlayerAttached(LocalPlayerAttachedEvent args)
-    {
-        _dismissedOffer = null;
-        UpdateWindow();
-    }
-
-    private void OnPlayerDetached(LocalPlayerDetachedEvent args)
-    {
-        _dismissedOffer = null;
-        CloseWindow();
-    }
-
-    private bool IsRelevant(EntityUid uid)
-    {
-        if (_playerManager.LocalEntity is not { } local)
-            return false;
-
-        if (uid == local)
-            return true;
-
-        return TryComp<OfferItemComponent>(local, out var localComp) && localComp.Target == uid;
-    }
-
-    private void UpdateWindow()
+    private void UpdateIcon()
     {
         if (_playerManager.LocalEntity is not { } local
             || !TryComp<OfferItemComponent>(local, out var comp)
-            || !comp.IsInReceiveMode)
-        {
-            CloseWindow();
-            return;
-        }
-
-        if (comp.Target is not { } giver
+            || !comp.IsInReceiveMode
+            || comp.Target is not { } giver
             || !TryComp<OfferItemComponent>(giver, out var giverComp)
-            || giverComp.Item is not { } item
-            || _dismissedOffer == (giver, item))
-            return;
-
-        if (_window == null)
+            || giverComp.Item is not { } item)
         {
-            _window = new OfferItemWindow();
-            _window.OnAccept += OnAcceptPressed;
-            _window.OnDecline += OnDeclinePressed;
-            _window.OnClose += OnWindowClosed;
+            ClearIcon();
+            return;
         }
 
-        _window.SetOffer(Identity.Name(giver, EntityManager, local), Identity.Name(item, EntityManager, local), item);
+        if (!EnsureRoot())
+            return;
 
-        if (!_window.IsOpen)
-            _window.OpenCenteredAt(new Vector2(0.72f, 0.22f));
+        if (_icon == null || _icon.Anchor != giver)
+        {
+            _icon?.Orphan();
+            _icon = new OfferItemIcon(giver);
+            _icon.OnPressed += _ => Accept();
+            _root!.AddChild(_icon);
+        }
+
+        _icon.SetItem(item, Loc.GetString("offer-item-icon-tooltip", ("item", Identity.Name(item, EntityManager, local))));
     }
 
-    private void OnAcceptPressed()
+    private void Accept()
     {
         RaisePredictiveEvent(new ClickAlertEvent(OfferAlert));
     }
 
-    private void OnDeclinePressed()
+    private bool EnsureRoot()
     {
-        RememberDismissedOffer();
-        RaiseNetworkEvent(new OfferItemDeclineEvent());
-        CloseWindow(resetDismissed: false);
-    }
-
-    private void OnWindowClosed()
-    {
-        _window = null;
-
-        if (!_suppressDismiss)
-            RememberDismissedOffer();
-    }
-
-    private void RememberDismissedOffer()
-    {
-        if (TryGetCurrentOffer(out var giver, out var item))
-            _dismissedOffer = (giver, item);
-    }
-
-    private bool TryGetCurrentOffer(out EntityUid giver, out EntityUid item)
-    {
-        giver = default;
-        item = default;
-
-        if (_playerManager.LocalEntity is not { } local
-            || !TryComp<OfferItemComponent>(local, out var comp)
-            || !comp.IsInReceiveMode
-            || comp.Target is not { } target
-            || !TryComp<OfferItemComponent>(target, out var giverComp)
-            || giverComp.Item is not { } offered)
+        if (_ui.ActiveScreen?.FindControl<LayoutContainer>("ViewportContainer") is not { } viewport)
+        {
+            ClearIcon();
             return false;
+        }
 
-        giver = target;
-        item = offered;
+        if (_root?.Parent == viewport)
+            return true;
+
+        _root?.Orphan();
+        _root = new LayoutContainer { MouseFilter = Control.MouseFilterMode.Ignore };
+        viewport.AddChild(_root);
+        LayoutContainer.SetAnchorPreset(_root, LayoutContainer.LayoutPreset.Wide);
+        _root.SetPositionLast();
+        _icon = null;
         return true;
     }
 
-    private void CloseWindow(bool resetDismissed = true)
+    private void ClearIcon()
     {
-        if (resetDismissed)
-            _dismissedOffer = null;
-
-        if (_window == null)
-            return;
-
-        _suppressDismiss = true;
-        _window.Close();
-        _suppressDismiss = false;
+        _icon?.Orphan();
+        _icon = null;
+        _root?.Orphan();
+        _root = null;
     }
 
     public bool IsInOfferMode()

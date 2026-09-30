@@ -6,7 +6,7 @@ alerts-adt-soft-crit-desc = Вы серьёзно ранены и чудом в�
 alerts-polymorph-name = [color=#62278c]Полиморф[/color]
 alerts-polymorph-desc = [color=#b26de3]С вашим телом происходит нечто странное...[/color]
 alerts-offer-name = Получить
-alerts-offer-desc = Вам предлагают предмет. Примите его в окне или нажмите на эту иконку.
+alerts-offer-desc = Вам предлагают предмет. Нажмите на иконку над персонажем или на это оповещение.
 alerts-pickup-name = Взять сущность
 alerts-pickup-desc = Вы в режиме готовности взять существо
 alerts-cold-comfy-name = Вы охлаждены
