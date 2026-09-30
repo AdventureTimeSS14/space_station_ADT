@@ -1,12 +1,4 @@
 - type: marking
-  id: ADTFeatheredEarsPangaari
-  bodyPart: HeadTop
-  sponsorOnly: true
-  sprites:
-  - sprite: ADT/Special/pangaari_feathered.rsi
-    state: feathered_ears
-
-- type: marking
   id: ADTFeatheredWingsPangaari
   bodyPart: Tail
   sponsorOnly: true
