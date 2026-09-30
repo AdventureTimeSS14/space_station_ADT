@@ -1,13 +1,3 @@
-<<<<<<< ours
-namespace Content.Shared.Speech.Components;
-
-/// <summary>
-/// Marks a speech status effect that transforms spoken text to uppercase.
-/// </summary>
-[RegisterComponent]
-public sealed partial class AllCapsAccentComponent : Component;
-||||||| base
-=======
 using Content.Shared.Speech.EntitySystems;
 using Robust.Shared.GameStates;
 
@@ -19,4 +9,3 @@ namespace Content.Shared.Speech.Components;
 [RegisterComponent, NetworkedComponent]
 [Access(typeof(AllCapsAccentSystem))]
 public sealed partial class AllCapsAccentComponent : BaseAccentComponent;
->>>>>>> theirs
