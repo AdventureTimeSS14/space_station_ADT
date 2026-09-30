@@ -1,4 +1,3 @@
-<<<<<<< ours
 using Content.Shared.ADT.Chaplain.Components;
 using Content.Shared.Popups;
 using Content.Shared.Damage;
@@ -14,23 +13,6 @@ using Content.Server.Storage.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
 using Content.Shared.Bed.Sleep;
-||||||| base
-using Content.Shared.Popups;
-using Content.Shared.Damage;
-using Content.Shared.Revenant;
-using Robust.Shared.Random;
-using Content.Shared.Tag;
-using Content.Shared.Storage.Components;
-using Content.Server.Light.Components;
-using Content.Server.Ghost;
-using Robust.Shared.Physics;
-using Content.Shared.Throwing;
-using Content.Server.Storage.EntitySystems;
-using Content.Shared.Interaction;
-using Content.Shared.Item;
-using Content.Shared.Bed.Sleep;
-=======
->>>>>>> theirs
 using System.Linq;
 using System.Numerics;
 using Content.Server.Ghost;
@@ -54,7 +36,6 @@ using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.Revenant;
 using Content.Shared.Revenant.Components;
-<<<<<<< ours
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Utility;
 using Content.Server.ADT.Hallucinations;
@@ -70,25 +51,15 @@ using Content.Shared.Doors.Systems;
 using Content.Shared.Tools.Systems;
 using Content.Shared.Chemistry.Components;
 using Robust.Shared.Map.Components;
-||||||| base
-using Robust.Shared.Physics.Components;
-using Robust.Shared.Utility;
-using Robust.Shared.Map.Components;
-=======
 using Content.Shared.Tag;
 using Content.Shared.Throwing;
->>>>>>> theirs
 using Content.Shared.Whitelist;
-<<<<<<< ours
 using Content.Shared.ADT.Silicon.Components;
 using Content.Shared.Stunnable;
 using Content.Server.Power.Components; // ADT-Revenant-Tweak
-||||||| base
-=======
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
->>>>>>> theirs
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
@@ -97,37 +68,6 @@ namespace Content.Server.Revenant.EntitySystems;
 
 public sealed partial class RevenantSystem
 {
-<<<<<<< ours
-    [Dependency] private readonly EmagSystem _emagSystem = default!;
-    [Dependency] private readonly ThrowingSystem _throwing = default!;
-    [Dependency] private readonly EntityStorageSystem _entityStorage = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
-    [Dependency] private readonly GhostSystem _ghost = default!;
-    [Dependency] private readonly TileSystem _tile = default!;
-    [Dependency] private readonly HallucinationsSystem _hallucinations = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
-    [Dependency] private readonly SmokeSystem _smoke = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedDoorSystem _door = default!;
-//    [Dependency] private readonly WeldableSystem _weld = default!;     ADT-Revenant-Tweak
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!; // ADT-Tweak
-||||||| base
-    [Dependency] private readonly EmagSystem _emagSystem = default!;
-    [Dependency] private readonly ThrowingSystem _throwing = default!;
-    [Dependency] private readonly EntityStorageSystem _entityStorage = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
-    [Dependency] private readonly GhostSystem _ghost = default!;
-    [Dependency] private readonly TileSystem _tile = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
-=======
     [Dependency] private EmagSystem _emagSystem = default!;
     [Dependency] private ThrowingSystem _throwing = default!;
     [Dependency] private EntityStorageSystem _entityStorage = default!;
@@ -135,16 +75,23 @@ public sealed partial class RevenantSystem
     [Dependency] private MobThresholdSystem _mobThresholdSystem = default!;
     [Dependency] private GhostSystem _ghost = default!;
     [Dependency] private TileSystem _tile = default!;
+    [Dependency] private HallucinationsSystem _hallucinations = default!;
+    [Dependency] private StatusEffectsSystem _status = default!;
+    [Dependency] private SmokeSystem _smoke = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private SharedDoorSystem _door = default!;
+//    [Dependency] private WeldableSystem _weld = default!;     ADT-Revenant-Tweak
     [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private SharedTransformSystem _transformSystem = default!;
     [Dependency] private SharedMapSystem _mapSystem = default!;
+    [Dependency] private ISharedPlayerManager _player = default!; // ADT-Tweak
 
     [Dependency] private EntityQuery<ItemComponent> _itemQuery;
     [Dependency] private EntityQuery<MobStateComponent> _mobStateQuery;
     [Dependency] private EntityQuery<PoweredLightComponent> _poweredLightQuery;
->>>>>>> theirs
 
-    private static readonly ProtoId<TagPrototype> WindowTag = "Window";
+    private static ProtoId<TagPrototype> WindowTag = "Window";
 
     private void InitializeAbilities()
     {
@@ -179,16 +126,7 @@ public sealed partial class RevenantSystem
             return;
         }
 
-<<<<<<< ours
-        if (!HasComp<MobStateComponent>(target)
-            || !HasComp<HumanoidProfileComponent>(target)
-            || HasComp<RevenantComponent>(target)
-            || HasComp<MagicImmunityComponent>(target)) // ADT-Tweak
-||||||| base
-        if (!HasComp<MobStateComponent>(target) || !HasComp<HumanoidProfileComponent>(target) || HasComp<RevenantComponent>(target))
-=======
-        if (!_mobStateQuery.HasComp(target) || !HasComp<HumanoidProfileComponent>(target) || HasComp<RevenantComponent>(target))
->>>>>>> theirs
+        if (!_mobStateQuery.HasComp(target) || !HasComp<HumanoidProfileComponent>(target) || HasComp<RevenantComponent>(target) || HasComp<MagicImmunityComponent>(target)) // ADT-Tweak
             return;
 
         args.Handled = true;
@@ -372,21 +310,8 @@ public sealed partial class RevenantSystem
         }
 
         var lookup = _lookup.GetEntitiesInRange(uid, component.DefileRadius, LookupFlags.Approximate | LookupFlags.Static);
-<<<<<<< ours
-        var tags = GetEntityQuery<TagComponent>();
-        var entityStorage = GetEntityQuery<EntityStorageComponent>();
-        var items = GetEntityQuery<ItemComponent>();
-        var lights = GetEntityQuery<PoweredLightComponent>();
         var magicImmunity = GetEntityQuery<MagicImmunityComponent>(); // ADT-Tweak
 
-||||||| base
-        var tags = GetEntityQuery<TagComponent>();
-        var entityStorage = GetEntityQuery<EntityStorageComponent>();
-        var items = GetEntityQuery<ItemComponent>();
-        var lights = GetEntityQuery<PoweredLightComponent>();
-
-=======
->>>>>>> theirs
         foreach (var ent in lookup)
         {
             // ADT-Tweak start
@@ -414,23 +339,14 @@ public sealed partial class RevenantSystem
                 TryComp<PhysicsComponent>(ent, out var phys) && phys.BodyType != BodyType.Static)
                 _throwing.TryThrow(ent, _random.NextAngle().ToWorldVec(), 15f);
 
-<<<<<<< ours
-            //flicker lights
-            if (lights.HasComponent(ent))
+//flicker lights
+            if (_poweredLightQuery.HasComp(ent))
                 _ghost.DoGhostBooEvent(ent);
 
             // ADT Revenant buff
             var toxin = new DamageSpecifier();
             toxin.DamageDict.Add("Poison", 27);
             _damage.TryChangeDamage(ent, toxin, origin: uid);
-||||||| base
-            //flicker lights
-            if (lights.HasComponent(ent))
-                _ghost.DoGhostBooEvent(ent);
-=======
-            //spooky stuff
-            _ghost.DoGhostBooEvent(ent);
->>>>>>> theirs
         }
         _audio.PlayPvs(component.DefileSound, uid); // ADT Revenant sounds
     }
@@ -446,26 +362,12 @@ public sealed partial class RevenantSystem
         args.Handled = true;
 
         var xform = Transform(uid);
-<<<<<<< ours
-        var poweredLights = GetEntityQuery<PoweredLightComponent>();
-        var mobState = GetEntityQuery<MobStateComponent>();
         var magicImmunity = GetEntityQuery<MagicImmunityComponent>(); // ADT-Tweak
-||||||| base
-        var poweredLights = GetEntityQuery<PoweredLightComponent>();
-        var mobState = GetEntityQuery<MobStateComponent>();
-=======
->>>>>>> theirs
         var lookup = _lookup.GetEntitiesInRange(uid, component.OverloadRadius);
         //TODO: feels like this might be a sin and a half
         foreach (var ent in lookup)
         {
-<<<<<<< ours
-           if (!mobState.HasComponent(ent) || !_mobState.IsAlive(ent) || magicImmunity.HasComponent(ent)) // ADT-Tweak
-||||||| base
-            if (!mobState.HasComponent(ent) || !_mobState.IsAlive(ent))
-=======
-            if (!_mobStateQuery.HasComp(ent) || !_mobState.IsAlive(ent))
->>>>>>> theirs
+           if (!_mobStateQuery.HasComp(ent) || !_mobState.IsAlive(ent) || magicImmunity.HasComponent(ent)) // ADT-Tweak
                 continue;
 
             var nearbyLights = _lookup.GetEntitiesInRange(ent, component.OverloadZapRadius)
