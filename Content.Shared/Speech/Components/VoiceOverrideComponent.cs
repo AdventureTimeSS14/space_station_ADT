@@ -1,10 +1,7 @@
-<<<<<<< HEAD:Content.Server/Speech/Components/VoiceOverrideComponent.cs
 using Content.Shared.ADT.SpeechBarks;
 using Content.Shared.ADT.TTS;
 using Content.Shared.Speech;
-=======
 using Robust.Shared.GameStates;
->>>>>>> wizards-filtered:Content.Shared/Speech/Components/VoiceOverrideComponent.cs
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Speech.Components;

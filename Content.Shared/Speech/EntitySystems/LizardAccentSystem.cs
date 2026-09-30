@@ -1,12 +1,8 @@
-<<<<<<< HEAD:Content.Server/Speech/EntitySystems/LizardAccentSystem.cs
 using System.Text.RegularExpressions;
-using Content.Server.Speech.Components;
-using Robust.Shared.Random;
-using Content.Shared.Speech;
-=======
-﻿using System.Text.RegularExpressions;
+using Content.Shared.Random.Helpers;
 using Content.Shared.Speech.Components;
->>>>>>> wizards-filtered:Content.Shared/Speech/EntitySystems/LizardAccentSystem.cs
+using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Shared.Speech.EntitySystems;
 
@@ -18,14 +14,16 @@ public sealed partial class LizardAccentSystem : RelayAccentSystem<LizardAccentC
     private static readonly Regex RegexLowerEndX = new(@"\bx([\-|r|R]|\b)");
     private static readonly Regex RegexUpperEndX = new(@"\bX([\-|r|R]|\b)");
 
-<<<<<<< HEAD:Content.Server/Speech/EntitySystems/LizardAccentSystem.cs
-    [Dependency] private readonly IRobustRandom _random = default!; // Corvax-Localization
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
-    public override void Initialize()
-=======
     public override string Accentuate(string message, Entity<LizardAccentComponent>? ent = null)
->>>>>>> wizards-filtered:Content.Shared/Speech/EntitySystems/LizardAccentSystem.cs
     {
+        // ADT-Tweak-Start
+        var random = ent.HasValue
+            ? SharedRandomExtensions.PredictedRandom(_timing, GetNetEntity(ent.Value))
+            : _random;
+        // ADT-Tweak-End
         // hissss
         message = RegexLowerS.Replace(message, "sss");
         // hiSSS
@@ -37,60 +35,56 @@ public sealed partial class LizardAccentSystem : RelayAccentSystem<LizardAccentC
         // eckS
         message = RegexUpperEndX.Replace(message, "ECKS$1");
 
-<<<<<<< HEAD:Content.Server/Speech/EntitySystems/LizardAccentSystem.cs
         // Corvax-Localization-Start
         // c => ссс
         message = Regex.Replace(
             message,
             "с+",
-            _random.Pick(new List<string>() { "сс", "ссс" })
+            random.Pick(new List<string>() { "сс", "ссс" })
         );
         // С => CCC
         message = Regex.Replace(
             message,
             "С+",
-            _random.Pick(new List<string>() { "СС", "ССС" })
+            random.Pick(new List<string>() { "СС", "ССС" })
         );
         // з => ссс
         message = Regex.Replace(
             message,
             "з+",
-            _random.Pick(new List<string>() { "сс", "ссс" })
+            random.Pick(new List<string>() { "сс", "ссс" })
         );
         // З => CCC
         message = Regex.Replace(
             message,
             "З+",
-            _random.Pick(new List<string>() { "СС", "ССС" })
+            random.Pick(new List<string>() { "СС", "ССС" })
         );
         // ш => шшш
         message = Regex.Replace(
             message,
             "ш+",
-            _random.Pick(new List<string>() { "шш", "шшш" })
+            random.Pick(new List<string>() { "шш", "шшш" })
         );
         // Ш => ШШШ
         message = Regex.Replace(
             message,
             "Ш+",
-            _random.Pick(new List<string>() { "ШШ", "ШШШ" })
+            random.Pick(new List<string>() { "ШШ", "ШШШ" })
         );
         // ч => щщщ
         message = Regex.Replace(
             message,
             "ч+",
-            _random.Pick(new List<string>() { "щщ", "щщщ" })
+            random.Pick(new List<string>() { "щщ", "щщщ" })
         );
         // Ч => ЩЩЩ
         message = Regex.Replace(
             message,
             "Ч+",
-            _random.Pick(new List<string>() { "ЩЩ", "ЩЩЩ" })
+            random.Pick(new List<string>() { "ЩЩ", "ЩЩЩ" })
         );
         // Corvax-Localization-End
-        args.Message = message;
-=======
         return message;
->>>>>>> wizards-filtered:Content.Shared/Speech/EntitySystems/LizardAccentSystem.cs
     }
 }

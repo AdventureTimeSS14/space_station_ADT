@@ -1,10 +1,3 @@
-<<<<<<< ours
-namespace Content.Shared.Speech.Components;
-
-[RegisterComponent]
-public sealed partial class SlurredAccentComponent : Component;
-||||||| base
-=======
 using Content.Shared.Speech.EntitySystems;
 using Robust.Shared.GameStates;
 
@@ -29,4 +22,3 @@ public sealed partial class SlurredAccentComponent : BaseAccentComponent
     [DataField]
     public float SlurredThreshold = 80f;
 }
->>>>>>> theirs

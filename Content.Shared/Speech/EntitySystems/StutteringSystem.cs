@@ -12,14 +12,16 @@ namespace Content.Shared.Speech.EntitySystems;
 
 public sealed partial class StutteringSystem : RelayAccentSystem<StutteringAccentComponent>
 {
-    public static readonly EntProtoId StutterEffect = "StatusEffectSlurred";
+    public static readonly EntProtoId StutterEffect = "StatusEffectStutter"; // ADT-Tweak
 
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private StatusEffectsSystem _statusEffects = default!;
 
     // Regex of characters to stutter.
-    private static readonly Regex Stutter = new("[b-df-hj-np-tv-wxyz]",
+    // ADT-Tweak-Start
+    private static readonly Regex Stutter = new("[b-df-hj-np-tv-wxyz-б-вд-к-лмн-прст]",
         RegexOptions.Compiled | RegexOptions.IgnoreCase);
+    // ADT-Tweak-End
 
     public override string Accentuate(string message, Entity<StutteringAccentComponent>? ent = null)
     {
