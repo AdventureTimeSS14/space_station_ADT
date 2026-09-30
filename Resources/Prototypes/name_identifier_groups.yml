@@ -61,18 +61,9 @@
   format: name-identifier-format-telepad
   minValue: 0
   maxValue: 999
-<<<<<<< ours
 
 # ADT-Tweak
 - type: nameIdentifierGroup
   id: Xenobounty
   minValue: 0
   maxValue: 999
-||||||| base
-=======
-
-- type: nameIdentifierGroup
-  id: AdjectivePrefix
-  identifierDataset: Adjectives
-  prefix: true
->>>>>>> theirs
