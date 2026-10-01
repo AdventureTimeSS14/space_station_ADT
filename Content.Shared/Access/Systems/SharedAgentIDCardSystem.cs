@@ -1,5 +1,4 @@
 using Content.Shared.Access.Components;
-using Content.Shared.ADT.NanoChat; // ADT-Tweak
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Lock;
@@ -22,7 +21,6 @@ public abstract partial class SharedAgentIdCardSystem : EntitySystem
     [Dependency] private SharedIdCardSystem _card = default!;
     [Dependency] private SharedJobSystem _job = default!;
     [Dependency] private SharedJobStatusSystem _jobStatus = default!;
-    [Dependency] private SharedNanoChatSystem _nanoChat = default!; // ADT-Tweak
 
     /// <summary>
     /// Steals access from interacted ids.
@@ -41,34 +39,6 @@ public abstract partial class SharedAgentIdCardSystem : EntitySystem
         var beforeLength = access.Tags.Count;
         access.Tags.UnionWith(targetAccess.Tags);
         var addedLength = access.Tags.Count - beforeLength;
-
-        // ADT-Tweak-Start
-        if (TryComp<NanoChatCardComponent>(args.Target, out var targetNanoChat) &&
-            TryComp<NanoChatCardComponent>(ent, out var agentNanoChat))
-        {
-            // First clear existing data
-            _nanoChat.Clear((ent.Owner, agentNanoChat));
-
-            // Copy the number
-            if (_nanoChat.GetNumber((args.Target.Value, targetNanoChat)) is { } number)
-                _nanoChat.SetNumber((ent.Owner, agentNanoChat), number);
-
-            // Copy all recipients and their messages
-            foreach (var (recipientNumber, recipient) in _nanoChat.GetRecipients((args.Target.Value, targetNanoChat)))
-            {
-                _nanoChat.SetRecipient((ent.Owner, agentNanoChat), recipientNumber, recipient);
-
-                if (_nanoChat.GetMessagesForRecipient((args.Target.Value, targetNanoChat), recipientNumber) is not
-                    { } messages)
-                    continue;
-
-                foreach (var message in messages)
-                {
-                    _nanoChat.AddMessage((ent.Owner, agentNanoChat), recipientNumber, message);
-                }
-            }
-        }
-        // ADT-Tweak-End
 
         _popup.PopupPredicted(Loc.GetString("agent-id-new", ("number", addedLength), ("card", args.Target)),
             args.Target.Value,
@@ -167,30 +137,3 @@ public sealed class AgentIDCardJobIconChangedMessage(ProtoId<JobIconPrototype> i
 {
     public ProtoId<JobIconPrototype> JobIconId { get; } = icon;
 }
-
-// ADT-Tweak-Start
-/// <summary>
-/// Represents an <see cref="AgentIDCardComponent"/> state that can be sent to the client
-/// </summary>
-[Serializable, NetSerializable]
-public sealed class AgentIDCardBoundUserInterfaceState(
-    string currentName,
-    string currentJob,
-    string currentJobIconId,
-    uint? currentNumber = null) : BoundUserInterfaceState
-{
-    public string CurrentName { get; } = currentName;
-    public string CurrentJob { get; } = currentJob;
-    public string CurrentJobIconId { get; } = currentJobIconId;
-    public uint? CurrentNumber { get; } = currentNumber;
-}
-
-/// <summary>
-/// Sent from the agent ID UI to change the nanochat number.
-/// </summary>
-[Serializable, NetSerializable]
-public sealed class AgentIDCardNumberChangedMessage(uint number) : BoundUserInterfaceMessage
-{
-    public uint Number { get; } = number;
-}
-// ADT-Tweak-End

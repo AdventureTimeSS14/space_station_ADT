@@ -10,7 +10,6 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
-using System.Linq; // ADT-Tweak
 using System.Numerics;
 
 namespace Content.Client.Access.UI;
@@ -28,10 +27,6 @@ public sealed partial class AgentIDCardWindow : FancyWindow
 
     public event Action<ProtoId<JobIconPrototype>>? OnJobIconChanged;
 
-    private const int MaxNumberLength = 4; // ADT-tweak: Same as NewChatPopup
-
-    public event Action<uint>? OnNumberChanged; // ADT-tweak: Add event for number changes
-
     public AgentIDCardWindow()
     {
         RobustXamlLoader.Load(this);
@@ -44,12 +39,30 @@ public sealed partial class AgentIDCardWindow : FancyWindow
         JobLineEdit.OnTextEntered += e => CommitJob(e.Text);
         JobLineEdit.OnFocusExit += e => CommitJob(e.Text);
 
+<<<<<<< ours
+        private const int MaxNumberLength = 4; // ADT-tweak: Same as NewChatPopup
+
+        public event Action<string>? OnNameChanged;
+        public event Action<string>? OnJobChanged;
+||||||| base
+        public event Action<string>? OnNameChanged;
+        public event Action<string>? OnJobChanged;
+=======
         NameLineEdit.IsValid = s => s.Length <= _cfgManager.GetCVar(CCVars.MaxNameLength);
         JobLineEdit.IsValid = s => s.Length <= _cfgManager.GetCVar(CCVars.MaxIdJobLength);
+>>>>>>> theirs
 
+<<<<<<< ours
+        public event Action<uint>? OnNumberChanged; // ADT-tweak: Add event for number changes
+
+        public event Action<ProtoId<JobIconPrototype>>? OnJobIconChanged;
+||||||| base
+        public event Action<ProtoId<JobIconPrototype>>? OnJobIconChanged;
+=======
         AgentTabs.SetTabTitle(0, Loc.GetString("agent-id-ui-tab-settings"));
         AgentTabs.SetTabTitle(1, Loc.GetString("agent-id-ui-tab-job-icons"));
     }
+>>>>>>> theirs
 
     /// <summary>
     /// Creates the job icons tab.
@@ -78,6 +91,7 @@ public sealed partial class AgentIDCardWindow : FancyWindow
             firstGroupButton ??= groupButton;
             firstGroupIcons ??= groupProto.Icons;
 
+<<<<<<< ours
             JobLineEdit.OnTextEntered += e => OnJobChanged?.Invoke(e.Text);
             JobLineEdit.OnFocusExit += e => OnJobChanged?.Invoke(e.Text);
 
@@ -97,7 +111,20 @@ public sealed partial class AgentIDCardWindow : FancyWindow
                 if (newText != args.Text)
                     NumberLineEdit.Text = newText;
             };
-            // ADT-tweak-end
+        }
+        private void OnNumberEntered(LineEdit.LineEditEventArgs args)
+        {
+            if (uint.TryParse(args.Text, out var number) && number > 0)
+                OnNumberChanged?.Invoke(number);
+        }
+        public void SetCurrentNumber(uint? number)
+        {
+            NumberLineEdit.Text = number?.ToString("D4") ?? "";
+             // ADT-tweak-end
+||||||| base
+            JobLineEdit.OnTextEntered += e => OnJobChanged?.Invoke(e.Text);
+            JobLineEdit.OnFocusExit += e => OnJobChanged?.Invoke(e.Text);
+=======
             // Prefer the group that actually contains the card's current icon so
             // the opened window shows the relevant set rather than always the first.
             if (matchingGroupButton == null && groupProto.Icons.Contains(currentIcon))
@@ -105,6 +132,7 @@ public sealed partial class AgentIDCardWindow : FancyWindow
                 matchingGroupButton = groupButton;
                 matchingGroupIcons = groupProto.Icons;
             }
+>>>>>>> theirs
         }
 
         var selectedButton = matchingGroupButton ?? firstGroupButton;
@@ -116,19 +144,6 @@ public sealed partial class AgentIDCardWindow : FancyWindow
         selectedButton.Pressed = true;
         SetJobIcons(selectedIcons);
     }
-
-    // ADT-Tweak-Start
-    private void OnNumberEntered(LineEdit.LineEditEventArgs args)
-    {
-        if (uint.TryParse(args.Text, out var number) && number > 0)
-            OnNumberChanged?.Invoke(number);
-    }
-
-    public void SetCurrentNumber(uint? number)
-    {
-        NumberLineEdit.Text = number?.ToString("D4") ?? "";
-    }
-    // ADT-Tweak-End
 
     /// <summary>
     /// Creates the job icon subgroup within the job icons tab.
