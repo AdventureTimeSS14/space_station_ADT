@@ -8,7 +8,6 @@
   startingGear: ADTERTLeaderGearEVA
   icon: "JobIconERTLeader"
   supervisors: job-supervisors-centcom
-<<<<<<< ours
   canBeAntag: false
   requirements:
   - !type:OverallPlaytimeRequirement
@@ -16,10 +15,6 @@
   - !type:DepartmentTimeRequirement
     department: Security
     time: 20h # adt tweak
-||||||| base
-  canBeAntag: false
-=======
->>>>>>> theirs
   accessGroups:
   - AllAccess
   access:
@@ -117,7 +112,6 @@
   startingGear: ERTChaplainGear
   icon: "JobIconERTChaplain"
   supervisors: job-supervisors-centcom
-<<<<<<< ours
   canBeAntag: false
   requirements:
   - !type:OverallPlaytimeRequirement
@@ -125,10 +119,6 @@
   - !type:DepartmentTimeRequirement
     department: Security
     time: 20h # adt tweak
-||||||| base
-  canBeAntag: false
-=======
->>>>>>> theirs
   accessGroups:
   - AllAccess
   access:
@@ -206,7 +196,6 @@
   startingGear: ADTERTEngineerGearEVA # ADT-Tweak
   icon: "JobIconERTEngineer"
   supervisors: job-supervisors-centcom
-<<<<<<< ours
   canBeAntag: false
   requirements:
   - !type:OverallPlaytimeRequirement
@@ -214,10 +203,6 @@
   - !type:DepartmentTimeRequirement
     department: Security
     time: 20h # adt tweak
-||||||| base
-  canBeAntag: false
-=======
->>>>>>> theirs
   accessGroups:
   - AllAccess
   access:
@@ -300,7 +285,6 @@
   startingGear: ADTERTSecurityGearEVA # ADT-Tweak
   icon: "JobIconERTSecurity"
   supervisors: job-supervisors-centcom
-<<<<<<< ours
   canBeAntag: false
   requirements:
   - !type:OverallPlaytimeRequirement
@@ -308,10 +292,6 @@
   - !type:DepartmentTimeRequirement
     department: Security
     time: 20h # adt tweak
-||||||| base
-  canBeAntag: false
-=======
->>>>>>> theirs
   accessGroups:
   - AllAccess
   access:
@@ -412,7 +392,6 @@
   startingGear: ADTERTMedicalGearEVA # ADT-Tweak
   icon: "JobIconERTMedic"
   supervisors: job-supervisors-centcom
-<<<<<<< ours
   canBeAntag: false
   requirements:
   - !type:OverallPlaytimeRequirement
@@ -420,10 +399,6 @@
   - !type:DepartmentTimeRequirement
     department: Security
     time: 20h # adt tweak
-||||||| base
-  canBeAntag: false
-=======
->>>>>>> theirs
   accessGroups:
   - AllAccess
   access:
@@ -498,7 +473,6 @@
   startingGear: ADTERTJanitorGearEVA # ADT-Tweak
   icon: "JobIconERTJanitor"
   supervisors: job-supervisors-centcom
-<<<<<<< ours
   canBeAntag: false
   requirements:
   - !type:OverallPlaytimeRequirement
@@ -506,10 +480,6 @@
   - !type:DepartmentTimeRequirement
     department: Security
     time: 20h # adt tweak
-||||||| base
-  canBeAntag: false
-=======
->>>>>>> theirs
   accessGroups:
   - AllAccess
   access:
@@ -540,7 +510,6 @@
 #     - CrowbarRed
 #     - AdvMopItem
 
-<<<<<<< ours
 # - type: startingGear
 #   id: ERTJanitorGearEVA
 #   equipment:
@@ -562,84 +531,6 @@
 #     - Soap
 #     - CrowbarRed
 #     - AdvMopItem
-||||||| base
-- type: startingGear
-  id: ERTJanitorGearEVA
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitERTJanitor
-    back: ClothingBackpackERTJanitor
-    shoes: ClothingShoesBootsMagERT
-    mask: ClothingMaskGasERT
-    eyes: ClothingEyesGlassesChemical
-    gloves: ClothingHandsGlovesCombat
-    outerClothing: ClothingOuterHardsuitERTJanitor
-    id: ERTJanitorPDA
-    ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltMilitaryWebbingERT
-    pocket2: CombatKnife
-    suitstorage: WeaponLauncherHydra
-  storage:
-    back:
-    - TrashBag
-    - SoapNT
-    - Plunger
-    - Screwdriver
-    - AdvMopItem # End of first line
-    - GrenadeCleanade
-    - GrenadeCleanade
-    - GrenadeCleanade
-    - GrenadeCleanade
-    - GrenadeCleanade
-    - GrenadeCleanade
-    belt:
-    - MegaSprayBottleSpaceCleaner
-    - Holoprojector
-    - LightReplacer
-    - WireBrush
-    - CrowbarRed
-    - WeaponPistolMk58
-    - MagazinePistol
-    - EmergencyMedipen
-=======
-- type: startingGear
-  id: ERTJanitorGearEVA
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitERTJanitor
-    back: ClothingBackpackERTJanitor
-    shoes: ClothingShoesBootsMagERT
-    mask: ClothingMaskGasERT
-    eyes: ClothingEyesGlassesChemical
-    gloves: ClothingHandsGlovesCombat
-    outerClothing: ClothingOuterHardsuitERTJanitor
-    id: ERTJanitorPDA
-    ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltMilitaryWebbingERT
-    pocket2: CombatKnife
-    suitstorage: WeaponLauncherHydra
-  storage:
-    back:
-    - SoapNT
-    - Plunger
-    - Screwdriver
-    - AdvMopItem
-    - GrenadeCleanade
-    - GrenadeCleanade # End of first line
-    - GrenadeCleanade
-    - GrenadeCleanade
-    - GrenadeCleanade
-    - GrenadeCleanade
-    belt:
-    - MegaSprayBottleSpaceCleaner
-    - Holoprojector
-    - LightReplacerFilled
-    - WireBrush
-    - CrowbarRed
-    - WeaponPistolMk58
-    - MagazinePistol
-    - EmergencyMedipen
-  inhand:
-    - TrashBag
->>>>>>> theirs
 
 - type: chameleonOutfit
   id: ERTJanitorChameleonOutfit

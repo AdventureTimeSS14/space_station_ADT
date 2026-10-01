@@ -22,9 +22,8 @@ public sealed class VoiceMaskBuiState : BoundUserInterfaceState
     public readonly string? JobIconId; // ADT-Tweak start
     public readonly bool Active;
     public readonly bool AccentHide;
-    public readonly LocId TitleText;
 
-    public VoiceMaskBuiState(string name, string voice, string bark, float pitch, string? verb, bool active, bool accentHide, LocId titleText, string? jobIconId = null)
+    public VoiceMaskBuiState(string name, string voice, string bark, float pitch, string? verb, bool active, bool accentHide, string? jobIconId = null)
     {
         Name = name;
         Verb = verb;
@@ -34,7 +33,6 @@ public sealed class VoiceMaskBuiState : BoundUserInterfaceState
         JobIconId = jobIconId;
         Active = active;
         AccentHide = accentHide;
-        TitleText = titleText;
     }
 }
 

@@ -124,18 +124,9 @@
   - Экипаж спасается, но ядерная бомба была взведена, когда они убегали.
   - Ядерная бомба была доставлена в Центральное командование.
 
-<<<<<<< ours
   [color=#a4885c]Скромная победа Синдиката[/color]
   - Экипаж сбегает, но оставляет всех оперативников в живых.
   - Экипаж сбегает, и некоторые оперативники остаются в живых, но экипаж не забирают с собой диск.
-||||||| base
-  [bold][color=red]Syndicate Minor Victory[/color][/bold]
-  - The crew escapes on evac, but every operative survives.
-  - The crew escapes and some operatives die, but the crew loses the disk.
-=======
-  [bold][color=red]Syndicate Minor Victory[/color][/bold]
-  - At least one operative survives, and the crew escapes, leaving the disk behind.
->>>>>>> theirs
 
   [color=#a4885c]Ничья[/color]
   - Ядерная бомба взрывается за пределами станции.

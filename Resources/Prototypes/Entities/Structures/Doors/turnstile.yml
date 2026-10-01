@@ -45,18 +45,9 @@
       - Pullable # no dragging things in
   - type: Appearance
   - type: Damageable
-<<<<<<< ours
     damageModifierSet: Metallic # ADT-Tweak StrongMetallic -> Metallic
   - type: Injurable
     damageContainer: Inorganic
-||||||| base
-    damageContainer: Inorganic
-    damageModifierSet: StrongMetallic
-=======
-    damageModifierSet: StrongMetallic
-  - type: Injurable
-    damageContainer: Inorganic
->>>>>>> theirs
   - type: Destructible
     thresholds:
     - trigger:

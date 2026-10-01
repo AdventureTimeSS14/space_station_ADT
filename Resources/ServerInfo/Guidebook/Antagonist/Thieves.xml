@@ -10,72 +10,23 @@
 
   Воры — это мелкие, но хитрые [color=green]преступники[/color], которые не могут удержать свои руки при себе. После вашего последнего ареста вам вживили [bold]имплант пацифизма[/bold], но это не остановит вас от попыток пополнить свою коллекцию.
 
-<<<<<<< ours
   ## Искусство кражи
   В отличие от других антагонистов, [bold]избежание неприятностей для вас почти обязательно[/bold] из-за вашего импланта.
   Вы можете только убегать, если [color=#cb0000]Служба Безопасности[/color] начнёт с вами драку, и, поскольку вы работаете в одиночку, у вас нет друзей, которые могли бы вытащить вас из опасности.
-||||||| base
-  ## Art of the Steal
-  Unlike other antagonists, [bold]staying out of trouble is almost a requirement for you[/bold] because of your implant.
-  You can only run if [color=#cb0000]Security[/color] picks a fight with you, and because you work alone you don't have any friends to pull you out of danger.
-=======
->>>>>>> theirs
 
-<<<<<<< ours
   Но, несмотря ни на что, вы успешно стащите то, что хотите, используя решимость, ловкость рук, несколько инструментов и свои [color=cyan]воровские перчатки.[/color]
-||||||| base
-  But against all odds, you'll sucessfully swipe what you want using determination, sleight of hand, a few tools and your [color=cyan]pickpocketing skills.[/color]
-=======
-  ## Art of the Steal
-  Unlike other antagonists, it's important to [bold]stay out of trouble[/bold] because of your pacifism implant.
-  While you can still use [color=yellow]stun weapons[/color] in a pinch, you should run if [color=#cb0000]Security[/color] picks a fight with you.
-  You work alone, and you don't have any friends to pull you out of danger.
->>>>>>> theirs
 
-<<<<<<< ours
-  Пара перчаток, которые у вас есть, даёт вам серьёзное преимущество: [bold]способность забирать вещи у людей, даже не привлекая их внимания.[/bold] С небольшой практикой вы сможете украсть их кошелёк и одновременно поддерживать разговор.
-||||||| base
-  The pickpocketing skills you have give you a major advantage: [bold]the ability to take things from people without them even noticing.[/bold] With a little practice you can steal their wallet and keep up a conversation at the same time.
-
-  It is advised to get a pair of gloves as your fingerprints could still be traced back to the stolen goods if they're found.
-=======
-  But against all odds, you'll successfully swipe what you want using determination, sleight of hand, a few tools, and your [color=cyan]pickpocketing skills[/color].
-
-  The pickpocketing skills you have give you a major advantage: [bold]the ability to take things from people without them even noticing[/bold]. With a little practice, you can steal their wallet and keep up a conversation at the same time.
->>>>>>> theirs
-
-<<<<<<< ours
   Они также сделаны из высококачественных [bold]голографических хамелеоновых волокон[/bold], которые вы смогли украсть, но, хотя они могут выглядеть как изолированные перчатки, вам всё равно понадобится настоящая пара, чтобы не обжечь руки.
-||||||| base
-=======
-  It is advised to get a pair of gloves, as your fingerprints could still be traced back to the stolen goods if they're found.
->>>>>>> theirs
 
   <Box>
     <GuideEntityEmbed Entity="ClothingHandsChameleonThief" Caption="ваши воровские перчатки"/>
   </Box>
 
-<<<<<<< ours
   ## Инструменты торговли
   У вас есть ещё два козыря в украденных рукавах: ваш [color=cyan]маяк[/color] и ваша [color=cyan]воровская сумка.[/color]
-||||||| base
-  ## Tools of the Trade
-  You've got two more aces up your stolen sleeves: your [color=cyan]beacon[/color] and your [color=cyan]satchel.[/color]
-=======
-  ## Tools of the Trade
-  You've got two more aces up your stolen sleeves: your [color=cyan]thieving beacon[/color] and your [color=cyan]thieving satchel[/color].
->>>>>>> theirs
 
-<<<<<<< ours
   Ваш [color=cyan]маяк[/color] обеспечивает безопасную доставку домой для безделушек, которые может быть неудобно брать с собой на эвакуационный шаттл. Просто найдите укромное место на станции, разверните маяк и установите его координаты на ваш тайник.
   Все блестяшки рядом с ним будут [bold]телепортированы в ваш сейф по окончании смены,[/bold] выполняя ваши цели.
-||||||| base
-  Your [color=cyan]beacon[/color] provides safe passage home for trinkets that may not be easy to carry with you on the evac shuttle. Simply find a secluded part of the station to unfold the beacon, then set its coordinates to your hideout.
-  Any shinies near it will be [bold]teleported to your vault when the shift ends,[/bold] fulfilling your objectives.
-=======
-  Your [color=cyan]thieving beacon[/color] provides safe passage home for trinkets that may not be easy to carry with you on the evac shuttle. Simply find a secluded part of the station to unfold the thieving beacon, then set its coordinates to your hideout.
-  Any shinies near it will be [bold]teleported to your vault when the shift ends[/bold], fulfilling your objectives.
->>>>>>> theirs
 
   Однако, если его найдут, это мгновенно выдаст вас и сделает крайне лёгким для людей возвращение их "пропавших" вещей. [bold]Убедитесь, что вы хорошо его спрятали![/bold]
 
@@ -83,14 +34,8 @@
     <GuideEntityEmbed Entity="ThiefBeacon"/>
   </Box>
 
-<<<<<<< ours
   Ваша [color=cyan]воровская сумка[/color] содержит... ну, всё, что вы успели упаковать. [bold]Вы можете выбрать два готовых набора[/bold], чтобы помочь вам в более грандиозных ограблениях.
   Подтвердите свой выбор в безопасном месте, и выбранные наборы появятся внутри вашей сумки.
-||||||| base
-  Your [color=cyan]satchel[/color] contains... well, whatever you remembered to pack. [bold]You can select two pre-made kits[/bold] to help you complete grander heists.
-=======
-  Your [color=cyan]thieving satchel[/color] contains... well, whatever you remembered to pack. [bold]You can select two pre-made kits[/bold] to help you complete grander heists.
->>>>>>> theirs
 
   <Box>
     <GuideEntityEmbed Entity="SatchelThief"/>
@@ -123,22 +68,9 @@
 
   Неважно. Все они станут частью вашей коллекции в кратчайшие сроки.
 
-<<<<<<< ours
   Вы можете украсть предметы, [bold]имея их при себе[/bold], когда доберётесь до Центпрального Командования. Если это не удастся, вы можете украсть более крупные предметы, [bold]оставив их рядом с вашим маяком.[/bold]
-||||||| base
-  You can steal items by [bold]having them on your person[/bold] when you get to CentComm. Failing this, you can steal larger items by [bold]leaving them by your beacon.[/bold]
-=======
-  You can steal items by [bold]having them on your person[/bold] when you get to CentComm. Failing this, you can steal larger items by [bold]leaving them by your thieving beacon.[/bold]
->>>>>>> theirs
 
-<<<<<<< ours
   Некоторые из более [italic]одушевлённых[/italic] целей могут не сотрудничать с вами. Убедитесь, что они живы и находятся с вами или вашим маяком по окончании смены.
-||||||| base
-  Some of the more [italic]animate[/italic] objectives may not cooperate with you. Make sure they're alive and with you or your beacon when the shift ends.
-=======
-  Some of the more [italic]animate[/italic] objectives may not cooperate with you. Make sure they're alive and with you or your thieving beacon when the shift ends.
-  A [color=cyan]pet carrier[/color] is optional, but might make the critters easier to handle.
->>>>>>> theirs
 
   Вещи, которые вы можете пожелать, включают, но не ограничиваются:
 

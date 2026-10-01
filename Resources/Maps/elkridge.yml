@@ -1,4 +1,4 @@
-meta:
+﻿meta:
   format: 7
   category: Map
   engineVersion: 289.0.0
@@ -96947,14 +96947,7 @@ entities:
     components:
     - type: Transform
       parent: 2
-<<<<<<< ours
 - proto: MicroServoStockPart
-||||||| base
-- proto: MicroManipulatorStockPart
-=======
-      pos: 35.608074,7.556761
-- proto: MicroManipulatorStockPart
->>>>>>> theirs
   entities:
   - uid: 14934
     components:
@@ -96965,15 +96958,6 @@ entities:
     components:
     - type: Transform
       parent: 2
-<<<<<<< ours
-||||||| base
-    - type: Stack
-      count: 2
-=======
-      pos: 32.166813,-17.551153
-    - type: Stack
-      count: 2
->>>>>>> theirs
   - uid: 16415
     components:
     - type: Transform

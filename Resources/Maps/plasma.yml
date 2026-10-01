@@ -1,4 +1,4 @@
-meta:
+﻿meta:
   format: 7
   category: Map
   engineVersion: 289.0.0
@@ -136588,14 +136588,7 @@ entities:
       desc: This memorial is dedicated to the spacemen and women - past, present and future - who worked to make space as great as it is today, and who strive to make it greater still.
     - type: Transform
       parent: 2
-<<<<<<< ours
 - proto: MicroServoStockPart
-||||||| base
-- proto: MicroManipulatorStockPart
-=======
-      pos: -61.5,-27.5
-- proto: MicroManipulatorStockPart
->>>>>>> theirs
   entities:
   - uid: 3604
     components:

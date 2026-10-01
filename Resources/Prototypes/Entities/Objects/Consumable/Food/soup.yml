@@ -229,31 +229,6 @@
     layers:
     - state: bowl
     - state: caesar
-<<<<<<< ours
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 50
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 15
-        - ReagentId: Vitamin
-          Quantity: 30
-  - type: Tag #ADT_Tweak - делаем салат Цезарь съедобным для молей
-    tags:
-    - ADTMothFriendlyFood
-    - Soup
-||||||| base
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 50
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 15
-        - ReagentId: Vitamin
-          Quantity: 30
-=======
   - type: Solution
     solution:
       reagents:
@@ -265,7 +240,10 @@
         Quantity: 5
       - ReagentId: Allicin
         Quantity: 1
->>>>>>> theirs
+  - type: Tag #ADT_Tweak - делаем салат Цезарь съедобным для молей
+    tags:
+    - ADTMothFriendlyFood
+    - Soup
 
 - type: entity
   name: kimchi salad
@@ -583,36 +561,6 @@
     layers:
     - state: bowl
     - state: oatmeal
-<<<<<<< ours
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 7
-        - ReagentId: Vitamin
-          Quantity: 2
-        - ReagentId: Milk
-          Quantity: 10
-  - type: Tag #ADT_Tweak - делаем салат Цезарь съедобным для молей
-    tags:
-    - ADTMothFriendlyFood
-    - Soup
-||||||| base
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 7
-        - ReagentId: Vitamin
-          Quantity: 2
-        - ReagentId: Milk
-          Quantity: 10
-=======
->>>>>>> theirs
 
 - type: entity
   name: space liberty duff
@@ -1044,32 +992,6 @@
     - state: bowl2
     - state: miso
         #rip milo
-<<<<<<< ours
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 40
-        reagents:
-          - ReagentId: Nutriment
-            Quantity: 4.5 # ADT-Tweak 9 > 4.5
-          - ReagentId: Vitamin
-            Quantity: 3
-          - ReagentId: Water
-            Quantity: 10
-||||||| base
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 40
-        reagents:
-          - ReagentId: Nutriment
-            Quantity: 9
-          - ReagentId: Vitamin
-            Quantity: 3
-          - ReagentId: Water
-            Quantity: 10
-=======
->>>>>>> theirs
   - type: Tag
     tags:
     - Meat

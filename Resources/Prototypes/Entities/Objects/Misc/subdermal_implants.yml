@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: BaseSubdermalImplant
   name: implant
   description: A microscopic chip that's injected under the skin.
@@ -92,7 +92,7 @@
     - type: RattleOnTrigger
       radioChannel: Security
     # ADT Tweak-END
-    - type: SuitSensor
+    - type: ADTSuitSensor
       randomMode: false
       controlsLocked: true
       mode: SensorCords

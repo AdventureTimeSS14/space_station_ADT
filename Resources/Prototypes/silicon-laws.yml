@@ -240,14 +240,8 @@
   - Commandment8
   - Commandment9
   - Commandment10
-<<<<<<< ours
   obeysTo: laws-owner-crew
   roundstart: true  # ADT SAI Custom
-||||||| base
-  obeysTo: laws-owner-crew
-=======
-  obeysTo: laws-owner-heads
->>>>>>> theirs
 
  # Paladin laws
 - type: siliconLaw
@@ -279,14 +273,8 @@
   - Paladin2
   - Paladin3
   - Paladin4
-<<<<<<< ours
   obeysTo: laws-owner-crew
   roundstart: true  # ADT SAI Custom
-||||||| base
-  obeysTo: laws-owner-crew
-=======
-  obeysTo: laws-owner-legitimate-leadership
->>>>>>> theirs
 
  # Live and Let Live laws
 - type: siliconLaw
@@ -332,14 +320,8 @@
   - Efficiency1
   - Efficiency2
   - Efficiency3
-<<<<<<< ours
   obeysTo: laws-owner-station
   roundstart: true  # ADT SAI Custom
-||||||| base
-  obeysTo: laws-owner-station
-=======
-  obeysTo: laws-owner-crew
->>>>>>> theirs
 
  # Robocop laws
 - type: siliconLaw
@@ -471,14 +453,8 @@
   - Painter2
   - Painter3
   - Painter4
-<<<<<<< ours
   obeysTo: laws-owner-crew
   roundstart: true  # ADT SAI Custom
-||||||| base
-  obeysTo: laws-owner-crew
-=======
-  obeysTo: laws-owner-audience
->>>>>>> theirs
 
  # Antimov laws
 - type: siliconLaw

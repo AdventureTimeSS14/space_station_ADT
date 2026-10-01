@@ -116,34 +116,16 @@
   name: BBQ sauce
   description: Hand wipes not included.
   components:
-<<<<<<< ours
   # ADT-Tweak-Start
   - type: Tag
     tags:
     - FoodCondimentPacketBbq
   # ADT-Tweak-End
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: BbqSauce
-          Quantity: 10
-||||||| base
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: BbqSauce
-          Quantity: 10
-=======
   - type: Solution
     solution:
       reagents:
       - ReagentId: BbqSauce
         Quantity: 1
->>>>>>> theirs
   - type: Icon
     state: packet-bbq
   - type: Appearance
@@ -392,13 +374,11 @@
   name: coldsauce bottle
   description: Leaves the tongue numb in its passage.
   components:
-<<<<<<< ours
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Coldsauce
-          Quantity: 30
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Coldsauce
+        Quantity: 50
   #ADT-Tweak-Start
   - type: GenericVisualizer
     visuals:
@@ -406,20 +386,6 @@
         enum.OpenableVisuals.Layer:
           True: {state: "bottle-coldsauce_open"} # open
           False: {state: "bottle-coldsauce"} # closed
-||||||| base
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Coldsauce
-          Quantity: 30
-=======
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: Coldsauce
-        Quantity: 50
->>>>>>> theirs
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/condiments.rsi
     layers:
@@ -439,13 +405,11 @@
   name: universal enzyme
   description: Used in cooking various dishes.
   components:
-<<<<<<< ours
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Enzyme
-          Quantity: 30
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Enzyme
+        Quantity: 50
   #ADT-Tweak-Start
   - type: GenericVisualizer
     visuals:
@@ -453,20 +417,6 @@
         enum.OpenableVisuals.Layer:
           True: {state: "bottle-enzyme_open"} # open
           False: {state: "bottle-enzyme"} # closed
-||||||| base
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Enzyme
-          Quantity: 30
-=======
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: Enzyme
-        Quantity: 50
->>>>>>> theirs
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/condiments.rsi
     layers:
@@ -492,13 +442,11 @@
   name: vinegar bottle
   description: Used in cooking to enhance flavor.
   components:
-<<<<<<< ours
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Vinegar
-          Quantity: 30
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Vinegar
+        Quantity: 50
   #ADT-Tweak-Start
   - type: GenericVisualizer
     visuals:
@@ -506,20 +454,6 @@
         enum.OpenableVisuals.Layer:
           True: {state: "bottle-vinegar_open"} # open
           False: {state: "bottle-vinegar"} # closed
-||||||| base
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Vinegar
-          Quantity: 30
-=======
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: Vinegar
-        Quantity: 50
->>>>>>> theirs
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/condiments.rsi
     layers:
@@ -542,13 +476,11 @@
   name: hotsauce bottle
   description: You can almost TASTE the stomach ulcers now!
   components:
-<<<<<<< ours
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Hotsauce
-          Quantity: 30
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Hotsauce
+        Quantity: 50
   #ADT-Tweak-Start
   - type: GenericVisualizer
     visuals:
@@ -556,20 +488,6 @@
         enum.OpenableVisuals.Layer:
           True: {state: "bottle-hotsauce_open"} # open
           False: {state: "bottle-hotsauce"} # closed
-||||||| base
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Hotsauce
-          Quantity: 30
-=======
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: Hotsauce
-        Quantity: 50
->>>>>>> theirs
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/condiments.rsi
     layers:
@@ -589,13 +507,11 @@
   name: ketchup bottle
   description: You feel more American already.
   components:
-<<<<<<< ours
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Ketchup
-          Quantity: 30
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Ketchup
+        Quantity: 50
   #ADT-Tweak-Start
   - type: GenericVisualizer
     visuals:
@@ -603,20 +519,6 @@
         enum.OpenableVisuals.Layer:
           True: {state: "bottle-ketchup_open"} # open
           False: {state: "bottle-ketchup"} # closed
-||||||| base
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Ketchup
-          Quantity: 30
-=======
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: Ketchup
-        Quantity: 50
->>>>>>> theirs
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/condiments.rsi
     layers:
@@ -636,13 +538,11 @@
   name: BBQ sauce bottle
   description: Hand wipes not included.
   components:
-<<<<<<< ours
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: BbqSauce
-          Quantity: 30
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: BbqSauce
+        Quantity: 50
   #ADT-Tweak-Start
   - type: GenericVisualizer
     visuals:
@@ -650,20 +550,6 @@
         enum.OpenableVisuals.Layer:
           True: {state: "bottle-bbq_open"} # open
           False: {state: "bottle-bbq"} # closed
-||||||| base
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: BbqSauce
-          Quantity: 30
-=======
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: BbqSauce
-        Quantity: 50
->>>>>>> theirs
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/condiments.rsi
     layers:

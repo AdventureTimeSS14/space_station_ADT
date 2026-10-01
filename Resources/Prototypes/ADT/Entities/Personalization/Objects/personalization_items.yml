@@ -2933,7 +2933,7 @@
     quickEquip: false
     slots: [belt]
   - type: Summonable
-    specialItem: SpawnADTMobWatcherBible
+    summonEntity: SpawnADTMobWatcherBible
   - type: PaperVisuals
     backgroundImagePath: "/Textures/Interface/Paper/paper_background_book.svg.96dpi.png"
     backgroundPatchMargin: 23.0, 16.0, 14.0, 15.0

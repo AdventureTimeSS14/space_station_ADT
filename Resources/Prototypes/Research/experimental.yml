@@ -208,16 +208,6 @@
   tier: 3
   cost: 10000
   recipeUnlocks:
-<<<<<<< ours
-  - DeviceDesynchronizer
-  requiredTech:
-  - ADTBluespaceMining
-  # ADT Research Console Rework start
-  position: 4,-3
-  # ADT Research Console Rework end
-||||||| base
-  - DeviceDesynchronizer
-=======
   - DeviceDesynchronizer
 
 - type: technology
@@ -233,4 +223,3 @@
   - StationTeleportersControlCircuitboard
   - StationTeleporterMachineCircuitboard
   - TeleporterChipBlank
->>>>>>> theirs

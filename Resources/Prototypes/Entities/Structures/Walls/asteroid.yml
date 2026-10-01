@@ -31,11 +31,6 @@
   - type: MiningScannerViewable
   - type: Damageable
     damageModifierSet: Rock
-<<<<<<< ours
-  - type: Injurable
-    damageContainer: StructuralInorganic
-||||||| base
-=======
   - type: Injurable
     damageContainer: StructuralInorganic
   - type: Fixtures
@@ -57,7 +52,6 @@
   name: asteroid rock
   description: A rocky asteroid.
   components:
->>>>>>> theirs
   - type: Destructible
     thresholds:
     - trigger:
@@ -71,7 +65,6 @@
           path: /Audio/Effects/break_stone.ogg
           params:
             volume: -6
-<<<<<<< ours
   - type: SoundOnGather #ADT plasmacutters start
   - type: Gatherable
     toolWhitelist:
@@ -88,20 +81,6 @@
         layer:
         - WallLayer
         density: 2000
-||||||| base
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.5,-0.5,0.5,0.5"
-        mask:
-        - FullTileMask
-        layer:
-        - WallLayer
-        density: 2000
-=======
->>>>>>> theirs
 
 - type: entity
   abstract: true

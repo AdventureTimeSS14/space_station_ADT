@@ -5,8 +5,8 @@
   id: ADTBibleQuaran
   components:
   - type: Summonable
-    specialItem: ADTSpawnPointGhostRahima
-    respawnTime: 300
+    summonEntity: ADTSpawnPointGhostRahima
+    respawnCooldown: 300
   - type: Sprite
     sprite: ADT/Objects/Specific/Chapel/quaran.rsi
   - type: Item
@@ -20,8 +20,8 @@
   id: ADTBibleTanakh
   components:
   - type: Summonable
-    specialItem: ADTSpawnPointGhostRafael
-    respawnTime: 300
+    summonEntity: ADTSpawnPointGhostRafael
+    respawnCooldown: 300
   - type: Sprite
     sprite: ADT/Objects/Specific/Chapel/tanakh.rsi
   - type: Item
@@ -35,8 +35,8 @@
   id: ADTBibleTripitaka
   components:
   - type: Summonable
-    specialItem: ADTSpawnPointGhostRatha
-    respawnTime: 300
+    summonEntity: ADTSpawnPointGhostRatha
+    respawnCooldown: 300
   - type: Sprite
     sprite: ADT/Objects/Specific/Chapel/tripitaka.rsi
   - type: Item
@@ -50,8 +50,8 @@
   id: ADTBibleVedas
   components:
   - type: Summonable
-    specialItem: ADTSpawnPointGhostRagha
-    respawnTime: 300
+    summonEntity: ADTSpawnPointGhostRagha
+    respawnCooldown: 300
   - type: Sprite
     sprite: ADT/Objects/Specific/Chapel/vedas.rsi
   - type: Item
@@ -66,8 +66,8 @@
   components:
   - type: Bible
   - type: Summonable
-    specialItem: ADTSpawnPointGhostRanikha
-    respawnTime: 300
+    summonEntity: ADTSpawnPointGhostRanikha
+    respawnCooldown: 300
   - type: Sprite
     sprite: ADT/Objects/Specific/Chapel/scroll.rsi
   - type: Item
@@ -81,8 +81,8 @@
   id: ADTBibleTajaran
   components:
   - type: Summonable
-    specialItem: ADTSpawnPointGhostRonia
-    respawnTime: 300
+    summonEntity: ADTSpawnPointGhostRonia
+    respawnCooldown: 300
   - type: Sprite
     sprite: ADT/Objects/Specific/Chapel/unatablet.rsi
   - type: Item
@@ -113,8 +113,8 @@
           True: {visible: true}
           False: {visible: false}
   - type: Summonable
-    specialItem: ADTSpawnPointGhostRosie
-    respawnTime: 300
+    summonEntity: ADTSpawnPointGhostRosie
+    respawnCooldown: 300
   - type: Sprite
     sprite: ADT/Objects/Specific/Chapel/mothbible.rsi
     layers:
@@ -143,8 +143,8 @@
   id: ADTBibleLeatherCodex
   components:
   - type: Summonable
-    specialItem: ADTSpawnPointGhostRebecca
-    respawnTime: 300
+    summonEntity: ADTSpawnPointGhostRebecca
+    respawnCooldown: 300
   - type: Sprite
     sprite: ADT/Objects/Specific/Chapel/leathercodex.rsi
   - type: Item

@@ -10,6 +10,10 @@ using Content.Shared.Random.Helpers;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
+// ADT-Tweak-Start
+using Content.Shared.ADT.Construction;
+using Content.Shared.ADT.Construction.Events;
+// ADT-Tweak-End
 
 namespace Content.Shared.Botany.Systems;
 
@@ -369,6 +373,26 @@ public sealed partial class PlantTraySystem : EntitySystem
 
         return ent.Comp.NutritionLevel <= ent.Comp.MaxNutritionLevel * 0.1f;
     }
+
+    // ADT-Tweak-Start
+    [SubscribeLocalEvent]
+    private void OnRefreshParts(Entity<PlantTrayComponent> ent, ref RefreshPartsEvent args)
+    {
+        var capacity = args.GetStatMultiplier(MachineStat.Capacity);
+        ent.Comp.WaterCapacityMultiplier = capacity;
+        ent.Comp.NutritionCapacityMultiplier = capacity;
+        ent.Comp.NutrientConsumptionMultiplier = args.GetStatMultiplier(MachineStat.ResourceCost);
+        Dirty(ent);
+    }
+
+    [SubscribeLocalEvent]
+    private static void OnUpgradeExamine(Entity<PlantTrayComponent> ent, ref UpgradeExamineEvent args)
+    {
+        args.AddPercentageUpgrade("machine-upgrade-hydro-water", ent.Comp.WaterCapacityMultiplier, benefit: true);
+        args.AddPercentageUpgrade("machine-upgrade-hydro-nutrition", ent.Comp.NutritionCapacityMultiplier, benefit: true);
+        args.AddPercentageUpgrade("machine-upgrade-hydro-nutrition-consume", ent.Comp.NutrientConsumptionMultiplier, benefit: false);
+    }
+    // ADT-Tweak-End
 }
 
 /// <summary>

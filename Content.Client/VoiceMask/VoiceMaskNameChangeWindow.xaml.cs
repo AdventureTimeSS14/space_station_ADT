@@ -239,13 +239,12 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
     }
     // ADT-Tweak end Job Icons
 
-    public void UpdateState(string name, string voice, string barkId, float barkPitch, string? verb, LocId titleText, string? jobIconId = null, bool active = false, bool accentHide = false)
+    public void UpdateState(string name, string voice, string barkId, float barkPitch, string? verb, string? jobIconId = null, bool active = false, bool accentHide = false)
     {
         NameSelector.Text = name;
         _verb = verb;
         ToggleButton.Pressed = active;
         ToggleAccentButton.Pressed = accentHide;
-        Title = Loc.GetString(titleText);
         for (int id = 0; id < SpeechVerbSelector.ItemCount; id++)
         {
             if (string.Equals(verb, SpeechVerbSelector.GetItemMetadata(id)))

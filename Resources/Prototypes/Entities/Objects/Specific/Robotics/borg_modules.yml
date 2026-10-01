@@ -639,89 +639,6 @@
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: mining-module }
 
-<<<<<<< ours
-#ADT tweak-Start: MineBorgModulesUpdate
-
-# - type: entity
-#   id: BorgModuleAdvancedMining
-#   parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
-#   name: advanced mining cyborg module
-#   description: Advanced cargo module containing advanced mining equipment. Studies show it advances productivity of a cyborg by 150%.
-#   components:
-#   - type: Sprite
-#     layers:
-#     - state: cargo
-#     - state: icon-mining-adv
-#   - type: ItemBorgModule
-#     hands:
-#     - item: MiningDrillDiamond
-#     - item: Shovel
-#     - item: AdvancedMineralScannerUnpowered
-#     - item: BorgOreBagOfHolding
-#     - item: BorgHandheldGPSBasic #ADT tweak: MineBorgModulesUpdate
-#     - item: HandheldStationMapUnpowered #ADT tweak: MineBorgModulesUpdate
-#     - item: AdvancedMineralScannerUnpowered #ADT tweak
-#   - type: BorgModuleIcon
-#     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-mining-module }
-
-#- type: entity
-#  id: BorgModuleTraversal
-#  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
-#  name: traversal cyborg module
-#  components:
-#  - type: Sprite
-#    layers:
-#    - state: cargo
-#    - state: icon-grappling-gun
-#  - type: ItemBorgModule
-#    items:
-#    - WeaponGrapplingGun
-#    - BorgFireExtinguisher
-#    - BorgHandheldGPSBasic
-#    - HandHeldMassScannerBorg
-#    - RadioHandheld
-#  - type: BorgModuleIcon
-#    icon: { sprite: Interface/Actions/actions_borg.rsi, state: grappling-module }
-
-#ADT tweak-End: MineBorgModulesUpdate
-||||||| base
-- type: entity
-  id: BorgModuleAdvancedMining
-  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
-  name: advanced mining cyborg module
-  description: Advanced cargo module containing advanced mining equipment. Studies show it advances productivity of a cyborg by 150%.
-  components:
-  - type: Sprite
-    layers:
-    - state: cargo
-    - state: icon-mining-adv
-  - type: ItemBorgModule
-    hands:
-    - item: MiningDrillDiamond
-    - item: Shovel
-    - item: AdvancedMineralScannerUnpowered
-    - item: OreBagOfHolding
-  - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-mining-module }
-
-- type: entity
-  id: BorgModuleTraversal
-  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
-  name: traversal cyborg module
-  components:
-  - type: Sprite
-    layers:
-    - state: cargo
-    - state: icon-grappling-gun
-  - type: ItemBorgModule
-    hands:
-    - item: WeaponGrapplingGun
-    - item: BorgFireExtinguisher
-    - item: BorgHandheldGPSBasic
-    - item: HandHeldMassScannerBorg
-  - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: grappling-module }
-=======
 - type: entity
   id: BorgModuleAdvancedMining
   parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
@@ -758,7 +675,6 @@
     - item: HandHeldMassScannerBorg
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: grappling-module }
->>>>>>> theirs
 
 # engineering modules
 - type: entity
@@ -1625,16 +1541,8 @@
 - type: entity
   parent: [ BaseXenoborgModuleEngi, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleAccessBreaker
-<<<<<<< ours
   name: EMAG xenoborg module
   description: Module with a EMAG.
-||||||| base
-  name: access breaker xenoborg module
-  description: Module with a access breaker.
-=======
-  name: access breaker xenoborg module
-  description: Module with an access breaker.
->>>>>>> theirs
   components:
   - type: Sprite
     layers:
@@ -1646,14 +1554,8 @@
       - XenoborgModuleAccessBreaker
   - type: ItemBorgModule
     hands:
-<<<<<<< ours
     - item: Emag # ADT-Tweak
    # - item: AccessBreaker
-||||||| base
-    - item: AccessBreaker
-=======
-    - item: XenoborgAccessBreaker
->>>>>>> theirs
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-access-breaker-module }
   - type: Tag
@@ -1747,14 +1649,8 @@
   - type: ItemBorgModule
     hands:
     - item: DoorRemoteXenoborg
-<<<<<<< ours
   #  - item: AccessBreaker
     - item: Emag
-||||||| base
-    - item: AccessBreaker
-=======
-    - item: XenoborgAccessBreaker
->>>>>>> theirs
     - item: AccessConfiguratorXenoborg
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-door-remote-module }

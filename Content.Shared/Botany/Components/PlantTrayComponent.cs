@@ -82,6 +82,17 @@ public sealed partial class PlantTrayComponent : Component
     [DataField, AutoNetworkedField]
     public float TrayConsumptionMultiplier = 2f;
 
+    // ADT-Tweak-Start
+    [DataField, AutoNetworkedField]
+    public float WaterCapacityMultiplier = 1f;
+
+    [DataField, AutoNetworkedField]
+    public float NutritionCapacityMultiplier = 1f;
+
+    [DataField, AutoNetworkedField]
+    public float NutrientConsumptionMultiplier = 1f;
+    // ADT-Tweak-End
+
     /// <summary>
     /// Currently planted plant entity (parented to this tray).
     /// </summary>

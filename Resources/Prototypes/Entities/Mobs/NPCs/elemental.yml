@@ -68,14 +68,8 @@
   - type: NpcFactionMember
     factions:
       - SimpleHostile
-<<<<<<< ours
   - type: Damageable
   - type: Injurable
-||||||| base
-  - type: Damageable
-=======
-  - type: Injurable
->>>>>>> theirs
     damageContainer: StructuralInorganic
 - type: entity
   parent: MobOreCrab

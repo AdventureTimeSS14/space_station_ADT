@@ -6,6 +6,10 @@ using Content.Shared.Popups;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.Random.Helpers;
 using Robust.Shared.Timing;
+// ADT-Tweak-Start
+using Content.Shared.ADT.Construction;
+using Content.Shared.ADT.Construction.Events;
+// ADT-Tweak-End
 
 namespace Content.Shared.Botany.Systems;
 
@@ -51,7 +55,7 @@ public sealed partial class SeedExtractorSystem : EntitySystem
 
 
         var random = SharedRandomExtensions.PredictedRandom(_timing, GetNetEntity(ent));
-        var amount = random.NextFloat(ent.Comp.BaseSeeds.Min, ent.Comp.BaseSeeds.Max + 1);
+        var amount = (int)MathF.Round(random.NextFloat(ent.Comp.BaseSeeds.Min, ent.Comp.BaseSeeds.Max + 1) * ent.Comp.SeedMultiplier); // ADT-Tweak
         var coords = Transform(ent).Coordinates;
 
         for (var i = 0; i < amount; i++)
@@ -60,4 +64,19 @@ public sealed partial class SeedExtractorSystem : EntitySystem
                 _botany.SpawnSeedPacket(plantData, produce.PlantProtoId.Value, snapshot, coords, args.User);
         }
     }
+
+    // ADT-Tweak-Start
+    [SubscribeLocalEvent]
+    private void OnPartsRefresh(Entity<SeedExtractorComponent> ent, ref RefreshPartsEvent args)
+    {
+        ent.Comp.SeedMultiplier = args.GetStatMultiplier(MachineStat.Speed);
+        Dirty(ent);
+    }
+
+    [SubscribeLocalEvent]
+    private static void OnUpgradeExamine(Entity<SeedExtractorComponent> ent, ref UpgradeExamineEvent args)
+    {
+        args.AddPercentageUpgrade("machine-upgrade-seed-extraction", ent.Comp.SeedMultiplier, benefit: true);
+    }
+    // ADT-Tweak-End
 }

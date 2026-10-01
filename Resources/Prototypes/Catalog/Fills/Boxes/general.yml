@@ -331,12 +331,7 @@
     whitelist:
       tags:
         - TrashBag
-<<<<<<< ours
-        - TrashBagBlue
-||||||| base
-=======
         - TrashBagHolding
->>>>>>> theirs
   - type: Sprite
     layers:
       - state: box

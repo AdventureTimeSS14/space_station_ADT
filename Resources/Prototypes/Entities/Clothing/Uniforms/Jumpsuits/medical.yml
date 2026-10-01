@@ -8,7 +8,7 @@
     sprite: Clothing/Uniforms/Jumpsuits/Medical/chemistry.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase] # ADT-Tweak
   id: ClothingUniformJumpsuitVirology
   name: virology jumpsuit
   description: It's made of a special fiber that gives special protection against biohazards. It has a virologist rank stripe on it.
@@ -19,7 +19,7 @@
     sprite: Clothing/Uniforms/Jumpsuits/Medical/virology.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase] # ADT-Tweak
   id: ClothingUniformJumpsuitGenetics
   name: genetics jumpsuit
   description: It's made of a special fiber that gives special protection against biohazards. It has a geneticist rank stripe on it.
@@ -59,7 +59,7 @@
     sprite: Clothing/Uniforms/Jumpsuits/Medical/medical.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase] # ADT-Tweak
   id: ClothingUniformJumpsuitParamedic
   name: paramedic jumpsuit
   description: It's got a plus on it, that's a good thing right?
@@ -70,7 +70,7 @@
     sprite: Clothing/Uniforms/Jumpsuits/Medical/paramedic.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase] # ADT-Tweak
   id: ClothingUniformJumpsuitSeniorPhysician
   name: senior physician jumpsuit
   description: A sign of skill and prestige within the medical department.

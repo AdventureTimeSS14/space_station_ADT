@@ -8,7 +8,7 @@
   productEntity: BoxHoloparasite
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 8
+    Telecrystal: 8 # ADT-Tweak
   cost:
     Telecrystal: 12
   categories:
@@ -24,10 +24,10 @@
   name: uplink-reinforcement-radio-name
   description: uplink-reinforcement-radio-traitor-desc
   productEntity: ReinforcementRadioSyndicate
-  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-urist }
+  icon: { sprite: ADT/Objects/Devices/communication.rsi, state: old-radio-urist } # ADT-Tweak
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 7
+    Telecrystal: 6 # ADT-Tweak
   cost:
     Telecrystal: 11
   categories:
@@ -43,9 +43,9 @@
   name: uplink-reinforcement-radio-nukeops-name
   description: uplink-reinforcement-radio-nukeops-desc
   productEntity: ReinforcementRadioSyndicateNukeops
-  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-nukeop }
+  icon: { sprite: ADT/Objects/Devices/communication.rsi, state: old-radio-nukeop } # ADT-Tweak
   cost:
-    Telecrystal: 30
+    Telecrystal: 16 # ADT-Tweak
   categories:
   - UplinkAllies
   conditions:
@@ -59,9 +59,9 @@
   name:  uplink-reinforcement-radio-cyborg-assault-name
   description: uplink-reinforcement-radio-cyborg-assault-desc
   productEntity: ReinforcementRadioSyndicateCyborgAssault
-  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-borg-assault }
+  icon: { sprite: ADT/Objects/Devices/communication.rsi, state: old-radio-borg-assault } # ADT-Tweak
   cost:
-    Telecrystal: 65
+    Telecrystal: 80 # ADT-Tweak
   categories:
     - UplinkAllies
   conditions:
@@ -69,18 +69,20 @@
       whitelist:
         tags:
           - NukeOpsUplink
+    - !type:ListingLimitedStockCondition # ADT-Tweak
+      stock: 1 # ADT-Tweak
 
 - type: listing
   id: UplinkReinforcementRadioSyndicateAncestor
   name: uplink-reinforcement-radio-ancestor-name
   description: uplink-reinforcement-radio-ancestor-desc
   productEntity: ReinforcementRadioSyndicateAncestor
-  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-ancestor }
+  icon: { sprite: ADT/Objects/Devices/communication.rsi, state: old-radio-ancestor } # ADT-Tweak
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 4
+    Telecrystal: 2 # ADT-Tweak
   cost:
-    Telecrystal: 6
+    Telecrystal: 3 # ADT-Tweak
   categories:
   - UplinkAllies
   conditions:
@@ -94,7 +96,7 @@
   name: uplink-reinforcement-radio-ancestor-name
   description: uplink-reinforcement-radio-ancestor-desc
   productEntity: ReinforcementRadioSyndicateAncestorNukeops
-  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-ancestor }
+  icon: { sprite: ADT/Objects/Devices/communication.rsi, state: old-radio-ancestor } # ADT-Tweak
   discountCategory: usualDiscounts
   discountDownTo:
     Telecrystal: 4
@@ -127,13 +129,13 @@
   id: UplinkMobCatMicrobomb
   name: uplink-mobcat-microbomb-name
   description: uplink-mobcat-microbomb-desc
-  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-syndicat }
+  icon: { sprite: ADT/Objects/Devices/communication.rsi, state: old-radio-syndicat } # ADT-Tweak
   productEntity: ReinforcementRadioSyndicateSyndiCat
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 2 # ADT-Tweak
   cost:
-    Telecrystal: 6
+    Telecrystal: 4 # ADT-Tweak
   categories:
     - UplinkAllies
 

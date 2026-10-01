@@ -134,21 +134,6 @@
   - type: Wall
   - type: Sprite
     state: support_wall
-<<<<<<< ours
-  - type: Damageable
-    damageModifierSet: Wood
-  - type: Injurable
-    damageContainer: StructuralInorganic
-  - type: Physics
-    bodyType: Static
-||||||| base
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Wood
-  - type: Physics
-    bodyType: Static
-=======
->>>>>>> theirs
   - type: Fixtures
     fixtures:
       fix1:

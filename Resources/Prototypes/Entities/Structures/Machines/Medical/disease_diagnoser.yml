@@ -17,7 +17,6 @@
   - type: Appearance
   - type: Machine
     board: DiagnoserMachineCircuitboard
-<<<<<<< ours
   # ADT-Tweak-Start
   - type: GenericVisualizer
     visuals:
@@ -47,17 +46,6 @@
       params:
         volume: -4
   # ADT-Tweak-End
-||||||| base
-=======
-  - type: Destructible
-    thresholds:
-    - trigger: !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
->>>>>>> theirs
 
 - type: entity
   name: disease diagnoser report

@@ -266,18 +266,10 @@
         Base: dead-0
       Dead:
         Base: dead-0
-<<<<<<< ours
-||||||| base
-  - type: Butcherable
-    spawned:
-    - id: FoodMeatChicken
-      amount: 1
-=======
   - type: ToolRefinable
     refineResult:
     - id: FoodMeatChicken
       amount: 1
->>>>>>> theirs
   - type: InteractionPopup
     successChance: 0.8
     interactSuccessString: petting-success-bird
@@ -290,17 +282,6 @@
       reagents:
       - ReagentId: Blood
         Quantity: 100
-<<<<<<< ours
-  - type: EggLayer
-    eggSpawn:
-    - id: ADTFoodEggLaid # ADT: FoodEgg<ADTFoodEggLaid
-  - type: ExaminableHunger
-||||||| base
-  - type: EggLayer
-    eggSpawn:
-    - id: FoodEgg
-  - type: ExaminableHunger
-=======
   - type: EntityProducerAction
     insufficientSatiationPopup: action-popup-lay-egg-too-hungry
     userPopup: action-popup-lay-egg-user
@@ -313,11 +294,10 @@
     automaticForPlayers: false
   - type: EntityProducer
     table:
-      id: FoodEgg
+    - id: ADTFoodEggLaid # ADT: FoodEgg<ADTFoodEggLaid
   - type: ActionGrant
     actions:
     - ActionAnimalLayEgg
->>>>>>> theirs
   - type: ReplacementAccent
     accent: chicken
   - type: SentienceTarget
@@ -469,31 +449,10 @@
     tags:
     - Trash
     - VimPilot
-<<<<<<< ours
-  # ADT-Tweak
+  # ADT-Tweak-Start
   - type: MobCollision
     enabled: false
-  # - type: Destructible
-  #   thresholds:
-  #   - trigger:
-  #       !type:DamageTypeTrigger
-  #       damageType: Blunt
-  #       damage: 10
-  #     behaviors:
-  #     - !type:GibBehavior { }
-  # ADT-Tweak
-||||||| base
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Blunt
-        damage: 10
-      behaviors:
-      - !type:GibBehavior
-        recursive: false
-=======
->>>>>>> theirs
+  # ADT-Tweak-End
   - type: NonSpreaderZombie
   - type: StepTrigger
     requiredTriggeredSpeed: 1
@@ -836,17 +795,6 @@
       reagents:
       - ReagentId: Blood
         Quantity: 100
-<<<<<<< ours
-  - type: EggLayer
-    eggSpawn:
-    - id: ADTFoodEggLaid # ADT: FoodEgg<ADTFoodEggLaid
-  - type: ExaminableHunger
-||||||| base
-  - type: EggLayer
-    eggSpawn:
-    - id: FoodEgg
-  - type: ExaminableHunger
-=======
   - type: EntityProducerAction
     insufficientSatiationPopup: action-popup-lay-egg-too-hungry
     userPopup: action-popup-lay-egg-user
@@ -859,11 +807,10 @@
     automaticForPlayers: false
   - type: EntityProducer
     table:
-      id: FoodEgg
+    - id: ADTFoodEggLaid # ADT: FoodEgg<ADTFoodEggLaid
   - type: ActionGrant
     actions:
     - ActionAnimalLayEgg
->>>>>>> theirs
   - type: ReplacementAccent
     accent: duck
   - type: SentienceTarget
@@ -1965,41 +1912,13 @@
     description: ghost-role-information-monkey-description
     rules: ghost-role-information-nonantagonist-rules
   - type: GhostTakeoverAvailable
-<<<<<<< ours
   # ADT-Tweak start
   - type: VentCrawler
     allowInventory: false
   # ADT-Tweak end
-  - type: Clumsy
-    gunShootFailDamage:
-      types:
-        Blunt: 5
-        Piercing: 4
-        Heat: 3
-    catchingFailDamage:
-      types:
-        Blunt: 1
-    clumsySound:
-      path: /Audio/Animals/monkey_scream.ogg
-
-||||||| base
-  - type: Clumsy
-    gunShootFailDamage:
-      types:
-        Blunt: 5
-        Piercing: 4
-        Heat: 3
-    catchingFailDamage:
-      types:
-        Blunt: 1
-    clumsySound:
-      path: /Audio/Animals/monkey_scream.ogg
-
-=======
   - type: PermanentStatusEffects
     statusEffects:
     - StatusEffectClumsyMonkey
->>>>>>> theirs
 
 - type: entity
   name: monkey
@@ -2175,39 +2094,13 @@
   parent: MobBaseKobold
   description: Cousins to the sentient race of lizard people, kobolds blend in with their natural habitat and are as nasty as monkeys; ready to pull out your hair and stab you to death.
   components:
-<<<<<<< ours
-  - type: Clumsy
-    gunShootFailDamage:
-      types:
-        Blunt: 2
-        Piercing: 7
-        Heat: 3
-    catchingFailDamage:
-      types:
-        Blunt: 1
-    clumsySound:
-      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
   # ADT-Tweak start
   - type: VentCrawler
     allowInventory: false
   # ADT-Tweak end
-||||||| base
-  - type: Clumsy
-    gunShootFailDamage:
-      types:
-        Blunt: 2
-        Piercing: 7
-        Heat: 3
-    catchingFailDamage:
-      types:
-        Blunt: 1
-    clumsySound:
-      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
-=======
   - type: PermanentStatusEffects
     statusEffects:
     - StatusEffectClumsyKobold
->>>>>>> theirs
 
 - type: entity
   id: MobBaseSyndicateKobold
@@ -2256,15 +2149,7 @@
 
 - type: entity
   name: mouse
-<<<<<<< ours
-  parent: [ SimpleMobBase, BaseMobAnimal ]
-||||||| base
-  parent:
-  - SimpleMobBase
-  - BaseMobAnimal
-=======
   parent: [SimpleMobBase, BaseMobAnimal, SolutionVermin, BaseSlicingRefinable, MobNightVision]
->>>>>>> theirs
   id: MobMouse
   description: Squeak!
   components:
@@ -3638,20 +3523,11 @@
         Quantity: 150
   - type: Damageable
     damageModifierSet: Infernal
-<<<<<<< ours
   - type: Injurable
     damageContainer: BiologicalMetaphysical
   - type: Temperature
     currentTemperature: 310.15
     specificHeat: 42
-||||||| base
-  - type: Temperature
-    currentTemperature: 310.15
-    specificHeat: 42
-=======
-  - type: Injurable
-    damageContainer: BiologicalMetaphysical
->>>>>>> theirs
   - type: TemperatureDamage
     heatDamageThreshold: 4000 #They come from hell, so..
     coldDamageThreshold: 260
@@ -3870,15 +3746,9 @@
     tags:
       - DoorBumpOpener
   - type: MovementAlwaysTouching
-<<<<<<< ours
-  - type: SpecialPressureImmunity
-||||||| base
-  - type: PressureImmunity
-=======
   - type: PermanentStatusEffects
     statusEffects:
     - StatusEffectPressureImmunity
->>>>>>> theirs
   - type: ProtectedFromStepTriggers
   - type: Insulated
   - type: InteractionPopup

@@ -98,24 +98,7 @@
   - type: Tag
     tags:
     - CarrotFries
-<<<<<<< ours
     - ADTMothFriendlyFood #ADT_Tweak - делаем морковный фри съедобными для молей
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 26
-        reagents:
-        - ReagentId: JuiceCarrot
-          Quantity: 20
-||||||| base
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 26
-        reagents:
-        - ReagentId: JuiceCarrot
-          Quantity: 20
-=======
   - type: Solution
     solution:
       reagents:
@@ -123,7 +106,6 @@
         Quantity: 20
       - ReagentId: Nutriment
         Quantity: 20
->>>>>>> theirs
 # Tastes like carrots, salt.
 
 - type: entity
@@ -245,7 +227,6 @@
       - cheesy
   - type: Sprite
     state: eggplantparm
-<<<<<<< ours
   - type: SolutionContainerManager
     solutions:
       food:
@@ -255,18 +236,6 @@
           Quantity: 30 #ADT-Tweak 6>30
         - ReagentId: Vitamin
           Quantity: 5 #ADT-Tweak 2>5
-||||||| base
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 6
-        - ReagentId: Vitamin
-          Quantity: 2
-=======
->>>>>>> theirs
   - type: Tag
     tags:
     - Fruit

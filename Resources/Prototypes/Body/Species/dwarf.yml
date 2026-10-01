@@ -107,19 +107,6 @@
           state: dwarfism_hand_right
   - type: HumanoidProfile
     species: Dwarf
-<<<<<<< ours
-  - type: ScaleVisuals
-    scale: 1, 0.8
-  # ADT-Tweak start
-  - type: InnateMiningScannerViewer
-    pingSound: null
-    viewRange: 4
-  # ADT-Tweak end
-||||||| base
-  - type: ScaleVisuals
-    scale: 1, 0.8
-=======
-
 - type: displacementData
   id: Dwarfism
   displacement:
@@ -127,7 +114,11 @@
       32:
         sprite: Mobs/Species/Human/displacement.rsi
         state: dwarfism
->>>>>>> theirs
+  # ADT-Tweak start
+- type: InnateMiningScannerViewer
+    pingSound: null
+    viewRange: 4
+  # ADT-Tweak end
 
 - type: entity
   parent:
@@ -165,13 +156,6 @@
     accent: scottish
   - type: Speech
     speechSounds: Bass
-<<<<<<< ours
-  # ADT-Tweak: Start
-  - type: TypingIndicator
-    proto: ADTdwarf
-  # ADT-Tweak: End
-||||||| base
-=======
   - type: CreamPied
     displacement: Dwarfism
   - type: Damageable
@@ -180,7 +164,10 @@
     displacement: Dwarfism
   - type: InnerBodyAnomalyVisuals
     displacement: Dwarfism
->>>>>>> theirs
+  # ADT-Tweak: Start
+  - type: TypingIndicator
+    proto: ADTdwarf
+  # ADT-Tweak: End
 
 - type: entity
   parent: OrganBaseOrganic

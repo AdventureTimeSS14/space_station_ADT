@@ -134,36 +134,17 @@
           True: {state: "flour-small_open"} # open
           False: {state: "flour-small"} # closed
   - type: Sprite
-<<<<<<< ours
     sprite: ADT/Objects/Consumable/Food/ingredients.rsi
     layers:
     - state: flour-small
       map: ["enum.OpenableVisuals.Layer"]
   #ADT-Tweak-End
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Flour
-          Quantity: 20
-||||||| base
-    state: flour-small
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Flour
-          Quantity: 20
-=======
     state: flour-small
   - type: Solution
     solution:
       reagents:
       - ReagentId: Flour
         Quantity: 60
->>>>>>> theirs
 
 - type: entity
   parent: [ReagentPacket, ItemHeftyBase]
@@ -206,36 +187,17 @@
           True: {state: "cornmeal_open"} # open
           False: {state: "cornmeal"} # closed
   - type: Sprite
-<<<<<<< ours
     sprite: ADT/Objects/Consumable/Food/ingredients.rsi
     layers:
     - state: cornmeal
       map: ["enum.OpenableVisuals.Layer"]
   #ADT-Tweak-End
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Cornmeal
-          Quantity: 20
-||||||| base
-    state: cornmeal
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Cornmeal
-          Quantity: 20
-=======
     state: cornmeal
   - type: Solution
     solution:
       reagents:
       - ReagentId: Cornmeal
         Quantity: 60
->>>>>>> theirs
 
 - type: entity
   parent: [ReagentPacket, ItemHeftyBase]
@@ -278,36 +240,17 @@
           True: {state: "rice-small_open"} # open
           False: {state: "rice-small"} # closed
   - type: Sprite
-<<<<<<< ours
     sprite: ADT/Objects/Consumable/Food/ingredients.rsi
     layers:
     - state: rice-small
       map: ["enum.OpenableVisuals.Layer"]
   #ADT-Tweak-End
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Rice
-          Quantity: 20
-||||||| base
-    state: rice-small
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Rice
-          Quantity: 20
-=======
     state: rice-small
   - type: Solution
     solution:
       reagents:
       - ReagentId: Rice
         Quantity: 60
->>>>>>> theirs
 
 - type: entity
   parent: [ReagentPacket, ItemHeftyBase]
@@ -350,36 +293,17 @@
           True: {state: "sugar-small_open"} # open
           False: {state: "sugar-small"} # closed
   - type: Sprite
-<<<<<<< ours
     sprite: ADT/Objects/Consumable/Food/ingredients.rsi
     layers:
     - state: sugar-small
       map: ["enum.OpenableVisuals.Layer"]
   #ADT-Tweak-End
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Sugar
-          Quantity: 20
-||||||| base
-    state: sugar-small
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Sugar
-          Quantity: 20
-=======
     state: sugar-small
   - type: Solution
     solution:
       reagents:
       - ReagentId: Sugar
         Quantity: 60
->>>>>>> theirs
 
 # Misc
 
@@ -402,7 +326,6 @@
     layers:
     - state: oliveoil
       map: ["enum.OpenableVisuals.Layer"]
-<<<<<<< ours
   - type: Openable
     sound:
       collection: bottleOpenSounds
@@ -410,29 +333,12 @@
     closeSound:
       collection: bottleCloseSounds
   #ADT-Tweak-End
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: OilOlive
-          Quantity: 20
-||||||| base
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: OilOlive
-          Quantity: 20
-=======
   - type: Solution
     solution:
       maxVol: 50
       reagents:
       - ReagentId: OilOlive
         Quantity: 50
->>>>>>> theirs
   - type: Edible
     edible: Drink # slurping sounds!
 
@@ -454,36 +360,18 @@
     layers:
     - state: mayo
       map: ["enum.OpenableVisuals.Layer"]
-<<<<<<< ours
   #ADT-Tweak-Start
   - type: Openable
     sound:
       collection: pop
     closeable: true
   #ADT-Tweak-End
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 50 # you always need more mayo
-        reagents:
-        - ReagentId: Mayo
-          Quantity: 50
-||||||| base
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 50 # you always need more mayo
-        reagents:
-        - ReagentId: Mayo
-          Quantity: 50
-=======
   - type: Solution
     solution:
       maxVol: 50
       reagents:
       - ReagentId: Mayo
         Quantity: 50
->>>>>>> theirs
   - type: Tag
     tags:
       - Mayo
@@ -938,18 +826,6 @@
       - cheesy
   - type: Sprite
     state: cheesewheel
-<<<<<<< ours
-  - type: SliceableFood
-    count: 4
-    slice: FoodCheeseSlice
-  - type: Tag  #ADT_Tweak - делаем сыр съедобным для молей
-    tags:
-    - ADTMothFriendlyFood
-||||||| base
-  - type: SliceableFood
-    count: 4
-    slice: FoodCheeseSlice
-=======
   - type: ToolRefinable
     refineResult:
     - id: FoodCheeseSlice
@@ -959,7 +835,9 @@
       reagents:
       - ReagentId: Nutriment
         Quantity: 60
->>>>>>> theirs
+  - type: Tag  #ADT_Tweak - делаем сыр съедобным для молей
+    tags:
+    - ADTMothFriendlyFood
 
 - type: entity
   parent: [SolutionTiny, FoodBakingBase]

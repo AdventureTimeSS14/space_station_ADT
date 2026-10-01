@@ -50,23 +50,11 @@
         sound:
           collection: MetalGlassBreak
   - type: Storage
-<<<<<<< ours
-    maxItemSize: SpecialCanister # ADT-Tweak
-||||||| base
-    maxItemSize: Normal
-=======
     maxItemSize: Large
->>>>>>> theirs
     grid:
-<<<<<<< ours
-    - 0,0,19,9 # ADT-Tweak
-||||||| base
-    - 0,0,19,5
-=======
     - 0,0,15,11
   - type: UseDelay
     delay: 0
->>>>>>> theirs
   - type: ReagentDispenser
     beakerSlot:
       whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message

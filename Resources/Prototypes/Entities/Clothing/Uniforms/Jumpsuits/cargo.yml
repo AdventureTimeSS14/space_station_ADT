@@ -17,7 +17,7 @@
     sprite: Clothing/Uniforms/Jumpsuits/Cargo/salvage.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, BaseCommandContraband]
+  parent: [ClothingUniformBase, BaseCommandContraband, ClothingUniformFoldableBase] # ADT-Tweak
   id: ClothingUniformJumpsuitQM
   name: quartermaster's jumpsuit
   description: 'What can brown do for you?'
@@ -28,7 +28,7 @@
     sprite: Clothing/Uniforms/Jumpsuits/Cargo/qm.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, ClothingUniformFoldableBase, BaseCommandContraband]
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase, BaseCommandContraband] # ADT-Tweak
   id: ClothingUniformJumpsuitQMTurtleneck
   name: quartermasters's turtleneck
   description: A sharp turtleneck made for the hardy work environment of supply.

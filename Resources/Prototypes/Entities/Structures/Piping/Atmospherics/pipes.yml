@@ -13,17 +13,10 @@
     size: Normal
   - type: Transform
     anchored: true
-<<<<<<< ours
   - type: Damageable
     damageModifierSet: Metallic
   - type: Injurable
     damageContainer: StructuralInorganic
-||||||| base
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Metallic
-=======
->>>>>>> theirs
   - type: SubFloorHide
   - type: CollideOnAnchor
   - type: Anchorable
@@ -84,7 +77,6 @@
         offset: 0
       - !type:DoActsBehavior
         acts: ["Breakage"]
-<<<<<<< ours
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/pipe.rsi
     drawdepth: ThinPipe
@@ -118,29 +110,6 @@
   #- type: OverpressurePipeDamage
   #  limitPressure: 10000
   # ADT-PipePressureDamage-End
-||||||| base
-  - type: Sprite
-    sprite: Structures/Piping/Atmospherics/pipe.rsi
-    drawdepth: ThinPipe
-    visible: false
-  - type: Appearance
-  - type: PipeAppearance
-  - type: PipeColorVisuals
-  - type: NodeContainer
-  - type: PipeRestrictOverlap
-  - type: AtmosUnsafeUnanchor
-  - type: AtmosPipeColor
-  - type: AtmosMonitoringConsoleDevice
-  - type: Tag
-    tags:
-    - Pipe
-  - type: Physics
-    canCollide: false
-    bodyType: static
-  - type: StaticPrice
-    price: 30
-=======
->>>>>>> theirs
 
 - type: entity
   abstract: true
@@ -153,7 +122,6 @@
         Secondary: Structures/Piping/Atmospherics/pipe_alt1.rsi
         Tertiary: Structures/Piping/Atmospherics/pipe_alt2.rsi
 
-<<<<<<< ours
 - type: entity
   id: VentCrawlerHolder
   categories: [ HideSpawnMenu ]
@@ -164,14 +132,6 @@
     - type: ContainerContainer
       containers:
         VentCrawlerHolderComponent: !type:Container # ADT tweak end
-||||||| base
-=======
-- type: entity
-  abstract: true
-  parent: [ GasPipeSansLayers, BaseGasPipeLayers ]
-  id: GasPipeBase
-
->>>>>>> theirs
 #Note: The PipeDirection of the PipeNode should be the south-facing version, because the entity starts at an angle of 0 (south)
 
 - type: entity

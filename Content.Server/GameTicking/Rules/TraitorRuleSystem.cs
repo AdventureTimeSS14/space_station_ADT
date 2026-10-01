@@ -16,13 +16,8 @@ using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
 using Content.Server.Codewords;
-<<<<<<< ours
 using Content.Shared.Bed.Cryostorage;
 using Robust.Shared.Map;
-||||||| base
-using Robust.Shared.Map;
-=======
->>>>>>> theirs
 
 namespace Content.Server.GameTicking.Rules;
 

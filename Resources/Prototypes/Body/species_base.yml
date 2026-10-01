@@ -89,16 +89,8 @@
     allowed:
     - Stutter
     - Electrocution
-<<<<<<< ours
     - RatvarianLanguage
     - Muted
-||||||| base
-    - RatvarianLanguage
-    - PressureImmunity
-    - Muted
-    - TemporaryBlindness
-=======
->>>>>>> theirs
     - Pacified
     - Flashed
     - Adrenaline
@@ -211,7 +203,6 @@
   id: BaseSpeciesMobOrganic
   save: false
   components:
-<<<<<<< ours
   # ADT-Tweak start
   - type: TryCatchBreath
     doAfterTime: 6
@@ -250,19 +241,12 @@
     postingSayDamage: blood-cough
   - type: TimeDespawnDamage
   # ADT-Tweak end
-  - type: Hunger
-  - type: Thirst
-||||||| base
-  - type: Hunger
-  - type: Thirst
-=======
   - type: Satiation
     satiations:
       Hunger:
         prototype: NormalSatiationHunger
       Thirst:
         prototype: NormalSatiationThirst
->>>>>>> theirs
   - type: Barotrauma
     damage:
       types:

@@ -79,43 +79,6 @@
     price: 200
   - type: Destructible
     thresholds:
-<<<<<<< ours
-      - trigger:
-          !type:DamageTrigger
-          damage: 50 # ADT-tweak: 200 -> 50
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-      - trigger:
-          !type:DamageTrigger
-          damage: 25 # ADT-tweak: 100 -> 25
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalBreak
-              params:
-                volume: -8
-||||||| base
-      - trigger:
-          !type:DamageTrigger
-          damage: 200
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-      - trigger:
-          !type:DamageTrigger
-          damage: 100
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalBreak
-              params:
-                volume: -8
-=======
     - trigger:
         !type:DamageTrigger
         damage: 100
@@ -127,7 +90,6 @@
           collection: MetalBreak
           params:
             volume: -8
->>>>>>> theirs
   placement:
     mode: SnapgridCenter
     snap:

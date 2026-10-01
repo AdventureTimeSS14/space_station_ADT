@@ -57,7 +57,7 @@ public sealed partial class VoiceMaskBoundUserInterface : BoundUserInterface
             return;
         }
 
-        _window.UpdateState(cast.Name, cast.Voice, cast.Bark, cast.Pitch, cast.Verb, cast.TitleText, cast.JobIconId, cast.Active, cast.AccentHide); // ADT-Tweak
+        _window.UpdateState(cast.Name, cast.Voice, cast.Bark, cast.Pitch, cast.Verb, cast.JobIconId, cast.Active, cast.AccentHide);
     }
 
     protected override void Dispose(bool disposing)

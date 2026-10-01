@@ -31,11 +31,6 @@
       shader: unshaded
   - type: Damageable
     damageModifierSet: StructuralMetallicStrong
-<<<<<<< ours
-  - type: Injurable
-    damageContainer: StructuralInorganic
-||||||| base
-=======
   - type: Destructible
     thresholds:
     - trigger: !type:DamageTrigger
@@ -44,7 +39,6 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
->>>>>>> theirs
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: BasicDevice

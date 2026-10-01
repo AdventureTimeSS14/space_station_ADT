@@ -162,13 +162,8 @@
   - type: Climbable
   - type: Damageable
     damageModifierSet: Wood
-<<<<<<< ours
-  - type: Injurable
-||||||| base
-=======
   - type: Injurable
     damageContainer: StructuralInorganic
->>>>>>> theirs
   - type: Destructible
     thresholds:
     - trigger:

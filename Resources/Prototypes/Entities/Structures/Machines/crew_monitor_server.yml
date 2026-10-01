@@ -1,10 +1,9 @@
-- type: entity
+﻿- type: entity
   id: CrewMonitoringServer
   parent: [ BaseMachinePowered, ConstructibleMachine ]
   name: crew monitoring server
   description: Receives and relays the status of all active suit sensors on the station.
   components:
-<<<<<<< ours
     - type: Sprite
       sprite: Structures/Machines/server.rsi
       snapCardinals: true
@@ -28,7 +27,7 @@
       containers:
         machine_board: !type:Container
         machine_parts: !type:Container
-    - type: CrewMonitoringServer
+    - type: ADTCrewMonitoringServer
     # ADT-Tweak Start - New Monitor: disabled
     # - type: SingletonDeviceNetServer
     # ADT-Tweak End
@@ -112,7 +111,7 @@
       containers:
         machine_board: !type:Container
         machine_parts: !type:Container
-    - type: CrewMonitoringServer
+    - type: ADTCrewMonitoringServer
     - type: SingletonDeviceNetServer
     - type: DeviceNetwork
       deviceNetId: Wireless
@@ -190,7 +189,7 @@
     containers:
       machine_board: !type:Container
       machine_parts: !type:Container
-  - type: CrewMonitoringServer
+  - type: ADTCrewMonitoringServer
   - type: SingletonDeviceNetServer
   - type: DeviceNetwork
     deviceNetId: Wireless

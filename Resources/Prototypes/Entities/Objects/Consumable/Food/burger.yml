@@ -1115,30 +1115,6 @@
       - tofu
   - type: Sprite
     state: tofu
-<<<<<<< ours
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 8
-        - ReagentId: Protein
-          Quantity: 3
-  - type: Tag  #ADT_Tweak - делаем тофу-бургер съедобным для молей
-    tags:
-    - ADTMothFriendlyFood
-||||||| base
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 8
-        - ReagentId: Protein
-          Quantity: 3
-=======
   - type: Solution
     solution:
       reagents:
@@ -1148,7 +1124,9 @@
         Quantity: 9
       - ReagentId: Vitamin
         Quantity: 5
->>>>>>> theirs
+  - type: Tag  #ADT_Tweak - делаем тофу-бургер съедобным для молей
+    tags:
+    - ADTMothFriendlyFood
   - type: Item
     inhandVisuals:
       left:

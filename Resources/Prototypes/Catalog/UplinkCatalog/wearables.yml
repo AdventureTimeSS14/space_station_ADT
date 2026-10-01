@@ -30,7 +30,7 @@
   discountDownTo:
     Telecrystal: 2
   cost:
-    Telecrystal: 4
+    Telecrystal: 3 # ADT-Tweak
   categories:
     - UplinkWearables
 
@@ -54,9 +54,9 @@
   productEntity: ClothingOuterVestWeb
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 2 # ADT-Tweak
   cost:
-    Telecrystal: 5
+    Telecrystal: 3 # ADT-Tweak
   categories:
   - UplinkWearables
 
@@ -132,7 +132,7 @@
   icon: { sprite: /Textures/Clothing/OuterClothing/Armor/syndie-raid.rsi, state: icon }
   productEntity: ClothingBackpackSyndicateRaidBundle
   cost:
-    Telecrystal: 8
+    Telecrystal: 8 # ADT-Tweak
   categories:
   - UplinkWearables
   conditions:
@@ -147,8 +147,11 @@
   description: uplink-hardsuit-syndieelite-desc
   icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndieelite.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
+  discountCategory: rareDiscounts # ADT-Tweak
+  discountDownTo:
+    Telecrystal: 6 # ADT-Tweak
   cost:
-    Telecrystal: 12
+    Telecrystal: 9 # ADT-Tweak
   categories:
   - UplinkWearables
   conditions:
@@ -179,7 +182,7 @@
   description: uplink-clothing-eyes-hud-syndicate-desc
   productEntity: ClothingEyesHudSyndicate
   cost:
-    Telecrystal: 2
+    Telecrystal: 4 # ADT-Tweak
   categories:
     - UplinkWearables
   conditions:

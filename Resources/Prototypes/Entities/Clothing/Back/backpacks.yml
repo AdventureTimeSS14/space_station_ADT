@@ -302,18 +302,11 @@
   name: death squad backpack
   description: Holds the kit of CentComm's most feared agents.
   components:
-<<<<<<< ours
     - type: Storage
       grid:
       - 0,0,15,9 # ADT-Tweak-Start
-||||||| base
-    - type: Storage
-      grid:
-      - 0,0,7,6
-=======
-  - type: Sprite
-    sprite: Clothing/Back/Backpacks/ertsec.rsi
->>>>>>> theirs
+    - type: Sprite
+      sprite: Clothing/Back/Backpacks/ertsec.rsi
 
 #Syndicate
 - type: entity

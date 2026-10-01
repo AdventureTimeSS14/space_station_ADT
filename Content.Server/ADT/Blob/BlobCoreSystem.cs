@@ -9,7 +9,7 @@ using Content.Server.ADT.Blob.GameTicking;
 using Content.Shared.ADT.Blob.Components;
 using Content.Shared.ADT.Blob.Events;
 using Content.Server.Actions;
-using Content.Server.AlertLevel;
+using Content.Shared.AlertLevel; // ADT-Tweak
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.GameTicking;
 using Content.Server.RoundEnd;
@@ -36,6 +36,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using Content.Shared.ADT.Objectives.Components;
 
 namespace Content.Server.ADT.Blob;
@@ -65,8 +66,7 @@ public sealed class BlobCoreSystem : EntitySystem
     private const string BlobHealth = "ADTBlobHealth";
     [ValidatePrototypeId<AlertPrototype>]
     private const string BlobResource = "ADTBlobResource";
-    [ValidatePrototypeId<CurrencyPrototype>]
-    private const string BlobMoney = "ADTBlobPoint";
+    private const ProtoId<CurrencyPrototype> BlobMoney = "ADTBlobPoint";
 
     private readonly ReaderWriterLockSlim _pointsChange = new();
 
@@ -624,7 +624,7 @@ public sealed class BlobCoreSystem : EntitySystem
 
         try
         {
-            if (!_storeSystem.TryAddCurrency(new Dictionary<string, FixedPoint2>
+            if (!_storeSystem.TryAddCurrency(new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2>
                     {
                         { BlobMoney, amount }
                     },

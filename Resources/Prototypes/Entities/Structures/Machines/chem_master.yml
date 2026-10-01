@@ -26,9 +26,6 @@
           - FitsInDispenser
   - type: ChemMaster
     pillDosageLimit: 20
-    bottleDosageLimit: 30
-    maxPills: 30
-    maxBottles: 20
   - type: Physics
     bodyType: Static
   - type: Fixtures
@@ -74,7 +71,6 @@
     containers:
       beakerSlot: !type:ContainerSlot
       outputSlot: !type:ContainerSlot
-      pai_slot: !type:ContainerSlot {} #ADT-Tweak: PAI
       machine_board: !type:Container
       machine_parts: !type:Container
   - type: ItemSlots
@@ -88,28 +84,9 @@
         whitelist:
           tags:
           - Bottle
-<<<<<<< ours
-      # ADT port start pAI modernization
-      pai_slot:
-        name: Personal AI Device
-        ejectOnInteract: false
-        whitelist:
-          components:
-          - PAI
-      # ADT port end pAI modernization
-  - type: SolutionContainerManager
-    solutions:
-      buffer: {}
-||||||| base
-          - PillCanister
-  - type: SolutionContainerManager
-    solutions:
-      buffer: {}
-=======
           - PillCanister
   - type: Solution # Chemmaster is special in how it interacts with reagents. For now.
     id: buffer
->>>>>>> theirs
   - type: DumpableSolution
     solution: buffer
     unlimited: true
@@ -117,13 +94,4 @@
     guides:
     - Chemicals
     - Chemist
-<<<<<<< ours
-  # ADT-Sound-Update-Start
-  - type: Tag
-    tags:
-      - ADTChemistryAmbience
-  # ADT-Sound-Update-End
-||||||| base
-=======
   - type: AmbientMusicMarkerMedical
->>>>>>> theirs

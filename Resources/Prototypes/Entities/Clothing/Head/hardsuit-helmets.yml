@@ -140,7 +140,6 @@
 #  - type: Clothing
 #    sprite: /Clothing/Head/Hardsuits/security.rsi Закоменчено для ADT
   - type: Sprite
-<<<<<<< ours
     sprite: ADT/Clothing/Head/Hardsuits/security.rsi # ADT Tweak
     layers:
     - state: icon
@@ -163,13 +162,6 @@
       head:
       - state: equipped-head
 # ADT Tweak END
-||||||| base
-    sprite: Clothing/Head/Hardsuits/security.rsi
-  - type: Clothing
-    sprite: Clothing/Head/Hardsuits/security.rsi
-=======
-    sprite: Clothing/Head/Hardsuits/security.rsi
->>>>>>> theirs
   - type: PointLight
     color: "#ffeead"
   - type: PressureProtection
@@ -194,17 +186,9 @@
   description: The lightweight helmet of the brigmedic hardsuit. Protects against viruses, and clowns.
   components:
   - type: Sprite
-<<<<<<< ours
     sprite: ADT/Clothing/Head/Hardsuits/brigmedic-praz.rsi # ADT Tweak
   - type: Clothing
     sprite: ADT/Clothing/Head/Hardsuits/brigmedic-praz.rsi # ADT Tweak
-||||||| base
-    sprite: Clothing/Head/Hardsuits/brigmedic.rsi
-  - type: Clothing
-    sprite: Clothing/Head/Hardsuits/brigmedic.rsi
-=======
-    sprite: Clothing/Head/Hardsuits/brigmedic.rsi
->>>>>>> theirs
   - type: PointLight
     color: "#00FFFF"
   - type: Armor
@@ -233,7 +217,6 @@
 #  - type: Clothing
 #    sprite: Clothing/Head/Hardsuits/security-warden.rsi Закоменчено для ADT
   - type: Sprite
-<<<<<<< ours
     sprite: ADT/Clothing/Head/Hardsuits/security-warden.rsi # ADT Tweak
     layers:
     - state: icon
@@ -259,13 +242,6 @@
       - state: equipped-head-unshaded
         shader: unshaded
 # ADT Tweak END
-||||||| base
-    sprite: Clothing/Head/Hardsuits/security-warden.rsi
-  - type: Clothing
-    sprite: Clothing/Head/Hardsuits/security-warden.rsi
-=======
-    sprite: Clothing/Head/Hardsuits/security-warden.rsi
->>>>>>> theirs
   - type: PointLight
     color: cyan # Corvax-Resprite
   - type: PressureProtection
@@ -288,7 +264,6 @@
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/capspace.rsi
-<<<<<<< ours
   # ADT-Tweak-start
   - type: ToggleableVisuals
     spriteLayer: light
@@ -314,11 +289,6 @@
       head-dog:
       - state: off-equipped-HELMET-dog
   # ADT-Tweak-end
-||||||| base
-  - type: Clothing
-    sprite: Clothing/Head/Hardsuits/capspace.rsi
-=======
->>>>>>> theirs
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
@@ -339,7 +309,6 @@
     sprite: Clothing/Head/Hardsuits/engineering-white.rsi
   - type: HandheldLight
     addPrefix: false
-<<<<<<< ours
   - type: ToggleableVisuals
     spriteLayer: light
     clothingVisuals:
@@ -375,46 +344,6 @@
         shader: unshaded
   - type: PointLight # Corvax-Resprite
     color: "#e6aa5c"
-||||||| base
-  - type: ToggleableVisuals
-    spriteLayer: light
-    clothingVisuals:
-      head:
-      - state: equipped-head-light
-        shader: unshaded
-      head-vox:
-      - state: equipped-head-light-vox
-        shader: unshaded
-      head-vulpkanin:
-      - state: equipped-head-light-vulpkanin
-        shader: unshaded
-      head-reptilian:
-      - state: equipped-head-light-reptilian
-        shader: unshaded
-  - type: Clothing
-    clothingVisuals:
-      head:
-      - state: equipped-head
-      - state: equipped-head-unshaded
-        shader: unshaded
-      head-vox:
-      - state: equipped-head-vox
-      - state: equipped-head-unshaded-vox
-        shader: unshaded
-      head-vulpkanin:
-      - state: equipped-head-vulpkanin
-      - state: equipped-head-unshaded-vulpkanin
-        shader: unshaded
-      head-reptilian:
-      - state: equipped-head-reptilian
-      - state: equipped-head-unshaded-reptilian
-        shader: unshaded
-  - type: PointLight
-    color: "#daffad"
-=======
-  - type: PointLight
-    color: "#daffad"
->>>>>>> theirs
   - type: PressureProtection
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
@@ -452,20 +381,10 @@
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/rd.rsi
-<<<<<<< ours
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/rd.rsi
   - type: PointLight # Corvax-Resprite
     color: "#a4fef4"
-||||||| base
-  - type: Clothing
-    sprite: Clothing/Head/Hardsuits/rd.rsi
-  - type: PointLight
-    color: "#d6adff"
-=======
-  - type: PointLight
-    color: "#d6adff"
->>>>>>> theirs
   - type: PressureProtection
     highPressureMultiplier: 0.60
     lowPressureMultiplier: 1000
@@ -486,7 +405,6 @@
 #  - type: Clothing
 #    sprite: Clothing/Head/Hardsuits/security-red.rsi Закоменчено для ADT
   - type: Sprite
-<<<<<<< ours
     sprite: ADT/Clothing/Head/Hardsuits/security-red.rsi # ADT Tweak
     layers:
     - state: icon
@@ -512,13 +430,6 @@
       - state: equipped-head-unshaded
         shader: unshaded
 # ADT Tweak END
-||||||| base
-    sprite: Clothing/Head/Hardsuits/security-red.rsi
-  - type: Clothing
-    sprite: Clothing/Head/Hardsuits/security-red.rsi
-=======
-    sprite: Clothing/Head/Hardsuits/security-red.rsi
->>>>>>> theirs
   - type: PointLight
     color: "#ffeead"
   - type: PressureProtection
@@ -561,13 +472,7 @@
     sprite: Clothing/Head/Hardsuits/syndicate.rsi
   - type: PointLight
     color: green
-<<<<<<< ours
     radius: 7 # ADT tweak
-||||||| base
-=======
-    radius: 5
-    energy: 2.5
->>>>>>> theirs
   - type: PressureProtection
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
@@ -593,13 +498,7 @@
     sprite: Clothing/Head/Hardsuits/syndiemedic.rsi
   - type: PointLight
     color: green
-<<<<<<< ours
     radius: 7  # ADT tweak
-||||||| base
-=======
-    radius: 5
-    energy: 2.5
->>>>>>> theirs
   - type: PressureProtection
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
@@ -622,13 +521,7 @@
     sprite: Clothing/Head/Hardsuits/syndieelite.rsi
   - type: PointLight
     color: red
-<<<<<<< ours
     radius: 7  # ADT tweak
-||||||| base
-=======
-    radius: 5
-    energy: 2.5
->>>>>>> theirs
   - type: PressureProtection
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
@@ -656,13 +549,7 @@
     sprite: Clothing/Head/Hardsuits/syndiecommander.rsi
   - type: PointLight
     color: green
-<<<<<<< ours
     radius: 7  # ADT tweak
-||||||| base
-=======
-    radius: 5
-    energy: 2.5
->>>>>>> theirs
   - type: PressureProtection
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
@@ -680,34 +567,19 @@
 
 #Cybersun Juggernaut Hardsuit
 - type: entity
-<<<<<<< ours
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ] # Corvax-Resprite
-||||||| base
-  parent: ClothingHeadHardsuitBase
-=======
   parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
->>>>>>> theirs
   id: ClothingHeadHelmetHardsuitCybersun
   name: cybersun juggernaut helmet
   description: Made of compressed red matter, this helmet was designed in the Tau chromosphere facility.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/cybersun.rsi
-<<<<<<< ours
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/cybersun.rsi
   - type: PointLight # Corvax-Resprite
     color: red
     radius: 8 # ADT tweak
-||||||| base
-  - type: Clothing
-    sprite: Clothing/Head/Hardsuits/cybersun.rsi
-=======
-  - type: PointLight
-    color: red
-    radius: 5
     energy: 4
->>>>>>> theirs
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
@@ -811,7 +683,6 @@
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertleader.rsi
-<<<<<<< ours
   - type: ToggleableVisuals
     spriteLayer: light
     clothingVisuals:
@@ -824,11 +695,6 @@
       - state: equipped-HELMET
       - state: equipped-HELMET-unshaded
         shader: unshaded
-||||||| base
-  - type: Clothing
-    sprite: Clothing/Head/Hardsuits/ERThelmets/ertleader.rsi
-=======
->>>>>>> theirs
   - type: PointLight
     color: "#fff7cd"
 
@@ -853,7 +719,6 @@
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertengineer.rsi
-<<<<<<< ours
     layers:
     - state: icon
   - type: HandheldLight
@@ -870,11 +735,6 @@
       - state: equipped-HELMET
       - state: equipped-HELMET-unshaded
         shader: unshaded
-||||||| base
-  - type: Clothing
-    sprite: Clothing/Head/Hardsuits/ERThelmets/ertengineer.rsi
-=======
->>>>>>> theirs
   - type: PointLight
     color: cyan # Corvax-Resprite
   - type: FireProtection
@@ -902,7 +762,6 @@
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertmedical.rsi
-<<<<<<< ours
   - type: ToggleableVisuals
     spriteLayer: light
     clothingVisuals:
@@ -915,11 +774,6 @@
       - state: equipped-HELMET
       - state: equipped-HELMET-unshaded
         shader: unshaded
-||||||| base
-  - type: Clothing
-    sprite: Clothing/Head/Hardsuits/ERThelmets/ertmedical.rsi
-=======
->>>>>>> theirs
   - type: PointLight
     color: "#fff7cd"
 
@@ -932,7 +786,6 @@
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertsecurity.rsi
-<<<<<<< ours
   - type: ToggleableVisuals
     spriteLayer: light
     clothingVisuals:
@@ -945,11 +798,6 @@
       - state: equipped-HELMET
       - state: equipped-HELMET-unshaded
         shader: unshaded
-||||||| base
-  - type: Clothing
-    sprite: Clothing/Head/Hardsuits/ERThelmets/ertsecurity.rsi
-=======
->>>>>>> theirs
   - type: PointLight
     color: "#fff7cd"
 
@@ -962,7 +810,6 @@
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertjanitor.rsi
-<<<<<<< ours
   - type: ToggleableVisuals
     spriteLayer: light
     clothingVisuals:
@@ -975,11 +822,6 @@
       - state: equipped-HELMET
       - state: equipped-HELMET-unshaded
         shader: unshaded
-||||||| base
-  - type: Clothing
-    sprite: Clothing/Head/Hardsuits/ERThelmets/ertjanitor.rsi
-=======
->>>>>>> theirs
   - type: PointLight
     color: "#fff7cd"
 
@@ -1020,17 +862,11 @@
   - type: BreathMask
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/deathsquad.rsi
-<<<<<<< ours
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/deathsquad.rsi
   - type: PointLight # Corvax-Resprite
     color: cyan
     radius: 10
-||||||| base
-  - type: Clothing
-    sprite: Clothing/Head/Hardsuits/deathsquad.rsi
-=======
->>>>>>> theirs
   - type: PressureProtection
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
