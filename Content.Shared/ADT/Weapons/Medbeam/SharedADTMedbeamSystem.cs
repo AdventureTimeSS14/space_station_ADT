@@ -92,7 +92,7 @@ public abstract partial class SharedADTMedbeamSystem : EntitySystem
         if (HasComp<MechComponent>(target) || HasComp<BorgChassisComponent>(target))
             return false;
 
-        if (CompOrNull<InjurableComponent>(target)?.DamageContainer == ChangeDamageContainerComponent.BiologicalMetaphysicalContainer)
+        if (CompOrNull<InjurableComponent>(target)?.DamageContainer == "BiologicalMetaphysical")
             return false;
 
         if (IsOnFire(target))
