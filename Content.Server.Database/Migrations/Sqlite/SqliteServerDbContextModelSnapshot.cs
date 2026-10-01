@@ -1019,63 +1019,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("connection_log", (string)null);
                 });
 
-<<<<<<< ours
-            modelBuilder.Entity("Content.Server.Database.DiscordUser", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("discord_user_id");
-
-                    b.Property<string>("DiscordId")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("discord_id");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("user_id");
-
-                    b.HasKey("Id")
-                        .HasName("PK_discord_user");
-
-                    b.HasIndex("UserId", "DiscordId")
-                        .IsUnique();
-
-                    b.ToTable("discord_user", (string)null);
-                });
-
-            modelBuilder.Entity("Content.Server.Database.ExtraLoadoutData", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("extra_loadout_data_id");
-
-                    b.Property<string>("Key")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("key");
-
-                    b.Property<int>("ProfileRoleLoadoutId")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("profile_role_loadout_id");
-
-                    b.Property<string>("Value")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("value");
-
-                    b.HasKey("Id")
-                        .HasName("PK_extra_loadout_data");
-
-                    b.HasIndex("ProfileRoleLoadoutId");
-
-                    b.ToTable("extra_loadout_data", (string)null);
-                });
-
-||||||| base
-=======
             modelBuilder.Entity("Content.Server.Database.CustomVoteLog", b =>
                 {
                     b.Property<int>("Id")
@@ -1140,7 +1083,60 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("custom_vote_log_option", (string)null);
                 });
 
->>>>>>> theirs
+            modelBuilder.Entity("Content.Server.Database.DiscordUser", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("discord_user_id");
+
+                    b.Property<string>("DiscordId")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("discord_id");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("user_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_discord_user");
+
+                    b.HasIndex("UserId", "DiscordId")
+                        .IsUnique();
+
+                    b.ToTable("discord_user", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.ExtraLoadoutData", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("extra_loadout_data_id");
+
+                    b.Property<string>("Key")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("key");
+
+                    b.Property<int>("ProfileRoleLoadoutId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("profile_role_loadout_id");
+
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("value");
+
+                    b.HasKey("Id")
+                        .HasName("PK_extra_loadout_data");
+
+                    b.HasIndex("ProfileRoleLoadoutId");
+
+                    b.ToTable("extra_loadout_data", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.IPIntelCache", b =>
                 {
                     b.Property<int>("Id")
@@ -1466,19 +1462,15 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("species");
 
-<<<<<<< ours
-                    b.Property<string>("Voice")
+                    b.Property<string>("TTSVoice")
                         .IsRequired()
                         .HasColumnType("TEXT")
-                        .HasColumnName("voice");
+                        .HasColumnName("tts_voice");
 
-||||||| base
-=======
                     b.Property<string>("Voice")
                         .HasColumnType("TEXT")
                         .HasColumnName("voice");
 
->>>>>>> theirs
                     b.HasKey("Id")
                         .HasName("PK_profile");
 
@@ -2301,7 +2293,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("Server");
                 });
 
-<<<<<<< ours
             modelBuilder.Entity("Content.Server.Database.ExtraLoadoutData", b =>
                 {
                     b.HasOne("Content.Server.Database.ProfileRoleLoadout", "RoleLoadout")
@@ -2314,8 +2305,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("RoleLoadout");
                 });
 
-||||||| base
-=======
             modelBuilder.Entity("Content.Server.Database.CustomVoteLog", b =>
                 {
                     b.HasOne("Content.Server.Database.Player", "Initiator")
@@ -2349,7 +2338,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("Vote");
                 });
 
->>>>>>> theirs
             modelBuilder.Entity("Content.Server.Database.Job", b =>
                 {
                     b.HasOne("Content.Server.Database.Profile", "Profile")

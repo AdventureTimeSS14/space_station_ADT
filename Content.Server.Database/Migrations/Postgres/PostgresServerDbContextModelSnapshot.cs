@@ -1082,67 +1082,6 @@ namespace Content.Server.Database.Migrations.Postgres
                         });
                 });
 
-<<<<<<< ours
-            modelBuilder.Entity("Content.Server.Database.DiscordUser", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasColumnName("discord_user_id");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("DiscordId")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("discord_id");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("user_id");
-
-                    b.HasKey("Id")
-                        .HasName("PK_discord_user");
-
-                    b.HasIndex("UserId", "DiscordId")
-                        .IsUnique();
-
-                    b.ToTable("discord_user", (string)null);
-                });
-
-            modelBuilder.Entity("Content.Server.Database.ExtraLoadoutData", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasColumnName("extra_loadout_data_id");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Key")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("key");
-
-                    b.Property<int>("ProfileRoleLoadoutId")
-                        .HasColumnType("integer")
-                        .HasColumnName("profile_role_loadout_id");
-
-                    b.Property<string>("Value")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("value");
-
-                    b.HasKey("Id")
-                        .HasName("PK_extra_loadout_data");
-
-                    b.HasIndex("ProfileRoleLoadoutId");
-
-                    b.ToTable("extra_loadout_data", (string)null);
-                });
-
-||||||| base
-=======
             modelBuilder.Entity("Content.Server.Database.CustomVoteLog", b =>
                 {
                     b.Property<int>("Id")
@@ -1209,7 +1148,64 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.ToTable("custom_vote_log_option", (string)null);
                 });
 
->>>>>>> theirs
+            modelBuilder.Entity("Content.Server.Database.DiscordUser", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("discord_user_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("DiscordId")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("discord_id");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("user_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_discord_user");
+
+                    b.HasIndex("UserId", "DiscordId")
+                        .IsUnique();
+
+                    b.ToTable("discord_user", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.ExtraLoadoutData", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("extra_loadout_data_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Key")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("key");
+
+                    b.Property<int>("ProfileRoleLoadoutId")
+                        .HasColumnType("integer")
+                        .HasColumnName("profile_role_loadout_id");
+
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("value");
+
+                    b.HasKey("Id")
+                        .HasName("PK_extra_loadout_data");
+
+                    b.HasIndex("ProfileRoleLoadoutId");
+
+                    b.ToTable("extra_loadout_data", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.IPIntelCache", b =>
                 {
                     b.Property<int>("Id")
@@ -1549,19 +1545,15 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("text")
                         .HasColumnName("species");
 
-<<<<<<< ours
-                    b.Property<string>("Voice")
+                    b.Property<string>("TTSVoice")
                         .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("voice");
+                        .HasColumnName("tts_voice");
 
-||||||| base
-=======
                     b.Property<string>("Voice")
                         .HasColumnType("text")
                         .HasColumnName("voice");
 
->>>>>>> theirs
                     b.HasKey("Id")
                         .HasName("PK_profile");
 
@@ -2406,7 +2398,6 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Navigation("Server");
                 });
 
-<<<<<<< ours
             modelBuilder.Entity("Content.Server.Database.ExtraLoadoutData", b =>
                 {
                     b.HasOne("Content.Server.Database.ProfileRoleLoadout", "RoleLoadout")
@@ -2419,8 +2410,6 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Navigation("RoleLoadout");
                 });
 
-||||||| base
-=======
             modelBuilder.Entity("Content.Server.Database.CustomVoteLog", b =>
                 {
                     b.HasOne("Content.Server.Database.Player", "Initiator")
@@ -2454,7 +2443,6 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Navigation("Vote");
                 });
 
->>>>>>> theirs
             modelBuilder.Entity("Content.Server.Database.Job", b =>
                 {
                     b.HasOne("Content.Server.Database.Profile", "Profile")

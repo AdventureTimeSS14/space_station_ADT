@@ -1,19 +1,10 @@
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Content.Shared.ADT.Sponsors;
-using Content.Shared.ADT.CCVar;
-using Content.Shared.ADT.CharecterFlavor;
-using Content.Shared.ADT.Language;
-using Content.Shared.ADT.SpeechBarks;
+using Content.Shared.ADT.Sponsors; // ADT-Tweak
 using Content.Shared.CCVar;
-<<<<<<< ours
-using Content.Shared.ADT.TTS;
-||||||| base
-=======
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.EntityEffects.Effects;
->>>>>>> theirs
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
@@ -44,26 +35,9 @@ namespace Content.Shared.Preferences
     public sealed partial class HumanoidCharacterProfile
     {
         public static readonly ProtoId<SpeciesPrototype> DefaultSpecies = "Human";
-<<<<<<< ours
-        public const string DefaultVoice = "VoiceHuman";
-        public static readonly Dictionary<Sex, string> DefaultSexVoice = new()
-        {
-            { Sex.Male, "VoiceHumanMale" },
-            { Sex.Female, "VoiceHumanFemale" },
-            { Sex.Unsexed, "VoiceHuman" }
-        };
-        private static readonly Regex RestrictedNameRegex = new("[^A-Za-zА-Яа-яёЁ0-9' _.<>^%~ -]"); //ADT-Tweak
-||||||| base
-        private static readonly Regex RestrictedNameRegex = new(@"[^A-Za-z0-9 '\-]");
-=======
         public static readonly ProtoId<EmoteSoundsPrototype> DefaultVoice = "MaleHuman";
-        private static readonly Regex RestrictedNameRegex = new(@"[^A-Za-z0-9 '\-]");
->>>>>>> theirs
+        private static readonly Regex RestrictedNameRegex = new("[^A-Za-zА-Яа-яёЁ0-9' _.<>^%~ -]"); //ADT-Tweak
         private static readonly Regex ICNameCaseRegex = new(@"^(?<word>\w)|\b(?<word>\w)(?=\w*$)");
-
-        public const int MaxNameLength = 96;    // ну тип ADT
-        public const int MaxLoadoutNameLength = 32;
-        public const int MaxDescLength = 512;
 
         /// <summary>
         /// Job preferences for initial spawn.
@@ -104,44 +78,12 @@ namespace Content.Shared.Preferences
         /// </summary>
         [DataField]
         public string FlavorText { get; set; } = string.Empty;
-        //ADT-tweak-start
-        /// <summary>
-        /// ООС заметки у персонажа
-        /// </summary>
-        [DataField]
-        public string OOCNotes { get; set; } = string.Empty;
-        /// <summary>
-        /// ссылка на хэдшот персонажа
-        /// </summary>
-        [DataField]
-        public string HeadshotUrl { get; private set; } = string.Empty;
-
-        /// <summary>
-        /// Установить URL хэдшота с валидацией.
-        /// Валидация происходит один раз при установке, а не при каждом спавне.
-        /// </summary>
-        public void SetHeadshotUrl(string url, string allowedDomain)
-        {
-            HeadshotUrl = HeadshotHashHelper.IsValidHeadshotUrl(url, allowedDomain)
-                ? url
-                : string.Empty;
-        }
-
-        /// <summary>
-        /// скрытая информация персонажа, видна только антагам и призракам
-        /// </summary>
-        [DataField]
-        public string ExploitableInfo { get; set; } = string.Empty;
-        //ADT-tweak-end
 
         /// <summary>
         /// Associated <see cref="SpeciesPrototype"/> for this profile.
         /// </summary>
         [DataField]
         public ProtoId<SpeciesPrototype> Species { get; set; } = DefaultSpecies;
-
-        [DataField]
-        public string Voice { get; set; } = DefaultVoice;
 
         [DataField]
         public int Age { get; set; } = 18;
@@ -166,27 +108,6 @@ namespace Content.Shared.Preferences
         /// </summary>
         [DataField]
         public SpawnPriorityPreference SpawnPriority { get; private set; } = SpawnPriorityPreference.None;
-
-        // ADT Barks start
-        [DataField]
-        public BarkData Bark = new();
-        // ADT Barks end
-        // ADT Languages start
-        [DataField]
-        private HashSet<ProtoId<LanguagePrototype>> _languages = new();
-
-        public IReadOnlySet<ProtoId<LanguagePrototype>> Languages => _languages;
-
-        /// <summary>
-        /// Трайт, дающий один дополнительный слот языка в редакторе персонажа.
-        /// </summary>
-        private static readonly ProtoId<TraitPrototype> PolyglotTraitId = "Polyglot";
-
-        /// <summary>
-        /// Бонус к лимиту языков от выбранных трайтов (трайт «Полиглот»).
-        /// </summary>
-        public int LanguageSlotsBonus => TraitPreferences.Contains(PolyglotTraitId) ? 1 : 0;
-        // ADT Languages end
 
         /// <summary>
         /// <see cref="_jobPriorities"/>
@@ -213,7 +134,6 @@ namespace Content.Shared.Preferences
             string name,
             string flavortext,
             string species,
-            string voice, // ADT-Tweak
             int age,
             Sex sex,
             ProtoId<EmoteSoundsPrototype> voice,
@@ -224,20 +144,11 @@ namespace Content.Shared.Preferences
             PreferenceUnavailableMode preferenceUnavailable,
             HashSet<ProtoId<AntagPrototype>> antagPreferences,
             HashSet<ProtoId<TraitPrototype>> traitPreferences,
-            Dictionary<string, RoleLoadout> loadouts,
-            //ADT-tweak-start
-            BarkData bark,
-            HashSet<ProtoId<LanguagePrototype>> languages,
-            string oocNotes,
-            string headshotUrl,
-            string exploitableInfo
-            )
-            //ADT-tweak-end
+            Dictionary<string, RoleLoadout> loadouts)
         {
             Name = name;
             FlavorText = flavortext;
             Species = species;
-            Voice = voice; // ADT-Tweak
             Age = age;
             Sex = sex;
             Voice = voice;
@@ -249,13 +160,6 @@ namespace Content.Shared.Preferences
             _antagPreferences = antagPreferences;
             _traitPreferences = traitPreferences;
             _loadouts = loadouts;
-            // ADT start
-            Bark = bark;
-            _languages = languages;
-            OOCNotes = oocNotes;
-            HeadshotUrl = headshotUrl;
-            ExploitableInfo = exploitableInfo;
-            // ADT end
 
             var hasHighPrority = false;
             foreach (var (key, value) in _jobPriorities)
@@ -277,7 +181,6 @@ namespace Content.Shared.Preferences
             : this(other.Name,
                 other.FlavorText,
                 other.Species,
-                other.Voice,
                 other.Age,
                 other.Sex,
                 other.Voice,
@@ -288,16 +191,9 @@ namespace Content.Shared.Preferences
                 other.PreferenceUnavailable,
                 new HashSet<ProtoId<AntagPrototype>>(other.AntagPreferences),
                 new HashSet<ProtoId<TraitPrototype>>(other.TraitPreferences),
-                new Dictionary<string, RoleLoadout>(other.Loadouts),
-                // ADT start
-                other.Bark,
-                other._languages,
-                other.OOCNotes,
-                other.HeadshotUrl,
-                other.ExploitableInfo
-                )
-                // ADT end
+                new Dictionary<string, RoleLoadout>(other.Loadouts))
         {
+            CopyADTFrom(other); // ADT-Tweak
         }
 
         /// <summary>
@@ -317,8 +213,6 @@ namespace Content.Shared.Preferences
         /// <returns>Humanoid character profile with default settings.</returns>
         public static HumanoidCharacterProfile DefaultWithSpecies(ProtoId<SpeciesPrototype>? species = null, Sex? sex = null)
         {
-            var proto = IoCManager.Resolve<IPrototypeManager>(); // ADT Languages
-
             species ??= HumanoidCharacterProfile.DefaultSpecies;
             sex ??= Sex.Male;
 
@@ -327,7 +221,7 @@ namespace Content.Shared.Preferences
                 Species = species.Value,
                 Sex = sex.Value,
                 Appearance = HumanoidCharacterAppearance.DefaultWithSpecies(species.Value, sex.Value),
-                _languages = proto.Index<SpeciesPrototype>(species).DefaultLanguages.ToHashSet()    // ADT Languages
+                _languages = DefaultLanguagesFor(species.Value), // ADT-Tweak
             };
         }
 
@@ -406,46 +300,15 @@ namespace Content.Shared.Preferences
         {
             var random = IoCManager.Resolve<IRobustRandom>();
 
-<<<<<<< ours
-            var sex = Sex.Unsexed;
-            var age = 18;
-            HashSet<ProtoId<LanguagePrototype>> languages = new();  // ADT Languages
-            if (prototypeManager.TryIndex<SpeciesPrototype>(species, out var speciesPrototype))
-            {
-                sex = random.Pick(speciesPrototype.Sexes);
-                age = random.Next(speciesPrototype.MinAge, speciesPrototype.OldAge); // people don't look and keep making 119 year old characters with zero rp, cap it at middle aged
-                languages = speciesPrototype.DefaultLanguages.ToHashSet();  // ADT Languages
-            }
-||||||| base
-            var sex = Sex.Unsexed;
-            var age = 18;
-            if (prototypeManager.TryIndex<SpeciesPrototype>(species, out var speciesPrototype))
-            {
-                sex = random.Pick(speciesPrototype.Sexes);
-                age = random.Next(speciesPrototype.MinAge, speciesPrototype.OldAge); // people don't look and keep making 119 year old characters with zero rp, cap it at middle aged
-            }
-=======
             var sex = random.Pick(species.Sexes);
             return sex;
         }
->>>>>>> theirs
 
-<<<<<<< ours
-            // ADT-Tweak-Start
-            var voiceId = random.Pick(prototypeManager
-                .EnumeratePrototypes<TTSVoicePrototype>()
-                .Where(o => CanHaveVoice(o, sex, species)).ToArray()
-            ).ID;
-            // ADT-Tweak-End
-
-||||||| base
-=======
         /// <summary>
         /// Picks a random gender using species sex;
         /// </summary>
         public static Gender RandomGender(Sex sex)
         {
->>>>>>> theirs
             var gender = Gender.Epicene;
 
             switch (sex)
@@ -489,25 +352,6 @@ namespace Content.Shared.Preferences
             var profile = new HumanoidCharacterProfile();
             if ((randomizeCfg & RandomizeCfg.Species) != 0)
             {
-<<<<<<< ours
-                Name = name,
-                Sex = sex,
-                Age = age,
-                Gender = gender,
-                Species = species,
-                Voice = voiceId, // ADT-Tweak
-                Appearance = HumanoidCharacterAppearance.Random(species, sex),
-                _languages = languages,
-            };
-||||||| base
-                Name = name,
-                Sex = sex,
-                Age = age,
-                Gender = gender,
-                Species = species,
-                Appearance = HumanoidCharacterAppearance.Random(species, sex),
-            };
-=======
                 profile.Species = RandomSpecies();
             }
             else
@@ -527,6 +371,7 @@ namespace Content.Shared.Preferences
             profile.Age = (randomizeCfg & RandomizeCfg.Age) != 0 ? RandomAge(speciesProto) : baseProfile.Age;
 
             profile.Appearance = HumanoidCharacterAppearance.Random(speciesProto, profile.Sex, randomizeCfg, baseProfile.Appearance);
+            profile.RandomizeADT(speciesProto); // ADT-Tweak
 
             return profile;
         }
@@ -544,7 +389,6 @@ namespace Content.Shared.Preferences
                 RandomizeConfigAll ^ RandomizeCfg.Species,
                 new HumanoidCharacterProfile().WithSpecies(species)
             );
->>>>>>> theirs
         }
 
         public HumanoidCharacterProfile WithName(string name)
@@ -556,20 +400,6 @@ namespace Content.Shared.Preferences
         {
             return new(this) { FlavorText = flavorText };
         }
-        //ADT-tweak-start: ООС заметки и ЮРЛ
-        public HumanoidCharacterProfile WithOOCNotes(string oocNotes)
-        {
-            return new(this) { OOCNotes = oocNotes };
-        }
-        public HumanoidCharacterProfile WithHeadshotUrl(string headshotUrl)
-        {
-            return new(this) { HeadshotUrl = headshotUrl };
-        }
-        public HumanoidCharacterProfile WithExploitableInfo(string exploitableInfo)
-        {
-            return new(this) { ExploitableInfo = exploitableInfo };
-        }
-        //ADT-tweak-end
         public HumanoidCharacterProfile WithAge(int age)
         {
             return new(this) { Age = age };
@@ -595,46 +425,6 @@ namespace Content.Shared.Preferences
             return new(this) { Species = species };
         }
 
-        // ADT-Tweak-Start
-        public HumanoidCharacterProfile WithVoice(string voice)
-        {
-            return new(this) { Voice = voice };
-        }
-        // ADT-Tweak-End
-
-        // ADT Barks start
-        public HumanoidCharacterProfile WithBarkProto(string bark)
-        {
-            return new(this)
-            {
-                Bark = Bark.WithProto(bark),
-            };
-        }
-
-        public HumanoidCharacterProfile WithBarkPitch(float pitch)
-        {
-            return new(this)
-            {
-                Bark = Bark.WithPitch(pitch),
-            };
-        }
-
-        public HumanoidCharacterProfile WithBarkMinVariation(float variation)
-        {
-            return new(this)
-            {
-                Bark = Bark.WithMinVar(variation),
-            };
-        }
-
-        public HumanoidCharacterProfile WithBarkMaxVariation(float variation)
-        {
-            return new(this)
-            {
-                Bark = Bark.WithMaxVar(variation),
-            };
-        }
-        // ADT Barks end
         public HumanoidCharacterProfile WithCharacterAppearance(HumanoidCharacterAppearance appearance)
         {
             return new(this) { Appearance = appearance };
@@ -819,7 +609,6 @@ namespace Content.Shared.Preferences
         public bool MemberwiseEquals(HumanoidCharacterProfile other)
         {
             if (Name != other.Name) return false;
-            if (Voice != other.Voice) return false; // ADT-Tweak
             if (Age != other.Age) return false;
             if (Sex != other.Sex) return false;
             if (Voice != other.Voice) return false;
@@ -830,15 +619,9 @@ namespace Content.Shared.Preferences
             if (!_jobPriorities.SequenceEqual(other._jobPriorities)) return false;
             if (!_antagPreferences.SequenceEqual(other._antagPreferences)) return false;
             if (!_traitPreferences.SequenceEqual(other._traitPreferences)) return false;
-            if (!_languages.SequenceEqual(other._languages)) return false;  // ADT Languages
             if (!Loadouts.SequenceEqual(other.Loadouts)) return false;
             if (FlavorText != other.FlavorText) return false;
-            // ADT-tweak-start
-            if (OOCNotes != other.OOCNotes) return false;
-            if (HeadshotUrl != other.HeadshotUrl) return false;
-            if (ExploitableInfo != other.ExploitableInfo) return false;
-            if (!Bark.MemberwiseEquals(other.Bark)) return false;
-            // ADT-tweak-end
+            if (!MemberwiseEqualsADT(other)) return false; // ADT-Tweak
             return Appearance.Equals(other.Appearance);
         }
 
@@ -940,20 +723,6 @@ namespace Content.Shared.Preferences
                 flavortext = FormattedMessage.RemoveMarkupOrThrow(FlavorText);
             }
 
-            //ADT-tweak-start
-            string oocNotes = FormattedMessage.RemoveMarkupOrThrow(OOCNotes);
-            if (oocNotes.Length > maxFlavorTextLength)
-            {
-                oocNotes = oocNotes[..maxFlavorTextLength];
-            }
-
-            string exploitableInfo = FormattedMessage.RemoveMarkupOrThrow(ExploitableInfo);
-            if (exploitableInfo.Length > maxFlavorTextLength)
-            {
-                exploitableInfo = exploitableInfo[..maxFlavorTextLength];
-            }
-            //ADT-tweak-end
-
             SponsorProfileValidation.StripMarkings(Appearance, session, collection); // ADT-Tweak
 
             var appearance = HumanoidCharacterAppearance.EnsureValid(Appearance, Species, Sex);
@@ -1006,11 +775,6 @@ namespace Content.Shared.Preferences
 
             Name = name;
             FlavorText = flavortext;
-            //ADT-tweak-start
-            OOCNotes = oocNotes;
-            ExploitableInfo = exploitableInfo;
-            // HeadshotUrl уже валидирован при установке через SetHeadshotUrl
-            //ADT-tweak-end
             Age = age;
             Sex = sex;
             Voice = voice;
@@ -1032,16 +796,6 @@ namespace Content.Shared.Preferences
 
             _traitPreferences.Clear();
             _traitPreferences.UnionWith(traits); // ADT-Tweak
-
-            // ADT-Tweak-Start
-            prototypeManager.TryIndex<TTSVoicePrototype>(Voice, out var voice);
-            if (voice is null
-                || !CanHaveVoice(voice, Sex, Species)
-                || !SponsorProfileValidation.IsTtsVoiceAllowed(session, collection, voice))
-            {
-                Voice = DefaultSexVoice[sex];
-            }
-            // ADT-Tweak-End
 
             // Checks prototypes exist for all loadouts and dump / set to default if not.
             var toRemove = new ValueList<string>();
@@ -1065,41 +819,7 @@ namespace Content.Shared.Preferences
                 _loadouts.Remove(value);
             }
 
-            // ADT start
-            if (_languages.Count <= 0)
-                _languages = new(speciesPrototype.DefaultLanguages);
-            List<ProtoId<LanguagePrototype>> langsInvalid = new();
-            foreach (var language in _languages)
-            {
-                if (!prototypeManager.Index(language).Roundstart && !speciesPrototype.UniqueLanguages.Contains(language))
-                    langsInvalid.Add(language);
-            }
-            foreach (var lang in langsInvalid)
-            {
-                _languages.Remove(lang);
-            }
-
-            // ADT-Tweak-Start
-            var maxLanguages = speciesPrototype.MaxLanguages + LanguageSlotsBonus;
-            if (_languages.Count > maxLanguages)
-            {
-                var required = new HashSet<ProtoId<LanguagePrototype>>(speciesPrototype.DefaultLanguages);
-                required.UnionWith(speciesPrototype.UniqueLanguages);
-                foreach (var lang in _languages.ToList())
-                {
-                    if (_languages.Count <= maxLanguages)
-                        break;
-
-                    if (required.Contains(lang))
-                        continue;
-
-                    _languages.Remove(lang);
-                }
-            }
-            // ADT-Tweak-End
-
-            GetQuirkPoints();
-            // ADT end
+            EnsureValidADT(session, collection, speciesPrototype, maxFlavorTextLength); // ADT-Tweak
         }
 
         /// <summary>
@@ -1142,22 +862,6 @@ namespace Content.Shared.Preferences
             return result;
         }
 
-        // ADT-Tweak-Start
-        // SHOULD BE NOT PUBLIC, BUT....
-        public static bool CanHaveVoice(TTSVoicePrototype voice, Sex sex, ProtoId<SpeciesPrototype> species)
-        {
-            // ADT-Tweak-Start
-            if (voice.SpeciesBlacklist.Contains(species))
-                return false;
-
-            if (voice.SpeciesWhitelist.Count > 0 && !voice.SpeciesWhitelist.Contains(species))
-                return false;
-            // ADT-Tweak-End
-
-            return voice.RoundStart && sex == Sex.Unsexed || (voice.Sex == sex || voice.Sex == Sex.Unsexed);
-        }
-        // ADT-Tweak-End
-
         public HumanoidCharacterProfile Validated(ICommonSession session, IDependencyCollection collection, string[] sponsorPrototypes)
         {
             var profile = new HumanoidCharacterProfile(this);
@@ -1193,21 +897,12 @@ namespace Content.Shared.Preferences
             hashCode.Add(_traitPreferences);
             hashCode.Add(_loadouts);
             hashCode.Add(Name);
-            //ADT-tweak-start
-            hashCode.Add(OOCNotes);
-            hashCode.Add(HeadshotUrl);
-            hashCode.Add(ExploitableInfo);
-            //ADT-tweak-end
             hashCode.Add(FlavorText);
             hashCode.Add(Species);
             hashCode.Add(Age);
             hashCode.Add((int)Sex);
-<<<<<<< ours
-            hashCode.Add(Voice); // ADT-Tweak
-||||||| base
-=======
             hashCode.Add(Voice);
->>>>>>> theirs
+            AddHashCodeADT(ref hashCode); // ADT-Tweak
             hashCode.Add((int)Gender);
             hashCode.Add(Appearance);
             hashCode.Add((int)SpawnPriority);
@@ -1256,84 +951,6 @@ namespace Content.Shared.Preferences
             return new HumanoidCharacterProfile(this);
         }
 
-        // ADT start
-        public HumanoidCharacterProfile WithLanguage(ProtoId<LanguagePrototype> language)
-        {
-            var proto = IoCManager.Resolve<IPrototypeManager>();
-            var species = proto.Index(Species);
-            if (!proto.Index(language).Roundstart && !species.UniqueLanguages.Contains(language))
-                return new(this);
-            if (_languages.Contains(language))
-                return new(this);
-            if (_languages.Count >= species.MaxLanguages + LanguageSlotsBonus)
-                return new(this);
-
-            HashSet<ProtoId<LanguagePrototype>> list = new(_languages);
-            list.Add(language);
-
-            return new(this)
-            {
-                _languages = list,
-            };
-        }
-
-        public HumanoidCharacterProfile WithoutLanguage(ProtoId<LanguagePrototype> language)
-        {
-            var proto = IoCManager.Resolve<IPrototypeManager>();
-            var species = proto.Index(Species);
-            if (!proto.Index(language).Roundstart && !species.UniqueLanguages.Contains(language))
-                return new(this);
-            if (!_languages.Contains(language))
-                return new(this);
-            if (_languages.Count <= 1)
-                return new(this);
-
-            HashSet<ProtoId<LanguagePrototype>> list = new(_languages);
-            list.Remove(language);
-
-            return new(this)
-            {
-                _languages = list,
-            };
-        }
-
-        public bool CanToggleQuirk(TraitPrototype proto)
-        {
-            var protoMan = IoCManager.Resolve<IPrototypeManager>();
-            var list = TraitPreferences.Where(x => protoMan.Index(x).Quirk);
-
-            int points = 0;
-            foreach (var item in list)
-            {
-                points -= protoMan.Index(item).Cost;
-            }
-
-            if (list.Contains(proto.ID) && points + proto.Cost < 0)
-                return false;
-            else if (!list.Contains(proto.ID) && points < proto.Cost)
-                return false;
-
-            return true;
-        }
-
-        public int GetQuirkPoints()
-        {
-            var count = 0;
-            var proto = IoCManager.Resolve<IPrototypeManager>();
-            var quirks = TraitPreferences.Where(x => proto.Index(x).Quirk);
-            foreach (var item in quirks)
-            {
-                count += proto.Index(item).Cost;
-            }
-            if (count > 0)
-            {
-                _traitPreferences.Clear();
-                count = 0;
-            }
-
-            return -count;
-        }
-        // ADT end
         public DataNode ToDataNode(ISerializationManager? serialization = null, IConfigurationManager? configuration = null)
         {
             IoCManager.Resolve(ref serialization);

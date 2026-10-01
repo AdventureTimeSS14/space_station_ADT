@@ -237,7 +237,7 @@ namespace Content.Server.Database
             profile.SpawnPriority = (int) humanoid.SpawnPriority;
             profile.OrganMarkings = JsonSerializer.SerializeToDocument(dataNode.ToJsonNode());
             // ADT-Tweak-Start
-            profile.Voice = humanoid.Voice;
+            profile.TTSVoice = humanoid.TTSVoice;
             profile.BarkProto = humanoid.Bark.Proto;
             profile.BarkPitch = humanoid.Bark.Pitch;
             profile.LowBarkVar = humanoid.Bark.MinVar;

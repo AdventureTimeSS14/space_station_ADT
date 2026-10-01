@@ -419,7 +419,7 @@ namespace Content.Server.Database
         public string? Voice { get; set; } = null!; // If null, the voice gets defaulted to the sex associated value
         public string Gender { get; set; } = null!;
         public string Species { get; set; } = null!;
-        public string Voice { get; set; } = null!; // Corvax-TTS
+        [Column("tts_voice")] public string TTSVoice { get; set; } = null!; // ADT-Tweak
         public string BarkProto { get; set; } = null!; // ADT Barks
         public float BarkPitch { get; set; } = 1f; // ADT Barks
         public float LowBarkVar { get; set; } = 0.1f; // ADT Barks
