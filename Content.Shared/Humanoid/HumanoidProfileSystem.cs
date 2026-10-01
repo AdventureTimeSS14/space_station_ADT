@@ -13,16 +13,8 @@ namespace Content.Shared.Humanoid;
 
 public sealed partial class HumanoidProfileSystem : EntitySystem
 {
-<<<<<<< ours
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly GrammarSystem _grammar = default!;
-    [Dependency] private readonly SharedLanguageSystem _language = default!;
-||||||| base
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly GrammarSystem _grammar = default!;
-=======
     [Dependency] private GrammarSystem _grammar = default!;
->>>>>>> theirs
+    [Dependency] private SharedLanguageSystem _language = default!; // ADT-Tweak
 
     public override void Initialize()
     {
@@ -58,26 +50,13 @@ public sealed partial class HumanoidProfileSystem : EntitySystem
         ent.Comp.Gender = profile.Gender;
         ent.Comp.Age = profile.Age;
         ent.Comp.Species = profile.Species;
-<<<<<<< ours
-        SetSex(ent, profile.Sex);
-||||||| base
-        ent.Comp.Sex = profile.Sex;
-=======
         ent.Comp.Voice = profile.Voice;
-        ent.Comp.Sex = profile.Sex;
->>>>>>> theirs
+        SetSex(ent, profile.Sex); // ADT-Tweak
         Dirty(ent);
 
-<<<<<<< ours
-||||||| base
-        var sexChanged = new SexChangedEvent(ent.Comp.Sex, profile.Sex);
-        RaiseLocalEvent(ent, ref sexChanged);
-
-=======
         var voiceChanged = new VoiceChangedEvent(ent.Comp.Voice, profile.Voice);
         RaiseLocalEvent(ent, ref voiceChanged);
 
->>>>>>> theirs
         if (TryComp<GrammarComponent>(ent, out var grammar))
         {
             _grammar.SetGender((ent, grammar), profile.Gender);
@@ -85,12 +64,12 @@ public sealed partial class HumanoidProfileSystem : EntitySystem
 
         // ADT-Tweak-Start
         if (TryComp<TTSComponent>(ent, out var tts))
-            tts.VoicePrototypeId = profile.Voice;
+            tts.VoicePrototypeId = profile.TTSVoice;
 
         if (TryComp<SpeechBarksComponent>(ent, out var barks))
         {
             barks.Data = profile.Bark;
-            if (_prototype.TryIndex(barks.Data.Proto, out BarkPrototype? barkProto))
+            if (ProtoMan.TryIndex(barks.Data.Proto, out BarkPrototype? barkProto))
                 barks.Data.Sound = barkProto.Sound;
         }
 
@@ -99,7 +78,7 @@ public sealed partial class HumanoidProfileSystem : EntitySystem
         foreach (var lang in profile.Languages)
             languageSpeaker.Languages[lang.ToString()] = LanguageKnowledge.Speak;
 
-        if (_prototype.TryIndex(ent.Comp!.Species, out var speciesProto))
+        if (ProtoMan.TryIndex(ent.Comp!.Species, out var speciesProto))
         {
             foreach (var forced in speciesProto.ForceLanguages)
                 languageSpeaker.Languages.TryAdd(forced.ToString(), LanguageKnowledge.Speak);

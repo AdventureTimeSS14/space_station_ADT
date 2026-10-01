@@ -51,7 +51,7 @@ public sealed partial class VoiceMaskComponent : Component
     // ADT-Tweak-Start
     [DataField]
     [ViewVariables(VVAccess.ReadWrite)]
-    public string VoiceId = HumanoidCharacterProfile.DefaultVoice;
+    public string VoiceId = HumanoidCharacterProfile.DefaultTTSVoice;
     // ADT-Tweak-End
 
     // ADT Barks start

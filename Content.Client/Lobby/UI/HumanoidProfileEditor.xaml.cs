@@ -490,7 +490,7 @@ namespace Content.Client.Lobby.UI
 
             _ttsTab.OnVoiceSelected += voiceId =>
             {
-                SetVoice(voiceId);
+                SetTTSVoice(voiceId);
                 _ttsTab.SetSelectedVoice(voiceId);
             };
 
@@ -506,7 +506,7 @@ namespace Content.Client.Lobby.UI
                 return;
 
             _ttsTab.UpdateControls(Profile, Profile.Sex, Profile.Species); //ADT-tweak: добавлена раса
-            _ttsTab.SetSelectedVoice(Profile.Voice);
+            _ttsTab.SetSelectedVoice(Profile.TTSVoice);
         }
 
         #endregion
@@ -727,9 +727,9 @@ namespace Content.Client.Lobby.UI
         }
 
         // ADT-Tweak-Start
-        private void SetVoice(string newVoice)
+        private void SetTTSVoice(string newVoice)
         {
-            Profile = Profile?.WithVoice(newVoice);
+            Profile = Profile?.WithTTSVoice(newVoice);
             IsDirty = true;
         }
         // ADT-Tweak-End

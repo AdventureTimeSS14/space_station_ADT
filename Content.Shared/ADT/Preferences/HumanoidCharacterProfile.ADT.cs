@@ -40,7 +40,7 @@ public sealed partial class HumanoidCharacterProfile
     [DataField]
     public string ExploitableInfo { get; set; } = string.Empty;
 
-    [DataField]
+    [DataField("ttsVoice")]
     public string TTSVoice { get; set; } = DefaultTTSVoice;
 
     [DataField]

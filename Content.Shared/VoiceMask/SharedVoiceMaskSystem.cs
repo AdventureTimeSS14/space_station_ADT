@@ -1,10 +1,6 @@
-<<<<<<< ours
 using Content.Shared.StatusIcon;
 using Robust.Shared.Prototypes;
-||||||| base
-=======
 using Content.Shared.Inventory;
->>>>>>> theirs
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.VoiceMask;
@@ -28,13 +24,7 @@ public sealed class VoiceMaskBuiState : BoundUserInterfaceState
     public readonly bool AccentHide;
     public readonly LocId TitleText;
 
-<<<<<<< ours
-    public VoiceMaskBuiState(string name, string voice, string bark, float pitch, string? verb, bool active, bool accentHide, string? jobIconId = null)
-||||||| base
-    public VoiceMaskBuiState(string name, string? verb, bool active, bool accentHide)
-=======
-    public VoiceMaskBuiState(string name, string? verb, bool active, bool accentHide, LocId titleText)
->>>>>>> theirs
+    public VoiceMaskBuiState(string name, string voice, string bark, float pitch, string? verb, bool active, bool accentHide, LocId titleText, string? jobIconId = null)
     {
         Name = name;
         Verb = verb;

@@ -11,12 +11,8 @@ using Content.Shared.Inventory;
 using Content.Shared.Lock;
 using Content.Shared.Popups;
 using Content.Shared.Speech;
-<<<<<<< ours
 using Content.Shared.StatusIcon;
-||||||| base
-=======
 using Content.Shared.Speech.EntitySystems;
->>>>>>> theirs
 using Content.Shared.VoiceMask;
 using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
@@ -25,26 +21,6 @@ namespace Content.Server.VoiceMask;
 
 public sealed partial class VoiceMaskSystem : EntitySystem
 {
-<<<<<<< ours
-    [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly LockSystem _lock = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly IdentitySystem _identity = default!;
-||||||| base
-    [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly IConfigurationManager _cfgManager = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly LockSystem _lock = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly IdentitySystem _identity = default!;
-=======
     [Dependency] private SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private SharedPopupSystem _popupSystem = default!;
     [Dependency] private IConfigurationManager _cfgManager = default!;
@@ -59,7 +35,6 @@ public sealed partial class VoiceMaskSystem : EntitySystem
     ///  Used for innate voice masks, which need to be able to create their own UIs.
     /// </summary>
     private const string UiGeneratedName = "VoiceMaskBoundUserInterface";
->>>>>>> theirs
 
     // CCVar.
     private int _maxNameLength;
@@ -260,7 +235,7 @@ public sealed partial class VoiceMaskSystem : EntitySystem
     {
         entity.Comp.VoiceMaskJobIcon = msg.JobIconId;
 
-        var iconText = msg.JobIconId.HasValue && _proto.TryIndex(msg.JobIconId.Value, out var proto)
+        var iconText = msg.JobIconId.HasValue && ProtoMan.TryIndex(msg.JobIconId.Value, out var proto)
             ? proto.LocalizedJobName
             : Loc.GetString("voice-mask-job-icon-none");
 
@@ -300,7 +275,7 @@ public sealed partial class VoiceMaskSystem : EntitySystem
         if (_lock.IsLocked(uid) || !component.Action.HasValue || component.ActionEntity.HasValue) // ADT-Tweak
             return;
 
-<<<<<<< ours
+        component.Active = false;
         _actions.AddAction(args.Wearer, ref component.ActionEntity, component.Action.Value.Id, uid); // ADT-Tweak
     }
 
@@ -309,12 +284,6 @@ public sealed partial class VoiceMaskSystem : EntitySystem
     {
         _actions.RemoveAction(component.ActionEntity);
         component.ActionEntity = null;
-||||||| base
-        _actions.AddAction(args.Wearer, ref component.ActionEntity, component.Action, uid);
-=======
-        component.Active = false;
-        _actions.AddAction(args.Wearer, ref component.ActionEntity, component.Action, uid);
->>>>>>> theirs
     }
     // ADT-Tweak end
 
@@ -335,13 +304,7 @@ public sealed partial class VoiceMaskSystem : EntitySystem
     private void UpdateUI(Entity<VoiceMaskComponent> entity)
     {
         if (_uiSystem.HasUi(entity, VoiceMaskUIKey.Key))
-<<<<<<< ours
-            _uiSystem.SetUiState(entity.Owner, VoiceMaskUIKey.Key, new VoiceMaskBuiState(GetCurrentVoiceName(entity), entity.Comp.VoiceId, entity.Comp.BarkId, entity.Comp.BarkPitch, entity.Comp.VoiceMaskSpeechVerb, entity.Comp.Active, entity.Comp.AccentHide, entity.Comp.VoiceMaskJobIcon)); // ADT-Tweak
-||||||| base
-            _uiSystem.SetUiState(entity.Owner, VoiceMaskUIKey.Key, new VoiceMaskBuiState(GetCurrentVoiceName(entity), entity.Comp.VoiceMaskSpeechVerb, entity.Comp.Active, entity.Comp.AccentHide));
-=======
-            _uiSystem.SetUiState(entity.Owner, VoiceMaskUIKey.Key, new VoiceMaskBuiState(GetCurrentVoiceName(entity), entity.Comp.VoiceMaskSpeechVerb, entity.Comp.Active, entity.Comp.AccentHide, entity.Comp.TitleText));
->>>>>>> theirs
+            _uiSystem.SetUiState(entity.Owner, VoiceMaskUIKey.Key, new VoiceMaskBuiState(GetCurrentVoiceName(entity), entity.Comp.VoiceId, entity.Comp.BarkId, entity.Comp.BarkPitch, entity.Comp.VoiceMaskSpeechVerb, entity.Comp.Active, entity.Comp.AccentHide, entity.Comp.TitleText, entity.Comp.VoiceMaskJobIcon)); // ADT-Tweak
     }
     #endregion
 

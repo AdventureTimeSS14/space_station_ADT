@@ -122,7 +122,6 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
             SpeechVerbSelector.SelectId(id);
     }
 
-<<<<<<< ours
     // ADT-Tweak-Start
     private void ReloadVoices(IPrototypeManager proto)
     {
@@ -240,12 +239,7 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
     }
     // ADT-Tweak end Job Icons
 
-    public void UpdateState(string name, string voice, string barkId, float barkPitch, string? verb, string? jobIconId = null, bool active = false, bool accentHide = false)
-||||||| base
-    public void UpdateState(string name, string? verb, bool active, bool accentHide)
-=======
-    public void UpdateState(string name, string? verb, bool active, bool accentHide, LocId titleText)
->>>>>>> theirs
+    public void UpdateState(string name, string voice, string barkId, float barkPitch, string? verb, LocId titleText, string? jobIconId = null, bool active = false, bool accentHide = false)
     {
         NameSelector.Text = name;
         _verb = verb;

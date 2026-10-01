@@ -1,11 +1,7 @@
 using System.Numerics;
-<<<<<<< ours
 using Content.Shared.ADT.Language;
 using Content.Shared.ADT.SpeechBarks;
-||||||| base
-=======
 using Content.Shared.Chat.Prototypes;
->>>>>>> theirs
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences;
@@ -87,8 +83,8 @@ public sealed partial class HumanoidCharacterProfileV1
     public PreferenceUnavailableMode PreferenceUnavailable;
 
     // ADT-tweak-Start
-    [DataField]
-    public string Voice = HumanoidCharacterProfile.DefaultVoice;
+    [DataField("voice")]
+    public string TTSVoice = HumanoidCharacterProfile.DefaultTTSVoice;
 
     [DataField]
     public BarkData Bark = new();
@@ -108,13 +104,8 @@ public sealed partial class HumanoidCharacterProfileV1
 
     public HumanoidCharacterProfile ToV2()
     {
-<<<<<<< ours
-        // ADT-tweak:
-        return new(Name, FlavorText, Species, Voice, Age, Sex, Gender, Appearance.ToV2(Species), SpawnPriority, JobPriorities, PreferenceUnavailable, AntagPreferences, TraitPreferences, Loadouts, Bark, Languages, OOCNotes, HeadshotUrl, ExploitableInfo);
-||||||| base
-        return new(Name, FlavorText, Species, Age, Sex, Gender, Appearance.ToV2(Species), SpawnPriority, JobPriorities, PreferenceUnavailable, AntagPreferences, TraitPreferences, Loadouts);
-=======
-        return new(Name, FlavorText, Species, Age, Sex, GetDefaultVoice(Species, Sex), Gender, Appearance.ToV2(Species), SpawnPriority, JobPriorities, PreferenceUnavailable, AntagPreferences, TraitPreferences, Loadouts);
+        return new HumanoidCharacterProfile(Name, FlavorText, Species, Age, Sex, GetDefaultVoice(Species, Sex), Gender, Appearance.ToV2(Species), SpawnPriority, JobPriorities, PreferenceUnavailable, AntagPreferences, TraitPreferences, Loadouts)
+            .SetADTData(TTSVoice, Bark, Languages, OOCNotes, HeadshotUrl, ExploitableInfo); // ADT-Tweak
     }
 
     // In V2 voices are stored as a separate database entry, this picks the default for the species and sex, which would give the same voice as pre-nubody.
@@ -124,7 +115,6 @@ public sealed partial class HumanoidCharacterProfileV1
 
         var speciesPrototye = prototypeManager.Index(species);
         return speciesPrototye.DefaultSoundsBySex[(int)sex];
->>>>>>> theirs
     }
 }
 
