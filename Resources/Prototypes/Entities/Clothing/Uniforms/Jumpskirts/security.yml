@@ -89,8 +89,6 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/prisoner.rsi
 # ADT-Tweak-end
   - type: Item
-# ADT-Tweak-start
-# ADT-Tweak-end
   - type: Clothing
     # ADT-Tweak-start
     sprite: ADT/Clothing/Uniforms/Jumpskirt/prisoner.rsi
