@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ClothingUniformBase, ClothingUniformFoldableBase] # ADT-Tweak
+  parent: ClothingUniformBase
   id: ClothingUniformJumpsuitDetective
   name: hard-worn suit
   description: Someone who wears this means business.
@@ -10,7 +10,7 @@
     sprite: Clothing/Uniforms/Jumpsuits/Security/detective.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, ClothingUniformFoldableBase] # ADT-Tweak
+  parent: ClothingUniformBase
   id: ClothingUniformJumpsuitDetectiveGrey
   name: noir suit
   description: A hard-boiled private investigator's grey suit, complete with tie clip.
@@ -21,7 +21,7 @@
     sprite: Clothing/Uniforms/Jumpsuits/Security/detective_grey.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, BaseCommandContraband, ClothingUniformFoldableBase] # ADT-Tweak
+  parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitHoS
   name: head of security's jumpsuit
   description: It's bright red and rather crisp, much like security's victims tend to be.
@@ -55,7 +55,7 @@
     sprite: Clothing/Uniforms/Jumpsuits/Security/hos_alt.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, BaseCommandContraband, ClothingUniformFoldableBase] # ADT-Tweak
+  parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitHoSBlue
   name: head of security's blue jumpsuit
   description: A blue jumpsuit of Head of Security.
@@ -66,7 +66,7 @@
     sprite: Clothing/Uniforms/Jumpsuits/Security/hos_blue.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, BaseCommandContraband, ClothingUniformFoldableBase] # ADT-Tweak
+  parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitHoSGrey
   name: head of security's grey jumpsuit
   description: A grey jumpsuit of Head of Security, which make him look somewhat like a passenger.
@@ -88,29 +88,38 @@
     sprite: Clothing/Uniforms/Jumpsuits/Security/hos_parade.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, ClothingUniformFoldableBase] # ADT-Tweak
+  parent: ClothingUniformBase
   id: ClothingUniformJumpsuitBrigmedic
   name: brigmedic jumpsuit
   description: This uniform is issued to qualified personnel who have been trained. No one cares that the training took half a day.
   components:
-  - type: Sprite # ADT-Tweak
-    sprite: ADT/Clothing/Uniforms/Jumpsuit/brigmedic.rsi
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuits/Security/brigmedic.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Jumpsuit/brigmedic.rsi # ADT-Tweak
+    sprite: Clothing/Uniforms/Jumpsuits/Security/brigmedic.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, ClothingUniformFoldableBase] # ADT-Tweak
+  parent: ClothingUniformBase
   id: ClothingUniformJumpsuitPrisoner
   name: prisoner jumpsuit
   description: A jumpsuit used for prisoners. It has suit sensors automatically enabled at all times.
   components:
   - type: Sprite
-# ADT-Tweak-start
-    sprite: ADT/Clothing/Uniforms/Jumpsuit/prisoner.rsi
-# ADT-Tweak-end
+    sprite: Clothing/Uniforms/Jumpsuits/Color/color.rsi
+    layers:
+    - state: icon
+      color: "#ff8300"
+    - state: prisoner-icon
   - type: Item
-# ADT-Tweak-start
-# ADT-Tweak-end
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#ff8300"
+      - state: prisoner-inhand-left
+      right:
+      - state: inhand-right
+        color: "#ff8300"
+      - state: prisoner-inhand-right
   - type: Clothing
     # ADT-Tweak-start
     sprite: ADT/Clothing/Uniforms/Jumpsuit/prisoner.rsi
@@ -153,7 +162,7 @@
       - state: overlay-inhand-right
 
 - type: entity
-  parent: [ClothingUniformBase, ClothingUniformFoldableBase] # ADT-Tweak
+  parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSecBlue
   name: blue shirt and tie
   description: I'm a little busy right now, Calhoun.
@@ -164,7 +173,7 @@
     sprite: Clothing/Uniforms/Jumpsuits/Security/security_blue.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, BaseSecurityContraband, ClothingUniformFoldableBase] # ADT-Tweak
+  parent: [ClothingUniformBase, BaseSecurityContraband]
   id: ClothingUniformJumpsuitSecGrey
   name: grey security jumpsuit
   description: A tactical relic of years past before Nanotrasen decided it was cheaper to dye the suits red instead of washing out the blood.
@@ -175,7 +184,7 @@
     sprite: Clothing/Uniforms/Jumpsuits/Security/security_grey.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, BaseSecurityContraband, ClothingUniformFoldableBase] # ADT-Tweak
+  parent: [ClothingUniformBase, BaseSecurityContraband]
   id: ClothingUniformSecurityTrooper
   name: trooper uniform
   description: A formal uniform issued to the Nanotrasen Troopers, usually it comes with a car.
@@ -186,7 +195,7 @@
     sprite: Clothing/Uniforms/Jumpsuits/Security/security_trooper.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, BaseSecurityContraband, ClothingUniformFoldableBase] # ADT-Tweak
+  parent: [ClothingUniformBase, BaseSecurityContraband]
   id: ClothingUniformJumpsuitWarden
   name: warden's uniform
   description: A formal security suit for officers complete with Nanotrasen belt buckle.
@@ -220,7 +229,7 @@
     sprite: Clothing/Uniforms/Jumpsuits/Security/hosformal.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, BaseSecurityContraband, ClothingUniformFoldableBase] # ADT-Tweak
+  parent: [ClothingUniformBase, BaseSecurityContraband]
   id: ClothingUniformJumpsuitSeniorOfficer
   name: senior officer jumpsuit
   description: A sign of skill and prestige within the security department.

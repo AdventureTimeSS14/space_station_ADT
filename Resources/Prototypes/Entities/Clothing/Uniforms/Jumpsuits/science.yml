@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ClothingUniformBase, BaseCommandContraband, ClothingUniformFoldableBase] # ADT-Tweak
+  parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitResearchDirector
   name: research director's turtleneck
   description: It's a turtleneck worn by those with the know-how to achieve the position of Research Director. Its fabric provides minor protection from biological contaminants.
@@ -19,7 +19,7 @@
     sprite: Clothing/Uniforms/Jumpsuits/Science/scientist.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, ClothingUniformFoldableBase] # ADT-Tweak
+  parent: ClothingUniformBase
   id: ClothingUniformJumpsuitScientistFormal
   name: scientist's formal jumpsuit
   description: A uniform for sophisticated scientists, best worn with its matching tie.
@@ -39,7 +39,7 @@
     sprite: Clothing/Uniforms/Jumpsuits/Science/roboticist.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, ClothingUniformFoldableBase] # ADT-Tweak
+  parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSeniorResearcher
   name: senior researcher jumpsuit
   description: A sign of skill and prestige within the science department.

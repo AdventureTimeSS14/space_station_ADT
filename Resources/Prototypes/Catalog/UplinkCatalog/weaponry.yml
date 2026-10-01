@@ -66,23 +66,21 @@
   categories:
   - UplinkWeaponry
 
-# ADT-Tweak-start
-# - type: listing
-#   id: UplinkEnergyCrossbow
-#   name: uplink-energycrossbow-name
-#   description: uplink-energycrossbow-desc
-#   discountCategory: rareDiscounts
-#   discountDownTo:
-#     Telecrystal: 3
-#   productEntity: WeaponEnergyCrossbow
-#   cost:
-#     Telecrystal: 5
-#   categories:
-#   - UplinkWeaponry
-#   conditions:
-#   - !type:ListingLimitedStockCondition
-#     stock: 1
-# ADT-Tweak-end
+- type: listing
+  id: UplinkEnergyCrossbow
+  name: uplink-energycrossbow-name
+  description: uplink-energycrossbow-desc
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 3
+  productEntity: WeaponEnergyCrossbow
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
 
 - type: listing
   id: UplinkThrowingKnivesKit
@@ -92,9 +90,9 @@
   productEntity: ThrowingKnivesKit
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 1 # ADT-Tweak
+    Telecrystal: 3
   cost:
-    Telecrystal: 3 # ADT-Tweak
+    Telecrystal: 6
   categories:
     - UplinkWeaponry
 
@@ -107,7 +105,7 @@
   discountDownTo:
     Telecrystal: 4
   cost:
-    Telecrystal: 6 # ADT-Tweak
+    Telecrystal: 8
   categories:
   - UplinkWeaponry
 
@@ -119,9 +117,9 @@
   productEntity: ClothingHandsKnuckleDustersSyndicate
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 2 # ADT-Tweak
+    Telecrystal: 2
   cost:
-    Telecrystal: 5 # ADT-Tweak
+    Telecrystal: 4
   categories:
   - UplinkWeaponry
 
@@ -171,25 +169,18 @@
     Telecrystal: 10
   categories:
   - UplinkWeaponry
-  # ADT-Tweak-start
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
-  # ADT-Tweak-end
 
 - type: listing
   id: UplinkHushpup
   name: uplink-hushpup-name
   description: uplink-hushpup-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/hushpup.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelSyndicateFilledHushpup # ADT-Tweak
+  productEntity: BriefcaseWeaponHushpupFilled
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 5 # ADT-Tweak
+    Telecrystal: 8
   cost:
-    Telecrystal: 7 # ADT-Tweak
+    Telecrystal: 10
   categories:
   - UplinkWeaponry
 
@@ -309,7 +300,7 @@
   name: uplink-grenade-launcher-bundle-name
   description: uplink-grenade-launcher-bundle-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Launchers/china_lake.rsi, state: icon }
-  productEntity: ADTClothingBackpackDuffelSyndicateFilledChinaLikeGrenadeLauncher # ADT-Tweak
+  productEntity: ClothingBackpackDuffelSyndicateFilledGrenadeLauncher
   discountCategory: veryRareDiscounts
   discountDownTo:
     Telecrystal: 20

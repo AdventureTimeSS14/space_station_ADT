@@ -47,12 +47,12 @@
       path: "/Audio/Weapons/Guns/Hits/taser_hit.ogg"
     forceSound: true
   - type: TimedDespawn
-    lifetime: 0.1 # ADT-Tweak
+    lifetime: 0.170 # Very short range
   - type: StunOnCollide
     stunAmount: 0
-    knockdownAmount: 0.1 # ADT-Tweak
+    knockdownAmount: 2.5 # Enough to subdue and follow up with a stun baton
     drop: false #Ranged KD and item drop are too strong in one package
-    slowdownAmount: 3.2 # ADT-Tweak
+    slowdownAmount: 2.5
     walkSpeedModifier: 0.5
     sprintSpeedModifier: 0.5
 
@@ -85,41 +85,41 @@
     walkSpeedModifier: 0.5
     sprintSpeedModifier: 0.5
 
-  - type: entity
-    parent: BaseBullet
-    id: BulletDisabler
-    categories: [ HideSpawnMenu ]
-    name: disabler bolt
-    components:
-    - type: Reflective
-      reflective:
-      - Energy
-    - type: FlyBySound
-      sound:
-        collection: EnergyMiss
-        params:
-          volume: 5
-    - type: Sprite
-      sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
-      layers:
-      - state: omnilaser
-        shader: unshaded
-    - type: Physics
-    - type: Fixtures
-      fixtures:
-        projectile:
-          shape:
-            !type:PhysShapeAabb
-            bounds: "-0.15,-0.3,0.15,0.3"
-          hard: false
-          mask:
-          - Opaque
-        # - Impassable # ADT-Tweak
-        # - BulletImpassable # ADT-Tweak
-        fly-by: *flybyfixture
-    - type: Ammo
-    - type: StaminaDamageOnCollide
-      damage: 30 # ADT-Tweak
+- type: entity
+  parent: BaseBullet
+  id: BulletDisabler
+  categories: [ HideSpawnMenu ]
+  name: disabler bolt
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser
+      shader: unshaded
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.15,-0.3,0.15,0.3"
+        hard: false
+        mask:
+        - Opaque
+        - Impassable
+        - BulletImpassable
+      fly-by: *flybyfixture
+  - type: Ammo
+  - type: StaminaDamageOnCollide
+    damage: 33
   - type: Projectile
     impactEffect: BulletImpactEffectDisabler
     damage:
@@ -155,9 +155,9 @@
         hard: false
         mask:
         - Opaque
-        # - Impassable # ADT-Tweak
-        # - BulletImpassable # ADT-Tweak
-        fly-by: *flybyfixture
+        - Impassable
+        - BulletImpassable
+      fly-by: *flybyfixture
   - type: Ammo
   - type: StaminaDamageOnCollide
     damage: 1
@@ -199,9 +199,9 @@
         hard: false
         mask:
         - Opaque
-        # - Impassable # ADT-Tweak
-        # - BulletImpassable # ADT-Tweak
-        fly-by: *flybyfixture
+        - Impassable
+        - BulletImpassable
+      fly-by: *flybyfixture
   - type: Ammo
   - type: StaminaDamageOnCollide
     damage: 15

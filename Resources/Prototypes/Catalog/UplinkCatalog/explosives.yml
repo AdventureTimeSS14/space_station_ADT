@@ -9,7 +9,7 @@
   discountDownTo:
     Telecrystal: 2
   cost:
-    Telecrystal: 3 # ADT-Tweak
+    Telecrystal: 4
   categories:
   - UplinkExplosives
   conditions:
@@ -126,7 +126,7 @@
   discountDownTo:
     Telecrystal: 2
   cost:
-    Telecrystal: 3 # ADT-Tweak
+    Telecrystal: 4
   categories:
   - UplinkExplosives
 
@@ -194,8 +194,8 @@
   productEntity: PowerSink
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 3 # ADT-Tweak
+    Telecrystal: 4
   cost:
-    Telecrystal: 6 # ADT-Tweak
+    Telecrystal: 8
   categories:
   - UplinkExplosives

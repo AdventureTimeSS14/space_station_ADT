@@ -19,7 +19,7 @@
   discountDownTo:
     Telecrystal: 1
   cost:
-    Telecrystal: 2 # ADT-Tweak
+    Telecrystal: 3
   categories:
   - UplinkDeception
 
@@ -103,7 +103,7 @@
   discountDownTo:
     Telecrystal: 2
   cost:
-    Telecrystal: 3 # ADT-Tweak
+    Telecrystal: 4
   categories:
     - UplinkDeception
 
@@ -126,7 +126,7 @@
   discountDownTo:
     Telecrystal: 1
   cost:
-    Telecrystal: 2 # ADT-Tweak
+    Telecrystal: 4
   categories:
   - UplinkDeception
   restockTime: 1800

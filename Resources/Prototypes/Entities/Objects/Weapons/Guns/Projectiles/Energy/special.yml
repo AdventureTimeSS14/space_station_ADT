@@ -43,7 +43,3 @@
     - EmitterBolt
   - type: TimedDespawn
     lifetime: 3
-# ADT-Tweak-start
-  - type: SupermatterFood
-    energy: 250
-# ADT-Tweak-end

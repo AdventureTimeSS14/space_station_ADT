@@ -44,8 +44,3 @@ uplink-clothing-eyes-hud-syndicate-desc = The syndicate's professional head-up d
 
 uplink-backpack-syndicate-name = Syndicate backpack
 uplink-backpack-syndicate-desc = A lightweight expanded backpack with explosion proofing for holding various traitor goods.
-
-# ADT-Tweak-start
-uplink-guerrilla-gloves-name = Guerrilla Gloves
-uplink-guerrilla-gloves-desc = A special shock resistant pair of gloves that make you hard grab by default, reduce your slowdown when actively grabbing and make it harder for victims to escape your grabs.
-# ADT-Tweak-end

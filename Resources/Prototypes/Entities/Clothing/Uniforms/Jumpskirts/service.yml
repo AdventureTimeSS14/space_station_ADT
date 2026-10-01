@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] # ADT-Tweak
+  parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtBartender
   name: bartender's uniform
   description: A nice and tidy uniform. Shame about the bar though.
@@ -10,7 +10,7 @@
     sprite: Clothing/Uniforms/Jumpskirts/Service/bartender.rsi
 
 - type: entity
-  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] # ADT-Tweak
+  parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtChaplain
   name: chaplain's jumpskirt
   description: It's a black jumpskirt, often worn by religious folk.
@@ -21,7 +21,7 @@
     sprite: Clothing/Uniforms/Jumpskirts/Service/chaplain.rsi
 
 - type: entity
-  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] # ADT-Tweak
+  parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtChef
   name: chef uniform
   description: Can't cook without this.
@@ -32,7 +32,7 @@
     sprite: Clothing/Uniforms/Jumpskirts/Service/chef.rsi
 
 - type: entity
-  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] # ADT-Tweak
+  parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtHydroponics
   name: hydroponics jumpskirt
   description: Has a strong earthy smell to it. Hopefully it's merely dirty as opposed to soiled.
@@ -43,7 +43,7 @@
     sprite: Clothing/Uniforms/Jumpskirts/Service/hydro.rsi
 
 - type: entity
-  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] # ADT-Tweak
+  parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtJanitor
   name: janitor jumpskirt
   description: The jumpskirt for the poor sop with a mop.
@@ -157,7 +157,7 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] # ADT-Tweak
+  parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtLawyerRed
   name: red lawyer suitskirt
   description: A flashy red suitskirt worn by lawyers and show-offs.
@@ -168,7 +168,7 @@
     sprite: Clothing/Uniforms/Jumpskirts/Service/lawyerred.rsi
 
 - type: entity
-  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] # ADT-Tweak
+  parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtLawyerBlue
   name: blue lawyer suitskirt
   description: A flashy blue suitskirt worn by lawyers and show-offs.
@@ -179,7 +179,7 @@
     sprite: Clothing/Uniforms/Jumpskirts/Service/lawyerblue.rsi
 
 - type: entity
-  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] # ADT-Tweak
+  parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtLawyerBlack
   name: black lawyer suitskirt
   description: A subtle black suitskirt worn by lawyers and gangsters.
@@ -201,7 +201,7 @@
     sprite: Clothing/Uniforms/Jumpskirts/Service/lawyerpurple.rsi
 
 - type: entity
-  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] # ADT-Tweak
+  parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtLawyerGood
   name: good lawyer's suitskirt
   description: A tacky suitskirt perfect for a CRIMINAL lawyer!

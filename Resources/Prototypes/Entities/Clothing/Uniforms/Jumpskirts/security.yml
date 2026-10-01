@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] # ADT-Tweak
+  parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDetective
   name: hard-worn suitskirt
   description: Someone who wears this means business.
@@ -10,7 +10,7 @@
     sprite: Clothing/Uniforms/Jumpskirts/Security/detective.rsi
 
 - type: entity
-  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] # ADT-Tweak
+  parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDetectiveGrey
   name: noir suitskirt
   description: A hard-boiled private investigator's grey suit, complete with tie clip.
@@ -21,7 +21,7 @@
     sprite: Clothing/Uniforms/Jumpskirts/Security/detective_grey.rsi
 
 - type: entity
-  parent: [ClothingUniformSkirtBase, BaseCommandContraband, ClothingUniformFoldableBase] # ADT-Tweak
+  parent: [ClothingUniformSkirtBase, BaseCommandContraband]
   id: ClothingUniformJumpskirtHoS
   name: head of security's jumpskirt
   description: It's bright red and rather crisp, much like security's victims tend to be.
@@ -68,29 +68,38 @@
     sprite: Clothing/Uniforms/Jumpskirts/Security/hos_parade.rsi
 
 - type: entity
-  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] # ADT-Tweak
+  parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtBrigmedic
   name: brigmedic jumpskirt
   description: This uniform is issued to qualified personnel who have been trained. No one cares that the training took half a day.
   components:
-  - type: Sprite # ADT-Tweak
-    sprite: ADT/Clothing/Uniforms/Jumpskirt/brigmedic.rsi
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpskirts/Security/brigmedic.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Jumpskirt/brigmedic.rsi # ADT-Tweak
+    sprite: Clothing/Uniforms/Jumpskirts/Security/brigmedic.rsi
 
 - type: entity
-  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] # ADT-Tweak
+  parent: ClothingUniformBase
   id: ClothingUniformJumpskirtPrisoner
   name: prisoner jumpskirt
   description: A jumpskirt used for prisoners. It has suit sensors automatically enabled at all times.
   components:
   - type: Sprite
-# ADT-Tweak-start
-    sprite: ADT/Clothing/Uniforms/Jumpskirt/prisoner.rsi
-# ADT-Tweak-end
+    sprite: Clothing/Uniforms/Jumpskirts/Color/color.rsi
+    layers:
+    - state: icon
+      color: "#ff8300"
+    - state: prisoner-icon
   - type: Item
-# ADT-Tweak-start
-# ADT-Tweak-end
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#ff8300"
+      - state: prisoner-inhand-left
+      right:
+      - state: inhand-right
+        color: "#ff8300"
+      - state: prisoner-inhand-right
   - type: Clothing
     # ADT-Tweak-start
     sprite: ADT/Clothing/Uniforms/Jumpskirt/prisoner.rsi
@@ -112,7 +121,7 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: [ClothingUniformSkirtBase, BaseSecurityContraband, ClothingUniformFoldableBase] # ADT-Tweak
+  parent: [ClothingUniformSkirtBase, BaseSecurityContraband]
   id: ClothingUniformJumpskirtSec
   name: security jumpskirt
   description: A jumpskirt made of strong material, providing robust protection.
@@ -137,7 +146,7 @@
     sprite: Clothing/Uniforms/Jumpskirts/Security/security.rsi
 
 - type: entity
-  parent: [ClothingUniformSkirtBase, BaseSecurityContraband, ClothingUniformFoldableBase] # ADT-Tweak
+  parent: [ClothingUniformSkirtBase, BaseSecurityContraband]
   id: ClothingUniformJumpskirtWarden
   name: warden's uniform
   description: A formal security suit for officers complete with Nanotrasen belt buckle.
@@ -173,7 +182,7 @@
     sprite: Clothing/Uniforms/Jumpskirts/Security/hosformaldress.rsi
 
 - type: entity
-  parent: [ClothingUniformSkirtBase, BaseSecurityContraband, ClothingUniformFoldableBase] # ADT-Tweak
+  parent: [ClothingUniformSkirtBase, BaseSecurityContraband]
   id: ClothingUniformJumpskirtSeniorOfficer
   name: senior officer jumpskirt
   description: A sign of skill and prestige within the security department.
@@ -184,7 +193,7 @@
     sprite: Clothing/Uniforms/Jumpskirts/Security/senior_officer.rsi
 
 - type: entity
-  parent: [ClothingUniformSkirtBase, BaseSecurityContraband, ClothingUniformFoldableBase] # ADT-Tweak
+  parent: [ClothingUniformSkirtBase, BaseSecurityContraband]
   id: ClothingUniformJumpskirtSecGrey
   name: grey security jumpskirt
   description: A tactical relic of years past before Nanotrasen decided it was cheaper to dye the suits red instead of washing out the blood.
