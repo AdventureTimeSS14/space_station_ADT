@@ -1,4 +1,4 @@
-using Content.Shared.Medical.SuitSensor;
+﻿using Content.Shared.ADT.Medical.SuitSensors;
 
 namespace Content.Server.ADT.Medical.CrewMonitoring;
 
@@ -7,6 +7,6 @@ namespace Content.Server.ADT.Medical.CrewMonitoring;
 /// delivered to subscribed consoles.
 /// </summary>
 [ByRefEvent]
-public record struct CrewMonitoringServerUpdateEvent(
-    Dictionary<string, SuitSensorStatus>? Snapshot,
+public record struct ADTCrewMonitoringServerUpdateEvent(
+    Dictionary<string, ADTSuitSensorStatus>? Snapshot,
     bool Delivered = false);

@@ -97,12 +97,7 @@
         Base: dead
   - type: Puller
   - type: Butcherable
-<<<<<<< ours
     butcheringType: knife # ADT-Tweak butcheringType: Spike
-||||||| base
-    butcheringType: Spike
-=======
->>>>>>> theirs
     spawned:
     - id: FoodMeatXeno
       amount: 2 # ADT-Tweak 5 -> 2

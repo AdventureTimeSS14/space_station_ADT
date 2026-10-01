@@ -9,7 +9,6 @@
     sprite: Objects/Materials/Sheets/glass.rsi
   - type: Item
     sprite: Objects/Materials/Sheets/glass.rsi
-<<<<<<< ours
     size: Normal
   - type: StaticPrice
     price: 0
@@ -21,20 +20,8 @@
     - ADTGlassSheet #ADT tweak
     - SheetGlass # ADT-Heretic: ритуал клинка Космоса
   - type: Material
-||||||| base
-    size: Normal
-  - type: StaticPrice
-    price: 0
-  - type: Tag
-    tags:
-    - Sheet
-    - ConstructionMaterial
-  - type: Material
-=======
->>>>>>> theirs
   - type: Damageable
     damageModifierSet: Glass
-<<<<<<< ours
   - type: Injurable
     damageContainer: Inorganic
   - type: Appearance
@@ -85,38 +72,6 @@
     sound:
       path: /Audio/ADT/Entities/glass_drop.ogg
   # ADT End
-||||||| base
-  - type: Appearance
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 50
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: GlassBreak
-          params:
-            volume: -4
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          ShardGlass:
-            min: 1
-            max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-  - type: SolutionContainerManager
-    solutions:
-      glass:
-        canReact: false
-=======
->>>>>>> theirs
 
 - type: entity
   parent: SheetGlassBase
@@ -236,7 +191,6 @@
           ShardGlassReinforced:
             min: 1
             max: 1
-<<<<<<< ours
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   # ADT IPC healing start
@@ -248,10 +202,6 @@
         Heat: -8
         Cold: -8
   # ADT IPC healing end
-||||||| base
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-=======
   - type: Solution
     solution:
       maxVol: 15
@@ -262,7 +212,6 @@
         Quantity: 4.5
       - ReagentId: Carbon
         Quantity: 0.5
->>>>>>> theirs
 
 - type: entity
   parent: SheetRGlass
@@ -319,7 +268,6 @@
           ShardGlassPlasma:
             min: 1
             max: 1
-<<<<<<< ours
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   # ADT IPC healing start
@@ -331,10 +279,6 @@
         Heat: -5
         Cold: -10
   # ADT IPC healing end
-||||||| base
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-=======
   - type: Solution
     solution:
       maxVol: 20
@@ -343,7 +287,6 @@
         Quantity: 10
       - ReagentId: Plasma
         Quantity: 10
->>>>>>> theirs
 
 - type: entity
   parent: SheetPGlass
@@ -384,7 +327,6 @@
   - type: Construction
     graph: Glass
     node: SheetRPGlass
-<<<<<<< ours
   - type: Destructible  #ADT-Tweak_start
     thresholds:
     - trigger:
@@ -411,45 +353,6 @@
         acts: [ "Destruction" ]  #ADT-Tweak_End
   - type: Extractable
     grindableSolutionName: rpglass
-  - type: SolutionContainerManager
-    solutions:
-      rpglass:
-        reagents:
-        - ReagentId: Silicon
-          Quantity: 10
-        - ReagentId: Plasma
-          Quantity: 10
-        - ReagentId: Iron
-          Quantity: 4.5
-        - ReagentId: Carbon
-          Quantity: 0.5
-        canReact: false
-  # ADT IPC healing start
-  - type: Healing
-    damageContainers:
-      - ADTSiliconDamageContainer
-    damage:
-      types:
-        Heat: -10
-        Cold: -15
-  # ADT IPC healing end
-||||||| base
-  - type: Extractable
-    grindableSolutionName: rpglass
-  - type: SolutionContainerManager
-    solutions:
-      rpglass:
-        reagents:
-        - ReagentId: Silicon
-          Quantity: 10
-        - ReagentId: Plasma
-          Quantity: 10
-        - ReagentId: Iron
-          Quantity: 4.5
-        - ReagentId: Carbon
-          Quantity: 0.5
-        canReact: false
-=======
   - type: Solution
     solution:
       maxVol: 25
@@ -462,7 +365,15 @@
         Quantity: 4.5
       - ReagentId: Carbon
         Quantity: 0.5
->>>>>>> theirs
+  # ADT IPC healing start
+  - type: Healing
+    damageContainers:
+      - ADTSiliconDamageContainer
+    damage:
+      types:
+        Heat: -10
+        Cold: -15
+  # ADT IPC healing end
 
 - type: entity
   parent: SheetRPGlass
@@ -519,20 +430,18 @@
           ShardGlassUranium:
             min: 1
             max: 1
-<<<<<<< ours
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Extractable
     grindableSolutionName: uglass
-  - type: SolutionContainerManager
-    solutions:
-      uglass:
-        reagents:
-        - ReagentId: Silicon
-          Quantity: 10
-        - ReagentId: Uranium
-          Quantity: 10
-        canReact: false
+  - type: Solution
+    solution:
+      maxVol: 20
+      reagents:
+      - ReagentId: Silicon
+        Quantity: 10
+      - ReagentId: Uranium
+        Quantity: 10
   # ADT IPC healing start
   - type: Healing
     damageContainers:
@@ -542,30 +451,6 @@
         Heat: -10
         Cold: -5
   # ADT IPC healing end
-||||||| base
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-  - type: Extractable
-    grindableSolutionName: uglass
-  - type: SolutionContainerManager
-    solutions:
-      uglass:
-        reagents:
-        - ReagentId: Silicon
-          Quantity: 10
-        - ReagentId: Uranium
-          Quantity: 10
-        canReact: false
-=======
-  - type: Solution
-    solution:
-      maxVol: 20
-      reagents:
-      - ReagentId: Silicon
-        Quantity: 10
-      - ReagentId: Uranium
-        Quantity: 10
->>>>>>> theirs
 
 - type: entity
   parent: SheetUGlass
@@ -605,7 +490,6 @@
   - type: Construction
     graph: Glass
     node: SheetRUGlass
-<<<<<<< ours
   - type: Destructible #ADT-Tweak_start
     thresholds:
     - trigger:
@@ -632,45 +516,6 @@
         acts: [ "Destruction" ] #ADT-Tweak_end
   - type: Extractable
     grindableSolutionName: ruglass
-  - type: SolutionContainerManager
-    solutions:
-      ruglass:
-        reagents:
-        - ReagentId: Silicon
-          Quantity: 10
-        - ReagentId: Uranium
-          Quantity: 10
-        - ReagentId: Iron
-          Quantity: 4.5
-        - ReagentId: Carbon
-          Quantity: 0.5
-        canReact: false
-  # ADT IPC healing start
-  - type: Healing
-    damageContainers:
-      - ADTSiliconDamageContainer
-    damage:
-      types:
-        Heat: -15
-        Cold: -10
-  # ADT IPC healing end
-||||||| base
-  - type: Extractable
-    grindableSolutionName: ruglass
-  - type: SolutionContainerManager
-    solutions:
-      ruglass:
-        reagents:
-        - ReagentId: Silicon
-          Quantity: 10
-        - ReagentId: Uranium
-          Quantity: 10
-        - ReagentId: Iron
-          Quantity: 4.5
-        - ReagentId: Carbon
-          Quantity: 0.5
-        canReact: false
-=======
   - type: Solution
     solution:
       maxVol: 25
@@ -683,7 +528,15 @@
         Quantity: 4.5
       - ReagentId: Carbon
         Quantity: 0.5
->>>>>>> theirs
+  # ADT IPC healing start
+  - type: Healing
+    damageContainers:
+      - ADTSiliconDamageContainer
+    damage:
+      types:
+        Heat: -15
+        Cold: -10
+  # ADT IPC healing end
 
 - type: entity
   parent: SheetRUGlass
@@ -740,22 +593,18 @@
           ShardGlassClockwork:
             min: 1
             max: 1
-<<<<<<< ours
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Extractable
     grindableSolutionName: cglass
-  - type: SolutionContainerManager
-    solutions:
-      cglass:
-        reagents:
-        - ReagentId: Silicon
-          Quantity: 10
-        - ReagentId: Zinc
-          Quantity: 3.3
-        - ReagentId: Copper
-          Quantity: 6.7
-        canReact: false
+  - type: Solution
+    solution:
+      maxVol: 20
+      reagents:
+      - ReagentId: Silicon
+        Quantity: 10
+      - ReagentId: Brass
+        Quantity: 10
   # ADT IPC healing start
   - type: Healing
     damageContainers:
@@ -765,32 +614,6 @@
         Heat: -5
         Cold: -5
   # ADT IPC healing end
-||||||| base
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-  - type: Extractable
-    grindableSolutionName: cglass
-  - type: SolutionContainerManager
-    solutions:
-      cglass:
-        reagents:
-        - ReagentId: Silicon
-          Quantity: 10
-        - ReagentId: Zinc
-          Quantity: 3.3
-        - ReagentId: Copper
-          Quantity: 6.7
-        canReact: false
-=======
-  - type: Solution
-    solution:
-      maxVol: 20
-      reagents:
-      - ReagentId: Silicon
-        Quantity: 10
-      - ReagentId: Brass
-        Quantity: 10
->>>>>>> theirs
 
 - type: entity
   parent: SheetClockworkGlass

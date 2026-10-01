@@ -162,13 +162,8 @@
     - entity_storage
   - type: Damageable
     damageModifierSet: Web
-<<<<<<< ours
-  - type: Injurable
-||||||| base
-=======
   - type: Injurable
     damageContainer: StructuralInorganic
->>>>>>> theirs
   - type: Destructible
     thresholds:
     - trigger:

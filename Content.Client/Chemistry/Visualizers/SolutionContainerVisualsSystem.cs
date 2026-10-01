@@ -80,22 +80,12 @@ public sealed partial class SolutionContainerVisualsSystem : VisualizerSystem<So
                 changeColor = reagentProto.MetamorphicChangeColor;
                 fillSprite = reagentProto.MetamorphicSprite ?? fillSprite;
             }
-<<<<<<< ours
-            else
-                SpriteSystem.LayerSetVisible(ent, fillLayer, false);
-||||||| base
-        }
-        else
-        {
-            SpriteSystem.LayerSetVisible((uid, args.Sprite), fillLayer, true);
-=======
-            else if (reagentProto?.MetamorphicSprite == null)
+else if (reagentProto?.MetamorphicSprite == null)
                 // The reagent has no metamorphic sprite, but the default one
                 // will still be used. So we set the fill to visible.
                 SpriteSystem.LayerSetVisible(ent, fillLayer, true);
             else
                 SpriteSystem.LayerSetVisible(ent, fillLayer, false);
->>>>>>> theirs
         }
 
         var closestFillSprite = ContentHelpers.RoundToLevels(fraction, 1, maxFillLevels + 1);
@@ -143,14 +133,7 @@ public sealed partial class SolutionContainerVisualsSystem : VisualizerSystem<So
                 args.Component))
             return null;
 
-<<<<<<< ours
-        var reagentProto = _prototype.Index<ReagentPrototype>(baseOverride);
-||||||| base
-        if (!TryComp<ItemComponent>(uid, out var item))
-            return;
-=======
-        var reagentProto = ProtoMan.Index<ReagentPrototype>(baseOverride);
->>>>>>> theirs
+var reagentProto = ProtoMan.Index<ReagentPrototype>(baseOverride);
 
         if (SpriteSystem.LayerMapTryGet(ent, component.OverlayLayer, out var overlayLayer, false))
             SpriteSystem.LayerSetVisible(ent, overlayLayer, reagentProto.MetamorphicSprite is null);

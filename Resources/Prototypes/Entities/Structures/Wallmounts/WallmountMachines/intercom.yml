@@ -78,7 +78,6 @@
     - key_slots
   - type: Destructible
     thresholds:
-<<<<<<< ours
       - trigger:
           !type:DamageTrigger
           damage: 200
@@ -88,13 +87,13 @@
             spawn:
               ScrapIntercom:
                 min: 1
-                max: 1                 
+                max: 1
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
           - !type:PlaySoundBehavior
             sound:
               collection: MetalSlam
-        # ADT-Tweak-end         
+        # ADT-Tweak-end
       - trigger:
           !type:DamageTrigger
           damage: 100
@@ -106,37 +105,6 @@
               collection: MetalGlassBreak
               params:
                 volume: -4
-||||||| base
-      - trigger:
-          !type:DamageTrigger
-          damage: 200
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-      - trigger:
-          !type:DamageTrigger
-          damage: 100
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalGlassBreak
-              params:
-                volume: -4
-=======
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalGlassBreak
-          params:
-            volume: -4
->>>>>>> theirs
   - type: GenericVisualizer
     visuals:
       enum.WiresVisualLayers.MaintenancePanel:

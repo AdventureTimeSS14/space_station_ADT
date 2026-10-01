@@ -1,4 +1,4 @@
-using System.Linq;
+﻿using System.Linq;
 using System.Numerics;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
@@ -9,6 +9,7 @@ using Content.Server.Roles;
 using Content.Server.Roles.Jobs;
 using Content.Server.StationRecords.Systems;
 using Content.Shared.Access.Systems;
+using Content.Shared.ADT.Medical.SuitSensors;
 using Content.Shared.ADT.Ghost;
 using Content.Shared.ADT.Ghost.GhostTypes;
 using Content.Shared.ADT.CustomGhostSystem;
@@ -38,7 +39,6 @@ using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory;
-using Content.Shared.Medical.SuitSensors;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
@@ -870,7 +870,7 @@ namespace Content.Server.Ghost
                     continue;
 
                 var item = Spawn(_random.Pick(pool));
-                RemComp<SuitSensorComponent>(item);
+                RemComp<ADTSuitSensorComponent>(item);
                 EnsureComp<UnremoveableComponent>(item);
 
                 if (!_inventory.TryEquip(ghost, item, slot, true, true))

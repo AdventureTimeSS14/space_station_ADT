@@ -15,7 +15,6 @@
     #  time: 5h
     - !type:DepartmentTimeRequirement
       department: Security
-<<<<<<< ours
       time: 55h # ADT-Tweak
     - !type:TraitsRequirement #Corvax-TraitsRequirement
       inverted: true
@@ -29,12 +28,6 @@
       - Shadekin
   # ADT RESTRICT End
   weight: 10
-||||||| base
-      time: 10h
-  weight: 10
-=======
-      time: 10h
->>>>>>> theirs
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"
   supervisors: job-supervisors-captain

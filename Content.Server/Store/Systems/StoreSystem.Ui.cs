@@ -1,12 +1,8 @@
 using System.Linq;
 using Content.Server.Actions;
 using Content.Server.Administration.Logs;
-<<<<<<< ours
 using Content.Server.Heretic.EntitySystems;
-||||||| base
-=======
 using Content.Shared.Mindshield;
->>>>>>> theirs
 using Content.Server.Stack;
 using Content.Server.Store.Components;
 using Content.Shared.Actions;
@@ -14,56 +10,21 @@ using Content.Shared.ADT.ManifestListings; // ADT-tweak
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
 using Content.Shared.Hands.EntitySystems;
-<<<<<<< ours
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Mindshield.Components;
-||||||| base
-using Content.Shared.Mind;
-using Content.Shared.Mindshield.Components;
-=======
->>>>>>> theirs
 using Content.Shared.NPC.Systems;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
 using Content.Shared.UserInterface;
 using Robust.Shared.Audio.Systems;
-<<<<<<< ours
 using Robust.Shared.Prototypes;
-||||||| base
-using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
-=======
->>>>>>> theirs
 
 namespace Content.Server.Store.Systems;
 
 public sealed partial class StoreSystem
 {
-<<<<<<< ours
-    [Dependency] private readonly IAdminLogManager _admin = default!;
-    [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly ActionUpgradeSystem _actionUpgrade = default!;
-    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly StackSystem _stack = default!;
-     // goobstation - heretics
-    [Dependency] private readonly HereticSystem _heretic = default!;
-||||||| base
-    [Dependency] private readonly IAdminLogManager _admin = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
-    [Dependency] private readonly ActionUpgradeSystem _actionUpgrade = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly StackSystem _stack = default!;
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
-=======
-    [Dependency] private IAdminLogManager _admin = default!;
+[Dependency] private IAdminLogManager _admin = default!;
     [Dependency] private ActionContainerSystem _actionContainer = default!;
     [Dependency] private ActionsSystem _actions = default!;
     [Dependency] private ActionUpgradeSystem _actionUpgrade = default!;
@@ -71,8 +32,8 @@ public sealed partial class StoreSystem
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private SharedHandsSystem _hands = default!;
     [Dependency] private StackSystem _stack = default!;
+    [Dependency] private HereticSystem _heretic = default!;  // goobstation - heretics
     [Dependency] private MindShieldSystem _mindShield = default!;
->>>>>>> theirs
 
     private void InitializeUi()
     {
@@ -292,13 +253,7 @@ public sealed partial class StoreSystem
 
         _admin.Add(LogType.StorePurchase,
             logImpact,
-<<<<<<< ours
-            $"{ToPrettyString(buyer):player} purchased listing \"{ListingLocalisationHelpers.GetLocalisedNameOrEntityName(listing, Proto)}\" from {ToPrettyString(uid)}{logExtraInfo}.");
-||||||| base
-            $"{ToPrettyString(buyer):player} purchased listing \"{ListingLocalisationHelpers.GetLocalisedNameOrEntityName(listing, _proto)}\" from {ToPrettyString(uid)}{logExtraInfo}.");
-=======
-            $"{ToPrettyString(buyer):player} purchased listing \"{ListingLocalisationHelpers.GetLocalisedNameOrEntityName(listing, ProtoMan)}\" from {ToPrettyString(uid)}{logExtraInfo}.");
->>>>>>> theirs
+$"{ToPrettyString(buyer):player} purchased listing \"{ListingLocalisationHelpers.GetLocalisedNameOrEntityName(listing, ProtoMan)}\" from {ToPrettyString(uid)}{logExtraInfo}.");
 
         listing.PurchaseAmount++; //track how many times something has been purchased
 
@@ -340,13 +295,7 @@ public sealed partial class StoreSystem
             return;
 
         //make sure a malicious client didn't send us random shit
-<<<<<<< ours
-        if (!Proto.TryIndex<CurrencyPrototype>(msg.Currency, out var proto))
-||||||| base
-        if (!_proto.TryIndex<CurrencyPrototype>(msg.Currency, out var proto))
-=======
         if (!ProtoMan.TryIndex<CurrencyPrototype>(msg.Currency, out var proto))
->>>>>>> theirs
             return;
 
         //we need an actually valid entity to spawn. This check has been done earlier, but just in case.

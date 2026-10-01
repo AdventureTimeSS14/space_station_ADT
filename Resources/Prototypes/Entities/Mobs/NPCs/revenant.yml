@@ -85,16 +85,7 @@
     - NamesRevenantType
     - NamesRevenantAdjective
     - NamesRevenantTheme
-<<<<<<< ours
     # - of # ADT CHANGE
-||||||| base
-    nameFormat: name-format-revenant
-=======
-    nameFormat: name-format-revenant
-  - type: Grammar
-    attributes:
-      proper: true
->>>>>>> theirs
   - type: Speech
     speechVerb: Ghost
   - type: ShowHealthBars
@@ -108,9 +99,5 @@
     tags:
     - SlowImmune
     - KnockdownImmune
-<<<<<<< ours
     - NoPaint #ADT tweak
-||||||| base
-=======
     - AllowPortalTraversal
->>>>>>> theirs

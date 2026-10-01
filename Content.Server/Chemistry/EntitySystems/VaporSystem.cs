@@ -37,43 +37,26 @@ namespace Content.Server.Chemistry.EntitySystems
 
         private void HandleCollide(Entity<VaporComponent> entity, ref StartCollideEvent args)
         {
-<<<<<<< ours
-            if (!TryComp(entity.Owner, out SolutionContainerManagerComponent? contents)) return;
+            var soln = Comp<SolutionComponent>(entity);
+            var solution = soln.Solution;
 
-            foreach (var (_, soln) in _solutionContainerSystem.EnumerateSolutions((entity.Owner, contents)))
+            // ADT-Tweak start
+            foreach (var reagentQuantity in solution.Contents.ToArray())
             {
-                var solution = soln.Comp.Solution;
+                var reagent = ProtoMan.Index<ReagentPrototype>(reagentQuantity.Reagent.Prototype);
+                if (reagent.VaporBlocked)
+                    continue;
 
-                // ADT-Tweak start
-                foreach (var reagentQuantity in solution.Contents.ToArray())
-                {
-                    var reagent = _protoManager.Index<ReagentPrototype>(reagentQuantity.Reagent.Prototype);
-                    if (reagent.VaporBlocked)
-                        continue;
-
-                    _reactive.ReactionEntity(args.OtherEntity, ReactionMethod.Touch, reagentQuantity);
-                }
-                // ADT-Tweak end
+                _reactive.ReactionEntity(args.OtherEntity, ReactionMethod.Touch, reagentQuantity);
             }
-||||||| base
-            if (!TryComp(entity.Owner, out SolutionContainerManagerComponent? contents)) return;
-
-            foreach (var (_, soln) in _solutionContainerSystem.EnumerateSolutions((entity.Owner, contents)))
-            {
-                var solution = soln.Comp.Solution;
-                _reactive.DoEntityReaction(args.OtherEntity, solution, ReactionMethod.Touch);
-            }
-=======
-            var solution = Comp<SolutionComponent>(entity).Solution;
-            _reactive.DoEntityReaction(args.OtherEntity, solution, ReactionMethod.Touch);
->>>>>>> theirs
+            // ADT-Tweak end
 
             // ADT-Tweak-Start
             var power = 7;
             if (TryComp(entity.Owner, out RMCExtinguisherPowerComponent? extinguisher))
                 power = extinguisher.Power;
 
-            var rmcEv = new VaporHitEvent((entity.Owner, contents), power);
+            var rmcEv = new VaporHitEvent(soln, power);
             RaiseLocalEvent(args.OtherEntity, ref rmcEv);
             // ADT-Tweak-End
 

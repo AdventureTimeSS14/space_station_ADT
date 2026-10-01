@@ -1,4 +1,4 @@
-meta:
+﻿meta:
   format: 7
   category: Map
   engineVersion: 289.0.0
@@ -7291,7 +7291,6 @@ entities:
   - uid: 2303
     components:
     - type: Transform
-<<<<<<< HEAD:Resources/Maps/oasis.yml
       pos: -11.642696,-33.90546
       parent: 2
   - uid: 2306

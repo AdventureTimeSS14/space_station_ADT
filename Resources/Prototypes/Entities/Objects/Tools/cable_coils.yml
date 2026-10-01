@@ -49,7 +49,6 @@
     # ADT Tweak End
   - type: Damageable
     damageModifierSet: Metallic
-<<<<<<< ours
   - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
@@ -60,19 +59,8 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
-||||||| base
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 50
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-=======
   - type: Extractable
     grindableSolutionName: composite
->>>>>>> theirs
 
 - type: entity
   id: CableHVStack
@@ -98,44 +86,9 @@
   - type: CablePlacer
     cablePrototypeID: CableHV
     blockingWireType: HighVoltage
-<<<<<<< ours
   - type: Appearance
   - type: Extractable
     grindableSolutionName: hvcable
-  - type: SolutionContainerManager
-    solutions:
-      hvcable:
-        reagents:
-        - ReagentId: Iron
-          Quantity: 3
-        - ReagentId: Copper
-          Quantity: 2
-        - ReagentId: Carbon #steel-reinforced
-          Quantity: 1
-  # ADT Tweak Start: IPC
-  - type: Healing # cables can be used to heal IPC
-    damageContainers:
-      - ADTSiliconDamageContainer
-    damage:
-      types:
-        Shock: -10
-        Caustic: -10
-    # ADT Tweak End
-||||||| base
-  - type: Appearance
-  - type: Extractable
-    grindableSolutionName: hvcable
-  - type: SolutionContainerManager
-    solutions:
-      hvcable:
-        reagents:
-        - ReagentId: Iron
-          Quantity: 3
-        - ReagentId: Copper
-          Quantity: 2
-        - ReagentId: Carbon #steel-reinforced
-          Quantity: 1
-=======
   - type: Solution
     solution:
       reagents:
@@ -145,7 +98,15 @@
         Quantity: 2
       - ReagentId: Carbon #steel-reinforced
         Quantity: 0.5
->>>>>>> theirs
+  # ADT Tweak Start: IPC
+  - type: Healing # cables can be used to heal IPC
+    damageContainers:
+      - ADTSiliconDamageContainer
+    damage:
+      types:
+        Shock: -10
+        Caustic: -10
+    # ADT Tweak End
 
 - type: entity
   parent: CableHVStack
@@ -248,7 +209,6 @@
   - type: CablePlacer
     cablePrototypeID: CableApcExtension
     blockingWireType: Apc
-<<<<<<< ours
   - type: Appearance
   - type: Extractable
     grindableSolutionName: lvcable
@@ -276,20 +236,6 @@
     healingEndSound:
       path: "/Audio/Items/Medical/brutepack_end.ogg"
 ##Corvax-species-end
-||||||| base
-  - type: Appearance
-  - type: Extractable
-    grindableSolutionName: lvcable
-  - type: SolutionContainerManager
-    solutions:
-      lvcable:
-        reagents:
-        - ReagentId: Iron
-          Quantity: 3
-        - ReagentId: Copper
-          Quantity: 2
-=======
->>>>>>> theirs
 
 - type: entity
   parent: CableApcStack

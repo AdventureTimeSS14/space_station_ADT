@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ClothingUniformJumpsuitBartender
   name: bartender's uniform
@@ -17,7 +17,7 @@
     sprite: Clothing/Uniforms/Jumpsuits/Service/punpun.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuits/Service/punpun.rsi
-  - type: SuitSensor
+  - type: ADTSuitSensor
     controlsLocked: false
     randomMode: false
     mode: SensorCords

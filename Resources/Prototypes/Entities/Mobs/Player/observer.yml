@@ -170,7 +170,7 @@
       - ClothingShoesColorRed
       - ClothingShoesColorYellow
       - ClothingShoesColorPurple
-  - type: Inventory 
+  - type: Inventory
     templateId: ghost
   - type: InventorySlots
   - type: HumanoidProfile
@@ -198,7 +198,6 @@
   - type: NightVision
     netsync: false
     enabled: false
-<<<<<<< ours
   # ADT-Tweak-start
   - type: LanguageSpeaker
     languages:
@@ -211,15 +210,6 @@
       enum.GhostInfoUiKey.Key:
         type: GhostInfoBoundUserInterface
   # ADT-Tweak-end
-||||||| base
-=======
-    prioritized: false
-    relayOverlay: false # In case default values change
-    lightingColor: '#FFFFFF20'
-    overlayColor: '#FFFFFF00'
-    noiseAmount: 0 # In case default values change
-    noiseMultiplier: 0 # In case default values change
->>>>>>> theirs
 
 # proto for player ghosts specifically
 - type: entity
@@ -230,13 +220,9 @@
   - type: Tag
     tags:
     - AllowGhostShownByEvent
-<<<<<<< ours
-  - type: GhostInfo # ADT-Tweak
-||||||| base
-=======
     - AllowPortalTraversal
     - PreventPortalCollision
->>>>>>> theirs
+  - type: GhostInfo # ADT-Tweak
 
 - type: entity
   parent: BaseMentalAction

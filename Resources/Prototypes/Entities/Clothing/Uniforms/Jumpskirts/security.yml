@@ -92,10 +92,15 @@
 # ADT-Tweak-start
 # ADT-Tweak-end
   - type: Clothing
-# ADT-Tweak-start
+    # ADT-Tweak-start
     sprite: ADT/Clothing/Uniforms/Jumpskirt/prisoner.rsi
-# ADT-Tweak-end
-  - type: SuitSensor
+    # ADT-Tweak-end
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#ff8300"
+      - state: prisoner-equipped-INNERCLOTHING
+  - type: ADTSuitSensor
     controlsLocked: true
     randomMode: false
     mode: SensorCords

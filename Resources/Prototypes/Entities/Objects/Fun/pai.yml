@@ -146,7 +146,6 @@
     tags:
     - CanPilot
     - SiliconEmotes
-<<<<<<< ours
   # ADT-Tweak-start
   - type: LanguageSpeaker
     languages:
@@ -157,16 +156,12 @@
     rankName: collective-mind-pai-rank
   - type: ContentEye
   # ADT-Tweak-end
-
-||||||| base
-=======
   - type: Item
     inhandVisuals:
       left:
       - state: base-inhand-left
       right:
       - state: base-inhand-right
->>>>>>> theirs
 
 - type: entity
   parent: [ PersonalAI, BaseSyndicateContraband]

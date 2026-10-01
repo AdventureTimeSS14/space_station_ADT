@@ -1,4 +1,4 @@
-meta:
+﻿meta:
   format: 7
   category: Map
   engineVersion: 289.0.0
@@ -109243,7 +109243,6 @@ entities:
     components:
     - type: Transform
       parent: 2
-<<<<<<< HEAD:Resources/Maps/serpentcrest.yml
   - uid: 6808
     components:
     - type: Transform

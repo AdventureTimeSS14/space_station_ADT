@@ -17,17 +17,8 @@ public sealed partial class ReactiveComponent : Component
     ///     Special reactions that this prototype can specify, outside of any that reagents already apply.
     ///     Useful for things like monkey cubes, which have a really prototype-specific effect.
     /// </summary>
-<<<<<<< ours
-    // ADT-Tweak start
-    // Реакции нужны клиенту для гайдбука ксенобиологии. disable serverOnly: true
-    [DataField("reactions", true)]
-||||||| base
-    [DataField("reactions", true, serverOnly: true)]
-=======
     [DataField]
->>>>>>> theirs
     public List<ReactiveReagentEffectEntry>? Reactions;
-    // ADT-Tweak end
 }
 
 [DataDefinition]

@@ -306,13 +306,10 @@
     bloodlossHealDamage:
       types:
         Bloodloss: -1
-<<<<<<< ours
     # ADT-Tweak start
     bloodRefreshAmount: 0.3
     bleedReductionAmount: 0.3
     # ADT-Tweak end
-||||||| base
-=======
 
 # Used for mobs that should slightly see in the dark
 - type: entity
@@ -324,4 +321,3 @@
     prioritized: false
     relayOverlay: false # In case default value ever changes
     lightingColor: '#FFFFFF15' # Basically makes it impossible for things to be "Pitch black" but can still be dark.
->>>>>>> theirs

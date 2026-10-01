@@ -1,4 +1,4 @@
-- type: radioChannel
+﻿- type: radioChannel
   id: Common
   name: chat-radio-common
   keycode: ";"
@@ -8,140 +8,66 @@
 - type: radioChannel
   id: CentCom
   name: chat-radio-centcom
-<<<<<<< ours
   keycode: 'ц' # Corvax-Localization
-  frequency: 1337
-||||||| base
-  keycode: 'y'
-  frequency: 1337
-=======
-  keycode: 'y'
   frequency: 133.7
->>>>>>> theirs
   color: "#2681a5"
   longRange: true
 
 - type: radioChannel
   id: Command
   name: chat-radio-command
-<<<<<<< ours
   keycode: 'к' # Corvax-Localization
-  frequency: 1353
-||||||| base
-  keycode: 'c'
-  frequency: 1353
-=======
-  keycode: 'c'
   frequency: 135.3
->>>>>>> theirs
   color: "#fcdf03"
 
 - type: radioChannel
   id: Engineering
   name: chat-radio-engineering
-<<<<<<< ours
   keycode: 'и' # Corvax-Localization
-  frequency: 1357
-||||||| base
-  keycode: 'e'
-  frequency: 1357
-=======
-  keycode: 'e'
   frequency: 135.7
->>>>>>> theirs
   color: "#ff733c"
 
 - type: radioChannel
   id: Medical
   name: chat-radio-medical
-<<<<<<< ours
   keycode: 'м' # Corvax-Localization
-  frequency: 1355
-||||||| base
-  keycode: 'm'
-  frequency: 1355
-=======
-  keycode: 'm'
   frequency: 135.5
->>>>>>> theirs
   color: "#57b8f0"
 
 - type: radioChannel
   id: Science
   name: chat-radio-science
-<<<<<<< ours
   keycode: 'н' # Corvax-Localization
-  frequency: 1351
-||||||| base
-  keycode: 'n'
-  frequency: 1351
-=======
-  keycode: 'n'
   frequency: 135.1
->>>>>>> theirs
   color: "#cd7ccd"
 
 - type: radioChannel
   id: Security
   name: chat-radio-security
-<<<<<<< ours
   keycode: 'о' # Corvax-Localization
-  frequency: 1359
-||||||| base
-  keycode: 's'
-  frequency: 1359
-=======
-  keycode: 's'
   frequency: 135.9
->>>>>>> theirs
   color: "#ff4242"
 
 - type: radioChannel
   id: Service
   name: chat-radio-service
-<<<<<<< ours
   keycode: 'с' # Corvax-Localization
-  frequency: 1349
-||||||| base
-  keycode: 'v'
-  frequency: 1349
-=======
-  keycode: 'v'
   frequency: 134.9
->>>>>>> theirs
   color: "#539c00"
 
 - type: radioChannel
   id: Supply
   name: chat-radio-supply
-<<<<<<< ours
   keycode: 'п' # Corvax-Localization
-  frequency: 1347
-||||||| base
-  keycode: 'u'
-  frequency: 1347
-=======
-  keycode: 'u'
   frequency: 134.7
->>>>>>> theirs
   color: "#b48b57"
 
 - type: radioChannel
   id: Syndicate
   name: chat-radio-syndicate
-<<<<<<< ours
   keycode: 'т' # Corvax-Localization
-  frequency: 1213
-  color: "#ff144b" #ADT fix
-||||||| base
-  keycode: 't'
-  frequency: 1213
-  color: "#8f4a4b"
-=======
-  keycode: 't'
   frequency: 121.3
-  color: "#8f4a4b"
->>>>>>> theirs
+  color: "#ff144b" #ADT fix
   longRange: true
 
 - type: radioChannel
@@ -155,16 +81,8 @@
 - type: radioChannel
   id: Binary
   name: chat-radio-binary
-<<<<<<< ours
   keycode: 'д' # Corvax-Localization
-  frequency: 1001
-||||||| base
-  keycode: 'b'
-  frequency: 1001
-=======
-  keycode: 'b'
   frequency: 100.1
->>>>>>> theirs
   color: "#5ed7aa"
   # long range since otherwise it'd defeat the point of a handheld radio independent of telecomms
   longRange: true
@@ -172,16 +90,8 @@
 - type: radioChannel
   id: Freelance
   name: chat-radio-freelance
-<<<<<<< ours
   keycode: 'ф' # Corvax-Localization
-  frequency: 1984
-||||||| base
-  keycode: 'f'
-  frequency: 1984
-=======
-  keycode: 'f'
   frequency: 198.4
->>>>>>> theirs
   color: "#f6ce64"
   # long range since otherwise it'd defeat the point of a handheld radio independent of telecomms
   longRange: true

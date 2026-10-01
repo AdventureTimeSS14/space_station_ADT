@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: BaseComputerAiAccess
   id: ComputerAlert
   name: atmospheric alerts computer
@@ -35,7 +35,6 @@
           2: { state: alert-1 }
           3: { state: alert-2 }
           4: { state: alert-2 }
-<<<<<<< ours
       enum.WiresVisuals.MaintenancePanelState:
         enum.WiresVisualLayers.MaintenancePanel:
           True: { visible: false }
@@ -48,13 +47,6 @@
           East: { state: computer_l, sprite: ADT/Structures/Machines/computers.rsi }
           East, West: { state: computer_l_r, sprite: ADT/Structures/Machines/computers.rsi }
       # ADT-Tweak end
-||||||| base
-      enum.WiresVisuals.MaintenancePanelState:
-        enum.WiresVisualLayers.MaintenancePanel:
-          True: { visible: false }
-          False: { visible: true }
-=======
->>>>>>> theirs
   - type: AtmosAlertsComputer
   - type: ActivatableUI
     singleUser: true
@@ -360,12 +352,7 @@
         type: PowerMonitoringConsoleBoundUserInterface
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
-<<<<<<< ours
-  - type: StationAiWhitelist #ADT-Tweak
-||||||| base
-=======
   - type: AmbientMusicMarkerEngineering
->>>>>>> theirs
 
 - type: entity
   parent: BaseComputerAiAccess
@@ -486,14 +473,14 @@
   - type: Computer
     board: CrewMonitoringComputerCircuitboard
   - type: ActivatableUI
-    key: enum.CrewMonitoringUIKey.Key
+    key: enum.ADTCrewMonitoringUiKey.Key
   - type: UserInterface
     interfaces:
-        enum.CrewMonitoringUIKey.Key:
-          type: CrewMonitoringBoundUserInterface
+        enum.ADTCrewMonitoringUiKey.Key:
+          type: ADTCrewMonitoringBoundUserInterface
         enum.WiresUiKey.Key:
           type: WiresBoundUserInterface
-  - type: CrewMonitoringConsole
+  - type: ADTCrewMonitoringConsole
   #ADT-Tweak Start - New Monitor:
   - type: PdaBorderColor
     borderColor: "#6B6B6B"
@@ -505,12 +492,8 @@
     receiveFrequencyId: CrewMonitor
   - type: WirelessNetworkConnection
     range: 1200
-<<<<<<< ours
-  - type: StationAiWhitelist #ADT-Tweak
-||||||| base
-=======
   - type: AmbientMusicMarkerMedical
->>>>>>> theirs
+  - type: StationAiWhitelist #ADT-Tweak
 
 - type: entity
   parent: BaseComputerAiAccess
@@ -583,7 +566,7 @@
   components:
   - type: StationTeleporterConsole
     autoLinkKey: Nanotrasen
-  
+
 - type: entity
   parent: ComputerStationTeleportersControl
   id: ComputerSyndicateTeleportersControl
@@ -609,7 +592,7 @@
     access: [["SyndicateAgent"]]
   - type: StationTeleporterConsole
     portalColor: "#c61414"
-  
+
 - type: entity
   parent: BaseComputerAiAccess
   id: ComputerResearchAndDevelopment
@@ -1430,7 +1413,6 @@
           computerLayerKeys:
             True: { visible: true, shader: unshaded }
             False: { visible: true }
-<<<<<<< ours
         enum.WiresVisuals.MaintenancePanelState:
           enum.WiresVisualLayers.MaintenancePanel:
             True: { visible: false }
@@ -1443,13 +1425,6 @@
             East: { state: computer_l, sprite: ADT/Structures/Machines/computers.rsi }
             East, West: { state: computer_l_r, sprite: ADT/Structures/Machines/computers.rsi }
         # ADT-Tweak end
-||||||| base
-        enum.WiresVisuals.MaintenancePanelState:
-          enum.WiresVisualLayers.MaintenancePanel:
-            True: { visible: false }
-            False: { visible: true }
-=======
->>>>>>> theirs
     - type: SalvageExpeditionConsole
     - type: ActivatableUI
       key: enum.SalvageConsoleUiKey.Expedition

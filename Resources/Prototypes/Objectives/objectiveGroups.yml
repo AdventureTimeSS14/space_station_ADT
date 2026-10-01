@@ -6,14 +6,7 @@
     TraitorObjectiveGroupKill: 1
     TraitorObjectiveGroupState: 1 #As in, something about your character. Alive, dead, arrested, gained an ability...
     TraitorObjectiveGroupSocial: 1 #Involves helping/harming others without killing them or stealing their stuff
-<<<<<<< ours
     TraitorObjectiveGroupNukieDisk: 0.05  #Corvax
-||||||| base
-    TraitorObjectiveGroupOther: 1
-=======
-    TraitorObjectiveGroupSabotage: 1
-    TraitorObjectiveGroupOther: 1
->>>>>>> theirs
 
 - type: weightedRandom
   id: TraitorObjectiveGroupSteal
@@ -37,17 +30,10 @@
   id: TraitorObjectiveGroupKill
   weights:
     KillRandomPersonObjective: 1
-<<<<<<< ours
     # ADT-Tweak-Start
     TeachLessonRandomPersonObjective: 1 # DeltaV teach a lesson objective
     KillRandomHeadObjective: 0.4 # 0.25 -> 0.4
     # ADT-Tweak-End
-||||||| base
-    KillRandomHeadObjective: 0.25
-=======
-    KillStationAiObjective: 0.25
-    KillRandomHeadObjective: 0.25
->>>>>>> theirs
 
 - type: weightedRandom
   id: TraitorObjectiveGroupState

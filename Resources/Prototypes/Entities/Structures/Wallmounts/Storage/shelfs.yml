@@ -11,14 +11,8 @@
     sprite: Structures/Storage/Shelfs/wood.rsi
     state: base
   - type: Damageable
-<<<<<<< ours
     damageModifierSet: Wood
   - type: Injurable
-||||||| base
-    damageModifierSet: Wood
-=======
-  - type: Injurable
->>>>>>> theirs
     damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
@@ -109,13 +103,8 @@
     state: base
   - type: Damageable
     damageModifierSet: Metallic
-<<<<<<< ours
   - type: Injurable
     damageContainer: StructuralInorganic
-||||||| base
-    damageContainer: StructuralInorganic
-=======
->>>>>>> theirs
   - type: Destructible
     thresholds:
     - trigger: *DamageTrigger50
@@ -143,13 +132,8 @@
     state: base
   - type: Damageable
     damageModifierSet: Glass
-<<<<<<< ours
   - type: Injurable
     damageContainer: StructuralInorganic
-||||||| base
-    damageContainer: StructuralInorganic
-=======
->>>>>>> theirs
   - type: Destructible
     thresholds:
     - trigger: *DamageTrigger50

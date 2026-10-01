@@ -53,7 +53,6 @@
   name: tiles-plating
   sprite: /Textures/Tiles/plating_damaged.png
   variants: 3
-<<<<<<< ours
   placementVariants:
   - 1.0
   - 1.0
@@ -65,13 +64,6 @@
     collection: FootstepPlating
   friction: 1.5
   heatCapacity: 10000
-||||||| base
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-=======
->>>>>>> theirs
 
 - type: tile
   id: PlatingAsteroid

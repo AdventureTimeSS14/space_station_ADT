@@ -1,4 +1,4 @@
-meta:
+﻿meta:
   format: 7
   category: Grid
   engineVersion: 289.0.0
@@ -1193,14 +1193,7 @@ entities:
     components:
     - type: Transform
       parent: 325
-<<<<<<< ours
 - proto: MicroLaserStockPart
-||||||| base
-- proto: MicroManipulatorStockPart
-=======
-      pos: 1.48298,-0.3211529
-- proto: MicroManipulatorStockPart
->>>>>>> theirs
   entities:
   - uid: 233
     components:

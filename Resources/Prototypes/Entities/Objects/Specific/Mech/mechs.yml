@@ -6,19 +6,10 @@
   - type: MobMover
   - type: Mech
   - type: MechAir
-<<<<<<< ours
 # ADT-Tweak-start
   - type: Prying
     pryPowered: false
 # ADT-Tweak-end
-||||||| base
-=======
-  - type: Vehicle
-    canAttack: true
-  - type: ContainerVehicle
-    containerId: "mech-pilot-slot"
-  - type: ContainerVehicleEntry
->>>>>>> theirs
   - type: AirFilter
     # everything except oxygen and nitrogen
     gases:
@@ -103,18 +94,9 @@
       storagebase: !type:Container #ADT edit
         ents: []
   - type: Damageable
-<<<<<<< ours
     damageModifierSet: ADTMechDamageModifierSet  # ADT tweak mech rebalance
   - type: Injurable
     damageContainer: StructuralInorganic #ADT tweak - чтобы мехи получали и структурный урон
-||||||| base
-    damageContainer: Inorganic
-    damageModifierSet: Metallic
-=======
-    damageModifierSet: Metallic
-  - type: Injurable
-    damageContainer: Inorganic
->>>>>>> theirs
   - type: FootstepModifier
     footstepSoundCollection:
       path: /Audio/Mecha/mechmove03.ogg
@@ -183,24 +165,8 @@
     baseState: ripley
     openState: ripley-open
     brokenState: ripley-broken
-<<<<<<< ours
     mechToPilotDamageMultiplier: 0.5 # ADT tweak 0.75 to 0.5
     pilotWhitelist:
-||||||| base
-    mechToPilotDamageMultiplier: 0.75
-    pilotWhitelist:
-=======
-  - type: Vehicle
-    transferDamageModifier:
-      coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.75
-        Cold: 0.75
-        Heat: 0.75
-        Shock: 0.75
-    operatorWhitelist:
->>>>>>> theirs
       components:
         - HumanoidProfile
   - type: VehicleHandBlocker
@@ -263,27 +229,10 @@
     baseState: honker
     openState: honker-open
     brokenState: honker-broken
-<<<<<<< ours
     mechToPilotDamageMultiplier: 0.5 # ADT tweak 0.75 to 0.5
     pilotWhitelist:
-||||||| base
-    mechToPilotDamageMultiplier: 0.5
-    pilotWhitelist:
-=======
-  - type: Vehicle
-    transferDamageModifier:
-      coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
-        Cold: 0.5
-        Heat: 0.5
-        Shock: 0.5
-    operatorWhitelist:
->>>>>>> theirs
       components:
       - HumanoidProfile
-<<<<<<< ours
     # ADT Start
     equipmentWhitelist:
       tags:
@@ -294,11 +243,6 @@
     baseSprintSpeed: 3.375
     # ADT End
 
-||||||| base
-=======
-  - type: VehicleHandBlocker
-    blockedHands: 2
->>>>>>> theirs
 
 - type: entity
   parent: MechHonker

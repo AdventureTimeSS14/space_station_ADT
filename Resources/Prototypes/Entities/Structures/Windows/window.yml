@@ -36,17 +36,10 @@
         - FullTileMask
         layer:
         - GlassLayer
-<<<<<<< ours
   - type: Damageable
     damageModifierSet: Glass
   - type: Injurable
     damageContainer: StructuralInorganic
-||||||| base
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Glass
-=======
->>>>>>> theirs
   - type: ExaminableDamage
     messages: WindowMessages
   - type: Repairable
@@ -76,14 +69,7 @@
   - type: StaticPrice
     price: 100
   - type: BlockWeather
-<<<<<<< ours
   - type: CanBuildWindowOnTopRPD # ADT-RPD
-||||||| base
-=======
-  - type: StructureAlignerPylon
-    pylons:
-    - Door
-    - Firelock
 
 - type: entity
   parent: BaseWindowStructure
@@ -114,7 +100,6 @@
             max: 2
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
->>>>>>> theirs
 
 - type: entity
   parent: Window
@@ -187,17 +172,10 @@
         layer:
         - GlassLayer
   - type: Repairable
-<<<<<<< ours
   - type: Damageable
     damageModifierSet: Glass
   - type: Injurable
     damageContainer: StructuralInorganic
-||||||| base
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Glass
-=======
->>>>>>> theirs
   - type: ExaminableDamage
     messages: WindowMessages
   - type: RCDDeconstructable

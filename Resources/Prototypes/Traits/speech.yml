@@ -1,4 +1,4 @@
-# If you add a new trait, make sure to add the corresponding component to the whitelist in \Resources\Prototypes\Entities\Mobs\Player\clone.yml so it gets copied to clones correctly!
+﻿# If you add a new trait, make sure to add the corresponding component to the whitelist in \Resources\Prototypes\Entities\Mobs\Player\clone.yml so it gets copied to clones correctly!
 # ADT - Трейты изменены под новую систему трейтов
 
 - type: trait
@@ -69,7 +69,7 @@
   effects:
     - !type:AddCompsEffect
       components:
-        - type: GermanAccent
+        - type: ADTGermanAccent
 
 - type: trait
   id: ItalianAccent

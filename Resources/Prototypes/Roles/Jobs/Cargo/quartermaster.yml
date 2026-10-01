@@ -13,7 +13,6 @@
     - !type:DepartmentTimeRequirement
       department: Cargo
       time: 10h
-<<<<<<< ours
     - !type:OverallPlaytimeRequirement
       time: 144000 #40 hrs
      # ADT-Tweak start
@@ -27,10 +26,6 @@
       - Vox
       #ADT tweak end
   weight: 10
-||||||| base
-  weight: 10
-=======
->>>>>>> theirs
   startingGear: QuartermasterGear
   icon: "JobIconQuarterMaster"
   supervisors: job-supervisors-captain

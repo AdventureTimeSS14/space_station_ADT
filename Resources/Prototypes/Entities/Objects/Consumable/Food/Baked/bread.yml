@@ -379,22 +379,16 @@
   - type: Sprite
     layers:
     - state: plain
-<<<<<<< ours
   - type: SliceableFood
     slice: FoodBreadPlainSlice
   - type: Tag #ADT_Tweak - делаем хлеб съедобным для молей
     tags:
     - Bread
-    - ADTMothFriendlyFood
-||||||| base
-  - type: SliceableFood
-    slice: FoodBreadPlainSlice
-=======
+    - ADTMothFriendlyFood #ADT_Tweak
   - type: ToolRefinable
     refineResult:
     - id: FoodBreadPlainSlice
       amount: 8
->>>>>>> theirs
 
 - type: entity
   name: bread slice
@@ -730,40 +724,6 @@
   components:
   - type: Sprite
     state: crostini
-<<<<<<< ours
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 2
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 0.5
-        - ReagentId: Vitamin
-          Quantity: 0.1
-        - ReagentId: TableSalt
-          Quantity: 0.1
-        - ReagentId: Blackpepper
-          Quantity: 0.1
-  - type: Tag #ADT_Tweak - делаем хлеб съедобным для молей
-    tags:
-    - Bread
-    - Slice
-    - ADTMothFriendlyFood
-||||||| base
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 2
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 0.5
-        - ReagentId: Vitamin
-          Quantity: 0.1
-        - ReagentId: TableSalt
-          Quantity: 0.1
-        - ReagentId: Blackpepper
-          Quantity: 0.1
-=======
   - type: Solution
     solution:
       reagents:
@@ -775,7 +735,11 @@
         Quantity: 0.1
       - ReagentId: Blackpepper
         Quantity: 0.1
->>>>>>> theirs
+  - type: Tag #ADT_Tweak - делаем хлеб съедобным для молей
+    tags:
+    - Bread
+    - Slice
+    - ADTMothFriendlyFood #ADT_Tweak
 
 - type: entity
   parent: FoodBreadBaguetteSlice
@@ -818,32 +782,6 @@
       - bread
   - type: Sprite
     state: buttered-toast
-<<<<<<< ours
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
-        - ReagentId: Vitamin
-          Quantity: 1
-  - type: Tag #ADT_Tweak - делаем хлеб съедобным для молей
-    tags:
-    - Bread
-    - Slice
-    - ADTMothFriendlyFood
-||||||| base
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
-        - ReagentId: Vitamin
-          Quantity: 1
-=======
   - type: Solution
     solution:
       reagents:
@@ -851,7 +789,11 @@
         Quantity: 10
       - ReagentId: Butter
         Quantity: 2.5
->>>>>>> theirs
+  - type: Tag #ADT_Tweak - делаем хлеб съедобным для молей
+    tags:
+    - Bread
+    - Slice
+    - ADTMothFriendlyFood
 # Tastes like bread, butter.
 
 - type: entity
@@ -892,32 +834,6 @@
   - type: Sprite
     layers:
     - state: garlic-slice
-<<<<<<< ours
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 6
-        - ReagentId: Vitamin
-          Quantity: 5
-  - type: Tag #ADT_Tweak - делаем хлеб съедобным для молей
-    tags:
-    - Bread
-    - Slice
-    - ADTMothFriendlyFood
-||||||| base
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 6
-        - ReagentId: Vitamin
-          Quantity: 5
-=======
   - type: Solution
     solution:
       reagents:
@@ -929,7 +845,11 @@
         Quantity: 4
       - ReagentId: Butter
         Quantity: 2.5
->>>>>>> theirs
+  - type: Tag #ADT_Tweak - делаем хлеб съедобным для молей
+    tags:
+    - Bread
+    - Slice
+    - ADTMothFriendlyFood
 # Tastes like garlic, Italy.
 
 - type: entity

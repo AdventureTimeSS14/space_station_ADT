@@ -1,7 +1,6 @@
 - type: gameMapPool
   id: DefaultMapPool
   maps:
-<<<<<<< ours
   # - Bagel
   # - Box
   # - Elkridge
@@ -65,28 +64,3 @@
   # - ADT_GeminiNewYear
   # - ADT_PieNewYear
   # - ADT_SalternNewYear
-||||||| base
-  - Bagel
-  - Box
-  - Elkridge
-  - Fland
-  - Marathon
-  - Oasis
-  - Packed
-  - Plasma
-  - Reach
-  - Exo
-  - Snowball
-  - Serpentcrest
-=======
-  - Bagel
-  - Box
-  - Elkridge
-  - Marathon
-  - Packed
-  - Plasma
-  - Exo
-  - Snowball
-  - Sushi
-  - Tram2
->>>>>>> theirs

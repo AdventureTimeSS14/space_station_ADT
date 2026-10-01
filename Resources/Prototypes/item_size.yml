@@ -45,7 +45,6 @@
   name: item-component-size-Ginormous
   defaultShape:
   - 0,0,5,5
-<<<<<<< ours
 
 # ADT-Tweak-Start
 - type: itemSize
@@ -55,14 +54,3 @@
   defaultShape:
   - 0,0,1,1
 # ADT-Tweak-Start
-||||||| base
-=======
-
-# Picture furry gf
-- type: itemSize
-  id: Colossal
-  weight: 64
-  name: item-component-size-Colossal
-  defaultShape:
-  - 0,0,6,5
->>>>>>> theirs

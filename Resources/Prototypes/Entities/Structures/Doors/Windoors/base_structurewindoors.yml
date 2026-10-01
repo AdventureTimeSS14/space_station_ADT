@@ -196,10 +196,7 @@
       visible: false
   - type: Damageable
     damageModifierSet: RGlass
-<<<<<<< ours
   - type: Injurable
-||||||| base
-=======
   - type: StaticPrice
     price: 150
 
@@ -211,7 +208,6 @@
   components:
   - type: Sprite
     sprite: Structures/Doors/Windoors/windoor.rsi
->>>>>>> theirs
   - type: Destructible
     thresholds:
     - trigger:

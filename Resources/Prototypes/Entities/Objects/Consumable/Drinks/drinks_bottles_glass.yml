@@ -13,30 +13,12 @@
       collection: bottleCloseSounds
   - type: Sprite
     sprite: Objects/Consumable/Drinks/alco-bottle.rsi # fallback
-<<<<<<< ours
-  # ADT-Tweak start
-  #- type: Tool
-  #  qualities:
-  #  - Rolling
-  #  speedModifier: 0.75 # not as good as a rolling pin but does the job
-  # ADT-Tweak end
-  - type: TrashOnSolutionEmpty
-    solution: drink
-||||||| base
-  - type: Tool
-    qualities:
-    - Rolling
-    speedModifier: 0.75 # not as good as a rolling pin but does the job
-  - type: TrashOnSolutionEmpty
-    solution: drink
-=======
   - type: Tool
     qualities:
     - Rolling
     speedModifier: 0.75 # not as good as a rolling pin but does the job
   - type: Item
     size: Normal
->>>>>>> theirs
   - type: Tag
     tags:
     - DrinkBottle

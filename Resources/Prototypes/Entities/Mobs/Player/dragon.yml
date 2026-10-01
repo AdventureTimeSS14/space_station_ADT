@@ -28,9 +28,9 @@
     rootTask:
       task: XenoCompound
     blackboard:
-      NavInteract: !type:Bool 
+      NavInteract: !type:Bool
         true
-      NavPry: !type:Bool 
+      NavPry: !type:Bool
         true
       NavSmash: !type:Bool
         true

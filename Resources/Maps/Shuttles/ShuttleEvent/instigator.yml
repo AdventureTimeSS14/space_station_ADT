@@ -1,4 +1,4 @@
-meta:
+﻿meta:
   format: 7
   category: Grid
   engineVersion: 289.0.0
@@ -1674,15 +1674,7 @@ entities:
           occludes: True
         paper_label: !type:ContainerSlot
           ent: null
-<<<<<<< ours
 - proto: ClothingBeltMilitaryWebbing
-||||||| base
-- proto: ClothingBeltAssault
-=======
-          showEnts: False
-          occludes: True
-- proto: ClothingBeltMilitaryWebbing
->>>>>>> theirs
   entities:
   - uid: 475
     components:
