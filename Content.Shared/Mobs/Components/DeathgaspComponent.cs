@@ -17,12 +17,4 @@ public sealed partial class DeathgaspComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public ProtoId<EmotePrototype> Prototype = "DefaultDeathgasp";
-
-    // ADT-Tweak-Start
-    /// <summary>
-    ///     If true - deathgasp will play from any mob state to dead.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public bool OnAnyState = false;
-    // ADT-Tweak-End
 }

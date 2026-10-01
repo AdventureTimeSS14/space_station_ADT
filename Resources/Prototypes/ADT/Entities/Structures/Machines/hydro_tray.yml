@@ -32,28 +32,29 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.PlantTrayVisuals.HealthLight:
+      enum.PlantHolderVisuals.HealthLight:
         health_alert:
           True: { visible: true }
           False: { visible: false }
-      enum.PlantTrayVisuals.WaterLight:
+      enum.PlantHolderVisuals.WaterLight:
         water_alert:
           True: { visible: true }
           False: { visible: false }
-      enum.PlantTrayVisuals.NutritionLight:
+      enum.PlantHolderVisuals.NutritionLight:
         nutri_alert:
           True: { visible: true }
           False: { visible: false }
-      enum.PlantTrayVisuals.AlertLight:
+      enum.PlantHolderVisuals.AlertLight:
         undefined_alert:
           True: { visible: true }
           False: { visible: false }
-      enum.PlantTrayVisuals.HarvestLight:
+      enum.PlantHolderVisuals.HarvestLight:
         harvest_alert:
           True: { visible: true }
           False: { visible: false }
-  - type: PlantTray
+  - type: PlantHolder
     drawWarnings: true
+    cycleDelay: 10
     wateringSound:
       path: /Audio/Effects/Fluids/slosh.ogg
       params:

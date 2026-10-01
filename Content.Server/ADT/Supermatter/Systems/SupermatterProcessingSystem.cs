@@ -5,7 +5,6 @@ using Content.Server.Chat.Systems;
 using Content.Server.Singularity.Components;
 using Content.Server.RoundEnd;
 using Content.Shared.ADT.CCVar;
-using Content.Shared.AlertLevel; // ADT-Tweak
 using Content.Shared.ADT.Supermatter.Components;
 using Content.Shared.Atmos;
 using Content.Shared.Audio;

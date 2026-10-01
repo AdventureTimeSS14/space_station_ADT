@@ -9,7 +9,7 @@ using Content.Server.ADT.Blob.GameTicking;
 using Content.Shared.ADT.Blob.Components;
 using Content.Shared.ADT.Blob.Events;
 using Content.Server.Actions;
-using Content.Shared.AlertLevel; // ADT-Tweak
+using Content.Server.AlertLevel;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.GameTicking;
 using Content.Server.RoundEnd;

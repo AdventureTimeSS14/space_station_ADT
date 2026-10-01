@@ -1,4 +1,4 @@
-using Content.Shared.AlertLevel; // ADT-Tweak
+using Content.Server.AlertLevel;
 using Content.Server.Objectives.Components;
 using Content.Shared.Objectives.Components;
 using Content.Server.ADT.Objectives.Components;
@@ -47,13 +47,8 @@ public sealed class CascadeConditionSystem : EntitySystem
         {
             // Taking information about AlertLevel on station.
             // If station under cascade - mission complited.
-            // ADT-Tweak-Start
-            if (_alertLevelSystem.TryGetLevel(station.Value, out var currentAlertLevel) &&
-                currentAlertLevel.Id.Equals("cascade", StringComparison.OrdinalIgnoreCase))
-            {
-                return 1f;
-            }
-            // ADT-Tweak-End
+            var currentAlertLevel = _alertLevelSystem.GetLevel(station.Value);
+            return currentAlertLevel.Equals("cascade", StringComparison.OrdinalIgnoreCase) ? 1f : 0f;
         }
 
         return 0f;

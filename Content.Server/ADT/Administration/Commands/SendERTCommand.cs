@@ -1,6 +1,6 @@
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
-using Content.Shared.AlertLevel; // ADT-Tweak
+using Content.Server.AlertLevel;
 using Content.Server.Audio;
 using Content.Server.Chat.Systems;
 using Content.Server.Station.Systems;
