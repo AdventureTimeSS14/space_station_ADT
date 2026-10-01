@@ -1,10 +1,13 @@
 ﻿using Content.Shared.Chat;
+<<<<<<< HEAD:Content.Server/Speech/EmotesMenuSystem.cs
 using Content.Server.Chat.Systems;
 using Robust.Shared.Prototypes;
 using Content.Shared.Actions;
 using Content.Shared.Popups;
 using Content.Shared.ADT.Actions.Events;
 using Content.Shared.ADT.Chat;
+=======
+>>>>>>> wizards-filtered:Content.Shared/Speech/EntitySystems/EmotesMenuSystem.cs
 
 namespace Content.Shared.Speech.EntitySystems;
 

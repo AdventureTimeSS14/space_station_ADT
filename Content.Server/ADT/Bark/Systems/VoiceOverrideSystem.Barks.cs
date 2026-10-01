@@ -1,4 +1,4 @@
-using Content.Shared.Speech.Components; // ADT-Tweak
+using Content.Server.Speech.Components;
 using Content.Shared.ADT.SpeechBarks;
 
 namespace Content.Server.Speech.EntitySystems;

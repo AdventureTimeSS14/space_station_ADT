@@ -14,9 +14,6 @@ public sealed partial class BarkAccentSystem : RelayAccentSystem<BarkAccentCompo
     private static readonly IReadOnlyList<string> Barks =
     [
         " Woof!", " WOOF", " wof-wof",
-        // ADT-Tweak-Start
-        " Гав!", " ГАВ", " вуф-вуф",
-        // ADT-Tweak-End
     ];
 
     private static readonly FrozenDictionary<string, string> SpecialWords =
@@ -26,12 +23,6 @@ public sealed partial class BarkAccentSystem : RelayAccentSystem<BarkAccentCompo
             { "Ah", "Arf" },
             { "oh", "oof" },
             { "Oh", "Oof" },
-            // ADT-Tweak-Start
-            { "га", "гаф" },
-            { "Га", "Гаф" },
-            { "угу", "вуф" },
-            { "Угу", "Вуф" },
-            // ADT-Tweak-End
         }.ToFrozenDictionary();
 
     public override string Accentuate(string message, Entity<BarkAccentComponent>? ent = null)
@@ -47,10 +38,6 @@ public sealed partial class BarkAccentSystem : RelayAccentSystem<BarkAccentCompo
 
         return message.Replace("!", random.Pick(Barks))
             .Replace("l", "r")
-            .Replace("L", "R")
-            // ADT-Tweak-Start
-            .Replace("л", "р")
-            .Replace("Л", "Р");
-            // ADT-Tweak-End
+            .Replace("L", "R");
     }
 }

@@ -17,7 +17,14 @@ public sealed partial class ListeningSystem : EntitySystem
         PingListeners(ev.Source, ev.Message, ev.ObfuscatedMessage, ev.Language); // ADT-Language
     }
 
+<<<<<<< HEAD:Content.Server/Speech/EntitySystems/ListeningSystem.cs
     public void PingListeners(EntityUid source, string message, string? obfuscatedMessage, LanguagePrototype? language = null) // ADT-Language
+=======
+    /// <summary>
+    /// Sends a speech message to entities listening within range.
+    /// </summary>
+    public void PingListeners(EntityUid source, string message, string? obfuscatedMessage)
+>>>>>>> wizards-filtered:Content.Shared/Speech/EntitySystems/ListeningSystem.cs
     {
         // TODO whispering / audio volume? Microphone sensitivity?
         // for now, whispering just arbitrarily reduces the listener's max range.

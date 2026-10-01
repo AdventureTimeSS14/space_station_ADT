@@ -33,8 +33,13 @@ public sealed partial class MonkeyAccentSystem : RelayAccentSystem<MonkeyAccentC
                         accentedMessage.Append('У');  // Corvax-Localization
                     }
 
-                    if (random.NextDouble() >= 0.3)
+<<<<<<< HEAD:Content.Server/Speech/EntitySystems/MonkeyAccentSystem.cs
+                    if (_random.NextDouble() >= 0.3)
                         accentedMessage.Append('К');  // Corvax-Localization
+=======
+                    if (random.NextDouble() >= 0.3)
+                        accentedMessage.Append('K');
+>>>>>>> wizards-filtered:Content.Shared/Speech/EntitySystems/MonkeyAccentSystem.cs
                 }
                 else
                     accentedMessage.Append('У');  // Corvax-Localization
@@ -43,8 +48,13 @@ public sealed partial class MonkeyAccentSystem : RelayAccentSystem<MonkeyAccentC
             {
                 foreach (var __ in word)
                 {
-                    if (random.NextDouble() >= 0.8)
+<<<<<<< HEAD:Content.Server/Speech/EntitySystems/MonkeyAccentSystem.cs
+                    if (_random.NextDouble() >= 0.8)
                         accentedMessage.Append('Г');  // Corvax-Localization
+=======
+                    if (random.NextDouble() >= 0.8)
+                        accentedMessage.Append('H');
+>>>>>>> wizards-filtered:Content.Shared/Speech/EntitySystems/MonkeyAccentSystem.cs
                     else
                         accentedMessage.Append('А');  // Corvax-Localization
                 }

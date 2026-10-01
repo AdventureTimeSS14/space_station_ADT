@@ -38,12 +38,6 @@ public sealed partial class SlurredSystem : RelayAccentSystem<SlurredAccentCompo
                     'a' => "ah",
                     'u' => "oo",
                     'c' => "k",
-                    // ADT-Tweak-Start
-                    'о' => "а",
-                    'к' => "кх",
-                    'щ' => "шч",
-                    'ц' => "тс",
-                    // ADT-Tweak-End
                     _ => $"{character}",
                 };
 

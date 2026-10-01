@@ -20,9 +20,6 @@ public sealed partial class OwOAccentSystem : RelayAccentSystem<OwOAccentCompone
         new Dictionary<string, string>
         {
             { "you", "wu" },
-            // ADT-Tweak-Start
-            { "ты", "ти" },
-            // ADT-Tweak-End
         }.ToFrozenDictionary();
 
     public override string Accentuate(string message, Entity<OwOAccentComponent>? ent = null)
@@ -37,11 +34,9 @@ public sealed partial class OwOAccentSystem : RelayAccentSystem<OwOAccentCompone
         }
 
         return message.Replace("!", random.Pick(Faces))
-            // ADT-Tweak-Start
-            .Replace("р", "в").Replace("Р", "В")
-            .Replace("л", "в").Replace("Л", "В")
-            // ADT-Tweak-End
-            .Replace("r", "w").Replace("R", "W")
-            .Replace("l", "w").Replace("L", "W");
+            .Replace("r", "w")
+            .Replace("R", "W")
+            .Replace("l", "w")
+            .Replace("L", "W");
     }
 }
