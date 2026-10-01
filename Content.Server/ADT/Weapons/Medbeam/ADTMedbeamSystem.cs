@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared.Vehicle.Components;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Mech.Systems;
 using Content.Shared.ADT.Weapons.Medbeam;
@@ -68,7 +69,7 @@ public sealed class ADTMedbeamSystem : SharedADTMedbeamSystem
 
         if (TryComp<MechComponent>(holder, out var mech))
         {
-            if (mech.PilotSlot.ContainedEntity is not { } pilot || !_mobState.IsAlive(pilot))
+            if (CompOrNull<VehicleComponent>(holder)?.Operator is not { } pilot || !_mobState.IsAlive(pilot))
             {
                 DetachBeam(ent);
                 return;

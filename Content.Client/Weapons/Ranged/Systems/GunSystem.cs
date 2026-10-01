@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared.Vehicle.Components; // ADT-Tweak
 using System.Numerics;
 using Content.Client.Animations;
 using Content.Client.Clickable;
@@ -262,8 +263,8 @@ public sealed partial class GunSystem : SharedGunSystem
                         MuzzleFlash(gun, cartridge, worldAngle, user);
                         if (TryComp<MechComponent>(user, out var cmech))    // ADT Mechs
                         {
-                            Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun, cmech.PilotSlot.ContainedEntity);
-                            Recoil(cmech.PilotSlot.ContainedEntity, direction, gun.Comp.CameraRecoilScalarModified);
+                            Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun, CompOrNull<VehicleComponent>(user)?.Operator);
+                            Recoil(CompOrNull<VehicleComponent>(user)?.Operator, direction, gun.Comp.CameraRecoilScalarModified);
                         }
                         else
                         {
@@ -288,8 +289,8 @@ public sealed partial class GunSystem : SharedGunSystem
                     MuzzleFlash(gun, newAmmo, worldAngle, user);
                     if (TryComp<MechComponent>(user, out var mech)) // ADT Mechs
                     {
-                        Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun, mech.PilotSlot.ContainedEntity);
-                        Recoil(mech.PilotSlot.ContainedEntity, direction, gun.Comp.CameraRecoilScalarModified);
+                        Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun, CompOrNull<VehicleComponent>(user)?.Operator);
+                        Recoil(CompOrNull<VehicleComponent>(user)?.Operator, direction, gun.Comp.CameraRecoilScalarModified);
                     }
                     else
                     {
@@ -306,8 +307,8 @@ public sealed partial class GunSystem : SharedGunSystem
                     Recoil(user, direction, gun.Comp.CameraRecoilScalarModified);
                     if (TryComp<MechComponent>(user, out var hmech)) // ADT-tweak
                     {
-                        Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun, hmech.PilotSlot.ContainedEntity);
-                        Recoil(hmech.PilotSlot.ContainedEntity, direction, gun.Comp.CameraRecoilScalarModified);
+                        Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun, CompOrNull<VehicleComponent>(user)?.Operator);
+                        Recoil(CompOrNull<VehicleComponent>(user)?.Operator, direction, gun.Comp.CameraRecoilScalarModified);
                     }
                     else
                     {

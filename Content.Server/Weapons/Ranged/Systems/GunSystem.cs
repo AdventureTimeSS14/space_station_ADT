@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared.Vehicle.Components; // ADT-Tweak
 using Content.Server.Cargo.Systems;
 using Content.Server.Weapons.Ranged.Components;
 using Content.Shared.Cargo;
@@ -125,7 +126,7 @@ public sealed partial class GunSystem : SharedGunSystem
                         // ADT Mech start
                         if (TryComp<MechComponent>(user, out var cmech))
                         {
-                            Audio.PlayPredicted(gun.Comp.SoundEmpty, gun.Owner, cmech.PilotSlot.ContainedEntity);
+                            Audio.PlayPredicted(gun.Comp.SoundEmpty, gun.Owner, CompOrNull<VehicleComponent>(user)?.Operator);
                         }
                         else
                             Audio.PlayPredicted(gun.Comp.SoundEmpty, gun.Owner, user);
@@ -209,7 +210,7 @@ public sealed partial class GunSystem : SharedGunSystem
 
             MuzzleFlash(gun.Owner, ammoComp, mapDirection.ToAngle(), user);
             if (TryComp<MechComponent>(user, out var mech)) // ADT Mech gun fix
-                Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun.Owner, mech.PilotSlot.ContainedEntity);
+                Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun.Owner, CompOrNull<VehicleComponent>(user)?.Operator);
             else
                 Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun.Owner, user);
         }

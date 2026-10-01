@@ -24,13 +24,7 @@ public sealed partial class MechComponent : Component
     /// <summary>
     /// The maximum amount of damage the mech can take.
     /// </summary>
-<<<<<<< ours
-    [DataField("maxintegrity"), AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]  // ADT Mech
-||||||| base
-    [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
-=======
-    [DataField, AutoNetworkedField]
->>>>>>> theirs
+    [DataField("maxintegrity"), AutoNetworkedField] // ADT-Tweak
     public FixedPoint2 MaxIntegrity = 250;
 
     /// <summary>
@@ -152,6 +146,13 @@ public sealed partial class MechComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public float EMPDamage = 700;
+
+    /// <summary>
+    /// A multiplier used to calculate how much of the damage done to a mech
+    /// is transfered to the pilot
+    /// </summary>
+    [DataField]
+    public float MechToPilotDamageMultiplier;
 
     /// <summary>
     /// damage modifiers on hit

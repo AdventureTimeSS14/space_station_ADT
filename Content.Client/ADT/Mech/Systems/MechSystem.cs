@@ -3,6 +3,7 @@ using Content.Client.ADT.Mech.UI;
 using Content.Shared.Mech;
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.EntitySystems;
+using Content.Shared.Vehicle;
 using Robust.Client.Player;
 using Robust.Client.UserInterface;
 using Robust.Shared.Audio.Systems;
@@ -20,7 +21,7 @@ public sealed partial class MechSystem
 
     private void InitializeADT()
     {
-        SubscribeLocalEvent<MechComponent, MechEntryEvent>(OnMechEntry);
+        SubscribeLocalEvent<MechComponent, ContainerVehicleEntryEvent>(OnMechEntry);
         SubscribeLocalEvent<MechComponent, MechEquipmentDestroyedEvent>(OnEquipmentDestroyed);
 
         SubscribeLocalEvent<MechComponent, MechToggleEquipmentEvent>(OnToggleEquipmentAction);
@@ -28,7 +29,7 @@ public sealed partial class MechSystem
         SubscribeLocalEvent<MechComponent, PopulateMechEquipmentMenuEvent>(OnPopulate);
     }
 
-    private void OnMechEntry(EntityUid uid, MechComponent component, MechEntryEvent args)
+    private void OnMechEntry(EntityUid uid, MechComponent component, ContainerVehicleEntryEvent args)
     {
         if (args.Cancelled || args.Handled)
             return;

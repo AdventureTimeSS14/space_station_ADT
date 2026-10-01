@@ -15,6 +15,7 @@ using Content.Shared.ADT.Mech;
 using Robust.Shared.Timing;
 using Robust.Server.Audio;
 using Content.Server.ADT.Mech.Equipment.Components;
+using Content.Shared.Vehicle.Systems;
 
 namespace Content.Server.ADT.Mech.Equipment.EntitySystems;
 public sealed class MechGunSystem : EntitySystem
@@ -27,6 +28,7 @@ public sealed class MechGunSystem : EntitySystem
     [Dependency] private SharedContainerSystem _container = default!;
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private VehicleSystem _vehicle = default!;
 
     public override void Initialize()
     {
@@ -57,8 +59,8 @@ public sealed class MechGunSystem : EntitySystem
     {
         if (!component.EquipmentOwner.HasValue)
         {
-            if (TryComp<MechComponent>(args.User, out var pilot) && pilot.PilotSlot.ContainedEntity != null)
-                _mech.TryEject(args.User, pilot);
+            if (HasComp<MechComponent>(args.User))
+                _vehicle.TryExit(args.User);
             _stun.TryUpdateParalyzeDuration(args.User, TimeSpan.FromSeconds(10));
             _throwing.TryThrow(args.User, _random.NextVector2(), _random.Next(50));
             return;

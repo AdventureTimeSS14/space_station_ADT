@@ -92,10 +92,7 @@ public sealed class MechOverloadSystem : EntitySystem
                 continue;
             overload.Accumulator = 0f;
 
-            var dmg = mech.MechToPilotDamageMultiplier;
-            mech.MechToPilotDamageMultiplier = 0f;
-            _damageable.TryChangeDamage(uid, overload.DamagePerSpeed, ignoreResistances: true);
-            mech.MechToPilotDamageMultiplier = dmg;
+            _damageable.SetDamage(uid, _damageable.GetAllDamage(uid) + overload.DamagePerSpeed);
         }
     }
 }

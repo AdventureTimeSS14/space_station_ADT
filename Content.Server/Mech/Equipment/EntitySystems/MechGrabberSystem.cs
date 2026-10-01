@@ -11,12 +11,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Vehicle.Systems;
 using Content.Shared.Wall;
 using Robust.Server.GameObjects;
-<<<<<<< ours
 using Content.Shared.Body.Events;
-||||||| base
-using Robust.Shared.Audio;
-=======
->>>>>>> theirs
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;

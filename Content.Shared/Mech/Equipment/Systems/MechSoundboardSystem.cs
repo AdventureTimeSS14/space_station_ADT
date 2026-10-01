@@ -29,7 +29,12 @@ public sealed partial class MechSoundboardSystem : EntitySystem
         {
             Sounds = new List<ProtoId<SoundCollectionPrototype>>(comp.Sounds.Count)
         };
-<<<<<<< ours
+
+        foreach (var sound in comp.Sounds)
+        {
+            if (sound.Collection is { } collection)
+                state.Sounds.Add(collection);
+        }
 
         // ADT-Tweak-Start
         try
@@ -41,18 +46,6 @@ public sealed partial class MechSoundboardSystem : EntitySystem
             return;
         }
         // ADT-Tweak-End
-||||||| base
-        args.States.Add(GetNetEntity(uid), state);
-=======
-
-        foreach (var sound in comp.Sounds)
-        {
-            if (sound.Collection is { } collection)
-                state.Sounds.Add(collection);
-        }
-
-        args.States.Add(GetNetEntity(uid), state);
->>>>>>> theirs
     }
 
     private void OnSoundboardMessage(EntityUid uid, MechSoundboardComponent comp, MechEquipmentUiMessageRelayEvent args)

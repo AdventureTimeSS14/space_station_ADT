@@ -79,13 +79,16 @@
     openState: t34tank-open
     brokenState: t34tank-broken
     mechToPilotDamageMultiplier: 0.0 #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
-    pilotWhitelist:
-      components:
-        - HumanoidProfile
     equipmentWhitelist:
       tags:
       - ADTMechEquipmentGeneral
       - ADTMechEquipmentSec
+  - type: Vehicle
+    operatorWhitelist:
+      components:
+        - HumanoidProfile
+  - type: VehicleHandBlocker
+    blockedHands: 2
   - type: MovementSpeedModifier
     baseWalkSpeed: 1.2
     baseSprintSpeed: 2

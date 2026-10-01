@@ -9,6 +9,7 @@ using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
+using Content.Shared.Vehicle.Systems;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Physics;
@@ -26,6 +27,7 @@ public sealed class MechThrusterSystem : EntitySystem
     [Dependency] private SharedPhysicsSystem _physics = default!;
     [Dependency] private MovementSpeedModifierSystem _movementSpeedModifier = default!;
     [Dependency] private INetManager _netMan = default!;
+    [Dependency] private VehicleSystem _vehicle = default!;
 
     public override void Initialize()
     {
@@ -190,7 +192,7 @@ public sealed class MechThrusterSystem : EntitySystem
 
             if (TryComp<TransformComponent>(uid, out var xform) && !CanEnableOnGrid(xform.GridUid))
             {
-                var pilotOnGrid = CompOrNull<MechComponent>(uid)?.PilotSlot.ContainedEntity;
+                var pilotOnGrid = _vehicle.GetOperatorOrNull(uid);
                 Toggle(uid, thruster, pilotOnGrid);
                 continue;
             }
@@ -206,7 +208,7 @@ public sealed class MechThrusterSystem : EntitySystem
             if (thruster.Fuel > 0f)
                 continue;
 
-            var pilot = CompOrNull<MechComponent>(uid)?.PilotSlot.ContainedEntity;
+            var pilot = _vehicle.GetOperatorOrNull(uid);
             Toggle(uid, thruster, pilot);
         }
     }

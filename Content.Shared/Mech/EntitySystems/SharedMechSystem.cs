@@ -8,106 +8,25 @@ using Content.Shared.Interaction.Components;
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.Equipment.Components;
 using Content.Shared.Popups;
-using Content.Shared.StepTrigger.Components;
 using Content.Shared.Storage.Components;
 using Content.Shared.Vehicle;
 using Content.Shared.Vehicle.Systems;
 using Content.Shared.Vehicle.Components;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Melee;
+using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
-using Robust.Shared.Random;
-using Content.Shared.Overlays;
-using Content.Shared.Whitelist;
-using Content.Shared.ADT.Mech.Components;    // ADT Mech
 
 namespace Content.Shared.Mech.EntitySystems;
 
 /// <summary>
 /// Handles all of the interactions, UI handling, and items shennanigans for <see cref="MechComponent"/>
 /// </summary>
-public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
+public abstract partial class SharedMechSystem : EntitySystem
 {
-<<<<<<< ours
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] private readonly SharedMoverController _mover = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    /// <inheritdoc/>
-    public override void Initialize()
-    {
-        // SubscribeLocalEvent<MechComponent, MechToggleEquipmentEvent>(OnToggleEquipmentAction);// ADT Commented
-        SubscribeLocalEvent<MechComponent, MechEjectPilotEvent>(OnEjectPilotEvent);
-        SubscribeLocalEvent<MechComponent, UserActivateInWorldEvent>(RelayInteractionEvent);
-        SubscribeLocalEvent<MechComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<MechComponent, DestructionEventArgs>(OnDestruction);
-        SubscribeLocalEvent<MechComponent, EntityStorageIntoContainerAttemptEvent>(OnEntityStorageDump);
-        SubscribeLocalEvent<MechComponent, GetAdditionalAccessEvent>(OnGetAdditionalAccess);
-        SubscribeLocalEvent<MechComponent, DragDropTargetEvent>(OnDragDrop);
-        SubscribeLocalEvent<MechComponent, CanDropTargetEvent>(OnCanDragDrop);
-
-        SubscribeLocalEvent<MechPilotComponent, GetMeleeWeaponEvent>(OnGetMeleeWeapon);
-        SubscribeLocalEvent<MechPilotComponent, CanAttackFromContainerEvent>(OnCanAttackFromContainer);
-        SubscribeLocalEvent<MechPilotComponent, AttackAttemptEvent>(OnAttackAttempt);
-
-        // ADT Mech start
-        SubscribeNetworkEvent<SelectMechEquipmentEvent>(OnMechEquipSelected);
-
-        SubscribeLocalEvent<MechComponent, MechGrabberEjectMessage>(ReceiveEquipmentUiMesssages);
-        SubscribeLocalEvent<MechComponent, MechSoundboardPlayMessage>(ReceiveEquipmentUiMesssages);
-
-        InitializeADT();
-        // ADT Mech end
-||||||| base
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] private readonly SharedMoverController _mover = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-
-    /// <inheritdoc/>
-    public override void Initialize()
-    {
-        SubscribeLocalEvent<MechComponent, MechToggleEquipmentEvent>(OnToggleEquipmentAction);
-        SubscribeLocalEvent<MechComponent, MechEjectPilotEvent>(OnEjectPilotEvent);
-        SubscribeLocalEvent<MechComponent, UserActivateInWorldEvent>(RelayInteractionEvent);
-        SubscribeLocalEvent<MechComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<MechComponent, DestructionEventArgs>(OnDestruction);
-        SubscribeLocalEvent<MechComponent, EntityStorageIntoContainerAttemptEvent>(OnEntityStorageDump);
-        SubscribeLocalEvent<MechComponent, GetAdditionalAccessEvent>(OnGetAdditionalAccess);
-        SubscribeLocalEvent<MechComponent, DragDropTargetEvent>(OnDragDrop);
-        SubscribeLocalEvent<MechComponent, CanDropTargetEvent>(OnCanDragDrop);
-
-        SubscribeLocalEvent<MechPilotComponent, GetMeleeWeaponEvent>(OnGetMeleeWeapon);
-        SubscribeLocalEvent<MechPilotComponent, CanAttackFromContainerEvent>(OnCanAttackFromContainer);
-        SubscribeLocalEvent<MechPilotComponent, AttackAttemptEvent>(OnAttackAttempt);
-
-        InitializeRelay();
-    }
-
-    private void OnToggleEquipmentAction(EntityUid uid, MechComponent component, MechToggleEquipmentEvent args)
-    {
-        if (args.Handled)
-            return;
-        args.Handled = true;
-        CycleEquipment(uid);
-=======
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private INetManager _net = default!;
     [Dependency] private SharedActionsSystem _actions = default!;
@@ -119,18 +38,8 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
     [Dependency] protected VehicleSystem Vehicle = default!;
     [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
 
-    [SubscribeLocalEvent]
-    private void OnToggleEquipmentAction(EntityUid uid, MechComponent component, MechToggleEquipmentEvent args)
-    {
-        if (args.Handled)
-            return;
-        args.Handled = true;
-        CycleEquipment(uid);
->>>>>>> theirs
-    }
-
-<<<<<<< ours
-    // ADT Commented
+    // ADT-Tweak-Start
+    // [SubscribeLocalEvent]
     // private void OnToggleEquipmentAction(EntityUid uid, MechComponent component, MechToggleEquipmentEvent args)
     // {
     //     if (args.Handled)
@@ -138,11 +47,9 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
     //     args.Handled = true;
     //     CycleEquipment(uid);
     // }
+    // ADT-Tweak-End
 
-||||||| base
-=======
     [SubscribeLocalEvent]
->>>>>>> theirs
     private void OnEjectPilotEvent(EntityUid uid, MechComponent component, MechEjectPilotEvent args)
     {
         if (args.Handled)
@@ -155,12 +62,17 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
     private void OnOpenUi(EntityUid uid, MechComponent component, MechOpenUiEvent args)
     {
         args.Handled = true;
-        ToggleMechUi(uid, component);
+        ToggleMechUi(uid, component, args.Performer); // ADT-Tweak
     }
 
     [SubscribeLocalEvent]
     private void OnAlternativeVerb(EntityUid uid, MechComponent component, GetVerbsEvent<AlternativeVerb> args)
     {
+        // ADT-Tweak-Start
+        if (args.CanAccess && args.CanInteract && !component.Broken)
+            AddAlternativeVerbsADT(uid, component, args);
+        // ADT-Tweak-End
+
         if (!args.CanAccess ||
             !args.CanInteract ||
             component.Broken ||
@@ -186,10 +98,10 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        // ADT-Tweak start: disable move 0 cell
+        // ADT-Tweak-Start
         if (component.Energy <= 0)
             return;
-        // ADT-Tweak end
+        // ADT-Tweak-End
 
         if (component.CurrentSelectedEquipment != null)
         {
@@ -227,7 +139,7 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
         var irelay = EnsureComp<InteractionRelayComponent>(pilot);
         _interaction.SetRelay(pilot, mech, irelay);
 
-        EnsureComp<ProtectedFromStepTriggersComponent>(pilot); // ADT-Tweak
+        SetupUserADT(mech, pilot, component); // ADT-Tweak
 
         if (_net.IsClient)
             return;
@@ -235,26 +147,14 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
         _actions.AddAction(pilot, ref component.MechCycleActionEntity, component.MechCycleAction, mech);
         _actions.AddAction(pilot, ref component.MechUiActionEntity, component.MechUiAction, mech);
         _actions.AddAction(pilot, ref component.MechEjectActionEntity, component.MechEjectAction, mech);
-        // ADT Content start
-        _actions.AddAction(pilot, ref component.MechInhaleActionEntity, component.MechInhaleAction, mech);
-        _actions.AddAction(pilot, ref component.MechTurnLightsActionEntity, component.MechTurnLightsAction, mech);
-
-        var ev = new SetupMechUserEvent(pilot);
-        RaiseLocalEvent(mech, ref ev);
-        // ADT Content end
+        SetupUserActionsADT(mech, pilot, component); // ADT-Tweak
     }
 
     private void RemoveUser(EntityUid mech, EntityUid pilot)
     {
         RemComp<InteractionRelayComponent>(pilot);
-        RemCompDeferred<ProtectedFromStepTriggersComponent>(pilot); // ADT-Tweak
-
         _actions.RemoveProvidedActions(pilot, mech);
-
-        // ADT-Mech-Start
-        var ev = new RemoveMechUserEvent(pilot);
-        RaiseLocalEvent(mech, ref ev);
-        // ADT-Mech-End
+        RemoveUserADT(mech, pilot); // ADT-Tweak
     }
 
     /// <summary>
@@ -301,7 +201,7 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
         component.CurrentSelectedEquipment = equipmentIndex >= allEquipment.Count
             ? null
             : allEquipment[equipmentIndex];
-        // ADT Content start
+        // ADT-Tweak-Start
         while (TryComp<MechEquipmentComponent>(component.CurrentSelectedEquipment, out var equipment) && equipment.CanBeUsed == false)
         {
             equipmentIndex++;
@@ -309,7 +209,8 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
                 ? null
                 : allEquipment[equipmentIndex];
         }
-        // ADT Content end
+        // ADT-Tweak-End
+
         var popupString = component.CurrentSelectedEquipment != null
             ? Loc.GetString("mech-equipment-select-popup", ("item", component.CurrentSelectedEquipment))
             : Loc.GetString("mech-equipment-select-none-popup");
@@ -405,15 +306,15 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
         if (!Resolve(uid, ref component))
             return false;
 
-        // if (component.Energy + delta < 0)    // ADT Commented
-        //     return false;                    // Почему тут стоит эта проверка, если используется Math.Clamp()?
+        // ADT-Tweak-Start
+        // if (component.Energy + delta < 0)
+        //     return false;
+        // ADT-Tweak-End
 
         component.Energy = FixedPoint2.Clamp(component.Energy + delta, 0, component.MaxEnergy);
         Dirty(uid, component);
         UpdateUserInterface(uid, component);
-
-        _actionBlocker.UpdateCanMove(uid); // ADT-Tweak: disable move 0 cell
-
+        Vehicle.RefreshCanRun(uid); // ADT-Tweak
         return true;
     }
 
@@ -463,30 +364,8 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
         if (user == null)
             return;
 
-<<<<<<< ours
-        RemoveUser(uid, pilot);
-        _container.RemoveEntity(uid, pilot);
-        UpdateAppearance(uid, component);
-        // ADT Content start
-        if (_net.IsClient && _timing.IsFirstTimePredicted)
-        {
-            var ev = new CloseMechMenuEvent();
-            RaiseLocalEvent(pilot, ev);
-        }
-
-        RemComp<NoRotateOnMoveComponent>(uid);
-        RemComp<ShowHealthBarsComponent>(pilot);
-        // ADT Content end
-        return true;
-||||||| base
-        RemoveUser(uid, pilot);
-        _container.RemoveEntity(uid, pilot);
-        UpdateAppearance(uid, component);
-        return true;
-=======
         _userInterface.TryToggleUi(uid, MechUiKey.Key, user.Value);
         UpdateUserInterface(uid, component);
->>>>>>> theirs
     }
 
     [SubscribeLocalEvent]
@@ -495,21 +374,10 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
         if (args.Handled)
             return;
 
-<<<<<<< ours
-        // ADT-Mech-Start
-        if (HasComp<MechControlLockedComponent>(uid))
-            return;
-        // ADT-Mech-Start
-
-        if (!TryComp<MechComponent>(component.Mech, out var mech))
-||||||| base
-        if (!TryComp<MechComponent>(component.Mech, out var mech))
-=======
         if (ent.Comp.Vehicle is not { } vehicle)
             return;
 
         if (!TryComp<MechComponent>(vehicle, out var mech))
->>>>>>> theirs
             return;
 
         var weapon = mech.CurrentSelectedEquipment ?? vehicle;
@@ -517,40 +385,6 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
         args.Handled = true;
     }
 
-<<<<<<< ours
-    private void OnCanAttackFromContainer(EntityUid uid, MechPilotComponent component, CanAttackFromContainerEvent args)
-    {
-        args.CanAttack = !HasComp<MechControlLockedComponent>(uid); // ADT-Mech-Tweak
-    }
-
-    private void OnAttackAttempt(EntityUid uid, MechPilotComponent component, AttackAttemptEvent args)
-    {
-        if (args.Target == component.Mech)
-            args.Cancel();
-
-        // ADT-Tweak start: disable attack 0 cell
-        if (TryComp<MechComponent>(component.Mech, out var mech) && mech.Energy <= 0)
-            args.Cancel();
-
-        if (HasComp<MechControlLockedComponent>(uid))
-            args.Cancel();
-        // ADT-Mech-End
-    }
-
-||||||| base
-    private void OnCanAttackFromContainer(EntityUid uid, MechPilotComponent component, CanAttackFromContainerEvent args)
-    {
-        args.CanAttack = true;
-    }
-
-    private void OnAttackAttempt(EntityUid uid, MechPilotComponent component, AttackAttemptEvent args)
-    {
-        if (args.Target == component.Mech)
-            args.Cancel();
-    }
-
-=======
->>>>>>> theirs
     private void UpdateAppearance(EntityUid uid, MechComponent? component = null,
         AppearanceComponent? appearance = null)
     {
