@@ -1,6 +1,7 @@
 reagent-effect-status-effect-Stun = оглушение
 reagent-effect-status-effect-KnockedDown = нокдаун
 reagent-effect-status-effect-Jitter = дрожь
+reagent-effect-status-effect-TemporaryBlindness = слепота
 reagent-effect-status-effect-SeeingRainbows = галлюцинации
 reagent-effect-status-effect-Muted = неспособность разговаривать
 reagent-effect-status-effect-Stutter = заикание

@@ -1,5 +1,11 @@
 - type: entity
-  parent: [ SimpleSpaceMobBase, FlyingMobBase, MobNightVision, BaseMobDestructible ] # ADT-Tweak (removed BaseSlicingRefinable)
+<<<<<<< ours
+  parent: [ SimpleSpaceMobBase, FlyingMobBase ] # ADT-Tweak (removed BaseSlicingRefinable)
+||||||| base
+  parent: [ SimpleSpaceMobBase, FlyingMobBase ]
+=======
+  parent: [ SimpleSpaceMobBase, FlyingMobBase, BaseSlicingRefinable, MobNightVision, BaseMobDestructible ]
+>>>>>>> theirs
   id: BaseMobDragon
   suffix: ""
   name: space dragon
@@ -112,6 +118,8 @@
     - Adrenaline
     - Stutter
     - Weakness # ADT-Weakness-Tweak
+    - TemporaryBlindness # ADT-Tweak
+    - RadiationProtection # ADT-Tweak
   - type: Temperature
   - type: TemperatureDamage
     heatDamageThreshold: 2400 # ADT-Tweak
@@ -120,10 +128,18 @@
     updateInterval: 0.25
     metabolizerTypes: [ Dragon ]
     stages: [ Digestion, Bloodstream ]
+<<<<<<< ours
 # ADT-Tweak-start
   - type: Butcherable
     butcheringType: Knife
     spawned:
+||||||| base
+  - type: Butcherable
+    spawned:
+=======
+  - type: ToolRefinable
+    refineResult:
+>>>>>>> theirs
     - id: FoodMeatDragon
       amount: 4 # ADT-Tweak
 # ADT-Tweak-end
@@ -157,8 +173,13 @@
       components:
       - MobState
       - Door
+<<<<<<< ours
       - Item # ADT-Tweak
       tags:
+||||||| base
+      tags:
+=======
+>>>>>>> theirs
       - Wall
   - type: Tag
     tags:
@@ -241,13 +262,26 @@
       0: Alive
       200: Dead
   # less meat spawned since it's a lot easier to kill
+<<<<<<< ours
 # ADT-Tweak-start
   - type: Butcherable
     butcheringType: Knife
     spawned:
+||||||| base
+  - type: Butcherable
+    spawned:
+=======
+  - type: ToolRefinable
+    refineResult:
+>>>>>>> theirs
     - id: FoodMeatDragon
+<<<<<<< ours
       amount: 2 # ADT-Tweak
 # ADT-Tweak-end
+||||||| base
+      amount: 1
+=======
+>>>>>>> theirs
   - type: MeleeWeapon
     damage:
       types:
@@ -293,8 +327,13 @@
       components:
       - MobState
       - Door
+<<<<<<< ours
       - Item
       tags:
+||||||| base
+      tags:
+=======
+>>>>>>> theirs
       - Wall
     event: !type:DevourActionEvent
 
