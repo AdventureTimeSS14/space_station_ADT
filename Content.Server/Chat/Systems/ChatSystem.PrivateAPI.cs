@@ -1,4 +1,7 @@
 using System.Linq;
+using Content.Shared.ADT.CCVar; // ADT-Tweak
+using Content.Shared.ADT.Language; // ADT-Tweak
+using Content.Server.ADT.Chat; // ADT-Tweak
 using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.IdentityManagement;
@@ -18,16 +21,33 @@ public sealed partial class ChatSystem
         ChatTransmitRange range,
         string? nameOverride,
         bool hideLog = false,
-        bool ignoreActionBlocker = false
+        bool ignoreActionBlocker = false,
+        LanguagePrototype? language = null // ADT-Tweak
         )
     {
-        if (!_actionBlocker.CanSpeak(source) && !ignoreActionBlocker)
-            return;
+        // ADT-Tweak-Start
+        // if (!_actionBlocker.CanSpeak(source) && !ignoreActionBlocker)
+        //     return;
 
-        var message = TransformSpeech(source, originalMessage);
+        // var message = TransformSpeech(source, originalMessage);
+        var message = originalMessage;
+        // ADT-Tweak-End
 
         if (message.Length == 0)
             return;
+
+        // ADT-Tweak-Start
+        language ??= _language.GetCurrentLanguage(source);
+
+        if (!ignoreActionBlocker)
+        {
+            foreach (var item in language.Conditions.Where(x => !x.RaiseOnListener))
+            {
+                if (!item.Condition(source, null, EntityManager))
+                    return;
+            }
+        }
+        // ADT-Tweak-End
 
         var speech = GetSpeechVerb(source, message);
 
@@ -47,19 +67,18 @@ public sealed partial class ChatSystem
                 speech = proto;
         }
 
-        name = FormattedMessage.EscapeText(name);
+        // ADT-Tweak-Start
+        var sanitizedMessage = SanitizeInGameICMessage(source, FormattedMessage.EscapeText(message), out _);
+        language.LanguageType.Speak(source, sanitizedMessage, name, speech, range, EntityManager, out var success, out var resultMessage);
+        if (!success)
+            return;
 
-        var wrappedMessage = Loc.GetString(speech.Bold ? "chat-manager-entity-say-bold-wrap-message" : "chat-manager-entity-say-wrap-message",
-            ("entityName", name),
-            ("verb", Loc.GetString(_random.Pick(speech.SpeechVerbStrings))),
-            ("fontType", speech.FontId),
-            ("fontSize", speech.FontSize),
-            ("message", FormattedMessage.EscapeText(message)));
-
-        SendInVoiceRange(ChatChannel.Local, message, wrappedMessage, source, range);
-
-        var ev = new EntitySpokeEvent(source, message, null, null);
-        RaiseLocalEvent(source, ev, true);
+        if (language.LanguageType.RaiseEvent)
+        {
+            var ev = new EntitySpokeEvent(source, resultMessage, message, language, null, null);
+            RaiseLocalEvent(source, ev, true);
+        }
+        // ADT-Tweak-End
 
         // To avoid logging any messages sent by entities that are not players, like vendors, cloning, etc.
         // Also doesn't log if hideLog is true.
@@ -91,17 +110,32 @@ public sealed partial class ChatSystem
         RadioChannelPrototype? channel,
         string? nameOverride,
         bool hideLog = false,
-        bool ignoreActionBlocker = false
+        bool ignoreActionBlocker = false,
+        LanguagePrototype? language = null // ADT-Tweak
         )
     {
-        if (!_actionBlocker.CanSpeak(source) && !ignoreActionBlocker)
-            return;
+        // ADT-Tweak-Start
+        // if (!_actionBlocker.CanSpeak(source) && !ignoreActionBlocker)
+        //     return;
 
-        var message = TransformSpeech(source, FormattedMessage.RemoveMarkupOrThrow(originalMessage));
+        // var message = TransformSpeech(source, FormattedMessage.RemoveMarkupOrThrow(originalMessage));
+        var message = FormattedMessage.RemoveMarkupOrThrow(originalMessage);
+        // ADT-Tweak-End
         if (message.Length == 0)
             return;
 
-        var obfuscatedMessage = ObfuscateMessageReadability(message, 0.2f);
+        // ADT-Tweak-Start
+        language ??= _language.GetCurrentLanguage(source);
+
+        if (!ignoreActionBlocker)
+        {
+            foreach (var item in language.Conditions.Where(x => !x.RaiseOnListener))
+            {
+                if (!item.Condition(source, null, EntityManager))
+                    return;
+            }
+        }
+        // ADT-Tweak-End
 
         // get the entity's name by visual identity (if no override provided).
         string nameIdentity = FormattedMessage.EscapeText(nameOverride ?? Identity.Name(source, EntityManager));
@@ -117,43 +151,20 @@ public sealed partial class ChatSystem
             RaiseLocalEvent(source, nameEv);
             name = nameEv.VoiceName;
         }
+        // ADT-Tweak-Start
         name = FormattedMessage.EscapeText(name);
+        var sanitizedMessage = SanitizeInGameICMessage(source, FormattedMessage.EscapeText(message), out _);
+        language.LanguageType.Whisper(source, sanitizedMessage, name, nameIdentity, range, EntityManager, out var success, out var resultMessage, out var resultObfMessage);
+        if (!success)
+            return;
 
-        var wrappedMessage = Loc.GetString("chat-manager-entity-whisper-wrap-message",
-            ("entityName", name), ("message", FormattedMessage.EscapeText(message)));
-
-        var wrappedobfuscatedMessage = Loc.GetString("chat-manager-entity-whisper-wrap-message",
-            ("entityName", nameIdentity), ("message", FormattedMessage.EscapeText(obfuscatedMessage)));
-
-        var wrappedUnknownMessage = Loc.GetString("chat-manager-entity-whisper-unknown-wrap-message",
-            ("message", FormattedMessage.EscapeText(obfuscatedMessage)));
-
-
-        foreach (var (session, data) in GetRecipients(source, WhisperMuffledRange))
+        if (language.LanguageType.RaiseEvent)
         {
-            EntityUid listener;
-
-            if (session.AttachedEntity is not { Valid: true } playerEntity)
-                continue;
-            listener = session.AttachedEntity.Value;
-
-            if (MessageRangeCheck(session, data, range) != MessageRangeCheckResult.Full)
-                continue; // Won't get logged to chat, and ghosts are too far away to see the pop-up, so we just won't send it to them.
-
-            if (data.Range <= WhisperClearRange || data.Observer)
-                _chatManager.ChatMessageToOne(ChatChannel.Whisper, message, wrappedMessage, source, false, session.Channel);
-            //If listener is too far, they only hear fragments of the message
-            else if (_examineSystem.InRangeUnOccluded(source, listener, WhisperMuffledRange))
-                _chatManager.ChatMessageToOne(ChatChannel.Whisper, obfuscatedMessage, wrappedobfuscatedMessage, source, false, session.Channel);
-            //If listener is too far and has no line of sight, they can't identify the whisperer's identity
-            else
-                _chatManager.ChatMessageToOne(ChatChannel.Whisper, obfuscatedMessage, wrappedUnknownMessage, source, false, session.Channel);
+            var ev = new EntitySpokeEvent(source, resultMessage, message, language, channel, resultObfMessage);
+            RaiseLocalEvent(source, ev, true);
         }
+        // ADT-Tweak-End
 
-        _replay.RecordServerMessage(new ChatMessage(ChatChannel.Whisper, message, wrappedMessage, GetNetEntity(source), null, MessageRangeHideChatForReplay(range)));
-
-        var ev = new EntitySpokeEvent(source, message, channel, obfuscatedMessage);
-        RaiseLocalEvent(source, ev, true);
         if (!hideLog)
             if (originalMessage == message)
             {
@@ -197,11 +208,11 @@ public sealed partial class ChatSystem
             ("entity", ent),
             ("message", FormattedMessage.RemoveMarkupOrThrow(action)));
 
-        if (checkEmote &&
-            !TryEmoteChatInput(source, action))
-            return;
-
-        SendInVoiceRange(ChatChannel.Emotes, action, wrappedMessage, source, range, author);
+        // ADT-Tweak-Start
+        if (checkEmote)
+            TryEmoteChatInput(source, action);
+        SendInVoiceRange(ChatChannel.Emotes, action, wrappedMessage, wrappedMessage, source, range, author, ignoreLanguage: true);
+        // ADT-Tweak-End
         if (!hideLog)
             if (name != Name(source))
                 _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Emote from {source} as {name}: {action}");
@@ -228,7 +239,7 @@ public sealed partial class ChatSystem
             ("entityName", name),
             ("message", FormattedMessage.EscapeText(message)));
 
-        SendInVoiceRange(ChatChannel.LOOC, message, wrappedMessage, source, hideChat ? ChatTransmitRange.HideChat : ChatTransmitRange.Normal, player.UserId);
+        SendInVoiceRange(ChatChannel.LOOC, message, wrappedMessage, wrappedMessage, source, hideChat ? ChatTransmitRange.HideChat : ChatTransmitRange.Normal, player.UserId, ignoreLanguage: true, checkVisibility: false); // ADT-Tweak
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"LOOC from {source}: {message}");
     }
 
@@ -258,5 +269,26 @@ public sealed partial class ChatSystem
         }
 
         _chatManager.ChatMessageToMany(ChatChannel.Dead, message, wrappedMessage, source, hideChat, true, clients.ToList(), author: player.UserId);
+
+        // ADT-Tweak-Start
+        if (_configurationManager.GetCVar(ADTCCVars.ChatFilterAdminAlertEnable))
+        {
+            var words = message.Split(
+                new[] { ' ', ',', '.', '!', '?', ';', ':', '"', '\'', '(', ')', '[', ']', '{', '}' },
+                StringSplitOptions.RemoveEmptyEntries
+            );
+            foreach (var word in words)
+            {
+                if (ChatFilterConstants.OffensiveWords.Contains(word))
+                {
+                    _chatManager.SendAdminAlert(
+                        $"Внимние!! Сущность {ToPrettyString(source)} использовала слово `{word}`" +
+                        $" в сообщении, требуется проверка администратора: {message}"
+                    );
+                    break;
+                }
+            }
+        }
+        // ADT-Tweak-End
     }
 }

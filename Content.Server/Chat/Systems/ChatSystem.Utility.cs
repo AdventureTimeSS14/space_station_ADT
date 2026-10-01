@@ -10,12 +10,14 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Content.Shared.ADT.Language; // ADT-Tweak
+using Content.Server.ADT.Chat; // ADT-Tweak
 
 namespace Content.Server.Chat.Systems;
 
 public sealed partial class ChatSystem
 {
-    private enum MessageRangeCheckResult
+    public enum MessageRangeCheckResult // ADT-Tweak
     {
         Disallowed,
         HideChat,
@@ -34,7 +36,7 @@ public sealed partial class ChatSystem
     ///     Checks if a target as returned from GetRecipients should receive the message.
     ///     Keep in mind data.Range is -1 for out of range observers.
     /// </summary>
-    private MessageRangeCheckResult MessageRangeCheck(ICommonSession session, ICChatRecipientData data, ChatTransmitRange range)
+    public MessageRangeCheckResult MessageRangeCheck(ICommonSession session, ICChatRecipientData data, ChatTransmitRange range) // ADT-Tweak
     {
         var initialResult = MessageRangeCheckResult.Full;
         switch (range)
@@ -61,17 +63,62 @@ public sealed partial class ChatSystem
         return initialResult;
     }
 
+    // ADT-Tweak-Start
+    public bool HasLineOfSight(EntityUid listener, EntityUid? source, float range = VoiceRange, bool ignoreWalls = false)
+    {
+        var ev = new ChatVisibilityCheckEvent(listener, source, range, ignoreWalls);
+        RaiseLocalEvent(ref ev);
+        return ev.Visible;
+    }
+    // ADT-Tweak-End
+
     /// <summary>
     ///     Sends a chat message to the given players in range of the source entity.
     /// </summary>
-    private void SendInVoiceRange(ChatChannel channel, string message, string wrappedMessage, EntityUid source, ChatTransmitRange range, NetUserId? author = null)
+    public void SendInVoiceRange(ChatChannel channel, string message, string wrappedMessage, string wrappedLanguageMessage, EntityUid source, ChatTransmitRange range, NetUserId? author = null, ProtoId<LanguagePrototype>? language = null, bool ignoreLanguage = false, bool checkVisibility = true, bool ignoreWalls = false) // ADT-Tweak
     {
+        // ADT-Tweak-Start
+        var lang = language != null ? ProtoMan.Index(language.Value) : _language.GetCurrentLanguage(source);
+        // ADT-Tweak-End
+
         foreach (var (session, data) in GetRecipients(source, VoiceRange))
         {
+            // ADT-Tweak-Start
+            if (session.AttachedEntity is not { Valid: true } listener)
+                continue;
+
+            if (checkVisibility && !data.Observer && !HasLineOfSight(listener, source, ignoreWalls: ignoreWalls))
+                continue;
+
+            var condition = true;
+            foreach (var item in lang.Conditions.Where(x => x.RaiseOnListener))
+            {
+                if (!item.Condition(listener, source, EntityManager))
+                    condition = false;
+            }
+            if (!condition && !ignoreLanguage)
+                continue;
+            // ADT-Tweak-End
+
             var entRange = MessageRangeCheck(session, data, range);
             if (entRange == MessageRangeCheckResult.Disallowed)
                 continue;
             var entHideChat = entRange == MessageRangeCheckResult.HideChat;
+
+            // ADT-Tweak-Start
+            if (listener != source && _deafness.TryGetDeafenedMessage(listener, message, out var deafened))
+            {
+                _chatManager.ChatMessageToOne(channel, deafened, deafened, source, entHideChat, session.Channel, author: author);
+                continue;
+            }
+
+            if (!ignoreLanguage && !_language.CanUnderstand(listener, lang))
+            {
+                _chatManager.ChatMessageToOne(channel, message, wrappedLanguageMessage, source, entHideChat, session.Channel, author: author);
+                continue;
+            }
+            // ADT-Tweak-End
+
             _chatManager.ChatMessageToOne(channel, message, wrappedMessage, source, entHideChat, session.Channel, author: author);
         }
 
@@ -104,10 +151,38 @@ public sealed partial class ChatSystem
         return !_chatManager.MessageCharacterLimit(player, message);
     }
 
+    // ADT-Tweak-Start
+    private static readonly HashSet<string> AlertSkipWords = new(StringComparer.OrdinalIgnoreCase)
+    {
+        "спс",
+        "пж",
+        "мб",
+        "хз"
+    };
+
+    private static bool MessageContainsSkipWord(string message)
+    {
+        var words = message.Split(
+            new[] { ' ', ',', '.', '!', '?', ';', ':', '"', '\'', '(', ')', '[', ']', '{', '}' },
+            StringSplitOptions.RemoveEmptyEntries);
+        return words.Any(w => AlertSkipWords.Contains(w));
+    }
+    // ADT-Tweak-End
+
     // ReSharper disable once InconsistentNaming
-    private string SanitizeInGameICMessage(EntityUid source, string message, out string? emoteStr, bool capitalize = true, bool punctuate = false, bool capitalizeTheWordI = true)
+    public string SanitizeInGameICMessage(EntityUid source, string message, out string? emoteStr, bool capitalize = true, bool punctuate = false, bool capitalizeTheWordI = true) // ADT-Tweak
     {
         var newMessage = SanitizeMessageReplaceWords(message.Trim());
+
+        // ADT-Tweak-Start
+        if (message != newMessage &&
+            HasComp<ActorComponent>(source) &&
+            !MessageContainsSkipWord(message))
+        {
+            _chatManager.SendAdminAlert(
+                $"Сущность {ToPrettyString(source)} применила слово из списка для замены: {message}");
+        }
+        // ADT-Tweak-End
 
         GetRadioKeycodePrefix(source, newMessage, out newMessage, out var prefix);
 
@@ -123,6 +198,23 @@ public sealed partial class ChatSystem
 
         return prefix + newMessage;
     }
+
+    // ADT-Tweak-Start
+    public string SanitizeInGameICMessageLanguages(EntityUid source, string message, out string? emoteStr, bool capitalize = true, bool punctuate = false, bool capitalizeTheWordI = true)
+    {
+        var newMessage = message;
+        GetRadioKeycodePrefix(source, newMessage, out newMessage, out var prefix);
+        // Sanitize it first as it might change the word order
+        _sanitizer.TrySanitizeEmoteShorthands(newMessage, source, out newMessage, out emoteStr);
+        if (capitalize)
+            newMessage = SanitizeMessageCapital(newMessage);
+        if (capitalizeTheWordI)
+            newMessage = SanitizeMessageCapitalizeTheWordI(newMessage, "i");
+        if (punctuate)
+            newMessage = SanitizeMessagePeriod(newMessage);
+        return prefix + newMessage;
+    }
+    // ADT-Tweak-End
 
     private string SanitizeInGameOOCMessage(string message)
     {
@@ -170,7 +262,7 @@ public sealed partial class ChatSystem
         return message;
     }
 
-    public static readonly ProtoId<ReplacementAccentPrototype> ChatSanitize_Accent = "chatsanitize";
+    public static readonly ProtoId<ReplacementAccentPrototype>[] ChatSanitize_Accent = ["adt_chatsanitize", "chatsanitize"]; // ADT-Tweak
 
     public string SanitizeMessageReplaceWords(string message)
     {
@@ -178,7 +270,12 @@ public sealed partial class ChatSystem
 
         var msg = message;
 
-        msg = _wordreplacement.ApplyReplacements(msg, ChatSanitize_Accent);
+        // ADT-Tweak-Start
+        foreach (var accent in ChatSanitize_Accent)
+        {
+            msg = _wordreplacement.ApplyReplacements(msg, accent);
+        }
+        // ADT-Tweak-End
 
         return msg;
     }
@@ -186,7 +283,7 @@ public sealed partial class ChatSystem
     /// <summary>
     ///     Returns list of players and ranges for all players withing some range. Also returns observers with a range of -1.
     /// </summary>
-    private Dictionary<ICommonSession, ICChatRecipientData> GetRecipients(EntityUid source, float voiceGetRange)
+    public Dictionary<ICommonSession, ICChatRecipientData> GetRecipients(EntityUid source, float voiceGetRange) // ADT-Tweak
     {
         // TODO proper speech occlusion
 
@@ -208,8 +305,14 @@ public sealed partial class ChatSystem
 
             var observer = _ghostHearingQuery.HasComponent(playerEntity);
 
+            // ADT-Tweak-Start
+            var range = voiceGetRange;
+            if (TryComp<ChatModifierComponent>(playerEntity, out var modifier) && modifier.Modifiers.ContainsKey(ChatModifierType.Say))
+                range = modifier.Modifiers[ChatModifierType.Say];
+            // ADT-Tweak-End
+
             // even if they are a ghost hearer, in some situations we still need the range
-            if (sourceCoords.TryDistance(EntityManager, transformEntity.Coordinates, out var distance) && distance < voiceGetRange)
+            if (sourceCoords.TryDistance(EntityManager, transformEntity.Coordinates, out var distance) && distance < range) // ADT-Tweak
             {
                 recipients.Add(player, new ICChatRecipientData(distance, observer));
                 continue;
@@ -223,11 +326,11 @@ public sealed partial class ChatSystem
         return recipients;
     }
 
-    public readonly record struct ICChatRecipientData(float Range, bool Observer, bool? HideChatOverride = null)
+    public readonly record struct ICChatRecipientData(float Range, bool Observer, bool? HideChatOverride = null, bool Muffled = false) // ADT-Tweak
     {
     }
 
-    private string ObfuscateMessageReadability(string message, float chance)
+    public string ObfuscateMessageReadability(string message, float chance) // ADT-Tweak
     {
         var modifiedMessage = new StringBuilder(message);
 

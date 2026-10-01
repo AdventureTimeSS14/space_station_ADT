@@ -130,13 +130,7 @@ public sealed partial class CharacterUIController : UIController, IOnStateEntere
             return;
         }
 
-<<<<<<< ours
-        var (entity, job, objectives, briefing, entityName, memories) = data; //ADT-Economy
-||||||| base
-        var (entity, job, objectives, briefing, entityName) = data;
-=======
-        var (entity, objectives, briefing, jobId, entityName) = data;
->>>>>>> theirs
+        var (entity, objectives, briefing, jobId, entityName, memories) = data; // ADT-Tweak
 
         _window.SpriteView.SetEntity(entity);
 

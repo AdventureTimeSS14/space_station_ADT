@@ -40,40 +40,6 @@ internal sealed partial class ChatManager : IChatManager
         { "revolutionary", "#aa00ff" }
     };
 
-<<<<<<< ours
-    [Dependency] private readonly IReplayRecordingManager _replay = default!;
-    [Dependency] private readonly IServerNetManager _netManager = default!;
-    [Dependency] private readonly IAdminManager _adminManager = default!;
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly IServerPreferencesManager _preferencesManager = default!;
-    [Dependency] private readonly IConfigurationManager _configurationManager = default!;
-    [Dependency] private readonly INetConfigurationManager _netConfigManager = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly PlayerRateLimitManager _rateLimitManager = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
-    [Dependency] private readonly DiscordChatLink _discordLink = default!;
-    [Dependency] private readonly SponsorsManager _sponsorsManager = default!; // Corvax-Sponsors
-    [Dependency] private readonly Content.Server.ADT.Sponsors.SponsorManager _adtSponsors = default!;
-    [Dependency] private readonly DiscordWebhook _discord = default!;
-    [Dependency] private readonly ILogManager _logManager = default!;
-
-    private ISawmill _sawmill = default!;
-||||||| base
-    [Dependency] private readonly IReplayRecordingManager _replay = default!;
-    [Dependency] private readonly IServerNetManager _netManager = default!;
-    [Dependency] private readonly IAdminManager _adminManager = default!;
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly IServerPreferencesManager _preferencesManager = default!;
-    [Dependency] private readonly IConfigurationManager _configurationManager = default!;
-    [Dependency] private readonly INetConfigurationManager _netConfigManager = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly PlayerRateLimitManager _rateLimitManager = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
-    [Dependency] private readonly DiscordChatLink _discordLink = default!;
-    [Dependency] private readonly ILogManager _logManager = default!;
-
-    private ISawmill _sawmill = default!;
-=======
     [Dependency] private IReplayRecordingManager _replay = default!;
     [Dependency] private IServerNetManager _netManager = default!;
     [Dependency] private IAdminManager _adminManager = default!;
@@ -85,11 +51,13 @@ internal sealed partial class ChatManager : IChatManager
     [Dependency] private PlayerRateLimitManager _rateLimitManager = default!;
     [Dependency] private ISharedPlayerManager _player = default!;
     [Dependency] private DiscordChatLink _discordLink = default!;
+    [Dependency] private SponsorsManager _sponsorsManager = default!; // Corvax-Sponsors
+    [Dependency] private Content.Server.ADT.Sponsors.SponsorManager _adtSponsors = default!; // ADT-Tweak
+    [Dependency] private DiscordWebhook _discord = default!; // ADT-Tweak
     [Dependency] private ILogManager _logManager = default!;
     [Dependency] private ILocalizationManager _localizationManager = default!;
 
     private ISawmill? _sawmill = default!;
->>>>>>> theirs
 
     /// <summary>
     /// The maximum length a player-sent message can be sent

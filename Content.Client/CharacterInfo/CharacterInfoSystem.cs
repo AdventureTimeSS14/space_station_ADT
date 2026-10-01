@@ -34,13 +34,7 @@ public sealed partial class CharacterInfoSystem : EntitySystem
     private void OnCharacterInfoEvent(CharacterInfoEvent msg, EntitySessionEventArgs args)
     {
         var entity = GetEntity(msg.NetEntity);
-<<<<<<< ours
-        var data = new CharacterData(entity, msg.JobTitle, msg.Objectives, msg.Briefing, Name(entity), msg.Memory); //ADT-Economy
-||||||| base
-        var data = new CharacterData(entity, msg.JobTitle, msg.Objectives, msg.Briefing, Name(entity));
-=======
-        var data = new CharacterData(entity, msg.Objectives, msg.Briefing, msg.Job, Name(entity));
->>>>>>> theirs
+        var data = new CharacterData(entity, msg.Objectives, msg.Briefing, msg.Job, Name(entity), msg.Memory); // ADT-Tweak
 
         OnCharacterUpdate?.Invoke(data);
     }
@@ -56,15 +50,9 @@ public sealed partial class CharacterInfoSystem : EntitySystem
         EntityUid Entity,
         Dictionary<string, List<ObjectiveInfo>> Objectives,
         string? Briefing,
-<<<<<<< ours
-        string EntityName, //ADT-Economy-Start
-        Dictionary<string, string> Memory //ADT-Economy-End
-||||||| base
-        string EntityName
-=======
         ProtoId<JobPrototype>? JobId,
-        string EntityName
->>>>>>> theirs
+        string EntityName,
+        Dictionary<string, string> Memory // ADT-Tweak
     );
 
     /// <summary>
