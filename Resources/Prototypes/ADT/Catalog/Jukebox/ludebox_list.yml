@@ -10,36 +10,15 @@
   - sunset
   - FSMTeamEagle
   - GiftOfAdventureFromConjurer
-  - horn
   - ESCPMidnightRoom
-  - Oh_Its_You
   - ESCPNeonscapes
   - TheFallOfTheCorporation
   - WaitingForTheMeeting
-
-- type: jukeboxList
-  id: Sonic
-  jukeboxes:
-  - TidalTempestPresent
-  - MetallicMadnessBadFuture
-  - MetallicMadnessBadFutureRemix
-  - MetallicMadnessAct2
-  - CollisionChaosGood
-  - MetallicMadnessPresent
-  - PalmtreePanicPast
-  - QuartzQuadrantPast
-  - SuperSonicRacing
-  - TidalTempestJPRemix
 
 - type: jukeboxList
   id: Chill
   jukeboxes:
   - ABeautifulLull
   - ATenseAdventure
-  - DOS
   - HappyEnding
-  - IHYVA
-  - WereFinallyLanding
-  - Nebula
-  - phoenixright
   - lateraligator

@@ -48,11 +48,6 @@
   - type: HideLayerClothing
     slots:
     - Hair
-  - type: AmbientSound
-    volume: -10
-    range: 10 #радиус голоса
-    sound:
-      path: /Audio/ADT/Ambience/Music/robotnik.ogg
 
 - type: entity
   parent: ClothingHeadBase

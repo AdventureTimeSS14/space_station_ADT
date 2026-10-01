@@ -101,7 +101,6 @@
   - type: StorageFill
     contents:
       - id: ADTMusicDiskStandard
-      - id: ADTMusicDiskSonic
       - id: ADTMusicDiskChill
 
 - type: entity
@@ -122,25 +121,7 @@
     contents:
       - id: ADTJukeBoxPlayer
       - id: ADTMusicDiskStandard
-      - id: ADTMusicDiskSonic
       - id: ADTMusicDiskChill
-
-- type: entity
-  parent: ADTMusicDiskStandard
-  id: ADTMusicDiskSonic
-  name: music disk (Sonic)
-  description: Nostalgic melodies from the last century.
-  components:
-  - type: Sprite
-    sprite: ADT/Objects/Misc/music_disk.rsi
-    layers:
-    - state: disk_base
-      color: "#2953BE"
-    - state: disk_label_music
-  - type: JukeboxDisk
-    tracksCollection: Sonic
-  - type: StaticPrice
-    price: 50
 
 - type: entity
   parent: ADTMusicDiskStandard
