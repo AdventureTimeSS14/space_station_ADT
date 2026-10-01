@@ -1,5 +1,5 @@
-using Content.Shared.Botany.Components; // ADT-Tweak
-using Content.Shared.Botany.Systems; // ADT-Tweak
+using Content.Server.Botany.Components;
+using Content.Server.Botany.Systems;
 using Content.Server.Fluids.EntitySystems;
 using Content.Shared.ADT.Lavaland.Components;
 using Content.Shared.Chemistry;
@@ -19,7 +19,7 @@ namespace Content.Server.ADT.Lavaland;
 public sealed class ADTFishLootSystem : EntitySystem
 {
     [Dependency] private DamageableSystem _damageable = default!;
-    [Dependency] private PlantTraySystem _plantTray = default!; // ADT-Tweak
+    [Dependency] private PlantHolderSystem _plantHolder = default!;
     [Dependency] private PuddleSystem _puddle = default!;
     [Dependency] private ReactiveSystem _reactive = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
@@ -64,23 +64,21 @@ public sealed class ADTFishLootSystem : EntitySystem
 
     private void OnOrganAfterInteract(Entity<ADTConductiveOrganComponent> ent, ref AfterInteractEvent args)
     {
-        // ADT-Tweak-Start
-        if (args.Handled || !args.CanReach || args.Target is not { } target || !TryComp<PlantTrayComponent>(target, out var tray))
+        if (args.Handled || !args.CanReach || args.Target is not { } target || !TryComp<PlantHolderComponent>(target, out var holder))
             return;
 
         args.Handled = true;
 
-        if (!_plantTray.TryGetPlant((target, tray), out _))
+        if (holder.Seed == null)
         {
             _popup.PopupEntity(Loc.GetString("adt-conductive-organ-no-seed"), target, args.User);
             return;
         }
 
-        if (TryComp<PlantHolderComponent>(target, out var holder))
-            holder.YieldMod = ent.Comp.YieldMod;
-        _plantTray.AdjustWater((target, tray), 100f);
-        _plantTray.AdjustNutrient((target, tray), 100f);
-        // ADT-Tweak-End
+        holder.YieldMod = ent.Comp.YieldMod;
+        _plantHolder.AdjustWater(target, 100f, holder);
+        _plantHolder.AdjustNutrient(target, 100f, holder);
+        _plantHolder.UpdateSprite(target, holder);
 
         _popup.PopupEntity(Loc.GetString("adt-conductive-organ-used", ("target", target)), target, args.User);
         QueueDel(ent.Owner);

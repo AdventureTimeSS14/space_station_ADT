@@ -17,9 +17,4 @@ public sealed partial class SeedExtractorComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public MinMax BaseSeeds = new(1, 3);
-
-    // ADT-Tweak-Start
-    [DataField, AutoNetworkedField]
-    public float SeedMultiplier = 1f;
-    // ADT-Tweak-End
 }

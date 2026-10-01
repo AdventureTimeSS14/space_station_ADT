@@ -59,7 +59,7 @@ public sealed partial class PlantGrowthSystem : EntitySystem
             _plantTray.AdjustWater((trayUid, trayComp), -MathF.Max(0f, plantComp.WaterConsumption * trayComp.TrayConsumptionMultiplier));
 
         if (plantComp.NutrientConsumption > 0 && trayComp.NutritionLevel > 0 && random.Prob(0.75f))
-            _plantTray.AdjustNutrient((trayUid, trayComp), -MathF.Max(0f, plantComp.NutrientConsumption * trayComp.TrayConsumptionMultiplier * trayComp.NutrientConsumptionMultiplier)); // ADT-Tweak
+            _plantTray.AdjustNutrient((trayUid, trayComp), -MathF.Max(0f, plantComp.NutrientConsumption * trayComp.TrayConsumptionMultiplier));
 
         var healthMod = random.Next(1, 3);
         if (holder.SkipAging < 10)

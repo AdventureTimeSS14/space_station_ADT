@@ -29,7 +29,7 @@ public sealed partial class BotanySwabSystem : EntitySystem
         if (!args.IsInDetailsRange)
             return;
 
-        if (ent.Comp.PlantData != null || ent.Comp.AllergicTriggers != null) // ADT-Tweak
+        if (ent.Comp.PlantData != null)
             args.PushMarkup(Loc.GetString("swab-used"));
         else
             args.PushMarkup(Loc.GetString("swab-unused"));
@@ -43,14 +43,6 @@ public sealed partial class BotanySwabSystem : EntitySystem
     {
         if (args.Target == null || !args.CanReach || !_plantQuery.HasComp(args.Target))
             return;
-
-        // ADT-Tweak-Start
-        if (ent.Comp.AllergicTriggers != null)
-        {
-            _popup.PopupEntity(Loc.GetString("botany-swab-unusable-plant"), args.User, args.User);
-            return;
-        }
-        // ADT-Tweak-End
 
         _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, ent.Comp.SwabDelay, new BotanySwabDoAfterEvent(), ent.Owner, target: args.Target, used: ent.Owner)
         {

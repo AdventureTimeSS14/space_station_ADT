@@ -1,6 +1,4 @@
-using Content.Shared.ADT.Botany.Systems; // ADT-Tweak
 using Content.Shared.Botany.Items.Systems;
-using Content.Shared.Chemistry.Reagent;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -10,7 +8,7 @@ namespace Content.Shared.Botany.Items.Components;
 /// Component for items that can function as a plant cross-pollination tool.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-[Access(typeof(BotanySwabSystem), typeof(SharedADTBotanySwabSystem))] // ADT-Tweak
+[Access(typeof(BotanySwabSystem))]
 public sealed partial class BotanySwabComponent : Component
 {
     /// <summary>
@@ -30,9 +28,4 @@ public sealed partial class BotanySwabComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityUid? PlantData;
-
-    // ADT-Tweak-Start
-    [DataField, AutoNetworkedField]
-    public List<ProtoId<ReagentPrototype>>? AllergicTriggers;
-    // ADT-Tweak-End
 }
