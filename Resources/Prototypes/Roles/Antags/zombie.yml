@@ -32,6 +32,11 @@
   - type: ZombifyOnDeath
   - type: IncurableZombie
   - type: InitialInfected
+  # ADT-Tweak-Start
+  - type: NpcFactionMember
+    addFriendlyFactions:
+    - Zombie
+  # ADT-Tweak-End
   mindRoles:
   - MindRoleInitialInfected
 

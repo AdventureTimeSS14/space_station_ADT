@@ -35,6 +35,9 @@
   setPreference: true
   objective: roles-antag-syndicate-agent-sleeper-objective
   guides: [ Traitors ]
+  tags:
+  - OnStation
+  - Midround
   # ADT add start
   requirements:
   - !type:OverallPlaytimeRequirement

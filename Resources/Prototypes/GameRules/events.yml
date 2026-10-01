@@ -275,35 +275,9 @@
   # ADT-Tweak end
   - type: AntagSelection
     agentName: ninja-round-end-agent-name
-    definitions:
-    - spawnerPrototype: SpawnPointGhostSpaceNinja
-      min: 1
-      max: 1
-      pickPlayer: false
-      startingGear: SpaceNinjaGear
-      roleLoadout:
-      - RoleSurvivalSpaceNinja
-      briefing:
-        text: ninja-role-greeting
-        color: Green
-        sound: /Audio/Misc/ninja_greeting.ogg
-      components:
-      - type: EmpProtection # ADT TWEAK
-      - type: SpaceNinja
-      - type: GrantNinjutsu
-      - type: NpcFactionMember
-        factions:
-        - Syndicate
-      - type: AutoImplant
-        implants:
-        - DeathAcidifierImplant
-      - type: RandomMetadata
-        nameSegments:
-        - NamesNinjaTitle
-        - NamesNinja
-        nameFormat: name-format-ninja
-      mindRoles:
-      - MindRoleNinja
+    antags:
+    - !type:FixedAntagCount
+      proto: SpaceNinja
   - type: DynamicRuleCost
     cost: 75
 

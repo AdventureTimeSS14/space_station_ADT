@@ -1,7 +1,7 @@
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Content.Server.ADT.Antag;
+using Content.Server.ADT.Antag; // ADT-Tweak
 using Content.Server.Administration.Managers;
 using Content.Server.Antag.Components;
 using Content.Server.Chat.Managers;
@@ -57,40 +57,6 @@ namespace Content.Server.Antag;
 /// </remarks>
 public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelectionComponent>
 {
-<<<<<<< ours
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly IBanManager _ban = default!;
-    [Dependency] private readonly IChatManager _chat = default!;
-    [Dependency] private readonly GhostRoleSystem _ghostRole = default!;
-    [Dependency] private readonly JobSystem _jobs = default!;
-    [Dependency] private readonly LoadoutSystem _loadout = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly PlayTimeTrackingSystem _playTime = default!;
-    [Dependency] private readonly IServerPreferencesManager _pref = default!;
-    [Dependency] private readonly RoleSystem _role = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly ArrivalsSystem _arrivals = default!;
-    [Dependency] private readonly AntagRollBonusManager _rollBonus = default!;
-||||||| base
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly IBanManager _ban = default!;
-    [Dependency] private readonly IChatManager _chat = default!;
-    [Dependency] private readonly GhostRoleSystem _ghostRole = default!;
-    [Dependency] private readonly JobSystem _jobs = default!;
-    [Dependency] private readonly LoadoutSystem _loadout = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly PlayTimeTrackingSystem _playTime = default!;
-    [Dependency] private readonly IServerPreferencesManager _pref = default!;
-    [Dependency] private readonly RoleSystem _role = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly ArrivalsSystem _arrivals = default!;
-=======
     [Dependency] private IBanManager _ban = default!;
     [Dependency] private IChatManager _chat = default!;
     [Dependency] private IPlayerManager _playerManager = default!;
@@ -107,7 +73,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     [Dependency] private PlayTimeTrackingSystem _playTime = default!;
     [Dependency] private RoleSystem _role = default!;
     [Dependency] private TransformSystem _transform = default!;
->>>>>>> theirs
+    [Dependency] private AntagRollBonusManager _rollBonus = default!; // ADT-Tweak
 
     // arbitrary random number to give late joining some mild interest.
     public const float LateJoinRandomChance = 0.5f;
@@ -237,9 +203,11 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             antag.PreSelectionsComplete = true;
         }
 
+        MarkRollBonusEligible(pool, _preSpawnRules); // ADT-Tweak
+
         // Pick a random player session and then try to assign the currently available antags from it!
         // This means each player has the same chance at rolling antag, with minimal alterations to the odds by number of antags selected.
-        var weightedPool = GetWeightedPlayerPool(pool);
+        var weightedPool = GetWeightedPlayerPool(pool, _preSpawnRules.Select(r => r.Definition)); // ADT-Tweak
         while (RobustRandom.TryPickAndTake(weightedPool, out var session))
         {
             // Antag distributed so we remove the session.
@@ -263,9 +231,11 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             return;
         }
 
+        MarkRollBonusEligible(args.Players, _postSpawnRules); // ADT-Tweak
+
         // Pick a random player session and then try to assign the currently available antags from it!
         // This means each player has the same chance at rolling antag, with minimal alterations to the odds by number of antags selected.
-        var weightedPool = GetWeightedPlayerPool(args.Players);
+        var weightedPool = GetWeightedPlayerPool(args.Players, _postSpawnRules.Select(r => r.Definition)); // ADT-Tweak
         while (RobustRandom.TryPickAndTake(weightedPool, out var session))
         {
             AssignAntag(session, ref _postSpawnRules);
@@ -370,12 +340,12 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         return antags;
     }
 
-    private Dictionary<ICommonSession, float> GetWeightedPlayerPool(IEnumerable<ICommonSession> players)
+    private Dictionary<ICommonSession, float> GetWeightedPlayerPool(IEnumerable<ICommonSession> players, IEnumerable<AntagSpecifierPrototype>? antags = null) // ADT-Tweak
     {
         var dict = new Dictionary<ICommonSession, float>();
         foreach (var player in players)
         {
-            dict.Add(player, GetWeight(player));
+            dict.Add(player, GetWeight(player) * GetRollBonusWeight(player, antags)); // ADT-Tweak
         }
 
         return dict;
@@ -401,7 +371,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
     private void AssignAntags(Entity<AntagSelectionComponent> gameRule, IList<ICommonSession> players, List<AntagCount> antags)
     {
-        AssignAntags(gameRule, GetWeightedPlayerPool(players), antags);
+        AssignAntags(gameRule, GetWeightedPlayerPool(players, antags.Select(a => a.Definition)), antags); // ADT-Tweak
     }
 
     private void AssignAntags(Entity<AntagSelectionComponent> gameRule, Dictionary<ICommonSession, float> weightedPool, List<AntagCount> antags)
@@ -423,70 +393,11 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     /// Selects and assigns antags from a list, this is called before the game has started.
     /// Is private because it has it should only ever be run in very specific scenarios.
     /// </summary>
-<<<<<<< ours
-    /// <param name="ent">The antagonist rule entity</param>
-    /// <param name="pool">The players to choose from</param>
-    /// <param name="def">The antagonist selection parameters and criteria</param>
-    /// <param name="midround">Disable picking players for pre-spawn antags in the middle of a round</param>
-    public void ChooseAntags(Entity<AntagSelectionComponent> ent,
-        IList<ICommonSession> pool,
-        AntagSelectionDefinition def,
-        bool midround = false)
-    {
-        var playerPool = GetPlayerPool(ent, pool, def);
-
-        // ADT-Tweak-Start
-        var bonusRole = GetRollBonusRole(def);
-        if (!midround && bonusRole != null)
-            _rollBonus.MarkEligible(playerPool.AllCandidates, bonusRole.Value);
-        // ADT-Tweak-End
-
-        var existingAntagCount = ent.Comp.PreSelectedSessions.TryGetValue(def, out var existingAntags) ? existingAntags.Count : 0;
-        var count = GetTargetAntagCount(ent, GetTotalPlayerCount(pool), def) - existingAntagCount;
-
-        // if there is both a spawner and players getting picked, let it fall back to a spawner.
-        var noSpawner = def.SpawnerPrototype == null;
-        var picking = def.PickPlayer;
-        if (midround && ent.Comp.SelectionTime == AntagSelectionTime.PrePlayerSpawn)
-        {
-            // prevent antag selection from happening if the round is on-going, requiring a spawner if used midround.
-            // this is so rules like nukies, if added by an admin midround, dont make random living people nukies
-            Log.Info($"Antags for rule {ent:?} get picked pre-spawn so only spawners will be made.");
-            DebugTools.Assert(def.SpawnerPrototype != null, $"Rule {ent:?} had no spawner for pre-spawn rule added mid-round!");
-            picking = false;
-        }
-||||||| base
-    /// <param name="ent">The antagonist rule entity</param>
-    /// <param name="pool">The players to choose from</param>
-    /// <param name="def">The antagonist selection parameters and criteria</param>
-    /// <param name="midround">Disable picking players for pre-spawn antags in the middle of a round</param>
-    public void ChooseAntags(Entity<AntagSelectionComponent> ent,
-        IList<ICommonSession> pool,
-        AntagSelectionDefinition def,
-        bool midround = false)
-    {
-        var playerPool = GetPlayerPool(ent, pool, def);
-        var existingAntagCount = ent.Comp.PreSelectedSessions.TryGetValue(def, out var existingAntags) ? existingAntags.Count : 0;
-        var count = GetTargetAntagCount(ent, GetTotalPlayerCount(pool), def) - existingAntagCount;
-
-        // if there is both a spawner and players getting picked, let it fall back to a spawner.
-        var noSpawner = def.SpawnerPrototype == null;
-        var picking = def.PickPlayer;
-        if (midround && ent.Comp.SelectionTime == AntagSelectionTime.PrePlayerSpawn)
-        {
-            // prevent antag selection from happening if the round is on-going, requiring a spawner if used midround.
-            // this is so rules like nukies, if added by an admin midround, dont make random living people nukies
-            Log.Info($"Antags for rule {ent:?} get picked pre-spawn so only spawners will be made.");
-            DebugTools.Assert(def.SpawnerPrototype != null, $"Rule {ent:?} had no spawner for pre-spawn rule added mid-round!");
-            picking = false;
-        }
-=======
     private bool PreAssignAntag(ICommonSession player, ref List<AntagRule> antags)
     {
         // If this session cannot be an antag, then get the next session!
         if (!TryGetValidAntagPreferences(player, out var prefs))
             return false;
->>>>>>> theirs
 
         for (var i = antags.Count - 1; i >= 0; i--)
         {
@@ -525,26 +436,8 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             // We don't deselect fails since we may have to wait until the player has spawned first!
             if (TryGetAntagEntity(antag.GameRule, antag.Definition, player, out var antagEnt))
             {
-<<<<<<< ours
-                if (!ent.Comp.PreSelectedSessions.TryGetValue(def, out var set))
-                    ent.Comp.PreSelectedSessions.Add(def, set = new HashSet<ICommonSession>());
-                set.Add(session); // Selection done!
-                // ADT-Tweak-Start
-                if (!midround && bonusRole != null)
-                    _rollBonus.MarkPreSelected(session, bonusRole.Value);
-                // ADT-Tweak-End
-                Log.Debug($"Pre-selected {session.Name} as antagonist: {ToPrettyString(ent)}");
-                _adminLogger.Add(LogType.AntagSelection, $"Pre-selected {session.Name} as antagonist: {ToPrettyString(ent)}");
-||||||| base
-                if (!ent.Comp.PreSelectedSessions.TryGetValue(def, out var set))
-                    ent.Comp.PreSelectedSessions.Add(def, set = new HashSet<ICommonSession>());
-                set.Add(session); // Selection done!
-                Log.Debug($"Pre-selected {session.Name} as antagonist: {ToPrettyString(ent)}");
-                _adminLogger.Add(LogType.AntagSelection, $"Pre-selected {session.Name} as antagonist: {ToPrettyString(ent)}");
-=======
                 InitializeAntag(antag.GameRule, antag.Definition, antagEnt.Value, player);
                 return true;
->>>>>>> theirs
             }
 
             // If we didn't assign an antag, try again after the player has spawned.
@@ -690,50 +583,11 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         if (!gameRule.Comp.PreSelectedSessions.TryGetValue(protoId, out var set))
             gameRule.Comp.PreSelectedSessions.Add(protoId, set = new HashSet<ICommonSession>());
 
-<<<<<<< ours
-        if (session != null)
-        {
-            if (!ent.Comp.PreSelectedSessions.TryGetValue(def, out var set))
-                ent.Comp.PreSelectedSessions.Add(def, set = new HashSet<ICommonSession>());
-            set.Add(session);
-            ent.Comp.AssignedSessions.Add(session);
-
-            // Corvax-start
-            if (def.RoundstartEntity != null && ent.Comp.SelectionTime == AntagSelectionTime.PrePlayerSpawn)
-                antagEnt = Spawn(def.RoundstartEntity);
-                else
-            // Corvax-end
-            // we shouldn't be blocking the entity if they're just a ghost or smth.
-            if (!HasComp<GhostComponent>(session.AttachedEntity))
-                antagEnt = session.AttachedEntity;
-        }
-        else if (!ignoreSpawner && def.SpawnerPrototype != null) // don't add spawners if we have a player, dummy.
-        {
-            antagEnt = Spawn(def.SpawnerPrototype);
-            isSpawner = true;
-        }
-||||||| base
-        if (session != null)
-        {
-            if (!ent.Comp.PreSelectedSessions.TryGetValue(def, out var set))
-                ent.Comp.PreSelectedSessions.Add(def, set = new HashSet<ICommonSession>());
-            set.Add(session);
-            ent.Comp.AssignedSessions.Add(session);
-
-            // we shouldn't be blocking the entity if they're just a ghost or smth.
-            if (!HasComp<GhostComponent>(session.AttachedEntity))
-                antagEnt = session.AttachedEntity;
-        }
-        else if (!ignoreSpawner && def.SpawnerPrototype != null) // don't add spawners if we have a player, dummy.
-        {
-            antagEnt = Spawn(def.SpawnerPrototype);
-            isSpawner = true;
-        }
-=======
         // Element already exists, don't need to log it twice, this typically happens when a pre-selected antag is initialized!
         if (!set.Add(player))
             return;
->>>>>>> theirs
+
+        MarkRollBonusPreSelected(player, protoId); // ADT-Tweak
 
         Log.Debug($"Pre-selected {player.Name} as antagonist: {ToPrettyString(gameRule)}, {protoId}");
         _adminLogger.Add(LogType.AntagSelection, $"Pre-selected {player.Name} as antagonist: {ToPrettyString(gameRule)}, {protoId}");
@@ -853,21 +707,6 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         return uid;
     }
 
-<<<<<<< ours
-            // ADT-Tweak-Start
-            var bonusRole = GetRollBonusRole(def);
-            if (bonusRole != null)
-                _rollBonus.MarkBecameAntag(session, bonusRole.Value);
-            // ADT-Tweak-End
-
-            Log.Debug($"Assigned {ToPrettyString(curMind)} as antagonist: {ToPrettyString(ent)}");
-            _adminLogger.Add(LogType.AntagSelection, $"Assigned {ToPrettyString(curMind)} as antagonist: {ToPrettyString(ent)}");
-        }
-||||||| base
-            Log.Debug($"Assigned {ToPrettyString(curMind)} as antagonist: {ToPrettyString(ent)}");
-            _adminLogger.Add(LogType.AntagSelection, $"Assigned {ToPrettyString(curMind)} as antagonist: {ToPrettyString(ent)}");
-        }
-=======
     /// <summary>
     /// Attempts to create a new antagonist entity at the specified coordinates and attach a player session to it.
     /// If it cannot spawn an antagonist entity, it does nothing.
@@ -880,7 +719,6 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     {
         var ev = new AntagSelectEntityEvent(gameRule, prototype, coordinates, player);
         RaiseLocalEvent(gameRule, ref ev, true);
->>>>>>> theirs
 
         uid = ev.Entity;
         return ev.Handled;
@@ -912,37 +750,8 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             }
         }
 
-<<<<<<< ours
-        // ADT-Tweak-Start
-        RobustRandom.Shuffle(preferredList);
-        RobustRandom.Shuffle(fallbackList);
-
-        var bonusRole = GetRollBonusRole(def);
-        if (bonusRole == null)
-            return new AntagSelectionPlayerPool(new() { preferredList, fallbackList });
-
-        var role = bonusRole.Value;
-        return new AntagSelectionPlayerPool(new() { preferredList, fallbackList }, s => _rollBonus.GetWeight(s, role));
-        // ADT-Tweak-End
-    }
-
-    // ADT-Tweak-Start
-    private static ProtoId<AntagPrototype>? GetRollBonusRole(AntagSelectionDefinition def)
-    {
-        if (def.PrefRoles.Count > 0)
-            return def.PrefRoles[0];
-
-        if (def.FallbackRoles.Count > 0)
-            return def.FallbackRoles[0];
-
-        return null;
-||||||| base
-        return new AntagSelectionPlayerPool(new() { preferredList, fallbackList });
-=======
         gameRule.Comp.AssignmentHandled = true;
->>>>>>> theirs
     }
-    // ADT-Tweak-End
 
     /// <summary>
     /// Raises an event to the gamerule to check all valid possible spawning points for this rule.
@@ -996,6 +805,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         _mind.TransferTo(mind, antag, ghostCheckOverride: true);
         _role.MindAddRoles(mind, prototype.MindRoles, silent: true);
         AssignMind(gameRule, prototype, mind, antag);
+        MarkRollBonusBecameAntag(player, prototype); // ADT-Tweak
 
         Log.Debug($"Assigned {ToPrettyString(antag):target}, mind {ToPrettyString(mind):target} as antagonist: {ToPrettyString(gameRule):user}");
         _adminLogger.Add(LogType.AntagSelection, $"Assigned {ToPrettyString(antag):target}, mind {ToPrettyString(mind):target} as antagonist: {ToPrettyString(gameRule):user}");

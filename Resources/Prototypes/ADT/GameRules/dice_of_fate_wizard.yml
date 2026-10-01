@@ -5,12 +5,7 @@
   components:
   - type: GameRule
   - type: AntagSelection
-    definitions:
-    - max: 1
-      playerRatio: 1
-      startingGear: WizardBlueGear
-      roleLoadout:
-      - RoleSurvivalExtended
-      mindRoles:
-      - MindRoleDiceOfFateWizard
+    antags:
+    - !type:FixedAntagCount
+      proto: ADTDiceOfFateWizard
 
