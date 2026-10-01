@@ -65,6 +65,21 @@
   - ADTThermoTech
 
 - type: technology
+  id: ADTMedbeam
+  name: research-technology-medbeam
+  icon:
+    sprite: ADT/Objects/Weapons/Guns/Battery/healgun.rsi
+    state: icon
+  discipline: Biochemical
+  tier: 3
+  cost: 12000
+  recipeUnlocks:
+  - ADTWeaponMedbeamCivil
+  position: 0,-1
+  requiredTech:
+  - ADTCloning
+
+- type: technology
   id: ADTIndustrialMedicine
   name: research-technology-industrial-medicine
   icon:

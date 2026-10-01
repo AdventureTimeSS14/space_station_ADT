@@ -82,6 +82,7 @@ public sealed partial class ClothingColorPicker : Control
 
     public void SetColor(Color color)
     {
+        color = color.WithAlpha(1f);
         _currentColor = color;
         UpdateSliders(color);
         UpdateHex(color);

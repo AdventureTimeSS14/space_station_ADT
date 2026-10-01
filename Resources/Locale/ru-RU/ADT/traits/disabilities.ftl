@@ -43,6 +43,9 @@ trait-paralyzed-desc = Ваши ноги парализованы. Вы не м�
 trait-clumsy-name = Неуклюжий
 trait-clumsy-desc = Вы немного склонны к несчастным случаям.
 
+trait-wanted-criminal-name = В розыске
+trait-wanted-criminal-description = Центральное командование выписало на вас ордер за нарушение корпоративного закона. В прошлую смену вас осудили, но арестовать до конца смены не успели.
+
 trait-debts-name = Долги по кредитам
 trait-debts-description = Ваш банковский счёт начинает смену без денег.
 

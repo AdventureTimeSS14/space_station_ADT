@@ -38,6 +38,7 @@ public sealed class CrewMonitoringBoundUserInterface : BoundUserInterface
         _menu.OnScanComplete = () => SendMessage(new CrewMonitoringScanCompleteMessage());
         _menu.OnRescan = () => SendMessage(new CrewMonitoringRescanMessage());
         _menu.OnResetSensors = () => SendMessage(new CrewMonitoringResetSensorsMessage());
+        _menu.OnAiEyeTeleport = target => SendMessage(new CrewMonitoringAiEyeTeleportMessage(target));
         //ADT-Tweak End
     }
 

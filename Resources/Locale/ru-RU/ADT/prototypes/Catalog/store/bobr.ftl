@@ -204,6 +204,9 @@ boobr-weapon-attachments-suppressor-desc = Устанавливаемый на �
 boobr-weapon-attachments-magneticharness-name = Магнитный ремень
 boobr-weapon-attachments-magneticharness-description = Комплект из ремня и магнитных креплений, которые крепятся к верхней планке. В случае потери бойцом равновесия - оружие не падает на землю и остается с владельцем.
 
+boobr-firing-pin-loyalty-name = боевой пин защиты разума
+boobr-firing-pin-loyalty-desc = Защитный пин, который разрешает стрелять только тем, у кого в теле стоит имплант защиты разума.
+
 
 boobr-riot-shield-name = Противоударный щит
 boobr-riot-shield-desc = Большой ростовой щит на случай беспорядков. Хорошо подходит для контроля толпы.
@@ -348,3 +351,6 @@ boobr-trash-bag-desc = Просто мешок для сбора мусора
 
 boobr-clean-bot-name = Чистобот
 boobr-clean-bot-desc = Ужас автоматизации теперь угрожает и космическим уборщикам.
+
+boobr-medbeam-name = Мед-ган ОБР
+boobr-medbeam-desc = Лечащий луч, цепляющийся за цель. Модель из арсенала ОБР, лечит быстрее гражданской версии. Не скрещивайте лучи.

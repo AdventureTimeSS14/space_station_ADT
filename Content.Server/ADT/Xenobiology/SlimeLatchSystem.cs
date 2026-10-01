@@ -32,7 +32,11 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
 using Content.Server.Speech.Components;
+using Content.Shared.Zombies;
+using Content.Shared.Shuttles.Components;
+using Robust.Shared.Player;
 using System.Linq;
+using System.Numerics;
 
 namespace Content.Server.ADT.Xenobiology.Systems;
 
@@ -229,6 +233,9 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         if (args.Handled || args.Cancelled)
             return;
 
+        if (!CanLatch(ent, target))
+            return;
+
         Latch(ent, target);
         args.Handled = true;
     }
@@ -274,7 +281,11 @@ public sealed partial class SlimeLatchSystem : EntitySystem
             && _solutionContainer.ResolveSolution(ent.Owner, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var blood)
             && _solutionContainer.ResolveSolution(ent.Owner, bloodstream.MetabolitesSolutionName, ref bloodstream.MetabolitesSolution, out var chem))
         {
-            float bloodProportion = (float)(blood.Volume / (chem.Volume + blood.Volume));
+            var totalVolume = chem.Volume + blood.Volume;
+            if (totalVolume == FixedPoint2.Zero)
+                return;
+
+            float bloodProportion = (float)(blood.Volume / totalVolume);
             float chemProportion = 1 - bloodProportion;
             float bloodTransfer = Math.Min(ent.Comp.SuctionUnits * bloodProportion, availableVolume * bloodProportion);
             float chemTransfer = Math.Min(ent.Comp.SuctionUnits * chemProportion, availableVolume * chemProportion);
@@ -316,11 +327,13 @@ public sealed partial class SlimeLatchSystem : EntitySystem
     public bool CanLatch(Entity<SlimeComponent> ent, EntityUid target)
     {
         return !(IsLatched(ent)
+            || HasComp<ZombieComponent>(ent)
             || _mobState.IsDead(target)
             || !_actionBlocker.CanInteract(ent, target)
             || !HasComp<MobStateComponent>(target)
             || HasComp<BeingLatchedComponent>(target)
             || IsRobotic(target)
+            || HasComp<NoFTLComponent>(target)
             || Deleted(target));
     }
 
@@ -347,6 +360,12 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         if (Deleted(target))
             return;
 
+        var biteDirection = _xform.GetWorldPosition(target) - _xform.GetWorldPosition(ent.Owner);
+        if (biteDirection.LengthSquared() < 0.001f)
+            biteDirection = Vector2.UnitY;
+        else
+            biteDirection = biteDirection.Normalized();
+
         _xform.SetCoordinates(ent, Transform(target).Coordinates);
         _xform.SetParent(ent, target);
         if (TryComp<InputMoverComponent>(ent, out var inpm))
@@ -365,6 +384,13 @@ public sealed partial class SlimeLatchSystem : EntitySystem
 
         _audio.PlayEntity(ent.Comp.EatSound, ent, ent);
         _popup.PopupEntity(Loc.GetString("slime-action-latch-success", ("slime", ent), ("target", target)), ent, PopupType.SmallCaution);
+
+        var vector = biteDirection;
+        RaiseNetworkEvent(new SlimeBiteAnimationMessage()
+        {
+            Entity = GetNetEntity(ent.Owner, MetaData(ent.Owner)),
+            Angle = Angle.FromWorldVec(vector),
+        }, Filter.Pvs(ent.Owner, 0.5F));
     }
 
     public void Unlatch(Entity<SlimeComponent> ent)

@@ -42,11 +42,42 @@
   # - ClothingNeckWhiteListPin
   # # Corvax-Loadouts-End
   # ADT-tweak-start
+  # instrument-start
   - AcousticGuitarInstrument
   - RockGuitarInstrument
   - BassGuitarInstrument
   - HarmonicaInstrument
   - SynthesizerInstrument
+  # instrument-end
+  # plushie-start
+  - ADTPlushieArachind
+  - ADTPlushieUrs
+  - ADTPlushieDiona
+  - ADTPlushieHuman
+  - ADTPlushieVox
+  - ADTPlushieVulp
+  - ADTPlushieMoth
+  - ADTPlushieSlime
+  - ADTPlushieLizard
+  - ADTPlushieAtmosian
+  - ADTPlushieXeno
+  - ADTPlushieNuke
+  - ADTPlushieExperiment
+  - ADTPlushieBee
+  - ADTPlushieOctocat
+  - ADTPlushieOwl
+  - ADTPlushieSnake
+  - ADTPlushieCarp
+  - ADTPlushiePenguin
+  - ADTPlushieHampter
+  - ADTPlushieRouny
+  - ADTPlushieSharkBlue
+  - ADTPlushieSharkPink
+  - ADTPlushieSharkGrey
+  - ADTBlackSharkPlushie
+  - ADTPlushieNar
+  - ADTPlushieRatvar
+  # plushie-end
   - ADTModStorageVoucher
   - ADTClothingGeorgeRibbonPin
   - ADTClothingMaskPaperBlank

@@ -762,9 +762,10 @@
 - type: loadoutGroup
   id: ADTChefPocket1
   name: loadout-chef-pocket1-adt
-  minLimit: 0
+  minLimit: 1
   maxLimit: 1
-  loadouts: []
+  loadouts:
+  - ADTChefManual
 
 - type: loadoutGroup
   id: ADTChefGloves

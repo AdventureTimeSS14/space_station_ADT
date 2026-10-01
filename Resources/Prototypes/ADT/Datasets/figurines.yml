@@ -51,3 +51,15 @@
   values:
     prefix: adt-figurines-plushie-emilia-evenwood-
     count: 2
+
+- type: localizedDataset
+  id: ADTFigurinesPlushieProxima
+  values:
+    prefix: adt-figurines-plushie-proxima-
+    count: 3
+
+- type: localizedDataset
+  id: ADTFigurinesPlushieYuriyTrixter
+  values:
+    prefix: adt-figurines-plushie-yuriy-trixter-
+    count: 5

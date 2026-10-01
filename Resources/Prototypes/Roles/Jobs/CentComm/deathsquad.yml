@@ -21,6 +21,11 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+  # ADT-Tweak-Start
+  - !type:AddComponentSpecial
+    components:
+      - type: ADTTenCodeKnowledge
+  # ADT-Tweak-End
 
 - type: startingGear
   id: DeathSquadGear

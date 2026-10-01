@@ -1,4 +1,5 @@
 using Content.Shared.ADT.Sponsors;
+using Robust.Client;
 using Robust.Client.Player;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -9,8 +10,11 @@ public sealed partial class SponsorManager : SharedSponsorManager
 {
     [Dependency] private readonly IClientNetManager _netMgr = default!;
     [Dependency] private readonly IPlayerManager _players = default!;
+    [Dependency] private readonly IBaseClient _client = default!;
 
     private SponsorData _data = SponsorData.Empty;
+    private bool _systemsReady;
+    private bool _updatePending;
 
     public SponsorPersonalColors Colors { get; private set; } = new();
 
@@ -27,6 +31,8 @@ public sealed partial class SponsorManager : SharedSponsorManager
         InitializeLegacy();
 
         _netMgr.Disconnect += OnDisconnect;
+        _client.PlayerJoinedServer += OnPlayerJoinedServer;
+        _client.PlayerLeaveServer += OnPlayerLeaveServer;
     }
 
     public override void Shutdown()
@@ -36,6 +42,8 @@ public sealed partial class SponsorManager : SharedSponsorManager
         ShutdownLegacy();
 
         _netMgr.Disconnect -= OnDisconnect;
+        _client.PlayerJoinedServer -= OnPlayerJoinedServer;
+        _client.PlayerLeaveServer -= OnPlayerLeaveServer;
     }
 
     public SponsorData Data => _data;
@@ -88,8 +96,25 @@ public sealed partial class SponsorManager : SharedSponsorManager
         ColorsConfirmed?.Invoke();
     }
 
+    private void OnPlayerJoinedServer(object? sender, PlayerEventArgs e)
+    {
+        _systemsReady = true;
+
+        if (!_updatePending)
+            return;
+
+        _updatePending = false;
+        Updated?.Invoke();
+    }
+
+    private void OnPlayerLeaveServer(object? sender, PlayerEventArgs e)
+    {
+        _systemsReady = false;
+    }
+
     private void OnDisconnect(object? sender, NetDisconnectedArgs e)
     {
+        _systemsReady = false;
         Colors = new SponsorPersonalColors();
         SetData(SponsorData.Empty);
     }
@@ -102,6 +127,12 @@ public sealed partial class SponsorManager : SharedSponsorManager
 
     private void RaiseUpdated()
     {
+        if (!_systemsReady)
+        {
+            _updatePending = true;
+            return;
+        }
+
         Updated?.Invoke();
     }
 }

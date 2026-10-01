@@ -283,12 +283,12 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         // ADT-Tweak-Start
         if (ActionOrder is { } order && GetActionKey(actionId) is { } key)
         {
-            if (order.Removed.Contains(key))
+            if (order.IsRemoved(key))
                 return;
 
-            if (order.Order.TryGetValue(key, out var place))
+            if (order.HasPlace(key))
             {
-                _actions.Insert(GetInsertIndex(order, place), actionId);
+                _actions.Insert(order.GetInsertIndex(GetActionKeys(), key), actionId);
                 StoreOrder();
                 return;
             }
@@ -872,67 +872,13 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (ActionOrder is not { } order)
             return;
 
-        var known = new List<(int Place, EntityUid Action)>();
-        var fresh = new List<EntityUid>();
-
-        foreach (var action in _actions)
-        {
-            if (action is not { } actionId)
-                continue;
-
-            if (GetActionKey(actionId) is { } key)
-            {
-                if (order.Removed.Contains(key))
-                    continue;
-
-                if (order.Order.TryGetValue(key, out var place))
-                {
-                    known.Add((place, actionId));
-                    continue;
-                }
-            }
-
-            fresh.Add(actionId);
-        }
+        var arranged = order.Arrange(_actions.OfType<EntityUid>(), GetActionKey);
 
         _actions.Clear();
-
-        foreach (var (_, actionId) in known.OrderBy(entry => entry.Place))
+        foreach (var actionId in arranged)
         {
             _actions.Add(actionId);
         }
-
-        foreach (var actionId in fresh)
-        {
-            _actions.Add(actionId);
-        }
-    }
-
-    private int GetInsertIndex(ADTActionOrderSystem order, int place)
-    {
-        for (var i = 0; i < _actions.Count; i++)
-        {
-            if (_actions[i] is not { } actionId)
-                continue;
-
-            if (GetActionKey(actionId) is not { } key || !order.Order.TryGetValue(key, out var existing))
-                return i;
-
-            if (existing > place)
-                return i;
-        }
-
-        return _actions.Count;
-    }
-
-    public void ReloadActionOrder()
-    {
-        if (_actionsSystem == null || IsMapping)
-            return;
-
-        LoadDefaultActions();
-        _container?.SetActionData(_actionsSystem, _actions.ToArray());
-        QueueWindowUpdate();
     }
 
     private void StoreOrder()
@@ -943,7 +889,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (!_actionsSystem.GetClientActions().Any())
             return;
 
-        order.Store(_actions);
+        order.Store(GetActionKeys());
     }
 
     private void MarkRemovedFromHotbar(EntityUid? actionId)
@@ -959,14 +905,19 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     {
         return ActionOrder is { } order &&
                GetActionKey(actionId) is { } key &&
-               order.Removed.Contains(key);
+               order.IsRemoved(key);
     }
 
     private bool HasSavedPlace(EntityUid actionId)
     {
         return ActionOrder is { } order &&
                GetActionKey(actionId) is { } key &&
-               order.Order.ContainsKey(key);
+               order.HasPlace(key);
+    }
+
+    private List<EntProtoId?> GetActionKeys()
+    {
+        return _actions.Select(action => action is { } actionId ? GetActionKey(actionId) : null).ToList();
     }
 
     private EntProtoId? GetActionKey(EntityUid actionId)

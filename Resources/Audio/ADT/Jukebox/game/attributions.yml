@@ -1,0 +1,39 @@
+- files: ["vitality.ogg"]
+  license: "Custom"
+  copyright: "Helltaker - Vitality, from Helltaker OST."
+  source: "https://www.youtube.com/watch?v=EnDXGQmCz3U&list=RDEnDXGQmCz3U&start_radio=1"
+
+- files: ["titanium.ogg"]
+  license: "Custom"
+  copyright: "Helltaker - Titanium, from Helltaker OST."
+  source: "https://www.youtube.com/watch?v=K_7K7v2KGYU&list=RDK_7K7v2KGYU&start_radio=1"
+
+- files: ["death_by_glamour.ogg"]
+  license: "Custom"
+  copyright: "Toby Fox - Death by Glamour, from Undertale OST. Used for non-commercial fan project purposes."
+  source: "https://www.youtube.com/watch?v=hp7Yzc2rr3c"
+
+- files: ["finale.ogg"]
+  license: "Custom"
+  copyright: "Toby Fox - Finale, from Undertale OST. Used for non-commercial fan project purposes."
+  source: "https://www.youtube.com/watch?v=5qajT8lS2ok&list=RD5qajT8lS2ok&start_radio=1"
+
+- files: ["hammer_of_justice.ogg"]
+  license: "Custom"
+  copyright: "Toby Fox - Hammer of Justice, from Undertale OST. Used for non-commercial fan project purposes."
+  source: "https://www.youtube.com/watch?v=tBdLO8u-0L8&list=RDtBdLO8u-0L8&start_radio=1"
+
+- files: ["megalovania.ogg"]
+  license: "Custom"
+  copyright: "Toby Fox - MEGALOVANIA, from Undertale OST. Used for non-commercial fan project purposes."
+  source: "https://www.youtube.com/watch?v=U4hzE0j2K80"
+
+- files: ["fallen_down.ogg"]
+  license: "Custom"
+  copyright: "Toby Fox - Fallen Down, from Undertale OST. Used for non-commercial fan project purposes."
+  source: "https://www.youtube.com/watch?v=qH5hM1ILuFQ&list=RDqH5hM1ILuFQ&start_radio=1"
+
+- files: ["gloria_filio.ogg"]
+  license: "Custom"
+  copyright: "Mudeth - Gloria Filio."
+  source: "https://www.youtube.com/watch?v=5zbRjR9phY0&list=RD5zbRjR9phY0&start_radio=1"

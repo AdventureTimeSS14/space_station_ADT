@@ -89,6 +89,10 @@
   id: MobSlimePerson
   name: Urist McWobble
   components:
+  # ADT-Tweak start
+  - type: SoftCrit
+    speedModifier: 0.45
+  # ADT-Tweak end
   - type: Storage
     clickInsert: false
     grid:
@@ -169,6 +173,7 @@
     groups:
       Flammable: [ Touch ]
       Extinguish: [ Touch ]
+      Acidic: [ Touch, Ingestion ] # ADT-Tweak
     reactions:
     - reagents: [ Water, SpaceCleaner ]
       methods: [ Touch ]

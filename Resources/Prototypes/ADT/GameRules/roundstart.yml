@@ -136,6 +136,7 @@
   - type: AntagRandomObjectives
     sets:
     - groups: TraitorLightObjectiveGroups
+      maxPicks: 2
     maxDifficulty: 8
 
 - type: entityTable

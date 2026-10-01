@@ -1,0 +1,8 @@
+- type: breed
+  breedName: breed-RainbowMutation
+  id: RainbowMutation
+  producedExtract: RainbowSlimeExtract
+  slimeColor: "#FFFFFF"
+  maxOffspring: 4
+  mutationChance: 0.45
+  potentialMutations: []

@@ -15,6 +15,10 @@
     ADTVendingCategoryHead: # ADT-Tweak
         ClothingHeadHatCorpsoft: 2
         ClothingHeadBandSkull: 2
+    # ADT tweak start wiki books
+    ADTVendingCategoryBooks:
+        ADTBookSRPrnd: 2
+    # ADT tweak end wiki books
   # ADT-tweak-start
   contrabandInventory:
     ADTClothingOuterEggman: 1

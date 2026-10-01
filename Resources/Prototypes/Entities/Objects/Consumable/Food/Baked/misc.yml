@@ -14,7 +14,7 @@
         maxVol: 6
         reagents:
         - ReagentId: Nutriment
-          Quantity: 5
+          Quantity: 2.5 # ADT-Tweak 5 > 2.5
   - type: Item
     size: Tiny
 

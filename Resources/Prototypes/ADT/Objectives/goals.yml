@@ -2,110 +2,136 @@
 
 - type: stationGoal
   id: ADTStationGoalTransitBase
+  name: adt-station-goal-transit-base-name
   text: adt-station-goal-transit-base
 
 - type: stationGoal
   id: ADTStationGoalTransitResourses
+  name: adt-station-goal-transit-resourses-name
   text: adt-station-goal-transit-resourses
 
 - type: stationGoal
   id: ADTStationGoalTransitUpgrade
+  name: adt-station-goal-transit-upgrade-name
   text: adt-station-goal-transit-upgrade
 
 - type: stationGoal
   id: ADTStationGoalTransitServiceDecor
+  name: adt-station-goal-transit-servicedecor-name
   text: adt-station-goal-transit-servicedecor
 
 - type: stationGoal
   id: ADTStationGoalTransitServiceTransport
+  name: adt-station-goal-transit-servicetransport-name
   text: adt-station-goal-transit-servicetransport
 
 - type: stationGoal
   id: ADTStationGoalTransitArtifact
+  name: adt-station-goal-transit-artifact-name
   text: adt-station-goal-transit-artifact
 
 - type: stationGoal
   id: ADTStationGoalTransitMedicine
+  name: adt-station-goal-transit-medicine-name
   text: adt-station-goal-transit-medicine
 
 - type: stationGoal
   id: ADTStationGoalTransitContraband
+  name: adt-station-goal-transit-contraband-name
   text: adt-station-goal-transit-contraband
 
 # Множественные цели (сделано несколько одинаковых целей для обеспечения шанса 33/33/33 по схеме Одна цель/Транзит/Список целей на выбор)
 - type: stationGoal
   id: ADTStationGoalMultiple1
+  name: adt-station-goal-multiple-name
   text: adt-station-goal-multiple
 
 - type: stationGoal
   id: ADTStationGoalMultiple2
+  name: adt-station-goal-multiple-name
   text: adt-station-goal-multiple
 
 - type: stationGoal
   id: ADTStationGoalMultiple3
+  name: adt-station-goal-multiple-name
   text: adt-station-goal-multiple
 
 - type: stationGoal
   id: ADTStationGoalMultiple4
+  name: adt-station-goal-multiple-name
   text: adt-station-goal-multiple
 
 - type: stationGoal
   id: ADTStationGoalMultiple5
+  name: adt-station-goal-multiple-name
   text: adt-station-goal-multiple
 
 - type: stationGoal
   id: ADTStationGoalMultiple6
+  name: adt-station-goal-multiple-name
   text: adt-station-goal-multiple
 
 - type: stationGoal
   id: ADTStationGoalMultiple7
+  name: adt-station-goal-multiple-name
   text: adt-station-goal-multiple
 
 - type: stationGoal
   id: ADTStationGoalMultiple8
+  name: adt-station-goal-multiple-name
   text: adt-station-goal-multiple
 
 - type: stationGoal
   id: ADTStationGoalMultiple9
+  name: adt-station-goal-multiple-name
   text: adt-station-goal-multiple
 
 - type: stationGoal
   id: ADTStationGoalMultiple10
+  name: adt-station-goal-multiple-name
   text: adt-station-goal-multiple
 
 # Одна крупная цель смены
 - type: stationGoal
   id: ADTStationGoalTransportShuttle
+  name: adt-station-goal-shuttle-name
   text: adt-station-goal-shuttle
 
 - type: stationGoal
   id: ADTStationGoalDock
+  name: adt-station-goal-dock-name
   text: adt-station-goal-dock
 
 - type: stationGoal
   id: ADTStationGoalDormitory
+  name: adt-station-goal-dormitory-name
   text: adt-station-goal-dormitory
 
 - type: stationGoal
   id: ADTStationGoalTournament
+  name: adt-station-goal-tournament-name
   text: adt-station-goal-tournament
   spawns:
   - ClothingBeltChampion
 
 - type: stationGoal
   id: ADTStationGoalRestavration
+  name: adt-station-goal-restavration-name
   text: adt-station-goal-restavration
 
 - type: stationGoal
   id: ADTStationGoalBridge
+  name: adt-station-goal-bridge-name
   text: adt-station-goal-bridge
 
 - type: stationGoal
   id: ADTStationGoalMail
+  name: adt-station-goal-mail-name
   text: adt-station-goal-mail
 
 - type: stationGoal
   id: ADTStationGoalAmbusol
+  name: adt-station-goal-ambusol-name
   text: adt-station-goal-ambusol
   spawns:
   - PillRomerol
@@ -114,38 +140,47 @@
 
 - type: stationGoal
   id: ADTStationGoalStorage
+  name: adt-station-goal-storage-name
   text: adt-station-goal-storage
 
 - type: stationGoal
   id: ADTStationGoalMedbay
+  name: adt-station-goal-medbay-name
   text: adt-station-goal-medbay
 
 - type: stationGoal
   id: ADTStationGoalMech
+  name: adt-station-goal-mech-name
   text: adt-station-goal-mech
 
 - type: stationGoal
   id: ADTStationGoalAnomaly
+  name: adt-station-goal-anomaly-name
   text: adt-station-goal-anomaly
 
 - type: stationGoal
   id: ADTStationGoalKillbox
+  name: adt-station-goal-killbox-name
   text: adt-station-goal-killbox
 
 - type: stationGoal
   id: ADTStationGoalGreenhouses
+  name: adt-station-goal-greenhouses-name
   text: adt-station-goal-greenhouses
 
 - type: stationGoal
   id: ADTStationGoalOutpost
+  name: adt-station-goal-miningoutpost-name
   text: adt-station-goal-miningoutpost
 
 - type: stationGoal
   id: ADTStationGoalSolars
+  name: adt-station-goal-solars-name
   text: adt-station-goal-solars
 
 - type: stationGoal
   id: BluespaceArtillery
+  name: station-goal-bluespace-artillery-name
   text: station-goal-bluespace-artillery
   spawns:
   - BSABlueprint

@@ -1,0 +1,47 @@
+- type: jukebox
+  id: ADTVitality
+  name: 1. Vitality - Helltaker
+  path:
+    path: /Audio/ADT/Jukebox/game/Vitality.ogg
+
+- type: jukebox
+  id: ADTTitanium
+  name: 2. Titanium - Helltaker
+  path:
+    path: /Audio/ADT/Jukebox/game/Titanium.ogg
+
+- type: jukebox
+  id: ADTDeathByGlamour
+  name: 3. Death By Glamour - Toby Fox
+  path:
+    path: /Audio/ADT/Jukebox/game/Death-By-Glamour.ogg
+
+- type: jukebox
+  id: ADTFinale
+  name: 4. Finale - Toby Fox
+  path:
+    path: /Audio/ADT/Jukebox/game/Finale.ogg
+
+- type: jukebox
+  id: ADTHammerOfJustice
+  name: 5. Hammer of Justice - Toby Fox
+  path:
+    path: /Audio/ADT/Jukebox/game/Hammer-Of-Justice.ogg
+
+- type: jukebox
+  id: ADTMEGALOVANIA
+  name: 6. MEGALOVANIA - Toby Fox
+  path:
+    path: /Audio/ADT/Jukebox/game/MEGALOVANIA.ogg
+
+- type: jukebox
+  id: ADTFallenDown
+  name: 7. Fallen Down - Toby Fox
+  path:
+    path: /Audio/ADT/Jukebox/game/Fallen-Down.ogg
+
+- type: jukebox
+  id: ADTGloriaFilio
+  name: 8. Gloria Filio - Mudeth
+  path:
+    path: /Audio/ADT/Jukebox/game/Gloria-Filio.ogg

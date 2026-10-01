@@ -17,5 +17,9 @@
         ClothingHeadsetService: 2
     ADTVendingCategoryHead:  # ADT-Tweak
         ClothingHeadBandBotany: 3
+    # ADT tweak start wiki books
+    ADTVendingCategoryBooks:
+        ADTBookSRPsrv: 2
+    # ADT tweak end wiki books
   contrabandInventory:
     ToyFigurineBotanist: 1

@@ -1,6 +1,26 @@
 #UplinkWeaponry
 
 - type: listing
+  id: ADTUplinkRapier
+  name: uplink-adt-rapier-name
+  description: uplink-adt-rapier-desc
+  icon: { sprite: /Textures/ADT/Objects/Weapons/Melee/rapier.rsi, state: icon }
+  productEntity: ADTRapier
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 5
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+      - LoneOpsUplink
+
+- type: listing
   id: ADTUplinkAdvancedHristov
   name: uplink-hristov-bundle-name
   description: uplink-hristov-bundle-desc
@@ -36,6 +56,25 @@
   description: uplink-xc67-description
   icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Rifles/xc67.rsi, state: icon}
   productEntity: ADTClothingBackpackDuffelSyndicateFilledXC67
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 12
+  cost:
+    Telecrystal: 18
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkFlamethrowerBundle
+  name: uplink-flamethrower-name
+  description: uplink-flamethrower-description
+  icon: { sprite: _RMC14/Objects/Weapons/Guns/Flamethrower/lpo80.rsi, state: icon}
+  productEntity: ADTClothingBackpackDuffelSyndicateFilledFlamethrower
   discountCategory: usualDiscounts
   discountDownTo:
     Telecrystal: 12
@@ -767,6 +806,17 @@
   categories:
     - UplinkImplants
 
+- type: listing
+  id: ADTUplinkMedbeam
+  name: uplink-medbeam-name
+  description: uplink-medbeam-desc
+  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Battery/healgun.rsi, state: icon }
+  productEntity: ADTWeaponMedbeamSyndicate
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkChemicals
+
 #UplinkAllies
 
 #UplinkPointless
@@ -1453,3 +1503,15 @@
     Telecrystal: 1
   categories:
   - UplinkImplants
+
+- type: listing
+  id: ADTUplinkFiringPinSyndicate
+  name: uplink-firing-pin-syndicate-name
+  description: uplink-firing-pin-syndicate-desc
+  icon: { sprite: /Textures/ADT/Objects/Devices/pin.rsi, state: firing_pin_red }
+  productEntity: ADTFiringPinSyndicate
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  categories:
+  - UplinkWeaponry

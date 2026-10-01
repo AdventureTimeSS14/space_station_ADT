@@ -36,6 +36,7 @@
     - Vox
     - KoboltSpecies
     - DemonSpecies
+    - CelecernSpecies
     - NovakidSpecies
     - TajaranSpecies
     - UrsusSpecies
@@ -60,6 +61,7 @@
         settings: short
     - type: Loadout
       prototypes: [ ADTERTLeaderGear ]
+    - type: ADTTenCodeKnowledge
     - type: RandomMetadata
       nameSegments:
       - ADTCmndNamesFirstMilitary
@@ -133,6 +135,7 @@
     - Vox
     - KoboltSpecies
     - DemonSpecies
+    - CelecernSpecies
     - NovakidSpecies
     - TajaranSpecies
     - UrsusSpecies
@@ -242,6 +245,7 @@
     - Vox
     - KoboltSpecies
     - DemonSpecies
+    - CelecernSpecies
     - NovakidSpecies
     - TajaranSpecies
     - UrsusSpecies
@@ -350,6 +354,7 @@
     - Vox
     - KoboltSpecies
     - DemonSpecies
+    - CelecernSpecies
     - NovakidSpecies
     - TajaranSpecies
     - UrsusSpecies
@@ -456,6 +461,7 @@
     - Vox
     - KoboltSpecies
     - DemonSpecies
+    - CelecernSpecies
     - NovakidSpecies
     - TajaranSpecies
     - UrsusSpecies
@@ -559,6 +565,7 @@
     - Vox
     - KoboltSpecies
     - DemonSpecies
+    - CelecernSpecies
     - NovakidSpecies
     - TajaranSpecies
     - UrsusSpecies
@@ -576,6 +583,7 @@
   id: ADTCmndCBURNAgent
   components:
     - type: MindShield
+    - type: ADTTenCodeKnowledge
     - type: Loadout
       prototypes: [ADTCmndCBURNGear]
     - type: GhostRole

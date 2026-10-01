@@ -60,9 +60,6 @@ construction-graph-tag-bluespace-anomaly-core = ядро блюспейс ано
 construction-graph-tag-paper = бумага
 
 # Одежда
-construction-graph-tag-miner-armor = костюм исследователя
-construction-graph-tag-reinforced-explorer-suit =  частично усиленный костюм исследователя
-construction-graph-tag-reinforced-explorer-suit-two = усиленный костюм исследователя
 construction-graph-gas-mask = противогаз
 
 # Тайлы
@@ -108,6 +105,8 @@ construction-graph-tag-stabilizing-serum = стабилизирующая сыв
 construction-graph-tag-toolbox = ящик для инструментов
 construction-graph-tag-wrench = гаечный ключ
 construction-graph-tag-baseball-bat = бейсбольная бита
+construction-graph-tag-spray-nozzle = форсунка-распылитель
+construction-graph-tag-welder = сварочный аппарат
 
 construction-graph-tag-archimedes-central-control-module = центральный модуль управления Архимеда
 construction-graph-tag-archimedes-peripherals-control-module = модуль управления периферией Архимеда

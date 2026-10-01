@@ -15,7 +15,7 @@
         maxVol: 20
         reagents:
         - ReagentId: Nutriment
-          Quantity: 15
+          Quantity: 7.5 # ADT-Tweak 15 > 7.5
 
 - type: entity
   parent: ADTFoodFrozenBase
@@ -28,7 +28,7 @@
         maxVol: 20
         reagents:
         - ReagentId: Nutriment
-          Quantity: 10
+          Quantity: 5 # ADT-Tweak 10 > 5
         - ReagentId: Theobromine
           Quantity: 3
         - ReagentId: CocoaPowder
@@ -71,7 +71,7 @@
         maxVol: 30
         reagents:
         - ReagentId: Nutriment
-          Quantity: 25
+          Quantity: 12.5 # ADT-Tweak 25 > 12.5
 
 - type: entity
   parent: ADTFoodFrozenBase
@@ -101,7 +101,7 @@
         maxVol: 13
         reagents:
         - ReagentId: Nutriment
-          Quantity: 15
+          Quantity: 7.5 # ADT-Tweak 15 > 7.5
         - ReagentId: Theobromine
           Quantity: 3
         - ReagentId: CocoaPowder
@@ -120,7 +120,7 @@
         maxVol: 13
         reagents:
         - ReagentId: Nutriment
-          Quantity: 15
+          Quantity: 7.5 # ADT-Tweak 15 > 7.5
         - ReagentId: Theobromine
           Quantity: 3
         - ReagentId: CocoaPowder
@@ -179,7 +179,7 @@
         maxVol: 30
         reagents:
         - ReagentId: Nutriment
-          Quantity: 25
+          Quantity: 12.5 # ADT-Tweak 25 > 12.5
 
 - type: entity
   parent: ADTFoodFrozenBase

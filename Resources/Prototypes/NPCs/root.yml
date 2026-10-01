@@ -69,6 +69,13 @@
 - type: htnCompound
   id: SimpleRangedHostileCompound
   branches:
+    # ADT-Tweak-Start
+    - preconditions:
+        - !type:ADTGrabbedPrecondition
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTGrabEscapeOperator
+    # ADT-Tweak-End
     - tasks:
         - !type:HTNCompoundTask
           task: InnateRangedCombatCompound

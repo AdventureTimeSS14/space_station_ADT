@@ -158,3 +158,16 @@
 #  - Diona
 #  - SlimePerson
 #  - IPC
+
+- type: trait
+  id: WantedCriminal
+  name: trait-wanted-criminal-name
+  description: trait-wanted-criminal-description
+  category: Disabilities
+  cost: -2
+  effects:
+    - !type:ArrestWarrantEffect
+  departmentBlacklist:
+    - Command
+    - Security
+    - CentcomSpecialists

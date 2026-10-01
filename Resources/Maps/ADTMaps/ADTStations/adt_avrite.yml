@@ -2,10 +2,10 @@ meta:
   format: 7
   category: Map
   engineVersion: 277.2.1
-  forkId: SS14_DEV
-  forkVersion: febbf8b79a0408eb840e36f968ae9260cd4ef36c
-  time: 08/20/2026 18:17:11
-  entityCount: 55918
+  forkId: ""
+  forkVersion: ""
+  time: 09/19/2026 01:58:41
+  entityCount: 55920
 maps:
 - 1
 grids:
@@ -147,7 +147,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: Map Entity
+      name: NT Avrite Station
     - type: Transform
     - type: Map
       mapPaused: True
@@ -36168,7 +36168,8 @@ entities:
           16,-11:
             0: 65437
           16,-10:
-            0: 56783
+            0: 56781
+            4: 2
           13,5:
             0: 16139
           13,6:
@@ -37165,7 +37166,7 @@ entities:
             1: 3976
           4,17:
             1: 12835
-            4: 2184
+            5: 2184
           4,18:
             1: 334
           -4,18:
@@ -37421,7 +37422,7 @@ entities:
             1: 36067
           8,17:
             1: 4369
-            4: 3276
+            5: 3276
           8,18:
             1: 31
           7,18:
@@ -37430,14 +37431,14 @@ entities:
             1: 79
           9,17:
             1: 8738
-            4: 2184
+            5: 2184
           10,17:
-            4: 273
+            5: 273
             1: 17476
           10,18:
             1: 15
           11,17:
-            4: 1911
+            5: 1911
           11,18:
             1: 143
           12,16:
@@ -37448,17 +37449,17 @@ entities:
           12,18:
             1: 69
           5,17:
-            4: 273
+            5: 273
             1: 17476
           5,18:
             1: 15
           6,17:
-            4: 819
+            5: 819
             1: 34952
           6,18:
             1: 79
           7,17:
-            4: 1638
+            5: 1638
           4,-24:
             1: 3948
           3,-24:
@@ -38590,6 +38591,11 @@ entities:
             Oxygen: 27.225372
             Nitrogen: 102.419266
         - volume: 2500
+          temperature: 293.14975
+          moles:
+            Oxygen: 21.824879
+            Nitrogen: 82.10312
+        - volume: 2500
           temperature: 293.15
           moles: {}
         chunkSize: 4
@@ -38796,6 +38802,179 @@ entities:
         44,-37: AreaXenobio
         44,-36: AreaXenobio
         47,-36: AreaXenobio
+        -45,31: AreaKitchen
+        -45,32: AreaKitchen
+        -45,33: AreaKitchen
+        -45,34: AreaKitchen
+        -45,35: AreaKitchen
+        -45,36: AreaKitchen
+        -45,37: AreaKitchen
+        -45,38: AreaKitchen
+        -46,29: AreaKitchen
+        -46,30: AreaKitchen
+        -46,31: AreaKitchen
+        -46,32: AreaKitchen
+        -46,33: AreaKitchen
+        -46,34: AreaKitchen
+        -46,35: AreaKitchen
+        -46,36: AreaKitchen
+        -46,37: AreaKitchen
+        -46,38: AreaKitchen
+        -55,37: AreaKitchen
+        -55,38: AreaKitchen
+        -55,39: AreaKitchen
+        -55,40: AreaKitchen
+        -54,37: AreaKitchen
+        -54,38: AreaKitchen
+        -54,39: AreaKitchen
+        -54,40: AreaKitchen
+        -53,37: AreaKitchen
+        -53,38: AreaKitchen
+        -53,39: AreaKitchen
+        -53,40: AreaKitchen
+        -47,40: AreaKitchen
+        -47,39: AreaKitchen
+        -47,38: AreaKitchen
+        -47,37: AreaKitchen
+        -47,36: AreaKitchen
+        -47,35: AreaKitchen
+        -47,34: AreaKitchen
+        -47,30: AreaKitchen
+        -47,33: AreaKitchen
+        -47,32: AreaKitchen
+        -47,31: AreaKitchen
+        -47,29: AreaKitchen
+        -48,40: AreaKitchen
+        -48,39: AreaKitchen
+        -48,38: AreaKitchen
+        -48,37: AreaKitchen
+        -48,36: AreaKitchen
+        -48,35: AreaKitchen
+        -48,34: AreaKitchen
+        -48,33: AreaKitchen
+        -48,32: AreaKitchen
+        -48,31: AreaKitchen
+        -48,30: AreaKitchen
+        -45,29: AreaKitchen
+        -44,38: AreaKitchen
+        -45,30: AreaKitchen
+        -44,36: AreaKitchen
+        -44,35: AreaKitchen
+        -49,38: AreaKitchen
+        -48,29: AreaKitchen
+        -49,40: AreaKitchen
+        -49,39: AreaKitchen
+        -49,37: AreaKitchen
+        -49,36: AreaKitchen
+        -49,35: AreaKitchen
+        -49,34: AreaKitchen
+        -49,33: AreaKitchen
+        -51,37: AreaKitchen
+        -49,32: AreaKitchen
+        -49,31: AreaKitchen
+        -49,30: AreaKitchen
+        -49,29: AreaKitchen
+        -50,40: AreaKitchen
+        -50,39: AreaKitchen
+        -50,38: AreaKitchen
+        -50,37: AreaKitchen
+        -50,36: AreaKitchen
+        -50,35: AreaKitchen
+        -50,34: AreaKitchen
+        -50,33: AreaKitchen
+        -50,32: AreaKitchen
+        -50,31: AreaKitchen
+        -50,30: AreaKitchen
+        -50,29: AreaKitchen
+        -51,40: AreaKitchen
+        -51,39: AreaKitchen
+        -51,38: AreaKitchen
+        -51,36: AreaKitchen
+        -51,35: AreaKitchen
+        -51,34: AreaKitchen
+        -51,33: AreaKitchen
+        -51,32: AreaKitchen
+        -51,31: AreaKitchen
+        -51,30: AreaKitchen
+        -51,29: AreaKitchen
+        -52,40: AreaKitchen
+        -52,39: AreaKitchen
+        -52,38: AreaKitchen
+        -52,37: AreaKitchen
+        -52,36: AreaKitchen
+        -52,35: AreaKitchen
+        -52,34: AreaKitchen
+        -52,33: AreaKitchen
+        -52,32: AreaKitchen
+        -52,31: AreaKitchen
+        -52,30: AreaKitchen
+        -52,29: AreaKitchen
+        -53,30: AreaKitchen
+        -54,30: AreaKitchen
+        -53,31: AreaKitchen
+        -53,32: AreaKitchen
+        -53,33: AreaKitchen
+        -53,34: AreaKitchen
+        -53,35: AreaKitchen
+        -53,36: AreaKitchen
+        -54,31: AreaKitchen
+        -54,32: AreaKitchen
+        -54,33: AreaKitchen
+        -54,34: AreaKitchen
+        -54,35: AreaKitchen
+        -54,36: AreaKitchen
+        -55,31: AreaKitchen
+        -55,30: AreaKitchen
+        -55,32: AreaKitchen
+        -55,33: AreaKitchen
+        -55,35: AreaKitchen
+        -55,34: AreaKitchen
+        -55,36: AreaKitchen
+        -56,32: AreaKitchen
+        -56,30: AreaKitchen
+        -56,31: AreaKitchen
+        -56,33: AreaKitchen
+        -56,34: AreaKitchen
+        -56,35: AreaKitchen
+        -56,36: AreaKitchen
+        -57,30: AreaKitchen
+        -57,32: AreaKitchen
+        -57,31: AreaKitchen
+        -58,30: AreaKitchen
+        -57,33: AreaKitchen
+        -57,34: AreaKitchen
+        -57,35: AreaKitchen
+        -57,36: AreaKitchen
+        -58,31: AreaKitchen
+        -58,32: AreaKitchen
+        -58,33: AreaKitchen
+        -58,34: AreaKitchen
+        -58,35: AreaKitchen
+        -58,36: AreaKitchen
+        -59,30: AreaKitchen
+        -59,31: AreaKitchen
+        -59,32: AreaKitchen
+        -59,33: AreaKitchen
+        -59,34: AreaKitchen
+        -59,35: AreaKitchen
+        -59,36: AreaKitchen
+        -44,34: AreaKitchen
+        -44,33: AreaKitchen
+        -44,32: AreaKitchen
+        -44,37: AreaKitchen
+        -44,30: AreaKitchen
+        -44,31: AreaKitchen
+        -43,38: AreaKitchen
+        -43,37: AreaKitchen
+        -43,36: AreaKitchen
+        -44,29: AreaKitchen
+        -43,35: AreaKitchen
+        -43,34: AreaKitchen
+        -43,33: AreaKitchen
+        -43,30: AreaKitchen
+        -43,29: AreaKitchen
+        -43,32: AreaKitchen
+        -43,31: AreaKitchen
   - uid: 4
     components:
     - type: MetaData
@@ -39760,7 +39939,7 @@ entities:
       pos: -20.5,44.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -11675.8545
+      secondsUntilStateChange: -12157.763
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -42165,6 +42344,24 @@ entities:
     - type: AccessReader
       accessListsOriginal:
       - - BlueShield
+- proto: ADTLockerCorrectionOfficerFilled
+  entities:
+  - uid: 35711
+    components:
+    - type: Transform
+      pos: -62.5,-22.5
+      parent: 2
+    - type: AccessReader
+      accessListsOriginal:
+      - - Security
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+          Oxygen: 1.8856695
+          Nitrogen: 7.0937095
 - proto: ADTLockerParamedicFilledNoMod
   entities:
   - uid: 667
@@ -42597,6 +42794,15 @@ entities:
     components:
     - type: Transform
       pos: -22.5,-57.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 55920
+    components:
+    - type: MetaData
+      desc: Свидетельство о приёмке станции. 20.09.2570
+    - type: Transform
+      pos: 26.5,19.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -43803,21 +44009,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: ADTUniversalPipeDispenser
-  entities:
-  - uid: 926
-    components:
-    - type: Transform
-      pos: 35.5,57.5
-      parent: 2
-    - type: TechnologyDatabase
-      supportedDisciplines:
-      - Industrial
-      - Biochemical
-      - Mech
-      - Experimental
-      - Arsenal
-      - CivilianServices
 - proto: ADTUssp
   entities:
   - uid: 927
@@ -63170,6 +63361,47 @@ entities:
     components:
     - type: Transform
       pos: 71.5,4.5
+      parent: 2
+  - uid: 42758
+    components:
+    - type: Transform
+      pos: 44.5,-4.5
+      parent: 2
+  - uid: 42759
+    components:
+    - type: Transform
+      pos: -50.5,8.5
+      parent: 2
+  - uid: 42760
+    components:
+    - type: Transform
+      pos: 2.5,32.5
+      parent: 2
+  - uid: 42761
+    components:
+    - type: Transform
+      pos: -21.5,39.5
+      parent: 2
+  - uid: 42762
+    components:
+    - type: Transform
+      pos: -36.5,51.5
+      parent: 2
+  - uid: 42763
+    components:
+    - type: Transform
+      pos: 13.5,-21.5
+      parent: 2
+  - uid: 42764
+    components:
+    - type: Transform
+      pos: 47.5,-22.5
+      parent: 2
+  - uid: 42765
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 107.5,-61.5
       parent: 2
 - proto: BorgChargerCircuitboard
   entities:
@@ -154576,6 +154808,30 @@ entities:
     - type: Transform
       pos: 65.5,-39.5
       parent: 2
+    - type: Lock
+      locked: False
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape: !type:PhysShapeCircle
+            radius: 0.45
+            position: 0,0
+          mask:
+          - Impassable
+          - HighImpassable
+          - LowImpassable
+          layer:
+          - BulletImpassable
+          - Opaque
+          density: 50
+          hard: True
+          restitution: 0
+          friction: 0.4
+    - type: EntityStorage
+      removedMasks: 20
+      open: True
+    - type: PlaceableSurface
+      isPlaceable: True
   - uid: 20837
     components:
     - type: Transform
@@ -157257,7 +157513,7 @@ entities:
       pos: -12.5,61.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -469106.5
+      secondsUntilStateChange: -469588.4
       state: Closing
 - proto: CurtainsPurple
   entities:
@@ -192765,7 +193021,7 @@ entities:
       pos: -68.5,0.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -84485.41
+      secondsUntilStateChange: -84967.31
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -259885,24 +260141,6 @@ entities:
           showEnts: False
           occludes: True
           ent: null
-- proto: ADTLockerCorrectionOfficerFilled
-  entities:
-  - uid: 35711
-    components:
-    - type: Transform
-      pos: -62.5,-22.5
-      parent: 2
-    - type: AccessReader
-      accessListsOriginal:
-      - - Security
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.14673
-        moles:
-          Oxygen: 1.8856695
-          Nitrogen: 7.0937095
 - proto: LockerDetective
   entities:
   - uid: 5
@@ -287995,6 +288233,18 @@ entities:
     - type: Transform
       pos: -31.5,-49.5
       parent: 2
+- proto: RandomArtifactSpawner
+  entities:
+  - uid: 926
+    components:
+    - type: Transform
+      pos: 67.5,-44.5
+      parent: 2
+  - uid: 55919
+    components:
+    - type: Transform
+      pos: 65.5,-39.5
+      parent: 2
 - proto: RandomBoard
   entities:
   - uid: 40153
@@ -303735,49 +303985,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: SiliconChargerIndustrial
-  entities:
-  - uid: 42758
-    components:
-    - type: Transform
-      pos: 44.5,-4.5
-      parent: 2
-  - uid: 42759
-    components:
-    - type: Transform
-      pos: -50.5,8.5
-      parent: 2
-  - uid: 42760
-    components:
-    - type: Transform
-      pos: 2.5,32.5
-      parent: 2
-  - uid: 42761
-    components:
-    - type: Transform
-      pos: -21.5,39.5
-      parent: 2
-  - uid: 42762
-    components:
-    - type: Transform
-      pos: -36.5,51.5
-      parent: 2
-  - uid: 42763
-    components:
-    - type: Transform
-      pos: 13.5,-21.5
-      parent: 2
-  - uid: 42764
-    components:
-    - type: Transform
-      pos: 47.5,-22.5
-      parent: 2
-  - uid: 42765
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 107.5,-61.5
-      parent: 2
 - proto: SingularityGenerator
   entities:
   - uid: 42766

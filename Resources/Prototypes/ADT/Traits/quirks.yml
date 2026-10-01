@@ -230,6 +230,7 @@
     - ADTIgnoreChokeSpeechBlocking
     - Unimplantable
     - ADTIPCCuteEmotes
+    - ADTCatEmotes
 
 - type: trait
   id: ADTXenoborgIPC

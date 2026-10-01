@@ -1,0 +1,11 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckCoderCloakInconnu
+  name: coder's cloak
+  description: A cloak woven from restless streams of ones and zeroes. Legends say it was compiled, not sewn.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Inconnu/coder_cloak.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/Inconnu/coder_cloak.rsi
+  - type: ADTOversizedSprite

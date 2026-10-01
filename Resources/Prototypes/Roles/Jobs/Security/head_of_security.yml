@@ -55,6 +55,7 @@
       - type: CommandStaff
       # ADT-Tweak-Start: метка персонала службы безопасности
       - type: SecurityStaff
+      - type: ADTTenCodeKnowledge
       # ADT-Tweak-End
 
 - type: startingGear

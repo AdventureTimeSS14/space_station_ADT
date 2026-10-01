@@ -1,0 +1,53 @@
+- type: jukebox
+  id: ADTAdrenaline
+  name: 1. Adrenaline - Adrenaline
+  path:
+    path: /Audio/ADT/Jukebox/flatout/Adrenaline.ogg
+
+- type: jukebox
+  id: ADTBeatTheBoys
+  name: 2. Beat The Boys - LAB
+  path:
+    path: /Audio/ADT/Jukebox/flatout/Beat-The-Boys.ogg
+
+- type: jukebox
+  id: ADTSomethingElse
+  name: 3. Something Else - Agent Blue
+  path:
+    path: /Audio/ADT/Jukebox/flatout/Something-Else.ogg
+
+- type: jukebox
+  id: ADTTickTock
+  name: 4. Tick Tock - Deponeye
+  path:
+    path: /Audio/ADT/Jukebox/flatout/Tick-Tock.ogg
+
+- type: jukebox
+  id: ADTKingOfDefeat
+  name: 5. King of Defeat - Full Diesel
+  path:
+    path: /Audio/ADT/Jukebox/flatout/King-of-Defeat.ogg
+
+- type: jukebox
+  id: ADTDownTheStreet
+  name: 6. Down The Street - Killer Barbies
+  path:
+    path: /Audio/ADT/Jukebox/flatout/Down-The-Street.ogg
+
+- type: jukebox
+  id: ADTBabyWithTwoHeads
+  name: 7. Baby With Two Heads - The Killer Barbies
+  path:
+    path: /Audio/ADT/Jukebox/flatout/Baby-With-Two-Head.ogg
+
+- type: jukebox
+  id: ADTHandsOnTheMoney
+  name: 8. Hands On The Money - Kid Symphony
+  path:
+    path: /Audio/ADT/Jukebox/flatout/Hands-On-The-Money.ogg
+
+- type: jukebox
+  id: ADTTheEverLasting
+  name: 9. The Ever Lasting - Central Supply Chain
+  path:
+    path: /Audio/ADT/Jukebox/flatout/The-Ever-Lasting.ogg
