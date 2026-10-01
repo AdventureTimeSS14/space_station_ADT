@@ -10,13 +10,8 @@
       weight: 5
       children:
       - id: ADTMusicDiskStandard
-      - id: ADTMusicDiskRock
       - id: ADTMusicDiskSonic
       - id: ADTMusicDiskChill
-      - id: ADTMusicDiskHotline
-      - id: ADTMusicDiskVa11Hall
-      - id: ADTMusicDiskCeleste
-      - id: ADTMusicDiskMix
 
 - type: entityTable
   id: ADTMusicDiskSalvage
@@ -26,13 +21,5 @@
       weight: 30
       children:
       - id: ADTMusicDiskStandard
-      - id: ADTMusicDiskRock
       - id: ADTMusicDiskSonic
       - id: ADTMusicDiskChill
-    - !type:GroupSelector
-      weight: 60
-      children:
-      - id: ADTMusicDiskHotline
-      - id: ADTMusicDiskVa11Hall
-      - id: ADTMusicDiskCeleste
-      - id: ADTMusicDiskMix

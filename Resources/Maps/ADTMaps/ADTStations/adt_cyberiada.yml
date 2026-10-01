@@ -18097,13 +18097,6 @@ entities:
     - type: Transform
       pos: 9.554468,21.709894
       parent: 2
-- proto: ADTMusicDiskMix
-  entities:
-  - uid: 367
-    components:
-    - type: Transform
-      pos: 48.252953,-24.538733
-      parent: 2
 - proto: ADTPaintingCertMedical
   entities:
   - uid: 368
