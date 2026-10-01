@@ -17,20 +17,10 @@ namespace Content.Client.Lobby
     /// </summary>
     public sealed partial class ClientPreferencesManager : IClientPreferencesManager
     {
-<<<<<<< ours
-        [Dependency] private readonly IClientNetManager _netManager = default!;
-        [Dependency] private readonly SponsorsManager _sponsorsManager = default!; // Corvax-Sponsors
-        [Dependency] private readonly IBaseClient _baseClient = default!;
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
-||||||| base
-        [Dependency] private readonly IClientNetManager _netManager = default!;
-        [Dependency] private readonly IBaseClient _baseClient = default!;
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
-=======
         [Dependency] private IClientNetManager _netManager = default!;
         [Dependency] private IBaseClient _baseClient = default!;
         [Dependency] private IPlayerManager _playerManager = default!;
->>>>>>> theirs
+        [Dependency] private SponsorsManager _sponsorsManager = default!; // Corvax-Sponsors
 
         public event Action? OnServerDataLoaded;
 

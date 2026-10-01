@@ -142,24 +142,6 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
             _ => strategy.ClosestSkinColor(new Color(random.NextFloat(1), random.NextFloat(1), random.NextFloat(1), 1)),
         };
 
-<<<<<<< ours
-        var newHairColor = random.Pick(HairStyles.RealisticHairColors);
-        newHairColor = newHairColor
-            .WithRed(RandomizeColor(newHairColor.R))
-            .WithGreen(RandomizeColor(newHairColor.G))
-            .WithBlue(RandomizeColor(newHairColor.B));
-
-        return new HumanoidCharacterAppearance(newEyeColor, new List<Color> { newHairColor }, newSkinColor, new()); // ADT-tweak
-
-        // ADT-Tweak start
-        float RandomizeColor(float channel)
-        {
-            return MathHelper.Clamp01(channel + random.Next(-25, 25) / 100f);
-        }
-        // ADT-Tweak end
-||||||| base
-        return new HumanoidCharacterAppearance(newEyeColor, newSkinColor, new());
-=======
         return skinColor;
     }
 
@@ -196,16 +178,39 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
             : baseAppearance.Markings;
         // TODO if someone really cares they can probably regenerate the old markings with new colors but im too tired to figure that out
 
+        // ADT-Tweak-Start
+        var hairColor = baseAppearance is null || (charEditorRandomizeConfig & RandomizeCfg.Markings) != 0
+            ? new List<Color> { RandomHairColor(random) }
+            : baseAppearance.HairColor;
+        // ADT-Tweak-End
+
         HumanoidCharacterAppearance appearance = new(
             palette.EyeColor,
+            hairColor, // ADT-Tweak
             palette.SkinColor,
-            markings);
+            markings,
+            baseAppearance?.BodyType); // ADT-Tweak
 
         // Safety step. Most systems which called Random() also called this, and not doing so caused issues with markings.
         // In the future it could *maybe* be removed, but it's probably worth the extra CPU cycles to validate this info.
         return EnsureValid(appearance, species, sex);
->>>>>>> theirs
     }
+
+    // ADT-Tweak-Start
+    private static Color RandomHairColor(IRobustRandom random)
+    {
+        var color = random.Pick(HairStyles.RealisticHairColors);
+        return color
+            .WithRed(RandomizeColor(color.R))
+            .WithGreen(RandomizeColor(color.G))
+            .WithBlue(RandomizeColor(color.B));
+
+        float RandomizeColor(float channel)
+        {
+            return MathHelper.Clamp01(channel + random.Next(-25, 25) / 100f);
+        }
+    }
+    // ADT-Tweak-End
 
     public static Color ClampColor(Color color)
     {

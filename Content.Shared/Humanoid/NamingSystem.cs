@@ -59,62 +59,32 @@ namespace Content.Shared.Humanoid
             switch (gender)
             {
                 case Gender.Male:
-<<<<<<< ours
-                    return _random.Pick(_prototypeManager.Index<LocalizedDatasetPrototype>(speciesProto.MaleFirstNames));
-||||||| base
-                    return _random.Pick(_prototypeManager.Index(speciesProto.MaleFirstNames));
-=======
-                    return _random.Pick(ProtoMan.Index(speciesProto.MaleFirstNames));
->>>>>>> theirs
+                    return _random.Pick(ProtoMan.Index<LocalizedDatasetPrototype>(speciesProto.MaleFirstNames));
                 case Gender.Female:
-<<<<<<< ours
-                    return _random.Pick(_prototypeManager.Index<LocalizedDatasetPrototype>(speciesProto.FemaleFirstNames));
-||||||| base
-                    return _random.Pick(_prototypeManager.Index(speciesProto.FemaleFirstNames));
-=======
-                    return _random.Pick(ProtoMan.Index(speciesProto.FemaleFirstNames));
->>>>>>> theirs
+                    return _random.Pick(ProtoMan.Index<LocalizedDatasetPrototype>(speciesProto.FemaleFirstNames));
                 default:
                     if (_random.Prob(0.5f))
-<<<<<<< ours
-                        return _random.Pick(_prototypeManager.Index<LocalizedDatasetPrototype>(speciesProto.MaleFirstNames));
-||||||| base
-                        return _random.Pick(_prototypeManager.Index(speciesProto.MaleFirstNames));
-=======
-                        return _random.Pick(ProtoMan.Index(speciesProto.MaleFirstNames));
->>>>>>> theirs
+                        return _random.Pick(ProtoMan.Index<LocalizedDatasetPrototype>(speciesProto.MaleFirstNames));
                     else
-<<<<<<< ours
-                        return _random.Pick(_prototypeManager.Index<LocalizedDatasetPrototype>(speciesProto.FemaleFirstNames));
-||||||| base
-                        return _random.Pick(_prototypeManager.Index(speciesProto.FemaleFirstNames));
-=======
-                        return _random.Pick(ProtoMan.Index(speciesProto.FemaleFirstNames));
->>>>>>> theirs
+                        return _random.Pick(ProtoMan.Index<LocalizedDatasetPrototype>(speciesProto.FemaleFirstNames));
             }
         }
 
         // Corvax-LastnameGender-Start: Added custom gender split logic
         public string GetLastName(SpeciesPrototype speciesProto, Gender? gender = null)
         {
-<<<<<<< ours
             switch (gender)
             {
                 case Gender.Male:
-                    return _random.Pick(_prototypeManager.Index<LocalizedDatasetPrototype>(speciesProto.MaleLastNames));
+                    return _random.Pick(ProtoMan.Index<LocalizedDatasetPrototype>(speciesProto.MaleLastNames));
                 case Gender.Female:
-                    return _random.Pick(_prototypeManager.Index<LocalizedDatasetPrototype>(speciesProto.FemaleLastNames));
+                    return _random.Pick(ProtoMan.Index<LocalizedDatasetPrototype>(speciesProto.FemaleLastNames));
                 default:
                     if (_random.Prob(0.5f))
-                        return _random.Pick(_prototypeManager.Index<LocalizedDatasetPrototype>(speciesProto.MaleLastNames));
+                        return _random.Pick(ProtoMan.Index<LocalizedDatasetPrototype>(speciesProto.MaleLastNames));
                     else
-                        return _random.Pick(_prototypeManager.Index<LocalizedDatasetPrototype>(speciesProto.FemaleLastNames));
+                        return _random.Pick(ProtoMan.Index<LocalizedDatasetPrototype>(speciesProto.FemaleLastNames));
             }
-||||||| base
-            return _random.Pick(_prototypeManager.Index(speciesProto.LastNames));
-=======
-            return _random.Pick(ProtoMan.Index(speciesProto.LastNames));
->>>>>>> theirs
         }
         // Corvax-LastnameGender-End
     }

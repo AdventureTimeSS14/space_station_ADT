@@ -97,14 +97,8 @@ public abstract partial class SharedVisualBodySystem : EntitySystem
         if (!other.Layer.Equals(ent.Comp.Layer))
             return;
 
-<<<<<<< ours
         ent.Comp.Profile.BodyType = other.Profile.BodyType; // ADT-Tweak
-        SetOrganAppearance(ent, other.Data);
-||||||| base
-        SetOrganAppearance(ent, other.Data);
-=======
         SetOrganAppearance(ent, other.Data, other.Displacement);
->>>>>>> theirs
     }
 
     private void OnMarkingsOrganCopyAppearance(Entity<VisualOrganMarkingsComponent> ent, ref BodyRelayedEvent<OrganCopyAppearanceEvent> args)

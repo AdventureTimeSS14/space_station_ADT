@@ -83,13 +83,7 @@ public sealed partial class HideableHumanoidLayersSystem : SharedHideableHumanoi
             var evt = new HumanoidLayerVisibilityChangedEvent(item, false);
             RaiseLocalEvent(ent, ref evt);
 
-<<<<<<< ours
-            if (!_sprite.LayerMapTryGet(ent.Owner, item, out var index, false))
-||||||| base
-            if (!_sprite.LayerMapTryGet(ent.Owner, item, out var index, true))
-=======
-            if (!evt.ShouldHide || !_sprite.LayerMapTryGet(ent.Owner, item, out var index, true))
->>>>>>> theirs
+            if (!evt.ShouldHide || !_sprite.LayerMapTryGet(ent.Owner, item, out var index, false)) // ADT-Tweak
                 continue;
 
             _sprite.LayerSetVisible(ent.Owner, index, false);

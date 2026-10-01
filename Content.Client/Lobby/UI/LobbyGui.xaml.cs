@@ -16,12 +16,11 @@ namespace Content.Client.Lobby.UI
     [GenerateTypedNameReferences]
     public sealed partial class LobbyGui : UIScreen
     {
-<<<<<<< ours
-        [Dependency] private readonly IClientConsoleHost _consoleHost = default!;
-        [Dependency] private readonly SponsorsManager _sponsorsManager = default!;
-        [Dependency] private readonly Content.Client.ADT.Sponsors.SponsorManager _adtSponsors = default!; // ADT-Tweak
-        [Dependency] private readonly DiscordIdManager _discordIdManager = default!;
-        [Dependency] private readonly IConfigurationManager _cfg = default!;
+        [Dependency] private IClientConsoleHost _consoleHost = default!;
+        [Dependency] private SponsorsManager _sponsorsManager = default!;
+        [Dependency] private Content.Client.ADT.Sponsors.SponsorManager _adtSponsors = default!; // ADT-Tweak
+        [Dependency] private DiscordIdManager _discordIdManager = default!;
+        [Dependency] private IConfigurationManager _cfg = default!;
         private float _updateTimer;
         private bool _panelUpdate = false;
         // Цвета для кнопок (ADT-Const-Start)
@@ -31,11 +30,6 @@ namespace Content.Client.Lobby.UI
         private static readonly Color ColorGreen = Color.FromHex("#5DA130");   // Зелёный
         private static readonly Color ColorOrange = Color.FromHex("#FFA500");  // Оранжевый
         // (ADT-Const-End)
-||||||| base
-        [Dependency] private readonly IClientConsoleHost _consoleHost = default!;
-=======
-        [Dependency] private IClientConsoleHost _consoleHost = default!;
->>>>>>> theirs
 
         public LobbyGui()
         {

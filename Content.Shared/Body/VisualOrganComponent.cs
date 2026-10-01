@@ -1,17 +1,8 @@
-<<<<<<< ours
 using Content.Shared.ADT.BodyTypes; // ADT-Tweak
-||||||| base
-=======
 using Content.Shared.DisplacementMap;
->>>>>>> theirs
 using Content.Shared.Humanoid;
 using Robust.Shared.GameStates;
-<<<<<<< ours
-using Robust.Shared.Prototypes; // ADT-Tweak
-||||||| base
-=======
 using Robust.Shared.Prototypes;
->>>>>>> theirs
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Body;
