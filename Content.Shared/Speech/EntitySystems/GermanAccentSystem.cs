@@ -17,7 +17,7 @@ public sealed partial class GermanAccentSystem : RelayAccentSystem<GermanAccentC
     private static readonly Regex RegexTh = new(@"(?<=\s|^)th", RegexOptions.IgnoreCase);
     private static readonly Regex RegexThe = new(@"(?<=\s|^)the(?=\s|$)", RegexOptions.IgnoreCase);
 
-    // ADT-Tweak-Start
+    // ADT-Tweak-Start: extra RU->German word replacements
     private readonly Dictionary<string, string> _replacements = new();
     private Regex? _replaceRegex;
     // ADT-Tweak-End
