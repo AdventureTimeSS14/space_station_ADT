@@ -36,27 +36,6 @@ namespace Content.Server.Players.PlayTimeTracking;
 /// </summary>
 public sealed partial class PlayTimeTrackingSystem : EntitySystem
 {
-<<<<<<< ours
-    [Dependency] private readonly IAdminManager _adminManager = default!;
-    [Dependency] private readonly IAfkManager _afk = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IServerPreferencesManager _preferencesManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
-    [Dependency] private readonly SharedRoleSystem _roles = default!;
-    [Dependency] private readonly PlayTimeTrackingManager _tracking = default!;
-    [Dependency] private readonly SponsorsManager _sponsorsManager = default!; //ADT-Sponsors-Job
-    [Dependency] private readonly Content.Server.ADT.Sponsors.SponsorManager _adtSponsors = default!;
-||||||| base
-    [Dependency] private readonly IAdminManager _adminManager = default!;
-    [Dependency] private readonly IAfkManager _afk = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IServerPreferencesManager _preferencesManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
-    [Dependency] private readonly SharedRoleSystem _roles = default!;
-    [Dependency] private readonly PlayTimeTrackingManager _tracking = default!;
-=======
     [Dependency] private IAdminManager _adminManager = default!;
     [Dependency] private IAfkManager _afk = default!;
     [Dependency] private IConfigurationManager _cfg = default!;
@@ -64,7 +43,8 @@ public sealed partial class PlayTimeTrackingSystem : EntitySystem
     [Dependency] private IServerPreferencesManager _preferencesManager = default!;
     [Dependency] private SharedRoleSystem _roles = default!;
     [Dependency] private PlayTimeTrackingManager _tracking = default!;
->>>>>>> theirs
+    [Dependency] private SponsorsManager _sponsorsManager = default!; //ADT-Sponsors-Job
+    [Dependency] private Content.Server.ADT.Sponsors.SponsorManager _adtSponsors = default!;
 
     public override void Initialize()
     {

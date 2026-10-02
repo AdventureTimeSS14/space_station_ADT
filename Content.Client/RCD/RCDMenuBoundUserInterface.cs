@@ -42,19 +42,9 @@ public sealed partial class RCDMenuBoundUserInterface : BoundUserInterface
             ["Lighting"] = ("rcd-component-lighting", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RCD/lighting.png"))),
         };
 
-<<<<<<< ours
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
-    [Dependency] private readonly IInputManager _inputManager = default!; // ADT Radial menu settings
-    [Dependency] private readonly IClyde _displayManager = default!; // ADT Radial menu settings
-    [Dependency] private readonly IConfigurationManager _cfg = default!; // ADT Radial menu settings
-
-||||||| base
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
-
-=======
->>>>>>> theirs
+    [Dependency] private IInputManager _inputManager = default!; // ADT Radial menu settings
+    [Dependency] private IClyde _displayManager = default!; // ADT Radial menu settings
+    [Dependency] private IConfigurationManager _cfg = default!; // ADT Radial menu settings
     private SimpleRadialMenu? _menu;
 
     public RCDMenuBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)

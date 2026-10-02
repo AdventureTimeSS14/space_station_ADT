@@ -144,35 +144,6 @@ namespace Content.Shared.Movement.Pulling.Systems;
 /// </summary>
 public sealed partial class PullingSystem : EntitySystem
 {
-<<<<<<< ours
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly ActionBlockerSystem _blocker = default!;
-    [Dependency] private readonly AlertsSystem _alertsSystem = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _modifierSystem = default!;
-    [Dependency] private readonly SharedJointSystem _joints = default!;
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedVirtualItemSystem _virtualSystem = default!;
-    [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
-||||||| base
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly ActionBlockerSystem _blocker = default!;
-    [Dependency] private readonly AlertsSystem _alertsSystem = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _modifierSystem = default!;
-    [Dependency] private readonly SharedJointSystem _joints = default!;
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly HeldSpeedModifierSystem _clothingMoveSpeed = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedVirtualItemSystem _virtual = default!;
-=======
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private ActionBlockerSystem _blocker = default!;
@@ -186,7 +157,8 @@ public sealed partial class PullingSystem : EntitySystem
     [Dependency] private HeldSpeedModifierSystem _clothingMoveSpeed = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private SharedVirtualItemSystem _virtual = default!;
->>>>>>> theirs
+    [Dependency] private SharedVirtualItemSystem _virtualSystem = default!;
+    [Dependency] private SharedCombatModeSystem _combatMode = default!;
 
     public override void Initialize()
     {

@@ -55,37 +55,6 @@ namespace Content.Server.Connection
     /// </summary>
     public sealed partial class ConnectionManager : IConnectionManager
     {
-<<<<<<< ours
-        [Dependency] private readonly IPlayerManager _plyMgr = default!;
-        [Dependency] private readonly IServerNetManager _netMgr = default!;
-        [Dependency] private readonly IServerDbManager _db = default!;
-        [Dependency] private readonly IConfigurationManager _cfg = default!;
-        [Dependency] private readonly SponsorsManager _sponsorsManager = default!; // Corvax-Sponsors
-        [Dependency] private readonly Content.Server.ADT.Sponsors.SponsorManager _adtSponsors = default!;
-        [Dependency] private readonly ILocalizationManager _loc = default!;
-        [Dependency] private readonly ServerDbEntryManager _serverDbEntry = default!;
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly ILogManager _logManager = default!;
-        [Dependency] private readonly IChatManager _chatManager = default!;
-        [Dependency] private readonly IHttpClientHolder _http = default!;
-        [Dependency] private readonly IAdminManager _adminManager = default!;
-        [Dependency] private readonly IEntityManager _entityManager = default!;
-||||||| base
-        [Dependency] private readonly IPlayerManager _plyMgr = default!;
-        [Dependency] private readonly IServerNetManager _netMgr = default!;
-        [Dependency] private readonly IServerDbManager _db = default!;
-        [Dependency] private readonly IConfigurationManager _cfg = default!;
-        [Dependency] private readonly ILocalizationManager _loc = default!;
-        [Dependency] private readonly ServerDbEntryManager _serverDbEntry = default!;
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly ILogManager _logManager = default!;
-        [Dependency] private readonly IChatManager _chatManager = default!;
-        [Dependency] private readonly IHttpClientHolder _http = default!;
-        [Dependency] private readonly IAdminManager _adminManager = default!;
-        [Dependency] private readonly IEntityManager _entityManager = default!;
-=======
         [Dependency] private IPlayerManager _plyMgr = default!;
         [Dependency] private IServerNetManager _netMgr = default!;
         [Dependency] private IServerDbManager _db = default!;
@@ -99,7 +68,8 @@ namespace Content.Server.Connection
         [Dependency] private IHttpClientHolder _http = default!;
         [Dependency] private IAdminManager _adminManager = default!;
         [Dependency] private IEntityManager _entityManager = default!;
->>>>>>> theirs
+        [Dependency] private SponsorsManager _sponsorsManager = default!; // Corvax-Sponsors
+        [Dependency] private Content.Server.ADT.Sponsors.SponsorManager _adtSponsors = default!;
 
         private GameTicker? _ticker;
 

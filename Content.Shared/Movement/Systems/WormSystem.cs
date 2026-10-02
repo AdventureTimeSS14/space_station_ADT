@@ -11,15 +11,8 @@ namespace Content.Shared.Movement.Systems;
 /// </summary>
 public sealed partial class WormSystem : EntitySystem
 {
-<<<<<<< ours
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-||||||| base
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-=======
     [Dependency] private AlertsSystem _alerts = default!;
     [Dependency] private SharedStunSystem _stun = default!;
->>>>>>> theirs
 
     public override void Initialize()
     {

@@ -19,28 +19,6 @@ namespace Content.Shared.Access.Systems;
 
 public abstract partial class SharedIdCardSystem : EntitySystem
 {
-<<<<<<< ours
-    [Dependency] private readonly IConfigurationManager _cfgManager = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedAccessSystem _access = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly InventorySystem _inventorySystem = default!;
-    [Dependency] private readonly MetaDataSystem _metaSystem = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly SharedRadioJobIconSystem _radioJobIcon = default!; // ADT-Tweak
-    [Dependency] private readonly SharedJobStatusSystem _jobStatus = default!;
-||||||| base
-    [Dependency] private readonly IConfigurationManager _cfgManager = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedAccessSystem _access = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly InventorySystem _inventorySystem = default!;
-    [Dependency] private readonly MetaDataSystem _metaSystem = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly SharedJobStatusSystem _jobStatus = default!;
-=======
     [Dependency] private IConfigurationManager _cfgManager = default!;
     [Dependency] private ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private IGameTiming _timing = default!;
@@ -50,7 +28,7 @@ public abstract partial class SharedIdCardSystem : EntitySystem
     [Dependency] private MetaDataSystem _metaSystem = default!;
     [Dependency] private SharedJobStatusSystem _jobStatus = default!;
     [Dependency] private SharedAgentIdCardSystem _agentIdCard = default!;
->>>>>>> theirs
+    [Dependency] private SharedRadioJobIconSystem _radioJobIcon = default!; // ADT-Tweak
 
     // CCVar.
     private int _maxNameLength;

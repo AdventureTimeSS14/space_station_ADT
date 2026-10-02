@@ -48,47 +48,6 @@ namespace Content.Server.GameTicking
 #if EXCEPTION_TOLERANCE
         [Dependency] private IRuntimeLog _runtimeLog = default!;
 #endif
-<<<<<<< ours
-        [Dependency] private readonly IServerPreferencesManager _prefsManager = default!;
-        [Dependency] private readonly IServerDbManager _db = default!;
-        [Dependency] private readonly ChatSystem _chatSystem = default!;
-        [Dependency] private readonly MapLoaderSystem _loader = default!;
-        [Dependency] private readonly SharedMapSystem _map = default!;
-        [Dependency] private readonly GhostSystem _ghost = default!;
-        [Dependency] private readonly StoreBodyAppearanceOnMindSystem _bodyAppearance = default!;
-        [Dependency] private readonly SharedMindSystem _mind = default!;
-        [Dependency] private readonly PlayTimeTrackingSystem _playTimeTrackings = default!;
-        [Dependency] private readonly PvsOverrideSystem _pvsOverride = default!;
-        [Dependency] private readonly ServerUpdateManager _serverUpdates = default!;
-        [Dependency] private readonly SharedAudioSystem _audio = default!;
-        [Dependency] private readonly StationJobsSystem _stationJobs = default!;
-        [Dependency] private readonly StationSpawningSystem _stationSpawning = default!;
-        [Dependency] private readonly SharedTransformSystem _transform = default!;
-        [Dependency] private readonly UserDbDataManager _userDb = default!;
-        [Dependency] private readonly MetaDataSystem _metaData = default!;
-        [Dependency] private readonly SharedRoleSystem _roles = default!;
-        [Dependency] private readonly ServerDbEntryManager _dbEntryManager = default!;
-        [Dependency] private readonly DamageableSystem _damageable = default!;
-||||||| base
-        [Dependency] private readonly IServerPreferencesManager _prefsManager = default!;
-        [Dependency] private readonly IServerDbManager _db = default!;
-        [Dependency] private readonly ChatSystem _chatSystem = default!;
-        [Dependency] private readonly MapLoaderSystem _loader = default!;
-        [Dependency] private readonly SharedMapSystem _map = default!;
-        [Dependency] private readonly GhostSystem _ghost = default!;
-        [Dependency] private readonly SharedMindSystem _mind = default!;
-        [Dependency] private readonly PlayTimeTrackingSystem _playTimeTrackings = default!;
-        [Dependency] private readonly PvsOverrideSystem _pvsOverride = default!;
-        [Dependency] private readonly ServerUpdateManager _serverUpdates = default!;
-        [Dependency] private readonly SharedAudioSystem _audio = default!;
-        [Dependency] private readonly StationJobsSystem _stationJobs = default!;
-        [Dependency] private readonly StationSpawningSystem _stationSpawning = default!;
-        [Dependency] private readonly SharedTransformSystem _transform = default!;
-        [Dependency] private readonly UserDbDataManager _userDb = default!;
-        [Dependency] private readonly MetaDataSystem _metaData = default!;
-        [Dependency] private readonly SharedRoleSystem _roles = default!;
-        [Dependency] private readonly ServerDbEntryManager _dbEntryManager = default!;
-=======
         [Dependency] private IServerPreferencesManager _prefsManager = default!;
         [Dependency] private IServerDbManager _db = default!;
         [Dependency] private ChatSystem _chatSystem = default!;
@@ -107,7 +66,8 @@ namespace Content.Server.GameTicking
         [Dependency] private MetaDataSystem _metaData = default!;
         [Dependency] private SharedRoleSystem _roles = default!;
         [Dependency] private ServerDbEntryManager _dbEntryManager = default!;
->>>>>>> theirs
+        [Dependency] private StoreBodyAppearanceOnMindSystem _bodyAppearance = default!;
+        [Dependency] private DamageableSystem _damageable = default!;
 
         [ViewVariables] private bool _initialized;
         [ViewVariables] private bool _postInitialized;

@@ -13,20 +13,10 @@ namespace Content.Server.Info;
 [AdminCommand(AdminFlags.Admin)]
 public sealed partial class ShowRulesCommand : LocalizedCommands
 {
-<<<<<<< ours
-    [Dependency] private readonly IConfigurationManager _configuration = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IAdminManager _adminManager = default!;
-||||||| base
-    [Dependency] private readonly IConfigurationManager _configuration = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-=======
     [Dependency] private IConfigurationManager _configuration = default!;
     [Dependency] private INetManager _net = default!;
     [Dependency] private IPlayerManager _player = default!;
->>>>>>> theirs
+    [Dependency] private IAdminManager _adminManager = default!;
 
     public override string Command => "showrules";
 

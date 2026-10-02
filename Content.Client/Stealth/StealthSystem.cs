@@ -22,19 +22,9 @@ public sealed partial class StealthSystem : SharedStealthSystem
 {
     private static readonly ProtoId<ShaderPrototype> Shader = "Stealth";
 
-<<<<<<< ours
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-||||||| base
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
-=======
     [Dependency] private SharedTransformSystem _transformSystem = default!;
     [Dependency] private SpriteSystem _sprite = default!;
->>>>>>> theirs
+    [Dependency] private IPlayerManager _player = default!;
 
     private ShaderInstance _shader = default!;
 

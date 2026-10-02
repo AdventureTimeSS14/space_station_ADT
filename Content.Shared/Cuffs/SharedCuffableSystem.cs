@@ -43,38 +43,6 @@ namespace Content.Shared.Cuffs
     // TODO remove all the IsServer() checks.
     public abstract partial class SharedCuffableSystem : EntitySystem
     {
-<<<<<<< ours
-        [Dependency] private readonly INetManager _net = default!;
-        [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
-        [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-        [Dependency] private readonly AlertsSystem _alerts = default!;
-        [Dependency] private readonly SharedAudioSystem _audio = default!;
-        [Dependency] private readonly SharedContainerSystem _container = default!;
-        [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-        [Dependency] private readonly SharedHandsSystem _hands = default!;
-        [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!;
-        [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-        [Dependency] private readonly SharedPopupSystem _popup = default!;
-        [Dependency] private readonly SharedTransformSystem _transform = default!;
-        [Dependency] private readonly UseDelaySystem _delay = default!;
-        [Dependency] private readonly SharedStackSystem _stacks = default!;
-        [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
-||||||| base
-        [Dependency] private readonly INetManager _net = default!;
-        [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
-        [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-        [Dependency] private readonly AlertsSystem _alerts = default!;
-        [Dependency] private readonly SharedAudioSystem _audio = default!;
-        [Dependency] private readonly SharedContainerSystem _container = default!;
-        [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-        [Dependency] private readonly SharedHandsSystem _hands = default!;
-        [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!;
-        [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-        [Dependency] private readonly SharedPopupSystem _popup = default!;
-        [Dependency] private readonly SharedTransformSystem _transform = default!;
-        [Dependency] private readonly UseDelaySystem _delay = default!;
-        [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
-=======
         [Dependency] private INetManager _net = default!;
         [Dependency] private ISharedAdminLogManager _adminLog = default!;
         [Dependency] private ActionBlockerSystem _actionBlocker = default!;
@@ -89,7 +57,7 @@ namespace Content.Shared.Cuffs
         [Dependency] private SharedTransformSystem _transform = default!;
         [Dependency] private UseDelaySystem _delay = default!;
         [Dependency] private SharedCombatModeSystem _combatMode = default!;
->>>>>>> theirs
+        [Dependency] private SharedStackSystem _stacks = default!;
 
         public override void Initialize()
         {

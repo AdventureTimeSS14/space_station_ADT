@@ -19,30 +19,14 @@ namespace Content.Client.Players.PlayTimeTracking;
 
 public sealed partial class JobRequirementsManager : ISharedPlaytimeManager
 {
-<<<<<<< ours
-    [Dependency] private readonly IBaseClient _client = default!;
-    [Dependency] private readonly IClientNetManager _net = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
-    [Dependency] private readonly SponsorsManager _sponsorsManager = default!; //ADT-Sponsors-Job
-    [Dependency] private readonly Content.Client.ADT.Sponsors.SponsorManager _adtSponsors = default!;
-||||||| base
-    [Dependency] private readonly IBaseClient _client = default!;
-    [Dependency] private readonly IClientNetManager _net = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
-=======
     [Dependency] private IBaseClient _client = default!;
     [Dependency] private IClientNetManager _net = default!;
     [Dependency] private IConfigurationManager _cfg = default!;
     [Dependency] private IEntityManager _entManager = default!;
     [Dependency] private IPlayerManager _playerManager = default!;
     [Dependency] private IPrototypeManager _prototypes = default!;
->>>>>>> theirs
+    [Dependency] private SponsorsManager _sponsorsManager = default!; //ADT-Sponsors-Job
+    [Dependency] private Content.Client.ADT.Sponsors.SponsorManager _adtSponsors = default!;
 
     private readonly Dictionary<string, TimeSpan> _roles = new();
     private readonly List<ProtoId<JobPrototype>> _jobBans = new();

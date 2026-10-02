@@ -20,16 +20,9 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
 public sealed partial class GhostUIController : UIController, IOnSystemChanged<GhostSystem>
 >>>>>>> theirs
 {
-<<<<<<< ours
-    [Dependency] private readonly IEntityManager _entManager = default!; // ADT-tweak
-    [Dependency] private readonly IEntityNetworkManager _net = default!;
-||||||| base
-    [Dependency] private readonly IEntityNetworkManager _net = default!;
-
-=======
     [Dependency] private IEntityNetworkManager _net = default!;
 
->>>>>>> theirs
+    [Dependency] private IEntityManager _entManager = default!; // ADT-tweak
     [UISystemDependency] private readonly GhostSystem? _system = default;
 
     private GhostGui? Gui => UIManager.GetActiveUIWidgetOrNull<GhostGui>();

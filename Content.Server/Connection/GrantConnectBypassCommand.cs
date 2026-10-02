@@ -11,18 +11,10 @@ public sealed partial class GrantConnectBypassCommand : LocalizedCommands
 {
     private static readonly TimeSpan DefaultDuration = TimeSpan.FromHours(1);
 
-<<<<<<< ours
-    [Dependency] private readonly IPlayerLocator _playerLocator = default!;
-    [Dependency] private readonly IConnectionManager _connectionManager = default!;
-    [Dependency] private readonly ISharedPlayerManager _playerManager = default!; // ADT-Tweak
-    [Dependency] private readonly JoinQueueManager _joinQueue = default!; // ADT-Tweak
-||||||| base
-    [Dependency] private readonly IPlayerLocator _playerLocator = default!;
-    [Dependency] private readonly IConnectionManager _connectionManager = default!;
-=======
     [Dependency] private IPlayerLocator _playerLocator = default!;
     [Dependency] private IConnectionManager _connectionManager = default!;
->>>>>>> theirs
+    [Dependency] private ISharedPlayerManager _playerManager = default!; // ADT-Tweak
+    [Dependency] private JoinQueueManager _joinQueue = default!; // ADT-Tweak
 
     public override string Command => "grant_connect_bypass";
 

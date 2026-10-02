@@ -19,19 +19,13 @@ namespace Content.Server.Stack
     [UsedImplicitly]
     public sealed partial class StackSystem : SharedStackSystem
     {
-<<<<<<< ours
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly IPlayerManager _playerManager = default!; // ADT-Tweak
-        [Dependency] private readonly QuickDialogSystem _quickDialog = default!; // ADT-Tweak for system own split
-||||||| base
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-=======
         [Dependency] private SharedHandsSystem _hands = default!;
         [Dependency] private SharedPopupSystem _popup = default!;
         [Dependency] private SharedTransformSystem _transform = default!;
 
         [Dependency] private EntityQuery<StackComponent> _stackQuery;
->>>>>>> theirs
+        [Dependency] private IPlayerManager _playerManager = default!; // ADT-Tweak
+        [Dependency] private QuickDialogSystem _quickDialog = default!; // ADT-Tweak for system own split
 
         #region Spawning
 

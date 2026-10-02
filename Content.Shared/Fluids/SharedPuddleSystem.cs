@@ -31,38 +31,6 @@ namespace Content.Shared.Fluids;
 
 public abstract partial class SharedPuddleSystem : EntitySystem
 {
-<<<<<<< ours
-    [Dependency] private readonly ADTMedicalSpraySystem _adtMedicalSpray = default!; // ADT-Tweak
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] protected readonly ISharedAdminLogManager AdminLogger = default!;
-    [Dependency] protected readonly OpenableSystem Openable = default!;
-    [Dependency] protected readonly ReactiveSystem Reactive = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] protected readonly SharedAudioSystem Audio = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
-    [Dependency] protected readonly SharedPopupSystem Popups = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
-    [Dependency] private readonly SpeedModifierContactsSystem _speedModContacts = default!;
-    [Dependency] private readonly StepTriggerSystem _stepTrigger = default!;
-    [Dependency] private readonly TileFrictionController _tile = default!;
-    [Dependency] private readonly INetManager _net = default!;
-||||||| base
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] protected readonly ISharedAdminLogManager AdminLogger = default!;
-    [Dependency] protected readonly OpenableSystem Openable = default!;
-    [Dependency] protected readonly ReactiveSystem Reactive = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] protected readonly SharedAudioSystem Audio = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
-    [Dependency] protected readonly SharedPopupSystem Popups = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
-    [Dependency] private readonly SpeedModifierContactsSystem _speedModContacts = default!;
-    [Dependency] private readonly StepTriggerSystem _stepTrigger = default!;
-    [Dependency] private readonly TileFrictionController _tile = default!;
-    [Dependency] private readonly INetManager _net = default!;
-=======
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] protected ISharedAdminLogManager AdminLogger = default!;
     [Dependency] protected OpenableSystem Openable = default!;
@@ -83,7 +51,7 @@ public abstract partial class SharedPuddleSystem : EntitySystem
     [Dependency] private EntityQuery<ReactiveComponent> _reactiveQuery = default!;
     [Dependency] private EntityQuery<EvaporationComponent> _evaporationQuery = default!;
     [Dependency] private EntityQuery<PuddleComponent> _puddleQuery = default!;
->>>>>>> theirs
+    [Dependency] private ADTMedicalSpraySystem _adtMedicalSpray = default!; // ADT-Tweak
 
     private ProtoId<ReagentPrototype>[] _standoutReagents = [];
 

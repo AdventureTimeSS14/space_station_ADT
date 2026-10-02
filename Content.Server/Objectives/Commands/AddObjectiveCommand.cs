@@ -14,23 +14,11 @@ namespace Content.Server.Objectives.Commands;
 [AdminCommand(AdminFlags.Admin)]
 public sealed partial class AddObjectiveCommand : LocalizedEntityCommands
 {
-<<<<<<< ours
-    [Dependency] private readonly IPlayerManager _players = default!;
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly ObjectivesSystem _objectives = default!;
-    [Dependency] private readonly AntagDelayedObjectivesSystem _antagDelayedObjectives = default!; // ADT-Tweak
-||||||| base
-    [Dependency] private readonly IPlayerManager _players = default!;
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly ObjectivesSystem _objectives = default!;
-=======
     [Dependency] private IPlayerManager _players = default!;
     [Dependency] private IPrototypeManager _prototypes = default!;
     [Dependency] private SharedMindSystem _mind = default!;
     [Dependency] private ObjectivesSystem _objectives = default!;
->>>>>>> theirs
+    [Dependency] private AntagDelayedObjectivesSystem _antagDelayedObjectives = default!; // ADT-Tweak
 
     public override string Command => "addobjective";
 

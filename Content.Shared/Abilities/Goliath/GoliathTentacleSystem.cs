@@ -13,24 +13,6 @@ namespace Content.Shared.Abilities.Goliath;
 
 public sealed partial class GoliathTentacleSystem : EntitySystem
 {
-<<<<<<< ours
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly TurfSystem _turf = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-||||||| base
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly TurfSystem _turf = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-=======
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private INetManager _net = default!;
     [Dependency] private SharedMapSystem _map = default!;
@@ -38,7 +20,7 @@ public sealed partial class GoliathTentacleSystem : EntitySystem
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private TurfSystem _turf = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
->>>>>>> theirs
+    [Dependency] private SharedInteractionSystem _interaction = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

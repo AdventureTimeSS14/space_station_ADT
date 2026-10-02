@@ -12,22 +12,6 @@ namespace Content.Shared.Storage.EntitySystems;
 /// </summary>
 public sealed partial class MagnetPickupSystem : EntitySystem
 {
-<<<<<<< ours
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedStorageSystem _storage = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-||||||| base
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedStorageSystem _storage = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-=======
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private InventorySystem _inventory = default!;
@@ -35,7 +19,6 @@ public sealed partial class MagnetPickupSystem : EntitySystem
     [Dependency] private SharedStorageSystem _storage = default!;
     [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private SharedHandsSystem _hands = default!;
->>>>>>> theirs
 
     [Dependency] private EntityQuery<PhysicsComponent> _physicsQuery = default!;
 

@@ -17,20 +17,10 @@ namespace Content.Server.GameTicking.Commands
     [AdminCommand(AdminFlags.Round)]
     public sealed partial class ForceMapCommand : LocalizedCommands
     {
-<<<<<<< ours
-        [Dependency] private readonly IConfigurationManager _configurationManager = default!;
-        [Dependency] private readonly IGameMapManager _gameMapManager = default!;
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly IAdminLogManager _adminLogger = default!; // ADT-Tweak
-||||||| base
-        [Dependency] private readonly IConfigurationManager _configurationManager = default!;
-        [Dependency] private readonly IGameMapManager _gameMapManager = default!;
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-=======
         [Dependency] private IConfigurationManager _configurationManager = default!;
         [Dependency] private IGameMapManager _gameMapManager = default!;
         [Dependency] private IPrototypeManager _prototypeManager = default!;
->>>>>>> theirs
+        [Dependency] private IAdminLogManager _adminLogger = default!; // ADT-Tweak
 
         public override string Command => "forcemap";
 

@@ -9,14 +9,8 @@ namespace Content.Client.StationRecords;
 [GenerateTypedNameReferences]
 public sealed partial class GeneralStationRecordConsoleWindow : DefaultWindow
 {
-<<<<<<< ours
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IEntityManager _ent = default!;
-||||||| base
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-=======
     [Dependency] private IPrototypeManager _prototypeManager = default!;
->>>>>>> theirs
+    [Dependency] private IEntityManager _ent = default!;
 
     public Action<uint?>? OnKeySelected;
 

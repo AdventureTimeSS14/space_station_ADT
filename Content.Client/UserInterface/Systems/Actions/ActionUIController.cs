@@ -46,23 +46,11 @@ namespace Content.Client.UserInterface.Systems.Actions;
 
 public sealed partial class ActionUIController : UIController, IOnStateChanged<GameplayState>, IOnSystemChanged<ActionsSystem>
 {
-<<<<<<< ours
-    [Dependency] private readonly IOverlayManager _overlays = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IInputManager _input = default!;
-    [Dependency] private readonly IStateManager _stateManager = default!;
-||||||| base
-    [Dependency] private readonly IOverlayManager _overlays = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IInputManager _input = default!;
-=======
     [Dependency] private IOverlayManager _overlays = default!;
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private IPlayerManager _playerManager = default!;
     [Dependency] private IInputManager _input = default!;
->>>>>>> theirs
+    [Dependency] private IStateManager _stateManager = default!;
 
     [UISystemDependency] private readonly ActionsSystem? _actionsSystem = default;
     [UISystemDependency] private readonly InteractionOutlineSystem? _interactionOutline = default;

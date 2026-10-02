@@ -15,23 +15,11 @@ namespace Content.Server.Atmos.EntitySystems;
 
 public sealed partial class HeatExchangerSystem : EntitySystem
 {
-<<<<<<< ours
-    [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly GasPassiveGateSystem _passiveGate = default!;
-||||||| base
-    [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-=======
     [Dependency] private AtmosphereSystem _atmosphereSystem = default!;
     [Dependency] private IConfigurationManager _cfg = default!;
     [Dependency] private NodeContainerSystem _nodeContainer = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
->>>>>>> theirs
+    [Dependency] private GasPassiveGateSystem _passiveGate = default!;
 
     float tileLoss;
 

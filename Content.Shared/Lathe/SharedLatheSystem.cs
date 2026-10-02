@@ -21,20 +21,10 @@ namespace Content.Shared.Lathe;
 /// </summary>
 public abstract partial class SharedLatheSystem : EntitySystem
 {
-<<<<<<< ours
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly SharedMaterialStorageSystem _materialStorage = default!;
-    [Dependency] private readonly EmagSystem _emag = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!; // ADT-Tweak
-    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!; // ADT-Tweak
-||||||| base
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly SharedMaterialStorageSystem _materialStorage = default!;
-    [Dependency] private readonly EmagSystem _emag = default!;
-=======
     [Dependency] private SharedMaterialStorageSystem _materialStorage = default!;
     [Dependency] private EmagSystem _emag = default!;
->>>>>>> theirs
+    [Dependency] private SharedSolutionContainerSystem _solution = default!; // ADT-Tweak
+    [Dependency] private ItemSlotsSystem _itemSlots = default!; // ADT-Tweak
 
     public readonly Dictionary<string, List<LatheRecipePrototype>> InverseRecipes = new();
     public const int MaxItemsPerRequest = 10_000;

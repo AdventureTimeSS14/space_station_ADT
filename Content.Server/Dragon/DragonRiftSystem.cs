@@ -22,29 +22,13 @@ namespace Content.Server.Dragon;
 /// </summary>
 public sealed partial class DragonRiftSystem : EntitySystem
 {
-<<<<<<< ours
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly DragonSystem _dragon = default!;
-    [Dependency] private readonly ISerializationManager _serManager = default!;
-    [Dependency] private readonly NavMapSystem _navMap = default!;
-    [Dependency] private readonly NPCSystem _npc = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-||||||| base
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly DragonSystem _dragon = default!;
-    [Dependency] private readonly ISerializationManager _serManager = default!;
-    [Dependency] private readonly NavMapSystem _navMap = default!;
-    [Dependency] private readonly NPCSystem _npc = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-=======
     [Dependency] private ChatSystem _chat = default!;
     [Dependency] private DragonSystem _dragon = default!;
     [Dependency] private ISerializationManager _serManager = default!;
     [Dependency] private NavMapSystem _navMap = default!;
     [Dependency] private NPCSystem _npc = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
->>>>>>> theirs
+    [Dependency] private IRobustRandom _random = default!;
 
     public override void Initialize()
     {

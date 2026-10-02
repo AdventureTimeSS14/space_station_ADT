@@ -37,26 +37,6 @@ namespace Content.Shared.Bed.Sleep;
 
 public sealed partial class SleepingSystem : EntitySystem
 {
-<<<<<<< ours
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-    [Dependency] private readonly BlindableSystem _blindableSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedEmitSoundSystem _emitSound = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!; // ADT
-||||||| base
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-    [Dependency] private readonly BlindableSystem _blindableSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedEmitSoundSystem _emitSound = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-=======
     [Dependency] private IGameTiming _gameTiming = default!;
     [Dependency] private SharedActionsSystem _actionsSystem = default!;
     [Dependency] private BlindableSystem _blindableSystem = default!;
@@ -65,7 +45,7 @@ public sealed partial class SleepingSystem : EntitySystem
     [Dependency] private SharedEmitSoundSystem _emitSound = default!;
     [Dependency] private StatusEffectsSystem _statusEffect = default!;
     [Dependency] private SharedStunSystem _stun = default!;
->>>>>>> theirs
+    [Dependency] private StandingStateSystem _standing = default!; // ADT
 
     public static readonly EntProtoId SleepActionId = "ActionSleep";
     public static readonly EntProtoId WakeActionId = "ActionWake";

@@ -68,17 +68,10 @@ public sealed partial class LabelSystem : EntitySystem
     /// <summary>
     /// Add, change, or remove a label on an entity.
     /// </summary>
-<<<<<<< ours
     /// <remarks>
     /// If <paramref name="text"/> is <see langword="null"/> or an empty string, the <see cref="LabelComponent"/> will be removed.
+    /// </remarks>
     /// The label text supports BBCode markup (bold, italic, color, etc.).
-    /// </remarks>
-||||||| base
-=======
-    /// <remarks>
-    /// If <paramref name="text"/> is <see langword="null"/> or an empty string, the <see cref="LabelComponent"/> will be removed.
-    /// </remarks>
->>>>>>> theirs
     /// <param name="uid">EntityUid to change label on</param>
     /// <param name="text">intended label text (null to remove)</param>
     /// <param name="label">label component for resolve</param>
