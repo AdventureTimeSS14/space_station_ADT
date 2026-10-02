@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Vehicle.Components;
 using Content.Shared.ADT.Hierophant;
 using Content.Shared.ADT.TileMovement;
 using Content.Shared.Mobs.Systems;
@@ -85,7 +86,7 @@ public sealed class HierophantTileMovementSystem : EntitySystem
         if (!_fighting.Add(uid))
             return;
 
-        if (TryComp<RiderComponent>(uid, out var rider) && rider.Vehicle != null)
+        if (TryComp<ADTVehicleRiderComponent>(uid, out var rider) && rider.Vehicle != null)
             TryAddFighter(rider.Vehicle.Value);
     }
 

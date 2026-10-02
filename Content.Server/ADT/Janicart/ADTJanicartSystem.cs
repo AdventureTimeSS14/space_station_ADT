@@ -282,7 +282,7 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
             return false;
 
         if (TryComp<VehicleComponent>(host, out var vehicle))
-            return vehicle.Rider != null;
+            return vehicle.Operator != null;
 
         if (HasComp<BorgChassisComponent>(host))
             return _mind.TryGetMind(host, out _, out _);

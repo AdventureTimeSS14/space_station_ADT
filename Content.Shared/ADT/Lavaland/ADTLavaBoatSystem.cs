@@ -87,7 +87,7 @@ public sealed class ADTLavaBoatSystem : EntitySystem
 
     private void OnMove(Entity<ADTLavaBoatComponent> ent, ref MoveEvent args)
     {
-        if (_reverting || !TryComp<VehicleComponent>(ent.Owner, out var vehicle) || vehicle.Rider == null)
+        if (_reverting || !TryComp<VehicleComponent>(ent.Owner, out var vehicle) || vehicle.Operator == null)
             return;
 
         if (args.OldPosition.EntityId != args.NewPosition.EntityId)

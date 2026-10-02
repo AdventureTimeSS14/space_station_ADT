@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Vehicle.Components; // ADT-Tweak
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Shared.ActionBlocker;
@@ -227,7 +228,7 @@ public abstract partial class SharedMoverController : VirtualController
 
         // ADT-Tweak start: Block vehicles from moving in space
         var hasGravity = _gravity.EntityGridOrMapHaveGravity(uid);
-        var isVehicle = HasComp<VehicleComponent>(uid);
+        var isVehicle = HasComp<ADTVehicleComponent>(uid);
 
         if (!hasGravity && isVehicle)
         {

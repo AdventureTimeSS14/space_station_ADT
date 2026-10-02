@@ -1,4 +1,5 @@
-﻿using Content.Shared.Buckle.Components;
+﻿using Content.Shared.ADT.Vehicle.Components; // ADT-Tweak
+using Content.Shared.Buckle.Components;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
@@ -47,7 +48,7 @@ public sealed partial class LegsParalyzedSystem : EntitySystem
     private void OnUpdateCanMoveEvent(EntityUid uid, LegsParalyzedComponent component, UpdateCanMoveEvent args)
     {
         // ADT-Tweak start
-        if (HasComp<RiderComponent>(uid))
+        if (HasComp<ADTVehicleRiderComponent>(uid))
             return;
 
         if (HasComp<RelayInputMoverComponent>(uid))

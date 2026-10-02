@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Vehicle.Components; // ADT-Tweak
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Shared.Alert;
@@ -139,7 +140,7 @@ public abstract partial class SharedBuckleSystem
         }
 
         // ADT Vehicles start
-        if (HasComp<RiderComponent>(buckle.Owner) && HasComp<VehicleComponent>(strapUid))
+        if (HasComp<ADTVehicleRiderComponent>(buckle.Owner) && HasComp<ADTVehicleComponent>(strapUid))
             return;
         // ADT Vehicles end
 
@@ -178,7 +179,7 @@ public abstract partial class SharedBuckleSystem
         if (component.BuckledTo != null)
         {
             var buckle = component.BuckledTo;
-            if (TryComp<VehicleComponent>(buckle, out _))
+            if (HasComp<ADTVehicleComponent>(buckle))
                 return;
         }
         // ADT vehicles end
@@ -195,18 +196,11 @@ public abstract partial class SharedBuckleSystem
 
     private void OnBuckleUpdateCanMove(EntityUid uid, BuckleComponent component, UpdateCanMoveEvent args)
     {
-<<<<<<< ours
-        if (component.Buckled &&
-            !HasComp<VehicleComponent>(component.BuckledTo)) // ADT vehicles back
-||||||| base
-        if (component.Buckled)
-=======
         // If we're relaying then don't cancel.
         if (HasComp<RelayInputMoverComponent>(uid))
             return;
 
         if (component.Buckled)
->>>>>>> theirs
             args.Cancel();
     }
 
