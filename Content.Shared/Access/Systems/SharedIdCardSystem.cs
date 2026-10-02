@@ -171,14 +171,8 @@ public abstract partial class SharedIdCardSystem : EntitySystem
         return true;
     }
 
-<<<<<<< ours
-    public bool TryChangeJobIcon(EntityUid uid, JobIconPrototype jobIcon, IdCardComponent? id = null, EntityUid? player = null, string? jobNameOverride = null) // ADT-Tweak
-||||||| base
-    public bool TryChangeJobIcon(EntityUid uid, JobIconPrototype jobIcon, IdCardComponent? id = null, EntityUid? player = null)
-=======
     /// <returns> True if the job icon changed, false if nothing changed. </returns>
-    public bool TryChangeJobIcon(EntityUid uid, JobIconPrototype jobIcon, IdCardComponent? id = null, EntityUid? player = null)
->>>>>>> theirs
+    public bool TryChangeJobIcon(EntityUid uid, JobIconPrototype jobIcon, IdCardComponent? id = null, EntityUid? player = null, string? jobNameOverride = null) // ADT-Tweak
     {
         if (!Resolve(uid, ref id))
         {

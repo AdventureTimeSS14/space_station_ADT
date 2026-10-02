@@ -40,6 +40,8 @@ public abstract partial class SharedAgentIdCardSystem : EntitySystem
         access.Tags.UnionWith(targetAccess.Tags);
         var addedLength = access.Tags.Count - beforeLength;
 
+        CopyNanoChat(ent, args.Target.Value); // ADT-Tweak
+
         _popup.PopupPredicted(Loc.GetString("agent-id-new", ("number", addedLength), ("card", args.Target)),
             args.Target.Value,
             args.User);

@@ -159,23 +159,15 @@ public sealed partial class IdCardConsoleSystem : SharedIdCardConsoleSystem
         _idCard.TryChangeFullName(targetId, newFullName, player: player);
         _idCard.TryChangeJobTitle(targetId, newJobTitle, player: player);
 
-<<<<<<< ours
-        // ADT-Tweak start: Используем TryIndex вместо Resolve для корректной обработки пустых ID
+        // ADT-Tweak-Start
         JobPrototype? job = null;
         if (newJobProto != string.Empty)
-            _prototype.TryIndex(newJobProto, out job);
+            ProtoMan.TryIndex(newJobProto, out job);
 
-        if (job != null && _prototype.Resolve(job.Icon, out var jobIcon))
-||||||| base
-        if (_prototype.TryIndex(newJobProto, out var job)
-            && _prototype.Resolve(job.Icon, out var jobIcon))
-=======
-        if (ProtoMan.TryIndex(newJobProto, out var job)
-            && ProtoMan.Resolve(job.Icon, out var jobIcon))
->>>>>>> theirs
+        if (job != null && ProtoMan.Resolve(job.Icon, out var jobIcon))
+        // ADT-Tweak-End
         {
             _idCard.TryChangeJobIcon(targetId, jobIcon);
-            // ADT-Tweak end
             _idCard.TryChangeJobDepartment(targetId, job);
         }
 
