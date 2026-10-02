@@ -8,13 +8,8 @@ using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffectNew;
 using Robust.Server.Console;
 using Robust.Shared.Player;
-<<<<<<< ours
 using Content.Shared.Speech.Muting;
 using Content.Shared.Chat;
-||||||| base
-using Content.Shared.Speech.Muting;
-=======
->>>>>>> theirs
 
 namespace Content.Server.Mobs;
 

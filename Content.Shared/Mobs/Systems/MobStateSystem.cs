@@ -2,12 +2,8 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs.Components;
-<<<<<<< ours
 using Content.Shared.Movement.Systems; // ADT-Tweak
-||||||| base
-=======
 using Content.Shared.Popups;
->>>>>>> theirs
 using Content.Shared.Standing;
 using Robust.Shared.Timing;
 
@@ -16,26 +12,6 @@ namespace Content.Shared.Mobs.Systems;
 [Virtual]
 public partial class MobStateSystem : EntitySystem
 {
-<<<<<<< ours
-    [Dependency] private readonly ActionBlockerSystem _blocker = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly ILogManager _logManager = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _moveMod = default!; // ADT-Tweak
-    private ISawmill _sawmill = default!;
-||||||| base
-    [Dependency] private readonly ActionBlockerSystem _blocker = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly ILogManager _logManager = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    private ISawmill _sawmill = default!;
-=======
     [Dependency] private ActionBlockerSystem _blocker = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] private StandingStateSystem _standing = default!;
@@ -43,7 +19,7 @@ public partial class MobStateSystem : EntitySystem
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private DamageableSystem _damageable = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
->>>>>>> theirs
+    [Dependency] private MovementSpeedModifierSystem _moveMod = default!; // ADT-Tweak
 
     [Dependency] private EntityQuery<MobStateComponent> _mobStateQuery = default!;
 
