@@ -1,12 +1,16 @@
 name: RSI Validator
 
+# ADT-Tweak-start
 on:
-  push:
-    branches: [ master, staging, stable ]
-  merge_group:
-  pull_request:
-    paths:
-      - '**.rsi/**'
+  workflow_dispatch:
+#on:
+#  push:
+#    branches: [ master, staging, stable ]
+#  merge_group:
+#  pull_request:
+#    paths:
+#      - '**.rsi/**'
+# ADT-Tweak-end
 
 jobs:
   validate_rsis:

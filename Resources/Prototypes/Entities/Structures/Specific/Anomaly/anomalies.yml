@@ -118,6 +118,13 @@
     damage:
       types:
         Heat: 10
+  # ADT-Tweak start
+  - type: ChildEntities
+    childPrototypes:
+      - prototype: OverlayFireEffect
+      - prototype: OverlayEmbersEffect
+      - prototype: OverlaySmokeEffect
+  # ADT-Tweak end
 
 - type: entity
   id: AnomalyGravity
@@ -277,6 +284,10 @@
       - MobFleshClamp
       - MobFleshLover
       - FleshKudzu
+  # ADT-Tweak start
+  - type: ParticleEmitter
+    effect: DrippingBlood
+  # ADT-Tweak end
 
 - type: entity
   id: AnomalyBluespace
@@ -326,6 +337,12 @@
       collection: RadiationPulse
       params:
         volume: 5
+  # ADT-Tweak start
+  - type: ChildEntities
+    childPrototypes:
+      - prototype: OverlayBluespaceBurstEffect
+      - prototype: OverlayBluespaceSparksEffect
+  # ADT-Tweak end
 
 - type: entity
   id: AnomalyIce
@@ -382,6 +399,10 @@
     damage:
       types:
         Cold: 10
+  # ADT-Tweak start
+  - type: ParticleEmitter
+    effect: SnowFall
+  # ADT-Tweak end
 
 - type: entity
   id: AnomalyRockBase
@@ -1116,6 +1137,10 @@
     solution: anomaly
   - type: InjectableSolution
     solution: beaker
+  # ADT-Tweak start
+  - type: ParticleEmitter
+    effect: DrippingLiquid
+  # ADT-Tweak end
 
 - type: entity
   id: AnomalyShadow
@@ -1180,6 +1205,10 @@
     damage:
       types:
         Cold: 10
+  # ADT-Tweak start
+  - type: ParticleEmitter
+    effect: ShadowMist
+  # ADT-Tweak end
 
 - type: entity
   id: AnomalyTech
@@ -1215,6 +1244,10 @@
     ports:
       - Pulse
       - Timer
+  # ADT-Tweak start
+  - type: ParticleEmitter
+    effect: BluespaceSparks
+  # ADT-Tweak end
 
 - type: entity
   id: AnomalyTechBeam

@@ -11,6 +11,10 @@ on:
     branches: [ master, staging, stable ]
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   build:
     if: github.actor != 'IanComradeBot' && github.event.pull_request.draft == false
@@ -56,6 +60,9 @@ jobs:
         if-no-files-found: error
         compression-level: 0
 
+    - name: Run YAML Linter
+      run: dotnet run --project Content.YAMLLinter/Content.YAMLLinter.csproj --configuration DebugOpt --no-build
+
   integration-test:
     name: integration-test (${{ matrix.name }})
     if: github.actor != 'IanComradeBot' && github.event.pull_request.draft == false
@@ -78,11 +85,11 @@ jobs:
 
           # ~348с
           - name: maps-a
-            where: "test =~ Tests.PostMapInitTest.NonGameMapsLoadableTest or test =~ Tests.PostMapInitTest.ShuttlesLoadableTest or test =~ Tests.PostMapInitTest.GridsLoadableTest or test =~ Tests.Mapping"
+            where: "test =~ Tests.ADT.ADTPostMapInitTest.NonGameMapsLoadableTest or test =~ Tests.ADT.ADTPostMapInitTest.ShuttlesLoadableTest or test =~ Tests.ADT.ADTPostMapInitTest.GridsLoadableTest or test =~ Tests.Mapping"
 
-          # ~495с. Остаток PostMapInitTest
+          # ~495с. Остаток ADTPostMapInitTest
           - name: maps-b
-            where: "test =~ Tests.PostMapInitTest and test !~ NonGameMapsLoadableTest and test !~ ShuttlesLoadableTest and test !~ GridsLoadableTest"
+            where: "test =~ Tests.ADT.ADTPostMapInitTest and test !~ NonGameMapsLoadableTest and test !~ ShuttlesLoadableTest and test !~ GridsLoadableTest"
 
           # ~412с
           - name: slow
@@ -90,7 +97,7 @@ jobs:
 
           # ~489с. Всё остальное, включая новые тесты
           - name: core
-            where: "test =~ Content.IntegrationTests and test !~ Tests.EntityTest and test !~ Tests.PostMapInitTest and test !~ Tests.Mapping and test !~ Tests.Access and test !~ Tests.Actions and test !~ Tests.Preferences and test !~ Tests.PrototypeTests and test !~ Tests.PrototypeSaveTest and test !~ Tests.Utility"
+            where: "test =~ Content.IntegrationTests and test !~ Tests.EntityTest and test !~ Tests.PostMapInitTest and test !~ Tests.ADT.ADTPostMapInitTest and test !~ Tests.Mapping and test !~ Tests.Access and test !~ Tests.Actions and test !~ Tests.Preferences and test !~ Tests.PrototypeTests and test !~ Tests.PrototypeSaveTest and test !~ Tests.Utility"
 
     steps:
     - name: Checkout Master
@@ -171,34 +178,37 @@ jobs:
         retention-days: 7
         compression-level: 9
 
-  # На всякий случай, если фильтр наебнется вдруг.
-  shard-report:
-    name: Shard report
-    if: always() && needs.integration-test.result != 'skipped'
-    needs: integration-test
+  ci-success:
+    name: Build & Test Debug
+    if: always() && needs.build.result != 'skipped'
+    needs:
+      - build
+      - integration-test
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Master
+      if: needs.integration-test.result != 'skipped'
       uses: actions/checkout@v4.2.2
       with:
         sparse-checkout: Tools/ADT
         submodules: false
 
     - name: Download all shard results
+      if: needs.integration-test.result != 'skipped'
       uses: actions/download-artifact@v4
       with:
         pattern: nunit3-results-*
         path: shard-results
 
+    # На всякий случай, если фильтр наебнется вдруг.
     - name: Check shard balance and overlap
+      if: needs.integration-test.result != 'skipped'
       run: python3 Tools/ADT/ci_shard_report.py shard-results
 
-  ci-success:
-    name: Build & Test Debug
-    needs:
-      - build
-      - integration-test
-    runs-on: ubuntu-latest
-    steps:
-      - name: CI succeeded
-        run: exit 0
+    - name: CI succeeded
+      if: ${{ !cancelled() }}
+      run: |
+        if [ "${{ needs.build.result }}" != "success" ] || [ "${{ needs.integration-test.result }}" != "success" ]; then
+          echo "build: ${{ needs.build.result }}, integration-test: ${{ needs.integration-test.result }}"
+          exit 1
+        fi

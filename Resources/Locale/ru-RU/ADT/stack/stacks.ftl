@@ -13,3 +13,52 @@ stack-adt-sinew =
         [few] жилы
        *[other] жил
     } наблюдателя
+
+stack-adt-cartilage-plate =
+    { $amount ->
+        [1] хрящевая пластина
+        [few] хрящевые пластины
+       *[other] хрящевых пластин
+    }
+
+stack-adt-razor-teeth =
+    { $amount ->
+        [1] бритвенно-острый зуб
+        [few] бритвенно-острых зуба
+       *[other] бритвенно-острых зубов
+    }
+
+stack-adt-sandstone =
+    { $amount ->
+        [1] песчаниковый кирпич
+        [few] песчаниковых кирпича
+       *[other] песчаниковых кирпичей
+    }
+
+stack-adt-weaver-chitin =
+    { $amount ->
+        [1] кусок хитина
+        [few] куска хитина
+       *[other] кусков хитина
+    }
+stack-adt-bone-splint = костяная шина
+stack-adt-cloth-bandage = тряпичный бинт
+stack-adt-mushroom-ointment = грибная мазь
+stack-adt-leather =
+    { $amount ->
+        [1] кусок кожи
+        [few] куска кожи
+       *[other] кусков кожи
+    }
+stack-adt-hairless-hide =
+    { $amount ->
+        [1] безволосая шкура
+        [few] безволосые шкуры
+       *[other] безволосых шкур
+    }
+stack-adt-wet-leather =
+    { $amount ->
+        [1] кусок мокрой кожи
+        [few] куска мокрой кожи
+       *[other] кусков мокрой кожи
+    }

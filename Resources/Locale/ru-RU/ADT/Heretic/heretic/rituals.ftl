@@ -71,3 +71,4 @@ heretic-ritual-fail-sacrifice-cosmos = Недостаточно трупов с�
 heretic-ritual-info-header = Ритуал: { $name }
 heretic-ritual-info-requirements = [font size=16]{$requirements}[/font]
 heretic-ritual-info-item = - { $item } [icon src="{ $icon }" tooltip="{ $tooltip }" size=32] x{ $amount }
+heretic-ritual-info-item-plain = - { $item } x{ $amount }

@@ -181,6 +181,9 @@ namespace Content.Shared.Chemistry.Reagent
         // ADT-Tweak start
         [DataField]
         public bool SplashBlocked;
+
+        [DataField]
+        public bool VaporBlocked;
         // ADT-Tweak end
 
         [DataField("plantMetabolism")]

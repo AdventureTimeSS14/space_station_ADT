@@ -303,6 +303,57 @@
         {
             "name": "sani-equipped-HELMET",
             "directions": 4
+        },
+        {
+            "name": "plushie_el"
+        },
+        {
+            "name": "plushie_proxima"
+        },
+        {
+            "name": "proxima-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "proxima-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "proxima-equipped-HELMET",
+            "directions": 4
+        },
+        {
+            "name": "plushie_kusuk"
+        },
+        {
+            "name": "kusuk-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "kusuk-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "kusuk-equipped-HELMET",
+            "directions": 4
+        },
+        {
+            "name": "plushie_nirkin"
+        },
+        {
+            "name": "nirkin-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "nirkin-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "nirkin-equipped-HELMET",
+            "directions": 4
+        },
+        {
+            "name": "plushie_yuriy"
         }
     ]
 }

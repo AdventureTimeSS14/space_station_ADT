@@ -174,6 +174,18 @@
   id: MobMoth
   name: Urist McFluff
   components:
+    # ADT-Tweak start
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        100: SoftCritical
+        140: Critical
+        200: Dead
+    - type: SoftCrit
+      speedModifier: 0.35
+    - type: TryCatchBreath
+      doAfterTime: 5
+    # ADT-Tweak end
     - type: Damageable
       damageModifierSet: Moth
     - type: Injurable
@@ -382,11 +394,16 @@
           - ClothMade
           - Paper
           - Pill
-          # ADT-Tweak start: моли могут есть фрукты, овощи, и вайтлистнутую еду
+          # ADT-Tweak start: моли едят любую еду, кроме мяса и снеков
           - Fruit
           - Vegetable
           - ADTMothFriendlyFood
-          # ADT-Tweak end
+      isSpecialDigestibleExclusive: false
+      specialDigestibleBlacklist:
+        tags:
+          - Meat
+          - FoodSnack
+      # ADT-Tweak end
 
 - type: entity
   parent: [OrganBaseLiver, OrganMothInternal, OrganAnimalMetabolizer] # ADT-tweak removed OrganSpriteHumanInternal

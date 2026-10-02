@@ -9,50 +9,74 @@
       state: core
       color: "#383936"
       shader: XenoMetallic
-  - type: Reactive
-    reactions:
-    - reagents: [ Water ]
-      methods: [ Touch, Injection ]
-      effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction-reagent" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:ConvertReagent
-        solutionName: extract
-        removeReagent: Water
-        addReagent: SpaceLube
-        removeAmount: 1
-        addAmount: 1
-    - reagents: [ Plasma ]
-      methods: [ Touch, Injection ]
-      effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction-evil" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:Jitter
-        time: 5
-        frequency: 20
-      - !type:ExplosionReactionEffect
-        delay: 5
-        explosionType: FireBomb # bomboclat
-        maxIntensity: 525
-        intensitySlope: 4
-        intensityPerUnit: 70
-    - reagents: [ Blood ]
-      methods: [ Touch, Injection ]
-      effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction-fail" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: SlimeExtract
+    extractReactions:
+    - OilSlimeExtractWaterReaction
+    - OilSlimeExtractPlasmaReaction
+    - OilSlimeExtractBloodReaction
   - type: Tag
     tags:
     - XenobiologyOilExtract
+
+- type: extractReaction
+  id: OilSlimeExtractWaterReaction
+  requirements:
+    Water: 1
+  effects:
+  - effect: !type:PopupMessage
+      type: Pvs
+      messages: [ "xeno-extract-reaction-reagent" ]
+    scalingOffset: 0
+  - effect: !type:PlaySoundEffect
+      sound: /Audio/Effects/Chemistry/bubbles.ogg
+    scalingOffset: 0
+  - effect: !type:AddReagentToSolution
+      reagent: SpaceLube
+      solution: extract
+    scalingFactor: 1
+    scalingOffset: 0
+  shouldDelete: false
+
+- type: extractReaction
+  id: OilSlimeExtractPlasmaReaction
+  requirements:
+    Plasma: 1
+  effects:
+  - effect: !type:PopupMessage
+      type: Pvs
+      messages: [ "xeno-extract-reaction-evil" ]
+    scalingOffset: 0
+  - effect: !type:PlaySoundEffect
+      sound: /Audio/Effects/Chemistry/bubbles.ogg
+    scalingOffset: 0
+  - effect: !type:Jitter
+      time: 5
+      frequency: 20
+    scalingOffset: 0
+  - effect: !type:ExplosionReactionEffect
+      delay: 5
+      explosionType: FireBomb # bomboclat
+      maxIntensity: 525
+      intensitySlope: 4
+      intensityPerUnit: 70
+    scalingOffset: 1
+  shouldDelete: false
+
+- type: extractReaction
+  id: OilSlimeExtractBloodReaction
+  requirements:
+    Blood: 1
+  effects:
+  - effect: !type:PopupMessage
+      type: Pvs
+      messages: [ "xeno-extract-reaction-reagent" ]
+    scalingOffset: 0
+  - effect: !type:PlaySoundEffect
+      sound: /Audio/Effects/Chemistry/bubbles.ogg
+    scalingOffset: 0
+  - effect: !type:AddReagentToSolution
+      reagent: Cornoil
+      solution: extract
+    scalingFactor: 1
+    scalingOffset: 0
+  shouldDelete: false

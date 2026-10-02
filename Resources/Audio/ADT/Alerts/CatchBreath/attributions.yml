@@ -1,0 +1,24 @@
+- files: ["catch-breath-try.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "Blood vomit warning by Orsoniks, SCAV Prototype/Casualties Unknown OST. Converted from .ogx to .ogg"
+  source: "https://scavprototype.wiki.gg/wiki/Soundtrack"
+
+- files: ["catch-breath-success.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "Mood up by Orsoniks, SCAV Prototype/Casualties Unknown OST. Converted from .ogx to .ogg"
+  source: "https://scavprototype.wiki.gg/wiki/Soundtrack"
+
+- files: ["catch-breath-nothing.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "Mood down by Orsoniks, SCAV Prototype/Casualties Unknown OST. Converted from .ogx to .ogg"
+  source: "https://scavprototype.wiki.gg/wiki/Soundtrack"
+
+- files: ["catch-breath-failure.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "Self harm by Orsoniks, SCAV Prototype/Casualties Unknown OST. Converted from .ogx to .ogg"
+  source: "https://scavprototype.wiki.gg/wiki/Soundtrack"
+
+- files: ["catch-breath-bluntsuccess.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "Skill up by Orsoniks, SCAV Prototype/Casualties Unknown OST. Converted from .ogx to .ogg"
+  source: "https://scavprototype.wiki.gg/wiki/Soundtrack"

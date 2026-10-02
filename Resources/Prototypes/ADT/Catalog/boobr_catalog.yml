@@ -1292,6 +1292,18 @@
   categories:
   - ADTUplinkERTAttachments
 
+- type: listing
+  id: ADTBoberFiringPinLoyalty
+  name: boobr-firing-pin-loyalty-name
+  description: boobr-firing-pin-loyalty-desc
+  icon: { sprite: /Textures/ADT/Objects/Devices/pin.rsi, state: firing_pin_loyalty }
+  productEntity: ADTFiringPinLoyalty
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  categories:
+  - ADTUplinkERTAttachments
+
 #Аплинк ОБР - щиты
 
 - type: listing
@@ -1334,6 +1346,17 @@
       stock: 1
   cost:
     Productunit: 8
+  categories:
+  - ADTUplinkERTMisc
+
+- type: listing
+  id: ADTBoberMedbeam
+  name: boobr-medbeam-name
+  description: boobr-medbeam-desc
+  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Battery/healgun.rsi, state: icon }
+  productEntity: ADTWeaponMedbeamERT
+  cost:
+    Productunit: 20
   categories:
   - ADTUplinkERTMisc
 

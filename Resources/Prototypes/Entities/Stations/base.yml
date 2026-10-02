@@ -55,8 +55,8 @@
     - type: GridSpawn
       groups:
         trade: !type:GridSpawnGroup
-          minimumDistance: 150
-          maximumDistance: 200
+          minimumDistance: 350 # ADT Trade Station distance - предотвращение коллизи
+          maximumDistance: 400 # ADT Trade Station distance - предотвращение коллизи
           nameGrid: false # ADT Trade Station Name
           addComponents:
             - type: ProtectedGrid
@@ -127,10 +127,10 @@
           nameGrid: false
           paths:
           - /Maps/Shuttles/mining.yml
-        mining_guest: !type:GridSpawnGroup
-          nameGrid: false
-          paths:
-          - /Maps/ADTMaps/Shuttles/mining_guest.yml
+        # mining_guest: !type:GridSpawnGroup
+        #   nameGrid: false
+        #   paths:
+        #   - /Maps/ADTMaps/Shuttles/mining_guest.yml
         mining: !type:GridSpawnGroup
           nameGrid: false
           paths:

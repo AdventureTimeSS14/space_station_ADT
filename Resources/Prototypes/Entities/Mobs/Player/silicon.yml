@@ -103,6 +103,8 @@
         type: AtmosAlertsComputerBoundUserInterface
       enum.StationAiInfoUiKey.Key:
         type: StationAiInfoBoundUserInterface
+      enum.StationAiNanoChatUiKey.Key:
+        type: StationAiNanoChatBoundUserInterface
     # ADT End
   - type: IntrinsicUI
     uis:
@@ -121,6 +123,7 @@
         toggleAction: ADTActionOpenRemoteDevicesMenu
   - type: AtmosAlertsComputer
   - type: StationAiInfo
+  - type: StationAiNanoChat
   - type: CrewManifestViewer
     ownerKey: enum.StationAiInfoUiKey.Key
     # ADT End
@@ -330,6 +333,7 @@
     batteryRechargeEfficiency: 0 # Setting to zero until the light flickering issue associated with dynamic power loads is fixed
   - type: StationAiCore
   - type: StationAiVision
+  - type: AiEyeTeleport # ADT-Tweak
   - type: InteractionOutline
   - type: Sprite
     snapCardinals: true
@@ -565,6 +569,7 @@
   - type: CollectiveMindRank
     rankName: collective-mind-sai-rank
   - type: StationAiBrain
+  - type: NanoChatCard
   # ADT-Tweak-End
   - type: StartingMindRole
     mindRole: "MindRoleSiliconBrain"

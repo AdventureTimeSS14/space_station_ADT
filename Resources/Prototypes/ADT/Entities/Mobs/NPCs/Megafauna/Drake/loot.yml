@@ -1,0 +1,242 @@
+- type: entity
+  parent: ADTCrateNecropolis
+  id: ADTCrateDrakeLoot
+  name: dragon chest
+  description: A chest left behind by the ash drake.
+
+- type: entity
+  id: ADTLavaStaff
+  parent: BaseItem
+  name: staff of lava
+  description: The power of fire and rocks in your hands!
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/lava_staff.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Weapons/Melee/lava_staff.rsi
+    size: Huge
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Melee/lava_staff.rsi
+    slots:
+    - Back
+  - type: MeleeWeapon
+    damage:
+      types:
+        Heat: 25
+    soundHit:
+      path: /Audio/ADT/Drake/sear.ogg
+  - type: ADTLavaStaff
+    lavaProto: FloorLavaEntity
+    lavaPrototypes:
+    - FloorLavaEntity
+    - ADTFloorLavaCovered
+    - ADTDrakeTempLava
+    resetTile: FloorBasalt
+    warningProto: ADTLavaStaffWarning
+    failEffect: EffectSparks
+    blacklist:
+      tags:
+      - Wall
+    range: 8
+    createDelay: 3
+    createCooldown: 10
+    resetCooldown: 5
+    failCooldown: 3.1
+    useSound:
+      path: /Audio/Magic/fireball.ogg
+    failSound:
+      collection: sparks
+
+- type: entity
+  id: ADTLavaStaffWarning
+  categories: [ HideSpawnMenu ]
+  name: lava warning
+  components:
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    sprite: ADT/Effects/drake_effects.rsi
+    drawdepth: BelowMobs
+    color: "#FFFFFF00"
+    layers:
+    - state: lava_warning
+  - type: ADTDrakeVisualEffect
+    keyframes:
+    - time: 0
+      alpha: 0
+    - time: 3
+      alpha: 1
+  - type: TimedDespawn
+    lifetime: 5
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  id: ADTSpectralBlade
+  parent: BaseSword
+  name: spectral blade
+  description: A rusty and dull blade. It doesn't look like it would do much damage. It glows weakly.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/spectral_blade.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Weapons/Melee/spectral_blade.rsi
+    size: Huge
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 1
+    soundHit:
+      path: /Audio/ADT/Shadowling/ghost2.ogg
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 1
+  - type: EmbeddableProjectile
+    offset: -0.15,0.0
+  - type: ThrowingAngle
+    angle: 225
+  - type: ADTEmbedChance
+    chance: 0.25
+    whitelist:
+      components:
+      - MobState
+  - type: WarpPoint
+    follow: true
+    location: спектральный клинок
+  - type: ADTSpectralBlade
+    damagePerSpirit:
+      types:
+        Slash: 4
+    maxDamage: 75
+    blockChancePerSpirit: 0.05
+    maxBlockChance: 0.75
+    summonCooldown: 60
+
+- type: entity
+  id: ADTSpellbookSacredFlame
+  parent: BaseSpellbook
+  name: spellbook of sacred flame
+  description: This book urges you to become one with the flame burning within... and to invite others to join you.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/sacred_flame_book.rsi
+    layers:
+    - state: icon
+  - type: Item
+    sprite: ADT/Objects/Specific/Lavaland/sacred_flame_book.rsi
+  - type: Spellbook
+    learnPermanently: true
+    spellActions:
+      ADTActionSacredFlame: null
+
+- type: entity
+  parent: BaseAction
+  id: ADTActionSacredFlame
+  name: Sacred Flame
+  description: Makes everyone around you more flammable, and lights yourself on fire.
+  components:
+  - type: Magic
+  - type: Action
+    useDelay: 6
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/fireball.ogg
+    icon:
+      sprite: ADT/Interface/Actions/sacred_flame.rsi
+      state: sacredflame
+  - type: InstantAction
+    event: !type:ADTSacredFlameSpellEvent
+      range: 7
+      fireStacks: 20
+      resistComponents:
+      - type: FireImmunity
+      - type: SpecialHighTempImmunity
+  - type: SpeakOnAction
+    sentence: adt-action-speech-spell-sacred-flame
+
+- type: entity
+  id: ADTDragonsBlood
+  parent: BaseItem
+  name: bottle of dragons blood
+  description: You're not actually going to drink this, are you?
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/dragons_blood.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: ADTDragonsBlood
+    drinkSound:
+      path: /Audio/Items/drink.ogg
+    outcomes:
+    - message: adt-dragons-blood-skeleton
+      effects:
+      - !type:SpeciesChange
+        newSpecies: Skeleton
+    - message: adt-dragons-blood-dragon-form
+      knownMessage: adt-dragons-blood-dragon-form-known
+      mindAction: ADTActionDragonForm
+    - message: adt-dragons-blood-lava
+      addComponents:
+      - type: ADTLavaImmune
+
+- type: entity
+  id: ADTDragonsBloodRefined
+  parent: ADTDragonsBlood
+  name: bottle of refined dragons blood
+  description: You're definitely gonna drink this, right?
+  components:
+  - type: ADTDragonsBlood
+    drinkSound:
+      path: /Audio/Items/drink.ogg
+    outcomes:
+    - message: adt-dragons-blood-refined
+      effects:
+      - !type:ADTDraconidTransformation
+        polymorph: ADTDragonsBloodDraconid
+        tribePolymorph: ADTDragonsBloodDraconidTribe
+        healedGroups:
+        - Brute
+        - Burn
+        skinColor: "#000000"
+        eyeColor: "#A02720"
+        hornsCategory: Head
+        hornsLayer: HeadTop
+        hornsMarking: LizardHornsDemonic
+        hornsColor: "#000000"
+
+- type: polymorph
+  id: ADTDragonsBloodDraconid
+  configuration:
+    entity: ADTMobDraconidBase
+    forced: true
+    transferName: true
+    transferDamage: false
+    transferLanguageSpeaker: true
+    transferTTS: true
+    transferSpeechBarks: true
+    inventory: Transfer
+    revertOnCrit: false
+    revertOnDeath: false
+    revertOnDelete: false
+    ignoreAllowRepeatedMorphs: true
+
+- type: polymorph
+  id: ADTDragonsBloodDraconidTribe
+  configuration:
+    entity: ADTMobDraconid
+    forced: true
+    transferName: true
+    transferDamage: false
+    transferLanguageSpeaker: true
+    transferTTS: true
+    transferSpeechBarks: true
+    inventory: Transfer
+    revertOnCrit: false
+    revertOnDeath: false
+    revertOnDelete: false
+    ignoreAllowRepeatedMorphs: true

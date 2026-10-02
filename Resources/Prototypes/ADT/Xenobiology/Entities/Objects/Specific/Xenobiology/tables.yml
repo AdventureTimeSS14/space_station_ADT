@@ -1,0 +1,291 @@
+- type: entityTable
+  id: XenobioDrinkTable
+  table: !type:GroupSelector
+    children:
+    - id: DrinkAbsintheGlass
+    - id: DrinkAleGlass
+    - id: DrinkAlienBrainHemorrhage
+    - id: DrinkAloe
+    - id: DrinkAndalusia
+    - id: DrinkAntifreeze
+    - id: DrinkArnoldPalmer
+    - id: DrinkB52Glass
+    - id: DrinkBahamaMama
+    - id: DrinkBananaHonkGlass
+    - id: DrinkBarefootGlass
+    - id: DrinkBeerglass
+    - id: DrinkBerryJuice
+    - id: DrinkBlackRussianGlass
+    - id: DrinkBlueCuracaoGlass
+    - id: DrinkBlueHawaiianGlass
+    - id: DrinkBloodyMaryGlass
+    - id: DrinkBooger
+    - id: DrinkBraveBullGlass
+    - id: DrinkBronxGlass
+    - id: BudgetInsulsDrinkGlass
+    - id: DrinkCarrotJuice
+    - id: DrinkCoconutRum
+    - id: DrinkChocolateGlass
+    - id: DrinkCognacGlass
+    - id: DrinkCosmopolitan
+    - id: DrinkCrushDepthGlass
+    - id: DrinkCubaLibreGlass
+    - id: DrinkDarkandStormyGlass
+    - id: DrinkDeadRumGlass
+    - id: DrinkDevilsKiss
+    - id: DrinkDriestMartiniGlass
+    - id: DrinkDrGibbGlass
+    - id: DrinkElectricSharkGlass
+    - id: DrinkErikaSurprise
+    - id: DrinkFourteenLokoGlass
+    - id: DrinkGargleBlasterGlass
+    - id: DrinkGinFizzGlass
+    - id: DrinkGinGlass
+    - id: DrinkGinTonicglass
+    - id: DrinkGildlagerGlass
+    - id: DrinkGrapeJuice
+    - id: DrinkGreenTeaGlass
+    - id: DrinkGrogGlass
+    - id: DrinkHippiesDelightGlass
+    - id: DrinkIcedCoffeeGlass
+    - id: DrinkIcedGreenTeaGlass
+    - id: DrinkIcedBeerGlass
+    - id: DrinkIceCreamGlass
+    - id: IrishBoolGlass
+    - id: DrinkIrishSlammer
+    - id: DrinkIrishCoffeeGlass
+    - id: DrinkLemonadeGlass
+    - id: DrinkJackRoseGlass
+    - id: DrinkJungleBirdGlass
+    - id: DrinkKalimotxoGlass
+    - id: DrinkOrangeLimeSodaGlass
+    - id: DrinkLongIslandIcedTeaGlass
+    - id: DrinkManhattanGlass
+    - id: DrinkManlyDorfGlass
+    - id: DrinkMargaritaGlass
+    - id: DrinkMartiniGlass
+    - id: DrinkMeadGlass
+    - id: DrinkMilkshake
+    - id: DrinkMojito
+    - id: DrinkMonkeyBusinessGlass
+    - id: DrinkNTCahors
+    - id: DrinkPainkillerGlass
+    - id: DrinkPatronGlass
+    - id: DrinkPinaColadaGlass
+    - id: DrinkPoscaGlass
+    - id: DrinkRadlerGlass
+    - id: DrinkRedMeadGlass
+    - id: DrinkRewriter
+    - id: DrinkRoyRogersGlass
+    - id: DrinkRootBeerFloatGlass
+    - id: RubberneckGlass
+    - id: DrinkRumGlass
+    - id: DrinkSakeGlass
+    - id: DrinkSbitenGlass
+    - id: DrinkScrewdriverCocktailGlass
+    - id: DrinkShirleyTempleGlass
+    - id: DrinkSuiDreamGlass
+    - id: DrinkSingulo
+    - id: DrinkSoyLatte
+    - id: DrinkSyndicatebomb
+    - id: DrinkTequilaSunriseGlass
+    - id: DrinkThreeMileIslandGlass
+    - id: DrinkTortugaGlass
+    - id: DrinkToxinsSpecialGlass
+    - id: DrinkVampiroGlass
+    - id: DrinkVodkaMartiniGlass
+    - id: DrinkVodkaRedBool
+    - id: DrinkVodkaTonicGlass
+    - id: DrinkWatermelonJuice
+    - id: DrinkWatermelonWakeup
+    - id: DrinkWhiskeyColaGlass
+    - id: DrinkWhiskeySodaGlass
+    - id: DrinkWhiteRussianGlass
+    - id: DrinkWineGlass
+    - id: XenoBasherGlass
+    - id: DrinkShakeBlue
+    - id: DrinkShakeWhite
+    - id: DrinkTheMartinez
+    - id: DrinkMoonshineGlass
+    - id: DrinkAcidSpitGlass
+      weight: 0.05
+    - id: DrinkAlliesCocktail
+      weight: 0.05
+    - id: DrinkAmasecGlass
+      weight: 0.05
+    - id: DrinkAtomicBombGlass
+      weight: 0.05
+    - id: DrinkDemonsBlood
+      weight: 0.05
+    - id: DrinkDoctorsDelightGlass
+      weight: 0.05
+    - id: DrinkNeurotoxinGlass
+      weight: 0.05
+    - id: DrinkNuclearColaGlass
+      weight: 0.05
+    - id: DrinkSilencerGlass
+      weight: 0.05
+    - id: DrinkShakeMeat
+      weight: 0.05
+    - id: DrinkShakeRobo
+      weight: 0.05
+    - id: DrinkHoochGlass
+      weight: 0.05
+    - id: DrinkBeepskySmashGlass
+      weight: 0.05
+    - id: DrinkBacchusBlessing
+      weight: 0.05
+
+- type: entityTable
+  id: XenobioFoodTable
+  table: !type:GroupSelector
+    children:
+    - id: FoodMealPotatoLoaded
+    - id: FoodMealFries
+    - id: FoodMealFriesCheesy
+    - id: FoodMealFriesCarrot
+    - id: FoodMealNachos
+    - id: FoodMealNachosCheesy
+    - id: FoodMealNachosCuban
+    - id: FoodMealEggplantParm
+    - id: FoodMealPotatoYaki
+    - id: FoodMealCubancarp
+    - id: FoodMealCornedbeef
+    - id: FoodMealPigblanket
+    - id: FoodMealRibs
+    - id: FoodMealEggsbenedict
+    - id: FoodMealOmelette
+    - id: FoodMealFriedegg
+    - id: FoodMealQueso
+    - id: FoodMealSashimi
+    - id: FoodMealEnchiladas
+    - id: FoodNoodlesChowmein
+    - id: FoodNoodlesSpesslaw
+    - id: FoodNoodlesMeatball
+    - id: FoodNoodlesBoiled
+    - id: FoodNoodles
+    - id: FoodNoodlesButter
+    - id: FoodMealHappyHonkClown
+    - id: FoodSoupPea
+    - id: FoodSaladHerb
+    - id: FoodSaladValid
+    - id: FoodSaladFruit
+    - id: FoodSaladJungle
+    - id: FoodSaladCitrus
+    - id: FoodSaladCaesar
+    - id: FoodSaladColeslaw
+    - id: FoodSaladKimchi
+    - id: FoodSaladWatermelonFruitBowl
+    - id: FoodRiceBoiled
+    - id: FoodRiceEgg
+    - id: FoodRicePork
+    - id: FoodRicePudding
+    - id: FoodRiceGumbo
+    - id: FoodOatmeal
+    - id: FoodSoupMeatball
+    - id: FoodSoupVegetable
+    - id: FoodSoupNettle
+    - id: FoodSoupChiliHot
+    - id: FoodSoupChiliCold
+    - id: FoodSoupTomato
+    - id: FoodSoupMiso
+    - id: FoodSoupMushroom
+    - id: FoodSoupBeet
+    - id: FoodSoupBeetRed
+    - id: FoodSoupPotato
+    - id: FoodSoupOnion
+    - id: FoodSoupBisque
+    - id: FoodSoupBungo
+    - id: ADTFoodSoupSawdust
+    - id: FoodMealCornInButter
+    - id: FoodSoupStew
+    - id: FoodMealMint
+      weight: 0.05
+    - id: FoodMealBearsteak
+      weight: 0.05
+    - id: FoodMealMilkape
+      weight: 0.05
+    - id: DisgustingSweptSoup
+      weight: 0.05
+    - id: FoodMealMemoryleek
+      weight: 0.05
+    - id: FoodSaladAesir
+      weight: 0.05
+    - id: FoodSaladEden
+      weight: 0.05
+    - id: FoodJellyDuff
+      weight: 0.05
+    - id: FoodJellyAmanita
+      weight: 0.05
+    - id: FoodSoupSlime
+      weight: 0.05
+    - id: FoodSoupTomatoBlood
+      weight: 0.05
+    - id: FoodSoupWingFangChu
+      weight: 0.05
+    - id: FoodSoupClown
+      weight: 0.05
+    - id: FoodSoupMystery
+      weight: 0.05
+    - id: FoodSoupChiliClown
+      weight: 0.05
+    - id: FoodSoupMonkey
+      weight: 0.05
+    - id: FoodSoupEyeball
+      weight: 0.05
+    - id: FoodSoupElectron
+      weight: 0.05
+    - id: FoodNoodlesCopy
+      weight: 0.05
+
+- type: entityTable
+  id: XenobioRandomSlimeTable
+  table: !type:GroupSelector
+    children:
+    - id: MobSlimeXenobioBabyGrey
+    - id: MobSlimeXenobioBabyOrange
+    - id: MobSlimeXenobioBabyPurple
+    - id: MobSlimeXenobioBabyBlue
+    - id: MobSlimeXenobioBabyMetal
+    - id: MobSlimeXenobioBabyYellow
+    - id: MobSlimeXenobioBabyDarkPurple
+    - id: MobSlimeXenobioBabyDarkBlue
+    - id: MobSlimeXenobioBabySilver
+    - id: MobSlimeXenobioBabyBluespace
+    - id: MobSlimeXenobioBabySepia
+    - id: MobSlimeXenobioBabyCerulean
+    - id: MobSlimeXenobioBabyPyrite
+    - id: MobSlimeXenobioBabyRed
+    - id: MobSlimeXenobioBabyGreen
+    - id: MobSlimeXenobioBabyPink
+    - id: MobSlimeXenobioBabyGold
+    - id: MobSlimeXenobioBabyOil
+    - id: MobSlimeXenobioBabyBlack
+    - id: MobSlimeXenobioBabyLightPink
+    - id: MobSlimeXenobioBabyAdamantine
+
+- type: entityTable
+  id: XenobioRandomExtractTable
+  table: !type:GroupSelector
+    children:
+    - id: GreySlimeExtract
+    - id: OrangeSlimeExtract
+    - id: PurpleSlimeExtract
+    - id: BlueSlimeExtract
+    - id: MetalSlimeExtract
+    - id: YellowSlimeExtract
+    - id: DarkPurpleSlimeExtract
+    - id: DarkBlueSlimeExtract
+    - id: SilverSlimeExtract
+    - id: BluespaceSlimeExtract
+    - id: SepiaSlimeExtract
+    - id: CeruleanSlimeExtract
+    - id: PyriteSlimeExtract
+    - id: RedSlimeExtract
+    - id: GreenSlimeExtract
+    - id: PinkSlimeExtract
+    - id: GoldSlimeExtract
+    - id: OilSlimeExtract
+    - id: BlackSlimeExtract
+    - id: LightPinkSlimeExtract
+    - id: AdamantineSlimeExtract

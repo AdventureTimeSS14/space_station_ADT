@@ -1,0 +1,77 @@
+- type: jukebox
+  id: ADTSuthernGothic
+  name: 1. Suthern Gothic - Traz Damji
+  path:
+    path: /Audio/ADT/Jukebox/util/Suthern-Gothic.ogg
+
+- type: jukebox
+  id: ADTTheMiners
+  name: 2. The Miners - Traz Damji
+  path:
+    path: /Audio/ADT/Jukebox/util/The-Miners.ogg
+
+- type: jukebox
+  id: ADTRedSunset
+  name: 3. Red Sunset - Jono Grant
+  path:
+    path: /Audio/ADT/Jukebox/util/Red-Sunset.ogg
+
+- type: jukebox
+  id: ADTLongRoad
+  name: 4. Long Road - Jono Grant
+  path:
+    path: /Audio/ADT/Jukebox/util/Long-Road.ogg
+
+- type: jukebox
+  id: ADTHitchedHighRail
+  name: 5. Hitched High Rail - Traz Damji
+  path:
+    path: /Audio/ADT/Jukebox/util/Hitched-High-Rail.ogg
+
+- type: jukebox
+  id: ADTFrontierbound
+  name: 6. Frontierbound - Traz Damji & Ben McCullough
+  path:
+    path: /Audio/ADT/Jukebox/util/Frontierbound.ogg
+
+- type: jukebox
+  id: ADTHABWindowView
+  name: 7. HAB Window View - Ben McCullough
+  path:
+    path: /Audio/ADT/Jukebox/util/HAB-Window-View.ogg
+
+- type: jukebox
+  id: ADTClosingCinematic
+  name: 8. Closing Cinematic - Jono Grant & Ben McCullough
+  path:
+    path: /Audio/ADT/Jukebox/util/Closing-Cinematic.ogg
+
+- type: jukebox
+  id: ADTAbsconditus
+  name: 9. Absconditus - ZhayTee
+  path:
+    path: /Audio/ADT/Jukebox/util/Absconditus.ogg
+
+- type: jukebox
+  id: ADTCoalescence
+  name: 10. Coalescence - Chris Christodoulou
+  path:
+    path: /Audio/ADT/Jukebox/util/Coalescence.ogg
+
+- type: jukebox
+  id: ADTCivil
+  name: 11. Civil - Ben Prunty
+  path:
+    path: /Audio/ADT/Jukebox/util/Civil.ogg
+
+- type: jukebox
+  id: ADTMilkyWay
+  name: 12. MilkyWay - Ben Prunty
+  path:
+    path: /Audio/ADT/Jukebox/util/MilkyWay.ogg
+
+- type: jukebox
+  id: ADTLanius
+  name: 13. Lanius - Ben Prunty
+  path:
+    path: /Audio/ADT/Jukebox/util/Lanius.ogg
