@@ -117,6 +117,24 @@
               amount: 1
               doAfter: 1
 
+        - to: adttableoktoberfest
+          steps:
+            - tool: Screwing
+              doAfter: 1
+            - material: WoodPlank
+              amount: 1
+              doAfter: 1
+
+        - to: adttableoktoberfestorange
+          steps:
+            - tool: Screwing
+              doAfter: 1
+            - tool: Cutting
+              doAfter: 1
+            - material: WoodPlank
+              amount: 1
+              doAfter: 1
+
     - node: adttableroundframe
       entity: ADTTableRoundFrame
       edges:

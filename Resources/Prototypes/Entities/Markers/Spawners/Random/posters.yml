@@ -183,6 +183,8 @@
     - id: ADTPosterLegitObjection
     - id: ADTPosterStandard # Спрайт от мяукало
     - id: ADTPosterVLM # с блюмуна
+    - id: ADTPosterLegitOktoberfest
+    - id: ADTPosterLegitOktoberfest
     #ADT tweak ^^^
     - id: PosterLegitOppenhopper
     - id: PosterLegitTyrone
