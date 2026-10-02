@@ -80,14 +80,6 @@ public sealed partial class StencilOverlay : Overlay
             res.Blep = _clyde.CreateRenderTarget(args.Viewport.Size, new RenderTargetFormatParameters(RenderTargetColorFormat.Rgba8Srgb), name: "weather-stencil");
         }
 
-        // ADT-Tweak-Start
-        if (res.GroundBlep?.Texture.Size != args.Viewport.Size)
-        {
-            res.GroundBlep?.Dispose();
-            res.GroundBlep = _clyde.CreateRenderTarget(args.Viewport.Size, new RenderTargetFormatParameters(RenderTargetColorFormat.Rgba8Srgb), name: "weather-ground-stencil");
-        }
-        // ADT-Tweak-End
-
         if (_statusEffects.TryEffectsWithComp(mapUid, out _weatherSet))
             DrawWeather(args, _weatherSet);
 
@@ -108,12 +100,10 @@ public sealed partial class StencilOverlay : Overlay
     private sealed class CachedResources : IDisposable
     {
         public IRenderTexture? Blep;
-        public IRenderTexture? GroundBlep; // ADT-Tweak
 
         public void Dispose()
         {
             Blep?.Dispose();
-            GroundBlep?.Dispose(); // ADT-Tweak
         }
     }
 }

@@ -9,15 +9,8 @@ namespace Content.Client.Overlays;
 
 public sealed partial class StencilOverlay
 {
-<<<<<<< ours
-    private List<Entity<MapGridComponent>> _grids = new();
     private readonly Dictionary<EntityUid, Vector2> _weatherOffsets = new(); // ADT-Tweak
 
-||||||| base
-    private List<Entity<MapGridComponent>> _grids = new();
-
-=======
->>>>>>> theirs
     private void DrawWeather(
         in OverlayDrawArgs args,
         HashSet<Entity<WeatherStatusEffectComponent, StatusEffectComponent>> weathers)
@@ -56,24 +49,13 @@ public sealed partial class StencilOverlay
         }
 
         if (hasGroundLayer)
-            DrawWeatherGround(args, res, weathers, invMatrix, weatherOffsets, curTime);
+            DrawWeatherGround(args, stencil, weathers, weatherOffsets, curTime);
         // ADT-Tweak-End
 
         worldHandle.SetTransform(Matrix3x2.Identity);
         worldHandle.UseShader(_protoManager.Index(StencilMask).Instance());
-<<<<<<< ours
-        worldHandle.DrawTextureRect(res.Blep!.Texture, worldBounds);
-
-||||||| base
-        worldHandle.DrawTextureRect(res.Blep!.Texture, worldBounds);
-        var curTime = _timing.RealTime;
-
-
-=======
         worldHandle.DrawTextureRect(stencil.Texture, worldBounds);
-        var curTime = _timing.RealTime;
 
->>>>>>> theirs
         foreach (var (uid, weather, status) in weathers)
         {
             var alpha = _weather.GetWeatherPercent((uid, status));
@@ -101,54 +83,33 @@ public sealed partial class StencilOverlay
     // ADT-Tweak-Start
     private void DrawWeatherGround(
         in OverlayDrawArgs args,
-        CachedResources res,
+        IRenderTexture blockedStencil,
         HashSet<Entity<WeatherStatusEffectComponent, StatusEffectComponent>> weathers,
-        Matrix3x2 invMatrix,
         Dictionary<EntityUid, Vector2> weatherOffsets,
         TimeSpan curTime)
     {
         var worldHandle = args.WorldHandle;
-        var mapId = args.MapId;
         var worldAABB = args.WorldAABB;
         var worldBounds = args.WorldBounds;
         var position = args.Viewport.Eye?.Position.Position ?? Vector2.Zero;
 
-        worldHandle.RenderInRenderTarget(res.GroundBlep!,
-            () =>
+        var groundStencil = _gridStencil.GetTileStencil(args,
+            "weather-ground",
+            "weather-ground-grid-stencil",
+            (grid, tile) =>
             {
-                var xformQuery = _entManager.GetEntityQuery<TransformComponent>();
-                _grids.Clear();
-                _mapManager.FindGridsIntersecting(mapId, worldAABB, ref _grids);
+                if (_turf.IsSpace(tile))
+                    return false;
 
-                foreach (var grid in _grids)
-                {
-                    var matrix = _transform.GetWorldMatrix(grid, xformQuery);
-                    var matty = Matrix3x2.Multiply(matrix, invMatrix);
-                    worldHandle.SetTransform(matty);
-                    _entManager.TryGetComponent(grid.Owner, out RoofComponent? roofComp);
-
-                    foreach (var tile in _map.GetTilesIntersecting(grid.Owner, grid, worldAABB))
-                    {
-                        if (_turf.IsSpace(tile))
-                            continue;
-
-                        if (!_weather.CanWeatherAffect((grid.Owner, grid, roofComp), tile))
-                            continue;
-
-                        var gridTile = new Box2(tile.GridIndices * grid.Comp.TileSize,
-                            (tile.GridIndices + Vector2i.One) * grid.Comp.TileSize);
-
-                        worldHandle.DrawRect(gridTile, Color.White);
-                    }
-                }
-            },
-            Color.Transparent);
+                _entManager.TryGetComponent(grid.Owner, out RoofComponent? roofComp);
+                return _weather.CanWeatherAffect((grid.Owner, grid.Comp, roofComp), tile);
+            });
 
         worldHandle.SetTransform(Matrix3x2.Identity);
         worldHandle.UseShader(_protoManager.Index(StencilMask).Instance());
-        worldHandle.DrawTextureRect(res.GroundBlep!.Texture, worldBounds);
+        worldHandle.DrawTextureRect(groundStencil.Texture, worldBounds);
         worldHandle.UseShader(_protoManager.Index(StencilUnmask).Instance());
-        worldHandle.DrawTextureRect(res.Blep!.Texture, worldBounds);
+        worldHandle.DrawTextureRect(blockedStencil.Texture, worldBounds);
 
         foreach (var (uid, weather, status) in weathers)
         {
