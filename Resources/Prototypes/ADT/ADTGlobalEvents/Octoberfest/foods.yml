@@ -1,0 +1,198 @@
+- type: entity
+  name: brezel
+  parent: FoodBakedBase
+  id: ADTFoodBakedBrezel
+  description: The usual pretzel, a popular snack at Oktoberfest.
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/Octoberfest/Food/food.rsi #спрайты от празата
+    layers:
+    - state: brezel
+  - type: FlavorProfile
+    flavors:
+      - bun
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 3
+  - type: Tag
+    tags:
+    - ADTMothFriendlyFood
+
+- type: entity
+  name: brezel with poppy seeds
+  parent: FoodBakedBase
+  id: ADTFoodBakedBrezelPoppySeeds
+  description: The brezel with poppy seeds, a popular snack at Oktoberfest.
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/Octoberfest/Food/food.rsi #спрайты от празата
+    layers:
+    - state: brezel_poppy
+  - type: FlavorProfile
+    flavors:
+      - bun
+      - adt_poppy
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 3
+  - type: Tag
+    tags:
+    - ADTMothFriendlyFood
+
+- type: entity
+  name: brezel with salt
+  parent: FoodBakedBase
+  id: ADTFoodBakedBrezelSalt
+  description: The brezel with salt, a popular snack at Oktoberfest.
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/Octoberfest/Food/food.rsi #спрайты от празата
+    layers:
+    - state: brezel_salt
+  - type: FlavorProfile
+    flavors:
+      - bun
+      - salty
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 3
+  - type: Tag
+    tags:
+    - ADTMothFriendlyFood
+
+- type: entity
+  name: brezel with chocolate
+  parent: FoodBakedBase
+  id: ADTFoodBakedBrezelChocolate
+  description: The brezel with chocolate, a sweet snack for Oktoberfest.
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/Octoberfest/Food/food.rsi #спрайты от празата
+    layers:
+    - state: brezel_chocolate
+  - type: FlavorProfile
+    flavors:
+      - bun
+      - chocolate
+      - sweet
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 3
+  - type: Tag
+    tags:
+    - ADTMothFriendlyFood
+
+- type: entity
+  name: brezel with vanilla
+  parent: FoodBakedBase
+  id: ADTFoodBakedBrezelVanilla
+  description: Brezel with vanilla glaze, a sweet snack for Oktoberfest
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/Octoberfest/Food/food.rsi #спрайты от празата
+    layers:
+    - state: brezel_vanilla
+  - type: FlavorProfile
+    flavors:
+      - bun
+      - sweet
+      - adt_vanilla
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 3
+  - type: Tag
+    tags:
+    - ADTMothFriendlyFood
+
+- type: entity
+  name: weisswurst
+  parent: FoodMeatBase
+  id: ADTFoodMeatWeissWurst
+  description: Traditional white Bavarian sausage made of veal, lard and spices.
+  suffix: Oktoberfest
+  components:
+  - type: Tag
+    tags:
+    - Cooked
+    - Meat
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/Octoberfest/Food/food.rsi #спрайт от Празата
+    state: weisswurst
+  - type: FlavorProfile
+    flavors:
+      - meaty
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Protein
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 8
+
+- type: entity
+  name: bratwurst
+  parent: FoodMeatBase
+  id: ADTFoodMeatBratWurst
+  description: Fried pork sausage, very appetizing, but greasy.
+  suffix: Oktoberfest
+  components:
+  - type: Tag
+    tags:
+    - Cooked
+    - Meat
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/Octoberfest/Food/food.rsi  #спрайт от Празата
+    state: bratwurst
+  - type: FlavorProfile
+    flavors:
+      - meaty
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Protein
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 8
