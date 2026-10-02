@@ -2,13 +2,7 @@ using Content.Shared.ADT.CCVar;
 using Content.Client.Popups;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.RCD;
-<<<<<<< ours
-||||||| base
-using Content.Shared.RCD.Components;
-=======
-using Content.Shared.RCD.Components;
 using Content.Shared.RCD.Systems;
->>>>>>> theirs
 using JetBrains.Annotations;
 using Content.Shared.RCD.Components;
 using Robust.Client.Graphics;
@@ -153,37 +147,7 @@ public sealed partial class RCDMenuBoundUserInterface : BoundUserInterface
 
     private string GetTooltip(RCDPrototype proto)
     {
-<<<<<<< ours
-        string tooltip;
-
-        if (proto.Mode is RcdMode.ConstructTile or RcdMode.ConstructObject
-            && proto.Prototype != null
-            && _prototypeManager.TryIndex(proto.Prototype, out var entProto)) // don't use Resolve because this can be a tile
-        {
-            tooltip = entProto.Name; // ADT-Tweak
-        }
-        else
-        {
-            tooltip = Loc.GetString(proto.SetName);
-        }
-
-||||||| base
-        string tooltip;
-
-        if (proto.Mode is RcdMode.ConstructTile or RcdMode.ConstructObject
-            && proto.Prototype != null
-            && _prototypeManager.TryIndex(proto.Prototype, out var entProto)) // don't use Resolve because this can be a tile
-        {
-            tooltip = Loc.GetString(entProto.Name);
-        }
-        else
-        {
-            tooltip = Loc.GetString(proto.SetName);
-        }
-
-=======
         var tooltip = _rcd.GetPrototypeName(proto);
->>>>>>> theirs
         tooltip = OopsConcat(char.ToUpper(tooltip[0]).ToString(), tooltip.Remove(0, 1));
 
         return tooltip;
