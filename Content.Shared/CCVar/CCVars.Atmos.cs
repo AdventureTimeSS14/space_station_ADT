@@ -158,13 +158,7 @@ public sealed partial class CCVars
     ///     Setting this to zero disables the limits.
     /// </summary>
     public static readonly CVarDef<float> AtmosTankFragment =
-<<<<<<< ours
-        CVarDef.Create("atmos.max_explosion_range", 13f, CVar.SERVERONLY); /// ADT-Tweak 26f to 13f - нерф лимиток
-||||||| base
-        CVarDef.Create("atmos.max_explosion_range", 26f, CVar.SERVERONLY);
-=======
-        CVarDef.Create("atmos.max_explosion_range", 0f, CVar.SERVER);
->>>>>>> theirs
+        CVarDef.Create("atmos.max_explosion_range", 13f, CVar.SERVER); // ADT-Tweak
 
     /// <summary>
     /// Whether atmospherics will process delta-pressure damage on entities with a DeltaPressureComponent.

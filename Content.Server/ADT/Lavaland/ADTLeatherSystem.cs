@@ -164,7 +164,7 @@ public sealed class ADTLeatherSystem : EntitySystem
             return true;
 
         return TryComp<TemperatureComponent>(ent, out var temperature) &&
-               temperature.CurrentTemperature >= ent.Comp.HeatedDryingTemperature;
+               temperature.Temperature >= ent.Comp.HeatedDryingTemperature;
     }
 
     private void OnRackMapInit(Entity<ADTDryingRackComponent> ent, ref MapInitEvent args)

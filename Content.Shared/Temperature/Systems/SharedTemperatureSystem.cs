@@ -143,6 +143,8 @@ public abstract partial class SharedTemperatureSystem : EntitySystem
 
         var lastTemp = entity.Comp.Temperature;
         var heatEx = HeatContainerHelpers.ConductHeat(ref entity.Comp, ref heatContainer, deltaT, conductance);
+        if (IsTemperatureChangeCancelled((entity.Owner, entity.Comp), lastTemp)) // ADT-Tweak
+            return 0f; // ADT-Tweak
 
         var changeEv = new TemperatureChangedEvent(entity.Comp.Temperature, lastTemp);
         RaiseLocalEvent(entity, ref changeEv, broadcast: true);
@@ -174,6 +176,8 @@ public abstract partial class SharedTemperatureSystem : EntitySystem
 
         var lastTemp = entity.Comp.Temperature;
         var heatEx =  HeatContainerHelpers.ConductHeat(ref entity.Comp, temperature, deltaT, conductance);
+        if (IsTemperatureChangeCancelled((entity.Owner, entity.Comp), lastTemp)) // ADT-Tweak
+            return 0f; // ADT-Tweak
 
         var changeEv = new TemperatureChangedEvent(entity.Comp.Temperature, lastTemp);
         RaiseLocalEvent(entity, ref changeEv, broadcast: true);
@@ -201,6 +205,8 @@ public abstract partial class SharedTemperatureSystem : EntitySystem
 
         var lastTemp = entity.Comp.Temperature;
         HeatContainerHelpers.AddHeat(ref entity.Comp, heatAmount);
+        if (IsTemperatureChangeCancelled((entity.Owner, entity.Comp), lastTemp)) // ADT-Tweak
+            return 0f; // ADT-Tweak
 
         var changeEv = new TemperatureChangedEvent(entity.Comp.Temperature, lastTemp);
         RaiseLocalEvent(entity, ref changeEv, broadcast: true);

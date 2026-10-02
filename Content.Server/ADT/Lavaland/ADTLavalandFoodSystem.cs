@@ -166,11 +166,11 @@ public sealed class ADTLavalandFoodSystem : EntitySystem
         if (!TryComp<TemperatureComponent>(target, out var temperature) || !TryComp<ThermalRegulatorComponent>(target, out var regulator))
             return;
 
-        var difference = temperature.CurrentTemperature - regulator.NormalBodyTemperature;
+        var difference = temperature.Temperature - regulator.NormalBodyTemperature;
         if (MathF.Abs(difference) <= step)
             return;
 
         var change = difference > 0 ? -step : step;
-        _temperature.ForceChangeTemperature(target, temperature.CurrentTemperature + change, temperature);
+        _temperature.ForceChangeTemperature(target, temperature.Temperature + change, temperature);
     }
 }

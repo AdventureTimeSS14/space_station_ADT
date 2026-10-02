@@ -30,8 +30,10 @@ public record struct TemperatureChangedEvent(float CurrentTemperature, float Las
 }
 
 // ADT Heretic (перенесено из Goob)
-public sealed class TemperatureChangeAttemptEvent : CancellableEntityEventArgs
+public sealed class TemperatureChangeAttemptEvent : CancellableEntityEventArgs, IInventoryRelayEvent
 {
+    public SlotFlags TargetSlots => ~SlotFlags.POCKET;
+
     public readonly float CurrentTemperature;
     public readonly float LastTemperature;
     public readonly float TemperatureDelta;

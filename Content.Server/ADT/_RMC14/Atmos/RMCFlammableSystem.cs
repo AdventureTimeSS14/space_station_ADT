@@ -21,10 +21,10 @@ public sealed class RMCFlammableSystem : SharedRMCFlammableSystem
 
     public override float ApplyThermalProtection(EntityUid uid, float fireMultiplier)
     {
-        var ev = new ModifyChangedTemperatureEvent(1f);
-        RaiseLocalEvent(uid, ev);
+        var ev = new BeforeHeatExchangeEvent();
+        RaiseLocalEvent(uid, ref ev);
 
-        var heating = Math.Clamp(ev.TemperatureDelta, 0f, 1f);
+        var heating = Math.Clamp(ev.HeatTransferModifier, 0f, 1f);
         var thermalMultiplier = 1f - (1f - heating) * ThermalProtectionWeight;
 
         return Math.Min(fireMultiplier, thermalMultiplier);

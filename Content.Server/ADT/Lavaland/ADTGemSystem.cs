@@ -107,7 +107,7 @@ public sealed class ADTGemSystem : EntitySystem
             return;
 
         args.Handled = true;
-        _temperature.ForceChangeTemperature(args.User, temperature.CurrentTemperature + ent.Comp.Delta, temperature);
+        _temperature.ForceChangeTemperature(args.User, temperature.Temperature + ent.Comp.Delta, temperature);
         _popup.PopupEntity(Loc.GetString(ent.Comp.Message, ("user", args.User), ("gem", ent.Owner)), args.User, PopupType.Small);
     }
 
