@@ -8,7 +8,6 @@
 # WallSolid: Window
 # Table: null
 
-<<<<<<< ours
 # ADT ERT 2024-07-20
 ERTSpawnerEngineering: null
 ERTSpawnerLeader: null
@@ -17,8 +16,6 @@ ERTSpawnerSrcurity: null
 ERTSpawnerJanitor: null
 ERTSpawnerCBURN: null
 
-||||||| base
-=======
 #ADT-Tweak-Start
 ButtonFrameWhite: ButtonFrameExit
 EnergyGate: Turnstile
@@ -47,8 +44,6 @@ PlasmaWindoorCommandLocked: PlasmaWindoorSecureCommandLocked
 PlasmaWindoorScienceLocked: PlasmaWindoorSecureScienceLocked
 PlasmaWindoorSecurityLocked: PlasmaWindoorSecureSecurityLocked
 #ADT-Tweak-End
-
->>>>>>> theirs
 # 2023-07-03
 ClothingHeadHelmetHelmet: ClothingHeadHelmetBasic
 ClothingHeadHelmetHelmetOld: ClothingHeadHelmetBasic
@@ -223,8 +218,7 @@ SpyCrewMonitorEmpty: null
 SyndiCrewMonitor: null
 SyndiCrewMonitorEmpty: null
 
-<<<<<<< ours
-#ADT vehicles migration undone
+# ADT vehicles migration undone
 SpawnVehicleWheelchair: ADTSpawnVehicleWheelchair
 SpawnVehicleWheelchairFolded: ADTSpawnVehicleWheelchairFolded
 VehicleWheelchair: ADTVehicleWheelchair
@@ -246,74 +240,13 @@ ActionVehicleHorn: ADTActionVehicleHorn
 CrateFunATV: ADTCrateFunATV
 CrateFunSyndicateSegway: ADTCrateFunSyndicateSegway
 MobTaxiBot: ADTMobTaxiBot
-||||||| base
-SpawnVehicleWheelchair: null
-SpawnVehicleWheelchairFolded: null
-VehicleWheelchair: null
-VehicleWheelchairFolded: null
-VehicleSecwayStealObjective: null
-VehicleKeyJanicart: null
-VehicleKeySecway: null
-VehicleKeyATV: null
-VehicleKeySkeleton: null
-VehicleKeySyndicateSegway: null
-VehicleKeySkeletonMotorcycle: null
-VehicleSecway: null
-VehicleATV: null
-VehicleSyndicateSegway: null
-VehicleSkeletonMotorcycle: null
-VehicleUnicycle: null
-VehicleUnicycleFolded: null
-ActionVehicleHorn: null
-CrateFunATV: null
-CrateFunSyndicateSegway: null
-MobTaxiBot: null
-=======
-#SpawnVehicleWheelchair: null
-SpawnVehicleWheelchairFolded: null
-#VehicleWheelchair: null
-VehicleWheelchairFolded: null
-VehicleSecwayStealObjective: null
-#VehicleKeyJanicart: null
-VehicleKeySecway: null
-VehicleKeyATV: null
-VehicleKeySkeleton: null
-VehicleKeySyndicateSegway: null
-VehicleKeySkeletonMotorcycle: null
-VehicleSecway: null
-VehicleATV: null
-VehicleSyndicateSegway: null
-VehicleSkeletonMotorcycle: null
-VehicleUnicycle: null
-VehicleUnicycleFolded: null
-ActionVehicleHorn: null
-CrateFunATV: null
-CrateFunSyndicateSegway: null
-MobTaxiBot: null
->>>>>>> theirs
 # MobSupplyBot: null
-<<<<<<< ours
 SpawnVehicleMotobike: ADTSpawnVehicleMotobike
 SpawnVehicleATV: ADTSpawnVehicleATV
 SpawnVehicleSecway: ADTSpawnVehicleSecway
 SpawnVehicleJanicart: ADTSpawnVehicleJanicart
 VehicleJanicart: ADTVehicleJanicart
 VehicleJanicartDestroyed: ADTVehicleJanicartDestroyed
-||||||| base
-SpawnVehicleMotobike: null
-SpawnVehicleATV: null
-SpawnVehicleSecway: null
-SpawnVehicleJanicart: null
-VehicleJanicart: null
-VehicleJanicartDestroyed: null
-=======
-SpawnVehicleMotobike: null
-SpawnVehicleATV: null
-SpawnVehicleSecway: null
-#SpawnVehicleJanicart: null
-#VehicleJanicart: null
-VehicleJanicartDestroyed: null
->>>>>>> theirs
 
 # 2024-02-01
 YellowOxygenTank: OxygenTank
@@ -1030,7 +963,6 @@ CrateVendingMachineRestockGetmoreChocolateCorpFilled: VendingMachineRestockGetmo
 CrateVendingMachineRestockChangFilled: VendingMachineRestockChang
 CrateVendingMachineRestockDiscountDansFilled: VendingMachineRestockDiscountDans
 CrateVendingMachineRestockDonutFilled: VendingMachineRestockDonut
-<<<<<<< ours
 
 # 2026-06-03 ADT-Claner
 ADTSpawnPointEvilBot: null
@@ -1153,8 +1085,6 @@ SiliconChargerIndustrial: BorgCharger
 
 # ADT 07.09.2026
 LockerCorrectionOfficer: ADTLockerCorrectionOfficer
-||||||| base
-=======
 
 # 2026-03-28
 # The great solutions YAML nuke
@@ -1196,7 +1126,7 @@ CableApcStackLingering10: CableApcStack10
 BoxHugNitrogen: BoxSurvivalHugNitrogen
 BoxMime: BoxSurvival
 BoxMimeNitrogen: BoxSurvivalNitrogen
-BoxMimeMoth: BoxSurvival
+# BoxMimeMoth still exists, so mapper maps keep it.
 
 # 2026-07-19
 CrateChemistryVials: null
@@ -1225,4 +1155,3 @@ LightReplacer: LightReplacerFilled
 
 #2026-08-18
 DrinkNeurotoxinGlass: null
->>>>>>> theirs
