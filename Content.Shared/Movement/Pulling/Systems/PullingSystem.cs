@@ -779,7 +779,6 @@ public sealed partial class PullingSystem : EntitySystem
         StopPulling(pullableUid, pullable);
         return true;
     }
-<<<<<<< ours
 
     // Goobstation - Helper
     public void StopAllPulls(EntityUid uid, bool stopPullable = true, bool stopPuller = true) // Goobstation
@@ -797,8 +796,6 @@ public sealed partial class PullingSystem : EntitySystem
     {
         return uid;
     }
-||||||| base
-=======
 
     /// <summary>
     /// Copies compatible datafields of <see cref="PullerComponent"/> onto the target entity.
@@ -816,5 +813,4 @@ public sealed partial class PullingSystem : EntitySystem
         targetComp.PullingAlert = source.Comp.PullingAlert;
         Dirty(target, targetComp);
     }
->>>>>>> theirs
 }

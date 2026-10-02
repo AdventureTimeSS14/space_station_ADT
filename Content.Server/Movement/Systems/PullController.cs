@@ -79,47 +79,19 @@ public sealed partial class PullController : VirtualController
     /// </summary>
     private const float ThresholdRotAngle = 22.5f;
 
-<<<<<<< ours
-    private EntityQuery<PhysicsComponent> _physicsQuery;
-    private EntityQuery<PullableComponent> _pullableQuery;
-    private EntityQuery<PullerComponent> _pullerQuery;
-    private EntityQuery<TransformComponent> _xformQuery;
-    // ADT-tweak start
-    private EntityQuery<FixturesComponent> _fixturesQuery;
+    // ADT-Tweak-Start
+    [Dependency] private EntityQuery<FixturesComponent> _fixturesQuery = default!;
 
     private readonly Dictionary<EntityUid, Dictionary<string, float>> _originalDensities = new();
     private readonly List<EntityUid> _densityRestoreBuffer = new();
-    // ADT-tweak end
+    // ADT-Tweak-End
 
-||||||| base
-    private EntityQuery<PhysicsComponent> _physicsQuery;
-    private EntityQuery<PullableComponent> _pullableQuery;
-    private EntityQuery<PullerComponent> _pullerQuery;
-    private EntityQuery<TransformComponent> _xformQuery;
-
-=======
->>>>>>> theirs
     public override void Initialize()
     {
         CommandBinds.Builder
             .Bind(ContentKeyFunctions.MovePulledObject, new PointerInputCmdHandler(OnRequestMovePulledObject))
             .Register<PullController>();
 
-<<<<<<< ours
-        _physicsQuery = GetEntityQuery<PhysicsComponent>();
-        _pullableQuery = GetEntityQuery<PullableComponent>();
-        _pullerQuery = GetEntityQuery<PullerComponent>();
-        _xformQuery = GetEntityQuery<TransformComponent>();
-        _fixturesQuery = GetEntityQuery<FixturesComponent>(); // ADT-tweak
-
-||||||| base
-        _physicsQuery = GetEntityQuery<PhysicsComponent>();
-        _pullableQuery = GetEntityQuery<PullableComponent>();
-        _pullerQuery = GetEntityQuery<PullerComponent>();
-        _xformQuery = GetEntityQuery<TransformComponent>();
-
-=======
->>>>>>> theirs
         UpdatesAfter.Add(typeof(MoverController));
         // ADT-tweak start
         SubscribeLocalEvent<PullableComponent, PullStartedMessage>(OnPullStarted);
