@@ -129,10 +129,7 @@
   - type: Speech
     speechSounds: Lizard
   - type: Vocal
-    sounds:
-      Male: MaleHuman
-      Female: FemaleHuman
-      Unsexed: FemaleHuman
+    emoteSounds: MaleHuman
   - type: Damageable
     damageModifierSet: Demon
   - type: Injurable

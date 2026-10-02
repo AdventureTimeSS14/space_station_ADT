@@ -28,15 +28,10 @@
     sprite: /Textures/Objects/Devices/hand_teleporter.rsi
     layers:
     - state: icon
-<<<<<<< ours
-||||||| base
-      color: green
-=======
       color: green
   - type: Tag
     tags:
     - FitInTeleporterConsole
->>>>>>> theirs
   - type: HandTeleporter
     allowPortalsOnDifferentGrids: true
     allowPortalsOnDifferentMaps: true

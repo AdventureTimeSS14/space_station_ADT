@@ -642,21 +642,7 @@
   - type: ZombieAccentOverride
     accent: zombieMoth
   - type: Vocal
-<<<<<<< ours
-    sounds:
-      # Start-ADT Tweak Нианы
-      Male: MaleMoth
-      Female: FemaleMoth
-      Unsexed: MaleMoth
-      # End-ADT Tweak Нианы
-||||||| base
-    sounds:
-      Male: UnisexMoth
-      Female: UnisexMoth
-      Unsexed: UnisexMoth
-=======
     emoteSounds: UnisexMoth
->>>>>>> theirs
     wilhelmProbability: 0.001
   - type: BodyEmotes
     soundsId: MothBodyEmotes
@@ -995,41 +981,6 @@
         Base: dead
   - type: SolutionManager
     solutions:
-<<<<<<< ours
-      udder:
-        maxVol: 250
-        reagents:
-        - ReagentId: Milk
-          Quantity: 30
-    # ADT Start
-  - type: SolutionRegeneration
-    solution: udder
-    generated:
-      reagents:
-      - ReagentId: Milk
-        Quantity: 0.25
-    # ADT End
-  - type: Udder
-    reagentId: Milk
-    quantityPerUpdate: 25
-    growthDelay: 30
-  - type: ExaminableHunger
-  - type: Butcherable
-    spawned:
-||||||| base
-      udder:
-        maxVol: 250
-        reagents:
-        - ReagentId: Milk
-          Quantity: 30
-  - type: Udder
-    reagentId: Milk
-    quantityPerUpdate: 25
-    growthDelay: 30
-  - type: ExaminableHunger
-  - type: Butcherable
-    spawned:
-=======
     - SolutionUdder
   - type: HarvestableSolution
     solutionName: udder
@@ -1038,7 +989,6 @@
     successMessage: udder-system-success
   - type: ToolRefinable
     refineResult:
->>>>>>> theirs
     - id: FoodMeat
       amount: 5
   - type: Grammar
@@ -1204,43 +1154,6 @@
         Base: dead
   - type: SolutionManager
     solutions:
-<<<<<<< ours
-      udder:
-        maxVol: 250
-        reagents:
-        - ReagentId: MilkGoat
-          Quantity: 30
-      wool:
-        maxVol: 250
-  # ADT Start
-  - type: SolutionRegeneration
-    solution: udder
-    generated:
-      reagents:
-      - ReagentId: MilkGoat
-        Quantity: 0.25
-    # ADT End
-  - type: Udder
-    reagentId: MilkGoat
-    quantityPerUpdate: 25
-    growthDelay: 20
-  - type: ExaminableHunger
-  - type: Wooly
-||||||| base
-      udder:
-        maxVol: 250
-        reagents:
-        - ReagentId: MilkGoat
-          Quantity: 30
-      wool:
-        maxVol: 250
-  - type: Udder
-    reagentId: MilkGoat
-    quantityPerUpdate: 25
-    growthDelay: 20
-  - type: ExaminableHunger
-  - type: Wooly
-=======
     - SolutionUdderGoat
     - SolutionWool
   - type: HarvestableSolution
@@ -1248,7 +1161,6 @@
     verbText: udder-system-verb-milk
     emptyMessage: udder-system-dry
     successMessage: udder-system-success
->>>>>>> theirs
   - type: Edible
     destroyOnEmpty: false
     solution: wool
@@ -1881,10 +1793,7 @@
   - type: JobStatus # marks them as crew
   # ADT tweak start
   - type: Vocal
-    sounds:
-      Male: Monkey
-      Female: Monkey
-      Unsexed: Monkey
+    emoteSounds: Monkey
   - type: BodyEmotes
     soundsId: GeneralBodyEmotes
   - type: StandingState

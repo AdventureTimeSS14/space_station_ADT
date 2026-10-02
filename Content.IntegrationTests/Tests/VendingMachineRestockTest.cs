@@ -11,15 +11,9 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.EntityTable;
 using Content.Shared.Prototypes;
 using Content.Shared.Storage.EntitySystems;
-<<<<<<< ours
 using Content.Shared.ADT.VendingMachines; // ADT-Tweak
-using Content.Shared.VendingMachines; // ADT-Tweak
-||||||| base
-using Content.Shared.VendingMachines;
-=======
 using Content.Shared.VendingMachines;
 using Content.Shared.VendingMachines.Components;
->>>>>>> theirs
 using Content.Shared.Wires;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;

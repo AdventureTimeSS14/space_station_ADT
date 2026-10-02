@@ -4,12 +4,8 @@ using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
-<<<<<<< ours
-using Robust.Shared.Input;
-||||||| base
-=======
 using Robust.Client.UserInterface.XAML;
->>>>>>> theirs
+using Robust.Shared.Input;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;

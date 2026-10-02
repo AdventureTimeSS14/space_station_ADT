@@ -40,14 +40,8 @@ namespace Content.IntegrationTests.Tests.GameRules
             EntityUid maxTimeRuleUid = EntityUid.Invalid; // ADT-tweak
             await server.WaitPost(() =>
             {
-<<<<<<< ours
-                sGameTicker.StartGameRule("MaxTimeRestart", out var ruleEntity);
-                maxTimeRuleUid = ruleEntity; // ADT-Tweak
-||||||| base
-                sGameTicker.StartGameRule("MaxTimeRestart", out var ruleEntity);
-=======
                 sGameTicker.StartGameRule(MaxTimeRestartGameRule, out var ruleEntity);
->>>>>>> theirs
+                maxTimeRuleUid = ruleEntity; // ADT-Tweak
                 Assert.That(entityManager.TryGetComponent<MaxTimeRestartRuleComponent>(ruleEntity, out maxTime));
             });
 

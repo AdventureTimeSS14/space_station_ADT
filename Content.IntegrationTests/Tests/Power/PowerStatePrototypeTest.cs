@@ -17,12 +17,8 @@ public sealed class PowerStatePrototypeTest : GameTest
     /// depending on the current power state.
     /// </summary>
     [Test]
-<<<<<<< ours
     [Ignore("Временное решение")] // ADT-тестовое временное решение
-||||||| base
-=======
     [RunOnSide(Side.Server)]
->>>>>>> theirs
     public async Task AssertApcPowerMatchesPowerState()
     {
         using (Assert.EnterMultipleScope())

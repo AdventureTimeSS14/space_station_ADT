@@ -310,10 +310,7 @@
     - type: Speech
       speechSounds: Pai
     - type: Vocal
-      sounds:
-        Male: MaleHuman
-        Female: FemaleHuman
-        Unsexed: MaleHuman
+      emoteSounds: MaleHuman
     - type: MeleeWeapon
       hidden: true
       soundHit:

@@ -193,10 +193,7 @@
   - type: Speech
     speechSounds: Lizard
   - type: Vocal
-    sounds:
-      Male: MaleNovakid
-      Female: FemaleNovakid
-      Unsexed: UnisexNovakid
+    emoteSounds: MaleNovakid
   - type: MeleeWeapon
     hidden: true
     soundHit:

@@ -1,5 +1,6 @@
 - type: emoteSounds
   id: MaleDrask
+  voiceSelectorName: humanoid-profile-editor-voice-masculine
   params:
     variation: 0.125
   sounds:
@@ -36,6 +37,7 @@
 
 - type: emoteSounds
   id: FemaleDrask
+  voiceSelectorName: humanoid-profile-editor-voice-feminine
   params:
     variation: 0.125
   sounds:
@@ -174,6 +176,7 @@
 
 - type: emoteSounds
   id: ADTMaleTajaran
+  voiceSelectorName: humanoid-profile-editor-voice-masculine
   params:
     variation: 0.125
   sounds:
@@ -227,6 +230,7 @@
 
 - type: emoteSounds
   id: ADTFemaleTajaran
+  voiceSelectorName: humanoid-profile-editor-voice-feminine
   params:
     variation: 0.125
   sounds:
@@ -280,6 +284,7 @@
 
 - type: emoteSounds
   id: UnisexNovakid
+  voiceSelectorName: humanoid-profile-editor-voice-neutral
   params:
     variation: 0.125
   sounds:
@@ -316,6 +321,7 @@
 
 - type: emoteSounds
   id: MaleNovakid
+  voiceSelectorName: humanoid-profile-editor-voice-masculine
   params:
     variation: 0.125
   sounds:
@@ -361,6 +367,7 @@
 
 - type: emoteSounds
   id: FemaleNovakid
+  voiceSelectorName: humanoid-profile-editor-voice-feminine
   params:
     variation: 0.125
   sounds:
@@ -406,6 +413,7 @@
 
 - type: emoteSounds
   id: UnisexIPC
+  voiceSelectorName: humanoid-profile-editor-voice-neutral
   params:
     variation: 0.125
   sounds:
@@ -442,6 +450,7 @@
 
 - type: emoteSounds
   id: MaleIPC
+  voiceSelectorName: humanoid-profile-editor-voice-masculine
   params:
     variation: 0.125
   sounds:
@@ -494,6 +503,7 @@
 
 - type: emoteSounds
   id: FemaleIPC
+  voiceSelectorName: humanoid-profile-editor-voice-feminine
   params:
     variation: 0.125
   sounds:
@@ -546,6 +556,7 @@
 
 - type: emoteSounds
   id: XenoborgIPC
+  voiceSelectorName: trait-xenoborg-ipc-name
   params:
     variation: 0.125
   sounds:
@@ -598,6 +609,7 @@
 
 - type: emoteSounds
   id: CuteIPC
+  voiceSelectorName: trait-cute-ipc-name
   params:
     variation: 0.125
   sounds:
@@ -656,6 +668,7 @@
 
 - type: emoteSounds
   id: MaleUrsus
+  voiceSelectorName: humanoid-profile-editor-voice-masculine
   params:
     variation: 0.125
   sounds:
@@ -692,6 +705,7 @@
 
 - type: emoteSounds
   id: FemaleUrsus
+  voiceSelectorName: humanoid-profile-editor-voice-feminine
   params:
     variation: 0.125
   sounds:
@@ -728,6 +742,7 @@
 
 - type: emoteSounds
   id: NesMaleVulpa
+  voiceSelectorName: humanoid-profile-editor-voice-masculine
   params:
     variation: 0.125
   sounds:
@@ -780,6 +795,7 @@
 
 - type: emoteSounds
   id: NesFemaleVulpa
+  voiceSelectorName: humanoid-profile-editor-voice-feminine
   params:
     variation: 0.125
   sounds:
@@ -832,6 +848,7 @@
 
 - type: emoteSounds
   id: MaleFelinid
+  voiceSelectorName: humanoid-profile-editor-voice-masculine
   params:
     variation: 0.125
   sounds:
@@ -881,6 +898,7 @@
 
 - type: emoteSounds
   id: FemaleFelinid
+  voiceSelectorName: humanoid-profile-editor-voice-feminine
   params:
     variation: 0.125
   sounds:
@@ -930,6 +948,7 @@
 
 - type: emoteSounds
   id: MaleResomi
+  voiceSelectorName: humanoid-profile-editor-voice-masculine
   params:
     variation: 0.125
   sounds:
@@ -962,6 +981,7 @@
 
 - type: emoteSounds
   id: FemaleResomi
+  voiceSelectorName: humanoid-profile-editor-voice-feminine
   params:
     variation: 0.125
   sounds:
@@ -994,6 +1014,7 @@
 
 - type: emoteSounds
   id: MaleShadekin
+  voiceSelectorName: humanoid-profile-editor-voice-masculine
   params:
     variation: 0.125
   sounds:
@@ -1028,6 +1049,7 @@
 
 - type: emoteSounds
   id: FemaleShadekin
+  voiceSelectorName: humanoid-profile-editor-voice-feminine
   params:
     variation: 0.125
   sounds:
@@ -1141,6 +1163,7 @@
 ## Celecern
 - type: emoteSounds
   id: ADTCelecernMale
+  voiceSelectorName: humanoid-profile-editor-voice-masculine
   params:
     variation: 0.125
   sounds:
@@ -1189,6 +1212,7 @@
 
 - type: emoteSounds
   id: ADTCelecernFemale
+  voiceSelectorName: humanoid-profile-editor-voice-feminine
   params:
     variation: 0.125
   sounds:

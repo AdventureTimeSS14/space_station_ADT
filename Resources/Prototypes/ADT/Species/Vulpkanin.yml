@@ -26,6 +26,13 @@
   defaultLanguages:
   - GalacticCommon
   - Canilunzt
+  defaultSoundsBySex:
+  - NesMaleVulpa
+  - NesFemaleVulpa
+  - NesFemaleVulpa
+  voices:
+  - NesMaleVulpa
+  - NesFemaleVulpa
   maxAge: 80
   oldAge: 50
   youngAge: 25

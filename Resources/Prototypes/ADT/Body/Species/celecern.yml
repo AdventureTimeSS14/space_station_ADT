@@ -156,10 +156,7 @@
   - type: Speech
     speechSounds: Lizard
   - type: Vocal
-    sounds:
-      Male: ADTCelecernMale
-      Female: ADTCelecernFemale
-      Unsexed: ADTCelecernFemale
+    emoteSounds: ADTCelecernMale
   - type: Damageable
     damageModifierSet: Celecern
   - type: Injurable

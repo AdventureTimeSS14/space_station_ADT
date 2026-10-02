@@ -53,16 +53,10 @@ public sealed partial class MiscTab : Control
         Control.AddOptionCheckBox(CCVars.ChatEnableFancyBubbles, FancySpeechBubblesCheckBox);
         Control.AddOptionCheckBox(CCVars.ChatFancyNameBackground, FancyNameBackgroundsCheckBox);
         Control.AddOptionCheckBox(CCVars.StaticStorageUI, StaticStorageUI);
-<<<<<<< ours
         Control.AddOptionCheckBox(ADTCCVars.OfferModeIndicatorsPointShow, ShowOfferModeIndicatorsCheckBox); // ADT-Tweak
         Control.AddOptionCheckBox(ADTCCVars.EnableChatJobIcons, ShowChatJobIconsCheckBox); // ADT-Tweak
         Control.AddOptionCheckBox(ADTCCVars.EnableChatPointingIcons, ShowChatPointingIconsCheckBox); // ADT-Tweak
-||||||| base
-
-=======
         Control.AddOptionCheckBox(CCVars.InterfaceChatFollowButton, ChatFollowButton);
-
->>>>>>> theirs
         Control.Initialize();
     }
 }

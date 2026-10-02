@@ -296,10 +296,7 @@
   - type: FlashModifier
     modifier: 2
   - type: Vocal
-    sounds:
-      Male: MaleResomi
-      Female: FemaleResomi
-      Unsexed: MaleResomi
+    emoteSounds: MaleResomi
   - type: InteractionPopup
     successChance: 1
     interactSuccessString: petting-success-resomi
