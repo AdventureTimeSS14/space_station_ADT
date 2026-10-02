@@ -319,3 +319,20 @@
     sprite: Markers/jobs.rsi
     layers:
       - state: green
+
+# Спавнер гост-роли
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: ADTSpawnPointGhostSanta
+  name: Santa spawn point
+  suffix: New Year
+  components:
+  - type: GhostRole
+    name: ghost-role-information-Santa-name
+    description: ghost-role-information-Santa-description
+    rules: ghost-role-information-Santa-rules
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green

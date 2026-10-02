@@ -141,6 +141,9 @@
   - type: Item
     size: Normal
     sprite: ADT/Objects/Specific/Service/liliac_bouquet.rsi
+  - type: Construction
+    graph: ADTObjectLiliacBouquet
+    node: done
 
 #Букеты ко Дню Святого Валентина
 - type: entity
