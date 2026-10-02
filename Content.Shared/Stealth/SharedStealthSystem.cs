@@ -6,13 +6,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.Stealth;
 
-<<<<<<< ours
-public abstract partial class SharedStealthSystem : EntitySystem    // ADT partial
-||||||| base
-public abstract class SharedStealthSystem : EntitySystem
-=======
 public abstract partial class SharedStealthSystem : EntitySystem
->>>>>>> theirs
 {
     [Dependency] private IGameTiming _timing = default!;
 
@@ -105,13 +99,7 @@ public abstract partial class SharedStealthSystem : EntitySystem
 
     private void OnStealthGetState(EntityUid uid, StealthComponent component, ref ComponentGetState args)
     {
-<<<<<<< ours
-        args.State = new StealthComponentState(component.LastVisibility, component.LastUpdated, component.Enabled, component.ExaminedDesc); // ADT tweaked
-||||||| base
-        args.State = new StealthComponentState(component.LastVisibility, component.LastUpdated, component.Enabled);
-=======
-        args.State = new StealthComponentState(component.LastVisibility, component.LastUpdated, component.Enabled, component.ShimmerFrequency);
->>>>>>> theirs
+        args.State = new StealthComponentState(component.LastVisibility, component.LastUpdated, component.Enabled, component.ShimmerFrequency, component.ExaminedDesc); // ADT-Tweak
     }
 
     private void OnStealthHandleState(EntityUid uid, StealthComponent component, ref ComponentHandleState args)
@@ -122,12 +110,8 @@ public abstract partial class SharedStealthSystem : EntitySystem
         SetEnabled(uid, cast.Enabled, component);
         component.LastVisibility = cast.Visibility;
         component.LastUpdated = cast.LastUpdated;
-<<<<<<< ours
-        component.ExaminedDesc = cast.Desc; // ADT tweaked
-||||||| base
-=======
         component.ShimmerFrequency = cast.ShimmerFrequency;
->>>>>>> theirs
+        component.ExaminedDesc = cast.Desc; // ADT-Tweak
     }
 
     private void OnMove(EntityUid uid, StealthOnMoveComponent component, ref MoveEvent args)

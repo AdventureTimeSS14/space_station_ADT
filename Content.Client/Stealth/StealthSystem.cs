@@ -1,12 +1,7 @@
 using Content.Client.Interactable.Components;
-<<<<<<< ours
 using Content.Client.StatusIcon;
 using Content.Shared.ADT.Stealth.Components;
-||||||| base
-using Content.Client.StatusIcon;
-=======
 using Content.Client.Graphics;
->>>>>>> theirs
 using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
 using Content.Shared.Tag;

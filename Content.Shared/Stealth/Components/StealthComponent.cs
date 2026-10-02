@@ -81,36 +81,11 @@ public sealed partial class StealthComponent : Component
 }
 
 [Serializable, NetSerializable]
-public sealed class StealthComponentState(float stealthLevel, TimeSpan? lastUpdated, bool enabled, float shimmerFrequency) : ComponentState
+public sealed class StealthComponentState(float stealthLevel, TimeSpan? lastUpdated, bool enabled, float shimmerFrequency, string desc) : ComponentState // ADT-Tweak
 {
-<<<<<<< ours
-    public readonly float Visibility;
-    public readonly TimeSpan? LastUpdated;
-    public readonly bool Enabled;
-    public string Desc; // ADT tweak
-
-    public StealthComponentState(float stealthLevel, TimeSpan? lastUpdated, bool enabled, string desc)  // ADT tweak
-    {
-        Visibility = stealthLevel;
-        LastUpdated = lastUpdated;
-        Enabled = enabled;
-        Desc = desc;    // ADT tweak
-    }
-||||||| base
-    public readonly float Visibility;
-    public readonly TimeSpan? LastUpdated;
-    public readonly bool Enabled;
-
-    public StealthComponentState(float stealthLevel, TimeSpan? lastUpdated, bool enabled)
-    {
-        Visibility = stealthLevel;
-        LastUpdated = lastUpdated;
-        Enabled = enabled;
-    }
-=======
     public readonly float Visibility = stealthLevel;
     public readonly TimeSpan? LastUpdated = lastUpdated;
     public readonly bool Enabled = enabled;
     public readonly float ShimmerFrequency = shimmerFrequency;
->>>>>>> theirs
+    public readonly string Desc = desc; // ADT-Tweak
 }
