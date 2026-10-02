@@ -60,7 +60,7 @@
   suffix: Svet217
   components:
   - type: Sprite
-    sprite: ADT/Special/svet217_pistol.rsi
+    sprite: ADT/Special/Personal/svet217_pistol.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -75,7 +75,7 @@
     zeroVisible: false
   - type: Appearance
   - type: Clothing
-    sprite: ADT/Special/svet217_pistol.rsi
+    sprite: ADT/Special/Personal/svet217_pistol.rsi
   # ADT-Tweak start
   # - type: RunAndGunSpreadModifier
   #   modifier: 0.1
@@ -125,7 +125,7 @@
       sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
       state: beam_blue
     impactFlash:
-      sprite: ADT/Special/svet217_pistol_projectiles.rsi
+      sprite: ADT/Special/Personal/svet217_pistol_projectiles.rsi
       state: type_laser
 
 
@@ -138,7 +138,7 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: ADT/Special/minokaa_cethet_niksan_family_business_projectile.rsi
+    sprite: ADT/Special/Personal/minokaa_cethet_niksan_family_business_projectile.rsi
     rotation: 180
     layers:
     - state: pink
@@ -205,7 +205,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: ADT/Special/minokaa_cethet_niksan_family_business.rsi
+    sprite: ADT/Special/Personal/minokaa_cethet_niksan_family_business.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -215,14 +215,14 @@
       shader: unshaded
   - type: Item
     storedOffset: 0,-5
-    sprite: ADT/Special/minokaa_cethet_niksan_family_business.rsi
+    sprite: ADT/Special/Personal/minokaa_cethet_niksan_family_business.rsi
     inhandVisuals:
       left:
       - state: pink_inhand-left
       right:
       - state: pink_inhand-right
   - type: Clothing
-    sprite: ADT/Special/minokaa_cethet_niksan_family_business.rsi
+    sprite: ADT/Special/Personal/minokaa_cethet_niksan_family_business.rsi
     quickEquip: false
     slots:
     - Belt
@@ -279,7 +279,7 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Item
-    sprite: ADT/Special/minokaa_cethet_niksan_family_business.rsi
+    sprite: ADT/Special/Personal/minokaa_cethet_niksan_family_business.rsi
     storedOffset: 0,-5
     inhandVisuals:
       left:
@@ -307,7 +307,7 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Item
-    sprite: ADT/Special/minokaa_cethet_niksan_family_business.rsi
+    sprite: ADT/Special/Personal/minokaa_cethet_niksan_family_business.rsi
     storedOffset: 0,-5
     inhandVisuals:
       left:

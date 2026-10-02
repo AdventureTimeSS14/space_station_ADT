@@ -5,9 +5,9 @@
   description: Just pants, right.
   components:
   - type: Sprite
-    sprite: ADT/Special/johan_pants.rsi
+    sprite: ADT/Special/Personal/johan_pants.rsi
   - type: Clothing
-    sprite: ADT/Special/johan_pants.rsi
+    sprite: ADT/Special/Personal/johan_pants.rsi
 
 - type: entity
   parent: ADTSponsorClothingUniformBase
@@ -17,9 +17,9 @@
   suffix: Именное, Schrodinger
   components:
   - type: Sprite
-    sprite: ADT/Special/satan_suit.rsi
+    sprite: ADT/Special/Personal/satan_suit.rsi
   - type: Clothing
-    sprite: ADT/Special/satan_suit.rsi
+    sprite: ADT/Special/Personal/satan_suit.rsi
 
 #luckyrat
 - type: entity
@@ -30,9 +30,9 @@
   suffix: Personal, luckyrat
   components:
   - type: Sprite
-    sprite: ADT/Special/luckyrat/luckyrat_uniform.rsi
+    sprite: ADT/Special/Personal/luckyrat/luckyrat_uniform.rsi
   - type: Clothing
-    sprite: ADT/Special/luckyrat/luckyrat_uniform.rsi
+    sprite: ADT/Special/Personal/luckyrat/luckyrat_uniform.rsi
 
 
 #kimer_k
@@ -44,9 +44,9 @@
   suffix: Personal, kimer_k
   components:
   - type: Sprite
-    sprite: ADT/Special/Kimer_k/kimer_k_suit.rsi
+    sprite: ADT/Special/Personal/Kimer_k/kimer_k_suit.rsi
   - type: Clothing
-    sprite: ADT/Special/Kimer_k/kimer_k_suit.rsi
+    sprite: ADT/Special/Personal/Kimer_k/kimer_k_suit.rsi
 
 #WCTR829
 - type: entity
@@ -57,9 +57,9 @@
   suffix: Personal, WCTR829
   components:
   - type: Sprite
-    sprite: ADT/Special/WCTR829/WCTR829_suit.rsi
+    sprite: ADT/Special/Personal/WCTR829/WCTR829_suit.rsi
   - type: Clothing
-    sprite: ADT/Special/WCTR829/WCTR829_suit.rsi
+    sprite: ADT/Special/Personal/WCTR829/WCTR829_suit.rsi
 
 #RedLis
 
@@ -71,9 +71,9 @@
   suffix: Personal, RedLis
   components:
   - type: Sprite
-    sprite: ADT/Special/RedLis/shiptest_jumpsuit.rsi
+    sprite: ADT/Special/Personal/RedLis/shiptest_jumpsuit.rsi
   - type: Clothing
-    sprite: ADT/Special/RedLis/shiptest_jumpsuit.rsi
+    sprite: ADT/Special/Personal/RedLis/shiptest_jumpsuit.rsi
 
 - type: entity
   parent: [ClothingUniformJumpsuitCaptain, ADTSponsorClothingUniformBase]
@@ -83,9 +83,9 @@
   suffix: Personal, Mathemat1ka, For all sponsor
   components:
   - type: Sprite
-    sprite: ADT/Special/mathemat1ka_jumpsuit.rsi
+    sprite: ADT/Special/Personal/mathemat1ka_jumpsuit.rsi
   - type: Clothing
-    sprite: ADT/Special/mathemat1ka_jumpsuit.rsi
+    sprite: ADT/Special/Personal/mathemat1ka_jumpsuit.rsi
 
 
 
@@ -97,9 +97,9 @@
   suffix: Personal, Sir_talter
   components:
   - type: Sprite
-    sprite: ADT/Special/sirtalter_mining_uniform.rsi
+    sprite: ADT/Special/Personal/sirtalter_mining_uniform.rsi
   - type: Clothing
-    sprite: ADT/Special/sirtalter_mining_uniform.rsi
+    sprite: ADT/Special/Personal/sirtalter_mining_uniform.rsi
 
 #Farrellka и Melima (ныне Nelderiss)
 - type: entity
@@ -110,9 +110,9 @@
   suffix: Personal, Melima, Farrellka
   components:
   - type: Sprite
-    sprite: ADT/Special/melima_dress.rsi
+    sprite: ADT/Special/Personal/melima_dress.rsi
   - type: Clothing
-    sprite: ADT/Special/melima_dress.rsi
+    sprite: ADT/Special/Personal/melima_dress.rsi
 
 #Faust Netzach
 - type: entity
@@ -123,9 +123,9 @@
   suffix: Personal, Faust Netzach
   components:
   - type: Sprite
-    sprite: ADT/Special/FaustNetzach/faust_gothic_dress.rsi
+    sprite: ADT/Special/Personal/FaustNetzach/faust_gothic_dress.rsi
   - type: Clothing
-    sprite: ADT/Special/FaustNetzach/faust_gothic_dress.rsi
+    sprite: ADT/Special/Personal/FaustNetzach/faust_gothic_dress.rsi
 
 - type: entity
   parent: ADTSponsorClothingUniformBase
@@ -135,9 +135,9 @@
   suffix: Personal, saint_madman
   components:
   - type: Sprite
-    sprite: ADT/Special/saint_madman_uniform.rsi
+    sprite: ADT/Special/Personal/saint_madman_uniform.rsi
   - type: Clothing
-    sprite: ADT/Special/saint_madman_uniform.rsi
+    sprite: ADT/Special/Personal/saint_madman_uniform.rsi
 
 - type: entity
   parent: ADTSponsorClothingUniformBase
@@ -147,9 +147,9 @@
   suffix: Personal, kringe
   components:
   - type: Sprite
-    sprite: ADT/Special/kringe-uniform.rsi
+    sprite: ADT/Special/Personal/kringe-uniform.rsi
   - type: Clothing
-    sprite: ADT/Special/kringe-uniform.rsi
+    sprite: ADT/Special/Personal/kringe-uniform.rsi
 
 - type: entity
   parent: ADTSponsorClothingUniformBase
@@ -159,9 +159,9 @@
   suffix: Personal, PrazzzCool999
   components:
   - type: Sprite
-    sprite: ADT/Special/prazat_suit.rsi
+    sprite: ADT/Special/Personal/prazat_suit.rsi
   - type: Clothing
-    sprite: ADT/Special/prazat_suit.rsi
+    sprite: ADT/Special/Personal/prazat_suit.rsi
   - type: Butcherable
     butcheringType: Knife
     spawned:
@@ -178,9 +178,9 @@
   suffix: Personal, PrazzzCool999
   components:
   - type: Sprite
-    sprite: ADT/Special/prazat_official_uniform.rsi
+    sprite: ADT/Special/Personal/prazat_official_uniform.rsi
   - type: Clothing
-    sprite: ADT/Special/prazat_official_uniform.rsi
+    sprite: ADT/Special/Personal/prazat_official_uniform.rsi
   - type: Butcherable
     butcheringType: Knife
     spawned:
@@ -203,9 +203,9 @@
   suffix: Personal, PrazzzCool999
   components:
   - type: Sprite
-    sprite: ADT/Special/prazat_ulan_uniform.rsi
+    sprite: ADT/Special/Personal/prazat_ulan_uniform.rsi
   - type: Clothing
-    sprite: ADT/Special/prazat_ulan_uniform.rsi
+    sprite: ADT/Special/Personal/prazat_ulan_uniform.rsi
   - type: Butcherable
     butcheringType: Knife
     spawned:
@@ -228,9 +228,9 @@
   suffix: Sponsor, Uma
   components:
   - type: Sprite
-    sprite: ADT/Special/uma_sport_clothing.rsi
+    sprite: ADT/Special/Personal/uma_sport_clothing.rsi
   - type: Clothing
-    sprite: ADT/Special/uma_sport_clothing.rsi
+    sprite: ADT/Special/Personal/uma_sport_clothing.rsi
 
 - type: entity
   parent: ADTSponsorClothingUniformBase
@@ -240,9 +240,9 @@
   suffix: Sponsor, Syrel
   components:
   - type: Sprite
-    sprite: ADT/Special/syrel_sensors.rsi
+    sprite: ADT/Special/Personal/syrel_sensors.rsi
   - type: Clothing
-    sprite: ADT/Special/syrel_sensors.rsi
+    sprite: ADT/Special/Personal/syrel_sensors.rsi
 
 - type: entity
   parent: ADTSponsorClothingUniformBase
@@ -251,9 +251,9 @@
   name: American sleeveless.
   components:
   - type: Sprite
-    sprite: ADT/Special/pangaari_american_sleeveless.rsi
+    sprite: ADT/Special/Personal/pangaari_american_sleeveless.rsi
   - type: Clothing
-    sprite: ADT/Special/pangaari_american_sleeveless.rsi
+    sprite: ADT/Special/Personal/pangaari_american_sleeveless.rsi
 
 - type: entity
   parent: ADTSponsorClothingUniformBase
@@ -261,9 +261,9 @@
   suffix: PushnoY
   components:
   - type: Sprite
-    sprite: ADT/Special/pushnoY_jumpsuit.rsi
+    sprite: ADT/Special/Personal/pushnoY_jumpsuit.rsi
   - type: Clothing
-    sprite: ADT/Special/pushnoY_jumpsuit.rsi
+    sprite: ADT/Special/Personal/pushnoY_jumpsuit.rsi
 
 - type: entity
   parent: ADTSponsorClothingUniformBase
@@ -272,9 +272,9 @@
   description: Dark green jacket with white shirt, for social events.
   components:
   - type: Sprite
-    sprite: ADT/Special/pyotr_officialsuit.rsi
+    sprite: ADT/Special/Personal/pyotr_officialsuit.rsi
   - type: Clothing
-    sprite: ADT/Special/pyotr_officialsuit.rsi
+    sprite: ADT/Special/Personal/pyotr_officialsuit.rsi
 
 - type: entity
   parent: ADTSponsorClothingUniformBase
@@ -284,9 +284,9 @@
   description: Plus five percent freshness.
   components:
   - type: Sprite
-    sprite: ADT/Special/bolper_jumpsuit.rsi
+    sprite: ADT/Special/Personal/bolper_jumpsuit.rsi
   - type: Clothing
-    sprite: ADT/Special/bolper_jumpsuit.rsi
+    sprite: ADT/Special/Personal/bolper_jumpsuit.rsi
 
 - type: entity
   parent: ADTSponsorClothingUniformBase
@@ -295,9 +295,9 @@
   description: Dark green uniform, own by Pyotr Shahin.
   components:
   - type: Sprite
-    sprite: ADT/Special/pyotr_uniform.rsi
+    sprite: ADT/Special/Personal/pyotr_uniform.rsi
   - type: Clothing
-    sprite: ADT/Special/pyotr_uniform.rsi
+    sprite: ADT/Special/Personal/pyotr_uniform.rsi
 
 - type: entity
   parent: ADTSponsorClothingUniformBase
@@ -306,6 +306,6 @@
   description: Dark green sweater, good for sitting in a cold bunker.
   components:
   - type: Sprite
-    sprite: ADT/Special/pyotr_jumpsuit.rsi
+    sprite: ADT/Special/Personal/pyotr_jumpsuit.rsi
   - type: Clothing
-    sprite: ADT/Special/pyotr_jumpsuit.rsi
+    sprite: ADT/Special/Personal/pyotr_jumpsuit.rsi

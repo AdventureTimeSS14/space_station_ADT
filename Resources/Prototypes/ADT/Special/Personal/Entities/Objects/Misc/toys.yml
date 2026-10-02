@@ -7,7 +7,7 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: ADT/Special/figurines.rsi
+    sprite: ADT/Special/Personal/figurines.rsi
   - type: PhysicalComposition
     materialComposition:
       Plastic: 100
@@ -78,7 +78,7 @@
   description: A box containing a mystery minifigure. The side of the box depicts a few blacked-out 'rare' figures, including one with a large, non-humanoid shilouette.
   components:
   - type: Sprite
-    sprite: ADT/Special/figurines.rsi
+    sprite: ADT/Special/Personal/figurines.rsi
     state: present
   - type: SpawnItemsOnUse
     items:

@@ -7,7 +7,7 @@
   description: A neat black raincoat with golden stripes and clasps.
   components:
   - type: Sprite
-    sprite: ADT/Special/kivchikset_cloak.rsi
+    sprite: ADT/Special/Personal/kivchikset_cloak.rsi
   - type: StealTarget
     stealGroup: HeadCloak
 
@@ -19,7 +19,7 @@
   suffix: Personal, luckyrat
   components:
   - type: Sprite
-    sprite: ADT/Special/luckyrat/luckyrat_cloak.rsi
+    sprite: ADT/Special/Personal/luckyrat/luckyrat_cloak.rsi
 
 - type: entity
   parent: ADTSponsorClothingNeckBase
@@ -29,7 +29,7 @@
   suffix: Personal, RedLis
   components:
   - type: Sprite
-    sprite: ADT/Special/RedLis/shiptest_shamag.rsi
+    sprite: ADT/Special/Personal/RedLis/shiptest_shamag.rsi
 
 
 - type: entity
@@ -40,9 +40,9 @@
   suffix: Personal, Mathemat1ka, For all sponsor
   components:
   - type: Sprite
-    sprite: ADT/Special/mathemat1ka_mantle.rsi
+    sprite: ADT/Special/Personal/mathemat1ka_mantle.rsi
   - type: Clothing
-    sprite: ADT/Special/mathemat1ka_mantle.rsi
+    sprite: ADT/Special/Personal/mathemat1ka_mantle.rsi
 
 - type: entity
   parent: [ClothingNeckCloakCap, ADTSponsorClothing]
@@ -52,9 +52,9 @@
   suffix: Personal, Mathemat1ka, For all sponsor
   components:
   - type: Sprite
-    sprite: ADT/Special/mathemat1ka_cloak.rsi
+    sprite: ADT/Special/Personal/mathemat1ka_cloak.rsi
   - type: Clothing
-    sprite: ADT/Special/mathemat1ka_cloak.rsi
+    sprite: ADT/Special/Personal/mathemat1ka_cloak.rsi
 
 - type: entity
   parent: ADTSponsorClothingNeckBase
@@ -64,7 +64,7 @@
   suffix: Personal, Raven559
   components:
   - type: Sprite
-    sprite: ADT/Special/Raven559/mantle_sec_officer.rsi
+    sprite: ADT/Special/Personal/Raven559/mantle_sec_officer.rsi
 
 - type: entity
   parent: ADTSponsorClothingNeckBase
@@ -74,7 +74,7 @@
   suffix: Personal, Raven559
   components:
   - type: Sprite
-    sprite: ADT/Special/Raven559/mantle_officer_blue_shield.rsi
+    sprite: ADT/Special/Personal/Raven559/mantle_officer_blue_shield.rsi
 
 
 #ADMIRAL_DEATH
@@ -86,10 +86,10 @@
   description: Elegant and imposing, the cloak immediately proclaims the high status of its wearer, a quartermaster of an elite military unit. The silhouette is strict yet noble, the elongated cut emphasises the wearer’s dignified bearing, while the thoughtful details reveal functionality without sacrificing aesthetics.
   components:
   - type: Sprite
-    sprite: ADT/Special/admiral_deathqmmantle.rsi
+    sprite: ADT/Special/Personal/admiral_deathqmmantle.rsi
     state: icon
   - type: Clothing
-    sprite: ADT/Special/admiral_deathqmmantle.rsi
+    sprite: ADT/Special/Personal/admiral_deathqmmantle.rsi
   - type: Item
     size: Normal
 
@@ -102,10 +102,10 @@
   description: A choker with a golden bell that jingles as you walk
   components:
   - type: Sprite
-    sprite: ADT/Special/honelin111_choker.rsi
+    sprite: ADT/Special/Personal/honelin111_choker.rsi
     state: icon
   - type: Clothing
-    sprite: ADT/Special/honelin111_choker.rsi
+    sprite: ADT/Special/Personal/honelin111_choker.rsi
   - type: Item
     size: Small
   - type: FootstepModifier
@@ -123,9 +123,9 @@
   suffix: Personal, honelin111
   components:
   - type: Sprite
-    sprite: ADT/Special/honelin111_dress.rsi
+    sprite: ADT/Special/Personal/honelin111_dress.rsi
   - type: Clothing
-    sprite: ADT/Special/honelin111_dress.rsi
+    sprite: ADT/Special/Personal/honelin111_dress.rsi
 
 # NSFW
 - type: entity
@@ -136,7 +136,7 @@
   suffix: Personal, NSFW
   components:
   - type: Sprite
-    sprite: ADT/Special/nsfw_cloak.rsi
+    sprite: ADT/Special/Personal/nsfw_cloak.rsi
   - type: StaticPrice
     price: 1984
 
@@ -148,10 +148,10 @@
   description: A dark brown cloak with gold accents, flowing from the wearer’s shoulders.
   components:
   - type: Sprite
-    sprite: ADT/Special/1Altius_dark_brown_cloak.rsi
+    sprite: ADT/Special/Personal/1Altius_dark_brown_cloak.rsi
     state: icon
   - type: Clothing
-    sprite: ADT/Special/1Altius_dark_brown_cloak.rsi
+    sprite: ADT/Special/Personal/1Altius_dark_brown_cloak.rsi
   - type: Item
     size: Normal
 
@@ -163,10 +163,10 @@
   description: The Aristocrat's neck
   components:
   - type: Sprite
-    sprite: ADT/Special/saint_madman_neck.rsi
+    sprite: ADT/Special/Personal/saint_madman_neck.rsi
     state: icon
   - type: Clothing
-    sprite: ADT/Special/saint_madman_neck.rsi
+    sprite: ADT/Special/Personal/saint_madman_neck.rsi
   - type: Item
     size: Normal
 
@@ -178,7 +178,7 @@
   suffix: Sponsor, Uma
   components:
     - type: Sprite
-      sprite: ADT/Special/uma_choker.rsi
+      sprite: ADT/Special/Personal/uma_choker.rsi
 
 - type: entity
   parent: ADTSponsorClothingNeckBase
@@ -188,7 +188,7 @@
   description: Plus five percent coolness.
   components:
   - type: Sprite
-    sprite: ADT/Special/bolper_cloak.rsi
+    sprite: ADT/Special/Personal/bolper_cloak.rsi
 
 - type: entity
   parent: ADTSponsorClothingNeckBase
@@ -197,4 +197,16 @@
   description: Dark green with gold thread cloak.
   components:
   - type: Sprite
-    sprite: ADT/Special/pyotr_cloak.rsi
+    sprite: ADT/Special/Personal/pyotr_cloak.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckCoderCloakInconnu
+  name: coder's cloak
+  description: A cloak woven from restless streams of ones and zeroes. Legends say it was compiled, not sewn.
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/Inconnu/coder_cloak.rsi
+  - type: Clothing
+    sprite: ADT/Special/Personal/Inconnu/coder_cloak.rsi
+  - type: ADTOversizedSprite

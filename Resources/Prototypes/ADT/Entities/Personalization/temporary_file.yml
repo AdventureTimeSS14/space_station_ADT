@@ -8,10 +8,10 @@
   description: A pair of vintage motorcycle goggles with a wide leather strap. The lenses are bright, thick, and a deep red color.
   components:
   - type: Sprite
-    sprite: ADT/Personalization/archeron/motoglasses.rsi
+    sprite: ADT/Special/Personal/archeron/motoglasses.rsi
     state: icon
   - type: Clothing
-    sprite: ADT/Personalization/archeron/motoglasses.rsi
+    sprite: ADT/Special/Personal/archeron/motoglasses.rsi
     slots: [HEAD, EYES]
   - type: Item
     size: Normal
@@ -27,7 +27,7 @@
   suffix: Sponsor, Legion_159
   components:
   - type: Sprite
-    sprite: ADT/Personalization/Legion_159_plushie_atra.rsi
+    sprite: ADT/Special/Personal/Legion_159_plushie_atra.rsi
     layers:
     - state: icon
     - state: icon-unshaded
@@ -43,7 +43,7 @@
   suffix: Sponsor, Legion_159
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/Personal/toys.rsi
     state: plushie_el
   - type: EmitSoundOnUse
     sound: &PlushieMothSound
@@ -71,9 +71,9 @@
   suffix: Sponsor, Raven559
   components:
   - type: Sprite
-    sprite: ADT/Personalization/Raven559/blue_shield_ceremonial_reinforced_helmet.rsi
+    sprite: ADT/Special/Personal/Raven559/blue_shield_ceremonial_reinforced_helmet.rsi
   - type: Clothing
-    sprite: ADT/Personalization/Raven559/blue_shield_ceremonial_reinforced_helmet.rsi
+    sprite: ADT/Special/Personal/Raven559/blue_shield_ceremonial_reinforced_helmet.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -95,9 +95,9 @@
   suffix: Sponsor, Raven559
   components:
   - type: Sprite
-    sprite: ADT/Personalization/Raven559/blue_shield_ceremonial_reinforced_armor.rsi
+    sprite: ADT/Special/Personal/Raven559/blue_shield_ceremonial_reinforced_armor.rsi
   - type: Clothing
-    sprite: ADT/Personalization/Raven559/blue_shield_ceremonial_reinforced_armor.rsi
+    sprite: ADT/Special/Personal/Raven559/blue_shield_ceremonial_reinforced_armor.rsi
   - type: TemperatureProtection
     heatingCoefficient: 0.7
     coolingCoefficient: 1
@@ -124,9 +124,9 @@
   suffix: Personal, Unlumination
   components:
   - type: Sprite
-    sprite: ADT/Personalization/Illumy/brass_shoes.rsi
+    sprite: ADT/Special/Personal/Illumy/brass_shoes.rsi
   - type: Clothing
-    sprite: ADT/Personalization/Illumy/brass_shoes.rsi
+    sprite: ADT/Special/Personal/Illumy/brass_shoes.rsi
 
 - type: entity
   parent: ADTSponsorClothingNeckBase
@@ -136,9 +136,9 @@
   suffix: Personal, Unlumination
   components:
   - type: Sprite
-    sprite: ADT/Personalization/Illumy/jacket_cloak.rsi
+    sprite: ADT/Special/Personal/Illumy/jacket_cloak.rsi
   - type: Clothing
-    sprite: ADT/Personalization/Illumy/jacket_cloak.rsi
+    sprite: ADT/Special/Personal/Illumy/jacket_cloak.rsi
   - type: Storage
     grid:
     - 0,0,3,1
@@ -160,9 +160,9 @@
   suffix: Personal, Unlumination
   components:
   - type: Sprite
-    sprite: ADT/Personalization/Illumy/synthetic_gloves.rsi
+    sprite: ADT/Special/Personal/Illumy/synthetic_gloves.rsi
   - type: Clothing
-    sprite: ADT/Personalization/Illumy/synthetic_gloves.rsi
+    sprite: ADT/Special/Personal/Illumy/synthetic_gloves.rsi
 
 - type: entity
   parent: [ADTSponsorClothingUniformBase, ClothingUniformFoldableBase]
@@ -172,9 +172,9 @@
   suffix: Personal, Unlumination
   components:
   - type: Sprite
-    sprite: ADT/Personalization/Illumy/heatresistant_tuxedo.rsi
+    sprite: ADT/Special/Personal/Illumy/heatresistant_tuxedo.rsi
   - type: Clothing
-    sprite: ADT/Personalization/Illumy/heatresistant_tuxedo.rsi
+    sprite: ADT/Special/Personal/Illumy/heatresistant_tuxedo.rsi
 
 - type: entity
   parent: ClothingMaskNeckGaiter
@@ -206,10 +206,10 @@
   suffix: sponsor, shinoba
   components:
   - type: Sprite
-    sprite: ADT/Personalization/Shinoba/holster_army.rsi
+    sprite: ADT/Special/Personal/Shinoba/holster_army.rsi
     state: icon
   - type: Clothing
-    sprite: ADT/Personalization/Shinoba/holster_army.rsi
+    sprite: ADT/Special/Personal/Shinoba/holster_army.rsi
   - type: ItemSlots
     slots:
       weapon:
@@ -231,7 +231,7 @@
         ent: null
   - type: ExplosionResistance
     damageCoefficient: 0.1
-    
+
 - type: entity
   parent: BasePlushie
   id: ADTPlushieProximaLunnyykat
@@ -240,10 +240,10 @@
   suffix: Personal, Lunnyykat
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/Personal/toys.rsi
     state: plushie_proxima
   - type: Item
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/Personal/toys.rsi
     inhandVisuals:
       left:
       - state: proxima-inhand-left
@@ -251,7 +251,7 @@
       - state: proxima-inhand-right
   - type: Clothing
     quickEquip: false
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/Personal/toys.rsi
     slots:
     - HEAD
     clothingVisuals:
@@ -293,11 +293,11 @@
   suffix: Personal, Mysok
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/Personal/toys.rsi
     state: plushie_kusuk
   - type: Clothing
     quickEquip: false
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/Personal/toys.rsi
     slots:
     - HEAD
     clothingVisuals:
@@ -305,7 +305,7 @@
       - state: kusuk-equipped-HELMET
         offset: "0, 0.0625"
   - type: Item
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/Personal/toys.rsi
     inhandVisuals:
       left:
       - state: kusuk-inhand-left
@@ -350,10 +350,10 @@
   suffix: Personal, prodan_fan
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/Personal/toys.rsi
     state: plushie_nirkin
   - type: Item
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/Personal/toys.rsi
     inhandVisuals:
       left:
       - state: nirkin-inhand-left
@@ -386,7 +386,7 @@
         volume: -5
   - type: Clothing
     quickEquip: false
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/Personal/toys.rsi
     slots:
     - HEAD
     clothingVisuals:
@@ -409,9 +409,9 @@
   suffix: Personal, Tudibideb
   components:
   - type: Sprite
-    sprite: ADT/Personalization/tudibideb_bandana.rsi
+    sprite: ADT/Special/Personal/tudibideb_bandana.rsi
   - type: Clothing
-    sprite: ADT/Personalization/tudibideb_bandana.rsi
+    sprite: ADT/Special/Personal/tudibideb_bandana.rsi
   - type: BreathMask
 
 #RiverSpirit
@@ -423,9 +423,9 @@
   suffix: Personal, RiverSpirit
   components:
   - type: Sprite
-    sprite: ADT/Personalization/riverspirit_plasmaman_eva.rsi
+    sprite: ADT/Special/Personal/riverspirit_plasmaman_eva.rsi
   - type: Clothing
-    sprite: ADT/Personalization/riverspirit_plasmaman_eva.rsi
+    sprite: ADT/Special/Personal/riverspirit_plasmaman_eva.rsi
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -450,9 +450,9 @@
   suffix: Personal, RiverSpirit
   components:
   - type: Sprite
-    sprite: ADT/Personalization/riverspirit_plasmaman_helmet.rsi
+    sprite: ADT/Special/Personal/riverspirit_plasmaman_helmet.rsi
   - type: Clothing
-    sprite: ADT/Personalization/riverspirit_plasmaman_helmet.rsi
+    sprite: ADT/Special/Personal/riverspirit_plasmaman_helmet.rsi
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
 
@@ -464,7 +464,7 @@
   suffix: Personal, Etvy
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/Personal/toys.rsi
     state: plushie_yuriy
   - type: EmitSoundOnUse
     handle: false

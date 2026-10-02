@@ -24,13 +24,13 @@
   # - type: ThrowingAngle
   #   angle: 225
   - type: Clothing
-    sprite: ADT/Special/egflaer_folded_knife.rsi
+    sprite: ADT/Special/Personal/egflaer_folded_knife.rsi
     slots: [belt]
     equipSound:
       path: /Audio/Items/belt_equip.ogg
     quickEquip: false
   - type: Sprite
-    sprite: ADT/Special/egflaer_folded_knife.rsi
+    sprite: ADT/Special/Personal/egflaer_folded_knife.rsi
     layers:
     - state: icon_off
       map: [ "enum.ToggleableVisuals.Layer" ]
@@ -51,10 +51,10 @@
     sizeClosed: Tiny
   - type: Item
     size: Tiny
-    sprite: ADT/Special/egflaer_folded_knife.rsi
+    sprite: ADT/Special/Personal/egflaer_folded_knife.rsi
     storedSprite:
      state: storage_off
-     sprite: ADT/Special/egflaer_folded_knife.rsi
+     sprite: ADT/Special/Personal/egflaer_folded_knife.rsi
   - type: UseDelay
     delay: 1.0
   - type: DisarmMalus
@@ -94,7 +94,7 @@
     tags:
     - ADTSvet217KnifeKS43Cherry
   - type: Sprite
-    sprite: ADT/Special/svet217_KS-43_Cherry.rsi
+    sprite: ADT/Special/Personal/svet217_KS-43_Cherry.rsi
     state: icon
   - type: MeleeWeapon
     wideAnimationRotation: -250
@@ -106,4 +106,4 @@
   - type: ThrowingAngle
     angle: 90
   - type: Item
-    sprite: ADT/Special/svet217_KS-43_Cherry.rsi
+    sprite: ADT/Special/Personal/svet217_KS-43_Cherry.rsi

@@ -5,14 +5,14 @@
   description: Rifles
   components:
   - type: Sprite
-    sprite: ADT/Special/aksy_iohana.rsi
+    sprite: ADT/Special/Personal/aksy_iohana.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: ADT/Special/aksy_iohana.rsi
+    sprite: ADT/Special/Personal/aksy_iohana.rsi
     quickEquip: false
     slots:
     - Back

@@ -6,9 +6,9 @@
   description: White coat with blue strips? YOS.
   components:
   - type: Sprite
-    sprite: ADT/Special/johan_coat.rsi
+    sprite: ADT/Special/Personal/johan_coat.rsi
   - type: Clothing
-    sprite: ADT/Special/johan_coat.rsi
+    sprite: ADT/Special/Personal/johan_coat.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -29,9 +29,9 @@
     - 0,0,4,2
     maxItemSize: Normal
   - type: Sprite
-    sprite: ADT/Special/schrodinger_coat.rsi
+    sprite: ADT/Special/Personal/schrodinger_coat.rsi
   - type: Clothing
-    sprite: ADT/Special/schrodinger_coat.rsi
+    sprite: ADT/Special/Personal/schrodinger_coat.rsi
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
@@ -59,9 +59,9 @@
     - 0,0,3,1
     maxItemSize: Normal
   - type: Sprite
-    sprite: ADT/Special/pyotr_coat.rsi
+    sprite: ADT/Special/Personal/pyotr_coat.rsi
   - type: Clothing
-    sprite: ADT/Special/pyotr_coat.rsi
+    sprite: ADT/Special/Personal/pyotr_coat.rsi
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
@@ -85,9 +85,9 @@
   suffix: Bolper
   components:
   - type: Sprite
-    sprite: ADT/Special/bolper_trenchcoat.rsi
+    sprite: ADT/Special/Personal/bolper_trenchcoat.rsi
   - type: Clothing
-    sprite: ADT/Special/bolper_trenchcoat.rsi
+    sprite: ADT/Special/Personal/bolper_trenchcoat.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -106,9 +106,9 @@
   suffix: Personal, Ripchik
   components:
   - type: Sprite
-    sprite: ADT/Special/ripchik_greatcoat.rsi
+    sprite: ADT/Special/Personal/ripchik_greatcoat.rsi
   - type: Clothing
-    sprite: ADT/Special/ripchik_greatcoat.rsi
+    sprite: ADT/Special/Personal/ripchik_greatcoat.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -125,9 +125,9 @@
   suffix: Moon_so_red
   components:
   - type: Sprite
-    sprite: ADT/Special/moon_so_red_coat.rsi
+    sprite: ADT/Special/Personal/moon_so_red_coat.rsi
   - type: Clothing
-    sprite: ADT/Special/moon_so_red_coat.rsi
+    sprite: ADT/Special/Personal/moon_so_red_coat.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -145,9 +145,9 @@
   suffix: Personal, MleM
   components:
   - type: Sprite
-    sprite: ADT/Special/oktyabrina_coat.rsi
+    sprite: ADT/Special/Personal/oktyabrina_coat.rsi
   - type: Clothing
-    sprite: ADT/Special/oktyabrina_coat.rsi
+    sprite: ADT/Special/Personal/oktyabrina_coat.rsi
 
 - type: entity
   parent: ADTSponsorClothingOuterStorageFoldableBase
@@ -157,9 +157,9 @@
   suffix: Personal, PrazzzCool999
   components:
   - type: Sprite
-    sprite: ADT/Special/prazat_coat.rsi
+    sprite: ADT/Special/Personal/prazat_coat.rsi
   - type: Clothing
-    sprite: ADT/Special/prazat_coat.rsi
+    sprite: ADT/Special/Personal/prazat_coat.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -181,9 +181,9 @@
   suffix: Personal, PrazzzCool999
   components:
   - type: Sprite
-    sprite: ADT/Special/prazat_mentik.rsi
+    sprite: ADT/Special/Personal/prazat_mentik.rsi
   - type: Clothing
-    sprite: ADT/Special/prazat_mentik.rsi
+    sprite: ADT/Special/Personal/prazat_mentik.rsi
     slots:
     - outerClothing
     - neck
@@ -198,9 +198,9 @@
   suffix: Personal, saint_madman
   components:
   - type: Sprite
-    sprite: ADT/Special/saint_madman_coat.rsi
+    sprite: ADT/Special/Personal/saint_madman_coat.rsi
   - type: Clothing
-    sprite: ADT/Special/saint_madman_coat.rsi
+    sprite: ADT/Special/Personal/saint_madman_coat.rsi
   - type: Storage
     grid:
     - 0,0,4,2
@@ -214,9 +214,9 @@
   suffix: Personal, RedLis
   components:
   - type: Sprite
-    sprite: ADT/Special/RedLis/shiptest_trenchcoat.rsi
+    sprite: ADT/Special/Personal/RedLis/shiptest_trenchcoat.rsi
   - type: Clothing
-    sprite: ADT/Special/RedLis/shiptest_trenchcoat.rsi
+    sprite: ADT/Special/Personal/RedLis/shiptest_trenchcoat.rsi
   - type: Storage
     grid:
     - 0,0,4,2
@@ -230,9 +230,9 @@
   suffix: Personal, Altius, RedLis
   components:
   - type: Sprite
-    sprite: ADT/Special/RedLis/shiptest_jacket.rsi
+    sprite: ADT/Special/Personal/RedLis/shiptest_jacket.rsi
   - type: Clothing
-    sprite: ADT/Special/RedLis/shiptest_jacket.rsi
+    sprite: ADT/Special/Personal/RedLis/shiptest_jacket.rsi
   - type: Storage
     grid:
     - 0,0,4,2
@@ -246,9 +246,9 @@
   suffix: Personal, Mathemat1ka, For all sponsor
   components:
   - type: Sprite
-    sprite: ADT/Special/mathemat1ka_coat.rsi
+    sprite: ADT/Special/Personal/mathemat1ka_coat.rsi
   - type: Clothing
-    sprite: ADT/Special/mathemat1ka_coat.rsi
+    sprite: ADT/Special/Personal/mathemat1ka_coat.rsi
 
 - type: entity
   parent: ADTSponsorClothingOuterStorageBase
@@ -258,6 +258,6 @@
   suffix: Personal, honelin111
   components:
   - type: Sprite
-    sprite: ADT/Special/honelin111_jacket.rsi
+    sprite: ADT/Special/Personal/honelin111_jacket.rsi
   - type: Clothing
-    sprite: ADT/Special/honelin111_jacket.rsi
+    sprite: ADT/Special/Personal/honelin111_jacket.rsi

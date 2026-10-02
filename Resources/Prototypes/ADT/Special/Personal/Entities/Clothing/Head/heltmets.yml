@@ -7,9 +7,9 @@
   description: An armored hard hat. Provides the best of both worlds in both protection & utility - perfect for the engineer on the frontlines.
   components:
   - type: Sprite
-    sprite: ADT/Special/blue_armored_hardhat.rsi
+    sprite: ADT/Special/Personal/blue_armored_hardhat.rsi
   - type: Clothing
-    sprite: ADT/Special/blue_armored_hardhat.rsi
+    sprite: ADT/Special/Personal/blue_armored_hardhat.rsi
 
 - type: entity
   parent: ClothingHeadHelmetRiot
@@ -18,6 +18,6 @@
   description: A helmet protected from impacts and cuts. The cap symbolizes the power of capitalism and war crimes.
   components:
   - type: Sprite
-    sprite: ADT/Special/Raven559/blue_shield_ceremonial_helmet.rsi
+    sprite: ADT/Special/Personal/Raven559/blue_shield_ceremonial_helmet.rsi
   - type: Clothing
-    sprite: ADT/Special/Raven559/blue_shield_ceremonial_helmet.rsi
+    sprite: ADT/Special/Personal/Raven559/blue_shield_ceremonial_helmet.rsi

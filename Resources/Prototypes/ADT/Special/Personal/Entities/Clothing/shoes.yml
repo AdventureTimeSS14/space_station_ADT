@@ -7,9 +7,9 @@
   description: Black boots with metal inserts. Look reliable.
   components:
   - type: Sprite
-    sprite: ADT/Special/kivchikset_boots.rsi
+    sprite: ADT/Special/Personal/kivchikset_boots.rsi
   - type: Clothing
-    sprite: ADT/Special/kivchikset_boots.rsi
+    sprite: ADT/Special/Personal/kivchikset_boots.rsi
   - type: Matchbox
 
 - type: entity
@@ -20,9 +20,9 @@
   suffix: Personal, luckyrat
   components:
   - type: Sprite
-    sprite: ADT/Special/luckyrat/luckyrat_boots.rsi
+    sprite: ADT/Special/Personal/luckyrat/luckyrat_boots.rsi
   - type: Clothing
-    sprite: ADT/Special/luckyrat/luckyrat_boots.rsi
+    sprite: ADT/Special/Personal/luckyrat/luckyrat_boots.rsi
   - type: Matchbox
 
 - type: entity
@@ -33,9 +33,9 @@
   suffix: Personal, RedLis
   components:
   - type: Sprite
-    sprite: ADT/Special/RedLis/shiptest_boots.rsi
+    sprite: ADT/Special/Personal/RedLis/shiptest_boots.rsi
   - type: Clothing
-    sprite: ADT/Special/RedLis/shiptest_boots.rsi
+    sprite: ADT/Special/Personal/RedLis/shiptest_boots.rsi
   - type: Matchbox
 
 - type: entity
@@ -46,9 +46,9 @@
   suffix: Personal, Mathemat1ka, For all sponsor
   components:
   - type: Sprite
-    sprite: ADT/Special/mathemat1ka_boots.rsi
+    sprite: ADT/Special/Personal/mathemat1ka_boots.rsi
   - type: Clothing
-    sprite: ADT/Special/mathemat1ka_boots.rsi
+    sprite: ADT/Special/Personal/mathemat1ka_boots.rsi
 
 - type: entity
   parent: ADTSponsorClothingShoesBase
@@ -58,9 +58,9 @@
   description: Plus five percent speed.
   components:
   - type: Sprite
-    sprite: ADT/Special/bolper_boots.rsi
+    sprite: ADT/Special/Personal/bolper_boots.rsi
   - type: Clothing
-    sprite: ADT/Special/bolper_boots.rsi
+    sprite: ADT/Special/Personal/bolper_boots.rsi
   - type: Matchbox
 
 - type: entity
@@ -71,12 +71,12 @@
   suffix: Personal, kringe
   components:
   - type: Sprite
-    sprite: ADT/Special/kringe-magboots.rsi
+    sprite: ADT/Special/Personal/kringe-magboots.rsi
     layers:
     - state: icon
       map: [ "enum.ToggleableVisuals.Layer" ]
   - type: Clothing
-    sprite: ADT/Special/kringe-magboots.rsi
+    sprite: ADT/Special/Personal/kringe-magboots.rsi
   - type: ToggleClothing
     action: ADTActionToggleMagbootsKringe
     mustEquip: false
@@ -93,5 +93,5 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon: { sprite: ADT/Special/kringe-magboots.rsi, state: icon }
-    iconOn: { sprite: ADT/Special/kringe-magboots.rsi, state: icon-on }
+    icon: { sprite: ADT/Special/Personal/kringe-magboots.rsi, state: icon }
+    iconOn: { sprite: ADT/Special/Personal/kringe-magboots.rsi, state: icon-on }

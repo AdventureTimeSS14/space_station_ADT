@@ -7,10 +7,10 @@
   description: The scabbard of a legendary swordsman...
   components:
   - type: Sprite
-    sprite: ADT/Special/rip_zoro_sheats.rsi
+    sprite: ADT/Special/Personal/rip_zoro_sheats.rsi
     state: sheath
   - type: Clothing
-    sprite: ADT/Special/rip_zoro_sheats.rsi
+    sprite: ADT/Special/Personal/rip_zoro_sheats.rsi
     quickEquip: false
     slots:
     - belt
@@ -43,10 +43,10 @@
   description: A sturdy leather sheath for the captain's battle axe.
   components:
   - type: Sprite
-    sprite: ADT/Special/syrel_sheath.rsi
+    sprite: ADT/Special/Personal/syrel_sheath.rsi
     state: sheath
   - type: Clothing
-    sprite: ADT/Special/syrel_sheath.rsi
+    sprite: ADT/Special/Personal/syrel_sheath.rsi
   - type: Item
     size: Ginormous
   - type: ItemSlots
@@ -76,10 +76,10 @@
   suffix: Personal, Mathemat1ka, For all sponsor
   components:
   - type: Sprite
-    sprite: ADT/Special/mathemat1ka_sheath.rsi
+    sprite: ADT/Special/Personal/mathemat1ka_sheath.rsi
     state: sheath
   - type: Clothing
-    sprite: ADT/Special/mathemat1ka_sheath.rsi
+    sprite: ADT/Special/Personal/mathemat1ka_sheath.rsi
 
 - type: entity
   id: ADTClothingBeltMathemat1kaSheathFilled
@@ -99,10 +99,10 @@
   description: Case designed for storing and carrying the KS-43 "Cherry"
   components:
   - type: Sprite
-    sprite: ADT/Special/svet217_KS-43_Cherry_case.rsi
+    sprite: ADT/Special/Personal/svet217_KS-43_Cherry_case.rsi
     state: sheath
   - type: Clothing
-    sprite: ADT/Special/svet217_KS-43_Cherry_case.rsi
+    sprite: ADT/Special/Personal/svet217_KS-43_Cherry_case.rsi
   - type: Item
     storedRotation: -90
     size: Small
@@ -133,10 +133,10 @@
   suffix: Personal, stryz_ani
   components:
   - type: Sprite
-    sprite: ADT/Special/stryz_ani/sheath.rsi
+    sprite: ADT/Special/Personal/stryz_ani/sheath.rsi
     state: sheath
   - type: Clothing
-    sprite: ADT/Special/stryz_ani/sheath.rsi
+    sprite: ADT/Special/Personal/stryz_ani/sheath.rsi
     quickEquip: false
     slots:
     - belt
@@ -169,10 +169,10 @@
   description: I`m ready to fight.
   components:
   - type: Sprite
-    sprite: ADT/Special/bolper_sheaths.rsi
+    sprite: ADT/Special/Personal/bolper_sheaths.rsi
     state: sheath
   - type: Clothing
-    sprite: ADT/Special/bolper_sheaths.rsi
+    sprite: ADT/Special/Personal/bolper_sheaths.rsi
     quickEquip: false
     slots:
     - back
@@ -216,12 +216,12 @@
   - type: Appearance
   - type: Item
     size: Large # ADT tweak
-    sprite: ADT/Special/yv2recharger.rsi
+    sprite: ADT/Special/Personal/yv2recharger.rsi
   - type: Sprite
-    sprite: ADT/Special/yv2recharger.rsi
+    sprite: ADT/Special/Personal/yv2recharger.rsi
     state: icon
   - type: Clothing
-    sprite: ADT/Special/yv2recharger.rsi
+    sprite: ADT/Special/Personal/yv2recharger.rsi
     slots: [belt, neck]
     equipSound:
       path: /Audio/Items/belt_equip.ogg
@@ -256,4 +256,4 @@
         whitelist:
           tags:
           - YV2Pistol
-    sprite: ADT/Special/yv2recharger.rsi
+    sprite: ADT/Special/Personal/yv2recharger.rsi

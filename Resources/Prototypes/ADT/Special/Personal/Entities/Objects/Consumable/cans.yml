@@ -19,9 +19,9 @@
         - ReagentId: Iron
           Quantity: 1
   - type: Sprite
-    sprite: ADT/Special/FaustNetzach/faust_drink.rsi
+    sprite: ADT/Special/Personal/FaustNetzach/faust_drink.rsi
   - type: Item
-    sprite: ADT/Special/FaustNetzach/faust_drink.rsi
+    sprite: ADT/Special/Personal/FaustNetzach/faust_drink.rsi
   - type: Fixtures
     fixtures:
       fix1:

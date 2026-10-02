@@ -6,14 +6,14 @@
   description: A beautiful black bag with a gold clasp and red stripes.
   components:
   - type: Sprite
-    sprite: ADT/Special/kivchikset_satchel.rsi
+    sprite: ADT/Special/Personal/kivchikset_satchel.rsi
 
 - type: entity
   parent: ClothingBackpackDuffel
   id: ADTClothingBackpackDuffelAnagiri
   components:
   - type: Sprite
-    sprite: ADT/Special/anagiri_duffel.rsi
+    sprite: ADT/Special/Personal/anagiri_duffel.rsi
 
 - type: entity
   parent: [ClothingBackpackSatchelCaptain, ADTSponsorClothingBackpackSatchel]
@@ -23,11 +23,6 @@
   suffix: Personal, Mathemat1ka, For all sponsor
   components:
   - type: Sprite
-    sprite: ADT/Special/mathemat1ka_satchel.rsi
+    sprite: ADT/Special/Personal/mathemat1ka_satchel.rsi
   - type: Clothing
-    sprite: ADT/Special/mathemat1ka_satchel.rsi
-
-
-
-
-
+    sprite: ADT/Special/Personal/mathemat1ka_satchel.rsi

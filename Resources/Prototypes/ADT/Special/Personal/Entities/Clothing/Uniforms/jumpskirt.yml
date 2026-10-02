@@ -6,9 +6,9 @@
   description: Black jumpsuit with golden stripes and red bandage.
   components:
   - type: Sprite
-    sprite: ADT/Special/kivchikset_skirt.rsi
+    sprite: ADT/Special/Personal/kivchikset_skirt.rsi
   - type: Clothing
-    sprite: ADT/Special/kivchikset_skirt.rsi
+    sprite: ADT/Special/Personal/kivchikset_skirt.rsi
 
 - type: entity
   parent: [ClothingUniformJumpskirtCapFormalDress, ADTSponsorClothingUniformBase]
@@ -18,9 +18,9 @@
   suffix: Personal, Mathemat1ka, For all sponsor
   components:
   - type: Sprite
-    sprite: ADT/Special/mathemat1ka_dress.rsi
+    sprite: ADT/Special/Personal/mathemat1ka_dress.rsi
   - type: Clothing
-    sprite: ADT/Special/mathemat1ka_dress.rsi
+    sprite: ADT/Special/Personal/mathemat1ka_dress.rsi
 
 
 - type: entity
@@ -31,9 +31,9 @@
   suffix: Personal, honelin111
   components:
   - type: Sprite
-    sprite: ADT/Special/honelin111_shirt.rsi
+    sprite: ADT/Special/Personal/honelin111_shirt.rsi
   - type: Clothing
-    sprite: ADT/Special/honelin111_shirt.rsi
+    sprite: ADT/Special/Personal/honelin111_shirt.rsi
 
 
 
@@ -46,6 +46,6 @@
   description: dark green jumpskirt
   components:
   - type: Sprite
-    sprite: ADT/Special/kiwi_jumpskirt.rsi
+    sprite: ADT/Special/Personal/kiwi_jumpskirt.rsi
   - type: Clothing
-    sprite: ADT/Special/kiwi_jumpskirt.rsi
+    sprite: ADT/Special/Personal/kiwi_jumpskirt.rsi
