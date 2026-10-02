@@ -6,10 +6,6 @@ ent-ADTStatueBeerMessiahRight = статуя пивного мессии
     .desc = Древняя гранитная статуя высшего существа, дарующего первым людям ПИВО
     .suffix = Октоберфест, Правая
 
-ent-ADTChairOktoberfestOrange = оранжевый деревянный стул
-    .suffix = Октоберфест
-    .desc = { ent-ChairWood.desc }
-
 ent-ADTChairOktoberfest = роскошный праздничный стул
     .desc = Комфортнейший стул для праздника пива.
     .suffix = { "Октоберфест" }

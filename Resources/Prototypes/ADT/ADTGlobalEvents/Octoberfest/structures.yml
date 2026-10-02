@@ -26,18 +26,18 @@
     drawdepth: Mobs
     offset: "0.0,0.5"
 
-- type: entity
-  name: oktoberfest chair
-  id: ADTChairOktoberfest
-  parent: ADTChairBase
-  suffix: Oktoberfest
-  components:
-  - type: Sprite
-    sprite: ADT/ADTGlobalEvents/Octoberfest/Structures/chair.rsi
-    state: oct_chair_orange
-  - type: Construction
-    graph: ADTSeat
-    node: adtchairoktoberfest
+# - type: entity
+#   name: oktoberfest chair
+#   id: ADTChairOktoberfest
+#   parent: ADTChairBase
+#   suffix: Oktoberfest
+#   components:
+#   - type: Sprite
+#     sprite: ADT/ADTGlobalEvents/Octoberfest/Structures/chair.rsi
+#     state: oct_chair_orange
+#   - type: Construction
+#     graph: ADTSeat
+#     node: adtchairoktoberfest
  
 # - type: entity
 #   name: orange wooden chair
