@@ -56,13 +56,9 @@
   - WeaponSprayNozzle
   - ClothingBackpackWaterTank
   - MegaSprayBottle
-<<<<<<< ours
   - ADTBluespaceTrashCan # ADT tweak
   - ADTAdvancedWateringCan #ADT-Tweak
-||||||| base
-=======
   - TrashBagHolding
->>>>>>> theirs
 
 - type: latheRecipePack
   id: Instruments
