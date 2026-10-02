@@ -20,6 +20,7 @@ public sealed partial class OwOAccentSystem : RelayAccentSystem<OwOAccentCompone
         new Dictionary<string, string>
         {
             { "you", "wu" },
+            { "ты", "ти" }, // Corvax-Localization
         }.ToFrozenDictionary();
 
     public override string Accentuate(string message, Entity<OwOAccentComponent>? ent = null)
@@ -34,6 +35,12 @@ public sealed partial class OwOAccentSystem : RelayAccentSystem<OwOAccentCompone
         }
 
         return message.Replace("!", random.Pick(Faces))
+            // Corvax-Localization-Start
+            .Replace("р", "в")
+            .Replace("Р", "В")
+            .Replace("л", "в")
+            .Replace("Л", "В")
+            // Corvax-Localization-End
             .Replace("r", "w")
             .Replace("R", "W")
             .Replace("l", "w")

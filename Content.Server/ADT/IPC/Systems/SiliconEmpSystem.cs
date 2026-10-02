@@ -26,8 +26,7 @@ public sealed class SiliconEmpSystem : EntitySystem
     private static readonly EntProtoId MuteEffect = "StatusEffectMuted";
     [Dependency] private StunSystem _stun = default!;
     [Dependency] private IRobustRandom _random = default!;
-    [Dependency] private SharedStutteringSystem _stuttering = default!;
-    [Dependency] private SharedSlurredSystem _slurredSystem = default!;
+    [Dependency] private StutteringSystem _stuttering = default!;
     [Dependency] private DamageableSystem _damage = default!;
     [Dependency] private IPrototypeManager _proto = default!;
 
@@ -59,7 +58,7 @@ public sealed class SiliconEmpSystem : EntitySystem
         _status.TryAddStatusEffect<SeeingStaticComponent>(uid, SharedSeeingStaticSystem.StaticKey, duration, true, statusComp);
 
         if (_random.Prob(0.8f))
-            _slurredSystem.DoSlur(uid, duration * 2, statusComp);
+            _statusNew.TryAddStatusEffectDuration(uid, SlurredSystem.Stutter, duration * 2);
 
         if (_random.Prob(0.6f))
             _stuttering.DoStutter(uid, duration * 2, false);

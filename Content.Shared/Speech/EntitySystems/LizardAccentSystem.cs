@@ -1,30 +1,20 @@
-<<<<<<< HEAD:Content.Server/Speech/EntitySystems/LizardAccentSystem.cs
 using System.Text.RegularExpressions;
-using Content.Server.Speech.Components;
-using Robust.Shared.Random;
-using Content.Shared.Speech;
-=======
-﻿using System.Text.RegularExpressions;
 using Content.Shared.Speech.Components;
->>>>>>> wizards-filtered:Content.Shared/Speech/EntitySystems/LizardAccentSystem.cs
+using Robust.Shared.Random;
 
 namespace Content.Shared.Speech.EntitySystems;
 
 public sealed partial class LizardAccentSystem : RelayAccentSystem<LizardAccentComponent>
 {
-    private static Regex RegexLowerS = new("s+");
-    private static Regex RegexUpperS = new("S+");
-    private static Regex RegexInternalX = new(@"(\w)x");
-    private static Regex RegexLowerEndX = new(@"\bx([\-|r|R]|\b)");
-    private static Regex RegexUpperEndX = new(@"\bX([\-|r|R]|\b)");
+    private static readonly Regex RegexLowerS = new("s+");
+    private static readonly Regex RegexUpperS = new("S+");
+    private static readonly Regex RegexInternalX = new(@"(\w)x");
+    private static readonly Regex RegexLowerEndX = new(@"\bx([\-|r|R]|\b)");
+    private static readonly Regex RegexUpperEndX = new(@"\bX([\-|r|R]|\b)");
 
-<<<<<<< HEAD:Content.Server/Speech/EntitySystems/LizardAccentSystem.cs
-    [Dependency] private readonly IRobustRandom _random = default!; // Corvax-Localization
+    [Dependency] private IRobustRandom _random = default!; // Corvax-Localization
 
-    public override void Initialize()
-=======
     public override string Accentuate(string message, Entity<LizardAccentComponent>? ent = null)
->>>>>>> wizards-filtered:Content.Shared/Speech/EntitySystems/LizardAccentSystem.cs
     {
         // hissss
         message = RegexLowerS.Replace(message, "sss");
@@ -37,7 +27,6 @@ public sealed partial class LizardAccentSystem : RelayAccentSystem<LizardAccentC
         // eckS
         message = RegexUpperEndX.Replace(message, "ECKS$1");
 
-<<<<<<< HEAD:Content.Server/Speech/EntitySystems/LizardAccentSystem.cs
         // Corvax-Localization-Start
         // c => ссс
         message = Regex.Replace(
@@ -88,9 +77,6 @@ public sealed partial class LizardAccentSystem : RelayAccentSystem<LizardAccentC
             _random.Pick(new List<string>() { "ЩЩ", "ЩЩЩ" })
         );
         // Corvax-Localization-End
-        args.Message = message;
-=======
         return message;
->>>>>>> wizards-filtered:Content.Shared/Speech/EntitySystems/LizardAccentSystem.cs
     }
 }

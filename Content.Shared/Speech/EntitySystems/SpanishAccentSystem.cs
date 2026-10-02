@@ -15,6 +15,8 @@ public sealed partial class SpanishAccentSystem : RelayAccentSystem<SpanishAccen
 
     public override string Accentuate(string message, Entity<SpanishAccentComponent>? ent = null)
     {
+        message = ApplyADTReplacements(message); // ADT-Tweak
+
         // Insert E before every S that is followed by a consonant that makes a distinct sound
         // (H is excluded because [sh] is a single sound)
         message = InsertS(message);

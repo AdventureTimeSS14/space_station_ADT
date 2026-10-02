@@ -1,7 +1,7 @@
 using Content.Server.Chat.Systems;
 using Content.Server.Jittering;
 using Content.Server.Popups;
-using Content.Server.Speech.EntitySystems;
+using Content.Shared.Speech.EntitySystems;
 using Content.Server.Stunnable;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.Mind.Components;

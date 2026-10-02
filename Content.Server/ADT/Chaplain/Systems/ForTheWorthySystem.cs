@@ -24,7 +24,7 @@ public sealed class ForTheWorthySystem : EntitySystem
     [Dependency] private DamageableSystem _damageable = default!;
     [Dependency] private SharedStunSystem _stun = default!;
     [Dependency] private SharedJitteringSystem _jittering = default!;
-    [Dependency] private SharedStutteringSystem _stuttering = default!;
+    [Dependency] private StutteringSystem _stuttering = default!;
     [Dependency] private IPrototypeManager _prototype = default!;
 
     public override void Initialize()
