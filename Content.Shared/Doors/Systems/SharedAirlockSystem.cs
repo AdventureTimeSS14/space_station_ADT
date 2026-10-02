@@ -168,8 +168,13 @@ public abstract partial class SharedAirlockSystem : EntitySystem
         }
         else
         {
+            OnPoweredADT(ent, door); // ADT-Tweak
             UpdateAutoClose((ent, ent.Comp, door));
         }
+    }
+
+    protected virtual void OnPoweredADT(Entity<AirlockComponent> ent, DoorComponent door) // ADT-Tweak
+    {
     }
 
     private void OnActivate(Entity<AirlockComponent> ent, ref ActivateInWorldEvent args)

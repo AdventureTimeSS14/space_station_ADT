@@ -1,182 +1,40 @@
-<<<<<<< ours
 using Content.Server.Power.Components;
 using Content.Server.Shuttles.Components;
 using Content.Server.Wires;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Doors.Components;
-||||||| base
-using Content.Server.Power.Components;
-using Content.Server.Wires;
-using Content.Shared.DeviceLinking.Events;
-using Content.Shared.Doors.Components;
-=======
->>>>>>> theirs
 using Content.Shared.Doors.Systems;
 
 namespace Content.Server.Doors.Systems;
 
-<<<<<<< ours
-public sealed class AirlockSystem : SharedAirlockSystem
+public sealed partial class AirlockSystem : SharedAirlockSystem
 {
-    [Dependency] private readonly WiresSystem _wiresSystem = default!;
-
+    // ADT-Tweak-Start
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<AirlockComponent, SignalReceivedEvent>(OnSignalReceived);
-
-        SubscribeLocalEvent<AirlockComponent, PowerChangedEvent>(OnPowerChanged);
-        SubscribeLocalEvent<AirlockComponent, ActivateInWorldEvent>(OnActivate, before: new[] { typeof(DoorSystem) });
-        SubscribeLocalEvent<AirlockComponent, ComponentInit>(OnAirlockInit); // ADT-Corvax-Tweak
+        SubscribeLocalEvent<AirlockComponent, ComponentInit>(OnAirlockInit);
     }
 
     private void OnAirlockInit(EntityUid uid, AirlockComponent component, ComponentInit args)
     {
-        if (TryComp<ApcPowerReceiverComponent>(uid, out var receiverComponent))
-        {
+        if (HasComp<ApcPowerReceiverComponent>(uid))
             Appearance.SetData(uid, DoorVisuals.ClosedLights, true); // Corvax-Resprite-Airlocks
-        }
     }
 
-    private void OnSignalReceived(EntityUid uid, AirlockComponent component, ref SignalReceivedEvent args)
+    protected override void OnPoweredADT(Entity<AirlockComponent> ent, DoorComponent door)
     {
-        if (args.Port == component.AutoClosePort && component.AutoClose)
-        {
-            component.AutoClose = false;
-            Dirty(uid, component);
-        }
-    }
-
-    private void OnPowerChanged(EntityUid uid, AirlockComponent component, ref PowerChangedEvent args)
-    {
-        component.Powered = args.Powered;
-        Dirty(uid, component);
-
-        if (!TryComp(uid, out DoorComponent? door))
+        if (!TryComp<DockingComponent>(ent, out var docking) ||
+            !docking.Docked ||
+            door.State != DoorState.Closed)
             return;
 
-        if (!args.Powered)
+        if (DoorSystem.TryOpen(ent, door) &&
+            TryComp<DoorBoltComponent>(ent, out var doorBolt))
         {
-            // stop any scheduled auto-closing
-            if (door.State == DoorState.Open)
-                DoorSystem.SetNextStateChange(uid, null);
-        }
-        else
-        {
-            // ADT-Tweak start
-            if (TryComp<DockingComponent>(uid, out var docking) &&
-                docking.Docked &&
-                door.State == DoorState.Closed)
-            {
-                if (DoorSystem.TryOpen(uid, door) &&
-                    TryComp<DoorBoltComponent>(uid, out var doorBolt))
-                {
-                    DoorSystem.SetBoltsDown((uid, doorBolt), true);
-                }
-            }
-            // ADT-Tweak end
-
-            UpdateAutoClose(uid, door: door);
+            DoorSystem.SetBoltsDown((ent, doorBolt), true);
         }
     }
-
-    private void OnActivate(EntityUid uid, AirlockComponent component, ActivateInWorldEvent args)
-    {
-        if (args.Handled || !args.Complex)
-            return;
-
-        if (TryComp<WiresPanelComponent>(uid, out var panel) &&
-            panel.Open &&
-            TryComp<ActorComponent>(args.User, out var actor))
-        {
-            if (TryComp<WiresPanelSecurityComponent>(uid, out var wiresPanelSecurity) &&
-                !wiresPanelSecurity.WiresAccessible)
-                return;
-
-            _wiresSystem.OpenUserInterface(uid, actor.PlayerSession);
-            args.Handled = true;
-            return;
-        }
-
-        if (component.KeepOpenIfClicked && component.AutoClose)
-        {
-            // Disable auto close
-            component.AutoClose = false;
-            Dirty(uid, component);
-        }
-    }
+    // ADT-Tweak-End
 }
-||||||| base
-public sealed class AirlockSystem : SharedAirlockSystem
-{
-    [Dependency] private readonly WiresSystem _wiresSystem = default!;
-
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<AirlockComponent, SignalReceivedEvent>(OnSignalReceived);
-
-        SubscribeLocalEvent<AirlockComponent, PowerChangedEvent>(OnPowerChanged);
-        SubscribeLocalEvent<AirlockComponent, ActivateInWorldEvent>(OnActivate, before: new[] { typeof(DoorSystem) });
-    }
-
-    private void OnSignalReceived(EntityUid uid, AirlockComponent component, ref SignalReceivedEvent args)
-    {
-        if (args.Port == component.AutoClosePort && component.AutoClose)
-        {
-            component.AutoClose = false;
-            Dirty(uid, component);
-        }
-    }
-
-    private void OnPowerChanged(EntityUid uid, AirlockComponent component, ref PowerChangedEvent args)
-    {
-        component.Powered = args.Powered;
-        Dirty(uid, component);
-
-        if (!TryComp(uid, out DoorComponent? door))
-            return;
-
-        if (!args.Powered)
-        {
-            // stop any scheduled auto-closing
-            if (door.State == DoorState.Open)
-                DoorSystem.SetNextStateChange(uid, null);
-        }
-        else
-        {
-            UpdateAutoClose(uid, door: door);
-        }
-    }
-
-    private void OnActivate(EntityUid uid, AirlockComponent component, ActivateInWorldEvent args)
-    {
-        if (args.Handled || !args.Complex)
-            return;
-
-        if (TryComp<WiresPanelComponent>(uid, out var panel) &&
-            panel.Open &&
-            TryComp<ActorComponent>(args.User, out var actor))
-        {
-            if (TryComp<WiresPanelSecurityComponent>(uid, out var wiresPanelSecurity) &&
-                !wiresPanelSecurity.WiresAccessible)
-                return;
-
-            _wiresSystem.OpenUserInterface(uid, actor.PlayerSession);
-            args.Handled = true;
-            return;
-        }
-
-        if (component.KeepOpenIfClicked && component.AutoClose)
-        {
-            // Disable auto close
-            component.AutoClose = false;
-            Dirty(uid, component);
-        }
-    }
-}
-=======
-public sealed partial class AirlockSystem : SharedAirlockSystem;
->>>>>>> theirs

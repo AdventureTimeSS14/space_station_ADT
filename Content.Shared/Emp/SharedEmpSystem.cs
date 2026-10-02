@@ -10,13 +10,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.Emp;
 
-<<<<<<< ours
-public abstract partial class SharedEmpSystem : EntitySystem // ADT-Tweak - partial class
-||||||| base
-public abstract class SharedEmpSystem : EntitySystem
-=======
 public abstract partial class SharedEmpSystem : EntitySystem
->>>>>>> theirs
 {
     [Dependency] protected IGameTiming Timing = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;
@@ -26,15 +20,7 @@ public abstract partial class SharedEmpSystem : EntitySystem
 
     [Dependency] private EntityQuery<EmpResistanceComponent> _resistanceQuery = default!;
 
-<<<<<<< ours
-    private readonly HashSet<EntityUid> _entSet = new();
-    private EntityQuery<EmpResistanceComponent> _resistanceQuery;
-||||||| base
     private HashSet<EntityUid> _entSet = new();
-    private EntityQuery<EmpResistanceComponent> _resistanceQuery;
-=======
-    private HashSet<EntityUid> _entSet = new();
->>>>>>> theirs
 
     public override void Initialize()
     {
@@ -44,15 +30,8 @@ public abstract partial class SharedEmpSystem : EntitySystem
         SubscribeLocalEvent<EmpDisabledComponent, ComponentRemove>(OnRemove);
         SubscribeLocalEvent<EmpDisabledComponent, RejuvenateEvent>(OnRejuvenate);
         SubscribeLocalEvent<EmpResistanceComponent, EmpAttemptEvent>(OnResistEmpAttempt);
-<<<<<<< ours
 
-        _resistanceQuery = GetEntityQuery<EmpResistanceComponent>();
         InitializeADT(); // ADT-Tweak
-||||||| base
-
-        _resistanceQuery = GetEntityQuery<EmpResistanceComponent>();
-=======
->>>>>>> theirs
     }
 
     public static readonly EntProtoId EmpPulseEffectPrototype = "EffectEmpPulse";

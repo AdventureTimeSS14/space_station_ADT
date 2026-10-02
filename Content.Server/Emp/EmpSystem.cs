@@ -1,15 +1,11 @@
 using Content.Server.Power.EntitySystems;
 using Content.Server.SurveillanceCamera;
 using Content.Shared.Emp;
-<<<<<<< ours
 using Content.Shared.Projectiles;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.ADT.EMP;
 using Content.Shared.Power.Components;
-||||||| base
-=======
 using Content.Shared.Radio;
->>>>>>> theirs
 
 namespace Content.Server.Emp;
 
