@@ -89,16 +89,6 @@
     allowed:
     - Stutter
     - Electrocution
-<<<<<<< ours
-    - RatvarianLanguage
-    - Muted
-||||||| base
-    - RatvarianLanguage
-    - PressureImmunity
-    - Muted
-    - TemporaryBlindness
-=======
->>>>>>> theirs
     - Pacified
     - Flashed
     - Adrenaline
