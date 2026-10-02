@@ -6,7 +6,6 @@
   defaultSkinTone: "#b8b8b8"
   dollPrototype: AppearanceSlimePerson
   skinColoration: Hues
-<<<<<<< ours
   # ADT start
   shortDesc: species-short-desc-slime
   description: "/ServerInfo/ADT/SpeciesDescriptions/Slime.xml"
@@ -30,8 +29,6 @@
   uniqueLanguages:
   - Bubblish
   # ADT end
-||||||| base
-=======
   defaultSoundsBySex:
   - MaleSlime
   - FemaleSlime
@@ -39,4 +36,3 @@
   voices:
   - MaleSlime
   - FemaleSlime
->>>>>>> theirs

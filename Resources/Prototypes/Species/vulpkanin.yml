@@ -8,13 +8,8 @@
   skinColoration: VulpkaninColors
   maleFirstNames: names_vulpkanin_male
   femaleFirstNames: names_vulpkanin_female
-<<<<<<< ours
   maleLastNames: names_vulpkanin_last
   femaleLastNames: names_vulpkanin_last
-||||||| base
-  lastNames: names_vulpkanin_last
-=======
-  lastNames: names_vulpkanin_last
   defaultSoundsBySex:
   - MaleVulpkanin
   - FemaleVulpkanin
@@ -22,4 +17,3 @@
   voices:
   - MaleVulpkanin
   - FemaleVulpkanin
->>>>>>> theirs

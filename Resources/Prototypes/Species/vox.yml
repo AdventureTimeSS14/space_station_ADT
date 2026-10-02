@@ -11,7 +11,6 @@
   naming: First
   sexes:
   - Unsexed
-<<<<<<< ours
   # ADT start
   shortDesc: species-short-desc-vox
   description: "/ServerInfo/ADT/SpeciesDescriptions/Vox.xml"
@@ -35,12 +34,9 @@
   oldAge: 46
   youngAge: 31
   # ADT end
-||||||| base
-=======
   defaultSoundsBySex:
   - UnisexVox
   - UnisexVox
   - UnisexVox
   voices:
   - UnisexVox
->>>>>>> theirs
