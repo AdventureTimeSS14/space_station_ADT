@@ -642,21 +642,7 @@
   - type: ZombieAccentOverride
     accent: zombieMoth
   - type: Vocal
-<<<<<<< ours
-    sounds:
-      # Start-ADT Tweak Нианы
-      Male: MaleMoth
-      Female: FemaleMoth
-      Unsexed: MaleMoth
-      # End-ADT Tweak Нианы
-||||||| base
-    sounds:
-      Male: UnisexMoth
-      Female: UnisexMoth
-      Unsexed: UnisexMoth
-=======
     emoteSounds: UnisexMoth
->>>>>>> theirs
     wilhelmProbability: 0.001
   - type: BodyEmotes
     soundsId: MothBodyEmotes
