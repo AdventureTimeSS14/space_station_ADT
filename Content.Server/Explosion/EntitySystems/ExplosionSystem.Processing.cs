@@ -247,36 +247,12 @@ public sealed partial class ExplosionSystem
         // Walls and reinforced walls will break into girders. These girders will also be considered turf-blocking for
         // the purposes of destroying floors. Again, ideally the process of damaging an entity should somehow return
         // information about the entities that were spawned as a result, but without that information we just have to
-<<<<<<< ours
-        var tileBlocked = false;
-        _map.GetAnchoredEntities(grid, tile, _anchored);
-        if (_anchored.Count > 0)
-||||||| base
-        // re-check for new anchored entities. Compared to entity spawning & deleting, this should still be relatively minor.
-        if (_anchored.Count > 0)
-=======
         var tileBlocked = false;
         foreach (var entity in _anchored)
->>>>>>> theirs
         {
-<<<<<<< ours
-            foreach (var entity in _anchored)
-            {
-                tileBlocked |= IsBlockingTurf(entity);
-            }
-            _anchored.Clear();
-||||||| base
-            _anchored.Clear();
-            _map.GetAnchoredEntities(grid, tile, _anchored);
-            foreach (var entity in _anchored)
-            {
-                tileBlocked |= IsBlockingTurf(entity);
-            }
-=======
             processed.Add(entity);
             ProcessEntity(entity, epicenter, damage, throwForce, id, null, fireStacks, cause);
             tileBlocked |= IsBlockingTurf(entity);
->>>>>>> theirs
         }
         _anchored.Clear();
 
@@ -463,7 +439,7 @@ public sealed partial class ExplosionSystem
         DamageSpecifier? originalDamage,
         float throwForce,
         string id,
-        TransformComponent xform,
+        TransformComponent? xform,
         float? fireStacksOnIgnite,
         EntityUid? cause)
     {
@@ -500,46 +476,6 @@ public sealed partial class ExplosionSystem
         }
 
         // throw
-<<<<<<< ours
-        if (!xform.Anchored
-            && throwForce > 0
-            && !EntityManager.IsQueuedForDeletion(uid)
-            && _physicsQuery.TryGetComponent(uid, out var physics)
-            && physics.BodyType == BodyType.Dynamic)
-        {
-            var pos = _transformSystem.GetWorldPosition(xform);
-            var dir = pos - epicenter.Position;
-            if (dir.IsLengthZero())
-                dir = _robustRandom.NextVector2().Normalized();
-            _throwingSystem.TryThrow(
-                uid,
-                dir,
-                physics,
-                xform,
-                _projectileQuery,
-                throwForce);
-        }
-||||||| base
-        if (xform != null // null implies anchored or in a container
-            && !xform.Anchored
-            && throwForce > 0
-            && !EntityManager.IsQueuedForDeletion(uid)
-            && _physicsQuery.TryGetComponent(uid, out var physics)
-            && physics.BodyType == BodyType.Dynamic)
-        {
-            var pos = _transformSystem.GetWorldPosition(xform);
-            var dir = pos - epicenter.Position;
-            if (dir.IsLengthZero())
-                dir = _robustRandom.NextVector2().Normalized();
-            _throwingSystem.TryThrow(
-                uid,
-                dir,
-                physics,
-                xform,
-                _projectileQuery,
-                throwForce);
-        }
-=======
         if (xform == null
             || xform.Anchored
             || throwForce <= 0
@@ -558,7 +494,6 @@ public sealed partial class ExplosionSystem
             physics,
             xform,
             throwForce);
->>>>>>> theirs
     }
 
     /// <summary>
