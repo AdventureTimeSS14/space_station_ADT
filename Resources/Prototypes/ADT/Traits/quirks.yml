@@ -155,10 +155,7 @@
     - ADTXenoborgIPC
   components:
   - type: Vocal
-    sounds:
-      Male: FemaleIPC
-      Female: FemaleIPC
-      Unsexed: FemaleIPC
+    emoteSounds: FemaleIPC
   - type: Tag
     tags:
     - CanPilot
@@ -185,10 +182,7 @@
     - ADTXenoborgIPC
   components:
   - type: Vocal
-    sounds:
-      Male: MaleIPC
-      Female: MaleIPC
-      Unsexed: MaleIPC
+    emoteSounds: MaleIPC
   - type: Tag
     tags:
     - CanPilot
@@ -215,10 +209,7 @@
     - ADTXenoborgIPC
   components:
   - type: Vocal
-    sounds:
-      Male: CuteIPC
-      Female: CuteIPC
-      Unsexed: CuteIPC
+    emoteSounds: CuteIPC
   - type: Tag
     tags:
     - CanPilot
@@ -247,10 +238,7 @@
     - ADTCuteIPC
   components:
   - type: Vocal
-    sounds:
-      Male: XenoborgIPC
-      Female: XenoborgIPC
-      Unsexed: XenoborgIPC
+    emoteSounds: XenoborgIPC
   - type: Tag
     tags:
     - CanPilot

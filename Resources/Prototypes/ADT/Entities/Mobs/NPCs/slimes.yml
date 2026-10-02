@@ -89,8 +89,7 @@
   - type: TypingIndicator
     proto: slime
   - type: Vocal
-    sounds:
-      Unsexed: FemaleSlime
+    emoteSounds: FemaleSlime
   - type: LanguageSpeaker
     languages:
       GalacticCommon: Speak

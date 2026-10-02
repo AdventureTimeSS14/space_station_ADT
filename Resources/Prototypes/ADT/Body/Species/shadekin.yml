@@ -286,10 +286,7 @@
     modifier: 2
   - type: Shadekin
   - type: Vocal
-    sounds:
-      Male: MaleShadekin
-      Female: FemaleShadekin
-      Unsexed: MaleShadekin
+    emoteSounds: MaleShadekin
   - type: InteractionPopup
     successChance: 1
     interactSuccessString: petting-success-soft-floofy

@@ -31,3 +31,10 @@
   maxAge: 200
   oldAge: 160
   youngAge: 90
+  defaultSoundsBySex:
+  - ADTCelecernMale
+  - ADTCelecernFemale
+  - ADTCelecernFemale
+  voices:
+  - ADTCelecernMale
+  - ADTCelecernFemale

@@ -1793,10 +1793,7 @@
   - type: JobStatus # marks them as crew
   # ADT tweak start
   - type: Vocal
-    sounds:
-      Male: Monkey
-      Female: Monkey
-      Unsexed: Monkey
+    emoteSounds: Monkey
   - type: BodyEmotes
     soundsId: GeneralBodyEmotes
   - type: StandingState

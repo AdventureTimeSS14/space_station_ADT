@@ -407,10 +407,7 @@
   - type: SpeakOnTrigger
     pack: ADTFigurinesPlushieJungar
   - type: Vocal
-    sounds:
-      Male: Mouse
-      Female: Mouse
-      Unsexed: Mouse
+    emoteSounds: Mouse
     wilhelmProbability: 0.001
   - type: Edible
     requiresSpecialDigestion: true

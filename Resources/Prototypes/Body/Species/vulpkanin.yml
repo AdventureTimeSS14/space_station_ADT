@@ -160,21 +160,7 @@
   - type: TypingIndicator
     proto: vulpkanin
   - type: Vocal
-<<<<<<< ours
-    sounds:
-      # ADT-Tweak: Start
-      Male: NesMaleVulpa # MaleVuplkanin -> NesMaleVulpa
-      Female: NesFemaleVulpa # FemaleVulpkanin -> NesFemaleVulpa
-      Unsexed: NesFemaleVulpa # MaleVulpkanin -> NesFemaleVulpa
-      # ADT-Tweak: End
-||||||| base
-    sounds:
-      Male: MaleVulpkanin
-      Female: FemaleVulpkanin
-      Unsexed: MaleVulpkanin
-=======
-    emoteSounds: MaleVulpkanin
->>>>>>> theirs
+    emoteSounds: NesMaleVulpa # ADT-Tweak: MaleVulpkanin -> NesMaleVulpa
   - type: Damageable
     damageModifierSet: ADTVulpkanin # ADT-Tweak
   - type: Injurable

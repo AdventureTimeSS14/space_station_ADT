@@ -190,10 +190,7 @@
   - type: Injurable
     damageContainer: Biological
   - type: Vocal
-    sounds:
-      Male: MaleUrsus
-      Female: FemaleUrsus
-      Unsexed: MaleUrsus
+    emoteSounds: MaleUrsus
   - type: LanguageSpeaker
     languages:
       GalacticCommon: Speak

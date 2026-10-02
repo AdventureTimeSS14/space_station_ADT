@@ -59,10 +59,7 @@
     speechVerb: LargeMob
 #
   - type: Vocal
-    sounds:
-      Male: MaleDrask
-      Female: FemaleDrask
-      Unsexed: MaleDrask
+    emoteSounds: MaleDrask
 #
   - type: BodyEmotes
     soundsId: GeneralBodyEmotes
@@ -291,10 +288,7 @@
     speechVerb: LargeMob
 #
   - type: Vocal
-    sounds:
-      Male: MaleDrask
-      Female: FemaleDrask
-      Unsexed: MaleDrask
+    emoteSounds: MaleDrask
 #
   - type: BodyEmotes
     soundsId: GeneralBodyEmotes
@@ -633,10 +627,7 @@
   - type: TTS
     voice: "bloodseeker_dota_2"
   - type: Vocal
-    sounds:
-      Male: MaleButcher
-      Female: MaleButcher
-      Unsexed: MaleButcher
+    emoteSounds: MaleButcher
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
     baseSprintSpeed: 5.5
