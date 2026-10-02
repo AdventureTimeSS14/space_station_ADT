@@ -58,46 +58,6 @@ public sealed partial class ServerApi : IPostInjectInit
         CCVars.PanicBunkerCustomReason.Name,
     ];
 
-<<<<<<< ours
-    [Dependency] private readonly IStatusHost _statusHost = default!;
-    [Dependency] private readonly IConfigurationManager _config = default!;
-    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
-    [Dependency] private readonly ISharedAdminManager _adminManager = default!;
-    [Dependency] private readonly IGameMapManager _gameMapManager = default!;
-    [Dependency] private readonly IServerNetManager _netManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IComponentFactory _componentFactory = default!;
-    [Dependency] private readonly ITaskManager _taskManager = default!;
-    [Dependency] private readonly EntityManager _entityManager = default!;
-    [Dependency] private readonly ILogManager _logManager = default!;
-    [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
-    [Dependency] private readonly ILocalizationManager _loc = default!;
-    [Dependency] private readonly IAdminManager _admin = default!;
-    [Dependency] private readonly INetConfigurationManager _netConfigManager = default!;
-    [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly IPlayerLocator _playerLocator = default!;
-    [Dependency] private readonly PlayTimeTrackingManager _playTimeTracking = default!;
-    [Dependency] private readonly IServerDbManager _dbManager = default!;
-    [Dependency] private readonly IBanManager _bans = default!;
-    [Dependency] private readonly IDiscordBanInfoSender _discordBanInfoSender = default!;
-||||||| base
-    [Dependency] private readonly IStatusHost _statusHost = default!;
-    [Dependency] private readonly IConfigurationManager _config = default!;
-    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
-    [Dependency] private readonly ISharedAdminManager _adminManager = default!;
-    [Dependency] private readonly IGameMapManager _gameMapManager = default!;
-    [Dependency] private readonly IServerNetManager _netManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IComponentFactory _componentFactory = default!;
-    [Dependency] private readonly ITaskManager _taskManager = default!;
-    [Dependency] private readonly EntityManager _entityManager = default!;
-    [Dependency] private readonly ILogManager _logManager = default!;
-    [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
-    [Dependency] private readonly ILocalizationManager _loc = default!;
-    [Dependency] private readonly IPlayerLocator _locator = default!;
-    [Dependency] private readonly IBanManager _bans = default!;
-    [Dependency] private readonly IServerDbManager _db = default!;
-=======
     [Dependency] private IStatusHost _statusHost = default!;
     [Dependency] private IConfigurationManager _config = default!;
     [Dependency] private ISharedPlayerManager _playerManager = default!;
@@ -114,7 +74,13 @@ public sealed partial class ServerApi : IPostInjectInit
     [Dependency] private IPlayerLocator _locator = default!;
     [Dependency] private IBanManager _bans = default!;
     [Dependency] private IServerDbManager _db = default!;
->>>>>>> theirs
+    [Dependency] private IAdminManager _admin = default!;
+    [Dependency] private INetConfigurationManager _netConfigManager = default!;
+    [Dependency] private IChatManager _chatManager = default!;
+    [Dependency] private IPlayerLocator _playerLocator = default!;
+    [Dependency] private PlayTimeTrackingManager _playTimeTracking = default!;
+    [Dependency] private IServerDbManager _dbManager = default!;
+    [Dependency] private IDiscordBanInfoSender _discordBanInfoSender = default!;
 
     private string _token = string.Empty;
     private ISawmill _sawmill = default!;

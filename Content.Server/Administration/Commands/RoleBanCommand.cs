@@ -16,27 +16,13 @@ namespace Content.Server.Administration.Commands;
 [AdminCommand(AdminFlags.Ban)]
 public sealed partial class RoleBanCommand : IConsoleCommand
 {
-<<<<<<< ours
-    [Dependency] private readonly IPlayerLocator _locator = default!;
-    [Dependency] private readonly IBanManager _bans = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IServerDbManager _dbManager = default!;
-    [Dependency] private readonly IDiscordBanInfoSender _discordBanInfoSender = default!;
-    [Dependency] private readonly ILogManager _log = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-||||||| base
-    [Dependency] private readonly IPlayerLocator _locator = default!;
-    [Dependency] private readonly IBanManager _bans = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly ILogManager _log = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-=======
     [Dependency] private IPlayerLocator _locator = default!;
     [Dependency] private IBanManager _bans = default!;
     [Dependency] private IConfigurationManager _cfg = default!;
     [Dependency] private ILogManager _log = default!;
     [Dependency] private IPrototypeManager _proto = default!;
->>>>>>> theirs
+    [Dependency] private IServerDbManager _dbManager = default!;
+    [Dependency] private IDiscordBanInfoSender _discordBanInfoSender = default!;
 
     private ISawmill? _sawmill;
 

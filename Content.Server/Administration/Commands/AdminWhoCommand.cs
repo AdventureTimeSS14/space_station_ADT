@@ -7,17 +7,8 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Administration.Commands;
 
-<<<<<<< ours
-[AdminCommand(AdminFlags.Adminchat)] //ADT tweak
-
-public sealed class AdminWhoCommand : LocalizedCommands
-||||||| base
-[AdminCommand(AdminFlags.AdminWho)]
-public sealed class AdminWhoCommand : LocalizedCommands
-=======
-[AdminCommand(AdminFlags.AdminWho)]
+[AdminCommand(AdminFlags.Adminchat)] // ADT-Tweak
 public sealed partial class AdminWhoCommand : LocalizedCommands
->>>>>>> theirs
 {
     [Dependency] private IAfkManager _afkManager = default!;
     [Dependency] private IAdminManager _adminManager = default!;

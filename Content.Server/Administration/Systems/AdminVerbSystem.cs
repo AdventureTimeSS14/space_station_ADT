@@ -47,54 +47,6 @@ namespace Content.Server.Administration.Systems
     /// </summary>
     public sealed partial class AdminVerbSystem : EntitySystem
     {
-<<<<<<< ours
-        [Dependency] private readonly IConGroupController _groupController = default!;
-        [Dependency] private readonly IConsoleHost _console = default!;
-        [Dependency] private readonly IAdminManager _adminManager = default!;
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly SharedMapSystem _map = default!;
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly AdminSystem _adminSystem = default!;
-        [Dependency] private readonly DisposalTubeSystem _disposalTubes = default!;
-        [Dependency] private readonly EuiManager _euiManager = default!;
-        [Dependency] private readonly GhostRoleSystem _ghostRoleSystem = default!;
-        [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-        [Dependency] private readonly PrayerSystem _prayerSystem = default!;
-        [Dependency] private readonly MindSystem _mindSystem = default!;
-        [Dependency] private readonly ToolshedManager _toolshed = default!;
-        [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
-        [Dependency] private readonly SharedPopupSystem _popup = default!;
-        [Dependency] private readonly StationSystem _stations = default!;
-        [Dependency] private readonly StationSpawningSystem _spawning = default!;
-        [Dependency] private readonly TraitSystem _traits = default!; // ADT-Tweak
-        [Dependency] private readonly ExamineSystemShared _examine = default!;
-        [Dependency] private readonly AdminFrozenSystem _freeze = default!;
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Dependency] private readonly SiliconLawSystem _siliconLawSystem = default!;
-||||||| base
-        [Dependency] private readonly IConGroupController _groupController = default!;
-        [Dependency] private readonly IConsoleHost _console = default!;
-        [Dependency] private readonly IAdminManager _adminManager = default!;
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly SharedMapSystem _map = default!;
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly AdminSystem _adminSystem = default!;
-        [Dependency] private readonly DisposalTubeSystem _disposalTubes = default!;
-        [Dependency] private readonly EuiManager _euiManager = default!;
-        [Dependency] private readonly GhostRoleSystem _ghostRoleSystem = default!;
-        [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-        [Dependency] private readonly PrayerSystem _prayerSystem = default!;
-        [Dependency] private readonly MindSystem _mindSystem = default!;
-        [Dependency] private readonly ToolshedManager _toolshed = default!;
-        [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
-        [Dependency] private readonly SharedPopupSystem _popup = default!;
-        [Dependency] private readonly StationSystem _stations = default!;
-        [Dependency] private readonly StationSpawningSystem _spawning = default!;
-        [Dependency] private readonly ExamineSystemShared _examine = default!;
-        [Dependency] private readonly AdminFrozenSystem _freeze = default!;
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Dependency] private readonly SiliconLawSystem _siliconLawSystem = default!;
-=======
         [Dependency] private IConGroupController _groupController = default!;
         [Dependency] private IConsoleHost _console = default!;
         [Dependency] private IAdminLogManager _adminLogs = default!;
@@ -118,7 +70,7 @@ namespace Content.Server.Administration.Systems
         [Dependency] private IPlayerManager _playerManager = default!;
         [Dependency] private SiliconLawSystem _siliconLawSystem = default!;
         [Dependency] private AfkConfirmSystem _afkConfirm = default!;
->>>>>>> theirs
+        [Dependency] private TraitSystem _traits = default!; // ADT-Tweak
 
         private readonly Dictionary<ICommonSession, List<EditSolutionsEui>> _openSolutionUis = new();
 

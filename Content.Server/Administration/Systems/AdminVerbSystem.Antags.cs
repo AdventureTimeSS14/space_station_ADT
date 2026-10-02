@@ -22,23 +22,11 @@ namespace Content.Server.Administration.Systems;
 
 public sealed partial class AdminVerbSystem
 {
-<<<<<<< ours
-    [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly ZombieSystem _zombie = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly OutfitSystem _outfit = default!;
-    [Dependency] private readonly RevolutionaryRuleSystem _rev = default!;
-||||||| base
-    [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly ZombieSystem _zombie = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly OutfitSystem _outfit = default!;
-=======
     [Dependency] private AntagSelectionSystem _antag = default!;
     [Dependency] private ZombieSystem _zombie = default!;
     [Dependency] private GameTicker _gameTicker = default!;
     [Dependency] private OutfitSystem _outfit = default!;
->>>>>>> theirs
+    [Dependency] private RevolutionaryRuleSystem _rev = default!;
 
     private static readonly EntProtoId DefaultTraitorRule = "TraitorOnly"; //ADT-tweak
     private static readonly EntProtoId DefaultInitialInfectedRule = "Zombie";

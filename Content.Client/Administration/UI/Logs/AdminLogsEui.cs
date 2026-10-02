@@ -244,10 +244,6 @@ public sealed partial class AdminLogsEui : BaseEui
                 if (setLogFilter.Types != null)
                     LogsControl.SetTypesSelection(setLogFilter.Types, setLogFilter.InvertTypes);
 
-                // ADT-Tweak-Start
-                if (setLogFilter.SelectedPlayers != null)
-                    LogsControl.SetPlayersSelection(setLogFilter.SelectedPlayers);
-                // ADT-Tweak-End
                 break;
         }
     }
