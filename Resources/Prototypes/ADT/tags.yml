@@ -1028,9 +1028,6 @@
   id: ADTMagazineMagnumLesser
 
 - type: Tag
-  id: ADTMagazineMagnumLesser
-
-- type: Tag
   id: ADTCelecernEmotes
 
 - type: Tag
