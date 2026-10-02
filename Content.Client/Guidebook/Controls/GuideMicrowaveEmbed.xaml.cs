@@ -22,17 +22,9 @@ namespace Content.Client.Guidebook.Controls;
 [UsedImplicitly, GenerateTypedNameReferences]
 public sealed partial class GuideMicrowaveEmbed : PanelContainer, IDocumentTag, ISearchableControl, IPrototypeRepresentationControl
 {
-<<<<<<< ours
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly ILogManager _logManager = default!;
-    private readonly SpriteSystem _sprite = default!; // ADT-Tweak
-||||||| base
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly ILogManager _logManager = default!;
-=======
     [Dependency] private IPrototypeManager _prototype = default!;
     [Dependency] private ILogManager _logManager = default!;
->>>>>>> theirs
+    private SpriteSystem _sprite = default!; // ADT-Tweak
 
     private readonly ISawmill _sawmill = default!;
 
