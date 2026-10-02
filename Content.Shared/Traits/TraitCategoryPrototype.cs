@@ -17,40 +17,12 @@ public sealed partial class TraitCategoryPrototype : IPrototype
     /// <summary>
     ///     Name of the trait category displayed in the UI
     /// </summary>
-    [DataField(required: true)] // ADT-Tweak new Traits
+    [DataField]
     public LocId Name { get; private set; } = string.Empty;
 
-    // ADT-Tweak start new Traits
     /// <summary>
-    /// Display order priority. Lower values appear first.
+    ///     The maximum number of traits that can be taken in this category.
     /// </summary>
     [DataField]
-    public int Priority;
-
-    /// <summary>
-    /// Maximum number of traits that can be selected from this category.
-    /// Null means unlimited (only global limit applies).
-    /// </summary>
-    [DataField]
-    public int? MaxTraits;
-
-    /// <summary>
-    /// Maximum trait points that can be spent in this category.
-    /// Null means unlimited (only global limit applies).
-    /// </summary>
-    [DataField]
-    public int? MaxPoints;
-
-    /// <summary>
-    /// Color hex for the category header accent.
-    /// </summary>
-    [DataField]
-    public Color AccentColor = Color.FromHex("#4a9eff");
-
-    /// <summary>
-    /// Whether this category starts expanded or collapsed.
-    /// </summary>
-    [DataField]
-    public bool DefaultExpanded = true; 
+    public int? MaxTraitPoints;
 }
-// ADT-Tweak new Traits - End

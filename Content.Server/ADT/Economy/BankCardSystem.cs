@@ -23,7 +23,7 @@ using Robust.Shared.Timing;
 using Content.Shared.CCVar;
 using Robust.Shared.Configuration;
 using Content.Shared.ADT.CCVar;
-using Content.Server.Traits;
+using Content.Server.ADT.Traits;
 
 namespace Content.Server.ADT.Economy;
 
@@ -57,7 +57,7 @@ public sealed class BankCardSystem : EntitySystem
 
         SubscribeLocalEvent<BankCardComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
-        SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawned, after: [typeof(TraitSystem)]);
+        SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawned, after: [typeof(ADTTraitSystem)]);
     }
 
     public override void Update(float frameTime)

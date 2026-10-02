@@ -546,38 +546,44 @@ namespace Content.Shared.Preferences
 
         public HumanoidCharacterProfile WithTraitPreference(ProtoId<TraitPrototype> traitId, IPrototypeManager protoManager)
         {
+            // null category is assumed to be default.
             if (!protoManager.TryIndex(traitId, out var traitProto))
                 return new(this);
 
             var category = traitProto.Category;
 
             // Category not found so dump it.
-            if (!protoManager.Resolve(category, out TraitCategoryPrototype? traitCategory))
+            TraitCategoryPrototype? traitCategory = null;
+
+            if (category != null && !protoManager.Resolve(category, out traitCategory))
                 return new(this);
 
             var list = new HashSet<ProtoId<TraitPrototype>>(_traitPreferences) { traitId };
 
-            // Check category points limit if applicable
-             // ADT-Tweak start new Traits - система полностью переписана
-            if (traitCategory.MaxPoints.HasValue)
+            if (traitCategory == null || traitCategory.MaxTraitPoints < 0)
             {
-                var count = 0;
-                foreach (var trait in list)
+                return new(this)
                 {
-                    // If trait not found or another category don't count its points.
-                    if (!protoManager.TryIndex<TraitPrototype>(trait, out var otherProto) ||
-                        otherProto.Category != category)
-                    {
-                        continue;
-                    }
+                    _traitPreferences = list,
+                };
+            }
 
-                    count += otherProto.Cost;
+            var count = 0;
+            foreach (var trait in list)
+            {
+                // If trait not found or another category don't count its points.
+                if (!protoManager.TryIndex<TraitPrototype>(trait, out var otherProto) ||
+                    otherProto.Category != traitCategory)
+                {
+                    continue;
                 }
 
-                if (count > traitCategory.MaxPoints.Value && traitProto.Cost != 0)
-                {
-                    return new(this);
-                }
+                count += otherProto.Cost;
+            }
+
+            if (count > traitCategory.MaxTraitPoints && traitProto.Cost != 0)
+            {
+                return new(this);
             }
 
             return new(this)
@@ -585,7 +591,6 @@ namespace Content.Shared.Preferences
                 _traitPreferences = list,
             };
         }
-         // ADT-Tweak end new Traits
 
         public HumanoidCharacterProfile WithoutTraitPreference(ProtoId<TraitPrototype> traitId, IPrototypeManager protoManager)
         {
@@ -827,8 +832,8 @@ namespace Content.Shared.Preferences
         /// </summary>
         public List<ProtoId<TraitPrototype>> GetValidTraits(IEnumerable<ProtoId<TraitPrototype>> traits, IPrototypeManager protoManager)
         {
-            // Track points count for each category.
-            var groups = new Dictionary<ProtoId<TraitCategoryPrototype>, int>();
+            // Track points count for each group.
+            var groups = new Dictionary<string, int>();
             var result = new List<ProtoId<TraitPrototype>>();
 
             foreach (var trait in traits)
@@ -836,26 +841,25 @@ namespace Content.Shared.Preferences
                 if (!protoManager.TryIndex(trait, out var traitProto))
                     continue;
 
-                var category = traitProto.Category;
-
-                // No category so skip it.
-                if (!protoManager.Resolve(category, out var traitCategory))
-                    continue;
-
-                // Always valid if no category limit.
-                if (!traitCategory.MaxPoints.HasValue)
+                // Always valid.
+                if (traitProto.Category == null)
                 {
                     result.Add(trait);
                     continue;
                 }
 
-                var total = groups.GetOrNew(category);
-                var newTotal = total + traitProto.Cost;
-
-                if (newTotal > traitCategory.MaxPoints.Value)
+                // No category so dump it.
+                if (!protoManager.Resolve(traitProto.Category, out var category))
                     continue;
 
-                groups[category] = newTotal;
+                var existing = groups.GetOrNew(category.ID);
+                existing += traitProto.Cost;
+
+                // Too expensive.
+                if (existing > category.MaxTraitPoints)
+                    continue;
+
+                groups[category.ID] = existing;
                 result.Add(trait);
             }
 

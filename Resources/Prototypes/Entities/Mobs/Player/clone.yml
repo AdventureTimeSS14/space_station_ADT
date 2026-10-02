@@ -1,4 +1,4 @@
-﻿# Settings for cloning bodies
+# Settings for cloning bodies
 # If you add a new trait, job specific component or a component doing visual/examination changes for humanoids
 # then add it here to the correct prototype.
 # The datafields of the components copied using CopyComp.
@@ -61,6 +61,10 @@
   - OwOAccent
   - ParrotAccent
   - PirateAccent
+  # - ReplacementAccent
+  # Not supported at the moment because AddAccentClothingComponent will make it permanent when cloned.
+  # TODO: AddAccentClothingComponent should use an inventory relay event.
+  # Also ZombieComponent overwrites the old replacement accent, because you can only have one at a time.
   - RussianAccent
   - ScrambledAccent
   - SkeletonAccent
@@ -68,11 +72,7 @@
   - SouthernAccent
   - SpanishAccent
   - StutteringAccent
-- VoxAccent
-  # - ReplacementAccent
-  # Not supported at the moment because AddAccentClothingComponent will make it permanent when cloned.
-  # TODO: AddAccentClothingComponent should use an inventory relay event.
-  # Also ZombieComponent overwrites the old replacement accent, because you can only have one at a time.
+  - VoxAccent
   - TTS # Corvax-TTS
   # ADT-fix-clone-start
   - BurrinessAccent
@@ -192,7 +192,7 @@
 #   copyInternalStorage: false
 #   copyImplants: false
 
-# # spawner
+# spawner
 - type: entity
   id: RandomCloneSpawner
   name: Random Clone

@@ -3,7 +3,7 @@ using Content.Server.CriminalRecords.Systems;
 using Content.Server.Fax;
 using Content.Server.Station.Systems;
 using Content.Server.StationRecords.Systems;
-using Content.Server.Traits;
+using Content.Server.ADT.Traits;
 using Content.Shared.ADT.CriminalRecords;
 using Content.Shared.CriminalRecords;
 using Content.Shared.Dataset;
@@ -35,7 +35,7 @@ public sealed class ArrestWarrantSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawn,
-            after: [typeof(TraitSystem), typeof(StationRecordsSystem)]);
+            after: [typeof(ADTTraitSystem), typeof(StationRecordsSystem)]);
     }
 
     private void OnPlayerSpawn(PlayerSpawnCompleteEvent ev)

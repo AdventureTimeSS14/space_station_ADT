@@ -1,7 +1,7 @@
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
 using Content.Server.Station.Systems;
-using Content.Server.Traits;
+using Content.Server.ADT.Traits;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -34,7 +34,7 @@ public sealed class GhostBarSystem : EntitySystem
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private GameTicker _ticker = default!;
     [Dependency] private StationSpawningSystem _spawningSystem = default!;
-    [Dependency] private TraitSystem _traits = default!;
+    [Dependency] private ADTTraitSystem _traits = default!;
     [Dependency] private MindSystem _mindSystem = default!;
     [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private StealthSystem _stealth = default!;
