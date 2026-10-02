@@ -67,7 +67,7 @@
   suffix: Filled Insane, New Year
   components:
   - type: RandomGift
-    insaneMode: ADTUnSafe
+    insaneMode: ADTUnsafe
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/NewYears/Objects/Fun/new_year_present.rsi
     layers:

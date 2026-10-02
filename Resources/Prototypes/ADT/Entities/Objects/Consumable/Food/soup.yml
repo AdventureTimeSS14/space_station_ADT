@@ -96,7 +96,7 @@
   - type: FlavorProfile
     flavors:
       - creamy
-      - adt_pumpkin
+      - pumpkin
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/pumpkin_soup.rsi
     state: icon

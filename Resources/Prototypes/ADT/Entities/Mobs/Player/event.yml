@@ -30,13 +30,13 @@
   - type: PassiveDamage
     allowedStates:
     - Alive
-    damageCap: 40
     damage:
       types:
         Heat: -10
         Cold: -10
-      groups:
-        Brute: -10
+        Blunt: -3.33 # было groups: Brute: -10, группы в DamageSpecifier больше не поддерживаются
+        Slash: -3.33
+        Piercing: -3.33
   - type: Armor
     modifiers:
       coefficients:

@@ -41,7 +41,7 @@
   flavor: savory
   color: "#673d0c"
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 0.5
@@ -55,7 +55,7 @@
   flavor: sweet
   color: "#9f5525"
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 0.5
@@ -72,7 +72,7 @@
     sprite: ADT/ADTGlobalEvents/NewYears/Objects/Consumable/Drinks/new_year.rsi
     state: hot_chocolate
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2

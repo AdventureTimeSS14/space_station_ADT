@@ -38,6 +38,7 @@
     layers:
     - state: torso_m
   - type: Damageable
+  - type: Injurable
     damageContainer: Biological
   - type: Extractable
     juiceSolution:

@@ -155,7 +155,7 @@
         interpolate: Nearest
         maxDuration: 1.0
         isLooped: true
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
     spriteLayer: light
     inhandVisuals:
       left:
@@ -164,6 +164,7 @@
       right:
       - state: inhand-right-light
         shader: unshaded
+  - type: ItemTogglePointLight
   - type: PowerCellSlot
     cellSlotId: cell_slot
   - type: ContainerContainer

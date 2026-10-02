@@ -1,0 +1,10 @@
+ent-ADTReindeer = северный олень
+    .desc = Ездовой олень Санты. Говорят, умеет летать.
+ent-ADTReindeerCube = кубик северного оленя
+    .desc = { ent-MonkeyCube.desc }
+ent-ADTGingerbreadCube = кубик пряничного человечка
+    .desc = { ent-MonkeyCube.desc }
+ent-ADTReindeerCubeBox = коробка кубиков северных оленей
+    .desc = Просто добавь воды!
+ent-ADTGingerbreadCubeBox = коробка кубиков пряничных человечков
+    .desc = Просто добавь воды!

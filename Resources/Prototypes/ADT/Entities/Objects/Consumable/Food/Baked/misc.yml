@@ -148,7 +148,7 @@
   components:
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/misc.rsi
-    state: pretzelpump
+    state: brezel_pumpkin
 
 - type: entity
   name: muffin pumpkin

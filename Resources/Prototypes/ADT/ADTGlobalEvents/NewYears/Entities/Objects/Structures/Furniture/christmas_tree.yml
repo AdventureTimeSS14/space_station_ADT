@@ -33,8 +33,9 @@
   #  autoRot: true
   #  offset: "0, 0.6"
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Wood
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
       - trigger:

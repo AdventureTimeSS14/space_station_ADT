@@ -8,7 +8,7 @@
   - type: FlavorProfile
     flavors:
       - sweet
-      - adt_pumpkin
+      - pumpkin
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/pumpkin_pie.rsi
     state: pumpkin_pie
@@ -30,7 +30,7 @@
   - type: FlavorProfile
     flavors:
       - sweet
-      - adt_pumpkin
+      - pumpkin
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/pumpkin_pie.rsi
     state: slice

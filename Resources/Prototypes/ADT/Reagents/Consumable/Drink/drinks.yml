@@ -295,7 +295,7 @@
   color: "#664300"
   recognizable: true
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -325,9 +325,8 @@
       effects:
       - !type:SatiateThirst
         factor: 3
-      - !type:GenericStatusEffect
-        key: StaminaModifier
-        component: StaminaModifier
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectDesoxyStamina
         time: 1.15
         type: Add
       - !type:MovementSpeedModifier
@@ -352,8 +351,8 @@
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:GenericStatusEffect
-        key: Drowsiness
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectDrowsiness
         time: 2.0
         type: Remove
       - !type:AdjustReagent

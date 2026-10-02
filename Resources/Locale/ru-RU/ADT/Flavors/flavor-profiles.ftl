@@ -111,3 +111,5 @@ flavor-complex-waffle-cake = как вафли и варёная сгущёнк�
 
 flavor-base-adtash = пеплом
 flavor-complex-adthopelessness = безнадёжностью
+flavor-base-adtvanilla = ванильно
+flavor-base-mandarin = мандариново

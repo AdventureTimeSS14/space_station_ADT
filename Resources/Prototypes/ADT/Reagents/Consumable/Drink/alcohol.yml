@@ -412,7 +412,7 @@
   color: "#663100"
   recognizable: true
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -439,7 +439,7 @@
   color: "#defa92"
   recognizable: true
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -472,7 +472,7 @@
   color: "#ff9de2"
   recognizable: true
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -506,7 +506,7 @@
   color: "#b9c73b"
   recognizable: true
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -538,17 +538,18 @@
   color: "#663100"
   recognizable: true
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.2
+      - !type:EvenHealthChange
+        damage:
+          Brute: -1.5
       - !type:HealthChange
         damage:
-          groups:
-            Brute: -1.5
           types:
             Poison: -0.7 ##Should be about what it was when it healed the toxin group
             Heat: -0.7
@@ -572,7 +573,7 @@
   color: "#cfa85f"
   recognizable: true
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -599,7 +600,7 @@
   color: "#cfa85f"
   recognizable: true
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -628,7 +629,7 @@
   color: "#cfa85f"
   recognizable: true
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -655,7 +656,7 @@
   color: "#cfa85f"
   recognizable: true
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -684,16 +685,15 @@
   color: "#cfa85f"
   recognizable: true
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.25
-      - !type:GenericStatusEffect
-        key: SeeingRainbows
-        component: SeeingRainbows
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
   metamorphicSprite:
@@ -713,7 +713,7 @@
   color: "#cfa85f"
   recognizable: true
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -737,7 +737,7 @@
   color: "#cfa85f"
   recognizable: true
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -884,7 +884,7 @@
   color: "#fce303"
   recognizable: true
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -913,7 +913,7 @@
   color: "#fc0390"
   recognizable: true
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
