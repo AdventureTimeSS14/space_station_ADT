@@ -44,17 +44,6 @@ public sealed partial class SurveillanceCameraMonitorSystem : EntitySystem
         var query = EntityQueryEnumerator<ActiveSurveillanceCameraMonitorComponent, SurveillanceCameraMonitorComponent>();
         while (query.MoveNext(out var uid, out _, out var monitor))
         {
-<<<<<<< ours
-                continue;
-
-||||||| base
-            if (Paused(uid))
-            {
-                continue;
-            }
-
-=======
->>>>>>> theirs
             monitor.LastHeartbeatSent += frameTime;
             SendHeartbeat(uid, monitor);
             monitor.LastHeartbeat += frameTime;
