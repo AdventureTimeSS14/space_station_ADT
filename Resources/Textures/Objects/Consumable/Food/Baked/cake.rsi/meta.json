@@ -246,6 +246,12 @@
             ]
         },
         {
+            "name": "chocolate_heart"
+        },
+        {
+            "name": "chocolate-slice-heart"
+        },
+        {
             "name": "lemoon-inhand-left",
             "directions": 4,
             "delays": [
