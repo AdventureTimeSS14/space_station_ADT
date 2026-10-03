@@ -144,15 +144,9 @@ public sealed partial class HealingSystem : EntitySystem
 
         if (!args.Repeat)
         {
-<<<<<<< ours
             _healVisuals.StopHealEffect(target.Owner); // ADT-Tweak
 
-            _popupSystem.PopupClient(Loc.GetString("medical-item-finished-using", ("item", args.Used)), target.Owner, args.User);
-||||||| base
-            _popupSystem.PopupClient(Loc.GetString("medical-item-finished-using", ("item", args.Used)), target.Owner, args.User);
-=======
             _popupSystem.PopupEntity(Loc.GetString("medical-item-finished-using", ("item", args.Used)), target.Owner, args.User);
->>>>>>> theirs
             return;
         }
 
