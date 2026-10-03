@@ -1,11 +1,6 @@
 using Content.Shared.Access.Components;
 using Content.Shared.Administration.Logs;
-<<<<<<< HEAD:Content.Server/CartridgeLoader/Cartridges/LogProbeCartridgeSystem.cs
-using Content.Shared.CartridgeLoader;
-using Content.Shared.CartridgeLoader.Cartridges;
 using Content.Shared.ADT.NanoChat;
-=======
->>>>>>> wizards-filtered:Content.Shared/CartridgeLoader/Cartridges/LogProbeCartridgeSystem.cs
 using Content.Shared.Database;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
@@ -19,11 +14,7 @@ using Robust.Shared.Audio;
 
 namespace Content.Shared.CartridgeLoader.Cartridges;
 
-<<<<<<< HEAD:Content.Server/CartridgeLoader/Cartridges/LogProbeCartridgeSystem.cs
-public sealed partial class LogProbeCartridgeSystem : EntitySystem // ADT-tweak: сделала partial
-=======
 public sealed partial class LogProbeCartridgeSystem : EntitySystem
->>>>>>> wizards-filtered:Content.Shared/CartridgeLoader/Cartridges/LogProbeCartridgeSystem.cs
 {
     [Dependency] private CartridgeLoaderSystem _cartridge = default!;
     [Dependency] private IGameTiming _timing = default!;
