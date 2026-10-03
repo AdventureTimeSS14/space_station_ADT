@@ -433,6 +433,16 @@ public sealed class ADTCCVars
         CVarDef.Create("heretic.ascension_requires_objectives", true, CVar.SERVERONLY);
 
     /*
+     * Custom chatsan
+     */
+
+    /// <summary>
+    /// Пользовательские замены: строки вида "триггер=эмоут", по одной на строку.
+    /// </summary>
+    public static readonly CVarDef<string> ChatCustomEmotes =
+        CVarDef.Create("adt.chat_custom_emotes", "", CVar.ARCHIVE | CVar.CLIENTONLY);
+
+    /*
      * Chat Highlight Sound
      */
 
