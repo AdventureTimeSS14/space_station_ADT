@@ -218,14 +218,14 @@
       - !type:EvenHealthChange
         conditions:
         - !type:MobStateCondition
-          mobstate: Critical
+          mobstates: [ SoftCritical, Critical ] # ADT-Tweak
         damage: # Doesn't heal poison because if you OD'd I'm not giving you a safety net
           Burn: -0.5
           Brute: -0.5
       - !type:HealthChange
         conditions:
         - !type:MobStateCondition
-          mobstate: Critical
+          mobstates: [ SoftCritical, Critical ] # ADT-Tweak
         damage:
           types:
             Asphyxiation: -2

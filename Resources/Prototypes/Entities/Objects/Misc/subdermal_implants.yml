@@ -385,6 +385,7 @@
         - MobState # admeme implanting a chair with rattle implant needs to give the chair mobstate so it can die first
     - type: TriggerOnMobstateChange
       mobState:
+      - SoftCritical # ADT-Tweak
       - Critical
       - Dead
     - type: RattleOnTrigger

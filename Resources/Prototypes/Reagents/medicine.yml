@@ -460,7 +460,7 @@
           inverted: true
       # End ADT tweak
         - !type:MobStateCondition
-          mobstate: Critical
+          mobstates: [ SoftCritical, Critical ] # ADT-Tweak
         - !type:ReagentCondition
           reagent: Epinephrine
           max: 20
@@ -472,7 +472,7 @@
         conditions:
           # they gotta be in crit first
         - !type:MobStateCondition
-          mobstate: Critical
+          mobstates: [ SoftCritical, Critical ] # ADT-Tweak
         - !type:ReagentCondition
           reagent: Epinephrine
           max: 20
@@ -494,7 +494,7 @@
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
         - !type:MobStateCondition
-          mobstate: Critical
+          mobstates: [ SoftCritical, Critical ] # ADT-Tweak
         - !type:ReagentCondition
           reagent: Epinephrine
           min: 0
@@ -620,7 +620,7 @@
       # End ADT tweak
           # they gotta be in crit first
         - !type:MobStateCondition
-          mobstate: Critical
+          mobstates: [ SoftCritical, Critical ] # ADT-Tweak
         damage:
           types:
             Asphyxiation: -2
@@ -632,7 +632,7 @@
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
         - !type:MobStateCondition
-          mobstate: Critical
+          mobstates: [ SoftCritical, Critical ] # ADT-Tweak
         damage:
           types:
             Bloodloss: -1

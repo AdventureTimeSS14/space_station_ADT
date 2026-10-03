@@ -263,7 +263,7 @@ namespace Content.Server.Guardian
 
             TryComp<GuardianComponent>(component.HostedGuardian, out var guardianComp);
 
-            if (args.NewMobState == MobState.Critical)
+            if (args.NewMobState is MobState.SoftCritical or MobState.Critical) // ADT-Tweak
             {
                 _popupSystem.PopupEntity(Loc.GetString("guardian-host-critical-warn"), component.HostedGuardian.Value, component.HostedGuardian.Value);
                 if (guardianComp != null)
