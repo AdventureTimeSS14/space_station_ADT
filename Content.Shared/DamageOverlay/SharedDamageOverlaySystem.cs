@@ -5,7 +5,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.StatusEffectNew;
-using Content.Shared.Traits.Assorted;
+using Content.Shared.ADT.Traits.Assorted; // ADT-Tweak
 
 namespace Content.Shared.DamageOverlay;
 
@@ -121,6 +121,7 @@ public abstract partial class SharedDamageOverlaySystem : EntitySystem
 
                 break;
             }
+            case MobState.SoftCritical: // ADT-Tweak
             case MobState.Critical:
             {
                 if (!_mobThresholdSystem.TryGetDeadPercentage(entity,
@@ -130,6 +131,19 @@ public abstract partial class SharedDamageOverlaySystem : EntitySystem
                 entity.Comp.CritLevel = critLevel.Value.Float();
 
                 entity.Comp.PainLevel = 0;
+
+                // ADT-Tweak start
+                FixedPoint2 painLevel = 0;
+                if (!_statusEffects.TryEffectsWithComp<PainNumbnessStatusEffectComponent>(entity, out _))
+                {
+                    foreach (var painDamageType in injurable.PainDamageGroups)
+                    {
+                        damagePerGroup.TryGetValue(painDamageType, out var painDamage);
+                        painLevel += painDamage;
+                    }
+                    entity.Comp.PainLevel = FixedPoint2.Min(1f, painLevel / critThreshold).Float();
+                }
+                // ADT-Tweak end
                 entity.Comp.DeadLevel = 0;
 
                 DirtyField(entity, entity.Comp, nameof(DamageOverlayComponent.PainLevel));
