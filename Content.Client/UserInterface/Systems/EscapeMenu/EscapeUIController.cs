@@ -102,7 +102,6 @@ public sealed partial class EscapeUIController : UIController, IOnStateEntered<G
             _console.ExecuteCommand("quit");
         };
 
-<<<<<<< ours
         // ADT-Tweak-start
         _escapeWindow.WebSiteButton.OnPressed += _ =>
         {
@@ -111,15 +110,12 @@ public sealed partial class EscapeUIController : UIController, IOnStateEntered<G
         _escapeWindow.WebSiteButton.Visible = _cfg.GetCVar(CCVars.InfoLinksWebsite) != "";
         // ADT-Tweak-end
 
-||||||| base
-=======
         _escapeWindow.AdminRemarksButton.OnPressed += _ =>
         {
             CloseEscapeWindow();
             _console.ExecuteCommand("adminremarks");
         };
 
->>>>>>> theirs
         _escapeWindow.WikiButton.OnPressed += _ =>
         {
             _uri.OpenUri(_cfg.GetCVar(CCVars.InfoLinksWiki));
