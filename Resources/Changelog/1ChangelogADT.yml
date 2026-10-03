@@ -16008,3 +16008,33 @@ Entries:
     id: 1983
     pr_number: 3389
     time: '2026-09-28T08:09:02Z'
+  - author: (Автор изменения)
+    changes:
+      - {message: Добавлены именные вещи и предметы, type: Add}
+    id: 1984
+    pr_number: 3459
+    time: '2026-09-28T09:42:35Z'
+  - author: Inconnu && Filo
+    changes:
+      - {message: что добавили, type: Add}
+      - {message: что убрали, type: Remove}
+      - {message: что подправили, type: Tweak}
+      - {message: что исправили -->, type: Fix}
+      - {message: Добавлено пипи, type: Add}
+      - {message: Удалено пупу, type: Remove}
+      - {message: Изменена унга, type: Tweak}
+      - {message: Исправлена бунга -->, type: Fix}
+      - {message: что добавили, type: Add}
+      - {message: что убрали, type: Remove}
+      - {message: что подправили, type: Tweak}
+      - {message: что исправили, type: Fix}
+      - {message: 'Добавлена новая раса: Селецерны.', type: Add}
+    id: 1985
+    pr_number: 3414
+    time: '2026-09-28T16:31:53Z'
+  - author: Golyb4ik
+    changes:
+      - {message: Добавлены новые документы из вики, type: Add}
+    id: 1986
+    pr_number: 3453
+    time: '2026-09-30T20:43:26Z'
