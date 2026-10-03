@@ -1,3 +1,4 @@
+using Content.Shared.ADT.SeedDna.Systems; // ADT-Tweak
 using Content.Shared.Botany.Systems;
 using Robust.Shared.GameStates;
 
@@ -7,7 +8,7 @@ namespace Content.Shared.Botany.Components;
 /// Component for basic parameters for plant growth.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true)]
-[Access(typeof(PlantGrowthSystem))]
+[Access(typeof(PlantGrowthSystem), typeof(SharedSeedDnaConsoleSystem))] // ADT-Tweak
 public sealed partial class PlantGrowthComponent : Component
 {
     /// <summary>

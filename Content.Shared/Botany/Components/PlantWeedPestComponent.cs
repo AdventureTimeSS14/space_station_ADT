@@ -1,3 +1,4 @@
+using Content.Shared.ADT.SeedDna.Systems; // ADT-Tweak
 using Content.Shared.Botany.Systems;
 using Robust.Shared.GameStates;
 
@@ -7,7 +8,7 @@ namespace Content.Shared.Botany.Components;
 /// Component for weed and pest problems which can happen to plants - how well plant tolerates them.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true)]
-[Access(typeof(PlantWeedPestSystem))]
+[Access(typeof(PlantWeedPestSystem), typeof(SharedSeedDnaConsoleSystem))] // ADT-Tweak
 public sealed partial class PlantWeedPestComponent : Component
 {
     /// <summary>

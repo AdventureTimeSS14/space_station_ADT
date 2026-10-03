@@ -1,3 +1,4 @@
+using Content.Shared.ADT.SeedDna.Systems; // ADT-Tweak
 using Content.Shared.Botany.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
@@ -8,7 +9,7 @@ namespace Content.Shared.Botany.Components;
 /// Component for plant harvesting process.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true)]
-[Access(typeof(PlantHarvestSystem))]
+[Access(typeof(PlantHarvestSystem), typeof(SharedSeedDnaConsoleSystem))] // ADT-Tweak
 public sealed partial class PlantHarvestComponent : Component
 {
     /// <summary>

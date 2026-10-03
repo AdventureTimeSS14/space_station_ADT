@@ -1,3 +1,4 @@
+using Content.Shared.ADT.SeedDna.Systems; // ADT-Tweak
 using Content.Shared.Atmos;
 using Content.Shared.Botany.Systems;
 using Robust.Shared.GameStates;
@@ -8,7 +9,7 @@ namespace Content.Shared.Botany.Components;
 /// Component for gas to consume/exude on plant growth.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true)]
-[Access(typeof(SharedPlantConsumeExudeGasSystem))]
+[Access(typeof(SharedPlantConsumeExudeGasSystem), typeof(SharedSeedDnaConsoleSystem))] // ADT-Tweak
 public sealed partial class PlantConsumeExudeGasComponent : Component
 {
     /// <summary>

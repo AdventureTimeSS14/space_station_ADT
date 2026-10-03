@@ -1,3 +1,4 @@
+using Content.Shared.ADT.SeedDna.Systems; // ADT-Tweak
 using Content.Shared.Botany.Systems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;
@@ -11,7 +12,7 @@ namespace Content.Shared.Botany.Components;
 /// Component for defining what reagents harvested produce will contain for this plant species.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true)]
-[Access(typeof(PlantChemicalsSystem), typeof(PlantMutationSystem))]
+[Access(typeof(PlantChemicalsSystem), typeof(PlantMutationSystem), typeof(SharedSeedDnaConsoleSystem))] // ADT-Tweak
 public sealed partial class PlantChemicalsComponent : Component
 {
     /// <summary>

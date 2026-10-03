@@ -1,3 +1,4 @@
+using Content.Shared.ADT.SeedDna.Systems; // ADT-Tweak
 using Content.Shared.Botany.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -8,7 +9,7 @@ namespace Content.Shared.Botany.Items.Components;
 /// Component for a container for plant seed. Contains all info (values for components) for new plant to grow from seed.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-[Access(typeof(BotanySystem))]
+[Access(typeof(BotanySystem), typeof(SharedSeedDnaConsoleSystem))] // ADT-Tweak
 public sealed partial class SeedComponent : Component
 {
     /// <summary>
