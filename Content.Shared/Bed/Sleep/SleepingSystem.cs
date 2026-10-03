@@ -303,23 +303,6 @@ public sealed partial class SleepingSystem : EntitySystem
     /// </summary>
     private void OnMobStateChanged(Entity<SleepingComponent> ent, ref MobStateChangedEvent args)
     {
-<<<<<<< ours
-        if (args.NewMobState == MobState.Dead)
-        {
-            // ADT-Tweak start
-            RemCompDeferred<SleepingComponent>(ent);
-            return;
-            // ADT Tweak end
-        }
-||||||| base
-        if (args.NewMobState == MobState.Dead)
-        {
-            RemComp<SpamEmitSoundComponent>(ent);
-            RemComp<SleepingComponent>(ent);
-            return;
-        }
-=======
->>>>>>> theirs
         if (TryComp<SpamEmitSoundComponent>(ent, out var spam))
             _emitSound.SetEnabled((ent, spam), args.NewMobState == MobState.Alive);
 

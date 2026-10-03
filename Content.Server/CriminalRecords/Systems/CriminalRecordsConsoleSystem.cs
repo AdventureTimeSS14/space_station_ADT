@@ -125,7 +125,6 @@ public sealed partial class CriminalRecordsConsoleSystem : SharedCriminalRecords
         if (entry != null)
             jobName = entry.JobTitle;
 
-<<<<<<< ours
         var tryGetIdentityShortInfoEvent = new TryGetIdentityShortInfoEvent(null, mob.Value);
         RaiseLocalEvent(tryGetIdentityShortInfoEvent);
         if (tryGetIdentityShortInfoEvent.Title != null)
@@ -135,16 +134,6 @@ public sealed partial class CriminalRecordsConsoleSystem : SharedCriminalRecords
         if (!_criminalRecords.TryChangeStatus(key.Value, msg.Status, msg.Reason, officer))
             return;
         // ADT-Tweak end
-||||||| base
-        var tryGetIdentityShortInfoEvent = new TryGetIdentityShortInfoEvent(null, mob.Value);
-        RaiseLocalEvent(tryGetIdentityShortInfoEvent);
-        if (tryGetIdentityShortInfoEvent.Title != null)
-            officer = tryGetIdentityShortInfoEvent.Title;
-
-        _criminalRecords.TryChangeStatus(key.Value, msg.Status, msg.Reason, officer);
-=======
-        _criminalRecords.TryChangeStatus(key.Value, msg.Status, msg.Reason, officer);
->>>>>>> theirs
 
         (string, object)[] args;
         if (reason != null)

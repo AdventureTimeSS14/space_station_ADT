@@ -116,7 +116,6 @@ public abstract partial class SharedDisposalUnitSystem : EntitySystem
         EjectContents(ent);
     }
 
-<<<<<<< ours
     // ADT-Tweak start
     private void OnInteractUsing(EntityUid uid, DisposalUnitComponent component, InteractUsingEvent args)
     {
@@ -126,17 +125,12 @@ public abstract partial class SharedDisposalUnitSystem : EntitySystem
         if (HasComp<InjectorComponent>(args.Used))
         {
             args.Handled = true;
-            AfterInsert(uid, component, args.Used, args.User, doInsert: true);
+            Insert((uid, component), args.Used, args.User);
         }
     }
     // ADT-Tweak end
 
-    private void OnAfterInteractUsing(EntityUid uid, DisposalUnitComponent component, AfterInteractUsingEvent args)
-||||||| base
-    private void OnAfterInteractUsing(EntityUid uid, DisposalUnitComponent component, AfterInteractUsingEvent args)
-=======
     protected void OnPreventCollide(Entity<DisposalUnitComponent> ent, ref PreventCollideEvent args)
->>>>>>> theirs
     {
         var otherBody = args.OtherEntity;
 
