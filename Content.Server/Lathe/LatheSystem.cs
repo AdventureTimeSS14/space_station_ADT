@@ -17,14 +17,8 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared.UserInterface;
 using Content.Shared.Database;
 using Content.Shared.Emag.Systems;
-<<<<<<< ours
-using Content.Shared.Examine;
 using Content.Shared.ADT.Construction;
 using Content.Shared.ADT.Construction.Events;
-||||||| base
-using Content.Shared.Examine;
-=======
->>>>>>> theirs
 using Content.Shared.Lathe;
 using Content.Shared.Lathe.Prototypes;
 using Content.Shared.Localizations;
