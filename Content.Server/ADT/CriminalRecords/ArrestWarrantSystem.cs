@@ -2,7 +2,7 @@ using Content.Server.Access.Systems;
 using Content.Server.CriminalRecords.Systems;
 using Content.Server.Fax;
 using Content.Server.Station.Systems;
-using Content.Server.StationRecords.Systems;
+using Content.Shared.StationRecords.Systems;
 using Content.Server.ADT.Traits;
 using Content.Shared.ADT.CriminalRecords;
 using Content.Shared.CriminalRecords;

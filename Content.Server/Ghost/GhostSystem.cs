@@ -7,7 +7,7 @@ using Content.Server.Mind;
 using Content.Server.Preferences.Managers;
 using Content.Server.Roles;
 using Content.Server.Roles.Jobs;
-using Content.Server.StationRecords.Systems;
+using Content.Shared.StationRecords.Systems;
 using Content.Shared.Access.Systems;
 using Content.Shared.ADT.Medical.SuitSensors;
 using Content.Shared.ADT.Ghost;

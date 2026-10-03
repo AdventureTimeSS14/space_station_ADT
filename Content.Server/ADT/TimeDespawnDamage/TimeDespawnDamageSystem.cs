@@ -1,7 +1,7 @@
 using Content.Server.Forensics;
 using Content.Server.Hands.Systems;
 using Content.Server.Popups;
-using Content.Server.StationRecords.Systems;
+using Content.Shared.StationRecords.Systems;
 using Content.Shared.ADT.TimeDespawnDamage;
 using Content.Shared.Damage;
 using Content.Shared.Hands.Components;

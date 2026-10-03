@@ -167,18 +167,25 @@ public sealed partial class StationRecordsSystem : EntitySystem
             ? comparer.GetWeight(jobPrototype) ?? 0
             : 0;
 
+        // ADT-Tweak start
+        Entity<IdCardComponent>? card = null;
+        if (idUid != null && _idCard.TryFindIdCard(idUid.Value, out var foundCard))
+            card = foundCard;
+        // ADT-Tweak end
+
         var record = new GeneralStationRecord
         {
             Name = name,
             Age = age,
-            JobTitle = jobPrototype.LocalizedName,
+            JobTitle = card?.Comp.LocalizedJobTitle ?? jobPrototype.LocalizedName, // ADT-Tweak
             JobIcon = jobPrototype.Icon,
             JobPrototype = jobId,
             Species = species,
             Gender = gender,
             DisplayPriority = displayPriority,
             Fingerprint = mobFingerprint,
-            DNA = dna
+            DNA = dna,
+            Profile = profile // ADT-Tweak
         };
 
         var key = AddRecordEntry(station.AsNullable(), record);
