@@ -1,10 +1,4 @@
-<<<<<<< HEAD:Content.Server/Wagging/WaggingSystem.cs
-﻿using Content.Server.Actions;
-using Content.Server.Humanoid;
-using Content.Shared.Humanoid;
-=======
 using Content.Shared.Actions;
->>>>>>> wizards-filtered:Content.Shared/Wagging/WaggingSystem.cs
 using Content.Shared.Body;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Mobs;
