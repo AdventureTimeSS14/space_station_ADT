@@ -18,8 +18,18 @@ heretic-ability-fail-tile-occupied = Targeted tile is occupied!
 heretic-ability-fail-rust-stage-low = You are not powerful enough to rust this surface!
 heretic-ability-fail-target-ghoul = Target is ghoul already!
 heretic-ability-fail-target-no-mind = Target has no soul!
+heretic-ability-fail-space-phase-not-space = You must stand in space, or an outdoor area with low pressure!
+heretic-ability-fail-mirror-jaunt-no-mirrors = There are no reflective surfaces nearby!
+heretic-ability-fail-not-enough-space = Not enough space to cast this spell!
+heretic-ability-fail-arena-nearby = Other arena nearby!
+heretic-ability-fail-too-close = Target is too close!
 
 heretic-ability-lose-focus-shadow-cloak = As you lose your focus, you are pulled out of the shadows!
+heretic-ability-lose-focus-pale-cloak = As you lose your focus, you are pulled out of the light!
+heretic-ability-lose-focus-last-refuge = Without a focus, your refuge weakens and dissipates!
+heretic-ability-fail-other-minds-nearby = Other minds nearby!
+heretic-lock-unlocked = unlocked!
+heretic-last-refuge-examine-message = [color=purple]{CAPITALIZE(SUBJECT($target))} is enveloped in an unholy haze![/color]
 
 heretic-cosmic-rune-fail-star-mark = Blocked by star mark!
 heretic-cosmic-rune-fail-unlinked = No linked rune!
@@ -32,10 +42,17 @@ mansus-grasp-trigger-fail = Something prevents you from activating this!
 ## blade
 heretic-blade-examine = [color=yellow]Using it while it's in your hand will break the blade and teleport you away from danger.[/color]
 heretic-blade-break-fail-acended-message = You cannot break blades while ascended!
+heretic-blade-break-fail-message = You cannot break blades anymore!
+heretic-blade-break-spell-recharge-message = You have successfully recharged your {$spell} ability!
+heretic-blade-break-ability-lost-message = You have gained a lot of power, the mansus will no longer allow you to break your blades.
 heretic-blade-use = The blade shatters, and you feel the voices pulling you away.
 heretic-riposte-used = Riposte used!
 heretic-riposte-available = Riposte available!
 heretic-cant-shoot = I can't use { THE($entity) } because of my sacred pledge to the path of the blade.
+
+## aura
+heretic-aura-message = You can no longer hide what you truly are. After 1 minute you will get an aura that reveals you as heretic.
+heretic-aura-message-immediate = You can no longer hide what you truly are. You now have aura that reveals you as heretic.
 
 ## paths exclusive
 heretic-rust-mark-itembreak = {$name} shatters into dust!
@@ -73,6 +90,8 @@ heretic-speech-ash-flame = FL'MS!!
 heretic-speech-ash-cascade = C'SC'DE!!
 
 heretic-speech-blade-furioussteel = F'LSH'NG S'LV'R!
+heretic-speech-blade-sacraments = 'DG' 'F IMM'RT'L'T'!
+heretic-speech-blade-domain-expansion = D'M'N XP'NS'N!
 
 heretic-speech-flesh-surgery = CL'M M'N!
 heretic-speech-flesh-worm = REALITY UNCOIL!!
@@ -93,6 +112,8 @@ heretic-speech-star-blast = R'T'T' ST'R!!
 heretic-speech-cosmic-expansion = C'SM'S 'XP'ND!
 heretic-speech-stargaze = SH''P D' W''P
 
+heretic-speech-bulglar-finesse = Y'O'K!
+
 heretic-speech-cleave = CL'VE!
 heretic-speech-bloodsiphon = FL'MS O'ET'RN'ITY!
 heretic-speech-mansuslink = PI'RC' TH' M'ND!
@@ -104,3 +125,10 @@ heretic-speech-shapeshft = SH'PE
 heretic-grasp-fail-invalid-target = The grasp finds nothing worth touching here.
 
 mansus-grasp-drain = Mansus's Grasp drains energy from the target!
+
+heretic-sacraments-can-attack = {CAPITALIZE($heretic)} has drawn you into the sacrament! You can strike them back!
+
+coin-flip-examine-message = Showing {$side}.
+coin-flip-popup-message = {$coin} lands on {$side}!
+eldritch-coin-side-heretic = heads
+eldritch-coin-side-blade = tails

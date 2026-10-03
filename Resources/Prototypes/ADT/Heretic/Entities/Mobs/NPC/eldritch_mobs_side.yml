@@ -1,0 +1,84 @@
+- type: entity
+  parent: BaseMobGhoul
+  id: MobGhoulMirrorMaid
+  name: maid in the mirror
+  description: A floating and flowing wisp of chilled air. Glancing at it causes it to shimmer slightly.
+  components:
+  - type: Ghoul
+    totalHealth: 80
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Heretic/eldritch_mobs.rsi
+    state: maid
+  - type: GhostRole
+    name: ghostrole-maid-name
+    description: ghostrole-maid-desc
+  - type: MirrorMaid
+  - type: NightVision
+    innate: true
+  - type: MeleeWeapon
+    animation: WeaponArcPunch
+    soundHit:
+      collection: GlassBreak
+    damage:
+      types:
+        Slash: 10
+        Piercing: 10
+  - type: Reflect
+    reflectProb: 1
+    reflects:
+    - Energy
+
+- type: entity
+  parent: BaseMobGhoul
+  id: MobGhoulAshSpirit
+  name: ash spirit
+  description: A manifestation of ash, trailing a perpetual cloud of short-lived cinders.
+  components:
+  - type: Ghoul
+    totalHealth: 75
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Heretic/eldritch_mobs.rsi
+    state: ash_walker
+  - type: GhostRole
+    name: ghostrole-ash-spirit-name
+    description: ghostrole-ash-spirit-desc
+  - type: IgniteOnMeleeHit
+    fireStacks: 2
+  - type: MeleeWeapon
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Heat: 20
+  - type: NightVision
+    innate: true
+  - type: ActionsProvider
+    actions:
+    - ActionHereticJauntLong
+
+- type: entity
+  parent: BaseMobGhoul
+  id: MobShatteredRisen
+  name: shattered risen
+  description: A corpse dragged back to near-life by a cold, rending force. Its hands are brutal nests of sharp bone-shards.
+  components:
+  - type: Ghoul
+    totalHealth: 250
+    giveBlade: false
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Heretic/eldritch_mobs.rsi
+    state: stalker
+  - type: GhostRole
+    name: ghostrole-shattered-name
+    description: ghostrole-shattered-desc
+  - type: ShatteredRisen
+  - type: MeleeWeapon
+    animation: WeaponArcSmash
+    soundHit:
+      collection: GlassBreak
+    damage:
+      types:
+        Slash: 18
+        Piercing: 14

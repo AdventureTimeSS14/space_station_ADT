@@ -9,7 +9,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.Magic;
 
-public sealed class MagicSystem : SharedMagicSystem
+public sealed partial class MagicSystem : SharedMagicSystem // ADT-Tweak
 {
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;

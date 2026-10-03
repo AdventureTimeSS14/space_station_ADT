@@ -111,6 +111,7 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
         SubscribeVoid();
         SubscribeFlesh();
         SubscribeSide();
+        SubscribeLock();
 
         SubscribeLocalEvent<HereticActionComponent, BeforeCastSpellEvent>(OnBeforeCast);
     }

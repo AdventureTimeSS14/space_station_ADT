@@ -38,6 +38,7 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+    - HeavyBoots # ADT-Tweak
 
 - type: entity
   parent: [ClothingShoesBootsMagBase]

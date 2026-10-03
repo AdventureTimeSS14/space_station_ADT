@@ -1,5 +1,6 @@
 //
 
+using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Heretic;
 using Content.Shared.Mind;
@@ -72,6 +73,9 @@ public sealed partial class HereticSystem
         // set path if our heretic doesn't have it yet
         if (string.IsNullOrWhiteSpace(ent.Comp.CurrentPath) && !data.SideKnowledge)
             ent.Comp.CurrentPath = data.Path;
+
+        if (!string.IsNullOrWhiteSpace(ent.Comp.CurrentPath) && body is { } bodyUid)
+            EnsureComp<HereticAuraComponent>(bodyUid);
 
         // make sure we only progress when buying current path knowledge
         if (data.Stage > ent.Comp.PathStage && data.Path == ent.Comp.CurrentPath)

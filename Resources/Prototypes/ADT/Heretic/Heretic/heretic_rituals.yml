@@ -521,3 +521,259 @@
     Knife: 1
   output:
     CarvingKnife: 1
+
+- type: hereticRitual
+  id: RitualCrackedLantern
+  locName: knowledge-path-ash-side-lantern-name
+  locDesc: knowledge-path-ash-side-lantern-desc
+  icon:
+    sprite: ADT/Heretic/Entities/lantern.rsi
+    state: icon
+  requiredTags:
+    Flashlight: 1
+    Flare: 1
+    ADTLighter: 1
+    Ash: 1
+  output:
+    LanternHeretic: 1
+
+- type: hereticRitual
+  id: RitualEtherOfTheNewborn
+  locName: knowledge-path-side-t1-ether-name
+  locDesc: knowledge-path-side-t1-ether-desc
+  icon:
+    sprite: ADT/Heretic/Entities/ether.rsi
+    state: icon
+  customBehaviors:
+  - !type:RitualReagentPuddleBehavior
+    reagent: Vomit
+  requiredTags:
+    GlassShard: 1
+  output:
+    PotionEther: 1
+
+- type: hereticRitual
+  id: RitualUnfathomableCurio
+  locName: knowledge-path-side-t1-curio-name
+  locDesc: knowledge-path-side-t1-curio-desc
+  icon:
+    sprite: ADT/Heretic/Clothing/Belt/curio.rsi
+    state: icon
+  requiredTags:
+    RodMetal: 3
+    Lungs: 1
+    UtilityBelt: 1
+  output:
+    UnfathomableCurio: 1
+
+- type: hereticRitual
+  id: RitualEldritchCoin
+  locName: knowledge-path-side-t1-coin-name
+  locDesc: knowledge-path-side-t1-coin-desc
+  icon:
+    sprite: ADT/Heretic/Entities/eldritch_coin.rsi
+    state: heretic
+  requiredTags:
+    PreciousBar: 1
+  output:
+    EldritchCoin: 1
+
+- type: hereticRitual
+  id: RitualLionhunterRifle
+  locName: knowledge-path-side-s6-rifle-name
+  locDesc: knowledge-path-side-s6-rifle-desc
+  icon:
+    sprite: ADT/Heretic/Entities/lionhunter-icon.rsi
+    state: base
+  requiredTags:
+    WoodPlank: 1
+    ADTPDA: 1
+    Meat: 1
+  output:
+    WeaponBoltActionLionhunter: 1
+
+- type: hereticRitual
+  id: RitualLionhunterRifleAmmunition
+  locName: knowledge-path-side-s6-rifle-ammo-name
+  locDesc: knowledge-path-side-s6-rifle-ammo-desc
+  icon:
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/large_casing.rsi
+    state: base
+  requiredTags:
+    CartridgeRifle: 3
+  output:
+    CartridgeLionhunter: 2
+
+- type: hereticRitual
+  id: RitualMawedCrucible
+  locName: knowledge-path-side-t2-crucible-name
+  locDesc: knowledge-path-side-t2-crucible-desc
+  icon:
+    sprite: ADT/Heretic/items.rsi
+    state: crucible
+  requiredTags:
+    WaterTank: 1
+    Table: 1
+  output:
+    MawedCrucible: 1
+
+### ADT: Rust Sower Grenade
+- type: hereticRitual
+  id: RitualRustSowerGrenade
+  locName: knowledge-path-side-t2-rustgrenade-name
+  locDesc: knowledge-path-side-t2-rustgrenade-desc
+  icon:
+    sprite: ADT/Heretic/Entities/rustgrenade.rsi
+    state: icon
+  requiredTags:
+    HandGrenade: 1
+    Rag: 1
+    Trash: 2
+  output:
+    RustSowerGrenade: 1
+
+### ADT: Phylactery of Damnation
+- type: hereticRitual
+  id: RitualPhylacteryOfDamnation
+  locName: knowledge-path-ritual-phylactery-name
+  locDesc: knowledge-path-ritual-phylactery-desc
+  icon:
+    sprite: ADT/Heretic/Entities/phylactery.rsi
+    state: icon
+  customBehaviors:
+  - !type:RitualReagentPuddleBehavior
+    reagent: Blood
+  requiredTags:
+    GlassBeaker: 1
+  output:
+    HereticPhylactery: 1
+
+### lock path
+- type: hereticRitual
+  id: RitualBladeLock
+  locName: knowledge-path-lock-s1-name
+  locDesc: knowledge-path-lock-s1-desc
+  icon:
+    sprite: ADT/Heretic/Blades/blade_lock.rsi
+    state: icon
+  requiredTags:
+    Knife: 1
+    Crowbar: 1
+  output:
+    HereticBladeLock: 1
+  limit: 2
+
+- type: hereticRitual
+  id: RitualEldritchId
+  locName: knowledge-path-lock-s4-name
+  locDesc: knowledge-path-lock-s4-desc
+  icon:
+    sprite: Objects/Misc/id_cards.rsi
+    state: gold
+  requiredTags:
+    Steel: 5
+    CableCoil: 5
+    Document: 1
+  output:
+    EldritchIdCard: 1
+
+- type: hereticRitual
+  id: RitualSerpentclave
+  locName: knowledge-path-lock-s5-name
+  locDesc: knowledge-path-lock-s5-desc
+  icon:
+    sprite: ADT/Heretic/Entities/serpentclave.rsi
+    state: icon
+  requiredTags:
+    Wirecutter: 1
+    Screwdriver: 1
+    Steel: 5
+  output:
+    Serpentclave: 1
+
+- type: hereticRitual
+  id: ArmorerRitualLock
+  locName: knowledge-path-side-s3-armor-name
+  locDesc: knowledge-path-side-s3-armor-desc
+  icon:
+    sprite: ADT/Heretic/Clothing/OuterClothing/lock_armor.rsi
+    state: icon
+  requiredTags:
+    Table: 1
+    GasMask: 1
+  output:
+    ADTClothingOuterArmorHereticLock: 1
+
+- type: hereticRitual
+  id: RitualConcierge
+  locName: knowledge-path-lock-s8-name
+  locDesc: knowledge-path-lock-s8-desc
+  icon:
+    sprite: ADT/Heretic/Entities/heretichandbook.rsi
+    state: icon
+  requiredTags:
+    Crayon: 1
+    Multitool: 1
+    Steel: 5
+  output:
+    LabyrinthHandbook: 1
+
+- type: hereticRitual
+  id: RitualAscensionLock
+  locName: knowledge-path-lock-s9-name
+  locDesc: knowledge-path-lock-s9-desc
+  icon:
+    sprite: ADT/Heretic/abilities_heretic.rsi
+    state: labyrinth
+  customBehaviors:
+  - !type:RitualCanAscend
+  - !type:RitualSacrificeBehavior
+    min: 3
+    max: 3
+  outputKnowledge: UnlockTheLabyrinth
+  output:
+    LabyrinthTear: 1
+  outputEvent: !type:EventHereticAscension
+
+- type: hereticRitual
+  id: RitualMaidInTheMirror
+  locName: knowledge-path-side-t4-maid-name
+  locDesc: knowledge-path-side-t4-maid-desc
+  icon:
+    sprite: ADT/Heretic/eldritch_mobs.rsi
+    state: maid
+  limit: 4
+  requiredTags:
+    SheetGlass: 5
+  output:
+    MobGhoulMirrorMaid: 1
+
+### ADT: Codex Morbus
+- type: hereticRitual
+  id: RitualCodexMorbus
+  locName: knowledge-path-side-t2-morbus-name
+  locDesc: knowledge-path-side-t2-morbus-desc
+  icon:
+    sprite: ADT/Heretic/book_morbus.rsi
+    state: icon
+  customBehaviors:
+  - !type:RitualSacrificeBehavior
+    onlyTargets: true
+  requiredTags:
+    CodexCicatrix: 1
+  output:
+    CodexMorbus: 1
+
+### ADT: Greaves of the Prophet
+- type: hereticRitual
+  id: RitualGreavesOfTheProphet
+  locName: knowledge-path-side-t2-greaves-name
+  locDesc: knowledge-path-side-t2-greaves-desc
+  icon:
+    sprite: ADT/Heretic/Clothing/Shoes/greaves.rsi
+    state: icon
+  requiredTags:
+    SilverBar: 2
+    HeavyBoots: 1
+  output:
+    ClothingShoesGreavesHeretic: 1
