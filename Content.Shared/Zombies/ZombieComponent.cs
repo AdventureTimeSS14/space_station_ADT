@@ -11,6 +11,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.Zombies;
 
@@ -156,7 +157,6 @@ public sealed partial class ZombieComponent : Component
     /// <summary>
     /// The blood reagents to give the zombie. In case you want zombies that bleed milk, or something.
     /// </summary>
-<<<<<<< ours
     [DataField("newBloodReagent", customTypeSerializer: typeof(PrototypeIdSerializer<ReagentPrototype>))]
     public string NewBloodReagent = "ZombieBlood";
 
@@ -183,11 +183,6 @@ public sealed partial class ZombieComponent : Component
     /// <summary>
     /// The blood reagents to give the zombie. In case you want zombies that bleed milk, or something.
     /// </summary>
-    [DataField("newBloodReagents")]
-||||||| base
-    [DataField("newBloodReagents")]
-=======
     [DataField]
->>>>>>> theirs
     public Solution NewBloodReagents = new([new("ZombieBlood", 1)]);
 }
