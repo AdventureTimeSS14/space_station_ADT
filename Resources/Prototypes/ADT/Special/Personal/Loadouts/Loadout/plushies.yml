@@ -1,0 +1,167 @@
+- type: loadout
+  sponsorOnly: true
+  id: ADTPlushieNinaKonogar
+  storage:
+    back:
+    - ADTPlushieNinaKonogar
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTPlushieKelly
+  storage:
+    back:
+    - ADTPlushieKelly
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTPlushieSani
+  storage:
+    back:
+    - ADTPlushieSani
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTPlushieAzil
+  storage:
+    back:
+    - ADTPlushieAzil
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTPlushiekramol
+  storage:
+    back:
+    - ADTPlushiekramol
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTPlushietil
+  storage:
+    back:
+    - ADTPlushietil
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTPlushieLeia
+  storage:
+    back:
+    - ADTPlushieLeia
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTPlushieHollowing
+  storage:
+    back:
+    - ADTPlushieHollowing
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTPlushieGlide
+  storage:
+    back:
+    - ADTPlushieGlide
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTPlushieKapitanOgonek
+  storage:
+    back:
+    - ADTPlushieKapitanOgonek
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTPlushieRose
+  storage:
+    back:
+    - ADTPlushieRose
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTPlushieJan
+  storage:
+    back:
+    - ADTPlushieJan
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTPlushieAnagiri
+  storage:
+    back:
+    - ADTPlushieAnagiri
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTPlushieMorulu
+  storage:
+    back:
+    - ADTPlushieMorulu
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTPlushieSif
+  storage:
+    back:
+    - ADTPlushieSif
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTPlushieUma
+  storage:
+    back:
+    - ADTPlushieUma
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTPlushieMigel
+  storage:
+    back:
+    - ADTPlushieMigel
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTPlushieJungar
+  storage:
+    back:
+    - ADTPlushieJungar
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTPlushieLo
+  storage:
+    back:
+    - ADTPlushieLo
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTPlushieIlumi
+  storage:
+    back:
+    - ADTPlushieIlumi
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTPlushieEmiliaEvenwood
+  storage:
+    back:
+    - ADTPlushieEmiliaEvenwood
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTPlushieNirkin
+  storage:
+    back:
+    - ADTPlushieNirkin
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTPlushieKusuk
+  storage:
+    back:
+    - ADTPlushieKusuk
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTPlushieProxima
+  storage:
+    back:
+    - ADTPlushieProximaLunnyykat

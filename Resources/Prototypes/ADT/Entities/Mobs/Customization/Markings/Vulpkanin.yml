@@ -241,7 +241,6 @@
   id: ADTVulpkaninskull_sponsor
   bodyPart: Head
   groupWhitelist: [Vulpkanin]
-  sponsorOnly: true
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
       state: skull_sponsor

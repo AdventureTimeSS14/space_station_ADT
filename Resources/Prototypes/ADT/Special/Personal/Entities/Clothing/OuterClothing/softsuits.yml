@@ -1,0 +1,41 @@
+#RiverSpirit
+- type: entity
+  parent: ClothingOuterEVASuitBase
+  id: ADTClothingOuterSuitRiverSpirit
+  name: plasmamen suit
+  description: plasmamen suit
+  suffix: Personal, RiverSpirit
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/riverspirit_plasmaman_eva.rsi
+  - type: Clothing
+    sprite: ADT/Special/Personal/riverspirit_plasmaman_eva.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
+  - type: TemperatureProtection
+    heatingCoefficient: 0.75
+    coolingCoefficient: 0.5
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetRiverSpirit
+    slot: head
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+- type: entity
+  parent: ClothingHeadEVAHelmetBase
+  id: ADTClothingHeadHelmetRiverSpirit
+  name: plasmamen helmet
+  description: plasmamen helmet
+  suffix: Personal, RiverSpirit
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/riverspirit_plasmaman_helmet.rsi
+  - type: Clothing
+    sprite: ADT/Special/Personal/riverspirit_plasmaman_helmet.rsi
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag

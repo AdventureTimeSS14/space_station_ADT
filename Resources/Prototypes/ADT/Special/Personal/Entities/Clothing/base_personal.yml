@@ -1,0 +1,132 @@
+##ADT Sponsor Base for clothing
+##Sponsor Gloves
+- type: entity
+  abstract: true
+  parent: ClothingHandsBase
+  id: ADTClothingSponsorHandsBase
+  components:
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+##Sponsor Cloth
+- type: entity
+  abstract: true
+  parent: Clothing
+  id: ADTSponsorClothing
+  components:
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+##SponsorUniform
+- type: entity
+  abstract: true
+  parent: UnsensoredClothingUniformBase
+  id: ADTSponsorClothingUniformBase
+  components:
+  - type: SuitSensor
+  # ADT-Tweak Start - New Monitor: Deprecated
+  # - type: DeviceNetwork
+  #   deviceNetId: Wireless
+  #   transmitFrequencyId: SuitSensor
+  #   savableAddress: false
+  # - type: WirelessNetworkConnection
+  #   range: 1200
+  # - type: StationLimitedNetwork
+  # ADT-Tweak End
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+- type: entity
+  abstract: true
+  parent: ADTSponsorClothingUniformBase
+  id: ADTSponsorClothingUniformSkirtBase
+  components:
+  - type: Clothing
+    slots: [innerclothing]
+    femaleMask: UniformTop
+  - type: CoveredSlot
+    slots: [underweart]
+
+##Sponsor Shoes
+- type: entity
+  abstract: true
+  parent: ClothingShoesBase
+  id: ADTSponsorClothingShoesBase
+  components:
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+##Sponsor Neck
+- type: entity
+  abstract: true
+  parent: ClothingNeckBase
+  id: ADTSponsorClothingNeckBase
+  components:
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+##Sponsor Head
+- type: entity
+  abstract: true
+  parent: ClothingHeadBase
+  id: ADTSponsorClothingHeadBase
+  components:
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+##Sponsor OuterClothing
+- type: entity
+  abstract: true
+  parent: ClothingOuterBase
+  id: ADTSponsorClothingOuterBase
+  components:
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+
+- type: entity
+  abstract: true
+  parent: ClothingOuterStorageBase
+  id: ADTSponsorClothingOuterStorageBase
+  components:
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+##Sponsor Satchel
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: ADTSponsorClothingBackpackSatchel
+  name: satchel
+  description: A trendy looking satchel.
+  components:
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+##Sponsor Glasses
+- type: entity
+  abstract: true
+  parent: ClothingEyesBase
+  id: ADTSponsorClothingEyesBase
+  components:
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+##SponsorArmor
+- type: entity
+  parent: ClothingOuterArmorBase
+  id: ADTSponsorClothingOuterArmorBase
+  name: armor vest
+  abstract: true
+  description: A standard Type I armored vest that provides decent protection against most types of damage.
+  components:
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+##Sponsor Foldable
+- type: entity
+  abstract: true
+  parent: ClothingOuterStorageFoldableBase
+  id: ADTSponsorClothingOuterStorageFoldableBase
+  components:
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
