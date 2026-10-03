@@ -494,5 +494,7 @@ public enum LogType
     /// A player in soft crit tried to catch their breath.
     /// </summary>
     CatchBreath = 106,
+
+    NanoNet = 107,
     // ADT End
 }

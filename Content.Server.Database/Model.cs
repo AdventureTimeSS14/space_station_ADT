@@ -59,6 +59,7 @@ namespace Content.Server.Database
         public DbSet<AdtSponsorTier> AdtSponsorTier { get; set; } = null!;
         public DbSet<AdtSponsorGrant> AdtSponsorGrant { get; set; } = null!;
         public DbSet<AdtSponsorPreference> AdtSponsorPreference { get; set; } = null!;
+        public DbSet<AdtNanoNetSite> AdtNanoNetSite { get; set; } = null!;
         // ADT-Tweak-End
         public DbSet<IPIntelCache> IPIntelCache { get; set; } = null!;
 
@@ -119,6 +120,13 @@ namespace Content.Server.Database
             modelBuilder.Entity<AdtSponsorPreference>()
                 .HasIndex(p => p.UserId)
                 .IsUnique();
+
+            modelBuilder.Entity<AdtNanoNetSite>()
+                .HasIndex(p => p.Label)
+                .IsUnique();
+
+            modelBuilder.Entity<AdtNanoNetSite>()
+                .HasIndex(p => p.UserId);
             // ADT-Tweak-End
 
             modelBuilder.Entity<Profile>()
@@ -852,6 +860,22 @@ namespace Content.Server.Database
         public string? OocColor { get; set; }
 
         public string? GhostColor { get; set; }
+    }
+
+    public class AdtNanoNetSite
+    {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
+        public string Label { get; set; } = null!;
+
+        public Guid UserId { get; set; }
+
+        public string OwnerName { get; set; } = null!;
+
+        public string Html { get; set; } = null!;
+
+        public DateTime PublishedAt { get; set; }
     }
     // ADT-Tweak-End
 

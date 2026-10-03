@@ -628,6 +628,8 @@ public sealed partial class ServerApi
             DiscordRoles = data.DiscordRoles.ToArray(),
             PriorityJoin = data.PriorityJoin,
             ExtraCharacterSlots = data.ExtraCharacterSlots,
+            NanoNetLargeSites = data.NanoNetLargeSites,
+            NanoNetPersistSites = data.NanoNetPersistSites,
             NextExpiry = data.NextExpiry,
         };
     }
@@ -765,6 +767,12 @@ public sealed partial class ServerApi
 
         [JsonPropertyName("extraCharacterSlots")]
         public int ExtraCharacterSlots { get; set; }
+
+        [JsonPropertyName("nanoNetLargeSites")]
+        public bool NanoNetLargeSites { get; set; }
+
+        [JsonPropertyName("nanoNetPersistSites")]
+        public bool NanoNetPersistSites { get; set; }
 
         [JsonPropertyName("nextExpiry")]
         public DateTime? NextExpiry { get; set; }

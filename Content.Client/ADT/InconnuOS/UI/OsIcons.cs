@@ -104,6 +104,26 @@ public static class OsIcons
                 handle.DrawRect(new UIBox2(x + w * 0.26f, y + h * 0.56f, x + w * 0.74f, y + h * 0.86f), accent);
                 break;
 
+            case OsAppIcon.Browser:
+                OsDraw.RoundedRect(handle, new UIBox2(x + w * 0.06f, y + h * 0.16f, x + w * 0.94f, y + h * 0.84f), w * 0.06f, dark);
+                handle.DrawRect(new UIBox2(x + w * 0.12f, y + h * 0.22f, x + w * 0.2f, y + h * 0.3f), accent);
+                handle.DrawRect(new UIBox2(x + w * 0.26f, y + h * 0.22f, x + w * 0.88f, y + h * 0.3f), accent);
+                handle.DrawRect(new UIBox2(x + w * 0.12f, y + h * 0.36f, x + w * 0.88f, y + h * 0.78f), light);
+                handle.DrawRect(new UIBox2(x + w * 0.18f, y + h * 0.44f, x + w * 0.46f, y + h * 0.7f), accent);
+                handle.DrawRect(new UIBox2(x + w * 0.52f, y + h * 0.44f, x + w * 0.82f, y + h * 0.5f), dark);
+                handle.DrawRect(new UIBox2(x + w * 0.52f, y + h * 0.56f, x + w * 0.78f, y + h * 0.62f), dark);
+                handle.DrawRect(new UIBox2(x + w * 0.52f, y + h * 0.68f, x + w * 0.7f, y + h * 0.74f), dark);
+                break;
+
+            case OsAppIcon.SiteBuilder:
+                OsDraw.RoundedRect(handle, new UIBox2(x + w * 0.08f, y + h * 0.12f, x + w * 0.92f, y + h * 0.88f), w * 0.06f, dark);
+                handle.DrawRect(new UIBox2(x + w * 0.08f, y + h * 0.12f, x + w * 0.92f, y + h * 0.24f), accent);
+                handle.DrawRect(new UIBox2(x + w * 0.16f, y + h * 0.34f, x + w * 0.4f, y + h * 0.42f), light);
+                handle.DrawRect(new UIBox2(x + w * 0.16f, y + h * 0.48f, x + w * 0.6f, y + h * 0.56f), light);
+                handle.DrawRect(new UIBox2(x + w * 0.16f, y + h * 0.62f, x + w * 0.48f, y + h * 0.7f), light);
+                handle.DrawRect(new UIBox2(x + w * 0.66f, y + h * 0.6f, x + w * 0.84f, y + h * 0.74f), accent);
+                break;
+
             default:
                 OsDraw.RoundedRect(handle, new UIBox2(x + w * 0.16f, y + h * 0.16f, x + w * 0.84f, y + h * 0.84f), w * 0.1f, accent);
                 handle.DrawRect(new UIBox2(x + w * 0.34f, y + h * 0.34f, x + w * 0.66f, y + h * 0.66f), OsStyle.WindowBody);

@@ -61,7 +61,7 @@ public sealed partial class ADTOsSystem
         if (!CanOperate(ent))
             return;
 
-        if (!TryWriteFile(ent, args.Path, args.Kind, args.Text, args.Circuit, out var error, out var detail))
+        if (!TryWriteFile(ent, args.Actor, args.Path, args.Kind, args.Text, args.Circuit, args.IsNanoNetSiteDraft, out var error, out var detail))
         {
             Deny(ent, args.Actor, error, detail);
             return;

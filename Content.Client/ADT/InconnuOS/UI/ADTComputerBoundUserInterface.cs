@@ -14,6 +14,7 @@ public sealed class ADTComputerBoundUserInterface : BoundUserInterface
     [Dependency] private readonly IGameTiming _timing = default!;
 
     private InconnuOsWindow? _window;
+    private ADTOsSystem? _osSystem;
 
     public ADTComputerBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
@@ -60,6 +61,7 @@ public sealed class ADTComputerBoundUserInterface : BoundUserInterface
     private void CreateWindow(ADTOsBuiState state)
     {
         var system = EntMan.System<ADTOsSystem>();
+        _osSystem = system;
 
         _window = new InconnuOsWindow(
             _prototypes,
@@ -74,7 +76,14 @@ public sealed class ADTComputerBoundUserInterface : BoundUserInterface
         _window.OnMessage += SendMessage;
         _window.OnSessionReset += () => system.ClearSession(Owner);
 
+        system.RoundRestarting += OnRoundRestarting;
+
         _window.OpenCentered();
+    }
+
+    private void OnRoundRestarting()
+    {
+        _window?.CloseAllWindows();
     }
 
     protected override void Dispose(bool disposing)
@@ -85,6 +94,12 @@ public sealed class ADTComputerBoundUserInterface : BoundUserInterface
             return;
 
         EntMan.System<ADTOsSystem>().SaveSession(Owner, _window.SaveSession());
+
+        if (_osSystem != null)
+        {
+            _osSystem.RoundRestarting -= OnRoundRestarting;
+            _osSystem = null;
+        }
 
         _window.Dispose();
         _window = null;

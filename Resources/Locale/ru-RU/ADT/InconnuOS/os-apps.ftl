@@ -22,5 +22,23 @@ os-app-task-manager-desc = Открытые окна, нагрузка и пит
 os-app-devices = Монитор устройств
 os-app-devices-desc = Что подключено к портам машины.
 
+os-app-site-builder = Конструктор сайтов
+os-app-site-builder-desc = Редактор страниц для публикации в NanoNet.
+
+os-app-browser = Amelia
+os-app-browser-desc = Обозреватель внутренней сети NanoTrasen.
+os-browser-reload = Обновить
+os-browser-home = Домой
+os-browser-loading = Загрузка…
+os-browser-bad-url = Некорректный адрес
+
+os-sitebuilder-domain-placeholder = my-site
+os-sitebuilder-publish = Опубликовать
+os-sitebuilder-unpublish = Снять с публикации
+os-sitebuilder-preview = Предпросмотр
+os-sitebuilder-edit = Редактор
+os-sitebuilder-published = Опубликовано: { $host }
+os-sitebuilder-not-published = Не опубликовано
+
 os-app-placeholder = "{ $app }" ещё не установлено на этой машине.
 os-app-placeholder-file = "{ $app }" ещё не установлено, открыть { $file } нечем.

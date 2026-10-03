@@ -32,6 +32,8 @@
     - OsAppTerminal
     - OsAppCircuit
     - OsAppNotepad
+    - OsAppSiteBuilder
+    - OsAppBrowser
     - OsAppControlPanel
     - OsAppTaskManager
     - OsAppDevices
