@@ -63,7 +63,7 @@ public abstract class SharedBlobPodSystem : EntitySystem
 
     private void OnUnequipAttempt(Entity<BlobPodComponent> ent, ref BeingUnequippedAttemptEvent args)
     {
-        if (args.Unequipee == args.UnEquipTarget)
+        if (args.User == args.UnEquipTarget)
         {
             args.Cancel();
             return;

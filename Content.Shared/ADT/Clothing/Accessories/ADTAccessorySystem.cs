@@ -234,7 +234,7 @@ public sealed class ADTAccessorySystem : EntitySystem
     {
         foreach (var accessory in GetAccessories(ent))
         {
-            RaiseWornChanged(accessory, args.Equipee, ent.Owner, true);
+            RaiseWornChanged(accessory, args.EquipTarget, ent.Owner, true);
         }
     }
 
@@ -242,7 +242,7 @@ public sealed class ADTAccessorySystem : EntitySystem
     {
         foreach (var accessory in GetAccessories(ent))
         {
-            RaiseWornChanged(accessory, args.Equipee, ent.Owner, false);
+            RaiseWornChanged(accessory, args.EquipTarget, ent.Owner, false);
         }
     }
 

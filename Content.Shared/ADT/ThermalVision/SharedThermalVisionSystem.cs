@@ -75,7 +75,7 @@ public abstract class SharedThermalVisionSystem : EntitySystem
         if (ent.Comp.SlotFlags != args.SlotFlags)
             return;
 
-        EnableThermalVisionItem(ent, args.Equipee);
+        EnableThermalVisionItem(ent, args.EquipTarget);
     }
 
     private void OnThermalVisionItemGotUnequipped(Entity<ThermalVisionItemComponent> ent, ref GotUnequippedEvent args)
@@ -83,7 +83,7 @@ public abstract class SharedThermalVisionSystem : EntitySystem
         if (ent.Comp.SlotFlags != args.SlotFlags)
             return;
 
-        DisableThermalVisionItem(ent, args.Equipee);
+        DisableThermalVisionItem(ent, args.EquipTarget);
     }
 
     private void OnThermalVisionItemActionRemoved(Entity<ThermalVisionItemComponent> ent, ref ActionRemovedEvent args)

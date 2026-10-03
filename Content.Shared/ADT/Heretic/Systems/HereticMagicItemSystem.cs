@@ -32,7 +32,7 @@ public sealed class HereticMagicItemSystem : EntitySystem
 
     private void OnUnequip(Entity<HereticMagicItemComponent> ent, ref GotUnequippedEvent args)
     {
-        RaiseLostFocusEvent(args.Equipee);
+        RaiseLostFocusEvent(args.EquipTarget);
     }
 
     private void OnShutdown(Entity<HereticMagicItemComponent> ent, ref ComponentShutdown args)

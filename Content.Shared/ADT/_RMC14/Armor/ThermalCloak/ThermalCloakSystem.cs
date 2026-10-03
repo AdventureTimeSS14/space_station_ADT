@@ -91,10 +91,10 @@ public sealed class ThermalCloakSystem : EntitySystem
         // if (!_inventory.InSlotWithFlags((ent, null, null), SlotFlags.All))
         //     return;
 
-        var comp = EnsureComp<EntityTurnInvisibleComponent>(args.Equipee);
+        var comp = EnsureComp<EntityTurnInvisibleComponent>(args.EquipTarget);
         comp.RestrictWeapons = ent.Comp.RestrictWeapons;
         comp.UncloakWeaponLock = ent.Comp.UncloakWeaponLock;
-        Dirty(args.Equipee, comp);
+        Dirty(args.EquipTarget, comp);
     }
 
     private void OnUnequipped(Entity<ThermalCloakComponent> ent, ref GotUnequippedEvent args)
@@ -105,8 +105,8 @@ public sealed class ThermalCloakSystem : EntitySystem
         // if (_inventory.InSlotWithFlags((ent, null, null), SlotFlags.All))
         //     return;
 
-        SetInvisibility(ent, args.Equipee, false, false);
-        RemCompDeferred<EntityTurnInvisibleComponent>(args.Equipee);
+        SetInvisibility(ent, args.EquipTarget, false, false);
+        RemCompDeferred<EntityTurnInvisibleComponent>(args.EquipTarget);
     }
 
     public void SetInvisibility(Entity<ThermalCloakComponent> ent, EntityUid user, bool enabling, bool forced)

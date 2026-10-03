@@ -92,7 +92,7 @@ public abstract class SharedNightVisionSystem : EntitySystem
         if (ent.Comp.SlotFlags != args.SlotFlags)
             return;
 
-        DisableNightVisionItem(ent, args.Equipee);
+        DisableNightVisionItem(ent, args.EquipTarget);
     }
 
     private void OnNightVisionItemActionRemoved(Entity<NightVisionItemComponent> ent, ref ActionRemovedEvent args)

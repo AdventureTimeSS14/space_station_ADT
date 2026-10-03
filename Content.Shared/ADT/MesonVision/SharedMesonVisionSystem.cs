@@ -79,7 +79,7 @@ public abstract class SharedMesonVisionSystem : EntitySystem
         if (ent.Comp.SlotFlags != args.SlotFlags)
             return;
 
-        EnableMesonVisionItem(ent, args.Equipee);
+        EnableMesonVisionItem(ent, args.EquipTarget);
     }
 
     private void OnMesonVisionItemGotUnequipped(Entity<MesonVisionItemComponent> ent, ref GotUnequippedEvent args)
@@ -87,7 +87,7 @@ public abstract class SharedMesonVisionSystem : EntitySystem
         if (ent.Comp.SlotFlags != args.SlotFlags)
             return;
 
-        DisableMesonVisionItem(ent, args.Equipee);
+        DisableMesonVisionItem(ent, args.EquipTarget);
     }
 
     private void OnMesonVisionItemActionRemoved(Entity<MesonVisionItemComponent> ent, ref ActionRemovedEvent args)

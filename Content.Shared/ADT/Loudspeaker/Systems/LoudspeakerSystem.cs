@@ -35,16 +35,16 @@ public sealed class LoudSpeakerSystem : EntitySystem
         if (!args.SlotFlags.HasFlag(comp.RequiredSlot))
             return;
 
-        EnsureComp<LoudspeakerHolderComponent>(args.Equipee).Loudspeakers.Add(uid);
+        EnsureComp<LoudspeakerHolderComponent>(args.EquipTarget).Loudspeakers.Add(uid);
     }
 
     private void OnUnequipped(EntityUid uid, LoudspeakerComponent comp, GotUnequippedEvent args)
     {
-        if (!TryComp<LoudspeakerHolderComponent>(args.Equipee, out var holder))
+        if (!TryComp<LoudspeakerHolderComponent>(args.EquipTarget, out var holder))
             return;
 
         holder.Loudspeakers.Remove(uid);
-        DoRemovalCheck(args.Equipee, holder);
+        DoRemovalCheck(args.EquipTarget, holder);
     }
 
     private void OnEquippedHands(EntityUid uid, LoudspeakerComponent comp, GotEquippedHandEvent args)

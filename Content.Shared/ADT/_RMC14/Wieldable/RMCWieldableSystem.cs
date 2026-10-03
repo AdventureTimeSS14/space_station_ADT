@@ -137,16 +137,16 @@ public sealed class RMCWieldableSystem : EntitySystem
     #region Wield slowdown compensation
     private void OnGotEquipped(Entity<WieldSlowdownCompensationComponent> armour, ref GotEquippedEvent args)
     {
-        EnsureComp(args.Equipee, out WieldSlowdownCompensationUserComponent comp);
+        EnsureComp(args.EquipTarget, out WieldSlowdownCompensationUserComponent comp);
 
-        RefreshWieldSlowdownCompensation((args.Equipee, comp));
+        RefreshWieldSlowdownCompensation((args.EquipTarget, comp));
     }
 
     private void OnGotUnequipped(Entity<WieldSlowdownCompensationComponent> armour, ref GotUnequippedEvent args)
     {
-        EnsureComp(args.Equipee, out WieldSlowdownCompensationUserComponent comp);
+        EnsureComp(args.EquipTarget, out WieldSlowdownCompensationUserComponent comp);
 
-        RefreshWieldSlowdownCompensation((args.Equipee, comp));
+        RefreshWieldSlowdownCompensation((args.EquipTarget, comp));
     }
 
     private void RefreshWieldSlowdownCompensation(Entity<WieldSlowdownCompensationUserComponent> user)

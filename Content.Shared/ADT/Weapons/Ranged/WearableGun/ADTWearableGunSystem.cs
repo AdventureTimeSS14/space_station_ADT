@@ -29,9 +29,9 @@ public sealed class ADTWearableGunSystem : EntitySystem
         if (args.Slot != ent.Comp.Slot || !_net.IsServer)
             return;
 
-        var user = EnsureComp<ADTWearableGunUserComponent>(args.Equipee);
+        var user = EnsureComp<ADTWearableGunUserComponent>(args.EquipTarget);
         user.Gun = ent.Owner;
-        Dirty(args.Equipee, user);
+        Dirty(args.EquipTarget, user);
     }
 
     private void OnUnequipped(Entity<ADTWearableGunComponent> ent, ref GotUnequippedEvent args)
@@ -39,7 +39,7 @@ public sealed class ADTWearableGunSystem : EntitySystem
         if (args.Slot != ent.Comp.Slot)
             return;
 
-        RemoveUser(ent.Owner, args.Equipee);
+        RemoveUser(ent.Owner, args.EquipTarget);
     }
 
     private void OnShutdown(Entity<ADTWearableGunComponent> ent, ref ComponentShutdown args)
