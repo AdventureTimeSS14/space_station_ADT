@@ -7,7 +7,7 @@
   - type: Sprite
     sprite: ADT/Objects/Specific/Hydroponics/cannabiswhite.rsi
   - type: Produce
-    seedId: ADTCannabisWhite
+    plantId: ADTCannabisWhitePlants
   - type: Edible
   - type: SolutionContainerManager
     solutions:
@@ -81,7 +81,7 @@
   - type: Sprite
     sprite: ADT/Objects/Specific/Hydroponics/coffeebeans.rsi
   - type: Produce
-    seedId: ADTCoffeeTree
+    plantId: ADTCoffeeTreePlants
   - type: Edible
   - type: SolutionContainerManager
     solutions:

@@ -1,5 +1,6 @@
 using JetBrains.Annotations;
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared.ADT.Botany.Systems; // ADT-Tweak
 using Content.Shared.Botany.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
@@ -26,6 +27,7 @@ public sealed partial class PlantTraySystem : EntitySystem
     [Dependency] private SharedEntityEffectsSystem _entityEffects = default!;
     [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private ADTBotanyMachinePartsSystem _adtMachineParts = default!; // ADT-Tweak
 
     [Dependency] private EntityQuery<PlantDataComponent> _dataQuery = default!;
     [Dependency] private EntityQuery<PlantWeedPestComponent> _weedPestQuery = default!;
@@ -162,6 +164,7 @@ public sealed partial class PlantTraySystem : EntitySystem
             return;
 
         _plant.PlantingPlant(plantUid, healthOverride);
+        _adtMachineParts.ApplyTrayCycleDelay(trayUid, plantUid); // ADT-Tweak
         _transform.SetCoordinates(plantUid, Transform(trayUid).Coordinates);
         _transform.SetParent(plantUid, trayUid);
         trayComp.PlantEntity = plantUid;

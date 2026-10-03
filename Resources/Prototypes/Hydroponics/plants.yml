@@ -1153,7 +1153,7 @@
     name: seeds-cannabis-name
     packetPrototype: CannabisSeeds
     productPrototypes: [ LeavesCannabis ]
-    mutationPrototypes: [ RainbowCannabisPlants ]
+    mutationPrototypes: [ RainbowCannabisPlants, ADTCannabisWhitePlants ] # ADT-Tweak
   - type: Plant
     lifespan: 75
     maturation: 8
@@ -1403,7 +1403,7 @@
     name: seeds-poppy-name
     packetPrototype: PoppySeeds
     productPrototypes: [ FoodPoppy ]
-    mutationPrototypes: [ LilyPlants ]
+    mutationPrototypes: [ LilyPlants, ADTPapaverSomniferumPlants ] # ADT-Tweak
   - type: Plant
     lifespan: 25
     maturation: 10

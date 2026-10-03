@@ -29,37 +29,8 @@
         state: harvest3
         map: [ "harvest_alert" ]
         visible: false
-  - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.PlantHolderVisuals.HealthLight:
-        health_alert:
-          True: { visible: true }
-          False: { visible: false }
-      enum.PlantHolderVisuals.WaterLight:
-        water_alert:
-          True: { visible: true }
-          False: { visible: false }
-      enum.PlantHolderVisuals.NutritionLight:
-        nutri_alert:
-          True: { visible: true }
-          False: { visible: false }
-      enum.PlantHolderVisuals.AlertLight:
-        undefined_alert:
-          True: { visible: true }
-          False: { visible: false }
-      enum.PlantHolderVisuals.HarvestLight:
-        harvest_alert:
-          True: { visible: true }
-          False: { visible: false }
-  - type: PlantHolder
-    drawWarnings: true
+  - type: ADTPlantTrayUpgrade
     cycleDelay: 10
-    wateringSound:
-      path: /Audio/Effects/Fluids/slosh.ogg
-      params:
-        volume: -6
-        variation: 0.20
   - type: Destructible
     thresholds:
     - trigger:

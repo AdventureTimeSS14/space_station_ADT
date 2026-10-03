@@ -19,7 +19,7 @@
   - type: Sprite
     sprite: ADT/Objects/Specific/Hydroponics/polypore.rsi
   - type: Produce
-    seedId: ADTSeedPolypore
+    plantId: ADTPolyporePlants
   - type: Extractable
     grindableSolutionName: food
   - type: Tag
@@ -50,7 +50,7 @@
   - type: Sprite
     sprite: ADT/Objects/Specific/Hydroponics/porcini.rsi
   - type: Produce
-    seedId: ADTSeedPorcini
+    plantId: ADTPorciniPlants
   - type: Extractable
     grindableSolutionName: food
   - type: Tag
@@ -81,7 +81,7 @@
   - type: Sprite
     sprite: ADT/Objects/Specific/Hydroponics/inocybe.rsi
   - type: Produce
-    seedId: ADTSeedInocybe
+    plantId: ADTInocybePlants
   - type: Extractable
     grindableSolutionName: food
   - type: Tag
@@ -115,7 +115,7 @@
     energy: 1.2
     color: "#f0b26c"
   - type: Produce
-    seedId: ADTSeedEmbershroom
+    plantId: ADTEmbershroomPlants
   - type: Extractable
     grindableSolutionName: food
   - type: Tag
@@ -217,7 +217,7 @@
   - type: Sprite
     sprite: ADT/Objects/Specific/Hydroponics/reishi.rsi
   - type: Produce
-    seedId: ADTSeedReishi
+    plantId: ADTReishiPlants
   - type: Extractable
     grindableSolutionName: food
   - type: Tag

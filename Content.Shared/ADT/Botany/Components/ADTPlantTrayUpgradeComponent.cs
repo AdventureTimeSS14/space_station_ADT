@@ -19,4 +19,7 @@ public sealed partial class ADTPlantTrayUpgradeComponent : Component
 
     [DataField]
     public float? BaseMaxNutritionLevel;
+
+    [DataField]
+    public TimeSpan? CycleDelay;
 }

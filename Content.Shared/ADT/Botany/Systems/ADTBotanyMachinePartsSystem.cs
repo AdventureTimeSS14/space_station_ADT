@@ -59,6 +59,18 @@ public sealed class ADTBotanyMachinePartsSystem : EntitySystem
         return TryComp<ADTPlantTrayUpgradeComponent>(tray, out var upgrade) ? upgrade.NutrientConsumptionMultiplier : 1f;
     }
 
+    public void ApplyTrayCycleDelay(EntityUid tray, EntityUid plant)
+    {
+        if (!TryComp<ADTPlantTrayUpgradeComponent>(tray, out var upgrade) || upgrade.CycleDelay is not { } delay)
+            return;
+
+        if (!TryComp<PlantHolderComponent>(plant, out var holder))
+            return;
+
+        holder.CycleDelay = delay;
+        Dirty(plant, holder);
+    }
+
     public float GetSeedMultiplier(EntityUid extractor)
     {
         return TryComp<ADTSeedExtractorUpgradeComponent>(extractor, out var upgrade) ? upgrade.SeedMultiplier : 1f;
