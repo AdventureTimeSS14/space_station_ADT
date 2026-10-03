@@ -1,11 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
-<<<<<<< ours
 using System.Diagnostics.Contracts;
 using Content.Shared.ADT.RichText; // ADT-Tweak
-||||||| base
-=======
-using System.Diagnostics.Contracts;
->>>>>>> theirs
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Examine;
 using Content.Shared.Labels.Components;
