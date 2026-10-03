@@ -59,6 +59,12 @@
     count: 3
 
 - type: localizedDataset
+  id: ADTFigurineTheokayaFriendlyOne
+  values:
+    prefix: adt-figurines-theokaya-
+    count: 3
+
+- type: localizedDataset
   id: ADTFigurinesPlushieYuriyTrixter
   values:
     prefix: adt-figurines-plushie-yuriy-trixter-
