@@ -34,23 +34,6 @@ using Microsoft.Extensions.ObjectPool;
 using Robust.Server.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-<<<<<<< ours
-using Content.Shared.Atmos.Components;
-using System.Linq;
-using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Systems;
-using Content.Shared.Mobs.Components;
-using Content.Shared.Temperature.Components;
-using Content.Shared.Stealth;
-using Content.Shared.Stealth.Components;
-||||||| base
-using Content.Shared.Atmos.Components;
-using System.Linq;
-using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Systems;
-using Content.Shared.Temperature.Components;
-=======
->>>>>>> theirs
 
 namespace Content.Server.NPC.Systems;
 
@@ -59,50 +42,6 @@ namespace Content.Server.NPC.Systems;
 /// </summary>
 public sealed partial class NPCUtilitySystem : EntitySystem
 {
-<<<<<<< ours
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly ContainerSystem _container = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly HandsSystem _hands = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly IngestionSystem _ingestion = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
-    [Dependency] private readonly PuddleSystem _puddle = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutions = default!;
-    [Dependency] private readonly WeldableSystem _weldable = default!;
-    [Dependency] private readonly ExamineSystemShared _examine = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private readonly MobThresholdSystem _thresholdSystem = default!;
-    [Dependency] private readonly TurretTargetSettingsSystem _turretTargetSettings = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedStealthSystem _stealth = default!;
-
-    private EntityQuery<PuddleComponent> _puddleQuery;
-    private EntityQuery<TransformComponent> _xformQuery;
-||||||| base
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly ContainerSystem _container = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly HandsSystem _hands = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly IngestionSystem _ingestion = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
-    [Dependency] private readonly PuddleSystem _puddle = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutions = default!;
-    [Dependency] private readonly WeldableSystem _weldable = default!;
-    [Dependency] private readonly ExamineSystemShared _examine = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private readonly MobThresholdSystem _thresholdSystem = default!;
-    [Dependency] private readonly TurretTargetSettingsSystem _turretTargetSettings = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-
-    private EntityQuery<PuddleComponent> _puddleQuery;
-    private EntityQuery<TransformComponent> _xformQuery;
-=======
     [Dependency] private ContainerSystem _container = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private HandsSystem _hands = default!;
@@ -122,7 +61,6 @@ public sealed partial class NPCUtilitySystem : EntitySystem
     [Dependency] private SatiationSystem _satiation = default!;
     [Dependency] private SharedStealthSystem _stealth = default!;
     [Dependency] private EntityQuery<PuddleComponent> _puddleQuery = default!;
->>>>>>> theirs
 
     private ObjectPool<HashSet<EntityUid>> _entPool =
         new DefaultObjectPool<HashSet<EntityUid>>(new SetPolicy<EntityUid>(), 256);

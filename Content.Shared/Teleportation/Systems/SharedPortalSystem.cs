@@ -1,11 +1,5 @@
 ﻿using System.Linq;
-<<<<<<< ours
 using Content.Shared.ADT.Salvage.Components;
-using Content.Shared.Ghost;
-||||||| base
-using Content.Shared.Ghost;
-=======
->>>>>>> theirs
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
@@ -103,18 +97,13 @@ public abstract partial class SharedPortalSystem : EntitySystem
 
         var subject = args.OtherEntity;
 
-<<<<<<< ours
         // ADT-Tweak start
         if (HasComp<MegafaunaComponent>(subject))
             return;
         // ADT-Tweak end
 
-||||||| base
-=======
         if (_tag.HasTag(args.OtherEntity, PreventCollisionTag))
             return;
-
->>>>>>> theirs
         // best not.
         if (Transform(subject).Anchored)
             return;
