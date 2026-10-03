@@ -24,3 +24,20 @@
     protectionTime: 5
   - type: IdentityBlocker
     coverage: EYES
+
+- type: entity
+  parent: ADTSponsorClothingEyesBase
+  id: ADTClothingEyesArcheronMoto
+  suffix: Personal, Archeron
+  name: motorcycle goggles
+  description: A pair of vintage motorcycle goggles with a wide leather strap. The lenses are bright, thick, and a deep red color.
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/archeron/motoglasses.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Special/Personal/archeron/motoglasses.rsi
+    slots: [HEAD, EYES]
+  - type: Item
+    size: Normal
+  - type: EyeProtection

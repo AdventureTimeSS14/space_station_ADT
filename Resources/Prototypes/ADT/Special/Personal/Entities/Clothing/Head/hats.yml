@@ -177,36 +177,6 @@
 
 - type: entity
   parent: ADTSponsorClothingHeadBase
-  id: ADTClothingHeadSponsorRedKandzasi
-  name: red kandzasi
-  description: A traditional Japanese hair ornament. It consists of a gold-plated brass frame and red silk ribbons.
-  suffix: Sponsor
-  components:
-  - type: Sprite
-    sprite: ADT/Special/Personal/sponsor/RedKandzasi.rsi
-    state: icon
-  - type: Item
-    size: Small
-  - type: Clothing
-    sprite: ADT/Special/Personal/sponsor/RedKandzasi.rsi
-
-- type: entity
-  parent: ADTSponsorClothingHeadBase
-  id: ADTClothingHeadSponsorBlueKandzasi
-  name: blue kandzasi
-  description: A traditional Japanese hair ornament. It consists of a gold-plated brass frame and blue silk ribbons.
-  suffix: Sponsor
-  components:
-  - type: Sprite
-    sprite: ADT/Special/Personal/sponsor/BlueKandzasi.rsi
-    state: icon
-  - type: Item
-    size: Small
-  - type: Clothing
-    sprite: ADT/Special/Personal/sponsor/BlueKandzasi.rsi
-
-- type: entity
-  parent: ADTSponsorClothingHeadBase
   id: ADTClothingHeadHatsPyotrCap
   name: Pyotr`s cap
   description: Standart officer`s cap from Pyotr Shahin`s homeworld
@@ -271,3 +241,22 @@
   name: mercenary bandana
   description: mercenary bandana
   suffix: Personal, antillion
+
+- type: entity
+  parent: [ClothingHeadBandBase, ADTClothingMaskBandTudibideb]
+  id: ADTClothingHeadBandTudibideb
+  name: skull bandana
+  suffix: Personal, Tudibideb
+
+- type: entity
+  parent: ClothingMaskBandanaBase
+  id: ADTClothingMaskBandTudibideb
+  name: skull bandana
+  description: skull bandana
+  suffix: Personal, Tudibideb
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/tudibideb_bandana.rsi
+  - type: Clothing
+    sprite: ADT/Special/Personal/tudibideb_bandana.rsi
+  - type: BreathMask

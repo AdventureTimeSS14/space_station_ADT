@@ -7,7 +7,7 @@
 
 - type: loadout
   sponsorOnly: true
-  id: ADTOfficerMantleKiwiFruit
+  id: ADTAccesoriesKiwiFruit
   storage:
     back:
     - ADTClothingHandsKiwiFruitBracelet
@@ -55,3 +55,32 @@
   storage:
     back:
     - ADTWeaponRevolverArgumentCouatl
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTHeadBandTudibideb
+  storage:
+    back:
+    - ADTClothingHeadBandTudibideb
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTElegantWhip
+  storage:
+    back:
+    - ADTWeaponElegantWhip
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTFamilyBusiness
+  storage:
+    back:
+    - ADTFamilyBusinessWeaponCase
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTPremiumCaseKimerk
+  storage:
+    back:
+    - ADTPremiumCaseKimerk
+    - ADTClothingUniformKimerK

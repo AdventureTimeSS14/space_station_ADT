@@ -31,11 +31,6 @@
           tags:
           - CaptainSabre
   - type: Appearance
-  # ADT-Tweak start
-  - type: Construction
-    graph: ADTBeltSheathTransforms
-    node: start
-  # ADT-Tweak end
 
 - type: entity
   parent: ClothingBeltStorageBase

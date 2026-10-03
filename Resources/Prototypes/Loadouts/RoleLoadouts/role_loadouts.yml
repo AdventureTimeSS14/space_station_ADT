@@ -45,7 +45,7 @@
   - ADTRacialItems # ADT-Tweak
   #- HoPJobTrinkets
   - GroupSpeciesBreathTool
-  # - ADTPersonalLoadoutHeadOfPersonnel # ADT-Tweak personals
+  - ADTPersonalLoadoutHeadOfPersonnel # ADT-Tweak personals
   - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 # Silicons
@@ -615,7 +615,7 @@
   - ADTRacialItems # ADT-Tweak
   #- ResearchDirectorJobTrinkets
   - GroupSpeciesBreathTool
-#  - ADTPersonalLoadoutResearchDirector # ADT-Tweak personal
+  - ADTPersonalLoadoutResearchDirector # ADT-Tweak personal
   - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout

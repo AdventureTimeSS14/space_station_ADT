@@ -95,3 +95,15 @@
   - type: Action
     icon: { sprite: ADT/Special/Personal/kringe-magboots.rsi, state: icon }
     iconOn: { sprite: ADT/Special/Personal/kringe-magboots.rsi, state: icon-on }
+
+- type: entity
+  parent: ADTSponsorClothingShoesBase
+  id: ADTClothingShoesBrasskBootsIllumy
+  name: brass shoes
+  description: Shoes with brass trim, designed for long service and a confident stride. It seems especially difficult to take a step back in them.
+  suffix: Personal, Unlumination
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/Illumy/brass_shoes.rsi
+  - type: Clothing
+    sprite: ADT/Special/Personal/Illumy/brass_shoes.rsi

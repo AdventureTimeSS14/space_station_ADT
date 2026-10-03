@@ -21,3 +21,27 @@
     sprite: ADT/Special/Personal/Raven559/blue_shield_ceremonial_helmet.rsi
   - type: Clothing
     sprite: ADT/Special/Personal/Raven559/blue_shield_ceremonial_helmet.rsi
+
+- type: entity
+  parent: ClothingHeadHelmetRiot
+  id: ADTClothingHeadReinforcedBSHelmetRaven559
+  name: worn-out parade reinforced helmet of the Officer 'Blue Shield'
+  description: Extremely durable helmet, designed (or stolen?) for one specific Blue Shield Officer. The word 'DUMP TRUCK' is scratched on the front of the helmet.
+  suffix: Sponsor, Raven559
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/Raven559/blue_shield_ceremonial_reinforced_helmet.rsi
+  - type: Clothing
+    sprite: ADT/Special/Personal/Raven559/blue_shield_ceremonial_reinforced_helmet.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.5
+        Caustic: 0.95
+  - type: ExplosionResistance
+    damageCoefficient: 0.65
+  - type: StaminaResistance
+    damageCoefficient: 0.65

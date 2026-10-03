@@ -136,9 +136,6 @@
       storagebase: !type:Container
         ents: []
       item: !type:ContainerSlot
-  - type: Construction
-    graph: ADTBeltSheathTransforms
-    node: icon
 
 #Faust Netzach
 - type: entity

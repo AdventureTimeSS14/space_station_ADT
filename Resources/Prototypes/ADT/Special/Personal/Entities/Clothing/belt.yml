@@ -257,3 +257,42 @@
           tags:
           - YV2Pistol
     sprite: ADT/Special/Personal/yv2recharger.rsi
+
+- type: entity
+  parent: ClothingBeltMilitaryWebbing
+  id: ADTClothingBeltWeaponHolsterArmyShinoba
+  name: army pouch
+  description: A durable belt featuring a weapon mount and a spacious compartment. It is distinguished by its reinforced construction.
+  suffix: sponsor, shinoba
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/Shinoba/holster_army.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Special/Personal/Shinoba/holster_army.rsi
+  - type: ItemSlots
+    slots:
+      weapon:
+        name: item
+        whitelist:
+          tags:
+          - Sidearm
+          - CaptainSabre
+          - HighRiskItem
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      weapon: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTClothingMaskNeckGaiterModShinoba

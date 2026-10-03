@@ -33,8 +33,6 @@
   - type: Clothing
     sprite: ADT/Special/Personal/uma_armor.rsi
 
-
-
 #Sir_talter
 - type: entity
   parent: [ClothingOuterArmorBasic, BadgeOnClothing]
@@ -74,3 +72,29 @@
         ent: null
       toggleable-clothing: !type:ContainerSlot {}
 
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: ADTClothingOuterReinforcedArmorBSRaven559
+  name: worn-out reinforced parade armor of Officer 'Blue Shield'
+  description: A reinforced power armor that provides excellent protection while still being highly mobile, designed specifically for a single Officer of the 'Blue Shield.' On closer inspection, this armor resembles another similar red armor, as if it was stolen from somewhere and repainted, but there’s no solid evidence of this crime.
+  suffix: Sponsor, Raven559
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/Raven559/blue_shield_ceremonial_reinforced_armor.rsi
+  - type: Clothing
+    sprite: ADT/Special/Personal/Raven559/blue_shield_ceremonial_reinforced_armor.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.7
+    coolingCoefficient: 1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.5
+        Caustic: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.65
+  - type: StaminaResistance
+    damageCoefficient: 0.65

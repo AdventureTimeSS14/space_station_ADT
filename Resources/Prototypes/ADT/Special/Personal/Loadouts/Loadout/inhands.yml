@@ -31,6 +31,12 @@
 
 - type: loadout
   sponsorOnly: true
+  id: ADTBriefcaseUma
+  inhand:
+  - ADTBriefcaseBrownUma
+
+- type: loadout
+  sponsorOnly: true
   id: ADTBriefcaseHonelin111
   inhand:
   - ADTBriefcaseBrownHonelin111
@@ -52,3 +58,21 @@
   id: ADTBriefcaseSaintMadman
   inhand:
   - ADTBriefcaseBrownSaintMadman
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTSuitRiverSpirit
+  inhand:
+  - ADTClothingOuterSuitRiverSpirit
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTBriefcaseIllumy
+  inhand:
+  - ADTBriefcaseBrownIllumy
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTBeltWeaponHolsterArmyShinoba
+  inhand:
+  - ADTClothingBeltWeaponHolsterArmyShinoba

@@ -137,3 +137,31 @@
   storage:
     back:
     - ADTPlushieIlumi
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTPlushieEmiliaEvenwood
+  storage:
+    back:
+    - ADTPlushieEmiliaEvenwood
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTPlushieNirkin
+  storage:
+    back:
+    - ADTPlushieNirkin
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTPlushieKusuk
+  storage:
+    back:
+    - ADTPlushieKusuk
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTPlushieProxima
+  storage:
+    back:
+    - ADTPlushieProximaLunnyykat

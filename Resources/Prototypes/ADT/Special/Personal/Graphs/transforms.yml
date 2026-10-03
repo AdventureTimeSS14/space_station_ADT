@@ -19,21 +19,3 @@
         doAfter: 1
   - node: icon
     entity: ADTClothingOuterHardsuitParamedLemon
-
-- type: constructionGraph
-  id: ADTBeltSheathTransforms
-  start: start
-  graph:
-  - node: start
-    entity: ClothingBeltSheath
-    edges:
-    - to: icon
-      completed:
-      - !type:AdminLog
-        message: "Construction"
-        impact: High
-      steps:
-      - tag: ADTPrazatCool
-        doAfter: 1
-  - node: icon
-    entity: ADTClothingBeltPrazatSheath

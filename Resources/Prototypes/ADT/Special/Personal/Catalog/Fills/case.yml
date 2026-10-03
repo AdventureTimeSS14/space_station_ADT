@@ -60,6 +60,35 @@
         - id: ADTClothingShoesShipTestRedLis
 
 - type: entity
+  id: ADTBriefcaseBrownIllumy
+  name: Illumy`s briefcase
+  parent: BriefcaseBrown
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTClothingUniformHeatResistantJumpsuitIllumy
+        - id: ADTClothingOuterJacketCoatIllumy
+        - id: ADTClothingShoesBrasskBootsIllumy
+        - id: ADTClothingHandsSyntheticGlovesIllumy
+
+- type: entity
+  id: ADTBriefcaseBrownUma
+  name: Uma`s briefcase
+  parent: BriefcaseBrown
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTStunbatonUma
+        - id: ADTClothingOuterArmorUma
+        - id: ADTWeaponPistolUma
+
+- type: entity
   id: ADTBriefcaseBrownHonelin111
   name: Honelin111`s briefcase
   parent: BriefcaseBrown

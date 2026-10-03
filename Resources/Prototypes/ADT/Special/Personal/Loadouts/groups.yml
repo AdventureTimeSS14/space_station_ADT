@@ -4,7 +4,8 @@
   minLimit: 0
   maxLimit: 5
   loadouts:
-  - ADTOfficerMantleKiwiFruit
+  - ADTAccesoriesKiwiFruit
+  - ADTSuitRiverSpirit
 
 - type: loadoutGroup
   id: ADTPersonalLoadoutPlushie
@@ -32,6 +33,10 @@
   - ADTPlushieJungar
   - ADTPlushieLo
   - ADTPlushieIlumi
+  - ADTPlushieNirkin
+  - ADTPlushieEmiliaEvenwood
+  - ADTPlushieKusuk
+  - ADTPlushieProxima
 
 - type: loadoutGroup
   id: ADTPersonalLoadoutSecurity
@@ -40,6 +45,8 @@
   maxLimit: 5
   loadouts:
   - ADTOfficerMantleRaven559
+  - ADTElegantWhip
+  - ADTFamilyBusiness
 
 - type: loadoutGroup
   id: ADTPersonalLoadoutLawyer
@@ -48,6 +55,7 @@
   maxLimit: 5
   loadouts:
   - ADTBriefcaseSaintMadman
+  - ADTBriefcaseIllumy
 
 - type: loadoutGroup
   id: ADTPersonalLoadoutCivilian
@@ -66,13 +74,19 @@
   - ADTBibleDescente
   - ADTSensorsSyrel
   - ADTBriefcaseSaintMadman
-# - type: loadoutGroup
-#   id: ADTPersonalLoadoutCommand
-#   name: loadout-group-security-personal-adt
-#   minLimit: 0
-#   maxLimit: 5
-#   loadouts:
-#   -
+  - ADTHeadBandTudibideb
+  - ADTPremiumCaseKimerk
+  - ADTBriefcaseIllumy
+
+- type: loadoutGroup
+  id: ADTPersonalLoadoutHeadOfSecurity
+  name: loadout-group-headofsecurity-personal-adt
+  minLimit: 0
+  maxLimit: 5
+  loadouts:
+  - ADTOfficerMantleRaven559
+  - ADTElegantWhip
+  - ADTBriefcaseUma
 
 - type: loadoutGroup
   id: ADTPersonalLoadoutCapitan
@@ -82,14 +96,16 @@
   loadouts:
   - ADTBriefcasePrazatCool
   - ADTBriefcaseSaintMadman
+  - ADTElegantWhip
+  - ADTBriefcaseIllumy
 
-# - type: loadoutGroup
-#   id: ADTPersonalLoadoutResearchDirector
-#   name: loadout-group-security-personal-adt
-#   minLimit: 0
-#   maxLimit: 5
-#   loadouts:
-#   -
+- type: loadoutGroup
+  id: ADTPersonalLoadoutResearchDirector
+  name: loadout-group-security-personal-adt
+  minLimit: 0
+  maxLimit: 5
+  loadouts:
+  - ADTElegantWhip
 
 - type: loadoutGroup
   id: ADTPersonalLoadoutQuarterMaster
@@ -98,14 +114,16 @@
   maxLimit: 5
   loadouts:
   - ADTBriefcaseRedLis
+  - ADTElegantWhip
+  - ADTBriefcaseIllumy
 
-# - type: loadoutGroup
-#   id: ADTPersonalLoadoutChiefEngineer
-#   name: loadout-group-security-personal-adt
-#   minLimit: 0
-#   maxLimit: 5
-#   loadouts:
-#   -
+- type: loadoutGroup
+  id: ADTPersonalLoadoutChiefEngineer
+  name: loadout-group-security-personal-adt
+  minLimit: 0
+  maxLimit: 5
+  loadouts:
+  - ADTElegantWhip
 
 - type: loadoutGroup
   id: ADTPersonalLoadoutChiefMedicalOfficer
@@ -114,22 +132,16 @@
   maxLimit: 5
   loadouts:
   - ADTParamedicHardsuitLemonLimeLord
+  - ADTElegantWhip
 
 - type: loadoutGroup
-  id: ADTPersonalLoadoutHeadOfSecurity
-  name: loadout-group-headofsecurity-personal-adt
+  id: ADTPersonalLoadoutHeadOfPersonnel
+  name: loadout-group-security-personal-adt
   minLimit: 0
   maxLimit: 5
   loadouts:
-  - ADTOfficerMantleRaven559
-
-# - type: loadoutGroup
-#   id: ADTPersonalLoadoutHeadOfPersonnel
-#   name: loadout-group-security-personal-adt
-#   minLimit: 0
-#   maxLimit: 5
-#   loadouts:
-#   -
+  - ADTElegantWhip
+  - ADTBriefcaseIllumy
 
 - type: loadoutGroup
   id: ADTPersonalLoadoutBlueShieldOfficer
@@ -146,3 +158,4 @@
   maxLimit: 5
   loadouts:
   - ADTBriefcaseRaven559
+  - ADTBriefcaseIllumy

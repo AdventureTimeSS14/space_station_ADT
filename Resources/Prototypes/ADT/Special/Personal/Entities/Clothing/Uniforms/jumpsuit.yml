@@ -309,3 +309,15 @@
     sprite: ADT/Special/Personal/pyotr_jumpsuit.rsi
   - type: Clothing
     sprite: ADT/Special/Personal/pyotr_jumpsuit.rsi
+
+- type: entity
+  parent: [ADTSponsorClothingUniformBase, ClothingUniformFoldableBase]
+  id: ADTClothingUniformHeatResistantJumpsuitIllumy
+  name: heat‑resistant tuxedo
+  description: A strict crimson tuxedo, made of thick fabric capable of withstanding intense heat. Even near an open flame, it maintains its impeccable appearance.
+  suffix: Personal, Unlumination
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/Illumy/heatresistant_tuxedo.rsi
+  - type: Clothing
+    sprite: ADT/Special/Personal/Illumy/heatresistant_tuxedo.rsi

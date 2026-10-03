@@ -173,7 +173,7 @@
 
 #maksim_soko
 - type: entity
-  parent: BaseItem
+  parent: BaseItem # Че это блять, кольцо или предмет нахуй
   id: ADTRingSoko
   name: Ring Soko
   description: Ring Soko
@@ -189,3 +189,15 @@
     price: 1000
   - type: Item
     size: Tiny
+
+- type: entity
+  parent: ADTClothingSponsorHandsBase
+  id: ADTClothingHandsSyntheticGlovesIllumy
+  name: synthetic gloves
+  description: Durable synthetic gloves, equally suitable for working with soil and everyday tasks. It seems that hands simply can’t shake in them.
+  suffix: Personal, Unlumination
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/Illumy/synthetic_gloves.rsi
+  - type: Clothing
+    sprite: ADT/Special/Personal/Illumy/synthetic_gloves.rsi
