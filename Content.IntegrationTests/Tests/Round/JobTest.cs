@@ -12,13 +12,8 @@ using Content.Shared.GameTicking;
 using Content.Shared.Maps;
 using Content.Shared.Preferences;
 using Content.Shared.Roles.Jobs;
-<<<<<<< ours
 using Content.Shared.Roles;
-using Robust.Shared.GameObjects;
-||||||| base
-=======
 using Content.Shared.Station.Components;
->>>>>>> theirs
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 
