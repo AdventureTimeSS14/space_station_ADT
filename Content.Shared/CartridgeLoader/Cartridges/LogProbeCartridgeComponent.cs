@@ -1,10 +1,5 @@
-<<<<<<< HEAD:Content.Server/CartridgeLoader/Cartridges/LogProbeCartridgeComponent.cs
-using Content.Shared.CartridgeLoader.Cartridges;
-﻿using Content.Shared.Paper;
-using Content.Shared.ADT.CartridgeLoader.Cartridges; 
-=======
+using Content.Shared.ADT.CartridgeLoader.Cartridges;
 using Content.Shared.Paper;
->>>>>>> wizards-filtered:Content.Shared/CartridgeLoader/Cartridges/LogProbeCartridgeComponent.cs
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
