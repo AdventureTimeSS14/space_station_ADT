@@ -25,16 +25,8 @@ public sealed partial class RandomGiftComponent : Component
     /// <summary>
     /// Whether or not the gift should be limited only to actual items.
     /// </summary>
-<<<<<<< ours
-    [DataField("insaneMode"), ViewVariables(VVAccess.ReadWrite)] // По умолчанию тип bool с required: true
+    [DataField, ViewVariables(VVAccess.ReadWrite)] // ADT: режимы Unsafe/Safe/ADTUnsafe, не bool
     public string? InsaneMode;
-||||||| base
-    [DataField("insaneMode", required: true), ViewVariables(VVAccess.ReadWrite)]
-    public bool InsaneMode;
-=======
-    [DataField(required: true)]
-    public bool InsaneMode;
->>>>>>> theirs
 
     /// <summary>
     /// What entities are allowed to examine this gift to see its contents.
