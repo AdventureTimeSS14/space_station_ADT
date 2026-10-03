@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using Content.Shared.ADT.Botany.Systems; // ADT-Tweak
 using Content.Shared.Botany.Components;
 using Content.Shared.Botany.Events;
 using Content.Shared.Random.Helpers;
@@ -19,6 +20,7 @@ public sealed partial class PlantGrowthSystem : EntitySystem
     [Dependency] private PlantHarvestSystem _plantHarvest = default!;
     [Dependency] private PlantHolderSystem _plantHolder = default!;
     [Dependency] private PlantTraySystem _plantTray = default!;
+    [Dependency] private ADTBotanyMachinePartsSystem _adtMachineParts = default!; // ADT-Tweak
 
     [Dependency] private EntityQuery<PlantHolderComponent> _holderQuery = default!;
     [Dependency] private EntityQuery<PlantTrayComponent> _trayQuery = default!;
@@ -59,7 +61,7 @@ public sealed partial class PlantGrowthSystem : EntitySystem
             _plantTray.AdjustWater((trayUid, trayComp), -MathF.Max(0f, plantComp.WaterConsumption * trayComp.TrayConsumptionMultiplier));
 
         if (plantComp.NutrientConsumption > 0 && trayComp.NutritionLevel > 0 && random.Prob(0.75f))
-            _plantTray.AdjustNutrient((trayUid, trayComp), -MathF.Max(0f, plantComp.NutrientConsumption * trayComp.TrayConsumptionMultiplier));
+            _plantTray.AdjustNutrient((trayUid, trayComp), -MathF.Max(0f, plantComp.NutrientConsumption * trayComp.TrayConsumptionMultiplier * _adtMachineParts.GetNutrientConsumptionMultiplier(trayUid))); // ADT-Tweak
 
         var healthMod = random.Next(1, 3);
         if (holder.SkipAging < 10)

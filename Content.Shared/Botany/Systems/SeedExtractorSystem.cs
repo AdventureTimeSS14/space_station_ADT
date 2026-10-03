@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Botany.Systems; // ADT-Tweak
 using Content.Shared.Botany.Components;
 using Content.Shared.Botany.Items.Components;
 using Content.Shared.Botany.Traits.Components;
@@ -15,6 +16,7 @@ public sealed partial class SeedExtractorSystem : EntitySystem
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private SharedPowerReceiverSystem _powerReceiver = default!;
+    [Dependency] private ADTBotanyMachinePartsSystem _adtMachineParts = default!; // ADT-Tweak
 
     [Dependency] private EntityQuery<ProduceComponent> _produceQuery = default!;
 
@@ -51,7 +53,7 @@ public sealed partial class SeedExtractorSystem : EntitySystem
 
 
         var random = SharedRandomExtensions.PredictedRandom(_timing, GetNetEntity(ent));
-        var amount = random.NextFloat(ent.Comp.BaseSeeds.Min, ent.Comp.BaseSeeds.Max + 1);
+        var amount = random.NextFloat(ent.Comp.BaseSeeds.Min, ent.Comp.BaseSeeds.Max + 1) * _adtMachineParts.GetSeedMultiplier(ent); // ADT-Tweak
         var coords = Transform(ent).Coordinates;
 
         for (var i = 0; i < amount; i++)

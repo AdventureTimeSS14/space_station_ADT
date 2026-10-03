@@ -83,6 +83,7 @@
           collection: MetalGlassBreak
   - type: Machine
     board: HydroponicsTrayMachineCircuitboard
+  - type: ADTPlantTrayUpgrade # ADT-Tweak
   - type: TTS # Corvax-TTS
     voice: space_core
   - type: WiresPanel

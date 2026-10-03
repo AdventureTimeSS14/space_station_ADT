@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Botany.Systems; // ADT-Tweak
 using Content.Shared.Botany.Components;
 using Content.Shared.Botany.Items.Components;
 using Content.Shared.Botany.Systems;
@@ -16,6 +17,7 @@ public sealed partial class BotanySwabSystem : EntitySystem
     [Dependency] private PlantMutationSystem _mutation = default!;
     [Dependency] private SharedDoAfterSystem _doAfter = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private ADTAllergySwabSystem _allergySwab = default!; // ADT-Tweak
 
     [Dependency] private EntityQuery<PlantComponent> _plantQuery = default!;
 
@@ -29,7 +31,7 @@ public sealed partial class BotanySwabSystem : EntitySystem
         if (!args.IsInDetailsRange)
             return;
 
-        if (ent.Comp.PlantData != null)
+        if (ent.Comp.PlantData != null || _allergySwab.IsUsed(ent.Owner)) // ADT-Tweak
             args.PushMarkup(Loc.GetString("swab-used"));
         else
             args.PushMarkup(Loc.GetString("swab-unused"));
@@ -43,6 +45,14 @@ public sealed partial class BotanySwabSystem : EntitySystem
     {
         if (args.Target == null || !args.CanReach || !_plantQuery.HasComp(args.Target))
             return;
+
+        // ADT-Tweak-Start
+        if (_allergySwab.IsUsed(ent.Owner))
+        {
+            _popup.PopupClient(Loc.GetString("botany-swab-unusable-plant"), args.User, args.User);
+            return;
+        }
+        // ADT-Tweak-End
 
         _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, ent.Comp.SwabDelay, new BotanySwabDoAfterEvent(), ent.Owner, target: args.Target, used: ent.Owner)
         {

@@ -41,5 +41,6 @@
           True: { visible: true }
           False: { visible: false }
   - type: SeedExtractor
+  - type: ADTSeedExtractorUpgrade # ADT-Tweak
   - type: Machine
     board: SeedExtractorMachineCircuitboard

@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Botany.Systems; // ADT-Tweak
 using Content.Shared.Botany.Systems;
 using Content.Shared.Chemistry.Components;
 using Robust.Shared.Audio;
@@ -10,7 +11,7 @@ namespace Content.Shared.Botany.Components;
 /// Component for hydroponics trays plots that hold resources and link to a plant entity.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true, raiseAfterAutoHandleState: true), AutoGenerateComponentPause]
-[Access(typeof(PlantTraySystem))]
+[Access(typeof(PlantTraySystem), typeof(ADTBotanyMachinePartsSystem))] // ADT-Tweak
 public sealed partial class PlantTrayComponent : Component
 {
     /// <summary>

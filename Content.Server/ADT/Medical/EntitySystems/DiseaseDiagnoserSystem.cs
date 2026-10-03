@@ -1,7 +1,7 @@
 using System.Linq;
 using System.Text;
-using Content.Server.Botany;
 using Content.Server.Power.EntitySystems;
+using Content.Shared.ADT.Botany.Components;
 using Content.Shared.ADT.Medical;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Interaction;
@@ -100,7 +100,7 @@ public sealed class DiseaseDiagnoserSystem : EntitySystem
         Dirty(uid, comp);
     }
 
-    public string GetReport(BotanySwabComponent swabComponent)
+    public string GetReport(ADTAllergySwabComponent swabComponent)
     {
         StringBuilder builder = new();
 
@@ -135,7 +135,7 @@ public sealed class DiseaseDiagnoserSystem : EntitySystem
             return;
 
         var swabEnt = container.ContainedEntities.First();
-        if (!TryComp<BotanySwabComponent>(swabEnt, out var swabComponent))
+        if (!TryComp<ADTAllergySwabComponent>(swabEnt, out var swabComponent))
             return;
 
         var printed = Spawn("DiagnosisReportPaper", Transform(uid).Coordinates);
