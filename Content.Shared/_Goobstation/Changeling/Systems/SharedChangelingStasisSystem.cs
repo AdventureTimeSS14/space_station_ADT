@@ -17,6 +17,7 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
+using Content.Shared.Suicide; // ADT-Tweak
 using Robust.Shared.Utility;
 using Content.Shared.Body.Systems; // ADT-Tweak
 using Content.Shared.Body.Components; // ADT-Tweak
