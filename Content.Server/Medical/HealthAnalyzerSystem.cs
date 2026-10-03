@@ -21,13 +21,9 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
 using Content.Server.Body.Systems;
-<<<<<<< ours
+using Content.Shared.Body.Systems;
 using Content.Shared.Inventory;
 using Content.Shared.Verbs;
-||||||| base
-=======
-using Content.Shared.Body.Systems;
->>>>>>> theirs
 
 namespace Content.Server.Medical;
 
