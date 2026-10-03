@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Shared.Access;
+using Content.Shared.AlertLevel;
 using Content.Shared.Access.Systems;
 using Content.Shared.Clumsy.Components;
 using Content.Shared.Containers.ItemSlots;
@@ -37,6 +38,7 @@ public sealed partial class FiringPinSystem : EntitySystem
     private static readonly VerbCategory SetAlertLevel = new("verb-categories-set-alert-level", null);
 
     [Dependency] private AccessReaderSystem _accessReader = default!;
+    [Dependency] private AlertLevelSystem _alertLevel = default!;
     [Dependency] private EntityWhitelistSystem _whitelist = default!;
     [Dependency] private InventorySystem _inventory = default!;
     [Dependency] private INetManager _net = default!;
@@ -312,7 +314,7 @@ public sealed partial class FiringPinSystem : EntitySystem
 
             var verb = new Verb
             {
-                Text = Loc.GetString($"alert-level-{levelCopy}"),
+                Text = _alertLevel.AlertLevelName(new ProtoId<AlertLevelPrototype>(levelCopy)),
                 Disabled = check.SelectedAlertLevel == levelCopy,
                 Priority = -check.AllowedAlertLevels.IndexOf(levelCopy),
                 Category = SetAlertLevel,
@@ -322,7 +324,7 @@ public sealed partial class FiringPinSystem : EntitySystem
                     check.SelectedAlertLevel = levelCopy;
                     Dirty(ent);
 
-                    _popup.PopupPredicted(Loc.GetString("firing-pin-level-set", ("level", Loc.GetString($"alert-level-{levelCopy}"))), ent, user);
+                    _popup.PopupPredicted(Loc.GetString("firing-pin-level-set", ("level", _alertLevel.AlertLevelName(new ProtoId<AlertLevelPrototype>(levelCopy)))), ent, user);
                 },
             };
 

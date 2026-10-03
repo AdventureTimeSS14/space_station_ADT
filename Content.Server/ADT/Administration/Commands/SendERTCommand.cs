@@ -1,6 +1,6 @@
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
-using Content.Server.AlertLevel;
+using Content.Shared.AlertLevel;
 using Content.Server.Audio;
 using Content.Server.Chat.Systems;
 using Content.Server.Station.Systems;
@@ -41,7 +41,7 @@ public sealed class SendERTCommand : IConsoleCommand
         #region Setup vars
         string audioPath = "";
         string defaultGridPath = "/Maps/ADTMaps/Shuttles/ERT", defaultAudioPath = "/Audio/Corvax/Adminbuse";
-        string alertLevelCode = "gamma";
+        string alertLevelCode = "Gamma";
         int volume = 0;
         bool isLoadGrid = false, isAnnounce = true, isPlayAudio = true, isSetAlertLevel = true, playAuidoFromAnnouncement = false;
         Color announceColor = Color.SeaBlue;
@@ -118,7 +118,7 @@ public sealed class SendERTCommand : IConsoleCommand
                 break;
 
             case "deathsquad":
-                //alertLevelCode = "epsilon";
+                //alertLevelCode = "Epsilon";
                 announceColor = Color.White;
                 isLoadGrid = true;
                 break;

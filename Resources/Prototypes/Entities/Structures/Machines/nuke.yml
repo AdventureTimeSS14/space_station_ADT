@@ -94,8 +94,8 @@
       whitelist:
         components:
         - NukeDisk
-    alertLevelOnActivate: delta
-    alertLevelOnDeactivate: red # Corvax-Announcements
+    alertLevelOnActivate: DeltaNuke
+    alertLevelOnDeactivate: Red # Corvax-Announcements
   - type: InteractionOutline
   - type: ActivatableUI
     key: enum.NukeUiKey.Key

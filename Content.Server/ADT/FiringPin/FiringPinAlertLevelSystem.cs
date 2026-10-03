@@ -1,4 +1,4 @@
-using Content.Server.AlertLevel;
+using Content.Shared.AlertLevel;
 using Content.Server.Station.Systems;
 using Content.Shared.ADT.FiringPin;
 using Robust.Shared.GameObjects;
@@ -19,13 +19,13 @@ public sealed class FiringPinAlertLevelSystem : EntitySystem
         SubscribeLocalEvent<PlayerAttachedEvent>(OnPlayerAttached);
     }
 
-    private void OnAlertLevelChanged(AlertLevelChangedEvent args)
+    private void OnAlertLevelChanged(ref AlertLevelChangedEvent args)
     {
         var query = EntityQueryEnumerator<ActorComponent>();
         while (query.MoveNext(out var player, out _))
         {
             if (_station.GetOwningStation(player) == args.Station)
-                UpdateCache(player, args.AlertLevel);
+                UpdateCache(player, args.AlertLevel.Id);
         }
     }
 
@@ -43,7 +43,7 @@ public sealed class FiringPinAlertLevelSystem : EntitySystem
     {
         var station = _station.GetOwningStation(player);
         var level = station != null && TryComp<AlertLevelComponent>(station, out var alert)
-            ? alert.CurrentLevel
+            ? alert.CurrentAlertLevel.Id
             : string.Empty;
 
         UpdateCache(player, level);

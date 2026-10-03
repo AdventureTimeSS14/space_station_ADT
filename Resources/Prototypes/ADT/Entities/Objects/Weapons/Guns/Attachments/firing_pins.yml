@@ -164,18 +164,18 @@
     checks:
     - type: SecLevel
       allowedAlertLevels:
-      - green
-      - blue
-      - violet
-      - yellow
-      - red
-      - gamma
-      - delta
-      - epsilon
-      - amber
-      - altdelta
-      - cascade
-      selectedAlertLevel: blue
+      - Green
+      - Blue
+      - Violet
+      - Yellow
+      - Red
+      - Gamma
+      - DeltaNuke
+      - Epsilon
+      - Amber
+      - AltDelta
+      - Cascade
+      selectedAlertLevel: Blue
     failMessage: firing-pin-fail-seclevel
 
 - type: entity

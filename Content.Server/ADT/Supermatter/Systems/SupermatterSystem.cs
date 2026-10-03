@@ -1,7 +1,7 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Radiation.Systems;
 using Content.Server.ADT.Hallucinations;
-using Content.Server.AlertLevel;
+using Content.Shared.AlertLevel;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Components;
 using Content.Server.Chat.Managers;

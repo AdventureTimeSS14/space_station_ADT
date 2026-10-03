@@ -9,7 +9,7 @@ using Content.Server.ADT.Blob.GameTicking;
 using Content.Shared.ADT.Blob.Components;
 using Content.Shared.ADT.Blob.Events;
 using Content.Server.Actions;
-using Content.Server.AlertLevel;
+using Content.Shared.AlertLevel;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.GameTicking;
 using Content.Server.RoundEnd;
@@ -571,7 +571,7 @@ public sealed class BlobCoreSystem : EntitySystem
                     continue;
 
                 if(stationUid != null)
-                    _alertLevelSystem.SetLevel(stationUid.Value, "green", true, true, true);
+                    _alertLevelSystem.SetLevel(stationUid.Value, "Green", true, true, true);
 
                 _roundEndSystem.CancelRoundEndCountdown(forceRecall: false);
                 blobRuleComp.Stage = BlobStage.Default;

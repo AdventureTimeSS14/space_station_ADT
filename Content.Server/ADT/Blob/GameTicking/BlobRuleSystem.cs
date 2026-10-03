@@ -6,7 +6,7 @@ using Content.Shared.ADT.Blob;
 using Content.Server.ADT.Blob.Components;
 using Content.Shared.ADT.Blob.Components;
 using Content.Shared.ADT.Objectives;
-using Content.Server.AlertLevel;
+using Content.Shared.AlertLevel;
 using Content.Server.Antag;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
@@ -106,8 +106,8 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
         return true;
     }
 
-    private const string StationAlertCritical = "delta";
-    private const string StationAlertDetected = "red";
+    private const string StationAlertCritical = "DeltaNuke";
+    private const string StationAlertDetected = "Red";
 
     private void CheckChangeStage(
         Entity<StationBlobConfigComponent?> stationUid,

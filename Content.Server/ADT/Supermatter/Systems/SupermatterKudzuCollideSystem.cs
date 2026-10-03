@@ -1,5 +1,5 @@
 using Content.Server.Administration.Logs;
-using Content.Server.AlertLevel;
+using Content.Shared.AlertLevel;
 using Content.Server.Station.Systems;
 using Content.Server.Kitchen.Components;
 using Content.Server.Atmos.EntitySystems;
