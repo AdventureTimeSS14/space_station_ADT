@@ -379,8 +379,6 @@
   - type: Sprite
     layers:
     - state: plain
-  - type: SliceableFood
-    slice: FoodBreadPlainSlice
   - type: Tag #ADT_Tweak - делаем хлеб съедобным для молей
     tags:
     - Bread

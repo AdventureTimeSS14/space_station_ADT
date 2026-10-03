@@ -216,6 +216,11 @@
   id: BaseSlicingRefinableFood
   components:
   - type: ToolRefinableSolution
+  # ADT-Tweak-Start
+  - type: ToolRefinable
+    sound: !type:SoundCollectionSpecifier
+      collection: SliceFood
+  # ADT-Tweak-End
 
 # For entities with a hidden container slot that can be opened with a tool
 - type: entity

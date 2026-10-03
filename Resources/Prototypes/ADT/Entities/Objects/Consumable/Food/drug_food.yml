@@ -28,14 +28,16 @@
 
 - type: entity
   name: desoxyephedrine crystal
-  parent: ADTFoodDrugBase
+  parent: [ ADTFoodDrugBase, BaseSlicingRefinableFood ]
   id: ADTFoodMethCrystal
   description: "Meth can be smoked, eaten, or sniffed. But you can only slice this specimen."
   components:
   - type: Sprite
     color: "#ffffff"
-  - type: SliceableFood
-    slice: ADTFoodMethCrystalShard
+  - type: ToolRefinable
+    refineResult:
+    - id: ADTFoodMethCrystalShard
+      amount: 5
   - type: SolutionContainerManager
     solutions:
       food:
@@ -70,14 +72,16 @@
 
 - type: entity
   name: blue sky desoxyephedrine crystal
-  parent: ADTFoodDrugBase
+  parent: [ ADTFoodDrugBase, BaseSlicingRefinableFood ]
   id: ADTFoodWalterMethCrystal
   description: "Meth can be smoked, eaten, or sniffed. But you can only slice this specimen."
   components:
   - type: Sprite
     color: "#1bcfe7"
-  - type: SliceableFood
-    slice: ADTFoodWalterMethCrystalShard
+  - type: ToolRefinable
+    refineResult:
+    - id: ADTFoodWalterMethCrystalShard
+      amount: 5
   - type: SolutionContainerManager
     solutions:
       food:

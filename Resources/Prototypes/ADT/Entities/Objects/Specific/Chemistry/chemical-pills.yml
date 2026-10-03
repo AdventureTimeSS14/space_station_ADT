@@ -403,8 +403,6 @@
   id: ADTPillExperimental
   description: It's not a suppository.
   components:
-  - type: SliceableFood
-    count: 2
   - type: Sprite
     sprite: ADT/Objects/Misc/pill_ex.rsi
     state: trava_ent
@@ -430,8 +428,6 @@
   id: ADTPillExter
   description: It's not a suppository.
   components:
-  - type: SliceableFood
-    count: 2
   - type: Sprite
     sprite: ADT/Objects/Misc/pill_ex.rsi
     state: extezi_ent
