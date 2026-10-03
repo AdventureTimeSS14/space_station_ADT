@@ -36,18 +36,12 @@ public sealed partial class GoliathTentacleSystem : EntitySystem
 
         // TODO: animation
 
-<<<<<<< ours
         // ADT-Tweak start
         if (!IsTargetInRange(args.Performer, args.Target))
             return;
         // ADT-Tweak end
 
-        _popup.PopupPredicted(Loc.GetString("tentacle-ability-use-popup", ("entity", args.Performer)), args.Performer, args.Performer, type: PopupType.SmallCaution);
-||||||| base
-        _popup.PopupPredicted(Loc.GetString("tentacle-ability-use-popup", ("entity", args.Performer)), args.Performer, args.Performer, type: PopupType.SmallCaution);
-=======
         _popup.PopupEntity(Loc.GetString("tentacle-ability-use-popup", ("entity", args.Performer)), args.Performer, type: PopupType.SmallCaution);
->>>>>>> theirs
         _stun.TryAddStunDuration(args.Performer, TimeSpan.FromSeconds(0.8f));
 
         var coords = args.Target;
