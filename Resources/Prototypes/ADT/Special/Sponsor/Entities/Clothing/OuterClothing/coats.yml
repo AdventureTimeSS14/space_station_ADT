@@ -6,12 +6,12 @@
   suffix: Sponsor
   components:
   - type: Sprite
-    sprite: ADT/Special/Personal/Sponsor/RedKimono.rsi
+    sprite: ADT/Special/Sponsor/RedKimono.rsi
     state: icon
   - type: Item
     size: Small
   - type: Clothing
-    sprite: ADT/Special/Personal/Sponsor/RedKimono.rsi
+    sprite: ADT/Special/Sponsor/RedKimono.rsi
 
 - type: entity
   parent: ADTSponsorClothingOuterStorageBase
@@ -21,9 +21,9 @@
   suffix: Sponsor
   components:
   - type: Sprite
-    sprite: ADT/Special/Personal/Sponsor/BlueKimono.rsi
+    sprite: ADT/Special/Sponsor/BlueKimono.rsi
     state: icon
   - type: Item
     size: Small
   - type: Clothing
-    sprite: ADT/Special/Personal/Sponsor/BlueKimono.rsi
+    sprite: ADT/Special/Sponsor/BlueKimono.rsi

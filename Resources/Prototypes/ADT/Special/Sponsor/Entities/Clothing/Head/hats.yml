@@ -6,12 +6,12 @@
   suffix: Sponsor
   components:
   - type: Sprite
-    sprite: ADT/Special/Personal/sponsor/RedKandzasi.rsi
+    sprite: ADT/Special/Sponsor/RedKandzasi.rsi
     state: icon
   - type: Item
     size: Small
   - type: Clothing
-    sprite: ADT/Special/Personal/sponsor/RedKandzasi.rsi
+    sprite: ADT/Special/Sponsor/RedKandzasi.rsi
 
 - type: entity
   parent: ADTSponsorClothingHeadBase
@@ -21,9 +21,9 @@
   suffix: Sponsor
   components:
   - type: Sprite
-    sprite: ADT/Special/Personal/sponsor/BlueKandzasi.rsi
+    sprite: ADT/Special/Sponsor/BlueKandzasi.rsi
     state: icon
   - type: Item
     size: Small
   - type: Clothing
-    sprite: ADT/Special/Personal/sponsor/BlueKandzasi.rsi
+    sprite: ADT/Special/Sponsor/BlueKandzasi.rsi
