@@ -170,7 +170,7 @@
 
 - type: entity
   name: coaltree log
-  parent: FoodProduceBase
+  parent: [ FoodProduceBase, BaseSlicingRefinable ]
   id: ADTFoodCoaltreeLog
   description: A chunk of coaltree wood. Burns well, tastes like ash.
   components:
@@ -188,8 +188,9 @@
           Quantity: 4
   - type: Extractable
     grindableSolutionName: food
-  - type: Log
-    spawnCount: 1
+  - type: ToolRefinable
+    refineResult:
+    - id: MaterialWoodPlank1
   - type: Tag
     tags:
     - ADTLavaFishPart
