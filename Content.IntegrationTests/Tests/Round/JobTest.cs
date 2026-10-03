@@ -193,15 +193,9 @@ public sealed class JobTest : GameTest
         Assert.That(ticker.RunLevel, Is.EqualTo(GameRunLevel.PreRoundLobby));
         Assert.That(pair.Client.AttachedEntity, Is.Null);
 
-<<<<<<< ours
         pair.Server.CfgMan.SetCVar(CCVars.GameLobbyFallbackEnabled, false); // ADT-tweak: Disable fallback to prevent round restart if preset fails
 
-        await pair.SetJobPriorities((Passenger, JobPriority.Medium), (Engineer, JobPriority.High));
-||||||| base
-        await pair.SetJobPriorities((Passenger, JobPriority.Medium), (Engineer, JobPriority.High));
-=======
         await pair.SetJobPriorities((Passenger, JobPriority.Never), (Engineer, JobPriority.High));
->>>>>>> theirs
         ticker.ToggleReadyAll(true);
         await pair.Server.WaitPost(() => ticker.StartRound());
 
