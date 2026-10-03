@@ -79,18 +79,12 @@ public sealed class PrototypeSaveTest : GameTest
             prototypes.Add(prototype);
         }
 
-<<<<<<< ours
         // ADT-Tweak start
         TestContext.Out.WriteLine($"UninitializedSaveTest: testing {prototypes.Count} prototypes.");
 
         var failures = new List<string>();
         // ADT-Tweak end
-        var context = new TestEntityUidContext();
-||||||| base
-        var context = new TestEntityUidContext();
-=======
         var context = new TestEntityUidContext(seriMan);
->>>>>>> theirs
 
         await server.WaitAssertion(() =>
         {
