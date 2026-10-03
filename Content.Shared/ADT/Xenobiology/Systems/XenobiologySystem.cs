@@ -18,7 +18,7 @@ namespace Content.Shared.ADT.Xenobiology.Systems;
 public sealed partial class XenobiologySystem : EntitySystem
 {
     [Dependency] private IGameTiming _gameTiming = default!;
-    [Dependency] private HungerSystem _hunger = default!;
+    [Dependency] private SatiationSystem _satiation = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] private MobStateSystem _mobState = default!;
     [Dependency] private IRobustRandom _random = default!;

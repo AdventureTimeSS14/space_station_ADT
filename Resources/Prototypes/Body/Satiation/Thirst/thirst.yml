@@ -1,6 +1,6 @@
 - type: satiation
   id: NormalSatiationThirst
-  baseChangeRate: -0.1
+  baseChangeRate: -0.125 # ADT-Tweak -0.1
   maximumValue: 600
   thresholds:
     Overhydrated: 600

@@ -1410,7 +1410,8 @@
           min: 21
         probability: 0.4
       # ADT-Tweak-End
-      - !type:SatiateHunger
+      - !type:Satiate
+        satiationType: Hunger
         factor: -1
       - !type:HealthChange
         conditions:

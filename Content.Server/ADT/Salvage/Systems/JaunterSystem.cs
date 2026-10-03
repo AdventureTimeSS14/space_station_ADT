@@ -79,7 +79,7 @@ public sealed class JaunterSystem : EntitySystem
             _stamina.TakeStaminaDamage(target, need, stam);
         }
 
-        if (HasComp<OrganComponent>(target) && HasComp<HungerComponent>(target))
+        if (HasComp<OrganComponent>(target) && HasComp<SatiationComponent>(target))
         {
             _vomit.Vomit(target);
         }

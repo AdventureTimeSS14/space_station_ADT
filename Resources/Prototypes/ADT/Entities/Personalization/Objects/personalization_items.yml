@@ -3279,7 +3279,8 @@
   metabolisms:
     Metabolites:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 5
       - !type:GenericStatusEffect
         key: Drowsiness

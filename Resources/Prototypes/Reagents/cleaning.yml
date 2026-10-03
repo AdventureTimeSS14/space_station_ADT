@@ -82,7 +82,8 @@
       #     reagent: SoapReagent
       #     min: 6
       #   probability: 0.20
-      - !type:SatiateHunger
+      - !type:Satiate
+        satiationType: Hunger
         factor: 1
         conditions:
         - !type:MetabolizerTypeCondition

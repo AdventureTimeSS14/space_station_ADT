@@ -46,7 +46,7 @@ namespace Content.Server.ADT.Xenobiology.Systems;
 public sealed partial class SlimeLatchSystem : EntitySystem
 {
     [Dependency] private IGameTiming _gameTiming = default!;
-    [Dependency] private HungerSystem _hunger = default!;
+    [Dependency] private SatiationSystem _satiation = default!;
     [Dependency] private MobStateSystem _mobState = default!;
     [Dependency] private SharedMindSystem _mind = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
@@ -257,8 +257,8 @@ public sealed partial class SlimeLatchSystem : EntitySystem
 
         // Восполняем голод слайма ТОЛЬКО если он прикреплен
         var addedHunger = (float)ent.Comp.Damage.GetTotal();
-        if (TryComp<HungerComponent>(source, out var hunger))
-            _hunger.ModifyHunger(source, addedHunger, hunger);
+        if (TryComp<SatiationComponent>(source, out var hunger))
+            _satiation.ModifyValue((source.Owner, hunger), SatiationSystem.Hunger, addedHunger);
 
         // Трансфер растворов
         if (!TryComp<BodyComponent>(source, out var bodyComp))

@@ -5,6 +5,7 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Nutrition.Components;
+using Content.Shared.Nutrition.EntitySystems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Shared.Body;
@@ -66,7 +67,7 @@ public partial class XenobiologySystem
         ent.Comp.NextUpdateTime = _gameTiming.CurTime + ent.Comp.UpdateInterval;
     }
 
-    private readonly HashSet<Entity<SlimeComponent, MobGrowthComponent, HungerComponent>> _eligibleSlimes = [];
+    private readonly HashSet<Entity<SlimeComponent, MobGrowthComponent, SatiationComponent>> _eligibleSlimes = [];
     private readonly Dictionary<EntityUid, int> _slimeDensityByGrid = [];
 
     private void UpdateMitosis()
@@ -76,7 +77,7 @@ public partial class XenobiologySystem
 
         _eligibleSlimes.Clear();
 
-        var query = EntityQueryEnumerator<SlimeComponent, MobGrowthComponent, HungerComponent>();
+        var query = EntityQueryEnumerator<SlimeComponent, MobGrowthComponent, SatiationComponent>();
         while (query.MoveNext(out var uid, out var slime, out var growthComp, out var hungerComp))
         {
             if (_gameTiming.CurTime < slime.NextUpdateTime
@@ -95,7 +96,7 @@ public partial class XenobiologySystem
 
         foreach (var ent in _eligibleSlimes)
         {
-            var hunger = _hunger.GetHunger(ent);
+            var hunger = _satiation.GetValueOrNull((ent.Owner, ent.Comp3), SatiationSystem.Hunger) ?? 0f;
 
             if (hunger > ent.Comp1.MitosisHunger - ent.Comp1.JitterDifference)
                 _jitter.DoJitter(ent, TimeSpan.FromSeconds(1), true);

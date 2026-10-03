@@ -10,7 +10,8 @@
   metabolisms:
     Metabolites:
       effects:
-      - !type:SatiateHunger
+      - !type:Satiate
+        satiationType: Hunger
       - !type:HealthChange # ADT-Tweak start
         damage:
           types:
@@ -75,7 +76,8 @@
           Brute: -0.6 #ADT-Tweak -0.4 -> -0.6
       - !type:ModifyBloodLevel
         amount: 2 # ADT-Tweak 1 -> 2
-      - !type:SatiateHunger
+      - !type:Satiate
+        satiationType: Hunger
   pricePerUnit: 3
 
 - type: reagent

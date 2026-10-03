@@ -27,12 +27,11 @@ public sealed partial class ADTDraconidTransformationSystem : EntityEffectSystem
     [Dependency] private IPrototypeManager _prototype = default!;
     [Dependency] private DamageableSystem _damageable = default!;
     [Dependency] private HumanoidProfileSystem _humanoid = default!;
-    [Dependency] private HungerSystem _hunger = default!;
     [Dependency] private NpcFactionSystem _faction = default!;
     [Dependency] private PolymorphSystem _polymorph = default!;
     [Dependency] private SharedLanguageSystem _language = default!;
     [Dependency] private SharedVisualBodySystem _visualBody = default!;
-    [Dependency] private ThirstSystem _thirst = default!;
+    [Dependency] private SatiationSystem _satiation = default!;
 
     protected override void Effect(Entity<HumanoidProfileComponent> entity, ref EntityEffectEvent<ADTDraconidTransformation> args)
     {
@@ -52,12 +51,12 @@ public sealed partial class ADTDraconidTransformationSystem : EntityEffectSystem
             factions = new HashSet<ProtoId<NpcFactionPrototype>>(oldFaction.Factions);
 
         float? hunger = null;
-        if (TryComp<HungerComponent>(old, out var oldHunger))
-            hunger = _hunger.GetHunger(oldHunger);
-
         float? thirst = null;
-        if (TryComp<ThirstComponent>(old, out var oldThirst))
-            thirst = oldThirst.CurrentThirst;
+        if (TryComp<SatiationComponent>(old, out var oldSatiation))
+        {
+            hunger = _satiation.GetValueOrNull((old, oldSatiation), SatiationSystem.Hunger);
+            thirst = _satiation.GetValueOrNull((old, oldSatiation), SatiationSystem.Thirst);
+        }
 
         var polymorph = HasComp<ADTTribeMemberComponent>(old) ? effect.TribePolymorph : effect.Polymorph;
         if (_polymorph.PolymorphEntity(old, polymorph) is not { } body)
@@ -79,11 +78,14 @@ public sealed partial class ADTDraconidTransformationSystem : EntityEffectSystem
             _faction.AddFactions(body, factions);
         }
 
-        if (hunger is { } hungerValue && TryComp<HungerComponent>(body, out var newHunger))
-            _hunger.SetHunger(body, hungerValue, newHunger);
+        if (TryComp<SatiationComponent>(body, out var newSatiation))
+        {
+            if (hunger is { } hungerValue)
+                _satiation.SetValue((body, newSatiation), SatiationSystem.Hunger, hungerValue);
 
-        if (thirst is { } thirstValue && TryComp<ThirstComponent>(body, out var newThirst))
-            _thirst.SetThirst(body, newThirst, thirstValue);
+            if (thirst is { } thirstValue)
+                _satiation.SetValue((body, newSatiation), SatiationSystem.Thirst, thirstValue);
+        }
 
         ReplaceSpeciesLanguages(body, oldSpecies);
     }

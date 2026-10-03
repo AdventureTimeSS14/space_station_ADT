@@ -1,6 +1,6 @@
 - type: satiation
   id: NormalSatiationHunger
-  baseChangeRate: -0.01666666666
+  baseChangeRate: -0.02083333333 # ADT-Tweak -0.01666666666
   maximumValue: 200
   thresholds:
     Overfed: 200

@@ -141,16 +141,12 @@
       reagents:
       - ReagentId: Blood
         Quantity: 235
-  - type: Hunger
-    baseDecayRate: 0.085 # В 5 с чем-то раз больше стандартного
-    thresholds:
-      Overfed: 450
-      Okay: 375
-      Peckish: 225
-      Starving: 125
-      Dead: 0
-  - type: Thirst
-    #baseDecayRate: 0.0083
+  - type: Satiation
+    satiations:
+      Hunger:
+        prototype: ADTUrsusHunger
+      Thirst:
+        prototype: NormalSatiationThirst
   - type: Butcherable
     spawned:
     - id: FoodMeatBear

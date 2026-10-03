@@ -6,24 +6,27 @@
   description: It looks so much like jelly. I wonder what it tastes like?
   components:
   - type: Appearance
-  - type: Hunger
-    lastAuthoritativeHungerValue: 20
-    thresholds:
-      Overfed: 150
-      Okay: 95
-      Peckish: 25 #Baby Slimes will begin hunting here, Adult Slimes will target their tamers here.
-      Starving: 10
-      Dead: 0
-    starvationDamage:
-      types:
-        Poison: 3
-    hungerThresholdDecayModifiers:
-      Okay: 1.5
-      Peckish: 0.4
-      Starving: 0.2
-      Dead: 0.1
-    baseDecayRate: 0.1
-    starvingSlowdownModifier: 0
+  - type: Satiation
+    satiations:
+      Hunger:
+        prototype: ADTXenobioSlimeHunger
+      Thirst:
+        prototype: SimpleMobBaseThirst
+  - type: SatiationDamage
+    satiations:
+      Hunger:
+        thresholds:
+          Starving:
+            types:
+              Poison: 3
+  - type: SatiationSpeedModifier
+    satiations:
+      Hunger:
+        thresholds:
+          Starving: 0
+      Thirst:
+        thresholds:
+          Parched: 0.75
   - type: Slime
     breed: GreyMutation
     maxMutation: RainbowMutation

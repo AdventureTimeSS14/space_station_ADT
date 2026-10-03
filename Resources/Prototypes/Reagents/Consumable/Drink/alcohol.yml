@@ -62,7 +62,8 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.05
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 2
       # End ADT tweak
 
@@ -89,7 +90,8 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.05
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 2
       # End ADT tweak
 

@@ -39,7 +39,7 @@ public sealed class XenobiologyControlConsoleSystem : EntitySystem
     [Dependency] private SharedDeviceLinkSystem _deviceLink = default!;
     [Dependency] private SharedStorageSystem _storage = default!;
     [Dependency] private TagSystem _tags = default!;
-    [Dependency] private HungerSystem _hunger = default!;
+    [Dependency] private SatiationSystem _satiation = default!;
     [Dependency] private IChatManager _chat = default!;
     [Dependency] private IPrototypeManager _prototype = default!;
 
@@ -318,8 +318,8 @@ public sealed class XenobiologyControlConsoleSystem : EntitySystem
         }
 
         var slime = Comp<SlimeComponent>(target);
-        var nutrition = TryComp<HungerComponent>(target, out var hunger)
-            ? (int) _hunger.GetHunger(hunger)
+        var nutrition = TryComp<SatiationComponent>(target, out var hunger)
+            ? (int) (_satiation.GetValueOrNull((target, hunger), SatiationSystem.Hunger) ?? 0f)
             : 0;
 
         var breedName = _prototype.TryIndex(slime.Breed, out var breed)

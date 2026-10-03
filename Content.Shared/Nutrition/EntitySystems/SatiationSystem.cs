@@ -4,6 +4,7 @@ using Content.Shared.Nutrition.Prototypes;
 using Content.Shared.Rejuvenate;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Shared.ADT.Nutrition; // ADT-Tweak
 
 namespace Content.Shared.Nutrition.EntitySystems;
 
@@ -196,7 +197,11 @@ public abstract partial class SatiationSystem : EntitySystem
             currentChangeMod = 1f;
         }
 
-        satiation.ActualChangeRate = proto.BaseChangeRate * currentChangeMod;
+        // ADT-Tweak start
+        var rateEv = new ADTSatiationRateModifyEvent(satiation.SatiationType);
+        RaiseLocalEvent(entity, ref rateEv);
+        // ADT-Tweak end
+        satiation.ActualChangeRate = proto.BaseChangeRate * currentChangeMod * rateEv.Multiplier; // ADT-Tweak
         satiation.NextChangeRateModUpdateTime = EvolvesToBoundAt(
             satiation,
             proto,

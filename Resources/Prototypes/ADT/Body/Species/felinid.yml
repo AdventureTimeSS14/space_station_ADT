@@ -110,8 +110,12 @@
   - BaseSpeciesMobOrganic
   id: MobFelinid
   components:
-  - type: Hunger
-    baseDecayRate: 0.03
+  - type: Satiation
+    satiations:
+      Hunger:
+        prototype: ADTFelinidHunger
+      Thirst:
+        prototype: NormalSatiationThirst
   - type: Respirator
     damage:
       types:

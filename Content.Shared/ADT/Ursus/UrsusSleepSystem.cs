@@ -7,6 +7,7 @@ using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Nutrition.Prototypes;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Popups;
 using Robust.Shared.Network;
@@ -23,6 +24,9 @@ public sealed class UrsusSleepSystem : EntitySystem
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private INetManager _net = default!;
     [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SatiationSystem _satiation = default!;
+
+    private static readonly SatiationValue OkayThreshold = "Okay";
 
     private static readonly EntProtoId UrsusSleepActionId = "ActionUrsusSleep";
 
@@ -52,7 +56,7 @@ public sealed class UrsusSleepSystem : EntitySystem
         if (HasComp<SleepingComponent>(ent.Owner))
             return;
 
-        if (TryComp<HungerComponent>(ent.Owner, out var hunger) && hunger.CurrentThreshold is not (HungerThreshold.Overfed or HungerThreshold.Okay))
+        if (TryComp<SatiationComponent>(ent.Owner, out var satiation) && _satiation.IsValueInRange((ent.Owner, satiation), SatiationSystem.Hunger, below: OkayThreshold))
         {
             _popup.PopupPredicted(Loc.GetString("ursus-sleep-hungry"), null, ent.Owner, ent.Owner);
             return;

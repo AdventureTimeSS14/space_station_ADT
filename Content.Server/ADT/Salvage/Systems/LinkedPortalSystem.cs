@@ -200,7 +200,7 @@ public sealed partial class JaunterPortalSystem : EntitySystem
             _stamina.TakeStaminaDamage(otherUid, need, stam);
         }
 
-        if (HasComp<OrganComponent>(otherUid) && HasComp<HungerComponent>(otherUid))
+        if (HasComp<OrganComponent>(otherUid) && HasComp<SatiationComponent>(otherUid))
         {
             _vomit.Vomit(otherUid);
         }
