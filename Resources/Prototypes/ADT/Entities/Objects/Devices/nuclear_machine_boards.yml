@@ -1,0 +1,27 @@
+﻿- type: entity
+  id: NuclearFabricatorMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: плата ядерного фабрикатора
+  description: Печатная плата механизма ядерного фабрикатора.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: NuclearFabricator
+    stackRequirements:
+      Manipulator: 5
+      Glass: 3
+
+- type: entity
+  id: NuclearCentrifugeMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: плата ядерной центрифуги
+  description: Печатная плата механизма ядерной центрифуги.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: NuclearCentrifuge
+    stackRequirements:
+      Manipulator: 5
+      Plasteel: 5

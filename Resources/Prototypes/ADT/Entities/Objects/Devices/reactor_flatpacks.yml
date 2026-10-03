@@ -1,0 +1,17 @@
+- type: entity
+  parent: [BaseFlatpack, BaseEngineeringContraband]
+  id: NuclearReactorFlatpack
+  name: Упакованный ядерный реактор
+  description: Упаковка для сборки ядерного реактора. Детали продаются отдельно.
+  components:
+  - type: Flatpack
+    entity: NuclearReactorEmpty
+
+- type: entity
+  parent: [BaseFlatpack, BaseEngineeringContraband]
+  id: GasTurbineFlatpack
+  name: Упакованная газовая турбина
+  description: Упаковка для сборки газовой турбины. Детали продаются отдельно.
+  components:
+  - type: Flatpack
+    entity: GasTurbineEmpty
