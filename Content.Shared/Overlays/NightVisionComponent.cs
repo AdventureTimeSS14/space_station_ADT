@@ -9,7 +9,9 @@ namespace Content.Shared.Overlays;
 /// Enables the night-vision fullscreen overlay for the entity it is attached to or the wearer.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
-public sealed partial class NightVisionComponent : Component
+// ADT-Tweak: renamed so it does not collide with Content.Shared.ADT.NightVision.NightVisionComponent.
+[ComponentProtoName("OverlayNightVision")]
+public sealed partial class OverlayNightVisionComponent : Component
 {
     /// <summary>
     /// Whether the overlay should be visible.

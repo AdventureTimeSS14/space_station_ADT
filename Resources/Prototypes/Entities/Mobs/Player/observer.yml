@@ -195,7 +195,7 @@
   - type: ActiveRadio
     receiveAllChannels: true
     globalReceive: true
-  - type: NightVision
+  - type: OverlayNightVision # ADT-Tweak
     netsync: false
     enabled: false
   # ADT-Tweak-start

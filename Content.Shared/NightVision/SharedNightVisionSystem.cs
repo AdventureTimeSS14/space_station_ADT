@@ -7,14 +7,14 @@ namespace Content.Shared.NightVision;
 
 /// <summary>
 /// Shows/hides the <see cref="NightVisionOverlay"/> based on whether the observed
-/// entity has a <see cref="NightVisionComponent"/> equipped.
+/// entity has a <see cref="OverlayNightVisionComponent"/> equipped.
 /// </summary>
 public abstract partial class SharedNightVisionSystem : EntitySystem
 {
     [Dependency] private SharedActionsSystem _actions = default!;
 
     [SubscribeLocalEvent]
-    private void OnStartup(Entity<NightVisionComponent> ent, ref MapInitEvent args)
+    private void OnStartup(Entity<OverlayNightVisionComponent> ent, ref MapInitEvent args)
     {
         if (ent.Comp.RelayOverlay)
             return;
@@ -24,7 +24,7 @@ public abstract partial class SharedNightVisionSystem : EntitySystem
     }
 
     [SubscribeLocalEvent]
-    private void OnRemove(Entity<NightVisionComponent> ent, ref ComponentShutdown args)
+    private void OnRemove(Entity<OverlayNightVisionComponent> ent, ref ComponentShutdown args)
     {
         if (ent.Comp.RelayOverlay)
             return;
@@ -34,7 +34,7 @@ public abstract partial class SharedNightVisionSystem : EntitySystem
     }
 
     [SubscribeLocalEvent]
-    private void OnCompEquip(Entity<NightVisionComponent> ent, ref GotEquippedEvent args)
+    private void OnCompEquip(Entity<OverlayNightVisionComponent> ent, ref GotEquippedEvent args)
     {
         if (!ent.Comp.RelayOverlay)
             return;
@@ -44,7 +44,7 @@ public abstract partial class SharedNightVisionSystem : EntitySystem
     }
 
     [SubscribeLocalEvent]
-    private void OnCompUnequip(Entity<NightVisionComponent> ent, ref GotUnequippedEvent args)
+    private void OnCompUnequip(Entity<OverlayNightVisionComponent> ent, ref GotUnequippedEvent args)
     {
         if (!ent.Comp.RelayOverlay)
             return;
@@ -53,13 +53,13 @@ public abstract partial class SharedNightVisionSystem : EntitySystem
     }
 
     [SubscribeLocalEvent]
-    protected virtual void OnRefreshEquipmentHud(Entity<NightVisionComponent> ent, ref InventoryRelayedEvent<RefreshNightVisionEvent> args)
+    protected virtual void OnRefreshEquipmentHud(Entity<OverlayNightVisionComponent> ent, ref InventoryRelayedEvent<RefreshNightVisionEvent> args)
     {
         OnRefreshComponentHud(ent, ref args.Args);
     }
 
     [SubscribeLocalEvent]
-    protected virtual void OnRefreshComponentHud(Entity<NightVisionComponent> ent, ref RefreshNightVisionEvent args)
+    protected virtual void OnRefreshComponentHud(Entity<OverlayNightVisionComponent> ent, ref RefreshNightVisionEvent args)
     {
         if (!ent.Comp.Enabled)
             return;
@@ -72,7 +72,7 @@ public abstract partial class SharedNightVisionSystem : EntitySystem
     {
         var ent = args.Action.Comp.Container;
 
-        if (!TryComp<NightVisionComponent>(ent, out var nightVisionComp))
+        if (!TryComp<OverlayNightVisionComponent>(ent, out var nightVisionComp))
             return;
 
         SetEnabled(ent.Value, !nightVisionComp.Enabled, args.Performer);
@@ -85,7 +85,7 @@ public abstract partial class SharedNightVisionSystem : EntitySystem
     /// <param name="ent">The night vision to toggle.</param>
     /// <param name="enabled">Whether to enable or disable.</param>
     /// <param name="viewer">Viewer of the night vision, used to refresh their overlay. If null, assumes the night vision entity is the viewer.</param>
-    public void SetEnabled(Entity<NightVisionComponent?> ent, bool enabled, EntityUid? viewer = null)
+    public void SetEnabled(Entity<OverlayNightVisionComponent?> ent, bool enabled, EntityUid? viewer = null)
     {
         if (!Resolve(ent, ref ent.Comp, false))
             return;
@@ -105,5 +105,5 @@ public abstract partial class SharedNightVisionSystem : EntitySystem
 public record struct RefreshNightVisionEvent() : IInventoryRelayEvent
 {
     public SlotFlags TargetSlots => SlotFlags.WITHOUT_POCKET;
-    public List<Entity<NightVisionComponent>> Entities = new();
+    public List<Entity<OverlayNightVisionComponent>> Entities = new();
 }

@@ -102,5 +102,5 @@
   id: StatusEffectNightVision
   name: Night Vision
   components:
-    - type: NightVision
+    - type: OverlayNightVision # ADT-Tweak
       relayOverlay: True

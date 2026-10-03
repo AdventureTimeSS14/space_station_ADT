@@ -36,7 +36,7 @@ public sealed partial class NightVisionSystem : SharedNightVisionSystem
     }
 
     [SubscribeLocalEvent]
-    private void OnHandleState(Entity<NightVisionComponent> ent, ref AfterAutoHandleStateEvent args)
+    private void OnHandleState(Entity<OverlayNightVisionComponent> ent, ref AfterAutoHandleStateEvent args)
     {
         RefreshOverlay(ent);
     }
@@ -49,13 +49,13 @@ public sealed partial class NightVisionSystem : SharedNightVisionSystem
             Deactivate(localPlayer.Value);
     }
 
-    private void Update(EntityUid entity, List<Entity<NightVisionComponent>> entities)
+    private void Update(EntityUid entity, List<Entity<OverlayNightVisionComponent>> entities)
     {
         if (entity != _player.LocalSession?.AttachedEntity)
             return;
 
         // Find the component with the lowest noise.
-        NightVisionComponent? nvision = null;
+        OverlayNightVisionComponent? nvision = null;
         var bestNoise = float.MaxValue;
         foreach (var ent in entities)
         {

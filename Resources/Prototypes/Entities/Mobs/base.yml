@@ -317,7 +317,7 @@
   id: MobNightVision
   abstract: true
   components:
-  - type: NightVision
+  - type: OverlayNightVision # ADT-Tweak: upstream night vision, distinct from ADT NightVision
     prioritized: false
     relayOverlay: false # In case default value ever changes
     lightingColor: '#FFFFFF15' # Basically makes it impossible for things to be "Pitch black" but can still be dark.
