@@ -12,13 +12,7 @@ using System.Text;
 
 namespace Content.Server.PAI;
 
-<<<<<<< ours
-public sealed partial class PAISystem : EntitySystem // add partial
-||||||| base
-public sealed class PAISystem : EntitySystem
-=======
-public sealed partial class PAISystem : EntitySystem
->>>>>>> theirs
+public sealed partial class PAISystem : EntitySystem // ADT-Tweak: add partial 
 {
     [Dependency] private InstrumentSystem _instrumentSystem = default!;
     [Dependency] private IRobustRandom _random = default!;
