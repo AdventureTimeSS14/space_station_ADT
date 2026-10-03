@@ -196,6 +196,7 @@
       toggleable-clothing: !type:ContainerSlot {}
   - type: GroupExamine
   - type: ADTGoliathPlatable
+    types: [ Blunt, Slash ]
   - type: Construction
     graph: ADTPathfinderCloak
     node: cloak
@@ -218,6 +219,7 @@
         Slash: 0.8
         Piercing: 0.8
   - type: ADTGoliathPlatable
+    types: [ Blunt, Slash ]
 
 - type: entity
   parent: ClothingShoesBase
@@ -237,10 +239,7 @@
         Piercing: 0.95
         Heat: 0.95
   - type: FootstepModifier
-    footstepSoundCollection:
-      collection: null
-      params:
-        volume: -10
+    footstepSoundCollection: null
   - type: Construction
     graph: ADTFootwrapsGoliath
     node: footwraps
@@ -264,10 +263,7 @@
         Heat: 0.9
         Caustic: 0.95
   - type: FootstepModifier
-    footstepSoundCollection:
-      collection: null
-      params:
-        volume: -10
+    footstepSoundCollection: null
   - type: Construction
     graph: ADTFootwrapsDragon
     node: footwraps
@@ -460,6 +456,7 @@
   - type: Tag
     tags:
     - ADTBowBone
+    - ADTBow
   - type: Construction
     graph: ADTBowBone
     node: bow

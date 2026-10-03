@@ -4,6 +4,16 @@
   parent: BaseSpeciesMobOrganic
   id: ADTMobAshWalkerBase
   components:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: SoftCritical
+      160: Critical
+      200: Dead
+  - type: SoftCrit
+    speedModifier: 0.40
+  - type: TryCatchBreath
+    doAfterTime: 7
   - type: ADTTribeMember
   - type: ADTConstructionRestriction
     allowedRecipes: &ADTTribeRecipes
@@ -49,6 +59,8 @@
     - ADTGemSatchel
     - ADTGemNecklace
     - ADTGemBracers
+    - ADTLavaBoat
+    - ADTOar
   - type: TTS
   - type: BreathingImmunity
   - type: AshStormImmune
@@ -215,6 +227,8 @@
       tags:
       - ADTBow
       - ADTBowImprovised
+      - ADTMagicStaff
+      - WizardWand
   - type: Damageable
     damageModifierSet: ADTAshWalkerScale
 
@@ -274,6 +288,8 @@
       tags:
       - ADTBow
       - ADTBowImprovised
+      - ADTMagicStaff
+      - WizardWand
     shaman: true
   - type: GhostRole
     name: ghost-role-information-adt-ash-walker-shaman-name
@@ -448,11 +464,9 @@
   parent:
   - ADTAppearanceDraconid
   - MobReptilian
-  id: ADTMobDraconid
+  id: ADTMobDraconidBase
+  categories: [ HideSpawnMenu ]
   components:
-  - type: ADTTribeMember
-  - type: ADTConstructionRestriction
-    allowedRecipes: *ADTTribeRecipes
   - type: ADTLavalandSpeed
     everywhere: true
     walkModifier: 1.08
@@ -462,12 +476,6 @@
   - type: AshStormImmune
   - type: Inventory
     templateId: ADTDraconid
-  - type: NpcFactionMember
-    factions:
-    - ADTAshWalker
-  - type: Access
-    tags:
-    - ADTAshWalker
   - type: Damageable
     damageModifierSet: ADTDraconidScale
   - type: MeleeWeapon
@@ -487,6 +495,21 @@
     heatDamage:
       types:
         Heat: 1.5
+
+- type: entity
+  save: false
+  parent: ADTMobDraconidBase
+  id: ADTMobDraconid
+  components:
+  - type: ADTTribeMember
+  - type: ADTConstructionRestriction
+    allowedRecipes: *ADTTribeRecipes
+  - type: NpcFactionMember
+    factions:
+    - ADTAshWalker
+  - type: Access
+    tags:
+    - ADTAshWalker
 
 - type: entity
   parent: OrganReptilianStomach

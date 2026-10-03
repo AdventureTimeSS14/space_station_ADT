@@ -77,12 +77,11 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         LookupButton.OnPressed += _ => ToggleView();
         LookupView.OnStartChat += contact =>
         {
-            if (OnMessageSent is { } handler)
-            {
-                handler(NanoChatUiMessageType.NewChat, contact.Number, contact.Name, contact.JobTitle);
-                SelectChat(contact.Number);
-                ToggleView();
-            }
+            if (!_recipients.ContainsKey(contact.Number))
+                OnMessageSent?.Invoke(NanoChatUiMessageType.NewChat, contact.Number, contact.Name, contact.JobTitle);
+
+            SelectChat(contact.Number);
+            ToggleView();
         };
         ListNumberButton.OnPressed += _ =>
         {
@@ -101,6 +100,9 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         ChatView.Visible = !ChatView.Visible;
         LookupView.Visible = !ChatView.Visible;
         LookupButton.Pressed = LookupView.Visible;
+
+        if (LookupView.Visible)
+            LookupView.FocusSearch();
     }
 
     private void SendMessage()

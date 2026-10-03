@@ -1,0 +1,119 @@
+<Document>
+  # Снаряжение Пеплоходцев
+
+  Здесь собрано всё оружие, броня и снаряжение, доступное племени. Крафт почти всего этого требует быть в племени, простому гостю лаваленда рецепты не покажутся. Урон "в одну руку" и "в две руки" считается отдельно, многие вещи бьют куда сильнее, если взять их в хват обеими руками.
+
+  Заточить любое оружие или даже свои когти можно точильным камнем, это добавит 2 единицы режущего урона.
+
+  ## Старое костяное оружие
+
+  Самое простое, что можно собрать руками без верстака.
+
+  <GuideAshwalkerGearEmbed Entity="ADTBoneKnife" Craft="1x Кость|1x Ткань" CraftTime="1" Damage="Удар:4 пореза|Бросок:12 уколов, 3 пореза|Скорость:1.5 удара/сек"/>
+
+  <GuideAshwalkerGearEmbed Entity="ADTBoneMachete" Craft="3x Кость|1x Ткань" Damage="Удар:12 порезов|Бросок:4 пореза|Скорость:1 удар/сек"/>
+
+  <GuideAshwalkerGearEmbed Entity="ADTBoneSword" Craft="4x Кость|1x Ткань" Damage="Удар:16 порезов|Скорость:0.7 удара/сек"/>
+
+  <GuideAshwalkerGearEmbed Entity="ADTBoneLongsword" Craft="15x Кость|5x Ткань" Damage="Удар:17 порезов|Скорость:0.6 удара/сек"/>
+
+  <GuideAshwalkerGearEmbed Entity="ADTBoneBattleaxe" Craft="20x Кость|10x Ткань" Damage="Один хват:10 порезов|Два хвата:10 порезов, 15 ушибов, 15 структурного|Скорость:0.6 удара/сек"/>
+
+  ## Новое костяное снаряжение
+
+  Требует жил наблюдателя, добываемых на охоте за наблюдателями или иногда на рыбалке.
+
+  <GuideAshwalkerGearEmbed Entity="ADTBoneAxe" Craft="6x Кость|3x Жила наблюдателя" CraftTime="5" Damage="Один хват:5 ушибов, 8 порезов, 10 структурного|Два хвата:5 ушибов, 23 пореза, 50 структурного|Скорость:0.75 удара/сек"/>
+
+  <GuideAshwalkerGearEmbed Entity="ADTGuillotine" Craft="1x Готовый костяной топор|1x Лезвие дисковой пилы" CraftTime="5" Damage="Один хват:7 порезов, 15 структурного|Два хвата:25 порезов, 15 структурного|Скорость:0.75 удара/сек" Note="Бьёт широкой дугой на 180 градусов и пробивает 30% брони цели."/>
+
+  <GuideAshwalkerGearEmbed Entity="ADTBoneScythe" Craft="5x Кость|2x Жила наблюдателя" CraftTime="4" Damage="Удар:14 порезов|Скорость:0.9 удара/сек" Note="Заодно считается инструментом жатвы, ускоряет сбор урожая."/>
+
+  <GuideAshwalkerGearEmbed Entity="ADTBonePickaxe" Craft="4x Кость|2x Жила наблюдателя" CraftTime="4" Damage="Удар:8 уколов|Два хвата:8 уколов, 30 структурного|Скорость:0.8 удара/сек" Note="В первую очередь горная кирка, а не оружие."/>
+
+  <GuideAshwalkerGearEmbed Entity="ADTClothingOuterArmorBoneLight" Craft="2x Кость|2x Жила наблюдателя|1x Шкура голиафа" CraftTime="5" Armor="Ударный:15|Режущий:15|Колющий:10|Высокотемпературный:50"/>
+
+  <GuideAshwalkerGearEmbed Entity="ADTClothingHandsBoneBracers" Craft="2x Кость|1x Жила наблюдателя" CraftTime="2" Armor="Ударный:10|Режущий:10|Колющий:15"/>
+
+  <GuideAshwalkerGearEmbed Entity="ADTClothingNeckBoneTalisman" Craft="2x Кость|1x Жила наблюдателя" CraftTime="2" Armor="Ударный:5|Режущий:5|Колющий:5|Химический:15"/>
+
+  <GuideAshwalkerGearEmbed Entity="ADTClothingNeckSkullCodpiece" Craft="2x Кость|1x Шкура голиафа" CraftTime="2" Armor="Ударный:5|Режущий:5|Колющий:5"/>
+
+  ## Снаряжение для захвата
+
+  <GuideAshwalkerGearEmbed Entity="ADTSinewRestraints" Craft="1x Жила наблюдателя" CraftTime="1" Note="Работают как наручники, но снять их вручную заметно дольше, чем обычные путы."/>
+
+  <GuideAshwalkerGearEmbed Entity="ADTBolaSkull" Craft="2x Готовые путы из жил|3x Кость" CraftTime="2" Note="Обычная бола, просто собранная из черепов и жил."/>
+
+  <GuideAshwalkerGearEmbed Entity="ADTNutcracker" Craft="2x Кость|2x Хитин ткача" CraftTime="4" Damage="Удар:3 ушиба, 22 урона по стамине|Скорость:стандартная" Note="Около 30% шанс сбить цель с ног, силиконов есть шанс оглушить отдельно."/>
+
+  ## Хитиновое и хрящевое снаряжение
+
+  Хитин ткача добывается на охоте на кошмарников, хрящевые пластины дают некоторые виды рыбы.
+
+  <GuideAshwalkerGearEmbed Entity="ADTSpearChitin" Craft="1x Готовое костяное копьё|3x Жила наблюдателя|8x Хитин ткача" CraftTime="7.5" Damage="Один хват:14 уколов|Два хвата:24 укола|Бросок:26 уколов"/>
+
+  <GuideAshwalkerGearEmbed Entity="ADTSpearHerBitingEmbrace" Craft="1x Готовое хитиновое копьё|1x Жила наблюдателя|1x Костяной нож из угря|1x Рубин" CraftTime="7.5" Damage="Один хват:16 уколов|Два хвата:28 уколов|Бросок:45 уколов" Note="Повторный удар по одной и той же цели добавляет 25 урона кровопотерей, минуя броню."/>
+
+  <GuideAshwalkerGearEmbed Entity="ADTClothingOuterCartilagePads" Craft="2x Хрящевая пластина|3x Ткань|1x Жила наблюдателя" CraftTime="4" Armor="Ударный:15|Режущий:15|Колющий:5|Высокотемпературный:20|Химический:20" Note="Соедините с поножами, чтобы получить полный комплект."/>
+
+  <GuideAshwalkerGearEmbed Entity="ADTClothingOuterCartilageGreaves" Craft="2x Хрящевая пластина|3x Ткань|2x Жила наблюдателя" CraftTime="4" Armor="Ударный:15|Режущий:15|Колющий:5|Высокотемпературный:20|Химический:20"/>
+
+  <GuideAshwalkerGearEmbed Entity="ADTClothingOuterCartilageArmor" Craft="1x Наплечники + 1x Поножи, соединить между собой" CraftTime="2" Armor="Ударный:40|Режущий:40|Колющий:15|Высокотемпературный:50|Химический:50"/>
+
+  <GuideAshwalkerGearEmbed Entity="ADTClothingBeltQuiverWeaver" Craft="4x Хитин ткача" CraftTime="8" Note="Обычный колчан, просто сплетён из хитина."/>
+
+  <GuideAshwalkerGearEmbed Entity="ADTClothingHandsWeaverGloves" Craft="1x Кожа|3x Хитин ткача" CraftTime="2" Armor="Ударный:10|Режущий:10|Колющий:10" Damage="Удар:5 ушибов, 12.5 урона по стамине" Note="Около 20% шанс на 2 секунды сбить цель с ног."/>
+
+  <GuideAshwalkerGearEmbed Entity="ADTClothingOuterPathfinderCloak" Craft="1x Готовый плащ голиафа|2x Шкура голиафа|6x Хитин ткача|5x Кость|5x Жила наблюдателя" CraftTime="5" Armor="Ударный:40|Режущий:40|Колющий:40|Высокотемпературный:50|Химический:50" Note="Вместе с плащом идёт каса следопыта. Плащ можно дополнительно укрепить пластинами голиафа."/>
+
+  <GuideAshwalkerGearEmbed Entity="ADTClothingHeadPathfinderKasa" Craft="Идёт вместе с плащом следопыта" Armor="Ударный:20|Режущий:20|Колющий:20"/>
+
+  <GuideAshwalkerGearEmbed Entity="ADTClothingShoesPathfinderTreads" Craft="2x Жила наблюдателя|2x Хитин ткача" CraftTime="5" Note="Не броня, а тёплая обувь, заметно снижает урон от жары и немного от холода."/>
+
+  ## Броня из голиафа и пепельного дракона
+
+  <GuideAshwalkerGearEmbed Entity="ADTClothingOuterGoliathCloak" Craft="2x Кожа|2x Жила наблюдателя|2x Шкура голиафа" CraftTime="5" Armor="Ударный:25|Режущий:25|Колющий:15|Высокотемпературный:75" Note="Отдельно гасит 50% огненного урона и на 10% замедляет владельца. Вместе с плащом идёт капюшон голиафа."/>
+
+  <GuideAshwalkerGearEmbed Entity="ADTClothingHandsGoliathGloves" Craft="2x Кожа|1x Шкура голиафа" CraftTime="2" Armor="Ударный:20|Режущий:20|Колющий:10|Высокотемпературный:50|Химический:50" Note="Заодно облегчают переноску тяжестей."/>
+
+  <GuideAshwalkerGearEmbed Entity="ADTClothingBeltHunter" Craft="4x Жила наблюдателя|2x Шкура голиафа" CraftTime="4" Note="Аналог РПС шахтёра, вмещает почти всё снаряжение среднего размера."/>
+
+  <GuideAshwalkerGearEmbed Entity="ADTShieldGoliath" Craft="4x Кость|2x Шкура голиафа" CraftTime="6" Note="Обычный ручной щит, просто собранный из шкур голиафа."/>
+
+  <GuideAshwalkerGearEmbed Entity="ADTClothingShoesFootwrapsGoliath" Craft="1x Шкура голиафа|1x Кожа" CraftTime="6" Armor="Ударный:5|Режущий:5|Колющий:5|Высокотемпературный:5"/>
+
+  <GuideAshwalkerGearEmbed Entity="ADTClothingOuterDrakeArmor" Craft="10x Кость|2x Жила наблюдателя|5x Шкура пепельного дракона" CraftTime="6" Armor="Ударный:50|Режущий:50|Колющий:40|Высокотемпературный:80|Химический:70" Note="Отдельно гасит 80% огненного урона. Вместе с бронёй идёт шлем из черепа дракона."/>
+
+  <GuideAshwalkerGearEmbed Entity="ADTClothingHeadDrakeHood" Craft="Идёт вместе с бронёй пепельного дракона" Armor="Ударный:20|Режущий:20|Колющий:15|Высокотемпературный:50"/>
+
+  <GuideAshwalkerGearEmbed Entity="ADTClothingShoesFootwrapsDragon" Craft="1x Шкура пепельного дракона|1x Кожа" Armor="Ударный:5|Режущий:5|Колющий:5|Высокотемпературный:10|Химический:5"/>
+
+  ## Стрелковое оружие
+
+  <GuideAshwalkerGearEmbed Entity="ADTBowBone" Craft="1x Готовый самодельный лук|4x Кость|2x Шкура голиафа|2x Жила наблюдателя" CraftTime="8" Note="Скорострельность 1.3 выстрела в секунду, стрелы покупаются или крафтятся отдельно."/>
+
+  <GuideAshwalkerGearEmbed Entity="ADTArrowWoodenBundle" Craft="1x Кость|1x Доска" CraftTime="2" Damage="За стрелу:20 уколов" Note="Связка на три стрелы, разворачивается в руке."/>
+
+  <GuideAshwalkerGearEmbed Entity="ADTArrowBoneTippedBundle" Craft="3x Готовая деревянная стрела|1x Кость|2x Жила наблюдателя|2x Хитин ткача" CraftTime="4" Damage="За стрелу:30 уколов"/>
+
+  <GuideAshwalkerGearEmbed Entity="ADTArrowJaggedBundle" Craft="3x Готовая деревянная стрела|1x Бритвенно-острый зуб|1x Хитин ткача" CraftTime="4" Damage="За стрелу:20 уколов, 10 порезов"/>
+
+  ## Разное
+
+  <GuideAshwalkerGearEmbed Entity="ADTLavaFishingRodTribal" Craft="2x Кость|1x Жила наблюдателя" CraftTime="4" Note="Без неё лавовая рыбалка попросту не начнётся."/>
+
+  <GuideAshwalkerGearEmbed Entity="ADTAshTotemWooden" Craft="30x Доска|1x Шкура голиафа" CraftTime="15" Note="Заменяет пеплоходца-участника в ритуале, если его покрасить нужной краской."/>
+
+  <GuideAshwalkerGearEmbed Entity="ADTAshTotemBone" Craft="15x Доска|15x Песчаник|3x Кость" CraftTime="15"/>
+
+  <GuideAshwalkerGearEmbed Entity="ADTAshTotemStone" Craft="30x Песчаник|2x Жила наблюдателя" CraftTime="15"/>
+
+  ## Обычная костяная броня
+
+  Эта пара не привязана к племени и доступна на любом верстаке где угодно, но пеплоходцы собирают её из тех же костей, что и всё остальное.
+
+  <GuideAshwalkerGearEmbed Entity="ClothingOuterArmorBone" Craft="6x Кость" CraftTime="2" Armor="Ударный:45|Режущий:45|Колющий:30|Высокотемпературный:30|Химический:50"/>
+
+  <GuideAshwalkerGearEmbed Entity="ClothingHeadHelmetBone" Craft="4x Кость" CraftTime="1" Armor="Ударный:25|Режущий:25|Колющий:15|Высокотемпературный:15|Химический:25"/>
+</Document>

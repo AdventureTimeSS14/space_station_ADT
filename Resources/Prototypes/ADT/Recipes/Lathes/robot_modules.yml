@@ -22,3 +22,13 @@
   parent: BaseGoldBorgModuleRecipe
   id: BorgModuleTopicals
   result: BorgModuleTopicals
+
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: ADTBorgModuleJanicartBuffer
+  result: ADTBorgModuleJanicartBuffer
+
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: ADTBorgModuleJanicartVacuum
+  result: ADTBorgModuleJanicartVacuum
