@@ -55,7 +55,7 @@
     sprite: Clothing/Uniforms/Jumpsuits/Engineering/atmos_casual.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase] #ADT-Tweak: ClothingUniformFoldableBase
   id: ClothingUniformJumpsuitSeniorEngineer
   name: senior engineer jumpsuit
   description: A sign of skill and prestige within the engineering department.

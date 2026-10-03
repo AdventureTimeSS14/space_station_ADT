@@ -34,7 +34,7 @@
     sprite: Clothing/Uniforms/Jumpsuits/Service/bartender_purple.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase] #ADT-Tweak: ClothingUniformFoldableBase
   id: ClothingUniformJumpsuitChaplain
   name: chaplain's jumpsuit
   description: It's a black jumpsuit, often worn by religious folk.
@@ -45,7 +45,7 @@
     sprite: Clothing/Uniforms/Jumpsuits/Service/chaplain.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase] #ADT-Tweak: ClothingUniformFoldableBase
   id: ClothingUniformJumpsuitChef
   name: chef uniform
   description: Can't cook without this.
@@ -139,8 +139,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitLibrarian
-  name: librarian jumpsuit
-  description: A cosy green jumper fit for a curator of books.
+  name: sensible suit # Corvax-Resprite
+  description: It's very... sensible. # Corvax-Resprite
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuits/Service/librarian.rsi
@@ -181,7 +181,7 @@
     sprite: Clothing/Uniforms/Jumpsuits/Service/tramdriver.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase] #ADT-Tweak: ClothingUniformFoldableBase
   id: ClothingUniformJumpsuitReporter
   name: reporter suit
   description: A good reporter remains a skeptic all their life.
@@ -192,7 +192,7 @@
     sprite: Clothing/Uniforms/Jumpsuits/Service/reporter.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase] #ADT-Tweak: ClothingUniformFoldableBase
   id: ClothingUniformJumpsuitSafari
   name: safari suit
   description: Perfect for a jungle excursion.
@@ -203,7 +203,7 @@
     sprite: Clothing/Uniforms/Jumpsuits/Service/safari.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase] #ADT-Tweak: ClothingUniformFoldableBase
   id: ClothingUniformJumpsuitJournalist
   name: journalist suit
   description: If journalism is good, it is controversial, by nature.
@@ -238,8 +238,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitMusician
-  name: musician's tuxedo
-  description: A fancy tuxedo for the musically inclined.  Perfect for any lounge act!
+  name: carpskin suit # Corvax-Resprite
+  description: An luxurious suit made with only the finest scales, perfect for any lounge act! # Corvax-Resprite
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuits/Service/musician.rsi
@@ -260,7 +260,7 @@
   - type: Unremoveable
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase] #ADT-Tweak: ClothingUniformFoldableBase
   id: ClothingUniformJumpsuitLawyerRed
   name: red lawyer suit
   description: A flashy red suit worn by lawyers and show-offs.
@@ -271,7 +271,7 @@
     sprite: Clothing/Uniforms/Jumpsuits/Service/lawyerred.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase] #ADT-Tweak: ClothingUniformFoldableBase
   id: ClothingUniformJumpsuitLawyerBlue
   name: blue lawyer suit
   description: A flashy blue suit worn by lawyers and show-offs.
@@ -282,7 +282,7 @@
     sprite: Clothing/Uniforms/Jumpsuits/Service/lawyerblue.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase] #ADT-Tweak: ClothingUniformFoldableBase
   id: ClothingUniformJumpsuitLawyerBlack
   name: black lawyer suit
   description: A subtle black suit worn by lawyers and gangsters.
@@ -304,7 +304,7 @@
     sprite: Clothing/Uniforms/Jumpsuits/Service/lawyerpurple.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase] #ADT-Tweak: ClothingUniformFoldableBase
   id: ClothingUniformJumpsuitLawyerGood
   name: good lawyer's suit
   description: A tacky suit perfect for a CRIMINAL lawyer!
@@ -315,7 +315,7 @@
     sprite: Clothing/Uniforms/Jumpsuits/Service/lawyergood.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase] #ADT-Tweak: ClothingUniformFoldableBase
   id: ClothingUniformOveralls
   name: overalls
   description: Great for working outdoors.

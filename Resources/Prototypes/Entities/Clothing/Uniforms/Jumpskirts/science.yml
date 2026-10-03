@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ClothingUniformSkirtBase, BaseCommandContraband]
+  parent: [ClothingUniformSkirtBase, BaseCommandContraband, ClothingUniformFoldableBase] #ADT-Tweak: ClothingUniformFoldableBase
   id: ClothingUniformJumpskirtResearchDirector
   name: research director's turtleneck
   description: It's a turtleneck worn by those with the know-how to achieve the position of Research Director. Its fabric provides minor protection from biological contaminants.
@@ -10,7 +10,7 @@
     sprite: Clothing/Uniforms/Jumpskirts/Science/rnd.rsi
 
 - type: entity
-  parent: ClothingUniformSkirtBase
+  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] #ADT-Tweak: ClothingUniformFoldableBase
   id: ClothingUniformJumpskirtScientist
   name: scientist jumpskirt
   description: It's made of a special fiber that increases perceived intelligence and decreases personal ethics. It has markings that denote the wearer as a scientist.
@@ -21,7 +21,7 @@
     sprite: Clothing/Uniforms/Jumpskirts/Science/scientist.rsi
 
 - type: entity
-  parent: ClothingUniformSkirtBase
+  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] #ADT-Tweak: ClothingUniformFoldableBase
   id: ClothingUniformJumpskirtRoboticist
   name: roboticist jumpskirt
   description: It's a slimming black with reinforced seams; great for industrial work.
@@ -32,7 +32,7 @@
     sprite: Clothing/Uniforms/Jumpskirts/Science/roboticist.rsi
 
 - type: entity
-  parent: ClothingUniformSkirtBase
+  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] #ADT-Tweak: ClothingUniformFoldableBase
   id: ClothingUniformJumpskirtSeniorResearcher
   name: senior researcher jumpskirt
   description: A sign of skill and prestige within the science department.
