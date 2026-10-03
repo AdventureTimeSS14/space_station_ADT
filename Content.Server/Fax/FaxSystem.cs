@@ -656,15 +656,7 @@ public sealed partial class FaxSystem : EntitySystem
 
     private void NotifyAdmins(string fromFax, string toFax)  // ADT-Tweak start: Get sender fax name from payload or from known faxes or use unknown
     {
-<<<<<<< ours
         _chat.SendAdminAnnouncement(Loc.GetString("fax-machine-chat-notify", ("from", fromFax), ("to", toFax))); // ADT-Tweak start: Get sender fax name from payload or from known faxes or use unknown
-        _audioSystem.PlayGlobal("/Audio/Machines/high_tech_confirm.ogg", Filter.Empty().AddPlayers(_adminManager.ActiveAdmins), false, AudioParams.Default.WithVolume(-8f));
-||||||| base
-        _chat.SendAdminAnnouncement(Loc.GetString("fax-machine-chat-notify", ("fax", faxName)));
-        _audioSystem.PlayGlobal("/Audio/Machines/high_tech_confirm.ogg", Filter.Empty().AddPlayers(_adminManager.ActiveAdmins), false, AudioParams.Default.WithVolume(-8f));
-=======
-        _chat.SendAdminAnnouncement(Loc.GetString("fax-machine-chat-notify", ("fax", faxName)));
         _audioSystem.PlayGlobal("/Audio/Machines/high_tech_confirm.ogg", Filter.Empty().AddPlayers(_adminManager.ActiveAdmins), false, AudioParams.Default.AddVolume(-8f));
->>>>>>> theirs
     }
 }
