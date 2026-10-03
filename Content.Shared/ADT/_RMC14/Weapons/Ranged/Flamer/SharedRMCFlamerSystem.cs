@@ -56,7 +56,7 @@ public abstract class SharedRMCFlamerSystem : EntitySystem
 
         SubscribeLocalEvent<RMCFlamerTankComponent, BeforeRangedInteractEvent>(OnFlamerTankBeforeRangedInteract);
         SubscribeLocalEvent<RMCFlamerTankComponent, ExaminedEvent>(OnFlamerTankExamined);
-        SubscribeLocalEvent<RMCFlamerTankComponent, SolutionContainerChangedEvent>(OnFlamerTankSolutionChanged);
+        SubscribeLocalEvent<RMCFlamerTankComponent, SolutionChangedEvent>(OnFlamerTankSolutionChanged);
 
         SubscribeLocalEvent<RMCIgniterComponent, MapInitEvent>(OnIgniterMapInit, after: new[] { typeof(SharedSolutionContainerSystem) });
         SubscribeLocalEvent<RMCIgniterComponent, UniqueActionEvent>(OnIgniterUniqueAction);
@@ -179,9 +179,9 @@ public abstract class SharedRMCFlamerSystem : EntitySystem
         }
     }
 
-    private void OnFlamerTankSolutionChanged(Entity<RMCFlamerTankComponent> tank, ref SolutionContainerChangedEvent args)
+    private void OnFlamerTankSolutionChanged(Entity<RMCFlamerTankComponent> tank, ref SolutionChangedEvent args)
     {
-        if (args.SolutionId != tank.Comp.SolutionId)
+        if (args.Solution.Comp.Id != tank.Comp.SolutionId)
             return;
 
         UpdateTankHolderAppearance(tank);
