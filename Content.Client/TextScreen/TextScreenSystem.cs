@@ -349,28 +349,12 @@ public sealed partial class TextScreenSystem : VisualizerSystem<TextScreenVisual
         {
             for (var i = 0; i <= screen.RowLength; i++) // Extra index needed for scrolling.
             {
-<<<<<<< ours
                 var key = TextMapKey + row + "_" + i; // ADT-Tweak
-                SpriteSystem.LayerMapReserve((uid, sprite), key);
-                component.LayerStatesToDraw.Add(key, null);
-                SpriteSystem.LayerSetRsi((uid, sprite), key, new ResPath(TextPath));
-                SpriteSystem.LayerSetColor((uid, sprite), key, component.Color);
-                SpriteSystem.LayerSetRsiState((uid, sprite), key, DefaultState);
-||||||| base
-                var key = TextMapKey + row + i;
-                SpriteSystem.LayerMapReserve((uid, sprite), key);
-                component.LayerStatesToDraw.Add(key, null);
-                SpriteSystem.LayerSetRsi((uid, sprite), key, new ResPath(TextPath));
-                SpriteSystem.LayerSetColor((uid, sprite), key, component.Color);
-                SpriteSystem.LayerSetRsiState((uid, sprite), key, DefaultState);
-=======
-                var key = TextMapKey + row + i;
                 var layerIndex = SpriteSystem.LayerMapReserve(sprite, key);
                 screen.LayerStatesToDraw.Add(key, null);
                 SpriteSystem.LayerSetRsi(sprite, layerIndex, new ResPath(TextPath));
                 SpriteSystem.LayerSetColor(sprite, layerIndex, screen.Color);
                 SpriteSystem.LayerSetRsiState(sprite, layerIndex, DefaultState);
->>>>>>> theirs
             }
         }
 
@@ -408,35 +392,13 @@ public sealed partial class TextScreenSystem : VisualizerSystem<TextScreenVisual
 
             for (var chr = 0; chr < min; chr++)
             {
-<<<<<<< ours
-                component.LayerStatesToDraw[TextMapKey + rowIdx + "_" + chr] = GetStateFromChar(row[chr]); // ADT-Tweak
-||||||| base
-                component.LayerStatesToDraw[TextMapKey + rowIdx + chr] = GetStateFromChar(row[chr]);
-=======
-                screen.LayerStatesToDraw[TextMapKey + rowIdx + chr] = GetStateFromChar(row[chr]);
->>>>>>> theirs
+                screen.LayerStatesToDraw[TextMapKey + rowIdx + "_" + chr] = GetStateFromChar(row[chr]); // ADT-Tweak
                 SpriteSystem.LayerSetOffset(
-<<<<<<< ours
-                    (uid, sprite),
-                    TextMapKey + rowIdx + "_" + chr, // ADT-Tweak
-                    Vector2.Multiply(
-                        new Vector2((chr - min / 2f + 0.5f) * CharWidth, -rowIdx * component.RowOffset),
-                        TextScreenVisualsComponent.PixelSize
-                        ) + component.TextOffset
-||||||| base
-                    (uid, sprite),
-                    TextMapKey + rowIdx + chr,
-                    Vector2.Multiply(
-                        new Vector2((chr - min / 2f + 0.5f) * CharWidth, -rowIdx * component.RowOffset),
-                        TextScreenVisualsComponent.PixelSize
-                        ) + component.TextOffset
-=======
                     sprite,
-                    TextMapKey + rowIdx + chr,
+                    TextMapKey + rowIdx + "_" + chr, // ADT-Tweak
                     screen.TextOffset + Vector2.Multiply(
                         new Vector2((chr - min / 2f + 0.5f) * CharWidth, -rowIdx * screen.RowOffset),
                         TextScreenVisualsComponent.PixelSize)
->>>>>>> theirs
                 );
             }
         }
@@ -464,7 +426,7 @@ public sealed partial class TextScreenSystem : VisualizerSystem<TextScreenVisual
 
         for (var i = 0; i < min; i++)
         {
-            var layer = TextMapKey + 0 + i;
+            var layer = TextMapKey + 0 + "_" + i; // ADT-Tweak
             timer.LayerStatesToDraw[layer] = GetStateFromChar(time[i]);
             SpriteSystem.LayerSetOffset(
                 sprite,
@@ -514,7 +476,7 @@ public sealed partial class TextScreenSystem : VisualizerSystem<TextScreenVisual
             {
                 SpriteSystem.LayerSetOffset(
                     sprite,
-                    TextMapKey + i + j,
+                    TextMapKey + i + "_" + j, // ADT-Tweak
                     Vector2.Multiply(
                         new Vector2((j - screen.RowLength / 2f + 0.5f) * CharWidth - charOffset, -i * screen.RowOffset),
                         TextScreenVisualsComponent.PixelSize
@@ -531,7 +493,7 @@ public sealed partial class TextScreenSystem : VisualizerSystem<TextScreenVisual
                 var chr = (textOffset + j) % screen.TextToDraw[i]!.Length;
                 SpriteSystem.LayerSetRsiState(
                     sprite,
-                    TextMapKey + i + j,
+                    TextMapKey + i + "_" + j, // ADT-Tweak
                     GetStateFromChar(screen.TextToDraw[i]![chr])
                 );
             }

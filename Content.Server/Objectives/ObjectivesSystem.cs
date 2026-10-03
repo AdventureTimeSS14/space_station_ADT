@@ -86,13 +86,7 @@ public sealed partial class ObjectivesSystem : SharedObjectivesSystem
             }
             else
             {
-<<<<<<< ours
                 summary[prepend.Text] = new List<(EntityUid, string)>(info.Minds); // ADT-Tweak
-||||||| base
-                summary[prepend.Text] = info.Minds;
-=======
-                summary[prepend.Text] = info.Minds.ToList();
->>>>>>> theirs
             }
         }
         var printedUnder = new Dictionary<EntityUid, string>(); // ADT-Tweak
@@ -139,21 +133,15 @@ public sealed partial class ObjectivesSystem : SharedObjectivesSystem
         }
     }
 
-<<<<<<< ours
+    /// <summary>
+    /// Generates a summary for a list of antag minds based on their agent.
+    /// Contains the objective issuer, objectives and completion rate.
+    /// </summary>
     private void AddSummary(
         StringBuilder result,
         string agent,
         List<(EntityUid, string)> minds,
         Dictionary<EntityUid, string> printedUnder) // ADT-Tweak
-||||||| base
-    private void AddSummary(StringBuilder result, string agent, List<(EntityUid, string)> minds)
-=======
-    /// <summary>
-    /// Generates a summary for a list of antag minds based on their agent.
-    /// Contains the objective issuer, objectives and completion rate.
-    /// </summary>
-    private void AddSummary(StringBuilder result, string agent, List<(EntityUid, string)> minds)
->>>>>>> theirs
     {
         var agentSummaries = new List<(string summary, float successRate, int completedObjectives)>();
 

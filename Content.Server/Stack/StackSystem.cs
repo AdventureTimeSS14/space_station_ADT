@@ -285,29 +285,6 @@ namespace Content.Server.Stack
 
         #endregion
         #endregion
-<<<<<<< ours
-        #region Event Handlers
-
-        /// <inheritdoc />
-        protected override void UserSplit(Entity<StackComponent> stack, Entity<TransformComponent?> user, int amount)
-        {
-            if (!Resolve(user.Owner, ref user.Comp, false))
-                return;
-
-            if (amount <= 0)
-            {
-                Popup.PopupCursor(Loc.GetString("comp-stack-split-too-small"), user.Owner, PopupType.Medium);
-                return;
-            }
-
-            if (Split(stack.AsNullable(), amount, user.Comp.Coordinates) is not { } split)
-                return;
-
-            Hands.PickupOrDrop(user.Owner, split);
-
-            Popup.PopupCursor(Loc.GetString("comp-stack-split"), user.Owner);
-        }
-
         // ADT-Tweak start
         protected override void RequestCustomSplit(Entity<StackComponent> stack, Entity<TransformComponent?> user)
         {
@@ -346,31 +323,5 @@ namespace Content.Server.Stack
                 });
         }
         // ADT-Tweak end
-        #endregion
-||||||| base
-        #region Event Handlers
-
-        /// <inheritdoc />
-        protected override void UserSplit(Entity<StackComponent> stack, Entity<TransformComponent?> user, int amount)
-        {
-            if (!Resolve(user.Owner, ref user.Comp, false))
-                return;
-
-            if (amount <= 0)
-            {
-                Popup.PopupCursor(Loc.GetString("comp-stack-split-too-small"), user.Owner, PopupType.Medium);
-                return;
-            }
-
-            if (Split(stack.AsNullable(), amount, user.Comp.Coordinates) is not { } split)
-                return;
-
-            Hands.PickupOrDrop(user.Owner, split);
-
-            Popup.PopupCursor(Loc.GetString("comp-stack-split"), user.Owner);
-        }
-        #endregion
-=======
->>>>>>> theirs
     }
 }

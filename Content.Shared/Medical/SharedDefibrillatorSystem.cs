@@ -31,34 +31,27 @@ namespace Content.Shared.Medical;
 /// </summary>
 public abstract partial class SharedDefibrillatorSystem : EntitySystem
 {
-<<<<<<< ours
-    [Dependency] private readonly SharedChatSystem _chat = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedElectrocutionSystem _electrocution = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
-    [Dependency] private readonly ItemToggleSystem _toggle = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly PowerCellSystem _powerCell = default!;
-    [Dependency] private readonly SharedRottingSystem _rotting = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly UseDelaySystem _useDelay = default!;
-    [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!; // ADT-Tweak
+    [Dependency] private SharedChatSystem _chat = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedElectrocutionSystem _electrocution = default!;
+    [Dependency] private ISharedPlayerManager _player = default!;
+    [Dependency] private ItemToggleSystem _toggle = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private MobThresholdSystem _mobThreshold = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private PowerCellSystem _powerCell = default!;
+    [Dependency] private SharedRottingSystem _rotting = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private UseDelaySystem _useDelay = default!;
+    [Dependency] private SharedInteractionSystem _interaction = default!;
+    [Dependency] private SharedContainerSystem _container = default!; // ADT-Tweak
 
-    private readonly HashSet<EntityUid> _interacters = new();
-
-    public override void Initialize()
-    {
-        SubscribeLocalEvent<DefibrillatorComponent, AfterInteractEvent>(OnAfterInteract);
-        SubscribeLocalEvent<DefibrillatorComponent, DefibrillatorZapDoAfterEvent>(OnDoAfter);
-        SubscribeLocalEvent<DefibrillatorComponent, InventoryRelayedEvent<GetVerbsEvent<InnateVerb>>>(AddZapVerb);   // ADT-Tweak
-    }
+    private readonly HashSet<EntityUid> _interactors = new();
 
     // ADT-Tweak-start
+    [SubscribeLocalEvent]
     private void AddZapVerb(Entity<DefibrillatorComponent> ent, ref InventoryRelayedEvent<GetVerbsEvent<InnateVerb>> args)
     {
         if (!args.Args.CanInteract || !args.Args.CanAccess || !HasComp<MobStateComponent>(args.Args.Target))
@@ -78,52 +71,7 @@ public abstract partial class SharedDefibrillatorSystem : EntitySystem
     }
     // ADT-Tweak-end
 
-||||||| base
-    [Dependency] private readonly SharedChatSystem _chat = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedElectrocutionSystem _electrocution = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
-    [Dependency] private readonly ItemToggleSystem _toggle = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly PowerCellSystem _powerCell = default!;
-    [Dependency] private readonly SharedRottingSystem _rotting = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly UseDelaySystem _useDelay = default!;
-    [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
-
-    private readonly HashSet<EntityUid> _interacters = new();
-
-    public override void Initialize()
-    {
-        SubscribeLocalEvent<DefibrillatorComponent, AfterInteractEvent>(OnAfterInteract);
-        SubscribeLocalEvent<DefibrillatorComponent, DefibrillatorZapDoAfterEvent>(OnDoAfter);
-    }
-
-=======
-    [Dependency] private SharedChatSystem _chat = default!;
-    [Dependency] private DamageableSystem _damageable = default!;
-    [Dependency] private SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private SharedElectrocutionSystem _electrocution = default!;
-    [Dependency] private ISharedPlayerManager _player = default!;
-    [Dependency] private ItemToggleSystem _toggle = default!;
-    [Dependency] private MobStateSystem _mobState = default!;
-    [Dependency] private MobThresholdSystem _mobThreshold = default!;
-    [Dependency] private SharedPopupSystem _popup = default!;
-    [Dependency] private PowerCellSystem _powerCell = default!;
-    [Dependency] private SharedRottingSystem _rotting = default!;
-    [Dependency] private SharedAudioSystem _audio = default!;
-    [Dependency] private SharedMindSystem _mind = default!;
-    [Dependency] private UseDelaySystem _useDelay = default!;
-    [Dependency] private SharedInteractionSystem _interaction = default!;
-
-    private readonly HashSet<EntityUid> _interactors = new();
-
     [SubscribeLocalEvent]
->>>>>>> theirs
     private void OnAfterInteract(Entity<DefibrillatorComponent> ent, ref AfterInteractEvent args)
     {
         if (args.Handled || args.Target is not { } target)
@@ -293,7 +241,6 @@ public abstract partial class SharedDefibrillatorSystem : EntitySystem
                 _mobThreshold.TryGetThresholdForState(target, MobState.Dead, out var threshold, targetThresholds) &&
                 _damageable.GetTotalDamage(target) < threshold) //is their current health above their death threshold
             {
-<<<<<<< ours
                 // ADT-Tweak-start
                 var reviveState = MobState.Critical;
                 if (_mobThreshold.TryGetThresholdForState(target, MobState.SoftCritical, out _, targetThresholds) &&
@@ -303,11 +250,6 @@ public abstract partial class SharedDefibrillatorSystem : EntitySystem
 
                 _mobState.ChangeMobState(target, reviveState, targetMobState, user);
                 // ADT-Tweak-end
-||||||| base
-                _mobState.ChangeMobState(target, MobState.Critical, targetMobState, user);
-=======
-                _mobState.ChangeMobState(target, MobState.Critical, targetMobState, user); //if so revive them
->>>>>>> theirs
                 failedRevive = false;
             }
 

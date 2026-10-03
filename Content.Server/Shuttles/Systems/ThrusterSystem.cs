@@ -174,7 +174,7 @@ public sealed partial class ThrusterSystem : EntitySystem
             if (!TryComp<ThrusterComponent>(thrusterUid, out var thrusterComp))
                 continue;
 
-            ent.Comp.AngularThrust += thrusterComp.Thrust * GetInertiaThresholdScale((thrusterUid, thrusterComp));
+            ent.Comp.AngularThrust += GetThrust(thrusterComp) * GetInertiaThresholdScale((thrusterUid, thrusterComp)); // ADT-Tweak
 
             if (!TryComp<ApcPowerReceiverComponent>(thrusterUid, out var thrusterPowerReceiver))
                 continue;
@@ -256,25 +256,13 @@ public sealed partial class ThrusterSystem : EntitySystem
             // If no parent change doesn't matter for angular.
             if (component.Type == ThrusterType.Angular)
             {
-<<<<<<< ours
-                oldShuttleComponent.AngularThrust -= GetThrust(component); // ADT-Tweak
-||||||| base
-                oldShuttleComponent.AngularThrust -= component.Thrust;
-=======
-                var angularThrust = component.Thrust * GetInertiaThresholdScale((uid, component), xform);
+                var angularThrust = GetThrust(component) * GetInertiaThresholdScale((uid, component), xform); // ADT-Tweak
 
                 oldShuttleComponent.AngularThrust -= angularThrust;
->>>>>>> theirs
                 DebugTools.Assert(oldShuttleComponent.AngularThrusters.Contains(uid));
                 oldShuttleComponent.AngularThrusters.Remove(uid);
 
-<<<<<<< ours
-                shuttleComponent.AngularThrust += GetThrust(component); // ADT-Tweak
-||||||| base
-                shuttleComponent.AngularThrust += component.Thrust;
-=======
                 shuttleComponent.AngularThrust += angularThrust;
->>>>>>> theirs
                 DebugTools.Assert(!shuttleComponent.AngularThrusters.Contains(uid));
                 shuttleComponent.AngularThrusters.Add(uid);
                 return;
@@ -380,13 +368,7 @@ public sealed partial class ThrusterSystem : EntitySystem
 
                 break;
             case ThrusterType.Angular:
-<<<<<<< ours
-                shuttleComponent.AngularThrust += GetThrust(component); // ADT-Tweak
-||||||| base
-                shuttleComponent.AngularThrust += component.Thrust;
-=======
-                shuttleComponent.AngularThrust += component.Thrust * GetInertiaThresholdScale((uid, component), xform);
->>>>>>> theirs
+                shuttleComponent.AngularThrust += GetThrust(component) * GetInertiaThresholdScale((uid, component), xform); // ADT-Tweak
                 DebugTools.Assert(!shuttleComponent.AngularThrusters.Contains(uid));
                 shuttleComponent.AngularThrusters.Add(uid);
                 break;
@@ -473,13 +455,7 @@ public sealed partial class ThrusterSystem : EntitySystem
                 shuttleComponent.LinearThrusters[direction].Remove(uid);
                 break;
             case ThrusterType.Angular:
-<<<<<<< ours
-                shuttleComponent.AngularThrust -= GetThrust(component); // ADT-Tweak
-||||||| base
-                shuttleComponent.AngularThrust -= component.Thrust;
-=======
-                shuttleComponent.AngularThrust -= component.Thrust * GetInertiaThresholdScale((uid, component), xform);
->>>>>>> theirs
+                shuttleComponent.AngularThrust -= GetThrust(component) * GetInertiaThresholdScale((uid, component), xform); // ADT-Tweak
                 DebugTools.Assert(shuttleComponent.AngularThrusters.Contains(uid));
                 shuttleComponent.AngularThrusters.Remove(uid);
                 break;

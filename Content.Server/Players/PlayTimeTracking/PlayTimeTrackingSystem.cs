@@ -2,13 +2,7 @@ using System.Linq;
 using Content.Server.Administration;
 using Content.Server.Administration.Managers;
 using Content.Server.Afk;
-<<<<<<< ours
-using Content.Server.Afk.Events;
 using Content.Server.Corvax.Sponsors;
-||||||| base
-using Content.Server.Afk.Events;
-=======
->>>>>>> theirs
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
 using Content.Server.Preferences.Managers;
@@ -353,16 +347,8 @@ public sealed partial class PlayTimeTrackingSystem : EntitySystem
 
         for (var i = 0; i < jobs.Count; i++)
         {
-<<<<<<< ours
-            if (_prototypes.Resolve(jobs[i], out var job)
-                && MeetsJobPlaytime(player, job.ID, playTimes)) // ADT-Tweak
-||||||| base
-            if (_prototypes.Resolve(jobs[i], out var job)
-                && JobRequirements.TryRequirementsMet(job, playTimes, out _, EntityManager, _prototypes, (HumanoidCharacterProfile?) _preferencesManager.GetPreferences(userId).SelectedCharacter))
-=======
             if (ProtoMan.Resolve(jobs[i], out var job)
-                && JobRequirements.TryRequirementsMet(job, playTimes, out _, EntityManager, ProtoMan, (HumanoidCharacterProfile?) _preferencesManager.GetPreferences(userId).SelectedCharacter))
->>>>>>> theirs
+                && MeetsJobPlaytime(player, job.ID, playTimes)) // ADT-Tweak
             {
                 continue;
             }

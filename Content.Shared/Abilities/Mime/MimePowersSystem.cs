@@ -19,24 +19,6 @@ namespace Content.Shared.Abilities.Mime;
 
 public sealed partial class MimePowersSystem : EntitySystem
 {
-<<<<<<< ours
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-    [Dependency] private readonly AlertsSystem _alertsSystem = default!;
-    [Dependency] private readonly TurfSystem _turf = default!;
-    [Dependency] private readonly IMapManager _mapMan = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
-||||||| base
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-    [Dependency] private readonly AlertsSystem _alertsSystem = default!;
-    [Dependency] private readonly TurfSystem _turf = default!;
-    [Dependency] private readonly IMapManager _mapMan = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-=======
     public static readonly EntProtoId MutedEffect = "StatusEffectMimeMuted";
 
     [Dependency] private SharedPopupSystem _popupSystem = default!;
@@ -46,7 +28,7 @@ public sealed partial class MimePowersSystem : EntitySystem
     [Dependency] private TurfSystem _turf = default!;
     [Dependency] private SharedContainerSystem _container = default!;
     [Dependency] private IGameTiming _timing = default!;
->>>>>>> theirs
+    [Dependency] private SharedMapSystem _mapSystem = default!; // ADT-Tweak
 
     public override void Initialize()
     {
@@ -115,16 +97,8 @@ public sealed partial class MimePowersSystem : EntitySystem
         var xform = Transform(ent);
         // Get the tile in front of the mime
         var offsetValue = xform.LocalRotation.ToWorldVec();
-<<<<<<< ours
-        var directionPos = xform.Coordinates.Offset(offsetValue).SnapToGrid(EntityManager, _mapMan); //ADT-Tweak
-        var tile = _turf.GetTileRef(directionPos);
-||||||| base
-        var coords = xform.Coordinates.Offset(offsetValue).SnapToGrid(EntityManager, _mapMan);
-        var tile = _turf.GetTileRef(coords);
-=======
         var coords = xform.Coordinates.Offset(offsetValue).SnapToGrid(EntityManager);
         var tile = _turf.GetTileRef(coords);
->>>>>>> theirs
         if (tile == null)
             return;
 

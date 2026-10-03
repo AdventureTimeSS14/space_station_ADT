@@ -39,16 +39,7 @@ public sealed partial class LabelSystem : EntitySystem
     {
         if (ent.Comp.LocalizedLabel is { } locId)
         {
-<<<<<<< ours
-            // ADT-Tweak start
-            if (Loc.TryGetString(ent.Comp.CurrentLabel, out var localized))
-                ent.Comp.CurrentLabel = localized;
-            // ADT-Tweak end
-||||||| base
-            ent.Comp.CurrentLabel = Loc.GetString(ent.Comp.CurrentLabel);
-=======
             ent.Comp.CurrentLabel = Loc.GetString(locId);
->>>>>>> theirs
             Dirty(ent);
         }
 
@@ -83,13 +74,7 @@ public sealed partial class LabelSystem : EntitySystem
 
         label = EnsureComp<LabelComponent>(uid);
 
-<<<<<<< ours
         label.CurrentLabel = MarkupSanitizer.SanitizeLabel(text); // ADT-Tweak. EscapeText -> SanitizeLabel
-||||||| base
-        label.CurrentLabel = text == null ? null : FormattedMessage.EscapeText(text);
-=======
-        label.CurrentLabel = FormattedMessage.EscapeText(text);
->>>>>>> theirs
         _nameModifier.RefreshNameModifiers(uid);
 
         Dirty(uid, label);

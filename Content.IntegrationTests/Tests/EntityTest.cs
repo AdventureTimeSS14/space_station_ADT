@@ -222,16 +222,8 @@ namespace Content.IntegrationTests.Tests
             {
                 foreach (var protoId in protoIds)
                 {
-<<<<<<< ours
                     mapSys.CreateMap(out var mapId, runMapInit: true); // ADT-Tweak
-                    var grid = mapManager.CreateGridEntity(mapId);
-||||||| base
-                    mapSys.CreateMap(out var mapId);
-                    var grid = mapManager.CreateGridEntity(mapId);
-=======
-                    mapSys.CreateMap(out var mapId);
                     var grid = mapSys.CreateGridEntity(mapId);
->>>>>>> theirs
                     var ent = sEntMan.SpawnEntity(protoId, new EntityCoordinates(grid.Owner, 0.5f, 0.5f));
                     foreach (var (_, component) in sEntMan.GetNetComponents(ent))
                     {
@@ -346,24 +338,7 @@ namespace Content.IntegrationTests.Tests
                     // If the entity deleted itself, skip all checks
                     if (!server.EntMan.EntityExists(uid))
                     {
-<<<<<<< ours
-||||||| base
-                        Assert.That(Count(server.EntMan), Is.EqualTo(count), $"Server prototype {protoId} failed on deleting itself\n" +
-                            BuildDiffString(serverEntities, Entities(server.EntMan), server.EntMan));
-                        Assert.That(Count(client.EntMan), Is.EqualTo(clientCount), $"Client prototype {protoId} failed on deleting itself\n" +
-                            $"Expected {clientCount} and found {client.EntMan.EntityCount}.\n" +
-                            $"Server count was {count}.\n" +
-                            BuildDiffString(clientEntities, Entities(client.EntMan), client.EntMan));
-=======
                         await CleanupTransientEntities(pair, serverEntities);
-
-                        Assert.That(Count(server.EntMan), Is.EqualTo(count), $"Server prototype {protoId} failed on deleting itself\n" +
-                            BuildDiffString(serverEntities, Entities(server.EntMan), server.EntMan));
-                        Assert.That(Count(client.EntMan), Is.EqualTo(clientCount), $"Client prototype {protoId} failed on deleting itself\n" +
-                            $"Expected {clientCount} and found {client.EntMan.EntityCount}.\n" +
-                            $"Server count was {count}.\n" +
-                            BuildDiffString(clientEntities, Entities(client.EntMan), client.EntMan));
->>>>>>> theirs
                         continue;
                     }
 
@@ -381,14 +356,8 @@ namespace Content.IntegrationTests.Tests
                     }
 
                     await server.WaitPost(() => server.EntMan.DeleteEntity(uid));
-<<<<<<< ours
                     await pair.RunTicksSync(5);
-||||||| base
-                    await pair.RunTicksSync(3);
-=======
-                    await pair.RunTicksSync(3);
                     await CleanupTransientEntities(pair, serverEntities);
->>>>>>> theirs
 
                     // Check that the number of entities has gone back to the original value.
                     Assert.That(Count(server.EntMan), Is.EqualTo(count), $"Server prototype {protoId} failed on deletion: count didn't reset properly\n" +

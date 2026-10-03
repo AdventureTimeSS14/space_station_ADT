@@ -316,34 +316,13 @@ public sealed partial class IngestionSystem
         solution = null;
         time = null;
 
-<<<<<<< ours
-||||||| base
-        if (!Resolve(ingested, ref ingested.Comp))
-        {
-            _popup.PopupClient(Loc.GetString("ingestion-try-use-is-empty", ("entity", ingested)), ingested, user);
-            return false;
-        }
-
-=======
         // TODO: Relay this event to solutions using solution relay
->>>>>>> theirs
         var ev = new EdibleEvent(user);
         RaiseLocalEvent(ingested, ref ev);
 
         solution = ev.Solution;
         time = ev.Time;
 
-<<<<<<< ours
-        if (solution == null)
-        {
-            _popup.PopupClient(Loc.GetString("ingestion-try-use-is-empty", ("entity", ingested)), ingested, user);
-            return false;
-        }
-
-        return !ev.Cancelled;
-||||||| base
-        return !ev.Cancelled && solution != null;
-=======
         if (solution == null)
         {
             _popup.PopupEntity(Loc.GetString("ingestion-try-use-is-empty", ("entity", ingested)), ingested, user);
@@ -351,7 +330,6 @@ public sealed partial class IngestionSystem
         }
 
         return !ev.Cancelled;
->>>>>>> theirs
     }
 
     /// <summary>

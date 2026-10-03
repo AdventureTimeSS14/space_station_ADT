@@ -433,7 +433,7 @@ public sealed partial class GameTicker
         while (query.MoveNext(out var uid, out var gameRule))
         {
             var minPlayers = gameRule.MinPlayers;
-            var name = ToPrettyString(uid);
+            var name = ToPrettyString((uid, MetaData(uid))); // ADT-Tweak-Fix
 
             if (args.Players.Length >= minPlayers)
                 continue;
