@@ -2,8 +2,8 @@ using System.Linq;
 using Content.Server.ADT.Mining;
 using Content.Server.ADT.Mining.Resonator;
 using Content.Server.ADT.PressureDamageModify;
-using Content.Server.Gatherable;
-using Content.Server.Gatherable.Components;
+using Content.Shared.Gatherable;
+using Content.Shared.Gatherable.Components;
 using Content.Shared.ADT.Salvage.Components;
 using Content.Shared.ADT.Weapons.KineticCooldown;
 using Content.Shared.ADT.Weapons.Ranged.Upgrades;
@@ -201,7 +201,7 @@ public sealed class ADTGunUpgradeEffectsSystem : EntitySystem
                 if (gatherable.Owner == args.Target || TerminatingOrDeleted(gatherable) || _hardRock.IsHardRock(gatherable))
                     continue;
 
-                _gatherable.Gather(gatherable, args.Shooter, gatherable.Comp);
+                _gatherable.Gather(gatherable.AsNullable(), args.Shooter);
             }
         }
 

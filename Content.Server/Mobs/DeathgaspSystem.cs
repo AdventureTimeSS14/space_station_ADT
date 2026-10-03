@@ -22,7 +22,7 @@ public sealed partial class DeathgaspSystem : SharedDeathgaspSystem
         if (args.NewMobState != MobState.Dead)
             return;
         // don't deathgasp if they arent going straight from crit to dead
-        if (!component.OnAnyState && args.OldMobState != MobState.Critical)
+        if (!ent.Comp.OnAnyState && args.OldMobState != MobState.Critical)
             return;
         //ADT-Tweak-End
 

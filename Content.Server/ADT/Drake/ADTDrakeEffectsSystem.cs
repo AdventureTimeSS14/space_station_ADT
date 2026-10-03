@@ -1,7 +1,7 @@
 using System.Linq;
 using System.Numerics;
-using Content.Server.Gatherable;
-using Content.Server.Gatherable.Components;
+using Content.Shared.Gatherable;
+using Content.Shared.Gatherable.Components;
 using Content.Shared.ADT.Drake;
 using Content.Shared.Chasm;
 using Content.Shared.Damage;

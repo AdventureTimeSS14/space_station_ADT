@@ -1,4 +1,4 @@
-using Content.Server.Gatherable.Components;
+using Content.Shared.Gatherable.Components;
 using Content.Shared.ADT.Mining;
 using Content.Shared.ADT.Mining.Components;
 using Content.Shared.Damage.Systems;

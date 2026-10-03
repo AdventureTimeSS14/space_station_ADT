@@ -91,6 +91,9 @@ public sealed partial class GatherableSystem : EntitySystem
         if (!Resolve(gathered, ref gathered.Comp))
             return;
 
+        if (TerminatingOrDeleted(gathered) || EntityManager.IsQueuedForDeletion(gathered)) // ADT-Tweak
+            return;
+
         var pos = Transform(gathered).Coordinates;
         if (TryComp<SoundOnGatherComponent>(gathered, out var soundComp))
             _audio.PlayPredicted(soundComp.Sound, pos, gatherer);

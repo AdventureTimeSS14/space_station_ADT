@@ -1,6 +1,6 @@
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Gatherable;
-using Content.Server.Gatherable.Components;
+using Content.Shared.Gatherable;
+using Content.Shared.Gatherable.Components;
 using Content.Shared.ADT.Mining;
 using Content.Shared.ADT.Mining.Resonator;
 using Content.Shared.Administration.Logs;
@@ -237,7 +237,7 @@ public sealed class ADTResonatorSystem : SharedADTResonatorSystem
         foreach (var rock in rocks)
         {
             if (!TerminatingOrDeleted(rock) && !_hardRock.IsHardRock(rock))
-                _gatherable.Gather(rock, ent.Comp.Creator, rock.Comp);
+                _gatherable.Gather(rock.AsNullable(), ent.Comp.Creator);
         }
     }
 

@@ -1,5 +1,5 @@
 using Content.Server.Destructible;
-using Content.Server.Gatherable.Components;
+using Content.Shared.Gatherable.Components;
 using Content.Server.Interaction;
 using Content.Server.Mech.Systems;
 using Content.Shared.DoAfter;
