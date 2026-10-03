@@ -128,7 +128,6 @@ public abstract partial class SharedArtifactCrusherSystem : EntitySystem
         if (crusher.Crushing)
             return;
 
-<<<<<<< ours
         //ADT-Tweak-Start
         if (crusher.SafetyProtocols)
         {
@@ -146,13 +145,6 @@ public abstract partial class SharedArtifactCrusherSystem : EntitySystem
         //if (crusher.AutoLock)
         //    _popup.PopupPredicted(Loc.GetString("artifact-crusher-autolocks-enable"), uid, user);
         //ADT-Tweak-End
-||||||| base
-        if (crusher.AutoLock)
-            _popup.PopupPredicted(Loc.GetString("artifact-crusher-autolocks-enable"), uid, user);
-=======
-        if (crusher.AutoLock)
-            _popup.PopupEntity(Loc.GetString("artifact-crusher-autolocks-enable"), uid);
->>>>>>> theirs
 
         crusher.Crushing = true;
         crusher.NextSecond = _timing.CurTime + TimeSpan.FromSeconds(1);
