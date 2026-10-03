@@ -53,15 +53,6 @@ public sealed class PowerStatePrototypeTest : GameTest
                         Is.EqualTo(expectedLoad),
                         $"Entity prototype '{prototype.ID}' has mismatched power draw between PowerStateComponent and SharedApcPowerReceiverComponent.");
                 }
-<<<<<<< ours
-            });
-        });
-
-        await pair.CleanReturnAsync();
-||||||| base
-            });
-        });
-=======
                 else
                 {
                     Assert.That(prototype.TryComp<PowerConsumerComponent>(out var powerConsumer, SEntMan.ComponentFactory), Is.True);
@@ -71,6 +62,5 @@ public sealed class PowerStatePrototypeTest : GameTest
                 }
             }
         }
->>>>>>> theirs
     }
 }
