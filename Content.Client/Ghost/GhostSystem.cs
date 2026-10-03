@@ -108,7 +108,7 @@ namespace Content.Client.Ghost
                 Popup.PopupEntity(Loc.GetString("ghost-gui-toggle-lighting-manager-popup-normal"), args.Performer);
                 _contentEye.RequestEye(component.DrawFov, true);
             }
-            else if (TryComp<NightVisionComponent>(uid, out var nv) && !nv.Enabled)
+            else if (TryComp<OverlayNightVisionComponent>(uid, out var nv) && !nv.Enabled) // ADT-Tweak
             {
                 Popup.PopupEntity(Loc.GetString("ghost-gui-toggle-lighting-manager-popup-half-bright"), args.Performer);
                 _nv.SetEnabled((uid, nv), true);
