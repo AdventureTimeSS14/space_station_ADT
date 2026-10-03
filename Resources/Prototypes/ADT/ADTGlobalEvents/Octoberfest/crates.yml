@@ -1,0 +1,185 @@
+- type: cargoProduct
+  id: ADTFunOktoberfestClothes
+  icon:
+    sprite: ADT/ADTGlobalEvents/Octoberfest/Clothing/oktoberfest_dirndlshortblue.rsi
+    state: icon
+  product: ADTCrateFunOktoberfestClothes
+  cost: 750
+  category: cargoproduct-category-name-fun
+  group: market
+
+- type: cargoProduct
+  id: ADTCargoOktoberfestSnack
+  icon:
+    sprite: ADT/ADTGlobalEvents/Octoberfest/Food/oktoberfest.rsi
+    state: brezel_salt
+  product: ADTCrateOktoberfestSnack
+  cost: 650
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: ADTCargoBeerTank
+  icon:
+    sprite: ADT/ADTGlobalEvents/Octoberfest/Drinks/beertank.rsi
+    state: beer
+  product: ADTBeerTank
+  cost: 1500
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: ADTCargoGoldenAleTank
+  icon:
+    sprite: ADT/ADTGlobalEvents/Octoberfest/Drinks/beertank.rsi
+    state: goldenale
+  product: ADTBeerTankGoldenAle
+  cost: 1500
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: ADTCargoSausageBeerTank
+  icon:
+    sprite: ADT/ADTGlobalEvents/Octoberfest/Drinks/beertank.rsi
+    state: sausagebeer
+  product: ADTBeerTankSausage
+  cost: 1500
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: ADTCargoTechnoBeerTank
+  icon:
+    sprite: ADT/ADTGlobalEvents/Octoberfest/Drinks/beertank.rsi
+    state: technobeer
+  product: ADTBeerTankTechno
+  cost: 1500
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: ADTCargoPaulanerTank
+  icon:
+    sprite: ADT/ADTGlobalEvents/Octoberfest/Drinks/beertank.rsi
+    state: paulanerbeer
+  product: ADTBeerTankClassicPaulaner
+  cost: 1500
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: ADTCargoLivseyBeerTank
+  icon:
+    sprite: ADT/ADTGlobalEvents/Octoberfest/Drinks/beertank.rsi
+    state: livseybeer
+  product: ADTBeerTankLivsey
+  cost: 1500
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: ADTCargoLuckyJonnyBeerTank
+  icon:
+    sprite: ADT/ADTGlobalEvents/Octoberfest/Drinks/beertank.rsi
+    state: luckyjonnybeer
+  product: ADTBeerTankLuckyJonny
+  cost: 1500
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: ADTCargoSecUnfilteredBeerTank
+  icon:
+    sprite: ADT/ADTGlobalEvents/Octoberfest/Drinks/beertank.rsi
+    state: secunfilteredbeer
+  product: ADTBeerTankSecUnfiltered
+  cost: 1500
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: ADTCargoGlyphidStoutTank
+  icon:
+    sprite: ADT/ADTGlobalEvents/Octoberfest/Drinks/beertank.rsi
+    state: glyphidstout
+  product: ADTBeerTankGlyphidStout
+  cost: 1500
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: entity
+  id: ADTCrateOktoberfestClothes
+  parent: CratePlastic
+  name: oktoberfest clothing crate
+  description: oktoberfest clothing crate
+  suffix: Oktoberfest
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTClothingUniformOktoberfestWhite
+      amount: 2
+    - id: ADTClothingUniformOktoberfestBlueCheckered
+      amount: 2
+    - id: ADTClothingUniformOktoberfestGreenVest
+      amount: 2
+    - id: ADTClothingUniformOktoberfestRedCheckered
+      amount: 2
+    - id: ADTClothingUniformOktoberfestGreenCheckered
+      amount: 2
+    - id: ADTClothingUniformOktoberfestBlueVest
+      amount: 2
+    - id: ADTClothingUniformOktoberfestRedVest
+      amount: 2
+    - id: ADTClothingUniformOktoberfestDirndlShort
+      amount: 2
+    - id: ADTClothingUniformOktoberfestDirndlShortGreen
+      amount: 2
+    - id: ADTClothingUniformOktoberfestDirndlShortRed
+      amount: 2
+    - id: ADTClothingUniformOktoberfestDirndlShortBlue
+      amount: 2
+    - id: ADTClothingUniformOktoberfestDirndlBlue
+      amount: 2
+    - id: ADTClothingUniformOktoberfestDirndlRed
+      amount: 2
+    - id: ADTClothingUniformOktoberfestDirndlGreen
+      amount: 2
+    - id: ADTClothingHeadHatsBavarianHat
+      amount: 2
+    - id: ADTClothingHeadHatsBavarianHatBlueBorder
+      amount: 2
+    - id: ADTClothingHeadHatsBavarianHatRedBorder
+      amount: 2
+    - id: ADTClothingHeadHatsBavarianHatGreenBorder
+      amount: 2
+    - id: ADTClothingHeadHatsBavarianHatBlue
+      amount: 2
+    - id: ADTClothingHeadHatsBavarianHatGreen
+      amount: 2
+    - id: ADTClothingHeadHatsBavarianHatRed
+      amount: 2
+
+- type: entity
+  id: ADTCrateOktoberfestSnack
+  parent: CratePlastic
+  name: oktoberfest snack crate
+  description: oktoberfest snack crate
+  suffix: Oktoberfest
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTFoodWeissWurst
+      amount: 6
+    - id: ADTFoodBratWurst
+      amount: 6
+    - id: ADTFoodBreadBrezel
+      amount: 4
+    - id: ADTFoodBreadBrezelPoppySeeds
+      amount: 4
+    - id: ADTFoodBreadBrezelSalt
+      amount: 4
+    - id: ADTFoodBreadBrezelChocolate
+      amount: 4
+    - id: ADTFoodBreadBrezelVanilla
+      amount: 4

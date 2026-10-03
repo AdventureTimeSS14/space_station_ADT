@@ -1,0 +1,220 @@
+- type: entity
+  id: ADTStatueBeerMessiahLeft
+  parent: BaseStructure
+  name: statue of a beer messiah
+  suffix: Октоберфест, Левая
+  description: statue of a beer messiah
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: ADT/ADTGlobalEvents/Octoberfest/Structures/beer_messiah.rsi
+    state: beer_messiah_left
+    drawdepth: Mobs
+    offset: "0.0,0.5"
+
+- type: entity
+  id: ADTStatueBeerMessiahRight
+  parent: BaseStructure
+  name: statue of a beer messiah
+  suffix: Октоберфест, Правая
+  description: statue of a beer messiah
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: ADT/ADTGlobalEvents/Octoberfest/Structures/beer_messiah.rsi
+    state: beer_messiah_right
+    drawdepth: Mobs
+    offset: "0.0,0.5"
+
+# - type: entity
+#   name: oktoberfest chair
+#   id: ADTChairOktoberfest
+#   parent: ADTChairBase
+#   suffix: Oktoberfest
+#   components:
+#   - type: Sprite
+#     sprite: ADT/ADTGlobalEvents/Octoberfest/Structures/chair.rsi
+#     state: oct_chair_orange
+#   - type: Construction
+#     graph: ADTSeat
+#     node: adtchairoktoberfest
+ 
+# - type: entity
+#   name: orange wooden chair
+#   id: ADTChairOktoberfestOrange
+#   parent: ADTChairBase
+#   description: A wooden chair painted orange.
+#   components:
+#   - type: Sprite
+#     sprite: ADT/ADTGlobalEvents/Octoberfest/Structures/chair.rsi
+#     state: oct_chair_orange
+#   - type: Construction
+#     graph: ADTSeat
+#     node: adtchairoktoberfestorange
+
+- type: entity
+  id: ADTTableOktoberfest
+  parent: ADTTableBase
+  name: wood oktoberfest table
+  description: Do not apply fire to this. Rumour says it burns easily.
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/Octoberfest/Structures/table.rsi
+  - type: Icon
+    sprite: ADT/ADTGlobalEvents/Octoberfest/Structures/table.rsi
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors: #excess damage (nuke?). avoid computational cost of spawning entities.
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Tag
+    tags:
+    - Wooden
+  - type: Construction
+    graph: ADTTable
+    node: adttableoktoberfest
+
+- type: entity
+  id: ADTTableOktoberfestOrange
+  parent: ADTTableBase
+  name: wood oktoberfest orange table
+  description: Do not apply fire to this. Rumour says it burns easily.
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/Octoberfest/Structures/table_orange.rsi
+  - type: Icon
+    sprite: ADT/ADTGlobalEvents/Octoberfest/Structures/table_orange.rsi
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors: #excess damage (nuke?). avoid computational cost of spawning entities.
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Tag
+    tags:
+    - Wooden
+  - type: Construction
+    graph: ADTTable
+    node: adttableoktoberfestorange
+
+- type: entity
+  parent: BaseStructure
+  id: ADTWoodenTradeRack
+  name: wooden trade rack
+  description: A rack for storing things on.
+  suffix: Oktoberfest
+  components:
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path:
+          "/Audio/Weapons/dodgeball.ogg"
+  - type: Anchorable
+  - type: InteractionOutline
+  - type: PlaceableSurface
+  - type: SpriteFade
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/Octoberfest/Structures/woodenshowcase.rsi
+    state: wood_rack
+    snapCardinals: true
+    offset: "0.0,0.5"
+    drawdepth: Overdoors
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.3,0.3,0.1"
+        density: 140
+        mask:
+        - TableMask
+        layer:
+        - TableMask
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 60
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Climbable
+  - type: StaticPrice
+    price: 30
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterLegitOktoberfest
+  name: Oktoberfest!
+  description: "A poster with a tayaran advertising the traditional October beer festival."
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    state: poster_adtoktoberfest_legit #Спрайт от Празата
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterLegitOktoberfest2
+  name: Oktoberfest!
+  description: "A poster with a beer mug advertising the traditional October beer festival."
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    state: poster_adtoktoberfest2_legit #Спрайт от Празата
