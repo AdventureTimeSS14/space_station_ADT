@@ -64,8 +64,8 @@
   name: lethal laser barrage
   components:
   - type: ProjectileSpread
-    proto: BulletLaser
-    count: 4 #52 heat damage if you hit all your shots, but narrower spread
+    proto: BulletLaserHeavy
+    count: 4 #60 heat damage if you hit all your shots, but narrower spread
     spread: 10
 
 - type: entity

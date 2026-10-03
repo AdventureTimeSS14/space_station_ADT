@@ -9,7 +9,7 @@
   discountDownTo:
     Telecrystal: 3
   cost:
-    Telecrystal: 6
+    Telecrystal: 5 # ADT-Tweak 6>5
   categories:
   - UplinkJob
   conditions:
@@ -77,9 +77,9 @@
   productEntity: BoxHoloclown
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 6
+    Telecrystal: 6 # ADT-Tweak 6>5
   cost:
-    Telecrystal: 12
+    Telecrystal: 10 # ADT-Tweak 12>10
   categories:
   - UplinkJob
   conditions:
@@ -96,7 +96,7 @@
     Telecrystal: 2
   productEntity: HotPotato
   cost:
-    Telecrystal: 4
+    Telecrystal: 3 # ADT-Tweak 4>3
   categories:
   - UplinkJob
   conditions:
@@ -133,7 +133,7 @@
   discountDownTo:
     Telecrystal: 2
   cost:
-    Telecrystal: 5 # was 4, with my buff made it 5 to be closer to minibomb -panzer
+    Telecrystal: 4 # ADT-Tweak 5>4
   categories:
   - UplinkJob
   conditions:
@@ -193,7 +193,7 @@
   discountDownTo:
     Telecrystal: 2
   cost:
-    Telecrystal: 4
+    Telecrystal: 4 # ADT-Tweak
   categories:
   - UplinkJob
   conditions:
@@ -243,11 +243,11 @@
   name: uplink-briefcase-gun-name
   description: uplink-briefcase-gun-desc
   productEntity: WeaponSubMachineGunBriefcase
-  discountCategory: veryRareDiscounts
+  discountCategory: rareDiscounts  # ADT-Tweak  veryRareDiscounts -> rareDiscounts
   discountDownTo:
-    Telecrystal: 10
+    Telecrystal: 7 # ADT-Tweak 7 -> 10
   cost:
-    Telecrystal: 14
+    Telecrystal: 12 # ADT-Tweak 15 -> 12
   categories:
   - UplinkJob
   conditions:

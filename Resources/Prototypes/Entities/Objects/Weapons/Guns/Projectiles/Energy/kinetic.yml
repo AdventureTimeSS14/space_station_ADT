@@ -24,6 +24,7 @@
   - type: TimedDespawn
     lifetime: 0.22 # roughly 5.5 tiles
   - type: GatheringProjectile
+  - type: PressureDamageModify # ADT tweak
 
 - type: entity
   parent: BaseBullet
@@ -72,7 +73,7 @@
   - type: DamageMarkerOnCollide
     whitelist:
       components:
-      - MobState
+      - Fauna # ADT-Tweak
     damage:
       types:
         Blunt: 18

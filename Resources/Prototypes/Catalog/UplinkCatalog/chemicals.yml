@@ -8,9 +8,9 @@
   productEntity: HypopenBox
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 4
+    Telecrystal: 3 # ADT-Tweak 4>3
   cost:
-    Telecrystal: 6
+    Telecrystal: 5 # ADT-Tweak 6>4
   categories:
   - UplinkChemicals
 
@@ -36,9 +36,9 @@
   productEntity: ChemicalSynthesisKit
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 2 # ADT-Tweak 3>2
   cost:
-    Telecrystal: 3
+    Telecrystal: 3 # ADT-Tweak 4>3
   categories:
   - UplinkChemicals
 
@@ -49,7 +49,7 @@
   icon: { sprite: /Textures/Structures/Wallmounts/signs.rsi, state: bio }
   productEntity: ClothingBackpackDuffelZombieBundle
   cost:
-    Telecrystal: 40
+    Telecrystal: 35 # ADT-Tweak (40 > 35)
   categories:
   - UplinkChemicals
   conditions:
@@ -69,9 +69,9 @@
   productEntity: ChemistryBottleNocturine
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 3 # ADT-Tweak 4>3
   cost:
-    Telecrystal: 4
+    Telecrystal: 5 # ADT-Tweak 6>4
   categories:
   - UplinkChemicals
 
@@ -144,9 +144,9 @@
   productEntity: ClothingBackpackDuffelSyndicateMedicalBundleFilled
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 16
+    Telecrystal: 12 # ADT-Tweak
   cost:
-    Telecrystal: 24
+    Telecrystal: 24 # ADT-Tweak
   categories:
   - UplinkChemicals
   conditions:

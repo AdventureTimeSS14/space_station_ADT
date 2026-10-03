@@ -34,4 +34,9 @@
       types:
         Heat: 10
   - type: ChangeTemperatureOnCollide
-    heat: 100000 #This may be a bit underpowered, but in testing, 130000 was RIDICULOUS and killed in seconds.
+    heat: 80000 #This may be a bit underpowered, but in testing, 130000 was RIDICULOUS and killed in seconds. ADT-Tweak 100000 -> 80000
+  #ADT‑Tweak start
+  - type: IgniteOnCollide
+    fireStacks: 0
+    count: 10
+  #ADT‑Tweak end
