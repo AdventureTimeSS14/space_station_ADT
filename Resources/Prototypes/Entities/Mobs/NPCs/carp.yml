@@ -280,14 +280,14 @@
       types:
         Slash: 10
         Bloodloss: 5
-    # ADT-tweak-start
+  # ADT-tweak-start
   - type: CollectiveMindRank
-      rankName: collective-mind-shark-rank
+    rankName: collective-mind-shark-rank
   - type: LanguageSpeaker
-      languages:
-        GalacticCommon: Speak
-        CarpCollectiveMind: Speak
-    # ADT-tweak-end
+    languages:
+      GalacticCommon: Speak
+      CarpCollectiveMind: Speak
+  # ADT-tweak-end
 
 - type: entity
   id: MobSharkSalvage

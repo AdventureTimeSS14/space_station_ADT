@@ -20,17 +20,9 @@
     description: ghost-role-information-monkey-advanced-description
     rules: ghost-role-information-nonantagonist-rules
   - type: GhostTakeoverAvailable
-  - type: Clumsy
-    gunShootFailDamage:
-      types:
-        Blunt: 5
-        Piercing: 4
-        Heat: 3
-    catchingFailDamage:
-      types:
-        Blunt: 1
-    clumsySound:
-      path: /Audio/Animals/monkey_scream.ogg
+  - type: PermanentStatusEffects
+    statusEffects:
+    - StatusEffectClumsyMonkey
   - type: GrabIntent
   - type: Body
   - type: Hands
@@ -83,17 +75,9 @@
     name: ghost-role-information-kobold-advanced-name
     description: ghost-role-information-kobold-advanced-description
     rules: ghost-role-information-nonantagonist-rules
-  - type: Clumsy
-    gunShootFailDamage:
-      types:
-        Blunt: 2
-        Piercing: 7
-        Heat: 3
-    catchingFailDamage:
-      types:
-        Blunt: 1
-    clumsySound:
-      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: PermanentStatusEffects
+    statusEffects:
+    - ADTStatusEffectClumsyKoboldAdvanced
   - type: Body
   - type: Hands
     hands:

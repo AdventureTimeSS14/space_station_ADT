@@ -107,6 +107,12 @@
           state: dwarfism_hand_right
   - type: HumanoidProfile
     species: Dwarf
+  # ADT-Tweak start
+  - type: InnateMiningScannerViewer
+    pingSound: null
+    viewRange: 4
+  # ADT-Tweak end
+
 - type: displacementData
   id: Dwarfism
   displacement:
@@ -114,11 +120,6 @@
       32:
         sprite: Mobs/Species/Human/displacement.rsi
         state: dwarfism
-  # ADT-Tweak start
-- type: InnateMiningScannerViewer
-    pingSound: null
-    viewRange: 4
-  # ADT-Tweak end
 
 - type: entity
   parent:

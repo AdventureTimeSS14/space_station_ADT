@@ -96,12 +96,9 @@
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Monkey_burning
-  - type: Clumsy
-    gunShootFailDamage:
-      types:
-        Blunt: 20
-        Piercing: 15
-        Heat: 15
+  - type: PermanentStatusEffects
+    statusEffects:
+    - ADTStatusEffectClumsySlugcat
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
   - type: LanguageSpeaker
