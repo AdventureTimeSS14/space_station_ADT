@@ -690,12 +690,12 @@ public sealed partial class ChangelingSystem
             QueueDel(cuff);
         }
 
-        if (TryComp<EnsnareableComponent>(uid, out var ensnareable) &&
-            ensnareable.IsEnsnared && ensnareable.Container.ContainedEntities.Count > 0)
+        // ADT-Tweak: ensnare API now goes through SharedEnsnareableSystem.
+        if (_snare.IsEnsnared(uid))
         {
-            var bola = ensnareable.Container.ContainedEntities[0];
-            _snare.ForceFree(bola, Comp<EnsnaringComponent>(bola));
-            QueueDel(bola);
+            var removed = _snare.ForceFreeAll(uid);
+            if (removed.Count > 0)
+                QueueDel(removed[0]);
         }
 
         // Goobstation start unwelds containers containing changelling.
