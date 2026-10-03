@@ -55,8 +55,6 @@ public sealed partial class ActionUIController : UIController, IOnStateChanged<G
     [UISystemDependency] private readonly ActionsSystem? _actionsSystem = default;
     [UISystemDependency] private readonly InteractionOutlineSystem? _interactionOutline = default;
     [UISystemDependency] private readonly TargetOutlineSystem? _targetOutline = default;
-<<<<<<< ours
-    [UISystemDependency] private readonly SpriteSystem _spriteSystem = default!;
     [UISystemDependency] private readonly ADT.Heretic.StopTargetingSystem? _stopTargeting = default;
     [UISystemDependency] private readonly ADTActionOrderSystem? _orderSystem = default;
 
@@ -65,10 +63,6 @@ public sealed partial class ActionUIController : UIController, IOnStateChanged<G
     private ADTActionOrderSystem? ActionOrder => IsMapping ? null : _orderSystem;
     private bool _showRemovedOnly;
     // ADT-Tweak-End
-||||||| base
-    [UISystemDependency] private readonly SpriteSystem _spriteSystem = default!;
-=======
->>>>>>> theirs
 
     private ActionButtonContainer? _container;
     private readonly List<EntityUid?> _actions = new();
