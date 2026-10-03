@@ -1,12 +1,3 @@
-<<<<<<< ours
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using Content.Shared.ADT.Roles;
-||||||| base
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-=======
->>>>>>> theirs
 using Content.Shared.Administration.Logs;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
