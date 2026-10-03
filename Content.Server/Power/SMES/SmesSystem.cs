@@ -13,13 +13,7 @@ using Robust.Shared.Timing;
 namespace Content.Server.Power.SMES;
 
 [UsedImplicitly]
-<<<<<<< ours
-public sealed class SmesSystem : EntitySystem //ADT-tweak: made public
-||||||| base
-internal sealed class SmesSystem : EntitySystem
-=======
-internal sealed partial class SmesSystem : EntitySystem
->>>>>>> theirs
+public sealed partial class SmesSystem : EntitySystem // ADT-tweak: made public
 {
     [Dependency] private IGameTiming _gameTiming = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;
