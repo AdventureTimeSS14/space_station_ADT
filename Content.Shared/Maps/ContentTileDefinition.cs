@@ -109,7 +109,6 @@ public sealed partial class ContentTileDefinition : IPrototype, IInheritingProto
     [DataField]
     public float? MobFriction { get; private set; }
 
-<<<<<<< ours
         // ADT-Tweak start
         /// <summary>
         ///     Множитель скорости передвижения мобов, стоящих на этой плитке (1 - без эффекта).
@@ -123,19 +122,6 @@ public sealed partial class ContentTileDefinition : IPrototype, IInheritingProto
         /// </summary>
         [DataField("mobAcceleration")]
         public float? MobAcceleration { get; private set; }
-||||||| base
-        /// <summary>
-        ///     Accel override for mob mover in <see cref="SharedMoverController"/>
-        /// </summary>
-        [DataField("mobAcceleration")]
-        public float? MobAcceleration { get; private set; }
-=======
-    /// <summary>
-    /// Accel override for mob mover in <see cref="SharedMoverController"/>
-    /// </summary>
-    [DataField]
-    public float? MobAcceleration { get; private set; }
->>>>>>> theirs
 
     [DataField] public bool Sturdy { get; private set; } = true;
 
