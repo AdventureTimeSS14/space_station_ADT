@@ -206,7 +206,6 @@
     soundHit:
       path: /Audio/Effects/hit_kick.ogg
   - type: Butcherable
-    butcheringType: Spike # TODO human.
     spawned:
       - id: FoodMeat
       - id: ClothingHeadHatCatEars

@@ -140,18 +140,20 @@
     radius: 1
     energy: 3
     color: deepskyblue
-  - type: Butcherable
-    spawned:
-    - id: MaterialBones1 #ADT tweak
-      maxAmount: 3 #ADT tweak
-    - id: SilverOre1 #ADT tweak
-      maxAmount: 3 #ADT tweak
-    - id: DiamondOre1 #ADT tweak
-      maxAmount: 1 #ADT tweak
-    - id: ADTMaterialSinew1 #ADT tweak
-      maxAmount: 2 #ADT tweak
-    - id: ADTGemFrostDiamond # ADT-Tweak
-      prob: 0.3 # ADT-Tweak
+  # ADT-Tweak-Start
+  - type: ToolRefinable
+    refineResult:
+    - id: MaterialBones1
+      maxAmount: 3
+    - id: SilverOre1
+      maxAmount: 3
+    - id: DiamondOre1
+      maxAmount: 1
+    - id: ADTMaterialSinew1
+      maxAmount: 2
+    - id: ADTGemFrostDiamond
+      prob: 0.3
+  # ADT-Tweak-End
 
 - type: entity
   id: MobWatcherMagmawing
@@ -178,18 +180,20 @@
   - type: BatteryAmmoProvider
     proto: WatcherBoltMagmawing
     fireCost: 50
-  - type: Butcherable
-    spawned:
-    - id: MaterialBones1 #ADT tweak
-      maxAmount: 3 #ADT tweak
-    - id: PlasmaOre1 #ADT tweak
+  # ADT-Tweak-Start
+  - type: ToolRefinable
+    refineResult:
+    - id: MaterialBones1
+      maxAmount: 3
+    - id: PlasmaOre1
       maxAmount: 2
-    - id: DiamondOre1 #ADT tweak
-      maxAmount: 2 #ADT tweak
-    - id: ADTMaterialSinew1 #ADT tweak
-      maxAmount: 2 #ADT tweak
-    - id: ADTMagmaGem #ADT tweak
-      prob: 0.5 #ADT tweak
+    - id: DiamondOre1
+      maxAmount: 2
+    - id: ADTMaterialSinew1
+      maxAmount: 2
+    - id: ADTMagmaGem
+      prob: 0.5
+  # ADT-Tweak-End
 
 - type: entity
   id: MobWatcherPride

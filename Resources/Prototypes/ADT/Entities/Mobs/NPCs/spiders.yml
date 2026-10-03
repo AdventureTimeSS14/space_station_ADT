@@ -2,7 +2,7 @@
 # random sprite state when you spawn it.
 - type: entity
   name: base spider
-  parent: SimpleSpaceMobBase
+  parent: [ SimpleSpaceMobBase, BaseSlicingRefinable ]
   id: ADTMobBaseSpider
   abstract: true
   description: Widely recognized to be the literal worst thing in existence.
@@ -46,8 +46,8 @@
     speedModifierThresholds:
       64: 0.7
       72: 0.5
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeatSpider
       amount: 2
   - type: CombatMode
@@ -259,8 +259,8 @@
     speedModifierThresholds:
       25: 0.7
       35: 0.5
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeatSpider
       amount: 1
     - id: ADTViperChelicerae
@@ -470,8 +470,8 @@
       noMovementLayers:
         movement:
           state: clown
-    - type: Butcherable
-      spawned:
+    - type: ToolRefinable
+      refineResult:
         - id: MaterialBananium1
           amount: 1
     - type: DamageStateVisuals

@@ -1,5 +1,5 @@
 ﻿- type: entity
-  parent: [ SimpleSpaceMobBase, FlyingMobBase ]
+  parent: [ SimpleSpaceMobBase, FlyingMobBase, BaseSlicingRefinable ]
   id: ADTMobSpaceEmperor
   name: ADTMobSpaceEmperor-name
   description: ADTMobSpaceEmperor-desc
@@ -131,8 +131,8 @@
     solutionOnBody: false
     updateInterval: 0.25
     metabolizerTypes: [ Dragon ]
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeatDragon
       amount: 2
   - type: InteractionPopup

@@ -1,6 +1,6 @@
 - type: entity
   name: Slug Cat
-  parent: SimpleMobBase
+  parent: [ SimpleMobBase, BaseSlicingRefinable ]
   id: ADTMobSlugCatRivulet
   description: An amazing creature that looks like a cat and a slug at the same time. But it's not a slug, if you look closely you'll realize it just has very slippery skin. Very agile and clever.
   components:
@@ -40,8 +40,8 @@
         Base: crit-rivulet
       Dead:
         Base: dead-rivulet
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeat
       amount: 2
   - type: InteractionPopup

@@ -828,9 +828,8 @@
     sprite: ADT/Personalization/prazat_suit.rsi
   - type: Clothing
     sprite: ADT/Personalization/prazat_suit.rsi
-  - type: Butcherable
-    butcheringType: Knife
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: MaterialDurathread1
       amount: 3
   - type: StaticPrice
@@ -847,9 +846,8 @@
     sprite: ADT/Personalization/prazat_official_uniform.rsi
   - type: Clothing
     sprite: ADT/Personalization/prazat_official_uniform.rsi
-  - type: Butcherable
-    butcheringType: Knife
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: MaterialDurathread1
       amount: 3
   - type: StaticPrice
@@ -872,9 +870,8 @@
     sprite: ADT/Personalization/prazat_ulan_uniform.rsi
   - type: Clothing
     sprite: ADT/Personalization/prazat_ulan_uniform.rsi
-  - type: Butcherable
-    butcheringType: Knife
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: MaterialDurathread1
       amount: 3
   - type: StaticPrice

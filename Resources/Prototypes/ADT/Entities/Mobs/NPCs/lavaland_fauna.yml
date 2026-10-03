@@ -1,7 +1,7 @@
 - type: entity
   name: gutlunch
   id: ADTMobGutlunch
-  parent: ADTSimpleMobBaselavaland
+  parent: [ ADTSimpleMobBaselavaland, BaseSlicingRefinable ]
   description: A scavenger that eats raw meat, often found alongside ash walkers. Produces a thick, medicinally nutritious milk.
   components:
   - type: Hunger
@@ -57,8 +57,8 @@
   - type: NpcFactionMember
     factions:
     - SimpleNeutral
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeat
       amount: 2
   - type: SolutionContainerManager
@@ -129,8 +129,8 @@
     thresholds:
       0: Alive
       25: Dead
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeat
       amount: 1
   - type: Udder
@@ -150,7 +150,7 @@
 - type: entity
   name: goldgrub
   id: ADTMobGoldgrub
-  parent: ADTSimpleMobBaselavaland
+  parent: [ ADTSimpleMobBaselavaland, BaseSlicingRefinable ]
   description: A worm that grows fat from eating everything in its sight. Seems to enjoy precious metals and other shiny things, hence the name.
   components:
   - type: Tag
@@ -206,8 +206,8 @@
     factions:
     - SimpleNeutral
   - type: ADTBulletDeflect
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: ADTFoodMeatGoldgrub
       amount: 1
   - type: ADTScavenger

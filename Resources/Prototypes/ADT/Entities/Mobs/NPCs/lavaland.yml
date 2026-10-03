@@ -262,10 +262,9 @@
   - type: ADTMobLoot
     loots:
       ADTKineticTrophyPoisonFang: 0.1
-  - type: Butcherable
-    butcheringType: Knife
-    butcherDelay: 6
-    spawned:
+  - type: ToolRefinable
+    refineTime: 6
+    refineResult:
     - id: UraniumOre1
       amount: 2
     - id: MaterialBones1

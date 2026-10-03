@@ -71,7 +71,7 @@
 
 - type: entity
   name: Странный плюшевый медведь
-  parent: [BaseMob, MobDamageable]
+  parent: [BaseMob, MobDamageable, BaseSlicingRefinable]
   id: ADTMobTeddyBear
   description: Милый двухцветный плюшевый медведь, но его улыбка почему-то кажется зловещей...
   components:
@@ -144,8 +144,8 @@
     successChance: 0.9
     interactSuccessString: petting-success-teddy
     interactFailureString: petting-failure-teddy
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: MaterialCloth1
       amount: 2
   - type: Puller

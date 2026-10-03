@@ -152,7 +152,6 @@
   - type: Thirst
     #baseDecayRate: 0.0083
   - type: Butcherable
-    butcheringType: Spike
     spawned:
     - id: FoodMeatBear
       amount: 5

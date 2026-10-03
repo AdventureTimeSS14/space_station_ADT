@@ -226,7 +226,6 @@
   - type: TryCatchBreath
     doAfterTime: 5
   - type: Butcherable
-    butcheringType: Spike
     spawned:
     - id: FoodMeatChicken
       amount: 5

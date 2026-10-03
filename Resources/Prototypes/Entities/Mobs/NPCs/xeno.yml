@@ -2,7 +2,7 @@
 - type: entity
   name: burrower
   id: MobXeno
-  parent: [ SimpleSpaceMobBase, MobNightVision, BaseMobDestructible ]
+  parent: [ SimpleSpaceMobBase, MobNightVision, BaseMobDestructible, BaseSlicingRefinable ] # ADT-Tweak
   description: They mostly come at night. Mostly.
   components:
   - type: Insulated
@@ -96,11 +96,12 @@
       Dead:
         Base: dead
   - type: Puller
-  - type: Butcherable
-    butcheringType: knife # ADT-Tweak butcheringType: Spike
-    spawned:
+  # ADT-Tweak-Start
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeatXeno
-      amount: 2 # ADT-Tweak 5 -> 2
+      amount: 2
+  # ADT-Tweak-End
   - type: GhostRole
     allowMovement: true
     allowSpeech: true
@@ -382,6 +383,12 @@
     spawned:
     - id: FoodMeatRouny
       amount: 3
+  # ADT-Tweak-Start
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodMeatRouny
+      amount: 3
+  # ADT-Tweak-End
   # ADT-CollectiveMind-Tweak-Start
   - type: CollectiveMindRank
     rankName: collective-mind-rouny-rank

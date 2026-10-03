@@ -134,7 +134,7 @@
 
 - type: entity
   name: pigeon
-  parent: [ SimpleMobBase, FlyingMobBase, MobCombat ]
+  parent: [ SimpleMobBase, FlyingMobBase, MobCombat, BaseSlicingRefinable ]
   id: ADTMobPigeon
   description: Those animals from cities, who's pissing you off. Now in space!
   components:
@@ -166,8 +166,8 @@
         Base: dead
       Dead:
         Base: dead
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeat
       amount: 1
   - type: InteractionPopup
@@ -199,7 +199,7 @@
 
 - type: entity
   name: turtle
-  parent: SimpleMobBase
+  parent: [ SimpleMobBase, BaseSlicingRefinable ]
   id: ADTModTurtle
   description: A sea doggy. Old, lazy and so cute!
   components:
@@ -229,8 +229,8 @@
         Base: turtle_dead
       Dead:
         Base: turtle_dead
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeat
   - type: InteractionPopup
     successChance: 0.5
@@ -253,7 +253,7 @@
       GalacticCommon: Understand
 
 - type: entity
-  parent: [ SimpleSpaceMobBase, FlyingMobBase ]
+  parent: [ SimpleSpaceMobBase, FlyingMobBase, BaseSlicingRefinable ]
   id: ADTMobDragonPet
   name: baby space dragon
   description: Even a flying leviathan starts off small and from an egg.
@@ -371,8 +371,8 @@
   - type: Metabolizer
     solutionOnBody: false
     metabolizerTypes: [ Dragon ]
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeatDragon
       amount: 1
   - type: InteractionPopup
@@ -405,7 +405,7 @@
 
 - type: entity
   name: antlion
-  parent: SimpleMobBase
+  parent: [ SimpleMobBase, BaseSlicingRefinable ]
   id: ADTModAntlion
   description: A natural enemy of combine machines. Hates vibrations.
   components:
@@ -435,8 +435,8 @@
         Base: antlion_dead
       Dead:
         Base: antlion_dead
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeatSpider
       amount: 1
     - id: ADTViperChelicerae
@@ -474,7 +474,7 @@
 
 - type: entity
   name: gondola
-  parent: SimpleMobBase
+  parent: [ SimpleMobBase, BaseSlicingRefinable ]
   id: ADTMobGondola
   description: His neutral facial expression shows his utter and complete acceptance of the world as it is.
   components:
@@ -515,8 +515,8 @@
         Base: dead
       Dead:
         Base: dead
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeatGondola
       amount: 3
   - type: GondolaSpeaking

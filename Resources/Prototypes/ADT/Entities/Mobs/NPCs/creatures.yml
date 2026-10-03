@@ -131,7 +131,6 @@
         - MobLayer
 #
   - type: Butcherable
-    butcheringType: Spike
     spawned:
     - id: FoodMeat
       amount: 5
@@ -374,7 +373,6 @@
         Base: dead
 #
   - type: Butcherable
-    butcheringType: Spike
     spawned:
     - id: FoodMeat
       amount: 5
