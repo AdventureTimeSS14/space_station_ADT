@@ -122,14 +122,8 @@ public sealed partial class IngestionSystem
         if (!required || (usedTypes & requiredTypes) == requiredTypes)
             return true;
 
-<<<<<<< ours
         if (showPopup) // ADT-Tweak
-            _popup.PopupClient(Loc.GetString("ingestion-you-need-to-hold-utensil", ("utensil", requiredTypes ^ usedTypes)), entity, entity);
-||||||| base
-        _popup.PopupClient(Loc.GetString("ingestion-you-need-to-hold-utensil", ("utensil", requiredTypes ^ usedTypes)), entity, entity);
-=======
-        _popup.PopupEntity(Loc.GetString("ingestion-you-need-to-hold-utensil", ("utensil", requiredTypes ^ usedTypes)), entity, entity);
->>>>>>> theirs
+            _popup.PopupEntity(Loc.GetString("ingestion-you-need-to-hold-utensil", ("utensil", requiredTypes ^ usedTypes)), entity, entity);
         return false;
 
     }
