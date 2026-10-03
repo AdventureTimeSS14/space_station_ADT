@@ -32,9 +32,9 @@ public sealed partial class BloodstreamSystem : EntitySystem
 {
     public static readonly EntProtoId Bloodloss = "StatusEffectBloodloss";
 
-<<<<<<< HEAD:Content.Shared/Body/Systems/SharedBloodstreamSystem.cs
     [Dependency] protected readonly IPrototypeManager PrototypeManager = default!;
     [Dependency] protected readonly SharedSolutionContainerSystem SolutionContainer = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -44,7 +44,7 @@ public sealed partial class BloodstreamSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly SharedSyllableSystem _syllableSystem = default!; //ADT-Tweak
-
+    [Dependency] private readonly MetabolizerSystem _metabolizer = default!;
     [Dependency] private EntityQuery<BloodstreamComponent> _bloodstreamQuery = default!; // ADT-Tweak
 
     public override void Initialize()
@@ -62,18 +62,6 @@ public sealed partial class BloodstreamSystem : EntitySystem
         SubscribeLocalEvent<BloodstreamComponent, RejuvenateEvent>(OnRejuvenate);
         SubscribeLocalEvent<BloodstreamComponent, MetabolismExclusionEvent>(OnMetabolismExclusion);
     }
-=======
-    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private IGameTiming _timing = default!;
-    [Dependency] private SharedAudioSystem _audio = default!;
-    [Dependency] private SharedPopupSystem _popup = default!;
-    [Dependency] private SharedPuddleSystem _puddle = default!;
-    [Dependency] private StatusEffectsSystem _status = default!;
-    [Dependency] private AlertsSystem _alertsSystem = default!;
-    [Dependency] private MobStateSystem _mobStateSystem = default!;
-    [Dependency] private DamageableSystem _damageableSystem = default!;
-    [Dependency] private MetabolizerSystem _metabolizer = default!;
->>>>>>> wizards-filtered:Content.Shared/Body/Systems/BloodstreamSystem.cs
 
     public override void Update(float frameTime)
     {
