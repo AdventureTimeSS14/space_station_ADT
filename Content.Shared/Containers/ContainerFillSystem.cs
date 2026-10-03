@@ -45,17 +45,8 @@ public sealed partial class ContainerFillSystem : EntitySystem
                 if (!_containerSystem.Insert(ent, container, containerXform: xform))
                 {
                     var alreadyContained = container.ContainedEntities.Count > 0 ? string.Join("\n", container.ContainedEntities.Select(e => $"\t - {ToPrettyString(e)}")) : "< empty >";
-<<<<<<< ours
-                    // ADT-Tweak start
                     Log.Warning($"Entity {ToPrettyString(uid)} with a {nameof(ContainerFillComponent)} failed to insert an entity: {ToPrettyString(ent)}.\nCurrent contents:\n{alreadyContained}");
                     Del(ent);
-                    // ADT-Tweak end
-||||||| base
-                    Log.Error($"Entity {ToPrettyString(uid)} with a {nameof(ContainerFillComponent)} failed to insert an entity: {ToPrettyString(ent)}.\nCurrent contents:\n{alreadyContained}");
-                    _transform.AttachToGridOrMap(ent);
-=======
-                    Log.Error($"Entity {ToPrettyString(uid)} with a {nameof(ContainerFillComponent)} failed to insert an entity: {ToPrettyString(ent)}.\nCurrent contents:\n{alreadyContained}");
->>>>>>> theirs
                     break;
                 }
             }
