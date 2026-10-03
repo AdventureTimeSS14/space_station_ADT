@@ -3,6 +3,7 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.Body;
 using Content.Shared.Cloning;
 using Content.Shared.Cloning.Events;
+using Content.Shared.Damage.Systems; // ADT-Tweak
 using Content.Shared.Database;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
@@ -300,6 +301,9 @@ public sealed partial class CloningSystem : SharedCloningSystem
             var effectProto = Prototype(effect);
 
             if (effectProto is null)
+                continue;
+
+            if (effectProto.ID == SharedStaminaSystem.StaminaLow) // ADT-Tweak: не копируем низкую стамину
                 continue;
 
             _statusEffects.TrySetStatusEffectDuration(target, effectProto);
