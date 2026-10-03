@@ -37,4 +37,23 @@ public sealed partial class HasComponentTrigger : IThresholdTrigger
 
         return hasComp ^ Invert;
     }
+
+    public int CompareTo(IThresholdTrigger? other)
+    {
+        if (other is not HasComponentTrigger trigger)
+            return 0;
+
+        var count = Components.Count.CompareTo(trigger.Components.Count);
+        if (count != 0)
+            return count;
+
+        return Invert.CompareTo(trigger.Invert);
+    }
+
+    public bool Equals(IThresholdTrigger? other)
+    {
+        return other is HasComponentTrigger trigger
+               && Invert == trigger.Invert
+               && Components.SetEquals(trigger.Components);
+    }
 }
