@@ -320,13 +320,6 @@
   category: Disabilities
   cost: -1
   effects:
-    - !type:AddCompsEffect
-      components:
-        - type: Clumsy
-          gunShootFailDamage:
-            types:
-              Blunt: 5
-              Piercing: 4
-              Heat: 3
-              Cold: 3
-              Shock: 3
+    - !type:AddStatusEffect
+      statusEffects:
+        - ADTStatusEffectClumsyTrait

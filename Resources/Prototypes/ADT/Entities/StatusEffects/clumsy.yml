@@ -19,3 +19,16 @@
         Blunt: 20
         Piercing: 15
         Heat: 15
+
+- type: entity
+  parent: [ StatusEffectClumsyAll, MobStatusEffectBase ]
+  id: ADTStatusEffectClumsyTrait
+  components:
+  - type: ClumsyGunStatusEffect
+    failDamage:
+      types:
+        Blunt: 5
+        Piercing: 4
+        Heat: 3
+        Cold: 3
+        Shock: 3
