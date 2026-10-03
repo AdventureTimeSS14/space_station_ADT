@@ -153,17 +153,9 @@ public sealed partial class FatExtractorSystem : EntitySystem
                 continue;
             fat.NextUpdate += fat.UpdateTime;
 
-<<<<<<< ours
             var nutrition = (int) (fat.NutritionPerSecond * fat.NutritionMultiplier); // ADT-Tweak
-            _hunger.ModifyHunger(occupant.Value, -nutrition); // ADT-Tweak
-            fat.NutrientAccumulator += nutrition; // ADT-Tweak
-||||||| base
-            _hunger.ModifyHunger(occupant.Value, -fat.NutritionPerSecond);
-            fat.NutrientAccumulator += fat.NutritionPerSecond;
-=======
-            _satiation.ModifyValue(occupant.Value, SatiationSystem.Hunger, -fat.NutritionPerSecond);
-            fat.NutrientAccumulator += fat.NutritionPerSecond;
->>>>>>> theirs
+            _satiation.ModifyValue(occupant.Value, SatiationSystem.Hunger, -nutrition);
+            fat.NutrientAccumulator += nutrition;
             if (fat.NutrientAccumulator >= fat.NutrientPerMeat)
             {
                 fat.NutrientAccumulator -= fat.NutrientPerMeat;
