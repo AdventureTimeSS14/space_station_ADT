@@ -6,8 +6,10 @@ using Content.Shared.Clumsy.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Medical;
+using Content.Shared.Mind; // ADT-Tweak
 using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
+using Content.Shared.Roles; // ADT-Tweak
 using Content.Shared.StatusEffectNew;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
@@ -33,6 +35,8 @@ public sealed partial class ClumsyStatusEffectSystem : EntitySystem
     [Dependency] private IConfigurationManager _cfg = default!;
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private INetManager _net = default!;
+    [Dependency] private SharedMindSystem _mind = default!; // ADT-Tweak
+    [Dependency] private SharedRoleSystem _role = default!; // ADT-Tweak
 
     #region Subscriptions
 
@@ -93,6 +97,7 @@ public sealed partial class ClumsyStatusEffectSystem : EntitySystem
     {
         if (args.Args.Cancelled
             || args.Args.Gun.Comp.ClumsyProof
+            || IsAntagonist(args.AppliedTo) // ADT-Tweak
             || !SharedRandomExtensions.PredictedProb(_timing, status.Comp.ClumsyChance, GetNetEntity(status), GetNetEntity(args.AppliedTo)))
             return;
 
@@ -140,7 +145,7 @@ public sealed partial class ClumsyStatusEffectSystem : EntitySystem
             || !SharedRandomExtensions.PredictedProb(_timing, status.Comp.ClumsyChance, GetNetEntity(status), GetNetEntity(args.AppliedTo)))
             return;
 
-        args.Args.Cancel();
+        // args.Args.Cancel(); // ADT-Tweak
 
         _climb.Bonk(args.Args.BeingClimbedOn.Owner, args.Args.GettingPutOnTable);
 
@@ -179,4 +184,12 @@ public sealed partial class ClumsyStatusEffectSystem : EntitySystem
     }
 
     #endregion
+
+    // ADT-Tweak start
+    private bool IsAntagonist(EntityUid uid)
+    {
+        var mindId = _mind.GetMind(uid);
+        return mindId != null && _role.MindIsAntagonist(mindId);
+    }
+    // ADT-Tweak end
 }

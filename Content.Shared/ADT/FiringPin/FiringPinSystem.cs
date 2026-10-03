@@ -1,7 +1,7 @@
 using System.Numerics;
 using Content.Shared.Access;
 using Content.Shared.Access.Systems;
-using Content.Shared.Clumsy;
+using Content.Shared.Clumsy.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DoAfter;
 using Content.Shared.Emag.Systems;
@@ -14,6 +14,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Popups;
 using Content.Shared.Station;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.Tag;
 using Content.Shared.Tools.Components;
 using Content.Shared.Verbs;
@@ -45,6 +46,7 @@ public sealed partial class FiringPinSystem : EntitySystem
     [Dependency] private SharedExplosionSystem _explosion = default!;
     [Dependency] private SharedHandsSystem _hands = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private StatusEffectsSystem _statusEffects = default!;
     [Dependency] private SharedStationSystem _station = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private TagSystem _tag = default!;
@@ -391,7 +393,7 @@ public sealed partial class FiringPinSystem : EntitySystem
     private bool CheckClown(Entity<FiringPinComponent> pin, EntityUid user, FiringPinCheck check)
     {
         _audio.PlayPredicted(pin.Comp.FailSound, pin.Owner, user);
-        return check.PassForClowns && HasComp<ClumsyComponent>(user);
+        return check.PassForClowns && _statusEffects.HasEffectComp<ClumsyGunStatusEffectComponent>(user);
     }
 
     private bool HasSuit(EntityUid user, ProtoId<TagPrototype>? requiredTag)
