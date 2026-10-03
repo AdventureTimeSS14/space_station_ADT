@@ -77,22 +77,12 @@ public abstract partial class BaseXATSystem<T> : EntitySystem where T : Componen
     /// </summary>
     protected void Trigger(Entity<XenoArtifactComponent> artifact, Entity<T, XenoArtifactNodeComponent> node)
     {
-<<<<<<< ours
-        if (!Timing.IsFirstTimePredicted)
-            return;
-
         //ADT-tweak-start
         // Дополнительная проверка существования перед триггером
         if (!Exists(artifact.Owner) || !Exists(node.Owner))
             return;
         //ADT-tweak-end
 
-||||||| base
-        if (!Timing.IsFirstTimePredicted)
-            return;
-
-=======
->>>>>>> theirs
         Log.Debug($"Activated trigger {typeof(T).Name} on node {ToPrettyString(node)} for {ToPrettyString(artifact)}");
         XenoArtifact.TriggerXenoArtifact(artifact, (node.Owner, node.Comp2));
     }
