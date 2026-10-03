@@ -2,15 +2,7 @@ using Content.Server.Chat.Managers;
 using Content.Server.Ghost;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
-<<<<<<< ours
-using Content.Server.StationRecords;
-using Content.Server.StationRecords.Systems;
 using Content.Shared.ADT.Bed.Cryostorage;
-||||||| base
-using Content.Server.StationRecords;
-using Content.Server.StationRecords.Systems;
-=======
->>>>>>> theirs
 using Content.Shared.Access.Systems;
 using Content.Shared.Bed.Cryostorage;
 using Content.Shared.Chat;
