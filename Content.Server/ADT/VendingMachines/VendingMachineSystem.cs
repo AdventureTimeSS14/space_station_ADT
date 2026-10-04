@@ -86,7 +86,7 @@ namespace Content.Server.ADT.VendingMachines
                 subs.Event<VendingMachineEjectCountMessage>(OnInventoryEjectCountMessage);
             });
 
-            SubscribeLocalEvent<VendingMachineComponent, VendingMachineSelfDispenseEvent>(OnSelfDispense);
+            SubscribeLocalEvent<VendingMachineComponent, Content.Shared.ADT.VendingMachines.VendingMachineSelfDispenseEvent>(OnSelfDispense);
 
             SubscribeLocalEvent<VendingMachineComponent, InteractUsingEvent>(OnInteractUsing);
             SubscribeLocalEvent<VendingMachineComponent, VendingMachineWithdrawMessage>(OnWithdrawMessage);
@@ -210,7 +210,7 @@ namespace Content.Server.ADT.VendingMachines
             EjectRandom((uid, component, eject), throwItem: true, forceEject: true);
         }
 
-        private void OnSelfDispense(EntityUid uid, VendingMachineComponent component, VendingMachineSelfDispenseEvent args)
+        private void OnSelfDispense(EntityUid uid, VendingMachineComponent component, Content.Shared.ADT.VendingMachines.VendingMachineSelfDispenseEvent args)
         {
             if (args.Handled)
                 return;

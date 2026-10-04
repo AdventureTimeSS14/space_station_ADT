@@ -147,7 +147,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
     /// <param name="uid"></param>
     /// <param name="sender">Entity trying to use the vending machine</param>
     /// <param name="vendComponent"></param>
-    public bool IsAuthorized(EntityUid uid, EntityUid sender, VendingMachineComponent? vendComponent = null)
+    public virtual bool IsAuthorized(EntityUid uid, EntityUid sender, VendingMachineComponent? vendComponent = null)
     {
         if (!Resolve(uid, ref vendComponent))
             return false;
@@ -163,7 +163,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         return false;
     }
 
-    protected VendingMachineInventoryEntry? GetEntry(EntityUid uid, string entryId, InventoryType type, VendingMachineComponent? component = null)
+    protected virtual VendingMachineInventoryEntry? GetEntry(EntityUid uid, string entryId, InventoryType type, VendingMachineComponent? component = null)
     {
         if (!Resolve(uid, ref component))
             return null;
