@@ -142,7 +142,7 @@
         - id: ADTWeaponCasePrazat
         - id: ADTClothingUniformJumpsuitPrazatOfficial
         - id: ADTClothingUniformJumpsuitPrazatUlan
-        - id: ADTTransCubePrazatCool
+        - id: ADTClothingBeltPrazatSheath
 
 - type: entity
   id: ADTBriefcaseBrownSaintMadman

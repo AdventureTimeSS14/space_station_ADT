@@ -12,6 +12,7 @@
         impact: High
       steps:
       - tag: ADTLemonLimeLord
+        name: construction-graph-tag-trans-cube
         doAfter: 1
   - node: icon
     entity: ADTClothingOuterHardsuitParamedLemon

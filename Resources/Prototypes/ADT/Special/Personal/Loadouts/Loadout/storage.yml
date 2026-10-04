@@ -68,7 +68,7 @@
   id: ADTElegantWhip
   storage:
     back:
-    - ADTWeaponElegantWhip
+    - ADTElegantWhip
 
 - type: loadout
   sponsorOnly: true

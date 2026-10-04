@@ -713,12 +713,6 @@
   - type: SpeakOnTrigger
     pack: FigurinesGiPatter
 
-- type: localizedDataset
-  id: FigurinesGiPatter
-  values:
-    prefix: figurines-gipatter-
-    count: 3
-
 #KapitanOgonek
 - type: entity
   parent: BasePlushie
@@ -1292,7 +1286,6 @@
   - type: SpeakOnTrigger
     pack: ADTPlushieKusuk
 
-
 #prodan_fan
 - type: entity
   parent: BasePlushie
@@ -1407,17 +1400,17 @@
     sprite: ADT/Special/Personal/toys.rsi
     state: plushie_el
   - type: EmitSoundOnUse
-    sound: &PlushieMothSound
+    sound: &PlushieMoth2Sound
       path: /Audio/Voice/Moth/moth_chitter.ogg
   - type: EmitSoundOnLand
-    sound: *PlushieMothSound
+    sound: *PlushieMoth2Sound
   - type: EmitSoundOnActivate
-    sound: *PlushieMothSound
+    sound: *PlushieMoth2Sound
   - type: EmitSoundOnTrigger
-    sound: *PlushieMothSound
+    sound: *PlushieMoth2Sound
   - type: EmitSoundOnCollide
-    sound: *PlushieMothSound
+    sound: *PlushieMoth2Sound
   - type: MeleeWeapon
-    soundHit: *PlushieMothSound
+    soundHit: *PlushieMoth2Sound
   - type: Edible
-    useSound: *PlushieMothSound
+    useSound: *PlushieMoth2Sound

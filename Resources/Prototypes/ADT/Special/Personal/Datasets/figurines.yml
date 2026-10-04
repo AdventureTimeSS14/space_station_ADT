@@ -21,3 +21,9 @@
   values:
     prefix: adt-figurines-bush-
     count: 3
+
+- type: localizedDataset
+  id: FigurinesGiPatter
+  values:
+    prefix: figurines-gipatter-
+    count: 3
