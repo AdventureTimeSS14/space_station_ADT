@@ -52,6 +52,14 @@
         {
             "name": "on-equipped-HELMET-dog",
             "directions": 4
+        },
+        {
+            "name": "equipped-helmet-dog",
+            "directions": 4
+        },
+        {
+            "name": "equipped-helmet-light-dog",
+            "directions": 4
         }
     ]
 }
