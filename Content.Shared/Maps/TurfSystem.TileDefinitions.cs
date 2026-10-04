@@ -14,7 +14,7 @@ public sealed partial class TurfSystem
 {
     [Dependency] private IPrototypeManager _prototypeManager = default!;
 
-    private void RegisterTileDefinitions()
+    public void RegisterTileDefinitions() // ADT-Tweak
     {
         if (_tileDefinitions.Count > 0)
             return;
