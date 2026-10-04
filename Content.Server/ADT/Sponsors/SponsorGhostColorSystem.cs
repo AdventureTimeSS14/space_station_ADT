@@ -1,5 +1,6 @@
 using Content.Shared.ADT.Sponsors.Components;
 using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 using Robust.Shared.Player;
 
 namespace Content.Server.ADT.Sponsors;

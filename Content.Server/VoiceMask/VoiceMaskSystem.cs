@@ -15,6 +15,7 @@ using Content.Shared.StatusIcon;
 using Content.Shared.Speech.EntitySystems;
 using Content.Shared.VoiceMask;
 using Robust.Shared.Configuration;
+using Robust.Shared.Prototypes; // ADT-Tweak
 using Robust.Shared.Containers;
 
 namespace Content.Server.VoiceMask;

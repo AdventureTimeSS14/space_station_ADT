@@ -6,6 +6,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Shared.Ghost;
+using Content.Shared.Ghost.Systems;
 using Content.Server.ADT.Ghostbar.Components;
 using Content.Server.Mind;
 using Content.Shared.Mind.Components;

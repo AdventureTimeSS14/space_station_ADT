@@ -5,14 +5,14 @@ using Content.Shared.Speech;
 using Robust.Shared.Console;
 using Content.Shared.ADT.Language;
 using Content.Shared.Mind;
+using Content.Shared.Mind.Systems; // ADT-Tweak
 
 namespace Content.Server.Mind.Commands;
 
 [AdminCommand(AdminFlags.Admin)]
 public sealed partial class MakeSentientCommand : LocalizedEntityCommands
 {
-    [Dependency] private MindSystem _mindSystem = default!;
-    [Dependency] private SharedMindSystem _mindSystem = default!;
+    [Dependency] private SharedMindSystem _mindSystem = default!; // ADT-Tweak
     [Dependency] private IEntityManager _entManager = default!; // ADT-Tweak
 
     public override string Command => "makesentient";

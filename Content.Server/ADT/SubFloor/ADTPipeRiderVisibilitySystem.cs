@@ -1,4 +1,4 @@
-using Content.Server.Disposal.Unit;
+using Content.Shared.Disposal.Unit;
 using Content.Shared.Eye;
 
 namespace Content.Server.ADT.SubFloor;

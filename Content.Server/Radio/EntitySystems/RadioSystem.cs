@@ -14,6 +14,7 @@ using Content.Shared.Radio.Components;
 using Content.Shared.Radio.EntitySystems;
 using Content.Shared.Speech;
 using Robust.Shared.GameObjects;
+using Robust.Shared.Prototypes; // ADT-Tweak
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;

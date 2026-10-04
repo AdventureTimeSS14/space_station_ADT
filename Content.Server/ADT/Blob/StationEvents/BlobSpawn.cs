@@ -2,7 +2,7 @@
 
 using System.Linq;
 using Content.Shared.ADT.Blob;
-using Content.Server.Ghost.Roles.Events;
+using Content.Shared.Ghost;
 using Content.Server.Nutrition.Components;
 using Content.Server.Station.Components;
 using Content.Server.StationEvents.Components;

@@ -31,7 +31,7 @@ using Content.Server.DoAfter;
 using Content.Server.Emp;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Gravity;
-using Content.Server.Guardian;
+using Content.Shared.Guardian.Components; // ADT-Tweak
 using Content.Shared.Body; // ADT-Tweak
 using Content.Server.Light.EntitySystems;
 using Content.Server.Polymorph.Components;

@@ -66,7 +66,7 @@ public sealed class BlobCoreSystem : EntitySystem
     private const string BlobHealth = "ADTBlobHealth";
     [ValidatePrototypeId<AlertPrototype>]
     private const string BlobResource = "ADTBlobResource";
-    private const ProtoId<CurrencyPrototype> BlobMoney = "ADTBlobPoint";
+    private static readonly ProtoId<CurrencyPrototype> BlobMoney = "ADTBlobPoint";
 
     private readonly ReaderWriterLockSlim _pointsChange = new();
 

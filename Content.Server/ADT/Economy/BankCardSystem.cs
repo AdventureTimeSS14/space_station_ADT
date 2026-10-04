@@ -3,7 +3,7 @@ using System.Linq;
 using Content.Server.Access.Systems;
 using Content.Server.Cargo.Components;
 using Content.Server.Cargo.Systems;
-using Content.Server.CartridgeLoader;
+using Content.Shared.CartridgeLoader;
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking;
 using Content.Server.Roles.Jobs;

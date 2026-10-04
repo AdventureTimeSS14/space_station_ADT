@@ -7,7 +7,7 @@ using Content.Server.Heretic.Abilities;
 using Content.Server.Heretic.Components;
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Server.Popups;
-using Content.Server.Speech.EntitySystems;
+using Content.Shared.Speech.EntitySystems;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.ADT.Heretic.Systems;
 using Content.Shared.Actions;
@@ -236,7 +236,7 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
         {
             _stun.TryKnockdown(target, grasp.Comp.KnockdownTime, true);
             _stamina.TakeStaminaDamage(target, grasp.Comp.StaminaDamage);
-            _language.DoRatvarian(target, grasp.Comp.SpeechTime, true, status);
+            _language.DoRatvarian(target, grasp.Comp.SpeechTime, true);
             _statusEffect.TryAddStatusEffect<MansusGraspAffectedComponent>(target,
                 "MansusGraspAffected",
                 grasp.Comp.AffectedTime,
