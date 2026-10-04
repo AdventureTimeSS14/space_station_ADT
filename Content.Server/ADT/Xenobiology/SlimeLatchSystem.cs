@@ -378,6 +378,8 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         ent.Comp.LatchedTarget = target;
         EnsureComp<SlimeLatchedComponent>(ent);
 
+        Log.Info($"{ToPrettyString(ent.Owner)} latched onto {ToPrettyString(target)}");
+
         EnsureComp<BeingLatchedComponent>(target);
         EnsureComp(target, out SlimeDamageOvertimeComponent comp);
         comp.SourceEntityUid = ent;
@@ -400,9 +402,12 @@ public sealed partial class SlimeLatchSystem : EntitySystem
 
         var target = ent.Comp.LatchedTarget!.Value;
 
+        Log.Info($"{ToPrettyString(ent.Owner)} unlatched from {ToPrettyString(target)}");
+
         CleanupLatchedComponents(target);
 
-        if (TryComp<TransformComponent>(target, out var targetXform)
+        if (!TerminatingOrDeleted(ent.Owner)
+            && TryComp<TransformComponent>(target, out var targetXform)
             && _xform.IsParentOf(targetXform, ent.Owner))
             _xform.SetParent(ent.Owner, _xform.GetParentUid(target));
 
