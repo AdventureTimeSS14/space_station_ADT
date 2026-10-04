@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Client.VendingMachines;
+using SharedVendingMachineSystem = Content.Shared.ADT.VendingMachines.SharedVendingMachineSystem;
 using Content.Client.VendingMachines.Components;
 using Content.Shared.Power;
 using Content.Shared.Power.EntitySystems;
