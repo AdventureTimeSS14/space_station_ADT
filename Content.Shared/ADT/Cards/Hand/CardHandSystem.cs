@@ -19,9 +19,7 @@ namespace Content.Shared.ADT.Cards.Hand;
 
 public sealed class CardHandSystem : EntitySystem
 {
-    [ValidatePrototypeId<EntityPrototype>]
     public readonly EntProtoId CardHandBaseName = "ADTCardHandBase";
-    [ValidatePrototypeId<EntityPrototype>]
     public readonly EntProtoId CardDeckBaseName = "ADTCardDeckBase";
 
     [Dependency] private CardStackSystem _cardStack = default!;
