@@ -33,7 +33,7 @@ public sealed class TileSpeedModifierSystem : EntitySystem
             if (HasComp<TileSpeedModifierComponent>(ent))
             {
                 RemComp<TileSpeedModifierComponent>(ent);
-                _speedModifier.RefreshMovementSpeedModifiers(ent);
+                _speedModifier.RefreshMovementSpeedModifiers(ent.Owner);
             }
 
             return;
@@ -48,7 +48,7 @@ public sealed class TileSpeedModifierSystem : EntitySystem
 
         comp.WalkSpeedModifier = speed;
         comp.SprintSpeedModifier = speed;
-        _speedModifier.RefreshMovementSpeedModifiers(ent);
+        _speedModifier.RefreshMovementSpeedModifiers(ent.Owner);
     }
 
     private void OnRefreshSpeed(Entity<TileSpeedModifierComponent> ent, ref RefreshMovementSpeedModifiersEvent args)

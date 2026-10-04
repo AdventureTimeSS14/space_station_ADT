@@ -64,7 +64,7 @@ public abstract partial class SharedTemperatureSystem : EntitySystem
                 ent.Comp.CurrentSpeedModifier = null;
                 ent.Comp.NextSlowdownUpdate = null;
                 Dirty(ent);
-                _movementSpeedModifier.RefreshMovementSpeedModifiers(ent);
+                _movementSpeedModifier.RefreshMovementSpeedModifiers(ent.Owner); // ADT-Tweak
             }
             return;
         }

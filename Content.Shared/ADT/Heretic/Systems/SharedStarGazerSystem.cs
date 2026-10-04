@@ -92,7 +92,7 @@ public abstract class SharedStarGazerSystem : EntitySystem
     protected virtual void OnStarGazeShutdown(Entity<StarGazeComponent> ent, ref ComponentShutdown args)
     {
         if (!TerminatingOrDeleted(ent))
-            _movement.RefreshMovementSpeedModifiers(ent);
+            _movement.RefreshMovementSpeedModifiers(ent.Owner);
 
         if (Exists(ent.Comp.BeamSoundEnt))
             PredictedQueueDel(ent.Comp.BeamSoundEnt);
@@ -100,7 +100,7 @@ public abstract class SharedStarGazerSystem : EntitySystem
 
     protected virtual void OnStarGazeStartup(Entity<StarGazeComponent> ent, ref ComponentStartup args)
     {
-        _movement.RefreshMovementSpeedModifiers(ent);
+        _movement.RefreshMovementSpeedModifiers(ent.Owner);
     }
 
     private void OnRefreshMovespeed(Entity<StarGazeComponent> ent, ref RefreshMovementSpeedModifiersEvent args)

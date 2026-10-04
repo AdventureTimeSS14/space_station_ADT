@@ -96,7 +96,7 @@ namespace Content.Shared.Movement.Systems
 
             // ADT-Tweak start
             var isImmune = false;
-            if (HasComp<SpeedModifierImmunityComponent>(uid))
+            if (HasComp<SpeedModifierImmunityComponent>(ent.Owner)) // ADT-Tweak
                 isImmune = true;
             // ADT-Tweak end
 

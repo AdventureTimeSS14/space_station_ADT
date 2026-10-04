@@ -238,7 +238,7 @@ public abstract class SharedShadowCloakSystem : EntitySystem
             PredictedQueueDel(child);
         }
 
-        _modifier.RefreshMovementSpeedModifiers(ent);
+        _modifier.RefreshMovementSpeedModifiers(ent.Owner);
 
         ResetAbilityCooldown(ent, revealCooldown);
     }
@@ -247,7 +247,7 @@ public abstract class SharedShadowCloakSystem : EntitySystem
     {
         Startup(ent);
 
-        _modifier.RefreshMovementSpeedModifiers(ent);
+        _modifier.RefreshMovementSpeedModifiers(ent.Owner);
 
         if (_net.IsClient)
             return;

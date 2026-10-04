@@ -22,13 +22,13 @@ public sealed class ADTNightEmpoweredSystem : EntitySystem
 
     private void OnStartup(Entity<ADTNightEmpoweredComponent> ent, ref ComponentStartup args)
     {
-        _speed.RefreshMovementSpeedModifiers(ent);
+        _speed.RefreshMovementSpeedModifiers(ent.Owner);
     }
 
     private void OnShutdown(Entity<ADTNightEmpoweredComponent> ent, ref ComponentShutdown args)
     {
         if (!TerminatingOrDeleted(ent))
-            _speed.RefreshMovementSpeedModifiers(ent);
+            _speed.RefreshMovementSpeedModifiers(ent.Owner);
     }
 
     private void OnGetMeleeDamage(Entity<ADTNightEmpoweredComponent> ent, ref GetMeleeDamageEvent args)

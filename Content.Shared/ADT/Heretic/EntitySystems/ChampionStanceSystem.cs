@@ -43,12 +43,12 @@ public sealed class ChampionStanceSystem : EntitySystem
 
     private void OnChampionShutdown(Entity<ChampionStanceComponent> ent, ref ComponentShutdown args)
     {
-        _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(ent);
+        _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(ent.Owner);
     }
 
     private void OnChampionStartup(Entity<ChampionStanceComponent> ent, ref ComponentStartup args)
     {
-        _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(ent);
+        _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(ent.Owner);
     }
 
     private void OnGetBloodlossMultiplier(Entity<ChampionStanceComponent> ent,

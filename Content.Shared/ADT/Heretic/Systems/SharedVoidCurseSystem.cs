@@ -30,7 +30,7 @@ public abstract class SharedVoidCurseSystem : EntitySystem
         if (TerminatingOrDeleted(ent))
             return;
 
-        _modifier.RefreshMovementSpeedModifiers(ent);
+        _modifier.RefreshMovementSpeedModifiers(ent.Owner);
     }
 
     private void OnTemperatureChangeAttempt(Entity<VoidCurseComponent> ent, ref TemperatureChangeAttemptEvent args)
