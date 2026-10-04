@@ -221,7 +221,7 @@ public sealed class BubblegumSystem : EntitySystem
 
         _megafauna.Say(ent, "bubblegum-enrage", 3);
         _appearance.SetData(ent, BubblegumVisuals.Enraged, true);
-        _speed.RefreshMovementSpeedModifiers(ent);
+        _speed.RefreshMovementSpeedModifiers(ent.Owner);
 
         Dirty(ent);
         return true;
@@ -231,7 +231,7 @@ public sealed class BubblegumSystem : EntitySystem
     {
         ent.Comp.EnrageEndsAt = TimeSpan.Zero;
         _appearance.SetData(ent, BubblegumVisuals.Enraged, false);
-        _speed.RefreshMovementSpeedModifiers(ent);
+        _speed.RefreshMovementSpeedModifiers(ent.Owner);
         Dirty(ent);
     }
 
