@@ -21,7 +21,7 @@ namespace Content.Client.ADT.Medical.CrewMonitoring;
 public sealed partial class ADTCrewMonitoringNavMapControl : NavMapControl
 {
     // #ADT-Tweak Start - New Monitor: radar/navmap fields + corner alert UI
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly IParallelManager _parallel = default!;
 
     public NetEntity? Focus;
@@ -667,7 +667,7 @@ public sealed partial class ADTCrewMonitoringNavMapControl : NavMapControl
 
         _grids.Clear();
         var extent = new Vector2(coverageRange, coverageRange);
-        _mapManager.FindGridsIntersecting(
+        _map.FindGridsIntersecting(
             mapId,
             new Box2(coverageCenter - extent, coverageCenter + extent),
             ref _grids,

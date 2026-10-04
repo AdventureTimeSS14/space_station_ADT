@@ -516,7 +516,7 @@ public partial class NavMapControl : MapGridControl
         if (needsRebuild)
         {
             EntManager.TryGetComponent(MapUid, out _grid);
-            EntManager.TryGetComponent(MapUid, out _xform);
+            EntManager.TryGetComponent(MapUid, out Xform); // ADT-Tweak
             EntManager.TryGetComponent(MapUid, out _fixtures);
             UpdateNavMap();
             _appliedNavMapVersion = _navMap?.DataVersion ?? -1;
