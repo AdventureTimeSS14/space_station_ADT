@@ -251,6 +251,7 @@ public abstract class RadialMenuButtonBase : BaseButton
             || (args.Function == EngineKeyFunctions.UIRightClick && AllowRightClick)) // ADT-Tweak
         {
             base.KeyBindUp(args);
+        }
     }
 
     /// <inheritdoc />
