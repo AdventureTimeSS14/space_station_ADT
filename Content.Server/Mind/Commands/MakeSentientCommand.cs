@@ -5,8 +5,6 @@ using Content.Shared.Speech;
 using Robust.Shared.Console;
 using Content.Shared.ADT.Language;
 using Content.Shared.Mind;
-using Content.Shared.Mind.Systems; // ADT-Tweak
-
 namespace Content.Server.Mind.Commands;
 
 [AdminCommand(AdminFlags.Admin)]
