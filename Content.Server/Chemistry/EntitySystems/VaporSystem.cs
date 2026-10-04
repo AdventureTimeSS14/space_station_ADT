@@ -56,7 +56,7 @@ namespace Content.Server.Chemistry.EntitySystems
             if (TryComp(entity.Owner, out RMCExtinguisherPowerComponent? extinguisher))
                 power = extinguisher.Power;
 
-            var rmcEv = new VaporHitEvent(soln, power);
+            var rmcEv = new VaporHitEvent((entity, soln), power);
             RaiseLocalEvent(args.OtherEntity, ref rmcEv);
             // ADT-Tweak-End
 

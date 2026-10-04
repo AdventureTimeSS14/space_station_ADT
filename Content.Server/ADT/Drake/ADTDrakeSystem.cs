@@ -134,7 +134,7 @@ public sealed class ADTDrakeSystem : EntitySystem
             return;
 
         ent.Comp.EscapeEnraged = value;
-        _speed.RefreshMovementSpeedModifiers(ent);
+        _speed.RefreshMovementSpeedModifiers(ent.Owner);
         _appearance.SetData(ent, ADTDrakeVisuals.EscapeEnraged, value);
 
         if (!_light.TryGetLight(ent, out var light))

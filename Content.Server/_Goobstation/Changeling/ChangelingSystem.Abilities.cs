@@ -285,11 +285,8 @@ public sealed partial class ChangelingSystem
         if (!TryComp<EdibleComponent>(target, out var food))
             return;
 
-        if (!TryComp<SolutionContainerManagerComponent>(target, out var solMan))
-            return;
-
         var totalFood = FixedPoint2.New(0);
-        foreach (var (_, sol) in _solution.EnumerateSolutions((target, solMan)))
+        foreach (var (_, sol) in _solution.EnumerateSolutions(target))
             foreach (var proto in BiomassAbsorbedChemicals)
                 totalFood += sol.Comp.Solution.GetTotalPrototypeQuantity(proto);
 
@@ -328,11 +325,8 @@ public sealed partial class ChangelingSystem
         if (args.Cancelled)
             return;
 
-        if (!TryComp<SolutionContainerManagerComponent>(target, out var solMan))
-            return;
-
         var totalFood = FixedPoint2.New(0);
-        foreach (var (name, sol) in _solution.EnumerateSolutions((target, solMan)))
+        foreach (var (name, sol) in _solution.EnumerateSolutions(target))
         {
             var solution = sol.Comp.Solution;
             foreach (var proto in BiomassAbsorbedChemicals)
