@@ -34,7 +34,6 @@ public sealed partial class BloodstreamSystem : EntitySystem
 
     [Dependency] protected readonly IPrototypeManager PrototypeManager = default!;
     [Dependency] protected readonly SharedSolutionContainerSystem SolutionContainer = default!;
-    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -77,7 +76,7 @@ public sealed partial class BloodstreamSystem : EntitySystem
             bloodstream.NextUpdate += bloodstream.AdjustedUpdateInterval;
             DirtyField(uid, bloodstream, nameof(BloodstreamComponent.NextUpdate)); // needs to be dirtied on the client so it can be rerolled during prediction
 
-            if (!_solutionContainer.ResolveSolution(uid, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution))
+            if (!SolutionContainer.ResolveSolution(uid, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution))
                 continue;
 
             // Blood level regulation. Must be alive.
@@ -134,9 +133,9 @@ public sealed partial class BloodstreamSystem : EntitySystem
         entity.Comp.NextUpdate = _timing.CurTime + entity.Comp.AdjustedUpdateInterval;
         DirtyField(entity, entity.Comp, nameof(BloodstreamComponent.NextUpdate));
 
-        _solutionContainer.EnsureSolution(entity.Owner, entity.Comp.BloodSolutionName, out var bloodSolution);
-        _solutionContainer.EnsureSolution(entity.Owner, entity.Comp.BloodTemporarySolutionName, out var tempSolution);
-        _solutionContainer.EnsureSolution(entity.Owner, entity.Comp.MetabolitesSolutionName, out var metabolitesSolution);
+        SolutionContainer.EnsureSolution(entity.Owner, entity.Comp.BloodSolutionName, out var bloodSolution);
+        SolutionContainer.EnsureSolution(entity.Owner, entity.Comp.BloodTemporarySolutionName, out var tempSolution);
+        SolutionContainer.EnsureSolution(entity.Owner, entity.Comp.MetabolitesSolutionName, out var metabolitesSolution);
 
         bloodSolution.Comp.Solution.MaxVolume = entity.Comp.BloodReferenceSolution.Volume * entity.Comp.MaxVolumeModifier;
         metabolitesSolution.Comp.Solution.MaxVolume = bloodSolution.Comp.Solution.MaxVolume;
@@ -166,7 +165,7 @@ public sealed partial class BloodstreamSystem : EntitySystem
     [SubscribeLocalEvent]
     private void OnDnaGenerated(Entity<BloodstreamComponent> entity, ref GenerateDnaEvent args)
     {
-        if (_solutionContainer.ResolveSolution(entity.Owner, entity.Comp.BloodSolutionName, ref entity.Comp.BloodSolution, out var bloodSolution))
+        if (SolutionContainer.ResolveSolution(entity.Owner, entity.Comp.BloodSolutionName, ref entity.Comp.BloodSolution, out var bloodSolution))
         {
             var data = NewEntityBloodData(entity);
             entity.Comp.BloodReferenceSolution.SetReagentData(data);
@@ -336,9 +335,9 @@ public sealed partial class BloodstreamSystem : EntitySystem
     {
         TryModifyBleedAmount(ent.AsNullable(), -ent.Comp.BleedAmount);
 
-        if (_solutionContainer.ResolveSolution(ent.Owner, ent.Comp.BloodSolutionName, ref ent.Comp.BloodSolution))
+        if (SolutionContainer.ResolveSolution(ent.Owner, ent.Comp.BloodSolutionName, ref ent.Comp.BloodSolution))
         {
-            _solutionContainer.RemoveAllSolution(ent.Comp.BloodSolution.Value);
+            SolutionContainer.RemoveAllSolution(ent.Comp.BloodSolution.Value);
             // TODO: Use Solutions API for this when it exists
             TryRegulateBloodLevel(ent.AsNullable(), ent.Comp.BloodReferenceSolution.Volume);
         }
@@ -363,7 +362,7 @@ public sealed partial class BloodstreamSystem : EntitySystem
     public float GetBloodLevel(Entity<BloodstreamComponent?> entity)
     {
         if (!Resolve(entity, ref entity.Comp)
-            || !_solutionContainer.ResolveSolution(entity.Owner, entity.Comp.BloodSolutionName, ref entity.Comp.BloodSolution, out var bloodSolution)
+            || !SolutionContainer.ResolveSolution(entity.Owner, entity.Comp.BloodSolutionName, ref entity.Comp.BloodSolution, out var bloodSolution)
             || entity.Comp.BloodReferenceSolution.Volume == 0)
         {
             return 0.0f;
@@ -398,10 +397,10 @@ public sealed partial class BloodstreamSystem : EntitySystem
     public bool TryAddToBloodstream(Entity<BloodstreamComponent?> ent, Solution solution)
     {
         if (!Resolve(ent, ref ent.Comp, logMissing: false)
-            || !_solutionContainer.ResolveSolution(ent.Owner, ent.Comp.BloodSolutionName, ref ent.Comp.BloodSolution))
+            || !SolutionContainer.ResolveSolution(ent.Owner, ent.Comp.BloodSolutionName, ref ent.Comp.BloodSolution))
             return false;
 
-        if (_solutionContainer.TryAddSolution(ent.Comp.BloodSolution.Value, solution))
+        if (SolutionContainer.TryAddSolution(ent.Comp.BloodSolution.Value, solution))
             return true;
 
         return false;
@@ -416,7 +415,7 @@ public sealed partial class BloodstreamSystem : EntitySystem
     public Solution? FlushChemicals(Entity<BloodstreamComponent?> ent, FixedPoint2 quantity, ProtoId<ReagentPrototype>? excludedReagent = null )
     {
         if (!Resolve(ent, ref ent.Comp, logMissing: false)
-            || !_solutionContainer.ResolveSolution(ent.Owner, ent.Comp.BloodSolutionName, ref ent.Comp.BloodSolution, out var bloodSolution))
+            || !SolutionContainer.ResolveSolution(ent.Owner, ent.Comp.BloodSolutionName, ref ent.Comp.BloodSolution, out var bloodSolution))
             return null;
 
         var flushedSolution = new Solution();
@@ -427,7 +426,7 @@ public sealed partial class BloodstreamSystem : EntitySystem
             if (ent.Comp.BloodReferenceSolution.ContainsPrototype(reagentId.Prototype) || reagentId.Prototype == excludedReagent)
                 continue;
 
-            var reagentFlushAmount = _solutionContainer.RemoveReagent(ent.Comp.BloodSolution.Value, reagentId, quantity);
+            var reagentFlushAmount = SolutionContainer.RemoveReagent(ent.Comp.BloodSolution.Value, reagentId, quantity);
             flushedSolution.AddReagent(reagentId, reagentFlushAmount);
         }
 
@@ -462,7 +461,7 @@ public sealed partial class BloodstreamSystem : EntitySystem
     public bool TryRegulateBloodLevel(Entity<BloodstreamComponent?> ent, FixedPoint2 amount, float referenceFactor = 1f)
     {
         if (!Resolve(ent, ref ent.Comp, logMissing: false)
-            || !_solutionContainer.ResolveSolution(ent.Owner, ent.Comp.BloodSolutionName, ref ent.Comp.BloodSolution, out var bloodSolution)
+            || !SolutionContainer.ResolveSolution(ent.Owner, ent.Comp.BloodSolutionName, ref ent.Comp.BloodSolution, out var bloodSolution)
             || amount == 0)
             return false;
 
@@ -515,15 +514,15 @@ public sealed partial class BloodstreamSystem : EntitySystem
     public bool TryBleedOut(Entity<BloodstreamComponent?> ent, FixedPoint2 amount)
     {
         if (!Resolve(ent, ref ent.Comp, logMissing: false)
-            || !_solutionContainer.ResolveSolution(ent.Owner, ent.Comp.BloodSolutionName, ref ent.Comp.BloodSolution)
+            || !SolutionContainer.ResolveSolution(ent.Owner, ent.Comp.BloodSolutionName, ref ent.Comp.BloodSolution)
             || amount <= 0)
         {
             return false;
         }
 
-        var leakedBlood = _solutionContainer.SplitSolution(ent.Comp.BloodSolution.Value, amount);
+        var leakedBlood = SolutionContainer.SplitSolution(ent.Comp.BloodSolution.Value, amount);
 
-        if (!_solutionContainer.ResolveSolution(ent.Owner, ent.Comp.BloodTemporarySolutionName, ref ent.Comp.TemporarySolution, out var tempSolution))
+        if (!SolutionContainer.ResolveSolution(ent.Owner, ent.Comp.BloodTemporarySolutionName, ref ent.Comp.TemporarySolution, out var tempSolution))
             return true;
 
         tempSolution.AddSolution(leakedBlood, ProtoMan);
@@ -535,7 +534,7 @@ public sealed partial class BloodstreamSystem : EntitySystem
             tempSolution.RemoveAllSolution();
         }
 
-        _solutionContainer.UpdateChemicals(ent.Comp.TemporarySolution.Value);
+        SolutionContainer.UpdateChemicals(ent.Comp.TemporarySolution.Value);
 
         return true;
     }
@@ -575,18 +574,18 @@ public sealed partial class BloodstreamSystem : EntitySystem
 
         var tempSol = new Solution();
 
-        if (_solutionContainer.ResolveSolution(ent.Owner, ent.Comp.BloodSolutionName, ref ent.Comp.BloodSolution, out var bloodSolution))
+        if (SolutionContainer.ResolveSolution(ent.Owner, ent.Comp.BloodSolutionName, ref ent.Comp.BloodSolution, out var bloodSolution))
         {
             tempSol.MaxVolume += bloodSolution.MaxVolume;
             tempSol.AddSolution(bloodSolution, ProtoMan);
-            _solutionContainer.RemoveAllSolution(ent.Comp.BloodSolution.Value);
+            SolutionContainer.RemoveAllSolution(ent.Comp.BloodSolution.Value);
         }
 
-        if (_solutionContainer.ResolveSolution(ent.Owner, ent.Comp.BloodTemporarySolutionName, ref ent.Comp.TemporarySolution, out var tempSolution))
+        if (SolutionContainer.ResolveSolution(ent.Owner, ent.Comp.BloodTemporarySolutionName, ref ent.Comp.TemporarySolution, out var tempSolution))
         {
             tempSol.MaxVolume += tempSolution.MaxVolume;
             tempSol.AddSolution(tempSolution, ProtoMan);
-            _solutionContainer.RemoveAllSolution(ent.Comp.TemporarySolution.Value);
+            SolutionContainer.RemoveAllSolution(ent.Comp.TemporarySolution.Value);
         }
 
         _puddle.TrySpillAt(ent, tempSol, out _);
@@ -682,7 +681,7 @@ public sealed partial class BloodstreamSystem : EntitySystem
             return;
         }
 
-        if (!_solutionContainer.ResolveSolution(ent.Owner, ent.Comp.BloodSolutionName, ref ent.Comp.BloodSolution, out var bloodSolution))
+        if (!SolutionContainer.ResolveSolution(ent.Owner, ent.Comp.BloodSolutionName, ref ent.Comp.BloodSolution, out var bloodSolution))
         {
             ent.Comp.BloodReferenceSolution = reagents.Clone();
             DirtyField(ent, ent.Comp, nameof(BloodstreamComponent.BloodReferenceSolution));
@@ -703,7 +702,7 @@ public sealed partial class BloodstreamSystem : EntitySystem
 
         var solution = ent.Comp.BloodReferenceSolution.Clone();
         solution.ScaleSolution(currentVolume / solution.Volume);
-        _solutionContainer.AddSolution(ent.Comp.BloodSolution.Value, solution);
+        SolutionContainer.AddSolution(ent.Comp.BloodSolution.Value, solution);
     }
 
     /// <summary>

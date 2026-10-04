@@ -184,10 +184,7 @@ public abstract class SharedIvDripSystem : EntitySystem
 
     private void OnBloodPackMapInitEvent(Entity<BloodPackComponent> pack, ref MapInitEvent args)
     {
-        if (!TryComp<SolutionContainerManagerComponent>(pack, out var solMan))
-            return;
-
-        if (!_solutionContainer.TryGetSolution(solMan, pack.Comp.Solution, out var packSolution))
+        if (!_solutionContainer.TryGetSolution(pack.Owner, pack.Comp.Solution, out _, out var packSolution))
             return;
 
         UpdatePackVisuals(pack, packSolution);

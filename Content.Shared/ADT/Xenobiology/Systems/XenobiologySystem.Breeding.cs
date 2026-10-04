@@ -180,7 +180,7 @@ public partial class XenobiologySystem
                 _body.TryGetOrgansWithComponent(new Entity<BodyComponent?>(s, childBodyComp), out childStomachList);
             foreach (var stomach in childStomachList)
             {
-                _stomach.TryTransferSolution(stomach.Owner, parentStomachSolutionTransfer, stomach);
+                _stomach.TryTransferSolution(stomach.Owner, parentStomachSolutionTransfer);
             }
         }
 

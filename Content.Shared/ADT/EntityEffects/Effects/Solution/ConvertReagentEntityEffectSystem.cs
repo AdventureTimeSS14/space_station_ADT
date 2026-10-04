@@ -19,7 +19,9 @@ public sealed partial class ConvertReagentEntityEffectSystem : EntityEffectSyste
         var solutionName = args.Effect.SolutionName;
         Entity<SolutionComponent>? solutionEntity = null;
         Content.Shared.Chemistry.Components.Solution? solution = null;
-        if (!_solutionContainer.ResolveSolution(entity.Owner, solutionName, ref solutionEntity, out solution) || solution == null)
+        if (solutionName == null
+            || !_solutionContainer.ResolveSolution(entity.Owner, solutionName, ref solutionEntity, out solution)
+            || solution == null)
             return;
 
         var soln = (solutionEntity.Value, Comp<SolutionComponent>(solutionEntity.Value));
