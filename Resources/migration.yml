@@ -16,6 +16,10 @@ ERTSpawnerSrcurity: null
 ERTSpawnerJanitor: null
 ERTSpawnerCBURN: null
 
+# ADT Upstream280926
+LightReplacerEmpty: LightReplacer
+MagicalLamp: GuardianDeck
+
 #ADT-Tweak-Start
 ButtonFrameWhite: ButtonFrameExit
 EnergyGate: Turnstile

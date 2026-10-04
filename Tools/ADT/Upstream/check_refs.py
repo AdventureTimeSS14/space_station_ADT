@@ -148,7 +148,8 @@ for kind, items in by_kind.items():
             if isinstance(v, dict) and isinstance(v.get("sprite"), str):
                 check(f"{kind}:{i}", v["sprite"], v.get("state"))
             elif isinstance(v, str) and v.endswith(".png"):
-                if not os.path.isfile(os.path.join(res, v.lstrip("/"))):
+                full = os.path.join(res, v.lstrip("/")) if v.startswith("/") else os.path.join(res, "Textures", v)
+                if not os.path.isfile(full):
                     problems.add(f"missing-png {kind}:{i} -> {v}")
 
 migr = {}
