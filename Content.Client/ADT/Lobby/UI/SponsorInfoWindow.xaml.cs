@@ -275,11 +275,9 @@ public sealed partial class SponsorInfoWindow : DefaultWindow
 
         AddSection(Loc.GetString("adt-sponsor-info-section-chat"));
 
-        var legacyOoc = Color.TryFromHex(legacy.OOCColor ?? string.Empty);
-
-        if (legacyOoc != null)
+        if (Color.TryFromHex(legacy.OOCColor ?? string.Empty, out var legacyOoc))
         {
-            AddColorsRow(Loc.GetString("adt-sponsor-info-row-ooc"), new[] { legacyOoc.Value });
+            AddColorsRow(Loc.GetString("adt-sponsor-info-row-ooc"), new[] { legacyOoc });
         }
         else
         {
