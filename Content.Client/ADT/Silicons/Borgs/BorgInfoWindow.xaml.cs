@@ -88,7 +88,7 @@ public sealed partial class BorgInfoWindow : FancyWindow
         var alertLevel = state.StationInfo.StationAlertLevel;
         var alertColor = state.StationInfo.StationAlertColor;
         var (alertName, _, alertInstructions) = _entitySystem.GetEntitySystem<AlertLevelSystem>()
-            .AlertLevelData(alertLevel == null ? null : new ProtoId<AlertLevelPrototype>(alertLevel));
+            .AlertLevelData(alertLevel == null ? default(ProtoId<AlertLevelPrototype>?) : new ProtoId<AlertLevelPrototype>(alertLevel));
         _alertLevel = alertName;
 
         StationAlertLevelLabel.SetMarkup(Loc.GetString(

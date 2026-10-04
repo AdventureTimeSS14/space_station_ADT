@@ -84,7 +84,7 @@ public sealed partial class StationAiInfo : FancyWindow
         var alertLevel = state.StationAlertLevel;
         var alertColor = state.StationAlertColor;
         var (alertName, _, alertInstructions) = _entitySystem.GetEntitySystem<AlertLevelSystem>()
-            .AlertLevelData(alertLevel == null ? null : new ProtoId<AlertLevelPrototype>(alertLevel));
+            .AlertLevelData(alertLevel == null ? default(ProtoId<AlertLevelPrototype>?) : new ProtoId<AlertLevelPrototype>(alertLevel));
         _alertLevel = alertName;
 
         StationAlertLevelLabel.SetMarkup(Loc.GetString(
