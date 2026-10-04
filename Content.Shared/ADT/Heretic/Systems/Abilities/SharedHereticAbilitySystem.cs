@@ -312,13 +312,13 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
                 _blood.TryModifyBleedAmount((uid, blood), bleedHeal.Value.Float());
         }
 
-        if (bloodHeal == FixedPoint2.Zero || !TryComp(uid, out SolutionContainerManagerComponent? sol) ||
-            !_solution.ResolveSolution((uid, sol), blood.BloodSolutionName, ref blood.BloodSolution))
+        if (bloodHeal == FixedPoint2.Zero
+            || !_solution.ResolveSolution(uid.Owner, blood.BloodSolutionName, ref blood.BloodSolution)
+            || blood.BloodSolution is not { } bloodSolution)
             return;
 
-        // ADT: BloodMaxVolume replaced by reference-solution volume * modifier
         var maxVolume = blood.BloodReferenceSolution.Volume * blood.MaxVolumeModifier;
-        var curVolume = blood.BloodSolution.Value.Comp.Solution.Volume;
+        var curVolume = bloodSolution.Comp.Solution.Volume;
         if (curVolume >= maxVolume)
             return;
 
