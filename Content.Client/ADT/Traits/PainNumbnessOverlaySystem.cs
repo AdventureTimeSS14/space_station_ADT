@@ -3,7 +3,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.Player;
-using Content.Client.UserInterface.Systems.DamageOverlays.Overlays;
+using DamageOverlayNs = Content.Client.DamageOverlay;
 using Robust.Client.Graphics;
 using Robust.Shared.Player;
 
@@ -18,7 +18,7 @@ public sealed class PainNumbnessOverlaySystem : EntitySystem
     [Dependency] private IPlayerManager _playerManager = default!;
     [Dependency] private IOverlayManager _overlayManager = default!;
 
-    private DamageOverlay? _damageOverlay;
+    private DamageOverlayNs.DamageOverlay? _damageOverlay;
     private bool _hasPainNumbness;
     private MobState _currentMobState;
 
@@ -63,7 +63,7 @@ public sealed class PainNumbnessOverlaySystem : EntitySystem
     {
         if (_damageOverlay == null)
         {
-            if (!_overlayManager.TryGetOverlay(out DamageOverlay? overlay))
+            if (!_overlayManager.TryGetOverlay(out DamageOverlayNs.DamageOverlay? overlay))
                 return;
 
             _damageOverlay = overlay;
