@@ -1,3 +1,7 @@
+# При разных трансформациях одного предмета брать пример с Resources\Prototypes\ADT\Recipes\Construction\Graph\furniture\seats.yml
+# И необходимо будет вытаскивать такой крафт отсюда и закидывать в папку Complex, создавая свой ямл для каждой графы
+# это на будущее
+
 - type: constructionGraph
   id: ADTParamedicHardsuitTransforms
   start: start
@@ -16,6 +20,22 @@
         doAfter: 1
   - node: icon
     entity: ADTClothingOuterHardsuitParamedLemon
-# При разных трансформациях одного предмета брать пример с Resources\Prototypes\ADT\Recipes\Construction\Graph\furniture\seats.yml
-# И необходимо будет вытаскивать такой крафт отсюда и закидывать в папку Complex, создавая свой ямл для каждой графы
-# это на будущее
+
+- type: constructionGraph
+  id: ADTCapitanSheathTransforms
+  start: start
+  graph:
+  - node: start
+    entity: ClothingBeltSheath
+    edges:
+    - to: icon
+      completed:
+      - !type:AdminLog
+        message: "Construction"
+        impact: High
+      steps:
+      - tag: ADTPrazatCool
+        name: construction-graph-tag-trans-cube
+        doAfter: 1
+  - node: icon
+    entity: ADTClothingBeltPrazatSheath

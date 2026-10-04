@@ -22,3 +22,13 @@
   - type: Tag
     tags:
     - ADTLemonLimeLord
+
+- type: entity
+  parent: ADTBaseTransCube
+  id: ADTTransCubePrazatCool
+  components:
+  - type: Sprite
+    state: wrapper
+  - type: Tag
+    tags:
+    - ADTPrazatCool

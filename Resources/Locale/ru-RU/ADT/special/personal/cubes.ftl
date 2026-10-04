@@ -3,3 +3,6 @@ ent-ADTBaseTransCube = кубик преобразования
 ent-ADTTransCubeLemonLimeLord = { ent-ADTBaseTransCube }
     .desc = { ent-ADTBaseTransCube.desc }
     .suffix = Именное, LemonLimeLord
+ent-ADTTransCubePrazatCool = { ent-ADTBaseTransCube }
+    .desc = { ent-ADTBaseTransCube.desc }
+    .suffix = Именное, PrazzzCool999
