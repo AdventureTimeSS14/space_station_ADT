@@ -1,4 +1,5 @@
 using Content.Shared.Access.Components;
+using Content.Shared.CartridgeLoader; // ADT-Tweak
 using Content.Shared.Administration.Logs;
 using Content.Shared.ADT.CartridgeLoader.Cartridges; // ADT-Tweak
 using Content.Shared.ADT.NanoChat;
@@ -33,6 +34,52 @@ public sealed partial class LogProbeCartridgeSystem : EntitySystem
         SubscribeLocalEvent<LogProbeCartridgeComponent, CartridgeUiReadyEvent>(OnUiReady);
         SubscribeLocalEvent<LogProbeCartridgeComponent, CartridgeRelayedEvent<AfterInteractEvent>>(AfterInteract);
         SubscribeLocalEvent<LogProbeCartridgeComponent, CartridgeMessageEvent>(OnMessage);
+        SubscribeLocalEvent<NanoChatRecipientUpdatedEvent>(OnNanoChatRecipientUpdated); // ADT-Tweak
+        SubscribeLocalEvent<NanoChatMessageReceivedEvent>(OnNanoChatMessageReceived); // ADT-Tweak
+    }
+
+    private void OnNanoChatRecipientUpdated(ref NanoChatRecipientUpdatedEvent args) // ADT-Tweak
+    {
+        var query = EntityQueryEnumerator<LogProbeCartridgeComponent, CartridgeComponent>();
+        while (query.MoveNext(out var uid, out var probe, out var cartridge))
+        {
+            if (probe.ScannedNanoChatData == null || GetEntity(probe.ScannedNanoChatData.Value.Card) != args.CardUid)
+                continue;
+
+            if (!TryComp<NanoChatCardComponent>(args.CardUid, out var card))
+                continue;
+
+            probe.ScannedNanoChatData = new NanoChatData(
+                new Dictionary<uint, NanoChatRecipient>(card.Recipients),
+                probe.ScannedNanoChatData.Value.Messages,
+                card.Number,
+                GetNetEntity(args.CardUid));
+
+            if (cartridge.LoaderUid != null)
+                UpdateUiState((uid, probe), cartridge.LoaderUid.Value);
+        }
+    }
+
+    private void OnNanoChatMessageReceived(ref NanoChatMessageReceivedEvent args) // ADT-Tweak
+    {
+        var query = EntityQueryEnumerator<LogProbeCartridgeComponent, CartridgeComponent>();
+        while (query.MoveNext(out var uid, out var probe, out var cartridge))
+        {
+            if (probe.ScannedNanoChatData == null || GetEntity(probe.ScannedNanoChatData.Value.Card) != args.CardUid)
+                continue;
+
+            if (!TryComp<NanoChatCardComponent>(args.CardUid, out var card))
+                continue;
+
+            probe.ScannedNanoChatData = new NanoChatData(
+                probe.ScannedNanoChatData.Value.Recipients,
+                new Dictionary<uint, List<NanoChatMessage>>(card.Messages),
+                card.Number,
+                GetNetEntity(args.CardUid));
+
+            if (cartridge.LoaderUid != null)
+                UpdateUiState((uid, probe), cartridge.LoaderUid.Value);
+        }
     }
 
     /// <summary>
