@@ -3,6 +3,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.VendingMachines;
 
 // ADT-Tweak: disabled prototype registration - ADT VendingMachineInventoryPrototype is used instead (Content.Shared.ADT.VendingMachines)
+[DataDefinition]
 public sealed partial class VendingMachineInventoryPrototype : IPrototype
 {
     [ViewVariables]

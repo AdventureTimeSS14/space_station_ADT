@@ -1,4 +1,5 @@
 using Content.Shared.DoAfter;
+using Robust.Shared.Prototypes;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
@@ -35,7 +36,8 @@ public abstract partial class SharedVendingMachineSystem
         EntityUid user,
         EntityUid target)
     {
-        if (!component.CanRestock.Contains(machineComponent.PackPrototypeId))
+        var packId = (ProtoId<Content.Shared.VendingMachines.VendingMachineInventoryPrototype>)(string)machineComponent.PackPrototypeId;
+        if (!component.CanRestock.Contains(packId))
         {
             Popup.PopupPredictedCursor(Loc.GetString("vending-machine-restock-invalid-inventory", ("this", uid), ("user", user),
                 ("target", target)), user);
