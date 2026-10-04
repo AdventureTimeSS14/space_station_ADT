@@ -60,13 +60,13 @@ public sealed class StorageOpenDoAfterSystem : EntitySystem
 
         if (args.Open)
         {
-            if (_storage.CanOpen(args.User, ent, silent: true))
-                _storage.OpenStorage(ent);
+            if (_storage.CanOpen(args.User, ent.Owner, silent: true))
+                _storage.OpenStorage(ent.Owner);
         }
         else
         {
-            if (_storage.CanClose(ent, args.User, silent: true))
-                _storage.CloseStorage(ent);
+            if (_storage.CanClose(ent.Owner, args.User, silent: true))
+                _storage.CloseStorage(ent.Owner);
         }
     }
 }
