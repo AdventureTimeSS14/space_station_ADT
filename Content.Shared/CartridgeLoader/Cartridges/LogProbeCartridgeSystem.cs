@@ -1,5 +1,6 @@
 using Content.Shared.Access.Components;
 using Content.Shared.Administration.Logs;
+using Content.Shared.ADT.CartridgeLoader.Cartridges; // ADT-Tweak
 using Content.Shared.ADT.NanoChat;
 using Content.Shared.Database;
 using Content.Shared.Hands.EntitySystems;
@@ -29,8 +30,6 @@ public sealed partial class LogProbeCartridgeSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        InitializeNanoChat(); // ADT-tweak: наночат
-
         SubscribeLocalEvent<LogProbeCartridgeComponent, CartridgeUiReadyEvent>(OnUiReady);
         SubscribeLocalEvent<LogProbeCartridgeComponent, CartridgeRelayedEvent<AfterInteractEvent>>(AfterInteract);
         SubscribeLocalEvent<LogProbeCartridgeComponent, CartridgeMessageEvent>(OnMessage);
@@ -47,8 +46,17 @@ public sealed partial class LogProbeCartridgeSystem : EntitySystem
         // ADT-tweak-start: начало скана чата
         if (TryComp<NanoChatCardComponent>(target, out var nanoChatCard))
         {
-            ScanNanoChatCard(ent, args, target, nanoChatCard);
-            args.InteractEvent.Handled = true;
+            _audio.PlayPredicted(ent.Comp.SoundScan, target, args.Args.User);
+            _popup.PopupEntity(Loc.GetString("log-probe-scan-nanochat", ("card", target)), target, args.Args.User);
+            ent.Comp.PulledAccessLogs.Clear();
+            ent.Comp.ScannedNanoChatData = new NanoChatData(
+                new Dictionary<uint, NanoChatRecipient>(nanoChatCard.Recipients),
+                new Dictionary<uint, List<NanoChatMessage>>(nanoChatCard.Messages),
+                nanoChatCard.Number,
+                GetNetEntity(target));
+            Dirty(ent);
+            UpdateUiState(ent, args.Loader);
+            args.Args.Handled = true;
             return;
         }
         // ADT-tweak-end
