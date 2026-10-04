@@ -8,8 +8,8 @@ namespace Content.Server.Heretic.EntitySystems;
 
 public sealed class ShadowCloakSystem : SharedShadowCloakSystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IdentitySystem _identity = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IdentitySystem _identity = default!;
 
     private static readonly TimeSpan SustainedDamageReductionInterval = TimeSpan.FromSeconds(1);
     private TimeSpan _nextUpdate = TimeSpan.Zero;

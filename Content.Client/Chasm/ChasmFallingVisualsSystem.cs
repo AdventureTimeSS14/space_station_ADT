@@ -7,15 +7,18 @@ using Robust.Shared.Random; //ADT-Tweak
 namespace Content.Client.Chasm;
 
 /// <summary>
-///     Handles the falling animation for entities that fall into a chasm.
+/// Handles the falling animation for entities that fall into an entity with <see cref="ChasmComponent"/>.
 /// </summary>
-public sealed class ChasmFallingVisualsSystem : EntitySystem
+public sealed partial class ChasmFallingVisualsSystem : EntitySystem
 {
-    [Dependency] private readonly AnimationPlayerSystem _anim = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
-    [Dependency] private readonly IRobustRandom _random = default!; //ADT-Tweak
+    [Dependency] private AnimationPlayerSystem _anim = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
+    [Dependency] private IRobustRandom _random = default!; //ADT-Tweak
 
-    private readonly string _chasmFallAnimationKey = "chasm_fall";
+    [Dependency] private EntityQuery<AnimationPlayerComponent> _animationPlayerQuery;
+    [Dependency] private EntityQuery<SpriteComponent> _spriteQuery;
+
+    private const string ChasmFallAnimationKey = "chasm_fall";
 
     public override void Initialize()
     {
@@ -25,72 +28,75 @@ public sealed class ChasmFallingVisualsSystem : EntitySystem
         SubscribeLocalEvent<ChasmFallingComponent, ComponentRemove>(OnComponentRemove);
     }
 
-    private void OnComponentInit(EntityUid uid, ChasmFallingComponent component, ComponentInit args)
+    private void OnComponentInit(Entity<ChasmFallingComponent> entity, ref ComponentInit args)
     {
-        if (!TryComp<SpriteComponent>(uid, out var sprite) ||
-            TerminatingOrDeleted(uid))
+        if (!_spriteQuery.TryComp(entity, out var sprite) ||
+            TerminatingOrDeleted(entity))
         {
             return;
         }
 
-        component.OriginalScale = sprite.Scale;
+        entity.Comp.OriginalScale = sprite.Scale;
 
-        if (!TryComp<AnimationPlayerComponent>(uid, out var player))
+        if (!_animationPlayerQuery.TryComp(entity, out var player) ||
+            _anim.HasRunningAnimation(player, ChasmFallAnimationKey))
+        {
             return;
+        }
 
-        if (_anim.HasRunningAnimation(player, _chasmFallAnimationKey))
-            return;
-
-        _anim.Play((uid, player), GetFallingAnimation(component), _chasmFallAnimationKey);
+        _anim.Play((entity, player), GetFallingAnimation(entity.Comp), ChasmFallAnimationKey);
     }
 
-    private void OnComponentRemove(EntityUid uid, ChasmFallingComponent component, ComponentRemove args)
+    private void OnComponentRemove(Entity<ChasmFallingComponent> entity, ref ComponentRemove args)
     {
-        if (!TryComp<SpriteComponent>(uid, out var sprite))
+        if (!_spriteQuery.TryComp(entity, out var sprite))
+        {
             return;
+        }
 
-        _sprite.SetScale((uid, sprite), component.OriginalScale);
+        _sprite.SetScale((entity, sprite), entity.Comp.OriginalScale);
 
-        if (!TryComp<AnimationPlayerComponent>(uid, out var player))
+        if (!_animationPlayerQuery.TryComp(entity, out var player) ||
+            !_anim.HasRunningAnimation(player, ChasmFallAnimationKey))
+        {
             return;
+        }
 
-        if (_anim.HasRunningAnimation(player, _chasmFallAnimationKey))
-            _anim.Stop((uid, player), _chasmFallAnimationKey);
+        _anim.Stop((entity, player), ChasmFallAnimationKey);
     }
 
     private Animation GetFallingAnimation(ChasmFallingComponent component)
     {
-        var length = component.AnimationTime;
         //ADT-Tweak-Start
         var direction = _random.Prob(0.5f) ? 1 : -1;
         var totalRotation = _random.NextFloat(360f, 720f) * direction;
         //ADT-Tweak-End
 
-        return new Animation()
+        return new Animation
         {
-            Length = length,
+            Length = component.AnimationTime,
             AnimationTracks =
             {
-                new AnimationTrackComponentProperty()
+                new AnimationTrackComponentProperty
                 {
                     ComponentType = typeof(SpriteComponent),
                     Property = nameof(SpriteComponent.Scale),
                     KeyFrames =
                     {
                         new AnimationTrackProperty.KeyFrame(component.OriginalScale, 0.0f),
-                        new AnimationTrackProperty.KeyFrame(component.AnimationScale, length.Seconds),
+                        new AnimationTrackProperty.KeyFrame(component.AnimationScale, component.AnimationTime.Seconds),
                     },
                     InterpolationMode = AnimationInterpolationMode.Cubic
                 //ADT-Tweak-Start
                 },
-                new AnimationTrackComponentProperty()
+                new AnimationTrackComponentProperty
                 {
                     ComponentType = typeof(SpriteComponent),
                     Property = nameof(SpriteComponent.Rotation),
                     KeyFrames =
                     {
                         new AnimationTrackProperty.KeyFrame(Angle.Zero, 0.0f),
-                        new AnimationTrackProperty.KeyFrame(Angle.FromDegrees(totalRotation), length.Seconds),
+                        new AnimationTrackProperty.KeyFrame(Angle.FromDegrees(totalRotation), component.AnimationTime.Seconds),
                     },
                     InterpolationMode = AnimationInterpolationMode.Linear
                 //ADT-Tweak-End

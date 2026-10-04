@@ -48,8 +48,6 @@
         Slash: 18
   - type: ArmorPenetration
     penetration: 0.3
-  - type: Sharp
-    butcherDelayModifier: 0.125
   - type: Construction
     graph: ADTGuillotine
     node: guillotine

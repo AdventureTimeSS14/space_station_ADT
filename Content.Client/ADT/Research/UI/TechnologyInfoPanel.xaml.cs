@@ -13,8 +13,8 @@ namespace Content.Client.ADT.Research.UI;
 [GenerateTypedNameReferences]
 public sealed partial class TechnologyInfoPanel : Control
 {
-    [Dependency] private readonly IEntityManager _ent = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private IEntityManager _ent = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
     private readonly LatheSystem _lathe;
 
     public TechnologyPrototype Prototype;

@@ -14,15 +14,15 @@ namespace Content.Server.ADT.Hallucinations;
 
 public sealed partial class HallucinationsSystem : EntitySystem
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly VisibilitySystem _visibilitySystem = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedEyeSystem _eye = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private VisibilitySystem _visibilitySystem = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private SharedEyeSystem _eye = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private StatusEffectsSystem _status = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     public static string HallucinatingKey = "Hallucinations";
 

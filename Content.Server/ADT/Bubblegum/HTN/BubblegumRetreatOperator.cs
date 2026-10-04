@@ -9,7 +9,7 @@ namespace Content.Server.ADT.Bubblegum.HTN;
 
 public sealed partial class BubblegumRetreatOperator : HTNOperator
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
     private SharedTransformSystem _transform = default!;
 
     [DataField]

@@ -1,6 +1,6 @@
-﻿- type: entity
-  id: SpiderWebBase
+- type: entity
   abstract: true
+  id: SpiderWebBase
   placement:
     mode: SnapgridCenter
     snap:
@@ -46,6 +46,9 @@
     additionalKeys:
     - walls
     base: web_
+  - type: Construction
+    graph: CobwebsGraph
+    node: start
 
 - type: entity
   id: SpiderWeb
@@ -67,12 +70,6 @@
         - MidImpassable
   - type: Destructible
     thresholds:
-    - trigger: # Excess damage, don't spawn entities
-        !type:DamageTrigger
-        damage: 50
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
         damage: 10
@@ -93,7 +90,7 @@
 
 - type: entity
   id: SpiderWebClown
-  parent: SpiderWebBase
+  parent: [SolutionFood, SolutionVeryTiny, SpiderWebBase]
   name: clown spider web
   description: It's stringy and slippy.
   components:
@@ -125,9 +122,12 @@
       - sweet
   - type: Edible
     delay: 2
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Sugar
-          Quantity: 2
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Sugar
+        Quantity: 2.5
+      - ReagentId: Honk
+        Quantity: 2.5
+      - ReagentId: SpaceLube
+        Quantity: 2.5

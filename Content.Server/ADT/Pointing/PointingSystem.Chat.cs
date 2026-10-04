@@ -4,6 +4,7 @@ using Content.Shared.ADT.CCVar;
 using Content.Shared.ADT.Pointing;
 using Content.Shared.Chat;
 using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 using Robust.Server.Configuration;
 using Robust.Shared.Player;
 
@@ -14,8 +15,8 @@ namespace Content.Server.Pointing.EntitySystems;
 /// </summary>
 internal sealed partial class PointingSystem
 {
-    [Dependency] private readonly IChatManager _adtChatManager = default!;
-    [Dependency] private readonly IServerNetConfigurationManager _adtNetConfig = default!;
+    [Dependency] private IChatManager _adtChatManager = default!;
+    [Dependency] private IServerNetConfigurationManager _adtNetConfig = default!;
 
     partial void OnPointingChatMessage(
         EntityUid source,

@@ -38,7 +38,7 @@
   defaultShape:
   - 0,0,3,3
 
-# Picture furry gf
+# Items that are so big they only fit in bluespace storages
 - type: itemSize
   id: Ginormous
   weight: 32

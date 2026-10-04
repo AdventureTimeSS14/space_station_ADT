@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: Clothing
+  parent: [ Clothing, BaseSlicingRefinable ]
   id: ADTClothingUnderwearBottomBase
   name: based underwearb
   description: "You should not see this. If you see it, let Neko Dar#8948 know."
@@ -11,9 +11,8 @@
     size: Tiny
   - type: Clothing
     slots: UNDERWEARB
-  - type: Butcherable
-    butcheringType: Knife
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: MaterialCloth1
       amount: 1
   - type: Edible

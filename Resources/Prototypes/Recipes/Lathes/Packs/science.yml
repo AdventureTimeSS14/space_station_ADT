@@ -25,6 +25,8 @@
   # - DeviceQuantumSpinInverter # ADT-Tweak
   - DeviceDesynchronizer
   # - ClothingBackpackHarmpack # ADT-Tweak
+  - ClothingBackpackHarmpack
+  - TeleporterChipBlank
 
 - type: latheRecipePack
   id: ScienceClothing
@@ -112,6 +114,8 @@
   - SlimeGrinderMachineCircuitboard # ADT-Tweak
   - ADTXenobiologyMonkeyRecyclerMachineCircuitboard # ADT-Tweak
   # ADT-Tweak-End
+  - StationTeleportersControlCircuitboard
+  - StationTeleporterMachineCircuitboard
 
 - type: latheRecipePack
   id: CameraBoards

@@ -12,10 +12,10 @@ namespace Content.Server.ADT.Sponsors;
 
 public sealed class SponsorPanelEui : BaseEui
 {
-    [Dependency] private readonly SponsorManager _sponsors = default!;
-    [Dependency] private readonly IAdminManager _admins = default!;
-    [Dependency] private readonly IPlayerLocator _locator = default!;
-    [Dependency] private readonly ILogManager _log = default!;
+    [Dependency] private SponsorManager _sponsors = default!;
+    [Dependency] private IAdminManager _admins = default!;
+    [Dependency] private IPlayerLocator _locator = default!;
+    [Dependency] private ILogManager _log = default!;
 
     private readonly ISawmill _sawmill;
 

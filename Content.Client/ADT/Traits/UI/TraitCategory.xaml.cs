@@ -95,12 +95,12 @@ public sealed partial class TraitCategory : BoxContainer
                 ("selected", SelectedCount));
         }
 
-        if (_category.MaxPoints.HasValue)
+        if (_category.MaxTraitPoints.HasValue)
         {
             CategoryPointsLabel.Visible = true;
             CategoryPointsLabel.Text = Loc.GetString("trait-category-points",
                 ("selected", PointsSpent),
-                ("max", _category.MaxPoints.Value));
+                ("max", _category.MaxTraitPoints.Value));
         }
         else
         {

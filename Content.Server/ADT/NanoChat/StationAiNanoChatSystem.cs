@@ -8,9 +8,9 @@ namespace Content.Server.ADT.NanoChat;
 
 public sealed class StationAiNanoChatSystem : EntitySystem
 {
-    [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly ActionsSystem _action = default!;
-    [Dependency] private readonly NanoChatCartridgeSystem _nanoChatCartridge = default!;
+    [Dependency] private UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private ActionsSystem _action = default!;
+    [Dependency] private NanoChatCartridgeSystem _nanoChatCartridge = default!;
 
     public override void Initialize()
     {

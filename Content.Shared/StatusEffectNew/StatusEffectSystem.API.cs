@@ -147,8 +147,7 @@ public sealed partial class StatusEffectsSystem
 
         foreach (var effect in container.ActiveStatusEffects?.ContainedEntities ?? [])
         {
-            if (!TryComp<MetaDataComponent>(effect, out var meta)) // ADT-Tweak
-                continue;
+            var meta = MetaData(effect);
 
             if (meta.EntityPrototype is null
                 || meta.EntityPrototype != effectProto)
@@ -174,9 +173,7 @@ public sealed partial class StatusEffectsSystem
 
         foreach (var effect in container.ActiveStatusEffects?.ContainedEntities ?? [])
         {
-            if (!TryComp<MetaDataComponent>(effect, out var meta)) // ADT-Tweak
-                continue; 
-
+            var meta = MetaData(effect);
             if (meta.EntityPrototype is not null && meta.EntityPrototype == effectProto)
                 return true;
         }
@@ -195,9 +192,7 @@ public sealed partial class StatusEffectsSystem
 
         foreach (var e in container.ActiveStatusEffects?.ContainedEntities ?? [])
         {
-            if (!TryComp<MetaDataComponent>(e, out var meta)) // ADT-Tweak
-                continue;
-
+            var meta = MetaData(e);
             if (meta.EntityPrototype is not null && meta.EntityPrototype == effectProto)
             {
                 effect = e;
@@ -228,9 +223,7 @@ public sealed partial class StatusEffectsSystem
 
         foreach (var effect in container.ActiveStatusEffects?.ContainedEntities ?? [])
         {
-            if (!TryComp<MetaDataComponent>(effect, out var meta)) // ADT-Tweak
-                continue;
-
+            var meta = MetaData(effect);
             if (meta.EntityPrototype is not null && meta.EntityPrototype == effectProto)
             {
                 if (!_effectQuery.TryComp(effect, out var effectComp))
@@ -291,9 +284,7 @@ public sealed partial class StatusEffectsSystem
 
         foreach (var effect in container.ActiveStatusEffects?.ContainedEntities ?? [])
         {
-            if (!TryComp<MetaDataComponent>(effect, out var meta)) // ADT-Tweak
-                continue;
-
+            var meta = MetaData(effect);
             if (meta.EntityPrototype is not null && meta.EntityPrototype == effectProto)
             {
                 AddStatusEffectTime(effect, time);
@@ -332,9 +323,7 @@ public sealed partial class StatusEffectsSystem
 
         foreach (var effect in container.ActiveStatusEffects?.ContainedEntities ?? [])
         {
-            if (!TryComp<MetaDataComponent>(effect, out var meta)) // ADT-Tweak
-                continue;
-
+            var meta = MetaData(effect);
             if (meta.EntityPrototype is not null && meta.EntityPrototype == effectProto)
             {
                 SetStatusEffectEndTime(effect, time);

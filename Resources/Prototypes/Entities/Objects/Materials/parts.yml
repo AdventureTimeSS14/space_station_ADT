@@ -1,6 +1,6 @@
-﻿- type: entity
+- type: entity
   abstract: true
-  parent: BaseItem
+  parent: MaterialBase
   id: PartBase
   components:
   - type: Sprite
@@ -48,12 +48,10 @@
     - state: rods_5
       map: ["base"]
   - type: Item
-    size: Normal
     heldPrefix: rods
   - type: Construction
     graph: MetalRod
     node: MetalRod
-  - type: Appearance
   - type: FloorTile
     outputs:
     - Lattice
@@ -62,16 +60,13 @@
     price: 0
   - type: StackPrice
     price: 7.5
-  - type: Extractable
-    grindableSolutionName: rod
-  - type: SolutionContainerManager
-    solutions:
-      rod:
-        reagents:
-        - ReagentId: Iron
-          Quantity: 4.5
-        - ReagentId: Carbon
-          Quantity: 0.5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Iron
+        Quantity: 4.5
+      - ReagentId: Carbon
+        Quantity: 0.5
   - type: GuideHelp
     guides:
     - ExpandingRepairingStation

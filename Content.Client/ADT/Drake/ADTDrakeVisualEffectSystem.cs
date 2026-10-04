@@ -8,7 +8,7 @@ namespace Content.Client.ADT.Drake;
 
 public sealed class ADTDrakeVisualEffectSystem : EntitySystem
 {
-    [Dependency] private readonly AnimationPlayerSystem _animationPlayer = default!;
+    [Dependency] private AnimationPlayerSystem _animationPlayer = default!;
 
     private const string AnimationKey = "adt-drake-visual-effect";
 

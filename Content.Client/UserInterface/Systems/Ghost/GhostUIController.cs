@@ -1,9 +1,10 @@
-﻿using Content.Client.Gameplay;
+using Content.Client.Gameplay;
 using Content.Client.Ghost;
 using Content.Client.Lobby;
 using Content.Client.UserInterface.Systems.Gameplay;
 using Content.Client.UserInterface.Systems.Ghost.Widgets;
-using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
+using Content.Shared.Ghost.Systems;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
 using Content.Shared.ADT.Thunderdome;
@@ -11,10 +12,11 @@ using Content.Shared.ADT.Thunderdome;
 namespace Content.Client.UserInterface.Systems.Ghost;
 
 // TODO hud refactor BEFORE MERGE fix ghost gui being too far up
-public sealed partial class GhostUIController : UIController, IOnSystemChanged<GhostSystem> // ADT - now this class is partial
+public sealed partial class GhostUIController : UIController, IOnSystemChanged<GhostSystem>
 {
-    [Dependency] private readonly IEntityManager _entManager = default!; // ADT-tweak
-    [Dependency] private readonly IEntityNetworkManager _net = default!;
+    [Dependency] private IEntityNetworkManager _net = default!;
+
+    [Dependency] private IEntityManager _entManager = default!; // ADT-tweak
     [UISystemDependency] private readonly GhostSystem? _system = default;
 
     private GhostGui? Gui => UIManager.GetActiveUIWidgetOrNull<GhostGui>();
@@ -123,6 +125,18 @@ public sealed partial class GhostUIController : UIController, IOnSystemChanged<G
         _net.SendSystemNetworkMessage(msg);
     }
 
+    private void OnWarpToRandomFollowedClicked()
+    {
+        var msg = new WarpToRandomFollowedRequestEvent();
+        _net.SendSystemNetworkMessage(msg);
+    }
+
+    private void OnWarpToRandomClicked()
+    {
+        var msg = new WarpToRandomRequestEvent();
+        _net.SendSystemNetworkMessage(msg);
+    }
+
     public void LoadGui()
     {
         if (Gui == null)
@@ -136,6 +150,8 @@ public sealed partial class GhostUIController : UIController, IOnSystemChanged<G
         Gui.TargetWindow.OnGhostnadoClicked += OnGhostnadoClicked;
         Gui.ThunderdomePressed += ThunderdomePressed; // ADT-Tweak
         Gui.ThunderdomeLeaderboardPressed += ThunderdomeLeaderboardPressed; // ADT-Tweak
+        Gui.TargetWindow.OnWarpToRandomFollowedClicked += OnWarpToRandomFollowedClicked;
+        Gui.TargetWindow.OnWarpToRandomClicked += OnWarpToRandomClicked;
 
         UpdateGui();
     }

@@ -10,8 +10,8 @@ namespace Content.Client.ADT.Mech.UI;
 [UsedImplicitly]
 public sealed class MechEquipmentUIController : UIController
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private ISharedPlayerManager _playerManager = default!;
 
     private MechEquipmentMenu? _menu;
 

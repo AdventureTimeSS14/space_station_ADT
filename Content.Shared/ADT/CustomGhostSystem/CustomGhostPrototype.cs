@@ -1,4 +1,5 @@
 using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Roles;
 using Robust.Shared.Configuration;

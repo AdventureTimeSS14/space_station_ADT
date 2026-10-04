@@ -16,7 +16,7 @@ public sealed partial class SlimeStabilizerPotionComponent : Component
 
 public sealed partial class SlimeStabilizerPotionSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

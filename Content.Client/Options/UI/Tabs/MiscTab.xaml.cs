@@ -15,8 +15,8 @@ namespace Content.Client.Options.UI.Tabs;
 [GenerateTypedNameReferences]
 public sealed partial class MiscTab : Control
 {
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
 
     public MiscTab()
     {
@@ -56,6 +56,7 @@ public sealed partial class MiscTab : Control
         Control.AddOptionCheckBox(ADTCCVars.OfferModeIndicatorsPointShow, ShowOfferModeIndicatorsCheckBox); // ADT-Tweak
         Control.AddOptionCheckBox(ADTCCVars.EnableChatJobIcons, ShowChatJobIconsCheckBox); // ADT-Tweak
         Control.AddOptionCheckBox(ADTCCVars.EnableChatPointingIcons, ShowChatPointingIconsCheckBox); // ADT-Tweak
+        Control.AddOptionCheckBox(CCVars.InterfaceChatFollowButton, ChatFollowButton);
         Control.Initialize();
     }
 }

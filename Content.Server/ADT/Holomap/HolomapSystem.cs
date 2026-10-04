@@ -9,7 +9,7 @@ namespace Content.Server.ADT.Holomap;
 
 public sealed class HolomapSystem : SharedHolomapSystem
 {
-    [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private UserInterfaceSystem _uiSystem = default!;
 
     public override void Initialize()
     {

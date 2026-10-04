@@ -8,7 +8,7 @@ namespace Content.Server.ADT.Chat.Commands;
 [AnyCommand]
 public sealed class ADTD20MeCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly ADTD20EmoteSystem _d20Emote = default!;
+    [Dependency] private ADTD20EmoteSystem _d20Emote = default!;
 
     public override string Command => "d20me";
 

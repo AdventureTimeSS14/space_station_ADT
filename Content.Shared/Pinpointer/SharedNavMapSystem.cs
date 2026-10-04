@@ -3,14 +3,16 @@ using System.Numerics;
 using System.Runtime.CompilerServices;
 using Content.Shared.Examine;
 using Content.Shared.Tag;
+using Content.Shared.Wall;
 using Robust.Shared.GameStates;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Dependency = Robust.Shared.IoC.DependencyAttribute;
 
 namespace Content.Shared.Pinpointer;
 
-public abstract class SharedNavMapSystem : EntitySystem
+public abstract partial class SharedNavMapSystem : EntitySystem
 {
     public const int Categories = 4; // ADT-Tweak - New Monitor: separate Window category (was 3 categories, Window under WallTags)
     public const int Directions = 4; // Not directly tied to number of atmos directions
@@ -24,15 +26,16 @@ public abstract class SharedNavMapSystem : EntitySystem
     public const int FloorMask = AllDirMask << (int) NavMapChunkType.Floor;
     public const int WindowMask = AllDirMask << (int) NavMapChunkType.Window;   // ADT-Tweak - New Monitor: WindowMask
 
-    [Robust.Shared.IoC.Dependency] private readonly TagSystem _tagSystem = default!;
-    [Robust.Shared.IoC.Dependency] private readonly INetManager _net = default!;
+    [Dependency] private TagSystem _tagSystem = default!;
+    [Dependency] private INetManager _net = default!;
+
+    [Dependency] private EntityQuery<NavMapDoorComponent> _doorQuery;
+    [Dependency] private EntityQuery<WallComponent> _wallQuery;
 
     // ADT-Tweak Start - New Monitor: Wall/Window tags split (was WallTags = Wall+Window)
-    // private static readonly ProtoId<TagPrototype>[] WallTags = {"Wall", "Window"};
     private static readonly ProtoId<TagPrototype> WallTag = "Wall";
     private static readonly ProtoId<TagPrototype> WindowTag = "Window";
     // ADT-Tweak End
-    private EntityQuery<NavMapDoorComponent> _doorQuery;
 
     public override void Initialize()
     {
@@ -41,8 +44,6 @@ public abstract class SharedNavMapSystem : EntitySystem
         // Data handling events
         SubscribeLocalEvent<NavMapComponent, ComponentGetState>(OnGetState);
         SubscribeLocalEvent<ConfigurableNavMapBeaconComponent, ExaminedEvent>(OnConfigurableExamined);
-
-        _doorQuery = GetEntityQuery<NavMapDoorComponent>();
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -67,14 +68,11 @@ public abstract class SharedNavMapSystem : EntitySystem
         if (_doorQuery.HasComp(uid))
             return NavMapChunkType.Airlock;
 
-        // ADT-Tweak Start - New Monitor: Window wins over Wall (was HasAnyTag WallTags → Wall)
-        // if (_tagSystem.HasAnyTag(uid, WallTags))
-        //     return NavMapChunkType.Wall;
-        // Windows must win over walls — some glass prototypes also carry structural tags.
+        // ADT-Tweak Start - New Monitor: Window wins over Wall
         if (_tagSystem.HasTag(uid, WindowTag))
             return NavMapChunkType.Window;
 
-        if (_tagSystem.HasTag(uid, WallTag))
+        if (_wallQuery.HasComp(uid) || _tagSystem.HasTag(uid, WallTag))
             return NavMapChunkType.Wall;
         // ADT-Tweak End
 

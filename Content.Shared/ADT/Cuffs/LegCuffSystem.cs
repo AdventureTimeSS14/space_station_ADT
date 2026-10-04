@@ -45,7 +45,7 @@ public sealed partial class LegCuffSystem : EntitySystem
         if (!TryComp<EnsnareableComponent>(target, out var ensnareableCheck))
             return;
 
-        if (ensnareableCheck.IsEnsnared)
+        if (_ensnareable.IsEnsnared((target, ensnareableCheck)))
             return;
 
         _audio.PlayPredicted(comp.StartCuffSound, target, args.User);
@@ -97,7 +97,10 @@ public sealed partial class LegCuffSystem : EntitySystem
         if (!args.CanInteract || !args.CanAccess)
             return;
 
-        if (!TryComp<EnsnareableComponent>(uid, out var ensnareable) || !ensnareable.IsEnsnared)
+        if (!TryComp<EnsnareableComponent>(uid, out var ensnareable) || !_ensnareable.IsEnsnared((uid, ensnareable)))
+            return;
+
+        if (ensnareable.Container == null)
             return;
 
         EntityUid? legCuffEntity = null;
@@ -140,7 +143,7 @@ public sealed partial class LegCuffSystem : EntitySystem
     {
         var uid = ent.Owner;
 
-        if (!TryComp<EnsnareableComponent>(uid, out var ensnareable) || !ensnareable.IsEnsnared)
+        if (!TryComp<EnsnareableComponent>(uid, out var ensnareable) || !_ensnareable.IsEnsnared((uid, ensnareable)))
             return;
 
         var now = _timing.CurTime;
@@ -149,6 +152,9 @@ public sealed partial class LegCuffSystem : EntitySystem
             return;
 
         ent.Comp.NextAllowedTime = now + ent.Comp.BreakoutSoundCooldown;
+
+        if (ensnareable.Container == null)
+            return;
 
         foreach (var contained in ensnareable.Container.ContainedEntities)
         {

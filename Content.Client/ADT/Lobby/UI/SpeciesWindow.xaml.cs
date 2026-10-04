@@ -29,11 +29,11 @@ public sealed partial class SpeciesWindow : FancyWindow
     private readonly IPrototypeManager _proto;
     private readonly LobbyUIController _uIController;
     private readonly IResourceManager _resMan;
-    [Dependency] private readonly DocumentParsingManager _parsingMan = default!;
-    [Dependency] private readonly Content.Client.ADT.Sponsors.SponsorManager _adtSponsors = default!;
-    [Dependency] private readonly Robust.Client.Player.IPlayerManager _players = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ILocalizationManager _loc = default!;
+    [Dependency] private DocumentParsingManager _parsingMan = default!;
+    [Dependency] private Content.Client.ADT.Sponsors.SponsorManager _adtSponsors = default!;
+    [Dependency] private Robust.Client.Player.IPlayerManager _players = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ILocalizationManager _loc = default!;
 
     public SpeciesWindow(HumanoidCharacterProfile profile,
                         IPrototypeManager proto,

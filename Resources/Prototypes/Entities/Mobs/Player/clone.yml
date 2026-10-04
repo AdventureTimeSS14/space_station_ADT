@@ -4,6 +4,30 @@
 # The datafields of the components copied using CopyComp.
 # Subscribe to CloningEvent instead if that is not enough.
 
+# Traits that root mentally or otherwise only affect you mentally.
+- type: cloningSettings
+  id: TraitsMental
+  components:
+  - Pacified
+  - Paracusia
+  - LightweightDrunk
+
+# Traits that root in physical things in your body.
+- type: cloningSettings
+  id: TraitsPhysical
+  components:
+  - BlackAndWhiteOverlay
+  - Narcolepsy
+  - ImpairedMobility
+  # - LegsParalyzed (you get healed)
+  - PermanentBlindness
+  - Snoring
+  - Unrevivable
+
+- type: cloningSettings
+  parent: [TraitsMental, TraitsPhysical]
+  id: Traits
+
 # for basic physical traits
 - type: cloningSettings
   id: Body
@@ -14,22 +38,12 @@
   - Fingerprint
   - Grammar # Pronouns
   - HumanoidProfile # Age, Sex, Gender
+  - InnerBodyAnomalyVisuals # How you look with anomalies
+  - MeleeWeapon # Attack animation, damage and sound
   - NpcFactionMember
   - RandomPrice
-  - CreamPied
-  # traits
-  - BlackAndWhiteOverlay
-  - Clumsy
-  - ImpairedMobility
-  # - LegsParalyzed (you get healed)
-  - LightweightDrunk
-  - Muted
-  - Narcolepsy
-  - Pacified
-  - Paracusia
-  - PermanentBlindness
-  - Snoring
-  - Unrevivable
+  - TemperatureDamage
+  - TemperatureSpeed
   # accents
   - Accentless
   - BackwardsAccent
@@ -38,7 +52,7 @@
   - DamagedSiliconAccent
   - FrenchAccent
   - FrontalLisp
-  - GermanAccent
+  - ADTGermanAccent
   - LizardAccent
   - MobsterAccent
   - MonkeyAccent
@@ -47,6 +61,10 @@
   - OwOAccent
   - ParrotAccent
   - PirateAccent
+  # - ReplacementAccent
+  # Not supported at the moment because AddAccentClothingComponent will make it permanent when cloned.
+  # TODO: AddAccentClothingComponent should use an inventory relay event.
+  # Also ZombieComponent overwrites the old replacement accent, because you can only have one at a time.
   - RussianAccent
   - ScrambledAccent
   - SkeletonAccent
@@ -55,10 +73,6 @@
   - SpanishAccent
   - StutteringAccent
   - VoxAccent
-  # - ReplacementAccent
-  # Not supported at the moment because AddAccentClothingComponent will make it permanent when cloned.
-  # TODO: AddAccentClothingComponent should use an inventory relay event.
-  # Also ZombieComponent overwrites the old replacement accent, because you can only have one at a time.
   - TTS # Corvax-TTS
   # ADT-fix-clone-start
   - BurrinessAccent
@@ -92,6 +106,13 @@
   - Touchy
   - CharacterFlavor
   # ADT-fix-clone-end
+  eventComponents:
+  - Damageable # Sprites and damage modifier
+  - Flammable # Displacements
+  - CreamPied # Displacements
+  - Hands # displacements
+  - Puller
+  - Vocal # voice sounds
 
 # for job-specific traits etc.
 - type: cloningSettings
@@ -112,16 +133,20 @@
   - Revolutionary
   - NukeOperative
 
-# a full clone with all traits and items, but no antag roles
 - type: cloningSettings
-  id: BaseClone
-  parent: [Body, Special]
-  blacklist:
+  abstract: true
+  id: BaseEquipmentBlacklist
+  equipmentBlacklist:
     components:
     - AttachedClothing # helmets, which are part of the suit
     - HumanoidProfile # will cause problems for downstream felinids getting cloned as Urists
     - Implanter # they will spawn full again, but you already get the implant. And we can't do item slot copying yet
     - VirtualItem
+
+# a full clone with all traits and items, but no antag roles
+- type: cloningSettings
+  id: BaseClone
+  parent: [Body, Special, Traits, BaseEquipmentBlacklist]
 
 # for cloning pods
 - type: cloningSettings
@@ -167,7 +192,7 @@
 #   copyInternalStorage: false
 #   copyImplants: false
 
-# # spawner
+# spawner
 - type: entity
   id: RandomCloneSpawner
   name: Random Clone
@@ -178,3 +203,32 @@
     state: preview
   - type: RandomCloneSpawner
     settings: BaseClone
+
+# for plant clones
+- type: cloningSettings
+  id: PlantClone
+  components:
+  - Plant
+  - PlantHarvest
+  - PlantChemicals
+  - PlantGrowth
+  - PlantAtmospheric
+  - PlantConsumeExudeGas
+  - PlantWeedPest
+  - PlantToxins
+  # traits
+  - PlantTraitKudzu
+  - PlantTraitLigneous
+  - PlantTraitScream
+  - PlantTraitUnviable
+
+# for plant lifecycle clones
+- type: cloningSettings
+  id: PlantLifecycleClone
+  parent: PlantClone
+  components:
+  # traits
+  - PlantTraitSampled
+  - PlantTraitSeedless
+  eventComponents:
+  - PlantHolder

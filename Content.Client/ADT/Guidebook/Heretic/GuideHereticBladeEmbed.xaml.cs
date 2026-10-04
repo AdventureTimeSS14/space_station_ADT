@@ -20,9 +20,9 @@ namespace Content.Client.ADT.Guidebook.Heretic;
 [UsedImplicitly, GenerateTypedNameReferences]
 public sealed partial class GuideHereticBladeEmbed : BoxContainer, IDocumentTag, ISearchableControl
 {
-    [Dependency] private readonly IComponentFactory _componentFactory = default!;
-    [Dependency] private readonly ILogManager _logManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IComponentFactory _componentFactory = default!;
+    [Dependency] private ILogManager _logManager = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     private readonly ISawmill _sawmill;
 

@@ -1,13 +1,13 @@
-using Content.Server.Speech.EntitySystems;
 using Content.Shared.Administration;
+using Content.Shared.Speech.EntitySystems;
 using Robust.Shared.Console;
 
 namespace Content.Server.Administration.Commands;
 
 [AdminCommand(AdminFlags.Fun)]
-public sealed class OwoifyCommand : IConsoleCommand
+public sealed partial class OwoifyCommand : IConsoleCommand
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
 
     public string Command => "owoify";
 

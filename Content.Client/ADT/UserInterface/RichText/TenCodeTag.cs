@@ -13,10 +13,10 @@ namespace Content.Client.ADT.UserInterface.RichText;
 
 public sealed class TenCodeTag : IMarkupTagHandler
 {
-    [Dependency] private readonly IEntityManager _entity = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IResourceCache _cache = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IEntityManager _entity = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IResourceCache _cache = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     public static readonly Color HighlightColor = Color.FromHex("#45E0FF");
 

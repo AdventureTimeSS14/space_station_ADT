@@ -58,21 +58,21 @@ public sealed class GhoulSystem : EntitySystem
     private static readonly ProtoId<HTNCompoundPrototype> Compound = "HereticSummonCompound";
     private static readonly EntProtoId<MindRoleComponent> GhoulRole = "MindRoleGhoul";
 
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
-    [Dependency] private readonly NpcFactionSystem _faction = default!;
-    [Dependency] private readonly MobThresholdSystem _threshold = default!;
-    [Dependency] private readonly GibbingSystem _gibbing = default!;
-    [Dependency] private readonly StorageSystem _storage = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly HandsSystem _hands = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly NPCSystem _npc = default!;
-    [Dependency] private readonly HTNSystem _htn = default!;
-    [Dependency] private readonly SharedRoleSystem _role = default!;
-    [Dependency] private readonly HereticSystem _heretic = default!;
-    [Dependency] private readonly HereticAbilitySystem _hereticAbility = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private AntagSelectionSystem _antag = default!;
+    [Dependency] private RejuvenateSystem _rejuvenate = default!;
+    [Dependency] private NpcFactionSystem _faction = default!;
+    [Dependency] private MobThresholdSystem _threshold = default!;
+    [Dependency] private GibbingSystem _gibbing = default!;
+    [Dependency] private StorageSystem _storage = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private HandsSystem _hands = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private NPCSystem _npc = default!;
+    [Dependency] private HTNSystem _htn = default!;
+    [Dependency] private SharedRoleSystem _role = default!;
+    [Dependency] private HereticSystem _heretic = default!;
+    [Dependency] private HereticAbilitySystem _hereticAbility = default!;
 
     public override void Initialize()
     {
@@ -145,8 +145,7 @@ public sealed class GhoulSystem : EntitySystem
     {
         RemComp<RespiratorComponent>(ent);
         RemComp<BarotraumaComponent>(ent);
-        RemComp<HungerComponent>(ent);
-        RemComp<ThirstComponent>(ent);
+        RemComp<SatiationComponent>(ent);
         RemComp<ReproductiveComponent>(ent);
         RemComp<ReproductivePartnerComponent>(ent);
         RemComp<TemperatureComponent>(ent);

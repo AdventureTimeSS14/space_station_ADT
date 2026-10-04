@@ -11,8 +11,8 @@ namespace Content.Client.ADT.Movement.Systems;
 
 public sealed class WaddleAnimationSystem : SharedWaddleAnimationSystem
 {
-    [Dependency] private readonly AnimationPlayerSystem _animation = default!;
-    [Dependency] private readonly GravitySystem _gravity = default!;
+    [Dependency] private AnimationPlayerSystem _animation = default!;
+    [Dependency] private GravitySystem _gravity = default!;
 
     public override void Initialize()
     {

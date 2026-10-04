@@ -36,6 +36,12 @@
   name: guide-entry-revolutionaries
   text: "/ServerInfo/Guidebook/Antagonist/Revolutionaries.xml"
 
+# ADT: Закомментировано из-за использования генокрада от Goob Station
+# - type: guideEntry
+#   id: Changelings
+#   name: guide-entry-changelings
+#   text: "/ServerInfo/Guidebook/Antagonist/Changelings.xml"
+
 - type: guideEntry
   id: MinorAntagonists
   name: guide-entry-minor-antagonists

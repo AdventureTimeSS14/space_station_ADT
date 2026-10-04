@@ -12,19 +12,23 @@ using Content.Shared.Mining.Components;
 using Content.Shared.Popups;
 using Content.Shared.Temperature.Components;
 using Content.Shared.Tools.Systems;
+using Content.Shared.Tools;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.Lavaland;
 
 public sealed class ADTGemSystem : EntitySystem
 {
-    [Dependency] private readonly MiningPointsSystem _points = default!;
-    [Dependency] private readonly RadiationSystem _radiation = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedToolSystem _tool = default!;
-    [Dependency] private readonly StackSystem _stack = default!;
-    [Dependency] private readonly TemperatureSystem _temperature = default!;
+    [Dependency] private MiningPointsSystem _points = default!;
+    [Dependency] private RadiationSystem _radiation = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedToolSystem _tool = default!;
+    [Dependency] private StackSystem _stack = default!;
+    [Dependency] private TemperatureSystem _temperature = default!;
+
+    private static readonly ProtoId<ToolQualityPrototype> SlicingQuality = "Slicing";
 
     public override void Initialize()
     {
@@ -103,13 +107,13 @@ public sealed class ADTGemSystem : EntitySystem
             return;
 
         args.Handled = true;
-        _temperature.ForceChangeTemperature(args.User, temperature.CurrentTemperature + ent.Comp.Delta, temperature);
+        _temperature.ForceChangeTemperature(args.User, temperature.Temperature + ent.Comp.Delta, temperature);
         _popup.PopupEntity(Loc.GetString(ent.Comp.Message, ("user", args.User), ("gem", ent.Owner)), args.User, PopupType.Small);
     }
 
     private void OnRuperiumInteract(Entity<ADTRuperiumComponent> ent, ref InteractUsingEvent args)
     {
-        if (args.Handled || !ent.Comp.Shielded || !HasComp<SharpComponent>(args.Used))
+        if (args.Handled || !ent.Comp.Shielded || !_tool.HasQuality(args.Used, SlicingQuality))
             return;
 
         var doAfter = new DoAfterArgs(EntityManager, args.User, ent.Comp.CutDelay, new ADTRuperiumCutDoAfterEvent(), ent.Owner, ent.Owner, args.Used)

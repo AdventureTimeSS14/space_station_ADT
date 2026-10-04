@@ -73,8 +73,12 @@
     raffle:
       settings: ADTAshWalker
   - type: GhostTakeoverAvailable
-  - type: Hunger
-    baseDecayRate: 0.023333333
+  - type: Satiation
+    satiations:
+      Hunger:
+        prototype: ADTAshwalkerHunger
+      Thirst:
+        prototype: NormalSatiationThirst
   - type: NightVision
     innate: true
     effectPrototype: ADTEffectNightVisionMedium
@@ -105,10 +109,7 @@
     speechVerb: Reptilian
     allowedEmotes: ['Thump']
   - type: Vocal
-    sounds:
-      Male: MaleReptilian
-      Female: FemaleReptilian
-      Unsexed: MaleReptilian
+    emoteSounds: MaleReptilian
   - type: BodyEmotes
     soundsId: ReptilianBodyEmotes
   - type: TypingIndicator
@@ -120,7 +121,6 @@
   - type: Wagging
   - type: InjectorsBlocker
   - type: Butcherable
-    butcheringType: Spike
     spawned:
     - id: FoodMeatLizard
       amount: 5

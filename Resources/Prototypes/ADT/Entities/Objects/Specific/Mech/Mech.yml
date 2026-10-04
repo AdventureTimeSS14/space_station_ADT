@@ -33,13 +33,16 @@
     openState: ripleymkii-open
     brokenState: ripleymkii-broken
     mechToPilotDamageMultiplier: 0.5
-    pilotWhitelist:
-      components:
-        - HumanoidProfile
     equipmentWhitelist:
       tags:
       - ADTMechEquipmentGeneral
       - ADTMechEquipmentIndustrial
+  - type: Vehicle
+    operatorWhitelist:
+      components:
+        - HumanoidProfile
+  - type: VehicleHandBlocker
+    blockedHands: 2
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -116,13 +119,16 @@
     openState: odysseus-open
     brokenState: odysseus-broken
     mechToPilotDamageMultiplier: 0.5
-    pilotWhitelist:
-      components:
-        - HumanoidProfile
     equipmentWhitelist:
       tags:
       - ADTMechEquipmentGeneral
       - ADTMechEquipmentMed
+  - type: Vehicle
+    operatorWhitelist:
+      components:
+        - HumanoidProfile
+  - type: VehicleHandBlocker
+    blockedHands: 2
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -190,14 +196,17 @@
     openState: clarke-open
     brokenState: clarke-broken
     mechToPilotDamageMultiplier: 0.25
-    pilotWhitelist:
-      components:
-        - HumanoidProfile
     equipmentWhitelist:
       tags:
       - ADTMechEquipmentGeneral
       - ADTMechEquipmentIndustrial
     maxEquipmentAmount: 3
+  - type: Vehicle
+    operatorWhitelist:
+      components:
+        - HumanoidProfile
+  - type: VehicleHandBlocker
+    blockedHands: 2
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -271,14 +280,17 @@
     baseState: paddy
     openState: paddy-open
     brokenState: paddy-broken
-    pilotWhitelist:
-      components:
-        - HumanoidProfile
     maxEquipmentAmount: 2
     equipmentWhitelist:
       tags:
       - ADTMechEquipmentGeneral
       - ADTMechEquipmentSec
+  - type: Vehicle
+    operatorWhitelist:
+      components:
+        - HumanoidProfile
+  - type: VehicleHandBlocker
+    blockedHands: 2
   - type: MeleeWeapon
     hidden: true
     attackRate: 1.0
@@ -348,14 +360,17 @@
     openState: gygax-open
     brokenState: gygax-broken
     mechToPilotDamageMultiplier: 0.15 #коэффициент для легкобронированных мехов
-    pilotWhitelist:
-      components:
-        - HumanoidProfile
     equipmentWhitelist:
       tags:
       - ADTMechEquipmentGeneral
       - ADTMechEquipmentSec
     maxEquipmentAmount: 2
+  - type: Vehicle
+    operatorWhitelist:
+      components:
+        - HumanoidProfile
+  - type: VehicleHandBlocker
+    blockedHands: 2
   - type: MeleeWeapon
     hidden: true
     attackRate: 1.0
@@ -431,14 +446,17 @@
     openState: durand-open
     brokenState: durand-broken
     mechToPilotDamageMultiplier: 0.0 #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
-    pilotWhitelist:
-      components:
-        - HumanoidProfile
     equipmentWhitelist:
       tags:
       - ADTMechEquipmentGeneral
       - ADTMechEquipmentSec
     maxEquipmentAmount: 3
+  - type: Vehicle
+    operatorWhitelist:
+      components:
+        - HumanoidProfile
+  - type: VehicleHandBlocker
+    blockedHands: 2
   - type: MeleeWeapon
     hidden: true
     attackRate: 1.0
@@ -512,14 +530,17 @@
     baseState: phazon
     openState: phazon-open
     brokenState: phazon-broken
-    pilotWhitelist:
-      components:
-        - HumanoidProfile
     equipmentWhitelist:
       tags:
       - ADTMechEquipmentGeneral
       - ADTMechEquipmentSec
     maxEquipmentAmount: 2
+  - type: Vehicle
+    operatorWhitelist:
+      components:
+        - HumanoidProfile
+  - type: VehicleHandBlocker
+    blockedHands: 2
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -591,14 +612,17 @@
     baseState: darkgygax
     openState: darkgygax-open
     brokenState: darkgygax-broken
-    pilotWhitelist:
-      components:
-        - HumanoidProfile
     equipmentWhitelist:
       tags:
       - ADTMechEquipmentGeneral
       - ADTMechEquipmentSec
     maxEquipmentAmount: 3
+  - type: Vehicle
+    operatorWhitelist:
+      components:
+        - HumanoidProfile
+  - type: VehicleHandBlocker
+    blockedHands: 2
   - type: AccessReader
     access: [["NuclearOperative"], ["SyndicateAgent"]]
   - type: Storage
@@ -661,14 +685,17 @@
     baseState: mauler
     openState: mauler-open
     brokenState: mauler-broken
-    pilotWhitelist:
-      components:
-        - HumanoidProfile
     equipmentWhitelist:
       tags:
       - ADTMechEquipmentGeneral
       - ADTMechEquipmentSec
     maxEquipmentAmount: 4
+  - type: Vehicle
+    operatorWhitelist:
+      components:
+        - HumanoidProfile
+  - type: VehicleHandBlocker
+    blockedHands: 2
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -742,14 +769,17 @@
     baseState: ntgygax
     openState: ntgygax-open
     brokenState: ntgygax-broken
-    pilotWhitelist:
-      components:
-        - HumanoidProfile
     equipmentWhitelist:
       tags:
       - ADTMechEquipmentGeneral
       - ADTMechEquipmentSec
     maxEquipmentAmount: 3
+  - type: Vehicle
+    operatorWhitelist:
+      components:
+        - HumanoidProfile
+  - type: VehicleHandBlocker
+    blockedHands: 2
   - type: AccessReader
     access: [ ["CentralCommand"] ]
   - type: Storage
@@ -812,14 +842,17 @@
     baseState: marauder
     openState: marauder-open
     brokenState: marauder-broken
-    pilotWhitelist:
-      components:
-        - HumanoidProfile
     maxEquipmentAmount: 4
     equipmentWhitelist:
       tags:
       - ADTMechEquipmentGeneral
       - ADTMechEquipmentSec
+  - type: Vehicle
+    operatorWhitelist:
+      components:
+        - HumanoidProfile
+  - type: VehicleHandBlocker
+    blockedHands: 2
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -890,14 +923,17 @@
     baseState: seraph
     openState: seraph-open
     brokenState: seraph-broken
-    pilotWhitelist:
-      components:
-        - HumanoidProfile
     equipmentWhitelist:
       tags:
       - ADTMechEquipmentGeneral
       - ADTMechEquipmentSec
     maxEquipmentAmount: 5
+  - type: Vehicle
+    operatorWhitelist:
+      components:
+        - HumanoidProfile
+  - type: VehicleHandBlocker
+    blockedHands: 2
   - type: Storage
     grid:
     - 0,0,6,3

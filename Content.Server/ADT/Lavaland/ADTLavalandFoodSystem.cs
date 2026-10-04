@@ -21,14 +21,14 @@ namespace Content.Server.ADT.Lavaland;
 
 public sealed class ADTLavalandFoodSystem : EntitySystem
 {
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IngestionSystem _ingestion = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedEntityEffectsSystem _effects = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
-    [Dependency] private readonly TemperatureSystem _temperature = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IngestionSystem _ingestion = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedEntityEffectsSystem _effects = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private StatusEffectsSystem _status = default!;
+    [Dependency] private TemperatureSystem _temperature = default!;
 
     public override void Initialize()
     {
@@ -166,11 +166,11 @@ public sealed class ADTLavalandFoodSystem : EntitySystem
         if (!TryComp<TemperatureComponent>(target, out var temperature) || !TryComp<ThermalRegulatorComponent>(target, out var regulator))
             return;
 
-        var difference = temperature.CurrentTemperature - regulator.NormalBodyTemperature;
+        var difference = temperature.Temperature - regulator.NormalBodyTemperature;
         if (MathF.Abs(difference) <= step)
             return;
 
         var change = difference > 0 ? -step : step;
-        _temperature.ForceChangeTemperature(target, temperature.CurrentTemperature + change, temperature);
+        _temperature.ForceChangeTemperature(target, temperature.Temperature + change, temperature);
     }
 }

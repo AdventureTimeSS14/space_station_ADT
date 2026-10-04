@@ -24,7 +24,7 @@
         - ReagentId: ADTVitriumFroth
           Quantity: 4
   - type: Produce
-    seedId: ADTSeedLavalandCactus
+    plantId: ADTLavalandCactusPlants
   - type: Extractable
     grindableSolutionName: food
     juiceSolution:

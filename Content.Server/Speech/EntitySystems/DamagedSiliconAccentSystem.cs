@@ -1,83 +1,30 @@
 ﻿using System.Text;
 using Content.Server.Destructible;
-using Content.Shared.Speech.Components;
-using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Systems;
 using Content.Shared.FixedPoint;
-using Content.Shared.Power.EntitySystems;
-using Content.Shared.PowerCell;
-using Content.Shared.Speech;
+using Content.Shared.Speech.Components;
+using Content.Shared.Speech.EntitySystems;
+
 using Robust.Shared.Random;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems; // ADT-Tweak
 
 namespace Content.Server.Speech.EntitySystems;
 
-public sealed class DamagedSiliconAccentSystem : EntitySystem
+public sealed partial class DamagedSiliconAccentSystem : SharedDamagedSiliconAccentSystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedBatterySystem _battery = default!;
-    [Dependency] private readonly PowerCellSystem _powerCell = default!;
-    [Dependency] private readonly DestructibleSystem _destructibleSystem = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private DestructibleSystem _destructibleSystem = default!;
+    [Dependency] private SharedAudioSystem _audio = default!; // ADT-Tweak
 
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    public override void Initialize()
+    // ADT-Tweak-Start
+    public override string Accentuate(string message, Entity<DamagedSiliconAccentComponent>? ent = null)
     {
-        base.Initialize();
-        SubscribeLocalEvent<DamagedSiliconAccentComponent, AccentGetEvent>(OnAccent, after: [typeof(ReplacementAccentSystem)]);
+        var result = base.Accentuate(message, ent);
+
+        if (ent != null && result != message)
+            PlayAccentSound(ent.Value.Comp, ent.Value.Owner);
+
+        return result;
     }
-
-    // ADT-Tweak (P4A)-start: Изменение акцента для КПБ
-    private void OnAccent(Entity<DamagedSiliconAccentComponent> ent, ref AccentGetEvent args)
-    {
-        var uid = ent.Owner;
-
-        // Берем оригинальное сообщение в отдельную переменную
-        var originalMessage = args.Message ?? "";
-        var message = originalMessage;
-
-        bool messageChanged = false;
-        if (ent.Comp.EnableChargeCorruption)
-        {
-            var currentChargeLevel = 0.0f;
-            if (ent.Comp.OverrideChargeLevel.HasValue)
-            {
-                currentChargeLevel = ent.Comp.OverrideChargeLevel.Value;
-            }
-            else if (_powerCell.TryGetBatteryFromSlot(uid, out var battery))
-            {
-                currentChargeLevel = _battery.GetChargeLevel(battery.Value.AsNullable());
-            }
-            currentChargeLevel = Math.Clamp(currentChargeLevel, 0.0f, 1.0f);
-
-            var corrupted = CorruptPower(message, currentChargeLevel, ent.Comp);
-            if (corrupted != message)
-            {
-                message = corrupted;
-                messageChanged = true;
-            }
-        }
-
-        if (ent.Comp.EnableDamageCorruption)
-        {
-            var damage = FixedPoint2.Zero;
-            if (ent.Comp.OverrideTotalDamage.HasValue)
-            {
-                damage = ent.Comp.OverrideTotalDamage.Value;
-            }
-            else if (TryComp<DamageableComponent>(uid, out var damageable))
-            {
-                damage = _damageable.GetTotalDamage((uid, damageable));
-            }
-        }
-
-        args.Message = message;
-
-        if (messageChanged)
-            PlayAccentSound(ent.Comp, uid);
-    }
-
 
     private void PlayAccentSound(DamagedSiliconAccentComponent comp, EntityUid uid)
     {
@@ -87,61 +34,13 @@ public sealed class DamagedSiliconAccentSystem : EntitySystem
         var sound = _random.Pick(comp.SpeechGlitchSounds);
         _audio.PlayPvs(sound, uid, comp.SpeechGlitchAudioParams);
     }
-    // ADT-Tweak (P4A)-end
+    // ADT-Tweak-End
 
-
-    public string CorruptPower(string message, float chargeLevel, DamagedSiliconAccentComponent comp)
+    protected override string CorruptDamage(string message, FixedPoint2 totalDamage, Entity<DamagedSiliconAccentComponent> ent)
     {
-        // The first idxMin characters are SAFE
-        var idxMin = comp.StartPowerCorruptionAtCharIdx;
-        // Probability will max at idxMax
-        var idxMax = comp.MaxPowerCorruptionAtCharIdx;
+        return message; // ADT-Tweak
 
-        // Fast bails, would not have an effect
-        if (chargeLevel > comp.ChargeThresholdForPowerCorruption || message.Length < idxMin)
-        {
-            return message;
-        }
-
-        var outMsg = new StringBuilder();
-
-        var maxDropProb = comp.MaxDropProbFromPower * (1.0f - chargeLevel / comp.ChargeThresholdForPowerCorruption);
-
-        var idx = -1;
-        foreach (var letter in message)
-        {
-            idx++;
-            if (idx < idxMin) // Fast character, no effect
-            {
-                outMsg.Append(letter);
-                continue;
-            }
-
-            // use an x^2 interpolation to increase the drop probability until we hit idxMax
-            var probToDrop = idx >= idxMax
-                ? maxDropProb
-                : (float)Math.Pow(((double)idx - idxMin) / (idxMax - idxMin), 2.0) * maxDropProb;
-            // Ensure we're in the range for Prob()
-            probToDrop = Math.Clamp(probToDrop, 0.0f, 1.0f);
-
-            if (_random.Prob(probToDrop)) // Lose a character
-            {
-                // Additional chance to change to dot for flavor instead of full drop
-                if (_random.Prob(comp.ProbToCorruptDotFromPower))
-                {
-                    outMsg.Append('.');
-                }
-            }
-            else // Character is safe
-            {
-                outMsg.Append(letter);
-            }
-        }
-        return outMsg.ToString();
-    }
-
-    private string CorruptDamage(string message, FixedPoint2 totalDamage, Entity<DamagedSiliconAccentComponent> ent)
-    {
+#pragma warning disable CS0162 // ADT-Tweak
         var outMsg = new StringBuilder();
 
         // If this is not specified, use the Destructible threshold for destruction or breakage
@@ -169,6 +68,7 @@ public sealed class DamagedSiliconAccentSystem : EntitySystem
             }
         }
         return outMsg.ToString();
+#pragma warning restore CS0162 // ADT-Tweak
     }
 
     private string CorruptLetterDamage(char letter)

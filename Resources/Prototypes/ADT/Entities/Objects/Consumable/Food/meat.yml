@@ -1,6 +1,6 @@
 - type: entity
   name: raw shadekin meat
-  parent: FoodMeatRawBase
+  parent: [ FoodMeatRawBase, BaseSlicingRefinableFood ]
   id: ADTFoodMeatShadekin
   description: A slab of raw shadekin meat.
   components:
@@ -15,9 +15,10 @@
           Quantity: 7
         - ReagentId: Fat
           Quantity: 1
-  - type: SliceableFood
-    count: 3
-    slice: ADTFoodMeatShadekinCutlet
+  - type: ToolRefinable
+    refineResult:
+    - id: ADTFoodMeatShadekinCutlet
+      amount: 3
   - type: InternalTemperature
     conductivity: 0.43
   - type: Tag
@@ -58,7 +59,7 @@
 
 - type: entity
   name: shadekin steak
-  parent: FoodMeatBase
+  parent: [ FoodMeatBase, BaseSlicingRefinableFood ]
   id: ADTFoodMeatShadekinCooked
   description: A cooked slab of shadekin. It looks like meat with wine.
   components:
@@ -78,9 +79,10 @@
           Quantity: 8
         - ReagentId: Protein
           Quantity: 3
-  - type: SliceableFood
-    count: 3
-    slice: ADTFoodMeatShadekinCutletCooked
+  - type: ToolRefinable
+    refineResult:
+    - id: ADTFoodMeatShadekinCutletCooked
+      amount: 3
   - type: FoodSequenceElement
     entries:
       Burger: ADTMeatShadekin
@@ -120,7 +122,7 @@
 
 - type: entity
   name: raw fish fillet
-  parent: FoodMeatBase
+  parent: [ FoodMeatBase, BaseSlicingRefinableFood ]
   id: ADTFoodMeatFish
   description: It may well need to be cooked first.
   components:
@@ -140,9 +142,10 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 9
-  - type: SliceableFood
-    count: 3
-    slice: ADTFoodFishCutlet
+  - type: ToolRefinable
+    refineResult:
+    - id: ADTFoodFishCutlet
+      amount: 3
   - type: Construction
     graph: FishSteak
     node: start
@@ -177,7 +180,7 @@
 
 - type: entity
   name: baked chicken
-  parent: FoodMeatBase
+  parent: [ FoodMeatBase, BaseSlicingRefinableFood ]
   id: ADTFoodFishCooked
   description: Now it's well done.
   components:
@@ -196,9 +199,10 @@
           Quantity: 14
         - ReagentId: Protein
           Quantity: 14
-  - type: SliceableFood
-    count: 3
-    slice: ADTFoodFishCutletCooked
+  - type: ToolRefinable
+    refineResult:
+    - id: ADTFoodFishCutletCooked
+      amount: 3
   - type: Construction
     graph: FishSteak
     node: fish steak
@@ -304,7 +308,7 @@
 
 - type: entity
   name: raw smoked sausage
-  parent: FoodMeatBase
+  parent: [ FoodMeatBase, BaseSlicingRefinableFood ]
   id: ADTFoodMeatSmokedSausage
   description: A large tube of meat.
   components:
@@ -315,8 +319,10 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/meat.rsi
     state: smoked-sausage
-  - type: SliceableFood
-    slice: ADTFoodMeatSmokedSausageSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: ADTFoodMeatSmokedSausageSlice
+      amount: 5
   - type: SolutionContainerManager
     solutions:
       food:

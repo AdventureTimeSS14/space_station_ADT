@@ -23,7 +23,7 @@ public sealed partial class SlimeBluespaceRadioPotionComponent : Component
 
 public sealed partial class SlimeBluespaceRadioPotionSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

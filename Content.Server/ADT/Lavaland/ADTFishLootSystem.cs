@@ -1,7 +1,7 @@
-using Content.Server.Botany.Components;
-using Content.Server.Botany.Systems;
 using Content.Server.Fluids.EntitySystems;
 using Content.Shared.ADT.Lavaland.Components;
+using Content.Shared.Botany.Components;
+using Content.Shared.Botany.Systems;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
@@ -18,12 +18,12 @@ namespace Content.Server.ADT.Lavaland;
 
 public sealed class ADTFishLootSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly PlantHolderSystem _plantHolder = default!;
-    [Dependency] private readonly PuddleSystem _puddle = default!;
-    [Dependency] private readonly ReactiveSystem _reactive = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private PlantTraySystem _plantTray = default!;
+    [Dependency] private PuddleSystem _puddle = default!;
+    [Dependency] private ReactiveSystem _reactive = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private TagSystem _tag = default!;
 
     private static readonly ProtoId<TagPrototype> WallTag = "Wall";
 
@@ -64,23 +64,34 @@ public sealed class ADTFishLootSystem : EntitySystem
 
     private void OnOrganAfterInteract(Entity<ADTConductiveOrganComponent> ent, ref AfterInteractEvent args)
     {
-        if (args.Handled || !args.CanReach || args.Target is not { } target || !TryComp<PlantHolderComponent>(target, out var holder))
+        if (args.Handled || !args.CanReach || args.Target is not { } target)
             return;
+
+        var tray = target;
+        if (!HasComp<PlantTrayComponent>(tray))
+        {
+            if (!HasComp<PlantComponent>(target))
+                return;
+
+            tray = Transform(target).ParentUid;
+            if (!HasComp<PlantTrayComponent>(tray))
+                return;
+        }
 
         args.Handled = true;
 
-        if (holder.Seed == null)
+        if (!_plantTray.TryGetPlant(tray, out var plant) || !TryComp<PlantHolderComponent>(plant, out var holder))
         {
             _popup.PopupEntity(Loc.GetString("adt-conductive-organ-no-seed"), target, args.User);
             return;
         }
 
         holder.YieldMod = ent.Comp.YieldMod;
-        _plantHolder.AdjustWater(target, 100f, holder);
-        _plantHolder.AdjustNutrient(target, 100f, holder);
-        _plantHolder.UpdateSprite(target, holder);
+        Dirty(plant.Value, holder);
+        _plantTray.AdjustWater(tray, 100f);
+        _plantTray.AdjustNutrient(tray, 100f);
 
-        _popup.PopupEntity(Loc.GetString("adt-conductive-organ-used", ("target", target)), target, args.User);
+        _popup.PopupEntity(Loc.GetString("adt-conductive-organ-used", ("target", tray)), tray, args.User);
         QueueDel(ent.Owner);
     }
 }

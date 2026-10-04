@@ -47,28 +47,28 @@ namespace Content.Server.Heretic.EntitySystems.PathSpecific;
 // void path heretic exclusive
 public sealed class AristocratSystem : EntitySystem
 {
-    [Dependency] private readonly TileSystem _tile = default!;
-    [Dependency] private readonly IRobustRandom _rand = default!;
-    [Dependency] private readonly IPrototypeManager _prot = default!;
-    [Dependency] private readonly IMapManager _mapMan = default!;
-    [Dependency] private readonly AtmosphereSystem _atmos = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly VoidCurseSystem _voidcurse = default!;
-    [Dependency] private readonly ServerGlobalSoundSystem _globalSound = default!;
-    [Dependency] private readonly DamageableSystem _damage = default!;
-    [Dependency] private readonly PoweredLightSystem _light = default!;
-    [Dependency] private readonly FlammableSystem _flammable = default!;
-    [Dependency] private readonly SharedWeatherSystem _weather = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly TurfSystem _turf = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!;
-    [Dependency] private readonly HereticSystem _heretic = default!;
+    [Dependency] private TileSystem _tile = default!;
+    [Dependency] private IRobustRandom _rand = default!;
+    [Dependency] private IPrototypeManager _prot = default!;
+    [Dependency] private SharedMapSystem _mapMan = default!;
+    [Dependency] private AtmosphereSystem _atmos = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private VoidCurseSystem _voidcurse = default!;
+    [Dependency] private ServerGlobalSoundSystem _globalSound = default!;
+    [Dependency] private DamageableSystem _damage = default!;
+    [Dependency] private PoweredLightSystem _light = default!;
+    [Dependency] private FlammableSystem _flammable = default!;
+    [Dependency] private SharedWeatherSystem _weather = default!;
+    [Dependency] private TagSystem _tag = default!;
+    [Dependency] private TurfSystem _turf = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedTransformSystem _xform = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedColorFlashEffectSystem _color = default!;
+    [Dependency] private StatusEffectsSystem _status = default!;
+    [Dependency] private StandingStateSystem _standing = default!;
+    [Dependency] private HereticSystem _heretic = default!;
 
     private static readonly EntProtoId IceTilePrototype = "IceCrust";
     private static readonly ProtoId<ContentTileDefinition> SnowTilePrototype = "FloorAstroSnow";
@@ -266,7 +266,7 @@ public sealed class AristocratSystem : EntitySystem
             {
                 var offset = new Vector2(x, y);
 
-                var pos = coords.Offset(offset).SnapToGrid(EntityManager, _mapMan);
+                var pos = coords.Offset(offset).SnapToGrid(EntityManager);
                 tiles.Add(pos);
             }
         }

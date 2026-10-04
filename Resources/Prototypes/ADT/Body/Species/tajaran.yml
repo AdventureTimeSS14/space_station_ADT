@@ -209,10 +209,7 @@
       interactDelay: 4
     - type: Vocal
       wilhelm: "/Audio/ADT/Felinid/cat_wilhelm.ogg"
-      sounds:
-        Male: ADTMaleTajaran
-        Female: ADTFemaleTajaran
-        Unsexed: ADTMaleTajaran
+      emoteSounds: ADTMaleTajaran
     - type: TypingIndicator
       proto: ADTtajaran
     - type: LanguageSpeaker

@@ -7,8 +7,8 @@ namespace Content.Client.ADT.Overlays;
 
 public sealed partial class SandevistanVisionSystem : EntitySystem
 {
-    [Dependency] private readonly IOverlayManager _overlayMan = default!;
-    [Dependency] private readonly ISharedPlayerManager _playerMan = default!;
+    [Dependency] private IOverlayManager _overlayMan = default!;
+    [Dependency] private ISharedPlayerManager _playerMan = default!;
 
     private SandevistanVisionOverlay _overlay = default!;
 

@@ -7,8 +7,8 @@ namespace Content.Server.ADT.LogicCircuit;
 
 public sealed partial class ADTLogicCircuitSystem
 {
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     private static readonly TimeSpan ValueInterval = TimeSpan.FromMilliseconds(200);
 

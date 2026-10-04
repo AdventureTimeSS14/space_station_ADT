@@ -3,6 +3,7 @@ using Content.Client.ADT.Mech.UI;
 using Content.Shared.Mech;
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.EntitySystems;
+using Content.Shared.Vehicle;
 using Robust.Client.Player;
 using Robust.Client.UserInterface;
 using Robust.Shared.Audio.Systems;
@@ -13,14 +14,14 @@ namespace Content.Client.Mech;
 /// <inheritdoc/>
 public sealed partial class MechSystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IUserInterfaceManager _ui = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IUserInterfaceManager _ui = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private void InitializeADT()
     {
-        SubscribeLocalEvent<MechComponent, MechEntryEvent>(OnMechEntry);
+        SubscribeLocalEvent<MechComponent, ContainerVehicleEntryEvent>(OnMechEntry);
         SubscribeLocalEvent<MechComponent, MechEquipmentDestroyedEvent>(OnEquipmentDestroyed);
 
         SubscribeLocalEvent<MechComponent, MechToggleEquipmentEvent>(OnToggleEquipmentAction);
@@ -28,7 +29,7 @@ public sealed partial class MechSystem
         SubscribeLocalEvent<MechComponent, PopulateMechEquipmentMenuEvent>(OnPopulate);
     }
 
-    private void OnMechEntry(EntityUid uid, MechComponent component, MechEntryEvent args)
+    private void OnMechEntry(EntityUid uid, MechComponent component, ContainerVehicleEntryEvent args)
     {
         if (args.Cancelled || args.Handled)
             return;

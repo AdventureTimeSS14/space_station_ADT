@@ -55,34 +55,33 @@ public abstract partial class SharedGunSystem : EntitySystem
     private const int MaxCatchUpShots = 100;
     // ADT-Tweak-End
 
-    [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private readonly INetManager _netManager = default!;
-    [Dependency] private readonly ItemSlotsSystem _slots = default!;
-    [Dependency] private readonly RechargeBasicEntityAmmoSystem _recharge = default!;
-    [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly UseDelaySystem _useDelay = default!;
-    [Dependency] protected readonly DamageableSystem Damageable = default!;
-    [Dependency] protected readonly ExamineSystemShared Examine = default!;
-    [Dependency] protected readonly IGameTiming Timing = default!;
-    [Dependency] protected readonly IMapManager MapManager = default!;
-    [Dependency] protected readonly IPrototypeManager ProtoManager = default!;
-    [Dependency] protected readonly IRobustRandom Random = default!;
-    [Dependency] protected readonly ISharedAdminLogManager Logs = default!;
-    [Dependency] protected readonly SharedActionsSystem Actions = default!;
-    [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
-    [Dependency] protected readonly SharedAudioSystem Audio = default!;
-    [Dependency] protected readonly SharedContainerSystem Containers = default!;
-    [Dependency] protected readonly SharedPhysicsSystem Physics = default!;
-    [Dependency] protected readonly SharedPointLightSystem Lights = default!;
-    [Dependency] protected readonly SharedPopupSystem PopupSystem = default!;
-    [Dependency] protected readonly SharedProjectileSystem Projectiles = default!;
-    [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
-    [Dependency] protected readonly TagSystem TagSystem = default!;
-    [Dependency] protected readonly ThrowingSystem ThrowingSystem = default!;
+    [Dependency] private ActionBlockerSystem _actionBlockerSystem = default!;
+    [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private INetManager _netManager = default!;
+    [Dependency] private ItemSlotsSystem _slots = default!;
+    [Dependency] private RechargeBasicEntityAmmoSystem _recharge = default!;
+    [Dependency] private SharedCombatModeSystem _combatMode = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private UseDelaySystem _useDelay = default!;
+    [Dependency] protected DamageableSystem Damageable = default!;
+    [Dependency] protected ExamineSystemShared Examine = default!;
+    [Dependency] protected IGameTiming Timing = default!;
+    [Dependency] protected IRobustRandom Random = default!;
+    [Dependency] protected ISharedAdminLogManager Logs = default!;
+    [Dependency] protected SharedActionsSystem Actions = default!;
+    [Dependency] protected SharedAppearanceSystem Appearance = default!;
+    [Dependency] protected SharedAudioSystem Audio = default!;
+    [Dependency] protected SharedContainerSystem Containers = default!;
+    [Dependency] protected SharedMapSystem Maps = default!;
+    [Dependency] protected SharedPhysicsSystem Physics = default!;
+    [Dependency] protected SharedPointLightSystem Lights = default!;
+    [Dependency] protected SharedPopupSystem PopupSystem = default!;
+    [Dependency] protected SharedProjectileSystem Projectiles = default!;
+    [Dependency] protected SharedTransformSystem TransformSystem = default!;
+    [Dependency] protected TagSystem TagSystem = default!;
+    [Dependency] protected ThrowingSystem ThrowingSystem = default!;
     // ADT-Tweak-Start
-    [Dependency] private readonly SharedElectrocutionSystem _electrocutionSystem = default!;
+    [Dependency] private SharedElectrocutionSystem _electrocutionSystem = default!;
     // ADT-Tweak-End
 
     /// <summary>
@@ -120,6 +119,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         InitializeBattery();
         InitializeCartridge();
         InitializeChamberMagazine();
+        InitializeCustomAmmoCounter();
         InitializeMagazine();
         InitializeRevolver();
         InitializeBasicEntity();
@@ -425,7 +425,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         {
             if (attemptEv.Message != null)
             {
-                PopupSystem.PopupClient(attemptEv.Message, gun, user);
+                PopupSystem.PopupEntity(attemptEv.Message, gun, user);
             }
             gun.Comp.BurstActivated = false;
             gun.Comp.BurstShotsCount = 0;
@@ -464,7 +464,7 @@ public abstract partial class SharedGunSystem : EntitySystem
             // If they're firing an existing clip then don't play anything.
             if (shots > 0)
             {
-                PopupSystem.PopupCursor(ev.Reason ?? Loc.GetString("gun-magazine-fired-empty"));
+                PopupSystem.PopupCursor(ev.Reason ?? Loc.GetString("gun-magazine-fired-empty"), user);
 
                 // Don't spam safety sounds at gun fire rate, play it at a reduced rate.
                 // May cause prediction issues? Needs more tweaking
@@ -555,9 +555,10 @@ public abstract partial class SharedGunSystem : EntitySystem
             EnsureComp<ProjectileIgnoreCrawlingComponent>(uid);
         }
         // ADT-Tweak end
-    }
 
-    protected abstract void Popup(string message, EntityUid? uid, EntityUid? user);
+        var ev = new ProjectileShotEvent();
+        RaiseLocalEvent(uid, ref ev);
+    }
 
     /// <summary>
     /// Call this whenever the ammo count for a gun changes.
@@ -596,8 +597,8 @@ public abstract partial class SharedGunSystem : EntitySystem
         var coordinates = xform.Coordinates;
         coordinates = coordinates.Offset(offsetPos);
 
-        TransformSystem.SetLocalRotation(entity, Random.NextAngle(), xform);
-        TransformSystem.SetCoordinates(entity, xform, coordinates);
+        TransformSystem.SetCoordinates(entity, xform, coordinates, rotation: Random.NextAngle());
+        TransformSystem.AttachToGridOrMap(entity, xform);
 
         // decides direction the casing ejects and only when not cycling
         if (angle != null)
@@ -608,7 +609,9 @@ public abstract partial class SharedGunSystem : EntitySystem
         }
         if (playSound && TryComp<CartridgeAmmoComponent>(entity, out var cartridge))
         {
-            Audio.PlayPvs(cartridge.EjectSound, entity, AudioParams.Default.WithVariation(SharedContentAudioSystem.DefaultVariation).WithVolume(-1f));
+            var audioParams = cartridge.EjectSound?.Params ?? AudioParams.Default;
+            audioParams = audioParams.AddVolume(-1f).WithVariation(SharedContentAudioSystem.DefaultVariation);
+            Audio.PlayPvs(cartridge.EjectSound, entity, audioParams);
         }
     }
 
@@ -825,6 +828,7 @@ public enum AmmoVisuals : byte
     AmmoCount,
     AmmoMax,
     HasAmmo, // used for generic visualizers. c# stuff can just check ammocount != 0
+    IsFull, // used for generic visualizers. c# stuff can just check ammocount == ammomax
     MagLoaded,
     BoltClosed,
 }

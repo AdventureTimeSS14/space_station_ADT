@@ -1,7 +1,7 @@
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.Predictor;
 
@@ -12,11 +12,11 @@ public sealed partial class PredictorMachineComponent : Component
     [AutoNetworkedField]
     public int Price = 5;
 
-    [DataField("normalPredictionsPack", customTypeSerializer: typeof(PrototypeIdSerializer<PredictorPackPrototype>))]
-    public string? NormalPredictionsPack;
+    [DataField("normalPredictionsPack")]
+    public ProtoId<PredictorPackPrototype>? NormalPredictionsPack;
 
-    [DataField("emaggedPredictionsPack", customTypeSerializer: typeof(PrototypeIdSerializer<PredictorPackPrototype>))]
-    public string? EmaggedPredictionsPack;
+    [DataField("emaggedPredictionsPack")]
+    public ProtoId<PredictorPackPrototype>? EmaggedPredictionsPack;
 
     [DataField("specialPredictionChance")]
     public float SpecialPredictionChance = 0.05f;

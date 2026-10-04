@@ -262,10 +262,9 @@
   - type: ADTMobLoot
     loots:
       ADTKineticTrophyPoisonFang: 0.1
-  - type: Butcherable
-    butcheringType: Knife
-    butcherDelay: 6
-    spawned:
+  - type: ToolRefinable
+    refineTime: 6
+    refineResult:
     - id: UraniumOre1
       amount: 2
     - id: MaterialBones1
@@ -423,14 +422,10 @@
   suffix: AI
   abstract: true
   components:
-  - type: Thirst
-    thresholds:
-      OverHydrated: 200
-      Okay: 150
-      Thirsty: 100
-      Parched: 50
-      Dead: 0
-    baseDecayRate: 0.04
+  - type: Satiation
+    satiations:
+      Thirst:
+        prototype: SimpleMobBaseThirst
   - type: Temperature
     currentTemperature: 310.15
     specificHeat: 42

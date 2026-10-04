@@ -1,6 +1,6 @@
 - type: entity
   name: morph
-  parent: BaseSimpleMob
+  parent: [ BaseSimpleMob, BaseSlicingRefinable ]
   id: ADTBaseMobMorph
   description: It looks terrifying.
   components:
@@ -25,9 +25,8 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.5
     baseSprintSpeed: 3
-  - type: Butcherable
-    butcheringType: Knife
-    spawned:
+  - type: ToolRefinable
+    refineResult:
       - id: FoodMeat
         amount: 2
   - type: MeleeWeapon
@@ -52,15 +51,10 @@
       GalacticCommon: Speak
       MorphCollectiveMind: Speak
   - type: VentCrawler
-  - type: Hunger
-    baseDecayRate: 0 # не голодни
-    starvingSlowdownModifier: 1
-    thresholds:
-      Overfed: 500
-      Okay: 150
-      Peckish: 100
-      Starving: 50
-      Dead: 0
+  - type: Satiation
+    satiations:
+      Hunger:
+        prototype: ADTMorphHunger
   - type: Morph
     damageOnTouch:
       types:

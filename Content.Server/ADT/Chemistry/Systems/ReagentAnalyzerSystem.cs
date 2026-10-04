@@ -1,7 +1,7 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Chemistry.Components;
-using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Shared.Chemistry;
+using ContainerInfo = Content.Shared.ADT.Chemistry.ContainerInfo;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Containers.ItemSlots;
@@ -25,12 +25,12 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
     [UsedImplicitly]
     public sealed class ReagentAnalyzerSystem : EntitySystem
     {
-        [Dependency] private readonly AudioSystem _audioSystem = default!;
-        [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
-        [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
-        [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+        [Dependency] private AudioSystem _audioSystem = default!;
+        [Dependency] private SharedSolutionContainerSystem _solutionContainerSystem = default!;
+        [Dependency] private ItemSlotsSystem _itemSlotsSystem = default!;
+        [Dependency] private UserInterfaceSystem _userInterfaceSystem = default!;
+        [Dependency] private IPrototypeManager _prototypeManager = default!;
+        [Dependency] private IAdminLogManager _adminLogger = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -51,7 +51,7 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
 
         private void UpdateUiState(Entity<ReagentAnalyzerComponent> reagentAnalyzer)
         {
-            var outputContainer = _itemSlotsSystem.GetItemOrNull(reagentAnalyzer, SharedReagentAnalyzer.OutputSlotName);
+            var outputContainer = _itemSlotsSystem.GetItemOrNull(reagentAnalyzer.Owner, SharedReagentAnalyzer.OutputSlotName);
             var outputContainerInfo = BuildOutputContainerInfo(outputContainer);
 
             var state = new ReagentAnalyzerBoundUserInterfaceState(outputContainerInfo);
@@ -77,7 +77,7 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
 
         private void OnClearContainerSolutionMessage(Entity<ReagentAnalyzerComponent> reagentAnalyzer, ref ReagentAnalyzerClearContainerSolutionMessage message)
         {
-            var outputContainer = _itemSlotsSystem.GetItemOrNull(reagentAnalyzer, SharedReagentAnalyzer.OutputSlotName);
+            var outputContainer = _itemSlotsSystem.GetItemOrNull(reagentAnalyzer.Owner, SharedReagentAnalyzer.OutputSlotName);
             if (outputContainer is not { Valid: true } || !_solutionContainerSystem.TryGetFitsInDispenser(outputContainer.Value, out var solution, out _))
                 return;
 

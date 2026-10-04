@@ -25,3 +25,10 @@
   youngAge: 51
   oldAge: 101
   # ADT end
+  defaultSoundsBySex:
+  - UnisexDwarf
+  - FemaleDwarf
+  - UnisexDwarf
+  voices:
+  - UnisexDwarf
+  - FemaleDwarf

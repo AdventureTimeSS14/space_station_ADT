@@ -25,6 +25,9 @@
       state: rev_blackout
     itemIconStyle: BigAction
     useDelay: 20
+  - type: Sprite
+    layers:
+    - texture: Interface/Actions/overloadlight.png
   - type: InstantAction
     event: !type:RevenantOverloadLightsActionEvent
 
@@ -44,11 +47,11 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon:
-      sprite: Interface/Actions/revenant.rsi
-      state: rev_malafucturing
-    itemIconStyle: BigAction
     useDelay: 20
+    itemIconStyle: BigAction
+  - type: Sprite
+    layers:
+    - texture: Interface/Actions/malfunction.png
   - type: InstantAction
     event: !type:RevenantMalfunctionActionEvent
 

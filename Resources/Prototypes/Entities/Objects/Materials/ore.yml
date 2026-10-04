@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: BaseItem
+  parent: MaterialBase
   id: OreBase
   description: A piece of unrefined ore.
   components:
@@ -8,7 +8,6 @@
     sprite: Objects/Materials/ore.rsi
   - type: Item
     sprite: Objects/Materials/ore.rsi
-    size: Normal
   - type: Tag
     tags:
     - Ore
@@ -24,6 +23,8 @@
         restitution: 0.3
         friction: 0.2
 
+# Ores have twice the reagents compared to their smelted forms
+
 - type: entity
   parent: OreBase
   id: GoldOre
@@ -34,7 +35,6 @@
     stackType: GoldOre
   - type: Sprite
     state: gold
-  - type: Material
   - type: PhysicalComposition
     materialComposition:
       RawGold: 300   #ADT_Tweak - повышено со 100
@@ -71,18 +71,11 @@
     stackType: DiamondOre
   - type: Sprite
     state: diamond
-  - type: Material
   - type: PhysicalComposition
     materialComposition:
       RawDiamond: 300   #ADT_Tweak - повышено со 100
   - type: Extractable
     grindableSolutionName: diamondore
-  - type: SolutionContainerManager
-    solutions:
-      diamondore:
-        reagents:
-        - ReagentId: Carbon
-          Quantity: 20
   - type: Item
     heldPrefix: diamond
 
@@ -143,7 +136,6 @@
     stackType: PlasmaOre
   - type: Sprite
     state: plasma
-  - type: Material
   - type: PhysicalComposition
     materialComposition:
       RawPlasma: 300   #ADT_Tweak - повышено со 100
@@ -152,14 +144,6 @@
     energy: 0.6
     castShadows: false
     color: "#e592e7"
-  - type: Extractable
-    grindableSolutionName: plasmaore
-  - type: SolutionContainerManager
-    solutions:
-      plasmaore:
-        reagents:
-        - ReagentId: Plasma
-          Quantity: 10
   - type: Item
     heldPrefix: plasma
   - type: Tag
@@ -185,7 +169,6 @@
     stackType: SilverOre
   - type: Sprite
     state: silver
-  - type: Material
   - type: PhysicalComposition
     materialComposition:
       RawSilver: 300   #ADT_Tweak - повышено со 100
@@ -261,7 +244,6 @@
     stackType: UraniumOre
   - type: Sprite
     state: uranium
-  - type: Material
   - type: PhysicalComposition
     materialComposition:
       RawUranium: 300   #ADT_Tweak - повышено со 100
@@ -270,17 +252,6 @@
     energy: 0.8
     castShadows: false
     color: "#9be792"
-  - type: Extractable
-    grindableSolutionName: uraniumore
-  - type: SolutionContainerManager
-    solutions:
-      uraniumore:
-        reagents:
-        - ReagentId: Uranium
-          Quantity: 8
-        - ReagentId: Radium
-          Quantity: 2
-        canReact: false
   - type: Item
     heldPrefix: uranium
   - type: Tag
@@ -306,7 +277,6 @@
     stackType: BananiumOre
   - type: Sprite
     state: bananium
-  - type: Material
   - type: PhysicalComposition
     materialComposition:
       RawBananium: 300   #ADT_Tweak - повышено со 100
@@ -315,18 +285,6 @@
     energy: 1
     castShadows: false
     color: "#eef066"
-  - type: Extractable
-    grindableSolutionName: bananiumore
-  - type: SolutionContainerManager
-    solutions:
-      bananiumore:
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 4
-        - ReagentId: Vitamin
-          Quantity: 2
-        - ReagentId: Honk
-          Quantity: 5
   - type: Item
     heldPrefix: bananium
   - type: Tag
@@ -367,20 +325,19 @@
     utensil: None
     delay: 3
   # ADT-Tweak-End
-  - type: SolutionContainerManager
-    solutions:
-      coal:
-        reagents:
-        - ReagentId: Carbon
-          Quantity: 8.4
-        - ReagentId: Ammonia
-          Quantity: 0.8
-        - ReagentId: Hydrogen
-          Quantity: 0.5
-        - ReagentId: Sulfur
-          Quantity: 0.2
-        - ReagentId: Mercury
-          Quantity: 0.1
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Carbon
+        Quantity: 8.4
+      - ReagentId: Ammonia
+        Quantity: 0.8
+      - ReagentId: Hydrogen
+        Quantity: 0.5
+      - ReagentId: Sulfur
+        Quantity: 0.2
+      - ReagentId: Mercury
+        Quantity: 0.1
       # ADT-Tweak-Start
       food:
         maxVol: 12
@@ -438,20 +395,18 @@
     stackType: SaltOre
   - type: Sprite
     state: salt
-  - type: Material
   - type: PhysicalComposition
     materialComposition:
       RawSalt: 300   #ADT_Tweak - повышено со 100
   - type: Extractable
     grindableSolutionName: saltore
-  - type: SolutionContainerManager
-    solutions:
-      saltore:
-        reagents:
-        - ReagentId: TableSalt
-          Quantity: 10
-        - ReagentId: Iodine
-          Quantity: 5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: TableSalt
+        Quantity: 9.99
+      - ReagentId: Iodine
+        Quantity: 0.01
   - type: Item
     heldPrefix: salt
 
@@ -462,4 +417,3 @@
   components:
   - type: Stack
     count: 1
-

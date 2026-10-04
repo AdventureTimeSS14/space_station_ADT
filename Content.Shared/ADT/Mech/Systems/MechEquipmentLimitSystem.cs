@@ -6,7 +6,7 @@ namespace Content.Shared.ADT.Mech.EntitySystems;
 
 public sealed class MechEquipmentLimitSystem : EntitySystem
 {
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
 
     public bool CanInsert(EntityUid mech, EntityUid equipment, out LocId? reason)
     {

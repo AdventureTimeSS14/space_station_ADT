@@ -7,7 +7,7 @@ namespace Content.Server.ADT.LinkedBodies;
 [AdminCommand(AdminFlags.Fun)]
 public sealed class LinkBodiesCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly ADTLinkedBodiesSystem _linkedBodies = default!;
+    [Dependency] private ADTLinkedBodiesSystem _linkedBodies = default!;
 
     public override string Command => "linkbodies";
 
@@ -51,7 +51,7 @@ public sealed class LinkBodiesCommand : LocalizedEntityCommands
 [AdminCommand(AdminFlags.Fun)]
 public sealed class UnlinkBodiesCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly ADTLinkedBodiesSystem _linkedBodies = default!;
+    [Dependency] private ADTLinkedBodiesSystem _linkedBodies = default!;
 
     public override string Command => "unlinkbodies";
 

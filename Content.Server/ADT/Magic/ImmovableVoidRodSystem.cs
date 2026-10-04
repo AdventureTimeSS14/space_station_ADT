@@ -15,14 +15,13 @@ namespace Content.Server.Magic;
 
 public sealed partial class ImmovableVoidRodSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prot = default!;
-    [Dependency] private readonly IMapManager _map = default!;
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
-    [Dependency] private readonly TileSystem _tile = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly IEntityManager _ent = default!;
-    [Dependency] private readonly VoidCurseSystem _voidcurse = default!;
-    [Dependency] private readonly SharedHereticSystem _heretic = default!;
+    [Dependency] private IPrototypeManager _prot = default!;
+    [Dependency] private SharedMapSystem _mapSystem = default!;
+    [Dependency] private TileSystem _tile = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private IEntityManager _ent = default!;
+    [Dependency] private VoidCurseSystem _voidcurse = default!;
+    [Dependency] private SharedHereticSystem _heretic = default!;
 
     public override void Update(float frameTime)
     {

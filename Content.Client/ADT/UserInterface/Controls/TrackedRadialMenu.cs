@@ -8,8 +8,8 @@ namespace Content.Client.ADT.UserInterface.Controls;
 [Virtual]
 public class TrackedRadialMenu : RadialMenu
 {
-    [Dependency] private readonly IClyde _clyde = default!;
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IClyde _clyde = default!;
+    [Dependency] private IEntityManager _entManager = default!;
 
     private EntityUid _trackedEntity;
 

@@ -16,11 +16,11 @@ namespace Content.Client.Lobby.UI
     [GenerateTypedNameReferences]
     public sealed partial class LobbyGui : UIScreen
     {
-        [Dependency] private readonly IClientConsoleHost _consoleHost = default!;
-        [Dependency] private readonly SponsorsManager _sponsorsManager = default!;
-        [Dependency] private readonly Content.Client.ADT.Sponsors.SponsorManager _adtSponsors = default!; // ADT-Tweak
-        [Dependency] private readonly DiscordIdManager _discordIdManager = default!;
-        [Dependency] private readonly IConfigurationManager _cfg = default!;
+        [Dependency] private IClientConsoleHost _consoleHost = default!;
+        [Dependency] private SponsorsManager _sponsorsManager = default!;
+        [Dependency] private Content.Client.ADT.Sponsors.SponsorManager _adtSponsors = default!; // ADT-Tweak
+        [Dependency] private DiscordIdManager _discordIdManager = default!;
+        [Dependency] private IConfigurationManager _cfg = default!;
         private float _updateTimer;
         private bool _panelUpdate = false;
         // Цвета для кнопок (ADT-Const-Start)

@@ -314,3 +314,10 @@
     back:
     - Cane
   groupBy: "canes"
+# Towels
+- type: loadout
+  id: TowelColorWhite
+  storage:
+    back:
+    - TowelColorWhite
+  groupBy: "towels"

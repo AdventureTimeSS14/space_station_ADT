@@ -13,7 +13,7 @@ namespace Content.Server.NPC.Systems;
 
 // ADT: Система была полностью переписан, заменяйте при апстриме на нашу версию.
 
-public sealed class NPCUseActionOnTargetSystem : EntitySystem
+public sealed partial class NPCUseActionOnTargetSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;

@@ -10,8 +10,8 @@ namespace Content.Server.ADT.MiningShop;
 
 public sealed class MiningShopSystem : SharedMiningShopSystem
 {
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly DroppodSystem _droppod = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
+    [Dependency] private DroppodSystem _droppod = default!;
 
     protected override void OnVendBui(Entity<MiningShopComponent> vendor, ref MiningShopBuiMsg args)
     {

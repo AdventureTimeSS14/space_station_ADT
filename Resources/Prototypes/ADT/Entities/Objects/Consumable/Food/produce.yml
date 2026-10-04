@@ -21,7 +21,7 @@
   - type: Sprite
     sprite: ADT/Objects/Specific/Hydroponics/papaver_somniferum.rsi
   - type: Produce
-    seedId: ADTPapaverSomniferum
+    plantId: ADTPapaverSomniferumPlants
   - type: Extractable
     grindableSolutionName: food
   - type: Tag
@@ -42,7 +42,7 @@
     flavors:
       - ADTStrawberryFlavor
   - type: Produce
-    seedId: ADTStrawberry
+    plantId: ADTStrawberryPlants
   - type: SolutionContainerManager
     solutions:
       food:

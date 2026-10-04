@@ -19,9 +19,9 @@ namespace Content.Client.ADT.Guidebook.Heretic;
 [UsedImplicitly, GenerateTypedNameReferences]
 public sealed partial class GuideHereticRitualEmbed : BoxContainer, IDocumentTag, ISearchableControl
 {
-    [Dependency] private readonly IEntitySystemManager _systemManager = default!;
-    [Dependency] private readonly ILogManager _logManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IEntitySystemManager _systemManager = default!;
+    [Dependency] private ILogManager _logManager = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     private readonly SpriteSystem _sprite;
     private readonly ISawmill _sawmill;

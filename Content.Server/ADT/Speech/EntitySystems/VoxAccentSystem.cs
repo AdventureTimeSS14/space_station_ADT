@@ -7,7 +7,7 @@ namespace Content.Server.Speech.EntitySystems;
 
 public sealed class VoxAccentSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!; // Corvax-Localization
+    [Dependency] private IRobustRandom _random = default!; // Corvax-Localization
 
     public override void Initialize()
     {

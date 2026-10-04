@@ -15,9 +15,9 @@ namespace Content.Server.ADT.HolyDamage;
 
 public sealed class HolyDamageSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly SharedHereticSystem _heretic = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private SharedHereticSystem _heretic = default!;
 
     private const int MinimumPathStage = 5;
     private const float DamageIncreasePerStage = 0.1f;

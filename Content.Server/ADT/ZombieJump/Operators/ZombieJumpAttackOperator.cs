@@ -18,8 +18,8 @@ using Robust.Shared.Timing;
 namespace Content.Server.ADT.ZombieJump.Operators;
 public sealed partial class ZombieJumpAttackOperator : HTNOperator
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
 
     [DataField("targetKey", required: true)]
     public string TargetKey = default!;

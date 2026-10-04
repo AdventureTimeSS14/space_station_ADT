@@ -17,8 +17,8 @@ public sealed class LanguageMenuUIController : UIController, IOnStateEntered<Gam
     public LanguageMenuWindow? _menu;
     private MenuButton? LanguagesButton => UIManager.GetActiveUIWidgetOrNull<Content.Client.UserInterface.Systems.MenuBar.Widgets.GameTopMenuBar>()?.LanguagesButton;
 
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IEntityManager _entMan = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IEntityManager _entMan = default!;
     public override void Initialize()
     {
 

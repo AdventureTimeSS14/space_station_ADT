@@ -10,7 +10,8 @@
   metabolisms:
     Metabolites:
       effects:
-      - !type:SatiateHunger
+      - !type:Satiate
+        satiationType: Hunger
       - !type:HealthChange # ADT-Tweak start
         damage:
           types:
@@ -48,7 +49,8 @@
       # Helps you stop bleeding to an extent.
       - !type:ModifyBleed
         amount: -0.25
-      - !type:SatiateHunger #Numbers are balanced with this in mind + it helps limit how much healing you can get from food
+      - !type:Satiate #Numbers are balanced with this in mind + it helps limit how much healing you can get from food
+        satiationType: Hunger
   # Lets plants benefit too
   plantMetabolism:
   - !type:PlantAdjustNutrition
@@ -74,7 +76,8 @@
           Brute: -0.6 #ADT-Tweak -0.4 -> -0.6
       - !type:ModifyBloodLevel
         amount: 2 # ADT-Tweak 1 -> 2
-      - !type:SatiateHunger
+      - !type:Satiate
+        satiationType: Hunger
   pricePerUnit: 3
 
 - type: reagent
@@ -89,7 +92,8 @@
   metabolisms:
     Metabolites:
       effects:
-      - !type:SatiateHunger
+      - !type:Satiate
+        satiationType: Hunger
         conditions:
         - !type:ReagentCondition #Only satiates when eaten with nutriment
           reagent: Nutriment

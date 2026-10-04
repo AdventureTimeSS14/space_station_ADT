@@ -21,15 +21,15 @@ namespace Content.Server.ADT.Xenobiology.XenobiologyBountyConsole;
 /// </summary>
 public sealed class XenobiologyBountyConsoleSystem : EntitySystem
 {
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly AccessReaderSystem _access = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly ResearchSystem _research = default!;
-    [Dependency] private readonly StationXenobiologyBountyDatabaseSystem _xenoDatabase = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private AccessReaderSystem _access = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private ResearchSystem _research = default!;
+    [Dependency] private StationXenobiologyBountyDatabaseSystem _xenoDatabase = default!;
 
     private EntityQuery<StackComponent> _stackQuery;
 

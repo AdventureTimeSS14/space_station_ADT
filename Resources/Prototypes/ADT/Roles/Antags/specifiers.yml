@@ -1,0 +1,52 @@
+- type: antagSpecifier
+  id: Heretic
+  prefRoles: [ Heretic ]
+  blacklist:
+    components:
+    - CommandStaff
+  mindRoles:
+  - MindRoleHeretic
+
+- type: antagSpecifier
+  id: ADTBlob
+  prefRoles: [ ADTBlob ]
+  allowNonHumans: true
+  blacklist:
+    components:
+    - CommandStaff
+    - AntagImmune
+  briefing:
+    text: blob-carrier-role-greeting
+    color: Plum
+    sound: /Audio/Announcements/bloblarm.ogg
+  mindRoles:
+  - ADTMindRoleBlob
+
+- type: antagSpecifier
+  id: ADTShadowling
+  prefRoles: [ ADTShadowling ]
+  blacklist:
+    components:
+    - AntagImmune
+  mindRoles:
+  - MindRoleShadowling
+
+- type: antagSpecifier
+  id: ADTMorph
+  spawnerPrototype: SpawnPointGhostMorph
+  pickPlayer: false
+  mindRoles:
+  - MindRoleGhostRoleNeutral
+
+- type: antagSpecifier
+  id: ADTSpaceEmperor
+  spawnerPrototype: ADTSpawnPointSpaceEmperor
+  pickPlayer: false
+
+- type: antagSpecifier
+  id: ADTDiceOfFateWizard
+  startingGear: WizardBlueGear
+  roleLoadout:
+  - RoleSurvivalExtended
+  mindRoles:
+  - MindRoleDiceOfFateWizard

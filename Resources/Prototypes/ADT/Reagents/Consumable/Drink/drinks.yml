@@ -12,7 +12,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 5
       - !type:AdjustTemperature
         conditions:
@@ -38,7 +39,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 2
       - !type:AdjustTemperature
         conditions:
@@ -64,7 +66,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 3
       - !type:AdjustTemperature
         conditions:
@@ -104,7 +107,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 3
   metamorphicSprite:
     sprite: ADT/Objects/Consumable/Drinks/citrucbalance.rsi
@@ -125,7 +129,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 2
   metamorphicSprite:
     sprite: ADT/Objects/Consumable/Drinks/dobryi.rsi
@@ -146,7 +151,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 4
       - !type:AdjustTemperature
         conditions:
@@ -172,7 +178,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 3
       - !type:AdjustTemperature
         conditions:
@@ -197,7 +204,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 0.6
   metamorphicSprite:
     sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/orangetea.rsi
@@ -216,7 +224,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 0.6
   metamorphicSprite:
     sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/cherrytea.rsi
@@ -235,7 +244,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 0.6
   metamorphicSprite:
     sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/watermelontea.rsi
@@ -254,7 +264,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 0.1
 
 - type: reagent
@@ -268,7 +279,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 0.1
 
 - type: reagent
@@ -282,7 +294,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 0.1
 
 - type: reagent
@@ -302,7 +315,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 3
       - !type:GenericStatusEffect
         key: StaminaModifier
@@ -329,7 +343,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 2
       - !type:GenericStatusEffect
         key: Drowsiness
@@ -365,7 +380,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 0.1
 
 - type: reagent
@@ -381,7 +397,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: -3
   recognizable: true
 
@@ -568,9 +585,11 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 4
-      - !type:SatiateHunger
+      - !type:Satiate
+        satiationType: Hunger
         factor: 2
     Bloodstream:
       effects:

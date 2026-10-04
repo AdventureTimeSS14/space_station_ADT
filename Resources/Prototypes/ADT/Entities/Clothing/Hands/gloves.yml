@@ -145,9 +145,8 @@
     sprite: ADT/Clothing/Hands/Gloves/long_black.rsi
   - type: Clothing
     sprite: ADT/Clothing/Hands/Gloves/long_black.rsi
-  - type: Butcherable
-    butcheringType: Knife
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: ClothingHandsGlovesFingerless
   - type: Fiber
     fiberColor: fibers-black
@@ -162,9 +161,8 @@
     sprite: ADT/Clothing/Hands/Gloves/long_white.rsi
   - type: Clothing
     sprite: ADT/Clothing/Hands/Gloves/long_white.rsi
-  - type: Butcherable
-    butcheringType: Knife
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: ClothingHandsGlovesFingerless
   - type: Fiber
     fiberColor: fibers-white

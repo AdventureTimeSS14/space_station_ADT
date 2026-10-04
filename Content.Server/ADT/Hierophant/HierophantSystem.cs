@@ -25,18 +25,18 @@ namespace Content.Server.ADT.Hierophant;
 
 public sealed class HierophantSystem : EntitySystem
 {
-    [Dependency] private readonly ADTBossMusicSystem _bossMusic = default!;
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly HierophantAttacksSystem _attacks = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly MegafaunaSystem _megafauna = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _speed = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private ADTBossMusicSystem _bossMusic = default!;
+    [Dependency] private AppearanceSystem _appearance = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private HierophantAttacksSystem _attacks = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private MegafaunaSystem _megafauna = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private MovementSpeedModifierSystem _speed = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {

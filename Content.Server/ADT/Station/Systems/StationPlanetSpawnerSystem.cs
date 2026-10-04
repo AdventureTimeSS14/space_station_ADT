@@ -7,8 +7,8 @@ namespace Content.Server.ADT.Station.Systems;
 
 public sealed class StationPlanetSpawnerSystem : EntitySystem
 {
-    [Dependency] private readonly PlanetSystem _planet = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!; // ADT-tweak
+    [Dependency] private PlanetSystem _planet = default!;
+    [Dependency] private IConfigurationManager _cfg = default!; // ADT-tweak
 
     public override void Initialize()
     {

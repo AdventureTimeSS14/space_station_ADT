@@ -12,7 +12,7 @@ namespace Content.Client.ADT.AshWalker.UI;
 [GenerateTypedNameReferences]
 public sealed partial class ADTCookingScrollWindow : FancyWindow
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     private readonly List<GuideMicrowaveEmbed> _recipes = new();
 

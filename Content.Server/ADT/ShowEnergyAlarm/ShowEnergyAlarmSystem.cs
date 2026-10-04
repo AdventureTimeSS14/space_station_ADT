@@ -13,9 +13,9 @@ namespace Content.Server.ADT.ShowEnergy;
 
 public sealed class ShowEnergyAlarmSystem : EntitySystem
 {
-    [Dependency] private readonly AlertsSystem _alertsSystem = default!;
-    [Dependency] private readonly PowerCellSystem _powerCellSystem = default!;
-    [Dependency] private readonly SharedBatterySystem _batterySystem = default!;
+    [Dependency] private AlertsSystem _alertsSystem = default!;
+    [Dependency] private PowerCellSystem _powerCellSystem = default!;
+    [Dependency] private SharedBatterySystem _batterySystem = default!;
 
     private float _updateAccumulator;
 

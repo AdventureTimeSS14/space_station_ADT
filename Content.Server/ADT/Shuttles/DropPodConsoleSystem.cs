@@ -42,24 +42,23 @@ namespace Content.Server.ADT.Shuttles;
 
 public sealed class DropPodConsoleSystem : EntitySystem
 {
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly MapSystem _mapSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly ShuttleSystem _shuttle = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
-    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
-    [Dependency] private readonly StackSystem _stack = default!;
-    [Dependency] private readonly ThrowingSystem _throwing = default!;
-    [Dependency] private readonly TurfSystem _turf = default!;
-    [Dependency] private readonly DecalSystem _decalSystem = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private MapSystem _mapSystem = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedCameraRecoilSystem _recoil = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private ShuttleSystem _shuttle = default!;
+    [Dependency] private SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private StackSystem _stack = default!;
+    [Dependency] private ThrowingSystem _throwing = default!;
+    [Dependency] private TurfSystem _turf = default!;
+    [Dependency] private DecalSystem _decalSystem = default!;
 
     public override void Initialize()
     {
@@ -581,7 +580,7 @@ public sealed class DropPodConsoleSystem : EntitySystem
 
         const float MinBlacklistDist = 20f;
 
-        if (_mapManager.TryFindGridAt(beaconMapCoords, out var gridUid, out var gridComp))
+        if (_mapSystem.TryFindGridAt(beaconMapCoords, out var gridUid, out var gridComp))
         {
             const int maxTries = 24;
             for (var i = 0; i < maxTries; i++)
@@ -633,7 +632,7 @@ public sealed class DropPodConsoleSystem : EntitySystem
         }
 
         // Last-resort fallback: snap to beacon tile
-        if (_mapManager.TryFindGridAt(beaconMapCoords, out var fallbackGrid, out var fallbackGridComp))
+        if (_mapSystem.TryFindGridAt(beaconMapCoords, out var fallbackGrid, out var fallbackGridComp))
         {
             var tileIdx = _mapSystem.WorldToTile(fallbackGrid, fallbackGridComp, beaconWorldPos);
             var snappedPos = Vector2.Transform(

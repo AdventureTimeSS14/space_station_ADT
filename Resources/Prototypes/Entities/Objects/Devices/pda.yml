@@ -54,7 +54,8 @@
       PDA-pen: !type:ContainerSlot {}
       PDA-pai: !type:ContainerSlot {}
       Cartridge-Slot: !type:ContainerSlot {}
-      program-container: !type:Container
+      preinstalled-program-container: !type:Container
+      removable-program-container: !type:Container
   - type: ItemSlots
   - type: Clothing
     quickEquip: false
@@ -1026,7 +1027,6 @@
     scanDelay: 0
     silent: true
   - type: CartridgeLoader
-    uiKey: enum.PdaUiKey.Key
     notificationsEnabled: false
     diskSpace: 10 # ADT tweak
     preinstalled:
@@ -1190,12 +1190,13 @@
        pda-syndi-corpsman
   - type: Icon
     state: pda-syndi-corpsman
-  - type: CartridgeLoader
-    uiKey: enum.PdaUiKey.Key
-    preinstalled:
-      - NotekeeperCartridge
-      - NanoTaskCartridge
-      - MedTekCartridge
+  - type: EntityTableContainerFill
+    containers:
+      preinstalled-program-container: !type:AllSelector
+        children:
+        - id: NotekeeperCartridge
+        - id: NanoTaskCartridge
+        - id: MedTekCartridge
 
 - type: entity
   parent: [ SyndiOperativePDA, BaseSyndicateContraband ]
@@ -1338,6 +1339,25 @@
     accentVColor: "#447987"
   - type: Icon
     state: pda-medical
+
+- type: entity
+  parent: BasePDA
+  id: TramDriverPDA
+  name: tram driver PDA
+  description: A serious driver will always arrive on time.
+  components:
+  - type: Pda
+    id: TramDriverIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-tramdriver
+  - type: PdaBorderColor
+    borderColor: "#454a50"
+    accentVColor: "#ffc500"
+  - type: Icon
+    state: pda-tramdriver
 
 - type: entity
   parent: BasePDA
@@ -1570,7 +1590,7 @@
   description: Smells like postage stamps and shuttle fuel.
   components:
   - type: Pda
-    id: CargoIDCard
+    id: SeniorCourierIDCard
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:

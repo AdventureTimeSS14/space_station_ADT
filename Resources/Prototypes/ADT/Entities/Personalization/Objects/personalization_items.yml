@@ -407,10 +407,7 @@
   - type: SpeakOnTrigger
     pack: ADTFigurinesPlushieJungar
   - type: Vocal
-    sounds:
-      Male: Mouse
-      Female: Mouse
-      Unsexed: Mouse
+    emoteSounds: Mouse
     wilhelmProbability: 0.001
   - type: Edible
     requiresSpecialDigestion: true
@@ -715,11 +712,17 @@
   name: sports motorcycle # Для Пани на её ДР в 2026 году от Altius, Mina0, kiwi_fruit, RedLis. Тут был Лис.
   description: Today, its on the highway, and tomorrow, its just a burning wreck.
   components:
-  - type: Vehicle
+  - type: ADTVehicle
     southOver: true
     northOver: true
     northOverride: -0.1
     southOverride: 0.1
+  - type: GenericKeyedVehicle
+    containerId: key_slot
+    keyWhitelist:
+      tags:
+      - VehicleKey
+    preventInvalidInsertion: false
   - type: Sprite
     sprite: ADT/Personalization/pangaari_bike.rsi
     layers:
@@ -829,7 +832,9 @@
   id: ADTPyotrSabre
   description: A ceremonial weapon belonging to the Pyotr Shahin. Heavier than stadart captain`s sabre.
   components:
-  - type: Sharp
+  - type: Tool
+    qualities:
+    - Slicing
   - type: Sprite
     sprite: ADT/Personalization/pyotr_sabre.rsi
     state: icon
@@ -2294,7 +2299,6 @@
       # - ADTTelescopicBaton
       - CombatKnife
       - Knife
-  - type: Sharp
   - type: Execution
     doAfterDuration: 4.0
   - type: Utensil
@@ -3183,7 +3187,6 @@
   id: ADTFaustDirk
   description: A ceremonial weapon
   components:
-  - type: Sharp
   - type: Sprite
     sprite: ADT/Personalization/FaustNetzach/faust_dirk.rsi
     state: icon
@@ -3276,7 +3279,8 @@
   metabolisms:
     Metabolites:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 5
       - !type:GenericStatusEffect
         key: Drowsiness

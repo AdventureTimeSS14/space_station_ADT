@@ -7,9 +7,9 @@ namespace Content.Server.ADT.Cloning;
 
 public sealed class ADTCloneProfileSystem : EntitySystem
 {
-    [Dependency] private readonly HumanoidProfileSystem _humanoidProfile = default!;
-    [Dependency] private readonly GrammarSystem _grammar = default!;
-    [Dependency] private readonly IdentitySystem _identity = default!;
+    [Dependency] private HumanoidProfileSystem _humanoidProfile = default!;
+    [Dependency] private GrammarSystem _grammar = default!;
+    [Dependency] private IdentitySystem _identity = default!;
 
     public override void Initialize()
     {

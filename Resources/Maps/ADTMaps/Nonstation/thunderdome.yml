@@ -9177,7 +9177,7 @@ entities:
     - type: Godmode
       wasMovedByPressure: True
     missingComponents:
-    - SliceableFood
+    - ToolRefinable
     - Item
 - proto: GeneratorBasic15kW
   entities:

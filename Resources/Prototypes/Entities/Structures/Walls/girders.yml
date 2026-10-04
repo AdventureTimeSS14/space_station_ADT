@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: Girder
   parent: BaseStructureDynamic
   name: girder
@@ -42,12 +42,6 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 200
-      behaviors: #excess damage, don't spawn entities.
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
         damage: 50
       behaviors:
       - !type:SpawnEntitiesBehavior
@@ -64,8 +58,8 @@
     price: 30
 
 - type: entity
-  id: ReinforcedGirder
   parent: Girder
+  id: ReinforcedGirder
   name: reinforced girder
   description: A large structural assembly made out of metal and plasteel; It requires a layer of plasteel before it can be considered a reinforced wall.
   components:
@@ -114,8 +108,8 @@
       price: 130
 
 - type: entity
+  parent: Girder
   id: ClockworkGirder
-  parent: ReinforcedGirder
   name: wall gear
   description: A large gear with mounting brackets for additional plating; This could be made into a wall with more brass plating.
   components:

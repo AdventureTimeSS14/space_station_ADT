@@ -6,7 +6,7 @@ namespace Content.Server.ADT.LogicCircuit;
 
 public sealed class ADTLogicAutoLinkSystem : EntitySystem
 {
-    [Dependency] private readonly DeviceLinkSystem _deviceLink = default!;
+    [Dependency] private DeviceLinkSystem _deviceLink = default!;
 
     public override void Initialize()
     {

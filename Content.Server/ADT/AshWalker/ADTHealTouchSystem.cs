@@ -17,11 +17,11 @@ namespace Content.Server.ADT.AshWalker;
 
 public sealed class ADTHealTouchSystem : EntitySystem
 {
-    [Dependency] private readonly SharedBloodstreamSystem _blood = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedBloodstreamSystem _blood = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     private static readonly SoundSpecifier TouchSound = new SoundPathSpecifier("/Audio/Magic/staff_healing.ogg");
 

@@ -24,6 +24,13 @@
   - Получают на 30% больше урона от холода.
   defaultLanguages:
   - Draconic
+  defaultSoundsBySex:
+  - MaleReptilian
+  - FemaleReptilian
+  - MaleReptilian
+  voices:
+  - MaleReptilian
+  - FemaleReptilian
   maxAge: 70
   oldAge: 45
   youngAge: 20
@@ -58,6 +65,13 @@
   - Получают на 30% больше урона от холода.
   defaultLanguages:
   - Draconic
+  defaultSoundsBySex:
+  - MaleReptilian
+  - FemaleReptilian
+  - MaleReptilian
+  voices:
+  - MaleReptilian
+  - FemaleReptilian
   maxAge: 70
   oldAge: 45
   youngAge: 20
@@ -93,6 +107,13 @@
   - GalacticCommon
   - Draconic
   - CintaTaj
+  defaultSoundsBySex:
+  - MaleReptilian
+  - FemaleReptilian
+  - MaleReptilian
+  voices:
+  - MaleReptilian
+  - FemaleReptilian
   maxAge: 90
   oldAge: 50
   youngAge: 30

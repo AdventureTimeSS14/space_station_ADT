@@ -1,4 +1,4 @@
-﻿- type: markingsGroup
+- type: markingsGroup
   parent: Undergarments
   id: Vulpkanin
   limits:
@@ -157,13 +157,10 @@
     speechSounds: Vulpkanin
     speechVerb: Vulpkanin
     allowedEmotes: [ 'Bark', 'Snarl', 'Whine', 'Howl', 'Growl' ]
+  - type: TypingIndicator
+    proto: vulpkanin
   - type: Vocal
-    sounds:
-      # ADT-Tweak: Start
-      Male: NesMaleVulpa # MaleVuplkanin -> NesMaleVulpa
-      Female: NesFemaleVulpa # FemaleVulpkanin -> NesFemaleVulpa
-      Unsexed: NesFemaleVulpa # MaleVulpkanin -> NesFemaleVulpa
-      # ADT-Tweak: End
+    emoteSounds: NesMaleVulpa # ADT-Tweak: MaleVulpkanin -> NesMaleVulpa
   - type: Damageable
     damageModifierSet: ADTVulpkanin # ADT-Tweak
   - type: Injurable
@@ -175,8 +172,6 @@
       types:
         Piercing: 2
         Slash: 3
-  - type: Temperature
-    specificHeat: 44
   - type: TemperatureDamage
     heatDamageThreshold: 320
     coldDamageThreshold: 230
@@ -188,9 +183,6 @@
         Heat: 2.5 # Per second, scales with temperature & other constants
   - type: Wagging
     action: ActionToggleWaggingVulpkanin
-  - type: TemperatureProtection
-    heatingCoefficient: 1.2
-    coolingCoefficient: 0.3
   - type: JumpAbility
     action: ActionVulpkaninGravityJump
     canCollide: true
@@ -205,7 +197,7 @@
     bloodReferenceSolution:
       reagents:
       - ReagentId: SulfurBlood
-        Quantity: 300
+        Quantity: 600
   - type: CreamPied
     sprite:
       sprite: Effects/creampie.rsi

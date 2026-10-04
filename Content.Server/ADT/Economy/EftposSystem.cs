@@ -11,11 +11,11 @@ namespace Content.Server.ADT.Economy;
 
 public sealed class EftposSystem : EntitySystem
 {
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly BankCardSystem _bankCardSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly HandsSystem _handsSystem = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
+    [Dependency] private BankCardSystem _bankCardSystem = default!;
+    [Dependency] private SharedAudioSystem _audioSystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private HandsSystem _handsSystem = default!;
 
     public override void Initialize()
     {

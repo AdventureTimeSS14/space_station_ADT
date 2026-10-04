@@ -395,7 +395,9 @@
     damage:
       types:
         Piercing: 26
-  - type: Sharp
+  - type: Tool
+    qualities:
+    - Slicing
   - type: Tag
     tags:
     - Spear

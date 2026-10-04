@@ -1,6 +1,6 @@
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
-using Content.Server.AlertLevel;
+using Content.Shared.AlertLevel;
 using Content.Server.Audio;
 using Content.Server.Chat.Systems;
 using Content.Server.Station.Systems;
@@ -24,13 +24,13 @@ namespace Content.Server.ADT.Administration.Commands;
 [AdminCommand(AdminFlags.Admin)]
 public sealed class SendERTCommand : IConsoleCommand
 {
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly IEntitySystemManager _system = default!;
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IChatManager _chat = default!;
-    [Dependency] private readonly IResourceManager _resourceManager = default!;
+    [Dependency] private SharedMapSystem _mapManager = default!;
+    [Dependency] private IAdminLogManager _adminLogger = default!;
+    [Dependency] private IEntitySystemManager _system = default!;
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IChatManager _chat = default!;
+    [Dependency] private IResourceManager _resourceManager = default!;
 
     public string Command => "sendert";
     public string Description => Loc.GetString("send-ert-description");
@@ -41,7 +41,7 @@ public sealed class SendERTCommand : IConsoleCommand
         #region Setup vars
         string audioPath = "";
         string defaultGridPath = "/Maps/ADTMaps/Shuttles/ERT", defaultAudioPath = "/Audio/Corvax/Adminbuse";
-        string alertLevelCode = "gamma";
+        string alertLevelCode = "Gamma";
         int volume = 0;
         bool isLoadGrid = false, isAnnounce = true, isPlayAudio = true, isSetAlertLevel = true, playAuidoFromAnnouncement = false;
         Color announceColor = Color.SeaBlue;
@@ -118,7 +118,7 @@ public sealed class SendERTCommand : IConsoleCommand
                 break;
 
             case "deathsquad":
-                //alertLevelCode = "epsilon";
+                //alertLevelCode = "Epsilon";
                 announceColor = Color.White;
                 isLoadGrid = true;
                 break;
@@ -149,8 +149,8 @@ public sealed class SendERTCommand : IConsoleCommand
                 return;
             }
 
-            var mapId = _mapManager.CreateMap();
-            _system.GetEntitySystem<MetaDataSystem>().SetEntityName(_mapManager.GetMapEntityId(mapId), Loc.GetString("sent-ert-map-name"));
+            _mapManager.CreateMap(out var mapId);
+            _system.GetEntitySystem<MetaDataSystem>().SetEntityName(_mapManager.GetMapOrInvalid(mapId), Loc.GetString("sent-ert-map-name"));
             var opts = new DeserializationOptions {StoreYamlUids = true, InitializeMaps = true};
             _system.GetEntitySystem<MapLoaderSystem>().TryLoadGrid(mapId, new ResPath(gridPath), out _, opts);
             shell.WriteLine($"Карта {gridPath} успешно загружена! :з");

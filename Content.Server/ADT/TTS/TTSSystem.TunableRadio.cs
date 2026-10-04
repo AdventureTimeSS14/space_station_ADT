@@ -5,6 +5,7 @@ using Content.Server.Chat.Systems;
 using Content.Shared.ADT.TTS;
 using Content.Shared.Chat;
 using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 using Content.Shared.Radio;
 using Robust.Shared.Enums;
 using Robust.Shared.Player;

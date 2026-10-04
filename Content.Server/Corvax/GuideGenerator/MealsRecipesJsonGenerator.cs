@@ -30,7 +30,7 @@ public sealed class MealsRecipesJsonGenerator
 
         var sliceableRecipes =
             entities
-                .Where(x => x.Components.TryGetComponent("SliceableFood", out var _))
+                .Where(x => x.Components.TryGetComponent("ToolRefinableSolution", out var _))
                 .Select(x => new SliceRecipeEntry(x))
                 .Where(x => x.Result != "") // SOMEONE THOUGHT THAT IT WOULD BE A GREAT IDEA TO PUT COMPONENT ON AN ITEM WITHOUT SPECIFYING THE OUTPUT THING.
                 .Where(x => x.Count > 0) // Just in case.

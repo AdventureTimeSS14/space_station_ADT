@@ -4,7 +4,9 @@
   id: ADTKatanacursed
   description: Ancient craftwork made with not so ancient plasteel.
   components:
-  - type: Sharp
+  - type: Tool
+    qualities:
+    - Slicing
   - type: Unremoveable
   - type: Tag
     tags:
