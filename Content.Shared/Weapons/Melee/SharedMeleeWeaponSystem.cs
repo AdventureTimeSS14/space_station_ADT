@@ -959,7 +959,7 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem
         if (!TryComp<MartialArtsKnowledgeComponent>(user, out var knowledge))
             return false;
 
-        foreach (var combo in _protoManager.EnumeratePrototypes<ComboPrototype>())
+        foreach (var combo in ProtoMan.EnumeratePrototypes<ComboPrototype>()) // ADT-Tweak
         {
             if (combo.PerformOnSelf && combo.MartialArtsForm == knowledge.MartialArtsForm)
                 return true;

@@ -126,7 +126,7 @@ public abstract partial class SharedResearchSystem : EntitySystem
 
         // ADT Research Console Rework start
         var percentage = (float)component.UnlockedTechnologies
-            .Where(x => PrototypeManager.Index<TechnologyPrototype>(x).Discipline == techDiscipline.ID)
+            .Where(x => ProtoMan.Index<TechnologyPrototype>(x).Discipline == techDiscipline.ID) // ADT-Tweak
             .Count() / (float)allTech.Count * 100f;
 
         // var tier = 2; //tier 1 is always given

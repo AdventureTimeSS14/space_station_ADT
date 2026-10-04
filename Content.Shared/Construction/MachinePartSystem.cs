@@ -43,9 +43,9 @@ namespace Content.Shared.Construction
                 foreach (var (partType, amount) in component.PartRequirements)
                 {
                     string elementName;
-                    if (_prototype.TryIndex(partType, out var machinePart))
+                    if (ProtoMan.TryIndex(partType, out var machinePart))
                     {
-                        var partEnt = _prototype.Index(machinePart.StockPartPrototype);
+                        var partEnt = ProtoMan.Index(machinePart.StockPartPrototype);
                         elementName = partEnt.Name;
                     }
                     else
@@ -118,7 +118,7 @@ namespace Content.Shared.Construction
             // ADT-Tweak-Start
             foreach (var (partType, amount) in comp.PartRequirements)
             {
-                if (!_prototype.TryIndex(partType, out var machinePart))
+                if (!ProtoMan.TryIndex(partType, out var machinePart))
                     return false;
 
                 var defaultProtoId = machinePart.StockPartPrototype;
@@ -135,7 +135,7 @@ namespace Content.Shared.Construction
                         materials[mat] += matAmount * amount * coefficient;
                     }
                 }
-                else if (_prototype.Resolve(defaultProtoId, out var defaultProto) &&
+                else if (ProtoMan.Resolve(defaultProtoId, out var defaultProto) &&
                          defaultProto.TryGetComponent<PhysicalCompositionComponent>(out var physComp, EntityManager.ComponentFactory))
                 {
                     foreach (var (mat, matAmount) in physComp.MaterialComposition)

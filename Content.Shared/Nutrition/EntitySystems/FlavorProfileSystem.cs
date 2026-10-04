@@ -70,7 +70,7 @@ public sealed partial class FlavorProfileSystem : EntitySystem
         {
             foreach (ProtoId<FlavorPrototype> neutralizedProtoId in flavor.Neutralize)
             {
-                if (!_prototypeManager.TryIndex<FlavorPrototype>(neutralizedProtoId, out var neutralizedProto))
+                if (!ProtoMan.TryIndex<FlavorPrototype>(neutralizedProtoId, out var neutralizedProto)) // ADT-Tweak
                     continue;
 
                 if (!neutralized.Contains(neutralizedProto))

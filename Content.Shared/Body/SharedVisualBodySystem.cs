@@ -186,11 +186,11 @@ public abstract partial class SharedVisualBodySystem : EntitySystem
         if (!ent.Comp.Layer.Equals(HumanoidVisualLayers.Chest))
             return false;
 
-        if (data.BodyType is { } bodyTypeId && _prototype.TryIndex(bodyTypeId, out var bodyType))
+        if (data.BodyType is { } bodyTypeId && ProtoMan.TryIndex(bodyTypeId, out var bodyType)) // ADT-Tweak
         {
             ent.Comp.Data.RsiPath = bodyType.Sprite.ToString();
             ent.Comp.Data.State = bodyType.GetState(data.Sex);
-            SetOrganAppearance(ent, ent.Comp.Data);
+            SetOrganAppearance(ent, ent.Comp.Data, ent.Comp.Displacement); // ADT-Tweak
             return true;
         }
 
@@ -204,7 +204,7 @@ public abstract partial class SharedVisualBodySystem : EntitySystem
 
         ent.Comp.Data.RsiPath = original.Data.RsiPath;
         ent.Comp.Data.State = ent.Comp.SexStateOverrides?.GetValueOrDefault(data.Sex) ?? original.Data.State;
-        SetOrganAppearance(ent, ent.Comp.Data);
+        SetOrganAppearance(ent, ent.Comp.Data, ent.Comp.Displacement); // ADT-Tweak
         return true;
     }
     // ADT-Tweak-End
