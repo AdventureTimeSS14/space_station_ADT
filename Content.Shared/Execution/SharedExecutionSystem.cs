@@ -269,13 +269,11 @@ public sealed partial class SharedExecutionSystem : EntitySystem
 
         if (attacker == victim)
         {
-            ShowExecutionInternalPopup("suicide-popup-gun-initial-internal", attacker, victim, weapon);
-            ShowExecutionExternalPopup("suicide-popup-gun-initial-external", attacker, victim, weapon);
+            ShowExecutionPopup("suicide-popup-gun-initial-internal", "suicide-popup-gun-initial-external", attacker, victim, weapon); // ADT-Tweak
         }
         else
         {
-            ShowExecutionInternalPopup("execution-popup-gun-initial-internal", attacker, victim, weapon);
-            ShowExecutionExternalPopup("execution-popup-gun-initial-external", attacker, victim, weapon);
+            ShowExecutionPopup("execution-popup-gun-initial-internal", "execution-popup-gun-initial-external", attacker, victim, weapon); // ADT-Tweak
         }
 
         var doAfter =
@@ -319,8 +317,7 @@ public sealed partial class SharedExecutionSystem : EntitySystem
         if (ev.Ammo.Count <= 0)
         {
             _audio.PlayPredicted(component.SoundEmpty, uid, attacker);
-            ShowExecutionInternalPopup("execution-popup-gun-empty", attacker, victim, weapon);
-            ShowExecutionExternalPopup("execution-popup-gun-empty", attacker, victim, weapon);
+            ShowExecutionPopup("execution-popup-gun-empty", "execution-popup-gun-empty", attacker, victim, weapon); // ADT-Tweak
             return;
         }
 
@@ -353,8 +350,7 @@ public sealed partial class SharedExecutionSystem : EntitySystem
 
         if (attacker == victim)
         {
-            ShowExecutionInternalPopup("suicide-popup-gun-complete-internal", attacker, victim, weapon);
-            ShowExecutionExternalPopup("suicide-popup-gun-complete-external", attacker, victim, weapon);
+            ShowExecutionPopup("suicide-popup-gun-complete-internal", "suicide-popup-gun-complete-external", attacker, victim, weapon); // ADT-Tweak
             _suicide.ApplyLethalDamage((victim, damageableComponent), "Piercing");
             _audio.PlayPredicted(component.SoundGunshot, uid, attacker);
             if (!HasComp<RevolverAmmoProviderComponent>(weapon))
@@ -365,8 +361,7 @@ public sealed partial class SharedExecutionSystem : EntitySystem
         }
         else
         {
-            ShowExecutionInternalPopup("execution-popup-gun-complete-internal", attacker, victim, weapon);
-            ShowExecutionExternalPopup("execution-popup-gun-complete-external", attacker, victim, weapon);
+            ShowExecutionPopup("execution-popup-gun-complete-internal", "execution-popup-gun-complete-external", attacker, victim, weapon); // ADT-Tweak
             _audio.PlayPredicted(component.SoundGunshot, uid, attacker);
             _suicide.ApplyLethalDamage((victim, damageableComponent), "Piercing");
         }
