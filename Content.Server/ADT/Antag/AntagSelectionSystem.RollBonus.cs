@@ -1,3 +1,4 @@
+using Content.Server.GameTicking;
 using Content.Shared.Antag;
 using Content.Shared.GameTicking;
 using Content.Shared.Roles;
