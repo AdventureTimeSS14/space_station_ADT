@@ -146,7 +146,7 @@ public sealed partial class VendingMachineSystem : SharedVendingMachineSystem
         EjectRandom((entity.Owner, entity.Comp), throwItem: true, forceEject: false);
     }
 
-    [SubscribeLocalEvent]
+    // [SubscribeLocalEvent] // ADT-Tweak
     private void OnPriceCalculation(Entity<VendingMachineRestockComponent> entity, ref PriceCalculationEvent args)
     {
         List<double> priceSets = new();

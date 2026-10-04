@@ -6309,7 +6309,7 @@ entities:
     - type: Transform
       pos: -7.5,-5.5
       parent: 1
-    - type: VendingMachine
+    - type: ADTVendingMachine
       allForFree: True
 - proto: VendingMachineMedical
   entities:
@@ -6325,7 +6325,7 @@ entities:
     - type: Transform
       pos: -5.5,-0.5
       parent: 1
-    - type: VendingMachine
+    - type: ADTVendingMachine
       allForFree: True
 - proto: VendingMachineTankDispenserEVA
   entities:
@@ -6346,7 +6346,7 @@ entities:
     - type: Transform
       pos: -2.5,-7.5
       parent: 1
-    - type: VendingMachine
+    - type: ADTVendingMachine
       allForFree: True
 - proto: VendingMachineYouTool
   entities:
@@ -6355,7 +6355,7 @@ entities:
     - type: Transform
       pos: -6.5,-5.5
       parent: 1
-    - type: VendingMachine
+    - type: ADTVendingMachine
       allForFree: True
 - proto: WallPlastitanium
   entities:

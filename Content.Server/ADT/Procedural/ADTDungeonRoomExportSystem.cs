@@ -297,7 +297,7 @@ public sealed class ADTDungeonRoomExportSystem : EntitySystem
         var data = node;
 
         if (proto.Components.TryGetValue(registration.Name, out var protoEntry))
-            data = _serialization.CombineMappings(data, protoEntry.Mapping);
+            data = _serialization.CombineMappings(data, _serialization.WriteValueAs<MappingDataNode>(registration.Type, protoEntry.Component));
 
         try
         {

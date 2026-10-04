@@ -1210,8 +1210,7 @@
   - type: Clothing
     sprite: ADT/Personalization/sirtalter_armorminer.rsi
   - type: TemperatureProtection
-    heatingCoefficient: 0.7
-    coolingCoefficient: 1
+    coefficient: 0.7
   - type: Armor
     modifiers:
       coefficients:
@@ -1320,8 +1319,7 @@
     sprintModifier: 1.05
   # - type: HeldSpeedModifier
   - type: TemperatureProtection
-    heatingCoefficient: 0.1
-    coolingCoefficient: 0.1
+    coefficient: 0.1
   - type: Armor
     modifiers:
       coefficients:
@@ -1387,8 +1385,7 @@
   - type: Clothing
     sprite: ADT/Personalization/lemon_paramedic_helmet.rsi
   - type: TemperatureProtection
-    heatingCoefficient: 0.1
-    coolingCoefficient: 0.1
+    coefficient: 0.1
   - type: Armor
     modifiers:
       coefficients:
@@ -1861,8 +1858,7 @@
       map: ["foldedLayer"]
       visible: false
   - type: TemperatureProtection ##ADT-Tweak start
-    heatingCoefficient: 1.025
-    coolingCoefficient: 0.5 ##ADT-Tweak end
+    coefficient: 0.5
 
 # honelin111
 - type: entity

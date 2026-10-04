@@ -4,7 +4,7 @@
   name: Shell Dispenser
   description: Shell Dispenser
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: ADTShellDispenserInventory
     dispenseOnHitChance: 0.25
     dispenseOnHitThreshold: 2
@@ -42,7 +42,7 @@
   name: TSF Weapon Dispenser
   description: TSF Weapon Dispenser
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: ADTWeaponTSFDispenserInventory
     dispenseOnHitChance: 0.25
     dispenseOnHitThreshold: 2
@@ -80,7 +80,7 @@
   name: KMT Weapon Dispenser
   description: KMT Weapon Dispenser
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: ADTWeaponKMTDispenserInventory
     dispenseOnHitChance: 0.25
     dispenseOnHitThreshold: 2
@@ -118,7 +118,7 @@
   name: Ammo Dispenser TSF
   description: Ammo Dispenser TSF
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: ADTShipBattleAmmoDispenserInventory
     dispenseOnHitChance: 0.25
     dispenseOnHitThreshold: 2
@@ -156,7 +156,7 @@
   name: Ammo Dispenser KMT
   description: Ammo Dispenser KMT
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: ADTShipBattleAmmoDispenserInventory
     dispenseOnHitChance: 0.25
     dispenseOnHitThreshold: 2
@@ -194,7 +194,7 @@
   name: Medical Dispenser TSF
   description: Medical Dispenser TSF
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: ADTShipBattleMedicalDispenserInventory
     dispenseOnHitChance: 0.25
     dispenseOnHitThreshold: 2
@@ -232,7 +232,7 @@
   name: Medical Dispenser KMT
   description: Medical Dispenser KMT
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: ADTShipBattleMedicalDispenserInventory
     dispenseOnHitChance: 0.25
     dispenseOnHitThreshold: 2
@@ -270,7 +270,7 @@
   name: Uniform Dispenser TSF
   description: Uniform Dispenser TSF
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: ADTTSFUniformDispenserInventory
     dispenseOnHitChance: 0.25
     dispenseOnHitThreshold: 2
@@ -308,7 +308,7 @@
   name: Uniform Dispenser KMT
   description: Uniform Dispenser KMT
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: ADTKMTUniformDispenserInventory
     dispenseOnHitChance: 0.25
     dispenseOnHitThreshold: 2
@@ -346,7 +346,7 @@
   name: Food Dispenser
   description: Food Dispenser
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: ADTFoodDispenserInventory
     dispenseOnHitChance: 0.25
     dispenseOnHitThreshold: 2
@@ -384,7 +384,7 @@
   name: Additions TSF Dispenser
   description: Additions TSF Dispenser
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: ADTAdditionsDispenserInventory
     dispenseOnHitChance: 0.25
     dispenseOnHitThreshold: 2
@@ -422,7 +422,7 @@
   name: Additions KMT Dispenser
   description: Additions KMT Dispenser
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: ADTAdditionsDispenserInventory
     dispenseOnHitChance: 0.25
     dispenseOnHitThreshold: 2
@@ -460,7 +460,7 @@
   name: Engineering TSF Dispenser
   description: Engineering TSF Dispenser
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: ADTTSFEngineeringDispenserInventory
     dispenseOnHitChance: 0.25
     dispenseOnHitThreshold: 2
@@ -498,7 +498,7 @@
   name: Engineering KMT Dispenser
   description: Engineering KMT Dispenser
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: ADTKMTEngineeringDispenserInventory
     dispenseOnHitChance: 0.25
     dispenseOnHitThreshold: 2

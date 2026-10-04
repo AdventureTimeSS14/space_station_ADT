@@ -49,7 +49,7 @@ public sealed partial class NPCUseActionOnTargetSystem : EntitySystem
 
         var weights = _proto.Index(user.Comp.Actions);
         var act = weights.Pick();
-        var actionEntity = user.Comp.ActionEntities.Keys.Where(x => Prototype(x)?.ID == act).First();
+        var actionEntity = user.Comp.ActionEntities.Keys.Where(x => Prototype(x) is { } proto && proto.ID == act).First();
 
         if (_actions.GetAction(actionEntity) is not { } action)
             return false;

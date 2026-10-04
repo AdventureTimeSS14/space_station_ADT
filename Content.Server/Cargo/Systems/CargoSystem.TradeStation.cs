@@ -233,7 +233,7 @@ public sealed partial class CargoSystem
         //ADT-tweak-start
         if (component.CurrencyProto != null)
         {
-            var stackPrototype = _protoMan.Index<StackPrototype>(component.CurrencyProto);
+            var stackPrototype = ProtoMan.Index<StackPrototype>(component.CurrencyProto);
             if (SellPallets(gridUid, gridUid, out var goodsmy))
             {
                 var totalprice = 0;

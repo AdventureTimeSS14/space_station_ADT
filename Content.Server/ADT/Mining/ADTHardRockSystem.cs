@@ -23,7 +23,7 @@ public sealed class ADTHardRockSystem : EntitySystem
         if (!args.OurFixture.Hard || args.OtherFixtureId != SharedProjectileSystem.ProjectileFixture)
             return;
 
-        if (!TryComp<GatheringProjectileComponent>(args.OtherEntity, out var projectile))
+        if (!HasComp<GatheringProjectileComponent>(args.OtherEntity))
             return;
 
         if (TryComp<ADTHardRockPiercingComponent>(args.OtherEntity, out var piercing))
@@ -32,7 +32,6 @@ public sealed class ADTHardRockSystem : EntitySystem
             return;
         }
 
-        projectile.Amount = 0;
         _popup.PopupEntity(Loc.GetString("adt-hard-rock-popup-resistant"), ent.Owner);
     }
 

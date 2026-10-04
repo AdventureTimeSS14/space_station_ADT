@@ -116,8 +116,7 @@
     requireActivated: false
   - type: HeldSpeedModifier
   - type: TemperatureProtection
-    heatingCoefficient: 0.01 # ADT-Tweak 0.1 -> 0.01
-    coolingCoefficient: 0.01 # ADT-Tweak 0.1 -> 0.01
+    coefficient: 0.01
   - type: Armor
     modifiers:
       coefficients:

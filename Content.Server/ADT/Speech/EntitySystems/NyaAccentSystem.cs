@@ -1,5 +1,6 @@
 using System.Text.RegularExpressions;
 using Content.Server.Speech.Components;
+using Content.Shared.Speech.EntitySystems;
 using Robust.Shared.Random;
 using Content.Shared.Speech;
 // taken from pr: https://github.com/Workbench-Team/space-station-14/pull/1

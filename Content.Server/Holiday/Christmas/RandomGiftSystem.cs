@@ -7,6 +7,7 @@ using Content.Shared.Item;
 using Content.Shared.Whitelist;
 using Robust.Server.Audio;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Physics; // ADT-Tweak
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -113,13 +114,12 @@ public sealed partial class RandomGiftSystem : EntitySystem
             _possibleGiftsUnsafe.Add(proto.ID);
 
             // ADT
-            if (proto.Components.TryGetValue("Physics", out var value))
+            if (proto.Components.TryGetValue(physicsCompName, out var value))
             {
-                if (value.Mapping.Count > 0)
-                    if (object.Equals(value.Mapping[0].Value?.ToString(), "Dynamic"))
-                        _possibleGiftsUnsafeADT.Add(proto.ID);
-                    else
-                        continue;
+                if (value.Component is PhysicsComponent { BodyType: BodyType.Dynamic })
+                    _possibleGiftsUnsafeADT.Add(proto.ID);
+                else
+                    continue;
             }
             // END
             if (!proto.Components.ContainsKey(itemCompName))

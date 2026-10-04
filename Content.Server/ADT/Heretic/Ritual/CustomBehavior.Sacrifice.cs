@@ -4,6 +4,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Shared.ADT.Heretic;
 using Content.Server.ADT.Medical.SuitSensors;
+using Content.Shared.ADT.Medical.SuitSensors;
 using Content.Server.ADT.Objectives.Components;
 using Content.Server.Heretic.Components;
 using Content.Server.Body.Systems;

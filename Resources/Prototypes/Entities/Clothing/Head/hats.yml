@@ -696,8 +696,7 @@
       map: ["foldedLayer"]
       visible: false
   - type: TemperatureProtection ##ADT-Tweak start
-    heatingCoefficient: 1.025
-    coolingCoefficient: 0.5 ##ADT-Tweak end
+    coefficient: 0.5
 
 - type: entity
   parent: ClothingHeadBase

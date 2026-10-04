@@ -384,7 +384,6 @@ public sealed partial class PolymorphSystem : EntitySystem
                 typeof(UncloneableComponent),
                 typeof(NarcolepsyComponent),
                 typeof(UnrevivableComponent),
-                typeof(MutedComponent),
                 typeof(ParacusiaComponent),
                 typeof(HemophiliaComponent),
                 typeof(DeafTraitComponent),

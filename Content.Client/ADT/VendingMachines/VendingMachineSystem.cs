@@ -9,7 +9,7 @@ using Content.Shared.VendingMachines.Components;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
 using Robust.Shared.GameStates;
-using VendingMachineComponent = Content.Shared.ADT.VendingMachines.VendingMachineComponent;
+using ADTVendingMachineComponent = Content.Shared.ADT.VendingMachines.ADTVendingMachineComponent;
 using VendingMachineComponentState = Content.Shared.ADT.VendingMachines.VendingMachineComponentState;
 using VendingMachineUiKey = Content.Shared.ADT.VendingMachines.VendingMachineUiKey;
 
@@ -22,7 +22,7 @@ public sealed partial class VendingMachineSystem : SharedVendingMachineSystem
     [Dependency] private SharedPowerReceiverSystem _receiver = default!;
     [Dependency] private SpriteSystem _sprite = default!;
 
-    protected override void UpdateUI(Entity<VendingMachineComponent?> entity)
+    protected override void UpdateUI(Entity<ADTVendingMachineComponent?> entity)
     {
         if (!Resolve(entity, ref entity.Comp))
             return;
@@ -33,13 +33,13 @@ public sealed partial class VendingMachineSystem : SharedVendingMachineSystem
         }
     }
 
-    protected override void OnEjectStateChanged(Entity<VendingMachineComponent?> entity, VendingMachineEjectComponent? ejectComponent = null)
+    protected override void OnEjectStateChanged(Entity<ADTVendingMachineComponent?> entity, VendingMachineEjectComponent? ejectComponent = null)
     {
         TryUpdateVisualState(entity, ejectComponent);
     }
 
     [SubscribeLocalEvent]
-    private void OnVendingHandleState(Entity<VendingMachineComponent> entity, ref ComponentHandleState args)
+    private void OnVendingHandleState(Entity<ADTVendingMachineComponent> entity, ref ComponentHandleState args)
     {
         if (args.Current is not VendingMachineComponentState state)
             return;
@@ -83,7 +83,7 @@ public sealed partial class VendingMachineSystem : SharedVendingMachineSystem
     }
 
     [SubscribeLocalEvent]
-    private void OnPowerChanged(Entity<VendingMachineComponent> entity, ref PowerChangedEvent args)
+    private void OnPowerChanged(Entity<ADTVendingMachineComponent> entity, ref PowerChangedEvent args)
     {
         TryUpdateVisualState((entity.Owner, entity.Comp));
     }
@@ -91,7 +91,7 @@ public sealed partial class VendingMachineSystem : SharedVendingMachineSystem
     [SubscribeLocalEvent]
     private void OnAnimationCompleted(EntityUid uid, VendingMachineVisualsComponent visuals, AnimationCompletedEvent args)
     {
-        if (!TryComp<VendingMachineComponent>(uid, out var vend) ||
+        if (!TryComp<ADTVendingMachineComponent>(uid, out var vend) ||
             !TryComp<SpriteComponent>(uid, out var sprite))
             return;
 
@@ -106,7 +106,7 @@ public sealed partial class VendingMachineSystem : SharedVendingMachineSystem
         TryUpdateVisualState(entity.Owner);
     }
 
-    private void TryUpdateVisualState(Entity<VendingMachineComponent?> entity, VendingMachineEjectComponent? ejectComponent = null)
+    private void TryUpdateVisualState(Entity<ADTVendingMachineComponent?> entity, VendingMachineEjectComponent? ejectComponent = null)
     {
         if (!Resolve(entity.Owner, ref entity.Comp))
             return;
@@ -126,7 +126,7 @@ public sealed partial class VendingMachineSystem : SharedVendingMachineSystem
 
     private VendingMachineVisualState GetVisualState(
         EntityUid uid,
-        VendingMachineComponent vend,
+        ADTVendingMachineComponent vend,
         VendingMachineEjectComponent? eject)
     {
         if (vend.Broken)

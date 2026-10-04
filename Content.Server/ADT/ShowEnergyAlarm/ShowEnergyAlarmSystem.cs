@@ -49,7 +49,7 @@ public sealed class ShowEnergyAlarmSystem : EntitySystem
 
     private void OnEquipped(EntityUid uid, ShowEnergyAlarmComponent component, GotEquippedEvent args)
     {
-        component.User = args.Equipee;
+        component.User = args.EquipTarget;
         UpdateClothingPowerAlert((uid, component));
     }
 

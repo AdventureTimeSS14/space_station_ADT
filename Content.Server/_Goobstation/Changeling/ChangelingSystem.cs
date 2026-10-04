@@ -758,8 +758,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
     private void OnIdentityMapInit(Entity<ChangelingIdentityComponent> ent, ref MapInitEvent args)
     {
-        RemComp<HungerComponent>(ent);
-        RemComp<ThirstComponent>(ent);
+        RemComp<SatiationComponent>(ent);
         RemComp<CanHostGuardianComponent>(ent);
         RemComp<MartialArtsKnowledgeComponent>(ent);
         RemComp<CanPerformComboComponent>(ent);

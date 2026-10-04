@@ -398,12 +398,12 @@ public sealed class ADTDungeonRoomSystem : EntitySystem
             data.Remove("type");
 
             if (entityProto != null && entityProto.Components.TryGetValue(name, out var protoData))
-                data = _serialization.CombineMappings(data, protoData.Mapping);
+                data = _serialization.CombineMappings(data, _serialization.WriteValueAs<MappingDataNode>(registration.Type, protoData.Component));
 
             try
             {
                 var component = (IComponent) _serialization.Read(registration.Type, data)!;
-                registry[name] = new EntityPrototype.ComponentRegistryEntry(component, data);
+                registry[name] = new EntityPrototype.ComponentRegistryEntry(component);
             }
             catch (Exception exception)
             {

@@ -2,7 +2,6 @@ using Content.Client.ADT.VendingMachines.UI;
 using Content.Shared.ADT.VendingMachines;
 using Content.Shared.VendingMachines.Components;
 using Robust.Client.UserInterface;
-using VendingMachineComponent = Content.Shared.ADT.VendingMachines.VendingMachineComponent;
 
 namespace Content.Client.ADT.VendingMachines;
 
@@ -23,7 +22,7 @@ public sealed class VendingMachineBoundUserInterface : BoundUserInterface
         base.Open();
 
         _menu = new();
-        var component = EntMan.GetComponent<VendingMachineComponent>(Owner);
+        var component = EntMan.GetComponent<ADTVendingMachineComponent>(Owner);
         var system = EntMan.System<VendingMachineSystem>();
         _cachedInventory = system.GetAllInventory(Owner, component);
         _menu.Title = EntMan.GetComponent<MetaDataComponent>(Owner).EntityName;

@@ -331,14 +331,14 @@ public sealed partial class SalvageSystem
                     break;
 
                 case AsteroidOffering asteroid:
-                    var asteroidProto = _prototypeManager.Index<DungeonConfigPrototype>(asteroid.Id);
+                    var asteroidProto = ProtoMan.Index<DungeonConfigPrototype>(asteroid.Id);
                     if (asteroidProto.SizeTag == null)
                         return;
                     data.Comp.ActiveTime = _timing.CurTime + data.Comp.sizeAndTime[asteroidProto.SizeTag];
                     break;
 
                 case DebrisOffering debris:
-                    var debrisProto = _prototypeManager.Index<DungeonConfigPrototype>(debris.Id);
+                    var debrisProto = ProtoMan.Index<DungeonConfigPrototype>(debris.Id);
                     if (debrisProto.SizeTag == null)
                         return;
                     data.Comp.ActiveTime = _timing.CurTime + data.Comp.sizeAndTime[debrisProto.SizeTag];

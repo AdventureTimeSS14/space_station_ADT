@@ -122,7 +122,7 @@ public sealed class BloodCoughSystem : EntitySystem
             {
                 var bloodReagents = bloodstream.BloodReferenceSolution.Contents;
                 var bloodReagentId = bloodReagents.Count > 0
-                    ? bloodReagents[0].Reagent.Prototype
+                    ? bloodReagents[0].Reagent.Prototype.Id
                     : "Blood";
 
                 var solution = new Solution();

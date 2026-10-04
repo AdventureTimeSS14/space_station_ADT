@@ -4,7 +4,7 @@
   name: PatholoDrobe
   description: A vending machine that dispences new clothing for pathologists.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: PatholodrobeInventory
     offState: off
     brokenState: broken
@@ -36,7 +36,7 @@
   name: StyleMate
   description: A vending machine for specific clothing.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     priceMultiplier: 0.8
     pack: ADTPrazatClothesMateInventory
     offState: off
@@ -76,7 +76,7 @@
   name: TSF Armoury
   description: TSF Armoury
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: ADTTSFArmouryInventory
     offState: off
     brokenState: broken
@@ -99,7 +99,7 @@
   name: Pill-O-Mat
   description: (Almost) A practical solution to many of your sores.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: PillInventory
     offState: off
     brokenState: broken
@@ -135,7 +135,7 @@
   name: ParaDrobe
   description: A vending machine that dispences new clothing for paramedics.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: ParadrobeInventory
     offState: off
     brokenState: broken
@@ -167,7 +167,7 @@
   name: CiviMedVend
   description: CiviMed, distributing lifesaving meds harder than the rocks you break! Miners, DON'T DIE!
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: ADTCiviMedVendInventory
     offState: off
     brokenState: broken
@@ -203,7 +203,7 @@
   name: Ice CreamMat
   description: Look! There a ice cream!
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: ADTIceCreamVendInventory
     initialStockQuality: 0.33
     dispenseOnHitChance: 0.25
@@ -243,7 +243,7 @@
   name: Musicianmat
   description: A vending machine with musical instruments for a musician.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: ADTMusicomatInventory
     offState: off
     brokenState: broken
@@ -280,7 +280,7 @@
   description: Served boiling so it stays hot all shift!
   suffix: Free
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: HotDrinksMachineInventory
     dispenseOnHitChance: 0.25
     dispenseOnHitThreshold: 2
@@ -302,7 +302,7 @@
   description: Vends things that the Captain and Head of Personnel are probably not going to appreciate you fiddling with instead of your job...
   suffix: Free
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: GoodCleanFunInventory
     offState: off
     brokenState: broken
@@ -318,7 +318,7 @@
   description: A snack machine courtesy of the Getmore Chocolate Corporation, based out of Mars.
   suffix: Free
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: GetmoreChocolateCorpInventory
     dispenseOnHitChance: 0.25
     dispenseOnHitThreshold: 2
@@ -336,7 +336,7 @@
   name: Barbermat
   description: A vending machine with stylish clothes for a barber.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: ADTBarberdrobeInventory
     offState: off
     brokenState: broken

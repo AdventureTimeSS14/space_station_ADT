@@ -112,7 +112,7 @@ public sealed class ADTMedicalAssemblerSystem : EntitySystem
                 if (remaining <= 0)
                     break;
 
-                if (GetPrototypeId(item) != solidProtoId)
+                if (GetPrototypeId(item) != solidProtoId.Id)
                     continue;
 
                 QueueDel(item);

@@ -7,7 +7,6 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 // ADT-Tweak start
 using Content.Server.Administration;
-using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Player;
 // ADT-Tweak end
 
@@ -305,22 +304,22 @@ namespace Content.Server.Stack
                 {
                     if (amount <= 0)
                     {
-                        Popup.PopupCursor(Loc.GetString("comp-stack-split-too-small"), user.Owner, PopupType.Medium);
+                        _popup.PopupCursor(Loc.GetString("comp-stack-split-too-small"), user.Owner, PopupType.Medium);
                         return;
                     }
 
                     if (amount > maxCount)
                     {
-                        Popup.PopupCursor(Loc.GetString("comp-stack-split-too-large"), user.Owner, PopupType.Medium);
+                        _popup.PopupCursor(Loc.GetString("comp-stack-split-too-large"), user.Owner, PopupType.Medium);
                         return;
                     }
 
                     if (Split(stack.AsNullable(), amount, user.Comp.Coordinates) is not { } split)
                         return;
 
-                    Hands.PickupOrDrop(user.Owner, split);
+                    _hands.PickupOrDrop(user.Owner, split);
 
-                    Popup.PopupCursor(Loc.GetString("comp-stack-split"), user.Owner);
+                    _popup.PopupCursor(Loc.GetString("comp-stack-split"), user.Owner);
                 });
         }
         // ADT-Tweak end

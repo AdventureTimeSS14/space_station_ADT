@@ -140,7 +140,7 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
             args.User,
             ent,
             ent.Comp.RemoveDelay,
-            new[] { ent.Comp.RemoveTool.Id },
+            new[] { ent.Comp.RemoveTool },
             new ADTJanicartUpgradeRemoveDoAfterEvent());
     }
 
@@ -186,7 +186,7 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
         }
 
         _appearance.SetData(ent, ADTJanicartUpgradeVisuals.Buffer, buffer);
-        _movement.RefreshMovementSpeedModifiers(ent);
+        _movement.RefreshMovementSpeedModifiers(ent.Owner);
     }
 
     private void OnRefreshSpeed(Entity<ADTJanicartUpgradeableComponent> ent, ref RefreshMovementSpeedModifiersEvent args)

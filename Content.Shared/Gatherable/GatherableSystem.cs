@@ -1,3 +1,5 @@
+using Content.Shared.ADT.Mining; // ADT-Tweak
+using Content.Shared.ADT.Mining.Components; // ADT-Tweak
 using Content.Shared.Destructible;
 using Content.Shared.EntityTable;
 using Content.Shared.Gatherable.Components;
@@ -69,6 +71,11 @@ public sealed partial class GatherableSystem : EntitySystem
 
         if (gathering.Comp.Amount <= 0)
             return;
+
+        // ADT-Tweak start
+        if (HasComp<ADTHardRockComponent>(args.OtherEntity) && !HasComp<ADTHardRockPiercingComponent>(gathering))
+            return;
+        // ADT-Tweak end
 
         if (!TryComp<GatherableComponent>(args.OtherEntity, out var gatherable))
             return;

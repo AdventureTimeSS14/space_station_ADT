@@ -331,7 +331,7 @@ var state = new SiliconLawBuiState(GetLaws(uid).Laws, radioChannels, component.V
             component.Lawset = new SiliconLawset();
 
         component.Lawset.Laws = newLaws;
-        NotifyLawsChanged(target, cue);
+        NotifyLawsChanged((target, component), cue);
     }
     // ADT SAI Custom end
 

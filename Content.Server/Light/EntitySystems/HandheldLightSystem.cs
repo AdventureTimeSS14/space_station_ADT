@@ -93,17 +93,14 @@ namespace Content.Server.Light.EntitySystems
             var component = ent.Comp;
             // ADT-tweak-start: Добавлена проверка на null и обработка исключений для предотвращения падения при загрузке карт
             //метод полностью переписан, если будет что-то ломать откатывайте до версии визардов а потом чините тесты
-            if (component.ToggleAction != null)
+            try
             {
-                try
-                {
-                    _actionContainer.EnsureAction(ent, ref component.ToggleActionEntity, component.ToggleAction);
-                    _actions.AddAction(ent, ref component.SelfToggleActionEntity, component.ToggleAction);
-                }
-                catch (Exception ex)
-                {
-                    Log.Warning($"Failed to create toggle action for handheld light {ToPrettyString(ent)}: {ex.Message}");
-                }
+                _actionContainer.EnsureAction(ent, ref component.ToggleActionEntity, component.ToggleAction);
+                _actions.AddAction(ent, ref component.SelfToggleActionEntity, component.ToggleAction);
+            }
+            catch (Exception ex)
+            {
+                Log.Warning($"Failed to create toggle action for handheld light {ToPrettyString(ent)}: {ex.Message}");
             }
             // ADT-tweak-end
         }

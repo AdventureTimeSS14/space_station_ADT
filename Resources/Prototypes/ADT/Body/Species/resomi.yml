@@ -259,8 +259,7 @@
     normalBodyTemperature: 296.15 # 23°C - целевая температура тела резоми
     thermalRegulationTemperatureThreshold: 6  # Диапазон активации: 276K-306K (17°C до 29°C)
   - type: TemperatureProtection
-    heatingCoefficient: 1.2  # На 20% быстрее нагреваются
-    coolingCoefficient: 0.8  # На 20% медленнее охлаждаются
+    coefficient: 0.8
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:

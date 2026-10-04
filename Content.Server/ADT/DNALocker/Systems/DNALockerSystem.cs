@@ -70,16 +70,16 @@ public sealed partial class DNALockerSystem : EntitySystem
             return;
         if (!component.IsLocked)
         {
-            LockEntity(uid, component, args.Equipee);
+            LockEntity(uid, component, args.EquipTarget);
             return;
         }
 
-        if (TryComp<DnaComponent>(args.Equipee, out var dna))
+        if (TryComp<DnaComponent>(args.EquipTarget, out var dna))
         {
             if (component.DNA != null && component.DNA != dna.DNA)
             {
-                _adminLogger.Add(LogType.AdminMessage, LogImpact.High, $"{ToPrettyString(args.Equipee)} exploded DNA Locker of {ToPrettyString(uid)}");
-                ExplodeEntity(uid, component, args.Equipee);
+                _adminLogger.Add(LogType.AdminMessage, LogImpact.High, $"{ToPrettyString(args.EquipTarget)} exploded DNA Locker of {ToPrettyString(uid)}");
+                ExplodeEntity(uid, component, args.EquipTarget);
             }
         }
     }

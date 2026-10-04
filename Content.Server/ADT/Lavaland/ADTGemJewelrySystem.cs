@@ -71,12 +71,12 @@ public sealed class ADTGemJewelrySystem : EntitySystem
         if (!TryComp<ClothingComponent>(ent.Owner, out var clothing) || (clothing.Slots & args.SlotFlags) == 0)
             return;
 
-        SetWearer(ent, args.Equipee);
+        SetWearer(ent, args.EquipTarget);
     }
 
     private void OnUnequipped(Entity<ADTGemJewelryComponent> ent, ref GotUnequippedEvent args)
     {
-        if (ent.Comp.Wearer == args.Equipee)
+        if (ent.Comp.Wearer == args.EquipTarget)
             SetWearer(ent, null);
     }
 

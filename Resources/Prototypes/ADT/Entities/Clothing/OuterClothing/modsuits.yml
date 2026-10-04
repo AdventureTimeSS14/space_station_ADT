@@ -445,8 +445,7 @@
     walkModifier: 1
     sprintModifier: 1
   - type: TemperatureProtection
-    heatingCoefficient: 0.001
-    coolingCoefficient: 0.001
+    coefficient: 0.001
   - type: ExplosionResistance
     damageCoefficient: 0.1
   - type: FireProtection
@@ -492,8 +491,7 @@
     walkModifier: 1
     sprintModifier: 1
   - type: TemperatureProtection
-    heatingCoefficient: 0.001
-    coolingCoefficient: 0.001
+    coefficient: 0.001
   - type: ExplosionResistance
     damageCoefficient: 0.4
   - type: FireProtection
@@ -779,8 +777,7 @@
   - type: FireProtection
     reduction: 0.5
   - type: TemperatureProtection
-    heatingCoefficient: 0.7
-    coolingCoefficient: 0.4
+    coefficient: 0.4
 
 - type: entity
   parent: ADTClothingOuterModsuitBodyBase
@@ -827,8 +824,7 @@
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
   - type: TemperatureProtection
-    heatingCoefficient: 0.001
-    coolingCoefficient: 0.001
+    coefficient: 0.001
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: FireProtection

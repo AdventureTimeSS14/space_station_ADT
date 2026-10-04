@@ -200,7 +200,7 @@
   name: condiment station
   description: Slather these thick gooey substances on your food for a full flavor effect.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: CondimentInventory
   - type: VendingMachineVisuals
     offState: off
@@ -234,7 +234,7 @@
   name: liberation station
   description: An overwhelming amount of ancient patriotism washes over you just by looking at the machine.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: AmmoVendInventory
   - type: DatasetVocalizer
     dataset: CondimentVendAds
@@ -257,7 +257,7 @@
   name: Booze-O-Mat
   description: A technological marvel, supposedly able to mix just the mixture you'd like to drink the moment you ask for one.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: BoozeOMatInventory
     allForFree: true # ADT-Economy
   - type: VendingMachineVisuals
@@ -290,7 +290,7 @@
   name: Bruise-O-Mat
   description: A refurbished Booze-O-Mat for boosting operative morale. An imprint of a blood-red hardsuit is visible on one side, and the paint seems ashed off on the other side.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: BoozeOMatInventory
     allForFree: true # ADT-Economy
   - type: VendingMachineVisuals
@@ -323,7 +323,7 @@
   name: PTech
   description: PTech vending! Providing a ROBUST selection of PDAs, cartridges, and anything else a dull paper pusher needs!
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: PTechInventory
   - type: VendingMachineVisuals
     ejectState: eject-unshaded
@@ -351,7 +351,7 @@
   name: ChefVend
   description: An ingredient vendor for all your cheffin needs.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: ChefvendInventory
   - type: VendingMachineVisuals
     ejectState: eject-unshaded
@@ -383,7 +383,7 @@
   name: ShadyCigs Deluxe
   description: If you want to get cancer, might as well do it in style.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: CigaretteMachineInventory
   - type: VendingMachineVisuals
     ejectState: eject-unshaded
@@ -409,7 +409,7 @@
   name: ClothesMate
   description: A vending machine for clothing.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: ClothesMateInventory
   - type: VendingMachineVisuals
     denyState: deny-unshaded
@@ -438,7 +438,7 @@
   name: WinterDrobe
   description: The best place to enjoy the cold!
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: WinterDrobeInventory
   - type: VendingMachineVisuals
     denyState: deny-unshaded
@@ -467,7 +467,7 @@
   name: Solar's Best Hot Drinks
   description: Served boiling so it stays hot all shift!
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: HotDrinksMachineInventory
     initialStockQuality: 0.33
   - type: VendingMachineEject
@@ -505,7 +505,7 @@
   name: Robust Softdrinks
   description: A softdrink vendor provided by Robust Industries, LLC.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: RobustSoftdrinksInventory
     initialStockQuality: 0.33
   - type: VendingMachineEject
@@ -579,7 +579,7 @@
   name: Space-Up! Vendor
   description: Indulge in an explosion of flavor.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: SpaceUpInventory
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/spaceup.rsi
@@ -601,7 +601,7 @@
   id: VendingMachineSoda
   suffix: Soda
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: SodaInventory
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/soda.rsi
@@ -624,7 +624,7 @@
   name: Star-kist Vendor
   description: The taste of a star in liquid form.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: StarkistInventory
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/starkist.rsi
@@ -647,7 +647,7 @@
   name: Shambler's Juice Vendor
   description: ~Shake me up some of that Shambler's Juice!~
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: ShamblersJuiceInventory
     initialStockQuality: 0.33
   - type: VendingMachineEject
@@ -678,7 +678,7 @@
   name: Pwr Game Vendor
   description: You want it, we got it. Brought to you in partnership with Vlad's Salads.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: PwrGameInventory
     initialStockQuality: 0.33
   - type: VendingMachineEject
@@ -711,7 +711,7 @@
   name: Dr. Gibb Vendor
   description: Canned explosion of different flavors in this very vendor!
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: DrGibbInventory
     initialStockQuality: 0.33
   - type: VendingMachineEject
@@ -754,7 +754,7 @@
       shader: unshaded
     - state: panel
       map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: SmiteInventory
     initialStockQuality: 0.33
   - type: VendingMachineEject
@@ -777,7 +777,7 @@
   name: Plasteel Chef's Dinnerware Vendor
   description: A kitchen and restaurant equipment vendor.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: DinnerwareInventory
   - type: VendingMachineVisuals
     ejectState: eject-unshaded
@@ -809,7 +809,7 @@
   name: MagiVend
   description: A magic vending machine.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: MagiVendInventory
     allForFree: true # ADT-Economy
   - type: DatasetVocalizer
@@ -837,7 +837,7 @@
   name: Discount Dan's
   description: A vending machine containing discount snacks from the infamous 'Discount Dan' franchise.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: DiscountDansInventory
     initialStockQuality: 0.33
   - type: DatasetVocalizer
@@ -865,7 +865,7 @@
   name: Engi-Vend
   description: Spare tool vending. What? Did you expect some witty description?
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: EngiVendInventory
   - type: VendingMachineVisuals
     ejectState: eject-unshaded
@@ -894,7 +894,7 @@
   name: NanoMed Civilian
   description: It's a medical drug dispenser. Natural chemicals only!
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: NanoMedCivilianInventory
     allForFree: true # ADT-Economy
   - type: VendingMachineEject
@@ -931,7 +931,7 @@
   id: VendingMachineMedical
   name: NanoMed Plus
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: NanoMedPlusInventory
   - type: VendingMachineVisuals
     offState: off
@@ -953,7 +953,7 @@
   name: NutriMax
   description: A vending machine containing nutritional substances for plants and botanical tools.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: NutriMaxInventory
   - type: VendingMachineVisuals
     ejectState: eject-unshaded
@@ -986,7 +986,7 @@
   name: SecTech
   description: A vending machine containing Security equipment. A label reads SECURITY PERSONNEL ONLY.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: SecTechInventory
   - type: VendingMachineVisuals
     ejectState: eject-unshaded
@@ -1023,7 +1023,7 @@
   description: For when you need seeds fast. Hands down the best seed selection on the station!
   suffix: Unlocked
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: MegaSeedServitorInventory
   - type: VendingMachineVisuals
     ejectState: eject-unshaded
@@ -1062,7 +1062,7 @@
   name: Getmore Chocolate Corp
   description: A snack machine courtesy of the Getmore Chocolate Corporation, based out of Mars.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: GetmoreChocolateCorpInventory
     initialStockQuality: 0.33
   - type: VendingMachineVisuals
@@ -1093,7 +1093,7 @@
   name: Sustenance Vendor
   description: A vending machine which vends food, as required by section 47-C of the NT's Prisoner Ethical Treatment Agreement.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: SustenanceInventory
   - type: VendingMachineVisuals
     ejectState: eject-unshaded
@@ -1201,7 +1201,7 @@
   description: An old vending machine containing sweet water.
   suffix: VODA
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: BodaInventory
     initialStockQuality: 0.33
   - type: VendingMachineVisuals
@@ -1233,7 +1233,7 @@
   name: AutoDrobe
   description: A vending machine containing costumes.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: AutoDrobeInventory
   - type: VendingMachineVisuals
     ejectState: eject-unshaded
@@ -1267,7 +1267,7 @@
   name: Vendomat
   description: Only the finest robust equipment in space!
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: VendomatInventory
   - type: VendingMachineVisuals
     ejectState: eject-unshaded
@@ -1303,7 +1303,7 @@
   name: Robotech Deluxe
   description: All the tools you need to create your own robot army.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: RoboticsInventory
   - type: VendingMachineVisuals
     ejectState: eject-unshaded
@@ -1338,7 +1338,7 @@
   name: YouTool
   description: "A vending machine containing standard tools. A label reads: Tools for tools."
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: YouToolInventory
   - type: VendingMachineVisuals
     ejectState: eject-unshaded
@@ -1364,7 +1364,7 @@
   name: Good Clean Fun
   description: Vends things that the Captain and Head of Personnel are probably not going to appreciate you fiddling with instead of your job...
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: GoodCleanFunInventory
   - type: VendingMachineEject
     ejectDelay: 1.8
@@ -1395,7 +1395,7 @@
   name: Mr. Chang
   description: A self-serving Chinese food machine, for all your Chinese food needs.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: ChangInventory
     initialStockQuality: 0.33
   - type: DatasetVocalizer
@@ -1423,7 +1423,7 @@
   name: Salvage Vendor
   description: A dwarf's best friend!
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: SalvageEquipmentInventory
   - type: VendingMachineVisuals
     denyState: deny-unshaded
@@ -1453,7 +1453,7 @@
   name: Monkin' Donuts
   description: A donut vendor provided by Robust Industries, LLC.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: DonutInventory
     initialStockQuality: 0.33
   - type: DatasetVocalizer
@@ -1483,7 +1483,7 @@
   name: HyDrobe
   description: A machine with a catchy name. It dispenses botany related clothing and gear.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: HyDrobeInventory
   - type: DatasetVocalizer
     dataset: HyDrobeAds
@@ -1512,7 +1512,7 @@
   name: LawDrobe
   description: Objection! This wardrobe dispenses the rule of law... and lawyer clothing..
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: LawDrobeInventory
   - type: DatasetVocalizer
     dataset: LawDrobeAds
@@ -1537,7 +1537,7 @@
   name: SecDrobe
   description: A vending machine for security and security-related clothing!
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: SecDrobeInventory
   - type: DatasetVocalizer
     dataset: SecDrobeAds
@@ -1566,7 +1566,7 @@
   name: BarDrobe
   description: A stylish vendor to dispense the most stylish bar clothing!
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: BarDrobeInventory
   - type: DatasetVocalizer
     dataset: BarDrobeAds
@@ -1590,7 +1590,7 @@
   id: VendingMachineChapel
   name: PietyVend
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: PietyVendInventory
   - type: VendingMachineVisuals
     denyState: deny-unshaded
@@ -1617,7 +1617,7 @@
   name: CargoDrobe
   description: A highly advanced vending machine for buying cargo related clothing for free.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: CargoDrobeInventory
   - type: DatasetVocalizer
     dataset: CargoDrobeAds
@@ -1646,7 +1646,7 @@
   name: MediDrobe
   description: A vending machine rumoured to be capable of dispensing clothing for medical personnel.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: MediDrobeInventory
   - type: DatasetVocalizer
     dataset: MediDrobeAds
@@ -1671,7 +1671,7 @@
   name: ChemDrobe
   description: A vending machine for dispensing chemistry related clothing.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: ChemDrobeInventory
   - type: DatasetVocalizer
     dataset: ChemDrobeAds
@@ -1697,7 +1697,7 @@
   name: CuraDrobe
   description: A lowstock vendor only capable of vending clothing for curators and librarians.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: CuraDrobeInventory
   - type: DatasetVocalizer
     dataset: CuraDrobeAds
@@ -1722,7 +1722,7 @@
   name: AtmosDrobe
   description: This relatively unknown vending machine delivers clothing for Atmospherics Technicians, an equally unknown job.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: AtmosDrobeInventory
   - type: DatasetVocalizer
     dataset: AtmosDrobeAds
@@ -1752,7 +1752,7 @@
   name: EngiDrobe
   description: A vending machine renowned for vending industrial grade clothing.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: EngiDrobeInventory
   - type: DatasetVocalizer
     dataset: EngiDrobeAds
@@ -1782,7 +1782,7 @@
   name: ChefDrobe
   description: This vending machine might not dispense meat, but it certainly dispenses chef related clothing.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: ChefDrobeInventory
   - type: DatasetVocalizer
     dataset: ChefDrobeAds
@@ -1807,7 +1807,7 @@
   name: DetDrobe
   description: A machine for all your detective needs, as long as you need clothes.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: DetDrobeInventory
   - type: DatasetVocalizer
     dataset: DetDrobeAds
@@ -1832,7 +1832,7 @@
   name: JaniDrobe
   description: A self cleaning vending machine capable of dispensing clothing for janitors.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: JaniDrobeInventory
   - type: DatasetVocalizer
     dataset: JaniDrobeAds
@@ -1861,7 +1861,7 @@
   name: SciDrobe
   description: A simple vending machine suitable to dispense well tailored science clothing. Endorsed by Space Cubans.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: SciDrobeInventory
   - type: DatasetVocalizer
     dataset: SciDrobeAds
@@ -1886,7 +1886,7 @@
   name: SyndieDrobe
   description: Wardrobe machine encoded by the syndicate, contains elite outfits for various operations.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: SyndieDrobeInventory
     allForFree: true # ADT-Economy
   - type: DatasetVocalizer
@@ -1916,7 +1916,7 @@
   name: RoboDrobe
   description: A vending machine designed to dispense clothing known only to roboticists.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: RoboDrobeInventory
   - type: DatasetVocalizer
     dataset: RoboDrobeAds
@@ -1941,7 +1941,7 @@
   name: GeneDrobe
   description: A machine for dispensing clothing related to genetics.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: GeneDrobeInventory
   - type: DatasetVocalizer
     dataset: GeneDrobeAds
@@ -1967,7 +1967,7 @@
   name: ViroDrobe
   description: An unsterilized machine for dispending virology related clothing.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: ViroDrobeInventory
   - type: DatasetVocalizer
     dataset: ViroDrobeAds
@@ -1993,7 +1993,7 @@
   name: CentDrobe
   description: A one-of-a-kind vending machine for all your centcomm aesthetic needs!
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: CentDrobeInventory
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/centdrobe.rsi
@@ -2018,7 +2018,7 @@
   name: Happy Honk Dispenser
   description: A happy honk meal box dispenser made by honk! co.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: HappyHonkDispenserInventory
     initialStockQuality: 1.0 # Nobody knows how Honk does it, but their vending machines always seem well-stocked...
   - type: VendingMachineEject
@@ -2055,7 +2055,7 @@
   name: Pride-O-Mat
   description: A vending machine containing pride.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: PrideDrobeInventory
   - type: DatasetVocalizer
     dataset: PrideDrobeAds
@@ -2086,7 +2086,7 @@
   name: gas tank dispenser
   description: A vendor for dispensing gas tanks.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: TankDispenserEVAInventory
     allForFree: true # ADT-Economy
   - type: Sprite
@@ -2100,7 +2100,7 @@
   name: gas tank dispenser
   description: A vendor for dispensing gas tanks. This one has an engineering livery.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: TankDispenserEngineeringInventory
     allForFree: true # ADT-Economy
   - type: Sprite
@@ -2115,7 +2115,7 @@
   name: ChemVend
   description: Probably not the coffee machine.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: ChemVendInventory
     allForFree: true # ADT-Economy
   - type: VendingMachineEject
@@ -2146,7 +2146,7 @@
   name: SyndieJuice
   description: Not made with freshly squeezed syndies I hope.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: ChemVendInventorySyndicate
     allForFree: true # ADT-Economy
   - type: VendingMachineEject
@@ -2164,7 +2164,7 @@
   name: NanoMed band-aid
   description: It's a wall-mounted medical equipment dispenser. Natural chemicals only!
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: NanoMedCivilianWallInventory
   - type: VendingMachineVisuals
     offState: off-civilian
@@ -2192,7 +2192,7 @@
   id: VendingMachineWallMedical
   name: NanoMed
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: NanoMedInventory
   - type: VendingMachineVisuals
     offState: off

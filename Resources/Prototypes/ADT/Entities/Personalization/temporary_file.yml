@@ -99,8 +99,7 @@
   - type: Clothing
     sprite: ADT/Personalization/Raven559/blue_shield_ceremonial_reinforced_armor.rsi
   - type: TemperatureProtection
-    heatingCoefficient: 0.7
-    coolingCoefficient: 1
+    coefficient: 0.7
   - type: Armor
     modifiers:
       coefficients:
@@ -431,8 +430,7 @@
     sprintModifier: 0.8
   - type: HeldSpeedModifier
   - type: TemperatureProtection
-    heatingCoefficient: 0.75
-    coolingCoefficient: 0.5
+    coefficient: 0.5
   - type: ToggleableClothing
     clothingPrototype: ADTClothingHeadHelmetRiverSpirit
     slot: head

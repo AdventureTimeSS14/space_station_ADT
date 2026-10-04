@@ -66,6 +66,7 @@ public sealed class MorphSystem : SharedMorphSystem
     [Dependency] private WeldableSystem _weldable = default!;
     [Dependency] private StandingStateSystem _standing = default!;
     [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
     private static readonly ProtoId<DamageGroupPrototype> BruteDamageGroup = "Brute";
     private static readonly ProtoId<DamageGroupPrototype> BurnDamageGroup = "Burn";
     public override void Initialize()
@@ -374,7 +375,7 @@ public sealed class MorphSystem : SharedMorphSystem
             return;
         if (!TryComp<SatiationComponent>(uid, out var hunger))
             return;
-        if (!TryComp<MobThresholdsComponent>(args.Target, out var state) || !_threshold.TryGetDeadThreshold(args.Target.Value, out var health))
+        if (!HasComp<MobThresholdsComponent>(args.Target) || !_threshold.TryGetDeadThreshold(args.Target.Value, out var health))
         {
             //ЭТО ОТВЕЧАЕТ ЗА КУШАНИЕ ПРЕДМЕТОВ. НЕ ПЕРЕПУТАТЬ.
             health = -component.EatWeaponHungerReq;
@@ -384,7 +385,7 @@ public sealed class MorphSystem : SharedMorphSystem
             component.ContainedCreatures.Add(args.Target.Value);
             return;
         }
-        if (state.CurrentThresholdState != MobState.Dead)
+        if (!_mobState.IsDead(args.Target.Value))
             return;
         if (health == null)
             return;

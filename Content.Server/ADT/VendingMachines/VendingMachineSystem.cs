@@ -48,7 +48,6 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Shared.Store.Components;
-using VendingMachineComponent = Content.Shared.ADT.VendingMachines.VendingMachineComponent;
 
 namespace Content.Server.ADT.VendingMachines
 {
@@ -76,26 +75,26 @@ namespace Content.Server.ADT.VendingMachines
         {
             base.Initialize();
 
-            SubscribeLocalEvent<VendingMachineComponent, DamageChangedEvent>(OnDamage);
-            SubscribeLocalEvent<VendingMachineComponent, PriceCalculationEvent>(OnVendingPrice);
-            SubscribeLocalEvent<VendingMachineComponent, TryVocalizeEvent>(OnTryVocalize);
+            SubscribeLocalEvent<ADTVendingMachineComponent, DamageChangedEvent>(OnDamage);
+            SubscribeLocalEvent<ADTVendingMachineComponent, PriceCalculationEvent>(OnVendingPrice);
+            SubscribeLocalEvent<ADTVendingMachineComponent, TryVocalizeEvent>(OnTryVocalize);
 
-            Subs.BuiEvents<VendingMachineComponent>(VendingMachineUiKey.Key, subs =>
+            Subs.BuiEvents<ADTVendingMachineComponent>(VendingMachineUiKey.Key, subs =>
             {
                 subs.Event<VendingMachineEjectMessage>(OnInventoryEjectMessage);
                 subs.Event<VendingMachineEjectCountMessage>(OnInventoryEjectCountMessage);
             });
 
-            SubscribeLocalEvent<VendingMachineComponent, Content.Shared.ADT.VendingMachines.VendingMachineSelfDispenseEvent>(OnSelfDispense);
+            SubscribeLocalEvent<ADTVendingMachineComponent, Content.Shared.ADT.VendingMachines.VendingMachineSelfDispenseEvent>(OnSelfDispense);
 
-            SubscribeLocalEvent<VendingMachineComponent, InteractUsingEvent>(OnInteractUsing);
-            SubscribeLocalEvent<VendingMachineComponent, VendingMachineWithdrawMessage>(OnWithdrawMessage);
-            SubscribeLocalEvent<VendingMachineComponent, AfterActivatableUIOpenEvent>(OnAfterActivatableUIOpen);
+            SubscribeLocalEvent<ADTVendingMachineComponent, InteractUsingEvent>(OnInteractUsing);
+            SubscribeLocalEvent<ADTVendingMachineComponent, VendingMachineWithdrawMessage>(OnWithdrawMessage);
+            SubscribeLocalEvent<ADTVendingMachineComponent, AfterActivatableUIOpenEvent>(OnAfterActivatableUIOpen);
 
             SubscribeLocalEvent<VendingMachineRestockComponent, PriceCalculationEvent>(OnPriceCalculation);
         }
 
-        private void OnVendingPrice(EntityUid uid, VendingMachineComponent component, ref PriceCalculationEvent args)
+        private void OnVendingPrice(EntityUid uid, ADTVendingMachineComponent component, ref PriceCalculationEvent args)
         {
             var price = 0.0;
 
@@ -113,7 +112,7 @@ namespace Content.Server.ADT.VendingMachines
             args.Price += price;
         }
 
-        public void UpdateVendingMachineInterfaceState(EntityUid uid, VendingMachineComponent component)
+        public void UpdateVendingMachineInterfaceState(EntityUid uid, ADTVendingMachineComponent component)
         {
             var state = new VendingMachineInterfaceState(GetAllInventory(uid, component), component.PriceMultiplier,
                 component.Credits, BuildReturnedItemDisplays(uid, component));
@@ -121,12 +120,12 @@ namespace Content.Server.ADT.VendingMachines
             _userInterfaceSystem.SetUiState(uid, VendingMachineUiKey.Key, state);
         }
 
-        private Dictionary<string, ReturnedItemDisplay> BuildReturnedItemDisplays(EntityUid uid, VendingMachineComponent component)
+        private Dictionary<string, ReturnedItemDisplay> BuildReturnedItemDisplays(EntityUid uid, ADTVendingMachineComponent component)
         {
             var result = new Dictionary<string, ReturnedItemDisplay>();
 
             if (!EntityManager.TryGetComponent(uid, out ContainerManagerComponent? containers)
-                || !containers.Containers.TryGetValue(VendingMachineComponent.ReturnedItemsContainerId, out var container))
+                || !containers.Containers.TryGetValue(ADTVendingMachineComponent.ReturnedItemsContainerId, out var container))
             {
                 return result;
             }
@@ -158,7 +157,7 @@ namespace Content.Server.ADT.VendingMachines
             if (TryComp<SolutionContainerVisualsComponent>(ent, out var visuals))
                 solutionName = visuals.SolutionName;
 
-            if (_solutionContainer.TryGetSolution(ent, solutionName, out _, out var solution)
+            if (solutionName != null && _solutionContainer.TryGetSolution(ent, solutionName, out _, out var solution)
                 && solution.Volume > FixedPoint2.Zero
                 && solution.MaxVolume > FixedPoint2.Zero)
             {
@@ -170,7 +169,7 @@ namespace Content.Server.ADT.VendingMachines
             return display;
         }
 
-        private void OnInventoryEjectMessage(EntityUid uid, VendingMachineComponent component, VendingMachineEjectMessage args)
+        private void OnInventoryEjectMessage(EntityUid uid, ADTVendingMachineComponent component, VendingMachineEjectMessage args)
         {
             if (!this.IsPowered(uid, EntityManager))
                 return;
@@ -181,7 +180,7 @@ namespace Content.Server.ADT.VendingMachines
             AuthorizedVend(uid, entity, args.Type, args.ID, component, 1);
         }
 
-        private void OnDamage(EntityUid uid, VendingMachineComponent component, DamageChangedEvent args)
+        private void OnDamage(EntityUid uid, ADTVendingMachineComponent component, DamageChangedEvent args)
         {
             if (!args.DamageIncreased && component.Broken)
             {
@@ -210,7 +209,7 @@ namespace Content.Server.ADT.VendingMachines
             EjectRandom((uid, component, eject), throwItem: true, forceEject: true);
         }
 
-        private void OnSelfDispense(EntityUid uid, VendingMachineComponent component, Content.Shared.ADT.VendingMachines.VendingMachineSelfDispenseEvent args)
+        private void OnSelfDispense(EntityUid uid, ADTVendingMachineComponent component, Content.Shared.ADT.VendingMachines.VendingMachineSelfDispenseEvent args)
         {
             if (args.Handled)
                 return;
@@ -223,7 +222,7 @@ namespace Content.Server.ADT.VendingMachines
             EjectRandom((uid, component, eject), throwItem: true, forceEject: false);
         }
 
-        private void OnDoAfter(EntityUid uid, VendingMachineComponent component, DoAfterEvent args)
+        private void OnDoAfter(EntityUid uid, ADTVendingMachineComponent component, DoAfterEvent args)
         {
             if (args.Handled || args.Cancelled || args.Args.Used == null)
                 return;
@@ -247,7 +246,7 @@ namespace Content.Server.ADT.VendingMachines
             args.Handled = true;
         }
 
-        private void OnInteractUsing(EntityUid uid, VendingMachineComponent component, InteractUsingEvent args)
+        private void OnInteractUsing(EntityUid uid, ADTVendingMachineComponent component, InteractUsingEvent args)
         {
             if (args.Handled)
                 return;
@@ -281,12 +280,12 @@ namespace Content.Server.ADT.VendingMachines
             return price > 0 ? price : 25;
         }
 
-        private int GetPrice(VendingMachineInventoryEntry entry, VendingMachineComponent comp, int count)
+        private int GetPrice(VendingMachineInventoryEntry entry, ADTVendingMachineComponent comp, int count)
         {
             return (int)(entry.Price * count * comp.PriceMultiplier);
         }
 
-        private void OnWithdrawMessage(EntityUid uid, VendingMachineComponent component, VendingMachineWithdrawMessage args)
+        private void OnWithdrawMessage(EntityUid uid, ADTVendingMachineComponent component, VendingMachineWithdrawMessage args)
         {
             _stackSystem.SpawnAtPosition(component.Credits, component.CreditStackPrototype,
                 Transform(uid).Coordinates);
@@ -297,7 +296,7 @@ namespace Content.Server.ADT.VendingMachines
             UpdateVendingMachineInterfaceState(uid, component);
         }
 
-        private void OnAfterActivatableUIOpen(EntityUid uid, VendingMachineComponent component, AfterActivatableUIOpenEvent args)
+        private void OnAfterActivatableUIOpen(EntityUid uid, ADTVendingMachineComponent component, AfterActivatableUIOpenEvent args)
         {
             SendUserInfo(uid, args.User);
             UpdateVendingMachineInterfaceState(uid, component);
@@ -345,7 +344,7 @@ namespace Content.Server.ADT.VendingMachines
             return _tag.HasTag(user, "ADTVendingCargoAccount");
         }
 
-        private void OnInventoryEjectCountMessage(EntityUid uid, VendingMachineComponent component, VendingMachineEjectCountMessage args)
+        private void OnInventoryEjectCountMessage(EntityUid uid, ADTVendingMachineComponent component, VendingMachineEjectCountMessage args)
         {
             if (!this.IsPowered(uid, EntityManager))
                 return;
@@ -371,9 +370,9 @@ namespace Content.Server.ADT.VendingMachines
         }
 
         /// <summary>
-        /// Sets the <see cref="VendingMachineComponent.Contraband"/> property of the vending machine.
+        /// Sets the <see cref="ADTVendingMachineComponent.Contraband"/> property of the vending machine.
         /// </summary>
-        public void SetContraband(Entity<VendingMachineComponent> entity, bool contraband)
+        public void SetContraband(Entity<ADTVendingMachineComponent> entity, bool contraband)
         {
             entity.Comp.Contraband = contraband;
             Dirty(entity);
@@ -385,7 +384,7 @@ namespace Content.Server.ADT.VendingMachines
         /// <param name="uid"></param>
         /// <param name="sender">Entity trying to use the vending machine</param>
         /// <param name="vendComponent"></param>
-        public override bool IsAuthorized(EntityUid uid, EntityUid sender, VendingMachineComponent? vendComponent = null)
+        public override bool IsAuthorized(EntityUid uid, EntityUid sender, ADTVendingMachineComponent? vendComponent = null)
         {
             if (!Resolve(uid, ref vendComponent))
                 return false;
@@ -413,12 +412,12 @@ namespace Content.Server.ADT.VendingMachines
         /// <param name="itemId">The prototype ID of the item</param>
         /// <param name="throwItem">Whether the item should be thrown in a random direction after ejection</param>
         /// <param name="vendComponent"></param>
-        public void TryEjectVendorItem(EntityUid uid, InventoryType type, string itemId, bool throwItem, int count, VendingMachineComponent? vendComponent = null, EntityUid? sender = null, Color? paintColor = null)
+        public void TryEjectVendorItem(EntityUid uid, InventoryType type, string itemId, bool throwItem, int count, ADTVendingMachineComponent? vendComponent = null, EntityUid? sender = null, Color? paintColor = null)
         {
             if (!Resolve(uid, ref vendComponent))
                 return;
 
-            if (!Resolve(uid, out VendingMachineEjectComponent? ejectComponent))
+            if (!TryComp(uid, out VendingMachineEjectComponent? ejectComponent))
                 return;
 
             if (ejectComponent.Ejecting || vendComponent.Broken || !this.IsPowered(uid, EntityManager))
@@ -537,7 +536,7 @@ namespace Content.Server.ADT.VendingMachines
         /// <param name="type">The type of inventory the item is from</param>
         /// <param name="itemId">The prototype ID of the item</param>
         /// <param name="component"></param>
-        public void AuthorizedVend(EntityUid uid, EntityUid sender, InventoryType type, string itemId, VendingMachineComponent component, int count, Color? paintColor = null)
+        public void AuthorizedVend(EntityUid uid, EntityUid sender, InventoryType type, string itemId, ADTVendingMachineComponent component, int count, Color? paintColor = null)
         {
             if (IsAuthorized(uid, sender, component))
             {
@@ -553,7 +552,7 @@ namespace Content.Server.ADT.VendingMachines
         /// <param name="throwItem">Whether to throw the item in a random direction after dispensing it.</param>
         /// <param name="forceEject">Whether to skip the regular ejection checks and immediately dispense the item without animation.</param>
         public void EjectRandom(
-            Entity<VendingMachineComponent?, VendingMachineEjectComponent?> entity,
+            Entity<ADTVendingMachineComponent?, VendingMachineEjectComponent?> entity,
             bool throwItem,
             bool forceEject = false)
         {
@@ -600,7 +599,7 @@ namespace Content.Server.ADT.VendingMachines
             }
         }
 
-        protected override void EjectItem(Entity<VendingMachineComponent?, VendingMachineEjectComponent?> entity, bool forceEject = false)
+        protected override void EjectItem(Entity<ADTVendingMachineComponent?, VendingMachineEjectComponent?> entity, bool forceEject = false)
         {
             if (!Resolve(entity.Owner, ref entity.Comp1, ref entity.Comp2))
                 return;
@@ -659,7 +658,7 @@ namespace Content.Server.ADT.VendingMachines
             UpdateVendingMachineInterfaceState(uid, vendComponent);
         }
 
-        protected override VendingMachineInventoryEntry? GetEntry(EntityUid uid, string entryId, InventoryType type, VendingMachineComponent? component = null)
+        protected override VendingMachineInventoryEntry? GetEntry(EntityUid uid, string entryId, InventoryType type, ADTVendingMachineComponent? component = null)
         {
             if (!Resolve(uid, ref component))
                 return null;
@@ -688,7 +687,7 @@ namespace Content.Server.ADT.VendingMachines
                 dispenseOnHit.NextDispenseTime = null;
             }
 
-            var disabled = EntityQueryEnumerator<EmpDisabledComponent, VendingMachineComponent, VendingMachineEjectComponent>();
+            var disabled = EntityQueryEnumerator<EmpDisabledComponent, ADTVendingMachineComponent, VendingMachineEjectComponent>();
             while (disabled.MoveNext(out var uid, out _, out var comp, out var eject))
             {
                 if (eject.NextEmpEject < curTime)
@@ -723,7 +722,7 @@ namespace Content.Server.ADT.VendingMachines
             args.Price += priceSets.Max();
         }
 
-        private void OnTryVocalize(Entity<VendingMachineComponent> ent, ref TryVocalizeEvent args)
+        private void OnTryVocalize(Entity<ADTVendingMachineComponent> ent, ref TryVocalizeEvent args)
         {
             if (!TryComp<MetaDataComponent>(ent.Owner, out var meta) || !meta.EntityInitialized)
                 return;

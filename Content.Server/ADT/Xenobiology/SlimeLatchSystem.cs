@@ -294,9 +294,9 @@ public sealed partial class SlimeLatchSystem : EntitySystem
             foreach (var stomach in stomachList)
             {
                 var bloodSolution = blood.SplitSolutionWithout(FixedPoint2.New(bloodTransfer / stomachList.Count), ent.Comp.ToxinReagent);
-                _stomach.TryTransferSolution(stomach.Owner, bloodSolution, stomach);
+                _stomach.TryTransferSolution((stomach.Owner, stomach.Comp, null), bloodSolution);
                 var chemSolution = blood.SplitSolution(FixedPoint2.New(chemTransfer / stomachList.Count));
-                _stomach.TryTransferSolution(stomach.Owner, chemSolution, stomach);
+                _stomach.TryTransferSolution((stomach.Owner, stomach.Comp, null), chemSolution);
             }
             chem.AddReagent(ent.Comp.ToxinReagent, FixedPoint2.New(ent.Comp.ToxinUnits));
         }

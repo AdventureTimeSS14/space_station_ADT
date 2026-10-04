@@ -19,7 +19,7 @@ public sealed partial class SpawnEntityFromTableEffectSystem : EntityEffectSyste
 
         for (var i = 0; i < quantity; i++)
         {
-            var spawns = _entityTable.GetSpawns(args.Effect.EntityTable, random);
+            var spawns = _entityTable.GetSpawns(args.Effect.EntityTable, _robustRandom);
             foreach (var proto in spawns)
             {
                 var randomOffset = new Vector2(

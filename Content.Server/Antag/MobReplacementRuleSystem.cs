@@ -2,6 +2,7 @@ using Content.Server.Antag.Mimic;
 using Content.Server.GameTicking.Rules;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.ADT.VendingMachines; // ADT-Tweak
+using VendingMachineComponent = Content.Shared.ADT.VendingMachines.ADTVendingMachineComponent; // ADT-Tweak
 using Robust.Shared.Map;
 using Robust.Shared.Random;
 

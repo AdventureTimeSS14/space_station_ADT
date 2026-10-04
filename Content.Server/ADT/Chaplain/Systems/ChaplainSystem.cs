@@ -344,7 +344,7 @@ public sealed class ChaplainSystem : EntitySystem
             bool success = false;
             foreach (var sol in solutionContainer.Containers)
             {
-                if (_solutionContainer.TryGetSolution((target, solutionContainer), sol, out var soln, out var solution))
+                if (_solutionContainer.TryGetSolution(target, sol, out var soln, out var solution))
                 {
                     var water = component.WaterSolution;
                     var blood = component.BloodSolution;

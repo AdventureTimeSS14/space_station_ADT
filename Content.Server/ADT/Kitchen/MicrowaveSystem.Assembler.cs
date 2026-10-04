@@ -35,7 +35,7 @@ namespace Content.Server.Kitchen.EntitySystems
                 // If a microwave recipe uses a stacked item, use the default stack prototype id instead of prototype id
                 if (TryComp<StackComponent>(item, out var stackComp))
                 {
-                    solidID = _prototype.Index<StackPrototype>(stackComp.StackTypeId).Spawn;
+                    solidID = ProtoMan.Index<StackPrototype>(stackComp.StackTypeId).Spawn;
                     amountToAdd = stackComp.Count;
                 }
                 else
@@ -60,7 +60,7 @@ namespace Content.Server.Kitchen.EntitySystems
                     solidsDict.Add(solidID, amountToAdd);
                 }
 
-                if (!TryComp<SolutionContainerManagerComponent>(item, out var solMan))
+                if (!TryComp<SolutionManagerComponent>(item, out var solMan))
                     continue;
 
                 foreach (var (_, soln) in _solutionContainer.EnumerateSolutions((item, solMan)))

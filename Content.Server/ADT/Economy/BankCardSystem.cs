@@ -196,7 +196,7 @@ public sealed class BankCardSystem : EntitySystem
 
             BankCartridgeComponent? comp = null;
 
-            var programs = _cartridgeLoader.GetInstalled(pdaUid.Value);
+            var programs = _cartridgeLoader.GetDiskPrograms(pdaUid.Value);
 
             var program = programs.ToList().Find(program => TryComp(program, out comp));
             if (comp == null)

@@ -177,7 +177,7 @@ public sealed partial class FancyVendingMachineMenu : FancyWindow
 
         _returnedItems = returnedItems ?? new();
 
-        var comp = _entityManager.GetComponentOrNull<VendingMachineComponent>(entityUid);
+        var comp = _entityManager.GetComponentOrNull<ADTVendingMachineComponent>(entityUid);
         _priceMultiplier = comp == null || comp.AllForFree ? 0 : priceMultiplier;
         _machineCredits = credits;
 

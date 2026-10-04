@@ -76,7 +76,7 @@ public sealed partial class ChatSystem
                             string wrappedMessage, string wrappedobfuscatedMessage, string wrappedUnknownMessage,
                             string wrappedLanguageMessage, string wrappedobfuscatedLanguageMessage, string wrappedUnknownLanguageMessage)
     {
-        var lang = _prototypeManager.Index(language);
+        var lang = ProtoMan.Index(language);
 
         foreach (var (session, data) in GetWhisperRecipients(source, WhisperClearRange, WhisperMuffledRange))
         {

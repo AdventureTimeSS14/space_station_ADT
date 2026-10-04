@@ -363,7 +363,7 @@ public sealed partial class SlimeSpeechSystem : EntitySystem
 
     private void RefreshSpeed(Entity<SlimeComponent> slime)
     {
-        _speedModifier.RefreshMovementSpeedModifiers(slime);
+        _speedModifier.RefreshMovementSpeedModifiers(slime.Owner);
     }
 
     private void Say(EntityUid slime, string message)

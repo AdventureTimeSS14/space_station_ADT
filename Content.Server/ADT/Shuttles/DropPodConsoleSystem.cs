@@ -426,7 +426,7 @@ public sealed class DropPodConsoleSystem : EntitySystem
     {
         if (!TryComp<ItemSlotsComponent>(uid, out var slots))
             return 0;
-        var item = _itemSlots.GetItemOrNull(uid, "tcSlot", slots);
+        var item = _itemSlots.GetItemOrNull((uid, slots), "tcSlot");
         if (item is not { } tcEnt)
             return 0;
         if (!TryComp<StackComponent>(tcEnt, out var stack) || stack.StackTypeId != "Telecrystal")
@@ -540,7 +540,7 @@ public sealed class DropPodConsoleSystem : EntitySystem
 
         if (TryComp<ItemSlotsComponent>(uid, out var slots))
         {
-            var tcEnt = _itemSlots.GetItemOrNull(uid, "tcSlot", slots);
+            var tcEnt = _itemSlots.GetItemOrNull((uid, slots), "tcSlot");
             if (tcEnt is { } tcItem && TryComp<StackComponent>(tcItem, out var stack))
                 _stack.TryUse((tcItem, stack), currentCost);
         }

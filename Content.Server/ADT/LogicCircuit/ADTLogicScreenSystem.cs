@@ -55,7 +55,7 @@ public sealed class ADTLogicScreenSystem : EntitySystem
 
     private void SetColor(Entity<ADTLogicScreenComponent> ent, string value)
     {
-        if (Color.TryFromHex(value) is not { } color)
+        if (!Color.TryFromHex(value, out var color))
             return;
 
         _appearance.SetData(ent, TextScreenVisuals.Color, color);

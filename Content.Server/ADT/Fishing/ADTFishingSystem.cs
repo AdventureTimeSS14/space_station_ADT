@@ -246,7 +246,7 @@ public sealed class ADTFishingSystem : EntitySystem
         if (spot.Comp.Junk != null && _random.Prob(spot.Comp.JunkChance))
         {
             var junk = spot.Comp.Junk
-                .GetSpawns(_random.GetRandom(), EntityManager, _proto, new EntityTableContext())
+                .GetSpawns(_random, EntityManager, _proto, new EntityTableContext())
                 .FirstOrDefault();
 
             if (junk != default)

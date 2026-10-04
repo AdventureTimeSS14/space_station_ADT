@@ -1,7 +1,4 @@
-﻿// ADT-Tweak: FILE DISABLED. Upstream SuitSensors are commented out - the active
-// implementation is the ADT analogue (ADTSuitSensorComponent / ADTSharedSuitSensorSystem / ADTSuitSensorSystem).
-// Kept commented to stay in sync with upstream, but unused.
-/*
+using Content.Shared.Medical.SuitSensor;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
@@ -98,5 +95,3 @@ public sealed partial class SuitSensorComponent : Component
     [DataField, AutoNetworkedField, ViewVariables]
     public bool PreviousControlsLocked = false;
 }
-
-*/

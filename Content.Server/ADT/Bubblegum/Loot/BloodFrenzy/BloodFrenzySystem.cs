@@ -86,7 +86,7 @@ public sealed class BloodFrenzySystem : EntitySystem
         if (!TryComp<BloodstreamComponent>(ent, out var bloodstream))
             return;
 
-        if (!_solutionContainer.EnsureSolutionEntity(ent.Owner, bloodstream.MetabolitesSolutionName, out var metabolites))
+        if (!_solutionContainer.TryGetSolution(ent.Owner, bloodstream.MetabolitesSolutionName, out var metabolites))
             return;
 
         var solution = new Solution(ent.Comp.Reagent, FixedPoint2.New(ent.Comp.ReagentAmount));

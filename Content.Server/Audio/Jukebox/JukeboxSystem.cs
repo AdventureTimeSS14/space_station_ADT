@@ -200,7 +200,7 @@ public sealed partial class JukeboxSystem : SharedJukeboxSystem
         if (!TryComp<ItemSlotsComponent>(uid, out var itemSlots))
             return;
 
-        if (!_itemSlots.TryGetSlot(uid, DiskSlotId, out var slot, itemSlots))
+        if (!_itemSlots.TryGetSlot((uid, itemSlots), DiskSlotId, out var slot))
             return;
 
         _itemSlots.TryEjectToHands(uid, slot, args.Actor);

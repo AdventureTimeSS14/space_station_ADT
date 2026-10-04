@@ -13,7 +13,6 @@ using Content.Shared.Throwing;
 using Content.Shared.Verbs;
 using Content.Shared.VendingMachines.Components;
 using Robust.Shared.Audio.Systems;
-using VendingMachineComponent = Content.Shared.ADT.VendingMachines.VendingMachineComponent;
 using Robust.Shared.Containers;
 using Robust.Shared.Random;
 
@@ -32,11 +31,11 @@ public sealed class ADTVendingMachineReturnSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<VendingMachineComponent, ADTVendingReturnedEjectEvent>(OnReturnedEject);
-        SubscribeLocalEvent<VendingMachineComponent, GetVerbsEvent<Verb>>(OnGetVerbs);
+        SubscribeLocalEvent<ADTVendingMachineComponent, ADTVendingReturnedEjectEvent>(OnReturnedEject);
+        SubscribeLocalEvent<ADTVendingMachineComponent, GetVerbsEvent<Verb>>(OnGetVerbs);
     }
 
-    public bool TryReturnItem(EntityUid uid, VendingMachineComponent component, EntityUid user, EntityUid used)
+    public bool TryReturnItem(EntityUid uid, ADTVendingMachineComponent component, EntityUid user, EntityUid used)
     {
         if (HasComp<StealTargetComponent>(used) || ContainsStealTarget(used))
         {
@@ -51,7 +50,7 @@ public sealed class ADTVendingMachineReturnSystem : EntitySystem
             return false;
         }
 
-        var container = _container.EnsureContainer<Container>(uid, VendingMachineComponent.ReturnedItemsContainerId);
+        var container = _container.EnsureContainer<Container>(uid, ADTVendingMachineComponent.ReturnedItemsContainerId);
         if (!_container.Insert(used, container))
         {
             Deny(uid, component);
@@ -69,7 +68,7 @@ public sealed class ADTVendingMachineReturnSystem : EntitySystem
         return true;
     }
 
-    private void OnGetVerbs(EntityUid uid, VendingMachineComponent component, GetVerbsEvent<Verb> args)
+    private void OnGetVerbs(EntityUid uid, ADTVendingMachineComponent component, GetVerbsEvent<Verb> args)
     {
         if (!args.CanAccess || !args.CanInteract || args.Using is not { } used)
             return;
@@ -97,9 +96,9 @@ public sealed class ADTVendingMachineReturnSystem : EntitySystem
         return storage.Container.ContainedEntities.Any(e => HasComp<StealTargetComponent>(e));
     }
 
-    private void OnReturnedEject(EntityUid uid, VendingMachineComponent component, ADTVendingReturnedEjectEvent args)
+    private void OnReturnedEject(EntityUid uid, ADTVendingMachineComponent component, ADTVendingReturnedEjectEvent args)
     {
-        var container = _container.EnsureContainer<Container>(uid, VendingMachineComponent.ReturnedItemsContainerId);
+        var container = _container.EnsureContainer<Container>(uid, ADTVendingMachineComponent.ReturnedItemsContainerId);
 
         for (var i = 0; i < args.Count; i++)
         {
@@ -135,7 +134,7 @@ public sealed class ADTVendingMachineReturnSystem : EntitySystem
         return EntityUid.Invalid;
     }
 
-    private void Deny(EntityUid uid, VendingMachineComponent component)
+    private void Deny(EntityUid uid, ADTVendingMachineComponent component)
     {
         _vending.Deny((uid, component));
     }

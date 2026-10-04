@@ -246,8 +246,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/beanies/darkbeanie.rsi
   - type: TemperatureProtection
-    heatingCoefficient: 1.025
-    coolingCoefficient: 0.5
+    coefficient: 0.5
 
 - type: entity
   parent: ClothingHeadBase
@@ -260,8 +259,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/beanies/bluebeanie.rsi
   - type: TemperatureProtection
-    heatingCoefficient: 1.025
-    coolingCoefficient: 0.5
+    coefficient: 0.5
 
 - type: entity
   parent: ClothingHeadBase
@@ -274,8 +272,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/beanies/greenbeanie.rsi
   - type: TemperatureProtection
-    heatingCoefficient: 1.025
-    coolingCoefficient: 0.5
+    coefficient: 0.5
 
 - type: entity
   parent: ClothingHeadBase
@@ -288,8 +285,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/beanies/purplebeanie.rsi
   - type: TemperatureProtection
-    heatingCoefficient: 1.025
-    coolingCoefficient: 0.5
+    coefficient: 0.5
 
 - type: entity
   parent: ClothingHeadBase
@@ -302,8 +298,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/beanies/redbeanie.rsi
   - type: TemperatureProtection
-    heatingCoefficient: 1.025
-    coolingCoefficient: 0.5
+    coefficient: 0.5
 
 # USSP USSP
 
@@ -420,8 +415,7 @@
       map: ["foldedLayer"]
       visible: false
   - type: TemperatureProtection
-    heatingCoefficient: 1.025
-    coolingCoefficient: 0.5
+    coefficient: 0.5
 
 # И ещё одна федора для дека, ага
 

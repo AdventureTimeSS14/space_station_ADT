@@ -52,7 +52,7 @@ namespace Content.Server.ADT.Chemistry
             base.Initialize();
 
             SubscribeLocalEvent<ADTChemMasterComponent, ComponentStartup>(SubscribeUpdateUiState);
-            SubscribeLocalEvent<ADTChemMasterComponent, SolutionContainerChangedEvent>(SubscribeUpdateUiState);
+            SubscribeLocalEvent<ADTChemMasterComponent, SolutionChangedEvent>(SubscribeUpdateUiState);
             // ADT-Tweak Start: Cutted
             // SubscribeLocalEvent<ADTChemMasterComponent, EntInsertedIntoContainerMessage>(SubscribeUpdateUiState);
             // SubscribeLocalEvent<ADTChemMasterComponent, EntRemovedFromContainerMessage>(SubscribeUpdateUiState);
@@ -444,7 +444,7 @@ namespace Content.Server.ADT.Chemistry
 
 
 
-                    _itemSlotsSystem.TryEject(owner, ADTADTChemMaster.OutputSlotName, null, out var ejected, excludeUserAudio: true);
+                    _itemSlotsSystem.TryEject(owner.Owner, ADTADTChemMaster.OutputSlotName, null, out var ejected, excludeUserAudio: true);
                     var moving = ejected ?? entity;
 
                     for (int row = 0; row < 4; row++)
@@ -455,9 +455,9 @@ namespace Content.Server.ADT.Chemistry
                             var slotId = "bottleSlot" + i;
 
                             // Use the machine UID explicitly to query slots.
-                            if (_itemSlotsSystem.TryGetSlot(owner, slotId, out var slot) && !slot.HasItem)
+                            if (_itemSlotsSystem.TryGetSlot(owner.Owner, slotId, out var slot) && !slot.HasItem)
                             {
-                                if (_itemSlotsSystem.TryInsert(owner, slotId, moving, null))
+                                if (_itemSlotsSystem.TryInsert(owner.Owner, slotId, moving, null))
                                 {
                                     // Bottle moved successfully: pack into row-major order, update UI, and play feedback.
                                     UpdateUiState(chemMaster);
@@ -498,7 +498,7 @@ namespace Content.Server.ADT.Chemistry
 
             if (removedFromBottleSlot && containerId != null)
             {
-                if (_itemSlotsSystem.TryGetSlot(owner, containerId, out var slot) && slot.Item.HasValue)
+                if (_itemSlotsSystem.TryGetSlot(owner.Owner, containerId, out var slot) && slot.Item.HasValue)
                     _itemSlotsSystem.TryEject(owner, slot, null, out _, excludeUserAudio: true);
             }
 
@@ -559,7 +559,7 @@ namespace Content.Server.ADT.Chemistry
                 var selectedContainerIndex = chemMaster.Comp.SelectedPillCanisterForCreation;
                 var slotId = "pillContainerSlot" + selectedContainerIndex;
 
-                if (_itemSlotsSystem.TryGetSlot(chemMaster, slotId, out var slot) && slot.Item.HasValue)
+                if (_itemSlotsSystem.TryGetSlot(chemMaster.Owner, slotId, out var slot) && slot.Item.HasValue)
                 {
                     var pillContainer = slot.Item.Value;
 
@@ -584,7 +584,7 @@ namespace Content.Server.ADT.Chemistry
                 {
                     var slotId = "pillContainerSlot" + containerIndex;
 
-                    if (_itemSlotsSystem.TryGetSlot(chemMaster, slotId, out var slot) && slot.Item.HasValue)
+                    if (_itemSlotsSystem.TryGetSlot(chemMaster.Owner, slotId, out var slot) && slot.Item.HasValue)
                     {
                         var pillContainer = slot.Item.Value;
 
@@ -629,7 +629,7 @@ namespace Content.Server.ADT.Chemistry
             else if (!fromBuffer && !isOutput)
             {
                 // Check InputContainer first - it has priority when it exists
-                var inputContainer = _itemSlotsSystem.GetItemOrNull(chemMaster, ADTADTChemMaster.InputSlotName);
+                var inputContainer = _itemSlotsSystem.GetItemOrNull(chemMaster.Owner, ADTADTChemMaster.InputSlotName);
                 Solution? inputSolution = null;
                 Entity<SolutionComponent>? inputContainerSoln = null;
                 bool hasInputWithReagent = false;
@@ -678,7 +678,7 @@ namespace Content.Server.ADT.Chemistry
             // When transferring from input container (fallback case)
             else if (!fromBuffer)
             {
-                container = _itemSlotsSystem.GetItemOrNull(chemMaster, ADTADTChemMaster.InputSlotName);
+                container = _itemSlotsSystem.GetItemOrNull(chemMaster.Owner, ADTADTChemMaster.InputSlotName);
                 if (container is null ||
                     !_solutionContainerSystem.TryGetFitsInDispenser(container.Value, out var containerEntity, out containerSolution))
                     return;
@@ -693,7 +693,7 @@ namespace Content.Server.ADT.Chemistry
             }
             else
             {
-                container = _itemSlotsSystem.GetItemOrNull(chemMaster, ADTADTChemMaster.InputSlotName);
+                container = _itemSlotsSystem.GetItemOrNull(chemMaster.Owner, ADTADTChemMaster.InputSlotName);
                 if (container is null ||
                     !_solutionContainerSystem.TryGetFitsInDispenser(container.Value, out var containerEntity, out containerSolution))
                     return;
@@ -756,7 +756,7 @@ namespace Content.Server.ADT.Chemistry
                 }
                 else
                 {
-                    container = _itemSlotsSystem.GetItemOrNull(chemMaster, ADTADTChemMaster.InputSlotName);
+                    container = _itemSlotsSystem.GetItemOrNull(chemMaster.Owner, ADTADTChemMaster.InputSlotName);
                     if (container is null ||
                         !_solutionContainerSystem.TryGetFitsInDispenser(container.Value, out var containerEntity, out _))
                         return;
@@ -919,14 +919,8 @@ namespace Content.Server.ADT.Chemistry
                     {
                         var item = Spawn(PillPrototypeId, Transform(container).Coordinates);
 
-                        var hasItemSolution = _solutionContainerSystem.EnsureSolutionEntity(
-                            (item, null),
-                            ADTADTChemMaster.PillSolutionName,
-                            out var itemSolution,
-                            message.Dosage);
-
-                        if (!hasItemSolution || itemSolution is null)
-                            continue;
+                        _solutionContainerSystem.EnsureSolution(item, ADTADTChemMaster.PillSolutionName, out var itemSolution);
+                        itemSolution.Comp.Solution.MaxVolume = message.Dosage;
 
                         // For the last pill, add any remaining amount due to rounding
                         bool isLastPill = pillIndex == actualPillsToCreate - 1;
@@ -950,7 +944,7 @@ namespace Content.Server.ADT.Chemistry
                         }
                         pillSolution.Temperature = withdrawalSolution.Temperature;
 
-                        _solutionContainerSystem.TryAddSolution(itemSolution.Value, pillSolution);
+                        _solutionContainerSystem.TryAddSolution(itemSolution, pillSolution);
 
                         var pill = EnsureComp<PillComponent>(item);
                         pill.PillType = chemMaster.Comp.PillType;
@@ -964,7 +958,7 @@ namespace Content.Server.ADT.Chemistry
                         _adminLogger.Add(
                             LogType.Action,
                             LogImpact.Low,
-                            $"{ToPrettyString(user):user} printed {ToPrettyString(item):pill} {SharedSolutionContainerSystem.ToPrettyString(itemSolution.Value.Comp.Solution)}");
+                            $"{ToPrettyString(user):user} printed {ToPrettyString(item):pill} {SharedSolutionContainerSystem.ToPrettyString(itemSolution.Comp.Solution)}");
 
                         pillIndex++;
                     }
@@ -1029,14 +1023,8 @@ namespace Content.Server.ADT.Chemistry
                     {
                         var item = Spawn(PillPrototypeId, Transform(container).Coordinates);
 
-                        var hasItemSolution = _solutionContainerSystem.EnsureSolutionEntity(
-                            (item, null),
-                            ADTADTChemMaster.PillSolutionName,
-                            out var itemSolution,
-                            message.Dosage);
-
-                        if (!hasItemSolution || itemSolution is null)
-                            continue;
+                        _solutionContainerSystem.EnsureSolution(item, ADTADTChemMaster.PillSolutionName, out var itemSolution);
+                        itemSolution.Comp.Solution.MaxVolume = message.Dosage;
 
                         // For the last pill, add any remaining amount due to rounding
                         bool isLastPill = pillIndex == actualPillsToCreate - 1;
@@ -1061,7 +1049,7 @@ namespace Content.Server.ADT.Chemistry
                         }
                         pillSolution.Temperature = withdrawal.Temperature;
 
-                        _solutionContainerSystem.TryAddSolution(itemSolution.Value, pillSolution);
+                        _solutionContainerSystem.TryAddSolution(itemSolution, pillSolution);
 
                         var pill = EnsureComp<PillComponent>(item);
                         pill.PillType = chemMaster.Comp.PillType;
@@ -1075,7 +1063,7 @@ namespace Content.Server.ADT.Chemistry
                         _adminLogger.Add(
                             LogType.Action,
                             LogImpact.Low,
-                            $"{ToPrettyString(user):user} printed {ToPrettyString(item):pill} {SharedSolutionContainerSystem.ToPrettyString(itemSolution.Value.Comp.Solution)}");
+                            $"{ToPrettyString(user):user} printed {ToPrettyString(item):pill} {SharedSolutionContainerSystem.ToPrettyString(itemSolution.Comp.Solution)}");
 
                         pillIndex++;
                     }
@@ -1780,7 +1768,7 @@ namespace Content.Server.ADT.Chemistry
             if (message.SlotId.StartsWith("pillContainerSlot") && int.TryParse(message.SlotId.Replace("pillContainerSlot", ""), out int canisterIndex) && canisterIndex >= 0 && canisterIndex < 3)
             {
                 var slotId = $"pillContainerSlot{canisterIndex}";
-                if (_itemSlotsSystem.TryGetSlot(chemMaster, slotId, out var slot) && slot.Item.HasValue)
+                if (_itemSlotsSystem.TryGetSlot(chemMaster.Owner, slotId, out var slot) && slot.Item.HasValue)
                 {
                     _itemSlotsSystem.TryEject((EntityUid)chemMaster, slot, message.Actor, out _, excludeUserAudio: true);
                 }

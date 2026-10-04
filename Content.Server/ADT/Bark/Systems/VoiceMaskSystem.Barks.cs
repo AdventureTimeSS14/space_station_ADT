@@ -1,15 +1,12 @@
 using Content.Shared.ADT.CCVar;
 using Content.Shared.VoiceMask;
 using Content.Shared.ADT.SpeechBarks;
-using Robust.Shared.Configuration;
 using Content.Shared.Inventory;
 
 namespace Content.Server.VoiceMask;
 
 public partial class VoiceMaskSystem
 {
-    [Dependency] private IConfigurationManager _cfg = default!;
-
     private void InitializeBarks()
     {
         SubscribeLocalEvent<VoiceMaskComponent, InventoryRelayedEvent<TransformSpeakerBarkEvent>>(OnSpeakerVoiceTransform);
@@ -22,7 +19,7 @@ public partial class VoiceMaskSystem
         if (!_proto.TryIndex<BarkPrototype>(component.BarkId, out var proto)) // Исправлено
             return;
 
-        args.Args.Data.Pitch = Math.Clamp(component.BarkPitch, _cfg.GetCVar(ADTCCVars.BarksMinPitch), _cfg.GetCVar(ADTCCVars.BarksMaxPitch));
+        args.Args.Data.Pitch = Math.Clamp(component.BarkPitch, _cfgManager.GetCVar(ADTCCVars.BarksMinPitch), _cfgManager.GetCVar(ADTCCVars.BarksMaxPitch));
         args.Args.Data.Sound = proto.Sound;
     }
 

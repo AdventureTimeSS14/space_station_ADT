@@ -39,18 +39,18 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<VendingMachineComponent, ComponentGetState>(OnVendingGetState);
-        SubscribeLocalEvent<VendingMachineComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<VendingMachineComponent, GotEmaggedEvent>(OnEmagged);
-        SubscribeLocalEvent<VendingMachineComponent, EmpPulseEvent>(OnEmpPulse);
-        SubscribeLocalEvent<VendingMachineComponent, RestockDoAfterEvent>(OnRestockDoAfter);
-        SubscribeLocalEvent<VendingMachineComponent, ActivatableUIOpenAttemptEvent>(OnActivatableUIOpenAttempt);
-        SubscribeLocalEvent<VendingMachineComponent, BreakageEventArgs>(OnBreak);
+        SubscribeLocalEvent<ADTVendingMachineComponent, ComponentGetState>(OnVendingGetState);
+        SubscribeLocalEvent<ADTVendingMachineComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<ADTVendingMachineComponent, GotEmaggedEvent>(OnEmagged);
+        SubscribeLocalEvent<ADTVendingMachineComponent, EmpPulseEvent>(OnEmpPulse);
+        SubscribeLocalEvent<ADTVendingMachineComponent, RestockDoAfterEvent>(OnRestockDoAfter);
+        SubscribeLocalEvent<ADTVendingMachineComponent, ActivatableUIOpenAttemptEvent>(OnActivatableUIOpenAttempt);
+        SubscribeLocalEvent<ADTVendingMachineComponent, BreakageEventArgs>(OnBreak);
 
         SubscribeLocalEvent<VendingMachineRestockComponent, AfterInteractEvent>(OnAfterInteract);
     }
 
-    private void OnVendingGetState(Entity<VendingMachineComponent> entity, ref ComponentGetState args)
+    private void OnVendingGetState(Entity<ADTVendingMachineComponent> entity, ref ComponentGetState args)
     {
         var component = entity.Comp;
         var state = new VendingMachineComponentState
@@ -83,7 +83,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<VendingMachineComponent, VendingMachineEjectComponent>();
+        var query = EntityQueryEnumerator<ADTVendingMachineComponent, VendingMachineEjectComponent>();
         var curTime = Timing.CurTime;
 
         while (query.MoveNext(out var uid, out var comp, out var eject))
@@ -92,7 +92,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         }
     }
 
-    private void UpdateEjectState(Entity<VendingMachineComponent, VendingMachineEjectComponent> entity, TimeSpan curTime)
+    private void UpdateEjectState(Entity<ADTVendingMachineComponent, VendingMachineEjectComponent> entity, TimeSpan curTime)
     {
         var eject = entity.Comp2;
         if (eject.EjectEnd is { } ejectEnd && curTime > ejectEnd)
@@ -114,7 +114,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         OnEjectStateChanged((entity.Owner, entity.Comp1), eject);
     }
 
-    private void OnEmpPulse(Entity<VendingMachineComponent> ent, ref EmpPulseEvent args)
+    private void OnEmpPulse(Entity<ADTVendingMachineComponent> ent, ref EmpPulseEvent args)
     {
         if (ent.Comp.Broken || !_receiver.IsPowered(ent.Owner))
             return;
@@ -127,14 +127,14 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         eject.NextEmpEject = Timing.CurTime;
     }
 
-    protected virtual void OnMapInit(EntityUid uid, VendingMachineComponent component, MapInitEvent args)
+    protected virtual void OnMapInit(EntityUid uid, ADTVendingMachineComponent component, MapInitEvent args)
     {
         RestockInventoryFromPrototype(uid, component, component.InitialStockQuality);
     }
 
-    protected virtual void EjectItem(Entity<VendingMachineComponent?, VendingMachineEjectComponent?> entity, bool forceEject = false) { }
+    protected virtual void EjectItem(Entity<ADTVendingMachineComponent?, VendingMachineEjectComponent?> entity, bool forceEject = false) { }
 
-    protected virtual void OnEjectStateChanged(Entity<VendingMachineComponent?> entity, VendingMachineEjectComponent? ejectComponent = null) { }
+    protected virtual void OnEjectStateChanged(Entity<ADTVendingMachineComponent?> entity, VendingMachineEjectComponent? ejectComponent = null) { }
 
     protected virtual bool ShouldThrowVendItem(Entity<VendingMachineEjectComponent> entity)
     {
@@ -147,7 +147,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
     /// <param name="uid"></param>
     /// <param name="sender">Entity trying to use the vending machine</param>
     /// <param name="vendComponent"></param>
-    public virtual bool IsAuthorized(EntityUid uid, EntityUid sender, VendingMachineComponent? vendComponent = null)
+    public virtual bool IsAuthorized(EntityUid uid, EntityUid sender, ADTVendingMachineComponent? vendComponent = null)
     {
         if (!Resolve(uid, ref vendComponent))
             return false;
@@ -163,7 +163,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         return false;
     }
 
-    protected virtual VendingMachineInventoryEntry? GetEntry(EntityUid uid, string entryId, InventoryType type, VendingMachineComponent? component = null)
+    protected virtual VendingMachineInventoryEntry? GetEntry(EntityUid uid, string entryId, InventoryType type, ADTVendingMachineComponent? component = null)
     {
         if (!Resolve(uid, ref component))
             return null;
@@ -194,7 +194,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         string itemId,
         bool throwItem,
         EntityUid? user = null,
-        VendingMachineComponent? vendComponent = null,
+        ADTVendingMachineComponent? vendComponent = null,
         VendingMachineEjectComponent? ejectComponent = null)
     {
         if (!Resolve(uid, ref vendComponent))
@@ -240,7 +240,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         Audio.PlayPredicted(ejectComponent.SoundVend, uid, user);
     }
 
-    public void Deny(Entity<VendingMachineComponent?> entity, EntityUid? user = null, VendingMachineEjectComponent? ejectComponent = null)
+    public void Deny(Entity<ADTVendingMachineComponent?> entity, EntityUid? user = null, VendingMachineEjectComponent? ejectComponent = null)
     {
         if (!Resolve(entity.Owner, ref entity.Comp))
             return;
@@ -267,7 +267,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
     /// <param name="type">The type of inventory the item is from</param>
     /// <param name="itemId">The prototype ID of the item</param>
     /// <param name="component"></param>
-    public void AuthorizedVend(EntityUid uid, EntityUid sender, InventoryType type, string itemId, VendingMachineComponent component)
+    public void AuthorizedVend(EntityUid uid, EntityUid sender, InventoryType type, string itemId, ADTVendingMachineComponent component)
     {
         if (!IsAuthorized(uid, sender, component))
             return;
@@ -278,10 +278,10 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         TryEjectVendorItem(uid, type, itemId, ShouldThrowVendItem((uid, ejectComponent)), sender, component, ejectComponent);
     }
 
-    protected virtual void UpdateUI(Entity<VendingMachineComponent?> entity) { }
+    protected virtual void UpdateUI(Entity<ADTVendingMachineComponent?> entity) { }
 
     public void RestockInventoryFromPrototype(EntityUid uid,
-        VendingMachineComponent? component = null, float restockQuality = 1f)
+        ADTVendingMachineComponent? component = null, float restockQuality = 1f)
     {
         if (!Resolve(uid, ref component))
         {
@@ -297,7 +297,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         Dirty(uid, component);
     }
 
-    private void OnEmagged(EntityUid uid, VendingMachineComponent component, ref GotEmaggedEvent args)
+    private void OnEmagged(EntityUid uid, ADTVendingMachineComponent component, ref GotEmaggedEvent args)
     {
         if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
             return;
@@ -320,13 +320,13 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
 
     /// <summary>
     /// Returns all of the vending machine's inventory. Only includes emagged and contraband inventories if
-    /// <see cref="EmaggedComponent"/> with the EmagType.Interaction flag exists and <see cref="VendingMachineComponent.Contraband"/> is true
+    /// <see cref="EmaggedComponent"/> with the EmagType.Interaction flag exists and <see cref="ADTVendingMachineComponent.Contraband"/> is true
     /// are <c>true</c> respectively.
     /// </summary>
     /// <param name="uid"></param>
     /// <param name="component"></param>
     /// <returns></returns>
-    public List<VendingMachineInventoryEntry> GetAllInventory(EntityUid uid, VendingMachineComponent? component = null)
+    public List<VendingMachineInventoryEntry> GetAllInventory(EntityUid uid, ADTVendingMachineComponent? component = null)
     {
         if (!Resolve(uid, ref component))
             return new();
@@ -360,7 +360,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         return inventory;
     }
 
-    public List<VendingMachineInventoryEntry> GetAvailableInventory(EntityUid uid, VendingMachineComponent? component = null)
+    public List<VendingMachineInventoryEntry> GetAvailableInventory(EntityUid uid, ADTVendingMachineComponent? component = null)
     {
         if (!Resolve(uid, ref component))
             return new();
@@ -370,7 +370,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
 
     private void AddInventoryFromPrototype(EntityUid uid, IEnumerable<(string Id, uint Amount, string? Category)> entries, // ADT-Tweak
         InventoryType type,
-        VendingMachineComponent? component = null, float restockQuality = 1.0f)
+        ADTVendingMachineComponent? component = null, float restockQuality = 1.0f)
     {
         if (!Resolve(uid, ref component))
         {
@@ -433,13 +433,13 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
     }
     //ADT-Economy-End
 
-    private void OnActivatableUIOpenAttempt(EntityUid uid, VendingMachineComponent component, ActivatableUIOpenAttemptEvent args)
+    private void OnActivatableUIOpenAttempt(EntityUid uid, ADTVendingMachineComponent component, ActivatableUIOpenAttemptEvent args)
     {
         if (component.Broken)
             args.Cancel();
     }
 
-    private void OnBreak(EntityUid uid, VendingMachineComponent vendComponent, BreakageEventArgs eventArgs)
+    private void OnBreak(EntityUid uid, ADTVendingMachineComponent vendComponent, BreakageEventArgs eventArgs)
     {
         vendComponent.Broken = true;
         Dirty(uid, vendComponent);

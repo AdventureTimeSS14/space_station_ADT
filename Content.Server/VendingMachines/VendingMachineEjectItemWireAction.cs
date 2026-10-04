@@ -4,13 +4,13 @@ using Content.Server.Wires;
 using Content.Shared.ADT.VendingMachines; // ADT-Tweak
 using Content.Shared.VendingMachines.Components;
 using Content.Shared.Wires;
-using VendingMachineComponent = Content.Shared.ADT.VendingMachines.VendingMachineComponent; // ADT-Tweak
+using VendingMachineComponent = Content.Shared.ADT.VendingMachines.ADTVendingMachineComponent; // ADT-Tweak
 
 namespace Content.Server.VendingMachines;
 
 public sealed partial class VendingMachineEjectItemWireAction : ComponentWireAction<VendingMachineComponent>
 {
-    private VendingMachineSystem _vendingMachineSystem = default!;
+    private Content.Server.ADT.VendingMachines.VendingMachineSystem _vendingMachineSystem = default!; // ADT-Tweak
 
     public override Color Color { get; set; } = Color.Red;
     public override string Name { get; set; } = "wire-name-vending-eject";
@@ -31,7 +31,7 @@ public sealed partial class VendingMachineEjectItemWireAction : ComponentWireAct
     {
         base.Initialize();
 
-        _vendingMachineSystem = EntityManager.System<VendingMachineSystem>();
+        _vendingMachineSystem = EntityManager.System<Content.Server.ADT.VendingMachines.VendingMachineSystem>(); // ADT-Tweak
     }
 
     public override bool Cut(EntityUid user, Wire wire, VendingMachineComponent vending)

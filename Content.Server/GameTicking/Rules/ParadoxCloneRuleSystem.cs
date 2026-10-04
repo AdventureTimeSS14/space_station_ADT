@@ -4,7 +4,8 @@ using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Objectives.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Gibbing.Components;
-using Content.Server.ADT.Medical.SuitSensors;
+using Content.Server.ADT.Medical.SuitSensors; // ADT-Tweak
+using Content.Shared.ADT.Medical.SuitSensors; // ADT-Tweak
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Systems;
 using Robust.Shared.Random;
@@ -16,7 +17,7 @@ public sealed partial class ParadoxCloneRuleSystem : GameRuleSystem<ParadoxClone
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private CloningSystem _cloning = default!;
     [Dependency] private SharedMindSystem _mind = default!;
-    [Dependency] private ADTSuitSensorSystem _sensor = default!;
+    [Dependency] private ADTSuitSensorSystem _sensor = default!; // ADT-Tweak
     [Dependency] private AliveHumanoidTargetSystem _target = default!;
 
     public override void Initialize()
@@ -86,7 +87,7 @@ public sealed partial class ParadoxCloneRuleSystem : GameRuleSystem<ParadoxClone
         gibComp.PreventGibbingObjectives = new() { "ParadoxCloneKillObjective" }; // don't gib them if they killed the original.
 
         // turn their suit sensors off so they don't immediately get noticed
-        _sensor.SetAllSensors(clone.Value, ADTSuitSensorMode.SensorOff);
+        _sensor.SetAllSensors(clone.Value, ADTSuitSensorMode.SensorOff); // ADT-Tweak
 
         args.Entity = clone;
     }

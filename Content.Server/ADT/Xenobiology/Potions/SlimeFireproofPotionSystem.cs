@@ -32,7 +32,7 @@ public sealed partial class SlimeFireproofPotionSystem : EntitySystem
         var changed = false;
 
         var temperatureProtection = EnsureComp<TemperatureProtectionComponent>(target);
-        if (temperatureProtection.HeatingCoefficient > 0f || temperatureProtection.CoolingCoefficient > 0f)
+        if (temperatureProtection.Coefficient > 0f)
         {
             _temperature.SetHeatProtection((target, temperatureProtection), 0f);
             changed = true;

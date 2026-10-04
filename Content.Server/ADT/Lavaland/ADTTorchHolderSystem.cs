@@ -159,7 +159,7 @@ public sealed class ADTTorchHolderSystem : EntitySystem
         if (!TryComp<ItemSlotsComponent>(ent, out var slots))
             return null;
 
-        if (!_itemSlots.TryGetSlot(ent.Owner, ent.Comp.Slot, out var slot, slots))
+        if (!_itemSlots.TryGetSlot((ent.Owner, slots), ent.Comp.Slot, out var slot))
             return null;
 
         return slot.Item;

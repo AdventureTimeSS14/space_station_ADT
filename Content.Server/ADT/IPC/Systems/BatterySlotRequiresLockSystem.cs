@@ -27,10 +27,10 @@ public sealed class BatterySlotRequiresLockSystem : EntitySystem
     {
         if (!TryComp<LockComponent>(uid, out var lockComp)
             || !TryComp<ItemSlotsComponent>(uid, out var itemslots)
-            || !_itemSlotsSystem.TryGetSlot(uid, component.ItemSlot, out var slot, itemslots))
+            || !_itemSlotsSystem.TryGetSlot((uid, itemslots), component.ItemSlot, out var slot))
             return;
 
-        _itemSlotsSystem.SetLock(uid, slot, lockComp.Locked, itemslots);
+        _itemSlotsSystem.SetLock((uid, itemslots), slot, lockComp.Locked);
     }
 
     private void LockToggleAttempted(EntityUid uid, BatterySlotRequiresLockComponent component, LockToggleAttemptEvent args)

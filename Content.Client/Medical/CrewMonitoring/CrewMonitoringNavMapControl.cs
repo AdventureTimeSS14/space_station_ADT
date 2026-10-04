@@ -1,7 +1,3 @@
-﻿// ADT-Tweak: FILE DISABLED. Upstream CrewMonitoring is commented out - the active
-// implementation is the ADT analogue (ADTCrewMonitoring* under Content.*/ADT/Medical/CrewMonitoring).
-// Kept commented to stay in sync with upstream, but unused.
-/*
 using Content.Client.Pinpointer.UI;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface.Controls;
@@ -82,5 +78,3 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
         _trackedEntityPanel.Visible = false;
     }
 }
-
-*/

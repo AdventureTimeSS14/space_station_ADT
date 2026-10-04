@@ -36,7 +36,7 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
             base.Initialize();
 
             SubscribeLocalEvent<ReagentAnalyzerComponent, ComponentStartup>(SubscribeUpdateUiState);
-            SubscribeLocalEvent<ReagentAnalyzerComponent, SolutionContainerChangedEvent>(SubscribeUpdateUiState);
+            SubscribeLocalEvent<ReagentAnalyzerComponent, SolutionChangedEvent>(SubscribeUpdateUiState);
             SubscribeLocalEvent<ReagentAnalyzerComponent, EntInsertedIntoContainerMessage>(SubscribeUpdateUiState);
             SubscribeLocalEvent<ReagentAnalyzerComponent, EntRemovedFromContainerMessage>(SubscribeUpdateUiState);
             SubscribeLocalEvent<ReagentAnalyzerComponent, BoundUIOpenedEvent>(SubscribeUpdateUiState);

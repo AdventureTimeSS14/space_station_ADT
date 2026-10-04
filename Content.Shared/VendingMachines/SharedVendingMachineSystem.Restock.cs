@@ -9,7 +9,7 @@ namespace Content.Shared.VendingMachines;
 
 public abstract partial class SharedVendingMachineSystem
 {
-    [SubscribeLocalEvent]
+    // [SubscribeLocalEvent] // ADT-Tweak
     private void OnAfterInteract(EntityUid uid, VendingMachineRestockComponent component, AfterInteractEvent args)
     {
         if (args.Target is not { } target || !args.CanReach || args.Handled)

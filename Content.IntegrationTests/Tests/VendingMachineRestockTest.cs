@@ -17,6 +17,8 @@ using Content.Shared.VendingMachines.Components;
 using Content.Shared.Wires;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
+using SharedVendingMachineSystem = Content.Shared.ADT.VendingMachines.SharedVendingMachineSystem; // ADT-Tweak
+using VendingMachineComponent = Content.Shared.ADT.VendingMachines.ADTVendingMachineComponent; // ADT-Tweak
 
 namespace Content.IntegrationTests.Tests
 {
@@ -105,7 +107,7 @@ namespace Content.IntegrationTests.Tests
   components:
   - type: Wires
     layoutId: Vending
-  - type: VendingMachine
+  - type: ADTVendingMachine # ADT-Tweak
     pack: TestInventory
   - type: VendingMachineEject
   - type: Sprite
