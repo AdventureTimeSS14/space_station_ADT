@@ -28,6 +28,8 @@
       temperature: 73.123
   - type: Sprite
     sprite: ADT/Objects/Tanks/hypernob.rsi
+    layers:
+    - state: icon
   - type: Item
     sprite: ADT/Objects/Tanks/hypernob.rsi
   - type: Clothing

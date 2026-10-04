@@ -473,10 +473,10 @@
   - type: Computer
     board: CrewMonitoringComputerCircuitboard
   - type: ActivatableUI
-    key: enum.ADTCrewMonitoringUiKey.Key
+    key: enum.ADTCrewMonitoringUIKey.Key
   - type: UserInterface
     interfaces:
-        enum.ADTCrewMonitoringUiKey.Key:
+        enum.ADTCrewMonitoringUIKey.Key:
           type: ADTCrewMonitoringBoundUserInterface
         enum.WiresUiKey.Key:
           type: WiresBoundUserInterface

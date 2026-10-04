@@ -1156,6 +1156,14 @@
   components:
   - type: Sprite
     sprite: ADT/Personalization/rachel_hardsuit_helmet.rsi
+    layers:
+    - state: icon
+    - state: icon-flash
+      visible: false
+      map: [ "light" ]
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals: {}
   - type: Armor
     modifiers:
       coefficients:
@@ -1388,6 +1396,14 @@
   components:
   - type: Sprite
     sprite: ADT/Personalization/lemon_paramedic_helmet.rsi
+    layers:
+    - state: icon
+    - state: icon-flash
+      visible: false
+      map: [ "light" ]
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals: {}
   - type: Clothing
     sprite: ADT/Personalization/lemon_paramedic_helmet.rsi
   - type: TemperatureProtection
@@ -1774,6 +1790,8 @@
   components:
   - type: Sprite
     sprite: ADT/Personalization/Raven559/blue_shield_ceremonial_helmet.rsi
+    layers:
+    - state: icon
   - type: Clothing
     sprite: ADT/Personalization/Raven559/blue_shield_ceremonial_helmet.rsi
 

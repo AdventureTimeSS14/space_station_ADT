@@ -15,18 +15,18 @@
 #   - type: Item
 #     sprite: Objects/Tools/access_breaker.rsi
 
+# - type: entity
+#   parent: AccessBreakerUnlimited
+#   id: AccessBreaker
+#   suffix: Limited
+#   components:
+#   - type: LimitedCharges
+#   - type: AutoRecharge
+#   - type: StaticPrice
+#     price: 2000
+#
 - type: entity
-  parent: AccessBreakerUnlimited
-  id: AccessBreaker
-  suffix: Limited
-  components:
-  - type: LimitedCharges
-  - type: AutoRecharge
-  - type: StaticPrice
-    price: 2000
-
-- type: entity
-  parent: [ BaseXenoborgContraband, AccessBreaker ]
+  parent: [ BaseXenoborgContraband, BaseItem ] # ADT-Tweak
   id: XenoborgAccessBreaker
   suffix: Limited
   name: xenoborg authentication disruptor
@@ -38,3 +38,11 @@
   - type: Sprite
     sprite: Objects/Tools/access_breaker.rsi
     state: xorg-icon
+  # ADT-Tweak start
+  - type: Item
+    sprite: Objects/Tools/access_breaker.rsi
+  - type: LimitedCharges
+  - type: AutoRecharge
+  - type: StaticPrice
+    price: 2000
+  # ADT-Tweak end

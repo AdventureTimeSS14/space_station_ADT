@@ -72,6 +72,8 @@
   components:
   - type: Sprite
     sprite: ADT/Personalization/Raven559/blue_shield_ceremonial_reinforced_helmet.rsi
+    layers:
+    - state: icon
   - type: Clothing
     sprite: ADT/Personalization/Raven559/blue_shield_ceremonial_reinforced_helmet.rsi
   - type: Armor

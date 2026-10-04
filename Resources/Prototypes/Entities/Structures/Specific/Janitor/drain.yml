@@ -50,12 +50,12 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
-    # ADT-RPD-Start
-    - type: RPDDeconstructable
-      cost: 10
-      delay: 6
-      fx: EffectRCDDeconstruct6
-    # ADT-RPD-End
+  # ADT-RPD-Start
+  - type: RPDDeconstructable
+    cost: 10
+    delay: 6
+    fx: EffectRCDDeconstruct6
+  # ADT-RPD-End
 
 - type: entity
   parent: [SolutionDrain, SolutionNormal]

@@ -8,9 +8,9 @@
   - type: Sprite
     sprite: Corvax/Interface/ipcactions.rsi
     layers:
-    - state: False
+    - state: off
       map: ["enum.ActionVisuals.Icon"]
-    - state: True
+    - state: on
       map: ["enum.ActionVisuals.IconToggled"]
       visible: false
   - type: InstantAction

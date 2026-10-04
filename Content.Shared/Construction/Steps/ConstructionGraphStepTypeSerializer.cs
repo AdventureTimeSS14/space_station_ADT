@@ -90,6 +90,11 @@ namespace Content.Shared.Construction.Steps
             if (type == typeof(PartAssemblyConstructionGraphStep))
                 return serializationManager.Read<PartAssemblyConstructionGraphStep>(node, hookCtx, context, notNullableOverride: true);
 
+            // ADT-Tweak start
+            if (type == typeof(MachinePartConstructionGraphStep))
+                return serializationManager.Read<MachinePartConstructionGraphStep>(node, hookCtx, context, notNullableOverride: true);
+            // ADT-Tweak end
+
             // See GetType above if you are adding new types
             throw new NotImplementedException();
         }

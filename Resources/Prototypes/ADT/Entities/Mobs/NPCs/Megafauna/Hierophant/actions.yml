@@ -89,7 +89,7 @@
   - type: Sprite
     sprite: ADT/Structures/hierophant_beacon.rsi
     layers:
-    - state: False
+    - state: off
   - type: InstantAction
     event: !type:HierophantVortexRecallActionEvent
 

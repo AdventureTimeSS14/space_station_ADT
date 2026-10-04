@@ -30,12 +30,12 @@ public sealed class ADTBaitDiggingSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ShovelComponent, AfterInteractEvent>(OnAfterInteract);
+        SubscribeLocalEvent<ShovelComponent, BeforeRangedInteractEvent>(OnBeforeRangedInteract);
         SubscribeLocalEvent<ShovelComponent, ADTBaitDigDoAfterEvent>(OnDigDoAfter);
         SubscribeLocalEvent<ADTRefillDugTilesComponent, StatusEffectAppliedEvent>(OnRefillWeather);
     }
 
-    private void OnAfterInteract(Entity<ShovelComponent> ent, ref AfterInteractEvent args)
+    private void OnBeforeRangedInteract(Entity<ShovelComponent> ent, ref BeforeRangedInteractEvent args)
     {
         if (args.Handled || !args.CanReach || args.Target != null)
             return;

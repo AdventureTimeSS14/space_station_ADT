@@ -39,6 +39,18 @@
     damageModifierSet: Metallic
   - type: Injurable
     damageContainer: Inorganic
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Anchorable
+  - type: Pullable
+
+- type: entity
+  parent: BaseBed
+  id: Bed
+  name: bed
+  description: This is used to lie in, sleep in or strap on. Resting here provides extremely slow healing.
+  components:
   - type: Destructible
     thresholds:
     - trigger:

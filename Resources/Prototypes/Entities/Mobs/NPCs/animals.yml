@@ -294,7 +294,7 @@
     automaticForPlayers: false
   - type: EntityProducer
     table:
-    - id: ADTFoodEggLaid # ADT: FoodEgg<ADTFoodEggLaid
+      id: ADTFoodEggLaid # ADT: FoodEgg<ADTFoodEggLaid
   - type: ActionGrant
     actions:
     - ActionAnimalLayEgg
@@ -789,7 +789,7 @@
     automaticForPlayers: false
   - type: EntityProducer
     table:
-    - id: ADTFoodEggLaid # ADT: FoodEgg<ADTFoodEggLaid
+      id: ADTFoodEggLaid # ADT: FoodEgg<ADTFoodEggLaid
   - type: ActionGrant
     actions:
     - ActionAnimalLayEgg

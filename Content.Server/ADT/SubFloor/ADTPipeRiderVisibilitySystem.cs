@@ -12,7 +12,7 @@ public sealed class ADTPipeRiderVisibilitySystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<BeingDisposedComponent, ComponentStartup>(OnDisposedStartup);
-        SubscribeLocalEvent<BeingDisposedComponent, ComponentShutdown>(OnDisposedShutdown);
+        SubscribeLocalEvent<BeingDisposedComponent, ComponentRemove>(OnDisposedRemove);
 
         SubscribeLocalEvent<GetVisMaskEvent>(OnGetVisMask);
     }
@@ -22,7 +22,7 @@ public sealed class ADTPipeRiderVisibilitySystem : EntitySystem
         Refresh(ent);
     }
 
-    private void OnDisposedShutdown(Entity<BeingDisposedComponent> ent, ref ComponentShutdown args)
+    private void OnDisposedRemove(Entity<BeingDisposedComponent> ent, ref ComponentRemove args)
     {
         Refresh(ent);
     }

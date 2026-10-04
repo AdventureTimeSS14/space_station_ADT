@@ -498,9 +498,9 @@
     - type: Sprite
       sprite: Objects/Vehicles/wheelchair.rsi
       layers:
-      - state: vehicle
+      - state: wheelchair
         map: ["enum.VehicleVisualLayers.AutoAnimate", "unfoldedLayer"]
-      - state: vehicle_folded
+      - state: wheelchair_folded
         map: ["foldedLayer"]
         visible: false
       noRot: true

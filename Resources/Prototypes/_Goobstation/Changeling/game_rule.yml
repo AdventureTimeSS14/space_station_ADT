@@ -16,20 +16,27 @@
     - ChangelingAbsorbObjective
     - EscapeIdentityObjective
   - type: AntagSelection
-    selectionTime: IntraPlayerSpawn
+    selectionTime: JobsAssigned
     agentName: changeling-roundend-name
-    definitions:
-    - prefRoles: [ Changeling ]
-      max: 4
+    lateJoinAdditional: true
+    antags:
+    - !type:LinearAntagCount
+      proto: Changeling
       playerRatio: 12
-      blacklist:
-        components:
-        - CommandStaff
-        # ADT-Tweak-Start
-        - Silicon
-        tags:
-        - ChangelingBlacklist
-        # ADT-Tweak-End
-      lateJoinAdditional: true
-      mindRoles:
-      - MindRoleChangeling
+      range:
+        min: 1
+        max: 4
+
+- type: antagSpecifier
+  id: Changeling
+  prefRoles: [ Changeling ]
+  blacklist:
+    components:
+    - CommandStaff
+    # ADT-Tweak-Start
+    - Silicon
+    tags:
+    - ChangelingBlacklist
+    # ADT-Tweak-End
+  mindRoles:
+  - MindRoleChangeling

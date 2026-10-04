@@ -209,6 +209,11 @@
   cost: 10000
   recipeUnlocks:
   - DeviceDesynchronizer
+  # ADT Research Console Rework start
+  requiredTech:
+  - ADTBluespaceMining
+  position: 4,-3
+  # ADT Research Console Rework end
 
 - type: technology
   id: TeleSci
@@ -223,3 +228,6 @@
   - StationTeleportersControlCircuitboard
   - StationTeleporterMachineCircuitboard
   - TeleporterChipBlank
+  # ADT Research Console Rework start
+  position: 5,-3
+  # ADT Research Console Rework end

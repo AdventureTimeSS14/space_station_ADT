@@ -46,22 +46,6 @@ public sealed partial class BloodstreamSystem : EntitySystem
     [Dependency] private readonly MetabolizerSystem _metabolizer = default!;
     [Dependency] private EntityQuery<BloodstreamComponent> _bloodstreamQuery = default!; // ADT-Tweak
 
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<BloodstreamComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<BloodstreamComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
-        SubscribeLocalEvent<BloodstreamComponent, ReactionAttemptEvent>(OnReactionAttempt);
-        SubscribeLocalEvent<BloodstreamComponent, SolutionRelayEvent<ReactionAttemptEvent>>(OnReactionAttempt);
-        SubscribeLocalEvent<BloodstreamComponent, DamageChangedEvent>(OnDamageChanged);
-        SubscribeLocalEvent<BloodstreamComponent, HealthBeingExaminedEvent>(OnHealthBeingExamined);
-        SubscribeLocalEvent<BloodstreamComponent, GibbedBeforeDeletionEvent>(OnBeingGibbed);
-        SubscribeLocalEvent<BloodstreamComponent, ApplyMetabolicMultiplierEvent>(OnApplyMetabolicMultiplier);
-        SubscribeLocalEvent<BloodstreamComponent, RejuvenateEvent>(OnRejuvenate);
-        SubscribeLocalEvent<BloodstreamComponent, MetabolismExclusionEvent>(OnMetabolismExclusion);
-    }
-
     public override void Update(float frameTime)
     {
         base.Update(frameTime);

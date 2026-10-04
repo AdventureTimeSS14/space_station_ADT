@@ -48,7 +48,7 @@
       map: ["enum.ActionVisuals.IconToggled"]
       visible: false
   - type: InstantAction
-    event: !type:ToggleIntrinsicUIEvent { key: enum.ADTCrewMonitoringUiKey.Key }
+    event: !type:ToggleIntrinsicUIEvent { key: enum.ADTCrewMonitoringUIKey.Key }
 
 - type: entity
   id: ActionStationAiStationRecords

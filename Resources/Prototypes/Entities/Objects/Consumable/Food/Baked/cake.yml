@@ -338,10 +338,6 @@
     sprite: ADT/Objects/Consumable/Food/cake.rsi
     state: orange
     #ADT-Tweak-End
-    layers:
-    - state: plain
-    - state: alpha-filling
-      color: "#ff9900"
   - type: ToolRefinable
     refineResult:
     - id: FoodCakeOrangeSlice
@@ -395,10 +391,6 @@
     sprite: ADT/Objects/Consumable/Food/cake.rsi
     state: lime
     #ADT-Tweak-End
-    layers:
-    - state: plain
-    - state: alpha-filling
-      color: "#00ff00"
   - type: ToolRefinable
     refineResult:
     - id: FoodCakeLimeSlice
@@ -452,10 +444,6 @@
     sprite: ADT/Objects/Consumable/Food/cake.rsi
     state: lemon
     #ADT-Tweak-End
-    layers:
-    - state: plain
-    - state: alpha-filling
-      color: "#ffff00"
   - type: ToolRefinable
     refineResult:
     - id: FoodCakeLemonSlice

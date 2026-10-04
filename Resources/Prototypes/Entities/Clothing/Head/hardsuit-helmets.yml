@@ -187,6 +187,18 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Head/Hardsuits/brigmedic-praz.rsi # ADT Tweak
+    # ADT-Tweak start
+    layers:
+    - state: icon
+    - state: icon-flash
+      visible: false
+      map: [ "light" ]
+    # ADT-Tweak end
+  # ADT-Tweak start
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals: {}
+  # ADT-Tweak end
   - type: Clothing
     sprite: ADT/Clothing/Head/Hardsuits/brigmedic-praz.rsi # ADT Tweak
   - type: PointLight
@@ -862,6 +874,18 @@
   - type: BreathMask
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/deathsquad.rsi
+    # ADT-Tweak start
+    layers:
+    - state: icon
+    - state: icon-flash
+      visible: false
+      map: [ "light" ]
+    # ADT-Tweak end
+  # ADT-Tweak start
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals: {}
+  # ADT-Tweak end
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/deathsquad.rsi
   - type: PointLight # Corvax-Resprite

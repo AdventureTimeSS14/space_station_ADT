@@ -4,7 +4,7 @@
 # Basic
 - type: entity
   id: LockerSteel
-  parent: LockerBaseSecure
+  parent: LockerBase
   name: secure closet
   components:
   - type: Appearance
@@ -51,7 +51,7 @@
 
 - type: entity
   id: LockerSalvageSpecialist
-  parent: LockerBaseSecure
+  parent: LockerBase
   name: salvage specialist's equipment
   description: Nevermind the pickaxe.
   components:
@@ -65,7 +65,7 @@
 
 - type: entity
   id: LockerCargo
-  parent: LockerBaseSecure
+  parent: LockerBase
   name: cargo's locker
   components:
   - type: Appearance
@@ -412,7 +412,7 @@
 # Armory
 - type: entity
   id: LockerArmory
-  parent: LockerBaseSecure
+  parent: LockerBase
   name: armory locker
   components:
   - type: Appearance
@@ -426,7 +426,7 @@
 # Correction Officer
 - type: entity
   id: ADTLockerCorrectionOfficer
-  parent: LockerBaseSecure
+  parent: LockerBase
   name: correction officer locker
   components:
   - type: Appearance
@@ -616,7 +616,7 @@
 
 - type: entity
   id: LockerEvidence
-  parent: LockerBaseSecure
+  parent: LockerBase
   name: evidence locker
   description: To store bags of bullet casings and detainee belongings.
   components:
@@ -707,7 +707,7 @@
 - type: entity
   id: LockerMagistrate
   name: magistrate's locker
-  parent: LockerBaseSecure
+  parent: LockerBase
   components:
   - type: Appearance
   - type: AccessReader
@@ -721,7 +721,7 @@
 - type: entity
   id: LockerLawyer
   name: lawyer's locker
-  parent: LockerBaseSecure
+  parent: LockerBase
   components:
   - type: Appearance
   - type: AccessReader
@@ -748,7 +748,7 @@
 - type: entity
   id: LockerCentComm
   name: CentComm locker
-  parent: LockerBaseSecure
+  parent: LockerBase
   components:
   - type: Appearance
   - type: AccessReader
@@ -762,7 +762,7 @@
 - type: entity
   id: LockerBlueshield
   name: CentComm locker
-  parent: LockerBaseSecure
+  parent: LockerBase
   components:
   - type: Appearance
   - type: AccessReader
@@ -776,7 +776,7 @@
 - type: entity
   id: LockerTacWeaponry
   name: tactical weaponry locker
-  parent: LockerBaseSecure
+  parent: LockerBase
   components:
   - type: Appearance
   - type: AccessReader
@@ -789,7 +789,7 @@
 - type: entity
   id: LockerTacShotgun
   name: tactical shotgun locker
-  parent: LockerBaseSecure
+  parent: LockerBase
   components:
   - type: Appearance
   - type: AccessReader
@@ -802,7 +802,7 @@
 - type: entity
   id: LockerTacElec
   name: tactical electrical supplies locker
-  parent: LockerBaseSecure
+  parent: LockerBase
   components:
   - type: Appearance
   - type: AccessReader
@@ -815,7 +815,7 @@
 - type: entity
   id: LockerTacArmory
   name: tactical armory locker
-  parent: LockerBaseSecure
+  parent: LockerBase
   components:
   - type: Appearance
   - type: AccessReader

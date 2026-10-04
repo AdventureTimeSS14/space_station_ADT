@@ -82,7 +82,7 @@
     sprite: ADT/Clothing/Head/Hardsuits/paramedic_hardsuithead.rsi # ADT tweak респрайт от празата
     layers:
     - state: icon
-    - state: light-overlay
+    - state: icon-flash # ADT-Tweak
       visible: false
       shader: unshaded
       map: [ "light" ]

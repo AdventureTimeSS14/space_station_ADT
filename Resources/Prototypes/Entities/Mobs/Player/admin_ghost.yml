@@ -68,7 +68,7 @@
         type: RadarConsoleBoundUserInterface
       enum.CargoConsoleUiKey.Orders:
         type: CargoOrderConsoleBoundUserInterface
-      enum.ADTCrewMonitoringUiKey.Key:
+      enum.ADTCrewMonitoringUIKey.Key:
         type: ADTCrewMonitoringBoundUserInterface
       enum.GeneralStationRecordConsoleKey.Key:
       # who the fuck named this bruh
@@ -83,7 +83,7 @@
         toggleAction: ActionAGhostShowRadar
       enum.CargoConsoleUiKey.Orders:
         toggleAction: ActionAGhostShowCargo
-      enum.ADTCrewMonitoringUiKey.Key:
+      enum.ADTCrewMonitoringUIKey.Key:
         toggleAction: ActionAGhostShowCrewMonitoring
       enum.GeneralStationRecordConsoleKey.Key:
         toggleAction: ActionAGhostShowStationRecords
@@ -242,7 +242,7 @@
       map: ["enum.ActionVisuals.IconToggled"]
       visible: false
   - type: InstantAction
-    event: !type:ToggleIntrinsicUIEvent { key: enum.ADTCrewMonitoringUiKey.Key }
+    event: !type:ToggleIntrinsicUIEvent { key: enum.ADTCrewMonitoringUIKey.Key }
 
 - type: entity
   parent: BaseAGhostAction

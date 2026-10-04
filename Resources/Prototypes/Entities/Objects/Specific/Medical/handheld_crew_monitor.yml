@@ -23,10 +23,10 @@
     state: icon
     # ADT-Tweak-End
   - type: ActivatableUI
-    key: enum.ADTCrewMonitoringUiKey.Key
+    key: enum.ADTCrewMonitoringUIKey.Key
   - type: UserInterface
     interfaces:
-      enum.ADTCrewMonitoringUiKey.Key:
+      enum.ADTCrewMonitoringUIKey.Key:
         type: ADTCrewMonitoringBoundUserInterface
   - type: ADTCrewMonitoringConsole
     departments: [] # ADT-Tweak: No parameters == full access

@@ -69,7 +69,7 @@ public sealed partial class VendingMachineSystem : SharedVendingMachineSystem
             bui.UpdateAmounts();
     }
 
-    [SubscribeLocalEvent]
+    // [SubscribeLocalEvent] // ADT-Tweak
     private void OnEjectHandleState(Entity<VendingMachineEjectComponent> entity, ref AfterAutoHandleStateEvent args)
     {
         TryUpdateVisualState(entity.Owner);
@@ -81,7 +81,7 @@ public sealed partial class VendingMachineSystem : SharedVendingMachineSystem
         TryUpdateVisualState((entity.Owner, entity.Comp));
     }
 
-    [SubscribeLocalEvent]
+    // [SubscribeLocalEvent] // ADT-Tweak
     private void OnAnimationCompleted(EntityUid uid, VendingMachineVisualsComponent visuals, AnimationCompletedEvent args)
     {
         if (!TryComp<VendingMachineComponent>(uid, out var vend) ||
@@ -93,7 +93,7 @@ public sealed partial class VendingMachineSystem : SharedVendingMachineSystem
         UpdateAppearance(uid, visualState, visuals, eject, sprite);
     }
 
-    [SubscribeLocalEvent]
+    // [SubscribeLocalEvent] // ADT-Tweak
     private void OnVisualsStartup(Entity<VendingMachineVisualsComponent> entity, ref ComponentStartup args)
     {
         TryUpdateVisualState(entity.Owner);
