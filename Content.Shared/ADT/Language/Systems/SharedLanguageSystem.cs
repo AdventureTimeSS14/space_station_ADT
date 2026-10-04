@@ -4,6 +4,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Containers;
 using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 using Robust.Shared.Network;
 using Content.Shared.Hands.EntitySystems;
 using System.Linq;
