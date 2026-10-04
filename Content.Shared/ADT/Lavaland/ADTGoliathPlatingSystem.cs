@@ -87,7 +87,7 @@ public sealed class ADTGoliathPlatingSystem : EntitySystem
         var modifiers = new DamageModifierSet
         {
             Coefficients = new(armor.Modifiers.Coefficients),
-            FlatReduction = new(armor.Modifiers.FlatReduction),
+            FlatReductions = new(armor.Modifiers.FlatReductions),
         };
 
         foreach (var type in ent.Comp.Types)
