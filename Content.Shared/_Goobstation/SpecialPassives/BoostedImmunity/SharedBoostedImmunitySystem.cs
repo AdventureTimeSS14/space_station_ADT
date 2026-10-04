@@ -27,7 +27,7 @@ public abstract class SharedBoostedImmunitySystem : EntitySystem
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly BlindableSystem _blindSys = default!;
     [Dependency] private readonly DamageableSystem _dmg = default!;
-    [Dependency] private readonly SharedBloodstreamSystem _bloodSys = default!;
+    [Dependency] private readonly BloodstreamSystem _bloodSys = default!;
     [Dependency] private readonly SharedDrunkSystem _drunkSys = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly Content.Shared.StatusEffectNew.StatusEffectsSystem _statusNew = default!; // ADT-Tweak

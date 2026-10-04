@@ -22,7 +22,7 @@ public sealed class InfusedItemSystem : EntitySystem
 
     [Dependency] private SharedStunSystem _stun = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
-    [Dependency] private SharedRatvarianLanguageSystem _language = default!;
+    [Dependency] private RatvarianLanguageSystem _language = default!;
     [Dependency] private SharedHandsSystem _hands = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] private SharedItemSystem _item = default!;

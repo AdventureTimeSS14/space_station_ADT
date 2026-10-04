@@ -54,7 +54,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
     [Dependency] private SharedVoidCurseSystem _voidCurse = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private SharedHereticSystem _heretic = default!;
-    [Dependency] private SharedBloodstreamSystem _bloodstream = default!;
+    [Dependency] private BloodstreamSystem _bloodstream = default!;
 
     private const float BleedHealPerLivingHit = 0.5f;
 
