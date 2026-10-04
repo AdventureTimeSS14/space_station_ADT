@@ -10,7 +10,6 @@ using Content.Shared.ADT.Construction.Components;
 using Content.Shared.ADT.Construction.Events;
 using Content.Shared.ADT.Construction.Prototypes;
 using Content.Shared.DoAfter;
-using Content.Shared.Exchanger;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
