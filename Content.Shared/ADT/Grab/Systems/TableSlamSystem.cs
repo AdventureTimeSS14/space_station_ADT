@@ -78,7 +78,7 @@ public sealed class TableSlamSystem : EntitySystem
     {
         if (args.Direction != null || args.HitEntities.Count != 1)
             return;
-        var target = args.HitEntities[0];
+        var target = args.HitEntities.First();
 
         if (ent.Comp.GrabStage < ent.Comp.TableSlamRequiredStage
             || !TryComp<PullerComponent>(ent, out var puller)

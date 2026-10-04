@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.ADT.Legion;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
@@ -55,7 +56,7 @@ public sealed class ADTLegionSkullSystem : EntitySystem
         if (args.Handled || args.HitEntities.Count == 0)
             return;
 
-        var target = args.HitEntities[0];
+        var target = args.HitEntities.First();
 
         if (!HasComp<MobStateComponent>(target))
             return;

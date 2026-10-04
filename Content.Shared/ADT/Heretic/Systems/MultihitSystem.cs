@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.CombatMode;
 using Content.Shared.Hands.EntitySystems;
@@ -65,7 +66,7 @@ public sealed class MultihitSystem : EntitySystem
         if (args.Direction != null)
             return;
 
-        if (args.HitEntities.Count == 0 || args.HitEntities[0] == args.User)
+        if (args.HitEntities.Count == 0 || args.HitEntities.First() == args.User)
             return;
 
         // already a follow-up hit, don't recurse
@@ -75,7 +76,7 @@ public sealed class MultihitSystem : EntitySystem
         if (!CheckConditions(ent, args.User))
             return;
 
-        var target = args.HitEntities[0];
+        var target = args.HitEntities.First();
         var user = args.User;
         var delay = ent.Comp.MultihitDelay;
 

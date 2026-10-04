@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.ADT.Clothing;
 using Content.Shared.ADT.MartialArts;
 using Content.Shared.ADT.Salvage.Components;
@@ -299,7 +300,7 @@ public sealed class ADTCursedKatanaSystem : EntitySystem
         if (!args.IsHit || args.HitEntities.Count == 0)
             return;
 
-        var target = args.HitEntities[0];
+        var target = args.HitEntities.First();
 
         if (target == args.User || !HasComp<MobStateComponent>(target) || _mobState.IsDead(target))
             return;
