@@ -9,13 +9,14 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.ADT.Blob;
 
 #region BlobChemTypedStorage
+[Serializable]
 public abstract class BlobChemTypedStorage<T> : IEnumerable
 {
-    public virtual T BlazingOil { get; set; } = default!;
-    public virtual T ReactiveSpines { get; set; }= default!;
-    public virtual T RegenerativeMateria { get; set; }= default!;
-    public virtual T ExplosiveLattice { get; set; }= default!;
-    public virtual T ElectromagneticWeb { get; set; }= default!;
+    public abstract T BlazingOil { get; set; }
+    public abstract T ReactiveSpines { get; set; }
+    public abstract T RegenerativeMateria { get; set; }
+    public abstract T ExplosiveLattice { get; set; }
+    public abstract T ElectromagneticWeb { get; set; }
 
     // Indexer to access fields via BlobChemType enumeration
     [Pure]
