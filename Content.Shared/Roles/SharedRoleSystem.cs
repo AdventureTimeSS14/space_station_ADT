@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Roles; // ADT-Tweak
 using Content.Shared.Administration.Logs;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
@@ -26,7 +27,6 @@ public abstract partial class SharedRoleSystem : EntitySystem
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private IConfigurationManager _cfg = default!;
     [Dependency] protected ISharedPlayerManager Player = default!;
-    [Dependency] private EntityWhitelistSystem _whitelist = default!;
     [Dependency] private SharedMindSystem _minds = default!;
     [Dependency] private EntityWhitelistSystem ADTlist = default!;
 

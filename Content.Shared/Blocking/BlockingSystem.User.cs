@@ -1,5 +1,6 @@
 using Content.Shared.Blocking.Components;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components; // ADT-Tweak
 using Content.Shared.Damage.Systems;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -17,7 +18,6 @@ public sealed partial class BlockingSystem
     [Dependency] private DamageableSystem _damageable = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private SharedBatterySystem _batterySystem = default!; //ADT-Tweak
-    [Dependency] private ItemToggleSystem _itemToggleSystem = default!; //ADT-Tweak
 
     private void InitializeUser()
     {
@@ -80,7 +80,7 @@ public sealed partial class BlockingSystem
             return;
         //ADT-Tweak-End
 
-        _damageable.TryChangeDamage((item, dmgComp), blockFraction * args.OriginalDamage);
+        _damageable.TryChangeDamage(item, blockFraction * args.OriginalDamage); // ADT-Tweak
 
         // This is how much damage the shield is attempting to block
         var split = args.OriginalDamage * blockFraction;
@@ -140,7 +140,7 @@ public sealed partial class BlockingSystem
             return;
 
         if (TryComp<ItemToggleComponent>(entity, out var itemToggle))
-            _itemToggleSystem.TryDeactivate((entity, itemToggle), null);
+            _toggle.TryDeactivate((entity, itemToggle), null);
 
         _popupSystem.PopupPredicted(Loc.GetString("inducer-empty"), entity, entity);
 

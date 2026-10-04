@@ -70,9 +70,6 @@ public sealed partial class HealingSystem : EntitySystem
         }
         // ADT-Tweak end
 
-        if (!TryComp<InjurableComponent>(target, out var injurable))
-            return;
-
         if (healing.DamageContainers is not null &&
             injurable.DamageContainer is not null &&
             !healing.DamageContainers.Contains(injurable.DamageContainer.Value))

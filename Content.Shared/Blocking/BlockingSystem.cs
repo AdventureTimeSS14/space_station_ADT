@@ -100,9 +100,6 @@ public sealed partial class BlockingSystem : EntitySystem
     private void OnDrop(Entity<BlockingComponent> entity, ref DroppedEvent args)
     {
         StopBlocking(entity, args.User);
-
-        if (entity.Comp.IsHasBlockingToggle) //ADT-Tweak
-            args.AddAction(ref entity.Comp.BlockingToggleActionEntity, entity.Comp.BlockingToggleAction);
     }
 
     private void OnGetActions(Entity<BlockingComponent> entity, ref GetItemActionsEvent args)
