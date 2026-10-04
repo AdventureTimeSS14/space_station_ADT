@@ -1,6 +1,7 @@
 using Content.Server.Corvax.Sponsors;
 using Content.Server.Station.Systems;
 using Content.Shared.GameTicking;
+using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.SponsorLoadout;
@@ -66,7 +67,7 @@ public sealed class SponsorLoadoutSystem : EntitySystem
     }
 
     // Проверка ограничений
-    private bool IsRestricted(PlayerSpawnCompleteEvent ev, List<string>? whitelist, List<string>? blacklist, List<string>? speciesRestrictions)
+    private bool IsRestricted(PlayerSpawnCompleteEvent ev, List<ProtoId<JobPrototype>>? whitelist, List<ProtoId<JobPrototype>>? blacklist, List<string>? speciesRestrictions)
     {
         return (ev.JobId != null && whitelist != null && !whitelist.Contains(ev.JobId)) ||
             (ev.JobId != null && blacklist != null && blacklist.Contains(ev.JobId)) ||
