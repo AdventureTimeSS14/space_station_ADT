@@ -360,7 +360,6 @@ namespace Content.Client.Administration.UI.Bwoink
         // ADT-Tweak start
         public void SetViewerMode()
         {
-            Bans.Visible = false;
             Notes.Visible = false;
             Ban.Visible = false;
             Kick.Visible = false;
