@@ -44,7 +44,6 @@ public sealed class BlobTileSystem : SharedBlobTileSystem
     private EntityQuery<BlobTileComponent> _tileQuery;
     private EntityQuery<BlobObserverComponent> _observerQuery;
 
-    [ValidatePrototypeId<NpcFactionPrototype>]
     private const string BlobFaction = "ADTBlob";
 
     public override void Initialize()

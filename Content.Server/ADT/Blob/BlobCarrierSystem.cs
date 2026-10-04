@@ -43,10 +43,8 @@ public sealed class BlobCarrierSystem : SharedBlobCarrierSystem
         SubscribeLocalEvent<BlobCarrierComponent, MindRemovedMessage>(OnMindRemove);
     }
 
-    [ValidatePrototypeId<EntityPrototype>]
     private const string ActionTransformToBlob = "ADTActionTransformToBlob";
 
-    [ValidatePrototypeId<LanguagePrototype>]
     private const string BlobLang = "ADTBlob";
 
     private void OnRemove(Entity<BlobCarrierComponent> ent, ref ComponentRemove args)

@@ -62,9 +62,7 @@ public sealed class BlobCoreSystem : EntitySystem
     private EntityQuery<BlobFactoryComponent> _factory;
     private EntityQuery<BlobNodeComponent> _node;
 
-    [ValidatePrototypeId<AlertPrototype>]
     private const string BlobHealth = "ADTBlobHealth";
-    [ValidatePrototypeId<AlertPrototype>]
     private const string BlobResource = "ADTBlobResource";
     private static readonly ProtoId<CurrencyPrototype> BlobMoney = "ADTBlobPoint";
 

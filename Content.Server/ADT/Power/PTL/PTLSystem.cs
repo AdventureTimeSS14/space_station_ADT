@@ -42,9 +42,9 @@ public sealed partial class PTLSystem : EntitySystem
     [Dependency] private SharedBatterySystem _batterySystem = default!;
     [Dependency] private RadiationSystem _radiation = default!;
 
-    [ValidatePrototypeId<StackPrototype>] private readonly string _stackCredits = "Credit";
-    [ValidatePrototypeId<TagPrototype>] private readonly string _tagScrewdriver = "Screwdriver";
-    [ValidatePrototypeId<TagPrototype>] private readonly string _tagMultitool = "Multitool";
+    private readonly string _stackCredits = "Credit";
+    private readonly string _tagScrewdriver = "Screwdriver";
+    private readonly string _tagMultitool = "Multitool";
 
     private readonly SoundPathSpecifier _soundKaching = new("/Audio/Effects/kaching.ogg");
     private readonly SoundPathSpecifier _soundSparks = new("/Audio/Effects/sparks4.ogg");

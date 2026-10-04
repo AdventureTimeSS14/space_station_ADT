@@ -39,13 +39,13 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
     public static readonly SoundSpecifier BriefingSoundIntense =
         new SoundPathSpecifier("/Audio/ADT/Heretic/Ambience/Antag/Heretic/heretic_gain_intense.ogg");
 
-    [ValidatePrototypeId<NpcFactionPrototype>] public readonly ProtoId<NpcFactionPrototype> HereticFactionId = "Heretic";
+    public readonly ProtoId<NpcFactionPrototype> HereticFactionId = "Heretic";
 
-    [ValidatePrototypeId<NpcFactionPrototype>] public readonly ProtoId<NpcFactionPrototype> NanotrasenFactionId = "NanoTrasen";
+    public readonly ProtoId<NpcFactionPrototype> NanotrasenFactionId = "NanoTrasen";
 
-    [ValidatePrototypeId<CurrencyPrototype>] public readonly ProtoId<CurrencyPrototype> Currency = "KnowledgePoint";
+    public readonly ProtoId<CurrencyPrototype> Currency = "KnowledgePoint";
 
-    [ValidatePrototypeId<EntityPrototype>] static EntProtoId _mindRole = "MindRoleHeretic";
+    static EntProtoId _mindRole = "MindRoleHeretic";
 
     public const int InfluencesPerHeretic = 3;
 

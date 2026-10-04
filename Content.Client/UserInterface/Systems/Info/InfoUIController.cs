@@ -19,7 +19,6 @@ public sealed partial class InfoUIController : UIController, IOnStateExited<Game
     private RulesPopup? _rulesPopup;
     private RulesAndInfoWindow? _infoWindow;
 
-    [ValidatePrototypeId<GuideEntryPrototype>]
     private const string DefaultRuleset = "ADTRuleset"; //ADT Rule
 
     public ProtoId<GuideEntryPrototype> RulesEntryId = DefaultRuleset;

@@ -15,7 +15,6 @@ public sealed class SupermatterKudzuSystem : EntitySystem
     [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] private DamageableSystem _damageable = default!;
 
-    [ValidatePrototypeId<EdgeSupermatterSpreaderPrototype>]
     private const string KudzuGroup = "SupermatterKudzu";
 
     /// <inheritdoc/>
