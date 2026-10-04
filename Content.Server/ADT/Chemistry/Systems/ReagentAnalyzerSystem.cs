@@ -1,7 +1,7 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Chemistry.Components;
-using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Shared.Chemistry;
+using ContainerInfo = Content.Shared.ADT.Chemistry.ContainerInfo;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Containers.ItemSlots;

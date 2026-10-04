@@ -15,7 +15,7 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Alert;
 using Content.Shared.DoAfter;
 using Content.Shared.Chemistry.Components.SolutionManager;
-using Content.Server.Chemistry.Containers.EntitySystems;
+using Content.Shared.Chemistry.EntitySystems;
 using Robust.Shared.Prototypes;
 using Content.Shared.Revenant.Components;
 using Content.Shared.Body.Components;
@@ -43,7 +43,7 @@ public sealed class ChaplainSystem : EntitySystem
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private AlertsSystem _alerts = default!;
     [Dependency] private SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private SolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private EuiManager _euiManager = null!;
     [Dependency] private SharedMindSystem _mindSystem = default!;

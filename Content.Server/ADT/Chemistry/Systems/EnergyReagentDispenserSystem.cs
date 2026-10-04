@@ -4,6 +4,7 @@ using Content.Shared.ADT.Chemistry;
 using Content.Shared.ADT.Construction;
 using Content.Shared.ADT.Construction.Events;
 using Content.Shared.Chemistry;
+using ContainerInfo = Content.Shared.ADT.Chemistry.ContainerInfo;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Chemistry.EntitySystems;
