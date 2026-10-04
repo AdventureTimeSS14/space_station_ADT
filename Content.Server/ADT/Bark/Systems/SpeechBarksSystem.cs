@@ -10,6 +10,7 @@ using Robust.Shared.Audio.Systems;
 using Content.Shared.Chat;
 using Content.Server.Examine;
 using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 
 namespace Content.Server.ADT.SpeechBarks;
 

@@ -2,6 +2,7 @@ using Content.Shared.ADT.EntityEffects;
 using Content.Server.ADT.Stealth;
 using Content.Shared.EntityEffects;
 using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
 

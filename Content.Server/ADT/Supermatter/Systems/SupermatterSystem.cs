@@ -28,6 +28,7 @@ using Content.Shared.DeviceLinking;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Kitchen.Components;

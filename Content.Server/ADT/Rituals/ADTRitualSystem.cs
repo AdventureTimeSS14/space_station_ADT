@@ -3,6 +3,7 @@ using Content.Shared.ADT.AshWalker.Components;
 using Content.Shared.ADT.Rituals;
 using Content.Shared.DoAfter;
 using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 using Content.Shared.Gibbing;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;

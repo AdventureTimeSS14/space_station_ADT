@@ -48,6 +48,7 @@ using Content.Server.Hands.Systems;
 using Content.Shared.ADT.Bed.Cryostorage;
 using Robust.Shared.Enums;
 using Content.Shared.Bed.Cryostorage;
+using Content.Shared.Store;
 
 namespace Content.Server.Heretic.EntitySystems;
 

@@ -8,6 +8,7 @@ using Content.Server.Mind;
 using Content.Shared.ADT.Administration.PlayersDashboard;
 using Content.Shared.Eui;
 using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 using Robust.Server.Player;
 using Robust.Shared.Enums;
 using Timer = Robust.Shared.Timing.Timer;

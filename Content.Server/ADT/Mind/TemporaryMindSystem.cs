@@ -2,6 +2,7 @@ using Content.Shared.ADT.Mind;
 using Content.Server.Ghost;
 using Content.Server.Mind;
 using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Robust.Server.Player;

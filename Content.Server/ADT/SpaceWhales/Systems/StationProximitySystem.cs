@@ -15,6 +15,7 @@ using System.Linq;
 using Robust.Shared.Spawners;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Station.Components;
 
 namespace Content.Server.ADT.SpaceWhale.StationProximity;
 

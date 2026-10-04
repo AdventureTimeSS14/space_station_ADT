@@ -4,6 +4,7 @@ using Content.Shared.Temperature.Components;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.Actions;
 using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Projectiles;

@@ -12,6 +12,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.EntityEffects;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 using Robust.Server.Player;

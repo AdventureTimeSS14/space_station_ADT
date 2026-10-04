@@ -49,6 +49,7 @@ using Content.Shared.Gibbing;
 using Content.Shared.Nutrition.Components;
 using Content.Goobstation.Shared.InternalResources.Components;
 using Content.Shared.Light.Components;
+using Content.Shared.Store;
 
 namespace Content.Goobstation.Server.Changeling;
 
