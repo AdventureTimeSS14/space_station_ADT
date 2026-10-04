@@ -6,12 +6,13 @@
   - HideSpawnMenu
   components:
   - type: Action
-    icon:
-      sprite: ADT/Effects/bubblegum.rsi
-      state: paw
     useDelay: 6
     checkCanInteract: false
     raiseOnUser: true
+  - type: Sprite
+    sprite: ADT/Effects/bubblegum.rsi
+    layers:
+    - state: paw
   - type: TargetAction
     checkCanAccess: false
     range: 20
@@ -27,10 +28,11 @@
   components:
   - type: Action
     raiseOnUser: true
-    icon:
-      sprite: ADT/Effects/bubblegum.rsi
-      state: paw
     useDelay: 9
+  - type: Sprite
+    sprite: ADT/Effects/bubblegum.rsi
+    layers:
+    - state: paw
   - type: TargetAction
     range: 20
   - type: WorldTargetAction
@@ -44,10 +46,11 @@
   components:
   - type: Action
     raiseOnUser: true
-    icon:
-      sprite: ADT/Effects/bubblegum.rsi
-      state: paw
     useDelay: 12
+  - type: Sprite
+    sprite: ADT/Effects/bubblegum.rsi
+    layers:
+    - state: paw
   - type: TargetAction
     range: 20
   - type: WorldTargetAction
@@ -61,10 +64,11 @@
   components:
   - type: Action
     raiseOnUser: true
-    icon:
-      sprite: ADT/Effects/bubblegum.rsi
-      state: paw
     useDelay: 5
+  - type: Sprite
+    sprite: ADT/Effects/bubblegum.rsi
+    layers:
+    - state: paw
   - type: InstantAction
     event: !type:BubblegumBloodWarpActionEvent
 
@@ -76,11 +80,12 @@
   - HideSpawnMenu
   components:
   - type: Action
-    icon:
-      sprite: ADT/Effects/bubblegum.rsi
-      state: paw
     useDelay: 20
     raiseOnUser: true
+  - type: Sprite
+    sprite: ADT/Effects/bubblegum.rsi
+    layers:
+    - state: paw
   - type: TargetAction
     range: 20
   - type: WorldTargetAction

@@ -28,6 +28,11 @@
   name: beverage jug
   description: A jug for storing custom made drinks.
   components:
+  # ADT-Tweak start
+  - type: Solution
+    solution:
+      maxVol: 50
+  # ADT-Tweak end
   - type: Item
     size: Large
     shape:
@@ -56,17 +61,6 @@
     solution: drink
 
 # Empty
-
-- type: entity
-  parent: [DrinkVisualsOpenable, DrinkBottlePlasticBaseFull]
-  id: CustomDrinkJug
-  name: beverage jug
-  description: A jug for storing custom made drinks.
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 50 # ADT-Tweak 150 -> 50
 
 # Small Plastic Bottles
 

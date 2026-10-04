@@ -14,6 +14,7 @@
   - type: Tag
     tags:
     - RawMaterial
+    - NoPaint # ADT-Tweak
   - type: Extractable
     grindableSolutionName: composite
 

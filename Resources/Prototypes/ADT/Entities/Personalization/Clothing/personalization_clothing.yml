@@ -991,8 +991,14 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon: { sprite: ADT/Personalization/kringe-magboots.rsi, state: icon }
-    iconOn: { sprite: ADT/Personalization/kringe-magboots.rsi, state: icon-on }
+  - type: Sprite
+    sprite: ADT/Personalization/kringe-magboots.rsi
+    layers:
+    - state: icon
+      map: ["enum.ActionVisuals.Icon"]
+    - state: icon-on
+      map: ["enum.ActionVisuals.IconToggled"]
+      visible: false
 
 - type: entity
   parent: ADTClothingSponsorHandsBase

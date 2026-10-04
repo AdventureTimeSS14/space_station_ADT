@@ -5,8 +5,11 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon: { sprite: Mobs/Species/Human/organs.rsi, state: tongue }
     priority: -1
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+    layers:
+    - state: tongue
   - type: TargetAction
     interactOnMiss: false
   - type: EntityTargetAction

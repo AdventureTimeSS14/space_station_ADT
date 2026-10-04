@@ -10,7 +10,7 @@ namespace Content.Shared.ADT.NightVision;
 public sealed partial class NightVisionItemComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public EntProtoId ActionId = "ActionToggleNightVision";
+    public EntProtoId ActionId = "ADTActionToggleNightVision";
 
     [DataField, AutoNetworkedField]
     public EntityUid? Action;

@@ -440,7 +440,6 @@
     accentHColor: "#333333"
   - type: Icon
     state: pda-mime
-  - type: Muted # for random sentience eventывыв
 
 - type: entity
   name: chaplain PDA

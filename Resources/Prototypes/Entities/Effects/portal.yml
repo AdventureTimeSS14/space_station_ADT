@@ -98,6 +98,8 @@
     color: "#793a80dd"
   - type: PointLight
     color: "#793a80dd"
+    energy: 3 # ADT-Tweak 1 > 3
+    mask: /Textures/ADT/Effects/Lightmasks/circle_rings.png # ADT-Tweak
   - type: AmbientSound
     range: 6
     volume: -3
@@ -159,28 +161,4 @@
     energy: 1
     netsync: false
     mask: /Textures/ADT/Effects/Lightmasks/circle_rings.png
-
-- type: entity
-  id: ShadowPortal
-  name: shadow rift
-  description: Looks unstable.
-  parent: [ BasePortal, BaseShadow ]
-  components:
-  - type: Portal
-    arrivalSound: /Audio/Items/hiss.ogg
-    departureSound: /Audio/Items/hiss.ogg
-  - type: Sprite
-    state: portal-artifact
-    color: "#793a80dd"
-  - type: PointLight
-    color: "#793a80dd"
-    radius: 3
-    energy: 3 # ADT tweak 1 > 3
-    netsync: false
-    mask: /Textures/ADT/Effects/Lightmasks/circle_rings.png
-  - type: AmbientSound
-    range: 6
-    volume: -3
-    sound:
-      path: /Audio/Ambience/anomaly_scary.ogg
 # ADT-Tweak-End

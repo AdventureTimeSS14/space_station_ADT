@@ -4,9 +4,15 @@
   description: Drain battery
   components:
   - type: Action
-    icon: { sprite: Corvax/Interface/ipcactions.rsi, state: off }
-    iconOn: { sprite: Corvax/Interface/ipcactions.rsi, state: on }
     itemIconStyle: NoItem
+  - type: Sprite
+    sprite: Corvax/Interface/ipcactions.rsi
+    layers:
+    - state: False
+      map: ["enum.ActionVisuals.Icon"]
+    - state: True
+      map: ["enum.ActionVisuals.IconToggled"]
+      visible: false
   - type: InstantAction
     event: !type:ToggleDrainActionEvent
 
@@ -16,7 +22,10 @@
   description: Change the IPC monitor face
   components:
   - type: Action
-    icon: { sprite: Interface/Actions/actions_ai.rsi, state: crew_monitor }
     itemIconStyle: NoItem
+  - type: Sprite
+    sprite: Interface/Actions/actions_ai.rsi
+    layers:
+    - state: crew_monitor
   - type: InstantAction
     event: !type:OpenIpcFaceActionEvent

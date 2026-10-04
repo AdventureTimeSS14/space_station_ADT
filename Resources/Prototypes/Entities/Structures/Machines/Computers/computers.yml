@@ -484,7 +484,7 @@
   #ADT-Tweak Start - New Monitor:
   - type: PdaBorderColor
     borderColor: "#6B6B6B"
-  - type: CrewMonitoringUiVisuals
+  - type: ADTCrewMonitoringUiVisuals
     themeColor: "#4CAF50"
   #ADT-Tweak End
   - type: DeviceNetwork

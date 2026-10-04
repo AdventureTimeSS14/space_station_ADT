@@ -69,7 +69,6 @@
     organs:
       Torso: OrganSlimePersonTorso
       Head: OrganSlimePersonHead
-      Eyes: OrganSlimeEyes
       ArmLeft: OrganSlimePersonArmLeft
       ArmRight: OrganSlimePersonArmRight
       HandRight: OrganSlimePersonHandRight
@@ -254,16 +253,6 @@
       group: Slime
 
 - type: entity
-  parent: [ OrganBaseEyes, OrganSlimePersonInternal, OrganSlimePersonExternal ]
-  id: OrganSlimeEyes
-  components:
-  - type: Sprite
-    sprite: Mobs/Species/Slime/organs.rsi # ADT tweak Human > Slime
-  - type: VisualOrgan
-    data:
-      sprite: Mobs/Customization/eyes.rsi
-
-- type: entity
   parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganSlimePersonExternal ]
   id: OrganSlimePersonTorso
 
@@ -327,6 +316,8 @@
   parent: [ OrganBaseEyes, OrganSlimePersonInternal, OrganSlimePersonExternal ]
   id: OrganSlimePersonEyes
   components:
+  - type: Sprite
+    sprite: Mobs/Species/Slime/organs.rsi # ADT tweak Human > Slime
   - type: VisualOrgan
     data:
       sprite: Mobs/Customization/eyes.rsi

@@ -145,9 +145,10 @@
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/fireball.ogg
-    icon:
-      sprite: ADT/Interface/Actions/sacred_flame.rsi
-      state: sacredflame
+  - type: Sprite
+    sprite: ADT/Interface/Actions/sacred_flame.rsi
+    layers:
+    - state: sacredflame
   - type: InstantAction
     event: !type:ADTSacredFlameSpellEvent
       range: 7

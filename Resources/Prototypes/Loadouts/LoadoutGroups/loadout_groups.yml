@@ -101,18 +101,16 @@
   - ADTFlowerWreath2
   - ADTFlowerWreath3
   - ADTFlowerWreath4
-  - OffsetCane
-  - OffsetCaneWood
   # ADT-Tweak-End
 
 - type: loadoutGroup
-  id: Glasses
-  name: loadout-group-glasses
+  id: AssistiveItems
+  name: loadout-group-assistive-items
   minLimit: 0
+  maxLimit: 1 # Increase this limit in the future once there's more assistive items than just canes!
   loadouts:
-  - Glasses
-  - GlassesJamjar
-  - GlassesJensen
+  - OffsetCane
+  - OffsetCaneWood
   - OffsetCaneClown
   - OffsetCaneMime
   - OffsetCaneNT

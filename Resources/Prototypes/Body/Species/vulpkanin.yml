@@ -157,8 +157,6 @@
     speechSounds: Vulpkanin
     speechVerb: Vulpkanin
     allowedEmotes: [ 'Bark', 'Snarl', 'Whine', 'Howl', 'Growl' ]
-  - type: TypingIndicator
-    proto: vulpkanin
   - type: Vocal
     emoteSounds: NesMaleVulpa # ADT-Tweak: MaleVulpkanin -> NesMaleVulpa
   - type: Damageable

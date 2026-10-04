@@ -7,9 +7,10 @@
   - type: Action
     useDelay: 45
     itemIconStyle: BigAction
-    icon:
-      sprite: ADT/Clothing/Shoes/Boots/jumpboots.rsi
-      state: icon
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/jumpboots.rsi
+    layers:
+    - state: icon
   - type: TargetAction
     checkCanAccess: false
     repeat: true
@@ -26,9 +27,10 @@
   - type: Action
     useDelay: 15
     itemIconStyle: BigAction
-    icon:
-      sprite: ADT/Clothing/Shoes/Boots/jumpboots_syndie.rsi
-      state: icon
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/jumpboots_syndie.rsi
+    layers:
+    - state: icon
   - type: TargetAction
     checkCanAccess: false
     repeat: true

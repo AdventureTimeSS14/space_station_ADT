@@ -6,8 +6,9 @@
   components:
   - type: Action
     useDelay: 240
-    icon:
-      sprite: ADT/Personalization/stryz_ani/katana.rsi
-      state: icon
+  - type: Sprite
+    sprite: ADT/Personalization/stryz_ani/katana.rsi
+    layers:
+    - state: icon
   - type: InstantAction
     event: !type:WeaponPullActionEvent {}

@@ -29,31 +29,6 @@
   id: OrganBaseOrganic
   name: organ
   abstract: true
-  parent: OrganBase
-  components:
-  - type: FlavorProfile
-    flavors:
-      - meaty
-  - type: Extractable
-    grindableSolutionName: food
-  - type: Edible
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 10
-  - type: Tag # I am nearing my limit of tolerance for TagComponent.
-    tags:
-    - Raw
-    - Meat
-    - Organ
-    - Trash # ADT-Tweak
-
-- type: entity
-  id: OrganBaseOrganic
-  name: organ
-  abstract: true
   parent: [ OrganBase, SolutionFood, SolutionTiny ]
   components:
   - type: FlavorProfile
@@ -69,6 +44,7 @@
     tags:
     - Raw
     - Meat
+    - Trash # ADT-Tweak
 
 - type: entity
   parent:

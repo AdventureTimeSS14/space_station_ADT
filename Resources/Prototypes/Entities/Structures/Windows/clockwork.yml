@@ -61,7 +61,6 @@
     damageContainer: StructuralInorganic
   - type: Damageable
     damageModifierSet: RGlass
-  - type: Injurable
   - type: Destructible
     thresholds:
     - trigger:

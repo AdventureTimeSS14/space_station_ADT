@@ -146,7 +146,6 @@
   icon: { sprite: Objects/Materials/materials.rsi, state: diamond }
   color: "#80ffff"
   price: 4 # big diamond gaslit us so hard diamonds actually became extremely rare
-  price: 20 # big diamond gaslit us so hard diamonds actually became extremely rare
 
 - type: material
   id: XenoborgCrystal

@@ -6,12 +6,13 @@
   components:
   - type: Action
     priority: -11
-    icon:
-      sprite: ADT/Interface/Actions/xenobiology_console.rsi
-      state: scan_slime
     itemIconStyle: BigAction
     checkConsciousness: false
     checkCanInteract: false
+  - type: Sprite
+    sprite: ADT/Interface/Actions/xenobiology_console.rsi
+    layers:
+    - state: scan_slime
   - type: InstantAction
     event: !type:XenobiologyAnalyzeSlimeEvent
 
@@ -23,12 +24,13 @@
   components:
   - type: Action
     priority: -10
-    icon:
-      sprite: ADT/Interface/Actions/xenobiology_console.rsi
-      state: grab_slime
     itemIconStyle: BigAction
     checkConsciousness: false
     checkCanInteract: false
+  - type: Sprite
+    sprite: ADT/Interface/Actions/xenobiology_console.rsi
+    layers:
+    - state: grab_slime
   - type: InstantAction
     event: !type:XenobiologyCaptureSlimeEvent
 
@@ -40,12 +42,13 @@
   components:
   - type: Action
     priority: -9
-    icon:
-      sprite: ADT/Interface/Actions/xenobiology_console.rsi
-      state: release_slimes
     itemIconStyle: BigAction
     checkConsciousness: false
     checkCanInteract: false
+  - type: Sprite
+    sprite: ADT/Interface/Actions/xenobiology_console.rsi
+    layers:
+    - state: release_slimes
   - type: InstantAction
     event: !type:XenobiologyPlaceSlimeEvent
 
@@ -57,12 +60,13 @@
   components:
   - type: Action
     priority: -8
-    icon:
-      sprite: ADT/Interface/Actions/xenobiology_console.rsi
-      state: place_monkey
     itemIconStyle: BigAction
     checkConsciousness: false
     checkCanInteract: false
+  - type: Sprite
+    sprite: ADT/Interface/Actions/xenobiology_console.rsi
+    layers:
+    - state: place_monkey
   - type: InstantAction
     event: !type:XenobiologyFeedMonkeyEvent
 
@@ -74,12 +78,13 @@
   components:
   - type: Action
     priority: -7
-    icon:
-      sprite: ADT/Interface/Actions/xenobiology_console.rsi
-      state: recycle_monkey
     itemIconStyle: BigAction
     checkConsciousness: false
     checkCanInteract: false
+  - type: Sprite
+    sprite: ADT/Interface/Actions/xenobiology_console.rsi
+    layers:
+    - state: recycle_monkey
   - type: InstantAction
     event: !type:XenobiologyRecycleMonkeyEvent
 
@@ -91,12 +96,13 @@
   components:
   - type: Action
     priority: -6
-    icon:
-      sprite: Interface/Actions/actions_mecha.rsi
-      state: mech_overload_off
     itemIconStyle: BigAction
     checkConsciousness: false
     checkCanInteract: false
+  - type: Sprite
+    sprite: Interface/Actions/actions_mecha.rsi
+    layers:
+    - state: mech_overload_off
   - type: InstantAction
     event: !type:XenobiologyApplyMutationPotionEvent
 
@@ -108,11 +114,12 @@
   components:
   - type: Action
     priority: -5
-    icon:
-      sprite: Interface/Actions/actions_mecha.rsi
-      state: mech_defense_mode_off
     itemIconStyle: BigAction
     checkConsciousness: false
     checkCanInteract: false
+  - type: Sprite
+    sprite: Interface/Actions/actions_mecha.rsi
+    layers:
+    - state: mech_defense_mode_off
   - type: InstantAction
     event: !type:XenobiologyApplyStabilizerPotionEvent

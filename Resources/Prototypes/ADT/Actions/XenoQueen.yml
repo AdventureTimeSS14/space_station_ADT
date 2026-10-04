@@ -7,9 +7,10 @@
   - type: Action
     priority: -1
     useDelay: 180
-    icon:
-      sprite: Objects/Weapons/Guns/Turrets/xenoturret.rsi
-      state: icon
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Turrets/xenoturret.rsi
+    layers:
+    - state: icon
   - type: InstantAction
     event: !type:EmptyXenoActionEvent
       cost: 25
@@ -24,9 +25,10 @@
   - type: Action
     useDelay: 1200
     itemIconStyle: BigAction
-    icon:
-      sprite: Mobs/Aliens/Xenos/queen.rsi
-      state: crit
+  - type: Sprite
+    sprite: Mobs/Aliens/Xenos/queen.rsi
+    layers:
+    - state: crit
   - type: TargetAction
     range: 4
   - type: WorldTargetAction
@@ -46,9 +48,10 @@
   - type: Action
     useDelay: 60
     itemIconStyle: BigAction
-    icon:
-      sprite: Mobs/Aliens/Xenos/burrower.rsi
-      state: crit
+  - type: Sprite
+    sprite: Mobs/Aliens/Xenos/burrower.rsi
+    layers:
+    - state: crit
   - type: TargetAction
     range: 4
   - type: WorldTargetAction
@@ -68,9 +71,10 @@
   - type: Action
     useDelay: 240
     itemIconStyle: BigAction
-    icon:
-      sprite: Mobs/Aliens/Xenos/spitter.rsi
-      state: crit
+  - type: Sprite
+    sprite: Mobs/Aliens/Xenos/spitter.rsi
+    layers:
+    - state: crit
   - type: TargetAction
     range: 4
   - type: WorldTargetAction
@@ -90,9 +94,10 @@
   - type: Action
     useDelay: 300
     itemIconStyle: BigAction
-    icon:
-      sprite: Mobs/Aliens/Xenos/praetorian.rsi
-      state: crit
+  - type: Sprite
+    sprite: Mobs/Aliens/Xenos/praetorian.rsi
+    layers:
+    - state: crit
   - type: TargetAction
     range: 4
   - type: WorldTargetAction
@@ -112,9 +117,10 @@
   - type: Action
     useDelay: 80
     itemIconStyle: BigAction
-    icon:
-      sprite: Mobs/Aliens/Xenos/drone.rsi
-      state: crit
+  - type: Sprite
+    sprite: Mobs/Aliens/Xenos/drone.rsi
+    layers:
+    - state: crit
   - type: TargetAction
     range: 4
   - type: WorldTargetAction
@@ -134,9 +140,10 @@
   - type: Action
     useDelay: 480
     itemIconStyle: BigAction
-    icon:
-      sprite: Mobs/Aliens/Xenos/ravager.rsi
-      state: crit
+  - type: Sprite
+    sprite: Mobs/Aliens/Xenos/ravager.rsi
+    layers:
+    - state: crit
   - type: TargetAction
     range: 4
   - type: WorldTargetAction
@@ -156,9 +163,10 @@
   - type: Action
     useDelay: 120
     itemIconStyle: BigAction
-    icon:
-      sprite: Mobs/Aliens/Xenos/runner.rsi
-      state: crit
+  - type: Sprite
+    sprite: Mobs/Aliens/Xenos/runner.rsi
+    layers:
+    - state: crit
   - type: TargetAction
     range: 4
   - type: WorldTargetAction

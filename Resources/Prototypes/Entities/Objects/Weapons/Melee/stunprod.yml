@@ -79,6 +79,3 @@
   - type: Construction
     graph: makeshiftstunprod
     node: msstunprod
-  - type: Tag
-    tags:
-    - Stunbaton

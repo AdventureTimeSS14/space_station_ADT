@@ -8,9 +8,10 @@
     useDelay: 300
     itemIconStyle: NoItem
     checkCanInteract: false
-    icon:
-      sprite: ADT/Interface/Actions/shadowling.rsi
-      state: hatch
+  - type: Sprite
+    sprite: ADT/Interface/Actions/shadowling.rsi
+    layers:
+    - state: hatch
   - type: InstantAction
     event: !type:ADTShadowlingHatchEvent
 
@@ -23,9 +24,10 @@
   - type: Action
     useDelay: 3
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Interface/Actions/shadowling.rsi
-      state: enthrall
+  - type: Sprite
+    sprite: ADT/Interface/Actions/shadowling.rsi
+    layers:
+    - state: enthrall
   - type: EntityTargetAction
     event: !type:ADTShadowlingEnthrallEvent
     whitelist:
@@ -44,9 +46,10 @@
   - type: Action
     useDelay: 30
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Interface/Actions/shadowling.rsi
-      state: glare
+  - type: Sprite
+    sprite: ADT/Interface/Actions/shadowling.rsi
+    layers:
+    - state: glare
   - type: EntityTargetAction
     event: !type:ADTShadowlingGlareEvent
   - type: TargetAction
@@ -70,9 +73,10 @@
   - type: Action
     useDelay: 15
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Interface/Actions/shadowling.rsi
-      state: veil
+  - type: Sprite
+    sprite: ADT/Interface/Actions/shadowling.rsi
+    layers:
+    - state: veil
   - type: InstantAction
     event: !type:ADTShadowlingVeilEvent
   - type: ADTShadowlingVeilAction
@@ -90,9 +94,10 @@
     useDelay: 30
     itemIconStyle: NoItem
     checkCanInteract: false
-    icon:
-      sprite: ADT/Interface/Actions/shadowling.rsi
-      state: shadow_walk
+  - type: Sprite
+    sprite: ADT/Interface/Actions/shadowling.rsi
+    layers:
+    - state: shadow_walk
   - type: InstantAction
     event: !type:ADTShadowlingShadowWalkEvent
   - type: ADTShadowlingShadowWalkAction
@@ -109,9 +114,10 @@
   - type: Action
     useDelay: 25
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Interface/Actions/shadowling.rsi
-      state: icy_veins
+  - type: Sprite
+    sprite: ADT/Interface/Actions/shadowling.rsi
+    layers:
+    - state: icy_veins
   - type: InstantAction
     event: !type:ADTShadowlingIcyVeinsEvent
   - type: ADTShadowlingIcyVeinsAction
@@ -135,9 +141,10 @@
     useDelay: 120
     itemIconStyle: NoItem
     checkCanInteract: false
-    icon:
-      sprite: ADT/Interface/Actions/shadowling.rsi
-      state: shadow_walk
+  - type: Sprite
+    sprite: ADT/Interface/Actions/shadowling.rsi
+    layers:
+    - state: shadow_walk
   - type: InstantAction
     event: !type:ADTShadowlingGuiseEvent
   - type: ADTShadowlingGuiseAction
@@ -156,9 +163,10 @@
     useDelay: 1
     itemIconStyle: NoItem
     checkCanInteract: false
-    icon:
-      sprite: ADT/Interface/Actions/shadowling.rsi
-      state: darksight
+  - type: Sprite
+    sprite: ADT/Interface/Actions/shadowling.rsi
+    layers:
+    - state: darksight
   - type: InstantAction
     event: !type:ADTShadowlingDarksightEvent
 
@@ -171,9 +179,10 @@
   - type: Action
     useDelay: 30
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Interface/Actions/shadowling.rsi
-      state: collective_mind
+  - type: Sprite
+    sprite: ADT/Interface/Actions/shadowling.rsi
+    layers:
+    - state: collective_mind
   - type: InstantAction
     event: !type:ADTShadowlingCollectiveMindEvent
   - type: ADTShadowlingCollectiveMindAction
@@ -193,9 +202,10 @@
   - type: Action
     useDelay: 30
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Interface/Actions/shadowling.rsi
-      state: black_smoke
+  - type: Sprite
+    sprite: ADT/Interface/Actions/shadowling.rsi
+    layers:
+    - state: black_smoke
   - type: InstantAction
     event: !type:ADTShadowlingBlindnessSmokeEvent
   - type: ADTShadowlingBlindnessSmokeAction
@@ -216,9 +226,10 @@
   - type: Action
     useDelay: 30
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Interface/Actions/shadowling.rsi
-      state: screech
+  - type: Sprite
+    sprite: ADT/Interface/Actions/shadowling.rsi
+    layers:
+    - state: screech
   - type: InstantAction
     event: !type:ADTShadowlingScreechEvent
   - type: ADTShadowlingScreechAction
@@ -243,9 +254,10 @@
   - type: Action
     useDelay: 60
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Interface/Actions/shadowling.rsi
-      state: null_charge
+  - type: Sprite
+    sprite: ADT/Interface/Actions/shadowling.rsi
+    layers:
+    - state: null_charge
   - type: EntityTargetAction
     event: !type:ADTShadowlingNullChargeEvent
   - type: TargetAction
@@ -263,9 +275,10 @@
   - type: Action
     useDelay: 60
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Interface/Actions/shadowling.rsi
-      state: revive_thrall
+  - type: Sprite
+    sprite: ADT/Interface/Actions/shadowling.rsi
+    layers:
+    - state: revive_thrall
   - type: EntityTargetAction
     event: !type:ADTShadowlingBlackRecuperationEvent
   - type: TargetAction
@@ -287,9 +300,10 @@
   - type: Action
     useDelay: 5
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Interface/Actions/shadowling.rsi
-      state: extend_shuttle
+  - type: Sprite
+    sprite: ADT/Interface/Actions/shadowling.rsi
+    layers:
+    - state: extend_shuttle
   - type: EntityTargetAction
     event: !type:ADTShadowlingDestroyEnginesEvent
     whitelist:
@@ -314,9 +328,10 @@
     useDelay: 300
     itemIconStyle: NoItem
     checkCanInteract: false
-    icon:
-      sprite: ADT/Interface/Actions/shadowling.rsi
-      state: ascend
+  - type: Sprite
+    sprite: ADT/Interface/Actions/shadowling.rsi
+    layers:
+    - state: ascend
   - type: InstantAction
     event: !type:ADTShadowlingAscendEvent
   - type: ADTShadowlingAscendAction
@@ -339,9 +354,10 @@
   - type: Action
     useDelay: 5
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Interface/Actions/shadowling.rsi
-      state: annihilate
+  - type: Sprite
+    sprite: ADT/Interface/Actions/shadowling.rsi
+    layers:
+    - state: annihilate
   - type: EntityTargetAction
     event: !type:ADTAscendantAnnihilateEvent
   - type: TargetAction
@@ -357,9 +373,10 @@
   - type: Action
     useDelay: 5
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Interface/Actions/shadowling.rsi
-      state: enthrall
+  - type: Sprite
+    sprite: ADT/Interface/Actions/shadowling.rsi
+    layers:
+    - state: enthrall
   - type: EntityTargetAction
     event: !type:ADTAscendantHypnosisEvent
     whitelist:
@@ -380,9 +397,10 @@
     useDelay: 2
     itemIconStyle: NoItem
     checkCanInteract: false
-    icon:
-      sprite: ADT/Interface/Actions/shadowling.rsi
-      state: shadow_walk
+  - type: Sprite
+    sprite: ADT/Interface/Actions/shadowling.rsi
+    layers:
+    - state: shadow_walk
   - type: InstantAction
     event: !type:ADTAscendantPhaseShiftEvent
   - type: ADTAscendantPhaseShiftAction
@@ -398,9 +416,10 @@
     useDelay: 2
     itemIconStyle: NoItem
     checkCanInteract: false
-    icon:
-      sprite: ADT/Interface/Actions/shadowling.rsi
-      state: shadow_walk
+  - type: Sprite
+    sprite: ADT/Interface/Actions/shadowling.rsi
+    layers:
+    - state: shadow_walk
   - type: InstantAction
     event: !type:ADTAscendantUnphaseEvent
 
@@ -413,9 +432,10 @@
   - type: Action
     useDelay: 10
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Interface/Actions/shadowling.rsi
-      state: lightning_storm
+  - type: Sprite
+    sprite: ADT/Interface/Actions/shadowling.rsi
+    layers:
+    - state: lightning_storm
   - type: InstantAction
     event: !type:ADTAscendantLightningStormEvent
   - type: ADTAscendantLightningStormAction
@@ -435,9 +455,10 @@
     useDelay: 20
     itemIconStyle: NoItem
     checkCanInteract: false
-    icon:
-      sprite: ADT/Interface/Actions/shadowling.rsi
-      state: transmit
+  - type: Sprite
+    sprite: ADT/Interface/Actions/shadowling.rsi
+    layers:
+    - state: transmit
   - type: InstantAction
     event: !type:ADTAscendantBroadcastEvent
   - type: ADTAscendantBroadcastAction
@@ -451,9 +472,10 @@
   - type: Action
     useDelay: 5
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Interface/Actions/shadowling.rsi
-      state: revive_thrall
+  - type: Sprite
+    sprite: ADT/Interface/Actions/shadowling.rsi
+    layers:
+    - state: revive_thrall
   - type: EntityTargetAction
     event: !type:ADTShadowlingBlackRecuperationEvent
   - type: TargetAction

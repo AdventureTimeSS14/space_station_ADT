@@ -100,7 +100,6 @@
         type: PaperBoundUserInterface
   - type: FaxableObject
   - type: PaperVisualizer
-  - type: PaperVisuals
   - type: StationAiWhitelist
   # ADT-Tweak start
   - type: Material
@@ -573,7 +572,6 @@
       - !type:EmptyAllContainersBehaviour
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: Injurable
   - type: StationAiWhitelist
 # ADT-tweak start
   - type: Construction
