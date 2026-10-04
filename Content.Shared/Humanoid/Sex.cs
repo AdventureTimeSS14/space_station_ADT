@@ -7,4 +7,8 @@
         Female,
         Unsexed,
     }
+
+    // ADT-Tweak
+    [ByRefEvent]
+    public readonly record struct SexChangedEvent(Sex OldSex, Sex NewSex);
 }

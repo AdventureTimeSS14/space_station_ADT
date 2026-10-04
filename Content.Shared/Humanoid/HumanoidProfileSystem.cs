@@ -37,7 +37,7 @@ public sealed partial class HumanoidProfileSystem : EntitySystem
         comp.Sex = newSex;
         Dirty(ent);
 
-        var sexChanged = new SexChangedEvent(oldSex, newSex);
+        var sexChanged = new SexChangedEvent(oldSex, newSex); // ADT-Tweak
         RaiseLocalEvent(ent, ref sexChanged);
     }
     // ADT-Tweak end
