@@ -138,7 +138,7 @@ public sealed class RPDMenuBoundUserInterface : BoundUserInterface
             var name = Loc.GetString(proto.SetName);
 
             if (proto.Prototype != null &&
-                _prototypeManager.TryIndex(proto.Prototype, out var entProto, logError: false))
+                _prototypeManager.TryIndex(proto.Prototype, out var entProto))
                 name = entProto.Name;
 
             msg = Loc.GetString("rpd-component-change-build-mode", ("name", name));
@@ -155,7 +155,7 @@ public sealed class RPDMenuBoundUserInterface : BoundUserInterface
 
         if (proto.Mode is RpdMode.ConstructObject
             && proto.Prototype != null
-            && _prototypeManager.TryIndex(proto.Prototype, out var entProto, logError: false))
+            && _prototypeManager.TryIndex(proto.Prototype, out var entProto))
         {
             tooltip = entProto.Name;
         }
