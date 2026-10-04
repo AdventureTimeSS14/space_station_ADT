@@ -25,7 +25,6 @@
   # - DeviceQuantumSpinInverter # ADT-Tweak
   - DeviceDesynchronizer
   # - ClothingBackpackHarmpack # ADT-Tweak
-  - ClothingBackpackHarmpack
   - TeleporterChipBlank
 
 - type: latheRecipePack
