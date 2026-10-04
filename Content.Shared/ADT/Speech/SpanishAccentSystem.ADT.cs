@@ -630,7 +630,7 @@ public sealed partial class SpanishAccentSystem
                 return baseRep.ToUpperInvariant();
 
             if (titleCase && baseRep.Length > 0)
-                return char.ToUpperInvariant(baseRep[0]).ToString() + baseRep.Substring(1);
+                return baseRep.Substring(0, 1).ToUpperInvariant() + baseRep.Substring(1);
 
             return baseRep;
         });
