@@ -2,13 +2,14 @@
     xmlns="https://spacestation14.io"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
     MinHeight="210">
     <BoxContainer Name="MainContainer" Orientation="Vertical">
         <LineEdit Name="SearchBar" PlaceHolder="{Loc 'vending-machine-component-search-filter'}" HorizontalExpand="True"  Margin ="4 4"/>
         <controls:SearchListContainer Name="VendingContents" VerticalExpand="True" Margin="4 4"/>
          <!-- Footer -->
         <BoxContainer Orientation="Vertical">
-            <controls:Separator StyleClasses="LowDivider"/>
+            <customControls:HSeparator/>
             <BoxContainer Orientation="Horizontal" Margin="10 2 5 0" VerticalAlignment="Bottom">
                 <Label Text="{Loc 'vending-machine-flavor-left'}" StyleClasses="WindowFooterText" />
                 <Label Text="{Loc 'vending-machine-flavor-right'}" StyleClasses="WindowFooterText"
