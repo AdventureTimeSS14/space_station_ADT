@@ -7,6 +7,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 // ADT-Tweak start
 using Content.Server.Administration;
+using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Player;
 // ADT-Tweak end
 

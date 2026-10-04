@@ -9,6 +9,7 @@ using Content.Shared.ADT.TTS;
 using Content.Shared.Chat;
 using Content.Shared.GameTicking;
 using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 using Content.Shared.Players.RateLimiting;
 using Content.Shared.Radio;
 using Robust.Shared.Configuration;

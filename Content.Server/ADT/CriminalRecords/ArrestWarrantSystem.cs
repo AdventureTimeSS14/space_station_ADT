@@ -12,6 +12,7 @@ using Content.Shared.GameTicking;
 using Content.Shared.Paper;
 using Content.Shared.Security;
 using Content.Shared.StationRecords;
+using Content.Shared.StationRecords.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 

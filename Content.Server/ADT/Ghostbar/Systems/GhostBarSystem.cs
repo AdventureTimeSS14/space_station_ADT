@@ -24,6 +24,7 @@ using System.Linq;
 using Robust.Shared.Utility;
 using Robust.Shared.Configuration;
 using Content.Shared.ADT.CCVar;
+using Content.Shared.Ghost.Components;
 
 namespace Content.Server.ADT.Ghostbar;
 

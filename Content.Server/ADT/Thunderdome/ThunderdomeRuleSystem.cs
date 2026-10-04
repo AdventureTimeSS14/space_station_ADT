@@ -47,6 +47,7 @@ using Content.Shared.Power;
 using Content.Shared.Actions;
 using Content.Server.Access.Systems;
 using Content.Server.Antag.Components;
+using Content.Shared.Ghost.Components;
 
 namespace Content.Server.ADT.Thunderdome;
 

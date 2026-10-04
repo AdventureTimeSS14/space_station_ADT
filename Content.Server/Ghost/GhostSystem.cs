@@ -46,6 +46,7 @@ using Content.Shared.Popups;
 using Content.Shared.Roles;
 using Content.Shared.SSDIndicator;
 using Content.Shared.StationRecords;
+using Content.Shared.StationRecords.Components;
 using Content.Shared.StatusIcon;
 using Content.Shared.Storage.Components;
 using Content.Shared.Tag;
@@ -732,7 +733,7 @@ namespace Content.Server.Ghost
                 _ghostState.SetGhostSprite((ghost, state), mind);
             }
 
-            // ADT Tweak Start 
+            // ADT Tweak Start
             ApplyBodyAppearance(ghost, mind.Owner);
             GiveGhostClothes(ghost, ghostComponent);
             // ADT Tweak End

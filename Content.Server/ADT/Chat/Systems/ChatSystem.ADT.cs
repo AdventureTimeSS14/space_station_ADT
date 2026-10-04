@@ -3,6 +3,7 @@ using Content.Server.ADT.Chat;
 using Content.Shared.ADT.Language;
 using Content.Shared.Chat;
 using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 

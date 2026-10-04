@@ -8,6 +8,7 @@ using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Polymorph;
 using Content.Server.Polymorph.Components;
+using Content.Shared.Ghost.Components;
 using Robust.Shared.GameObjects.Components.Localization;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;

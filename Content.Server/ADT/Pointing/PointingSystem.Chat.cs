@@ -4,6 +4,7 @@ using Content.Shared.ADT.CCVar;
 using Content.Shared.ADT.Pointing;
 using Content.Shared.Chat;
 using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 using Robust.Server.Configuration;
 using Robust.Shared.Player;
 

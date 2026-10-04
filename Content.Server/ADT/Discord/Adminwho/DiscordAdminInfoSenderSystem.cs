@@ -12,6 +12,7 @@ using Content.Shared.Ghost;
 using Content.Shared.GameTicking;
 using Robust.Server.Player;
 using Content.Server.Maps;
+using Content.Shared.Ghost.Components;
 
 
 namespace Content.Server.ADT.Discord.Adminwho;

@@ -4,6 +4,7 @@ using Content.Shared.Lock;
 using Content.Shared.Popups;
 using Content.Shared.ADT.Silicon.Components;
 using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 using Content.Shared.IdentityManagement;
 
 namespace Content.Server.ADT.Silicon.Systems;

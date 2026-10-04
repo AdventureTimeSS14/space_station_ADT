@@ -2,6 +2,7 @@ using Content.Shared.ADT.EntityEffects;
 using Content.Shared.EntityEffects;
 using Content.Server.ADT.NPC;
 using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 using Robust.Shared.Map;
 
 namespace Content.Server.ADT.EntityEffects;

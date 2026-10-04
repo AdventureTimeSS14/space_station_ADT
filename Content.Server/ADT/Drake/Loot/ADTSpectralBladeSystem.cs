@@ -8,6 +8,7 @@ using Content.Shared.Eye;
 using Content.Shared.Follower;
 using Content.Shared.Follower.Components;
 using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 using Content.Shared.Hands;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
