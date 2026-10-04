@@ -100,6 +100,9 @@ public sealed partial class LegCuffSystem : EntitySystem
         if (!TryComp<EnsnareableComponent>(uid, out var ensnareable) || !_ensnareable.IsEnsnared((uid, ensnareable)))
             return;
 
+        if (ensnareable.Container == null)
+            return;
+
         EntityUid? legCuffEntity = null;
 
         foreach (var contained in ensnareable.Container.ContainedEntities)
@@ -149,6 +152,9 @@ public sealed partial class LegCuffSystem : EntitySystem
             return;
 
         ent.Comp.NextAllowedTime = now + ent.Comp.BreakoutSoundCooldown;
+
+        if (ensnareable.Container == null)
+            return;
 
         foreach (var contained in ensnareable.Container.ContainedEntities)
         {

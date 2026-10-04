@@ -141,7 +141,7 @@ public sealed class ADTGunUpgradeSystem : EntitySystem
             args.User,
             ent,
             ent.Comp.RemoveDelay,
-            new[] { ent.Comp.RemoveTool.Id },
+            new[] { ent.Comp.RemoveTool },
             new ADTGunUpgradeRemoveDoAfterEvent());
     }
 

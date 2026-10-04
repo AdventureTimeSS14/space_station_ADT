@@ -713,7 +713,6 @@ public sealed class AttachableToggleableSystem : EntitySystem
         {
             var actionEnt = action.AsNullable();
             _actionsSystem.SetIcon(actionEnt, ent.Comp.Icon);
-            _actionsSystem.SetIconOn(actionEnt, ent.Comp.IconActive);
             _actionsSystem.SetEnabled(actionEnt, ent.Comp.Attached);
             _actionsSystem.SetUseDelay(actionEnt, ent.Comp.UseDelay);
         }

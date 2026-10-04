@@ -130,8 +130,8 @@ public sealed partial class MimePowersSystem : EntitySystem
             if (_turf.IsTileBlocked(targetTile, CollisionGroup.Impassable | CollisionGroup.Opaque))
                 continue;
 
-            var coords = _mapSystem.GridTileToLocal(gridUid, mapGrid, targetIndex);
-            wallPositions.Add(coords);
+            var wallCoords = _mapSystem.GridTileToLocal(gridUid, mapGrid, targetIndex); // ADT-Tweak
+            wallPositions.Add(wallCoords);
         }
 
         if (wallPositions.Count == 0)

@@ -67,7 +67,7 @@ public abstract partial class SharedJukeboxSystem : EntitySystem
         if (!TryComp<ItemSlotsComponent>(ent, out var itemSlots))
             return null;
 
-        return _itemSlots.GetItemOrNull(ent.Owner, DiskSlotId, itemSlots);
+        return _itemSlots.GetItemOrNull((ent.Owner, itemSlots), DiskSlotId); // ADT-Tweak
     }
 
     public JukeboxListPrototype? GetDiskCollection(Entity<JukeboxComponent> ent)
