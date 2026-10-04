@@ -37,6 +37,7 @@ using Content.Shared.Shuttles.Components;
 using Robust.Shared.Player;
 using System.Linq;
 using System.Numerics;
+using Content.Shared.Speech.Components;
 
 namespace Content.Server.ADT.Xenobiology.Systems;
 
