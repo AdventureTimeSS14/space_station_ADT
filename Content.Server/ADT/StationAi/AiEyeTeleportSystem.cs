@@ -1,8 +1,8 @@
 ﻿using Content.Server.Chat.Managers;
-using Content.Server.ADT.Medical.ADTCrewMonitoring;
+using Content.Server.ADT.Medical.CrewMonitoring;
 using Content.Shared.ADT.StationAi;
 using Content.Shared.Chat;
-using Content.Shared.ADT.Medical.ADTCrewMonitoring;
+using Content.Shared.ADT.Medical.CrewMonitoring;
 using Content.Shared.ADT.Medical.SuitSensors;
 using Content.Shared.ADT.Medical.SuitSensors;
 using Content.Shared.Popups;

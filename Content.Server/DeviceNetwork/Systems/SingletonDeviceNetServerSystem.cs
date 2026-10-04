@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using Content.Server.DeviceNetwork.Components;
-using Content.Server.ADT.Medical.ADTCrewMonitoring;
+using Content.Server.ADT.Medical.CrewMonitoring; // ADT-Tweak
 using Content.Server.Station.Systems;
 using Content.Shared.Power;
 using Content.Shared.DeviceNetwork.Components;

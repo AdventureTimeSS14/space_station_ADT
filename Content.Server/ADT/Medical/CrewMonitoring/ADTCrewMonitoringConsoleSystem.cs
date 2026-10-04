@@ -49,7 +49,7 @@ public sealed class ADTCrewMonitoringConsoleSystem : EntitySystem
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly NavMapSystem _navMap = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     private const float ScanDuration = 5f;
@@ -767,7 +767,7 @@ public sealed class ADTCrewMonitoringConsoleSystem : EntitySystem
         var center = _transform.GetWorldPosition(serverXform);
         var extent = new Vector2(range, range);
         _navMapGridBuffer.Clear();
-        _mapManager.FindGridsIntersecting(
+        _map.FindGridsIntersecting(
             serverXform.MapID,
             new Box2(center - extent, center + extent),
             ref _navMapGridBuffer,
