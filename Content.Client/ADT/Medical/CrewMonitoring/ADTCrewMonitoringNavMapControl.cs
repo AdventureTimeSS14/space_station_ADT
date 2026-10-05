@@ -21,8 +21,8 @@ namespace Content.Client.ADT.Medical.CrewMonitoring;
 public sealed partial class ADTCrewMonitoringNavMapControl : NavMapControl
 {
     // #ADT-Tweak Start - New Monitor: radar/navmap fields + corner alert UI
-    [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly IParallelManager _parallel = default!;
+    private readonly SharedMapSystem _map;
 
     public NetEntity? Focus;
     public readonly Dictionary<NetEntity, string> LocalizedNames = new();
@@ -89,10 +89,9 @@ public sealed partial class ADTCrewMonitoringNavMapControl : NavMapControl
     {
         _transform = EntManager.System<SharedTransformSystem>();
         _shuttles = EntManager.System<SharedShuttleSystem>(); // ADT-Tweak
+        _map = EntManager.System<SharedMapSystem>();
         _gameTiming = IoCManager.Resolve<IGameTiming>();
-        _gridRenderer = new GridRadarRenderer(
-            EntManager.System<SharedMapSystem>(),
-            _parallel);
+        _gridRenderer = new GridRadarRenderer(_map, _parallel);
 
         WallColor = new Color(192, 122, 196);
         TileColor = new Color(71, 42, 72);

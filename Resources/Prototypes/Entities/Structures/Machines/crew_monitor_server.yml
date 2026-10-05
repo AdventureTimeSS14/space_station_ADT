@@ -27,7 +27,8 @@
     containers:
       machine_board: !type:Container
       machine_parts: !type:Container
-  - type: CrewMonitoringServer
+  - type: ADTCrewMonitoringServer # ADT-Tweak New Monitor
+  # - type: CrewMonitoringServer
   # - type: SingletonDeviceNetServer # ADT-Tweak New Monitor
   - type: DeviceNetwork
     deviceNetId: Wireless
