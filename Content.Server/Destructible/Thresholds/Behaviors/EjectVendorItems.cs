@@ -41,4 +41,4 @@ public sealed partial class EjectVendorItems : IThresholdBehavior
             vendingMachineSystem.EjectRandom(owner, throwItem: true, forceEject: true);
         }
     }
-}
+}

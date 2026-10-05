@@ -17,4 +17,4 @@ public sealed partial class VendingMachineInventoryPrototype : IPrototype
 
     [DataField]
     public Dictionary<EntProtoId, uint>? ContrabandInventory { get; private set; }
-}
+}

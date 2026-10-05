@@ -58,4 +58,4 @@ public sealed partial class DumpRestockInventory : IThresholdBehavior
             }
         }
     }
-}
+}
