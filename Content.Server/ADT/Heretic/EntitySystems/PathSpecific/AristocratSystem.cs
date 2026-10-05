@@ -41,6 +41,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Content.Server.Atmos.Components;
+using Content.Shared.Wall;
 
 namespace Content.Server.Heretic.EntitySystems.PathSpecific;
 
@@ -525,12 +526,12 @@ public sealed class AristocratSystem : EntitySystem
 
         var coords = ent.Comp2.Coordinates;
 
-        var tags = _lookup.GetEntitiesInRange<TagComponent>(coords, ent.Comp1.Range, LookupFlags.Static);
+        var walls = _lookup.GetEntitiesInRange<WallComponent>(coords, ent.Comp1.Range, LookupFlags.Static);
 
-        foreach (var (uid, tag) in tags)
+        foreach (var (uid, _) in walls)
         {
             // walls
-            if (!_tag.HasTag(tag, "Wall") || !_rand.Prob(.45f) ||
+            if (!_rand.Prob(.45f) ||
                 (Prototype(uid)?.ID ?? string.Empty) == IceWallPrototype)
                 continue;
 

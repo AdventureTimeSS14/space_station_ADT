@@ -119,8 +119,6 @@
       weight: 0.05
     - id: DrinkDoctorsDelightGlass
       weight: 0.05
-    - id: DrinkNeurotoxinGlass
-      weight: 0.05
     - id: DrinkNuclearColaGlass
       weight: 0.05
     - id: DrinkSilencerGlass

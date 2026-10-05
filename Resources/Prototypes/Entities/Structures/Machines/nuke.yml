@@ -115,14 +115,10 @@
     stealGroup: NuclearBomb
   - type: WarpPoint
     follow: true
-    location: nuclear bomb
-    blacklist:
-      tags:
-      - GhostOnlyWarp
+    location: location-nuclear-bomb
   - type: Tag
     tags:
     - ADTVaultAmbience  # ADT-Sound-Update
-    - GhostOnlyWarp
   - type: FTLSmashImmune
   - type: SupermatterImmune # ADT-Tweak
 

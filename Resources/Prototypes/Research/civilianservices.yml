@@ -240,6 +240,7 @@
   - AdvMopItem
   - MegaSprayBottle
   - BorgModuleAdvancedCleaning
+  - TrashBagHolding
   # ADT Research Console Rework start
   position: 1,1
   requiredTech:
@@ -247,7 +248,6 @@
   - ADTServiceMODsuitMODs # add добавил для того чтобы было больше смысла от линий...
  # RoboticCleanliness -> ADTMechanizedTreatment. Remove = ADTMechanizedTreatment Заглушка идёт домой... а что она тут вобще делает?
   # ADT Research Console Rework end
-  - TrashBagHolding
 
 - type: technology
   id: HONKMech

@@ -29,6 +29,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
+using Content.Shared.Wall;
 
 namespace Content.Shared.ADT.Heretic.Systems;
 
@@ -194,7 +195,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
             {
                 if (TryComp(target, out StationAiHolderComponent? aiHolder)) // Kill AI
                     QueueDel(aiHolder.Slot.ContainerSlot?.ContainedEntity);
-                else if (HasComp<RustGraspComponent>(grasp) && _tag.HasAnyTag(target, "Wall", "Catwalk") ||
+                else if (HasComp<RustGraspComponent>(grasp) && (HasComp<WallComponent>(target) || _tag.HasTag(target, "Catwalk")) ||
                          HasComp<HereticRitualRuneComponent>(
                              target)) // If we have rust grasp and targeting a wall (or a catwalk) - do nothing, let other methods handle that. Also don't damage transmutation rune.
                     return false;

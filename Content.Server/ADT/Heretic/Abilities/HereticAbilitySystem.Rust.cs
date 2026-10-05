@@ -17,6 +17,7 @@ using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared.Wall;
 
 namespace Content.Server.Heretic.Abilities;
 
@@ -221,7 +222,7 @@ public sealed partial class HereticAbilitySystem
             _transform.SetLocalRotation(targetEntity, rotation);
         }
 
-        if (TerminatingOrDeleted(targetEntity) || !_tag.HasTag(targetEntity, "Wall"))
+        if (TerminatingOrDeleted(targetEntity) || !HasComp<WallComponent>(targetEntity))
             return false;
 
         if (targetEntity == target && !canRust)

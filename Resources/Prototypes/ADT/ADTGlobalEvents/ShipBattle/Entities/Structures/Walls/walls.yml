@@ -13,9 +13,7 @@
     - type: IconSmooth
       key: walls
       base: state
-    - type: Tag
-      tags:
-        - Wall
+    - type: Wall
     - type: Destructible
       thresholds:
         - trigger:

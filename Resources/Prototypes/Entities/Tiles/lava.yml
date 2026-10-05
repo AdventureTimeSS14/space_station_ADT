@@ -70,9 +70,8 @@
     shoreTiles:
     - FloorBasalt
     shoreBlacklist:
-      tags:
-      - Wall
       components:
+      - Wall
       - Chasm
   # ADT-Fishing-End
   - type: Tag

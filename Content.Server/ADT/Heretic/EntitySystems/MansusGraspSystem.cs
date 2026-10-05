@@ -37,6 +37,7 @@ using Content.Shared.PowerCell.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
+using Content.Shared.Wall;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -179,7 +180,7 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
             "Lock" => HasComp<DoorComponent>(target),
             // rusts structures and kills station AI
             "Rust" => HasComp<StationAiHolderComponent>(target)
-                      || _tag.HasAnyTag(target, "Wall", "Catwalk")
+                      || HasComp<WallComponent>(target) || _tag.HasTag(target, "Catwalk")
                       || HasComp<DamageableComponent>(target),
             _ => false,
         };

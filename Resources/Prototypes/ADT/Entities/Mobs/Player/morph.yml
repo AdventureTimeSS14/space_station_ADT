@@ -87,9 +87,9 @@
       - MindContainer
       - Pda # PDAs currently make you invisible /!\
       - SubFloorHide
+      - Wall
       tags:
       - Catwalk
-      - Wall
       - Window
     disguiseProto: ChameleonDisguise
   - type: UserInterface

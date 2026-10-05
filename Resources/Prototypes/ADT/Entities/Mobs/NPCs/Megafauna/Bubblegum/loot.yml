@@ -147,7 +147,7 @@
         Slash: 25
         Structural: 10
     soundHit:
-      path: /Audio/Weapons/chainsaw.ogg
+      path: /Audio/ADT/Weapons/Chainsaw/chainsaw.ogg
   - type: ArmorPenetration
     penetration: 1
   - type: Reflect

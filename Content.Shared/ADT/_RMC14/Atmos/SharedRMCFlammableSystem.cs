@@ -33,6 +33,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
+using Content.Shared.Wall;
 
 namespace Content.Shared._RMC14.Atmos;
 
@@ -59,7 +60,6 @@ public abstract class SharedRMCFlammableSystem : EntitySystem
 
     private static readonly ProtoId<ReagentPrototype> WaterReagent = "Water";
     private static readonly ProtoId<TagPrototype> StructureTag = "Structure";
-    private static readonly ProtoId<TagPrototype> WallTag = "Wall";
     private static readonly ProtoId<DamageTypePrototype> HeatDamage = "Heat";
 
     private EntityQuery<BlockTileFireComponent> _blockTileFireQuery;
@@ -481,7 +481,7 @@ public abstract class SharedRMCFlammableSystem : EntitySystem
                 break;
             }
 
-            if (_tag.HasAnyTag(uid, StructureTag, WallTag) &&
+            if ((_tag.HasTag(uid, StructureTag) || HasComp<WallComponent>(uid)) &&
                 !_doorQuery.HasComp(uid))
             {
                 nextRange = 0;

@@ -4,12 +4,12 @@ using Content.Shared.ADT.Heretic.Systems;
 using Content.Shared.Heretic;
 using Content.Shared.Maps;
 using Content.Shared.Stunnable;
-using Content.Shared.Tag;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Map.Components;
 using Content.Server.ADT.Heretic.EntitySystems.PathSpecific;
+using Content.Shared.Wall;
 
 namespace Content.Server.Magic;
 
@@ -68,10 +68,7 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
         _stun.TryUpdateParalyzeDuration(args.OtherEntity, TimeSpan.FromSeconds(power));
         _voidcurse.DoCurse(args.OtherEntity);
 
-        TryComp<TagComponent>(args.OtherEntity, out var tag);
-        var tags = tag?.Tags ?? new();
-
-        if (tags.Contains("Wall") && Prototype(args.OtherEntity) != null && Prototype(args.OtherEntity)!.ID != "WallSnowCobblebrick")
+        if (HasComp<WallComponent>(args.OtherEntity) && Prototype(args.OtherEntity) != null && Prototype(args.OtherEntity)!.ID != "WallSnowCobblebrick")
         {
             Spawn("WallSnowCobblebrick", Transform(args.OtherEntity).Coordinates);
             QueueDel(args.OtherEntity);

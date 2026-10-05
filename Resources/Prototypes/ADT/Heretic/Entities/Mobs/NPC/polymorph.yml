@@ -136,7 +136,6 @@
       components:
       - MobState
       - Door
-      tags:
       - Wall
   - type: Metabolizer
     solutionOnBody: false

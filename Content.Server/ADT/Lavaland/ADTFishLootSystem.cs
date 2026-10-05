@@ -10,9 +10,9 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
-using Content.Shared.Tag;
 using Content.Shared.Throwing;
 using Robust.Shared.Prototypes;
+using Content.Shared.Wall;
 
 namespace Content.Server.ADT.Lavaland;
 
@@ -23,9 +23,6 @@ public sealed class ADTFishLootSystem : EntitySystem
     [Dependency] private PuddleSystem _puddle = default!;
     [Dependency] private ReactiveSystem _reactive = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
-    [Dependency] private TagSystem _tag = default!;
-
-    private static readonly ProtoId<TagPrototype> WallTag = "Wall";
 
     public override void Initialize()
     {
@@ -48,7 +45,7 @@ public sealed class ADTFishLootSystem : EntitySystem
             _reactive.ReactionEntity(target, ReactionMethod.Touch, reagent);
             _popup.PopupEntity(Loc.GetString("adt-acid-bladder-burst-mob", ("target", Identity.Entity(target, EntityManager))), target, PopupType.MediumCaution);
         }
-        else if (_tag.HasTag(target, WallTag))
+        else if (HasComp<WallComponent>(target))
         {
             _damageable.TryChangeDamage(target, ent.Comp.WallDamage, true);
             _popup.PopupEntity(Loc.GetString("adt-acid-bladder-burst-wall"), target, PopupType.MediumCaution);

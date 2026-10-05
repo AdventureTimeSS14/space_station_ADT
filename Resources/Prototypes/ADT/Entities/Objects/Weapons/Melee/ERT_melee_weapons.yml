@@ -104,30 +104,30 @@
   - type: Appearance
   - type: ItemToggle
     soundActivate:
-      path: /Audio/Weapons/chainsawwield.ogg
+      path: /Audio/ADT/Weapons/Chainsaw/chainsawwield.ogg
       params:
         volume: -3
     soundDeactivate:
-      path: /Audio/Weapons/chainsawwield.ogg
+      path: /Audio/ADT/Weapons/Chainsaw/chainsawwield.ogg
       params:
         volume: -3
   - type: ItemToggleActiveSound
     activeSound:
-      path: /Audio/Weapons/chainsawidle.ogg
+      path: /Audio/ADT/Weapons/Chainsaw/chainsawidle.ogg
   - type: UseDelay
     delay: 1.5
   - type: ItemToggleMeleeWeapon
     activatedSoundOnHit:
-      path: /Audio/Weapons/chainsaw.ogg
+      path: /Audio/ADT/Weapons/Chainsaw/chainsaw.ogg
       params:
         variation: 0.250
     activatedSoundOnHitNoDamage:
-      path: /Audio/Weapons/chainsaw.ogg
+      path: /Audio/ADT/Weapons/Chainsaw/chainsaw.ogg
       params:
         variation: 0.250
         volume: -10
     activatedSoundOnSwing:
-      path: /Audio/Weapons/chainsaw.ogg
+      path: /Audio/ADT/Weapons/Chainsaw/chainsaw.ogg
       params:
         variation: 0.125
     activatedDamage:

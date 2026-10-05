@@ -8,15 +8,17 @@
   category: cargoproduct-category-name-security
   group: market
 
+# ADT-Tweak-Start
 - type: cargoProduct
   id: SecurityHelmet
   icon:
     sprite: Clothing/Head/Helmets/security.rsi
     state: icon
   product: CrateSecurityHelmet
-  cost: 1750
+  cost: 550
   category: cargoproduct-category-name-security
   group: market
+# ADT-Tweak-End
 
 - type: cargoProduct
   id: SecurityNonLethal

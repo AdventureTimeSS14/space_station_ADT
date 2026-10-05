@@ -6,7 +6,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - Bitter
+      - bitter
   - type: SolutionContainerManager
     solutions:
       food:

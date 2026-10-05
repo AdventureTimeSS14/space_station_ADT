@@ -1127,14 +1127,14 @@ CableMVStackLingering10: CableMVStack10
 CableApcStackLingering10: CableApcStack10
 
 # 2026-07-19
-BoxHugNitrogen: BoxSurvivalHugNitrogen
-BoxMime: BoxSurvival
-BoxMimeNitrogen: BoxSurvivalNitrogen
+# BoxHugNitrogen: BoxSurvivalHugNitrogen # ADT-Tweak
+# BoxMime: BoxSurvival # ADT-Tweak
+# BoxMimeNitrogen: BoxSurvivalNitrogen # ADT-Tweak
 # BoxMimeMoth still exists, so mapper maps keep it.
 
 # 2026-07-19
 CrateChemistryVials: null
-CrateSecurityHelmet: null
+# CrateSecurityHelmet: null # ADT-Tweak
 CrateEmergencyInternals: CrateEmergencyEVA
 CrateEmergencyInternalsLarge: CrateEmergencyEVA
 CrateNitrogenInternals: CrateEmergencyEVA

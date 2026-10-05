@@ -12,6 +12,7 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Shared.Wall;
 
 namespace Content.Shared._RMC14.Line;
 
@@ -24,7 +25,6 @@ public sealed class LineSystem : EntitySystem
     [Dependency] private SharedTransformSystem _transform = default!;
 
     private static readonly ProtoId<TagPrototype> StructureTag = "Structure";
-    private static readonly ProtoId<TagPrototype> WallTag = "Wall";
 
     private EntityQuery<DoorComponent> _doorQuery;
     private EntityQuery<MapGridComponent> _mapGridQuery;
@@ -170,7 +170,7 @@ public sealed class LineSystem : EntitySystem
             var blockCount = 0;
             foreach (var entity in results)
             {
-                if (!_tag.HasAnyTag(entity, StructureTag, WallTag))
+                if (!_tag.HasTag(entity, StructureTag) && !HasComp<WallComponent>(entity))
                     continue;
 
                 blockCount++;
@@ -200,7 +200,7 @@ public sealed class LineSystem : EntitySystem
                 return true;
             }
 
-            if (_tag.HasAnyTag(uid.Value, StructureTag, WallTag))
+            if (_tag.HasTag(uid.Value, StructureTag) || HasComp<WallComponent>(uid.Value))
             {
                 blocker = uid.Value;
                 return true;

@@ -93,9 +93,7 @@
   components:
   - type: TimedDespawn
     lifetime: 30
-  - type: Tag
-    tags:
-    - Wall
+  - type: Wall
     # ADT: no WideSwingIgnore
   - type: Physics
     bodyType: Static

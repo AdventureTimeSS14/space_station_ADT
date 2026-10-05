@@ -208,7 +208,7 @@
   components:
   - type: Wieldable
     wieldSound: !type:SoundPathSpecifier
-      path: /Audio/Weapons/chainsawwield.ogg
+      path: /Audio/ADT/Weapons/Chainsaw/chainsawwield.ogg
       params:
         volume: 1
   - type: MeleeRequiresWield
@@ -229,7 +229,7 @@
         Holy: 1.25
         Slash: 0.5
     soundHit:
-      path: /Audio/Weapons/chainsaw.ogg
+      path: /Audio/ADT/Weapons/Chainsaw/chainsaw.ogg
       params:
         volume: -3
   - type: Item
