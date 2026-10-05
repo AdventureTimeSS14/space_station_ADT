@@ -821,10 +821,17 @@
 
 # cyborg
 
-#- type: entity
-#  parent: IDCardStandard
-#  id: ADTCyborgIDCard
-#  name: cyborg ID card
-#  components:
-#  - type: IdCard
-#    jobTitle: job-name-cyborg
+- type: entity
+  parent: IDCardStandard
+  id: ADTCyborgIDCard
+  name: cyborg ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+  - type: Access
+    tags:
+    - Borg
+  - type: IdCard
+    jobTitle: job-name-cyborg
+    jobIcon: JobIconBorg
