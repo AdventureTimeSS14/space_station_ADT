@@ -557,18 +557,9 @@
     damage:
       types:
         Piercing: 4
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      melee:
-        reagents:
-        - ReagentId: Rewriter
-          Quantity: 35
-  - type: SolutionRegeneration
-    solution: melee
-    generated:
-      reagents:
-      - ReagentId: Rewriter
-        Quantity: 2
+    - SolutionNotariusVenom
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:
@@ -643,3 +634,21 @@
   - type: Item
     size: Tiny
     heldPrefix: 3
+
+- type: entity
+  parent: SolutionWeapon
+  id: SolutionNotariusVenom
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 35
+      reagents:
+      - ReagentId: Rewriter
+        Quantity: 35
+  - type: SolutionRegeneration
+    generated:
+      reagents:
+      - ReagentId: Rewriter
+        Quantity: 2
+

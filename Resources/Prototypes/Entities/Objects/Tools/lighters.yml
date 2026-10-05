@@ -435,7 +435,7 @@
         - ReagentId: Plasma
           Quantity: 999
         maxVol: 999
-    color: Gold
+    # color: Gold # ADT-Tweak: у SolutionContainerManager больше нет поля color
   - type: Tool
     useSound:
       collection: Welder

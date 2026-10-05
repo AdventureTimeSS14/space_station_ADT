@@ -66,16 +66,9 @@
     refineResult:
     - id: FoodMeat
       amount: 2
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      udder:
-        maxVol: 100
-  - type: SolutionRegeneration
-    solution: udder
-    generated:
-      reagents:
-      - ReagentId: ADTMilkGutlunch
-        Quantity: 0.2
+    - SolutionGutlunchUdder
   - type: HarvestableSolution
     solutionName: udder
     verbText: udder-system-verb-milk
@@ -227,3 +220,19 @@
       ADTGemRuperium: 0.4
   - type: MobPrice
     price: 300
+
+- type: entity
+  parent: Solution
+  id: SolutionGutlunchUdder
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: udder
+    solution:
+      maxVol: 100
+  - type: SolutionRegeneration
+    generated:
+      reagents:
+      - ReagentId: ADTMilkGutlunch
+        Quantity: 0.2
+

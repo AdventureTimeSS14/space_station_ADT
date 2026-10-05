@@ -324,29 +324,11 @@
     requiresSpecialDigestion: true
     utensil: None
     delay: 3
+  - type: SolutionManager
+    solutions:
+    - SolutionCoal
+    - SolutionCoalFood
   # ADT-Tweak-End
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: Carbon
-        Quantity: 8.4
-      - ReagentId: Ammonia
-        Quantity: 0.8
-      - ReagentId: Hydrogen
-        Quantity: 0.5
-      - ReagentId: Sulfur
-        Quantity: 0.2
-      - ReagentId: Mercury
-        Quantity: 0.1
-      # ADT-Tweak-Start
-      food:
-        maxVol: 12
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Carbon
-          Quantity: 2
-      # ADT-Tweak-End
   - type: PhysicalComposition
     materialComposition:
       Coal: 300   #ADT_Tweak - повышено со 100
@@ -417,3 +399,40 @@
   components:
   - type: Stack
     count: 1
+
+# ADT-Tweak-Start: уголь едят, поэтому еда вынесена в отдельный раствор
+- type: entity
+  parent: Solution
+  id: SolutionCoal
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: coal
+    solution:
+      reagents:
+      - ReagentId: Carbon
+        Quantity: 8.4
+      - ReagentId: Ammonia
+        Quantity: 0.8
+      - ReagentId: Hydrogen
+        Quantity: 0.5
+      - ReagentId: Sulfur
+        Quantity: 0.2
+      - ReagentId: Mercury
+        Quantity: 0.1
+
+- type: entity
+  parent: SolutionFood
+  id: SolutionCoalFood
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 12
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: Carbon
+        Quantity: 2
+# ADT-Tweak-End
+

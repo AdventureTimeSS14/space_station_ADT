@@ -9,5 +9,5 @@
   startingValueMaximum: Full
   alertCategory: Chemicals
   alerts:
-    Full: ChemicalsChangeling
-    Empty: ChemicalsChangeling
+    Full: ChangelingChemicals # ADT-Tweak
+    Empty: ChangelingChemicals # ADT-Tweak

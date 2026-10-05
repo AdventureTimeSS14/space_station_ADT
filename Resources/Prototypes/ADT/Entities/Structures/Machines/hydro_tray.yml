@@ -47,7 +47,6 @@
   - type: Machine
     board: ADTHydroponicsTrayAdvancedMachineCircuitboard
   - type: SolutionRegeneration
-    solution: soil
     generated:
       reagents:
       - ReagentId: Water
