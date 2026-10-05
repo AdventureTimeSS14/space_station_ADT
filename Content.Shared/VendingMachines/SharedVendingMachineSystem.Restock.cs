@@ -111,7 +111,7 @@ public abstract partial class SharedVendingMachineSystem
         EntityUid user,
         EntityUid target)
     {
-        if (component.CanRestock.Contains(machineComponent.PackPrototypeId)) return true;
+        if (component.CanRestock.Contains((string) machineComponent.PackPrototypeId)) return true; // ADT-Tweak
         Popup.PopupCursor(Loc.GetString("vending-machine-restock-invalid-inventory", ("this", uid), ("user", user),
             ("target", target)), user);
 

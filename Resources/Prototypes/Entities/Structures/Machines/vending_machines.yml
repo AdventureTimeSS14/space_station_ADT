@@ -353,9 +353,9 @@
   components:
   - type: ADTVendingMachine
     pack: ChefvendInventory
+    allForFree: true # ADT-Economy
   - type: VendingMachineVisuals
     ejectState: eject-unshaded
-    allForFree: true # ADT-Economy
   - type: DatasetVocalizer
     dataset: ChefvendAds
   - type: SpeakOnUIClosed
@@ -779,9 +779,9 @@
   components:
   - type: ADTVendingMachine
     pack: DinnerwareInventory
+    allForFree: true # ADT-Economy
   - type: VendingMachineVisuals
     ejectState: eject-unshaded
-    allForFree: true # ADT-Economy
   - type: DatasetVocalizer
     dataset: DinnerwareAds
   - type: SpeakOnUIClosed
@@ -955,10 +955,10 @@
   components:
   - type: ADTVendingMachine
     pack: NutriMaxInventory
+    allForFree: true # ADT-Economy
   - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
-    allForFree: true # ADT-Economy
   - type: DatasetVocalizer
     dataset: NutriMaxAds
   - type: SpeakOnUIClosed
@@ -1025,10 +1025,10 @@
   components:
   - type: ADTVendingMachine
     pack: MegaSeedServitorInventory
+    allForFree: true # ADT-Economy
   - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
-    allForFree: true # ADT-Economy
   - type: DatasetVocalizer
     dataset: MegaSeedAds
   - type: SpeakOnUIClosed
@@ -1095,10 +1095,10 @@
   components:
   - type: ADTVendingMachine
     pack: SustenanceInventory
+    allForFree: true # ADT-Economy
   - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
-    allForFree: true # ADT-Economy
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/sustenance.rsi
     layers:

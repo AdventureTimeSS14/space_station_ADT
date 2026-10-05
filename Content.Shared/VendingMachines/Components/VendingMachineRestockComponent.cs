@@ -22,7 +22,7 @@ public sealed partial class VendingMachineRestockComponent : Component
     /// This is checked against the VendingMachineComponent's pack value.
     /// </summary>
     [DataField]
-    public HashSet<ProtoId<VendingMachineInventoryPrototype>> CanRestock = [];
+    public HashSet<ProtoId<Content.Shared.ADT.VendingMachines.VendingMachineInventoryPrototype>> CanRestock = []; // ADT-Tweak
 
     /// <summary>
     ///     Sound that plays when starting to restock a machine.

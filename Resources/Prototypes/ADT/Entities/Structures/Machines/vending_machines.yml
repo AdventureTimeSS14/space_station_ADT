@@ -6,6 +6,7 @@
   components:
   - type: ADTVendingMachine
     pack: PatholodrobeInventory
+  - type: VendingMachineVisuals
     offState: off
     brokenState: broken
     normalState: normal-unshaded
@@ -39,6 +40,7 @@
   - type: ADTVendingMachine
     priceMultiplier: 0.8
     pack: ADTPrazatClothesMateInventory
+  - type: VendingMachineVisuals
     offState: off
     brokenState: broken
     normalState: normal-unshaded
@@ -78,6 +80,7 @@
   components:
   - type: ADTVendingMachine
     pack: ADTTSFArmouryInventory
+  - type: VendingMachineVisuals
     offState: off
     brokenState: broken
   - type: Sprite
@@ -101,11 +104,13 @@
   components:
   - type: ADTVendingMachine
     pack: PillInventory
+  - type: VendingMachineVisuals
     offState: off
     brokenState: broken
     normalState: normal-unshaded
     denyState: deny-unshaded
     ejectState: eject-unshaded
+  - type: VendingMachineEject
     ejectDelay: 0.6
   - type: DatasetVocalizer
     dataset: PillAds
@@ -137,6 +142,7 @@
   components:
   - type: ADTVendingMachine
     pack: ParadrobeInventory
+  - type: VendingMachineVisuals
     offState: off
     brokenState: broken
     normalState: normal-unshaded
@@ -169,12 +175,14 @@
   components:
   - type: ADTVendingMachine
     pack: ADTCiviMedVendInventory
+    priceMultiplier: 1.1
+    # ejectState: eject-unshaded  No sprite, see chefvend/dinnerware/BODA/etc for expamples
+  - type: VendingMachineVisuals
     offState: off
     brokenState: broken
     normalState: normal-unshaded
-    priceMultiplier: 1.1
+  - type: VendingMachineEject
     ejectDelay: 0.6
-    # ejectState: eject-unshaded  No sprite, see chefvend/dinnerware/BODA/etc for expamples
   - type: DatasetVocalizer
     dataset: ADTCiviMedAds
   - type: Sprite
@@ -206,15 +214,18 @@
   - type: ADTVendingMachine
     pack: ADTIceCreamVendInventory
     initialStockQuality: 0.33
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
+    priceMultiplier: 0.57 # ADT-Economy
+  - type: VendingMachineVisuals
     offState: off
     brokenState: broken
     normalState: normal-unshaded
     ejectState: eject-unshaded
     denyState: deny-unshaded
-    priceMultiplier: 0.57 # ADT-Economy
+  - type: VendingMachineEject
     ejectDelay: 1
+  - type: VendingMachineDispenseOnHit
+    chance: 0.25
+    threshold: 2
   - type: DatasetVocalizer
     dataset: IceCreammatAds
   - type: SpeakOnUIClosed
@@ -245,12 +256,13 @@
   components:
   - type: ADTVendingMachine
     pack: ADTMusicomatInventory
+    allForFree: true
+  - type: VendingMachineVisuals
     offState: off
     brokenState: broken
     normalState: normal-unshaded
     ejectState: eject-unshaded
     denyState: deny-unshaded
-    allForFree: true
     screenState: screen
   - type: DatasetVocalizer
     dataset: MusicDrobeAds
@@ -282,19 +294,22 @@
   components:
   - type: ADTVendingMachine
     pack: HotDrinksMachineInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
+    initialStockQuality: 0.33
+    allForFree: true # ADT-Economy
+
+  - type: VendingMachineVisuals
     offState: off
     brokenState: broken
     normalState: normal-unshaded
     ejectState: eject-unshaded
     denyState: deny-unshaded
     screenState: screen
+  - type: VendingMachineEject
     ejectDelay: 5
     soundVend: /Audio/Machines/machine_vend_hot_drink.ogg
-    initialStockQuality: 0.33
-    allForFree: true # ADT-Economy
-
+  - type: VendingMachineDispenseOnHit
+    chance: 0.25
+    threshold: 2
 - type: entity
   parent: VendingMachineGames
   id: ADTVendingMachineGamesFree
@@ -304,13 +319,15 @@
   components:
   - type: ADTVendingMachine
     pack: GoodCleanFunInventory
+    allForFree: true # ADT-Economy
+
+  - type: VendingMachineVisuals
     offState: off
     brokenState: broken
     normalState: normal-unshaded
     ejectState: eject-unshaded
+  - type: VendingMachineEject
     ejectDelay: 1.8
-    allForFree: true # ADT-Economy
-
 - type: entity
   parent: VendingMachineSnack
   id: ADTVendingMachineSnackFree
@@ -320,16 +337,18 @@
   components:
   - type: ADTVendingMachine
     pack: GetmoreChocolateCorpInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
+    initialStockQuality: 0.33
+    allForFree: true # ADT-Economy
+
+  - type: VendingMachineVisuals
     offState: off
     brokenState: broken
     normalState: normal-unshaded
     ejectState: eject-unshaded
     denyState: deny-unshaded
-    initialStockQuality: 0.33
-    allForFree: true # ADT-Economy
-
+  - type: VendingMachineDispenseOnHit
+    chance: 0.25
+    threshold: 2
 - type: entity
   parent: VendingMachine
   id: ADTVendingMachineBarberDrobe
@@ -338,6 +357,7 @@
   components:
   - type: ADTVendingMachine
     pack: ADTBarberdrobeInventory
+  - type: VendingMachineVisuals
     offState: off
     brokenState: broken
     normalState: normal-unshaded

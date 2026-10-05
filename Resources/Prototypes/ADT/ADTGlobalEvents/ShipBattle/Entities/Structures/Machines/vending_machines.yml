@@ -6,17 +6,20 @@
   components:
   - type: ADTVendingMachine
     pack: ADTShellDispenserInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
+    # screenState: screen
+    allForFree: true # ADT-Economy
+  - type: VendingMachineVisuals
     offState: off
     brokenState: broken
     normalState: normal-unshaded
     ejectState: eject-unshaded
     denyState: deny-unshaded
-    # screenState: screen
+  - type: VendingMachineEject
     ejectDelay: 2
     soundVend: /Audio/ADT/ADTGlobalEvents/ShipBattle/Machines/shell_in.ogg
-    allForFree: true # ADT-Economy
+  - type: VendingMachineDispenseOnHit
+    chance: 0.25
+    threshold: 2
   - type: Speech
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Machines/VendingMachines/shelldispenser.rsi
@@ -44,17 +47,20 @@
   components:
   - type: ADTVendingMachine
     pack: ADTWeaponTSFDispenserInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
+    allForFree: true # ADT-Economy
+  - type: VendingMachineVisuals
     offState: off_tsf
     brokenState: broken_tsf
     normalState: normal_weapon_tsf
     ejectState: eject_weapon_tsf
     denyState: deny_tsf
     screenState: screen_weapon_tsf
+  - type: VendingMachineEject
     ejectDelay: 2
     soundVend: /Audio/ADT/ADTGlobalEvents/ShipBattle/Machines/shell_in.ogg
-    allForFree: true # ADT-Economy
+  - type: VendingMachineDispenseOnHit
+    chance: 0.25
+    threshold: 2
   - type: Speech
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Machines/VendingMachines/vendings.rsi
@@ -82,17 +88,20 @@
   components:
   - type: ADTVendingMachine
     pack: ADTWeaponKMTDispenserInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
+    allForFree: true # ADT-Economy
+  - type: VendingMachineVisuals
     offState: off_kmt
     brokenState: broken_kmt
     normalState: normal_weapon_kmt
     ejectState: eject_weapon_kmt
     denyState: deny_kmt
     screenState: screen_weapon_kmt
+  - type: VendingMachineEject
     ejectDelay: 2
     soundVend: /Audio/ADT/ADTGlobalEvents/ShipBattle/Machines/shell_in.ogg
-    allForFree: true # ADT-Economy
+  - type: VendingMachineDispenseOnHit
+    chance: 0.25
+    threshold: 2
   - type: Speech
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Machines/VendingMachines/vendings.rsi
@@ -120,17 +129,20 @@
   components:
   - type: ADTVendingMachine
     pack: ADTShipBattleAmmoDispenserInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
+    allForFree: true # ADT-Economy
+  - type: VendingMachineVisuals
     offState: off_tsf
     brokenState: broken_tsf
     normalState: normal_ammo
     ejectState: eject_ammo
     denyState: deny_tsf
     screenState: screen_ammo_tsf
+  - type: VendingMachineEject
     ejectDelay: 2
     soundVend: /Audio/ADT/ADTGlobalEvents/ShipBattle/Machines/shell_in.ogg
-    allForFree: true # ADT-Economy
+  - type: VendingMachineDispenseOnHit
+    chance: 0.25
+    threshold: 2
   - type: Speech
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Machines/VendingMachines/vendings.rsi
@@ -158,17 +170,20 @@
   components:
   - type: ADTVendingMachine
     pack: ADTShipBattleAmmoDispenserInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
+    allForFree: true # ADT-Economy
+  - type: VendingMachineVisuals
     offState: off_kmt
     brokenState: broken_kmt
     normalState: normal_ammo
     ejectState: eject_ammo
     denyState: deny_kmt
     screenState: screen_ammo_kmt
+  - type: VendingMachineEject
     ejectDelay: 2
     soundVend: /Audio/ADT/ADTGlobalEvents/ShipBattle/Machines/shell_in.ogg
-    allForFree: true # ADT-Economy
+  - type: VendingMachineDispenseOnHit
+    chance: 0.25
+    threshold: 2
   - type: Speech
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Machines/VendingMachines/vendings.rsi
@@ -196,17 +211,20 @@
   components:
   - type: ADTVendingMachine
     pack: ADTShipBattleMedicalDispenserInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
+    allForFree: true # ADT-Economy
+  - type: VendingMachineVisuals
     offState: off_tsf
     brokenState: broken_tsf
     normalState: normal_med
     ejectState: eject_med
     denyState: deny_tsf
     screenState: screen_med_tsf
+  - type: VendingMachineEject
     ejectDelay: 2
     soundVend: /Audio/ADT/ADTGlobalEvents/ShipBattle/Machines/shell_in.ogg
-    allForFree: true # ADT-Economy
+  - type: VendingMachineDispenseOnHit
+    chance: 0.25
+    threshold: 2
   - type: Speech
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Machines/VendingMachines/vendings.rsi
@@ -234,17 +252,20 @@
   components:
   - type: ADTVendingMachine
     pack: ADTShipBattleMedicalDispenserInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
+    allForFree: true # ADT-Economy
+  - type: VendingMachineVisuals
     offState: off_kmt
     brokenState: broken_kmt
     normalState: normal_med
     ejectState: eject_med
     denyState: deny_kmt
     screenState: screen_med_kmt
+  - type: VendingMachineEject
     ejectDelay: 2
     soundVend: /Audio/ADT/ADTGlobalEvents/ShipBattle/Machines/shell_in.ogg
-    allForFree: true # ADT-Economy
+  - type: VendingMachineDispenseOnHit
+    chance: 0.25
+    threshold: 2
   - type: Speech
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Machines/VendingMachines/vendings.rsi
@@ -272,17 +293,20 @@
   components:
   - type: ADTVendingMachine
     pack: ADTTSFUniformDispenserInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
+    allForFree: true # ADT-Economy
+  - type: VendingMachineVisuals
     offState: off_tsf
     brokenState: broken_tsf
     normalState: normal_uniform_tsf
     ejectState: eject_uniform_tsf
     denyState: deny_tsf
     screenState: screen_uniform_tsf
+  - type: VendingMachineEject
     ejectDelay: 2
     soundVend: /Audio/ADT/ADTGlobalEvents/ShipBattle/Machines/shell_in.ogg
-    allForFree: true # ADT-Economy
+  - type: VendingMachineDispenseOnHit
+    chance: 0.25
+    threshold: 2
   - type: Speech
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Machines/VendingMachines/vendings.rsi
@@ -310,17 +334,20 @@
   components:
   - type: ADTVendingMachine
     pack: ADTKMTUniformDispenserInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
+    allForFree: true # ADT-Economy
+  - type: VendingMachineVisuals
     offState: off_kmt
     brokenState: broken_kmt
     normalState: normal_uniform_kmt
     ejectState: eject_uniform_kmt
     denyState: deny_kmt
     screenState: screen_uniform_kmt
+  - type: VendingMachineEject
     ejectDelay: 2
     soundVend: /Audio/ADT/ADTGlobalEvents/ShipBattle/Machines/shell_in.ogg
-    allForFree: true # ADT-Economy
+  - type: VendingMachineDispenseOnHit
+    chance: 0.25
+    threshold: 2
   - type: Speech
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Machines/VendingMachines/vendings.rsi
@@ -348,17 +375,20 @@
   components:
   - type: ADTVendingMachine
     pack: ADTFoodDispenserInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
+    allForFree: true # ADT-Economy
+  - type: VendingMachineVisuals
     offState: off_common
     brokenState: broken_common
     normalState: normal_food
     ejectState: eject_food
     denyState: deny_common
     screenState: screen_food
+  - type: VendingMachineEject
     ejectDelay: 2
     soundVend: /Audio/ADT/ADTGlobalEvents/ShipBattle/Machines/shell_in.ogg
-    allForFree: true # ADT-Economy
+  - type: VendingMachineDispenseOnHit
+    chance: 0.25
+    threshold: 2
   - type: Speech
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Machines/VendingMachines/vendings.rsi
@@ -386,17 +416,20 @@
   components:
   - type: ADTVendingMachine
     pack: ADTAdditionsDispenserInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
+    allForFree: true # ADT-Economy
+  - type: VendingMachineVisuals
     offState: off_tsf
     brokenState: broken_tsf
     normalState: normal_add
     ejectState: eject_add
     denyState: deny_tsf
     screenState: screen_add_tsf
+  - type: VendingMachineEject
     ejectDelay: 2
     soundVend: /Audio/ADT/ADTGlobalEvents/ShipBattle/Machines/shell_in.ogg
-    allForFree: true # ADT-Economy
+  - type: VendingMachineDispenseOnHit
+    chance: 0.25
+    threshold: 2
   - type: Speech
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Machines/VendingMachines/vendings.rsi
@@ -424,17 +457,20 @@
   components:
   - type: ADTVendingMachine
     pack: ADTAdditionsDispenserInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
+    allForFree: true # ADT-Economy
+  - type: VendingMachineVisuals
     offState: off_kmt
     brokenState: broken_kmt
     normalState: normal_add
     ejectState: eject_add
     denyState: deny_kmt
     screenState: screen_add_kmt
+  - type: VendingMachineEject
     ejectDelay: 2
     soundVend: /Audio/ADT/ADTGlobalEvents/ShipBattle/Machines/shell_in.ogg
-    allForFree: true # ADT-Economy
+  - type: VendingMachineDispenseOnHit
+    chance: 0.25
+    threshold: 2
   - type: Speech
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Machines/VendingMachines/vendings.rsi
@@ -462,17 +498,20 @@
   components:
   - type: ADTVendingMachine
     pack: ADTTSFEngineeringDispenserInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
+    allForFree: true # ADT-Economy
+  - type: VendingMachineVisuals
     offState: off_tsf
     brokenState: broken_tsf
     normalState: normal_engi_tsf
     ejectState: eject_engi_tsf
     denyState: deny_tsf
     screenState: screen_engi_tsf
+  - type: VendingMachineEject
     ejectDelay: 2
     soundVend: /Audio/ADT/ADTGlobalEvents/ShipBattle/Machines/shell_in.ogg
-    allForFree: true # ADT-Economy
+  - type: VendingMachineDispenseOnHit
+    chance: 0.25
+    threshold: 2
   - type: Speech
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Machines/VendingMachines/vendings.rsi
@@ -500,17 +539,20 @@
   components:
   - type: ADTVendingMachine
     pack: ADTKMTEngineeringDispenserInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
+    allForFree: true # ADT-Economy
+  - type: VendingMachineVisuals
     offState: off_kmt
     brokenState: broken_kmt
     normalState: normal_engi_kmt
     ejectState: eject_engi_kmt
     denyState: deny_kmt
     screenState: screen_engi_kmt
+  - type: VendingMachineEject
     ejectDelay: 2
     soundVend: /Audio/ADT/ADTGlobalEvents/ShipBattle/Machines/shell_in.ogg
-    allForFree: true # ADT-Economy
+  - type: VendingMachineDispenseOnHit
+    chance: 0.25
+    threshold: 2
   - type: Speech
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Machines/VendingMachines/vendings.rsi
