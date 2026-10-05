@@ -532,6 +532,13 @@
     - Mothership
     - Xenoborg
     - Binary
+  # ADT-Tweak-Start
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+      BorgTalk: Speak
+      RobotTalk: Understand
+  # ADT-Tweak-End
   - type: BorgChassis
     maxModules: 0
     hasMindState: robot_e

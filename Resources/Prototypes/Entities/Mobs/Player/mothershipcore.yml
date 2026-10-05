@@ -156,7 +156,6 @@
     languages:
       GalacticCommon: Speak
       BorgTalk: Speak
-      SiliconCollectiveMind: Speak
       RobotTalk: Understand
   # ADT-Tweak-End
   - type: Xenoborg
