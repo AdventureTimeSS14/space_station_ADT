@@ -32,10 +32,8 @@ public abstract partial class SharedNavMapSystem : EntitySystem
     [Dependency] private EntityQuery<NavMapDoorComponent> _doorQuery;
     [Dependency] private EntityQuery<WallComponent> _wallQuery;
 
-    // ADT-Tweak Start - New Monitor: Wall/Window tags split (was WallTags = Wall+Window)
-    private static readonly ProtoId<TagPrototype> WallTag = "Wall";
+    // ADT-Tweak: windows stay a separate nav category. Walls are WallComponent; the Wall tag no longer exists.
     private static readonly ProtoId<TagPrototype> WindowTag = "Window";
-    // ADT-Tweak End
 
     public override void Initialize()
     {
@@ -72,7 +70,7 @@ public abstract partial class SharedNavMapSystem : EntitySystem
         if (_tagSystem.HasTag(uid, WindowTag))
             return NavMapChunkType.Window;
 
-        if (_wallQuery.HasComp(uid) || _tagSystem.HasTag(uid, WallTag))
+        if (_wallQuery.HasComp(uid))
             return NavMapChunkType.Wall;
         // ADT-Tweak End
 

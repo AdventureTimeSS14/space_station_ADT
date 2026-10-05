@@ -65,6 +65,7 @@
   id: BoxHug
   name: box of hugs
   description: A special box for sensitive people.
+  suffix: Emergency
   components:
   - type: PhysicalComposition # Half of the "regular" cardboard box
     materialComposition:
@@ -73,6 +74,17 @@
     layers:
     - state: box_hug
     - state: heart
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskBreath
+        - id: EmergencyFunnyOxygenTankFilled
+        - id: EmergencyMedipen
+        - id: Flare
+        - id: FoodSnackNutribrick
+        - id: DrinkWaterBottleFull
+        - id: SpaceMedipen # ADT-Tweak
   - type: Tag
     tags:
     - BoxCardboard
