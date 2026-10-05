@@ -671,7 +671,6 @@
     backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
     contentMargin: 16.0, 16.0, 16.0, 16.0
     backgroundModulate: "#202421"
-    fontAccentColor: "#ffffff"
     fontDefaultColor: "#ffffff"
   - type: Appearance
   - type: InteractionOutline

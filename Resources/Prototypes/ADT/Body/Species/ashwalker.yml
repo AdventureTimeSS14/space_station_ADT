@@ -156,7 +156,7 @@
       55: 0.8
       75: 0.7
   - type: Temperature
-    currentTemperature: 310.15
+    temperature: 310.15
     specificHeat: 42
   - type: TemperatureSpeed
     thresholds:

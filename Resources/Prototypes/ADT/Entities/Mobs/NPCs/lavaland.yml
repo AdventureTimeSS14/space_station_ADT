@@ -427,7 +427,7 @@
       Thirst:
         prototype: SimpleMobBaseThirst
   - type: Temperature
-    currentTemperature: 310.15
+    temperature: 310.15
     specificHeat: 42
   - type: StatusEffects
     allowed:

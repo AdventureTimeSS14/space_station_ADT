@@ -49,3 +49,20 @@
     Warden: 5
     Psychologist: 0
     Reporter: 0
+    # ADT-Tweak-Start
+    ADTBattleShipCaptainKMT: 20
+    ADTBattleShipCaptainTSF: 20
+    ADTBattleShipChiefGunnerKMT: 17
+    ADTBattleShipChiefGunnerTSF: 17
+    ADTBattleShipCommanderKMT: 19
+    ADTBattleShipCommanderTSF: 19
+    ADTBattleShipExecutionalOfficerKMT: 18
+    ADTBattleShipExecutionalOfficerTSF: 18
+    ADTBattleShipMarineLeutenantKMT: 10
+    ADTBattleShipMarineLeutenantTSF: 10
+    ADTBlueShieldOfficer: 15
+    ADTCentcomConsultant: 15
+    ADTSeniorEngineer: 9
+    ADTSeniorPhysician: 9
+    ADTSeniorResearcher: 9
+    # ADT-Tweak-End

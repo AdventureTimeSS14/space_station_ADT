@@ -1,4 +1,5 @@
 - type: antagSpecifier
+  parent: BaseAntagSpecifier
   id: Heretic
   prefRoles: [ Heretic ]
   blacklist:
@@ -8,6 +9,7 @@
   - MindRoleHeretic
 
 - type: antagSpecifier
+  parent: BaseAntagSpecifier
   id: ADTBlob
   prefRoles: [ ADTBlob ]
   allowNonHumans: true
@@ -23,6 +25,7 @@
   - ADTMindRoleBlob
 
 - type: antagSpecifier
+  parent: BaseAntagSpecifier
   id: ADTShadowling
   prefRoles: [ ADTShadowling ]
   blacklist:

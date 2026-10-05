@@ -2,6 +2,7 @@ using Content.Shared.ADT.AshFlora;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
+using Content.Shared.Tools.Systems;
 using Content.Shared.Whitelist;
 using Robust.Server.GameObjects;
 using Robust.Shared.Random;
@@ -17,6 +18,7 @@ public sealed class ADTAshFloraSystem : EntitySystem
     [Dependency] private SharedDoAfterSystem _doAfter = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private SharedToolSystem _tool = default!;
 
     public override void Initialize()
     {
@@ -31,7 +33,7 @@ public sealed class ADTAshFloraSystem : EntitySystem
 
     private void OnInteractHand(Entity<ADTAshFloraComponent> ent, ref InteractHandEvent args)
     {
-        if (args.Handled || ent.Comp.ToolWhitelist != null)
+        if (args.Handled || ent.Comp.ToolWhitelist != null || ent.Comp.ToolQuality != null)
             return;
 
         args.Handled = TryStartHarvest(ent, args.User, null);
@@ -39,10 +41,13 @@ public sealed class ADTAshFloraSystem : EntitySystem
 
     private void OnInteractUsing(Entity<ADTAshFloraComponent> ent, ref InteractUsingEvent args)
     {
-        if (args.Handled || ent.Comp.ToolWhitelist == null)
+        if (args.Handled || ent.Comp.ToolWhitelist == null && ent.Comp.ToolQuality == null)
             return;
 
-        if (_whitelist.IsWhitelistFail(ent.Comp.ToolWhitelist, args.Used))
+        if (ent.Comp.ToolWhitelist != null && _whitelist.IsWhitelistFail(ent.Comp.ToolWhitelist, args.Used))
+            return;
+
+        if (ent.Comp.ToolQuality is { } quality && !_tool.HasQuality(args.Used, quality))
             return;
 
         args.Handled = TryStartHarvest(ent, args.User, args.Used);

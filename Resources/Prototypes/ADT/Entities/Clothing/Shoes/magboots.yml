@@ -49,7 +49,7 @@
     walkModifier: 1
     sprintModifier: 1
   - type: GasTank
-    outputPressure: 21.3
+    releasePressure: 21.3
     air:
       # 8 minutes of thrust
       volume: 3

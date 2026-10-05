@@ -11,6 +11,42 @@
   - ERTMedical
   - ERTJanitor
   - CBURN
+  # ADT-Tweak-Start
+  - ADTBattleShipCaptainKMT
+  - ADTBattleShipCaptainTSF
+  - ADTBattleShipChiefGunnerKMT
+  - ADTBattleShipChiefGunnerTSF
+  - ADTBattleShipCommanderKMT
+  - ADTBattleShipCommanderTSF
+  - ADTBattleShipEngineerKMT
+  - ADTBattleShipEngineerTSF
+  - ADTBattleShipExecutionalOfficerKMT
+  - ADTBattleShipExecutionalOfficerTSF
+  - ADTBattleShipGunnerKMT
+  - ADTBattleShipGunnerTSF
+  - ADTBattleShipMarineKMT
+  - ADTBattleShipMarineLeutenantKMT
+  - ADTBattleShipMarineLeutenantTSF
+  - ADTBattleShipMarineTSF
+  - ADTBattleShipMedicKMT
+  - ADTBattleShipMedicTSF
+  - ADTBattleShipNavigatorKMT
+  - ADTBattleShipNavigatorTSF
+  - ADTBattleShipPilotKMT
+  - ADTBattleShipPilotTSF
+  - ADTBlueShieldOfficer
+  - ADTCentcomConsultant
+  - ADTCorrectionsOfficer
+  - ADTJobTimePatrol
+  - ADTJobUSSPArmyOfficer
+  - ADTJobUSSPArmyPrivate
+  - ADTSeniorOfficer
+  - Brigmedic
+  - IAA
+  - Magistrat
+  - Paramedic
+  - Pilot
+  # ADT-Tweak-End
   blacklist:
     components:
     - AntagImmune

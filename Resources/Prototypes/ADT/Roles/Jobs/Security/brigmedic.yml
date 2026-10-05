@@ -25,7 +25,6 @@
   startingGear: BrigmedicGear
   icon: "JobIconBrigmedic"
   supervisors: job-supervisors-hos
-  canBeAntag: false
   access:
   - Medical
   - Security

@@ -27,7 +27,6 @@
       species:
       - Vox
     # ADT-Tweak: End
-  weight: 10
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"
   supervisors: job-supervisors-captain

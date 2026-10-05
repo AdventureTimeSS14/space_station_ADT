@@ -19,8 +19,6 @@
     refineResult:
     - id: ADTFoodMeatShadekinCutlet
       amount: 3
-  - type: InternalTemperature
-    conductivity: 0.43
   - type: Tag
     tags:
     - Raw

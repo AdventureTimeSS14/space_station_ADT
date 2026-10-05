@@ -75,9 +75,9 @@
     - type: RadiationReceiver
     - type: AtmosExposed
     - type: Temperature
-      currentTemperature: 400
+      temperature: 400
       specificHeat: 24
-      atmosTemperatureTransferEfficiency: 0.05
+      thermalConductivity: 75
     - type: TemperatureDamage
       heatDamageThreshold: 700
       coldDamageThreshold: 0
@@ -221,9 +221,9 @@
         types:
           Heat: 0.75
     - type: Temperature
-      currentTemperature: 280
+      temperature: 280
       specificHeat: 50
-      atmosTemperatureTransferEfficiency: 0.4
+      thermalConductivity: 600
     - type: TemperatureDamage
       heatDamageThreshold: 320
       coldDamageThreshold: 255

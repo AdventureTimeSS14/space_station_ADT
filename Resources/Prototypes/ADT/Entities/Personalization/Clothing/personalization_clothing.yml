@@ -1377,7 +1377,7 @@
   #   - CorgiWearable
   #   - WhitelistChameleon
   - type: GasTank
-    outputPressure: 42.6
+    releasePressure: 42.6
     air:
       # 13 minutes of thrust
       volume: 5
@@ -2001,8 +2001,6 @@
     actions:
     - ActionWeaponPull
   - type: ItemActionGrant
-    actions:
-    - ActionWeaponPull
     activeIfWorn: true
 
 - type: entity

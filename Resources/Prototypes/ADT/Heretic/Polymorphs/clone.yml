@@ -42,7 +42,7 @@
   - StutteringAccent
   # ADT: LanguageKnowledge is an enum here, not a component
   - LanguageSpeaker
-  blacklist:
+  equipmentBlacklist:
     components:
     - AttachedClothing # helmets, which are part of the suit
     - HumanoidProfile # ADT: HumanoidAppearance -> HumanoidProfile

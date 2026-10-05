@@ -3431,7 +3431,7 @@
   - type: Injurable
     damageContainer: BiologicalMetaphysical
   - type: Temperature
-    currentTemperature: 310.15
+    temperature: 310.15
     specificHeat: 42
   - type: TemperatureDamage
     heatDamageThreshold: 4000 #They come from hell, so..

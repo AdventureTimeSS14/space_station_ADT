@@ -239,7 +239,7 @@
       - ReagentId: ResomiBlood
         Quantity: 250
   - type: Temperature
-    currentTemperature: 296.15 # 23°C
+    temperature: 296.15 # 23°C
     specificHeat: 42
   - type: TemperatureDamage
     heatDamageThreshold: 308 # 35°C

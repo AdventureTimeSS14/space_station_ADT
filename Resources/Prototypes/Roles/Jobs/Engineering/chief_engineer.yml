@@ -24,7 +24,6 @@
       species:
       - Vox
       #ADT tweak end
-  weight: 10
   startingGear: ChiefEngineerGear
   icon: "JobIconChiefEngineer"
   supervisors: job-supervisors-captain

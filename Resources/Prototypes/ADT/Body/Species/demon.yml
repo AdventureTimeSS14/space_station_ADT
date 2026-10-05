@@ -145,7 +145,7 @@
         Slash: 2
         Piercing: 3
   - type: Temperature
-    currentTemperature: 310.15
+    temperature: 310.15
     specificHeat: 46
   - type: TemperatureDamage
     heatDamageThreshold: 363

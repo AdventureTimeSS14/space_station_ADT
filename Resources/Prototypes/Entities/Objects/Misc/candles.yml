@@ -62,7 +62,6 @@
         behaviors:
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
-      damageModifierSet: Wood
 
 - type: entity
   name: red candle

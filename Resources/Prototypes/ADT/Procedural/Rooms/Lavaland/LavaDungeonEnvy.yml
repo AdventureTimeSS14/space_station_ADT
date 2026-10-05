@@ -46,7 +46,7 @@
       stage: 1
       rotAccumulator: 50
     - type: Temperature
-      currentTemperature: 2.7000012
+      temperature: 2.7000012
     positions:
     - 3.3477,1.5973
   - proto: FoodMeatRotten
