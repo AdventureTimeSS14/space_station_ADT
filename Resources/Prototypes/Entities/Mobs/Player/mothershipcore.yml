@@ -151,6 +151,14 @@
     - Mothership
     - Xenoborg
     - Binary
+  # ADT-Tweak-Start
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+      BorgTalk: Speak
+      SiliconCollectiveMind: Speak
+      RobotTalk: Understand
+  # ADT-Tweak-End
   - type: Xenoborg
     mindRole: MindRoleMothershipCore
     briefingText: mothership-welcome
