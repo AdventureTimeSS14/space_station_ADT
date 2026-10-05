@@ -12,6 +12,9 @@
     offset: "0,0.5"
   - type: Transform
     noRot: true
+  - type: Physics
+    bodyType: Kinematic
+    canCollide: false
   - type: PointLight
     enabled: true
     radius: 4

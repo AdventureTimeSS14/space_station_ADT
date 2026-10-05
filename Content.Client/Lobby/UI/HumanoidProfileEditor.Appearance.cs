@@ -194,6 +194,7 @@ public sealed partial class HumanoidProfileEditor
         RefreshLoadouts();
         UpdateSexControls(); // update sex for new species
         UpdateSpeciesGuidebookIcon();
+        UpdateBodyTypeControls(); // ADT-Tweak
         ReloadPreview();
     }
 

@@ -1,0 +1,209 @@
+- type: entity
+  id: ADTMobLesserAshDrake
+  name: lesser ash drake
+  description: Guardians of the Necropolis.
+  parent: BaseMob
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Aliens/Lavaland/drake.rsi
+    drawdepth: Mobs
+    noRot: true
+    offset: 0,0.5
+    layers:
+    - map:
+      - enum.DamageStateVisualLayers.Base
+      state: dragon
+  - type: Appearance
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: dragon
+      Dead:
+        Base: dragon_dead
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.4
+        density: 80
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Damageable
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Dead
+  - type: Destructible
+    thresholds: []
+  - type: StaminaResistance
+    damageCoefficient: 0
+    worn: false
+  - type: StatusEffects
+    allowed: []
+  - type: ExplosionResistance
+    damageCoefficient: 0
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 2
+  - type: MovementIgnoreGravity
+  - type: NoSlip
+  - type: CombatMode
+  - type: MeleeWeapon
+    attackRate: 1.25
+    damage:
+      types:
+        Blunt: 30
+        Structural: 80
+    range: 1.5
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/demon_attack1.ogg
+      params:
+        variation: 0.125
+  - type: ArmorPenetration
+    penetration: 0.4
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepHeavy
+  - type: PointLight
+    radius: 3
+    energy: 1
+  - type: NpcFactionMember
+    factions:
+    - NanoTrasen
+  - type: Fauna
+  - type: AshStormImmune
+  - type: ActionsContainer
+  - type: ActionGrant
+    actions:
+    - ADTActionLesserDrakeFireCone
+    - ADTActionLesserDrakeSwoop
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: DiamondOre1
+      amount: 5
+    - id: ADTMaterialSinew1
+      amount: 5
+    - id: MaterialBones1
+      amount: 30
+  - type: ADTLesserDrake
+  - type: ADTDrake
+    rangedCooldown: 3
+    decisionInterval: 2
+    angerDamageDivisor: 50
+    maxAnger: 20
+    canDevour: false
+    fireLineRange: 15
+    fireConeAngles: [ -40, 0, 40 ]
+    fireConeMeteorChance: 0.5
+    fireLineDamage: 20
+    fireLineMechDamage: 45
+    fireLineStepDelay: 0.15
+    swoopDamage: 75
+    swoopMechDamage: 75
+    swoopThrowRange: 3
+    lavaPoolsAmount: 10
+    lavaPoolDelay: 0.2
+    lavaPoolRadius: 1
+    lavaPoolResetTime: 6
+    fireSound:
+      path: /Audio/Magic/fireball.ogg
+      params:
+        variation: 0.125
+    swoopLandSound:
+      path: /Audio/ADT/Drake/meteorimpact.ogg
+      params:
+        variation: 0.125
+    deathSound:
+      path: /Audio/Effects/demon_dies.ogg
+      params:
+        variation: 0.125
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - DoorBumpOpener
+    - StunImmune
+
+- type: entity
+  id: ADTLesserDrakeSwoopTarget
+  categories: [ HideSpawnMenu ]
+  name: swoop target
+  components:
+  - type: Transform
+  - type: TimedDespawn
+    lifetime: 30
+
+- type: polymorph
+  id: ADTPolymorphLesserAshDrake
+  configuration:
+    entity: ADTMobLesserAshDrake
+    forced: true
+    transferName: false
+    transferDamage: false
+    inventory: None
+    revertOnCrit: false
+    revertOnDeath: false
+    allowRepeatedMorphs: true
+
+- type: entity
+  parent: BaseAction
+  id: ADTActionDragonForm
+  name: Dragon Form
+  description: Take on the shape a lesser ash drake after a short delay.
+  components:
+  - type: Action
+    useDelay: 10
+    itemIconStyle: BigAction
+    icon:
+      sprite: ADT/Interface/Actions/dragon_form.rsi
+      state: shapeshift
+  - type: InstantAction
+    event: !type:ADTDragonFormActionEvent
+      polymorph: ADTPolymorphLesserAshDrake
+      delay: 5
+      emote: Scream
+      convertGroup: Brute
+
+- type: entity
+  parent: BaseAction
+  id: ADTActionLesserDrakeFireCone
+  name: Fire Cone
+  description: Breathe a cone of fire at the target.
+  components:
+  - type: Action
+    useDelay: 3
+    itemIconStyle: BigAction
+    icon:
+      sprite: ADT/Effects/drake_effects.rsi
+      state: fireball
+  - type: TargetAction
+    range: 60
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:ADTLesserDrakeFireConeActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ADTActionLesserDrakeSwoop
+  name: Swoop
+  description: Soar into the air, crash down on the target and cover the ground around it with lava.
+  components:
+  - type: Action
+    useDelay: 20
+    itemIconStyle: BigAction
+    icon:
+      sprite: ADT/Effects/drake_effects.rsi
+      state: lava_warning
+  - type: TargetAction
+    range: 60
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:ADTLesserDrakeSwoopActionEvent
+      recovery: 3
+      targetMarker: ADTLesserDrakeSwoopTarget

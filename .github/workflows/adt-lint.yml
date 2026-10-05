@@ -1,0 +1,85 @@
+name: Lint
+
+on:
+  push:
+    branches: [ master, staging, stable ]
+  merge_group:
+  pull_request:
+    types: [ opened, reopened, synchronize, ready_for_review ]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  lint:
+    name: Lint
+    if: github.actor != 'IanComradeBot' && github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4.2.2
+
+    - name: Setup Submodule
+      run: git submodule update --init
+
+    # Corvax-Secrets-Start
+    - name: Setup secrets
+      env:
+        SSH_KEY: ${{ secrets.SECRETS_PRIVATE_KEY }}
+      if: ${{ env.SSH_KEY != '' }}
+      run: |
+        mkdir ~/.ssh
+        echo "${{ secrets.SECRETS_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        echo "HOST *" > ~/.ssh/config
+        echo "StrictHostKeyChecking no" >> ~/.ssh/config
+        git -c submodule.Secrets.update=checkout submodule update --init
+    # Corvax-Secrets-End
+
+    - name: Pull engine updates
+      uses: space-wizards/submodule-dependency@v0.1.5
+
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install --quiet pyyaml soundfile pillow jsonschema
+
+    - name: CRLF Check
+      if: ${{ !cancelled() }}
+      run: python Tools/check_crlf.py
+
+    - name: Map proto references check
+      if: ${{ !cancelled() }}
+      run: python Tools/ADT/check_maps_vs_protos.py
+
+    - name: Validate OGG files
+      if: ${{ !cancelled() }}
+      run: python Tools/ADT/validate_ogg.py
+
+    - name: Validate RSIs
+      if: ${{ !cancelled() }}
+      run: python RobustToolbox/Schemas/validate_rsis.py Resources/
+
+    - name: YAML RGA schema validator
+      if: ${{ !cancelled() }}
+      uses: PaulRitter/yaml-schema-validator@v1
+      with:
+        schema: .github/Schemas/rga.yml
+        path_pattern: .*attributions.ya?ml$
+        validators_path: RobustToolbox/Schemas/rga_validators.py
+        validators_requirements: .github/Schemas/rga_requirements.txt
+
+    - name: YAML map schema validator
+      if: ${{ !cancelled() }}
+      uses: PaulRitter/yaml-schema-validator@v1
+      with:
+        schema: RobustToolbox/Schemas/mapfile.yml
+        path_pattern: .*Resources/Maps/.*
+        validators_path: RobustToolbox/Schemas/mapfile_validators.py
+        validators_requirements: .github/Schemas/mapfile_requirements.txt

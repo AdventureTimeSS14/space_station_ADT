@@ -326,7 +326,7 @@ public sealed partial class GrabIntentSystem
                 ? pullablePhysics.Mass * pullerPhysics.InvMass
                 : 1f) * 2f,
             0.5f, 2f);
-        var extraMultiplier = 1f;
+        var extraMultiplier = pullable.Comp2.EscapeChanceMultiplier;
         if (_standing.IsDown(pullable.Owner))
             extraMultiplier *= puller.Comp2.DownedEscapeChanceMultiplier;
         var raiseEv = new RaiseGrabModifierEventEvent(puller.Owner, 0);

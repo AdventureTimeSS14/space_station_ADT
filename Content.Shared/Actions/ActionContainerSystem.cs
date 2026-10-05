@@ -281,8 +281,12 @@ public sealed class ActionContainerSystem : EntitySystem
         // However, just in case the container was already deleted we will still manually clear the container field
         if (ent.Comp.Container is {} container)
         {
+            // ADT-Tweak: diagnostic for orphaned action entities (stale Container pointing at an already-deleted entity)
             if (Exists(container))
                 Log.Error($"Failed to remove action {ToPrettyString(ent)} from its container {ToPrettyString(container)}?");
+            else
+                Log.Warning($"ADT diagnostic: action {ToPrettyString(ent)} had a stale Container reference to " +
+                    $"already-deleted entity {container}; clearing it now via RemoveAction (called from: AttachedEntity={ent.Comp.AttachedEntity?.ToString() ?? "null"}).");
             ent.Comp.Container = null;
             DirtyField(ent, ent.Comp, nameof(ActionComponent.Container));
         }
@@ -301,10 +305,37 @@ public sealed class ActionContainerSystem : EntitySystem
 
     private void OnShutdown(EntityUid uid, ActionsContainerComponent component, ComponentShutdown args)
     {
+        // ADT-Tweak-start
+        if (_netMan.IsServer && _timing.ApplyingState && component.NetSyncEnabled
+            && component.Container.ContainedEntities.Count > 0)
+        {
+            Log.Warning($"ADT diagnostic: ActionsContainerComponent on {ToPrettyString(uid)} is shutting down " +
+                $"while ApplyingState=true, so ShutdownContainer is being SKIPPED. This will orphan " +
+                $"{component.Container.ContainedEntities.Count} action(s): " +
+                $"[{string.Join(", ", component.Container.ContainedEntities.Select(a => ToPrettyString(a)))}]");
+        }
+        // ADT-Tweak-end
+
         if (_timing.ApplyingState && component.NetSyncEnabled)
             return; // The game state should handle the container removal & action deletion.
 
+        // ADT-Tweak
+        var actionsBeforeShutdown = _netMan.IsServer
+            ? component.Container.ContainedEntities.ToArray()
+            : Enumerable.Empty<EntityUid>();
+
         _container.ShutdownContainer(component.Container);
+
+        // ADT-Tweak-start
+        foreach (var actionId in actionsBeforeShutdown)
+        {
+            if (!Deleted(actionId) && !TerminatingOrDeleted(actionId))
+            {
+                Log.Error($"ADT diagnostic: action {ToPrettyString(actionId)} SURVIVED ShutdownContainer of " +
+                    $"{ToPrettyString(uid)}! This action will now spam PVS resolve errors on every tick.");
+            }
+        }
+        // ADT-Tweak-end
     }
 
     private void OnEntityInserted(EntityUid uid, ActionsContainerComponent component, EntInsertedIntoContainerMessage args)

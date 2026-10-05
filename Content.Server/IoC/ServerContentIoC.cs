@@ -5,6 +5,7 @@ using Content.Server.Administration.Notes;
 using Content.Server.ADT.Antag;
 using Content.Server.ADT.Discord.Bans;
 using Content.Server.ADT.Export;
+using Content.Server.ADT.JoinQueue;
 using Content.Server.Afk;
 using Content.Server.Chat.Managers;
 using Content.Server.Connection;
@@ -103,6 +104,7 @@ internal static class ServerContentIoC
         IoCManager.Register<ISharedSponsorManager, SponsorManager>();
         // ADT-Tweak-End
         IoCManager.Register<JoinQueueManager>(); // Corvax-Queue
+        IoCManager.Register<QueueGamesManager>(); // ADT-Tweak: queue games
         deps.Register<ServerFeedbackManager>();
         deps.Register<ISharedFeedbackManager, ServerFeedbackManager>();
     }
