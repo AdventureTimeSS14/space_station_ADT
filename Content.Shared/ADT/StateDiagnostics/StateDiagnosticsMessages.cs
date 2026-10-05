@@ -1,3 +1,4 @@
+using System.Text;
 using Lidgren.Network;
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;
@@ -30,9 +31,25 @@ public sealed class MsgStateDiagnosticsReport : NetMessage
 
     public string Report = string.Empty;
 
+    private const int MaxReportBytes = StateDiagnosticsHelper.MaxReportLength * 3;
+
     public override void ReadFromBuffer(NetIncomingMessage buffer, IRobustSerializer serializer)
     {
-        Report = buffer.ReadString();
+        var byteLength = (long) buffer.ReadVariableUInt32();
+
+        if (byteLength * 8 > buffer.LengthBits - buffer.Position)
+        {
+            buffer.Position = buffer.LengthBits;
+            Report = string.Empty;
+            return;
+        }
+
+        var readLength = (int) Math.Min(byteLength, MaxReportBytes);
+        Report = Encoding.UTF8.GetString(buffer.ReadBytes(readLength));
+        buffer.Position += (byteLength - readLength) * 8;
+
+        if (Report.Length > StateDiagnosticsHelper.MaxReportLength)
+            Report = Report.Substring(0, StateDiagnosticsHelper.MaxReportLength);
     }
 
     public override void WriteToBuffer(NetOutgoingMessage buffer, IRobustSerializer serializer)
