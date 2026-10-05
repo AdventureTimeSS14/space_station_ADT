@@ -2,9 +2,10 @@ using System.Text.RegularExpressions;
 using Content.Client.ADT.Chat;
 using Content.Client.ADT.Chat.UI;
 using Content.Client.UserInterface.Systems.Chat.Widgets;
-using Content.Shared.ADT.CCVar;
 using Content.Shared.Chat;
+using Robust.Shared.ContentPack;
 using Robust.Shared.Console;
+using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Utility;
 
 namespace Content.Client.UserInterface.Systems.Chat;
@@ -15,27 +16,25 @@ namespace Content.Client.UserInterface.Systems.Chat;
 /// </summary>
 public sealed partial class ChatUIController
 {
+    [Dependency] private readonly IResourceManager _resources = default!;
+    [Dependency] private readonly ISerializationManager _serialization = default!;
+
     private List<(Regex Regex, string Emote)> _customEmotes = new();
+
+    private string _customEmotesRaw = string.Empty;
 
     private CustomEmotesWindow? _customEmotesWindow;
 
     private void InitializeCustomEmotes()
     {
-        var saved = _config.GetCVar(ADTCCVars.ChatCustomEmotes);
-
-        if (!string.IsNullOrEmpty(saved))
-            UpdateCustomEmotes(saved, true);
+        _customEmotesRaw = CustomEmoteStorage.Load(_resources, _serialization, _sawmill);
+        _customEmotes = CustomEmoteParser.Parse(_customEmotesRaw);
     }
 
-    public void UpdateCustomEmotes(string newEmotes) => UpdateCustomEmotes(newEmotes, false);
-
-    public void UpdateCustomEmotes(string newEmotes, bool firstLoad)
+    public void UpdateCustomEmotes(string newEmotes)
     {
-        if (!firstLoad)
-        {
-            _config.SetCVar(ADTCCVars.ChatCustomEmotes, newEmotes);
-            _config.SaveToFile();
-        }
+        _customEmotesRaw = newEmotes;
+        CustomEmoteStorage.Save(_resources, _serialization, _sawmill, newEmotes);
 
         _customEmotes = CustomEmoteParser.Parse(newEmotes);
     }
@@ -54,7 +53,7 @@ public sealed partial class ChatUIController
             _customEmotesWindow.OnApply += UpdateCustomEmotes;
         }
 
-        _customEmotesWindow.SetEntries(_config.GetCVar(ADTCCVars.ChatCustomEmotes));
+        _customEmotesWindow.SetEntries(_customEmotesRaw);
         _customEmotesWindow.OpenCentered();
     }
 

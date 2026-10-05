@@ -9,9 +9,11 @@ public static class CustomEmoteParser
 {
     private const char Separator = '=';
 
-    public static List<(Regex Regex, string Emote)> Parse(string raw)
+    /// <summary>
+    /// Разобранные пары в том порядке, в котором их ввели.
+    /// </summary>
+    public static List<(string Trigger, string Emote)> ParseEntries(string raw)
     {
-        var result = new List<(Regex, string)>();
         var parsed = new List<(string Trigger, string Emote)>();
 
         foreach (var line in raw.Split('\n', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries))
@@ -28,6 +30,14 @@ public static class CustomEmoteParser
 
             parsed.Add((trigger, emote));
         }
+
+        return parsed;
+    }
+
+    public static List<(Regex Regex, string Emote)> Parse(string raw)
+    {
+        var result = new List<(Regex, string)>();
+        var parsed = ParseEntries(raw);
 
         parsed.Sort((a, b) => b.Trigger.Length.CompareTo(a.Trigger.Length));
 
