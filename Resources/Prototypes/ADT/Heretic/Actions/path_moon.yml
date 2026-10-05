@@ -1,0 +1,115 @@
+- type: entity
+  parent: BaseAction
+  id: ActionHereticMindGate
+  name: Mind Gate
+  description: Open your mind and theirs. Deals you Cellular damage and inflicts confusion, blindness and mute scaled by sanity plus Cellular damage. Knocks down low sanity targets.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 20
+    itemIconStyle: NoItem
+    icon:
+      sprite: ADT/Heretic/abilities_heretic.rsi
+      state: mind_gate
+  - type: TargetAction
+    range: 6
+    checkCanAccess: false
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - MobState
+    event: !type:EventHereticMindGate
+  - type: HereticAction
+    requireMagicItem: true
+  - type: SpeakOnAction
+    sentence: heretic-speech-moon-mindgate
+
+- type: entity
+  parent: BaseAction
+  id: ActionHereticLunarParade
+  name: Lunar Parade
+  description: Fire a slow parade projectile that forces those hit to join the parade and lose sanity.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 30
+    itemIconStyle: NoItem
+    icon:
+      sprite: ADT/Heretic/abilities_heretic.rsi
+      state: moon_parade
+  - type: TargetAction
+    range: 12
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:EventHereticLunarParade
+  - type: HereticAction
+    requireMagicItem: true
+  - type: SpeakOnAction
+    sentence: heretic-speech-moon-parade
+
+- type: entity
+  parent: BaseAction
+  id: ActionHereticRingleadersRise
+  name: Ringleaders Rise
+  description: Summon an echo per nearby victim. Attacked echoes burst with stun and Cellular damage.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 60
+    itemIconStyle: NoItem
+    icon:
+      sprite: ADT/Heretic/abilities_heretic.rsi
+      state: moon_ringleader
+  - type: InstantAction
+    event: !type:EventHereticRingleadersRise
+  - type: HereticAction
+    requireMagicItem: true
+  - type: SpeakOnAction
+    sentence: heretic-speech-moon-ringleader
+
+- type: entity
+  parent: BaseAction
+  id: ActionHereticMoonlightEcho
+  name: Moonlight Echo
+  description: Track your ringleader.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 4
+    itemIconStyle: NoItem
+    icon:
+      sprite: ADT/Heretic/abilities_heretic.rsi
+      state: moon_smile
+  - type: InstantAction
+    event: !type:EventHereticMoonlightEcho
+  - type: HereticAction
+    requireMagicItem: false
+
+- type: entity
+  parent: BaseAction
+  id: ActionHereticTouchOfMadness
+  name: Touch of Madness
+  description: Drain sanity and knock down.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 15
+    itemIconStyle: NoItem
+    icon:
+      sprite: ADT/Heretic/abilities_heretic.rsi
+      state: mad_touch
+  - type: TargetAction
+    range: 2
+    checkCanAccess: false
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - MobState
+    event: !type:EventHereticTouchOfMadness
+  - type: HereticAction
+    requireMagicItem: false

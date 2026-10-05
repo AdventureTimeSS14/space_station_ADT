@@ -132,3 +132,12 @@ coin-flip-examine-message = Showing {$side}.
 coin-flip-popup-message = {$coin} lands on {$side}!
 eldritch-coin-side-heretic = heads
 eldritch-coin-side-blade = tails
+
+## reality shift dream (sleep hint)
+heretic-influence-dream = In your dreams, reality folds. Something is shifting {$dir}, {$range}.
+heretic-influence-dream-hypno = [font=italic][color=#b589f6] {$text} [/color][/font]
+heretic-influence-dream-close = very close by
+heretic-influence-dream-near = not far off
+heretic-influence-dream-far = a long way off
+heretic-influence-dream-silent = In your dreams, reality is still. Nothing shifts near you, but the Mansus is listening.
+heretic-gate-examine-move = The rift is anchored to nothing. You can drag it anywhere, but its twin stays where it was left.

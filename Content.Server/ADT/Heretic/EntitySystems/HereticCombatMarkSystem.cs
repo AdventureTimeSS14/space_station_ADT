@@ -5,6 +5,7 @@ using Content.Server.Body.Systems;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
 using Content.Shared.Heretic;
+using Content.Shared.StatusEffect;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
@@ -45,6 +46,7 @@ public sealed class HereticCombatMarkSystem : SharedHereticCombatMarkSystem
     [Dependency] private readonly HereticAbilitySystem _ability = default!;
     [Dependency] private readonly HereticSystem _heretic = default!;
     [Dependency] private readonly Content.Shared.StatusEffectNew.StatusEffectsSystem _statusNew = default!;
+    [Dependency] private readonly Content.Shared.StatusEffect.StatusEffectsSystem _statusEffect = default!;
 
     public override void Initialize()
     {
@@ -127,10 +129,27 @@ public sealed class HereticCombatMarkSystem : SharedHereticCombatMarkSystem
                     _pulling.StopAllPulls(target);
                     _transform.SetCoordinates(target, newCoords);
                     Spawn(cosmicMark.CosmicCloud, newCoords);
-                    Del(cosmicMark.CosmicDiamondUid.Value); // Just in case
+                    Del(cosmicMark.CosmicDiamondUid.Value);
                 }
 
                 _stun.TryUpdateParalyzeDuration(target, cosmicMark.ParalyzeTime);
+                break;
+
+            case "Moon":
+                if (TryComp<StatusEffectsComponent>(target, out var moonStatus))
+                {
+                    _statusEffect.TryAddStatusEffect(target, "Jitter", TimeSpan.FromSeconds(30), true, moonStatus);
+                    _statusEffect.TryAddStatusEffect(target, "SlurredSpeech", TimeSpan.FromSeconds(10), true, moonStatus);
+                }
+                _damageable.TryChangeDamage(target,
+                    new DamageSpecifier
+                    {
+                        DamageDict =
+                        {
+                            { "Cellular", 25f },
+                        },
+                    },
+                    origin: user);
                 break;
 
             default:

@@ -1,5 +1,3 @@
-//
-
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Heretic.Components;
@@ -20,6 +18,7 @@ public sealed partial class SharpMedalSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<HereticBladeComponent, ThrowDoHitEvent>(OnThrowHit);
+        SubscribeLocalEvent<HereticBladeComponent, LandEvent>(OnThrowLand);
     }
 
     private void OnThrowHit(Entity<HereticBladeComponent> ent, ref ThrowDoHitEvent args)
@@ -27,23 +26,44 @@ public sealed partial class SharpMedalSystem : EntitySystem
         if (!TryComp(args.Thrown, out ThrownItemComponent? thrown) || thrown.Thrower is not { } thrower)
             return;
 
+        ScheduleReturn(thrower, args.Thrown);
+    }
+
+    private void OnThrowLand(Entity<HereticBladeComponent> ent, ref LandEvent args)
+    {
+        if (args.User is not { } thrower)
+            return;
+
+        ScheduleReturn(thrower, ent);
+    }
+
+    private void ScheduleReturn(EntityUid thrower, EntityUid blade)
+    {
         if (!HasMedal(thrower))
             return;
 
-        var blade = args.Thrown;
-        Timer.Spawn(600, () =>
+        Timer.Spawn(350, () => Return(thrower, blade));
+    }
+
+    private void Return(EntityUid thrower, EntityUid blade)
+    {
+        if (TerminatingOrDeleted(blade) || TerminatingOrDeleted(thrower))
+            return;
+
+        if (!HasMedal(thrower))
+            return;
+
+        if (!TryComp(thrower, out HandsComponent? hands))
+            return;
+
+        if (_hands.TryGetEmptyHand((thrower, hands), out var hand))
         {
-            if (TerminatingOrDeleted(blade) || TerminatingOrDeleted(thrower))
-                return;
+            _transform.SetCoordinates(blade, Transform(thrower).Coordinates);
+            _hands.TryPickup(thrower, blade, hand, handsComp: hands);
+            return;
+        }
 
-            if (!TryComp(thrower, out HandsComponent? hands))
-                return;
-
-            if (_hands.TryGetEmptyHand((thrower, hands), out var hand))
-                _hands.TryPickup(thrower, blade, hand, handsComp: hands);
-            else
-                _transform.SetCoordinates(blade, Transform(thrower).Coordinates);
-        });
+        _transform.SetCoordinates(blade, Transform(thrower).Coordinates);
     }
 
     private bool HasMedal(EntityUid user)

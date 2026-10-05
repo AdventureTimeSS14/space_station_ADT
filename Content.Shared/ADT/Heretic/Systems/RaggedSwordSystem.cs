@@ -1,41 +1,72 @@
-//
-
-using Content.Shared.Heretic;
-using Content.Shared.Heretic.Components;
-using Content.Shared.ADT.Heretic.Systems;
+using System.Linq;
+using Content.Shared.ADT.Heretic.Components;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Weapons.Melee.Events;
+using Robust.Shared.Timing;
 
 namespace Content.Shared.ADT.Heretic.Systems;
 
 public sealed partial class RaggedSwordSystem : EntitySystem
 {
-    [Dependency] private readonly SharedHereticSystem _heretic = default!;
+    [Dependency] private readonly DamageableSystem _damage = default!;
+    [Dependency] private readonly MobThresholdSystem _threshold = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<RaggedSwordComponent, MeleeHitEvent>(OnHit);
+        SubscribeLocalEvent<RaggedSwordComponent, MeleeHitEvent>(OnMeleeHit, after: new[] { typeof(MobStateSystem) });
     }
 
-    private void OnHit(Entity<RaggedSwordComponent> ent, ref MeleeHitEvent args)
+    private void OnMeleeHit(Entity<RaggedSwordComponent> ent, ref MeleeHitEvent args)
     {
-        if (!args.IsHit)
+        var owner = args.User;
+        var amount = ent.Comp.MaxHealthPerKill;
+        var victims = args.HitEntities.ToList();
+
+        Timer.Spawn(50, () => GrantForKills(owner, amount, victims));
+    }
+
+    private void GrantForKills(EntityUid owner, float amount, List<EntityUid> victims)
+    {
+        if (TerminatingOrDeleted(owner))
             return;
 
-        if (!_heretic.TryGetHereticComponent(args.User, out var heretic, out _))
-            return;
+        var killed = false;
 
-        foreach (var hit in args.HitEntities)
+        foreach (var victim in victims)
         {
-            if (hit == args.User)
+            if (TerminatingOrDeleted(victim) || victim == owner)
                 continue;
 
-            var mark = EnsureComp<HereticCombatMarkComponent>(hit);
-            mark.DisappearTime = mark.MaxDisappearTime;
-            mark.Path = heretic.CurrentPath ?? "Blade";
-            mark.Repetitions = 1;
-            Dirty(hit, mark);
+            if (TryComp<MobStateComponent>(victim, out var state) && _mobState.IsDead(victim, state))
+                killed = true;
         }
+
+        if (killed)
+            GrantMaxHealth(owner, amount);
+    }
+
+    private void GrantMaxHealth(EntityUid owner, float amount)
+    {
+        if (!TryComp<MobThresholdsComponent>(owner, out var thresholds))
+            return;
+
+        foreach (var (damage, state) in thresholds.Thresholds)
+            _threshold.SetMobStateThreshold(owner, damage + amount, state, thresholds);
+
+        if (!TryComp<DamageableComponent>(owner, out var damageable))
+            return;
+
+        var heal = new DamageSpecifier();
+        foreach (var key in damageable.Damage.DamageDict.Keys.ToList())
+            heal.DamageDict[key] = -amount;
+
+        _damage.TryChangeDamage(owner, heal, true);
     }
 }

@@ -1,0 +1,23 @@
+- type: entity
+  parent: HereticBladeBase
+  id: HereticBladeMoon
+  name: ent-HereticBladeMoon
+  description: ent-HereticBladeMoon-desc
+  suffix: Moon
+  components:
+  - type: HereticBlade
+    path: Moon
+  - type: Sprite
+    sprite: ADT/Heretic/Blades/blade_moon.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Heretic/Blades/blade_moon-inhand.rsi
+  - type: MeleeWeapon
+    wideAnimationRotation: -125
+    attackRate: 1
+    damage:
+      types:
+        Slash: 12
+        Cellular: 2
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg

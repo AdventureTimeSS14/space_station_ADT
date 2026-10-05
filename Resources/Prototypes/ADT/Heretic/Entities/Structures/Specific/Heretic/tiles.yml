@@ -43,6 +43,7 @@
   - type: Tag
     tags:
       - HideContextMenu
+      - HereticAshFire
 
 - type: entity
   id: TileHereticVoid

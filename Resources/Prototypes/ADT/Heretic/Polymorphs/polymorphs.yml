@@ -5,13 +5,22 @@
     forced: true
     duration: 3
 
-# ADT: long ash jaunt, stage 8
 - type: polymorph
   id: AshJauntLong
   configuration:
     entity: PolymorphAshJaunt
     forced: true
     duration: 8
+
+- type: polymorph
+  id: SpaceCrawlMoon
+  configuration:
+    entity: PolymorphSpaceCrawl
+    forced: false
+    duration: 8
+    delay: 8
+    transferName: false
+    transferDamage: false
 
 - type: polymorph
   id: EldritchHorror
@@ -23,7 +32,6 @@
     revertOnCrit: false
     revertOnDeath: false
 
-# ADT: Void Prison, VoidPrison / ActionHereticVoidPrison
 - type: polymorph
   id: VoidPrison
   configuration:

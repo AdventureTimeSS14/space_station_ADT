@@ -1,12 +1,14 @@
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.ADT.Heretic.Messages;
 using Content.Shared.ADT.Heretic.Systems;
+using Content.Shared.Alert;
 using Content.Shared.Body;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
@@ -30,6 +32,9 @@ public sealed partial class MawedCrucibleSystem : EntitySystem
     [Dependency] private SharedSolutionContainerSystem _sol = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] private SharedHereticSystem _heretic = default!;
+    [Dependency] private readonly AlertsSystem _alerts = default!;
+
+    private static readonly ProtoId<AlertPrototype> CrucibleReady = "CrucibleActive";
 
     public override void Initialize()
     {
@@ -216,7 +221,29 @@ public sealed partial class MawedCrucibleSystem : EntitySystem
         var empty = newMass == 0;
         _appearance.SetData(ent, CrucibleVisuals.Empty, empty);
 
+        UpdateAlert(ent, !empty && newMass >= ent.Comp.MaxMass);
+
         ent.Comp.CurrentMass = newMass;
         Dirty(ent);
+    }
+
+    private void UpdateAlert(Entity<MawedCrucibleComponent> ent, bool ready)
+    {
+        var pos = Transform(ent).Coordinates;
+        var query = AllEntityQuery<AlertsComponent, MobStateComponent>();
+        while (query.MoveNext(out var uid, out _, out _))
+        {
+            if (!_heretic.IsHereticOrGhoul(uid))
+                continue;
+
+            var xform = Transform(uid);
+            if (xform == null || !_transform.InRange(pos, xform.Coordinates, 16f))
+                continue;
+
+            if (ready)
+                _alerts.ShowAlert((uid, null), CrucibleReady, autoRemove: false, showCooldown: false);
+            else
+                _alerts.ClearAlert((uid, null), CrucibleReady);
+        }
     }
 }

@@ -1,0 +1,11 @@
+- type: entity
+  id: ADTClothingHeadHatHoodHereticMoon
+  parent: ClothingHeadHatHoodHeretic
+  name: ent-ADTClothingHeadHatHoodHereticMoon
+  description: ent-ADTClothingHeadHatHoodHereticMoon-desc
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/Clothing/Head/moon_hood.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Heretic/Clothing/Head/moon_hood.rsi

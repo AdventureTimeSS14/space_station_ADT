@@ -54,3 +54,45 @@
     requireMagicItem: true
   - type: SpeakOnAction
     sentence: heretic-speech-cleave
+
+- type: entity
+  parent: BaseAction
+  id: ActionHereticWaveOfDesperation
+  name: Wave Of Desperation
+  description: Castable only while restrained. Removes restraints, knocks down and throws nearby beings.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 60
+    itemIconStyle: NoItem
+    icon:
+      sprite: ADT/Heretic/abilities_heretic.rsi
+      state: cleave
+  - type: InstantAction
+    event: !type:EventHereticWaveOfDesperation
+  - type: HereticAction
+    requireMagicItem: true
+  - type: SpeakOnAction
+    sentence: heretic-speech-cleave
+
+- type: entity
+  parent: BaseAction
+  id: ActionHereticSpacePhase
+  name: Space Phase
+  description: Phase through space itself for a short time.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 30
+    itemIconStyle: NoItem
+    icon:
+      sprite: ADT/Heretic/abilities_heretic.rsi
+      state: space_crawl
+  - type: InstantAction
+    event: !type:EventHereticSpacePhase
+  - type: HereticAction
+    requireMagicItem: true
+  - type: SpeakOnAction
+    sentence: heretic-speech-ash-jaunt

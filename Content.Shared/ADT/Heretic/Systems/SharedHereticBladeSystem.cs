@@ -1,6 +1,7 @@
 //
 
 
+using Content.Shared.ADT.Heretic.Components.Moon;
 using Content.Shared.Damage.Components;
 using System.Linq;
 using System.Numerics;
@@ -21,10 +22,12 @@ using Content.Shared.Heretic;
 using Content.Shared.Heretic.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Inventory;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Physics;
+using Content.Shared.StatusEffect;
 using Content.Shared.Teleportation;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
@@ -55,6 +58,11 @@ public abstract class SharedHereticBladeSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedHereticSystem _heretic = default!;
     [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
+    [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
+
+    private bool AmuletEquipped(EntityUid user)
+        => _inventory.TryGetSlotEntity(user, "neck", out var neck) && HasComp<MoonAmuletComponent>(neck.Value);
 
     private const float BleedHealPerLivingHit = 0.5f;
 
@@ -68,6 +76,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
         SubscribeLocalEvent<HereticBladeComponent, UseInHandEvent>(OnInteract);
         SubscribeLocalEvent<HereticBladeComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<HereticBladeComponent, MeleeHitEvent>(OnMeleeHit);
+        SubscribeLocalEvent<HereticBladeComponent, GetMeleeDamageEvent>(OnGetMeleeDamage);
         SubscribeLocalEvent<HereticBladeComponent, GetLightAttackRangeEvent>(OnGetRange);
         SubscribeLocalEvent<HereticBladeComponent, LightAttackSpecialInteractionEvent>(OnSpecial);
         SubscribeLocalEvent<HereticBladeComponent, AfterInteractEvent>(OnAfterInteract);
@@ -226,8 +235,27 @@ public abstract class SharedHereticBladeSystem : EntitySystem
             case "Rust":
                 if (_mobState.IsDead(target))
                     _rotting.ReduceAccumulator(target, -TimeSpan.FromMinutes(1f));
-                // ADT: no Goob Disgust/SecondSkin, skip living-target effect
                 break;
+
+            case "Moon":
+            {
+                var sanityComp = EnsureComp<HereticSanityComponent>(target);
+                sanityComp.Current = Math.Max(0f, sanityComp.Current - 10f);
+                Dirty(target, sanityComp);
+                var cellular = sanityComp.Current >= 100f ? 5f : 12f;
+                _damageable.TryChangeDamage(target,
+                    new DamageSpecifier
+                    {
+                        DamageDict =
+                        {
+                            { "Cellular", cellular },
+                        },
+                    },
+                    origin: performer);
+                if (TryComp(target, out StatusEffectsComponent? status))
+                    _status.TryAddStatusEffect(target, "Jitter", TimeSpan.FromSeconds(10), true, status);
+                break;
+            }
 
             default:
                 return;
@@ -268,6 +296,14 @@ public abstract class SharedHereticBladeSystem : EntitySystem
             return;
 
         args.PushMarkup(Loc.GetString("heretic-blade-examine"));
+    }
+
+    private void OnGetMeleeDamage(Entity<HereticBladeComponent> ent, ref GetMeleeDamageEvent args)
+    {
+        if (ent.Comp.Path != "Moon" || !AmuletEquipped(args.User))
+            return;
+
+        args.ResistanceBypass = true;
     }
 
     private void OnMeleeHit(Entity<HereticBladeComponent> ent, ref MeleeHitEvent args)
@@ -350,6 +386,20 @@ public abstract class SharedHereticBladeSystem : EntitySystem
                     };
                     break;
             }
+        }
+
+        if (ent.Comp.Path == "Moon" && AmuletEquipped(args.User))
+        {
+            args.ModifiersList.Add(new DamageModifierSet
+            {
+                Coefficients =
+                {
+                    { "Slash", 0f },
+                    { "Piercing", 0f },
+                    { "Blunt", 0f },
+                    { "Cellular", 2f },
+                },
+            });
         }
 
         var aliveMobsCount = 0;

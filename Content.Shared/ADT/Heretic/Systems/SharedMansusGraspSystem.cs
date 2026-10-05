@@ -1,5 +1,6 @@
 //
 
+using Content.Shared.ADT.Heretic.Components.Moon;
 using Content.Shared.Damage.Components;
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Shared.ADT.Silicon.Components;
@@ -56,6 +57,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly Content.Shared.Access.Systems.AccessReaderSystem _access = default!;
     [Dependency] private readonly Content.Shared.Mech.EntitySystems.SharedMechSystem _mech = default!;
+[Dependency] private readonly Content.Shared.Power.EntitySystems.SharedBatterySystem _battery = default!;
     [Dependency] private readonly Content.Shared.Lock.LockSystem _lock = default!;
     public bool TryApplyGraspEffectAndMark(EntityUid user,
         HereticComponent hereticComp,
@@ -240,6 +242,8 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                         new DamageSpecifier(_proto.Index<DamageTypePrototype>("Shock"), 1000),
                         ignoreResistances: true,
                         origin: performer);
+
+                    _battery.SetChargeCooldown((target, null), TimeSpan.FromSeconds(22));
                 }
                 else if (TryComp(target, out DamageableComponent? damageable) && // Is it even damageable?
                          !_tag.HasTag(target, "Meat") && // Is it not organic body part or organ?
@@ -261,6 +265,19 @@ public abstract class SharedMansusGraspSystem : EntitySystem
             {
                 if (_starMark.TryApplyStarMark(target))
                     _starMark.SpawnCosmicField(Transform(performer).Coordinates, heretic.PathStage);
+                break;
+            }
+            case "Moon":
+            {
+                _statusNew.TryAddStatusEffectDuration(performer, "MoonGraspHideStatusEffect", TimeSpan.FromSeconds(15));
+                if (HasComp<StatusEffectsComponent>(target))
+                {
+                    var sanity = EnsureComp<HereticSanityComponent>(target);
+                    sanity.Current = Math.Max(0f, sanity.Current - 30f);
+                    Dirty(target, sanity);
+                    _statusNew.TryAddStatusEffectDuration(target, "MoonMarkStatusEffect", TimeSpan.FromSeconds(30));
+                    _statusNew.TryAddStatusEffectDuration(target, "MoonConfusedStatusEffect", TimeSpan.FromSeconds(30));
+                }
                 break;
             }
             default:

@@ -108,3 +108,6 @@
 
 - type: Tag
   id: GrenadeIgnoreCosmicField
+
+- type: Tag
+  id: SoulBottle

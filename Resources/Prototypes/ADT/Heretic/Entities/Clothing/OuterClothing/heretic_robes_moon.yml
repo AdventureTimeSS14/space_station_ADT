@@ -1,0 +1,29 @@
+- type: entity
+  id: ADTClothingOuterArmorHereticMoon
+  parent: ClothingOuterArmorHeretic
+  name: ent-ADTClothingOuterArmorHereticMoon
+  description: ent-ADTClothingOuterArmorHereticMoon-desc
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/Clothing/OuterClothing/moon_armor.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Heretic/Clothing/OuterClothing/moon_armor.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHatHoodHereticMoon
+    slot: head
+  - type: FootstepModifier
+    slots: OUTERCLOTHING
+  - type: VoiceMask
+  - type: UserInterface
+    interfaces:
+      enum.VoiceMaskUIKey.Key:
+        type: VoiceMaskBoundUserInterface
+  - type: ClothingGrantComponent
+    component:
+    - type: ForestAdmonitionsEntity
+      revealDuration: 0
+      selfVisibility: 1
+      revealDistance: 7
+      revealDistanceSoft: 6
+    - type: Pacified

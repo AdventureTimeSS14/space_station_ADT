@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseMobGhoul
   id: MobGhoulMirrorMaid
-  name: maid in the mirror
-  description: A floating and flowing wisp of chilled air. Glancing at it causes it to shimmer slightly.
+  name: ent-MobGhoulMirrorMaid
+  description: ent-MobGhoulMirrorMaid-desc
   components:
   - type: Ghoul
     totalHealth: 80
@@ -32,8 +32,8 @@
 - type: entity
   parent: BaseMobGhoul
   id: MobGhoulAshSpirit
-  name: ash spirit
-  description: A manifestation of ash, trailing a perpetual cloud of short-lived cinders.
+  name: ent-MobGhoulAshSpirit
+  description: ent-MobGhoulAshSpirit-desc
   components:
   - type: Ghoul
     totalHealth: 75
@@ -58,10 +58,160 @@
     - ActionHereticJauntLong
 
 - type: entity
+  parent: OrganBaseOrganic
+  id: HereticOrganShatteredTorso
+  name: ent-HereticOrganShatteredTorso
+  components:
+  - type: Organ
+    category: Torso
+  - type: Sprite
+    sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.Chest
+    data:
+      sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+      state: torso
+
+- type: entity
+  parent: OrganBaseOrganic
+  id: HereticOrganShatteredHead
+  name: ent-HereticOrganShatteredHead
+  components:
+  - type: Organ
+    category: Head
+  - type: Sprite
+    sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.Head
+    data:
+      sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+      state: head
+
+- type: entity
+  parent: OrganBaseOrganic
+  id: HereticOrganShatteredArmLeft
+  name: ent-HereticOrganShatteredArmLeft
+  components:
+  - type: Organ
+    category: ArmLeft
+  - type: Sprite
+    sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.LArm
+    data:
+      sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+      state: l_arm
+
+- type: entity
+  parent: OrganBaseOrganic
+  id: HereticOrganShatteredArmRight
+  name: ent-HereticOrganShatteredArmRight
+  components:
+  - type: Organ
+    category: ArmRight
+  - type: Sprite
+    sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.RArm
+    data:
+      sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+      state: r_arm
+
+- type: entity
+  parent: OrganBaseOrganic
+  id: HereticOrganShatteredHandLeft
+  name: ent-HereticOrganShatteredHandLeft
+  components:
+  - type: Organ
+    category: HandLeft
+  - type: Sprite
+    sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.LHand
+    data:
+      sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+      state: l_hand
+
+- type: entity
+  parent: OrganBaseOrganic
+  id: HereticOrganShatteredHandRight
+  name: ent-HereticOrganShatteredHandRight
+  components:
+  - type: Organ
+    category: HandRight
+  - type: Sprite
+    sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.RHand
+    data:
+      sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+      state: r_hand
+
+- type: entity
+  parent: OrganBaseOrganic
+  id: HereticOrganShatteredLegLeft
+  name: ent-HereticOrganShatteredLegLeft
+  components:
+  - type: Organ
+    category: LegLeft
+  - type: Sprite
+    sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.LLeg
+    data:
+      sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+      state: l_leg
+
+- type: entity
+  parent: OrganBaseOrganic
+  id: HereticOrganShatteredLegRight
+  name: ent-HereticOrganShatteredLegRight
+  components:
+  - type: Organ
+    category: LegRight
+  - type: Sprite
+    sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.RLeg
+    data:
+      sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+      state: r_leg
+
+- type: entity
+  parent: OrganBaseOrganic
+  id: HereticOrganShatteredFootLeft
+  name: ent-HereticOrganShatteredFootLeft
+  components:
+  - type: Organ
+    category: FootLeft
+  - type: Sprite
+    sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.LFoot
+    data:
+      sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+      state: l_foot
+
+- type: entity
+  parent: OrganBaseOrganic
+  id: HereticOrganShatteredFootRight
+  name: ent-HereticOrganShatteredFootRight
+  components:
+  - type: Organ
+    category: FootRight
+  - type: Sprite
+    sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.RFoot
+    data:
+      sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+      state: r_foot
+
+- type: entity
   parent: BaseMobGhoul
   id: MobShatteredRisen
-  name: shattered risen
-  description: A corpse dragged back to near-life by a cold, rending force. Its hands are brutal nests of sharp bone-shards.
+  name: ent-MobShatteredRisen
+  description: ent-MobShatteredRisen-desc
   components:
   - type: Ghoul
     totalHealth: 250
@@ -82,3 +232,22 @@
       types:
         Slash: 18
         Piercing: 14
+  - type: Body
+  - type: InitialBody
+    organs:
+      Torso: HereticOrganShatteredTorso
+      Head: HereticOrganShatteredHead
+      ArmLeft: HereticOrganShatteredArmLeft
+      ArmRight: HereticOrganShatteredArmRight
+      HandLeft: HereticOrganShatteredHandLeft
+      HandRight: HereticOrganShatteredHandRight
+      LegLeft: HereticOrganShatteredLegLeft
+      LegRight: HereticOrganShatteredLegRight
+      FootLeft: HereticOrganShatteredFootLeft
+      FootRight: HereticOrganShatteredFootRight
+      Brain: OrganHumanBrain
+      Eyes: OrganHumanEyes
+      Tongue: OrganHumanTongue
+      Ears: OrganHumanEars
+      Lungs: OrganHumanLungs
+      Heart: OrganHumanHeart

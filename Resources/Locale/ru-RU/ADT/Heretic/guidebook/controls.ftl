@@ -99,3 +99,16 @@ heretic-guide-tag-UtilityBelt = любой пояс
 heretic-guide-tag-CartridgeRifle = патрон 6.5 мм
 heretic-guide-tag-GlassBeaker = мензурка
 heretic-guide-tag-HandGrenade = граната
+heretic-guide-behavior-RitualBookworm = ID-карты на руне и в руке клеймятся, шлюзы в радиусе 7 становятся только для еретиков и игнорируют ИИ
+heretic-guide-behavior-RitualMiraculousMirror = без условий
+heretic-guide-behavior-RitualPaintingWeeping = бумага и глаза на руне
+heretic-guide-behavior-RitualPaintingDesire = бумага и сердце на руне
+heretic-guide-behavior-RitualPaintingVines = бумага и мак на руне
+heretic-guide-behavior-RitualPaintingBeauty = бумага и медицинские перчатки на руне
+heretic-guide-behavior-RitualPaintingRust = бумага и мусор на руне
+heretic-guide-behavior-RitualUnwrapMinds = скальпель, исписанная бумага и живой человек на руне
+heretic-guide-behavior-RitualAshenRitual = без условий
+heretic-guide-behavior-RitualShatteredRitual = мёртвый гуманоид с душой на руне
+heretic-guide-behavior-RitualMansusGate = шкаф на руне, кодекс расходуется, шкаф остаётся
+
+heretic-guide-blade-bonus-moon = С седьмого уровня клинок [color=#b48ead]исцеляет разум[/color]: снимает 10 рассудка и наносит клеточный урон, больше по жертвам с низким рассудком, а также вызывает галлюцинации. С надетым лунным амулетом клинок перестаёт быть летальным, бьёт [color=#b48ead]сквозь броню[/color] и заменяет урон каналом амулета.

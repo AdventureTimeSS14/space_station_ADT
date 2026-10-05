@@ -103,3 +103,16 @@ heretic-guide-tag-UtilityBelt = any utility belt
 heretic-guide-tag-CartridgeRifle = 6.5mm rifle cartridge
 heretic-guide-tag-GlassBeaker = glass beaker
 heretic-guide-tag-HandGrenade = hand grenade
+heretic-guide-behavior-RitualBookworm = IDs on the rune plus your held ID are branded, airlocks within 7 tiles become heretic-only and ignore the AI
+heretic-guide-behavior-RitualMiraculousMirror = no condition
+heretic-guide-behavior-RitualPaintingWeeping = paper and eyes on the rune
+heretic-guide-behavior-RitualPaintingDesire = paper and heart on the rune
+heretic-guide-behavior-RitualPaintingVines = paper and poppy on the rune
+heretic-guide-behavior-RitualPaintingBeauty = paper and medical gloves on the rune
+heretic-guide-behavior-RitualPaintingRust = paper and trash on the rune
+heretic-guide-behavior-RitualUnwrapMinds = a scalpel, written paper and a living human on the rune
+heretic-guide-behavior-RitualAshenRitual = no condition
+heretic-guide-behavior-RitualShatteredRitual = a dead souled humanoid on the rune
+heretic-guide-behavior-RitualMansusGate = a locker on the rune, the codex is consumed and the locker is kept
+
+heretic-guide-blade-bonus-moon = At tier 7 the blade [color=#b48ead]unravels the mind[/color]: it drains 10 sanity and deals cellular damage, more against the unstable, and causes hallucinations. With a Moonlight Amulet worn the blade turns non-lethal, hits [color=#b48ead]through armor[/color] and channels the amulet instead of dealing damage.

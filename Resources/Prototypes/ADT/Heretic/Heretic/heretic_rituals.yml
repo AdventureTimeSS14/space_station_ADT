@@ -318,7 +318,6 @@
   output:
     ADTClothingOuterArmorHereticAsh: 1
 
-# ADT: Cosmos/Rust armor
 - type: hereticRitual
   id: ArmorerRitualCosmos
   locName: knowledge-path-side-s3-armor-name
@@ -358,6 +357,7 @@
     Flare: 1
   output:
     ClothingEldritchMedalion: 1
+    HereticEyeMedallion: 1
 
 - type: hereticRitual
   id: PriestRitual
@@ -777,3 +777,155 @@
     HeavyBoots: 1
   output:
     ClothingShoesGreavesHeretic: 1
+
+- type: hereticRitual
+  id: RitualBookworm
+  locName: knowledge-path-side-t1-bookworm-name
+  locDesc: knowledge-path-side-t1-bookworm-desc
+  icon:
+    sprite: Objects/Misc/id_cards.rsi
+    state: gold
+  requiredTags:
+    CableCoil: 10
+    Paper: 1
+    Multitool: 1
+  customBehaviors:
+  - !type:RitualBookwormBehavior
+  output:
+    HereticOgBook: 1
+
+- type: hereticRitual
+  id: RitualMiraculousMirror
+  locName: knowledge-path-side-t1-mirror-name
+  locDesc: knowledge-path-side-t1-mirror-desc
+  icon:
+    sprite: Structures/Wallmounts/mirror.rsi
+    state: mirror
+  requiredTags:
+    Eyes: 1
+    SilverBar: 5
+  output:
+    HereticMiraculousMirror: 1
+
+- type: hereticRitual
+  id: RitualPaintingWeeping
+  locName: knowledge-path-side-t2-weeping-name
+  locDesc: knowledge-path-side-t2-weeping-desc
+  icon:
+    sprite: Objects/Misc/bureaucracy.rsi
+    state: paper
+  requiredTags:
+    Paper: 1
+    Eyes: 1
+  output:
+    HereticPaintingWeeping: 1
+
+- type: hereticRitual
+  id: RitualPaintingDesire
+  locName: knowledge-path-side-t2-desire-name
+  locDesc: knowledge-path-side-t2-desire-desc
+  icon:
+    sprite: Objects/Consumable/Food/meat.rsi
+    state: plain
+  requiredTags:
+    Paper: 1
+    Heart: 1
+  output:
+    HereticPaintingDesire: 1
+
+- type: hereticRitual
+  id: RitualPaintingVines
+  locName: knowledge-path-side-t2-vines-name
+  locDesc: knowledge-path-side-t2-vines-desc
+  icon:
+    sprite: Objects/Specific/Hydroponics/poppy.rsi
+    state: produce
+  requiredTags:
+    Paper: 1
+    Poppy: 1
+  output:
+    HereticPaintingVines: 1
+
+- type: hereticRitual
+  id: RitualPaintingBeauty
+  locName: knowledge-path-side-t2-beauty-name
+  locDesc: knowledge-path-side-t2-beauty-desc
+  icon:
+    sprite: Clothing/Hands/Gloves/latex.rsi
+    state: icon
+  requiredTags:
+    Paper: 1
+    MedicalGloves: 1
+  output:
+    HereticPaintingBeauty: 1
+
+- type: hereticRitual
+  id: RitualPaintingRust
+  locName: knowledge-path-side-t2-rust-name
+  locDesc: knowledge-path-side-t2-rust-desc
+  icon:
+    sprite: Objects/Specific/Hydroponics/banana.rsi
+    state: peel
+  requiredTags:
+    Paper: 1
+    Trash: 1
+  output:
+    HereticPaintingRust: 1
+
+- type: hereticRitual
+  id: RitualUnwrapMinds
+  locName: knowledge-path-side-t2-unwrap-name
+  locDesc: knowledge-path-side-t2-unwrap-desc
+  icon:
+    sprite: Objects/Misc/bureaucracy.rsi
+    state: paper
+  requiredTags:
+    GlassShard: 1
+    Paper: 1
+  customBehaviors:
+  - !type:RitualUnwrapMindsBehavior
+
+- type: hereticRitual
+  id: RitualAshenRitual
+  locName: knowledge-path-side-t3-ashen-name
+  locDesc: knowledge-path-side-t3-ashen-desc
+  icon:
+    sprite: ADT/Heretic/eldritch_mobs.rsi
+    state: ash_walker
+  limit: 2
+  requiredTags:
+    Ash: 1
+    Book: 1
+    Bonfire: 1
+  output:
+    MobGhoulAshSpirit: 1
+
+- type: hereticRitual
+  id: RitualShatteredRitual
+  locName: knowledge-path-side-t3-shattered-name
+  locDesc: knowledge-path-side-t3-shattered-desc
+  icon:
+    sprite: ADT/Heretic/eldritch_mobs.rsi
+    state: stalker
+  limit: 1
+  requiredTags:
+    WinterCoat: 1
+    MedicalGloves: 1
+    SoulBottle: 1
+  customBehaviors:
+  - !type:RitualShatteredBehavior
+  output:
+    HereticSoulBottleFull: 1
+
+- type: hereticRitual
+  id: RitualMansusGate
+  locName: knowledge-path-side-t3-gate-name
+  locDesc: knowledge-path-side-t3-gate-desc
+  icon:
+    sprite: Structures/Storage/closet.rsi
+    state: generic
+  limit: 2
+  requiredTags:
+    CodexCicatrix: 1
+  customBehaviors:
+  - !type:RitualMansusGateBehavior

@@ -108,7 +108,6 @@
     soundHit:
       path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
 
-# ADT: Rust Sower Grenade
 - type: entity
   parent: [ TimerGrenadeBase, BaseMagicContraband ]
   id: RustSowerGrenade
@@ -173,7 +172,6 @@
     - HereticItem
     - HandGrenade
 
-# ADT: Phylactery of Damnation
 - type: entity
   parent: [ BaseItem, BaseMagicContraband ]
   id: HereticPhylactery
@@ -209,34 +207,11 @@
     tags:
     - HereticItem
 
-# ADT: Moon Amulet
-- type: entity
-  parent: [ BaseItem, BaseMagicContraband ]
-  id: HereticMoonAmulet
-  name: moon amulet
-  description: A strange amulet that pulses with a faint lunar glow. It hums with alien power.
-  components:
-  - type: Sprite
-    sprite: ADT/Heretic/items.rsi
-    state: moon_amulette
-  - type: Icon
-    sprite: ADT/Heretic/items.rsi
-    state: moon_amulette
-  - type: Item
-    size: Tiny
-  - type: Clothing
-    slots:
-    - neck
-  - type: Tag
-    tags:
-    - HereticItem
-
-# ADT: Soul Bottle
 - type: entity
   parent: [ BaseItem, BaseMagicContraband ]
   id: HereticSoulBottleEmpty
-  name: soul bottle
-  description: An empty crystalline bottle. Whispers echo from within, promising to capture the essence of the departed.
+  name: ent-HereticSoulBottleEmpty
+  description: ent-HereticSoulBottleEmpty-desc
   components:
   - type: Sprite
     sprite: ADT/Heretic/items.rsi
@@ -253,12 +228,13 @@
   - type: Tag
     tags:
     - HereticItem
+    - SoulBottle
 
 - type: entity
   parent: HereticSoulBottleEmpty
   id: HereticSoulBottleFull
-  name: filled soul bottle
-  description: A crystalline bottle filled with a swirling, ethereal essence. The whispers within have gone silent.
+  name: ent-HereticSoulBottleFull
+  description: ent-HereticSoulBottleFull-desc
   components:
   - type: Sprite
     sprite: ADT/Heretic/items.rsi
@@ -274,44 +250,53 @@
         - ReagentId: EssenceEldritch
           Quantity: 50
 
-# ADT: Orphaned textures — simple placeholders
 
 - type: entity
   parent: [ BaseItem, BaseMagicContraband ]
-  id: HereticArmBlade
-  name: eldritch arm blade
-  description: A grotesque blade formed from corrupted flesh and bone. It pulses with malevolent energy.
+  id: ArmBladeShattered
+  name: ent-ArmBladeShattered
+  description: ent-ArmBladeShattered-desc
   components:
   - type: Sprite
     sprite: ADT/Heretic/Entities/arm_blade.rsi
     state: icon
   - type: Item
     size: Normal
+    sprite: ADT/Heretic/Entities/arm_blade.rsi
   - type: MeleeWeapon
+    attackRate: 1.5
     damage:
       types:
-        Slash: 12
-        Piercing: 8
+        Slash: 15
+        Structural: 10
+    soundHit:
+      collection: GlassBreak
+  - type: Unremoveable
   - type: Tag
     tags:
     - HereticItem
 
 - type: entity
   parent: [ BaseItem, BaseMagicContraband ]
-  id: HereticHammer
-  name: eldritch hammer
-  description: A massive hammer wreathed in dark energy. Each strike echoes with the screams of the damned.
+  id: ArmHammerShattered
+  name: ent-ArmHammerShattered
+  description: ent-ArmHammerShattered-desc
   components:
   - type: Sprite
     sprite: ADT/Heretic/Entities/hammer.rsi
     state: icon
   - type: Item
     size: Huge
+    sprite: ADT/Heretic/Entities/hammer.rsi
   - type: MeleeWeapon
+    attackRate: 1.2
     damage:
       types:
         Blunt: 20
         Structural: 30
+    soundHit:
+      collection: GlassBreak
+  - type: Unremoveable
   - type: Tag
     tags:
     - HereticItem
@@ -319,8 +304,8 @@
 - type: entity
   parent: [ BaseItem, BaseMagicContraband ]
   id: HereticEyeMedallion
-  name: eye medallion
-  description: An ornate medallion bearing the sigil of a watchful eye. It seems to stare back at you.
+  name: ent-HereticEyeMedallion
+  description: ent-HereticEyeMedallion-desc
   components:
   - type: Sprite
     sprite: ADT/Heretic/items.rsi
@@ -340,8 +325,8 @@
 - type: entity
   parent: [ BaseItem, BaseMagicContraband ]
   id: HereticOgBook
-  name: tome of forgotten lore
-  description: An ancient book filled with esoteric knowledge. Its pages seem to writhe when viewed from the corner of your eye.
+  name: ent-HereticOgBook
+  description: ent-HereticOgBook-desc
   components:
   - type: Sprite
     sprite: ADT/Heretic/items.rsi
@@ -351,6 +336,7 @@
     state: ogbook
   - type: Item
     size: Small
+  - type: HereticOgBook
   - type: Tag
     tags:
     - HereticItem
@@ -358,29 +344,160 @@
 - type: entity
   parent: [ BaseItem, BaseMagicContraband ]
   id: HereticSpaceHands
-  name: mansus hands
-  description: Ethereal gauntlets that phase in and out of reality. They allow you to grasp what should not be grasped.
+  name: ent-HereticSpaceHands
+  description: ent-HereticSpaceHands-desc
   components:
   - type: Sprite
     sprite: ADT/Heretic/items.rsi
     state: spacehand_left
   - type: Item
     size: Small
+    sprite: ADT/Heretic/items.rsi
+    inhandVisuals:
+      left:
+      - state: spacehand_right
+      right:
+      - state: spacehand_left
+  - type: TimedDespawn
+    lifetime: 9
   - type: Tag
     tags:
     - HereticItem
 
 - type: entity
   parent: [ BaseItem, BaseMagicContraband ]
-  id: HereticBullet
-  name: eldritch bullet
-  description: A bullet imbued with otherworldly energy. It seeks its target with unnatural precision.
+  id: HereticOgBookBarrier
+  name: ent-HereticOgBookBarrier
+  description: ent-HereticOgBookBarrier-desc
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: ADT/Heretic/items.rsi
-    state: bullet
+    sprite: ADT/Heretic/Entities/paper_wall.rsi
+    state: icon
+    drawdepth: Effects
+  - type: HereticOgBookBarrier
+  - type: TimedDespawn
+    lifetime: 15
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.5
+        layer:
+        - WallLayer
+        mask:
+        - MobMask
+        density: 1000
+        hard: false
+  - type: Clickable
+
+- type: entity
+  parent: [ BaseItem, BaseMagicContraband ]
+  id: HereticRaggedSword
+  name: ent-HereticRaggedSword
+  description: ent-HereticRaggedSword-desc
+  components:
+  - type: HereticMagicItem
+  - type: Sprite
+    sprite: ADT/Heretic/Entities/sword.rsi
+    state: icon
   - type: Item
-    size: Tiny
+    size: Large
+    sprite: ADT/Heretic/Entities/sword-inhands.rsi
+    shape:
+    - 0,0,5,1
+    storedRotation: 45
+  - type: MeleeWeapon
+    angle: 90
+    range: 2
+    attackRate: 1.25
+    damage:
+      types:
+        Slash: 20
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Heretic/Entities/sword.rsi
+    slots:
+    - Back
+    - SuitStorage
+  - type: UseDelay
+    delay: 0.8
+  - type: RaggedSword
+    maxHealthPerKill: 25
+  - type: Tag
+    tags:
+    - HereticItem
+
+- type: entity
+  parent: ClothingHeadBase
+  id: HereticEldritchCrown
+  name: ent-HereticEldritchCrown
+  description: ent-HereticEldritchCrown-desc
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/Effects/crown.rsi
+    state: arena_victor
+  - type: Clothing
+    sprite: ADT/Heretic/Effects/crown.rsi
+    slots:
+    - Head
+  - type: ClothingGrantComponent
+    component:
+    - type: FleshGhoulLimit
+      limit: 5
+  - type: Tag
+    tags:
+    - HereticItem
+
+- type: entity
+  parent: [ BaseItem, BaseMagicContraband ]
+  id: EnvyKnife
+  name: ent-EnvyKnife
+  description: ent-EnvyKnife-desc
+  components:
+  - type: HereticMagicItem
+  - type: Sprite
+    sprite: ADT/Heretic/Entities/envy_knife.rsi
+    state: icon
+  - type: Item
+    size: Small
+    sprite: ADT/Heretic/Entities/envy_knife.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: MeleeWeapon
+    animation: WeaponArcThrust
+    attackRate: 1.25
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+    damage:
+      types:
+        Slash: 15
+        Piercing: 5
+  - type: BackStab
+    damageMultiplier: 4
+    tolerance: 1.0471976
+  - type: BackstabDamageMultipilier
+    bonusDamage:
+      types:
+        Slash: 20
+        Piercing: 10
+  - type: ThrowingAngle
+    angle: 180
+  - type: UseDelay
+    delay: 0.75
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 10
+        Piercing: 5
   - type: Tag
     tags:
     - HereticItem

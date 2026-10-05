@@ -184,3 +184,108 @@ knowledge-path-side-t2-greaves-desc =
 
     Allows you to transmute 2 silver bars and a pair of combat boots or magboots to create Greaves of the Prophet.
     Greaves provide excellent armor, protect against slipping, and reduce slowdown from damage.
+
+knowledge-path-side-t1-bookworm-name = Warren King's Welcome
+knowledge-path-side-t1-bookworm-desc =
+    Gnawed into vicious-stained fingerbones, my grim invitation snaps towards the heavy-set door.
+
+    Transmute 10 cable coil, a piece of paper and a multitool to brand all ID cards on your rune and nearby airlocks.
+    Branded IDs gain maintenance, external and heretic access. Branded airlocks only open to branded IDs and ignore the AI.
+
+knowledge-path-side-t1-mirror-name = Miraculous Mirror
+knowledge-path-side-t1-mirror-desc =
+    I was imperfect, weak. Every window showed a reflection I burned to change.
+
+    Transmute five silver bars and a pair of eyes into a Miraculous Mirror.
+    Heretics change appearance freely. Heathens who stare too long are trapped and stunned.
+
+knowledge-path-side-t2-wave-name = Wave Of Desperation
+knowledge-path-side-t2-wave-desc =
+    My shackles undone in dark fury, their feeble bindings crumble before my power.
+
+    Grants Wave Of Desperation, castable only while restrained. It deletes restraints, knocks down and throws nearby beings.
+
+knowledge-path-side-t2-unsealed-name = Unsealed Arts
+knowledge-path-side-t2-unsealed-desc =
+    A wind of inspiration blows through me. Great works yearn for mortal eyes.
+
+    Transmute paper plus one extra into a cursed painting. Each painting has a proximity aura and asymmetric examine.
+    Eyes for Weeping, heart for Desire, poppy for Vines, gloves for Beauty, trash for Rust.
+
+knowledge-path-side-t2-weeping-name = The Sister and He Who Wept
+knowledge-path-side-t2-weeping-desc =
+    Clears your mind, while cursing heathens with hallucinations.
+
+    Transmute paper and eyes into a weeping painting.
+
+knowledge-path-side-t2-desire-name = The Feast of Desire
+knowledge-path-side-t2-desire-desc =
+    Supplies you with food, while cursing heathens with hunger.
+
+    Transmute paper and a heart into a desire painting.
+
+knowledge-path-side-t2-vines-name = Great Chaparral Over Rolling Hills
+knowledge-path-side-t2-vines-desc =
+    Slows heathens who linger near it.
+
+    Transmute paper and a poppy into a vines painting.
+
+knowledge-path-side-t2-beauty-name = Lady of the Gate
+knowledge-path-side-t2-beauty-desc =
+    Steals the words of heathens.
+
+    Transmute paper and medical gloves into a beauty painting.
+
+knowledge-path-side-t2-rust-name = Master of the Rusted Mountain
+knowledge-path-side-t2-rust-desc =
+    Rusts the floor heathens walk on.
+
+    Transmute paper and trash into a rust painting.
+
+knowledge-path-side-t2-unwrap-name = Unwrap Minds
+knowledge-path-side-t2-unwrap-desc =
+    Exposes a heathen directly to the horrors of the Mansus, hypnotizing them.
+
+    Transmute a scalpel, a glass shard, a written paper and a living human.
+    Whatever is written becomes the hypnosis order. Destroys mindshield implants.
+
+knowledge-path-side-t3-ashen-name = Ashen Ritual
+knowledge-path-side-t3-ashen-desc =
+    I combined my principle of hunger with my desire for destruction.
+
+    Transmute ash, a book and a bonfire into an Ash Spirit. Limit 2.
+
+knowledge-path-side-t3-shattered-name = Shattered Ritual
+knowledge-path-side-t3-shattered-desc =
+    I witnessed a cold, rending force drag this corpse back to near-life.
+
+    Transmute a dead souled humanoid, a suit and gloves into a Shattered Risen. Limit 1.
+
+knowledge-path-side-t3-gate-name = Keys to the Backdoor
+knowledge-path-side-t3-gate-desc =
+    Open a backdoor to the Mansus.
+
+    Transmute a locker and a Codex Cicatrix into a paired two-way teleport gate. Limit 2, one pair.
+    Only heretics, ghouls, the dead or willing living may pass. The codex is consumed, the locker is kept.
+
+knowledge-path-side-t4-phase-name = Space Phase
+knowledge-path-side-t4-phase-desc =
+    You feel like your body can move through space as if you were dust.
+
+    Grants Space Phase, a cooldown-based self-jaunt that lets you move through walls and space.
+knowledge-path-side-t1-bottle-name = filled soul bottle
+knowledge-path-side-t1-bottle-desc =
+    A crystalline bottle filled with a swirling, ethereal essence. The whispers within have gone silent.
+knowledge-path-side-t1-sword-name = ragged sword
+knowledge-path-side-t1-sword-desc =
+    A blade that hums with something that is not quite a mind.
+knowledge-path-side-t1-envy-name = envy's knife
+knowledge-path-side-t1-envy-desc =
+    Their success will be yours.
+knowledge-path-side-t1-medal-name = sharp medal
+knowledge-path-side-t1-medal-desc =
+    Worn, your thrown blades come back to you.
+knowledge-path-side-t3-crown-name = crown of the gibbet
+knowledge-path-side-t3-crown-desc =
+    A ragged crown won by those who served their masters too well.
+    Worn, the flesh serves its master more faithfully: your ghoul limit is raised to 5.

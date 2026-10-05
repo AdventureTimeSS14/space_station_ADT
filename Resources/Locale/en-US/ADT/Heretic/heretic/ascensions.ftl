@@ -59,3 +59,8 @@ heretic-ascension-cosmos =
     WITNESS MY ASCENSION!
     
 heretic-ascension-bingle = bungle
+
+heretic-ascension-moon =
+    Laugh, for the ringleader has ascended!
+    The truth shall finally devour the lie!
+    WITNESS MY ASCENSION, THE MOON SMILES ONCE MORE AND FOREVER MORE IT SHALL!

@@ -253,6 +253,21 @@
       - ForestAdmonitions
 
 - type: entity
+  parent: HereticPaleFog
+  id: HereticPaleFogMoon
+  name: ent-HereticPaleFogMoon
+  description: ent-HereticPaleFogMoon-desc
+  components:
+  - type: TileEntityEffect
+    effects:
+    - !type:ModifyStatusEffect
+      effectProto: PaleFogAffectedStatusEffect
+      time: 6
+    - !type:ModifyStatusEffect
+      effectProto: MoonConfusedStatusEffect
+      time: 6
+
+- type: entity
   id: EffectCosmicDiamond
   categories: [ HideSpawnMenu ]
   components:

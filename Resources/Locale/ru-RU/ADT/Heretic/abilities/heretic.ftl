@@ -120,3 +120,12 @@ coin-flip-examine-message = Выпало: {$side}.
 coin-flip-popup-message = {$coin} падает: {$side}!
 eldritch-coin-side-heretic = орёл
 eldritch-coin-side-blade = решка
+
+## reality shift dream (хуйня сна еретика крч)
+heretic-influence-dream = Во сне реальность складывается. Что-то смещается {$dir}, {$range}.
+heretic-influence-dream-hypno = [font=italic][color=#b589f6] {$text} [/color][/font]
+heretic-influence-dream-close = совсем рядом
+heretic-influence-dream-near = неподалёку
+heretic-influence-dream-far = далеко отсюда
+heretic-influence-dream-silent = Во сне реальность неподвижна. Рядом ничего не смещается, но Мансус слушает.
+heretic-gate-examine-move = Разлом ничем не закреплён. Его можно перетащить куда угодно, но близнец останется там, где его оставили.

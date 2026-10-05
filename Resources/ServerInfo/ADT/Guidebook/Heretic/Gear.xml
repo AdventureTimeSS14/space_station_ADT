@@ -72,5 +72,28 @@
     <GuideEntityEmbed Entity="ADTClothingOuterArmorHereticRust" Caption=""/>
     <GuideEntityEmbed Entity="ADTClothingOuterArmorHereticCosmos" Caption=""/>
     <GuideEntityEmbed Entity="ADTClothingOuterArmorHereticLock" Caption=""/>
+    <GuideEntityEmbed Entity="ADTClothingOuterArmorHereticMoon" Caption=""/>
   </Box>
+
+  # Случайные находки пути
+
+  Побочные ритуалы дают предметы и существ, которые не вписываются в основные пути, но отлично работают в общих целях.
+
+  <Box>
+    <GuideEntityEmbed Entity="HereticMoonAmulet" Caption=""/>
+    <GuideEntityEmbed Entity="HereticSoulBottleFull" Caption=""/>
+    <GuideEntityEmbed Entity="HereticOgBook" Caption=""/>
+    <GuideEntityEmbed Entity="HereticMiraculousMirror" Caption=""/>
+    <GuideEntityEmbed Entity="HereticMansusGate" Caption=""/>
+  </Box>
+
+  [color=#b48ead][bold]Лунный амулет[/bold][/color] на шее: пока он надет, пассивная регенерация мозга вдвое быстрее. Удары и умения по цели заменяют урон каналом амулета: [bold]рассудок ниже 25[/bold] обращает жертву в лунатика (или усыпляет, если у неё щит разума), иначе рассудок просто падает. Клинок Луны в руках при надетом амулете перестаёт быть летальным.
+
+  [color=#b48ead][bold]Наполненная бутылка душ[/bold][/color] - ингредиент ритуала Расколотого. Пьётся как обычная бутылка, но кому-то может пригодиться и просто так.
+
+  [color=#b48ead][bold]Том забытых знаний[/bold][/color] - награда за ритуал Червь. Сама по себе бесполезен, но выглядит внушительно.
+
+  [color=#b48ead][bold]Чудесное зеркало[/bold][/color] обездвиживает на 3 секунды каждого, кто к нему прикоснётся. Еретиков и их миньонов не трогает.
+
+  [color=#b48ead][bold]Врата Мансуса[/bold][/color] - парные врата: пройти можно только верному, мёртвому или согласному. Создаются из Кодекса Цикатрикс.
 </Document>

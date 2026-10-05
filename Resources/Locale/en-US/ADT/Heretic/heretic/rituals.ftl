@@ -107,3 +107,22 @@ heretic-ritual-info-header = Ritual: {$name}
 heretic-ritual-info-requirements = [font size=16]{$requirements}[/font]
 heretic-ritual-info-item = - {$item} [icon src="{$icon}" tooltip="{$tooltip}" size=32] x{$amount}
 heretic-ritual-info-item-plain = - {$item} x{$amount}
+heretic-ritual-fail-unwrap-no-paper = There is no paper on the rune.
+heretic-ritual-fail-unwrap-blank = Write your hypnosis on the paper!
+heretic-ritual-fail-unwrap-no-scalpel = There is no scalpel on the rune.
+heretic-ritual-fail-unwrap-no-victim = There is no living human to hypnotize.
+heretic-ritual-fail-shattered-no-corpse = There is no dead souled humanoid to raise.
+heretic-ritual-fail-gate-no-locker = There is no locker on the rune.
+heretic-mirror-trap = The mirror refuses you and holds you still!
+heretic-gate-refuse = The gate refuses you!
+heretic-hypnosis-order = Hypnosis order: {$order}
+heretic-painting-weeping-heretic = It clears your mind.
+heretic-painting-weeping-heathen = It fills your head with visions.
+heretic-painting-desire-heretic = It feeds you.
+heretic-painting-desire-heathen = It starves you with hunger for flesh.
+heretic-painting-vines-heretic = It parts before you.
+heretic-painting-vines-heathen = It slows your steps.
+heretic-painting-beauty-heretic = It finds you beautiful.
+heretic-painting-beauty-heathen = It steals your words.
+heretic-painting-rust-heretic = It spares your steps.
+heretic-painting-rust-heathen = It rusts the floor beneath you.

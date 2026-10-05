@@ -51,11 +51,11 @@
   description: Not all doors are wounds, but all wounds are doors.
   components:
   - type: Sprite
-    sprite: ADT/Heretic/items.rsi
-    state: marshal
+    sprite: ADT/Heretic/Entities/marshal.rsi
+    state: potion
   - type: Icon
-    sprite: ADT/Heretic/items.rsi
-    state: marshal
+    sprite: ADT/Heretic/Entities/marshal.rsi
+    state: potion
   - type: SolutionContainerManager
     solutions:
       drink:

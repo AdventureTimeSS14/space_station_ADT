@@ -53,6 +53,40 @@
       - Normal
       - Ghost
 
+- type: entity
+  id: PolymorphSpaceCrawl
+  name: Unknown
+  description: You can't figure out what that is.
+  parent: BaseMobJaunt
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Mobs/Ghosts/ghost_human.rsi
+    color: "#b48ead"
+    layers:
+    - state: animated
+      shader: unshaded
+    noRot: true
+    overrideContainerOcclusion: true
+    drawdepth: Ghosts
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 5.5
+    baseWalkSpeed: 4
+  - type: Eye
+    drawFov: false
+    visMask:
+      - Normal
+      - Ghost
+  - type: Hands
+    activeHandId: left
+    canBeStripped: false
+    hands:
+      left:
+        location: Left
+      right:
+        location: Right
+  - type: Pullable
+
 # heretic ascend flesh form
 - type: entity
   parent: BaseMob

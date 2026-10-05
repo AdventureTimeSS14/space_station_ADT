@@ -34,6 +34,7 @@
   - ADTHereticPathRust
   - ADTHereticPathCosmos
   - ADTHereticPathLock
+  - ADTHereticPathMoon
 
 - type: guideEntry
   id: ADTHereticPathAsh
@@ -75,6 +76,12 @@
   id: ADTHereticPathLock
   name: guide-entry-heretic-path-lock
   text: "/ServerInfo/ADT/Guidebook/Heretic/PathLock.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: ADTHereticPathMoon
+  name: guide-entry-heretic-path-moon
+  text: "/ServerInfo/ADT/Guidebook/Heretic/PathMoon.xml"
   filterEnabled: true
 
 - type: guideEntry

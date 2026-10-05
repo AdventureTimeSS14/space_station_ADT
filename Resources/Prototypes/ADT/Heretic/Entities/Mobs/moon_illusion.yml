@@ -1,0 +1,33 @@
+- type: entity
+  parent: MobGhoulStalker
+  id: MobMoonIllusion
+  name: ent-MobMoonIllusion
+  description: ent-MobMoonIllusion-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 30
+  - type: MoonIllusion
+  - type: Sprite
+    sprite: ADT/Heretic/Mobs/hint.rsi
+    state: smol_progenitor
+    color: "#b48ead"
+    offset: 0,2
+    noRot: true
+  - type: Eye
+    drawFov: false
+    visMask:
+    - Normal
+    - Ghost
+  - type: Pullable
+  - type: MeleeWeapon
+    hidden: false
+    altDisarm: false
+    autoAttack: true
+    attackRate: 2.5
+    damage:
+      types:
+        Blunt: 1
+  - type: Tag
+    tags:
+    - HideContextMenu

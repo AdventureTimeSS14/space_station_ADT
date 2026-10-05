@@ -42,7 +42,7 @@
 
   # Побочные ритуалы
 
-  <GuideHereticRitualEmbed Ritual="ArmorerRitual" CycleOutput="ClothingOuterArmorHeretic, ADTClothingOuterArmorHereticAsh, ADTClothingOuterArmorHereticBlade, ADTClothingOuterArmorHereticFlesh, ADTClothingOuterArmorHereticVoid, ADTClothingOuterArmorHereticRust, ADTClothingOuterArmorHereticCosmos, ADTClothingOuterArmorHereticLock"/>
+  <GuideHereticRitualEmbed Ritual="ArmorerRitual" CycleOutput="ClothingOuterArmorHeretic, ADTClothingOuterArmorHereticAsh, ADTClothingOuterArmorHereticBlade, ADTClothingOuterArmorHereticFlesh, ADTClothingOuterArmorHereticVoid, ADTClothingOuterArmorHereticRust, ADTClothingOuterArmorHereticCosmos, ADTClothingOuterArmorHereticLock, ADTClothingOuterArmorHereticMoon"/>
   <GuideHereticRitualEmbed Ritual="AshenEyesRitual"/>
   <GuideHereticRitualEmbed Ritual="PriestRitual"/>
   <GuideHereticRitualEmbed Ritual="VoidCloak"/>
@@ -60,8 +60,27 @@
   <GuideHereticRitualEmbed Ritual="RitualCodexMorbus"/>
   <GuideHereticRitualEmbed Ritual="RitualGreavesOfTheProphet"/>
   <GuideHereticRitualEmbed Ritual="RitualMaidInTheMirror"/>
+  <GuideHereticRitualEmbed Ritual="RitualBookworm"/>
+  <GuideHereticRitualEmbed Ritual="RitualMiraculousMirror"/>
+  <GuideHereticRitualEmbed Ritual="RitualPaintingWeeping"/>
+  <GuideHereticRitualEmbed Ritual="RitualPaintingDesire"/>
+  <GuideHereticRitualEmbed Ritual="RitualPaintingVines"/>
+  <GuideHereticRitualEmbed Ritual="RitualPaintingBeauty"/>
+  <GuideHereticRitualEmbed Ritual="RitualPaintingRust"/>
+  <GuideHereticRitualEmbed Ritual="RitualUnwrapMinds"/>
+  <GuideHereticRitualEmbed Ritual="RitualAshenRitual"/>
+  <GuideHereticRitualEmbed Ritual="RitualShatteredRitual"/>
+  <GuideHereticRitualEmbed Ritual="RitualMansusGate"/>
+
+  # Побочные умения
+
+  Помимо предметов и миньонов, побочные знания дают умения. У них нет отдельного ритуала: они покупаются прямо в каталоге.
+
+  [color=#ebcb8b][bold]Фазовый сдвиг[/bold][/color] позволяет на 8 секунд уйти в фазу. Работает [bold]только в открытом космосе[/bold] или на улице с низким давлением, в руках появятся эфирные длани мансуса.
+
+  [color=#ebcb8b][bold]Волна отчаяния[/bold][/color] срывает с вас все путы, кладёт и раскидывает всех вокруг. Применяется только пока вы связаны.
 
   # Ритуалы путей
 
-  Ритуалы конкретных путей лежат на страницах самих путей: [textlink="Пепел" link="ADTHereticPathAsh"], [textlink="Клинок" link="ADTHereticPathBlade"], [textlink="Плоть" link="ADTHereticPathFlesh"], [textlink="Пустота" link="ADTHereticPathVoid"], [textlink="Ржавчина" link="ADTHereticPathRust"], [textlink="Космос" link="ADTHereticPathCosmos"], [textlink="Замок" link="ADTHereticPathLock"].
+  Ритуалы конкретных путей лежат на страницах самих путей: [textlink="Пепел" link="ADTHereticPathAsh"], [textlink="Клинок" link="ADTHereticPathBlade"], [textlink="Плоть" link="ADTHereticPathFlesh"], [textlink="Пустота" link="ADTHereticPathVoid"], [textlink="Ржавчина" link="ADTHereticPathRust"], [textlink="Космос" link="ADTHereticPathCosmos"], [textlink="Замок" link="ADTHereticPathLock"], [textlink="Луна" link="ADTHereticPathMoon"].
 </Document>

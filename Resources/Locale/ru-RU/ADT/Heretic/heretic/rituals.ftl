@@ -88,3 +88,22 @@ heretic-ritual-info-header = Ритуал: { $name }
 heretic-ritual-info-requirements = [font size=16]{$requirements}[/font]
 heretic-ritual-info-item = - { $item } [icon src="{ $icon }" tooltip="{ $tooltip }" size=32] x{ $amount }
 heretic-ritual-info-item-plain = - { $item } x{ $amount }
+heretic-ritual-fail-unwrap-no-paper = На руне нет бумаги.
+heretic-ritual-fail-unwrap-blank = Напишите гипноз на бумаге!
+heretic-ritual-fail-unwrap-no-scalpel = На руне нет скальпеля.
+heretic-ritual-fail-unwrap-no-victim = Нет живого человека для гипноза.
+heretic-ritual-fail-shattered-no-corpse = Нет мёртвого гуманоида с душой.
+heretic-ritual-fail-gate-no-locker = На руне нет шкафа.
+heretic-mirror-trap = Зеркало отвергает вас и держит на месте!
+heretic-gate-refuse = Врата отвергают вас!
+heretic-hypnosis-order = Приказ гипноза: {$order}
+heretic-painting-weeping-heretic = Она проясняет ваш разум.
+heretic-painting-weeping-heathen = Она наполняет голову видениями.
+heretic-painting-desire-heretic = Она кормит вас.
+heretic-painting-desire-heathen = Она морит вас голодом.
+heretic-painting-vines-heretic = Она расступается перед вами.
+heretic-painting-vines-heathen = Она замедляет ваши шаги.
+heretic-painting-beauty-heretic = Она находит вас прекрасным.
+heretic-painting-beauty-heathen = Она крадёт ваши слова.
+heretic-painting-rust-heretic = Она щадит ваши шаги.
+heretic-painting-rust-heathen = Она ржавит пол под вами.

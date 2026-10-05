@@ -8,3 +8,4 @@
 
 guide-entry-heretics = Heretics
 guide-entry-heretic-path-lock = Path of Lock
+guide-entry-heretic-path-moon = Path of Moon

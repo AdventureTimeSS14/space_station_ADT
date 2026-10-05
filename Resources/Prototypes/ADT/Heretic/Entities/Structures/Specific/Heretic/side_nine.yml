@@ -1,0 +1,109 @@
+- type: entity
+  parent: Mirror
+  id: HereticMiraculousMirror
+  name: ent-HereticMiraculousMirror
+  description: ent-HereticMiraculousMirror-desc
+  components:
+  - type: HereticMiraculousMirror
+
+- type: entity
+  parent: BaseWallmount
+  id: HereticPaintingWeeping
+  name: ent-HereticPaintingWeeping
+  description: ent-HereticPaintingWeeping-desc
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/Entities/paper_wall.rsi
+    state: icon
+  - type: HereticPainting
+    kind: Weeping
+
+- type: entity
+  parent: BaseWallmount
+  id: HereticPaintingDesire
+  name: ent-HereticPaintingDesire
+  description: ent-HereticPaintingDesire-desc
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/Entities/paper_wall.rsi
+    state: icon
+  - type: HereticPainting
+    kind: Desire
+
+- type: entity
+  parent: BaseWallmount
+  id: HereticPaintingVines
+  name: ent-HereticPaintingVines
+  description: ent-HereticPaintingVines-desc
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/Entities/paper_wall.rsi
+    state: icon
+  - type: HereticPainting
+    kind: Vines
+
+- type: entity
+  parent: BaseWallmount
+  id: HereticPaintingBeauty
+  name: ent-HereticPaintingBeauty
+  description: ent-HereticPaintingBeauty-desc
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/Entities/paper_wall.rsi
+    state: icon
+  - type: HereticPainting
+    kind: Beauty
+
+- type: entity
+  parent: BaseWallmount
+  id: HereticPaintingRust
+  name: ent-HereticPaintingRust
+  description: ent-HereticPaintingRust-desc
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/Entities/paper_wall.rsi
+    state: icon
+  - type: HereticPainting
+    kind: Rust
+
+- type: entity
+  parent: BaseStructure
+  id: HereticMansusGate
+  name: ent-HereticMansusGate
+  description: ent-HereticMansusGate-desc
+  categories: [ HideSpawnMenu ]
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/Effects/effects.rsi
+    state: bhole3
+    drawdepth: OverMobs
+  - type: HereticMansusGate
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        layer:
+        - WallLayer
+        mask:
+        - MobMask
+        density: 1000
+        hard: false
+  - type: Clickable
+  - type: Damageable
+    damageModifierSet: StructuralMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]

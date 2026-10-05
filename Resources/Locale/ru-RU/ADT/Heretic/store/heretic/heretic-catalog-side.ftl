@@ -136,3 +136,80 @@ knowledge-path-side-t2-greaves-desc =
 
     Позволяет трансмутировать 2 серебряных слитка и любую боевую обувь или маг-ботинки, чтобы создать сапоги-суставоломы.
     Сапоги обеспечивают отличную защиту, предотвращают подскальзывание и снижают замедление от урона.
+
+knowledge-path-side-t1-bookworm-name = Приветствие Уоррена Кинга
+knowledge-path-side-t1-bookworm-desc =
+    Трансмутируйте 10 кабелей, бумагу и мультитул, чтобы заклеймить ID-карты и шлюзы рядом.
+    Заклеймённые карты получают доступ к техническим, внешним и еретическим шлюзам. Заклеймённые шлюзы слушаются только их и игнорируют ИИ.
+
+knowledge-path-side-t1-mirror-name = Чудесное зеркало
+knowledge-path-side-t1-mirror-desc =
+    Трансмутируйте пять серебряных слитков и пару глаз в чудесное зеркало.
+    Еретики меняют внешность свободно. Неверные застревают и оглушаются.
+
+knowledge-path-side-t2-wave-name = Волна отчаяния
+knowledge-path-side-t2-wave-desc =
+    Даёт Волну отчаяния, применимую только в наручниках. Снимает путы, сбивает с ног и разбрасывает рядом стоящих.
+
+knowledge-path-side-t2-unsealed-name = Незапечатанные искусства
+knowledge-path-side-t2-unsealed-desc =
+    Трансмутируйте бумагу и один дополнительный предмет в проклятую картину с аурой.
+    Глаза для Плачущей, сердце для Желания, мак для Вин, перчатки для Красоты, мусор для Ржавчины.
+
+knowledge-path-side-t2-weeping-name = Сестра и Тот Кто Плакал
+knowledge-path-side-t2-weeping-desc =
+    Проясняет разум, неверных проклинает галлюцинациями. Трансмутация бумаги и глаз.
+
+knowledge-path-side-t2-desire-name = Пир желания
+knowledge-path-side-t2-desire-desc =
+    Кормит верных, неверных морит голодом. Трансмутация бумаги и сердца.
+
+knowledge-path-side-t2-vines-name = Чапараль над холмами
+knowledge-path-side-t2-vines-desc =
+    Замедляет неверных рядом. Трансмутация бумаги и мака.
+
+knowledge-path-side-t2-beauty-name = Дама врат
+knowledge-path-side-t2-beauty-desc =
+    Крадёт слова неверных. Трансмутация бумаги и медицинских перчаток.
+
+knowledge-path-side-t2-rust-name = Хозяин ржавой горы
+knowledge-path-side-t2-rust-desc =
+    Ржавит пол под неверными. Трансмутация бумаги и мусора.
+
+knowledge-path-side-t2-unwrap-name = Развернуть разумы
+knowledge-path-side-t2-unwrap-desc =
+    Трансмутируйте скальпель, осколок стекла, исписанную бумагу и живого человека.
+    Написанное становится приказом гипноза. Разрушает имплант щита разума.
+
+knowledge-path-side-t3-ashen-name = Пепельный ритуал
+knowledge-path-side-t3-ashen-desc =
+    Трансмутируйте пепел, книгу и костёр в духа пепла. Лимит 2.
+
+knowledge-path-side-t3-shattered-name = Расколотый ритуал
+knowledge-path-side-t3-shattered-desc =
+    Трансмутируйте мёртвого гуманоида с душой, костюм и перчатки в расколотого восставшего. Лимит 1.
+
+knowledge-path-side-t3-gate-name = Ключи к чёрному ходу
+knowledge-path-side-t3-gate-desc =
+    Трансмутируйте шкаф и Кодекс Цикатрикс в парные врата телепортации. Лимит 2, одна пара.
+    Проходят только еретики, гули, мёртвые или согласные живые. Кодекс расходуется, шкаф остаётся.
+
+knowledge-path-side-t4-phase-name = Фаза пространства
+knowledge-path-side-t4-phase-desc =
+    Даёт Фазу пространства, перезаряжаемый самоджаунт сквозь стены и космос.
+knowledge-path-side-t1-bottle-name = наполненная бутылка душ
+knowledge-path-side-t1-bottle-desc =
+    Хрустальная бутылка, наполненная клубящейся эфирной сущностью. Шёпот внутри умолк.
+knowledge-path-side-t1-sword-name = рваный меч
+knowledge-path-side-t1-sword-desc =
+    Клинок, в котором гудит что-то, почти похожее на разум.
+knowledge-path-side-t1-envy-name = нож зависти
+knowledge-path-side-t1-envy-desc =
+    Их успех станет твоим.
+knowledge-path-side-t1-medal-name = острая медаль
+knowledge-path-side-t1-medal-desc =
+    Пока носите её, брошенные клинки возвращаются к вам.
+knowledge-path-side-t3-crown-name = корона висельника
+knowledge-path-side-t3-crown-desc =
+    Рваная корона, доставшаяся тем, кто слишком усердно служил своим хозяевам.
+    Пока носите её, плоть служит хозяину вернее: лимит гулотов повышается до 5.

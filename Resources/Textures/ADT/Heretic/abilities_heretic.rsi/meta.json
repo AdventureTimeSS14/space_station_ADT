@@ -173,6 +173,61 @@
         },
         {
             "name": "ghoul_shattered"
+        },
+        {
+            "name": "mind_gate"
+        },
+        {
+            "name": "moon_parade"
+        },
+        {
+            "name": "moon_ringleader",
+            "directions": 1,
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "moon_ascension"
+        },
+        {
+            "name": "moon_smile"
+        },
+        {
+            "name": "mad_touch",
+            "directions": 1,
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "space_crawl",
+            "directions": 1,
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.5,
+                    1.0,
+                    0.15,
+                    0.08,
+                    0.08,
+                    0.08,
+                    0.3,
+                    0.1
+                ]
+            ]
         }
     ]
 }
