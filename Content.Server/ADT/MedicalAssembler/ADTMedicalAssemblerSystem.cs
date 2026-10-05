@@ -190,7 +190,7 @@ public sealed class ADTMedicalAssemblerSystem : EntitySystem
         _solution.UpdateChemicals(beakerSolEnt.Value);
 
         var result = Spawn(resultProto, Transform(ent.Owner).Coordinates);
-        if (_solution.TryGetSolution(result, "pen", out var resultSolEnt, out var resultSolution))
+        if (_solution.TryGetSolution(result, "hypospray", out var resultSolEnt, out var resultSolution))
         {
             foreach (var (reagentId, quantity) in reagents)
                 resultSolution.AddReagent(reagentId, quantity);

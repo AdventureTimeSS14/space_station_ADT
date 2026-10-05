@@ -40,7 +40,7 @@ public sealed class MealsRecipesJsonGenerator
         var grindableRecipes =
             entities
                 .Where(x => x.Components.TryGetComponent("Extractable", out var _))
-                .Where(x => x.Components.TryGetComponent("SolutionContainerManager", out var _))
+                .Where(x => x.Components.TryGetComponent("Solution", out var _) || x.Components.TryGetComponent("SolutionManager", out var _))
                 .Where(x => (Regex.Match(x.ID.ToLower().Trim(), @".*[Ff]ood*").Success)) // we dont need some "organ" or "pills" prototypes.
                 .Select(x => new GrindRecipeEntry(x))
                 .Where(x => x.Result != null)

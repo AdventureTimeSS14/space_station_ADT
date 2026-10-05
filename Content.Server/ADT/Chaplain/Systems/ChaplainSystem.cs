@@ -14,6 +14,8 @@ using Content.Shared.Body;
 using Content.Shared.FixedPoint;
 using Content.Shared.Alert;
 using Content.Shared.DoAfter;
+using System.Linq;
+using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Robust.Shared.Prototypes;
@@ -339,31 +341,29 @@ public sealed class ChaplainSystem : EntitySystem
             }
         }
 
-        if (TryComp<SolutionContainerManagerComponent>(target, out var solutionContainer) && solutionContainer.Containers != null && !HasComp<BodyComponent>(target))
+        if ((HasComp<SolutionComponent>(target) || HasComp<SolutionManagerComponent>(target)) && !HasComp<BodyComponent>(target))
         {
             bool success = false;
-            foreach (var sol in solutionContainer.Containers)
+            foreach (var (_, soln) in _solutionContainer.EnumerateSolutions(target).ToList())
             {
-                if (_solutionContainer.TryGetSolution(target, sol, out var soln, out var solution))
+                var solution = soln.Comp.Solution;
+                var water = component.WaterSolution;
+                var blood = component.BloodSolution;
+                var waterQuantity = solution.GetTotalPrototypeQuantity(water);
+                var bloodQuantity = solution.GetTotalPrototypeQuantity(blood);
+                if (waterQuantity != FixedPoint2.Zero)
                 {
-                    var water = component.WaterSolution;
-                    var blood = component.BloodSolution;
-                    var waterQuantity = solution.GetTotalPrototypeQuantity(water);
-                    var bloodQuantity = solution.GetTotalPrototypeQuantity(blood);
-                    if (waterQuantity != FixedPoint2.Zero)
-                    {
-                        solution.RemoveReagent(water, waterQuantity);
-                        solution.AddReagent(component.WaterReplaceSolution, waterQuantity);
-                        success = true;
-                    }
-                    if (bloodQuantity != FixedPoint2.Zero)
-                    {
-                        solution.RemoveReagent(blood, bloodQuantity);
-                        solution.AddReagent(component.BloodReplaceSolution, bloodQuantity);
-                        success = true;
-                    }
-                    _solutionContainer.UpdateChemicals(soln.Value, false);
+                    solution.RemoveReagent(water, waterQuantity);
+                    solution.AddReagent(component.WaterReplaceSolution, waterQuantity);
+                    success = true;
                 }
+                if (bloodQuantity != FixedPoint2.Zero)
+                {
+                    solution.RemoveReagent(blood, bloodQuantity);
+                    solution.AddReagent(component.BloodReplaceSolution, bloodQuantity);
+                    success = true;
+                }
+                _solutionContainer.UpdateChemicals(soln, false);
             }
 
             if (success)
