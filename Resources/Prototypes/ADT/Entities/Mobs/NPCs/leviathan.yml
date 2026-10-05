@@ -23,7 +23,7 @@
     weightless: true # wtf lol?
   - type: WarpPoint
     follow: true
-    location: space leviathan
+    location: location-adt-space-leviathan
   - type: HTN
     rootTask:
       task: DragonCarpCompound

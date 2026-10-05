@@ -58,7 +58,7 @@
     guides: [ SupermatterGuideBook, Power ]
   - type: WarpPoint
     follow: true
-    location: supermatter
+    location: location-adt-supermatter
   - type: Clickable
   - type: InteractionOutline
   - type: Physics

@@ -92,7 +92,7 @@
 #        shader: unshaded
       - state: blob_core_overlay
   - type: WarpPoint
-    location: blob core
+    location: location-adt-blob-core
   - type: GhostRole
     prob: 1
     name: ghost-role-information-blob-name

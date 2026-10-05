@@ -106,7 +106,7 @@
       - MobState
   - type: WarpPoint
     follow: true
-    location: спектральный клинок
+    location: location-adt-spectral-blade
   - type: ADTSpectralBlade
     damagePerSpirit:
       types:

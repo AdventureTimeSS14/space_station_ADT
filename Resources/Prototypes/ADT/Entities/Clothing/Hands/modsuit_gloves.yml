@@ -88,7 +88,7 @@
     equipDelay: 3
     unequipDelay: 3
   - type: Fiber
-    fiberColor: fibers-cyan
+    fiberColor: fibers-cyan-adt
 
 - type: entity
   parent: ADTClothingHandsModsuitBase
@@ -327,7 +327,7 @@
     equipDelay: 3
     unequipDelay: 3
   - type: Fiber
-    fiberColor: fibers-regal-green
+    fiberColor: fibers-regal-green-adt
 
 - type: entity
   parent: ADTClothingHandsModsuitCentcom
@@ -343,7 +343,7 @@
     equipDelay: 3
     unequipDelay: 3
   - type: Fiber
-    fiberColor: fibers-regal-green
+    fiberColor: fibers-regal-green-adt
 
 - type: entity
   parent: ADTClothingHandsModsuitBase
