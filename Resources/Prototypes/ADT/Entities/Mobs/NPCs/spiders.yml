@@ -167,12 +167,9 @@
     damage:
       types:
         Piercing: 10
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      melee:
-        reagents:
-        - ReagentId: Toxin
-          Quantity: 50
+    - ADTMobHunterSpiderSolution
   - type: MeleeChemicalInjector
     transferAmount: 2
     solution: melee
@@ -215,12 +212,9 @@
     damage:
       types:
         Piercing: 15
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      melee:
-        reagents:
-        - ReagentId: Toxin
-          Quantity: 50
+    - ADTMobGuardSpiderSolution
   - type: MeleeChemicalInjector
     transferAmount: 0.5
     solution: melee
@@ -274,12 +268,9 @@
     damage:
       types:
         Piercing: 7
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      melee:
-        reagents:
-        - ReagentId: ADTLatrotoxin
-          Quantity: 100
+    - ADTMobViperSpiderSolution
   - type: MeleeChemicalInjector
     transferAmount: 6
     solution: melee
@@ -435,12 +426,9 @@
     pryPowered: false
     force: false
     speedModifier: 0.1
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      melee:
-        reagents:
-        - ReagentId: Toxin
-          Quantity: 30
+    - ADTMobMiniSpiderSolution
   - type: MeleeChemicalInjector
     transferAmount: 1
     solution: melee
@@ -509,12 +497,9 @@
         reagents:
         - ReagentId: Laughter
           Quantity: 150
-    - type: SolutionContainerManager
+    - type: SolutionManager
       solutions:
-        melee:
-          reagents:
-          - ReagentId: Laughter
-            Quantity: 90
+      - ADTMobClownSpiderSolution
     - type: MeleeChemicalInjector
       transferAmount: 3
       solution: melee
@@ -608,3 +593,63 @@
       description: ghost-role-information-giant-spider-description
       rules: ghost-role-information-giant-spider-rules
     - type: GhostTakeoverAvailable
+
+- type: entity
+  parent: SolutionWeapon
+  id: ADTMobHunterSpiderSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 50
+      reagents:
+      - ReagentId: Toxin
+        Quantity: 50
+
+- type: entity
+  parent: SolutionWeapon
+  id: ADTMobGuardSpiderSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 50
+      reagents:
+      - ReagentId: Toxin
+        Quantity: 50
+
+- type: entity
+  parent: SolutionWeapon
+  id: ADTMobViperSpiderSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 100
+      reagents:
+      - ReagentId: ADTLatrotoxin
+        Quantity: 100
+
+- type: entity
+  parent: SolutionWeapon
+  id: ADTMobMiniSpiderSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: Toxin
+        Quantity: 30
+
+- type: entity
+  parent: SolutionWeapon
+  id: ADTMobClownSpiderSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 90
+      reagents:
+      - ReagentId: Laughter
+        Quantity: 90

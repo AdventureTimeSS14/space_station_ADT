@@ -17,12 +17,9 @@
     price: 750
   - type: Extractable
     grindableSolutionName: chelicerae
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      chelicerae:
-        reagents:
-        - ReagentId: ADTLatrotoxin
-          Quantity: 25
+    - ADTViperCheliceraeSolution
   - type: Fixtures
     fixtures:
       fix1:
@@ -34,3 +31,16 @@
           - ItemMask
         restitution: 0.3
         friction: 0.2
+
+- type: entity
+  parent: Solution
+  id: ADTViperCheliceraeSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: chelicerae
+    solution:
+      maxVol: 25
+      reagents:
+      - ReagentId: ADTLatrotoxin
+        Quantity: 25

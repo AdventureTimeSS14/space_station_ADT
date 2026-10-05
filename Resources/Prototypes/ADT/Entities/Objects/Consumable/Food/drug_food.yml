@@ -11,13 +11,12 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/drug_food.rsi
     state: crystal_full
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 28
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 28
+  - type: Solution
+    solution:
+      maxVol: 28
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 28
   - type: Item
     shape:
     - 0,0,1,1
@@ -38,13 +37,12 @@
     refineResult:
     - id: ADTFoodMethCrystalShard
       amount: 5
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 50
-        reagents:
-        - ReagentId: Desoxyephedrine
-          Quantity: 50
+  - type: Solution
+    solution:
+      maxVol: 50
+      reagents:
+      - ReagentId: Desoxyephedrine
+        Quantity: 50
   - type: Item
     shape:
     - 0,0,0,0
@@ -62,13 +60,12 @@
   - type: Sprite
     color: "#ffffff"
     state: crystal_shard
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Desoxyephedrine
-          Quantity: 10
+  - type: Solution
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Desoxyephedrine
+        Quantity: 10
 
 - type: entity
   name: blue sky desoxyephedrine crystal
@@ -82,13 +79,12 @@
     refineResult:
     - id: ADTFoodWalterMethCrystalShard
       amount: 5
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 50
-        reagents:
-        - ReagentId: ADTBlueSkyDesoxyephedrine
-          Quantity: 50
+  - type: Solution
+    solution:
+      maxVol: 50
+      reagents:
+      - ReagentId: ADTBlueSkyDesoxyephedrine
+        Quantity: 50
   - type: Item
     shape:
     - 0,0,0,0
@@ -106,10 +102,9 @@
   - type: Sprite
     color: "#1bcfe7"
     state: crystal_shard
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: ADTBlueSkyDesoxyephedrine
-          Quantity: 10
+  - type: Solution
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: ADTBlueSkyDesoxyephedrine
+        Quantity: 10

@@ -608,21 +608,14 @@
     - Meat
   - type: Sprite
     state: xeno
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        # ADT-Tweak-Start
-        - ReagentId: FerrochromicAcid
-          Quantity: 6
-        - ReagentId: Siderlac
-          Quantity: 4
-        # ADT-Tweak-End
   - type: Solution
     solution:
+      maxVol: 10
       reagents:
-      - ReagentId: SulfuricAcid
-        Quantity: 30
+      - ReagentId: FerrochromicAcid
+        Quantity: 6
+      - ReagentId: Siderlac
+        Quantity: 4
   - type: ToolRefinable
     refineResult:
     - id: FoodMeatXenoCutlet
@@ -1652,16 +1645,14 @@
       - acid
   - type: Sprite
     state: xenocutlet
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        # ADT-Tweak-Start
-        - ReagentId: FerrochromicAcid
-          Quantity: 2
-        - ReagentId: Siderlac
-          Quantity: 1
-        # ADT-Tweak-End
+  - type: Solution
+    solution:
+      maxVol: 3
+      reagents:
+      - ReagentId: FerrochromicAcid
+        Quantity: 2
+      - ReagentId: Siderlac
+        Quantity: 1
   - type: Construction
     graph: XenoCutlet
     node: start
@@ -1946,18 +1937,16 @@
   components:
   - type: Sprite
     state: xenocutlet-cooked
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 1
-        - ReagentId: Protein
-          Quantity: 1
-        # ADT-Tweak-Start
-        - ReagentId: Siderlac
-          Quantity: 3
-        # ADT-Tweak-End
+  - type: Solution
+    solution:
+      maxVol: 5
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 1
+      - ReagentId: Protein
+        Quantity: 1
+      - ReagentId: Siderlac
+        Quantity: 3
   - type: Construction
     graph: XenoCutlet
     node: xeno cutlet

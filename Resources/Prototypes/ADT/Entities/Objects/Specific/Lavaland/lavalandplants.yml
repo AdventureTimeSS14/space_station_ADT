@@ -12,17 +12,16 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/cactusberry.rsi
     state: cactus_fruit
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Vitamin
-          Quantity: 2
-        - ReagentId: Nutriment
-          Quantity: 2
-        - ReagentId: ADTVitriumFroth
-          Quantity: 4
+  - type: Solution
+    solution:
+      maxVol: 15
+      reagents:
+      - ReagentId: Vitamin
+        Quantity: 2
+      - ReagentId: Nutriment
+        Quantity: 2
+      - ReagentId: ADTVitriumFroth
+        Quantity: 4
   - type: Produce
     plantId: ADTLavalandCactusPlants
   - type: Extractable

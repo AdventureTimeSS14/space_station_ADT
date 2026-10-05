@@ -62,15 +62,14 @@
   - type: Edible
     trash:
       - ADTFoodPacketSpicyTrash
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
-        - ReagentId: CapsaicinOil
-          Quantity: 5
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 5
+      - ReagentId: CapsaicinOil
+        Quantity: 5
 
 # Сушеное мясо
 
@@ -400,17 +399,16 @@
     sprite: ADT/Objects/Consumable/Food/Chocolate/bars.rsi
     state: bar-choco
   - type: Item
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 2.5 # ADT-Tweak 5 > 2.5
-        - ReagentId: Theobromine
-          Quantity: 3
-        - ReagentId: CocoaPowder
-          Quantity: 1
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 2.5
+      - ReagentId: Theobromine
+        Quantity: 3
+      - ReagentId: CocoaPowder
+        Quantity: 1
   - type: Extractable
     grindableSolutionName: food
 
@@ -481,17 +479,16 @@
       - sweet
       - creamy
       - metallic
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 2.5 # ADT-Tweak 5 > 2.5
-        - ReagentId: Vitamin
-          Quantity: 5
-        - ReagentId: Iron
-          Quantity: 5
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 2.5
+      - ReagentId: Vitamin
+        Quantity: 5
+      - ReagentId: Iron
+        Quantity: 5
 
 - type: entity
   name: chocolate bar
@@ -605,14 +602,13 @@
     tags:
       - FoodSnack
       - ReptilianFood
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 4
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 0.625 # ADT-Tweak 1.25 > 0.625
-        - ReagentId: Theobromine
-          Quantity: 0.75
-        - ReagentId: CocoaPowder
-          Quantity: 0.25
+  - type: Solution
+    solution:
+      maxVol: 4
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 0.625
+      - ReagentId: Theobromine
+        Quantity: 0.75
+      - ReagentId: CocoaPowder
+        Quantity: 0.25

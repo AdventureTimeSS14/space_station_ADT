@@ -96,9 +96,9 @@
           components:
           - PAI
       # ADT port end pAI modernization
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      buffer: {}
+    - ADTChemMasterSolution
   - type: DumpableSolution
     solution: buffer
     unlimited: true
@@ -111,3 +111,14 @@
     tags:
       - ADTChemistryAmbience
   # ADT-Sound-Update-End
+
+- type: entity
+  parent: Solution
+  id: ADTChemMasterSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: buffer
+    solution:
+      maxVol: 0
+      reagents: []

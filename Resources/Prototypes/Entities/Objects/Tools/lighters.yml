@@ -100,14 +100,7 @@
     sprite: Objects/Tools/Lighters/lighters.rsi
   - type: UseDelay
   - type: RefillableSolution
-    solution: Welder
-  - type: SolutionContainerManager
-    solutions:
-      Welder:
-        reagents:
-        - ReagentId: WeldingFuel
-          Quantity: 8
-        maxVol: 8 #uses less fuel than a welder, so this isnt as bad as it looks
+    solution: welder # ADT-Tweak
   - type: MeleeWeapon
     wideAnimationRotation: 180
     damage:
@@ -153,13 +146,6 @@
     available:
       - skin:
           cheap_icon_base: Rainbow
-  - type: SolutionContainerManager
-    solutions:
-      Welder:
-        reagents:
-        - ReagentId: WeldingFuel
-          Quantity: 4
-        maxVol: 4 #uses less fuel than a welder, so this isnt as bad as it looks
   # ADT Tweak Start
   - type: StaticPrice
     price: 40
@@ -427,15 +413,7 @@
     radius: 4 #Excessively powerful
     color: "#7FFFD4"
   - type: RefillableSolution
-    solution: Welder
-  - type: SolutionContainerManager
-    solutions:
-      Welder:
-        reagents:
-        - ReagentId: Plasma
-          Quantity: 999
-        maxVol: 999
-    # color: Gold # ADT-Tweak: у SolutionContainerManager больше нет поля color
+    solution: welder # ADT-Tweak
   - type: Tool
     useSound:
       collection: Welder

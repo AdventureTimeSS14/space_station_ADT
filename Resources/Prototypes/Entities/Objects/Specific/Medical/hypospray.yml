@@ -730,10 +730,10 @@
   id: Hypopen
   suffix: Hypopen
   components:
-  - type: SolutionContainerManager
-    solutions:
-      hypospray:
-        maxVol: 15 #ADT Tweak 10>15
+  - type: Solution
+    solution:
+      maxVol: 15
+      reagents: []
   - type: RefillableSolution
     solution: hypospray
     refillTime: 0 # ADT-Tweak 0.75 -> 0

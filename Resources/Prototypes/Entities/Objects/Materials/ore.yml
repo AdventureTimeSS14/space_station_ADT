@@ -38,14 +38,6 @@
   - type: PhysicalComposition
     materialComposition:
       RawGold: 300   #ADT_Tweak - повышено со 100
-  - type: Extractable
-    grindableSolutionName: goldore
-  - type: SolutionContainerManager
-    solutions:
-      goldore:
-        reagents:
-        - ReagentId: Gold
-          Quantity: 10
   - type: Item
     heldPrefix: gold
   - type: Tag
@@ -107,14 +99,6 @@
   - type: PhysicalComposition
     materialComposition:
       RawIron: 300   #ADT_Tweak - повышено со 100
-  - type: Extractable
-    grindableSolutionName: ironore
-  - type: SolutionContainerManager
-    solutions:
-      ironore:
-        reagents:
-        - ReagentId: Iron
-          Quantity: 10
   - type: Item
     heldPrefix: iron
 
@@ -172,14 +156,6 @@
   - type: PhysicalComposition
     materialComposition:
       RawSilver: 300   #ADT_Tweak - повышено со 100
-  - type: Extractable
-    grindableSolutionName: silverore
-  - type: SolutionContainerManager
-    solutions:
-      silverore:
-        reagents:
-        - ReagentId: Silver
-          Quantity: 10
   - type: Item
     heldPrefix: silver
   - type: Tag
@@ -215,14 +191,6 @@
   - type: PhysicalComposition
     materialComposition:
       RawQuartz: 300   #ADT_Tweak - повышено со 100
-  - type: Extractable
-    grindableSolutionName: quartzore
-  - type: SolutionContainerManager
-    solutions:
-      quartzaore:
-        reagents:
-        - ReagentId: Silicon
-          Quantity: 10
   - type: Item
     heldPrefix: spacequartz
 

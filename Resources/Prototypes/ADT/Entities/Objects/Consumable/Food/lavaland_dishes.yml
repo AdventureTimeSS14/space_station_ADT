@@ -7,15 +7,14 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
     state: freaky_leg
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 17
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 6
-        - ReagentId: Protein
-          Quantity: 6
+  - type: Solution
+    solution:
+      maxVol: 17
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 6
+      - ReagentId: Protein
+        Quantity: 6
   - type: ADTStatusEffectsOnIngest
     effects:
       ADTStatusEffectFreakyLegs: 60
@@ -29,15 +28,14 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
     state: hunters_treat
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 17
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 6
-        - ReagentId: Protein
-          Quantity: 6
+  - type: Solution
+    solution:
+      maxVol: 17
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 6
+      - ReagentId: Protein
+        Quantity: 6
   - type: TriggerOnIngested
   - type: AddComponentsOnTrigger
     targetUser: true
@@ -53,15 +51,14 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
     state: yum_grub
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Oculine
-          Quantity: 12
-        - ReagentId: Vitamin
-          Quantity: 3
+  - type: Solution
+    solution:
+      maxVol: 20
+      reagents:
+      - ReagentId: Oculine
+        Quantity: 12
+      - ReagentId: Vitamin
+        Quantity: 3
 
 - type: entity
   parent: FoodInjectableBase
@@ -72,17 +69,16 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
     state: ashie_kebab
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 27
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 6
-        - ReagentId: Protein
-          Quantity: 6
-        - ReagentId: Ephedrine
-          Quantity: 10
+  - type: Solution
+    solution:
+      maxVol: 27
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 6
+      - ReagentId: Protein
+        Quantity: 6
+      - ReagentId: Ephedrine
+        Quantity: 10
 
 - type: entity
   parent: FoodInjectableBase
@@ -93,15 +89,14 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
     state: tail_o_dead
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 17
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 6
-        - ReagentId: Protein
-          Quantity: 6
+  - type: Solution
+    solution:
+      maxVol: 17
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 6
+      - ReagentId: Protein
+        Quantity: 6
   - type: ADTStatusEffectsOnIngest
     effects:
       ADTStatusEffectLavalandVision: 300
@@ -117,15 +112,14 @@
     layers:
     - state: cure_curse
       map: [ "enum.ADTCureCurseVisuals.Active" ]
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 17
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 6
-        - ReagentId: Protein
-          Quantity: 6
+  - type: Solution
+    solution:
+      maxVol: 17
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 6
+      - ReagentId: Protein
+        Quantity: 6
   - type: ADTCureCurse
   - type: Appearance
   - type: GenericVisualizer
@@ -144,15 +138,14 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
     state: wings_n_fangs_n_tentacles
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 17
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 6
-        - ReagentId: Protein
-          Quantity: 6
+  - type: Solution
+    solution:
+      maxVol: 17
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 6
+      - ReagentId: Protein
+        Quantity: 6
   - type: TriggerOnIngested
   - type: AddComponentsOnTrigger
     targetUser: true
@@ -168,15 +161,14 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
     state: goli_kernels
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 9
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 2
-        - ReagentId: Protein
-          Quantity: 2
+  - type: Solution
+    solution:
+      maxVol: 9
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 2
+      - ReagentId: Protein
+        Quantity: 2
   - type: ADTEatOnThrowHit
   - type: Edible
     delay: 0
@@ -190,17 +182,16 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
     state: beer_grub_stew
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 22
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 4
-        - ReagentId: Protein
-          Quantity: 6
-        - ReagentId: Beer
-          Quantity: 7
+  - type: Solution
+    solution:
+      maxVol: 22
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 4
+      - ReagentId: Protein
+        Quantity: 6
+      - ReagentId: Beer
+        Quantity: 7
   - type: ADTStatusEffectsOnIngest
     effects:
       ADTStatusEffectTemperatureStabilize: 300
@@ -214,13 +205,12 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
     state: thick_red_paste
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 7
-        reagents:
-        - ReagentId: Protein
-          Quantity: 2
+  - type: Solution
+    solution:
+      maxVol: 7
+      reagents:
+      - ReagentId: Protein
+        Quantity: 2
   - type: ADTStatusEffectsOnIngest
     effects:
       ADTStatusEffectBleedingFix: 30
@@ -234,17 +224,16 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
     state: black_blood_sausage
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 18
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 4
-        - ReagentId: Protein
-          Quantity: 3
-        - ReagentId: ADTAshiezine
-          Quantity: 6
+  - type: Solution
+    solution:
+      maxVol: 18
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 4
+      - ReagentId: Protein
+        Quantity: 3
+      - ReagentId: ADTAshiezine
+        Quantity: 6
 
 - type: entity
   parent: FoodInjectableBase
@@ -255,15 +244,14 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
     state: xeno_sticks
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 17
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 6
-        - ReagentId: Protein
-          Quantity: 6
+  - type: Solution
+    solution:
+      maxVol: 17
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 6
+      - ReagentId: Protein
+        Quantity: 6
   - type: ADTStatusEffectsOnIngest
     effects:
       ADTStatusEffectLavalandNightVision: 450
@@ -277,17 +265,16 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
     state: eel_katigo
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 16
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 3
-        - ReagentId: Protein
-          Quantity: 2
-        - ReagentId: Nicotine
-          Quantity: 6
+  - type: Solution
+    solution:
+      maxVol: 16
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 3
+      - ReagentId: Protein
+        Quantity: 2
+      - ReagentId: Nicotine
+        Quantity: 6
 
 - type: entity
   parent: FoodInjectableBase
@@ -298,17 +285,16 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
     state: predatory_chowder
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 3
-        - ReagentId: Protein
-          Quantity: 2
-        - ReagentId: Omnizine
-          Quantity: 20
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 3
+      - ReagentId: Protein
+        Quantity: 2
+      - ReagentId: Omnizine
+        Quantity: 20
 
 - type: entity
   parent: FoodInjectableBase
@@ -319,15 +305,14 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
     state: abu_ghosh
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 17
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 6
-        - ReagentId: Protein
-          Quantity: 6
+  - type: Solution
+    solution:
+      maxVol: 17
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 6
+      - ReagentId: Protein
+        Quantity: 6
   - type: ADTStatusEffectsOnIngest
     effects:
       ADTStatusEffectBloodRegen: 300
@@ -341,17 +326,16 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
     state: soft_meat_cubes
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 13
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 2
-        - ReagentId: Vitamin
-          Quantity: 3
-        - ReagentId: Protein
-          Quantity: 3
+  - type: Solution
+    solution:
+      maxVol: 13
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 2
+      - ReagentId: Vitamin
+        Quantity: 3
+      - ReagentId: Protein
+        Quantity: 3
 
 - type: entity
   parent: FoodInjectableBase
@@ -362,15 +346,14 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
     state: predatory_fish_slab
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 4
-        - ReagentId: Protein
-          Quantity: 6
+  - type: Solution
+    solution:
+      maxVol: 15
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 4
+      - ReagentId: Protein
+        Quantity: 6
 
 - type: entity
   parent: FoodInjectableBase
@@ -381,15 +364,14 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
     state: eel_ringlets
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 4
-        - ReagentId: Protein
-          Quantity: 6
+  - type: Solution
+    solution:
+      maxVol: 15
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 4
+      - ReagentId: Protein
+        Quantity: 6
 
 - type: entity
   id: ADTFoodThaliLazisBacon
@@ -469,12 +451,11 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/goldgrub_meat.rsi
     state: icon
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 3
-        - ReagentId: Toxin
-          Quantity: 10
+  - type: Solution
+    solution:
+      maxVol: 20
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 3
+      - ReagentId: Toxin
+        Quantity: 10

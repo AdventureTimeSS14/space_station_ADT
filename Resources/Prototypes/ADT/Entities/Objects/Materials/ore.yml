@@ -116,13 +116,13 @@
   - type: Item
     heldPrefix: copper
   - type: Extractable
-    grindableSolutionName: copper
-  - type: SolutionContainerManager
-    solutions:
-      copper:
-        reagents:
-        - ReagentId: Copper
-          Quantity: 20
+    grindableSolutionName: composite
+  - type: Solution
+    solution:
+      maxVol: 20
+      reagents:
+      - ReagentId: Copper
+        Quantity: 20
   - type: Tag
     tags:
     - Ore
@@ -154,13 +154,13 @@
   - type: Item
     heldPrefix: zinc
   - type: Extractable
-    grindableSolutionName: steel
-  - type: SolutionContainerManager
-    solutions:
-      steel:
-        reagents:
-        - ReagentId: Zinc
-          Quantity: 20
+    grindableSolutionName: composite
+  - type: Solution
+    solution:
+      maxVol: 20
+      reagents:
+      - ReagentId: Zinc
+        Quantity: 20
   - type: Tag
     tags:
     - Ore
@@ -193,13 +193,13 @@
   - type: Item
     heldPrefix: lead
   - type: Extractable
-    grindableSolutionName: lead
-  - type: SolutionContainerManager
-    solutions:
-      lead:
-        reagents:
-        - ReagentId: Lead
-          Quantity: 20
+    grindableSolutionName: composite
+  - type: Solution
+    solution:
+      maxVol: 20
+      reagents:
+      - ReagentId: Lead
+        Quantity: 20
   - type: Tag
     tags:
     - Ore

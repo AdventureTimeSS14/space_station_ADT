@@ -177,15 +177,6 @@
   components:
   - type: Sprite
     state: cookie-oatmeal
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 8
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
-        - ReagentId: Vitamin
-          Quantity: 1
   - type: Tag  #ADT_Tweak - делаем овсяное печенье съедобным для молей
     tags:
     - ADTMothFriendlyFood
@@ -416,15 +407,6 @@
     layers:
       - state: tray
       - state: waffles
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 8
-        - ReagentId: Vitamin
-          Quantity: 1
   - type: Tag
     tags:
     - ADTMothFriendlyFood #ADT_Tweak - делаем вафли съедобными для молей

@@ -210,16 +210,6 @@
     cablePrototypeID: CableApcExtension
     blockingWireType: Apc
   - type: Appearance
-  - type: Extractable
-    grindableSolutionName: lvcable
-  - type: SolutionContainerManager
-    solutions:
-      lvcable:
-        reagents:
-        - ReagentId: Iron
-          Quantity: 3
-        - ReagentId: Copper
-          Quantity: 2
 ##Corvax-species-start
   - type: Healing
     damageContainers:

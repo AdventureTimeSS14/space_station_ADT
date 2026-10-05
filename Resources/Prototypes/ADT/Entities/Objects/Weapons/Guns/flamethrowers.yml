@@ -103,13 +103,9 @@
       map: [ "enum.SolutionContainerLayers.Fill" ]
   - type: Item
     size: Normal
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      rmc_flamer_tank:
-        maxVol: 100
-        reagents:
-        - ReagentId: RMCNapalmUT
-          Quantity: 100
+    - RMCTankFlamerSolution
   - type: RMCFlamerTank
     maxIntensity: 30
     maxDuration: 20
@@ -129,13 +125,9 @@
     maxIntensity: 15
     maxDuration: 30
     maxRange: 12
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      rmc_flamer_tank:
-        maxVol: 100
-        reagents:
-        - ReagentId: RMCNapalmSticky
-          Quantity: 100
+    - RMCTankFlamerNapalmStickySolution
 
 - type: entity
   parent: RMCTankFlamer
@@ -147,13 +139,9 @@
     maxIntensity: 45
     maxDuration: 10
     maxRange: 5
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      rmc_flamer_tank:
-        maxVol: 100
-        reagents:
-        - ReagentId: RMCNapalmHighCombustion
-          Quantity: 100
+    - RMCTankFlamerNapalmHighCombustionSolution
 
 - type: entity
   parent: RMCTankFlamer
@@ -179,13 +167,9 @@
     maxIntensity: 30
     maxDuration: 20
     maxRange: 7
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      rmc_flamer_tank:
-        maxVol: 200
-        reagents:
-        - ReagentId: RMCNapalmUT
-          Quantity: 200
+    - RMCTankFlamerFmW60Solution
 
 - type: entity
   parent: RMCTankFlamerFmW60
@@ -197,13 +181,9 @@
     maxIntensity: 15
     maxDuration: 30
     maxRange: 12
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      rmc_flamer_tank:
-        maxVol: 200
-        reagents:
-        - ReagentId: RMCNapalmSticky
-          Quantity: 200
+    - RMCTankFlamerFmW60NapalmStickySolution
 
 - type: entity
   parent: RMCTankFlamerFmW60
@@ -215,13 +195,9 @@
     maxIntensity: 45
     maxDuration: 10
     maxRange: 5
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      rmc_flamer_tank:
-        maxVol: 200
-        reagents:
-        - ReagentId: RMCNapalmHighCombustion
-          Quantity: 200
+    - RMCTankFlamerFmW60HighCombustiveSolution
 
 - type: entity
   name: FlammenWerfer 60
@@ -329,13 +305,9 @@
     maxIntensity: 15
     maxDuration: 10
     maxRange: 5
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      rmc_flamer_tank:
-        maxVol: 100
-        reagents:
-        - ReagentId: Napalm
-          Quantity: 100
+    - RMCTankFlamerMakeshiftSolution
   - type: Construction
     graph: ADTTankFlamerMakeshift
     node: makeshift_tank_ready
@@ -360,10 +332,10 @@
         enum.OpenableVisuals.Layer:
           True: {state: "flametank_unfinished"}
           False: {state: "flametank_unfinished"}
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 100
+  - type: Solution
+    solution:
+      maxVol: 100
+      reagents: []
   - type: Tag
     tags:
     - Trash
@@ -395,3 +367,94 @@
         transferForensics: true
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+
+- type: entity
+  parent: Solution
+  id: RMCTankFlamerSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: rmc_flamer_tank
+    solution:
+      maxVol: 100
+      reagents:
+      - ReagentId: RMCNapalmUT
+        Quantity: 100
+
+- type: entity
+  parent: Solution
+  id: RMCTankFlamerNapalmStickySolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: rmc_flamer_tank
+    solution:
+      maxVol: 100
+      reagents:
+      - ReagentId: RMCNapalmSticky
+        Quantity: 100
+
+- type: entity
+  parent: Solution
+  id: RMCTankFlamerNapalmHighCombustionSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: rmc_flamer_tank
+    solution:
+      maxVol: 100
+      reagents:
+      - ReagentId: RMCNapalmHighCombustion
+        Quantity: 100
+
+- type: entity
+  parent: Solution
+  id: RMCTankFlamerFmW60Solution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: rmc_flamer_tank
+    solution:
+      maxVol: 200
+      reagents:
+      - ReagentId: RMCNapalmUT
+        Quantity: 200
+
+- type: entity
+  parent: Solution
+  id: RMCTankFlamerFmW60NapalmStickySolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: rmc_flamer_tank
+    solution:
+      maxVol: 200
+      reagents:
+      - ReagentId: RMCNapalmSticky
+        Quantity: 200
+
+- type: entity
+  parent: Solution
+  id: RMCTankFlamerFmW60HighCombustiveSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: rmc_flamer_tank
+    solution:
+      maxVol: 200
+      reagents:
+      - ReagentId: RMCNapalmHighCombustion
+        Quantity: 200
+
+- type: entity
+  parent: Solution
+  id: RMCTankFlamerMakeshiftSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: rmc_flamer_tank
+    solution:
+      maxVol: 100
+      reagents:
+      - ReagentId: Napalm
+        Quantity: 100

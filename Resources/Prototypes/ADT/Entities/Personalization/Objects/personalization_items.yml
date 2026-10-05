@@ -136,13 +136,13 @@
         base:
           True: { visible: false }
           False: { visible: true }
-  - type: SolutionContainerManager
-    solutions:
-      Welder:
-        reagents:
-        - ReagentId: WeldingFuel
-          Quantity: 20
-        maxVol: 20 #uses less fuel than a welder, so this isnt as bad as it looks
+  - type: Solution
+    id: Welder
+    solution:
+      maxVol: 20
+      reagents:
+      - ReagentId: WeldingFuel
+        Quantity: 20
   - type: Welder
     fuelConsumption: 0.01
     fuelLitCost: 0.1
@@ -483,13 +483,13 @@
         base:
           True: { visible: false }
           False: { visible: true }
-  - type: SolutionContainerManager
-    solutions:
-      Welder:
-        reagents:
-        - ReagentId: WeldingFuel
-          Quantity: 20
-        maxVol: 20 #uses less fuel than a welder, so this isnt as bad as it looks
+  - type: Solution
+    id: Welder
+    solution:
+      maxVol: 20
+      reagents:
+      - ReagentId: WeldingFuel
+        Quantity: 20
   - type: Welder
     fuelConsumption: 0.01
     fuelLitCost: 0.1
@@ -535,15 +535,14 @@
   name: Sigar Gold
   description: Sigar
   components:
-  - type: SolutionContainerManager
-    solutions:
-      smokable:
-        maxVol: 45
-        reagents:
-          - ReagentId: Nicotine
-            Quantity: 40
-          - ReagentId: Omnizine
-            Quantity: 5
+  - type: Solution
+    solution:
+      maxVol: 45
+      reagents:
+      - ReagentId: Nicotine
+        Quantity: 40
+      - ReagentId: Omnizine
+        Quantity: 5
 
 - type: entity
   id: ADTBriefcaseBrownSchrodinger
@@ -1927,13 +1926,12 @@
     sprite: ADT/Personalization/kiwi_fruit_tartalio.rsi
     state: icon
   - type: Item
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 3
+  - type: Solution
+    solution:
+      maxVol: 5
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 3
 
 - type: entity
   parent: BasePlushie
@@ -2005,13 +2003,13 @@
         base:
           True: { visible: false }
           False: { visible: true }
-  - type: SolutionContainerManager
-    solutions:
-      Welder:
-        reagents:
-        - ReagentId: WeldingFuel
-          Quantity: 32
-        maxVol: 32
+  - type: Solution
+    id: Welder
+    solution:
+      maxVol: 32
+      reagents:
+      - ReagentId: WeldingFuel
+        Quantity: 32
   - type: Welder
     fuelConsumption: 0.01
     fuelLitCost: 0.1
@@ -2189,10 +2187,9 @@
   - type: StaticPrice
     price: 80
   - type: Riggable
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      battery:
-        maxVol: 5
+    - ADTStunbatonUmaSolution
   - type: InjectableSolution
     solution: battery
   - type: DrawableSolution
@@ -2345,15 +2342,12 @@
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/Items/Toys/toy_rustle.ogg
-  - type: SolutionContainerManager
-    solutions:
-      plushie:
-        maxVol: 1
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 10
+  - type: Solution
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Fiber
+        Quantity: 10
 
 - type: entity
   parent: BasePlushie
@@ -2385,15 +2379,12 @@
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/Items/Toys/toy_rustle.ogg
-  - type: SolutionContainerManager
-    solutions:
-      plushie:
-        maxVol: 1
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 10
+  - type: Solution
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Fiber
+        Quantity: 10
   - type: Whistle
     distance: 5
 
@@ -2534,10 +2525,11 @@
     useSound:
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
     solution: drink
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 0
+  - type: Solution
+    id: drink
+    solution:
+      maxVol: 0
+      reagents: []
   - type: MeleeWeapon
     wideAnimationRotation: 180
     soundHit:
@@ -3222,19 +3214,12 @@
   name: банка Flèche
   description: Освежающее кофе в баночке!
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTFlecheDrink
-          Quantity: 30
-      grindable:
-        reagents:
-        - ReagentId: Aluminium
-          Quantity: 4
-        - ReagentId: Iron
-          Quantity: 1
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: ADTFlecheDrink
+        Quantity: 30
   - type: Sprite
     sprite: ADT/Personalization/FaustNetzach/faust_drink.rsi
   - type: Item
@@ -4255,3 +4240,14 @@
     useSound: *PlushieSharkSound
 
 #SPONSOR-ITEMS-END
+
+- type: entity
+  parent: Solution
+  id: ADTStunbatonUmaSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: battery
+    solution:
+      maxVol: 5
+      reagents: []

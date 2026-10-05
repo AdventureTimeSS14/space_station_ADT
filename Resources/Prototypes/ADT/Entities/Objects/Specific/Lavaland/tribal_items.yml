@@ -61,17 +61,16 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/grace_of_lazis.rsi
     state: icon
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 8
-        - ReagentId: Vitamin
-          Quantity: 4
-        - ReagentId: Fat
-          Quantity: 3
+  - type: Solution
+    solution:
+      maxVol: 20
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 8
+      - ReagentId: Vitamin
+        Quantity: 4
+      - ReagentId: Fat
+        Quantity: 3
   - type: Tag
     tags:
     - Meat
@@ -226,15 +225,14 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
     state: veggie_meal
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 25
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Vitamin
-          Quantity: 6
+  - type: Solution
+    solution:
+      maxVol: 25
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: Vitamin
+        Quantity: 6
   - type: ADTStatusEffectsOnIngest
     effects:
       ADTStatusEffectForcedSneeze: 60
@@ -248,17 +246,16 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
     state: fine_meal
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 14
-        - ReagentId: Vitamin
-          Quantity: 6
-        - ReagentId: Fat
-          Quantity: 4
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 14
+      - ReagentId: Vitamin
+        Quantity: 6
+      - ReagentId: Fat
+        Quantity: 4
   - type: ADTStatusEffectsOnIngest
     effects:
       ADTStatusEffectForcedRumble: 30
@@ -275,17 +272,16 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/lavaland_meals.rsi
     state: thali_lazis_wing
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 35
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 16
-        - ReagentId: Vitamin
-          Quantity: 8
-        - ReagentId: Fat
-          Quantity: 4
+  - type: Solution
+    solution:
+      maxVol: 35
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 16
+      - ReagentId: Vitamin
+        Quantity: 8
+      - ReagentId: Fat
+        Quantity: 4
 
 - type: entity
   id: ADTFoodThaliLazisCacti

@@ -462,10 +462,9 @@
     edible: Drink
     destroyOnEmpty: false
     solution: drink
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      drink:
-        maxVol: 60
+    - ADTClothingHeadDrinkCapSolution
   - type: MixableSolution
     solution: drink
   - type: SolutionTransfer
@@ -521,3 +520,13 @@
     sprite: ADT/Clothing/Head/Hats/chefhat_red.rsi
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/chefhat_red.rsi
+
+- type: entity
+  parent: SolutionDrink
+  id: ADTClothingHeadDrinkCapSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 60
+      reagents: []

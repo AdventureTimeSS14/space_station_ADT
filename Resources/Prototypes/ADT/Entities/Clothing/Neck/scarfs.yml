@@ -54,13 +54,12 @@
       refineResult:
       - id: MaterialCloth1 
         amount: 3
-    - type: SolutionContainerManager 
-      solutions:
-        food:
-          maxVol: 15
-          reagents:
-          - ReagentId: Fiber
-            Quantity: 15
+    - type: Solution
+      solution:
+        maxVol: 15
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 15
 
 - type: entity
   parent: ADTClothingNeckScarfBase
@@ -76,13 +75,12 @@
       refineResult:
       - id: MaterialCloth1 
         amount: 3
-    - type: SolutionContainerManager 
-      solutions:
-        food:
-          maxVol: 15
-          reagents:
-          - ReagentId: Fiber
-            Quantity: 15
+    - type: Solution
+      solution:
+        maxVol: 15
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 15
 
 - type: entity
   parent: ADTClothingNeckScarfBase
@@ -98,13 +96,12 @@
       refineResult:
       - id: MaterialCloth1 
         amount: 3
-    - type: SolutionContainerManager 
-      solutions:
-        food:
-          maxVol: 15
-          reagents:
-          - ReagentId: Fiber
-            Quantity: 15
+    - type: Solution
+      solution:
+        maxVol: 15
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 15
 
 - type: entity
   parent: ADTClothingNeckScarfBase
@@ -120,13 +117,12 @@
       refineResult:
       - id: MaterialCloth1 
         amount: 3
-    - type: SolutionContainerManager 
-      solutions:
-        food:
-          maxVol: 15
-          reagents:
-          - ReagentId: Fiber
-            Quantity: 15
+    - type: Solution
+      solution:
+        maxVol: 15
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 15
 
 - type: entity
   parent: ADTClothingNeckScarfBase
@@ -142,13 +138,12 @@
       refineResult:
       - id: MaterialCloth1 
         amount: 3
-    - type: SolutionContainerManager 
-      solutions:
-        food:
-          maxVol: 15
-          reagents:
-          - ReagentId: Fiber
-            Quantity: 15
+    - type: Solution
+      solution:
+        maxVol: 15
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 15
 
 - type: entity
   parent: ADTClothingNeckScarfBase
@@ -164,13 +159,12 @@
       refineResult:
       - id: MaterialCloth1 
         amount: 3
-    - type: SolutionContainerManager 
-      solutions:
-        food:
-          maxVol: 15
-          reagents:
-          - ReagentId: Fiber
-            Quantity: 15
+    - type: Solution
+      solution:
+        maxVol: 15
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 15
 
 - type: entity
   parent: ADTClothingNeckScarfBase
@@ -186,13 +180,12 @@
       refineResult:
       - id: MaterialCloth1 
         amount: 3
-    - type: SolutionContainerManager 
-      solutions:
-        food:
-          maxVol: 15
-          reagents:
-          - ReagentId: Fiber
-            Quantity: 15
+    - type: Solution
+      solution:
+        maxVol: 15
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 15
 
 - type: entity
   parent: ADTClothingNeckScarfBase
@@ -208,13 +201,12 @@
       refineResult:
       - id: MaterialCloth1 
         amount: 3
-    - type: SolutionContainerManager 
-      solutions:
-        food:
-          maxVol: 15
-          reagents:
-          - ReagentId: Fiber
-            Quantity: 15
+    - type: Solution
+      solution:
+        maxVol: 15
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 15
 
 - type: entity
   parent: ADTClothingNeckScarfBase
@@ -230,13 +222,12 @@
       refineResult:
       - id: MaterialCloth1 
         amount: 3
-    - type: SolutionContainerManager 
-      solutions:
-        food:
-          maxVol: 15
-          reagents:
-          - ReagentId: Fiber
-            Quantity: 15
+    - type: Solution
+      solution:
+        maxVol: 15
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 15
 
 - type: entity
   parent: ClothingScarfBase

@@ -7,12 +7,12 @@
   name: dr gibb bottle
   description: Steins;Gate joke here.
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        reagents:
-        - ReagentId: DrGibb
-          Quantity: 100
+  - type: Solution
+    solution:
+      maxVol: 100
+      reagents:
+      - ReagentId: DrGibb
+        Quantity: 100
   - type: Label
     currentLabel: reagent-name-dr-gibb
   - type: Sprite

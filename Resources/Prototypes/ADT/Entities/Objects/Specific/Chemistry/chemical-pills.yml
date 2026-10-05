@@ -196,14 +196,14 @@
   parent: ADTPill
   id: ADTSodiumizolePill
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: ADTSodiumizole
-          Quantity: 7.5
-        - ReagentId: Bicaridine
-          Quantity: 7.5
+  - type: Solution
+    solution:
+      maxVol: 15
+      reagents:
+      - ReagentId: ADTSodiumizole
+        Quantity: 7.5
+      - ReagentId: Bicaridine
+        Quantity: 7.5
   - type: Sprite
     sprite: Objects/Specific/Chemistry/pills.rsi
     state: pill7
@@ -213,14 +213,14 @@
   parent: ADTPill
   id: ADTAnelgesinPill
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: ADTAnelgesin
-          Quantity: 7.5
-        - ReagentId: Dermaline
-          Quantity: 7.5
+  - type: Solution
+    solution:
+      maxVol: 15
+      reagents:
+      - ReagentId: ADTAnelgesin
+        Quantity: 7.5
+      - ReagentId: Dermaline
+        Quantity: 7.5
   - type: Sprite
     sprite: Objects/Specific/Chemistry/pills.rsi
     state: pill8
@@ -230,14 +230,14 @@
   parent: ADTPill
   id: ADTMinoxidePill
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: ADTMinoxide
-          Quantity: 7.5
-        - ReagentId: Dermaline
-          Quantity: 7.5
+  - type: Solution
+    solution:
+      maxVol: 15
+      reagents:
+      - ReagentId: ADTMinoxide
+        Quantity: 7.5
+      - ReagentId: Dermaline
+        Quantity: 7.5
   - type: Sprite
     sprite: Objects/Specific/Chemistry/pills.rsi
     state: pill20
@@ -247,14 +247,14 @@
   parent: ADTPill
   id: ADTDiethamilatePill
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: ADTDiethamilate
-          Quantity: 7.5
-        - ReagentId: DexalinPlus
-          Quantity: 7.5
+  - type: Solution
+    solution:
+      maxVol: 15
+      reagents:
+      - ReagentId: ADTDiethamilate
+        Quantity: 7.5
+      - ReagentId: DexalinPlus
+        Quantity: 7.5
   - type: Sprite
     sprite: Objects/Specific/Chemistry/pills.rsi
     state: pill9
@@ -264,12 +264,12 @@
   parent: ADTPill
   id: ADTHaloperidolPill
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Haloperidol
-          Quantity: 15
+  - type: Solution
+    solution:
+      maxVol: 15
+      reagents:
+      - ReagentId: Haloperidol
+        Quantity: 15
   - type: Sprite
     sprite: Objects/Specific/Chemistry/pills.rsi
     state: pill9
@@ -279,14 +279,14 @@
   parent: ADTPill
   id: ADTEthylredoxrazinePill
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Ethylredoxrazine
-          Quantity: 7.5
-        - ReagentId: Dylovene
-          Quantity: 7.5
+  - type: Solution
+    solution:
+      maxVol: 15
+      reagents:
+      - ReagentId: Ethylredoxrazine
+        Quantity: 7.5
+      - ReagentId: Dylovene
+        Quantity: 7.5
   - type: Sprite
     sprite: Objects/Specific/Chemistry/pills.rsi
     state: pill17
@@ -297,12 +297,12 @@
   id: ADTVitaminPill
   description: Found in healthy, complete meals.
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Vitamin
-          Quantity: 15
+  - type: Solution
+    solution:
+      maxVol: 15
+      reagents:
+      - ReagentId: Vitamin
+        Quantity: 15
   - type: Sprite
     sprite: Objects/Specific/Chemistry/pills.rsi
     state: pill16
@@ -313,12 +313,12 @@
   id: ADTEthyloxyephedrinePill
   description: Narcolepsy is not a problem anymore.
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Ethyloxyephedrine
-          Quantity: 15
+  - type: Solution
+    solution:
+      maxVol: 15
+      reagents:
+      - ReagentId: Ethyloxyephedrine
+        Quantity: 15
   - type: Sprite
     sprite: Objects/Specific/Chemistry/pills.rsi
     state: pill18
@@ -334,12 +334,12 @@
     pillType: 0
   - type: Label
     currentLabel:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Tricordrazine
-          Quantity: 15
+  - type: Solution
+    solution:
+      maxVol: 15
+      reagents:
+      - ReagentId: Tricordrazine
+        Quantity: 15
   - type: StaticPrice
     price: 5
 
@@ -349,12 +349,12 @@
   id: ADTEphedrinePill
   description: Feel the speed!
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Ephedrine
-          Quantity: 10
+  - type: Solution
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Ephedrine
+        Quantity: 10
   - type: Sprite
     sprite: Objects/Specific/Chemistry/pills.rsi
     state: pill16
@@ -367,12 +367,12 @@
   id: ADTToxinPill
   description: Whoops. he-he
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Toxin
-          Quantity: 15
+  - type: Solution
+    solution:
+      maxVol: 15
+      reagents:
+      - ReagentId: Toxin
+        Quantity: 15
   - type: Sprite
     sprite: Objects/Specific/Chemistry/pills.rsi
     state: pill14
@@ -385,12 +385,12 @@
   id: ADTHappinessPill
   description: Feel the speed!
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Happiness
-          Quantity: 15
+  - type: Solution
+    solution:
+      maxVol: 15
+      reagents:
+      - ReagentId: Happiness
+        Quantity: 15
   - type: Sprite
     sprite: Objects/Specific/Chemistry/pills.rsi
     state: pill11
@@ -412,15 +412,14 @@
   - type: Tag
     tags:
     - ADTPillExperimental
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-          - ReagentId: SpaceDrugs
-            Quantity: 15
-          - ReagentId: Nocturine
-            Quantity: 15
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: SpaceDrugs
+        Quantity: 15
+      - ReagentId: Nocturine
+        Quantity: 15
 
 - type: entity
   name: pill
@@ -437,12 +436,11 @@
   - type: Tag
     tags:
     - ADTPillExter
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-          - ReagentId: Stimulants
-            Quantity: 15
-          - ReagentId: SpaceDrugs
-            Quantity: 15
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: Stimulants
+        Quantity: 15
+      - ReagentId: SpaceDrugs
+        Quantity: 15

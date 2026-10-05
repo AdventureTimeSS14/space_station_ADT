@@ -83,10 +83,9 @@
     damage:
       types:
         Piercing: 8
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      melee:
-        maxVol: 1
+    - ADTPlasmaDaggerSolution
   - type: MeleeChemicalInjector
     solution: melee
   - type: RefillableSolution
@@ -137,10 +136,9 @@
     damage:
       types:
         Piercing: 7
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      melee:
-        maxVol: 1
+    - ADTGlassReinDaggerSolution
   - type: MeleeChemicalInjector
     solution: melee
   - type: RefillableSolution
@@ -191,10 +189,9 @@
     damage:
       types:
         Piercing: 6
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      melee:
-        maxVol: 1
+    - ADTGlassDaggerSolution
   - type: MeleeChemicalInjector
     solution: melee
   - type: RefillableSolution
@@ -246,10 +243,9 @@
       types:
         Piercing: 5
         Radiation: 5
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      melee:
-        maxVol: 1
+    - ADTGlassUranDaggerSolution
   - type: MeleeChemicalInjector
     solution: melee
   - type: RefillableSolution
@@ -435,3 +431,43 @@
     reflectProb: .1
     spread: 90
   - type: DisarmMalus
+
+- type: entity
+  parent: SolutionWeapon
+  id: ADTPlasmaDaggerSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 1
+      reagents: []
+
+- type: entity
+  parent: SolutionWeapon
+  id: ADTGlassReinDaggerSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 1
+      reagents: []
+
+- type: entity
+  parent: SolutionWeapon
+  id: ADTGlassDaggerSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 1
+      reagents: []
+
+- type: entity
+  parent: SolutionWeapon
+  id: ADTGlassUranDaggerSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 1
+      reagents: []

@@ -23,15 +23,15 @@
       - ADTRPlasmaShard
       - Trash
   - type: Extractable
-    grindableSolutionName: sharduglass
-  - type: SolutionContainerManager
-    solutions:
-      sharduglass:
-        reagents:
-        - ReagentId: Silicon
-          Quantity: 5
-        - ReagentId: Plasma
-          Quantity: 5
+    grindableSolutionName: composite
+  - type: Solution
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Silicon
+        Quantity: 5
+      - ReagentId: Plasma
+        Quantity: 5
   - type: Construction
     graph: ADTPShiv
     node: start
@@ -63,12 +63,12 @@
       - Trash
       - ADTRUranShard
   - type: Extractable
-    grindableSolutionName: sharduglass
-  - type: SolutionContainerManager
-    solutions:
-      sharduglass:
-        reagents:
-        - ReagentId: Silicon
-          Quantity: 5
-        - ReagentId: Uranium
-          Quantity: 5
+    grindableSolutionName: composite
+  - type: Solution
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Silicon
+        Quantity: 5
+      - ReagentId: Uranium
+        Quantity: 5

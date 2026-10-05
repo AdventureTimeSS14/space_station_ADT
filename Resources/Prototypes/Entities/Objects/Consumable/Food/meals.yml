@@ -227,15 +227,14 @@
       - cheesy
   - type: Sprite
     state: eggplantparm
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 40 #ADT-Tweak 10>40
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 30 #ADT-Tweak 6>30
-        - ReagentId: Vitamin
-          Quantity: 5 #ADT-Tweak 2>5
+  - type: Solution
+    solution:
+      maxVol: 40
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 30
+      - ReagentId: Vitamin
+        Quantity: 5
   - type: Tag
     tags:
     - Fruit

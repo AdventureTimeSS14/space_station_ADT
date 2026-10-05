@@ -540,10 +540,9 @@
   name: dried well
   description: A dried up well. No water left.
   components:
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      tank:
-        maxVol: 10000
+    - ADTPitDriedSolution
   - type: DrainableSolution
     solution: tank
   - type: Edible
@@ -715,3 +714,13 @@
       reagents:
       - ReagentId: Toxin
         Quantity: 100
+
+- type: entity
+  parent: SolutionTank
+  id: ADTPitDriedSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 10000
+      reagents: []

@@ -183,13 +183,12 @@
     heldPrefix: energybar-open
     storedOffset: 0,-2
   # ADT-Tweak start
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 2.5
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 2.5
   # ADT-Tweak end
 
 - type: entity

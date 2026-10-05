@@ -10,10 +10,10 @@
   - type: Item
     sprite: ADT/Objects/Specific/Medical/adt_combathypo.rsi
     size: Normal
-  - type: SolutionContainerManager
-    solutions:
-      hypospray:
-        maxVol: 45
+  - type: Solution
+    solution:
+      maxVol: 45
+      reagents: []
   - type: RefillableSolution
     solution: hypospray
   - type: UseDelay
@@ -54,15 +54,14 @@
   - type: Injector 
     currentTransferAmount: 20
     activeModeProtoId: HyposprayInjectMode
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 20
-        reagents:
-        - ReagentId: TranexamicAcid
-          Quantity: 5
-        - ReagentId: Saline
-          Quantity: 15
+  - type: Solution
+    solution:
+      maxVol: 20
+      reagents:
+      - ReagentId: TranexamicAcid
+        Quantity: 5
+      - ReagentId: Saline
+        Quantity: 15
   - type: Tag
     tags:
     - ADTMedipen
@@ -83,15 +82,14 @@
   - type: Injector 
     currentTransferAmount: 20
     activeModeProtoId: HyposprayInjectMode
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 20
-        reagents:
-        - ReagentId: Desoxyephedrine
-          Quantity: 10
-        - ReagentId: Dylovene
-          Quantity: 10
+  - type: Solution
+    solution:
+      maxVol: 20
+      reagents:
+      - ReagentId: Desoxyephedrine
+        Quantity: 10
+      - ReagentId: Dylovene
+        Quantity: 10
   - type: Tag
     tags:
     - ADTMedipen
@@ -112,15 +110,14 @@
   - type: Injector 
     currentTransferAmount: 20
     activeModeProtoId: HyposprayInjectMode
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 20
-        reagents:
-        - ReagentId: Inaprovaline
-          Quantity: 10
-        - ReagentId: DexalinPlus
-          Quantity: 10
+  - type: Solution
+    solution:
+      maxVol: 20
+      reagents:
+      - ReagentId: Inaprovaline
+        Quantity: 10
+      - ReagentId: DexalinPlus
+        Quantity: 10
   - type: Tag
     tags:
     - ADTMedipen
@@ -138,15 +135,14 @@
       map: ["enum.SolutionContainerLayers.Fill"]
   - type: SolutionContainerVisuals
     emptySpriteName: lacerpen_empty
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 15
-        reagents:
-        - ReagentId: Lacerinol
-          Quantity: 10
-        - ReagentId: TranexamicAcid
-          Quantity: 5
+  - type: Solution
+    solution:
+      maxVol: 15
+      reagents:
+      - ReagentId: Lacerinol
+        Quantity: 10
+      - ReagentId: TranexamicAcid
+        Quantity: 5
   - type: Tag
     tags:
     - ADTMedipen
@@ -164,15 +160,14 @@
       map: ["enum.SolutionContainerLayers.Fill"]
   - type: SolutionContainerVisuals
     emptySpriteName: bruizpen_empty
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 15
-        reagents:
-        - ReagentId: Bruizine
-          Quantity: 10
-        - ReagentId: TranexamicAcid
-          Quantity: 5
+  - type: Solution
+    solution:
+      maxVol: 15
+      reagents:
+      - ReagentId: Bruizine
+        Quantity: 10
+      - ReagentId: TranexamicAcid
+        Quantity: 5
   - type: Tag
     tags:
     - ADTMedipen
@@ -193,15 +188,14 @@
   - type: Injector 
     currentTransferAmount: 20
     activeModeProtoId: HyposprayInjectMode
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 20
-        reagents:
-        - ReagentId: Ethylredoxrazine
-          Quantity: 15
-        - ReagentId: Dylovene
-          Quantity: 5
+  - type: Solution
+    solution:
+      maxVol: 20
+      reagents:
+      - ReagentId: Ethylredoxrazine
+        Quantity: 15
+      - ReagentId: Dylovene
+        Quantity: 5
   - type: Tag
     tags:
     - ADTMedipen
@@ -219,10 +213,10 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 2
     emptySpriteName: medipen_empty
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 10
+  - type: Solution
+    solution:
+      maxVol: 10
+      reagents: []
   - type: Tag
     tags:
     - ADTMedipen
