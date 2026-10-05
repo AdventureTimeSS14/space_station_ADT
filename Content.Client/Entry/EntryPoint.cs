@@ -54,47 +54,48 @@ namespace Content.Client.Entry
 {
     public sealed partial class EntryPoint : GameClient
     {
-        [Dependency] private IBaseClient _baseClient = default!;
-        [Dependency] private IGameController _gameController = default!;
-        [Dependency] private IStateManager _stateManager = default!;
-        [Dependency] private IComponentFactory _componentFactory = default!;
-        [Dependency] private IPrototypeManager _prototypeManager = default!;
-        [Dependency] private IClientAdminManager _adminManager = default!;
-        [Dependency] private IParallaxManager _parallaxManager = default!;
-        [Dependency] private IConfigurationManager _configManager = default!;
-        [Dependency] private IStylesheetManager _stylesheetManager = default!;
-        [Dependency] private IScreenshotHook _screenshotHook = default!;
-        [Dependency] private FullscreenHook _fullscreenHook = default!;
-        [Dependency] private ChangelogManager _changelogManager = default!;
-        [Dependency] private ViewportManager _viewportManager = default!;
-        [Dependency] private IUserInterfaceManager _userInterfaceManager = default!;
-        [Dependency] private IInputManager _inputManager = default!;
-        [Dependency] private IOverlayManager _overlayManager = default!;
-        [Dependency] private IChatManager _chatManager = default!;
-        [Dependency] private IClientPreferencesManager _clientPreferencesManager = default!;
-        [Dependency] private EuiManager _euiManager = default!;
-        [Dependency] private IVoteManager _voteManager = default!;
-        [Dependency] private DocumentParsingManager _documentParsingManager = default!;
-        [Dependency] private GhostKickManager _ghostKick = default!;
-        [Dependency] private ExtendedDisconnectInformationManager _extendedDisconnectInformation = default!;
-        [Dependency] private JobRequirementsManager _jobRequirements = default!;
-        [Dependency] private ContentLocalizationManager _contentLoc = default!;
-        [Dependency] private ContentReplayPlaybackManager _playbackMan = default!;
-        [Dependency] private IResourceManager _resourceManager = default!;
-        [Dependency] private IReplayLoadManager _replayLoad = default!;
-        [Dependency] private ILogManager _logManager = default!;
-        [Dependency] private DebugMonitorManager _debugMonitorManager = default!;
-        [Dependency] private TitleWindowManager _titleWindowManager = default!;
-        [Dependency] private IEntitySystemManager _entitySystemManager = default!;
-        [Dependency] private ClientsidePlaytimeTrackingManager _clientsidePlaytimeManager = default!;
-        [Dependency] private ClientFeedbackManager _feedbackManager = null!;
-        [Dependency] private SponsorsManager _sponsorsManager = default!; // Corvax-Sponsors
-        [Dependency] private Content.Client.ADT.Sponsors.SponsorManager _adtSponsorManager = default!; // ADT-Tweak
-        [Dependency] private JoinQueueManager _queueManager = default!; // Corvax-Queue
-        [Dependency] private QueueGamesManager _queueGamesManager = default!; // ADT-Tweak: queue games
-        [Dependency] private DiscordAuthManager _discordAuthManager = default!; // Corvax-DiscordAuth
-        [Dependency] private ExportManager _exportManager = default!;  // ADT export
-        [Dependency] private DiscordIdManager _discordIdManager = default!;  // ADT export
+        [Dependency] private readonly IBaseClient _baseClient = default!;
+        [Dependency] private readonly IGameController _gameController = default!;
+        [Dependency] private readonly IStateManager _stateManager = default!;
+        [Dependency] private readonly IComponentFactory _componentFactory = default!;
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private readonly IClientAdminManager _adminManager = default!;
+        [Dependency] private readonly IParallaxManager _parallaxManager = default!;
+        [Dependency] private readonly IConfigurationManager _configManager = default!;
+        [Dependency] private readonly IStylesheetManager _stylesheetManager = default!;
+        [Dependency] private readonly IScreenshotHook _screenshotHook = default!;
+        [Dependency] private readonly FullscreenHook _fullscreenHook = default!;
+        [Dependency] private readonly ChangelogManager _changelogManager = default!;
+        [Dependency] private readonly ViewportManager _viewportManager = default!;
+        [Dependency] private readonly IUserInterfaceManager _userInterfaceManager = default!;
+        [Dependency] private readonly IInputManager _inputManager = default!;
+        [Dependency] private readonly IOverlayManager _overlayManager = default!;
+        [Dependency] private readonly IChatManager _chatManager = default!;
+        [Dependency] private readonly IClientPreferencesManager _clientPreferencesManager = default!;
+        [Dependency] private readonly EuiManager _euiManager = default!;
+        [Dependency] private readonly IVoteManager _voteManager = default!;
+        [Dependency] private readonly DocumentParsingManager _documentParsingManager = default!;
+        [Dependency] private readonly GhostKickManager _ghostKick = default!;
+        [Dependency] private readonly ExtendedDisconnectInformationManager _extendedDisconnectInformation = default!;
+        [Dependency] private readonly JobRequirementsManager _jobRequirements = default!;
+        [Dependency] private readonly ContentLocalizationManager _contentLoc = default!;
+        [Dependency] private readonly SponsorsManager _sponsorsManager = default!; // Corvax-Sponsors
+        [Dependency] private readonly Content.Client.ADT.Sponsors.SponsorManager _adtSponsorManager = default!; // ADT-Tweak
+        [Dependency] private readonly Content.Client.ADT.StateDiagnostics.StateDiagnosticsManager _stateDiagnostics = default!; // ADT-Tweak
+        [Dependency] private readonly JoinQueueManager _queueManager = default!; // Corvax-Queue
+        [Dependency] private readonly QueueGamesManager _queueGamesManager = default!; // ADT-Tweak: queue games
+        [Dependency] private readonly DiscordAuthManager _discordAuthManager = default!; // Corvax-DiscordAuth
+        [Dependency] private readonly ContentReplayPlaybackManager _playbackMan = default!;
+        [Dependency] private readonly IResourceManager _resourceManager = default!;
+        [Dependency] private readonly IReplayLoadManager _replayLoad = default!;
+        [Dependency] private readonly ILogManager _logManager = default!;
+        [Dependency] private readonly DebugMonitorManager _debugMonitorManager = default!;
+        [Dependency] private readonly TitleWindowManager _titleWindowManager = default!;
+        [Dependency] private readonly ExportManager _exportManager = default!;  // ADT export
+        [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
+        [Dependency] private readonly DiscordIdManager _discordIdManager = default!;  // ADT export
+        [Dependency] private readonly ClientsidePlaytimeTrackingManager _clientsidePlaytimeManager = default!;
+        [Dependency] private readonly ClientFeedbackManager _feedbackManager = null!;
 
         public override void PreInit()
         {
@@ -194,6 +195,7 @@ namespace Content.Client.Entry
             _userInterfaceManager.SetActiveTheme(_configManager.GetCVar(CVars.InterfaceTheme));
             _sponsorsManager.Initialize(); // Corvax-Sponsors
             _adtSponsorManager.Initialize(); // ADT-Tweak
+            _stateDiagnostics.Initialize(); // ADT-Tweak
             _queueManager.Initialize(); // Corvax-Queue
             _queueGamesManager.Initialize(); // ADT-Tweak: queue games
             _discordAuthManager.Initialize(); // Corvax-DiscordAuth

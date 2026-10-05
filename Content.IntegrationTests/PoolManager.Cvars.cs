@@ -39,6 +39,8 @@ public static partial class PoolManager
         (ADTCCVars.PlanetSpawnerEnabled.Name, "false"), // ADT-Tweak
         (ADTCCVars.BiomeGenerationEnabled.Name, "false"), // ADT-Tweak
         (ADTCCVars.OverpressurePipeDamageEnabled.Name, "false"), // ADT-Tweak: отключаем урон трубам от давления в тестах
+        (ADTCCVars.OverpressurePipeDamageEnabled.Name, "false"), // ADT-Tweak: отключаем урон трубам от давления в тестах
         (CCVars.ResourceUploadingStoreDeletionDays.Name, "0"),
+        (ADTCCVars.StateDiagnosticsEnabled.Name, "false"), // ADT-Tweak: диагностика пишет предупреждения при запросах полного состояния, что валит тесты
     };
 }

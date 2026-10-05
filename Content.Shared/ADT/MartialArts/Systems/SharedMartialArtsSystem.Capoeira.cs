@@ -117,8 +117,7 @@ public abstract partial class SharedMartialArtsSystem
 
         if (args.Emote != null && TryComp(ent, out AnimatedEmotesComponent? emotes))
         {
-            emotes.Emote = args.Emote.Value;
-            Dirty(ent, emotes);
+            _emotes.SetEmote((ent, emotes), args.Emote.Value);
         }
 
         ComboPopup(ent, target, proto.Name);
