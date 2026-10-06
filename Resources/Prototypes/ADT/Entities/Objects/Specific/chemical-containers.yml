@@ -5,7 +5,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Label
-    currentLabel: reagent-name-charcoal
+    localizedLabel: reagent-name-charcoal
   - type: Solution
     solution:
       maxVol: 200

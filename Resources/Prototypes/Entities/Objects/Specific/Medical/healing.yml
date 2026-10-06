@@ -445,7 +445,7 @@
   - type: Sprite
     state: pill16
   - type: Label
-    currentLabel: Дексалин 20u
+    localizedLabel: pill-label-dexalin-20u
   - type: Solution
     solution:
       reagents:

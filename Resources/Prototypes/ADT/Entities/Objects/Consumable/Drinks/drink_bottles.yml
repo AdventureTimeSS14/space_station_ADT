@@ -14,7 +14,7 @@
     sprite: ADT/Objects/Consumable/Drinks/apple_liqueur_bottle.rsi
     state: icon
   - type: Label
-    currentLabel: apple-liqueur-name
+    localizedLabel: apple-liqueur-name
 
 - type: entity
   parent: DrinkBottlePlasticBaseFull
@@ -29,4 +29,4 @@
       - ReagentId: Milk
         Quantity: 150
   - type: Label
-    currentLabel: reagent-name-milk
+    localizedLabel: reagent-name-milk

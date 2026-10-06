@@ -97,7 +97,7 @@
   id: CassetteTapeInterview
   components:
   - type: Label
-    currentLabel: Interview with Garry Smosh
+    localizedLabel: adt-cassette-label-interview-garry-smosh
   - type: TapeCassette
     recordedData:
       - timestamp: 2

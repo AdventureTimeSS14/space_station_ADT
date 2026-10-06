@@ -14,6 +14,6 @@
       - ReagentId: DrGibb
         Quantity: 100
   - type: Label
-    currentLabel: reagent-name-dr-gibb
+    localizedLabel: reagent-name-dr-gibb
   - type: Sprite
     sprite: ADT/Objects/Consumable/Drinks/dr_gibbbottle.rsi

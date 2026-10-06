@@ -4,7 +4,7 @@
   parent: BaseChemistryBottleFilled
   components:
   - type: Label
-    currentLabel: reagent-name-romerol
+    localizedLabel: reagent-name-romerol
   - type: Solution
     solution:
       maxVol: 30
@@ -18,7 +18,7 @@
   parent: BaseChemistryBottleFilled
   components:
   - type: Label
-    currentLabel: reagent-name-polymorphine
+    localizedLabel: reagent-name-polymorphine
   - type: Solution
     solution:
       maxVol: 30
@@ -32,7 +32,7 @@
   parent: BaseChemistryBottleFilled
   components:
   - type: Label
-    currentLabel: reagent-name-chaotic-polymorphine
+    localizedLabel: reagent-name-chaotic-polymorphine
   - type: Solution
     solution:
       maxVol: 30

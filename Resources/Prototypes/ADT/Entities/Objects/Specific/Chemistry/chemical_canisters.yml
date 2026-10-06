@@ -43,7 +43,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Label
-    currentLabel: reagent-name-carbon
+    localizedLabel: reagent-name-carbon
   - type: Solution
     solution:
       maxVol: 600
@@ -58,7 +58,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-iodine
+      localizedLabel: reagent-name-iodine
     - type: Solution
       solution:
         maxVol: 600
@@ -73,7 +73,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-fluorine
+      localizedLabel: reagent-name-fluorine
     - type: Solution
       solution:
         maxVol: 600
@@ -88,7 +88,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-chlorine
+      localizedLabel: reagent-name-chlorine
     - type: Solution
       solution:
         maxVol: 600
@@ -103,7 +103,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-aluminium
+      localizedLabel: reagent-name-aluminium
     - type: Solution
       solution:
         maxVol: 600
@@ -118,7 +118,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-phosphorus
+      localizedLabel: reagent-name-phosphorus
     - type: Solution
       solution:
         maxVol: 600
@@ -133,7 +133,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-sulfur
+      localizedLabel: reagent-name-sulfur
     - type: Solution
       solution:
         maxVol: 600
@@ -148,7 +148,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-silicon
+      localizedLabel: reagent-name-silicon
     - type: Solution
       solution:
         maxVol: 600
@@ -163,7 +163,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-hydrogen
+      localizedLabel: reagent-name-hydrogen
     - type: Solution
       solution:
         maxVol: 600
@@ -178,7 +178,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-lithium
+      localizedLabel: reagent-name-lithium
     - type: Solution
       solution:
         maxVol: 600
@@ -193,7 +193,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-sodium
+      localizedLabel: reagent-name-sodium
     - type: Solution
       solution:
         maxVol: 600
@@ -208,7 +208,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-potassium
+      localizedLabel: reagent-name-potassium
     - type: Solution
       solution:
         maxVol: 600
@@ -223,7 +223,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-radium
+      localizedLabel: reagent-name-radium
     - type: Solution
       solution:
         maxVol: 600
@@ -238,7 +238,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-iron
+      localizedLabel: reagent-name-iron
     - type: Solution
       solution:
         maxVol: 600
@@ -253,7 +253,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-copper
+      localizedLabel: reagent-name-copper
     - type: Solution
       solution:
         maxVol: 600
@@ -268,7 +268,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-gold
+      localizedLabel: reagent-name-gold
     - type: Solution
       solution:
         maxVol: 600
@@ -283,7 +283,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-mercury
+      localizedLabel: reagent-name-mercury
     - type: Solution
       solution:
         maxVol: 600
@@ -298,7 +298,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-silver
+      localizedLabel: reagent-name-silver
     - type: Solution
       solution:
         maxVol: 600
@@ -313,7 +313,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-ethanol
+      localizedLabel: reagent-name-ethanol
     - type: Solution
       solution:
         maxVol: 600
@@ -328,7 +328,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-sugar
+      localizedLabel: reagent-name-sugar
     - type: Solution
       solution:
         maxVol: 600
@@ -343,7 +343,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-nitrogen
+      localizedLabel: reagent-name-nitrogen
     - type: Solution
       solution:
         maxVol: 600
@@ -358,7 +358,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-oxygen
+      localizedLabel: reagent-name-oxygen
     - type: Solution
       solution:
         maxVol: 600
