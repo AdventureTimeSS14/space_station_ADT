@@ -21,7 +21,7 @@ doc-text-printer-request-lift-legal-immunity =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: ЮР-КОМ[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: КОМ-ЦК[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
     ЗАПРОС НА СНЯТИЕ ЮРИДИЧЕСКОЙ НЕПРИКОСНОВЕННОСТИ
