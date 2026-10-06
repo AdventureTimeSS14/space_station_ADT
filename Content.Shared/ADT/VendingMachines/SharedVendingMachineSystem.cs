@@ -444,6 +444,6 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         vendComponent.Broken = true;
         Dirty(uid, vendComponent);
 
-        UISystem.CloseUi(uid, VendingMachineUiKey.Key);
+        UISystem.CloseUi(uid, ADTVendingMachineUiKey.Key);
     }
 }

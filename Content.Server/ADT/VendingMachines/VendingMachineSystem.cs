@@ -79,7 +79,7 @@ namespace Content.Server.ADT.VendingMachines
             SubscribeLocalEvent<ADTVendingMachineComponent, PriceCalculationEvent>(OnVendingPrice);
             SubscribeLocalEvent<ADTVendingMachineComponent, TryVocalizeEvent>(OnTryVocalize);
 
-            Subs.BuiEvents<ADTVendingMachineComponent>(VendingMachineUiKey.Key, subs =>
+            Subs.BuiEvents<ADTVendingMachineComponent>(ADTVendingMachineUiKey.Key, subs =>
             {
                 subs.Event<VendingMachineEjectMessage>(OnInventoryEjectMessage);
                 subs.Event<VendingMachineEjectCountMessage>(OnInventoryEjectCountMessage);
@@ -117,7 +117,7 @@ namespace Content.Server.ADT.VendingMachines
             var state = new VendingMachineInterfaceState(GetAllInventory(uid, component), component.PriceMultiplier,
                 component.Credits, BuildReturnedItemDisplays(uid, component));
 
-            _userInterfaceSystem.SetUiState(uid, VendingMachineUiKey.Key, state);
+            _userInterfaceSystem.SetUiState(uid, ADTVendingMachineUiKey.Key, state);
         }
 
         private Dictionary<string, ReturnedItemDisplay> BuildReturnedItemDisplays(EntityUid uid, ADTVendingMachineComponent component)
@@ -311,7 +311,7 @@ namespace Content.Server.ADT.VendingMachines
                 TryComp<StationBankAccountComponent>(station, out var stationBank))
             {
                 balance = _cargoSystem.GetBalanceFromAccount((station, stationBank), stationBank.PrimaryAccount);
-                _userInterfaceSystem.ServerSendUiMessage(uid, VendingMachineUiKey.Key,
+                _userInterfaceSystem.ServerSendUiMessage(uid, ADTVendingMachineUiKey.Key,
                     new VendingMachineUserInfoMessage(balance), user);
                 return;
             }
@@ -330,7 +330,7 @@ namespace Content.Server.ADT.VendingMachines
                 }
             }
 
-            _userInterfaceSystem.ServerSendUiMessage(uid, VendingMachineUiKey.Key,
+            _userInterfaceSystem.ServerSendUiMessage(uid, ADTVendingMachineUiKey.Key,
                 new VendingMachineUserInfoMessage(balance, IsBalanceExempt(user)), user);
         }
 

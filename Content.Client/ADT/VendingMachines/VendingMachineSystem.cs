@@ -11,7 +11,7 @@ using Robust.Client.GameObjects;
 using Robust.Shared.GameStates;
 using ADTVendingMachineComponent = Content.Shared.ADT.VendingMachines.ADTVendingMachineComponent;
 using VendingMachineComponentState = Content.Shared.ADT.VendingMachines.VendingMachineComponentState;
-using VendingMachineUiKey = Content.Shared.ADT.VendingMachines.VendingMachineUiKey;
+using VendingMachineUiKey = Content.Shared.ADT.VendingMachines.ADTVendingMachineUiKey;
 
 namespace Content.Client.ADT.VendingMachines;
 

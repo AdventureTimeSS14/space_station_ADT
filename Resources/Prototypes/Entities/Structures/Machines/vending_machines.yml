@@ -53,11 +53,11 @@
   - type: Repairable
     doAfterDelay: 8
   - type: ActivatableUI
-    key: enum.VendingMachineUiKey.Key
+    key: enum.ADTVendingMachineUiKey.Key
   - type: ActivatableUIRequiresPower
   - type: UserInterface
     interfaces:
-      enum.VendingMachineUiKey.Key:
+      enum.ADTVendingMachineUiKey.Key:
         type: VendingMachineBoundUserInterface
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
@@ -159,11 +159,11 @@
   - type: Repairable
     doAfterDelay: 8
   - type: ActivatableUI
-    key: enum.VendingMachineUiKey.Key
+    key: enum.ADTVendingMachineUiKey.Key
   - type: ActivatableUIRequiresPower
   - type: UserInterface
     interfaces:
-      enum.VendingMachineUiKey.Key:
+      enum.ADTVendingMachineUiKey.Key:
         type: VendingMachineBoundUserInterface
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
