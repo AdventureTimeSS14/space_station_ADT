@@ -26,7 +26,10 @@ public partial class SharedMartialArtsSystem
         while (query.MoveNext(out var uid, out var comp))
         {
             if (comp.CurrentTarget != null && TerminatingOrDeleted(comp.CurrentTarget.Value))
+            {
                 comp.CurrentTarget = null;
+                Dirty(uid, comp);
+            }
 
             if (comp.LastAttacks.Count == 0 || _timing.CurTime < comp.ResetTime)
                 continue;

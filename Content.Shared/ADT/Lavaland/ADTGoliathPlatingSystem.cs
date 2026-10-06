@@ -1,7 +1,7 @@
 using System.Linq;
+using Content.Shared.ADT.Containers;
 using Content.Shared.ADT.Lavaland.Components;
 using Content.Shared.Armor;
-using Content.Shared.Clothing.Components;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
@@ -110,7 +110,7 @@ public sealed class ADTGoliathPlatingSystem : EntitySystem
         {
             foreach (var container in _container.GetAllContainers(ent.Owner, oldManager))
             {
-                if (container.ID == ToggleableClothingComponent.DefaultClothingContainerId)
+                if (ADTInternalContainers.IsInternal(container))
                     continue;
 
                 if (!_container.TryGetContainer(upgraded, container.ID, out var target))
