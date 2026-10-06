@@ -31,6 +31,7 @@ public sealed partial class JukeboxMenu : FancyWindow
     public event Action? OnStopPressed;
     public event Action? OnLoopToggled; // ADT-Tweak
     public event Action<ProtoId<JukeboxPrototype>>? OnSongSelected;
+    public event Action<string>? OnCustomSongSelected;
     public event Action<float>? SetTime;
     public event Action<float>? SetVolume; // ADT-Tweak
     public event Action? OnEjectPressed; // ADT-Tweak
@@ -54,10 +55,19 @@ public sealed partial class JukeboxMenu : FancyWindow
         {
             var entry = MusicList[args.ItemIndex];
 
-            if (entry.Metadata is not string juke)
+            if (entry.Metadata is string juke)
+            {
+                OnSongSelected?.Invoke(juke);
+                return;
+            }
+
+            if (entry.Metadata is not JukeboxSongPick pick)
                 return;
 
-            OnSongSelected?.Invoke(juke);
+            if (pick.Custom)
+                OnCustomSongSelected?.Invoke(pick.Id);
+            else
+                OnSongSelected?.Invoke(pick.Id);
         };
 
         PlayButton.OnPressed += args =>
@@ -126,6 +136,28 @@ public sealed partial class JukeboxMenu : FancyWindow
             .ThenBy(x => x.Name, StringComparer.Ordinal))
         {
             MusicList.AddItem(entry.Name, metadata: entry.ID);
+        }
+    }
+
+    public void PopulateCustom(IEnumerable<Content.Shared.ADT.MusicRecorder.MusicCassetteTrack> tracks)
+    {
+        MusicList.Clear();
+
+        foreach (var track in tracks.OrderBy(track => track.Name, StringComparer.Ordinal))
+        {
+            MusicList.AddItem(track.Name, metadata: new JukeboxSongPick(track.Id, true));
+        }
+    }
+
+    private sealed class JukeboxSongPick
+    {
+        public string Id;
+        public bool Custom;
+
+        public JukeboxSongPick(string id, bool custom)
+        {
+            Id = id;
+            Custom = custom;
         }
     }
 

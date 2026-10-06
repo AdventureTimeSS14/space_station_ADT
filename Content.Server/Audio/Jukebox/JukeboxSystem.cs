@@ -31,6 +31,7 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
         SubscribeLocalEvent<JukeboxComponent, JukeboxSetVolumeMessage>(OnJukeboxSetVolume); // ADT-Tweak
         SubscribeLocalEvent<JukeboxComponent, JukeboxToggleLoopMessage>(OnJukeboxToggleLoop); // ADT-Tweak
         SubscribeLocalEvent<JukeboxComponent, JukeboxEjectMessage>(OnJukeboxEject); // ADT-Tweak
+        SubscribeLocalEvent<JukeboxComponent, JukeboxSelectCustomTrackMessage>(OnJukeboxSelectCustom);
         SubscribeLocalEvent<JukeboxComponent, ComponentInit>(OnComponentInit);
         SubscribeLocalEvent<JukeboxComponent, ComponentShutdown>(OnComponentShutdown);
 
@@ -47,6 +48,18 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
 
     private void OnJukeboxPlay(Entity<JukeboxComponent> ent, ref JukeboxPlayingMessage args)
     {
+        if (!string.IsNullOrEmpty(ent.Comp.CustomTrackId))
+        {
+            if (!ent.Comp.CustomPlaying)
+            {
+                ent.Comp.CustomPlaying = true;
+                ent.Comp.CustomStartedAt = _gameTiming.CurTime;
+                Dirty(ent);
+            }
+
+            return;
+        }
+
         if (Exists(ent.Comp.AudioStream))
         {
             Audio.SetState(ent.Comp.AudioStream, AudioState.Playing);
@@ -106,6 +119,19 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
 
     private void OnJukeboxPause(Entity<JukeboxComponent> ent, ref JukeboxPauseMessage args)
     {
+        if (!string.IsNullOrEmpty(ent.Comp.CustomTrackId))
+        {
+            if (ent.Comp.CustomPlaying)
+            {
+                var elapsed = (float) (_gameTiming.CurTime - ent.Comp.CustomStartedAt).TotalSeconds;
+                ent.Comp.CustomOffset += elapsed;
+                ent.Comp.CustomPlaying = false;
+                Dirty(ent);
+            }
+
+            return;
+        }
+
         // ADT-Tweak start: Validate AudioStream before using
         if (ent.Comp.AudioStream.HasValue && TerminatingOrDeleted(ent.Comp.AudioStream.Value))
         {
@@ -133,6 +159,20 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
 
     private void OnJukeboxSetTime(Entity<JukeboxComponent> ent, ref JukeboxSetTimeMessage args)
     {
+        if (!string.IsNullOrEmpty(ent.Comp.CustomTrackId))
+        {
+            if (TryComp(args.Actor, out ActorComponent? customActor))
+            {
+                var offset = customActor.PlayerSession.Channel.Ping * 1.5f / 1000f;
+                ent.Comp.CustomOffset = Math.Max(0f, args.SongTime + offset);
+                if (ent.Comp.CustomPlaying)
+                    ent.Comp.CustomStartedAt = _gameTiming.CurTime;
+                Dirty(ent);
+            }
+
+            return;
+        }
+
         if (TryComp(args.Actor, out ActorComponent? actorComp))
         {
             // ADT-Tweak start: Validate AudioStream before using
@@ -232,6 +272,8 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
         // ADT-Tweak start
         entity.Comp.CurrentPlaybackOffset = 0f;
         entity.Comp.PlaybackStartTime = null;
+        entity.Comp.CustomPlaying = false;
+        entity.Comp.CustomOffset = 0f;
         // ADT-Tweak end
         Dirty(entity);
     }
@@ -246,6 +288,48 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
         // ADT-Tweak end
 
         SetSelectedTrack(ent, args.SongId);
+    }
+
+    private void OnJukeboxSelectCustom(Entity<JukeboxComponent> ent, ref JukeboxSelectCustomTrackMessage args)
+    {
+        if (Audio.IsPlaying(ent.Comp.AudioStream) || ent.Comp.CustomPlaying)
+            return;
+
+        if (!TryGetCassetteTrack(ent, args.TrackId, out var track))
+            return;
+
+        ent.Comp.AudioStream = Audio.Stop(ent.Comp.AudioStream);
+        ent.Comp.SelectedSongId = null;
+        ent.Comp.PlaybackStartTime = null;
+        ent.Comp.CurrentPlaybackOffset = 0f;
+        ent.Comp.CustomTrackId = track.Id;
+        ent.Comp.CustomTrackLength = track.Duration;
+        ent.Comp.CustomOffset = 0f;
+        ent.Comp.CustomPlaying = false;
+        ent.Comp.Selecting = true;
+        DirectSetVisualState(ent.Owner, JukeboxVisualState.Select);
+        Dirty(ent);
+    }
+
+    private bool TryGetCassetteTrack(Entity<JukeboxComponent> ent, string trackId, out Content.Shared.ADT.MusicRecorder.MusicCassetteTrack track)
+    {
+        track = default!;
+        if (_itemSlots.GetItemOrNull(ent.Owner, DiskSlotId) is not { } disk ||
+            !TryComp<Content.Shared.ADT.MusicRecorder.MusicCassetteComponent>(disk, out var cassette))
+        {
+            return false;
+        }
+
+        foreach (var candidate in cassette.Tracks)
+        {
+            if (candidate.Id != trackId)
+                continue;
+
+            track = candidate;
+            return true;
+        }
+
+        return false;
     }
 
     public override void Update(float frameTime)
@@ -274,6 +358,27 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
 
                     TryUpdateVisualState((uid, comp));
                 }
+            }
+
+            if (!string.IsNullOrEmpty(comp.CustomTrackId) && comp.CustomPlaying && comp.CustomTrackLength > 0f)
+            {
+                var customElapsed = (float) (_gameTiming.CurTime - comp.CustomStartedAt).TotalSeconds;
+                if (comp.CustomOffset + customElapsed < comp.CustomTrackLength)
+                    continue;
+
+                if (comp.LoopEnabled)
+                {
+                    comp.CustomOffset = 0f;
+                    comp.CustomStartedAt = _gameTiming.CurTime;
+                }
+                else
+                {
+                    comp.CustomPlaying = false;
+                    comp.CustomOffset = 0f;
+                }
+
+                Dirty(uid, comp);
+                continue;
             }
 
             // ADT-Tweak start
@@ -356,9 +461,13 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
         if (!Resolve(ent, ref ent.Comp))
             return;
 
-        if (!Audio.IsPlaying(ent.Comp.AudioStream))
+        if (!Audio.IsPlaying(ent.Comp.AudioStream) && !ent.Comp.CustomPlaying)
         {
             ent.Comp.SelectedSongId = track;
+            ent.Comp.CustomTrackId = null;
+            ent.Comp.CustomTrackLength = 0f;
+            ent.Comp.CustomPlaying = false;
+            ent.Comp.CustomOffset = 0f;
             DirectSetVisualState(ent, JukeboxVisualState.Select);
             ent.Comp.Selecting = true;
             ent.Comp.AudioStream = Audio.Stop(ent.Comp.AudioStream);
@@ -402,6 +511,12 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
             return;
 
         Audio.SetState(entity.Comp.AudioStream, AudioState.Stopped);
+        if (entity.Comp.CustomPlaying || !string.IsNullOrEmpty(entity.Comp.CustomTrackId))
+        {
+            entity.Comp.CustomPlaying = false;
+            entity.Comp.CustomOffset = 0f;
+            Dirty(entity);
+        }
     }
 
     /// <summary>

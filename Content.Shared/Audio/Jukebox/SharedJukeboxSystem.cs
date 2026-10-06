@@ -55,6 +55,10 @@ public abstract class SharedJukeboxSystem : EntitySystem
     private void OnItemSlot(Entity<JukeboxComponent> ent)
     {
         ent.Comp.SelectedSongId = null;
+        ent.Comp.CustomTrackId = null;
+        ent.Comp.CustomTrackLength = 0f;
+        ent.Comp.CustomPlaying = false;
+        ent.Comp.CustomOffset = 0f;
         UpdateAppearance(ent);
         UpdateMusicList(ent);
         StopJukebox(ent);

@@ -112,6 +112,7 @@
         whitelist:
           components:
           - JukeboxDisk
+          - MusicCassette
   - type: Jukebox
   - type: Transform
     anchored: false

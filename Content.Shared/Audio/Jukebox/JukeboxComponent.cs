@@ -69,6 +69,21 @@ public sealed partial class JukeboxComponent : Component
     [DataField]
     public double TrackLengthCache;
 
+    [DataField, AutoNetworkedField]
+    public string? CustomTrackId;
+
+    [DataField, AutoNetworkedField]
+    public float CustomTrackLength;
+
+    [DataField, AutoNetworkedField]
+    public bool CustomPlaying;
+
+    [DataField, AutoNetworkedField]
+    public float CustomOffset;
+
+    [DataField, AutoNetworkedField]
+    public TimeSpan CustomStartedAt;
+
     /// ADT-Tweak end
 }
 
@@ -106,6 +121,12 @@ public sealed class JukeboxToggleLoopMessage : BoundUserInterfaceMessage;
 
 [Serializable, NetSerializable]
 public sealed class JukeboxEjectMessage : BoundUserInterfaceMessage;
+
+[Serializable, NetSerializable]
+public sealed class JukeboxSelectCustomTrackMessage(string trackId) : BoundUserInterfaceMessage
+{
+    public string TrackId { get; } = trackId;
+}
 
 [Serializable, NetSerializable]
 public enum JukeboxVolumeLevel : byte

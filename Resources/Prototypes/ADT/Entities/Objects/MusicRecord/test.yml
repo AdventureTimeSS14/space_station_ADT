@@ -1,0 +1,60 @@
+- type: entity
+  parent: BaseItem
+  id: ADTMusicRecorderTool
+  name: music recorder
+  description: A portable recorder that writes audio onto a blank cassette.
+  suffix: "ADT TEST DEV"
+  components:
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/multitool_drop.ogg
+  - type: Sprite
+    sprite: Objects/Tools/access_configurator.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: Clothing
+    sprite: Objects/Tools/access_configurator.rsi
+    quickEquip: false
+    slots:
+    - Belt
+  - type: MusicRecorder
+  - type: UserInterface
+    interfaces:
+      enum.MusicRecorderUiKey.Key:
+        type: MusicRecorderBoundUserInterface
+  - type: ActivatableUI
+    key: enum.MusicRecorderUiKey.Key
+    requiresComplex: true
+    requireActiveHand: false
+    singleUser: true
+    inHandsOnly: false
+  - type: ItemSlots
+    slots:
+      cassette:
+        name: music-recorder-slot-name
+        whitelist:
+          components:
+          - MusicCassette
+  - type: ContainerContainer
+    containers:
+      cassette: !type:ContainerSlot
+
+- type: entity
+  parent: BaseItem
+  id: ADTMusicCassette
+  name: music cassette
+  description: An empty cassette tape ready to be recorded.
+  suffix: "ADT TEST DEV"
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/music_disk.rsi
+    layers:
+    - state: disk_base
+      color: "#e3fcf6"
+    - state: disk_label_music
+  - type: StaticPrice
+    price: 300
+  - type: MusicCassette
+  - type: Item
+    size: Tiny

@@ -52,6 +52,7 @@
         whitelist:
           components:
           - JukeboxDisk
+          - MusicCassette
   #ADT-Tweak-End
   - type: Destructible
     thresholds:

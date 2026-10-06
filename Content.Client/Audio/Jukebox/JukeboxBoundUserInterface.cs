@@ -52,6 +52,10 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
         {
             SendMessage(new JukeboxEjectMessage());
         };
+        _menu.OnCustomSongSelected += trackId =>
+        {
+            SendMessage(new JukeboxSelectCustomTrackMessage(trackId));
+        };
         // ADT-Tweak end
 
         _menu.OnSongSelected += SelectSong;
@@ -72,7 +76,13 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
         _menu.SetAudioStream(jukebox.AudioStream);
         _menu.SetVolumeSlider(jukebox.Volume); // ADT-Tweak
         _menu.SetLoopButton(jukebox.LoopEnabled); // ADT-Tweak
-        if (_protoManager.Resolve(jukebox.SelectedSongId, out var songProto))
+        if (!string.IsNullOrEmpty(jukebox.CustomTrackId))
+        {
+            var playback = EntMan.System<Content.Client.ADT.MusicRecorder.MusicCassettePlaybackSystem>();
+            _menu.SetAudioStream(playback.TryGetPlayback(Owner, out var localAudio) ? localAudio : null);
+            _menu.SetSelectedSong(GetCustomTrackName(jukebox.CustomTrackId), jukebox.CustomTrackLength);
+        }
+        else if (_protoManager.Resolve(jukebox.SelectedSongId, out var songProto))
         {
             var length = EntMan.System<AudioSystem>().GetAudioLength(songProto.Path.Path.ToString());
             _menu.SetSelectedSong(songProto.Name, (float)length.TotalSeconds); // ADT-Tweak
@@ -94,6 +104,13 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
             return;
 
         var jukeboxEntity = (Owner, EntMan.GetComponent<JukeboxComponent>(Owner));
+        if (EntMan.System<SharedJukeboxSystem>().GetInsertedDisk(jukeboxEntity) is { } disk &&
+            EntMan.TryGetComponent(disk, out Content.Shared.ADT.MusicRecorder.MusicCassetteComponent? cassette))
+        {
+            _menu.PopulateCustom(cassette.Tracks);
+            return;
+        }
+
         var availableSongs = new List<JukeboxPrototype>();
 
         foreach (var songId in EntMan.System<SharedJukeboxSystem>().GetAvailableSongs(jukeboxEntity))
@@ -124,10 +141,17 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
         // so it will go BRRRRT
         // Using ping gets us close enough that it SHOULD, MOST OF THE TIME, fall within the 0.1 second tolerance
         // that's still on engine so our playback position never gets corrected.
-        if (EntMan.TryGetComponent(Owner, out JukeboxComponent? jukebox) &&
-            EntMan.TryGetComponent(jukebox.AudioStream, out AudioComponent? audioComp))
+        if (EntMan.TryGetComponent(Owner, out JukeboxComponent? jukebox))
         {
-            audioComp.PlaybackPosition = time;
+            if (EntMan.System<Content.Client.ADT.MusicRecorder.MusicCassettePlaybackSystem>().TryGetPlayback(Owner, out var localAudio) &&
+                EntMan.TryGetComponent(localAudio, out AudioComponent? localComp))
+            {
+                localComp.PlaybackPosition = time;
+            }
+            else if (EntMan.TryGetComponent(jukebox.AudioStream, out AudioComponent? audioComp))
+            {
+                audioComp.PlaybackPosition = time;
+            }
         }
 
         SendMessage(new JukeboxSetTimeMessage(sentTime));
@@ -174,6 +198,22 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
 
         // Update available songs based on the inserted disk
         PopulateMusic();
+    }
+
+    private string GetCustomTrackName(string trackId)
+    {
+        var jukeboxEntity = (Owner, EntMan.GetComponent<JukeboxComponent>(Owner));
+        if (EntMan.System<SharedJukeboxSystem>().GetInsertedDisk(jukeboxEntity) is { } disk &&
+            EntMan.TryGetComponent(disk, out Content.Shared.ADT.MusicRecorder.MusicCassetteComponent? cassette))
+        {
+            foreach (var track in cassette.Tracks)
+            {
+                if (track.Id == trackId)
+                    return track.Name;
+            }
+        }
+
+        return trackId;
     }
     /// ADT-Tweak end
 }
