@@ -374,6 +374,11 @@ public sealed partial class ActionContainerSystem : EntitySystem
 
     private void OnActionAdded(EntityUid uid, ActionsContainerComponent component, ActionAddedEvent args)
     {
+        // ADT-Tweak-Start
+        if (!component.Initialized)
+            return;
+        // ADT-Tweak-End
+
         if (TryComp<MindComponent>(uid, out var mindComp) && mindComp.OwnedEntity != null && HasComp<ActionsContainerComponent>(mindComp.OwnedEntity.Value))
             _actions.GrantContainedAction(mindComp.OwnedEntity.Value, uid, args.Action);
     }
