@@ -156,7 +156,7 @@ jobs:
 
         set +e
         # NUnit.DiscoveryMethod=Legacy обязателен.
-        dotnet test --no-build --configuration DebugOpt Content.IntegrationTests/Content.IntegrationTests.csproj -- NUnit.ConsoleOut=0 NUnit.MapWarningTo=Failed NUnit.Where="$NUNIT_WHERE" NUnit.DiscoveryMethod=Legacy NUnit.TestOutputXml="logs-$SHARD_NAME" NUnit.WorkDirectory="$(pwd)/test_results"
+        dotnet test --no-build --configuration DebugOpt Content.IntegrationTests/Content.IntegrationTests.csproj --blame-hang --blame-hang-timeout 10m --blame-hang-dump-type none --logger "console;verbosity=normal" -- NUnit.ConsoleOut=0 NUnit.MapWarningTo=Failed NUnit.Where="$NUNIT_WHERE" NUnit.DiscoveryMethod=Legacy NUnit.TestOutputXml="logs-$SHARD_NAME" NUnit.WorkDirectory="$(pwd)/test_results"
         code=$?
         set -e
 
