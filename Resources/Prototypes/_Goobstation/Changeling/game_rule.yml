@@ -30,6 +30,7 @@
     cost: 75
 
 - type: antagSpecifier
+  parent: [ CommandBlacklistedAntag, CyborgBlacklistedAntag ]
   id: Changeling
   prefRoles: [ Changeling ]
   blacklist:
