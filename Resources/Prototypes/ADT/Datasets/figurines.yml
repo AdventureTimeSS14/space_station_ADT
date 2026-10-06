@@ -59,6 +59,12 @@
     count: 3
 
 - type: localizedDataset
+  id: ADTFigurinesPlushieReimor
+  values:
+    prefix: adt-figurines-plushie-reimor-
+    count: 3
+
+- type: localizedDataset
   id: ADTFigurinesPlushieYuriyTrixter
   values:
     prefix: adt-figurines-plushie-yuriy-trixter-

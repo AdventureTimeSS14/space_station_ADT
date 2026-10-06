@@ -1230,3 +1230,7 @@ ent-ADTClothingHeadHelmetRiverSpirit = шлем аварийного скафа�
 ent-ADTPlushieEtvy = плюшевый Юрий
     .desc = Мягкая плюшевая игрушка в виде Юрия, на вид блестящая и сияющая.
     .suffix = { "Именное, Etvy" }
+
+ent-ADTPlushieReimor = Плюшевый Рэймор
+    .desc = Созданная на заказ плюшевая игрушка. От неё пахнет спиртом и перенасыщением рыжого цвета.
+    .suffix = { "Именное, Dark_World" }

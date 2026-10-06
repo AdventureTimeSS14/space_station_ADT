@@ -284,6 +284,42 @@
       proto: MinecraftHarp
       sound: /Audio/ADT/Voice/Vocal-Barks/minecraft_harp.ogg
 
+# Reimor
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieReimor
+  name: plushie Reimor
+  description: A custom-made plushie. It smells of alcohol and an overabundance of orange.
+  suffix: Personal, Dark_World
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/plushie_Reimor.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Personalization/plushie_Reimor.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/plushie_Reimor.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+  - type: EmitSoundOnUse
+    handle: false
+    sound: null
+  - type: TriggerOnUse
+  - type: Speech
+    speechSounds: Squeak
+  - type: SpeakOnTrigger
+    pack: ADTFigurinesPlushieReimor
+
 #Mysok
 - type: entity
   parent: BasePlushie
