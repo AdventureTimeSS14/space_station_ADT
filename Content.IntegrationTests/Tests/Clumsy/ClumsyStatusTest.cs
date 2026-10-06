@@ -159,11 +159,9 @@ public sealed class ClumsyStatusTest : InteractionTest
         await AwaitDoAfters();
 
         Assert.That(_sStatusSystem.HasStatusEffect(SPlayer, SharedStunSystem.StunId), Is.True, "Clumsy mob wasn't stunned climbing a table.");
-        // ADT-Tweak-Start
-        // foreach (var ev in GetEvents<SelfBeforeClimbEvent>(SPlayer))
-        // {
-        //     Assert.That(ev.Cancelled, Is.True, "Clumsy mob didn't cancel climb event.");
-        // }
-        // ADT-Tweak-End
+        foreach (var ev in GetEvents<SelfBeforeClimbEvent>(SPlayer))
+        {
+            Assert.That(ev.Cancelled, Is.True, "Clumsy mob didn't cancel climb event.");
+        }
     }
 }

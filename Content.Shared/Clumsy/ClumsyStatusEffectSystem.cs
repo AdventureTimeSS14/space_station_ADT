@@ -145,7 +145,7 @@ public sealed partial class ClumsyStatusEffectSystem : EntitySystem
             || !SharedRandomExtensions.PredictedProb(_timing, status.Comp.ClumsyChance, GetNetEntity(status), GetNetEntity(args.AppliedTo)))
             return;
 
-        // args.Args.Cancel(); // ADT-Tweak
+        args.Args.Cancel();
 
         _climb.Bonk(args.Args.BeingClimbedOn.Owner, args.Args.GettingPutOnTable);
 

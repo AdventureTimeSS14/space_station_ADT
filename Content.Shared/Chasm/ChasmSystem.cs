@@ -48,13 +48,14 @@ public sealed partial class ChasmSystem : EntitySystem
                 continue;
 
             // ADT Jaunter start
-            RemComp<ChasmFallingComponent>(uid);
-            _blocker.UpdateCanMove(uid);
-
             var ev = new BeforeChasmFallingEvent(uid);
             RaiseLocalEvent(uid, ref ev);
             if (ev.Cancelled)
+            {
+                RemComp<ChasmFallingComponent>(uid);
+                _blocker.UpdateCanMove(uid);
                 continue;
+            }
             // ADT Jaunter end
 
             var chasmEvent = new EntityCompletedFallingIntoChasmEvent((uid, chasm));
