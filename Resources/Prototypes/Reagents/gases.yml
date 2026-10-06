@@ -145,7 +145,7 @@
             Piercing: -0.04
             Heat: -0.04
             Poison: -0.04
-      - !type:GenericStatusEffect
+      - !type:ModifyStatusEffect
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Novakid ]
@@ -153,8 +153,7 @@
         - !type:ReagentCondition
           reagent: Plasma
           min: 1
-        key: SeeingRainbows
-        component: SeeingRainbows
+        effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
       - !type:Drunk

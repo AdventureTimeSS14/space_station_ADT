@@ -396,9 +396,8 @@
         - !type:ReagentCondition
           reagent: ADTMorphine
           min: 30.05
-      - !type:GenericStatusEffect #не забываем, что морфин ещё и наркотик.
-        key: SeeingRainbows
-        component: SeeingRainbows
+      - !type:ModifyStatusEffect #не забываем, что морфин ещё и наркотик.
+        effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 2.5
       # ADT-Tweak-Start: передоз морфина даёт лекарственную зависимость

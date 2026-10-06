@@ -20,9 +20,8 @@
         visualType: Small
         messages: [ "medicine-effect-pain" ]
         probability: 0.05
-      - !type:GenericStatusEffect
-        key: SeeingRainbows
-        component: SeeingRainbows
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 20 # THC масло по 16 добавляет.
       - !type:PopupMessage
@@ -149,9 +148,8 @@
         effectProto: StatusEffectDrowsiness
         time: 10
         type: Remove
-      - !type:GenericStatusEffect
-        key: SeeingRainbows
-        component: SeeingRainbows
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 16
       - !type:ResetNarcolepsy

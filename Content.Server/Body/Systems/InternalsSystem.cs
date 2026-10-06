@@ -1,4 +1,5 @@
 using Content.Server.Atmos.EntitySystems;
+using Content.Server.Body.Components;
 using Content.Shared.Alert;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Body.Components;
@@ -28,6 +29,9 @@ public sealed partial class InternalsSystem : SharedInternalsSystem
 
         if (component.GasTankEntity != null)
             return; // already connected
+
+        if (!HasComp<RespiratorComponent>(uid)) // ADT-Tweak
+            return;
 
         // Can the entity breathe the air it is currently exposed to?
         if (_respirator.CanMetabolizeInhaledAir(uid))

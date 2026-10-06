@@ -103,6 +103,8 @@
   parent: UnanchoredChairBase
   abstract: true
   components:
+  - type: Transform # ADT-Tweak
+    anchored: false
   - type: Rotatable
     rotateWhileAnchored: true
   - type: Destructible

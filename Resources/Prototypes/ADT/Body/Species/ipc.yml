@@ -395,7 +395,7 @@
       map: ["base"]
 
 - type: entity
-  parent: [ OrganBase ]
+  parent: [ OrganBase, OrganBaseChildInternal ]
   id: ADTOrganIPCEyes
   components:
   - type: Sprite

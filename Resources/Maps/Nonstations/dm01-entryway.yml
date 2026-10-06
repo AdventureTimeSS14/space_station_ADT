@@ -273,12 +273,6 @@ entities:
             0: 4369
           9,7:
             0: 17
-        uniqueMixes:
-        - volume: 2500
-          temperature: 293.15
-          moles:
-            Oxygen: 21.824879
-            Nitrogen: 82.10312
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
