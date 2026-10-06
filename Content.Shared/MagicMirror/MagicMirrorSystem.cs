@@ -68,7 +68,10 @@ public sealed partial class MagicMirrorSystem : EntitySystem
 
         if (ent.Comp.DoAfter.HasValue)
         {
-            _doAfter.Cancel(args.Actor, ent.Comp.DoAfter.Value);
+            // ADT-Tweak-Start
+            if (_doAfter.IsRunning(args.Actor, ent.Comp.DoAfter.Value))
+                _doAfter.Cancel(args.Actor, ent.Comp.DoAfter.Value);
+            // ADT-Tweak-End
             ent.Comp.DoAfter = null;
         }
 

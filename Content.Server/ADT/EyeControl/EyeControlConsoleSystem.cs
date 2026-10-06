@@ -215,6 +215,7 @@ public sealed class EyeControlConsoleSystem : EntitySystem
             foreach (var action in pilot.Actions.Values)
             {
                 _actions.RemoveAction(user, action);
+                QueueDel(action);
             }
 
             if (TryComp<InputMoverComponent>(user, out var mover))

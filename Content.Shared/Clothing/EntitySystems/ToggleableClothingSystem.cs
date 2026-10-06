@@ -191,6 +191,13 @@ public sealed partial class ToggleableClothingSystem : EntitySystem
             return;
 
         _actionsSystem.RemoveAction(toggleComp.ActionEntity);
+
+        // ADT-Tweak-start
+        if (!_netMan.IsClient)
+            QueueDel(toggleComp.ActionEntity);
+        toggleComp.ActionEntity = null;
+        // ADT-Tweak-end
+
         RemComp(component.AttachedUid, toggleComp);
     }
 

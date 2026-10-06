@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Containers;
 using Robust.Shared.Containers;
 using Content.Server.NPC;
 using Content.Server.NPC.Systems;
@@ -169,6 +170,9 @@ public sealed partial class DragonSystem : EntitySystem
         {
             foreach (var container in containerManager.Containers.Values)
             {
+                if (ADTInternalContainers.IsInternal(container))
+                    continue;
+
                 _container.EmptyContainer(container, true);
             }
         }

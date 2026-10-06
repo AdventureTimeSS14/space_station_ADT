@@ -173,7 +173,10 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         while (query.MoveNext(out var ent, out var comp))
         {
             if (comp.CurrentTarget != null && TerminatingOrDeleted(comp.CurrentTarget.Value))
+            {
                 comp.CurrentTarget = null;
+                Dirty(ent, comp);
+            }
 
             if (_timing.CurTime < comp.ResetTime
                 || comp.LastAttacks.Count == 0
