@@ -143,7 +143,7 @@ public sealed partial class ADTCrewMonitoringNavMapControl : NavMapControl
         };
 
         var volumeTex = IoCManager.Resolve<IResourceCache>()
-            .GetResource<TextureResource>("/Textures/Interface/ADTCrewMonitoring/volume.png")
+            .GetResource<TextureResource>("/Textures/ADT/Interface/CrewMonitoring/volume.png")
             .Texture;
         _volumeIcon = new TextureRect
         {
