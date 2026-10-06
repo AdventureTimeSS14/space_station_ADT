@@ -37,7 +37,6 @@ public sealed class ADTAccessorySystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ADTAccessoryHolderComponent, ComponentInit>(OnHolderInit);
         SubscribeLocalEvent<ADTAccessoryHolderComponent, InteractUsingEvent>(OnHolderInteractUsing);
         SubscribeLocalEvent<ADTAccessoryHolderComponent, GetVerbsEvent<AlternativeVerb>>(OnHolderVerbs);
         SubscribeLocalEvent<ADTAccessoryHolderComponent, ExaminedEvent>(OnHolderExamined);
@@ -51,11 +50,6 @@ public sealed class ADTAccessorySystem : EntitySystem
 
         SubscribeLocalEvent<ADTAccessoryComponent, AfterInteractEvent>(OnAccessoryAfterInteract);
         SubscribeLocalEvent<ADTAccessoryComponent, ADTAccessoryAttachDoAfterEvent>(OnAttachDoAfter);
-    }
-
-    private void OnHolderInit(Entity<ADTAccessoryHolderComponent> ent, ref ComponentInit args)
-    {
-        _container.EnsureContainer<Container>(ent.Owner, ent.Comp.ContainerId);
     }
 
     private void OnHolderInteractUsing(Entity<ADTAccessoryHolderComponent> ent, ref InteractUsingEvent args)

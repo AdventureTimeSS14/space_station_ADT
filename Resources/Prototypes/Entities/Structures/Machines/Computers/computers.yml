@@ -554,6 +554,7 @@
         showEnts: False
         occludes: True
         ents: []
+      pai_slot: !type:ContainerSlot {} # ADT-Tweak
   - type: AccessReader
     access: [["Command"]]
   - type: Lock

@@ -8,6 +8,7 @@ namespace Content.Client.ADT.PaperOrigami;
 public sealed class PaperOrigamiSystem : EntitySystem
 {
     [Dependency] private AppearanceSystem _appearance = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -20,6 +21,9 @@ public sealed class PaperOrigamiSystem : EntitySystem
     {
         if (TryComp<SpriteComponent>(uid, out var sprite))
         {
+            if (!_sprite.LayerExists((uid, sprite), PaperOrigamiState.State))
+                return;
+
             sprite.LayerSetVisible(0, true);  // Основной спрайт бумаги виден
             sprite.LayerSetVisible(1, false); // Слой текста скрыт
             sprite.LayerSetVisible(2, false); // Слой штампа скрыт
@@ -35,6 +39,9 @@ public sealed class PaperOrigamiSystem : EntitySystem
     public void ChangeAppearanceSprite(EntityUid uid, PaperOrigamiComponent component, ref AppearanceChangeEvent args)
     {
         if (!TryComp<SpriteComponent>(uid, out var sprite))
+            return;
+
+        if (!_sprite.LayerExists((uid, sprite), PaperOrigamiState.State))
             return;
 
         if (_appearance.TryGetData<bool>(uid, PaperOrigamiState.State, out var isOrigami))

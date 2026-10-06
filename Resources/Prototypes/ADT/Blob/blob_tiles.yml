@@ -113,6 +113,7 @@
   description: An ordinary part of yours required for the construction of more advanced tiles.
   components:
   - type: Temperature
+    heatCapacity: 3000000
   - type: TemperatureDamage
     heatDamage:
       types:
@@ -178,6 +179,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Temperature
+      heatCapacity: 3000000
     - type: TemperatureDamage
       heatDamage:
         types:
@@ -217,6 +219,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Temperature
+      heatCapacity: 3000000
     - type: TemperatureDamage
       heatDamage:
         types:
@@ -258,6 +261,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Temperature
+      heatCapacity: 3000000
     - type: TemperatureDamage
       heatDamage:
         types:

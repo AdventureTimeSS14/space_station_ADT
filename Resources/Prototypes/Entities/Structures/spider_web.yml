@@ -56,6 +56,8 @@
   name: spider web
   description: It's stringy and sticky.
   components:
+  - type: Temperature # ADT-Tweak
+    heatCapacity: 21000
   - type: Sprite
     color: "#ffffffdd"
   - type: Fixtures
@@ -94,6 +96,8 @@
   name: clown spider web
   description: It's stringy and slippy.
   components:
+  - type: Temperature # ADT-Tweak
+    heatCapacity: 13440.002
   - type: Sprite
     color: "#ffa3fc"
   - type: Slippery

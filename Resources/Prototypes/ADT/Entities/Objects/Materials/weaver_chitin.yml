@@ -88,6 +88,8 @@
         ejectSound:
           path: /Audio/Effects/pop.ogg
   - type: ContainerContainer
+    containers:
+      gem: !type:ContainerSlot {}
   - type: PointLight
     enabled: false
     radius: 3

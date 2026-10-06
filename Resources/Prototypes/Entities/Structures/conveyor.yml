@@ -77,7 +77,11 @@
   components:
   - type: Sprite
     sprite: ADT/Structures/conveyor.rsi # ADT-Tweak: Resprite
-    state: conveyor_loose
+    layers:
+    - state: conveyor_loose
+      map: [ "base" ]
+  - type: Item
+    size: Normal
   - type: Construction
     graph: ConveyorGraph
     node: item
@@ -87,9 +91,9 @@
     stackType: ConveyorBeltStack
     count: 1
     baseLayer: base
-    layerStates:
+    layerStates: # ADT-Tweak
     - conveyor_loose # 0-item state
     - conveyor_loose
-    - conveyor_loose_2
-    - conveyor_loose_3
+    - conveyor_loose
+    - conveyor_loose
   - type: Appearance

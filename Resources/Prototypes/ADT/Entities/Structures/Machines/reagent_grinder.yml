@@ -21,7 +21,5 @@
     layers:
     - map: [ "grinder" ]
       state: "juicer0"
-  - type: ApcPowerReceiver
-    powerLoad: 0
   - type: Machine
     board: ADTAdvancedReagentGrinderMachineCircuitboard
