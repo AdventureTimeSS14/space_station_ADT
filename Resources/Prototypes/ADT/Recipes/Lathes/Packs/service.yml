@@ -37,7 +37,6 @@
   - PrintedDocumentPrescriptionDrugAuthorizationRecipe
   - PrintedDocumentPermissionDisposeBodyRecipe
   - PrintedDocumentConstructionPermitRecipe
-  - PrintedDocumentPermissionToExtendMarriageRecipe
   - PrintedDocumentOrderDismissalRecipe
   - PrintedDocumentOrderDeprivationAccessRecipe
   - PrintedDocumentOrderEncouragementRecipe
