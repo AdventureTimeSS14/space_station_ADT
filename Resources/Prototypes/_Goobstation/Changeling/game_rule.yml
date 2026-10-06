@@ -16,7 +16,7 @@
     - ChangelingAbsorbObjective
     - EscapeIdentityObjective
   - type: AntagSelection
-    selectionTime: JobsAssigned
+    selectionTime: PrePlayerSpawn
     agentName: changeling-roundend-name
     lateJoinAdditional: true
     antags:
@@ -26,6 +26,8 @@
       range:
         min: 1
         max: 4
+  - type: DynamicRuleCost
+    cost: 75
 
 - type: antagSpecifier
   id: Changeling

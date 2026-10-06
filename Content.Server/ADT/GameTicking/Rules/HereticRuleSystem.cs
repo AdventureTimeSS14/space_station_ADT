@@ -79,7 +79,8 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
         if (!_mind.TryGetMind(target, out var mindId, out var mind))
             return false;
 
-        _role.MindAddRole(mindId, _mindRole.Id, mind, true);
+        if (!_role.MindHasRole<HereticRoleComponent>(mindId))
+            _role.MindAddRole(mindId, _mindRole.Id, mind, true);
 
         // briefing
         if (HasComp<MetaDataComponent>(target))

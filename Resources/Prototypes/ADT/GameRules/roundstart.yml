@@ -99,7 +99,7 @@
 
 #Облегченное число агентов
 - type: entity
-  parent: BaseTraitorRule
+  parent: [ BaseTraitorRule, BaseRoundstartAntagRule ]
   id: TraitorLightGameRule
   components:
   - type: GameRule
@@ -156,7 +156,7 @@
 
 #Пары из антагов
 - type: entity
-  parent: BaseTraitorRule
+  parent: [ BaseTraitorRule, BaseRoundstartAntagRule ]
   id: TraitorDuoGameRule
   components:
   - type: GameRule
@@ -174,7 +174,7 @@
         max: 2
 
 - type: entity
-  parent: BaseTraitorRule
+  parent: [ BaseTraitorRule, BaseRoundstartAntagRule ]
   id: TraitorTripleGameRule
   components:
   - type: GameRule
