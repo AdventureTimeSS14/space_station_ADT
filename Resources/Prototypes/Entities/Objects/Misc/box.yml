@@ -37,7 +37,7 @@
 
 - type: entity
   abstract: true
-  parent: BaseBoxSurvival
+  parent: BoxCardboard # ADT-Tweak
   id: BoxBaseHug
   components:
   - type: Item

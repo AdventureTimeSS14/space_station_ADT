@@ -35,8 +35,7 @@ public sealed partial class ChasmFallingComponent : Component
     /// <summary>
     /// Original scale of the object so it can be restored if the component is removed in the middle of the animation
     /// </summary>
-    [AutoNetworkedField]
-    public Vector2 OriginalScale = Vector2.Zero;
+    public Vector2 OriginalScale = Vector2.Zero; // ADT-Tweak
 
     /// <summary>
     /// Scale that the animation should bring entities to.

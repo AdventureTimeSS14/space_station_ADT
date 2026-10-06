@@ -49,9 +49,9 @@
     visuals:
       enum.ConveyorVisuals.State:
         enum.ConveyorState.Off:
-          Off: { state: conveyor_stopped }
-          Forward: { state: conveyor_started }
-          Reverse: { state: conveyor_started_r }
+          Off: { state: conveyor_stopped_cw } # ADT-Tweak
+          Forward: { state: conveyor_started_cw } # ADT-Tweak
+          Reverse: { state: conveyor_started_cw_r } # ADT-Tweak
   - type: Construction
     graph: ConveyorGraph
     node: entity

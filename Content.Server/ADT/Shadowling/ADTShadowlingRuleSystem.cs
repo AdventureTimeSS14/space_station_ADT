@@ -56,7 +56,9 @@ public sealed class ADTShadowlingRuleSystem : GameRuleSystem<ADTShadowlingRuleCo
         if (!_mind.TryGetMind(target, out var mindId, out var mind))
             return false;
 
-        _role.MindAddRole(mindId, rule.Comp.MindRole.Id, mind, true);
+        if (!_role.MindHasRole<ADTShadowlingRoleComponent>(mindId))
+            _role.MindAddRole(mindId, rule.Comp.MindRole.Id, mind, true);
+
         rule.Comp.Minds.Add(mindId);
         _mind.TryAddObjective(mindId, mind, rule.Comp.AscendObjective.Id);
 

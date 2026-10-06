@@ -38,7 +38,7 @@ public sealed partial class TemporaryMindSystem : EntitySystem
         if (args.Player.Status != SessionStatus.Disconnected)
             return;
 
-        CleanupDisposableMind(ent.Comp);
+        CleanupDisposableMind(ent);
         RemComp<TemporaryMindComponent>(ent);
     }
 
@@ -94,7 +94,7 @@ public sealed partial class TemporaryMindSystem : EntitySystem
 
         var coords = _transform.GetMapCoordinates(temporaryBody);
 
-        CleanupDisposableMind(temp);
+        CleanupDisposableMind((temporaryBody, temp));
 
         var ghost = Spawn("MobObserver", coords);
         _mind.Visit(temp.OriginalMind, ghost, origMind);
@@ -128,7 +128,7 @@ public sealed partial class TemporaryMindSystem : EntitySystem
         if (originalBody == null || !Exists(originalBody))
             return false;
 
-        CleanupDisposableMind(temp);
+        CleanupDisposableMind((temporaryBody, temp));
 
         if (origMind.UserId is { } userId && _playerManager.TryGetSessionById(userId, out var session))
             _playerManager.SetAttachedEntity(session, originalBody.Value);
@@ -137,11 +137,13 @@ public sealed partial class TemporaryMindSystem : EntitySystem
         return true;
     }
 
-    private void CleanupDisposableMind(TemporaryMindComponent temp)
+    private void CleanupDisposableMind(Entity<TemporaryMindComponent> ent)
     {
+        var temp = ent.Comp;
         if (Exists(temp.DisposableMind))
         {
             _mind.WipeMind(temp.DisposableMind);
+            _mind.ClearLastMind(ent, temp.DisposableMind);
             QueueDel(temp.DisposableMind);
         }
 
