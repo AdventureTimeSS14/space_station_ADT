@@ -1,5 +1,6 @@
 ﻿- type: entity
-  id: ADTBaseBarrel
+  abstract: true
+  id: ADTBaseBarrelStructure
   parent: BaseStructureDynamic
   name: black barrel
   description: Do a barrel roll!
@@ -14,6 +15,11 @@
   - type: Injurable
     damageContainer: StructuralInorganic
   - type: Pullable
+
+- type: entity
+  id: ADTBaseBarrel
+  parent: ADTBaseBarrelStructure
+  components:
   - type: Destructible
     thresholds:
     - trigger:
@@ -33,7 +39,7 @@
 
 - type: entity
   id: ADTBarrelPlanks
-  parent: ADTBaseBarrel
+  parent: ADTBaseBarrelStructure
   components:
   - type: Sprite
     noRot: true
@@ -61,7 +67,7 @@
 
 - type: entity
   id: ADTBarrelFire
-  parent: ADTBaseBarrel
+  parent: ADTBaseBarrelStructure
   name: barrel fire
   description: Perfectly warm for the perfectly jobless!
   components:
@@ -85,6 +91,9 @@
             max: 3
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: Construction
+    graph: ADTBaseBarrel
+    node: adtbasebarrel
   - type: PointLight
     radius: 5
     energy: 3
