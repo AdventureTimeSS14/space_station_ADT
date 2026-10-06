@@ -610,7 +610,8 @@
     components:
       gloves:
       - type: HealthAnalyzer
-        scanDelay: 0.3
+        scanDelay: 0.4
+        maxScanRange: 3.5
         scanningEndSound:
           path: /Audio/Items/Medical/healthscanner.ogg
 
