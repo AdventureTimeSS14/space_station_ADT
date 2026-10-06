@@ -349,7 +349,7 @@
     materialComposition:
       RawSalt: 300   #ADT_Tweak - повышено со 100
   - type: Extractable
-    grindableSolutionName: saltore
+    grindableSolutionName: composite
   - type: Solution
     solution:
       reagents:

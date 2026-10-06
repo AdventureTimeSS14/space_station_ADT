@@ -348,7 +348,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]  #ADT-Tweak_End
   - type: Extractable
-    grindableSolutionName: rpglass
+    grindableSolutionName: composite
   - type: Solution
     solution:
       maxVol: 25
@@ -429,7 +429,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Extractable
-    grindableSolutionName: uglass
+    grindableSolutionName: composite
   - type: Solution
     solution:
       maxVol: 20
@@ -511,7 +511,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ] #ADT-Tweak_end
   - type: Extractable
-    grindableSolutionName: ruglass
+    grindableSolutionName: composite
   - type: Solution
     solution:
       maxVol: 25
@@ -592,7 +592,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Extractable
-    grindableSolutionName: cglass
+    grindableSolutionName: composite
   - type: Solution
     solution:
       maxVol: 20

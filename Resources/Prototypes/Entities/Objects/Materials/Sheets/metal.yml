@@ -57,8 +57,6 @@
   - type: Item
     heldPrefix: steel
   - type: Appearance
-  - type: Extractable
-    grindableSolutionName: steel
   - type: Solution
     solution:
       reagents:

@@ -239,7 +239,7 @@
     - RawMaterial
     - ConstructionMaterial
   - type: Extractable
-    grindableSolutionName: wood
+    grindableSolutionName: composite
   - type: Solution
     solution:
       reagents:

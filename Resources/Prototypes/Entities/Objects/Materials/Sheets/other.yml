@@ -81,7 +81,7 @@
     heldPrefix: plasma
   - type: Appearance
   - type: Extractable
-    grindableSolutionName: plasma
+    grindableSolutionName: composite
   - type: Solution
     solution:
       reagents:

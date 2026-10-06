@@ -17,7 +17,7 @@
     materialComposition:
       ADTRawBSore: 300
   - type: Extractable
-    grindableSolutionName: ADTBSore
+    grindableSolutionName: composite
   - type: Item
     heldPrefix: ADTBSore
   - type: Tag
