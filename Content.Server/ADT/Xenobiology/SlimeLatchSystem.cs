@@ -70,6 +70,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         SubscribeLocalEvent<SlimeComponent, DoAfterAttemptEvent<SlimeLatchDoAfterEvent>>(OnDoAfterAttempt);
 
         SubscribeLocalEvent<SlimeDamageOvertimeComponent, MobStateChangedEvent>(OnMobStateChangedSOD);
+        SubscribeLocalEvent<SlimeDamageOvertimeComponent, EntityTerminatingEvent>(OnLatchedTargetTerminating);
         SubscribeLocalEvent<SlimeComponent, MobStateChangedEvent>(OnMobStateChangedSlime);
         SubscribeLocalEvent<SlimeComponent, PullAttemptEvent>(OnPullAttempt);
         SubscribeLocalEvent<SlimeComponent, EntGotRemovedFromContainerMessage>(OnEntGotRemovedFromContainer);
@@ -135,6 +136,15 @@ public sealed partial class SlimeLatchSystem : EntitySystem
     {
         if (IsLatched(ent))
             Unlatch(ent);
+    }
+
+    private void OnLatchedTargetTerminating(Entity<SlimeDamageOvertimeComponent> ent, ref EntityTerminatingEvent args)
+    {
+        if (ent.Comp.SourceEntityUid is not { } source || !TryComp<SlimeComponent>(source, out var slime))
+            return;
+
+        if (IsLatched((source, slime), ent.Owner))
+            Unlatch((source, slime));
     }
 
     private void OnMobStateChangedSOD(Entity<SlimeDamageOvertimeComponent> ent, ref MobStateChangedEvent args)
@@ -402,9 +412,11 @@ public sealed partial class SlimeLatchSystem : EntitySystem
 
         CleanupLatchedComponents(target);
 
-        if (TryComp<TransformComponent>(target, out var targetXform)
-            && _xform.IsParentOf(targetXform, ent.Owner))
-            _xform.SetParent(ent.Owner, _xform.GetParentUid(target));
+        if (!TerminatingOrDeleted(ent.Owner)
+            && TryComp<TransformComponent>(target, out var targetXform)
+            && _xform.IsParentOf(targetXform, ent.Owner)
+            && !TerminatingOrDeleted(targetXform.ParentUid))
+            _xform.DropNextTo(ent.Owner, (target, targetXform));
 
         if (TryComp<InputMoverComponent>(ent, out var inpm))
             inpm.CanMove = true;
@@ -428,6 +440,9 @@ public sealed partial class SlimeLatchSystem : EntitySystem
 
     private void CleanupLatchedComponents(EntityUid target)
     {
+        if (TerminatingOrDeleted(target))
+            return;
+
         RemCompDeferred<BeingLatchedComponent>(target);
         RemCompDeferred<SlimeDamageOvertimeComponent>(target);
     }

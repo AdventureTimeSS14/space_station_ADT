@@ -16,14 +16,18 @@ namespace Content.Shared.Emoting;
 [RegisterComponent, NetworkedComponent] public sealed partial class AnimatedEmotesComponent : Component
 {
     [DataField] public ProtoId<EmotePrototype>? Emote;
+
+    [ViewVariables] public TimeSpan EmoteTime;
 }
 
 [Serializable, NetSerializable] public sealed partial class AnimatedEmotesComponentState : ComponentState
 {
     public ProtoId<EmotePrototype>? Emote;
+    public TimeSpan EmoteTime;
 
-    public AnimatedEmotesComponentState(ProtoId<EmotePrototype>? emote)
+    public AnimatedEmotesComponentState(ProtoId<EmotePrototype>? emote, TimeSpan emoteTime)
     {
         Emote = emote;
+        EmoteTime = emoteTime;
     }
 }

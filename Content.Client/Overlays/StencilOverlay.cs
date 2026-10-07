@@ -27,6 +27,7 @@ public sealed partial class StencilOverlay : Overlay
     private static readonly ProtoId<ShaderPrototype> StencilDraw = "StencilDraw";
     private static readonly ProtoId<ShaderPrototype> StencilClear = "StencilClear"; // ADT-Tweak
     private static readonly ProtoId<ShaderPrototype> StencilEqualDraw = "StencilEqualDraw"; // ADT-Tweak
+    private static readonly ProtoId<ShaderPrototype> StencilUnmask = "ADTStencilUnmask"; // ADT-Tweak
 
     [Dependency] private readonly IClyde _clyde = default!;
     [Dependency] private readonly IEntityManager _entManager = default!;

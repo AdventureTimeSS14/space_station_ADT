@@ -9,6 +9,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Kitchen.Components;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
+using Content.Shared.Temperature.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
@@ -140,7 +141,7 @@ public sealed class ADTLeatherSystem : EntitySystem
 
     private void OnDryableExposed(Entity<ADTDryableComponent> ent, ref AtmosExposedUpdateEvent args)
     {
-        if (args.GasMixture.Temperature < ent.Comp.DryingTemperature)
+        if (!IsHotEnough(ent, args.GasMixture))
             return;
 
         ent.Comp.Remaining--;
@@ -150,6 +151,15 @@ public sealed class ADTLeatherSystem : EntitySystem
 
         ent.Comp.Remaining = ent.Comp.Wetness;
         DryOne(ent);
+    }
+
+    private bool IsHotEnough(Entity<ADTDryableComponent> ent, GasMixture air)
+    {
+        if (air.Temperature >= ent.Comp.DryingTemperature)
+            return true;
+
+        return TryComp<TemperatureComponent>(ent, out var temperature) &&
+               temperature.CurrentTemperature >= ent.Comp.HeatedDryingTemperature;
     }
 
     private void OnRackMapInit(Entity<ADTDryingRackComponent> ent, ref MapInitEvent args)

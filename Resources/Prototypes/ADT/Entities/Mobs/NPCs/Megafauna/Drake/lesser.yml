@@ -36,9 +36,10 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      200: Dead
+      700: Dead
   - type: Destructible
     thresholds: []
+  - type: Injurable
   - type: StaminaResistance
     damageCoefficient: 0
     worn: false
