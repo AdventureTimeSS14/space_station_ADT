@@ -1,4 +1,5 @@
 using Content.Server.Hands.Systems;
+using Content.Shared.ADT.Containers;
 using Content.Shared.Construction;
 using Content.Shared.Hands.Components;
 using JetBrains.Annotations;
@@ -37,6 +38,11 @@ namespace Content.Server.Construction.Completions
 
             foreach (var container in containerSys.GetAllContainers(uid))
             {
+                // ADT-Tweak-Start
+                if (ADTInternalContainers.IsInternal(container))
+                    continue;
+                // ADT-Tweak-End
+
                 foreach (var ent in containerSys.EmptyContainer(container, true, reparent: !pickup))
                 {
                     if (EmptyAtUser && userUid is not null)
