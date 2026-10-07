@@ -268,3 +268,7 @@ ghost-role-information-wizard-name = Волшебник
 ghost-role-information-wizard-desc = ТЫ ВОЛШЕБНИК! Покажи станции, из чего сделана твоя магия.
 ghost-role-information-emotional-support-scurret-name = Слизенёк эмоциональной поддержки
 ghost-role-information-emotional-support-scurret-description = Поддерживайте экипаж, будьте очаровательными, часто говорите "ва".
+ghost-role-information-mothership-core-name = Ядро материнского корабля
+ghost-role-information-mothership-core-desc = Вы ядро материнского корабля ксеноборгов. Помогайте им размножаться, боргируя каждый мозг, который вам приносят.
+ghost-role-information-xenoborg-name = Ксеноборг
+ghost-role-information-xenoborg-desc = Странный киборг, созданный, чтобы размножаться и захватить станцию, превращая всех разумных существ в ксеноборгов.
