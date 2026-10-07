@@ -24,3 +24,4 @@ ent-SalvageFleshSpawner = спавнер обломок плоть
     .desc = { ent-SalvageMobSpawner.desc }
 ent-SalvageLivingLightSpawner = спавнер живого света обломков
     .suffix = 100
+    .desc = { "" }

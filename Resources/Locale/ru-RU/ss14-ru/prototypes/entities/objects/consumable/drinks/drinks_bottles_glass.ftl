@@ -51,3 +51,4 @@ ent-DrinkSakeBottleFull = бутылочка саке
     .desc = Похоже, сожаление о завтрашнем утре тоже накладывает свой отпечаток на бутылку.
 ent-DrinkNTCahorsBottleFull = бутылка кагора NT
     .suffix = Полная
+    .desc = { "" }
