@@ -320,6 +320,10 @@
       head:
       - state: kusuk-equipped-HELMET
         offset: "0, 0.0625"
+  - type: Item
+    sprite: ADT/Personalization/toys.rsi
+    inhandVisuals:
+      left:
       - state: kusuk-inhand-left
       right:
       - state: kusuk-inhand-right
