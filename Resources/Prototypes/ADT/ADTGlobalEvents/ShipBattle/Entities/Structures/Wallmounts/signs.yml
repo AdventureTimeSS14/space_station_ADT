@@ -5,7 +5,7 @@
   suffix: ShipBattle, TSF
   components:
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
         damage: 100
@@ -24,7 +24,7 @@
   suffix: ShipBattle, KMT
   components:
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
         damage: 100

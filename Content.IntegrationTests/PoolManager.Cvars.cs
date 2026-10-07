@@ -42,5 +42,6 @@ public static partial class PoolManager
         (ADTCCVars.OverpressurePipeDamageEnabled.Name, "false"), // ADT-Tweak: отключаем урон трубам от давления в тестах
         (CCVars.ResourceUploadingStoreDeletionDays.Name, "0"),
         (ADTCCVars.StateDiagnosticsEnabled.Name, "false"), // ADT-Tweak: диагностика пишет предупреждения при запросах полного состояния, что валит тесты
+        (ADTCCVars.LobbyAutoVote.Name, "false"), // ADT-Tweak: голосование в лобби само выбирает карту и ломает тесты
     };
 }

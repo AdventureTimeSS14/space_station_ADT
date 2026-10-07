@@ -62,21 +62,6 @@
     grid:
     - 0,0,9,2
     clickInsert: false
-  # ADT-tweak start. Правим очки здоровья меха
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 400
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:ChangeConstructionNodeBehavior
-        node: start
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-  # ADT-tweak end. Правим очки здоровья меха
 
 - type: entity
   id: ADTMechRipleyMk2Battery
@@ -224,7 +209,7 @@
     - 0,0,9,4
     clickInsert: false
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
         damage: 480
@@ -392,7 +377,7 @@
     - 0,0,6,3
     clickInsert: false
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
         damage: 520
@@ -476,7 +461,7 @@
     - 0,0,6,3
     clickInsert: false
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
         damage: 600
@@ -561,7 +546,7 @@
     - 0,0,6,3
     clickInsert: false
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
         damage: 430
@@ -633,7 +618,7 @@
     factions:
     - Syndicate
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
         damage: 560
@@ -718,7 +703,7 @@
     factions:
     - Syndicate
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
         damage: 640
@@ -790,7 +775,7 @@
     factions:
     - Syndicate
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
         damage: 560
@@ -872,7 +857,7 @@
     - 0,0,6,3
     clickInsert: false
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
         damage: 640

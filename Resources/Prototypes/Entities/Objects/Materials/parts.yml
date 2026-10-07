@@ -12,14 +12,6 @@
     damageModifierSet: FlimsyMetallic
   - type: Injurable
     damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
   - type: Tag
     tags:
     - ConstructionMaterial

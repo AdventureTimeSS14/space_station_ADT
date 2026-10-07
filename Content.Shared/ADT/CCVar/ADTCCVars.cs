@@ -274,6 +274,12 @@ public sealed class ADTCCVars
     public static readonly CVarDef<int> MapVoteRecentBanDepth =
         CVarDef.Create("game.map_vote_recent_ban_depth", 3, CVar.SERVER | CVar.ARCHIVE);
 
+    /// <summary>
+    /// Запускать ли голосования за карту и режим при входе в лобби.
+    /// </summary>
+    public static readonly CVarDef<bool> LobbyAutoVote =
+        CVarDef.Create("game.lobby_auto_vote", true, CVar.SERVERONLY | CVar.ARCHIVE);
+
 
     public static readonly CVarDef<float> BookPrinterUploadCooldown =
         CVarDef.Create("bookprinter.upload_cooldown", 3600.0f, CVar.SERVERONLY | CVar.ARCHIVE);

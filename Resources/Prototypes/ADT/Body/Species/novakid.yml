@@ -158,7 +158,7 @@
     canCreateVacuum: false
   - type: ExplodeOnTrigger
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
         damage: 325

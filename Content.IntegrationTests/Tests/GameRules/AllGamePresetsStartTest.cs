@@ -10,6 +10,8 @@ using Content.Server.Shuttles.Components;
 using Content.Shared.Antag;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
+using Content.Server.Preferences.Managers;
+using Content.Shared.Preferences;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 
@@ -110,6 +112,11 @@ public sealed class AllGamePresetsStartTest : AntagTest
         {
             for (var count = 0; count < amount; count++)
             {
+                // ADT-Tweak-start
+                var prefMan = Server.ResolveDependency<IServerPreferencesManager>();
+                var userId = players[i].UserId;
+                await Server.WaitPost(() => prefMan.SetProfile(userId, 0, HumanoidCharacterProfile.DefaultWithSpecies()).Wait());
+                // ADT-Tweak-end
                 await Pair.SetAntagPreference(antag.PrefRoles.FirstOrDefault(), true, players[i++].UserId);
                 Assert.That(i < min, $"Tried to assign more antags than there were players");
             }

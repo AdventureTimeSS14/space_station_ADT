@@ -150,7 +150,7 @@
   - type: Injurable
     damageContainer: StructuralInorganic
   - type: Destructible
-    thresholds:
+    thresholdsOverride: # ADT-Tweak
     - trigger:
         !type:DamageTrigger
         damage: 120 #ADT_Tweak - 75 to 120 - увеличено здоровье. С измененным дамаджмодифаерсетом ящик можно сломать инструментами, но теперь он требует в 2 c небольшим раза больше ударов, чем обычный ящик

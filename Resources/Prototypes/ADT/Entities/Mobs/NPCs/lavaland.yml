@@ -149,7 +149,7 @@
     actions: AncientGoliathActions
     delay: 3
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTypeTrigger
         damageType: Blunt

@@ -102,7 +102,7 @@
     clickInsert: false
   # ADT-tweak start. Правим очки здоровья меха
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
         damage: 450

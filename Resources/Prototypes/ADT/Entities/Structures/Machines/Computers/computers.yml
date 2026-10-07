@@ -160,6 +160,19 @@
     radius: 1.5
     energy: 1.6
     color: "#b89f25"
+  - type: Destructible
+    thresholdsOverride:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: monitorBroken
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity #прототип консоли для управления турелями (скопировал с базовой консоли, не имеет платы из которой собирается, пока что чисто выдаётся)
   parent: BaseComputer
@@ -256,6 +269,19 @@
             type: SupermatterConsoleBoundUserInterface
         enum.WiresUiKey.Key:
           type: WiresBoundUserInterface
+  - type: Destructible
+    thresholdsOverride:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: monitorBroken
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
   abstract: true

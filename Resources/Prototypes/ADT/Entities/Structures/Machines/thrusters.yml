@@ -121,18 +121,6 @@
   - type: Repairable
     fuelCost: 10
     doAfterDelay: 5
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 500
-      behaviors:
-        - !type:DoActsBehavior
-          acts: ["Destruction"]
-        - !type:PlaySoundBehavior
-          sound:
-            collection: MetalBreak
-        - !type:ExplodeBehavior
   - type: StaticPrice
     price: 1000
   - type: Explosive

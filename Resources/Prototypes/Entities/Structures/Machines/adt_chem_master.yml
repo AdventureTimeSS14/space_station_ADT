@@ -43,7 +43,7 @@
         layer:
         - MachineLayer
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger: !type:DamageTrigger
         damage: 175
       behaviors:

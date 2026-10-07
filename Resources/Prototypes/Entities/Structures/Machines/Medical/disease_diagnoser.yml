@@ -46,6 +46,14 @@
       params:
         volume: -4
   # ADT-Tweak-End
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
 
 - type: entity
   name: disease diagnoser report

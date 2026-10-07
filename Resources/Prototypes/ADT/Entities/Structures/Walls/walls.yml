@@ -48,7 +48,7 @@
     sprite: ADT/Structures/Walls/space_sec_diagonal.rsi
     state: state0
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
       - trigger:
           !type:DamageTrigger
           damage: 550

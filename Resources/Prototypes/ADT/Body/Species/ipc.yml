@@ -188,7 +188,7 @@
     defaultRotation: -90
     horizontalRotation: -90
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTypeTrigger
         damageType: Blunt

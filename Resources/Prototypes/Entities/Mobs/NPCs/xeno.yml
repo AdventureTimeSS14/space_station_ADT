@@ -288,7 +288,7 @@
       750: Dead # ADT Tweak
 # ADT-tweak start
   - type: Destructible
-    thresholds:
+    thresholdsOverride: # ADT-Tweak
     - trigger:
         !type:DamageTypeTrigger
         damageType: Blunt

@@ -25,14 +25,6 @@
     damageModifierSet: Metallic
   - type: Injurable
     damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 50
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
   - type: Sprite
     noRot: true
   - type: PlantTray

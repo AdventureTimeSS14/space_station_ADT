@@ -143,7 +143,7 @@
     shortscale: 0.9
   - type: WoundLicking
   - type: Destructible #процесс разрушения на органы
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTypeTrigger
         damageType: Blunt #при каком дамаге это происходит
