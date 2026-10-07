@@ -33,17 +33,6 @@ jobs:
     - name: Install dependencies
       run: dotnet restore
 
-    - name: Update changelog
-      run: |
-        dotnet tool install --global SpaceWizards.ChangelogTool --version 1.0.7
-        ss14-changelog update -d Resources/Changelog
-      env:
-        REPO: ${{ github.repository }}
-        BRANCH: master
-        CHANGELOG_REPO_PATH: Resources/Changelog
-        EXTRA_CATEGORIES: Admin,Maps,Rules
-        GITHUB_TOKEN: ${{ secrets.CL_ACCESS_TOKEN }}
-
     - name: Build Packaging
       run: dotnet build Content.Packaging --configuration Release --no-restore /m
 
