@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Containers;
 using Content.Shared.Trigger.Components.Effects;
 using Robust.Shared.Containers;
 
@@ -20,6 +21,11 @@ public sealed class EmptyContainersOnTriggerSystem : XOnTriggerSystem<EmptyConta
         {
             foreach (var container in _container.GetAllContainers(target, containerComp))
             {
+                // ADT-Tweak-Start
+                if (ADTInternalContainers.IsInternal(container))
+                    continue;
+                // ADT-Tweak-End
+
                 _container.EmptyContainer(container);
             }
 

@@ -452,6 +452,9 @@
   - type: Fauna
   - type: ADTCleanRemains
   - type: AshStormImmune
+  - type: Grabbable
+    escapeChanceMultiplier: 2.5
+    escapeAttemptCooldown: 1
   - type: Flammable
     fireSpread: false
     canResistFire: false

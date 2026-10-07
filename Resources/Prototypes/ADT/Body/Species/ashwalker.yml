@@ -59,6 +59,8 @@
     - ADTGemSatchel
     - ADTGemNecklace
     - ADTGemBracers
+    - ADTLavaBoat
+    - ADTOar
   - type: TTS
   - type: BreathingImmunity
   - type: AshStormImmune
