@@ -1,3 +1,4 @@
+using Content.Client.Graphics; // ADT-Tweak
 using Content.Client.Movement.Systems;
 using Content.Shared.Actions;
 using Content.Shared.Ghost.Components;
@@ -26,6 +27,7 @@ namespace Content.Client.Ghost
         // ADT Tweak Start
         private static readonly ProtoId<ShaderPrototype> BodyShaderId = "GhostBody";
         private ShaderInstance _bodyShader = default!;
+        private const string BodyPostShaderId = "ghost-body";
         // ADT Tweak End
 
         public int AvailableGhostRoleCount { get; private set; }
@@ -92,8 +94,11 @@ namespace Content.Client.Ghost
 
             // ADT Tweak Start
             _sprite.SetColor((uid, sprite), Color.White);
-            sprite.PostShader = _bodyShader;
-            sprite.GetScreenTexture = true;
+            _sprite.SetPostShader((uid, sprite), new SpriteComponent.PostShaderArgs(BodyPostShaderId, _bodyShader)
+            {
+                GetScreenTexture = true,
+                Before = ContentPostShaderIds.BeforeOutlines,
+            });
             // ADT Tweak End
         }
 
