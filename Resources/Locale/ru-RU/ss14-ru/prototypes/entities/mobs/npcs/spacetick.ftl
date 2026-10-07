@@ -3,3 +3,4 @@ ent-MobTick = космический клещ
 ent-MobTickSalvage = { ent-MobTick }
     .suffix = Salvage Ruleset
     .desc = { ent-MobTick.desc }
+ent-SolutionVenomTick = { ent-Solution }

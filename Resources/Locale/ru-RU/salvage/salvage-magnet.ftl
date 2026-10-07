@@ -27,3 +27,18 @@ salvage-map-wreck-desc-size = Размер:
 salvage-map-wreck-size-small = [color=lime]Малый[/color]
 salvage-map-wreck-size-medium = [color=cornflowerblue]Средний[/color]
 salvage-map-wreck-size-large = [color=orchid]Большой[/color]
+salvage-magnet-resources =
+    { $resource ->
+        [OreIron] Железо
+        [OreCoal] Уголь
+        [OreQuartz] Кварц
+        [OreSalt] Соль
+        [OreGold] Золото
+        [OreDiamond] Алмазы
+        [OreSilver] Серебро
+        [OrePlasma] Плазма
+        [OreUranium] Уран
+        [OreArtifactFragment] Фрагменты артефактов
+        [OreBananium] Бананиум
+       *[other] { $resource }
+    }

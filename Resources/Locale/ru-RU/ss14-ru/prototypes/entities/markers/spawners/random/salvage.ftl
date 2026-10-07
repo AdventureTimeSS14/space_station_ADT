@@ -22,3 +22,5 @@ ent-SpawnMobCobraSalvage = спавнер обломок космическая 
 ent-SalvageFleshSpawner = спавнер обломок плоть
     .suffix = 100
     .desc = { ent-SalvageMobSpawner.desc }
+ent-SalvageLivingLightSpawner = спавнер живого света обломков
+    .suffix = 100

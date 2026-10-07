@@ -5,3 +5,6 @@ ent-UraniumReinforcedWindowDirectional = направленное ураново
 ent-ReinforcedUraniumWindowDiagonal = { ent-ReinforcedUraniumWindow }
     .suffix = Диагональ
     .desc = { ent-ReinforcedUraniumWindow.desc }
+ent-UraniumReinforcedWindowDirectionalCorner = { ent-UraniumReinforcedWindowDirectional }
+    .suffix = Угол
+    .desc = { ent-UraniumReinforcedWindowDirectional.desc }

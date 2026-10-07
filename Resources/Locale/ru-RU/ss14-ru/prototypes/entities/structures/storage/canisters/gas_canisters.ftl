@@ -52,3 +52,6 @@ ent-NitrousOxideCanisterBroken = { ent-GasCanisterBrokenBase }
     .desc = { ent-GasCanisterBrokenBase.desc }
 ent-FrezonCanisterBroken = { ent-GasCanisterBrokenBase }
     .desc = { ent-GasCanisterBrokenBase.desc }
+ent-MaxCapCanister = максимальный подрыв в канистре
+    .suffix = Макс. подрыв
+    .desc = { ent-GasCanister.desc }

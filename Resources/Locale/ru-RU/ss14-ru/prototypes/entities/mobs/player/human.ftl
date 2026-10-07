@@ -1,0 +1,12 @@
+ent-MobHumanLoneNuclearOperative = Оперативник-одиночка
+ent-MobHumanNukeOp = Ядерный оперативник
+ent-MobHumanSyndicateAgent = агент Синдиката
+    .suffix = Человек, предатель
+ent-MobHumanSyndicateAgentBase = агент Синдиката
+    .suffix = Человек, база
+ent-MobHumanSyndicateAgentMedic = медик Синдиката
+ent-MobHumanSyndicateAgentSpy = шпион Синдиката
+ent-MobHumanSyndicateAgentThief = вор Синдиката
+ent-MobHumanWizard = Волшебник
+ent-MobHumanSyndicateAgentNukeops = { ent-MobHumanSyndicateAgentBase }
+    .suffix = Человек, ядерные оперативники

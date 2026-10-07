@@ -49,3 +49,5 @@ ent-DrinkAleBottleFull = бутыль Магма-Эль
     .desc = Выбор истинных дворфов.
 ent-DrinkSakeBottleFull = бутылочка саке
     .desc = Похоже, сожаление о завтрашнем утре тоже накладывает свой отпечаток на бутылку.
+ent-DrinkNTCahorsBottleFull = бутылка кагора NT
+    .suffix = Полная

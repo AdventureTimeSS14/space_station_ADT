@@ -17,3 +17,5 @@ ent-ShadowKudzu = тёмная дымка
     .desc = { ent-BaseKudzu.desc }
 ent-ShadowKudzuWeak = дымка
     .desc = { ent-ShadowKudzu.desc }
+ent-FleshKudzuSpace = сухожилия
+    .suffix = Космос

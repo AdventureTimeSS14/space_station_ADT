@@ -1,0 +1,1 @@
+ent-ADTBaseDepartmentBudgetCard = { ent-BaseItem }

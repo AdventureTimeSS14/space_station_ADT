@@ -1,0 +1,17 @@
+ent-Solution = раствор
+ent-SolutionCryo = раствор
+ent-Solution3840 = { ent-Solution }
+ent-SolutionGinormous = { ent-Solution }
+ent-SolutionHuge = { ent-Solution }
+ent-SolutionLarge = { ent-Solution }
+ent-SolutionNormal = { ent-Solution }
+ent-SolutionSmall = { ent-Solution }
+ent-SolutionTiny = { ent-Solution }
+ent-SolutionToolGinormous = { ent-Solution }
+ent-SolutionToolLarge = { ent-Solution }
+ent-SolutionToolNormal = { ent-Solution }
+ent-SolutionToolSmall = { ent-Solution }
+ent-SolutionToolTiny = { ent-Solution }
+ent-SolutionToolVeryTiny = { ent-Solution }
+ent-SolutionVeryTiny = { ent-Solution }
+ent-SolutionDrinkHuge = { ent-SolutionHuge }

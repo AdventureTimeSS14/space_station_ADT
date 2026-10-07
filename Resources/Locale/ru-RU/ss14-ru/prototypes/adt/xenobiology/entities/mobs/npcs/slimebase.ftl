@@ -1,0 +1,9 @@
+ent-MobSlimeXenobioAdultBlue = синий слайм
+    .suffix = Взрослый
+    .desc = { ent-MobSlimeXenobioAdult.desc }
+ent-MobSlimeXenobioAdultGreen = зелёный слайм
+    .suffix = Взрослый
+    .desc = { ent-MobSlimeXenobioAdult.desc }
+ent-MobSlimeXenobioAdultYellow = жёлтый слайм
+    .suffix = Взрослый
+    .desc = { ent-MobSlimeXenobioAdult.desc }

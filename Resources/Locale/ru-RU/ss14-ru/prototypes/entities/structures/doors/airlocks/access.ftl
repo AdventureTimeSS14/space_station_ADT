@@ -405,3 +405,6 @@ ent-AirlockHatchSyndicateLocked = { ent-AirlockHatchSyndicate }
 ent-AirlockHatchMaintenanceLocked = { ent-AirlockHatchMaintenance }
     .suffix = Закрыт
     .desc = { ent-AirlockHatchMaintenance.desc }
+ent-AirlockExternalGlassShuttleCargo = шлюз снабжения
+    .suffix = Внешний, снабжение, стеклянный, стыковочный
+    .desc = { ent-AirlockGlassShuttle.desc }
