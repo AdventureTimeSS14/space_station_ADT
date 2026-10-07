@@ -1,6 +1,7 @@
 using Content.Shared.CCVar;
 using Content.Shared.StatusEffectNew;
 using Robust.Shared.Configuration;
+using Robust.Shared.Network; // ADT-Tweak
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -17,6 +18,7 @@ public sealed partial class SSDIndicatorSystem : EntitySystem
     [Dependency] private IConfigurationManager _cfg = default!;
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private INetManager _net = default!; // ADT-Tweak
 
     private bool _icSsdSleep;
     private float _icSsdSleepTime;
@@ -75,6 +77,11 @@ public sealed partial class SSDIndicatorSystem : EntitySystem
 
         if (!_icSsdSleep)
             return;
+
+        // ADT-Tweak start
+        if (_net.IsClient)
+            return;
+        // ADT-Tweak end
 
         var curTime = _timing.CurTime;
         var query = EntityQueryEnumerator<SSDIndicatorComponent>();
