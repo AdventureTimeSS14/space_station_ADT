@@ -59,6 +59,12 @@ public sealed class ADTCCVars
         CVarDef.Create("radialmenu.center", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /*
+    * Text outline
+    */
+    public static readonly CVarDef<bool> EnableTextOutline =
+        CVarDef.Create("accessibility.text_outline", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /*
     * Discord
     */
 

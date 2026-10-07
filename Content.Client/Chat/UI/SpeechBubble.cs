@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Client.Chat.Managers;
+using Content.Shared.ADT.CCVar; // ADT-Tweak
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Speech;
@@ -19,6 +20,8 @@ namespace Content.Client.Chat.UI
         [Dependency] private IEntityManager _entityManager = default!;
         [Dependency] protected IConfigurationManager ConfigManager = default!;
         private readonly SharedTransformSystem _transformSystem;
+
+        protected Color? OutlineColor => ConfigManager.GetCVar(ADTCCVars.EnableTextOutline) ? TextOutline.Default.Color : null; // ADT-Tweak
 
         public enum SpeechType : byte
         {
@@ -214,7 +217,7 @@ namespace Content.Client.Chat.UI
             var label = new RichTextLabel
             {
                 MaxWidth = SpeechMaxWidth,
-                OutlineColorOverride = TextOutline.Default.Color,
+                OutlineColorOverride = OutlineColor, // ADT-Tweak
             };
 
             label.SetMessage(FormatSpeech(message.WrappedMessage, fontColor), tagsAllowed: null); // ADT-tweak: allow [tfont] tag
@@ -245,7 +248,7 @@ namespace Content.Client.Chat.UI
                 var label = new RichTextLabel
                 {
                     MaxWidth = SpeechMaxWidth,
-                    OutlineColorOverride = TextOutline.Default.Color,
+                    OutlineColorOverride = OutlineColor, // ADT-Tweak
                 };
 
                 label.SetMessage(ExtractAndFormatSpeechSubstring(message, "BubbleContent", fontColor), tagsAllowed: null); // ADT-tweak: allow [tfont] tag
@@ -263,7 +266,7 @@ namespace Content.Client.Chat.UI
             {
                 ModulateSelfOverride = Color.White.WithAlpha(ConfigManager.GetCVar(CCVars.SpeechBubbleSpeakerOpacity)),
                 Margin = new Thickness(2, 0, 2, 0),
-                OutlineColorOverride = TextOutline.Default.Color,
+                OutlineColorOverride = OutlineColor, // ADT-Tweak
             };
 
             var bubbleContent = new RichTextLabel
@@ -272,7 +275,7 @@ namespace Content.Client.Chat.UI
                 MaxWidth = SpeechMaxWidth,
                 Margin = new Thickness(2, 0, 2, 0),
                 StyleClasses = { "bubbleContent" },
-                OutlineColorOverride = TextOutline.Default.Color,
+                OutlineColorOverride = OutlineColor, // ADT-Tweak
             };
 
             //We'll be honest. *Yes* this is hacky. Doing this in a cleaner way would require a bottom-up refactor of how saycode handles sending chat messages. -Myr
