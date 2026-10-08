@@ -1400,7 +1400,7 @@
     sprite: ADT/Special/Personal/toys.rsi
     state: plushie_el
   - type: Item
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/Personal/toys.rsi
     inhandVisuals:
       left:
       - state: el-inhand-left
@@ -1408,7 +1408,7 @@
       - state: el-inhand-right
   - type: Clothing
     quickEquip: false
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/Personal/toys.rsi
     slots:
     - HEAD
     clothingVisuals:
@@ -1438,10 +1438,10 @@
   suffix: Sponsor, FriendlyOne
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/Personal/toys.rsi
     state: plushie_theokai
   - type: Item
-    sprite: ADT/Personalization/toys.rsi
+    sprite: ADT/Special/Personal/toys.rsi
     inhandVisuals:
       left:
       - state: theokai-inhand-left
