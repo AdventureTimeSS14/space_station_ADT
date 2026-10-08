@@ -7,7 +7,7 @@
   - type: Action
     useDelay: 240
   - type: Sprite
-    sprite: ADT/Personalization/stryz_ani/katana.rsi
+    sprite: ADT/Special/Personal/stryz_ani/katana.rsi
     layers:
     - state: icon
   - type: InstantAction
