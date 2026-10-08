@@ -110,3 +110,15 @@
     - Trash
   - type: SpaceGarbage
 
+- type: entity
+  parent: ADTBaseFigurineNoObjective
+  id: ToyFigurineTheokayaFriendlyOne
+  name: Theokaya hound‑healing figurine
+  description: A luam figurine in a paramedic outfit; it smells of various berries, and its eyes ask you for a portable crew monitoring device.
+  suffix: Sponsor, FriendlyOne
+  components:
+  - type: Sprite
+    state: Theokaya
+  - type: TriggerOnActivate
+  - type: SpeakOnTrigger
+    pack: ADTFigurineTheokayaFriendlyOne

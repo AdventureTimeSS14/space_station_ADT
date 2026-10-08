@@ -5,6 +5,12 @@
     count: 7
 
 - type: localizedDataset
+  id: FigurinesGiPatter
+  values:
+    prefix: figurines-gipatter-
+    count: 3
+
+- type: localizedDataset
   id: FigurinesApatia
   values:
     prefix: adt-figurines-apatia-
@@ -23,7 +29,7 @@
     count: 3
 
 - type: localizedDataset
-  id: FigurinesGiPatter
+  id: ADTFigurineTheokayaFriendlyOne
   values:
-    prefix: figurines-gipatter-
+    prefix: adt-figurines-theokaya-
     count: 3
