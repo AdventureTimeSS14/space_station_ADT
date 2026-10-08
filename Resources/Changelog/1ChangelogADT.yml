@@ -16048,3 +16048,11 @@ Entries:
     id: 1987
     pr_number: 3489
     time: '2026-10-08T04:33:19Z'
+  - author: maksim21612
+    changes:
+      - {message: Добавлена игрушка и фигурка Теокайи, type: Add}
+      - {message: Добавлены текстуры игрушек Эла и Атры, type: Add}
+      - {message: Изменена текстура спонсорской брони ОСЩ, type: Tweak}
+    id: 1988
+    pr_number: 3463
+    time: '2026-10-08T11:18:12Z'
