@@ -24,6 +24,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Emoting;
 using System.Linq;
 using Content.Shared.ADT.Areas;
 using Content.Shared.ADT.Grab;
@@ -117,6 +118,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly SharedGravitySystem _gravity = default!;
     [Dependency] private readonly AreaSystem _area = default!;
+    [Dependency] private readonly SharedAnimatedEmotesSystem _emotes = default!;
 
     public static readonly EntProtoId MartsGenericSlow = "MartialArtsGenericSlowdownEffect";
 
@@ -171,7 +173,10 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         while (query.MoveNext(out var ent, out var comp))
         {
             if (comp.CurrentTarget != null && TerminatingOrDeleted(comp.CurrentTarget.Value))
+            {
                 comp.CurrentTarget = null;
+                Dirty(ent, comp);
+            }
 
             if (_timing.CurTime < comp.ResetTime
                 || comp.LastAttacks.Count == 0
