@@ -45,6 +45,22 @@
   - type: Sprite
     sprite: ADT/Personalization/toys.rsi
     state: plushie_el
+  - type: Item
+    sprite: ADT/Personalization/toys.rsi
+    inhandVisuals:
+      left:
+      - state: el-inhand-left
+      right:
+      - state: el-inhand-right
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/toys.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: el-equipped-HELMET
+        offset: "0, 0.0"
   - type: EmitSoundOnUse
     sound: &PlushieMothSound
       path: /Audio/Voice/Moth/moth_chitter.ogg
@@ -487,3 +503,49 @@
     pack: ADTFigurinesPlushieYuriyTrixter
   - type: TTS
     voice: johnny
+
+#FriendlyOne
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieTheokaiFriendlyOne
+  name: plushy Theokai
+  description: A small plush Luam in blue tones, dressed in a paramedic costume. The toy emits the scent of various berries and wine.
+  suffix: Sponsor, FriendlyOne
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_theokai
+  - type: Item
+    sprite: ADT/Personalization/toys.rsi
+    inhandVisuals:
+      left:
+      - state: theokai-inhand-left
+      right:
+      - state: theokai-inhand-right 
+  - type: EmitSoundOnUse
+    sound: *PlushieMothSound
+  - type: EmitSoundOnLand
+    sound: *PlushieMothSound
+  - type: EmitSoundOnActivate
+    sound: *PlushieMothSound
+  - type: EmitSoundOnTrigger
+    sound: *PlushieMothSound
+  - type: EmitSoundOnCollide
+    sound: *PlushieMothSound
+  - type: MeleeWeapon
+    soundHit: *PlushieMothSound
+  - type: Edible
+    useSound: *PlushieMothSound
+
+- type: entity
+  parent: ADTBaseFigurineNoObjective
+  id: ToyFigurineTheokayaFriendlyOne
+  name: Theokaya hound‑healing figurine
+  description: A luam figurine in a paramedic outfit; it smells of various berries, and its eyes ask you for a portable crew monitoring device.
+  suffix: Sponsor, FriendlyOne
+  components:
+  - type: Sprite
+    state: Theokaya
+  - type: TriggerOnActivate
+  - type: SpeakOnTrigger
+    pack: ADTFigurineTheokayaFriendlyOne
