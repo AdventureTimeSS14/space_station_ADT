@@ -16056,3 +16056,13 @@ Entries:
     id: 1988
     pr_number: 3463
     time: '2026-10-08T11:18:12Z'
+  - author: Filo
+    changes:
+      - {message: что добавили, type: Add}
+      - {message: что убрали, type: Remove}
+      - {message: что подправили, type: Tweak}
+      - {message: что исправили, type: Fix}
+      - {message: Добавлены именные лодауты для разных ролей по заказам., type: Add}
+    id: 1989
+    pr_number: 3359
+    time: '2026-10-08T12:34:36Z'
