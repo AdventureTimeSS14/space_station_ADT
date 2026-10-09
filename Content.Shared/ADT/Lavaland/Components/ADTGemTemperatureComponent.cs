@@ -8,4 +8,7 @@ public sealed partial class ADTGemTemperatureComponent : Component
 
     [DataField]
     public LocId Message = "adt-gem-temperature-use";
+
+    [DataField]
+    public LocId FailMessage = "adt-gem-temperature-use-fail";
 }
