@@ -16066,3 +16066,14 @@ Entries:
     id: 1989
     pr_number: 3359
     time: '2026-10-08T12:34:36Z'
+  - author: Filo
+    changes:
+      - {message: что добавили, type: Add}
+      - {message: что убрали, type: Remove}
+      - {message: что подправили, type: Tweak}
+      - {message: что исправили, type: Fix}
+      - {message: 'Временно убраны именные лодауты, пока не доведут до ума спонсорские
+          бонусы.', type: Remove}
+    id: 1990
+    pr_number: 3490
+    time: '2026-10-09T11:53:33Z'
