@@ -165,3 +165,17 @@
   storage:
     back:
     - ADTPlushieProximaLunnyykat
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTPlushieTheokaiFriendlyOne
+  storage:
+    back:
+    - ADTPlushieTheokaiFriendlyOne
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTToyFigurineTheokayaFriendlyOne
+  storage:
+    back:
+    - ToyFigurineTheokayaFriendlyOne
