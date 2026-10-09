@@ -37,6 +37,8 @@
   - ADTPlushieEmiliaEvenwood
   - ADTPlushieKusuk
   - ADTPlushieProxima
+  - ADTPlushieTheokaiFriendlyOne
+  - ADTToyFigurineTheokayaFriendlyOne
 
 - type: loadoutGroup
   id: ADTPersonalLoadoutSecurity
@@ -47,6 +49,7 @@
   - ADTOfficerMantleRaven559
   - ADTElegantWhip
   - ADTFamilyBusiness
+  - ADTBriefcaseUma
 
 - type: loadoutGroup
   id: ADTPersonalLoadoutLawyer
@@ -86,6 +89,7 @@
   loadouts:
   - ADTOfficerMantleRaven559
   - ADTElegantWhip
+  - ADTFamilyBusiness
   - ADTBriefcaseUma
 
 - type: loadoutGroup
