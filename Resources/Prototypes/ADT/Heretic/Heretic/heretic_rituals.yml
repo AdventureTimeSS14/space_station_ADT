@@ -117,9 +117,10 @@
     sprite: ADT/Heretic/items.rsi
     state: protective_blade
   customBehaviors:
-  - !type:RitualCanAscend
   # ADT: no decapitation without shitmed, plain sacrifice
+  - !type:RitualCanAscend
   - !type:RitualSacrificeBehavior
+    gibOnInvalid: true
     min: 3
     max: 3
   outputKnowledge: MaelstromOfSilver
@@ -198,6 +199,7 @@
   customBehaviors:
   - !type:RitualCanAscend
   - !type:RitualSacrificeBehavior
+    gibOnInvalid: true
     min: 4
     max: 4
   outputKnowledge: PriestFinalHymn
@@ -232,6 +234,7 @@
   customBehaviors:
   - !type:RitualCanAscend
   - !type:RitualSacrificeBehavior
+    gibOnInvalid: true
     min: 3
     max: 3
   - !type:RitualTemperatureBehavior
@@ -373,7 +376,6 @@
     HereticEldritchFlask: 1
 
 ## stage 7
-
 
 # ADT: base rituals from Goob
 - type: hereticRitual
@@ -728,6 +730,7 @@
   customBehaviors:
   - !type:RitualCanAscend
   - !type:RitualSacrificeBehavior
+    gibOnInvalid: true
     min: 3
     max: 3
   outputKnowledge: UnlockTheLabyrinth

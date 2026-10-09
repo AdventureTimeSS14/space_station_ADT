@@ -113,6 +113,14 @@
         type: Remove
         conditions:
         - !type:HereticOrGhoulCondition
+      - !type:CleanBloodstream
+        cleanseRate: 5
+        conditions:
+        - !type:HasComponentCondition
+          components:
+          - Ghoul
+          invert: true
+          guidebookComponentName: reagent-comp-condition-heretic
       - !type:Electrocute
         conditions:
         - !type:HereticOrGhoulCondition

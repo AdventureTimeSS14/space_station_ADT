@@ -32,7 +32,7 @@ public sealed partial class HereticAbilitySystem
         if (!TryUseAbility(args))
             return;
 
-        Spawn("PolymorphAshJauntAnimation", Transform(args.Performer).Coordinates);
+        Spawn(JauntAnimation, Transform(args.Performer).Coordinates);
         _poly.PolymorphEntity(args.Performer, args.Jaunt);
     }
 
@@ -93,7 +93,11 @@ public sealed partial class HereticAbilitySystem
 
     #region Helper methods
 
-    [ValidatePrototypeId<EntityPrototype>] private static readonly EntProtoId FirePrototype = "HereticFireAA";
+    [ValidatePrototypeId<EntityPrototype>]
+    private static readonly EntProtoId FirePrototype = "HereticFireAA";
+
+    [ValidatePrototypeId<EntityPrototype>]
+    private static readonly EntProtoId JauntAnimation = "PolymorphAshJauntAnimation";
 
     public async Task CombustArea(EntityUid ent, int range = 1, bool hollow = true)
     {

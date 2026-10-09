@@ -34,7 +34,7 @@ ghostrole-stalker-desc = Помогите мастеру достичь Возн
 ghostrole-ghoul-rules = Вы являетесь [color=red][bold]Командным антагонистом[/bold][/color] и действуете с тем, кто вас призвал, и остальными сверхъестественными существами.
 ghoul-death-revert = Кажется, его внешний вид приходит в норму
 
-# ADT: добавлено при актуализации еретика с Goob
+# ADT: добавлено при актуализации еретика с Goob(и не только с губов)
 roundend-prepend-heretic-ascension-fail-owls = { $name }, [color=red] отказался от своего вознесения и, таким образом, потерпел неудачу![/color]
 ghostrole-fire-shark-name = Палящая акула
 ghostrole-rustwalker-name = Ржавый ходок

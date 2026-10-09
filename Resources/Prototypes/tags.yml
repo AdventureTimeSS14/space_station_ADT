@@ -730,6 +730,9 @@
   id: HelmetEVA # ConstructionGraph: ClownHardsuit, MimeHardsuit. PartAssembly: VimHarness. ItemMapper: VimHarness
 
 - type: Tag
+  id: HereticAshFire
+
+- type: Tag
   id: HideContextMenu # Used by client VerbSystem to exclude tagged entities from the right click menu.
 
 - type: Tag

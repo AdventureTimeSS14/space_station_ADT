@@ -17,6 +17,8 @@ using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 
@@ -44,6 +46,9 @@ public sealed class RiposteeSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<RiposteeComponent, BeforeHarmfulActionEvent>(OnHarmAttempt,
+            before: new[] { typeof(SharedHereticAbilitySystem) });
+
+        SubscribeLocalEvent<RiposteeComponent, BeforeDamageChangedEvent>(OnDamageAttempt,
             before: new[] { typeof(SharedHereticAbilitySystem) });
 
         SubscribeNetworkEvent<RiposteUsedEvent>(OnRiposteUsed);
@@ -104,6 +109,21 @@ public sealed class RiposteeSystem : EntitySystem
                     _popup.PopupEntity(Loc.GetString(data.RiposteAvailableMessage), uid, uid);
             }
         }
+    }
+
+    private void OnDamageAttempt(Entity<RiposteeComponent> ent, ref BeforeDamageChangedEvent args)
+    {
+        if (args.Cancelled || args.Damage.Empty)
+            return;
+
+        if (args.Origin == null)
+            return;
+
+        var harm = new BeforeHarmfulActionEvent(args.Origin.Value, HarmfulActionType.Harm);
+        OnHarmAttempt(ent, ref harm);
+
+        if (harm.Cancelled)
+            args.Damage = new DamageSpecifier();
     }
 
     private void OnHarmAttempt(Entity<RiposteeComponent> ent, ref BeforeHarmfulActionEvent args)

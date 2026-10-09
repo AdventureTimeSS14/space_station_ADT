@@ -20,6 +20,8 @@ using Content.Server.Heretic.Abilities;
 using OldStatusEffectsSystem = Content.Shared.StatusEffect.StatusEffectsSystem;
 using SharedStatusEffectsSystem = Content.Shared.StatusEffectNew.StatusEffectsSystem;
 
+using Robust.Shared.Prototypes;
+
 namespace Content.Server.ADT.Heretic.EntitySystems;
 
 public sealed partial class HereticPaintingSystem : EntitySystem
@@ -116,7 +118,7 @@ public sealed partial class HereticPaintingSystem : EntitySystem
                 var tile = _map.GetTileRef((gridUid, grid), coords);
                 var ability = EntitySystem.Get<HereticAbilitySystem>();
                 if (ability.CanRustTile((ContentTileDefinition) _tileDef[tile.Tile.TypeId]))
-                    ability.MakeRustTile(gridUid, grid, tile, "TileHereticRustRune");
+                    ability.MakeRustTile(gridUid, grid, tile, RustTilePrototype);
             }
         }
     }
@@ -130,9 +132,14 @@ public sealed partial class HereticPaintingSystem : EntitySystem
         _stutter.DoStutter(ent, TimeSpan.FromSeconds(6f), true);
 
         var spec = new DamageSpecifier();
-        spec.DamageDict.Add("Blunt", 3f);
+        spec.DamageDict.Add(BluntDamageType, RustDamage);
         _damage.TryChangeDamage(ent, spec, true);
     }
+
+    private static readonly EntProtoId RustTilePrototype = "TileHereticRustRune";
+
+    private const string BluntDamageType = "Blunt";
+    private const float RustDamage = 3f;
 
     public override void Initialize()
     {

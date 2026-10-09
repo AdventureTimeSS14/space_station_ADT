@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: PolymorphAshJauntAnimation
   name: Unknown
   description: You can't figure out what that is.
@@ -149,11 +149,11 @@
     hidden: false
     altDisarm: false
     autoAttack: true
-    attackRate: 2.5
+    attackRate: 3
     damage:
       types:
-       Blunt: 20
-       Structural: 60
+       Blunt: 30
+       Structural: 85
     soundHit:
       collection: Punch
     animation: WeaponArcFist
@@ -165,7 +165,7 @@
       components:
       - MobState
     chemical: Ichor
-    healRate: 15.0
+    healRate: 25.0
     whitelist:
       components:
       - MobState

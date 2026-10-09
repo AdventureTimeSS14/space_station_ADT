@@ -9,6 +9,7 @@ using Content.Shared.Chat;
 using Robust.Server.Player;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.Heretic.Systems;
 
@@ -20,6 +21,9 @@ public sealed partial class HereticInfluenceDreamSystem : EntitySystem
     [Dependency] private readonly IChatManager _chatMan = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
+    [Dependency] private readonly Content.Shared.ADT.Areas.AreaSystem _area = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly Content.Shared.Station.SharedStationSystem _station = default!;
 
     private const float MinDreamChance = 0.2f;
     private const float MaxDreamChance = 0.4f;
@@ -77,7 +81,10 @@ public sealed partial class HereticInfluenceDreamSystem : EntitySystem
                 _ => Loc.GetString("heretic-influence-dream-far"),
             };
 
-            text = Loc.GetString("heretic-influence-dream", ("dir", direction), ("range", range));
+            if (GetLocationName(target.Value) is { } location)
+                text = Loc.GetString("heretic-influence-dream-at", ("place", location));
+            else
+                text = Loc.GetString("heretic-influence-dream", ("dir", direction), ("range", range));
         }
 
         if (!_mind.TryGetMind(ent.Owner, out var mindId, out var mind))
@@ -89,6 +96,20 @@ public sealed partial class HereticInfluenceDreamSystem : EntitySystem
         var markup = Loc.GetString("heretic-influence-dream-hypno", ("text", text));
 
         _chatMan.ChatMessageToOne(ChatChannel.Server, text, markup, default, false, session.Channel);
+    }
+
+    private string? GetLocationName(EntityUid target)
+    {
+        var coords = Transform(target).Coordinates;
+
+        if (_area.TryGetArea(coords, out var area) && _proto.TryIndex(area, out var areaDef))
+            return Loc.GetString(areaDef.Name);
+
+        var station = _station.GetOwningStation(target);
+        if (station == null)
+            return null;
+
+        return Name(station.Value);
     }
 
     private EntityUid? FindNearestShift(MapId map, Vector2 position)

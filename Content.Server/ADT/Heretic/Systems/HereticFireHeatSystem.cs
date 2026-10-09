@@ -21,8 +21,9 @@ public sealed partial class HereticFireHeatSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
 
-    private ProtoId<TagPrototype> FireTag = "HereticAshFire";
-    private TimeSpan Lifetime = TimeSpan.FromSeconds(1.5);
+    private static readonly ProtoId<TagPrototype> FireTag = "HereticAshFire";
+    private static readonly ProtoId<DamageTypePrototype> HeatDamageType = "Heat";
+    private static readonly TimeSpan Lifetime = TimeSpan.FromSeconds(1.5);
 
     public override void Update(float frameTime)
     {
@@ -69,7 +70,7 @@ public sealed partial class HereticFireHeatSystem : EntitySystem
             Dirty(uid, heat);
 
             var spec = new DamageSpecifier();
-            spec.DamageDict.Add(_proto.Index<DamageTypePrototype>("Heat"), heat.DamagePerTick);
+            spec.DamageDict.Add(_proto.Index(HeatDamageType), heat.DamagePerTick);
             _damage.TryChangeDamage(uid, spec, ignoreResistances: true);
         }
     }

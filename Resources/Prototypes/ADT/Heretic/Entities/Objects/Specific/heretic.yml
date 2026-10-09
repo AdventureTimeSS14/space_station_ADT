@@ -99,6 +99,7 @@
     sprite: ADT/Heretic/items.rsi
     state: protective_blade
   - type: Projectile
+    ignoreResistances: true
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:

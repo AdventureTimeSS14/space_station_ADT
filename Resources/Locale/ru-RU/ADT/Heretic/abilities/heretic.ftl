@@ -129,3 +129,8 @@ heretic-influence-dream-near = неподалёку
 heretic-influence-dream-far = далеко отсюда
 heretic-influence-dream-silent = Во сне реальность неподвижна. Рядом ничего не смещается, но Мансус слушает.
 heretic-gate-examine-move = Разлом ничем не закреплён. Его можно перетащить куда угодно, но близнец останется там, где его оставили.
+heretic-influence-dream-at = Где-то рядом реальность складывается. Ты чувствуешь: {$place}.
+
+## blink system (хрень пути пустоты)
+heretic-void-blink-none = Ни одна помеченная жертва не шевелится рядом.
+heretic-void-blink-verb = Стянуть к себе

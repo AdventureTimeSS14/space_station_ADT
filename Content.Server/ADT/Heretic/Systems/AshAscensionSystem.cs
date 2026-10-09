@@ -3,6 +3,7 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Server.ADT.Heretic.Systems;
@@ -11,6 +12,10 @@ public sealed partial class AshAscensionSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
+    [ValidatePrototypeId<EntityPrototype>]
+    private const string HeatDamageType = "Heat";
+
+    private static readonly EntProtoId FirePrototype = "HereticFireAA";
     [Dependency] private readonly SharedTransformSystem _xform = default!;
 
     public override void Initialize()
@@ -25,8 +30,8 @@ public sealed partial class AshAscensionSystem : EntitySystem
         if (args.Cancelled || args.Damage.Empty)
             return;
 
-        if (args.Damage.DamageDict.TryGetValue("Heat", out var heat))
-            args.Damage.DamageDict["Heat"] = 0f;
+        if (args.Damage.DamageDict.TryGetValue(HeatDamageType, out var heat))
+            args.Damage.DamageDict[HeatDamageType] = 0f;
     }
 
     public override void Update(float frameTime)
@@ -47,7 +52,7 @@ var query = EntityQueryEnumerator<AshAscendedComponent, TransformComponent>();
             {
                 var offset = _random.NextVector2(-comp.Radius, comp.Radius);
 var coords = Transform(uid).Coordinates.Offset(offset);
-                Spawn("HereticFireAA", coords);
+                Spawn(FirePrototype, coords);
             }
         }
     }

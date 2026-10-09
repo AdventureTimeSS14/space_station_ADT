@@ -141,3 +141,6 @@ heretic-influence-dream-near = not far off
 heretic-influence-dream-far = a long way off
 heretic-influence-dream-silent = In your dreams, reality is still. Nothing shifts near you, but the Mansus is listening.
 heretic-gate-examine-move = The rift is anchored to nothing. You can drag it anywhere, but its twin stays where it was left.
+heretic-influence-dream-at = Somewhere close by, reality is folding. You feel it: {$place}.
+heretic-void-blink-none = No marked quarry stirs within your reach.
+heretic-void-blink-verb = Pull to me
