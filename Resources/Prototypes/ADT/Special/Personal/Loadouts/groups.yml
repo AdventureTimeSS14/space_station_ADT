@@ -1,0 +1,165 @@
+- type: loadoutGroup
+  id: ADTPersonalLoadoutAll
+  name: loadout-group-all-personal-adt
+  minLimit: 0
+  maxLimit: 5
+  loadouts:
+  - ADTAccesoriesKiwiFruit
+  - ADTSuitRiverSpirit
+
+- type: loadoutGroup
+  id: ADTPersonalLoadoutPlushie
+  name: loadout-group-security-plushie-adt
+  minLimit: 0
+  maxLimit: 5
+  loadouts:
+  - ADTPlushieNinaKonogar
+  - ADTPlushieKelly
+  - ADTPlushieSani
+  - ADTPlushieAzil
+  - ADTPlushiekramol
+  - ADTPlushietil
+  - ADTPlushieLeia
+  - ADTPlushieHollowing
+  - ADTPlushieGlide
+  - ADTPlushieKapitanOgonek
+  - ADTPlushieRose
+  - ADTPlushieJan
+  - ADTPlushieAnagiri
+  - ADTPlushieMorulu
+  - ADTPlushieSif
+  - ADTPlushieUma
+  - ADTPlushieMigel
+  - ADTPlushieJungar
+  - ADTPlushieLo
+  - ADTPlushieIlumi
+  - ADTPlushieNirkin
+  - ADTPlushieEmiliaEvenwood
+  - ADTPlushieKusuk
+  - ADTPlushieProxima
+  - ADTPlushieTheokaiFriendlyOne
+  - ADTToyFigurineTheokayaFriendlyOne
+
+- type: loadoutGroup
+  id: ADTPersonalLoadoutSecurity
+  name: loadout-group-security-personal-adt
+  minLimit: 0
+  maxLimit: 5
+  loadouts:
+  - ADTOfficerMantleRaven559
+  - ADTElegantWhip
+  - ADTFamilyBusiness
+  - ADTBriefcaseUma
+
+- type: loadoutGroup
+  id: ADTPersonalLoadoutLawyer
+  name: loadout-group-lawyer-personal-adt
+  minLimit: 0
+  maxLimit: 5
+  loadouts:
+  - ADTBriefcaseSaintMadman
+  - ADTBriefcaseIllumy
+
+- type: loadoutGroup
+  id: ADTPersonalLoadoutCivilian
+  name: loadout-group-civillian-personal-adt
+  minLimit: 0
+  maxLimit: 5
+  loadouts:
+  - ADTBriefcaseRedLis
+  - ADTBriefcasePushnoY
+  - ADTDuffelAnagiri
+  - ADTBriefcaseNikLi
+  - ADTBriefcaseHonelin111
+  - ADTBriefcaseMoon_so_red
+  - ADTPirateSuitBarCow
+  - ADTGentleCoatBarCow
+  - ADTBibleDescente
+  - ADTSensorsSyrel
+  - ADTBriefcaseSaintMadman
+  - ADTHeadBandTudibideb
+  - ADTPremiumCaseKimerk
+  - ADTBriefcaseIllumy
+
+- type: loadoutGroup
+  id: ADTPersonalLoadoutHeadOfSecurity
+  name: loadout-group-headofsecurity-personal-adt
+  minLimit: 0
+  maxLimit: 5
+  loadouts:
+  - ADTOfficerMantleRaven559
+  - ADTElegantWhip
+  - ADTFamilyBusiness
+  - ADTBriefcaseUma
+
+- type: loadoutGroup
+  id: ADTPersonalLoadoutCapitan
+  name: loadout-group-capitan-personal-adt
+  minLimit: 0
+  maxLimit: 5
+  loadouts:
+  - ADTBriefcasePrazatCool
+  - ADTBriefcaseSaintMadman
+  - ADTElegantWhip
+  - ADTBriefcaseIllumy
+
+- type: loadoutGroup
+  id: ADTPersonalLoadoutResearchDirector
+  name: loadout-group-security-personal-adt
+  minLimit: 0
+  maxLimit: 5
+  loadouts:
+  - ADTElegantWhip
+
+- type: loadoutGroup
+  id: ADTPersonalLoadoutQuarterMaster
+  name: loadout-group-quartermaster-personal-adt
+  minLimit: 0
+  maxLimit: 5
+  loadouts:
+  - ADTBriefcaseRedLis
+  - ADTElegantWhip
+  - ADTBriefcaseIllumy
+
+- type: loadoutGroup
+  id: ADTPersonalLoadoutChiefEngineer
+  name: loadout-group-security-personal-adt
+  minLimit: 0
+  maxLimit: 5
+  loadouts:
+  - ADTElegantWhip
+
+- type: loadoutGroup
+  id: ADTPersonalLoadoutChiefMedicalOfficer
+  name: loadout-group-chiefmedicalofficer-personal-adt
+  minLimit: 0
+  maxLimit: 5
+  loadouts:
+  - ADTParamedicHardsuitLemonLimeLord
+  - ADTElegantWhip
+
+- type: loadoutGroup
+  id: ADTPersonalLoadoutHeadOfPersonnel
+  name: loadout-group-security-personal-adt
+  minLimit: 0
+  maxLimit: 5
+  loadouts:
+  - ADTElegantWhip
+  - ADTBriefcaseIllumy
+
+- type: loadoutGroup
+  id: ADTPersonalLoadoutBlueShieldOfficer
+  name: loadout-group-blueshieldofficer-personal-adt
+  minLimit: 0
+  maxLimit: 5
+  loadouts:
+  - ADTBriefcaseRaven559
+
+- type: loadoutGroup
+  id: ADTPersonalLoadoutInternalAffairsAgent
+  name: loadout-group-internalaffairsagent-personal-adt
+  minLimit: 0
+  maxLimit: 5
+  loadouts:
+  - ADTBriefcaseRaven559
+  - ADTBriefcaseIllumy
