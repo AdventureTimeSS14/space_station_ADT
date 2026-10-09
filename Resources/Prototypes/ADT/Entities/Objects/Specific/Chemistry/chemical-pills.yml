@@ -284,9 +284,9 @@
       food:
         reagents:
         - ReagentId: Ethylredoxrazine
-          Quantity: 7.5
+          Quantity: 10
         - ReagentId: Dylovene
-          Quantity: 7.5
+          Quantity: 5
   - type: Sprite
     sprite: Objects/Specific/Chemistry/pills.rsi
     state: pill17
