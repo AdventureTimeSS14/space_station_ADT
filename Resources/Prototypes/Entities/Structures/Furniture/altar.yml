@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: AltarBase
   parent: BaseStructure
   name: altar
@@ -15,12 +15,6 @@
     state: nanotrasen
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 125
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 25

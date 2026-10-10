@@ -12,8 +12,8 @@ namespace Content.Server.ADT.Xenobiology.Potions;
 /// </summary>
 public sealed partial class SlimeSentiencePotionSystem : EntitySystem
 {
-    [Dependency] private readonly SharedLanguageSystem _language = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private SharedLanguageSystem _language = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
 
     public override void Initialize()
     {

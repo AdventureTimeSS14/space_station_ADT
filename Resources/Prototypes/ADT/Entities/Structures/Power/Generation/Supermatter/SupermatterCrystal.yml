@@ -58,7 +58,7 @@
     guides: [ SupermatterGuideBook, Power ]
   - type: WarpPoint
     follow: true
-    location: supermatter
+    location: location-adt-supermatter
   - type: Clickable
   - type: InteractionOutline
   - type: Physics
@@ -170,7 +170,6 @@
     lightningPrototype: SupermatterLightning
   - type: Beam
     sound: /Audio/Effects/Lightning/lightningshock.ogg
-    allowSpriteOverwrite: false
   - type: TimedDespawn
     lifetime: 1
 

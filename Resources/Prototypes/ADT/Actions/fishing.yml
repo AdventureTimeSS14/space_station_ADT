@@ -5,13 +5,14 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon:
-      sprite: ADT/Objects/Specific/Fishing/fishing_lure.rsi
-      state: icon
     sound:
       path: /Audio/ADT/Items/Fishing/fishing_rod_cast.ogg
     itemIconStyle: BigAction
     useDelay: 2.5
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Fishing/fishing_lure.rsi
+    layers:
+    - state: icon
   - type: TargetAction
     checkCanAccess: false
     range: 15

@@ -135,7 +135,7 @@
         Heat: 0.2
         Caustic: 0.3
   - type: TemperatureProtection
-    heatingCoefficient: 0.1
+    coefficient: 0.1
   - type: FireProtection
     reduction: 0.8
   - type: ToggleableClothing
@@ -187,7 +187,7 @@
         Heat: 0.5
         Caustic: 0.5
   - type: TemperatureProtection
-    heatingCoefficient: 0.3
+    coefficient: 0.3
   - type: ToggleableClothing
     clothingPrototype: ADTClothingHeadPathfinderKasa
     slot: head
@@ -279,8 +279,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Lavaland/pathfinder_treads.rsi
   - type: TemperatureProtection
-    heatingCoefficient: 0.85
-    coolingCoefficient: 0.4
+    coefficient: 0.4
   - type: Construction
     graph: ADTPathfinderTreads
     node: treads
@@ -395,7 +394,9 @@
     damage:
       types:
         Piercing: 26
-  - type: Sharp
+  - type: Tool
+    qualities:
+    - Slicing
   - type: Tag
     tags:
     - Spear

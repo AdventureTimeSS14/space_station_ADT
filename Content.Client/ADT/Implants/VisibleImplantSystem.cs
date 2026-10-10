@@ -7,7 +7,7 @@ namespace Content.Client.ADT.Implants;
 
 public sealed class VisibleImplantSystem : SharedVisibleImplantSystem
 {
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
+    [Dependency] private AppearanceSystem _appearance = default!;
     public override void Initialize()
     {
         base.Initialize();

@@ -18,16 +18,16 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Light.EntitySystems
 {
-    public sealed class HandheldLightSystem : SharedHandheldLightSystem
+    public sealed partial class HandheldLightSystem : SharedHandheldLightSystem
     {
-        [Dependency] private readonly ActionsSystem _actions = default!;
-        [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
-        [Dependency] private readonly PopupSystem _popup = default!;
-        [Dependency] private readonly PowerCellSystem _powerCell = default!;
-        [Dependency] private readonly SharedBatterySystem _battery = default!;
-        [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-        [Dependency] private readonly SharedAudioSystem _audio = default!;
-        [Dependency] private readonly SharedPointLightSystem _lights = default!;
+        [Dependency] private ActionsSystem _actions = default!;
+        [Dependency] private ActionContainerSystem _actionContainer = default!;
+        [Dependency] private PopupSystem _popup = default!;
+        [Dependency] private PowerCellSystem _powerCell = default!;
+        [Dependency] private SharedBatterySystem _battery = default!;
+        [Dependency] private SharedAppearanceSystem _appearance = default!;
+        [Dependency] private SharedAudioSystem _audio = default!;
+        [Dependency] private SharedPointLightSystem _lights = default!;
 
         // TODO: Ideally you'd be able to subscribe to power stuff to get events at certain percentages.. or something?
         // But for now this will be better anyway.
@@ -93,17 +93,14 @@ namespace Content.Server.Light.EntitySystems
             var component = ent.Comp;
             // ADT-tweak-start: Добавлена проверка на null и обработка исключений для предотвращения падения при загрузке карт
             //метод полностью переписан, если будет что-то ломать откатывайте до версии визардов а потом чините тесты
-            if (component.ToggleAction != null)
+            try
             {
-                try
-                {
-                    _actionContainer.EnsureAction(ent, ref component.ToggleActionEntity, component.ToggleAction);
-                    _actions.AddAction(ent, ref component.SelfToggleActionEntity, component.ToggleAction);
-                }
-                catch (Exception ex)
-                {
-                    Log.Warning($"Failed to create toggle action for handheld light {ToPrettyString(ent)}: {ex.Message}");
-                }
+                _actionContainer.EnsureAction(ent, ref component.ToggleActionEntity, component.ToggleAction);
+                _actions.AddAction(ent, ref component.SelfToggleActionEntity, component.ToggleAction);
+            }
+            catch (Exception ex)
+            {
+                Log.Warning($"Failed to create toggle action for handheld light {ToPrettyString(ent)}: {ex.Message}");
             }
             // ADT-tweak-end
         }

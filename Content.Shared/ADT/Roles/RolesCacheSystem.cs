@@ -8,7 +8,7 @@ namespace Content.Shared.ADT.Roles;
 
 public sealed class RolesCacheSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
+    [Dependency] private IPrototypeManager _prototypes = default!;
 
     public override void Initialize()
     {

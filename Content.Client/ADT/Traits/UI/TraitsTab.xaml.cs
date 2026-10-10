@@ -16,10 +16,10 @@ namespace Content.Client.ADT.Traits.UI;
 [GenerateTypedNameReferences]
 public sealed partial class TraitsTab : BoxContainer
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly Content.Client.ADT.Sponsors.SponsorManager _adtSponsors = default!;
-    [Dependency] private readonly Robust.Client.Player.IPlayerManager _players = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private Content.Client.ADT.Sponsors.SponsorManager _adtSponsors = default!;
+    [Dependency] private Robust.Client.Player.IPlayerManager _players = default!;
 
     /// <summary>
     /// Event fired when trait selection changes.
@@ -115,7 +115,7 @@ public sealed partial class TraitsTab : BoxContainer
         if (trait.SponsorOnly)
             return new ProtoId<TraitCategoryPrototype>(SponsorTraitCategory);
 
-        return trait.Category;
+        return trait.ADTCategory;
     }
 
     private void OnProtoReload(PrototypesReloadedEventArgs args)
@@ -187,9 +187,9 @@ public sealed partial class TraitsTab : BoxContainer
             }
 
             // Check category limits
-            if (_categoryUis.TryGetValue(trait.Category, out var categoryUi))
+            if (_categoryUis.TryGetValue(trait.ADTCategory, out var categoryUi))
             {
-                var categoryProto = _prototype.Index(trait.Category);
+                var categoryProto = _prototype.Index(trait.ADTCategory);
                 if (categoryProto.MaxTraits.HasValue &&
                     categoryUi.SelectedCount >= categoryProto.MaxTraits.Value)
                 {
@@ -197,8 +197,8 @@ public sealed partial class TraitsTab : BoxContainer
                     return;
                 }
 
-                if (categoryProto.MaxPoints.HasValue &&
-                    categoryUi.PointsSpent + trait.Cost > categoryProto.MaxPoints.Value)
+                if (categoryProto.MaxTraitPoints.HasValue &&
+                    categoryUi.PointsSpent + trait.Cost > categoryProto.MaxTraitPoints.Value)
                 {
                     RevertTraitToggle(traitId);
                     return;
@@ -260,7 +260,7 @@ public sealed partial class TraitsTab : BoxContainer
         }
 
         UpdateGlobalStats();
-        UpdateCategoryStats(trait.Category);
+        UpdateCategoryStats(trait.ADTCategory);
 
         if (!_suppressTraitsChangedEvent)
         {
@@ -273,7 +273,7 @@ public sealed partial class TraitsTab : BoxContainer
         if (!_prototype.TryIndex(traitId, out var trait))
             return;
 
-        if (_categoryUis.TryGetValue(trait.Category, out var categoryUi))
+        if (_categoryUis.TryGetValue(trait.ADTCategory, out var categoryUi))
         {
             categoryUi.SetTraitSelected(traitId, _selectedTraits.Contains(traitId), suppressToggle: true);
         }

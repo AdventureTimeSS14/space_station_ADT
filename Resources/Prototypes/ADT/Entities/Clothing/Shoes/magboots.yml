@@ -25,8 +25,14 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon: { sprite: ADT/Clothing/Shoes/Boots/magboots-ert.rsi, state: icon }
-    iconOn: { sprite: ADT/Clothing/Shoes/Boots/magboots-ert.rsi, state: icon-on}
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/magboots-ert.rsi
+    layers:
+    - state: icon
+      map: ["enum.ActionVisuals.Icon"]
+    - state: icon-on
+      map: ["enum.ActionVisuals.IconToggled"]
+      visible: false
 
 - type: entity
   parent: ClothingShoesBootsMagSyndie
@@ -43,7 +49,7 @@
     walkModifier: 1
     sprintModifier: 1
   - type: GasTank
-    outputPressure: 21.3
+    releasePressure: 21.3
     air:
       # 8 minutes of thrust
       volume: 3
@@ -66,5 +72,11 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Action
-      icon: { sprite: ADT/Clothing/Shoes/Boots/advancedsyndie.rsi, state: icon }
-      iconOn: {sprite: ADT/Clothing/Shoes/Boots/advancedsyndie.rsi, state: icon-on}
+    - type: Sprite
+      sprite: ADT/Clothing/Shoes/Boots/advancedsyndie.rsi
+      layers:
+      - state: icon
+        map: ["enum.ActionVisuals.Icon"]
+      - state: icon-on
+        map: ["enum.ActionVisuals.IconToggled"]
+        visible: false

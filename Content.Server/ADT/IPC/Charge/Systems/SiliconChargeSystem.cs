@@ -30,17 +30,17 @@ namespace Content.Server.ADT.Silicon.Charge;
 
 public sealed class SiliconChargeSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly FlammableSystem _flammable = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _moveMod = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IConfigurationManager _config = default!;
-    [Dependency] private readonly SharedBatterySystem _battery = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly SharedJetpackSystem _jetpack = default!;
-    [Dependency] private readonly PowerCellSystem _powerCell = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private FlammableSystem _flammable = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private MovementSpeedModifierSystem _moveMod = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IConfigurationManager _config = default!;
+    [Dependency] private SharedBatterySystem _battery = default!;
+    [Dependency] private AlertsSystem _alerts = default!;
+    [Dependency] private SharedJetpackSystem _jetpack = default!;
+    [Dependency] private PowerCellSystem _powerCell = default!;
 
     public override void Initialize()
     {
@@ -188,10 +188,10 @@ public sealed class SiliconChargeSystem : EntitySystem
         var upperThreshHalf = thermalComp.NormalBodyTemperature + thermalComp.ThermalRegulationTemperatureThreshold * 0.5f;
 
         // Check if the silicon is in a hot environment.
-        if (temperComp.CurrentTemperature > upperThreshHalf)
+        if (temperComp.Temperature > upperThreshHalf)
         {
             // Divide the current temp by the max comfortable temp capped to 4, then add that to the multiplier.
-            var hotTempMulti = Math.Min(temperComp.CurrentTemperature / upperThreshHalf, 4);
+            var hotTempMulti = Math.Min(temperComp.Temperature / upperThreshHalf, 4);
 
             // If the silicon is hot enough, it has a chance to catch fire.
 
@@ -203,11 +203,11 @@ public sealed class SiliconChargeSystem : EntitySystem
 
             if (!TryComp<FlammableComponent>(silicon, out var flamComp)
                 || flamComp is { OnFire: true }
-                || !(temperComp.CurrentTemperature > tempDamageComp.HeatDamageThreshold))
+                || !(temperComp.Temperature > tempDamageComp.HeatDamageThreshold))
                 return hotTempMulti;
 
             _popup.PopupEntity(Loc.GetString("silicon-overheating"), silicon, silicon, PopupType.MediumCaution);
-            if (!_random.Prob(Math.Clamp(temperComp.CurrentTemperature / (upperThresh * 5), 0.001f, 0.9f)))
+            if (!_random.Prob(Math.Clamp(temperComp.Temperature / (upperThresh * 5), 0.001f, 0.9f)))
                 return hotTempMulti;
 
             _flammable.AdjustFireStacks(silicon, Math.Clamp(siliconComp.FireStackMultiplier, -10, 10), flamComp);
@@ -216,8 +216,8 @@ public sealed class SiliconChargeSystem : EntitySystem
         }
 
         // Check if the silicon is in a cold environment.
-        if (temperComp.CurrentTemperature < thermalComp.NormalBodyTemperature)
-            return 0.5f + temperComp.CurrentTemperature / thermalComp.NormalBodyTemperature * 0.5f;
+        if (temperComp.Temperature < thermalComp.NormalBodyTemperature)
+            return 0.5f + temperComp.Temperature / thermalComp.NormalBodyTemperature * 0.5f;
 
         return 0;
     }

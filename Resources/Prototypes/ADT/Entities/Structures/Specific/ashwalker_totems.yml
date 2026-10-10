@@ -82,7 +82,7 @@
     graph: ADTAshTotemStone
     node: totem
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
         damage: 1000

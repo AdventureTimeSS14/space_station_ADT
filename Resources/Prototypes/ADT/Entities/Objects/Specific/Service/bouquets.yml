@@ -87,15 +87,15 @@
     sprite: ADT/Objects/Specific/Service/bouquet_with_beer.rsi
   - type: DisarmMalus
   - type: Edible
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 35
-        reagents:
-        - ReagentId: Beer
-          Quantity: 30
-        - ReagentId: Nutriment
-          Quantity: 5
+  - type: Solution
+    id: food
+    solution:
+      maxVol: 35
+      reagents:
+      - ReagentId: Beer
+        Quantity: 30
+      - ReagentId: Nutriment
+        Quantity: 5
   - type: FlavorProfile
     flavors:
       - beer

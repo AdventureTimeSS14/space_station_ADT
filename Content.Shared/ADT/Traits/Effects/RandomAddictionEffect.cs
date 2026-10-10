@@ -8,7 +8,7 @@ namespace Content.Shared.ADT.Traits.Effects;
 
 /// <summary>
 /// Эффект трайта «Случайная зависимость»: помечает компонент, чтобы AddictionSystem
-/// при спавне (после TraitSystem) выбрала случайный канал из ещё не выбранных.
+/// при спавне (после ADTTraitSystem) выбрала случайный канал из ещё не выбранных.
 /// Канал получается неизлечимым (Permanent), как и у конкретных трайтов.
 /// </summary>
 public sealed partial class RandomAddictionEffect : BaseTraitEffect

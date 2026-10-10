@@ -226,7 +226,6 @@
   - type: TryCatchBreath
     doAfterTime: 5
   - type: Butcherable
-    butcheringType: Spike
     spawned:
     - id: FoodMeatChicken
       amount: 5
@@ -240,7 +239,7 @@
       - ReagentId: ResomiBlood
         Quantity: 250
   - type: Temperature
-    currentTemperature: 296.15 # 23°C
+    temperature: 296.15 # 23°C
     specificHeat: 42
   - type: TemperatureDamage
     heatDamageThreshold: 308 # 35°C
@@ -260,8 +259,7 @@
     normalBodyTemperature: 296.15 # 23°C - целевая температура тела резоми
     thermalRegulationTemperatureThreshold: 6  # Диапазон активации: 276K-306K (17°C до 29°C)
   - type: TemperatureProtection
-    heatingCoefficient: 1.2  # На 20% быстрее нагреваются
-    coolingCoefficient: 0.8  # На 20% медленнее охлаждаются
+    coefficient: 0.8
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:
@@ -296,10 +294,7 @@
   - type: FlashModifier
     modifier: 2
   - type: Vocal
-    sounds:
-      Male: MaleResomi
-      Female: FemaleResomi
-      Unsexed: MaleResomi
+    emoteSounds: MaleResomi
   - type: InteractionPopup
     successChance: 1
     interactSuccessString: petting-success-resomi

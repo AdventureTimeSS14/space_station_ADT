@@ -7,8 +7,9 @@
   - type: Action
     priority: -4
     itemIconStyle: BigAction
-    icon:
-      sprite: ADT/Interface/Actions/xenobiology_console.rsi
-      state: disconnect
+  - type: Sprite
+    sprite: ADT/Interface/Actions/xenobiology_console.rsi
+    layers:
+    - state: disconnect
   - type: InstantAction
     event: !type:EyeControlReturnEvent

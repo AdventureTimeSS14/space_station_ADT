@@ -2,7 +2,7 @@
   id: ADTMobLesserAshDrake
   name: lesser ash drake
   description: Guardians of the Necropolis.
-  parent: BaseMob
+  parent: [ BaseMob, BaseSlicingRefinable ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -84,9 +84,8 @@
     actions:
     - ADTActionLesserDrakeFireCone
     - ADTActionLesserDrakeSwoop
-  - type: Butcherable
-    butcheringType: Knife
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: DiamondOre1
       amount: 5
     - id: ADTMaterialSinew1
@@ -161,9 +160,10 @@
   - type: Action
     useDelay: 10
     itemIconStyle: BigAction
-    icon:
-      sprite: ADT/Interface/Actions/dragon_form.rsi
-      state: shapeshift
+  - type: Sprite
+    sprite: ADT/Interface/Actions/dragon_form.rsi
+    layers:
+    - state: shapeshift
   - type: InstantAction
     event: !type:ADTDragonFormActionEvent
       polymorph: ADTPolymorphLesserAshDrake
@@ -180,9 +180,10 @@
   - type: Action
     useDelay: 3
     itemIconStyle: BigAction
-    icon:
-      sprite: ADT/Effects/drake_effects.rsi
-      state: fireball
+  - type: Sprite
+    sprite: ADT/Effects/drake_effects.rsi
+    layers:
+    - state: fireball
   - type: TargetAction
     range: 60
     checkCanAccess: false
@@ -198,9 +199,10 @@
   - type: Action
     useDelay: 20
     itemIconStyle: BigAction
-    icon:
-      sprite: ADT/Effects/drake_effects.rsi
-      state: lava_warning
+  - type: Sprite
+    sprite: ADT/Effects/drake_effects.rsi
+    layers:
+    - state: lava_warning
   - type: TargetAction
     range: 60
     checkCanAccess: false

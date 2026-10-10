@@ -13,9 +13,9 @@ namespace Content.Server.ADT.Xenobiology.Potions;
 /// </summary>
 public sealed partial class SlimeFireproofPotionSystem : EntitySystem
 {
-    [Dependency] private readonly TemperatureSystem _temperature = default!;
-    [Dependency] private readonly FireProtectionSystem _fireProtection = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private TemperatureSystem _temperature = default!;
+    [Dependency] private FireProtectionSystem _fireProtection = default!;
+    [Dependency] private PopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -32,7 +32,7 @@ public sealed partial class SlimeFireproofPotionSystem : EntitySystem
         var changed = false;
 
         var temperatureProtection = EnsureComp<TemperatureProtectionComponent>(target);
-        if (temperatureProtection.HeatingCoefficient > 0f || temperatureProtection.CoolingCoefficient > 0f)
+        if (temperatureProtection.Coefficient > 0f)
         {
             _temperature.SetHeatProtection((target, temperatureProtection), 0f);
             changed = true;

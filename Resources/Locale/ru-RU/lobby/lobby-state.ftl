@@ -32,3 +32,7 @@ lobby-state-playtime-comment-normal =
 lobby-state-playtime-comment-concerning = Сегодня вы наиграли { $hours } часов. Пожалуйста, отдохните.
 lobby-state-playtime-comment-grasstouchless = { $hours } часов. Подумайте о выходе из игры, чтобы заняться своими делами.
 lobby-state-playtime-comment-selfdestructive = { $hours } часов. Серьёзно?
+lobby-state-background-text = Арт меню: [color=white]{ $backgroundTitle }[/color], автор [color=white]{ $backgroundArtist }[/color]
+lobby-state-background-no-background-text = Арт меню не загружен.
+lobby-state-background-unknown-title = [color=dimgray]Без названия[/color]
+lobby-state-background-unknown-artist = [color=dimgray]Неизвестный автор[/color]

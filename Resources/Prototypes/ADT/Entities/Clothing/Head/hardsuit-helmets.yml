@@ -18,8 +18,7 @@
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    heatingCoefficient: 0.1
-    coolingCoefficient: 0.1
+    coefficient: 0.1
   - type: Armor
     modifiers:
       coefficients:
@@ -59,7 +58,7 @@
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    heatingCoefficient: 0.005
+    coefficient: 0.005
   - type: Armor
     modifiers:
       coefficients:
@@ -206,6 +205,14 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Head/Hardsuits/inquisitoryhead.rsi
+    layers:
+    - state: icon
+    - state: icon-flash
+      visible: false
+      map: [ "light" ]
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals: {}
   - type: Clothing
     sprite: ADT/Clothing/Head/Hardsuits/inquisitoryhead.rsi
   - type: PointLight
@@ -234,6 +241,14 @@
   - type: BreathMask
   - type: Sprite
     sprite: ADT/Clothing/Head/Hardsuits/time_security_helmet.rsi
+    layers:
+    - state: icon
+    - state: icon-flash
+      visible: false
+      map: [ "light" ]
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals: {}
   - type: Clothing
     sprite: ADT/Clothing/Head/Hardsuits/time_security_helmet.rsi
   # - type: PointLight # Corvax-Resprite
@@ -265,6 +280,14 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Head/Hardsuits/cybersunbodyguard.rsi
+    layers:
+    - state: icon
+    - state: icon-flash
+      visible: false
+      map: [ "light" ]
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals: {}
   - type: Clothing
     sprite: ADT/Clothing/Head/Hardsuits/cybersunbodyguard.rsi
   - type: PointLight
@@ -273,7 +296,7 @@
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    heatingCoefficient: 0.005
+    coefficient: 0.005
   - type: Armor
     modifiers:
       coefficients:
@@ -291,6 +314,14 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Head/Hardsuits/cybersun_crysis_head.rsi
+    layers:
+    - state: icon
+    - state: icon-flash
+      visible: false
+      map: [ "light" ]
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals: {}
   - type: Clothing
     sprite: ADT/Clothing/Head/Hardsuits/cybersun_crysis_head.rsi
   - type: PointLight
@@ -301,7 +332,7 @@
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    heatingCoefficient: 0.005
+    coefficient: 0.005
   - type: Armor
     modifiers:
       coefficients:
@@ -319,6 +350,14 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Head/Hardsuits/saiba_sain_hardsuit_helmet.rsi
+    layers:
+    - state: icon
+    - state: icon-flash
+      visible: false
+      map: [ "light" ]
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals: {}
   - type: Clothing
     sprite: ADT/Clothing/Head/Hardsuits/saiba_sain_hardsuit_helmet.rsi
   - type: PointLight
@@ -329,7 +368,7 @@
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    heatingCoefficient: 0.005
+    coefficient: 0.005
   - type: Armor
     modifiers:
       coefficients:
@@ -348,6 +387,14 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Head/Hardsuits/pioneeragenthelmet.rsi
+    layers:
+    - state: icon
+    - state: icon-flash
+      visible: false
+      map: [ "light" ]
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals: {}
   - type: Clothing
     sprite: ADT/Clothing/Head/Hardsuits/pioneeragenthelmet.rsi
   - type: PointLight
@@ -377,6 +424,14 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Head/Hardsuits/OBS7_USSP.rsi
+    layers:
+    - state: icon
+    - state: icon-flash
+      visible: false
+      map: [ "light" ]
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals: {}
   - type: Clothing
     sprite: ADT/Clothing/Head/Hardsuits/OBS7_USSP.rsi
   - type: PressureProtection
@@ -398,6 +453,14 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Head/Hardsuits/OBS5_USSP.rsi
+    layers:
+    - state: icon
+    - state: icon-flash
+      visible: false
+      map: [ "light" ]
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals: {}
   - type: Clothing
     sprite: ADT/Clothing/Head/Hardsuits/OBS5_USSP.rsi
   - type: PressureProtection
@@ -491,6 +554,14 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Head/Hardsuits/ian_hero.rsi
+    layers:
+    - state: icon
+    - state: icon-flash
+      visible: false
+      map: [ "light" ]
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals: {}
   - type: Clothing
     sprite: ADT/Clothing/Head/Hardsuits/ian_hero.rsi
   - type: PressureProtection

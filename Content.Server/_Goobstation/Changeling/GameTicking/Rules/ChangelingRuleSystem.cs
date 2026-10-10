@@ -39,7 +39,7 @@ public sealed class ChangelingRuleSystem : GameRuleSystem<ChangelingRuleComponen
 
     public readonly int StartingCurrency = 12;
 
-    [ValidatePrototypeId<EntityPrototype>] EntProtoId mindRole = "MindRoleChangeling";
+    EntProtoId mindRole = "MindRoleChangeling";
 
     public override void Initialize()
     {
@@ -61,7 +61,8 @@ public sealed class ChangelingRuleSystem : GameRuleSystem<ChangelingRuleComponen
         if (!_mind.TryGetMind(target, out var mindId, out var mind))
             return false;
 
-        _role.MindAddRole(mindId, mindRole.Id, mind, true);
+        if (!_role.MindHasRole<ChangelingRoleComponent>(mindId))
+            _role.MindAddRole(mindId, mindRole.Id, mind, true);
 
         // briefing
         // Everypony has a metadata component, why are you trycomp'ing it?

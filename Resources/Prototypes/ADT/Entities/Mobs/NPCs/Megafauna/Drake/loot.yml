@@ -36,7 +36,7 @@
     warningProto: ADTLavaStaffWarning
     failEffect: EffectSparks
     blacklist:
-      tags:
+      components:
       - Wall
     range: 8
     createDelay: 3
@@ -106,7 +106,7 @@
       - MobState
   - type: WarpPoint
     follow: true
-    location: спектральный клинок
+    location: location-adt-spectral-blade
   - type: ADTSpectralBlade
     damagePerSpirit:
       types:
@@ -145,9 +145,10 @@
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/fireball.ogg
-    icon:
-      sprite: ADT/Interface/Actions/sacred_flame.rsi
-      state: sacredflame
+  - type: Sprite
+    sprite: ADT/Interface/Actions/sacred_flame.rsi
+    layers:
+    - state: sacredflame
   - type: InstantAction
     event: !type:ADTSacredFlameSpellEvent
       range: 7

@@ -2,8 +2,8 @@ using Content.Server.Access.Systems;
 using Content.Server.CriminalRecords.Systems;
 using Content.Server.Fax;
 using Content.Server.Station.Systems;
-using Content.Server.StationRecords.Systems;
-using Content.Server.Traits;
+using Content.Shared.StationRecords.Systems;
+using Content.Server.ADT.Traits;
 using Content.Shared.ADT.CriminalRecords;
 using Content.Shared.CriminalRecords;
 using Content.Shared.Dataset;
@@ -12,6 +12,7 @@ using Content.Shared.GameTicking;
 using Content.Shared.Paper;
 using Content.Shared.Security;
 using Content.Shared.StationRecords;
+using Content.Shared.StationRecords.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -19,13 +20,13 @@ namespace Content.Server.ADT.CriminalRecords;
 
 public sealed class ArrestWarrantSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IdCardSystem _idCard = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly StationRecordsSystem _records = default!;
-    [Dependency] private readonly CriminalRecordsSystem _criminalRecords = default!;
-    [Dependency] private readonly FaxSystem _fax = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IdCardSystem _idCard = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private StationRecordsSystem _records = default!;
+    [Dependency] private CriminalRecordsSystem _criminalRecords = default!;
+    [Dependency] private FaxSystem _fax = default!;
 
     private const string WarrantReasonsDataset = "ArrestWarrantReasons";
     private const string OperatorNamesDataset = "CentComOperatorNames";
@@ -35,7 +36,7 @@ public sealed class ArrestWarrantSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawn,
-            after: [typeof(TraitSystem), typeof(StationRecordsSystem)]);
+            after: [typeof(ADTTraitSystem), typeof(StationRecordsSystem)]);
     }
 
     private void OnPlayerSpawn(PlayerSpawnCompleteEvent ev)

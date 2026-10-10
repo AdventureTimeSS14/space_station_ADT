@@ -5,19 +5,12 @@
   name: банка Flèche
   description: Освежающее кофе в баночке!
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTFlecheDrink
-          Quantity: 30
-      grindable:
-        reagents:
-        - ReagentId: Aluminium
-          Quantity: 4
-        - ReagentId: Iron
-          Quantity: 1
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: ADTFlecheDrink
+        Quantity: 30
   - type: Sprite
     sprite: ADT/Special/Personal/FaustNetzach/faust_drink.rsi
   - type: Item
@@ -67,7 +60,8 @@
   metabolisms:
     Metabolites:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 5
       - !type:GenericStatusEffect
         key: Drowsiness

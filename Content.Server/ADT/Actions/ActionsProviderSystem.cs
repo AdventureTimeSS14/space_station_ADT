@@ -4,7 +4,7 @@ namespace Content.Server.Actions;
 
 public sealed partial class ActionsProviderSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
     public override void Initialize()
     {
         base.Initialize();

@@ -7,9 +7,10 @@
   - type: Action
     useDelay: 5
     itemIconStyle: BigAction
-    icon:
-      sprite: Objects/Magic/magicactions.rsi
-      state: blink
+  - type: Sprite
+    sprite: Objects/Magic/magicactions.rsi
+    layers:
+    - state: blink
   - type: TargetAction
     range: 16 # default examine-range.
     checkCanAccess: false
@@ -26,9 +27,10 @@
   - type: Action
     useDelay: 2
     itemIconStyle: BigAction
-    icon:
-      sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
-      state: icon
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
+    layers:
+    - state: icon
   - type: TargetAction
     range: 16
     checkCanAccess: false
@@ -43,12 +45,13 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon:
-      sprite: ADT/Interface/Actions/actions_ling.rsi
-      state: fleshmend
     itemIconStyle: BigAction
     checkCanInteract: false
     useDelay: 5
+  - type: Sprite
+    sprite: ADT/Interface/Actions/actions_ling.rsi
+    layers:
+    - state: fleshmend
   - type: InstantAction
     event: !type:CompHealActionEvent
 
@@ -61,9 +64,10 @@
   - type: Action
     useDelay: 15
     itemIconStyle: BigAction
-    icon:
-      sprite: Clothing/Shoes/Boots/combatboots.rsi
-      state: icon
+  - type: Sprite
+    sprite: Clothing/Shoes/Boots/combatboots.rsi
+    layers:
+    - state: icon
   - type: TargetAction
     range: 16
     checkCanAccess: false
@@ -78,12 +82,13 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon:
-      sprite: ADT/Interface/Actions/actions_ling.rsi
-      state: fleshmend
     itemIconStyle: BigAction
     checkCanInteract: false
     useDelay: 5
+  - type: Sprite
+    sprite: ADT/Interface/Actions/actions_ling.rsi
+    layers:
+    - state: fleshmend
   - type: InstantAction
     event: !type:CompStasisHealActionEvent
 
@@ -94,12 +99,13 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon:
-      sprite: ADT/Interface/Actions/actions_ling.rsi
-      state: chameleon
     itemIconStyle: BigAction
     checkCanInteract: false
     useDelay: 1
+  - type: Sprite
+    sprite: ADT/Interface/Actions/actions_ling.rsi
+    layers:
+    - state: chameleon
   - type: InstantAction
     event: !type:CompInvisibilityActionEvent
 
@@ -110,11 +116,12 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon:
-      sprite: /Textures/ADT/Interface/Alerts/evaporation.rsi
-      state: evaporation
     itemIconStyle: BigAction
     checkCanInteract: false
     useDelay: 5
+  - type: Sprite
+    sprite: /Textures/ADT/Interface/Alerts/evaporation.rsi
+    layers:
+    - state: evaporation
   - type: InstantAction
     event: !type:CompElectrionPulseActionEvent

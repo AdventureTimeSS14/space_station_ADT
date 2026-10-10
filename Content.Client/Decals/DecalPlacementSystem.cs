@@ -16,17 +16,16 @@ namespace Content.Client.Decals;
 
 // This is shit and basically a half-rewrite of PlacementManager
 // TODO refactor placementmanager so this isnt shit anymore
-public sealed class DecalPlacementSystem : EntitySystem
+public sealed partial class DecalPlacementSystem : EntitySystem
 {
-    [Dependency] private readonly IInputManager _inputManager = default!;
-    [Dependency] private readonly IOverlayManager _overlay = default!;
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
-    [Dependency] private readonly InputSystem _inputSystem = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
-
+    [Dependency] private IInputManager _inputManager = default!;
+    [Dependency] private IOverlayManager _overlay = default!;
+    [Dependency] private InputSystem _inputSystem = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedMapSystem _maps = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
     public static readonly EntProtoId DecalAction = "BaseMappingDecalAction";
 
     private string? _decalId;
@@ -44,14 +43,14 @@ public sealed class DecalPlacementSystem : EntitySystem
     public (DecalPrototype? Decal, bool Snap, Angle Angle, Color Color) GetActiveDecal()
     {
         return _active && _decalId != null ?
-            (_protoMan.Index<DecalPrototype>(_decalId), _snap, _decalAngle, _decalColor) :
+            (ProtoMan.Index<DecalPrototype>(_decalId), _snap, _decalAngle, _decalColor) :
             (null, false, Angle.Zero, Color.Wheat);
     }
 
     public override void Initialize()
     {
         base.Initialize();
-        _overlay.AddOverlay(new DecalPlacementOverlay(this, _transform, _sprite));
+        _overlay.AddOverlay(new DecalPlacementOverlay(this, _maps, _transform, _sprite));
 
         CommandBinds.Builder.Bind(EngineKeyFunctions.EditorPlaceObject, new PointerStateInputCmdHandler(
             (session, coords, uid) =>
@@ -76,7 +75,7 @@ public sealed class DecalPlacementSystem : EntitySystem
                     return false;
 
                 var decal = new Decal(coords.Position, _decalId, _decalColor, _decalAngle, _zIndex, _cleanable);
-                RaiseNetworkEvent(new RequestDecalPlacementEvent(decal, GetNetCoordinates(coords)));
+                RaisePredictiveEvent(new RequestDecalPlacementEvent(decal, GetNetCoordinates(coords)));
 
                 return true;
             },
@@ -99,11 +98,11 @@ public sealed class DecalPlacementSystem : EntitySystem
                 // ADT-Tweak start
                 if (_singleErase && _decalId != null)
                 {
-                    RaiseNetworkEvent(new RequestSingleDecalRemovalEvent(GetNetCoordinates(coords), _decalId));
+                    RaisePredictiveEvent(new RequestSingleDecalRemovalEvent(GetNetCoordinates(coords), _decalId));
                 }
                 else
                 {
-                    RaiseNetworkEvent(new RequestDecalRemovalEvent(GetNetCoordinates(coords)));
+                    RaisePredictiveEvent(new RequestDecalRemovalEvent(GetNetCoordinates(coords)));
                 }
                 // ADT-Tweak end
 
@@ -143,7 +142,7 @@ public sealed class DecalPlacementSystem : EntitySystem
         args.Target = args.Target.Offset(new Vector2(-0.5f, -0.5f));
 
         var decal = new Decal(args.Target.Position, args.DecalId, args.Color, Angle.FromDegrees(args.Rotation), args.ZIndex, args.Cleanable);
-        RaiseNetworkEvent(new RequestDecalPlacementEvent(decal, GetNetCoordinates(args.Target)));
+        RaisePredictiveEvent(new RequestDecalPlacementEvent(decal, GetNetCoordinates(args.Target)));
     }
 
     private void OnFillSlot(FillActionSlotEvent ev)
@@ -154,7 +153,7 @@ public sealed class DecalPlacementSystem : EntitySystem
         if (ev.Action != null)
             return;
 
-        if (_decalId == null || !_protoMan.TryIndex<DecalPrototype>(_decalId, out var decalProto))
+        if (_decalId == null || !ProtoMan.TryIndex<DecalPrototype>(_decalId, out var decalProto))
             return;
 
         var actionEvent = new PlaceDecalActionEvent()

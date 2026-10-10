@@ -1581,7 +1581,7 @@ entities:
     - type: Transform
       pos: 10.5,-12.5
       parent: 2
-    - type: VendingMachine
+    - type: ADTVendingMachine
       allForFree: True
     - type: Emagged
       emagType: Interaction
@@ -12384,7 +12384,7 @@ entities:
     - type: Transform
       pos: -8.5,8.5
       parent: 2
-    - type: VendingMachine
+    - type: ADTVendingMachine
       allForFree: True
     - type: AccessReader
       enabled: False
@@ -12407,7 +12407,7 @@ entities:
     - type: Transform
       pos: -5.5,-12.5
       parent: 2
-    - type: VendingMachine
+    - type: ADTVendingMachine
       allForFree: True
     - type: Emagged
       emagType: Interaction
@@ -12466,7 +12466,7 @@ entities:
     - type: Transform
       pos: -6.5,-14.5
       parent: 2
-    - type: VendingMachine
+    - type: ADTVendingMachine
       allForFree: True
     - type: AccessReader
       enabled: False
@@ -12535,7 +12535,7 @@ entities:
     - type: Transform
       pos: -8.5,-19.5
       parent: 2
-    - type: VendingMachine
+    - type: ADTVendingMachine
       allForFree: True
     - type: Emagged
       emagType: Interaction

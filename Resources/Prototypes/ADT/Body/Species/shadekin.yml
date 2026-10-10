@@ -196,7 +196,6 @@
   components:
   - type: OnGhostAttemtpDamage # При суициде будет нормально наносится урон не удушением а кровотечением.
   - type: Butcherable
-    butcheringType: Spike
     spawned:
     - id: ADTFoodMeatShadekin
       amount: 4
@@ -245,7 +244,7 @@
         Bloodloss:
           -0.25
   - type: Temperature
-    currentTemperature: 310.15
+    temperature: 310.15
     specificHeat: 46
   - type: TemperatureDamage
     heatDamageThreshold: 330
@@ -286,10 +285,7 @@
     modifier: 2
   - type: Shadekin
   - type: Vocal
-    sounds:
-      Male: MaleShadekin
-      Female: FemaleShadekin
-      Unsexed: MaleShadekin
+    emoteSounds: MaleShadekin
   - type: InteractionPopup
     successChance: 1
     interactSuccessString: petting-success-soft-floofy

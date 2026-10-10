@@ -60,12 +60,11 @@
       maxExternalPressure: 102
       spawnAmount: 0.2
     - type: AtmosDevice
-    - type: SolutionContainerManager
-      solutions:
-        showerWater:
-          maxVol: 200
+    - type: Solution
+      id: showerWater
+      solution:
+        maxVol: 200
     - type: SolutionRegeneration
-      solution: showerWater
       generated:
         reagents:
         - ReagentId: Water

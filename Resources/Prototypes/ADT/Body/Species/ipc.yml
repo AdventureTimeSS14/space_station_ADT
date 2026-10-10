@@ -188,7 +188,7 @@
     defaultRotation: -90
     horizontalRotation: -90
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTypeTrigger
         damageType: Blunt
@@ -223,7 +223,7 @@
   - type: PointLight
     enabled: false
     color: "#ffffff"
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ADTLightMaskCone
     offset: 0,-0.3
     autoRot: true
     radius: 3
@@ -245,10 +245,7 @@
     priority: 4
     lightningExplode: false
   - type: Vocal
-    sounds:
-      Male: UnisexIPC
-      Female: UnisexIPC
-      Unsexed: UnisexIPC
+    emoteSounds: UnisexIPC
   - type: Deathgasp
     prototype: IPCDeathgasp
     onAnyState: true
@@ -398,7 +395,7 @@
       map: ["base"]
 
 - type: entity
-  parent: [ OrganBase ]
+  parent: [ OrganBase, OrganBaseChildInternal ]
   id: ADTOrganIPCEyes
   components:
   - type: Sprite

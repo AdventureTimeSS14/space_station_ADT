@@ -1,6 +1,6 @@
-﻿- type: entity
+- type: entity
   abstract: true
-  parent: BaseItem
+  parent: BaseSheet
   id: SheetGlassBase
   name: glass
   description: A sheet of glass, used often on the station in various applications.
@@ -25,34 +25,6 @@
   - type: Injurable
     damageContainer: Inorganic
   - type: Appearance
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 50
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: GlassBreak
-          params:
-            volume: -4
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          ShardGlass:
-            min: 1
-            max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-  - type: SolutionContainerManager
-    solutions:
-      glass:
-        canReact: false
   # ADT Start
   - type: Healing
     delay: 1.5
@@ -101,14 +73,27 @@
   - type: Construction
     graph: Glass
     node: SheetGlass
-  - type: Extractable
-    grindableSolutionName: glass
-  - type: SolutionContainerManager
-    solutions:
-      glass:
-        reagents:
-        - ReagentId: Silicon
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Silicon
+        Quantity: 10
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
 
 - type: entity
   parent: SheetGlass
@@ -166,12 +151,6 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
         damage: 50
       behaviors:
       - !type:PlaySoundBehavior
@@ -184,8 +163,6 @@
           ShardGlassReinforced:
             min: 1
             max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
   # ADT IPC healing start
   - type: Healing
     damageContainers:
@@ -195,6 +172,16 @@
         Heat: -8
         Cold: -8
   # ADT IPC healing end
+  - type: Solution
+    solution:
+      maxVol: 15
+      reagents:
+      - ReagentId: Silicon
+        Quantity: 10
+      - ReagentId: Iron
+        Quantity: 4.5
+      - ReagentId: Carbon
+        Quantity: 0.5
 
 - type: entity
   parent: SheetRGlass
@@ -207,19 +194,6 @@
   - type: Stack
     stackType: ReinforcedGlass
     count: 1
-  - type: Extractable
-    grindableSolutionName: rglass
-  - type: SolutionContainerManager
-    solutions:
-      rglass:
-        reagents:
-        - ReagentId: Silicon
-          Quantity: 10
-        - ReagentId: Iron
-          Quantity: 4.5
-        - ReagentId: Carbon
-          Quantity: 0.5
-        canReact: false
 
 - type: entity
   parent: SheetGlassBase
@@ -252,12 +226,6 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
         damage: 50
       behaviors:
       - !type:PlaySoundBehavior
@@ -270,8 +238,6 @@
           ShardGlassPlasma:
             min: 1
             max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
   # ADT IPC healing start
   - type: Healing
     damageContainers:
@@ -281,6 +247,14 @@
         Heat: -5
         Cold: -10
   # ADT IPC healing end
+  - type: Solution
+    solution:
+      maxVol: 20
+      reagents:
+      - ReagentId: Silicon
+        Quantity: 10
+      - ReagentId: Plasma
+        Quantity: 10
 
 - type: entity
   parent: SheetPGlass
@@ -293,17 +267,6 @@
   - type: Stack
     stackType: PlasmaGlass
     count: 1
-  - type: Extractable
-    grindableSolutionName: pglass
-  - type: SolutionContainerManager
-    solutions:
-      pglass:
-        reagents:
-        - ReagentId: Silicon
-          Quantity: 10
-        - ReagentId: Plasma
-          Quantity: 10
-        canReact: false
 
 - type: entity
   parent: SheetPGlass
@@ -333,13 +296,7 @@
     graph: Glass
     node: SheetRPGlass
   - type: Destructible  #ADT-Tweak_start
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
+    thresholdsOverride: # ADT-Tweak
     - trigger:
         !type:DamageTrigger
         damage: 50
@@ -355,22 +312,21 @@
             min: 1
             max: 1
       - !type:DoActsBehavior
-        acts: [ "Destruction" ]  #ADT-Tweak_End
+        acts: [ "Destruction" ]
   - type: Extractable
-    grindableSolutionName: rpglass
-  - type: SolutionContainerManager
-    solutions:
-      rpglass:
-        reagents:
-        - ReagentId: Silicon
-          Quantity: 10
-        - ReagentId: Plasma
-          Quantity: 10
-        - ReagentId: Iron
-          Quantity: 4.5
-        - ReagentId: Carbon
-          Quantity: 0.5
-        canReact: false
+    grindableSolutionName: composite
+  - type: Solution
+    solution:
+      maxVol: 25
+      reagents:
+      - ReagentId: Silicon
+        Quantity: 10
+      - ReagentId: Plasma
+        Quantity: 10
+      - ReagentId: Iron
+        Quantity: 4.5
+      - ReagentId: Carbon
+        Quantity: 0.5
   # ADT IPC healing start
   - type: Healing
     damageContainers:
@@ -424,12 +380,6 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
         damage: 50
       behaviors:
       - !type:PlaySoundBehavior
@@ -442,19 +392,16 @@
           ShardGlassUranium:
             min: 1
             max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
   - type: Extractable
-    grindableSolutionName: uglass
-  - type: SolutionContainerManager
-    solutions:
-      uglass:
-        reagents:
-        - ReagentId: Silicon
-          Quantity: 10
-        - ReagentId: Uranium
-          Quantity: 10
-        canReact: false
+    grindableSolutionName: composite
+  - type: Solution
+    solution:
+      maxVol: 20
+      reagents:
+      - ReagentId: Silicon
+        Quantity: 10
+      - ReagentId: Uranium
+        Quantity: 10
   # ADT IPC healing start
   - type: Healing
     damageContainers:
@@ -504,13 +451,7 @@
     graph: Glass
     node: SheetRUGlass
   - type: Destructible #ADT-Tweak_start
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
+    thresholdsOverride: # ADT-Tweak
     - trigger:
         !type:DamageTrigger
         damage: 50
@@ -526,22 +467,21 @@
             min: 1
             max: 1
       - !type:DoActsBehavior
-        acts: [ "Destruction" ] #ADT-Tweak_end
+        acts: [ "Destruction" ]
   - type: Extractable
-    grindableSolutionName: ruglass
-  - type: SolutionContainerManager
-    solutions:
-      ruglass:
-        reagents:
-        - ReagentId: Silicon
-          Quantity: 10
-        - ReagentId: Uranium
-          Quantity: 10
-        - ReagentId: Iron
-          Quantity: 4.5
-        - ReagentId: Carbon
-          Quantity: 0.5
-        canReact: false
+    grindableSolutionName: composite
+  - type: Solution
+    solution:
+      maxVol: 25
+      reagents:
+      - ReagentId: Silicon
+        Quantity: 10
+      - ReagentId: Uranium
+        Quantity: 10
+      - ReagentId: Iron
+        Quantity: 4.5
+      - ReagentId: Carbon
+        Quantity: 0.5
   # ADT IPC healing start
   - type: Healing
     damageContainers:
@@ -595,12 +535,6 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
         damage: 50
       behaviors:
       - !type:PlaySoundBehavior
@@ -613,21 +547,16 @@
           ShardGlassClockwork:
             min: 1
             max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
   - type: Extractable
-    grindableSolutionName: cglass
-  - type: SolutionContainerManager
-    solutions:
-      cglass:
-        reagents:
-        - ReagentId: Silicon
-          Quantity: 10
-        - ReagentId: Zinc
-          Quantity: 3.3
-        - ReagentId: Copper
-          Quantity: 6.7
-        canReact: false
+    grindableSolutionName: composite
+  - type: Solution
+    solution:
+      maxVol: 20
+      reagents:
+      - ReagentId: Silicon
+        Quantity: 10
+      - ReagentId: Brass
+        Quantity: 10
   # ADT IPC healing start
   - type: Healing
     damageContainers:

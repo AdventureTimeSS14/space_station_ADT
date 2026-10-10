@@ -8,11 +8,10 @@ using Robust.Shared.Timing;
 namespace Content.Shared.Damage.Systems;
 public sealed class HealOnHoldingSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly ADTHealingVisualsSystem _healVisuals = default!;
-    [ValidatePrototypeId<EntityPrototype>]
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private ADTHealingVisualsSystem _healVisuals = default!;
     private const string HealEffect = "ADTEffectHealBusyFlash";
     public override void Initialize()
     {

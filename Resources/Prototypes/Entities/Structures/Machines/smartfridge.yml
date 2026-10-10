@@ -1,5 +1,5 @@
 ﻿- type: entity
-  parent: [BaseStructureDynamic, ConstructibleMachine]
+  parent: [BaseStructureDynamic, ConstructibleMachine, BaseMachinePowered, BaseConstructibleMachineDestructible]
   id: SmartFridge
   name: SmartFridge
   description: A refrigerated storage unit for keeping items cold and fresh.
@@ -16,11 +16,19 @@
     sprite: Structures/Machines/smartfridge.rsi
     snapCardinals: true
     layers:
+    - state: "off"
     - state: smartfridge
-      map: ["enum.StorageVisualLayers.Base"]
+      visible: false
+      map: ["powered-base"]
+    # ADT-Tweak-Start
+    - state: smartfridge
+      visible: false
+      map: ["powered-open"]
     - state: smartfridge_door
-      map: ["enum.StorageVisualLayers.Door"]
+      visible: false
+      map: ["powered-closed"]
       shader: unshaded
+    # ADT-Tweak-End
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
@@ -44,7 +52,6 @@
   - type: LitOnPowered
   - type: ApcPowerReceiver
     powerLoad: 200
-  - type: ExtensionCableReceiver
   - type: SmartFridge
     whitelist:
       components:
@@ -96,17 +103,12 @@
   - type: InteractionOutline
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 300
+    - trigger: !type:DamageTrigger
+        damage: 175
       behaviors:
       - !type:PlaySoundBehavior
         sound:
-          collection: MetalBreak
-      - !type:ChangeConstructionNodeBehavior
-        node: machineFrame
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
+          collection: MetalGlassBreak
   - type: Damageable
     damageModifierSet: Metallic
   - type: Injurable
@@ -120,6 +122,19 @@
   - type: ExplosionResistance
     damageCoefficient: 0.1
   - type: Airtight
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        powered-base:
+          True: { visible: true }
+          False: { visible: false }
+        powered-open:
+          True: { visible: true }
+          False: { visible: false }
+        powered-closed:
+          True: { visible: true }
+          False: { visible: false }
+  - type: AmbientMusicMarkerMedical
 
 - type: entity
   parent: SmartFridge

@@ -1,5 +1,5 @@
 using Content.Server.Destructible;
-using Content.Server.Gatherable.Components;
+using Content.Shared.Gatherable.Components;
 using Content.Server.Interaction;
 using Content.Server.Mech.Systems;
 using Content.Shared.DoAfter;
@@ -19,13 +19,13 @@ namespace Content.Server.ADT.Mech.Equipment.EntitySystems;
 /// </summary>
 public sealed class MechDrillSystem : EntitySystem
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly MechSystem _mech = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly InteractionSystem _interaction = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly DestructibleSystem _destructible = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private MechSystem _mech = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private InteractionSystem _interaction = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private DestructibleSystem _destructible = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

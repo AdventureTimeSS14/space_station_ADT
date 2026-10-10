@@ -19,18 +19,18 @@ namespace Content.Server.ADT.Fishing;
 
 public sealed class ADTFishingSystem : EntitySystem
 {
-    [Dependency] private readonly ADTFishingMinigameSystem _minigame = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly IComponentFactory _compFactory = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDefs = default!;
-    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private ADTFishingMinigameSystem _minigame = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private IComponentFactory _compFactory = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ITileDefinitionManager _tileDefs = default!;
+    [Dependency] private ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -246,7 +246,7 @@ public sealed class ADTFishingSystem : EntitySystem
         if (spot.Comp.Junk != null && _random.Prob(spot.Comp.JunkChance))
         {
             var junk = spot.Comp.Junk
-                .GetSpawns(_random.GetRandom(), EntityManager, _proto, new EntityTableContext())
+                .GetSpawns(_random, EntityManager, _proto, new EntityTableContext())
                 .FirstOrDefault();
 
             if (junk != default)

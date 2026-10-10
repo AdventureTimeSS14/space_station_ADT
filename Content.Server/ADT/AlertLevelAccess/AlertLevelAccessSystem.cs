@@ -1,5 +1,5 @@
 using Content.Server.Access.Systems;
-using Content.Server.AlertLevel;
+using Content.Shared.AlertLevel;
 using Content.Shared.Access;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
@@ -14,14 +14,14 @@ public sealed class AlertAccessLevel : SharedAlertAccessLevel
     private static ProtoId<DepartmentPrototype> _secdepartment = "Security";
     private static ProtoId<DepartmentPrototype> _engdepartment = "Engineering";
     private static ProtoId<AccessLevelPrototype> _extended = "ADTExtended";
-    private static List<string> _noSecAccessCode = ["purple", "blue", "green", "yellow"]; //он отвечает за то, когда у сб доступа не будет
-    private static List<string> _engieAccessCode = ["yellow"]; //когда у инжей есть доступы
+    private static List<ProtoId<AlertLevelPrototype>> _noSecAccessCode = ["Blue", "Green", "Yellow"]; //он отвечает за то, когда у сб доступа не будет
+    private static List<ProtoId<AlertLevelPrototype>> _engieAccessCode = ["Yellow"]; //когда у инжей есть доступы
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<AlertLevelChangedEvent>(AccessUpdate);
     }
-    private void AccessUpdate(AlertLevelChangedEvent args)
+    private void AccessUpdate(ref AlertLevelChangedEvent args)
     {
         #region sec
         if (!_noSecAccessCode.Contains(args.AlertLevel))

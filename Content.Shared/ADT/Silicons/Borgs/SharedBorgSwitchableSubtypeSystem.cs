@@ -6,7 +6,7 @@ namespace Content.Shared.ADT.Silicons.Borgs;
 
 public abstract class SharedBorgSwitchableSubtypeSystem : EntitySystem
 {
-    [Dependency] protected readonly IPrototypeManager Prototypes = default!;
+    [Dependency] protected IPrototypeManager Prototypes = default!;
 
     public override void Initialize()
     {

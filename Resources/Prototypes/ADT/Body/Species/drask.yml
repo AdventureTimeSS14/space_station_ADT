@@ -176,7 +176,7 @@
     baseWalkSpeed : 2.5
     baseSprintSpeed : 4.2
   - type: Temperature
-    currentTemperature: 265.15 # -8C - нормальная температура тела
+    temperature: 265.15 # -8C - нормальная температура тела
     specificHeat: 42
   - type: TemperatureDamage
     heatDamageThreshold: 308.15 # 35C
@@ -235,10 +235,7 @@
     interactSuccessSound: /Audio/Effects/thudswoosh.ogg
     messagePerceivedByOthers: hugging-success-generic-others
   - type: Vocal
-    sounds:
-      Male: MaleDrask
-      Female: FemaleDrask
-      Unsexed: MaleDrask
+    emoteSounds: MaleDrask
   - type: Damageable
     damageModifierSet: Drask
   - type: Injurable

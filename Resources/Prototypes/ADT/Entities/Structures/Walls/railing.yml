@@ -18,6 +18,19 @@
   - type: Injurable
     damageContainer: StructuralInorganic
   - type: Climbable
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
   parent: ADTBaseRailingRusty
@@ -42,26 +55,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
         damage: 20
       behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-          params:
-            volume: -6
       - !type:SpawnEntitiesBehavior
         spawn:
           PartRodMetal1:
             min: 0
             max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
 
 - type: entity
   parent: ADTBaseRailingRusty
@@ -85,7 +85,7 @@
       fix2:
         shape:
           !type:PhysShapeAabb
-          bounds: "0.5,0.5,0.45,-0.5"
+          bounds: "0.45,-0.5,0.5,0.5"
         density: 1000
         mask:
         - TableMask
@@ -95,26 +95,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
         damage: 20
       behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-          params:
-            volume: -6
       - !type:SpawnEntitiesBehavior
         spawn:
           PartRodMetal1:
             min: 0
             max: 2
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
 
 - type: entity
   parent: ADTBaseRailingRusty
@@ -129,7 +116,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.5,0.5,-0.45,0.45"
+          bounds: "-0.5,0.45,-0.45,0.5"
         density: 1000
         mask:
         - TableMask
@@ -139,26 +126,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
         damage: 20
       behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-          params:
-            volume: -6
       - !type:SpawnEntitiesBehavior
         spawn:
           PartRodMetal1:
             min: 0
             max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
 
 - type: entity
   parent: ADTBaseRailingRusty
@@ -201,23 +175,10 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
         damage: 20
       behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-          params:
-            volume: -6
       - !type:SpawnEntitiesBehavior
         spawn:
           PartRodMetal1:
             min: 0
             max: 2
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]

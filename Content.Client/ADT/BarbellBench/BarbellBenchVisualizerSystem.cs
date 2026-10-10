@@ -12,8 +12,8 @@ namespace Content.Client.ADT.BarbellBench;
 
 public sealed class BarbellBenchVisualizerSystem : VisualizerSystem<BarbellBenchVisualsComponent>
 {
-    [Dependency] private readonly AnimationPlayerSystem _animationPlayer = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private AnimationPlayerSystem _animationPlayer = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
 
     private const string OverlayLayerKey = "barbell-overlay";
     private const string OverlayAnimationKey = "barbell_rep_overlay_animation";

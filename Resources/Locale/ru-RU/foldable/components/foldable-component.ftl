@@ -18,3 +18,5 @@ fold-unhidden-verb = Надеть поверх одежды
 fold-scroll-verb = Развернуть
 fold-unscroll-verb = Свернуть
 ### End ADT tweak
+fold-lower-visor-verb = Опустить визор
+fold-raise-visor-verb = Поднять визор

@@ -11,9 +11,7 @@
     - type: IconSmooth
       key: walls
       base: state
-    - type: Tag
-      tags:
-        - Wall
+    - type: Wall
     - type: Destructible
       thresholds:
         - trigger:
@@ -50,7 +48,7 @@
     sprite: ADT/Structures/Walls/space_sec_diagonal.rsi
     state: state0
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
       - trigger:
           !type:DamageTrigger
           damage: 550
@@ -69,6 +67,7 @@
   - type: Icon
     sprite: ADT/Structures/Walls/cardboard_walls.rsi
   - type: IconSmooth
+    key: walls
     base: cardboard
   - type: Destructible
     thresholds:
@@ -90,6 +89,7 @@
   - type: Icon
     sprite: ADT/Structures/Walls/stone_bricks_wall.rsi
   - type: IconSmooth
+    key: walls
     base: stonebricks
 
 - type: entity
@@ -103,6 +103,7 @@
   - type: Icon
     sprite: ADT/Structures/Walls/yellow_bricks_wall.rsi
   - type: IconSmooth
+    key: walls
     base: yellowbricks
 
 - type: entity
@@ -414,9 +415,7 @@
     - type: IconSmooth
       key: walls
       base: state
-    - type: Tag
-      tags:
-        - Wall
+    - type: Wall
 
 - type: entity
   parent: WallShuttleDiagonal
@@ -430,9 +429,9 @@
     - Wall
   components:
   - type: Transform
+  - type: Wall
   - type: Tag
     tags:
-    - Wall
     - Diagonal
   - type: Sprite
     drawdepth: Walls
@@ -627,10 +626,10 @@
     sprite: ADT/Structures/Walls/admin_wall.rsi
     state: white
   - type: Occluder
+  - type: Wall
   - type: Tag
     tags:
     - Structure
-    - Wall
     - HideContextMenu
   - type: IsRoof
   - type: PlacementReplacement

@@ -117,5 +117,18 @@
   - type: TargetObjective
     title: objective-condition-teach-person-title
   - type: PickRandomPerson
+    conditions:
+    - !type:AntagonistTagCondition
+      tags:
+      - OnStation
+    - !type:AntagonistTagCondition
+      inverted: true
+      tags:
+      - Unkillable
+    - !type:ObjectiveTargetCondition
+      inverted: true
+      whitelist:
+        components:
+        - TeachLessonCondition
   - type: TeachLessonCondition
   - type: CodeCondition

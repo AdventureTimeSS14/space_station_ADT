@@ -13,3 +13,14 @@
     - type: Sprite
       sprite: Corvax/Structures/Furniture/chairs.rsi
       state: carp
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 50
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:PlaySoundBehavior
+          sound:
+            collection: MetalBreak

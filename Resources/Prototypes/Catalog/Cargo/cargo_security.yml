@@ -8,6 +8,7 @@
   category: cargoproduct-category-name-security
   group: market
 
+# ADT-Tweak-Start
 - type: cargoProduct
   id: SecurityHelmet
   icon:
@@ -17,6 +18,7 @@
   cost: 550
   category: cargoproduct-category-name-security
   group: market
+# ADT-Tweak-End
 
 - type: cargoProduct
   id: SecurityNonLethal
@@ -25,16 +27,6 @@
     state: base
   product: CrateSecurityNonlethal
   cost: 4000
-  category: cargoproduct-category-name-security
-  group: market
-
-- type: cargoProduct
-  id: SecuritySupplies
-  icon:
-    sprite: Objects/Storage/boxes.rsi
-    state: box_security
-  product: CrateSecuritySupplies
-  cost: 500
   category: cargoproduct-category-name-security
   group: market
 

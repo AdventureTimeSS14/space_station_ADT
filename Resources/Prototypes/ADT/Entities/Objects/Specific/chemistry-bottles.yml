@@ -4,14 +4,13 @@
   parent: BaseChemistryBottleFilled
   components:
   - type: Label
-    currentLabel: reagent-name-romerol
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: Romerol
-          Quantity: 30
+    localizedLabel: reagent-name-romerol
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: Romerol
+        Quantity: 30
 
 - type: entity
   id: ADTChemistryBottlePolymorphine
@@ -19,14 +18,13 @@
   parent: BaseChemistryBottleFilled
   components:
   - type: Label
-    currentLabel: reagent-name-polymorphine
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTPolymorphine
-          Quantity: 30
+    localizedLabel: reagent-name-polymorphine
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: ADTPolymorphine
+        Quantity: 30
 
 - type: entity
   id: ADTChemistryBottleChaoticPolymorphine
@@ -34,11 +32,10 @@
   parent: BaseChemistryBottleFilled
   components:
   - type: Label
-    currentLabel: reagent-name-chaotic-polymorphine
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTChaoticPolymorphine
-          Quantity: 30
+    localizedLabel: reagent-name-chaotic-polymorphine
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: ADTChaoticPolymorphine
+        Quantity: 30

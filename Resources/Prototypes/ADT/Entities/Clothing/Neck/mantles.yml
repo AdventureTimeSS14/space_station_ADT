@@ -30,8 +30,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Neck/Mantles/magmantle.rsi
   - type: TemperatureProtection
-    heatingCoefficient: 0.8 # equivalent to winter boots, scarves
-    coolingCoefficient: 0.8 # equivalent to winter boots, scarves
+    coefficient: 0.8
   - type: ToggleClothing
     action: ADTActionToggleMagmantle
   - type: Tag

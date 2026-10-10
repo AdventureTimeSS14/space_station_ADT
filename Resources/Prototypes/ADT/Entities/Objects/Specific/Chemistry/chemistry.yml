@@ -18,10 +18,10 @@
   - type: Item
     size: Tiny
     sprite: ADT/Objects/Specific/Chemistry/syringe.rsi
-  - type: SolutionContainerManager
-    solutions:
-      injector:
-        maxVol: 5
+  - type: Solution
+    solution:
+      maxVol: 5
+      reagents: []
   - type: FitsInDispenser
     solution: injector
   - type: Injector

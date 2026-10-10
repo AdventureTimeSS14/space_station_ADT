@@ -58,6 +58,7 @@
   - MegaSprayBottle
   - ADTBluespaceTrashCan # ADT tweak
   - ADTAdvancedWateringCan #ADT-Tweak
+  - TrashBagHolding
 
 - type: latheRecipePack
   id: Instruments

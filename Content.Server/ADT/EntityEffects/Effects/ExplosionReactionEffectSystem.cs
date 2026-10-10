@@ -7,8 +7,8 @@ namespace Content.Server.ADT.EntityEffects.Effects;
 
 public sealed partial class ExplosionReactionEffectSystem : EntityEffectSystem<TransformComponent, ExplosionEvent>
 {
-    [Dependency] private readonly SharedExplosionSystem _explosion = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private SharedExplosionSystem _explosion = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     protected override void Effect(Entity<TransformComponent> entity, ref EntityEffectEvent<ExplosionEvent> args)
     {

@@ -48,8 +48,14 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon: { sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Shoes/magboots_officer.rsi, state: icon }
-    iconOn: { sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Shoes/magboots_officer.rsi, state: icon-on }
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Shoes/magboots_officer.rsi
+    layers:
+    - state: icon
+      map: ["enum.ActionVisuals.Icon"]
+    - state: icon-on
+      map: ["enum.ActionVisuals.IconToggled"]
+      visible: false
 
 - type: entity
   id: ADTShipBattleActionToggleMagbootsFleet
@@ -57,5 +63,11 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon: { sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Shoes/magboots.rsi, state: icon }
-    iconOn: { sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Shoes/magboots.rsi, state: icon-on }
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Shoes/magboots.rsi
+    layers:
+    - state: icon
+      map: ["enum.ActionVisuals.Icon"]
+    - state: icon-on
+      map: ["enum.ActionVisuals.IconToggled"]
+      visible: false

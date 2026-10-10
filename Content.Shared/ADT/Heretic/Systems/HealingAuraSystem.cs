@@ -9,12 +9,12 @@ namespace Content.Shared.ADT.Heretic.Systems;
 
 public sealed class HealingAuraSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IComponentFactory _compFact = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IComponentFactory _compFact = default!;
 
-    [Dependency] private readonly SharedHereticAbilitySystem _heretic = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private SharedHereticAbilitySystem _heretic = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
 
     public override void Update(float frameTime)
     {

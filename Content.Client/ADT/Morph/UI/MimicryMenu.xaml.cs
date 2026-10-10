@@ -10,8 +10,8 @@ namespace Content.Client.ADT.Morph.UI;
 
 public sealed partial class MimicryMenu : RadialMenu
 {
-    [Dependency] private readonly EntityManager _ent = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private EntityManager _ent = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     public EntityUid Entity { get; private set; }
 

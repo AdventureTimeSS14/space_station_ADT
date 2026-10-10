@@ -82,7 +82,7 @@ namespace Content.Shared.ADT.VendingMachines
     }
 
     [Serializable, NetSerializable]
-    public enum VendingMachineUiKey
+    public enum ADTVendingMachineUiKey
     {
         Key,
     }

@@ -14,10 +14,10 @@
     sound:
       collection: pop
     closeable: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents: []
   - type: RefillableSolution
     solution: food
   - type: Spillable

@@ -14,11 +14,12 @@ namespace Content.Server.ADT.Xenobiology.XenobiologyBountyConsole;
 
 public sealed class StationXenobiologyBountyDatabaseSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly NameIdentifierSystem _nameIdentifier = default!;
-    [Dependency] private readonly XenobiologyBountyConsoleSystem _xenoConsole = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private NameIdentifierSystem _nameIdentifier = default!;
+    [Dependency] private XenobiologyBountyConsoleSystem _xenoConsole = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IdentitySystem _identity = default!;
 
     private static readonly ProtoId<NameIdentifierGroupPrototype> BountyNameIdentifierGroup = "Xenobounty";
 
@@ -124,7 +125,7 @@ public sealed class StationXenobiologyBountyDatabaseSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return false;
 
-        _nameIdentifier.GenerateUniqueName(uid, BountyNameIdentifierGroup, out var randomVal);
+        _nameIdentifier.GenerateUniqueNameModifier(BountyNameIdentifierGroup, out var randomVal);
         var newBounty = new XenobiologyBountyData(bounty, randomVal);
 
         if (component.Bounties.Any(bountyData => bountyData.Id == newBounty.Id))
@@ -156,11 +157,7 @@ public sealed class StationXenobiologyBountyDatabaseSystem : EntitySystem
 
             string? actorName = null;
             if (actor != null)
-            {
-                var getIdentityEvent = new TryGetIdentityShortInfoEvent(ent.Owner, actor.Value);
-                RaiseLocalEvent(getIdentityEvent);
-                actorName = getIdentityEvent.Title;
-            }
+                actorName = _identity.GetIdentityShortInfo(actor.Value, ent.Owner);
 
             ent.Comp.History.Add(new XenobiologyBountyHistoryData(data,
                 skipped ? CargoBountyHistoryData.BountyResult.Skipped : CargoBountyHistoryData.BountyResult.Completed,

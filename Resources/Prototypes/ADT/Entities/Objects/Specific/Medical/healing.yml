@@ -136,7 +136,7 @@
   suffix: AmbuzolPlus 5u, 5
   components:
   - type: Label
-    currentLabel: Амбузол+ 5u
+    localizedLabel: adt-pill-label-ambuzol-plus-5u
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector

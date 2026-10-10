@@ -4,13 +4,12 @@
   name: No Stop Can
   description: No Stop Can
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: EnergyDrink
-          Quantity: 30
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: EnergyDrink
+        Quantity: 30
   - type: Appearance
   - type: GenericVisualizer
     visuals:

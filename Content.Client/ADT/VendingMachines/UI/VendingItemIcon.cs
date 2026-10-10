@@ -2,7 +2,7 @@ using System.Numerics;
 using Content.Shared.ADT.VendingMachines;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
-using Content.Shared.Chemistry.Components.SolutionManager;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Rounding;
 using Robust.Client.GameObjects;
@@ -16,8 +16,9 @@ namespace Content.Client.ADT.VendingMachines.UI;
 
 public sealed class VendingItemIcon : Control
 {
-    [Dependency] private readonly IComponentFactory _componentFactory = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IComponentFactory _componentFactory = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IEntitySystemManager _entitySystems = default!;
 
     private readonly List<IconLayer> _layers = [];
     private Vector2 _contentSize;
@@ -114,19 +115,21 @@ public sealed class VendingItemIcon : Control
         }
         else
         {
-            if (!proto.TryGetComponent<SolutionContainerManagerComponent>(out var container, _componentFactory))
-                return null;
-
-            var solutions = container.Solutions;
-            if (solutions == null || solutions.Count == 0)
-                return null;
-
             Solution? solution = null;
-            foreach (var pair in solutions)
+            if (proto.TryGetComponent<SolutionComponent>(out var selfSolution, _componentFactory)
+                && (visuals.SolutionName == null || selfSolution.Id == visuals.SolutionName))
             {
-                if (visuals.SolutionName == null || pair.Key == visuals.SolutionName)
+                solution = selfSolution.Solution;
+            }
+            else
+            {
+                var solutionSystem = _entitySystems.GetEntitySystem<SharedSolutionContainerSystem>();
+                foreach (var (id, protoSolution) in solutionSystem.EnumerateSolutions(proto))
                 {
-                    solution = pair.Value;
+                    if (visuals.SolutionName != null && id != visuals.SolutionName)
+                        continue;
+
+                    solution = protoSolution;
                     break;
                 }
             }

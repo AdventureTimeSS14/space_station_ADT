@@ -15,10 +15,11 @@
   - type: Action
     useDelay: 1
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Heretic/abilities_heretic.rsi
-      state: flesh_surgery
     checkCanInteract: true
+  - type: Sprite
+    sprite: ADT/Heretic/abilities_heretic.rsi
+    layers:
+    - state: flesh_surgery
   - type: InstantAction
     event: !type:EventHereticFleshSurgery
   - type: HereticAction

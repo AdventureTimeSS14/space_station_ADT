@@ -8,7 +8,7 @@ namespace Content.Shared.ADT.Wizard.FadingTimedDespawn;
 /// </summary>
 public abstract class SharedFadingTimedDespawnSystem : EntitySystem
 {
-    [Dependency] protected readonly IGameTiming Timing = default!;
+    [Dependency] protected IGameTiming Timing = default!;
 
     private readonly HashSet<EntityUid> _queuedDespawnEntities = new();
 

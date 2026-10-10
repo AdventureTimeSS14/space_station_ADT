@@ -10,7 +10,7 @@ namespace Content.Client.ADT.Mech.UI;
 [GenerateTypedNameReferences]
 public sealed partial class MechGunUiFragment : BoxContainer
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public event Action<EntityUid?>? ReloadAction;
     public EntityUid? FragmentOwner;

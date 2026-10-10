@@ -13,7 +13,7 @@ public sealed partial class QueueGamesControl : Control
 {
     private static readonly ResPath SlotRsi = new("/Textures/ADT/Structures/Machines/slotmachines/slotmachinehighroller.rsi");
 
-    [Dependency] private readonly QueueGamesManager _manager = default!;
+    [Dependency] private QueueGamesManager _manager = default!;
 
     private readonly Button[] _cells = new Button[MsgQueueGameState.BoardSize];
     private bool _spinning;

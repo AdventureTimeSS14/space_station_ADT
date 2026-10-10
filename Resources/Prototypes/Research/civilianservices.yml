@@ -240,6 +240,7 @@
   - AdvMopItem
   - MegaSprayBottle
   - BorgModuleAdvancedCleaning
+  - TrashBagHolding
   # ADT Research Console Rework start
   position: 1,1
   requiredTech:

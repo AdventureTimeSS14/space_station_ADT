@@ -12,7 +12,7 @@ namespace Content.Server.ADT.Nuke;
 /// </summary>
 public sealed class ADTNukeWipeSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
 
     private static readonly DamageSpecifier NukeDamage = new()
     {

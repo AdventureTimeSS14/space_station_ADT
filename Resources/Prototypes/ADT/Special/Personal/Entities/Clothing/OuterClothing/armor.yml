@@ -46,8 +46,7 @@
   - type: Clothing
     sprite: ADT/Special/Personal/sirtalter_armorminer.rsi
   - type: TemperatureProtection
-    heatingCoefficient: 0.7
-    coolingCoefficient: 1
+    coefficient: 0.7
   - type: Armor
     modifiers:
       coefficients:
@@ -84,8 +83,7 @@
   - type: Clothing
     sprite: ADT/Special/Personal/Raven559/blue_shield_ceremonial_reinforced_armor.rsi
   - type: TemperatureProtection
-    heatingCoefficient: 0.7
-    coolingCoefficient: 1
+    coefficient: 0.7
   - type: Armor
     modifiers:
       coefficients:

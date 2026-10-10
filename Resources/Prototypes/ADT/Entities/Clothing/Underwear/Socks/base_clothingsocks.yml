@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: Clothing
+  parent: [ Clothing, BaseSlicingRefinable ]
   id: ADTClothingUnderwearSocksBase
   name: based socks
   description: "You should not see this. If you see it, let Neko Dar#8948 know."
@@ -11,20 +11,19 @@
     size: Tiny
   - type: Clothing
     slots: SOCKS
-  - type: Butcherable
-    butcheringType: Knife
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: MaterialCloth1
       amount: 1
   - type: Edible
     requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 10
+  - type: Solution
+    id: food
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Fiber
+        Quantity: 10
   - type: StaticPrice
     price: 14
   - type: Tag

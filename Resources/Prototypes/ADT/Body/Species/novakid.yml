@@ -123,23 +123,21 @@
   - BaseSpeciesMobOrganic
   id: MobNovakid
   components:
-  - type: Hunger
-    baseDecayRate: 0.03125
-    lastAuthoritativeHungerValue: 400
-    thresholds:
-      Overfed: 400
-      Okay: 300
-      Peckish: 200
-      Starving: 100
-      Dead: 0
-    starvationDamage:
-      types:
-        Cold: 0.12
-        Caustic: 0.08
-        Cellular: 0.05
-  - type: Thirst
-    baseDecayRate: 0
-    updateRate: 0
+  - type: Satiation
+    satiations:
+      Hunger:
+        prototype: ADTNovakidHunger
+      Thirst:
+        prototype: ADTNovakidThirst
+  - type: SatiationDamage
+    satiations:
+      Hunger:
+        thresholds:
+          Starving:
+            types:
+              Cold: 0.12
+              Caustic: 0.08
+              Cellular: 0.05
   - type: Damageable
     damageModifierSet: ADTNovakid
   - type: Injurable
@@ -160,7 +158,7 @@
     canCreateVacuum: false
   - type: ExplodeOnTrigger
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
         damage: 325
@@ -193,10 +191,7 @@
   - type: Speech
     speechSounds: Lizard
   - type: Vocal
-    sounds:
-      Male: MaleNovakid
-      Female: FemaleNovakid
-      Unsexed: UnisexNovakid
+    emoteSounds: MaleNovakid
   - type: MeleeWeapon
     hidden: true
     soundHit:
@@ -207,7 +202,7 @@
       types:
         Heat: 5
   - type: Temperature
-    currentTemperature: 410.15
+    temperature: 410.15
     specificHeat: 46
   - type: TemperatureDamage
     heatDamageThreshold: 650

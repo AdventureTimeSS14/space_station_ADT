@@ -19,14 +19,14 @@ namespace Content.Server.ADT.Lavaland;
 
 public sealed class ADTTorchHolderSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedPointLightSystem _light = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedPointLightSystem _light = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     private static readonly TimeSpan UpdateInterval = TimeSpan.FromSeconds(1);
 
@@ -159,7 +159,7 @@ public sealed class ADTTorchHolderSystem : EntitySystem
         if (!TryComp<ItemSlotsComponent>(ent, out var slots))
             return null;
 
-        if (!_itemSlots.TryGetSlot(ent.Owner, ent.Comp.Slot, out var slot, slots))
+        if (!_itemSlots.TryGetSlot((ent.Owner, slots), ent.Comp.Slot, out var slot))
             return null;
 
         return slot.Item;

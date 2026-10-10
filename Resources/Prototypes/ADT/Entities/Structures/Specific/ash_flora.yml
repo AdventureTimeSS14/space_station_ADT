@@ -44,9 +44,7 @@
     minAmount: 1
     maxAmount: 3
     harvestTime: 6
-    toolWhitelist:
-      components:
-      - Sharp
+    toolQuality: Slicing
     popupLow: adt-ash-flora-tall-shroom-low
     popupMedium: adt-ash-flora-tall-shroom-medium
     popupHigh: adt-ash-flora-tall-shroom-high
@@ -255,9 +253,7 @@
     minAmount: 1
     maxAmount: 4
     harvestTime: 5
-    toolWhitelist:
-      components:
-      - Sharp
+    toolQuality: Slicing
     popupLow: adt-ash-flora-cap-shroom-low
     popupMedium: adt-ash-flora-cap-shroom-medium
     popupHigh: adt-ash-flora-cap-shroom-high
@@ -362,9 +358,7 @@
     minAmount: 1
     maxAmount: 4
     harvestTime: 4
-    toolWhitelist:
-      components:
-      - Sharp
+    toolQuality: Slicing
     popupLow: adt-ash-flora-stem-shroom-low
     popupMedium: adt-ash-flora-stem-shroom-medium
     popupHigh: adt-ash-flora-stem-shroom-high
@@ -576,9 +570,7 @@
     minAmount: 2
     maxAmount: 5
     harvestTime: 4
-    toolWhitelist:
-      components:
-      - Sharp
+    toolQuality: Slicing
     popupLow: adt-ash-flora-coaltree-low
     popupMedium: adt-ash-flora-coaltree-medium
     popupHigh: adt-ash-flora-coaltree-high

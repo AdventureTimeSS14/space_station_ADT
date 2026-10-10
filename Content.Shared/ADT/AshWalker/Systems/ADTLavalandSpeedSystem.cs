@@ -6,7 +6,7 @@ namespace Content.Shared.ADT.AshWalker.Systems;
 
 public sealed class ADTLavalandSpeedSystem : EntitySystem
 {
-    [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
+    [Dependency] private MovementSpeedModifierSystem _movement = default!;
 
     public override void Initialize()
     {

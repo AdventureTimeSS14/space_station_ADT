@@ -12,7 +12,7 @@ using static Robust.Shared.Input.Binding.PointerInputCmdHandler;
 namespace Content.Client.ADT.Silicons;
 public sealed class DoorClickSystem : EntitySystem
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     public override void Initialize()
     {

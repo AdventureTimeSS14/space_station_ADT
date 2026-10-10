@@ -15,6 +15,7 @@
   - ADTBottomCap
   - ADTSocksCaptain
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
   #- CaptainJobTrinkets
@@ -40,6 +41,7 @@
   - ADTBottomHOP
   - ADTSocksHOP
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
   - ADTRacialItems # ADT-Tweak
@@ -87,6 +89,7 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -114,6 +117,7 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -139,6 +143,7 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -171,6 +176,7 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -194,6 +200,7 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -220,6 +227,7 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -250,6 +258,7 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -278,6 +287,7 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -304,6 +314,7 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -335,6 +346,7 @@
   - ADTBottom
   - ADTSocksClown
   # ADT underwear tweak end
+  - AssistiveItems
   - SurvivalClown
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -363,6 +375,8 @@
   - ADTSocksMime
   # ADT underwear tweak end
   - SurvivalMime
+  - AssistiveItems
+  - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
   - ADTRacialItems # ADT-Tweak
@@ -380,6 +394,7 @@
   - CommonBackpack
   - ADTMusicianGloves # ADT-tweak
   - MusicianOuterClothing
+  - Instruments
   - Glasses
   - ADTMusicianPDA # ADT-tweak
   # ADT underwear tweak start
@@ -387,6 +402,7 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -419,6 +435,7 @@
   - ADTBottomQM
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
   - ADTRacialItems # ADT-Tweak
@@ -445,6 +462,7 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -474,6 +492,7 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -503,6 +522,7 @@
   - ADTBottomCE
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - SurvivalExtended
   - Trinkets
   - ADTRacialItems # ADT-Tweak
@@ -524,6 +544,7 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - SurvivalExtended
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -551,6 +572,7 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - SurvivalExtended
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -580,6 +602,7 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - SurvivalExtended
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -610,6 +633,7 @@
   - ADTBottomRD
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
   - ADTRacialItems # ADT-Tweak
@@ -637,6 +661,7 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -659,6 +684,7 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -687,6 +713,7 @@
   - ADTBottomHOS
   - ADTSocksHOS
   # ADT underwear tweak end
+  - AssistiveItems
   - SurvivalSecurity
   - Trinkets
   - ADTRacialItems # ADT-Tweak
@@ -714,6 +741,7 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - SurvivalSecurity
   - Trinkets
   - ADTRacialItems # ADT-Tweak
@@ -742,6 +770,7 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - SurvivalSecurity
   - Trinkets
   - ADTRacialItems # ADT-Tweak
@@ -767,6 +796,8 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - SecurityShoes
+  - AssistiveItems
   - SurvivalSecurity
   - Trinkets
   - ADTRacialItems # ADT-Tweak
@@ -782,6 +813,7 @@
   - SecurityCadetNeckADT # ADT-Loadouts
   - SecurityCadetJumpsuit
   - SecurityBackpack
+  - AssistiveItems
   - SurvivalSecurity
   - Trinkets
   - ADTRacialItems # ADT-Tweak
@@ -835,6 +867,7 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -883,6 +916,7 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
@@ -892,6 +926,21 @@
   - GroupSpeciesBreathTool
   # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
   # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
+
+- type: roleLoadout
+  id: JobTramDriver
+  groups:
+  - GroupTankHarness
+  - CommonBackpack
+  - TramDriverJumpsuit
+  - TramDriverOuterClothing #Vest and such
+  - TramDriverHat
+  - TramDriverGloves
+  - Glasses
+  - Survival
+  - Trinkets
+  #- TramDriverJobTrinkets
+  - GroupSpeciesBreathTool
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs
 # They will be used without player configuration, thus they will only ever apply what is forced by MinLimit
@@ -928,6 +977,13 @@
   id: RoleSurvivalExtended
   groups:
   - SurvivalExtended
+  - GroupSpeciesBreathTool
+  - GroupTankHarness
+
+- type: roleLoadout
+  id: RoleSurvivalExtendedAntag # Used by antagonists that spawn off-station (e.g wizards)
+  groups:
+  - SurvivalExtendedAntag
   - GroupSpeciesBreathTool
   - GroupTankHarness
 
@@ -969,6 +1025,12 @@
   groups:
   - GroupEVATank
   - SurvivalExtended
+
+- type: roleLoadout
+  id: RoleSurvivalEVAAntag # Used by antagonists that spawn off-station AND in space (e.g ninjas)
+  groups:
+  - GroupEVATank
+  - SurvivalExtendedAntag
 
 - type: roleLoadout
   id: RoleSurvivalSpaceNinja

@@ -49,3 +49,7 @@ ent-BoxSurvivalMilitaryDouble = { ent-BoxCardboardSmall }
 ent-BoxSurvivalMilitaryDoubleNitrogen = { ent-BoxSurvivalMilitaryDouble }
     .desc = { ent-BoxSurvivalMilitaryDouble.desc }
     .suffix = Военный Азот N2
+ent-BoxSurvivalDeluxeExtended = коробка выживания делюкс с увеличенным баллоном O2
+    .desc = Коробка выживания делюкс с дыхательной маской, аварийным кислородным баллоном увеличенной ёмкости, аварийным медипеном, аварийным фальшфейером и небольшим запасом еды и воды.
+ent-BoxSurvivalDeluxeExtendedNitrogen = коробка выживания делюкс с увеличенным баллоном N2
+    .desc = Коробка выживания делюкс с дыхательной маской, аварийным азотным баллоном увеличенной ёмкости, аварийным медипеном, аварийным фальшфейером и небольшим запасом еды и воды.

@@ -15,10 +15,10 @@ namespace Content.Server.ADT.Medical.IV;
 
 public sealed class IvDripSystem : SharedIvDripSystem
 {
-    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _sharedSolutionContainer = default!;
-    [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
+    [Dependency] private ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedSolutionContainerSystem _sharedSolutionContainer = default!;
+    [Dependency] private BloodstreamSystem _bloodstream = default!;
 
     private bool TryGetBloodstream(
         EntityUid attachedTo,

@@ -1,8 +1,8 @@
 ﻿# base
 
 - type: entity
-  id: VendingMachine
-  parent: BaseMachinePowered
+  id: BaseVendingMachine
+  parent: [ BaseMachinePowered, BaseMachineDestructible ]
   name: vending machine
   description: Just add capitalism!
   abstract: true
@@ -38,30 +38,26 @@
         density: 200
   - type: Destructible
     thresholds:
-    - trigger: # Excess damage, don't do anything
-        !type:DamageTrigger
-        damage: 200
+    - trigger: !type:DamageTrigger
+        damage: 175
       behaviors:
       - !type:PlaySoundBehavior
         sound:
           collection: MetalGlassBreak
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
+    - trigger: !type:DamageTrigger
+        damage: 75
       behaviors:
       - !type:DoActsBehavior
-        acts: ["Breakage"]
+        acts: [ "Breakage" ]
       - !type:EjectVendorItems
   - type: Repairable
     doAfterDelay: 8
   - type: ActivatableUI
-    key: enum.VendingMachineUiKey.Key
+    key: enum.ADTVendingMachineUiKey.Key
   - type: ActivatableUIRequiresPower
   - type: UserInterface
     interfaces:
-      enum.VendingMachineUiKey.Key:
+      enum.ADTVendingMachineUiKey.Key:
         type: VendingMachineBoundUserInterface
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
@@ -108,6 +104,20 @@
   - type: WiresVisuals
   - type: RadioJobIconOverride # ADT-Tweak
     iconId: JobIconMachine
+  - type: VendingMachineEject
+  - type: VendingMachineDispenseOnHit
+    chance: 0.25
+    threshold: 2
+
+- type: entity
+  id: VendingMachine
+  parent: BaseVendingMachine
+  abstract: true
+  components:
+  - type: VendingMachineVisuals
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
 
 - type: entity
   id: VendingMachineWallmount
@@ -149,11 +159,11 @@
   - type: Repairable
     doAfterDelay: 8
   - type: ActivatableUI
-    key: enum.VendingMachineUiKey.Key
+    key: enum.ADTVendingMachineUiKey.Key
   - type: ActivatableUIRequiresPower
   - type: UserInterface
     interfaces:
-      enum.VendingMachineUiKey.Key:
+      enum.ADTVendingMachineUiKey.Key:
         type: VendingMachineBoundUserInterface
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
@@ -168,6 +178,15 @@
   - type: LitOnPowered
   - type: Appearance
   - type: WiresVisuals
+  - type: VendingMachineEject
+  - type: VendingMachineDispenseOnHit
+    chance: 0.25
+    threshold: 2
+  - type: VendingMachineVisuals
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
   - type: Electrified
     enabled: false
     usesApcPower: true
@@ -176,13 +195,14 @@
 # Vending machines
 
 - type: entity
-  parent: VendingMachine
+  parent: BaseVendingMachine
   id: VendingMachineCondiments
   name: condiment station
   description: Slather these thick gooey substances on your food for a full flavor effect.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: CondimentInventory
+  - type: VendingMachineVisuals
     offState: off
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/condiments.rsi
@@ -214,11 +234,8 @@
   name: liberation station
   description: An overwhelming amount of ancient patriotism washes over you just by looking at the machine.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: AmmoVendInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: CondimentVendAds
   - type: SpeakOnUIClosed
@@ -240,14 +257,12 @@
   name: Booze-O-Mat
   description: A technological marvel, supposedly able to mix just the mixture you'd like to drink the moment you ask for one.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: BoozeOMatInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
-    denyState: deny-unshaded
-    loopDeny: false
     allForFree: true # ADT-Economy
+  - type: VendingMachineVisuals
+    denyState: deny-unshaded
+    loopDenyAnimation: false
   - type: DatasetVocalizer
     dataset: BoozeOMatAds
   - type: SpeakOnUIClosed
@@ -275,14 +290,12 @@
   name: Bruise-O-Mat
   description: A refurbished Booze-O-Mat for boosting operative morale. An imprint of a blood-red hardsuit is visible on one side, and the paint seems ashed off on the other side.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: BoozeOMatInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
-    denyState: deny-unshaded
     allForFree: true # ADT-Economy
-    loopDeny: false
+  - type: VendingMachineVisuals
+    denyState: deny-unshaded
+    loopDenyAnimation: false
   - type: DatasetVocalizer
     dataset: BruiseOMatAds
   - type: SpeakOnUIClosed
@@ -310,11 +323,9 @@
   name: PTech
   description: PTech vending! Providing a ROBUST selection of PDAs, cartridges, and anything else a dull paper pusher needs!
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: PTechInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
   - type: Sprite
@@ -340,13 +351,11 @@
   name: ChefVend
   description: An ingredient vendor for all your cheffin needs.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: ChefvendInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
-    ejectState: eject-unshaded
     allForFree: true # ADT-Economy
+  - type: VendingMachineVisuals
+    ejectState: eject-unshaded
   - type: DatasetVocalizer
     dataset: ChefvendAds
   - type: SpeakOnUIClosed
@@ -374,13 +383,9 @@
   name: ShadyCigs Deluxe
   description: If you want to get cancer, might as well do it in style.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: CigaretteMachineInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
   - type: DatasetVocalizer
@@ -404,11 +409,9 @@
   name: ClothesMate
   description: A vending machine for clothing.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: ClothesMateInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+  - type: VendingMachineVisuals
     denyState: deny-unshaded
   - type: DatasetVocalizer
     dataset: ClothesMateAds
@@ -435,11 +438,9 @@
   name: WinterDrobe
   description: The best place to enjoy the cold!
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: WinterDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+  - type: VendingMachineVisuals
     denyState: deny-unshaded
   - type: DatasetVocalizer
     dataset: ClothesMateAds
@@ -466,19 +467,16 @@
   name: Solar's Best Hot Drinks
   description: Served boiling so it stays hot all shift!
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: HotDrinksMachineInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+    initialStockQuality: 0.33
+  - type: VendingMachineEject
+    ejectDelay: 5
+    soundVend: /Audio/Machines/machine_vend_hot_drink.ogg
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
     screenState: screen
-    ejectDelay: 5
-    soundVend: /Audio/Machines/machine_vend_hot_drink.ogg
-    initialStockQuality: 0.33
   - type: DatasetVocalizer
     dataset: HotDrinksMachineAds
   - type: SpeakOnUIClosed
@@ -507,17 +505,14 @@
   name: Robust Softdrinks
   description: A softdrink vendor provided by Robust Industries, LLC.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: RobustSoftdrinksInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+    initialStockQuality: 0.33
+  - type: VendingMachineEject
+    ejectDelay: 1.9
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
-    ejectDelay: 1.9
-    initialStockQuality: 0.33
   - type: DatasetVocalizer
     dataset: RobustSoftdrinksAds
   - type: SpeakOnUIClosed
@@ -584,7 +579,7 @@
   name: Space-Up! Vendor
   description: Indulge in an explosion of flavor.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: SpaceUpInventory
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/spaceup.rsi
@@ -606,7 +601,7 @@
   id: VendingMachineSoda
   suffix: Soda
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: SodaInventory
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/soda.rsi
@@ -629,7 +624,7 @@
   name: Star-kist Vendor
   description: The taste of a star in liquid form.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: StarkistInventory
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/starkist.rsi
@@ -652,17 +647,14 @@
   name: Shambler's Juice Vendor
   description: ~Shake me up some of that Shambler's Juice!~
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: ShamblersJuiceInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+    initialStockQuality: 0.33
+  - type: VendingMachineEject
+    ejectDelay: 1.9
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
-    ejectDelay: 1.9
-    initialStockQuality: 0.33
   - type: DatasetVocalizer
     dataset: RobustSoftdrinksAds
   - type: Sprite
@@ -686,17 +678,14 @@
   name: Pwr Game Vendor
   description: You want it, we got it. Brought to you in partnership with Vlad's Salads.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: PwrGameInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+    initialStockQuality: 0.33
+  - type: VendingMachineEject
+    ejectDelay: 1.9
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
-    ejectDelay: 1.9
-    initialStockQuality: 0.33
   - type: DatasetVocalizer
     dataset: RobustSoftdrinksAds
   - type: SpeakOnUIClosed
@@ -722,17 +711,14 @@
   name: Dr. Gibb Vendor
   description: Canned explosion of different flavors in this very vendor!
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: DrGibbInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+    initialStockQuality: 0.33
+  - type: VendingMachineEject
+    ejectDelay: 1.9
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
-    ejectDelay: 1.9
-    initialStockQuality: 0.33
   - type: DatasetVocalizer
     dataset: DrGibbAds
   - type: SpeakOnUIClosed
@@ -768,17 +754,14 @@
       shader: unshaded
     - state: panel
       map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: SmiteInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+    initialStockQuality: 0.33
+  - type: VendingMachineEject
+    ejectDelay: 1.9
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
-    ejectDelay: 1.9
-    initialStockQuality: 0.33
   - type: DatasetVocalizer
     dataset: SmiteAds
   - type: SpeakOnUIClosed
@@ -794,13 +777,11 @@
   name: Plasteel Chef's Dinnerware Vendor
   description: A kitchen and restaurant equipment vendor.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: DinnerwareInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
-    ejectState: eject-unshaded
     allForFree: true # ADT-Economy
+  - type: VendingMachineVisuals
+    ejectState: eject-unshaded
   - type: DatasetVocalizer
     dataset: DinnerwareAds
   - type: SpeakOnUIClosed
@@ -828,11 +809,8 @@
   name: MagiVend
   description: A magic vending machine.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: MagiVendInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
     allForFree: true # ADT-Economy
   - type: DatasetVocalizer
     dataset: MagiVendAds
@@ -859,13 +837,8 @@
   name: Discount Dan's
   description: A vending machine containing discount snacks from the infamous 'Discount Dan' franchise.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: DiscountDansInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
     initialStockQuality: 0.33
   - type: DatasetVocalizer
     dataset: DiscountDansAds
@@ -892,11 +865,9 @@
   name: Engi-Vend
   description: Spare tool vending. What? Did you expect some witty description?
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: EngiVendInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
   - type: Sprite
@@ -915,6 +886,7 @@
     radius: 1.5
     energy: 3.0
     color: "#b89e2a"
+  - type: AmbientMusicMarkerEngineering
 
 - type: entity
   parent: VendingMachine
@@ -922,15 +894,15 @@
   name: NanoMed Civilian
   description: It's a medical drug dispenser. Natural chemicals only!
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: NanoMedCivilianInventory
+    allForFree: true # ADT-Economy
+  - type: VendingMachineEject
+    ejectDelay: 0.6
+  - type: VendingMachineVisuals
     offState: off-civilian
-    brokenState: broken
-    normalState: normal-unshaded
     ejectState: eject-unshaded
     denyState: deny-unshaded
-    ejectDelay: 0.6
-    allForFree: true # ADT-Economy
   - type: DatasetVocalizer
     dataset: NanoMedAds
   - type: SpeakOnUIClosed
@@ -952,14 +924,16 @@
   - type: GuideHelp
     guides:
     - MedicalDoctor
+  - type: AmbientMusicMarkerMedical
 
 - type: entity
   parent: VendingMachineMedicalBase
   id: VendingMachineMedical
   name: NanoMed Plus
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: NanoMedPlusInventory
+  - type: VendingMachineVisuals
     offState: off
   - type: Sprite
     layers:
@@ -979,14 +953,12 @@
   name: NutriMax
   description: A vending machine containing nutritional substances for plants and botanical tools.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: NutriMaxInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+    allForFree: true # ADT-Economy
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
-    allForFree: true # ADT-Economy
   - type: DatasetVocalizer
     dataset: NutriMaxAds
   - type: SpeakOnUIClosed
@@ -1014,11 +986,9 @@
   name: SecTech
   description: A vending machine containing Security equipment. A label reads SECURITY PERSONNEL ONLY.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: SecTechInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
   - type: DatasetVocalizer
@@ -1053,14 +1023,12 @@
   description: For when you need seeds fast. Hands down the best seed selection on the station!
   suffix: Unlocked
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: MegaSeedServitorInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+    allForFree: true # ADT-Economy
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
-    allForFree: true # ADT-Economy
   - type: DatasetVocalizer
     dataset: MegaSeedAds
   - type: SpeakOnUIClosed
@@ -1094,16 +1062,12 @@
   name: Getmore Chocolate Corp
   description: A snack machine courtesy of the Getmore Chocolate Corporation, based out of Mars.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: GetmoreChocolateCorpInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+    initialStockQuality: 0.33
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
-    initialStockQuality: 0.33
   - type: DatasetVocalizer
     dataset: GetmoreChocolateCorpAds
   - type: SpeakOnUIClosed
@@ -1129,16 +1093,12 @@
   name: Sustenance Vendor
   description: A vending machine which vends food, as required by section 47-C of the NT's Prisoner Ethical Treatment Agreement.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: SustenanceInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+    allForFree: true # ADT-Economy
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
-    allForFree: true # ADT-Economy
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/sustenance.rsi
     layers:
@@ -1241,16 +1201,12 @@
   description: An old vending machine containing sweet water.
   suffix: VODA
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: BodaInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+    initialStockQuality: 0.33
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
-    initialStockQuality: 0.33
   - type: DatasetVocalizer
     dataset: BodaAds
   - type: SpeakOnUIClosed
@@ -1277,11 +1233,9 @@
   name: AutoDrobe
   description: A vending machine containing costumes.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: AutoDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
     screenState: screen
@@ -1313,11 +1267,9 @@
   name: Vendomat
   description: Only the finest robust equipment in space!
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: VendomatInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
   - type: DatasetVocalizer
@@ -1351,11 +1303,9 @@
   name: Robotech Deluxe
   description: All the tools you need to create your own robot army.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: RoboticsInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
   - type: DatasetVocalizer
@@ -1388,11 +1338,9 @@
   name: YouTool
   description: "A vending machine containing standard tools. A label reads: Tools for tools."
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: YouToolInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
   - type: Sprite
@@ -1416,13 +1364,12 @@
   name: Good Clean Fun
   description: Vends things that the Captain and Head of Personnel are probably not going to appreciate you fiddling with instead of your job...
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: GoodCleanFunInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
-    ejectState: eject-unshaded
+  - type: VendingMachineEject
     ejectDelay: 1.8
+  - type: VendingMachineVisuals
+    ejectState: eject-unshaded
   - type: DatasetVocalizer
     dataset: GoodCleanFunAds
   - type: SpeakOnUIClosed
@@ -1448,13 +1395,8 @@
   name: Mr. Chang
   description: A self-serving Chinese food machine, for all your Chinese food needs.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: ChangInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
     initialStockQuality: 0.33
   - type: DatasetVocalizer
     dataset: ChangAds
@@ -1481,11 +1423,9 @@
   name: Salvage Vendor
   description: A dwarf's best friend!
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: SalvageEquipmentInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+  - type: VendingMachineVisuals
     denyState: deny-unshaded
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/mining.rsi
@@ -1513,13 +1453,8 @@
   name: Monkin' Donuts
   description: A donut vendor provided by Robust Industries, LLC.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: DonutInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
     initialStockQuality: 0.33
   - type: DatasetVocalizer
     dataset: DonutAds
@@ -1548,11 +1483,8 @@
   name: HyDrobe
   description: A machine with a catchy name. It dispenses botany related clothing and gear.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: HyDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: HyDrobeAds
   - type: SpeakOnUIClosed
@@ -1580,11 +1512,8 @@
   name: LawDrobe
   description: Objection! This wardrobe dispenses the rule of law... and lawyer clothing..
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: LawDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: LawDrobeAds
   - type: SpeakOnUIClosed
@@ -1608,11 +1537,8 @@
   name: SecDrobe
   description: A vending machine for security and security-related clothing!
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: SecDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: SecDrobeAds
   - type: SpeakOnUIClosed
@@ -1640,11 +1566,8 @@
   name: BarDrobe
   description: A stylish vendor to dispense the most stylish bar clothing!
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: BarDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: BarDrobeAds
   - type: SpeakOnUIClosed
@@ -1667,11 +1590,9 @@
   id: VendingMachineChapel
   name: PietyVend
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: PietyVendInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+  - type: VendingMachineVisuals
     denyState: deny-unshaded
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/chapdrobe.rsi
@@ -1696,11 +1617,8 @@
   name: CargoDrobe
   description: A highly advanced vending machine for buying cargo related clothing for free.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: CargoDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: CargoDrobeAds
   - type: SpeakOnUIClosed
@@ -1728,11 +1646,8 @@
   name: MediDrobe
   description: A vending machine rumoured to be capable of dispensing clothing for medical personnel.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: MediDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: MediDrobeAds
   - type: SpeakOnUIClosed
@@ -1756,11 +1671,8 @@
   name: ChemDrobe
   description: A vending machine for dispensing chemistry related clothing.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: ChemDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: ChemDrobeAds
   - type: SpeakOnUIClosed
@@ -1777,6 +1689,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: AccessReader
     access: [["Chemistry"]]
+  - type: AmbientMusicMarkerMedical
 
 - type: entity
   parent: VendingMachine
@@ -1784,11 +1697,8 @@
   name: CuraDrobe
   description: A lowstock vendor only capable of vending clothing for curators and librarians.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: CuraDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: CuraDrobeAds
   - type: SpeakOnUIClosed
@@ -1812,11 +1722,8 @@
   name: AtmosDrobe
   description: This relatively unknown vending machine delivers clothing for Atmospherics Technicians, an equally unknown job.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: AtmosDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: AtmosDrobeAds
   - type: SpeakOnUIClosed
@@ -1837,6 +1744,7 @@
     color: "#b89e2a"
   - type: AccessReader
     access: [["Engineering"]]
+  - type: AmbientMusicMarkerEngineering
 
 - type: entity
   parent: VendingMachine
@@ -1844,11 +1752,8 @@
   name: EngiDrobe
   description: A vending machine renowned for vending industrial grade clothing.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: EngiDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: EngiDrobeAds
   - type: SpeakOnUIClosed
@@ -1869,6 +1774,7 @@
     color: "#b89e2a"
   - type: AccessReader
     access: [["Engineering"]]
+  - type: AmbientMusicMarkerEngineering
 
 - type: entity
   parent: VendingMachine
@@ -1876,11 +1782,8 @@
   name: ChefDrobe
   description: This vending machine might not dispense meat, but it certainly dispenses chef related clothing.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: ChefDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: ChefDrobeAds
   - type: SpeakOnUIClosed
@@ -1904,11 +1807,8 @@
   name: DetDrobe
   description: A machine for all your detective needs, as long as you need clothes.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: DetDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: DetDrobeAds
   - type: SpeakOnUIClosed
@@ -1932,11 +1832,8 @@
   name: JaniDrobe
   description: A self cleaning vending machine capable of dispensing clothing for janitors.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: JaniDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: JaniDrobeAds
   - type: SpeakOnUIClosed
@@ -1964,11 +1861,8 @@
   name: SciDrobe
   description: A simple vending machine suitable to dispense well tailored science clothing. Endorsed by Space Cubans.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: SciDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: SciDrobeAds
   - type: SpeakOnUIClosed
@@ -1992,11 +1886,8 @@
   name: SyndieDrobe
   description: Wardrobe machine encoded by the syndicate, contains elite outfits for various operations.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: SyndieDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
     allForFree: true # ADT-Economy
   - type: DatasetVocalizer
     dataset: SyndieDrobeAds
@@ -2025,11 +1916,8 @@
   name: RoboDrobe
   description: A vending machine designed to dispense clothing known only to roboticists.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: RoboDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: RoboDrobeAds
   - type: SpeakOnUIClosed
@@ -2053,11 +1941,8 @@
   name: GeneDrobe
   description: A machine for dispensing clothing related to genetics.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: GeneDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: GeneDrobeAds
   - type: SpeakOnUIClosed
@@ -2074,6 +1959,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: AccessReader
     access: [["Medical"]]
+  - type: AmbientMusicMarkerMedical
 
 - type: entity
   parent: VendingMachine
@@ -2081,11 +1967,8 @@
   name: ViroDrobe
   description: An unsterilized machine for dispending virology related clothing.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: ViroDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: ViroDrobeAds
   - type: SpeakOnUIClosed
@@ -2102,6 +1985,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: AccessReader
     access: [["Medical"]]
+  - type: AmbientMusicMarkerMedical
 
 - type: entity
   parent: VendingMachine
@@ -2109,11 +1993,8 @@
   name: CentDrobe
   description: A one-of-a-kind vending machine for all your centcomm aesthetic needs!
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: CentDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/centdrobe.rsi
     layers:
@@ -2137,17 +2018,14 @@
   name: Happy Honk Dispenser
   description: A happy honk meal box dispenser made by honk! co.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: HappyHonkDispenserInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
-    denyState: deny-unshaded
+    initialStockQuality: 1.0 # Nobody knows how Honk does it, but their vending machines always seem well-stocked...
+  - type: VendingMachineEject
     ejectDelay: 1.9
     soundVend: /Audio/Items/bikehorn.ogg
-    initialStockQuality: 1.0 # Nobody knows how Honk does it, but their vending machines always seem well-stocked...
+  - type: VendingMachineVisuals
+    denyState: deny-unshaded
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/happyhonk.rsi
     layers:
@@ -2177,11 +2055,8 @@
   name: Pride-O-Mat
   description: A vending machine containing pride.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: PrideDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: PrideDrobeAds
   - type: SpeakOnUIClosed
@@ -2205,13 +2080,13 @@
 # Gas Tank Dispenser
 
 - type: entity
-  parent: VendingMachine
+  parent: BaseVendingMachine
   id: VendingMachineTankDispenserEVA
   suffix: EVA [O2, N2]
   name: gas tank dispenser
   description: A vendor for dispensing gas tanks.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: TankDispenserEVAInventory
     allForFree: true # ADT-Economy
   - type: Sprite
@@ -2219,13 +2094,13 @@
     state: dispenser
 
 - type: entity
-  parent: VendingMachine
+  parent: BaseVendingMachine
   id: VendingMachineTankDispenserEngineering
   suffix: ENG [O2, Plasma]
   name: gas tank dispenser
   description: A vendor for dispensing gas tanks. This one has an engineering livery.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: TankDispenserEngineeringInventory
     allForFree: true # ADT-Economy
   - type: Sprite
@@ -2240,14 +2115,14 @@
   name: ChemVend
   description: Probably not the coffee machine.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: ChemVendInventory
-    offState: off
-    brokenState: broken
+    allForFree: true # ADT-Economy
+  - type: VendingMachineEject
+    ejectDelay: 2
+  - type: VendingMachineVisuals
     normalState: normal
     denyState: deny
-    ejectDelay: 2
-    allForFree: true # ADT-Economy
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/chemvend.rsi
     layers:
@@ -2263,6 +2138,7 @@
     guides:
     - Chemicals
     - Chemist
+  - type: AmbientMusicMarkerMedical
 
 - type: entity
   parent: VendingMachineChemicals
@@ -2270,14 +2146,14 @@
   name: SyndieJuice
   description: Not made with freshly squeezed syndies I hope.
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: ChemVendInventorySyndicate
-    offState: off
-    brokenState: broken
+    allForFree: true # ADT-Economy
+  - type: VendingMachineEject
+    ejectDelay: 2
+  - type: VendingMachineVisuals
     normalState: normal
     denyState: deny
-    ejectDelay: 2
-    allForFree: true # ADT-Economy
   - type: AccessReader
     access: [["SyndicateAgent"]]
 
@@ -2288,11 +2164,10 @@
   name: NanoMed band-aid
   description: It's a wall-mounted medical equipment dispenser. Natural chemicals only!
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: NanoMedCivilianWallInventory
+  - type: VendingMachineVisuals
     offState: off-civilian
-    brokenState: broken
-    normalState: normal-unshaded
     denyState: deny-unshaded
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/wallmed.rsi
@@ -2317,8 +2192,9 @@
   id: VendingMachineWallMedical
   name: NanoMed
   components:
-  - type: VendingMachine
+  - type: ADTVendingMachine
     pack: NanoMedInventory
+  - type: VendingMachineVisuals
     offState: off
   - type: Sprite
     layers:

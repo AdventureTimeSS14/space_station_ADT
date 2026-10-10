@@ -17,13 +17,13 @@ namespace Content.Server.ADT.Procedural;
 
 public sealed class ADTDungeonRoomExportSystem : EntitySystem
 {
-    [Dependency] private readonly DecalSystem _decals = default!;
-    [Dependency] private readonly IComponentFactory _factory = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly ISerializationManager _serialization = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDefManager = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedMapSystem _maps = default!;
+    [Dependency] private DecalSystem _decals = default!;
+    [Dependency] private IComponentFactory _factory = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private ISerializationManager _serialization = default!;
+    [Dependency] private ITileDefinitionManager _tileDefManager = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedMapSystem _maps = default!;
 
     private const string LegendChars =
         "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+=/()<>;:~^";
@@ -297,7 +297,7 @@ public sealed class ADTDungeonRoomExportSystem : EntitySystem
         var data = node;
 
         if (proto.Components.TryGetValue(registration.Name, out var protoEntry))
-            data = _serialization.CombineMappings(data, protoEntry.Mapping);
+            data = _serialization.CombineMappings(data, _serialization.WriteValueAs<MappingDataNode>(registration.Type, protoEntry.Component));
 
         try
         {

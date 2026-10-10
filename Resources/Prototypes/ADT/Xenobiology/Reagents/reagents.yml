@@ -35,13 +35,12 @@
         damage:
           types:
             Bloodloss: -7
-      - !type:GenericStatusEffect
+      - !type:ModifyStatusEffect
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Slime ]
           inverted: true
-        key: SeeingRainbow
-        component: SeeingRainbow
+        effectProto: StatusEffectSeeingRainbow
         time: 5
         type: Add
       - !type:GenericStatusEffect

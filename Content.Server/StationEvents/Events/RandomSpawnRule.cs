@@ -4,7 +4,7 @@ using Robust.Shared.Random;
 
 namespace Content.Server.StationEvents.Events;
 
-public sealed class RandomSpawnRule : StationEventSystem<RandomSpawnRuleComponent>
+public sealed partial class RandomSpawnRule : StationEventSystem<RandomSpawnRuleComponent>
 {
     [Dependency] private readonly IRobustRandom _random = default!; // ADT-Port-Europe
     protected override void Started(EntityUid uid, RandomSpawnRuleComponent comp, GameRuleComponent gameRule, GameRuleStartedEvent args)

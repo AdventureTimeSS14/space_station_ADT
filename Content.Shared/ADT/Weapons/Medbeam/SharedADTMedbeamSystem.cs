@@ -13,9 +13,9 @@ namespace Content.Shared.ADT.Weapons.Medbeam;
 
 public abstract partial class SharedADTMedbeamSystem : EntitySystem
 {
-    [Dependency] protected readonly SharedContainerSystem Containers = default!;
-    [Dependency] protected readonly IGameTiming Timing = default!;
-    [Dependency] protected readonly MobStateSystem MobState = default!;
+    [Dependency] protected SharedContainerSystem Containers = default!;
+    [Dependency] protected IGameTiming Timing = default!;
+    [Dependency] protected MobStateSystem MobState = default!;
 
     public const string BeamId = "medbeam";
 

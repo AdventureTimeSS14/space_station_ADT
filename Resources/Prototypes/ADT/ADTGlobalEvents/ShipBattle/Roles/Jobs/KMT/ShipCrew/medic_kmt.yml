@@ -16,7 +16,6 @@
   startingGear: ADTBattleShipMedicKMTGear
   icon: "JobIconMedicKMT"
   supervisors: job-supervisors-kmt-commander
-  canBeAntag: false
   overrideConsoleVisibility: false
   access:
   - Brig

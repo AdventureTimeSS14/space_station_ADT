@@ -79,13 +79,13 @@
     state: conductive_organ
   - type: Item
     size: Tiny
-  - type: SolutionContainerManager
-    solutions:
-      beaker:
-        maxVol: 30
-        reagents:
-        - ReagentId: EZNutrient
-          Quantity: 30
+  - type: Solution
+    id: beaker
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: EZNutrient
+        Quantity: 30
   - type: ADTConductiveOrgan
   - type: Spillable
     solution: beaker
@@ -162,13 +162,9 @@
   - type: Item
     heldPrefix: acid_bladder
     size: Tiny
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      puddle:
-        maxVol: 50
-        reagents:
-        - ReagentId: SulfuricAcid
-          Quantity: 50
+    - ADTAcidBladderSolution
   - type: Spillable
     solution: puddle
   - type: ExaminableSolution
@@ -269,3 +265,16 @@
     state: amber_spleen
   - type: ADTLavalandDye
     mortar: ADTMortarAmber
+
+- type: entity
+  parent: Solution
+  id: ADTAcidBladderSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: puddle
+    solution:
+      maxVol: 50
+      reagents:
+      - ReagentId: SulfuricAcid
+        Quantity: 50

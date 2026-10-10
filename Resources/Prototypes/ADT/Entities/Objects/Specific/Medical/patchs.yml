@@ -36,10 +36,11 @@
   - type: Item
     sprite: ADT/Objects/Specific/Medical/patch.rsi
     size: Tiny
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 20
+  - type: Solution
+    id: pen
+    solution:
+      maxVol: 20
+      reagents: []
   - type: DeleteOnSolutionEmpty
     solution: pen
   - type: ADTPatch
@@ -71,13 +72,12 @@
       map: ["enum.SolutionContainerLayers.Fill"]
   - type: ADTPatch
     delay: 0
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 18
-        reagents:
-        - ReagentId: ADTStypticPowderPatch
-          Quantity: 18
+  - type: Solution
+    solution:
+      maxVol: 18
+      reagents:
+      - ReagentId: ADTStypticPowderPatch
+        Quantity: 18
 
 #Patch healing small
 
@@ -93,13 +93,12 @@
       map: ["enum.SolutionContainerLayers.Fill"]
   - type: ADTPatch
     delay: 0
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 10
-        reagents:
-        - ReagentId: ADTStypticPowderPatch
-          Quantity: 10
+  - type: Solution
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: ADTStypticPowderPatch
+        Quantity: 10
 
 #Patch burn
 
@@ -115,13 +114,12 @@
       map: ["enum.SolutionContainerLayers.Fill"]
   - type: ADTPatch
     delay: 0
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 14
-        reagents:
-        - ReagentId: ADTSilverSulfadiazinePatch
-          Quantity: 14
+  - type: Solution
+    solution:
+      maxVol: 14
+      reagents:
+      - ReagentId: ADTSilverSulfadiazinePatch
+        Quantity: 14
 
 #Patch burn small
 
@@ -137,13 +135,12 @@
       map: ["enum.SolutionContainerLayers.Fill"]
   - type: ADTPatch
     delay: 0
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 7
-        reagents:
-        - ReagentId: ADTSilverSulfadiazinePatch
-          Quantity: 7
+  - type: Solution
+    solution:
+      maxVol: 7
+      reagents:
+      - ReagentId: ADTSilverSulfadiazinePatch
+        Quantity: 7
 
 #honk honk?
 
@@ -157,13 +154,12 @@
     layers:
     - state: patch20
       map: ["enum.SolutionContainerLayers.Fill"]
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 6
-        reagents:
-        - ReagentId: Honk
-          Quantity: 6
+  - type: Solution
+    solution:
+      maxVol: 6
+      reagents:
+      - ReagentId: Honk
+        Quantity: 6
 
 #Cryo, Thermo and Leporazine patches
 
@@ -177,13 +173,12 @@
     layers:
     - state: patch22
       map: ["enum.SolutionContainerLayers.Fill"]
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 12
-        reagents:
-        - ReagentId: Fresium
-          Quantity: 12
+  - type: Solution
+    solution:
+      maxVol: 12
+      reagents:
+      - ReagentId: Fresium
+        Quantity: 12
 
 - type: entity
   name: Thermo patch
@@ -195,13 +190,12 @@
     layers:
     - state: patch23
       map: ["enum.SolutionContainerLayers.Fill"]
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 12
-        reagents:
-        - ReagentId: ADTThermolyne
-          Quantity: 12
+  - type: Solution
+    solution:
+      maxVol: 12
+      reagents:
+      - ReagentId: ADTThermolyne
+        Quantity: 12
 
 - type: entity
   name: Leporazine Patch
@@ -213,10 +207,9 @@
     layers:
     - state: patch21
       map: ["enum.SolutionContainerLayers.Fill"]
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 8
-        reagents:
-        - ReagentId: Leporazine
-          Quantity: 8
+  - type: Solution
+    solution:
+      maxVol: 8
+      reagents:
+      - ReagentId: Leporazine
+        Quantity: 8

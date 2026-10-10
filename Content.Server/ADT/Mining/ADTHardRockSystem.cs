@@ -1,4 +1,4 @@
-using Content.Server.Gatherable.Components;
+using Content.Shared.Gatherable.Components;
 using Content.Shared.ADT.Mining;
 using Content.Shared.ADT.Mining.Components;
 using Content.Shared.Damage.Systems;
@@ -10,8 +10,8 @@ namespace Content.Server.ADT.Mining;
 
 public sealed class ADTHardRockSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -23,7 +23,7 @@ public sealed class ADTHardRockSystem : EntitySystem
         if (!args.OurFixture.Hard || args.OtherFixtureId != SharedProjectileSystem.ProjectileFixture)
             return;
 
-        if (!TryComp<GatheringProjectileComponent>(args.OtherEntity, out var projectile))
+        if (!HasComp<GatheringProjectileComponent>(args.OtherEntity))
             return;
 
         if (TryComp<ADTHardRockPiercingComponent>(args.OtherEntity, out var piercing))
@@ -32,7 +32,6 @@ public sealed class ADTHardRockSystem : EntitySystem
             return;
         }
 
-        projectile.Amount = 0;
         _popup.PopupEntity(Loc.GetString("adt-hard-rock-popup-resistant"), ent.Owner);
     }
 

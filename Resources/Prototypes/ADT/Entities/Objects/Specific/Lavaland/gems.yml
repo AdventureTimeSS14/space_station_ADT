@@ -406,6 +406,8 @@
         ejectSound:
           path: /Audio/Effects/pop.ogg
   - type: ContainerContainer
+    containers:
+      gem: !type:ContainerSlot {}
   - type: ADTGemJewelry
     namePrefix: adt-jewelry-bracers
     equippedSlot: HAND

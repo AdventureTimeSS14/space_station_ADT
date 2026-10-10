@@ -8,7 +8,7 @@ namespace Content.Server.Connection;
 
 public sealed partial class ConnectionManager
 {
-    [Dependency] private readonly IBaseServer _baseServer = default!;
+    [Dependency] private IBaseServer _baseServer = default!;
 
     private bool IsHostReservedSlotsDenied(Admin? adminData)
     {

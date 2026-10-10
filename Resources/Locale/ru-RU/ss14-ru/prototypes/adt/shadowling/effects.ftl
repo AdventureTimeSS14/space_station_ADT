@@ -1,0 +1,1 @@
+ent-ADTShadowlingSmokeCloud = { ent-Smoke }

@@ -53,6 +53,7 @@
 
 - type: reaction
   id: ADTDesoxyephedrineCrystalSpawn
+  priority: -1
   maxTemp: 270
   impact: Medium
   quantized: true

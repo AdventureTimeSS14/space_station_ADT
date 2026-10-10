@@ -28,6 +28,17 @@
       temperature: 73.123
   - type: Sprite
     sprite: ADT/Objects/Tanks/hypernob.rsi
+    layers:
+    - state: icon
+    - sprite: Objects/Tanks/oxygen.rsi
+      state: integrity-unshaded-0
+      map: [ "enum.MaxPressureVisualLayers.BaseUnshaded" ]
+      shader: unshaded
+      visible: false
+    - sprite: Objects/Tanks/oxygen.rsi
+      state: mask
+      map: [ "enum.MaxPressureVisualLayers.Base" ]
+      visible: false
   - type: Item
     sprite: ADT/Objects/Tanks/hypernob.rsi
   - type: Clothing

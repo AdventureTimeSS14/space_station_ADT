@@ -5,7 +5,7 @@
   - type: Objective
     difficulty: 0
     unique: false
-    issuer: objective-issuer-syndicate
+    issuer: TheSyndicate
     icon:
       sprite: ADT/Objects/Specific/cybersun_uplink.rsi
       state: icon

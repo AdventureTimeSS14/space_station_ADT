@@ -12,12 +12,12 @@ namespace Content.Server.ADT.AshWalker;
 
 public sealed class ADTAshWalkerAppearanceSystem : EntitySystem
 {
-    [Dependency] private readonly HumanoidProfileSystem _humanoidProfile = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly MarkingManager _markings = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly SharedLanguageSystem _language = default!;
-    [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
+    [Dependency] private HumanoidProfileSystem _humanoidProfile = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private MarkingManager _markings = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
+    [Dependency] private SharedLanguageSystem _language = default!;
+    [Dependency] private SharedVisualBodySystem _visualBody = default!;
 
     private const float MarkingChance = 0.75f;
     private const string TribeLanguage = "ADTAshWalkerCollectiveMind";

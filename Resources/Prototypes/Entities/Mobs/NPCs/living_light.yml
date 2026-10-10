@@ -66,6 +66,7 @@
   - type: Injurable
     damageContainer: Inorganic
   - type: PassiveDamage
+    intervalHaltOnDamageTaken: 5s
     allowedStates:
     - Alive
     damage:
@@ -81,7 +82,7 @@
     radius: 3.0
     energy: 4.5
     color: "#6270bb"
-    mask: /Textures/ADT/Effects/Lightmasks/circle_b.png # ADT tweak
+    lightMask: ADTLightMaskCircleB # ADT tweak
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepBells
@@ -93,15 +94,15 @@
       - SlowImmune
   - type: Destructible
     thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 25
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: GlassBreak
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
 
 - type: entity
   id: MobLuminousPerson

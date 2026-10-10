@@ -9,7 +9,7 @@ namespace Content.Client.ADT.SeedDna.UI;
 [GenerateTypedNameReferences]
 public sealed partial class SeedDnaConsoleWindow : DefaultWindow
 {
-    [Dependency] private readonly ILocalizationManager _localizationManager = default!;
+    [Dependency] private ILocalizationManager _localizationManager = default!;
 
     private readonly List<SeedDnaConsoleWindowRow> _allRows = [];
 

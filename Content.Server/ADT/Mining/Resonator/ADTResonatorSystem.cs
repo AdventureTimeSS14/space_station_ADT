@@ -1,6 +1,6 @@
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Gatherable;
-using Content.Server.Gatherable.Components;
+using Content.Shared.Gatherable;
+using Content.Shared.Gatherable.Components;
 using Content.Shared.ADT.Mining;
 using Content.Shared.ADT.Mining.Resonator;
 using Content.Shared.Administration.Logs;
@@ -26,21 +26,21 @@ namespace Content.Server.ADT.Mining.Resonator;
 
 public sealed class ADTResonatorSystem : SharedADTResonatorSystem
 {
-    [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly GatherableSystem _gatherable = default!;
-    [Dependency] private readonly ADTHardRockSystem _hardRock = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
-    [Dependency] private readonly SharedBatterySystem _battery = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly StepTriggerSystem _stepTrigger = default!;
+    [Dependency] private AtmosphereSystem _atmosphere = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private GatherableSystem _gatherable = default!;
+    [Dependency] private ADTHardRockSystem _hardRock = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ISharedAdminLogManager _adminLog = default!;
+    [Dependency] private SharedBatterySystem _battery = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private StepTriggerSystem _stepTrigger = default!;
 
     private readonly List<Entity<ADTResonanceFieldComponent>> _dueFields = new();
 
@@ -237,7 +237,7 @@ public sealed class ADTResonatorSystem : SharedADTResonatorSystem
         foreach (var rock in rocks)
         {
             if (!TerminatingOrDeleted(rock) && !_hardRock.IsHardRock(rock))
-                _gatherable.Gather(rock, ent.Comp.Creator, rock.Comp);
+                _gatherable.Gather(rock.AsNullable(), ent.Comp.Creator);
         }
     }
 

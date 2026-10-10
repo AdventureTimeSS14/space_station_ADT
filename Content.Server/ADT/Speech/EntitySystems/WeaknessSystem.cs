@@ -9,8 +9,8 @@ namespace Content.Server.ADT.Speech.EntitySystems
 {
     public sealed class WeaknessSystem : SharedWeaknessSystem
     {
-        [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
-        [Dependency] private readonly IRobustRandom _random = default!;
+        [Dependency] private StatusEffectsSystem _statusEffectsSystem = default!;
+        [Dependency] private IRobustRandom _random = default!;
 
         public override void Initialize()
         {
@@ -25,7 +25,7 @@ namespace Content.Server.ADT.Speech.EntitySystems
             _statusEffectsSystem.TryAddStatusEffect<WeaknessAccentComponent>(uid, WeaknessKey, time, refresh, status);
         }
 
-        private void OnAccent(EntityUid uid, WeaknessAccentComponent component, AccentGetEvent args)
+        private void OnAccent(EntityUid uid, WeaknessAccentComponent component, ref AccentGetEvent args)
         {
             args.Message = Accentuate(args.Message, component);
         }

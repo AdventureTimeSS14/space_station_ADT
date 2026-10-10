@@ -1,15 +1,15 @@
 using Content.Server.Power.EntitySystems;
-using Content.Server.Radio;
 using Content.Server.SurveillanceCamera;
 using Content.Shared.Emp;
 using Content.Shared.Projectiles;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.ADT.EMP;
 using Content.Shared.Power.Components;
+using Content.Shared.Radio;
 
 namespace Content.Server.Emp;
 
-public sealed class EmpSystem : SharedEmpSystem
+public sealed partial class EmpSystem : SharedEmpSystem
 {
     [Dependency] private readonly SharedBatterySystem _battery = default!; // ADT-Tweak
 

@@ -9,8 +9,8 @@ namespace Content.Shared.ADT.CharecterFlavor;
 
 public abstract class SharedCharecterFlavorSystem : EntitySystem
 {
-    [Dependency] private readonly ExamineSystemShared _examine = default!;
-    [Dependency] protected readonly IConfigurationManager ConfigManager = default!;
+    [Dependency] private ExamineSystemShared _examine = default!;
+    [Dependency] protected IConfigurationManager ConfigManager = default!;
 
     public override void Initialize()
     {

@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using Robust.Client.UserInterface;
 // ADT-Tweak end
 using Robust.Client.UserInterface.Controls;
+using Robust.Client.UserInterface.RichText;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -15,6 +16,16 @@ namespace Content.Client.Administration.UI.Bwoink
     [GenerateTypedNameReferences]
     public sealed partial class BwoinkPanel : BoxContainer
     {
+        private static readonly Type[] AllowedTags = new Type[]
+        {
+            typeof(CommandLinkTag),
+            typeof(BoldItalicTag),
+            typeof(BoldTag),
+            typeof(BulletTag),
+            typeof(ColorTag),
+            typeof(HeadingTag),
+            typeof(ItalicTag),
+        };
         // ADT-Tweak start. Система тегов в АХелп
         public int SelectedTypeTagId = 0; // Переменная для хранение выбранного тега
         public int LastTagId { get; private set; } = -1; // Переменная для хранения последнего выбора тега
@@ -155,7 +166,7 @@ namespace Content.Client.Administration.UI.Bwoink
 
             var formatted = new FormattedMessage(1);
             formatted.AddMarkupOrThrow($"[color=gray]{message.SentAt.ToShortTimeString()}[/color] {message.Text}");
-            TextOutput.AddMessage(formatted);
+            TextOutput.AddMessage(formatted, AllowedTags);
             LastMessage = message.SentAt;
         }
 

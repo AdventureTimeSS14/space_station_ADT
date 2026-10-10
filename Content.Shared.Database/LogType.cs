@@ -495,4 +495,9 @@ public enum LogType
     /// </summary>
     CatchBreath = 106,
     // ADT End
+
+    /// <summary>
+    /// Silicon law changes.
+    /// </summary>
+    SiliconLaw = 107,
 }

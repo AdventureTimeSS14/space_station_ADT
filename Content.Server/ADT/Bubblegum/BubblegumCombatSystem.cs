@@ -14,18 +14,18 @@ namespace Content.Server.ADT.Bubblegum;
 
 public sealed class BubblegumCombatSystem : EntitySystem
 {
-    [Dependency] private readonly BubblegumSystem _bubblegum = default!;
-    [Dependency] private readonly MegafaunaSystem _megafauna = default!;
-    [Dependency] private readonly BubblegumBloodWarpSystem _warp = default!;
-    [Dependency] private readonly BubblegumHallucinationChargeSystem _hallucination = default!;
-    [Dependency] private readonly BubblegumSummonNarsiSystem _narsi = default!;
-    [Dependency] private readonly BubblegumSurroundSystem _surround = default!;
-    [Dependency] private readonly BubblegumTripleChargeSystem _tripleCharge = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly NPCSystem _npc = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private BubblegumSystem _bubblegum = default!;
+    [Dependency] private MegafaunaSystem _megafauna = default!;
+    [Dependency] private BubblegumBloodWarpSystem _warp = default!;
+    [Dependency] private BubblegumHallucinationChargeSystem _hallucination = default!;
+    [Dependency] private BubblegumSummonNarsiSystem _narsi = default!;
+    [Dependency] private BubblegumSurroundSystem _surround = default!;
+    [Dependency] private BubblegumTripleChargeSystem _tripleCharge = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private NPCSystem _npc = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {

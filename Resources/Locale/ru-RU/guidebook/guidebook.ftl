@@ -6,3 +6,4 @@ guidebook-parser-error = Parser Error
 guidebook-error-message = Error Message
 guidebook-monkey-unspin = Отперевернуть обезьяну
 guidebook-monkey-disco = Диско обезьяна
+guidebook-toc-header = Содержание

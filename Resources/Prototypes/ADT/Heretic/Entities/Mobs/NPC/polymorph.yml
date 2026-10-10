@@ -55,7 +55,7 @@
 
 # heretic ascend flesh form
 - type: entity
-  parent: BaseMob
+  parent: [ BaseMob, BaseSlicingRefinable ]
   id: MobHereticFleshAscend
   name: eldritch horror
   description: An incomprehensible mess of limbs and eyes. You can feel it's stare into your soul.
@@ -136,14 +136,13 @@
       components:
       - MobState
       - Door
-      tags:
       - Wall
   - type: Metabolizer
     solutionOnBody: false
     updateInterval: 0.25
     metabolizerTypes: [ Dragon ]
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: RandomAnomalySpawner
       amount: 3 # 3 anoms on heretic butcher holy shit eh
   - type: Tag

@@ -72,7 +72,7 @@
     radius: 4
     energy: 2.0
     color: "#FF4020"
-    mask: /Textures/Effects/LightMasks/double_cone.png
+    lightMask: ConeDouble
   - type: RotatingLight
     speed: 120
   - type: NavMapBeacon
@@ -94,8 +94,8 @@
       whitelist:
         components:
         - NukeDisk
-    alertLevelOnActivate: delta
-    alertLevelOnDeactivate: red # Corvax-Announcements
+    alertLevelOnActivate: DeltaNuke
+    alertLevelOnDeactivate: Red # Corvax-Announcements
   - type: InteractionOutline
   - type: ActivatableUI
     key: enum.NukeUiKey.Key
@@ -115,14 +115,10 @@
     stealGroup: NuclearBomb
   - type: WarpPoint
     follow: true
-    location: nuclear bomb
-    blacklist:
-      tags:
-      - GhostOnlyWarp
+    location: location-nuclear-bomb
   - type: Tag
     tags:
     - ADTVaultAmbience  # ADT-Sound-Update
-    - GhostOnlyWarp
   - type: FTLSmashImmune
   - type: SupermatterImmune # ADT-Tweak
 
@@ -137,7 +133,7 @@
     bodyType: Dynamic
 
 - type: entity
-  parent: StorageTank
+  parent: StorageTankBig
   id: NuclearBombKeg
   name: nuclear fission explosive
   suffix: keg
@@ -189,12 +185,11 @@
         - MachineMask
         layer:
         - WallLayer
-  - type: SolutionContainerManager
-    solutions:
-      tank:
-        reagents:
-        - ReagentId: NuclearCola
-          Quantity: 3000
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: NuclearCola
+        Quantity: 3840
   - type: ReagentTank
     transferAmount: 100
   - type: StaticPrice

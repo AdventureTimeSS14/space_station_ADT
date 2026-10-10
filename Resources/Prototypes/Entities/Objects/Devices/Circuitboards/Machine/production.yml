@@ -313,6 +313,21 @@
       MicroLaser: 1
 
 - type: entity
+  id: StationTeleporterMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: teleporter machine board
+  description: A machine printed circuit board for a bluespace teleporter.
+  components:
+  - type: Sprite
+    state: science
+  - type: MachineBoard
+    prototype: StationTeleporter
+    stackRequirements:
+      Manipulator: 3
+      Cable: 5
+      PlasmaGlass: 10
+
+- type: entity
   parent: BaseMachineCircuitboard
   id: AnomalyVesselCircuitboard
   name: anomaly vessel machine board
@@ -576,7 +591,7 @@
     - type: Sprite
       state: medical
     - type: MachineBoard
-      prototype: ChemMaster
+      prototype: ADTChemMaster # ADT-Tweak
       stackRequirements:
         Glass: 1
         Cable: 1
@@ -1393,7 +1408,7 @@
   - type: Sprite
     state: supply
   - type: MachineBoard
-    prototype: GravityGeneratorMini
+    prototype: GravityGeneratorMiniUncharged
     stackRequirements:
       Steel: 5
       CableHV: 5

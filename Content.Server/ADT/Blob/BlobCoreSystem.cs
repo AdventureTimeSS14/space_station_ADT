@@ -9,7 +9,7 @@ using Content.Server.ADT.Blob.GameTicking;
 using Content.Shared.ADT.Blob.Components;
 using Content.Shared.ADT.Blob.Events;
 using Content.Server.Actions;
-using Content.Server.AlertLevel;
+using Content.Shared.AlertLevel;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.GameTicking;
 using Content.Server.RoundEnd;
@@ -36,37 +36,35 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using Content.Shared.ADT.Objectives.Components;
 
 namespace Content.Server.ADT.Blob;
 
 public sealed class BlobCoreSystem : EntitySystem
 {
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly StationSystem _stationSystem = default!;
-    [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
-    [Dependency] private readonly RoundEndSystem _roundEndSystem = default!;
-    [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
-    [Dependency] private readonly ActionsSystem _action = default!;
-    [Dependency] private readonly MapSystem _mapSystem = default!;
-    [Dependency] private readonly StoreSystem _storeSystem = default!;
-    [Dependency] private readonly BlobTileSystem _blobTile = default!;
+    [Dependency] private AlertsSystem _alerts = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private GameTicker _gameTicker = default!;
+    [Dependency] private ExplosionSystem _explosionSystem = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private StationSystem _stationSystem = default!;
+    [Dependency] private AlertLevelSystem _alertLevelSystem = default!;
+    [Dependency] private RoundEndSystem _roundEndSystem = default!;
+    [Dependency] private MetaDataSystem _metaDataSystem = default!;
+    [Dependency] private ActionsSystem _action = default!;
+    [Dependency] private MapSystem _mapSystem = default!;
+    [Dependency] private StoreSystem _storeSystem = default!;
+    [Dependency] private BlobTileSystem _blobTile = default!;
 
     private EntityQuery<BlobTileComponent> _tile;
     private EntityQuery<BlobFactoryComponent> _factory;
     private EntityQuery<BlobNodeComponent> _node;
 
-    [ValidatePrototypeId<AlertPrototype>]
     private const string BlobHealth = "ADTBlobHealth";
-    [ValidatePrototypeId<AlertPrototype>]
     private const string BlobResource = "ADTBlobResource";
-    [ValidatePrototypeId<CurrencyPrototype>]
-    private const string BlobMoney = "ADTBlobPoint";
+    private static readonly ProtoId<CurrencyPrototype> BlobMoney = "ADTBlobPoint";
 
     private readonly ReaderWriterLockSlim _pointsChange = new();
 
@@ -571,7 +569,7 @@ public sealed class BlobCoreSystem : EntitySystem
                     continue;
 
                 if(stationUid != null)
-                    _alertLevelSystem.SetLevel(stationUid.Value, "green", true, true, true);
+                    _alertLevelSystem.SetLevel(stationUid.Value, "Green", true, true, true);
 
                 _roundEndSystem.CancelRoundEndCountdown(forceRecall: false);
                 blobRuleComp.Stage = BlobStage.Default;
@@ -624,7 +622,7 @@ public sealed class BlobCoreSystem : EntitySystem
 
         try
         {
-            if (!_storeSystem.TryAddCurrency(new Dictionary<string, FixedPoint2>
+            if (!_storeSystem.TryAddCurrency(new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2>
                     {
                         { BlobMoney, amount }
                     },

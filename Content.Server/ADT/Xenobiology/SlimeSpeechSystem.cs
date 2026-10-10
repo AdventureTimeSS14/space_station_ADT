@@ -24,17 +24,17 @@ using System.Linq;
 namespace Content.Server.ADT.Xenobiology;
 public sealed partial class SlimeSpeechSystem : EntitySystem
 {
-    [Dependency] private readonly SlimeLatchSystem _slimeLatch = default!;
-    [Dependency] private readonly NpcFactionSystem _factions = default!;
-    [Dependency] private readonly NPCSystem _npc = default!;
-    [Dependency] private readonly HTNSystem _htn = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _speedModifier = default!;
-    [Dependency] private readonly NameModifierSystem _nameModifier = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private SlimeLatchSystem _slimeLatch = default!;
+    [Dependency] private NpcFactionSystem _factions = default!;
+    [Dependency] private NPCSystem _npc = default!;
+    [Dependency] private HTNSystem _htn = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private MovementSpeedModifierSystem _speedModifier = default!;
+    [Dependency] private NameModifierSystem _nameModifier = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private readonly Dictionary<SlimeCommandType, List<string>> _commandKeywords = new();
 
@@ -363,7 +363,7 @@ public sealed partial class SlimeSpeechSystem : EntitySystem
 
     private void RefreshSpeed(Entity<SlimeComponent> slime)
     {
-        _speedModifier.RefreshMovementSpeedModifiers(slime);
+        _speedModifier.RefreshMovementSpeedModifiers(slime.Owner);
     }
 
     private void Say(EntityUid slime, string message)

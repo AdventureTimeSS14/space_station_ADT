@@ -49,7 +49,7 @@
     graph: ADTSandstoneBed
     node: bed
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
         damage: 150

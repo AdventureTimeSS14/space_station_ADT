@@ -92,13 +92,12 @@
     flavors:
     - adtash
     - adthopelessness
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 1
+  - type: Solution
+    solution:
+      maxVol: 5
+      reagents:
+      - ReagentId: UncookedAnimalProteins
+        Quantity: 1
   - type: Tag
     tags:
     - ADTFishingBait
@@ -164,13 +163,12 @@
   - type: FlavorProfile
     flavors:
     - adtash
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 1
+  - type: Solution
+    solution:
+      maxVol: 5
+      reagents:
+      - ReagentId: UncookedAnimalProteins
+        Quantity: 1
   - type: Tag
     tags:
     - ADTCharredKrill

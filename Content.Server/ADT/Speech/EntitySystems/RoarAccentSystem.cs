@@ -7,7 +7,7 @@ namespace Content.Server.Speech.EntitySystems;
 
 public sealed class RoarAccentSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     public override void Initialize()
     {
@@ -15,7 +15,7 @@ public sealed class RoarAccentSystem : EntitySystem
         SubscribeLocalEvent<RoarAccentComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, RoarAccentComponent component, AccentGetEvent args)
+    private void OnAccent(EntityUid uid, RoarAccentComponent component, ref AccentGetEvent args)
     {
         var message = args.Message;
 

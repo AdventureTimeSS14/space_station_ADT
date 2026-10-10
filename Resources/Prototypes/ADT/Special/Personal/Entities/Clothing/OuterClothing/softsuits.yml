@@ -15,8 +15,7 @@
     sprintModifier: 0.8
   - type: HeldSpeedModifier
   - type: TemperatureProtection
-    heatingCoefficient: 0.75
-    coolingCoefficient: 0.5
+    coefficient: 0.5
   - type: ToggleableClothing
     clothingPrototype: ADTClothingHeadHelmetRiverSpirit
     slot: head

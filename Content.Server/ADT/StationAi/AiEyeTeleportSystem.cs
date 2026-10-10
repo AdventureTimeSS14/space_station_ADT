@@ -1,10 +1,10 @@
-using Content.Server.Chat.Managers;
-using Content.Server.Medical.CrewMonitoring;
+﻿using Content.Server.Chat.Managers;
+using Content.Server.ADT.Medical.CrewMonitoring;
 using Content.Shared.ADT.StationAi;
 using Content.Shared.Chat;
-using Content.Shared.Medical.CrewMonitoring;
-using Content.Shared.Medical.SuitSensor;
-using Content.Shared.Medical.SuitSensors;
+using Content.Shared.ADT.Medical.CrewMonitoring;
+using Content.Shared.ADT.Medical.SuitSensors;
+using Content.Shared.ADT.Medical.SuitSensors;
 using Content.Shared.Popups;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.Speech;
@@ -21,16 +21,16 @@ namespace Content.Server.ADT.StationAi;
 
 public sealed class AiEyeTeleportSystem : EntitySystem
 {
-    [Dependency] private readonly SharedStationAiSystem _stationAi = default!;
-    [Dependency] private readonly StationAiVisionSystem _vision = default!;
-    [Dependency] private readonly SharedSuitSensorSystem _suitSensors = default!;
-    [Dependency] private readonly SharedMapSystem _maps = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedTransformSystem _xforms = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
-    [Dependency] private readonly IChatManager _chat = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private SharedStationAiSystem _stationAi = default!;
+    [Dependency] private StationAiVisionSystem _vision = default!;
+    [Dependency] private ADTSharedSuitSensorSystem _suitSensors = default!;
+    [Dependency] private SharedMapSystem _maps = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedTransformSystem _xforms = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private ISharedPlayerManager _player = default!;
+    [Dependency] private IChatManager _chat = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private EntityQuery<BroadphaseComponent> _broadphaseQuery = default!;
     private EntityQuery<MapGridComponent> _gridQuery = default!;
@@ -42,13 +42,13 @@ public sealed class AiEyeTeleportSystem : EntitySystem
         _gridQuery = GetEntityQuery<MapGridComponent>();
         _net.RegisterNetMessage<MsgAiEyeTeleport>(OnAiEyeTeleport);
 
-        Subs.BuiEvents<CrewMonitoringConsoleComponent>(CrewMonitoringUIKey.Key, subs =>
+        Subs.BuiEvents<ADTCrewMonitoringConsoleComponent>(ADTCrewMonitoringUIKey.Key, subs =>
         {
-            subs.Event<CrewMonitoringAiEyeTeleportMessage>(OnCrewMonitorAiEyeTeleport);
+            subs.Event<ADTCrewMonitoringAiEyeTeleportMessage>(OnCrewMonitorAiEyeTeleport);
         });
     }
 
-    private void OnCrewMonitorAiEyeTeleport(Entity<CrewMonitoringConsoleComponent> ent, ref CrewMonitoringAiEyeTeleportMessage msg)
+    private void OnCrewMonitorAiEyeTeleport(Entity<ADTCrewMonitoringConsoleComponent> ent, ref ADTCrewMonitoringAiEyeTeleportMessage msg)
     {
         if (TryComp<ActorComponent>(msg.Actor, out _))
             TryTeleportAndNotify(msg.Actor, msg.Target, requireCamera: true);
@@ -181,13 +181,13 @@ public sealed class AiEyeTeleportSystem : EntitySystem
     private bool HasCoordinatesSensors(EntityUid target)
     {
         var targetNetEnt = GetNetEntity(target);
-        var query = EntityQueryEnumerator<SuitSensorComponent, TransformComponent>();
+        var query = EntityQueryEnumerator<ADTSuitSensorComponent, TransformComponent>();
 
         while (query.MoveNext(out var sensorUid, out var sensor, out var sensorXform))
         {
             var status = _suitSensors.GetSensorState((sensorUid, sensor, sensorXform));
             if (status == null ||
-                status.Mode != SuitSensorMode.SensorCords ||
+                status.Mode != ADTSuitSensorMode.SensorCords ||
                 status.Coordinates == null)
             {
                 continue;

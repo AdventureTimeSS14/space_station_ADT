@@ -10,3 +10,4 @@ department-Silicon = Синтетики
 department-Justice = Юридический отдел
 department-Specific = Прочие
 department-Dignitary = Высокопоставленные
+department-Unknown = Неизвестно

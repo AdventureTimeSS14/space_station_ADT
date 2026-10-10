@@ -1,0 +1,12 @@
+cmd-substepatmos-desc = Продвигает симуляцию атмосферы на один атмос-тик для указанного грида. Неявно ставит симуляцию атмосферы на паузу.
+cmd-substepatmos-help = Использование: { $command } <EntityUid>
+cmd-error-no-grid-provided-or-invalid-grid = Укажите грид или встаньте на грид, который хотите продвинуть.
+cmd-error-couldnt-parse-entity = Указанную сущность не удалось распознать или её не существует. Попробуйте встать на нужный грид.
+cmd-error-no-gridatmosphere = У указанной сущности нет GridAtmosphereComponent.
+cmd-error-no-gastileoverlay = У указанной сущности нет GasTileOverlayComponent.
+cmd-error-no-mapgrid = У указанной сущности нет MapGridComponent.
+cmd-error-no-xform = У указанной сущности нет TransformComponent?
+cmd-error-no-valid-map = Указанный грид находится не на корректной карте?
+cmd-substepatmos-info-implicitly-paused-simulation = Симуляция атмосферы на { $grid } неявно поставлена на паузу.
+cmd-substepatmos-info-substepped-grid = Симуляция атмосферы на { $grid } продвинута на один атмос-тик.
+cmd-substepatmos-completion-grid-substep = EntityUid грида, который нужно продвинуть. Если не указан, берётся грид, на котором вы стоите.

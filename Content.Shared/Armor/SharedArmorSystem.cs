@@ -12,9 +12,9 @@ namespace Content.Shared.Armor;
 /// <summary>
 ///     This handles logic relating to <see cref="ArmorComponent" />
 /// </summary>
-public abstract class SharedArmorSystem : EntitySystem
+public abstract partial class SharedArmorSystem : EntitySystem
 {
-    [Dependency] private readonly ExamineSystemShared _examine = default!;
+    [Dependency] private ExamineSystemShared _examine = default!;
 
     /// <inheritdoc />
     public override void Initialize()
@@ -95,7 +95,7 @@ public abstract class SharedArmorSystem : EntitySystem
         {
             msg.PushNewline();
 
-            var armorType = Loc.GetString("armor-damage-type-" + coefficientArmor.Key.ToLower());
+            var armorType = Loc.GetString("armor-damage-type-" + coefficientArmor.Key.Id.ToLower());
             var coefficient = MathF.Round((1f - coefficientArmor.Value) * 100, 1);  // ADT tweak
             bool decrease = coefficient >= 0;                            // ADT tweak
 
@@ -105,11 +105,11 @@ public abstract class SharedArmorSystem : EntitySystem
             ));
         }
 
-        foreach (var flatArmor in armorModifiers.FlatReduction)
+        foreach (var flatArmor in armorModifiers.FlatReductions)
         {
             msg.PushNewline();
 
-            var armorType = Loc.GetString("armor-damage-type-" + flatArmor.Key.ToLower());
+            var armorType = Loc.GetString("armor-damage-type-" + flatArmor.Key.Id.ToLower());
             var coefficient = flatArmor.Value;      // ADT tweak
             bool decrease = flatArmor.Value >= 0;   // ADT tweak
 

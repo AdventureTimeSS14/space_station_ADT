@@ -1,14 +1,16 @@
-﻿#==Suffix Guide==
+#==Suffix Guide==
 #Always Powered - light doesn't need power to give off life
 #Empty - on map init, light spawns without bulb
 #Blue/Sodium/etc. - the color of the light
 
 #Basic lights
 - type: entity
-  id: AlwaysPoweredWallLight
-  name: light
-  description: "An always powered light."
-  suffix: Always powered
+  abstract: true
+  id: BaseWallLight
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wallmount
   components:
   - type: MeleeSound
     soundGroups:
@@ -18,11 +20,7 @@
     anchored: true
   - type: Clickable
   - type: InteractionOutline
-  - type: Construction
-    graph: LightFixture
-    node: tubeLight
   - type: Sprite
-    sprite: Structures/Wallmounts/Lighting/light_tube.rsi
     drawdepth: WallMountedItems
     layers:
     - map: ["enum.PoweredLightLayers.Base"]
@@ -30,7 +28,6 @@
     - map: ["enum.PoweredLightLayers.Glow"]
       state: glow
       shader: unshaded
-    state: base
   - type: PointLight
     # ADT-Sound-Update-Start
     color: "#FAFFFF" # 5000K color temp
@@ -38,7 +35,7 @@
     radius: 8
     softness: 2.1
     # ADT-Sound-Update-End
-    offset: "0, -0.5"
+    offset: "0, -0.5" # ADT-Tweak
   - type: Damageable
     damageModifierSet: Metallic
   - type: Injurable
@@ -64,41 +61,53 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 200
-      behaviors: #excess damage, don't spawn entities.
+        damage: 50
+      behaviors:
+      - !type:EmptyAllContainersBehaviour
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
           collection: GlassBreak
+  - type: PlacementReplacement
+    key: lights
+
+- type: entity
+  parent: BaseWallLight
+  id: AlwaysPoweredWallLight
+  name: light
+  suffix: Always powered
+  description: "An always powered light."
+  components:
+  - type: Construction
+    graph: LightFixture
+    node: tubeLight
+  - type: Sprite
+    sprite: Structures/Wallmounts/Lighting/light_tube.rsi
+    layers:
+    - map: ["enum.PoweredLightLayers.Base"]
+      state: base
+    - map: ["enum.PoweredLightLayers.Glow"]
+      state: glow
+      shader: unshaded
+  - type: Destructible
+    thresholds:
     - trigger:
         !type:DamageTrigger
         damage: 50
       behaviors:
-      - !type:EmptyAllContainersBehaviour
       - !type:SpawnEntitiesBehavior
         spawn:
           SheetSteel1:
             min: 2
             max: 2
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: GlassBreak
-  - type: PlacementReplacement
-    key: lights
-  placement:
-    mode: SnapgridCenter
-    snap:
-    - Wallmount
 
 - type: entity
-  name: light
-  description: "A light fixture. Draws power and produces light when equipped with a light tube."
-  id: PoweredlightEmpty
-  suffix: Empty
   parent: AlwaysPoweredWallLight
+  id: PoweredlightEmpty
+  name: light
+  suffix: Empty
+  description: "A light fixture. Draws power and produces light when equipped with a light tube."
   components:
   - type: Sprite
     sprite: Structures/Wallmounts/Lighting/light_tube.rsi
@@ -107,6 +116,7 @@
     enabled: false
   - type: PoweredLight
     bulb: Tube
+  - type: SpookyPoweredLight
   - type: ContainerContainer
     containers:
       light_bulb: !type:ContainerSlot
@@ -139,10 +149,9 @@
     popupText: powered-light-component-burn-hand
 
 - type: entity
-  id: Poweredlight
-  description: "A light fixture. Draws power and produces light when equipped with a light tube."
-  suffix: ""
   parent: PoweredlightEmpty
+  id: Poweredlight
+  suffix: ""
   components:
   - type: Sprite
     state: base
@@ -156,18 +165,12 @@
     range: 2
     sound:
       path: /Audio/Ambience/Objects/light_hum.ogg
-  - type: DamageOnInteract
-    damage:
-      types:
-        Heat: 2
-    popupText: powered-light-component-burn-hand
 
 #LED lights
 - type: entity
-  id: PoweredlightLED
-  description: "A light fixture. Draws power and produces light when equipped with a light tube."
-  suffix: LED
   parent: Poweredlight
+  id: PoweredlightLED
+  suffix: LED
   components:
   - type: PoweredLight
     hasLampOnSpawn: LedLightTube
@@ -195,13 +198,17 @@
 
 #Exterior lights
 - type: entity
-  id: PoweredlightExterior
-  description: "A light fixture. Draws power and produces light when equipped with a light tube."
-  suffix: Exterior
   parent: Poweredlight
+  id: PoweredlightExterior
+  suffix: Exterior
   components:
   - type: PoweredLight
     hasLampOnSpawn: ExteriorLightTube
+  - type: PointLight
+    radius: 12
+    energy: 4.5
+    softness: 0.5
+    color: "#B4FCF0"
   - type: DamageOnInteract
     damage:
       types:
@@ -221,17 +228,16 @@
 
 #Sodium lights
 - type: entity
-  id: PoweredlightSodium
-  description: "A light fixture. Draws power and produces light when equipped with a light tube."
-  suffix: Sodium
   parent: Poweredlight
+  id: PoweredlightSodium
+  suffix: Sodium
   components:
   - type: PoweredLight
     hasLampOnSpawn: SodiumLightTube
   - type: PointLight
     radius: 10
-    energy: 2.5
-    softness: 0.9
+    energy: 4
+    softness: 0.5
     color: "#fac16a" # ADT-Sound-Update
   - type: DamageOnInteract
     damage:
@@ -252,11 +258,11 @@
 
 #Small lights
 - type: entity
-  name: small light
-  description: "An always powered light."
+  parent: BaseWallLight
   id: SmallLight
+  name: small light
   suffix: Always Powered
-  parent: AlwaysPoweredWallLight
+  description: "An always powered light."
   components:
     - type: AmbientSound
       volume: -15
@@ -273,8 +279,6 @@
       softness: 1.1
       enabled: true
     # ADT-Sound-Update-End
-    - type: Physics
-      bodyType: Static
     - type: Fixtures
       fixtures:
         fix1:
@@ -286,39 +290,27 @@
           - None
           layer:
           - TabletopMachineLayer
-    - type: Damageable
-    - type: Injurable
-      damageContainer: Inorganic
     - type: Destructible
       thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 100
-        behaviors: #excess damage, don't spawn entities.
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-      - trigger:
-          !type:DamageTrigger
-          damage: 25
+          damage: 50
         behaviors:
-        - !type:EmptyAllContainersBehaviour
         - !type:SpawnEntitiesBehavior
           spawn:
             SheetSteel1:
               min: 1
               max: 1
-        - !type:DoActsBehavior
-          acts: ["Destruction"]
     - type: Construction
       graph: LightFixture
       node: bulbLight
 
 - type: entity
-  name: small light
-  description: "A light fixture. Draws power and produces light when equipped with a light bulb."
-  id: PoweredSmallLightEmpty
-  suffix: Empty
   parent: SmallLight
+  id: PoweredSmallLightEmpty
+  name: small light
+  suffix: Empty
+  description: "A light fixture. Draws power and produces light when equipped with a light bulb."
   components:
   - type: Sprite
     sprite: Structures/Wallmounts/Lighting/light_small.rsi
@@ -327,7 +319,7 @@
     enabled: false
   - type: PointLight
     enabled: false
-    offset: "0, -0.5"
+    offset: "0, -0.5" # ADT-Tweak
   - type: ContainerContainer
     containers:
       light_bulb: !type:ContainerSlot
@@ -356,13 +348,13 @@
   - type: DamageOnInteract
     damage:
       types:
-        Heat: 2
+        Heat: 1
     popupText: powered-light-component-burn-hand
 
 - type: entity
+  parent: PoweredSmallLightEmpty
   id: PoweredLEDSmallLight
   suffix: LED
-  parent: PoweredSmallLightEmpty
   components:
   - type: Sprite
     state: base
@@ -374,16 +366,11 @@
     color: "#EEEEFF"
   - type: PoweredLight
     hasLampOnSpawn: LedLightBulb
-  - type: DamageOnInteract
-    damage:
-      types:
-        Heat: 1
-    popupText: powered-light-component-burn-hand
 
 - type: entity
+  parent: PoweredSmallLightEmpty
   id: PoweredDimSmallLight
   suffix: Dim
-  parent: PoweredSmallLightEmpty
   components:
   - type: Sprite
     state: base
@@ -395,16 +382,11 @@
     color: "#ba473fe2" # ADT-Sound-Update
   - type: PoweredLight
     hasLampOnSpawn: DimLightBulb
-  - type: DamageOnInteract
-    damage:
-      types:
-        Heat: 1
-    popupText: powered-light-component-burn-hand
 
 - type: entity
+  parent: PoweredSmallLightEmpty
   id: PoweredWarmSmallLight
   suffix: Warm
-  parent: PoweredSmallLightEmpty
   components:
   - type: Sprite
     state: base
@@ -423,15 +405,15 @@
     popupText: powered-light-component-burn-hand
 
 - type: entity
+  parent: PoweredSmallLightEmpty
   id: PoweredSmallLight
   suffix: ""
-  parent: PoweredSmallLightEmpty
   components:
   - type: Sprite
     state: base
   - type: PointLight
     enabled: true
-    mask: /Textures/ADT/Effects/Lightmasks/circle_a.png # ADT tweak
+    lightMask: ADTLightMaskCircleA # ADT tweak
   - type: PoweredLight
     hasLampOnSpawn: LightBulb
   - type: DamageOnInteract
@@ -442,11 +424,10 @@
 
 #Emergency Lights
 - type: entity
+  parent: BaseWallLight
   id: EmergencyLight
   name: emergency light
   description: A small light with an internal battery that turns on as soon as it stops receiving any power. Nanotrasen technology allows it to adapt its color to alert crew to the conditions of the station.
-  parent: AlwaysPoweredWallLight
-  suffix: ""
   components:
   - type: PointLight
     enabled: false
@@ -454,7 +435,7 @@
     energy: 0.6
     offset: "0, 0.4"
     color: "#c8fb95" # ADT-Sound-Update
-    mask: /Textures/Effects/LightMasks/double_cone.png
+    lightMask: ConeDouble
   - type: ApcPowerReceiver
   - type: ExtensionCableReceiver
   - type: Battery
@@ -481,7 +462,6 @@
       color: "#c8fb95" # ADT-Sound-Update
       shader: "unshaded"
       visible: false
-  - type: Appearance
   - type: Construction
     graph: LightFixture
     node: emergencyLight
@@ -489,16 +469,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
-      behaviors: #excess damage, don't spawn entities.
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: GlassBreak
-    - trigger:
-        !type:DamageTrigger
-        damage: 25
+        damage: 50
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
@@ -508,25 +479,13 @@
           ShardGlass:
             min: 1
             max: 1
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: GlassBreak
-  placement:
-    mode: SnapgridCenter
-    snap:
-    - Wallmount
 
 #Coloured lights
-
 - type: entity
-  id: PoweredlightCyan
-  suffix: Cyan
+  abstract: true
   parent: Poweredlight
+  id: PoweredlightColor
   components:
-  - type: PoweredLight
-    hasLampOnSpawn: LightTubeCrystalCyan
   - type: PointLight
     radius: 8
     energy: 3
@@ -539,20 +498,37 @@
     popupText: powered-light-component-burn-hand
 
 - type: entity
-  id: AlwaysPoweredlightCyan
-  suffix: Always Powered, Cyan
+  abstract: true
   parent: AlwaysPoweredWallLight
+  id: AlwaysPoweredlightColor
   components:
   - type: PointLight
     radius: 8
     energy: 3
     softness: 0.5
+
+- type: entity
+  parent: PoweredlightColor
+  id: PoweredlightCyan
+  suffix: Cyan
+  components:
+  - type: PoweredLight
+    hasLampOnSpawn: LightTubeCrystalCyan
+  - type: PointLight
     color: "#92f2f5" # ADT-Sound-Update
 
 - type: entity
+  parent: AlwaysPoweredlightColor
+  id: AlwaysPoweredlightCyan
+  suffix: Always Powered, Cyan
+  components:
+  - type: PointLight
+    color: "#92f2f5" # ADT-Sound-Update
+
+- type: entity
+  parent: PoweredlightColor
   id: PoweredlightBlue
   suffix: Blue
-  parent: Poweredlight
   components:
   - type: PoweredLight
     hasLampOnSpawn: LightTubeCrystalBlue
@@ -568,9 +544,9 @@
     popupText: powered-light-component-burn-hand
 
 - type: entity
+  parent: AlwaysPoweredlightColor
   id: AlwaysPoweredlightBlue
   suffix: Always Powered, Blue
-  parent: AlwaysPoweredWallLight
   components:
   - type: PointLight
     radius: 8
@@ -579,9 +555,9 @@
     color: "#91c8f8" # ADT-Sound-Update
 
 - type: entity
+  parent: PoweredlightColor
   id: PoweredlightYellow
   suffix: Yellow
-  parent: Poweredlight
   components:
   - type: PoweredLight
     hasLampOnSpawn: LightTubeCrystalYellow
@@ -597,9 +573,9 @@
     popupText: powered-light-component-burn-hand
 
 - type: entity
+  parent: AlwaysPoweredlightColor
   id: AlwaysPoweredlightYellow
   suffix: Always Powered, Yellow
-  parent: AlwaysPoweredWallLight
   components:
   - type: PointLight
     radius: 8
@@ -608,9 +584,9 @@
     color: "#f4f764" # ADT-Sound-Update
 
 - type: entity
+  parent: PoweredlightColor
   id: PoweredlightPink
   suffix: Pink
-  parent: Poweredlight
   components:
   - type: PoweredLight
     hasLampOnSpawn: LightTubeCrystalPink
@@ -626,9 +602,9 @@
     popupText: powered-light-component-burn-hand
 
 - type: entity
+  parent: AlwaysPoweredlightColor
   id: AlwaysPoweredlightPink
   suffix: Always Powered, Pink
-  parent: AlwaysPoweredWallLight
   components:
   - type: PointLight
     radius: 8
@@ -637,9 +613,9 @@
     color: "#f8b8e3" # ADT-Sound-Update
 
 - type: entity
+  parent: PoweredlightColor
   id: PoweredlightOrange
   suffix: Orange
-  parent: Poweredlight
   components:
   - type: PoweredLight
     hasLampOnSpawn: LightTubeCrystalOrange
@@ -655,9 +631,9 @@
     popupText: powered-light-component-burn-hand
 
 - type: entity
+  parent: AlwaysPoweredlightColor
   id: AlwaysPoweredlightOrange
   suffix: Always Powered, Orange
-  parent: AlwaysPoweredWallLight
   components:
   - type: PointLight
     radius: 8
@@ -666,39 +642,29 @@
     color: "#ff894e" # ADT-Sound-Update
 
 - type: entity
+  parent: PoweredlightColor
   id: PoweredlightBlack
   suffix: Black
-  parent: Poweredlight
-  description:
   components:
   - type: PoweredLight
     hasLampOnSpawn: LightTubeCrystalBlack
   - type: PointLight
-    radius: 8
     energy: 1
-    softness: 0.5
     color: "#363636"
-  - type: DamageOnInteract
-    damage:
-      types:
-        Heat: 2
-    popupText: powered-light-component-burn-hand
 
 - type: entity
+  parent: AlwaysPoweredlightColor
   id: AlwaysPoweredlightBlack
   suffix: Always Powered, Black
-  parent: AlwaysPoweredWallLight
   components:
   - type: PointLight
-    radius: 8
     energy: 1
-    softness: 0.5
     color: "#363636"
 
 - type: entity
+  parent: PoweredlightColor
   id: PoweredlightRed
   suffix: Red
-  parent: Poweredlight
   components:
   - type: PoweredLight
     hasLampOnSpawn: LightTubeCrystalRed
@@ -714,9 +680,9 @@
     popupText: powered-light-component-burn-hand
 
 - type: entity
+  parent: AlwaysPoweredlightColor
   id: AlwaysPoweredlightRed
   suffix: Always Powered, Red
-  parent: AlwaysPoweredWallLight
   components:
   - type: PointLight
     radius: 8
@@ -725,9 +691,9 @@
     color: "#fb4747" # ADT-Sound-Update
 
 - type: entity
+  parent: PoweredlightColor
   id: PoweredlightGreen
   suffix: Green
-  parent: Poweredlight
   components:
   - type: PoweredLight
     hasLampOnSpawn: LightTubeCrystalGreen
@@ -743,9 +709,9 @@
     popupText: powered-light-component-burn-hand
 
 - type: entity
+  parent: AlwaysPoweredlightColor
   id: AlwaysPoweredlightGreen
   suffix: Always Powered, Green
-  parent: AlwaysPoweredWallLight
   components:
   - type: PointLight
     radius: 8

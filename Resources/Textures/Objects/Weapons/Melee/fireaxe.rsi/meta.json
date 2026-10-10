@@ -1,11 +1,11 @@
 {
-  "version": 1,
-  "license": "CC-BY-NC-SA-3.0",
-  "copyright": "Taken from TGstation at commit https://github.com/tgstation/tgstation/commit/b5fa92d6918b2e4ea0bc0eef05fdcf2f8fb082a5, edited by ratyyy",
-  "size": {
-    "x": 32,
-    "y": 32
-  },
+    "version": 1,
+    "license": "CC-BY-NC-SA-3.0",
+    "copyright": "Taken from TGstation at commit https://github.com/tgstation/tgstation/commit/b5fa92d6918b2e4ea0bc0eef05fdcf2f8fb082a5, edited by ratyyy",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
     "states": [
         {
             "name": "icon"
@@ -33,6 +33,9 @@
         {
             "name": "equipped-SUITSTORAGE",
             "directions": 4
+        },
+        {
+            "name": "storage"
         }
     ]
 }

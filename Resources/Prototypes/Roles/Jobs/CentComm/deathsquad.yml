@@ -7,7 +7,6 @@
   startingGear: DeathSquadGear
   icon: "ADTJobIconDeathSquad" #ADT-Tweak
   supervisors: job-supervisors-centcom
-  canBeAntag: false
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 75h # adt tweak

@@ -8,8 +8,8 @@ namespace Content.Client.ADT.Particles;
 /// </summary>
 public sealed class ParticleEmitterSystem : EntitySystem
 {
-    [Dependency] private readonly ParticleSystem _particles = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private ParticleSystem _particles = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     // Track emitter references so we can stop them when the entity leaves PVS or is removed.
     private readonly Dictionary<EntityUid, ActiveEmitter> _activeEmitters = new();

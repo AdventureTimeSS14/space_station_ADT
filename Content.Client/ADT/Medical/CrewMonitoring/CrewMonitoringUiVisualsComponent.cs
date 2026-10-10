@@ -1,11 +1,11 @@
-namespace Content.Client.ADT.Medical.CrewMonitoring;
+﻿namespace Content.Client.ADT.Medical.CrewMonitoring;
 
 /// <summary>
 /// Single-hue screen theme for the crew monitor UI inside the PDA bezel.
 /// Relative brightness of panels/buttons is preserved; only the gamma/hue changes.
 /// </summary>
 [RegisterComponent]
-public sealed partial class CrewMonitoringUiVisualsComponent : Component
+public sealed partial class ADTCrewMonitoringUiVisualsComponent : Component
 {
     /// <summary>
     /// Source color for the whole inner UI palette (CRT, frames, chrome, map wash).

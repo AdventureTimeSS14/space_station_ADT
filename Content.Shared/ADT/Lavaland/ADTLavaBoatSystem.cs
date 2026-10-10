@@ -12,10 +12,10 @@ namespace Content.Shared.ADT.Lavaland;
 
 public sealed class ADTLavaBoatSystem : EntitySystem
 {
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly TurfSystem _turf = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private TurfSystem _turf = default!;
 
     private bool _reverting;
 
@@ -87,7 +87,7 @@ public sealed class ADTLavaBoatSystem : EntitySystem
 
     private void OnMove(Entity<ADTLavaBoatComponent> ent, ref MoveEvent args)
     {
-        if (_reverting || !TryComp<VehicleComponent>(ent.Owner, out var vehicle) || vehicle.Rider == null)
+        if (_reverting || !TryComp<VehicleComponent>(ent.Owner, out var vehicle) || vehicle.Operator == null)
             return;
 
         if (args.OldPosition.EntityId != args.NewPosition.EntityId)

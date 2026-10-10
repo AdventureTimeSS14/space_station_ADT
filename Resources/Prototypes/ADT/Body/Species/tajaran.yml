@@ -164,7 +164,7 @@
         types:
           Slash: 5
     - type: Temperature
-      currentTemperature: 310.15
+      temperature: 310.15
       specificHeat: 46
     - type: TemperatureDamage
       heatDamageThreshold: 325
@@ -209,10 +209,7 @@
       interactDelay: 4
     - type: Vocal
       wilhelm: "/Audio/ADT/Felinid/cat_wilhelm.ogg"
-      sounds:
-        Male: ADTMaleTajaran
-        Female: ADTFemaleTajaran
-        Unsexed: ADTMaleTajaran
+      emoteSounds: ADTMaleTajaran
     - type: TypingIndicator
       proto: ADTtajaran
     - type: LanguageSpeaker

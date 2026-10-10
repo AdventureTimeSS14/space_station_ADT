@@ -14,10 +14,10 @@
   - type: Item
     size: Normal
     sprite: Objects/Specific/Chemistry/beaker_large.rsi
-  - type: SolutionContainerManager
-    solutions:
-      beaker:
-        maxVol: 100
+  - type: Solution
+    solution:
+      maxVol: 100
+      reagents: []
   - type: SolutionContainerVisuals
     maxFillLevels: 6
     fillBaseName: beakerlarge

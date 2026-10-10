@@ -48,11 +48,10 @@
   - type: Action
     priority: -1
     useDelay: 25
-    icon:
-    # ADT-Tweak start
-      sprite: ADT/Interface/Actions/mime.rsi
-      state: mime_bigwall
-    # ADT-Tweak end
+  - type: Sprite # ADT-Tweak
+    sprite: ADT/Interface/Actions/mime.rsi
+    layers:
+    - state: mime_bigwall
   - type: InstantAction
     event: !type:InvisibleWallActionEvent
 

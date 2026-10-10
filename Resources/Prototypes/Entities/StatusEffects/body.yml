@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: MobStatusEffectBase
   id: BloodstreamStatusEffectBase
   abstract: true
@@ -28,6 +28,18 @@
 # Resources/Prototypes/ADT/Traits/status_effects.yml (customized values).
 
 - type: entity
+  abstract: true
+  parent: MobStatusEffectBase
+  id: PainNumbnessStatusEffectBase
+  components:
+  - type: StatusEffect
+    whitelist:
+      components:
+      - MobState
+      - MobThresholds
+  - type: PainNumbnessStatusEffect
+
+- type: entity
   parent: BloodstreamStatusEffectDebuff
   id: StatusEffectAnticoagulant # Decreases the amount of blood coagulation when bleeding.
   name: thin blood
@@ -46,9 +58,21 @@
     bleedAmountMultiplier: 1.33
 
 - type: entity
-  parent: [ PainNumbnessTraitStatusEffect, MobStatusEffectDebuff ]
+  parent: [ PainNumbnessStatusEffectBase, MobStatusEffectDebuff ]
   id: StatusEffectPainNumbness
   name: pain numbness
+
+# Ignore movement slowdown from damage thresholds.
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectAdrenaline
+  name: adrenaline
+  components:
+  - type: IgnoreSlowOnDamage
+  - type: StatusEffectAlert
+    alert: Adrenaline
+  - type: ExaminableStatusEffect
+    messageId: status-effect-examine-adrenaline
 
 - type: entity
   parent: MobStatusEffectBase
@@ -72,3 +96,11 @@
   components:
   - type: StaminaModifierStatusEffect
     modifier: 1.5
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectNightVision
+  name: Night Vision
+  components:
+    - type: OverlayNightVision # ADT-Tweak
+      relayOverlay: True

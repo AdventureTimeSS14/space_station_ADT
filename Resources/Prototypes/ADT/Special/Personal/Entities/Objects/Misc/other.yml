@@ -19,15 +19,14 @@
   name: Sigar Gold
   description: Sigar
   components:
-  - type: SolutionContainerManager
-    solutions:
-      smokable:
-        maxVol: 45
-        reagents:
-          - ReagentId: Nicotine
-            Quantity: 40
-          - ReagentId: Omnizine
-            Quantity: 5
+  - type: Solution
+    solution:
+      maxVol: 45
+      reagents:
+      - ReagentId: Nicotine
+        Quantity: 40
+      - ReagentId: Omnizine
+        Quantity: 5
 
   # Спальник для Бобо
 - type: entity

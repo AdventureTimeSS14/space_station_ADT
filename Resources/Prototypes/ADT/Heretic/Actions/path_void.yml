@@ -18,9 +18,10 @@
     checkCanInteract: false
     useDelay: 15
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Heretic/abilities_heretic.rsi
-      state: void_blast
+  - type: Sprite
+    sprite: ADT/Heretic/abilities_heretic.rsi
+    layers:
+    - state: void_blast
   - type: InstantAction
     event: !type:HereticVoidBlastEvent
   - type: HereticAction
@@ -39,11 +40,12 @@
     checkCanInteract: false
     useDelay: 20
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Heretic/abilities_heretic.rsi
-      state: void_phase
     sound: !type:SoundPathSpecifier
       path: /Audio/ADT/Heretic/voidblink.ogg
+  - type: Sprite
+    sprite: ADT/Heretic/abilities_heretic.rsi
+    layers:
+    - state: void_phase
   - type: TargetAction
     checkCanAccess: false
     range: 16
@@ -65,9 +67,10 @@
     checkCanInteract: false
     useDelay: 30
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Heretic/abilities_heretic.rsi
-      state: voidball
+  - type: Sprite
+    sprite: ADT/Heretic/abilities_heretic.rsi
+    layers:
+    - state: voidball
   - type: TargetAction
     range: 3
   - type: EntityTargetAction
@@ -92,11 +95,12 @@
     useDelay: 30
     itemIconStyle: NoItem
     checkCanInteract: false
-    icon:
-      sprite: ADT/Heretic/abilities_heretic.rsi
-      state: void_pull
     sound: !type:SoundPathSpecifier
       path: /Audio/ADT/Heretic/voidblink.ogg
+  - type: Sprite
+    sprite: ADT/Heretic/abilities_heretic.rsi
+    layers:
+    - state: void_pull
   - type: InstantAction
     event: !type:HereticVoidPullEvent
   - type: HereticAction
@@ -115,9 +119,10 @@
     useDelay: 60
     itemIconStyle: NoItem
     checkCanInteract: false
-    icon:
-      sprite: ADT/Heretic/abilities_heretic.rsi
-      state: void_rift
+  - type: Sprite
+    sprite: ADT/Heretic/abilities_heretic.rsi
+    layers:
+    - state: void_rift
   - type: InstantAction
     event: !type:HereticVoidConduitEvent
   - type: HereticAction

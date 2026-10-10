@@ -10,9 +10,9 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/servicepill.rsi
     state: pill1
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: THC
-          Quantity: 25
+  - type: Solution
+    solution:
+      maxVol: 25
+      reagents:
+      - ReagentId: THC
+        Quantity: 25

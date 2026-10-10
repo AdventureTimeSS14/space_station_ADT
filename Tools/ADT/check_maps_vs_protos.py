@@ -335,6 +335,9 @@ def main() -> int:
     print("=== Сбор entity ID из прототипов ===")
     start_time = time.time()
     known_ids = collect_entity_ids(prototypes_root)
+    engine_prototypes_root = os.path.join(repo_root, 'RobustToolbox', 'Resources', 'EnginePrototypes')
+    if os.path.isdir(engine_prototypes_root):
+        known_ids |= collect_entity_ids(engine_prototypes_root)
     proto_time = time.time() - start_time
     print(f"Сбор прототипов занял {proto_time:.1f} секунд")
 

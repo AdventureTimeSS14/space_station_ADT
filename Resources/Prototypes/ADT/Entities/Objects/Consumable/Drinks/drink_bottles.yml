@@ -4,18 +4,17 @@
   name: apple liquer
   description: fruit, dessert alcoholic drink.
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 100
-        reagents:
-        - ReagentId: ADTAppleLiqueur
-          Quantity: 100
+  - type: Solution
+    solution:
+      maxVol: 100
+      reagents:
+      - ReagentId: ADTAppleLiqueur
+        Quantity: 100
   - type: Sprite
     sprite: ADT/Objects/Consumable/Drinks/apple_liqueur_bottle.rsi
     state: icon
   - type: Label
-    currentLabel: apple-liqueur-name
+    localizedLabel: apple-liqueur-name
 
 - type: entity
   parent: DrinkBottlePlasticBaseFull
@@ -23,12 +22,11 @@
   name: Smite jug
   description: A milk jug for some more thingies.
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 150
-        reagents:
-        - ReagentId: Milk
-          Quantity: 150
+  - type: Solution
+    solution:
+      maxVol: 150
+      reagents:
+      - ReagentId: Milk
+        Quantity: 150
   - type: Label
-    currentLabel: reagent-name-milk
+    localizedLabel: reagent-name-milk

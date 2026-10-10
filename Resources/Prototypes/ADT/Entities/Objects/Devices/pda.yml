@@ -29,15 +29,18 @@
   components:
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
-    preinstalled:
-      - CrewManifestCartridge
-      - NotekeeperCartridge
-      - NanoTaskCartridge
-      - NewsReaderCartridge
-      - MedTekCartridge
-      - NanoChatCartridge # ADT-tweak: Наночат
-      - ADTWalletCartridge # ADT-Economy
     diskSpace: 8 # ADT tweak
+  - type: EntityTableContainerFill
+    containers:
+      preinstalled-program-container: !type:AllSelector
+        children:
+        - id: CrewManifestCartridge
+        - id: NotekeeperCartridge
+        - id: NanoTaskCartridge
+        - id: NewsReaderCartridge
+        - id: MedTekCartridge
+        - id: NanoChatCartridge # ADT-tweak: Наночат
+        - id: ADTWalletCartridge # ADT-Economy
 
 - type: entity
   parent: ADTBasePDA
@@ -45,15 +48,18 @@
   abstract: true
   components:
   - type: CartridgeLoader
-    preinstalled:
-    - CrewManifestCartridge
-    - NotekeeperCartridge
-    - NanoTaskCartridge
-    - NewsReaderCartridge
-    - NanoChatCartridge # ADT-tweak: Наночат
-    - WantedListCartridge
-    - ADTWalletCartridge # ADT-Economy
     diskSpace: 8 # ADT tweak
+  - type: EntityTableContainerFill
+    containers:
+      preinstalled-program-container: !type:AllSelector
+        children:
+        - id: CrewManifestCartridge
+        - id: NotekeeperCartridge
+        - id: NanoTaskCartridge
+        - id: NewsReaderCartridge
+        - id: NanoChatCartridge # ADT-tweak: Наночат
+        - id: WantedListCartridge
+        - id: ADTWalletCartridge # ADT-Economy
 #Если добаляете группу одинаковых кпк делайте им базу!
 
 - type: entity

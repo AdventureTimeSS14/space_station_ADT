@@ -39,6 +39,8 @@
     - id: PlushieArachind
     - id: PlushiePenguin
     - id: PlushieVulp
+    - id: PlushieSheep
+    - id: PlushieSpaceSheep
     # ADT toys start
     - id: ADTPlushieOwl
     - id: ADTPlushieOctocat

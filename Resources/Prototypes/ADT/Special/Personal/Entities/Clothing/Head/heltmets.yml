@@ -10,6 +10,24 @@
     sprite: ADT/Special/Personal/blue_armored_hardhat.rsi
   - type: Clothing
     sprite: ADT/Special/Personal/blue_armored_hardhat.rsi
+    clothingVisuals:
+      head:
+      - state: off-equipped-HELMET
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: off-inhand-left
+      right:
+      - state: off-inhand-right
+  - type: ToggleableVisuals
+    inhandVisuals:
+      left:
+      - state: on-inhand-left
+      right:
+      - state: on-inhand-right
+    clothingVisuals:
+      head:
+      - state: on-equipped-HELMET
 
 - type: entity
   parent: ClothingHeadHelmetRiot
@@ -19,6 +37,8 @@
   components:
   - type: Sprite
     sprite: ADT/Special/Personal/Raven559/blue_shield_ceremonial_helmet.rsi
+    layers:
+    - state: icon
   - type: Clothing
     sprite: ADT/Special/Personal/Raven559/blue_shield_ceremonial_helmet.rsi
 
@@ -31,6 +51,8 @@
   components:
   - type: Sprite
     sprite: ADT/Special/Personal/Raven559/blue_shield_ceremonial_reinforced_helmet.rsi
+    layers:
+    - state: icon
   - type: Clothing
     sprite: ADT/Special/Personal/Raven559/blue_shield_ceremonial_reinforced_helmet.rsi
   - type: Armor

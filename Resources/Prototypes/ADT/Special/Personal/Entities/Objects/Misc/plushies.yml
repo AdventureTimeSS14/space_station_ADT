@@ -83,10 +83,7 @@
   - type: SpeakOnTrigger
     pack: ADTFigurinesPlushieJungar
   - type: Vocal
-    sounds:
-      Male: Mouse
-      Female: Mouse
-      Unsexed: Mouse
+    emoteSounds: Mouse
     wilhelmProbability: 0.001
   - type: Edible
     requiresSpecialDigestion: true
@@ -579,15 +576,12 @@
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/Items/Toys/toy_rustle.ogg
-  - type: SolutionContainerManager
-    solutions:
-      plushie:
-        maxVol: 1
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 10
+  - type: Solution
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Fiber
+        Quantity: 10
 
 - type: entity
   parent: BasePlushie
@@ -619,15 +613,12 @@
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/Items/Toys/toy_rustle.ogg
-  - type: SolutionContainerManager
-    solutions:
-      plushie:
-        maxVol: 1
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 10
+  - type: Solution
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Fiber
+        Quantity: 10
   - type: Whistle
     distance: 5
 
@@ -696,10 +687,11 @@
     useSound:
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
     solution: drink
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 0
+  - type: Solution
+    id: drink
+    solution:
+      maxVol: 0
+      reagents: []
   - type: MeleeWeapon
     wideAnimationRotation: 180
     soundHit:

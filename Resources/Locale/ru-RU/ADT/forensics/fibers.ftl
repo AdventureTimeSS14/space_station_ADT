@@ -10,3 +10,4 @@ fibers-cyan-adt = голубые
 fibers-bloodred-adt = кроваво-красные
 fibers-darkblack-adt = темно-черные
 fibers-darkgrey-adt = темно-серые
+fibers-regal-green-adt = королевские зелёные
