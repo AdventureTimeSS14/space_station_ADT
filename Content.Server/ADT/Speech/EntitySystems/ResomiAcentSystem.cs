@@ -16,7 +16,7 @@ public sealed class ResomiAccentSystem : EntitySystem
         SubscribeLocalEvent<ResomiAccentComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, ResomiAccentComponent component, AccentGetEvent args)
+    private void OnAccent(EntityUid uid, ResomiAccentComponent component, ref AccentGetEvent args)
     {
         var message = args.Message;
 

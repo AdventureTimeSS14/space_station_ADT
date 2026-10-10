@@ -24,7 +24,7 @@ namespace Content.Server.Speech.EntitySystems
             return Loc.GetString("...");
         }
 
-        private void OnAccent(EntityUid uid, GondolaSpeakingComponent component, AccentGetEvent args)
+        private void OnAccent(EntityUid uid, GondolaSpeakingComponent component, ref AccentGetEvent args)
         {
             args.Message = Accentuate(args.Message);
         }

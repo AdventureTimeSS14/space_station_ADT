@@ -119,7 +119,7 @@ public sealed class NyaAccentSystem : EntitySystem
         return final_msg;
     }
 
-    private void OnAccent(EntityUid uid, NyaAccentComponent component, AccentGetEvent args)
+    private void OnAccent(EntityUid uid, NyaAccentComponent component, ref AccentGetEvent args)
     {
         args.Message = Accentuate(args.Message);
     }

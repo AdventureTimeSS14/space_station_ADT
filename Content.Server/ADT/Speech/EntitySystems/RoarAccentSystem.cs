@@ -15,7 +15,7 @@ public sealed class RoarAccentSystem : EntitySystem
         SubscribeLocalEvent<RoarAccentComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, RoarAccentComponent component, AccentGetEvent args)
+    private void OnAccent(EntityUid uid, RoarAccentComponent component, ref AccentGetEvent args)
     {
         var message = args.Message;
 

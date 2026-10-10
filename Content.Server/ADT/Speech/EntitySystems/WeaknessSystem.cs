@@ -25,7 +25,7 @@ namespace Content.Server.ADT.Speech.EntitySystems
             _statusEffectsSystem.TryAddStatusEffect<WeaknessAccentComponent>(uid, WeaknessKey, time, refresh, status);
         }
 
-        private void OnAccent(EntityUid uid, WeaknessAccentComponent component, AccentGetEvent args)
+        private void OnAccent(EntityUid uid, WeaknessAccentComponent component, ref AccentGetEvent args)
         {
             args.Message = Accentuate(args.Message, component);
         }
