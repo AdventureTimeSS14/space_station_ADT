@@ -4,8 +4,10 @@ using Content.Server.Mech.Systems;
 using Content.Shared.ADT.Weapons.Medbeam;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
+using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
+using Content.Shared.Emp;
 using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs.Systems;
@@ -34,6 +36,12 @@ public sealed class ADTMedbeamSystem : SharedADTMedbeamSystem
             if (beam.Target == null)
                 continue;
 
+            if (HasComp<EmpDisabledComponent>(uid))
+            {
+                DetachBeam((uid, beam));
+                continue;
+            }
+
             beam.Accumulator += frameTime;
             if (beam.Accumulator < beam.UpdateInterval)
                 continue;
@@ -58,13 +66,21 @@ public sealed class ADTMedbeamSystem : SharedADTMedbeamSystem
             return;
         }
 
+        if (IsOnFire(target.Value))
+        {
+            DetachBeam(ent);
+            return;
+        }
+
         if (GetHolder(ent) is not { } holder)
         {
             DetachBeam(ent);
             return;
         }
 
-        var hasSomethingToHeal = HasSomethingToHeal(ent, target.Value);
+        TryComp<BloodstreamComponent>(target.Value, out var bloodstream);
+        var damage = GetActiveDamage(ent);
+        var hasSomethingToHeal = HasSomethingToHeal(ent, target.Value, damage, bloodstream);
 
         if (TryComp<MechComponent>(holder, out var mech))
         {
@@ -108,25 +124,39 @@ public sealed class ADTMedbeamSystem : SharedADTMedbeamSystem
         if (!hasSomethingToHeal)
             return;
 
-        _damage.TryChangeDamage(target.Value, ent.Comp.Damage, origin: ent.Owner);
+        _damage.TryChangeDamage(target.Value, damage, origin: ent.Owner);
 
-        if (HasComp<BloodstreamComponent>(target.Value))
+        if (bloodstream != null)
         {
             if (ent.Comp.BloodRestore > 0)
                 _blood.TryAddBlood(target.Value, (FixedPoint2) ent.Comp.BloodRestore);
 
-            _blood.TryModifyBleedAmount(target.Value, -Comp<BloodstreamComponent>(target.Value).BleedAmount);
+            _blood.TryModifyBleedAmount(target.Value, -bloodstream.BleedAmount);
         }
     }
 
-    private bool HasSomethingToHeal(Entity<ADTMedbeamComponent> ent, EntityUid target)
+    private DamageSpecifier GetActiveDamage(Entity<ADTMedbeamComponent> ent)
+    {
+        return GetCurrentMode(ent)?.Damage ?? ent.Comp.Damage;
+    }
+
+    private bool HasSomethingToHeal(Entity<ADTMedbeamComponent> ent, EntityUid target, DamageSpecifier damage, BloodstreamComponent? bloodstream)
     {
         if (TryComp<DamageableComponent>(target, out var damageable) && damageable.TotalDamage > 0)
-            return true;
-
-        if (HasComp<BloodstreamComponent>(target))
         {
-            if (Comp<BloodstreamComponent>(target).BleedAmount > 0)
+            var targetDamage = _damage.GetAllDamage(target);
+            foreach (var (type, amount) in damage.DamageDict)
+            {
+                if (amount < FixedPoint2.Zero
+                    && targetDamage.DamageDict.TryGetValue(type, out var current)
+                    && current > FixedPoint2.Zero)
+                    return true;
+            }
+        }
+
+        if (bloodstream != null)
+        {
+            if (bloodstream.BleedAmount > 0)
                 return true;
 
             if (ent.Comp.BloodRestore > 0 && _blood.GetBloodLevel(target) < 1f)
