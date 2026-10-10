@@ -920,6 +920,7 @@
       - state: rykoslave-equipped-HELMET
         offset: "0, 0.06"
 
+# Minokaa
 - type: entity
   parent: BasePlushie
   id: ADTPlushieEmiliaEvenwood
@@ -951,6 +952,50 @@
     pack: ADTFigurinesPlushieEmiliaEvenwood
   - type: TTS
     voice: mitakind
+  - type: Temperature
+  - type: TemperatureDamage
+    heatDamageThreshold: 380
+    damageCap: 8
+    heatDamage:
+      types:
+        Heat: 4
+  - type: Appearance
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+  - type: Flammable
+    fireSpread: true
+    alwaysCombustible: true
+    canExtinguish: true
+    damage:
+      types:
+        Heat: 1
+  - type: FireVisuals
+    sprite: Effects/fire.rsi
+    normalState: fire
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Injurable
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Ash:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 #honelin111
 - type: entity

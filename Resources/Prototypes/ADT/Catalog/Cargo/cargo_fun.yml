@@ -1,4 +1,14 @@
 - type: cargoProduct
+  id: ADTFunEmiliaPlushies
+  icon:
+    sprite: ADT/Special/Personal/minokaa_emilia_plushie.rsi
+    state: icon
+  product: ADTCrateFunEmiliaPlushieBulk
+  cost: 5000
+  category: cargoproduct-category-name-fun
+  group: market
+
+- type: cargoProduct
   id: ADTFunATV
   icon:
     sprite: Objects/Vehicles/atv.rsi

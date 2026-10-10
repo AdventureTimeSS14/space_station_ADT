@@ -16,3 +16,5 @@ ent-ADTCrateMaterialMarble = ящик мрамора
     .desc = Содержит 30 блоков мрамора.
 ent-ADTCrateServicePrinterInkCartridge = ящик с чернильным картриджем
     .desc = Содержит чернильный картридж для принтера книг.
+ent-ADTCrateFunEmiliaPlushieBulk = оптовый ящик плюшевых Эмилий
+    .desc = Ящик, набитый мягкими плюшевыми Эмилиями. Думайте, как объяснять эту покупку ЦК.
