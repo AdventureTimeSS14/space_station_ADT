@@ -16008,3 +16008,80 @@ Entries:
     id: 1983
     pr_number: 3389
     time: '2026-09-28T08:09:02Z'
+  - author: (Автор изменения)
+    changes:
+      - {message: Добавлены именные вещи и предметы, type: Add}
+    id: 1984
+    pr_number: 3459
+    time: '2026-09-28T09:42:35Z'
+  - author: Inconnu && Filo
+    changes:
+      - {message: что добавили, type: Add}
+      - {message: что убрали, type: Remove}
+      - {message: что подправили, type: Tweak}
+      - {message: что исправили -->, type: Fix}
+      - {message: Добавлено пипи, type: Add}
+      - {message: Удалено пупу, type: Remove}
+      - {message: Изменена унга, type: Tweak}
+      - {message: Исправлена бунга -->, type: Fix}
+      - {message: что добавили, type: Add}
+      - {message: что убрали, type: Remove}
+      - {message: что подправили, type: Tweak}
+      - {message: что исправили, type: Fix}
+      - {message: 'Добавлена новая раса: Селецерны.', type: Add}
+    id: 1985
+    pr_number: 3414
+    time: '2026-09-28T16:31:53Z'
+  - author: Golyb4ik
+    changes:
+      - {message: Добавлены новые документы из вики, type: Add}
+    id: 1986
+    pr_number: 3453
+    time: '2026-09-30T20:43:26Z'
+  - author: Пётр
+    changes:
+      - {message: 'Персонажи с параличом не могут брать роли капитана, утилизатора
+          и шахтёра', type: Tweak}
+      - {message: 'Персонажи со слепотой не могут брать роли капитана, командования,
+          утилизатора и шахтёра', type: Tweak}
+      - {message: Исправлен спрайт спонсорского предмета, type: Fix}
+    id: 1987
+    pr_number: 3489
+    time: '2026-10-08T04:33:19Z'
+  - author: maksim21612
+    changes:
+      - {message: Добавлена игрушка и фигурка Теокайи, type: Add}
+      - {message: Добавлены текстуры игрушек Эла и Атры, type: Add}
+      - {message: Изменена текстура спонсорской брони ОСЩ, type: Tweak}
+    id: 1988
+    pr_number: 3463
+    time: '2026-10-08T11:18:12Z'
+  - author: Filo
+    changes:
+      - {message: что добавили, type: Add}
+      - {message: что убрали, type: Remove}
+      - {message: что подправили, type: Tweak}
+      - {message: что исправили, type: Fix}
+      - {message: Добавлены именные лодауты для разных ролей по заказам., type: Add}
+    id: 1989
+    pr_number: 3359
+    time: '2026-10-08T12:34:36Z'
+  - author: Filo
+    changes:
+      - {message: что добавили, type: Add}
+      - {message: что убрали, type: Remove}
+      - {message: что подправили, type: Tweak}
+      - {message: что исправили, type: Fix}
+      - {message: 'Временно убраны именные лодауты, пока не доведут до ума спонсорские
+          бонусы.', type: Remove}
+    id: 1990
+    pr_number: 3490
+    time: '2026-10-09T11:53:33Z'
+  - author: Filo
+    changes:
+      - {message: Больше морозный алмаз не будет давать Драскам того могущества что
+          и не снилось их отцам. Теперь он не понижает температуру ниже абсолютного
+          нуля., type: Fix}
+    id: 1991
+    pr_number: 3492
+    time: '2026-10-09T14:13:30Z'
