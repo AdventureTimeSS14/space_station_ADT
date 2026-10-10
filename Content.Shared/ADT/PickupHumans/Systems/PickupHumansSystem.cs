@@ -303,6 +303,8 @@ public sealed class PickupHumansSystem : EntitySystem
         _actionBlocker.UpdateCanMove(carried);
         _movementSpeed.RefreshMovementSpeedModifiers(carrier);
 
+        Log.Info($"{ToPrettyString(carrier)} picked up {ToPrettyString(carried)}");
+
         return true;
     }
 
@@ -330,6 +332,8 @@ public sealed class PickupHumansSystem : EntitySystem
 
         var carrier = carried.Comp.Carrier;
         var bodyType = carried.Comp.OriginalBodyType;
+
+        Log.Info($"{ToPrettyString(carried.Owner)} dropped by {ToPrettyString(carrier)}");
 
         _doAfter.Cancel(carried.Comp.EscapeDoAfter);
 
