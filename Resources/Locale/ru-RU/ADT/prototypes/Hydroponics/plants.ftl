@@ -8,3 +8,4 @@ ent-ADTPorciniPlants = боровик
 ent-ADTInocybePlants = гриб иноцибе
 ent-ADTEmbershroomPlants = углегриб
 ent-ADTReishiPlants = гриб рейши
+ent-ADTMandarinPlants = мандарин

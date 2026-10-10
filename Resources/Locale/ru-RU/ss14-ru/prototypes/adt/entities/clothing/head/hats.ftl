@@ -1,5 +1,3 @@
-ent-ADTClothingHeadDemonicHornsDeer = демонические оленьи рога
-    .desc = Рога радиодемона. Эх...
 ent-ADTClothingHeadHatBeretOfTheArmedForcesoftheUSSP = берет вооружённых сил СССП
     .desc = Оливковый берет с символикой Вооружённых сил СССП. Очень почётная награда для военных, знак профессионализма и долгой службы. Его часто носят командиры.
 ent-ADTClothingHeadHatBeretParatrooperUSSP = берет десантника

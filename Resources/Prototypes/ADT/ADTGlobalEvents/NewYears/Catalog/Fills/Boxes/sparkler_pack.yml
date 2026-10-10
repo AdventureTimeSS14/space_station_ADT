@@ -1,0 +1,62 @@
+- type: entity
+  id: ADTSparklerPack
+  parent: [ BaseStorageItem, BaseBagOpenClose ]
+  name: pack of sparklers
+  suffix: New Year
+  description: A pack of sparklers to celebrate holidays
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Storage/sparkler_pack.rsi
+    layers:
+    - state: closed
+    - state: open
+      map: ["openLayer"]
+      visible: false
+    - state: stick0
+      map: ["stick0"]
+      sprite: ADT/ADTGlobalEvents/NewYears/Objects/Storage/sparkler_pack.rsi
+      visible: false
+    - state: stick1
+      map: ["stick1"]
+      sprite: ADT/ADTGlobalEvents/NewYears/Objects/Storage/sparkler_pack.rsi
+      visible: false
+    - state: stick2
+      map: ["stick2"]
+      sprite: ADT/ADTGlobalEvents/NewYears/Objects/Storage/sparkler_pack.rsi
+      visible: false
+    - state: stick3
+      map: ["stick3"]
+      sprite: ADT/ADTGlobalEvents/NewYears/Objects/Storage/sparkler_pack.rsi
+      visible: false
+    - state: stick4
+      map: ["stick4"]
+      sprite: ADT/ADTGlobalEvents/NewYears/Objects/Storage/sparkler_pack.rsi
+      visible: false
+  - type: Tag
+    tags:
+    - Trash
+  - type: PhysicalComposition
+    materialComposition:
+      Cardboard: 50
+  - type: SpaceGarbage
+  - type: Storage
+    grid:
+    - 0,0,4,0
+  - type: Item
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Storage/sparkler_pack.rsi
+    size: Small
+  - type: StorageFill
+    contents:
+    - id: ADTSparkler
+      amount: 5
+  - type: ItemCounter
+    count:
+      tags: [ADTSparkler]
+    composite: true
+    layerStates:
+    - stick0
+    - stick1
+    - stick2
+    - stick3
+    - stick4
+  - type: Appearance

@@ -1,0 +1,122 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by discord:LunaLita#0840",
+    "size": {
+        "x": 64,
+        "y": 96
+    },
+    "states": [
+        {
+            "name": "christmas_tree"
+        },
+        {
+            "name": "red_balls"
+        },
+        {
+            "name": "silver_balls"
+        },
+        {
+            "name": "golden_balls"
+        },
+        {
+            "name": "silver_star"
+        },
+        {
+            "name": "golden_star"
+        },
+        {
+            "name": "red_star"
+        },
+        {
+            "name": "silver_mishura"
+        },
+        {
+            "name": "golden_mishura"
+        },
+        {
+            "name": "red_mishura"
+        },
+        {
+            "name": "goldenstar_garland",
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "silverstar_garland",
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "basestar_garland",
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "shiny_garland",
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        }
+    ]
+}
+

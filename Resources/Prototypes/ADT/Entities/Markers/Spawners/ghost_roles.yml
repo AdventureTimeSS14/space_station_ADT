@@ -236,7 +236,7 @@
     - state: green
     - sprite: ADT/Mobs/Aliens/morph.rsi
       state: alive
-        
+
 - type: entity
   name: Hermit spawner
   id: ADTMobHermitSpawner
@@ -297,7 +297,7 @@
     sprite: Markers/jobs.rsi
     layers:
       - state: green
-      
+
 - type: entity
   id: ADTSpawnPointDrPolymorph
   name: DrPolymorph spawn point
@@ -319,3 +319,20 @@
     sprite: Markers/jobs.rsi
     layers:
       - state: green
+
+# Спавнер гост-роли
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: ADTSpawnPointGhostSanta
+  name: Santa spawn point
+  suffix: New Year
+  components:
+  - type: GhostRole
+    name: ghost-role-information-Santa-name
+    description: ghost-role-information-Santa-description
+    rules: ghost-role-information-Santa-rules
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
