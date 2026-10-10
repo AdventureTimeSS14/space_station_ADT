@@ -25,8 +25,7 @@
     access: [["Engineering"]]
   - type: Sprite
     drawdepth: WallMountedItems
-    sprite: Structures/Wallmounts/apc.rsi
-    offset: 0, -0.25
+    sprite: Structures/Power/apc.rsi # ADT-Tweak
     layers:
     - state: base
     - state: panel
@@ -35,12 +34,16 @@
     - state: display-charging
       shader: unshaded
       map: ["enum.ApcVisualLayers.ChargeState"]
-    - state: channel-on
+    - state: lock1-locked # ADT-Tweak
       shader: unshaded
       map: ["enum.ApcVisualLayers.Equipment"]
       visible: false
   - type: Appearance
   - type: ApcVisuals
+    # ADT-Tweak-Start
+    channelIndicatorSuffixes: [ null, null, null, null ]
+    screenStateSuffixes: [ lack, charging, full, remote, lack ]
+    # ADT-Tweak-End
   - type: Battery
     # Very important:
     # Disable networking to prevent the battery getting continuously dirtied every tick as it interacts with the power network.
@@ -64,7 +67,7 @@
     sourceNode: input
     loadNode: output
     collectionName: apc
-    sprite: Structures/Wallmounts/apc.rsi
+    sprite: Structures/Power/apc.rsi # ADT-Tweak
     state: static
   - type: BatteryCharger
     voltage: Medium
@@ -148,7 +151,7 @@
     mode: SnapgridCenter
   components:
   - type: Sprite
-    sprite: Structures/Wallmounts/apc.rsi
+    sprite: Structures/Power/apc.rsi # ADT-Tweak
     state: frame
   - type: Construction
     graph: APC
