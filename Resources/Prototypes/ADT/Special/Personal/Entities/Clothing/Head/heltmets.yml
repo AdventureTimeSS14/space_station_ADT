@@ -1,0 +1,47 @@
+#kugooergooer
+- type: entity
+  parent: ClothingHeadHatHardhatArmored
+  id: ADTGiPatterHardhat
+  name: blue hardhat
+  suffix: Personal, kugooergooer
+  description: An armored hard hat. Provides the best of both worlds in both protection & utility - perfect for the engineer on the frontlines.
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/blue_armored_hardhat.rsi
+  - type: Clothing
+    sprite: ADT/Special/Personal/blue_armored_hardhat.rsi
+
+- type: entity
+  parent: ClothingHeadHelmetRiot
+  id: ADTClothingHeadBSHelmet
+  name: worn-out ceremonial helmet of an officer of the "Blue Shield"
+  description: A helmet protected from impacts and cuts. The cap symbolizes the power of capitalism and war crimes.
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/Raven559/blue_shield_ceremonial_helmet.rsi
+  - type: Clothing
+    sprite: ADT/Special/Personal/Raven559/blue_shield_ceremonial_helmet.rsi
+
+- type: entity
+  parent: ClothingHeadHelmetRiot
+  id: ADTClothingHeadReinforcedBSHelmetRaven559
+  name: worn-out parade reinforced helmet of the Officer 'Blue Shield'
+  description: Extremely durable helmet, designed (or stolen?) for one specific Blue Shield Officer. The word 'DUMP TRUCK' is scratched on the front of the helmet.
+  suffix: Sponsor, Raven559
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/Raven559/blue_shield_ceremonial_reinforced_helmet.rsi
+  - type: Clothing
+    sprite: ADT/Special/Personal/Raven559/blue_shield_ceremonial_reinforced_helmet.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.5
+        Caustic: 0.95
+  - type: ExplosionResistance
+    damageCoefficient: 0.65
+  - type: StaminaResistance
+    damageCoefficient: 0.65

@@ -24,11 +24,10 @@ jobs:
         id: version
         shell: pwsh
         run: |
-          $lastTag = git describe --tags --abbrev=0 2>$null
-          if ($LASTEXITCODE -ne 0) {
-            $lastTag = $null
-            $global:LASTEXITCODE = 0
-          }
+          $lastTag = git tag -l "v*" |
+            Where-Object { $_ -match '^v\d+\.\d+$' } |
+            Sort-Object { [version]$_.Substring(1) } |
+            Select-Object -Last 1
 
           Write-Host "Last tag: $lastTag"
           echo "LAST_TAG=$lastTag" >> $env:GITHUB_ENV
@@ -100,7 +99,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git tag ${{ steps.version.outputs.TAG }}
+          if ($LASTEXITCODE -ne 0) { exit 1 }
           git push origin ${{ steps.version.outputs.TAG }}
+          if ($LASTEXITCODE -ne 0) { exit 1 }
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
@@ -113,3 +114,20 @@ jobs:
             ${{ steps.changelog.outputs.CHANGELOG }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Delete old releases
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          KEEP_RELEASES: 50
+        run: |
+          $old = gh release list --limit 1000 --json tagName --jq '.[].tagName' |
+            Where-Object { $_ -match '^v\d+\.\d+$' } |
+            Sort-Object { [version]$_.Substring(1) } -Descending |
+            Select-Object -Skip ([int]$env:KEEP_RELEASES)
+
+          foreach ($tag in $old) {
+            Write-Host "Deleting release $tag"
+            gh release delete $tag --yes
+          }
+          $global:LASTEXITCODE = 0
