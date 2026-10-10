@@ -1,0 +1,58 @@
+- type: entity
+  id: ADTShieldSegment
+  name: energy shield
+  description: An impenetrable field of energy, capable of blocking anything as long as it's active.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ShieldSegment
+  - type: Transform
+    anchored: false
+    gridTraversal: false
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - GlassLayer
+  - type: Sprite
+    sprite: ADT/Misc/shield.rsi
+    layers:
+    - state: shield_normal
+      map: [ "enum.ShieldSegmentVisualLayers.Base" ]
+  - type: Appearance
+  - type: Damageable
+    damageContainer: Inorganic
+
+- type: entity
+  id: ADTShieldImpact
+  name: ""
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+  - type: Sprite
+    sprite: ADT/Misc/shield.rsi
+    layers:
+    - state: shield_impact
+      shader: unshaded
+  - type: TimedDespawn
+    lifetime: 0.8
+
+- type: entity
+  id: ADTShieldSparkles
+  name: ""
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+  - type: Sprite
+    sprite: ADT/Misc/shield.rsi
+    layers:
+    - state: shieldsparkles
+      shader: unshaded
+  - type: TimedDespawn
+    lifetime: 0.8

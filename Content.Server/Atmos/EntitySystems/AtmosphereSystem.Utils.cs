@@ -1,4 +1,5 @@
 using System.Runtime.CompilerServices;
+using Content.Server.ADT.Shields;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Atmos.EntitySystems;
@@ -140,6 +141,12 @@ public partial class AtmosphereSystem
             if (blockedDirs == AtmosDirection.All && noAirWhenBlocked && fixVacuum)
                 break;
         }
+
+        // ADT-Tweak start: unanchored shield segments (sitting in space) can't carry AirtightComponent,
+        // so their blocked directions are merged in from a registry instead. No-op without shields.
+        if (ShieldAirtightRegistry.HasAny)
+            blockedDirs |= ShieldAirtightRegistry.GetBlockedDirections(uid, tile);
+        // ADT-Tweak end
 
         return new AirtightData(blockedDirs, noAirWhenBlocked, fixVacuum);
     }
