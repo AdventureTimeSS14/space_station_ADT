@@ -45,7 +45,7 @@
     radius: 3 # ADT tweak 2 > 3
     energy: 2.5
     color: "#47f8ff"
-    mask: /Textures/ADT/Effects/Lightmasks/star.png # ADT tweak
+    lightMask: ADTLightMaskStar # ADT tweak
     autoRot: true # ADT tweak
   - type: Tag
     tags:
@@ -63,7 +63,7 @@
     radius: 3 # ADT tweak 2 > 3
     energy: 2.5
     color: "#39a1ff"
-    mask: /Textures/ADT/Effects/Lightmasks/star.png # ADT tweak
+    lightMask: ADTLightMaskStar # ADT tweak
     autoRot: true # ADT tweak
   - type: Tag
     tags:
@@ -81,7 +81,7 @@
     radius: 3 # ADT tweak 2 > 3
     energy: 2.5
     color: "#ffde46"
-    mask: /Textures/ADT/Effects/Lightmasks/star.png # ADT tweak
+    lightMask: ADTLightMaskStar # ADT tweak
     autoRot: true # ADT tweak
   - type: Tag
     tags:
@@ -99,7 +99,7 @@
     radius: 3 # ADT tweak 2 > 3
     energy: 2.5
     color: "#ff8227"
-    mask: /Textures/ADT/Effects/Lightmasks/star.png # ADT tweak
+    lightMask: ADTLightMaskStar # ADT tweak
     autoRot: true # ADT tweak
   - type: Tag
     tags:
@@ -117,7 +117,7 @@
     radius: 3 # ADT tweak 2 > 3
     energy: 2.5
     color: "#363636"
-    mask: /Textures/ADT/Effects/Lightmasks/star.png # ADT tweak
+    lightMask: ADTLightMaskStar # ADT tweak
     autoRot: true # ADT tweak
   - type: Tag
     tags:
@@ -135,7 +135,7 @@
     radius: 3 # ADT tweak 2 > 3
     energy: 2.5
     color: "#ff66cc"
-    mask: /Textures/ADT/Effects/Lightmasks/star.png # ADT tweak
+    lightMask: ADTLightMaskStar # ADT tweak
     autoRot: true # ADT tweak
   - type: Tag
     tags:
@@ -153,7 +153,7 @@
     radius: 3 # ADT tweak 2 > 3
     energy: 2.5
     color: "#52ff39"
-    mask: /Textures/ADT/Effects/Lightmasks/star.png # ADT tweak
+    lightMask: ADTLightMaskStar # ADT tweak
     autoRot: true # ADT tweak
   - type: Tag
     tags:
@@ -171,7 +171,7 @@
     radius: 3 # ADT tweak 2 > 3
     energy: 2.5
     color: "#fb4747"
-    mask: /Textures/ADT/Effects/Lightmasks/star.png # ADT tweak
+    lightMask: ADTLightMaskStar # ADT tweak
     autoRot: true # ADT tweak
   - type: Tag
     tags:

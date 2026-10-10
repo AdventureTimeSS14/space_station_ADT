@@ -32,9 +32,11 @@
         - BulletImpassable
   - type: PointLight
     radius: 10
-    energy: 0.8
-    softness: 1
-    color: "#FFE4CE"
+    # ADT-Tweak-Start
+    energy: 2.5
+    softness: 0.9
+    color: "#EEEEFF"
+    # ADT-Tweak-End
   - type: Anchorable
   - type: InteractionOutline
   - type: Damageable

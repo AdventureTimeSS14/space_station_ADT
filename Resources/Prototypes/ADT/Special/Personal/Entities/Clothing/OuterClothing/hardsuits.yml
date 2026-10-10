@@ -57,7 +57,7 @@
     radius: 2
     energy: 2
     color: red
-    mask: /Textures/Effects/LightMasks/double_cone.png
+    lightMask: ConeDouble
   - type: RotatingLight
     speed: 360
   - type: ContainerContainer
@@ -142,7 +142,7 @@
     radius: 2
     energy: 2
     color: violet
-    mask: /Textures/Effects/LightMasks/double_cone.png
+    lightMask: ConeDouble
   - type: Item
     size: Large
     shape:
