@@ -159,6 +159,7 @@ namespace Content.Shared.Movement.Systems
 
             mover.TargetRelativeRotation += angle;
             Dirty(uid, mover);
+            UpdateMoverStatus((uid, mover)); // ADT-Tweak
         }
 
         public void ResetCamera(EntityUid uid)
@@ -176,6 +177,7 @@ namespace Content.Shared.Movement.Systems
             mover.LerpTarget = TimeSpan.Zero;
             mover.TargetRelativeRotation = Angle.Zero;
             Dirty(uid, mover);
+            UpdateMoverStatus((uid, mover)); // ADT-Tweak
         }
 
         private bool TryUpdateRelative(EntityUid uid, InputMoverComponent mover, TransformComponent xform)
