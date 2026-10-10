@@ -122,13 +122,6 @@ public partial class SharedMartialArtsSystem
             || !TryUseMartialArt(ent, proto, out var target, out var downed))
             return;
 
-        if (!downed)
-        {
-            _popupSystem.PopupEntity(Loc.GetString("martial-arts-fail-target-standing"), ent, ent);
-            ent.Comp.LastAttacks.Clear();
-            return;
-        }
-
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
 
