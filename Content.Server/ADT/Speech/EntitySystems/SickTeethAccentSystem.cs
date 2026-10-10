@@ -15,7 +15,7 @@ public sealed class SickTeethAccentSystem : EntitySystem
         SubscribeLocalEvent<SickTeethAccentComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, SickTeethAccentComponent component, AccentGetEvent args)
+    private void OnAccent(EntityUid uid, SickTeethAccentComponent component, ref AccentGetEvent args)
     {
         var message = args.Message;
 

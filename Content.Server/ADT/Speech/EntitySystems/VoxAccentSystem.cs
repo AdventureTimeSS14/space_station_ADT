@@ -15,7 +15,7 @@ public sealed class VoxAccentSystem : EntitySystem
         SubscribeLocalEvent<VoxAccentComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, VoxAccentComponent component, AccentGetEvent args)
+    private void OnAccent(EntityUid uid, VoxAccentComponent component, ref AccentGetEvent args)
     {
         var message = args.Message;
         // ADT-Localization-Start

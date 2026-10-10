@@ -25,7 +25,7 @@ public sealed class SyllableSystem : SharedSyllableSystem
         _statusEffectsSystem.TryAddStatusEffect<SyllableAccentComponent>(uid, SyllableKey, time, refresh, status);
     }
 
-    private void OnAccent(EntityUid uid, SyllableAccentComponent component, AccentGetEvent args)
+    private void OnAccent(EntityUid uid, SyllableAccentComponent component, ref AccentGetEvent args)
     {
         args.Message = Accentuate(args.Message);
     }
