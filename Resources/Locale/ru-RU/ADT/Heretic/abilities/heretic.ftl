@@ -4,6 +4,10 @@ mansus-infused-item-examine = [color=purple]Одно лишь присутств
 heretic-ability-fail = Не удалось использовать заклинание
 heretic-ability-fail-magicitem = Вы не можете произнести заклинание без концентрации!
 heretic-ability-fail-notarget = Не удалось найти цель для заклинания!
+heretic-ability-fail-other-minds-nearby = Рядом другие разумы!
+heretic-lock-unlocked = открыто!
+heretic-last-refuge-examine-message = [color=purple]{CAPITALIZE(SUBJECT($target))} окутан нечестивой дымкой![/color]
+heretic-ability-lose-focus-last-refuge = Без фокуса ваше убежище слабеет и рассеивается!
 heretic-magicitem-examine = [color=yellow]Данный предмет позволяет вам использовать продвинутые заклинания, пока экипирован или находится в руках.[/color]
 heretic-blade-examine = [color=yellow]После использования в руке, вы сломаете данный клинок и телепортируетесь подальше от опасности.[/color]
 heretic-blade-void-examine = [color=yellow]Если на враге есть Метка — вы телепортируетесь к нему. Если Меток нет — вы телепортируетесь в безопасное место.[/color]
@@ -31,6 +35,9 @@ heretic-speech-ash-rebirth = G'LR'Y T' TH' N'GHT'W'TCH'ER!
 heretic-speech-ash-flame = FL'MS!!
 heretic-speech-ash-cascade = C'SC'DE!!
 heretic-speech-blade-furioussteel = F'LSH'NG S'LV'R!
+heretic-speech-blade-sacraments = 'DG' 'F IMM'RT'L'T'!
+heretic-speech-blade-domain-expansion = D'M'N XP'NS'N!
+heretic-speech-bulglar-finesse = Y'O'K!
 heretic-speech-flesh-surgery = CL'M M'N!
 heretic-speech-flesh-worm = REALITY UNCOIL!!
 heretic-speech-ghoul-call = C'M' T'M M'!!
@@ -55,6 +62,8 @@ heretic-speech-shapeshift = SH'PE
 heretic-speech-link = PI'RC' TH' M'ND
 
 heretic-cant-shoot = Я не могу использовать {$entity} из-за моей священной приверженности пути клинка.
+heretic-aura-message = Вы больше не можете скрывать свою истинную суть. Через 1 минуту вы получите ауру, выдающую в вас еретика.
+heretic-aura-message-immediate = Вы больше не можете скрывать свою истинную суть. Теперь у вас есть аура, выдающая в вас еретика.
 heretic-ability-fail-lowhealth = Это заклинание наносит {$damage} урона, оно введёт вас в критическое состояние, если его использовать!
 
 # ADT: добавлено при актуализации еретика с Goob
@@ -64,7 +73,13 @@ heretic-ability-fail-tile-occupied = Покрытие занято!
 heretic-ability-fail-rust-stage-low = Вы недостаточно сильны чтобы покрыть ржавчиной данное покрытие!
 heretic-ability-fail-target-ghoul = Цель уже гуль!
 heretic-ability-fail-target-no-mind = У цели нет души!
+heretic-ability-fail-space-phase-not-space = Вы должны стоять в космосе или на открытой местности с низким давлением!
+heretic-ability-fail-mirror-jaunt-no-mirrors = Рядом нет отражающих поверхностей!
+heretic-ability-fail-not-enough-space = Недостаточно места для заклинания!
+heretic-ability-fail-arena-nearby = Рядом другая арена!
+heretic-ability-fail-too-close = Цель слишком близко!
 heretic-ability-lose-focus-shadow-cloak = Когда вы теряете фокус, тени вытягивают вас наружу!
+heretic-ability-lose-focus-pale-cloak = Когда вы теряете фокус, свет вытягивает вас наружу!
 heretic-cosmic-rune-fail-star-mark = Заблокировано звёздной меткой!
 heretic-cosmic-rune-fail-unlinked = Руна не присоединена!
 heretic-cosmic-rune-fail-range = Недостаточно близко!
@@ -91,7 +106,17 @@ heretic-speech-stargaze = SH''P D' W''P
 heretic-speech-ice-spear = D'WN 'F TH'CE!
 heretic-speech-shapeshft = SH'PE
 heretic-blade-break-fail-acended-message = Вы не можете сломать клинок после вознесения!
+heretic-blade-break-fail-message = Вы больше не можете ломать клинки!
+heretic-blade-break-spell-recharge-message = Вы успешно перезарядили способность {$spell}!
+heretic-blade-break-ability-lost-message = Вы обрели великую силу, Мансус больше не позволит вам ломать клинки.
 
 heretic-grasp-fail-invalid-target = Хватке здесь не за что ухватиться.
 
 mansus-grasp-drain = Хватка Мансуса высасывает энергию из цели!
+
+heretic-sacraments-can-attack = {CAPITALIZE($heretic)} втянул вас в таинство! Теперь вы можете бить в ответ!
+
+coin-flip-examine-message = Выпало: {$side}.
+coin-flip-popup-message = {$coin} падает: {$side}!
+eldritch-coin-side-heretic = орёл
+eldritch-coin-side-blade = решка

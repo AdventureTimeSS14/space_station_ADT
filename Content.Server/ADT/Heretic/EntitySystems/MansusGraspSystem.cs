@@ -40,7 +40,7 @@ using Robust.Shared.Map;
 
 namespace Content.Server.Heretic.EntitySystems;
 
-public sealed class MansusGraspSystem : SharedMansusGraspSystem
+public sealed partial class MansusGraspSystem : SharedMansusGraspSystem
 {
     [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
@@ -176,8 +176,10 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
         {
             // only its own blades, for the Mansus infusion
             "Blade" => _tag.HasTag(target, "HereticBladeBlade"),
-            // knocks doors open
-            "Lock" => HasComp<DoorComponent>(target),
+            // knocks doors open, unlocks lockers, ejects mechs, clears access readers
+            "Lock" => HasComp<DoorComponent>(target)
+                       || HasComp<Content.Shared.Lock.LockComponent>(target)
+                       || HasComp<Content.Shared.Access.Components.AccessReaderComponent>(target),
             // rusts structures and kills station AI
             "Rust" => HasComp<StationAiHolderComponent>(target)
                       || _tag.HasAnyTag(target, "Wall", "Catwalk")

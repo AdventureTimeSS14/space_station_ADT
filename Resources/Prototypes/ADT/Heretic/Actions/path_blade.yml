@@ -54,3 +54,41 @@
   - type: ChangeUseDelayOnAscension
     newUseDelay: 30
     requiredPath: Blade
+
+- type: entity
+  parent: BaseAction
+  id: ActionHereticSacraments
+  name: Sacraments of Power
+  description: Surround yourself with a ward that reflects damage back at attackers for a short time.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 60
+    itemIconStyle: NoItem
+    icon:
+      sprite: ADT/Heretic/abilities_heretic.rsi
+      state: sacraments
+  - type: InstantAction
+    event: !type:EventHereticSacraments
+  - type: HereticAction
+    requireMagicItem: true
+
+- type: entity
+  parent: BaseAction
+  id: ActionHereticDomainExpansion
+  name: Wolves Among Sheep
+  description: Drag nearby heathens toward you, mark them with the mark of the Blade, and raise a dueling arena around you.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 90
+    itemIconStyle: NoItem
+    icon:
+      sprite: ADT/Heretic/abilities_heretic.rsi
+      state: hook
+  - type: InstantAction
+    event: !type:EventHereticDomainExpansion
+  - type: HereticAction
+    requireMagicItem: true

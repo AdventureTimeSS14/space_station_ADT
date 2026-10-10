@@ -339,6 +339,16 @@ public abstract class SharedHereticBladeSystem : EntitySystem
                         _starMark.TryApplyStarMark(uid);
                     }
                     break;
+                case "Lock":
+                    args.BonusDamage += new DamageSpecifier
+                    {
+                        DamageDict =
+                        {
+                            { "Slash", 5f },
+                            { "Structural", 5f },
+                        },
+                    };
+                    break;
             }
         }
 

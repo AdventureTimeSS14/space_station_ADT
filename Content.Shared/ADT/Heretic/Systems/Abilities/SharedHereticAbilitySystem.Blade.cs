@@ -5,6 +5,7 @@ using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Heretic;
 using Content.Shared.Slippery;
 using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
@@ -33,6 +34,23 @@ public abstract partial class SharedHereticAbilitySystem
         SubscribeLocalEvent<RealignmentComponent, BeforeHarmfulActionEvent>(OnBladeHarmfulAction);
         SubscribeLocalEvent<RealignmentComponent, StatusEffectEndedEvent>(OnStatusEnded);
         SubscribeLocalEvent<RealignmentComponent, ComponentRemove>(OnComponentRemove);
+
+        SubscribeLocalEvent<HereticBladePassiveRiposteEvent>(OnBladePassiveRiposte);
+    }
+
+    private void OnBladePassiveRiposte(HereticBladePassiveRiposteEvent args)
+    {
+        var riposte = EnsureComp<RiposteeComponent>(args.Heretic);
+
+        if (!riposte.Data.TryGetValue("HereticBlade", out var data))
+        {
+            data = new RiposteData();
+            riposte.Data["HereticBlade"] = data;
+        }
+
+        data.Cooldown = Math.Min(data.Cooldown, args.Cooldown);
+        data.Timer = Math.Min(data.Timer, args.Cooldown);
+        Dirty(args.Heretic, riposte);
     }
 
     private void OnComponentRemove(Entity<RealignmentComponent> ent, ref ComponentRemove args)

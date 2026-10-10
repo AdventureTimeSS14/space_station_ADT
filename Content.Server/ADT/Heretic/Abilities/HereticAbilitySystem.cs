@@ -127,8 +127,6 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
 
         SubscribeLocalEvent<EventHereticMansusLink>(OnMansusLink);
         SubscribeLocalEvent<HereticMansusLinkDoAfter>(OnMansusLinkDoafter);
-
-        SubscribeLock();
     }
 
     public override void InvokeTouchSpell<T>(Entity<T> ent, EntityUid user)

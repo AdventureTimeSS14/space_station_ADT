@@ -14,6 +14,7 @@ using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Popups;
+using Content.Shared.Tag;
 using Content.Shared.Trigger.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
@@ -41,6 +42,7 @@ public abstract class SharedStarMarkSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedHereticSystem _heretic = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
 
     public static readonly EntProtoId StarMarkStatusEffect = "StatusEffectStarMark";
     public static readonly EntProtoId CosmicField = "WallFieldCosmic";
@@ -141,6 +143,9 @@ public abstract class SharedStarMarkSystem : EntitySystem
         var other = args.OtherEntity;
 
         if (!TryComp(other, out ActiveTimerTriggerComponent? trigger))
+            return;
+
+        if (_tag.HasTag(other, ent.Comp.IgnoredTag))
             return;
 
         // Defuse bombs

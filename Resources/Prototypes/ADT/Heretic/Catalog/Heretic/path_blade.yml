@@ -78,6 +78,25 @@
     whitelist:
     - Blade
 
+# side
+- type: listing
+  id: HereticBladePathHook
+  name: knowledge-path-blade-side-hook-name
+  description: knowledge-path-blade-side-hook-desc
+  icon: { sprite: ADT/Heretic/abilities_heretic.rsi, state: hook }
+  productHereticKnowledge: ChampionHook
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathBlade
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 3
+    whitelist:
+    - Blade
+
 - type: listing
   id: HereticBladePath5
   name: knowledge-path-blade-s5-name
@@ -115,6 +134,25 @@
     whitelist: # ADT
     - Blade
 
+# side
+- type: listing
+  id: HereticBladePathSacraments
+  name: knowledge-path-blade-side-sacraments-name
+  description: knowledge-path-blade-side-sacraments-desc
+  icon: { sprite: ADT/Heretic/abilities_heretic.rsi, state: sacraments }
+  productHereticKnowledge: SacramentsOfPower
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathBlade
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 4
+    whitelist:
+    - Blade
+
 - type: listing
   id: HereticBladePath7
   name: knowledge-path-blade-s7-name
@@ -150,6 +188,25 @@
   - !type:HereticPathCondition
     stage: 7
     whitelist: # ADT
+    - Blade
+
+# side
+- type: listing
+  id: HereticBladePathWolves
+  name: knowledge-path-blade-side-wolves-name
+  description: knowledge-path-blade-side-wolves-desc
+  icon: { sprite: ADT/Heretic/abilities_heretic.rsi, state: hook_on }
+  productHereticKnowledge: WolvesAmongSheep
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathBlade
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 7
+    whitelist:
     - Blade
 
 - type: listing

@@ -8,7 +8,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.Clothing.Systems;
 
-public sealed class ChameleonClothingSystem : SharedChameleonClothingSystem
+public sealed partial class ChameleonClothingSystem : SharedChameleonClothingSystem // ADT-Tweak
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IdentitySystem _identity = default!;

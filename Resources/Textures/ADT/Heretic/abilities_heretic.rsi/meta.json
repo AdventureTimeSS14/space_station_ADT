@@ -143,6 +143,36 @@
         },
         {
             "name": "ascension_rust"
+        },
+        {
+            "name": "sacraments"
+        },
+        {
+            "name": "hook"
+        },
+        {
+            "name": "hook_on"
+        },
+        {
+            "name": "grasp_mind"
+        },
+        {
+            "name": "palecloak"
+        },
+        {
+            "name": "flames"
+        },
+        {
+            "name": "flames_on"
+        },
+        {
+            "name": "worm_contract"
+        },
+        {
+            "name": "among_sheep"
+        },
+        {
+            "name": "ghoul_shattered"
         }
     ]
 }

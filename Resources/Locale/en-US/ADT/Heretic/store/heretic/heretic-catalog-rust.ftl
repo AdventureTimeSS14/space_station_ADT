@@ -38,7 +38,6 @@ knowledge-path-rust-s2-desc =
     Already rusted surfaces are destroyed.
     Standing on Rusted tiles heals, purges chems off your body and grants you resistance to batons.
     Allows you to rust basic iron walls and floors.
-    Gives you immunity to disgust.
 
 knowledge-path-rust-s3-name = Aggressive Spread
 knowledge-path-rust-s3-desc =
@@ -57,7 +56,7 @@ knowledge-path-rust-s4-desc =
     The Blacksmith looks away. To a place lost long ago. "Rusted Hills help those in dire need... at a cost."
 
     Your Mansus Grasp now applies the Mark of Rust. The mark is triggered from an attack with your Rusty Blade.
-    When triggered, your victim will suffer heavy disgust.
+    When triggered, your victim will vomit and be knocked down for a long time.
     Allows you to rust special material walls.
 
 knowledge-path-rust-s5-name = Rust Construction
@@ -77,7 +76,7 @@ knowledge-path-rust-s7-name = Toxic Blade
 knowledge-path-rust-s7-desc =
     The Blacksmith hands you their blade. "The Blade will guide you through the flesh, should you let it." The heavy rust weights it down. You stare deeply into it. The Rusted Hills call for you, now.
 
-    Your Rusty Blade now causes toxic damage and disgust to those you attack and also increases rot level of corpses.
+    Your Rusty Blade strikes harder, dealing bonus damage on every hit, and its strikes hasten the rot of corpses.
     Standing on Rusted tiles closes up your wounds and heals your pain, healing effect increased.
     Allows you to rust reinforced and mining walls.
 
@@ -92,5 +91,5 @@ knowledge-path-rust-s9-desc =
     The ascension ritual of the Path of Rust.
     Bring 3 rotting or silicon corpses to a transmutation rune to complete the ritual.
     When completed, the ritual site will endlessly spread rust onto any surface, stopping for nothing.
-    Additionally, you will become extremely resilient on rust, healing at much higher rate, regenerating lost limbs and becoming immune to many effects and dangers.
+    Additionally, you will become extremely resilient on rust, healing at much higher rate and becoming immune to many effects and dangers.
     You will be able to rust almost anything upon ascending.

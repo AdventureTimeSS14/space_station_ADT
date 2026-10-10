@@ -16,8 +16,9 @@ namespace Content.Server.Heretic.Abilities;
 
 public sealed partial class HereticAbilitySystem
 {
-    private void SubscribeLock()
+    protected override void SubscribeLock()
     {
+        base.SubscribeLock();
         SubscribeLocalEvent<GhoulComponent, EventHereticShapeshift>(OnShapeshift);
 
         SubscribeLocalEvent<ShapeshiftActionComponent, HereticShapeshiftMessage>(OnShapeshiftMessage);
