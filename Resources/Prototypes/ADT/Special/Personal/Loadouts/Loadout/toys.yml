@@ -168,6 +168,13 @@
 
 - type: loadout
   sponsorOnly: true
+  id: ADTPlushieReimor
+  storage:
+    back:
+    - ADTPlushieReimor
+
+- type: loadout
+  sponsorOnly: true
   id: ADTPlushieTheokaiFriendlyOne
   storage:
     back:

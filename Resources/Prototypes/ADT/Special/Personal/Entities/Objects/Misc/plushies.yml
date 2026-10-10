@@ -1461,3 +1461,39 @@
     soundHit: *PlushieMothSound
   - type: Edible
     useSound: *PlushieMothSound
+
+# Dark_World
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieReimor
+  name: plushie Reimor
+  description: A custom-made plushie. It smells of alcohol and an overabundance of orange.
+  suffix: Personal, Dark_World
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/toys.rsi
+    state: plushie_reimor
+  - type: Item
+    sprite: ADT/Special/Personal/toys.rsi
+    inhandVisuals:
+      left:
+      - state: reimor-inhand-left
+      right:
+      - state: reimor-inhand-right
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Special/Personal/toys.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: reimor-equipped-HELMET
+        offset: "0, 0.0"
+  - type: EmitSoundOnUse
+    handle: false
+    sound: null
+  - type: TriggerOnUse
+  - type: Speech
+    speechSounds: Squeak
+  - type: SpeakOnTrigger
+    pack: ADTFigurinesPlushieReimor
