@@ -383,7 +383,7 @@ DrinkBottleGoldschlager: DrinkBottleGildlager
 
 # 2024-05-14
 soda_dispenser: SodaDispenser
-chem_master: ChemMaster
+chem_master: ADTChemMaster # ADT-Tweak
 
 # 2024-05-21
 CrateJanitorExplosive: ClosetJanitorBombFilled
@@ -1159,3 +1159,6 @@ LightReplacer: LightReplacerFilled
 
 #2026-08-18
 DrinkNeurotoxinGlass: null
+
+# ADT-Tweak
+ChemMaster: ADTChemMaster
