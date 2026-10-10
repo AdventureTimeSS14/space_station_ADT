@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Server.ADT.Generation;
 using Content.Shared.ADT.Lavaland.LegionCore;
 using Content.Shared.Body.Components;
@@ -60,7 +61,7 @@ public sealed class ADTImplantedLegionCoreSystem : EntitySystem
 
     private void OnMobStateChanged(Entity<ADTImplantedLegionCoreComponent> ent, ref MobStateChangedEvent args)
     {
-        if (args.NewMobState != ent.Comp.TriggerState || ent.Comp.Triggered)
+        if (!ent.Comp.TriggerStates.Contains(args.NewMobState) || ent.Comp.Triggered)
             return;
 
         if (ent.Comp.LavalandOnly &&
@@ -78,7 +79,7 @@ public sealed class ADTImplantedLegionCoreSystem : EntitySystem
         if (!TryComp<ADTImplantedLegionCoreComponent>(uid, out var comp) ||
             !TryComp<DamageableComponent>(uid, out var damageable) ||
             !TryComp<MobStateComponent>(uid, out var state) ||
-            state.CurrentState != comp.TriggerState)
+            !comp.TriggerStates.Contains(state.CurrentState))
         {
             return;
         }

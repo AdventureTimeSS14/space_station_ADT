@@ -1,6 +1,7 @@
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Hands.Systems;
 using Content.Server.NPC.Queries;
+using Content.Server.ADT.NPC.Queries.Considerations; // ADT-Tweak
 using Content.Server.NPC.Queries.Considerations;
 using Content.Server.NPC.Queries.Curves;
 using Content.Server.NPC.Queries.Queries;
@@ -358,6 +359,12 @@ public sealed class NPCUtilitySystem : EntitySystem
             {
                 return _mobState.IsCritical(targetUid) ? 1f : 0f;
             }
+            // ADT-Tweak-Start
+            case ADTTargetIsHardCritCon:
+            {
+                return _mobState.IsCritical(targetUid) && !_mobState.IsSoftCritical(targetUid) ? 1f : 0f;
+            }
+            // ADT-Tweak-End
             case TargetIsDeadCon:
             {
                 return _mobState.IsDead(targetUid) ? 1f : 0f;

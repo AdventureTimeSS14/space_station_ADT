@@ -1,4 +1,5 @@
-﻿using Content.Shared.Mobs;
+﻿using System.Linq; // ADT-Tweak
+using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Prototypes;
 
@@ -12,6 +13,14 @@ public sealed partial class MobStateEntityConditionSystem : EntityConditionSyste
 {
     protected override void Condition(Entity<MobStateComponent> entity, ref EntityConditionEvent<MobStateCondition> args)
     {
+        // ADT-Tweak-Start
+        if (args.Condition.Mobstates is { Length: > 0 } states)
+        {
+            args.Result = Array.IndexOf(states, entity.Comp.CurrentState) >= 0;
+            return;
+        }
+        // ADT-Tweak-End
+
         if (entity.Comp.CurrentState == args.Condition.Mobstate)
             args.Result = true;
     }
@@ -23,6 +32,21 @@ public sealed partial class MobStateCondition : EntityConditionBase<MobStateCond
     [DataField]
     public MobState Mobstate = MobState.Alive;
 
-    public override string EntityConditionGuidebookText(IPrototypeManager prototype) =>
-        Loc.GetString("entity-condition-guidebook-mob-state-condition", ("state", Mobstate));
+    /// <summary>
+    /// ADT-Tweak: если задан, условие проходит при любом из перечисленных состояний.
+    /// </summary>
+    [DataField]
+    public MobState[]? Mobstates;
+
+    // ADT-Tweak-Start
+    public override string EntityConditionGuidebookText(IPrototypeManager prototype)
+    {
+        var states = Mobstates is { Length: > 0 } list ? list : [Mobstate];
+        var names = states.Select(x =>
+            Loc.GetString($"entity-condition-guidebook-mob-state-{x.ToString().ToLowerInvariant()}"));
+
+        return Loc.GetString("entity-condition-guidebook-mob-state-condition",
+            ("state", string.Join($" {Loc.GetString("generic-or")} ", names)));
+    }
+    // ADT-Tweak-End
 }

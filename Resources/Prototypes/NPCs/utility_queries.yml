@@ -233,10 +233,12 @@
   query:
     - !type:NearbyHostilesQuery
   considerations:
-    - !type:TargetIsAliveCon
-      curve: !type:BoolCurve
-    - !type:TargetIsCritCon
+    # ADT-Tweak-Start: турели добивают в софт-крите
+    - !type:TargetIsDeadCon
       curve: !type:InverseBoolCurve
+    - !type:ADTTargetIsHardCritCon
+      curve: !type:InverseBoolCurve
+    # ADT-Tweak-End
     - !type:TargetIsStunnedCon
       curve: !type:InverseBoolCurve
     - !type:TurretTargetingCon
