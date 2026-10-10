@@ -1,221 +1,185 @@
 using Content.Shared.ADT.SeedDna;
+using Content.Shared.ADT.SeedDna.Prototypes;
+using Content.Shared.Atmos.Prototypes;
+using Content.Shared.Chemistry.Reagent;
+using Robust.Client.Graphics;
+using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
+using Robust.Shared.Prototypes;
+using System.Numerics;
 
 namespace Content.Client.ADT.SeedDna.UI;
 
 public sealed class SeedDnaConsoleWindowRow
 {
-    // см. примечание в SeedDnaConsoleWindow.xaml
-    private const float MarginValue = 15f / 2f;
-    private static readonly Thickness LeftMargin = new(0, 0, MarginValue, 0);
-    private static readonly Thickness LeftRightMargin = new(MarginValue, 0);
-    private static readonly Thickness RightMargin = new(MarginValue, 0, 0, 0);
+    [Dependency] private readonly IPrototypeManager _proto = default!;
 
-    private bool _isChemical;
+    private static readonly Color LockedColor = new(0.45f, 0.45f, 0.45f, 0.5f);
 
-    private Label? _titleLabel;
-    private Label? _seedValueLabel;
-    private Label? _dnaDiskValueLabel;
-    private Button? _extractButton;
-    private Button? _replaceButton;
+    private readonly string _geneId;
 
-    private Func<SeedChemQuantityDto?>? _getterChemSeedValue;
-    private Func<SeedChemQuantityDto?>? _getterChemDnaDiskValue;
+    private readonly Button _infoButton;
+    private readonly Label _titleLabel;
+    private readonly Label _seedValueLabel;
+    private readonly Label _diskValueLabel;
+    private readonly Button _extractButton;
+    private readonly Button _replaceButton;
 
-    private Action? _actionExtract;
-    private Action? _actionReplace;
+    private Container? _container;
+    private readonly List<Control> _cells = [];
 
-    private readonly Func<float?>? _getSeedPotency;
-    private readonly Func<float?>? _getDiskPotency;
-
-    private SeedDnaConsoleWindowRow(string title,
-        bool seedPresent, bool dnaDiskPresent,
-        Func<object?> getterSeedValue, Func<object?> getterDnaDiskValue,
-        Action<object?> setterSeedValue, Action<object?> setterDnaDiskValue,
-        Func<bool> flagUpdateImmediately,
-        Action<TargetSeedData> submit,
-        Func<float?>? getSeedPotency = null,
-        Func<float?>? getDiskPotency = null
-    )
+    public SeedDnaConsoleWindowRow(SeedDnaGeneEntry entry, Action<string, SeedDnaTransferDirection> onTransfer)
     {
-        _getSeedPotency = getSeedPotency;
-        _getDiskPotency = getDiskPotency;
+        IoCManager.InjectDependencies(this);
 
-        SetupTitle(title);
+        _geneId = entry.Id;
 
-        var seedValue = getterSeedValue();
-        var diskValue = getterDnaDiskValue();
+        var title = ResolveTitle(entry);
 
-        var seedPotencyValue = _getSeedPotency?.Invoke();
-        var diskPotencyValue = _getDiskPotency?.Invoke();
+        if (entry.Cost > 0)
+            title += $" ({Loc.GetString("seed-dna-row-cost", ("cost", entry.Cost))})";
 
-        SetLabelValue(_seedValueLabel = CreateValueLabel(), seedValue, seedPotencyValue);
-        SetLabelValue(_dnaDiskValueLabel = CreateValueLabel(), diskValue, diskPotencyValue);
-
-        _actionExtract = SetupActionButton(_extractButton = CreateActionButton(Loc.GetString("seed-dna-extract-btn")),
-            dnaDiskPresent, getterSeedValue, setterDnaDiskValue,
-            _seedValueLabel, _dnaDiskValueLabel,
-            flagUpdateImmediately,
-            submit, TargetSeedData.DnaDisk);
-
-        _actionReplace = SetupActionButton(_replaceButton = CreateActionButton(Loc.GetString("seed-dna-replace-btn")),
-            seedPresent, getterDnaDiskValue, setterSeedValue,
-            _dnaDiskValueLabel, _seedValueLabel,
-            flagUpdateImmediately,
-            submit, TargetSeedData.Seed);
-
-        if (!_isChemical)
-            return;
-
-        _getterChemSeedValue = () => (SeedChemQuantityDto?)getterSeedValue();
-        _getterChemDnaDiskValue = () => (SeedChemQuantityDto?)getterDnaDiskValue();
-    }
-
-    public SeedDnaConsoleWindowRow IncludeToContainer(Container container)
-    {
-        container.AddChild(_titleLabel!);
-        container.AddChild(_seedValueLabel!);
-        container.AddChild(_dnaDiskValueLabel!);
-        container.AddChild(new BoxContainer
-        {
-            Orientation = BoxContainer.LayoutOrientation.Horizontal,
-            SeparationOverride = 5,
-            Margin = RightMargin,
-            Children =
-            {
-                _extractButton!,
-                _replaceButton!,
-            },
-        });
-
-        // Removed sub-rows for chemicals as per modification
-
-        return this;
-    }
-
-    public void DoExtract()
-    {
-        _actionExtract!();
-    }
-
-    public void DoReplace()
-    {
-        _actionReplace!();
-    }
-
-    public static SeedDnaConsoleWindowRow? Create(string title,
-        bool seedPresent, bool dnaDiskPresent,
-        Func<object?> getterSeedValue, Func<object?> getterDnaDiskValue,
-        Action<object?> setterSeedValue, Action<object?> setterDnaDiskValue,
-        Func<bool> flagUpdateImmediately,
-        Action<TargetSeedData> submit,
-        Func<float?>? getSeedPotency = null,
-        Func<float?>? getDiskPotency = null)
-    {
-        if (getterSeedValue() == null && getterDnaDiskValue() == null)
-            return null;
-
-        return new SeedDnaConsoleWindowRow(title,
-            seedPresent,
-            dnaDiskPresent,
-            getterSeedValue,
-            getterDnaDiskValue,
-            setterSeedValue,
-            setterDnaDiskValue,
-            flagUpdateImmediately,
-            submit,
-            getSeedPotency,
-            getDiskPotency);
-    }
-
-    private void SetupTitle(string title)
-    {
-        _titleLabel = CreateTitleLabel(title);
-    }
-
-    private Action SetupActionButton(Button actionBtn,
-        bool secondDataPresent, Func<object?> getter, Action<object?> setter,
-        Label getupLabel, Label setupLabel,
-        Func<bool> flagUpdateImmediately,
-        Action<TargetSeedData> submit, TargetSeedData target)
-    {
-        actionBtn.Disabled = !(getter() != null && secondDataPresent) && !getupLabel.Text!.Equals(setupLabel.Text);
-
-        var targetPotencyFunc = target == TargetSeedData.Seed ? _getSeedPotency : _getDiskPotency;
-
-        var action = () =>
-        {
-            var value = getter();
-            if (value == null)
-                return;
-
-            setter(value);
-            var targetPotency = targetPotencyFunc?.Invoke();
-            SetLabelValue(setupLabel, value, targetPotency);
-            _extractButton!.Disabled = true;
-            _replaceButton!.Disabled = true;
-
-            if (flagUpdateImmediately())
-                submit(target);
-        };
-
-        actionBtn.OnPressed += _ => { action(); };
-
-        return action;
-    }
-
-    private Label CreateTitleLabel(string title)
-    {
-        return new Label { Text = title, Margin = LeftMargin };
-    }
-
-    private Label CreateValueLabel()
-    {
-        return new Label
-        {
-            StyleClasses = { "monospace" },
-            Margin = LeftRightMargin,
-        };
-    }
-
-    private Button CreateActionButton(string title)
-    {
-        return new Button
+        _titleLabel = new Label
         {
             Text = title,
+            HorizontalExpand = true,
+            ClipText = true,
+            VerticalAlignment = Control.VAlignment.Center,
         };
-    }
 
-    private Label SetLabelValue(Label valueLabel, object? value, float? potency = null)
-    {
-        if (value == null)
+        _infoButton = new Button
         {
-            valueLabel.Text = "-";
-            valueLabel.Align = Label.AlignMode.Center;
-        }
-        else if (value is SeedChemQuantityDto chem)
+            Text = "?",
+            MinSize = new Vector2(24, 24),
+            VerticalAlignment = Control.VAlignment.Center,
+            TooltipDelay = 0,
+        };
+
+        if (entry.Description != null)
         {
-            _isChemical = true;
-            if (potency == null)
-            {
-                valueLabel.Text = "-";
-                valueLabel.Align = Label.AlignMode.Center;
-            }
-            else
-            {
-                var p = potency.Value;
-                var x = chem.Min + (p / chem.PotencyDivisor);
-                var amount = Math.Clamp(x, chem.Min, chem.Max);
-                valueLabel.Text = amount.ToString() + "u";
-                valueLabel.Align = Label.AlignMode.Right;
-            }
+            _infoButton.ToolTip = Loc.GetString(entry.Description);
         }
         else
         {
-            valueLabel.Text = value.ToString();
-            valueLabel.Align = Label.AlignMode.Right;
+            _infoButton.Disabled = true;
         }
 
-        return valueLabel;
+        _seedValueLabel = CreateValueLabel(entry.SeedValue);
+        _diskValueLabel = CreateValueLabel(entry.DiskValue);
+
+        _extractButton = CreateActionButton(Loc.GetString("seed-dna-extract-btn"));
+        _replaceButton = CreateActionButton(Loc.GetString("seed-dna-replace-btn"));
+
+        _extractButton.Disabled = entry.LockedTech != null || entry.SeedValue == null;
+        _replaceButton.Disabled = entry.LockedTech != null || entry.DiskValue == null;
+
+        if (entry.LockedTech != null)
+        {
+            var lockedTip = Loc.GetString("seed-dna-row-locked", ("tech", entry.LockedTech));
+            ApplyLockedStyle(_extractButton, lockedTip);
+            ApplyLockedStyle(_replaceButton, lockedTip);
+        }
+
+        _extractButton.OnPressed += _ => onTransfer(_geneId, SeedDnaTransferDirection.SeedToDisk);
+        _replaceButton.OnPressed += _ => onTransfer(_geneId, SeedDnaTransferDirection.DiskToSeed);
+    }
+
+    public string GeneId => _geneId;
+    public bool CanExtract => !_extractButton.Disabled;
+    public bool CanReplace => !_replaceButton.Disabled;
+
+    public void DisableButtons()
+    {
+        _extractButton.Disabled = true;
+        _replaceButton.Disabled = true;
+    }
+
+    public void IncludeToContainer(Container container)
+    {
+        _container = container;
+
+        _cells.Add(_infoButton);
+        _cells.Add(_titleLabel);
+        _cells.Add(_seedValueLabel);
+        _cells.Add(_diskValueLabel);
+        _cells.Add(new BoxContainer
+        {
+            Orientation = BoxContainer.LayoutOrientation.Horizontal,
+            SeparationOverride = 4,
+            Children =
+            {
+                _extractButton,
+                _replaceButton,
+            },
+        });
+
+        foreach (var cell in _cells)
+            container.AddChild(cell);
+    }
+
+    public void Remove()
+    {
+        if (_container == null)
+            return;
+
+        foreach (var cell in _cells)
+            _container.RemoveChild(cell);
+
+        _cells.Clear();
+        _container = null;
+    }
+
+    private static void ApplyLockedStyle(Button button, string tooltip)
+    {
+        button.ToolTip = tooltip;
+        button.TooltipDelay = 0;
+        button.ModulateSelfOverride = LockedColor;
+    }
+
+    private static Label CreateValueLabel(string? value)
+    {
+        return new Label
+        {
+            Text = value ?? "-",
+            StyleClasses = { "monospace" },
+            Align = Label.AlignMode.Right,
+            VerticalAlignment = Control.VAlignment.Center,
+            MinWidth = 90,
+        };
+    }
+
+    private static Button CreateActionButton(string text)
+    {
+        return new Button
+        {
+            Text = text,
+        };
+    }
+
+    private string ResolveTitle(SeedDnaGeneEntry entry)
+    {
+        if (entry.Type == SeedDnaGeneType.Chemical)
+        {
+            var reagentId = entry.Id.StartsWith(SeedDnaGeneEntry.ChemicalPrefix)
+                ? entry.Id[SeedDnaGeneEntry.ChemicalPrefix.Length..]
+                : entry.Id;
+
+            if (_proto.TryIndex<ReagentPrototype>(reagentId, out var reagent))
+                return reagent.LocalizedName;
+
+            return reagentId;
+        }
+
+        if (entry.GasName != null)
+        {
+            var gasName = entry.GasName;
+            if (_proto.TryIndex<GasPrototype>(gasName, out var gasProto)
+                && Loc.TryGetString(gasProto.Name, out var localized))
+                gasName = localized;
+
+            return Loc.GetString(entry.Name, ("gas", gasName));
+        }
+
+        return Loc.GetString(entry.Name);
     }
 }
