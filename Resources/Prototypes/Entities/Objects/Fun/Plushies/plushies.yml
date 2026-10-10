@@ -212,7 +212,7 @@
   - type: PointLight
     radius: 2.5 # ADT tweak 1.5 > 2.5
     energy: 2
-    mask: /Textures/ADT/Effects/Lightmasks/circle_c.png # ADT tweak
+    lightMask: ADTLightMaskCircleC # ADT tweak
   - type: RgbLightController
     layers: [ 0 ]
   - type: Item

@@ -43,7 +43,7 @@
     enabled: false
     radius: 6
     energy: 3
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ADTLightMaskCone
     autoRot: true
 
 - type: entity

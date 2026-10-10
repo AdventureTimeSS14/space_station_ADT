@@ -32,10 +32,10 @@
     # ADT-Sound-Update-Start
     color: "#FAFFFF" # 5000K color temp
     energy: 0.9
-    radius: 10
+    radius: 8
     softness: 2.1
     # ADT-Sound-Update-End
-    offset: "0, 0.495"
+    offset: "0, -0.5" # ADT-Tweak
   - type: Damageable
     damageModifierSet: Metallic
   - type: Injurable
@@ -274,8 +274,8 @@
       state: base
     # ADT-Sound-Update-Start
     - type: PointLight
-      energy: 1
-      radius: 6
+      energy: 0.9
+      radius: 5
       softness: 1.1
       enabled: true
     # ADT-Sound-Update-End
@@ -319,7 +319,7 @@
     enabled: false
   - type: PointLight
     enabled: false
-    offset: "0, 0.495"
+    offset: "0, -0.5" # ADT-Tweak
   - type: ContainerContainer
     containers:
       light_bulb: !type:ContainerSlot
@@ -413,7 +413,7 @@
     state: base
   - type: PointLight
     enabled: true
-    mask: /Textures/ADT/Effects/Lightmasks/circle_a.png # ADT tweak
+    lightMask: ADTLightMaskCircleA # ADT tweak
   - type: PoweredLight
     hasLampOnSpawn: LightBulb
   - type: DamageOnInteract
@@ -435,7 +435,7 @@
     energy: 0.6
     offset: "0, 0.4"
     color: "#c8fb95" # ADT-Sound-Update
-    mask: /Textures/Effects/LightMasks/double_cone.png
+    lightMask: ConeDouble
   - type: ApcPowerReceiver
   - type: ExtensionCableReceiver
   - type: Battery
@@ -515,7 +515,7 @@
   - type: PoweredLight
     hasLampOnSpawn: LightTubeCrystalCyan
   - type: PointLight
-    color: "#47f8ff"
+    color: "#92f2f5" # ADT-Sound-Update
 
 - type: entity
   parent: AlwaysPoweredlightColor
@@ -523,7 +523,7 @@
   suffix: Always Powered, Cyan
   components:
   - type: PointLight
-    color: "#47f8ff"
+    color: "#92f2f5" # ADT-Sound-Update
 
 - type: entity
   parent: PoweredlightColor

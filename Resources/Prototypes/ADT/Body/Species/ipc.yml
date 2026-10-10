@@ -223,7 +223,7 @@
   - type: PointLight
     enabled: false
     color: "#ffffff"
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ADTLightMaskCone
     offset: 0,-0.3
     autoRot: true
     radius: 3

@@ -1,0 +1,79 @@
+- type: lightMask
+  id: ADTLightMaskCircleA
+  maskPath: /Textures/ADT/Effects/Lightmasks/circle_a.png
+  lightCones:
+  - direction: 0
+    innerWidth: 360
+    outerWidth: 360
+
+- type: lightMask
+  id: ADTLightMaskCircleB
+  maskPath: /Textures/ADT/Effects/Lightmasks/circle_b.png
+  lightCones:
+  - direction: 0
+    innerWidth: 360
+    outerWidth: 360
+
+- type: lightMask
+  id: ADTLightMaskCircleC
+  maskPath: /Textures/ADT/Effects/Lightmasks/circle_c.png
+  lightCones:
+  - direction: 0
+    innerWidth: 360
+    outerWidth: 360
+
+- type: lightMask
+  id: ADTLightMaskCircleD
+  maskPath: /Textures/ADT/Effects/Lightmasks/circle_d.png
+  lightCones:
+  - direction: 0
+    innerWidth: 360
+    outerWidth: 360
+
+- type: lightMask
+  id: ADTLightMaskCircleE
+  maskPath: /Textures/ADT/Effects/Lightmasks/circle_e.png
+  lightCones:
+  - direction: 0
+    innerWidth: 360
+    outerWidth: 360
+
+- type: lightMask
+  id: ADTLightMaskCircleCones
+  maskPath: /Textures/ADT/Effects/Lightmasks/circle_cones.png
+  lightCones:
+  - direction: 0
+    innerWidth: 360
+    outerWidth: 360
+
+- type: lightMask
+  id: ADTLightMaskCircleRings
+  maskPath: /Textures/ADT/Effects/Lightmasks/circle_rings.png
+  lightCones:
+  - direction: 0
+    innerWidth: 360
+    outerWidth: 360
+
+- type: lightMask
+  id: ADTLightMaskSmoke
+  maskPath: /Textures/ADT/Effects/Lightmasks/smoke.png
+  lightCones:
+  - direction: 0
+    innerWidth: 360
+    outerWidth: 360
+
+- type: lightMask
+  id: ADTLightMaskStar
+  maskPath: /Textures/ADT/Effects/Lightmasks/star.png
+  lightCones:
+  - direction: 0
+    innerWidth: 360
+    outerWidth: 360
+
+- type: lightMask
+  id: ADTLightMaskCone
+  maskPath: /Textures/Effects/LightMasks/cone.png
+  lightCones:
+  - direction: 0
+    innerWidth: 30
+    outerWidth: 60
