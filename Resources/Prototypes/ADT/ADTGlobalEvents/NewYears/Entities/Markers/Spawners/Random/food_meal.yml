@@ -1,0 +1,29 @@
+#спавнер еды
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomNewYearFoodSpawner
+  name: random new year food spawner
+  suffix: New Year
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: ADT/ADTGlobalEvents/NewYears/Objects/Consumable/Food/new-years/newyearsnack.rsi
+        state: stick
+  - type: RandomSpawner
+    offset: 0
+    prototypes:
+      - ADTFoodOlivierSalad
+      - ADTFoodJelliedMeat
+      - ADTFoodHerringUnderFurcoat
+      - ADTFoodMeatHam
+      - ADTFoodCakePudding
+      - ADTFoodCakePuddingChristmas
+      - ADTBoxNewYearSnack1
+      - ADTBoxNewYearSnack2
+      - ADTBoxNewYearSnack3
+      - ADTFoodMeatChickenBaked
+      - ADTFoodMeatChickenBakedWithVegetables
+      - ADTFoodMeatChickenBakedWing
+      - ADTFoodMeatChickenBakedLeg
+    #chance: 0.7
