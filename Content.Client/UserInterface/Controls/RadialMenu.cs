@@ -257,7 +257,8 @@ public abstract class RadialMenuButtonBase : BaseButton
     /// <inheritdoc />
     protected override void KeyBindDown(GUIBoundKeyEventArgs args)
     {
-        if (args.Function.IsClickOrAltClick())
+        if (args.Function.IsClickOrAltClick()
+            || (args.Function == EngineKeyFunctions.UIRightClick && AllowRightClick)) // ADT-Tweak
             base.KeyBindDown(args);
     }
 }
