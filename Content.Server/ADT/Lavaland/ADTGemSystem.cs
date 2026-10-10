@@ -107,8 +107,13 @@ public sealed class ADTGemSystem : EntitySystem
             return;
 
         args.Handled = true;
-        _temperature.ForceChangeTemperature(args.User, temperature.Temperature + ent.Comp.Delta, temperature);
-        _popup.PopupEntity(Loc.GetString(ent.Comp.Message, ("user", args.User), ("gem", ent.Owner)), args.User, PopupType.Small);
+        if (temperature.Temperature >= 0f)
+        {
+            _temperature.ForceChangeTemperature(args.User, temperature.Temperature + ent.Comp.Delta, temperature);
+            _popup.PopupEntity(Loc.GetString(ent.Comp.Message, ("user", args.User), ("gem", ent.Owner)), args.User, PopupType.Small);
+        }
+        else
+            _popup.PopupEntity(Loc.GetString(ent.Comp.FailMessage, ("user", args.User), ("gem", ent.Owner)), args.User, PopupType.Small);
     }
 
     private void OnRuperiumInteract(Entity<ADTRuperiumComponent> ent, ref InteractUsingEvent args)
