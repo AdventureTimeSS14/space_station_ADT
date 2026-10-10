@@ -19,6 +19,7 @@
     state: stamp-mime
   - type: Item
     size: Tiny
+    sprite: Objects/Misc/stamps.rsi # ADT-Tweak
     inhandVisuals:
       left:
       - state: stamp-inhand-left
