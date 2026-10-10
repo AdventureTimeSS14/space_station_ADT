@@ -170,7 +170,7 @@
 
 - type: entity
   parent: [ BaseBorgModuleEngineering, BaseProviderBorgModule ]
-  id: BorgModuleRPED
+  id: ADTBorgModuleRPED
   name: RPED cyborg module
   description: Engineering module containing a rapid part exchange device.
   components:
