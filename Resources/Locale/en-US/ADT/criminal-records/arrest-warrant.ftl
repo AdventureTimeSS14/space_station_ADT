@@ -5,7 +5,7 @@ arrest-warrant-fax-content =
     ⠀[color=#006600]███░███░░░░██░░░░[/color]
     ⠀[color=#006600]░██░████░░░██░░░░[/color]      [head=3]Document form[/head]
     ⠀[color=#006600]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#006600]░░░░██░░██░██░██░[/color] [bold]{$station} SEC[/bold]
+    ⠀[color=#006600]░░░░██░░██░██░██░[/color] [bold]{$station} CC-SEC[/bold]
     ⠀[color=#006600]░░░░██░░░████░███[/color]
     =============================================
                             ARREST WARRANT
