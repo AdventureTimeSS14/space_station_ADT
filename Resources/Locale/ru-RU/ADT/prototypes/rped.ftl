@@ -19,7 +19,7 @@ ent-BluespaceRapidPartExchangerFilled = { ent-BluespaceRapidPartExchanger }
 ent-BluespaceRapidPartExchangerFilledTier5 = { ent-BluespaceRapidPartExchanger }
     .suffix = Уровень 5
     .desc = { ent-BluespaceRapidPartExchanger.desc }
-ent-BorgModuleRPED = РПЕД модуль борга
+ent-ADTBorgModuleRPED = РПЕД модуль борга
     .desc = Инженерный модуль, содержащий устройство для быстрой замены деталей машин.
 
 action-rped-filter-name = Настройка замены
