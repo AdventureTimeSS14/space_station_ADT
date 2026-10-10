@@ -140,6 +140,7 @@
   recipeUnlocks:
     - BorgModuleAdvancedTool
     - ADTBorgModuleRPD
+    - ADTBordModuleRPED
   position: 0,-2
   requiredTech:
   - ADTIndustrialMODsuit
