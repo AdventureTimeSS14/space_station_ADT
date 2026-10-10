@@ -164,7 +164,7 @@
 
 #Light Riot Helmet
 - type: entity
-  parent: [ClothingHeadHelmetBase, BaseFoldable, BaseSecurityContraband]
+  parent: [ClothingHeadHelmetBase, BaseSecurityContraband] # ADT-Tweak
   id: ClothingHeadHelmetRiot
   name: light riot helmet
   description: It's a helmet specifically designed to protect against close range attacks, it has a foldable visor.
