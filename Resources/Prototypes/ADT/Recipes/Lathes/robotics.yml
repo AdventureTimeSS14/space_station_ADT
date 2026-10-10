@@ -58,6 +58,17 @@
     Copper: 250
 
 - type: latheRecipe
+  id: ADTBorgModuleRPED
+  result: ADTBorgModuleRPED
+  completetime: 3
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 250
+    Gold: 50
+    Copper: 250
+
+- type: latheRecipe
   id: ADTCustomLawCircuitBoard
   result: ADTCustomLawCircuitBoard
   completetime: 3
