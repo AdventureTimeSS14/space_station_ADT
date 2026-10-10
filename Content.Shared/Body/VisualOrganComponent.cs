@@ -1,5 +1,7 @@
+using Content.Shared.ADT.BodyTypes; // ADT-Tweak
 using Content.Shared.Humanoid;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes; // ADT-Tweak
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Body;
@@ -61,5 +63,13 @@ public partial record struct OrganProfileData
     /// </summary>
     [DataField]
     public Color SkinColor = Color.White;
+
+    // ADT-Tweak-Start
+    /// <summary>
+    /// Alternative torso sprite of this organ
+    /// </summary>
+    [DataField]
+    public ProtoId<BodyTypePrototype>? BodyType;
+    // ADT-Tweak-End
 }
 

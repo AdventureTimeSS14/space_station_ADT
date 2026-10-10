@@ -64,6 +64,11 @@
     prefix: adt-figurines-theokaya-
     count: 3
 
+  id: ADTFigurinesPlushieYuriyTrixter
+  values:
+    prefix: adt-figurines-plushie-yuriy-trixter-
+    count: 5
+
 - type: localizedDataset
   id: ADTFigurineNaviCyrex5386
   values:

@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Numerics;
+using Content.Shared.ADT.BodyTypes; // ADT-Tweak
 using Content.Shared.Body;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
@@ -26,43 +27,60 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
     [DataField]
     public Dictionary<ProtoId<OrganCategoryPrototype>, Dictionary<HumanoidVisualLayers, List<Marking>>> Markings { get; set; } = new();
 
+    // ADT-Tweak-Start
+    /// <summary>
+    /// Alternative torso sprite, null for the default one.
+    /// </summary>
+    [DataField]
+    public ProtoId<BodyTypePrototype>? BodyType { get; set; }
+    // ADT-Tweak-End
+
     public HumanoidCharacterAppearance(
         Color eyeColor,
         List<Color> hairColor, // ADT-tweak
         Color skinColor,
-        Dictionary<ProtoId<OrganCategoryPrototype>, Dictionary<HumanoidVisualLayers, List<Marking>>> markings)
+        Dictionary<ProtoId<OrganCategoryPrototype>, Dictionary<HumanoidVisualLayers, List<Marking>>> markings,
+        ProtoId<BodyTypePrototype>? bodyType = null) // ADT-Tweak
     {
         EyeColor = ClampColor(eyeColor);
         HairColor = hairColor.Select(ClampColor).ToList(); // ADT-tweak
         SkinColor = ClampColor(skinColor);
         Markings = markings;
+        BodyType = bodyType; // ADT-Tweak
     }
 
     public HumanoidCharacterAppearance(HumanoidCharacterAppearance other) :
-        this(other.EyeColor, other.HairColor, other.SkinColor, new(other.Markings))
+        this(other.EyeColor, other.HairColor, other.SkinColor, new(other.Markings), other.BodyType) // ADT-Tweak
     {
 
     }
 
     public HumanoidCharacterAppearance WithHairColor(List<Color> newColor) // ADT-tweak
     {
-        return new(EyeColor, newColor, SkinColor, Markings);
+        return new(EyeColor, newColor, SkinColor, Markings, BodyType); // ADT-Tweak
     }
 
     public HumanoidCharacterAppearance WithEyeColor(Color newColor)
     {
-        return new(newColor, HairColor, SkinColor, Markings);
+        return new(newColor, HairColor, SkinColor, Markings, BodyType); // ADT-Tweak
     }
 
     public HumanoidCharacterAppearance WithSkinColor(Color newColor)
     {
-        return new(EyeColor, HairColor, newColor, Markings);
+        return new(EyeColor, HairColor, newColor, Markings, BodyType); // ADT-Tweak
     }
 
     public HumanoidCharacterAppearance WithMarkings(Dictionary<ProtoId<OrganCategoryPrototype>, Dictionary<HumanoidVisualLayers, List<Marking>>> newMarkings)
     {
-        return new(EyeColor, HairColor, SkinColor, newMarkings);
+        return new(EyeColor, HairColor, SkinColor, newMarkings, BodyType); // ADT-Tweak
     }
+
+    // ADT-Tweak-Start
+    public HumanoidCharacterAppearance WithBodyType(ProtoId<BodyTypePrototype>? bodyType)
+    {
+        return new(EyeColor, HairColor, SkinColor, Markings, bodyType);
+    }
+    // ADT-Tweak-End
 
     public static HumanoidCharacterAppearance DefaultWithSpecies(ProtoId<SpeciesPrototype> species, Sex sex)
     {
@@ -146,6 +164,13 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
 
         var skinColor = appearance.SkinColor;
         var validatedMarkings = appearance.Markings.ShallowClone();
+        // ADT-Tweak-Start
+        var bodyType = appearance.BodyType is { } bodyTypeId &&
+                       proto.TryIndex(bodyTypeId, out var bodyTypeProto) &&
+                       bodyTypeProto.Species.Contains(species)
+            ? appearance.BodyType
+            : null;
+        // ADT-Tweak-End
 
         if (proto.TryIndex(species, out var speciesProto))
         {
@@ -182,7 +207,8 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
             eyeColor,
             hairColor, // ADT-tweak
             skinColor,
-            validatedMarkings);
+            validatedMarkings,
+            bodyType); // ADT-Tweak
     }
 
     public bool Equals(HumanoidCharacterAppearance? other)
@@ -191,6 +217,7 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
         if (ReferenceEquals(this, other)) return true;
         return EyeColor.Equals(other.EyeColor) && HairColor.SequenceEqual(other.HairColor) && // ADT-tweak
                SkinColor.Equals(other.SkinColor) &&
+               BodyType == other.BodyType && // ADT-Tweak
                MarkingManager.MarkingsAreEqual(Markings, other.Markings);
     }
 
@@ -201,7 +228,7 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
 
     public override int GetHashCode()
     {
-        return HashCode.Combine(EyeColor, HairColor, SkinColor, Markings);
+        return HashCode.Combine(EyeColor, HairColor, SkinColor, Markings, BodyType); // ADT-Tweak
     }
 
     public HumanoidCharacterAppearance Clone()

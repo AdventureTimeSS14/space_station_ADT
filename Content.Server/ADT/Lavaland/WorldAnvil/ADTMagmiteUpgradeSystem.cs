@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared.ADT.Containers;
 using Content.Shared.ADT.Lavaland.WorldAnvil;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
@@ -80,6 +81,9 @@ public sealed class ADTMagmiteUpgradeSystem : EntitySystem
         {
             foreach (var container in _container.GetAllContainers(target, containers).ToList())
             {
+                if (ADTInternalContainers.IsInternal(container))
+                    continue;
+
                 _container.EmptyContainer(container);
             }
         }

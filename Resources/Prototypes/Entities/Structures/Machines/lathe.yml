@@ -272,7 +272,6 @@
     #ADT-tweak-end
     - XenobioPack #ADT Tweak
     - XenobagHoldingPack #ADT Tweak
-    - ADTBluespaceCrystalTech #ADT Tweak
     - PartsDynamic #ADT-Tweak: machine parts
   - type: EmagLatheRecipes
     emagDynamicPacks:
@@ -422,6 +421,7 @@
     - ADTPhazonPack
     - ADTMechEquipmentPack
     - ADTBorgModules
+    - ADTJanicartUpgradesPack
     # ADT-tweak-end
   - type: MaterialStorage
     whitelist: *StandardMaterialWhitelist
@@ -509,6 +509,7 @@
     - ADTMagazineStaticPack
     - ADTScienceTrigger
     - ADTScienceExplosives
+    - ADTFiringPinStaticPack
     # ADT-Tweak-End
     dynamicPacks:
     - SalvageSecurityBoards
@@ -524,6 +525,7 @@
     - ADTAttachmentPack
     - ADT40mmGrenadePack
     - ADTMechEquipmentSecTechfabPack
+    - ADTFiringPinsResearchPack
     # ADT-tweak-end
   - type: EmagLatheRecipes
     emagStaticPacks:

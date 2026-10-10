@@ -18,8 +18,13 @@
       item: WhiteCane
   departmentBlacklist:
     - Security
+    - Command #ADT-Tweak
   jobBlacklist:
     - ADTBlueShieldOfficer
+#ADT-Tweak-Start
+    - SalvageSpecialist
+    - ADTMiner
+#ADT-Tweak-End
   conflicts:
     - PoorVision
 
@@ -86,6 +91,7 @@
   - IPC
   - NovakidSpecies
   - Vox
+
 - type: trait
   id: Paralyzed
   name: trait-paralyzed-name
@@ -98,6 +104,11 @@
     - Security
   jobBlacklist:
     - ADTBlueShieldOfficer
+#ADT-Tweak-Start
+    - SalvageSpecialist
+    - ADTMiner
+    - Captain
+#ADT-Tweak-End
   effects:
     - !type:AddCompsEffect
       components:

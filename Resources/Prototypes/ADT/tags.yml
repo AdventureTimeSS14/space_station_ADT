@@ -847,6 +847,9 @@
 - type: Tag
   id: ADTArchimedesPeripheralsControlModule
 
+- type: Tag
+  id: FiringPin
+
 # XENOBIO - START
 - type: Tag
   id: XenobiologyGreyExtract
@@ -1025,6 +1028,9 @@
   id: ADTMagazineMagnumLesser
 
 - type: Tag
+  id: ADTCelecernEmotes
+
+- type: Tag
   id: RMCTankFlamerFmW60
 
 - type: Tag
@@ -1077,6 +1083,15 @@
 
 - type: Tag
   id: ADTBow
+
+- type: Tag
+  id: ADTJanicartUpgradeBuffer
+
+- type: Tag
+  id: ADTJanicartUpgradeVacuum
+
+- type: Tag
+  id: ADTJanicartUpgradeSpeed
 
 - type: Tag
   id: ADTMagicStaff

@@ -580,6 +580,80 @@
     - риина
     - ин
 
+# Spoken by the Celecern race.
+- type: language
+  id: Sondelun
+  roundstart: true
+  uiColor: "#c5bbb9"
+  parent: BaseVocalLanguage
+  speech: !type:Generic
+    obfuscateSyllables: true
+    color: "#c5bbb9"
+    whisperColor: "#b5a6a3"
+    replacement:
+    - ver
+    - vi
+    - lun
+    - vir
+    - um
+    - la'e
+    - io
+    - l'ur
+    - sor
+    - fir
+    - tum
+    - us
+    - iti's
+    - tas
+    - ea
+    - via
+    - pft
+    - li'e
+    - uis
+    - mi
+    - ena
+    - ar
+    - ol
+    - l'ir
+    - lis
+    - huf
+    - n'um
+    - ve
+    - t'av
+    - ir
+    - me'r
+    - esh
+    - mor
+    - ri
+    - vio
+    - eli
+    - vo
+    - et
+    - wi
+    - tov
+    - una
+    - k'le
+    - o'er
+    - vi'un
+    - eth
+    - tuuv
+    - reh
+    - t'iv
+    - hik
+    - nae
+    - lur
+    - i
+    - li
+    - urr
+    - su
+    - e'ir
+    - mir
+    - fih
+    - te
+    - ulu
+    - frr
+    - mun
+
 # Spoken by the Dwarf race.
 - type: language
   id: Dwarf
