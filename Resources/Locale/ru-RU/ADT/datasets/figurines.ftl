@@ -71,3 +71,10 @@ adt-figurines-plushie-proxima-3 = Н-не г-гладьте меня...
 adt-figurines-theokaya-1 = Зззтанззия! Датчики!
 adt-figurines-theokaya-2 = Жзжу-жзжу-жзжу
 adt-figurines-theokaya-3 = Азззизззтент умер беззз датчиков...
+
+adt-figurines-navi-1 = Мяу
+adt-figurines-navi-2 = Вам не кажется, что мы видились с вами?
+adt-figurines-navi-3 = Витаминки один к одному с физраствором, вкусно!
+adt-figurines-navi-4 = Это не борода!
+adt-figurines-navi-5 = Я просто хочу отдохнуть...
+adt-figurines-navi-6 = Бу-бу-бу бе-бе-бе!

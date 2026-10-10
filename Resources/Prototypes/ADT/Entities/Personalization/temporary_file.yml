@@ -325,3 +325,74 @@
   - type: TriggerOnActivate
   - type: SpeakOnTrigger
     pack: ADTFigurineTheokayaFriendlyOne
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieOliferOliver28
+  name: plushy Olifer
+  description: Behind a frightening appearance, there are sometimes quite kind creatures; it would sound beautiful if it were true. Many security personnel involved in the not‑so‑well‑known incident still blame the creature that inspired this toy.
+  suffix: Sponsor, Oliver28
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_olifer
+  - type: Item
+    sprite: ADT/Personalization/toys.rsi
+    inhandVisuals:
+      left:
+      - state: olifer-inhand-left
+      right:
+      - state: olifer-inhand-right
+  - type: EmitSoundOnUse
+    sound: &PlushieAntagSound
+      path: /Audio/Ambience/Antag/traitor_start.ogg
+      params:
+        volume: -5
+  - type: EmitSoundOnActivate
+    sound: *PlushieAntagSound
+  - type: EmitSoundOnLand
+    sound: &BasePlushieSound
+      collection: ToySqueak
+      params:
+        volume: -4
+  - type: EmitSoundOnTrigger
+    sound: *PlushieAntagSound
+  - type: EmitSoundOnCollide
+    sound: *BasePlushieSound
+  - type: MeleeWeapon
+    soundHit: *BasePlushieSound
+  - type: Edible
+    useSound: *BasePlushieSound
+  - type: UseDelay
+    delay: 10.0
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieNaviCyrex5386
+  name: Plushie Navi
+  description: This bun is made of... metal, it looks much lighter than it actually is... It also meows...
+  suffix: Personal, Cyrex5386
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_navi
+  - type: Item
+    sprite: ADT/Personalization/toys.rsi
+    inhandVisuals:
+      left:
+      - state: navi-inhand-left
+      right:
+      - state: navi-inhand-right
+  - type: EmitSoundOnUse
+    handle: false
+    sound: null
+  - type: TriggerOnUse
+  - type: Speech
+    speechSounds: Squeak
+  - type: SpeakOnTrigger
+    pack: ADTFigurineNaviCyrex5386
+  - type: TTS
+    voice: natsaionai
+  - type: ClothingSpeedModifier
+    walkModifier: 0.99
+    sprintModifier: 0.99

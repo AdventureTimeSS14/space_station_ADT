@@ -344,6 +344,28 @@
         {
             "name": "theokai-inhand-right",
             "directions": 4
+        },
+        {
+            "name": "plushie_olifer"
+        },
+        {
+            "name": "olifer-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "olifer-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "plushie_navi"
+        },
+        {
+            "name": "navi-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "navi-inhand-right",
+            "directions": 4
         }
     ]
 }
