@@ -73,68 +73,65 @@
       entity: FoodDoughTortilla
 
 - type: reaction
-  id: CreateDoughCotton
+  id: CreateDoughCotton # ADT-Tweak
   impact: Low
   quantized: true
   conserveEnergy: false
   reactants:
     Fiber:
-      amount: 40
+      amount: 10
     Flour:
       amount: 5
     Water:
-      amount: 15
+      amount: 10
   effects:
   - !type:SpawnEntity
     entity: FoodDoughCotton
 
 - type: reaction
-  id: CreateCakeBatter
+  id: CreateCakeBatter # ADT-Tweak
   impact: Low
   quantized: true
   conserveEnergy: false
   reactants:
     Flour:
-      amount: 20
-    Butter:
-      amount: 10
+      amount: 15
     Egg:
-      amount: 6
+      amount: 12
     Sugar:
-      amount: 10
+      amount: 5
     Milk:
-      amount: 10
+      amount: 5
   effects:
     - !type:SpawnEntity
       entity: FoodCakeBatter
 
 - type: reaction
-  id: CreateButter
+  id: CreateButter # ADT-Tweak
   impact: Low
   quantized: true
   conserveEnergy: false
   reactants:
-    Cream:
-      amount: 30
+    Milk:
+      amount: 15
     TableSalt:
-      amount: 1
+      amount: 5
+      catalyst: true
   effects:
     - !type:SpawnEntity
       entity: FoodButter
 
 - type: reaction
-  id: CreatePieDough
+  id: CreatePieDough # ADT-Tweak
   impact: Low
   quantized: true
   conserveEnergy: false
   reactants:
     Flour:
-      amount: 40
-    Butter:
-      amount: 10
-    Water:
-      amount: 5
-    Sugar:
+      amount: 15
+    Egg:
+      amount: 12
+    TableSalt:
       amount: 5
   effects:
     - !type:SpawnEntity
@@ -160,13 +157,13 @@
       entity: FoodCakeBatter
 
 - type: reaction
-  id: CreateTofu
+  id: CreateTofu # ADT-Tweak
   impact: Low
   quantized: true
   conserveEnergy: false
   reactants:
     MilkSoy:
-      amount: 55
+      amount: 30
     Enzyme:
       amount: 5
       catalyst: true
