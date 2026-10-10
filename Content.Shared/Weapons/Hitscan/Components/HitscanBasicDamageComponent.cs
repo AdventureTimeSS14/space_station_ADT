@@ -14,4 +14,16 @@ public sealed partial class HitscanBasicDamageComponent : Component
     /// </summary>
     [DataField(required: true)]
     public DamageSpecifier Damage;
+
+    /// <summary>
+    /// If true, armor and other resistances are ignored when applying damage.
+    /// </summary>
+    [DataField]
+    public bool IgnoreResistances;
+
+    /// <summary>
+    /// Armor penetration fraction (Starlight Hollow Point). Positive ignores armor.
+    /// </summary>
+    [DataField]
+    public float ArmorPenetration;
 }

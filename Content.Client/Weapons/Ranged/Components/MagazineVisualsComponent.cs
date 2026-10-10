@@ -33,4 +33,5 @@ public enum GunVisualLayers : byte
     BaseUnshaded,
     Mag,
     MagUnshaded,
+    Tip, // ADT Hollow Point (#275): colored tip overlay on speedloaders / mags
 }
