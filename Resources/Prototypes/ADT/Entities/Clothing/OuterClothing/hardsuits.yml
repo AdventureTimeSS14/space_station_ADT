@@ -223,17 +223,48 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
         Heat: 0.5
         Radiation: 0.5
   - type: StaminaResistance
-    damageCoefficient: 0.1
+    damageCoefficient: 0.3
   - type: ExplosionResistance
-    damageCoefficient: 0.8
+    damageCoefficient: 0.5
   - type: ToggleableClothing
     clothingPrototype: ADTClothingHeadHelmetHardsuitInquisitory
+
+- type: entity
+  parent: ADTClothingOuterHardsuitBase
+  id: ADTClothingOuterHardsuitLeadInquisitory
+  name: inquisitory hardsuit
+  description: Repent of your sins.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/leadinquisitory.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/leadinquisitory.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.3
+        Heat: 0.4
+        Radiation: 0.4
+  - type: StaminaResistance
+    damageCoefficient: 0.2
+  - type: ExplosionResistance
+    damageCoefficient: 0.4
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetHardsuitLeadInquisitory
 
 - type: entity
   parent: ADTClothingOuterHardsuitBase

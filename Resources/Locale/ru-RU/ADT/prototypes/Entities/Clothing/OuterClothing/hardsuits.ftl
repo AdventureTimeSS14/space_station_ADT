@@ -13,7 +13,10 @@ ent-ADTClothingOuterHardsuitTimePatrol = скафандр стража врем�
     .suffix = { "ОБВА" }
 
 ent-ADTClothingOuterHardsuitInquisitory = скафандр инквизитора
-    .desc = Покайся в своих грехах.
+    .desc = Покайся в своих грехах перед NanoTrasen.
+
+ent-ADTClothingOuterHardsuitLeadInquisitory = скафандр высшего инквизитора
+    .desc = Покайся в своих грехах перед NanoTrasen!.
 
 ent-ADTClothingOuterHardsuitCybersunBodyGuard = скафандр телохранителя CyberSun
     .desc = Тяжелобронированный скафандр элитного подразделения телохранителей CyberSun.

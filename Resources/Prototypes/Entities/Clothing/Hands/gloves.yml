@@ -675,7 +675,7 @@
         variation: 0.250
         volume: 5
   - type: Stunbaton
-    energyPerUse: 50
+    energyPerUse: 25
   - type: ItemToggleMeleeWeapon
     activatedDamage:
       types:
@@ -684,14 +684,16 @@
     attackRate: 1.5
     damage:
       types:
-        Blunt: 8
+        Blunt: 10
+        Piercing: 5
+        Slash: 5
     bluntStaminaDamageFactor: 2.0
     animation: WeaponArcFist
   - type: StaminaDamageOnHit
-    damage: 35
+    damage: 45
     sound: /Audio/Weapons/egloves.ogg
   - type: StaminaDamageOnCollide
-    damage: 35
+    damage: 45
     sound: /Audio/Weapons/egloves.ogg
   - type: LandAtCursor # it deals stamina damage when thrown
   - type: Battery

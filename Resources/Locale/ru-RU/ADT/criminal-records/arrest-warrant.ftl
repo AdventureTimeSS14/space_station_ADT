@@ -5,7 +5,7 @@ arrest-warrant-fax-content =
     ⠀[color=#006600]███░███░░░░██░░░░[/color]
     ⠀[color=#006600]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#006600]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#006600]░░░░██░░██░██░██░[/color] [bold]{$station} СБ[/bold]
+    ⠀[color=#006600]░░░░██░░██░██░██░[/color] [bold]{$station} ЦК-СБ[/bold]
     ⠀[color=#006600]░░░░██░░░████░███[/color]
     =============================================
                             ОРДЕР НА АРЕСТ
