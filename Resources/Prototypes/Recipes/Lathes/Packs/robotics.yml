@@ -46,6 +46,7 @@
   #- BorgModuleAdvancedChemical  # новые модули сделал отдельно в папке ADT
   - ADTBorgModuleAdvancedSalvage
   - ADTBorgModuleRPD
+  - ADTBorgModuleRPED
   # ADT-Tweak-End
 
 - type: latheRecipePack
