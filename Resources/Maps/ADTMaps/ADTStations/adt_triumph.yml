@@ -24793,27 +24793,6 @@ entities:
     - type: Transform
       pos: 6.7238293,-51.545574
       parent: 2
-- proto: ADTMusicDiskHotline
-  entities:
-  - uid: 470
-    components:
-    - type: Transform
-      pos: -110.31112,-19.431679
-      parent: 2
-- proto: ADTMusicDiskMixSyndicate
-  entities:
-  - uid: 471
-    components:
-    - type: Transform
-      pos: -110.6454,-19.408194
-      parent: 2
-- proto: ADTMusicDiskRock
-  entities:
-  - uid: 472
-    components:
-    - type: Transform
-      pos: -110.44654,-19.660847
-      parent: 2
 - proto: ADTOldRadio
   entities:
   - uid: 473
