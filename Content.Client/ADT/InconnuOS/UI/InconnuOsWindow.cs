@@ -40,6 +40,11 @@ public sealed class InconnuOsWindow : DefaultWindow
         SetTitle(state);
     }
 
+    public void CloseAllWindows()
+    {
+        _root.CloseAllWindows();
+    }
+
     public void SetState(ADTOsBuiState state)
     {
         SetTitle(state);

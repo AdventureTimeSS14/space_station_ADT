@@ -87,6 +87,32 @@
   priority: 40
 
 - type: osApp
+  id: OsAppSiteBuilder
+  name: os-app-site-builder
+  description: os-app-site-builder-desc
+  icon: SiteBuilder
+  category: Tools
+  window: SiteBuilderApp
+  minSize: 480,360
+  defaultSize: 720,520
+  singleInstance: false
+  priority: 62
+  handles:
+  - .html
+
+- type: osApp
+  id: OsAppBrowser
+  name: os-app-browser
+  description: os-app-browser-desc
+  icon: Browser
+  category: Tools
+  window: BrowserApp
+  minSize: 480,320
+  defaultSize: 780,540
+  onDesktop: true
+  priority: 65
+
+- type: osApp
   id: OsAppDevices
   name: os-app-devices
   description: os-app-devices-desc

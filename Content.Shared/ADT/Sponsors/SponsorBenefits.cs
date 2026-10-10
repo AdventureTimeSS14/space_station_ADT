@@ -75,6 +75,12 @@ public sealed class SponsorBenefits
     [JsonPropertyName("extraCharacterSlots")]
     public int ExtraCharacterSlots { get; set; }
 
+    [JsonPropertyName("nanoNetLargeSites")]
+    public bool NanoNetLargeSites { get; set; }
+
+    [JsonPropertyName("nanoNetPersistSites")]
+    public bool NanoNetPersistSites { get; set; }
+
     #endregion
 
     public SponsorBenefits Clone()
@@ -99,6 +105,8 @@ public sealed class SponsorBenefits
             DiscordRoles = new HashSet<string>(DiscordRoles),
             PriorityJoin = PriorityJoin,
             ExtraCharacterSlots = ExtraCharacterSlots,
+            NanoNetLargeSites = NanoNetLargeSites,
+            NanoNetPersistSites = NanoNetPersistSites,
         };
     }
 
@@ -153,6 +161,8 @@ public sealed class SponsorBenefits
             result.DiscordRoles.UnionWith(benefits.DiscordRoles);
             result.PriorityJoin |= benefits.PriorityJoin;
             result.ExtraCharacterSlots = Math.Max(result.ExtraCharacterSlots, benefits.ExtraCharacterSlots);
+            result.NanoNetLargeSites |= benefits.NanoNetLargeSites;
+            result.NanoNetPersistSites |= benefits.NanoNetPersistSites;
         }
 
         if (excludedDepartments != null)

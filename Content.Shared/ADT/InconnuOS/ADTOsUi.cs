@@ -93,13 +93,15 @@ public sealed class ADTOsFileWriteMessage : BoundUserInterfaceMessage
     public readonly OsFileKind Kind;
     public readonly string Text;
     public readonly LogicCircuitLayout? Circuit;
+    public readonly bool IsNanoNetSiteDraft;
 
-    public ADTOsFileWriteMessage(string path, OsFileKind kind, string text, LogicCircuitLayout? circuit)
+    public ADTOsFileWriteMessage(string path, OsFileKind kind, string text, LogicCircuitLayout? circuit, bool isNanoNetSiteDraft = false)
     {
         Path = path;
         Kind = kind;
         Text = text;
         Circuit = circuit;
+        IsNanoNetSiteDraft = isNanoNetSiteDraft;
     }
 }
 

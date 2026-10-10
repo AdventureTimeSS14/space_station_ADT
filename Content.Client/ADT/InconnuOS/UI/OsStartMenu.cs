@@ -12,11 +12,20 @@ public sealed class OsStartMenu : Control
 {
     public const float MenuWidth = 232f;
 
+    private const float HeaderHeight = 48f;
+    private const float ListMargin = 8f;
+    private const float ItemHeight = 28f;
+    private const float FooterHeight = ItemHeight * 2f;
+
     private readonly OsContext _context;
 
     private readonly BoxContainer _apps;
     private readonly Label _user;
     private readonly Label _machine;
+
+    private int _appCount;
+
+    public float PreferredHeight => HeaderHeight + ListMargin + _appCount * ItemHeight + FooterHeight;
 
     public float Appear;
 
@@ -49,7 +58,6 @@ public sealed class OsStartMenu : Control
         _apps = new BoxContainer
         {
             Orientation = BoxContainer.LayoutOrientation.Vertical,
-            VerticalExpand = true,
             Margin = new Thickness(4f, 4f, 4f, 4f),
         };
 
@@ -59,6 +67,12 @@ public sealed class OsStartMenu : Control
         reboot.OnPressed += () => OnPowerPicked?.Invoke(OsPowerAction.Reboot);
         shutdown.OnPressed += () => OnPowerPicked?.Invoke(OsPowerAction.Shutdown);
 
+        var appsScroll = new ScrollContainer
+        {
+            VerticalExpand = true,
+            Children = { _apps },
+        };
+
         AddChild(new BoxContainer
         {
             Orientation = BoxContainer.LayoutOrientation.Vertical,
@@ -67,7 +81,7 @@ public sealed class OsStartMenu : Control
             {
                 _user,
                 _machine,
-                _apps,
+                appsScroll,
                 reboot,
                 shutdown,
             },
@@ -120,6 +134,8 @@ public sealed class OsStartMenu : Control
         }
 
         apps.Sort(Compare);
+
+        _appCount = apps.Count;
 
         foreach (var app in apps)
         {

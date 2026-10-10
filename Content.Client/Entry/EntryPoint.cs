@@ -149,6 +149,8 @@ namespace Content.Client.Entry
             _prototypeManager.RegisterIgnore("codewordFaction");
             _prototypeManager.RegisterIgnore("ghostbarMap"); ///ADT-ghostber
             _prototypeManager.RegisterIgnore("additionalMap"); ///ADT-additionalMap
+            _prototypeManager.RegisterIgnore("nanoNetSite"); // ADT-Tweak
+            _prototypeManager.RegisterIgnore("nanoNetFilter"); // ADT-Tweak
             _prototypeManager.RegisterIgnore("sponsorLoadout"); // ADT-Sponsor-Loadout
             _prototypeManager.RegisterIgnore("sponsorPersonalLoadout"); // ADT-Sponsor-Loadout
             _prototypeManager.RegisterIgnore("sponsorLoadoutTierSetting"); // ADT-Sponsor-Loadout

@@ -1,0 +1,62 @@
+- type: nanoNetSite
+  id: NanoNetHome
+  host: nanonet.nt
+  pages:
+    /:
+      title: nanonet-home-title
+      body: nanonet-home-welcome
+      links:
+      - text: nanonet-home-link-news
+        url: /news
+      - text: nanonet-home-link-about
+        url: /about
+    /news:
+      title: nanonet-news-title
+      body: nanonet-news-body
+      links:
+      - text: nanonet-link-home
+        url: /
+    /about:
+      title: nanonet-about-title
+      body: nanonet-about-body
+      links:
+      - text: nanonet-link-home
+        url: /
+
+- type: nanoNetSite
+  id: NanoNetSyndicate
+  host: synd.shadow
+  scheme: synd
+  style: |
+    body { background:#0a0000; color:#d8c3c3; font-family:monospace; margin:0; padding:24px; }
+    a { color:#ff4d4d; }
+    h1 { color:#ff1a1a; border-bottom:1px dashed #5c0000; padding-bottom:8px; letter-spacing:2px; text-transform:uppercase; }
+  pages:
+    /:
+      title: nanonet-synd-home-title
+      body: nanonet-synd-home-body
+      links:
+      - text: nanonet-synd-link-offers
+        url: /offers
+      - text: nanonet-synd-link-join
+        url: /join
+      - text: nanonet-synd-link-rules
+        url: /rules
+    /offers:
+      title: nanonet-synd-offers-title
+      body: nanonet-synd-offers-body
+      links:
+      - text: nanonet-synd-link-home
+        url: /
+    /join:
+      title: nanonet-synd-join-title
+      body: nanonet-synd-join-body
+      links:
+      - text: nanonet-synd-link-home
+        url: /
+    /rules:
+      title: nanonet-synd-rules-title
+      body: nanonet-synd-rules-body
+      links:
+      - text: nanonet-synd-link-home
+        url: /

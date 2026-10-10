@@ -1,11 +1,17 @@
 using Content.Shared.ADT.InconnuOS;
 using Content.Shared.ADT.InconnuOS.Components;
+using Content.Shared.ADT.InconnuOS.NanoNet;
 using Content.Shared.ADT.LogicCircuit;
+using Content.Shared.ADT.Sponsors;
+using Robust.Shared.Configuration;
 
 namespace Content.Server.ADT.InconnuOS;
 
 public sealed partial class ADTOsSystem
 {
+    [Dependency] private readonly ISharedSponsorManager _sponsors = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
+
     private bool TryResolveDrive(
         Entity<ADTOperatingSystemComponent> ent,
         string path,
@@ -45,21 +51,38 @@ public sealed partial class ADTOsSystem
 
     public bool TryWriteFile(
         Entity<ADTOperatingSystemComponent> ent,
+        EntityUid actor,
         string path,
         OsFileKind kind,
         string text,
         LogicCircuitLayout? circuit,
+        bool isNanoNetSiteDraft,
         out OsValidationError error,
         out string detail)
     {
         if (!TryResolveDrive(ent, path, out var disk, out var limits, out var letter, out error, out detail))
             return false;
 
+        if (isNanoNetSiteDraft && HasNanoNetLargeSitesBenefit(actor))
+        {
+            var maxSiteLength = _cfg.GetCVar(NanoNetCVars.MaxSiteLength);
+
+            if (maxSiteLength > limits.MaxFileLength)
+                limits.MaxFileLength = maxSiteLength;
+        }
+
         if (!TryWrite(disk, limits, path, kind, text, circuit, _timing.CurTime, out error, out detail))
             return false;
 
         AfterDriveChanged(ent, letter);
         return true;
+    }
+
+    private bool HasNanoNetLargeSitesBenefit(EntityUid actor)
+    {
+        return _playerManager.TryGetSessionByEntity(actor, out var session)
+               && _sponsors.TryGetData(session, out var data)
+               && data.NanoNetLargeSites;
     }
 
     public bool TryMakeDirectory(
