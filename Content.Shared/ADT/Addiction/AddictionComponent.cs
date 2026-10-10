@@ -2,6 +2,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Alert;
+using Content.Shared.Chat.Prototypes;
 using Content.Shared.Chemistry.Reagent;
 using Robust.Shared.Prototypes;
 
@@ -57,6 +59,61 @@ public sealed partial class AddictionComponent : Component
     public TimeSpan PopupInterval = TimeSpan.FromSeconds(60);
 
     /// <summary>
+    /// Никотиновая ломка напоминает о себе чаще: игрок должен замечать тягу, а не только дрожь.
+    /// </summary>
+    [DataField]
+    public TimeSpan NicotinePopupInterval = TimeSpan.FromSeconds(25);
+
+    /// <summary>
+    /// Сколько ломка никотина остаётся лёгкой, даже если сама зависимость уже тяжёлая.
+    /// Трайтовый уровень не падает, поэтому тяжесть копится по времени без сигареты, а не прыгает сразу в максимум.
+    /// </summary>
+    [DataField]
+    public TimeSpan NicotineStage2After = TimeSpan.FromMinutes(4);
+
+    /// <summary>
+    /// Через сколько после начала ломки никотин доходит до тяжёлой стадии.
+    /// </summary>
+    [DataField]
+    public TimeSpan NicotineStage3After = TimeSpan.FromMinutes(10);
+
+    /// <summary>
+    /// Доля времени до ломки, после которой никотинщик получает предупреждение, что тяга нарастает.
+    /// </summary>
+    [DataField]
+    public float NicotineCravingWarning = 0.55f;
+
+    /// <summary>
+    /// Сколько вариантов текста у каждой стадии никотиновой ломки (ключи addiction-withdrawal-nicotine-N-M).
+    /// </summary>
+    [DataField]
+    public int NicotinePopupVariants = 6;
+
+    /// <summary>
+    /// Сколько вариантов предупреждения до начала никотиновой ломки.
+    /// </summary>
+    [DataField]
+    public int NicotineCravingPopupVariants = 4;
+
+    /// <summary>
+    /// Шанс сухого кашля на поп-апе лёгкой никотиновой ломки.
+    /// </summary>
+    [DataField]
+    public float NicotineCoughChance = 0.45f;
+
+    /// <summary>
+    /// Шанс кашля на средней никотиновой ломке, на каждом поп-апе.
+    /// </summary>
+    [DataField]
+    public float NicotineSevereCoughChance = 0.7f;
+
+    /// <summary>
+    /// Как часто кашель на тяжёлой никотиновой ломке. Не привязан к поп-апам.
+    /// </summary>
+    [DataField]
+    public TimeSpan NicotineSevereCoughInterval = TimeSpan.FromMinutes(2);
+
+    /// <summary>
     /// Как долго держатся симптомы после последнего продления (дрожь и статус-эффекты).
     /// </summary>
     [DataField]
@@ -99,10 +156,41 @@ public sealed partial class AddictionComponent : Component
     public EntProtoId SlurredEffect = "StatusEffectSlurred";
 
     /// <summary>
-    /// Статус-эффект заикания на средней стадии никотиновой и наркотической ломки.
+    /// Статус-эффект заикания на средней стадии наркотической ломки.
+    /// Никотин заикание не даёт: вместо этого муть в глазах.
     /// </summary>
     [DataField]
     public EntProtoId StutterEffect = "StatusEffectStutter";
+
+    /// <summary>
+    /// Муть перед глазами на средней и тяжёлой никотиновой ломке.
+    /// Длительность должна быть больше ~50 секунд, иначе шейдер опьянения её не рисует.
+    /// </summary>
+    [DataField]
+    public EntProtoId WoozyEffect = "StatusEffectWoozy";
+
+    [DataField]
+    public TimeSpan NicotineWoozyDuration = TimeSpan.FromSeconds(70);
+
+    [DataField]
+    public TimeSpan NicotineSevereWoozyDuration = TimeSpan.FromSeconds(110);
+
+    /// <summary>
+    /// Муть наложена именно никотиновой ломкой, её можно снять, не трогая чужое опьянение дольше нужного.
+    /// </summary>
+    public bool NicotineWoozyApplied;
+
+    /// <summary>
+    /// Иконка тяги справа. Степени: 0 — недавно курил, 1 — лёгкая ломка, 2 — средняя и тяжёлая.
+    /// </summary>
+    [DataField]
+    public ProtoId<AlertPrototype> NicotineAlert = "NicotineCraving";
+
+    /// <summary>
+    /// Эмоция сухого кашля во время никотиновой ломки.
+    /// </summary>
+    [DataField]
+    public ProtoId<EmotePrototype> CoughEmote = "Cough";
 
     /// <summary>
     /// Статус-эффект слабости на тяжёлой стадии ломки.
@@ -180,6 +268,12 @@ public sealed partial class AddictionChannel
     public TimeSpan NextPopupTime;
 
     /// <summary>
+    /// Время следующего кашля на тяжёлой никотиновой ломке.
+    /// </summary>
+    [DataField]
+    public TimeSpan NextCoughTime;
+
+    /// <summary>
     /// Время следующего продления симптомов (чтобы не дёргать DoJitter каждый тик).
     /// </summary>
     [DataField]
@@ -196,6 +290,17 @@ public sealed partial class AddictionChannel
     /// </summary>
     [DataField]
     public bool InWithdrawal;
+
+    /// <summary>
+    /// Никотин: предупреждение «тяга нарастает» уже показано в этом цикле без дозы.
+    /// </summary>
+    [DataField]
+    public bool CravingWarned;
+
+    /// <summary>
+    /// Индекс прошлого поп-апа, чтобы соседние фразы не повторялись.
+    /// </summary>
+    public int LastPopupIndex = -1;
 
     /// <summary>
     /// Текущая стадия ломки (равна стадии зависимости: 1 - лёгкая, 2 - средняя, 3 - тяжёлая).
