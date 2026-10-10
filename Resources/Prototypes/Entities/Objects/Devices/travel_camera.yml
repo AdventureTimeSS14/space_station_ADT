@@ -39,6 +39,11 @@
   parent: BasePaper
   id: BasePhotograph
   name: photograph
+  # ADT-Tweak-Start
+  components:
+  - type: Item
+    sprite: Objects/Misc/bureaucracy.rsi
+  # ADT-Tweak-End
 
 - type: entity
   parent: BasePhotograph
