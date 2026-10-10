@@ -14,7 +14,7 @@
         ADTWeaponTonfa: 2 #ADT tweak вернул тонфы
         ADTClothingBeltJudo: 3 #ADT tweak
         # RiotBulletShield: 2 ADT no nullet shield
-        Bola: 5 #ADT tweak
+        SecurityBola: 5 #ADT tweak
     ADTVendingCategorySecEquipment: # ADT-Tweak
         FlashlightSeclite: 5
         ClothingEyesGlassesSunglasses: 2
