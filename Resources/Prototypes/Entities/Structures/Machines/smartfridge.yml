@@ -20,13 +20,15 @@
     - state: smartfridge
       visible: false
       map: ["powered-base"]
-    - state: smartfridge_open
+    # ADT-Tweak-Start
+    - state: smartfridge
       visible: false
       map: ["powered-open"]
-      shader: unshaded
-    - state: smartfridge_door # This state should be toggled off while somebody is accessing the UI. Until that's implemented, we'll just always draw it on top of the "open" sprite.
+    - state: smartfridge_door
       visible: false
       map: ["powered-closed"]
+      shader: unshaded
+    # ADT-Tweak-End
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
