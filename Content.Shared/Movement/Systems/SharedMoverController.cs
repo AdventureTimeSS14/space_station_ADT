@@ -99,9 +99,6 @@ public abstract partial class SharedMoverController : VirtualController
         InitializeRelay();
         InitializeTileMovement(); // ADT-Tweak
         InitializeInvertRun(); // ADT tweak
-        // ADT-Tweak-Start
-        InitializeDrunkDrift();
-        // ADT-Tweak-End
 
         Subs.CVar(_configManager, CCVars.TileFrictionModifier, value => _frictionModifier = value, true);
         Subs.CVar(_configManager, CCVars.RelativeMovement, value => _relativeMovement = value, true);
@@ -351,10 +348,6 @@ public abstract partial class SharedMoverController : VirtualController
             accel = moveSpeedComponent?.Acceleration ?? MovementSpeedModifierComponent.DefaultAcceleration;
             accel *= tileDef?.MobAcceleration ?? 1f;
         }
-
-        // ADT-Tweak-Start: apply drunken sway during movement
-        ApplyDrunkWobble(uid, ref wishDir);
-        // ADT-Tweak-End
 
         // This way friction never exceeds acceleration when you're trying to move.
         // If you want to slow down an entity with "friction" you shouldn't be using this system.
