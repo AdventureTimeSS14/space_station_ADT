@@ -140,7 +140,7 @@
     bloodReferenceSolution:
       reagents:
       - ReagentId: Blood
-        Quantity: 235
+        Quantity: 470
   - type: Satiation
     satiations:
       Hunger:
