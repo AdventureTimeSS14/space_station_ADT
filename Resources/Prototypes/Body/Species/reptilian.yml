@@ -209,8 +209,13 @@
     damage:
       types:
         Slash: 5
+  # ADT-Tweak-Start
+  - type: Temperature
+    temperature: 310.15
+    specificHeat: 42
+  # ADT-Tweak-End
   - type: TemperatureDamage
-    heatDamageThreshold: 321.15
+    heatDamageThreshold: 400 # ADT-Tweak
     coldDamageThreshold: 285
     coldDamage:
       types:
