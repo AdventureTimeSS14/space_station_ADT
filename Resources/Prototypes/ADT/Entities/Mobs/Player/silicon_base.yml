@@ -382,5 +382,8 @@
         # - PsionicsDisabled
         # - PsionicallyInsulated
         - SeeingStatic
+    - type: FlashImmunity
+      showInExamine: false
+      includeExamine: false
     - type: Blindable
     - type: SpeechBarks
