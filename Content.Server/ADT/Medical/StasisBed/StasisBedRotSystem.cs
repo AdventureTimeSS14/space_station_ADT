@@ -84,7 +84,8 @@ public sealed class StasisBedRotSystem : EntitySystem
             args.AddUpgradeLine(Loc.GetString("stasis-bed-rot-stopped"));
         else
             args.AddUpgradeLine(Loc.GetString("stasis-bed-rot-not-stopped",
-                ("percent", (int) ((1f - component.SlowMultiplier) * 100f))));
+                ("percent", (int) ((1f - component.SlowMultiplier) * 100f)),
+                ("tier", component.RotStopTier)));
 
         if (component.Tier >= component.InaprovalineTier)
             args.AddUpgradeLine(Loc.GetString("stasis-bed-inaprovaline", ("amount", component.InaprovalineAmount)));
