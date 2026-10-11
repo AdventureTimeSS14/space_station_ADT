@@ -7,6 +7,8 @@ research-technology-security-modsuit-mods = Модификации арсена�
 research-technology-modules-based = Базовые оружейные модули
 research-technology-modules-extended = Продвинутые оружейные модули
 
+research-technology-netrunner-suit = Комбинезон нетраннера
+
 research-technology-advanced-kinetic-modifications = Продвинутые кинетические модификации
 
 research-technology-firing-pins = Боевые пины

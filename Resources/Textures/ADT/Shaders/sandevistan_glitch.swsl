@@ -1,0 +1,32 @@
+uniform sampler2D SCREEN_TEXTURE;
+uniform highp float intensity;
+
+void fragment() {
+    highp vec2 uv = FRAGCOORD.xy * SCREEN_PIXEL_SIZE;
+
+    highp float t = floor(TIME * 18.0) * 0.055;
+
+    highp float strip    = floor(FRAGCOORD.y / 27.0);
+    highp float rand     = fract(sin(strip * 12.9898 + t * 78.233) * 43758.5453);
+
+    highp float offset   = 0.0;
+    highp float chromaOff = 0.0;
+
+    if (rand > 1.0 - intensity * 0.8) {
+        highp float xStart = fract(sin(strip * 73.1  + t * 12.3) * 8765.4321);
+        highp float xLen   = 0.3 + fract(sin(strip * 45.6 + t * 67.8) * 23456.789) * 0.5;
+        highp float xEnd   = min(xStart + xLen, 1.0);
+
+        if (uv.x >= xStart && uv.x <= xEnd) {
+            offset    = (fract(sin(strip * 311.7 + t * 43.1) * 12345.6789) * 2.0 - 1.0) * intensity * 0.08;
+            chromaOff = intensity * 0.014;
+        }
+    }
+
+    highp float rChan = zTextureSpec(SCREEN_TEXTURE, uv + vec2(offset + chromaOff, 0.0)).r;
+    highp float gChan = zTextureSpec(SCREEN_TEXTURE, uv + vec2(offset,             0.0)).g;
+    highp float bChan = zTextureSpec(SCREEN_TEXTURE, uv + vec2(offset - chromaOff, 0.0)).b;
+    highp float alpha = zTextureSpec(SCREEN_TEXTURE, uv + vec2(offset,             0.0)).a;
+
+    COLOR = vec4(rChan, gChan, bChan, alpha);
+}

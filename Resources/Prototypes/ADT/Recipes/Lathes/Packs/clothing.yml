@@ -41,6 +41,11 @@
   - ADTClothingBackpackDuffelSyndicate
 
 - type: latheRecipePack
+  id: ADTNetrunnerSuitPack
+  recipes:
+  - ADTClothingUniformJumpsuitNetrunnerRecipe
+
+- type: latheRecipePack
   id: ADTStandards
   recipes:
   - ADTStandardColourRed

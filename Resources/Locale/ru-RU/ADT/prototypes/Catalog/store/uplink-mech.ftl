@@ -58,3 +58,12 @@ uplink-syndimech-ammo-hades-name = Коробка патронов для FNX-99
 uplink-syndimech-ammo-hades-desc = Боекомплект для перезарядки орудия меха. Для применения положить во внутренние хранилище машины.
 uplink-syndimech-ammo-srm-name = Короб универсальных гранат
 uplink-syndimech-ammo-srm-desc = Боекомплект для перезарядки орудия меха. Для применения положить во внутренние хранилище машины.
+
+boobr-sandevistan-autosurgeon-name = BioTech "Сандевистан"
+boobr-sandevistan-autosurgeon-desc = Данный имплант позволяет вам ускорить ваши реакцию и скорость.
+
+boobr-kereznikov-autosurgeon-name = BioTech "Керезников"
+boobr-kereznikov-autosurgeon-desc = Краткосрочный имплант ускорения. Даёт вспышку скорости на 3 секунды с перезарядкой 20 секунд.
+
+boobr-spasezhnikov-autosurgeon-name = BioTech "Спасезников"
+boobr-spasezhnikov-autosurgeon-desc = Аварийный имплант ускорения. Активируется автоматически, когда вы близки к критическому состоянию.

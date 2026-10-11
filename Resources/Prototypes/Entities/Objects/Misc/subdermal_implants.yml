@@ -396,6 +396,9 @@
    - type: MindShieldImplant
    - type: MindShield
 
+   - type: CyberneticLoad
+     implantLoad: 60
+
 # Centcomm implants
 
 - type: entity
