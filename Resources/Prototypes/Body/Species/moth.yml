@@ -223,7 +223,7 @@
           Slash: 5
     # ADT-Tweak end
     - type: Vocal
-      emoteSounds: UnisexMoth
+      emoteSounds: MaleMoth # ADT-Tweak
     - type: BodyEmotes
       soundsId: MothBodyEmotes
     - type: MovementSpeedModifier
