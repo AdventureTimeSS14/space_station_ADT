@@ -198,42 +198,30 @@ uplink-syndimov-law-name = Набор Синдимов
 uplink-syndimov-law-desc = Диверсионный свод законов, который можно использовать, когда вы хотите переманить ИИ на свою сторону, используйте его как можно чаще. В комплекте с ID картой синдиката.
 
 # Implants
-uplink-storage-implanter-name = Имплантер "Хранилище"
+uplink-storage-implanter-name = Биоинжектор Cybersun Industries "Хранилище"
 uplink-storage-implanter-desc = Прячьте предметы внутри себя благодаря новой блюспейс-технологии!
-
-uplink-freedom-implanter-name = Имплантер "Свобода"
+uplink-freedom-implanter-name = Биоинжектор Cybersun Industries "Свобода"
 uplink-freedom-implanter-desc = Сбегите от этих противных сотрудников СБ при помощи этого импланта, который можно использовать аж три раза!
-
-uplink-scram-implanter-name = Имплантер "Побег"
-uplink-scram-implanter-desc = Двухразовый имплант, который телепортирует вас в большом радиусе. Попытается телепортировать вас на незанятое место. Иногда сбоит. Страхование жизни не прилагается.
-
-uplink-dna-scrambler-implanter-name = Имплантер "Миксер ДНК"
-uplink-dna-scrambler-implanter-desc = Одноразовый имплант, который можно активировать для перемешивания ДНК и приобретения совершенно нового облика.
-
-uplink-emp-implanter-name = Имплантер "ЭМИ"
-uplink-emp-implanter-desc = При активации создаёт небольшой ЭМИ, который обесточивает находящуюся рядом электронику. Может быть использован три раза, прежде чем разрядится внутренняя батарея.
-
-uplink-macro-bomb-implanter-name = Имплантер "Макробомба"
+uplink-scram-implanter-name = Биоинжектор Cybersun Industries "Побег"
+uplink-scram-implanter-desc = Двухразовый биочип, который телепортирует вас в большом радиусе. Попытается телепортировать вас на незанятое место. Иногда сбоит. Страхование жизни не прилагается.
+uplink-dna-scrambler-implanter-name = Биоинжектор Cybersun Industries "Миксер ДНК"
+uplink-dna-scrambler-implanter-desc = Одноразовый биочип, который можно активировать для перемешивания ДНК и приобретения совершенно нового облика.
+uplink-emp-implanter-name = Биоинжектор Cybersun Industries "ЭМИ"
+uplink-emp-implanter-desc = При активации создаёт небольшой ЭМИ, который обесточивает находящуюся рядом электронику; может быть использован три раза, прежде чем разрядится внутренняя батарея.
+uplink-macro-bomb-implanter-name = Биоинжектор Cybersun Industries "Макробомба"
 uplink-macro-bomb-implanter-desc = Вколите его, и после смерти вы устроите большой взрыв. Большой риск для союзников, используйте на свой страх и риск. Заменяет Микробомбу.
-
-uplink-uplink-implanter-name = Имплантер "Аплинк"
+uplink-uplink-implanter-name = Биоинжектор Cybersun Industries "Аплинк"
 uplink-uplink-implanter-desc = Незаметно заказывайте снаряжение без использования КПК. Глотайте телекристаллы, чтобы пополнить аплинк.
-
-uplink-deathrattle-implant-name = Коробка имплантеров "Предсмертный хрип"
-uplink-deathrattle-implant-desc = Коробка, содержащая достаточное количество имплантеров "Предсмертный хрип" на целый отряд. Передаёт сообщение с вашими координатами по радиоканалу Синдиката когда вы попадаете в критическое состояние или погибаете.
-
-uplink-death-acidifier-implant-name = Имплантер "Посмертный растворитель"
+uplink-deathrattle-implant-name = Коробка биоинжекторов Cybersun Industries "Предсмертный хрип"
+uplink-deathrattle-implant-desc = Коробка, содержащая достаточное количество биоинжектор "Предсмертный хрип" на целый отряд. Передаёт сообщение с вашими координатами по радиоканалу Синдиката когда вы попадаете в критическое состояние или погибаете.
+uplink-death-acidifier-implant-name = Биоинжектор Cybersun Industries "Посмертный растворитель"
 uplink-death-acidifier-implant-desc = Полностью растворяет пользователя и его снаряжение при ручной активации или гибели носителя.
-
-uplink-micro-bomb-implanter-name = Имплантер "Микробомба"
+uplink-micro-bomb-implanter-name = Биоинжектор Cybersun Industries "Микробомба"
 uplink-micro-bomb-implanter-desc = Взрывается при ручной активации или гибели носителя этого импланта. Уничтожает тело пользователя со всем снаряжением.
-
-uplink-radio-implanter-name = Имплантер "Радио"
-uplink-radio-implanter-desc = Импланитрует радио Синдиката, позволяя скрыто общаться без гарнитуры.
-
-uplink-voice-mask-implanter-name = Имплантер "Маска личности"
+uplink-radio-implanter-name = Биоинжектор Cybersun Industries "Радио"
+uplink-radio-implanter-desc = Внедряет радио Синдиката, позволяя скрыто общаться без гарнитуры.
+uplink-voice-mask-implanter-name = Биоинжектор Cybersun Industries "Маска личности"
 uplink-voice-mask-implanter-desc = Изменяет ваши голосовые связки и черты лица, чтобы вы могли имитировать любого, кого вы можете представить.
-
 # Bundles
 uplink-observation-kit-name = Набор наблюдателя
 uplink-observation-kit-desc = В комплект входят консольная плата монитора камер наблюдения, и охранный визор, замаскированный под солнцезащитные очки.
@@ -500,10 +488,8 @@ uplink-combat-bakery-desc = Набор подпольного печёного �
 
 uplink-business-card-name = Визитная карточка Синдиката
 uplink-business-card-desc = Визитная карточка, которую можно передать кому-нибудь, чтобы продемонстрировать свою принадлежность к Синдикату, или оставить на месте преступления, чтобы подшутить над детективом. Вы можете приобрести не более трёх таких визиток.
-
-uplink-fake-mindshield-name = Фальшивый Щит разума
-uplink-fake-mindshield-desc = Переключаемый имплант, способный имитировать те же сигналы, что испускает настоящий Щит разума, когда он включён, обманывая способные визоры, заставляя их думать, что у вас есть Щит разума (имплант марки Nanotrasen не предоставляется).
-
+uplink-fake-mindshield-name = Биоинжектор Cybersun Industries "Фальшивый Щит разума"
+uplink-fake-mindshield-desc = Переключаемый биочип, способный имитировать те же сигналы, что испускает настоящий Щит разума, когда он включён, обманывая способные визоры, заставляя их думать, что у вас есть Щит разума (биочип марки Nanotrasen не предоставляется).
 uplink-contraband-lighter-name = Коробка контрабандных зажигалок
 uplink-contraband-lighter-desc = Загадочная коробка, в которой гарантировано будет брендовая зажигалка Синдиката. Не требует топлива.
 

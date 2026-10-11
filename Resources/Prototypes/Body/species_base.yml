@@ -136,6 +136,7 @@
   - type: NpcFactionMember
     factions:
     - NanoTrasen
+  - type: Cyberpsychosis
   - type: CreamPied
     sprite:
       sprite: Effects/creampie.rsi

@@ -317,6 +317,109 @@
   components:
     - type: SubdermalImplant
     - type: SandevistanImplant
+    - type: CyberneticLoad
+      implantLoad: 60
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: ADTStatvekaSandevistanImplant
+  name: statveka sandevistan
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: SubdermalImplant
+    - type: StatvekaSandevistanImplant
+    - type: SubdermalImplantEmp
+    - type: CyberneticLoad
+      implantLoad: 70
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: ADTBloodPumpImplant
+  name: blood pump implant
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: SubdermalImplant
+      implantAction: ActionActivateBloodPumpImplant
+    - type: BloodPumpImplant
+    - type: SubdermalImplantEmp
+    - type: CyberneticLoad
+      implantLoad: 20
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: ADTStimulantImplant
+  name: stimulant implant
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: SubdermalImplant
+      implantAction: ActionActivateStimulantImplant
+    - type: StimulantImplant
+    - type: SubdermalImplantEmp
+    - type: CyberneticLoad
+      implantLoad: 15
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: ADTKvasImplant
+  name: K.V.A.S. implant
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: SubdermalImplant
+      implantAction: ActionActivateKvasImplant
+    - type: KvasImplant
+    - type: SubdermalImplantEmp
+    - type: CyberneticLoad
+      implantLoad: 10
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: ADTSecondHeartImplant
+  name: second heart implant
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: SubdermalImplant
+      implantAction: ActionActivateSecondHeartImplant
+    - type: SecondHeartImplant
+    - type: SubdermalImplantEmp
+    - type: CyberneticLoad
+      implantLoad: 35
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: ADTBerserkImplant
+  name: Berserk implant
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: SubdermalImplant
+    - type: BerserkImplant
+    - type: SubdermalImplantEmp
+    - type: CyberneticLoad
+      implantLoad: 65
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: ADTKereznikovImplant
+  name: kereznikov implant
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: SubdermalImplant
+      implantAction: ActionActivateKereznikov
+    - type: KereznikovImplant
+    - type: SubdermalImplantEmp
+    - type: CyberneticLoad
+      implantLoad: 35
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: ADTSpasezhnikovImplant
+  name: spasezhnikov implant
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: SubdermalImplant
+    - type: SpasezhnikovImplant
+    - type: SubdermalImplantEmp
+    - type: CyberneticLoad
+      implantLoad: 40
 
 - type: entity
   parent: BaseSubdermalImplant
@@ -351,3 +454,7 @@
     tags:
     - SubdermalImplant
     - HideContextMenu
+
+    - type: SubdermalImplantEmp
+    - type: CyberneticLoad
+      implantLoad: 50

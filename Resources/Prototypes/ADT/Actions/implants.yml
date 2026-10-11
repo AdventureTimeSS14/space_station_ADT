@@ -90,3 +90,93 @@
     - state: icon
   - type: InstantAction
     event: !type:ToggleSandevistanEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionActivateKvasImplant
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    icon:
+      sprite: ADT/Objects/Misc/berserk_heart.rsi
+      state: icon
+    itemIconStyle: BigAction
+    useDelay: 60
+  - type: InstantAction
+    event: !type:ActivateKvasImplantActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionActivateBloodPumpImplant
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    checkConsciousness: false
+    icon:
+      sprite: ADT/Objects/Misc/berserk_heart.rsi
+      state: icon
+    itemIconStyle: BigAction
+    useDelay: 30
+  - type: InstantAction
+    event: !type:ActivateBloodPumpImplantActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionActivateStimulantImplant
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    icon:
+      sprite: ADT/Objects/Misc/berserk_heart.rsi
+      state: icon
+    itemIconStyle: BigAction
+    useDelay: 60
+  - type: InstantAction
+    event: !type:ActivateStimulantImplantActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionActivateSecondHeartImplant
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    checkConsciousness: false
+    icon:
+      sprite: ADT/Objects/Misc/berserk_heart.rsi
+      state: icon
+    itemIconStyle: BigAction
+  - type: InstantAction
+    event: !type:ActivateSecondHeartImplantActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionActivateBerserkImplant
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    icon:
+      sprite: ADT/Objects/Misc/berserk_heart.rsi
+      state: icon
+    itemIconStyle: BigAction
+    useDelay: 30
+    sound:
+      path: /Audio/ADT/Effects/ImplantsEffects/berserk-implant-activate.ogg
+  - type: InstantAction
+    event: !type:ActivateBerserkImplantActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionActivateKereznikov
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    useDelay: 20
+  - type: InstantAction
+    event: !type:ActivateKereznikovActionEvent

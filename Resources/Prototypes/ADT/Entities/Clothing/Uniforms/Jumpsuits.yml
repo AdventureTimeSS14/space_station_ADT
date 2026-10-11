@@ -1555,3 +1555,17 @@
      sprite: ADT/Clothing/Uniforms/Jumpsuit/cburn.rsi
    - type: Clothing
      sprite: ADT/Clothing/Uniforms/Jumpsuit/cburn.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitNetrunner
+  name: netrunner's jumpsuit
+  description: netrunner's jumpsuit
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/netrunner_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/netrunner_suit.rsi
+  - type: ImplantEmpProtection
+  - type: LimitedCharges
+    maxCharges: 3

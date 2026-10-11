@@ -1,6 +1,9 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 using Content.Shared.ActionBlocker;
+
+using Content.Shared.ADT.Implants.Sandevistan;
+using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
@@ -273,6 +276,16 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
             RaiseLocalEvent(args.User, delayMultiplierEv);
             args.Delay *= delayMultiplierEv.Multiplier;
         }
+=======
+        // ADT-Tweak-start
+        // Allow systems to modify DoAfter delay (e.g. Sandevistan speed boost)
+        if (args.Delay > TimeSpan.Zero)
+        {
+            var delayEv = new ModifyDoAfterDelayEvent(args.Delay);
+            RaiseLocalEvent(args.User, ref delayEv);
+            args.Delay = delayEv.Delay;
+        }
+        //ADT-Tweak-end
 
         id = new DoAfterId(args.User, comp.NextId++);
         var doAfter = new DoAfter(id.Value.Index, args, GameTiming.CurTime);

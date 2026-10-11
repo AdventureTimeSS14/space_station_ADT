@@ -526,6 +526,8 @@
     - ADT40mmGrenadePack
     - ADTMechEquipmentSecTechfabPack
     - ADTFiringPinsResearchPack
+
+    - ADTNetrunnerSuitPack
     # ADT-tweak-end
   - type: EmagLatheRecipes
     emagStaticPacks:
@@ -618,6 +620,9 @@
     - ADTCryoTech
     - ADTThermoTech
     - ADTMedbeamPack
+
+    - ADTBloodPumpImplantTech
+    - ADTStimulantImplantTech
     #ADT-Tweak End
   - type: Machine
     board: MedicalTechFabCircuitboard
