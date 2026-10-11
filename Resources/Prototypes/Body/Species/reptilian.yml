@@ -212,7 +212,7 @@
   # ADT-Tweak-Start
   - type: Temperature
     temperature: 310.15
-    specificHeat: 42
+    specificHeat: 2520
   # ADT-Tweak-End
   - type: TemperatureDamage
     heatDamageThreshold: 400 # ADT-Tweak

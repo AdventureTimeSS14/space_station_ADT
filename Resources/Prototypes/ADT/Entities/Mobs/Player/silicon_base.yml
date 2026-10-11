@@ -76,7 +76,7 @@
     - type: AtmosExposed
     - type: Temperature
       temperature: 400
-      specificHeat: 24
+      specificHeat: 1440
       thermalConductivity: 75
     - type: TemperatureDamage
       heatDamageThreshold: 700
@@ -222,7 +222,7 @@
           Heat: 0.75
     - type: Temperature
       temperature: 280
-      specificHeat: 50
+      specificHeat: 3000
       thermalConductivity: 600
     - type: TemperatureDamage
       heatDamageThreshold: 320

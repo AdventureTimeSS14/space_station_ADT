@@ -177,7 +177,7 @@
     baseSprintSpeed : 4.2
   - type: Temperature
     temperature: 265.15 # -8C - нормальная температура тела
-    specificHeat: 42
+    specificHeat: 2520
   - type: TemperatureDamage
     heatDamageThreshold: 308.15 # 35C
     coldDamageThreshold: 265.15 # -8C - порог когда активируется coldDamage с лечением.

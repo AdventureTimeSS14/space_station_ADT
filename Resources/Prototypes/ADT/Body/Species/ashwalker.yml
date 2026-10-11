@@ -157,7 +157,7 @@
       75: 0.7
   - type: Temperature
     temperature: 310.15
-    specificHeat: 42
+    specificHeat: 2520
   - type: TemperatureSpeed
     thresholds:
       301: 0.9

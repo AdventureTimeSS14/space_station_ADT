@@ -146,7 +146,7 @@
         Piercing: 3
   - type: Temperature
     temperature: 310.15
-    specificHeat: 46
+    specificHeat: 2760
   - type: TemperatureDamage
     heatDamageThreshold: 363
     coldDamageThreshold: 250  #starting temperature damage treshold

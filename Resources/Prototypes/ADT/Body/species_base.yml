@@ -38,7 +38,7 @@
   - type: Blindable
   - type: Temperature
     temperature: 310.15
-    specificHeat: 42
+    specificHeat: 2520
   - type: TemperatureDamage
     heatDamageThreshold: 325
     coldDamageThreshold: 260
