@@ -29,8 +29,10 @@ public sealed partial class SpeechSoundSystem : EntitySystem
 
         var sound = GetSpeechSound(ent, args.Message);
         ent.Comp.LastTimeSoundPlayed = currentTime;
-        if (_net.IsServer) // TODO: replace this call with PlayPredicted when chat is predicted.
-            _audio.PlayPvs(sound, ent);
+        // ADT-Tweak-Start
+        // if (_net.IsServer) // TODO: replace this call with PlayPredicted when chat is predicted.
+        //     _audio.PlayPvs(sound, ent);
+        // ADT-Tweak-End
     }
 
     /// <summary>
