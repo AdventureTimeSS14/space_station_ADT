@@ -6,7 +6,6 @@ using Content.Client.Viewport;
 using Content.Shared.Movement.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
-using Robust.Client.Physics;
 using Robust.Shared.Map;
 
 namespace Content.Client.ADT.PixelSnap;
@@ -25,8 +24,8 @@ public sealed class ADTScaledSpritePixelSnapSystem : EntitySystem
         base.Initialize();
 
         UpdatesAfter.Add(typeof(TransformSystem));
-        UpdatesAfter.Add(typeof(PhysicsSystem));
-        UpdatesAfter.Add(typeof(EyeSystem));
+        UpdatesAfter.Add(typeof(Robust.Client.Physics.PhysicsSystem));
+        UpdatesAfter.Add(typeof(Robust.Client.GameObjects.EyeSystem));
         UpdatesAfter.Add(typeof(EyeLerpingSystem));
         UpdatesAfter.Add(typeof(PosingSystem));
         UpdatesAfter.Add(typeof(OrbitVisualsSystem));
