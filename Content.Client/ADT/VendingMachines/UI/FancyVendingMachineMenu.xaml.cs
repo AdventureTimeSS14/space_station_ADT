@@ -282,6 +282,11 @@ public sealed partial class FancyVendingMachineMenu : FancyWindow
                 ? localized
                 : returnedLabel;
         }
+        else if (proto.TryGetComponent<LabelComponent>(out var protoLabel, _componentFactory)
+                 && protoLabel.LocalizedLabel is { } localizedLabel)
+        {
+            labelText = Loc.GetString(localizedLabel);
+        }
         else if (proto.TryGetComponent<LabelComponent>(out var label, _componentFactory)
                  && !string.IsNullOrEmpty(label.CurrentLabel))
         {
