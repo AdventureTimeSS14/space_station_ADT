@@ -68,6 +68,12 @@
   id: StatusEffectAdrenaline
   name: adrenaline
   components:
+  # ADT-Tweak-Start
+  - type: StatusEffect
+    blacklist:
+      components:
+      - Silicon
+  # ADT-Tweak-End
   - type: IgnoreSlowOnDamage
   - type: StatusEffectAlert
     alert: Adrenaline

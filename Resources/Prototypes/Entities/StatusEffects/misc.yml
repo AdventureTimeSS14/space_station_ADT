@@ -160,6 +160,11 @@
       - MobState
       - Blindable
       requireAll: true
+    # ADT-Tweak-Start
+    blacklist:
+      components:
+      - Silicon
+    # ADT-Tweak-End
   - type: BlindnessStatusEffect
   - type: ExaminableStatusEffect
     messageId: status-effect-examine-temporary-blindness

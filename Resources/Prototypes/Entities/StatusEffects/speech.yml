@@ -56,6 +56,12 @@
   id: StatusEffectRatvarianLanguage
   name: ratvarian language patterns
   components:
+  # ADT-Tweak-Start
+  - type: StatusEffect
+    blacklist:
+      components:
+      - Silicon
+  # ADT-Tweak-End
   - type: RatvarianLanguage
 
 # Causes you to tark rike a dog. Woof!
