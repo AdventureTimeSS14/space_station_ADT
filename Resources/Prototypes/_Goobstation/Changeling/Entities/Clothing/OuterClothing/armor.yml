@@ -16,7 +16,7 @@
     chemModifier: 0.25
     requiredSlot: OUTERCLOTHING
   - type: TemperatureProtection
-    heatingCoefficient: 0.35 # solid protection, resists WEAKER fires
+    coefficient: 0.35
   - type: Armor
     modifiers:
       coefficients:

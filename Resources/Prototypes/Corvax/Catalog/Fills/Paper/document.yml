@@ -510,3 +510,62 @@
   components:
     - type: Paper
       content: doc-text-printer-report-accomplishment-goals
+
+#ADT-tweak->
+
+- type: entity
+  parent: PrintedDocument
+  id: PrintedDocumentReportproceduralviolations
+  name: Report on procedural violations
+  components:
+    - type: Paper
+      content: doc-text-printer-procedural-violations-report
+
+- type: entity
+  parent: PrintedDocument
+  id: PrintedDocumentRequestliftlegalimmunity
+  name: Request to lift legal immunity
+  components:
+    - type: Paper
+      content: doc-text-printer-request-lift-legal-immunity
+
+- type: entity
+  parent: PrintedDocument
+  id: PrintedDocumentInvestigationReport
+  name: Investigation Report
+  components:
+    - type: Paper
+      content: doc-text-printer-investigation-report
+
+- type: entity
+  parent: PrintedDocument
+  id: PrintedDocumentRemnantscombatgear
+  name: Remnants combat gear
+  components:
+    - type: Paper
+      content: doc-text-printer-remnants-combat-gear
+
+- type: entity
+  parent: PrintedDocument
+  id: PrintedDocumentRequestchangestationtarget
+  name: Request to change station target
+  components:
+    - type: Paper
+      content: doc-text-printer-request-change-station-target
+
+- type: entity
+  parent: PrintedDocument
+  id: PrintedDocumentOrderamendingstandardoperatingprocedures
+  name: Order on amending standard operating procedures
+  components:
+    - type: Paper
+      content: doc-text-printer-order-amending-standard-operating-procedures
+
+- type: entity
+  parent: PrintedDocument
+  id: PrintedDocumentOrderamendinglistregulatedsubstances
+  name: Order amending the list of regulated substances
+  components:
+    - type: Paper
+      content: doc-text-printer-order-amending-list-regulated-substances
+  #<-

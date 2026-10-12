@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.EntityConditions.Conditions;
 public sealed partial class WhitelistEntityConditionSystem : EntityConditionSystem<MetaDataComponent, WhitelistCondition>
 {
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
     protected override void Condition(Entity<MetaDataComponent> entity, ref EntityConditionEvent<WhitelistCondition> args)
     {
         args.Result = _whitelist.IsWhitelistFail(args.Condition.Whitelist, entity);

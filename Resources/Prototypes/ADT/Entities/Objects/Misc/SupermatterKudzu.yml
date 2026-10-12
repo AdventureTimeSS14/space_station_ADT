@@ -49,9 +49,10 @@
     - type: SupermatterKudzuCollide
     - type: Edible # что нахуй
       delay: 0.5
-    - type: SolutionContainerManager # TODO: Когда-нибудь в будущем сделать собственный реагент для суперматтер.
-      solutions:
-        food:
-          reagents:
-          - ReagentId: Radium
-            Quantity: 50
+    - type: Solution
+      id: food
+      solution:
+        maxVol: 50
+        reagents:
+        - ReagentId: Radium
+          Quantity: 50

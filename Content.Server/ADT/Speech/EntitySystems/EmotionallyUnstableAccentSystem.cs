@@ -8,8 +8,8 @@ namespace Content.Server.ADT.Speech.EntitySystems;
 
 public sealed class EmotionallyUnstableAccentSystem : EntitySystem
 {
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     private static readonly Regex DotRegex = new Regex(@"(?<!\.)\.(?=\s|$)");
     private static readonly Regex ExclamationMarksRegex = new Regex(@"!+");

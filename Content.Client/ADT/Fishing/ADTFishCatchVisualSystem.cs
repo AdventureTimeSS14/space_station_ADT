@@ -9,9 +9,9 @@ namespace Content.Client.ADT.Fishing;
 
 public sealed class ADTFishCatchVisualSystem : EntitySystem
 {
-    [Dependency] private readonly AnimationPlayerSystem _animation = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private AnimationPlayerSystem _animation = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     private const string AnimationKey = "adt-fish-catch";
     private const string EffectPrototype = "ADTFishCatchEffect";
