@@ -21,8 +21,8 @@ namespace Content.Shared.ADT.Grab;
 
 public sealed class GrabbingItemSystem : EntitySystem
 {
-    [Dependency] private readonly PullingSystem _pulling = default!;
-    [Dependency] private readonly GrabIntentSystem _grabbing = default!;
+    [Dependency] private PullingSystem _pulling = default!;
+    [Dependency] private GrabIntentSystem _grabbing = default!;
 
     public override void Initialize()
     {

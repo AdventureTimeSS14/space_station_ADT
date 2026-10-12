@@ -25,7 +25,6 @@ public sealed class RMCFlamerPreviewOverlay : Overlay
     private readonly IEyeManager _eye;
     private readonly IPlayerManager _player;
     private readonly GunSystem _guns;
-    private readonly IMapManager _mapManager;
     private readonly SharedMapSystem _mapSystem;
     private readonly SharedTransformSystem _transform;
     private readonly SharedRMCFlamerSystem _flamer;
@@ -39,7 +38,6 @@ public sealed class RMCFlamerPreviewOverlay : Overlay
         _input = IoCManager.Resolve<IInputManager>();
         _eye = IoCManager.Resolve<IEyeManager>();
         _player = IoCManager.Resolve<IPlayerManager>();
-        _mapManager = IoCManager.Resolve<IMapManager>();
         _guns = ents.System<GunSystem>();
         _mapSystem = ents.System<SharedMapSystem>();
         _transform = ents.System<SharedTransformSystem>();
@@ -100,7 +98,7 @@ public sealed class RMCFlamerPreviewOverlay : Overlay
             if (tileMap.MapId != args.MapId)
                 continue;
 
-            if (!_mapManager.TryFindGridAt(tileMap, out var gridUid, out var grid))
+            if (!_mapSystem.TryFindGridAt(tileMap, out var gridUid, out var grid))
                 continue;
 
             var indices = _mapSystem.CoordinatesToTile(gridUid, grid, tileMap);

@@ -1908,7 +1908,7 @@
   id: ADTBoberTrashBagBlue
   name: boobr-trash-bag-name
   description: boobr-trash-bag-desc
-  productEntity: TrashBagBlue
+  productEntity: TrashBagHolding
   cost:
     Productunit: 1
   categories:

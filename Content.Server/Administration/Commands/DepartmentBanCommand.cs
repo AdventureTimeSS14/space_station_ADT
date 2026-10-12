@@ -14,15 +14,15 @@ using Robust.Shared.Prototypes;
 namespace Content.Server.Administration.Commands;
 
 [AdminCommand(AdminFlags.Ban)]
-public sealed class DepartmentBanCommand : IConsoleCommand
+public sealed partial class DepartmentBanCommand : IConsoleCommand
 {
-    [Dependency] private readonly IPrototypeManager _protoManager = default!;
-    [Dependency] private readonly IPlayerLocator _locator = default!;
-    [Dependency] private readonly IBanManager _banManager = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IServerDbManager _dbManager = default!;
-    [Dependency] private readonly IDiscordBanInfoSender _discordBanInfoSender = default!;
-    [Dependency] private readonly ILogManager _log = default!;
+    [Dependency] private IPrototypeManager _protoManager = default!;
+    [Dependency] private IPlayerLocator _locator = default!;
+    [Dependency] private IBanManager _banManager = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private ILogManager _log = default!;
+    [Dependency] private IServerDbManager _dbManager = default!;
+    [Dependency] private IDiscordBanInfoSender _discordBanInfoSender = default!;
 
     private ISawmill? _sawmill;
 

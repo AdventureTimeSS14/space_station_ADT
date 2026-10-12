@@ -42,10 +42,9 @@
       types:
         Blunt: 12.5
         Piercing: 12.5
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      ammo:
-        maxVol: 2
+    - ADTBaseBoltSolution
   - type: RefillableSolution
     solution: ammo
   - type: InjectableSolution
@@ -358,3 +357,13 @@
   - type: Construction
     graph: ADTBoltCard
     node: ADTBoltCard
+
+- type: entity
+  parent: SolutionAmmo
+  id: ADTBaseBoltSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 2
+      reagents: []

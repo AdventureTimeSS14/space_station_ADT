@@ -1,4 +1,5 @@
-﻿using Content.Client.Administration.Managers;
+using Content.Client.Administration.Managers;
+using Content.Client.Audio.Midi;
 using Content.Client.Changelog;
 using Content.Client.Chat.Managers;
 using Content.Client.Clickable;
@@ -77,6 +78,7 @@ namespace Content.Client.IoC
             // ADT-Tweak
             collection.Register<Content.Client.ADT.Sponsors.SponsorManager>();
             collection.Register<ISharedSponsorManager, Content.Client.ADT.Sponsors.SponsorManager>();
+            collection.Register<Content.Client.ADT.StateDiagnostics.StateDiagnosticsManager>();
             // ADT-Tweak
             collection.Register<JoinQueueManager>(); // Corvax-Queue
             collection.Register<QueueGamesManager>(); // ADT-Tweak: queue games
@@ -84,6 +86,7 @@ namespace Content.Client.IoC
             collection.Register<ExportManager>(); // ADT Export
             collection.Register<ClientFeedbackManager>();
             collection.Register<ISharedFeedbackManager, ClientFeedbackManager>();
+            collection.Register<MidiFileCollectionManager>();
         }
     }
 }

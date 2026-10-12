@@ -16,11 +16,12 @@
   description: Toggles the Brigmed siren on and off.
   components:
   - type: Action
-    icon:
-      sprite: ADT/Clothing/OuterClothing/Hardsuits/brigmedic-praz.rsi
-      state: icon-siren
     useDelay: 1
     itemIconStyle: BigAction
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/brigmedic-praz.rsi
+    layers:
+    - state: icon-siren
   - type: InstantAction
     event: !type:ToggleActionEvent
 
@@ -33,9 +34,10 @@
     priority: -6
     itemIconStyle: BigItem
     useDelay: 1 # equip noise spam.
-    icon:
-      sprite: ADT/Interface/Actions/mod_menu.rsi
-      state: icon
+  - type: Sprite
+    sprite: ADT/Interface/Actions/mod_menu.rsi
+    layers:
+    - state: icon
   - type: InstantAction
     event: !type:ToggleModMenuActionEvent
 
@@ -49,9 +51,10 @@
       useDelay: 60 # prevent spam
       priority: -20
       checkCanInteract: true
-      icon:
-        sprite: Mobs/Aliens/slimes.rsi
-        state: blue_adult_slime
+    - type: Sprite
+      sprite: Mobs/Aliens/slimes.rsi
+      layers:
+      - state: blue_adult_slime
     - type: InstantAction
       event: !type:MorphIntoGeras
 
@@ -63,14 +66,15 @@
   components:
   - type: Action
     useDelay: 12
-    icon:
-      sprite: Clothing/Neck/Cloaks/moth.rsi
-      state: icon
     itemIconStyle: NoItem
     sound: !type:SoundPathSpecifier
       path: /Audio/ADT/Voice/Moth/moth_flapwings.ogg
       params:
         volume: 6.5
+  - type: Sprite
+    sprite: Clothing/Neck/Cloaks/moth.rsi
+    layers:
+    - state: icon
   - type: TargetAction
     checkCanAccess: false
     range: 0
@@ -85,8 +89,9 @@
   components:
   - type: Action
     useDelay: 10
-    icon:
-      sprite: Interface/Actions/jump.rsi
-      state: icon
+  - type: Sprite
+    sprite: Interface/Actions/jump.rsi
+    layers:
+    - state: icon
   - type: InstantAction
     event: !type:ZombieJumpEvent {}

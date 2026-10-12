@@ -1,6 +1,6 @@
 - type: entity
   id: ADTBaseFish
-  parent: BaseItem
+  parent: [ BaseItem, BaseSlicingRefinable ]
   abstract: true
   name: fish
   description: Water-born creature from the infinite sea... Or toilet.
@@ -9,8 +9,8 @@
     difficulty: 0.21
   - type: StaticPrice
     price: 250
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
       - id: ADTFoodMeatFish
         amount: 2
 

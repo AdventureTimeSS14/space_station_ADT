@@ -9,7 +9,7 @@ namespace Content.Server.ADT.Sponsors.Commands;
 [AdminCommand(AdminFlags.Host)]
 public sealed class SponsorPanelCommand : IConsoleCommand
 {
-    [Dependency] private readonly EuiManager _euis = default!;
+    [Dependency] private EuiManager _euis = default!;
 
     public string Command => "sponsorpanel";
     public string Description => "Открывает панель управления спонсорскими тирами и выдачами.";

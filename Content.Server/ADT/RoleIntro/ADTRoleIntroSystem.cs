@@ -6,7 +6,7 @@ namespace Content.Server.ADT.RoleIntro;
 
 public sealed class ADTRoleIntroSystem : EntitySystem
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     public override void Initialize()
     {

@@ -30,7 +30,7 @@
 
 - type: entity
   id: ADTLavaFishAshCrab
-  parent: ADTLavaFishBase
+  parent: [ ADTLavaFishBase, BaseSlicingRefinable ]
   name: ash crab
   description: A small omnivorous crustacean with a surprisingly tough shell. This species has an odd habit of eating small items it finds. Lava crabs are hunted by other underlava fauna and by the local tribes alike, for their shell, their edible meat and the curious finds in their stomachs.
   components:
@@ -41,17 +41,16 @@
   - type: ADTFish
     difficulty: 0.17
     favoriteBait: ADTFishingBaitAshEater
-  - type: Butcherable
-    butcheringType: Knife
-    butcherDelay: 6
-    spawned:
+  - type: ToolRefinable
+    refineTime: 6
+    refineResult:
     - id: ADTWhetstoneCrabShell
     - id: ADTFoodSoftMeat
     - id: ADTLavalandMinorLootSpawner
 
 - type: entity
   id: ADTLavaFishDeadHorseman
-  parent: ADTLavaFishBase
+  parent: [ ADTLavaFishBase, BaseSlicingRefinable ]
   name: dead horseman
   description: A small fish that feeds mostly on bloody leaches buried in the ash. It owes its name to its looks - the horseman's head resembles a humanoid skull. The tribes prize it for its spleen, which carries cinnabar particles used to make brown dye.
   components:
@@ -62,10 +61,9 @@
   - type: ADTFish
     difficulty: 0.21
     favoriteBait: ADTFishingBaitBloodyLeach
-  - type: Butcherable
-    butcheringType: Knife
-    butcherDelay: 6
-    spawned:
+  - type: ToolRefinable
+    refineTime: 6
+    refineResult:
     - id: ADTClothingHeadScorchedSkull
       prob: 0.4
     - id: ADTFoodSoftMeat
@@ -73,7 +71,7 @@
 
 - type: entity
   id: ADTLavaFishShellfish
-  parent: ADTLavaFishBase
+  parent: [ ADTLavaFishBase, BaseSlicingRefinable ]
   name: shellfish
   description: One of the largest fish found near the shores of Lazis Ardax. Almost its whole body, head included, is covered in crimson cartilage plates tough enough to hold off most predators. Inside, next to the heart, sits a specialized organ the local tribes harvest for farming.
   components:
@@ -84,10 +82,9 @@
   - type: ADTFish
     difficulty: 0.28
     favoriteBait: ADTFishingBaitGoldgrubLarva
-  - type: Butcherable
-    butcheringType: Knife
-    butcherDelay: 6
-    spawned:
+  - type: ToolRefinable
+    refineTime: 6
+    refineResult:
     - id: ADTMaterialCartilagePlate1
       amount: 2
     - id: ADTConductiveOrgan
@@ -95,7 +92,7 @@
 
 - type: entity
   id: ADTLavaFishBottomEel
-  parent: ADTLavaFishDeepBase
+  parent: [ ADTLavaFishDeepBase, BaseSlicingRefinable ]
   name: bottom eel
   description: This long slimy fish lives at great depth, feeding mostly on larvae and smaller fish. To fend off other predators it grew a razor sharp tail, which the local tribes fit onto spears.
   components:
@@ -106,17 +103,16 @@
   - type: ADTFish
     difficulty: 0.35
     favoriteBait: ADTFishingBaitAshEater
-  - type: Butcherable
-    butcheringType: Knife
-    butcherDelay: 6
-    spawned:
+  - type: ToolRefinable
+    refineTime: 6
+    refineResult:
     - id: ADTFoodEelFilet
     - id: ADTBoneKnifeEel
     - id: ADTLavalandDyeIndigo
 
 - type: entity
   id: ADTLavaFishRedDevourer
-  parent: ADTLavaFishDeepBase
+  parent: [ ADTLavaFishDeepBase, BaseSlicingRefinable ]
   name: red devourer
   description: A massive blood red fish with a mouth full of sharp teeth. This one is infamous among the tribes for its aggression, which has killed many a young hunter. The remains of less lucky fishermen are often found in their stomachs.
   components:
@@ -127,10 +123,9 @@
   - type: ADTFish
     difficulty: 0.49
     favoriteBait: ADTFishingBaitBloodyLeach
-  - type: Butcherable
-    butcheringType: Knife
-    butcherDelay: 6
-    spawned:
+  - type: ToolRefinable
+    refineTime: 6
+    refineResult:
     - id: ADTMaterialRazorTeeth1
     - id: MaterialBones1
     - id: ADTRandomFishingBaitSpawner
@@ -141,7 +136,7 @@
 
 - type: entity
   id: ADTLavaFishMagmaHammerhead
-  parent: ADTLavaFishDeepBase
+  parent: [ ADTLavaFishDeepBase, BaseSlicingRefinable ]
   name: magma hammerhead
   description: A huge dark deep water fish with a head that vaguely resembles a hammer. For all its menace, this fish hunts mostly small crustaceans, pinning them to the bottom with its hammer and crushing their shells. Strange clots sit along the edges of its head, synergizing with regenerative cores.
   components:
@@ -152,17 +147,16 @@
   - type: ADTFish
     difficulty: 0.45
     favoriteBait: ADTFishingBaitGoldgrubLarva
-  - type: Butcherable
-    butcheringType: Knife
-    butcherDelay: 6
-    spawned:
+  - type: ToolRefinable
+    refineTime: 6
+    refineResult:
     - id: ADTMoltenMass
       amount: 2
     - id: ADTLavalandDyeCinnabar
 
 - type: entity
   id: ADTLavaFishBlindReaper
-  parent: ADTLavaFishDeepBase
+  parent: [ ADTLavaFishDeepBase, BaseSlicingRefinable ]
   name: blind reaper
   description: The smallest of the deep water fish of Lazis Ardax, remarkable not only for its size but for the huge bone growth on its head that looks like a circular saw blade. Being sightless, it uses that blade as a biological sonar to find its way through the lava depths.
   components:
@@ -181,17 +175,16 @@
     damage:
       types:
         Slash: 12
-  - type: Butcherable
-    butcheringType: Knife
-    butcherDelay: 6
-    spawned:
+  - type: ToolRefinable
+    refineTime: 6
+    refineResult:
     - id: ADTCircularSawBlade
     - id: ADTFoodPredatorMeat
     - id: ADTLavalandDyeIndigo
 
 - type: entity
   id: ADTLavaFishHeraldOfCarnage
-  parent: ADTLavaFishDeepBase
+  parent: [ ADTLavaFishDeepBase, BaseSlicingRefinable ]
   name: herald of carnage
   description: This massive fish, with hundreds of razor sharp teeth in its maw, is the apex predator of the whole underlava world of Lazis Ardax. Its huge green eyes adorn the most celebrated hunters of the local tribes. The remains of other fish are often found in its stomach. And not only fish.
   components:
@@ -202,10 +195,9 @@
   - type: ADTFish
     difficulty: 0.59
     favoriteBait: ADTFishingBaitBloodyLeach
-  - type: Butcherable
-    butcheringType: Knife
-    butcherDelay: 6
-    spawned:
+  - type: ToolRefinable
+    refineTime: 6
+    refineResult:
     - id: ADTMaterialRazorTeeth1
       amount: 2
     - id: MaterialBones1
@@ -217,7 +209,7 @@
 
 - type: entity
   id: ADTLavaFishSulfuricTramp
-  parent: ADTLavaFishDeepBase
+  parent: [ ADTLavaFishDeepBase, BaseSlicingRefinable ]
   name: sulfuric tramp
   description: This fish was never recorded in any study of the fauna of Lazis Ardax - it is an invasive species that got into the lava rivers when a smuggler ship carrying fauna from an unknown acid planet crashed. Apparently these fish found their niche in the food chain.
   components:
@@ -235,10 +227,9 @@
       reagents:
       - ReagentId: SulfuricAcid
         Quantity: 25
-  - type: Butcherable
-    butcheringType: Knife
-    butcherDelay: 6
-    spawned:
+  - type: ToolRefinable
+    refineTime: 6
+    refineResult:
     - id: ADTBlearyEye
     - id: ADTAcidBladder
     - id: ADTLavalandDyeAmber

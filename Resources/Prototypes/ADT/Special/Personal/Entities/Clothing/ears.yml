@@ -1,0 +1,17 @@
+- type: entity
+  parent: ADTSponsorClothing
+  id: ADTClothingEarHonelin111GoldenEarring
+  name: gold earring
+  description: A piece of jewelry made of a dark gold alloy, with a history that is far from simple—just like the person who wears it.
+  suffix: Personal, Honelin111
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/honelin111_golden_earrings.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: Clothing
+    sprite: ADT/Special/Personal/honelin111_golden_earrings.rsi
+    slots:
+    - ears
+    - ears2

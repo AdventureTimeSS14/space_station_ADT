@@ -7,8 +7,8 @@ namespace Content.Shared.ADT.Construction.Systems;
 
 public sealed class ADTBlockAnchorOnLavalandSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {

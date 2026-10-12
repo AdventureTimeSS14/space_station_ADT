@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: BaseFirelock
   abstract: true
   parent: BaseStructure
@@ -172,7 +172,7 @@
   id: Firelock
   parent: BaseFirelock
   components:
-  - type: StationAiWhitelist
+  - type: StationAiWhitelist # ADT-Tweak
   - type: ContainerContainer
     containers:
       board: !type:Container
@@ -190,7 +190,7 @@
   parent: Firelock
   name: glass firelock
   components:
-    - type: StationAiWhitelist
+    - type: StationAiWhitelist # ADT-Tweak
     - type: Sprite
       sprite: Structures/Doors/Airlocks/Glass/firelock.rsi
     - type: Occluder
@@ -216,7 +216,7 @@
   parent: Firelock
   name: firelock
   components:
-    - type: StationAiWhitelist
+    - type: StationAiWhitelist # ADT-Tweak
     - type: Sprite
       sprite: Structures/Doors/edge_door_hazard.rsi
       snapCardinals: false
@@ -251,3 +251,6 @@
     - type: Construction
       graph: Firelock
       node: FirelockEdge
+    - type: StructureAligner
+      alignerType:
+      - DoNotAlign

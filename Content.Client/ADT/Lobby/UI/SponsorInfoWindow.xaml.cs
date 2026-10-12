@@ -30,12 +30,12 @@ namespace Content.Client.Lobby.UI;
 [UsedImplicitly]
 public sealed partial class SponsorInfoWindow : DefaultWindow
 {
-    [Dependency] private readonly SponsorsManager _sponsorsManager = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IUriOpener _uriOpener = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IEntityManager _entMan = default!;
+    [Dependency] private SponsorsManager _sponsorsManager = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IUriOpener _uriOpener = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IEntityManager _entMan = default!;
 
     private readonly Content.Client.ADT.Sponsors.SponsorManager _adtSponsors;
 
@@ -275,11 +275,9 @@ public sealed partial class SponsorInfoWindow : DefaultWindow
 
         AddSection(Loc.GetString("adt-sponsor-info-section-chat"));
 
-        var legacyOoc = Color.TryFromHex(legacy.OOCColor ?? string.Empty);
-
-        if (legacyOoc != null)
+        if (Color.TryFromHex(legacy.OOCColor ?? string.Empty, out var legacyOoc))
         {
-            AddColorsRow(Loc.GetString("adt-sponsor-info-row-ooc"), new[] { legacyOoc.Value });
+            AddColorsRow(Loc.GetString("adt-sponsor-info-row-ooc"), new[] { legacyOoc });
         }
         else
         {

@@ -43,17 +43,17 @@ public sealed class ProtectiveBladeUsedEvent : EntityEventArgs
 
 public sealed class ProtectiveBladeSystem : EntitySystem
 {
-    [Dependency] private readonly FollowerSystem _follow = default!;
-    [Dependency] private readonly GunSystem _gun = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly ReflectSystem _reflect = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly HereticSystem _heretic = default!;
+    [Dependency] private FollowerSystem _follow = default!;
+    [Dependency] private GunSystem _gun = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedTransformSystem _xform = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private ReflectSystem _reflect = default!;
+    [Dependency] private StatusEffectsSystem _status = default!;
+    [Dependency] private SharedInteractionSystem _interaction = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private HereticSystem _heretic = default!;
 
     public static readonly EntProtoId BladePrototype = "HereticProtectiveBlade";
     public static readonly EntProtoId BladeProjecilePrototype = "HereticProtectiveBladeProjectile";
