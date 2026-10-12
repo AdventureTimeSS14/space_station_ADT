@@ -1,5 +1,5 @@
 - type: antagSpecifier
-  parent: RestrictedAntag # ADT-Tweak: как у остальных антагов — не выдаём командованию, СБ, боргам и стажёрам
+  parent: RestrictedAntag
   id: Heretic
   prefRoles: [ Heretic ]
   blacklist:
@@ -9,7 +9,7 @@
   - MindRoleHeretic
 
 - type: antagSpecifier
-  parent: RestrictedAntag # ADT-Tweak: как у остальных антагов — не выдаём командованию, СБ, боргам и стажёрам
+  parent: RestrictedAntag
   id: ADTBlob
   prefRoles: [ ADTBlob ]
   allowNonHumans: true
@@ -25,7 +25,7 @@
   - ADTMindRoleBlob
 
 - type: antagSpecifier
-  parent: RestrictedAntag # ADT-Tweak: как у остальных антагов — не выдаём командованию, СБ, боргам и стажёрам
+  parent: RestrictedAntag
   id: ADTShadowling
   prefRoles: [ ADTShadowling ]
   blacklist:
