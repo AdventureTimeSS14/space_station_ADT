@@ -9,7 +9,7 @@ namespace Content.Server.ADT.EntityEffects.Effects;
 /// </summary>
 public sealed partial class PlaySoundEffectSystem : EntityEffectSystem<TransformComponent, PlaySoundEvent>
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     protected override void Effect(Entity<TransformComponent> entity, ref EntityEffectEvent<PlaySoundEvent> args)
     {

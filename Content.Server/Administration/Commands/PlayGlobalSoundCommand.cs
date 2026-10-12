@@ -13,13 +13,13 @@ using Content.Shared.Database;
 namespace Content.Server.Administration.Commands;
 
 [AdminCommand(AdminFlags.Fun)]
-public sealed class PlayGlobalSoundCommand : IConsoleCommand
+public sealed partial class PlayGlobalSoundCommand : IConsoleCommand
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IPrototypeManager _protoManager = default!;
-    [Dependency] private readonly IResourceManager _res = default!;
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IPrototypeManager _protoManager = default!;
+    [Dependency] private IResourceManager _res = default!;
+    [Dependency] private IAdminLogManager _adminLogger = default!;
 
     public string Command => "playglobalsound";
     public string Description => Loc.GetString("play-global-sound-command-description");
@@ -52,7 +52,7 @@ public sealed class PlayGlobalSoundCommand : IConsoleCommand
                 // Try to specify a new volume to play it at.
                 if (int.TryParse(args[1], out var volume))
                 {
-                    audio = audio.WithVolume(volume);
+                    audio = audio.AddVolume(volume);
                     volumeOffset = 1;
                 }
                 else

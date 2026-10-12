@@ -18,8 +18,8 @@ namespace Content.Client.ADT.TTS.UI;
 [GenerateTypedNameReferences]
 public sealed partial class TTSOptionsTab : Control
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     private static readonly ResPath KeysRsi = new("Objects/Devices/encryption_keys.rsi");
     private static readonly SpriteSpecifier CardBackground = new SpriteSpecifier.Rsi(KeysRsi, "crypt_gray");

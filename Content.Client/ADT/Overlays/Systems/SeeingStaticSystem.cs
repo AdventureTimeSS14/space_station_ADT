@@ -11,8 +11,8 @@ namespace Content.Client.ADT.Overlays;
 /// </summary>
 public sealed class SeeingStaticSystem : EntitySystem
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IOverlayManager _overlayMan = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IOverlayManager _overlayMan = default!;
 
     private StaticOverlay _overlay = default!;
 

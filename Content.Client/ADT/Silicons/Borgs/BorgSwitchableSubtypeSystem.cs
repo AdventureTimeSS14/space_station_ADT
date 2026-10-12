@@ -11,10 +11,10 @@ namespace Content.Client.ADT.Silicons.Borgs;
 
 public sealed partial class BorgSwitchableSubtypeSystem : SharedBorgSwitchableSubtypeSystem
 {
-    [Dependency] private readonly IResourceCache _resourceCache = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly BorgSystem _borgSystem = default!;
+    [Dependency] private IResourceCache _resourceCache = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private AppearanceSystem _appearance = default!;
+    [Dependency] private BorgSystem _borgSystem = default!;
 
     public override void Initialize()
     {

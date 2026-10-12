@@ -8,8 +8,8 @@ namespace Content.Server.ADT.Stealth;
 
 public sealed partial class ForcedStealthSystem : EntitySystem
 {
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
-    [Dependency] private readonly SharedStealthSystem _stealth = default!;
+    [Dependency] private StatusEffectsSystem _status = default!;
+    [Dependency] private SharedStealthSystem _stealth = default!;
 
     public static readonly EntProtoId ForcedStealth = "ForcedStealthStatusEffect";
 

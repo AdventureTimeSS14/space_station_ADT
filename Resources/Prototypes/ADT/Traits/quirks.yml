@@ -119,7 +119,7 @@
     - IPC
   rewriteComponents: true
   components:
-  - type: SuitSensor
+  - type: ADTSuitSensor
     onMob: true
     sensorsTime: 6
   # ADT-Tweak Start - New Monitor: Deprecated
@@ -155,10 +155,7 @@
     - ADTXenoborgIPC
   components:
   - type: Vocal
-    sounds:
-      Male: FemaleIPC
-      Female: FemaleIPC
-      Unsexed: FemaleIPC
+    emoteSounds: FemaleIPC
   - type: Tag
     tags:
     - CanPilot
@@ -185,10 +182,7 @@
     - ADTXenoborgIPC
   components:
   - type: Vocal
-    sounds:
-      Male: MaleIPC
-      Female: MaleIPC
-      Unsexed: MaleIPC
+    emoteSounds: MaleIPC
   - type: Tag
     tags:
     - CanPilot
@@ -215,10 +209,7 @@
     - ADTXenoborgIPC
   components:
   - type: Vocal
-    sounds:
-      Male: CuteIPC
-      Female: CuteIPC
-      Unsexed: CuteIPC
+    emoteSounds: CuteIPC
   - type: Tag
     tags:
     - CanPilot
@@ -247,10 +238,7 @@
     - ADTCuteIPC
   components:
   - type: Vocal
-    sounds:
-      Male: XenoborgIPC
-      Female: XenoborgIPC
-      Unsexed: XenoborgIPC
+    emoteSounds: XenoborgIPC
   - type: Tag
     tags:
     - CanPilot
@@ -284,3 +272,54 @@
   effects:
     - !type:SetTTSEffect
       effect: robotic
+
+- type: trait
+  id: Pacifist
+  name: trait-pacifist-name
+  description: trait-pacifist-desc
+  category: Disabilities
+  cost: -4
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: Pacified
+
+- type: trait
+  id: LightweightDrunk
+  name: trait-lightweight-name
+  description: trait-lightweight-desc
+  category: Disabilities
+  cost: -1
+  speciesBlacklist:
+    - IPC
+    - NovakidSpecies
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: LightweightDrunk
+          boozeStrengthMultiplier: 2
+
+- type: trait
+  id: Snoring
+  name: trait-snoring-name
+  description: trait-snoring-desc
+  category: Disabilities
+  cost: 0
+  speciesBlacklist:
+    - IPC
+    - NovakidSpecies
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: Snoring
+
+- type: trait
+  id: Clumsy
+  name: trait-clumsy-name
+  description: trait-clumsy-desc
+  category: Disabilities
+  cost: -1
+  effects:
+    - !type:AddStatusEffect
+      statusEffects:
+        - ADTStatusEffectClumsyTrait

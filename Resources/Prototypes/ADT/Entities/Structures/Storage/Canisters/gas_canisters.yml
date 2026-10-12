@@ -7,7 +7,7 @@
     layers:
     - state: purple
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
       - 0 # oxygen
@@ -25,25 +25,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 600
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
         damage: 300
       behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
       - !type:SpawnEntitiesBehavior
         spawn:
           ADTBZCanisterBroken:
             min: 1
             max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:DumpCanisterBehavior
   - type: Lock
     locked: true
 
@@ -55,7 +43,7 @@
     layers:
     - state: darkblue
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
       - 0 # oxygen
@@ -74,25 +62,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 600
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
         damage: 300
       behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
       - !type:SpawnEntitiesBehavior
         spawn:
           ADTPluoxiumCanisterBroken:
             min: 1
             max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:DumpCanisterBehavior
   - type: Lock
     locked: true
 
@@ -105,7 +81,7 @@
     layers:
     - state: h2
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
       - 0 # oxygen
@@ -125,25 +101,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 600
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
         damage: 300
       behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
       - !type:SpawnEntitiesBehavior
         spawn:
           ADTHydrogenCanisterBroken:
             min: 1
             max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:DumpCanisterBehavior
   - type: Lock
     locked: true
 
@@ -156,7 +120,7 @@
     layers:
     - state: brown
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
       - 0 # oxygen
@@ -177,25 +141,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 600
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
         damage: 300
       behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
       - !type:SpawnEntitiesBehavior
         spawn:
           ADTNitriumCanisterBroken:
             min: 1
             max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:DumpCanisterBehavior
   - type: Lock
     locked: true
 
@@ -208,7 +160,7 @@
     layers:
     - state: healium
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
       - 0 # oxygen
@@ -236,25 +188,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 600
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
         damage: 300
       behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
       - !type:SpawnEntitiesBehavior
         spawn:
           ADTHealiumCanisterBroken:
             min: 1
             max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:DumpCanisterBehavior
   - type: Lock
     locked: true
 
@@ -267,7 +207,7 @@
     layers:
     - state: nob
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
       - 0 # oxygen
@@ -295,25 +235,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 600
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
         damage: 300
       behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
       - !type:SpawnEntitiesBehavior
         spawn:
           ADTHyperNobliumCanisterBroken:
             min: 1
             max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:DumpCanisterBehavior
   - type: Lock
     locked: true
 
@@ -326,7 +254,7 @@
     layers:
     - state: proto_nitrate
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
       - 0 # oxygen
@@ -354,25 +282,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 600
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
         damage: 300
       behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
       - !type:SpawnEntitiesBehavior
         spawn:
           ADTProtoNitrateCanisterBroken:
             min: 1
             max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:DumpCanisterBehavior
   - type: Lock
     locked: true
 
@@ -385,7 +301,7 @@
     layers:
     - state: zauker
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
       - 0 # oxygen
@@ -413,25 +329,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 600
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
         damage: 300
       behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
       - !type:SpawnEntitiesBehavior
         spawn:
           ADTZaukerCanisterBroken:
             min: 1
             max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:DumpCanisterBehavior
   - type: Lock
     locked: true
 
@@ -444,7 +348,7 @@
     layers:
     - state: halon
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
       - 0 # oxygen
@@ -472,25 +376,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 600
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
         damage: 300
       behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
       - !type:SpawnEntitiesBehavior
         spawn:
           ADTHalonCanisterBroken:
             min: 1
             max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:DumpCanisterBehavior
   - type: Lock
     locked: true
 
@@ -503,7 +395,7 @@
     layers:
     - state: helium
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
       - 0 # oxygen
@@ -531,25 +423,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 600
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
         damage: 300
       behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
       - !type:SpawnEntitiesBehavior
         spawn:
           ADTHeliumCanisterBroken:
             min: 1
             max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:DumpCanisterBehavior
   - type: Lock
     locked: true
 
@@ -562,7 +442,7 @@
     layers:
     - state: antinob
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
       - 0 # oxygen
@@ -590,25 +470,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 600
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
         damage: 300
       behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
       - !type:SpawnEntitiesBehavior
         spawn:
           ADTAntiNobliumCanisterBroken:
             min: 1
             max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:DumpCanisterBehavior
   - type: Lock
     locked: true
 

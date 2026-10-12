@@ -14,7 +14,7 @@ namespace Content.Client.ADT.Particles;
 /// </summary>
 public sealed class ParticleOnEventSystem : EntitySystem
 {
-    [Dependency] private readonly ParticleSystem _particles = default!;
+    [Dependency] private ParticleSystem _particles = default!;
 
     // Track emitters spawned by OnThrown so we can stop them when the entity lands
     private readonly Dictionary<EntityUid, ActiveEmitter> _thrownEmitters = new();

@@ -250,6 +250,8 @@
             type: [ Drask ]
             inverted: false
           amount: 1
+        - !type:AdjustTemperature
+          amount: 80000 # Heats you up as it metabolizes necessitating constant cooling.
 - type: reagent
   id: Doxarubixadone
   name: reagent-name-doxarubixadone
@@ -265,7 +267,7 @@
         - !type:HealthChange
           conditions:
           - !type:TemperatureCondition
-            max: 213.0
+            max: 273.15
           damage:
             types:
              Cellular: -3 # ADT tweak
@@ -543,9 +545,8 @@
       - !type:ModifyKnockdown
         time: 0.75
         type: Remove
-      - !type:GenericStatusEffect
-        key: Adrenaline # Guess what epinephrine is...
-        component: IgnoreSlowOnDamage
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectAdrenaline # Guess what epinephrine is...
         time: 5 # lingers less than hivemind reagent to give it a niche
 
 - type: reagent
@@ -660,7 +661,8 @@
             Heat: -0.33
             Shock: -0.33
             Cold: -0.33
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: -10
         conditions:
         - !type:ReagentCondition
@@ -697,12 +699,12 @@
         conditions:
         - !type:TemperatureCondition
           max: 293.15
-        amount: 100000 # thermal energy, not temperature!
+        amount: 1000000 # thermal energy, not temperature!
       - !type:AdjustTemperature
         conditions:
         - !type:TemperatureCondition
           min: 293.15
-        amount: -10000
+        amount: -1000000
       - !type:PopupMessage
         type: Local
         visualType: Medium
@@ -869,14 +871,14 @@
           conditions:
             - !type:ReagentCondition
               reagent: Ambuzol
-              min: 10
+              min: 15
     Digestion:
       effects:
         - !type:CureZombieInfection
           conditions:
             - !type:ReagentCondition
               reagent: Ambuzol
-              min: 10
+              min: 15
 
 - type: reagent
   id: AmbuzolPlus
@@ -929,7 +931,8 @@
   metabolisms:
     Bloodstream:
       effects:
-        - !type:SatiateThirst
+        - !type:Satiate
+          satiationType: Thirst
           factor: 6
         - !type:ModifyBloodLevel
           conditions:
@@ -1072,7 +1075,8 @@
     Bloodstream:
       effects:
       # what the hell, this isn't satiating at all!!
-      - !type:SatiateHunger
+      - !type:Satiate
+        satiationType: Hunger
         factor: -1
 
   # Should heal quite literally everything, use in very small amounts
@@ -1406,7 +1410,8 @@
           min: 21
         probability: 0.4
       # ADT-Tweak-End
-      - !type:SatiateHunger
+      - !type:Satiate
+        satiationType: Hunger
         factor: -1
       - !type:HealthChange
         conditions:
@@ -1429,7 +1434,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 3
       - !type:HealthChange
         conditions:
@@ -1581,10 +1587,12 @@
   metabolisms:
     Bloodstream:
       effects:
+      - !type:AdjustTemperature
+        amount: 80000 # Heats you up as it metabolizes necessitating constant cooling.
       - !type:EvenHealthChange
         conditions:
         - !type:TemperatureCondition
-          max: 213.0
+          max: 273.15
         damage:
           Brute: -1.5 # ADT tweak 3 > 1.5
           Burn: -2 # ADT tweak 3 > 2
@@ -1711,7 +1719,6 @@
       effects:
       - !type:Emote
         emote: Yawn
-        showInChat: true
         probability: 0.1
       - !type:ModifyStatusEffect
         effectProto: StatusEffectDrowsiness

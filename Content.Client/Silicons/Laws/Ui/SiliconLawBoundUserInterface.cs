@@ -12,7 +12,7 @@ public sealed class SiliconLawBoundUserInterface : BoundUserInterface
     [ViewVariables]
     private SiliconLawMenu? _menu;
     private EntityUid _owner;
-    private List<SiliconLawData>? _laws; // ADT-Tweak
+    private List<SiliconLaw>? _laws;
 
     public SiliconLawBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
