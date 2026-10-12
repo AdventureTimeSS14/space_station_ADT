@@ -1,6 +1,10 @@
 using Content.Server.Hands.Systems;
 using Content.Server.UserInterface;
+using Content.Shared.ADT.ModSuits; // ADT-Tweak
 using Content.Shared.ADT.Storage.Components;
+using Content.Shared.Inventory; // ADT-Tweak
+using Robust.Shared.Containers; // ADT-Tweak
+using Robust.Shared.Prototypes; // ADT-Tweak
 using Content.Shared.Hands.Components;
 using Content.Shared.UserInterface;
 using Content.Shared.Verbs;
@@ -13,10 +17,16 @@ namespace Content.Server.ADT.Storage.System;
 /// <summary>
 /// Система, которая позволяет выдать выбор предмета на определенную сущность.
 /// </summary>
-public sealed class SuitStorageSystem : EntitySystem
+public sealed partial class SuitStorageSystem : EntitySystem
 {
     [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    // ADT-Tweak-Start
+    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly ModSuitSystem _modSuit = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    // ADT-Tweak-End
 
     public override void Initialize()
     {
@@ -67,6 +77,8 @@ public sealed class SuitStorageSystem : EntitySystem
             var proto = ent.Comp.Options[args.Index];
 
             var spawned = Spawn(proto, Transform(user).Coordinates);
+
+            TryFitStorageModule(spawned, user); // ADT-Tweak
 
             if (!_hands.TryPickup(user, spawned))
             {
