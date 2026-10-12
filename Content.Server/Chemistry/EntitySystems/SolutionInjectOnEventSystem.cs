@@ -75,7 +75,7 @@ public sealed partial class SolutionInjectOnCollideSystem : EntitySystem
         // hit something and aren't just examining the weapon.
         if (args.IsHit)
         {
-            List<EntityUid> list = new();
+            HashSet<EntityUid> list = new();
             foreach (var ent in args.HitEntities)
             {
                 // ADT Injector blocking start
