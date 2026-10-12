@@ -15961,31 +15961,8 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -1.5,-7.5
       parent: 2
-    - type: ItemToggle
-      activated: True
     - type: ComponentToggler
       target: 39
-    - type: DrainableSolution
-      solution: showerWater
-    - type: SolutionRegeneration
-      generated:
-        maxVol: 5
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 5
-      solution: showerWater
-    - type: SolutionContainerManager
-      solutions:
-        showerWater:
-          maxVol: 200
-          reagents: []
-      containers: []
-    - type: AtmosDevice
-    - type: GasMiner
-      spawnAmount: 0.2
-      spawnGas: WaterVapor
-      maxExternalPressure: 102
   - uid: 40
     components:
     - type: Transform

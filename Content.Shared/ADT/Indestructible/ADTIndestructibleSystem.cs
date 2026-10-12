@@ -1,7 +1,6 @@
 using Content.Shared.Construction.Components;
 using Content.Shared.Construction.EntitySystems;
-using Content.Shared.Damage.Systems;
-using Content.Shared.Destructible;
+using Content.Shared.Damage.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Prying.Components;
 using Content.Shared.Prying.Systems;
@@ -16,8 +15,7 @@ public sealed class ADTIndestructibleSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ADTIndestructibleComponent, BeforeDamageChangedEvent>(OnBeforeDamage);
-        SubscribeLocalEvent<ADTIndestructibleComponent, DestructionAttemptEvent>(OnDestructionAttempt);
+        SubscribeLocalEvent<ADTIndestructibleComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<ADTIndestructibleComponent, UnanchorAttemptEvent>(OnUnanchorAttempt);
         SubscribeLocalEvent<ADTIndestructibleComponent, BeforePryEvent>(OnBeforePry);
         SubscribeLocalEvent<ADTIndestructibleComponent, WeldableAttemptEvent>(OnWeldAttempt);
@@ -26,14 +24,9 @@ public sealed class ADTIndestructibleSystem : EntitySystem
             before: new[] { typeof(AnchorableSystem), typeof(PryingSystem), typeof(WeldableSystem) });
     }
 
-    private void OnBeforeDamage(Entity<ADTIndestructibleComponent> ent, ref BeforeDamageChangedEvent args)
+    private void OnMapInit(Entity<ADTIndestructibleComponent> ent, ref MapInitEvent args)
     {
-        args.Cancelled = true;
-    }
-
-    private void OnDestructionAttempt(Entity<ADTIndestructibleComponent> ent, ref DestructionAttemptEvent args)
-    {
-        args.Cancel();
+        EnsureComp<GodmodeComponent>(ent);
     }
 
     private void OnUnanchorAttempt(Entity<ADTIndestructibleComponent> ent, ref UnanchorAttemptEvent args)

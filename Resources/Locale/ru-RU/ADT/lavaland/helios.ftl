@@ -18,3 +18,10 @@ helios-dualkey-solved = Оба ключа повёрнуты одновреме�
 helios-dualkey-done = Ключ уже повёрнут и заблокирован.
 signal-port-name-adt-helios-plate-lock = Блокировка плиты
 signal-port-description-adt-helios-plate-lock = Когда приходит сигнал, плита навсегда оставляет дверь открытой.
+
+helios-tape-label-orientation = Инструктаж
+helios-tape-label-joule = Беседа с Джоулом
+helios-tape-label-sato = Наблюдения Г-7
+helios-tape-label-launch = Запуск
+helios-tape-label-kane = Для Совета
+helios-tape-label-evac = Оповещение

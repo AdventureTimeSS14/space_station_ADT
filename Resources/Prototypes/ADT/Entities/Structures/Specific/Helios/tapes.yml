@@ -20,7 +20,7 @@
   description: На наклейке напечатано солнце проекта, а ниже от руки приписано «прослушать в первый день».
   components:
   - type: Label
-    currentLabel: Инструктаж
+    localizedLabel: helios-tape-label-orientation
   - type: TapeCassette
     recordedData:
     - timestamp: 1
@@ -59,7 +59,7 @@
   description: На наклейке выведено «ОБС, не для протокола», а уголок кассеты прожжён сигаретой.
   components:
   - type: Label
-    currentLabel: Беседа с Джоулом
+    localizedLabel: helios-tape-label-joule
   - type: TapeCassette
     recordedData:
     - timestamp: 1
@@ -106,7 +106,7 @@
   description: Аккуратная наклейка подписана мелким почерком доктора Сато.
   components:
   - type: Label
-    currentLabel: Наблюдения Г-7
+    localizedLabel: helios-tape-label-sato
   - type: TapeCassette
     recordedData:
     - timestamp: 1
@@ -137,7 +137,7 @@
   description: Кассета оплавилась с одного края, но лента внутри уцелела.
   components:
   - type: Label
-    currentLabel: Запуск
+    localizedLabel: helios-tape-label-launch
   - type: TapeCassette
     recordedData:
     - timestamp: 1
@@ -180,7 +180,7 @@
   description: На наклейке выведено «вскрыть после эвакуации», но эвакуации так и не было.
   components:
   - type: Label
-    currentLabel: Для Совета
+    localizedLabel: helios-tape-label-kane
   - type: TapeCassette
     recordedData:
     - timestamp: 1
@@ -211,7 +211,7 @@
   description: Кассета вытащена из системы оповещения КПП. На наклейке выведено «крутить по кругу».
   components:
   - type: Label
-    currentLabel: Оповещение
+    localizedLabel: helios-tape-label-evac
   - type: TapeCassette
     recordedData:
     - timestamp: 0

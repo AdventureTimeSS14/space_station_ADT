@@ -725,6 +725,9 @@
   - type: DeleteOnTrigger
   - type: ADTHeliosReaction
     radius: 5
+  - type: DeviceLinkSink
+    ports:
+    - ADTHeliosReact
 
 - type: entity
   parent: ADTHeliosScareBase
