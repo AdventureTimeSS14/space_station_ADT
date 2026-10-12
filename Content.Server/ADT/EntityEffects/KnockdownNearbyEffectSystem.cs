@@ -8,8 +8,8 @@ namespace Content.Server.ADT.EntityEffects;
 
 public sealed partial class KnockdownNearbyEffectSystem : EntityEffectSystem<TransformComponent, KnockdownNearbyEffect>
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
 
     protected override void Effect(Entity<TransformComponent> entity, ref EntityEffectEvent<KnockdownNearbyEffect> args)
     {

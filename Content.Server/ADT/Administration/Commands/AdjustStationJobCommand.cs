@@ -12,9 +12,9 @@ namespace Content.Server.ADT.Administration.Commands;
 [AdminCommand(AdminFlags.Round)]
 public sealed class AdjustStationJobCommand : LocalizedCommands
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IEntitySystemManager _entSysManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private IEntitySystemManager _entSysManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
 
     public override string Command => "adjstationjob";
 

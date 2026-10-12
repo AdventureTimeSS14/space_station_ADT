@@ -5,7 +5,7 @@ namespace Content.Client.Mining.Systems;
 
 public sealed class GibtoniteSystem : EntitySystem
 {
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
+    [Dependency] private AppearanceSystem _appearance = default!;
 
     public override void Initialize()
     {

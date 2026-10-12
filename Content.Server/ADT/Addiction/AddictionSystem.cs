@@ -5,7 +5,7 @@
 using System.Linq;
 using Content.Server.Chat.Systems;
 using Content.Server.Popups;
-using Content.Server.Traits;
+using Content.Server.ADT.Traits;
 using Content.Shared.ADT.Addiction;
 using Content.Shared.ADT.Body.Allergies;
 using Content.Shared.Alert;
@@ -42,8 +42,8 @@ public sealed partial class AddictionSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<AddictionComponent, GetReagentEffectsEvent>(OnGetReagentEffects);
-        // After TraitSystem: EnsureComp не должен перебить каналы, добавленные трайтом
-        SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawnComplete, after: [typeof(TraitSystem)]);
+        // After ADTTraitSystem: EnsureComp не должен перебить каналы, добавленные трайтом
+        SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawnComplete, after: [typeof(ADTTraitSystem)]);
     }
 
     public override void Update(float frameTime)
@@ -307,7 +307,7 @@ public sealed partial class AddictionSystem : EntitySystem
         // Любой игрок может подсесть: компонент есть у всех с момента спавна
         var comp = EnsureComp<AddictionComponent>(args.Mob);
 
-        // Рандомный трайт: выбрать случайный канал из ещё не выбранных (после TraitSystem
+        // Рандомный трайт: выбрать случайный канал из ещё не выбранных (после ADTTraitSystem
         // каналы конкретных трайтов уже в компоненте). Клиент блокирует выбор рандомного
         // при всех трёх конкретных, тут защита на случай обхода.
         if (!comp.RandomizeChannel)

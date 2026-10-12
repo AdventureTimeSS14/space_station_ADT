@@ -9,8 +9,8 @@ namespace Content.Server.ADT.LogicCircuit;
 
 public sealed class ADTLogicScreenSystem : EntitySystem
 {
-    [Dependency] private readonly DeviceLinkSystem _deviceLink = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private DeviceLinkSystem _deviceLink = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
 
     public override void Initialize()
     {
@@ -55,7 +55,7 @@ public sealed class ADTLogicScreenSystem : EntitySystem
 
     private void SetColor(Entity<ADTLogicScreenComponent> ent, string value)
     {
-        if (Color.TryFromHex(value) is not { } color)
+        if (!Color.TryFromHex(value, out var color))
             return;
 
         _appearance.SetData(ent, TextScreenVisuals.Color, color);

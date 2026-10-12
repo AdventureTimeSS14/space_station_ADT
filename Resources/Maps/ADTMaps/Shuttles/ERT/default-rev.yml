@@ -7151,7 +7151,7 @@ entities:
     - type: Transform
       pos: 3.5,-2.5
       parent: 1
-    - type: VendingMachine
+    - type: ADTVendingMachine
       allForFree: True
 - proto: VendingMachineEngivend
   entities:
@@ -7160,7 +7160,7 @@ entities:
     - type: Transform
       pos: -4.5,-19.5
       parent: 1
-    - type: VendingMachine
+    - type: ADTVendingMachine
       allForFree: True
 - proto: VendingMachineSec
   entities:
@@ -7169,7 +7169,7 @@ entities:
     - type: Transform
       pos: 8.5,-6.5
       parent: 1
-    - type: VendingMachine
+    - type: ADTVendingMachine
       allForFree: True
 - proto: VendingMachineYouTool
   entities:
@@ -7178,7 +7178,7 @@ entities:
     - type: Transform
       pos: -2.5,-19.5
       parent: 1
-    - type: VendingMachine
+    - type: ADTVendingMachine
       allForFree: True
 - proto: WallPlastitanium
   entities:

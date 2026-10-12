@@ -1,6 +1,6 @@
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using Content.Server.DeviceNetwork.Components;
-using Content.Server.Medical.CrewMonitoring;
+using Content.Server.ADT.Medical.CrewMonitoring; // ADT-Tweak
 using Content.Server.Station.Systems;
 using Content.Shared.Power;
 using Content.Shared.DeviceNetwork.Components;
@@ -9,12 +9,12 @@ namespace Content.Server.DeviceNetwork.Systems;
 
 /// <summary>
 /// Keeps one active server entity per station. Activates another available one if the currently active server becomes unavailable
-/// Server in this context means an entity that manages the devicenet packets like the <see cref="Content.Server.Medical.CrewMonitoring.CrewMonitoringServerSystem"/>
+/// Server in this context means an entity that manages the devicenet packets like the <see cref="Content.Server.Medical.ADTCrewMonitoring.ADTCrewMonitoringServerSystem"/>
 /// </summary>
-public sealed class SingletonDeviceNetServerSystem : EntitySystem
+public sealed partial class SingletonDeviceNetServerSystem : EntitySystem
 {
-    [Dependency] private readonly DeviceNetworkSystem _deviceNetworkSystem = default!;
-    [Dependency] private readonly StationSystem _stationSystem = default!;
+    [Dependency] private DeviceNetworkSystem _deviceNetworkSystem = default!;
+    [Dependency] private StationSystem _stationSystem = default!;
 
     public override void Initialize()
     {
@@ -65,7 +65,7 @@ public sealed class SingletonDeviceNetServerSystem : EntitySystem
     /// Returns the address of the currently active server for the given station id if there is one.<br/>
     /// What kind of server you're trying to get the active instance of is determined by the component type parameter TComp.<br/>
     /// <br/>
-    /// Setting TComp to <see cref="CrewMonitoringServerComponent"/>, for example, gives you the address of an entity containing the crew monitoring server component.<br/>
+    /// Setting TComp to <see cref="ADTCrewMonitoringServerComponent"/>, for example, gives you the address of an entity containing the crew monitoring server component.<br/>
     /// </summary>
     /// <param name="stationId">The entityUid of the station</param>
     /// <param name="address">The address of the active server if it exists</param>

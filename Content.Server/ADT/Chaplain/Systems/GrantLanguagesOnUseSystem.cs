@@ -9,9 +9,9 @@ namespace Content.Server.ADT.Chaplain.Systems;
 
 public sealed class GrantLanguagesOnUseSystem : EntitySystem
 {
-    [Dependency] private readonly LanguageSystem _language = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private LanguageSystem _language = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     public override void Initialize()
     {

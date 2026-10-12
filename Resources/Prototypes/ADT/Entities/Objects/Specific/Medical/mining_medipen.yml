@@ -34,23 +34,22 @@
   - type: ADTLowPressureInjector
     lowPressureMode: HyposprayInjectMode
     normalMode: ADTSlowMedipenInjectMode
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 44
-        reagents:
-        - ReagentId: DexalinPlus
-          Quantity: 10
-        - ReagentId: Leporazine
-          Quantity: 15
-        - ReagentId: Epinephrine
-          Quantity: 10
-        - ReagentId: Barozine
-          Quantity: 2
-        - ReagentId: Tricordrazine
-          Quantity: 5
-        - ReagentId: ADTLavalandExtract
-          Quantity: 2
+  - type: Solution
+    solution:
+      maxVol: 44
+      reagents:
+      - ReagentId: DexalinPlus
+        Quantity: 10
+      - ReagentId: Leporazine
+        Quantity: 15
+      - ReagentId: Epinephrine
+        Quantity: 10
+      - ReagentId: Barozine
+        Quantity: 2
+      - ReagentId: Tricordrazine
+        Quantity: 5
+      - ReagentId: ADTLavalandExtract
+        Quantity: 2
   - type: Tag
     tags:
     - ADTMedipen
@@ -93,21 +92,20 @@
   - type: ADTLowPressureInjector
     lowPressureMode: HyposprayInjectMode
     normalMode: ADTSlowMedipenInjectMode
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 14
-        reagents:
-        - ReagentId: Dexalin
-          Quantity: 3
-        - ReagentId: Leporazine
-          Quantity: 3
-        - ReagentId: Epinephrine
-          Quantity: 3
-        - ReagentId: Tricordrazine
-          Quantity: 3
-        - ReagentId: ADTLavalandExtract
-          Quantity: 2
+  - type: Solution
+    solution:
+      maxVol: 14
+      reagents:
+      - ReagentId: Dexalin
+        Quantity: 3
+      - ReagentId: Leporazine
+        Quantity: 3
+      - ReagentId: Epinephrine
+        Quantity: 3
+      - ReagentId: Tricordrazine
+        Quantity: 3
+      - ReagentId: ADTLavalandExtract
+        Quantity: 2
   - type: Tag
     tags:
     - ADTMedipen
@@ -150,37 +148,36 @@
   - type: ADTLowPressureInjector
     lowPressureMode: HyposprayInjectMode
     normalMode: ADTSlowMedipenInjectMode
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 38
-        reagents:
-        - ReagentId: Saline
-          Quantity: 3
-        - ReagentId: ADTStypticPowderPatch
-          Quantity: 5
-        - ReagentId: Omnizine
-          Quantity: 3
-        - ReagentId: Tricordrazine
-          Quantity: 3
-        - ReagentId: Dexalin
-          Quantity: 2
-        - ReagentId: Bicaridine
-          Quantity: 4
-        - ReagentId: Kelotane
-          Quantity: 4
-        - ReagentId: Epinephrine
-          Quantity: 5
-        - ReagentId: Barozine
-          Quantity: 2
-        - ReagentId: ADTLavalandExtract
-          Quantity: 2
-        - ReagentId: Leporazine
-          Quantity: 2
-        - ReagentId: Dermaline
-          Quantity: 1
-        - ReagentId: Vitamin
-          Quantity: 2
+  - type: Solution
+    solution:
+      maxVol: 38
+      reagents:
+      - ReagentId: Saline
+        Quantity: 3
+      - ReagentId: ADTStypticPowderPatch
+        Quantity: 5
+      - ReagentId: Omnizine
+        Quantity: 3
+      - ReagentId: Tricordrazine
+        Quantity: 3
+      - ReagentId: Dexalin
+        Quantity: 2
+      - ReagentId: Bicaridine
+        Quantity: 4
+      - ReagentId: Kelotane
+        Quantity: 4
+      - ReagentId: Epinephrine
+        Quantity: 5
+      - ReagentId: Barozine
+        Quantity: 2
+      - ReagentId: ADTLavalandExtract
+        Quantity: 2
+      - ReagentId: Leporazine
+        Quantity: 2
+      - ReagentId: Dermaline
+        Quantity: 1
+      - ReagentId: Vitamin
+        Quantity: 2
   - type: Tag
     tags:
     - ADTMedipen

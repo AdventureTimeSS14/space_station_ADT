@@ -6,7 +6,7 @@ namespace Content.Shared.ADT.InconnuOS;
 
 public abstract class SharedADTOsSystem : EntitySystem
 {
-    [Dependency] protected readonly IPrototypeManager Prototypes = default!;
+    [Dependency] protected IPrototypeManager Prototypes = default!;
 
     public OsLimits GetLimits(ADTOperatingSystemComponent component)
     {

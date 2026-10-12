@@ -5,10 +5,11 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon:
-      sprite: ADT/Objects/Specific/Lavaland/small_blaze.rsi
-      state: icon
     useDelay: 40
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/small_blaze.rsi
+    layers:
+    - state: icon
   - type: InstantAction
     event: !type:ADTIgniteActionEvent
 
@@ -19,11 +20,12 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon:
-      sprite: ADT/Interface/Actions/ashwalker.rsi
-      state: heal_touch
     itemIconStyle: NoItem
     useDelay: 20
+  - type: Sprite
+    sprite: ADT/Interface/Actions/ashwalker.rsi
+    layers:
+    - state: heal_touch
   - type: TargetAction
     range: 2
   - type: EntityTargetAction
@@ -37,10 +39,11 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon:
-      sprite: ADT/Interface/Actions/ashwalker.rsi
-      state: necropolis_compass
     useDelay: 30
+  - type: Sprite
+    sprite: ADT/Interface/Actions/ashwalker.rsi
+    layers:
+    - state: necropolis_compass
   - type: InstantAction
     event: !type:ADTNecropolisCompassActionEvent
 
@@ -51,10 +54,11 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon:
-      sprite: ADT/Interface/Actions/ashwalker.rsi
-      state: empath
     useDelay: 18
+  - type: Sprite
+    sprite: ADT/Interface/Actions/ashwalker.rsi
+    layers:
+    - state: empath
   - type: TargetAction
     range: 10
     checkCanAccess: false
@@ -69,9 +73,10 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon:
-      sprite: ADT/Interface/Actions/ashwalker.rsi
-      state: tail_cut
     useDelay: 10
+  - type: Sprite
+    sprite: ADT/Interface/Actions/ashwalker.rsi
+    layers:
+    - state: tail_cut
   - type: InstantAction
     event: !type:ADTTailSweepActionEvent
