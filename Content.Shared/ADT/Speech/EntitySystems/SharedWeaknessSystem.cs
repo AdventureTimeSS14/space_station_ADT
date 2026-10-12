@@ -7,7 +7,7 @@ public abstract class SharedWeaknessSystem : EntitySystem
 {
     public static readonly ProtoId<StatusEffectPrototype> WeaknessKey = "Weakness";
 
-    [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
+    [Dependency] private StatusEffectsSystem _statusEffectsSystem = default!;
 
     // For code in shared... I imagine we ain't getting accent prediction anytime soon so let's not bother.
     public virtual void DoWeakness(EntityUid uid, TimeSpan time, bool refresh, StatusEffectsComponent? status = null)

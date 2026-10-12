@@ -5,10 +5,11 @@
   description: Opens the PDA UI if you are in one.
   components:
     - type: Action
-      icon:
-          sprite: Objects/Devices/pda.rsi
-          state: pda
       itemIconStyle: NoItem
+    - type: Sprite
+      sprite: Objects/Devices/pda.rsi
+      layers:
+      - state: pda
     - type: InstantAction
       event: !type:PAIPDAActionEvent
 
@@ -19,7 +20,10 @@
   description: Opens the console UI if you are slotted in one.
   components:
   - type: Action
-    icon: { sprite: Structures/Machines/computers.rsi, state: avionics-systems }
     itemIconStyle: NoItem
+  - type: Sprite
+    sprite: Structures/Machines/computers.rsi
+    layers:
+    - state: avionics-systems
   - type: InstantAction
     event: !type:PAIConsoleActionEvent

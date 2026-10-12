@@ -13,11 +13,11 @@ namespace Content.Server.ADT.Salvage.Systems;
 
 public sealed partial class MegafaunaSystem : EntitySystem
 {
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly ADTRestrictedZoneGuardSystem _zone = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private ADTRestrictedZoneGuardSystem _zone = default!;
 
     public override void Initialize()
     {

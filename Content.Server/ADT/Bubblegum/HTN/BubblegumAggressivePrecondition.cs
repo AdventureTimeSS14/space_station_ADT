@@ -9,8 +9,8 @@ namespace Content.Server.ADT.Bubblegum.HTN;
 // be_aggressive()
 public sealed partial class BubblegumAggressivePrecondition : HTNPrecondition
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private IGameTiming _timing = default!;
     private MobStateSystem _mobState = default!;
 
     [DataField]

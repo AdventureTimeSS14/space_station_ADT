@@ -1,18 +1,18 @@
-using Content.Server.Disposal.Unit;
+using Content.Shared.Disposal.Unit;
 using Content.Shared.Eye;
 
 namespace Content.Server.ADT.SubFloor;
 
 public sealed class ADTPipeRiderVisibilitySystem : EntitySystem
 {
-    [Dependency] private readonly SharedEyeSystem _eye = default!;
+    [Dependency] private SharedEyeSystem _eye = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<BeingDisposedComponent, ComponentStartup>(OnDisposedStartup);
-        SubscribeLocalEvent<BeingDisposedComponent, ComponentShutdown>(OnDisposedShutdown);
+        SubscribeLocalEvent<BeingDisposedComponent, ComponentRemove>(OnDisposedRemove);
 
         SubscribeLocalEvent<GetVisMaskEvent>(OnGetVisMask);
     }
@@ -22,7 +22,7 @@ public sealed class ADTPipeRiderVisibilitySystem : EntitySystem
         Refresh(ent);
     }
 
-    private void OnDisposedShutdown(Entity<BeingDisposedComponent> ent, ref ComponentShutdown args)
+    private void OnDisposedRemove(Entity<BeingDisposedComponent> ent, ref ComponentRemove args)
     {
         Refresh(ent);
     }

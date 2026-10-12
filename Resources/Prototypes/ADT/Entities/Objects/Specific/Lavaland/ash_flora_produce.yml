@@ -7,19 +7,18 @@
   - type: FlavorProfile
     flavors:
     - mushroom
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Sugar
-          Quantity: 3
-        - ReagentId: Ethanol
-          Quantity: 2
+  - type: Solution
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Sugar
+        Quantity: 3
+      - ReagentId: Ethanol
+        Quantity: 2
   - type: Sprite
     sprite: ADT/Objects/Specific/Hydroponics/polypore.rsi
   - type: Produce
-    seedId: ADTSeedPolypore
+    plantId: ADTPolyporePlants
   - type: Extractable
     grindableSolutionName: food
   - type: Tag
@@ -36,21 +35,20 @@
   - type: FlavorProfile
     flavors:
     - mushroom
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 3
-        - ReagentId: ADTVitriumFroth
-          Quantity: 2
-        - ReagentId: Nicotine
-          Quantity: 2
+  - type: Solution
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 3
+      - ReagentId: ADTVitriumFroth
+        Quantity: 2
+      - ReagentId: Nicotine
+        Quantity: 2
   - type: Sprite
     sprite: ADT/Objects/Specific/Hydroponics/porcini.rsi
   - type: Produce
-    seedId: ADTSeedPorcini
+    plantId: ADTPorciniPlants
   - type: Extractable
     grindableSolutionName: food
   - type: Tag
@@ -67,21 +65,20 @@
   - type: FlavorProfile
     flavors:
     - mushroom
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: MindbreakerToxin
-          Quantity: 2
-        - ReagentId: ADTEntropicPolypnium
-          Quantity: 4
-        - ReagentId: SpaceDrugs
-          Quantity: 2
+  - type: Solution
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: MindbreakerToxin
+        Quantity: 2
+      - ReagentId: ADTEntropicPolypnium
+        Quantity: 4
+      - ReagentId: SpaceDrugs
+        Quantity: 2
   - type: Sprite
     sprite: ADT/Objects/Specific/Hydroponics/inocybe.rsi
   - type: Produce
-    seedId: ADTSeedInocybe
+    plantId: ADTInocybePlants
   - type: Extractable
     grindableSolutionName: food
   - type: Tag
@@ -97,17 +94,16 @@
   - type: FlavorProfile
     flavors:
     - mushroom
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: ADTTineaLuxor
-          Quantity: 2
-        - ReagentId: Vitamin
-          Quantity: 1
-        - ReagentId: SpaceDrugs
-          Quantity: 1
+  - type: Solution
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: ADTTineaLuxor
+        Quantity: 2
+      - ReagentId: Vitamin
+        Quantity: 1
+      - ReagentId: SpaceDrugs
+        Quantity: 1
   - type: Sprite
     sprite: ADT/Objects/Specific/Hydroponics/ember.rsi
   - type: PointLight
@@ -115,7 +111,7 @@
     energy: 1.2
     color: "#f0b26c"
   - type: Produce
-    seedId: ADTSeedEmbershroom
+    plantId: ADTEmbershroomPlants
   - type: Extractable
     grindableSolutionName: food
   - type: Tag
@@ -150,15 +146,14 @@
   - type: FlavorProfile
     flavors:
     - spicy
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 12
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 4
-        - ReagentId: CapsaicinOil
-          Quantity: 5
+  - type: Solution
+    solution:
+      maxVol: 12
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 4
+      - ReagentId: CapsaicinOil
+        Quantity: 5
   - type: Sprite
     sprite: ADT/Objects/Specific/Lavaland/fireblossom.rsi
     state: icon
@@ -170,26 +165,26 @@
 
 - type: entity
   name: coaltree log
-  parent: FoodProduceBase
+  parent: [ FoodProduceBase, BaseSlicingRefinable ]
   id: ADTFoodCoaltreeLog
   description: A chunk of coaltree wood. Burns well, tastes like ash.
   components:
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/coaltree_log.rsi
     state: icon
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 2
-        - ReagentId: Carbon
-          Quantity: 4
+  - type: Solution
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 2
+      - ReagentId: Carbon
+        Quantity: 4
   - type: Extractable
     grindableSolutionName: food
-  - type: Log
-    spawnCount: 1
+  - type: ToolRefinable
+    refineResult:
+    - id: MaterialWoodPlank1
   - type: Tag
     tags:
     - ADTLavaFishPart
@@ -204,19 +199,18 @@
   - type: FlavorProfile
     flavors:
     - mushroom
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 12
-        reagents:
-        - ReagentId: ADTMorphine
-          Quantity: 5
-        - ReagentId: Charcoal
-          Quantity: 5
+  - type: Solution
+    solution:
+      maxVol: 12
+      reagents:
+      - ReagentId: ADTMorphine
+        Quantity: 5
+      - ReagentId: Charcoal
+        Quantity: 5
   - type: Sprite
     sprite: ADT/Objects/Specific/Hydroponics/reishi.rsi
   - type: Produce
-    seedId: ADTSeedReishi
+    plantId: ADTReishiPlants
   - type: Extractable
     grindableSolutionName: food
   - type: Tag

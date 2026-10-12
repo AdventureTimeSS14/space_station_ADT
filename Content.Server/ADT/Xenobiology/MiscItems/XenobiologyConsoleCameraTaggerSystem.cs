@@ -13,8 +13,8 @@ namespace Content.Server.ADT.Xenobiology.MiscItems;
 /// </summary>
 public sealed partial class XenobiologyConsoleCameraTaggerSystem : EntitySystem
 {
-    [Dependency] private readonly IChatManager _chat = default!;
-    [Dependency] private readonly SharedStationAiSystem _stationAi = default!;
+    [Dependency] private IChatManager _chat = default!;
+    [Dependency] private SharedStationAiSystem _stationAi = default!;
 
     public override void Initialize()
     {

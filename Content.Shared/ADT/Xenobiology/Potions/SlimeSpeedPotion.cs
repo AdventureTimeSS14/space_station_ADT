@@ -16,10 +16,10 @@ public sealed partial class SlimeSpeedPotionComponent : Component;
 
 public sealed partial class SlimeSpeedPotionSystem : EntitySystem
 {
-    [Dependency] private readonly ClothingSpeedModifierSystem _clothingSpeedModifier = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private ClothingSpeedModifierSystem _clothingSpeedModifier = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeed = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

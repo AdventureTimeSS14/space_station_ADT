@@ -9,7 +9,7 @@ namespace Content.Server.ADT.LogicCircuit;
 
 public sealed partial class ADTLogicCircuitSystem
 {
-    [Dependency] private readonly DeviceLinkSystem _deviceLink = default!;
+    [Dependency] private DeviceLinkSystem _deviceLink = default!;
 
     public const string LogicValueKey = "adt_logic_value";
 

@@ -17,3 +17,6 @@ ent-ShadowKudzu = тёмная дымка
     .desc = { ent-BaseKudzu.desc }
 ent-ShadowKudzuWeak = дымка
     .desc = { ent-ShadowKudzu.desc }
+ent-FleshKudzuSpace = сухожилия
+    .suffix = Космос
+    .desc = Быстро разрастающаяся масса мясистых сухожилий. ПОЧЕМУ ВЫ ОСТАНОВИЛИСЬ НА НЕЁ ПОСМОТРЕТЬ?!
