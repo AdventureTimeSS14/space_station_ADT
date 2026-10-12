@@ -13,10 +13,10 @@ namespace Content.Server.ADT.Chaplain;
 
 public sealed class PassiveHolyHealingSystem : EntitySystem
 {
-    // [Dependency] private readonly DamageableSystem _damageable = default!;
-    // [Dependency] private readonly IGameTiming _timing = default!;
-    // [Dependency] private readonly MobStateSystem _mobState = default!;
-    // [Dependency] private readonly IPrototypeManager _prototype = default!;
+    // [Dependency] private DamageableSystem _damageable = default!;
+    // [Dependency] private IGameTiming _timing = default!;
+    // [Dependency] private MobStateSystem _mobState = default!;
+    // [Dependency] private IPrototypeManager _prototype = default!;
 
     // private const string HolyDamageType = "Holy";
 

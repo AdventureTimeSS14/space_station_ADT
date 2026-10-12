@@ -8,8 +8,8 @@ namespace Content.Server.ADT.EntityEffects;
 
 public sealed partial class OxygenateNearbySystem : EntityEffectSystem<TransformComponent, OxygenateNearby>
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly RespiratorSystem _respirator = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private RespiratorSystem _respirator = default!;
 
     protected override void Effect(Entity<TransformComponent> entity, ref EntityEffectEvent<OxygenateNearby> args)
     {

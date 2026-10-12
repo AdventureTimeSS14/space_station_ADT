@@ -9,9 +9,9 @@ namespace Content.Server.ADT.Language;
 
 public sealed class TranslatorSystem : SharedTranslatorSystem
 {
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly PowerCellSystem _powerCell = default!;
-    [Dependency] private readonly LanguageSystem _language = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private PowerCellSystem _powerCell = default!;
+    [Dependency] private LanguageSystem _language = default!;
 
     public override void Initialize()
     {

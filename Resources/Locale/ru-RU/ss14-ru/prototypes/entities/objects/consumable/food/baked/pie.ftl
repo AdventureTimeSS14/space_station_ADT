@@ -52,3 +52,7 @@ ent-FoodTartGapple = тарт из золотых яблок с крошкой
     .desc = Вкуснейший десерт, который не пронести через металлоискатель.
 ent-FoodTartCoco = шоколадный тарт с лавой
     .desc = Вкусный десерт из шоколада с жидкой начинкой.
+ent-FoodPieAmanitaSlice = кусок пирога с мухоморами
+    .desc = { ent-FoodPieSliceBase.desc }
+ent-FoodPiePlumpSlice = кусок пирога с толстошлемником
+    .desc = { ent-FoodPieSliceBase.desc }

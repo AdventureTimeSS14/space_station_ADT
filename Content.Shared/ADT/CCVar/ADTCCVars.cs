@@ -59,6 +59,12 @@ public sealed class ADTCCVars
         CVarDef.Create("radialmenu.center", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /*
+    * Text outline
+    */
+    public static readonly CVarDef<bool> EnableTextOutline =
+        CVarDef.Create("accessibility.text_outline", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /*
     * Discord
     */
 
@@ -273,6 +279,12 @@ public sealed class ADTCCVars
     /// </summary>
     public static readonly CVarDef<int> MapVoteRecentBanDepth =
         CVarDef.Create("game.map_vote_recent_ban_depth", 3, CVar.SERVER | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Запускать ли голосования за карту и режим при входе в лобби.
+    /// </summary>
+    public static readonly CVarDef<bool> LobbyAutoVote =
+        CVarDef.Create("game.lobby_auto_vote", true, CVar.SERVERONLY | CVar.ARCHIVE);
 
 
     public static readonly CVarDef<float> BookPrinterUploadCooldown =

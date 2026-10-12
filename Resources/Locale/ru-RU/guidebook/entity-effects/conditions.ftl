@@ -84,3 +84,17 @@ entity-effect-condition-guidebook-internals =
         [true] использует дыхательную маску
        *[false] дышит атмосферным газом
     }
+entity-condition-guidebook-total-satiation =
+    { $max ->
+        [2147483648] цель имеет по крайней мере { NATURALFIXED($min, 2) } общего показателя «{ $type }»
+       *[other]
+            { $min ->
+                [0] цель имеет не более { NATURALFIXED($max, 2) } общего показателя «{ $type }»
+               *[other] цель имеет от { NATURALFIXED($min, 2) } до { NATURALFIXED($max, 2) } общего показателя «{ $type }»
+            }
+    }
+entity-condition-guidebook-internals =
+    цель { $usingInternals ->
+        [true] использует дыхательную систему
+       *[false] дышит воздухом из атмосферы
+    }

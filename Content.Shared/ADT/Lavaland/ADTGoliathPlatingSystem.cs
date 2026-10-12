@@ -1,7 +1,7 @@
 using System.Linq;
+using Content.Shared.ADT.Containers;
 using Content.Shared.ADT.Lavaland.Components;
 using Content.Shared.Armor;
-using Content.Shared.Clothing.Components;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
@@ -17,15 +17,15 @@ namespace Content.Shared.ADT.Lavaland;
 
 public sealed class ADTGoliathPlatingSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly SharedArmorSystem _armor = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedStackSystem _stack = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private SharedArmorSystem _armor = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedStackSystem _stack = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -87,7 +87,7 @@ public sealed class ADTGoliathPlatingSystem : EntitySystem
         var modifiers = new DamageModifierSet
         {
             Coefficients = new(armor.Modifiers.Coefficients),
-            FlatReduction = new(armor.Modifiers.FlatReduction),
+            FlatReductions = new(armor.Modifiers.FlatReductions),
         };
 
         foreach (var type in ent.Comp.Types)
@@ -110,7 +110,7 @@ public sealed class ADTGoliathPlatingSystem : EntitySystem
         {
             foreach (var container in _container.GetAllContainers(ent.Owner, oldManager))
             {
-                if (container.ID == ToggleableClothingComponent.DefaultClothingContainerId)
+                if (ADTInternalContainers.IsInternal(container))
                     continue;
 
                 if (!_container.TryGetContainer(upgraded, container.ID, out var target))

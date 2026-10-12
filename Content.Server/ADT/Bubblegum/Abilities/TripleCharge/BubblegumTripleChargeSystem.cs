@@ -10,10 +10,10 @@ namespace Content.Server.ADT.Bubblegum.Abilities;
 
 public sealed class BubblegumTripleChargeSystem : EntitySystem
 {
-    [Dependency] private readonly BubblegumChargeSystem _charge = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly VisibilitySystem _visibility = default!;
+    [Dependency] private BubblegumChargeSystem _charge = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private VisibilitySystem _visibility = default!;
 
     private const float TravelBuffer = 0.5f;
 

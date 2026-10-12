@@ -15,7 +15,7 @@
     softness: 0.5
     offset: "0, 0.2"
     color: "#B4FCF0"
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ADTLightMaskCone
   - type: ApcPowerReceiver
     needsPower: false
   - type: Sprite

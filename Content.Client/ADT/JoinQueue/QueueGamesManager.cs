@@ -16,10 +16,10 @@ public sealed partial class QueueGamesManager
     private const string MatchWinSound = "/Audio/Effects/Arcade/win.ogg";
     private const string MatchLoseSound = "/Audio/Effects/Arcade/gameover.ogg";
 
-    [Dependency] private readonly IClientNetManager _net = default!;
-    [Dependency] private readonly IAudioManager _audio = default!;
-    [Dependency] private readonly IResourceCache _cache = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private IClientNetManager _net = default!;
+    [Dependency] private IAudioManager _audio = default!;
+    [Dependency] private IResourceCache _cache = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
 
     private IAudioSource? _source;
 

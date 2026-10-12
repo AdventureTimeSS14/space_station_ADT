@@ -14,7 +14,7 @@ namespace Content.Client.ADT.Mech.UI;
 [GenerateTypedNameReferences]
 public sealed partial class MechEquipmentMenu : RadialMenu
 {
-    [Dependency] private readonly EntityManager _entManager = default!;
+    [Dependency] private EntityManager _entManager = default!;
 
     public event Action<NetEntity?>? OnSelectEquip;
 

@@ -6,8 +6,8 @@ namespace Content.Shared.ADT.Mobs.Systems;
 
 public abstract class SharedSoftCritSystem : EntitySystem
 {
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _moveMod = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private MovementSpeedModifierSystem _moveMod = default!;
 
     public override void Initialize()
     {

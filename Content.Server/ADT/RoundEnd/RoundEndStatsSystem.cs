@@ -28,14 +28,14 @@ namespace Content.Server.ADT.RoundEnd;
 
 public sealed class RoundEndStatsSystem : EntitySystem
 {
-    [Dependency] private readonly BankCardSystem _bankCard = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
-    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedRoleSystem _roles = default!;
-    [Dependency] private readonly StationIntegritySystem _integrity = default!;
+    [Dependency] private BankCardSystem _bankCard = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private EmergencyShuttleSystem _emergencyShuttle = default!;
+    [Dependency] private ISharedPlayerManager _playerManager = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private SharedRoleSystem _roles = default!;
+    [Dependency] private StationIntegritySystem _integrity = default!;
 
     private static readonly ProtoId<JobPrototype> ClownJob = "Clown";
 

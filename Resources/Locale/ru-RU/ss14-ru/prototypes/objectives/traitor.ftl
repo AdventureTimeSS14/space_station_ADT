@@ -50,3 +50,5 @@ ent-CaptainGunStealObjective = { ent-BaseCaptainObjective }
 # ent-NukeDiskStealObjective = { ent-BaseCaptainObjective }
 #     .desc = { ent-BaseCaptainObjective.desc }
 
+ent-HijackTradeStationObjective = Захватите автоматизированную торговую станцию.
+    .desc = Ваш аплинк получил разрешение на один маяк захвата. Установите его на автоматизированной торговой станции и защищайте, пока идёт захват.

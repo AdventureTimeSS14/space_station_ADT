@@ -173,7 +173,10 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         while (query.MoveNext(out var ent, out var comp))
         {
             if (comp.CurrentTarget != null && TerminatingOrDeleted(comp.CurrentTarget.Value))
+            {
                 comp.CurrentTarget = null;
+                Dirty(ent, comp);
+            }
 
             if (_timing.CurTime < comp.ResetTime
                 || comp.LastAttacks.Count == 0
@@ -331,9 +334,9 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         return new()
         {
             Coefficients = specifier.DamageDict
-                .ToDictionary(x => x.Key.Id, _ => multiplier),
-            FlatReduction = specifier.DamageDict
-                .ToDictionary(x => x.Key.Id, _ => -modifier), // Minus mod because it subtracts values from damage
+                .ToDictionary(x => x.Key, _ => multiplier),
+            FlatReductions = specifier.DamageDict
+                .ToDictionary(x => x.Key, _ => -modifier),
         };
     }
 
