@@ -18,10 +18,9 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 20
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      battery:
-        maxVol: 15
+    - XenobioVolatileOrganSolution
   - type: InjectableSolution
     solution: battery
   - type: DrawableSolution
@@ -206,3 +205,14 @@
     - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
       state: o2
       shader: unshaded
+
+- type: entity
+  parent: Solution
+  id: XenobioVolatileOrganSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: battery
+    solution:
+      maxVol: 15
+      reagents: []

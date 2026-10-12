@@ -1,4 +1,4 @@
-using Content.Shared.ADT.Flammability;
+using Content.Shared.ADT.Flammability; // ADT-Tweak
 using Content.Shared.Armor;
 using Content.Shared.Atmos;
 using Content.Shared.Clothing.Components;
@@ -9,7 +9,7 @@ namespace Content.Shared.Clothing.EntitySystems;
 /// <summary>
 /// Handles reducing fire damage when wearing clothing with <see cref="FireProtectionComponent"/>.
 /// </summary>
-public sealed partial class FireProtectionSystem : EntitySystem // ADT-Tweak
+public sealed partial class FireProtectionSystem : EntitySystem
 {
     public override void Initialize()
     {
@@ -21,10 +21,10 @@ public sealed partial class FireProtectionSystem : EntitySystem // ADT-Tweak
 
     private void OnGetProtection(Entity<FireProtectionComponent> ent, ref InventoryRelayedEvent<GetFireProtectionEvent> args)
     {
-        // ADT-Tweak start
+        // ADT-Tweak-Start
         if (HasComp<VeryFlammableComponent>(ent))
             return;
-        // ADT-Tweak end
+        // ADT-Tweak-End
 
         args.Args.Reduce(ent.Comp.Reduction);
     }

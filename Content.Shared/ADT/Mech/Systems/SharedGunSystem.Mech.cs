@@ -11,7 +11,7 @@ namespace Content.Shared.Weapons.Ranged.Systems;
 
 public abstract partial class SharedGunSystem
 {
-    [Dependency] private readonly SharedMechSystem _mech = default!;
+    [Dependency] private SharedMechSystem _mech = default!;
 
     protected virtual void InitializeMechGun()
     {

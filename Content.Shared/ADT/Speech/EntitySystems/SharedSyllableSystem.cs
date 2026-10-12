@@ -9,7 +9,7 @@ public abstract class SharedSyllableSystem : EntitySystem
 {
     public static readonly ProtoId<StatusEffectPrototype> SyllableKey = "Syllable";
 
-    [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
+    [Dependency] private StatusEffectsSystem _statusEffectsSystem = default!;
 
     // For code in shared... I imagine we ain't getting accent prediction anytime soon so let's not bother.
     public virtual void DoSyllable(EntityUid uid, TimeSpan time, bool refresh, StatusEffectsComponent? status = null)

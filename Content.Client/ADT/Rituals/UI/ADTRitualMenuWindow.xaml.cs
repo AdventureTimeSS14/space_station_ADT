@@ -14,8 +14,8 @@ namespace Content.Client.ADT.Rituals.UI;
 [GenerateTypedNameReferences]
 public sealed partial class ADTRitualMenuWindow : FancyWindow
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     public event Action<ProtoId<ADTRitualPrototype>>? OnStartPressed;
 

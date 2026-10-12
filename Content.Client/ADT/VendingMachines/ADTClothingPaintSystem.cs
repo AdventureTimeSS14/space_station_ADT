@@ -9,7 +9,7 @@ namespace Content.Client.ADT.VendingMachines;
 
 public sealed class ADTClothingPaintSystem : EntitySystem
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {

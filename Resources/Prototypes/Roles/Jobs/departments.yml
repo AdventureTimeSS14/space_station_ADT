@@ -33,6 +33,7 @@
   - ServiceWorker
   - ADTBarber # ADT-Tweak
 
+# Please kill this
 - type: department
   id: CentralCommand
   name: department-CentralCommand

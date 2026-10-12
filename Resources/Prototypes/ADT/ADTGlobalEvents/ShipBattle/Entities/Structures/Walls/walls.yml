@@ -13,9 +13,7 @@
     - type: IconSmooth
       key: walls
       base: state
-    - type: Tag
-      tags:
-        - Wall
+    - type: Wall
     - type: Destructible
       thresholds:
         - trigger:
@@ -56,7 +54,7 @@
     - type: Icon
       sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Walls/space_battleships_kmt_heavy_armor.rsi
     - type: Destructible
-      thresholds:
+      thresholdsOverride:
         - trigger:
             !type:DamageTrigger
             damage: 3000
@@ -102,7 +100,7 @@
     sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Walls/diagonal_kmt_armor.rsi
     state: state0
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
         damage: 1500
@@ -157,7 +155,7 @@
     sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Walls/diagonal_kmt_heavyarmor.rsi
     state: state0
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
         damage: 3000
@@ -209,7 +207,7 @@
     sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Walls/bevel_kmt_armor.rsi
     state: state0
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
         damage: 1500
@@ -263,7 +261,7 @@
     sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Walls/bevel_kmt_heavyarmor.rsi
     state: state0
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
         damage: 3000
@@ -315,7 +313,7 @@
     sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Walls/round_kmt_armor.rsi
     state: state0
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
         damage: 1500
@@ -369,7 +367,7 @@
     sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Walls/round_kmt_heavyarmor.rsi
     state: state0
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
         damage: 3000

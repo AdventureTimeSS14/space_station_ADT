@@ -44,41 +44,40 @@ namespace Content.Shared.ADT.Heretic.Systems.Abilities;
 
 public abstract partial class SharedHereticAbilitySystem : EntitySystem
 {
-    [Dependency] private readonly IMapManager _mapMan = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private ITileDefinitionManager _tileDefinitionManager = default!;
+    [Dependency] private INetManager _net = default!;
 
-    [Dependency] protected readonly IGameTiming Timing = default!;
-    [Dependency] protected readonly SharedDoAfterSystem DoAfter = default!;
-    [Dependency] protected readonly EntityLookupSystem Lookup = default!;
-    [Dependency] protected readonly StatusEffectsSystem Status = default!;
-    [Dependency] protected readonly SharedVoidCurseSystem Voidcurse = default!;
-    [Dependency] protected readonly SharedHereticSystem Heretic = default!;
+    [Dependency] protected IGameTiming Timing = default!;
+    [Dependency] protected SharedDoAfterSystem DoAfter = default!;
+    [Dependency] protected EntityLookupSystem Lookup = default!;
+    [Dependency] protected StatusEffectsSystem Status = default!;
+    [Dependency] protected SharedVoidCurseSystem Voidcurse = default!;
+    [Dependency] protected SharedHereticSystem Heretic = default!;
 
-    [Dependency] private readonly StatusEffectNew.StatusEffectsSystem _statusNew = default!;
-    [Dependency] private readonly SharedProjectileSystem _projectile = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly ThrowingSystem _throw = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedGunSystem _gun = default!;
-    [Dependency] private readonly SharedStarMarkSystem _starMark = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly PullingSystem _pulling = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly SharedEyeSystem _eye = default!;
-    [Dependency] private readonly DamageableSystem _dmg = default!;
-    [Dependency] private readonly ExamineSystemShared _examine = default!;
-    [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
-    [Dependency] private readonly BodySystem _body = default!;
-    [Dependency] private readonly SharedBloodstreamSystem _blood = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private StatusEffectNew.StatusEffectsSystem _statusNew = default!;
+    [Dependency] private SharedProjectileSystem _projectile = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private StandingStateSystem _standing = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private ThrowingSystem _throw = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedGunSystem _gun = default!;
+    [Dependency] private SharedStarMarkSystem _starMark = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private PullingSystem _pulling = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private SharedEyeSystem _eye = default!;
+    [Dependency] private DamageableSystem _dmg = default!;
+    [Dependency] private ExamineSystemShared _examine = default!;
+    [Dependency] private MobThresholdSystem _mobThreshold = default!;
+    [Dependency] private BodySystem _body = default!;
+    [Dependency] private BloodstreamSystem _blood = default!;
+    [Dependency] private SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
 
-    [Dependency] protected readonly SharedPopupSystem Popup = default!;
+    [Dependency] protected SharedPopupSystem Popup = default!;
 
     public static readonly DamageSpecifier AllDamage = new()
     {
@@ -239,7 +238,7 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
         var toCoords = coords;
 
         var fromMap = _transform.ToMapCoordinates(fromCoords);
-        var spawnCoords = _mapMan.TryFindGridAt(fromMap, out var gridUid, out _)
+        var spawnCoords = _map.TryFindGridAt(fromMap, out var gridUid, out _)
             ? _transform.WithEntityId(fromCoords, gridUid)
             : new(_map.GetMap(fromMap.MapId), fromMap.Position);
 
@@ -313,13 +312,13 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
                 _blood.TryModifyBleedAmount((uid, blood), bleedHeal.Value.Float());
         }
 
-        if (bloodHeal == FixedPoint2.Zero || !TryComp(uid, out SolutionContainerManagerComponent? sol) ||
-            !_solution.ResolveSolution((uid, sol), blood.BloodSolutionName, ref blood.BloodSolution))
+        if (bloodHeal == FixedPoint2.Zero
+            || !_solution.ResolveSolution(uid.Owner, blood.BloodSolutionName, ref blood.BloodSolution)
+            || blood.BloodSolution is not { } bloodSolution)
             return;
 
-        // ADT: BloodMaxVolume replaced by reference-solution volume * modifier
         var maxVolume = blood.BloodReferenceSolution.Volume * blood.MaxVolumeModifier;
-        var curVolume = blood.BloodSolution.Value.Comp.Solution.Volume;
+        var curVolume = bloodSolution.Comp.Solution.Volume;
         if (curVolume >= maxVolume)
             return;
 

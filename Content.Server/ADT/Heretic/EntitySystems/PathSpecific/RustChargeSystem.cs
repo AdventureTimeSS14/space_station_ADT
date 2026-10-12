@@ -5,7 +5,7 @@ namespace Content.Server.ADT.Heretic.EntitySystems.PathSpecific;
 
 public sealed class RustChargeSystem : SharedRustChargeSystem
 {
-    [Dependency] private readonly DestructibleSystem _destructible = default!;
+    [Dependency] private DestructibleSystem _destructible = default!;
 
     protected override void DestroyStructure(EntityUid uid, EntityUid user)
     {
