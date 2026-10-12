@@ -60,7 +60,7 @@ public sealed partial class TTSSystem
 
             foreach (var session in Filter.Pvs(device).Recipients)
             {
-                if (session.AttachedEntity is not { } listener)
+                if (session.AttachedEntity is not { } listener || HasComp<GhostComponent>(listener))
                     continue;
 
                 var distance = (devicePos - _xforms.GetWorldPosition(listener)).Length();
