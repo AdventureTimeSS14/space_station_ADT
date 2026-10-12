@@ -12,7 +12,7 @@ public sealed class NinjaADTConditionsSystem : EntitySystem
 {
     [Dependency] private SharedMindSystem _mind = default!;
     [Dependency] private NumberObjectiveSystem _number = default!;
-    [Dependency] private readonly EmagSystem _emag = default!;
+    [Dependency] private EmagSystem _emag = default!;
 
     public override void Initialize()
     {
