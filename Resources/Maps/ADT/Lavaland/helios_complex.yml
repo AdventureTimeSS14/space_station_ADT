@@ -43891,7 +43891,7 @@ entities:
     - type: Transform
       pos: 9.5,-25.5
       parent: 2
-    - type: VendingMachine
+    - type: ADTVendingMachine
       broken: True
     - type: AccessReader
       accessListsOriginal:

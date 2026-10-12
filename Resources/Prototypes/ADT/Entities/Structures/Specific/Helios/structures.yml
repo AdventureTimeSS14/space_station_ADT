@@ -20,7 +20,6 @@
   - type: ADTIndestructible
   - type: Tag
     tags:
-    - Wall
     - EmagImmune
 
 - type: entity
@@ -41,7 +40,6 @@
   - type: ADTIndestructible
   - type: Tag
     tags:
-    - Wall
     - EmagImmune
 
 - type: entity
@@ -62,7 +60,6 @@
   - type: ADTIndestructible
   - type: Tag
     tags:
-    - Wall
     - EmagImmune
 
 - type: entity

@@ -394,7 +394,7 @@ public sealed class HeliosComplexTest : GameTest
         await server.WaitAssertion(() =>
         {
             mapSystem.CreateMap(out var mapId);
-            var grid = server.ResolveDependency<SharedMapSystem>().CreateGridEntity(mapId);
+            var grid = mapSystem.CreateGridEntity(mapId);
             mapSystem.SetTile(grid, Vector2i.Zero, new Tile(1));
             entrance = _entities.SpawnEntity("ADTHeliosGatewayEntrance", new EntityCoordinates(grid.Owner, new Vector2(0.5f, 0.5f)));
         });
