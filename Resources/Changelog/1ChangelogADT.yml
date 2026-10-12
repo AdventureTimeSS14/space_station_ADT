@@ -16104,3 +16104,10 @@ Entries:
     id: 1993
     pr_number: 3470
     time: '2026-10-12T21:48:58Z'
+  - author: SchrodingerCutie
+    changes:
+      - {message: 'При передаче предмета над головой предлагающего появляется иконка,
+          по которой его можно принять.', type: Add}
+    id: 1994
+    pr_number: 3468
+    time: '2026-10-12T21:49:12Z'
