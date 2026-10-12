@@ -33,6 +33,9 @@ public sealed class ADTLavalandHumanResistsSystem : EntitySystem
 
     private void OnRemove(Entity<ADTLavalandHumanResistsComponent> ent, ref ComponentRemove args)
     {
+        if (ent.Comp.Active && !TerminatingOrDeleted(ent))
+            Restore(ent);
+
         _meta.RemoveFlag(ent, MetaDataFlags.ExtraTransformEvents);
     }
 
