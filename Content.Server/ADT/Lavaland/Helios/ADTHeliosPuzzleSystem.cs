@@ -19,16 +19,16 @@ namespace Content.Server.ADT.Lavaland.Helios;
 
 public sealed class ADTHeliosPuzzleSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly DeviceLinkSystem _deviceLink = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private DeviceLinkSystem _deviceLink = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     private const int North = 1;
     private const int East = 2;

@@ -11,10 +11,10 @@ namespace Content.Server.ADT.Lavaland.Dungeon;
 
 public sealed class ADTDungeonGatewaySystem : EntitySystem
 {
-    [Dependency] private readonly AtmosphereSystem _atmos = default!;
-    [Dependency] private readonly LinkedEntitySystem _link = default!;
-    [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private AtmosphereSystem _atmos = default!;
+    [Dependency] private LinkedEntitySystem _link = default!;
+    [Dependency] private MapLoaderSystem _mapLoader = default!;
+    [Dependency] private SharedMapSystem _map = default!;
 
     private readonly Dictionary<string, EntityUid> _loaded = new();
     private readonly HashSet<string> _failed = new();

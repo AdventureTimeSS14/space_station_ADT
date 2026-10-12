@@ -27,17 +27,17 @@ namespace Content.Server.ADT.Lavaland.Helios;
 
 public sealed class ADTHeliosMechanicsSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly DeviceLinkSystem _deviceLink = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly PaperSystem _paper = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private DeviceLinkSystem _deviceLink = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private PaperSystem _paper = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedCameraRecoilSystem _recoil = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     private const string ReactPort = "ADTHeliosReact";
     private static readonly string[] Letters = { "А", "Б", "В", "Г" };
