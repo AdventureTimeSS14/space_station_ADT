@@ -7,7 +7,7 @@ namespace Content.Server.Speech.EntitySystems;
 
 public sealed class SickTeethAccentSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     public override void Initialize()
     {
@@ -15,7 +15,7 @@ public sealed class SickTeethAccentSystem : EntitySystem
         SubscribeLocalEvent<SickTeethAccentComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, SickTeethAccentComponent component, AccentGetEvent args)
+    private void OnAccent(EntityUid uid, SickTeethAccentComponent component, ref AccentGetEvent args)
     {
         var message = args.Message;
 

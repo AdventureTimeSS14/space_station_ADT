@@ -8,8 +8,8 @@ namespace Content.Client.ADT.LogicCircuit.UI;
 [UsedImplicitly]
 public sealed class ADTLogicCircuitBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
-    [Dependency] private readonly IResourceCache _cache = default!;
+    [Dependency] private IPrototypeManager _prototypes = default!;
+    [Dependency] private IResourceCache _cache = default!;
 
     private LogicCircuitWindow? _window;
 

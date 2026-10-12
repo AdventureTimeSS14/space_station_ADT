@@ -5,7 +5,7 @@ namespace Content.Shared.ADT.Fishing.Systems;
 
 public sealed class ADTFishingRodActionSystem : EntitySystem
 {
-    [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
+    [Dependency] private ActionContainerSystem _actionContainer = default!;
 
     public override void Initialize()
     {

@@ -5,7 +5,7 @@ namespace Content.Server.ADT.EnabledState;
 
 public sealed class EnabledStateSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
+    [Dependency] private SharedAppearanceSystem _appearanceSystem = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<EnabledStateComponent, ActivateInWorldEvent>(OnUseInHand);

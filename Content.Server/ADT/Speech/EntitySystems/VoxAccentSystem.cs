@@ -7,7 +7,7 @@ namespace Content.Server.Speech.EntitySystems;
 
 public sealed class VoxAccentSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!; // Corvax-Localization
+    [Dependency] private IRobustRandom _random = default!; // Corvax-Localization
 
     public override void Initialize()
     {
@@ -15,7 +15,7 @@ public sealed class VoxAccentSystem : EntitySystem
         SubscribeLocalEvent<VoxAccentComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, VoxAccentComponent component, AccentGetEvent args)
+    private void OnAccent(EntityUid uid, VoxAccentComponent component, ref AccentGetEvent args)
     {
         var message = args.Message;
         // ADT-Localization-Start

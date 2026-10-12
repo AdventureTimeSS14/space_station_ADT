@@ -195,12 +195,6 @@
   sizeTag: BigMagnetTargets # ADT-Tweak: MagnetUpdate
 
 - type: salvageMap
-  id: SecurityChunk
-  mapPath: /Maps/Salvage/security-chunk.yml
-  sizeString: salvage-map-wreck-size-large
-  sizeTag: BigMagnetTargets # ADT-Tweak: MagnetUpdate
-
-- type: salvageMap
   id: EngineeringChunk
   mapPath: /Maps/Salvage/engineering-chunk.yml
   sizeString: salvage-map-wreck-size-large

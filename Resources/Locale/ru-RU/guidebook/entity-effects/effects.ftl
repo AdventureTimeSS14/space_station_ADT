@@ -543,3 +543,31 @@ entity-effect-guidebook-plant-seeds-remove =
         [1] Удаляет
         *[other] удаляет
     } семена с растения
+entity-effect-guidebook-satiate =
+    { $chance ->
+        [1] Восполняет
+       *[other] восполняют
+    } { $relative ->
+        [1] показатель «{ $type }» в обычном темпе
+       *[other] показатель «{ $type }» в { NATURALFIXED($relative, 3) }x от обычного темпа
+    }
+entity-effect-guidebook-plant-mutate-exude-gasses =
+    { $chance ->
+        [1] Мутирует
+       *[other] мутируют
+    } растение, заставляя его выделять газы в количестве от { $minValue } до { $maxValue } моль
+entity-effect-guidebook-plant-mutate-consume-gasses =
+    { $chance ->
+        [1] Мутирует
+       *[other] мутируют
+    } растение, заставляя его поглощать газы в количестве от { $minValue } до { $maxValue } моль
+entity-effect-guidebook-plant-mutate-chemicals =
+    { $chance ->
+        [1] Мутирует
+       *[other] мутируют
+    } растение, заставляя его вырабатывать { $name }
+entity-effect-disarm =
+    { $chance ->
+        [1] Обезоруживает
+       *[other] обезоруживают
+    } цель

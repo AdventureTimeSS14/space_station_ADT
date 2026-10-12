@@ -21,9 +21,9 @@ namespace Content.Client.ADT.VendingMachines.UI;
 [GenerateTypedNameReferences]
 public sealed partial class FancyVendingMachineMenu : FancyWindow
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IComponentFactory _componentFactory = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IComponentFactory _componentFactory = default!;
 
     private readonly Dictionary<string, Color?> _paintColors = [];
     private List<FancyVendingMachineData> _cachedItems = [];
@@ -177,7 +177,7 @@ public sealed partial class FancyVendingMachineMenu : FancyWindow
 
         _returnedItems = returnedItems ?? new();
 
-        var comp = _entityManager.GetComponentOrNull<VendingMachineComponent>(entityUid);
+        var comp = _entityManager.GetComponentOrNull<ADTVendingMachineComponent>(entityUid);
         _priceMultiplier = comp == null || comp.AllForFree ? 0 : priceMultiplier;
         _machineCredits = credits;
 
@@ -281,6 +281,11 @@ public sealed partial class FancyVendingMachineMenu : FancyWindow
             labelText = Loc.TryGetString(returnedLabel, out var localized)
                 ? localized
                 : returnedLabel;
+        }
+        else if (proto.TryGetComponent<LabelComponent>(out var protoLabel, _componentFactory)
+                 && protoLabel.LocalizedLabel is { } localizedLabel)
+        {
+            labelText = Loc.GetString(localizedLabel);
         }
         else if (proto.TryGetComponent<LabelComponent>(out var label, _componentFactory)
                  && !string.IsNullOrEmpty(label.CurrentLabel))

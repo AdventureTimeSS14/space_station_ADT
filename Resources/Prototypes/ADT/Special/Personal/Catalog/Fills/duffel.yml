@@ -22,6 +22,9 @@
   description: bag of kringe personal clothes
   suffix: Personal, kringe
   components:
+    - type: Storage
+      grid:
+      - 0,0,8,4
     - type: EntityTableContainerFill
       containers:
         storagebase: !type:AllSelector

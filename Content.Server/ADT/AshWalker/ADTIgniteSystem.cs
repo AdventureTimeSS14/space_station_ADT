@@ -13,10 +13,10 @@ namespace Content.Server.ADT.AshWalker;
 
 public sealed class ADTIgniteSystem : EntitySystem
 {
-    [Dependency] private readonly MatchstickSystem _matchstick = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private MatchstickSystem _matchstick = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     private const SlotFlags MouthSlots = SlotFlags.HEAD | SlotFlags.MASK;
 

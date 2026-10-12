@@ -30,11 +30,9 @@
       species:
       - Vox
       #ADT tweak end
-  weight: 20
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"
   supervisors: job-supervisors-captain
-  canBeAntag: false
   access:
   - Command
   - HeadOfPersonnel

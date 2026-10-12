@@ -4,25 +4,24 @@ using Content.Shared.ADT.Heretic.Systems;
 using Content.Shared.Heretic;
 using Content.Shared.Maps;
 using Content.Shared.Stunnable;
-using Content.Shared.Tag;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Map.Components;
 using Content.Server.ADT.Heretic.EntitySystems.PathSpecific;
+using Content.Shared.Wall;
 
 namespace Content.Server.Magic;
 
 public sealed partial class ImmovableVoidRodSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prot = default!;
-    [Dependency] private readonly IMapManager _map = default!;
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
-    [Dependency] private readonly TileSystem _tile = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly IEntityManager _ent = default!;
-    [Dependency] private readonly VoidCurseSystem _voidcurse = default!;
-    [Dependency] private readonly SharedHereticSystem _heretic = default!;
+    [Dependency] private IPrototypeManager _prot = default!;
+    [Dependency] private SharedMapSystem _mapSystem = default!;
+    [Dependency] private TileSystem _tile = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private IEntityManager _ent = default!;
+    [Dependency] private VoidCurseSystem _voidcurse = default!;
+    [Dependency] private SharedHereticSystem _heretic = default!;
 
     public override void Update(float frameTime)
     {
@@ -69,10 +68,7 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
         _stun.TryUpdateParalyzeDuration(args.OtherEntity, TimeSpan.FromSeconds(power));
         _voidcurse.DoCurse(args.OtherEntity);
 
-        TryComp<TagComponent>(args.OtherEntity, out var tag);
-        var tags = tag?.Tags ?? new();
-
-        if (tags.Contains("Wall") && Prototype(args.OtherEntity) != null && Prototype(args.OtherEntity)!.ID != "WallSnowCobblebrick")
+        if (HasComp<WallComponent>(args.OtherEntity) && Prototype(args.OtherEntity) != null && Prototype(args.OtherEntity)!.ID != "WallSnowCobblebrick")
         {
             Spawn("WallSnowCobblebrick", Transform(args.OtherEntity).Coordinates);
             QueueDel(args.OtherEntity);

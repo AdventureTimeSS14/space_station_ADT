@@ -17,12 +17,12 @@ namespace Content.Server.ADT.Decals;
 /// </summary>
 public sealed class ADTDecalSystem : EntitySystem
 {
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IAdminManager _adminManager = default!;
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly Server.Decals.DecalSystem _decalSystem = default!;
-    [Dependency] private readonly TurfSystem _turf = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IAdminManager _adminManager = default!;
+    [Dependency] private IAdminLogManager _adminLogger = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private Server.Decals.DecalSystem _decalSystem = default!;
+    [Dependency] private TurfSystem _turf = default!;
 
     public override void Initialize()
     {

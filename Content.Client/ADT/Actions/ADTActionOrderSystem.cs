@@ -17,10 +17,10 @@ public sealed class ADTActionOrderSystem : EntitySystem
     private static readonly ResPath SavePath = new("/adt_action_order.yml");
     private static readonly TimeSpan SaveDelay = TimeSpan.FromSeconds(1);
 
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IResourceManager _resources = default!;
-    [Dependency] private readonly ISerializationManager _serialization = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IResourceManager _resources = default!;
+    [Dependency] private ISerializationManager _serialization = default!;
 
     private readonly ADTActionOrder _order = new();
 
