@@ -11,9 +11,9 @@ namespace Content.Server.ADT.Discord;
 
 public sealed class ServerDiscordIdManager : EntitySystem
 {
-    [Dependency] private readonly IServerNetManager _net = default!;
-    [Dependency] private readonly IServerDbManager _db = default!;
-    [Dependency] private readonly IPlayerManager _players = default!;
+    [Dependency] private IServerNetManager _net = default!;
+    [Dependency] private IServerDbManager _db = default!;
+    [Dependency] private IPlayerManager _players = default!;
 
     private readonly Dictionary<NetUserId, string?> _cachedDiscordIds = new();
     private ISawmill _sawmill = default!;

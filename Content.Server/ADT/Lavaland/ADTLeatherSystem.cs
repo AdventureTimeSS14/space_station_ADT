@@ -14,18 +14,23 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Shared.Tools;
+using Content.Shared.Tools.Systems;
 
 namespace Content.Server.ADT.Lavaland;
 
 public sealed class ADTLeatherSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
-    [Dependency] private readonly StackSystem _stack = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedToolSystem _tool = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private StackSystem _stack = default!;
+
+    private static readonly ProtoId<ToolQualityPrototype> SlicingQuality = "Slicing";
 
     public override void Initialize()
     {
@@ -63,7 +68,7 @@ public sealed class ADTLeatherSystem : EntitySystem
 
     private void OnDehairInteract(Entity<ADTDehairableComponent> ent, ref InteractUsingEvent args)
     {
-        if (args.Handled || !HasComp<SharpComponent>(args.Used))
+        if (args.Handled || !_tool.HasQuality(args.Used, SlicingQuality))
             return;
 
         var doAfter = new DoAfterArgs(EntityManager, args.User, ent.Comp.Delay, new ADTDehairDoAfterEvent(), ent.Owner, ent.Owner, args.Used)
@@ -159,7 +164,7 @@ public sealed class ADTLeatherSystem : EntitySystem
             return true;
 
         return TryComp<TemperatureComponent>(ent, out var temperature) &&
-               temperature.CurrentTemperature >= ent.Comp.HeatedDryingTemperature;
+               temperature.Temperature >= ent.Comp.HeatedDryingTemperature;
     }
 
     private void OnRackMapInit(Entity<ADTDryingRackComponent> ent, ref MapInitEvent args)

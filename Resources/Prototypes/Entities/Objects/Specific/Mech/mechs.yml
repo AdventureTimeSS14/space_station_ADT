@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: BaseMech
   save: false
   abstract: true
@@ -6,6 +6,12 @@
   - type: MobMover
   - type: Mech
   - type: MechAir
+  - type: Vehicle
+    canAttack: true
+    transferDamage: false # ADT-Tweak
+  - type: ContainerVehicle
+    containerId: "mech-pilot-slot"
+  - type: ContainerVehicleEntry
 # ADT-Tweak-start
   - type: Prying
     pryPowered: false
@@ -165,10 +171,21 @@
     baseState: ripley
     openState: ripley-open
     brokenState: ripley-broken
-    mechToPilotDamageMultiplier: 0.5 # ADT tweak 0.75 to 0.5
-    pilotWhitelist:
+    mechToPilotDamageMultiplier: 0.5 # ADT-Tweak
+  - type: Vehicle
+    transferDamageModifier:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.75
+        Cold: 0.75
+        Heat: 0.75
+        Shock: 0.75
+    operatorWhitelist:
       components:
         - HumanoidProfile
+  - type: VehicleHandBlocker
+    blockedHands: 2
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -227,15 +244,28 @@
     baseState: honker
     openState: honker-open
     brokenState: honker-broken
-    mechToPilotDamageMultiplier: 0.5 # ADT tweak 0.75 to 0.5
-    pilotWhitelist:
-      components:
-      - HumanoidProfile
+    mechToPilotDamageMultiplier: 0.5 # ADT-Tweak
     # ADT Start
     equipmentWhitelist:
       tags:
       - ADTMechEquipmentGeneral
       - ADTMechEquipmentClown
+    # ADT End
+  - type: Vehicle
+    transferDamageModifier:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Cold: 0.5
+        Heat: 0.5
+        Shock: 0.5
+    operatorWhitelist:
+      components:
+      - HumanoidProfile
+  - type: VehicleHandBlocker
+    blockedHands: 2
+    # ADT Start
   - type: MovementSpeedModifier
     baseWalkSpeed: 1.875
     baseSprintSpeed: 3.375
@@ -282,13 +312,23 @@
     baseState: hamtr
     openState: hamtr-open
     brokenState: hamtr-broken
-    mechToPilotDamageMultiplier: 0.2
     maxEquipmentAmount: 2
+    mechToPilotDamageMultiplier: 0.2 # ADT-Tweak
     airtight: true
     equipmentWhitelist:
       tags:
       - SmallMech
-    pilotWhitelist:
+  - type: Vehicle
+    requiresHands: false
+    transferDamageModifier:
+      coefficients:
+        Blunt: 0.2
+        Slash: 0.2
+        Piercing: 0.2
+        Cold: 0.2
+        Heat: 0.2
+        Shock: 0.2
+    operatorWhitelist:
       tags:
       - Hamster
   - type: MeleeWeapon
@@ -358,10 +398,19 @@
     openState: vim-open
     brokenState: vim-broken
     maxEquipmentAmount: 0
-    # keep mouse safe
-    mechToPilotDamageMultiplier: 0.1
+    mechToPilotDamageMultiplier: 0.1 # ADT-Tweak
     airtight: true
-    pilotWhitelist:
+  - type: Vehicle
+    requiresHands: false
+    transferDamageModifier:
+      coefficients:
+        Blunt: 0.1
+        Slash: 0.1
+        Piercing: 0.1
+        Cold: 0.1
+        Heat: 0.1
+        Shock: 0.1
+    operatorWhitelist:
       tags:
       - VimPilot
   - type: MeleeWeapon

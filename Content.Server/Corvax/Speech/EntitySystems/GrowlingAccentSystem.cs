@@ -15,7 +15,7 @@ public sealed class GrowlingAccentSystem : EntitySystem
         SubscribeLocalEvent<GrowlingAccentComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, GrowlingAccentComponent component, AccentGetEvent args)
+    private void OnAccent(EntityUid uid, GrowlingAccentComponent component, ref AccentGetEvent args)
     {
         var message = args.Message;
 

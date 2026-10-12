@@ -1,0 +1,23 @@
+- type: entity
+  parent: ADTSponsorClothingNeckBase
+  id: ADTClothingOuterJacketCoatIllumy
+  name: jacket‑cloak “Valiant Flame”
+  description: A crimson jacket‑cloak whose patterns resemble long ivy stems. They say it is worn by those whose valor does not fade even in the face of inevitable death.
+  suffix: Personal, Unlumination
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/Illumy/jacket_cloak.rsi
+  - type: Clothing
+    sprite: ADT/Special/Personal/Illumy/jacket_cloak.rsi
+  - type: Storage
+    grid:
+    - 0,0,3,1
+    maxItemSize: Small
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface

@@ -25,7 +25,6 @@
         Slash: 10
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
-  - type: Sharp
   - type: EmbeddableProjectile
     sound: /Audio/Weapons/star_hit.ogg
   - type: ThrowingAngle

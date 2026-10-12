@@ -7,7 +7,7 @@ namespace Content.Server.ADT.Construction.Systems;
 
 public sealed class MachineBatterySyncSystem : EntitySystem
 {
-    [Dependency] private readonly BatterySystem _battery = default!;
+    [Dependency] private BatterySystem _battery = default!;
 
     public override void Initialize()
     {

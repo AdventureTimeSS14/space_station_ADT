@@ -1,9 +1,9 @@
 using System.Numerics;
+using Content.Shared.Vehicle.Components; // ADT-Tweak
 using Content.Server.Cargo.Systems;
 using Content.Server.Weapons.Ranged.Components;
 using Content.Shared.Cargo;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Systems;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Ranged;
@@ -27,11 +27,9 @@ namespace Content.Server.Weapons.Ranged.Systems;
 
 public sealed partial class GunSystem : SharedGunSystem
 {
-    [Dependency] private readonly PricingSystem _pricing = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedRMCFlamerSystem _rmcFlamer = default!; // ADT-Tweak
+    [Dependency] private PricingSystem _pricing = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private SharedRMCFlamerSystem _rmcFlamer = default!; // ADT-Tweak
 
     private const float DamagePitchVariation = 0.05f;
 
@@ -46,7 +44,7 @@ public sealed partial class GunSystem : SharedGunSystem
         if (string.IsNullOrEmpty(ent.Comp.Proto) || ent.Comp.UnspawnedCount == 0)
             return;
 
-        if (!ProtoManager.TryIndex<EntityPrototype>(ent.Comp.Proto, out var proto))
+        if (!ProtoMan.TryIndex<EntityPrototype>(ent.Comp.Proto, out var proto))
         {
             Log.Error($"Unable to find fill prototype for price on {ent.Comp.Proto} on {ToPrettyString(ent)}");
             return;
@@ -80,7 +78,7 @@ public sealed partial class GunSystem : SharedGunSystem
         var angle = GetRecoilAngle(Timing.CurTime, gun, mapDirection.ToAngle());
 
         // If applicable, this ensures the projectile is parented to grid on spawn, instead of the map.
-        var fromEnt = MapManager.TryFindGridAt(fromMap, out var gridUid, out _)
+        var fromEnt = Maps.TryFindGridAt(fromMap, out var gridUid, out _)
             ? TransformSystem.WithEntityId(fromCoordinates, gridUid)
             : new EntityCoordinates(_map.GetMapOrInvalid(fromMap.MapId), fromMap.Position);
 
@@ -128,7 +126,7 @@ public sealed partial class GunSystem : SharedGunSystem
                         // ADT Mech start
                         if (TryComp<MechComponent>(user, out var cmech))
                         {
-                            Audio.PlayPredicted(gun.Comp.SoundEmpty, gun.Owner, cmech.PilotSlot.ContainedEntity);
+                            Audio.PlayPredicted(gun.Comp.SoundEmpty, gun.Owner, CompOrNull<VehicleComponent>(user)?.Operator);
                         }
                         else
                             Audio.PlayPredicted(gun.Comp.SoundEmpty, gun.Owner, user);
@@ -212,7 +210,7 @@ public sealed partial class GunSystem : SharedGunSystem
 
             MuzzleFlash(gun.Owner, ammoComp, mapDirection.ToAngle(), user);
             if (TryComp<MechComponent>(user, out var mech)) // ADT Mech gun fix
-                Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun.Owner, mech.PilotSlot.ContainedEntity);
+                Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun.Owner, CompOrNull<VehicleComponent>(user)?.Operator);
             else
                 Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun.Owner, user);
         }
@@ -286,8 +284,6 @@ public sealed partial class GunSystem : SharedGunSystem
         return angle;
     }
 
-    protected override void Popup(string message, EntityUid? uid, EntityUid? user) { }
-
     protected override void CreateEffect(EntityUid gunUid, MuzzleFlashEvent message, EntityUid? user = null)
     {
         var filter = Filter.Pvs(gunUid, entityManager: EntityManager);
@@ -310,16 +306,20 @@ public sealed partial class GunSystem : SharedGunSystem
 
         if (!forceWeaponSound && modifiedDamage != null && modifiedDamage.GetTotal() > 0 && TryComp<RangedDamageSoundComponent>(otherEntity, out var rangedSound))
         {
-            var type = SharedMeleeWeaponSystem.GetHighestDamageSound(modifiedDamage, ProtoManager);
+            var type = SharedMeleeWeaponSystem.GetHighestDamageSound(modifiedDamage, ProtoMan);
 
             if (type != null && rangedSound.SoundTypes?.TryGetValue(type, out var damageSoundType) == true)
             {
-                Audio.PlayPvs(damageSoundType, otherEntity, AudioParams.Default.WithVariation(DamagePitchVariation));
+                var damageSoundTypeParams = damageSoundType?.Params ?? AudioParams.Default;
+                damageSoundTypeParams = damageSoundTypeParams.WithVariation(DamagePitchVariation);
+                Audio.PlayPvs(damageSoundType, otherEntity, damageSoundTypeParams);
                 playedSound = true;
             }
             else if (type != null && rangedSound.SoundGroups?.TryGetValue(type, out var damageSoundGroup) == true)
             {
-                Audio.PlayPvs(damageSoundGroup, otherEntity, AudioParams.Default.WithVariation(DamagePitchVariation));
+                var damageSoundGroupParams = damageSoundGroup?.Params ?? AudioParams.Default;
+                damageSoundGroupParams = damageSoundGroupParams.WithVariation(DamagePitchVariation);
+                Audio.PlayPvs(damageSoundGroup, otherEntity, damageSoundGroupParams);
                 playedSound = true;
             }
         }

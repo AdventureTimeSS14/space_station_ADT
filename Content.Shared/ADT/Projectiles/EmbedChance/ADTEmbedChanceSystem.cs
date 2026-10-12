@@ -8,8 +8,8 @@ namespace Content.Shared.ADT.Projectiles.EmbedChance;
 
 public sealed class ADTEmbedChanceSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
 
     public override void Initialize()
     {

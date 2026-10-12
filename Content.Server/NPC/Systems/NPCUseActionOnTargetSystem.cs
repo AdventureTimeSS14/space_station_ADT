@@ -13,7 +13,7 @@ namespace Content.Server.NPC.Systems;
 
 // ADT: Система была полностью переписан, заменяйте при апстриме на нашу версию.
 
-public sealed class NPCUseActionOnTargetSystem : EntitySystem
+public sealed partial class NPCUseActionOnTargetSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
@@ -49,7 +49,7 @@ public sealed class NPCUseActionOnTargetSystem : EntitySystem
 
         var weights = _proto.Index(user.Comp.Actions);
         var act = weights.Pick();
-        var actionEntity = user.Comp.ActionEntities.Keys.Where(x => Prototype(x)?.ID == act).First();
+        var actionEntity = user.Comp.ActionEntities.Keys.Where(x => Prototype(x) is { } proto && proto.ID == act).First();
 
         if (_actions.GetAction(actionEntity) is not { } action)
             return false;

@@ -9,9 +9,9 @@ namespace Content.Shared.ADT.Areas;
 
 public sealed class AreaSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     private EntityQuery<MapGridComponent> _mapGridQuery;
     private EntityQuery<AreaGridComponent> _areaGridQuery;

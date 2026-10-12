@@ -9,7 +9,7 @@ namespace Content.Server.ADT.Sponsors;
 
 public sealed partial class SponsorManager
 {
-    [Dependency] private readonly PlayerRateLimitManager _rateLimit = default!;
+    [Dependency] private PlayerRateLimitManager _rateLimit = default!;
 
     private const string ColorsRateLimitKey = "AdtSponsorColors";
 

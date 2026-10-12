@@ -13,11 +13,11 @@ namespace Content.Server.ADT.NPC;
 
 public sealed class ADTBiomeNPCSleepSystem : EntitySystem
 {
-    [Dependency] private readonly BiomeSystem _biome = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly NPCSystem _npc = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private BiomeSystem _biome = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private NPCSystem _npc = default!;
+    [Dependency] private SharedMapSystem _map = default!;
 
     private readonly HashSet<Entity<ActiveNPCComponent>> _active = new();
     private readonly HashSet<Entity<ADTChunkSleepingNPCComponent>> _sleeping = new();

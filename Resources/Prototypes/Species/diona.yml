@@ -40,3 +40,9 @@
   oldAge: 91
   youngAge: 26
   # ADT end
+  defaultSoundsBySex:
+  - UnisexDiona
+  - UnisexDiona
+  - UnisexDiona
+  voices:
+  - UnisexDiona
