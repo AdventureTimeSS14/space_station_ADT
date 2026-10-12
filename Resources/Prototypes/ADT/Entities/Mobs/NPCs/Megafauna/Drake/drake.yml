@@ -2,7 +2,7 @@
   id: ADTMegaFaunaDrake
   name: ash drake
   description: Guardians of the Necropolis.
-  parent: ADTBaseMobMegafauna
+  parent: [ ADTBaseMobMegafauna, BaseSlicingRefinable ]
   components:
   - type: Sprite
     sprite: ADT/Mobs/Aliens/Lavaland/drake.rsi
@@ -102,9 +102,8 @@
     - [ ADTSpellbookSacredFlame, WeaponWandFireball ]
     - [ ADTDragonsBlood ]
     - [ ADTDragonsBloodRefined ]
-  - type: Butcherable
-    butcheringType: Knife
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: DiamondOre1
       amount: 5
     - id: ADTMaterialSinew1

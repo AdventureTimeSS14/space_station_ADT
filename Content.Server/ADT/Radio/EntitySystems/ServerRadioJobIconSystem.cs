@@ -12,7 +12,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Server.ADT.Radio.EntitySystems;
 public sealed class ServerRadioJobIconSystem : SharedRadioJobIconSystem
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
 
     public override void Initialize()
     {

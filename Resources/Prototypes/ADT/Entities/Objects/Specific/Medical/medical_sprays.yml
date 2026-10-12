@@ -15,10 +15,11 @@
     allowedModes:
     - ADTMedicalSprayMode
     solutionName: spray
-  - type: SolutionContainerManager
-    solutions:
-      spray:
-        maxVol: 30
+  - type: Solution
+    id: spray
+    solution:
+      maxVol: 30
+      reagents: []
   - type: RefillableSolution
     solution: spray
   - type: StaticPrice
@@ -34,13 +35,12 @@
   - type: Sprite
     sprite: ADT/Objects/Medical/spray.rsi
     state: brutespray
-  - type: SolutionContainerManager
-    solutions:
-      spray:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTStypticPowder
-          Quantity: 30
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: ADTStypticPowder
+        Quantity: 30
 
 - type: entity
   name: medical spray
@@ -52,10 +52,9 @@
   - type: Sprite
     sprite: ADT/Objects/Medical/spray.rsi
     state: burnspray
-  - type: SolutionContainerManager
-    solutions:
-      spray:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTSilverSulfadiazine
-          Quantity: 30
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: ADTSilverSulfadiazine
+        Quantity: 30

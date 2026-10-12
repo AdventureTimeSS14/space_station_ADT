@@ -11,7 +11,7 @@ namespace Content.Server.ADT.Administration.Commands;
 [AdminCommand(AdminFlags.Admin)]
 public sealed class ListLanguagesCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
 
     public override string Command => "languageslist";
 

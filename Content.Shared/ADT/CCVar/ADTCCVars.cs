@@ -59,6 +59,12 @@ public sealed class ADTCCVars
         CVarDef.Create("radialmenu.center", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /*
+    * Text outline
+    */
+    public static readonly CVarDef<bool> EnableTextOutline =
+        CVarDef.Create("accessibility.text_outline", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /*
     * Discord
     */
 
@@ -274,6 +280,12 @@ public sealed class ADTCCVars
     public static readonly CVarDef<int> MapVoteRecentBanDepth =
         CVarDef.Create("game.map_vote_recent_ban_depth", 3, CVar.SERVER | CVar.ARCHIVE);
 
+    /// <summary>
+    /// Запускать ли голосования за карту и режим при входе в лобби.
+    /// </summary>
+    public static readonly CVarDef<bool> LobbyAutoVote =
+        CVarDef.Create("game.lobby_auto_vote", true, CVar.SERVERONLY | CVar.ARCHIVE);
+
 
     public static readonly CVarDef<float> BookPrinterUploadCooldown =
         CVarDef.Create("bookprinter.upload_cooldown", 3600.0f, CVar.SERVERONLY | CVar.ARCHIVE);
@@ -444,6 +456,7 @@ public sealed class ADTCCVars
 
     public static readonly CVarDef<float> ChatHighlightSoundVolume =
         CVarDef.Create("adt.chat_highlight_sound_volume", 1f, CVar.ARCHIVE | CVar.CLIENTONLY);
+
     /*
     * Logic Circuit
     */
@@ -513,4 +526,23 @@ public sealed class ADTCCVars
 
     public static readonly CVarDef<int> HostReservedSlots =
         CVarDef.Create("queue.host_reserved_slots", 5, CVar.SERVERONLY);
+
+    /*
+     * State diagnostics
+     */
+
+    public static readonly CVarDef<bool> StateDiagnosticsEnabled =
+        CVarDef.Create("adt.state_diag_enabled", true, CVar.SERVERONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<int> StateDiagnosticsRequestThreshold =
+        CVarDef.Create("adt.state_diag_request_threshold", 2, CVar.SERVERONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<float> StateDiagnosticsWindow =
+        CVarDef.Create("adt.state_diag_window", 60f, CVar.SERVERONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<float> StateDiagnosticsCooldown =
+        CVarDef.Create("adt.state_diag_cooldown", 300f, CVar.SERVERONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<float> StateDiagnosticsRadius =
+        CVarDef.Create("adt.state_diag_radius", 20f, CVar.SERVERONLY | CVar.ARCHIVE);
 }

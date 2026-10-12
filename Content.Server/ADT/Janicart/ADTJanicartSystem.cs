@@ -31,21 +31,21 @@ namespace Content.Server.ADT.Janicart;
 
 public sealed class ADTJanicartSystem : SharedADTJanicartSystem
 {
-    [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly ItemSlotsSystem _slots = default!;
-    [Dependency] private readonly SharedStorageSystem _storage = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedToolSystem _tool = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private ISharedAdminLogManager _adminLog = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private MovementSpeedModifierSystem _movement = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private ItemSlotsSystem _slots = default!;
+    [Dependency] private SharedStorageSystem _storage = default!;
+    [Dependency] private TagSystem _tag = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedToolSystem _tool = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
 
     private readonly HashSet<Entity<PuddleComponent>> _puddles = [];
     private readonly HashSet<Entity<ItemComponent>> _items = [];
@@ -140,7 +140,7 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
             args.User,
             ent,
             ent.Comp.RemoveDelay,
-            new[] { ent.Comp.RemoveTool.Id },
+            new[] { ent.Comp.RemoveTool },
             new ADTJanicartUpgradeRemoveDoAfterEvent());
     }
 
@@ -186,7 +186,7 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
         }
 
         _appearance.SetData(ent, ADTJanicartUpgradeVisuals.Buffer, buffer);
-        _movement.RefreshMovementSpeedModifiers(ent);
+        _movement.RefreshMovementSpeedModifiers(ent.Owner);
     }
 
     private void OnRefreshSpeed(Entity<ADTJanicartUpgradeableComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
@@ -282,7 +282,7 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
             return false;
 
         if (TryComp<VehicleComponent>(host, out var vehicle))
-            return vehicle.Rider != null;
+            return vehicle.Operator != null;
 
         if (HasComp<BorgChassisComponent>(host))
             return _mind.TryGetMind(host, out _, out _);

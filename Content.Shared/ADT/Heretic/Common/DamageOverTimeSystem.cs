@@ -8,8 +8,8 @@ namespace Content.Shared.ADT.Heretic.Common;
 
 public sealed class DamageOverTimeSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly DamageableSystem _damageSys = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private DamageableSystem _damageSys = default!;
 
     public override void Update(float frameTime)
     {

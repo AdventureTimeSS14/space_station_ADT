@@ -26,23 +26,23 @@ namespace Content.Server.Heretic.EntitySystems;
 
 public sealed class HereticCombatMarkSystem : SharedHereticCombatMarkSystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedDoorSystem _door = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly BloodstreamSystem _blood = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
-    [Dependency] private readonly ProtectiveBladeSystem _pbs = default!;
-    [Dependency] private readonly VoidCurseSystem _voidcurse = default!;
-    [Dependency] private readonly VomitSystem _vomit = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly PullingSystem _pulling = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly StarMarkSystem _starMark = default!;
-    [Dependency] private readonly HereticAbilitySystem _ability = default!;
-    [Dependency] private readonly HereticSystem _heretic = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedDoorSystem _door = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private BloodstreamSystem _blood = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedStaminaSystem _stamina = default!;
+    [Dependency] private ProtectiveBladeSystem _pbs = default!;
+    [Dependency] private VoidCurseSystem _voidcurse = default!;
+    [Dependency] private VomitSystem _vomit = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private PullingSystem _pulling = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private StarMarkSystem _starMark = default!;
+    [Dependency] private HereticAbilitySystem _ability = default!;
+    [Dependency] private HereticSystem _heretic = default!;
 
     public override void Initialize()
     {

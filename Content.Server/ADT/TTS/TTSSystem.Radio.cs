@@ -1,6 +1,7 @@
 using Content.Server.ADT.Language;
 using Content.Shared.ADT.CCVar;
 using Content.Shared.ADT.TTS;
+using Content.Shared.Ghost.Components;
 using Content.Shared.Radio.Components;
 using Robust.Shared.Player;
 
@@ -95,7 +96,7 @@ public sealed partial class TTSSystem
         else
             return false;
 
-        if (!listener.IsValid() || !TryComp<ActorComponent>(listener, out var actor))
+        if (!listener.IsValid() || HasComp<GhostComponent>(listener) || !TryComp<ActorComponent>(listener, out var actor))
             return false;
 
         session = actor.PlayerSession;
