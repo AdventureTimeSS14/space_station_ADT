@@ -6,7 +6,7 @@
   components:
   - type: Objective
     difficulty: 3
-    issuer: objective-issuer-adt-shadowling
+    issuer: ADTShadowling
     icon:
       sprite: ADT/Interface/Actions/shadowling.rsi
       state: ascend

@@ -22,13 +22,13 @@ public sealed class AntagDelayedObjectivesSystem : EntitySystem
 
     private static readonly Color NotificationColor = Color.Red;
 
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly IChatManager _chat = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly ObjectivesSystem _objectives = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private IChatManager _chat = default!;
+    [Dependency] private GameTicker _gameTicker = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private ObjectivesSystem _objectives = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     public override void Initialize()
     {

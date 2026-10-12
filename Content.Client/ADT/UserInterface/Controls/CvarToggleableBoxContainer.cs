@@ -5,7 +5,7 @@ namespace Content.Client.ADT.UserInterface.Controls;
 
 public sealed class CvarToggleableBoxContainer : BoxContainer
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
 
     private string? _cvar;
     [ViewVariables]

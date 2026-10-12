@@ -33,3 +33,7 @@ ent-SyndicateSponge = { ent-MonkeyCube }
     .suffix = Синдикат
 ent-ADTCubeGondola = гондолий кубик
     .desc = { ent-MonkeyCube.desc }
+ent-MopBucketCube = кубик ведра со шваброй
+    .desc = Просто добавь воды! А потом ещё воды!
+ent-SolutionCube = кубик
+    .desc = Если вы это читаете - так не должно быть! Отправьте баг-репорт.

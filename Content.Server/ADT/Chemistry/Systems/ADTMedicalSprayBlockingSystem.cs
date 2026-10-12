@@ -6,7 +6,7 @@ namespace Content.Server.ADT.Chemistry.Systems;
 
 public sealed class ADTMedicalSprayBlockingSystem : EntitySystem
 {
-    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private InventorySystem _inventory = default!;
 
     public override void Initialize()
     {

@@ -8,7 +8,7 @@ namespace Content.Client.ADT.InconnuOS.UI;
 
 public sealed class OsWindowLayer : Control
 {
-    [Dependency] private readonly IClyde _clyde = default!;
+    [Dependency] private IClyde _clyde = default!;
 
     public event Action<OsWindow>? OnWindowRemoved;
 

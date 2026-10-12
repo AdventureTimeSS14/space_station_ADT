@@ -4,8 +4,14 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Action
-      icon: { sprite: ADT/Interface/Actions/friendly_fire.rsi, state: "on" }
-      iconOn: { sprite: ADT/Interface/Actions/friendly_fire.rsi, state: "off" }
       useDelay: 1
+    - type: Sprite
+      sprite: ADT/Interface/Actions/friendly_fire.rsi
+      layers:
+      - state: on
+        map: ["enum.ActionVisuals.Icon"]
+      - state: off
+        map: ["enum.ActionVisuals.IconToggled"]
+        visible: false
     - type: InstantAction
       event: !type:ToggleActionEvent

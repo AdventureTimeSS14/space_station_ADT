@@ -7,7 +7,7 @@ namespace Content.Client.ADT.Export
 {
     public sealed class ExportManager : SharedExportManager
     {
-        [Dependency] private readonly IFileDialogManager _dialogManager = default!;
+        [Dependency] private IFileDialogManager _dialogManager = default!;
 
         public override async void Load(ExportYmlMessage msg)
         {

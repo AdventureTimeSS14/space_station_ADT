@@ -12,10 +12,10 @@ namespace Content.Shared.ADT.AshWalker.Systems;
 
 public sealed class ADTAshWalkerSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private TagSystem _tag = default!;
 
     private static readonly ProtoId<TagPrototype> HardsuitTag = "Hardsuit";
 

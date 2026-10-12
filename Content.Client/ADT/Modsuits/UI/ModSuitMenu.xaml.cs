@@ -19,7 +19,7 @@ namespace Content.Client.ADT.Modsuits.UI;
 public sealed partial class ModSuitMenu : FancyWindow
 {
 
-    [Dependency] private readonly IEntityManager _ent = default!;
+    [Dependency] private IEntityManager _ent = default!;
     private readonly ModSuitSystem _modsuit = default!;
     private readonly SpriteSystem spriteSystem = default!;
     private readonly PowerCellSystem _powerCell = default!;

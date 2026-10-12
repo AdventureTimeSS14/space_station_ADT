@@ -19,15 +19,15 @@ namespace Content.Server.ADT.Drake;
 
 public sealed class ADTDrakeArenaSystem : EntitySystem
 {
-    [Dependency] private readonly ADTDrakeEffectsSystem _effects = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDefinitions = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private ADTDrakeEffectsSystem _effects = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ITileDefinitionManager _tileDefinitions = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     private static readonly Direction[] Cardinals =
     {
