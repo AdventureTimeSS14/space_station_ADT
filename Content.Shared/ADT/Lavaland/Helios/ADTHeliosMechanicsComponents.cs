@@ -122,7 +122,7 @@ public sealed partial class ADTHeliosReactionComponent : Component
     public bool Fired;
 }
 
-[RegisterComponent]
+[RegisterComponent, EntityCategory("Spawner")]
 public sealed partial class ADTHeliosRandomSpotComponent : Component
 {
     [DataField(required: true)]

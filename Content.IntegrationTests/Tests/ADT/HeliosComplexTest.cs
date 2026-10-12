@@ -342,7 +342,7 @@ public sealed class HeliosComplexTest : GameTest
             var q = _entities.EntityQueryEnumerator<PoweredLightComponent, ApcPowerReceiverComponent, TransformComponent>();
             while (q.MoveNext(out _, out _, out var receiver, out var xform))
             {
-                if (xform.MapUid != complexMap)
+                if (xform.MapUid != complexMap || receiver.Load <= 0)
                     continue;
 
                 lights++;
