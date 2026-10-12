@@ -13,8 +13,8 @@ public sealed partial class QueueBoostyWindow : FancyWindow
 {
     public static readonly Color BoostyColor = Color.FromHex("#e0761b");
 
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IUriOpener _uri = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IUriOpener _uri = default!;
 
     public QueueBoostyWindow()
     {

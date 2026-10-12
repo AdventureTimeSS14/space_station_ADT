@@ -12,8 +12,8 @@ namespace Content.Shared.ADT.Crushers.Systems;
 
 public sealed class TrophySystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly TrophyHolderSystem _trophyHolder = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private TrophyHolderSystem _trophyHolder = default!;
 
     public override void Initialize()
     {

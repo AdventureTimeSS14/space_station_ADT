@@ -10,7 +10,7 @@ namespace Content.Server.ADT.Mobs;
 
 public sealed class SoftCritSystem : SharedSoftCritSystem
 {
-    [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private AudioSystem _audio = default!;
 
     public override void Initialize()
     {

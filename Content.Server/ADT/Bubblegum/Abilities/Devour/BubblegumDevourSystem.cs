@@ -13,13 +13,13 @@ namespace Content.Server.ADT.Bubblegum;
 
 public sealed class BubblegumDevourSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly MobThresholdSystem _thresholds = default!;
-    [Dependency] private readonly GibbingSystem _gibbing = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly HTNSystem _htn = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private MobThresholdSystem _thresholds = default!;
+    [Dependency] private GibbingSystem _gibbing = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private HTNSystem _htn = default!;
 
     private static readonly TimeSpan PostHitDevourDelay = TimeSpan.FromSeconds(0.5);
 

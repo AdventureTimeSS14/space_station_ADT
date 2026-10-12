@@ -21,7 +21,6 @@
     - HereticSacrificeObjective
     - HereticSacrificeHeadObjective
   - type: AntagSelection
-    selectionTime: IntraPlayerSpawn
     agentName: heretic-roundend-name
 
 - type: entity
@@ -31,18 +30,15 @@
   - type: GameRule
     minPlayers: 15
   - type: AntagSelection
-    selectionTime: IntraPlayerSpawn
     agentName: heretic-roundend-name
-    definitions:
-    - prefRoles: [ Heretic ]
-      max: 3
+    lateJoinAdditional: true
+    antags:
+    - !type:LinearAntagCount
+      proto: Heretic
       playerRatio: 15
-      lateJoinAdditional: true
-      blacklist:
-        components:
-        - CommandStaff
-      mindRoles:
-      - MindRoleHeretic
+      range:
+        min: 1
+        max: 3
   - type: Tag
     tags:
       - RoundstartAntag
@@ -54,18 +50,15 @@
   - type: GameRule
     minPlayers: 15
   - type: AntagSelection
-    selectionTime: IntraPlayerSpawn
     agentName: heretic-roundend-name
-    definitions:
-    - prefRoles: [ Heretic ]
-      max: 2
+    lateJoinAdditional: true
+    antags:
+    - !type:LinearAntagCount
+      proto: Heretic
       playerRatio: 20
-      lateJoinAdditional: true
-      blacklist:
-        components:
-        - CommandStaff
-      mindRoles:
-      - MindRoleHeretic
+      range:
+        min: 1
+        max: 2
   - type: Tag
     tags:
       - CalmAntag
@@ -77,18 +70,11 @@
   - type: GameRule
     minPlayers: 25
   - type: AntagSelection
-    selectionTime: IntraPlayerSpawn
     agentName: heretic-roundend-name
-    definitions:
-    - prefRoles: [ Heretic ]
-      max: 1
-      playerRatio: 15
-      lateJoinAdditional: true
-      blacklist:
-        components:
-        - CommandStaff
-      mindRoles:
-      - MindRoleHeretic
+    lateJoinAdditional: true
+    antags:
+    - !type:FixedAntagCount
+      proto: Heretic
 
 - type: entityTable
   id: ExtendedGameRulesTable
@@ -113,7 +99,7 @@
 
 #Облегченное число агентов
 - type: entity
-  parent: BaseTraitorRule
+  parent: [ BaseTraitorRule, BaseRoundstartAntagRule ]
   id: TraitorLightGameRule
   components:
   - type: GameRule
@@ -122,17 +108,14 @@
       min: 240
       max: 420
   - type: AntagSelection
-    selectionTime: IntraPlayerSpawn
-    definitions:
-    - prefRoles: [ Traitor ]
-      max: 4
+    lateJoinAdditional: true
+    antags:
+    - !type:LinearAntagCount
+      proto: Traitor
       playerRatio: 15
-      blacklist:
-        components:
-        - AntagImmune
-      lateJoinAdditional: true
-      mindRoles:
-      - MindRoleTraitor
+      range:
+        min: 1
+        max: 4
   - type: AntagRandomObjectives
     sets:
     - groups: TraitorLightObjectiveGroups
@@ -173,7 +156,7 @@
 
 #Пары из антагов
 - type: entity
-  parent: BaseTraitorRule
+  parent: [ BaseTraitorRule, BaseRoundstartAntagRule ]
   id: TraitorDuoGameRule
   components:
   - type: GameRule
@@ -182,20 +165,16 @@
       min: 240
       max: 420
   - type: AntagSelection
-    selectionTime: IntraPlayerSpawn
-    definitions:
-    - prefRoles: [ Traitor ]
-      max: 2
-      playerRatio: 10
-      blacklist:
-        components:
-        - AntagImmune
-      lateJoinAdditional: true
-      mindRoles:
-      - MindRoleTraitor
+    lateJoinAdditional: true
+    antags:
+    - !type:LinearAntagCount
+      proto: Traitor
+      range:
+        min: 1
+        max: 2
 
 - type: entity
-  parent: BaseTraitorRule
+  parent: [ BaseTraitorRule, BaseRoundstartAntagRule ]
   id: TraitorTripleGameRule
   components:
   - type: GameRule
@@ -204,17 +183,13 @@
       min: 240
       max: 420
   - type: AntagSelection
-    selectionTime: IntraPlayerSpawn
-    definitions:
-    - prefRoles: [ Traitor ]
-      max: 3
-      playerRatio: 10
-      blacklist:
-        components:
-        - AntagImmune
-      lateJoinAdditional: true
-      mindRoles:
-      - MindRoleTraitor
+    lateJoinAdditional: true
+    antags:
+    - !type:LinearAntagCount
+      proto: Traitor
+      range:
+        min: 1
+        max: 3
 
 - type: entity
   parent: BaseHereticRule
@@ -223,18 +198,15 @@
   - type: GameRule
     minPlayers: 20
   - type: AntagSelection
-    selectionTime: IntraPlayerSpawn
     agentName: heretic-roundend-name
-    definitions:
-    - prefRoles: [ Heretic ]
-      max: 2
+    lateJoinAdditional: true
+    antags:
+    - !type:LinearAntagCount
+      proto: Heretic
       playerRatio: 15
-      lateJoinAdditional: true
-      blacklist:
-        components:
-        - CommandStaff
-      mindRoles:
-      - MindRoleHeretic
+      range:
+        min: 1
+        max: 2
 
 - type: entity
   parent: BaseHereticRule
@@ -243,18 +215,15 @@
   - type: GameRule
     minPlayers: 25
   - type: AntagSelection
-    selectionTime: IntraPlayerSpawn
     agentName: heretic-roundend-name
-    definitions:
-    - prefRoles: [ Heretic ]
-      max: 3
+    lateJoinAdditional: true
+    antags:
+    - !type:LinearAntagCount
+      proto: Heretic
       playerRatio: 15
-      lateJoinAdditional: true
-      blacklist:
-        components:
-        - CommandStaff
-      mindRoles:
-      - MindRoleHeretic
+      range:
+        min: 1
+        max: 3
 
 - type: entity
   parent: BaseGameRule
@@ -276,23 +245,14 @@
     minPlayers: 25
   - type: AntagSelection
     agentName: thief-round-end-agent-name
-    selectionTime: IntraPlayerSpawn
-    definitions:
-    - prefRoles: [ Thief ]
-      max: 2
+    lateJoinAdditional: true
+    antags:
+    - !type:LinearAntagCount
+      proto: Thief
       playerRatio: 20
-      lateJoinAdditional: true
-      allowNonHumans: true
-      multiAntagSetting: NotExclusive
-      startingGear: ThiefGear
-      components:
-      - type: Thieving
-        stripTimeReduction: 2
-        stealthy: true
-      mindRoles:
-      - MindRoleThief
-      briefing:
-        sound: "/Audio/Misc/thief_greeting.ogg"
+      range:
+        min: 1
+        max: 2
 
 
 #этот геймрул сделан только для выдачи трейтора
@@ -303,17 +263,10 @@
   - type: GameRule
     minPlayers: 5
   - type: AntagSelection
-    selectionTime: IntraPlayerSpawn
-    definitions:
-    - prefRoles: [ Traitor ]
-      max: 1
-      playerRatio: 10
-      blacklist:
-        components:
-        - AntagImmune
-      lateJoinAdditional: true
-      mindRoles:
-      - MindRoleTraitor
+    lateJoinAdditional: true
+    antags:
+    - !type:FixedAntagCount
+      proto: Traitor
   - type: TraitorRule
 
 - type: entity
@@ -343,20 +296,9 @@
   - type: GameRule
     minPlayers: 20
   - type: AntagSelection
-    selectionTime: IntraPlayerSpawn
-    definitions:
-    - prefRoles: [ ADTBlob ]
-      allowNonHumans: true
-      blacklist:
-        components:
-        - CommandStaff
-        - AntagImmune
-      briefing:
-        text: blob-carrier-role-greeting
-        color: Plum
-        sound: /Audio/Announcements/bloblarm.ogg
-      mindRoles:
-      - ADTMindRoleBlob
+    antags:
+    - !type:FixedAntagCount
+      proto: ADTBlob
 
 - type: entity
   id: BlobSpawn

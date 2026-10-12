@@ -14,8 +14,8 @@ namespace Content.Server.ADT.Procedural;
 
 public sealed class ADTDungeonRoomMapSystem : EntitySystem
 {
-    [Dependency] private readonly IConfigurationManager _conf = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDefManager = default!;
+    [Dependency] private IConfigurationManager _conf = default!;
+    [Dependency] private ITileDefinitionManager _tileDefManager = default!;
 
     private const int ChunkSize = 16;
 

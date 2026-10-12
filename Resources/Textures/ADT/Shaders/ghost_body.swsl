@@ -10,7 +10,7 @@ void fragment() {
         discard;
     }
 
-    highp vec4 background = zTextureSpec(SCREEN_TEXTURE, FRAGCOORD.xy * SCREEN_PIXEL_SIZE);
+    highp vec4 background = zTextureSpec(SCREEN_TEXTURE, SCREEN_UV);
 
     lowp float alpha = sprite.a * visibility;
 

@@ -1,0 +1,43 @@
+- type: entity
+  parent: ADTSponsorClothingEyesBase
+  id: ADTClothingEyesMoon_so_redGlasses
+  suffix: Moon_so_red
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/moon_so_red_glasses.rsi
+  - type: Clothing
+    sprite: ADT/Special/Personal/moon_so_red_glasses.rsi
+
+- type: entity
+  parent: ClothingEyesGlassesMercenary
+  id: ADTClothingEyesGlassesMercenaryAntillion
+  name: mercenary glasses
+  description: Glasses made for combat, to protect the eyes from bright blinding flashes.
+  suffix: Personal, antillion
+  components:
+  - type: Sprite
+    sprite: Clothing/Eyes/Glasses/mercglasses.rsi
+  - type: Clothing
+    sprite: Clothing/Eyes/Glasses/mercglasses.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+  - type: IdentityBlocker
+    coverage: EYES
+
+- type: entity
+  parent: ADTSponsorClothingEyesBase
+  id: ADTClothingEyesArcheronMoto
+  suffix: Personal, Archeron
+  name: motorcycle goggles
+  description: A pair of vintage motorcycle goggles with a wide leather strap. The lenses are bright, thick, and a deep red color.
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/archeron/motoglasses.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Special/Personal/archeron/motoglasses.rsi
+    slots: [HEAD, EYES]
+  - type: Item
+    size: Normal
+  - type: EyeProtection

@@ -9,14 +9,14 @@ using Robust.Shared.Random;
 
 namespace Content.Shared.Audio.Jukebox;
 
-public abstract class SharedJukeboxSystem : EntitySystem
+public abstract partial class SharedJukeboxSystem : EntitySystem
 {
     /// ADT-Tweak start
-    [Dependency] private readonly IPrototypeManager _protoManager = default!;
-    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
-    [Dependency] protected readonly SharedAudioSystem Audio = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private IPrototypeManager _protoManager = default!;
+    [Dependency] private ItemSlotsSystem _itemSlots = default!;
+    [Dependency] protected SharedAudioSystem Audio = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
 
     public const string DiskSlotId = "music_disk";
     public override void Initialize()
@@ -67,7 +67,7 @@ public abstract class SharedJukeboxSystem : EntitySystem
         if (!TryComp<ItemSlotsComponent>(ent, out var itemSlots))
             return null;
 
-        return _itemSlots.GetItemOrNull(ent.Owner, DiskSlotId, itemSlots);
+        return _itemSlots.GetItemOrNull((ent.Owner, itemSlots), DiskSlotId); // ADT-Tweak
     }
 
     public JukeboxListPrototype? GetDiskCollection(Entity<JukeboxComponent> ent)

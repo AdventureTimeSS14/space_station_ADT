@@ -13,6 +13,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Maths;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager.Attributes;
+using Robust.Shared.Spawners;
 
 namespace Content.IntegrationTests.Tests
 {
@@ -20,7 +21,7 @@ namespace Content.IntegrationTests.Tests
     [TestOf(typeof(EntityUid))]
     public sealed class EntityTest : GameTest
     {
-        private static readonly ProtoId<EntityCategoryPrototype> SpawnerCategory = "Spawner";
+        private static readonly HashSet<ProtoId<EntityCategoryPrototype>> IgnoredCategories = ["Spawner", "Debug"];
 
         public override PoolSettings PoolSettings => new()
         {
@@ -43,31 +44,24 @@ namespace Content.IntegrationTests.Tests
             var server = pair.Server;
 
             var entityMan = server.ResolveDependency<IEntityManager>();
-            var mapManager = server.ResolveDependency<IMapManager>();
             var prototypeMan = server.ResolveDependency<IPrototypeManager>();
             var mapSystem = entityMan.System<SharedMapSystem>();
 
-            // ADT-tweak start - moved this up and out of server.WaitPost
-            var protoIds = prototypeMan
-                .EnumeratePrototypes<EntityPrototype>()
-                .Where(p => !p.Abstract)
-                .Where(p => !pair.IsTestPrototype(p))
-                .Where(p => !p.Components.ContainsKey("XenoArtifactNodeComponent")) // ADT-tweak
-                .Where(p => !p.Components.ContainsKey("MapGrid")) // This will smash stuff otherwise.
-                .Where(p => !p.Components.ContainsKey("MobReplacementRule")) // ADT-tweak - fuck them mimics
-                .Where(p => !p.Components.ContainsKey("Supermatter")) // ADT-tweak - Supermatter eats everything, oh no!
-                .Where(p => !p.Components.ContainsKey("RoomFill")) // This comp can delete all entities, and spawn others
-                .Where(p => !p.Components.ContainsKey("TechAnomaly")) // ADT-tweak - TechAnomaly can trigger guns via DeviceLink, causing spawn on invalid coords
-                .Select(p => p.ID)
-                .ToList();
-            // ADT-tweak end
-
             await server.WaitPost(() =>
             {
+                var protoIds = prototypeMan
+                    .EnumeratePrototypes<EntityPrototype>()
+                    .Where(p => !p.Abstract)
+                    .Where(p => !pair.IsTestPrototype(p))
+                    .Where(p => !p.Components.ContainsKey("MapGrid")) // This will smash stuff otherwise.
+                    .Where(p => !p.Components.ContainsKey("RoomFill")) // This comp can delete all entities, and spawn others
+                    .Select(p => p.ID)
+                    .ToList();
+
                 foreach (var protoId in protoIds)
                 {
                     mapSystem.CreateMap(out var mapId);
-                    var grid = mapManager.CreateGridEntity(mapId);
+                    var grid = mapSystem.CreateGridEntity(mapId);
                     // TODO: Fix this better in engine.
                     mapSystem.SetTile(grid.Owner, grid.Comp, Vector2i.Zero, new Tile(1));
                     var coord = new EntityCoordinates(grid.Owner, 0, 0);
@@ -75,42 +69,7 @@ namespace Content.IntegrationTests.Tests
                 }
             });
 
-            // ADT-Tweak-Start: Ограничение памяти для предотвращения таймаута GitHub Actions
-            // Run up to 15 ticks, but stop early if memory usage exceeds 13 GB
-            // По состоянию на 2025-10-22: Wizden достигает ~9-10 GB, ADT ~12GB
-            // При достижении 16 GB происходит таймаут на GitHub
-
-            // ADT-tweak Start (this test isn't even worth the effort tbh)
-            // Run up to 15 ticks, but stop early if memory usage exceeds 13 GB
-            // At the time of writing (2025-10-22) Wizden reaches at most like 9-10 GB on SpawnAndDirtyAllEntities
-            // ADT gets to about ~12GB, if we reach 16 GB on integrationtests we'll time out from GitHub
-
-            const int maxTicks = 15; // (default wizden)
-            const long memoryLimitBytes = 13L * 1024 * 1024 * 1024; // 13 GB, depends on how close you wanna fly to the sun.
-
-            var warninglog = true; // if we stop caring about this test turn this off.
-
-            for (var tick = 0; tick < maxTicks; tick++)
-            {
-                await pair.RunTicksSync(1);
-
-                var memoryUsed = GC.GetTotalMemory(forceFullCollection: false);
-
-                // debug logging but tbh just use debugger
-                // await TestContext.Progress.WriteLineAsync($"[EntityTest SpawnAndDeleteAllEntitiesOnDifferentMaps] Memory usage = {memoryUsed / (1024 * 1024 * 1024.0):F2} GB at tick {tick + 1}");
-
-                if (memoryUsed < memoryLimitBytes)
-                    continue;
-                if (warninglog)
-                    await TestContext.Progress.WriteLineAsync(
-                        "Warning:\n"+
-                        $"[SpawnAndDeleteAllEntitiesOnDifferentMaps] Memory usage reached {memoryUsed / (1024 * 1024 * 1024.0):F2} GB at tick {tick + 1} out of {maxTicks} \n" +
-                        "Stopping early (limit: 13 GB)." +
-                        $"\nWe spawned a total of {protoIds.Count} entities and held on for {tick+1} ticks. We're probably fine."
-                    );
-
-                break; // stop ticking early
-            }
+            await server.WaitRunTicks(450); // 15 seconds, enough to trigger most update loops
 
             await server.WaitPost(() =>
             {
@@ -131,7 +90,7 @@ namespace Content.IntegrationTests.Tests
                         entityMan.DeleteEntity(uid);
                 }
 
-                // ADT-Tweak: Убрана проверка Assert.That(entityMan.EntityCount, ...) для предотвращения ложных срабатываний
+                Assert.That(entityMan.EntityCount, Is.Zero);
             });
         }
 
@@ -155,9 +114,7 @@ namespace Content.IntegrationTests.Tests
                     .Where(p => !p.Abstract)
                     .Where(p => !pair.IsTestPrototype(p))
                     .Where(p => !p.Components.ContainsKey("MapGrid")) // This will smash stuff otherwise.
-                    .Where(p => !p.Components.ContainsKey("Supermatter")) // ADT-tweak - Supermatter eats everything, oh no!
                     .Where(p => !p.Components.ContainsKey("RoomFill")) // This comp can delete all entities, and spawn others
-                    .Where(p => !p.Components.ContainsKey("TechAnomaly")) // ADT-tweak - TechAnomaly can trigger guns via DeviceLink, causing spawn on invalid coords
                     .Select(p => p.ID)
                     .ToList();
                 foreach (var protoId in protoIds)
@@ -165,7 +122,7 @@ namespace Content.IntegrationTests.Tests
                     entityMan.SpawnEntity(protoId, map.GridCoords);
                 }
             });
-            await server.WaitRunTicks(15);
+            await server.WaitRunTicks(450); // 15 seconds, enough to trigger most update loops
             await server.WaitPost(() =>
             {
                 static IEnumerable<(EntityUid, TComp)> Query<TComp>(IEntityManager entityMan)
@@ -185,7 +142,7 @@ namespace Content.IntegrationTests.Tests
                         entityMan.DeleteEntity(uid);
                 }
 
-                // Убрана проверка Assert.That(entityMan.EntityCount, Is.Zero)
+                Assert.That(entityMan.EntityCount, Is.Zero);
             });
         }
 
@@ -193,7 +150,7 @@ namespace Content.IntegrationTests.Tests
         ///     Variant of <see cref="SpawnAndDeleteAllEntitiesOnDifferentMaps"/> that also launches a client and dirties
         ///     all components on every entity.
         /// </summary>
-        [Test, NonParallelizable] // ADT-tweak - NonParallelizable
+        [Test]
         public async Task SpawnAndDirtyAllEntities()
         {
             var pair = Pair;
@@ -202,7 +159,6 @@ namespace Content.IntegrationTests.Tests
 
             var cfg = server.ResolveDependency<IConfigurationManager>();
             var prototypeMan = server.ResolveDependency<IPrototypeManager>();
-            var mapManager = server.ResolveDependency<IMapManager>();
             var sEntMan = server.ResolveDependency<IEntityManager>();
             var mapSys = server.System<SharedMapSystem>();
 
@@ -213,9 +169,6 @@ namespace Content.IntegrationTests.Tests
                 .Where(p => !p.Abstract)
                 .Where(p => !pair.IsTestPrototype(p))
                 .Where(p => !p.Components.ContainsKey("MapGrid")) // This will smash stuff otherwise.
-                .Where(p => !p.Components.ContainsKey("XenoArtifactNodeComponent")) // ADT-tweak
-                .Where(p => !p.Components.ContainsKey("MobReplacementRule")) // ADT-tweak - fuck them mimics
-                .Where(p => !p.Components.ContainsKey("Supermatter")) // ADT-tweak - Supermatter eats everything, oh no!
                 .Select(p => p.ID)
                 .ToList();
 
@@ -223,8 +176,8 @@ namespace Content.IntegrationTests.Tests
             {
                 foreach (var protoId in protoIds)
                 {
-                    mapSys.CreateMap(out var mapId, runMapInit: true); // ADT-Tweak
-                    var grid = mapManager.CreateGridEntity(mapId);
+                    mapSys.CreateMap(out var mapId);
+                    var grid = mapSys.CreateGridEntity(mapId);
                     var ent = sEntMan.SpawnEntity(protoId, new EntityCoordinates(grid.Owner, 0.5f, 0.5f));
                     foreach (var (_, component) in sEntMan.GetNetComponents(ent))
                     {
@@ -258,7 +211,7 @@ namespace Content.IntegrationTests.Tests
                         sEntMan.DeleteEntity(uid);
                 }
 
-                // Убрана проверка Assert.That(sEntMan.EntityCount, ...)
+                Assert.That(sEntMan.EntityCount, Is.Zero);
             });
         }
 
@@ -292,9 +245,6 @@ namespace Content.IntegrationTests.Tests
 
                 // makes an announcement on mapInit.
                 "AnnounceOnSpawn",
-
-                // Consumes/deletes nearby entities by design (e.g. the Singularity).
-                "EventHorizon", // ADT-tweak
             };
 
             Assert.That(server.CfgMan.GetCVar(CVars.NetPVS), Is.False);
@@ -304,7 +254,7 @@ namespace Content.IntegrationTests.Tests
                 .Where(p => !p.Abstract)
                 .Where(p => !pair.IsTestPrototype(p))
                 .Where(p => !excluded.Any(p.Components.ContainsKey))
-                .Where(p => p.Categories.All(x => x.ID != SpawnerCategory))
+                .Where(p => p.Categories.All(x => !IgnoredCategories.Contains(x.ID)))
                 .Select(p => p.ID)
                 .ToList();
 
@@ -334,29 +284,33 @@ namespace Content.IntegrationTests.Tests
                     var clientEntities = new HashSet<EntityUid>(Entities(client.EntMan));
                     EntityUid uid = default;
                     await server.WaitPost(() => uid = server.EntMan.SpawnEntity(protoId, coords));
-                    await pair.RunTicksSync(5);
+                    await pair.RunTicksSync(3);
 
-                    // If the entity deleted itself, skip all checks
+                    // If the entity deleted itself, check that it didn't spawn other entities
                     if (!server.EntMan.EntityExists(uid))
                     {
+                        await CleanupTransientEntities(pair, serverEntities);
+
+                        Assert.That(Count(server.EntMan), Is.EqualTo(count), $"Server prototype {protoId} failed on deleting itself\n" +
+                            BuildDiffString(serverEntities, Entities(server.EntMan), server.EntMan));
+                        Assert.That(Count(client.EntMan), Is.EqualTo(clientCount), $"Client prototype {protoId} failed on deleting itself\n" +
+                            $"Expected {clientCount} and found {client.EntMan.EntityCount}.\n" +
+                            $"Server count was {count}.\n" +
+                            BuildDiffString(clientEntities, Entities(client.EntMan), client.EntMan));
                         continue;
                     }
 
                     // Check that the number of entities has increased.
                     Assert.That(Count(server.EntMan), Is.GreaterThan(count), $"Server prototype {protoId} failed on spawning as entity count didn't increase\n" +
                         BuildDiffString(serverEntities, Entities(server.EntMan), server.EntMan));
-
-                    // Skip client check if entity doesn't exist on server (deleted itself)
-                    if (server.EntMan.EntityExists(uid))
-                    {
-                        Assert.That(Count(client.EntMan), Is.GreaterThan(clientCount), $"Client prototype {protoId} failed on spawning as entity count didn't increase\n" +
-                            $"Expected at least {clientCount + 1} and found {client.EntMan.EntityCount}. " +
-                            $"Server count was {server.EntMan.EntityCount}.\n" +
-                            BuildDiffString(clientEntities, Entities(client.EntMan), client.EntMan));
-                    }
+                    Assert.That(Count(client.EntMan), Is.GreaterThan(clientCount), $"Client prototype {protoId} failed on spawning as entity count didn't increase\n" +
+                        $"Expected at least {clientCount} and found {client.EntMan.EntityCount}. " +
+                        $"Server count was {count}.\n" +
+                        BuildDiffString(clientEntities, Entities(client.EntMan), client.EntMan));
 
                     await server.WaitPost(() => server.EntMan.DeleteEntity(uid));
-                    await pair.RunTicksSync(5);
+                    await pair.RunTicksSync(3);
+                    await CleanupTransientEntities(pair, serverEntities);
 
                     // Check that the number of entities has gone back to the original value.
                     Assert.That(Count(server.EntMan), Is.EqualTo(count), $"Server prototype {protoId} failed on deletion: count didn't reset properly\n" +
@@ -367,6 +321,33 @@ namespace Content.IntegrationTests.Tests
                         BuildDiffString(clientEntities, Entities(client.EntMan), client.EntMan));
                 }
             });
+        }
+
+        /// <summary>
+        /// Deletes any entities with <see cref="TimedDespawnComponent"/> that were not present in the baseline snapshot.
+        /// Some entities spawn transient side-effects on deletion (e.g. explosion visuals). These side-effect entities
+        /// use TimedDespawn and would persist across test iterations, corrupting baseline entity counts and causing
+        /// cascading assertion failures.
+        /// </summary>
+        private static async Task CleanupTransientEntities(Pair.TestPair pair, HashSet<EntityUid> baselineEntities)
+        {
+            var server = pair.Server;
+            await server.WaitPost(() =>
+            {
+                var toRemove = new List<EntityUid>();
+                var query = server.EntMan.AllEntityQueryEnumerator<TimedDespawnComponent>();
+                while (query.MoveNext(out var uid, out _))
+                {
+                    if (!baselineEntities.Contains(uid))
+                        toRemove.Add(uid);
+                }
+
+                foreach (var uid in toRemove)
+                {
+                    server.EntMan.DeleteEntity(uid);
+                }
+            });
+            await pair.RunTicksSync(3);
         }
 
         private static string BuildDiffString(IEnumerable<EntityUid> oldEnts, IEnumerable<EntityUid> newEnts, IEntityManager entMan)
@@ -427,7 +408,6 @@ namespace Content.IntegrationTests.Tests
                 "DebugExceptionStartup",
                 "GridFill",
                 "RoomFill",
-                "TechAnomaly", // ADT-tweak - TechAnomaly can trigger guns via DeviceLink, causing spawn on invalid coords
                 "Map", // We aren't testing a map entity in this test
                 "MapGrid",
                 "Broadphase",
