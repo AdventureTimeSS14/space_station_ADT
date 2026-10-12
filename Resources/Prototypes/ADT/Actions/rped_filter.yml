@@ -6,8 +6,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon:
-      sprite: ADT/Objects/Specific/Research/rped.rsi
-      state: icon
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Research/rped.rsi
+    layers:
+    - state: icon
   - type: InstantAction
     event: !type:PartExchangerFilterActionEvent {}

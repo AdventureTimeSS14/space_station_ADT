@@ -9,9 +9,9 @@ namespace Content.Shared.ADT.Blob;
 
 public abstract class SharedBlobCarrierSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly SharedGameTicker _gameTicker = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private SharedGameTicker _gameTicker = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public static readonly TimeSpan MinRoundDurationToTransform = TimeSpan.FromMinutes(25);
 

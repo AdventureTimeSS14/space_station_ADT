@@ -9,11 +9,11 @@ namespace Content.Server.ADT.Bubblegum.Abilities;
 
 public sealed class BubblegumHallucinationChargeSystem : EntitySystem
 {
-    [Dependency] private readonly BubblegumChargeSystem _charge = default!;
-    [Dependency] private readonly BubblegumTripleChargeSystem _tripleCharge = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private BubblegumChargeSystem _charge = default!;
+    [Dependency] private BubblegumTripleChargeSystem _tripleCharge = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     private const float TravelBuffer = 0.45f;
 

@@ -28,20 +28,19 @@ namespace Content.Server.ADT.Lavaland.Puzzle;
 
 public sealed class ADTSlidingPuzzleSystem : EntitySystem
 {
-    [Dependency] private readonly IAdminLogManager _adminLog = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly ThrowingSystem _throwing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IAdminLogManager _adminLog = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedCameraRecoilSystem _recoil = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private ITileDefinitionManager _tileDefinitionManager = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private ThrowingSystem _throwing = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     private const string PrisonerContainerId = "prisoner";
 
@@ -108,7 +107,7 @@ public sealed class ADTSlidingPuzzleSystem : EntitySystem
             return false;
         }
 
-        if (_mapManager.TryFindGridAt(_transform.GetMapCoordinates(puzzle), out var foundGrid, out var foundComp))
+        if (_map.TryFindGridAt(_transform.GetMapCoordinates(puzzle), out var foundGrid, out var foundComp))
         {
             gridUid = foundGrid;
             grid = foundComp;
@@ -118,7 +117,7 @@ public sealed class ADTSlidingPuzzleSystem : EntitySystem
             return true;
         }
 
-        var gridEnt = _mapManager.CreateGridEntity(xform.MapID);
+        var gridEnt = _map.CreateGridEntity(xform.MapID);
         puzzle.Comp.GeneratedGrid = gridEnt;
         var gridXform = Transform(gridEnt);
         _transform.SetWorldPosition((gridEnt, gridXform), _transform.GetMapCoordinates(puzzle).Position);

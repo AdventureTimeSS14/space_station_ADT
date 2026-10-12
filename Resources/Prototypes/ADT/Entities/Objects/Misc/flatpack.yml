@@ -23,7 +23,7 @@
   description: A flatpack used for constructing a chem dispenser.
   components:
   - type: Flatpack
-    entity: ChemMaster
+    entity: ADTChemMaster
 
 - type: entity
   parent: BaseFlatpack

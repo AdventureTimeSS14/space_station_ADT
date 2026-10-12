@@ -9,11 +9,11 @@ using Content.Shared.Power;
 
 namespace Content.Server.Chemistry.EntitySystems;
 
-public sealed class SolutionHeaterSystem : EntitySystem
+public sealed partial class SolutionHeaterSystem : EntitySystem
 {
-    [Dependency] private readonly PowerReceiverSystem _powerReceiver = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private PowerReceiverSystem _powerReceiver = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -83,11 +83,8 @@ public sealed class SolutionHeaterSystem : EntitySystem
         {
             foreach (var heatingEntity in placer.PlacedEntities)
             {
-                if (!TryComp<SolutionContainerManagerComponent>(heatingEntity, out var container))
-                    continue;
-
                 var energy = heater.HeatPerSecond * heater.HeatMultiplier * frameTime; // ADT-Tweak
-                foreach (var (_, soln) in _solutionContainer.EnumerateSolutions((heatingEntity, container)))
+                foreach (var (_, soln) in _solutionContainer.EnumerateSolutions(heatingEntity))
                 {
                     _solutionContainer.AddThermalEnergy(soln, energy);
                 }

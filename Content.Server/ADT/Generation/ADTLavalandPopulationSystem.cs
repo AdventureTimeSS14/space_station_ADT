@@ -14,12 +14,12 @@ namespace Content.Server.ADT.Generation;
 
 public sealed class ADTLavalandPopulationSystem : EntitySystem
 {
-    [Dependency] private readonly ADTLavalandGenerationSystem _generation = default!;
-    [Dependency] private readonly BiomeSystem _biome = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private ADTLavalandGenerationSystem _generation = default!;
+    [Dependency] private BiomeSystem _biome = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedMapSystem _map = default!;
 
     private readonly List<Vector2> _placed = new();
     private readonly List<(Vector2i Index, Tile Tile)> _tiles = new();

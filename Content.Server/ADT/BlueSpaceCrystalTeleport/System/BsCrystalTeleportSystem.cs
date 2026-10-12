@@ -23,12 +23,12 @@ namespace Content.Server.ADT.BlueSpaceCrystalTeleport;
 
 public sealed class BsCrystalTeleportSystem : EntitySystem
 {
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
-    [Dependency] private readonly StackSystem _stacks = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly PickupHumansSystem _pickupsys = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedTransformSystem _xform = default!;
+    [Dependency] private StackSystem _stacks = default!;
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private PickupHumansSystem _pickupsys = default!;
 
     private float CountToRadius;
 

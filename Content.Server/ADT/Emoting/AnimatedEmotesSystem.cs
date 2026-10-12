@@ -23,7 +23,6 @@ public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
 
     public void PlayEmoteAnimation(EntityUid uid, AnimatedEmotesComponent component, ProtoId<EmotePrototype> prot)
     {
-        component.Emote = prot;
-        Dirty(uid, component);
+        SetEmote((uid, component), prot);
     }
 }

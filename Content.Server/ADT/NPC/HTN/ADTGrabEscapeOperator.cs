@@ -11,8 +11,8 @@ namespace Content.Server.ADT.NPC.HTN;
 
 public sealed partial class ADTGrabEscapeOperator : HTNOperator
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private IGameTiming _timing = default!;
     private ActionBlockerSystem _actionBlocker = default!;
     private PullingSystem _pulling = default!;
 
