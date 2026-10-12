@@ -56,7 +56,7 @@ public sealed partial class HereticAbilitySystem
                 !TryComp<MobStateComponent>(look, out var mobstate) || mobstate.CurrentState == MobState.Dead)
                 continue;
 
-            if (mobstate.CurrentState == MobState.Critical)
+            if (mobstate.CurrentState is MobState.SoftCritical or MobState.Critical)
                 _mobstate.ChangeMobState(look, MobState.Dead, mobstate);
 
             toHeal += args.HealAmount;

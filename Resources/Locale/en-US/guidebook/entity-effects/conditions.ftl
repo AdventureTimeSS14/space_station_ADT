@@ -46,6 +46,11 @@ entity-condition-guidebook-reagent-threshold =
 entity-condition-guidebook-mob-state-condition =
     the mob is { $state }
 
+entity-condition-guidebook-mob-state-alive = alive
+entity-condition-guidebook-mob-state-softcritical = in soft crit
+entity-condition-guidebook-mob-state-critical = in crit
+entity-condition-guidebook-mob-state-dead = dead
+
 entity-condition-guidebook-job-condition =
     the target's job is { $job }
 
