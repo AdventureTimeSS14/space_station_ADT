@@ -16146,3 +16146,10 @@ Entries:
     id: 1998
     pr_number: 3416
     time: '2026-10-12T22:07:04Z'
+  - author: FriendlyOne
+    changes:
+      - {message: 'Командование и СБ снова не могут быть еретиками, блобами, тенеморфами',
+        type: Fix}
+    id: 1999
+    pr_number: 3506
+    time: '2026-10-12T23:35:14Z'
