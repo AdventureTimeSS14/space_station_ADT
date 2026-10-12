@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Shared.ADT.AshWalker.Components;
 using Content.Shared.ADT.Rituals;
 using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 using Content.Shared.Humanoid;
 using Robust.Shared.Random;
 

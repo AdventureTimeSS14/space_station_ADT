@@ -38,3 +38,7 @@ ent-SpawnMobReindeerDoe = спавнер северный олень самка
     .desc = { ent-MarkerBase.desc }
 ent-SpawnMobSlug = спавнер слизняк
     .desc = { ent-MarkerBase.desc }
+ent-SpawnMobSheep = спавнер овцы
+ent-SpawnMobSheepRainbow = спавнер радужной овцы
+ent-SpawnMobSheepSpace = спавнер космической овцы
+ent-SpawnWoolyAnimalGeneric = спавнер шерстяного животного

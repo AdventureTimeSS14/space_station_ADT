@@ -6,8 +6,7 @@ public sealed partial class TemperatureSystem
 {
     public void SetHeatProtection(Entity<TemperatureProtectionComponent> ent, float coefficient)
     {
-        ent.Comp.HeatingCoefficient = coefficient;
-        ent.Comp.CoolingCoefficient = coefficient;
+        ent.Comp.Coefficient = coefficient;
         Dirty(ent.Owner, ent.Comp);
     }
 }

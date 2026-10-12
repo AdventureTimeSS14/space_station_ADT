@@ -9,7 +9,7 @@
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/urs_coat.rsi
   - type: TemperatureProtection
-    heatingCoefficient: 0.9
+    coefficient: 0.9
   - type: Armor
     modifiers:
       coefficients:
@@ -68,13 +68,13 @@
   components:
   - type: Edible
     requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 30
+  - type: Solution
+    id: food
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: Fiber
+        Quantity: 30
   - type: Tag
     tags:
     - ClothMade
@@ -205,8 +205,7 @@
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/bomber_tsf.rsi
   - type: TemperatureProtection
-    heatingCoefficient: 0.9
-    coolingCoefficient: 0.9
+    coefficient: 0.9
   - type: Armor
     modifiers:
       coefficients:
@@ -273,7 +272,7 @@
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/biker_jacket.rsi
   - type: TemperatureProtection
-    heatingCoefficient: 0.9
+    coefficient: 0.9
   - type: Storage
     grid:
     - 0,0,2,1
@@ -295,7 +294,7 @@
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/leather_jacket.rsi
   - type: TemperatureProtection
-    heatingCoefficient: 0.9
+    coefficient: 0.9
   - type: Storage
     grid:
     - 0,0,2,1
@@ -435,8 +434,7 @@
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/explorer_bomber.rsi
   - type: TemperatureProtection
-    heatingCoefficient: 1.1
-    coolingCoefficient: 0.1
+    coefficient: 0.1
   - type: Armor
     modifiers:
       coefficients:

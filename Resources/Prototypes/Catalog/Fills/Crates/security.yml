@@ -2,7 +2,7 @@
   parent: CrateSecgear
   id: CrateSecurityArmor
   name: armor crate
-  description: Contains three bulletproof vests. Requires Security access to open.
+  description: Contains three bulletproof vests. Requires Security access to open. # ADT-Tweak
   components:
   - type: EntityTableContainerFill
     containers:
@@ -10,6 +10,7 @@
         id: ClothingOuterArmorBulletproof
         amount: 3
 
+# ADT-Tweak-Start
 - type: entity
   parent: CrateSecgear
   id: CrateSecurityHelmet
@@ -21,6 +22,7 @@
       entity_storage:
         id: ClothingHeadHelmetBasic
         amount: 3
+# ADT-Tweak-End
 
 - type: entity
   parent: CrateSecgear

@@ -1,8 +1,9 @@
 using Content.Shared.DoAfter;
+using Robust.Shared.Prototypes;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
-using Content.Shared.VendingMachines;
+using Content.Shared.VendingMachines.Components;
 using Content.Shared.Wires;
 
 namespace Content.Shared.ADT.VendingMachines;
@@ -11,7 +12,7 @@ public abstract partial class SharedVendingMachineSystem
 {
     public bool TryAccessMachine(EntityUid uid,
         VendingMachineRestockComponent restock,
-        VendingMachineComponent machineComponent,
+        ADTVendingMachineComponent machineComponent,
         EntityUid user,
         EntityUid target)
     {
@@ -31,7 +32,7 @@ public abstract partial class SharedVendingMachineSystem
 
     public bool TryMatchPackageToMachine(EntityUid uid,
         VendingMachineRestockComponent component,
-        VendingMachineComponent machineComponent,
+        ADTVendingMachineComponent machineComponent,
         EntityUid user,
         EntityUid target)
     {
@@ -46,7 +47,7 @@ public abstract partial class SharedVendingMachineSystem
         return true;
     }
 
-    public void TryRestockInventory(EntityUid uid, VendingMachineComponent? vendComponent = null)
+    public void TryRestockInventory(EntityUid uid, ADTVendingMachineComponent? vendComponent = null)
     {
         if (!Resolve(uid, ref vendComponent))
             return;
@@ -54,7 +55,6 @@ public abstract partial class SharedVendingMachineSystem
         RestockInventoryFromPrototype(uid, vendComponent);
 
         Dirty(uid, vendComponent);
-        TryUpdateVisualState((uid, vendComponent));
     }
 
     private void OnAfterInteract(EntityUid uid, VendingMachineRestockComponent component, AfterInteractEvent args)
@@ -62,7 +62,7 @@ public abstract partial class SharedVendingMachineSystem
         if (args.Target is not { } target || !args.CanReach || args.Handled)
             return;
 
-        if (!TryComp<VendingMachineComponent>(args.Target, out var machineComponent))
+        if (!TryComp<ADTVendingMachineComponent>(args.Target, out var machineComponent))
             return;
 
         if (!TryMatchPackageToMachine(uid, component, machineComponent, args.User, target))
@@ -103,7 +103,7 @@ public abstract partial class SharedVendingMachineSystem
         machineComponent.RestockStream = Audio.PlayPredicted(component.SoundRestockStart, target, args.User)?.Entity;
     }
 
-    private void OnRestockDoAfter(Entity<VendingMachineComponent> ent, ref RestockDoAfterEvent args)
+    private void OnRestockDoAfter(Entity<ADTVendingMachineComponent> ent, ref RestockDoAfterEvent args)
     {
         if (args.Cancelled)
         {
@@ -134,4 +134,4 @@ public abstract partial class SharedVendingMachineSystem
 
         PredictedQueueDel(args.Used.Value);
     }
-}
+}

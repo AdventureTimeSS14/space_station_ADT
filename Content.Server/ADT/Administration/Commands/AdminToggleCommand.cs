@@ -10,8 +10,8 @@ namespace Content.Server.ADT.Administration.Commands;
 [AdminCommand(AdminFlags.Permissions)]
 public sealed class AdminToggleCommand : LocalizedCommands
 {
-    [Dependency] private readonly IPlayerLocator _locator = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private IPlayerLocator _locator = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
     public override string Command => "admin_toggle";
 
     public override async void Execute(IConsoleShell shell, string argStr, string[] args)

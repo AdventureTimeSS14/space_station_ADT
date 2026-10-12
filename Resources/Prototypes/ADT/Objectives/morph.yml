@@ -5,4 +5,4 @@
   components:
   - type: Objective
     difficulty: 1
-    issuer: objective-issuer-dragon
+    issuer: SpaceDragon

@@ -26,10 +26,10 @@ namespace Content.Client.ADT.Guidebook.Xenobiology;
 [UsedImplicitly, GenerateTypedNameReferences]
 public sealed partial class GuideXenobiologyReactionEmbed : BoxContainer, IDocumentTag, ISearchableControl
 {
-    [Dependency] private readonly IComponentFactory _componentFactory = default!;
-    [Dependency] private readonly IEntitySystemManager _systems = default!;
-    [Dependency] private readonly ILogManager _logManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IComponentFactory _componentFactory = default!;
+    [Dependency] private IEntitySystemManager _systems = default!;
+    [Dependency] private ILogManager _logManager = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     private const float ChipWidth = 80f;
 

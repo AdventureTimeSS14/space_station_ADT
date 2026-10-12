@@ -20,16 +20,16 @@ namespace Content.Shared.ADT.Heretic.Systems;
 
 public abstract class SharedStarGazerSystem : EntitySystem
 {
-    [Dependency] protected readonly IGameTiming Timing = default!;
-    [Dependency] protected readonly SharedTransformSystem Xform = default!;
+    [Dependency] protected IGameTiming Timing = default!;
+    [Dependency] protected SharedTransformSystem Xform = default!;
 
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedHereticAbilitySystem _hereticAbility = default!;
-    [Dependency] private readonly SharedHereticSystem _heretic = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedStarMarkSystem _starMark = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private SharedHereticAbilitySystem _hereticAbility = default!;
+    [Dependency] private SharedHereticSystem _heretic = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private MovementSpeedModifierSystem _movement = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedStarMarkSystem _starMark = default!;
 
     protected const string JointId = "stargaze";
 
@@ -92,7 +92,7 @@ public abstract class SharedStarGazerSystem : EntitySystem
     protected virtual void OnStarGazeShutdown(Entity<StarGazeComponent> ent, ref ComponentShutdown args)
     {
         if (!TerminatingOrDeleted(ent))
-            _movement.RefreshMovementSpeedModifiers(ent);
+            _movement.RefreshMovementSpeedModifiers(ent.Owner);
 
         if (Exists(ent.Comp.BeamSoundEnt))
             PredictedQueueDel(ent.Comp.BeamSoundEnt);
@@ -100,7 +100,7 @@ public abstract class SharedStarGazerSystem : EntitySystem
 
     protected virtual void OnStarGazeStartup(Entity<StarGazeComponent> ent, ref ComponentStartup args)
     {
-        _movement.RefreshMovementSpeedModifiers(ent);
+        _movement.RefreshMovementSpeedModifiers(ent.Owner);
     }
 
     private void OnRefreshMovespeed(Entity<StarGazeComponent> ent, ref RefreshMovementSpeedModifiersEvent args)

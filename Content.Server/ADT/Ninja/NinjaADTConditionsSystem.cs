@@ -9,8 +9,8 @@ namespace Content.Server.ADT.Ninja;
 
 public sealed class NinjaADTConditionsSystem : EntitySystem
 {
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly NumberObjectiveSystem _number = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private NumberObjectiveSystem _number = default!;
 
     public override void Initialize()
     {

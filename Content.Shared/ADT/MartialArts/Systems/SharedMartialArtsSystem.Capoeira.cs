@@ -60,7 +60,7 @@ public abstract partial class SharedMartialArtsSystem
         if (args.Type == ComboAttackType.Grab)
         {
             ApplyMultiplier(ent, 1.2f, 0f, TimeSpan.FromSeconds(4), MartialArtModifierType.MoveSpeed);
-            _modifier.RefreshMovementSpeedModifiers(ent);
+            _modifier.RefreshMovementSpeedModifiers(ent.Owner);
             return;
         }
 

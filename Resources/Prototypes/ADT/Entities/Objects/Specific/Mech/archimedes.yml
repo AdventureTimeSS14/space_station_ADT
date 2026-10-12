@@ -29,9 +29,6 @@
     brokenState: archimedes-broken
     mechToPilotDamageMultiplier: 0.5
     airtight: true
-    pilotWhitelist:
-      components:
-        - HumanoidProfile
     maxEquipmentAmount: 10
     equipmentWhitelist:
       tags:
@@ -47,6 +44,12 @@
     - ADTMechEquipmentToolWrench
     - ADTMechEquipmentToolCrowbar
     - MechEquipmentGrabberSmall
+  - type: Vehicle
+    operatorWhitelist:
+      components:
+        - HumanoidProfile
+  - type: VehicleHandBlocker
+    blockedHands: 2
   - type: MechEquipmentLimit
     limits:
     - whitelist:

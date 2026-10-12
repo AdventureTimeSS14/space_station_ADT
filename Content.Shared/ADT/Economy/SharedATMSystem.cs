@@ -4,7 +4,7 @@ namespace Content.Shared.ADT.Economy;
 
 public abstract class SharedATMSystem : EntitySystem
 {
-    [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
+    [Dependency] private ItemSlotsSystem _itemSlotsSystem = default!;
 
     public override void Initialize()
     {
