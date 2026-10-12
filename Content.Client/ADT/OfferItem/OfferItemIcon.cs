@@ -15,12 +15,12 @@ public sealed class OfferItemIcon : ContainerButton
     private const float GapAboveSprite = 0.12f;
     private const float FallbackHeight = 0.7f;
 
-    [Dependency] private readonly IEntityManager _ent = default!;
-    [Dependency] private readonly IEyeManager _eye = default!;
+    [Dependency] private IEntityManager _ent = default!;
+    [Dependency] private IEyeManager _eye = default!;
 
-    private readonly SpriteSystem _sprites;
-    private readonly SharedTransformSystem _transform;
-    private readonly SpriteView _view;
+    private SpriteSystem _sprites;
+    private SharedTransformSystem _transform;
+    private SpriteView _view;
 
     public EntityUid Anchor { get; }
 
