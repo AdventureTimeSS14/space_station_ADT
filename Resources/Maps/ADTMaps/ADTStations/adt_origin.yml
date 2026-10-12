@@ -2,10 +2,10 @@ meta:
   format: 7
   category: Map
   engineVersion: 277.2.1
-  forkId: SS14_DEV
-  forkVersion: 76c5afb440786d62e73b3144e3ac928d4f0d8bd6
-  time: 10/04/2026 11:27:42
-  entityCount: 35762
+  forkId: ""
+  forkVersion: ""
+  time: 10/11/2026 23:28:22
+  entityCount: 35774
 maps:
 - 1
 grids:
@@ -19774,9 +19774,7 @@ entities:
             0: 4352
             2: 3208
           0,8:
-            0: 51231
-            3: 256
-            4: 1024
+            0: 52511
           1,5:
             0: 4095
           1,6:
@@ -20399,13 +20397,13 @@ entities:
             0: 40959
           2,-10:
             0: 4369
-            5: 52428
+            3: 52428
           2,-13:
             0: 20332
           3,-11:
             0: 53247
           3,-10:
-            5: 4369
+            3: 4369
             0: 52428
           3,-12:
             0: 18022
@@ -21649,7 +21647,7 @@ entities:
           -12,-9:
             2: 8194
             0: 32768
-            6: 136
+            4: 136
           -11,-8:
             0: 63675
           -11,-7:
@@ -21658,7 +21656,7 @@ entities:
             0: 26224
           -11,-9:
             0: 47240
-            6: 51
+            4: 51
           -10,-8:
             0: 64432
           -10,-7:
@@ -21731,16 +21729,16 @@ entities:
             2: 8738
             0: 34952
           -13,-12:
-            6: 57568
+            4: 57568
           -12,-11:
             2: 34
             0: 64136
           -13,-11:
-            6: 224
+            4: 224
             0: 57344
           -12,-10:
             0: 143
-            6: 32768
+            4: 32768
           -13,-10:
             0: 65518
           -13,-9:
@@ -21754,7 +21752,7 @@ entities:
             0: 16383
           -11,-10:
             0: 33211
-            6: 12288
+            4: 12288
           -11,-13:
             0: 65535
           -10,-12:
@@ -21780,10 +21778,10 @@ entities:
             2: 8738
             0: 34952
           -13,-14:
-            7: 224
-            8: 57344
+            5: 224
+            6: 57344
           -13,-13:
-            6: 57568
+            4: 57568
           -11,-15:
             0: 65280
             2: 2
@@ -21909,12 +21907,12 @@ entities:
           -10,4:
             0: 65295
           -13,4:
-            0: 47112
+            0: 63496
             2: 48
           -12,5:
             0: 65535
           -13,5:
-            0: 49039
+            0: 65535
           -12,6:
             0: 28671
           -13,6:
@@ -21923,7 +21921,8 @@ entities:
           -12,7:
             0: 65535
           -13,7:
-            0: 64440
+            0: 34952
+            2: 13090
           -12,8:
             0: 65535
           -11,5:
@@ -21978,7 +21977,8 @@ entities:
             2: 4369
             0: 24800
           -15,0:
-            2: 2254
+            2: 4814
+            0: 60416
           -14,-4:
             0: 65535
           -14,-3:
@@ -21990,8 +21990,7 @@ entities:
           -14,-5:
             0: 65534
           -14,0:
-            0: 34822
-            2: 13056
+            0: 47878
           -16,-8:
             0: 61168
           -17,-8:
@@ -22181,30 +22180,43 @@ entities:
             2: 17472
           -9,-25:
             0: 65521
+          -16,5:
+            0: 65530
+          -17,5:
+            0: 65520
+          -16,6:
+            0: 10
+          -15,5:
+            0: 65520
           -14,5:
-            0: 35852
-          -14,4:
-            0: 32768
-            2: 128
-          -14,3:
-            0: 34947
+            0: 65528
+          -15,7:
+            2: 34816
           -14,7:
+            2: 65280
+          -15,8:
+            2: 34952
+          -14,8:
+            2: 30583
+            0: 2048
+          -14,4:
+            2: 192
             0: 32768
+          -14,3:
+            0: 34944
           -13,8:
-            0: 48120
+            0: 49080
           -15,1:
-            2: 292
-            0: 61120
+            2: 4369
+            0: 61166
           -15,2:
-            0: 52974
-            2: 256
-          -15,3:
-            2: 66
-            0: 12
+            2: 2
+            0: 3276
           -14,1:
-            0: 47928
+            0: 47931
           -14,2:
-            0: 49083
+            0: 36795
+            2: 12288
           -8,9:
             0: 65351
           -9,9:
@@ -22317,7 +22329,7 @@ entities:
             0: 63335
           -13,9:
             0: 8
-            2: 28944
+            2: 28976
           -12,10:
             0: 30583
           -13,10:
@@ -22350,10 +22362,12 @@ entities:
             2: 17652
           -9,8:
             2: 544
+          -15,9:
+            2: 136
+          -14,9:
+            2: 247
           -14,10:
             0: 49152
-          -14,8:
-            0: 128
           -14,11:
             2: 128
           -13,12:
@@ -22817,6 +22831,8 @@ entities:
             2: 128
           20,-11:
             2: 2
+          -18,5:
+            0: 35968
         uniqueMixes:
         - volume: 2500
           temperature: 293.15
@@ -22831,16 +22847,6 @@ entities:
         - volume: 2500
           immutable: True
           moles: {}
-        - volume: 2500
-          temperature: 293.15
-          moles:
-            Oxygen: 27.809448
-            Nitrogen: 104.6165
-        - volume: 2500
-          temperature: 293.14975
-          moles:
-            Oxygen: 20.078888
-            Nitrogen: 75.53487
         - volume: 2500
           temperature: 293.15
           moles:
@@ -23067,25 +23073,6 @@ entities:
         -2,13: AreaKitchen
         -2,14: AreaKitchen
         -2,15: AreaKitchen
-  - uid: 4
-    mapInit: true
-    paused: true
-    components:
-    - type: MetaData
-      name: solution - food
-    - type: Transform
-      parent: 3
-    - type: Solution
-      solution:
-        maxVol: 2.5
-        name: food
-        reagents:
-        - data: []
-          ReagentId: Fiber
-          Quantity: 1
-    - type: ContainedSolution
-      containerName: food
-      container: 3
 - proto: AccordionInstrument
   entities:
   - uid: 5
@@ -23589,6 +23576,54 @@ entities:
     - type: MetaData
       desc: Тяжёлая штанга для жима. Прямо как на постерах.
       name: штанга
+    - type: Transform
+      parent: 34993
+  - uid: 35763
+    components:
+    - type: Transform
+      parent: 87
+  - uid: 35764
+    components:
+    - type: Transform
+      parent: 21574
+  - uid: 35765
+    components:
+    - type: Transform
+      parent: 22443
+  - uid: 35766
+    components:
+    - type: Transform
+      parent: 29156
+  - uid: 35767
+    components:
+    - type: Transform
+      parent: 29442
+  - uid: 35768
+    components:
+    - type: Transform
+      parent: 34993
+  - uid: 35769
+    components:
+    - type: Transform
+      parent: 87
+  - uid: 35770
+    components:
+    - type: Transform
+      parent: 21574
+  - uid: 35771
+    components:
+    - type: Transform
+      parent: 22443
+  - uid: 35772
+    components:
+    - type: Transform
+      parent: 29156
+  - uid: 35773
+    components:
+    - type: Transform
+      parent: 29442
+  - uid: 35774
+    components:
     - type: Transform
       parent: 34993
 - proto: ADTBarbellChair
@@ -30803,7 +30838,7 @@ entities:
       pos: 19.5,16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -279490
+      secondsUntilStateChange: -279554.2
       state: Opening
   - uid: 850
     components:
@@ -30983,7 +31018,7 @@ entities:
       pos: 33.5,-24.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -211241.61
+      secondsUntilStateChange: -211305.8
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -31246,7 +31281,7 @@ entities:
       pos: -64.5,-37.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -209152.75
+      secondsUntilStateChange: -209216.94
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -31674,7 +31709,7 @@ entities:
       pos: 32.5,-89.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -138343.44
+      secondsUntilStateChange: -138407.62
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -31860,7 +31895,7 @@ entities:
       pos: -56.5,-18.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -102262.45
+      secondsUntilStateChange: -102326.65
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -32604,7 +32639,7 @@ entities:
       pos: 51.5,-3.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -278303.8
+      secondsUntilStateChange: -278368
       state: Opening
   - uid: 1152
     components:
@@ -32613,7 +32648,7 @@ entities:
       pos: 52.5,-3.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -278302.6
+      secondsUntilStateChange: -278366.78
       state: Opening
   - uid: 1153
     components:
@@ -32733,7 +32768,7 @@ entities:
       pos: -19.5,-39.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -123712.52
+      secondsUntilStateChange: -123776.72
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -32897,7 +32932,7 @@ entities:
       pos: 19.5,7.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -150295.81
+      secondsUntilStateChange: -150360
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -33056,7 +33091,7 @@ entities:
       pos: 79.5,-36.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -108398.84
+      secondsUntilStateChange: -108463.04
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -33367,7 +33402,7 @@ entities:
       pos: 47.5,-33.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -72769.83
+      secondsUntilStateChange: -72834.02
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -171772,72 +171807,6 @@ entities:
     - type: Paper
       content: >+
         На листе начертили схему БСА, но вы сликшом глупы, дабы понять его.
-
-    - type: UserInterface
-      actors:
-        enum.PaperUiKey.Key:
-        - invalid
-    - type: Flammable
-      nextUpdate: 0.7252151
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
-          reagents: []
-      containers:
-      - food
-    - type: EmitSoundOnCollide
-      nextSound: -3372.6526673
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.25,-0.25
-            - 0.25,-0.25
-            - 0.25,0.25
-            - -0.25,0.25
-          mask:
-          - Impassable
-          - HighImpassable
-          layer: []
-          density: 20
-          hard: True
-          restitution: 0.3
-          friction: 0.2
-        flammable:
-          shape: !type:PhysShapeCircle
-            radius: 0.35
-            position: 0,0
-          mask:
-          - MidImpassable
-          - HighImpassable
-          - LowImpassable
-          - BulletImpassable
-          - InteractImpassable
-          - Opaque
-          layer: []
-          density: 0
-          hard: False
-          restitution: 0
-          friction: 0.4
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 4
-    - type: ColorPainted
-      enabled: True
-      color: '#5890F7FF'
-    - type: Forensics
-      residues: []
-      dnas: []
-      fibers: []
-      fingerprints: []
-    - type: ActiveUserInterface
   - uid: 459
     components:
     - type: Transform
