@@ -16111,3 +16111,11 @@ Entries:
     id: 1994
     pr_number: 3468
     time: '2026-10-12T21:49:12Z'
+  - author: FriendlyOne
+    changes:
+      - {message: 'Рация ксеноборгов на ру х, заместо англ х', type: Tweak}
+      - {message: Мать ксеноборгов говорит на двоичном, type: Fix}
+      - {message: Ксеноборги не имеют доступ к сети киборгов НТ, type: Fix}
+    id: 1995
+    pr_number: 3480
+    time: '2026-10-12T21:55:59Z'
