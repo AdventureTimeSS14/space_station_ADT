@@ -91,6 +91,7 @@ public sealed class MorphSystem : SharedMorphSystem
         SubscribeLocalEvent<MorphAmbushComponent, UndisguisedEvent>(OnAmbusInteract);
         SubscribeLocalEvent<MorphComponent, MorphAmbushActionEvent>(OnAmbushAction);
         SubscribeLocalEvent<MorphAmbushComponent, UpdateCanMoveEvent>(OnCanMoveEvent);
+        SubscribeLocalEvent<MorphAmbushComponent, ComponentShutdown>(OnAmbushShutdown);
 
         SubscribeLocalEvent<MorphComponent, MorphDevourDoAfterEvent>(OnDoDevourAfter);
     }
@@ -139,6 +140,8 @@ public sealed class MorphSystem : SharedMorphSystem
     private void OnAttack(Entity<MorphComponent> ent, ref MeleeHitEvent args)
     {
         _chameleon.TryReveal(ent.Owner);
+        if (args.HitEntities.Count == 0)
+            return;
         if (!TryComp<HandsComponent>(args.HitEntities[0], out var hands))
             return;
         if (!TryComp<SatiationComponent>(ent, out var hunger))
@@ -222,11 +225,21 @@ public sealed class MorphSystem : SharedMorphSystem
     }
     private void OnCanMoveEvent(EntityUid uid, MorphAmbushComponent component, UpdateCanMoveEvent args)
     {
+        if (component.LifeStage > ComponentLifeStage.Running)
+            return;
+
         args.Cancel();
+    }
+    private void OnAmbushShutdown(EntityUid uid, MorphAmbushComponent component, ComponentShutdown args)
+    {
+        _actionBlocker.UpdateCanMove(uid);
     }
     private void OnAmbushAttack(Entity<MorphAmbushComponent> ent, ref MeleeHitEvent args)
     {
-        _stun.TryKnockdown(args.HitEntities[0], TimeSpan.FromSeconds(ent.Comp.StunTimeInteract), false);
+        foreach (var hit in args.HitEntities)
+        {
+            _stun.TryKnockdown(hit, TimeSpan.FromSeconds(ent.Comp.StunTimeInteract), false);
+        }
         AmbushBreak(ent);
     }
     public void AmbushBreak(EntityUid uid)
@@ -240,11 +253,6 @@ public sealed class MorphSystem : SharedMorphSystem
         }
         if (TryComp<ChameleonProjectorComponent>(uid, out var chamel) && chamel.Disguised != null)
             RemCompDeferred<MorphAmbushComponent>(chamel.Disguised.Value);
-        if (TryComp<InputMoverComponent>(uid, out var input))
-        {
-            input.CanMove = true;
-            Dirty(uid, input);
-        }
     }
     private void OnAmbusInteract(EntityUid uid, MorphAmbushComponent component, UndisguisedEvent args)
     {
