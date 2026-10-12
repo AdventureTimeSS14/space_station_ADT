@@ -16126,3 +16126,10 @@ Entries:
     id: 1996
     pr_number: 3485
     time: '2026-10-12T21:57:38Z'
+  - author: FriendlyOne
+    changes:
+      - {message: 'Таблетки этилредоксразина чуть лучше помогают с опьянением, и чуть
+          хуже помогают с ядами', type: Tweak}
+    id: 1997
+    pr_number: 3493
+    time: '2026-10-12T22:04:58Z'
