@@ -10,6 +10,7 @@ using Content.Shared.Follower.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 using Content.Shared.StatusEffect;
+using Content.Shared.Throwing;
 using Robust.Shared.Prototypes;
 using System.Linq;
 using System.Numerics;
@@ -73,6 +74,7 @@ public sealed class ProtectiveBladeSystem : EntitySystem
             after: [typeof(HereticAbilitySystem), typeof(RiposteeSystem)]);
         SubscribeLocalEvent<ProtectiveBladesComponent, ProjectileReflectAttemptEvent>(OnProjectileReflectAttempt);
         SubscribeLocalEvent<ProtectiveBladesComponent, HitScanReflectAttemptEvent>(OnHitscanReflectAttempt);
+        SubscribeLocalEvent<ProtectiveBladesComponent, ThrowHitByEvent>(OnThrownHitBy);
 
         SubscribeLocalEvent<ProtectiveBladesComponent, StoppedFollowingEntityEvent>(OnStopFollowing);
 
@@ -121,15 +123,38 @@ public sealed class ProtectiveBladeSystem : EntitySystem
         foreach (var blade in GetBlades(ent))
         {
             if (!TryComp<ReflectComponent>(blade, out var reflect))
-                return;
-
-            if (!_reflect.TryReflectProjectile((blade, reflect), ent, args.ProjUid))
                 continue;
 
-            args.Cancelled = true;
+            if (_reflect.TryReflectProjectile((blade, reflect), ent, args.ProjUid))
+            {
+                args.Cancelled = true;
+                RemoveProtectiveBlade(blade);
+                return;
+            }
+        }
+
+        foreach (var blade in GetBlades(ent))
+        {
+            QueueDel(args.ProjUid);
+            _audio.PlayPvs(BladeBlockSound, ent);
             RemoveProtectiveBlade(blade);
+            args.Cancelled = true;
             break;
         }
+    }
+
+    private void OnThrownHitBy(Entity<ProtectiveBladesComponent> ent, ref ThrowHitByEvent args)
+    {
+        if (args.Target != ent.Owner)
+            return;
+
+        var blades = GetBlades(ent);
+        if (blades.Count == 0)
+            return;
+
+        QueueDel(args.Thrown);
+        _audio.PlayPvs(BladeBlockSound, ent);
+        RemoveProtectiveBlade(blades[0]);
     }
 
     private void OnHitscanReflectAttempt(Entity<ProtectiveBladesComponent> ent, ref HitScanReflectAttemptEvent args)
@@ -140,7 +165,7 @@ public sealed class ProtectiveBladeSystem : EntitySystem
         foreach (var blade in GetBlades(ent))
         {
             if (!TryComp<ReflectComponent>(blade, out var reflect))
-                return;
+                continue;
 
             if (!_reflect.TryReflectHitscan(
                     (blade, reflect),

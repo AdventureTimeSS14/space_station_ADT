@@ -5,6 +5,7 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Humanoid;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Timing;
 
@@ -44,6 +45,9 @@ public sealed partial class RaggedSwordSystem : EntitySystem
             if (TerminatingOrDeleted(victim) || victim == owner)
                 continue;
 
+            if (!HasComp<HumanoidProfileComponent>(victim))
+                continue;
+
             if (TryComp<MobStateComponent>(victim, out var state) && _mobState.IsDead(victim, state))
                 killed = true;
         }
@@ -57,7 +61,7 @@ public sealed partial class RaggedSwordSystem : EntitySystem
         if (!TryComp<MobThresholdsComponent>(owner, out var thresholds))
             return;
 
-        foreach (var (damage, state) in thresholds.Thresholds)
+        foreach (var (damage, state) in thresholds.Thresholds.ToList())
             _threshold.SetMobStateThreshold(owner, damage + amount, state, thresholds);
 
         if (!TryComp<DamageableComponent>(owner, out var damageable))

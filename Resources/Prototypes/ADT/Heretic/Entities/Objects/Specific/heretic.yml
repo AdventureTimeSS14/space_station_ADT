@@ -81,6 +81,12 @@
   - type: InteractionOutline
   - type: ProtectiveBlade
     lifetime: 60
+  - type: Reflect
+    reflects:
+    - Energy
+    - NonEnergy
+    reflectProb: 1
+    spread: 0
   - type: Physics
     bodyType: Dynamic
     fixedRotation: false
@@ -298,27 +304,6 @@
     soundHit:
       collection: GlassBreak
   - type: Unremoveable
-  - type: Tag
-    tags:
-    - HereticItem
-
-- type: entity
-  parent: [ BaseItem, BaseMagicContraband ]
-  id: HereticEyeMedallion
-  name: ent-HereticEyeMedallion
-  description: ent-HereticEyeMedallion-desc
-  components:
-  - type: Sprite
-    sprite: ADT/Heretic/items.rsi
-    state: eye_medalion
-  - type: Icon
-    sprite: ADT/Heretic/items.rsi
-    state: eye_medalion
-  - type: Item
-    size: Tiny
-  - type: Clothing
-    slots:
-    - neck
   - type: Tag
     tags:
     - HereticItem

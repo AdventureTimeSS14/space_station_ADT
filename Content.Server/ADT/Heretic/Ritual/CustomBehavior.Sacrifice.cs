@@ -12,6 +12,7 @@ using Content.Server.Medical.SuitSensors;
 using Content.Server.Objectives.Components;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Shared.Chat;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
@@ -70,6 +71,9 @@ namespace Content.Server.Heretic.Ritual;
     [DataField]
     public bool GibOnInvalid;
 
+    [DataField]
+    public float MinCellular;
+
     // this is awful but it works so i'm not complaining
     protected SharedMindSystem _mind = default!;
     protected HereticSystem _heretic = default!;
@@ -112,6 +116,14 @@ namespace Content.Server.Heretic.Ritual;
 
             if (mobstate.CurrentState == Shared.Mobs.MobState.Alive)
                 continue;
+
+            if (MinCellular > 0f && _heretic.GetCellularDamage(look) < MinCellular)
+            {
+                if (GibOnInvalid)
+                    (invalid ??= new List<EntityUid>()).Add(look);
+
+                continue;
+            }
 
             if (OnlyHumanoid && !args.EntityManager.HasComponent<HumanoidProfileComponent>(look))
             {

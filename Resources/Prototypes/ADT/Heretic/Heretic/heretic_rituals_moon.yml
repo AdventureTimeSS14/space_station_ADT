@@ -50,7 +50,7 @@
   customBehaviors:
   - !type:RitualCanAscend
   - !type:RitualSacrificeBehavior
-    gibOnInvalid: true
+    minCellular: 50
     min: 3
     max: 3
   outputKnowledge: LastAct

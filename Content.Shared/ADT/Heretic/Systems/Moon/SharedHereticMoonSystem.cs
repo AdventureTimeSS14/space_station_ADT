@@ -11,6 +11,7 @@ public abstract class SharedHereticMoonSystem : EntitySystem
 {
     [Dependency] protected readonly DamageableSystem Damage = default!;
     [Dependency] protected readonly IPrototypeManager Proto = default!;
+    [Dependency] private readonly SharedHereticSystem _heretic = default!;
 
     public void EnsureSanity(EntityUid uid)
     {
@@ -47,6 +48,13 @@ public abstract class SharedHereticMoonSystem : EntitySystem
 
     public bool IsHereticOrLunatic(EntityUid uid)
     {
-        return HasComp<Content.Shared.Heretic.HereticComponent>(uid) || HasComp<MoonLunaticComponent>(uid) || HasComp<Content.Shared.Heretic.GhoulComponent>(uid);
+        if (HasComp<MoonLunaticComponent>(uid))
+            return true;
+        return _heretic.IsHereticOrGhoul(uid);
+    }
+
+    public bool IsHereticGhoulOrLunatic(EntityUid uid)
+    {
+        return IsHereticOrLunatic(uid);
     }
 }

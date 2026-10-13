@@ -10,4 +10,7 @@ public sealed partial class LunarParadeProjectileComponent : Component
 
     [DataField]
     public int MaxBounces = 40;
+
+    [DataField]
+    public HashSet<EntityUid> Hit = new();
 }

@@ -13,10 +13,16 @@
   description: ent-HereticPaintingWeeping-desc
   components:
   - type: Sprite
-    sprite: ADT/Heretic/Entities/paper_wall.rsi
-    state: icon
+    sprite: Structures/Wallmounts/paintings.rsi
+    state: painting3
   - type: HereticPainting
     kind: Weeping
+  - type: ActivatableUI
+    key: enum.PaintingCurseUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.PaintingCurseUiKey.Key:
+        type: PaintingCurseBoundUserInterface
 
 - type: entity
   parent: BaseWallmount
@@ -25,10 +31,16 @@
   description: ent-HereticPaintingDesire-desc
   components:
   - type: Sprite
-    sprite: ADT/Heretic/Entities/paper_wall.rsi
-    state: icon
+    sprite: Structures/Wallmounts/paintings.rsi
+    state: painting6
   - type: HereticPainting
     kind: Desire
+  - type: ActivatableUI
+    key: enum.PaintingCurseUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.PaintingCurseUiKey.Key:
+        type: PaintingCurseBoundUserInterface
 
 - type: entity
   parent: BaseWallmount
@@ -37,10 +49,16 @@
   description: ent-HereticPaintingVines-desc
   components:
   - type: Sprite
-    sprite: ADT/Heretic/Entities/paper_wall.rsi
-    state: icon
+    sprite: Structures/Wallmounts/paintings.rsi
+    state: painting9
   - type: HereticPainting
     kind: Vines
+  - type: ActivatableUI
+    key: enum.PaintingCurseUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.PaintingCurseUiKey.Key:
+        type: PaintingCurseBoundUserInterface
 
 - type: entity
   parent: BaseWallmount
@@ -49,10 +67,16 @@
   description: ent-HereticPaintingBeauty-desc
   components:
   - type: Sprite
-    sprite: ADT/Heretic/Entities/paper_wall.rsi
-    state: icon
+    sprite: Structures/Wallmounts/paintings.rsi
+    state: painting14
   - type: HereticPainting
     kind: Beauty
+  - type: ActivatableUI
+    key: enum.PaintingCurseUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.PaintingCurseUiKey.Key:
+        type: PaintingCurseBoundUserInterface
 
 - type: entity
   parent: BaseWallmount
@@ -61,13 +85,19 @@
   description: ent-HereticPaintingRust-desc
   components:
   - type: Sprite
-    sprite: ADT/Heretic/Entities/paper_wall.rsi
-    state: icon
+    sprite: Structures/Wallmounts/paintings.rsi
+    state: painting18
   - type: HereticPainting
     kind: Rust
+  - type: ActivatableUI
+    key: enum.PaintingCurseUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.PaintingCurseUiKey.Key:
+        type: PaintingCurseBoundUserInterface
 
 - type: entity
-  parent: BaseStructure
+  parent: BaseStructureDynamic
   id: HereticMansusGate
   name: ent-HereticMansusGate
   description: ent-HereticMansusGate-desc
@@ -83,7 +113,7 @@
   - type: Transform
     anchored: false
   - type: Physics
-    bodyType: Static
+    bodyType: Dynamic
   - type: Fixtures
     fixtures:
       fix1:
@@ -94,8 +124,10 @@
         - WallLayer
         mask:
         - MobMask
-        density: 1000
+        density: 60
         hard: false
+  - type: Pullable
+  - type: Anchorable
   - type: Clickable
   - type: Damageable
     damageModifierSet: StructuralMetallic

@@ -120,7 +120,6 @@
   # ADT: no decapitation without shitmed, plain sacrifice
   - !type:RitualCanAscend
   - !type:RitualSacrificeBehavior
-    gibOnInvalid: true
     min: 3
     max: 3
   outputKnowledge: MaelstromOfSilver
@@ -234,7 +233,6 @@
   customBehaviors:
   - !type:RitualCanAscend
   - !type:RitualSacrificeBehavior
-    gibOnInvalid: true
     min: 3
     max: 3
   - !type:RitualTemperatureBehavior
@@ -360,7 +358,6 @@
     Flare: 1
   output:
     ClothingEldritchMedalion: 1
-    HereticEyeMedallion: 1
 
 - type: hereticRitual
   id: PriestRitual
@@ -730,7 +727,6 @@
   customBehaviors:
   - !type:RitualCanAscend
   - !type:RitualSacrificeBehavior
-    gibOnInvalid: true
     min: 3
     max: 3
   outputKnowledge: UnlockTheLabyrinth

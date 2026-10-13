@@ -1,4 +1,6 @@
 using Content.Shared.ADT.Heretic.Components.Side;
+using Content.Shared.ADT.Heretic.Components.Moon;
+using Content.Shared.ADT.Heretic;
 using Content.Shared.ADT.Heretic.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
@@ -10,17 +12,24 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Popups;
 using Content.Shared.Speech.EntitySystems;
 using Content.Shared.StatusEffect;
 using Content.Shared.StatusEffectNew;
+using Content.Shared.UserInterface;
 using Content.Shared.Stunnable;
+using Content.Shared.Station;
 using Content.Server.ADT.Heretic.Abilities;
 using Robust.Shared.Map;
 using Content.Server.Heretic.Abilities;
+using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 using OldStatusEffectsSystem = Content.Shared.StatusEffect.StatusEffectsSystem;
 using SharedStatusEffectsSystem = Content.Shared.StatusEffectNew.StatusEffectsSystem;
 
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
+using Robust.Shared.Player;
 
 namespace Content.Server.ADT.Heretic.EntitySystems;
 
@@ -40,19 +49,24 @@ public sealed partial class HereticPaintingSystem : EntitySystem
     [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDef = default!;
+    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private readonly SharedStationSystem _station = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     private float _acc;
-    private float _rustAcc;
+    private float _blessAcc;
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        _rustAcc += frameTime;
-        if (_rustAcc >= 3f)
+        _blessAcc += frameTime;
+        if (_blessAcc >= 1f)
         {
-            _rustAcc = 0f;
-            RustTiles();
+            _blessAcc = 0f;
+            TickBlessings();
         }
 
         _acc += frameTime;
@@ -60,67 +74,103 @@ public sealed partial class HereticPaintingSystem : EntitySystem
             return;
         _acc = 0f;
 
-        var query = EntityQueryEnumerator<HereticPaintingComponent, TransformComponent>();
-        while (query.MoveNext(out var uid, out var paint, out var xform))
+        var query = EntityQueryEnumerator<HereticPaintingCurseComponent>();
+        while (query.MoveNext(out var uid, out var curse))
         {
-            foreach (var ent in _lookup.GetEntitiesInRange<MobStateComponent>(xform.Coordinates, 5f))
+            curse.TimeLeft -= 10f;
+            if (curse.TimeLeft <= 0f || TerminatingOrDeleted(uid))
             {
-                if (!_mobState.IsAlive(ent))
-                    continue;
-                if (_heretic.IsHereticOrGhoul(ent))
-                    continue;
-
-                switch (paint.Kind)
-                {
-                    case HereticPaintingKind.Weeping:
-                        _jitter.DoJitter(ent, TimeSpan.FromSeconds(4f), true);
-                        break;
-
-                    case HereticPaintingKind.Desire:
-                        if (TryComp<HungerComponent>(ent, out var hunger))
-                            _hunger.ModifyHunger(ent, -75f, hunger);
-                        break;
-
-                    case HereticPaintingKind.Vines:
-                        _statusNew.TryAddStatusEffectDuration(ent, "SlowedDown", TimeSpan.FromSeconds(10));
-                        break;
-
-                    case HereticPaintingKind.Beauty:
-                        Scratch(ent);
-                        break;
-
-                    case HereticPaintingKind.Rust:
-                        break;
-                }
+                RemCompDeferred<HereticPaintingCurseComponent>(uid);
+                continue;
             }
+
+            if (!_mobState.IsAlive(uid))
+                continue;
+
+            ApplyCurse(uid, curse.Kind);
+            Dirty(uid, curse);
         }
     }
 
-    private void RustTiles()
+
+    private void TickBlessings()
     {
-        var query = EntityQueryEnumerator<HereticPaintingComponent>();
-        while (query.MoveNext(out var uid, out var paint))
+        var now = _timing.CurTime;
+        var query = EntityQueryEnumerator<HereticPaintingBlessingComponent>();
+        while (query.MoveNext(out var uid, out var bless))
         {
-            if (paint.Kind != HereticPaintingKind.Rust)
-                continue;
-
-            foreach (var ent in _lookup.GetEntitiesInRange<MobStateComponent>(Transform(uid).Coordinates, 5f))
+            bless.TimeLeft -= 1f;
+            if (bless.TimeLeft <= 0f || TerminatingOrDeleted(uid))
             {
-                if (!_mobState.IsAlive(ent))
-                    continue;
-                if (_heretic.IsHereticOrGhoul(ent))
-                    continue;
-
-                var coords = _xform.GetMapCoordinates(ent);
-                if (!_mapMan.TryFindGridAt(coords, out var gridUid, out var grid))
-                    continue;
-
-                var tile = _map.GetTileRef((gridUid, grid), coords);
-                var ability = EntitySystem.Get<HereticAbilitySystem>();
-                if (ability.CanRustTile((ContentTileDefinition) _tileDef[tile.Tile.TypeId]))
-                    ability.MakeRustTile(gridUid, grid, tile, RustTilePrototype);
+                RemCompDeferred<HereticPaintingBlessingComponent>(uid);
+                continue;
             }
+
+            var actions = EntityQueryEnumerator<ActionComponent>();
+            while (actions.MoveNext(out var actionUid, out var action))
+            {
+                if (action.AttachedEntity != uid)
+                    continue;
+
+                if (action.Cooldown == null)
+                {
+                    bless.Processed.Remove(actionUid);
+                    continue;
+                }
+
+                if (bless.Processed.TryGetValue(actionUid, out var seen) && seen == action.Cooldown.Value.Start)
+                    continue;
+
+                bless.Processed[actionUid] = action.Cooldown.Value.Start;
+                var reduced = action.Cooldown.Value.End - TimeSpan.FromSeconds(5);
+                Entity<Content.Shared.Actions.Components.ActionComponent?> act = (actionUid, action);
+                if (reduced <= now)
+                    _actions.ClearCooldown(act);
+                else
+                    _actions.SetCooldown(act, action.Cooldown.Value.Start, reduced);
+            }
+
+            Dirty(uid, bless);
         }
+    }
+
+    private void ApplyCurse(EntityUid victim, HereticPaintingKind kind)
+    {
+        switch (kind)
+        {
+            case HereticPaintingKind.Weeping:
+                _jitter.DoJitter(victim, TimeSpan.FromSeconds(4f), true);
+                break;
+
+            case HereticPaintingKind.Desire:
+                if (TryComp<HungerComponent>(victim, out var hunger))
+                    _hunger.ModifyHunger(victim, -75f, hunger);
+                break;
+
+            case HereticPaintingKind.Vines:
+                _statusNew.TryAddStatusEffectDuration(victim, "SlowedDown", TimeSpan.FromSeconds(10));
+                break;
+
+            case HereticPaintingKind.Beauty:
+                Scratch(victim);
+                break;
+
+            case HereticPaintingKind.Rust:
+                RustUnder(victim);
+                break;
+        }
+    }
+
+    private void RustUnder(EntityUid victim)
+    {
+        var coords = _xform.GetMapCoordinates(victim);
+        if (!_mapMan.TryFindGridAt(coords, out var gridUid, out var grid))
+            return;
+
+        var tile = _map.GetTileRef((gridUid, grid), coords);
+        var ability = EntitySystem.Get<HereticAbilitySystem>();
+        if (ability.CanRustTile((ContentTileDefinition) _tileDef[tile.Tile.TypeId]))
+            ability.MakeRustTile(gridUid, grid, tile, RustTilePrototype);
     }
 
     private void Scratch(EntityUid ent)
@@ -145,6 +195,119 @@ public sealed partial class HereticPaintingSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<HereticPaintingComponent, ExaminedEvent>(OnExamine);
+        SubscribeLocalEvent<HereticPaintingComponent, BoundUIOpenedEvent>(OnUiOpened);
+        SubscribeLocalEvent<HereticPaintingComponent, PaintingCurseSelectMessage>(OnSelect);
+        SubscribeLocalEvent<HereticPaintingComponent, BoundUIClosedEvent>(OnUiClosed);
+    }
+
+    private void OnUiOpened(Entity<HereticPaintingComponent> ent, ref BoundUIOpenedEvent args)
+    {
+        if (!_heretic.IsHereticOrGhoul(args.Actor))
+        {
+            _ui.CloseUi(ent.Owner, PaintingCurseUiKey.Key, args.Actor);
+            return;
+        }
+
+        var targets = new List<PaintingCurseTargetInfo>();
+        ent.Comp.ValidTargets.Clear();
+
+        var query = EntityQueryEnumerator<ActorComponent, MobStateComponent, MetaDataComponent>();
+        while (query.MoveNext(out var uid, out _, out _, out var meta))
+        {
+            if (uid == args.Actor)
+                continue;
+
+            if (!_mobState.IsAlive(uid))
+                continue;
+
+            if (_heretic.IsHereticOrGhoul(uid))
+                continue;
+
+            if (_station.GetOwningStation(uid) == null)
+                continue;
+
+            var netEntity = GetNetEntity(uid);
+            ent.Comp.ValidTargets.Add(netEntity);
+
+            targets.Add(new PaintingCurseTargetInfo
+            {
+                Entity = netEntity,
+                Name = meta.EntityName,
+            });
+        }
+
+        _ui.SetUiState(ent.Owner, PaintingCurseUiKey.Key, new PaintingCurseBuiState(targets));
+    }
+
+    private void OnSelect(Entity<HereticPaintingComponent> ent, ref PaintingCurseSelectMessage args)
+    {
+        if (!_heretic.IsHereticOrGhoul(args.Actor))
+            return;
+
+        if (!ent.Comp.ValidTargets.Contains(args.Target))
+            return;
+
+        var victim = GetEntity(args.Target);
+        if (!Exists(victim) || victim == args.Actor)
+            return;
+
+        if (!HasComp<MobStateComponent>(victim) || !_mobState.IsAlive(victim))
+            return;
+
+        ent.Comp.ValidTargets.Clear();
+        _ui.CloseUi(ent.Owner, PaintingCurseUiKey.Key);
+
+        var curse = EnsureComp<HereticPaintingCurseComponent>(victim);
+        curse.Kind = ent.Comp.Kind;
+        curse.TimeLeft = 120f;
+        Dirty(victim, curse);
+
+        _popup.PopupEntity(Loc.GetString("heretic-painting-cursed", ("target", victim)), args.Actor, args.Actor, PopupType.Medium);
+        BlessHeretic(args.Actor, ent.Comp.Kind);
+        QueueDel(ent.Owner);
+    }
+
+    private void OnUiClosed(Entity<HereticPaintingComponent> ent, ref BoundUIClosedEvent args)
+    {
+        ent.Comp.ValidTargets.Clear();
+    }
+
+
+    private void BlessHeretic(EntityUid heretic, HereticPaintingKind kind)
+    {
+        switch (kind)
+        {
+            case HereticPaintingKind.Weeping:
+                var sanity = EnsureComp<HereticSanityComponent>(heretic);
+                sanity.Current = Math.Min(sanity.Max, sanity.Current + 50f);
+                Dirty(heretic, sanity);
+                if (TryComp(heretic, out StatusEffectsComponent? weepStatus))
+                    _statusOld.TryRemoveStatusEffect(heretic, "Jitter", weepStatus);
+                break;
+
+            case HereticPaintingKind.Desire:
+                if (TryComp<HungerComponent>(heretic, out var hunger))
+                    _hunger.ModifyHunger(heretic, 500f, hunger);
+                break;
+
+            case HereticPaintingKind.Vines:
+                _statusNew.TryRemoveStatusEffect(heretic, "SlowedDown");
+                _statusNew.TryAddStatusEffectDuration(heretic, "ReagentSpeedStatusEffect", TimeSpan.FromSeconds(30));
+                break;
+
+            case HereticPaintingKind.Beauty:
+                var bless = EnsureComp<HereticPaintingBlessingComponent>(heretic);
+                bless.TimeLeft = 120f;
+                bless.Processed.Clear();
+                Dirty(heretic, bless);
+                break;
+
+            case HereticPaintingKind.Rust:
+                _statusNew.TryRemoveStatusEffect(heretic, "SlowedDown");
+                if (TryComp(heretic, out StatusEffectsComponent? rustStatus))
+                    _statusOld.TryRemoveStatusEffect(heretic, "Jitter", rustStatus);
+                break;
+        }
     }
 
     private void OnExamine(Entity<HereticPaintingComponent> ent, ref ExaminedEvent args)
@@ -168,5 +331,8 @@ public sealed partial class HereticPaintingSystem : EntitySystem
                 args.PushMarkup(Loc.GetString(isHeretic ? "heretic-painting-rust-heretic" : "heretic-painting-rust-heathen"));
                 break;
         }
+
+        if (isHeretic)
+            args.PushMarkup(Loc.GetString("heretic-painting-choose"));
     }
 }

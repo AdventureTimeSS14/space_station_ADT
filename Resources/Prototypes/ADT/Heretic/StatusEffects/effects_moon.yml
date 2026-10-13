@@ -70,4 +70,11 @@
   - type: GrantComponentsStatusEffect
     components:
     - type: MoonGraspHide
-    - type: StripMenuInvisible
+    - type: Stealth
+      enabled: true
+      minVisibility: -1
+      lastVisibility: -1
+      maxVisibility: 0
+    - type: StealthOnMove
+      passiveVisibilityRate: -0.5
+      movementVisibilityRate: 0.1

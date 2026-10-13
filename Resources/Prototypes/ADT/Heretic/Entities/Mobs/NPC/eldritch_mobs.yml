@@ -247,3 +247,22 @@
         Quantity: 10
     bleedReductionAmount: 0.1
     maxBleedAmount: 0.5
+
+
+- type: entity
+  id: MobMoonApparition
+  name: moon mass
+  suffix: Hallucination
+  categories:
+  - HideSpawnMenu
+  components:
+  - type: Sprite
+    color: "#B79CFF99"
+    noRot: true
+    sprite: ADT/Heretic/eldritch_mobs.rsi
+    state: moon_mass
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: MoonHallucination
+    duration: 15

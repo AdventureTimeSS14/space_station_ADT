@@ -470,3 +470,16 @@
         - BulletImpassable
         - Opaque
   - type: VoidAscensionAura
+
+
+- type: entity
+  id: MoonAscensionAura
+  name: ascension aura
+  suffix: Heretic
+  categories:
+  - HideSpawnMenu
+  components:
+  - type: MoonAscensionAura
+  - type: Tag
+    tags:
+    - HideContextMenu

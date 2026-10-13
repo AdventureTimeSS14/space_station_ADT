@@ -107,3 +107,6 @@ heretic-painting-beauty-heretic = Она находит вас прекрасн�
 heretic-painting-beauty-heathen = Она крадёт ваши слова.
 heretic-painting-rust-heretic = Она щадит ваши шаги.
 heretic-painting-rust-heathen = Она ржавит пол под вами.
+heretic-painting-window-title = Выбери жертву
+heretic-painting-cursed = Картина рассыпается, и проклятие овладевает { $target }!
+heretic-painting-choose = Используй её, чтобы выбрать жертву проклятия. Картина рассыплется.

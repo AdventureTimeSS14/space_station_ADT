@@ -1,11 +1,15 @@
 using Content.Server.Actions;
+using Content.Shared.Actions.Components;
 using Content.Shared.ADT.Deafness;
 using Content.Shared.ADT.Heretic.Components.Moon;
 using Content.Shared.ADT.Heretic.Moon;
 using Content.Shared.ADT.Heretic.Systems;
 using Content.Shared.ADT.Heretic.Systems.Moon;
 using Content.Shared.Body;
+using Content.Shared.Clumsy;
 using Content.Shared.Body.Components;
+using Content.Shared.Humanoid;
+using Robust.Shared.GameObjects;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Damage;
 using Content.Shared.Eye.Blinding.Systems;
@@ -26,6 +30,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 using OldStatusEffectsComponent = Content.Shared.StatusEffect.StatusEffectsComponent;
 using OldStatusEffectsSystem = Content.Shared.StatusEffect.StatusEffectsSystem;
 
@@ -47,7 +52,9 @@ public sealed class HereticMoonAbilitySystem : SharedHereticMoonSystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
     [Dependency] private readonly SharedVisualBodySystem _body = default!;
+    [Dependency] private readonly SharedMoonHallucinationSystem _hallucinations = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -104,6 +111,10 @@ public sealed class HereticMoonAbilitySystem : SharedHereticMoonSystem
             return;
         if (!_heretic.TryGetHereticComponent(performer, out var heretic, out _))
             return;
+        if (target == performer)
+            return;
+        if (IsHereticOrLunatic(target))
+            return;
         DealCellular(performer, args.SelfCellular, performer);
         EnsureSanity(target);
         var sanity = GetSanity(target);
@@ -118,13 +129,14 @@ public sealed class HereticMoonAbilitySystem : SharedHereticMoonSystem
         Dirty(target, deaf);
         if (TryComp(target, out OldStatusEffectsComponent? status))
         {
-            _statusOld.TryAddStatusEffect(target, "Muted", duration, true, status);
+            _statusOld.TryAddStatusEffect<Content.Shared.Speech.Muting.MutedComponent>(target, "Muted", duration, true, status);
             _statusNew.TryAddStatusEffectDuration(target, BlindnessSystem.BlindingStatusEffect, duration);
             _statusOld.TryAddStatusEffect(target, "Jitter", TimeSpan.FromSeconds(10), true, status);
             _statusOld.TryAddStatusEffect(target, "SlurredSpeech", duration, true, status);
         }
         DealCellular(target, args.TargetCellular, performer);
         AdjustSanity(target, -20f);
+        _hallucinations.CauseHallucinations(target, 2, 15f, true);
         if (sanity < 40f)
             _stun.TryKnockdown(target, TimeSpan.FromSeconds(2), true);
         if (TryComp(performer, out MoonPassiveComponent? passive) && passive.AmuletEquipped)
@@ -138,12 +150,15 @@ public sealed class HereticMoonAbilitySystem : SharedHereticMoonSystem
         var performer = args.Performer;
         var from = _transform.GetMapCoordinates(performer);
         var to = args.Target;
+        if (to.MapId != from.MapId)
+            return;
         var dir = to.Position - from.Position;
         if (dir.Length() < 0.1f)
             dir = new System.Numerics.Vector2(1f, 0f);
         else
             dir = dir.Normalized();
-        var proj = Spawn(args.Projectile, _transform.GetMapCoordinates(performer));
+        var spawnCoords = new Robust.Shared.Map.MapCoordinates(from.Position + dir * 0.6f, from.MapId);
+        var proj = Spawn(args.Projectile, spawnCoords);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/ADT/Heretic/cosmic_energy.ogg"), performer);
         _gun.ShootProjectile(proj, dir, System.Numerics.Vector2.Zero, performer, performer, args.ProjectileSpeed);
     }
@@ -170,8 +185,25 @@ public sealed class HereticMoonAbilitySystem : SharedHereticMoonSystem
             illusionComp.Caster = GetNetEntity(performer);
             Dirty(illusion, illusionComp);
             _meta.SetEntityName(illusion, performerName);
+            _meta.SetEntityDescription(illusion, MetaData(performer).EntityDescription);
             if (TryComp<BodyComponent>(performer, out _) && TryComp<BodyComponent>(illusion, out _))
                 _body.CopyAppearanceFrom(performer, illusion);
+            if (TryComp<SpriteComponent>(performer, out var perfSprite) && TryComp<SpriteComponent>(illusion, out var illSprite))
+            {
+                illSprite.Sprite = perfSprite.Sprite;
+                illSprite.Color = perfSprite.Color;
+                illSprite.NoRot = perfSprite.NoRot;
+                illSprite.Offset = perfSprite.Offset;
+                illSprite.Scale = perfSprite.Scale;
+                illSprite.DrawDepth = perfSprite.DrawDepth;
+                Dirty(illusion, illSprite);
+            }
+            if (TryComp<HumanoidProfileComponent>(performer, out var perfProfile))
+            {
+                var illProfile = EnsureComp<HumanoidProfileComponent>(illusion);
+                illProfile.CustomName = perfProfile.CustomName;
+                Dirty(illusion, illProfile);
+            }
         }
     }
 
@@ -190,17 +222,33 @@ public sealed class HereticMoonAbilitySystem : SharedHereticMoonSystem
         }
         var ourCoords = _transform.GetMapCoordinates(performer);
         var theirCoords = _transform.GetMapCoordinates(master);
-        var dist = (theirCoords.Position - ourCoords.Position).Length();
-        string msg;
-        if (dist < 15f)
-            msg = Loc.GetString("heretic-moon-echo-near");
-        else if (dist < 32f)
-            msg = Loc.GetString("heretic-moon-echo-mid");
-        else
-            msg = Loc.GetString("heretic-moon-echo-far");
+        string dist;
         if (ourCoords.MapId != theirCoords.MapId)
-            msg = Loc.GetString("heretic-moon-echo-far");
-        _popup.PopupEntity(msg, performer, performer);
+        {
+            _popup.PopupEntity(Loc.GetString("heretic-moon-echo-far"), performer, performer);
+            return;
+        }
+        var delta = theirCoords.Position - ourCoords.Position;
+        var distLen = delta.Length();
+        if (distLen < 15f)
+            dist = Loc.GetString("heretic-moon-echo-near");
+        else if (distLen < 32f)
+            dist = Loc.GetString("heretic-moon-echo-mid");
+        else
+            dist = Loc.GetString("heretic-moon-echo-far");
+        var angle = Math.Atan2(delta.Y, delta.X) * 180.0 / Math.PI;
+        var dir = angle switch
+        {
+            >= -22.5 and < 22.5 => Loc.GetString("heretic-moon-echo-dir-e"),
+            >= 22.5 and < 67.5 => Loc.GetString("heretic-moon-echo-dir-ne"),
+            >= 67.5 and < 112.5 => Loc.GetString("heretic-moon-echo-dir-n"),
+            >= 112.5 and < 157.5 => Loc.GetString("heretic-moon-echo-dir-nw"),
+            >= 157.5 or < -157.5 => Loc.GetString("heretic-moon-echo-dir-w"),
+            >= -157.5 and < -112.5 => Loc.GetString("heretic-moon-echo-dir-sw"),
+            >= -112.5 and < -67.5 => Loc.GetString("heretic-moon-echo-dir-s"),
+            _ => Loc.GetString("heretic-moon-echo-dir-se"),
+        };
+        _popup.PopupEntity(Loc.GetString("heretic-moon-echo-full", ("dir", dir), ("dist", dist)), performer, performer);
     }
 
     private void OnTouchMadness(EventHereticTouchOfMadness args)
@@ -268,6 +316,7 @@ public sealed class HereticMoonAbilitySystem : SharedHereticMoonSystem
     public void ConvertToLunatic(EntityUid target, EntityUid master)
     {
         _statusNew.TryAddStatusEffectDuration(target, "MoonConvertedStatusEffect", TimeSpan.FromHours(1));
+        RemComp<ClumsyComponent>(target);
         var lunatic = EnsureComp<MoonLunaticComponent>(target);
         lunatic.Master = GetNetEntity(master);
         Dirty(target, lunatic);
@@ -276,6 +325,34 @@ public sealed class HereticMoonAbilitySystem : SharedHereticMoonSystem
         EntityUid? touch = null;
         _actions.AddAction(target, ref touch, "ActionHereticTouchOfMadness");
         Spawn("HereticMoonAmulet", Transform(target).Coordinates);
+        RechargeMoonSpells(master);
+        _hallucinations.CauseHallucinations(target, 3, 20f, true);
+    }
+
+    private void RechargeMoonSpells(EntityUid heretic)
+    {
+        var now = _timing.CurTime;
+        var query = EntityQueryEnumerator<ActionComponent>();
+        while (query.MoveNext(out var uid, out var action))
+        {
+            if (action.AttachedEntity != heretic)
+                continue;
+            if (action.Cooldown == null)
+                continue;
+            var proto = MetaData(uid).EntityPrototype?.ID;
+            if (proto != "ActionHereticMindGate" && proto != "ActionHereticLunarParade" && proto != "ActionHereticRingleadersRise")
+                continue;
+            var remaining = action.Cooldown.Value.End - now;
+            if (remaining <= TimeSpan.Zero)
+                continue;
+            var total = action.Cooldown.Value.End - action.Cooldown.Value.Start;
+            var reduced = remaining - total * 0.25;
+            Entity<Content.Shared.Actions.Components.ActionComponent?> act = (uid, action);
+            if (reduced <= TimeSpan.Zero)
+                _actions.ClearCooldown(act);
+            else
+                _actions.SetCooldown(act, action.Cooldown.Value.Start, now + reduced);
+        }
     }
 
     public void ChannelAmulet(EntityUid user, EntityUid target)

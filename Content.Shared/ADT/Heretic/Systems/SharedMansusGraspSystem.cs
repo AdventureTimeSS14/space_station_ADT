@@ -5,6 +5,7 @@ using Content.Shared.Damage.Components;
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Shared.ADT.Silicon.Components;
 using Content.Shared.ADT.Heretic.Systems;
+using Content.Shared.ADT.Heretic.Systems.Moon;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.ADT.BackStab;
 using Content.Shared.Damage;
@@ -57,8 +58,9 @@ public abstract class SharedMansusGraspSystem : EntitySystem
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly Content.Shared.Access.Systems.AccessReaderSystem _access = default!;
     [Dependency] private readonly Content.Shared.Mech.EntitySystems.SharedMechSystem _mech = default!;
-[Dependency] private readonly Content.Shared.Power.EntitySystems.SharedBatterySystem _battery = default!;
+    [Dependency] private readonly Content.Shared.Power.EntitySystems.SharedBatterySystem _battery = default!;
     [Dependency] private readonly Content.Shared.Lock.LockSystem _lock = default!;
+    [Dependency] private readonly SharedHereticSystem _heretic = default!;
     public bool TryApplyGraspEffectAndMark(EntityUid user,
         HereticComponent hereticComp,
         EntityUid target,
@@ -270,6 +272,12 @@ public abstract class SharedMansusGraspSystem : EntitySystem
             case "Moon":
             {
                 _statusNew.TryAddStatusEffectDuration(performer, "MoonGraspHideStatusEffect", TimeSpan.FromSeconds(15));
+                if (target == performer)
+                    break;
+                if (HasComp<Moon.MoonLunaticComponent>(target))
+                    break;
+                if (_heretic.IsHereticOrGhoul(target))
+                    break;
                 if (HasComp<StatusEffectsComponent>(target))
                 {
                     var sanity = EnsureComp<HereticSanityComponent>(target);
@@ -277,6 +285,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                     Dirty(target, sanity);
                     _statusNew.TryAddStatusEffectDuration(target, "MoonMarkStatusEffect", TimeSpan.FromSeconds(30));
                     _statusNew.TryAddStatusEffectDuration(target, "MoonConfusedStatusEffect", TimeSpan.FromSeconds(30));
+                    EntityManager.System<SharedMoonHallucinationSystem>().CauseHallucinations(target, 2, 15f, false);
                 }
                 break;
             }

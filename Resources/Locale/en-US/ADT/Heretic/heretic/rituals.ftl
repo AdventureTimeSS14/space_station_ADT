@@ -126,3 +126,7 @@ heretic-painting-beauty-heretic = It finds you beautiful.
 heretic-painting-beauty-heathen = It steals your words.
 heretic-painting-rust-heretic = It spares your steps.
 heretic-painting-rust-heathen = It rusts the floor beneath you.
+
+heretic-painting-window-title = Choose a victim
+heretic-painting-cursed = The painting crumbles as its curse takes hold of { $target }!
+heretic-painting-choose = Use it to choose a victim for the curse. The painting will crumble.

@@ -9,6 +9,7 @@ using System.Text;
 using Content.Shared.ADT.Heretic.Common;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.ADT.Heretic.Systems;
+using Content.Shared.ADT.Heretic.Systems.Moon;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.Atmos.Rotting;
 using Content.Shared.Body.Components;
@@ -242,7 +243,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
                 var sanityComp = EnsureComp<HereticSanityComponent>(target);
                 sanityComp.Current = Math.Max(0f, sanityComp.Current - 10f);
                 Dirty(target, sanityComp);
-                var cellular = sanityComp.Current >= 100f ? 5f : 12f;
+                var cellular = sanityComp.Current >= 100f ? 10f : 25f;
                 _damageable.TryChangeDamage(target,
                     new DamageSpecifier
                     {
@@ -254,6 +255,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
                     origin: performer);
                 if (TryComp(target, out StatusEffectsComponent? status))
                     _status.TryAddStatusEffect(target, "Jitter", TimeSpan.FromSeconds(10), true, status);
+                EntityManager.System<SharedMoonHallucinationSystem>().CauseHallucinations(target, 2, 15f, true);
                 break;
             }
 

@@ -1,8 +1,6 @@
-using Robust.Shared.GameStates;
-
 namespace Content.Server.ADT.Heretic.Components;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent]
 public sealed partial class AshAscendedComponent : Component
 {
     [DataField]

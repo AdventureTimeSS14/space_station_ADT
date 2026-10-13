@@ -17,12 +17,19 @@ using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.StatusEffectNew;
+using Content.Shared.Eye.Blinding.Systems;
+using Content.Shared.Station;
+using Content.Shared.Chat;
 using Content.Shared.Stunnable;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Player;
+using Robust.Shared.Random;
 using OldStatusEffectsComponent = Content.Shared.StatusEffect.StatusEffectsComponent;
 using OldStatusEffectsSystem = Content.Shared.StatusEffect.StatusEffectsSystem;
+
+using Content.Shared.ADT.Heretic.Systems.Moon;
 
 namespace Content.Server.ADT.Heretic.Systems.Moon;
 
@@ -42,6 +49,10 @@ public sealed class HereticMoonSystem : EntitySystem
     [Dependency] private readonly PullingSystem _pull = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly SharedMoonHallucinationSystem _hallucinations = default!;
+    [Dependency] private readonly SharedChatSystem _chat = default!;
+    [Dependency] private readonly SharedStationSystem _station = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     public override void Initialize()
     {
@@ -59,6 +70,26 @@ public sealed class HereticMoonSystem : EntitySystem
         SubscribeLocalEvent<LunarParadeProjectileComponent, StartCollideEvent>(OnParadeCollide);
         SubscribeLocalEvent<MoonParadeStatusComponent, ComponentRemove>(OnParadeRemove);
         SubscribeLocalEvent<HereticSanityComponent, ExaminedEvent>(OnSanityExamined);
+        SubscribeLocalEvent<DamageableComponent, BeforeStatusEffectAddedEvent>(OnBeforeMoonDebuff);
+    }
+
+    private static readonly HashSet<string> MoonDebuffs = new()
+    {
+        "MoonConfusedStatusEffect",
+        "MoonMarkStatusEffect",
+        "MoonParadeStatusEffect",
+        "MoonConvertedStatusEffect",
+        "MoonSleptStatusEffect",
+    };
+
+    private void OnBeforeMoonDebuff(Entity<DamageableComponent> ent, ref BeforeStatusEffectAddedEvent args)
+    {
+        if (args.Cancelled)
+            return;
+        if (!MoonDebuffs.Contains(args.Effect.Id))
+            return;
+        if (_heretic.IsHereticOrGhoul(ent) || HasComp<MoonLunaticComponent>(ent))
+            args.Cancelled = true;
     }
 
     private void OnSanityExamined(Entity<HereticSanityComponent> ent, ref ExaminedEvent args)
@@ -78,7 +109,7 @@ public sealed class HereticMoonSystem : EntitySystem
     {
         if (!TryComp(ent, out OldStatusEffectsComponent? status))
             return;
-        _statusOld.TryAddStatusEffect(ent, "Muted", TimeSpan.FromHours(1), true, status);
+        _statusOld.TryAddStatusEffect<Content.Shared.Speech.Muting.MutedComponent>(ent, "Muted", TimeSpan.FromHours(1), true, status);
         _popup.PopupEntity(Loc.GetString("heretic-moon-converted-popup"), ent, ent);
     }
 
@@ -106,7 +137,8 @@ public sealed class HereticMoonSystem : EntitySystem
     {
         if (!TryComp(ent, out OldStatusEffectsComponent? status))
             return;
-        _statusOld.TryAddStatusEffect(ent, "Pacified", TimeSpan.FromSeconds(30), true, status);
+        _statusOld.TryAddStatusEffect<Content.Shared.CombatMode.Pacification.PacifiedComponent>(ent, "Pacified", TimeSpan.FromSeconds(30), true, status);
+        _chat.TryEmoteWithoutChat(ent, "Laugh");
         _popup.PopupEntity(Loc.GetString("heretic-moon-mark-popup"), ent, ent);
     }
 
@@ -143,8 +175,30 @@ public sealed class HereticMoonSystem : EntitySystem
 
     private void OnParadeHit(Entity<LunarParadeProjectileComponent> ent, ref ProjectileHitEvent args)
     {
+        if (TryComp<ProjectileComponent>(ent, out var proj))
+        {
+            proj.ProjectileSpent = false;
+            Dirty(ent, proj);
+        }
         var target = args.Target;
         var shooter = args.Shooter;
+        if (target == shooter)
+            return;
+        if (!HasComp<MobStateComponent>(target))
+            return;
+        if (_mobState.IsDead(target))
+            return;
+        if (shooter != null && target == shooter)
+            return;
+        if (_heretic.IsHereticOrGhoul(target) || HasComp<MoonLunaticComponent>(target))
+            return;
+        if (shooter != null && _heretic.TryGetHereticComponent(shooter.Value, out _, out var shooterMind))
+        {
+            if (_heretic.TryGetHereticComponent(target, out _, out var targetMind) && shooterMind == targetMind)
+                return;
+        }
+        if (!ent.Comp.Hit.Add(target))
+            return;
         _statusNew.TryAddStatusEffectDuration(target, "MoonParadeStatusEffect", TimeSpan.FromSeconds(20));
         var parade = EnsureComp<MoonParadeStatusComponent>(target);
         parade.Parade = GetNetEntity(ent);
@@ -153,6 +207,7 @@ public sealed class HereticMoonSystem : EntitySystem
         puller.NeedsHands = false;
         Dirty(ent, puller);
         _pull.TryStartPull(ent, target, force: true);
+        _hallucinations.CauseHallucinations(target, 1, 15f, false);
         if (TryComp(target, out HereticSanityComponent? sanity))
         {
             sanity.Current = Math.Max(0f, sanity.Current - 20f);
@@ -178,6 +233,11 @@ public sealed class HereticMoonSystem : EntitySystem
 
     private void OnParadeCollide(Entity<LunarParadeProjectileComponent> ent, ref StartCollideEvent args)
     {
+        if (TryComp<ProjectileComponent>(ent, out var proj))
+        {
+            proj.ProjectileSpent = false;
+            Dirty(ent, proj);
+        }
         if (ent.Comp.Bounces >= ent.Comp.MaxBounces)
         {
             QueueDel(ent);
@@ -187,19 +247,34 @@ public sealed class HereticMoonSystem : EntitySystem
         var other = args.OtherEntity;
         if (HasComp<MobStateComponent>(other) || HasComp<ProjectileComponent>(other))
             return;
-        if (!TryComp(other, out TransformComponent? otherXform) || otherXform.Anchored != true)
+        if (args.OtherFixture.Hard != true)
             return;
+        if (!TryComp(other, out TransformComponent? otherXform) || otherXform.Anchored != true)
+        {
+            if (!HasComp<DamageableComponent>(other))
+                return;
+            if (otherXform == null || otherXform.Anchored != true)
+                return;
+        }
 
         var normal = args.WorldNormal;
         if (normal == System.Numerics.Vector2.Zero)
-            return;
+        {
+            var vel0 = args.OurBody.LinearVelocity;
+            if (vel0 == System.Numerics.Vector2.Zero)
+                return;
+            normal = System.Numerics.Vector2.Normalize(vel0);
+        }
 
         var vel = args.OurBody.LinearVelocity;
+        if (vel == System.Numerics.Vector2.Zero)
+            return;
         var reflected = vel - 2f * System.Numerics.Vector2.Dot(vel, normal) * normal;
         if (reflected == System.Numerics.Vector2.Zero)
-            return;
+            reflected = -vel;
 
         _physics.SetLinearVelocity(ent, reflected, body: args.OurBody);
+        _physics.SetAngularVelocity(ent, 0f, body: args.OurBody);
         ent.Comp.Bounces++;
         Dirty(ent, ent.Comp);
     }
@@ -225,10 +300,11 @@ public sealed class HereticMoonSystem : EntitySystem
         var coords = _transform.GetMapCoordinates(ent);
         foreach (var mob in _lookup.GetEntitiesInRange<MobStateComponent>(coords, 3f))
         {
-            if (HasComp<Content.Shared.Heretic.HereticComponent>(mob) || HasComp<MoonLunaticComponent>(mob) || HasComp<Content.Shared.Heretic.GhoulComponent>(mob))
+            if (_heretic.IsHereticOrGhoul(mob) || HasComp<MoonLunaticComponent>(mob))
                 continue;
             if (channel)
                 EntityManager.System<HereticMoonAbilitySystem>().ChannelAmulet(caster, mob);
+            _stun.TryUpdateParalyzeDuration(mob.Owner, TimeSpan.FromSeconds(1));
             _stun.TryKnockdown((mob.Owner, null), TimeSpan.FromSeconds(1), true);
             var spec = new DamageSpecifier();
             spec.DamageDict.Add("Cellular", 50f);
@@ -284,38 +360,47 @@ public sealed class HereticMoonSystem : EntitySystem
             if (aura.Accumulator < aura.TickInterval)
                 continue;
             aura.Accumulator = 0f;
+            var heretic = _transform.GetParentUid(uid);
+            if (!Exists(heretic))
+                heretic = uid;
             var coords = _transform.GetMapCoordinates(uid);
             foreach (var mob in _lookup.GetEntitiesInRange<MobStateComponent>(coords, aura.Radius))
             {
-                if (mob.Owner == uid)
+                if (mob.Owner == heretic)
                     continue;
                 if (_mobState.IsDead(mob))
                     continue;
-                if (HasComp<Content.Shared.Heretic.HereticComponent>(mob) || HasComp<MoonLunaticComponent>(mob) || HasComp<Content.Shared.Heretic.GhoulComponent>(mob))
+                if (_heretic.IsHereticOrGhoul(mob) || HasComp<MoonLunaticComponent>(mob))
                     continue;
+                if (!HasComp<ActorComponent>(mob))
+                    continue;
+                if (_station.GetOwningStation(mob) != _station.GetOwningStation(heretic))
+                    continue;
+                if (_random.Prob(0.25f))
+                    _hallucinations.CauseHallucinations(mob, 1, 15f, false);
                 var sanity = EnsureComp<HereticSanityComponent>(mob);
                 sanity.Current = Math.Max(0f, sanity.Current - aura.SanityDamage);
                 Dirty(mob, sanity);
-                _stun.TryKnockdown((mob.Owner, null), TimeSpan.FromSeconds(1), true);
+                if (_statusNew.TryGetStatusEffect(mob, "MoonConfusedStatusEffect", out _))
+                    _popup.PopupEntity(Loc.GetString("heretic-moon-aura-cacophony"), mob, mob);
+                _statusNew.TryAddStatusEffectDuration(mob, "MoonConfusedStatusEffect", TimeSpan.FromSeconds(2));
+                _statusNew.TryAddStatusEffectDuration(mob, BlindnessSystem.BlindingStatusEffect, TimeSpan.FromSeconds(5));
                 if (sanity.Current > aura.ConvertThreshold)
                     continue;
                 if (HasComp<MindShieldComponent>(mob))
                 {
-                    var lethal = new DamageSpecifier();
-                    lethal.DamageDict.Add("Cellular", 100f);
-                    _damage.TryChangeDamage(mob.Owner, lethal, true);
+                    _popup.PopupEntity(Loc.GetString("heretic-moon-aura-mindshield"), mob, mob, PopupType.Large);
+                    var blast = _transform.GetMapCoordinates(mob);
+                    var boom = new DamageSpecifier();
+                    boom.DamageDict.Add("Blunt", 100f);
+                    boom.DamageDict.Add("Piercing", 100f);
+                    foreach (var caught in _lookup.GetEntitiesInRange<MobStateComponent>(blast, 1f))
+                        _damage.TryChangeDamage(caught.Owner, boom, true, false, origin: heretic);
                     continue;
                 }
-                _statusNew.TryAddStatusEffectDuration(mob.Owner, "MoonConvertedStatusEffect", TimeSpan.FromHours(1));
-                var lunatic = EnsureComp<MoonLunaticComponent>(mob);
-                lunatic.Master = GetNetEntity(uid);
-                Dirty(mob, lunatic);
-                EntityUid? echo = null;
-                _actions.AddAction(mob.Owner, ref echo, "ActionHereticMoonlightEcho");
-                EntityUid? touch = null;
-                _actions.AddAction(mob.Owner, ref touch, "ActionHereticTouchOfMadness");
-                Spawn("HereticMoonAmulet", Transform(mob).Coordinates);
+                EntityManager.System<HereticMoonAbilitySystem>().ConvertToLunatic(mob, heretic);
             }
         }
-    }
+}
+
 }

@@ -46,7 +46,7 @@ public sealed partial class RitualMansusGateBehavior : RitualCustomBehavior
         var gateB = entMan2.SpawnEntity("HereticMansusGate", entMan2.GetComponent<TransformComponent>(args.Performer).Coordinates);
         if (!entMan2.TryGetComponent<TransformComponent>(gateB, out var gateBXform))
             return;
-        gateBXform.LocalPosition += new System.Numerics.Vector2(1f, 0f);
+        gateBXform.LocalPosition += new System.Numerics.Vector2(1.5f, 0f);
         entMan2.Dirty(gateB, gateBXform);
         var compA = entMan2.EnsureComponent<HereticMansusGateComponent>(gateA);
         var compB = entMan2.EnsureComponent<HereticMansusGateComponent>(gateB);

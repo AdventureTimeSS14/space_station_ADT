@@ -46,7 +46,6 @@ var query = EntityQueryEnumerator<AshAscendedComponent, TransformComponent>();
                 continue;
 
             comp.Accumulator = 0f;
-            Dirty(uid, comp);
 
             for (var i = 0; i < 3; i++)
             {

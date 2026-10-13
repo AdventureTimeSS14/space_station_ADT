@@ -36,11 +36,15 @@ public sealed partial class HereticSpacePhaseSystem : EntitySystem
             return;
 
         var xform = Transform(args.Performer);
-        if (xform.GridUid == null || !TryComp(xform.GridUid.Value, out MapGridComponent? grid))
-            return;
+        bool isSpace;
+        if (xform.GridUid == null)
+            isSpace = true;
+        else if (TryComp(xform.GridUid.Value, out MapGridComponent? grid))
+            isSpace = _turf.IsSpace(_map.GetTileRef(xform.GridUid.Value, grid, xform.Coordinates));
+        else
+            isSpace = true;
 
-        var tile = _map.GetTileRef(xform.GridUid.Value, grid, xform.Coordinates);
-        if (!_turf.IsSpace(tile) || !tile.Tile.IsEmpty)
+        if (!isSpace)
         {
             _popup.PopupEntity(Loc.GetString("heretic-space-phase-need-space"), args.Performer, args.Performer);
             return;

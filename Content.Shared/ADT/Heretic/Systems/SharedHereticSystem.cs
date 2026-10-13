@@ -3,12 +3,14 @@ using Content.Shared.ADT.Heretic.Common;
 using Content.Shared.ADT.Heretic;
 using Content.Shared.Heretic;
 using Content.Shared.Mind;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Shared.ADT.Heretic.Systems;
 
 public abstract class SharedHereticSystem : EntitySystem
 {
     [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
 
     private EntityQuery<HereticComponent> _hereticQuery;
     private EntityQuery<GhoulComponent> _ghoulQuery;
@@ -47,5 +49,14 @@ public abstract class SharedHereticSystem : EntitySystem
     public bool IsHereticOrGhoul(EntityUid uid)
     {
         return _ghoulQuery.HasComp(uid) || TryGetHereticComponent(uid, out _, out _);
+    }
+
+    public float GetCellularDamage(EntityUid uid)
+    {
+        var spec = _damageable.GetAllDamage((uid, null));
+
+        return spec.DamageDict.TryGetValue("Cellular", out var cellular)
+            ? cellular.Float()
+            : 0f;
     }
 }

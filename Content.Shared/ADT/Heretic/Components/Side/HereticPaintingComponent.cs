@@ -6,6 +6,8 @@ public sealed partial class HereticPaintingComponent : Component
 {
     [DataField]
     public HereticPaintingKind Kind = HereticPaintingKind.Weeping;
+
+    public HashSet<NetEntity> ValidTargets = new();
 }
 [Serializable, NetSerializable]
 public enum HereticPaintingKind : byte

@@ -26,6 +26,9 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using PullableComponent = Content.Shared.Movement.Pulling.Components.PullableComponent;
+// ADT-Tweak-start: moon confusion invert
+using Content.Shared.ADT.Heretic.Components.Moon;
+// ADT-Tweak-end
 
 namespace Content.Shared.Movement.Systems;
 
@@ -313,7 +316,7 @@ public abstract partial class SharedMoverController : VirtualController
             var walkSpeed = moveSpeedComponent?.WeightlessWalkSpeed ?? MovementSpeedModifierComponent.DefaultBaseWalkSpeed;
             var sprintSpeed = moveSpeedComponent?.WeightlessSprintSpeed ?? MovementSpeedModifierComponent.DefaultBaseSprintSpeed;
 
-            wishDir = AssertValidWish(mover, walkSpeed, sprintSpeed);
+            wishDir = AssertValidWish(uid, mover, walkSpeed, sprintSpeed);
 
             var ev = new CanWeightlessMoveEvent(uid);
             RaiseLocalEvent(uid, ref ev, true);
@@ -351,7 +354,7 @@ public abstract partial class SharedMoverController : VirtualController
             var walkSpeed = moveSpeedComponent?.CurrentWalkSpeed ?? MovementSpeedModifierComponent.DefaultBaseWalkSpeed;
             var sprintSpeed = moveSpeedComponent?.CurrentSprintSpeed ?? MovementSpeedModifierComponent.DefaultBaseSprintSpeed;
 
-            wishDir = AssertValidWish(mover, walkSpeed, sprintSpeed);
+            wishDir = AssertValidWish(uid, mover, walkSpeed, sprintSpeed);
 
             if (wishDir != Vector2.Zero)
             {
@@ -697,7 +700,7 @@ public abstract partial class SharedMoverController : VirtualController
         return sound != null;
     }
 
-    private Vector2 AssertValidWish(InputMoverComponent mover, float walkSpeed, float sprintSpeed)
+    private Vector2 AssertValidWish(EntityUid uid, InputMoverComponent mover, float walkSpeed, float sprintSpeed)
     {
         var (walkDir, sprintDir) = GetVelocityInput(mover);
 
@@ -705,6 +708,11 @@ public abstract partial class SharedMoverController : VirtualController
 
         var parentRotation = GetParentGridAngle(mover);
         var wishDir = _relativeMovement ? parentRotation.RotateVec(total) : total;
+
+        // ADT-Tweak-start: moon confusion invert without state mutation
+        if (HasComp<MoonConfusedComponent>(uid))
+            wishDir = -wishDir;
+        // ADT-Tweak-end
 
         DebugTools.Assert(MathHelper.CloseToPercent(total.Length(), wishDir.Length()));
 

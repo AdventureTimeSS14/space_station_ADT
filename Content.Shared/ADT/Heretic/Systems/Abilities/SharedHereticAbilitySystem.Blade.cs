@@ -10,6 +10,7 @@ using Content.Shared.Slippery;
 using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
 using Content.Shared.Weapons.Melee.Events;
+using Content.Shared.Weapons.Ranged.Events;
 
 namespace Content.Shared.ADT.Heretic.Systems.Abilities;
 
@@ -36,6 +37,22 @@ public abstract partial class SharedHereticAbilitySystem
         SubscribeLocalEvent<RealignmentComponent, ComponentRemove>(OnComponentRemove);
 
         SubscribeLocalEvent<HereticBladePassiveRiposteEvent>(OnBladePassiveRiposte);
+        SubscribeLocalEvent<ShotAttemptedEvent>(OnBladeShotAttempted);
+    }
+
+    private void OnBladeShotAttempted(ref ShotAttemptedEvent args)
+    {
+        if (args.Cancelled)
+            return;
+
+        if (!Heretic.TryGetHereticComponent(args.User, out var heretic, out _))
+            return;
+
+        if (heretic.CurrentPath != "Blade")
+            return;
+
+        args.Cancel();
+        Popup.PopupEntity(Loc.GetString("heretic-blade-no-guns"), args.User, args.User);
     }
 
     private void OnBladePassiveRiposte(HereticBladePassiveRiposteEvent args)

@@ -8,6 +8,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Physics.Events;
+using Robust.Shared.Timing;
 namespace Content.Server.ADT.Heretic.EntitySystems;
 public sealed partial class HereticMansusGateSystem : EntitySystem
 {
@@ -15,6 +16,8 @@ public sealed partial class HereticMansusGateSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    private readonly Dictionary<EntityUid, TimeSpan> _immunity = new();
     public override void Initialize()
     {
         base.Initialize();
@@ -31,6 +34,8 @@ public sealed partial class HereticMansusGateSystem : EntitySystem
         var subject = args.OtherEntity;
         if (!HasComp<MobStateComponent>(subject))
             return;
+        if (_immunity.TryGetValue(subject, out var until) && _timing.CurTime < until)
+            return;
         if (entManExists(ent, subject))
         {
             if (!CanPass(subject))
@@ -45,8 +50,9 @@ public sealed partial class HereticMansusGateSystem : EntitySystem
             if (ent.Comp.LinkedGate.Value == ent.Owner)
                 return;
 
-            var dest = Transform(ent.Comp.LinkedGate.Value).Coordinates;
+            var dest = Transform(ent.Comp.LinkedGate.Value).Coordinates.Offset(new System.Numerics.Vector2(0.75f, 0f));
             _xform.SetCoordinates(subject, dest);
+            _immunity[subject] = _timing.CurTime + TimeSpan.FromSeconds(1);
         }
     }
     private bool entManExists(Entity<HereticMansusGateComponent> ent, EntityUid subject)
