@@ -44,3 +44,12 @@ round-end-report-battered-survivor = Most battered survivor: [color=orange]{$nam
 
 round-end-report-species-header = Species this shift: [color=white]{$count}[/color]
 round-end-report-species-line = {$species} - [color=white]{$count}[/color]
+round-end-summary-window-player-manifest-tab-search-placeholder = Search players, roles, types...
+round-end-summary-window-player-manifest-tab-sort-character = Character
+round-end-summary-window-player-manifest-tab-sort-role = Role
+round-end-summary-window-player-manifest-tab-sort-player-type = Type
+round-end-summary-window-player-manifest-tab-sort-player = Player
+round-end-summary-window-player-manifest-tab-sort-player-type-antag = Antagonist
+round-end-summary-window-player-manifest-tab-sort-player-type-crew = Crew
+round-end-summary-window-player-manifest-tab-sort-player-type-observer = Observer
+

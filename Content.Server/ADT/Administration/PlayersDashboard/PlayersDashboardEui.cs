@@ -8,6 +8,7 @@ using Content.Server.Mind;
 using Content.Shared.ADT.Administration.PlayersDashboard;
 using Content.Shared.Eui;
 using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 using Robust.Server.Player;
 using Robust.Shared.Enums;
 using Timer = Robust.Shared.Timing.Timer;
@@ -18,10 +19,10 @@ public sealed partial class PlayersDashboardEui : BaseEui
 {
     private static readonly TimeSpan RefreshTime = TimeSpan.FromSeconds(2);
 
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly JoinQueueManager _joinQueue = default!;
-    [Dependency] private readonly IAdminManager _adminManager = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private JoinQueueManager _joinQueue = default!;
+    [Dependency] private IAdminManager _adminManager = default!;
 
     private readonly MindSystem _mind;
     private readonly CancellationTokenSource _refreshToken = new();

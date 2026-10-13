@@ -57,13 +57,9 @@
     - MorphSurviveObjective
   - type: AntagSelection
     agentName: morph-round-end-agent-name
-    definitions:
-    - spawnerPrototype: SpawnPointGhostMorph
-      min: 1
-      max: 1
-      pickPlayer: false
-      mindRoles:
-      - MindRoleGhostRoleNeutral
+    antags:
+    - !type:FixedAntagCount
+      proto: ADTMorph
   - type: DragonRule #чтобы отдельный рул не писать
 
 - type: entity
@@ -140,10 +136,8 @@
   - type: SpaceSpawnRule
     spawnDistance: 0
   - type: AntagSelection
-    definitions:
-    - spawnerPrototype: ADTSpawnPointSpaceEmperor
-      min: 1
-      max: 1
-      pickPlayer: false
+    antags:
+    - !type:FixedAntagCount
+      proto: ADTSpaceEmperor
   - type: DragonRule #чтобы отдельный рул не писать
   - type: GhostRoleAntagSpawner

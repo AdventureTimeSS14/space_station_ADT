@@ -10,9 +10,9 @@ namespace Content.Server.ADT.Drake.Loot;
 
 public sealed class ADTSacredFlameSystem : EntitySystem
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly FlammableSystem _flammable = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private FlammableSystem _flammable = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     private readonly HashSet<Entity<MobStateComponent>> _targets = new();
 

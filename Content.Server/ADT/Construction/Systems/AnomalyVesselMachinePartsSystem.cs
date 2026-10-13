@@ -8,7 +8,7 @@ public sealed class AnomalyVesselMachinePartsSystem : EntitySystem
 {
     private static readonly float[] TierPointMultipliers = [1.00f, 1.10f, 1.20f, 1.30f, 1.60f];
 
-    [Dependency] private readonly AnomalySystem _anomaly = default!;
+    [Dependency] private AnomalySystem _anomaly = default!;
 
     public override void Initialize()
     {

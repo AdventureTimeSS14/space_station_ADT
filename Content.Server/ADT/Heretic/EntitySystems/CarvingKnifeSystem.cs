@@ -35,29 +35,29 @@ namespace Content.Server.Heretic.EntitySystems;
 
 public sealed class CarvingKnifeSystem : EntitySystem
 {
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly DoAfterSystem _doAfter = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly MapSystem _map = default!;
-    [Dependency] private readonly GravitySystem _gravity = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly NavMapSystem _navMap = default!;
-    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
-    [Dependency] private readonly Shared.StatusEffectNew.StatusEffectsSystem _statusNew = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly PullingSystem _pulling = default!;
-    [Dependency] private readonly HereticSystem _heretic = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private DoAfterSystem _doAfter = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private MapSystem _map = default!;
+    [Dependency] private GravitySystem _gravity = default!;
+    [Dependency] private TagSystem _tag = default!;
+    [Dependency] private NavMapSystem _navMap = default!;
+    [Dependency] private SharedStaminaSystem _stamina = default!;
+    [Dependency] private StatusEffectsSystem _status = default!;
+    [Dependency] private Shared.StatusEffectNew.StatusEffectsSystem _statusNew = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private MindSystem _mind = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private PullingSystem _pulling = default!;
+    [Dependency] private HereticSystem _heretic = default!;
 
-    [Dependency] private readonly IMapManager _mapMan = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IChatManager _chatManager = default!;
 
     private static readonly ProtoId<TagPrototype> CarvingTag = "HereticCarving";
     private static readonly EntProtoId AlertEffect = "CarvingAlertedStatusEffect";
+    private static readonly EntProtoId MuteEffect = "StatusEffectMuted";
 
     public override void Initialize()
     {
@@ -123,20 +123,8 @@ public sealed class CarvingKnifeSystem : EntitySystem
     {
         _stamina.TakeStaminaDamage(args.Victim, ent.Comp.StaminaDamage);
 
-        if (!TryComp(args.Victim, out StatusEffectsComponent? status))
-            return;
-
-        _status.TryAddStatusEffect<BlindnessStatusEffectComponent>(args.Victim,
-            BlindnessSystem.BlindingStatusEffect,
-            ent.Comp.BlindnessTime,
-            true,
-            status);
-
-        _status.TryAddStatusEffect<MutedComponent>(args.Victim,
-            "Muted",
-            ent.Comp.MuteTime,
-            true,
-            status);
+        _statusNew.TryUpdateStatusEffectDuration(args.Victim, BlindnessSystem.BlindingStatusEffect, ent.Comp.BlindnessTime);
+        _statusNew.TryUpdateStatusEffectDuration(args.Victim, MuteEffect, ent.Comp.MuteTime);
     }
 
     private void OnAlertTriggered(Entity<AlertCarvingComponent> ent, ref TrapTriggeredEvent args)
@@ -264,7 +252,7 @@ public sealed class CarvingKnifeSystem : EntitySystem
 
     private bool CanDrawRune(EntityUid user, MapCoordinates mapCoords)
     {
-        if (!_mapMan.TryFindGridAt(mapCoords, out var gridUid, out var gridComp))
+        if (!_map.TryFindGridAt(mapCoords, out var gridUid, out var gridComp))
             return !_gravity.IsWeightless(user);
 
         if (!_map.TryGetTileDef(gridComp, _map.TileIndicesFor(gridUid, gridComp, mapCoords), out var tile))

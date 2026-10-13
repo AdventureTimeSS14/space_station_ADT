@@ -79,8 +79,6 @@
     actions:
     - ActionWeaponPull
   - type: ItemActionGrant
-    actions:
-    - ActionWeaponPull
     activeIfWorn: true
 
 - type: entity

@@ -97,10 +97,7 @@
   - type: Speech
     speechSounds: Alto
   - type: Vocal
-    sounds:
-      Male: MaleHuman
-      Female: FemaleHuman
-      Unsexed: MaleHuman
+    emoteSounds: MaleHuman
   - type: Grammar
     attributes:
       proper: true

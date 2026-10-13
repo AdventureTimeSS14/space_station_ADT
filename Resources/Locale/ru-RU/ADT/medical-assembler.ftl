@@ -42,3 +42,6 @@ ent-ADTCustomMedipenBicpen = { ent-ADTCustomMedipen }
    .desc = { ent-ADTCustomMedipen.desc }
 ent-ADTCustomMedipenDexpen = { ent-ADTCustomMedipen }
    .desc = { ent-ADTCustomMedipen.desc }
+research-unlock-med-assembler-pens-1 = Открывает сборку базовых автоинъекторов в медицинском сборщике.
+research-unlock-med-assembler-pens-2 = Открывает сборку продвинутых автоинъекторов в медицинском сборщике.
+research-unlock-med-assembler-pens-3 = Открывает сборку специализированных автоинъекторов в медицинском сборщике.

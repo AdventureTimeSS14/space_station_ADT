@@ -1,25 +1,24 @@
 - type: entity
   name: raw shadekin meat
-  parent: FoodMeatRawBase
+  parent: [ FoodMeatRawBase, BaseSlicingRefinableFood ]
   id: ADTFoodMeatShadekin
   description: A slab of raw shadekin meat.
   components:
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/meat.rsi
     state: shadekin
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 7
-        - ReagentId: Fat
-          Quantity: 1
-  - type: SliceableFood
-    count: 3
-    slice: ADTFoodMeatShadekinCutlet
-  - type: InternalTemperature
-    conductivity: 0.43
+  - type: Solution
+    solution:
+      maxVol: 8
+      reagents:
+      - ReagentId: UncookedAnimalProteins
+        Quantity: 7
+      - ReagentId: Fat
+        Quantity: 1
+  - type: ToolRefinable
+    refineResult:
+    - id: ADTFoodMeatShadekinCutlet
+      amount: 3
   - type: Tag
     tags:
     - Raw
@@ -43,14 +42,14 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/meat.rsi
     state: shadekincutlet
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 3
-        - ReagentId: Fat
-          Quantity: 1
+  - type: Solution
+    solution:
+      maxVol: 4
+      reagents:
+      - ReagentId: UncookedAnimalProteins
+        Quantity: 3
+      - ReagentId: Fat
+        Quantity: 1
   - type: Construction
     graph: ShadekinCutlet
     node: start
@@ -58,7 +57,7 @@
 
 - type: entity
   name: shadekin steak
-  parent: FoodMeatBase
+  parent: [ FoodMeatBase, BaseSlicingRefinableFood ]
   id: ADTFoodMeatShadekinCooked
   description: A cooked slab of shadekin. It looks like meat with wine.
   components:
@@ -70,17 +69,18 @@
     sprite: ADT/Objects/Consumable/Food/meat.rsi
     layers:
     - state: shadekin-cooked
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 8
-        - ReagentId: Protein
-          Quantity: 3
-  - type: SliceableFood
-    count: 3
-    slice: ADTFoodMeatShadekinCutletCooked
+  - type: Solution
+    solution:
+      maxVol: 11
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 8
+      - ReagentId: Protein
+        Quantity: 3
+  - type: ToolRefinable
+    refineResult:
+    - id: ADTFoodMeatShadekinCutletCooked
+      amount: 3
   - type: FoodSequenceElement
     entries:
       Burger: ADTMeatShadekin
@@ -102,14 +102,14 @@
     - Meat
   - type: Sprite
     state: cutlet-cooked
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 3
-        - ReagentId: Protein
-          Quantity: 1
+  - type: Solution
+    solution:
+      maxVol: 4
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 3
+      - ReagentId: Protein
+        Quantity: 1
   - type: FoodSequenceElement
     entries:
       Burger: ADTShadekinCutlet
@@ -120,7 +120,7 @@
 
 - type: entity
   name: raw fish fillet
-  parent: FoodMeatBase
+  parent: [ FoodMeatBase, BaseSlicingRefinableFood ]
   id: ADTFoodMeatFish
   description: It may well need to be cooked first.
   components:
@@ -134,15 +134,16 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/fish.rsi
     state: fish
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 9
-  - type: SliceableFood
-    count: 3
-    slice: ADTFoodFishCutlet
+  - type: Solution
+    solution:
+      maxVol: 9
+      reagents:
+      - ReagentId: UncookedAnimalProteins
+        Quantity: 9
+  - type: ToolRefinable
+    refineResult:
+    - id: ADTFoodFishCutlet
+      amount: 3
   - type: Construction
     graph: FishSteak
     node: start
@@ -164,12 +165,12 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/fish.rsi
     state: fish_slice
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 2
+  - type: Solution
+    solution:
+      maxVol: 2
+      reagents:
+      - ReagentId: UncookedAnimalProteins
+        Quantity: 2
   - type: Construction
     graph: FishCutlet
     node: start
@@ -177,7 +178,7 @@
 
 - type: entity
   name: baked chicken
-  parent: FoodMeatBase
+  parent: [ FoodMeatBase, BaseSlicingRefinableFood ]
   id: ADTFoodFishCooked
   description: Now it's well done.
   components:
@@ -188,17 +189,18 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/fish.rsi
     state: cooked
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 14
-        - ReagentId: Protein
-          Quantity: 14
-  - type: SliceableFood
-    count: 3
-    slice: ADTFoodFishCutletCooked
+  - type: Solution
+    solution:
+      maxVol: 28
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 14
+      - ReagentId: Protein
+        Quantity: 14
+  - type: ToolRefinable
+    refineResult:
+    - id: ADTFoodFishCutletCooked
+      amount: 3
   - type: Construction
     graph: FishSteak
     node: fish steak
@@ -216,14 +218,14 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/fish.rsi
     state: cooked_slice
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
-        - ReagentId: Protein
-          Quantity: 5
+  - type: Solution
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 5
+      - ReagentId: Protein
+        Quantity: 5
   - type: Construction
     graph: FishCutlet
     node: fish cutlet
@@ -236,14 +238,14 @@
   components:
   - type: Sprite
     state: bear
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: ADTGondolium
-          Quantity: 5
-        - ReagentId: Protein
-          Quantity: 10
+  - type: Solution
+    solution:
+      maxVol: 15
+      reagents:
+      - ReagentId: ADTGondolium
+        Quantity: 5
+      - ReagentId: Protein
+        Quantity: 10
   - type: Construction
     graph: BearfootSteak
     node: start
@@ -263,12 +265,12 @@
   - type: Sprite
     layers:
     - state: product-cooked
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: ADTGondolium
-          Quantity: 15
+  - type: Solution
+    solution:
+      maxVol: 15
+      reagents:
+      - ReagentId: ADTGondolium
+        Quantity: 15
   - type: Construction
     graph: BearfootSteak
     node: bearfoot steak
@@ -290,21 +292,20 @@
     flavors:
       - meaty
       - onion
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 8
-        - ReagentId: Protein
-          Quantity: 8
-        - ReagentId: Vitamin
-          Quantity: 8
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 8
+      - ReagentId: Protein
+        Quantity: 8
+      - ReagentId: Vitamin
+        Quantity: 8
 
 - type: entity
   name: raw smoked sausage
-  parent: FoodMeatBase
+  parent: [ FoodMeatBase, BaseSlicingRefinableFood ]
   id: ADTFoodMeatSmokedSausage
   description: A large tube of meat.
   components:
@@ -315,21 +316,22 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/meat.rsi
     state: smoked-sausage
-  - type: SliceableFood
-    slice: ADTFoodMeatSmokedSausageSlice
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
-        - ReagentId: Protein
-          Quantity: 5
-        - ReagentId: Fat
-          Quantity: 5
-        - ReagentId: Hotsauce
-          Quantity: 5
+  - type: ToolRefinable
+    refineResult:
+    - id: ADTFoodMeatSmokedSausageSlice
+      amount: 5
+  - type: Solution
+    solution:
+      maxVol: 20
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 5
+      - ReagentId: Protein
+        Quantity: 5
+      - ReagentId: Fat
+        Quantity: 5
+      - ReagentId: Hotsauce
+        Quantity: 5
 
 - type: entity
   name: pepperoni
@@ -345,15 +347,15 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/meat.rsi
     state: smoked-sausage-slice
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 1
-        - ReagentId: Protein
-          Quantity: 1
-        - ReagentId: Fat
-          Quantity: 1
-        - ReagentId: Hotsauce
-          Quantity: 1
+  - type: Solution
+    solution:
+      maxVol: 4
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 1
+      - ReagentId: Protein
+        Quantity: 1
+      - ReagentId: Fat
+        Quantity: 1
+      - ReagentId: Hotsauce
+        Quantity: 1

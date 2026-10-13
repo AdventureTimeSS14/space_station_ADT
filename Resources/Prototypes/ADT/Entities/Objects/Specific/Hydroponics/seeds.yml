@@ -4,7 +4,7 @@
   id: ADTPapaverSomniferumSeeds
   components:
     - type: Seed
-      seedId: ADTPapaverSomniferum
+      plantId: ADTPapaverSomniferumPlants
     - type: Sprite
       sprite: ADT/Objects/Specific/Hydroponics/papaver_somniferum.rsi
 
@@ -15,7 +15,7 @@
   id: ADTcannabiswhiteSeeds
   components:
     - type: Seed
-      seedId: ADTCannabisWhite
+      plantId: ADTCannabisWhitePlants
     - type: Sprite
       sprite: ADT/Objects/Specific/Hydroponics/cannabiswhite.rsi
 
@@ -26,7 +26,7 @@
   id: ADTCoffeeTreeSeeds
   components:
     - type: Seed
-      seedId: ADTCoffeeTree
+      plantId: ADTCoffeeTreePlants
     - type: Sprite
       sprite: ADT/Objects/Specific/Hydroponics/coffeebeans.rsi
 
@@ -37,7 +37,7 @@
   id: ADTStrawberrySeeds
   components:
     - type: Seed
-      seedId: ADTStrawberry
+      plantId: ADTStrawberryPlants
     - type: Sprite
       sprite: ADT/Objects/Specific/Hydroponics/strawberry.rsi
 
@@ -50,7 +50,7 @@
   id: ADTSeedLavalandCactusPacket
   components:
     - type: Seed
-      seedId: ADTSeedLavalandCactus
+      plantId: ADTLavalandCactusPlants
     - type: Sprite
       sprite: ADT/Objects/Specific/Hydroponics/lavaland_cactus.rsi
 
@@ -61,7 +61,7 @@
   id: ADTSeedPolyporePacket
   components:
     - type: Seed
-      seedId: ADTSeedPolypore
+      plantId: ADTPolyporePlants
     - type: Sprite
       sprite: ADT/Objects/Specific/Hydroponics/polypore.rsi
 
@@ -72,7 +72,7 @@
   id: ADTSeedPorciniPacket
   components:
     - type: Seed
-      seedId: ADTSeedPorcini
+      plantId: ADTPorciniPlants
     - type: Sprite
       sprite: ADT/Objects/Specific/Hydroponics/porcini.rsi
 
@@ -83,7 +83,7 @@
   id: ADTSeedInocybePacket
   components:
     - type: Seed
-      seedId: ADTSeedInocybe
+      plantId: ADTInocybePlants
     - type: Sprite
       sprite: ADT/Objects/Specific/Hydroponics/inocybe.rsi
 
@@ -94,7 +94,7 @@
   id: ADTSeedEmbershroomPacket
   components:
     - type: Seed
-      seedId: ADTSeedEmbershroom
+      plantId: ADTEmbershroomPlants
     - type: Sprite
       sprite: ADT/Objects/Specific/Hydroponics/ember.rsi
 
@@ -105,6 +105,6 @@
   id: ADTSeedReishiPacket
   components:
     - type: Seed
-      seedId: ADTSeedReishi
+      plantId: ADTReishiPlants
     - type: Sprite
       sprite: ADT/Objects/Specific/Hydroponics/reishi.rsi
