@@ -16178,3 +16178,10 @@ Entries:
     id: 2002
     pr_number: 3491
     time: '2026-10-13T12:46:52Z'
+  - author: Kerfus
+    changes:
+      - {message: Исправлена возможность тенеморфа подчинить в рабство КПБ и новакидов.,
+        type: Fix}
+    id: 2003
+    pr_number: 3467
+    time: '2026-10-13T12:48:53Z'
