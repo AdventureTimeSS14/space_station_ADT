@@ -88,6 +88,26 @@ public sealed class HumanoidProfileTests : GameTest
     }
 
     [Test]
+    [TestOf(typeof(HumanoidCharacterProfile))]
+    [Description("Tests that random profile generation respects its species blacklist.")]
+    public async Task EnsureRandomRespectsSpeciesBlacklist()
+    {
+        await Server.WaitIdleAsync();
+
+        await Server.WaitAssertion(() =>
+        {
+            var ignoredSpecies = SProtoMan.EnumeratePrototypes<SpeciesPrototype>()
+                .Where(species => species.RoundStart && species.ID != "Human")
+                .Select(species => species.ID)
+                .ToHashSet();
+
+            var profile = HumanoidCharacterProfile.Random(ignoredSpecies);
+
+            Assert.That(profile.Species, Is.EqualTo("Human"));
+        });
+    }
+
+    [Test]
     [TestOf(typeof(HumanoidCharacterProfile)), TestOf(typeof(VisualBodyComponent))]
     [TestCaseSource(nameof(_species))]
     [Description("Tests that every species is able to randomly generate a valid appearance without issues.")]

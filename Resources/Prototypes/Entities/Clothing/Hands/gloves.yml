@@ -674,8 +674,6 @@
       params:
         variation: 0.250
         volume: 5
-  - type: Stunbaton
-    energyPerUse: 25 # ADT-Tweak: снижено с 50
   - type: ItemToggleMeleeWeapon
     activatedDamage:
       types:
@@ -691,7 +689,7 @@
   - type: MeleeBatteryHitsLeft
   - type: StaminaDamageOnHitRequiresToggle
   - type: StaminaDamageOnHitRequiresCharge
-    requiredCharge: 50
+    requiredCharge: 25
   - type: StaminaDamageOnHit
     damage: 45 # ADT-Tweak: повышено с 35
     sound: /Audio/Weapons/egloves.ogg
