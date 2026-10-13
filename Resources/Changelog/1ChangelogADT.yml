@@ -16172,3 +16172,9 @@ Entries:
     id: 2001
     pr_number: 3500
     time: '2026-10-13T01:49:32Z'
+  - author: Fineter75
+    changes:
+      - {message: Добавлена плюшка Рэймора(Dark_World), type: Add}
+    id: 2002
+    pr_number: 3491
+    time: '2026-10-13T12:46:52Z'
