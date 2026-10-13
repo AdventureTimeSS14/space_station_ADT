@@ -1,0 +1,70 @@
+- type: entity
+  id: ActionADTColossusSpiral
+  name: Spiral Shots
+  description: Выпустить заряды по спирали.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 12
+    checkCanInteract: false
+    raiseOnUser: true
+  - type: Sprite
+    sprite: ADT/Interface/Actions/colossus_spiral.rsi
+    layers:
+    - state: sniper_zoom
+  - type: InstantAction
+    event: !type:ADTColossusSpiralActionEvent
+
+- type: entity
+  id: ActionADTColossusRandomShots
+  name: Fire In All Directions
+  description: Выпустить заряды во всех направлениях.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 3
+    checkCanInteract: false
+    raiseOnUser: true
+  - type: Sprite
+    sprite: ADT/Effects/colossus_shield.rsi
+    layers:
+    - state: at_shield2
+  - type: InstantAction
+    event: !type:ADTColossusRandomShotsActionEvent
+
+- type: entity
+  id: ActionADTColossusShotgun
+  name: Shotgun Blast
+  description: Выпустить веер зарядов туда, куда нажмёте.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 2
+    checkCanInteract: false
+    raiseOnUser: true
+  - type: Sprite
+    sprite: ADT/Interface/Actions/colossus_shotgun.rsi
+    layers:
+    - state: shotgun
+  - type: TargetAction
+    checkCanAccess: false
+    range: 25
+  - type: WorldTargetAction
+    event: !type:ADTColossusShotgunActionEvent
+
+- type: entity
+  id: ActionADTColossusAlternating
+  name: Alternating Shots
+  description: Стрелять попеременно по диагоналям и сторонам света.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 4
+    checkCanInteract: false
+    raiseOnUser: true
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+    layers:
+    - state: icon
+  - type: InstantAction
+    event: !type:ADTColossusAlternatingActionEvent
