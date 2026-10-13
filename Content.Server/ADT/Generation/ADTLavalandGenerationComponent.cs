@@ -99,6 +99,9 @@ public sealed partial class ADTLavalandGenerationComponent : Component
 
     [ViewVariables]
     public List<(Vector2 Center, float Radius)> Exclusions = new();
+
+    [ViewVariables]
+    public List<(Vector2 Center, float Radius)> RiverExclusions = new();
 }
 
 [DataDefinition]
@@ -124,6 +127,12 @@ public sealed partial class LavalandScatterGroup
 
     [DataField]
     public float Clearance;
+
+    [DataField]
+    public float? Angle;
+
+    [DataField]
+    public float? RiverClearance;
 
     [DataField]
     public bool AvoidRooms = true;

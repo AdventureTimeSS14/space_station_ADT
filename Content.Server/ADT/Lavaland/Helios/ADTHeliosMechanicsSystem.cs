@@ -18,6 +18,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Paper;
 using Content.Shared.Popups;
+using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Trigger;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
@@ -60,6 +61,7 @@ public sealed class ADTHeliosMechanicsSystem : EntitySystem
         SubscribeLocalEvent<ADTHeliosReactionComponent, ComponentInit>(OnReactionInit);
         SubscribeLocalEvent<ADTHeliosReactionComponent, SignalReceivedEvent>(OnReactionSignal);
         SubscribeLocalEvent<ADTHeliosReactionComponent, TriggerEvent>(OnReactionTrigger);
+        SubscribeLocalEvent<ADTHeliosReactionComponent, StepTriggerAttemptEvent>(OnReactionStepAttempt);
         SubscribeLocalEvent<ADTHeliosRandomSpotComponent, MapInitEvent>(OnRandomSpotInit);
     }
 
@@ -414,6 +416,11 @@ public sealed class ADTHeliosMechanicsSystem : EntitySystem
     {
         if (args.Port == ReactPort)
             React(ent);
+    }
+
+    private void OnReactionStepAttempt(Entity<ADTHeliosReactionComponent> ent, ref StepTriggerAttemptEvent args)
+    {
+        args.Continue = true;
     }
 
     private void OnReactionTrigger(Entity<ADTHeliosReactionComponent> ent, ref TriggerEvent args)

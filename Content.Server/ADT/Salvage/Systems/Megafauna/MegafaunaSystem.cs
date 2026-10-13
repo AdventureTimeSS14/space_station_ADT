@@ -28,6 +28,19 @@ public sealed partial class MegafaunaSystem : EntitySystem
         //TODO: SubscribeLocalEvent<ShuttleComponent, FTLStartedEvent>(OnShuttleFTL);
 
         InitializeAggro();
+        InitializeCombat();
+        InitializeSequence();
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var now = _timing.CurTime;
+
+        UpdateAggro(now);
+        UpdateCombat(now);
+        UpdateSequences(now);
     }
 
     private void OnAttemptMeleeThrowOnHit(Entity<MegafaunaComponent> _, ref AttemptMeleeThrowOnHitEvent args)
