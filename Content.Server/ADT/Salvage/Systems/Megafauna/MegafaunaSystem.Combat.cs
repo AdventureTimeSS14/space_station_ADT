@@ -26,6 +26,12 @@ public record struct ADTMegafaunaDevourEvent(EntityUid Target, bool Handled = fa
 [ByRefEvent]
 public record struct ADTMegafaunaAfterMeleeHitEvent(EntityUid Target, bool Handled = false);
 
+[ByRefEvent]
+public record struct ADTMegafaunaAttemptOpenFireEvent(bool Cancelled = false);
+
+[ByRefEvent]
+public readonly record struct ADTMegafaunaTargetChangedEvent(EntityUid Target);
+
 public sealed partial class MegafaunaSystem
 {
     [Dependency] private DamageableSystem _damageable = default!;
@@ -62,7 +68,7 @@ public sealed partial class MegafaunaSystem
 
     private void OnAIMeleeHit(Entity<ADTMegafaunaAIComponent> ent, ref MeleeHitEvent args)
     {
-        if (!args.IsHit)
+        if (!ent.Comp.HandleMelee || !args.IsHit)
             return;
 
         EntityUid? victim = null;
@@ -102,6 +108,9 @@ public sealed partial class MegafaunaSystem
         if (HasComp<ActorComponent>(ent.Owner) || !IsRangedReady(ent))
             return;
 
+        if (IsOpenFireBlocked(ent.Owner))
+            return;
+
         OpenFire(ent, target);
     }
 
@@ -111,10 +120,8 @@ public sealed partial class MegafaunaSystem
 
         while (query.MoveNext(out var uid, out var ai, out var htn))
         {
-            if (now < ai.NextDecisionAt)
+            if (ai.DecideWhileInactive && !TryConsumeDecision(ai, now))
                 continue;
-
-            ai.NextDecisionAt = now + ai.DecisionInterval;
 
             if (HasComp<ActorComponent>(uid))
                 continue;
@@ -125,16 +132,34 @@ public sealed partial class MegafaunaSystem
             if (_mobState.IsDead(uid))
                 continue;
 
+            if (!ai.DecideWhileInactive && !TryConsumeDecision(ai, now))
+                continue;
+
+            if (IsOpenFireBlocked(uid))
+                continue;
+
             if (now < ai.NextRangedAt)
                 continue;
 
             if (!TryGetTarget(uid, out var found) || found is not { } target)
+            {
+                ai.LastTarget = null;
                 continue;
+            }
 
             if (_transform.GetGrid(uid) != _transform.GetGrid(target))
             {
                 htn.Blackboard.Remove<EntityUid>(TargetKey);
+                ai.LastTarget = null;
                 continue;
+            }
+
+            if (ai.LastTarget != target)
+            {
+                ai.LastTarget = target;
+
+                var changed = new ADTMegafaunaTargetChangedEvent(target);
+                RaiseLocalEvent(uid, ref changed);
             }
 
             if (!ai.RangedWhenAdjacent && IsAdjacent(uid, target))
@@ -142,6 +167,22 @@ public sealed partial class MegafaunaSystem
 
             OpenFire((uid, ai), target);
         }
+    }
+
+    private static bool TryConsumeDecision(ADTMegafaunaAIComponent ai, TimeSpan now)
+    {
+        if (now < ai.NextDecisionAt)
+            return false;
+
+        ai.NextDecisionAt = now + ai.DecisionInterval;
+        return true;
+    }
+
+    public bool IsOpenFireBlocked(EntityUid uid)
+    {
+        var ev = new ADTMegafaunaAttemptOpenFireEvent();
+        RaiseLocalEvent(uid, ref ev);
+        return ev.Cancelled;
     }
 
     public void OpenFire(Entity<ADTMegafaunaAIComponent> ent, EntityUid target)
@@ -154,6 +195,14 @@ public sealed partial class MegafaunaSystem
     {
         target = null;
 
+        TryComp<ADTMegafaunaAIComponent>(uid, out var ai);
+
+        if (ai?.ManualTarget is { } manual && !TerminatingOrDeleted(manual))
+        {
+            target = manual;
+            return true;
+        }
+
         if (TryComp<HTNComponent>(uid, out var htn)
             && htn.Blackboard.TryGetValue<EntityUid>(TargetKey, out var found, EntityManager)
             && !TerminatingOrDeleted(found))
@@ -162,7 +211,8 @@ public sealed partial class MegafaunaSystem
             return true;
         }
 
-        if (TryComp<MegafaunaComponent>(uid, out var megafauna)
+        if (ai?.TargetAggressor != false
+            && TryComp<MegafaunaComponent>(uid, out var megafauna)
             && megafauna.Aggressor is { } aggressor
             && !TerminatingOrDeleted(aggressor))
         {
