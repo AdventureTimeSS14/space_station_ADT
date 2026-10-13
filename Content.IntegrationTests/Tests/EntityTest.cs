@@ -245,6 +245,8 @@ namespace Content.IntegrationTests.Tests
 
                 // makes an announcement on mapInit.
                 "AnnounceOnSpawn",
+
+                "ADTDungeonGateway", // ADT-Tweak
             };
 
             Assert.That(server.CfgMan.GetCVar(CVars.NetPVS), Is.False);

@@ -102,7 +102,7 @@ public sealed class BloodMinerSystem : EntitySystem
         if (origin.MapId == MapId.Nullspace)
             return;
 
-        var primary = args.HitEntities[0];
+        var primary = args.HitEntities.First();
         var toPrimary = _transform.GetMapCoordinates(primary).Position - origin.Position;
         if (toPrimary.LengthSquared() < 0.001f)
             return;
