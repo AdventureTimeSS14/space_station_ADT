@@ -16224,3 +16224,13 @@ Entries:
     id: 2007
     pr_number: 3509
     time: '2026-10-13T13:39:03Z'
+  - author: Inconnu
+    changes:
+      - {message: что добавили, type: Add}
+      - {message: что убрали, type: Remove}
+      - {message: что подправили, type: Tweak}
+      - {message: что исправили, type: Fix}
+      - {message: Исправлен невероятно низкий урон у протокинетических крашеров, type: Fix}
+    id: 2008
+    pr_number: 3510
+    time: '2026-10-13T13:58:29Z'
