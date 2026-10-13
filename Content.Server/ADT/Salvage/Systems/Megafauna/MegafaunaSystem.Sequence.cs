@@ -16,7 +16,7 @@ public sealed partial class MegafaunaSystem
 
     private void OnSequenceMobStateChanged(Entity<ADTMegafaunaSequenceComponent> ent, ref MobStateChangedEvent args)
     {
-        if (args.NewMobState != MobState.Dead)
+        if (args.NewMobState != MobState.Dead || ent.Comp.SurvivesDeath)
             return;
 
         ent.Comp.Queue.Clear();
@@ -24,10 +24,15 @@ public sealed partial class MegafaunaSystem
 
     public void Schedule(EntityUid boss, TimeSpan delay, Action action)
     {
+        ScheduleAt(boss, _timing.CurTime + delay, action);
+    }
+
+    public void ScheduleAt(EntityUid boss, TimeSpan at, Action action)
+    {
         var sequence = EnsureComp<ADTMegafaunaSequenceComponent>(boss);
         sequence.Queue.Add(new ADTMegafaunaStep
         {
-            ExecuteAt = _timing.CurTime + delay,
+            ExecuteAt = at,
             Execute = action,
         });
     }
@@ -52,6 +57,12 @@ public sealed partial class MegafaunaSystem
 
         foreach (var (uid, sequence) in _activeSequences)
         {
+            if (sequence.InsertionOrder)
+            {
+                RunInInsertionOrder(uid, sequence, now);
+                continue;
+            }
+
             _dueSteps.Clear();
 
             for (var i = 0; i < sequence.Queue.Count; i++)
@@ -76,6 +87,31 @@ public sealed partial class MegafaunaSystem
 
                 step.Execute();
             }
+        }
+    }
+
+    private void RunInInsertionOrder(EntityUid uid, ADTMegafaunaSequenceComponent sequence, TimeSpan now)
+    {
+        for (var i = 0; i < sequence.Queue.Count; i++)
+        {
+            var step = sequence.Queue[i];
+
+            if (now < step.ExecuteAt)
+                continue;
+
+            if (TerminatingOrDeleted(uid) || !sequence.SurvivesDeath && _mobState.IsDead(uid))
+            {
+                sequence.Queue.Clear();
+                return;
+            }
+
+            step.Execute();
+
+            if (i >= sequence.Queue.Count || sequence.Queue[i] != step)
+                return;
+
+            sequence.Queue.RemoveAt(i);
+            i--;
         }
     }
 }
