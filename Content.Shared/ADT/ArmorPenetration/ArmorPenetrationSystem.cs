@@ -67,7 +67,7 @@ public sealed partial class ArmorPenetrationSystem : EntitySystem
                 continue;
 
             var multiplier = (c + penetration * (1f - c)) / c;
-            result.Coefficients[damageType] = multiplier;
+            compensator.Coefficients[damageType] = multiplier;
         }
 
         return compensator.Coefficients.Count > 0;
