@@ -8,14 +8,21 @@
     state: boat
     noRot: true
   - type: ADTLavaBoat
-  - type: Vehicle
+  - type: ADTVehicle
     autoAnimate: false
-    useHand: false
     hornSound: null
     northOver: true
     southOver: true
     eastOver: true
     westOver: true
+  - type: Vehicle
+  - type: StrapVehicle
+  - type: GenericKeyedVehicle
+    containerId: key_slot
+    keyWhitelist:
+      tags:
+      - VehicleKey
+    preventInvalidInsertion: false
   - type: Strap
     #buckleOffset: "0, 0.06" fix todo
   - type: InputMover

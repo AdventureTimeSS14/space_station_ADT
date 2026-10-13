@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made for Adventure Time (space_station_ADT) by prazat911(discord)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "skinny",
+      "directions": 4
+    },
+    {
+      "name": "skinny_f",
+      "directions": 4
+    },
+    {
+      "name": "muscular",
+      "directions": 4
+    },
+    {
+      "name": "muscular_f",
+      "directions": 4
+    },
+    {
+      "name": "fat",
+      "directions": 4
+    },
+    {
+      "name": "fat_f",
+      "directions": 4
+    }
+  ]
+}

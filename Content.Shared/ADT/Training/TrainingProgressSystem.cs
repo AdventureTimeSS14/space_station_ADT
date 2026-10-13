@@ -7,7 +7,7 @@ namespace Content.Shared.ADT.Training;
 
 public sealed class TrainingProgressSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     private const float Tier1Threshold = 0.40f;
     private const float Tier2Threshold = 0.70f;

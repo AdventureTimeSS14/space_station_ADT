@@ -1,0 +1,64 @@
+- files: ["door_creak.ogg"]
+  license: "CC0-1.0"
+  copyright: "creaky door hinge by wforster1 (OpenGameArt), converted to mono and normalized"
+  source: "https://opengameart.org/content/creaky-door-hinge-spooky"
+
+- files: ["metal_groan.ogg"]
+  license: "CC0-1.0"
+  copyright: "scrape-3 and scrape-5 by AntumDeluge (OpenGameArt), joined, pitched down, low-pass filtered and echoed"
+  source: "https://opengameart.org/content/scrapes"
+
+- files: ["vent_crawl.ogg"]
+  license: "CC0-1.0"
+  copyright: "rattle1 by bmaczero and scrape-1, scrape-7 by AntumDeluge (OpenGameArt), joined, pitched down and filtered"
+  source: "https://opengameart.org/content/scrapes"
+
+- files: ["alarm_distant.ogg"]
+  license: "CC0-1.0"
+  copyright: "alarm by frenchyboy (OpenGameArt), looped, low-pass filtered and echoed"
+  source: "https://opengameart.org/content/alarm-2"
+
+- files: ["siren_far.ogg"]
+  license: "CC0-1.0"
+  copyright: "siren by aquinn (OpenGameArt), cut, low-pass filtered and echoed"
+  source: "https://opengameart.org/content/sirens-and-alarm-noise"
+
+- files: ["ghost_breath.ogg"]
+  license: "CC0-1.0"
+  copyright: "ghost breath by qubodup (OpenGameArt), converted to mono"
+  source: "https://opengameart.org/content/ghost-breath"
+
+- files: ["basement_loop.ogg"]
+  license: "CC0-1.0"
+  copyright: "dripping water loop by qubodup (OpenGameArt), converted to mono"
+  source: "https://opengameart.org/content/dripping-water-loop"
+
+- files: ["quake.ogg"]
+  license: "CC0-1.0"
+  copyright: "earthquake by mieki256 (OpenGameArt) mixed with lowFrequency_explosion_000 from Kenney Sci-fi Sounds"
+  source: "https://opengameart.org/content/earthquake-and-open-sesame"
+
+- files: ["power_down.ogg"]
+  license: "CC0-1.0"
+  copyright: "machine power off by cough-e (OpenGameArt), converted to mono"
+  source: "https://opengameart.org/content/machine-shutting-down"
+
+- files: ["footsteps_metal.ogg"]
+  license: "CC0-1.0"
+  copyright: "metal footsteps on concrete by thimras (OpenGameArt), cut and converted to mono"
+  source: "https://opengameart.org/content/metal-footsteps-on-concrete"
+
+- files: ["horror_drone.ogg"]
+  license: "CC0-1.0"
+  copyright: "ambient horror by techiew (OpenGameArt), converted to mono"
+  source: "https://opengameart.org/content/ambient-horror"
+
+- files: ["winch.ogg"]
+  license: "CC0-1.0"
+  copyright: "chain winch by bart (OpenGameArt), converted to mono"
+  source: "https://opengameart.org/content/chain-winch-sounds"
+
+- files: ["metal_slam.ogg"]
+  license: "CC0-1.0"
+  copyright: "metal_slam_01 by rubberduck (OpenGameArt) mixed with impactMetal_heavy_002 from Kenney Impact Sounds"
+  source: "https://opengameart.org/content/100-cc0-metal-and-wood-sfx"

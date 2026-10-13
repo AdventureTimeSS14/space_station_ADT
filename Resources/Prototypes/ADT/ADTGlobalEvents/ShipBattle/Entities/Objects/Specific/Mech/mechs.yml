@@ -26,14 +26,17 @@
     openState: onestar_tsf-open
     brokenState: onestar_tsf-broken
     mechToPilotDamageMultiplier: 0.0
-    pilotWhitelist:
-      components:
-        - HumanoidProfile
     equipmentWhitelist:
       tags:
       - ADTMechEquipmentGeneral
       - ADTMechEquipmentSec
     maxEquipmentAmount: 4
+  - type: Vehicle
+    operatorWhitelist:
+      components:
+        - HumanoidProfile
+  - type: VehicleHandBlocker
+    blockedHands: 2
   - type: Storage
     grid:
     - 0,0,6,3

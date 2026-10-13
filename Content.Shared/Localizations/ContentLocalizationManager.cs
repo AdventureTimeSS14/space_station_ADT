@@ -5,9 +5,9 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.Localizations
 {
-    public sealed class ContentLocalizationManager
+    public sealed partial class ContentLocalizationManager
     {
-        [Dependency] private readonly ILocalizationManager _loc = default!;
+        [Dependency] private ILocalizationManager _loc = default!;
 
         // If you want to change your codebase's language, do it here.
         private const string Culture = "ru-RU"; // Corvax-Localization
@@ -45,6 +45,20 @@ namespace Content.Shared.Localizations
             _loc.AddFunction(culture, "NATURALPERCENT", FormatNaturalPercent);
             _loc.AddFunction(culture, "PLAYTIME", FormatPlaytime);
             _loc.AddFunction(culture, "PLAYTIMEMINUTES", FormatPlaytimeMinutes); // ADT Change
+
+            // ADT-Tweak start
+            _loc.AddFunction(fallbackCulture, "PRESSURE", FormatPressure);
+            _loc.AddFunction(fallbackCulture, "POWERWATTS", FormatPowerWatts);
+            _loc.AddFunction(fallbackCulture, "POWERJOULES", FormatPowerJoules);
+            _loc.AddFunction(fallbackCulture, "ENERGYWATTHOURS", FormatEnergyWattHours);
+            _loc.AddFunction(fallbackCulture, "UNITS", FormatUnits);
+            _loc.AddFunction(fallbackCulture, "TOSTRING", args => FormatToString(fallbackCulture, args));
+            _loc.AddFunction(fallbackCulture, "LOC", FormatLoc);
+            _loc.AddFunction(fallbackCulture, "NATURALFIXED", FormatNaturalFixed);
+            _loc.AddFunction(fallbackCulture, "NATURALPERCENT", FormatNaturalPercent);
+            _loc.AddFunction(fallbackCulture, "PLAYTIME", FormatPlaytime);
+            _loc.AddFunction(fallbackCulture, "PLAYTIMEMINUTES", FormatPlaytimeMinutes);
+            // ADT-Tweak end
 
 
             /*

@@ -15,7 +15,7 @@ namespace Content.Client.ADTUserInterface.RichText;
 
 public abstract class BaseTextureTag
 {
-    [Dependency] protected readonly IEntitySystemManager EntitySystemManager = default!;
+    [Dependency] protected IEntitySystemManager EntitySystemManager = default!;
 
     protected static bool TryDrawIcon(Texture tex,
         long scaleValue,

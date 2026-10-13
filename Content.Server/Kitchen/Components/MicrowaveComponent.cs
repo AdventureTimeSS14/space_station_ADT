@@ -15,28 +15,28 @@ namespace Content.Server.Kitchen.Components
     [RegisterComponent]
     public sealed partial class MicrowaveComponent : Component
     {
-        [DataField("cookTimeMultiplier"), ViewVariables(VVAccess.ReadWrite)]
+        [DataField]
         public float CookTimeMultiplier = 1;
 
         [DataField("cookTimeScalingConstant")]
-        public float CookTimeScalingConstant = 0.5f;
-        [DataField("baseHeatMultiplier"), ViewVariables(VVAccess.ReadWrite)]
+        public float CookTimeScalingConstant = 0.5f; // ADT-Tweak
+        [DataField]
         public float BaseHeatMultiplier = 100;
 
-        [DataField("objectHeatMultiplier"), ViewVariables(VVAccess.ReadWrite)]
+        [DataField]
         public float ObjectHeatMultiplier = 100;
 
-        [DataField("failureResult", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-        public string BadRecipeEntityId = "FoodBadRecipe";
+        [DataField("failureResult")]
+        public EntProtoId BadRecipeEntityId = "FoodBadRecipe";
 
         #region  audio
         [DataField("beginCookingSound")]
         public SoundSpecifier StartCookingSound = new SoundPathSpecifier("/Audio/Machines/microwave_start_beep.ogg");
 
-        [DataField("foodDoneSound")]
+        [DataField]
         public SoundSpecifier FoodDoneSound = new SoundPathSpecifier("/Audio/Machines/microwave_done_beep.ogg");
 
-        [DataField("clickSound")]
+        [DataField]
         public SoundSpecifier ClickSound = new SoundPathSpecifier("/Audio/Machines/machine_switch.ogg");
 
         [DataField("ItemBreakSound")]
@@ -44,14 +44,14 @@ namespace Content.Server.Kitchen.Components
 
         public EntityUid? PlayingStream;
 
-        [DataField("loopingSound")]
+        [DataField]
         public SoundSpecifier LoopingSound = new SoundPathSpecifier("/Audio/Machines/microwave_loop.ogg");
         #endregion
 
-        [ViewVariables]
+        [DataField]
         public bool Broken;
 
-        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        [DataField]
         public ProtoId<SinkPortPrototype> OnPort = "On";
 
         /// <summary>
@@ -59,26 +59,26 @@ namespace Content.Server.Kitchen.Components
         /// The cook times for all recipes should be divisible by 5,with a minimum of 1 second.
         /// For right now, I don't think any recipe cook time should be greater than 60 seconds.
         /// </summary>
-        [DataField("currentCookTimerTime"), ViewVariables(VVAccess.ReadWrite)]
+        [DataField]
         public uint CurrentCookTimerTime = 0;
 
         /// <summary>
         /// Tracks the elapsed time of the current cook timer.
         /// </summary>
-        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        [DataField]
         public TimeSpan CurrentCookTimeEnd = TimeSpan.Zero;
 
         /// <summary>
         /// The maximum number of seconds a microwave can be set to.
         /// This is currently only used for validation and the client does not check this.
         /// </summary>
-        [DataField("maxCookTime"), ViewVariables(VVAccess.ReadWrite)]
+        [DataField]
         public uint MaxCookTime = 30;
 
         /// <summary>
         ///     The max temperature that this microwave can heat objects to.
         /// </summary>
-        [DataField("temperatureUpperThreshold")]
+        [DataField]
         public float TemperatureUpperThreshold = 373.15f;
 
         public int CurrentCookTimeButtonIndex;
@@ -88,10 +88,10 @@ namespace Content.Server.Kitchen.Components
         [DataField]
         public string ContainerId = "microwave_entity_container";
 
-        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        [DataField]
         public int Capacity = 10;
 
-        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        [DataField]
         public ProtoId<ItemSizePrototype> MaxItemSize = "Normal";
 
         /// <summary>
@@ -103,7 +103,7 @@ namespace Content.Server.Kitchen.Components
         /// <summary>
         /// Chance of an explosion occurring when we microwave a metallic object
         /// </summary>
-        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        [DataField]
         public float ExplosionChance = .1f;
 
         // ADT-Tweak-Start: machine parts with tiers
@@ -119,13 +119,13 @@ namespace Content.Server.Kitchen.Components
 
         /// <summary>
         /// Chance of lightning occurring when we microwave a metallic object
-        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        [DataField]
         public float LightningChance = .75f;
 
         /// <summary>
         /// If this microwave can give ids accesses without exploding
         /// </summary>
-        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        [DataField]
         public bool CanMicrowaveIdsSafely = true;
 
         // ADT-Tweak: recipe type

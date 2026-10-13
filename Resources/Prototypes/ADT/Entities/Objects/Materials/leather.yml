@@ -108,6 +108,8 @@
     stackType: ADTWetLeather
     count: 30
   - type: AtmosExposed
+  - type: Temperature
+    heatCapacity: 15000
   - type: ADTDryable
     result: ADTMaterialLeather1
     dryingTemperature: 500

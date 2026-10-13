@@ -16,16 +16,16 @@ using Robust.Shared.Network;
 
 namespace Content.Server.Administration;
 
-public sealed class BanPanelEui : BaseEui
+public sealed partial class BanPanelEui : BaseEui
 {
-    [Dependency] private readonly IBanManager _banManager = default!;
-    [Dependency] private readonly IEntityManager _entities = default!;
-    [Dependency] private readonly ILogManager _log = default!;
-    [Dependency] private readonly IPlayerLocator _playerLocator = default!;
-    [Dependency] private readonly IChatManager _chat = default!;
-    [Dependency] private readonly IAdminManager _admins = default!;
-    [Dependency] private readonly IDiscordBanInfoSender _discordBanInfoSender = default!;
-    [Dependency] private readonly IServerDbManager _dbManager = default!;
+    [Dependency] private IBanManager _banManager = default!;
+    [Dependency] private IEntityManager _entities = default!;
+    [Dependency] private ILogManager _log = default!;
+    [Dependency] private IPlayerLocator _playerLocator = default!;
+    [Dependency] private IChatManager _chat = default!;
+    [Dependency] private IAdminManager _admins = default!;
+    [Dependency] private IDiscordBanInfoSender _discordBanInfoSender = default!;
+    [Dependency] private IServerDbManager _dbManager = default!;
 
     private readonly ISawmill _sawmill;
 

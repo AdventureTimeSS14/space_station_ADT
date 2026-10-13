@@ -17,9 +17,9 @@ namespace Content.Client.ADT.Particles;
 /// </summary>
 public sealed class HeaterParticleSystem : EntitySystem
 {
-    [Dependency] private readonly ParticleSystem _particles = default!;
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private ParticleSystem _particles = default!;
+    [Dependency] private AppearanceSystem _appearance = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     private static readonly ProtoId<ParticleEffectPrototype> FireEffect = "ADTFireContinuous";
     private static readonly ProtoId<ParticleEffectPrototype> SmokeEffect = "ADTFireSmoke";

@@ -13,9 +13,9 @@ namespace Content.Server.ADT.Mech.Equipment.EntitySystems;
 /// </summary>
 public sealed class MechCatapultSystem : EntitySystem
 {
-    [Dependency] private readonly ThrowingSystem _throwing = default!;
-    [Dependency] private readonly MechSystem _mech = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private ThrowingSystem _throwing = default!;
+    [Dependency] private MechSystem _mech = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {

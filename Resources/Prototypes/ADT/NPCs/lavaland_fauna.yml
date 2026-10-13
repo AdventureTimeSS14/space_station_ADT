@@ -30,6 +30,11 @@
   id: ADTGoldgrubCompound
   branches:
   - preconditions:
+    - !type:ADTGrabbedPrecondition
+    tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:ADTGrabEscapeOperator
+  - preconditions:
     - !type:KeyExistsPrecondition
       key: ADTFleeCoordinates
     tasks:
@@ -61,6 +66,11 @@
 - type: htnCompound
   id: ADTHerdCompound
   branches:
+  - preconditions:
+    - !type:ADTGrabbedPrecondition
+    tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:ADTGrabEscapeOperator
   - tasks:
     - !type:HTNPrimitiveTask
       operator: !type:UtilityOperator

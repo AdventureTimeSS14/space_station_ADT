@@ -1,3 +1,5 @@
+using Robust.Shared.Prototypes;
+
 namespace Content.Shared.ADT.VendingMachines;
 public sealed class VendingMachineInventoryData
 {
@@ -18,6 +20,15 @@ public sealed class VendingMachineInventoryData
                 yield return (item, amount, key);
         }
     }
+    public static IEnumerable<(string Id, uint Amount, string? Category)> Flatten(Dictionary<EntProtoId, uint>? inventory)
+    {
+        if (inventory == null)
+            yield break;
+
+        foreach (var (id, amount) in inventory)
+            yield return (id, amount, null);
+    }
+
     public static IEnumerable<(string Id, uint Amount, string? Category)> Flatten(Dictionary<string, uint>? inventory)
     {
         if (inventory == null)

@@ -14,8 +14,8 @@ namespace Content.Client.ADT.MesonVision;
 
 public sealed class MesonVisionOverlay : Overlay
 {
-    [Dependency] private readonly IEntityManager _entity = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private IEntityManager _entity = default!;
+    [Dependency] private IPlayerManager _player = default!;
     private readonly SharedTransformSystem _xformSystem;
     private readonly ContainerSystem _container;
     private readonly SpriteSystem _spriteSystem;
