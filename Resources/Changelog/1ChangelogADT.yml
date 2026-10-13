@@ -16199,3 +16199,14 @@ Entries:
     id: 2005
     pr_number: 3466
     time: '2026-10-13T13:01:18Z'
+  - author: Eddard
+    changes:
+      - {message: что добавили, type: Add}
+      - {message: что убрали, type: Remove}
+      - {message: что подправили, type: Tweak}
+      - {message: что исправили, type: Fix}
+      - {message: Занятые другими действиями клавиши теперь подсвечиваются красным
+          в настройках управления, type: Tweak}
+    id: 2006
+    pr_number: 3417
+    time: '2026-10-13T13:11:10Z'
