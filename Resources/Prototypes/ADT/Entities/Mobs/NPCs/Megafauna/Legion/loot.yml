@@ -76,9 +76,10 @@
   components:
   - type: Sprite
     sprite: ADT/Effects/storm_staff_effects.rsi
-    state: target
     drawdepth: BelowMobs
-    shader: unshaded
+    layers:
+    - state: target
+      shader: unshaded
   - type: PointLight
     radius: 1
     energy: 1

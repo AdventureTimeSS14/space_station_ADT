@@ -270,9 +270,9 @@
     angle: 0
     animation: WeaponArcPunch
     damage:
-      groups:
-        Brute: -5
-        Burn: -5
+      types:
+        Blunt: -5
+        Heat: -5
   - type: NpcFactionMember
     factions:
     - Passive

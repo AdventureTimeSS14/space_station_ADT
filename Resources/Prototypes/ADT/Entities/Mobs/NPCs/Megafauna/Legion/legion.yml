@@ -197,10 +197,11 @@
     noRot: false
   - type: Sprite
     sprite: ADT/Effects/legion_beam.rsi
-    state: beam
     color: "#FFFFFF64"
     drawdepth: BelowMobs
-    shader: unshaded
+    layers:
+    - state: beam
+      shader: unshaded
   - type: TimedDespawn
     lifetime: 1
 
