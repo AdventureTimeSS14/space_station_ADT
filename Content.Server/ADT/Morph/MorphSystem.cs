@@ -142,11 +142,11 @@ public sealed class MorphSystem : SharedMorphSystem
         _chameleon.TryReveal(ent.Owner);
         if (args.HitEntities.Count == 0)
             return;
-        if (!TryComp<HandsComponent>(args.HitEntities[0], out var hands))
+        if (!TryComp<HandsComponent>(args.HitEntities.First(), out var hands))
             return;
         if (!TryComp<SatiationComponent>(ent, out var hunger))
             return;
-        if (_hands.TryGetActiveItem((args.HitEntities[0], hands), out var item) && _random.Prob(ent.Comp.EatWeaponChanceOnHit))
+        if (_hands.TryGetActiveItem((args.HitEntities.First(), hands), out var item) && _random.Prob(ent.Comp.EatWeaponChanceOnHit))
         {
             _container.Insert(item.Value, ent.Comp.Container);
             _audioSystem.PlayPvs(ent.Comp.SoundDevour, ent);

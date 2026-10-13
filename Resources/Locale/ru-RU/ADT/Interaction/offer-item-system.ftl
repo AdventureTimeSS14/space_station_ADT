@@ -7,3 +7,4 @@ offer-item-give-other = { $user } отдал { THE($item) }  { $target }
 offer-item-give-target = { $user } отдал вам { THE($item) }
 offer-item-no-give = Вы перестаёте предлагать { THE($item) }  { $target }
 offer-item-no-give-target = { $user } больше не предлагает вам { THE($item) }
+offer-item-icon-tooltip = Принять { $item }

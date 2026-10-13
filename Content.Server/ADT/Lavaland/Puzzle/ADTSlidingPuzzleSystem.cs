@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Server.Administration.Logs;
+using Content.Server.DeviceLinking.Systems;
 using Content.Shared.ADT.Lavaland.Puzzle;
 using Content.Shared.Camera;
 using Content.Shared.Cuffs.Components;
@@ -32,9 +33,10 @@ public sealed class ADTSlidingPuzzleSystem : EntitySystem
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private SharedCameraRecoilSystem _recoil = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedMapSystem _map = default!;
     [Dependency] private SharedContainerSystem _container = default!;
     [Dependency] private DamageableSystem _damageable = default!;
-    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private DeviceLinkSystem _deviceLink = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private IPrototypeManager _prototype = default!;
     [Dependency] private ITileDefinitionManager _tileDefinitionManager = default!;
@@ -527,7 +529,10 @@ public sealed class ADTSlidingPuzzleSystem : EntitySystem
 
         DispenseReward(puzzle);
 
-        _popup.PopupEntity(Loc.GetString("sliding-puzzle-solved"), puzzle, PopupType.Medium);
+        if (puzzle.Comp.SolvedPort is { } port)
+            _deviceLink.InvokePort(puzzle, port);
+
+        _popup.PopupEntity(Loc.GetString(puzzle.Comp.SolvedMessage), puzzle, PopupType.Medium);
 
         if (puzzle.Comp.Prisoner is { } prisoner)
             ReleasePrisoner(puzzle, prisoner);

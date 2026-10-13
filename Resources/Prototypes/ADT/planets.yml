@@ -35,11 +35,24 @@
     riverBridgeSpacing: 55
     riverBridgeMaxWidth: 6
     groups:
+    # Некрополь
+    - prototypes: [ ADTLegionNecropolisSpawner ]
+      count: 1
+      angle: 90
+      minDistanceFromCenter: 318
+      maxDistanceFromCenter: 322
+      clearance: 75
+      riverClearance: 52
     - prototypes: [ ADTLavaDungeonAshVillage ]
       count: 1
       minDistanceFromCenter: 250
       maxDistanceFromCenter: 300
       clearance: 55
+    #- prototypes: [ ADTHeliosEntranceRoomMarker ]
+    #  count: 1
+    #  minDistanceFromCenter: 140
+    #  maxDistanceFromCenter: 240
+    #  clearance: 20
     - prototypes: [ LavaDungeonRoomMarker ]
       roomWhitelist:
         tags:
@@ -122,6 +135,7 @@
     - ADTMegaFaunaBubblegum
     - BloodMinerDungeMarker
     - ADTHierophantArenaSpawner
+    - ADTMegaFaunaColossus
   - type: FTLDestination
   - type: ADTBaitDigging
     table: !type:NestedSelector
