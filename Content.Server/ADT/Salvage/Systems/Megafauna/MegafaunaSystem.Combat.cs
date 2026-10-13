@@ -162,7 +162,7 @@ public sealed partial class MegafaunaSystem
                 RaiseLocalEvent(uid, ref changed);
             }
 
-            if (!ai.RangedWhenAdjacent && IsAdjacent(uid, target))
+            if (!ai.RangedWhenAdjacent && IsAdjacent(uid, target, ai.AdjacentOnlyOnGrid))
                 continue;
 
             OpenFire((uid, ai), target);
@@ -287,7 +287,7 @@ public sealed partial class MegafaunaSystem
             QueueDel(target);
     }
 
-    public bool IsAdjacent(EntityUid uid, EntityUid target)
+    public bool IsAdjacent(EntityUid uid, EntityUid target, bool onlyOnGrid = false)
     {
         var ours = _transform.GetMapCoordinates(uid);
         var theirs = _transform.GetMapCoordinates(target);
@@ -302,6 +302,9 @@ public sealed partial class MegafaunaSystem
             var delta = _map.TileIndicesFor(gridUid, grid, theirs) - _map.TileIndicesFor(gridUid, grid, ours);
             return Math.Max(Math.Abs(delta.X), Math.Abs(delta.Y)) <= 1;
         }
+
+        if (onlyOnGrid)
+            return false;
 
         return ADTMegafaunaGeometry.ChebyshevDistance(ours, theirs) <= 1.5f;
     }

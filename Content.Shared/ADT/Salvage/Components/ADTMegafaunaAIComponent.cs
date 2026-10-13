@@ -23,6 +23,9 @@ public sealed partial class ADTMegafaunaAIComponent : Component
     public bool RangedWhenAdjacent;
 
     [DataField]
+    public bool AdjacentOnlyOnGrid;
+
+    [DataField]
     public bool DecideWhileInactive = true;
 
     [DataField]
