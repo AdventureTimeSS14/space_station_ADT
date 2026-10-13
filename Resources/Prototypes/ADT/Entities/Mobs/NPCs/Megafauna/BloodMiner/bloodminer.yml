@@ -45,6 +45,12 @@
     openDamage:
       types:
         Slash: 10
+  - type: ADTMegafaunaAI
+    decisionInterval: 0.5
+    decideWhileInactive: false
+    rangedWhenAdjacent: true
+    targetAggressor: false
+    handleMelee: false
   - type: MegafaunaLoot
     deleteOnDrop: true
     dropSound:
