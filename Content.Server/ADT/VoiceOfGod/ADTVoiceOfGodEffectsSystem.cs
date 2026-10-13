@@ -29,7 +29,7 @@ public sealed partial class ADTStunEffectSystem : EntityEffectSystem<MetaDataCom
 
     protected override void Effect(Entity<MetaDataComponent> entity, ref EntityEffectEvent<ADTStun> args)
     {
-        _stun.TryUpdateStunDuration(entity, args.Effect.Time * args.Scale);
+        _stun.TryUpdateStunDuration(entity.Owner, args.Effect.Time * args.Scale);
     }
 }
 
@@ -54,7 +54,7 @@ public sealed partial class ADTStandUpEffectSystem : EntityEffectSystem<MetaData
     protected override void Effect(Entity<MetaDataComponent> entity, ref EntityEffectEvent<ADTStandUp> args)
     {
         _stun.TryUnstun(entity.Owner);
-        _stun.TryUpdateParalyzeDuration(entity, TimeSpan.Zero);
+        _stun.TryUpdateParalyzeDuration(entity.Owner, TimeSpan.Zero);
         _stun.ForceStandUp(entity.Owner);
     }
 }
@@ -66,7 +66,7 @@ public sealed partial class ADTWakeUpEffectSystem : EntityEffectSystem<MetaDataC
 
     protected override void Effect(Entity<MetaDataComponent> entity, ref EntityEffectEvent<ADTWakeUp> args)
     {
-        _statusEffects.TryRemoveStatusEffect(entity, args.Effect.SleepEffect);
+        _statusEffects.TryRemoveStatusEffect(entity.Owner, args.Effect.SleepEffect);
         _sleeping.TryWaking(entity.Owner, true);
     }
 }
@@ -77,7 +77,7 @@ public sealed partial class ADTForceVomitEffectSystem : EntityEffectSystem<MetaD
 
     protected override void Effect(Entity<MetaDataComponent> entity, ref EntityEffectEvent<ADTForceVomit> args)
     {
-        _vomit.Vomit(entity, force: true);
+        _vomit.Vomit(entity.Owner, force: true);
     }
 }
 
@@ -87,7 +87,7 @@ public sealed partial class ADTHallucinateEffectSystem : EntityEffectSystem<Meta
 
     protected override void Effect(Entity<MetaDataComponent> entity, ref EntityEffectEvent<ADTHallucinate> args)
     {
-        _hallucinations.StartHallucinations(entity, args.Effect.Key, args.Effect.Time * args.Scale, true, args.Effect.Pack);
+        _hallucinations.StartHallucinations(entity.Owner, args.Effect.Key, args.Effect.Time * args.Scale, true, args.Effect.Pack);
     }
 }
 
@@ -107,10 +107,10 @@ public sealed partial class ADTFireStacksEffectSystem : EntityEffectSystem<Flamm
 
     protected override void Effect(Entity<FlammableComponent> entity, ref EntityEffectEvent<ADTFireStacks> args)
     {
-        _flammable.AdjustFireStacks(entity, args.Effect.Stacks * args.Scale, entity.Comp);
+        _flammable.AdjustFireStacks(entity.Owner, args.Effect.Stacks * args.Scale, entity.Comp);
 
         if (args.User is { } user)
-            _flammable.Ignite(entity, user, entity.Comp, user);
+            _flammable.Ignite(entity.Owner, user, entity.Comp, user);
     }
 }
 
@@ -125,12 +125,12 @@ public sealed partial class ADTRepulseFromUserEffectSystem : EntityEffectSystem<
         if (args.User is not { } user)
             return;
 
-        var direction = _transform.GetMapCoordinates(entity).Position - _transform.GetMapCoordinates(user).Position;
+        var direction = _transform.GetMapCoordinates(entity.Owner).Position - _transform.GetMapCoordinates(user).Position;
 
         if (direction.LengthSquared() < 0.01f)
             direction = _random.NextAngle().ToVec();
 
-        _throwing.TryThrow(entity, Vector2.Normalize(direction) * args.Effect.Distance * args.Scale, args.Effect.Speed, user);
+        _throwing.TryThrow(entity.Owner, Vector2.Normalize(direction) * args.Effect.Distance * args.Scale, args.Effect.Speed, user);
     }
 }
 
@@ -143,7 +143,7 @@ public sealed partial class ADTRandomStepEffectSystem : EntityEffectSystem<Trans
 
     protected override void Effect(Entity<TransformComponent> entity, ref EntityEffectEvent<ADTRandomStep> args)
     {
-        _throwing.TryThrow(entity, _random.Pick(Steps), args.Effect.Speed, args.User, 0, null, false, false, false, false, false);
+        _throwing.TryThrow(entity.Owner, _random.Pick(Steps), args.Effect.Speed, args.User, 0, null, false, false, false, false, false);
     }
 }
 
@@ -156,7 +156,7 @@ public sealed partial class ADTForceSayEffectSystem : EntityEffectSystem<MetaDat
         var user = args.User is { } speaker ? Name(speaker) : string.Empty;
         var message = Loc.GetString(args.Effect.Message, ("target", entity.Comp.EntityName), ("user", user));
 
-        _chat.TrySendInGameICMessage(entity, message, InGameICChatType.Speak, false, ignoreActionBlocker: true);
+        _chat.TrySendInGameICMessage(entity.Owner, message, InGameICChatType.Speak, false, ignoreActionBlocker: true);
     }
 }
 
@@ -167,9 +167,9 @@ public sealed partial class ADTStateLawsEffectSystem : EntityEffectSystem<Silico
 
     protected override void Effect(Entity<SiliconLawBoundComponent> entity, ref EntityEffectEvent<ADTStateLaws> args)
     {
-        foreach (var law in _laws.GetLaws(entity, entity.Comp).Laws.OrderBy(law => law.Order))
+        foreach (var law in _laws.GetLaws(entity.Owner, entity.Comp).Laws.OrderBy(law => law.Order))
         {
-            _chat.TrySendInGameICMessage(entity, $"{law.Order}. {Loc.GetString(law.LawString)}", InGameICChatType.Speak, false, ignoreActionBlocker: true);
+            _chat.TrySendInGameICMessage(entity.Owner, $"{law.Order}. {Loc.GetString(law.LawString)}", InGameICChatType.Speak, false, ignoreActionBlocker: true);
         }
     }
 }
@@ -180,7 +180,7 @@ public sealed partial class ADTForceEmoteEffectSystem : EntityEffectSystem<MetaD
 
     protected override void Effect(Entity<MetaDataComponent> entity, ref EntityEffectEvent<ADTForceEmote> args)
     {
-        _chat.TryEmoteWithChat(entity, args.Effect.Emote, ignoreActionBlocker: true, forceEmote: true);
+        _chat.TryEmoteWithChat(entity.Owner, args.Effect.Emote, ignoreActionBlocker: true, forceEmote: true);
     }
 }
 
@@ -190,7 +190,7 @@ public sealed partial class ADTSetCombatModeEffectSystem : EntityEffectSystem<Co
 
     protected override void Effect(Entity<CombatModeComponent> entity, ref EntityEffectEvent<ADTSetCombatMode> args)
     {
-        _combat.SetInCombatMode(entity, args.Effect.Enabled, entity.Comp);
+        _combat.SetInCombatMode(entity.Owner, args.Effect.Enabled, entity.Comp);
     }
 }
 
@@ -201,9 +201,9 @@ public sealed partial class ADTBuckleNearbyEffectSystem : EntityEffectSystem<Buc
 
     protected override void Effect(Entity<BuckleComponent> entity, ref EntityEffectEvent<ADTBuckleNearby> args)
     {
-        foreach (var strap in _lookup.GetEntitiesInRange<StrapComponent>(Transform(entity).Coordinates, args.Effect.Range))
+        foreach (var strap in _lookup.GetEntitiesInRange<StrapComponent>(Transform(entity.Owner).Coordinates, args.Effect.Range))
         {
-            if (_buckle.TryBuckle(entity, entity, strap, popup: false))
+            if (_buckle.TryBuckle(entity.Owner, entity.Owner, strap, popup: false))
                 break;
         }
     }
@@ -216,6 +216,6 @@ public sealed partial class ADTUnbuckleEffectSystem : EntityEffectSystem<BuckleC
     protected override void Effect(Entity<BuckleComponent> entity, ref EntityEffectEvent<ADTUnbuckle> args)
     {
         if (entity.Comp.Buckled)
-            _buckle.TryUnbuckle(entity.AsNullable(), entity, false);
+            _buckle.TryUnbuckle(entity.AsNullable(), entity.Owner, false);
     }
 }

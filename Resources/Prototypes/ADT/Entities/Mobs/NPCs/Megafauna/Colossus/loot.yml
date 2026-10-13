@@ -121,7 +121,11 @@
     - Speech
     activationSound:
       path: /Audio/Items/bikehorn.ogg
-  - type: ADTCrystalHonk
+    oncePerUser: true
+    variants:
+    - userEffects:
+      - !type:ADTEquipStartingGear
+        gear: ClownGear
 
 - type: entity
   parent: ADTAnomalousCrystalBase
@@ -130,46 +134,43 @@
   components:
   - type: ADTAnomalousCrystal
     cooldown: 20
-  - type: ADTCrystalThemeWarp
-    chairWhitelist:
-      tags:
-      - Chair
-    tableWhitelist:
-      tags:
-      - Table
-    themes:
-    # lavaland
-    - floor: FloorBasalt
-      wall: WallCult
-      flora:
-      - ADTMobGoldgrub
-      floraChance: 0.01
-    # winter
-    - floor: FloorSnow
-      wall: WallWood
-      chair: ChairWood
-      table: TableGlass
-      flora:
-      - FloraTreeSnow
-      - FloraTreeConifer
-      floraChance: 0.08
-    # jungle
-    - floor: FloorGrass
-      wall: WallSandstone
-      chair: ChairWood
-      table: TableWood
-      flora:
-      - FloraPalmTree1
-      - FloraPalmTree2
-      - FloraTree
-      - MobMonkey
-      - BowImprovised
-      - ClothingBeltQuiver
-      floraChance: 0.2
-    # alien
-    - floor: FloorShuttlePurple
-      wall: ADTAbductorWall
-      floraChance: 0
+    variants:
+    - effects:
+      - !type:ADTCrystalThemeWarp
+        theme: ADTCrystalThemeLavaland
+        chairWhitelist:
+          tags:
+          - Chair
+        tableWhitelist:
+          tags:
+          - Table
+    - effects:
+      - !type:ADTCrystalThemeWarp
+        theme: ADTCrystalThemeWinter
+        chairWhitelist:
+          tags:
+          - Chair
+        tableWhitelist:
+          tags:
+          - Table
+    - effects:
+      - !type:ADTCrystalThemeWarp
+        theme: ADTCrystalThemeJungle
+        chairWhitelist:
+          tags:
+          - Chair
+        tableWhitelist:
+          tags:
+          - Table
+    - effects:
+      - !type:ADTCrystalThemeWarp
+        theme: ADTCrystalThemeAlien
+        chairWhitelist:
+          tags:
+          - Chair
+        tableWhitelist:
+          tags:
+          - Table
 
 - type: entity
   parent: ADTAnomalousCrystalBase
@@ -178,13 +179,22 @@
   components:
   - type: ADTAnomalousCrystal
     cooldown: 5
-  - type: ADTCrystalEmitter
-    projectiles:
-    - ProjectileFireball
-    - ProjectileIcicle
-    - BulletLaser
-    - EmitterBolt
-    - ADTColossusBolt
+    variants:
+    - effects:
+      - !type:ADTCrystalEmitProjectile
+        projectile: ProjectileFireball
+    - effects:
+      - !type:ADTCrystalEmitProjectile
+        projectile: ProjectileIcicle
+    - effects:
+      - !type:ADTCrystalEmitProjectile
+        projectile: BulletLaser
+    - effects:
+      - !type:ADTCrystalEmitProjectile
+        projectile: EmitterBolt
+    - effects:
+      - !type:ADTCrystalEmitProjectile
+        projectile: ADTColossusBolt
 
 - type: entity
   parent: ADTAnomalousCrystalBase
@@ -194,25 +204,38 @@
   - type: ADTAnomalousCrystal
     activationSound:
       path: /Audio/ADT/hallucinations/growl1.ogg
-  - type: ADTCrystalDarkReprise
+    variants:
+    - effects:
+      - !type:ADTCrystalDarkReprise
+        polymorph: ADTCrystalDarkReprise
+        range: 1.5
+        effect: EffectSparks
+        removeLanguages:
+        - ADTShadowlingCollectiveMind
+        popup: adt-crystal-dark-reprise-revive
 
 - type: entity
   parent: ADTAnomalousCrystalBase
   id: ADTAnomalousCrystalHelpers
   suffix: Helpers
   components:
-  - type: ADTCrystalHelpers
-    roleComponents:
-    - type: GhostRole
-      name: adt-ghost-role-lightgeist-name
-      description: adt-ghost-role-lightgeist-description
-      rules: ghost-role-information-familiar-rules
-      raffle:
-        settings: short
-    - type: GhostRoleMobSpawner
-      prototype: ADTMobLightgeist
-      deleteOnSpawn: false
-      availableTakeovers: 1000
+  - type: ADTAnomalousCrystal
+    maxActivations: 1
+    variants:
+    - effects:
+      - !type:ADTAddComponents
+        popup: adt-crystal-helpers-ready
+        components:
+        - type: GhostRole
+          name: adt-ghost-role-lightgeist-name
+          description: adt-ghost-role-lightgeist-description
+          rules: ghost-role-information-familiar-rules
+          raffle:
+            settings: short
+        - type: GhostRoleMobSpawner
+          prototype: ADTMobLightgeist
+          deleteOnSpawn: false
+          availableTakeovers: 1000
 
 - type: entity
   parent: ADTAnomalousCrystalBase
@@ -223,24 +246,38 @@
     cooldown: 5
     activationSound:
       path: /Audio/ADT/LavalandLoot/timeparadox2.ogg
-  - type: ADTCrystalRefresher
-    blacklist:
-      components:
-      - Storage
-      - Implanter
-      - SubdermalImplant
-      - NukeDisk
-      - ADTGem
-      - Gun
-      tags:
-      - HighRiskItem
+    variants:
+    - effects:
+      - !type:ADTCrystalRefreshItem
+        effect: EffectEmpPulse
+        blacklist:
+          components:
+          - Storage
+          - Implanter
+          - SubdermalImplant
+          - NukeDisk
+          - ADTGem
+          - Gun
+          tags:
+          - HighRiskItem
 
 - type: entity
   parent: ADTAnomalousCrystalBase
   id: ADTAnomalousCrystalPossessor
   suffix: Possessor
   components:
-  - type: ADTCrystalPossessor
+  - type: ADTAnomalousCrystal
+    variants:
+    - effects:
+      - !type:ADTCrystalPossess
+        userWhitelist:
+          components:
+          - HumanoidProfile
+        range: 1.5
+        maxMeleeDamage: 5
+        maxHealth: 100
+        fallback: MobCockroach
+        exitAction: ActionADTExitPossession
 
 - type: entity
   id: ActionADTExitPossession
