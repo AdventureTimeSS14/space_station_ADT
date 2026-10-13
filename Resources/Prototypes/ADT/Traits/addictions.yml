@@ -83,3 +83,7 @@
   - CentcomSpecialists
   effects:
   - !type:RandomAddictionEffect
+    pool:
+    - Alcohol
+    - Nicotine
+    - Drug

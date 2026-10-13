@@ -4,6 +4,7 @@
 
 using System.Linq;
 using Content.Shared.ADT.Addiction;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.Traits.Effects;
 
@@ -15,10 +16,10 @@ namespace Content.Shared.ADT.Traits.Effects;
 public sealed partial class AddictionTraitEffect : BaseTraitEffect
 {
     /// <summary>
-    /// Канал зависимости (алкоголь/никотин/наркотики).
+    /// Какая зависимость (id AddictionPrototype).
     /// </summary>
-    [DataField(required: true)]
-    public AddictionKind Kind;
+    [DataField("kind", required: true)]
+    public ProtoId<AddictionPrototype> Kind;
 
     /// <summary>
     /// Стартовый уровень привыкания (100 = тяжёлая стадия).

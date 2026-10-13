@@ -3,20 +3,40 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.ADT.Addiction;
-using Content.Shared.ADT.Traits;
-using Content.Shared.Jittering;
-using Content.Shared.StatusEffectNew;
+using Content.Shared.ADT.Addiction.Symptoms;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.Addiction;
 
 /// <summary>
-/// Применяет симптомы ломки (дрожь, косноязычие, слабость, галлюцинации, никотиновая муть).
-public sealed partial class AddictionSymptomsSystem : EntitySystem
+/// Держит на мобе симптомы ломки, описанные в AddictionPrototype.Stages[..].Symptoms.
+///
+/// Каналов в ломке может быть несколько, и их симптомы норовят подраться за один и тот же
+/// статус-эффект: арбитраж по ключу симптома - побеждает пришедший с более тяжёлой стадии.
+/// Снимаем только то, что наложили сами (AddictionComponent.AppliedSymptoms): чужую дрожь
+/// и чужие статус-эффекты ломка не гасит.
+/// </summary>
+public sealed class AddictionSymptomsSystem : EntitySystem
 {
     [Dependency] private IGameTiming _timing = default!;
-    [Dependency] private SharedJitteringSystem _jitter = default!;
-    [Dependency] private StatusEffectsSystem _status = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+
+    /// <summary>
+    /// Победители арбитража: ключ симптома -> стадия, с которой он пришёл, и сам симптом.
+    /// Переиспользуется между вызовами, чтобы не аллоцировать словарь на каждом продлении.
+    /// </summary>
+    private readonly Dictionary<string, (int Stage, AddictionSymptom Symptom)> _winners = new();
+
+    private readonly List<string> _expired = new();
+
+    /// <summary>
+    /// Продление симптомов измеряется десятками секунд: полный запрос по игрокам
+    /// каждый кадр не нужен. Срочные пересчёты приходят через AddictionSymptomsChangedEvent.
+    /// </summary>
+    private const float UpdateInterval = 1f;
+
+    private float _accumulator;
 
     public override void Initialize()
     {
@@ -29,31 +49,39 @@ public sealed partial class AddictionSymptomsSystem : EntitySystem
     {
         base.Update(frameTime);
 
+        _accumulator += frameTime;
+        if (_accumulator < UpdateInterval)
+            return;
+
+        _accumulator = 0f;
+
         var query = EntityQueryEnumerator<AddictionComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            var anyWithdrawal = false;
-            var due = false;
+            // Симптомы живут по длительности и требуют продления, пока ломка идёт.
+            // Когда ломки нет, ждём либо AddictionSymptomsChangedEvent, либо подчищаем хвост.
+            var active = false;
             foreach (var channel in comp.Channels)
             {
                 if (!channel.InWithdrawal)
                     continue;
 
-                anyWithdrawal = true;
-                if (_timing.CurTime >= channel.NextSymptomsTime)
-                    due = true;
+                active = true;
+                break;
             }
 
-            if (!anyWithdrawal || !due)
+            if (!active)
+            {
+                if (comp.AppliedSymptoms.Count > 0)
+                    RefreshSymptoms(uid, comp);
+
+                continue;
+            }
+
+            if (_timing.CurTime < comp.NextSymptomRefresh)
                 continue;
 
             RefreshSymptoms(uid, comp);
-
-            foreach (var channel in comp.Channels)
-            {
-                if (channel.InWithdrawal)
-                    channel.NextSymptomsTime = _timing.CurTime + comp.SymptomRefreshInterval;
-            }
         }
     }
 
@@ -62,102 +90,59 @@ public sealed partial class AddictionSymptomsSystem : EntitySystem
         RefreshSymptoms(uid, comp);
     }
 
+    /// <summary>
+    /// Пересчитывает набор симптомов по всем каналам в ломке: накладывает и продлевает нужные,
+    /// снимает то, что больше никто не требует.
+    /// </summary>
     private void RefreshSymptoms(EntityUid uid, AddictionComponent comp)
     {
-        var jitterStage = 0;
-        var wantSlurred = false;
-        var wantStutter = false;
-        var wantWeakness = false;
-        var wantMonochromacy = false;
-        var nicotineStage = 0;
+        comp.NextSymptomRefresh = _timing.CurTime + comp.SymptomRefreshInterval;
+
+        _winners.Clear();
 
         foreach (var channel in comp.Channels)
         {
-            if (!channel.InWithdrawal)
+            if (!channel.InWithdrawal || channel.Stage <= 0)
                 continue;
 
-            // Никотин не заикается и не трясётся: тяга, кашель, муть и слабость живут отдельно.
-            if (channel.Kind == AddictionKind.Nicotine)
-            {
-                nicotineStage = Math.Max(nicotineStage, channel.Stage);
-            }
-            else
-            {
-                jitterStage = Math.Max(jitterStage, channel.Stage);
+            if (!_proto.TryIndex(channel.Kind, out var proto))
+                continue;
 
-                // Стадия 2 (средняя): косноязычие (алкоголь) или заикание (наркотики и прочее)
-                if (channel.Stage >= 2)
-                {
-                    if (channel.Kind == AddictionKind.Alcohol)
-                        wantSlurred = true;
-                    else
-                        wantStutter = true;
-                }
-            }
+            if (proto.GetStage(channel.Stage) is not { } stageData)
+                continue;
 
-            // Стадия 3 (тяжёлая): слабость, у наркотиков монохромный мир
-            if (channel.Stage >= 3)
+            foreach (var symptom in stageData.Symptoms)
             {
-                wantWeakness = true;
-                if (channel.Kind == AddictionKind.Drug)
-                    wantMonochromacy = true;
+                if (_winners.TryGetValue(symptom.Key, out var current) && current.Stage >= channel.Stage)
+                    continue;
+
+                _winners[symptom.Key] = (channel.Stage, symptom);
             }
         }
 
-        if (jitterStage > 0)
+        // Снять то, что ломка больше не поддерживает
+        _expired.Clear();
+        foreach (var (key, _) in comp.AppliedSymptoms)
         {
-            var amplitude = jitterStage switch
-            {
-                1 => comp.MildJitterAmplitude,
-                2 => comp.MediumJitterAmplitude,
-                _ => comp.SevereJitterAmplitude,
-            };
-            _jitter.DoJitter(uid, comp.SymptomDuration, refresh: true, amplitude, comp.JitterFrequency);
-        }
-        else if (nicotineStage == 0)
-        {
-            // Снимаем дрожь, только когда ломки с дрожью больше нет.
-            // Никотиновая ломка дрожь не включает и чужую не гасит.
-            RemComp<JitteringComponent>(uid);
+            if (!_winners.ContainsKey(key))
+                _expired.Add(key);
         }
 
-        if (wantSlurred)
-            _status.TrySetStatusEffectDuration(uid, comp.SlurredEffect, comp.SymptomDuration);
-
-        if (wantStutter)
-            _status.TrySetStatusEffectDuration(uid, comp.StutterEffect, comp.SymptomDuration);
-
-        if (wantWeakness)
-            _status.TrySetStatusEffectDuration(uid, comp.WeaknessEffect, comp.SymptomDuration);
-        else
-            _status.TryRemoveStatusEffect(uid, comp.WeaknessEffect);
-
-        if (wantMonochromacy)
+        foreach (var key in _expired)
         {
-            if (!HasComp<MonochromacyComponent>(uid) && !comp.WithdrawalMonochromacyApplied)
-            {
-                AddComp<MonochromacyComponent>(uid);
-                comp.WithdrawalMonochromacyApplied = true;
-            }
-        }
-        else if (comp.WithdrawalMonochromacyApplied)
-        {
-            if (HasComp<MonochromacyComponent>(uid))
-                RemComp<MonochromacyComponent>(uid);
-            comp.WithdrawalMonochromacyApplied = false;
+            comp.AppliedSymptoms[key].Remove(new AddictionSymptomContext(uid, EntityManager, true));
+            comp.AppliedSymptoms.Remove(key);
         }
 
-        // Средняя и тяжёлая никотиновая ломка: картинка плывёт. Лёгкая обходится тягой и кашлем.
-        if (nicotineStage >= 2)
+        // Наложить или продлить актуальное
+        foreach (var (key, winner) in _winners)
         {
-            var duration = nicotineStage >= 3 ? comp.NicotineSevereWoozyDuration : comp.NicotineWoozyDuration;
-            _status.TrySetStatusEffectDuration(uid, comp.WoozyEffect, duration);
-            comp.NicotineWoozyApplied = true;
-        }
-        else if (comp.NicotineWoozyApplied)
-        {
-            _status.TryRemoveStatusEffect(uid, comp.WoozyEffect);
-            comp.NicotineWoozyApplied = false;
+            var owned = comp.AppliedSymptoms.ContainsKey(key);
+
+            if (!winner.Symptom.Apply(new AddictionSymptomContext(uid, EntityManager, owned)))
+                continue;
+
+            comp.AppliedSymptoms[key] = winner.Symptom;
         }
     }
 }
