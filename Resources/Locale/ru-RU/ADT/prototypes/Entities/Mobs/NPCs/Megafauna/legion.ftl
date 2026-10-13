@@ -32,6 +32,3 @@ adt-legion-gate-forever-open = Кажется, эта дверь навеки о
 adt-legion-gate-released = Что-то ужасное вырывается из Некрополя!
 adt-legion-gate-whispers = Ваш разум наполняют диссонирующие шёпоты тысяч голосов. Каждый повторяет ваше имя снова и снова...
 adt-legion-gate-released-global = Выпущено нечто ужасающее!
-
-adt-gps-signal-legion = Сигнал Легиона
-adt-gps-signal-legion-desc = Один из многих.
