@@ -377,6 +377,21 @@
         {
             "name": "theokai-inhand-right",
             "directions": 4
+        },
+        {
+            "name": "plushie_reimor"
+        },
+        {
+            "name": "reimor-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "reimor-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "reimor-equipped-HELMET",
+            "directions": 4
         }
     ]
 }

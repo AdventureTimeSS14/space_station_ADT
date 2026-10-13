@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.Armor;
 using Content.Shared.Damage;
@@ -66,7 +67,7 @@ public sealed partial class ArmorPenetrationSystem : EntitySystem
                 continue;
 
             var multiplier = (c + penetration * (1f - c)) / c;
-            compensator.Coefficients[damageType] = multiplier;
+            result.Coefficients[damageType] = multiplier;
         }
 
         return compensator.Coefficients.Count > 0;

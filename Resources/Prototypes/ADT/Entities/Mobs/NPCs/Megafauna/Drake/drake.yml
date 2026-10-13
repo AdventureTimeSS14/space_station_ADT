@@ -36,6 +36,13 @@
         - MobMask
         layer:
         - MobLayer
+      hitbox:
+        shape: !type:PhysShapeCircle
+          radius: 1
+        density: 1
+        hard: true
+        layer:
+        - BulletImpassable
   - type: MovementSpeedModifier
     baseWalkSpeed: 2
     baseSprintSpeed: 2

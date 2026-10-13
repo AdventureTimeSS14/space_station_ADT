@@ -736,6 +736,7 @@
   description: Когда на клетку наступают, где-то рядом грохочет обвал.
   components:
   - type: EmitSoundOnTrigger
+    positional: true
     sound:
       path: /Audio/ADT/SoundGen/destruction_2.ogg
       params:
@@ -749,6 +750,7 @@
   description: Когда на клетку наступают, за спиной раздаются чьи-то шаги.
   components:
   - type: EmitSoundOnTrigger
+    positional: true
     sound:
       path: /Audio/ADT/SoundGen/moving_objects_ambient_scary.ogg
       params:
@@ -762,6 +764,7 @@
   description: Когда на клетку наступают, звучит резкий аккорд.
   components:
   - type: EmitSoundOnTrigger
+    positional: true
     sound:
       path: /Audio/ADT/SoundGen/pianino_chord_sudden.ogg
       params:
@@ -775,6 +778,7 @@
   description: Когда на клетку наступают, раздаётся тяжёлый удар, от которого дрожит пол.
   components:
   - type: EmitSoundOnTrigger
+    positional: true
     sound:
       path: /Audio/ADT/heart.ogg
       params:
@@ -788,6 +792,7 @@
   description: Когда на клетку наступают, из темноты выползает легион.
   components:
   - type: EmitSoundOnTrigger
+    positional: true
     sound:
       path: /Audio/ADT/SoundGen/reverse_dissolve_scary.ogg
       params:
