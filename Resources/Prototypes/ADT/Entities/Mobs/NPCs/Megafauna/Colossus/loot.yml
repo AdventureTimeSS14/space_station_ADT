@@ -36,15 +36,31 @@
   - type: Tag
     tags: []
   - type: ADTVoiceOfGod
+    powerModifiers:
+    - multiplier: 2
+      anyOf:
+      - !type:HasComponentCondition
+        components: [ BibleUser ]
+        guidebookComponentName: BibleUser
+    - multiplier: 0.5
+      anyOf:
+      - !type:HasComponentCondition
+        components: [ MimePowers ]
+        guidebookComponentName: MimePowers
+    - multiplier: 1.4
+      anyOf:
+      - !type:ADTDepartmentCondition
+        department: Command
 
 - type: entity
   id: ActionADTVoiceOfGod
   name: Voice of God
-  description: Speak a command that the listeners cannot disobey.
+  description: Toggle the divine voice. While it is active, your speech becomes a command that the listeners cannot disobey.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
     itemIconStyle: NoItem
+    useDelay: 5
   - type: Sprite
     sprite: ADT/Objects/Specific/Lavaland/colossus_loot.rsi
     layers:
