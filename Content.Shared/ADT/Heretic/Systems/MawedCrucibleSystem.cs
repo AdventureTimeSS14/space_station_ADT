@@ -132,10 +132,7 @@ public sealed partial class MawedCrucibleSystem : EntitySystem
             return;
         }
 
-        if (!TryComp(args.Used, out SolutionContainerManagerComponent? container))
-            return;
-
-        if (!_sol.TryGetSolution((args.Used, container), "drink", out var sol))
+        if (!_sol.TryGetSolution(args.Used, "drink", out var sol))
             return;
 
         if (sol.Value.Comp.Solution.AvailableVolume == FixedPoint2.Zero)

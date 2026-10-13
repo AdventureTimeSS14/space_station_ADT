@@ -36,7 +36,20 @@ public sealed class PhylacteryDrawSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+        SubscribeLocalEvent<BloodstreamComponent, InteractUsingEvent>(OnBloodstreamInteractUsing);
         SubscribeLocalEvent<HereticPhylacteryComponent, AfterInteractEvent>(OnAfterInteract);
+    }
+
+    private void OnBloodstreamInteractUsing(Entity<BloodstreamComponent> ent, ref InteractUsingEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (!TryComp<HereticPhylacteryComponent>(args.Used, out var phylactery))
+            return;
+
+        if (TryDrawBlood(args.Used, phylactery, ent.Owner, ent.Comp, args.User))
+            args.Handled = true;
     }
 
     private void OnAfterInteract(Entity<HereticPhylacteryComponent> ent, ref AfterInteractEvent args)
@@ -44,51 +57,77 @@ public sealed class PhylacteryDrawSystem : EntitySystem
         if (args.Handled || args.Target == null)
             return;
 
-        if (!TryComp<BloodstreamComponent>(args.Target.Value, out var bloodstream))
-            return;
-
-        var bloodLevel = _bloodstream.GetBloodLevel((args.Target.Value, bloodstream));
-        if (bloodLevel <= 0f)
-        {
-            _popup.PopupClient(Loc.GetString("phylactery-no-blood"), args.User, args.User);
+        TryComp<BloodstreamComponent>(args.Target.Value, out var bloodstream);
+        if (TryDrawBlood(ent.Owner, ent.Comp, args.Target.Value, bloodstream, args.User))
             args.Handled = true;
-            return;
-        }
+    }
 
-        var normalVolume = bloodstream.BloodReferenceSolution.Volume;
-        var currentBlood = FixedPoint2.New((float)normalVolume * bloodLevel);
-        var drainAmount = FixedPoint2.New((float)currentBlood * BloodDrawPercent);
-
-        if (drainAmount <= FixedPoint2.Zero)
-            return;
-
-        if (!TryComp<SolutionContainerManagerComponent>(ent, out var phylSolMan))
-            return;
-
-        if (!_solution.TryGetSolution((ent, phylSolMan), ent.Comp.SolutionName, out var phylSol, out var phylSolution))
-            return;
+    private bool TryDrawBlood(EntityUid phylacteryUid, HereticPhylacteryComponent phylactery, EntityUid target, BloodstreamComponent? bloodstream, EntityUid user)
+    {
+        if (!_solution.TryGetSolution(phylacteryUid, phylactery.SolutionName, out var phylSol, out var phylSolution))
+            return false;
 
         var availableSpace = phylSolution.AvailableVolume;
         if (availableSpace <= FixedPoint2.Zero)
         {
-            _popup.PopupClient(Loc.GetString("phylactery-full"), args.User, args.User);
-            args.Handled = true;
-            return;
+            _popup.PopupClient(Loc.GetString("phylactery-full"), user, user);
+            return true;
         }
 
-        drainAmount = FixedPoint2.Min(drainAmount, availableSpace);
+        Solution? splitBlood = null;
 
-        _bloodstream.TryModifyBloodLevel((args.Target.Value, bloodstream), -drainAmount);
-
-        foreach (var (reagentId, quantity) in bloodstream.BloodReferenceSolution.Contents)
+        if (bloodstream != null && _solution.ResolveSolution(target, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var bloodSolution))
         {
-            var ratio = (float)drainAmount / (float)normalVolume;
-            var reagentAmount = FixedPoint2.New((float)quantity * ratio);
-            _solution.TryAddReagent(phylSol.Value, reagentId.Prototype, reagentAmount, out _);
+            if (bloodSolution.Volume <= FixedPoint2.Zero)
+            {
+                _popup.PopupClient(Loc.GetString("phylactery-no-blood"), user, user);
+                return true;
+            }
+
+            var drainAmount = FixedPoint2.Min(FixedPoint2.New(bloodSolution.Volume.Float() * BloodDrawPercent), availableSpace);
+            if (drainAmount < FixedPoint2.New(5))
+                drainAmount = FixedPoint2.Min(FixedPoint2.New(15), bloodSolution.Volume);
+            drainAmount = FixedPoint2.Min(drainAmount, availableSpace);
+
+            if (drainAmount > FixedPoint2.Zero)
+            {
+                splitBlood = _solution.SplitSolution(bloodstream.BloodSolution.Value, drainAmount);
+            }
+        }
+        else if (_solution.TryGetDrainableSolution(target, out var drainSol, out var drainSolution))
+        {
+            if (drainSolution.Volume <= FixedPoint2.Zero)
+                return false;
+
+            var drainAmount = FixedPoint2.Min(FixedPoint2.New(15), availableSpace);
+            drainAmount = FixedPoint2.Min(drainAmount, drainSolution.Volume);
+            if (drainAmount > FixedPoint2.Zero)
+            {
+                splitBlood = _solution.SplitSolution(drainSol.Value, drainAmount);
+            }
+        }
+        else if (_solution.TryGetDrawableSolution(target, out var drawSol, out var drawSolution))
+        {
+            if (drawSolution.Volume <= FixedPoint2.Zero)
+                return false;
+
+            var drainAmount = FixedPoint2.Min(FixedPoint2.New(15), availableSpace);
+            drainAmount = FixedPoint2.Min(drainAmount, drawSolution.Volume);
+            if (drainAmount > FixedPoint2.Zero)
+            {
+                splitBlood = _solution.SplitSolution(drawSol.Value, drainAmount);
+            }
         }
 
-        _audio.PlayPvs(ent.Comp.DrawSound, ent);
-        _popup.PopupClient(Loc.GetString("phylactery-draw", ("amount", drainAmount)), args.User, args.User);
-        args.Handled = true;
+        if (splitBlood == null || splitBlood.Volume <= FixedPoint2.Zero)
+        {
+            _popup.PopupClient(Loc.GetString("phylactery-no-blood"), user, user);
+            return true;
+        }
+
+        _solution.TryAddSolution(phylSol.Value, splitBlood);
+        _audio.PlayPvs(phylactery.DrawSound, phylacteryUid);
+        _popup.PopupClient(Loc.GetString("phylactery-draw", ("amount", splitBlood.Volume)), user, user);
+        return true;
     }
 }

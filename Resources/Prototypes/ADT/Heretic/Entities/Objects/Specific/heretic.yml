@@ -319,7 +319,6 @@
     state: ogbook
   - type: Item
     size: Small
-  - type: HereticOgBook
   - type: Tag
     tags:
     - HereticItem
@@ -360,7 +359,7 @@
     drawdepth: Effects
   - type: HereticOgBookBarrier
   - type: TimedDespawn
-    lifetime: 15
+    lifetime: 60
   - type: Physics
     bodyType: Static
   - type: Fixtures

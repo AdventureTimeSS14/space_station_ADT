@@ -137,3 +137,15 @@ heretic-void-blink-verb = Стянуть к себе
 
 ## ne strelyai yrod system(описание само за себя говорит)
 heretic-blade-no-guns = Клинок отвергает трусость дальнего боя. Только сталь.
+
+## Stargazer angry birds
+stargazer-verb-grab = Схватить в руки
+stargazer-grab-held-user = Вы хватаете {$target} в свои руки!
+stargazer-grab-held-victim = {$gazer} хватает вас!
+stargazer-escape-too-soon = Подождите перед следующей попыткой вырваться!
+stargazer-escape-success = Вы вырвались из хватки!
+stargazer-escape-success-holder = {$victim} вырывается из вашей хватки!
+stargazer-escape-fail = Вам не удалось вырваться из хватки!
+stargazer-smash-wall-user = Вы со всей силы бьёте {$victim} об {$wall}!
+stargazer-smash-wall-victim = {$gazer} со всей силы бьёт вас об {$wall}!
+stargazer-thrown-wall-victim = {$victim} на огромной скорости врезается в {$wall}!

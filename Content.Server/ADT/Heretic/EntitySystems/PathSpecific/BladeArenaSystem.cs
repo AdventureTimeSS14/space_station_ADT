@@ -29,7 +29,6 @@ public sealed partial class BladeArenaSystem : SharedBladeArenaSystem
     [Dependency] private readonly IChatManager _chatMan = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -178,7 +177,7 @@ public sealed partial class BladeArenaSystem : SharedBladeArenaSystem
         }
 
         var coords = _transform.GetMapCoordinates(ent);
-        if (!_mapMan.TryFindGridAt(coords, out var grid, out var gridComp))
+        if (!_map.TryFindGridAt(coords, out var grid, out var gridComp))
         {
             QueueDel(ent);
             return;
@@ -297,7 +296,7 @@ public sealed partial class BladeArenaSystem : SharedBladeArenaSystem
         int minRadius,
         int tileRadius)
     {
-        if (!_mapMan.TryFindGridAt(_transform.ToMapCoordinates(coords), out var grid, out var gridComp))
+        if (!_map.TryFindGridAt(_transform.ToMapCoordinates(coords), out var grid, out var gridComp))
             return null;
 
         if (!_turf.TryGetTileRef(coords, out var centerTile))

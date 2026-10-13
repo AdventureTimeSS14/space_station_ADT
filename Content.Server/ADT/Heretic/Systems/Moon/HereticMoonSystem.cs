@@ -28,8 +28,10 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using OldStatusEffectsComponent = Content.Shared.StatusEffect.StatusEffectsComponent;
 using OldStatusEffectsSystem = Content.Shared.StatusEffect.StatusEffectsSystem;
-
 using Content.Shared.ADT.Heretic.Systems.Moon;
+using Content.Shared.Alert;
+using Content.Server.Projectiles;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.Heretic.Systems.Moon;
 
@@ -53,6 +55,9 @@ public sealed class HereticMoonSystem : EntitySystem
     [Dependency] private readonly SharedChatSystem _chat = default!;
     [Dependency] private readonly SharedStationSystem _station = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly AlertsSystem _alerts = default!;
+
+    private static readonly ProtoId<AlertPrototype> MoonBrain = "MoonBrain";
 
     public override void Initialize()
     {
@@ -67,9 +72,10 @@ public sealed class HereticMoonSystem : EntitySystem
         SubscribeLocalEvent<MoonIllusionComponent, DamageChangedEvent>(OnIllusionDamage);
         SubscribeLocalEvent<LunarParadeProjectileComponent, ProjectileHitEvent>(OnParadeHit);
         SubscribeLocalEvent<LunarParadeProjectileComponent, EntityTerminatingEvent>(OnParadeGone);
-        SubscribeLocalEvent<LunarParadeProjectileComponent, StartCollideEvent>(OnParadeCollide);
+        SubscribeLocalEvent<LunarParadeProjectileComponent, StartCollideEvent>(OnParadeCollide, after: [typeof(ProjectileSystem)]);
         SubscribeLocalEvent<MoonParadeStatusComponent, ComponentRemove>(OnParadeRemove);
         SubscribeLocalEvent<HereticSanityComponent, ExaminedEvent>(OnSanityExamined);
+        SubscribeLocalEvent<HereticSanityComponent, ComponentRemove>(OnSanityRemove);
         SubscribeLocalEvent<DamageableComponent, BeforeStatusEffectAddedEvent>(OnBeforeMoonDebuff);
     }
 
@@ -107,9 +113,7 @@ public sealed class HereticMoonSystem : EntitySystem
 
     private void OnConvertedStartup(Entity<MoonConvertedComponent> ent, ref ComponentStartup args)
     {
-        if (!TryComp(ent, out OldStatusEffectsComponent? status))
-            return;
-        _statusOld.TryAddStatusEffect<Content.Shared.Speech.Muting.MutedComponent>(ent, "Muted", TimeSpan.FromHours(1), true, status);
+        _statusNew.TrySetStatusEffectDuration(ent, "StatusEffectMuted", TimeSpan.FromHours(1));
         _popup.PopupEntity(Loc.GetString("heretic-moon-converted-popup"), ent, ent);
     }
 
@@ -117,8 +121,7 @@ public sealed class HereticMoonSystem : EntitySystem
     {
         if (TerminatingOrDeleted(ent))
             return;
-        if (TryComp(ent, out OldStatusEffectsComponent? status))
-            _statusOld.TryRemoveStatusEffect(ent, "Muted", status);
+        _statusNew.TryRemoveStatusEffect(ent, "StatusEffectMuted");
     }
 
     private void OnConvertedDamage(Entity<MoonConvertedComponent> ent, ref DamageChangedEvent args)
@@ -260,23 +263,36 @@ public sealed class HereticMoonSystem : EntitySystem
         var normal = args.WorldNormal;
         if (normal == System.Numerics.Vector2.Zero)
         {
-            var vel0 = args.OurBody.LinearVelocity;
-            if (vel0 == System.Numerics.Vector2.Zero)
-                return;
-            normal = System.Numerics.Vector2.Normalize(vel0);
+            var projPos = _transform.GetWorldPosition(ent);
+            var otherPos = _transform.GetWorldPosition(other);
+            var diff = projPos - otherPos;
+            if (MathF.Abs(diff.X) > MathF.Abs(diff.Y))
+                normal = new System.Numerics.Vector2(MathF.Sign(diff.X), 0);
+            else if (MathF.Abs(diff.Y) > 0.001f)
+                normal = new System.Numerics.Vector2(0, MathF.Sign(diff.Y));
         }
 
         var vel = args.OurBody.LinearVelocity;
         if (vel == System.Numerics.Vector2.Zero)
             return;
+
+        if (normal == System.Numerics.Vector2.Zero)
+            normal = -System.Numerics.Vector2.Normalize(vel);
+
         var reflected = vel - 2f * System.Numerics.Vector2.Dot(vel, normal) * normal;
-        if (reflected == System.Numerics.Vector2.Zero)
+        if (reflected == System.Numerics.Vector2.Zero || reflected.LengthSquared() < 0.01f)
             reflected = -vel;
 
         _physics.SetLinearVelocity(ent, reflected, body: args.OurBody);
         _physics.SetAngularVelocity(ent, 0f, body: args.OurBody);
+        _transform.SetWorldRotation(ent, reflected.ToWorldAngle());
         ent.Comp.Bounces++;
         Dirty(ent, ent.Comp);
+    }
+
+    private void OnSanityRemove(Entity<HereticSanityComponent> ent, ref ComponentRemove args)
+    {
+        _alerts.ClearAlert(ent.Owner, MoonBrain);
     }
 
     private void OnParadeRemove(Entity<MoonParadeStatusComponent> ent, ref ComponentRemove args)
@@ -326,6 +342,12 @@ public sealed class HereticMoonSystem : EntitySystem
             {
                 sanity.Current = Math.Min(sanity.Max, sanity.Current + sanity.RegenPerSecond * frameTime);
                 Dirty(uid, sanity);
+            }
+
+            if ((_heretic.TryGetHereticComponent(uid, out var hComp, out _) && hComp.CurrentPath == "Moon") || HasComp<MoonLunaticComponent>(uid))
+            {
+                short severity = (short) Math.Clamp(1 + (int)((sanity.Max - sanity.Current) / (sanity.Max / 5f)), 1, 6);
+                _alerts.ShowAlert(uid, MoonBrain, severity);
             }
         }
         var passiveQuery = EntityQueryEnumerator<MoonPassiveComponent, HereticSanityComponent, DamageableComponent>();

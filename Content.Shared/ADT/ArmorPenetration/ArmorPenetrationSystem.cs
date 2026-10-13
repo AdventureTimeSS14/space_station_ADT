@@ -43,7 +43,7 @@ public sealed partial class ArmorPenetrationSystem : EntitySystem
         args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, compensator);
     }
 
-    private bool TryGetArmorCompensator(EntityUid target, float penetration, out DamageModifierSet compensator)
+    public bool TryGetArmorCompensator(EntityUid target, float penetration, out DamageModifierSet compensator)
     {
         compensator = new();
 

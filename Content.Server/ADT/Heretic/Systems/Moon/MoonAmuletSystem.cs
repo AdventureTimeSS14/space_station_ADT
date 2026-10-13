@@ -24,7 +24,7 @@ public sealed partial class MoonAmuletSystem : SharedHereticMoonSystem
 
     private void OnEquipped(Entity<MoonAmuletComponent> ent, ref GotEquippedEvent args)
     {
-        var wearer = args.Equipee;
+        var wearer = args.EquipTarget;
 
         if (!HasComp<MobStateComponent>(wearer))
             return;

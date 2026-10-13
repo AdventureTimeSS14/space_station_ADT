@@ -43,20 +43,5 @@ public sealed partial class HereticOgBookSystem : EntitySystem
 
     private void OnUse(Entity<HereticOgBookComponent> ent, ref UseInHandEvent args)
     {
-        if (args.Handled || ent.Comp.Charges <= 0)
-        {
-            if (!args.Handled)
-                _popup.PopupEntity(Loc.GetString("heretic-ogbook-empty"), ent, ent);
-            args.Handled = true;
-            return;
-        }
-
-        args.Handled = true;
-        ent.Comp.Charges--;
-        Dirty(ent, ent.Comp);
-
-        var coords = Transform(ent).Coordinates;
-        Spawn("HereticOgBookBarrier", coords);
-        _popup.PopupEntity(Loc.GetString("heretic-ogbook-used"), ent, ent);
     }
 }

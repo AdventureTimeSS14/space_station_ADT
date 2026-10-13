@@ -145,3 +145,15 @@ heretic-influence-dream-at = Somewhere close by, reality is folding. You feel it
 heretic-void-blink-none = No marked quarry stirs within your reach.
 heretic-void-blink-verb = Pull to me
 heretic-blade-no-guns = The blade rejects ranged cowardice. Steel only.
+
+## Stargazer grab & smash
+stargazer-verb-grab = Grab into hands
+stargazer-grab-held-user = You grab {$target} into your hands!
+stargazer-grab-held-victim = {$gazer} grabs you!
+stargazer-escape-too-soon = Wait before trying to escape again!
+stargazer-escape-success = You broke free from the grab!
+stargazer-escape-success-holder = {$victim} breaks free from your grip!
+stargazer-escape-fail = You failed to break free from the grip!
+stargazer-smash-wall-user = You forcefully smash {$victim} against {$wall}!
+stargazer-smash-wall-victim = {$gazer} forcefully smashes you against {$wall}!
+stargazer-thrown-wall-victim = {$victim} violently slams into {$wall}!

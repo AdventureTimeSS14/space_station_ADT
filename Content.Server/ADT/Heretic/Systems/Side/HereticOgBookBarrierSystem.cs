@@ -45,6 +45,5 @@ public sealed partial class HereticOgBookBarrierSystem : EntitySystem
         _damage.TryChangeDamage(subject, spec, true);
 
         _popup.PopupEntity(Loc.GetString("heretic-ogbook-repel"), subject, subject);
-        QueueDel(ent);
     }
 }

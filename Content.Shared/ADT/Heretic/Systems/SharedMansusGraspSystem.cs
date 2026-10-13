@@ -58,6 +58,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
     [Dependency] private SharedStarMarkSystem _starMark = default!;
     [Dependency] private NpcFactionSystem _faction = default!;
     [Dependency] private Content.Shared.Access.Systems.AccessReaderSystem _access = default!;
+    [Dependency] private Content.Shared.Vehicle.Systems.VehicleSystem _vehicle = default!;
     [Dependency] private Content.Shared.Mech.EntitySystems.SharedMechSystem _mech = default!;
     [Dependency] private Content.Shared.Power.EntitySystems.SharedBatterySystem _battery = default!;
     [Dependency] private Content.Shared.Lock.LockSystem _lock = default!;
@@ -161,7 +162,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
 
                 if (HasComp<Content.Shared.Mech.Components.MechComponent>(target))
                 {
-                    _mech.TryEject(target);
+                    _vehicle.TryExit(target);
                     _audio.PlayPredicted(knock, target, performer);
                     _popup.PopupEntity(Loc.GetString("heretic-lock-unlocked"), performer, performer);
                     break;
@@ -275,7 +276,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                 _statusNew.TryAddStatusEffectDuration(performer, "MoonGraspHideStatusEffect", TimeSpan.FromSeconds(15));
                 if (target == performer)
                     break;
-                if (HasComp<Moon.MoonLunaticComponent>(target))
+                if (HasComp<MoonLunaticComponent>(target))
                     break;
                 if (_heretic.IsHereticOrGhoul(target))
                     break;

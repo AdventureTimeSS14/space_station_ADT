@@ -9,9 +9,10 @@
     checkCanInteract: false
     useDelay: 20
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Heretic/abilities_heretic.rsi
-      state: mind_gate
+  - type: Sprite
+    sprite: ADT/Heretic/abilities_heretic.rsi
+    layers:
+    - state: mind_gate
   - type: TargetAction
     range: 6
     checkCanAccess: false
@@ -36,9 +37,10 @@
     checkCanInteract: false
     useDelay: 30
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Heretic/abilities_heretic.rsi
-      state: moon_parade
+  - type: Sprite
+    sprite: ADT/Heretic/abilities_heretic.rsi
+    layers:
+    - state: moon_parade
   - type: TargetAction
     range: 12
     checkCanAccess: false
@@ -60,9 +62,10 @@
     checkCanInteract: false
     useDelay: 60
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Heretic/abilities_heretic.rsi
-      state: moon_ringleader
+  - type: Sprite
+    sprite: ADT/Heretic/abilities_heretic.rsi
+    layers:
+    - state: moon_ringleader
   - type: InstantAction
     event: !type:EventHereticRingleadersRise
   - type: HereticAction
@@ -81,9 +84,10 @@
     checkCanInteract: false
     useDelay: 4
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Heretic/abilities_heretic.rsi
-      state: moon_smile
+  - type: Sprite
+    sprite: ADT/Heretic/abilities_heretic.rsi
+    layers:
+    - state: moon_smile
   - type: InstantAction
     event: !type:EventHereticMoonlightEcho
   - type: HereticAction
@@ -100,9 +104,10 @@
     checkCanInteract: false
     useDelay: 15
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Heretic/abilities_heretic.rsi
-      state: mad_touch
+  - type: Sprite
+    sprite: ADT/Heretic/abilities_heretic.rsi
+    layers:
+    - state: mad_touch
   - type: TargetAction
     range: 2
     checkCanAccess: false

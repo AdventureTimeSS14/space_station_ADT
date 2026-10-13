@@ -68,9 +68,10 @@
     checkCanInteract: false
     useDelay: 60
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Heretic/abilities_heretic.rsi
-      state: sacraments
+  - type: Sprite
+    sprite: ADT/Heretic/abilities_heretic.rsi
+    layers:
+    - state: sacraments
   - type: InstantAction
     event: !type:EventHereticSacraments
   - type: HereticAction
@@ -87,9 +88,10 @@
     checkCanInteract: false
     useDelay: 90
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Heretic/abilities_heretic.rsi
-      state: hook
+  - type: Sprite
+    sprite: ADT/Heretic/abilities_heretic.rsi
+    layers:
+    - state: hook
   - type: InstantAction
     event: !type:EventHereticDomainExpansion
   - type: HereticAction

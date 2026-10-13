@@ -22,6 +22,11 @@ using Content.Shared.Mobs.Components;
 
 namespace Content.Server.ADT.Heretic.Systems.Moon;
 
+[RegisterComponent]
+public sealed partial class MoonRegaliaWearerComponent : Component
+{
+}
+
 public sealed partial class MoonRegaliaSystem : EntitySystem
 {
     private static readonly ProtoId<AlertPrototype> MoonBrain = "MoonBrain";
@@ -45,10 +50,10 @@ public sealed partial class MoonRegaliaSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<DamageableComponent, BeforeDamageChangedEvent>(OnBeforeDamage);
-        SubscribeLocalEvent<DamageableComponent, DamageChangedEvent>(OnDamageChanged);
-        SubscribeLocalEvent<DamageableComponent, BeforeStatusEffectAddedEvent>(OnBeforeNewStatus);
-        SubscribeLocalEvent<DamageableComponent, BeforeOldStatusEffectAddedEvent>(OnBeforeOldStatus);
+        SubscribeLocalEvent<MoonRegaliaWearerComponent, BeforeDamageChangedEvent>(OnBeforeDamage);
+        SubscribeLocalEvent<MoonRegaliaWearerComponent, DamageChangedEvent>(OnDamageChanged);
+        SubscribeLocalEvent<MoonRegaliaWearerComponent, BeforeStatusEffectAddedEvent>(OnBeforeNewStatus);
+        SubscribeLocalEvent<MoonRegaliaWearerComponent, BeforeOldStatusEffectAddedEvent>(OnBeforeOldStatus);
         SubscribeLocalEvent<KnockedDownComponent, ComponentStartup>(OnKnockedStartup);
         SubscribeLocalEvent<AttemptPacifiedAttackEvent>(OnPacifiedAttack);
         SubscribeLocalEvent<GotEquippedEvent>(OnArmorEquipped);
@@ -66,7 +71,8 @@ public sealed partial class MoonRegaliaSystem : EntitySystem
             return;
         if (!IsMoonArmor(args.Equipment))
             return;
-        EnsureComp<PacifiedComponent>(args.Equipee);
+        EnsureComp<PacifiedComponent>(args.EquipTarget);
+        EnsureComp<MoonRegaliaWearerComponent>(args.EquipTarget);
     }
 
     private void OnArmorUnequipped(GotUnequippedEvent args)
@@ -75,7 +81,10 @@ public sealed partial class MoonRegaliaSystem : EntitySystem
             return;
         if (!IsMoonArmor(args.Equipment))
             return;
-        RemCompDeferred<PacifiedComponent>(args.Equipee);
+        RemCompDeferred<PacifiedComponent>(args.EquipTarget);
+        RemCompDeferred<MoonRegaliaWearerComponent>(args.EquipTarget);
+        if (_brainDamage.Remove(args.EquipTarget))
+            _alerts.ClearAlert((args.EquipTarget, null), MoonBrain);
     }
 
     private bool IsHereticOrGhoulOrLunatic(EntityUid uid)
@@ -87,24 +96,15 @@ public sealed partial class MoonRegaliaSystem : EntitySystem
 
     private bool WearsRegalia(EntityUid uid)
     {
-        if (!_inventory.TryGetSlotEntity(uid, "outerClothing", out var cloth))
-            return false;
-        return MetaData(cloth.Value).EntityPrototype?.ID == "ADTClothingOuterArmorHereticMoon";
+        return HasComp<MoonRegaliaWearerComponent>(uid);
     }
 
     private static readonly float[] BrainThresholds = { 0f, 21f, 51f, 101f, 151f, 190f };
 
     private readonly Dictionary<EntityUid, float> _brainDamage = new();
 
-    private void OnDamageChanged(Entity<DamageableComponent> ent, ref DamageChangedEvent args)
+    private void OnDamageChanged(Entity<MoonRegaliaWearerComponent> ent, ref DamageChangedEvent args)
     {
-        if (!WearsRegalia(ent))
-        {
-            if (_brainDamage.Remove(ent))
-                _alerts.ClearAlert((ent.Owner, null), MoonBrain);
-            return;
-        }
-
         if (args.DamageDelta == null)
             return;
 
@@ -112,17 +112,17 @@ public sealed partial class MoonRegaliaSystem : EntitySystem
             ? cellular.Float()
             : 0f;
 
-        var total = _brainDamage.GetValueOrDefault(ent) + delta;
+        var total = _brainDamage.GetValueOrDefault(ent.Owner) + delta;
         if (total < 0f)
             total = 0f;
-        _brainDamage[ent] = total;
+        _brainDamage[ent.Owner] = total;
 
         _alerts.ShowAlert((ent.Owner, null), MoonBrain, BrainSeverity(total));
     }
 
     private static short BrainSeverity(float damage)
     {
-        short severity = 0;
+        short severity = 1;
         for (var i = BrainThresholds.Length - 1; i >= 0; i--)
         {
             if (damage >= BrainThresholds[i])
@@ -135,16 +135,13 @@ public sealed partial class MoonRegaliaSystem : EntitySystem
         return severity;
     }
 
-    private void OnBeforeDamage(Entity<DamageableComponent> ent, ref BeforeDamageChangedEvent args)
+    private void OnBeforeDamage(Entity<MoonRegaliaWearerComponent> ent, ref BeforeDamageChangedEvent args)
     {
         if (args.Cancelled || args.Damage.Empty)
             return;
 
         var total = args.Damage.GetTotal().Float() * 1.15f;
         if (total <= 0f)
-            return;
-
-        if (!WearsRegalia(ent))
             return;
 
         args.Damage = new DamageSpecifier
@@ -158,33 +155,27 @@ public sealed partial class MoonRegaliaSystem : EntitySystem
 
     private void OnKnockedStartup(Entity<KnockedDownComponent> ent, ref ComponentStartup args)
     {
-        if (WearsRegalia(ent))
+        if (HasComp<MoonRegaliaWearerComponent>(ent.Owner))
             RemCompDeferred<KnockedDownComponent>(ent);
     }
 
-    private void OnBeforeNewStatus(Entity<DamageableComponent> ent, ref BeforeStatusEffectAddedEvent args)
+    private void OnBeforeNewStatus(Entity<MoonRegaliaWearerComponent> ent, ref BeforeStatusEffectAddedEvent args)
     {
         if (args.Cancelled)
             return;
         if (args.Effect.Id != "StatusEffectStunned")
             return;
-        if (!WearsRegalia(ent))
-            return;
         args.Cancelled = true;
     }
 
-    private void OnBeforeOldStatus(Entity<DamageableComponent> ent, ref BeforeOldStatusEffectAddedEvent args)
+    private void OnBeforeOldStatus(Entity<MoonRegaliaWearerComponent> ent, ref BeforeOldStatusEffectAddedEvent args)
     {
         if (args.Cancelled)
             return;
         if (!DisableKeys.Contains(args.EffectKey))
             return;
-        if (!WearsRegalia(ent))
-            return;
         args.Cancelled = true;
     }
-
-
 
     private TimeSpan _nextBurn = TimeSpan.Zero;
 
@@ -196,10 +187,10 @@ public sealed partial class MoonRegaliaSystem : EntitySystem
             return;
         _nextBurn = _timing.CurTime + TimeSpan.FromSeconds(2);
 
-        var query = EntityQueryEnumerator<MobStateComponent, DamageableComponent>();
+        var query = EntityQueryEnumerator<MoonRegaliaWearerComponent, MobStateComponent>();
         while (query.MoveNext(out var uid, out _, out _))
         {
-            if (!WearsRegalia(uid) || _mobState.IsDead(uid))
+            if (_mobState.IsDead(uid))
                 continue;
 
             if (IsHereticOrGhoulOrLunatic(uid))

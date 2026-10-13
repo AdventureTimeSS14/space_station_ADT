@@ -12,7 +12,6 @@ public sealed partial class AshAscensionSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
-    [ValidatePrototypeId<EntityPrototype>]
     private const string HeatDamageType = "Heat";
 
     private static readonly EntProtoId FirePrototype = "HereticFireAA";

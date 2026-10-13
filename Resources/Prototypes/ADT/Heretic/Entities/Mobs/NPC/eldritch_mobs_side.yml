@@ -208,7 +208,7 @@
       state: r_foot
 
 - type: entity
-  parent: BaseMobGhoul
+  parent: [BaseMobGhoul, BaseSpeciesAppearance]
   id: MobShatteredRisen
   name: ent-MobShatteredRisen
   description: ent-MobShatteredRisen-desc
@@ -216,10 +216,6 @@
   - type: Ghoul
     totalHealth: 250
     giveBlade: false
-  - type: Sprite
-    noRot: true
-    sprite: ADT/Heretic/eldritch_mobs.rsi
-    state: stalker
   - type: GhostRole
     name: ghostrole-shattered-name
     description: ghostrole-shattered-desc
@@ -232,7 +228,6 @@
       types:
         Slash: 18
         Piercing: 14
-  - type: Body
   - type: InitialBody
     organs:
       Torso: HereticOrganShatteredTorso

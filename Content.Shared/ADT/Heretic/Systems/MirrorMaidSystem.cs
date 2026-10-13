@@ -4,6 +4,7 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 using Content.Shared.Heretic.Components;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.ADT.Heretic.Systems;

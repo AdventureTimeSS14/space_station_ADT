@@ -137,7 +137,8 @@ public sealed partial class WoundedSoldierSystem : EntitySystem
 
     private float GetCritThresholdDamageRatio(Entity<DamageableComponent?, MobThresholdsComponent?> ent)
     {
-        if (!_threshold.TryGetThresholdForState(ent.Owner, MobState.Critical, out var threshold, ent.Comp2) &&
+        if (!_threshold.TryGetThresholdForState(ent.Owner, MobState.SoftCritical, out var threshold, ent.Comp2) &&
+            !_threshold.TryGetThresholdForState(ent.Owner, MobState.Critical, out threshold, ent.Comp2) &&
             !_threshold.TryGetThresholdForState(ent.Owner, MobState.Dead, out threshold, ent.Comp2) ||
             threshold == null || threshold <= 0f || !Resolve(ent, ref ent.Comp1, false))
             return 0f;

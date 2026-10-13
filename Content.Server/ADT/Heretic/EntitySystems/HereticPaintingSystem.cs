@@ -39,14 +39,13 @@ public sealed partial class HereticPaintingSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedStatusEffectsSystem _statusNew = default!;
     [Dependency] private readonly OldStatusEffectsSystem _statusOld = default!;
-    [Dependency] private readonly HungerSystem _hunger = default!;
+    [Dependency] private readonly SatiationSystem _satiation = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
-    [Dependency] private readonly SharedStutteringSystem _stutter = default!;
+    [Dependency] private readonly StutteringSystem _stutter = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDef = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
@@ -143,8 +142,8 @@ public sealed partial class HereticPaintingSystem : EntitySystem
                 break;
 
             case HereticPaintingKind.Desire:
-                if (TryComp<HungerComponent>(victim, out var hunger))
-                    _hunger.ModifyHunger(victim, -75f, hunger);
+                if (TryComp<SatiationComponent>(victim, out var satiation))
+                    _satiation.ModifyValue((victim, satiation), SatiationSystem.Hunger, -75f);
                 break;
 
             case HereticPaintingKind.Vines:
@@ -164,7 +163,7 @@ public sealed partial class HereticPaintingSystem : EntitySystem
     private void RustUnder(EntityUid victim)
     {
         var coords = _xform.GetMapCoordinates(victim);
-        if (!_mapMan.TryFindGridAt(coords, out var gridUid, out var grid))
+        if (!_map.TryFindGridAt(coords, out var gridUid, out var grid))
             return;
 
         var tile = _map.GetTileRef((gridUid, grid), coords);
@@ -286,8 +285,8 @@ public sealed partial class HereticPaintingSystem : EntitySystem
                 break;
 
             case HereticPaintingKind.Desire:
-                if (TryComp<HungerComponent>(heretic, out var hunger))
-                    _hunger.ModifyHunger(heretic, 500f, hunger);
+                if (TryComp<SatiationComponent>(heretic, out var satiation))
+                    _satiation.ModifyValue((heretic, satiation), SatiationSystem.Hunger, 500f);
                 break;
 
             case HereticPaintingKind.Vines:

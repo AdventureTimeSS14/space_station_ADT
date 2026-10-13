@@ -16,6 +16,7 @@ using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 using Content.Shared.Jittering;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.Singularity.Components;
