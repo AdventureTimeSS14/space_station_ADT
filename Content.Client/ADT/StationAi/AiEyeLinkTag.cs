@@ -14,7 +14,7 @@ namespace Content.Client.ADT.StationAi;
 
 public sealed class AiEyeLinkTag : IMarkupTagHandler
 {
-    [Dependency] private readonly IClientNetManager _net = default!;
+    [Dependency] private IClientNetManager _net = default!;
 
     public string Name => "aieyelink";
 

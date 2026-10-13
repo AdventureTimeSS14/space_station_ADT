@@ -1,0 +1,13 @@
+ent-ADTMobDraconidBase = Урист Мак'Дрейк
+ent-ADTOrganAshWalkerStomach = { ent-OrganReptilianStomach }
+ent-ADTOrganDraconidArmLeft = { ent-OrganReptilianArmLeft }
+ent-ADTOrganDraconidArmRight = { ent-OrganReptilianArmRight }
+ent-ADTOrganDraconidEyes = { ent-OrganReptilianEyes }
+ent-ADTOrganDraconidFootLeft = { ent-OrganReptilianFootLeft }
+ent-ADTOrganDraconidFootRight = { ent-OrganReptilianFootRight }
+ent-ADTOrganDraconidHandLeft = { ent-OrganReptilianHandLeft }
+ent-ADTOrganDraconidHandRight = { ent-OrganReptilianHandRight }
+ent-ADTOrganDraconidHead = { ent-OrganReptilianHead }
+ent-ADTOrganDraconidLegLeft = { ent-OrganReptilianLegLeft }
+ent-ADTOrganDraconidLegRight = { ent-OrganReptilianLegRight }
+ent-ADTOrganDraconidTorso = { ent-OrganReptilianTorso }

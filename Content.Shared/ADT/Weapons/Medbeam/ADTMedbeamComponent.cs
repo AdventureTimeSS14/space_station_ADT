@@ -2,8 +2,11 @@ using System.Numerics;
 using Content.Shared.Damage;
 using Content.Shared.Explosion;
 using Content.Shared.Explosion.EntitySystems;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Localization;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.ADT.Weapons.Medbeam;
@@ -50,6 +53,21 @@ public sealed partial class ADTMedbeamComponent : Component
     [DataField]
     public DamageSpecifier Damage = new();
 
+    [DataField, AutoNetworkedField]
+    public List<ADTMedbeamMode> Modes = new();
+
+    [DataField, AutoNetworkedField]
+    public int CurrentModeIndex;
+
+    [DataField]
+    public TimeSpan ModeSwitchCooldown = TimeSpan.FromSeconds(5);
+
+    [DataField, AutoNetworkedField]
+    public TimeSpan NextModeSwitchTime;
+
+    [DataField, AutoNetworkedField]
+    public SoundSpecifier ModeSwitchSound = new SoundPathSpecifier("/Audio/Machines/quickbeep.ogg");
+
     /// <summary>
     ///     How much blood is restored per tick.
     /// </summary>
@@ -83,4 +101,14 @@ public sealed partial class ADTMedbeamComponent : Component
 
     [DataField]
     public Vector2 Scale = Vector2.One;
+}
+
+[DataDefinition, Serializable, NetSerializable]
+public sealed partial class ADTMedbeamMode
+{
+    [DataField(required: true)]
+    public LocId Name = "medbeam-mode";
+
+    [DataField(required: true)]
+    public DamageSpecifier Damage = new();
 }

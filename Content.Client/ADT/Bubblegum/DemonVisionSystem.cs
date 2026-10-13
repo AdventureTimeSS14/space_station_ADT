@@ -10,7 +10,7 @@ namespace Content.Client.ADT.Bubblegum;
 
 public sealed class DemonVisionSystem : VisualizerSystem<DemonVisionedComponent>
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     private const string DemonLayerKey = "ADTDemonVision";
     private static readonly ResPath DemonRsi = new ResPath("ADT/Effects/bubblegum_demon.rsi");

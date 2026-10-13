@@ -13,7 +13,7 @@ namespace Content.Server.ADT.Chaplain.Systems;
 /// </summary>
 public sealed class HolyMelonImmunitySystem : EntitySystem
 {
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
 
     public override void Initialize()
     {

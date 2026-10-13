@@ -9,7 +9,7 @@ namespace Content.Server.ADT.Butchering;
 
 public sealed class ADTCleanRemainsSystem : EntitySystem
 {
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private SharedSolutionContainerSystem _solution = default!;
 
     public override void Initialize()
     {

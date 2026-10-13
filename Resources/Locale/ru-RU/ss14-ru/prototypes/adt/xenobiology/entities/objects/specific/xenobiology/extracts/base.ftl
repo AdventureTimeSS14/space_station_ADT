@@ -1,0 +1,1 @@
+ent-BaseSlimeExtractSolution = { ent-Solution }

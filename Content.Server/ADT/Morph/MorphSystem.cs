@@ -46,26 +46,27 @@ namespace Content.Server.ADT.Morph;
 
 public sealed class MorphSystem : SharedMorphSystem
 {
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private readonly ChatSystem _chatSystem = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedChameleonProjectorSystem _chameleon = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly HungerSystem _hunger = default!;
-    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private readonly MobThresholdSystem _threshold = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
-    [Dependency] private readonly StunSystem _stun = default!;
-    [Dependency] private readonly WeldableSystem _weldable = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private ChatSystem _chatSystem = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedChameleonProjectorSystem _chameleon = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SatiationSystem _satiation = default!;
+    [Dependency] private SharedAudioSystem _audioSystem = default!;
+    [Dependency] private SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private MobThresholdSystem _threshold = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private StunSystem _stun = default!;
+    [Dependency] private WeldableSystem _weldable = default!;
+    [Dependency] private StandingStateSystem _standing = default!;
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
     private static readonly ProtoId<DamageGroupPrototype> BruteDamageGroup = "Brute";
     private static readonly ProtoId<DamageGroupPrototype> BurnDamageGroup = "Burn";
     public override void Initialize()
@@ -90,6 +91,7 @@ public sealed class MorphSystem : SharedMorphSystem
         SubscribeLocalEvent<MorphAmbushComponent, UndisguisedEvent>(OnAmbusInteract);
         SubscribeLocalEvent<MorphComponent, MorphAmbushActionEvent>(OnAmbushAction);
         SubscribeLocalEvent<MorphAmbushComponent, UpdateCanMoveEvent>(OnCanMoveEvent);
+        SubscribeLocalEvent<MorphAmbushComponent, ComponentShutdown>(OnAmbushShutdown);
 
         SubscribeLocalEvent<MorphComponent, MorphDevourDoAfterEvent>(OnDoDevourAfter);
     }
@@ -121,32 +123,34 @@ public sealed class MorphSystem : SharedMorphSystem
     }
     private void OnAttacked(Entity<MorphComponent> ent, ref AttackedEvent args)
     {
-        if (!TryComp<HungerComponent>(ent, out var hunger))
+        if (!TryComp<SatiationComponent>(ent, out var hunger))
             return;
         if (args.User == args.Used)
         {
             _damageable.TryChangeDamage(args.User, ent.Comp.DamageOnTouch);
-            _hunger.ModifyHunger(ent, ent.Comp.EatWeaponHungerReq, hunger);
+            _satiation.ModifyValue((ent.Owner, hunger), SatiationSystem.Hunger, ent.Comp.EatWeaponHungerReq);
         }
-        else if (_random.Prob(ent.Comp.EatWeaponChanceOnHited) && _hunger.GetHunger(hunger) >= ent.Comp.EatWeaponHungerReq)
+        else if (_random.Prob(ent.Comp.EatWeaponChanceOnHited) && (_satiation.GetValueOrNull((ent.Owner, hunger), SatiationSystem.Hunger) ?? 0f) >= ent.Comp.EatWeaponHungerReq)
         {
             _container.Insert(args.Used, ent.Comp.Container);
             _audioSystem.PlayPvs(ent.Comp.SoundDevour, ent);
-            _hunger.ModifyHunger(ent, -ent.Comp.EatWeaponHungerReq, hunger);
+            _satiation.ModifyValue((ent.Owner, hunger), SatiationSystem.Hunger, -ent.Comp.EatWeaponHungerReq);
         }
     }
     private void OnAttack(Entity<MorphComponent> ent, ref MeleeHitEvent args)
     {
         _chameleon.TryReveal(ent.Owner);
-        if (!TryComp<HandsComponent>(args.HitEntities[0], out var hands))
+        if (args.HitEntities.Count == 0)
             return;
-        if (!TryComp<HungerComponent>(ent, out var hunger))
+        if (!TryComp<HandsComponent>(args.HitEntities.First(), out var hands))
             return;
-        if (_hands.TryGetActiveItem((args.HitEntities[0], hands), out var item) && _random.Prob(ent.Comp.EatWeaponChanceOnHit))
+        if (!TryComp<SatiationComponent>(ent, out var hunger))
+            return;
+        if (_hands.TryGetActiveItem((args.HitEntities.First(), hands), out var item) && _random.Prob(ent.Comp.EatWeaponChanceOnHit))
         {
             _container.Insert(item.Value, ent.Comp.Container);
             _audioSystem.PlayPvs(ent.Comp.SoundDevour, ent);
-            _hunger.ModifyHunger(ent, -ent.Comp.EatWeaponHungerReq, hunger);
+            _satiation.ModifyValue((ent.Owner, hunger), SatiationSystem.Hunger, -ent.Comp.EatWeaponHungerReq);
         }
     }
 
@@ -157,25 +161,25 @@ public sealed class MorphSystem : SharedMorphSystem
 
     private void OnOpenVentAction(EntityUid uid, MorphComponent comp, MorphVentOpenActionEvent args)
     {
-        if (!TryComp<HungerComponent>(uid, out var hunger))
+        if (!TryComp<SatiationComponent>(uid, out var hunger))
             return;
         if (_container.IsEntityInContainer(uid))
             return;
-        if (comp.OpenVentFoodReq > _hunger.GetHunger(hunger))
+        if (comp.OpenVentFoodReq > (_satiation.GetValueOrNull((uid, hunger), SatiationSystem.Hunger) ?? 0f))
             return;
         if (!TryComp<WeldableComponent>(args.Target, out var weldableComponent) || !weldableComponent.IsWelded)
             return;
-        _hunger.ModifyHunger(uid, -comp.OpenVentFoodReq, hunger);
+        _satiation.ModifyValue((uid, hunger), SatiationSystem.Hunger, -comp.OpenVentFoodReq);
         _weldable.SetWeldedState(args.Target, false, weldableComponent);
     }
 
     private void OnExamined(EntityUid uid, MorphComponent comp, ExaminedEvent args)
     {
-        if (!TryComp<HungerComponent>(uid, out var hunger))
+        if (!TryComp<SatiationComponent>(uid, out var hunger))
             return;
         if (args.Examiner != uid)
             return;
-        var hungerCount = _hunger.GetHunger(hunger);
+        var hungerCount = (_satiation.GetValueOrNull((uid, hunger), SatiationSystem.Hunger) ?? 0f);
         args.PushMarkup($"[color=yellow]{Loc.GetString("comp-morph-examined-hunger", ("hunger", hungerCount))}[/color]");
     }
     private void OnMimicryActivate(EntityUid uid, MorphComponent component, EventMimicryActivate args)
@@ -221,11 +225,21 @@ public sealed class MorphSystem : SharedMorphSystem
     }
     private void OnCanMoveEvent(EntityUid uid, MorphAmbushComponent component, UpdateCanMoveEvent args)
     {
+        if (component.LifeStage > ComponentLifeStage.Running)
+            return;
+
         args.Cancel();
+    }
+    private void OnAmbushShutdown(EntityUid uid, MorphAmbushComponent component, ComponentShutdown args)
+    {
+        _actionBlocker.UpdateCanMove(uid);
     }
     private void OnAmbushAttack(Entity<MorphAmbushComponent> ent, ref MeleeHitEvent args)
     {
-        _stun.TryKnockdown(args.HitEntities[0], TimeSpan.FromSeconds(ent.Comp.StunTimeInteract), false);
+        foreach (var hit in args.HitEntities)
+        {
+            _stun.TryKnockdown(hit, TimeSpan.FromSeconds(ent.Comp.StunTimeInteract), false);
+        }
         AmbushBreak(ent);
     }
     public void AmbushBreak(EntityUid uid)
@@ -239,11 +253,6 @@ public sealed class MorphSystem : SharedMorphSystem
         }
         if (TryComp<ChameleonProjectorComponent>(uid, out var chamel) && chamel.Disguised != null)
             RemCompDeferred<MorphAmbushComponent>(chamel.Disguised.Value);
-        if (TryComp<InputMoverComponent>(uid, out var input))
-        {
-            input.CanMove = true;
-            Dirty(uid, input);
-        }
     }
     private void OnAmbusInteract(EntityUid uid, MorphAmbushComponent component, UndisguisedEvent args)
     {
@@ -348,12 +357,12 @@ public sealed class MorphSystem : SharedMorphSystem
     }
     private void OnReproduceAction(EntityUid uid, MorphComponent component, MorphReproduceActionEvent args)
     {
-        if (!TryComp<HungerComponent>(uid, out var hunger))
+        if (!TryComp<SatiationComponent>(uid, out var hunger))
             return;
-        if (_hunger.GetHunger(hunger) >= component.ReplicationFoodReq)
+        if ((_satiation.GetValueOrNull((uid, hunger), SatiationSystem.Hunger) ?? 0f) >= component.ReplicationFoodReq)
         {
             Spawn(component.MorphSpawnProto, Transform(uid).Coordinates);
-            _hunger.ModifyHunger(uid, -component.ReplicationFoodReq, hunger);
+            _satiation.ModifyValue((uid, hunger), SatiationSystem.Hunger, -component.ReplicationFoodReq);
 
             var morphList = new List<EntityUid>();
             var morphs = AllEntityQuery<MorphComponent, MobStateComponent>();
@@ -372,19 +381,19 @@ public sealed class MorphSystem : SharedMorphSystem
     {
         if (args.Handled || args.Cancelled || args.Target == null)
             return;
-        if (!TryComp<HungerComponent>(uid, out var hunger))
+        if (!TryComp<SatiationComponent>(uid, out var hunger))
             return;
-        if (!TryComp<MobThresholdsComponent>(args.Target, out var state) || !_threshold.TryGetDeadThreshold(args.Target.Value, out var health))
+        if (!HasComp<MobThresholdsComponent>(args.Target) || !_threshold.TryGetDeadThreshold(args.Target.Value, out var health))
         {
             //ЭТО ОТВЕЧАЕТ ЗА КУШАНИЕ ПРЕДМЕТОВ. НЕ ПЕРЕПУТАТЬ.
             health = -component.EatWeaponHungerReq;
-            _hunger.ModifyHunger(uid, (float)health.Value, hunger);
+            _satiation.ModifyValue((uid, hunger), SatiationSystem.Hunger, (float)health.Value);
             _audioSystem.PlayPvs(component.SoundDevour, uid);
             _container.Insert(args.Target.Value, component.Container);
             component.ContainedCreatures.Add(args.Target.Value);
             return;
         }
-        if (state.CurrentThresholdState != MobState.Dead)
+        if (!_mobState.IsDead(args.Target.Value))
             return;
         if (health == null)
             return;
@@ -394,7 +403,7 @@ public sealed class MorphSystem : SharedMorphSystem
         var damage_burn = new DamageSpecifier(_proto.Index(BurnDamageGroup), -health.Value / 2);
         _damageable.TryChangeDamage(uid, damage_brute);
         _damageable.TryChangeDamage(uid, damage_burn);
-        _hunger.ModifyHunger(uid, (float)health.Value / 3.5f, hunger);
+        _satiation.ModifyValue((uid, hunger), SatiationSystem.Hunger, (float)health.Value / 3.5f);
         _audioSystem.PlayPvs(component.SoundDevour, uid);
         _container.Insert(args.Target.Value, component.Container);
         component.ContainedCreatures.Add(args.Target.Value);

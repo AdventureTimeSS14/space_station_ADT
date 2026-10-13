@@ -6,7 +6,6 @@ using Robust.Shared.Serialization.Markdown;
 using Robust.Shared.Serialization.Markdown.Mapping;
 using Robust.Shared.Serialization.Markdown.Validation;
 using Robust.Shared.Serialization.Markdown.Value;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
 using Robust.Shared.Serialization.TypeSerializers.Interfaces;
 
 namespace Content.Shared.ADT.VendingMachines;
@@ -31,8 +30,7 @@ public sealed class VendingMachineInventorySerializer :
                     ? new ValidatedValueNode(keyNode)
                     : new ErrorNode(keyNode, $"Vending category {key} was not found!");
 
-                valValidation = serializationManager.ValidateNode<Dictionary<string, uint>, MappingDataNode,
-                    PrototypeIdDictionarySerializer<uint, EntityPrototype>>((MappingDataNode)valNode, context);
+                valValidation = serializationManager.ValidateNode<Dictionary<string, uint>>((MappingDataNode)valNode, context); // ADT-Tweak: PrototypeIdDictionarySerializer removed in engine v289
             }
             else
             {

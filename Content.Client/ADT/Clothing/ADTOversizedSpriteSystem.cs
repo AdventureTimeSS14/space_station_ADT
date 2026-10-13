@@ -9,7 +9,7 @@ namespace Content.Client.ADT.Clothing;
 
 public sealed class ADTOversizedSpriteSystem : EntitySystem
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     private const string DisplacementSuffix = "-displacement";
     private const string DisplacedShader = "DisplacedDraw";

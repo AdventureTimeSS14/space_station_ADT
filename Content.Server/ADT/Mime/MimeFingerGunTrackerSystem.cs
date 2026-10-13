@@ -8,7 +8,7 @@ namespace Content.Server.ADT.Mime;
 
 public sealed class MimeFingerGunTrackerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedHandsSystem _sharedHandsSystem = default!;
+    [Dependency] private SharedHandsSystem _sharedHandsSystem = default!;
 
     public override void Initialize()
     {

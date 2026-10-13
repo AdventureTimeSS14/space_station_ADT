@@ -16,7 +16,7 @@ namespace Content.Server.ADT.CharecterFlavor;
 
 public sealed class CharecterFlavorSystem : SharedCharecterFlavorSystem
 {
-    [Dependency] private readonly IConfigurationManager _config = default!;
+    [Dependency] private IConfigurationManager _config = default!;
 
     /// <summary>
     /// Вычисление SHA256 хэша для ключа кэша (только сервер, клиент не имеет доступа к криптографии)
@@ -29,8 +29,8 @@ public sealed class CharecterFlavorSystem : SharedCharecterFlavorSystem
         return Convert.ToHexString(bytes);
     }
 
-    [Dependency] private readonly IHttpClientHolder _httpClient = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private IHttpClientHolder _httpClient = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
 
     /// <summary>
     /// Кэш изображений: SHA256 хэш URL → (данные, время истечения)
