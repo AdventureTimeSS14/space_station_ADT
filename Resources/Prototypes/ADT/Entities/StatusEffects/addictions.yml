@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-# Лёгкий дебаф тяжёлой стадии ломки: небольшое замедление.
+# Замедление на тяжёлой стадии ломки.
 - type: entity
   parent: MobStatusEffectDebuff
   id: StatusEffectWithdrawalWeakness

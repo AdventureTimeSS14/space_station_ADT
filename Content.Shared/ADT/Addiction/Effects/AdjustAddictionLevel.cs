@@ -9,13 +9,12 @@ namespace Content.Shared.ADT.Addiction.Effects;
 
 /// <summary>
 /// Реагентный эффект зависимости: отрицательный Amount лечит (Детоксин),
-/// положительный Amount качает канал (передоз лекарств). Когда уровень падает ниже порога
-/// прототипа, AddictionSystem снимает зависимость.
+/// положительный качает канал (передоз лекарств).
 /// </summary>
 public sealed partial class AdjustAddictionLevel : EntityEffectBase<AdjustAddictionLevel>
 {
     /// <summary>
-    /// На сколько меняется уровень привыкания за цикл метаболизма (отрицательное - лечение).
+    /// Изменение уровня за цикл метаболизма.
     /// </summary>
     [DataField]
     public float Amount = -1f;

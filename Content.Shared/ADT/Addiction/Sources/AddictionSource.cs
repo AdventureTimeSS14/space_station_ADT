@@ -10,20 +10,20 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.ADT.Addiction.Sources;
 
 /// <summary>
-/// Правило «этот реаген кормит эту зависимость». Живёт на стороне прототипа зависимости,
-/// а не на реагенте: сами реагенты лежат в офф-файлах, трогать их не нужно.
+/// Правило «этот реаген кормит эту зависимость». Живёт на стороне зависимости,
+/// чтобы не трогать офф-файлы реагентов.
 /// </summary>
 [ImplicitDataDefinitionForInheritors, UsedImplicitly(ImplicitUseTargetFlags.WithInheritors)]
 public abstract partial class AddictionSource
 {
     /// <summary>
-    /// Подходит ли реаген. Прототип может не найтись (реаген удалён) - тогда proto равен null.
+    /// Прототип может не найтись - тогда proto равен null.
     /// </summary>
     public abstract bool Matches(ReagentId reagent, ReagentPrototype? proto);
 }
 
 /// <summary>
-/// Конкретный реаген по id (никотин: своей группы метаболизма у него нет).
+/// Конкретный реаген по id.
 /// </summary>
 public sealed partial class AddictionReagentSource : AddictionSource
 {
@@ -35,7 +35,7 @@ public sealed partial class AddictionReagentSource : AddictionSource
 }
 
 /// <summary>
-/// Все реагенты одной группы (ReagentPrototype.Group), например Narcotics.
+/// Все реагенты группы ReagentPrototype.Group, например Narcotics.
 /// </summary>
 public sealed partial class AddictionReagentGroupSource : AddictionSource
 {
@@ -47,7 +47,7 @@ public sealed partial class AddictionReagentGroupSource : AddictionSource
 }
 
 /// <summary>
-/// Все наследники прототипа-родителя, например BaseAlcohol.
+/// Все наследники реагента-родителя, например BaseAlcohol.
 /// </summary>
 public sealed partial class AddictionReagentParentSource : AddictionSource
 {

@@ -19,14 +19,11 @@ using Robust.Shared.Timing;
 namespace Content.Server.ADT.Addiction;
 
 /// <summary>
-/// Движок зависимостей: ловит приём доз (GetReagentEffectsEvent), копит уровень привыкания,
-/// при долгом воздержании запускает ломку и рейзит AddictionSymptomsChangedEvent,
-/// чтобы симптомы применила AddictionSymptomsSystem.
+/// Движок зависимостей: ловит приём доз, копит уровень привыкания, при долгом воздержании
+/// запускает ломку и рейзит AddictionSymptomsChangedEvent.
 ///
-/// Конкретные зависимости система не различает: что чем кормится, как нарастает ломка,
-/// какие поп-апы, симптомы и эмоции - всё лежит в AddictionPrototype (Prototypes/ADT/Addiction).
-/// Компонент есть у всех игроков со спавна, канал появляется при первом употреблении
-/// (подсесть может каждый), трайты дают стартовую неизлечимую зависимость с высоким уровнем.
+/// Конкретные зависимости система не различает - всё лежит в AddictionPrototype
+/// (Prototypes/ADT/Addiction).
 /// </summary>
 public sealed class AddictionSystem : EntitySystem
 {
@@ -38,17 +35,13 @@ public sealed class AddictionSystem : EntitySystem
     [Dependency] private AlertsSystem _alerts = default!;
     [Dependency] private ChatSystem _chat = default!;
 
-    /// <summary>
-    /// Зависимости тикают раз в секунду: уровень и тайминги измеряются минутами,
-    /// гонять полный запрос по всем игрокам каждый кадр смысла нет.
-    /// </summary>
+    // Уровень и тайминги измеряются минутами: запрос по всем игрокам каждый кадр не нужен.
     private const float UpdateInterval = 1f;
 
     private float _accumulator;
 
     /// <summary>
-    /// Кэш «реаген -> id зависимости» (null - реаген ничего не кормит).
-    /// Сбрасывается при релоаде прототипов.
+    /// Кэш «реаген -> id зависимости», null - реаген ничего не кормит.
     /// </summary>
     private readonly Dictionary<string, string?> _reagentKinds = new();
 
@@ -96,9 +89,6 @@ public sealed class AddictionSystem : EntitySystem
         }
     }
 
-    /// <summary>
-    /// Обновляет один канал: спад привыкания, вход и выход из ломки, поп-апы, эмоции, иконка.
-    /// </summary>
     private void UpdateChannel(EntityUid uid, AddictionChannel channel, float elapsed, bool dead)
     {
         if (!_proto.TryIndex(channel.Kind, out var proto))
@@ -106,13 +96,12 @@ public sealed class AddictionSystem : EntitySystem
 
         InitChannel(channel, proto);
 
-        // Привыкание медленно спадает само. Трайтовые зависимости неизлечимы - не спадают.
+        // Трайтовые зависимости неизлечимы - не спадают.
         if (!channel.Permanent)
             channel.Level = MathF.Max(0f, channel.Level - proto.DecayPerSecond * elapsed);
 
         var timeSinceDose = _timing.CurTime - channel.LastDoseTime;
 
-        // Доза была недавно - ломки нет
         if (timeSinceDose < proto.Withdrawal.Delay)
         {
             if (channel.InWithdrawal)
@@ -182,10 +171,9 @@ public sealed class AddictionSystem : EntitySystem
     }
 
     /// <summary>
-    /// Тяжесть ломки. По умолчанию равна стадии самой зависимости,
-    /// но прототип может задать нарастание по времени без дозы (Withdrawal.Ramp):
-    /// тогда ломка идёт по ступеням и выше стадии зависимости всё равно не поднимается.
-    /// Нужно там, где уровень не спадает (неизлечимые трайты).
+    /// По умолчанию тяжесть равна стадии самой зависимости, но прототип может задать
+    /// нарастание по времени (Withdrawal.Ramp) - тогда ломка идёт по ступеням,
+    /// выше стадии зависимости всё равно не поднимаясь.
     /// </summary>
     private static int WithdrawalStage(AddictionPrototype proto, AddictionChannel channel, TimeSpan timeSinceDose)
     {
@@ -204,9 +192,6 @@ public sealed class AddictionSystem : EntitySystem
         return Math.Min(cap, byTime);
     }
 
-    /// <summary>
-    /// Заранее предупреждает, что доза выветривается и скоро накроет.
-    /// </summary>
     private void WarnCraving(EntityUid uid, AddictionChannel channel, AddictionPrototype proto, TimeSpan timeSinceDose, bool dead)
     {
         if (dead || channel.CravingWarned)
@@ -228,9 +213,6 @@ public sealed class AddictionSystem : EntitySystem
         _popup.PopupEntity(text, uid, uid, withdrawal.WarningPopupType);
     }
 
-    /// <summary>
-    /// Случайный вариант поп-апа ломки, не повторяющий предыдущий.
-    /// </summary>
     private string PickPopup(List<LocId> popups, AddictionChannel channel)
     {
         if (popups.Count == 1)
@@ -244,9 +226,6 @@ public sealed class AddictionSystem : EntitySystem
         return Loc.GetString(popups[idx]);
     }
 
-    /// <summary>
-    /// Эмоции, привязанные к поп-апу ломки: кашель с шансом.
-    /// </summary>
     private void TryPopupEmotes(EntityUid uid, AddictionStageData stageData)
     {
         foreach (var emote in stageData.Emotes)
@@ -258,9 +237,6 @@ public sealed class AddictionSystem : EntitySystem
         }
     }
 
-    /// <summary>
-    /// Эмоции по своему интервалу, независимо от поп-апов. Первая - сразу при входе в стадию.
-    /// </summary>
     private void TryIntervalEmotes(EntityUid uid, AddictionChannel channel, AddictionStageData stageData)
     {
         for (var i = 0; i < stageData.Emotes.Count; i++)
@@ -281,7 +257,7 @@ public sealed class AddictionSystem : EntitySystem
     }
 
     /// <summary>
-    /// Таймеры эмоций пересобираются под стадию: Zero значит «выдать при первой возможности».
+    /// Zero значит «выдать при первой возможности».
     /// </summary>
     private static void ResetEmoteTimers(AddictionChannel channel, AddictionStageData? stageData)
     {
@@ -294,9 +270,6 @@ public sealed class AddictionSystem : EntitySystem
             channel.NextEmoteTimes.Add(TimeSpan.Zero);
     }
 
-    /// <summary>
-    /// Иконка состояния справа: пока доза держится - таймер до ломки, дальше по стадии.
-    /// </summary>
     private void UpdateAlert(EntityUid uid, AddictionChannel channel, AddictionPrototype proto, bool dead)
     {
         if (proto.Alert is not { } alert)
@@ -326,9 +299,8 @@ public sealed class AddictionSystem : EntitySystem
     }
 
     /// <summary>
-    /// Первичная настройка канала. Каналы, добавленные в рантайме (трайт-эффект, передоз),
-    /// приходят без времени дозы: без этого ломка началась бы мгновенно, а WasAddicted
-    /// нужен для корректных поп-апов подсадки и выздоровления.
+    /// Каналы, добавленные в рантайме (трайт-эффект, передоз), приходят без времени дозы:
+    /// без этого ломка началась бы мгновенно.
     /// </summary>
     private void InitChannel(AddictionChannel channel, AddictionPrototype proto)
     {
@@ -344,9 +316,6 @@ public sealed class AddictionSystem : EntitySystem
             channel.WasAddicted = true;
     }
 
-    /// <summary>
-    /// Снимает ломку: сбрасывает флаги и пересчитывает симптомы.
-    /// </summary>
     private void StopWithdrawal(EntityUid uid, AddictionChannel channel)
     {
         channel.InWithdrawal = false;
@@ -360,8 +329,8 @@ public sealed class AddictionSystem : EntitySystem
         // Любой игрок может подсесть: компонент есть у всех с момента спавна
         var comp = EnsureComp<AddictionComponent>(args.Mob);
 
-        // Трайт «случайная зависимость»: вид выбираем здесь, после ADTTraitSystem -
-        // каналы конкретных трайтов уже в компоненте, и их можно исключить.
+        // Вид случайной зависимости выбираем здесь, после ADTTraitSystem: каналы
+        // конкретных трайтов уже в компоненте, и их можно исключить.
         if (comp.PendingRandomChannel is not { } pending)
             return;
 
@@ -394,8 +363,8 @@ public sealed class AddictionSystem : EntitySystem
     }
 
     /// <summary>
-    /// Какую зависимость кормит реаген. Правила живут в Sources прототипов зависимостей,
-    /// результат кэшируется: событие метаболизма прилетает примерно раз в секунду на реаген.
+    /// Какую зависимость кормит реаген. Результат кэшируется: событие метаболизма
+    /// прилетает примерно раз в секунду на реаген.
     /// </summary>
     private string? ResolveKind(ReagentId reagent)
     {
@@ -406,8 +375,7 @@ public sealed class AddictionSystem : EntitySystem
 
         string? found = null;
 
-        // Порядок прототипов не гарантирован, а реаген может подойти нескольким
-        // зависимостям - решает Priority.
+        // Порядок прототипов не гарантирован, а реаген может подойти нескольким - решает Priority.
         foreach (var proto in _proto.EnumeratePrototypes<AddictionPrototype>()
                      .OrderByDescending(p => p.Priority)
                      .ThenBy(p => p.ID))
@@ -423,9 +391,6 @@ public sealed class AddictionSystem : EntitySystem
         return found;
     }
 
-    /// <summary>
-    /// Канал нужного вида, создаётся при отсутствии.
-    /// </summary>
     public AddictionChannel EnsureChannel(AddictionComponent comp, ProtoId<AddictionPrototype> kind)
     {
         foreach (var existing in comp.Channels)
@@ -440,8 +405,7 @@ public sealed class AddictionSystem : EntitySystem
     }
 
     /// <summary>
-    /// Учитывает дозу: растёт уровень, снимается ломка, фиксируется подсадка.
-    /// Общий путь для обычного употребления (метаболизм) и передоза лекарств.
+    /// Общий путь для обычного употребления и для передоза лекарств.
     /// </summary>
     public void ApplyDose(EntityUid uid, AddictionChannel channel, AddictionPrototype proto, float amount)
     {
@@ -451,7 +415,6 @@ public sealed class AddictionSystem : EntitySystem
         channel.NextPopupTime = TimeSpan.Zero;
         channel.CravingWarned = false;
 
-        // Доза снимает ломку (поп-ап только если ломка реально была)
         if (channel.InWithdrawal)
         {
             StopWithdrawal(uid, channel);
@@ -472,7 +435,7 @@ public sealed class AddictionSystem : EntitySystem
     }
 
     /// <summary>
-    /// Сформировавшиеся зависимости моба для UI (анализатор здоровья).
+    /// Только сформировавшиеся зависимости: для анализатора здоровья.
     /// </summary>
     public List<AddictionInfo>? GetAddictionInfo(EntityUid uid)
     {
@@ -493,9 +456,6 @@ public sealed class AddictionSystem : EntitySystem
         return result;
     }
 
-    /// <summary>
-    /// Сообщает AddictionSymptomsSystem, что набор симптомов нужно пересчитать.
-    /// </summary>
     private void RaiseSymptomsChanged(EntityUid uid)
     {
         var ev = new AddictionSymptomsChangedEvent(uid);

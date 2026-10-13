@@ -13,7 +13,7 @@ namespace Content.Shared.ADT.Addiction;
 
 /// <summary>
 /// Прототип одной зависимости: чем кормится, как копится и спадает, как выглядит ломка.
-/// Вся настройка живёт здесь, системы кодом конкретные зависимости не различают.
+/// Системы кодом конкретные зависимости не различают - вся настройка здесь.
 /// Id прототипа - то, что в yml пишется как kind (трайты, AdjustAddictionLevel).
 /// </summary>
 [Prototype("addiction")]
@@ -22,42 +22,35 @@ public sealed partial class AddictionPrototype : IPrototype
     [IdDataField]
     public string ID { get; private set; } = default!;
 
-    /// <summary>
-    /// Название для UI (анализатор здоровья).
-    /// </summary>
     [DataField(required: true)]
     public LocId Name;
 
     /// <summary>
-    /// Реагенты, кормящие зависимость. Пусто - кормить можно только эффектом AdjustAddictionLevel
-    /// (так живут лекарственные зависимости: они появляются от передоза, а не от самого факта приёма).
+    /// Реагенты, кормящие зависимость. Пусто - только через AdjustAddictionLevel
+    /// (лекарственные зависимости появляются от передоза, а не от самого приёма).
     /// </summary>
     [DataField]
     public List<AddictionSource> Sources = new();
 
     /// <summary>
-    /// Приоритет при разборе реагента: если реаген подходит нескольким зависимостям,
-    /// выигрывает та, у которой Priority выше.
+    /// Если реаген подходит нескольким зависимостям, выигрывает та, у которой Priority выше.
     /// </summary>
     [DataField]
     public int Priority;
 
     /// <summary>
-    /// Рост уровня за цикл метаболизма реагента-источника (примерно раз в секунду, пока реаген в крови).
+    /// Рост уровня за цикл метаболизма источника - примерно раз в секунду, пока реаген в крови.
     /// </summary>
     [DataField]
     public float GainPerDose = 0.04f;
 
     /// <summary>
-    /// Спад уровня в секунду без дозы. По умолчанию 100 за ~100 минут воздержания.
+    /// Спад уровня в секунду без дозы, по умолчанию 100 за ~100 минут.
     /// Неизлечимые (Permanent) каналы не спадают.
     /// </summary>
     [DataField]
     public float DecayPerSecond = 100f / 6000f;
 
-    /// <summary>
-    /// Потолок уровня привыкания.
-    /// </summary>
     [DataField]
     public float MaxLevel = 100f;
 
@@ -68,7 +61,7 @@ public sealed partial class AddictionPrototype : IPrototype
     public float? CuredBelow;
 
     /// <summary>
-    /// Поп-ап первого превышения порога (подсадка).
+    /// Поп-ап подсадки - первого превышения порога.
     /// </summary>
     [DataField]
     public LocId? BeginPopup;
@@ -80,7 +73,7 @@ public sealed partial class AddictionPrototype : IPrototype
     public LocId? DosePopup;
 
     /// <summary>
-    /// Поп-ап выздоровления (уровень упал ниже порога).
+    /// Поп-ап выздоровления - уровень упал ниже порога.
     /// </summary>
     [DataField]
     public LocId? CuredPopup;
@@ -92,20 +85,20 @@ public sealed partial class AddictionPrototype : IPrototype
     public PopupType LifecyclePopupType = PopupType.Small;
 
     /// <summary>
-    /// Иконка состояния справа. Null - зависимость без иконки.
-    /// Степени: 0 - доза держится (с таймером до ломки), дальше номер стадии ломки до MaxAlertSeverity.
+    /// Иконка состояния справа, null - без иконки. Степень 0 - доза ещё держится,
+    /// дальше номер стадии ломки до MaxAlertSeverity.
     /// </summary>
     [DataField]
     public ProtoId<AlertPrototype>? Alert;
 
     /// <summary>
-    /// Максимальная степень иконки: стадии выше рисуются той же картинкой.
+    /// Стадии выше рисуются той же картинкой.
     /// </summary>
     [DataField]
     public short MaxAlertSeverity = 2;
 
     /// <summary>
-    /// Показывать на иконке таймер до начала ломки, пока доза держится.
+    /// Таймер до начала ломки на иконке, пока доза держится.
     /// </summary>
     [DataField]
     public bool AlertCooldown = true;
@@ -114,18 +107,15 @@ public sealed partial class AddictionPrototype : IPrototype
     public AddictionWithdrawal Withdrawal = new();
 
     /// <summary>
-    /// Стадии по возрастанию тяжести: Stages[0] - стадия 1. Минимум одна.
+    /// По возрастанию тяжести: Stages[0] - стадия 1. Минимум одна.
     /// </summary>
     [DataField(required: true)]
     public List<AddictionStageData> Stages = new();
 
-    /// <summary>
-    /// Уровень, ниже которого зависимость отпускает.
-    /// </summary>
     public float CureThreshold => CuredBelow ?? (Stages.Count > 0 ? Stages[0].Level : 0f);
 
     /// <summary>
-    /// Стадия зависимости по уровню привыкания: 0 - нет, дальше номер стадии.
+    /// 0 - зависимости нет, дальше номер стадии.
     /// </summary>
     public int StageFromLevel(float level)
     {
@@ -139,7 +129,7 @@ public sealed partial class AddictionPrototype : IPrototype
     }
 
     /// <summary>
-    /// Данные стадии по её номеру (1..Stages.Count). Номер вне диапазона зажимается.
+    /// Номер вне диапазона 1..Stages.Count зажимается.
     /// </summary>
     public AddictionStageData? GetStage(int stage)
     {
@@ -151,7 +141,7 @@ public sealed partial class AddictionPrototype : IPrototype
 }
 
 /// <summary>
-/// Настройки ломки: когда начинается и как нарастает тяжесть.
+/// Когда ломка начинается и как нарастает её тяжесть.
 /// </summary>
 [DataDefinition]
 public sealed partial class AddictionWithdrawal
@@ -163,23 +153,21 @@ public sealed partial class AddictionWithdrawal
     public TimeSpan Delay = TimeSpan.FromMinutes(10);
 
     /// <summary>
-    /// Нарастание тяжести по времени без дозы (отсчёт от конца Delay).
-    /// Пусто - тяжесть сразу равна стадии самой зависимости.
-    /// Нужно там, где уровень не спадает (неизлечимые трайты): иначе ломка прыгает в максимум сразу.
-    /// Выше стадии самой зависимости не поднимается.
+    /// Нарастание тяжести по времени, отсчёт от конца Delay. Пусто - тяжесть сразу равна
+    /// стадии зависимости. Нужно там, где уровень не спадает (неизлечимые трайты):
+    /// иначе ломка прыгает в максимум сразу. Выше стадии зависимости не поднимается.
     /// </summary>
     [DataField]
     public List<AddictionRamp> Ramp = new();
 
     /// <summary>
     /// Доля Delay, после которой показывается предупреждение о нарастающей тяге.
-    /// Null - без предупреждения.
     /// </summary>
     [DataField]
     public float? WarningAt;
 
     /// <summary>
-    /// Варианты текста предупреждения, выбирается случайный. Пусто - без предупреждения.
+    /// Варианты текста, выбирается случайный. Пусто - без предупреждения.
     /// </summary>
     [DataField]
     public List<LocId> WarningPopups = new();
@@ -189,7 +177,7 @@ public sealed partial class AddictionWithdrawal
 }
 
 /// <summary>
-/// Ступень нарастания ломки: через After после начала ломки тяжесть доходит до Stage.
+/// Через After после начала ломки её тяжесть доходит до Stage.
 /// </summary>
 [DataDefinition]
 public sealed partial class AddictionRamp
@@ -202,7 +190,7 @@ public sealed partial class AddictionRamp
 }
 
 /// <summary>
-/// Одна стадия зависимости: с какого уровня начинается, чем даёт о себе знать в ломке.
+/// Стадия зависимости: с какого уровня начинается и чем даёт о себе знать в ломке.
 /// </summary>
 [DataDefinition]
 public sealed partial class AddictionStageData
@@ -214,8 +202,7 @@ public sealed partial class AddictionStageData
     public float Level;
 
     /// <summary>
-    /// Варианты текста поп-апа ломки. Выбирается случайный, соседние не повторяются.
-    /// Пусто - стадия молчит.
+    /// Выбирается случайный, соседние не повторяются. Пусто - стадия молчит.
     /// </summary>
     [DataField]
     public List<LocId> Popups = new();
@@ -223,23 +210,16 @@ public sealed partial class AddictionStageData
     [DataField]
     public PopupType PopupType = PopupType.Small;
 
-    /// <summary>
-    /// Интервал между поп-апами ломки на этой стадии.
-    /// </summary>
     [DataField]
     public TimeSpan PopupInterval = TimeSpan.FromSeconds(60);
 
     /// <summary>
-    /// Симптомы, которые держатся всё время ломки на этой стадии.
-    /// Симптомы с одинаковым ключом от разных зависимостей не складываются:
-    /// побеждает пришедший с более тяжёлой стадии.
+    /// Держатся всё время ломки на этой стадии. Симптомы с одинаковым ключом от разных
+    /// зависимостей не складываются: побеждает пришедший с более тяжёлой стадии.
     /// </summary>
     [DataField]
     public List<AddictionSymptom> Symptoms = new();
 
-    /// <summary>
-    /// Эмоции, которые ломка выдаёт на этой стадии (кашель и прочее).
-    /// </summary>
     [DataField]
     public List<AddictionEmote> Emotes = new();
 }
@@ -261,7 +241,6 @@ public sealed partial class AddictionEmote
 
     /// <summary>
     /// Свой интервал, независимый от поп-апов. Первая эмоция - сразу при входе в стадию.
-    /// Null - только по поп-апам.
     /// </summary>
     [DataField]
     public TimeSpan? Interval;

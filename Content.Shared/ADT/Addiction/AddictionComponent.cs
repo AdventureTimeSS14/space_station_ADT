@@ -9,7 +9,6 @@ namespace Content.Shared.ADT.Addiction;
 
 /// <summary>
 /// Зависимости моба. Есть у всех игроков со спавна: подсесть может каждый.
-/// Хранит только состояние - вся настройка лежит в AddictionPrototype.
 /// </summary>
 // Каналы меняют серверные системы (AddictionSystem, AdjustAddictionLevelEffectSystem)
 // и Shared-эффекты трайтов (AddictionTraitEffect, RandomAddictionEffect), поэтому
@@ -17,27 +16,20 @@ namespace Content.Shared.ADT.Addiction;
 [RegisterComponent]
 public sealed partial class AddictionComponent : Component
 {
-    /// <summary>
-    /// Каналы зависимости. Каждый живёт своей жизнью: свой уровень, своя ломка.
-    /// </summary>
     [DataField]
     public List<AddictionChannel> Channels = new();
 
     /// <summary>
-    /// Как часто симптомы ломки продлеваются. Технический тик, а не тюнинг зависимости:
-    /// должен быть меньше длительности любого симптома, иначе тот успеет истечь.
+    /// Должен быть меньше длительности любого симптома, иначе тот успеет истечь
+    /// между продлениями.
     /// </summary>
     [DataField]
     public TimeSpan SymptomRefreshInterval = TimeSpan.FromSeconds(10);
 
-    /// <summary>
-    /// Время следующего продления симптомов.
-    /// </summary>
     public TimeSpan NextSymptomRefresh;
 
     /// <summary>
-    /// Что ломка наложила сама: ключ симптома - сам симптом.
-    /// Снимаем только своё, чужие статус-эффекты и компоненты не трогаем.
+    /// Что ломка наложила сама: ключ симптома - сам симптом. Снимаем только своё.
     /// </summary>
     public Dictionary<string, AddictionSymptom> AppliedSymptoms = new();
 
@@ -47,8 +39,5 @@ public sealed partial class AddictionComponent : Component
     /// </summary>
     public AddictionChannel? PendingRandomChannel;
 
-    /// <summary>
-    /// Из чего выбирать случайную зависимость.
-    /// </summary>
     public List<ProtoId<AddictionPrototype>>? PendingRandomPool;
 }

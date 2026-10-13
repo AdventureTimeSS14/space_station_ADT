@@ -2,25 +2,17 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-# Зависимости. Один прототип = одна зависимость, вся настройка здесь:
-# чем кормится (sources), как копится и спадает, как нарастает ломка и чем она бьёт.
-# Код конкретные зависимости не различает - добавить новую можно одним прототипом.
+# Один прототип = одна зависимость, код конкретные зависимости не различает.
+# Id прототипа - это то, что в yml пишется как kind (AddictionTraitEffect, AdjustAddictionLevel).
 #
-# Id прототипа - это то, что в yml пишется как kind: у трайта (AddictionTraitEffect)
-# и у реагентного эффекта AdjustAddictionLevel.
-#
-# stages идут по возрастанию: первый элемент - стадия 1. level - уровень привыкания,
-# с которого стадия начинается; ниже level первой стадии зависимость считается вылеченной.
-#
+# stages идут по возрастанию: первый элемент - стадия 1, ниже его level зависимость вылечена.
 # Симптомы с одинаковым ключом от разных зависимостей не складываются: побеждает
-# пришедший с более тяжёлой стадии. Поэтому дрожь на стадии 3 (амплитуда 10) перебивает
-# дрожь на стадии 1 (амплитуда 6), а не суммируется с ней.
+# пришедший с более тяжёлой стадии.
 
 - type: addiction
   id: Alcohol
   name: health-analyzer-addiction-alcohol
   sources:
-  # В ADT все спиртные наследуют BaseAlcohol
   - !type:AddictionReagentParentSource
     parent: BaseAlcohol
   beginPopup: addiction-begin-alcohol
@@ -54,8 +46,8 @@
 - type: addiction
   id: Nicotine
   name: health-analyzer-addiction-nicotine
-  # Никотин ищется по id: своей группы метаболизма у него нет.
-  # Priority выше прочих, чтобы id перебивал возможные совпадения по группе или родителю.
+  # Никотин ищется по id: своей группы метаболизма у него нет, а priority не даёт
+  # перехватить его совпадению по группе или родителю.
   priority: 10
   sources:
   - !type:AddictionReagentSource
@@ -63,13 +55,11 @@
   beginPopup: addiction-begin-nicotine
   dosePopup: addiction-dose-nicotine
   curedPopup: addiction-cured-nicotine
-  # Никотин заметнее прочих: доза и подсадка говорят о себе громче.
   lifecyclePopupType: Medium
   alert: NicotineCraving
   withdrawal:
     delay: 10m
-    # Трайтовый уровень не спадает, поэтому тяжесть копится по времени без сигареты,
-    # а не прыгает сразу в максимум: сначала тяга, потом муть, и только потом слабость.
+    # Трайтовый уровень не спадает: без рампы ломка прыгала бы сразу в максимум.
     ramp:
     - after: 0s
       stage: 1
@@ -77,7 +67,6 @@
       stage: 2
     - after: 10m
       stage: 3
-    # Предупреждаем заранее, что таймер на иконке подходит к концу.
     warningAt: 0.55
     warningPopups:
     - addiction-craving-nicotine-0
@@ -85,8 +74,6 @@
     - addiction-craving-nicotine-2
     - addiction-craving-nicotine-3
   stages:
-  # Никотиновая ломка не трясёт и не заставляет заикаться: тяга, кашель, муть и слабость.
-  # Напоминает о себе чаще прочих - игрок должен замечать тягу, а не только симптомы.
   - level: 25
     popupInterval: 25s
     popupType: Medium
@@ -170,13 +157,13 @@
       effect: StatusEffectStutter
     - !type:AddictionStatusEffectSymptom
       effect: StatusEffectWithdrawalWeakness
-    # Мир теряет краски. Если монохромность уже стоит не от ломки - симптом не вмешивается.
+    # Если монохромность уже стоит не от ломки - симптом не вмешивается.
     - !type:AddictionComponentSymptom
       components:
       - type: Monochromacy
 
-# Лекарственные зависимости источников не имеют: канал появляется не от самого приёма,
-# а от передоза - реагентным эффектом AdjustAddictionLevel с положительным amount.
+# Лекарственные зависимости без sources: канал появляется от передоза,
+# реагентным эффектом AdjustAddictionLevel с положительным amount.
 - type: addiction
   id: Medicine
   name: health-analyzer-addiction-medicine

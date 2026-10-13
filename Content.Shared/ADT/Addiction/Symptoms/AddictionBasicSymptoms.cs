@@ -11,7 +11,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations;
 namespace Content.Shared.ADT.Addiction.Symptoms;
 
 /// <summary>
-/// Дрожь. Снимается полностью: ломка владеет дрожью, пока сама её держит.
+/// Дрожь.
 /// </summary>
 public sealed partial class AddictionJitterSymptom : AddictionSymptom
 {
@@ -22,7 +22,7 @@ public sealed partial class AddictionJitterSymptom : AddictionSymptom
     public float Frequency = 3f;
 
     /// <summary>
-    /// Сколько держится после продления. Должна быть больше интервала продления симптомов.
+    /// Должна быть больше AddictionComponent.SymptomRefreshInterval.
     /// </summary>
     [DataField]
     public TimeSpan Duration = TimeSpan.FromSeconds(35);
@@ -43,7 +43,7 @@ public sealed partial class AddictionJitterSymptom : AddictionSymptom
 }
 
 /// <summary>
-/// Статус-эффект (косноязычие, заикание, муть в глазах, слабость).
+/// Статус-эффект: косноязычие, заикание, муть в глазах, слабость.
 /// </summary>
 public sealed partial class AddictionStatusEffectSymptom : AddictionSymptom
 {
@@ -69,8 +69,8 @@ public sealed partial class AddictionStatusEffectSymptom : AddictionSymptom
 }
 
 /// <summary>
-/// Компоненты на время ломки (монохромный мир наркоманской ломки и прочее).
-/// Если компонент уже стоит не от ломки - симптом не вмешивается и при окончании его не снимет.
+/// Компоненты на время ломки. Если компонент уже стоит не от ломки - симптом
+/// не вмешивается и при окончании его не снимет.
 /// </summary>
 public sealed partial class AddictionComponentSymptom : AddictionSymptom
 {

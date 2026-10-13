@@ -2,10 +2,9 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-# Трайты зависимостей: стартовая неизлечимая зависимость (уровень 100, не спадает,
-# детоксин не помогает). Конкретные трайты конфликтуют с рандомным (нельзя взять,
-# если выбран RandomAddiction); сам RandomAddiction блокируется клиентом, если
-# выбраны все три конкретных (см. TraitsTab.xaml.cs, ADT-Tweak).
+# Стартовая неизлечимая зависимость: уровень 100, не спадает, детоксин не помогает.
+# Конкретные трайты конфликтуют с рандомным через conflicts, обратную блокировку
+# (все три конкретных уже выбраны) делает клиент - см. TraitsTab.xaml.cs.
 
 - type: trait
   id: AlcoholicAddiction
@@ -53,7 +52,6 @@
   - IPC
   - Diona
   - SlimePerson
-  # Недоступна на командных ролях, ролях СБ и Центкома.
   departmentBlacklist:
   - Command
   - Security
@@ -76,7 +74,6 @@
   - IPC
   - Diona
   - SlimePerson
-  # Недоступен на командных ролях, ролях СБ и Центкома.
   departmentBlacklist:
   - Command
   - Security

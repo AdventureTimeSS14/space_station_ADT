@@ -10,9 +10,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Server.ADT.Addiction;
 
 /// <summary>
-/// Применяет эффект AdjustAddictionLevel: отрицательный Amount лечит (Детоксин),
-/// положительный Amount качает зависимость (передоз лекарств, канал создаётся при необходимости).
-/// Трайтовые зависимости (Permanent) не лечатся.
+/// Трайтовые зависимости (Permanent) этим эффектом не лечатся.
 /// </summary>
 public sealed partial class AdjustAddictionLevelEffectSystem : EntityEffectSystem<AddictionComponent, AdjustAddictionLevel>
 {
@@ -25,7 +23,7 @@ public sealed partial class AdjustAddictionLevelEffectSystem : EntityEffectSyste
 
         if (amount > 0)
         {
-            // Передоз: качаем конкретную зависимость (Kind обязателен), создаём канал при отсутствии.
+            // Передоз: Kind обязателен, канал создаётся при отсутствии.
             if (args.Effect.Kind is not { } kind)
                 return;
 
@@ -36,7 +34,6 @@ public sealed partial class AdjustAddictionLevelEffectSystem : EntityEffectSyste
             return;
         }
 
-        // Лечение: снижаем уровень, трайтовые (Permanent) не трогаем.
         foreach (var channel in entity.Comp.Channels)
         {
             if (channel.Permanent)
