@@ -48,7 +48,7 @@ public sealed class CosmosComboSystem : EntitySystem
     }
 
     // Hell
-    public void ComboProgress(EntityUid uid, HereticComponent heretic, IReadOnlyList<EntityUid> hitEntities)
+    public void ComboProgress(EntityUid uid, HereticComponent heretic, IReadOnlyCollection<EntityUid> hitEntities)
     {
         if (_net.IsClient)
             return;
