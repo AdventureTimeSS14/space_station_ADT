@@ -675,7 +675,7 @@
         variation: 0.250
         volume: 5
   - type: Stunbaton
-    energyPerUse: 25
+    energyPerUse: 25 # ADT-Tweak: снижено с 50
   - type: ItemToggleMeleeWeapon
     activatedDamage:
       types:
@@ -684,13 +684,12 @@
     attackRate: 1.5
     damage:
       types:
-        Blunt: 10
-        Piercing: 5
-        Slash: 5
+        Blunt: 10 # ADT-Tweak: изменено с 8. Бафф, так как будет использоваться инквизицией. Вещь не доступна для игроков.
+        Piercing: 10 # ADT-Tweak: добавлено
     bluntStaminaDamageFactor: 2.0
     animation: WeaponArcFist
   - type: StaminaDamageOnHit
-    damage: 45
+    damage: 45 # ADT-Tweak: повышено с 35
     sound: /Audio/Weapons/egloves.ogg
   - type: StaminaDamageOnCollide
     damage: 45
