@@ -40,6 +40,11 @@
       minDistanceFromCenter: 250
       maxDistanceFromCenter: 300
       clearance: 55
+    #- prototypes: [ ADTHeliosEntranceRoomMarker ]
+    #  count: 1
+    #  minDistanceFromCenter: 140
+    #  maxDistanceFromCenter: 240
+    #  clearance: 20
     - prototypes: [ LavaDungeonRoomMarker ]
       roomWhitelist:
         tags:
