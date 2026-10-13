@@ -1,0 +1,280 @@
+- type: microwaveMealRecipe
+  id: ADTTribalFineMealRecipe
+  name: fine meal recipe
+  result: ADTFoodLavalandFineMeal
+  time: 10
+  group: Other
+  solids:
+    FoodMeatGoliath: 1
+    ADTFoodCactusBerry: 2
+  recipeType:
+  - TribalOven
+
+- type: microwaveMealRecipe
+  id: ADTTribalFreakyLegRecipe
+  name: freaky leg recipe
+  result: ADTFoodLavalandFreakyLeg
+  time: 10
+  group: Other
+  solids:
+    FoodMeatSpiderLeg: 2
+    OrganHumanFootLeft: 1
+  recipeType:
+  - TribalOven
+
+- type: microwaveMealRecipe
+  id: ADTTribalVeggieMealRecipe
+  name: veggie meal recipe
+  result: ADTFoodLavalandVeggieMeal
+  time: 10
+  group: Other
+  solids:
+    ADTFoodCactusBerry: 1
+    ADTFoodMushroomLeaf: 2
+    ADTFoodCoaltreeLog: 2
+    ADTFoodReishi: 1
+  recipeType:
+  - TribalOven
+
+- type: microwaveMealRecipe
+  id: ADTTribalHuntersTreatRecipe
+  name: hunters treat recipe
+  result: ADTFoodLavalandHuntersTreat
+  time: 10
+  group: Other
+  solids:
+    OrganHumanHeart: 1
+    FoodMeatGoliath: 1
+    ADTFoodMushroomLeaf: 1
+    MaterialGoliathHide1: 1
+    ADTFoodReishi: 2
+  recipeType:
+  - TribalOven
+
+- type: microwaveMealRecipe
+  id: ADTTribalYumGrubRecipe
+  name: yum grub recipe
+  result: ADTFoodLavalandYumGrub
+  time: 10
+  group: Other
+  solids:
+    ADTFoodMeatGoldgrub: 1
+    ADTFoodMushroomCap: 2
+    ADTFoodMushroomLeaf: 1
+  recipeType:
+  - TribalOven
+
+- type: microwaveMealRecipe
+  id: ADTTribalAshieKebabRecipe
+  name: ashie kebab recipe
+  result: ADTFoodLavalandAshieKebab
+  time: 10
+  group: Other
+  solids:
+    PartRodMetal1: 1
+    OrganHumanLiver: 1
+    OrganHumanHeart: 1
+    OrganHumanKidneys: 1
+    FoodMeatSpiderLeg: 1
+  recipeType:
+  - TribalOven
+
+- type: microwaveMealRecipe
+  id: ADTTribalTailODeadRecipe
+  name: tail o dead recipe
+  result: ADTFoodLavalandTailODead
+  time: 10
+  group: Other
+  solids:
+    FoodMeatLizard: 1
+    ADTFoodCactusBerry: 3
+    ADTFoodFireblossom: 1
+  recipeType:
+  - TribalOven
+
+- type: microwaveMealRecipe
+  id: ADTTribalCureCurseRecipe
+  name: cure curse recipe
+  result: ADTFoodLavalandCureCurse
+  time: 10
+  group: Other
+  solids:
+    ADTBoneKnife: 1
+    OrganHumanHeart: 2
+  recipeType:
+  - TribalOven
+
+- type: microwaveMealRecipe
+  id: ADTTribalWingsFangsTentaclesRecipe
+  name: wings fangs tentacles recipe
+  result: ADTFoodLavalandWingsFangsTentacles
+  time: 10
+  group: Other
+  solids:
+    ADTKineticTrophyGoliathTentacle: 1
+    ADTKineticTrophyMagmaWing: 1
+    ADTKineticTrophyPoisonFang: 1
+  recipeType:
+  - TribalOven
+
+- type: microwaveMealRecipe
+  id: ADTTribalGoliKernelsRecipe
+  name: goli kernels recipe
+  result: ADTFoodLavalandGoliKernels
+  time: 10
+  group: Other
+  solids:
+    FoodMeatGoliath: 1
+    ADTFoodMushroomLeaf: 1
+  recipeType:
+  - TribalOven
+
+- type: microwaveMealRecipe
+  id: ADTTribalBeerGrubStewRecipe
+  name: beer grub stew recipe
+  result: ADTFoodLavalandBeerGrubStew
+  time: 10
+  group: Other
+  reagents:
+    Beer: 15
+  solids:
+    ADTFoodMeatGoldgrub: 1
+    ADTFoodReishi: 2
+    ADTFoodCactusBerry: 1
+  recipeType:
+  - TribalOven
+
+- type: microwaveMealRecipe
+  id: ADTTribalThickRedPasteRecipe
+  name: thick red paste recipe
+  result: ADTFoodLavalandThickRedPaste
+  time: 10
+  group: Other
+  reagents:
+    Blood: 15
+  solids:
+    WheatBushel: 4
+    ADTFoodMushroomLeaf: 2
+  recipeType:
+  - TribalOven
+
+- type: microwaveMealRecipe
+  id: ADTTribalBlackBloodSausageRecipe
+  name: black blood sausage recipe
+  result: ADTFoodLavalandBlackBloodSausage
+  time: 10
+  group: Other
+  reagents:
+    Blood: 25
+  solids:
+    ADTFoodMushroomCap: 2
+    FoodMeatGoliath: 1
+  recipeType:
+  - TribalOven
+
+- type: microwaveMealRecipe
+  id: ADTTribalXenoSticksRecipe
+  name: xeno sticks recipe
+  result: ADTFoodLavalandXenoSticks
+  time: 10
+  group: Other
+  solids:
+    FoodMeatXeno: 1
+    ADTFoodReishi: 1
+  recipeType:
+  - TribalOven
+
+- type: microwaveMealRecipe
+  id: ADTTribalSoftMeatCubesRecipe
+  name: soft meat cubes recipe
+  result: ADTFoodLavalandSoftMeatCubes
+  time: 10
+  group: Other
+  solids:
+    ADTFoodSoftMeat: 1
+  recipeType:
+  - TribalOven
+
+- type: microwaveMealRecipe
+  id: ADTTribalPredatoryFishSlabRecipe
+  name: predatory fish slab recipe
+  result: ADTFoodLavalandPredatoryFishSlab
+  time: 10
+  group: Other
+  solids:
+    ADTFoodPredatorMeat: 1
+  recipeType:
+  - TribalOven
+
+- type: microwaveMealRecipe
+  id: ADTTribalEelRingletsRecipe
+  name: eel ringlets recipe
+  result: ADTFoodLavalandEelRinglets
+  time: 10
+  group: Other
+  solids:
+    ADTFoodEelFilet: 1
+  recipeType:
+  - TribalOven
+
+- type: microwaveMealRecipe
+  id: ADTTribalEelKatigoRecipe
+  name: eel katigo recipe
+  result: ADTFoodLavalandEelKatigo
+  time: 10
+  group: Other
+  reagents:
+    Blood: 10
+  solids:
+    ADTFoodEelFilet: 1
+    WheatBushel: 1
+  recipeType:
+  - TribalOven
+
+- type: microwaveMealRecipe
+  id: ADTTribalPredatoryChowderRecipe
+  name: predatory chowder recipe
+  result: ADTFoodLavalandPredatoryChowder
+  time: 10
+  group: Other
+  reagents:
+    Water: 15
+  solids:
+    ADTFoodPredatorMeat: 1
+    OrganHumanLiver: 1
+    ADTFoodFireblossom: 3
+  recipeType:
+  - TribalOven
+
+- type: microwaveMealRecipe
+  id: ADTTribalAbuGhoshRecipe
+  name: abu ghosh recipe
+  result: ADTFoodLavalandAbuGhosh
+  time: 10
+  group: Other
+  reagents:
+    ADTMilkGutlunch: 30
+  solids:
+    ADTFoodFireblossom: 1
+    FoodMeatGoliath: 1
+    WheatBushel: 1
+  recipeType:
+  - TribalOven
+
+- type: microwaveMealRecipe
+  id: ADTTribalThaliLazisRecipe
+  name: thali lazis recipe
+  result: ADTThaliLazisTrayFilled
+  time: 10
+  group: Other
+  solids:
+    ADTFoodReishi: 1
+    ADTKineticTrophyMagmaWing: 1
+    ADTFoodSoftMeat: 1
+    ADTFoodFireblossom: 1
+    ADTFoodMushroomLeaf: 1
+    FoodMeatSpiderLeg: 1
+    ADTFoodCactusBerry: 1
+    FoodMeatGoliath: 1
+  recipeType:
+  - TribalOven

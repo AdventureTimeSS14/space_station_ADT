@@ -12,11 +12,11 @@ namespace Content.Server.Administration.Commands;
 [AdminCommand(AdminFlags.Admin)]
 public sealed class SubtleMessageMassCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly IPlayerLocator _locator = default!;
-    [Dependency] private readonly PrayerSystem _prayerSystem = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
-    [Dependency] private readonly EntityManager _entityManager = default!;
+    [Dependency] private IPlayerLocator _locator = default!;
+    [Dependency] private PrayerSystem _prayerSystem = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private EntityLookupSystem _entityLookup = default!;
+    [Dependency] private EntityManager _entityManager = default!;
 
     public override string Command => "massmsg";
     public override string Description => Loc.GetString("massmsg-command-description");

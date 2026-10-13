@@ -9,6 +9,7 @@
   sprites:
   - sprite: ADT/Mobs/Customization/lavaland_dyes.rsi
     state: cinnabar_dyes
+  shader: unshaded
 
 - type: marking
   id: ADTLavalandDyesCrimson
@@ -17,6 +18,7 @@
   sprites:
   - sprite: ADT/Mobs/Customization/lavaland_dyes.rsi
     state: crimson_dyes
+  shader: unshaded
 
 - type: marking
   id: ADTLavalandDyesIndigo
@@ -25,6 +27,7 @@
   sprites:
   - sprite: ADT/Mobs/Customization/lavaland_dyes.rsi
     state: indigo_dyes
+  shader: unshaded
 
 - type: marking
   id: ADTLavalandDyesMint
@@ -33,6 +36,7 @@
   sprites:
   - sprite: ADT/Mobs/Customization/lavaland_dyes.rsi
     state: mint_dyes
+  shader: unshaded
 
 - type: marking
   id: ADTLavalandDyesAmber
@@ -41,3 +45,4 @@
   sprites:
   - sprite: ADT/Mobs/Customization/lavaland_dyes.rsi
     state: amber_dyes
+  shader: unshaded

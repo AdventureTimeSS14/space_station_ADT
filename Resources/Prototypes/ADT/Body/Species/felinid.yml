@@ -110,8 +110,12 @@
   - BaseSpeciesMobOrganic
   id: MobFelinid
   components:
-  - type: Hunger
-    baseDecayRate: 0.03
+  - type: Satiation
+    satiations:
+      Hunger:
+        prototype: ADTFelinidHunger
+      Thirst:
+        prototype: NormalSatiationThirst
   - type: Respirator
     damage:
       types:
@@ -121,15 +125,17 @@
         Asphyxiation: -1.9
   - type: Vocal
     wilhelm: "/Audio/ADT/Felinid/cat_wilhelm.ogg"
-    sounds:
-      Male: MaleFelinid
-      Female: FemaleFelinid
-      Unsexed: MaleFelinid
+    emoteSounds: MaleFelinid
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Critical
+      100: SoftCritical
+      142: Critical
       185: Dead
+  - type: SoftCrit
+    speedModifier: 0.45
+  - type: TryCatchBreath
+    doAfterTime: 5
   - type: SizeAttributeWhitelist
     tall: true
     tallscale: 1.1
@@ -137,7 +143,7 @@
     shortscale: 0.9
   - type: WoundLicking
   - type: Destructible #процесс разрушения на органы
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTypeTrigger
         damageType: Blunt #при каком дамаге это происходит
@@ -182,7 +188,7 @@
     bloodReferenceSolution:
       reagents:
       - ReagentId: Blood
-        Quantity: 170
+        Quantity: 340
   - type: Damageable
     damageModifierSet: Felinid
   - type: Injurable
@@ -204,7 +210,6 @@
     soundHit:
       path: /Audio/Effects/hit_kick.ogg
   - type: Butcherable
-    butcheringType: Spike # TODO human.
     spawned:
       - id: FoodMeat
       - id: ClothingHeadHatCatEars

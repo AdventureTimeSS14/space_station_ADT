@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from Paradise at https://github.com/ParadiseSS13/Paradise/blob/master/icons/obj/clothing/jewelry.dmi and icons/mob/clothing/jewelry.dmi",
+    "copyright": "Taken from Paradise SS220 fork at icons/obj/clothing/jewelry.dmi and icons/mob/clothing/jewelry.dmi",
     "size": {
         "x": 32,
         "y": 32
@@ -12,6 +12,90 @@
         },
         {
             "name": "equipped-NECK",
+            "directions": 4
+        },
+        {
+            "name": "ruby"
+        },
+        {
+            "name": "ruby-equipped-NECK",
+            "directions": 4
+        },
+        {
+            "name": "sapphire"
+        },
+        {
+            "name": "sapphire-equipped-NECK",
+            "directions": 4
+        },
+        {
+            "name": "emerald"
+        },
+        {
+            "name": "emerald-equipped-NECK",
+            "directions": 4
+        },
+        {
+            "name": "topaz"
+        },
+        {
+            "name": "topaz-equipped-NECK",
+            "directions": 4
+        },
+        {
+            "name": "rupee"
+        },
+        {
+            "name": "rupee-equipped-NECK",
+            "directions": 4
+        },
+        {
+            "name": "diamond"
+        },
+        {
+            "name": "diamond-equipped-NECK",
+            "directions": 4
+        },
+        {
+            "name": "magma"
+        },
+        {
+            "name": "magma-equipped-NECK",
+            "directions": 4
+        },
+        {
+            "name": "void"
+        },
+        {
+            "name": "void-equipped-NECK",
+            "directions": 4
+        },
+        {
+            "name": "red"
+        },
+        {
+            "name": "red-equipped-NECK",
+            "directions": 4
+        },
+        {
+            "name": "purple"
+        },
+        {
+            "name": "purple-equipped-NECK",
+            "directions": 4
+        },
+        {
+            "name": "phoron"
+        },
+        {
+            "name": "phoron-equipped-NECK",
+            "directions": 4
+        },
+        {
+            "name": "amber"
+        },
+        {
+            "name": "amber-equipped-NECK",
             "directions": 4
         }
     ]

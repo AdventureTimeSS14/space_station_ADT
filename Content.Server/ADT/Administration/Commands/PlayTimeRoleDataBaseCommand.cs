@@ -11,9 +11,9 @@ namespace Content.Server.ADT.Administration.Commands;
 [AdminCommand(AdminFlags.Moderator)]
 public sealed class PlayTimeAddOverallAsyncCommand : IConsoleCommand
 {
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly PlayTimeTrackingManager _playTimeTracking = default!;
-    [Dependency] private readonly IPlayerLocator _playerLocator = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private PlayTimeTrackingManager _playTimeTracking = default!;
+    [Dependency] private IPlayerLocator _playerLocator = default!;
 
     public string Command => "playtime_addoverall_as";
     public string Description => Loc.GetString("cmd-playtime_addoverall-desc");
@@ -88,9 +88,9 @@ public sealed class PlayTimeAddOverallAsyncCommand : IConsoleCommand
 [AdminCommand(AdminFlags.Moderator)]
 public sealed class PlayTimeAddRoleAsyncCommand : IConsoleCommand
 {
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly PlayTimeTrackingManager _playTimeTracking = default!;
-    [Dependency] private readonly IPlayerLocator _playerLocator = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private PlayTimeTrackingManager _playTimeTracking = default!;
+    [Dependency] private IPlayerLocator _playerLocator = default!;
 
     public string Command => "playtime_addrole_as";
     public string Description => Loc.GetString("cmd-playtime_addrole-desc");
@@ -162,9 +162,9 @@ public sealed class PlayTimeAddRoleAsyncCommand : IConsoleCommand
 [AdminCommand(AdminFlags.Moderator)]
 public sealed class PlayTimeGetOverallAsyncCommand : IConsoleCommand
 {
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly PlayTimeTrackingManager _playTimeTracking = default!;
-    [Dependency] private readonly IPlayerLocator _playerLocator = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private PlayTimeTrackingManager _playTimeTracking = default!;
+    [Dependency] private IPlayerLocator _playerLocator = default!;
 
     public string Command => "playtime_getoverall_as";
     public string Description => Loc.GetString("cmd-playtime_getoverall-desc");
@@ -219,9 +219,9 @@ public sealed class PlayTimeGetOverallAsyncCommand : IConsoleCommand
 [AdminCommand(AdminFlags.Moderator)]
 public sealed class PlayTimeGetRoleAsyncCommand : IConsoleCommand
 {
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly PlayTimeTrackingManager _playTimeTracking = default!;
-    [Dependency] private readonly IPlayerLocator _playerLocator = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private PlayTimeTrackingManager _playTimeTracking = default!;
+    [Dependency] private IPlayerLocator _playerLocator = default!;
 
     public string Command => "playtime_getrole_as";
     public string Description => Loc.GetString("cmd-playtime_getrole-desc");
@@ -307,9 +307,9 @@ public sealed class PlayTimeGetRoleAsyncCommand : IConsoleCommand
 [AdminCommand(AdminFlags.Moderator)]
 public sealed class PlayTimeSaveAsyncCommand : IConsoleCommand
 {
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly PlayTimeTrackingManager _playTimeTracking = default!;
-    [Dependency] private readonly IPlayerLocator _playerLocator = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private PlayTimeTrackingManager _playTimeTracking = default!;
+    [Dependency] private IPlayerLocator _playerLocator = default!;
 
     public string Command => "playtime_save_as";
     public string Description => Loc.GetString("cmd-playtime_save-desc");
@@ -359,9 +359,9 @@ public sealed class PlayTimeSaveAsyncCommand : IConsoleCommand
 [AdminCommand(AdminFlags.Debug)]
 public sealed class PlayTimeFlushAsyncCommand : IConsoleCommand
 {
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly PlayTimeTrackingManager _playTimeTracking = default!;
-    [Dependency] private readonly IPlayerLocator _playerLocator = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private PlayTimeTrackingManager _playTimeTracking = default!;
+    [Dependency] private IPlayerLocator _playerLocator = default!;
 
     public string Command => "playtime_flush_as";
     public string Description => Loc.GetString("cmd-playtime_flush-desc");

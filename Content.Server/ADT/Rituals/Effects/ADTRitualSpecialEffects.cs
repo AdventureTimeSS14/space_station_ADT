@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Server.ADT.Legion;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Polymorph.Systems;
 using Content.Shared.ADT.Language;
@@ -258,5 +259,27 @@ public sealed partial class ADTRitualSummonPickerEffect : ADTRitualEffect
             return;
 
         entMan.System<ADTRitualSummonSystem>().OpenPicker(args.Object, args.Invoker, candidates);
+    }
+}
+
+public sealed partial class ADTRitualLegionInfestEffect : ADTRitualEffect
+{
+    [DataField]
+    public ADTRitualTarget Target = ADTRitualTarget.RandomTribesman;
+
+    [DataField]
+    public EntProtoId Legion = "ADTMobLegion";
+
+    [DataField]
+    public LocId Message = "adt-legion-infest";
+
+    public override void Effect(IEntityManager entMan, ADTRitualArgs args)
+    {
+        var legion = entMan.System<ADTLegionSkullSystem>();
+
+        foreach (var target in entMan.System<ADTRitualSystem>().GetTargets(args, Target))
+        {
+            legion.InfestTarget(target, Legion, Message, args.Object);
+        }
     }
 }

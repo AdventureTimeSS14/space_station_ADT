@@ -87,6 +87,7 @@
     loot:
     - proto: ADTHierophantClub
     - proto: ADTKineticTrophyVortexTalisman
+    - proto: ADTGemDilithium
     - proto: GoldOre
       max: 10
     - proto: SilverOre

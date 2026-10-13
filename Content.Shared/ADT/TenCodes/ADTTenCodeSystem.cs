@@ -5,7 +5,7 @@ namespace Content.Shared.ADT.TenCodes;
 
 public sealed class ADTTenCodeSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     public bool Knows(EntityUid? uid)
     {

@@ -1,0 +1,25 @@
+{
+ "version": 1,
+ "license": "CC-BY-SA-3.0",
+ "copyright": "Sprited by Inconnu(discord:inconnu1337)",
+ "size": {
+  "x": 160,
+  "y": 160
+ },
+ "states": [
+  {
+   "name": "core"
+  },
+  {
+   "name": "core_pulse",
+   "delays": [
+    [
+     0.25,
+     0.25,
+     0.25,
+     0.25
+    ]
+   ]
+  }
+ ]
+}

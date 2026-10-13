@@ -10,11 +10,11 @@ namespace Content.Server.ADT.Salvage.Systems;
 
 public sealed class MegafaunaLootSystem : EntitySystem
 {
-    [Dependency] private readonly EntityStorageSystem _entityStorage = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedStackSystem _stack = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private EntityStorageSystem _entityStorage = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedStackSystem _stack = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -57,6 +57,14 @@ public sealed class MegafaunaLootSystem : EntitySystem
 
         if (ent.Comp.RandomLoot.Count > 0)
             SpawnInto(crate, _random.Pick(ent.Comp.RandomLoot), coords);
+
+        if (ent.Comp.RandomLootGroups.Count > 0)
+        {
+            foreach (var proto in _random.Pick(ent.Comp.RandomLootGroups))
+            {
+                SpawnInto(crate, proto, coords);
+            }
+        }
 
         if (ent.Comp.DropEffect is { } effect)
             Spawn(effect, crate is { } uid ? Transform(uid).Coordinates : coords);

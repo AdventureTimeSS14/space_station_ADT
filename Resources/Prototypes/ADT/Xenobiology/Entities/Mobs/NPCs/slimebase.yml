@@ -6,24 +6,22 @@
   description: It looks so much like jelly. I wonder what it tastes like?
   components:
   - type: Appearance
-  - type: Hunger
-    lastAuthoritativeHungerValue: 20
-    thresholds:
-      Overfed: 150
-      Okay: 95
-      Peckish: 25 #Baby Slimes will begin hunting here, Adult Slimes will target their tamers here.
-      Starving: 10
-      Dead: 0
-    starvationDamage:
-      types:
-        Poison: 3
-    hungerThresholdDecayModifiers:
-      Okay: 1.5
-      Peckish: 0.4
-      Starving: 0.2
-      Dead: 0.1
-    baseDecayRate: 0.1
-    starvingSlowdownModifier: 0
+  - type: Satiation
+    satiations:
+      Hunger:
+        prototype: ADTXenobioSlimeHunger
+  - type: SatiationDamage
+    satiations:
+      Hunger:
+        thresholds:
+          Starving:
+            types:
+              Poison: 3
+  - type: SatiationSpeedModifier
+    satiations:
+      Hunger:
+        thresholds:
+          Starving: 0
   - type: Slime
     breed: GreyMutation
     maxMutation: RainbowMutation
@@ -77,7 +75,7 @@
         Asphyxiation: -1.0
     maxSaturation: 15
   - type: Damageable
-    damageModifierSet: Slime
+    damageModifierSet: SlimeXenobio
   - type: Injurable
     damageContainer: Biological
   - type: Bloodstream
@@ -210,3 +208,33 @@
       adult:
         sprite: ADT/Xenobiology/Mobs/slimesAdult.rsi
         displayName: mob-slime-stage-adult
+
+- type: entity
+  parent: MobSlimeXenobioAdult
+  categories: [ HideSpawnMenu ]
+  id: MobSlimeXenobioAdultBlue
+  name: blue slime
+  suffix: Adult
+  components:
+  - type: Slime
+    breed: BlueMutation
+
+- type: entity
+  parent: MobSlimeXenobioAdult
+  categories: [ HideSpawnMenu ]
+  id: MobSlimeXenobioAdultGreen
+  name: green slime
+  suffix: Adult
+  components:
+  - type: Slime
+    breed: GreenMutation
+
+- type: entity
+  parent: MobSlimeXenobioAdult
+  categories: [ HideSpawnMenu ]
+  id: MobSlimeXenobioAdultYellow
+  name: yellow slime
+  suffix: Adult
+  components:
+  - type: Slime
+    breed: YellowMutation

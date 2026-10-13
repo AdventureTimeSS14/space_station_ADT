@@ -59,6 +59,12 @@ public sealed class ADTCCVars
         CVarDef.Create("radialmenu.center", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /*
+    * Text outline
+    */
+    public static readonly CVarDef<bool> EnableTextOutline =
+        CVarDef.Create("accessibility.text_outline", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /*
     * Discord
     */
 
@@ -274,6 +280,12 @@ public sealed class ADTCCVars
     public static readonly CVarDef<int> MapVoteRecentBanDepth =
         CVarDef.Create("game.map_vote_recent_ban_depth", 3, CVar.SERVER | CVar.ARCHIVE);
 
+    /// <summary>
+    /// Запускать ли голосования за карту и режим при входе в лобби.
+    /// </summary>
+    public static readonly CVarDef<bool> LobbyAutoVote =
+        CVarDef.Create("game.lobby_auto_vote", true, CVar.SERVERONLY | CVar.ARCHIVE);
+
 
     public static readonly CVarDef<float> BookPrinterUploadCooldown =
         CVarDef.Create("bookprinter.upload_cooldown", 3600.0f, CVar.SERVERONLY | CVar.ARCHIVE);
@@ -444,5 +456,93 @@ public sealed class ADTCCVars
 
     public static readonly CVarDef<float> ChatHighlightSoundVolume =
         CVarDef.Create("adt.chat_highlight_sound_volume", 1f, CVar.ARCHIVE | CVar.CLIENTONLY);
-}
 
+    /*
+    * Logic Circuit
+    */
+
+    public static readonly CVarDef<bool> LogicEnabled =
+        CVarDef.Create("adt.logic.enabled", true, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Сколько элементов помещается в одну схему.
+    /// </summary>
+    public static readonly CVarDef<int> LogicMaxElements =
+        CVarDef.Create("adt.logic.max_elements", 64, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// Сколько проводов помещается в одну схему.
+    /// </summary>
+    public static readonly CVarDef<int> LogicMaxWires =
+        CVarDef.Create("adt.logic.max_wires", 128, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// Сколько схем может тикать одновременно.
+    /// </summary>
+    public static readonly CVarDef<int> LogicMaxActiveCircuits =
+        CVarDef.Create("adt.logic.max_active_circuits", 64, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Сколько тиков сервера проходит между обновлениями схемы.
+    /// </summary>
+    public static readonly CVarDef<int> LogicTickInterval =
+        CVarDef.Create("adt.logic.tick_interval", 2, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Предел длины текстового сигнала в символах.
+    /// </summary>
+    public static readonly CVarDef<int> LogicMaxSignalLength =
+        CVarDef.Create("adt.logic.max_signal_length", 64, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// Предел длины значения в настройках элемента.
+    /// </summary>
+    public static readonly CVarDef<int> LogicMaxConfigLength =
+        CVarDef.Create("adt.logic.max_config_length", 512, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// Предел времени в миллисекундах, который все схемы вместе могут занять за один тик.
+    public static readonly CVarDef<float> LogicBudgetMs =
+        CVarDef.Create("adt.logic.budget_ms", 2f, CVar.SERVERONLY);
+
+    /*
+     * Join Queue
+     */
+
+    public static readonly CVarDef<bool> QueueGamesEnabled =
+        CVarDef.Create("queue.games_enabled", true, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> QueueGamesScoreToSpin =
+        CVarDef.Create("queue.games_score_to_spin", 3, CVar.SERVERONLY);
+
+    public static readonly CVarDef<float> QueueGamesSlotWinChance =
+        CVarDef.Create("queue.games_slot_win_chance", 0.05f, CVar.SERVERONLY);
+
+    public static readonly CVarDef<float> QueueGamesSlotBypassMinutes =
+        CVarDef.Create("queue.games_slot_bypass_minutes", 10f, CVar.SERVERONLY);
+
+    public static readonly CVarDef<float> QueueGamesTurnTime =
+        CVarDef.Create("queue.games_turn_time", 30f, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> HostReservedSlots =
+        CVarDef.Create("queue.host_reserved_slots", 5, CVar.SERVERONLY);
+
+    /*
+     * State diagnostics
+     */
+
+    public static readonly CVarDef<bool> StateDiagnosticsEnabled =
+        CVarDef.Create("adt.state_diag_enabled", true, CVar.SERVERONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<int> StateDiagnosticsRequestThreshold =
+        CVarDef.Create("adt.state_diag_request_threshold", 2, CVar.SERVERONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<float> StateDiagnosticsWindow =
+        CVarDef.Create("adt.state_diag_window", 60f, CVar.SERVERONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<float> StateDiagnosticsCooldown =
+        CVarDef.Create("adt.state_diag_cooldown", 300f, CVar.SERVERONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<float> StateDiagnosticsRadius =
+        CVarDef.Create("adt.state_diag_radius", 20f, CVar.SERVERONLY | CVar.ARCHIVE);
+}

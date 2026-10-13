@@ -7,7 +7,7 @@ namespace Content.Client.ADT.Shadowling;
 
 public sealed class ADTShadowlingStatusIconSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     public override void Initialize()
     {

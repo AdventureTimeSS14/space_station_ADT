@@ -44,6 +44,7 @@ entities:
     - type: Transform
       pos: -6.5083084,-7.020195
       parent: invalid
+    - type: ADTWeatherShelter
     - type: MapGrid
       chunks:
         -2,1:

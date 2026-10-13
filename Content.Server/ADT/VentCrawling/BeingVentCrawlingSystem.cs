@@ -16,7 +16,7 @@ namespace Content.Server.ADT.VentCrawling;
 
 public sealed class BeingVentCrawSystem : EntitySystem
 {
-    [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
+    [Dependency] private NodeContainerSystem _nodeContainer = default!;
 
     public override void Initialize()
     {

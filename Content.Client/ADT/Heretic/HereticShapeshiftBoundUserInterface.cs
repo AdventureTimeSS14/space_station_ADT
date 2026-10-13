@@ -13,8 +13,8 @@ namespace Content.Client.ADT.Heretic;
 
 public sealed class HereticShapeshiftBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private readonly IClyde _displayManager = default!;
-    [Dependency] private readonly IInputManager _inputManager = default!;
+    [Dependency] private IClyde _displayManager = default!;
+    [Dependency] private IInputManager _inputManager = default!;
 
     private HereticShapeshiftRadialMenu? _hereticRitualMenu;
 

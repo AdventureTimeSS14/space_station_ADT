@@ -1,4 +1,6 @@
 using Content.Shared.EntityTable.EntitySelectors;
+using Content.Shared.Maps;
+using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -30,6 +32,12 @@ public sealed partial class ADTFishingSpotComponent : Component
 
     [DataField]
     public int ShoreRange = 3;
+
+    [DataField]
+    public List<ProtoId<ContentTileDefinition>> ShoreTiles = new();
+
+    [DataField]
+    public EntityWhitelist? ShoreBlacklist;
 
     [DataField]
     public int KrillFish = 2;

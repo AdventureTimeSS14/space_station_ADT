@@ -1,4 +1,4 @@
-# Be careful with these as they get removed on shutdown too!
+﻿# Be careful with these as they get removed on shutdown too!
 - type: entity
   id: AiHeld
   description: Components added / removed from an entity that gets inserted into an AI core.
@@ -59,6 +59,7 @@
   - type: StationAiOverlay
   - type: ShowElectrocutionHUD
   - type: ActionGrant
+    removeOnShutdown: false
     actions:
     - ActionJumpToCore
     - ActionAIViewLaws
@@ -88,8 +89,8 @@
     interfaces:
       enum.RadarConsoleUiKey.Key:
         type: RadarConsoleBoundUserInterface
-      enum.CrewMonitoringUIKey.Key:
-        type: CrewMonitoringBoundUserInterface
+      enum.ADTCrewMonitoringUIKey.Key:
+        type: ADTCrewMonitoringBoundUserInterface
       enum.GeneralStationRecordConsoleKey.Key:
         type: GeneralStationRecordConsoleBoundUserInterface
       enum.SiliconLawsUiKey.Key:
@@ -103,12 +104,14 @@
         type: AtmosAlertsComputerBoundUserInterface
       enum.StationAiInfoUiKey.Key:
         type: StationAiInfoBoundUserInterface
+      enum.StationAiNanoChatUiKey.Key:
+        type: StationAiNanoChatBoundUserInterface
     # ADT End
   - type: IntrinsicUI
     uis:
       enum.RadarConsoleUiKey.Key:
         toggleAction: ActionStationAiRadar #ADT-Tweak
-      enum.CrewMonitoringUIKey.Key:
+      enum.ADTCrewMonitoringUIKey.Key:
         toggleAction: ActionStationAiCrewMonitoring #ADT-Tweak
       enum.GeneralStationRecordConsoleKey.Key:
         toggleAction: ActionStationAiStationRecords #ADT-Tweak
@@ -121,10 +124,11 @@
         toggleAction: ADTActionOpenRemoteDevicesMenu
   - type: AtmosAlertsComputer
   - type: StationAiInfo
+  - type: StationAiNanoChat
   - type: CrewManifestViewer
     ownerKey: enum.StationAiInfoUiKey.Key
     # ADT End
-  - type: CrewMonitoringConsole
+  - type: ADTCrewMonitoringConsole
   - type: GeneralStationRecordConsole
   - type: DeviceNetwork
     deviceNetId: Wireless
@@ -174,9 +178,6 @@
   description: Handles AI interactions across holocards + AI cores
   components:
   - type: ItemSlots
-  - type: Tag
-    tags:
-    - GhostOnlyWarp
   - type: StationAiHolder
     slot:
       name: station-ai-mind-slot
@@ -256,9 +257,6 @@
     - Anchorable
   - type: Rotatable
   - type: WarpPoint
-    blacklist:
-      tags:
-      - GhostOnlyWarp
   - type: Fixtures
     fixtures:
       fix1:
@@ -566,6 +564,7 @@
   - type: CollectiveMindRank
     rankName: collective-mind-sai-rank
   - type: StationAiBrain
+  - type: NanoChatCard
   # ADT-Tweak-End
   - type: StartingMindRole
     mindRole: "MindRoleSiliconBrain"
@@ -609,14 +608,8 @@
         layer:
         - GhostImpassable
   - type: NoFTL
-  - type: Tag
-    tags:
-    - GhostOnlyWarp
   - type: WarpPoint
     follow: true
-    blacklist:
-      tags:
-      - GhostOnlyWarp
   - type: Eye
     pvsScale: 1.5
   - type: Visibility
@@ -638,14 +631,8 @@
   components:
   - type: Transform
     anchored: true
-  - type: Tag
-    tags:
-    - GhostOnlyWarp
   - type: WarpPoint
     follow: true
-    blacklist:
-      tags:
-      - GhostOnlyWarp
   - type: Eye
   - type: ContentEye
   - type: Examiner
@@ -993,7 +980,10 @@
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellHyper
   - type: RandomMetadata
-    nameSegments: [NamesDeathCommando]
+    nameSegments: # TODO: add unique syndieborg-specific names; right now this is the same pool that syndicate agents use
+    - NamesDeathCommandoFirst
+    - NamesDeathCommandoLast
+    nameFormat: name-format-standard
 
 - type: entity
   parent: PlayerSyndicateAssaultBorgDerelict

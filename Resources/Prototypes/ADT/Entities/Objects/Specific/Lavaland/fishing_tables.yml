@@ -15,12 +15,13 @@
       weight: 40
     - id: ADTMaterialSinew
       weight: 4
-    - id: MaterialGoliathHide
+    - id: ADTMaterialGoliathHide5
       weight: 2
     - id: ADTAshDrakeHide
       weight: 1
-    - id: ADTGemRuby
-      weight: 1
+    - !type:NestedSelector
+      tableId: ADTGemRandomTable
+      weight: 5
     - id: ADTMaterialWeaverChitin
       weight: 3
     - id: ADTFoodCactusBerry

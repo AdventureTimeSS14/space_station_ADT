@@ -218,8 +218,11 @@
       components:
       - AshStormImmune
     sprite:
-      sprite: /Textures/Effects/weather.rsi
-      state: ashfall
+      sprite: /Textures/ADT/Effects/Weather/ashfall.rsi
+      state: base
+    groundSprite:
+      sprite: /Textures/ADT/Effects/Weather/ashfall.rsi
+      state: ground
     sound:
       path: /Audio/Effects/Weather/snowstorm_weak.ogg
       params:
@@ -232,8 +235,8 @@
   components:
   - type: WeatherStatusEffect
     sprite:
-      sprite: /Textures/Effects/weather.rsi
-      state: ashfall_light
+      sprite: /Textures/ADT/Effects/Weather/ashfall_light.rsi
+      state: base
     sound:
       path: /Audio/Effects/Weather/snowstorm_weak.ogg
       params:
@@ -252,8 +255,11 @@
       components:
       - AshStormImmune
     sprite:
-      sprite: /Textures/Effects/weather.rsi
-      state: ashfall_heavy
+      sprite: /Textures/ADT/Effects/Weather/ashfall_heavy.rsi
+      state: base
+    groundSprite:
+      sprite: /Textures/ADT/Effects/Weather/ashfall_heavy.rsi
+      state: ground
     sound:
       path: /Audio/Effects/Weather/snowstorm_weak.ogg
       params:
@@ -266,8 +272,11 @@
   components:
   - type: WeatherStatusEffect
     sprite:
-      sprite: /Textures/Effects/weather.rsi
-      state: ashfall_light
+      sprite: /Textures/ADT/Effects/Weather/emberfall.rsi
+      state: base
+    groundSprite:
+      sprite: /Textures/ADT/Effects/Weather/emberfall.rsi
+      state: ground
     sound:
       path: /Audio/Effects/Weather/snowstorm_weak.ogg
       params:
@@ -286,8 +295,11 @@
       components:
       - AshStormImmune
     sprite:
-      sprite: /Textures/Effects/weather.rsi
-      state: sandstorm
+      sprite: /Textures/ADT/Effects/Weather/wind.rsi
+      state: base
+    groundSprite:
+      sprite: /Textures/ADT/Effects/Weather/wind.rsi
+      state: ground
     sound:
       path: /Audio/Effects/Weather/snowstorm_weak.ogg
       params:
@@ -315,9 +327,11 @@
       components:
       - AshStormImmune
     sprite:
-      sprite: /Textures/ADT/Effects/weather.rsi
-      state: storm
-    color: "#a13c3c"
+      sprite: /Textures/ADT/Effects/Weather/necropolis.rsi
+      state: base
+    groundSprite:
+      sprite: /Textures/ADT/Effects/Weather/necropolis.rsi
+      state: ground
     sound:
       path: /Audio/Effects/Weather/snowstorm_weak.ogg
       params:

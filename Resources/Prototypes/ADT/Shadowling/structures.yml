@@ -17,9 +17,7 @@
     thresholds: []
   - type: Damageable
     damageModifierSet: ADTAscendantShadowling
-  - type: Tag
-    tags:
-    - Wall
+  - type: Wall
   - type: StaticPrice
     price: 0
 

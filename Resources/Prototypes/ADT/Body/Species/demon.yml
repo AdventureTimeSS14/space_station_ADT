@@ -117,14 +117,19 @@
   - BaseSpeciesMobOrganic
   id: MobDemon
   components:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: SoftCritical
+      160: Critical
+      200: Dead
+  - type: SoftCrit
+    speedModifier: 0.35
   - type: Wagging
   - type: Speech
     speechSounds: Lizard
   - type: Vocal
-    sounds:
-      Male: MaleHuman
-      Female: FemaleHuman
-      Unsexed: FemaleHuman
+    emoteSounds: MaleHuman
   - type: Damageable
     damageModifierSet: Demon
   - type: Injurable
@@ -140,8 +145,8 @@
         Slash: 2
         Piercing: 3
   - type: Temperature
-    currentTemperature: 310.15
-    specificHeat: 46
+    temperature: 310.15
+    specificHeat: 2760
   - type: TemperatureDamage
     heatDamageThreshold: 363
     coldDamageThreshold: 250  #starting temperature damage treshold

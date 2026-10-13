@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from Paradise at https://github.com/ParadiseSS13/Paradise/blob/master/icons/obj/lavaland/lava_fishing.dmi",
+    "copyright": "Taken from Paradise at https://github.com/ParadiseSS13/Paradise/blob/master/icons/obj/lavaland/lava_fishing.dmi; inhand sprites taken from Paradise SS220 fork at icons/mob/inhands",
     "size": {
         "x": 32,
         "y": 32
@@ -33,6 +33,78 @@
         },
         {
             "name": "sulfuric_tramp"
+        },
+        {
+            "name": "ash_crab-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "ash_crab-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "dead_horseman-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "dead_horseman-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "shellfish-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "shellfish-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "bottom_eel-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "bottom_eel-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "red_devourer-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "red_devourer-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "magma_hammerhead-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "magma_hammerhead-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "blind_reaper-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "blind_reaper-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "herald_of_carnage-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "herald_of_carnage-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "sulfuric_tramp-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "sulfuric_tramp-inhand-right",
+            "directions": 4
         }
     ]
 }

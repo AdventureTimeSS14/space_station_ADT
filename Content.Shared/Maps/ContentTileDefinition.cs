@@ -1,115 +1,113 @@
 using Content.Shared.Atmos;
-using Content.Shared.Light.Components;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Shuttles.Systems;
 using Content.Shared.Tools;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 using Robust.Shared.Utility;
 
-namespace Content.Shared.Maps
+namespace Content.Shared.Maps;
+
+[Prototype("tile")]
+public sealed partial class ContentTileDefinition : IPrototype, IInheritingPrototype, ITileDefinition
 {
-    [Prototype("tile")]
-    public sealed partial class ContentTileDefinition : IPrototype, IInheritingPrototype, ITileDefinition
-    {
-        public static readonly ProtoId<ToolQualityPrototype> PryingToolQuality = "Prying";
+    public static readonly ProtoId<ToolQualityPrototype> PryingToolQuality = "Prying";
 
-        public const string SpaceID = "Space";
+    public const string SpaceID = "Space";
 
-        [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<ContentTileDefinition>))]
-        public string[]? Parents { get; private set; }
+    [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<ContentTileDefinition>))]
+    public string[]? Parents { get; private set; }
 
-        [NeverPushInheritance]
-        [AbstractDataFieldAttribute]
-        public bool Abstract { get; private set; }
+    [NeverPushInheritance]
+    [AbstractDataField]
+    public bool Abstract { get; private set; }
 
-        [IdDataField] public string ID { get; private set; } = string.Empty;
+    [IdDataField] public string ID { get; private set; } = string.Empty;
 
-        public ushort TileId { get; private set; }
+    public ushort TileId { get; private set; }
 
-        [DataField("name")]
-        public string Name { get; private set; } = "";
-        [DataField("sprite")] public ResPath? Sprite { get; private set; }
+    [DataField]
+    public string Name { get; private set; } = "";
+    [DataField] public ResPath? Sprite { get; private set; }
 
-        [DataField("edgeSprites")] public Dictionary<Direction, ResPath> EdgeSprites { get; private set; } = new();
+    [DataField] public Dictionary<Direction, ResPath> EdgeSprites { get; private set; } = new();
 
-        [DataField("edgeSpritePriority")] public int EdgeSpritePriority { get; private set; } = 0;
+    [DataField] public int EdgeSpritePriority { get; private set; } = 0;
 
-        [DataField("isSubfloor")] public bool IsSubFloor { get; private set; }
+    [DataField("isSubfloor")] public bool IsSubFloor { get; private set; }
 
-        [DataField("baseTurf")]
-        public ProtoId<ContentTileDefinition>? BaseTurf { get; private set; }
+    [DataField]
+    public ProtoId<ContentTileDefinition>? BaseTurf { get; private set; }
 
-        /// <summary>
-        /// On what tiles this tile can be placed on. BaseTurf is already included.
-        /// </summary>
-        [DataField]
-        public List<ProtoId<ContentTileDefinition>> BaseWhitelist { get; private set; } = new();
+    /// <summary>
+    /// On what tiles this tile can be placed on. BaseTurf is already included.
+    /// </summary>
+    [DataField]
+    public List<ProtoId<ContentTileDefinition>> BaseWhitelist { get; private set; } = new();
 
-        [DataField]
-        public PrototypeFlags<ToolQualityPrototype> DeconstructTools { get; set; } = new();
+    [DataField]
+    public HashSet<ProtoId<ToolQualityPrototype>> DeconstructTools = new();
 
-        /// <summary>
-        /// Effective mass of this tile for grid impacts.
-        /// </summary>
-        [DataField]
-        public float Mass = 800f;
+    /// <summary>
+    /// Effective mass of this tile for grid impacts.
+    /// </summary>
+    [DataField]
+    public float Mass = SharedShuttleSystem.TileDensityMultiplier;
 
-        /// <remarks>
-        /// Legacy AF but nice to have.
-        /// </remarks>
-        public bool CanCrowbar => DeconstructTools.Contains(PryingToolQuality);
+    /// <remarks>
+    /// Legacy AF but nice to have.
+    /// </remarks>
+    public bool CanCrowbar => DeconstructTools.Contains(PryingToolQuality);
 
-        /// <summary>
-        /// These play when the mob has shoes on.
-        /// </summary>
-        [DataField("footstepSounds")] public SoundSpecifier? FootstepSounds { get; private set; }
+    /// <summary>
+    /// These play when the mob has shoes on.
+    /// </summary>
+    [DataField] public SoundSpecifier? FootstepSounds { get; private set; }
 
-        /// <summary>
-        /// These play when the mob has no shoes on.
-        /// </summary>
-        [DataField("barestepSounds")] public SoundSpecifier? BarestepSounds { get; private set; } = new SoundCollectionSpecifier("BarestepHard");
+    /// <summary>
+    /// These play when the mob has no shoes on.
+    /// </summary>
+    [DataField] public SoundSpecifier? BarestepSounds { get; private set; } = new SoundCollectionSpecifier("BarestepHard");
 
-        /// <summary>
-        /// Base friction modifier for this tile.
-        /// </summary>
-        [DataField("friction")] public float Friction { get; set; } = 1f;
+    /// <summary>
+    /// Base friction modifier for this tile.
+    /// </summary>
+    [DataField] public float Friction { get; set; } = 1f;
 
-        [DataField("variants")] public byte Variants { get; set; } = 1;
+    [DataField] public byte Variants { get; set; } = 1;
 
-        /// <summary>
-        ///     Allows the tile to be rotated/mirrored when placed on a grid.
-        /// </summary>
-        [DataField] public bool AllowRotationMirror { get; set; } = false;
+    /// <summary>
+    /// Allows the tile to be rotated/mirrored when placed on a grid.
+    /// </summary>
+    [DataField] public bool AllowRotationMirror { get; set; } = false;
 
-        /// <summary>
-        /// This controls what variants the `variantize` command is allowed to use.
-        /// </summary>
-        [DataField("placementVariants")] public float[] PlacementVariants { get; set; } = { 1f };
+    /// <summary>
+    /// This controls what variants the `variantize` command is allowed to use.
+    /// If null, the distribution will be uniform.
+    /// </summary>
+    [DataField] public float[]? PlacementVariants { get; set; } = null;
 
-        [DataField("thermalConductivity")] public float ThermalConductivity = 0.04f;
+    [DataField] public float ThermalConductivity = 0.04f;
 
-        // Heat capacity is opt-in, not opt-out.
-        [DataField("heatCapacity")] public float HeatCapacity = Atmospherics.MinimumHeatCapacity;
+    // Heat capacity is opt-in, not opt-out.
+    [DataField] public float HeatCapacity = Atmospherics.MinimumHeatCapacity;
 
-        [DataField("itemDrop", customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
-        public string ItemDropPrototypeName { get; private set; } = "FloorTileItemSteel";
+    [DataField("itemDrop")]
+    public EntProtoId? ItemDropPrototypeName { get; private set; } = "FloorTileItemSteel";
 
-        // TODO rename data-field in yaml
-        /// <summary>
-        /// Whether or not the tile is exposed to the map's atmosphere.
-        /// </summary>
-        [DataField("isSpace")] public bool MapAtmosphere { get; private set; }
+    // TODO rename data-field in yaml
+    /// <summary>
+    /// Whether or not the tile is exposed to the map's atmosphere.
+    /// </summary>
+    [DataField("isSpace")] public bool MapAtmosphere { get; private set; }
 
-        /// <summary>
-        ///     Friction override for mob mover in <see cref="SharedMoverController"/>
-        /// </summary>
-        [DataField("mobFriction")]
-        public float? MobFriction { get; private set; }
+    /// <summary>
+    /// Friction override for mob mover in <see cref="SharedMoverController"/>
+    /// </summary>
+    [DataField]
+    public float? MobFriction { get; private set; }
 
         // ADT-Tweak start
         /// <summary>
@@ -125,26 +123,25 @@ namespace Content.Shared.Maps
         [DataField("mobAcceleration")]
         public float? MobAcceleration { get; private set; }
 
-        [DataField("sturdy")] public bool Sturdy { get; private set; } = true;
+    [DataField] public bool Sturdy { get; private set; } = true;
 
-        /// <summary>
-        /// Can weather affect this tile.
-        /// </summary>
-        [DataField("weather")] public bool Weather = false;
+    /// <summary>
+    /// Can weather affect this tile.
+    /// </summary>
+    [DataField] public bool Weather = false;
 
-        /// <summary>
-        /// Is this tile immune to RCD deconstruct.
-        /// </summary>
-        [DataField("indestructible")] public bool Indestructible = false;
+    /// <summary>
+    /// Is this tile immune to RCD deconstruct.
+    /// </summary>
+    [DataField] public bool Indestructible = false;
 
-        /// <summary>
-        ///     Hide this tile in the tile placement editor.
-        /// </summary>
-        [DataField] public bool EditorHidden { get; private set; } = false;
+    /// <summary>
+    /// Hide this tile in the tile placement editor.
+    /// </summary>
+    [DataField] public bool EditorHidden { get; private set; } = false;
 
-        public void AssignTileId(ushort id)
-        {
-            TileId = id;
-        }
+    public void AssignTileId(ushort id)
+    {
+        TileId = id;
     }
 }

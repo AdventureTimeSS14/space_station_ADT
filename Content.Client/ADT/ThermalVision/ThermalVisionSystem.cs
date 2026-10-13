@@ -9,11 +9,11 @@ namespace Content.Client.ADT.ThermalVision;
 
 public sealed class ThermalVisionSystem : SharedThermalVisionSystem
 {
-    [Dependency] private readonly IComponentFactory _componentFactory = default!;
-    [Dependency] private readonly IOverlayManager _overlayMan = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
+    [Dependency] private IComponentFactory _componentFactory = default!;
+    [Dependency] private IOverlayManager _overlayMan = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IPrototypeManager _prototypes = default!;
+    [Dependency] private SharedTransformSystem _xform = default!;
 
     private ThermalVisionOverlay? _overlay;
     private ThermalVisionEntityHighlightOverlay _throughWallsOverlay = default!;
