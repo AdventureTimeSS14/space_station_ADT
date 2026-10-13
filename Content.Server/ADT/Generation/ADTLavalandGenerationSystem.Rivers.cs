@@ -187,6 +187,14 @@ public sealed partial class ADTLavalandGenerationSystem
                 return true;
         }
 
+        foreach (var (room, roomClearance) in comp.RiverExclusions)
+        {
+            var total = roomClearance + radius;
+
+            if (Vector2.DistanceSquared(center, room) < total * total)
+                return true;
+        }
+
         return false;
     }
 
@@ -436,6 +444,12 @@ public sealed partial class ADTLavalandGenerationSystem
         foreach (var room in comp.Placed)
         {
             if (Vector2.DistanceSquared(center, room) < clearanceSq)
+                return true;
+        }
+
+        foreach (var (room, roomClearance) in comp.RiverExclusions)
+        {
+            if (Vector2.DistanceSquared(center, room) < roomClearance * roomClearance)
                 return true;
         }
 
