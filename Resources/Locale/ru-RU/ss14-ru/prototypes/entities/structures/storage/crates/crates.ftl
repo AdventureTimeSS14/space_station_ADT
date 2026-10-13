@@ -88,3 +88,5 @@ ent-CrateTrashCartJani = мусорная тележка уборщика
 ent-InvisibleCrate = { ent-CrateBaseWeldable }
     .suffix = Стелс
     .desc = { ent-CrateBaseWeldable.desc }
+ent-CrateSyndicateSecure = защищённый ящик Синдиката
+    .desc = Ящик из тёмной стали с красными полосами и выдавленной буквой S спереди.

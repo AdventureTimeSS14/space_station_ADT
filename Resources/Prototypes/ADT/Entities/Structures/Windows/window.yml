@@ -1,7 +1,7 @@
 ﻿- type: entity
   id: ADTSpaceSecWindow
   name: space sec window
-  parent: Window
+  parent: BaseWindowStructure
   suffix: Space Sec
   components:
   - type: Sprite
@@ -9,6 +9,7 @@
     sprite: ADT/Structures/Windows/space_sec_window.rsi
   - type: Icon
     sprite: ADT/Structures/Windows/space_sec_window.rsi
+    state: full
   - type: Repairable
     fuelCost: 15
     doAfterDelay: 3
@@ -24,7 +25,6 @@
     damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
-    - trigger:
     - trigger:
         !type:DamageTrigger
         damage: 525

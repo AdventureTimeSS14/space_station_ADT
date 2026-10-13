@@ -2,7 +2,7 @@
 - type: marking
   id: AugmentsAugArmRight
   bodyPart: RArm
-  sponsorOnly: true
+  sponsorOnly: false
   sprites:
     - sprite: ADT/Mobs/Customization/augments/augbody.rsi
       state: r_augarm
@@ -10,7 +10,7 @@
 - type: marking
   id: AugmentsAugHandRigh
   bodyPart: RHand
-  sponsorOnly: true
+  sponsorOnly: false
   sprites:
     - sprite: ADT/Mobs/Customization/augments/augbody.rsi
       state: r_aughand
@@ -18,7 +18,7 @@
 - type: marking
   id: AugmentsAugArmLeft
   bodyPart: LArm
-  sponsorOnly: true
+  sponsorOnly: false
   sprites:
     - sprite: ADT/Mobs/Customization/augments/augbody.rsi
       state: l_augarm
@@ -26,7 +26,7 @@
 - type: marking
   id: AugmentsAugHandLeft
   bodyPart: LHand
-  sponsorOnly: true
+  sponsorOnly: false
   sprites:
     - sprite: ADT/Mobs/Customization/augments/augbody.rsi
       state: l_aughand
@@ -34,7 +34,7 @@
 - type: marking
   id: AugmentsAugTorso
   bodyPart: Chest
-  sponsorOnly: true
+  sponsorOnly: false
   sprites:
     - sprite: ADT/Mobs/Customization/augments/augbody.rsi
       state: augtorso_m
@@ -42,7 +42,7 @@
 - type: marking
   id: AugmentsAugLegRight
   bodyPart: RLeg
-  sponsorOnly: true
+  sponsorOnly: false
   sprites:
     - sprite: ADT/Mobs/Customization/augments/augbody.rsi
       state: r_augleg
@@ -50,7 +50,7 @@
 - type: marking
   id: AugmentsAugFootRight
   bodyPart: RFoot
-  sponsorOnly: true
+  sponsorOnly: false
   sprites:
     - sprite: ADT/Mobs/Customization/augments/augbody.rsi
       state: r_augfoot
@@ -58,7 +58,7 @@
 - type: marking
   id: AugmentsAugLegLeft
   bodyPart: LLeg
-  sponsorOnly: true
+  sponsorOnly: false
   sprites:
     - sprite: ADT/Mobs/Customization/augments/augbody.rsi
       state: l_augleg
@@ -66,7 +66,7 @@
 - type: marking
   id: AugmentsAugFootLeft
   bodyPart: LFoot
-  sponsorOnly: true
+  sponsorOnly: false
   sprites:
     - sprite: ADT/Mobs/Customization/augments/augbody.rsi
       state: l_augfoot
@@ -148,7 +148,7 @@
 - type: marking
   id: Malstrem
   bodyPart: Eyes
-  sponsorOnly: true
+  sponsorOnly: false
   coloring:
     default:
       type:
@@ -173,7 +173,7 @@
 - type: marking
   id: Terminator
   bodyPart: Eyes
-  sponsorOnly: true
+  sponsorOnly: false
   coloring:
     default:
       type:

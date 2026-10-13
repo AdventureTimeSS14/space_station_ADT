@@ -18,13 +18,13 @@ public sealed partial class QueueGamesManager
     private static readonly TimeSpan SpinTime = TimeSpan.FromSeconds(3.8);
     private static readonly TimeSpan WinBypassDelay = TimeSpan.FromSeconds(3);
 
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IServerNetManager _net = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ILogManager _logManager = default!;
-    [Dependency] private readonly JoinQueueManager _joinQueue = default!;
-    [Dependency] private readonly IConnectionManager _connectionManager = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IServerNetManager _net = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ILogManager _logManager = default!;
+    [Dependency] private JoinQueueManager _joinQueue = default!;
+    [Dependency] private IConnectionManager _connectionManager = default!;
 
     private readonly Dictionary<ICommonSession, QueueGamesPlayer> _players = new();
     private ISawmill _sawmill = default!;

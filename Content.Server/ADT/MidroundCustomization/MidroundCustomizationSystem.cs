@@ -24,14 +24,14 @@ namespace Content.Server.ADT.MidroundCustomization;
 
 public sealed class MidroundCustomizationSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
-    [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
-    [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly ActionsSystem _action = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly SharedPointLightSystem _pointLight = default!;
-    [Dependency] private readonly SponsorsManager _sponsors = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private DoAfterSystem _doAfterSystem = default!;
+    [Dependency] private SharedVisualBodySystem _visualBody = default!;
+    [Dependency] private UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private ActionsSystem _action = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private SharedPointLightSystem _pointLight = default!;
+    [Dependency] private SponsorsManager _sponsors = default!;
 
     public override void Initialize()
     {

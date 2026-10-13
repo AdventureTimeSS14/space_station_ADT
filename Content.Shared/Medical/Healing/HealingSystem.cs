@@ -20,19 +20,19 @@ using Robust.Shared.Audio.Systems;
 
 namespace Content.Shared.Medical.Healing;
 
-public sealed class HealingSystem : EntitySystem
+public sealed partial class HealingSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedBloodstreamSystem _bloodstreamSystem = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedStackSystem _stacks = default!;
-    [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
-    [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
-    [Dependency] private readonly ADTHealingVisualsSystem _healVisuals = default!; // ADT-Tweak
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private BloodstreamSystem _bloodstreamSystem = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedStackSystem _stacks = default!;
+    [Dependency] private SharedInteractionSystem _interactionSystem = default!;
+    [Dependency] private MobThresholdSystem _mobThresholdSystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private ADTHealingVisualsSystem _healVisuals = default!; // ADT-Tweak
 
     public override void Initialize()
     {
@@ -90,7 +90,7 @@ public sealed class HealingSystem : EntitySystem
                 var popup = (args.User == target.Owner)
                     ? Loc.GetString("medical-item-stop-bleeding-self")
                     : Loc.GetString("medical-item-stop-bleeding", ("target", Identity.Entity(target.Owner, EntityManager)));
-                _popupSystem.PopupClient(popup, target, args.User);
+                _popupSystem.PopupEntity(popup, target, args.User);
             }
         }
 
@@ -143,7 +143,7 @@ public sealed class HealingSystem : EntitySystem
         {
             _healVisuals.StopHealEffect(target.Owner); // ADT-Tweak
 
-            _popupSystem.PopupClient(Loc.GetString("medical-item-finished-using", ("item", args.Used)), target.Owner, args.User);
+            _popupSystem.PopupEntity(Loc.GetString("medical-item-finished-using", ("item", args.Used)), target.Owner, args.User);
             return;
         }
 
@@ -225,7 +225,7 @@ public sealed class HealingSystem : EntitySystem
 
         if (!HasDamage(healing, target!))
         {
-            _popupSystem.PopupClient(Loc.GetString("medical-item-cant-use", ("item", healing.Owner)), healing, user);
+            _popupSystem.PopupEntity(Loc.GetString("medical-item-cant-use", ("item", healing.Owner)), healing, user);
             return false;
         }
 

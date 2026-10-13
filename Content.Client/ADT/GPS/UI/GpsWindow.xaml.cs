@@ -9,7 +9,7 @@ namespace Content.Client.ADT.GPS.UI;
 [GenerateTypedNameReferences]
 public sealed partial class GpsWindow : DefaultWindow
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public event Action? OnTogglePressed;
     public event Action? OnRangePressed;

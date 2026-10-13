@@ -116,7 +116,7 @@
     bloodReferenceSolution:
       reagents:
       - ReagentId: ADTCorelanderBlood
-        Quantity: 175
+        Quantity: 350
   - type: MeleeWeapon
     hidden: true
     soundHit:
@@ -127,8 +127,8 @@
       types:
         Piercing: 5
   - type: Temperature
-    currentTemperature: 310.15
-    specificHeat: 46
+    temperature: 310.15
+    specificHeat: 2760
   - type: TemperatureDamage
     heatDamageThreshold: 380
     coldDamageThreshold: 260  #starting temperature damage treshold

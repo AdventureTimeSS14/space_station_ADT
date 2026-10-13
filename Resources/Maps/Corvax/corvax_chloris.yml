@@ -238613,8 +238613,6 @@ entities:
     - type: Transform
       pos: 106.5,151.5
       parent: 2
-    - type: Gateway
-      enabled: True
 - proto: Gauze
   entities:
   - uid: 2605

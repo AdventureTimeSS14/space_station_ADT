@@ -13,8 +13,8 @@ namespace Content.Client.ADT.Xenobiology;
 /// </summary>
 public sealed partial class XenobiologyConsoleControlSystem : EntitySystem
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IUserInterfaceManager _ui = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IUserInterfaceManager _ui = default!;
 
     private XenobiologyConsoleStatusControl? _status;
 

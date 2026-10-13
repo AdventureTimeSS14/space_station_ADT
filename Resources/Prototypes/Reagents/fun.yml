@@ -54,7 +54,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateHunger
+      - !type:Satiate
+        satiationType: Hunger
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Moth ]
@@ -163,9 +164,9 @@
   color: "#86530E"
 
 - type: reagent
-  id: Saxoite
-  name: reagent-name-saxoite
-  desc: reagent-desc-saxoite
+  id: Brass
+  name: reagent-name-brass
+  desc: reagent-desc-brass
   physicalDesc: reagent-physical-desc-ground-brass
   flavor: sax
   color: "#B8A603"
@@ -367,7 +368,7 @@
       effects:
       - !type:Emote
         emote: Weh
-        showInChat: true
+        showInChat: false
         showInGuidebook: true
         force: true
         probability: 0.5
@@ -402,7 +403,7 @@
       effects:
       - !type:Emote
         emote: Hew
-        showInChat: true
+        showInChat: false
         showInGuidebook: true
         force: true
         probability: 0.5
@@ -421,40 +422,6 @@
         conditions:
         - !type:ReagentCondition
           reagent: JuiceThatMakesYouHew
-          min: 50
-
-- type: reagent
-  id: CorgiJuice
-  name: reagent-name-corgiessence
-  group: Toxins
-  desc: reagent-desc-corgiessence
-  physicalDesc: reagent-physical-desc-fluffy
-  flavor: dogfood
-  color: "#ed9715"
-  metabolisms:
-    Bloodstream:
-      metabolismRate: 0.2
-      effects:
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentCondition
-          reagent: CorgiJuice
-          min: 15
-        damage:
-          types:
-            Cellular: 0.5
-      - !type:Polymorph
-        prototype: SmartCorgiMorph
-        conditions:
-        - !type:ReagentCondition
-          reagent: CorgiJuice
-          min: 50
-      - !type:AdjustReagent
-        reagent: CorgiJuice
-        amount: -20
-        conditions:
-        - !type:ReagentCondition
-          reagent: CorgiJuice
           min: 50
 
 - type: reagent
@@ -498,7 +465,6 @@
           reagent: Felinase
           min: 25 # ADT-Tweak 10 -> 25
         emote: Cough
-        showInChat: true
         showInGuidebook: true
         force: true
         probability: 0.05
@@ -553,7 +519,6 @@
           reagent: Caninase
           min: 25 # ADT-Tweak 10 -> 25
         emote: Cough
-        showInChat: true
         showInGuidebook: true
         force: true
         probability: 0.05

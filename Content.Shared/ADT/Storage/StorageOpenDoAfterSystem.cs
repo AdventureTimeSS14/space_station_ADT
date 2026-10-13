@@ -7,8 +7,8 @@ namespace Content.Shared.ADT.Storage;
 
 public sealed class StorageOpenDoAfterSystem : EntitySystem
 {
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedEntityStorageSystem _storage = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedEntityStorageSystem _storage = default!;
 
     public override void Initialize()
     {
@@ -60,13 +60,13 @@ public sealed class StorageOpenDoAfterSystem : EntitySystem
 
         if (args.Open)
         {
-            if (_storage.CanOpen(args.User, ent, silent: true))
-                _storage.OpenStorage(ent);
+            if (_storage.CanOpen(args.User, ent.Owner, silent: true))
+                _storage.OpenStorage(ent.Owner);
         }
         else
         {
-            if (_storage.CanClose(ent, args.User, silent: true))
-                _storage.CloseStorage(ent);
+            if (_storage.CanClose(ent.Owner, args.User, silent: true))
+                _storage.CloseStorage(ent.Owner);
         }
     }
 }

@@ -31,7 +31,7 @@ using Content.Server.DoAfter;
 using Content.Server.Emp;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Gravity;
-using Content.Server.Guardian;
+using Content.Shared.Guardian.Components; // ADT-Tweak
 using Content.Shared.Body; // ADT-Tweak
 using Content.Server.Light.EntitySystems;
 using Content.Server.Polymorph.Components;
@@ -758,8 +758,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
     private void OnIdentityMapInit(Entity<ChangelingIdentityComponent> ent, ref MapInitEvent args)
     {
-        RemComp<HungerComponent>(ent);
-        RemComp<ThirstComponent>(ent);
+        RemComp<SatiationComponent>(ent);
         RemComp<CanHostGuardianComponent>(ent);
         RemComp<MartialArtsKnowledgeComponent>(ent);
         RemComp<CanPerformComboComponent>(ent);
