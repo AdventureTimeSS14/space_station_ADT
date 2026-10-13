@@ -124,8 +124,13 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      115: Critical
+      115: SoftCritical
+      182: Critical
       250: Dead
+  - type: SoftCrit
+    speedModifier: 0.25
+  - type: TryCatchBreath
+    doAfterTime: 7
   - type: Barotrauma
     damage:
       types:
@@ -135,19 +140,14 @@
     bloodReferenceSolution:
       reagents:
       - ReagentId: Blood
-        Quantity: 235
-  - type: Hunger
-    baseDecayRate: 0.085 # В 5 с чем-то раз больше стандартного
-    thresholds:
-      Overfed: 450
-      Okay: 375
-      Peckish: 225
-      Starving: 125
-      Dead: 0
-  - type: Thirst
-    #baseDecayRate: 0.0083
+        Quantity: 470
+  - type: Satiation
+    satiations:
+      Hunger:
+        prototype: ADTUrsusHunger
+      Thirst:
+        prototype: NormalSatiationThirst
   - type: Butcherable
-    butcheringType: Spike
     spawned:
     - id: FoodMeatBear
       amount: 5
@@ -185,10 +185,7 @@
   - type: Injurable
     damageContainer: Biological
   - type: Vocal
-    sounds:
-      Male: MaleUrsus
-      Female: FemaleUrsus
-      Unsexed: MaleUrsus
+    emoteSounds: MaleUrsus
   - type: LanguageSpeaker
     languages:
       GalacticCommon: Speak
@@ -196,8 +193,8 @@
   - type: TypingIndicator
     proto: ADTursus
   - type: Temperature
-    currentTemperature: 310
-    specificHeat: 50
+    temperature: 310
+    specificHeat: 3000
   - type: TemperatureDamage
     heatDamageThreshold: 320
     coldDamageThreshold: 250

@@ -8,9 +8,9 @@ namespace Content.Server.ADT.Economy;
 
 public sealed class BankCartridgeSystem : EntitySystem
 {
-    [Dependency] private readonly CartridgeLoaderSystem? _cartridgeLoaderSystem = default!;
-    [Dependency] private readonly BankCardSystem _bankCardSystem = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private CartridgeLoaderSystem? _cartridgeLoaderSystem = default!;
+    [Dependency] private BankCardSystem _bankCardSystem = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -49,8 +49,9 @@ public sealed class BankCartridgeSystem : EntitySystem
                 oldAccount.CartridgeUid == uid)
                 oldAccount.CartridgeUid = null;
 
-            if (account.CartridgeUid != null)
-                Comp<BankCartridgeComponent>(account.CartridgeUid.Value).AccountId = null;
+            if (account.CartridgeUid != null &&
+                TryComp<BankCartridgeComponent>(account.CartridgeUid.Value, out var oldCartridge))
+                oldCartridge.AccountId = null;
 
             account.CartridgeUid = uid;
             component.AccountId = args.AccountId;

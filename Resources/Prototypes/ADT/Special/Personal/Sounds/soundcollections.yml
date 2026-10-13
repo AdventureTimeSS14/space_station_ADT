@@ -1,0 +1,21 @@
+- type: soundCollection
+  id: ADTToySqueakEmiliaEvenwood
+  files:
+  - /Audio/ADT/Special/Personal/minokaa_emilia_plushie/emilia_toy-1.ogg
+  - /Audio/ADT/Special/Personal/minokaa_emilia_plushie/emilia_toy-2.ogg
+  - /Audio/ADT/Special/Personal/minokaa_emilia_plushie/emilia_toy-3.ogg
+  - /Audio/ADT/Special/Personal/minokaa_emilia_plushie/emilia_toy-4.ogg
+
+- type: soundCollection
+  id: ADTToySqueakNirkin
+  files:
+  - /Audio/ADT/Special/Personal/nirkin_plushie/cat_meow1.ogg
+  - /Audio/ADT/Special/Personal/nirkin_plushie/cat_meow2.ogg
+  - /Audio/ADT/Special/Personal/nirkin_plushie/cat_meow3.ogg
+
+- type: soundCollection
+  id: ADTToySqueakYuriyTrixter
+  files:
+  - /Audio/ADT/Special/Personal/etvy_yuriy_plushie/yuriy_toy-1.ogg
+  - /Audio/ADT/Special/Personal/etvy_yuriy_plushie/yuriy_toy-2.ogg
+  - /Audio/ADT/Special/Personal/etvy_yuriy_plushie/yuriy_toy-3.ogg

@@ -1,0 +1,26 @@
+- type: entity
+  parent: BaseBorgModuleJanitor
+  id: ADTBorgModuleJanicartBuffer
+  name: janicart buffer borg module
+  description: A module that washes puddles around the borg.
+  components:
+  - type: Sprite
+    layers:
+    - state: janitor
+    - state: icon-mop-adv
+  - type: ADTJanicartBuffer
+    range: 2
+
+- type: entity
+  parent: BaseBorgModuleJanitor
+  id: ADTBorgModuleJanicartVacuum
+  name: janicart vacuum borg module
+  description: A module that collects trash into the borg's trash bag.
+  components:
+  - type: Sprite
+    layers:
+    - state: janitor
+    - state: icon-trash-bag
+  - type: ADTJanicartVacuum
+    range: 2
+    trashBagSlot: ""

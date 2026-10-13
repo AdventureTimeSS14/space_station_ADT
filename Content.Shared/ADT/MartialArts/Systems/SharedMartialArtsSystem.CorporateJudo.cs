@@ -23,7 +23,9 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
+using Content.Shared.Tag;
 using Content.Shared.Weapons.Melee;
+using Robust.Shared.Prototypes;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio;
 
@@ -31,6 +33,9 @@ namespace Content.Shared.ADT.MartialArts;
 
 public partial class SharedMartialArtsSystem
 {
+    [Dependency] private TagSystem _tags = default!;
+    private static readonly ProtoId<TagPrototype> StunbatonTag = "Stunbaton";
+
     private void InitializeCorporateJudo()
     {
         SubscribeLocalEvent<CanPerformComboComponent, JudoLegSweepPerformedEvent>(OnJudoLegSweep);
@@ -41,12 +46,13 @@ public partial class SharedMartialArtsSystem
         SubscribeLocalEvent<GrantCorporateJudoComponent, ClothingGotEquippedEvent>(OnGrantCorporateJudo);
         SubscribeLocalEvent<GrantCorporateJudoComponent, ClothingGotUnequippedEvent>(OnRemoveCorporateJudo);
 
-        SubscribeLocalEvent<StunbatonComponent, AttemptMeleeEvent>(OnStunbatonMeleeAttempt);
+        SubscribeLocalEvent<MeleeWeaponComponent, AttemptMeleeEvent>(OnStunbatonMeleeAttempt);
     }
 
-    private void OnStunbatonMeleeAttempt(Entity<StunbatonComponent> ent, ref AttemptMeleeEvent args)
+    private void OnStunbatonMeleeAttempt(Entity<MeleeWeaponComponent> ent, ref AttemptMeleeEvent args)
     {
         if (args.Cancelled
+            || !_tags.HasTag(ent.Owner, StunbatonTag)
             || !TryComp<MartialArtsKnowledgeComponent>(args.User, out var knowledge)
             || knowledge.MartialArtsForm != MartialArtsForms.CorporateJudo)
             return;

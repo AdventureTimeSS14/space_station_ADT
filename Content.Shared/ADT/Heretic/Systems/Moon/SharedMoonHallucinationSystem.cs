@@ -10,14 +10,13 @@ namespace Content.Shared.ADT.Heretic.Systems.Moon;
 
 public sealed class SharedMoonHallucinationSystem : EntitySystem
 {
-    [ValidatePrototypeId<EntityPrototype>]
     private static readonly EntProtoId ApparitionPrototype = "MobMoonApparition";
 
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedChatSystem _chat = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedChatSystem _chat = default!;
+    [Dependency] private INetManager _net = default!;
 
     private TimeSpan _nextMove = TimeSpan.Zero;
 

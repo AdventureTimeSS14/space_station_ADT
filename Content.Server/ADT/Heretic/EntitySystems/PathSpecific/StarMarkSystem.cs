@@ -7,7 +7,7 @@ namespace Content.Server.ADT.Heretic.EntitySystems.PathSpecific;
 
 public sealed class StarMarkSystem : SharedStarMarkSystem
 {
-    [Dependency] private readonly AirtightSystem _airtight = default!;
+    [Dependency] private AirtightSystem _airtight = default!;
 
     protected override void InitializeCosmicField(Entity<CosmicFieldComponent> field, int strength)
     {

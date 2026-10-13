@@ -10,7 +10,7 @@ namespace Content.Shared.ADT.ArmorPenetration;
 
 public sealed partial class ArmorPenetrationSystem : EntitySystem
 {
-    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private InventorySystem _inventory = default!;
 
     public override void Initialize()
     {

@@ -28,8 +28,6 @@
   icon: "JobIconExecutionalOfficerKMT"
   joinNotifyCrew: true
   supervisors: job-supervisors-kmt-captain
-  canBeAntag: false
-  weight: 18
   overrideConsoleVisibility: false
   accessGroups:
   - AllAccess

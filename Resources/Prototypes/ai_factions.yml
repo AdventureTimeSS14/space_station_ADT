@@ -13,6 +13,7 @@
   - Wizard
   - SimpleHostile # ADT-tweak
   - Xenoborg
+  - ADTAshWalker # ADT-Tweak
 
 - type: npcFaction
   id: NanoTrasen
@@ -104,6 +105,7 @@
   - Wizard
   - Dragon
   - Xenoborg
+  - ADTAshWalker # ADT-Tweak
 
 - type: npcFaction
   id: Zombie
@@ -121,6 +123,7 @@
   - Heretic # goob edit - heretics
   - Dragon
   - Xenoborg
+  - ADTAshWalker # ADT-Tweak
 
 - type: npcFaction
   id: Revolutionary
@@ -181,6 +184,7 @@
   - Zombie
   - Revolutionary
   - Wizard
+  - ADTAshWalker # ADT-Tweak
 
   - Xeno # rivalry
 

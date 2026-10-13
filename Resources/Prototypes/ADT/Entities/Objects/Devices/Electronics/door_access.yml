@@ -117,3 +117,19 @@
   components:
   - type: AccessReader
     access: [["CentralCommand"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsCyborg
+  suffix: Cyborg, Locked
+  components:
+  - type: AccessReader
+    access: [["Borg"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsAI
+  suffix: AI, Locked
+  components:
+  - type: AccessReader
+    access: [["StationAi"]]

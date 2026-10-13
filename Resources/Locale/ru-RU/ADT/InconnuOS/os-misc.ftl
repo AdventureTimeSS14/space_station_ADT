@@ -1,0 +1,15 @@
+os-error-none = Готово.
+os-error-invalid-path = Недопустимый путь: { $detail }
+os-error-path-too-long = Путь длиннее { $detail } символов.
+os-error-unknown-drive = Диск { $detail } не найден.
+os-error-drive-read-only = Диск { $detail } защищён от записи.
+os-error-file-not-found = Файл или папка { $detail } не найдены.
+os-error-file-exists = { $detail } уже существует.
+os-error-file-read-only = { $detail } защищён от записи.
+os-error-not-a-directory = { $detail } не является папкой.
+os-error-directory-not-empty = Папка { $detail } не пуста.
+os-error-too-many-files = На диске не может быть больше { $detail } файлов.
+os-error-file-too-long = Файл длиннее { $detail } символов.
+os-error-disk-full = На диске нет места, предел { $detail }.
+os-error-bad-circuit = { $detail } не содержит схемы.
+os-error-recursive-move = Нельзя переместить папку { $detail } внутрь самой себя.

@@ -33,8 +33,11 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
 using Content.Server.Speech.Components;
 using Content.Shared.Zombies;
+using Content.Shared.Shuttles.Components;
 using Robust.Shared.Player;
 using System.Linq;
+using System.Numerics;
+using Content.Shared.Speech.Components;
 
 namespace Content.Server.ADT.Xenobiology.Systems;
 
@@ -43,21 +46,21 @@ namespace Content.Server.ADT.Xenobiology.Systems;
 /// </summary>
 public sealed partial class SlimeLatchSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly HungerSystem _hunger = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
-    [Dependency] private readonly BodySystem _body = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private readonly StomachSystem _stomach = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private SatiationSystem _satiation = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedTransformSystem _xform = default!;
+    [Dependency] private BodySystem _body = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private StomachSystem _stomach = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     public override void Initialize()
     {
@@ -68,6 +71,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         SubscribeLocalEvent<SlimeComponent, DoAfterAttemptEvent<SlimeLatchDoAfterEvent>>(OnDoAfterAttempt);
 
         SubscribeLocalEvent<SlimeDamageOvertimeComponent, MobStateChangedEvent>(OnMobStateChangedSOD);
+        SubscribeLocalEvent<SlimeDamageOvertimeComponent, EntityTerminatingEvent>(OnLatchedTargetTerminating);
         SubscribeLocalEvent<SlimeComponent, MobStateChangedEvent>(OnMobStateChangedSlime);
         SubscribeLocalEvent<SlimeComponent, PullAttemptEvent>(OnPullAttempt);
         SubscribeLocalEvent<SlimeComponent, EntGotRemovedFromContainerMessage>(OnEntGotRemovedFromContainer);
@@ -133,6 +137,15 @@ public sealed partial class SlimeLatchSystem : EntitySystem
     {
         if (IsLatched(ent))
             Unlatch(ent);
+    }
+
+    private void OnLatchedTargetTerminating(Entity<SlimeDamageOvertimeComponent> ent, ref EntityTerminatingEvent args)
+    {
+        if (ent.Comp.SourceEntityUid is not { } source || !TryComp<SlimeComponent>(source, out var slime))
+            return;
+
+        if (IsLatched((source, slime), ent.Owner))
+            Unlatch((source, slime));
     }
 
     private void OnMobStateChangedSOD(Entity<SlimeDamageOvertimeComponent> ent, ref MobStateChangedEvent args)
@@ -255,8 +268,8 @@ public sealed partial class SlimeLatchSystem : EntitySystem
 
         // Восполняем голод слайма ТОЛЬКО если он прикреплен
         var addedHunger = (float)ent.Comp.Damage.GetTotal();
-        if (TryComp<HungerComponent>(source, out var hunger))
-            _hunger.ModifyHunger(source, addedHunger, hunger);
+        if (TryComp<SatiationComponent>(source, out var hunger))
+            _satiation.ModifyValue((source.Owner, hunger), SatiationSystem.Hunger, addedHunger);
 
         // Трансфер растворов
         if (!TryComp<BodyComponent>(source, out var bodyComp))
@@ -279,7 +292,11 @@ public sealed partial class SlimeLatchSystem : EntitySystem
             && _solutionContainer.ResolveSolution(ent.Owner, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var blood)
             && _solutionContainer.ResolveSolution(ent.Owner, bloodstream.MetabolitesSolutionName, ref bloodstream.MetabolitesSolution, out var chem))
         {
-            float bloodProportion = (float)(blood.Volume / (chem.Volume + blood.Volume));
+            var totalVolume = chem.Volume + blood.Volume;
+            if (totalVolume == FixedPoint2.Zero)
+                return;
+
+            float bloodProportion = (float)(blood.Volume / totalVolume);
             float chemProportion = 1 - bloodProportion;
             float bloodTransfer = Math.Min(ent.Comp.SuctionUnits * bloodProportion, availableVolume * bloodProportion);
             float chemTransfer = Math.Min(ent.Comp.SuctionUnits * chemProportion, availableVolume * chemProportion);
@@ -287,9 +304,9 @@ public sealed partial class SlimeLatchSystem : EntitySystem
             foreach (var stomach in stomachList)
             {
                 var bloodSolution = blood.SplitSolutionWithout(FixedPoint2.New(bloodTransfer / stomachList.Count), ent.Comp.ToxinReagent);
-                _stomach.TryTransferSolution(stomach.Owner, bloodSolution, stomach);
+                _stomach.TryTransferSolution((stomach.Owner, stomach.Comp, null), bloodSolution);
                 var chemSolution = blood.SplitSolution(FixedPoint2.New(chemTransfer / stomachList.Count));
-                _stomach.TryTransferSolution(stomach.Owner, chemSolution, stomach);
+                _stomach.TryTransferSolution((stomach.Owner, stomach.Comp, null), chemSolution);
             }
             chem.AddReagent(ent.Comp.ToxinReagent, FixedPoint2.New(ent.Comp.ToxinUnits));
         }
@@ -327,6 +344,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
             || !HasComp<MobStateComponent>(target)
             || HasComp<BeingLatchedComponent>(target)
             || IsRobotic(target)
+            || HasComp<NoFTLComponent>(target)
             || Deleted(target));
     }
 
@@ -353,7 +371,11 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         if (Deleted(target))
             return;
 
-        var biteDirection = (_xform.GetWorldPosition(target) - _xform.GetWorldPosition(ent.Owner)).Normalized();
+        var biteDirection = _xform.GetWorldPosition(target) - _xform.GetWorldPosition(ent.Owner);
+        if (biteDirection.LengthSquared() < 0.001f)
+            biteDirection = Vector2.UnitY;
+        else
+            biteDirection = biteDirection.Normalized();
 
         _xform.SetCoordinates(ent, Transform(target).Coordinates);
         _xform.SetParent(ent, target);
@@ -391,9 +413,11 @@ public sealed partial class SlimeLatchSystem : EntitySystem
 
         CleanupLatchedComponents(target);
 
-        if (TryComp<TransformComponent>(target, out var targetXform)
-            && _xform.IsParentOf(targetXform, ent.Owner))
-            _xform.SetParent(ent.Owner, _xform.GetParentUid(target));
+        if (!TerminatingOrDeleted(ent.Owner)
+            && TryComp<TransformComponent>(target, out var targetXform)
+            && _xform.IsParentOf(targetXform, ent.Owner)
+            && !TerminatingOrDeleted(targetXform.ParentUid))
+            _xform.DropNextTo(ent.Owner, (target, targetXform));
 
         if (TryComp<InputMoverComponent>(ent, out var inpm))
             inpm.CanMove = true;
@@ -417,6 +441,9 @@ public sealed partial class SlimeLatchSystem : EntitySystem
 
     private void CleanupLatchedComponents(EntityUid target)
     {
+        if (TerminatingOrDeleted(target))
+            return;
+
         RemCompDeferred<BeingLatchedComponent>(target);
         RemCompDeferred<SlimeDamageOvertimeComponent>(target);
     }

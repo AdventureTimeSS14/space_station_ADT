@@ -47804,7 +47804,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 73.5,-1.5
       parent: 1
-    - type: PlantHolder
+    - type: PlantTray
       weedLevel: 12
   - uid: 1663
     components:
@@ -47812,7 +47812,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 72.5,-3.5
       parent: 1
-    - type: PlantHolder
+    - type: PlantTray
       weedLevel: 20
   - uid: 1664
     components:
@@ -47820,7 +47820,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 72.5,-4.5
       parent: 1
-    - type: PlantHolder
+    - type: PlantTray
       weedLevel: 14
   - uid: 1665
     components:
@@ -47828,7 +47828,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 74.5,-5.5
       parent: 1
-    - type: PlantHolder
+    - type: PlantTray
       weedLevel: 10
   - uid: 1666
     components:
@@ -47836,7 +47836,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 74.5,-4.5
       parent: 1
-    - type: PlantHolder
+    - type: PlantTray
       weedLevel: 12
   - uid: 1667
     components:
@@ -47844,7 +47844,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 74.5,-3.5
       parent: 1
-    - type: PlantHolder
+    - type: PlantTray
       weedLevel: 16
   - uid: 1668
     components:
@@ -47852,7 +47852,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 72.5,-5.5
       parent: 1
-    - type: PlantHolder
+    - type: PlantTray
       weedLevel: 14
   - uid: 1669
     components:
@@ -47860,7 +47860,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 70.5,-5.5
       parent: 1
-    - type: PlantHolder
+    - type: PlantTray
       weedLevel: 12
   - uid: 1670
     components:
@@ -47868,7 +47868,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 70.5,-4.5
       parent: 1
-    - type: PlantHolder
+    - type: PlantTray
       weedLevel: 16
   - uid: 1671
     components:
@@ -47876,7 +47876,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 70.5,-3.5
       parent: 1
-    - type: PlantHolder
+    - type: PlantTray
       weedLevel: 24
   - uid: 1672
     components:
@@ -47884,7 +47884,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 71.5,-1.5
       parent: 1
-    - type: PlantHolder
+    - type: PlantTray
       weedLevel: 20
   - uid: 1673
     components:
@@ -47892,7 +47892,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 70.5,-1.5
       parent: 1
-    - type: PlantHolder
+    - type: PlantTray
       weedLevel: 10
   - uid: 1674
     components:
@@ -47900,7 +47900,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 72.5,-1.5
       parent: 1
-    - type: PlantHolder
+    - type: PlantTray
       weedLevel: 22
   - uid: 1675
     components:
@@ -47908,7 +47908,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 74.5,-1.5
       parent: 1
-    - type: PlantHolder
+    - type: PlantTray
       weedLevel: 14
   - uid: 5107
     components:

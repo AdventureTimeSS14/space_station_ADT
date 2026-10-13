@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from Paradise at https://github.com/ParadiseSS13/Paradise/blob/master/icons/obj/lavaland/lava_fishing.dmi",
+    "copyright": "Taken from Paradise at https://github.com/ParadiseSS13/Paradise/blob/master/icons/obj/lavaland/lava_fishing.dmi; inhand sprites taken from Paradise SS220 fork at icons/mob/inhands",
     "size": {
         "x": 32,
         "y": 32
@@ -42,6 +42,86 @@
         },
         {
             "name": "acid_bladder"
+        },
+        {
+            "name": "crab_shell-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "crab_shell-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "eel_filet-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "eel_filet-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "eel_knife-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "eel_knife-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "circular_saw_blade-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "circular_saw_blade-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "acid_bladder-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "acid_bladder-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "predator_meat-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "predator_meat-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "soft_meat-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "soft_meat-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "razor_sharp_teeth-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "razor_sharp_teeth-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "cartilage_plate-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "cartilage_plate-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "bleary_eye-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "bleary_eye-inhand-right",
+            "directions": 4
         }
     ]
 }

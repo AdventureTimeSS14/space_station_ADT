@@ -6,7 +6,7 @@ namespace Content.Server.ADT.PunchingBag;
 
 public sealed class PunchingBagAnimationsSystem : SharedPunchingBagAnimationsSystem
 {
-    [Dependency] private readonly TrainingProgressSystem _training = default!;
+    [Dependency] private TrainingProgressSystem _training = default!;
 
     protected override void PlayAnimation(EntityUid uid, EntityUid attacker, string animationState)
     {

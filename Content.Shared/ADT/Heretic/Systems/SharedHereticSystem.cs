@@ -9,8 +9,8 @@ namespace Content.Shared.ADT.Heretic.Systems;
 
 public abstract class SharedHereticSystem : EntitySystem
 {
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
 
     private EntityQuery<HereticComponent> _hereticQuery;
     private EntityQuery<GhoulComponent> _ghoulQuery;

@@ -59,6 +59,13 @@
   - PrintedDocumentJudgmentRecipe
   - PrintedDocumentStatementHealtheRecipe
   - PrintedDocumentDecisionToStartTrialRecipe
+  - PrintedDocumentReportproceduralviolationsRecipe
+  - PrintedDocumentRequestliftlegalimmunityRecipe
+  - PrintedDocumentInvestigationReportRecipe
+  - PrintedDocumentRemnantscombatgearRecipe
+  - PrintedDocumentRequestchangestationtargetRecipe
+  - PrintedDocumentOrderamendingstandardoperatingproceduresRecipe
+  - PrintedDocumentOrderamendinglistregulatedsubstancesRecipe
 
 - type: latheRecipePack
   id: ADTPrinterEmagPack

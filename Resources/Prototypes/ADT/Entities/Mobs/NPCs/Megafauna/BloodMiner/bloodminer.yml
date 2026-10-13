@@ -53,6 +53,7 @@
     - proto: ADTCleawingSaw
     - proto: WeaponProtoKineticAccelerator
     - proto: ADTKineticTrophyBloodDrunkMiner
+    - proto: ADTGemBaroxuldium
     - proto: UraniumOre
       min: 2
       max: 10

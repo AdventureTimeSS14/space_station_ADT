@@ -1,5 +1,3 @@
-using Content.Shared.ADT.Construction;
-using Content.Shared.ADT.Construction.Events;
 using Content.Shared.ADT.Xenobiology.Components;
 using Content.Shared.ADT.Xenobiology.Systems;
 using Content.Shared.ADT.Xenobiology.SlimeGrinder;
@@ -23,15 +21,15 @@ namespace Content.Server.ADT.Xenobiology.SlimeGrinder;
 
 public sealed partial class SlimeGrinderSystem : EntitySystem
 {
-    [Dependency] private readonly XenobiologySystem _xenobio = default!;
-    [Dependency] private readonly SharedJitteringSystem _jitteringSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _sharedAudioSystem = default!;
-    [Dependency] private readonly SharedAmbientSoundSystem _ambientSoundSystem = default!;
-    [Dependency] private readonly ThrowingSystem _throwing = default!;
-    [Dependency] private readonly IRobustRandom _robustRandom = default!;
-    [Dependency] private readonly ContainerSystem _container = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private XenobiologySystem _xenobio = default!;
+    [Dependency] private SharedJitteringSystem _jitteringSystem = default!;
+    [Dependency] private SharedAudioSystem _sharedAudioSystem = default!;
+    [Dependency] private SharedAmbientSoundSystem _ambientSoundSystem = default!;
+    [Dependency] private ThrowingSystem _throwing = default!;
+    [Dependency] private IRobustRandom _robustRandom = default!;
+    [Dependency] private ContainerSystem _container = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
 
@@ -48,21 +46,6 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
         SubscribeLocalEvent<SlimeGrinderComponent, ClimbedOnEvent>(OnClimbedOn);
         SubscribeLocalEvent<SlimeGrinderComponent, PowerChangedEvent>(OnPowerChanged);
         SubscribeLocalEvent<SlimeGrinderComponent, ReclaimerDoAfterEvent>(OnDoAfter);
-        SubscribeLocalEvent<SlimeGrinderComponent, RefreshPartsEvent>(OnRefreshParts);
-        SubscribeLocalEvent<SlimeGrinderComponent, UpgradeExamineEvent>(OnUpgradeExamine);
-    }
-
-    private void OnRefreshParts(EntityUid uid, SlimeGrinderComponent component, RefreshPartsEvent args)
-    {
-        var speed = args.GetStatMultiplier(MachineStat.Speed);
-        component.ExtractMultiplier = speed;
-        component.WorkTimeMultiplier = 1f / speed;
-    }
-
-    private static void OnUpgradeExamine(EntityUid uid, SlimeGrinderComponent component, UpgradeExamineEvent args)
-    {
-        args.AddPercentageUpgrade("machine-upgrade-slime-extract-multiplier", component.ExtractMultiplier, benefit: true);
-        args.AddPercentageUpgrade("machine-upgrade-process-speed", 1f / component.WorkTimeMultiplier, benefit: true);
     }
 
     public override void Update(float frameTime)
@@ -184,10 +167,10 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
             return;
 
         EnsureComp<ActiveSlimeGrinderComponent>(grinder);
-        grinder.Comp.ProcessingTimer += physics.FixturesMass * grinder.Comp.ProcessingTimePerUnitMass * grinder.Comp.WorkTimeMultiplier;
+        grinder.Comp.ProcessingTimer += physics.FixturesMass * grinder.Comp.ProcessingTimePerUnitMass;
 
         var extractProto = _xenobio.GetProducedExtract((toProcess, slime));
-        var extractQuantity = (int)MathF.Round((slime.ExtractsProduced + slime.SlimeSteroidAmount) * grinder.Comp.ExtractMultiplier);
+        var extractQuantity = (int)MathF.Round(slime.ExtractsProduced + slime.SlimeSteroidAmount);
 
         if (!grinder.Comp.YieldQueue.ContainsKey(extractProto))
             grinder.Comp.YieldQueue.Add(extractProto, extractQuantity);

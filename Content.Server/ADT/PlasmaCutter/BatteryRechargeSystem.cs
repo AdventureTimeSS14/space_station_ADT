@@ -17,9 +17,9 @@ namespace Content.Server.AruMoon.Plasmacutter
     /// </summary>
     public sealed class BatteryRechargeSystem : EntitySystem
     {
-        [Dependency] private readonly MaterialStorageSystem _materialStorage = default!;
-        [Dependency] private readonly BatterySystem _batterySystem = default!;
-        [Dependency] private readonly PowerCellSystem _powerCell = default!;
+        [Dependency] private MaterialStorageSystem _materialStorage = default!;
+        [Dependency] private BatterySystem _batterySystem = default!;
+        [Dependency] private PowerCellSystem _powerCell = default!;
 
 
         public override void Initialize()
@@ -50,8 +50,9 @@ namespace Content.Server.AruMoon.Plasmacutter
             int value,
             BatteryComponent? battery = null)
         {
-            if (!Resolve(uid, ref battery) && !HasComp<PowerCellSlotComponent>(uid))
+            if (!Resolve(uid, ref battery, logMissing: false) && !HasComp<PowerCellSlotComponent>(uid))
                 return;
+
             if (battery != null && _batterySystem.IsFull((uid, battery)))
                 value = 0;
             _materialStorage.TryChangeStorageLimit(uid, value);

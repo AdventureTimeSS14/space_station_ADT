@@ -22,7 +22,11 @@
   - type: Appearance
   - type: AnimationPlayer
   - type: Occluder
-    boundingBox: "-1.45,-0.45,1.45,1.2"
+    polygon:
+    - "-1.45,-0.45"
+    - "1.45,-0.45"
+    - "1.45,1.2"
+    - "-1.45,1.2"
   - type: Door
     openDrawDepth: BlastDoors
     closedDrawDepth: BlastDoors
@@ -141,7 +145,13 @@
   - type: ApcPowerReceiver
     needsPower: false
   - type: Microwave
-    capacity: 5
+    capacity: 10
+    maxItemSize: Large
+    validRecipeTypes: TribalOven
+  - type: Construction
+    graph: ADTTribalOvenCraft
+    node: oven
+    containers: []
   - type: AshStormImmune
 
 - type: entity
@@ -161,6 +171,8 @@
   - type: Construction
     graph: ADTAshDryingRackCraft
     node: rack
+  - type: ADTDryingRack
+    interval: 2
   - type: Storage
     grid:
     - 0,0,5,2

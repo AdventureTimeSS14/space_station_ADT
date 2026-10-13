@@ -15,8 +15,8 @@ namespace Content.Shared.ADT.Heretic.Systems;
 
 public sealed partial class EldritchSleepStatusEffectSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private BloodstreamSystem _bloodstream = default!;
 
     public override void Initialize()
     {

@@ -8,8 +8,8 @@ namespace Content.Shared.ADT.Mining.Resonator;
 
 public abstract class SharedADTResonatorSystem : EntitySystem
 {
-    [Dependency] private readonly SharedBatterySystem _battery = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedBatterySystem _battery = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

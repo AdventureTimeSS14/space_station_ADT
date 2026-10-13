@@ -227,8 +227,7 @@
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Armor/mining.rsi
   - type: TemperatureProtection
-    heatingCoefficient: 0.7
-    coolingCoefficient: 1
+    coefficient: 0.7
   - type: Armor
     modifiers:
       coefficients:
@@ -241,6 +240,8 @@
     damageCoefficient: 0.90
   - type: ToggleableClothing
     clothingPrototype: ADTClothingHeadHelmetMiner
+  - type: ADTGoliathPlatable
+    upgrade: ADTClothingOuterArmorMinerReinforcedOne
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
@@ -271,8 +272,7 @@
       - state: equipped-OUTERCLOTHING
       - state: equipped-OUTERCLOTHING-xeno
   - type: TemperatureProtection
-    heatingCoefficient: 0.7
-    coolingCoefficient: 1
+    coefficient: 0.7
   - type: Armor
     modifiers:
       coefficients:
@@ -284,6 +284,9 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.75
+  - type: ADTGoliathPlatable
+    types: []
+    upgrade: null
 
 - type: entity
   parent: ADTClothingOuterArmorMiner
@@ -303,8 +306,7 @@
       - state: equipped-OUTERCLOTHING-unshaded
         shader: unshaded
   - type: TemperatureProtection
-    heatingCoefficient: 0.7
-    coolingCoefficient: 1
+    coefficient: 0.7
   - type: Armor
     modifiers:
       coefficients:
@@ -316,6 +318,9 @@
   - type: ClothingSpeedModifier
     walkModifier: 1.2
     sprintModifier: 1.2
+  - type: ADTGoliathPlatable
+    types: []
+    upgrade: null
 
 #Бронежилет скрытого ношения
 
@@ -365,8 +370,7 @@
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Armor/mining_reinforced_one.rsi
   - type: TemperatureProtection
-    heatingCoefficient: 0.7
-    coolingCoefficient: 1
+    coefficient: 0.7
   - type: Armor
     modifiers:
       coefficients:
@@ -390,9 +394,8 @@
         occludes: True
         ent: null
       toggleable-clothing: !type:ContainerSlot {}
-  - type: Construction
-    graph: ADTReinforcedMinerArmorOne
-    node: ADTReinforcedMinerArmorOne
+  - type: ADTGoliathPlatable
+    upgrade: ADTClothingOuterArmorMinerReinforcedTwo
   - type: Tag
     tags:
     - ADTMinerArmorOne
@@ -408,8 +411,7 @@
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Armor/mining_reinforced_two.rsi
   - type: TemperatureProtection
-    heatingCoefficient: 0.7
-    coolingCoefficient: 1
+    coefficient: 0.7
   - type: Armor
     modifiers:
       coefficients:
@@ -433,9 +435,8 @@
         occludes: True
         ent: null
       toggleable-clothing: !type:ContainerSlot {}
-  - type: Construction
-    graph: ADTReinforcedMinerArmorTwo
-    node: ADTReinforcedMinerArmorTwo
+  - type: ADTGoliathPlatable
+    upgrade: ADTClothingOuterArmorMinerReinforcedFull
   - type: Tag
     tags:
     - ADTMinerArmorTwo
@@ -451,8 +452,7 @@
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Armor/mining_reinforced_full.rsi
   - type: TemperatureProtection
-    heatingCoefficient: 0.7
-    coolingCoefficient: 1
+    coefficient: 0.7
   - type: Armor
     modifiers:
       coefficients:
@@ -476,9 +476,6 @@
         occludes: True
         ent: null
       toggleable-clothing: !type:ContainerSlot {}
-  - type: Construction
-    graph: ADTReinforcedMinerArmorFull
-    node: ADTReinforcedMinerArmorFull
 
 - type: entity
   parent: ClothingOuterArmorBasic

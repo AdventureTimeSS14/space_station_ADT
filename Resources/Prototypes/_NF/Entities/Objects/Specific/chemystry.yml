@@ -19,10 +19,10 @@
     fillBaseName: vial-1-
     inHandsMaxFillLevels: 4
     inHandsFillBaseName: -fill-
-  - type: SolutionContainerManager
-    solutions:
-      beaker:
-        maxVol: 300
+  - type: Solution
+    solution:
+      maxVol: 300
+      reagents: []
   - type: SolutionTransfer
     maxTransferAmount: 300
   - type: Item

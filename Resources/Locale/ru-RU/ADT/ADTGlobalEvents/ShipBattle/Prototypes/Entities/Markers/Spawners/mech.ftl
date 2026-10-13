@@ -1,8 +1,8 @@
-ent-SpawnMechTSFOneStar = Спавнер OneStar ТСФ
+ent-SpawnMechTSFOneStar = спавнер OneStar ТСФ
     .desc = { ent-MarkerBase.desc }
-ent-SpawnADTMechKMTOneStar = Спавнер OneStar КМТ
+ent-SpawnADTMechKMTOneStar = спавнер OneStar КМТ
     .desc = { ent-MarkerBase.desc }
-ent-SpawnADTMechTSFSabre = Спавнер Sabre ТСФ
+ent-SpawnMechTSFSabre = спавнер Sabre ТСФ
     .desc = { ent-MarkerBase.desc }
-ent-SpawnADTMechKMTSabre = Спавнер Sabre КМТ
+ent-SpawnADTMechKMTSabre = спавнер Sabre КМТ
     .desc = { ent-MarkerBase.desc }
