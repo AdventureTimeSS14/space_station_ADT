@@ -11,8 +11,8 @@ namespace Content.Client.ADT.Clothing.Accessories;
 
 public sealed class ADTAccessoryVisualsSystem : EntitySystem
 {
-    [Dependency] private readonly ADTAccessorySystem _accessory = default!;
-    [Dependency] private readonly IResourceCache _cache = default!;
+    [Dependency] private ADTAccessorySystem _accessory = default!;
+    [Dependency] private IResourceCache _cache = default!;
 
     public override void Initialize()
     {

@@ -45,3 +45,11 @@ round-end-report-battered-survivor = Самый потрёпанный из вы
 
 round-end-report-species-header = Рас на смене: [color=white]{ $count }[/color]
 round-end-report-species-line = { $species } - [color=white]{ $count }[/color]
+round-end-summary-window-player-manifest-tab-search-placeholder = Поиск игроков, ролей, типов...
+round-end-summary-window-player-manifest-tab-sort-character = Персонаж
+round-end-summary-window-player-manifest-tab-sort-role = Роль
+round-end-summary-window-player-manifest-tab-sort-player-type = Тип
+round-end-summary-window-player-manifest-tab-sort-player = Игрок
+round-end-summary-window-player-manifest-tab-sort-player-type-antag = Антагонист
+round-end-summary-window-player-manifest-tab-sort-player-type-crew = Экипаж
+round-end-summary-window-player-manifest-tab-sort-player-type-observer = Наблюдатель

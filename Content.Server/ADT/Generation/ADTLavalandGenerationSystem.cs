@@ -14,10 +14,10 @@ namespace Content.Server.ADT.Generation;
 
 public sealed partial class ADTLavalandGenerationSystem : EntitySystem
 {
-    [Dependency] private readonly BiomeSystem _biome = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private BiomeSystem _biome = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
 
     private readonly List<(EntProtoId Proto, EntityCoordinates Coords)> _pendingSpawns = new();
     private readonly List<(EntProtoId Proto, ProtoId<ADTDungeonRoomPrototype> Room, EntityCoordinates Coords)> _pendingRooms = new();

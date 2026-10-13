@@ -115,6 +115,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Input;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory.VirtualItem;
+using Content.Shared.Item; // ADT-Tweak
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Events;
@@ -142,21 +143,23 @@ namespace Content.Shared.Movement.Pulling.Systems;
 /// <summary>
 /// Allows one entity to pull another behind them via a physics distance joint.
 /// </summary>
-public sealed class PullingSystem : EntitySystem
+public sealed partial class PullingSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly ActionBlockerSystem _blocker = default!;
-    [Dependency] private readonly AlertsSystem _alertsSystem = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _modifierSystem = default!;
-    [Dependency] private readonly SharedJointSystem _joints = default!;
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedVirtualItemSystem _virtualSystem = default!;
-    [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private ActionBlockerSystem _blocker = default!;
+    [Dependency] private AlertsSystem _alertsSystem = default!;
+    [Dependency] private MovementSpeedModifierSystem _modifierSystem = default!;
+    [Dependency] private SharedJointSystem _joints = default!;
+    [Dependency] private SharedContainerSystem _containerSystem = default!;
+    [Dependency] private SharedHandsSystem _handsSystem = default!;
+    [Dependency] private SharedInteractionSystem _interaction = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private HeldSpeedModifierSystem _clothingMoveSpeed = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    // [Dependency] private SharedVirtualItemSystem _virtual = default!;
+    [Dependency] private SharedVirtualItemSystem _virtualSystem = default!;
+    [Dependency] private SharedCombatModeSystem _combatMode = default!;
 
     public override void Initialize()
     {
@@ -172,7 +175,7 @@ public sealed class PullingSystem : EntitySystem
         SubscribeLocalEvent<PullableComponent, ModifyUncuffDurationEvent>(OnModifyUncuffDuration);
         SubscribeLocalEvent<PullableComponent, StopBeingPulledAlertEvent>(OnStopBeingPulledAlert);
 
-        SubscribeLocalEvent<PullerComponent, UpdateMobStateEvent>(OnStateChanged, after: [typeof(MobThresholdSystem)]);
+        SubscribeLocalEvent<PullerComponent, MobStateChangedEvent>(OnStateChanged, after: [typeof(MobThresholdSystem)]); // ADT-Tweak
         SubscribeLocalEvent<PullerComponent, AfterAutoHandleStateEvent>(OnAfterState);
         SubscribeLocalEvent<PullerComponent, EntGotInsertedIntoContainerMessage>(OnPullerContainerInsert);
         SubscribeLocalEvent<PullerComponent, EntityUnpausedEvent>(OnPullerUnpaused);
@@ -268,12 +271,12 @@ public sealed class PullingSystem : EntitySystem
         // Goobstation end
     }
 
-    private void OnStateChanged(EntityUid uid, PullerComponent component, ref UpdateMobStateEvent args)
+    private void OnStateChanged(EntityUid uid, PullerComponent component, ref MobStateChangedEvent args) // ADT-Tweak
     {
         if (component.Pulling == null)
             return;
 
-        if (TryComp<PullableComponent>(component.Pulling, out var comp) && (args.State == MobState.SoftCritical || args.State == MobState.Critical || args.State == MobState.Dead))
+        if (TryComp<PullableComponent>(component.Pulling, out var comp) && (args.NewMobState == MobState.SoftCritical || args.NewMobState == MobState.Critical || args.NewMobState == MobState.Dead)) // ADT-Tweak
         {
             TryStopPull(component.Pulling.Value, comp);
         }
@@ -793,5 +796,22 @@ public sealed class PullingSystem : EntitySystem
     public EntityUid GetRelayedEntity(EntityUid uid)
     {
         return uid;
+    }
+
+    /// <summary>
+    /// Copies compatible datafields of <see cref="PullerComponent"/> onto the target entity.
+    /// </summary>
+    /// <param name="source">The entity who's component will be taken.</param>
+    /// <param name="target">The entity to apply it to.</param>
+    public void CopyPullerComponent(Entity<PullerComponent?> source, EntityUid target)
+    {
+        if (!Resolve(source, ref source.Comp))
+            return;
+
+        var targetComp = EnsureComp<PullerComponent>(target);
+        targetComp.ThrowCooldown = source.Comp.ThrowCooldown;
+        targetComp.NeedsHands = source.Comp.NeedsHands;
+        targetComp.PullingAlert = source.Comp.PullingAlert;
+        Dirty(target, targetComp);
     }
 }

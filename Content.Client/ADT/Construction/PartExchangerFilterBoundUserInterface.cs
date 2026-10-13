@@ -8,7 +8,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Client.ADT.Construction;
 public sealed class PartExchangerFilterBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     private SimpleRadialMenu? _menu;
     private List<ProtoId<MachinePartPrototype>> _available = new();

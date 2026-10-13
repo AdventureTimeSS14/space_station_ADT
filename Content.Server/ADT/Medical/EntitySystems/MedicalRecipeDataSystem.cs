@@ -1,7 +1,8 @@
 using System.Linq;
 using Content.Client.Chemistry.EntitySystems;
 using Content.Shared.Medical.Healing;
-using Content.Shared.Chemistry.Components.SolutionManager;
+using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
 using Content.Shared.Kitchen;
@@ -15,9 +16,10 @@ namespace Content.Server._NF.Medical.EntitySystems;
 
 public sealed class MedicalRecipeDataSystem : SharedMedicalGuideDataSystem
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
-    [Dependency] private readonly IComponentFactory _componentFactory = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IPrototypeManager _protoMan = default!;
+    [Dependency] private IComponentFactory _componentFactory = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
 
     private Dictionary<string, List<MedicalRecipeData>> _sources = new();
 
@@ -61,8 +63,18 @@ public sealed class MedicalRecipeDataSystem : SharedMedicalGuideDataSystem
         {
             var proto = _protoMan.Index<EntityPrototype>(result);
             ReagentQuantity[] reagents = [];
-            if (proto.TryGetComponent<SolutionContainerManagerComponent>(out var manager, _componentFactory))
-                reagents = manager?.Solutions?.FirstOrNull()?.Value?.Contents?.ToArray() ?? [];
+            if (proto.TryGetComponent<SolutionComponent>(out var selfSolution, _componentFactory))
+            {
+                reagents = selfSolution.Solution.Contents.ToArray();
+            }
+            else
+            {
+                foreach (var (_, solution) in _solutionContainer.EnumerateSolutions(proto))
+                {
+                    reagents = solution.Contents.ToArray();
+                    break;
+                }
+            }
 
             DamageSpecifier? damage = null;
             if (proto.TryGetComponent<HealingComponent>(out var healing, _componentFactory))
