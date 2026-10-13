@@ -34,12 +34,8 @@ public sealed partial class MegafaunaSystem
         SubscribeLocalEvent<MegafaunaComponent, DamageChangedEvent>(OnMegafaunaDamaged);
     }
 
-    public override void Update(float frameTime)
+    private void UpdateAggro(TimeSpan now)
     {
-        base.Update(frameTime);
-
-        var now = _timing.CurTime;
-
         if (now < _nextAggroUpdate)
             return;
 
