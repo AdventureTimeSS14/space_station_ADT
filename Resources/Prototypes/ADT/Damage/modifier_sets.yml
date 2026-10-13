@@ -461,9 +461,9 @@
 - type: damageModifierSet
   id: Celecern
   coefficients:
-    Blunt: 1.1
-    Piercing: 1.1
-    Slash: 1.1
+    Blunt: 1.2
+    Piercing: 1.2
+    Slash: 1.2
     Heat: 0.85
     Poison: 0.8
     Cellular: 1.3
