@@ -19,6 +19,8 @@
       100: SoftCritical
       150: Critical
       200: Dead
+  - type: ADTLavalandHumanResists
+    reference: MobHuman
   # ADT-Tweak end
   - type: DamageVisuals
     thresholds: [ 10, 20, 30, 50, 70, 100 ]
