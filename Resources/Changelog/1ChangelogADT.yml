@@ -16185,3 +16185,10 @@ Entries:
     id: 2003
     pr_number: 3467
     time: '2026-10-13T12:48:53Z'
+  - author: Golyb4ik
+    changes:
+      - {message: Удален документ на расширение брака, type: Remove}
+      - {message: Исправлены коды станции и отделов в документах, type: Fix}
+    id: 2004
+    pr_number: 3487
+    time: '2026-10-13T12:56:51Z'
