@@ -10,7 +10,7 @@ namespace Content.Client.ADT.Colormat.UI;
 [GenerateTypedNameReferences]
 public sealed partial class ADTColormatWindow : FancyWindow
 {
-    [Dependency] private readonly IEntityManager _entMan = default!;
+    [Dependency] private IEntityManager _entMan = default!;
 
     private EntityUid? _item;
     private EntityUid? _dummy;

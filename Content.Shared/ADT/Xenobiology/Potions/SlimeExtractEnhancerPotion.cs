@@ -13,7 +13,7 @@ public sealed partial class SlimeExtractEnhancerPotionComponent : Component;
 
 public sealed partial class SlimeExtractEnhancerPotionSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

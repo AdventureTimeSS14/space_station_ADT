@@ -23,7 +23,7 @@
   parent: UnsensoredClothingUniformBase
   id: ADTSponsorClothingUniformBase
   components:
-  - type: SuitSensor
+  - type: ADTSuitSensor
   # ADT-Tweak Start - New Monitor: Deprecated
   # - type: DeviceNetwork
   #   deviceNetId: Wireless

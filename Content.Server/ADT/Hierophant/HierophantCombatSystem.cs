@@ -26,15 +26,15 @@ public enum HierophantMajorAttack : byte
 
 public sealed class HierophantCombatSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly HierophantAttacksSystem _attacks = default!;
-    [Dependency] private readonly HierophantSystem _hierophant = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly MegafaunaSystem _megafauna = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly NPCSystem _npc = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private HierophantAttacksSystem _attacks = default!;
+    [Dependency] private HierophantSystem _hierophant = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private MegafaunaSystem _megafauna = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private NPCSystem _npc = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     private const float BaselineSlowness = 1.5f;
 

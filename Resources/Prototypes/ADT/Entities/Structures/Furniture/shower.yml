@@ -53,6 +53,15 @@
           - !type:PlaySoundBehavior
             sound:
               collection: MetalBreak
+  - type: Solution
+    id: showerWater
+    solution:
+      maxVol: 200
+  - type: SolutionRegeneration
+    generated:
+      reagents:
+      - ReagentId: Water
+        Quantity: 5
   - type: ComponentToggler
     components:
     - type: GasMiner
@@ -60,15 +69,5 @@
       maxExternalPressure: 102
       spawnAmount: 0.2
     - type: AtmosDevice
-    - type: SolutionContainerManager
-      solutions:
-        showerWater:
-          maxVol: 200
-    - type: SolutionRegeneration
-      solution: showerWater
-      generated:
-        reagents:
-        - ReagentId: Water
-          Quantity: 5
     - type: DrainableSolution
       solution: showerWater

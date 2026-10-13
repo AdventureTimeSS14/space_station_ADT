@@ -205175,8 +205175,6 @@ entities:
           occludes: True
           ents:
           - 29390
-    - type: Construction
-      defaultTarget: start
 - proto: ToiletGoldenDirtyWater
   entities:
   - uid: 29391

@@ -1,3 +1,4 @@
+using Content.Shared.DeviceLinking;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -50,6 +51,12 @@ public sealed partial class ADTSlidingPuzzleComponent : Component
 
     [ViewVariables]
     public EntityUid? GeneratedGrid;
+
+    [DataField]
+    public ProtoId<SourcePortPrototype>? SolvedPort;
+
+    [DataField]
+    public LocId SolvedMessage = "sliding-puzzle-solved";
 }
 
 [RegisterComponent]

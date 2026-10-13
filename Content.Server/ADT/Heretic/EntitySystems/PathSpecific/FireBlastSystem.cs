@@ -23,12 +23,12 @@ namespace Content.Server.ADT.Heretic.EntitySystems.PathSpecific;
 
 public sealed class FireBlastSystem : SharedFireBlastSystem
 {
-    [Dependency] private readonly PhysicsSystem _physics = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly FlammableSystem _flammable = default!;
-    [Dependency] private readonly StunSystem _stun = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly SharedHereticSystem _heretic = default!;
+    [Dependency] private PhysicsSystem _physics = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private FlammableSystem _flammable = default!;
+    [Dependency] private StunSystem _stun = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private SharedHereticSystem _heretic = default!;
 
     public override void Initialize()
     {

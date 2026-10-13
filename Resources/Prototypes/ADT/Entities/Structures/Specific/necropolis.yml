@@ -22,7 +22,11 @@
   - type: Appearance
   - type: AnimationPlayer
   - type: Occluder
-    boundingBox: "-1.45,-0.45,1.45,1.2"
+    polygon:
+    - "-1.45,-0.45"
+    - "1.45,-0.45"
+    - "1.45,1.2"
+    - "-1.45,1.2"
   - type: Door
     openDrawDepth: BlastDoors
     closedDrawDepth: BlastDoors

@@ -10,7 +10,7 @@ namespace Content.Client.ADT.Xenobiology;
 /// </summary>
 public sealed partial class SlimeAnimationSystem : EntitySystem
 {
-    [Dependency] private readonly AnimationPlayerSystem _animation = default!;
+    [Dependency] private AnimationPlayerSystem _animation = default!;
 
     private const string SlimeEatAnimationKey = "slime-eat";
 
