@@ -21,18 +21,19 @@ namespace Content.Server.ADT.Procedural;
 
 public sealed class ADTDungeonRoomSystem : EntitySystem
 {
-    [Dependency] private readonly IComponentFactory _factory = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly ISerializationManager _serialization = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDefManager = default!;
-    [Dependency] private readonly AreaSystem _areas = default!;
-    [Dependency] private readonly DecalSystem _decals = default!;
-    [Dependency] private readonly SharedMapSystem _maps = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly BiomeSystem _biome = default!;
+    [Dependency] private IComponentFactory _factory = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private ISerializationManager _serialization = default!;
+    [Dependency] private ITileDefinitionManager _tileDefManager = default!;
+    [Dependency] private AreaSystem _areas = default!;
+    [Dependency] private DecalSystem _decals = default!;
+    [Dependency] private SharedMapSystem _maps = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private BiomeSystem _biome = default!;
 
     private readonly List<(Vector2i, Tile)> _tiles = new();
     private readonly List<(Vector2i, Tile)> _biomeReserveBuffer = new();
+    private readonly List<Vector2i> _reserveIndices = new();
     private readonly List<ADTDungeonRoomPrototype> _availableRooms = new();
     private readonly Dictionary<ADTComponentOverrides, ComponentRegistry> _registryCache = new();
 
@@ -263,7 +264,46 @@ public sealed class ADTDungeonRoomSystem : EntitySystem
 
         _maps.SetTiles(gridUid, grid, _tiles);
 
-        ReserveBiomeArea(gridUid, room, roomTransform, tileOffset);
+        if (room.ReserveBounds)
+            ReserveBiomeArea(gridUid, room, roomTransform, tileOffset);
+        else
+            ReserveBiomeTiles(gridUid);
+    }
+
+    private void ReserveBiomeTiles(EntityUid gridUid)
+    {
+        if (!HasComp<BiomeComponent>(gridUid))
+            return;
+
+        _reserveIndices.Clear();
+
+        foreach (var (index, _) in _tiles)
+        {
+            _reserveIndices.Add(index);
+        }
+
+        _reserveIndices.Sort((a, b) => a.Y != b.Y ? a.Y.CompareTo(b.Y) : a.X.CompareTo(b.X));
+
+        var runStart = 0;
+
+        for (var i = 1; i <= _reserveIndices.Count; i++)
+        {
+            if (i < _reserveIndices.Count
+                && _reserveIndices[i].Y == _reserveIndices[i - 1].Y
+                && _reserveIndices[i].X <= _reserveIndices[i - 1].X + 1)
+            {
+                continue;
+            }
+
+            var from = _reserveIndices[runStart];
+            var to = _reserveIndices[i - 1];
+            var bounds = new Box2(from.X + 0.1f, from.Y + 0.1f, to.X + 0.9f, to.Y + 0.9f);
+
+            _biomeReserveBuffer.Clear();
+            _biome.ReserveTiles(gridUid, bounds, _biomeReserveBuffer);
+
+            runStart = i;
+        }
     }
 
     private void ReserveBiomeArea(
@@ -398,12 +438,12 @@ public sealed class ADTDungeonRoomSystem : EntitySystem
             data.Remove("type");
 
             if (entityProto != null && entityProto.Components.TryGetValue(name, out var protoData))
-                data = _serialization.CombineMappings(data, protoData.Mapping);
+                data = _serialization.CombineMappings(data, _serialization.WriteValueAs<MappingDataNode>(registration.Type, protoData.Component));
 
             try
             {
                 var component = (IComponent) _serialization.Read(registration.Type, data)!;
-                registry[name] = new EntityPrototype.ComponentRegistryEntry(component, data);
+                registry[name] = new EntityPrototype.ComponentRegistryEntry(component);
             }
             catch (Exception exception)
             {

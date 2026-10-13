@@ -19,13 +19,13 @@ namespace Content.Server.ADT.Xenobiology;
 
 public sealed partial class SlimeRetaliateSystem : EntitySystem
 {
-    [Dependency] private readonly SlimeLatchSystem _slimeLatch = default!;
-    [Dependency] private readonly StunSystem _stun = default!;
-    [Dependency] private readonly HTNSystem _htn = default!;
-    [Dependency] private readonly NpcFactionSystem _factions = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private SlimeLatchSystem _slimeLatch = default!;
+    [Dependency] private StunSystem _stun = default!;
+    [Dependency] private HTNSystem _htn = default!;
+    [Dependency] private NpcFactionSystem _factions = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {

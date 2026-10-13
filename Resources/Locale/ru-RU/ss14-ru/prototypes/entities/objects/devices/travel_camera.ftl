@@ -1,0 +1,9 @@
+ent-TravelCamera = туристическая камера
+    .desc = Картинка стоит тысячи слов. Со сверхъяркой вспышкой и самозаряжающейся фотоплёнкой.
+ent-PhotographBlack = фотография
+ent-PhotographBlue = фотография
+ent-PhotographGreen = фотография
+ent-PhotographPurple = фотография
+ent-PhotographRainbow = фотография
+ent-PhotographRed = фотография
+ent-PhotographYellow = фотография

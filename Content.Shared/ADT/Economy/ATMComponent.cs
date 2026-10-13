@@ -1,5 +1,6 @@
 ﻿using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Stacks;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization;
 
@@ -16,8 +17,7 @@ public sealed partial class ATMComponent : Component
 
     public string SlotId = "IdCardSlot";
 
-    [ValidatePrototypeId<StackPrototype>]
-    public string CreditStackPrototype = "Credit";
+    public ProtoId<StackPrototype> CreditStackPrototype = "Credit";
 
     [DataField("soundInsertCurrency")]
     public SoundSpecifier SoundInsertCurrency = new SoundPathSpecifier("/Audio/ADT/Machines/polaroid2.ogg");

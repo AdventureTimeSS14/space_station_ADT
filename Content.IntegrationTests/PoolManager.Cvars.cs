@@ -14,6 +14,7 @@ public static partial class PoolManager
     {
         // @formatter:off
         (CCVars.DatabaseSynchronous.Name,     "true"),
+        (CCVars.DatabaseSnapshot.Name,        "true"),
         (CCVars.DatabaseSqliteDelay.Name,     "0"),
         (CCVars.HolidaysEnabled.Name,         "false"),
         (CCVars.GameMap.Name,                 TestMap),
@@ -27,7 +28,6 @@ public static partial class PoolManager
         (CCVars.ArrivalsShuttles.Name,        "false"),
         (CCVars.EmergencyShuttleEnabled.Name, "false"),
         (CCVars.ProcgenPreload.Name,          "false"),
-        (CCVars.GatewayGeneratorEnabled.Name, "false"),
         (CCVars.GameDummyTicker.Name, "true"),
         (CCVars.GameLobbyEnabled.Name, "false"),
         (CCVars.ConfigPresetDevelopment.Name, "false"),
@@ -39,7 +39,9 @@ public static partial class PoolManager
         (ADTCCVars.PlanetSpawnerEnabled.Name, "false"), // ADT-Tweak
         (ADTCCVars.BiomeGenerationEnabled.Name, "false"), // ADT-Tweak
         (ADTCCVars.OverpressurePipeDamageEnabled.Name, "false"), // ADT-Tweak: отключаем урон трубам от давления в тестах
+        (ADTCCVars.OverpressurePipeDamageEnabled.Name, "false"), // ADT-Tweak: отключаем урон трубам от давления в тестах
+        (CCVars.ResourceUploadingStoreDeletionDays.Name, "0"),
         (ADTCCVars.StateDiagnosticsEnabled.Name, "false"), // ADT-Tweak: диагностика пишет предупреждения при запросах полного состояния, что валит тесты
-        // (CCVars.MovementMobPushing.Name, "false"), // ADT-Tweak
+        (ADTCCVars.LobbyAutoVote.Name, "false"), // ADT-Tweak: голосование в лобби само выбирает карту и ломает тесты
     };
 }

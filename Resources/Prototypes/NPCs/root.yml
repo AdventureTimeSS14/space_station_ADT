@@ -23,6 +23,7 @@
           operator: !type:GunOperator
             targetKey: Target
             requireLOS: true
+            targetState: SoftCritical # ADT-Tweak
           services:
             - !type:UtilityService
               id: RangedService
@@ -56,6 +57,7 @@
           operator: !type:GunOperator
             targetKey: Target
             opaqueKey: true
+            targetState: SoftCritical # ADT-Tweak
           services:
             - !type:UtilityService
               id: RangedService

@@ -16,8 +16,6 @@
 
   Но, несмотря ни на что, вы успешно стащите то, что хотите, используя решимость, ловкость рук, несколько инструментов и свои [color=cyan]воровские перчатки.[/color]
 
-  Пара перчаток, которые у вас есть, даёт вам серьёзное преимущество: [bold]способность забирать вещи у людей, даже не привлекая их внимания.[/bold] С небольшой практикой вы сможете украсть их кошелёк и одновременно поддерживать разговор.
-
   Они также сделаны из высококачественных [bold]голографических хамелеоновых волокон[/bold], которые вы смогли украсть, но, хотя они могут выглядеть как изолированные перчатки, вам всё равно понадобится настоящая пара, чтобы не обжечь руки.
 
   <Box>
@@ -53,6 +51,15 @@
     <GuideEntityEmbed Entity="Emag" Caption="контрабанда"/>
     <GuideEntityEmbed Entity="Telecrystal" Caption="синдикат"/>
   </Box>
+  <Box>
+    <GuideEntityEmbed Entity="ClothingBackpackSatchelSmugglerUnanchored"/>
+  </Box>
+
+  After approving your selection, the kits will fold out into a [color=cyan]smuggler's satchel[/color].
+  Larger kits will fall onto the floor around you.
+  [bold]Don't let anyone see your kits or smuggler's satchel[/bold], as they will recognize it as contraband!
+  The smuggler's satchel can be wrenched to the hull plating underneath floor tiles if you need to hide items from prying eyes.
+
 
   [bold]Примечание:[/bold] Набор "хамелеон" теперь включает в себя рюкзак и дополнительную пару перчаток-хамелеонов. Будьте осторожны: эти перчатки не являются воровскими и их может быть трудно отличить от настоящих!
 

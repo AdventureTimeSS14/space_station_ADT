@@ -8,8 +8,7 @@
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    heatingCoefficient: 0.01
-    coolingCoefficient: 0.01
+    coefficient: 0.01
   - type: ClothingSpeedModifier
     walkModifier: 0.6
     sprintModifier: 0.6
@@ -60,7 +59,7 @@
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 10000
   - type: TemperatureProtection
-    heatingCoefficient: 0.01
+    coefficient: 0.01
   - type: Armor
     modifiers:
       coefficients:
@@ -93,7 +92,7 @@
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 10000
   - type: TemperatureProtection
-    heatingCoefficient: 0.01
+    coefficient: 0.01
   - type: Armor
     modifiers:
       coefficients:
@@ -127,7 +126,7 @@
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 10000
   - type: TemperatureProtection
-    heatingCoefficient: 0.01
+    coefficient: 0.01
   - type: Armor
     modifiers:
       coefficients:
@@ -280,7 +279,7 @@
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    heatingCoefficient: 0.001
+    coefficient: 0.001
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: Armor
@@ -321,7 +320,7 @@
     walkModifier: 1.0
     sprintModifier: 1.0
   - type: TemperatureProtection
-    heatingCoefficient: 0.001
+    coefficient: 0.001
   - type: Armor
     modifiers:
       coefficients:
@@ -458,7 +457,7 @@
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 10000
   - type: TemperatureProtection
-    heatingCoefficient: 0.01
+    coefficient: 0.01
   - type: Armor
     modifiers:
       coefficients:

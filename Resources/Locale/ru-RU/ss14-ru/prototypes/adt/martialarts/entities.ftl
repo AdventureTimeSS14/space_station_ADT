@@ -1,0 +1,2 @@
+ent-MartialArtsGenericSlowdownEffect = замедление от боевых искусств
+ent-StatusEffectStaminaResistanceModifier = модификатор сопротивления выносливости

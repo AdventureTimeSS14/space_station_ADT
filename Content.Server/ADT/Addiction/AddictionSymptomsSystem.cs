@@ -14,9 +14,9 @@ namespace Content.Server.ADT.Addiction;
 /// Применяет симптомы ломки (дрожь, косноязычие, слабость, галлюцинации).
 public sealed partial class AddictionSymptomsSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedJitteringSystem _jitter = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedJitteringSystem _jitter = default!;
+    [Dependency] private StatusEffectsSystem _status = default!;
 
     public override void Initialize()
     {

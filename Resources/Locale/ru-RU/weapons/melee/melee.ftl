@@ -7,3 +7,6 @@ melee-battery-examine =
         [few] удара
        *[other] ударов
     }.
+melee-weapon-dealt-no-damage = { CAPITALIZE($weapon) } не наносит урона { $target }!
+melee-self-weapon-dealt-no-damage = Вы не наносите урона { $target }!
+examine-battery-hits-left = Заряда хватит на [color={ $color }]{ $count }[/color] ударов.
