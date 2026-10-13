@@ -16166,3 +16166,9 @@ Entries:
     id: 2000
     pr_number: 3503
     time: '2026-10-13T00:12:34Z'
+  - author: (Автор изменения)
+    changes:
+      - {message: Изменены карты, type: Tweak}
+    id: 2001
+    pr_number: 3500
+    time: '2026-10-13T01:49:32Z'
