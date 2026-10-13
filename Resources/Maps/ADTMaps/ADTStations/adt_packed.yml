@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.2.1
   forkId: ""
   forkVersion: ""
-  time: 10/11/2026 23:36:22
-  entityCount: 16603
+  time: 10/13/2026 00:58:06
+  entityCount: 16608
 maps:
 - 1
 grids:
@@ -8519,6 +8519,22 @@ entities:
     components:
     - type: Transform
       parent: 90
+  - uid: 16604
+    components:
+    - type: Transform
+      parent: 51
+  - uid: 16605
+    components:
+    - type: Transform
+      parent: 64
+  - uid: 16606
+    components:
+    - type: Transform
+      parent: 77
+  - uid: 16607
+    components:
+    - type: Transform
+      parent: 90
 - proto: ADTBarbellChair
   entities:
   - uid: 51
@@ -13161,7 +13177,7 @@ entities:
       pos: 53.5,-1.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -108550.27
+      secondsUntilStateChange: -108612.99
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -52847,7 +52863,7 @@ entities:
       pos: 49.5,-19.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -172507.44
+      secondsUntilStateChange: -172570.16
       state: Closing
   - uid: 7732
     components:
@@ -53108,7 +53124,7 @@ entities:
       pos: 30.5,11.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -61455.78
+      secondsUntilStateChange: -61518.5
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 23230.1482004
@@ -92462,6 +92478,13 @@ entities:
     - type: Transform
       pos: 21.5,-32.5
       parent: 2
+- proto: SpawnPointSeniorOfficer
+  entities:
+  - uid: 16608
+    components:
+    - type: Transform
+      pos: 35.5,19.5
+      parent: 2
 - proto: SpawnPointSeniorPhysician
   entities:
   - uid: 13344
@@ -108954,7 +108977,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -29316.309
+      secondsUntilStateChange: -29379.025
       state: Opening
     - type: Airlock
       autoClose: False
