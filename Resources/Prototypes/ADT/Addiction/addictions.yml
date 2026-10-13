@@ -99,7 +99,7 @@
     - addiction-withdrawal-nicotine-0-5
     emotes:
     - emote: Cough
-      popupChance: 0.45
+      popupChance: 0.22
   - level: 50
     popupInterval: 25s
     popupType: MediumCaution
@@ -112,9 +112,8 @@
     - addiction-withdrawal-nicotine-1-5
     emotes:
     - emote: Cough
-      popupChance: 0.7
+      popupChance: 0.35
     symptoms:
-    # Длительность должна быть больше ~50 секунд, иначе шейдер опьянения муть не рисует.
     - !type:AddictionStatusEffectSymptom
       effect: StatusEffectWoozy
       duration: 70s
@@ -129,9 +128,8 @@
     - addiction-withdrawal-nicotine-2-4
     - addiction-withdrawal-nicotine-2-5
     emotes:
-    # На тяжёлой стадии кашель идёт по своему таймеру, а не по поп-апам.
     - emote: Cough
-      interval: 2m
+      interval: 4m
     symptoms:
     - !type:AddictionStatusEffectSymptom
       effect: StatusEffectWoozy
