@@ -94,10 +94,11 @@
   components:
   - type: Sprite
     sprite: ADT/Effects/thunderbolt.rsi
-    state: thunderbolt
     drawdepth: Effects
     offset: 0,1
-    shader: unshaded
+    layers:
+    - state: thunderbolt
+      shader: unshaded
   - type: PointLight
     radius: 5
     energy: 4
@@ -112,8 +113,9 @@
   components:
   - type: Sprite
     sprite: ADT/Effects/storm_staff_effects.rsi
-    state: electricity
     drawdepth: Effects
-    shader: unshaded
+    layers:
+    - state: electricity
+      shader: unshaded
   - type: TimedDespawn
     lifetime: 0.5
