@@ -11,3 +11,14 @@ ent-DoorElectronicsAI = { ent-DoorElectronics }
     .desc = { ent-DoorElectronics.desc }
 ent-MobIPCEvent = КПБ
     .desc = { ent-AppearanceMoth.desc }
+ent-ADTCyborgPDA = КПК киборга
+    .desc = Пахнет машинным маслом.
+
+ent-ADTCyborgIDCard = ID карта киборга
+        .desc = ID карта киборга.
+ent-ADTHighSecCyborgLocked = бронированная дверь
+    .desc = Удерживает плохих снаружи, а хороших внутри.
+    .suffix = Киборг, Закрыт
+ent-ADTHighSecAILocked = бронированная дверь
+    .desc = Удерживает плохих снаружи, а хороших внутри.
+    .suffix = ИИ, Закрыт
