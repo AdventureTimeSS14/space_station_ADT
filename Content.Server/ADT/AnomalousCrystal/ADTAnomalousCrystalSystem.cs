@@ -1,4 +1,5 @@
 using Content.Shared.Damage.Components;
+using Content.Shared.EntityEffects;
 using Content.Shared.Explosion;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
@@ -18,6 +19,7 @@ namespace Content.Server.ADT.AnomalousCrystal;
 public sealed partial class ADTAnomalousCrystalSystem : EntitySystem
 {
     [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedEntityEffectsSystem _effects = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private IGameTiming _timing = default!;
 
@@ -35,13 +37,16 @@ public sealed partial class ADTAnomalousCrystalSystem : EntitySystem
         SubscribeLocalEvent<ADTAnomalousCrystalComponent, StartCollideEvent>(OnCollide);
         SubscribeLocalEvent<ADTAnomalousCrystalComponent, ListenEvent>(OnListen);
 
-        InitializeEffects();
+        InitializePossession();
     }
 
     private void OnMapInit(Entity<ADTAnomalousCrystalComponent> ent, ref MapInitEvent args)
     {
         if (ent.Comp.Methods.Count > 0)
             ent.Comp.Method = _random.Pick(ent.Comp.Methods);
+
+        if (ent.Comp.Variants.Count > 0)
+            ent.Comp.Variant = _random.Pick(ent.Comp.Variants);
     }
 
     private void OnInteractHand(Entity<ADTAnomalousCrystalComponent> ent, ref InteractHandEvent args)
@@ -122,9 +127,27 @@ public sealed partial class ADTAnomalousCrystalSystem : EntitySystem
         else
             _audio.PlayPvs(ent.Comp.ActivationSound, ent);
 
-        var ev = new ADTCrystalActivatedEvent(user, method);
-        RaiseLocalEvent(ent, ref ev);
+        if (ent.Comp.Variant is not { } variant)
+            return true;
+
+        if (ent.Comp.MaxActivations is { } max && ent.Comp.Activations >= max)
+            return true;
+
+        if (ent.Comp.OncePerUser && (user == null || !ent.Comp.Affected.Add(user.Value)))
+            return true;
+
+        ent.Comp.Activations++;
+        _effects.ApplyEffects(ent, variant.Effects, 1f, user);
+
+        if (user != null)
+            _effects.ApplyEffects(user.Value, variant.UserEffects, 1f, ent);
 
         return true;
+    }
+
+    public static Vector2i FrontOffset(TransformComponent xform)
+    {
+        var vector = xform.LocalRotation.GetDir().ToIntVec();
+        return new Vector2i(vector.X, vector.Y);
     }
 }

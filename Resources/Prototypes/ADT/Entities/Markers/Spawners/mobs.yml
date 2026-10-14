@@ -151,7 +151,7 @@
         state: alive_1
   - type: ConditionalSpawner
     prototypes:
-      - ADTMobBloodMiner
+      - ADTMegaFaunaBloodMiner
 
 - type: entity
   name: Drake Spawner
