@@ -1,5 +1,6 @@
 - type: entity
   id: ADTMegaFaunaBubblegumShitSpawnOriginalPower
+  categories: [ HideSpawnMenu ]
   name: bubblegum
   suffix: Original Power
   description: bublbegum desc

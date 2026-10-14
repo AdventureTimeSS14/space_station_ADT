@@ -101,9 +101,6 @@
     randomShotChance: 0.07
   - type: MegafaunaLoot
     crateProto: ADTCrateColossusLoot
-    randomLoot:
-    - ADTOrganVoiceOfGod
-    - ADTClothingEyesGodEye
     loot:
     - proto: ADTGemNullCrystal
     - proto: ADTKineticTrophyBlasterTubes
@@ -119,14 +116,18 @@
       max: 10
     - proto: SpaceQuartz
       max: 15
-    randomLoot:
-    - ADTAnomalousCrystalHonk
-    - ADTAnomalousCrystalThemeWarp
-    - ADTAnomalousCrystalEmitter
-    - ADTAnomalousCrystalDarkReprise
-    - ADTAnomalousCrystalHelpers
-    - ADTAnomalousCrystalRefresher
-    - ADTAnomalousCrystalPossessor
+    randomLootPools:
+    - pickOne:
+      - ADTAnomalousCrystalHonk
+      - ADTAnomalousCrystalThemeWarp
+      - ADTAnomalousCrystalEmitter
+      - ADTAnomalousCrystalDarkReprise
+      - ADTAnomalousCrystalHelpers
+      - ADTAnomalousCrystalRefresher
+      - ADTAnomalousCrystalPossessor
+    - pickOne:
+      - ADTOrganVoiceOfGod
+      - ADTClothingEyesGodEye
   - type: GpsSignal
     tag: adt-gps-signal-colossus
     description: adt-gps-signal-colossus-desc
