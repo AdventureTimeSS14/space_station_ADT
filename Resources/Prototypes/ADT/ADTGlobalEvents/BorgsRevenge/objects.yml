@@ -118,6 +118,8 @@
   - type: InteractionPopup
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
+    interactSuccessString: petting-success-generic-cyborg
+    interactFailureString: petting-failure-generic-cyborg
   - type: BorgFlashStun
     stunDuration: 4
   - type: ContainerFill
@@ -150,9 +152,6 @@
       sprite: Mobs/Silicon/chassis.rsi
       state: robot
     name: cyborg
-  - type: InteractionPopup
-    interactSuccessString: petting-success-generic-cyborg
-    interactFailureString: petting-failure-generic-cyborg
   - type: BorgSwitchableType
     inherentRadioChannels:
     - Common
@@ -383,8 +382,16 @@
   - type: SoftWalk
   - type: AiRemoteController
 
+- type: entity
+  id: MobIPCEventCombat
+  parent: MobIPCEvent
+  name: IPC
+  components:
+  - type: Loadout
+    prototypes: [ ADTIPCAIControlledGear ]
+
 - type: startingGear
-  id: SyndicateReinforcementMedic
+  id: ADTIPCAIControlledGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorBlack
     shoes: ClothingShoesBootsJack
