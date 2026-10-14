@@ -101,11 +101,12 @@
     randomShotChance: 0.07
   - type: MegafaunaLoot
     crateProto: ADTCrateColossusLoot
+    randomLoot:
+    - ADTOrganVoiceOfGod
+    - ADTClothingEyesGodEye
     loot:
     - proto: ADTGemNullCrystal
-    - proto: ADTOrganVoiceOfGod
     - proto: ADTKineticTrophyBlasterTubes
-    - proto: ADTClothingEyesGodEye
     - proto: GoldOre
       max: 10
     - proto: SilverOre

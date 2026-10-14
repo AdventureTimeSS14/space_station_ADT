@@ -121,7 +121,16 @@
     dropSound:
       path: /Audio/ADT/Bubblegum/exit_blood.ogg
     randomLoot:
+    - ADTMayhemBottle
+    - ADTBloodContract
     - ADTWeaponExperimentalProtoKineticAcellerator
+    - ADTPosterContrabandLustTayaran
+    - ADTPosterContrabandLustTayaran
+    - ADTPosterContrabandLustTayaran
+    - ADTPosterContrabandLustTayaran
+    - ADTPosterContrabandLustTayaran
+    - ADTPosterContrabandLustTayaran
+    - ADTPosterContrabandLustTayaran
     loot:
     - proto: ADTClothingOuterHardsuitHECK
     - proto: ADTClothingHeadHelmetHardsuitHECK
