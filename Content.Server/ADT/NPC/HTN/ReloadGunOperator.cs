@@ -1,5 +1,6 @@
 using Content.Server.Hands.Systems;
 using Content.Server.NPC;
+using Content.Server.NPC.HTN;
 using Content.Server.NPC.HTN.PrimitiveTasks;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Hands.Components;
