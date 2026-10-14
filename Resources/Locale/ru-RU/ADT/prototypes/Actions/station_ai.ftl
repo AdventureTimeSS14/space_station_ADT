@@ -6,7 +6,7 @@ ent-ADTActionOpenRemoteDevicesMenu = Открыть список удалённ�
     .desc = Открывает меню с доступными устройствами для удалённого управления.
     .suffix = { "" }
 
-ent-ADTPlayerBorgAiRemoteEvent = { ent-PlayerBorgBattery }
+ent-ADTPlayerBorgAiRemote = { ent-PlayerBorgBattery }
     .desc = { ent-PlayerBorgBattery.desc }
     .suffix = Батарея, Управляемый ИИ
 
