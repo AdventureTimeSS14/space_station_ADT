@@ -18,7 +18,7 @@ ent-MobIPCEventCombat = КПБ
 ent-ADTCyborgPDA = КПК киборга
     .desc = Пахнет машинным маслом.
 
-ent-ADTCyborgIDCard = ID карта киборга
+ent-ADTCyborgIDCard = ID-карта киборга
         .desc = ID карта киборга.
 ent-ADTHighSecCyborgLocked = бронированная дверь
     .desc = Удерживает плохих снаружи, а хороших внутри.
