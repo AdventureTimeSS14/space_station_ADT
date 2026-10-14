@@ -30,6 +30,7 @@
         - id: ADTBloodPackTransfusionFull
         - id: JetInjector
         - id: HandheldHealthAnalyzer
+        - id: HandheldGPSBasic
         - id: BoxBodyBag
         - !type:GroupSelector
           children:
