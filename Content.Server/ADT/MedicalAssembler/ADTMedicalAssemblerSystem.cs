@@ -192,7 +192,8 @@ public sealed class ADTMedicalAssemblerSystem : EntitySystem
             if (!_container.TryGetContainer(ent.Owner, ADTMedicalAssemblerComponent.MaterialsContainerId, out var storage))
                 return;
 
-            blank = storage.ContainedEntities.FirstOrDefault(item => GetPrototypeId(item) == blankProto.Id);
+            blank = storage.ContainedEntities.FirstOrDefault(item =>
+                !EntityManager.IsQueuedForDeletion(item) && GetPrototypeId(item) == blankProto.Id);
             if (blank is not { Valid: true })
             {
                 _popup.PopupEntity(Loc.GetString("medical-assembler-custom-no-blank"), ent, msg.Actor);

@@ -79,7 +79,7 @@ public sealed partial class MegafaunaSystem
 
             foreach (var step in _dueSteps.OrderBy(s => s.ExecuteAt).ToList())
             {
-                if (TerminatingOrDeleted(uid) || _mobState.IsDead(uid))
+                if (TerminatingOrDeleted(uid) || !sequence.SurvivesDeath && _mobState.IsDead(uid))
                 {
                     sequence.Queue.Clear();
                     break;
@@ -105,13 +105,10 @@ public sealed partial class MegafaunaSystem
                 return;
             }
 
-            step.Execute();
-
-            if (i >= sequence.Queue.Count || sequence.Queue[i] != step)
-                return;
-
             sequence.Queue.RemoveAt(i);
             i--;
+
+            step.Execute();
         }
     }
 }

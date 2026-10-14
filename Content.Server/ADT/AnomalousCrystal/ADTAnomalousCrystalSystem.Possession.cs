@@ -1,6 +1,7 @@
 using Content.Shared.Actions;
 using Content.Shared.ADT.AnomalousCrystal;
 using Content.Shared.Administration.Systems;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Gibbing;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;

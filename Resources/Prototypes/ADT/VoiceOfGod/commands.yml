@@ -236,7 +236,7 @@
   id: ADTVoiceOfGodStand
   priority: 60
   cooldown: Meme
-  words: [ "stand", "стой", "встань" ]
+  words: [ "stand" ]
   effects:
   - !type:ADTUnbuckle
 
