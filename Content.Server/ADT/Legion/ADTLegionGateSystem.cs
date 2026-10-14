@@ -4,6 +4,7 @@ using Content.Server.Chat.Managers;
 using Content.Shared.ADT.Legion;
 using Content.Shared.ADT.Salvage;
 using Content.Shared.ADT.Salvage.Components;
+using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
@@ -22,7 +23,6 @@ public sealed class ADTLegionGateSystem : EntitySystem
     [Dependency] private IAdminLogManager _adminLog = default!;
     [Dependency] private IChatManager _chat = default!;
     [Dependency] private IGameTiming _timing = default!;
-    [Dependency] private ISharedPlayerManager _players = default!;
     [Dependency] private MegafaunaSystem _megafauna = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private SharedDoorSystem _door = default!;
@@ -148,19 +148,13 @@ public sealed class ADTLegionGateSystem : EntitySystem
         if (mapId == MapId.Nullspace)
             return;
 
-        var whispers = $"[color=red][bold]{FormattedMessage.EscapeText(Loc.GetString("adt-legion-gate-whispers"))}[/bold][/color]";
-        var released = $"[color=red][bold]{FormattedMessage.EscapeText(Loc.GetString("adt-legion-gate-released-global"))}[/bold][/color]";
-
-        foreach (var session in _players.Sessions)
-        {
-            if (session.AttachedEntity is not { } attached || _transform.GetMapId(attached) != mapId)
-                continue;
-
-            _chat.DispatchServerMessage(session, whispers);
-            _chat.DispatchServerMessage(session, released);
-        }
-
+        var whispers = Loc.GetString("adt-legion-gate-whispers");
+        var released = Loc.GetString("adt-legion-gate-released-global");
         var filter = Filter.BroadcastMap(mapId);
+
+        _chat.ChatMessageToManyFiltered(filter, ChatChannel.Server, whispers, $"[color=red][bold]{FormattedMessage.EscapeText(whispers)}[/bold][/color]", default, false, true, null);
+        _chat.ChatMessageToManyFiltered(filter, ChatChannel.Server, released, $"[color=red][bold]{FormattedMessage.EscapeText(released)}[/bold][/color]", default, false, true, null);
+
         _audio.PlayGlobal(ent.Comp.ReleaseSound, filter, true);
         RaiseNetworkEvent(new ADTMegafaunaScreenFlashEvent(ent.Comp.ReleaseFlashColor, (float) ent.Comp.ReleaseFlashDuration.TotalSeconds), filter);
 

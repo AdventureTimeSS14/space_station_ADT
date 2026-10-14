@@ -3,6 +3,12 @@ namespace Content.Server.ADT.Salvage.Systems;
 [RegisterComponent]
 public sealed partial class ADTMegafaunaSequenceComponent : Component
 {
+    [DataField]
+    public bool SurvivesDeath;
+
+    [DataField]
+    public bool InsertionOrder;
+
     [ViewVariables]
     public List<ADTMegafaunaStep> Queue = new();
 }

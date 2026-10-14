@@ -93,11 +93,16 @@
     - id: MaterialBones1
       amount: 30
   - type: ADTLesserDrake
-  - type: ADTDrake
-    rangedCooldown: 3
+  - type: ADTMegafaunaAI
     decisionInterval: 2
     angerDamageDivisor: 50
     maxAnger: 20
+    handleMelee: false
+    adjacentOnlyOnGrid: true
+  - type: ADTMegafaunaSequence
+    insertionOrder: true
+  - type: ADTDrake
+    rangedCooldown: 3
     canDevour: false
     fireLineRange: 15
     fireConeAngles: [ -40, 0, 40 ]
