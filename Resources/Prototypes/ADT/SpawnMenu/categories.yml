@@ -1,0 +1,1182 @@
+- type: adtSpawnCategory
+  id: ADTSpawnAdmin
+  name: adt-spawn-category-admin
+  priority: 1060
+  service: true
+  suffixTags:
+  - Admeme
+  - Адмемы
+  - Admin
+  - Админ
+  - "EVIL/ADMEME"
+  - "NoLimits Admin"
+
+- type: adtSpawnCategory
+  id: ADTSpawnDebug
+  name: adt-spawn-category-debug
+  order: 1
+  priority: 1050
+  service: true
+  suffixTags:
+  - DEBUG
+  - Отладка
+  - TESTING
+
+- type: adtSpawnCategory
+  id: ADTSpawnDebugPath
+  ruleFor: ADTSpawnDebug
+  priority: 1049
+  paths:
+  - "Debugging/"
+  - "Mobs/Debugging/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnDoNotMap
+  name: adt-spawn-category-do-not-map
+  order: 2
+  priority: 1045
+  service: true
+  suffixTags:
+  - "DO NOT MAP"
+  - DONTMAP
+  - "НЕ МАППИТЬ"
+
+- type: adtSpawnCategory
+  id: ADTSpawnPersonal
+  name: adt-spawn-category-personal
+  order: 3
+  priority: 1040
+  service: true
+  splitBySuffix: true
+  suffixTags:
+  - Personal
+  - Именное
+
+- type: adtSpawnCategory
+  id: ADTSpawnSponsor
+  name: adt-spawn-category-sponsor
+  order: 4
+  priority: 1030
+  service: true
+  suffixTags:
+  - Sponsor
+  - Спонсорское
+  - "For all sponsor"
+  - "Для всех спонсоров"
+
+- type: adtSpawnCategory
+  id: ADTSpawnCentComm
+  name: adt-spawn-category-centcomm
+  order: 5
+  priority: 1020
+  service: true
+  suffixTags:
+  - "Central Command"
+  - "Центральное командование"
+  - CentComm
+  - CentCom
+  - Центком
+  - "Black Centcomm"
+  - ERTRole
+  - AdtERTRole
+  - "Роль ОБР"
+  - ОБР
+
+- type: adtSpawnCategory
+  id: ADTSpawnModes
+  name: adt-spawn-category-modes
+  order: 6
+  service: true
+
+- type: adtSpawnCategory
+  id: ADTSpawnShipBattle
+  name: adt-spawn-category-ship-battle
+  parentCategory: ADTSpawnModes
+  priority: 1010
+  suffixTags:
+  - ShipBattle
+  - "Корабельные бои"
+  - "Space Battleships"
+  - "Космические бои"
+  - "SpaceShip Battle"
+
+- type: adtSpawnCategory
+  id: ADTSpawnBluespaceHarvester
+  name: adt-spawn-category-bluespace-harvester
+  parentCategory: ADTSpawnModes
+  order: 1
+  priority: 1010
+  suffixTags:
+  - "Bluespace Harvester"
+  - Блюспейс-харвестер
+
+- type: adtSpawnCategory
+  id: ADTSpawnGelios
+  name: adt-spawn-category-gelios
+  parentCategory: ADTSpawnModes
+  order: 2
+  priority: 1010
+  suffixTags:
+  - Гелиос
+
+- type: adtSpawnCategory
+  id: ADTSpawnGeliosPath
+  ruleFor: ADTSpawnGelios
+  priority: 1009
+  paths:
+  - "Structures/Specific/Helios/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnSalvageRuleset
+  name: adt-spawn-category-salvage-ruleset
+  parentCategory: ADTSpawnModes
+  order: 3
+  priority: 1010
+  suffixTags:
+  - "Salvage Ruleset"
+
+- type: adtSpawnCategory
+  id: ADTSpawnChallenge
+  name: adt-spawn-category-challenge
+  parentCategory: ADTSpawnModes
+  order: 4
+  priority: 1010
+  suffixTags:
+  - CHALLENGE
+  - ЧЕЛЛЕНДЖ
+
+- type: adtSpawnCategory
+  id: ADTSpawnWeapons
+  name: adt-spawn-category-weapons
+
+- type: adtSpawnCategory
+  id: ADTSpawnWeaponsGuns
+  name: adt-spawn-category-weapons-guns
+  parentCategory: ADTSpawnWeapons
+  priority: 950
+  paths:
+  - "Objects/Weapons/Guns/"
+  - "Objects/Weapons/Gun/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnWeaponsAmmo
+  name: adt-spawn-category-weapons-ammo
+  parentCategory: ADTSpawnWeapons
+  order: 1
+  priority: 955
+  paths:
+  - "Objects/Weapons/Guns/Ammunition/"
+  - "Objects/Weapons/Gun/Ammunition/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnWeaponsMelee
+  name: adt-spawn-category-weapons-melee
+  parentCategory: ADTSpawnWeapons
+  order: 2
+  priority: 950
+  paths:
+  - "Objects/Weapons/Melee/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnWeaponsExplosives
+  name: adt-spawn-category-weapons-explosives
+  parentCategory: ADTSpawnWeapons
+  order: 3
+  priority: 950
+  paths:
+  - "Objects/Weapons/Bombs/"
+  - "Objects/Weapons/Throwable/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnWeaponsShields
+  name: adt-spawn-category-weapons-shields
+  parentCategory: ADTSpawnWeapons
+  order: 4
+  priority: 950
+  paths:
+  - "Objects/Shields/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnWeaponsOther
+  name: adt-spawn-category-weapons-other
+  parentCategory: ADTSpawnWeapons
+  order: 5
+  priority: 940
+  paths:
+  - "Objects/Weapons/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnWeaponsGunsByComponent
+  ruleFor: ADTSpawnWeaponsGuns
+  priority: 930
+  excludePaths:
+  - "Structures/"
+  - "Mobs/"
+  - "Clothing/"
+  - "Objects/Tools/"
+  - "Objects/Consumable/"
+  - "Objects/Devices/"
+  - "Objects/Materials/"
+  - "Objects/Power/"
+  - "Objects/Fun/"
+  - "Objects/Decoration/"
+  - "Markers/"
+  - "Effects/"
+  components:
+  - Gun
+  - Item
+
+- type: adtSpawnCategory
+  id: ADTSpawnWeaponsMeleeByDamage
+  ruleFor: ADTSpawnWeaponsMelee
+  priority: 925
+  excludePaths:
+  - "Structures/"
+  - "Mobs/"
+  - "Clothing/"
+  - "Objects/Tools/"
+  - "Objects/Consumable/"
+  - "Objects/Devices/"
+  - "Objects/Materials/"
+  - "Objects/Power/"
+  - "Objects/Fun/"
+  - "Objects/Decoration/"
+  - "Markers/"
+  - "Effects/"
+  components:
+  - MeleeWeapon
+  - Item
+  minMeleeDamage: 15
+
+- type: adtSpawnCategory
+  id: ADTSpawnWeaponsMeleeWielded
+  ruleFor: ADTSpawnWeaponsMelee
+  priority: 924
+  excludePaths:
+  - "Structures/"
+  - "Mobs/"
+  - "Clothing/"
+  - "Objects/Tools/"
+  - "Objects/Consumable/"
+  - "Objects/Devices/"
+  - "Objects/Materials/"
+  - "Objects/Power/"
+  - "Objects/Fun/"
+  - "Objects/Decoration/"
+  - "Markers/"
+  - "Effects/"
+  components:
+  - MeleeWeapon
+  - Item
+  - Wieldable
+  excludeComponents:
+  - Gun
+
+- type: adtSpawnCategory
+  id: ADTSpawnTools
+  name: adt-spawn-category-tools
+  order: 1
+
+- type: adtSpawnCategory
+  id: ADTSpawnToolsGasTanks
+  name: adt-spawn-category-tools-gas-tanks
+  parentCategory: ADTSpawnTools
+  order: 1
+  priority: 946
+  paths:
+  - "Objects/Tools/gas_tanks"
+
+- type: adtSpawnCategory
+  id: ADTSpawnToolsOther
+  name: adt-spawn-category-tools-other
+  parentCategory: ADTSpawnTools
+  priority: 945
+  paths:
+  - "Objects/Tools/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnClothing
+  name: adt-spawn-category-clothing
+  order: 2
+
+- type: adtSpawnCategory
+  id: ADTSpawnClothingUniform
+  name: adt-spawn-category-clothing-uniform
+  parentCategory: ADTSpawnClothing
+  priority: 900
+  paths:
+  - "Clothing/Uniforms/"
+  - "Clothing/Under/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnClothingOuter
+  name: adt-spawn-category-clothing-outer
+  parentCategory: ADTSpawnClothing
+  order: 1
+  priority: 900
+  paths:
+  - "Clothing/OuterClothing/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnClothingHead
+  name: adt-spawn-category-clothing-head
+  parentCategory: ADTSpawnClothing
+  order: 2
+  priority: 900
+  paths:
+  - "Clothing/Head/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnClothingMask
+  name: adt-spawn-category-clothing-mask
+  parentCategory: ADTSpawnClothing
+  order: 3
+  priority: 900
+  paths:
+  - "Clothing/Masks/"
+  - "Clothing/Mask/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnClothingEyes
+  name: adt-spawn-category-clothing-eyes
+  parentCategory: ADTSpawnClothing
+  order: 4
+  priority: 900
+  paths:
+  - "Clothing/Eyes/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnClothingEars
+  name: adt-spawn-category-clothing-ears
+  parentCategory: ADTSpawnClothing
+  order: 5
+  priority: 900
+  paths:
+  - "Clothing/Ears/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnClothingNeck
+  name: adt-spawn-category-clothing-neck
+  parentCategory: ADTSpawnClothing
+  order: 6
+  priority: 900
+  paths:
+  - "Clothing/Neck/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnClothingGloves
+  name: adt-spawn-category-clothing-gloves
+  parentCategory: ADTSpawnClothing
+  order: 7
+  priority: 900
+  paths:
+  - "Clothing/Hands/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnClothingShoes
+  name: adt-spawn-category-clothing-shoes
+  parentCategory: ADTSpawnClothing
+  order: 8
+  priority: 900
+  paths:
+  - "Clothing/Shoes/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnClothingBelt
+  name: adt-spawn-category-clothing-belt
+  parentCategory: ADTSpawnClothing
+  order: 9
+  priority: 900
+  paths:
+  - "Clothing/Belt/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnClothingBack
+  name: adt-spawn-category-clothing-back
+  parentCategory: ADTSpawnClothing
+  order: 10
+  priority: 900
+  paths:
+  - "Clothing/Back/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnClothingUnderwear
+  name: adt-spawn-category-clothing-underwear
+  parentCategory: ADTSpawnClothing
+  order: 11
+  priority: 900
+  paths:
+  - "Clothing/Underwear/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnClothingOther
+  name: adt-spawn-category-clothing-other
+  parentCategory: ADTSpawnClothing
+  order: 20
+  priority: 890
+  paths:
+  - "Clothing/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnClothingModsuits
+  name: adt-spawn-category-clothing-modsuits
+  parentCategory: ADTSpawnClothing
+  order: 15
+  priority: 900
+  paths:
+  - "Objects/Specific/Modsuits/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnMobs
+  name: adt-spawn-category-mobs
+  order: 3
+
+- type: adtSpawnCategory
+  id: ADTSpawnMobsMegafauna
+  name: adt-spawn-category-mobs-megafauna
+  parentCategory: ADTSpawnMobs
+  priority: 900
+  paths:
+  - "Mobs/NPCs/Megafauna/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnMobsMegafaunaByComponent
+  ruleFor: ADTSpawnMobsMegafauna
+  priority: 880
+  components:
+  - Megafauna
+
+- type: adtSpawnCategory
+  id: ADTSpawnMobsPlayer
+  name: adt-spawn-category-mobs-player
+  parentCategory: ADTSpawnMobs
+  order: 1
+  priority: 900
+  paths:
+  - "Mobs/Player/"
+  - "Mobs/Species/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnMobsSilicon
+  name: adt-spawn-category-mobs-silicon
+  parentCategory: ADTSpawnMobs
+  order: 2
+  priority: 900
+  paths:
+  - "Mobs/Cyborgs/"
+  - "Mobs/Silicons/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnMobsNpc
+  name: adt-spawn-category-mobs-npc
+  parentCategory: ADTSpawnMobs
+  order: 3
+  priority: 895
+  paths:
+  - "Mobs/NPCs/"
+  - "Mobs/NPC/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnMobsOther
+  name: adt-spawn-category-mobs-other
+  parentCategory: ADTSpawnMobs
+  order: 4
+  priority: 890
+  paths:
+  - "Mobs/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnFood
+  name: adt-spawn-category-food
+  order: 4
+
+- type: adtSpawnCategory
+  id: ADTSpawnFoodDrinks
+  name: adt-spawn-category-food-drinks
+  parentCategory: ADTSpawnFood
+  priority: 900
+  paths:
+  - "Objects/Consumable/Drinks/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnFoodFood
+  name: adt-spawn-category-food-food
+  parentCategory: ADTSpawnFood
+  order: 1
+  priority: 900
+  paths:
+  - "Objects/Consumable/Food/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnFoodSmokeables
+  name: adt-spawn-category-food-smokeables
+  parentCategory: ADTSpawnFood
+  order: 2
+  priority: 900
+  paths:
+  - "Objects/Consumable/Smokeables/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnFoodOther
+  name: adt-spawn-category-food-other
+  parentCategory: ADTSpawnFood
+  order: 3
+  priority: 890
+  paths:
+  - "Objects/Consumable/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnDepartments
+  name: adt-spawn-category-departments
+  order: 5
+
+- type: adtSpawnCategory
+  id: ADTSpawnDepartmentsMedical
+  name: adt-spawn-category-departments-medical
+  parentCategory: ADTSpawnDepartments
+  priority: 880
+  paths:
+  - "Objects/Specific/Medical/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnDepartmentsChemistry
+  name: adt-spawn-category-departments-chemistry
+  parentCategory: ADTSpawnDepartments
+  order: 1
+  priority: 880
+  paths:
+  - "Objects/Specific/Chemistry/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnDepartmentsBotany
+  name: adt-spawn-category-departments-botany
+  parentCategory: ADTSpawnDepartments
+  order: 2
+  priority: 880
+  paths:
+  - "Objects/Specific/Hydroponics/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnDepartmentsService
+  name: adt-spawn-category-departments-service
+  parentCategory: ADTSpawnDepartments
+  order: 3
+  priority: 880
+  paths:
+  - "Objects/Specific/Service/"
+  - "Objects/Specific/Kitchen/"
+  - "Objects/Specific/Librarian/"
+  - "Objects/Specific/Rehydrateable/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnDepartmentsChapel
+  name: adt-spawn-category-departments-chapel
+  parentCategory: ADTSpawnDepartments
+  order: 4
+  priority: 880
+  paths:
+  - "Objects/Specific/Chapel/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnDepartmentsJanitorial
+  name: adt-spawn-category-departments-janitorial
+  parentCategory: ADTSpawnDepartments
+  order: 5
+  priority: 880
+  paths:
+  - "Objects/Specific/Janitorial/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnDepartmentsSecurity
+  name: adt-spawn-category-departments-security
+  parentCategory: ADTSpawnDepartments
+  order: 6
+  priority: 880
+  paths:
+  - "Objects/Specific/Security/"
+  - "Objects/Specific/Forensics/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnDepartmentsScience
+  name: adt-spawn-category-departments-science
+  parentCategory: ADTSpawnDepartments
+  order: 7
+  priority: 880
+  paths:
+  - "Objects/Specific/Research/"
+  - "Objects/Specific/Xenoarchaeology/"
+  - "Objects/Specific/Anomaly/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnDepartmentsXenobiology
+  name: adt-spawn-category-departments-xenobiology
+  parentCategory: ADTSpawnDepartments
+  order: 8
+  priority: 880
+  paths:
+  - "Objects/Specific/Xenobiology/"
+  - "Objects/Specific/Xenoborg/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnDepartmentsRobotics
+  name: adt-spawn-category-departments-robotics
+  parentCategory: ADTSpawnDepartments
+  order: 9
+  priority: 880
+  paths:
+  - "Objects/Specific/Robotics/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnDepartmentsMech
+  name: adt-spawn-category-departments-mech
+  parentCategory: ADTSpawnDepartments
+  order: 10
+  priority: 880
+  paths:
+  - "Objects/Specific/Mech/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnDepartmentsCargo
+  name: adt-spawn-category-departments-cargo
+  parentCategory: ADTSpawnDepartments
+  order: 11
+  priority: 880
+  paths:
+  - "Objects/Specific/Cargo/"
+  - "Objects/Specific/Salvage/"
+  - "Objects/Deliveries/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnDepartmentsLavaland
+  name: adt-spawn-category-departments-lavaland
+  parentCategory: ADTSpawnDepartments
+  order: 12
+  priority: 880
+  paths:
+  - "Objects/Specific/Lavaland/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnDepartmentsFishing
+  name: adt-spawn-category-departments-fishing
+  parentCategory: ADTSpawnDepartments
+  order: 13
+  priority: 880
+  paths:
+  - "Objects/Specific/Fishing/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnDepartmentsOther
+  name: adt-spawn-category-departments-other
+  parentCategory: ADTSpawnDepartments
+  order: 30
+  priority: 870
+  paths:
+  - "Objects/Specific/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnDepartmentsOrgans
+  name: adt-spawn-category-departments-organs
+  parentCategory: ADTSpawnDepartments
+  order: 15
+  priority: 880
+  paths:
+  - "Body/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnDevices
+  name: adt-spawn-category-devices
+  order: 6
+
+- type: adtSpawnCategory
+  id: ADTSpawnDevicesBoards
+  name: adt-spawn-category-devices-boards
+  parentCategory: ADTSpawnDevices
+  priority: 900
+  paths:
+  - "Objects/Devices/Circuitboards/"
+  - "Objects/Devices/CircuitBoards/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnDevicesElectronics
+  name: adt-spawn-category-devices-electronics
+  parentCategory: ADTSpawnDevices
+  order: 1
+  priority: 900
+  paths:
+  - "Objects/Devices/Electronics/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnDevicesPda
+  name: adt-spawn-category-devices-pda
+  parentCategory: ADTSpawnDevices
+  order: 2
+  priority: 900
+  paths:
+  - "Objects/Devices/pda"
+  - "Objects/Devices/cartridges"
+  - "Objects/Misc/identification_cards"
+
+- type: adtSpawnCategory
+  id: ADTSpawnDevicesRadio
+  name: adt-spawn-category-devices-radio
+  parentCategory: ADTSpawnDevices
+  order: 3
+  priority: 900
+  paths:
+  - "Objects/Devices/radio"
+  - "Objects/Devices/encryption_keys"
+
+- type: adtSpawnCategory
+  id: ADTSpawnDevicesOther
+  name: adt-spawn-category-devices-other
+  parentCategory: ADTSpawnDevices
+  order: 4
+  priority: 880
+  paths:
+  - "Objects/Devices/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnMaterials
+  name: adt-spawn-category-materials
+  order: 7
+  priority: 900
+  paths:
+  - "Objects/Materials/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnMaterialsParts
+  ruleFor: ADTSpawnMaterials
+  priority: 899
+  paths:
+  - "Objects/Misc/machine_parts"
+  - "Objects/Misc/machines_parts"
+  - "Objects/Misc/intermediate_parts"
+
+- type: adtSpawnCategory
+  id: ADTSpawnPowerItems
+  name: adt-spawn-category-power-items
+  order: 8
+  priority: 900
+  paths:
+  - "Objects/Power/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnMisc
+  name: adt-spawn-category-misc
+  order: 9
+
+- type: adtSpawnCategory
+  id: ADTSpawnMiscBooks
+  name: adt-spawn-category-misc-books
+  parentCategory: ADTSpawnMisc
+  priority: 900
+  paths:
+  - "Objects/Misc/books"
+  - "Objects/Misc/paper"
+  - "Objects/Misc/folders"
+  - "Objects/Misc/pen"
+  - "Objects/Misc/quill"
+  - "Objects/Misc/rubber_stamp"
+  - "Objects/Misc/acquisition_slips"
+  - "Objects/Misc/business_card"
+  - "Objects/Devices/clipboard"
+
+- type: adtSpawnCategory
+  id: ADTSpawnMiscImplants
+  name: adt-spawn-category-misc-implants
+  parentCategory: ADTSpawnMisc
+  order: 1
+  priority: 900
+  paths:
+  - "Objects/Misc/implanters"
+  - "Objects/Misc/subdermal_implants"
+
+- type: adtSpawnCategory
+  id: ADTSpawnMiscTiles
+  name: adt-spawn-category-misc-tiles
+  parentCategory: ADTSpawnMisc
+  order: 2
+  priority: 900
+  paths:
+  - "Objects/Misc/tiles"
+  - "Objects/Misc/carpets"
+
+- type: adtSpawnCategory
+  id: ADTSpawnMiscFun
+  name: adt-spawn-category-misc-fun
+  parentCategory: ADTSpawnMisc
+  order: 3
+  priority: 890
+  paths:
+  - "Objects/Fun/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnMiscContainers
+  name: adt-spawn-category-misc-containers
+  parentCategory: ADTSpawnMisc
+  order: 7
+  priority: 900
+  paths:
+  - "Objects/Misc/box"
+  - "Objects/Misc/briefcases"
+  - "Objects/Misc/diskcases"
+  - "Objects/Misc/medalcase"
+  - "Objects/Misc/zipbag"
+  - "Objects/Misc/syndiebox"
+  - "Objects/Misc/teabox"
+  - "Objects/Misc/weaponcase"
+  - "Objects/Misc/medicalcase"
+  - "Objects/Misc/pet_carrier"
+  - "Catalog/Fills/Boxes/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnMiscRestraints
+  name: adt-spawn-category-misc-restraints
+  parentCategory: ADTSpawnMisc
+  order: 8
+  priority: 900
+  paths:
+  - "Objects/Misc/handcuffs"
+  - "Objects/Misc/legcuffs"
+
+- type: adtSpawnCategory
+  id: ADTSpawnMiscDecoration
+  name: adt-spawn-category-misc-decoration
+  parentCategory: ADTSpawnMisc
+  order: 4
+  priority: 890
+  paths:
+  - "Objects/Decoration/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnMiscVehicles
+  name: adt-spawn-category-misc-vehicles
+  parentCategory: ADTSpawnMisc
+  order: 5
+  priority: 890
+  paths:
+  - "Objects/Vehicles/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnMiscMagic
+  name: adt-spawn-category-misc-magic
+  parentCategory: ADTSpawnMisc
+  order: 6
+  priority: 890
+  paths:
+  - "Objects/Magic/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnMiscOther
+  name: adt-spawn-category-misc-other
+  parentCategory: ADTSpawnMisc
+  order: 10
+  priority: 850
+  paths:
+  - "Objects/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnStructures
+  name: adt-spawn-category-structures
+  order: 10
+
+- type: adtSpawnCategory
+  id: ADTSpawnStructuresWalls
+  name: adt-spawn-category-structures-walls
+  parentCategory: ADTSpawnStructures
+  priority: 900
+  paths:
+  - "Structures/Walls/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnStructuresWindows
+  name: adt-spawn-category-structures-windows
+  parentCategory: ADTSpawnStructures
+  order: 1
+  priority: 900
+  paths:
+  - "Structures/Windows/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnStructuresDoors
+  name: adt-spawn-category-structures-doors
+  parentCategory: ADTSpawnStructures
+  order: 2
+  priority: 900
+  paths:
+  - "Structures/Doors/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnStructuresTables
+  name: adt-spawn-category-structures-tables
+  parentCategory: ADTSpawnStructures
+  order: 3
+  priority: 905
+  paths:
+  - "Structures/Furniture/Tables/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnStructuresFurniture
+  name: adt-spawn-category-structures-furniture
+  parentCategory: ADTSpawnStructures
+  order: 4
+  priority: 900
+  paths:
+  - "Structures/Furniture/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnStructuresLighting
+  name: adt-spawn-category-structures-lighting
+  parentCategory: ADTSpawnStructures
+  order: 5
+  priority: 900
+  paths:
+  - "Structures/Lighting/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnStructuresStorage
+  name: adt-spawn-category-structures-storage
+  parentCategory: ADTSpawnStructures
+  order: 6
+  priority: 900
+  paths:
+  - "Structures/Storage/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnStructuresSigns
+  name: adt-spawn-category-structures-signs
+  parentCategory: ADTSpawnStructures
+  order: 7
+  priority: 905
+  paths:
+  - "Structures/Wallmounts/Signs/"
+  - "Structures/Wallmount/Signs/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnStructuresWallmounts
+  name: adt-spawn-category-structures-wallmounts
+  parentCategory: ADTSpawnStructures
+  order: 8
+  priority: 900
+  paths:
+  - "Structures/Wallmounts/"
+  - "Structures/Wallmount/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnStructuresDecorations
+  name: adt-spawn-category-structures-decorations
+  parentCategory: ADTSpawnStructures
+  order: 9
+  priority: 900
+  paths:
+  - "Structures/Decoration/"
+  - "Structures/Decorations/"
+  - "Structures/Flora/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnStructuresShuttles
+  name: adt-spawn-category-structures-shuttles
+  parentCategory: ADTSpawnStructures
+  order: 10
+  priority: 900
+  paths:
+  - "Structures/Shuttles/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnStructuresSpecific
+  name: adt-spawn-category-structures-specific
+  parentCategory: ADTSpawnStructures
+  order: 11
+  priority: 900
+  paths:
+  - "Structures/Specific/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnStructuresOther
+  name: adt-spawn-category-structures-other
+  parentCategory: ADTSpawnStructures
+  order: 30
+  priority: 850
+  paths:
+  - "Structures/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnStructuresStorageFills
+  ruleFor: ADTSpawnStructuresStorage
+  priority: 860
+  paths:
+  - "Catalog/Fills/Lockers/"
+  - "Catalog/Fills/Crates/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnMachines
+  name: adt-spawn-category-machines
+  order: 11
+
+- type: adtSpawnCategory
+  id: ADTSpawnMachinesComputers
+  name: adt-spawn-category-machines-computers
+  parentCategory: ADTSpawnMachines
+  priority: 905
+  paths:
+  - "Structures/Machines/Computers/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnMachinesMedical
+  name: adt-spawn-category-machines-medical
+  parentCategory: ADTSpawnMachines
+  order: 1
+  priority: 905
+  paths:
+  - "Structures/Machines/Medical/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnMachinesDispensers
+  name: adt-spawn-category-machines-dispensers
+  parentCategory: ADTSpawnMachines
+  order: 2
+  priority: 900
+  paths:
+  - "Structures/Dispensers/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnMachinesOther
+  name: adt-spawn-category-machines-other
+  parentCategory: ADTSpawnMachines
+  order: 10
+  priority: 900
+  paths:
+  - "Structures/Machines/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnEngineering
+  name: adt-spawn-category-engineering
+  order: 12
+
+- type: adtSpawnCategory
+  id: ADTSpawnEngineeringPower
+  name: adt-spawn-category-engineering-power
+  parentCategory: ADTSpawnEngineering
+  priority: 900
+  paths:
+  - "Structures/Power/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnEngineeringAtmos
+  name: adt-spawn-category-engineering-atmos
+  parentCategory: ADTSpawnEngineering
+  order: 1
+  priority: 905
+  paths:
+  - "Structures/Piping/Atmospherics/"
+  - "Structures/Specific/Atmospherics/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnEngineeringDisposal
+  name: adt-spawn-category-engineering-disposal
+  parentCategory: ADTSpawnEngineering
+  order: 2
+  priority: 905
+  paths:
+  - "Structures/Piping/Disposal/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnEngineeringOther
+  name: adt-spawn-category-engineering-other
+  parentCategory: ADTSpawnEngineering
+  order: 3
+  priority: 900
+  paths:
+  - "Structures/Piping/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnMarkers
+  name: adt-spawn-category-markers
+  order: 13
+
+- type: adtSpawnCategory
+  id: ADTSpawnMarkersSpawners
+  name: adt-spawn-category-markers-spawners
+  parentCategory: ADTSpawnMarkers
+  priority: 900
+  paths:
+  - "Markers/Spawners/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnMarkersSoundGen
+  name: adt-spawn-category-markers-soundgen
+  parentCategory: ADTSpawnMarkers
+  order: 1
+  priority: 900
+  paths:
+  - "ADT/SoundGen/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnMarkersOther
+  name: adt-spawn-category-markers-other
+  parentCategory: ADTSpawnMarkers
+  order: 2
+  priority: 890
+  paths:
+  - "Markers/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnEffects
+  name: adt-spawn-category-effects
+  order: 14
+  priority: 900
+  paths:
+  - "Effects/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnTechnical
+  name: adt-spawn-category-technical
+  order: 15
+  priority: 900
+  paths:
+  - "Stations/"
+  - "Virtual/"
+  - "Interface/"
+  - "Guidebook/"
+  - "Abilities/"
+  - "Areas/"
+  - "StatusEffects/"
+  - "Tiles/"
+  - "Segmented/"
+
+- type: adtSpawnCategory
+  id: ADTSpawnFallbackMob
+  ruleFor: ADTSpawnMobsOther
+  priority: 300
+  components:
+  - MobState
+
+- type: adtSpawnCategory
+  id: ADTSpawnFallbackClothing
+  ruleFor: ADTSpawnClothingOther
+  priority: 290
+  components:
+  - Clothing
+  - Item
+
+- type: adtSpawnCategory
+  id: ADTSpawnFallbackFood
+  ruleFor: ADTSpawnFoodFood
+  priority: 285
+  components:
+  - Edible
+  - Item
+
+- type: adtSpawnCategory
+  id: ADTSpawnFallbackItem
+  ruleFor: ADTSpawnMiscOther
+  priority: 200
+  components:
+  - Item
+
+- type: adtSpawnCategory
+  id: ADTSpawnFallbackStructure
+  ruleFor: ADTSpawnStructuresOther
+  priority: 100
+  components:
+  - Fixtures
