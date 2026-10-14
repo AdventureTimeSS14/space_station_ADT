@@ -9,30 +9,28 @@
   - type: Edible
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Frozen/ice.rsi
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 7.5 # ADT-Tweak 15 > 7.5
+  - type: Solution
+    solution:
+      maxVol: 20
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 7.5
 
 - type: entity
   parent: ADTFoodFrozenBase
   id: ADTFoodFrozenChocolateBase
   abstract: true
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 5 # ADT-Tweak 10 > 5
-        - ReagentId: Theobromine
-          Quantity: 3
-        - ReagentId: CocoaPowder
-          Quantity: 1
+  - type: Solution
+    solution:
+      maxVol: 20
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 5
+      - ReagentId: Theobromine
+        Quantity: 3
+      - ReagentId: CocoaPowder
+        Quantity: 1
 
 - type: entity
   parent: ADTFoodFrozenChocolateBase
@@ -65,13 +63,12 @@
   - type: Edible
   - type: Sprite
     state: honkdae
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 12.5 # ADT-Tweak 25 > 12.5
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 12.5
 
 - type: entity
   parent: ADTFoodFrozenBase
@@ -80,13 +77,12 @@
   - type: Edible
   - type: Sprite
     state: icecreamcone
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 13
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 3
+  - type: Solution
+    solution:
+      maxVol: 13
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 3
 
 - type: entity
   parent: ADTFoodFrozenBase
@@ -95,17 +91,16 @@
   - type: Edible
   - type: Sprite
     state: icecreamwafflecone
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 13
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 7.5 # ADT-Tweak 15 > 7.5
-        - ReagentId: Theobromine
-          Quantity: 3
-        - ReagentId: CocoaPowder
-          Quantity: 1
+  - type: Solution
+    solution:
+      maxVol: 13
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 7.5
+      - ReagentId: Theobromine
+        Quantity: 3
+      - ReagentId: CocoaPowder
+        Quantity: 1
 
 - type: entity
   parent: ADTFoodFrozenBase
@@ -114,17 +109,16 @@
   - type: Edible
   - type: Sprite
     state: icecreamwaffleconenuts
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 13
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 7.5 # ADT-Tweak 15 > 7.5
-        - ReagentId: Theobromine
-          Quantity: 3
-        - ReagentId: CocoaPowder
-          Quantity: 1
+  - type: Solution
+    solution:
+      maxVol: 13
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 7.5
+      - ReagentId: Theobromine
+        Quantity: 3
+      - ReagentId: CocoaPowder
+        Quantity: 1
 
 - type: entity
   parent: ADTFoodFrozenChocolateBase
@@ -173,13 +167,12 @@
   - type: Edible
   - type: Sprite
     state: sundae
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 12.5 # ADT-Tweak 25 > 12.5
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 12.5
 
 - type: entity
   parent: ADTFoodFrozenBase
@@ -254,17 +247,16 @@
   id: ADTFoodFrozenChocolatePopsicleBase
   abstract: true
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Theobromine
-          Quantity: 3
-        - ReagentId: CocoaPowder
-          Quantity: 1
+  - type: Solution
+    solution:
+      maxVol: 20
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: Theobromine
+        Quantity: 3
+      - ReagentId: CocoaPowder
+        Quantity: 1
 
 - type: entity
   name: Popsicle

@@ -6,8 +6,8 @@ namespace Content.Server.ADT.InconnuOS;
 
 public sealed partial class ADTOsSystem
 {
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
-    [Dependency] private readonly SharedIdCardSystem _idCard = default!;
+    [Dependency] private SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private SharedIdCardSystem _idCard = default!;
 
     partial void InitializeUi()
     {

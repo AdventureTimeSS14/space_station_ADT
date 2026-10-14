@@ -19,9 +19,9 @@ namespace Content.Server.ADT.Administration.Commands;
 [AdminCommand(AdminFlags.Mapping)]
 public sealed class ConvertToDungeonRoomCommand : LocalizedCommands
 {
-    [Dependency] private readonly IEntityManager _entMan = default!;
-    [Dependency] private readonly INetManager _netMan = default!;
-    [Dependency] private readonly IResourceManager _resource = default!;
+    [Dependency] private IEntityManager _entMan = default!;
+    [Dependency] private INetManager _netMan = default!;
+    [Dependency] private IResourceManager _resource = default!;
 
     public override string Command => "convertToDungeonRoom";
 

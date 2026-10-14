@@ -22,10 +22,9 @@
     magState: mag
     steps: 4
     zeroVisible: false
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      battery:
-        maxVol: 5
+    - ADTPowerCellLasgunRevolverSolution
   - type: InjectableSolution
     solution: battery
   - type: DrawableSolution
@@ -43,3 +42,14 @@
     proto: ADTBulletLaserMK2
     fireCost: 100
   - type: PowerCell
+
+- type: entity
+  parent: Solution
+  id: ADTPowerCellLasgunRevolverSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: battery
+    solution:
+      maxVol: 5
+      reagents: []

@@ -12,22 +12,27 @@ using Content.Server.Popups;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 using Content.Server.Kitchen.Components;
-using Content.Server.Gatherable.Components;
+using Content.Shared.Gatherable.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Kitchen.Components;
 using Content.Shared.Projectiles;
+using Content.Shared.Tools;
+using Content.Shared.Tools.Systems;
 
 namespace Content.Server.ADT.Mining.Systems;
 
 public sealed class GibtoniteSystem : EntitySystem
 {
-    [Dependency] private readonly ExplosionSystem _explosion = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private ExplosionSystem _explosion = default!;
+    [Dependency] private SharedToolSystem _tool = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private TagSystem _tag = default!;
+
+    private static readonly ProtoId<ToolQualityPrototype> SlicingQuality = "Slicing";
 
     private static readonly ProtoId<TagPrototype> PlasticKnife = "Plastic";
 
@@ -184,7 +189,7 @@ public sealed class GibtoniteSystem : EntitySystem
         {
             Defuse(uid, comp);
         }
-        else if (HasComp<SharpComponent>(args.Used))
+        else if (_tool.HasQuality(args.Used, SlicingQuality))
         {
             if (!comp.Extracted)
                 return;

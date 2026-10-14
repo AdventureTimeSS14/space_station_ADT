@@ -6,3 +6,7 @@ ent-StatueVenusBlue = статуя непорочной девы
     .suffix = Синий
 ent-StatueBananiumClown = бананиумовая статуя спасителя
     .desc = Бананиумовая статуя. Она символизирует пришествие спасителя, который восстанет и поведёт клоунов к великому хонку.
+ent-StatueIronsandSmall = маленькая статуя из железного песка
+ent-StatueIronsandSmall2 = маленькая статуя из железного песка
+ent-StatueIronsandTall = высокая статуя из железного песка
+ent-StatueIronsandTall2 = высокая статуя из железного песка

@@ -24,8 +24,7 @@
     sprintModifier: 1.05
   # - type: HeldSpeedModifier
   - type: TemperatureProtection
-    heatingCoefficient: 0.1
-    coolingCoefficient: 0.1
+    coefficient: 0.1
   - type: Armor
     modifiers:
       coefficients:
@@ -58,7 +57,7 @@
     radius: 2
     energy: 2
     color: red
-    mask: /Textures/Effects/LightMasks/double_cone.png
+    lightMask: ConeDouble
   - type: RotatingLight
     speed: 360
   - type: ContainerContainer
@@ -69,7 +68,7 @@
   #   - CorgiWearable
   #   - WhitelistChameleon
   - type: GasTank
-    outputPressure: 42.6
+    releasePressure: 42.6
     air:
       # 13 minutes of thrust
       volume: 5
@@ -88,11 +87,18 @@
   components:
   - type: Sprite
     sprite: ADT/Special/Personal/lemon_paramedic_helmet.rsi
+    layers:
+    - state: icon
+    - state: icon-flash
+      visible: false
+      map: [ "light" ]
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals: {}
   - type: Clothing
     sprite: ADT/Special/Personal/lemon_paramedic_helmet.rsi
   - type: TemperatureProtection
-    heatingCoefficient: 0.1
-    coolingCoefficient: 0.1
+    coefficient: 0.1
   - type: Armor
     modifiers:
       coefficients:
@@ -136,7 +142,7 @@
     radius: 2
     energy: 2
     color: violet
-    mask: /Textures/Effects/LightMasks/double_cone.png
+    lightMask: ConeDouble
   - type: Item
     size: Large
     shape:
@@ -152,6 +158,14 @@
   components:
   - type: Sprite
     sprite: ADT/Special/Personal/rachel_hardsuit_helmet.rsi
+    layers:
+    - state: icon
+    - state: icon-flash
+      visible: false
+      map: [ "light" ]
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals: {}
   - type: Armor
     modifiers:
       coefficients:

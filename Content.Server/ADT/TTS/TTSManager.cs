@@ -39,7 +39,7 @@ public sealed class TTSManager
         "tts_circuit_open_count",
         "Amount of times the TTS circuit breaker has been opened.");
 
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
 
     private HttpClient _httpClient = default!;
     private ISawmill _sawmill = default!;

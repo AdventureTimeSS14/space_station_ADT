@@ -7,8 +7,8 @@ namespace Content.Shared.ADT.Construction;
 
 public sealed class ADTConstructionRestrictionSystem : EntitySystem
 {
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     private HashSet<string>? _recipeGraphs;
 

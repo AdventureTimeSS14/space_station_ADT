@@ -6,8 +6,8 @@
 #    price: 660
   - id: WeaponCrusher
     price: 1260
-  - id: WeaponKineticSpear
-    price: 1260
+#  - id: WeaponKineticSpear временно вырезан
+#    price: 1260
   - id: WeaponKineticHammer
     price: 1260
   - id: WeaponKineticClaws

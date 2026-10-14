@@ -25,15 +25,15 @@ namespace Content.Server.ADT.EyeControl;
 
 public sealed class EyeControlConsoleSystem : EntitySystem
 {
-    [Dependency] private readonly SharedEyeSystem _eye = default!;
-    [Dependency] private readonly SharedMoverController _mover = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly AccessReaderSystem _access = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly AreaSystem _area = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private SharedEyeSystem _eye = default!;
+    [Dependency] private SharedMoverController _mover = default!;
+    [Dependency] private SharedTransformSystem _xform = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private AccessReaderSystem _access = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private AreaSystem _area = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private SharedMapSystem _map = default!;
 
     private static readonly EntProtoId ReturnAction = "ADTActionEyeControlReturn";
 

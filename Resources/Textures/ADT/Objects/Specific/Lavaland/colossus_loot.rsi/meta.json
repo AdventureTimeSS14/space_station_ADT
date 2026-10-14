@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from ss220-space/Paradise (master220) at icons/obj/surgery.dmi and icons/obj/lavaland/artefacts.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "voice_of_god"
+        },
+        {
+            "name": "blaster_tubes"
+        }
+    ]
+}

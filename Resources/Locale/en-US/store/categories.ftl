@@ -28,3 +28,8 @@ store-caregory-spellbook-events = Event Spells
 
 # Nukie Delivery
 store-category-nukie-delivery = Offers
+
+# Changeling
+store-category-combat = Combat
+store-category-utility = Utility
+store-category-stealth = Stealth

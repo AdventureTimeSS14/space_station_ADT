@@ -5,10 +5,10 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Label
-    currentLabel: reagent-name-charcoal
-  - type: SolutionContainerManager
-    solutions:
-      beaker:
-        reagents:
-        - ReagentId: Charcoal
-          Quantity: 200
+    localizedLabel: reagent-name-charcoal
+  - type: Solution
+    solution:
+      maxVol: 200
+      reagents:
+      - ReagentId: Charcoal
+        Quantity: 200

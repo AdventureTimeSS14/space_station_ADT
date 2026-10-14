@@ -10,10 +10,9 @@ namespace Content.Shared.Nutrition.EntitySystems;
 /// <summary>
 ///     Deals with flavor profiles when you eat something.
 /// </summary>
-public sealed class FlavorProfileSystem : EntitySystem
+public sealed partial class FlavorProfileSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IConfigurationManager _configManager = default!;
+    [Dependency] private IConfigurationManager _configManager = default!;
 
     private const string BackupFlavorMessage = "flavor-profile-unknown";
 
@@ -21,7 +20,7 @@ public sealed class FlavorProfileSystem : EntitySystem
 
     public string GetLocalizedFlavorsMessage(Entity<FlavorProfileComponent?> entity, EntityUid user, Solution? solution)
     {
-        HashSet<string> flavors = new();
+        HashSet<ProtoId<FlavorPrototype>> flavors = new();
         HashSet<string>? ignore = null;
 
         if (Resolve(entity, ref entity.Comp, false))
@@ -55,17 +54,12 @@ public sealed class FlavorProfileSystem : EntitySystem
         return FlavorsToFlavorMessage(flavors);
     }
 
-    private string FlavorsToFlavorMessage(HashSet<string> flavorSet)
+    private string FlavorsToFlavorMessage(HashSet<ProtoId<FlavorPrototype>> flavorSet)
     {
-        var flavors = new List<FlavorPrototype>();
+        var flavors = new List<FlavorPrototype>(flavorSet.Count);
         foreach (var flavor in flavorSet)
         {
-            if (string.IsNullOrEmpty(flavor) || !_prototypeManager.TryIndex<FlavorPrototype>(flavor, out var flavorPrototype))
-            {
-                continue;
-            }
-
-            flavors.Add(flavorPrototype);
+            flavors.Add(ProtoMan.Index(flavor));
         }
 
         flavors.Sort((a, b) => a.FlavorType.CompareTo(b.FlavorType));
@@ -76,7 +70,7 @@ public sealed class FlavorProfileSystem : EntitySystem
         {
             foreach (ProtoId<FlavorPrototype> neutralizedProtoId in flavor.Neutralize)
             {
-                if (!_prototypeManager.TryIndex<FlavorPrototype>(neutralizedProtoId, out var neutralizedProto))
+                if (!ProtoMan.TryIndex<FlavorPrototype>(neutralizedProtoId, out var neutralizedProto)) // ADT-Tweak
                     continue;
 
                 if (!neutralized.Contains(neutralizedProto))
@@ -101,10 +95,10 @@ public sealed class FlavorProfileSystem : EntitySystem
         return Loc.GetString(BackupFlavorMessage);
     }
 
-    private HashSet<string> GetFlavorsFromReagents(Solution solution, int desiredAmount, HashSet<string>? toIgnore = null)
+    private HashSet<ProtoId<FlavorPrototype>> GetFlavorsFromReagents(Solution solution, int desiredAmount, HashSet<string>? toIgnore = null)
     {
-        var flavors = new HashSet<string>();
-        foreach (var (reagent, quantity) in solution.GetReagentPrototypes(_prototypeManager))
+        var flavors = new HashSet<ProtoId<FlavorPrototype>>();
+        foreach (var (reagent, quantity) in solution.GetReagentPrototypes(ProtoMan))
         {
             if (toIgnore != null && toIgnore.Contains(reagent.ID))
             {
@@ -123,7 +117,7 @@ public sealed class FlavorProfileSystem : EntitySystem
             }
 
             if (reagent.Flavor != null)
-                flavors.Add(reagent.Flavor);
+                flavors.Add(reagent.Flavor.Value);
         }
 
         return flavors;
@@ -132,12 +126,12 @@ public sealed class FlavorProfileSystem : EntitySystem
 
 public sealed class FlavorProfileModificationEvent : EntityEventArgs
 {
-    public FlavorProfileModificationEvent(EntityUid user, HashSet<string> flavors)
+    public FlavorProfileModificationEvent(EntityUid user, HashSet<ProtoId<FlavorPrototype>> flavors)
     {
         User = user;
         Flavors = flavors;
     }
 
     public EntityUid User { get; }
-    public HashSet<string> Flavors { get; }
+    public HashSet<ProtoId<FlavorPrototype>> Flavors { get; }
 }

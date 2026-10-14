@@ -54,13 +54,13 @@
         base:
           True: { visible: false }
           False: { visible: true }
-  - type: SolutionContainerManager
-    solutions:
-      Welder:
-        reagents:
-        - ReagentId: WeldingFuel
-          Quantity: 20
-        maxVol: 20 #uses less fuel than a welder, so this isnt as bad as it looks
+  - type: Solution
+    id: Welder
+    solution:
+      maxVol: 20
+      reagents:
+      - ReagentId: WeldingFuel
+        Quantity: 20
   - type: Welder
     fuelConsumption: 0.01
     fuelLitCost: 0.1
@@ -142,13 +142,13 @@
         base:
           True: { visible: false }
           False: { visible: true }
-  - type: SolutionContainerManager
-    solutions:
-      Welder:
-        reagents:
-        - ReagentId: WeldingFuel
-          Quantity: 32
-        maxVol: 32
+  - type: Solution
+    id: Welder
+    solution:
+      maxVol: 32
+      reagents:
+      - ReagentId: WeldingFuel
+        Quantity: 32
   - type: Welder
     fuelConsumption: 0.01
     fuelLitCost: 0.1
@@ -236,13 +236,13 @@
         base:
           True: { visible: false }
           False: { visible: true }
-  - type: SolutionContainerManager
-    solutions:
-      Welder:
-        reagents:
-        - ReagentId: WeldingFuel
-          Quantity: 20
-        maxVol: 20 #uses less fuel than a welder, so this isnt as bad as it looks
+  - type: Solution
+    id: Welder
+    solution:
+      maxVol: 20
+      reagents:
+      - ReagentId: WeldingFuel
+        Quantity: 20
   - type: Welder
     fuelConsumption: 0.01
     fuelLitCost: 0.1

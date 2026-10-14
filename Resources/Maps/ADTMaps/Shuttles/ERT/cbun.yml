@@ -7949,7 +7949,7 @@ entities:
     - type: Transform
       pos: -4.5,-19.5
       parent: 1
-    - type: VendingMachine
+    - type: ADTVendingMachine
       allForFree: True
 - proto: VendingMachineSustenance
   entities:
@@ -7970,7 +7970,7 @@ entities:
     - type: Transform
       pos: -2.5,-19.5
       parent: 1
-    - type: VendingMachine
+    - type: ADTVendingMachine
       allForFree: True
 - proto: WallWeaponCapacitorRecharger
   entities:

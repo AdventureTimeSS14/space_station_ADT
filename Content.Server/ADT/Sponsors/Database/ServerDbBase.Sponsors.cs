@@ -306,7 +306,7 @@ public abstract partial class ServerDbBase
         if (string.IsNullOrWhiteSpace(hex))
             return null;
 
-        return Color.TryFromHex(hex);
+        return Color.TryFromHex(hex, out var color) ? color : null;
     }
 
     #endregion
