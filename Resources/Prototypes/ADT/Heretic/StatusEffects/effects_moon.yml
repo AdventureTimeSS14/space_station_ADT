@@ -26,8 +26,8 @@
 - type: entity
   parent: StatusEffectBase
   id: MoonConfusedStatusEffect
-  name: ent-MoonConfusedStatusEffect
-  description: ent-MoonConfusedStatusEffect-desc
+  name: moon confusion
+  description: Your senses betray you.
   components:
   - type: StatusEffectAlert
     alert: MoonConfused

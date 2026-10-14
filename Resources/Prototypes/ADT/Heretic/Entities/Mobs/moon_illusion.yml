@@ -1,8 +1,8 @@
 - type: entity
   parent: MobGhoulStalker
   id: MobMoonIllusion
-  name: ent-MobMoonIllusion
-  description: ent-MobMoonIllusion-desc
+  name: ringleader echo
+  description: A shimmering echo of the ringleader.
   categories: [ HideSpawnMenu ]
   components:
   - type: TimedDespawn

@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseMobGhoul
   id: MobGhoulMirrorMaid
-  name: ent-MobGhoulMirrorMaid
-  description: ent-MobGhoulMirrorMaid-desc
+  name: maid in the mirror
+  description: A floating and flowing wisp of chilled air. Glancing at it causes it to shimmer slightly.
   components:
   - type: Ghoul
     totalHealth: 80
@@ -32,8 +32,8 @@
 - type: entity
   parent: BaseMobGhoul
   id: MobGhoulAshSpirit
-  name: ent-MobGhoulAshSpirit
-  description: ent-MobGhoulAshSpirit-desc
+  name: ash spirit
+  description: A manifestation of ash, trailing a perpetual cloud of short-lived cinders.
   components:
   - type: Ghoul
     totalHealth: 75
@@ -58,9 +58,13 @@
     - ActionHereticJauntLong
 
 - type: entity
-  parent: OrganBaseOrganic
+  parent:
+  - OrganBaseOrganic
+  - OrganBaseParent
+  - OrganBaseChildExternal
   id: HereticOrganShatteredTorso
-  name: ent-HereticOrganShatteredTorso
+  name: shattered torso
+  description: A torso of blue glass shot through with a dark, frozen light. It still twitches.
   components:
   - type: Organ
     category: Torso
@@ -74,9 +78,13 @@
       state: torso
 
 - type: entity
-  parent: OrganBaseOrganic
+  parent:
+  - OrganBaseOrganic
+  - OrganBaseParent
+  - OrganBaseChildExternal
   id: HereticOrganShatteredHead
-  name: ent-HereticOrganShatteredHead
+  name: shattered head
+  description: A head of blue glass, cracked down the middle, holding a face that is almost a face.
   components:
   - type: Organ
     category: Head
@@ -90,9 +98,13 @@
       state: head
 
 - type: entity
-  parent: OrganBaseOrganic
+  parent:
+  - OrganBaseOrganic
+  - OrganBaseParent
+  - OrganBaseChildExternal
   id: HereticOrganShatteredArmLeft
-  name: ent-HereticOrganShatteredArmLeft
+  name: shattered left arm
+  description: A long arm of blue glass ending in a nest of blades.
   components:
   - type: Organ
     category: ArmLeft
@@ -106,9 +118,13 @@
       state: l_arm
 
 - type: entity
-  parent: OrganBaseOrganic
+  parent:
+  - OrganBaseOrganic
+  - OrganBaseParent
+  - OrganBaseChildExternal
   id: HereticOrganShatteredArmRight
-  name: ent-HereticOrganShatteredArmRight
+  name: shattered right arm
+  description: A long arm of blue glass ending in a nest of blades.
   components:
   - type: Organ
     category: ArmRight
@@ -122,12 +138,19 @@
       state: r_arm
 
 - type: entity
-  parent: OrganBaseOrganic
+  parent:
+  - OrganBaseOrganic
+  - OrganBaseChildExternal
   id: HereticOrganShatteredHandLeft
-  name: ent-HereticOrganShatteredHandLeft
+  name: shattered left hand
+  description: A glass hand, fingers like needles.
   components:
   - type: Organ
     category: HandLeft
+  - type: HandOrgan
+    handID: left
+    data:
+      location: Left
   - type: Sprite
     sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
     state: l_hand
@@ -138,12 +161,19 @@
       state: l_hand
 
 - type: entity
-  parent: OrganBaseOrganic
+  parent:
+  - OrganBaseOrganic
+  - OrganBaseChildExternal
   id: HereticOrganShatteredHandRight
-  name: ent-HereticOrganShatteredHandRight
+  name: shattered right hand
+  description: A glass hand, fingers like needles.
   components:
   - type: Organ
     category: HandRight
+  - type: HandOrgan
+    handID: right
+    data:
+      location: Right
   - type: Sprite
     sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
     state: r_hand
@@ -154,9 +184,13 @@
       state: r_hand
 
 - type: entity
-  parent: OrganBaseOrganic
+  parent:
+  - OrganBaseOrganic
+  - OrganBaseParent
+  - OrganBaseChildExternal
   id: HereticOrganShatteredLegLeft
-  name: ent-HereticOrganShatteredLegLeft
+  name: shattered left leg
+  description: A glass leg, still strong enough to hold a body up.
   components:
   - type: Organ
     category: LegLeft
@@ -170,9 +204,13 @@
       state: l_leg
 
 - type: entity
-  parent: OrganBaseOrganic
+  parent:
+  - OrganBaseOrganic
+  - OrganBaseParent
+  - OrganBaseChildExternal
   id: HereticOrganShatteredLegRight
-  name: ent-HereticOrganShatteredLegRight
+  name: shattered right leg
+  description: A glass leg, still strong enough to hold a body up.
   components:
   - type: Organ
     category: LegRight
@@ -186,9 +224,12 @@
       state: r_leg
 
 - type: entity
-  parent: OrganBaseOrganic
+  parent:
+  - OrganBaseOrganic
+  - OrganBaseChildExternal
   id: HereticOrganShatteredFootLeft
-  name: ent-HereticOrganShatteredFootLeft
+  name: shattered left foot
+  description: A foot of glass, leaving slivers wherever it walks.
   components:
   - type: Organ
     category: FootLeft
@@ -202,9 +243,12 @@
       state: l_foot
 
 - type: entity
-  parent: OrganBaseOrganic
+  parent:
+  - OrganBaseOrganic
+  - OrganBaseChildExternal
   id: HereticOrganShatteredFootRight
-  name: ent-HereticOrganShatteredFootRight
+  name: shattered right foot
+  description: A foot of glass, leaving slivers wherever it walks.
   components:
   - type: Organ
     category: FootRight
@@ -220,8 +264,8 @@
 - type: entity
   parent: [BaseMobGhoul, BaseSpeciesAppearance]
   id: MobShatteredRisen
-  name: ent-MobShatteredRisen
-  description: ent-MobShatteredRisen-desc
+  name: shattered risen
+  description: A corpse dragged back to near-life by a cold, rending force. Its hands are brutal nests of sharp bone-shards.
   components:
   - type: Ghoul
     totalHealth: 250

@@ -1,8 +1,8 @@
 - type: entity
   id: ADTClothingOuterArmorHereticMoon
   parent: ClothingOuterArmorHeretic
-  name: ent-ADTClothingOuterArmorHereticMoon
-  description: ent-ADTClothingOuterArmorHereticMoon-desc
+  name: resplendent heretic robe
+  description: An opulent garb that twists the sight. While worn, all damage you take is turned into harm to the mind instead, and no weapon, cage or crowd can hold you still.
   components:
   - type: Sprite
     sprite: ADT/Heretic/Clothing/OuterClothing/moon_armor.rsi

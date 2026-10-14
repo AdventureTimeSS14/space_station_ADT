@@ -1,16 +1,16 @@
 - type: entity
   parent: Mirror
   id: HereticMiraculousMirror
-  name: ent-HereticMiraculousMirror
-  description: ent-HereticMiraculousMirror-desc
+  name: miraculous mirror
+  description: A silvered mirror that shows more than your reflection.
   components:
   - type: HereticMiraculousMirror
 
 - type: entity
   parent: BaseWallmount
   id: HereticPaintingWeeping
-  name: ent-HereticPaintingWeeping
-  description: ent-HereticPaintingWeeping-desc
+  name: the sister and he who wept
+  description: A weeping painting that clears the mind of the faithful and curses heathens with visions.
   components:
   - type: Sprite
     sprite: Structures/Wallmounts/paintings.rsi
@@ -27,8 +27,8 @@
 - type: entity
   parent: BaseWallmount
   id: HereticPaintingDesire
-  name: ent-HereticPaintingDesire
-  description: ent-HereticPaintingDesire-desc
+  name: the feast of desire
+  description: A hungry painting that feeds the faithful and starves heathens.
   components:
   - type: Sprite
     sprite: Structures/Wallmounts/paintings.rsi
@@ -45,8 +45,8 @@
 - type: entity
   parent: BaseWallmount
   id: HereticPaintingVines
-  name: ent-HereticPaintingVines
-  description: ent-HereticPaintingVines-desc
+  name: great chaparral over rolling hills
+  description: A green painting that slows heathens who linger near it.
   components:
   - type: Sprite
     sprite: Structures/Wallmounts/paintings.rsi
@@ -63,8 +63,8 @@
 - type: entity
   parent: BaseWallmount
   id: HereticPaintingBeauty
-  name: ent-HereticPaintingBeauty
-  description: ent-HereticPaintingBeauty-desc
+  name: lady of the gate
+  description: A beautiful painting that steals the words of heathens.
   components:
   - type: Sprite
     sprite: Structures/Wallmounts/paintings.rsi
@@ -81,8 +81,8 @@
 - type: entity
   parent: BaseWallmount
   id: HereticPaintingRust
-  name: ent-HereticPaintingRust
-  description: ent-HereticPaintingRust-desc
+  name: master of the rusted mountain
+  description: A rusted painting that corrodes the floor heathens walk on.
   components:
   - type: Sprite
     sprite: Structures/Wallmounts/paintings.rsi
@@ -99,8 +99,8 @@
 - type: entity
   parent: BaseStructureDynamic
   id: HereticMansusGate
-  name: ent-HereticMansusGate
-  description: ent-HereticMansusGate-desc
+  name: mansus gate
+  description: A paired gate to the Mansus. Only the faithful, the dead, or the willing may pass.
   categories: [ HideSpawnMenu ]
   placement:
     mode: SnapgridCenter

@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseBullet
   id: ProjectileLunarParade
-  name: ent-ProjectileLunarParade
-  description: ent-ProjectileLunarParade-desc
+  name: lunar parade
+  description: Join the parade.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

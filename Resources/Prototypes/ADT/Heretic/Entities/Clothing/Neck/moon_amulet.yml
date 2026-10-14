@@ -1,8 +1,8 @@
 - type: entity
   parent: [ ClothingNeckBase, BaseMagicContraband ]
   id: HereticMoonAmulet
-  name: ent-HereticMoonAmulet
-  description: ent-HereticMoonAmulet-desc
+  name: moonlight amulet
+  description: A piece of the mind, the soul and the moon.
   components:
   - type: HereticMagicItem
   - type: Sprite

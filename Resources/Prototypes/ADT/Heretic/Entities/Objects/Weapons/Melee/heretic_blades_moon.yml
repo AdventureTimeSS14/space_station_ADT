@@ -1,8 +1,8 @@
 - type: entity
   parent: HereticBladeBase
   id: HereticBladeMoon
-  name: ent-HereticBladeMoon
-  description: ent-HereticBladeMoon-desc
+  name: moon blade
+  description: A blade of iron, reflecting the truth of the earth.
   suffix: Moon
   components:
   - type: HereticBlade

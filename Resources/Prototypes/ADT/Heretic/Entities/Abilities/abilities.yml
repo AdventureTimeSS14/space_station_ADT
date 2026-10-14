@@ -255,8 +255,8 @@
 - type: entity
   parent: HereticPaleFog
   id: HereticPaleFogMoon
-  name: ent-HereticPaleFogMoon
-  description: ent-HereticPaleFogMoon-desc
+  name: pale fog
+  description: Something is there...
   components:
   - type: TileEntityEffect
     effects:
