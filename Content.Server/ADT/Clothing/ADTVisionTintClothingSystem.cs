@@ -1,8 +1,9 @@
+using Content.Shared.ADT.Clothing;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Item.ItemToggle.Components;
 
-namespace Content.Shared.ADT.Clothing;
+namespace Content.Server.ADT.Clothing;
 
 /// <summary>
 /// Связывает состояние <c>ItemToggle</c> с носителем: окраска живёт на игроке,
