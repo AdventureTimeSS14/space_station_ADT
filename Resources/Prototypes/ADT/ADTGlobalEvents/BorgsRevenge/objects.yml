@@ -381,7 +381,7 @@
   - type: AnimatedEmotes
   - type: Posing
   - type: SoftWalk
-  - type: AIRemoteController
+  - type: AiRemoteController
 
 - type: startingGear
   id: SyndicateReinforcementMedic
