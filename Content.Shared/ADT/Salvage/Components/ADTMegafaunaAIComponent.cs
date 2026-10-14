@@ -23,6 +23,24 @@ public sealed partial class ADTMegafaunaAIComponent : Component
     public bool RangedWhenAdjacent;
 
     [DataField]
+    public bool AdjacentOnlyOnGrid;
+
+    [DataField]
+    public bool DecideWhileInactive = true;
+
+    [DataField]
+    public bool TargetAggressor = true;
+
+    [DataField]
+    public bool HandleMelee = true;
+
+    [ViewVariables]
+    public EntityUid? ManualTarget;
+
+    [ViewVariables]
+    public EntityUid? LastTarget;
+
+    [DataField]
     public float AngerDamageDivisor = 50f;
 
     [DataField]

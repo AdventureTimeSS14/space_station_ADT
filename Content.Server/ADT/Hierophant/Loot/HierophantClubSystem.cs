@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Server.ADT.Hierophant.Effects;
+using Content.Server.ADT.Salvage.Systems;
 using Content.Shared.ADT.Hierophant;
 using Content.Shared.ADT.Hierophant.Effects;
 using Content.Shared.ADT.Hierophant.Loot;
@@ -117,7 +118,7 @@ public sealed class HierophantClubSystem : EntitySystem
 
         var range = GetBlastRange(ent, user);
 
-        foreach (var dir in HierophantAttacksSystem.Cardinals)
+        foreach (var dir in ADTMegafaunaGeometry.Cardinals)
         {
             for (var i = 1; i <= range; i++)
             {
