@@ -1,11 +1,11 @@
-#Base
+﻿#Base
 
 - type: entity
   abstract: true
   parent: UnsensoredClothingUniformBase
   id: ADTShipBattleClothingUniformBase
   components:
-  - type: SuitSensor
+  - type: ADTSuitSensor
   # ADT-Tweak Start - New Monitor: Deprecated
   # - type: DeviceNetwork
   #   deviceNetId: Wireless

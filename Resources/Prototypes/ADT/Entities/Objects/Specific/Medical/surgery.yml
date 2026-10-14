@@ -3,7 +3,6 @@
   id: ADTSawImprovised
   name: improvised saw
   components:
-  - type: Sharp
   - type: Utensil
     types:
       - Knife
@@ -15,6 +14,7 @@
     sprite: ADT/Objects/Specific/Medical/Surgery/improvised_saw.rsi
   - type: Tool
     qualities:
+      - Slicing
       - Sawing
     speedModifier: 0.25
   - type: Construction

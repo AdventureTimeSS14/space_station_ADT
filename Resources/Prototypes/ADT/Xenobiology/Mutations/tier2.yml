@@ -39,8 +39,6 @@
   id: SilverMutation
   producedExtract: SilverSlimeExtract
   slimeColor: "#c4c4c4"
-  shouldHaveShader: true
-  shader: XenoMetallic
   maxOffspring: 4
   mutationChance: 0.45
   potentialMutations:
@@ -54,8 +52,6 @@
   id: BluespaceMutation
   producedExtract: BluespaceSlimeExtract
   slimeColor: "#f0f8ff"
-  shouldHaveShader: true
-  shader: XenoBluespace
   maxOffspring: 4
   mutationChance: 0.45
   potentialMutations:
@@ -66,8 +62,6 @@
   id: SepiaMutation
   producedExtract: SepiaSlimeExtract
   slimeColor: "#704214"
-  shouldHaveShader: true
-  shader: XenoSepia
   maxOffspring: 4
   mutationChance: 0.45
   potentialMutations:
@@ -88,8 +82,6 @@
   id: PyriteMutation
   producedExtract: PyriteSlimeExtract
   slimeColor: "#dcaa4f"
-  shouldHaveShader: true
-  shader: XenoMetallic
   maxOffspring: 4
   mutationChance: 0.45
   potentialMutations:

@@ -1,6 +1,8 @@
 using System.Linq;
 using Content.Shared.ADT.AshWalker.Components;
 using Content.Shared.ADT.Rituals;
+using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 using Content.Shared.Humanoid;
 using Robust.Shared.Random;
 
@@ -52,7 +54,7 @@ public sealed partial class ADTRitualSystem
             if (Transform(uid).MapID != map)
                 continue;
 
-            if (_mobState.IsDead(uid))
+            if (_mobState.IsDead(uid) || HasComp<GhostComponent>(uid))
                 continue;
 
             if (HasComp<ADTAshWalkerComponent>(uid) != tribe)
@@ -76,6 +78,9 @@ public sealed partial class ADTRitualSystem
 
         foreach (var found in nearby)
         {
+            if (HasComp<GhostComponent>(found))
+                continue;
+
             result.Add(found.Owner);
         }
 

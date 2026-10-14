@@ -123,8 +123,13 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      110: Critical
+      110: SoftCritical
+      165: Critical
       220: Dead
+  - type: SoftCrit
+    speedModifier: 0.25
+  - type: TryCatchBreath
+    doAfterTime: 8
   - type: Barotrauma
     damage:
       types:
@@ -163,7 +168,7 @@
     bloodReferenceSolution:
       reagents:
       - ReagentId: Cryoxadone
-        Quantity: 400
+        Quantity: 800
     bloodlossDamage:
       types:
         Bloodloss: 0.8
@@ -171,8 +176,8 @@
     baseWalkSpeed : 2.5
     baseSprintSpeed : 4.2
   - type: Temperature
-    currentTemperature: 265.15 # -8C - нормальная температура тела
-    specificHeat: 42
+    temperature: 265.15 # -8C - нормальная температура тела
+    specificHeat: 2520
   - type: TemperatureDamage
     heatDamageThreshold: 308.15 # 35C
     coldDamageThreshold: 265.15 # -8C - порог когда активируется coldDamage с лечением.
@@ -182,7 +187,7 @@
         Blunt: -0.25
         Slash: -0.2
         Piercing: -0.2
-        Heat: -0.05
+        Heat: -0.03
         Shock: -0.1
         Caustic: -0.05
         Radiation: -0.1
@@ -230,10 +235,7 @@
     interactSuccessSound: /Audio/Effects/thudswoosh.ogg
     messagePerceivedByOthers: hugging-success-generic-others
   - type: Vocal
-    sounds:
-      Male: MaleDrask
-      Female: FemaleDrask
-      Unsexed: MaleDrask
+    emoteSounds: MaleDrask
   - type: Damageable
     damageModifierSet: Drask
   - type: Injurable

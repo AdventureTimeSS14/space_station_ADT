@@ -43,6 +43,6 @@ public sealed class ADTLowPressureInjectorSystem : ADTSharedLowPressureInjectorS
         if (args.HitEntities.Count == 0)
             return;
 
-        args.HitEntities = Array.Empty<EntityUid>();
+        args.HitEntities = new HashSet<EntityUid>();
     }
 }

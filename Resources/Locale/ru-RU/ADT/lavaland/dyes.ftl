@@ -1,4 +1,4 @@
-adt-mortar-grind-start = Вы начали толочь селезёнку в ступке.
+adt-mortar-grind-start = Вы начали толочь селезёнку в грибной миске.
 adt-mortar-paint-start = Вы начинаете наносить краску на { $target }.
 adt-mortar-paint-body = { $target }: на тело нанесена краска.
 adt-mortar-paint-totem = На { $target } нанесена краска.
@@ -96,10 +96,14 @@ adt-grace-empty = От постамента остаётся лишь одно �
 adt-grace-examine = На постаменте ещё { $portions } порций мяса.
 
 adt-point-of-interest-ash-statue = пепельный тотем
+adt-point-of-interest-ash-village = логово пеплоходцев
+adt-point-of-interest-world-anvil = мировая кузня
 
 construction-graph-tag-adt-bone-axe = костяной топор
 construction-graph-tag-adt-saw-blade = лезвие дисковой пилы
 
+adt-cooking-scroll-window-title = Свиток готовки
+adt-cooking-scroll-search = Поиск блюда или ингредиента...
 adt-cooking-scroll-content =
     Как прокормить племя:
     Мясо голиафа и мягкое мясо лавовых рыб жарится на племенной печи.
@@ -112,6 +116,10 @@ ent-ADTNecropolisGate = врата некрополя
     .desc = Огромные каменные врата, украшенные древними письменами.
 ent-ADTNecropolisGateAshWalker = врата некрополя
     .desc = Массивные каменные врата. Кажется, они намертво запечатаны.
+ent-ADTNecropolisGateLegion = врата некрополя
+    .desc = Массивные, внушительные врата, расположенные внутри высокой каменной башни.
+ent-ADTNecropolisGateLocked = врата некрополя
+    .desc = { ent-ADTNecropolisGate.desc }
 ent-ADTNecropolisArch = арка некрополя
     .desc = Массивная арка над вратами Некрополя, вставленная в массивную каменную башню.
 ent-ADTTribalOven = каменная печь

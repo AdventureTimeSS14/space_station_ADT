@@ -55,6 +55,7 @@
     - Vox
     - KoboltSpecies
     - DemonSpecies
+    - CelecernSpecies
     - NovakidSpecies
     - TajaranSpecies
     - UrsusSpecies
@@ -526,6 +527,7 @@
     - Vox
     - KoboltSpecies
     - DemonSpecies
+    - CelecernSpecies
     - NovakidSpecies
     - TajaranSpecies
     - UrsusSpecies
@@ -578,6 +580,7 @@
     - Vox
     - KoboltSpecies
     - DemonSpecies
+    - CelecernSpecies
     - NovakidSpecies
     - TajaranSpecies
     - UrsusSpecies
@@ -615,7 +618,10 @@
       sprite: Mobs/Species/Human/parts.rsi
       state: full
     - type: RandomMetadata
-      nameSegments: [ NamesDeathCommando ]
+      nameSegments:
+      - NamesDeathCommandoFirst
+      - NamesDeathCommandoLast
+      nameFormat: name-format-standard
     - type: RandomHumanoidSpawner
       settings: SyndicateAgent
 

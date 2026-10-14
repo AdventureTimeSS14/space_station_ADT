@@ -15,9 +15,9 @@ namespace Content.Server.ADT.Salvage.Systems;
 
 public sealed partial class MegafaunaSystem
 {
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly NPCSystem _npc = default!;
-    [Dependency] private readonly NpcFactionSystem _faction = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private NPCSystem _npc = default!;
+    [Dependency] private NpcFactionSystem _faction = default!;
 
     private const string TargetKey = "Target";
     private const string TargetCoordinatesKey = "TargetCoordinates";
@@ -34,12 +34,8 @@ public sealed partial class MegafaunaSystem
         SubscribeLocalEvent<MegafaunaComponent, DamageChangedEvent>(OnMegafaunaDamaged);
     }
 
-    public override void Update(float frameTime)
+    private void UpdateAggro(TimeSpan now)
     {
-        base.Update(frameTime);
-
-        var now = _timing.CurTime;
-
         if (now < _nextAggroUpdate)
             return;
 

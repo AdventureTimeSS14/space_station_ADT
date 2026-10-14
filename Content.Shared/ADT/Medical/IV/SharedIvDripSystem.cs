@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Shared.ADT.Silicon;
+using Content.Shared.Ghost.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.Components;
@@ -20,14 +21,14 @@ namespace Content.Shared.ADT.Medical.IV;
 
 public abstract class SharedIvDripSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _containers = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private SharedContainerSystem _containers = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -184,10 +185,7 @@ public abstract class SharedIvDripSystem : EntitySystem
 
     private void OnBloodPackMapInitEvent(Entity<BloodPackComponent> pack, ref MapInitEvent args)
     {
-        if (!TryComp<SolutionContainerManagerComponent>(pack, out var solMan))
-            return;
-
-        if (!_solutionContainer.TryGetSolution(solMan, pack.Comp.Solution, out var packSolution))
+        if (!_solutionContainer.TryGetSolution(pack.Owner, pack.Comp.Solution, out _, out var packSolution))
             return;
 
         UpdatePackVisuals(pack, packSolution);

@@ -26,14 +26,17 @@
     openState: sabre_tsf-open
     brokenState: sabre_tsf-broken
     mechToPilotDamageMultiplier: 0.0
-    pilotWhitelist:
-      components:
-        - HumanoidProfile
     equipmentWhitelist:
       tags:
       - ADTMechEquipmentGeneral
       - ADTMechEquipmentShuttleGun
     maxEquipmentAmount: 3
+  - type: Vehicle
+    operatorWhitelist:
+      components:
+        - HumanoidProfile
+  - type: VehicleHandBlocker
+    blockedHands: 2
   - type: Storage
     grid:
     - 0,0,6,3
@@ -137,11 +140,14 @@
     openState: sabre_kmt-open
     brokenState: sabre_kmt-broken
     mechToPilotDamageMultiplier: 0.0
-    pilotWhitelist:
-      components:
-        - HumanoidProfile
     equipmentWhitelist:
       tags:
       - ADTMechEquipmentGeneral
       - ADTMechEquipmentShuttleGun
     maxEquipmentAmount: 3
+  - type: Vehicle
+    operatorWhitelist:
+      components:
+        - HumanoidProfile
+  - type: VehicleHandBlocker
+    blockedHands: 2

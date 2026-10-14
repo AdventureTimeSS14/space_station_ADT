@@ -4,6 +4,7 @@ using Content.Shared.ADT.Mind;
 using Content.IntegrationTests.Pair;
 using Content.Server.GameTicking;
 using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Robust.Server.Player;

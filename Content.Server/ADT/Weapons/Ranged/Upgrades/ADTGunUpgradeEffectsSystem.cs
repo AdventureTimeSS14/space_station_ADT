@@ -2,8 +2,8 @@ using System.Linq;
 using Content.Server.ADT.Mining;
 using Content.Server.ADT.Mining.Resonator;
 using Content.Server.ADT.PressureDamageModify;
-using Content.Server.Gatherable;
-using Content.Server.Gatherable.Components;
+using Content.Shared.Gatherable;
+using Content.Shared.Gatherable.Components;
 using Content.Shared.ADT.Salvage.Components;
 using Content.Shared.ADT.Weapons.KineticCooldown;
 using Content.Shared.ADT.Weapons.Ranged.Upgrades;
@@ -24,16 +24,16 @@ namespace Content.Server.ADT.Weapons.Ranged.Upgrades;
 
 public sealed class ADTGunUpgradeEffectsSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly GatherableSystem _gatherable = default!;
-    [Dependency] private readonly ADTHardRockSystem _hardRock = default!;
-    [Dependency] private readonly ADTKineticCooldownSystem _cooldown = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly ADTResonatorSystem _resonator = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private GatherableSystem _gatherable = default!;
+    [Dependency] private ADTHardRockSystem _hardRock = default!;
+    [Dependency] private ADTKineticCooldownSystem _cooldown = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private ADTResonatorSystem _resonator = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -201,7 +201,7 @@ public sealed class ADTGunUpgradeEffectsSystem : EntitySystem
                 if (gatherable.Owner == args.Target || TerminatingOrDeleted(gatherable) || _hardRock.IsHardRock(gatherable))
                     continue;
 
-                _gatherable.Gather(gatherable, args.Shooter, gatherable.Comp);
+                _gatherable.Gather(gatherable.AsNullable(), args.Shooter);
             }
         }
 

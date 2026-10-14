@@ -95,8 +95,11 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      85: Critical
+      85: SoftCritical
+      132: Critical
       180: Dead
+  - type: SoftCrit
+    speedModifier: 0.40
   - type: Damageable
     damageModifierSet: Kobalt
   - type: PassiveDamage # Slight passive regen. Assuming one damage type, comes out to about 4 damage a minute.
@@ -113,7 +116,7 @@
     bloodReferenceSolution:
       reagents:
       - ReagentId: ADTCorelanderBlood
-        Quantity: 175
+        Quantity: 350
   - type: MeleeWeapon
     hidden: true
     soundHit:
@@ -124,8 +127,8 @@
       types:
         Piercing: 5
   - type: Temperature
-    currentTemperature: 310.15
-    specificHeat: 46
+    temperature: 310.15
+    specificHeat: 2760
   - type: TemperatureDamage
     heatDamageThreshold: 380
     coldDamageThreshold: 260  #starting temperature damage treshold

@@ -244,4 +244,3 @@ ent-ADTIntendantIDCard = ID карта интенданта
 
 ent-ADTPassagerRDIDCard = ID карта научного руководителя
         .desc = ID карта научного руководителя.
-
