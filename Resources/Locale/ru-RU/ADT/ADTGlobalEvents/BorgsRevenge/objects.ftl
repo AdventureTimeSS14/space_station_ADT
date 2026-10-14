@@ -11,6 +11,10 @@ ent-DoorElectronicsAI = { ent-DoorElectronics }
     .desc = { ent-DoorElectronics.desc }
 ent-MobIPCEvent = КПБ
     .desc = { ent-AppearanceMoth.desc }
+    .suffix = Управляемый ИИ
+ent-MobIPCEventCombat = КПБ
+    .desc = { ent-AppearanceMoth.desc }
+    .suffix = Управляемый ИИ
 ent-ADTCyborgPDA = КПК киборга
     .desc = Пахнет машинным маслом.
 
