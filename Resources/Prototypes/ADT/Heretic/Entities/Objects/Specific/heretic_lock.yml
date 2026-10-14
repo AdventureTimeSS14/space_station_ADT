@@ -85,9 +85,7 @@
   components:
   - type: TimedDespawn
     lifetime: 15
-  - type: Tag
-    tags:
-    - Wall
+  - type: Wall
   - type: Physics
     bodyType: Static
   - type: Fixtures
