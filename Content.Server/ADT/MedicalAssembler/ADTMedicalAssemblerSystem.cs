@@ -10,6 +10,7 @@ using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.FixedPoint;
 using Content.Shared.Kitchen;
+using Content.Shared.Popups;
 using Content.Shared.Research.Systems;
 using Content.Shared.UserInterface;
 using Robust.Shared.Audio;
@@ -26,6 +27,7 @@ public sealed class ADTMedicalAssemblerSystem : EntitySystem
     [Dependency] private PowerReceiverSystem _power = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private SharedResearchSystem _research = default!;
     [Dependency] private SharedSolutionContainerSystem _solution = default!;
     [Dependency] private SharedUserInterfaceSystem _ui = default!;
@@ -183,6 +185,24 @@ public sealed class ADTMedicalAssemblerSystem : EntitySystem
             if (beakerSolution.GetTotalPrototypeQuantity(reagentId) < quantity)
                 return;
         }
+
+        EntityUid? blank = null;
+        if (ent.Comp.CustomBlankPrototype is { } blankProto)
+        {
+            if (!_container.TryGetContainer(ent.Owner, ADTMedicalAssemblerComponent.MaterialsContainerId, out var storage))
+                return;
+
+            blank = storage.ContainedEntities.FirstOrDefault(item =>
+                !EntityManager.IsQueuedForDeletion(item) && GetPrototypeId(item) == blankProto.Id);
+            if (blank is not { Valid: true })
+            {
+                _popup.PopupEntity(Loc.GetString("medical-assembler-custom-no-blank"), ent, msg.Actor);
+                return;
+            }
+        }
+
+        if (blank is { } blankItem)
+            QueueDel(blankItem);
 
         foreach (var (reagentId, quantity) in reagents)
             _solution.RemoveReagent(beakerSolEnt.Value, reagentId, quantity);

@@ -56,6 +56,12 @@ public sealed class ADTScaledSpritePixelSnapSystem : EntitySystem
         var viewPosition = eye.Position.Position + eye.Offset;
         var viewRotation = eye.Rotation;
 
+        if (!IsFinite(viewScale) || viewScale.X == 0f || viewScale.Y == 0f)
+        {
+            RestoreAll();
+            return;
+        }
+
         var query = EntityQueryEnumerator<InputMoverComponent, SpriteComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out _, out var sprite, out var xform))
         {
@@ -86,6 +92,14 @@ public sealed class ADTScaledSpritePixelSnapSystem : EntitySystem
                 ? viewRotation.RotateVec(snap)
                 : (-worldRot).RotateVec(snap);
 
+            if (!IsFinite(applied) || !IsFinite(baseOffset))
+            {
+                if (hadState && sprite.Offset == state.Expected)
+                    _sprite.SetOffset((uid, sprite), baseOffset);
+
+                continue;
+            }
+
             var expected = baseOffset + applied;
             if (sprite.Offset != expected)
                 _sprite.SetOffset((uid, sprite), expected);
@@ -106,6 +120,11 @@ public sealed class ADTScaledSpritePixelSnapSystem : EntitySystem
         }
 
         _states.Clear();
+    }
+
+    private static bool IsFinite(Vector2 value)
+    {
+        return float.IsFinite(value.X) && float.IsFinite(value.Y);
     }
 
     private static Vector2 GetPixelSnapOffset(

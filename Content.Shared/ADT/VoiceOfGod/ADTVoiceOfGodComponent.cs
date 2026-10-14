@@ -26,6 +26,9 @@ public sealed partial class ADTVoiceOfGodComponent : Component
     public float BaseMultiplier = 1f;
 
     [DataField]
+    public List<ADTVoiceOfGodPowerModifier> PowerModifiers = new();
+
+    [DataField]
     public TimeSpan CooldownStun = TimeSpan.FromSeconds(120);
 
     [DataField]
@@ -41,13 +44,20 @@ public sealed partial class ADTVoiceOfGodComponent : Component
     public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/ADT/Colossus/invoke_general.ogg", AudioParams.Default.WithVolume(8f).WithMaxDistance(20f));
 
     [DataField]
-    public SoundSpecifier HonkSound = new SoundPathSpecifier("/Audio/Items/bikehorn.ogg", AudioParams.Default.WithVolume(8f));
-
-    [DataField]
     public Color SpeechColor = Color.FromHex("#80282A");
 
     [ViewVariables]
     public TimeSpan NextCommand;
+
+    [ViewVariables]
+    public bool Active;
+}
+
+[RegisterComponent]
+public sealed partial class ADTVoiceOfGodSpeakerComponent : Component
+{
+    [ViewVariables]
+    public EntityUid Organ;
 }
 
 public sealed partial class ADTVoiceOfGodActionEvent : InstantActionEvent;
