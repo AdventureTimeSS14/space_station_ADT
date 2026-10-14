@@ -46,7 +46,7 @@
 # cyborg
 
 - type: entity
-  parent: ADTBasePDA
+  parent: PassengerPDA
   id: ADTCyborgPDA
   name: cyborg PDA
   components:
