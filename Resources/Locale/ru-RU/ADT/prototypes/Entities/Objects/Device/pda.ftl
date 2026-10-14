@@ -229,5 +229,3 @@ ent-ADTIntendantPDA = КПК интенданта
 
 ent-XenobioPDA = КПК ксенобиолога
     .desc = { ent-SciencePDA.desc }
-
-

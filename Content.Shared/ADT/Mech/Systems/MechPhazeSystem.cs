@@ -15,10 +15,10 @@ namespace Content.Shared.Mech.EntitySystems;
 /// </summary>
 public sealed class MechPhazeSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedMechSystem _mech = default!;
-    [Dependency] private readonly INetManager _netMan = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedMechSystem _mech = default!;
+    [Dependency] private INetManager _netMan = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {

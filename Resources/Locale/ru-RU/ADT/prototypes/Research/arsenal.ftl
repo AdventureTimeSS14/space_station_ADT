@@ -8,3 +8,5 @@ research-technology-modules-based = Базовые оружейные модул
 research-technology-modules-extended = Продвинутые оружейные модули
 
 research-technology-advanced-kinetic-modifications = Продвинутые кинетические модификации
+
+research-technology-firing-pins = Боевые пины

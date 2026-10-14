@@ -12,7 +12,7 @@ namespace Content.Client.ADT.CartridgeLoader.Cartridges;
 [GenerateTypedNameReferences]
 public sealed partial class NanoChatUiFragment : BoxContainer
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private readonly NewChatPopup _newChatPopup;
     private uint? _currentChat;
@@ -77,12 +77,11 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         LookupButton.OnPressed += _ => ToggleView();
         LookupView.OnStartChat += contact =>
         {
-            if (OnMessageSent is { } handler)
-            {
-                handler(NanoChatUiMessageType.NewChat, contact.Number, contact.Name, contact.JobTitle);
-                SelectChat(contact.Number);
-                ToggleView();
-            }
+            if (!_recipients.ContainsKey(contact.Number))
+                OnMessageSent?.Invoke(NanoChatUiMessageType.NewChat, contact.Number, contact.Name, contact.JobTitle);
+
+            SelectChat(contact.Number);
+            ToggleView();
         };
         ListNumberButton.OnPressed += _ =>
         {
@@ -101,6 +100,9 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         ChatView.Visible = !ChatView.Visible;
         LookupView.Visible = !ChatView.Visible;
         LookupButton.Pressed = LookupView.Visible;
+
+        if (LookupView.Visible)
+            LookupView.FocusSearch();
     }
 
     private void SendMessage()

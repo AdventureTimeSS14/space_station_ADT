@@ -1,9 +1,8 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.ADT.Salvage.Systems;
-using Content.Server.NPC.HTN;
-using Content.Server.NPC.Systems;
 using Content.Shared.ADT.Hierophant;
 using Content.Shared.ADT.Hierophant.Effects;
+using Content.Shared.ADT.Salvage.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs.Components;
@@ -26,15 +25,14 @@ public enum HierophantMajorAttack : byte
 
 public sealed class HierophantCombatSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly HierophantAttacksSystem _attacks = default!;
-    [Dependency] private readonly HierophantSystem _hierophant = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly MegafaunaSystem _megafauna = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly NPCSystem _npc = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private HierophantAttacksSystem _attacks = default!;
+    [Dependency] private HierophantSystem _hierophant = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private MegafaunaSystem _megafauna = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     private const float BaselineSlowness = 1.5f;
 
@@ -45,67 +43,29 @@ public sealed class HierophantCombatSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<HierophantComponent, MeleeHitEvent>(OnMeleeHit);
+        SubscribeLocalEvent<HierophantComponent, ADTMegafaunaAttemptOpenFireEvent>(OnAttemptOpenFire);
+        SubscribeLocalEvent<HierophantComponent, ADTMegafaunaTargetChangedEvent>(OnTargetChanged);
+        SubscribeLocalEvent<HierophantComponent, ADTMegafaunaOpenFireEvent>(OnOpenFire);
         SubscribeLocalEvent<HierophantComponent, HierophantBlinkActionEvent>(OnBlinkAction);
         SubscribeLocalEvent<HierophantComponent, HierophantChaserSwarmActionEvent>(OnChaserSwarmAction);
         SubscribeLocalEvent<HierophantComponent, HierophantCrossBlastsActionEvent>(OnCrossBlastsAction);
         SubscribeLocalEvent<HierophantComponent, HierophantBlinkSpamActionEvent>(OnBlinkSpamAction);
     }
 
-    public override void Update(float frameTime)
+    private void OnAttemptOpenFire(Entity<HierophantComponent> ent, ref ADTMegafaunaAttemptOpenFireEvent args)
     {
-        base.Update(frameTime);
-
-        var now = _timing.CurTime;
-        var query = EntityQueryEnumerator<HierophantComponent, HTNComponent>();
-
-        while (query.MoveNext(out var uid, out var comp, out var htn))
-        {
-            if (HasComp<ActorComponent>(uid))
-                continue;
-
-            if (!_npc.IsAwake(uid, htn))
-                continue;
-
-            if (_mobState.IsDead(uid))
-                continue;
-
-            if (comp.Blinking)
-                continue;
-
-            if (now < comp.NextRangedAt)
-                continue;
-
-            if (!_hierophant.TryGetTarget(uid, out var target) || target == null)
-            {
-                comp.LastTarget = null;
-                continue;
-            }
-
-            if (!TargetOnSameGrid(uid, target.Value))
-            {
-                if (TryComp<HTNComponent>(uid, out var targetHtn))
-                    targetHtn.Blackboard.Remove<EntityUid>("Target");
-
-                comp.LastTarget = null;
-                continue;
-            }
-
-            if (comp.LastTarget != target)
-            {
-                comp.LastTarget = target;
-                _megafauna.Say(uid, "adt-hierophant-target", 3);
-            }
-
-            OpenFire((uid, comp), target.Value);
-        }
+        if (ent.Comp.Blinking)
+            args.Cancelled = true;
     }
 
-    private bool TargetOnSameGrid(EntityUid ent, EntityUid target)
+    private void OnTargetChanged(Entity<HierophantComponent> ent, ref ADTMegafaunaTargetChangedEvent args)
     {
-        var ourGrid = _transform.GetGrid(ent);
-        var targetGrid = _transform.GetGrid(target);
+        _megafauna.Say(ent.Owner, "adt-hierophant-target", 3);
+    }
 
-        return ourGrid == targetGrid;
+    private void OnOpenFire(Entity<HierophantComponent> ent, ref ADTMegafaunaOpenFireEvent args)
+    {
+        OpenFire(ent, args.Target);
     }
 
     private void OpenFire(Entity<HierophantComponent> ent, EntityUid target)
@@ -118,15 +78,14 @@ public sealed class HierophantCombatSystem : EntitySystem
 
         _attacks.ArenaTrap(ent, target);
 
-        ent.Comp.NextRangedAt = _timing.CurTime +
-            TimeSpan.FromSeconds(Math.Max(0.5, ent.Comp.RangedCooldownTime.TotalSeconds - anger * 0.075));
+        SetRangedCooldown(ent, TimeSpan.FromSeconds(Math.Max(0.5, ent.Comp.RangedCooldownTime.TotalSeconds - anger * 0.075)));
 
         var targetSlowness = GetTargetSlowness(ent, target);
         ent.Comp.ChaserSpeed = MathF.Max(0.1f, (3f - anger * 0.04f + (targetSlowness - 1f) * 0.5f) * 0.1f);
 
         var ourCoords = _transform.GetMapCoordinates(ent.Owner);
         var targetCoords = _transform.GetMapCoordinates(target);
-        var distance = HierophantAttacksSystem.ChebyshevDistance(ourCoords, targetCoords);
+        var distance = ADTMegafaunaGeometry.ChebyshevDistance(ourCoords, targetCoords);
 
         if (_mobState.IsDead(target) && distance > 2)
         {
@@ -195,11 +154,11 @@ public sealed class HierophantCombatSystem : EntitySystem
         if (_random.Prob(Math.Clamp(0.7f - anger * 0.01f, 0f, 1f)))
         {
             if (belowHalfHealth && _random.Prob(Math.Clamp(anger * 0.02f / targetSlowness, 0f, 1f)))
-                _attacks.Blasts(ent, target, HierophantAttacksSystem.AllDirs);
+                _attacks.Blasts(ent, target, ADTMegafaunaGeometry.AllDirs);
             else if (_random.Prob(0.6f))
-                _attacks.Blasts(ent, target, HierophantAttacksSystem.Cardinals);
+                _attacks.Blasts(ent, target, ADTMegafaunaGeometry.Cardinals);
             else
-                _attacks.Blasts(ent, target, HierophantAttacksSystem.Diagonals);
+                _attacks.Blasts(ent, target, ADTMegafaunaGeometry.Diagonals);
 
             return;
         }
@@ -219,7 +178,7 @@ public sealed class HierophantCombatSystem : EntitySystem
         if (target == ent.Owner)
             return;
 
-        var dir = _random.Pick(HierophantAttacksSystem.Cardinals);
+        var dir = _random.Pick(ADTMegafaunaGeometry.Cardinals);
         SpawnChaser(ent, target, ent.Comp.ChaserSpeed * 1.5f, 4, dir);
     }
 
@@ -261,11 +220,10 @@ public sealed class HierophantCombatSystem : EntitySystem
 
         var ourCoords = _transform.GetMoverCoordinates(ent.Owner);
 
-        if (_timing.CurTime > ent.Comp.NextRangedAt)
+        if (_timing.CurTime > GetNextRangedAt(ent))
         {
             _hierophant.CalculateRage(ent);
-            ent.Comp.NextRangedAt = _timing.CurTime +
-                TimeSpan.FromSeconds(Math.Max(0.5, ent.Comp.RangedCooldownTime.TotalSeconds - ent.Comp.AngerModifier * 0.075));
+            SetRangedCooldown(ent, TimeSpan.FromSeconds(Math.Max(0.5, ent.Comp.RangedCooldownTime.TotalSeconds - ent.Comp.AngerModifier * 0.075)));
             _attacks.Burst(ent, ourCoords);
         }
         else
@@ -273,6 +231,17 @@ public sealed class HierophantCombatSystem : EntitySystem
             ent.Comp.BurstRange = ent.Comp.BaseBurstRange;
             _attacks.Burst(ent, ourCoords, spreadSpeed: 0.25f);
         }
+    }
+
+    private TimeSpan GetNextRangedAt(EntityUid uid)
+    {
+        return TryComp<ADTMegafaunaAIComponent>(uid, out var ai) ? ai.NextRangedAt : TimeSpan.Zero;
+    }
+
+    private void SetRangedCooldown(EntityUid uid, TimeSpan cooldown)
+    {
+        if (TryComp<ADTMegafaunaAIComponent>(uid, out var ai))
+            _megafauna.SetRangedCooldown((uid, ai), cooldown);
     }
 
     private void Devour(Entity<HierophantComponent> ent, EntityUid target)

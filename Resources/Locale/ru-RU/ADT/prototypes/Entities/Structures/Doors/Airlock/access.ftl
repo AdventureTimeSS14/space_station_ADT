@@ -88,4 +88,3 @@ ent-AirlockMagistrateGlassLocked = стеклянный шлюз
 ent-AirlockIAAGlassLocked = стеклянный шлюз
     .desc = Он открывается, он закрывается, и он может вас раздавить.
     .suffix = Агент внутренних дел, Закрытый
-

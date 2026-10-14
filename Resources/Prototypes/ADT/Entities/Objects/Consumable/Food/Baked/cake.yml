@@ -1,6 +1,6 @@
 - type: entity
   name: banana boom cake
-  parent: FoodCakeBase
+  parent: [ FoodCakeBase, BaseSlicingRefinableFood ]
   id: ADTFoodCakeBananaBoom
   description: The banana scale is off the charts!
   components:
@@ -10,8 +10,10 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/cake.rsi
     state: bananaboom
-  - type: SliceableFood
-    slice: ADTFoodCakeBananaBoomSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: ADTFoodCakeBananaBoomSlice
+      amount: 5
   - type: Item
     inhandVisuals:
       left:
@@ -40,7 +42,7 @@
 
 - type: entity
   name: waffle cake
-  parent: FoodCakeBase
+  parent: [ FoodCakeBase, BaseSlicingRefinableFood ]
   id: ADTFoodCakeWaffle
   description: A cake consisting of thin wafer layers soaked in condensed milk and butter cream.
   components:
@@ -50,9 +52,10 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/cake.rsi
     state: waffle
-  - type: SliceableFood
-    slice: ADTFoodCakeWaffleSlice
-      
+  - type: ToolRefinable
+    refineResult:
+    - id: ADTFoodCakeWaffleSlice
+      amount: 5
 - type: entity
   name: slice of waffle cake
   parent: FoodCakeSliceBase

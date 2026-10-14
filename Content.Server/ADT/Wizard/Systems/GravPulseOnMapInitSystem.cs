@@ -5,7 +5,7 @@ namespace Content.Server.ADT.Wizard.Systems;
 
 public sealed class GravPulseOnMapInitSystem : EntitySystem
 {
-    [Dependency] private readonly GravityWellSystem _gravityWell = default!;
+    [Dependency] private GravityWellSystem _gravityWell = default!;
 
     public override void Initialize()
     {

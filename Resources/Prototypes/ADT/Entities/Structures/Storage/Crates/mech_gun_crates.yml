@@ -10,7 +10,7 @@
   - type: AccessReader
     access: [["Armory"]]
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
         damage: 240

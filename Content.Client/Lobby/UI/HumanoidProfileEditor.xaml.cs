@@ -185,8 +185,7 @@ namespace Content.Client.Lobby.UI
 
             NameEdit.OnTextChanged += args => { SetName(args.Text); };
             NameEdit.IsValid = args => args.Length <= _maxNameLength;
-            NameRandomize.OnPressed += args => RandomizeName();
-            RandomizeEverythingButton.OnPressed += args => { RandomizeEverything(); };
+            RandomizeUnlockedButton.OnPressed += args => { RandomizeProfile(); };
             WarningLabel.SetMarkup($"[color=red]{Loc.GetString("humanoid-profile-editor-naming-rules-warning")}[/color]");
 
             #endregion Name
@@ -204,6 +203,16 @@ namespace Content.Client.Lobby.UI
             };
 
             #endregion Sex
+
+            #region Voice
+
+            VoiceButton.OnItemSelected += args =>
+            {
+                VoiceButton.SelectId(args.Id);
+                SetVoice(_voices[args.Id]);
+            };
+
+            #endregion
 
             #region Age
 
@@ -297,6 +306,8 @@ namespace Content.Client.Lobby.UI
                 }
             };
             // ADT Species Window end
+
+            InitializeBodyTypes(); // ADT-Tweak
 
             #region Skin
 
@@ -479,7 +490,7 @@ namespace Content.Client.Lobby.UI
 
             _ttsTab.OnVoiceSelected += voiceId =>
             {
-                SetVoice(voiceId);
+                SetTTSVoice(voiceId);
                 _ttsTab.SetSelectedVoice(voiceId);
             };
 
@@ -495,7 +506,7 @@ namespace Content.Client.Lobby.UI
                 return;
 
             _ttsTab.UpdateControls(Profile, Profile.Sex, Profile.Species); //ADT-tweak: добавлена раса
-            _ttsTab.SetSelectedVoice(Profile.Voice);
+            _ttsTab.SetSelectedVoice(Profile.TTSVoice);
         }
 
         #endregion
@@ -526,6 +537,7 @@ namespace Content.Client.Lobby.UI
                 return;
 
             SpriteView.LoadPreview(Profile, JobOverride, ShowClothes.Pressed);
+            _bodyTypeWindow?.LoadPreview(Profile, JobOverride, ShowClothes.Pressed); // ADT-Tweak
 
             // Check and set the dirty flag to enable the save/reset buttons as appropriate.
             SetDirty();
@@ -554,6 +566,7 @@ namespace Content.Client.Lobby.UI
             UpdateNameEdit();
             UpdateFlavorTextEdit();
             UpdateSexControls();
+            UpdateVoiceControls();
             UpdateGenderControls();
             UpdateSkinColor();
             UpdateSpawnPriorityControls();
@@ -561,6 +574,7 @@ namespace Content.Client.Lobby.UI
             UpdateEyePickers();
             UpdateSaveButton();
             UpdateMarkings();
+            UpdateBodyTypeControls(); // ADT-Tweak
             UpdateTTSVoicesControls(); // ADT-Tweak
             UpdateBarkVoicesControls(); // ADT Barks
 
@@ -588,6 +602,7 @@ namespace Content.Client.Lobby.UI
                 return;
 
             _entManager.System<SharedVisualBodySystem>().ApplyProfileTo(SpriteView.PreviewDummy, Profile);
+            _bodyTypeWindow?.SetProfile(Profile); // ADT-Tweak
 
             // Check and set the dirty flag to enable the save/reset buttons as appropriate.
             SetDirty();
@@ -687,6 +702,11 @@ namespace Content.Client.Lobby.UI
             _loadoutWindow?.Dispose();
             _loadoutWindow = null;
 
+            // ADT-Tweak-Start
+            _bodyTypeWindow?.Dispose();
+            _bodyTypeWindow = null;
+            // ADT-Tweak-End
+
             _headshotRequestCts?.Cancel();
             _headshotRequestCts = null;
 
@@ -707,9 +727,9 @@ namespace Content.Client.Lobby.UI
         }
 
         // ADT-Tweak-Start
-        private void SetVoice(string newVoice)
+        private void SetTTSVoice(string newVoice)
         {
-            Profile = Profile?.WithVoice(newVoice);
+            Profile = Profile?.WithTTSVoice(newVoice);
             IsDirty = true;
         }
         // ADT-Tweak-End

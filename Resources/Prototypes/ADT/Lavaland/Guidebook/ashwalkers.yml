@@ -1,0 +1,46 @@
+- type: guideEntry
+  id: ADTAshwalkers
+  name: guide-entry-ashwalkers
+  text: "/ServerInfo/ADT/Guidebook/Ashwalkers/Ashwalkers.xml"
+  priority: 8
+  children:
+  - ADTAshwalkersStart
+  - ADTAshwalkersVillage
+  - ADTAshwalkersFishing
+  - ADTAshwalkersHunting
+  - ADTAshwalkersGear
+  - ADTAshwalkersRituals
+
+- type: guideEntry
+  id: ADTAshwalkersStart
+  name: guide-entry-ashwalkers-start
+  text: "/ServerInfo/ADT/Guidebook/Ashwalkers/Start.xml"
+
+- type: guideEntry
+  id: ADTAshwalkersVillage
+  name: guide-entry-ashwalkers-village
+  text: "/ServerInfo/ADT/Guidebook/Ashwalkers/Village.xml"
+
+- type: guideEntry
+  id: ADTAshwalkersFishing
+  name: guide-entry-ashwalkers-fishing
+  text: "/ServerInfo/ADT/Guidebook/Ashwalkers/Fishing.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: ADTAshwalkersHunting
+  name: guide-entry-ashwalkers-hunting
+  text: "/ServerInfo/ADT/Guidebook/Ashwalkers/Hunting.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: ADTAshwalkersGear
+  name: guide-entry-ashwalkers-gear
+  text: "/ServerInfo/ADT/Guidebook/Ashwalkers/Gear.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: ADTAshwalkersRituals
+  name: guide-entry-ashwalkers-rituals
+  text: "/ServerInfo/ADT/Guidebook/Ashwalkers/Rituals.xml"
+  filterEnabled: true

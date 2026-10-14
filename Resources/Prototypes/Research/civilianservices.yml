@@ -15,7 +15,6 @@
   - ReagentGrinderIndustrialMachineCircuitboard
   #ADT-Tweak-Start
   - ADTBotanicalSeedDNAManipulatorCircuitboard
-  - ADTAdvancedWateringCan
   #ADT-Tweak-End
   # ADT Research Console Rework start
   position: 2,-1
@@ -43,7 +42,7 @@
   - MechEquipmentGrabberSmall
   - VimHarness
   # ADT Research Console Rework start
-  position: 0,-1
+  position: 2, 1
   requiredTech:
   - RipleyAPLU
   # ADT Research Console Rework end
@@ -241,6 +240,7 @@
   - AdvMopItem
   - MegaSprayBottle
   - BorgModuleAdvancedCleaning
+  # - TrashBagHolding # ADT-Tweak
   # ADT Research Console Rework start
   position: 1,1
   requiredTech:
@@ -269,9 +269,9 @@
   - HonkerTargetingElectronics
   - MechEquipmentHorn
   # ADT Research Console Rework start
-  position: 0,1
+  position: 2,2
   requiredTech:
-  - RipleyAPLU
+  - CritterMechs
   # ADT Research Console Rework end
 
 - type: technology

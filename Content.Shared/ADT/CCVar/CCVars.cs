@@ -55,7 +55,7 @@ public sealed class SimpleStationCCVars
         CVarDef.Create("ic.traits.max_points", 0, CVar.SERVER | CVar.REPLICATED);
 
     public static readonly CVarDef<float> XenobiologyBreedingInterval =
-        CVarDef.Create("vg.xenobiology.breeding_interval", 1f, CVar.SERVERONLY);
+        CVarDef.Create("vg.xenobiology.breeding_interval", 2f, CVar.SERVERONLY);
 
     /// <summary>
     ///     The maximum number of slimes allowed on the same grid before breeding

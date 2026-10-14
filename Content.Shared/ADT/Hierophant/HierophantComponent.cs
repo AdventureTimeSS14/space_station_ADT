@@ -51,9 +51,6 @@ public sealed partial class HierophantComponent : Component
     public TimeSpan ArenaCooldownTime = TimeSpan.FromSeconds(20);
 
     [DataField, AutoPausedField]
-    public TimeSpan NextRangedAt;
-
-    [DataField, AutoPausedField]
     public TimeSpan NextChaserAt;
 
     [DataField, AutoPausedField]
@@ -84,9 +81,6 @@ public sealed partial class HierophantComponent : Component
     public ProtoId<ADTBossMusicPrototype>? RageMusic = "ADTBossMusicHierophantEnraged";
 
     [DataField]
-    public EntityUid? LastTarget;
-
-    [DataField]
     public int ArenaRadius = 11;
 
     [DataField]
@@ -103,15 +97,6 @@ public sealed partial class HierophantComponent : Component
             { "Heat", 1 },
             { "Blunt", 1 },
         },
-    };
-
-    [DataField]
-    public List<EntProtoId> Actions = new()
-    {
-        "ActionADTHierophantBlink",
-        "ActionADTHierophantChaserSwarm",
-        "ActionADTHierophantCrossBlasts",
-        "ActionADTHierophantBlinkSpam",
     };
 
     [DataField]

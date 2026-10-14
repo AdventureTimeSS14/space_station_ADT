@@ -27,3 +27,8 @@
   license: "CC-BY-SA-3.0"
   copyright: "Created by orange6775 (discord)"
   source: "https://github.com/AdventureTimeSS14/space_station_ADT"
+
+- files: ["snort.png"]
+  license: "Custom"
+  copyright: "Pixabay Content License"
+  source: "https://pixabay.com/service/license-summary/"

@@ -1,0 +1,35 @@
+- type: localizedDataset
+  id: ADTPlushieKusuk
+  values:
+    prefix: plushie-kusuk-
+    count: 4
+
+- type: localizedDataset
+  id: ADTFigurinesPlushieJungar
+  values:
+    prefix: adt-figurines-plushie-jungar-
+    count: 9
+
+- type: localizedDataset
+  id: ADTFigurinesPlushieEmiliaEvenwood
+  values:
+    prefix: adt-figurines-plushie-emilia-evenwood-
+    count: 2
+
+- type: localizedDataset
+  id: ADTFigurinesPlushieProxima
+  values:
+    prefix: adt-figurines-plushie-proxima-
+    count: 3
+
+- type: localizedDataset
+  id: ADTFigurinesPlushieYuriyTrixter
+  values:
+    prefix: adt-figurines-plushie-yuriy-trixter-
+    count: 5
+
+- type: localizedDataset
+  id: ADTFigurinesPlushieReimor
+  values:
+    prefix: adt-figurines-plushie-reimor-
+    count: 3

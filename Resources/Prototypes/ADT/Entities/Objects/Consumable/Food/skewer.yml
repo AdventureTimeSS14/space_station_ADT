@@ -8,13 +8,12 @@
     - FoodKebabSkewer
   - type: Sprite
     sprite: Objects/Consumable/Food/skewer.rsi
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 8
+  - type: Solution
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 8
   - type: Item
     size: Small
     storedRotation: -90
@@ -85,14 +84,14 @@
     layers:
       - state: skewer
       - state: skewer-rat1
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 6
-        - ReagentId: Vitamin
-          Quantity: 2
+  - type: Solution
+    solution:
+      maxVol: 8
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 6
+      - ReagentId: Vitamin
+        Quantity: 2
 
 - type: entity
   name: double rat kebab
@@ -105,14 +104,14 @@
       - state: skewer
       - state: skewer-rat1
       - state: skewer-rat2
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 12
-        - ReagentId: Vitamin
-          Quantity: 6
+  - type: Solution
+    solution:
+      maxVol: 18
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 12
+      - ReagentId: Vitamin
+        Quantity: 6
 
 - type: entity
   name: fiesta kebab
@@ -139,9 +138,9 @@
       - state: skewer
       - state: skewer-snake1
       - state: skewer-snake2
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 12
+  - type: Solution
+    solution:
+      maxVol: 12
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 12

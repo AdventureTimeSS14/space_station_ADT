@@ -1,31 +1,25 @@
 using Content.Server.ADT.Bubblegum.Abilities;
 using Content.Server.ADT.Salvage.Systems;
 using Content.Server.NPC.HTN;
-using Content.Server.NPC.Systems;
 using Content.Shared.ADT.Bubblegum;
 using Content.Shared.ADT.Bubblegum.Abilities;
-using Content.Shared.Mobs.Systems;
+using Content.Shared.ADT.Salvage.Components;
 using Robust.Shared.Map;
-using Robust.Shared.Player;
 using Robust.Shared.Random;
-using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.Bubblegum;
 
 public sealed class BubblegumCombatSystem : EntitySystem
 {
-    [Dependency] private readonly BubblegumSystem _bubblegum = default!;
-    [Dependency] private readonly MegafaunaSystem _megafauna = default!;
-    [Dependency] private readonly BubblegumBloodWarpSystem _warp = default!;
-    [Dependency] private readonly BubblegumHallucinationChargeSystem _hallucination = default!;
-    [Dependency] private readonly BubblegumSummonNarsiSystem _narsi = default!;
-    [Dependency] private readonly BubblegumSurroundSystem _surround = default!;
-    [Dependency] private readonly BubblegumTripleChargeSystem _tripleCharge = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly NPCSystem _npc = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private BubblegumSystem _bubblegum = default!;
+    [Dependency] private MegafaunaSystem _megafauna = default!;
+    [Dependency] private BubblegumBloodWarpSystem _warp = default!;
+    [Dependency] private BubblegumHallucinationChargeSystem _hallucination = default!;
+    [Dependency] private BubblegumSummonNarsiSystem _narsi = default!;
+    [Dependency] private BubblegumSurroundSystem _surround = default!;
+    [Dependency] private BubblegumTripleChargeSystem _tripleCharge = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -36,6 +30,9 @@ public sealed class BubblegumCombatSystem : EntitySystem
         SubscribeLocalEvent<BubblegumActiveChargeComponent, ComponentInit>(OnBusyAdded);
         SubscribeLocalEvent<BubblegumPendingWavesComponent, ComponentInit>(OnBusyAdded);
         SubscribeLocalEvent<BubblegumPendingWavesComponent, ComponentShutdown>(OnBusyRemoved);
+
+        SubscribeLocalEvent<BubblegumComponent, ADTMegafaunaAttemptOpenFireEvent>(OnAttemptOpenFire);
+        SubscribeLocalEvent<BubblegumComponent, ADTMegafaunaOpenFireEvent>(OnOpenFire);
     }
 
     private void OnBusyAdded<T>(EntityUid uid, T comp, ComponentInit args) where T : IComponent
@@ -64,47 +61,18 @@ public sealed class BubblegumCombatSystem : EntitySystem
         htn.Blackboard.Remove<bool>("BubblegumWavesBusy");
     }
 
-    public override void Update(float frameTime)
+    private void OnAttemptOpenFire(Entity<BubblegumComponent> ent, ref ADTMegafaunaAttemptOpenFireEvent args)
     {
-        base.Update(frameTime);
-
-        var now = _timing.CurTime;
-        var query = EntityQueryEnumerator<BubblegumComponent, HTNComponent>();
-        while (query.MoveNext(out var uid, out var comp, out var htn))
-        {
-            if (!_npc.IsAwake(uid, htn))
-                continue;
-
-            if (HasComp<ActorComponent>(uid))
-                continue;
-
-            if (_mobState.IsDead(uid))
-                continue;
-
-            if (now < comp.NextAbilityAt)
-                continue;
-
-            if (IsBusy(uid))
-                continue;
-
-            if (!htn.Blackboard.TryGetValue<EntityUid>("Target", out var target, EntityManager)
-                || TerminatingOrDeleted(target))
-                continue;
-
-            if (!TargetOnSameGrid(uid, target))
-            {
-                htn.Blackboard.Remove<EntityUid>("Target");
-                continue;
-            }
-
-            comp.NextAbilityAt = now + comp.AbilityInterval;
-            Decide((uid, comp), target);
-        }
+        if (IsBusy(ent))
+            args.Cancelled = true;
     }
 
-    private bool TargetOnSameGrid(EntityUid ent, EntityUid target)
+    private void OnOpenFire(Entity<BubblegumComponent> ent, ref ADTMegafaunaOpenFireEvent args)
     {
-        return _transform.GetGrid(ent) == _transform.GetGrid(target);
+        if (TryComp<ADTMegafaunaAIComponent>(ent, out var ai))
+            _megafauna.SetRangedCooldown((ent.Owner, ai), ent.Comp.AbilityInterval);
+
+        Decide(ent, args.Target);
     }
 
     private bool IsBusy(EntityUid uid)

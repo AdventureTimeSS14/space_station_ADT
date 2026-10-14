@@ -5,7 +5,6 @@ using Robust.Shared.GameObjects;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager.Attributes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.ViewVariables;
 
 namespace Content.Shared.ADT.Blob;
@@ -29,8 +28,8 @@ public sealed partial class BlobCarrierComponent : Component
     public float TransformationTimer = 0;
 
     [ViewVariables(VVAccess.ReadWrite),
-     DataField("corePrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string CoreBlobPrototype = "ADTCoreBlobTile";
+     DataField("corePrototype")]
+    public EntProtoId CoreBlobPrototype = "ADTCoreBlobTile";
 
     public EntityUid? TransformToBlob = null;
 }

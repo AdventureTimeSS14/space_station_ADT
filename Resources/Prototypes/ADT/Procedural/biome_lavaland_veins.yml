@@ -214,6 +214,15 @@
   maxGroupSize: 33
   radius: 3
 
+- type: biomeMarkerLayer
+  id: ADTLavaVeinGem
+  entityMask:
+    WallRockBasalt: ADTWallRockBasaltGem
+  maxCount: 6
+  minGroupSize: 3
+  maxGroupSize: 6
+  radius: 3
+
 # Стада и мелкая живность
 - type: biomeMarkerLayer
   id: ADTLavaGutlunchHerd

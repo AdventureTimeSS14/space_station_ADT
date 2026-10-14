@@ -1,0 +1,416 @@
+- type: sourcePort
+  id: ADTHeliosPlateHeld
+  name: signal-port-name-adt-helios-plate-held
+  description: signal-port-description-adt-helios-plate-held
+
+- type: sourcePort
+  id: ADTHeliosPlateReleased
+  name: signal-port-name-adt-helios-plate-released
+  description: signal-port-description-adt-helios-plate-released
+
+- type: sinkPort
+  id: ADTHeliosPlateLock
+  name: signal-port-name-adt-helios-plate-lock
+  description: signal-port-description-adt-helios-plate-lock
+
+- type: sinkPort
+  id: ADTHeliosReact
+  name: signal-port-name-adt-helios-react
+  description: signal-port-description-adt-helios-react
+
+- type: entity
+  id: ADTHeliosAutomationBase
+  abstract: true
+  name: блок автоматики
+  description: Этот блок управляет гермозатворами, и его устанавливают в изолированные техотсеки.
+  suffix: Гелиос, неразрушимый
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: Objects/Devices/gates.rsi
+    layers:
+    - state: base
+    - state: logic
+  - type: Transform
+    anchored: true
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: DeviceLinkSource
+  - type: DeviceLinkSink
+  - type: ADTIndestructible
+  - type: Tag
+    tags:
+    - EmagImmune
+
+- type: entity
+  parent: ADTHeliosAutomationBase
+  id: ADTHeliosCodeLockBox
+  name: блок кодового замка
+  components:
+  - type: ADTHeliosCodeLock
+    secretKey: WAREHOUSE_CODE
+  - type: DeviceLinkSink
+    ports:
+    - ADTLogicIn1
+    - ADTLogicIn2
+    - ADTLogicIn3
+    - ADTLogicIn4
+    - ADTLogicIn5
+    - ADTLogicIn6
+    - ADTLogicIn7
+    - ADTLogicIn8
+    - ADTLogicIn9
+  - type: DeviceLinkSource
+    ports:
+    - ADTLogicOut1
+    - ADTLogicOut2
+    - ADTLogicOut3
+
+- type: entity
+  parent: ADTHeliosAutomationBase
+  id: ADTHeliosBreakerBox
+  name: блок щита резервного питания
+  components:
+  - type: ADTHeliosBreakerPanel
+  - type: DeviceLinkSink
+    ports:
+    - ADTLogicIn1
+    - ADTLogicIn2
+    - ADTLogicIn3
+    - ADTLogicIn4
+  - type: DeviceLinkSource
+    ports:
+    - ADTLogicOut1
+    - ADTLogicOut2
+    - ADTLogicOut3
+
+- type: entity
+  parent: ADTHeliosPuzzleElementBase
+  id: ADTHeliosDualKeyConsole
+  name: пульт пускового ключа
+  description: По регламенту спуск к ядру разрешают двое операторов, которые поворачивают ключи на разных пультах одновременно. Если второй ключ не повернуть почти сразу, первый вернётся назад.
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    drawdepth: Objects
+    layers:
+    - state: key_off
+      map: [ "enum.ADTHeliosPuzzleLayers.Base" ]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.35,0.35,0.35"
+        density: 100
+        hard: true
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: GenericVisualizer
+    visuals:
+      enum.ADTHeliosPuzzleVisuals.Lit:
+        enum.ADTHeliosPuzzleLayers.Base:
+          True: { state: key_on }
+          False: { state: key_off }
+  - type: ADTHeliosDualKey
+    group: helios_descent
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: DeviceLinkSource
+    ports:
+    - ADTPuzzleSolved
+
+- type: entity
+  parent: ADTHeliosPuzzleElementBase
+  id: ADTHeliosHoldPlate
+  name: нажимная плита
+  description: Пока на плите кто-то стоит, гермодверь рядом остаётся открытой. Когда человек сходит с плиты, дверь сразу закрывается.
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    layers:
+    - state: hold_off
+      map: [ "enum.ADTHeliosPuzzleLayers.Base" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.ADTHeliosPuzzleVisuals.Lit:
+        enum.ADTHeliosPuzzleLayers.Base:
+          True: { state: hold_on }
+          False: { state: hold_off }
+  - type: ADTHeliosHoldPlate
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: DeviceLinkSource
+    ports:
+    - ADTHeliosPlateHeld
+    - ADTHeliosPlateReleased
+  - type: DeviceLinkSink
+    ports:
+    - ADTHeliosPlateLock
+
+- type: entity
+  parent: MarkerBase
+  id: ADTHeliosReactionBase
+  abstract: true
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: ADT/Objects/Misc/soundgen.rsi
+      state: icon
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: DeviceLinkSink
+    ports:
+    - ADTHeliosReact
+
+- type: entity
+  parent: ADTHeliosReactionBase
+  id: ADTHeliosReactionAlarm
+  name: реакция «тревога»
+  description: Когда головоломку решают, в зоне мигает свет и звучит тревога.
+  components:
+  - type: ADTHeliosReaction
+    radius: 12
+    shake: 0.5
+    sound:
+      path: /Audio/ADT/Helios/alarm_distant.ogg
+      params:
+        volume: 2
+        maxDistance: 18
+
+- type: entity
+  parent: ADTHeliosReactionBase
+  id: ADTHeliosReactionQuake
+  name: реакция «толчок»
+  description: Когда головоломку решают, пол вздрагивает, свет мигает, а где-то в глубине стонет металл.
+  components:
+  - type: ADTHeliosReaction
+    radius: 14
+    shake: 2
+    sound:
+      path: /Audio/ADT/Helios/metal_groan.ogg
+      params:
+        volume: 4
+        maxDistance: 20
+
+- type: entity
+  parent: ADTHeliosReactionBase
+  id: ADTHeliosReactionLegions
+  name: реакция «пробуждение»
+  description: Когда головоломку решают, свет мигает, а из вентиляции выползают легионы.
+  components:
+  - type: ADTHeliosReaction
+    radius: 10
+    shake: 1
+    sound:
+      path: /Audio/ADT/Helios/vent_crawl.ogg
+      params:
+        volume: 2
+        maxDistance: 14
+    spawns:
+    - ADTMobLegion
+    - ADTMobLegion
+
+- type: entity
+  parent: ADTHeliosReactionBase
+  id: ADTHeliosReactionPowerDown
+  name: реакция «скачок питания»
+  description: Когда головоломку решают, в зоне на несколько секунд проседает питание, и свет мигает.
+  components:
+  - type: ADTHeliosReaction
+    radius: 14
+    sound:
+      path: /Audio/ADT/Helios/power_down.ogg
+      params:
+        volume: 3
+        maxDistance: 18
+
+- type: entity
+  parent: ADTHeliosReactionBase
+  id: ADTHeliosReactionSiren
+  name: реакция «сирена»
+  description: Когда головоломку решают, в глубине комплекса воет сирена, а свет мигает.
+  components:
+  - type: ADTHeliosReaction
+    radius: 16
+    shake: 0.3
+    sound:
+      path: /Audio/ADT/Helios/siren_far.ogg
+      params:
+        volume: 0
+        maxDistance: 24
+
+- type: entity
+  parent: ADTHeliosReactionBase
+  id: ADTHeliosReactionHeart
+  name: реакция «удар сердца»
+  description: Когда головоломку решают, весь комплекс содрогается от удара огромного сердца.
+  components:
+  - type: ADTHeliosReaction
+    radius: 20
+    shake: 3
+    sound:
+      path: /Audio/ADT/Helios/quake.ogg
+      params:
+        volume: 6
+        maxDistance: 30
+
+- type: entity
+  parent: ADTHeliosScareBase
+  id: ADTHeliosScareCreak
+  name: триггер «скрип двери»
+  description: Когда на клетку наступают, где-то рядом медленно скрипит тяжёлая дверь.
+  components:
+  - type: EmitSoundOnTrigger
+    positional: true
+    sound:
+      path: /Audio/ADT/Helios/door_creak.ogg
+      params:
+        volume: -1
+        maxDistance: 10
+
+- type: entity
+  parent: ADTHeliosScareBase
+  id: ADTHeliosScareGroan
+  name: триггер «стон металла»
+  description: Когда на клетку наступают, перекрытия над головой протяжно стонут, а пол едва заметно вздрагивает.
+  components:
+  - type: EmitSoundOnTrigger
+    positional: true
+    sound:
+      path: /Audio/ADT/Helios/metal_groan.ogg
+      params:
+        volume: 2
+        maxDistance: 16
+  - type: ADTHeliosReaction
+    radius: 8
+    shake: 0.6
+
+- type: entity
+  parent: ADTHeliosScareBase
+  id: ADTHeliosScareBreath
+  name: триггер «дыхание»
+  description: Когда на клетку наступают, у самого уха раздаётся чьё-то тяжёлое дыхание.
+  components:
+  - type: EmitSoundOnTrigger
+    positional: true
+    sound:
+      path: /Audio/ADT/Helios/ghost_breath.ogg
+      params:
+        volume: -3
+        maxDistance: 5
+
+- type: entity
+  parent: ADTHeliosScareBase
+  id: ADTHeliosScareVent
+  name: триггер «шорох в вентиляции»
+  description: Когда на клетку наступают, в вентиляции над головой что-то ползёт и скребёт когтями.
+  components:
+  - type: EmitSoundOnTrigger
+    positional: true
+    sound:
+      path: /Audio/ADT/Helios/vent_crawl.ogg
+      params:
+        volume: 0
+        maxDistance: 9
+
+- type: entity
+  parent: ADTHeliosScareBase
+  id: ADTHeliosScarePowerDown
+  name: триггер «просадка питания»
+  description: Когда на клетку наступают, где-то обесточивается машина, и свет вокруг долго мигает.
+  components:
+  - type: EmitSoundOnTrigger
+    positional: true
+    sound:
+      path: /Audio/ADT/Helios/power_down.ogg
+      params:
+        volume: 2
+        maxDistance: 12
+  - type: ADTHeliosReaction
+    radius: 10
+
+- type: entity
+  parent: ADTHeliosScareBase
+  id: ADTHeliosScareSlam
+  name: триггер «удар металла»
+  description: Когда на клетку наступают, за спиной с грохотом падает что-то металлическое.
+  components:
+  - type: EmitSoundOnTrigger
+    positional: true
+    sound:
+      path: /Audio/ADT/Helios/metal_slam.ogg
+      params:
+        volume: 2
+        maxDistance: 12
+
+- type: entity
+  parent: ADTHeliosScareBase
+  id: ADTHeliosScareSteps
+  name: триггер «шаги по металлу»
+  description: Когда на клетку наступают, по соседнему коридору кто-то проходит тяжёлыми шагами.
+  components:
+  - type: EmitSoundOnTrigger
+    positional: true
+    sound:
+      path: /Audio/ADT/Helios/footsteps_metal.ogg
+      params:
+        volume: 0
+        maxDistance: 12
+
+- type: entity
+  parent: ADTHeliosAmbientBase
+  id: ADTHeliosAmbientDrone
+  name: эмбиент «низкий гул»
+  components:
+  - type: AmbientSound
+    volume: -3
+    range: 10
+    sound:
+      path: /Audio/ADT/Helios/horror_drone.ogg
+
+- type: entity
+  parent: ADTHeliosAmbientBase
+  id: ADTHeliosAmbientBasement
+  name: эмбиент «сырой подвал»
+  components:
+  - type: AmbientSound
+    volume: -4
+    range: 8
+    sound:
+      path: /Audio/ADT/Helios/basement_loop.ogg
+
+- type: entity
+  parent: AreaBase
+  id: ADTAreaHeliosCave
+  name: пещера «Гелиоса»
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    sprite: Markers/cross.rsi
+    state: pink
+  - type: TTSAreaEffect
+    effect: cave

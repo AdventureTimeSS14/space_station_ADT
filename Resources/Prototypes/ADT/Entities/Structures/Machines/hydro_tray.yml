@@ -29,54 +29,11 @@
         state: harvest3
         map: [ "harvest_alert" ]
         visible: false
-  - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.PlantHolderVisuals.HealthLight:
-        health_alert:
-          True: { visible: true }
-          False: { visible: false }
-      enum.PlantHolderVisuals.WaterLight:
-        water_alert:
-          True: { visible: true }
-          False: { visible: false }
-      enum.PlantHolderVisuals.NutritionLight:
-        nutri_alert:
-          True: { visible: true }
-          False: { visible: false }
-      enum.PlantHolderVisuals.AlertLight:
-        undefined_alert:
-          True: { visible: true }
-          False: { visible: false }
-      enum.PlantHolderVisuals.HarvestLight:
-        harvest_alert:
-          True: { visible: true }
-          False: { visible: false }
-  - type: PlantHolder
-    drawWarnings: true
+  - type: ADTPlantTrayUpgrade
     cycleDelay: 10
-    wateringSound:
-      path: /Audio/Effects/Fluids/slosh.ogg
-      params:
-        volume: -6
-        variation: 0.20
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:ChangeConstructionNodeBehavior
-        node: machineFrame
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalGlassBreak
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
   - type: Machine
     board: ADTHydroponicsTrayAdvancedMachineCircuitboard
   - type: SolutionRegeneration
-    solution: soil
     generated:
       reagents:
       - ReagentId: Water
