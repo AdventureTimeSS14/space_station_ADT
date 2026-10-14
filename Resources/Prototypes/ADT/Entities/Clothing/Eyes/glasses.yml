@@ -43,6 +43,11 @@
     sprite: ADT/Clothing/Eyes/Glasses/pink_glasses.rsi
   - type: Clothing
     sprite: ADT/Clothing/Eyes/Glasses/pink_glasses.rsi #спрайты от dion_clawed
+  - type: ClothingGrantComponent
+    component:
+    - type: ADTVisionTint
+      color: "#FF8FC4"
+      amount: 0.3
   - type: StaticPrice
     price: 25
 
