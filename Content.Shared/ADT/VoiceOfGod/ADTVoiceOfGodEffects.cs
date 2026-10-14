@@ -1,6 +1,7 @@
 using Content.Shared.ADT.Hallucinations;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Localization;
 using Robust.Shared.Prototypes;
@@ -52,8 +53,11 @@ public sealed partial class ADTHallucinate : EntityEffectBase<ADTHallucinate>
 
 public sealed partial class ADTDamageFromUser : EntityEffectBase<ADTDamageFromUser>
 {
-    [DataField(required: true)]
-    public DamageSpecifier Damage = default!;
+    [DataField]
+    public DamageSpecifier? Damage;
+
+    [DataField]
+    public Dictionary<ProtoId<DamageGroupPrototype>, float> Groups = new();
 
     [DataField]
     public bool IgnoreResistances;

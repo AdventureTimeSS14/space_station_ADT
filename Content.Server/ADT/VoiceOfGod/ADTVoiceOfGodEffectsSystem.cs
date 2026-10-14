@@ -11,6 +11,7 @@ using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Chat;
 using Content.Shared.CombatMode;
+using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.EntityEffects;
@@ -18,6 +19,7 @@ using Content.Shared.Medical;
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using NewStatusEffectsSystem = Content.Shared.StatusEffectNew.StatusEffectsSystem;
 
@@ -94,10 +96,20 @@ public sealed partial class ADTHallucinateEffectSystem : EntityEffectSystem<Meta
 public sealed partial class ADTDamageFromUserEffectSystem : EntityEffectSystem<DamageableComponent, ADTDamageFromUser>
 {
     [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     protected override void Effect(Entity<DamageableComponent> entity, ref EntityEffectEvent<ADTDamageFromUser> args)
     {
-        _damageable.TryChangeDamage(entity.AsNullable(), args.Effect.Damage * args.Scale, args.Effect.IgnoreResistances, origin: args.User);
+        var damage = args.Effect.Damage is { } specifier
+            ? specifier * args.Scale
+            : new DamageSpecifier();
+
+        foreach (var (group, amount) in args.Effect.Groups)
+        {
+            damage += new DamageSpecifier(_proto.Index(group), amount * args.Scale);
+        }
+
+        _damageable.TryChangeDamage(entity.AsNullable(), damage, args.Effect.IgnoreResistances, origin: args.User);
     }
 }
 

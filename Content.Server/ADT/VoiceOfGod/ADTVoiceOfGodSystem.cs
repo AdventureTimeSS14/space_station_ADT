@@ -68,7 +68,7 @@ public sealed class ADTVoiceOfGodSystem : SharedADTVoiceOfGodSystem
 
         foreach (var command in _proto.EnumeratePrototypes<ADTVoiceOfGodCommandPrototype>().OrderByDescending(command => command.Priority))
         {
-            _commands.Add((command, new Regex($@"\b(?:{string.Join("|", command.Words)})", RegexOptions.Compiled)));
+            _commands.Add((command, new Regex($@"\b(?:{string.Join("|", command.Words)})\b", RegexOptions.Compiled)));
         }
     }
 

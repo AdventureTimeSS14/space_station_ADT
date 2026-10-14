@@ -2,7 +2,7 @@
   id: ADTVoiceOfGodStun
   priority: 300
   cooldown: Stun
-  words: [ "stop", "wait", "stand still", "hold on", "halt", "стой", "стоп", "не двигайся", "замри" ]
+  words: [ "stop", "wait", "stand still", "hold on", "halt", "стой", "стойте", "стоп", "не двигайся", "не двигайтесь", "замри", "замрите" ]
   effects:
   - !type:ADTStun
     time: 6
@@ -11,7 +11,7 @@
   id: ADTVoiceOfGodWeaken
   priority: 290
   cooldown: Stun
-  words: [ "drop", "fall", "trip", "упади", "ослабни", "пади" ]
+  words: [ "drop", "fall", "trip", "упади", "упадите", "ослабни", "ослабните", "пади", "падите" ]
   effects:
   - !type:ADTKnockdown
     time: 6
@@ -20,7 +20,7 @@
   id: ADTVoiceOfGodSleep
   priority: 280
   cooldown: Stun
-  words: [ "sleep", "slumber", "засни", "усни", "спать", "спи" ]
+  words: [ "sleep", "slumber", "засни", "засните", "усни", "усните", "спать", "спи", "спите" ]
   effects:
   - !type:ModifyStatusEffect
     effectProto: StatusEffectForcedSleeping
@@ -31,7 +31,7 @@
   id: ADTVoiceOfGodVomit
   priority: 270
   cooldown: Stun
-  words: [ "vomit", "throw up", "рви", "блюй" ]
+  words: [ "vomit", "throw up", "рви", "рвите", "блюй", "блюйте" ]
   effects:
   - !type:ADTForceVomit
 
@@ -39,7 +39,7 @@
   id: ADTVoiceOfGodSilence
   priority: 260
   cooldown: Stun
-  words: [ "shut up", "silence", "ssh", "quiet", "hush", "заткнись", "молчать", "тишина", "тихо" ]
+  words: [ "shut up", "silence", "ssh", "quiet", "hush", "заткнись", "заткнитесь", "молчать", "тишина", "тихо" ]
   powerModifiers:
   - multiplier: 3
     anyOf:
@@ -58,7 +58,7 @@
   id: ADTVoiceOfGodHallucinate
   priority: 250
   cooldown: Meme
-  words: [ "see the truth", "hallucinate", "увидь истину", "галлюцинируй" ]
+  words: [ "see the truth", "hallucinate", "увидь истину", "увидьте истину", "галлюцинируй", "галлюцинируйте" ]
   effects:
   - !type:ADTHallucinate
     key: ADTHallucinations
@@ -69,7 +69,7 @@
   id: ADTVoiceOfGodWakeUp
   priority: 240
   cooldown: Damage
-  words: [ "wake up", "awaken", "проснись", "очнись" ]
+  words: [ "wake up", "awaken", "проснись", "проснитесь", "очнись", "очнитесь" ]
   effects:
   - !type:ADTWakeUp
     sleepEffect: StatusEffectForcedSleeping
@@ -78,20 +78,19 @@
   id: ADTVoiceOfGodHeal
   priority: 230
   cooldown: Damage
-  words: [ "live", "heal", "survive", "mend", "heroes never die", "живи", "исцелись", "выживи", "залечись" ]
+  words: [ "live", "heal", "survive", "mend", "heroes never die", "живи", "живите", "исцелись", "исцелитесь", "выживи", "выживите", "залечись", "залечитесь" ]
   effects:
   - !type:ADTDamageFromUser
     ignoreResistances: true
-    damage:
-      groups:
-        Brute: -10
-        Burn: -10
+    groups:
+      Brute: -10
+      Burn: -10
 
 - type: adtVoiceOfGodCommand
   id: ADTVoiceOfGodHurt
   priority: 220
   cooldown: Damage
-  words: [ "die", "suffer", "умри", "страдай", "познай боль" ]
+  words: [ "die", "suffer", "умри", "умрите", "страдай", "страдайте", "познай боль", "познайте боль" ]
   effects:
   - !type:ADTDamageFromUser
     damage:
@@ -102,7 +101,7 @@
   id: ADTVoiceOfGodBleed
   priority: 210
   cooldown: Damage
-  words: [ "bleed", "кровоточи" ]
+  words: [ "bleed", "кровоточи", "кровоточите" ]
   effects:
   - !type:ModifyBleed
     amount: 5
@@ -111,7 +110,7 @@
   id: ADTVoiceOfGodBurn
   priority: 200
   cooldown: Damage
-  words: [ "burn", "ignite", "гори", "воспламенись", "загорись" ]
+  words: [ "burn", "ignite", "гори", "горите", "воспламенись", "воспламенитесь", "загорись", "загоритесь" ]
   effects:
   - !type:ADTFireStacks
     stacks: 1
@@ -120,7 +119,7 @@
   id: ADTVoiceOfGodRepulse
   priority: 190
   cooldown: Damage
-  words: [ "shoo", "go away", "leave me alone", "begone", "flee", "fus ro dah", "прочь", "уйди", "отстань", "исчезни", "отвали" ]
+  words: [ "shoo", "go away", "leave me alone", "begone", "flee", "fus ro dah", "прочь", "уйди", "уйдите", "отстань", "отстаньте", "исчезни", "исчезните", "отвали", "отвалите" ]
   effects:
   - !type:ADTRepulseFromUser
     distance: 3
@@ -130,7 +129,7 @@
   id: ADTVoiceOfGodWhoAreYou
   priority: 180
   cooldown: Meme
-  words: [ "who are you", "say your name", "state your name", "identify", "кто ты", "назовись", "представься" ]
+  words: [ "who are you", "say your name", "state your name", "identify", "кто ты", "назовись", "назовитесь", "представься", "представьтесь" ]
   effects:
   - !type:ADTForceSay
     message: adt-voice-of-god-target-name
@@ -139,7 +138,7 @@
   id: ADTVoiceOfGodSayMyName
   priority: 170
   cooldown: Meme
-  words: [ "say my name", "скажи моё имя" ]
+  words: [ "say my name", "скажи моё имя", "скажите моё имя" ]
   effects:
   - !type:ADTForceSay
     message: adt-voice-of-god-user-name
@@ -157,7 +156,7 @@
   id: ADTVoiceOfGodStateLaws
   priority: 150
   cooldown: Stun
-  words: [ "state laws", "state your laws", "озвучь законы", "перечисли законы" ]
+  words: [ "state laws", "state your laws", "озвучь законы", "озвучьте законы", "перечисли законы", "перечислите законы" ]
   effects:
   - !type:ADTStateLaws
 
@@ -165,7 +164,7 @@
   id: ADTVoiceOfGodMove
   priority: 140
   cooldown: Meme
-  words: [ "move", "двигайся", "иди", "ступай" ]
+  words: [ "move", "двигайся", "двигайтесь", "иди", "идите", "ступай", "ступайте" ]
   effects:
   - !type:ADTRandomStep
     speed: 4
@@ -174,13 +173,13 @@
   id: ADTVoiceOfGodWalkRun
   priority: 130
   cooldown: Meme
-  words: [ "walk", "slow down", "ходи", "медленнее", "run", "беги" ]
+  words: [ "walk", "slow down", "ходи", "ходите", "медленнее", "run", "беги", "бегите" ]
 
 - type: adtVoiceOfGodCommand
   id: ADTVoiceOfGodHelpIntent
   priority: 120
   cooldown: Meme
-  words: [ "help", "помогай", "помоги" ]
+  words: [ "help", "помогай", "помогайте", "помоги", "помогите" ]
   effects:
   - !type:ADTSetCombatMode
     enabled: false
@@ -189,7 +188,7 @@
   id: ADTVoiceOfGodHarmIntent
   priority: 110
   cooldown: Meme
-  words: [ "harm", "fight", "атакуй", "дерись", "навреди" ]
+  words: [ "harm", "fight", "атакуй", "атакуйте", "дерись", "деритесь", "навреди", "навредите" ]
   effects:
   - !type:ADTSetCombatMode
     enabled: true
@@ -198,7 +197,7 @@
   id: ADTVoiceOfGodFlip
   priority: 100
   cooldown: Meme
-  words: [ "flip", "rotate", "revolve", "roll", "somersault", "крутись", "вертись", "перевернись", "кувыркнись" ]
+  words: [ "flip", "rotate", "revolve", "roll", "somersault", "крутись", "крутитесь", "вертись", "вертитесь", "перевернись", "перевернитесь", "кувыркнись", "кувыркнитесь" ]
   effects:
   - !type:ADTForceEmote
     emote: Flip
@@ -207,7 +206,7 @@
   id: ADTVoiceOfGodRest
   priority: 90
   cooldown: Meme
-  words: [ "rest", "отдыхай" ]
+  words: [ "rest", "отдыхай", "отдыхайте" ]
   effects:
   - !type:ADTKnockdown
     time: 2
@@ -219,7 +218,7 @@
   id: ADTVoiceOfGodGetUp
   priority: 80
   cooldown: Damage
-  words: [ "get up", "встань", "вставай" ]
+  words: [ "get up", "встань", "встаньте", "вставай", "вставайте" ]
   effects:
   - !type:ADTStandUp
 
@@ -227,7 +226,7 @@
   id: ADTVoiceOfGodSit
   priority: 70
   cooldown: Meme
-  words: [ "sit", "садись", "сядь" ]
+  words: [ "sit", "садись", "садитесь", "сядь", "сядьте" ]
   effects:
   - !type:ADTBuckleNearby
     range: 0.4
@@ -244,7 +243,7 @@
   id: ADTVoiceOfGodJump
   priority: 50
   cooldown: Meme
-  words: [ "jump", "прыгай" ]
+  words: [ "jump", "прыгай", "прыгайте" ]
   effects:
   - !type:ADTForceSay
     message: adt-voice-of-god-how-high
@@ -255,7 +254,7 @@
   id: ADTVoiceOfGodSalute
   priority: 40
   cooldown: Meme
-  words: [ "salute", "отдай честь", "салютуй" ]
+  words: [ "salute", "отдай честь", "отдайте честь", "салютуй", "салютуйте" ]
   effects:
   - !type:ADTForceEmote
     emote: Salute
@@ -264,7 +263,7 @@
   id: ADTVoiceOfGodDeathgasp
   priority: 30
   cooldown: Meme
-  words: [ "play dead", "притворись мёртвым" ]
+  words: [ "play dead", "притворись мёртвым", "притворитесь мёртвыми" ]
   effects:
   - !type:ADTForceEmote
     emote: DefaultDeathgasp
@@ -273,7 +272,7 @@
   id: ADTVoiceOfGodClap
   priority: 20
   cooldown: Meme
-  words: [ "clap", "applaud", "хлопай", "аплодируй" ]
+  words: [ "clap", "applaud", "хлопай", "хлопайте", "аплодируй", "аплодируйте" ]
   effects:
   - !type:ADTForceEmote
     emote: Clap
