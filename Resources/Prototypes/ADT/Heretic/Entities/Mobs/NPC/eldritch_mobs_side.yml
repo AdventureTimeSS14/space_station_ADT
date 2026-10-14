@@ -66,6 +66,7 @@
     category: Torso
   - type: Sprite
     sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+    state: torso
   - type: VisualOrgan
     layer: enum.HumanoidVisualLayers.Chest
     data:
@@ -81,6 +82,7 @@
     category: Head
   - type: Sprite
     sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+    state: head
   - type: VisualOrgan
     layer: enum.HumanoidVisualLayers.Head
     data:
@@ -96,6 +98,7 @@
     category: ArmLeft
   - type: Sprite
     sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+    state: l_arm
   - type: VisualOrgan
     layer: enum.HumanoidVisualLayers.LArm
     data:
@@ -111,6 +114,7 @@
     category: ArmRight
   - type: Sprite
     sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+    state: r_arm
   - type: VisualOrgan
     layer: enum.HumanoidVisualLayers.RArm
     data:
@@ -126,6 +130,7 @@
     category: HandLeft
   - type: Sprite
     sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+    state: l_hand
   - type: VisualOrgan
     layer: enum.HumanoidVisualLayers.LHand
     data:
@@ -141,6 +146,7 @@
     category: HandRight
   - type: Sprite
     sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+    state: r_hand
   - type: VisualOrgan
     layer: enum.HumanoidVisualLayers.RHand
     data:
@@ -156,6 +162,7 @@
     category: LegLeft
   - type: Sprite
     sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+    state: l_leg
   - type: VisualOrgan
     layer: enum.HumanoidVisualLayers.LLeg
     data:
@@ -171,6 +178,7 @@
     category: LegRight
   - type: Sprite
     sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+    state: r_leg
   - type: VisualOrgan
     layer: enum.HumanoidVisualLayers.RLeg
     data:
@@ -186,6 +194,7 @@
     category: FootLeft
   - type: Sprite
     sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+    state: l_foot
   - type: VisualOrgan
     layer: enum.HumanoidVisualLayers.LFoot
     data:
@@ -201,6 +210,7 @@
     category: FootRight
   - type: Sprite
     sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+    state: r_foot
   - type: VisualOrgan
     layer: enum.HumanoidVisualLayers.RFoot
     data:

@@ -49,6 +49,7 @@
   description: A crack in space, impossibly deep and painful to the eyes. Definitely not safe.
   placement:
     mode: SnapgridCenter
+  save: false
   components:
   - type: Sprite
     sprite: ADT/Heretic/Effects/effects.rsi
@@ -68,6 +69,7 @@
         hard: false
   - type: Physics
     bodyType: Static
+    canCollide: false
   - type: Tag
     tags:
     - HideContextMenu
@@ -82,6 +84,7 @@
     mode: SnapgridCenter
     snap:
     - Wall
+  save: false
   components:
   - type: TimedDespawn
     lifetime: 15
@@ -112,6 +115,7 @@
   description: It stares back. There's no reason to remain. Run.
   placement:
     mode: SnapgridCenter
+  save: false
   components:
   - type: Sprite
     scale: 3, 3
@@ -127,6 +131,7 @@
     anchored: true
   - type: Physics
     bodyType: Static
+    canCollide: false
   - type: Fixtures
     fixtures:
       fix1:

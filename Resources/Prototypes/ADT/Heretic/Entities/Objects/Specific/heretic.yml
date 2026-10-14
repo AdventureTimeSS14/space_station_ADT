@@ -347,11 +347,12 @@
     - HereticItem
 
 - type: entity
-  parent: [ BaseItem, BaseMagicContraband ]
+  parent: BaseMagicContraband
   id: HereticOgBookBarrier
   name: ent-HereticOgBookBarrier
   description: ent-HereticOgBookBarrier-desc
   categories: [ HideSpawnMenu ]
+  save: false
   components:
   - type: Sprite
     sprite: ADT/Heretic/Entities/paper_wall.rsi
@@ -362,6 +363,7 @@
     lifetime: 60
   - type: Physics
     bodyType: Static
+    canCollide: false
   - type: Fixtures
     fixtures:
       fix1:

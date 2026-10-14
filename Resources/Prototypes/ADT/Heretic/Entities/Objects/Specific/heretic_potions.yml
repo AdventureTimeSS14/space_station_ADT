@@ -10,13 +10,12 @@
   - type: Icon
     sprite: ADT/Heretic/items.rsi
     state: crucible_soul
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 5
-        reagents:
-        - ReagentId: CrucibleSoul
-          Quantity: 5
+  - type: Solution
+    solution:
+      maxVol: 5
+      reagents:
+      - ReagentId: CrucibleSoul
+        Quantity: 5
   - type: Tag
     tags:
     - HereticItem
@@ -33,13 +32,12 @@
   - type: Icon
     sprite: ADT/Heretic/items.rsi
     state: clarity
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 5
-        reagents:
-        - ReagentId: DuskAndDawn
-          Quantity: 5
+  - type: Solution
+    solution:
+      maxVol: 5
+      reagents:
+      - ReagentId: DuskAndDawn
+        Quantity: 5
   - type: Tag
     tags:
     - HereticItem
@@ -56,13 +54,12 @@
   - type: Icon
     sprite: ADT/Heretic/Entities/marshal.rsi
     state: potion
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 5
-        reagents:
-        - ReagentId: WoundedSoldier
-          Quantity: 5
+  - type: Solution
+    solution:
+      maxVol: 5
+      reagents:
+      - ReagentId: WoundedSoldier
+        Quantity: 5
   - type: Tag
     tags:
     - HereticItem
