@@ -1,5 +1,5 @@
 - type: entity
-  id: ADTMobBloodMiner
+  id: ADTMegaFaunaBloodMiner
   parent: ADTBaseMobMegafauna
   name: blood-drunk miner
   description: A miner destined to wander forever, engaged in an endless hunt.
@@ -107,6 +107,6 @@
     - state: ai
   - type: RandomSpawner
     prototypes:
-    - ADTMobBloodMiner
+    - ADTMegaFaunaBloodMiner
   - type: TimedDespawn
     lifetime: 1
