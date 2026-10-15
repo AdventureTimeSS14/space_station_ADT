@@ -3432,7 +3432,7 @@
     damageContainer: BiologicalMetaphysical
   - type: Temperature
     temperature: 310.15
-    specificHeat: 2520 # ADT-Tweak
+    specificHeat: 42 # ADT-Tweak
   - type: TemperatureDamage
     heatDamageThreshold: 4000 #They come from hell, so..
     coldDamageThreshold: 260

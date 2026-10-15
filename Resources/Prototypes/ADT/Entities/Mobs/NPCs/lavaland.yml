@@ -410,7 +410,7 @@
         prototype: SimpleMobBaseThirst
   - type: Temperature
     temperature: 310.15
-    specificHeat: 2520
+    specificHeat: 42
   - type: StatusEffects
     allowed:
     - KnockedDown
