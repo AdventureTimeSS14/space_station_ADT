@@ -16282,3 +16282,9 @@ Entries:
     id: 2012
     pr_number: 3519
     time: '2026-10-15T15:00:25Z'
+  - author: FriendlyOne
+    changes:
+      - {message: Поправлена локаль гражданского медигана(Токсины > Яды), type: Tweak}
+    id: 2013
+    pr_number: 3520
+    time: '2026-10-15T15:18:37Z'
