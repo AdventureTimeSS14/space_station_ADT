@@ -381,9 +381,7 @@ public sealed class ADTEntitySpawningUIController : UIController
 
     private void OnReplaceToggled(ButtonToggledEventArgs args)
     {
-        if (args.Pressed)
-            _placement.Replacement ^= true;
-
+        _placement.Replacement = args.Pressed;
         args.Button.Pressed = args.Pressed;
     }
 
