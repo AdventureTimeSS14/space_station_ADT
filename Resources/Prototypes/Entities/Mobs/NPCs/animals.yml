@@ -2701,6 +2701,10 @@
   - type: NpcFactionMember
     factions:
     - Passive
+  # ADT-Tweak-Start
+  - type: Temperature
+    specificHeat: 46
+  # ADT-Tweak-End
   - type: TemperatureDamage
     heatDamageThreshold: 335
     coldDamageThreshold: 230
