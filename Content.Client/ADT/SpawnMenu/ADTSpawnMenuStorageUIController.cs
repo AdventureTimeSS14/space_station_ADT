@@ -2,6 +2,7 @@ using System.Numerics;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Shared.ContentPack;
+using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Serialization.Markdown;
 using Robust.Shared.Utility;
