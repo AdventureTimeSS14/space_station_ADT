@@ -16276,3 +16276,9 @@ Entries:
     id: 2011
     pr_number: 3482
     time: '2026-10-14T19:35:15Z'
+  - author: SchrodingerCutie
+    changes:
+      - {message: Голос "Рома Пятифанов" доступен женским персонажам., type: Tweak}
+    id: 2012
+    pr_number: 3519
+    time: '2026-10-15T15:00:25Z'
