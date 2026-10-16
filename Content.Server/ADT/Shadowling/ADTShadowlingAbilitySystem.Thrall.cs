@@ -109,7 +109,7 @@ public sealed partial class ADTShadowlingAbilitySystem
             return false;
         }
 
-        if (HasComp<MindShieldComponent>(target))
+        if (_shadowling.IsMindShielded(target))
         {
             if (!quiet)
                 _popup.PopupEntity(Loc.GetString("shadowling-enthrall-mindshield"), user, user, PopupType.MediumCaution);
