@@ -119,12 +119,17 @@
       amount: 10
     - id: MaterialBones1
       amount: 30
-  - type: ADTDrake
-    rangedCooldown: 3
+  - type: ADTMegafaunaAI
     decisionInterval: 2
     angerDamageDivisor: 50
     maxAnger: 20
     devourHealFraction: 0.5
+    handleMelee: false
+    adjacentOnlyOnGrid: true
+  - type: ADTMegafaunaSequence
+    insertionOrder: true
+  - type: ADTDrake
+    rangedCooldown: 3
     fireLineRange: 15
     fireConeAngles: [ -40, 0, 40 ]
     fireConeMeteorChance: 0.5

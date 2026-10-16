@@ -70,20 +70,7 @@ public sealed partial class BubblegumComponent : Component
     public bool InSmashPhase;
 
     [DataField]
-    public List<EntProtoId> Actions = new()
-    {
-        "ActionADTBubblegumTripleCharge",
-        "ActionADTBubblegumHallucinationCharge",
-        "ActionADTBubblegumSurround",
-        "ActionADTBubblegumBloodWarp",
-        "ActionADTBubblegumSummonNarsi",
-    };
-
-    [DataField]
     public TimeSpan AbilityInterval = TimeSpan.FromSeconds(1.6);
-
-    [DataField]
-    public TimeSpan NextAbilityAt;
 }
 
 [Serializable, NetSerializable]

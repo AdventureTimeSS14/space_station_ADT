@@ -1,0 +1,44 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+               xmlns:ui="clr-namespace:Content.Client.ADT.SpawnMenu.UI"
+               xmlns:tree="clr-namespace:Content.Client.UserInterface.Controls.FancyTree"
+               Title="{Loc 'adt-entity-spawn-window-title'}"
+               SetSize="900 620"
+               MinSize="520 320">
+    <BoxContainer Orientation="Vertical" SeparationOverride="4">
+        <BoxContainer Orientation="Horizontal" SeparationOverride="4">
+            <LineEdit Name="SearchBar" Access="Public" HorizontalExpand="True" PlaceHolder="{Loc 'adt-spawn-menu-search-placeholder'}" ToolTip="{Loc 'adt-spawn-menu-search-tooltip'}" />
+            <Button Name="ClearButton" Disabled="True" Text="{Loc 'adt-spawn-menu-clear'}" />
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal" SeparationOverride="4">
+            <BoxContainer Orientation="Horizontal">
+                <Button Name="ListModeButton" ToggleMode="True" Text="{Loc 'adt-spawn-menu-view-list'}" StyleClasses="OpenRight" />
+                <Button Name="GridModeButton" ToggleMode="True" Text="{Loc 'adt-spawn-menu-view-grid'}" StyleClasses="OpenLeft" />
+            </BoxContainer>
+            <CheckBox Name="GroupCheckBox" Access="Public" Text="{Loc 'adt-spawn-menu-group-variants'}" ToolTip="{Loc 'adt-spawn-menu-group-variants-tooltip'}" />
+            <Label Name="CountLabel" HorizontalExpand="True" Align="Right" Margin="4 0" StyleClasses="LabelSubText" />
+            <Button Name="DetailsButton" Access="Public" ToggleMode="True" Pressed="True" Text="{Loc 'adt-spawn-menu-details'}" />
+            <Button Name="OldWindowButton" Access="Public" Text="{Loc 'adt-spawn-menu-old-window'}" />
+        </BoxContainer>
+        <ui:ADTFlowContainer Name="TagBar" />
+        <SplitContainer Name="Split" Orientation="Horizontal" VerticalExpand="True">
+            <BoxContainer Orientation="Vertical" MinWidth="160">
+                <ui:ADTClampedContainer VerticalExpand="True">
+                    <tree:FancyTree Name="CategoryTree" />
+                </ui:ADTClampedContainer>
+                <CheckBox Name="ShowServiceCheckBox" Access="Public" Text="{Loc 'adt-spawn-menu-show-service'}" ToolTip="{Loc 'adt-spawn-menu-show-service-tooltip'}" />
+            </BoxContainer>
+            <BoxContainer Orientation="Horizontal" SeparationOverride="4" MinWidth="260">
+                <ui:ADTVirtualList Name="ItemsView" MinWidth="200" />
+                <ScrollContainer Name="DetailsScroll" SetWidth="240" HScrollEnabled="False">
+                    <ui:ADTEntitySpawnDetails Name="Details" Margin="4 0" />
+                </ScrollContainer>
+            </BoxContainer>
+        </SplitContainer>
+        <BoxContainer Orientation="Horizontal" SeparationOverride="4">
+            <Button Name="ReplaceButton" Access="Public" ToggleMode="True" Text="{Loc 'adt-spawn-menu-replace'}" />
+            <Button Name="EraseButton" Access="Public" ToggleMode="True" Text="{Loc 'adt-spawn-menu-erase'}" />
+            <OptionButton Name="OverrideMenu" Access="Public" HorizontalExpand="True" ToolTip="{Loc 'adt-spawn-menu-override-tooltip'}" />
+        </BoxContainer>
+        <Label Name="RotationLabel" Access="Public" />
+    </BoxContainer>
+</DefaultWindow>
