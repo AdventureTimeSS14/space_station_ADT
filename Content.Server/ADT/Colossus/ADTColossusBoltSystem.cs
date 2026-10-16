@@ -9,6 +9,7 @@ using Content.Shared.Gatherable;
 using Content.Shared.Gatherable.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Projectiles;
+using Robust.Shared.Physics.Events;
 using Robust.Shared.Random;
 
 namespace Content.Server.ADT.Colossus;
@@ -26,6 +27,13 @@ public sealed class ADTColossusBoltSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ADTColossusBoltComponent, ProjectileHitEvent>(OnProjectileHit);
+        SubscribeLocalEvent<ADTColossusBoltComponent, PreventCollideEvent>(OnPreventCollide);
+    }
+
+    private void OnPreventCollide(Entity<ADTColossusBoltComponent> ent, ref PreventCollideEvent args)
+    {
+        if (TryComp<ProjectileComponent>(ent, out var projectile) && args.OtherEntity == projectile.Shooter)
+            args.Cancelled = true;
     }
 
     private void OnProjectileHit(Entity<ADTColossusBoltComponent> ent, ref ProjectileHitEvent args)

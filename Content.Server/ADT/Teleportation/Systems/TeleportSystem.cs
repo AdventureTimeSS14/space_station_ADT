@@ -50,6 +50,7 @@ public sealed class TeleportSystem : EntitySystem
         if (args.Handled)
             return;
 
+        args.Handled = true;
         RandomTeleport(args.User, component);
 
         if (component.ConsumeOnUse)

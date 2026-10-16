@@ -88,7 +88,7 @@ namespace Content.Server.GameTicking
             }
 
             var spawnableStations = GetSpawnableStations();
-            var assignedJobs = _stationJobs.AssignJobs(profiles, spawnableStations);
+            var assignedJobs = _stationJobs.AssignJobsByPriority(profiles, spawnableStations); // ADT-Tweak
 
             _stationJobs.AssignOverflowJobs(ref assignedJobs, playerNetIds, profiles, spawnableStations);
 

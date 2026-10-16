@@ -151,7 +151,7 @@
         state: alive_1
   - type: ConditionalSpawner
     prototypes:
-      - ADTMobBloodMiner
+      - ADTMegaFaunaBloodMiner
 
 - type: entity
   name: Drake Spawner
@@ -432,33 +432,3 @@
   - type: ConditionalSpawner
     prototypes:
     - ADTMobKoboldAdvanced
-
-- type: entity
-  parent: MarkerBase
-  id: ADTSpawnBorgAiRemote
-  name: borg ai remote spawner
-  components:
-  - type: Sprite
-    layers:
-    - state: green
-    - sprite: Mobs/Silicon/chassis.rsi
-      state: robot
-    - sprite: Mobs/Silicon/chassis.rsi
-      state: robot_e
-    - state: ai
-  - type: ConditionalSpawner
-    prototypes:
-    - ADTPlayerBorgAiRemote
-
-- type: entity
-  parent: MarkerBase
-  id: ADTSpawnMobIPC
-  name: IPC spawner
-  components:
-  - type: Sprite
-    layers:
-    - state: green
-    - sprite: Mobs/Species/Human/displacement.rsi
-  - type: ConditionalSpawner
-    prototypes:
-    - MobIPC

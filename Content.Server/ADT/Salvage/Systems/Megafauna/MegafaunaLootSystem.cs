@@ -58,6 +58,12 @@ public sealed class MegafaunaLootSystem : EntitySystem
         if (ent.Comp.RandomLoot.Count > 0)
             SpawnInto(crate, _random.Pick(ent.Comp.RandomLoot), coords);
 
+        foreach (var pool in ent.Comp.RandomLootPools)
+        {
+            if (pool.PickOne.Count > 0)
+                SpawnInto(crate, _random.Pick(pool.PickOne), coords);
+        }
+
         if (ent.Comp.RandomLootGroups.Count > 0)
         {
             foreach (var proto in _random.Pick(ent.Comp.RandomLootGroups))

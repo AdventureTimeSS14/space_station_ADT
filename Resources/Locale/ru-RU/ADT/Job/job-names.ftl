@@ -31,7 +31,6 @@ job-name-ADTSpaceSecCommander = командир SPACE SEC
 job-name-ADTSpaceSecService = сотрудник SPACE SEC
 job-name-corrections-officer = надзиратель СБ
 ADTCorrectionsOfficer = надзиратель СБ
-job-name-cyborg = киборг
 # Job titles
 cadet-space-sec = кадет SPACE SEC
 officer-space-sec = офицер SPACE SEC
