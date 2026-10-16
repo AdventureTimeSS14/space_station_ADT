@@ -70,6 +70,18 @@ namespace Content.Server.Atmos.EntitySystems
         }
         // ADT-Tweak-End
 
+        // ADT-Tweak-Start
+        /// <summary>
+        /// Пересчитать кэш сопротивления носителя. Нужно тем, кто меняет защиту
+        /// не через надевание — например МОД при развёртывании частей.
+        /// </summary>
+        public void RefreshPressureResistance(EntityUid uid)
+        {
+            if (TryComp<BarotraumaComponent>(uid, out var barotrauma))
+                UpdateCachedResistances(uid, barotrauma);
+        }
+        // ADT-Tweak-End
+
         private void OnPressureProtectionEquipped(EntityUid uid, PressureProtectionComponent pressureProtection, GotEquippedEvent args)
         {
             if (TryComp<BarotraumaComponent>(args.EquipTarget, out var barotrauma) && barotrauma.ProtectionSlots.Contains(args.Slot))
