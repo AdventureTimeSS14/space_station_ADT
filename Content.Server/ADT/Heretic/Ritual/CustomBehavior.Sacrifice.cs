@@ -120,7 +120,6 @@ namespace Content.Server.Heretic.Ritual;
                 && hereticComp.SacrificeTargets.All(x => x.Entity != args.EntityManager.GetNetEntity(look)) // only targets
                 && !_heretic.TryGetHereticComponent(look, out _, out _)) // or other heretics
                 continue;
-            }
 
             uids.Add(look);
         }
