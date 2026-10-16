@@ -16347,3 +16347,10 @@ Entries:
     id: 2018
     pr_number: 3525
     time: '2026-10-16T02:58:28Z'
+  - author: Fineter75
+    changes:
+      - {message: Обновлена карта колизея, type: Tweak}
+      - {message: Исправлен баг связанный с  еретиком, type: Fix}
+    id: 2019
+    pr_number: 3515
+    time: '2026-10-16T15:27:23Z'
