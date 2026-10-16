@@ -200,10 +200,7 @@
   - type: Lock
     unlockOnClick: false
   - type: WarpPoint
-    location: Ядерный реактор
-    blacklist:
-      tags:
-      - GhostOnlyWarp
+    location: location-adt-nuclear-reactor
 
 - type: entity
   id: NuclearReactorSalvage # Kind of an empty shell, but if there's something special about salvage reactors, put it here

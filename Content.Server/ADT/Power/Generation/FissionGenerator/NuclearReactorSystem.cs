@@ -1,5 +1,5 @@
 using Content.Server.Administration.Logs;
-using Content.Server.AlertLevel;
+using Content.Shared.AlertLevel;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Components;
 using Content.Server.Audio;
