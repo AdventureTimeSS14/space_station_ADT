@@ -236,3 +236,19 @@
      sprite: ADT/Clothing/Hands/Gloves/vox_gloves.rsi
    - type: Clothing
      sprite: ADT/Clothing/Hands/Gloves/vox_gloves.rsi
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsGlovesLongBlackGold
+  name: long black and gold gloves
+  description: Long black gloves with gold trim that won't save you from a shock.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/long_black_gold.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/long_black_gold.rsi
+  - type: Fiber
+    fiberMaterial: fibers-synthetic
+    fiberColor: fibers-black
+  - type: StaticPrice
+    price: 45

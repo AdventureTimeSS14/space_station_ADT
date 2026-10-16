@@ -1,0 +1,17 @@
+﻿{
+    "states":  [
+                   {
+                       "directions":  4,
+                       "name":  "equipped-HELMET"
+                   },
+                   {
+                       "directions":  1,
+                       "name":  "icon"
+                   }
+               ],
+    "version":  1,
+    "size":  {
+                 "y":  32,
+                 "x":  32
+             }
+}

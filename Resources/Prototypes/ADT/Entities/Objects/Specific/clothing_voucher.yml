@@ -47,6 +47,7 @@
     - JumpsuitTurtleneckPurple
     - JumpsuitTurtleneckBlack
     - JumpsuitTurtleneckDarkBlue
+    - JumpsuitTurtleneckBeige
     typeDropPlace: InHands
 
 - type: entity
@@ -514,4 +515,305 @@
     - SockThighThin
     - SockThighYellow
     - SockFullFishnet
+    typeDropPlace: InHands
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherAdidas
+  abstract: false
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Clothing/Uniforms/Jumpsuit/Adidas/adidas_black.rsi
+        state: icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - AdidasBlack
+    - AdidasBlue
+    - AdidasRed
+    - AdidasWhite
+    typeDropPlace: InHands
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherCasualShirt
+  abstract: false
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Clothing/Uniforms/Jumpsuit/beige_shirt.rsi
+        state: icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - CasualShirtBeige
+    - CasualShirtDarkBlue
+    - CasualShirtGreen
+    - CasualShirtTeal
+    - CasualShirtYellow
+    typeDropPlace: InHands
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherKeikogi
+  abstract: false
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Clothing/Uniforms/Jumpsuit/keikogi.rsi
+        state: icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - KeikogiWhite
+    - KeikogiOrange
+    - KeikogiBlue
+    - KeikogiYellow
+    - KeikogiGreen
+    - KeikogiBrown
+    - KeikogiBlack
+    typeDropPlace: InHands
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherHeels
+  abstract: false
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Clothing/Shoes/Heels/heelblack.rsi
+        state: icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - HeelsBlack
+    - HeelsGold
+    - HeelsRed
+    - HeelsWhite
+    typeDropPlace: InHands
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherSandals
+  abstract: false
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Clothing/Shoes/Sandals/sandals_black.rsi
+        state: icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - SandalsBlack
+    - SandalsBlue
+    - SandalsBrown
+    - SandalsGreen
+    - SandalsPink
+    - SandalsRed
+    - SandalsWhite
+    - SandalsYellow
+    typeDropPlace: InHands
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherBowtie
+  abstract: false
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Clothing/Neck/Bowtie/black_bowtie.rsi
+        state: icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - BowtieBlack
+    - BowtieBlue
+    - BowtieRed
+    - BowtieWhite
+    typeDropPlace: InHands
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherShawl
+  abstract: false
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Clothing/Neck/Shawl/black_shawl.rsi
+        state: icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - ShawlBlack
+    - ShawlBlue
+    - ShawlPink
+    - ShawlRed
+    - ShawlWhite
+    typeDropPlace: InHands
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherBeanie
+  abstract: false
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Clothing/Head/Hats/Beanie/beanie_black.rsi
+        state: icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - BeanieBeige
+    - BeanieBlack
+    - BeanieBlue
+    - BeanieBrown
+    - BeanieCyan
+    - BeanieDarkBlue
+    - BeanieDarkGreen
+    - BeanieGray
+    - BeanieGreen
+    - BeanieMerc
+    - BeanieOrange
+    - BeaniePurple
+    - BeanieRed
+    - BeanieWhite
+    - BeanieYellow
+    typeDropPlace: InHands
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherDownjacket
+  abstract: false
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Clothing/OuterClothing/Downjacket/downjacket_black.rsi
+        state: icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - DownjacketBlack
+    - DownjacketBlue
+    - DownjacketBrown
+    - DownjacketGreen
+    - DownjacketMerc
+    - DownjacketRed
+    - DownjacketWhite
+    typeDropPlace: InHands
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherHoody
+  abstract: false
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Clothing/OuterClothing/Hoody/hoody_black.rsi
+        state: icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - HoodyBeige
+    - HoodyBlack
+    - HoodyBlue
+    - HoodyBrown
+    - HoodyDarkBlue
+    - HoodyGray
+    - HoodyGreen
+    - HoodyPurple
+    - HoodyRed
+    - HoodyWhite
+    typeDropPlace: InHands
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherSweatercut
+  abstract: false
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Clothing/Uniforms/Jumpskirt/Sweatercut/sweatercut_black.rsi
+        state: icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - SweatercutBeige
+    - SweatercutBlack
+    - SweatercutBlue
+    - SweatercutRed
+    - SweatercutWhite
+    typeDropPlace: InHands
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherKilt
+  abstract: false
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Clothing/Uniforms/Jumpskirt/kilt_blue.rsi
+        state: icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - KiltBlue
+    - KiltGreen
+    - KiltRed
+    typeDropPlace: InHands
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherNightDress
+  abstract: false
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Clothing/Uniforms/Jumpskirt/night_black.rsi
+        state: icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - NightDressBlack
+    - NightDressRed
+    - NightDressWhite
     typeDropPlace: InHands

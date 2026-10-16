@@ -1,0 +1,68 @@
+{
+    "states": [
+        {
+            "directions": 4,
+            "name": "equipped-INNERCLOTHING-monkey"
+        },
+        {
+            "directions": 4,
+            "name": "equipped-INNERCLOTHING",
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "directions": 1,
+            "name": "icon",
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "directions": 4,
+            "name": "inhand-left"
+        },
+        {
+            "directions": 4,
+            "name": "inhand-right"
+        }
+    ],
+    "version": 1,
+    "size": {
+        "y": 32,
+        "x": 32
+    }
+}
