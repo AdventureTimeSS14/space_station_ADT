@@ -43,7 +43,11 @@ entity-condition-guidebook-reagent-threshold =
                *[other] имеет между { NATURALFIXED($min, 2) } ед. и { NATURALFIXED($max, 2) } ед. { $reagent }
             }
     }
-entity-condition-guidebook-mob-state-condition = пациент в { $state }
+entity-condition-guidebook-mob-state-condition = пациент { $state }
+entity-condition-guidebook-mob-state-alive = жив
+entity-condition-guidebook-mob-state-softcritical = в софт-крите
+entity-condition-guidebook-mob-state-critical = в крите
+entity-condition-guidebook-mob-state-dead = мёртв
 entity-condition-guidebook-job-condition = должность цели — { $job }
 entity-condition-guidebook-solution-temperature =
     температура раствора составляет { $max ->

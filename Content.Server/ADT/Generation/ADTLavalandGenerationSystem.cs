@@ -161,6 +161,7 @@ public sealed partial class ADTLavalandGenerationSystem : EntitySystem
         var placed = comp.Placed;
         placed.Clear();
         comp.Exclusions.Clear();
+        comp.RiverExclusions.Clear();
 
         foreach (var group in comp.Groups)
         {
@@ -186,6 +187,9 @@ public sealed partial class ADTLavalandGenerationSystem : EntitySystem
 
                 if (group.Clearance > 0f)
                     comp.Exclusions.Add((coords.Position, group.Clearance));
+
+                if (group.RiverClearance is { } riverClearance)
+                    comp.RiverExclusions.Add((coords.Position, riverClearance));
             }
         }
 
@@ -253,7 +257,9 @@ public sealed partial class ADTLavalandGenerationSystem : EntitySystem
 
         for (var attempt = 0; attempt < comp.MaxAttempts; attempt++)
         {
-            var angle = _random.NextFloat(0, MathF.PI * 2);
+            var angle = group.Angle is { } fixedAngle
+                ? MathHelper.DegreesToRadians(fixedAngle)
+                : _random.NextFloat(0, MathF.PI * 2);
             var distance = _random.NextFloat(minCenter, maxCenter);
             var offset = new Vector2(MathF.Cos(angle) * distance, MathF.Sin(angle) * distance);
 

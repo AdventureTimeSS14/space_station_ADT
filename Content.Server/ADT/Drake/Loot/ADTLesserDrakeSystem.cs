@@ -1,7 +1,9 @@
 using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
+using Content.Server.ADT.Salvage.Systems;
 using Content.Shared.ADT.Drake;
 using Content.Shared.ADT.Drake.Loot;
+using Content.Shared.ADT.Salvage.Components;
 using Content.Shared.Administration.Systems;
 using Content.Shared.Chat;
 using Content.Shared.CombatMode;
@@ -16,18 +18,17 @@ using Content.Shared.Popups;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.Drake.Loot;
 
 public sealed class ADTLesserDrakeSystem : EntitySystem
 {
-    [Dependency] private IGameTiming _timing = default!;
     [Dependency] private IPrototypeManager _prototype = default!;
     [Dependency] private ADTDrakeAttacksSystem _attacks = default!;
     [Dependency] private ADTDrakeSwoopSystem _swoop = default!;
     [Dependency] private DamageableSystem _damageable = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private MegafaunaSystem _megafauna = default!;
     [Dependency] private MobStateSystem _mobState = default!;
     [Dependency] private MobThresholdSystem _thresholds = default!;
     [Dependency] private PolymorphSystem _polymorph = default!;
@@ -170,13 +171,12 @@ public sealed class ADTLesserDrakeSystem : EntitySystem
         if (!_combatMode.IsInCombatMode(ent))
             return;
 
-        var now = _timing.CurTime;
-        if (now < ent.Comp.NextRangedAt)
+        if (!TryComp<ADTMegafaunaAIComponent>(ent, out var ai) || !_megafauna.IsRangedReady((ent.Owner, ai)))
             return;
 
         args.Handled = true;
 
-        ent.Comp.NextRangedAt = now + ent.Comp.RangedCooldown;
+        _megafauna.SetRangedCooldown((ent.Owner, ai), ent.Comp.RangedCooldown);
         _attacks.FireConeAt(ent, _transform.ToMapCoordinates(args.Target));
     }
 
@@ -189,7 +189,8 @@ public sealed class ADTLesserDrakeSystem : EntitySystem
             return;
 
         var target = FindMob(ent, args.Target) ?? Spawn(args.TargetMarker, args.Target);
-        ent.Comp.ManualTarget = target;
+        if (TryComp<ADTMegafaunaAIComponent>(ent, out var ai))
+            ai.ManualTarget = target;
 
         if (!_swoop.TrySwoop(ent, target, false, args.Recovery, ADTDrakeSwoopFollowUp.LavaPools))
             return;
