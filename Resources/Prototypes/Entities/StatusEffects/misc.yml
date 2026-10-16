@@ -180,7 +180,8 @@
   - type: StatusEffect
     whitelist:
       components:
-      - MobState
+      # ADT-Tweak start
       - Blindable
-      requireAll: true
+      - BorgFlashStun
+      # ADT-Tweak end
   - type: FlashedStatusEffect

@@ -11,6 +11,7 @@ using Content.Server.ADT.Ghostbar.Components;
 using Content.Server.Mind;
 using Content.Shared.Mind.Components;
 using Content.Server.Antag.Components;
+using Content.Shared.Mindshield;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Random.Helpers;
@@ -38,6 +39,7 @@ public sealed class GhostBarSystem : EntitySystem
     [Dependency] private StationSpawningSystem _spawningSystem = default!;
     [Dependency] private ADTTraitSystem _traits = default!;
     [Dependency] private MindSystem _mindSystem = default!;
+    [Dependency] private MindShieldSystem _mindShield = default!;
     [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private StealthSystem _stealth = default!;
     [Dependency] private IConfigurationManager _cfg = default!;
@@ -121,6 +123,7 @@ public sealed class GhostBarSystem : EntitySystem
 
         EnsureComp<GhostBarPlayerComponent>(mobUid);
         EnsureComp<MindShieldComponent>(mobUid);
+        _mindShield.RefreshMindshieldStatus(mobUid);
         EnsureComp<AntagImmuneComponent>(mobUid);
         if (GhostBarMap.Pacified)
             EnsureComp<PacifiedComponent>(mobUid);
