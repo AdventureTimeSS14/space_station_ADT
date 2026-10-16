@@ -261,7 +261,7 @@
     Sigynate: 1
 
 - type: reaction
-  id: ADTHeraMurderSolution
+  id: ADTMurderSolution
   impact: Medium
   reactants:
     Uranium:
@@ -271,4 +271,4 @@
     Cognizine:
       amount: 1
   products:
-    ADTHeraMurderSolution: 5
+    ADTMurderSolution: 5
