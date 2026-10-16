@@ -1,4 +1,4 @@
-﻿//
+//
 
 using System.Linq;
 using System.Numerics;
@@ -26,6 +26,7 @@ using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Store.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Mobs;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Robust.Shared.Map;
@@ -111,38 +112,13 @@ namespace Content.Server.Heretic.Ritual;
             if (look == args.Performer)
                 continue;
 
-            if (!args.EntityManager.TryGetComponent<MobStateComponent>(look, out var mobstate))
-                continue;
-
-            if (mobstate.CurrentState == Shared.Mobs.MobState.Alive)
-                continue;
-
-            if (MinCellular > 0f && _heretic.GetCellularDamage(look) < MinCellular)
-            {
-                if (GibOnInvalid)
-                    (invalid ??= new List<EntityUid>()).Add(look);
-
-                continue;
-            }
-
-            if (OnlyHumanoid && !args.EntityManager.HasComponent<HumanoidProfileComponent>(look))
-            {
-                if (GibOnInvalid)
-                    (invalid ??= new List<EntityUid>()).Add(look);
-
-                continue;
-            }
-
-            if (args.EntityManager.HasComponent<BorgChassisComponent>(look))
-                continue;
-
-            if (OnlyTargets
-                && hereticComp.SacrificeTargets.All(x => x.Entity != args.EntityManager.GetNetEntity(look))
-                && !_heretic.TryGetHereticComponent(look, out _, out _))
-            {
-                if (GibOnInvalid)
-                    (invalid ??= new List<EntityUid>()).Add(look);
-
+            if (!args.EntityManager.TryGetComponent<MobStateComponent>(look, out var mobstate) // only mobs
+            || OnlyHumanoid && !args.EntityManager.HasComponent<HumanoidProfileComponent>(look) // only humans
+            || args.EntityManager.HasComponent<BorgChassisComponent>(look) // no borgs
+            || args.EntityManager.HasComponent<SacrificedComponent>(look)
+            || OnlyTargets
+                && hereticComp.SacrificeTargets.All(x => x.Entity != args.EntityManager.GetNetEntity(look)) // only targets
+                && !_heretic.TryGetHereticComponent(look, out _, out _)) // or other heretics
                 continue;
             }
 
@@ -181,12 +157,19 @@ namespace Content.Server.Heretic.Ritual;
             return;
 
         var knowledgeGain = 0f;
-        for (var i = 0; i < Max && i < uids.Count; i++)
+        var processed = 0;
+        foreach (var uid in uids)
         {
-            if (!args.EntityManager.EntityExists(uids[i]))
+            if (processed >= Max)
+                break;
+
+            if (!args.EntityManager.EntityExists(uid))
                 continue;
 
-            var uid = uids[i];
+            if (args.EntityManager.HasComponent<SacrificedComponent>(uid))
+                continue;
+
+            processed++;
 
             var isCommand = args.EntityManager.HasComponent<CommandStaffComponent>(uid);
             var isSec = args.EntityManager.HasComponent<SecurityStaffComponent>(uid);
@@ -242,32 +225,33 @@ namespace Content.Server.Heretic.Ritual;
         var sharedMindSystem = entMan.System<SharedMindSystem>();
         var chatManager = IoCManager.Resolve<IChatManager>();
         var player = IoCManager.Resolve<ISharedPlayerManager>();
+        var mobStateSystem = entMan.System<MobStateSystem>();
 
         if (!entMan.TryGetComponent<MobStateComponent>(uid, out var mobstate))
             return;
 
-        if (mobstate.CurrentState == MobState.Dead)
+        if (mobstate.CurrentState != MobState.Dead)
+            mobStateSystem.ChangeMobState(uid, MobState.Dead, mobstate);
+
+        TeleportRandomly(args, uid);
+
+        // notify the victim
+        var message = Loc.GetString("sacrificed-description");
+        var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
+
+        if (sharedMindSystem.TryGetMind(uid, out _, out _) &&
+            player.TryGetSessionByEntity(uid, out var session))
         {
-            TeleportRandomly(args, uid);
-
-            // notify the victim
-            var message = Loc.GetString("sacrificed-description");
-            var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
-
-            if (sharedMindSystem.TryGetMind(uid, out _, out _) &&
-                player.TryGetSessionByEntity(uid, out var session))
-            {
-                chatManager.ChatMessageToOne(ChatChannel.Server,
-                    message,
-                    wrappedMessage,
-                    default,
-                    false,
-                    session.Channel,
-                    Color.FromSrgb(new Color(255, 100, 255)));
-            }
-
-            entMan.EnsureComponent<SacrificedComponent>(uid);
+            chatManager.ChatMessageToOne(ChatChannel.Server,
+                message,
+                wrappedMessage,
+                default,
+                false,
+                session.Channel,
+                Color.FromSrgb(new Color(255, 100, 255)));
         }
+
+        entMan.EnsureComponent<SacrificedComponent>(uid);
 
         // coord sensors so the body can be found
         suitSensorSystem.SetAllSensors(uid, ADTSuitSensorMode.SensorCords);
