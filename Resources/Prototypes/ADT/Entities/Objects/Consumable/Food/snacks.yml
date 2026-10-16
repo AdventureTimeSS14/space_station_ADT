@@ -585,13 +585,12 @@
     sprite: ADT/Objects/Consumable/Food/Snacks/Candies/candy.rsi
     state: black
   - type: Item
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 3
+  - type: Solution
+    solution:
+      maxVol: 5
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 3
   - type: Tag
     tags:
     - ADTMothFriendlyFood
@@ -913,15 +912,14 @@
     sprite: ADT/Objects/Consumable/Food/hypoallergen_chocolate.rsi
     state: hypoallergen_chocolate
   - type: Item
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 8
-        - ReagentId: CocoaPowder
-          Quantity: 1
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 8
+      - ReagentId: CocoaPowder
+        Quantity: 1
   - type: Extractable
     grindableSolutionName: food
   # - type: Tag
@@ -1007,17 +1005,16 @@
   - type: Tag
     tags:
       - FoodSnack
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Theobromine
-          Quantity: 3
-        - ReagentId: CocoaPowder
-          Quantity: 1
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: Theobromine
+        Quantity: 3
+      - ReagentId: CocoaPowder
+        Quantity: 1
 
 - type: entity
   name: a lollipop in the shape of a heart
@@ -1163,13 +1160,12 @@
     layers:
     - state: red
       map: [ "enum.DamageStateVisualLayers.Base" ]
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 6
-        reagents:
-        - ReagentId: EggCooked
-          Quantity: 6
+  - type: Solution
+    solution:
+      maxVol: 6
+      reagents:
+      - ReagentId: EggCooked
+        Quantity: 6
   - type: Temperature
     # preserve temperature from the boiling step
     temperature: 344

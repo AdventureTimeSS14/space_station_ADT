@@ -15,15 +15,14 @@
     layers:
     - state: bowl
     - state: olivier
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 9
-        - ReagentId: Vitamin
-          Quantity: 3
+  - type: Solution
+    solution:
+      maxVol: 15
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 9
+      - ReagentId: Vitamin
+        Quantity: 3
 
 - type: entity
   name: jellied meat
@@ -44,14 +43,13 @@
   - type: FlavorProfile
     flavors:
       - ADTJellymeat
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 6
-        - ReagentId: Protein
-          Quantity: 8
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 6
+      - ReagentId: Protein
+        Quantity: 8
   - type: Item
     size: Normal
 
@@ -74,16 +72,15 @@
   - type: FlavorProfile
     flavors:
       - ADTHerringUnderFurcoat
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 9
-        - ReagentId: Protein
-          Quantity: 3
-        - ReagentId: Vitamin
-          Quantity: 3
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 9
+      - ReagentId: Protein
+        Quantity: 3
+      - ReagentId: Vitamin
+        Quantity: 3
   - type: Item
     size: Normal
 
@@ -103,14 +100,13 @@
     layers:
     - state: plate
     - state: ham
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 18
-        - ReagentId: Protein
-          Quantity: 6
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 18
+      - ReagentId: Protein
+        Quantity: 6
   - type: ToolRefinable
     refineResult:
     - id: ADTFoodMeatHamPiece
@@ -133,14 +129,13 @@
     sprite: ADT/ADTGlobalEvents/NewYears/Objects/Consumable/Food/new-years/newyearfood.rsi
     layers:
     - state: hampiece
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 3
-        - ReagentId: Protein
-          Quantity: 1
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 3
+      - ReagentId: Protein
+        Quantity: 1
   - type: Item
     size: Normal
 
@@ -156,16 +151,15 @@
     layers:
     #- state: plate_small
     - state: pudding
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 12
-        - ReagentId: Protein
-          Quantity: 3
-        - ReagentId: Vitamin
-          Quantity: 3
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 12
+      - ReagentId: Protein
+        Quantity: 3
+      - ReagentId: Vitamin
+        Quantity: 3
   - type: Item
     size: Normal
 
@@ -181,15 +175,14 @@
     layers:
     #- state: plate_small
     - state: christmaspudding
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 15
-        - ReagentId: Protein
-          Quantity: 3
-        - ReagentId: Vitamin
-          Quantity: 4
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 15
+      - ReagentId: Protein
+        Quantity: 3
+      - ReagentId: Vitamin
+        Quantity: 4
   - type: Item
     size: Normal

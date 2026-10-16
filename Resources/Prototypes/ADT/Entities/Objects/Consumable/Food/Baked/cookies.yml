@@ -11,13 +11,12 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/cookies.rsi
     state: cookie_blackcat
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 7
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
+  - type: Solution
+    solution:
+      maxVol: 7
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 5
   - type: Tag
     tags:
     - ADTMothFriendlyFood

@@ -354,13 +354,12 @@
   id: ADTDrinkCargoBeerGlass
   suffix: CargoBeer
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: ADTCargoBeer
-              Quantity: 30
+    - type: Solution
+      solution:
+        maxVol: 30
+        reagents:
+          - ReagentId: ADTCargoBeer
+            Quantity: 30
     - type: Icon
       sprite: ADT/Objects/Consumable/Drinks/cargobeer.rsi
       state: icon
@@ -371,13 +370,12 @@
   id: ADTDrinkLeafloverBeerGlass
   suffix: LeafloverBeer
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: ADTLeafloverBeer
-              Quantity: 30
+    - type: Solution
+      solution:
+        maxVol: 30
+        reagents:
+          - ReagentId: ADTLeafloverBeer
+            Quantity: 30
     - type: Icon
       sprite: ADT/Objects/Consumable/Drinks/leafloverbeer.rsi
       state: icon
@@ -387,13 +385,12 @@
   id: ADTDrinkScientificAleGlass
   suffix: ScientificAle
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: ADTScientificAle
-              Quantity: 30
+    - type: Solution
+      solution:
+        maxVol: 30
+        reagents:
+          - ReagentId: ADTScientificAle
+            Quantity: 30
     - type: Icon
       sprite: ADT/Objects/Consumable/Drinks/scientificale.rsi
       state: icon
@@ -403,13 +400,12 @@
   id: ADTDrinkUraniumAleGlass
   suffix: UraniumAle
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: ADTUraniumAle
-              Quantity: 30
+    - type: Solution
+      solution:
+        maxVol: 30
+        reagents:
+          - ReagentId: ADTUraniumAle
+            Quantity: 30
     - type: Icon
       sprite: ADT/Objects/Consumable/Drinks/uraniumale.rsi
       state: icon
@@ -421,13 +417,12 @@
   id: ADTDrinkGoldenAleGlass
   suffix: GoldenAle
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: ADTGoldenAle
-              Quantity: 30
+    - type: Solution
+      solution:
+        maxVol: 30
+        reagents:
+          - ReagentId: ADTGoldenAle
+            Quantity: 30
     - type: Icon
       sprite: ADT/Objects/Consumable/Drinks/goldenale.rsi
       state: icon
@@ -438,13 +433,12 @@
   id: ADTDrinkSausageBeerGlass
   suffix: SausageBeer
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: ADTSausageBeer
-              Quantity: 30
+    - type: Solution
+      solution:
+        maxVol: 30
+        reagents:
+          - ReagentId: ADTSausageBeer
+            Quantity: 30
     - type: Icon
       sprite: ADT/Objects/Consumable/Drinks/sausagebeer.rsi
       state: icon
@@ -455,13 +449,12 @@
   id: ADTDrinkTechnoBeerGlass
   suffix: TechnoBeer
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: ADTTechnoBeer
-              Quantity: 30
+    - type: Solution
+      solution:
+        maxVol: 30
+        reagents:
+          - ReagentId: ADTTechnoBeer
+            Quantity: 30
     - type: Icon
       sprite: ADT/Objects/Consumable/Drinks/technarbeer.rsi
       state: icon
@@ -472,13 +465,12 @@
   id: ADTDrinkClassicPaulanerBeerGlass
   suffix: ClassicPaulanerBeer
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: ADTClassicPaulanerBeer
-              Quantity: 30
+    - type: Solution
+      solution:
+        maxVol: 30
+        reagents:
+          - ReagentId: ADTClassicPaulanerBeer
+            Quantity: 30
     - type: Icon
       sprite: ADT/Objects/Consumable/Drinks/classicalpaulaner.rsi
       state: icon
@@ -489,13 +481,12 @@
   id: ADTDrinkLivseyBeerGlass
   suffix: LivseyBeer
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: ADTLivseyBeer
-              Quantity: 30
+    - type: Solution
+      solution:
+        maxVol: 30
+        reagents:
+          - ReagentId: ADTLivseyBeer
+            Quantity: 30
     - type: Icon
       sprite: ADT/Objects/Consumable/Drinks/doctorlivsey.rsi
       state: icon
@@ -506,13 +497,12 @@
   id: ADTDrinkLuckyJonnyBeerGlass
   suffix: LuckyJonnyBeer
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: ADTLuckyJonnyBeer
-              Quantity: 30
+    - type: Solution
+      solution:
+        maxVol: 30
+        reagents:
+          - ReagentId: ADTLuckyJonnyBeer
+            Quantity: 30
     - type: Icon
       sprite: ADT/Objects/Consumable/Drinks/luckyjonny.rsi
       state: icon
@@ -523,13 +513,12 @@
   id: ADTDrinkSecUnfilteredBeerGlass
   suffix: SecUnfilteredBeer
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: ADTSecUnfilteredBeer
-              Quantity: 30
+    - type: Solution
+      solution:
+        maxVol: 30
+        reagents:
+          - ReagentId: ADTSecUnfilteredBeer
+            Quantity: 30
     - type: Icon
       sprite: ADT/Objects/Consumable/Drinks/secbeer.rsi
       state: icon
@@ -540,13 +529,12 @@
   id: ADTDrinkGlyphidStoutBeerGlass
   suffix: GlyphidStoutBeer
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: ADTGlyphidStoutBeer
-              Quantity: 30
+    - type: Solution
+      solution:
+        maxVol: 30
+        reagents:
+          - ReagentId: ADTGlyphidStoutBeer
+            Quantity: 30
     - type: Icon
       sprite: ADT/Objects/Consumable/Drinks/glyfidstout.rsi
       state: icon
@@ -558,13 +546,12 @@
   name: hot cocoa
   description: A heated drink consisting cocoa powder.
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: ADTCocoaDrink
-              Quantity: 30
+    - type: Solution
+      solution:
+        maxVol: 30
+        reagents:
+          - ReagentId: ADTCocoaDrink
+            Quantity: 30
     - type: Sprite
       sprite: ADT/Objects/Consumable/Drinks/cocoa_drink.rsi
 

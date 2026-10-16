@@ -10,18 +10,17 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/creme_brulee.rsi
     state: broulet_torched
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 26
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Theobromine
-          Quantity: 5
-        - ReagentId: Vitamin
-          Quantity: 5
-          
+  - type: Solution
+    solution:
+      maxVol: 26
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: Theobromine
+        Quantity: 5
+      - ReagentId: Vitamin
+        Quantity: 5
+        
 - type: entity
   name: creme brulee
   parent: ADTBrouletTorched
@@ -30,14 +29,13 @@
   components:
   - type: Sprite
     state: creme_broulet
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 35
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Theobromine
-          Quantity: 5
-        - ReagentId: Vitamin
-          Quantity: 5
+  - type: Solution
+    solution:
+      maxVol: 35
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: Theobromine
+        Quantity: 5
+      - ReagentId: Vitamin
+        Quantity: 5

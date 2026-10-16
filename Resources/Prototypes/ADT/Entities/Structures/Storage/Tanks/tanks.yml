@@ -6,12 +6,11 @@
   description: golden ale tank
   suffix: Oktoberfest
   components:
-    - type: SolutionContainerManager
-      solutions:
-        tank:
-          reagents:
-            - ReagentId: ADTGoldenAle
-              Quantity: 1500
+    - type: Solution
+      solution:
+        reagents:
+          - ReagentId: ADTGoldenAle
+            Quantity: 1500
     - type: Sprite
       sprite: ADT/Structures/Storage/beertank.rsi
       state: cargobeer
@@ -23,12 +22,11 @@
   description: leaflover beer tank
   suffix: Oktoberfest
   components:
-    - type: SolutionContainerManager
-      solutions:
-        tank:
-          reagents:
-            - ReagentId: ADTLeafloverBeer
-              Quantity: 1500
+    - type: Solution
+      solution:
+        reagents:
+          - ReagentId: ADTLeafloverBeer
+            Quantity: 1500
     - type: Sprite
       sprite: ADT/Structures/Storage/beertank.rsi
       state: leafloverbeer
@@ -40,12 +38,11 @@
   description: scientific ale tank
   suffix: Oktoberfest
   components:
-    - type: SolutionContainerManager
-      solutions:
-        tank:
-          reagents:
-            - ReagentId: ADTScientificAle
-              Quantity: 1500
+    - type: Solution
+      solution:
+        reagents:
+          - ReagentId: ADTScientificAle
+            Quantity: 1500
     - type: Sprite
       sprite: ADT/Structures/Storage/beertank.rsi
       state: scientificale
@@ -57,12 +54,11 @@
   description: golden ale tank
   suffix: Oktoberfest
   components:
-    - type: SolutionContainerManager
-      solutions:
-        tank:
-          reagents:
-            - ReagentId: ADTGoldenAle
-              Quantity: 1500
+    - type: Solution
+      solution:
+        reagents:
+          - ReagentId: ADTGoldenAle
+            Quantity: 1500
     - type: Sprite
       sprite: ADT/Structures/Storage/beertank.rsi
       state: goldenale
@@ -74,12 +70,11 @@
   description: sausage beer tank
   suffix: Oktoberfest
   components:
-    - type: SolutionContainerManager
-      solutions:
-        tank:
-          reagents:
-            - ReagentId: ADTSausageBeer
-              Quantity: 1500
+    - type: Solution
+      solution:
+        reagents:
+          - ReagentId: ADTSausageBeer
+            Quantity: 1500
     - type: Sprite
       sprite: ADT/Structures/Storage/beertank.rsi
       state: sausagebeer
@@ -91,12 +86,11 @@
   description: techno beer tank
   suffix: Oktoberfest
   components:
-    - type: SolutionContainerManager
-      solutions:
-        tank:
-          reagents:
-            - ReagentId: ADTTechnoBeer
-              Quantity: 1500
+    - type: Solution
+      solution:
+        reagents:
+          - ReagentId: ADTTechnoBeer
+            Quantity: 1500
     - type: Sprite
       sprite: ADT/Structures/Storage/beertank.rsi
       state: technobeer
@@ -108,12 +102,11 @@
   description: paulaner beer tank
   suffix: Oktoberfest
   components:
-    - type: SolutionContainerManager
-      solutions:
-        tank:
-          reagents:
-            - ReagentId: ADTClassicPaulanerBeer
-              Quantity: 1500
+    - type: Solution
+      solution:
+        reagents:
+          - ReagentId: ADTClassicPaulanerBeer
+            Quantity: 1500
     - type: Sprite
       sprite: ADT/Structures/Storage/beertank.rsi
       state: paulanerbeer
@@ -125,12 +118,11 @@
   description: livsey beer tank
   suffix: Oktoberfest
   components:
-    - type: SolutionContainerManager
-      solutions:
-        tank:
-          reagents:
-            - ReagentId: ADTLivseyBeer
-              Quantity: 1500
+    - type: Solution
+      solution:
+        reagents:
+          - ReagentId: ADTLivseyBeer
+            Quantity: 1500
     - type: Sprite
       sprite: ADT/Structures/Storage/beertank.rsi
       state: livseybeer
@@ -142,12 +134,11 @@
   description: lucky jonny beer tank
   suffix: Oktoberfest
   components:
-    - type: SolutionContainerManager
-      solutions:
-        tank:
-          reagents:
-            - ReagentId: ADTLuckyJonnyBeer
-              Quantity: 1500
+    - type: Solution
+      solution:
+        reagents:
+          - ReagentId: ADTLuckyJonnyBeer
+            Quantity: 1500
     - type: Sprite
       sprite: ADT/Structures/Storage/beertank.rsi
       state: luckyjonnybeer
@@ -159,12 +150,11 @@
   description: sec unfiltered beer tank
   suffix: Oktoberfest
   components:
-    - type: SolutionContainerManager
-      solutions:
-        tank:
-          reagents:
-            - ReagentId: ADTSecUnfilteredBeer
-              Quantity: 1500
+    - type: Solution
+      solution:
+        reagents:
+          - ReagentId: ADTSecUnfilteredBeer
+            Quantity: 1500
     - type: Sprite
       sprite: ADT/Structures/Storage/beertank.rsi
       state: secunfilteredbeer
@@ -176,12 +166,11 @@
   description: glyphid stout tank
   suffix: Oktoberfest
   components:
-    - type: SolutionContainerManager
-      solutions:
-        tank:
-          reagents:
-            - ReagentId: ADTGlyphidStoutBeer
-              Quantity: 1500
+    - type: Solution
+      solution:
+        reagents:
+          - ReagentId: ADTGlyphidStoutBeer
+            Quantity: 1500
     - type: Sprite
       sprite: ADT/Structures/Storage/beertank.rsi
       state: glyphidstout

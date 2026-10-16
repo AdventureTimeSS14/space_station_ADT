@@ -6,13 +6,12 @@
   description: mulled-wine-desc
   suffix: New Year
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTMulledWine
-          Quantity: 30
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: ADTMulledWine
+        Quantity: 30
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/NewYears/Objects/Consumable/Drinks/new_year.rsi
     state: mulled_wine
@@ -24,13 +23,12 @@
   description: mulled-wine-cold-desc
   suffix: New Year
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTMulledWineCold
-          Quantity: 30
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: ADTMulledWineCold
+        Quantity: 30
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/NewYears/Objects/Consumable/Drinks/new_year.rsi
     state: mulled_wine_cold
@@ -42,13 +40,12 @@
   description: champagne-mandarin-desc
   suffix: New Year
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTChampagneMandarin
-          Quantity: 30
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: ADTChampagneMandarin
+        Quantity: 30
   - type: SolutionContainerVisuals
     maxFillLevels: 0
     inHandsMaxFillLevels: 0
@@ -63,13 +60,12 @@
   description: christmas-milkshake-desc
   suffix: New Year
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTChristmasMilkshake
-          Quantity: 30
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: ADTChristmasMilkshake
+        Quantity: 30
   - type: SolutionContainerVisuals
     maxFillLevels: 0
     inHandsMaxFillLevels: 0
@@ -84,13 +80,12 @@
   description: tea-cinnamon-lemon-desc
   suffix: New Year
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTTeaCinnamonLemon
-          Quantity: 30
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: ADTTeaCinnamonLemon
+        Quantity: 30
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/NewYears/Objects/Consumable/Drinks/new_year.rsi
     state: warm_tea_cinnamon_lemon
@@ -102,13 +97,12 @@
   description: sbiten-cinnamon-lemon-desc
   suffix: New Year
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTSbitenCinnamonLemon
-          Quantity: 30
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: ADTSbitenCinnamonLemon
+        Quantity: 30
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/NewYears/Objects/Consumable/Drinks/new_year.rsi
     state: sbiten_cinnamon_lemon
@@ -120,13 +114,12 @@
   description: hot-cocoa-desc
   suffix: New Year
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTHotCocoa
-          Quantity: 30
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: ADTHotCocoa
+        Quantity: 30
   - type: SolutionContainerVisuals
     maxFillLevels: 0
   - type: Sprite
@@ -140,13 +133,12 @@
   description: hot-chocolate-desc
   suffix: New Year
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTHotChocolate
-          Quantity: 30
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: ADTHotChocolate
+        Quantity: 30
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/NewYears/Objects/Consumable/Drinks/new_year.rsi
     state: hot_chocolate
@@ -158,13 +150,12 @@
   description: hot-chocolate-desc-allergic
   suffix: New Year
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTHotChocolateAllergic
-          Quantity: 30
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: ADTHotChocolateAllergic
+        Quantity: 30
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/NewYears/Objects/Consumable/Drinks/new_year.rsi
     state: hot_chocolate

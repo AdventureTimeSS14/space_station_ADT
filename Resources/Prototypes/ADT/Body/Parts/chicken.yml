@@ -47,14 +47,13 @@
         Quantity: 10
       - ReagentId: Blood
         Quantity: 20
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 30
-        - ReagentId: Fat
-          Quantity: 20
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: UncookedAnimalProteins
+        Quantity: 30
+      - ReagentId: Fat
+        Quantity: 20
   - type: Item
     size: Normal
   - type: ToolRefinable

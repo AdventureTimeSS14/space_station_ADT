@@ -135,17 +135,16 @@
   - type: FlavorProfile
     flavors:
       - meaty
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 8
-        - ReagentId: Protein
-          Quantity: 8
-        - ReagentId: Vitamin
-          Quantity: 8
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 8
+      - ReagentId: Protein
+        Quantity: 8
+      - ReagentId: Vitamin
+        Quantity: 8
 
 - type: entity
   name: bratwurst
@@ -164,17 +163,16 @@
   - type: FlavorProfile
     flavors:
       - meaty
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 8
-        - ReagentId: Protein
-          Quantity: 8
-        - ReagentId: Vitamin
-          Quantity: 8
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 8
+      - ReagentId: Protein
+        Quantity: 8
+      - ReagentId: Vitamin
+        Quantity: 8
 
 #куриные ножки и крылышки. И запеченные варианты всего этого
 
@@ -187,14 +185,13 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/chicken_meat.rsi
     state: raw_wing
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 6
-        - ReagentId: Fat
-          Quantity: 3
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: UncookedAnimalProteins
+        Quantity: 6
+      - ReagentId: Fat
+        Quantity: 3
   - type: ToolRefinable
     refineResult:
     - id: FoodMeatChickenCutlet
@@ -216,14 +213,13 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/chicken_meat.rsi
     state: raw_leg
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 6
-        - ReagentId: Fat
-          Quantity: 6
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: UncookedAnimalProteins
+        Quantity: 6
+      - ReagentId: Fat
+        Quantity: 6
   - type: ToolRefinable
     refineResult:
     - id: FoodMeatChickenCutlet
@@ -245,14 +241,13 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/chicken_meat.rsi
     state: chicken_baked
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 24
-        - ReagentId: Protein
-          Quantity: 24
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 24
+      - ReagentId: Protein
+        Quantity: 24
   - type: ToolRefinable
     refineResult:
     - id: ADTFoodMeatChickenBakedSlice
@@ -275,14 +270,13 @@
     layers:
     - state: plate
     - state: chicken_baked_wvegs
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 36
-        - ReagentId: Protein
-          Quantity: 24
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 36
+      - ReagentId: Protein
+        Quantity: 24
   - type: ToolRefinable
     refineResult:
     - id: ADTFoodMeatChickenBakedStuffedSlice
@@ -303,14 +297,13 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/chicken_meat.rsi
     state: wing_cooked
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 3
-        - ReagentId: Protein
-          Quantity: 3
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 3
+      - ReagentId: Protein
+        Quantity: 3
   - type: Item
     size: Small
 
@@ -327,14 +320,13 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/chicken_meat.rsi
     state: leg_cooked
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 4
-        - ReagentId: Protein
-          Quantity: 3
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 4
+      - ReagentId: Protein
+        Quantity: 3
   - type: Item
     size: Small
 
@@ -351,14 +343,13 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/chicken_meat.rsi
     state: baked_slice
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 2
-        - ReagentId: Protein
-          Quantity: 2
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 2
+      - ReagentId: Protein
+        Quantity: 2
   - type: Item
     size: Small
 
@@ -375,14 +366,13 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/chicken_meat.rsi
     state: baked_stuffed_slice
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 3
-        - ReagentId: Protein
-          Quantity: 2
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 3
+      - ReagentId: Protein
+        Quantity: 2
   - type: Item
     size: Small
 

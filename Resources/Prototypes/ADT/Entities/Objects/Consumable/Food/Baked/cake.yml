@@ -10,17 +10,16 @@
     refineResult:
     - id: ADTFoodCakeChocolateGlazeHeartSlice
       amount: 5
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 35
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 20
-        - ReagentId: Theobromine
-          Quantity: 5
-        - ReagentId: Vitamin
-          Quantity: 5
+  - type: Solution
+    solution:
+      maxVol: 35
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 20
+      - ReagentId: Theobromine
+        Quantity: 5
+      - ReagentId: Vitamin
+        Quantity: 5
 
 - type: entity
   name: slice of chocolate cake
@@ -29,17 +28,16 @@
   components:
   - type: Sprite
     state: chocolate-slice-heart
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 8
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 4
-        - ReagentId: Theobromine
-          Quantity: 1
-        - ReagentId: Vitamin
-          Quantity: 1
+  - type: Solution
+    solution:
+      maxVol: 8
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 4
+      - ReagentId: Theobromine
+        Quantity: 1
+      - ReagentId: Vitamin
+        Quantity: 1
 
 - type: entity
   name: chocolate heart cake
@@ -54,17 +52,16 @@
     refineResult:
     - id: ADTFoodCakeChocolateHeartSlice
       amount: 5
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 35
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 20
-        - ReagentId: Theobromine
-          Quantity: 5
-        - ReagentId: Vitamin
-          Quantity: 5
+  - type: Solution
+    solution:
+      maxVol: 35
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 20
+      - ReagentId: Theobromine
+        Quantity: 5
+      - ReagentId: Vitamin
+        Quantity: 5
 
 - type: entity
   name: slice of chocolate cake
@@ -74,17 +71,16 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/cake.rsi
     state: chocolate-slice-heart
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 8
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 4
-        - ReagentId: Theobromine
-          Quantity: 1
-        - ReagentId: Vitamin
-          Quantity: 1
+  - type: Solution
+    solution:
+      maxVol: 8
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 4
+      - ReagentId: Theobromine
+        Quantity: 1
+      - ReagentId: Vitamin
+        Quantity: 1
 
 - type: entity
   name: strawberry heart cake
@@ -99,17 +95,16 @@
     refineResult:
     - id: ADTFoodCakeStrawberryHeartSlice
       amount: 5
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 35
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 20
-        - ReagentId: Theobromine
-          Quantity: 5
-        - ReagentId: Vitamin
-          Quantity: 5
+  - type: Solution
+    solution:
+      maxVol: 35
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 20
+      - ReagentId: Theobromine
+        Quantity: 5
+      - ReagentId: Vitamin
+        Quantity: 5
 
 - type: entity
   name: slice of strawberry cake
@@ -119,17 +114,16 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/cake.rsi
     state: strawberry-slice-heart
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 8
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 4
-        - ReagentId: Theobromine
-          Quantity: 1
-        - ReagentId: Vitamin
-          Quantity: 1
+  - type: Solution
+    solution:
+      maxVol: 8
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 4
+      - ReagentId: Theobromine
+        Quantity: 1
+      - ReagentId: Vitamin
+        Quantity: 1
 
 - type: entity
   name: banana boom cake

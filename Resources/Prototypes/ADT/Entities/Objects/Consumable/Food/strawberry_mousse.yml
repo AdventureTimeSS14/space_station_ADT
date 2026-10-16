@@ -10,14 +10,13 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/strawberry_mousse.rsi
     state: strawberry_mousse
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 26
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Theobromine
-          Quantity: 5
-        - ReagentId: Vitamin
-          Quantity: 5
+  - type: Solution
+    solution:
+      maxVol: 26
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: Theobromine
+        Quantity: 5
+      - ReagentId: Vitamin
+        Quantity: 5
