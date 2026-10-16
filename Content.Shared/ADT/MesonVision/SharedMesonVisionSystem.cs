@@ -23,7 +23,7 @@ public abstract class SharedMesonVisionSystem : EntitySystem
         SubscribeLocalEvent<MesonVisionComponent, ComponentRemove>(OnMesonVisionRemove);
 
         SubscribeLocalEvent<MesonVisionItemComponent, GetItemActionsEvent>(OnMesonVisionItemGetActions);
-        SubscribeLocalEvent<MesonVisionItemComponent, ToggleMesonActionEvent>(OnMesonVisionItemToggle); // ADT-Tweak: свой тип события, общий ToggleActionEvent перехватывал фонарик
+        SubscribeLocalEvent<MesonVisionItemComponent, ToggleMesonActionEvent>(OnMesonVisionItemToggle); // свой тип события: общий ToggleActionEvent перехватывал фонарик
         SubscribeLocalEvent<MesonVisionItemComponent, GotEquippedEvent>(OnMesonVisionItemGotEquipped);
         SubscribeLocalEvent<MesonVisionItemComponent, GotUnequippedEvent>(OnMesonVisionItemGotUnequipped);
         SubscribeLocalEvent<MesonVisionItemComponent, ActionRemovedEvent>(OnMesonVisionItemActionRemoved);

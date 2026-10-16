@@ -134,7 +134,7 @@
   - type: ModSuitMod
     energyUsing: 0.3
     complexity: 2
-    incompatibleModules: # ADT-Tweak: только один визор за раз
+    incompatibleModules: # только один визор за раз
     - ADTModsuitModStatusReadout
     - ADTModsuitModMesonVision
     - ADTModsuitModDiagnosticVisor
@@ -233,7 +233,7 @@
   - type: ModSuitMod
     energyUsing: 0.1
     complexity: 2
-    incompatibleModules: # ADT-Tweak: только один визор за раз
+    incompatibleModules: # только один визор за раз
     - ADTModsuitModStatusReadout
     - ADTModsuitModMesonVision
     - ADTModsuitModDiagnosticVisor
@@ -601,7 +601,7 @@
   - type: ModSuitMod
     complexity: 1
     energyUsing: 0.1
-    incompatibleModules: # ADT-Tweak: только один визор за раз
+    incompatibleModules: # только один визор за раз
     - ADTModsuitModMesonVision
     - ADTModsuitModDiagnosticVisor
     - ADTModsuitModNightVision
@@ -690,7 +690,7 @@
   - type: ModSuitMod
     complexity: 1
     energyUsing: 0.1
-    incompatibleModules: # ADT-Tweak: только один визор за раз
+    incompatibleModules: # только один визор за раз
     - ADTModsuitModStatusReadout
     - ADTModsuitModMesonVision
     - ADTModsuitModNightVision
@@ -714,7 +714,7 @@
   - type: ModSuitMod
     complexity: 2
     energyUsing: 0.2
-    incompatibleModules: # ADT-Tweak: только один визор за раз
+    incompatibleModules: # только один визор за раз
     - ADTModsuitModStatusReadout
     - ADTModsuitModDiagnosticVisor
     - ADTModsuitModNightVision

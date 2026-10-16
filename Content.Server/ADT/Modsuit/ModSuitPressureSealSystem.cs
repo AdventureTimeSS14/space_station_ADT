@@ -22,7 +22,6 @@ public sealed class ModSuitPressureSealSystem : EntitySystem
 
         SubscribeLocalEvent<ModPartComponent, GetPressureProtectionValuesEvent>(OnGetPressureProtection);
         SubscribeLocalEvent<ModPartComponent, GotEquippedEvent>(OnPartEquipped);
-        // GotUnequippedEvent уже занят ModSuitSystem — ловим возврат части в костюм.
         SubscribeLocalEvent<ModPartComponent, EntGotInsertedIntoContainerMessage>(OnPartReturned);
     }
 
@@ -31,7 +30,6 @@ public sealed class ModSuitPressureSealSystem : EntitySystem
         if (IsSuitSealed(ent))
             return;
 
-        // Те же значения, что и в ветке "кожа открыта" у BarotraumaSystem.
         args.HighPressureMultiplier = 1f;
         args.HighPressureModifier = 0f;
         args.LowPressureMultiplier = 1f;

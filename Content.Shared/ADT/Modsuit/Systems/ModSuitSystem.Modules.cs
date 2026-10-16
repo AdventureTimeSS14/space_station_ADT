@@ -99,7 +99,6 @@ public sealed partial class ModSuitSystem
         if (!TryComp<WiresPanelComponent>(args.Target, out var panel) || !panel.Open)
             return;
 
-        // ADT-Tweak-Start
         if (GetIncompatibleModule(ent, modsuit) is { } conflict)
         {
             _popupSystem.PopupPredicted(
@@ -108,7 +107,6 @@ public sealed partial class ModSuitSystem
                 args.User);
             return;
         }
-        // ADT-Tweak-End
 
         if (modsuit.CurrentComplexity + ent.Comp.Complexity > modsuit.MaxComplexity)
             return;
@@ -130,7 +128,6 @@ public sealed partial class ModSuitSystem
         args.States.Add(GetNetEntity(uid), null);
     }
 
-    // ADT-Tweak-Start
     /// <summary>
     /// Ищет уже установленный модуль, несовместимый с устанавливаемым.
     /// Проверяем оба списка — несовместимость достаточно объявить с одной стороны.
@@ -157,7 +154,6 @@ public sealed partial class ModSuitSystem
 
         return null;
     }
-    // ADT-Tweak-End
 
     public void ActivateModule(Entity<ModSuitComponent> suit, Entity<ModSuitModComponent> module)
     {
