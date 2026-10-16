@@ -137,15 +137,19 @@ namespace Content.Server.Heretic.Ritual;
             return;
 
         var knowledgeGain = 0f;
-        for (var i = 0; i < Max && i < uids.Count; i++)
+        var processed = 0;
+        foreach (var uid in uids)
         {
-            if (!args.EntityManager.EntityExists(uids[i]))
-                continue;
+            if (processed >= Max)
+                break;
 
-            var uid = uids[i];
+            if (!args.EntityManager.EntityExists(uid))
+                continue;
 
             if (args.EntityManager.HasComponent<SacrificedComponent>(uid))
                 continue;
+
+            processed++;
 
             var isCommand = args.EntityManager.HasComponent<CommandStaffComponent>(uid);
             var isSec = args.EntityManager.HasComponent<SecurityStaffComponent>(uid);

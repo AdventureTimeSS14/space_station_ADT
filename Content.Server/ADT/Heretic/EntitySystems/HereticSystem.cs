@@ -527,7 +527,16 @@ public sealed partial class HereticSystem : SharedHereticSystem
                 if (!HasComp<HumanoidProfileComponent>(target))
                     continue;
 
-                if (_mind.TryGetMind(target, out var mind, out _) && (mind == ent.Owner || HasComp<HereticComponent>(mind)))
+                if (!_mind.TryGetMind(target, out var mind, out var mindComp) ||
+                    mind == ent.Owner ||
+                    HasComp<HereticComponent>(mind) ||
+                    !_job.MindTryGetJobId(mind, out var jobId) ||
+                    jobId == null)
+                    continue;
+
+                if (mindComp.UserId is not { } userId ||
+                    !_playerMan.TryGetSessionById(userId, out var session) ||
+                    session.Status is SessionStatus.Disconnected or SessionStatus.Zombie)
                     continue;
 
                 pickedTargets.Add(target);
