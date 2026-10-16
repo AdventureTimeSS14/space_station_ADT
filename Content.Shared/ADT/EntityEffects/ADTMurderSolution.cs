@@ -17,7 +17,7 @@ public sealed partial class ADTCureCloneCellularDecay : EntityEffectBase<ADTCure
 }
 
 /// <inheritdoc cref="EntityEffect"/>
-public sealed partial class ADTHeraMurderBurst : EntityEffectBase<ADTHeraMurderBurst>
+public sealed partial class ADTMurderSolutionBurst : EntityEffectBase<ADTMurderSolutionBurst>
 {
     [DataField(required: true)]
     public DamageSpecifier Damage = new();
@@ -30,7 +30,7 @@ public sealed partial class ADTHeraMurderBurst : EntityEffectBase<ADTHeraMurderB
         IEntitySystemManager entSys)
     {
         return Loc.GetString(
-            "reagent-effect-guidebook-hera-murder-burst",
+            "reagent-effect-guidebook-murder-solution-burst",
             ("chance", Probability),
             ("amount", Damage.GetTotal().Float()),
             ("cooldown", Cooldown.TotalSeconds));

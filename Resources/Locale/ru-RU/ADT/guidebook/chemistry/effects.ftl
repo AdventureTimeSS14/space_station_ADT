@@ -39,7 +39,7 @@ reagent-effect-guidebook-cure-clone-cellular-decay =
         [1] Останавливает
        *[other] останавливают
     } клеточный распад клонированного тела
-reagent-effect-guidebook-hera-murder-burst =
+reagent-effect-guidebook-murder-solution-burst =
     { $chance ->
         [1] Наносит
        *[other] наносят
