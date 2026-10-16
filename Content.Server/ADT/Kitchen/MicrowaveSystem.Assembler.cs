@@ -4,7 +4,6 @@ using System.Linq;
 using Content.Server.Kitchen.Components;
 using Content.Server.Power.Components;
 using Content.Shared.ADT.Kitchem.Components;
-using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.FixedPoint;
 using Content.Shared.Kitchen;
 using Content.Shared.Stacks;
@@ -60,19 +59,13 @@ namespace Content.Server.Kitchen.EntitySystems
                     solidsDict.Add(solidID, amountToAdd);
                 }
 
-                if (!TryComp<SolutionManagerComponent>(item, out var solMan))
+                if (!_solutionContainer.TryGetDrainableSolution(item, out _, out var solution))
                     continue;
 
-                foreach (var (_, soln) in _solutionContainer.EnumerateSolutions((item, solMan)))
+                foreach (var (reagent, quantity) in solution.Contents)
                 {
-                    var solution = soln.Comp.Solution;
-                    foreach (var (reagent, quantity) in solution.Contents)
-                    {
-                        if (reagentDict.ContainsKey(reagent.Prototype))
-                            reagentDict[reagent.Prototype] += quantity;
-                        else
-                            reagentDict.Add(reagent.Prototype, quantity);
-                    }
+                    if (!reagentDict.TryAdd(reagent.Prototype, quantity))
+                        reagentDict[reagent.Prototype] += quantity;
                 }
             }
 

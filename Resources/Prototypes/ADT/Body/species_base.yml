@@ -39,6 +39,7 @@
   - type: Temperature
     temperature: 310.15
     specificHeat: 42
+    thermalConductivity: 100
   - type: TemperatureDamage
     heatDamageThreshold: 325
     coldDamageThreshold: 260

@@ -10,8 +10,6 @@
     satiations:
       Hunger:
         prototype: ADTXenobioSlimeHunger
-      Thirst:
-        prototype: SimpleMobBaseThirst
   - type: SatiationDamage
     satiations:
       Hunger:
@@ -24,9 +22,6 @@
       Hunger:
         thresholds:
           Starving: 0
-      Thirst:
-        thresholds:
-          Parched: 0.75
   - type: Slime
     breed: GreyMutation
     maxMutation: RainbowMutation

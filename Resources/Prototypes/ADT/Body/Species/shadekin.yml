@@ -234,7 +234,7 @@
     bloodReferenceSolution:
       reagents:
       - ReagentId: ShadekinBlood
-        Quantity: 180
+        Quantity: 360
     bloodlossDamage:
       types:
         Bloodloss:

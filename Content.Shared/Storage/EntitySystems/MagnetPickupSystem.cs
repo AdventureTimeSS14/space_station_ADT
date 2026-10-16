@@ -98,14 +98,16 @@ public sealed partial class MagnetPickupSystem : EntitySystem
                 var nearMap = _transform.GetMapCoordinates(near, xform: nearXform);
                 var nearCoords = _transform.ToCoordinates(moverCoords.EntityId, nearMap);
 
-                if (!_storage.Insert(uid, near, out var stacked, user: parentUid, storageComp: storage, playSound: !playedSound))
+                if (!_storage.Insert(uid, near, out var stacked, storageComp: storage, playSound: !playedSound)) // ADT-Tweak
                     continue;
 
                 // Play pickup animation for either the stack entity or the original entity.
+                // ADT-Tweak-Start
                 if (stacked != null)
-                    _storage.PlayPickupAnimation(stacked.Value, nearCoords, finalCoords, nearXform.LocalRotation, parentUid);
+                    _storage.PlayPickupAnimation(stacked.Value, nearCoords, finalCoords, nearXform.LocalRotation);
                 else
-                    _storage.PlayPickupAnimation(near, nearCoords, finalCoords, nearXform.LocalRotation, parentUid);
+                    _storage.PlayPickupAnimation(near, nearCoords, finalCoords, nearXform.LocalRotation);
+                // ADT-Tweak-End
 
                 playedSound = true;
             }

@@ -237,7 +237,7 @@
     bloodReferenceSolution:
       reagents:
       - ReagentId: ResomiBlood
-        Quantity: 250
+        Quantity: 500
   - type: Temperature
     temperature: 296.15 # 23°C
     specificHeat: 42

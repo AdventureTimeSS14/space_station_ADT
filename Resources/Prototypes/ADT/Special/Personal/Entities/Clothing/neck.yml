@@ -200,7 +200,7 @@
     sprite: ADT/Special/Personal/pyotr_cloak.rsi
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ADTSponsorClothingNeckBase
   id: ADTClothingNeckCoderCloakInconnu
   name: coder's cloak
   description: A cloak woven from restless streams of ones and zeroes. Legends say it was compiled, not sewn.

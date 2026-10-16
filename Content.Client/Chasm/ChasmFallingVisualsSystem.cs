@@ -55,6 +55,7 @@ public sealed partial class ChasmFallingVisualsSystem : EntitySystem
         }
 
         _sprite.SetScale((entity, sprite), entity.Comp.OriginalScale);
+        _sprite.SetRotation((entity, sprite), Angle.Zero); //ADT-Tweak
 
         if (!_animationPlayerQuery.TryComp(entity, out var player) ||
             !_anim.HasRunningAnimation(player, ChasmFallAnimationKey))

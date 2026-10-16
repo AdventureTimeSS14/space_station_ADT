@@ -34,6 +34,8 @@
   suffix: Filled
   components:
   - type: GasTank
+    safetyPressure: 3039.75
+    overpressure: 4053
     air:
       # 31 minutes
       volume: 5

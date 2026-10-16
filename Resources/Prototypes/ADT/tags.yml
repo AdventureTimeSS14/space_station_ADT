@@ -1086,6 +1086,9 @@
   id: LavaDungeonAshVillage
 
 - type: Tag
+  id: LavaDungeonHeliosEntrance
+
+- type: Tag
   id: ADTCartilagePads
 
 - type: Tag

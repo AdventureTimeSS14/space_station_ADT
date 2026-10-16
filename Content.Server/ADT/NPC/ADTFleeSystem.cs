@@ -49,7 +49,7 @@ public sealed class ADTFleeSystem : EntitySystem
     {
         var blackboard = htn.Blackboard;
 
-        if (GetFleeCoordinates(ent, blackboard) is not { } coordinates)
+        if (!ent.Comp.Enabled || GetFleeCoordinates(ent, blackboard) is not { } coordinates)
         {
             blackboard.Remove<EntityCoordinates>(ent.Comp.CoordinatesKey);
             return;

@@ -20,7 +20,7 @@ public sealed partial class PickSlimeLatchTargetOperator : HTNOperator
     private NpcFactionSystem _factions = default!;
     private MobStateSystem _mobSystem = default!;
     private SatiationSystem _satiation = default!;
-    private static readonly SatiationValue PeckishThreshold = "Peckish";
+    private static readonly SatiationValue StarvingThreshold = "Starving";
     private PathfindingSystem _pathfinding = default!;
     private SlimeLatchSystem _latch = default!;
 
@@ -64,7 +64,7 @@ public sealed partial class PickSlimeLatchTargetOperator : HTNOperator
             return (false, null);
 
         // Проверяем голод для детёнышей
-        if (growthComp.IsFirstStage && IsHungerBelowPeckish(owner))
+        if (growthComp.IsFirstStage && IsStarving(owner))
             return (false, null);
 
         foreach (var entity in _factions.GetNearbyHostiles(owner, range))
@@ -79,7 +79,7 @@ public sealed partial class PickSlimeLatchTargetOperator : HTNOperator
                 continue;
 
             // Не убивать хозяина, если голод не сильный
-            if (entity == slimeComp.Tamer && IsHungerBelowPeckish(owner))
+            if (entity == slimeComp.Tamer && IsStarving(owner))
                 continue;
 
             targets.Add(entity);
@@ -107,9 +107,9 @@ public sealed partial class PickSlimeLatchTargetOperator : HTNOperator
         return (false, null);
     }
 
-    private bool IsHungerBelowPeckish(EntityUid owner)
+    private bool IsStarving(EntityUid owner)
     {
         return _ent.TryGetComponent<SatiationComponent>(owner, out var satiation)
-            && _satiation.IsValueInRange((owner, satiation), SatiationSystem.Hunger, below: PeckishThreshold);
+            && _satiation.IsValueInRange((owner, satiation), SatiationSystem.Hunger, below: StarvingThreshold);
     }
 }

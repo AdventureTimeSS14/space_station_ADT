@@ -77,7 +77,7 @@
     - type: Temperature
       temperature: 400
       specificHeat: 24
-      thermalConductivity: 75
+      thermalConductivity: 50
     - type: TemperatureDamage
       heatDamageThreshold: 700
       coldDamageThreshold: 0
@@ -223,7 +223,7 @@
     - type: Temperature
       temperature: 280
       specificHeat: 50
-      thermalConductivity: 600
+      thermalConductivity: 400
     - type: TemperatureDamage
       heatDamageThreshold: 320
       coldDamageThreshold: 255
@@ -382,5 +382,8 @@
         # - PsionicsDisabled
         # - PsionicallyInsulated
         - SeeingStatic
+    - type: FlashImmunity
+      showInExamine: false
+      includeExamine: false
     - type: Blindable
     - type: SpeechBarks

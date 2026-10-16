@@ -1,4 +1,6 @@
+using System.Linq;
 using Content.Server.ADT.Hierophant.Effects;
+using Content.Server.ADT.Salvage.Systems;
 using Content.Shared.ADT.Hierophant;
 using Content.Shared.ADT.Hierophant.Effects;
 using Content.Shared.ADT.Hierophant.Loot;
@@ -91,7 +93,7 @@ public sealed class HierophantClubSystem : EntitySystem
 
         ent.Comp.NextUseAt = _timing.CurTime + ent.Comp.MeleeCooldown;
 
-        var coords = _grid.Anchor(args.HitEntities.Count > 0 ? args.HitEntities[0] : args.User);
+        var coords = _grid.Anchor(args.HitEntities.Count > 0 ? args.HitEntities.First() : args.User);
 
         if (!coords.IsValid(EntityManager))
             return;
@@ -116,7 +118,7 @@ public sealed class HierophantClubSystem : EntitySystem
 
         var range = GetBlastRange(ent, user);
 
-        foreach (var dir in HierophantAttacksSystem.Cardinals)
+        foreach (var dir in ADTMegafaunaGeometry.Cardinals)
         {
             for (var i = 1; i <= range; i++)
             {

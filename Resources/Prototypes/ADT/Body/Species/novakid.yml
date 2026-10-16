@@ -181,7 +181,7 @@
     bloodReferenceSolution:
       reagents:
       - ReagentId: Plasma
-        Quantity: 300
+        Quantity: 600
   - type: ZombieImmune
   - type: NovakidGlowing
   - type: PointLight

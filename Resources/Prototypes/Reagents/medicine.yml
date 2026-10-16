@@ -250,8 +250,10 @@
             type: [ Drask ]
             inverted: false
           amount: 1
-        - !type:AdjustTemperature
-          amount: 80000 # Heats you up as it metabolizes necessitating constant cooling.
+        # ADT-Tweak-Start
+        # - !type:AdjustTemperature
+        #   amount: 80000 # Heats you up as it metabolizes necessitating constant cooling.
+        # ADT-Tweak-End
 - type: reagent
   id: Doxarubixadone
   name: reagent-name-doxarubixadone
@@ -267,7 +269,7 @@
         - !type:HealthChange
           conditions:
           - !type:TemperatureCondition
-            max: 273.15
+            max: 213.0 # ADT-Tweak
           damage:
             types:
              Cellular: -3 # ADT tweak
@@ -462,7 +464,7 @@
           inverted: true
       # End ADT tweak
         - !type:MobStateCondition
-          mobstate: Critical
+          mobstates: [ SoftCritical, Critical ] # ADT-Tweak
         - !type:ReagentCondition
           reagent: Epinephrine
           max: 20
@@ -474,7 +476,7 @@
         conditions:
           # they gotta be in crit first
         - !type:MobStateCondition
-          mobstate: Critical
+          mobstates: [ SoftCritical, Critical ] # ADT-Tweak
         - !type:ReagentCondition
           reagent: Epinephrine
           max: 20
@@ -496,7 +498,7 @@
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
         - !type:MobStateCondition
-          mobstate: Critical
+          mobstates: [ SoftCritical, Critical ] # ADT-Tweak
         - !type:ReagentCondition
           reagent: Epinephrine
           min: 0
@@ -621,7 +623,7 @@
       # End ADT tweak
           # they gotta be in crit first
         - !type:MobStateCondition
-          mobstate: Critical
+          mobstates: [ SoftCritical, Critical ] # ADT-Tweak
         damage:
           types:
             Asphyxiation: -2
@@ -633,7 +635,7 @@
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
         - !type:MobStateCondition
-          mobstate: Critical
+          mobstates: [ SoftCritical, Critical ] # ADT-Tweak
         damage:
           types:
             Bloodloss: -1
@@ -699,12 +701,12 @@
         conditions:
         - !type:TemperatureCondition
           max: 293.15
-        amount: 1000000 # thermal energy, not temperature!
+        amount: 100000 # thermal energy, not temperature! ADT-Tweak
       - !type:AdjustTemperature
         conditions:
         - !type:TemperatureCondition
           min: 293.15
-        amount: -1000000
+        amount: -10000 # ADT-Tweak
       - !type:PopupMessage
         type: Local
         visualType: Medium
@@ -1587,12 +1589,14 @@
   metabolisms:
     Bloodstream:
       effects:
-      - !type:AdjustTemperature
-        amount: 80000 # Heats you up as it metabolizes necessitating constant cooling.
+      # ADT-Tweak-Start
+      # - !type:AdjustTemperature
+      #   amount: 80000 # Heats you up as it metabolizes necessitating constant cooling.
+      # ADT-Tweak-End
       - !type:EvenHealthChange
         conditions:
         - !type:TemperatureCondition
-          max: 273.15
+          max: 213.0 # ADT-Tweak
         damage:
           Brute: -1.5 # ADT tweak 3 > 1.5
           Burn: -2 # ADT tweak 3 > 2

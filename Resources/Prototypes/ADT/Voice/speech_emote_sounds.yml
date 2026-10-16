@@ -74,6 +74,7 @@
 
 - type: emoteSounds
   id: MaleMoth
+  voiceSelectorName: humanoid-profile-editor-voice-masculine
   params:
     variation: 0.125
   sounds:
@@ -116,6 +117,7 @@
 
 - type: emoteSounds
   id: FemaleMoth
+  voiceSelectorName: humanoid-profile-editor-voice-feminine
   params:
     variation: 0.125
   sounds:

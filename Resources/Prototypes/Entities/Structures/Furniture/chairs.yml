@@ -31,6 +31,7 @@
   - type: Strap
     position: Stand
     buckleOffset: "0,-0.05"
+    modifyBuckleDrawDepth: false # ADT-Tweak
   - type: Pullable
   - type: Damageable
     damageModifierSet: Metallic

@@ -295,14 +295,12 @@
     abilities:
     - components:
       - type: BatteryDrainer
-      # ADT-Tweak start
-      # - type: StunProvider
-      #   cooldown: 10
-      #   noPowerPopup: ninja-no-power
-      #   whitelist:
-      #     components:
-      #     - Stamina
-      # ADT-Tweak end
+      - type: StunProvider
+        cooldown: 10
+        noPowerPopup: ninja-no-power
+        whitelist:
+          components:
+          - Stamina
       - type: EmagProvider
         whitelist:
           components:

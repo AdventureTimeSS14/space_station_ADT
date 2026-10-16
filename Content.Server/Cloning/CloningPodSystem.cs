@@ -8,6 +8,7 @@ using Content.Server.Materials;
 using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Traits.Assorted;
+using Content.Shared.ADT.Cloning;
 using Content.Shared.ADT.Sleeping;
 using Content.Shared.Atmos;
 using Content.Shared.CCVar;
@@ -323,7 +324,10 @@ public sealed partial class CloningPodSystem : EntitySystem
         UpdateStatus(uid, CloningPodStatus.Idle, clonePod);
         RemCompDeferred<ActiveCloningPodComponent>(uid);
 
-        ApplyPostCloneSleep(entity); // ADT-Tweak
+        // ADT-Tweak start
+        ApplyPostCloneSleep(entity);
+        EnsureComp<ADTCloneCellularDecayComponent>(entity);
+        // ADT-Tweak end
     }
 
     private void EndFailedCloning(EntityUid uid, CloningPodComponent clonePod)

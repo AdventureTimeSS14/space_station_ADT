@@ -7,6 +7,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.ADT.MartialArts;
 using Content.Shared.Alert;
@@ -143,7 +144,7 @@ public abstract partial class SharedMartialArtsSystem
         if (ev.HitEntities.Count == 0)
             return;
 
-        var target = ev.HitEntities[0];
+        var target = ev.HitEntities.First();
         if (target == uid
             || !HasComp<MobStateComponent>(target)
             || !IsWeaponValid(uid, ev.Weapon, out _))

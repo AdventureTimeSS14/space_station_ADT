@@ -16,6 +16,7 @@ public sealed class DocumentPrinterSystem : EntitySystem
     [Dependency] private GameTicker _ticker = default!;
     [Dependency] private IGameTiming _gameTiming = default!;
     [Dependency] private SharedAudioSystem _audioSystem = default!;
+    [Dependency] private PaperSystem _paper = default!;
 
     public override void Initialize()
     {
@@ -110,14 +111,14 @@ public sealed class DocumentPrinterSystem : EntitySystem
                             text = text.Replace("$name$", "");
                     }
                 }
-                paperComponent.Content = text;
+                _paper.SetContent((args.Paper, paperComponent), text, false);
                 // if (!TryComp<MetaDataComponent>(args.Actor, out var comp)) return; // was for test, STFU JUST LEAVE IT HERE
             }
             else
             {
                 text = text.Replace("$name$", "");
                 text = text.Replace("$job$", "");
-                paperComponent.Content = text;
+                _paper.SetContent((args.Paper, paperComponent), text, false);
             }
         }
         else
@@ -125,7 +126,7 @@ public sealed class DocumentPrinterSystem : EntitySystem
             text = text.Replace("$time$", "");
             text = text.Replace("$name$", "");
             text = text.Replace("$job$", "");
-            paperComponent.Content = text;
+            _paper.SetContent((args.Paper, paperComponent), text, false);
         }
     }
 }

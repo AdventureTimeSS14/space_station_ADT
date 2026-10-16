@@ -188,7 +188,7 @@
     bloodReferenceSolution:
       reagents:
       - ReagentId: Blood
-        Quantity: 170
+        Quantity: 340
   - type: Damageable
     damageModifierSet: Felinid
   - type: Injurable

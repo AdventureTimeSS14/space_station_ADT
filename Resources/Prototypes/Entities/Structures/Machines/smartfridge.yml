@@ -16,11 +16,12 @@
     sprite: Structures/Machines/smartfridge.rsi
     snapCardinals: true
     layers:
+    # ADT-Tweak-Start
     - state: "off"
+      map: ["unpowered"]
     - state: smartfridge
       visible: false
       map: ["powered-base"]
-    # ADT-Tweak-Start
     - state: smartfridge
       visible: false
       map: ["powered-open"]
@@ -125,6 +126,11 @@
   - type: GenericVisualizer
     visuals:
       enum.PowerDeviceVisuals.Powered:
+        # ADT-Tweak-Start
+        unpowered:
+          True: { visible: false }
+          False: { visible: true }
+        # ADT-Tweak-End
         powered-base:
           True: { visible: true }
           False: { visible: false }
