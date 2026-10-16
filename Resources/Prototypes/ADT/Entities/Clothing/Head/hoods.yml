@@ -174,9 +174,9 @@
   description: A hood to keep your head warm.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Head/Hoods/Downjacket/hooddownjacket_black.rsi
+    sprite: ADT/Clothing/Head/hoods/Downjacket/hooddownjacket_black.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Head/Hoods/Downjacket/hooddownjacket_black.rsi
+    sprite: ADT/Clothing/Head/hoods/Downjacket/hooddownjacket_black.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -191,9 +191,9 @@
   description: A hood to keep your head warm.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Head/Hoods/Downjacket/hooddownjacket_blue.rsi
+    sprite: ADT/Clothing/Head/hoods/Downjacket/hooddownjacket_blue.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Head/Hoods/Downjacket/hooddownjacket_blue.rsi
+    sprite: ADT/Clothing/Head/hoods/Downjacket/hooddownjacket_blue.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -208,9 +208,9 @@
   description: A hood to keep your head warm.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Head/Hoods/Downjacket/hooddownjacket_brown.rsi
+    sprite: ADT/Clothing/Head/hoods/Downjacket/hooddownjacket_brown.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Head/Hoods/Downjacket/hooddownjacket_brown.rsi
+    sprite: ADT/Clothing/Head/hoods/Downjacket/hooddownjacket_brown.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -225,9 +225,9 @@
   description: A hood to keep your head warm.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Head/Hoods/Downjacket/hooddownjacket_green.rsi
+    sprite: ADT/Clothing/Head/hoods/Downjacket/hooddownjacket_green.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Head/Hoods/Downjacket/hooddownjacket_green.rsi
+    sprite: ADT/Clothing/Head/hoods/Downjacket/hooddownjacket_green.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -242,9 +242,9 @@
   description: A hood to keep your head warm.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Head/Hoods/Downjacket/hooddownjacket_merc.rsi
+    sprite: ADT/Clothing/Head/hoods/Downjacket/hooddownjacket_merc.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Head/Hoods/Downjacket/hooddownjacket_merc.rsi
+    sprite: ADT/Clothing/Head/hoods/Downjacket/hooddownjacket_merc.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -259,9 +259,9 @@
   description: A hood to keep your head warm.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Head/Hoods/Downjacket/hooddownjacket_red.rsi
+    sprite: ADT/Clothing/Head/hoods/Downjacket/hooddownjacket_red.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Head/Hoods/Downjacket/hooddownjacket_red.rsi
+    sprite: ADT/Clothing/Head/hoods/Downjacket/hooddownjacket_red.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -276,9 +276,9 @@
   description: A hood to keep your head warm.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Head/Hoods/Downjacket/hooddownjacket_white.rsi
+    sprite: ADT/Clothing/Head/hoods/Downjacket/hooddownjacket_white.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Head/Hoods/Downjacket/hooddownjacket_white.rsi
+    sprite: ADT/Clothing/Head/hoods/Downjacket/hooddownjacket_white.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -293,9 +293,9 @@
   description: A hood to keep your head warm.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Head/Hoods/Hoody/hoodhoody_beige.rsi
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_beige.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Head/Hoods/Hoody/hoodhoody_beige.rsi
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_beige.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -310,9 +310,9 @@
   description: A hood to keep your head warm.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Head/Hoods/Hoody/hoodhoody_black.rsi
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_black.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Head/Hoods/Hoody/hoodhoody_black.rsi
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_black.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -327,9 +327,9 @@
   description: A hood to keep your head warm.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Head/Hoods/Hoody/hoodhoody_blue.rsi
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_blue.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Head/Hoods/Hoody/hoodhoody_blue.rsi
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_blue.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -344,9 +344,9 @@
   description: A hood to keep your head warm.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Head/Hoods/Hoody/hoodhoody_brown.rsi
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_brown.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Head/Hoods/Hoody/hoodhoody_brown.rsi
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_brown.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -361,9 +361,9 @@
   description: A hood to keep your head warm.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Head/Hoods/Hoody/hoodhoody_darkblue.rsi
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_darkblue.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Head/Hoods/Hoody/hoodhoody_darkblue.rsi
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_darkblue.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -378,9 +378,9 @@
   description: A hood to keep your head warm.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Head/Hoods/Hoody/hoodhoody_gray.rsi
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_gray.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Head/Hoods/Hoody/hoodhoody_gray.rsi
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_gray.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -395,9 +395,9 @@
   description: A hood to keep your head warm.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Head/Hoods/Hoody/hoodhoody_green.rsi
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_green.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Head/Hoods/Hoody/hoodhoody_green.rsi
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_green.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -412,9 +412,9 @@
   description: A hood to keep your head warm.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Head/Hoods/Hoody/hoodhoody_purple.rsi
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_purple.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Head/Hoods/Hoody/hoodhoody_purple.rsi
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_purple.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -429,9 +429,9 @@
   description: A hood to keep your head warm.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Head/Hoods/Hoody/hoodhoody_red.rsi
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_red.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Head/Hoods/Hoody/hoodhoody_red.rsi
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_red.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -446,9 +446,9 @@
   description: A hood to keep your head warm.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Head/Hoods/Hoody/hoodhoody_white.rsi
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_white.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Head/Hoods/Hoody/hoodhoody_white.rsi
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_white.rsi
   - type: Armor
     modifiers:
       coefficients:

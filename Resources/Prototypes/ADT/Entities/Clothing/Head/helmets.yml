@@ -280,6 +280,7 @@
     radius: 10
     energy: 2.0
     color: "#f4ffad"
+    netsync: false
     lightMask: ConeSingle
     autoRot: true
   - type: PowerCellSlot
