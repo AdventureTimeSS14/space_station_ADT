@@ -114,6 +114,12 @@ syndicate-commander-voucher-hardsuit-description = Усиленная верси
 syndicate-medic-voucher-hardsuit-name = кроваво-красный медицинский скафандр
 syndicate-medic-voucher-hardsuit-description = Тяжелобронированный и манёвренный продвинутый скафандр, предназначенный для полевых медицинских операций.
 
+syndicate-commander-voucher-mod-name = МОД "Меркурий"
+syndicate-commander-voucher-mod-description = Сильно улучшенная версия обычного МОДа синдиката, что выполнена по заказу элитного бойца с годами службы за спиной. Обладает значительно повышенной бронёй и фактором стиля.
+
+syndicate-medic-voucher-mod-name = МОД "Элитный"
+syndicate-medic-voucher-mod-description = Элитный костюм, усовершенствованный "Cybersun Industries" и предлагающий повышенные показатели брони.
+
 sec-voucher-mk58-name = МК 58
 sec-voucher-mk58-description = Дешёвый и распространённый пистолет, производимый дочерней компанией Nanotrasen. Использует патроны калибра 9х19 мм.
 
