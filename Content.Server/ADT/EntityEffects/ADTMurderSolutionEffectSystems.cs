@@ -15,14 +15,14 @@ public sealed partial class ADTCureCloneCellularDecayEntityEffectSystem : Entity
     }
 }
 
-public sealed partial class ADTHeraMurderBurstEntityEffectSystem : EntityEffectSystem<DamageableComponent, ADTHeraMurderBurst>
+public sealed partial class ADTMurderSolutionBurstEntityEffectSystem : EntityEffectSystem<DamageableComponent, ADTMurderSolutionBurst>
 {
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private DamageableSystem _damageable = default!;
 
-    protected override void Effect(Entity<DamageableComponent> entity, ref EntityEffectEvent<ADTHeraMurderBurst> args)
+    protected override void Effect(Entity<DamageableComponent> entity, ref EntityEffectEvent<ADTMurderSolutionBurst> args)
     {
-        var exposed = EnsureComp<ADTHeraMurderExposedComponent>(entity);
+        var exposed = EnsureComp<ADTMurderSolutionExposedComponent>(entity);
         if (_timing.CurTime < exposed.NextBurst)
             return;
 

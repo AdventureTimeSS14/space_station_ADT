@@ -807,10 +807,10 @@
         amount: 0.2
 
 - type: reagent
-  id: ADTHeraMurderSolution
-  name: reagent-name-hera-murder-solution
+  id: ADTMurderSolution
+  name: reagent-name-murder-solution
   group: Medicine
-  desc: reagent-desc-hera-murder-solution
+  desc: reagent-desc-murder-solution
   physicalDesc: reagent-physical-desc-glowing
   flavor: metallic
   color: "#6fd13a"
@@ -818,7 +818,7 @@
     Bloodstream:
       metabolismRate: 5
       effects:
-      - !type:ADTHeraMurderBurst
+      - !type:ADTMurderSolutionBurst
         minScale: 1
         damage:
           types:
