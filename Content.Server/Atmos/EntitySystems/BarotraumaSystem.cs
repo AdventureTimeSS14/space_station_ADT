@@ -21,6 +21,7 @@ namespace Content.Server.Atmos.EntitySystems
         [Dependency] private AlertsSystem _alertsSystem = default!;
         [Dependency] private IAdminLogManager _adminLogger = default!;
         [Dependency] private InventorySystem _inventorySystem = default!;
+        [Dependency] private SharedContainerSystem _containerSystem = default!; // ADT-Tweak
 
         private const float UpdateTimer = 1f;
         private float _timer;
@@ -29,8 +30,10 @@ namespace Content.Server.Atmos.EntitySystems
         {
             SubscribeLocalEvent<PressureProtectionComponent, GotEquippedEvent>(OnPressureProtectionEquipped);
             SubscribeLocalEvent<PressureProtectionComponent, GotUnequippedEvent>(OnPressureProtectionUnequipped);
-            SubscribeLocalEvent<PressureProtectionComponent, ComponentStartup>(OnUpdateResistance);
-            SubscribeLocalEvent<PressureProtectionComponent, ComponentRemove>(OnUpdateResistance);
+            // ADT-Tweak-Start: компонент висит на одежде, а кэш сопротивления лежит на носителе
+            SubscribeLocalEvent<PressureProtectionComponent, ComponentStartup>(OnPressureProtectionChanged);
+            SubscribeLocalEvent<PressureProtectionComponent, ComponentRemove>(OnPressureProtectionChanged);
+            // ADT-Tweak-End
         }
 
         [SubscribeLocalEvent]
@@ -39,16 +42,33 @@ namespace Content.Server.Atmos.EntitySystems
             RefreshPressureImmunity(ent, ent.Comp);
         }
 
+        // ADT-Tweak-Start
         /// <summary>
-        /// Generic method for updating resistance on component Lifestage events
+        /// Компонент может появиться или исчезнуть на уже надетой вещи. Пересчитываем кэш
+        /// носителя, а не самой вещи — <see cref="BarotraumaComponent"/> лежит на мобе.
         /// </summary>
-        private void OnUpdateResistance(EntityUid uid, PressureProtectionComponent pressureProtection, EntityEventArgs args)
+        private void OnPressureProtectionChanged(EntityUid uid, PressureProtectionComponent pressureProtection, EntityEventArgs args)
         {
-            if (TryComp<BarotraumaComponent>(uid, out var barotrauma))
+            var protectionTarget = uid;
+            string? slotTarget = null;
+
+            if (_containerSystem.TryGetContainingContainer((uid, null), out var container)
+                && HasComp<InventoryComponent>(container.Owner)
+                && _inventorySystem.TryGetContainingSlot(uid, out var slot))
             {
-                UpdateCachedResistances(uid, barotrauma);
+                protectionTarget = container.Owner;
+                slotTarget = slot.Name;
             }
+
+            if (!TryComp<BarotraumaComponent>(protectionTarget, out var barotrauma))
+                return;
+
+            if (slotTarget != null && !barotrauma.ProtectionSlots.Contains(slotTarget))
+                return;
+
+            UpdateCachedResistances(protectionTarget, barotrauma);
         }
+        // ADT-Tweak-End
 
         private void OnPressureProtectionEquipped(EntityUid uid, PressureProtectionComponent pressureProtection, GotEquippedEvent args)
         {
