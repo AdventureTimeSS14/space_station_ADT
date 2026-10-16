@@ -18,14 +18,17 @@ namespace Content.Client.ADT.Modsuits.UI;
 public sealed partial class ModSuitRadialMenu : RadialMenu
 {
     [Dependency] private EntityManager _entityManager = default!;
+    private readonly SpriteSystem _sprite;
 
     public event Action<EntityUid>? SendToggleClothingMessageAction;
+    public event Action? SendToggleAllMessageAction;
     public EntityUid Entity { get; set; }
 
     public ModSuitRadialMenu()
     {
         IoCManager.InjectDependencies(this);
         RobustXamlLoader.Load(this);
+        _sprite = _entityManager.System<SpriteSystem>();
     }
 
     public void SetEntity(EntityUid uid)
@@ -40,11 +43,51 @@ public sealed partial class ModSuitRadialMenu : RadialMenu
         if (!_entityManager.TryGetComponent<ModSuitComponent>(Entity, out var mod) || mod.PartsContainer == null)
             return;
 
+        const int toggleAllIndex = 2;
+        var index = 0;
+
         foreach (var attached in mod.ClothingUids)
         {
+            if (index == toggleAllIndex)
+                AddToggleAllButton(mod.BackpanelsColor);
+
             var part = _entityManager.GetEntity(attached.Key);
             AddButton(part, mod.BackpanelsColor, !mod.PartsContainer.Contains(part));
+            index++;
         }
+
+        if (index <= toggleAllIndex)
+            AddToggleAllButton(mod.BackpanelsColor);
+    }
+
+    private void AddToggleAllButton(Color panelColor)
+    {
+        var button = new ModSuitRadialMenuButton()
+        {
+            BackgroundColor = panelColor,
+            SeparatorColor = Color.White,
+            BorderColor = Color.White,
+            DrawBorder = true,
+            StyleClasses = { "RadialMenuButton" },
+            SetSize = new Vector2(64, 64),
+            ToolTip = Loc.GetString("modsuit-toggle-all-tooltip"),
+            IsToggleAll = true
+        };
+
+        var icon = new TextureRect()
+        {
+            SetSize = new Vector2(48, 48),
+            VerticalAlignment = VAlignment.Center,
+            HorizontalAlignment = HAlignment.Center,
+            Stretch = TextureRect.StretchMode.KeepAspectCentered,
+            Texture = _sprite.Frame0(new SpriteSpecifier.Rsi(
+                new ResPath("ADT/Interface/Actions/mod_actions.rsi"), "activate"))
+        };
+
+        button.AddChild(icon);
+        button.OnButtonUp += _ => SendToggleAllMessageAction?.Invoke();
+
+        Main.AddChild(button);
     }
 
     public void RefreshUI()
@@ -54,7 +97,7 @@ public sealed partial class ModSuitRadialMenu : RadialMenu
 
         foreach (var item in Main.Children)
         {
-            if (item is not ModSuitRadialMenuButton button)
+            if (item is not ModSuitRadialMenuButton button || button.IsToggleAll)
                 continue;
 
             var equipped = !mod.PartsContainer.Contains(button.AttachedClothingId);
@@ -104,4 +147,6 @@ public sealed partial class ModSuitRadialMenu : RadialMenu
 public sealed class ModSuitRadialMenuButton : RadialMenuButtonWithSector
 {
     public EntityUid AttachedClothingId { get; set; }
+
+    public bool IsToggleAll { get; set; }
 }

@@ -24,6 +24,7 @@ public sealed class ModSuitRadialBoundUserInterface : BoundUserInterface
         _menu.SetEntity(Owner);
 
         _menu.SendToggleClothingMessageAction += SendModSuitMessage;
+        _menu.SendToggleAllMessageAction += SendToggleAllMessage;
         _menu.OpenCentered();
     }
 
@@ -35,6 +36,11 @@ public sealed class ModSuitRadialBoundUserInterface : BoundUserInterface
             return;
 
         _menu?.RefreshUI();
+    }
+
+    private void SendToggleAllMessage()
+    {
+        SendPredictedMessage(new ToggleAllModSuitPartsMessage());
     }
 
     private void SendModSuitMessage(EntityUid uid)

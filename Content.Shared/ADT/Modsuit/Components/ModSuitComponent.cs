@@ -158,6 +158,24 @@ public sealed partial class ModSuitComponent : Component
     public EntityUid? TempUser = null;
 
     /// <summary>
+    /// Пауза между частями при развёртывании костюма целиком.
+    /// </summary>
+    [DataField]
+    public TimeSpan SequenceDelay = TimeSpan.FromSeconds(0.3);
+
+    /// <summary>
+    /// Очередь частей на переключение. Живёт только на сервере.
+    /// </summary>
+    [ViewVariables]
+    public List<EntityUid> PendingSequence = new();
+
+    [ViewVariables]
+    public TimeSpan NextSequenceTime;
+
+    [ViewVariables]
+    public EntityUid? SequenceUser;
+
+    /// <summary>
     ///     If true, this MOD suit requires a battery to function. If false, it has infinite power.
     /// </summary>
     [DataField, AutoNetworkedField]

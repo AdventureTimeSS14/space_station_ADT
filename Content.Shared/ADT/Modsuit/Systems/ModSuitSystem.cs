@@ -49,6 +49,14 @@ public sealed partial class ModSuitSystem : EntitySystem
         InitializeSuit();
         InitializeParts();
         InitializeModules();
+        InitializeSequence();
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        UpdateSequences();
     }
 
     public void UpdateUserInterface(EntityUid uid, ModSuitComponent component)
