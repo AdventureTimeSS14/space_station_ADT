@@ -3,14 +3,18 @@ using Robust.Shared.GameStates;
 namespace Content.Shared.ADT.Clothing;
 
 /// <summary>
-/// Красит обзор носителя. Выдаётся одеждой через ClothingGrantComponent.
+/// Одежда с этим компонентом красит обзор носителя, пока надета.
+/// Вместе с <c>ItemToggle</c> окраску можно выключить через ПКМ.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class ADTVisionTintComponent : Component
 {
-    [DataField, AutoNetworkedField]
+    [DataField]
     public Color Color = Color.White;
 
-    [DataField, AutoNetworkedField]
+    /// <summary>
+    /// Сила окраски, 0-1.
+    /// </summary>
+    [DataField]
     public float Amount = 0.3f;
 }
