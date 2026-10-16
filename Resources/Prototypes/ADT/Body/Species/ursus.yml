@@ -194,7 +194,7 @@
     proto: ADTursus
   - type: Temperature
     temperature: 310
-    specificHeat: 3000
+    specificHeat: 50
   - type: TemperatureDamage
     heatDamageThreshold: 320
     coldDamageThreshold: 250

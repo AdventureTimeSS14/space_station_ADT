@@ -240,7 +240,7 @@
         Quantity: 500
   - type: Temperature
     temperature: 296.15 # 23°C
-    specificHeat: 2520
+    specificHeat: 42
   - type: TemperatureDamage
     heatDamageThreshold: 308 # 35°C
     coldDamageThreshold: 210 # -63°C
