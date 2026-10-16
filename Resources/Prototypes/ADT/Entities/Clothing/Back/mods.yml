@@ -891,3 +891,85 @@
       gloves: ADTClothingHandsModsuitERTMedical
       outerClothing: ADTClothingOuterModsuitBodyERTMedical
       shoes: ADTClothingModsuitShoesERT
+
+# Пустые версии для крафта
+
+- type: entity
+  parent: ADTClothingModsuitBackBase
+  id: ADTClothingModsuitBackBaseEmpty
+  suffix: Empty
+  components:
+  - type: ModSuit
+    startingModules: []
+  - type: ContainerFill
+    containers: {}
+
+- type: entity
+  parent: ADTClothingModsuitBackAtmos
+  id: ADTClothingModsuitBackAtmosEmpty
+  suffix: Empty
+  components:
+  - type: ModSuit
+    startingModules: []
+  - type: ContainerFill
+    containers: {}
+
+- type: entity
+  parent: ADTClothingModsuitBackClown
+  id: ADTClothingModsuitBackClownEmpty
+  suffix: Empty
+  components:
+  - type: ModSuit
+    startingModules: []
+  - type: ContainerFill
+    containers: {}
+
+- type: entity
+  parent: ADTClothingModsuitBackEngineering
+  id: ADTClothingModsuitBackEngineeringEmpty
+  suffix: Empty
+  components:
+  - type: ModSuit
+    startingModules: []
+  - type: ContainerFill
+    containers: {}
+
+- type: entity
+  parent: ADTClothingModsuitBackMedical
+  id: ADTClothingModsuitBackMedicalEmpty
+  suffix: Empty
+  components:
+  - type: ModSuit
+    startingModules: []
+  - type: ContainerFill
+    containers: {}
+
+- type: entity
+  parent: ADTClothingModsuitBackMining
+  id: ADTClothingModsuitBackMiningEmpty
+  suffix: Empty
+  components:
+  - type: ModSuit
+    startingModules: []
+  - type: ContainerFill
+    containers: {}
+
+- type: entity
+  parent: ADTClothingModsuitBackScience
+  id: ADTClothingModsuitBackScienceEmpty
+  suffix: Empty
+  components:
+  - type: ModSuit
+    startingModules: []
+  - type: ContainerFill
+    containers: {}
+
+- type: entity
+  parent: ADTClothingModsuitBackSecurity
+  id: ADTClothingModsuitBackSecurityEmpty
+  suffix: Empty
+  components:
+  - type: ModSuit
+    startingModules: []
+  - type: ContainerFill
+    containers: {}
