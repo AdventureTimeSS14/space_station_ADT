@@ -516,16 +516,16 @@ ent-ADTClothingUniformJumpsuitSuitCage = клетчатый костюм
 ent-ADTClothingUniformJumpsuitSuitGold = золотой костюм
     .desc = НУЖНО БОЛЬШЕ ЗОЛОТА!
 
-ent-ADTClothingUniformJumpsuitAdidasBlack = чёрная спортивка агидас
+ent-ADTClothingUniformJumpsuitAdidasBlack = чёрная спортивка адидас
     .desc = Чёткий прикид для спорта и гоп-стопа. Vodka, abibas, cheeki-breki и SUKA BLYAT!
 
-ent-ADTClothingUniformJumpsuitAdidasBlue = синяя спортивка агидас
+ent-ADTClothingUniformJumpsuitAdidasBlue = синяя спортивка адидас
     .desc = Чёткий синий прикид для спорта и гоп-стопа.
 
-ent-ADTClothingUniformJumpsuitAdidasRed = красная спортивка агидас
+ent-ADTClothingUniformJumpsuitAdidasRed = красная спортивка адидас
     .desc = Чёткий красный прикид для спорта и гоп-стопа.
 
-ent-ADTClothingUniformJumpsuitAdidasWhite = белая спортивка агидас
+ent-ADTClothingUniformJumpsuitAdidasWhite = белая спортивка адидас
     .desc = Модный белый прикид для спорта и гоп-стопа. Штаны мне заср*шь - П*ЗДЕЦ ТЕБЕ!
 
 ent-ADTClothingUniformJumpsuitSportUSSP = спортивка СССП

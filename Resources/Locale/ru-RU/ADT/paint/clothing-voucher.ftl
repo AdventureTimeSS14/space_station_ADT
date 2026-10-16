@@ -28,44 +28,44 @@ ent-ADTClothingVoucherUnderwearMonokiniTop = автопокрасчик верх
     .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
 ent-ADTClothingVoucherUnderwearTShirt = автопокрасчик майки
     .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
-ent-ADTClothingVoucherAdidas = купон на спортивку агидас
-    .desc = Позволяет выбрать цвет спортивного костюма агидас.
+ent-ADTClothingVoucherAdidas = автопокрасчик спортивки адидас
+    .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
 
-ent-ADTClothingVoucherCasualShirt = купон на рубашку
-    .desc = Позволяет выбрать цвет повседневной рубашки.
+ent-ADTClothingVoucherCasualShirt = автопокрасчик рубашки
+    .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
 
-ent-ADTClothingVoucherKeikogi = купон на кэйкоги
-    .desc = Позволяет выбрать цвет пояса для кэйкоги.
+ent-ADTClothingVoucherKeikogi = автопокрасчик кэйкоги
+    .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
 
-ent-ADTClothingVoucherHeels = купон на туфли на каблуках
-    .desc = Позволяет выбрать цвет туфель на высоком каблуке.
+ent-ADTClothingVoucherHeels = автопокрасчик туфель на каблуках
+    .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
 
-ent-ADTClothingVoucherSandals = купон на сандалии
-    .desc = Позволяет выбрать цвет сандалий.
+ent-ADTClothingVoucherSandals = автопокрасчик сандалий
+    .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
 
-ent-ADTClothingVoucherBowtie = купон на галстук-бабочку
-    .desc = Позволяет выбрать цвет галстука-бабочки.
+ent-ADTClothingVoucherBowtie = автопокрасчик галстука-бабочки
+    .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
 
-ent-ADTClothingVoucherShawl = купон на шейный платок
-    .desc = Позволяет выбрать цвет шейного платка.
+ent-ADTClothingVoucherShawl = автопокрасчик шейного платка
+    .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
 
-ent-ADTClothingVoucherBeanie = купон на шапку-бини
-    .desc = Позволяет выбрать цвет тёплой шапки-бини.
+ent-ADTClothingVoucherBeanie = автопокрасчик шапки-бини
+    .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
 
-ent-ADTClothingVoucherDownjacket = купон на пуховик
-    .desc = Позволяет выбрать цвет тёплого пуховика.
+ent-ADTClothingVoucherDownjacket = автопокрасчик пуховика
+    .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
 
-ent-ADTClothingVoucherHoody = купон на худи
-    .desc = Позволяет выбрать цвет уютного худи.
+ent-ADTClothingVoucherHoody = автопокрасчик худи
+    .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
 
-ent-ADTClothingVoucherSweatercut = купон на свитер с вырезом
-    .desc = Позволяет выбрать цвет свитера с вырезом.
+ent-ADTClothingVoucherSweatercut = автопокрасчик свитера с вырезом
+    .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
 
-ent-ADTClothingVoucherKilt = купон на килт
-    .desc = Позволяет выбрать цвет традиционного килта.
+ent-ADTClothingVoucherKilt = автопокрасчик килта
+    .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
 
-ent-ADTClothingVoucherNightDress = купон на ночное платье
-    .desc = Позволяет выбрать цвет ночного платья с блёстками.
+ent-ADTClothingVoucherNightDress = автопокрасчик ночного платья
+    .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
 
 clothing-voucher-jumpsuit-turtleneck-white = { ent-ADTClothingUniformJumpsuitTurtleneckWhite }
 clothing-voucher-jumpsuit-turtleneck-aquamarine = { ent-ADTClothingUniformJumpsuitTurtleneckAquamarine }
