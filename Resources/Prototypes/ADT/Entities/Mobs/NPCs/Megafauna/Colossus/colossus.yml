@@ -103,9 +103,7 @@
     crateProto: ADTCrateColossusLoot
     loot:
     - proto: ADTGemNullCrystal
-    - proto: ADTOrganVoiceOfGod
     - proto: ADTKineticTrophyBlasterTubes
-    - proto: ADTClothingEyesGodEye
     - proto: GoldOre
       max: 10
     - proto: SilverOre
@@ -118,14 +116,18 @@
       max: 10
     - proto: SpaceQuartz
       max: 15
-    randomLoot:
-    - ADTAnomalousCrystalHonk
-    - ADTAnomalousCrystalThemeWarp
-    - ADTAnomalousCrystalEmitter
-    - ADTAnomalousCrystalDarkReprise
-    - ADTAnomalousCrystalHelpers
-    - ADTAnomalousCrystalRefresher
-    - ADTAnomalousCrystalPossessor
+    randomLootPools:
+    - pickOne:
+      - ADTAnomalousCrystalHonk
+      - ADTAnomalousCrystalThemeWarp
+      - ADTAnomalousCrystalEmitter
+      - ADTAnomalousCrystalDarkReprise
+      - ADTAnomalousCrystalHelpers
+      - ADTAnomalousCrystalRefresher
+      - ADTAnomalousCrystalPossessor
+    - pickOne:
+      - ADTOrganVoiceOfGod
+      - ADTClothingEyesGodEye
   - type: GpsSignal
     tag: adt-gps-signal-colossus
     description: adt-gps-signal-colossus-desc

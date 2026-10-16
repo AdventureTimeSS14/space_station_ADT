@@ -1,4 +1,4 @@
-ent-ADTMegaFaunaLegion = Легион
+ent-ADTMegaFaunaLegion = легион
     .desc = Один из многих.
 
 ent-ADTMobLegionBig = легион

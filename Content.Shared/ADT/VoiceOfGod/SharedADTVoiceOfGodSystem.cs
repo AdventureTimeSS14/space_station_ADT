@@ -22,6 +22,7 @@ public abstract class SharedADTVoiceOfGodSystem : EntitySystem
 
         SubscribeLocalEvent<ADTVoiceOfGodComponent, UseInHandEvent>(OnUseInHand);
         SubscribeLocalEvent<ADTVoiceOfGodComponent, ADTVoiceOfGodInsertDoAfterEvent>(OnInsertDoAfter);
+        SubscribeLocalEvent<ADTVoiceOfGodComponent, ContainerGettingInsertedAttemptEvent>(OnInsertAttempt);
         SubscribeLocalEvent<ADTVoiceOfGodComponent, OrganGotInsertedEvent>(OnOrganInserted);
         SubscribeLocalEvent<ADTVoiceOfGodComponent, OrganGotRemovedEvent>(OnOrganRemoved);
     }
@@ -36,6 +37,12 @@ public abstract class SharedADTVoiceOfGodSystem : EntitySystem
         if (!TryComp<BodyComponent>(args.User, out var body) || body.Organs == null)
         {
             _popup.PopupClient(Loc.GetString("adt-voice-of-god-no-body"), args.User, args.User);
+            return;
+        }
+
+        if (HasOtherVoice(body.Organs, ent))
+        {
+            _popup.PopupClient(Loc.GetString("adt-voice-of-god-already-have"), args.User, args.User);
             return;
         }
 
@@ -75,12 +82,33 @@ public abstract class SharedADTVoiceOfGodSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("adt-voice-of-god-insert-done"), args.User, args.User, PopupType.Medium);
     }
 
+    private void OnInsertAttempt(Entity<ADTVoiceOfGodComponent> ent, ref ContainerGettingInsertedAttemptEvent args)
+    {
+        if (args.Container.ID != BodyComponent.ContainerID)
+            return;
+
+        if (HasOtherVoice(args.Container, ent))
+            args.Cancel();
+    }
+
+    private bool HasOtherVoice(BaseContainer organs, EntityUid organ)
+    {
+        foreach (var contained in organs.ContainedEntities)
+        {
+            if (contained != organ && HasComp<ADTVoiceOfGodComponent>(contained))
+                return true;
+        }
+
+        return false;
+    }
+
     private void OnOrganInserted(Entity<ADTVoiceOfGodComponent> ent, ref OrganGotInsertedEvent args)
     {
         if (_net.IsClient)
             return;
 
         _actions.AddAction(args.Target, ref ent.Comp.ActionUid, ent.Comp.ActionProto, ent.Owner);
+        EnsureComp<ADTVoiceOfGodSpeakerComponent>(args.Target).Organ = ent.Owner;
     }
 
     private void OnOrganRemoved(Entity<ADTVoiceOfGodComponent> ent, ref OrganGotRemovedEvent args)
@@ -90,5 +118,9 @@ public abstract class SharedADTVoiceOfGodSystem : EntitySystem
 
         _actions.RemoveAction(ent.Comp.ActionUid);
         ent.Comp.ActionUid = null;
+        ent.Comp.Active = false;
+
+        if (TryComp<ADTVoiceOfGodSpeakerComponent>(args.Target, out var speaker) && speaker.Organ == ent.Owner)
+            RemComp<ADTVoiceOfGodSpeakerComponent>(args.Target);
     }
 }
