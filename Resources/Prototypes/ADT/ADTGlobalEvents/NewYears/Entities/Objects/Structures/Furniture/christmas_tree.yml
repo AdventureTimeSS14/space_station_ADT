@@ -176,7 +176,7 @@
   #  - key: enum.StorageUiKey.Key
   #    type: StorageBoundUserInterface
   - type: StaticPrice
-    price: 10
+    price: 170
   - type: Transform
     anchored: true
   - type: Physics

@@ -47,7 +47,7 @@
                 min: 2
                 max: 8
   - type: StaticPrice
-    price: 10
+    price: 170
   - type: Physics
     bodyType: Static
   - type: Anchorable

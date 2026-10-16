@@ -7,6 +7,17 @@
   components:
   - type: Sprite
     sprite: ADT/Objects/Tanks/lethal_company_tanks.rsi
+    layers:
+    - state: icon
+    - state: integrity-unshaded-0
+      sprite: Objects/Tanks/emergency_double.rsi
+      map: [ "enum.MaxPressureVisualLayers.BaseUnshaded" ]
+      shader: unshaded
+      visible: false
+    - state: mask
+      sprite: Objects/Tanks/emergency_double.rsi
+      map: [ "enum.MaxPressureVisualLayers.Base" ]
+      visible: false
   - type: Item
     sprite: ADT/Objects/Tanks/lethal_company_tanks.rsi
   - type: GasTank
@@ -33,6 +44,17 @@
   components:
   - type: Sprite
     sprite: ADT/Objects/Tanks/lethal_company_tanks.rsi
+    layers:
+    - state: icon
+    - state: integrity-unshaded-0
+      sprite: Objects/Tanks/emergency_double.rsi
+      map: [ "enum.MaxPressureVisualLayers.BaseUnshaded" ]
+      shader: unshaded
+      visible: false
+    - state: mask
+      sprite: Objects/Tanks/emergency_double.rsi
+      map: [ "enum.MaxPressureVisualLayers.Base" ]
+      visible: false
   - type: Item
     sprite: ADT/Objects/Tanks/lethal_company_tanks.rsi
   - type: Clothing

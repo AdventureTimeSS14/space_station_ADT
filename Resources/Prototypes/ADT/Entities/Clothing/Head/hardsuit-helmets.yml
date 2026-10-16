@@ -607,5 +607,13 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Head/Hardsuits/event_sunshine_helmet.rsi
+    layers:
+    - state: icon
+    - state: icon-flash
+      visible: false
+      map: [ "light" ]
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals: {}
   - type: Clothing
     sprite: ADT/Clothing/Head/Hardsuits/event_sunshine_helmet.rsi
