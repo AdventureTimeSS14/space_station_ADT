@@ -70,6 +70,15 @@ public sealed partial class ModSuitComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid? ActionMenuEntity;
 
+    /// <summary>
+    ///     Действие, разворачивающее и складывающее костюм целиком.
+    /// </summary>
+    [DataField]
+    public EntProtoId ToggleAllAction = "ADTActionToggleMODAll";
+
+    [DataField]
+    public EntityUid? ToggleAllActionEntity;
+
     #endregion
 
     #region Stats
@@ -161,7 +170,7 @@ public sealed partial class ModSuitComponent : Component
     /// Пауза между частями при развёртывании костюма целиком.
     /// </summary>
     [DataField]
-    public TimeSpan SequenceDelay = TimeSpan.FromSeconds(0.3);
+    public TimeSpan SequenceDelay = TimeSpan.FromSeconds(0.25);
 
     /// <summary>
     /// Очередь частей на переключение. Живёт только на сервере.

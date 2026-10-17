@@ -12,11 +12,13 @@ public sealed partial class ModSuitSystem
 
     private void InitializeSequence()
     {
-        SubscribeLocalEvent<ModSuitComponent, ToggleAllModSuitPartsMessage>(OnToggleAllMessage);
+        SubscribeLocalEvent<ModSuitComponent, ToggleAllModPartsActionEvent>(OnToggleAllAction);
     }
 
-    private void OnToggleAllMessage(Entity<ModSuitComponent> ent, ref ToggleAllModSuitPartsMessage args)
+    private void OnToggleAllAction(Entity<ModSuitComponent> ent, ref ToggleAllModPartsActionEvent args)
     {
+        args.Handled = true;
+
         if (!_netMan.IsServer)
             return;
 
@@ -49,7 +51,7 @@ public sealed partial class ModSuitSystem
             return;
 
         ent.Comp.PendingSequence = queue;
-        ent.Comp.SequenceUser = args.Actor;
+        ent.Comp.SequenceUser = args.Performer;
         ent.Comp.NextSequenceTime = _timing.CurTime;
     }
 
