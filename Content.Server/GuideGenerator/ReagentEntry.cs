@@ -72,11 +72,13 @@ public sealed class ReactionEntry
     public string Name { get; }
 
     [JsonPropertyName("reactants")]
+    // ADT-Tweak-Start
     public Dictionary<string, ReactantEntry> Reactants { get; }
 
     [JsonPropertyName("products")]
     public Dictionary<string, float> Products { get; }
-
+    // ADT-Tweak-End
+    
     // Corvax-Wiki-Start
     [JsonPropertyName("mixingCategories")]
     public List<MixingCategoryEntry> MixingCategories { get; } = new();

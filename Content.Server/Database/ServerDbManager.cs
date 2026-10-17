@@ -514,11 +514,13 @@ namespace Content.Server.Database
 
         public void Shutdown()
         {
+            // ADT-Tweak-Start
             if (_db != null)
             {
                 _db.OnNotificationReceived -= HandleDatabaseNotification;
                 _db.Shutdown();
             }
+            // ADT-Tweak-End
             
             _sqliteInMemoryConnection?.Dispose();
             
