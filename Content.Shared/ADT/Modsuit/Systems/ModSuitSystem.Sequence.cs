@@ -1,4 +1,5 @@
 using Content.Shared.Clothing.Components;
+using Content.Shared.Wires;
 using Robust.Shared.Network;
 
 namespace Content.Shared.ADT.ModSuits;
@@ -21,6 +22,12 @@ public sealed partial class ModSuitSystem
 
         if (!_netMan.IsServer)
             return;
+
+        if (!TryComp<WiresPanelComponent>(ent, out var panel) || panel.Open)
+        {
+            _popupSystem.PopupEntity(Loc.GetString("modsuit-close-wires"), args.Performer, args.Performer);
+            return;
+        }
 
         var deploying = GetPartsToggleStatus(ent.Owner, ent.Comp) != ModSuitAttachedStatus.AllToggled;
 
@@ -83,8 +90,12 @@ public sealed partial class ModSuitSystem
 
             TogglePart((uid, comp), user, part);
 
-            // Звук шага предсказывал бы клиент, но очередь крутится только на сервере:
-            // PlayPredicted внутри инвентаря как раз исключает носителя, доигрываем ему сами.
+            if (!comp.PartsContainer.Contains(part) == wasDeployed)
+            {
+                ClearSequence(comp);
+                continue;
+            }
+
             if (TryComp<ClothingComponent>(part, out var clothing))
             {
                 var stepSound = wasDeployed ? clothing.UnequipSound : clothing.EquipSound;
