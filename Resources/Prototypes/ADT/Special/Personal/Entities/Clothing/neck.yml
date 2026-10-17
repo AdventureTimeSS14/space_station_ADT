@@ -212,6 +212,20 @@
   - type: ADTOversizedSprite
 
 - type: entity
+  parent: ADTSponsorClothingNeckBase
+  id: ADTClothingNeckUSMCDogtagInconnu
+  name: USMC dog tag
+  suffix: Personal, Inconnu
+  description: "No"
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/Inconnu/usmc_dogtag.rsi
+  - type: Clothing
+    sprite: ADT/Special/Personal/Inconnu/usmc_dogtag.rsi
+  - type: Item
+    size: Tiny
+
+- type: entity
   parent: ClothingMaskNeckGaiter
   id: ADTClothingMaskNeckGaiterModShinoba
   name: modified neck gaiter
