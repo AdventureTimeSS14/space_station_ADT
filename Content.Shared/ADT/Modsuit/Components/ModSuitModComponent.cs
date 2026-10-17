@@ -30,6 +30,13 @@ public sealed partial class ModSuitModComponent : Component
     public float EnergyUsing = 0;
 
     /// <summary>
+    ///     Модули, с которыми этот модуль несовместим. Проверка двусторонняя,
+    ///     достаточно указать несовместимость у одного из пары.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public List<EntProtoId> IncompatibleModules = new();
+
+    /// <summary>
     /// The components to add when activated.
     /// </summary>
     [DataField(required: true)]
