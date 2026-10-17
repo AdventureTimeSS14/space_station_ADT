@@ -4,7 +4,8 @@
   onlyGroupWhitelisted: true
   limits:
     enum.HumanoidVisualLayers.Hair:
-      limit: 0
+      limit: 1 # ADT-Tweak 0>1
+      onlyGroupWhitelisted: false # ADT-Tweak
       required: false
     enum.HumanoidVisualLayers.FacialHair:
       limit: 0
