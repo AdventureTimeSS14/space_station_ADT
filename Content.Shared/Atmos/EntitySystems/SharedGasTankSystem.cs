@@ -68,6 +68,9 @@ public abstract partial class SharedGasTankSystem : GasMaxPressureSystem<GasTank
         if (!HasComp<InternalsComponent>(args.User))
             return;
 
+        if (!component.UserToggleable) // ADT-Tweak
+            return;
+
         args.AddAction(ref component.ToggleActionEntity, component.ToggleAction);
         Dirty(uid, component);
     }
@@ -97,6 +100,9 @@ public abstract partial class SharedGasTankSystem : GasMaxPressureSystem<GasTank
     private void OnGetAlternativeVerb(Entity<GasTankComponent> entity, ref GetVerbsEvent<AlternativeVerb> args)
     {
         if (!args.CanAccess || !args.CanInteract || args.Hands == null)
+            return;
+
+        if (!entity.Comp.UserToggleable) // ADT-Tweak
             return;
 
         var user = args.User;

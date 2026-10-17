@@ -90,6 +90,7 @@
       - type: InputMover
       - type: GasTank
         releasePressure: 21.3
+        userToggleable: false
         air:
           volume: 5
           temperature: 293.15
