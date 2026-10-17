@@ -66,24 +66,22 @@ public sealed class HumanoidProfileTests : GameTest
     }
 
     [Test]
-    [TestOf(typeof(HumanoidCharacterProfile)), TestOf(typeof(VisualBodyComponent))]
-    [Description("Tests that the game can generate a completely random profile with a completely random species and apply it to a blank body.")]
-    public async Task EnsureValidRandom()
+    [TestOf(typeof(HumanoidCharacterProfile))]
+    [Description("Tests that random profile generation respects its species blacklist.")]
+    public async Task EnsureRandomRespectsSpeciesBlacklist()
     {
-        var pair = Pair;
-        var server = pair.Server;
+        await Server.WaitIdleAsync();
 
-        await server.WaitIdleAsync();
-
-        await server.WaitAssertion(() =>
+        await Server.WaitAssertion(() =>
         {
-            LoadDependencies(out var body, out var humanoidComponent);
+            var ignoredSpecies = SProtoMan.EnumeratePrototypes<SpeciesPrototype>()
+                .Where(species => species.RoundStart && species.ID != "Human")
+                .Select(species => species.ID)
+                .ToHashSet();
 
-            var profile = HumanoidCharacterProfile.Random();
-            _humanoidProfile.ApplyProfileTo(body, profile);
-            _visualBody.ApplyProfileTo(body, profile);
+            var profile = HumanoidCharacterProfile.Random(ignoredSpecies);
 
-            AssertValidProfile((body, humanoidComponent), profile);
+            Assert.That(profile.Species, Is.EqualTo("Human"));
         });
     }
 

@@ -188,7 +188,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTEngineer
     back: ClothingBackpackERTEngineer
-    shoes: ADTClothingShoesBootsMagERT
+    shoes: ClothingShoesBootsCombat
     mask: ClothingMaskGasERT
     eyes: ClothingEyesNightVisionAdvanced
     neck: ADTClothingBeltHolsterN1984Fill
@@ -296,7 +296,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTSecurity
     back: ClothingBackpackERTSecurity
-    shoes: ADTClothingShoesBootsMagERT
+    shoes: ClothingShoesBootsCombat
     mask: ClothingMaskGasERT
     eyes: ClothingEyesNightVisionAdvanced
     neck: ADTClothingBeltHolsterN1984Fill
@@ -404,7 +404,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTMedic
     back: ClothingBackpackERTMedical
-    shoes: ADTClothingShoesBootsMagERT
+    shoes: ClothingShoesBootsCombat
     mask: ClothingMaskGasERT
     eyes: ClothingEyesNightVisionAdvanced
     neck: ADTClothingBeltHolsterN1984Fill
@@ -512,7 +512,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTJanitor
     back: ClothingBackpackERTJanitor
-    shoes: ADTClothingShoesBootsMagERT
+    shoes: ClothingShoesBootsCombat
     mask: ClothingMaskGasERT
     gloves: ClothingHandsGlovesCombat
     outerClothing: ADTClothingOuterERTRiotHardsuit
