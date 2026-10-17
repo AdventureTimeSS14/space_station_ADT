@@ -36,3 +36,10 @@ ent-ADTClothingHeadHatHoodChaplainHoodWhite = светлый капюшон св
     .desc = Максимальное благоверие в этой звёздной системе.
 
 ent-ADTClothingHeadHatVoxHood = капюшон вокса
+
+ent-ADTClothingHeadHoodDownjacket = капюшон куртки
+    .desc = Капюшон, чтобы держать голову в тепле.
+
+ent-ADTClothingHeadHoodHoody = капюшон худи
+    .desc = Капюшон, чтобы держать голову в тепле.
+
