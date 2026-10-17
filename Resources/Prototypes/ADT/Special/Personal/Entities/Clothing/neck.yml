@@ -213,17 +213,24 @@
 
 - type: entity
   parent: ADTSponsorClothingNeckBase
-  id: ADTClothingNeckUSMCDogtagInconnu
-  name: USMC dog tag
+  id: ADTClothingNeckTSFDogtagInconnu
+  name: TSF dog tag
   suffix: Personal, Inconnu
   description: "No"
   components:
   - type: Sprite
-    sprite: ADT/Special/Personal/Inconnu/usmc_dogtag.rsi
+    sprite: ADT/Special/Personal/tsf_dogtag.rsi
   - type: Clothing
-    sprite: ADT/Special/Personal/Inconnu/usmc_dogtag.rsi
+    sprite: ADT/Special/Personal/tsf_dogtag.rsi
   - type: Item
     size: Tiny
+
+- type: entity
+  parent: ADTClothingNeckTSFDogtagInconnu
+  id: ADTClothingNeckTSFDogtagAroJan
+  name: worn TSF dog tag
+  suffix: Personal, AroJan
+  description: "No"
 
 - type: entity
   parent: ClothingMaskNeckGaiter
