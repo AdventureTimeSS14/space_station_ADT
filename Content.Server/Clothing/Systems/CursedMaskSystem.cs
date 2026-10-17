@@ -18,7 +18,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Server.Clothing.Systems;
 
 /// <inheritdoc/>
-public sealed partial class CursedMaskSystem : SharedCursedMaskSystem
+public sealed partial class CursedMaskSystem : SharedCursedMaskSystem // ADT-Tweak
 {
     [Dependency] private IAdminLogManager _adminLog = default!;
     [Dependency] private GhostSystem _ghostSystem = default!;

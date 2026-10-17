@@ -9,7 +9,7 @@ using Content.Shared.Projectiles;
 
 namespace Content.Shared.ADT.ArmorPenetration;
 
-public sealed class ArmorPenetrationSystem : EntitySystem
+public sealed partial class ArmorPenetrationSystem : EntitySystem
 {
     [Dependency] private InventorySystem _inventory = default!;
 
@@ -30,24 +30,25 @@ public sealed class ArmorPenetrationSystem : EntitySystem
         if (target == default)
             return;
 
-        if (TryGetCompensator(ent.Comp.Penetration, target, out var compensator))
-            args.ModifiersList.Add(compensator);
+        if (!TryGetArmorCompensator(target, ent.Comp.Penetration, out var compensator))
+            return;
+
+        args.ModifiersList.Add(compensator);
     }
 
     private void OnProjectileHit(Entity<ArmorPenetrationComponent> ent, ref ProjectileHitEvent args)
     {
-        if (!HasComp<MobStateComponent>(args.Target))
+        if (!TryGetArmorCompensator(args.Target, ent.Comp.Penetration, out var compensator))
             return;
 
-        if (TryGetCompensator(ent.Comp.Penetration, args.Target, out var compensator))
-            args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, compensator);
+        args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, compensator);
     }
 
-    private bool TryGetCompensator(float rawPenetration, EntityUid target, [NotNullWhen(true)] out DamageModifierSet? compensator)
+    public bool TryGetArmorCompensator(EntityUid target, float penetration, out DamageModifierSet compensator)
     {
-        compensator = null;
+        compensator = new();
 
-        var penetration = Math.Clamp(rawPenetration, 0f, 1f);
+        penetration = Math.Clamp(penetration, 0f, 1f);
         if (penetration <= 0f)
             return false;
 
@@ -60,20 +61,15 @@ public sealed class ArmorPenetrationSystem : EntitySystem
         if (query.DamageModifiers.Coefficients.Count == 0)
             return false;
 
-        var result = new DamageModifierSet();
         foreach (var (damageType, c) in query.DamageModifiers.Coefficients)
         {
             if (c <= 0f || c >= 1f)
                 continue;
 
             var multiplier = (c + penetration * (1f - c)) / c;
-            result.Coefficients[damageType] = multiplier;
+            compensator.Coefficients[damageType] = multiplier;
         }
 
-        if (result.Coefficients.Count == 0)
-            return false;
-
-        compensator = result;
-        return true;
+        return compensator.Coefficients.Count > 0;
     }
 }

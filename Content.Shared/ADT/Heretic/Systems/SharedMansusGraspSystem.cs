@@ -1,9 +1,11 @@
 //
 
+using Content.Shared.ADT.Heretic.Components.Moon;
 using Content.Shared.Damage.Components;
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Shared.ADT.Silicon.Components;
 using Content.Shared.ADT.Heretic.Systems;
+using Content.Shared.ADT.Heretic.Systems.Moon;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.ADT.BackStab;
 using Content.Shared.Damage;
@@ -12,6 +14,7 @@ using Content.Shared.Damage.Prototypes;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
 using Content.Shared.Eye.Blinding.Systems;
+using Content.Shared.FixedPoint;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Components;
 using Content.Shared.Mind;
@@ -54,7 +57,12 @@ public abstract class SharedMansusGraspSystem : EntitySystem
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private SharedStarMarkSystem _starMark = default!;
     [Dependency] private NpcFactionSystem _faction = default!;
-
+    [Dependency] private Content.Shared.Access.Systems.AccessReaderSystem _access = default!;
+    [Dependency] private Content.Shared.Vehicle.Systems.VehicleSystem _vehicle = default!;
+    [Dependency] private Content.Shared.Mech.EntitySystems.SharedMechSystem _mech = default!;
+    [Dependency] private Content.Shared.Power.EntitySystems.SharedBatterySystem _battery = default!;
+    [Dependency] private Content.Shared.Lock.LockSystem _lock = default!;
+    [Dependency] private SharedHereticSystem _heretic = default!;
     public bool TryApplyGraspEffectAndMark(EntityUid user,
         HereticComponent hereticComp,
         EntityUid target,
@@ -140,16 +148,42 @@ public abstract class SharedMansusGraspSystem : EntitySystem
 
             case "Lock":
             {
-                if (!TryComp<DoorComponent>(target, out var door))
+                var knock = new SoundPathSpecifier("/Audio/ADT/Heretic/hereticknock.ogg");
+                if (TryComp<DoorComponent>(target, out var door))
+                {
+                    if (TryComp<DoorBoltComponent>(target, out var doorBolt))
+                        _door.SetBoltsDown((target, doorBolt), false);
+
+                    _door.StartOpening(target, door);
+                    _audio.PlayPredicted(knock, target, performer);
+                    _popup.PopupEntity(Loc.GetString("heretic-lock-unlocked"), performer, performer);
                     break;
+                }
 
-                if (TryComp<DoorBoltComponent>(target, out var doorBolt))
-                    _door.SetBoltsDown((target, doorBolt), false);
+                if (HasComp<Content.Shared.Mech.Components.MechComponent>(target))
+                {
+                    _vehicle.TryExit(target);
+                    _audio.PlayPredicted(knock, target, performer);
+                    _popup.PopupEntity(Loc.GetString("heretic-lock-unlocked"), performer, performer);
+                    break;
+                }
 
-                _door.StartOpening(target, door);
-                _audio.PlayPredicted(new SoundPathSpecifier("/Audio/ADT/Heretic/hereticknock.ogg"),
-                    target,
-                    performer);
+                if (TryComp<Content.Shared.Lock.LockComponent>(target, out var lockComp) && lockComp.Locked)
+                {
+                    _lock.Unlock(target, performer, lockComp);
+                    _audio.PlayPredicted(knock, target, performer);
+                    _popup.PopupEntity(Loc.GetString("heretic-lock-unlocked"), performer, performer);
+                    break;
+                }
+
+                if (HasComp<Content.Shared.Access.Components.AccessReaderComponent>(target) && !HasComp<Content.Shared.Mobs.Components.MobStateComponent>(target))
+                {
+                    if (TryComp<Content.Shared.Access.Components.AccessReaderComponent>(target, out var reader))
+                        _access.TryClearAccesses((target, reader));
+                    _audio.PlayPredicted(knock, target, performer);
+                    _popup.PopupEntity(Loc.GetString("heretic-lock-unlocked"), performer, performer);
+                    break;
+                }
                 break;
             }
 
@@ -169,6 +203,13 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                     {
                         if (_net.IsServer)
                             _popup.PopupEntity(Loc.GetString("heretic-ability-fail-target-no-mind"), performer, performer);
+                        break;
+                    }
+
+                    if (CountBoundGhouls(performer) >= GetGhoulLimit(performer))
+                    {
+                        if (_net.IsServer)
+                            _popup.PopupEntity(Loc.GetString("heretic-ability-fail-ghoul-limit"), performer, performer);
                         break;
                     }
 
@@ -199,6 +240,15 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                          HasComp<HereticRitualRuneComponent>(
                              target)) // If we have rust grasp and targeting a wall (or a catwalk) - do nothing, let other methods handle that. Also don't damage transmutation rune.
                     return false;
+                else if (TryComp(target, out DamageableComponent? mechDamageable) && HasComp<Content.Shared.Mech.Components.MechComponent>(target))
+                {
+                    _damage.TryChangeDamage((target, mechDamageable),
+                        new DamageSpecifier(_proto.Index<DamageTypePrototype>("Shock"), 1000),
+                        ignoreResistances: true,
+                        origin: performer);
+
+                    _battery.SetChargeCooldown((target, null), TimeSpan.FromSeconds(22));
+                }
                 else if (TryComp(target, out DamageableComponent? damageable) && // Is it even damageable?
                          !_tag.HasTag(target, "Meat") && // Is it not organic body part or organ?
                          !HasComp<ShadowCloakEntityComponent>(target) && // No instakilling shadow cloak heretics
@@ -221,10 +271,65 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                     _starMark.SpawnCosmicField(Transform(performer).Coordinates, heretic.PathStage);
                 break;
             }
+            case "Moon":
+            {
+                _statusNew.TryAddStatusEffectDuration(performer, "MoonGraspHideStatusEffect", TimeSpan.FromSeconds(15));
+                if (target == performer)
+                    break;
+                if (HasComp<MoonLunaticComponent>(target))
+                    break;
+                if (_heretic.IsHereticOrGhoul(target))
+                    break;
+                if (HasComp<StatusEffectsComponent>(target))
+                {
+                    var sanity = EnsureComp<HereticSanityComponent>(target);
+                    sanity.Current = Math.Max(0f, sanity.Current - 30f);
+                    Dirty(target, sanity);
+                    _statusNew.TryAddStatusEffectDuration(target, "MoonMarkStatusEffect", TimeSpan.FromSeconds(30));
+                    _statusNew.TryAddStatusEffectDuration(target, "MoonConfusedStatusEffect", TimeSpan.FromSeconds(30));
+                    EntityManager.System<SharedMoonHallucinationSystem>().CauseHallucinations(target, 2, 15f, false);
+                }
+                break;
+            }
             default:
                 return true;
         }
 
         return true;
+    }
+
+    public int GetGhoulLimit(EntityUid heretic)
+    {
+        if (TryComp(heretic, out FleshGhoulLimitComponent? limit))
+            return limit.Limit;
+
+        return 3;
+    }
+
+    public int CountBoundGhouls(EntityUid heretic)
+    {
+        var count = 0;
+        var query = EntityQueryEnumerator<HereticMinionComponent, GhoulComponent>();
+        while (query.MoveNext(out _, out var minion, out _))
+        {
+            if (minion.BoundHeretic == heretic && !TerminatingOrDeleted(minion.Owner))
+                count++;
+        }
+
+        return count;
+    }
+
+    public float GetAreaGraspRange(Entity<AreaMansusGraspComponent> ent, float time)
+    {
+        var blend = MathF.Pow(time / (float) ent.Comp.ChannelTime.TotalSeconds, ent.Comp.Slope);
+        return MathHelper.Lerp(ent.Comp.MinRange, ent.Comp.MaxRange, blend);
+    }
+
+    public TimeSpan CalculateAreaGraspCooldown(float baseCooldown, int hitCount, float range, float multiplier = 2f)
+    {
+        var cd = baseCooldown *
+            MathF.Pow(multiplier, -hitCount) *
+            MathF.Pow(range / 5f, 2f);
+        return TimeSpan.FromSeconds(MathF.Max(cd, 2f));
     }
 }

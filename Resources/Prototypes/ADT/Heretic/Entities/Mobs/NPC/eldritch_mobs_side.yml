@@ -1,0 +1,302 @@
+- type: entity
+  parent: BaseMobGhoul
+  id: MobGhoulMirrorMaid
+  name: maid in the mirror
+  description: A floating and flowing wisp of chilled air. Glancing at it causes it to shimmer slightly.
+  components:
+  - type: Ghoul
+    totalHealth: 80
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Heretic/eldritch_mobs.rsi
+    state: maid
+  - type: GhostRole
+    name: ghostrole-maid-name
+    description: ghostrole-maid-desc
+  - type: MirrorMaid
+  - type: NightVision
+    innate: true
+  - type: MeleeWeapon
+    animation: WeaponArcPunch
+    soundHit:
+      collection: GlassBreak
+    damage:
+      types:
+        Slash: 10
+        Piercing: 10
+  - type: Reflect
+    reflectProb: 1
+    reflects:
+    - Energy
+
+- type: entity
+  parent: BaseMobGhoul
+  id: MobGhoulAshSpirit
+  name: ash spirit
+  description: A manifestation of ash, trailing a perpetual cloud of short-lived cinders.
+  components:
+  - type: Ghoul
+    totalHealth: 75
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Heretic/eldritch_mobs.rsi
+    state: ash_walker
+  - type: GhostRole
+    name: ghostrole-ash-spirit-name
+    description: ghostrole-ash-spirit-desc
+  - type: IgniteOnMeleeHit
+    fireStacks: 2
+  - type: MeleeWeapon
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Heat: 20
+  - type: NightVision
+    innate: true
+  - type: ActionsProvider
+    actions:
+    - ActionHereticJauntLong
+
+- type: entity
+  parent:
+  - OrganBaseOrganic
+  - OrganBaseParent
+  - OrganBaseChildExternal
+  id: HereticOrganShatteredTorso
+  name: shattered torso
+  description: A torso of blue glass shot through with a dark, frozen light. It still twitches.
+  components:
+  - type: Organ
+    category: Torso
+  - type: Sprite
+    sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+    state: torso
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.Chest
+    data:
+      sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+      state: torso
+
+- type: entity
+  parent:
+  - OrganBaseOrganic
+  - OrganBaseParent
+  - OrganBaseChildExternal
+  id: HereticOrganShatteredHead
+  name: shattered head
+  description: A head of blue glass, cracked down the middle, holding a face that is almost a face.
+  components:
+  - type: Organ
+    category: Head
+  - type: Sprite
+    sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+    state: head
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.Head
+    data:
+      sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+      state: head
+
+- type: entity
+  parent:
+  - OrganBaseOrganic
+  - OrganBaseParent
+  - OrganBaseChildExternal
+  id: HereticOrganShatteredArmLeft
+  name: shattered left arm
+  description: A long arm of blue glass ending in a nest of blades.
+  components:
+  - type: Organ
+    category: ArmLeft
+  - type: Sprite
+    sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+    state: l_arm
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.LArm
+    data:
+      sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+      state: l_arm
+
+- type: entity
+  parent:
+  - OrganBaseOrganic
+  - OrganBaseParent
+  - OrganBaseChildExternal
+  id: HereticOrganShatteredArmRight
+  name: shattered right arm
+  description: A long arm of blue glass ending in a nest of blades.
+  components:
+  - type: Organ
+    category: ArmRight
+  - type: Sprite
+    sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+    state: r_arm
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.RArm
+    data:
+      sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+      state: r_arm
+
+- type: entity
+  parent:
+  - OrganBaseOrganic
+  - OrganBaseChildExternal
+  id: HereticOrganShatteredHandLeft
+  name: shattered left hand
+  description: A glass hand, fingers like needles.
+  components:
+  - type: Organ
+    category: HandLeft
+  - type: HandOrgan
+    handID: left
+    data:
+      location: Left
+  - type: Sprite
+    sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+    state: l_hand
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.LHand
+    data:
+      sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+      state: l_hand
+
+- type: entity
+  parent:
+  - OrganBaseOrganic
+  - OrganBaseChildExternal
+  id: HereticOrganShatteredHandRight
+  name: shattered right hand
+  description: A glass hand, fingers like needles.
+  components:
+  - type: Organ
+    category: HandRight
+  - type: HandOrgan
+    handID: right
+    data:
+      location: Right
+  - type: Sprite
+    sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+    state: r_hand
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.RHand
+    data:
+      sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+      state: r_hand
+
+- type: entity
+  parent:
+  - OrganBaseOrganic
+  - OrganBaseParent
+  - OrganBaseChildExternal
+  id: HereticOrganShatteredLegLeft
+  name: shattered left leg
+  description: A glass leg, still strong enough to hold a body up.
+  components:
+  - type: Organ
+    category: LegLeft
+  - type: Sprite
+    sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+    state: l_leg
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.LLeg
+    data:
+      sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+      state: l_leg
+
+- type: entity
+  parent:
+  - OrganBaseOrganic
+  - OrganBaseParent
+  - OrganBaseChildExternal
+  id: HereticOrganShatteredLegRight
+  name: shattered right leg
+  description: A glass leg, still strong enough to hold a body up.
+  components:
+  - type: Organ
+    category: LegRight
+  - type: Sprite
+    sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+    state: r_leg
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.RLeg
+    data:
+      sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+      state: r_leg
+
+- type: entity
+  parent:
+  - OrganBaseOrganic
+  - OrganBaseChildExternal
+  id: HereticOrganShatteredFootLeft
+  name: shattered left foot
+  description: A foot of glass, leaving slivers wherever it walks.
+  components:
+  - type: Organ
+    category: FootLeft
+  - type: Sprite
+    sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+    state: l_foot
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.LFoot
+    data:
+      sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+      state: l_foot
+
+- type: entity
+  parent:
+  - OrganBaseOrganic
+  - OrganBaseChildExternal
+  id: HereticOrganShatteredFootRight
+  name: shattered right foot
+  description: A foot of glass, leaving slivers wherever it walks.
+  components:
+  - type: Organ
+    category: FootRight
+  - type: Sprite
+    sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+    state: r_foot
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.RFoot
+    data:
+      sprite: ADT/Heretic/Mobs/Shattered/parts.rsi
+      state: r_foot
+
+- type: entity
+  parent: [BaseMobGhoul, BaseSpeciesAppearance]
+  id: MobShatteredRisen
+  name: shattered risen
+  description: A corpse dragged back to near-life by a cold, rending force. Its hands are brutal nests of sharp bone-shards.
+  components:
+  - type: Ghoul
+    totalHealth: 250
+    giveBlade: false
+  - type: GhostRole
+    name: ghostrole-shattered-name
+    description: ghostrole-shattered-desc
+  - type: ShatteredRisen
+  - type: MeleeWeapon
+    animation: WeaponArcSmash
+    soundHit:
+      collection: GlassBreak
+    damage:
+      types:
+        Slash: 18
+        Piercing: 14
+  - type: InitialBody
+    organs:
+      Torso: HereticOrganShatteredTorso
+      Head: HereticOrganShatteredHead
+      ArmLeft: HereticOrganShatteredArmLeft
+      ArmRight: HereticOrganShatteredArmRight
+      HandLeft: HereticOrganShatteredHandLeft
+      HandRight: HereticOrganShatteredHandRight
+      LegLeft: HereticOrganShatteredLegLeft
+      LegRight: HereticOrganShatteredLegRight
+      FootLeft: HereticOrganShatteredFootLeft
+      FootRight: HereticOrganShatteredFootRight
+      Brain: OrganHumanBrain
+      Eyes: OrganHumanEyes
+      Tongue: OrganHumanTongue
+      Ears: OrganHumanEars
+      Lungs: OrganHumanLungs
+      Heart: OrganHumanHeart

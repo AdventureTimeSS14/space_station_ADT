@@ -51,7 +51,7 @@ public sealed partial class HereticComponent : Component
     public int MaxTargets = 6;
 
     // hardcoded paths because i hate it
-    // "Ash", "Lock", "Flesh", "Void", "Blade", "Rust"
+    // "Ash", "Lock", "Flesh", "Void", "Blade", "Rust", "Cosmos", "Moon", "Side"
     /// <summary>
     ///     Indicates a path the heretic is on.
     /// </summary>

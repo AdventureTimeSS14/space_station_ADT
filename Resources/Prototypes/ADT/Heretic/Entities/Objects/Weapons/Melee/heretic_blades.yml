@@ -26,7 +26,13 @@
     radius:
       min: 10
       max: 100
-
+  - type: Tag
+    tags:
+    - HereticBlade
+  - type: Clothing
+    sprite: ADT/Heretic/Blades/blade_base.rsi
+    slots:
+    - belt
 - type: entity
   parent: HereticBladeBase
   id: HereticBladeAsh
@@ -49,7 +55,10 @@
         Slash: 7.5
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
-
+  - type: Clothing
+    sprite: ADT/Heretic/Blades/blade_ash.rsi
+    slots:
+    - belt
 - type: entity
   parent: HereticBladeBase
   id: HereticBladeBlade
@@ -58,13 +67,11 @@
   components:
   - type: HereticBlade
     path: Blade
-  # ADT: base layer, infusion visuals, Mansus Grasp tag
   - type: Sprite
     sprite: ADT/Heretic/Blades/blade_blade.rsi
     layers:
     - state: icon
       map: [ "base" ]
-  # ADT: explicit inhand Item sprite, blade was invisible in hand
   - type: Item
     size: Normal
     sprite: ADT/Heretic/Blades/blade_blade-inhand.rsi
@@ -79,7 +86,6 @@
         base:
           False: { state: icon }
           True: { state: infused }
-  # ADT: two hits come from Multihit (second blade in other hand), not wielding
   - type: Multihit
     damageMultiplier: 0.75
     multihitWhitelist:
@@ -92,8 +98,10 @@
   - type: Reflect
     reflectProb: 0.5
     spread: 0
-
-# ADT: ghoul blade, no teleport
+  - type: Clothing
+    sprite: ADT/Heretic/Blades/blade_blade.rsi
+    slots:
+    - belt
 - type: entity
   parent: HereticBladeBase
   id: HereticBladeFleshGhoul
@@ -112,7 +120,10 @@
     radius:
       min: 0
       max: 0
-
+  - type: Clothing
+    sprite: ADT/Heretic/Blades/blade_fleshghoul.rsi
+    slots:
+    - belt
 - type: entity
   parent: HereticBladeBase
   id: HereticBladeFlesh
@@ -126,7 +137,10 @@
     state: icon
   - type: Item
     sprite: ADT/Heretic/Blades/blade_flesh-inhand.rsi
-
+  - type: Clothing
+    sprite: ADT/Heretic/Blades/blade_flesh.rsi
+    slots:
+    - belt
 - type: entity
   parent: HereticBladeBase
   id: HereticBladeLock
@@ -140,7 +154,10 @@
     state: icon
   - type: Item
     sprite: ADT/Heretic/Blades/blade_lock-inhand.rsi
-
+  - type: Clothing
+    sprite: ADT/Heretic/Blades/blade_lock.rsi
+    slots:
+    - belt
 - type: entity
   parent: HereticBladeBase
   id: HereticBladeRust
@@ -154,7 +171,10 @@
     state: icon
   - type: Item
     sprite: ADT/Heretic/Blades/blade_rust-inhand.rsi
-
+  - type: Clothing
+    sprite: ADT/Heretic/Blades/blade_rust.rsi
+    slots:
+    - belt
 - type: entity
   parent: HereticBladeBase
   id: HereticBladeVoid
@@ -177,7 +197,10 @@
         Slash: 7.5
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
-
+  - type: Clothing
+    sprite: ADT/Heretic/Blades/blade_void.rsi
+    slots:
+    - belt
 - type: entity
   parent: HereticBladeBase
   id: HereticBladeCosmos
@@ -192,3 +215,7 @@
     state: icon
   - type: Item
     sprite: ADT/Heretic/Blades/blade_cosmos-inhand.rsi
+  - type: Clothing
+    sprite: ADT/Heretic/Blades/blade_cosmos.rsi
+    slots:
+    - belt

@@ -1,4 +1,5 @@
 using Content.Server.Hands.Systems;
+using Content.Shared.Hands.Components; // ADT-Tweak
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.NPC.HTN.Preconditions;
@@ -18,11 +19,18 @@ public sealed partial class ActiveHandComponentPrecondition : HTNPrecondition
 
     public override bool IsMet(NPCBlackboard blackboard)
     {
-        if (!blackboard.TryGetValue<EntityUid>(NPCBlackboard.Owner, out var owner, _entManager) ||
-            !blackboard.TryGetValue<string>(NPCBlackboard.ActiveHand, out var hand, _entManager))
-        {
+        // ADT-Tweak-start
+        if (!blackboard.TryGetValue<EntityUid>(NPCBlackboard.Owner, out var owner, _entManager))
             return Invert;
+
+        if (!blackboard.TryGetValue<string>(NPCBlackboard.ActiveHand, out var hand, _entManager))
+        {
+            if (_entManager.TryGetComponent<HandsComponent>(owner, out var handsComp) && handsComp.ActiveHandId != null)
+                hand = handsComp.ActiveHandId;
+            else
+                return Invert;
         }
+        // ADT-Tweak-end
 
         if (!_entManager.System<HandsSystem>().TryGetHeldItem(owner, hand, out var entity))
             return Invert;

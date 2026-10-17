@@ -4,6 +4,8 @@ carving-knife-comp-close-to-another-carving = Слишком близко к д�
 carving-knife-comp-runes-count = [color=yellow][bold]{ $count } / 3[/bold] было нарисовано рисунков.[/color]
 carving-knife-comp-runes-deleted = Уничтожены все вырезанные рисунки!
 alert-carving-trigger-message = { $victim } наступил ногой на предупреждающую руну рядом { $location }!
+    {" "}[button label="Телепорт" timer={$timer} id="{$id}" uid={$uid} coords="{$coords}"]
+    {" "}
 
 alert-carving-trigger-message-coords = { $uid }, { $x }, { $y }
 

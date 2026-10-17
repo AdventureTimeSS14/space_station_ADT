@@ -22,6 +22,8 @@ using Robust.Shared.Collections;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Shared.Heretic.Components; // ADT-Tweak
+using Content.Shared.StatusEffectNew; // ADT-Tweak
 
 namespace Content.Shared.Access.Systems;
 
@@ -36,6 +38,7 @@ public sealed partial class AccessReaderSystem : EntitySystem
     [Dependency] private SharedContainerSystem _containerSystem = default!;
     [Dependency] private StationRecordsSystem _recordsSystem = default!;
     [Dependency] private IdentitySystem _identity = default!;
+    [Dependency] private StatusEffectsSystem _statusEffects = default!; // ADT-Tweak
 
     private static readonly ProtoId<TagPrototype> PreventAccessLoggingTag = "PreventAccessLogging";
 
@@ -205,6 +208,10 @@ public sealed partial class AccessReaderSystem : EntitySystem
     /// <param name="reader">Optional reader from the target entity</param>
     public bool IsAllowed(EntityUid user, EntityUid target, AccessReaderComponent? reader = null)
     {
+        // ADT-Tweak-start
+        if (_statusEffects.HasEffectComp<AccessDeniedStatusEffectComponent>(user))
+            return false;
+        // ADT-Tweak-end
         if (!Resolve(target, ref reader, false))
             return true;
 

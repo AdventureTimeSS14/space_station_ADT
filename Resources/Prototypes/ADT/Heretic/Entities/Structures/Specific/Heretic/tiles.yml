@@ -43,6 +43,7 @@
   - type: Tag
     tags:
       - HideContextMenu
+      - HereticAshFire
 
 - type: entity
   id: TileHereticVoid
@@ -210,3 +211,24 @@
     collection: FootstepPlating
   friction: 1.5
   heatCapacity: 10000
+
+- type: tile
+  id: PlatingRoseStone
+  name: tiles-plating-rose-stone
+  sprite: /Textures/ADT/Heretic/tiles/rose_stone.png
+  editorHidden: true
+  indestructible: true
+  footstepSounds:
+    collection: FootstepPlating
+  friction: 1.5
+  heatCapacity: 100000
+  variants: 8
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 0.2
+  - 0.2
+  - 0.2
+  - 0.2
+  - 0.2
+  - 0.2

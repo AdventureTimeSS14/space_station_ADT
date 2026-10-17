@@ -1,0 +1,70 @@
+- type: hereticKnowledge
+  id: MoonlightTroupe
+  path: Moon
+  stage: 1
+  ritualPrototypes:
+  - BladeMoon
+
+- type: hereticKnowledge
+  id: GraspOfMoon
+  path: Moon
+  stage: 2
+
+- type: hereticKnowledge
+  id: MarkOfMoon
+  path: Moon
+  stage: 3
+
+- type: hereticKnowledge
+  id: MindGate
+  path: Moon
+  stage: 4
+  actionPrototypes:
+  - ActionHereticMindGate
+
+- type: hereticKnowledge
+  id: MoonAmulet
+  path: Moon
+  stage: 5
+  ritualPrototypes:
+  - RitualMoonAmulet
+
+- type: hereticKnowledge
+  id: LunarParade
+  path: Moon
+  stage: 6
+  actionPrototypes:
+  - ActionHereticLunarParade
+
+- type: hereticKnowledge
+  id: MoonBladeUpgrade
+  path: Moon
+  stage: 7
+
+- type: hereticKnowledge
+  id: RingleadersRise
+  path: Moon
+  stage: 8
+  actionPrototypes:
+  - ActionHereticRingleadersRise
+
+- type: hereticKnowledge
+  id: AscensionMoon
+  path: Moon
+  stage: 9
+  ritualPrototypes:
+  - RitualAscensionMoon
+
+- type: hereticKnowledge
+  id: LastAct
+  path: Moon
+  stage: 10
+  event: !type:HereticAscensionMoonEvent
+
+- type: hereticKnowledge
+  id: ArmorerRitualMoon
+  path: Moon
+  sideKnowledge: true
+  stage: 3
+  ritualPrototypes:
+  - ArmorerRitualMoon

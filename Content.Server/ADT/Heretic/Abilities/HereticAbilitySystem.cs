@@ -35,6 +35,7 @@ using Robust.Shared.Audio;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Prototypes;
 using Content.Server.Heretic.EntitySystems;
+using Content.Server.ADT.Heretic.EntitySystems;
 using Content.Server.Actions;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
@@ -126,8 +127,6 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
 
         SubscribeLocalEvent<EventHereticMansusLink>(OnMansusLink);
         SubscribeLocalEvent<HereticMansusLinkDoAfter>(OnMansusLinkDoafter);
-
-        SubscribeLock();
     }
 
     public override void InvokeTouchSpell<T>(Entity<T> ent, EntityUid user)
@@ -333,6 +332,8 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
 
         Popup.PopupEntity(loc, uid, uid, PopupType.Medium);
         _aud.PlayGlobal(new SoundPathSpecifier("/Audio/ADT/Heretic/heartbeat.ogg"), uid, AudioParams.Default.WithVolume(-3f));
+
+        EntitySystem.Get<HereticTrackTargetSystem>().ShowBeam(uid, target.Value);
     }
 
     // ADT: radio channel instead of CollectiveMind

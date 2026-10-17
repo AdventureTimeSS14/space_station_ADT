@@ -24,10 +24,10 @@
     delay: 2.0
   - type: Appearance
   - type: ItemToggle
+  - type: EldritchInfluenceDrainer
   - type: ComponentToggler
     components:
     - type: HereticMagicItem
-    - type: EldritchInfluenceDrainer
     - type: TransmutationRuneScriber
   - type: ItemToggleSize
     activatedSize: Normal
@@ -37,12 +37,15 @@
         Blunt: 8
   - type: ToggleAnimation
   - type: Tag # Drawing runes checks for tag component so this has to be here
+    tags:
+    - CodexCicatrix
+    - AnchorHereticStructure
 
 - type: entity
   parent: [ DrinkBase, BaseMagicContraband ]
   id: HereticEldritchFlask
   name: eldritch flask
-  description: Колба, наполненная неизвестным веществом. Кто знает, что произойдет, когда вы сделаете из нее глоток.
+  description: A flask filled with an unknown substance. Who knows what will happen when you take a sip from it.
   components:
   - type: Sprite
     sprite: ADT/Heretic/items.rsi
@@ -57,6 +60,9 @@
       reagents:
       - ReagentId: EssenceEldritch
         Quantity: 100
+  - type: Tag
+    tags:
+    - EldritchFlask
 
 - type: entity
   id: HereticProtectiveBlade
@@ -72,6 +78,12 @@
   - type: InteractionOutline
   - type: ProtectiveBlade
     lifetime: 60
+  - type: Reflect
+    reflects:
+    - Energy
+    - NonEnergy
+    reflectProb: 1
+    spread: 0
   - type: Physics
     bodyType: Dynamic
     fixedRotation: false
@@ -90,6 +102,7 @@
     sprite: ADT/Heretic/items.rsi
     state: protective_blade
   - type: Projectile
+    ignoreResistances: true
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
@@ -98,3 +111,377 @@
         Structural: 100
     soundHit:
       path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
+
+- type: entity
+  parent: [ TimerGrenadeBase, BaseMagicContraband ]
+  id: RustSowerGrenade
+  name: rust sower
+  description: A nifty little thing that explodes into rust. Causes borgs and mechs to get utterly obliterated.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/Entities/rustgrenade.rsi
+    layers:
+    - state: icon
+      map: [ "enum.TriggerVisualLayers.Base" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.Trigger.TriggerVisuals.VisualState:
+        enum.ConstructionVisuals.Layer:
+          Primed: { state: primed }
+          Unprimed: { state: icon }
+  - type: TimerTrigger
+    delay: 5
+  - type: SmokeOnTrigger
+    keysIn:
+    - timer
+    duration: 20
+    spreadAmount: 10
+    solution:
+      reagents:
+      - ReagentId: EldritchRust
+        Quantity: 50
+  - type: EmitSoundOnTrigger
+    keysIn:
+    - timer
+    sound:
+      collection: ExplosionSmall
+    positional: true
+  - type: EmpOnTrigger
+    keysIn:
+    - timer
+    range: 5
+    energyConsumption: 50000
+    disableDuration: 30
+  - type: ExplodeOnTrigger
+    keysIn:
+    - timer
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 6
+    intensitySlope: 2
+    totalIntensity: 60
+    canCreateVacuum: false
+  - type: RustInRadiusOnTrigger
+    keysIn:
+    - timer
+    range: 3
+    lookupRange: 0.5
+    rustStrength: 10
+  - type: DeleteOnTrigger
+    keysIn:
+    - timer
+  - type: Tag
+    tags:
+    - GrenadeIgnoreCosmicField
+    - HereticItem
+    - HandGrenade
+
+- type: entity
+  parent: [ BaseItem, BaseMagicContraband ]
+  id: HereticPhylactery
+  name: phylactery of damnation
+  description: Used to steal blood from soon-to-be victims.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: ADT/Heretic/Entities/phylactery.rsi
+    layers:
+    - state: phylactery
+      map: [ "enum.SolutionContainerLayers.Base" ]
+    - state: phylactery1
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+      visible: false
+  - type: Icon
+    sprite: ADT/Heretic/Entities/phylactery.rsi
+    state: phylactery
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 2
+    fillBaseName: phylactery
+    metamorphic: false
+  - type: SolutionContainerManager
+    solutions:
+      phylactery:
+        maxVol: 100
+  - type: HereticPhylactery
+  - type: UseDelay
+    delay: 0.5
+  - type: Tag
+    tags:
+    - HereticItem
+
+- type: entity
+  parent: [ BaseItem, BaseMagicContraband ]
+  id: HereticSoulBottleEmpty
+  name: soul bottle
+  description: An empty crystalline bottle. Whispers echo from within, promising to capture the essence of the departed.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/items.rsi
+    state: soul_bottle_empty
+  - type: Icon
+    sprite: ADT/Heretic/items.rsi
+    state: soul_bottle_empty
+  - type: Item
+    size: Small
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 50
+  - type: Tag
+    tags:
+    - HereticItem
+    - SoulBottle
+
+- type: entity
+  parent: HereticSoulBottleEmpty
+  id: HereticSoulBottleFull
+  name: filled soul bottle
+  description: A crystalline bottle filled with a swirling, ethereal essence. The whispers within have gone silent.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/items.rsi
+    state: soul_bottle_full
+  - type: Icon
+    sprite: ADT/Heretic/items.rsi
+    state: soul_bottle_full
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 50
+        reagents:
+        - ReagentId: EssenceEldritch
+          Quantity: 50
+
+
+- type: entity
+  parent: [ BaseItem, BaseMagicContraband ]
+  id: ArmBladeShattered
+  name: shattered arm blade
+  description: A jagged blade of blue glass fused to the arm. It cannot be removed.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/Entities/arm_blade.rsi
+    state: icon
+  - type: Item
+    size: Normal
+    sprite: ADT/Heretic/Entities/arm_blade.rsi
+  - type: MeleeWeapon
+    attackRate: 1.5
+    damage:
+      types:
+        Slash: 15
+        Structural: 10
+    soundHit:
+      collection: GlassBreak
+  - type: Unremoveable
+  - type: Tag
+    tags:
+    - HereticItem
+
+- type: entity
+  parent: [ BaseItem, BaseMagicContraband ]
+  id: ArmHammerShattered
+  name: shattered arm hammer
+  description: A heavy head of blue glass fused to the arm. It cannot be removed.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/Entities/hammer.rsi
+    state: icon
+  - type: Item
+    size: Huge
+    sprite: ADT/Heretic/Entities/hammer.rsi
+  - type: MeleeWeapon
+    attackRate: 1.2
+    damage:
+      types:
+        Blunt: 20
+        Structural: 30
+    soundHit:
+      collection: GlassBreak
+  - type: Unremoveable
+  - type: Tag
+    tags:
+    - HereticItem
+
+- type: entity
+  parent: [ BaseItem, BaseMagicContraband ]
+  id: HereticOgBook
+  name: tome of forgotten lore
+  description: An ancient book filled with esoteric knowledge. Its pages seem to writhe when viewed from the corner of your eye.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/items.rsi
+    state: ogbook
+  - type: Icon
+    sprite: ADT/Heretic/items.rsi
+    state: ogbook
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - HereticItem
+
+- type: entity
+  parent: [ BaseItem, BaseMagicContraband ]
+  id: HereticSpaceHands
+  name: mansus hands
+  description: Ethereal gauntlets that phase in and out of reality. They allow you to grasp what should not be grasped.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/items.rsi
+    state: spacehand_left
+  - type: Item
+    size: Small
+    sprite: ADT/Heretic/items.rsi
+    inhandVisuals:
+      left:
+      - state: spacehand_right
+      right:
+      - state: spacehand_left
+  - type: TimedDespawn
+    lifetime: 9
+  - type: Tag
+    tags:
+    - HereticItem
+
+- type: entity
+  parent: BaseMagicContraband
+  id: HereticOgBookBarrier
+  name: labyrinth pages
+  description: A storm of writhing pages. It repels the unfaithful.
+  categories: [ HideSpawnMenu ]
+  save: false
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/Entities/paper_wall.rsi
+    state: icon
+    drawdepth: Effects
+  - type: HereticOgBookBarrier
+  - type: TimedDespawn
+    lifetime: 60
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.5
+        layer:
+        - WallLayer
+        mask:
+        - MobMask
+        density: 1000
+        hard: false
+  - type: Clickable
+
+- type: entity
+  parent: [ BaseItem, BaseMagicContraband ]
+  id: HereticRaggedSword
+  name: ragged sword
+  description: This blade feels cold and faintly resonant. Its surface swims with impossible, fleeting geometries.
+  components:
+  - type: HereticMagicItem
+  - type: Sprite
+    sprite: ADT/Heretic/Entities/sword.rsi
+    state: icon
+  - type: Item
+    size: Large
+    sprite: ADT/Heretic/Entities/sword-inhands.rsi
+    shape:
+    - 0,0,5,1
+    storedRotation: 45
+  - type: MeleeWeapon
+    angle: 90
+    range: 2
+    attackRate: 1.25
+    damage:
+      types:
+        Slash: 20
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Heretic/Entities/sword.rsi
+    slots:
+    - Back
+    - SuitStorage
+  - type: UseDelay
+    delay: 0.8
+  - type: RaggedSword
+    maxHealthPerKill: 25
+  - type: Tag
+    tags:
+    - HereticItem
+
+- type: entity
+  parent: ClothingHeadBase
+  id: HereticEldritchCrown
+  name: crown of the gibbet
+  description: A ragged crown. Wearing it, your flesh serves more master than most.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/Effects/crown.rsi
+    state: arena_victor
+  - type: Clothing
+    sprite: ADT/Heretic/Effects/crown.rsi
+    slots:
+    - Head
+  - type: ClothingGrantComponent
+    component:
+    - type: FleshGhoulLimit
+      limit: 5
+  - type: Tag
+    tags:
+    - HereticItem
+
+- type: entity
+  parent: [ BaseItem, BaseMagicContraband ]
+  id: EnvyKnife
+  name: envy's knife
+  description: Their success will be yours.
+  components:
+  - type: HereticMagicItem
+  - type: Sprite
+    sprite: ADT/Heretic/Entities/envy_knife.rsi
+    state: icon
+  - type: Item
+    size: Small
+    sprite: ADT/Heretic/Entities/envy_knife.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: MeleeWeapon
+    animation: WeaponArcThrust
+    attackRate: 1.25
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+    damage:
+      types:
+        Slash: 15
+        Piercing: 5
+  - type: BackStab
+    damageMultiplier: 4
+    tolerance: 1.0471976
+  - type: BackstabDamageMultipilier
+    bonusDamage:
+      types:
+        Slash: 20
+        Piercing: 10
+  - type: ThrowingAngle
+    angle: 180
+  - type: UseDelay
+    delay: 0.75
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 10
+        Piercing: 5
+  - type: Tag
+    tags:
+    - HereticItem
