@@ -224,6 +224,21 @@ public sealed partial class ModSuitSystem
             if (suit.Comp.TempUser != null)
                 UpdateActions(part, suit.Comp.TempUser.Value);
         }
+
+        RefreshWearerCaches(suit);
+    }
+
+    /// <summary>
+    /// Модули выдают и снимают компоненты напрямую, без событий надевания, поэтому
+    /// кэшированные на носителе значения сами не обновляются.
+    /// </summary>
+    private void RefreshWearerCaches(Entity<ModSuitComponent> suit)
+    {
+        if (suit.Comp.TempUser is not { } wearer || !Exists(wearer))
+            return;
+
+        _gravity.RefreshWeightless(wearer);
+        _movementSpeed.RefreshMovementSpeedModifiers(wearer);
     }
 
     private void RemoveModuleComponents(Entity<ModSuitComponent> suit, Entity<ModSuitModComponent> module)
@@ -275,6 +290,8 @@ public sealed partial class ModSuitSystem
             if (suit.Comp.TempUser != null)
                 UpdateActions(part, suit.Comp.TempUser.Value);
         }
+
+        RefreshWearerCaches(suit);
     }
 
     private void ApplyArmorReplacement(EntityUid part, DamageModifierSet modifiers)
