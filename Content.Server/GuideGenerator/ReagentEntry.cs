@@ -72,10 +72,12 @@ public sealed class ReactionEntry
     public string Name { get; }
 
     [JsonPropertyName("reactants")]
-    public Dictionary<ProtoId<ReagentPrototype>, ReactantEntry> Reactants { get; }
+    // ADT-Tweak-Start
+    public Dictionary<string, ReactantEntry> Reactants { get; }
 
     [JsonPropertyName("products")]
-    public Dictionary<ProtoId<ReagentPrototype>, float> Products { get; }
+    public Dictionary<string, float> Products { get; }
+    // ADT-Tweak-End
 
     // Corvax-Wiki-Start
     [JsonPropertyName("mixingCategories")]
@@ -101,14 +103,16 @@ public sealed class ReactionEntry
     {
         Id = proto.ID;
         Name = TextTools.TextTools.CapitalizeString(proto.Name); // Corvax-Wiki
+        // ADT-Tweak-Start
         Reactants =
             proto.Reactants
-                .Select(x => KeyValuePair.Create(x.Key, new ReactantEntry(x.Value.Amount.Float(), x.Value.Catalyst)))
+                .Select(x => KeyValuePair.Create(x.Key.Id, new ReactantEntry(x.Value.Amount.Float(), x.Value.Catalyst)))
                 .ToDictionary(x => x.Key, x => x.Value);
         Products =
             proto.Products
-                .Select(x => KeyValuePair.Create(x.Key, x.Value.Float()))
+                .Select(x => KeyValuePair.Create(x.Key.Id, x.Value.Float()))
                 .ToDictionary(x => x.Key, x => x.Value);
+        // ADT-Tweak-End
         Effects = proto.Effects.ToList();
 
         // Corvax-Wiki-Start
