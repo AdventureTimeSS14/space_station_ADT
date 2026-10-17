@@ -16354,3 +16354,9 @@ Entries:
     id: 2019
     pr_number: 3515
     time: '2026-10-16T15:27:23Z'
+  - author: FriendlyOne
+    changes:
+      - {message: СБ снова не могут быть генокрадами, type: Fix}
+    id: 2020
+    pr_number: 3532
+    time: '2026-10-17T22:03:19Z'
