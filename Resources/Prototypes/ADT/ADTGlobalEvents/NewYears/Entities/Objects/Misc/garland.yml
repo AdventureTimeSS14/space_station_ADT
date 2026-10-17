@@ -1,0 +1,216 @@
+
+#Гирлянды
+
+- type: entity
+  name: goldenstar garland
+  parent: BaseItem
+  id: ADTGoldenStarGarland
+  description: A light emitting device that would look like from ancient castle.
+  suffix: New Year
+  components:
+  - type: Tag
+    tags:
+    - ADTGoldenStarGarland
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Misc/newyeartreetoys.rsi
+    state: goldenstar_garland
+  - type: Item
+    #sprite: ADT/ADTGlobalEvents/NewYears/Objects/Misc/newyeartreetoys.rsi
+    size: Normal
+
+- type: entity
+  name: silverstar garland
+  parent: BaseItem
+  id: ADTSilverStarGarland
+  description: A light emitting device that would look like from ancient castle.
+  suffix: New Year
+  components:
+  - type: Tag
+    tags:
+    - ADTSilverStarGarland
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Misc/newyeartreetoys.rsi
+    state: silverstar_garland
+  - type: Item
+    size: Normal
+
+- type: entity
+  name: base garland
+  parent: BaseItem
+  id: ADTBaseStarGarland
+  description: A light emitting device that would look like from ancient castle.
+  suffix: New Year
+  components:
+  - type: Tag
+    tags:
+    - ADTBaseStarGarland
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Misc/newyeartreetoys.rsi
+    state: basestar_garland
+  - type: Item
+    size: Normal
+
+- type: entity
+  name: shiny garland
+  parent: BaseItem
+  id: ADTShinyGarland
+  description: A light emitting device that would look like from ancient castle.
+  suffix: New Year
+  components:
+  - type: Tag
+    tags:
+    - ADTShinyGarland
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Misc/newyeartreetoys.rsi
+    state: shiny_garland
+  - type: Item
+    size: Normal
+
+#Новогодние шарики
+- type: entity
+  name: red tree balls
+  parent: BaseItem
+  id: ADTTreeRedBalls
+  description: red tree balls
+  suffix: New Year
+  components:
+  - type: Tag
+    tags:
+    - ADTTreeRedBalls
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Misc/newyeartreetoys.rsi
+    state: red_balls
+  - type: Item
+    size: Normal
+
+- type: entity
+  name: silver tree balls
+  parent: BaseItem
+  id: ADTTreeSilverBalls
+  description: silver tree balls
+  suffix: New Year
+  components:
+  - type: Tag
+    tags:
+    - ADTTreeSilverBalls
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Misc/newyeartreetoys.rsi
+    state: silver_balls
+  - type: Item
+    size: Normal
+
+- type: entity
+  name: golden tree balls
+  parent: BaseItem
+  id: ADTTreeGoldenBalls
+  description: silver tree balls
+  suffix: New Year
+  components:
+  - type: Tag
+    tags:
+    - ADTTreeGoldenBalls
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Misc/newyeartreetoys.rsi
+    state: golden_balls
+  - type: Item
+    size: Normal
+
+#звезды
+
+- type: entity
+  name: golden tree star
+  parent: BaseItem
+  id: ADTTreeGoldenStar
+  description: golden tree star
+  suffix: New Year
+  components:
+  - type: Tag
+    tags:
+    - ADTTreeGoldenStar
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Misc/newyeartreetoys.rsi
+    state: golden_star
+  - type: Item
+    size: Small
+
+- type: entity
+  name: red tree star
+  parent: BaseItem
+  id: ADTTreeRedStar
+  description: red tree star
+  suffix: New Year
+  components:
+  - type: Tag
+    tags:
+    - ADTTreeRedStar
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Misc/newyeartreetoys.rsi
+    state: red_star
+  - type: Item
+    size: Small
+
+- type: entity
+  name: silver tree star
+  parent: BaseItem
+  id: ADTTreeSilverStar
+  description: silver tree star
+  suffix: New Year
+  components:
+  - type: Tag
+    tags:
+    - ADTTreeSilverStar
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Misc/newyeartreetoys.rsi
+    state: silver_star
+  - type: Item
+    size: Small
+
+#мишура
+
+- type: entity
+  name: silver mishura
+  parent: BaseItem
+  id: ADTTreeSilverMishura
+  description: silver mishura
+  suffix: New Year
+  components:
+  - type: Tag
+    tags:
+    - ADTTreeSilverMishura
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Misc/newyeartreetoys.rsi
+    state: silver_mishura
+  - type: Item
+    size: Small
+
+- type: entity
+  name: golden mishura
+  parent: BaseItem
+  id: ADTTreeGoldenMishura
+  description: golden mishura
+  suffix: New Year
+  components:
+  - type: Tag
+    tags:
+    - ADTTreeGoldenMishura
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Misc/newyeartreetoys.rsi
+    state: golden_mishura
+  - type: Item
+    size: Small
+
+- type: entity
+  name: red mishura
+  parent: BaseItem
+  id: ADTTreeRedMishura
+  description: red mishura
+  suffix: New Year
+  components:
+  - type: Tag
+    tags:
+    - ADTTreeRedMishura
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Misc/newyeartreetoys.rsi
+    state: red_mishura
+  - type: Item
+    size: Small

@@ -1,0 +1,45 @@
+- type: entity
+  name: pumpkin pie
+  parent: [ FoodPieBase, BaseSlicingRefinableFood ]
+  id: ADTFoodPiePumpkin
+  description: A pie containing sweet, sweet love... and pumpkin.
+  suffix: Halloween
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - pumpkin
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/pumpkin_pie.rsi
+    state: pumpkin_pie
+  - type: ToolRefinable
+    refineResult:
+    - id: ADTFoodPiePumpkinSlice
+      amount: 5
+  - type: Tag
+    tags:
+    - Fruit
+    - Pie
+  - type: StaticPrice
+    price: 5
+
+- type: entity
+  name: slice of pumpkin pie
+  parent: FoodPieSliceBase
+  id: ADTFoodPiePumpkinSlice
+  suffix: Halloween
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - pumpkin
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/pumpkin_pie.rsi
+    state: slice
+  - type: Tag
+    tags:
+    - Fruit
+    - Pie
+    - Slice
+  - type: StaticPrice
+    price: 1

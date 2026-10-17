@@ -1,0 +1,12 @@
+spike-verb-impale = Насадить
+spike-impale-success = {$target} насажен на крюк!
+spike-remove-success = {$target} снят с крюка.
+spike-escape-success = Вам удалось слезть со крюка!
+spike-escape-failure = Вам не удалось слезть со крюка!
+spike-deny-occupied = Крюк уже занят!
+spike-deny-not-mob = Отпусти бедное животное!
+spike-deny-self = Вы не можете насадить себя на крюк!
+spike-pickup-success = Вам удалось сорвать жертву с крюка!
+spike-pickup-success-target = Вас сорвали с крюка!
+spike-pickup-failed = Вам не удалось сорвать жертву с крюка!
+spike-pickup-failed-target = Кто-то пытался сорвать вас с крюка, но не смог!
