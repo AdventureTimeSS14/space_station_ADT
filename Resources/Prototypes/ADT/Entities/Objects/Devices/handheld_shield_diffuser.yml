@@ -1,0 +1,18 @@
+- type: entity
+  parent: [ BaseItem, PowerCellSlotMediumItem ]
+  id: ADTShieldHandheldDiffuser
+  name: portable shield diffuser
+  description: A small handheld device designed to disrupt energy barriers. It disrupts the shield in a small radius around itself. Can be recharged with a regular recharger.
+  components:
+  - type: HandheldShieldDiffuser
+    activePowerUse: 5
+  - type: Sprite
+    sprite: ADT/Misc/shield.rsi
+    layers:
+    - state: hdiffuser_off
+      map: [ "enum.HandheldShieldDiffuserVisualLayers.Base" ]
+  - type: Appearance
+  - type: Item
+    size: Small
+  - type: StaticPrice
+    price: 1200
