@@ -139,7 +139,8 @@ public abstract partial class SharedGasTankSystem : GasMaxPressureSystem<GasTank
     public bool CanConnectToInternals(Entity<GasTankComponent> ent)
     {
         TryGetInternalsComp(ent, out _, out var internalsComp, ent.Comp.User);
-        return internalsComp != null && internalsComp.BreathTools.Count != 0 && !ent.Comp.ReleaseValveOpen;
+        // ADT-Tweak: UserToggleable отсекает баллон и от FindBestGasTank, а не только от действия с вербом
+        return internalsComp != null && internalsComp.BreathTools.Count != 0 && !ent.Comp.ReleaseValveOpen && ent.Comp.UserToggleable;
     }
 
     public bool ConnectToInternals(Entity<GasTankComponent> ent, EntityUid? user = null)
