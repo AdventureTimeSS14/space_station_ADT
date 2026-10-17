@@ -514,10 +514,14 @@ namespace Content.Server.Database
 
         public void Shutdown()
         {
-            _db.OnNotificationReceived -= HandleDatabaseNotification;
-
+            if (_db != null)
+            {
+                _db.OnNotificationReceived -= HandleDatabaseNotification;
+                _db.Shutdown();
+            }
+            
             _sqliteInMemoryConnection?.Dispose();
-            _db.Shutdown();
+            
         }
 
         public Task<Preference> InitPrefsAsync(

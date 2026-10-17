@@ -72,10 +72,10 @@ public sealed class ReactionEntry
     public string Name { get; }
 
     [JsonPropertyName("reactants")]
-    public Dictionary<ProtoId<ReagentPrototype>, ReactantEntry> Reactants { get; }
+    public Dictionary<string, ReactantEntry> Reactants { get; }
 
     [JsonPropertyName("products")]
-    public Dictionary<ProtoId<ReagentPrototype>, float> Products { get; }
+    public Dictionary<string, float> Products { get; }
 
     // Corvax-Wiki-Start
     [JsonPropertyName("mixingCategories")]
@@ -103,11 +103,11 @@ public sealed class ReactionEntry
         Name = TextTools.TextTools.CapitalizeString(proto.Name); // Corvax-Wiki
         Reactants =
             proto.Reactants
-                .Select(x => KeyValuePair.Create(x.Key, new ReactantEntry(x.Value.Amount.Float(), x.Value.Catalyst)))
+                .Select(x => KeyValuePair.Create(x.Key.Id, new ReactantEntry(x.Value.Amount.Float(), x.Value.Catalyst)))
                 .ToDictionary(x => x.Key, x => x.Value);
         Products =
             proto.Products
-                .Select(x => KeyValuePair.Create(x.Key, x.Value.Float()))
+                .Select(x => KeyValuePair.Create(x.Key.Id, x.Value.Float()))
                 .ToDictionary(x => x.Key, x => x.Value);
         Effects = proto.Effects.ToList();
 
