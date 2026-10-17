@@ -5,8 +5,7 @@
 namespace Content.Shared.ADT.Addiction;
 
 /// <summary>
-/// Рейзится, когда набор симптомов зависимости изменился: ломка началась или закончилась,
-/// сменилась стадия, доза сняла ломку. Подписчики пересчитывают симптомы по всем каналам.
+/// Ломка началась, кончилась или сменила стадию - симптомы нужно пересчитать.
 /// </summary>
 [ByRefEvent]
 public readonly record struct AddictionSymptomsChangedEvent(EntityUid Uid);

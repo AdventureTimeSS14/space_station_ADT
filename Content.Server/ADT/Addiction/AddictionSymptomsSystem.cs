@@ -3,20 +3,35 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.ADT.Addiction;
-using Content.Shared.ADT.Traits;
-using Content.Shared.Jittering;
-using Content.Shared.StatusEffectNew;
+using Content.Shared.ADT.Addiction.Symptoms;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.Addiction;
 
 /// <summary>
-/// Применяет симптомы ломки (дрожь, косноязычие, слабость, галлюцинации).
-public sealed partial class AddictionSymptomsSystem : EntitySystem
+/// Держит на мобе симптомы ломки из AddictionPrototype.Stages[..].Symptoms.
+///
+/// Каналов в ломке может быть несколько, и их симптомы дерутся за один и тот же статус-эффект:
+/// арбитраж по ключу симптома, побеждает пришедший с более тяжёлой стадии. Снимаем только то,
+/// что наложили сами: чужую дрожь и чужие статус-эффекты ломка не гасит.
+/// </summary>
+public sealed class AddictionSymptomsSystem : EntitySystem
 {
     [Dependency] private IGameTiming _timing = default!;
-    [Dependency] private SharedJitteringSystem _jitter = default!;
-    [Dependency] private StatusEffectsSystem _status = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+
+    /// <summary>
+    /// Победители арбитража: ключ симптома -> стадия, с которой он пришёл, и сам симптом.
+    /// </summary>
+    private readonly Dictionary<string, (int Stage, AddictionSymptom Symptom)> _winners = new();
+
+    private readonly List<string> _expired = new();
+
+    // Продление измеряется десятками секунд; срочное приходит через AddictionSymptomsChangedEvent.
+    private const float UpdateInterval = 1f;
+
+    private float _accumulator;
 
     public override void Initialize()
     {
@@ -29,31 +44,38 @@ public sealed partial class AddictionSymptomsSystem : EntitySystem
     {
         base.Update(frameTime);
 
+        _accumulator += frameTime;
+        if (_accumulator < UpdateInterval)
+            return;
+
+        _accumulator = 0f;
+
         var query = EntityQueryEnumerator<AddictionComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            var anyWithdrawal = false;
-            var due = false;
+            // Симптомы живут по длительности и требуют продления, пока ломка идёт.
+            var active = false;
             foreach (var channel in comp.Channels)
             {
                 if (!channel.InWithdrawal)
                     continue;
 
-                anyWithdrawal = true;
-                if (_timing.CurTime >= channel.NextSymptomsTime)
-                    due = true;
+                active = true;
+                break;
             }
 
-            if (!anyWithdrawal || !due)
+            if (!active)
+            {
+                if (comp.AppliedSymptoms.Count > 0)
+                    RefreshSymptoms(uid, comp);
+
+                continue;
+            }
+
+            if (_timing.CurTime < comp.NextSymptomRefresh)
                 continue;
 
             RefreshSymptoms(uid, comp);
-
-            foreach (var channel in comp.Channels)
-            {
-                if (channel.InWithdrawal)
-                    channel.NextSymptomsTime = _timing.CurTime + comp.SymptomRefreshInterval;
-            }
         }
     }
 
@@ -62,81 +84,58 @@ public sealed partial class AddictionSymptomsSystem : EntitySystem
         RefreshSymptoms(uid, comp);
     }
 
+    /// <summary>
+    /// Накладывает и продлевает нужные симптомы, снимает те, что больше никто не требует.
+    /// </summary>
     private void RefreshSymptoms(EntityUid uid, AddictionComponent comp)
     {
-        var anyWithdrawal = false;
-        var maxStage = 0;
-        var wantSlurred = false;
-        var wantStutter = false;
-        var wantWeakness = false;
-        var wantMonochromacy = false;
+        comp.NextSymptomRefresh = _timing.CurTime + comp.SymptomRefreshInterval;
+
+        _winners.Clear();
 
         foreach (var channel in comp.Channels)
         {
-            if (!channel.InWithdrawal)
+            if (!channel.InWithdrawal || channel.Stage <= 0)
                 continue;
 
-            anyWithdrawal = true;
-            maxStage = Math.Max(maxStage, channel.Stage);
+            if (!_proto.TryIndex(channel.Kind, out var proto))
+                continue;
 
-            // Стадия 2 (средняя): косноязычие (алкоголь) или заикание (остальное)
-            if (channel.Stage >= 2)
-            {
-                if (channel.Kind == AddictionKind.Alcohol)
-                    wantSlurred = true;
-                else
-                    wantStutter = true;
-            }
+            if (proto.GetStage(channel.Stage) is not { } stageData)
+                continue;
 
-            // Стадия 3 (тяжёлая): слабость, у наркотиков монохромный мир
-            if (channel.Stage >= 3)
+            foreach (var symptom in stageData.Symptoms)
             {
-                wantWeakness = true;
-                if (channel.Kind == AddictionKind.Drug)
-                    wantMonochromacy = true;
+                if (_winners.TryGetValue(symptom.Key, out var current) && current.Stage >= channel.Stage)
+                    continue;
+
+                _winners[symptom.Key] = (channel.Stage, symptom);
             }
         }
 
-        // Дрожь
-        if (anyWithdrawal)
+        // Снять то, что ломка больше не поддерживает
+        _expired.Clear();
+        foreach (var (key, _) in comp.AppliedSymptoms)
         {
-            var amplitude = maxStage switch
-            {
-                1 => comp.MildJitterAmplitude,
-                2 => comp.MediumJitterAmplitude,
-                _ => comp.SevereJitterAmplitude,
-            };
-            _jitter.DoJitter(uid, comp.SymptomDuration, refresh: true, amplitude, comp.JitterFrequency);
-        }
-        else
-        {
-            RemComp<JitteringComponent>(uid);
+            if (!_winners.ContainsKey(key))
+                _expired.Add(key);
         }
 
-        if (wantSlurred)
-            _status.TrySetStatusEffectDuration(uid, comp.SlurredEffect, comp.SymptomDuration);
-
-        if (wantStutter)
-            _status.TrySetStatusEffectDuration(uid, comp.StutterEffect, comp.SymptomDuration);
-
-        if (wantWeakness)
-            _status.TrySetStatusEffectDuration(uid, comp.WeaknessEffect, comp.SymptomDuration);
-        else
-            _status.TryRemoveStatusEffect(uid, comp.WeaknessEffect);
-
-        if (wantMonochromacy)
+        foreach (var key in _expired)
         {
-            if (!HasComp<MonochromacyComponent>(uid) && !comp.WithdrawalMonochromacyApplied)
-            {
-                AddComp<MonochromacyComponent>(uid);
-                comp.WithdrawalMonochromacyApplied = true;
-            }
+            comp.AppliedSymptoms[key].Remove(new AddictionSymptomContext(uid, EntityManager, true));
+            comp.AppliedSymptoms.Remove(key);
         }
-        else if (comp.WithdrawalMonochromacyApplied)
+
+        // Наложить или продлить актуальное
+        foreach (var (key, winner) in _winners)
         {
-            if (HasComp<MonochromacyComponent>(uid))
-                RemComp<MonochromacyComponent>(uid);
-            comp.WithdrawalMonochromacyApplied = false;
+            var owned = comp.AppliedSymptoms.ContainsKey(key);
+
+            if (!winner.Symptom.Apply(new AddictionSymptomContext(uid, EntityManager, owned)))
+                continue;
+
+            comp.AppliedSymptoms[key] = winner.Symptom;
         }
     }
 }
