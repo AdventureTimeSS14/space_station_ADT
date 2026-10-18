@@ -10,11 +10,11 @@ namespace Content.Server.ADT.CustomAiLawBoard;
 
 public sealed class CustomAiLawBoardSystem : EntitySystem
 {
-    [Dependency] private readonly SharedToolSystem _toolSystem = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly SiliconLawSystem _siliconLawSystem = default!;
-    [Dependency] private readonly IAdminManager _adminManager = default!;
-    [Dependency] private readonly EuiManager _euiManager = default!;
+    [Dependency] private SharedToolSystem _toolSystem = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private SiliconLawSystem _siliconLawSystem = default!;
+    [Dependency] private IAdminManager _adminManager = default!;
+    [Dependency] private EuiManager _euiManager = default!;
     public override void Initialize()
     {
         base.Initialize();

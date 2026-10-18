@@ -58,3 +58,7 @@ marking-TattooEyeshadowVoxLarge-tattoo_eyeshadow_Large = Веки (Больши�
 marking-TattooEyeshadowVoxLarge = Веки (Большие)
 marking-TattooVoxTailRing-tattoo_vox_tail_ring = Кольцо (Хвост)
 marking-TattooVoxTailRing = Кольцо (Хвост)
+marking-TattooEyeshadowLower = Веки (Нижние)
+marking-TattooEyeshadowLower-tattoo_eyeshadow_lower = { marking-TattooEyeshadowLower }
+marking-TattooEyeshadowLowerReptilian = Веки (Нижние)
+marking-TattooEyeshadowLowerReptilian-tattoo_eyeshadow_lower_reptilian = { marking-TattooEyeshadowLowerReptilian }

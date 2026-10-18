@@ -15,13 +15,13 @@ namespace Content.Server.ADT.BloodCough;
 
 public sealed class BloodCoughSystem : EntitySystem
 {
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly PuddleSystem _puddleSystem = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private PuddleSystem _puddleSystem = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
 
     public override void Initialize()
     {
@@ -122,7 +122,7 @@ public sealed class BloodCoughSystem : EntitySystem
             {
                 var bloodReagents = bloodstream.BloodReferenceSolution.Contents;
                 var bloodReagentId = bloodReagents.Count > 0
-                    ? bloodReagents[0].Reagent.Prototype
+                    ? bloodReagents[0].Reagent.Prototype.Id
                     : "Blood";
 
                 var solution = new Solution();

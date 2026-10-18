@@ -4,13 +4,14 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon:
-      sprite: ADT/Interface/Actions/lavaland.rsi
-      state: cursed_heart_pump
     checkCanInteract: false
     checkConsciousness: false # Позволяет использовать сердце в крите, порт импрувмента отсюда: https://github.com/Rxup/space-station-14/pull/1351
     itemIconStyle: BigAction
     useDelay: 1
+  - type: Sprite
+    sprite: ADT/Interface/Actions/lavaland.rsi
+    layers:
+    - state: cursed_heart_pump
   - type: InstantAction
     event: !type:PumpHeartActionEvent
 
@@ -19,13 +20,14 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon:
-      sprite: ADT/Interface/Actions/lavaland.rsi
-      state: cursed_heart_toggle
     checkCanInteract: false
     checkConsciousness: true # НЕ позволяет переключать сердце в крите, иначе будет слишком имбово
     itemIconStyle: BigAction
     useDelay: 30
+  - type: Sprite
+    sprite: ADT/Interface/Actions/lavaland.rsi
+    layers:
+    - state: cursed_heart_toggle
   - type: InstantAction
     event: !type:ToggleHeartActionEvent
 
@@ -37,15 +39,17 @@
   components:
   - type: Action
     raiseOnUser: true
-    icon:
-      sprite: Mobs/Aliens/Asteroid/goliath.rsi
-      state: goliath_tentacle_spawn
-    iconOn:
-      sprite: Mobs/Aliens/Asteroid/goliath.rsi
-      state: goliath_tentacle_wiggle
     sound:
       path: "/Audio/Weapons/slash.ogg"
     useDelay: 1
+  - type: Sprite
+    sprite: Mobs/Aliens/Asteroid/goliath.rsi
+    layers:
+    - state: goliath_tentacle_spawn
+      map: ["enum.ActionVisuals.Icon"]
+    - state: goliath_tentacle_wiggle
+      map: ["enum.ActionVisuals.IconToggled"]
+      visible: false
   - type: TargetAction
     range: 10
   - type: WorldTargetAction

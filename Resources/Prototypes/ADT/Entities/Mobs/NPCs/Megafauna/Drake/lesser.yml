@@ -2,7 +2,7 @@
   id: ADTMobLesserAshDrake
   name: lesser ash drake
   description: Guardians of the Necropolis.
-  parent: BaseMob
+  parent: [ BaseMob, BaseSlicingRefinable ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -84,9 +84,8 @@
     actions:
     - ADTActionLesserDrakeFireCone
     - ADTActionLesserDrakeSwoop
-  - type: Butcherable
-    butcheringType: Knife
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: DiamondOre1
       amount: 5
     - id: ADTMaterialSinew1
@@ -94,11 +93,16 @@
     - id: MaterialBones1
       amount: 30
   - type: ADTLesserDrake
-  - type: ADTDrake
-    rangedCooldown: 3
+  - type: ADTMegafaunaAI
     decisionInterval: 2
     angerDamageDivisor: 50
     maxAnger: 20
+    handleMelee: false
+    adjacentOnlyOnGrid: true
+  - type: ADTMegafaunaSequence
+    insertionOrder: true
+  - type: ADTDrake
+    rangedCooldown: 3
     canDevour: false
     fireLineRange: 15
     fireConeAngles: [ -40, 0, 40 ]
@@ -161,9 +165,10 @@
   - type: Action
     useDelay: 10
     itemIconStyle: BigAction
-    icon:
-      sprite: ADT/Interface/Actions/dragon_form.rsi
-      state: shapeshift
+  - type: Sprite
+    sprite: ADT/Interface/Actions/dragon_form.rsi
+    layers:
+    - state: shapeshift
   - type: InstantAction
     event: !type:ADTDragonFormActionEvent
       polymorph: ADTPolymorphLesserAshDrake
@@ -180,9 +185,10 @@
   - type: Action
     useDelay: 3
     itemIconStyle: BigAction
-    icon:
-      sprite: ADT/Effects/drake_effects.rsi
-      state: fireball
+  - type: Sprite
+    sprite: ADT/Effects/drake_effects.rsi
+    layers:
+    - state: fireball
   - type: TargetAction
     range: 60
     checkCanAccess: false
@@ -198,9 +204,10 @@
   - type: Action
     useDelay: 20
     itemIconStyle: BigAction
-    icon:
-      sprite: ADT/Effects/drake_effects.rsi
-      state: lava_warning
+  - type: Sprite
+    sprite: ADT/Effects/drake_effects.rsi
+    layers:
+    - state: lava_warning
   - type: TargetAction
     range: 60
     checkCanAccess: false

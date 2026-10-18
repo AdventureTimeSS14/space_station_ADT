@@ -7,6 +7,7 @@ using Content.Shared.StatusEffect;
 using Content.Shared.Damage.Components;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.Crushers.Effects;
 
@@ -20,7 +21,7 @@ public sealed partial class DamageShieldOnHitEffect : TrophyEffect
     public float DamageReductionMultiplier = 0.1f;
 
     [DataField]
-    public string StatusEffect = "Adrenaline";
+    public EntProtoId StatusEffect = "StatusEffectAdrenaline";
 
     public override FormattedMessage GetDescription()
     {
@@ -44,7 +45,7 @@ public sealed partial class DamageShieldOnHitEffect : TrophyEffect
                 continue;
 
             var gameTiming = IoCManager.Resolve<IGameTiming>();
-            var statusEffects = entManager.System<StatusEffectsSystem>();
+            var statusEffects = entManager.System<Content.Shared.StatusEffectNew.StatusEffectsSystem>();
             var active = new DamageShieldActiveEffectComponent
             {
                 DamageReductionMultiplier = DamageReductionMultiplier,
@@ -54,7 +55,7 @@ public sealed partial class DamageShieldOnHitEffect : TrophyEffect
             if (!entManager.HasComponent<DamageShieldActiveEffectComponent>(args.User))
             {
                 entManager.AddComponent(args.User, active);
-                statusEffects.TryAddStatusEffect<IgnoreSlowOnDamageComponent>(args.User, StatusEffect, ProtectionDuration, true, null);
+                statusEffects.TryUpdateStatusEffectDuration(args.User, StatusEffect, ProtectionDuration);
             }
             break;
         }

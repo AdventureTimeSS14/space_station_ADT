@@ -17,8 +17,8 @@ namespace Content.Server.ADT.Addiction;
 /// </summary>
 public sealed partial class AdjustAddictionLevelEffectSystem : EntityEffectSystem<AddictionComponent, AdjustAddictionLevel>
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly AddictionSystem _addiction = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private AddictionSystem _addiction = default!;
 
     protected override void Effect(Entity<AddictionComponent> entity, ref EntityEffectEvent<AdjustAddictionLevel> args)
     {

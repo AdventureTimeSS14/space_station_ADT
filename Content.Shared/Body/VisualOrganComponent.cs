@@ -1,7 +1,8 @@
 using Content.Shared.ADT.BodyTypes; // ADT-Tweak
+using Content.Shared.DisplacementMap;
 using Content.Shared.Humanoid;
 using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes; // ADT-Tweak
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Body;
@@ -37,6 +38,12 @@ public sealed partial class VisualOrganComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public OrganProfileData Profile = new();
+
+    /// <summary>
+    /// Displacement data prototype applied to the organ's visualization.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public ProtoId<DisplacementDataPrototype>? Displacement;
 }
 
 /// <summary>

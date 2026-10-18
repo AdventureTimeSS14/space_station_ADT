@@ -7,8 +7,8 @@ namespace Content.Shared.ADT.LogicCircuit;
 
 public abstract class SharedADTLogicCircuitSystem : EntitySystem
 {
-    [Dependency] protected readonly IConfigurationManager Cfg = default!;
-    [Dependency] protected readonly IPrototypeManager Prototypes = default!;
+    [Dependency] protected IConfigurationManager Cfg = default!;
+    [Dependency] protected IPrototypeManager Prototypes = default!;
 
     public const int MaxNodeIdLength = 32;
     public const int IdleTicksBeforeSleep = 4;

@@ -29,8 +29,13 @@
     count: 5
 
 - type: localizedDataset
+  id: ADTFigurinesPlushieReimor
+  values:
+    prefix: adt-figurines-plushie-reimor-
+    count: 3
+
+- type: localizedDataset
   id: ADTFigurineNaviCyrex5386
   values:
     prefix: adt-figurines-navi-
     count: 6
-

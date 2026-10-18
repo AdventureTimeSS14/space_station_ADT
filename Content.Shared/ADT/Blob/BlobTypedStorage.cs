@@ -10,7 +10,7 @@ namespace Content.Shared.ADT.Blob;
 
 #region BlobTypedStorage
 [DataDefinition]
-public abstract partial class BlobTypedStorage<T> : IEnumerable<KeyValuePair<BlobTileType, T>>
+public abstract partial class BlobTypedStorage<T> : IEnumerable<KeyValuePair<BlobTileType, T>> where T : struct
 {
     [DataField]
     public virtual T Core { get; set; } = default!;

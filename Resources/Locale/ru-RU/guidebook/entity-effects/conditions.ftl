@@ -43,7 +43,11 @@ entity-condition-guidebook-reagent-threshold =
                *[other] имеет между { NATURALFIXED($min, 2) } ед. и { NATURALFIXED($max, 2) } ед. { $reagent }
             }
     }
-entity-condition-guidebook-mob-state-condition = пациент в { $state }
+entity-condition-guidebook-mob-state-condition = пациент { $state }
+entity-condition-guidebook-mob-state-alive = жив
+entity-condition-guidebook-mob-state-softcritical = в софт-крите
+entity-condition-guidebook-mob-state-critical = в крите
+entity-condition-guidebook-mob-state-dead = мёртв
 entity-condition-guidebook-job-condition = должность цели — { $job }
 entity-condition-guidebook-solution-temperature =
     температура раствора составляет { $max ->
@@ -83,4 +87,18 @@ entity-effect-condition-guidebook-internals =
     цель { $usingInternals ->
         [true] использует дыхательную маску
        *[false] дышит атмосферным газом
+    }
+entity-condition-guidebook-total-satiation =
+    { $max ->
+        [2147483648] цель имеет по крайней мере { NATURALFIXED($min, 2) } общего показателя «{ $type }»
+       *[other]
+            { $min ->
+                [0] цель имеет не более { NATURALFIXED($max, 2) } общего показателя «{ $type }»
+               *[other] цель имеет от { NATURALFIXED($min, 2) } до { NATURALFIXED($max, 2) } общего показателя «{ $type }»
+            }
+    }
+entity-condition-guidebook-internals =
+    цель { $usingInternals ->
+        [true] использует дыхательную систему
+       *[false] дышит воздухом из атмосферы
     }

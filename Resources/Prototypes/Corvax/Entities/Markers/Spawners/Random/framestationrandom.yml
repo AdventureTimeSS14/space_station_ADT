@@ -7,11 +7,11 @@
       rarePrototypes:
         - CrateMaterialWood
         - CrateSalvageEquipment
-        - CrateServiceJanitorialSupplies
+        - CrateJanitorialSupplies
         - CrateHydroponicsSeedsMedicinal
-        - CrateEmergencyInternals
+        - CrateEmergencyEVA
         - CrateFoodMRE
-        - CrateMaterialTextiles
+        - CrateMaterialCloth
         - CrateMedicalSupplies
         - CrateEngineeringCableBulk
         - CrateServiceSmokeables
@@ -22,7 +22,7 @@
         - CrateSecurityNonlethal
         - CrateEngineeringSolar
         - CrateEngineeringSingularityCollector
-        - CrateEngineeringShuttle
+        - CrateSpaceShuttlePower
         - CrateEngineeringToolbox
         - CrateRCDAmmo
       rareChance: 0.4

@@ -12,10 +12,10 @@ namespace Content.Server.ADT.EntityEffects;
 
 public sealed partial class SexChangeSystem : EntityEffectSystem<HumanoidProfileComponent, SexChange>
 {
-    [Dependency] private readonly HumanoidProfileSystem _humanoid = default!;
-    [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
-    [Dependency] private readonly GrammarSystem _grammar = default!;
-    [Dependency] private readonly IdentitySystem _identity = default!;
+    [Dependency] private HumanoidProfileSystem _humanoid = default!;
+    [Dependency] private SharedVisualBodySystem _visualBody = default!;
+    [Dependency] private GrammarSystem _grammar = default!;
+    [Dependency] private IdentitySystem _identity = default!;
 
     protected override void Effect(Entity<HumanoidProfileComponent> entity, ref EntityEffectEvent<SexChange> args)
     {

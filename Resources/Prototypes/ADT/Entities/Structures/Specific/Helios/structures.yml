@@ -1,0 +1,802 @@
+- type: entity
+  parent: BaseWall
+  id: ADTHeliosWall
+  name: стена комплекса
+  description: Это толстая армированная плита. Её строили на века, хотя на такой глубине века ничего не значат.
+  suffix: Гелиос, неразрушимая
+  components:
+  - type: Sprite
+    sprite: Structures/Walls/mining.rsi
+  - type: Icon
+    sprite: Structures/Walls/mining.rsi
+  - type: IconSmooth
+    key: walls
+    base: mining
+  - type: RandomIconSmooth
+    randomStates:
+    - mining
+    - miningB
+  - type: Appearance
+  - type: ADTIndestructible
+  - type: Tag
+    tags:
+    - EmagImmune
+
+- type: entity
+  parent: BaseWall
+  id: ADTHeliosWallReinforced
+  name: усиленная стена комплекса
+  description: Стена сделана из многослойной пластали, и на её заклёпках выбито «Г-7».
+  suffix: Гелиос, неразрушимая
+  components:
+  - type: Sprite
+    sprite: Structures/Walls/solid.rsi
+  - type: Icon
+    sprite: Structures/Walls/solid.rsi
+    state: rgeneric
+  - type: IconSmooth
+    key: walls
+    base: reinf_over
+  - type: ADTIndestructible
+  - type: Tag
+    tags:
+    - EmagImmune
+
+- type: entity
+  parent: BaseWall
+  id: ADTHeliosWallShuttle
+  name: стерильная стена
+  description: Это гладкая обшивка карантинного блока. Её отмывали так часто, что краска стёрлась до металла.
+  suffix: Гелиос, неразрушимая
+  components:
+  - type: Sprite
+    sprite: Structures/Walls/shuttle.rsi
+  - type: Icon
+    sprite: Structures/Walls/shuttle.rsi
+    state: full
+  - type: IconSmooth
+    key: walls
+    base: state
+  - type: ADTIndestructible
+  - type: Tag
+    tags:
+    - EmagImmune
+
+- type: entity
+  parent: PlastitaniumWindowIndestructible
+  id: ADTHeliosWindow
+  name: бронестекло
+  description: Через это смотровое окно видно соседнее помещение. На стекле остались отпечатки ладоней, причём с обеих сторон.
+  suffix: Гелиос, неразрушимое
+  components:
+  - type: ADTIndestructible
+  - type: Tag
+    tags:
+    - ForceFixRotations
+    - Window
+    - EmagImmune
+
+- type: entity
+  parent: BlastDoor
+  id: ADTHeliosBlastDoor
+  name: гермозатвор
+  description: Эта многотонная створка открывается только по сигналу, поэтому ломать её бесполезно.
+  suffix: Гелиос, неразрушимый
+  components:
+  - type: ADTIndestructible
+  - type: Tag
+    tags:
+    - ForceNoFixRotations
+    - EmagImmune
+
+- type: entity
+  parent: ADTHeliosBlastDoor
+  id: ADTHeliosBlastDoorOpen
+  suffix: Гелиос, неразрушимый, открыт
+  components:
+  - type: Door
+    state: Open
+  - type: Occluder
+    enabled: false
+  - type: Physics
+    canCollide: false
+  - type: Airtight
+    airBlocked: false
+  - type: RadiationBlocker
+    enabled: false
+
+- type: entity
+  parent: Airlock
+  id: ADTHeliosAirlock
+  name: шлюз
+  description: Это обычная межсекционная дверь. Её замок давно обесточен, поэтому дверь открывается перед каждым.
+  suffix: Гелиос, неразрушимый
+  components:
+  - type: ADTIndestructible
+  - type: RCDDeconstructable
+    deconstructable: false
+  - type: Tag
+    tags:
+    - Airlock
+    - EmagImmune
+
+- type: entity
+  parent: AirlockGlass
+  id: ADTHeliosAirlockGlass
+  name: стеклянный шлюз
+  suffix: Гелиос, неразрушимый
+  components:
+  - type: ADTIndestructible
+  - type: RCDDeconstructable
+    deconstructable: false
+  - type: Tag
+    tags:
+    - Airlock
+    - EmagImmune
+
+- type: entity
+  parent: AirlockScienceGlass
+  id: ADTHeliosAirlockScience
+  name: шлюз лаборатории
+  suffix: Гелиос, неразрушимый
+  components:
+  - type: ADTIndestructible
+  - type: RCDDeconstructable
+    deconstructable: false
+  - type: Tag
+    tags:
+    - Airlock
+    - EmagImmune
+
+- type: entity
+  parent: AirlockEngineering
+  id: ADTHeliosAirlockEngineering
+  name: шлюз энергосекции
+  suffix: Гелиос, неразрушимый
+  components:
+  - type: ADTIndestructible
+  - type: RCDDeconstructable
+    deconstructable: false
+  - type: Tag
+    tags:
+    - Airlock
+    - EmagImmune
+
+- type: entity
+  parent: AirlockSecurityGlass
+  id: ADTHeliosAirlockSecurity
+  name: шлюз поста охраны
+  suffix: Гелиос, неразрушимый
+  components:
+  - type: ADTIndestructible
+  - type: RCDDeconstructable
+    deconstructable: false
+  - type: Tag
+    tags:
+    - Airlock
+    - EmagImmune
+
+- type: entity
+  parent: AirlockCommandGlass
+  id: ADTHeliosAirlockCommand
+  name: шлюз руководства
+  suffix: Гелиос, неразрушимый
+  components:
+  - type: ADTIndestructible
+  - type: RCDDeconstructable
+    deconstructable: false
+  - type: Tag
+    tags:
+    - Airlock
+    - EmagImmune
+
+- type: entity
+  parent: SignalButtonDirectional
+  id: ADTHeliosButton
+  name: кнопка
+  suffix: Гелиос, неразрушимая
+  components:
+  - type: ADTIndestructible
+  - type: Tag
+    tags:
+    - Structure
+    - EmagImmune
+
+- type: entity
+  parent: SignalSwitchDirectional
+  id: ADTHeliosSwitch
+  name: рубильник линии
+  description: Этот рубильник переключает линию питания. Под ним на полу нанесена буква линии.
+  suffix: Гелиос, неразрушимый
+  components:
+  - type: ADTIndestructible
+  - type: Tag
+    tags:
+    - Structure
+    - EmagImmune
+
+- type: entity
+  parent: BaseSign
+  id: ADTHeliosKeypadPlate
+  name: кодовый замок
+  description: Это панель кодового замка на девять клавиш. Чтобы открыть дверь, нужно набрать код из четырёх цифр.
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Helios/keypad.rsi
+    state: plate
+    drawdepth: SmallObjects
+    noRot: true
+  - type: ADTIndestructible
+
+- type: entity
+  parent: ADTHeliosButton
+  id: ADTHeliosKey1
+  name: клавиша «1»
+  description: Когда на эту клавишу нажимают, кодовый замок получает её цифру.
+  suffix: Гелиос, кодовый замок
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Helios/keypad.rsi
+    state: key_1
+    drawdepth: WallMountedItems
+    noRot: true
+  - type: UseDelay
+    delay: 0.2
+
+- type: entity
+  parent: ADTHeliosKey1
+  id: ADTHeliosKey2
+  name: клавиша «2»
+  components:
+  - type: Sprite
+    state: key_2
+
+- type: entity
+  parent: ADTHeliosKey1
+  id: ADTHeliosKey3
+  name: клавиша «3»
+  components:
+  - type: Sprite
+    state: key_3
+
+- type: entity
+  parent: ADTHeliosKey1
+  id: ADTHeliosKey4
+  name: клавиша «4»
+  components:
+  - type: Sprite
+    state: key_4
+
+- type: entity
+  parent: ADTHeliosKey1
+  id: ADTHeliosKey5
+  name: клавиша «5»
+  components:
+  - type: Sprite
+    state: key_5
+
+- type: entity
+  parent: ADTHeliosKey1
+  id: ADTHeliosKey6
+  name: клавиша «6»
+  components:
+  - type: Sprite
+    state: key_6
+
+- type: entity
+  parent: ADTHeliosKey1
+  id: ADTHeliosKey7
+  name: клавиша «7»
+  components:
+  - type: Sprite
+    state: key_7
+
+- type: entity
+  parent: ADTHeliosKey1
+  id: ADTHeliosKey8
+  name: клавиша «8»
+  components:
+  - type: Sprite
+    state: key_8
+
+- type: entity
+  parent: ADTHeliosKey1
+  id: ADTHeliosKey9
+  name: клавиша «9»
+  components:
+  - type: Sprite
+    state: key_9
+
+- type: entity
+  parent: ADTLogicScreen
+  id: ADTHeliosScreen
+  name: табло
+  description: Это небольшое табло. Его мигающие буквы остались единственным, что здесь ещё с тобой разговаривает.
+  suffix: Гелиос, неразрушимое
+  components:
+  - type: ADTIndestructible
+  - type: Tag
+    tags:
+    - Structure
+    - EmagImmune
+
+- type: entity
+  parent: ADTLogicCircuitBox
+  id: ADTHeliosLogicBox
+  name: блок автоматики
+  description: Этот блок управляет гермозатворами, и его устанавливают в изолированные техотсеки.
+  suffix: Гелиос, неразрушимый
+  components:
+  - type: ADTIndestructible
+    blockItemInteractions: false
+  - type: Tag
+    tags:
+    - EmagImmune
+
+- type: sourcePort
+  id: ADTPuzzleSolved
+  name: signal-port-name-adt-puzzle-solved
+  description: signal-port-description-adt-puzzle-solved
+
+- type: entity
+  parent: ADTPuzzlePillar1
+  id: ADTHeliosEmblemPillar1
+  name: сегмент эмблемы
+  description: На этой тяжёлой колонне изображён фрагмент эмблемы «Гелиоса». Если толкнуть колонну, она сдвинется на свободное место.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Helios/emblem.rsi
+    state: pillar_1
+
+- type: entity
+  parent: ADTHeliosEmblemPillar1
+  id: ADTHeliosEmblemPillar2
+  components:
+  - type: Sprite
+    state: pillar_2
+
+- type: entity
+  parent: ADTHeliosEmblemPillar1
+  id: ADTHeliosEmblemPillar3
+  components:
+  - type: Sprite
+    state: pillar_3
+
+- type: entity
+  parent: ADTHeliosEmblemPillar1
+  id: ADTHeliosEmblemPillar4
+  components:
+  - type: Sprite
+    state: pillar_4
+
+- type: entity
+  parent: ADTHeliosEmblemPillar1
+  id: ADTHeliosEmblemPillar5
+  components:
+  - type: Sprite
+    state: pillar_5
+
+- type: entity
+  parent: ADTHeliosEmblemPillar1
+  id: ADTHeliosEmblemPillar6
+  components:
+  - type: Sprite
+    state: pillar_6
+
+- type: entity
+  parent: ADTHeliosEmblemPillar1
+  id: ADTHeliosEmblemPillar7
+  components:
+  - type: Sprite
+    state: pillar_7
+
+- type: entity
+  parent: ADTHeliosEmblemPillar1
+  id: ADTHeliosEmblemPillar8
+  components:
+  - type: Sprite
+    state: pillar_8
+
+- type: entity
+  parent: ADTHeliosEmblemPillar1
+  id: ADTHeliosEmblemPillar9
+  components:
+  - type: Sprite
+    state: pillar_9
+
+- type: entity
+  parent: ADTPuzzlePieceFloor1
+  id: ADTHeliosEmblemPiece1
+  name: эмблема проекта
+  description: Это собранная эмблема «Гелиоса». Её солнце должно было светить всему человечеству.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Helios/emblem.rsi
+    state: piece_1
+
+- type: entity
+  parent: ADTHeliosEmblemPiece1
+  id: ADTHeliosEmblemPiece2
+  components:
+  - type: Sprite
+    state: piece_2
+
+- type: entity
+  parent: ADTHeliosEmblemPiece1
+  id: ADTHeliosEmblemPiece3
+  components:
+  - type: Sprite
+    state: piece_3
+
+- type: entity
+  parent: ADTHeliosEmblemPiece1
+  id: ADTHeliosEmblemPiece4
+  components:
+  - type: Sprite
+    state: piece_4
+
+- type: entity
+  parent: ADTHeliosEmblemPiece1
+  id: ADTHeliosEmblemPiece5
+  components:
+  - type: Sprite
+    state: piece_5
+
+- type: entity
+  parent: ADTHeliosEmblemPiece1
+  id: ADTHeliosEmblemPiece6
+  components:
+  - type: Sprite
+    state: piece_6
+
+- type: entity
+  parent: ADTHeliosEmblemPiece1
+  id: ADTHeliosEmblemPiece7
+  components:
+  - type: Sprite
+    state: piece_7
+
+- type: entity
+  parent: ADTHeliosEmblemPiece1
+  id: ADTHeliosEmblemPiece8
+  components:
+  - type: Sprite
+    state: piece_8
+
+- type: entity
+  parent: ADTHeliosEmblemPiece1
+  id: ADTHeliosEmblemPiece9
+  components:
+  - type: Sprite
+    state: piece_9
+
+- type: entity
+  parent: MarkerBase
+  id: ADTHeliosEmblemPuzzle
+  name: пятнашки «эмблема Гелиоса»
+  description: Маркер создаёт вокруг себя пятнашки 3x3 и отправляет сигнал, когда игроки их собирают.
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: ADT/Structures/Helios/emblem.rsi
+      state: icon
+  - type: ADTSlidingPuzzle
+    elementProtoPrefix: ADTHeliosEmblemPillar
+    pieceProtoPrefix: ADTHeliosEmblemPiece
+    megafaunaChance: 0
+    solvedPort: ADTPuzzleSolved
+    solvedMessage: helios-puzzle-emblem-solved
+    solveSound:
+      path: /Audio/Machines/twobeep.ogg
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: DeviceLinkSource
+    ports:
+    - ADTPuzzleSolved
+
+- type: entity
+  parent: ADTHeliosEmblemPuzzle
+  id: ADTHeliosGlyphPuzzle
+  name: пятнашки «печать ядра»
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: ADT/Misc/puzzle.rsi
+      state: pillar_5
+  - type: ADTSlidingPuzzle
+    elementProtoPrefix: ADTPuzzlePillar
+    pieceProtoPrefix: ADTPuzzlePieceFloor
+    megafaunaChance: 0
+    solvedPort: ADTPuzzleSolved
+    solvedMessage: helios-puzzle-glyph-solved
+    solveSound:
+      path: /Audio/ADT/heart.ogg
+
+- type: entity
+  parent: BaseStructure
+  id: ADTHeliosLavalandCore
+  name: ядро Лаваленда
+  description: Оно не светится, а дышит, и каждый его удар отдаётся в костях. Это не минерал и не реактор, а сердце.
+  suffix: Гелиос
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Helios/core.rsi
+    drawdepth: Mobs
+    layers:
+    - state: core
+    - state: core_pulse
+      shader: unshaded
+  - type: PointLight
+    color: "#ff5a1f"
+    radius: 9
+    energy: 4
+    castShadows: false
+  - type: LightBehaviour
+    behaviours:
+    - !type:PulseBehaviour
+      id: heartbeat
+      interpolate: Cubic
+      maxDuration: 1.6
+      startValue: 2.5
+      endValue: 5
+      property: Energy
+      isLooped: true
+      enabled: true
+  - type: AmbientSound
+    enabled: true
+    volume: 4
+    range: 14
+    sound:
+      path: /Audio/ADT/heart.ogg
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 1.45
+        density: 1000
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+  - type: RadiationSource
+    intensity: 1
+    slope: 0.25
+  - type: ADTIndestructible
+  - type: Tag
+    tags:
+    - EmagImmune
+
+- type: entity
+  parent: MarkerBase
+  id: ADTHeliosAmbientBase
+  abstract: true
+  name: эмбиент «Гелиос»
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: ADT/Objects/Misc/soundgen.rsi
+      state: icon_ambient
+  - type: AmbientSound
+    enabled: true
+    volume: -4
+    range: 7
+    sound:
+      path: /Audio/Ambience/Objects/engine_hum.ogg
+
+- type: entity
+  parent: ADTHeliosAmbientBase
+  id: ADTHeliosAmbientMachinery
+  name: эмбиент «гул машин»
+  components:
+  - type: AmbientSound
+    volume: -3
+    range: 8
+    sound:
+      path: /Audio/Ambience/Objects/engine_hum.ogg
+
+- type: entity
+  parent: ADTHeliosAmbientBase
+  id: ADTHeliosAmbientServers
+  name: эмбиент «серверы»
+  components:
+  - type: AmbientSound
+    volume: -6
+    range: 6
+    sound:
+      path: /Audio/Ambience/Objects/server_fans.ogg
+
+- type: entity
+  parent: ADTHeliosAmbientBase
+  id: ADTHeliosAmbientAlarm
+  name: эмбиент «тревога»
+  components:
+  - type: AmbientSound
+    volume: -8
+    range: 9
+    sound:
+      path: /Audio/Ambience/Objects/alarm.ogg
+
+- type: entity
+  parent: ADTHeliosAmbientBase
+  id: ADTHeliosAmbientBuzz
+  name: эмбиент «искрящая проводка»
+  components:
+  - type: AmbientSound
+    volume: -6
+    range: 5
+    sound:
+      path: /Audio/Ambience/Objects/emf_buzz.ogg
+
+- type: entity
+  parent: ADTHeliosAmbientBase
+  id: ADTHeliosAmbientDrip
+  name: эмбиент «капель»
+  components:
+  - type: AmbientSound
+    volume: -5
+    range: 7
+    sound:
+      path: /Audio/ADT/SoundGen/shaft_water.ogg
+
+- type: entity
+  parent: ADTHeliosAmbientBase
+  id: ADTHeliosAmbientDread
+  name: эмбиент «гнетущий фон»
+  components:
+  - type: AmbientSound
+    volume: -4
+    range: 10
+    sound:
+      path: /Audio/ADT/SoundGen/dungeon_ambient_scary.ogg
+
+- type: entity
+  parent: ADTHeliosAmbientBase
+  id: ADTHeliosAmbientHeart
+  name: эмбиент «сердцебиение»
+  components:
+  - type: AmbientSound
+    volume: -2
+    range: 12
+    sound:
+      path: /Audio/ADT/heart.ogg
+
+- type: entity
+  parent: ADTHeliosAmbientBase
+  id: ADTHeliosAmbientLava
+  name: эмбиент «лава»
+  components:
+  - type: AmbientSound
+    volume: -3
+    range: 9
+    sound:
+      path: /Audio/Ambience/ambilava1.ogg
+
+- type: entity
+  parent: ADTHeliosAmbientBase
+  id: ADTHeliosAmbientRadio
+  name: эмбиент «радиопомехи»
+  components:
+  - type: AmbientSound
+    volume: -8
+    range: 5
+    sound:
+      path: /Audio/ADT/Ambience/ominous_pulse.ogg
+
+- type: entity
+  parent: MarkerBase
+  id: ADTHeliosScareBase
+  abstract: true
+  name: триггер испуга «Гелиос»
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: ADT/Objects/Misc/soundgen.rsi
+      state: icon
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      trigger:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        hard: false
+        layer:
+        - LowImpassable
+  - type: StepTrigger
+    requiredTriggeredSpeed: 0
+    intersectRatio: 0.1
+  - type: TriggerOnStepTrigger
+  - type: DeleteOnTrigger
+  - type: ADTHeliosReaction
+    radius: 5
+  - type: DeviceLinkSink
+    ports:
+    - ADTHeliosReact
+
+- type: entity
+  parent: ADTHeliosScareBase
+  id: ADTHeliosScareRumble
+  name: триггер «обвал»
+  description: Когда на клетку наступают, где-то рядом грохочет обвал.
+  components:
+  - type: EmitSoundOnTrigger
+    positional: true
+    sound:
+      path: /Audio/ADT/SoundGen/destruction_2.ogg
+      params:
+        volume: 2
+        maxDistance: 14
+
+- type: entity
+  parent: ADTHeliosScareBase
+  id: ADTHeliosScareFootsteps
+  name: триггер «шаги»
+  description: Когда на клетку наступают, за спиной раздаются чьи-то шаги.
+  components:
+  - type: EmitSoundOnTrigger
+    positional: true
+    sound:
+      path: /Audio/ADT/SoundGen/moving_objects_ambient_scary.ogg
+      params:
+        volume: -2
+        maxDistance: 10
+
+- type: entity
+  parent: ADTHeliosScareBase
+  id: ADTHeliosScareChord
+  name: триггер «аккорд»
+  description: Когда на клетку наступают, звучит резкий аккорд.
+  components:
+  - type: EmitSoundOnTrigger
+    positional: true
+    sound:
+      path: /Audio/ADT/SoundGen/pianino_chord_sudden.ogg
+      params:
+        volume: 0
+        maxDistance: 10
+
+- type: entity
+  parent: ADTHeliosScareBase
+  id: ADTHeliosScareHeartbeat
+  name: триггер «удар сердца»
+  description: Когда на клетку наступают, раздаётся тяжёлый удар, от которого дрожит пол.
+  components:
+  - type: EmitSoundOnTrigger
+    positional: true
+    sound:
+      path: /Audio/ADT/heart.ogg
+      params:
+        volume: 6
+        maxDistance: 20
+
+- type: entity
+  parent: ADTHeliosScareBase
+  id: ADTHeliosAmbushLegion
+  name: триггер «засада легиона»
+  description: Когда на клетку наступают, из темноты выползает легион.
+  components:
+  - type: EmitSoundOnTrigger
+    positional: true
+    sound:
+      path: /Audio/ADT/SoundGen/reverse_dissolve_scary.ogg
+      params:
+        volume: 0
+        maxDistance: 12
+  - type: SpawnOnTrigger
+    proto: ADTMobLegion

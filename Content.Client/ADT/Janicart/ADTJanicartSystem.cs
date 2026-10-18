@@ -1,13 +1,13 @@
 using Content.Shared.ADT.Janicart;
 using Content.Shared.ADT.Janicart.Components;
-using Content.Client.Vehicle;
+using Content.Client.ADT.Vehicle;
 using Robust.Client.GameObjects;
 
 namespace Content.Client.ADT.Janicart;
 
 public sealed class ADTJanicartSystem : SharedADTJanicartSystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
 
     private const string BaseVehicleState = "vehicle";
     private const string BufferVehicleState = "vehicle_upgrade";

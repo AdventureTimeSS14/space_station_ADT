@@ -1,36 +1,42 @@
 - type: entity
-  name: cleawing saw
+  name: cleaving saw
   parent: BaseItem
   id: ADTCleawingSaw
-  description: Big, dangerous telescopic baton. Can be stored in pockets when turned off.
+  description: This saw, effective at drawing the blood of beasts, transforms into a long cleaver that makes use of centrifugal force.
   components:
   - type: Sprite
     sprite: ADT/Objects/Weapons/Melee/cleaving_saw.rsi
     layers:
     - state: icon_off
       map: [ "enum.ToggleableVisuals.Layer" ]
-  - type: SwitchableWeapon
-    damageOpen:
-      types:
-        Slash: 30
-    damageFolded:
-      types:
-        Slash: 15
-    attackRateOpen: 1
-    attackRateFolded: 2
-    sizeOpened: Large
-    sizeClosed: Normal
   - type: MeleeWeapon
+    attackRate: 2.5
     damage:
       types:
-        Slash: 15
+        Slash: 10
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+      types:
+        Slash: 16.67
+    activatedSoundOnHit:
+      path: /Audio/Weapons/bladeslice.ogg
+    deactivatedSoundOnHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 20
   - type: Item
-    size: Normal
+    size: Large
     sprite: ADT/Objects/Weapons/Melee/cleaving_saw-inhands.rsi
+    heldPrefix: "off"
+  - type: ItemTogglePrefix
+    prefixOn: "on"
+    prefixOff: "off"
   - type: UseDelay
-    delay: 1.0
+    delay: 0.4
   - type: DisarmMalus
     malus: 0
   - type: Appearance
@@ -40,10 +46,6 @@
         enum.ToggleableVisuals.Layer:
           True: {state: icon_on}
           False: {state: icon_off}
-  - type: ComponentToggler
-    components:
-    - type: Reflect
-      reflectProb: 0.15
   - type: Clothing
     sprite: ADT/Objects/Weapons/Melee/cleaving_saw.rsi
     quickEquip: false
@@ -55,3 +57,29 @@
       path: /Audio/ADT/Effects/Magic/Clockwork/fellowship_armory.ogg
     soundDeactivate:
       path: /Audio/ADT/Effects/Magic/Clockwork/fellowship_armory_edited.ogg
+  - type: ADTCleavingSaw
+    openAttackRate: 1.25
+    closedAttackRate: 2.5
+    transformAttackDelay: 0.2
+    nemesisWhitelist:
+      components:
+      - Fauna
+    nemesisBonusDamage:
+      types:
+        Slash: 30
+    clumsyChance: 0.5
+    clumsyDamage:
+      types:
+        Slash: 10
+        Heat: 10
+    bleedStart: 3
+    bleedBuildup: 3
+    bleedCap: 10
+    bleedTickInterval: 0.6
+    bleedDecayDelay: 0.5
+    bleedDamage:
+      types:
+        Slash: 200
+    bleedBurstSound:
+      collection: desecration
+    bleedBurstEffect: DecalSpawnerBloodSplatters

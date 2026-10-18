@@ -149,7 +149,7 @@
     actions: AncientGoliathActions
     delay: 3
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTypeTrigger
         damageType: Blunt
@@ -234,18 +234,9 @@
       types:
         Piercing: 5
         Poison: 15
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      melee:
-        reagents:
-        - ReagentId: NorepinephricAcid
-          Quantity: 100
-  - type: SolutionRegeneration
-    solution: melee
-    generated:
-      reagents:
-      - ReagentId: NorepinephricAcid
-        Quantity: 2
+    - SolutionNightmareSpiderVenom
   - type: MeleeChemicalInjector
     transferAmount: 12
     solution: melee
@@ -262,10 +253,9 @@
   - type: ADTMobLoot
     loots:
       ADTKineticTrophyPoisonFang: 0.1
-  - type: Butcherable
-    butcheringType: Knife
-    butcherDelay: 6
-    spawned:
+  - type: ToolRefinable
+    refineTime: 6
+    refineResult:
     - id: UraniumOre1
       amount: 2
     - id: MaterialBones1
@@ -326,18 +316,9 @@
     damage:
       types:
         Piercing: 20
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      melee:
-        reagents:
-        - ReagentId: Licoxide
-          Quantity: 35
-  - type: SolutionRegeneration
-    solution: melee
-    generated:
-      reagents:
-      - ReagentId: Licoxide
-        Quantity: 2
+    - SolutionShockSpiderVenom
   - type: MeleeChemicalInjector
     transferAmount: 7
     solution: melee
@@ -423,16 +404,12 @@
   suffix: AI
   abstract: true
   components:
-  - type: Thirst
-    thresholds:
-      OverHydrated: 200
-      Okay: 150
-      Thirsty: 100
-      Parched: 50
-      Dead: 0
-    baseDecayRate: 0.04
+  - type: Satiation
+    satiations:
+      Thirst:
+        prototype: SimpleMobBaseThirst
   - type: Temperature
-    currentTemperature: 310.15
+    temperature: 310.15
     specificHeat: 42
   - type: StatusEffects
     allowed:
@@ -463,3 +440,38 @@
     damage:
       types:
         Heat: 0
+
+- type: entity
+  parent: SolutionWeapon
+  id: SolutionNightmareSpiderVenom
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 100
+      reagents:
+      - ReagentId: NorepinephricAcid
+        Quantity: 100
+  - type: SolutionRegeneration
+    generated:
+      reagents:
+      - ReagentId: NorepinephricAcid
+        Quantity: 2
+
+- type: entity
+  parent: SolutionWeapon
+  id: SolutionShockSpiderVenom
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 35
+      reagents:
+      - ReagentId: Licoxide
+        Quantity: 35
+  - type: SolutionRegeneration
+    generated:
+      reagents:
+      - ReagentId: Licoxide
+        Quantity: 2
+
