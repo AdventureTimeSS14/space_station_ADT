@@ -377,7 +377,7 @@
   name: trait-dissociative-identity-name
   description: trait-dissociative-identity-desc
   category: Disabilities
-  cost: -3
+  cost: -1
   departmentBlacklist:
     - Command
     - Security
