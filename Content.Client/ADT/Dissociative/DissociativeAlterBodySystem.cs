@@ -12,6 +12,7 @@ public sealed class DissociativeAlterBodySystem : EntitySystem
 {
     [Dependency] private IInputManager _input = default!;
     [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     private const string InputContext = "human";
 
@@ -28,6 +29,12 @@ public sealed class DissociativeAlterBodySystem : EntitySystem
         EnsureComp<ClickableComponent>(ent);
         EnsureComp<InteractionOutlineComponent>(ent);
         EnsureComp<ExaminerComponent>(ent);
+
+        if (TryComp<SpriteComponent>(ent, out var sprite))
+        {
+            sprite.NoRotation = true;
+            _sprite.SetDrawDepth((ent, sprite), (int) Content.Shared.DrawDepth.DrawDepth.Mobs);
+        }
 
         if (_player.LocalEntity == ent.Owner && _input.Contexts.Exists(InputContext))
             _input.Contexts.SetActiveContext(InputContext);

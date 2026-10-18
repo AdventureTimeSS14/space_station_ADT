@@ -14,6 +14,8 @@ public sealed partial class DissociativeAlterSetupWindow : FancyWindow
 
     private static readonly Sex[] Sexes = { Sex.Male, Sex.Female, Sex.Unsexed };
 
+    private bool _nameSet;
+
     public DissociativeAlterSetupWindow()
     {
         RobustXamlLoader.Load(this);
@@ -35,8 +37,11 @@ public sealed partial class DissociativeAlterSetupWindow : FancyWindow
 
     public void UpdateState(string name, Sex sex)
     {
-        if (!NameEdit.HasKeyboardFocus())
+        if (!_nameSet)
+        {
             NameEdit.Text = name;
+            _nameSet = true;
+        }
 
         SexSelector.SelectId(Array.IndexOf(Sexes, sex));
     }

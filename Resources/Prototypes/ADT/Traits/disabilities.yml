@@ -389,9 +389,6 @@
       components:
         - type: DissociativeIdentity
           alterComponents:
-          - type: Sprite
-            noRot: true
-            drawdepth: Mobs
           - type: Physics
             bodyType: KinematicController
           - type: Fixtures

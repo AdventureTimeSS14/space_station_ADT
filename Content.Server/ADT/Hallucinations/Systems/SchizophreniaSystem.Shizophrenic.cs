@@ -199,7 +199,12 @@ public sealed partial class SchizophreniaSystem
             comp.Hallucinations.Add(toAdd);
 
         // Just needed, else game crashes
-        var hallucination = EnsureComp<HallucinationComponent>(toAdd);
+        if (!TryComp<HallucinationComponent>(toAdd, out var hallucination))
+        {
+            hallucination = new HallucinationComponent { Ent = uid };
+            AddComp(toAdd, hallucination);
+        }
+
         hallucination.Ent = uid;
 
         // We dont need to change index if entity is already hallucinating
