@@ -1,0 +1,85 @@
+- type: entity
+  id: ActionDissociativeManifest
+  name: action-dissociative-manifest-name
+  description: action-dissociative-manifest-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 2
+    checkCanInteract: false
+  - type: Sprite
+    layers:
+    - texture: Interface/Actions/manifest.png
+  - type: InstantAction
+    event: !type:DissociativeManifestActionEvent
+
+- type: entity
+  id: ActionDissociativeFront
+  name: action-dissociative-front-name
+  description: action-dissociative-front-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 5
+    checkCanInteract: false
+    itemIconStyle: BigAction
+  - type: Sprite
+    sprite: Interface/Actions/changeling.rsi
+    layers:
+    - state: transform
+  - type: InstantAction
+    event: !type:DissociativeFrontActionEvent
+
+- type: entity
+  id: ActionDissociativeRelease
+  name: action-dissociative-release-name
+  description: action-dissociative-release-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 2
+    checkCanInteract: false
+    checkConsciousness: false
+    itemIconStyle: BigAction
+  - type: Sprite
+    sprite: Interface/Actions/changeling.rsi
+    layers:
+    - state: stasis_exit
+  - type: InstantAction
+    event: !type:DissociativeReleaseActionEvent
+
+- type: entity
+  id: ActionDissociativeSetup
+  name: action-dissociative-setup-name
+  description: action-dissociative-setup-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 1
+    checkCanInteract: false
+  - type: Sprite
+    sprite: ADT/Interface/Actions/actions_slime.rsi
+    layers:
+    - state: hair
+  - type: InstantAction
+    event: !type:DissociativeSetupActionEvent
+
+- type: entity
+  id: ActionDissociativeSurrender
+  name: action-dissociative-surrender-name
+  description: action-dissociative-surrender-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 5
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    priority: -20
+  - type: ConfirmableAction
+    popup: dissociative-surrender-confirm
+  - type: Sprite
+    sprite: Interface/Actions/changeling.rsi
+    layers:
+    - state: stasis_enter
+  - type: InstantAction
+    event: !type:DissociativeSurrenderActionEvent

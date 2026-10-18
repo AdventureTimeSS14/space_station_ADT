@@ -1,9 +1,12 @@
+using Content.Server.ADT.Chat;
 using Content.Server.ADT.Pointing;
 using Content.Server.Chat.Systems;
 using Content.Shared.ADT.Actions;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Eye;
 using Content.Shared.StepTrigger.Components;
+using Robust.Server.GameStates;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
 using Content.Shared.ADT.Chat;
@@ -18,12 +21,16 @@ public sealed partial class SchizophreniaSystem
         SubscribeLocalEvent<HallucinationComponent, PlayerAttachedEvent>(OnPlayerAttached);
         SubscribeLocalEvent<HallucinationComponent, PlayerDetachedEvent>(OnPlayerDetached);
 
+        SubscribeLocalEvent<SchizophreniaComponent, ExpandPvsEvent>(OnSchizophrenicExpandPvs);
+        SubscribeLocalEvent<HallucinationComponent, ExpandPvsEvent>(OnHallucinationExpandPvs);
+
         SubscribeLocalEvent<HallucinationComponent, ActionAddedDirectEvent>(OnActionAdded);
 
         SubscribeLocalEvent<HallucinationComponent, MapInitEvent>(OnHallucinationInit);
         SubscribeLocalEvent<HallucinationComponent, ComponentShutdown>(OnHallucinationShutdown);
 
         SubscribeLocalEvent<ExpandICChatRecipientsEvent>(OnBeforeChatMessage);
+        SubscribeLocalEvent<ActorComponent, CanHearVoiceEvent>(OnListenerCanHearVoice);
         SubscribeLocalEvent<HallucinationComponent, OverrideEmoteSoundEvent>(OverrideEmoteSound);
         SubscribeLocalEvent<HallucinationComponent, SetupPointingArrowEvent>(OnSetupPointer);
 
@@ -51,6 +58,29 @@ public sealed partial class SchizophreniaSystem
         foreach (var item in schizophrenia.Hallucinations)
             _pvsOverride.RemoveForceSend(item, args.Player);
     }
+    private void OnSchizophrenicExpandPvs(Entity<SchizophreniaComponent> ent, ref ExpandPvsEvent args)
+    {
+        AddHallucinationsToPvs(ent.Comp, ref args);
+    }
+
+    private void OnHallucinationExpandPvs(Entity<HallucinationComponent> ent, ref ExpandPvsEvent args)
+    {
+        if (_schizQuery.TryGetComponent(ent.Comp.Ent, out var schizophrenia))
+            AddHallucinationsToPvs(schizophrenia, ref args);
+    }
+
+    private void AddHallucinationsToPvs(SchizophreniaComponent comp, ref ExpandPvsEvent args)
+    {
+        args.VisMask |= (int) VisibilityFlags.Hallucination;
+        args.RecursiveEntities ??= new();
+
+        foreach (var item in comp.Hallucinations)
+        {
+            if (!TerminatingOrDeleted(item))
+                args.RecursiveEntities.Add(item);
+        }
+    }
+
     private void OnActionAdded(Entity<HallucinationComponent> ent, ref ActionAddedDirectEvent args)
     {
         AddAsHallucination(ent.Comp.Ent, args.Action);
@@ -113,6 +143,20 @@ public sealed partial class SchizophreniaSystem
             args.Recipients.Remove(item);
     }
 
+    private void OnListenerCanHearVoice(Entity<ActorComponent> ent, ref CanHearVoiceEvent args)
+    {
+        if (!_hallucinationQuery.TryGetComponent(args.Source, out var source))
+            return;
+
+        if (_schizQuery.TryGetComponent(ent.Owner, out var schiz) && schiz.Idx == source.Idx)
+            return;
+
+        if (_hallucinationQuery.TryGetComponent(ent.Owner, out var hallucination) && hallucination.Idx == source.Idx)
+            return;
+
+        args.Cancelled = true;
+    }
+
     private void OverrideEmoteSound(Entity<HallucinationComponent> ent, ref OverrideEmoteSoundEvent args)
     {
         var filter = Filter.Entities(ent.Owner, ent.Comp.Ent);
@@ -151,6 +195,9 @@ public sealed partial class SchizophreniaSystem
     }
 
     private void OnInteractionAttempt(Entity<HallucinationComponent> ent, ref InteractionAttemptEvent args)
-        => args.Cancelled = true;
+    {
+        if (args.Target != ent.Owner)
+            args.Cancelled = true;
+    }
     #endregion
 }
