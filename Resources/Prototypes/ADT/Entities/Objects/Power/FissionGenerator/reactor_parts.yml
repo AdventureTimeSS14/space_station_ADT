@@ -49,16 +49,16 @@
       - metallic
       - electrons
   - type: BadFood
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 1000
-        canReact: false
-        reagents:
-        - ReagentId: Uranium
-          Quantity: 800
-        - ReagentId: Radium
-          Quantity: 200
+  - type: Solution
+    id: food
+    solution:
+      maxVol: 1000
+      canReact: false
+      reagents:
+      - ReagentId: Uranium
+        Quantity: 800
+      - ReagentId: Radium
+        Quantity: 200
   - type: StealTarget
     stealGroup: ReactorFuelRodSteal
   - type: SentienceTarget
