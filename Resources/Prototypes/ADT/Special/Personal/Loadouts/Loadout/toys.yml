@@ -185,7 +185,7 @@
   id: ADTToyFigurineTheokayaFriendlyOne
   storage:
     back:
-    - ToyFigurineTheokayaFriendlyOne
+    - ADTToyFigurineTheokayaFriendlyOne
 
 - type: loadout
   sponsorOnly: true
