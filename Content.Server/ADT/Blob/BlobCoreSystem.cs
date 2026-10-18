@@ -317,11 +317,14 @@ public sealed class BlobCoreSystem : EntitySystem
         }
     }
 
-    private void ChangeBlobEntChem(EntityUid uid, BlobChemType newChem, BlobTileComponent? compo = null )
+    public void ChangeBlobEntChem(EntityUid uid, BlobChemType newChem, BlobTileComponent? compo = null)
     {
         // No change for reflective blobs! SPCR-2025
-        if(compo is not null && compo.BlobTileType == BlobTileType.Reflective)
+        if (compo is not null && compo.BlobTileType == BlobTileType.Reflective)
             return;
+
+        var isBlobbernaut = HasComp<BlobbernautComponent>(uid);
+
         switch (newChem)
         {
             case BlobChemType.ExplosiveLattice:
@@ -335,7 +338,7 @@ public sealed class BlobCoreSystem : EntitySystem
                 _damageable.SetDamageModifierSetId(uid, "ADTSinewyTendonsBlob");
                 break;
             case BlobChemType.ChainCoating:
-                _damageable.SetDamageModifierSetId(uid, "ADTChainCoatingBlob");
+                _damageable.SetDamageModifierSetId(uid, isBlobbernaut ? "ADTBlobBlobbernautChainCoating" : "ADTChainCoatingBlob");
                 break;
             case BlobChemType.BlazingOil:
                 _damageable.SetDamageModifierSetId(uid, "ADTBlazingOilBlob");
@@ -344,7 +347,7 @@ public sealed class BlobCoreSystem : EntitySystem
                 _damageable.SetDamageModifierSetId(uid, "ADTRegenerativeMateriaBlob");
                 break;
             default:
-                _damageable.SetDamageModifierSetId(uid, "ADTBaseBlob");
+                _damageable.SetDamageModifierSetId(uid, isBlobbernaut ? "ADTBlobBlobbernaut" : "ADTBaseBlob");
                 break;
         }
     }

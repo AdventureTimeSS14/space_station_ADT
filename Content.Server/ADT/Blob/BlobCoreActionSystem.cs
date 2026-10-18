@@ -23,6 +23,7 @@ using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -32,6 +33,7 @@ using Robust.Shared.CPUJob.JobQueues.Queues;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -40,6 +42,7 @@ namespace Content.Server.ADT.Blob;
 
 public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
 {
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private PopupSystem _popup = default!;
     [Dependency] private IConfigurationManager _cfg = default!;
     [Dependency] private IRobustRandom _random = default!;
@@ -266,9 +269,13 @@ public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
         var damage = new DamageSpecifier(ent.Comp.ChemDamageDict[ent.Comp.CurrentChem]);
         if (!HasComp<MobStateComponent>(target) && damage.DamageDict.TryGetValue("Structural", out var structDmg))
         {
-            if (!TryComp<DamageableComponent>(target, out var damageable) || !_damageableSystem.SupportsType((target, damageable), "Structural"))
+            if (TryComp<InjurableComponent>(target, out var injurable) && injurable.DamageContainer is { } containerId)
             {
-                damage.DamageDict["Blunt"] = damage.DamageDict.GetValueOrDefault("Blunt") + structDmg;
+                if (_prototypeManager.TryIndex<DamageContainerPrototype>(containerId, out var container) &&
+                    !container.SupportedTypes.Contains("Structural"))
+                {
+                    damage.DamageDict["Blunt"] = damage.DamageDict.GetValueOrDefault("Blunt") + structDmg;
+                }
             }
         }
 

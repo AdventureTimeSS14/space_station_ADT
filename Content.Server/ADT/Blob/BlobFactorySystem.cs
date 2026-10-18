@@ -19,6 +19,7 @@ namespace Content.Server.ADT.Blob;
 
 public sealed class BlobFactorySystem : EntitySystem
 {
+    [Dependency] private readonly BlobCoreSystem _blobCoreSystem = default!;
     [Dependency] private PopupSystem _popup = default!;
     [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private MobStateSystem _mobState = default!;
@@ -73,6 +74,8 @@ public sealed class BlobFactorySystem : EntitySystem
             }
             meleeWeaponComponent.Damage = blobbernautDamage;
         }
+
+        _blobCoreSystem.ChangeBlobEntChem(blobbernaut, blobCoreComponent.CurrentChem);
     }
 
     private const string Phlogiston = "Phlogiston";
@@ -159,12 +162,8 @@ public sealed class BlobFactorySystem : EntitySystem
         // forget dead pods
         component.BlobPods = component.BlobPods.Where(b => !TerminatingOrDeleted(b) && _mobState.IsAlive(b)).ToList();
 
-        if (blobCoreComponent.CurrentChem == BlobChemType.SinewyTendons)
-        {
-            component.SpawnLimit = 5;
-        }
-
-        if (component.BlobPods.Count >= component.SpawnLimit)
+        var maxPods = blobCoreComponent.CurrentChem == BlobChemType.SinewyTendons ? 5 : component.SpawnLimit;
+        if (component.BlobPods.Count >= maxPods)
             return;
 
         if (component.Accumulator < component.AccumulateToSpawn)
@@ -183,6 +182,5 @@ public sealed class BlobFactorySystem : EntitySystem
 
         //smokeOnTrigger.SmokeColor = blobCoreComponent.ChemСolors[blobCoreComponent.CurrentChem];
         component.Accumulator = 0;
-        component.SpawnLimit = 3;
     }
 }
