@@ -5,3 +5,5 @@ defibrillator-unrevivable = Этот пациент не может быть о�
 # ADT-Tweak
 defibrillator-hollow = Тело опустошено. Дефибрилляция невозможна.
 defibrillator-verb-zap = Реанимировать
+defibrillator-begin = { $name } прикладывает электроды дефибриллятора к { $target }
+defibrillator-not-living = Внимание: целью дефибрилляции был неодушевлённый предмет. Рассмотрите другую цель.

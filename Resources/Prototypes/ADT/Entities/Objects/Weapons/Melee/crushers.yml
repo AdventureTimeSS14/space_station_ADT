@@ -105,7 +105,6 @@
   - type: PointLight
     color: "#ffeead"
     enabled: false
-  - type: Sharp
   - type: Utensil
     types:
       - Knife
@@ -234,7 +233,6 @@
   - type: PointLight
     color: "#ffeead"
     enabled: false
-  - type: Sharp
   - type: Utensil
     types:
       - Knife
@@ -297,7 +295,6 @@
   - type: PointLight
     color: "#ffeead"
     enabled: false
-  - type: Sharp
   - type: Utensil
     types:
       - Knife

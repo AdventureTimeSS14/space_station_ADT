@@ -12,8 +12,8 @@ namespace Content.Client.ADT.Heretic;
 
 public sealed class RustRuneSystem : EntitySystem
 {
-    [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly SpriteSystem _spriteSystem = default!;
+    [Dependency] private TagSystem _tag = default!;
+    [Dependency] private SpriteSystem _spriteSystem = default!;
 
     public override void Initialize()
     {

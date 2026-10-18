@@ -17,7 +17,7 @@ namespace Content.Client.ADT.Modsuits.UI;
 [GenerateTypedNameReferences]
 public sealed partial class ModSuitRadialMenu : RadialMenu
 {
-    [Dependency] private readonly EntityManager _entityManager = default!;
+    [Dependency] private EntityManager _entityManager = default!;
 
     public event Action<EntityUid>? SendToggleClothingMessageAction;
     public EntityUid Entity { get; set; }

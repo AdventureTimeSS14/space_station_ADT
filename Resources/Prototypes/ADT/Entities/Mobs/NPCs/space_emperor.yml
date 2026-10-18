@@ -1,5 +1,5 @@
 ﻿- type: entity
-  parent: [ SimpleSpaceMobBase, FlyingMobBase ]
+  parent: [ SimpleSpaceMobBase, FlyingMobBase, BaseSlicingRefinable ]
   id: ADTMobSpaceEmperor
   name: ADTMobSpaceEmperor-name
   description: ADTMobSpaceEmperor-desc
@@ -131,8 +131,8 @@
     solutionOnBody: false
     updateInterval: 0.25
     metabolizerTypes: [ Dragon ]
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeatDragon
       amount: 2
   - type: InteractionPopup
@@ -169,8 +169,14 @@
   components:
   - type: Action
     useDelay: 1
-    icon: { sprite: ADT/Interface/Actions/space_emperor.rsi, state: light-off }
-    iconOn: { sprite: ADT/Interface/Actions/space_emperor.rsi, state: light-on }
+  - type: Sprite
+    sprite: ADT/Interface/Actions/space_emperor.rsi
+    layers:
+    - state: light-off
+      map: ["enum.ActionVisuals.Icon"]
+    - state: light-on
+      map: ["enum.ActionVisuals.IconToggled"]
+      visible: false
 
 - type: entity
   id: ADTSpawnPointSpaceEmperor

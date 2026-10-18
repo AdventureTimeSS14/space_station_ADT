@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.CombatMode;
 using Content.Shared.Hands.EntitySystems;
@@ -16,14 +17,14 @@ namespace Content.Shared.ADT.Heretic.Systems;
 /// </summary>
 public sealed class MultihitSystem : EntitySystem
 {
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
-    [Dependency] private readonly SharedHereticSystem _heretic = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedMeleeWeaponSystem _melee = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private SharedCombatModeSystem _combatMode = default!;
+    [Dependency] private SharedHereticSystem _heretic = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private ISharedPlayerManager _player = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -65,7 +66,7 @@ public sealed class MultihitSystem : EntitySystem
         if (args.Direction != null)
             return;
 
-        if (args.HitEntities.Count == 0 || args.HitEntities[0] == args.User)
+        if (args.HitEntities.Count == 0 || args.HitEntities.First() == args.User)
             return;
 
         // already a follow-up hit, don't recurse
@@ -75,7 +76,7 @@ public sealed class MultihitSystem : EntitySystem
         if (!CheckConditions(ent, args.User))
             return;
 
-        var target = args.HitEntities[0];
+        var target = args.HitEntities.First();
         var user = args.User;
         var delay = ent.Comp.MultihitDelay;
 

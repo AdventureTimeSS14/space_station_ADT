@@ -46,10 +46,7 @@
     state: firing_pin_loyalty
   - type: FiringPin
     checks:
-    - type: Component
-      requiredWhitelist:
-        components:
-        - MindShield
+    - type: MindShield
       passForFakeMindShield: true
     failMessage: firing-pin-fail-loyalty
 
@@ -88,10 +85,7 @@
     state: firing_pin_dna
   - type: FiringPin
     checks:
-    - type: Component
-      requiredWhitelist:
-        components:
-        - MindShield
+    - type: MindShield
       passForFakeMindShield: true
     - type: DNA
     failMessage: firing-pin-fail-dna-mindshield
@@ -164,18 +158,18 @@
     checks:
     - type: SecLevel
       allowedAlertLevels:
-      - green
-      - blue
-      - violet
-      - yellow
-      - red
-      - gamma
-      - delta
-      - epsilon
-      - amber
-      - altdelta
-      - cascade
-      selectedAlertLevel: blue
+      - Green
+      - Blue
+      - Violet
+      - Yellow
+      - Red
+      - Gamma
+      - DeltaNuke
+      - Epsilon
+      - Amber
+      - AltDelta
+      - Cascade
+      selectedAlertLevel: Blue
     failMessage: firing-pin-fail-seclevel
 
 - type: entity
@@ -204,6 +198,7 @@
     - type: Component
       requiredWhitelist:
         components:
+        - NukeOperative
         - NukeopsRole
         - TraitorRole
     failMessage: firing-pin-fail-syndicate

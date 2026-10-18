@@ -46,3 +46,10 @@
   maxAge: 500
   oldAge: 502
   youngAge: 501
+  defaultSoundsBySex:
+  - MaleShadekin
+  - FemaleShadekin
+  - MaleShadekin
+  voices:
+  - MaleShadekin
+  - FemaleShadekin

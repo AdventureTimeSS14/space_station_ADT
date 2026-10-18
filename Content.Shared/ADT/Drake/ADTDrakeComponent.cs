@@ -3,39 +3,14 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared.ADT.Drake;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentPause]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class ADTDrakeComponent : Component
 {
-    [ViewVariables]
-    public float AngerModifier;
-
-    [DataField]
-    public float AngerDamageDivisor = 50f;
-
-    [DataField]
-    public float MaxAnger = 20f;
-
     [DataField]
     public TimeSpan RangedCooldown = TimeSpan.FromSeconds(3);
-
-    [DataField]
-    public TimeSpan DecisionInterval = TimeSpan.FromSeconds(2);
-
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
-    public TimeSpan NextRangedAt;
-
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
-    public TimeSpan RecoveryUntil;
-
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
-    public TimeSpan NextDecisionAt;
-
-    [DataField]
-    public float DevourHealFraction = 0.5f;
 
     [DataField]
     public ProtoId<DamageGroupPrototype> HealGroup = "Brute";
@@ -248,7 +223,7 @@ public sealed partial class ADTDrakeComponent : Component
     public float? BaseLightRadius;
 
     [ViewVariables]
-    public EntityUid? ManualTarget;
+    public int LavaPoolGeneration;
 
     [DataField]
     public bool CanDevour = true;

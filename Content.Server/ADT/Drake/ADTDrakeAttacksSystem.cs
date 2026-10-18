@@ -1,5 +1,5 @@
+using Content.Server.ADT.Salvage.Systems;
 using Content.Shared.ADT.Drake;
-using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
@@ -11,99 +11,22 @@ namespace Content.Server.ADT.Drake;
 
 public sealed class ADTDrakeAttacksSystem : EntitySystem
 {
-    [Dependency] private readonly ADTDrakeEffectsSystem _effects = default!;
-    [Dependency] private readonly ADTDrakeSystem _drake = default!;
-    [Dependency] private readonly ADTDrakeSwoopSystem _swoop = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private ADTDrakeEffectsSystem _effects = default!;
+    [Dependency] private ADTDrakeSystem _drake = default!;
+    [Dependency] private ADTDrakeSwoopSystem _swoop = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private MegafaunaSystem _megafauna = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<ADTDrakeComponent, ADTDrakeSwoopFinishedEvent>(OnSwoopFinished);
-    }
-
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
-        var now = _timing.CurTime;
-        var query = EntityQueryEnumerator<ADTDrakeSequenceComponent, ADTDrakeComponent>();
-
-        while (query.MoveNext(out var uid, out var sequence, out var drake))
-        {
-            if (sequence.Queue.Count == 0)
-                continue;
-
-            if (_mobState.IsDead(uid))
-            {
-                sequence.Queue.Clear();
-                continue;
-            }
-
-            for (var i = 0; i < sequence.Queue.Count; i++)
-            {
-                var step = sequence.Queue[i];
-
-                if (now < step.ExecuteAt)
-                    continue;
-
-                sequence.Queue.RemoveAt(i);
-                i--;
-
-                ExecuteStep((uid, drake), step);
-            }
-        }
-    }
-
-    private void ExecuteStep(Entity<ADTDrakeComponent> ent, ADTDrakeStep step)
-    {
-        switch (step.Type)
-        {
-            case ADTDrakeStepType.MassFireWave:
-                MassFireWave(ent, step.Index, step.Count, step.Range);
-                break;
-
-            case ADTDrakeStepType.MassFireEnd:
-                _drake.SetRecoveryTime(ent, ent.Comp.MassFireEndRecovery);
-                break;
-
-            case ADTDrakeStepType.FireCone:
-                if (_drake.TryGetTarget(ent, out var target))
-                    FireCone(ent, target.Value);
-                else
-                    _audio.PlayPvs(ent.Comp.FireSound, ent);
-                break;
-
-            case ADTDrakeStepType.SetRecovery:
-                _drake.SetRecoveryTime(ent, step.Duration);
-                break;
-
-            case ADTDrakeStepType.LavaPool:
-                LavaPool(ent);
-                break;
-
-            case ADTDrakeStepType.EscapeEnrageMassFire:
-                MassFire(ent);
-                break;
-
-            case ADTDrakeStepType.EscapeEnrageEnd:
-                _drake.SetEscapeEnraged(ent, false);
-                break;
-
-            case ADTDrakeStepType.MeleeFollowUp:
-                _drake.MeleeFollowUp(ent, step.Target);
-                break;
-
-            default:
-                throw new ArgumentOutOfRangeException(nameof(step.Type), step.Type, "Unhandled drake step.");
-        }
     }
 
     public void LavaSwoop(Entity<ADTDrakeComponent> ent, EntityUid target)
@@ -137,13 +60,14 @@ public sealed class ADTDrakeAttacksSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("adt-drake-lava-pools"), target, PopupType.LargeCaution);
 
         var now = _timing.CurTime;
+        var generation = ent.Comp.LavaPoolGeneration;
 
         for (var i = 0; i < amount; i++)
         {
-            Enqueue(ent, new ADTDrakeStep
+            Schedule(ent, now + ent.Comp.LavaPoolDelay * i, () =>
             {
-                ExecuteAt = now + ent.Comp.LavaPoolDelay * i,
-                Type = ADTDrakeStepType.LavaPool,
+                if (generation == ent.Comp.LavaPoolGeneration)
+                    LavaPool(ent);
             });
         }
     }
@@ -152,9 +76,7 @@ public sealed class ADTDrakeAttacksSystem : EntitySystem
     {
         if (!_drake.TryGetTarget(ent, out var target) || target is not { } victim)
         {
-            if (TryComp<ADTDrakeSequenceComponent>(ent, out var sequence))
-                sequence.Queue.RemoveAll(s => s.Type == ADTDrakeStepType.LavaPool);
-
+            ent.Comp.LavaPoolGeneration++;
             return;
         }
 
@@ -180,28 +102,15 @@ public sealed class ADTDrakeAttacksSystem : EntitySystem
         var now = _timing.CurTime;
         var massFireAt = now + ent.Comp.EscapeMassFireDelay;
 
-        Enqueue(ent, new ADTDrakeStep
-        {
-            ExecuteAt = massFireAt,
-            Type = ADTDrakeStepType.EscapeEnrageMassFire,
-        });
-
-        Enqueue(ent, new ADTDrakeStep
-        {
-            ExecuteAt = massFireAt + ent.Comp.MassFireWaveDelay * ent.Comp.MassFireTimes,
-            Type = ADTDrakeStepType.EscapeEnrageEnd,
-        });
+        Schedule(ent, massFireAt, () => MassFire(ent));
+        Schedule(ent, massFireAt + ent.Comp.MassFireWaveDelay * ent.Comp.MassFireTimes, () => _drake.SetEscapeEnraged(ent, false));
     }
 
     private void LavaSwoopCones(Entity<ADTDrakeComponent> ent)
     {
         var now = _timing.CurTime;
 
-        Enqueue(ent, new ADTDrakeStep
-        {
-            ExecuteAt = now,
-            Type = ADTDrakeStepType.FireCone,
-        });
+        Schedule(ent, now, () => ScheduledFireCone(ent));
 
         var end = now;
 
@@ -210,21 +119,12 @@ public sealed class ADTDrakeAttacksSystem : EntitySystem
             for (var i = 1; i <= 2; i++)
             {
                 end = now + ent.Comp.LavaSwoopConeDelay * i;
-
-                Enqueue(ent, new ADTDrakeStep
-                {
-                    ExecuteAt = end,
-                    Type = ADTDrakeStepType.FireCone,
-                });
+                Schedule(ent, end, () => ScheduledFireCone(ent));
             }
         }
 
-        Enqueue(ent, new ADTDrakeStep
-        {
-            ExecuteAt = end,
-            Type = ADTDrakeStepType.SetRecovery,
-            Duration = ent.Comp.LavaSwoopEndRecovery,
-        });
+        var recovery = ent.Comp.LavaSwoopEndRecovery;
+        Schedule(ent, end, () => _drake.SetRecoveryTime(ent, recovery));
     }
 
     public void ShootFireAttack(Entity<ADTDrakeComponent> ent, EntityUid target)
@@ -274,21 +174,11 @@ public sealed class ADTDrakeAttacksSystem : EntitySystem
 
         for (var i = 1; i <= times; i++)
         {
-            Enqueue(ent, new ADTDrakeStep
-            {
-                ExecuteAt = now + ent.Comp.MassFireWaveDelay * (i - 1),
-                Type = ADTDrakeStepType.MassFireWave,
-                Index = i,
-                Count = count,
-                Range = range,
-            });
+            var wave = i;
+            Schedule(ent, now + ent.Comp.MassFireWaveDelay * (i - 1), () => MassFireWave(ent, wave, count, range));
         }
 
-        Enqueue(ent, new ADTDrakeStep
-        {
-            ExecuteAt = now + ent.Comp.MassFireWaveDelay * times,
-            Type = ADTDrakeStepType.MassFireEnd,
-        });
+        Schedule(ent, now + ent.Comp.MassFireWaveDelay * times, () => _drake.SetRecoveryTime(ent, ent.Comp.MassFireEndRecovery));
     }
 
     private void MassFireWave(Entity<ADTDrakeComponent> ent, int wave, int count, int range)
@@ -401,9 +291,16 @@ public sealed class ADTDrakeAttacksSystem : EntitySystem
         return true;
     }
 
-    private void Enqueue(Entity<ADTDrakeComponent> ent, ADTDrakeStep step)
+    private void ScheduledFireCone(Entity<ADTDrakeComponent> ent)
     {
-        var sequence = EnsureComp<ADTDrakeSequenceComponent>(ent);
-        sequence.Queue.Add(step);
+        if (_drake.TryGetTarget(ent, out var target))
+            FireCone(ent, target.Value);
+        else
+            _audio.PlayPvs(ent.Comp.FireSound, ent);
+    }
+
+    private void Schedule(Entity<ADTDrakeComponent> ent, TimeSpan at, Action action)
+    {
+        _megafauna.ScheduleAt(ent.Owner, at, action);
     }
 }

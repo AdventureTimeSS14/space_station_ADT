@@ -13,8 +13,8 @@ namespace Content.Shared.EntityEffects.Effects.EntitySpawning;
 /// </summary>
 public sealed partial class SpawnRandomEntityEntityEffectSystem : EntityEffectSystem<TransformComponent, SpawnRandomEntity>
 {
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     protected override void Effect(Entity<TransformComponent> entity, ref EntityEffectEvent<SpawnRandomEntity> args)
     {

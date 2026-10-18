@@ -12,8 +12,17 @@
   id: OrganSlimeXenobioCore
   name: sentient slime core
   components:
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      stomach:
-        maxVol: 50.0
+    - OrganSlimeXenobioCoreSolution
   - type: Stomach
+
+- type: entity
+  parent: SolutionStomach
+  id: OrganSlimeXenobioCoreSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 50
+      reagents: []

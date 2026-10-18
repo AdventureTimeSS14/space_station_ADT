@@ -7,7 +7,6 @@
   startingGear: ADTCBURNGear # ADT tweak
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
-  canBeAntag: false
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 50h # ADT-tweak

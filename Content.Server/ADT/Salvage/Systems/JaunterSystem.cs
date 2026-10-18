@@ -24,15 +24,15 @@ public sealed class JaunterSystem : EntitySystem
 {
     private const int MaxJumpAttempts = 32;
 
-    [Dependency] private readonly JaunterPortalSystem _portal = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly InteractionSystem _interaction = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
-    [Dependency] private readonly VomitSystem _vomit = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private JaunterPortalSystem _portal = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private InteractionSystem _interaction = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedStaminaSystem _stamina = default!;
+    [Dependency] private VomitSystem _vomit = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -79,7 +79,7 @@ public sealed class JaunterSystem : EntitySystem
             _stamina.TakeStaminaDamage(target, need, stam);
         }
 
-        if (HasComp<OrganComponent>(target) && HasComp<HungerComponent>(target))
+        if (HasComp<OrganComponent>(target) && HasComp<SatiationComponent>(target))
         {
             _vomit.Vomit(target);
         }

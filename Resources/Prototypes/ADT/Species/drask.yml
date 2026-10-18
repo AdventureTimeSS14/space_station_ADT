@@ -41,3 +41,10 @@
   maxAge: 500
   oldAge: 502
   youngAge: 501
+  defaultSoundsBySex:
+  - MaleDrask
+  - FemaleDrask
+  - MaleDrask
+  voices:
+  - MaleDrask
+  - FemaleDrask

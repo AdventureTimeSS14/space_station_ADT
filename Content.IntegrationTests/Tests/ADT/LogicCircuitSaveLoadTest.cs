@@ -27,7 +27,7 @@ public sealed class LogicCircuitSaveLoadTest : GameTest
 
         var pair = Pair;
         var server = pair.Server;
-        var mapManager = server.ResolveDependency<IMapManager>();
+        var mapManager = server.ResolveDependency<IEntitySystemManager>().GetEntitySystem<SharedMapSystem>();
         var entities = server.ResolveDependency<IEntityManager>();
         var mapLoader = entities.System<MapLoaderSystem>();
         var mapSystem = entities.System<SharedMapSystem>();

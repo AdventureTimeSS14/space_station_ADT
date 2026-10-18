@@ -23,6 +23,9 @@ public sealed partial class ADTDungeonRoomPrototype : IPrototype
     public int Rotate;
 
     [DataField]
+    public bool ReserveBounds = true;
+
+    [DataField]
     public Dictionary<string, ADTDungeonRoomTile> Legend = new();
 
     [DataField]

@@ -28,6 +28,17 @@
   - type: Strap
     position: Down
     rotation: 0 # sleep edit end
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
 
 - type: entity
   name: pizzeria chair
@@ -88,6 +99,17 @@
   - type: Sprite
     sprite: ADT/Structures/Furniture/Chairs/chairs.rsi
     state: rusty_chair
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
 
 - type: entity
   name: bar stool

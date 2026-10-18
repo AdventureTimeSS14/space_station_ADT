@@ -1,0 +1,72 @@
+- type: entity
+  id: ADTSpawnRockVolcanicRandom
+  parent: MarkerBase
+  name: random volcanic rock spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Structures/Walls/rock.rsi
+      state: rock
+  - type: EntityTableSpawner
+    offset: 0
+    table: !type:GroupSelector
+      children:
+      - id: WallRockBasalt
+        weight: 86
+      - !type:GroupSelector
+        weight: 14
+        children:
+        - id: WallRockBasaltUranium
+          weight: 5
+        - id: WallRockBasaltDiamond
+          weight: 0.5
+        - id: WallRockBasaltGold
+          weight: 10
+        - id: WallRockBasaltSilver
+          weight: 12
+        - id: WallRockBasaltPlasma
+          weight: 20
+        - id: WallRockBasaltTin
+          weight: 40
+        - id: ADTWallRockBasaltGibtonit
+          weight: 4
+        - id: ADTWallRockBasaltBS
+          weight: 0.5
+        - id: ADTWallRockBasaltGem
+          weight: 1
+
+- type: entity
+  id: ADTSpawnRockVolcanicRandomHighChance
+  parent: MarkerBase
+  name: random volcanic rock spawner
+  suffix: High chance
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Structures/Walls/rock.rsi
+      state: rock
+  - type: EntityTableSpawner
+    offset: 0
+    table: !type:GroupSelector
+      children:
+      - id: WallRockBasalt
+        weight: 80
+      - !type:GroupSelector
+        weight: 20
+        children:
+        - id: WallRockBasaltUranium
+          weight: 35
+        - id: WallRockBasaltDiamond
+          weight: 30
+        - id: WallRockBasaltGold
+          weight: 45
+        - id: WallRockBasaltSilver
+          weight: 50
+        - id: WallRockBasaltPlasma
+          weight: 50
+        - id: ADTWallRockBasaltBS
+          weight: 20
+        - id: ADTWallRockBasaltGem
+          weight: 20

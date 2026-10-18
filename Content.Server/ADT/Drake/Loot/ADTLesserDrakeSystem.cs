@@ -1,7 +1,9 @@
 using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
+using Content.Server.ADT.Salvage.Systems;
 using Content.Shared.ADT.Drake;
 using Content.Shared.ADT.Drake.Loot;
+using Content.Shared.ADT.Salvage.Components;
 using Content.Shared.Administration.Systems;
 using Content.Shared.Chat;
 using Content.Shared.CombatMode;
@@ -16,27 +18,26 @@ using Content.Shared.Popups;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.Drake.Loot;
 
 public sealed class ADTLesserDrakeSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly ADTDrakeAttacksSystem _attacks = default!;
-    [Dependency] private readonly ADTDrakeSwoopSystem _swoop = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly MobThresholdSystem _thresholds = default!;
-    [Dependency] private readonly PolymorphSystem _polymorph = default!;
-    [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
-    [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
-    [Dependency] private readonly SharedChatSystem _chat = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private ADTDrakeAttacksSystem _attacks = default!;
+    [Dependency] private ADTDrakeSwoopSystem _swoop = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private MegafaunaSystem _megafauna = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private MobThresholdSystem _thresholds = default!;
+    [Dependency] private PolymorphSystem _polymorph = default!;
+    [Dependency] private RejuvenateSystem _rejuvenate = default!;
+    [Dependency] private SharedCombatModeSystem _combatMode = default!;
+    [Dependency] private SharedChatSystem _chat = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     private readonly HashSet<Entity<MobStateComponent>> _mobs = new();
 
@@ -170,13 +171,12 @@ public sealed class ADTLesserDrakeSystem : EntitySystem
         if (!_combatMode.IsInCombatMode(ent))
             return;
 
-        var now = _timing.CurTime;
-        if (now < ent.Comp.NextRangedAt)
+        if (!TryComp<ADTMegafaunaAIComponent>(ent, out var ai) || !_megafauna.IsRangedReady((ent.Owner, ai)))
             return;
 
         args.Handled = true;
 
-        ent.Comp.NextRangedAt = now + ent.Comp.RangedCooldown;
+        _megafauna.SetRangedCooldown((ent.Owner, ai), ent.Comp.RangedCooldown);
         _attacks.FireConeAt(ent, _transform.ToMapCoordinates(args.Target));
     }
 
@@ -189,7 +189,8 @@ public sealed class ADTLesserDrakeSystem : EntitySystem
             return;
 
         var target = FindMob(ent, args.Target) ?? Spawn(args.TargetMarker, args.Target);
-        ent.Comp.ManualTarget = target;
+        if (TryComp<ADTMegafaunaAIComponent>(ent, out var ai))
+            ai.ManualTarget = target;
 
         if (!_swoop.TrySwoop(ent, target, false, args.Recovery, ADTDrakeSwoopFollowUp.LavaPools))
             return;

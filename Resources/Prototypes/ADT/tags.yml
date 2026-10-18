@@ -143,9 +143,6 @@
   id: Storage
 
 - type: Tag
-  id: Stunbaton
-
-- type: Tag
   id: Table
 
 - type: Tag
@@ -268,9 +265,6 @@
 
 - type: Tag
   id: VehicleKey
-
-- type: Tag
-  id: JanicartKeys
 
 - type: Tag
   id: LegCuffs
@@ -1044,6 +1038,9 @@
 
 - type: Tag
   id: LavaDungeonAshVillage
+
+- type: Tag
+  id: LavaDungeonHeliosEntrance
 
 - type: Tag
   id: ADTCartilagePads

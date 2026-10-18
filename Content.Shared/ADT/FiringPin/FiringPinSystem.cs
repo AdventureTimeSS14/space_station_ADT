@@ -1,7 +1,8 @@
 using System.Numerics;
 using Content.Shared.Access;
+using Content.Shared.AlertLevel;
 using Content.Shared.Access.Systems;
-using Content.Shared.Clumsy;
+using Content.Shared.Clumsy.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DoAfter;
 using Content.Shared.Emag.Systems;
@@ -11,9 +12,12 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Implants.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
-using Content.Shared.Mindshield.Components;
+using Content.Shared.Mind;
+using Content.Shared.Mindshield;
+using Content.Shared.Roles;
 using Content.Shared.Popups;
 using Content.Shared.Station;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.Tag;
 using Content.Shared.Tools.Components;
 using Content.Shared.Verbs;
@@ -35,20 +39,25 @@ public sealed partial class FiringPinSystem : EntitySystem
 {
     private static readonly VerbCategory SetAlertLevel = new("verb-categories-set-alert-level", null);
 
-    [Dependency] private readonly AccessReaderSystem _accessReader = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedExplosionSystem _explosion = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedStationSystem _station = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private AccessReaderSystem _accessReader = default!;
+    [Dependency] private AlertLevelSystem _alertLevel = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private MindShieldSystem _mindShield = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private SharedRoleSystem _role = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedExplosionSystem _explosion = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private SharedStationSystem _station = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private TagSystem _tag = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -256,16 +265,37 @@ public sealed partial class FiringPinSystem : EntitySystem
             case FiringPinType.Explorer:
                 return _station.GetOwningStation(user) == null;
             case FiringPinType.Component:
-                if (_whitelist.IsWhitelistPass(check.RequiredWhitelist, user))
-                    return true;
-
-                return check.PassForFakeMindShield
-                    && TryComp<FakeMindShieldComponent>(user, out var fakeMindShield)
-                    && fakeMindShield.IsEnabled;
+                return HasComponentOrRole(user, check.RequiredWhitelist);
+            case FiringPinType.MindShield:
+                return HasMindShield(user, check.PassForFakeMindShield);
             case FiringPinType.None:
             default:
                 return true;
         }
+    }
+
+    private bool HasComponentOrRole(EntityUid user, EntityWhitelist? whitelist)
+    {
+        if (whitelist == null)
+            return true;
+
+        if (_whitelist.IsWhitelistPass(whitelist, user))
+            return true;
+
+        if (!_mind.TryGetMind(user, out var mindId, out var mind))
+            return false;
+
+        return _role.MindHasRole((mindId, mind), whitelist);
+    }
+
+    private bool HasMindShield(EntityUid user, bool passForFake)
+    {
+        _mindShield.GetMindshieldStatus(user, out var isMindshielded, out var isVisible);
+
+        if (isMindshielded)
+            return true;
+
+        return passForFake && isVisible;
     }
 
     private bool IsSecLevelAuthorized(EntityUid user, FiringPinCheck check)
@@ -310,7 +340,7 @@ public sealed partial class FiringPinSystem : EntitySystem
 
             var verb = new Verb
             {
-                Text = Loc.GetString($"alert-level-{levelCopy}"),
+                Text = _alertLevel.AlertLevelName(new ProtoId<AlertLevelPrototype>(levelCopy)),
                 Disabled = check.SelectedAlertLevel == levelCopy,
                 Priority = -check.AllowedAlertLevels.IndexOf(levelCopy),
                 Category = SetAlertLevel,
@@ -320,7 +350,7 @@ public sealed partial class FiringPinSystem : EntitySystem
                     check.SelectedAlertLevel = levelCopy;
                     Dirty(ent);
 
-                    _popup.PopupPredicted(Loc.GetString("firing-pin-level-set", ("level", Loc.GetString($"alert-level-{levelCopy}"))), ent, user);
+                    _popup.PopupPredicted(Loc.GetString("firing-pin-level-set", ("level", _alertLevel.AlertLevelName(new ProtoId<AlertLevelPrototype>(levelCopy)))), ent, user);
                 },
             };
 
@@ -391,7 +421,7 @@ public sealed partial class FiringPinSystem : EntitySystem
     private bool CheckClown(Entity<FiringPinComponent> pin, EntityUid user, FiringPinCheck check)
     {
         _audio.PlayPredicted(pin.Comp.FailSound, pin.Owner, user);
-        return check.PassForClowns && HasComp<ClumsyComponent>(user);
+        return check.PassForClowns && _statusEffects.HasEffectComp<ClumsyGunStatusEffectComponent>(user);
     }
 
     private bool HasSuit(EntityUid user, ProtoId<TagPrototype>? requiredTag)

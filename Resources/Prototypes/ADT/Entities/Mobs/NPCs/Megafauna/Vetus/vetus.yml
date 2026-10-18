@@ -1,0 +1,131 @@
+- type: entity
+  id: ADTMegaFaunaVetusSpeculator
+  name: Vetus Speculator
+  description: An ancient robot from a long gone civilization, able to adapt to its environment and everything in it.
+  parent: ADTBaseMobMegafauna
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Aliens/Lavaland/vetus.rsi
+    drawdepth: Mobs
+    noRot: true
+    layers:
+    - map:
+      - enum.DamageStateVisualLayers.Base
+      state: ancient_robot
+    - map:
+      - mode
+      state: "1"
+      visible: false
+    - state: eyes
+      shader: unshaded
+    - map:
+      - shield
+      state: shield
+      shader: unshaded
+      visible: false
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.45
+        density: 80
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+      hitbox:
+        shape: !type:PhysShapeCircle
+          radius: 0.9
+        density: 1
+        hard: true
+        layer:
+        - BulletImpassable
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 2
+  - type: MovementIgnoreGravity
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      2500: Dead
+  - type: MeleeWeapon
+    attackRate: 1
+    damage:
+      types:
+        Shock: 20
+    range: 1.5
+    angle: 0
+    animation: WeaponArcPunch
+    soundHit:
+      path: /Audio/Items/Defib/defib_zap.ogg
+  - type: ArmorPenetration
+    penetration: 0.4
+  - type: HTN
+    blackboard:
+      VisionRadius: !type:Single "5"
+      AggroVisionRadius: !type:Single "18"
+      NavSmash: !type:Bool "true"
+      NavInteract: !type:Bool "true"
+      MeleeRange: !type:Single "1.5"
+      MeleeMissChance: !type:Single "0"
+    rootTask:
+      task: ADTVetusCompound
+  - type: Megafauna
+    speechFont: Default
+  - type: ADTSegmented
+    deleteOnDeath: true
+    teleportDistance: 3
+    segments:
+    - proto: ADTVetusLeg
+      offset: 2,2
+      group: 0
+      stepThreshold: 1
+      stepLead: 0.5
+      stepDuration: 0.3
+      stepHeight: 0.25
+      leashDistance: 3
+    - proto: ADTVetusLeg
+      offset: -2,2
+      group: 1
+      stepThreshold: 1
+      stepLead: 0.5
+      stepDuration: 0.3
+      stepHeight: 0.25
+      leashDistance: 3
+    - proto: ADTVetusLeg
+      offset: 2,-2
+      group: 1
+      stepThreshold: 1
+      stepLead: 0.5
+      stepDuration: 0.3
+      stepHeight: 0.25
+      leashDistance: 3
+    - proto: ADTVetusLeg
+      offset: -2,-2
+      group: 0
+      stepThreshold: 1
+      stepLead: 0.5
+      stepDuration: 0.3
+      stepHeight: 0.25
+      leashDistance: 3
+
+- type: entity
+  id: ADTVetusLeg
+  parent: ADTBaseSegment
+  name: leg
+  description: A combat support with a built-in turret, designed to shoot and crush small miners like you.
+  components:
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    sprite: ADT/Mobs/Aliens/Lavaland/vetus_leg.rsi
+    drawdepth: Mobs
+    noRot: true
+    layers:
+    - state: leg
+  - type: ADTSegment
+    damageModifier: 0.75
+  - type: ADTSegmentTether
+    sprite:
+      sprite: /Textures/ADT/Effects/vetus_tether.rsi
+      state: leg_connection
