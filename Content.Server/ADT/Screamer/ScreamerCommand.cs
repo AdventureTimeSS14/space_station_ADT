@@ -147,7 +147,7 @@ public sealed partial class ScreamerCommand : IConsoleCommand
         {
             var hint = Loc.GetString("play-global-sound-command-arg-path");
 
-            var options = CompletionHelper.AudioFilePath(args[4], _proto, _res);
+            var options = CompletionHelper.AudioFilePath(args[3], _proto, _res);
 
             return CompletionResult.FromHintOptions(options, hint);
         }
