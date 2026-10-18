@@ -77,12 +77,15 @@ public sealed class BlobTileSystem : SharedBlobTileSystem
 
     private void OnTerminate(EntityUid uid, BlobTileComponent component, EntityTerminatingEvent args)
     {
-        _blobNuke.CheckTileForNukes(uid, terminating: true);
+        if (component.Core != null && !TerminatingOrDeleted(component.Core))
+            component.Core.Value.Comp.BlobTiles.Remove(uid);
 
-        if (TerminatingOrDeleted(component.Core))
-            return;
-
-        component.Core!.Value.Comp.BlobTiles.Remove(uid);
+        if (TryComp<TransformComponent>(uid, out var xform) &&
+            xform.GridUid is { } gridUid && !TerminatingOrDeleted(gridUid) &&
+            xform.MapUid is { } mapUid && !TerminatingOrDeleted(mapUid))
+        {
+            _blobNuke.CheckTileForNukes(uid, terminating: true);
+        }
     }
 
     private void OnDestruction(EntityUid uid, BlobTileComponent component, DestructionEventArgs args)

@@ -9,6 +9,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Collections;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Physics;
 
 namespace Content.Server.ADT.Blob;
 
@@ -83,17 +84,24 @@ public sealed class BlobNukeSystem : EntitySystem
 
     private void OnNukeMoved(EntityUid uid, NukeComponent component, ref MoveEvent args)
     {
+        if (TerminatingOrDeleted(uid))
+            return;
+
         UpdateNukeInfestation(uid, component);
     }
 
     public void UpdateNukeInfestation(EntityUid nukeUid, NukeComponent? nukeComp = null, TransformComponent? xform = null, EntityUid? terminatingTile = null)
     {
+        if (TerminatingOrDeleted(nukeUid))
+            return;
+
         if (!Resolve(nukeUid, ref nukeComp, ref xform))
             return;
 
-        if (xform.GridUid is not { } gridUid || !TryComp<MapGridComponent>(gridUid, out var grid))
+        if (xform.GridUid is not { } gridUid || TerminatingOrDeleted(gridUid) || !TryComp<MapGridComponent>(gridUid, out var grid))
         {
-            _appearance.SetData(nukeUid, BlobNukeVisuals.Infested, false);
+            if (!TerminatingOrDeleted(nukeUid))
+                _appearance.SetData(nukeUid, BlobNukeVisuals.Infested, false);
             _infestedArmedNukes.Remove(nukeUid);
             return;
         }
@@ -114,7 +122,8 @@ public sealed class BlobNukeSystem : EntitySystem
             }
         }
 
-        _appearance.SetData(nukeUid, BlobNukeVisuals.Infested, isInfested);
+        if (!TerminatingOrDeleted(nukeUid))
+            _appearance.SetData(nukeUid, BlobNukeVisuals.Infested, isInfested);
 
         if (isInfested && nukeComp.Status == NukeStatus.ARMED)
         {
@@ -128,9 +137,23 @@ public sealed class BlobNukeSystem : EntitySystem
 
     public void CheckTileForNukes(EntityUid blobTileUid, bool terminating = false)
     {
-        var xform = Transform(blobTileUid);
+        if (!TryComp<TransformComponent>(blobTileUid, out var xform))
+            return;
+
+        if (xform.MapUid is not { } mapUid || TerminatingOrDeleted(mapUid))
+            return;
+
+        if (xform.GridUid is not { } gridUid || TerminatingOrDeleted(gridUid))
+            return;
+
+        if (!HasComp<BroadphaseComponent>(gridUid))
+            return;
+
         foreach (var nuke in _lookup.GetEntitiesInRange<NukeComponent>(xform.Coordinates, 0.75f))
         {
+            if (TerminatingOrDeleted(nuke.Owner))
+                continue;
+
             UpdateNukeInfestation(nuke.Owner, nuke.Comp, terminatingTile: terminating ? blobTileUid : null);
         }
     }

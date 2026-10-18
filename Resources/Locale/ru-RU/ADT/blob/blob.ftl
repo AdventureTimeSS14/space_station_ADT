@@ -220,7 +220,7 @@ language-ADTBlob-description = Блиб блоб! Блоб блоб!
 
 # Ядерная бомба блоба
 ent-ADTInfectedNuclearBomb = заражённая ядерная боеголовка
-ent-ADTInfectedNuclearBomb.desc = Ядерная боеголовка, опутанная и поглощаемая пульсирующей биомассой блоба.
+    .desc = Ядерная боеголовка, опутанная и поглощаемая пульсирующей биомассой блоба.
 blob-nuke-examined-infested = [color=crimson]Боеголовка опутана блобом![/color]
 blob-nuke-examined-disarming = [color=orange]Биомасса блоба разъедает механизмы боеголовки, она будет обезврежена через { $seconds } сек.![/color]
 blob-nuke-disarmed-by-blob = Биомасса блоба полностью опутала и обезвредила ядерную боеголовку!
