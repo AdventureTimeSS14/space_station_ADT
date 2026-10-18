@@ -209,7 +209,7 @@
         - id: LightReplacer
         - id: WireBrush
 
-# Улучшенные поясы для глав отделов и старших сотрудников: 18 слотов вместо 16
+# Продвинутые поясы для ведущих ролей, на 2 клеточки больше места
 - type: entity
   id: ADTClothingBeltMedicalAdvancedFilled
   parent: ClothingBeltMedicalFilled
