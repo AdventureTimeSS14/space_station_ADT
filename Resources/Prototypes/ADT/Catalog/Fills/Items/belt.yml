@@ -208,3 +208,48 @@
         - id: FlashlightLantern
         - id: LightReplacer
         - id: WireBrush
+
+# Улучшенные поясы для глав отделов и старших сотрудников: 18 слотов вместо 16
+- type: entity
+  id: ADTClothingBeltMedicalAdvancedFilled
+  parent: ClothingBeltMedicalFilled
+  name: advanced medical belt
+  description: Can hold various medical equipment. This one has a little more room.
+  suffix: Advanced, Filled
+  components:
+  - type: Storage
+    grid:
+    - 0,0,8,1
+
+- type: entity
+  id: ADTClothingBeltSecurityAdvancedFilled
+  parent: ClothingBeltSecurityFilled
+  name: advanced security belt
+  description: Can hold security gear like handcuffs and flashes. This one has a little more room.
+  suffix: Advanced, Filled
+  components:
+  - type: Storage
+    grid:
+    - 0,0,8,1
+
+- type: entity
+  id: ADTClothingBeltUtilityAdvancedFilled
+  parent: ClothingBeltUtilityFilled
+  name: advanced utility belt
+  description: Can hold various things. This one has a little more room.
+  suffix: Advanced, Filled
+  components:
+  - type: Storage
+    grid:
+    - 0,0,8,1
+
+- type: entity
+  id: ADTClothingBeltUtilityAdvancedEngineering
+  parent: ClothingBeltUtilityEngineering
+  name: advanced utility belt
+  description: Can hold various things. This one has a little more room.
+  suffix: Advanced, Engineering
+  components:
+  - type: Storage
+    grid:
+    - 0,0,8,1
