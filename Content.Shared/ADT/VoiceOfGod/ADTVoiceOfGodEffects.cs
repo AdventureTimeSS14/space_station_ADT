@@ -1,4 +1,3 @@
-using Content.Shared.ADT.Hallucinations;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
@@ -42,10 +41,7 @@ public sealed partial class ADTForceVomit : EntityEffectBase<ADTForceVomit>;
 public sealed partial class ADTHallucinate : EntityEffectBase<ADTHallucinate>
 {
     [DataField(required: true)]
-    public string Key = string.Empty;
-
-    [DataField(required: true)]
-    public ProtoId<HallucinationsPrototype> Pack;
+    public string Pack = string.Empty;
 
     [DataField]
     public TimeSpan Time = TimeSpan.FromSeconds(15);
