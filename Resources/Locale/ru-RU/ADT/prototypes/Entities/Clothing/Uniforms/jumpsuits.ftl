@@ -480,6 +480,9 @@ ent-ADTClothingUniformJumpsuitTonnyShirt = рубашка тонни
 ent-ADTClothingUniformJumpsuitNavyShirt = морская рубашка
     .desc = Обычная бело-синяя рубашка в полоску. От неё пахнет морской солью или потом?...
 
+ent-ADTClothingUniformJumpsuitNavyShirtPrisoner = морская рубашка заключённого
+    .desc = { ent-ADTClothingUniformJumpsuitNavyShirt.desc }
+
 ent-ADTClothingUniformJumpsuitTurtleneckBeige = бежевая водолазка
     .desc = Мягко и уютно.
 
@@ -516,16 +519,16 @@ ent-ADTClothingUniformJumpsuitSuitCage = клетчатый костюм
 ent-ADTClothingUniformJumpsuitSuitGold = золотой костюм
     .desc = НУЖНО БОЛЬШЕ ЗОЛОТА!
 
-ent-ADTClothingUniformJumpsuitAdidasBlack = чёрная спортивка адидас
+ent-ADTClothingUniformJumpsuitAdidasBlack = чёрная спортивка агидас
     .desc = Чёткий прикид для спорта и гоп-стопа. Vodka, abibas, cheeki-breki и SUKA BLYAT!
 
-ent-ADTClothingUniformJumpsuitAdidasBlue = синяя спортивка адидас
+ent-ADTClothingUniformJumpsuitAdidasBlue = синяя спортивка агидас
     .desc = Чёткий синий прикид для спорта и гоп-стопа.
 
-ent-ADTClothingUniformJumpsuitAdidasRed = красная спортивка адидас
+ent-ADTClothingUniformJumpsuitAdidasRed = красная спортивка агидас
     .desc = Чёткий красный прикид для спорта и гоп-стопа.
 
-ent-ADTClothingUniformJumpsuitAdidasWhite = белая спортивка адидас
+ent-ADTClothingUniformJumpsuitAdidasWhite = белая спортивка агидас
     .desc = Модный белый прикид для спорта и гоп-стопа. Штаны мне заср*шь - П*ЗДЕЦ ТЕБЕ!
 
 ent-ADTClothingUniformJumpsuitSportUSSP = спортивка СССП

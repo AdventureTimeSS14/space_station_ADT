@@ -1834,6 +1834,22 @@
     price: 30
 
 - type: entity
+  parent: ADTClothingUniformJumpsuitNavyShirt
+  id: ADTClothingUniformJumpsuitNavyShirtPrisoner
+  suffix: Prisoner
+  components:
+  - type: ADTSuitSensor
+    controlsLocked: true
+    randomMode: false
+    mode: SensorCords
+  - type: Tag
+    tags:
+    - ClothMade
+    - Recyclable
+    - PrisonUniform
+    - WhitelistChameleon
+
+- type: entity
   parent: ClothingUniformBase
   id: ADTClothingUniformJumpsuitTurtleneckBeige
   name: beige turtleneck

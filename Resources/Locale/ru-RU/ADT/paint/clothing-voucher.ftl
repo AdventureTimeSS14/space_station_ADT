@@ -28,7 +28,7 @@ ent-ADTClothingVoucherUnderwearMonokiniTop = автопокрасчик верх
     .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
 ent-ADTClothingVoucherUnderwearTShirt = автопокрасчик майки
     .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
-ent-ADTClothingVoucherAdidas = автопокрасчик спортивки адидас
+ent-ADTClothingVoucherAdidas = автопокрасчик спортивки агидас
     .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
 
 ent-ADTClothingVoucherCasualShirt = автопокрасчик рубашки
