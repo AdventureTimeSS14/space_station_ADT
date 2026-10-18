@@ -11,6 +11,10 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Systems;
+using Content.Shared.Chemistry.Components;
+using Content.Shared.FixedPoint;
 using Robust.Server.GameObjects;
 using Robust.Shared.Random;
 
@@ -20,6 +24,7 @@ public sealed class BlobbernautSystem : SharedBlobbernautSystem
 {
     [Dependency] private EntityLookupSystem _entityLookupSystem = default!;
     [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
 
     [Dependency] private ExplosionSystem _explosionSystem = default!;
     [Dependency] private IRobustRandom _random = default!;
@@ -99,11 +104,28 @@ public sealed class BlobbernautSystem : SharedBlobbernautSystem
             case BlobChemType.ExplosiveLattice:
                 _explosionSystem.QueueExplosion(args.HitEntities.FirstOrDefault(), blobCoreComponent.BlobExplosive, 4, 1, 2, maxTileBreak: 0);
                 break;
+            case BlobChemType.ChainCoating:
+            {
+                _damageableSystem.SetDamageModifierSetId(uid, "ADTBlobBlobbernautChainCoating");
+                break;
+            }
             case BlobChemType.ElectromagneticWeb:
             {
                 var xform = Transform(args.HitEntities.FirstOrDefault());
                 if (_random.Prob(0.2f))
                     _empSystem.EmpPulse(_transform.GetMapCoordinates(xform), 3f, 50f, TimeSpan.FromSeconds(3f));
+                break;
+            }
+            case BlobChemType.RegenerativeMateria:
+            {
+                foreach (var hit in args.HitEntities)
+                {
+                    if (TryComp<BloodstreamComponent>(hit, out var bloodstream))
+                    {
+                        var sol = new Solution("Lexorin", FixedPoint2.New(2.5f));
+                        _bloodstream.TryAddToBloodstream((hit, bloodstream), sol);
+                    }
+                }
                 break;
             }
         }

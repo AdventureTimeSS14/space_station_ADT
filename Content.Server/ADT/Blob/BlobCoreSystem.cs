@@ -331,6 +331,18 @@ public sealed class BlobCoreSystem : EntitySystem
             case BlobChemType.ElectromagneticWeb:
                 _damageable.SetDamageModifierSetId(uid, "ADTElectromagneticWebBlob");
                 break;
+            case BlobChemType.SinewyTendons:
+                _damageable.SetDamageModifierSetId(uid, "ADTSinewyTendonsBlob");
+                break;
+            case BlobChemType.ChainCoating:
+                _damageable.SetDamageModifierSetId(uid, "ADTChainCoatingBlob");
+                break;
+            case BlobChemType.BlazingOil:
+                _damageable.SetDamageModifierSetId(uid, "ADTBlazingOilBlob");
+                break;
+            case BlobChemType.RegenerativeMateria:
+                _damageable.SetDamageModifierSetId(uid, "ADTRegenerativeMateriaBlob");
+                break;
             default:
                 _damageable.SetDamageModifierSetId(uid, "ADTBaseBlob");
                 break;
@@ -506,6 +518,16 @@ public sealed class BlobCoreSystem : EntitySystem
         return false;
     }
 
+    public FixedPoint2 GetTileCost(Entity<BlobCoreComponent> core, BlobTileType tileType)
+    {
+        if (core.Comp.BlobTileCostsByChem.TryGetValue(tileType, out var chemCosts) && chemCosts.TryGetValue(core.Comp.CurrentChem, out var specialCost))
+        {
+            return specialCost;
+        }
+
+        return core.Comp.BlobTileCosts[tileType];
+    }
+
     public void TransformSpecialTile(Entity<BlobCoreComponent> blobCore, BlobTransformTileActionEvent args)
     {
         if (!TryGetTargetBlobTile(args, out var blobTile) || blobTile?.Comp.Core == null)
@@ -518,7 +540,7 @@ public sealed class BlobCoreSystem : EntitySystem
         if (!CheckValidBlobTile(blobTile.Value, nearNode, args.RequireNode, args))
             return;
 
-        if (!TryUseAbility(blobCore, blobCore.Comp.BlobTileCosts[tileType], coords))
+        if (!TryUseAbility(blobCore, GetTileCost(blobCore, tileType), coords))
             return;
 
         TransformBlobTile(
@@ -595,7 +617,7 @@ public sealed class BlobCoreSystem : EntitySystem
 
         if (target.Comp.ReturnCost)
         {
-            returnCost = core.Comp.BlobTileCosts[tileComp.BlobTileType];
+            returnCost = GetTileCost(core, tileComp.BlobTileType);
         }
 
         if (returnCost <= 0)

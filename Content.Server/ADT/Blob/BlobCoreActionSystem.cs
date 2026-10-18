@@ -17,6 +17,12 @@ using Content.Shared.Interaction;
 using Content.Shared.Item;
 using Content.Shared.Popups;
 using Content.Shared.SubFloor;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Systems;
+using Content.Shared.Chemistry.Components;
+using Content.Shared.FixedPoint;
+using Content.Shared.Damage;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -48,6 +54,7 @@ public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
     [Dependency] private DamageableSystem _damageableSystem = default!;
     [Dependency] private MapSystem _mapSystem = default!;
     [Dependency] private BlobTileSystem _blobTileSystem = default!;
+    [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
     //[Dependency] private GridFixtureSystem _gridFixture = default!;
 
     private const double ActionJobTime = 0.005;
@@ -176,8 +183,26 @@ public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
         }
 
         var cost = core.Comp.BlobTileCosts[BlobTileType.Normal];
+
+        switch (core.Comp.CurrentChem)
+        {
+            case BlobChemType.ChainCoating:
+                cost *= 1.5f;
+                break;
+        }
+
         if (targetTileEmpty)
-            cost *= 2.5f;
+        {
+            switch (core.Comp.CurrentChem)
+            {
+                case BlobChemType.ComatoseFiber:
+                    cost *= 1f;
+                    break;
+                default:
+                    cost *= 2.5f;
+                    break;
+            }
+        }
 
         if (spendPoints)
         {
@@ -237,7 +262,17 @@ public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
             return;
 
         _blobTileSystem.DoLunge(from, target);
-        _damageableSystem.TryChangeDamage(target, ent.Comp.ChemDamageDict[ent.Comp.CurrentChem]);
+
+        var damage = new DamageSpecifier(ent.Comp.ChemDamageDict[ent.Comp.CurrentChem]);
+        if (!HasComp<MobStateComponent>(target) && damage.DamageDict.TryGetValue("Structural", out var structDmg))
+        {
+            if (!TryComp<DamageableComponent>(target, out var damageable) || !_damageableSystem.SupportsType((target, damageable), "Structural"))
+            {
+                damage.DamageDict["Blunt"] = damage.DamageDict.GetValueOrDefault("Blunt") + structDmg;
+            }
+        }
+
+        _damageableSystem.TryChangeDamage(target, damage);
 
         switch (ent.Comp.CurrentChem)
         {
@@ -258,6 +293,15 @@ public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
                     _flammable.Ignite(target, from, flammable);
                 }
 
+                break;
+            }
+            case BlobChemType.RegenerativeMateria:
+            {
+                if (TryComp<BloodstreamComponent>(target, out var bloodstream))
+                {
+                    var sol = new Solution("Lexorin", FixedPoint2.New(2.5f));
+                    _bloodstream.TryAddToBloodstream((target, bloodstream), sol);
+                }
                 break;
             }
         }
