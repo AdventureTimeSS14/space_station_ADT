@@ -60,6 +60,9 @@ public sealed partial class SchizophreniaSystem : EntitySystem
 
         var selected = _random.Pick(ents);
 
+        if (args.Appearance.Prototypes is not { Count: > 0 } || args.Appearance.States.Count <= 0)
+            return;
+
         var proto = _random.Pick(args.Appearance.Prototypes);
         var item = Spawn(proto);
 

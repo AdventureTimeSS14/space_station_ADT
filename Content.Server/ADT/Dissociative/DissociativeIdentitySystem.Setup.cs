@@ -162,7 +162,7 @@ public sealed partial class DissociativeIdentitySystem
     private static string SanitizeName(string raw)
     {
         var sb = new StringBuilder();
-        foreach (var c in raw.Trim())
+        foreach (var c in (raw ?? string.Empty).Trim())
         {
             if (char.IsLetter(c) || c is ' ' or '-' or '\'')
                 sb.Append(c);

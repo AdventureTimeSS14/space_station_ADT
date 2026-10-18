@@ -1,11 +1,11 @@
-action-dissociative-manifest-name = Manifest
-action-dissociative-manifest-desc = Step out of your host or go back inside. Only the host can see you outside.
-action-dissociative-front-name = Take control
-action-dissociative-front-desc = Take over the host's body for a while.
-action-dissociative-release-name = Give control back
-action-dissociative-release-desc = Return the body to its host early.
-action-dissociative-setup-name = Shape personality
-action-dissociative-setup-desc = Pick a name, sex, voice and look. Available once.
+ent-ActionDissociativeManifest = Manifest
+    .desc = Step out of your host or go back inside. Only the host can see you outside.
+ent-ActionDissociativeFront = Take control
+    .desc = Take over the host's body for a while.
+ent-ActionDissociativeRelease = Give control back
+    .desc = Return the body to its host early.
+ent-ActionDissociativeSetup = Shape personality
+    .desc = Pick a name, sex, voice and look. Available once.
 
 dissociative-not-in-control = You are not in control of the body right now.
 dissociative-manifest-host-contained = Your host is shut in, you can't get out.
@@ -43,9 +43,12 @@ reagent-effect-guidebook-antipsychotic =
        *[other] suppress
     } a second personality
 
-action-dissociative-surrender-name = Stop fighting
-action-dissociative-surrender-desc = Give your body to the second personality for good and become the voice inside yourself.
+ent-ActionDissociativeSurrender = Stop fighting
+    .desc = Give your body to the second personality for good and become the voice inside yourself.
 dissociative-surrender-confirm = Press again to give up your body for good.
 dissociative-surrender-no-alter = There is no one inside to give in to.
 dissociative-surrender-alter = The host gave in. The body is yours for good.
 dissociative-surrender-host = You stop resisting and dissolve inside.
+
+ent-ActionMidroundCustomization = Change appearance
+    .desc = Change your hair, facial hair and voice.

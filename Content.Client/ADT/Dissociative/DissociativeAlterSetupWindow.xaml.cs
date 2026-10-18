@@ -43,6 +43,8 @@ public sealed partial class DissociativeAlterSetupWindow : FancyWindow
             _nameSet = true;
         }
 
-        SexSelector.SelectId(Array.IndexOf(Sexes, sex));
+        var index = Array.IndexOf(Sexes, sex);
+        if (index >= 0)
+            SexSelector.SelectId(index);
     }
 }

@@ -124,7 +124,7 @@ public sealed partial class ScreamerCommand : IConsoleCommand
 
         if (!_entManager.System<ScreamerSystem>().DoScreamer(uid, args[1], sound, offset, alpha, duration, fadeIn, fadeOut))
         {
-            shell.WriteError($"{uid} is not controlled by a player, nobody to show the screamer to.");
+            shell.WriteError(Loc.GetString("screamer-command-no-player", ("uid", uid)));
             return;
         }
 

@@ -1,11 +1,11 @@
-action-dissociative-manifest-name = Проявиться
-action-dissociative-manifest-desc = Выйти из тела хозяина или вернуться обратно. Снаружи вас видит только хозяин.
-action-dissociative-front-name = Перехватить контроль
-action-dissociative-front-desc = Забрать тело хозяина себе на время.
-action-dissociative-release-name = Вернуть контроль
-action-dissociative-release-desc = Отдать тело хозяину раньше времени.
-action-dissociative-setup-name = Настроить личность
-action-dissociative-setup-desc = Выбрать имя, пол, голос и внешность. Доступно один раз.
+ent-ActionDissociativeManifest = Проявиться
+    .desc = Выйти из тела хозяина или вернуться обратно. Снаружи вас видит только хозяин.
+ent-ActionDissociativeFront = Перехватить контроль
+    .desc = Забрать тело хозяина себе на время.
+ent-ActionDissociativeRelease = Вернуть контроль
+    .desc = Отдать тело хозяину раньше времени.
+ent-ActionDissociativeSetup = Настроить личность
+    .desc = Выбрать имя, пол, голос и внешность. Доступно один раз.
 
 dissociative-not-in-control = Сейчас телом управляете не вы.
 dissociative-manifest-host-contained = Хозяин заперт, выйти не получится.
@@ -43,9 +43,12 @@ reagent-effect-guidebook-antipsychotic =
        *[other] подавляют
     } вторую личность
 
-action-dissociative-surrender-name = Перестать бороться
-action-dissociative-surrender-desc = Навсегда отдать тело второй личности и самому стать голосом внутри.
+ent-ActionDissociativeSurrender = Перестать бороться
+    .desc = Навсегда отдать тело второй личности и самому стать голосом внутри.
 dissociative-surrender-confirm = Нажмите ещё раз, чтобы навсегда отдать тело.
 dissociative-surrender-no-alter = Внутри никого нет, сдаваться некому.
 dissociative-surrender-alter = Хозяин сдался. Тело теперь ваше навсегда.
 dissociative-surrender-host = Вы перестаёте сопротивляться и растворяетесь внутри.
+
+ent-ActionMidroundCustomization = Изменить внешность
+    .desc = Изменить причёску, растительность на лице и голос.

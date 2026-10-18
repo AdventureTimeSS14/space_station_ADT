@@ -126,3 +126,4 @@ add-as-hallucination-command-success = Сущность { $added } теперь 
 screamer-command-description = Пугает указанного игрока скримером
 screamer-command-help-text = Использование: { $command } <uid> <прототип скримера> <время> <звук> <непрозрачность> <плавное появление> <плавное затухание> <x> <y>
 screamer-command-success = Скример успешно отправлен.
+screamer-command-no-player = { $uid } не управляется игроком, показывать скример некому.

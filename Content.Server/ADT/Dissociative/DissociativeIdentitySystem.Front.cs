@@ -108,11 +108,12 @@ public sealed partial class DissociativeIdentitySystem
         EntityUid? hostMind = _mind.TryGetMind(host, out var hostMindId, out _) ? hostMindId : null;
 
         Retract(host, alter);
-        SwapMinds(host, alter, hostMind, alterMind);
 
         host.Comp.HostMind = hostMind;
         host.Comp.AlterMind = alterMind;
         host.Comp.Fronting = true;
+
+        SwapMinds(host, alter, hostMind, alterMind);
 
         var duration = host.Comp.FrontDuration;
         if (IsAbstinent(host.Comp))
