@@ -188,7 +188,7 @@
         type: Add
         refresh: false
       - !type:Jitter
-      - !type:HallucinationsReagentEffect
+      - !type:Hallucinate
         hallucinations: [ Liminal ]
         type: Add
         time: 300

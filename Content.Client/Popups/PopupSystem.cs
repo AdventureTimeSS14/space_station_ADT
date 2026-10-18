@@ -266,7 +266,7 @@ public sealed partial class PopupSystem : SharedPopupSystem
 
         var entity = GetEntity(ev.Uid);
 
-        if (TryComp(entity, out TransformComponent? transform))
+        if (TryComp(entity, out TransformComponent? transform) && _schiz.CanSee(entity)) // ADT-Tweak - hallucinations
             PopupInternal(ev.Message, ev.Type, transform.Coordinates, entity, false);
     }
 

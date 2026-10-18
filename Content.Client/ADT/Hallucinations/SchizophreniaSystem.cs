@@ -55,20 +55,29 @@ public sealed partial class SchizophreniaSystem : EntitySystem
 
         // Get target entity
         var ents = EntityManager.AllEntities<HumanoidProfileComponent>().Where(x => x.Owner != _player.LocalEntity && !HasComp<HallucinationComponent>(x)).ToList();
+        if (ents.Count <= 0)
+            return;
+
         var selected = _random.Pick(ents);
 
         var proto = _random.Pick(args.Appearance.Prototypes);
         var item = Spawn(proto);
 
         if (!TryComp<SpriteComponent>(selected, out var sprite) || !TryComp<SpriteComponent>(item, out var itemSprite))
+        {
+            QueueDel(item);
             return;
+        }
 
         var state = _random.Pick(args.Appearance.States);
 
         // Ensure that given prototype sprite contains our state
         var rsi = itemSprite.BaseRSI;
         if (rsi == null || !rsi.TryGetState(state, out _))
+        {
+            QueueDel(item);
             return;
+        }
 
         // Build layer
         var layer = new PrototypeLayerData();

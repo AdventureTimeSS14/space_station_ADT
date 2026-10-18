@@ -1,4 +1,6 @@
+using Content.Server.ADT.Hallucinations.Components;
 using Content.Shared.ADT.Supermatter.Components;
+using Content.Shared.EntityEffects.Effects.StatusEffects;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Silicons.Laws.Components;
@@ -64,10 +66,8 @@ public sealed partial class SupermatterSystem
                 _paracusia.SetDistance(mob, paracusiaDistance, paracusia);
             }
 
-            var hallucinationKey = "ADTHallucination";
-            var hallucinationProto = "SupermatterPack";
-
-            //_hallucinations.StartHallucinations(mob, hallucinationKey, TimeSpan.FromSeconds(100), true, hallucinationProto);
+            if (HasComp<CanHallucinateComponent>(mob))
+                _schizophrenia.AddOrAdjustHallucinations(mob, "SupermatterPack", 100f, StatusEffectMetabolismType.Update);
         }
     }
 

@@ -35,7 +35,19 @@ public sealed partial class HallucinateCommand : IConsoleCommand
             return;
         }
 
-        if (!Enum.TryParse<StatusEffectMetabolismType>(args[1], out var type))
+        if (!_entManager.EntityExists(uid))
+        {
+            shell.WriteError(Loc.GetString("shell-could-not-find-entity"));
+            return;
+        }
+
+        if (!_entManager.HasComponent<CanHallucinateComponent>(uid))
+        {
+            shell.WriteError($"{_entManager.ToPrettyString(uid)} can't hallucinate (no CanHallucinate component).");
+            return;
+        }
+
+        if (!Enum.TryParse<StatusEffectMetabolismType>(args[1], true, out var type))
         {
             shell.WriteLine(Loc.GetString("shell-invalid-metabolism-type"));
             return;
@@ -73,6 +85,7 @@ public sealed partial class HallucinateCommand : IConsoleCommand
         {
             var opts = new List<string>()
             {
+                "Update",
                 "Add",
                 "Set",
                 "Remove"

@@ -1,6 +1,8 @@
+using Content.Shared.CCVar;
 using Content.Shared.Drunk;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
+using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -15,6 +17,7 @@ public sealed partial class ScreenWaveOverlay : Overlay
     [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private IPlayerManager _playerManager = default!;
     [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IConfigurationManager _configManager = default!;
     private readonly Shared.StatusEffectNew.StatusEffectsSystem _statusEffectsSystem;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
@@ -44,11 +47,14 @@ public sealed partial class ScreenWaveOverlay : Overlay
 
     private float _timeTicker = 0.0f;
 
+    private bool _reducedMotion;
+
     public ScreenWaveOverlay()
     {
         IoCManager.InjectDependencies(this);
         _statusEffectsSystem = _entityManager.System<Shared.StatusEffectNew.StatusEffectsSystem>();
         _rotateShader = _prototypeManager.Index(RotateShader).InstanceUnique();
+        _configManager.OnValueChanged(CCVars.DisableDrunkOverlay, value => _reducedMotion = value, invokeImmediately: true);
     }
 
     protected override void FrameUpdate(FrameEventArgs args)
@@ -73,6 +79,9 @@ public sealed partial class ScreenWaveOverlay : Overlay
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)
     {
+        if (_reducedMotion)
+            return false;
+
         if (!_entityManager.TryGetComponent(_playerManager.LocalEntity, out EyeComponent? eyeComp))
             return false;
 

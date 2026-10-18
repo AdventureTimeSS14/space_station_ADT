@@ -23,7 +23,7 @@ public sealed partial class SchizophreniaSystem
         SubscribeLocalEvent<HallucinationComponent, MapInitEvent>(OnHallucinationInit);
         SubscribeLocalEvent<HallucinationComponent, ComponentShutdown>(OnHallucinationShutdown);
 
-        SubscribeLocalEvent<HallucinationComponent, ExpandICChatRecipientsEvent>(OnBeforeChatMessage);
+        SubscribeLocalEvent<ExpandICChatRecipientsEvent>(OnBeforeChatMessage);
         SubscribeLocalEvent<HallucinationComponent, OverrideEmoteSoundEvent>(OverrideEmoteSound);
         SubscribeLocalEvent<HallucinationComponent, SetupPointingArrowEvent>(OnSetupPointer);
 
@@ -91,16 +91,19 @@ public sealed partial class SchizophreniaSystem
     }
     #endregion
 
-    private void OnBeforeChatMessage(Entity<HallucinationComponent> ent, ref ExpandICChatRecipientsEvent args)
+    private void OnBeforeChatMessage(ExpandICChatRecipientsEvent args)
     {
+        if (!_hallucinationQuery.TryGetComponent(args.Source, out var source))
+            return;
+
         List<ICommonSession> toRemove = new();
 
         foreach (var recipient in args.Recipients)
         {
-            if (_schizQuery.TryGetComponent(recipient.Key.AttachedEntity, out var schiz) && schiz.Idx == ent.Comp.Idx)
+            if (_schizQuery.TryGetComponent(recipient.Key.AttachedEntity, out var schiz) && schiz.Idx == source.Idx)
                 continue;
 
-            if (_hallucinationQuery.TryGetComponent(recipient.Key.AttachedEntity, out var hallucination) && hallucination.Idx == ent.Comp.Idx)
+            if (_hallucinationQuery.TryGetComponent(recipient.Key.AttachedEntity, out var hallucination) && hallucination.Idx == source.Idx)
                 continue;
 
             toRemove.Add(recipient.Key);

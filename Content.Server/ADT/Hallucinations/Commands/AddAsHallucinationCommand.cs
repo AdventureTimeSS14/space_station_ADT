@@ -22,7 +22,7 @@ public sealed partial class AddAsHallucinationCommand : IConsoleCommand
 
     public void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        if (args.Length < 4)
+        if (args.Length != 2)
         {
             shell.WriteLine(Loc.GetString("shell-wrong-arguments-number"));
             return;
@@ -36,6 +36,18 @@ public sealed partial class AddAsHallucinationCommand : IConsoleCommand
         if (!EntityUid.TryParse(args[1], out var toAdd))
         {
             shell.WriteLine(Loc.GetString("shell-entity-uid-must-be-number"));
+            return;
+        }
+
+        if (!_entManager.EntityExists(target) || !_entManager.EntityExists(toAdd))
+        {
+            shell.WriteError(Loc.GetString("shell-could-not-find-entity"));
+            return;
+        }
+
+        if (target == toAdd)
+        {
+            shell.WriteError("An entity can't be a hallucination of itself.");
             return;
         }
 

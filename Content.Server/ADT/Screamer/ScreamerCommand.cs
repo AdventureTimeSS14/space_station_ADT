@@ -42,13 +42,13 @@ public sealed partial class ScreamerCommand : IConsoleCommand
             return;
         }
 
-        if (!_proto.HasIndex(args[1]))
+        if (!_proto.HasIndex<EntityPrototype>(args[1]))
         {
             shell.WriteLine(Loc.GetString("shell-invalid-entity-id"));
             return;
         }
 
-        if (!int.TryParse(args[2], out var duration))
+        if (!int.TryParse(args[2], out var duration) || duration <= 0)
         {
             shell.WriteError(Loc.GetString("cmd-parse-failure-integer", ("arg", args[2])));
             return;
@@ -122,7 +122,12 @@ public sealed partial class ScreamerCommand : IConsoleCommand
             offset.Y = y;
         }
 
-        _entManager.System<ScreamerSystem>().DoScreamer(uid, args[1], sound, offset, alpha, duration, fadeIn, fadeOut);
+        if (!_entManager.System<ScreamerSystem>().DoScreamer(uid, args[1], sound, offset, alpha, duration, fadeIn, fadeOut))
+        {
+            shell.WriteError($"{uid} is not controlled by a player, nobody to show the screamer to.");
+            return;
+        }
+
         shell.WriteLine(Loc.GetString("screamer-command-success"));
     }
 

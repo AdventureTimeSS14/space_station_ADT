@@ -11,4 +11,4 @@
   components:
   - type: HallucinationsRemoveMobs
     reveal: ADTLiminalRevealEffect
-  startingMessage: Кажется, вы выпали за карту.
+  startingMessage: hallucinations-pack-liminal-start

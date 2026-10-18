@@ -21,6 +21,7 @@ public sealed partial class SchizophreniaSystem
 
         SubscribeLocalEvent<CanHallucinateComponent, AddHallucinationsEvent>(OnAddMobs);
         SubscribeLocalEvent<HallucinatingComponent, RemoveHallucinationsEvent>(OnRemove);
+        SubscribeLocalEvent<HallucinatingComponent, ComponentShutdown>(OnHallucinatingShutdown);
 
         SubscribeLocalEvent<HallucinationsRemoveMobsComponent, ComponentStartup>(OnRemoveMobsStartup);
         SubscribeLocalEvent<HallucinationsRemoveMobsComponent, CanHearVoiceEvent>(OnCanHearVoice);
@@ -48,6 +49,20 @@ public sealed partial class SchizophreniaSystem
     private void OnRemove(Entity<HallucinatingComponent> ent, ref RemoveHallucinationsEvent args)
     {
         AdjustAllHallucinations(ent.Owner, args.Time);
+    }
+
+    private void OnHallucinatingShutdown(Entity<HallucinatingComponent> ent, ref ComponentShutdown args)
+    {
+        if (TerminatingOrDeleted(ent.Owner))
+            return;
+
+        foreach (var id in ent.Comp.Hallucinations.Keys)
+        {
+            if (_proto.TryIndex<HallucinationsPackPrototype>(id, out var pack))
+                EntityManager.RemoveComponents(ent.Owner, pack.Components);
+        }
+
+        RemComp<HallucinationsMusicComponent>(ent.Owner);
     }
 
     private void OnRemoveMobsStartup(Entity<HallucinationsRemoveMobsComponent> ent, ref ComponentStartup args)
@@ -126,26 +141,35 @@ public sealed partial class SchizophreniaSystem
     {
         var comp = EnsureComp<HallucinatingComponent>(uid);
 
+        var timed = comp.Removes.TryGetValue(pack, out var end);
+
         switch (metabolism)
         {
-            case StatusEffectMetabolismType.Update:
-                if (comp.Removes.TryGetValue(pack, out _))
-                    comp.Removes[pack] = _timing.CurTime + TimeSpan.FromSeconds(duration);
-                else
-                    comp.Removes.Add(pack, _timing.CurTime + TimeSpan.FromSeconds(duration));
+            case StatusEffectMetabolismType.Remove:
+                if (duration <= 0)
+                    comp.Removes[pack] = _timing.CurTime;
+                else if (timed)
+                    comp.Removes[pack] = end - TimeSpan.FromSeconds(duration);
 
                 break;
-            case StatusEffectMetabolismType.Add:
-                if (comp.Removes.TryGetValue(pack, out _))
-                    comp.Removes[pack] += TimeSpan.FromSeconds(duration);
-                else
-                    comp.Removes.Add(pack, _timing.CurTime + TimeSpan.FromSeconds(duration));
-                break;
             case StatusEffectMetabolismType.Set:
-                if (comp.Removes.TryGetValue(pack, out _))
-                    comp.Removes[pack] = _timing.CurTime + TimeSpan.FromSeconds(duration);
+                if (duration <= 0)
+                    comp.Removes.Remove(pack);
                 else
-                    comp.Removes.Add(pack, _timing.CurTime + TimeSpan.FromSeconds(duration));
+                    comp.Removes[pack] = _timing.CurTime + TimeSpan.FromSeconds(duration);
+
+                break;
+            case StatusEffectMetabolismType.Update:
+            case StatusEffectMetabolismType.Add:
+                if (!timed)
+                    break;
+
+                if (duration <= 0)
+                    comp.Removes.Remove(pack);
+                else if (metabolism == StatusEffectMetabolismType.Add)
+                    comp.Removes[pack] = end + TimeSpan.FromSeconds(duration);
+                else
+                    comp.Removes[pack] = _timing.CurTime + TimeSpan.FromSeconds(duration);
 
                 break;
             default:
@@ -171,14 +195,12 @@ public sealed partial class SchizophreniaSystem
         if (_player.TryGetSessionByEntity(uid, out var session))
             _pvsOverride.AddForceSend(toAdd, session);
 
-        comp.Hallucinations.Add(toAdd);
+        if (!comp.Hallucinations.Contains(toAdd))
+            comp.Hallucinations.Add(toAdd);
 
         // Just needed, else game crashes
-        var hallucination = new HallucinationComponent()
-        {
-            Ent = uid
-        };
-        AddComp(toAdd, hallucination);
+        var hallucination = EnsureComp<HallucinationComponent>(toAdd);
+        hallucination.Ent = uid;
 
         // We dont need to change index if entity is already hallucinating
         if (comp.Idx <= 0)
@@ -206,6 +228,9 @@ public sealed partial class SchizophreniaSystem
     /// <param name="type">Add/Set/Remove</param>
     public void AddOrAdjustHallucinations(EntityUid uid, ProtoId<HallucinationsPackPrototype> pack, float duration, StatusEffectMetabolismType type)
     {
+        if (type == StatusEffectMetabolismType.Remove && !HasComp<HallucinatingComponent>(uid))
+            return;
+
         var comp = EnsureComp<HallucinatingComponent>(uid);
 
         if (comp.Hallucinations.Keys.Contains(pack))

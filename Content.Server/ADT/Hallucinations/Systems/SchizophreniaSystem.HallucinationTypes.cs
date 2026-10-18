@@ -35,6 +35,9 @@ public sealed partial class SchizophreniaSystem
 
     private void PerformMob(EntityUid uid, MobHallucinations mob)
     {
+        if (mob.Entities.Count <= 0)
+            return;
+
         var xform = Transform(uid);
 
         if (!TryComp<MapGridComponent>(xform.GridUid, out var mapGrid))
@@ -74,7 +77,7 @@ public sealed partial class SchizophreniaSystem
             if (ents.Count <= 0 && mob.Whitelist != null)
             {
                 tiles.RemoveAt(i);
-                break;
+                continue;
             }
 
             foreach (var ent in ents)
@@ -93,6 +96,9 @@ public sealed partial class SchizophreniaSystem
 
     private void PerformAppearance(EntityUid uid, AppearanceHallucinations appearance)
     {
+        if (appearance.Appearances.Count <= 0)
+            return;
+
         var selected = _random.Pick(appearance.Appearances);
         RaiseNetworkEvent(new SetHallucinationAppearanceMessage(selected), uid);
     }
