@@ -16360,3 +16360,13 @@ Entries:
     id: 2020
     pr_number: 3532
     time: '2026-10-17T22:03:19Z'
+  - author: maksim21612
+    changes:
+      - {message: Добавлены вещи арбитра (Unlumination), type: Add}
+      - {message: Добавлена игрушка Нави (Cyrex5386), type: Add}
+      - {message: Добавлена игрушка Олифера (Oliver28), type: Add}
+      - {message: Добавлена игрушка Цельки (JustMay), type: Add}
+      - {message: Фигурка Теокайа теперь с ADT в начале как и надо, type: Fix}
+    id: 2021
+    pr_number: 3537
+    time: '2026-10-18T20:28:19Z'
