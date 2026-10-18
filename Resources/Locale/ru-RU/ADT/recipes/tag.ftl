@@ -107,9 +107,6 @@ construction-graph-tag-wrench = гаечный ключ
 construction-graph-tag-baseball-bat = бейсбольная бита
 construction-graph-tag-spray-nozzle = форсунка-распылитель
 construction-graph-tag-welder = сварочный аппарат
-construction-graph-tag-firebomb = самодельная бомба
-construction-graph-tag-oxygen-tank = кислородный баллон
-construction-graph-tag-pest-spray = спрей от вредителей
 
 construction-graph-tag-archimedes-central-control-module = центральный модуль управления Архимеда
 construction-graph-tag-archimedes-peripherals-control-module = модуль управления периферией Архимеда
