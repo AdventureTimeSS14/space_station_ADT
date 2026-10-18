@@ -27,6 +27,18 @@
     tags:
     - Recyclable
     - SalvageScrap
+    - VoxFood # ADT-Tweak
+# ADT-Tweak-start
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5
+  - type: Edible
+    requiresSpecialDigestion: true
+# ADT-Tweak-end
 
 - type: entity
   parent: BaseStructure

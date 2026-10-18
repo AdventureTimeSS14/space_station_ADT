@@ -186,6 +186,8 @@
       - ADTVoxEmotes
       - CanPilot
       - DoorBumpOpener
+  - type: Puller
+    needsHands: false
   # ADT-Tweak end
   - type: Speech
     speechVerb: Vox

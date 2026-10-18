@@ -500,3 +500,40 @@
   components:
     - type: Foldable
       folded: true
+
+- type: entity
+  id: ADTVehicleTrackchair
+  parent: ADTBaseVehicleRideable
+  name: trackchair
+  description:
+  components:
+    - type: Vehicle
+      northOver: true
+      hasKey: true
+      northOverride: 0
+      southOverride: 0
+    - type: Sprite
+      sprite: ADT/Objects/Vehicles/trackchair.rsi
+      layers:
+      - state: trackchair
+        map: ["enum.VehicleVisualLayers.AutoAnimate"]
+      noRot: true
+    - type: MovementSpeedModifier
+      baseWalkSpeed: 2
+      baseSprintSpeed: 2
+    - type: Strap
+      buckleOffset: "0,0"
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.2
+          density: 360
+          restitution: 0.0
+          mask:
+            - MobMask
+          layer:
+            - TableLayer
+    - type: StaticPrice
+      price: 70

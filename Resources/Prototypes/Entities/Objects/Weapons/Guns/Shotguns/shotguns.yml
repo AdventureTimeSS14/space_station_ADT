@@ -145,6 +145,11 @@
   components:
   - type: Sprite
     sprite: ADT/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi # ADT tweak
+  # ADT-Tweak start
+    layers:
+    - state: icon
+      map: [ "enum.BreechVisuals.Open" ]
+  # ADT-Tweak end
   - type: Item
   # ADT-Tweak start
     sprite: ADT/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi
@@ -152,8 +157,6 @@
     sprite: ADT/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi
   # ADT-Tweak end
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
-  - type: Gun
-    fireRate: 3
   # ADT-Tweak start
   # - type: RunAndGunSpreadModifier
     # modifier: 0.3
@@ -169,12 +172,24 @@
   #- type: GunSpreadModifier
   #  spread: 0.6
   # ADT-Tweak end
-  - type: BallisticAmmoProvider
-    capacity: 2
   - type: Construction
     graph: ShotgunSawn
     node: start
     deconstructionTarget: null
+  # ADT-Tweak start
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.BreechVisuals.Open:
+        enum.BreechVisuals.Open:
+          True: { state: bolt-open }
+          False: { state: base }
+  - type: BreechLoaded
+    needOpenClose: false
+  - type: BallisticAmmoProvider
+    cycleable: true
+    capacity: 2
+  # ADT-Tweak end
 
 - type: entity
   name: double-barreled shotgun
@@ -294,6 +309,9 @@
   components: # needs to be super inaccurate because you don't need to wield it
   - type: Sprite
     sprite: ADT/Objects/Weapons/Guns/Shotguns/sawn.rsi # ADT tweak
+    layers:
+    - state: icon
+      map: [ "enum.BreechVisuals.Open" ]
   - type: Clothing
     sprite: ADT/Objects/Weapons/Guns/Shotguns/sawn.rsi # ADT tweak
   - type: Item
@@ -313,10 +331,19 @@
     spread: 1.4
   - type: BallisticAmmoProvider
     capacity: 2
+    cycleable: true
   - type: Construction
     graph: ShotgunSawn
     node: shotgunsawn
     deconstructionTarget: null
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.BreechVisuals.Open:
+        enum.BreechVisuals.Open:
+          True: { state: bolt-open }
+          False: { state: base }
+  - type: BreechLoaded
 
 - type: entity
   name: sawn-off shotgun
