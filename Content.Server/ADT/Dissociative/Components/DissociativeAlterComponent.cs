@@ -13,9 +13,6 @@ public sealed partial class DissociativeAlterComponent : Component
     public bool SetupDone;
 
     [ViewVariables]
-    public bool AntagRolled;
-
-    [ViewVariables]
     public EntityUid? ManifestActionEntity;
 
     [ViewVariables]

@@ -49,7 +49,6 @@ public sealed partial class DissociativeIdentitySystem
     {
         Retract(host, alter);
 
-        alter.Comp.AntagRolled = true;
         if (!alter.Comp.SetupDone)
             FinishSetup(alter);
 

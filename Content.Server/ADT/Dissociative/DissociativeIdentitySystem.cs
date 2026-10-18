@@ -1,6 +1,5 @@
 using Content.Server.ADT.Dissociative.Components;
 using Content.Server.ADT.Hallucinations.Systems;
-using Content.Server.Antag;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Mind;
 using Content.Server.Popups;
@@ -44,8 +43,6 @@ public sealed partial class DissociativeIdentitySystem : EntitySystem
     [Dependency] private PopupSystem _popup = default!;
     [Dependency] private SchizophreniaSystem _schizophrenia = default!;
     [Dependency] private UserInterfaceSystem _ui = default!;
-    [Dependency] private AntagSelectionSystem _antag = default!;
-    [Dependency] private LoadoutSystem _loadout = default!;
 
     public override void Initialize()
     {
@@ -63,7 +60,6 @@ public sealed partial class DissociativeIdentitySystem : EntitySystem
 
         InitializeFront();
         InitializeSetup();
-        InitializeAntag();
         InitializeSurrender();
     }
 
@@ -173,9 +169,6 @@ public sealed partial class DissociativeIdentitySystem : EntitySystem
 
         if (!ent.Comp.SetupDone)
             OpenSetup(ent, args.Player);
-
-        if (!ent.Comp.AntagRolled)
-            RollAntag(ent, args.Player);
     }
 
     #region Manifesting

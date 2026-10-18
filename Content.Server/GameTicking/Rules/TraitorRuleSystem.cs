@@ -1,5 +1,4 @@
 using Content.Server.Antag;
-using Content.Server.ADT.Dissociative.Components; // ADT-Tweak
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Mind;
 using Content.Server.Objectives;
@@ -146,11 +145,7 @@ public sealed partial class TraitorRuleSystem : GameRuleSystem<TraitorRuleCompon
 
     private (Note[]?, string) RequestUplink(EntityUid traitor, FixedPoint2 startingBalance, string briefing)
     {
-        // ADT-Tweak start - an alter personality has no PDA of its own, the uplink goes into the host's
-        var pda = TryComp<DissociativeAlterComponent>(traitor, out var alter)
-            ? _uplink.FindUplinkTarget(alter.Host)
-            : _uplink.FindUplinkTarget(traitor);
-        // ADT-Tweak end
+        var pda = _uplink.FindUplinkTarget(traitor);
 
         Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink add");
         var uplinked = _uplink.AddUplink(traitor, startingBalance, out var code, pda, giveDiscounts: true, bindToPda: false);
