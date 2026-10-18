@@ -253,3 +253,36 @@
   - type: Storage
     grid:
     - 0,0,8,1
+
+- type: entity
+  id: ADTClothingBeltMedicalBagAdvancedFilled
+  parent: ADTClothingBeltMedicalBagFilled
+  name: advanced medical bag
+  description: Small but capacious bag to hold various medical equipment. This one has a little more room.
+  suffix: Advanced, Filled
+  components:
+  - type: Storage
+    grid:
+    - 0,0,8,1
+
+- type: entity
+  id: ADTClothingBeltSecurityWebbingAdvancedFilled
+  parent: ClothingBeltSecurityWebbingFilled
+  name: advanced security webbing
+  description: Can hold security gear like handcuffs and flashes. This one has a little more room.
+  suffix: Advanced, Filled
+  components:
+  - type: Storage
+    grid:
+    - 0,0,8,1
+
+- type: entity
+  id: ADTClothingBeltUtilityWebbingAdvancedEngineering
+  parent: ADTClothingBeltUtilityWebbingEngineering
+  name: advanced utility webbing
+  description: Can hold various things. This one has a little more room.
+  suffix: Advanced, Engineering
+  components:
+  - type: Storage
+    grid:
+    - 0,0,8,1

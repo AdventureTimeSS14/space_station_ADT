@@ -151,3 +151,6 @@ loadout-group-ccc-outer-clothing = консультант Центком, вер
 loadout-group-ccc-shoes = консультант Центком, обувь
 loadout-group-ccc-hands = консультант Центком, перчатки
 loadout-group-ccc-socks = консультант Центком, носки
+loadout-group-senior-medical-belt = Ведущий врач, пояс
+loadout-group-senior-security-belt = Ведущий офицер, пояс
+loadout-group-senior-engineering-belt = Ведущий инженер, пояс

@@ -40,3 +40,13 @@
   id: SeniorOfficerPDA
   equipment:
     id: SeniorOfficerPDA
+
+- type: loadout
+  id: ADTSeniorOfficerBeltAdvanced
+  equipment:
+    belt: ADTClothingBeltSecurityAdvancedFilled
+
+- type: loadout
+  id: ADTSeniorOfficerBeltWebbingAdvanced
+  equipment:
+    belt: ADTClothingBeltSecurityWebbingAdvancedFilled

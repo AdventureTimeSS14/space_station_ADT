@@ -23,3 +23,13 @@
   id: SeniorPhysicianPDA
   equipment:
     id: SeniorPhysicianPDA
+
+- type: loadout
+  id: ADTSeniorPhysicianBeltAdvanced
+  equipment:
+    belt: ADTClothingBeltMedicalAdvancedFilled
+
+- type: loadout
+  id: ADTSeniorPhysicianBeltBagAdvanced
+  equipment:
+    belt: ADTClothingBeltMedicalBagAdvancedFilled

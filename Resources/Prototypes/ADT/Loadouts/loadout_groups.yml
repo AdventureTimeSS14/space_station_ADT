@@ -2490,3 +2490,31 @@
 
 # ОЧЕНЬ ПРОШУ ДЕЛАТЬ НОВЫЕ ГРУППЫ НАД НИЖНИМ БЕЛЬЁМ А НЕ ПОД НИМ. ИНАЧЕ Я ЁЖИКОВ НА ВАС НАТРАВЛЮ И ВАМ КАПУТ.
 # Н А Д Е Ю С Ь  В Ы  М Е Н Я  У С Л Ы Ш А Л И ! ! !
+
+# Поясы ведущих сотрудников: продвинутые версии, выбор остаётся
+- type: loadoutGroup
+  id: ADTSeniorMedicalBelt
+  name: loadout-group-senior-medical-belt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTSeniorPhysicianBeltAdvanced
+  - ADTSeniorPhysicianBeltBagAdvanced
+
+- type: loadoutGroup
+  id: ADTSeniorSecurityBelt
+  name: loadout-group-senior-security-belt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTSeniorOfficerBeltAdvanced
+  - ADTSeniorOfficerBeltWebbingAdvanced
+
+- type: loadoutGroup
+  id: ADTSeniorEngineeringBelt
+  name: loadout-group-senior-engineering-belt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTSeniorEngineerBeltAdvanced
+  - ADTSeniorEngineerBeltWebbingAdvanced

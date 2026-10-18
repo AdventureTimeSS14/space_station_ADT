@@ -19,7 +19,7 @@
   equipment:
     id: SeniorResearcherPDA
     ears: ClothingHeadsetScience
-    belt: ClothingBeltUtilityFilled
+    belt: ADTClothingBeltUtilityAdvancedFilled
     pocket1: AnomalyLocatorEmpty
 - type: chameleonOutfit
   id: ADTSeniorResearcherChameleonOutfit

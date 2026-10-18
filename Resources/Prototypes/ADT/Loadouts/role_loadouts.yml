@@ -130,7 +130,7 @@
   - MedicalMask
   - SeniorPhysicianJumpsuit # ADT-Tweak-senior
   - MedicalGloves
-  - ADTMedicalBelt # ADT tweak
+  - ADTSeniorMedicalBelt
   - MedicalBackpack
   - SeniorPhysicianOuterClothing # ADT-Tweak-senior
   - Trinkets
@@ -182,7 +182,7 @@
   - StationEngineerOuterClothing
   - StationEngineerBackpack
   - ADTEngineeringGlasses
-  - ADTEngineeringBelt
+  - ADTSeniorEngineeringBelt
   - StationEngineerShoes
   - SurvivalExtended
   - Trinkets
@@ -207,7 +207,7 @@
   - SecurityOfficerNeckADT # ADT-Loadouts
   - SeniorOfficerJumpsuit # ADT-Tweak-senior
   - ADTSeniorOfficerOuterClothing # ADT-Tweak-senior
-  - SecurityBelt
+  - ADTSeniorSecurityBelt
   - ADTSeniorOfficerBackpack # ADT-Tweak-senior
   - SecurityShoes
   - SurvivalSecurity

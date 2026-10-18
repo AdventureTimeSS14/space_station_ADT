@@ -16,3 +16,13 @@
   id: SeniorEngineerJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtSeniorEngineer
+
+- type: loadout
+  id: ADTSeniorEngineerBeltAdvanced
+  equipment:
+    belt: ADTClothingBeltUtilityAdvancedEngineering
+
+- type: loadout
+  id: ADTSeniorEngineerBeltWebbingAdvanced
+  equipment:
+    belt: ADTClothingBeltUtilityWebbingAdvancedEngineering
