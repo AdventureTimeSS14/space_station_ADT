@@ -244,3 +244,120 @@
   - type: PressureProtection
     highPressureMultiplier: 0.72
     lowPressureMultiplier: 1000
+
+#NetzCaro
+- type: entity
+  parent: [ClothingOuterEVASuitBase, BaseMedicalContraband]
+  id: ADTClothingOuterHardsuitParamedNetzCaro
+  name: paramedic void suit
+  description: A void suit made for paramedics.
+  suffix: Personal, NetzCaro
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/netzcaro_paramedic_hardsuit.rsi
+    layers:
+    - state: icon
+  - type: Appearance
+  - type: Clothing
+    sprite: ADT/Special/Personal/netzcaro_paramedic_hardsuit.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.5
+    lowPressureMultiplier: 1000
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+  # - type: HeldSpeedModifier
+  - type: TemperatureProtection
+    heatingCoefficient: 0.1
+    coolingCoefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Heat: 0.95
+        Radiation: 0.9
+        Caustic: 0.75
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.2
+  - type: GroupExamine
+  # - type: StealTarget ADT tweak
+  #   stealGroup: ClothingOuterHardsuitVoidParamed ADT tweak
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetParamedNetzCaro
+  - type: ItemToggle
+    onUse: false
+    soundActivate:
+      path: /Audio/Items/flashlight_on.ogg
+    soundDeactivate:
+      path: /Audio/Items/flashlight_off.ogg
+  # - type: ItemToggleActiveSound
+  #   activeSound:
+  #     path: /Audio/Effects/Vehicle/ambulancesiren.ogg #not the best sound, but after looking through all of current freesound regarding sirens and ambulance, this was the best compromise
+  #     params:
+  #       volume: -4
+  - type: UseDelay
+    delays:
+      gasTank:
+        length: 1.0
+  # - type: ToggleClothing
+  #   action: ActionToggleParamedicSiren
+  # - type: ItemTogglePointLight
+  # - type: PointLight
+  #   enabled: false
+  #   radius: 2
+  #   energy: 2
+  #   color: red
+  #   mask: /Textures/Effects/LightMasks/double_cone.png
+  # - type: RotatingLight
+  #   speed: 360
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+  # - type: Tag
+  #   tags:
+  #   - CorgiWearable
+  #   - WhitelistChameleon
+  - type: ActivatableUI
+    key: enum.SharedGasTankUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.SharedGasTankUiKey.Key:
+        type: GasTankBoundUserInterface
+  - type: GasTank
+    outputPressure: 21.3
+    air:
+      volume: 1.25
+      moles:
+        Oxygen: 0.5
+      temperature: 293.15
+    tankLowPressure: 30.0
+
+- type: entity
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  id: ADTClothingHeadHelmetParamedNetzCaro
+  name: paramedic void helmet
+  description: A void helmet made for paramedics.
+  categories: [ HideSpawnMenu ]
+  suffix: Personal, NetzCaro
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/netzcaro_paramedic_helmet.rsi
+  - type: Clothing
+    sprite: ADT/Special/Personal/netzcaro_paramedic_helmet.rsi
+    equipSound: /Audio/ADT/Special/Personal/netzcaro_hardsuit/netzcaro_equipsound.ogg
+  - type: TemperatureProtection
+    heatingCoefficient: 0.1
+    coolingCoefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Heat: 0.90
+        Radiation: 0.9
+  - type: PointLight
+    radius: 5
+    energy: 2
+    color: "#00ffff"
+  - type: Tag
+    tags:
+    # - CorgiWearable
+    - HelmetEVA
+    # - WhitelistChameleon
