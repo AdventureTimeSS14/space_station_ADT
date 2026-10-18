@@ -112,7 +112,7 @@
 
 - type: entity
   parent: ADTBaseFigurineNoObjective
-  id: ToyFigurineTheokayaFriendlyOne
+  id: ADTToyFigurineTheokayaFriendlyOne
   name: Theokaya hound‑healing figurine
   description: A luam figurine in a paramedic outfit; it smells of various berries, and its eyes ask you for a portable crew monitoring device.
   suffix: Sponsor, FriendlyOne
