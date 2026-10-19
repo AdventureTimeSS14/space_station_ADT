@@ -39,5 +39,5 @@
     sprite: ADT/Special/Personal/archeron/motoglasses.rsi
     slots: [HEAD, EYES]
   - type: Item
-    size: Normal
+    size: Small
   - type: EyeProtection

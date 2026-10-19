@@ -1,7 +1,7 @@
 {
-    "version": 1,
+    "version": 2,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Made by discord:anvel",
+    "copyright": "Created by discord:justnothi.",
     "size": {
         "x": 32,
         "y": 32
@@ -11,7 +11,11 @@
             "name": "icon"
         },
         {
-            "name": "equipped-HAND",
+            "name": "equipped-MASK",
+            "directions": 4
+        },
+        {
+            "name": "up-equipped-MASK",
             "directions": 4
         },
         {
