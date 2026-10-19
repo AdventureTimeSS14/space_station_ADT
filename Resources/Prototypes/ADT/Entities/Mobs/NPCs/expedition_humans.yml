@@ -28,8 +28,11 @@
           10
     - type: SSDIndicator
       isSSD: false
-    - type: ADTRandomHair
-      styles:
+    - type: RandomHumanoidAppearance
+      randomizeName: false
+      clearMarkings: true
+      skinTone: 5, 45
+      hairStyles:
       - HumanHairBuzzcut
       - HumanHairCrewcut
       - HumanHairCrewcut2
@@ -44,7 +47,7 @@
       - HumanHairSkinhead
       - HumanHairBusiness
       - HumanHairClassicBusiness
-      colors:
+      hairColors:
       - "#1a1a1a"
       - "#2b2119"
       - "#3d2b1f"
@@ -52,7 +55,6 @@
       - "#7a5c3e"
       - "#a68b62"
       - "#6e6e6e"
-    - type: ADTRandomTTS
       voices:
       - tihonov_tb
       - semen_baburin_tb
@@ -234,7 +236,8 @@
           10
     - type: SSDIndicator
       isSSD: false
-    - type: ADTRandomTTS
+    - type: RandomHumanoidAppearance
+      randomizeName: false
       voices:
       - bandit
       - butch
