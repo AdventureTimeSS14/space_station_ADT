@@ -63,7 +63,7 @@ namespace Content.Server.Atmos.EntitySystems
 
         private readonly Dictionary<Entity<FlammableComponent>, float> _fireEvents = new();
 
-        private const int FirestackEnergy = 37500; // joules release when on fire
+        private const int FirestackEnergy = 12500; // joules release when on fire // ADT-Tweak
 
         public override void Initialize()
         {

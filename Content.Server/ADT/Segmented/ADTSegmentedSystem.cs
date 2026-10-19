@@ -21,6 +21,7 @@ public sealed class ADTSegmentedSystem : EntitySystem
 
     private const float FreeSpotProbeStep = 0.25f;
     private const float GroupJoinFraction = 0.5f;
+    private const float MinStepFraction = 0.5f;
 
     private readonly List<(EntityUid Uid, bool Landed)> _finished = new();
 
@@ -304,20 +305,32 @@ public sealed class ADTSegmentedSystem : EntitySystem
                 continue;
 
             var anchor = GetAnchor(entry, xform);
+            var distance = (segmentXform.LocalPosition - anchor).Length();
 
-            if (segmentXform.ParentUid != xform.ParentUid
-                || (segmentXform.LocalPosition - anchor).Length() > entry.LeashDistance)
+            if (segmentXform.ParentUid != xform.ParentUid)
             {
                 Place(segment, segmentXform, xform, FindFreeSpot(xform, anchor), segmentXform.LocalRotation);
                 continue;
             }
 
+            if (distance > entry.LeashDistance)
+            {
+                var reachable = FindFreeSpot(xform, anchor);
+
+                if ((segmentXform.LocalPosition - reachable).Length() > entry.LeashDistance)
+                {
+                    Place(segment, segmentXform, xform, reachable, segmentXform.LocalRotation);
+                    continue;
+                }
+            }
+
             if (activeGroup != null)
                 continue;
 
-            var distance = (segmentXform.LocalPosition - anchor).Length();
-
             if (distance <= entry.StepThreshold || distance <= bestDistance)
+                continue;
+
+            if (!CanStep(ent, entry, segmentXform, xform, anchor, out _))
                 continue;
 
             bestGroup = entry.Group;
@@ -345,8 +358,23 @@ public sealed class ADTSegmentedSystem : EntitySystem
             if ((segmentXform.LocalPosition - anchor).Length() <= entry.StepThreshold * GroupJoinFraction)
                 continue;
 
-            StartStep(ent, entry, segment, segmentXform, xform, anchor);
+            if (!CanStep(ent, entry, segmentXform, xform, anchor, out var target))
+                continue;
+
+            StartStep(ent, entry, segment, segmentXform, xform, target);
         }
+    }
+
+    private bool CanStep(
+        Entity<ADTSegmentedComponent> ent,
+        ADTSegmentEntry entry,
+        TransformComponent segmentXform,
+        TransformComponent xform,
+        Vector2 anchor,
+        out Vector2 target)
+    {
+        target = FindFreeSpot(xform, anchor + ent.Comp.MoveDirection * entry.StepThreshold * entry.StepLead);
+        return (target - segmentXform.LocalPosition).Length() >= entry.StepThreshold * MinStepFraction;
     }
 
     private void StartStep(
@@ -355,9 +383,8 @@ public sealed class ADTSegmentedSystem : EntitySystem
         EntityUid segment,
         TransformComponent segmentXform,
         TransformComponent xform,
-        Vector2 anchor)
+        Vector2 target)
     {
-        var target = FindFreeSpot(xform, anchor + ent.Comp.MoveDirection * entry.StepThreshold * entry.StepLead);
         var now = _timing.CurTime;
 
         var stepping = EnsureComp<ADTSegmentSteppingComponent>(segment);
@@ -464,17 +491,33 @@ public sealed class ADTSegmentedSystem : EntitySystem
             return target;
 
         var origin = rootXform.LocalPosition;
+        var toTarget = target - origin;
+        var length = toTarget.Length();
 
-        for (var t = 1f; t > 0f; t -= FreeSpotProbeStep)
+        if (length < 0.0001f)
+            return target;
+
+        var steps = (int) MathF.Ceiling(length / FreeSpotProbeStep);
+        var lastFree = origin;
+        var lastIndices = _map.TileIndicesFor(grid, gridComp, new EntityCoordinates(grid, origin));
+
+        for (var i = 1; i <= steps; i++)
         {
-            var point = Vector2.Lerp(origin, target, t);
+            var point = Vector2.Lerp(origin, target, Math.Min(1f, i / (float) steps));
             var indices = _map.TileIndicesFor(grid, gridComp, new EntityCoordinates(grid, point));
 
-            if (!_turf.IsTileBlocked(grid, indices, CollisionGroup.Impassable, gridComp))
-                return point;
+            if (indices != lastIndices)
+            {
+                if (_turf.IsTileBlocked(grid, indices, CollisionGroup.Impassable, gridComp))
+                    return lastFree;
+
+                lastIndices = indices;
+            }
+
+            lastFree = point;
         }
 
-        return origin;
+        return target;
     }
 
     private static Vector2 GetAnchor(ADTSegmentEntry entry, TransformComponent rootXform)

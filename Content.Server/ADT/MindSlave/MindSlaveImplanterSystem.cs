@@ -14,6 +14,7 @@ using Content.Shared.Implants;
 using Content.Shared.Implants.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Mind;
+using Content.Shared.Mindshield;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
@@ -32,6 +33,7 @@ public sealed class MindSlaveImplanterSystem : EntitySystem
     [Dependency] private IAdminLogManager _adminLog = default!;
     [Dependency] private IChatManager _chat = default!;
     [Dependency] private MindSystem _mindSystem = default!;
+    [Dependency] private MindShieldSystem _mindShield = default!;
     [Dependency] private MobStateSystem _mobState = default!;
     [Dependency] private PopupSystem _popup = default!;
     [Dependency] private RoleSystem _roleSystem = default!;
@@ -76,7 +78,7 @@ public sealed class MindSlaveImplanterSystem : EntitySystem
             return;
         }
 
-        if (HasComp<MindShieldComponent>(target))
+        if (IsMindShielded(target))
         {
             _popup.PopupEntity(Loc.GetString("mindslave-mindshield-block"), target, user, PopupType.MediumCaution);
             args.Handled = true;
@@ -122,7 +124,7 @@ public sealed class MindSlaveImplanterSystem : EntitySystem
         var target = args.Target.Value;
         var user = args.User;
 
-        if (HasComp<MindSlaveComponent>(target) || HasComp<MindShieldComponent>(target) || _mobState.IsDead(target))
+        if (HasComp<MindSlaveComponent>(target) || IsMindShielded(target) || _mobState.IsDead(target))
             return;
 
        // ADT-Tweak-start
@@ -163,6 +165,7 @@ public sealed class MindSlaveImplanterSystem : EntitySystem
             }
         }
         RemComp<MindShieldComponent>(target);
+        _mindShield.RefreshMindshieldStatus(target);
 
         var filter = Filter.Pvs(target, entityManager: EntityManager);
         _audio.PlayGlobal("/Audio/ADT/MindSlave/alarm4.ogg", filter, true);
@@ -192,5 +195,11 @@ public sealed class MindSlaveImplanterSystem : EntitySystem
         _chat.SendAdminAlert(Loc.GetString("mindslave-implant-success-log", ("target", ToPrettyString(target)), ("user", ToPrettyString(user))));
 
         args.Handled = true;
+    }
+
+    private bool IsMindShielded(EntityUid target)
+    {
+        _mindShield.GetMindshieldStatus(target, out var isMindshielded, out _);
+        return isMindshielded;
     }
 }

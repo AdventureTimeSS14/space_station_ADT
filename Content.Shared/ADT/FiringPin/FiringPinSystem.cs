@@ -12,7 +12,9 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Implants.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
-using Content.Shared.Mindshield.Components;
+using Content.Shared.Mind;
+using Content.Shared.Mindshield;
+using Content.Shared.Roles;
 using Content.Shared.Popups;
 using Content.Shared.Station;
 using Content.Shared.StatusEffectNew;
@@ -41,6 +43,9 @@ public sealed partial class FiringPinSystem : EntitySystem
     [Dependency] private AlertLevelSystem _alertLevel = default!;
     [Dependency] private EntityWhitelistSystem _whitelist = default!;
     [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private MindShieldSystem _mindShield = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private SharedRoleSystem _role = default!;
     [Dependency] private INetManager _net = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private SharedContainerSystem _container = default!;
@@ -260,16 +265,37 @@ public sealed partial class FiringPinSystem : EntitySystem
             case FiringPinType.Explorer:
                 return _station.GetOwningStation(user) == null;
             case FiringPinType.Component:
-                if (_whitelist.IsWhitelistPass(check.RequiredWhitelist, user))
-                    return true;
-
-                return check.PassForFakeMindShield
-                    && TryComp<FakeMindShieldComponent>(user, out var fakeMindShield)
-                    && fakeMindShield.IsEnabled;
+                return HasComponentOrRole(user, check.RequiredWhitelist);
+            case FiringPinType.MindShield:
+                return HasMindShield(user, check.PassForFakeMindShield);
             case FiringPinType.None:
             default:
                 return true;
         }
+    }
+
+    private bool HasComponentOrRole(EntityUid user, EntityWhitelist? whitelist)
+    {
+        if (whitelist == null)
+            return true;
+
+        if (_whitelist.IsWhitelistPass(whitelist, user))
+            return true;
+
+        if (!_mind.TryGetMind(user, out var mindId, out var mind))
+            return false;
+
+        return _role.MindHasRole((mindId, mind), whitelist);
+    }
+
+    private bool HasMindShield(EntityUid user, bool passForFake)
+    {
+        _mindShield.GetMindshieldStatus(user, out var isMindshielded, out var isVisible);
+
+        if (isMindshielded)
+            return true;
+
+        return passForFake && isVisible;
     }
 
     private bool IsSecLevelAuthorized(EntityUid user, FiringPinCheck check)
