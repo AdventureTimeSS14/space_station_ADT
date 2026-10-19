@@ -16376,3 +16376,9 @@ Entries:
     id: 2022
     pr_number: 3538
     time: '2026-10-19T01:18:54Z'
+  - author: FriendlyOne
+    changes:
+      - {message: Коммандир ЯО снова имеет мод "Меркурий" в своем РВИ, type: Tweak}
+    id: 2023
+    pr_number: 3526
+    time: '2026-10-19T05:12:30Z'
