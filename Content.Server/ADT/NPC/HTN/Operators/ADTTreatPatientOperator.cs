@@ -23,6 +23,7 @@ public sealed partial class ADTTreatPatientOperator : HTNOperator
     private const string ItemKey = "ADTTreatItem";
     private const string TimerKey = "ADTTreatTimer";
     private const string StartedKey = "ADTTreatStarted";
+    private const string DefibKey = "ADTTreatDefib";
 
     [DataField]
     public string Key = "Target";
@@ -42,6 +43,7 @@ public sealed partial class ADTTreatPatientOperator : HTNOperator
         blackboard.SetValue(TimerKey, 0f);
         blackboard.SetValue(StartedKey, false);
         blackboard.Remove<EntityUid>(ItemKey);
+        blackboard.Remove<EntityUid>(DefibKey);
     }
 
     public override void TaskShutdown(NPCBlackboard blackboard, HTNOperatorStatus status)
@@ -65,6 +67,16 @@ public sealed partial class ADTTreatPatientOperator : HTNOperator
         }
 
         blackboard.Remove<EntityUid>(ItemKey);
+
+        if (blackboard.TryGetValue<EntityUid>(DefibKey, out var defib, _entManager) && !_entManager.Deleted(defib))
+        {
+            var toggle = _entManager.System<ItemToggleSystem>();
+
+            if (toggle.IsActivated(defib))
+                toggle.TryDeactivate(defib, owner);
+        }
+
+        blackboard.Remove<EntityUid>(DefibKey);
     }
 
     private bool TakeInHand(EntityUid owner, EntityUid item)
@@ -113,8 +125,8 @@ public sealed partial class ADTTreatPatientOperator : HTNOperator
 
                 var toggle = _entManager.System<ItemToggleSystem>();
 
-                if (!toggle.IsActivated(defib))
-                    toggle.TryActivate(defib, owner);
+                if (!toggle.IsActivated(defib) && toggle.TryActivate(defib, owner))
+                    blackboard.SetValue(DefibKey, defib);
 
                 if (!_entManager.System<SharedDefibrillatorSystem>().TryStartZap(defib, patient, owner))
                     return timer < StartTimeout ? HTNOperatorStatus.Continuing : HTNOperatorStatus.Failed;
@@ -133,10 +145,18 @@ public sealed partial class ADTTreatPatientOperator : HTNOperator
                     return timer < StartTimeout ? HTNOperatorStatus.Continuing : HTNOperatorStatus.Failed;
 
                 blackboard.SetValue(ItemKey, item.Value);
-                _entManager.System<SharedInteractionSystem>().UserInteraction(owner, patientCoords, patient);
+
+                var interaction = _entManager.System<SharedInteractionSystem>();
+
+                if (!interaction.InRangeUnobstructed(owner, patient))
+                    return timer < StartTimeout ? HTNOperatorStatus.Continuing : HTNOperatorStatus.Failed;
+
+                interaction.UserInteraction(owner, patientCoords, patient);
 
                 if (action == ADTNpcMedicHelper.ActionMedipen)
                     ADTNpcMedicHelper.MarkMedipen(blackboard, _entManager, patient, _timing.CurTime);
+                else if (!_entManager.HasComponent<ActiveDoAfterComponent>(owner))
+                    return HTNOperatorStatus.Failed;
             }
 
             blackboard.SetValue(StartedKey, true);
@@ -161,9 +181,6 @@ public sealed partial class ADTTreatPatientOperator : HTNOperator
 
         if (_entManager.HasComponent<ActiveDoAfterComponent>(owner))
             return timer < DoAfterTimeout ? HTNOperatorStatus.Continuing : HTNOperatorStatus.Failed;
-
-        if (action == ADTNpcMedicHelper.ActionDefib && ADTNpcMedicHelper.FindDefib(_entManager, owner) is { } used)
-            _entManager.System<ItemToggleSystem>().TryDeactivate(used, owner);
 
         Release(blackboard);
         return HTNOperatorStatus.Finished;
