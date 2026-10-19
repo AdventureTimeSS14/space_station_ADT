@@ -318,3 +318,15 @@
     sprite: ADT/Special/Personal/Illumy/heatresistant_tuxedo.rsi
   - type: Clothing
     sprite: ADT/Special/Personal/Illumy/heatresistant_tuxedo.rsi
+
+- type: entity
+  parent: ADTSponsorClothingUniformBase
+  id: ADTClothingUniformArbitratorJumpsuitIllumy
+  name: arbitrator uniform
+  description: Black uniform clothing made to individual measurements. The complex cut conceals most of the figure without hindering movement. For some reason, it’s especially easy to remember next to it that a decision could have already been made without your involvement.
+  suffix: Sponsor, Unlumination
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/Illumy/arbitrator_suit.rsi
+  - type: Clothing
+    sprite: ADT/Special/Personal/Illumy/arbitrator_suit.rsi
