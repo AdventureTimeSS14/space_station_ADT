@@ -68,3 +68,8 @@ reagent-effect-guidebook-dissociative-force =
         [1] Выпускает
        *[other] выпускают
     } вторую личность наружу
+reagent-effect-guidebook-dissociative-cooldown =
+    { $chance ->
+        [1] Ускоряет
+       *[other] ускоряют
+    } перезарядку второй личности

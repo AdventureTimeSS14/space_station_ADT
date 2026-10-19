@@ -4,6 +4,7 @@ using Content.Shared.ADT.TTS;
 using Content.Shared.Body;
 using Content.Shared.Database;
 using Content.Shared.Examine;
+using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Mind;
@@ -38,6 +39,9 @@ public sealed partial class DissociativeIdentitySystem
 
         if (ent.Comp.Fronting)
             ent.Comp.FrontEnd = _timing.CurTime;
+
+        if (TryComp<DissociativeAlterComponent>(ent.Comp.Alter, out var alter))
+            Retract(ent, (ent.Comp.Alter.Value, alter));
     }
 
     public void ExtendFront(Entity<DissociativeIdentityComponent> ent, TimeSpan time)
@@ -94,7 +98,7 @@ public sealed partial class DissociativeIdentitySystem
     {
         reason = string.Empty;
 
-        if (host.Comp.NextFront > _timing.CurTime)
+        if (!voluntary && host.Comp.NextFront > _timing.CurTime)
         {
             var left = host.Comp.NextFront - _timing.CurTime;
             reason = Loc.GetString("dissociative-front-cooldown", ("minutes", (int) Math.Ceiling(left.TotalMinutes)));
@@ -136,6 +140,8 @@ public sealed partial class DissociativeIdentitySystem
         host.Comp.Fronting = true;
 
         SwapMinds(host, alter, hostMind, alterMind);
+
+        EnsureComp<BlurryVisionComponent>(alter);
 
         var duration = host.Comp.FrontDuration;
         if (IsAbstinent(host.Comp))
@@ -198,6 +204,9 @@ public sealed partial class DissociativeIdentitySystem
             _mind.TransferTo(alterMind!.Value, alter.Value, mind: alterMindComp);
 
         _swapping = false;
+
+        if (alter != null)
+            RemComp<BlurryVisionComponent>(alter.Value);
 
         RestoreHostLook(host);
 

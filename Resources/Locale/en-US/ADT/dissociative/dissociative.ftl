@@ -68,3 +68,8 @@ reagent-effect-guidebook-dissociative-force =
         [1] Lets
        *[other] let
     } a second personality take over the body
+reagent-effect-guidebook-dissociative-cooldown =
+    { $chance ->
+        [1] Speeds
+       *[other] speed
+    } up the second personality's cooldown

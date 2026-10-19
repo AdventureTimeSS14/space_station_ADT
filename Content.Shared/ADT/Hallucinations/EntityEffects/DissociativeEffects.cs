@@ -21,3 +21,14 @@ public sealed partial class DissociativeForceFront : EntityEffectBase<Dissociati
         return Loc.GetString("reagent-effect-guidebook-dissociative-force", ("chance", Probability));
     }
 }
+
+public sealed partial class DissociativeSpeedCooldown : EntityEffectBase<DissociativeSpeedCooldown>
+{
+    [DataField]
+    public float Seconds = 1f;
+
+    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+    {
+        return Loc.GetString("reagent-effect-guidebook-dissociative-cooldown", ("chance", Probability));
+    }
+}

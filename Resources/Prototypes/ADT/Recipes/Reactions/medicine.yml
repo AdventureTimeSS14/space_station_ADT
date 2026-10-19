@@ -276,11 +276,13 @@
 - type: reaction
   id: ADTKetamine
   reactants:
-    Ammonia:
+    Phenol:
       amount: 1
     Chlorine:
       amount: 1
-    Ethanol:
+    Ammonia:
+      amount: 1
+    Acetone:
       amount: 1
   products:
-    ADTKetamine: 3
+    ADTKetamine: 4
