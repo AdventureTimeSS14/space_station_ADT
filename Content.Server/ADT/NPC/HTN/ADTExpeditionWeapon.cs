@@ -1726,6 +1726,9 @@ public sealed partial class ADTPickCoverOperator : HTNOperator
 
                 var point = new MapCoordinates(ownerPos.Position + offset, ownerPos.MapId);
 
+                if (!_interaction.InRangeUnobstructed(ownerPos, point, Radius + 1f, predicate: e => e == owner || e == target))
+                    continue;
+
                 if (_interaction.InRangeUnobstructed(targetPos, point, 40f, predicate: e => e == target || e == owner))
                     continue;
 
