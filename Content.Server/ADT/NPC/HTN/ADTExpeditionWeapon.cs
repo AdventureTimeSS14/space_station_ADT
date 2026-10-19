@@ -189,7 +189,12 @@ public static class ADTNpcWeaponHelper
 
     public static bool IsMagazineGun(IEntityManager ent, EntityUid gun, out ItemSlot? slot)
     {
-        return ent.System<ItemSlotsSystem>().TryGetSlot(gun, SharedGunSystem.MagazineSlot, out slot);
+        slot = null;
+
+        if (!ent.TryGetComponent(gun, out ItemSlotsComponent? slots))
+            return false;
+
+        return ent.System<ItemSlotsSystem>().TryGetSlot((gun, slots), SharedGunSystem.MagazineSlot, out slot);
     }
 
     public static bool IsLooseGun(IEntityManager ent, EntityUid gun)
