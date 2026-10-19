@@ -73,3 +73,21 @@
     - state: stasis_enter
   - type: InstantAction
     event: !type:DissociativeSurrenderActionEvent
+
+- type: entity
+  id: ActionDissociativeGiveControl
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 5
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    priority: -19
+  - type: ConfirmableAction
+    popup: dissociative-give-control-confirm
+  - type: Sprite
+    sprite: Interface/Actions/changeling.rsi
+    layers:
+    - state: stasis_enter
+  - type: InstantAction
+    event: !type:DissociativeGiveControlActionEvent

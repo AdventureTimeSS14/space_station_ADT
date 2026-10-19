@@ -26,6 +26,7 @@ public sealed partial class DissociativeIdentitySystem
     {
         SubscribeLocalEvent<DissociativeAlterComponent, DissociativeFrontActionEvent>(OnFrontAction);
         SubscribeLocalEvent<DissociativeIdentityComponent, DissociativeReleaseActionEvent>(OnReleaseAction);
+        SubscribeLocalEvent<DissociativeIdentityComponent, DissociativeGiveControlActionEvent>(OnGiveControlAction);
         SubscribeLocalEvent<DissociativeIdentityComponent, MobStateChangedEvent>(OnHostStateChanged);
         SubscribeLocalEvent<DissociativeIdentityComponent, MindRemovedMessage>(OnHostMindRemoved);
         SubscribeLocalEvent<DissociativeIdentityComponent, ExaminedEvent>(OnHostExamined);
@@ -37,6 +38,27 @@ public sealed partial class DissociativeIdentitySystem
 
         if (ent.Comp.Fronting)
             ent.Comp.FrontEnd = _timing.CurTime;
+    }
+
+    public void ExtendFront(Entity<DissociativeIdentityComponent> ent, TimeSpan time)
+    {
+        if (!ent.Comp.Fronting)
+            return;
+
+        var limit = _timing.CurTime + ent.Comp.FrontDuration * 3;
+        ent.Comp.FrontEnd = TimeSpan.FromTicks(Math.Min((ent.Comp.FrontEnd + time).Ticks, limit.Ticks));
+    }
+
+    public void ForceFront(Entity<DissociativeIdentityComponent> ent)
+    {
+        if (ent.Comp.Fronting ||
+            ent.Comp.NextFront > _timing.CurTime ||
+            !_mobState.IsAlive(ent) ||
+            !TryComp<DissociativeAlterComponent>(ent.Comp.Alter, out var alterComp))
+            return;
+
+        var alter = new Entity<DissociativeAlterComponent>(ent.Comp.Alter.Value, alterComp);
+        StartFront(ent, alter);
     }
 
     private bool IsSuppressed(DissociativeIdentityComponent comp)
@@ -68,7 +90,7 @@ public sealed partial class DissociativeIdentitySystem
         StartFront(host, ent);
     }
 
-    private bool CanFront(Entity<DissociativeIdentityComponent> host, Entity<DissociativeAlterComponent> alter, out string reason)
+    private bool CanFront(Entity<DissociativeIdentityComponent> host, Entity<DissociativeAlterComponent> alter, out string reason, bool voluntary = false)
     {
         reason = string.Empty;
 
@@ -79,7 +101,7 @@ public sealed partial class DissociativeIdentitySystem
             return false;
         }
 
-        if (IsSuppressed(host.Comp))
+        if (!voluntary && IsSuppressed(host.Comp))
         {
             reason = Loc.GetString("dissociative-front-suppressed");
             return false;
@@ -239,6 +261,34 @@ public sealed partial class DissociativeIdentitySystem
         }
 
         return result;
+    }
+
+    private void OnGiveControlAction(Entity<DissociativeIdentityComponent> ent, ref DissociativeGiveControlActionEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        args.Handled = true;
+
+        if (ent.Comp.Fronting)
+        {
+            _popup.PopupEntity(Loc.GetString("dissociative-not-in-control"), ent, ent);
+            return;
+        }
+
+        if (ent.Comp.Alter is not { } alterUid || !TryComp<DissociativeAlterComponent>(alterUid, out var alter))
+        {
+            _popup.PopupEntity(Loc.GetString("dissociative-surrender-no-alter"), ent, ent);
+            return;
+        }
+
+        if (!CanFront(ent, (alterUid, alter), out var reason, voluntary: true))
+        {
+            _popup.PopupEntity(string.IsNullOrEmpty(reason) ? Loc.GetString("dissociative-give-control-no-alter") : reason, ent, ent);
+            return;
+        }
+
+        StartFront(ent, (alterUid, alter));
     }
 
     private void OnReleaseAction(Entity<DissociativeIdentityComponent> ent, ref DissociativeReleaseActionEvent args)

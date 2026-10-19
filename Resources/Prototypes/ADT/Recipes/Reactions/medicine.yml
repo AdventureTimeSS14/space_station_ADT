@@ -272,3 +272,15 @@
       amount: 1
   products:
     ADTMurderSolution: 5
+
+- type: reaction
+  id: ADTKetamine
+  reactants:
+    Ammonia:
+      amount: 1
+    Chlorine:
+      amount: 1
+    Ethanol:
+      amount: 1
+  products:
+    ADTKetamine: 3

@@ -49,6 +49,9 @@ public sealed partial class DissociativeIdentityComponent : Component
     [DataField]
     public EntProtoId SurrenderAction = "ActionDissociativeSurrender";
 
+    [DataField]
+    public EntProtoId GiveControlAction = "ActionDissociativeGiveControl";
+
     public const string ContainerId = "dissociative-alter";
 
     [ViewVariables]
@@ -80,6 +83,9 @@ public sealed partial class DissociativeIdentityComponent : Component
 
     [ViewVariables]
     public EntityUid? SurrenderActionEntity;
+
+    [ViewVariables]
+    public EntityUid? GiveControlActionEntity;
 
     [ViewVariables]
     public Dictionary<ProtoId<OrganCategoryPrototype>, Dictionary<HumanoidVisualLayers, List<Marking>>>? StoredHostMarkings;

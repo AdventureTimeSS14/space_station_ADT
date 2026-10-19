@@ -14,6 +14,8 @@ public sealed partial class DissociativeSetupActionEvent : InstantActionEvent;
 
 public sealed partial class DissociativeSurrenderActionEvent : InstantActionEvent;
 
+public sealed partial class DissociativeGiveControlActionEvent : InstantActionEvent;
+
 [Serializable, NetSerializable]
 public enum DissociativeAlterSetupUiKey : byte
 {

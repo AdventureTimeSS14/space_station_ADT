@@ -95,6 +95,7 @@ public sealed partial class DissociativeIdentitySystem : EntitySystem
 
         _actions.RemoveAction(ent.Owner, ent.Comp.ReleaseActionEntity);
         _actions.RemoveAction(ent.Owner, ent.Comp.SurrenderActionEntity);
+        _actions.RemoveAction(ent.Owner, ent.Comp.GiveControlActionEntity);
 
         if (ent.Comp.Alter is { } alter)
             QueueDel(alter);
@@ -160,6 +161,7 @@ public sealed partial class DissociativeIdentitySystem : EntitySystem
         _actions.AddAction(alter, ref alterComp.FrontActionEntity, ent.Comp.FrontAction);
         _actions.AddAction(alter, ref alterComp.SetupActionEntity, ent.Comp.SetupAction);
         _actions.AddAction(ent, ref ent.Comp.SurrenderActionEntity, ent.Comp.SurrenderAction);
+        _actions.AddAction(ent, ref ent.Comp.GiveControlActionEntity, ent.Comp.GiveControlAction);
     }
 
     private void OnAlterPlayerAttached(Entity<DissociativeAlterComponent> ent, ref PlayerAttachedEvent args)

@@ -52,3 +52,19 @@ dissociative-surrender-host = You stop resisting and dissolve inside.
 
 ent-ActionMidroundCustomization = Change appearance
     .desc = Change your hair, facial hair and voice.
+
+ent-ActionDissociativeGiveControl = Give up the body
+    .desc = Willingly hand your body to the second personality for the usual time.
+dissociative-give-control-confirm = Press again to hand your body to the second personality.
+dissociative-give-control-no-alter = The second personality cannot take the body right now.
+
+reagent-effect-guidebook-dissociative-extend =
+    { $chance ->
+        [1] Extends
+       *[other] extend
+    } a second personality's time in the body by { $seconds }s
+reagent-effect-guidebook-dissociative-force =
+    { $chance ->
+        [1] Lets
+       *[other] let
+    } a second personality take over the body

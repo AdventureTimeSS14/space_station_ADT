@@ -52,3 +52,19 @@ dissociative-surrender-host = Вы перестаёте сопротивлять
 
 ent-ActionMidroundCustomization = Изменить внешность
     .desc = Изменить причёску, растительность на лице и голос.
+
+ent-ActionDissociativeGiveControl = Отдать тело
+    .desc = Добровольно отдать тело второй личности на то же время, что и при её перехвате.
+dissociative-give-control-confirm = Нажмите ещё раз, чтобы отдать тело второй личности.
+dissociative-give-control-no-alter = Вторая личность сейчас не может принять тело.
+
+reagent-effect-guidebook-dissociative-extend =
+    { $chance ->
+        [1] Продлевает
+       *[other] продлевают
+    } пребывание второй личности в теле на { $seconds } с
+reagent-effect-guidebook-dissociative-force =
+    { $chance ->
+        [1] Выпускает
+       *[other] выпускают
+    } вторую личность наружу
