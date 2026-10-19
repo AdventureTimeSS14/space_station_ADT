@@ -30,6 +30,7 @@ namespace Content.Server.Sandbox
         [Dependency] private ItemSlotsSystem _slots = default!;
         [Dependency] private GameTicker _ticker = default!;
         [Dependency] private SharedHandsSystem _handsSystem = default!;
+        [Dependency] private Content.Server.ADT.Placement.ADTTilePlacementSystem _adtTilePlacement = default!; // ADT-Tweak
 
         private bool _isSandboxEnabled;
 
@@ -59,6 +60,8 @@ namespace Content.Server.Sandbox
 
             _placementManager.AllowPlacementFunc = placement =>
             {
+                _adtTilePlacement.SnapTileToAdjacentGrid(placement); // ADT-Tweak
+
                 if (IsSandboxEnabled)
                 {
                     return true;
