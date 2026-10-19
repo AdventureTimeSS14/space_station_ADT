@@ -23,7 +23,7 @@ public sealed partial class DissociativeIdentityComponent : Component
     public float LeashRange = 7f;
 
     [DataField]
-    public TimeSpan FrontCooldown = TimeSpan.FromMinutes(6);
+    public TimeSpan FrontCooldown = TimeSpan.FromMinutes(7);
 
     [DataField]
     public TimeSpan FrontDuration = TimeSpan.FromSeconds(120);
