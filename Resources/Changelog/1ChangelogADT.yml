@@ -16382,3 +16382,9 @@ Entries:
     id: 2023
     pr_number: 3526
     time: '2026-10-19T05:12:30Z'
+  - author: FriendlyOne
+    changes:
+      - {message: Сумеречник не может телепортироваться будучи в трубе, type: Fix}
+    id: 2024
+    pr_number: 3529
+    time: '2026-10-19T05:43:44Z'
