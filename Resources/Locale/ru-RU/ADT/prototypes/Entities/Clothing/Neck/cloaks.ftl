@@ -72,5 +72,5 @@ ent-ADTClothingNeckCloakSecondBlueshield = плащ офицера синего 
 ent-ADTClothingNeckCloakCentcomOfficerBlack = торжественный плащ офицера специальных операций
     .desc = Роскошно украшенный плащ для особых случаев.
 
-ent-ADTClothingCentralCommandShoulder = наплечная мантия представителя Центком
+ent-ADTClothingCentralCommandMantleShoulder = наплечная мантия представителя Центком
     .desc = Этот плащ выполнен из темно-зеленой ткани. Он станет символом вашего статуса, подчеркивая вашу преданность делу.

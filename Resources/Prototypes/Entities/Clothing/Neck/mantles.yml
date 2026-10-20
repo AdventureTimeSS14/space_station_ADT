@@ -85,14 +85,3 @@
     sprite: Clothing/Neck/mantles/mantle.rsi
   - type: Clothing
     sprite: Clothing/Neck/mantles/mantle.rsi
-
-- type: entity
-  parent: [ClothingNeckBase, BaseCommandContraband]
-  id: ClothingNeckMantleCС
-  name: chief engineer's mantle
-  description: A bright white and yellow striped mantle. Do not wear around active machinery.  # Corvax-Resprite
-  components:
-  - type: Sprite
-    sprite: Clothing/Neck/mantles/cemantle.rsi
-  - type: Clothing
-    sprite: Clothing/Neck/mantles/cemantle.rsi
