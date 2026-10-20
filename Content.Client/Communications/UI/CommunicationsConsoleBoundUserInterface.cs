@@ -80,24 +80,35 @@ public sealed partial class CommunicationsConsoleBoundUserInterface(EntityUid ow
         if (state is not CommunicationsConsoleInterfaceState commsState)
             return;
 
+        // ADT-Tweak start
         if (_menu == null)
             return;
 
         var stationUid = _station.GetOwningStation(Owner);
 
-        // ADT-Tweak start: консоль вне станции (шаттл синдиката и т.п.) не имеет AlertLevelComponent.
-        // Раньше здесь был return, из-за чего меню вообще не обновлялось и кнопки оставались выключенными.
+        // if (!EntMan.TryGetComponent<AlertLevelComponent>(stationUid, out var alertComp))
+        //     return;
+
         if (stationUid == null || !EntMan.TryGetComponent<AlertLevelComponent>(stationUid, out var alertComp))
         {
             _menu.UpdateState(commsState, new ProtoId<AlertLevelPrototype>(string.Empty), null, false);
             return;
         }
-        // ADT-Tweak end
+
+        // if (_menu != null)
+        // {
+        //     var currentAlertLevel = alertComp.CurrentAlertLevel;
+        //     var selectableAlertLevels = _alertLevel.GetSelectableAlertLevels((stationUid.Value, alertComp));
+        //     var canChangeAlertLevel = _alertLevel.CanChangeAlertLevel((stationUid.Value, alertComp));
+        //
+        //     _menu.UpdateState(commsState, currentAlertLevel, selectableAlertLevels, canChangeAlertLevel);
+        // }
 
         var currentAlertLevel = alertComp.CurrentAlertLevel;
         var selectableAlertLevels = _alertLevel.GetSelectableAlertLevels((stationUid.Value, alertComp));
         var canChangeAlertLevel = _alertLevel.CanChangeAlertLevel((stationUid.Value, alertComp));
 
         _menu.UpdateState(commsState, currentAlertLevel, selectableAlertLevels, canChangeAlertLevel);
+        // ADT-Tweak end
     }
 }
