@@ -10,9 +10,8 @@ using Robust.Shared.Timing;
 namespace Content.Server.ADT.Addiction;
 
 /// <summary>
-/// Держит на мобе симптомы ломки. Каналов в ломке может быть несколько: симптомы с одним
-/// ключом не складываются, побеждает пришедший с более тяжёлой стадии. Снимаем только то,
-/// что наложили сами.
+/// Держит на мобе симптомы ломки. Симптомы с одним ключом не складываются: побеждает
+/// пришедший с более тяжёлой стадии.
 /// </summary>
 public sealed class AddictionSymptomsSystem : EntitySystem
 {
@@ -47,7 +46,6 @@ public sealed class AddictionSymptomsSystem : EntitySystem
         var query = EntityQueryEnumerator<AddictionComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            // Симптомы живут по длительности и требуют продления, пока ломка идёт.
             var active = false;
             foreach (var channel in comp.Channels)
             {
@@ -104,7 +102,6 @@ public sealed class AddictionSymptomsSystem : EntitySystem
             }
         }
 
-        // Снять то, что ломка больше не поддерживает
         _expired.Clear();
         foreach (var (key, _) in comp.AppliedSymptoms)
         {

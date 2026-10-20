@@ -7,7 +7,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.ADT.Addiction;
 
 /// <summary>
-/// Состояние одной зависимости у моба: настройки лежат в AddictionPrototype.
+/// Состояние одной зависимости у моба.
 /// </summary>
 [DataDefinition]
 public sealed partial class AddictionChannel
@@ -19,15 +19,11 @@ public sealed partial class AddictionChannel
     public float Level;
 
     /// <summary>
-    /// Неизлечимая зависимость: уровень не спадает, детоксин не помогает.
+    /// Уровень не спадает, детоксин не помогает.
     /// </summary>
     [DataField]
     public bool Permanent;
 
-    /// <summary>
-    /// Каналы, добавленные в рантайме, приходят без времени дозы - без этого флага
-    /// ломка началась бы мгновенно.
-    /// </summary>
     [DataField]
     public bool Initialized;
 
@@ -37,9 +33,6 @@ public sealed partial class AddictionChannel
     [DataField]
     public TimeSpan NextPopupTime;
 
-    /// <summary>
-    /// Порог уже был превышен: для одноразовых поп-апов подсадки и выздоровления.
-    /// </summary>
     [DataField]
     public bool WasAddicted;
 
@@ -57,7 +50,7 @@ public sealed partial class AddictionChannel
     public int LastPopupIndex = -1;
 
     /// <summary>
-    /// По индексу в AddictionStageData.Emotes текущей стадии.
+    /// По индексу в AddictionStageData.Emotes.
     /// </summary>
     public List<TimeSpan> NextEmoteTimes = new();
 }

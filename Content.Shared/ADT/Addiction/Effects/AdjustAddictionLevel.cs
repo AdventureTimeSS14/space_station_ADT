@@ -12,9 +12,6 @@ namespace Content.Shared.ADT.Addiction.Effects;
 /// </summary>
 public sealed partial class AdjustAddictionLevel : EntityEffectBase<AdjustAddictionLevel>
 {
-    /// <summary>
-    /// Изменение уровня за цикл метаболизма.
-    /// </summary>
     [DataField]
     public float Amount = -1f;
 

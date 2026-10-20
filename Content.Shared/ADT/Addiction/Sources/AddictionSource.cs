@@ -10,8 +10,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.ADT.Addiction.Sources;
 
 /// <summary>
-/// Правило «этот реаген кормит эту зависимость». Живёт на стороне зависимости,
-/// чтобы не трогать офф-файлы реагентов.
+/// Правило «этот реаген кормит эту зависимость».
 /// </summary>
 [ImplicitDataDefinitionForInheritors, UsedImplicitly(ImplicitUseTargetFlags.WithInheritors)]
 public abstract partial class AddictionSource

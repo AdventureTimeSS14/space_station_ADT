@@ -63,8 +63,7 @@ public sealed partial class AddictionStatusEffectSymptom : AddictionSymptom
 }
 
 /// <summary>
-/// Компоненты на время ломки. Если компонент уже стоит не от ломки - симптом
-/// не вмешивается и при окончании его не снимет.
+/// Компоненты на время ломки.
 /// </summary>
 public sealed partial class AddictionComponentSymptom : AddictionSymptom
 {
@@ -77,7 +76,7 @@ public sealed partial class AddictionComponentSymptom : AddictionSymptom
 
     public override bool Apply(AddictionSymptomContext ctx)
     {
-        // Если что-то из набора уже стоит, значит его поставили не мы - не трогаем.
+        // Если что-то из набора уже стоит, значит его поставили не мы.
         if (!ctx.Owned)
         {
             foreach (var (_, entry) in Components)

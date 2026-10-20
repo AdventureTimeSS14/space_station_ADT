@@ -10,7 +10,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Server.ADT.Addiction;
 
 /// <summary>
-/// Трайтовые зависимости (Permanent) этим эффектом не лечатся.
+/// Permanent-каналы этим эффектом не лечатся.
 /// </summary>
 public sealed partial class AdjustAddictionLevelEffectSystem : EntityEffectSystem<AddictionComponent, AdjustAddictionLevel>
 {
@@ -23,7 +23,6 @@ public sealed partial class AdjustAddictionLevelEffectSystem : EntityEffectSyste
 
         if (amount > 0)
         {
-            // Передоз: Kind обязателен, канал создаётся при отсутствии.
             if (args.Effect.Kind is not { } kind)
                 return;
 

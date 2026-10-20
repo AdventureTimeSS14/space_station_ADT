@@ -8,8 +8,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.ADT.Traits.Effects;
 
 /// <summary>
-/// Кладёт в компонент заготовку канала и пул видов, а вид выбирает AddictionSystem
-/// при спавне: к моменту применения эффекта каналы других трайтов могут быть ещё не добавлены.
+/// Кладёт в компонент заготовку канала и пул видов, вид выбирает AddictionSystem при спавне.
 /// </summary>
 public sealed partial class RandomAddictionEffect : BaseTraitEffect
 {

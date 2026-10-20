@@ -13,12 +13,12 @@ namespace Content.Shared.ADT.Addiction.Symptoms;
 public abstract partial class AddictionSymptom
 {
     /// <summary>
-    /// Чем симптом владеет на мобе: по ключу его снимают, поэтому он должен быть стабилен.
+    /// Чем симптом владеет на мобе. По ключу его снимают, поэтому он должен быть стабилен.
     /// </summary>
     public abstract string Key { get; }
 
     /// <summary>
-    /// False - симптом не стал трогать моба: ломка его не присваивает и потом не снимет.
+    /// False - симптом не стал трогать моба, снимать его тоже не будут.
     /// </summary>
     public abstract bool Apply(AddictionSymptomContext ctx);
 
@@ -26,7 +26,7 @@ public abstract partial class AddictionSymptom
 }
 
 /// <summary>
-/// Owned - ломка уже держит этот симптом, то есть вызов идёт на продление.
+/// Owned - ломка уже держит этот симптом, вызов идёт на продление.
 /// </summary>
 public readonly record struct AddictionSymptomContext(
     EntityUid Target,

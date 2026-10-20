@@ -9,8 +9,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.ADT.Traits.Effects;
 
 /// <summary>
-/// Добавляет канал в существующий AddictionComponent. Через AddCompsEffect нельзя:
-/// он компонент не мержит, и при нескольких трайтах остался бы только первый канал.
+/// Добавляет канал в существующий AddictionComponent: AddCompsEffect компонент не мержит.
 /// </summary>
 public sealed partial class AddictionTraitEffect : BaseTraitEffect
 {

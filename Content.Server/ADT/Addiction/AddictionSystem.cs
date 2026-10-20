@@ -19,8 +19,8 @@ using Robust.Shared.Timing;
 namespace Content.Server.ADT.Addiction;
 
 /// <summary>
-/// Движок зависимостей: ловит приём доз, копит уровень привыкания, при долгом воздержании
-/// запускает ломку. Конкретные зависимости не различает - всё лежит в AddictionPrototype.
+/// Копит уровень привыкания от доз и запускает ломку при воздержании.
+/// Конкретные зависимости не различает - всё лежит в AddictionPrototype.
 /// </summary>
 public sealed class AddictionSystem : EntitySystem
 {
@@ -37,7 +37,7 @@ public sealed class AddictionSystem : EntitySystem
     private float _accumulator;
 
     /// <summary>
-    /// Кэш «реаген -> id зависимости», null - реаген ничего не кормит.
+    /// Null - реаген ничего не кормит.
     /// </summary>
     private readonly Dictionary<string, string?> _reagentKinds = new();
 
@@ -46,7 +46,6 @@ public sealed class AddictionSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<AddictionComponent, GetReagentEffectsEvent>(OnGetReagentEffects);
-        // After ADTTraitSystem: EnsureComp не должен перебить каналы, добавленные трайтом
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawnComplete, after: [typeof(ADTTraitSystem)]);
 
         _proto.PrototypesReloaded += OnPrototypesReloaded;
@@ -134,7 +133,6 @@ public sealed class AddictionSystem : EntitySystem
 
         if (!channel.InWithdrawal || channel.Stage != stage)
         {
-            // Новая ступень сразу говорит о себе, не дожидаясь следующего интервала.
             if (channel.InWithdrawal && stage > channel.Stage)
                 channel.NextPopupTime = TimeSpan.Zero;
 
@@ -164,9 +162,6 @@ public sealed class AddictionSystem : EntitySystem
         UpdateAlert(uid, channel, proto, dead);
     }
 
-    /// <summary>
-    /// Тяжесть равна стадии зависимости, но Withdrawal.Ramp может растянуть её по времени.
-    /// </summary>
     private static int WithdrawalStage(AddictionPrototype proto, AddictionChannel channel, TimeSpan timeSinceDose)
     {
         var cap = proto.StageFromLevel(channel.Level);
@@ -248,9 +243,6 @@ public sealed class AddictionSystem : EntitySystem
         }
     }
 
-    /// <summary>
-    /// Zero значит «выдать при первой возможности».
-    /// </summary>
     private static void ResetEmoteTimers(AddictionChannel channel, AddictionStageData? stageData)
     {
         channel.NextEmoteTimes.Clear();
@@ -290,10 +282,6 @@ public sealed class AddictionSystem : EntitySystem
         _alerts.ShowAlert(uid, alert, severity, cooldown, showCooldown: cooldown != null);
     }
 
-    /// <summary>
-    /// Каналы, добавленные в рантайме, приходят без времени дозы - иначе ломка
-    /// началась бы мгновенно.
-    /// </summary>
     private void InitChannel(AddictionChannel channel, AddictionPrototype proto)
     {
         if (channel.Initialized)
@@ -318,11 +306,9 @@ public sealed class AddictionSystem : EntitySystem
 
     private void OnPlayerSpawnComplete(PlayerSpawnCompleteEvent args)
     {
-        // Любой игрок может подсесть: компонент есть у всех с момента спавна
         var comp = EnsureComp<AddictionComponent>(args.Mob);
 
-        // Вид случайной зависимости выбираем здесь, после ADTTraitSystem: каналы
-        // конкретных трайтов уже в компоненте, и их можно исключить.
+        // После ADTTraitSystem: каналы конкретных трайтов уже в компоненте.
         if (comp.PendingRandomChannel is not { } pending)
             return;
 
@@ -354,10 +340,6 @@ public sealed class AddictionSystem : EntitySystem
         ApplyDose(uid, EnsureChannel(comp, kind), proto, proto.GainPerDose);
     }
 
-    /// <summary>
-    /// Какую зависимость кормит реаген. Результат кэшируется: событие метаболизма
-    /// прилетает примерно раз в секунду на реаген.
-    /// </summary>
     private string? ResolveKind(ReagentId reagent)
     {
         if (_reagentKinds.TryGetValue(reagent.Prototype, out var cached))
@@ -367,7 +349,7 @@ public sealed class AddictionSystem : EntitySystem
 
         string? found = null;
 
-        // Порядок прототипов не гарантирован, а реаген может подойти нескольким - решает Priority.
+        // Реаген может подойти нескольким зависимостям - решает Priority.
         foreach (var proto in _proto.EnumeratePrototypes<AddictionPrototype>()
                      .OrderByDescending(p => p.Priority)
                      .ThenBy(p => p.ID))
@@ -411,7 +393,6 @@ public sealed class AddictionSystem : EntitySystem
             if (proto.DosePopup is { } dose)
                 _popup.PopupEntity(Loc.GetString(dose), uid, uid, proto.LifecyclePopupType);
         }
-        // Первое превышение порога - подсадка
         else if (!channel.WasAddicted && channel.Level >= proto.CureThreshold)
         {
             channel.WasAddicted = true;
@@ -424,7 +405,7 @@ public sealed class AddictionSystem : EntitySystem
     }
 
     /// <summary>
-    /// Только сформировавшиеся зависимости: для анализатора здоровья.
+    /// Только сформировавшиеся зависимости.
     /// </summary>
     public List<AddictionInfo>? GetAddictionInfo(EntityUid uid)
     {
