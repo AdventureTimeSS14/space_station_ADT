@@ -542,6 +542,8 @@
     sprite: ADT/Clothing/Head/Hats/beigefedora.rsi
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/beigefedora.rsi
+  - type: StaticPrice
+    price: 30
 
 - type: entity
   parent: ClothingHeadBase
@@ -553,6 +555,8 @@
     sprite: ADT/Clothing/Head/Hats/braided.rsi
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/braided.rsi
+  - type: StaticPrice
+    price: 30
 
 - type: entity
   parent: ClothingHeadHatFedoraBrown
@@ -564,6 +568,8 @@
     sprite: ADT/Clothing/Head/Hats/carpfedora.rsi
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/carpfedora.rsi
+  - type: StaticPrice
+    price: 35
 
 - type: entity
   parent: ClothingHeadHatFedoraBrown
@@ -575,6 +581,8 @@
     sprite: ADT/Clothing/Head/Hats/whitefedora.rsi
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/whitefedora.rsi
+  - type: StaticPrice
+    price: 30
 
 - type: entity
   parent: ClothingHeadBase
@@ -586,6 +594,8 @@
     sprite: ADT/Clothing/Head/Hats/widebrimmed.rsi
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/widebrimmed.rsi
+  - type: StaticPrice
+    price: 30
 
 - type: entity
   parent: ClothingHeadBase
@@ -599,6 +609,8 @@
     sprite: ADT/Clothing/Head/Hats/widebrimmed_black.rsi
 
 # Papakha
+  - type: StaticPrice
+    price: 30
 - type: entity
   parent: [ ClothingHeadBase, TemperatureProtection ]
   id: ADTClothingHeadHatPapakhaBlack

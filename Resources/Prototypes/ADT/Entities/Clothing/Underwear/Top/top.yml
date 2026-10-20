@@ -275,6 +275,8 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Underwear/Top/bigbra_cow.rsi
+  - type: StaticPrice
+    price: 20
 
 - type: entity
   parent: ADTClothingUnderwearTopBase
@@ -284,6 +286,8 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Underwear/Top/bra_america.rsi
+  - type: StaticPrice
+    price: 15
 
 - type: entity
   parent: ADTClothingUnderwearTopBase
@@ -293,3 +297,5 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Underwear/Top/bra_pink.rsi
+  - type: StaticPrice
+    price: 15

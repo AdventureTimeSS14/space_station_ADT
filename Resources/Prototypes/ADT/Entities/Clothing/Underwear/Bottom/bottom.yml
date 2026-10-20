@@ -361,6 +361,8 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Underwear/Bottom/boxers_i_love_arcan.rsi
+  - type: StaticPrice
+    price: 15
 
 - type: entity
   parent: ADTClothingUnderwearBottomBase
@@ -370,6 +372,8 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Underwear/Bottom/boxers_pink.rsi
+  - type: StaticPrice
+    price: 15
 
 - type: entity
   parent: ADTClothingUnderwearBottomBase
@@ -379,6 +383,8 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Underwear/Bottom/boxers_tsf.rsi
+  - type: StaticPrice
+    price: 15
 
 - type: entity
   parent: ADTClothingUnderwearBottomBase
@@ -388,6 +394,8 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Underwear/Bottom/panties_america.rsi
+  - type: StaticPrice
+    price: 15
 
 - type: entity
   parent: ADTClothingUnderwearBottomBase
@@ -397,3 +405,5 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Underwear/Bottom/panties_pink.rsi
+  - type: StaticPrice
+    price: 15

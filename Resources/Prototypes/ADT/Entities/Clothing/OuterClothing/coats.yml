@@ -1,21 +1,3 @@
-﻿- type: entity
-  parent: ClothingOuterStorageBase
-  id: ADTClothingOuterCoatUrs
-  name: Urs outercoat.
-  description: Urs outercoat.
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/OuterClothing/Coats/urs_coat.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/OuterClothing/Coats/urs_coat.rsi
-  - type: TemperatureProtection
-    coefficient: 0.9
-  - type: Armor
-    modifiers:
-      coefficients:
-        Slash: 0.95
-        Heat: 0.90
-
 - type: entity
   parent: ClothingOuterStorageBase
   id: ADTClothingKadet
@@ -350,6 +332,8 @@
     sprite: ADT/Clothing/OuterClothing/Coats/dutch_jacket.rsi
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/dutch_jacket.rsi
+  - type: StaticPrice
+    price: 45
 
 - type: entity
   parent: ADTClothingOuterStorageClothBase
@@ -361,6 +345,8 @@
     sprite: ADT/Clothing/OuterClothing/Coats/letterman_nanotrasen.rsi
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/letterman_nanotrasen.rsi
+  - type: StaticPrice
+    price: 40
 
 - type: entity
   parent: ADTClothingOuterStorageClothBase
@@ -372,6 +358,8 @@
     sprite: ADT/Clothing/OuterClothing/Coats/letterman_syndie.rsi
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/letterman_syndie.rsi
+  - type: StaticPrice
+    price: 40
 
 - type: entity
   parent: ADTClothingOuterStorageClothBase
@@ -385,6 +373,8 @@
     sprite: ADT/Clothing/OuterClothing/Coats/letterman_black.rsi
 
 # Тренч деку
+  - type: StaticPrice
+    price: 40
 
 - type: entity
   parent: ClothingOuterCoatDetectiveLoadout
@@ -805,6 +795,8 @@
     - ClothMade
     - Recyclable
     - WhitelistChameleon
+  - type: StaticPrice
+    price: 80
 
 - type: entity
   parent: [ ClothingOuterStorageFoldableBaseOpened, ADTClothingOuterCaptainCoat ]
@@ -814,3 +806,5 @@
     sprite: ADT/Clothing/OuterClothing/Coats/captain_coat.rsi
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/captain_coat.rsi
+  - type: StaticPrice
+    price: 80

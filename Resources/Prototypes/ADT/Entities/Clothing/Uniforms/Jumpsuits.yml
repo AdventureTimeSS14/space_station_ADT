@@ -1187,6 +1187,8 @@
 
 
 # И ещё один комбез для детектива
+  - type: StaticPrice
+    price: 45
 
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase]
@@ -1394,6 +1396,8 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/tuxedo.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/tuxedo.rsi
+  - type: StaticPrice
+    price: 50
 
 - type: entity
   parent: ClothingUniformBase
@@ -1405,6 +1409,8 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/tuxedo_white.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/tuxedo_white.rsi
+  - type: StaticPrice
+    price: 50
 
 - type: entity
   parent: ClothingUniformBase
@@ -1416,6 +1422,8 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/tuxedo_red.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/tuxedo_red.rsi
+  - type: StaticPrice
+    price: 50
 
 - type: entity
   parent: ClothingUniformBase
@@ -1427,6 +1435,8 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/tuxedo_hell.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/tuxedo_hell.rsi
+  - type: StaticPrice
+    price: 50
 
 - type: entity
   parent: ClothingUniformBase

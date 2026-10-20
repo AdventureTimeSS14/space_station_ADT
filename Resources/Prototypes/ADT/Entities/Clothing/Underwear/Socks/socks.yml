@@ -777,3 +777,5 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Underwear/Socks/stocking_cow.rsi
+  - type: StaticPrice
+    price: 20

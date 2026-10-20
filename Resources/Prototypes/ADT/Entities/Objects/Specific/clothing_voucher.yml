@@ -245,6 +245,8 @@
     - TieRed
     - TieYellow
     typeDropPlace: InHands
+  - type: StaticPrice
+    price: 20
 
 - type: entity
   parent: ADTClothingVoucherBase
@@ -268,6 +270,8 @@
     - UnderwearBoxersAmerica
     - UnderwearBoxersBoom
     typeDropPlace: InHands
+  - type: StaticPrice
+    price: 15
 
 - type: entity
   parent: ADTClothingVoucherBase
@@ -287,6 +291,8 @@
     - UnderwearBriefsWhite
     - UnderwearBriefsMoth
     typeDropPlace: InHands
+  - type: StaticPrice
+    price: 15
 
 - type: entity
   parent: ADTClothingVoucherBase
@@ -316,6 +322,8 @@
     - UnderwearPantiesChristmas
     - UnderwearPantiesCow
     typeDropPlace: InHands
+  - type: StaticPrice
+    price: 15
 
 - type: entity
   parent: ADTClothingVoucherBase
@@ -335,6 +343,8 @@
     - UnderwearMonokiniBottomWhite
     - UnderwearMonokiniBottomBlack
     typeDropPlace: InHands
+  - type: StaticPrice
+    price: 15
 
 - type: entity
   parent: ADTClothingVoucherBase
@@ -367,6 +377,8 @@
     - UnderwearBraSilkRed
     - UnderwearBraCow
     typeDropPlace: InHands
+  - type: StaticPrice
+    price: 15
 
 - type: entity
   parent: ADTClothingVoucherBase
@@ -386,6 +398,8 @@
     - UnderwearMonokiniTopWhite
     - UnderwearMonokiniTopBlack
     typeDropPlace: InHands
+  - type: StaticPrice
+    price: 15
 
 - type: entity
   parent: ADTClothingVoucherBase
@@ -406,6 +420,8 @@
     - UnderwearTShirtBlack
     - UnderwearTShirtTelnik
     typeDropPlace: InHands
+  - type: StaticPrice
+    price: 15
 
 - type: entity
   parent: ADTClothingVoucherBase
@@ -443,6 +459,8 @@
     - SockPink
     - SockCow
     typeDropPlace: InHands
+  - type: StaticPrice
+    price: 15
 
 - type: entity
   parent: ADTClothingVoucherBase
@@ -476,6 +494,8 @@
     - SockKneeThin
     - SockKneeYellow
     typeDropPlace: InHands
+  - type: StaticPrice
+    price: 15
 
 - type: entity
   parent: ADTClothingVoucherBase
@@ -516,6 +536,8 @@
     - SockThighYellow
     - SockFullFishnet
     typeDropPlace: InHands
+  - type: StaticPrice
+    price: 15
 
 - type: entity
   parent: ADTClothingVoucherBase
@@ -537,6 +559,8 @@
     - AdidasRed
     - AdidasWhite
     typeDropPlace: InHands
+  - type: StaticPrice
+    price: 30
 
 - type: entity
   parent: ADTClothingVoucherBase
@@ -559,6 +583,8 @@
     - CasualShirtTeal
     - CasualShirtYellow
     typeDropPlace: InHands
+  - type: StaticPrice
+    price: 30
 
 - type: entity
   parent: ADTClothingVoucherBase
@@ -583,6 +609,8 @@
     - KeikogiBrown
     - KeikogiBlack
     typeDropPlace: InHands
+  - type: StaticPrice
+    price: 30
 
 - type: entity
   parent: ADTClothingVoucherBase
@@ -604,6 +632,8 @@
     - HeelsRed
     - HeelsWhite
     typeDropPlace: InHands
+  - type: StaticPrice
+    price: 20
 
 - type: entity
   parent: ADTClothingVoucherBase
@@ -629,6 +659,8 @@
     - SandalsWhite
     - SandalsYellow
     typeDropPlace: InHands
+  - type: StaticPrice
+    price: 20
 
 - type: entity
   parent: ADTClothingVoucherBase
@@ -650,6 +682,8 @@
     - BowtieRed
     - BowtieWhite
     typeDropPlace: InHands
+  - type: StaticPrice
+    price: 20
 
 - type: entity
   parent: ADTClothingVoucherBase
@@ -672,6 +706,8 @@
     - ShawlRed
     - ShawlWhite
     typeDropPlace: InHands
+  - type: StaticPrice
+    price: 20
 
 - type: entity
   parent: ADTClothingVoucherBase
@@ -704,6 +740,8 @@
     - BeanieWhite
     - BeanieYellow
     typeDropPlace: InHands
+  - type: StaticPrice
+    price: 20
 
 - type: entity
   parent: ADTClothingVoucherBase
@@ -728,6 +766,8 @@
     - DownjacketRed
     - DownjacketWhite
     typeDropPlace: InHands
+  - type: StaticPrice
+    price: 30
 
 - type: entity
   parent: ADTClothingVoucherBase
@@ -755,6 +795,8 @@
     - HoodyRed
     - HoodyWhite
     typeDropPlace: InHands
+  - type: StaticPrice
+    price: 30
 
 - type: entity
   parent: ADTClothingVoucherBase
@@ -777,6 +819,8 @@
     - SweatercutRed
     - SweatercutWhite
     typeDropPlace: InHands
+  - type: StaticPrice
+    price: 30
 
 - type: entity
   parent: ADTClothingVoucherBase
@@ -797,6 +841,8 @@
     - KiltGreen
     - KiltRed
     typeDropPlace: InHands
+  - type: StaticPrice
+    price: 30
 
 - type: entity
   parent: ADTClothingVoucherBase
@@ -817,3 +863,5 @@
     - NightDressRed
     - NightDressWhite
     typeDropPlace: InHands
+  - type: StaticPrice
+    price: 30
