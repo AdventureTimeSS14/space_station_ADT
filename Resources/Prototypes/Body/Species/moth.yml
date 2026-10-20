@@ -236,7 +236,7 @@
           Heat: 2.5 # moths burn more easily
     - type: Temperature
       temperature: 310.15
-      specificHeat: 2760 # ADT-Tweak
+      specificHeat: 46 # ADT-Tweak
     - type: TemperatureDamage # Moths hate the heat and thrive in the cold.
       heatDamageThreshold: 320 # ADT-Tweak
       coldDamageThreshold: 230

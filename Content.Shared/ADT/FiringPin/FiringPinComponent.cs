@@ -15,6 +15,7 @@ public enum FiringPinType : byte
     SecLevel,
     Explorer,
     Component,
+    MindShield,
 }
 
 public enum FiringPinLogic : byte

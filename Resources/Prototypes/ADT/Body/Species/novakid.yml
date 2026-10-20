@@ -203,7 +203,7 @@
         Heat: 5
   - type: Temperature
     temperature: 410.15
-    specificHeat: 2760
+    specificHeat: 46
   - type: TemperatureDamage
     heatDamageThreshold: 650
     coldDamageThreshold: 193  #starting temperature damage treshold
