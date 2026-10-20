@@ -292,9 +292,6 @@
     - id: ClothingShoesBootsJack
     - id: ClothingEyesGlassesSunglasses
     - id: ClothingHeadHelmetBasic
-    # ADT-Tweak-start
-    - id: ADTClothingHeadHelmetSecurityAlt
-    # ADT-Tweak-end
     - id: ClothingOuterArmorBasic
     - id: ClothingUniformJumpskirtSec
 
