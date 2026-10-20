@@ -14,7 +14,7 @@ namespace Content.Shared.ADT.Addiction;
 /// <summary>
 /// Прототип одной зависимости: чем кормится, как копится и спадает, как выглядит ломка.
 /// Системы кодом конкретные зависимости не различают - вся настройка здесь.
-/// Id прототипа - то, что в yml пишется как kind (трайты, AdjustAddictionLevel).
+/// Id прототипа - то, что в yml пишется как kind.
 /// </summary>
 [Prototype("addiction")]
 public sealed partial class AddictionPrototype : IPrototype
@@ -26,8 +26,7 @@ public sealed partial class AddictionPrototype : IPrototype
     public LocId Name;
 
     /// <summary>
-    /// Реагенты, кормящие зависимость. Пусто - только через AdjustAddictionLevel
-    /// (лекарственные зависимости появляются от передоза, а не от самого приёма).
+    /// Реагенты, кормящие зависимость. Пусто - только через AdjustAddictionLevel.
     /// </summary>
     [DataField]
     public List<AddictionSource> Sources = new();
@@ -46,7 +45,6 @@ public sealed partial class AddictionPrototype : IPrototype
 
     /// <summary>
     /// Спад уровня в секунду без дозы, по умолчанию 100 за ~100 минут.
-    /// Неизлечимые (Permanent) каналы не спадают.
     /// </summary>
     [DataField]
     public float DecayPerSecond = 100f / 6000f;
@@ -61,7 +59,7 @@ public sealed partial class AddictionPrototype : IPrototype
     public float? CuredBelow;
 
     /// <summary>
-    /// Поп-ап подсадки - первого превышения порога.
+    /// Поп-ап первого превышения порога.
     /// </summary>
     [DataField]
     public LocId? BeginPopup;
@@ -72,21 +70,14 @@ public sealed partial class AddictionPrototype : IPrototype
     [DataField]
     public LocId? DosePopup;
 
-    /// <summary>
-    /// Поп-ап выздоровления - уровень упал ниже порога.
-    /// </summary>
     [DataField]
     public LocId? CuredPopup;
 
-    /// <summary>
-    /// Тип поп-апов подсадки, дозы и выздоровления.
-    /// </summary>
     [DataField]
     public PopupType LifecyclePopupType = PopupType.Small;
 
     /// <summary>
-    /// Иконка состояния справа, null - без иконки. Степень 0 - доза ещё держится,
-    /// дальше номер стадии ломки до MaxAlertSeverity.
+    /// Степень 0 - доза ещё держится, дальше номер стадии ломки до MaxAlertSeverity.
     /// </summary>
     [DataField]
     public ProtoId<AlertPrototype>? Alert;
@@ -140,9 +131,6 @@ public sealed partial class AddictionPrototype : IPrototype
     }
 }
 
-/// <summary>
-/// Когда ломка начинается и как нарастает её тяжесть.
-/// </summary>
 [DataDefinition]
 public sealed partial class AddictionWithdrawal
 {
@@ -189,9 +177,6 @@ public sealed partial class AddictionRamp
     public int Stage;
 }
 
-/// <summary>
-/// Стадия зависимости: с какого уровня начинается и чем даёт о себе знать в ломке.
-/// </summary>
 [DataDefinition]
 public sealed partial class AddictionStageData
 {
@@ -202,7 +187,7 @@ public sealed partial class AddictionStageData
     public float Level;
 
     /// <summary>
-    /// Выбирается случайный, соседние не повторяются. Пусто - стадия молчит.
+    /// Выбирается случайный, соседние не повторяются.
     /// </summary>
     [DataField]
     public List<LocId> Popups = new();
@@ -224,9 +209,6 @@ public sealed partial class AddictionStageData
     public List<AddictionEmote> Emotes = new();
 }
 
-/// <summary>
-/// Эмоция во время ломки: по поп-апам с шансом, по своему интервалу, или и то и то.
-/// </summary>
 [DataDefinition]
 public sealed partial class AddictionEmote
 {

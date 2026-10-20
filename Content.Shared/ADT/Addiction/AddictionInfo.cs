@@ -7,8 +7,7 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.ADT.Addiction;
 
 /// <summary>
-/// Зависимость для анализатора здоровья. Kind - id AddictionPrototype:
-/// название клиент берёт из прототипа сам.
+/// Зависимость для анализатора здоровья. Kind - id AddictionPrototype.
 /// </summary>
 [Serializable, NetSerializable]
 public struct AddictionInfo

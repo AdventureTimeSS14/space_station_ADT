@@ -20,10 +20,7 @@ namespace Content.Server.ADT.Addiction;
 
 /// <summary>
 /// Движок зависимостей: ловит приём доз, копит уровень привыкания, при долгом воздержании
-/// запускает ломку и рейзит AddictionSymptomsChangedEvent.
-///
-/// Конкретные зависимости система не различает - всё лежит в AddictionPrototype
-/// (Prototypes/ADT/Addiction).
+/// запускает ломку. Конкретные зависимости не различает - всё лежит в AddictionPrototype.
 /// </summary>
 public sealed class AddictionSystem : EntitySystem
 {
@@ -35,7 +32,6 @@ public sealed class AddictionSystem : EntitySystem
     [Dependency] private AlertsSystem _alerts = default!;
     [Dependency] private ChatSystem _chat = default!;
 
-    // Уровень и тайминги измеряются минутами: запрос по всем игрокам каждый кадр не нужен.
     private const float UpdateInterval = 1f;
 
     private float _accumulator;
@@ -96,7 +92,6 @@ public sealed class AddictionSystem : EntitySystem
 
         InitChannel(channel, proto);
 
-        // Трайтовые зависимости неизлечимы - не спадают.
         if (!channel.Permanent)
             channel.Level = MathF.Max(0f, channel.Level - proto.DecayPerSecond * elapsed);
 
@@ -112,7 +107,6 @@ public sealed class AddictionSystem : EntitySystem
             return;
         }
 
-        // Уровень упал ниже порога - зависимость отпустила
         if (channel.Level < proto.CureThreshold)
         {
             if (channel.WasAddicted)
@@ -140,7 +134,7 @@ public sealed class AddictionSystem : EntitySystem
 
         if (!channel.InWithdrawal || channel.Stage != stage)
         {
-            // Новая ступень ломки сразу говорит о себе, не дожидаясь следующего интервала.
+            // Новая ступень сразу говорит о себе, не дожидаясь следующего интервала.
             if (channel.InWithdrawal && stage > channel.Stage)
                 channel.NextPopupTime = TimeSpan.Zero;
 
@@ -171,9 +165,7 @@ public sealed class AddictionSystem : EntitySystem
     }
 
     /// <summary>
-    /// По умолчанию тяжесть равна стадии самой зависимости, но прототип может задать
-    /// нарастание по времени (Withdrawal.Ramp) - тогда ломка идёт по ступеням,
-    /// выше стадии зависимости всё равно не поднимаясь.
+    /// Тяжесть равна стадии зависимости, но Withdrawal.Ramp может растянуть её по времени.
     /// </summary>
     private static int WithdrawalStage(AddictionPrototype proto, AddictionChannel channel, TimeSpan timeSinceDose)
     {
@@ -299,8 +291,8 @@ public sealed class AddictionSystem : EntitySystem
     }
 
     /// <summary>
-    /// Каналы, добавленные в рантайме (трайт-эффект, передоз), приходят без времени дозы:
-    /// без этого ломка началась бы мгновенно.
+    /// Каналы, добавленные в рантайме, приходят без времени дозы - иначе ломка
+    /// началась бы мгновенно.
     /// </summary>
     private void InitChannel(AddictionChannel channel, AddictionPrototype proto)
     {
@@ -404,9 +396,6 @@ public sealed class AddictionSystem : EntitySystem
         return channel;
     }
 
-    /// <summary>
-    /// Общий путь для обычного употребления и для передоза лекарств.
-    /// </summary>
     public void ApplyDose(EntityUid uid, AddictionChannel channel, AddictionPrototype proto, float amount)
     {
         channel.Initialized = true;

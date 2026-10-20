@@ -10,25 +10,19 @@ using Robust.Shared.Timing;
 namespace Content.Server.ADT.Addiction;
 
 /// <summary>
-/// Держит на мобе симптомы ломки из AddictionPrototype.Stages[..].Symptoms.
-///
-/// Каналов в ломке может быть несколько, и их симптомы дерутся за один и тот же статус-эффект:
-/// арбитраж по ключу симптома, побеждает пришедший с более тяжёлой стадии. Снимаем только то,
-/// что наложили сами: чужую дрожь и чужие статус-эффекты ломка не гасит.
+/// Держит на мобе симптомы ломки. Каналов в ломке может быть несколько: симптомы с одним
+/// ключом не складываются, побеждает пришедший с более тяжёлой стадии. Снимаем только то,
+/// что наложили сами.
 /// </summary>
 public sealed class AddictionSymptomsSystem : EntitySystem
 {
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private IPrototypeManager _proto = default!;
 
-    /// <summary>
-    /// Победители арбитража: ключ симптома -> стадия, с которой он пришёл, и сам симптом.
-    /// </summary>
     private readonly Dictionary<string, (int Stage, AddictionSymptom Symptom)> _winners = new();
 
     private readonly List<string> _expired = new();
 
-    // Продление измеряется десятками секунд; срочное приходит через AddictionSymptomsChangedEvent.
     private const float UpdateInterval = 1f;
 
     private float _accumulator;
@@ -84,9 +78,6 @@ public sealed class AddictionSymptomsSystem : EntitySystem
         RefreshSymptoms(uid, comp);
     }
 
-    /// <summary>
-    /// Накладывает и продлевает нужные симптомы, снимает те, что больше никто не требует.
-    /// </summary>
     private void RefreshSymptoms(EntityUid uid, AddictionComponent comp)
     {
         comp.NextSymptomRefresh = _timing.CurTime + comp.SymptomRefreshInterval;
@@ -127,7 +118,6 @@ public sealed class AddictionSymptomsSystem : EntitySystem
             comp.AppliedSymptoms.Remove(key);
         }
 
-        // Наложить или продлить актуальное
         foreach (var (key, winner) in _winners)
         {
             var owned = comp.AppliedSymptoms.ContainsKey(key);

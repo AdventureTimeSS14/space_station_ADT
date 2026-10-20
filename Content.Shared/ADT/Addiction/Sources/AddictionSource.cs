@@ -16,15 +16,9 @@ namespace Content.Shared.ADT.Addiction.Sources;
 [ImplicitDataDefinitionForInheritors, UsedImplicitly(ImplicitUseTargetFlags.WithInheritors)]
 public abstract partial class AddictionSource
 {
-    /// <summary>
-    /// Прототип может не найтись - тогда proto равен null.
-    /// </summary>
     public abstract bool Matches(ReagentId reagent, ReagentPrototype? proto);
 }
 
-/// <summary>
-/// Конкретный реаген по id.
-/// </summary>
 public sealed partial class AddictionReagentSource : AddictionSource
 {
     [DataField(required: true)]

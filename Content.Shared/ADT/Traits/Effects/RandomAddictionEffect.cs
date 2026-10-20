@@ -19,9 +19,6 @@ public sealed partial class RandomAddictionEffect : BaseTraitEffect
     [DataField]
     public float Level = 100f;
 
-    /// <summary>
-    /// Неизлечимая, как и конкретные трайты.
-    /// </summary>
     [DataField]
     public bool Permanent = true;
 

@@ -490,7 +490,6 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
         var anyTreatable = false;
         foreach (var addiction in addictions)
         {
-            // Название зависимости живёт в её прототипе, а не в свитче по типу.
             if (!_prototypes.TryIndex<AddictionPrototype>(addiction.Kind, out var kindProto))
                 continue;
 

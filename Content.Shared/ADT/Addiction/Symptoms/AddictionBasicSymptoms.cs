@@ -10,9 +10,6 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations;
 
 namespace Content.Shared.ADT.Addiction.Symptoms;
 
-/// <summary>
-/// Дрожь.
-/// </summary>
 public sealed partial class AddictionJitterSymptom : AddictionSymptom
 {
     [DataField]
@@ -42,9 +39,6 @@ public sealed partial class AddictionJitterSymptom : AddictionSymptom
     }
 }
 
-/// <summary>
-/// Статус-эффект: косноязычие, заикание, муть в глазах, слабость.
-/// </summary>
 public sealed partial class AddictionStatusEffectSymptom : AddictionSymptom
 {
     [DataField(required: true)]
@@ -83,7 +77,7 @@ public sealed partial class AddictionComponentSymptom : AddictionSymptom
 
     public override bool Apply(AddictionSymptomContext ctx)
     {
-        // Не продление: если что-то из набора уже стоит, значит его поставили не мы - не трогаем.
+        // Если что-то из набора уже стоит, значит его поставили не мы - не трогаем.
         if (!ctx.Owned)
         {
             foreach (var (_, entry) in Components)

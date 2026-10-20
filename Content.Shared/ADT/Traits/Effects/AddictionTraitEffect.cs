@@ -17,15 +17,9 @@ public sealed partial class AddictionTraitEffect : BaseTraitEffect
     [DataField("kind", required: true)]
     public ProtoId<AddictionPrototype> Kind;
 
-    /// <summary>
-    /// Стартовый уровень привыкания: 100 - тяжёлая стадия.
-    /// </summary>
     [DataField]
     public float Level = 100f;
 
-    /// <summary>
-    /// Неизлечимая: уровень не спадает, детоксин не берёт.
-    /// </summary>
     [DataField]
     public bool Permanent = true;
 

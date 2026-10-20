@@ -238,7 +238,7 @@
   name: alerts-adt-abu-ghosh-name
   description: alerts-adt-abu-ghosh-desc
 
-# Тяга к никотину. 0 — недавно курил (таймер до ломки), 1 — лёгкая ломка, 2 — средняя и тяжёлая.
+# 0 - таймер до ломки, 1 - лёгкая ломка, 2 - средняя и тяжёлая.
 - type: alert
   id: NicotineCraving
   icons:

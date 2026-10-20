@@ -10,9 +10,6 @@ namespace Content.Shared.ADT.Addiction;
 /// <summary>
 /// Зависимости моба. Есть у всех игроков со спавна: подсесть может каждый.
 /// </summary>
-// Каналы меняют серверные системы (AddictionSystem, AdjustAddictionLevelEffectSystem)
-// и Shared-эффекты трайтов (AddictionTraitEffect, RandomAddictionEffect), поэтому
-// [Access(typeof(...))] осознанно не ставится: эффекты не являются системами.
 [RegisterComponent]
 public sealed partial class AddictionComponent : Component
 {
@@ -29,13 +26,13 @@ public sealed partial class AddictionComponent : Component
     public TimeSpan NextSymptomRefresh;
 
     /// <summary>
-    /// Что ломка наложила сама: ключ симптома - сам симптом. Снимаем только своё.
+    /// Что ломка наложила сама: снимаем только своё.
     /// </summary>
     public Dictionary<string, AddictionSymptom> AppliedSymptoms = new();
 
     /// <summary>
     /// Заготовка канала для трайта «случайная зависимость»: вид выберет AddictionSystem
-    /// при спавне, из PendingRandomPool минус уже занятые. Null - трайт не взят.
+    /// при спавне, из PendingRandomPool минус уже занятые.
     /// </summary>
     public AddictionChannel? PendingRandomChannel;
 

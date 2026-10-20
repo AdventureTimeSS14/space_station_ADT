@@ -13,8 +13,7 @@ namespace Content.Shared.ADT.Addiction.Symptoms;
 public abstract partial class AddictionSymptom
 {
     /// <summary>
-    /// Чем симптом владеет на мобе. Одинаковые ключи не складываются: побеждает пришедший
-    /// с более тяжёлой стадии. Ключ должен быть стабилен - по нему симптом снимают.
+    /// Чем симптом владеет на мобе: по ключу его снимают, поэтому он должен быть стабилен.
     /// </summary>
     public abstract string Key { get; }
 

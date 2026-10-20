@@ -2,12 +2,8 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-# Один прототип = одна зависимость, код конкретные зависимости не различает.
-# Id прототипа - это то, что в yml пишется как kind (AddictionTraitEffect, AdjustAddictionLevel).
-#
+# Один прототип = одна зависимость, id прототипа - это kind в трайтах и эффектах.
 # stages идут по возрастанию: первый элемент - стадия 1, ниже его level зависимость вылечена.
-# Симптомы с одинаковым ключом от разных зависимостей не складываются: побеждает
-# пришедший с более тяжёлой стадии.
 
 - type: addiction
   id: Alcohol
@@ -46,8 +42,6 @@
 - type: addiction
   id: Nicotine
   name: health-analyzer-addiction-nicotine
-  # Никотин ищется по id: своей группы метаболизма у него нет, а priority не даёт
-  # перехватить его совпадению по группе или родителю.
   priority: 10
   sources:
   - !type:AddictionReagentSource
@@ -157,13 +151,12 @@
       effect: StatusEffectStutter
     - !type:AddictionStatusEffectSymptom
       effect: StatusEffectWithdrawalWeakness
-    # Если монохромность уже стоит не от ломки - симптом не вмешивается.
     - !type:AddictionComponentSymptom
       components:
       - type: Monochromacy
 
 # Лекарственные зависимости без sources: канал появляется от передоза,
-# реагентным эффектом AdjustAddictionLevel с положительным amount.
+# через AdjustAddictionLevel с положительным amount.
 - type: addiction
   id: Medicine
   name: health-analyzer-addiction-medicine

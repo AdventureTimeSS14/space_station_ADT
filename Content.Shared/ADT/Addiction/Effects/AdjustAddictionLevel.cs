@@ -8,8 +8,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.ADT.Addiction.Effects;
 
 /// <summary>
-/// Реагентный эффект зависимости: отрицательный Amount лечит (Детоксин),
-/// положительный качает канал (передоз лекарств).
+/// Отрицательный Amount лечит (детоксин), положительный качает канал (передоз лекарств).
 /// </summary>
 public sealed partial class AdjustAddictionLevel : EntityEffectBase<AdjustAddictionLevel>
 {
@@ -20,7 +19,7 @@ public sealed partial class AdjustAddictionLevel : EntityEffectBase<AdjustAddict
     public float Amount = -1f;
 
     /// <summary>
-    /// Какую зависимость менять (id AddictionPrototype). Null - все сразу (только для лечения).
+    /// Null - все сразу, только для лечения.
     /// </summary>
     [DataField]
     public ProtoId<AddictionPrototype>? Kind;

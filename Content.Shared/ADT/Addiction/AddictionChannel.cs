@@ -15,21 +15,18 @@ public sealed partial class AddictionChannel
     [DataField("kind", required: true)]
     public ProtoId<AddictionPrototype> Kind;
 
-    /// <summary>
-    /// Уровень привыкания, 0..AddictionPrototype.MaxLevel.
-    /// </summary>
     [DataField]
     public float Level;
 
     /// <summary>
-    /// Неизлечимая зависимость (даётся трайтом): уровень не спадает, детоксин не помогает.
+    /// Неизлечимая зависимость: уровень не спадает, детоксин не помогает.
     /// </summary>
     [DataField]
     public bool Permanent;
 
     /// <summary>
-    /// Каналы, добавленные в рантайме (трайт-эффект, передоз), приходят без времени дозы:
-    /// без этого флага ломка началась бы мгновенно.
+    /// Каналы, добавленные в рантайме, приходят без времени дозы - без этого флага
+    /// ломка началась бы мгновенно.
     /// </summary>
     [DataField]
     public bool Initialized;
@@ -57,13 +54,10 @@ public sealed partial class AddictionChannel
     /// </summary>
     public int Stage;
 
-    /// <summary>
-    /// Индекс прошлого поп-апа: соседние фразы не повторяются.
-    /// </summary>
     public int LastPopupIndex = -1;
 
     /// <summary>
-    /// Время следующей эмоции по индексу в AddictionStageData.Emotes текущей стадии.
+    /// По индексу в AddictionStageData.Emotes текущей стадии.
     /// </summary>
     public List<TimeSpan> NextEmoteTimes = new();
 }
