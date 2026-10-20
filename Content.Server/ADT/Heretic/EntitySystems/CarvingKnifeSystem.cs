@@ -11,6 +11,7 @@ using Content.Server.Gravity;
 using Content.Server.Mind;
 using Content.Server.Pinpointer;
 using Content.Server.Popups;
+using Content.Shared.Popups;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.ADT.Heretic.Common;
 using Content.Shared.Actions;
@@ -22,10 +23,13 @@ using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Maps;
 using Content.Shared.Movement.Pulling.Systems;
+using Content.Shared.Item;
+using Content.Shared.Throwing;
 using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffect;
 using Content.Shared.Tag;
 using Robust.Server.Audio;
+using Robust.Shared.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
@@ -75,6 +79,10 @@ public sealed class CarvingKnifeSystem : EntitySystem
         SubscribeLocalEvent<AlertCarvingComponent, RuneCarvedEvent>(OnRuneCarved);
         SubscribeLocalEvent<AlertCarvingComponent, TrapTriggeredEvent>(OnAlertTriggered);
         SubscribeLocalEvent<MadCarvingComponent, TrapTriggeredEvent>(OnMadTriggered);
+
+        SubscribeLocalEvent<WizardTrapComponent, ThrowHitByEvent>(OnCarvingThrowHitBy);
+        SubscribeLocalEvent<WizardTrapComponent, InteractUsingEvent>(OnCarvingInteractUsing);
+        SubscribeLocalEvent<ItemComponent, LandEvent>(OnItemLand);
 
         SubscribeNetworkEvent<ButtonTagPressedEvent>(OnPressed);
     }
@@ -165,6 +173,9 @@ public sealed class CarvingKnifeSystem : EntitySystem
                 out var effect,
                 TimeSpan.FromMilliseconds(ent.Comp.TeleportDelay + 100)))
             EnsureComp<CarvingAlertedStatusEffectComponent>(effect.Value).Locations[coords] = ent;
+
+        if (HasComp<ItemComponent>(args.Victim) || HasComp<ThrownItemComponent>(args.Victim))
+            QueueDel(ent);
     }
 
     private void OnDeleteCarvings(Entity<CarvingKnifeComponent> ent, ref DeleteAllCarvingsEvent args)
@@ -209,6 +220,61 @@ public sealed class CarvingKnifeSystem : EntitySystem
         _audio.PlayPvs(ent.Comp.Sound, ent);
 
         args.Handled = true;
+    }
+
+    private void OnCarvingThrowHitBy(Entity<WizardTrapComponent> ent, ref ThrowHitByEvent args)
+    {
+        if (!_tag.HasTag(ent.Owner, CarvingTag))
+            return;
+
+        DisarmCarving(ent.Owner, args.Thrown);
+    }
+
+    private void OnCarvingInteractUsing(Entity<WizardTrapComponent> ent, ref InteractUsingEvent args)
+    {
+        if (args.Handled || !_tag.HasTag(ent.Owner, CarvingTag))
+            return;
+
+        if (HasComp<CarvingKnifeComponent>(args.Used) && _heretic.IsHereticOrGhoul(args.User))
+            return;
+
+        DisarmCarving(ent.Owner, args.Used, args.User);
+        args.Handled = true;
+    }
+
+    private void OnItemLand(Entity<ItemComponent> ent, ref LandEvent args)
+    {
+        var coords = _transform.GetMapCoordinates(ent);
+        var lookup = _lookup.GetEntitiesInRange(coords, 0.6f);
+        foreach (var target in lookup)
+        {
+            if (!_tag.HasTag(target, CarvingTag))
+                continue;
+
+            DisarmCarving(target, ent.Owner);
+        }
+    }
+
+    private void DisarmCarving(EntityUid carving, EntityUid used, EntityUid? user = null)
+    {
+        if (TerminatingOrDeleted(carving))
+            return;
+
+        var coords = Transform(carving).Coordinates;
+        _audio.PlayPvs(new SoundPathSpecifier("/Audio/ADT/Heretic/runebreak.ogg"), coords);
+        Spawn("EffectSparks", coords);
+
+        if (user != null)
+            _popup.PopupEntity(Loc.GetString("heretic-carving-disarmed"), carving, user.Value, PopupType.MediumCaution);
+        else
+            _popup.PopupCoordinates(Loc.GetString("heretic-carving-disarmed"), coords, PopupType.MediumCaution);
+
+        if (TryComp<AlertCarvingComponent>(carving, out _))
+        {
+            RaiseLocalEvent(carving, new TrapTriggeredEvent(used));
+        }
+
+        QueueDel(carving);
     }
 
     private void OnCarveRune(Entity<CarvingKnifeComponent> ent, ref CarveRuneDoAfterEvent args)

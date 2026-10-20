@@ -205,6 +205,27 @@
       phylactery:
         maxVol: 100
   - type: HereticPhylactery
+  - type: Spillable
+    solution: phylactery
+  - type: RefillableSolution
+    solution: phylactery
+  - type: DrainableSolution
+    solution: phylactery
+  - type: ExaminableSolution
+    solution: phylactery
+    exactVolume: true
+  - type: DrawableSolution
+    solution: phylactery
+  - type: InjectableSolution
+    solution: phylactery
+  - type: SolutionTransfer
+    canChangeTransferAmount: true
+  - type: SolutionItemStatus
+    solution: phylactery
+  - type: UserInterface
+    interfaces:
+      enum.TransferAmountUiKey.Key:
+        type: TransferAmountBoundUserInterface
   - type: UseDelay
     delay: 0.5
   - type: Tag
@@ -261,13 +282,14 @@
   name: shattered arm blade
   description: A jagged blade of blue glass fused to the arm. It cannot be removed.
   components:
+  - type: Execution
+    doAfterDuration: 4.0
   - type: Sprite
     sprite: ADT/Heretic/Entities/arm_blade.rsi
     state: icon
-  - type: Item
-    size: Normal
-    sprite: ADT/Heretic/Entities/arm_blade.rsi
   - type: MeleeWeapon
+    angle: 0
+    wideAnimationRotation: 75
     attackRate: 1.5
     damage:
       types:
@@ -275,7 +297,21 @@
         Structural: 10
     soundHit:
       collection: GlassBreak
+  - type: Item
+    size: Ginormous
+    sprite: ADT/Heretic/Entities/arm_blade.rsi
+  - type: Prying
+    speedModifier: 2
+    pryPowered: true
+  - type: UseDelay
+    delay: 1
   - type: Unremoveable
+  - type: Tool
+    qualities:
+    - Slicing
+    - Prying
+  - type: DisarmMalus
+    malus: 0
   - type: Tag
     tags:
     - HereticItem
@@ -289,18 +325,26 @@
   - type: Sprite
     sprite: ADT/Heretic/Entities/hammer.rsi
     state: icon
-  - type: Item
-    size: Huge
-    sprite: ADT/Heretic/Entities/hammer.rsi
   - type: MeleeWeapon
-    attackRate: 1.2
+    angle: 0
+    wideAnimationRotation: 75
+    attackRate: 0.75
+    range: 2
     damage:
       types:
-        Blunt: 20
-        Structural: 30
+        Blunt: 25
+        Structural: 50
     soundHit:
       collection: GlassBreak
+  - type: Item
+    size: Ginormous
+    sprite: ADT/Heretic/Entities/hammer.rsi
   - type: Unremoveable
+  - type: DisarmMalus
+    malus: 0
+  - type: MeleeThrowOnHit
+    distance: 3
+    speed: 5
   - type: Tag
     tags:
     - HereticItem
@@ -342,6 +386,12 @@
       - state: spacehand_left
   - type: TimedDespawn
     lifetime: 9
+  - type: Unremoveable
+  - type: MansusGrasp
+    blacklist:
+      components:
+      - Puddle
+      - HereticRitualRune
   - type: Tag
     tags:
     - HereticItem
@@ -395,7 +445,8 @@
     - 0,0,5,1
     storedRotation: 45
   - type: MeleeWeapon
-    angle: 90
+    angle: 0
+    animation: WeaponArcThrust
     range: 2
     attackRate: 1.25
     damage:
@@ -403,6 +454,7 @@
         Slash: 20
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
+  - type: ADTNoWideAttack
   - type: Clothing
     quickEquip: false
     sprite: ADT/Heretic/Entities/sword.rsi
@@ -458,30 +510,32 @@
       - state: inhand-right
   - type: MeleeWeapon
     animation: WeaponArcThrust
-    attackRate: 1.25
+    angle: 0
+    attackRate: 1.4
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
     damage:
       types:
-        Slash: 15
-        Piercing: 5
+        Slash: 7
+        Piercing: 3
+  - type: ADTNoWideAttack
   - type: BackStab
-    damageMultiplier: 4
+    damageMultiplier: 2
     tolerance: 1.0471976
   - type: BackstabDamageMultipilier
     bonusDamage:
       types:
-        Slash: 20
-        Piercing: 10
+        Slash: 10
+        Piercing: 5
   - type: ThrowingAngle
     angle: 180
   - type: UseDelay
-    delay: 0.75
+    delay: 0.6
   - type: DamageOtherOnHit
     damage:
       types:
-        Slash: 10
-        Piercing: 5
+        Slash: 6
+        Piercing: 4
   - type: Tag
     tags:
     - HereticItem

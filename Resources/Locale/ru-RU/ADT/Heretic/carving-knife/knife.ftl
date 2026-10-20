@@ -3,6 +3,7 @@ carving-knife-comp-too-many-runes = Слишком много вырезанны
 carving-knife-comp-close-to-another-carving = Слишком близко к другому вырезанному рисунку!
 carving-knife-comp-runes-count = [color=yellow][bold]{ $count } / 3[/bold] было нарисовано рисунков.[/color]
 carving-knife-comp-runes-deleted = Уничтожены все вырезанные рисунки!
+heretic-carving-disarmed = Руна сбита!
 alert-carving-trigger-message = { $victim } наступил ногой на предупреждающую руну рядом { $location }!
     {" "}[button label="Телепорт" timer={$timer} id="{$id}" uid={$uid} coords="{$coords}"]
     {" "}

@@ -5,4 +5,7 @@ ent-ActionHereticCleave = Cleave
 ent-ActionHereticRustCharge = Rust Charge
     .desc = A charge that must be started on a rusted tile and will destroy any rusted objects you come into contact with, will deal high damage to others and rust around you during the charge. As it is the rust that empowers you with this ability, no focus is needed.
 
+ent-ActionHereticSpacePhase = Space Phase
+    .desc = Phase through space itself for a short time.
+
 heretic-space-phase-need-space = You must stand in space, or an outdoor area with low pressure!

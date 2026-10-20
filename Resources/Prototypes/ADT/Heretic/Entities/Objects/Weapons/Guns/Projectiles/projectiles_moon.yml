@@ -1,5 +1,4 @@
 - type: entity
-  parent: BaseBullet
   id: ProjectileLunarParade
   name: lunar parade
   description: Join the parade.
@@ -10,8 +9,9 @@
     layers:
     - state: icon
       shader: unshaded
-  - type: Reflective
-    reflective: Energy
+  - type: Clickable
+  - type: Physics
+    bodyType: Dynamic
   - type: Projectile
     deleteOnCollide: false
     penetrationThreshold: 1000
@@ -27,6 +27,9 @@
           !type:PhysShapeCircle
           radius: 0.4
         hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
   - type: LunarParadeProjectile
   - type: TileFrictionModifier
     modifier: 0

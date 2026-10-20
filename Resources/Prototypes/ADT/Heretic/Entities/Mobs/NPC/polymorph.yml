@@ -77,14 +77,21 @@
     visMask:
       - Normal
       - Ghost
+  - type: Input
+    context: "human"
+  - type: CombatMode
+  - type: InteractionOutline
+  - type: Clickable
   - type: Hands
     activeHandId: left
     canBeStripped: false
-    hands:
+    startingHands:
       left:
         location: Left
       right:
         location: Right
+  - type: ComplexInteraction
+  - type: Puller
   - type: Pullable
 
 # heretic ascend flesh form

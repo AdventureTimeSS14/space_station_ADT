@@ -83,3 +83,5 @@ lionhunter-rifle-aim-message = taking aim...
 phylactery-draw = You draw {$amount} units of blood into the phylactery.
 phylactery-no-blood = The target has no blood to draw!
 phylactery-full = The phylactery is full!
+phylactery-spill = You spill {$amount} units of blood onto the floor.
+phylactery-empty = The phylactery is empty!

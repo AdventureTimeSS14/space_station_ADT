@@ -383,10 +383,10 @@ public sealed class HereticMoonAbilitySystem : SharedHereticMoonSystem
         }
         EnsureSanity(target);
         var sanity = GetSanity(target);
-        if (sanity > 25f)
+        if (sanity > 50f)
         {
             _popup.PopupEntity(Loc.GetString("heretic-amulet-too-strong"), user, user, PopupType.Medium);
-            AdjustSanity(target, -20f);
+            AdjustSanity(target, -30f);
             return;
         }
         if (HasComp<MindShieldComponent>(target))

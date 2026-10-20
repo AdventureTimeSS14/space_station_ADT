@@ -1,3 +1,5 @@
+using Content.Shared.Body.Components;
+using Content.Shared.Damage.Components;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -14,6 +16,13 @@ public sealed partial class ShatteredRisenSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<ShatteredRisenComponent, HandCountChangedEvent>(OnHandsChanged);
         SubscribeLocalEvent<ShatteredRisenComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<ShatteredRisenComponent, ComponentStartup>(OnStartup);
+    }
+
+    private void OnStartup(Entity<ShatteredRisenComponent> ent, ref ComponentStartup args)
+    {
+        RemComp<SlowOnDamageComponent>(ent);
+        RemComp<BloodstreamComponent>(ent);
     }
 
     private void OnHandsChanged(Entity<ShatteredRisenComponent> ent, ref HandCountChangedEvent args)
@@ -25,6 +34,8 @@ public sealed partial class ShatteredRisenSystem : EntitySystem
 
     private void OnMapInit(Entity<ShatteredRisenComponent> ent, ref MapInitEvent args)
     {
+        RemComp<SlowOnDamageComponent>(ent);
+        RemComp<BloodstreamComponent>(ent);
         RefreshHands(ent);
     }
 

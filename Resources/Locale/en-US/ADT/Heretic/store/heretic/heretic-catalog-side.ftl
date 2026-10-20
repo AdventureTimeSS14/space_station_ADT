@@ -192,6 +192,8 @@ knowledge-path-side-t1-bookworm-desc =
     Transmute 10 cable coil, a piece of paper and a multitool to brand all ID cards on your rune and nearby airlocks.
     Branded IDs gain maintenance, external and heretic access. Branded airlocks only open to branded IDs and ignore the AI.
 
+heretic-ritual-bookworm-success = Branded {$count} ID card(s). Nearby airlocks reconfigured.
+
 knowledge-path-side-t1-mirror-name = Miraculous Mirror
 knowledge-path-side-t1-mirror-desc =
     I was imperfect, weak. Every window showed a reflection I burned to change.

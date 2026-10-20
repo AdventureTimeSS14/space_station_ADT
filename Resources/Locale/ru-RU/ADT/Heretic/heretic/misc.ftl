@@ -72,3 +72,5 @@ trap-flare-message = { CAPITALIZE($trap) } вспыхивает и исчеза�
 phylactery-draw = Вы вытягиваете {$amount} единиц крови в филактерию.
 phylactery-no-blood = У цели нет крови для вытягивания!
 phylactery-full = Филактерия полна!
+phylactery-spill = Вы разливаете {$amount} единиц крови на пол.
+phylactery-empty = Филактерия пуста!

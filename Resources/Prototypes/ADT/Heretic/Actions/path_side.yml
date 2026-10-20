@@ -82,8 +82,6 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticSpacePhase
-  name: Space Phase
-  description: Phase through space itself for a short time.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

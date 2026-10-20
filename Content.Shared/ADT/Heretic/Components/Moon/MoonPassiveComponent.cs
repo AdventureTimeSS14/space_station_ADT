@@ -7,4 +7,7 @@ public sealed partial class MoonPassiveComponent : Component
 {
     [DataField, AutoNetworkedField]
     public bool AmuletEquipped;
+
+    [DataField]
+    public float Accumulator;
 }

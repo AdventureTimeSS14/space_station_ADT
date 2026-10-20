@@ -56,30 +56,22 @@ public sealed partial class HereticSpacePhaseSystem : EntitySystem
             return;
 
         var body = morphed.Value;
-        var hands = new List<EntityUid>();
-
-        for (var i = 0; i < 2; i++)
-            hands.Add(Spawn("HereticSpaceHands", Transform(body).Coordinates));
-
-        GiveHands(body, hands);
-
-        Timer.Spawn(200, () => GiveHands(body, hands));
-    }
-
-    private void GiveHands(EntityUid body, List<EntityUid> hands)
-    {
-        if (TerminatingOrDeleted(body) || !TryComp<HandsComponent>(body, out var handsComp))
-            return;
-
-        foreach (var hand in hands)
+        if (TryComp<HandsComponent>(body, out var handsComp))
         {
-            if (TerminatingOrDeleted(hand))
-                continue;
+            if (handsComp.Hands.Count == 0)
+            {
+                _hands.AddHand((body, handsComp), "left", HandLocation.Left);
+                _hands.AddHand((body, handsComp), "right", HandLocation.Right);
+            }
 
-            if (_container.IsEntityInContainer(hand))
-                continue;
-
-            _hands.TryForcePickupAnyHand(body, hand, checkActionBlocker: false);
+            foreach (var handName in handsComp.Hands.Keys)
+            {
+                var handItem = Spawn("HereticSpaceHands", Transform(body).Coordinates);
+                if (!_hands.TryPickup(body, handItem, handName, checkActionBlocker: false, handsComp: handsComp))
+                {
+                    QueueDel(handItem);
+                }
+            }
         }
     }
 }

@@ -20,6 +20,9 @@ public sealed partial class MoonAmuletSystem : SharedHereticMoonSystem
         SubscribeLocalEvent<MoonAmuletComponent, GotUnequippedEvent>(OnUnequipped);
         SubscribeLocalEvent<MoonAmuletComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<MoonAmuletComponent, InteractHandEvent>(OnInteractHand);
+        SubscribeLocalEvent<MoonAmuletComponent, AfterInteractEvent>(OnAfterInteract);
+        SubscribeLocalEvent<MoonAmuletComponent, UserActivateInWorldEvent>(OnActivateInWorld);
+        SubscribeLocalEvent<MobStateComponent, InteractUsingEvent>(OnMobInteractUsing);
     }
 
     private void OnEquipped(Entity<MoonAmuletComponent> ent, ref GotEquippedEvent args)
@@ -63,6 +66,69 @@ public sealed partial class MoonAmuletSystem : SharedHereticMoonSystem
             return;
 
         if (!HasComp<MobStateComponent>(target))
+            return;
+
+        args.Handled = true;
+
+        EntitySystem.Get<HereticMoonAbilitySystem>().ChannelAmulet(user, target);
+    }
+
+    private void OnAfterInteract(Entity<MoonAmuletComponent> ent, ref AfterInteractEvent args)
+    {
+        if (args.Handled || args.Target == null)
+            return;
+
+        var user = args.User;
+        var target = args.Target.Value;
+
+        if (!IsHereticOrLunatic(user))
+            return;
+
+        if (target == user)
+            return;
+
+        if (!HasComp<MobStateComponent>(target))
+            return;
+
+        args.Handled = true;
+
+        EntitySystem.Get<HereticMoonAbilitySystem>().ChannelAmulet(user, target);
+    }
+
+    private void OnActivateInWorld(Entity<MoonAmuletComponent> ent, ref UserActivateInWorldEvent args)
+    {
+        if (args.Handled || args.Target == args.User)
+            return;
+
+        var user = args.User;
+        var target = args.Target;
+
+        if (!IsHereticOrLunatic(user))
+            return;
+
+        if (!HasComp<MobStateComponent>(target))
+            return;
+
+        args.Handled = true;
+
+        EntitySystem.Get<HereticMoonAbilitySystem>().ChannelAmulet(user, target);
+    }
+
+    private void OnMobInteractUsing(Entity<MobStateComponent> ent, ref InteractUsingEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (!TryComp<MoonAmuletComponent>(args.Used, out var amulet))
+            return;
+
+        var user = args.User;
+        var target = ent.Owner;
+
+        if (!IsHereticOrLunatic(user))
+            return;
+
+        if (target == user)
             return;
 
         args.Handled = true;

@@ -1,3 +1,4 @@
+using Content.Server.Heretic.EntitySystems;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.ADT.Heretic.Components.Side;
 using Content.Shared.Heretic;
@@ -51,16 +52,32 @@ public sealed partial class RitualShatteredBehavior : RitualCustomBehavior
             return;
         if (args.Limited != null && args.Limit > 0 && args.Limited.Count >= args.Limit)
             return;
-        var minion = entMan.EnsureComponent<HereticMinionComponent>(_corpse);
-        minion.BoundHeretic = args.Performer;
-        var ghoul = new GhoulComponent
+
+        var coords = entMan.GetComponent<TransformComponent>(_corpse).Coordinates;
+        var risen = entMan.SpawnEntity("MobShatteredRisen", coords);
+
+        var mindSys = entMan.System<SharedMindSystem>();
+        if (mindSys.TryGetMind(_corpse, out var mindId, out var mind))
         {
-            TotalHealth = 125,
-            GiveBlade = false
-        };
-        entMan.AddComponent(_corpse, ghoul, true);
-        entMan.EnsureComponent<ShatteredRisenComponent>(_corpse);
+            mindSys.TransferTo(mindId, risen, mind: mind);
+        }
+
+        var minion = entMan.EnsureComponent<HereticMinionComponent>(risen);
+        minion.BoundHeretic = args.Performer;
+
+        var ghoulSys = entMan.System<GhoulSystem>();
+        if (entMan.TryGetComponent<GhoulComponent>(risen, out var ghoul))
+        {
+            ghoul.TotalHealth = 350;
+            ghoul.GiveBlade = false;
+            ghoulSys.GhoulifyEntity((risen, ghoul));
+        }
+
+        entMan.EnsureComponent<ShatteredRisenComponent>(risen);
+
         if (args.Limited != null)
-            args.Limited.Add(_corpse);
+            args.Limited.Add(risen);
+
+        entMan.QueueDeleteEntity(_corpse);
     }
 }

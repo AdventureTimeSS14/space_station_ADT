@@ -1,10 +1,14 @@
+using Content.Server.Fluids.EntitySystems;
+using Content.Shared.ADT.Heretic.Components.Side;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.FixedPoint;
+using Content.Shared.Fluids.Components;
 using Content.Shared.Interaction;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Robust.Shared.Audio;
@@ -14,22 +18,14 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.Heretic.EntitySystems;
 
-[RegisterComponent]
-public sealed partial class HereticPhylacteryComponent : Component
-{
-    [DataField]
-    public string SolutionName = "phylactery";
-
-    [DataField]
-    public SoundSpecifier DrawSound = new SoundPathSpecifier("/Audio/Effects/Chemistry/bubbles.ogg");
-}
-
 public sealed class PhylacteryDrawSystem : EntitySystem
 {
     [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly PuddleSystem _puddle = default!;
 
     private const float BloodDrawPercent = 0.15f;
 
@@ -37,6 +33,7 @@ public sealed class PhylacteryDrawSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<BloodstreamComponent, InteractUsingEvent>(OnBloodstreamInteractUsing);
+        SubscribeLocalEvent<MobStateComponent, InteractUsingEvent>(OnMobInteractUsing);
         SubscribeLocalEvent<HereticPhylacteryComponent, AfterInteractEvent>(OnAfterInteract);
     }
 
@@ -52,14 +49,79 @@ public sealed class PhylacteryDrawSystem : EntitySystem
             args.Handled = true;
     }
 
-    private void OnAfterInteract(Entity<HereticPhylacteryComponent> ent, ref AfterInteractEvent args)
+    private void OnMobInteractUsing(Entity<MobStateComponent> ent, ref InteractUsingEvent args)
     {
-        if (args.Handled || args.Target == null)
+        if (args.Handled)
             return;
 
-        TryComp<BloodstreamComponent>(args.Target.Value, out var bloodstream);
-        if (TryDrawBlood(ent.Owner, ent.Comp, args.Target.Value, bloodstream, args.User))
+        if (!TryComp<HereticPhylacteryComponent>(args.Used, out var phylactery))
+            return;
+
+        TryComp<BloodstreamComponent>(ent.Owner, out var bloodstream);
+        if (TryDrawBlood(args.Used, phylactery, ent.Owner, bloodstream, args.User))
             args.Handled = true;
+    }
+
+    private void OnAfterInteract(Entity<HereticPhylacteryComponent> ent, ref AfterInteractEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        EntityUid? target = args.Target;
+
+        if (target != null && TryComp<HereticPhylacteryComponent>(ent.Owner, out var phylactery))
+        {
+            TryComp<BloodstreamComponent>(target.Value, out var bloodstream);
+            if (TryDrawBlood(ent.Owner, phylactery, target.Value, bloodstream, args.User))
+            {
+                args.Handled = true;
+                return;
+            }
+        }
+
+        if (target == null)
+        {
+            foreach (var near in _lookup.GetEntitiesInRange(args.ClickLocation, 0.8f))
+            {
+                if (HasComp<BloodstreamComponent>(near) || HasComp<MobStateComponent>(near) || HasComp<PuddleComponent>(near))
+                {
+                    target = near;
+                    break;
+                }
+            }
+        }
+
+        if (target != null && TryComp<HereticPhylacteryComponent>(ent.Owner, out var phyl))
+        {
+            TryComp<BloodstreamComponent>(target.Value, out var bs);
+            if (TryDrawBlood(ent.Owner, phyl, target.Value, bs, args.User))
+            {
+                args.Handled = true;
+                return;
+            }
+        }
+
+        if (!_solution.TryGetSolution(ent.Owner, ent.Comp.SolutionName, out var phylSol, out var phylSolution))
+            return;
+
+        if (phylSolution.Volume <= FixedPoint2.Zero)
+        {
+            _popup.PopupClient(Loc.GetString("phylactery-empty"), args.User, args.User);
+            return;
+        }
+
+        var spillAmount = FixedPoint2.Min(FixedPoint2.New(10), phylSolution.Volume);
+        var splitBlood = _solution.SplitSolution(phylSol.Value, spillAmount);
+        if (_puddle.TrySpillAt(args.ClickLocation, splitBlood, out _, sound: true))
+        {
+            _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/Fluids/splat.ogg"), ent.Owner);
+            _popup.PopupClient(Loc.GetString("phylactery-spill", ("amount", splitBlood.Volume)), args.User, args.User);
+            args.Handled = true;
+        }
+        else
+        {
+            _solution.TryAddSolution(phylSol.Value, splitBlood);
+        }
     }
 
     private bool TryDrawBlood(EntityUid phylacteryUid, HereticPhylacteryComponent phylactery, EntityUid target, BloodstreamComponent? bloodstream, EntityUid user)
@@ -76,6 +138,9 @@ public sealed class PhylacteryDrawSystem : EntitySystem
 
         Solution? splitBlood = null;
 
+        if (bloodstream == null)
+            TryComp(target, out bloodstream);
+
         if (bloodstream != null && _solution.ResolveSolution(target, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var bloodSolution))
         {
             if (bloodSolution.Volume <= FixedPoint2.Zero)
@@ -84,10 +149,8 @@ public sealed class PhylacteryDrawSystem : EntitySystem
                 return true;
             }
 
-            var drainAmount = FixedPoint2.Min(FixedPoint2.New(bloodSolution.Volume.Float() * BloodDrawPercent), availableSpace);
-            if (drainAmount < FixedPoint2.New(5))
-                drainAmount = FixedPoint2.Min(FixedPoint2.New(15), bloodSolution.Volume);
-            drainAmount = FixedPoint2.Min(drainAmount, availableSpace);
+            var drainAmount = FixedPoint2.Min(FixedPoint2.New(15), availableSpace);
+            drainAmount = FixedPoint2.Min(drainAmount, bloodSolution.Volume);
 
             if (drainAmount > FixedPoint2.Zero)
             {
@@ -116,6 +179,18 @@ public sealed class PhylacteryDrawSystem : EntitySystem
             if (drainAmount > FixedPoint2.Zero)
             {
                 splitBlood = _solution.SplitSolution(drawSol.Value, drainAmount);
+            }
+        }
+        else if (TryComp<PuddleComponent>(target, out var puddle) && _solution.TryGetSolution(target, puddle.SolutionName, out var puddleSol, out var puddleSolution))
+        {
+            if (puddleSolution.Volume <= FixedPoint2.Zero)
+                return false;
+
+            var drainAmount = FixedPoint2.Min(FixedPoint2.New(15), availableSpace);
+            drainAmount = FixedPoint2.Min(drainAmount, puddleSolution.Volume);
+            if (drainAmount > FixedPoint2.Zero)
+            {
+                splitBlood = _solution.SplitSolution(puddleSol.Value, drainAmount);
             }
         }
 

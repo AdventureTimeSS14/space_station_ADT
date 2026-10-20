@@ -4,11 +4,19 @@
   stage: 1
   ritualPrototypes:
   - BladeMoon
+  event: !type:HereticKnowledgeEvent
+    addedComponents:
+    - type: MoonPassive
+    - type: HereticSanity
 
 - type: hereticKnowledge
   id: GraspOfMoon
   path: Moon
   stage: 2
+  event: !type:HereticKnowledgeEvent
+    addedComponents:
+    - type: MoonPassive
+    - type: HereticSanity
 
 - type: hereticKnowledge
   id: MarkOfMoon

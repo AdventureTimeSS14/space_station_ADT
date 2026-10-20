@@ -31,12 +31,19 @@ using OldStatusEffectsSystem = Content.Shared.StatusEffect.StatusEffectsSystem;
 using Content.Shared.ADT.Heretic.Systems.Moon;
 using Content.Shared.Alert;
 using Content.Server.Projectiles;
+using Content.Shared.Wall;
+using Content.Shared.Doors.Components;
+using Content.Shared.FixedPoint;
+using Content.Shared.ActionBlocker;
+using Content.Shared.Movement.Events;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.Heretic.Systems.Moon;
 
 public sealed class HereticMoonSystem : EntitySystem
 {
+    [Dependency] private readonly ActionBlockerSystem _blocker = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
@@ -69,10 +76,12 @@ public sealed class HereticMoonSystem : EntitySystem
         SubscribeLocalEvent<MoonMarkStatusComponent, ComponentStartup>(OnMarkStartup);
         SubscribeLocalEvent<MoonMarkStatusComponent, ComponentRemove>(OnMarkRemove);
         SubscribeLocalEvent<MoonParadeStatusComponent, DamageChangedEvent>(OnParadeDamage);
+        SubscribeLocalEvent<MoonParadeStatusComponent, UpdateCanMoveEvent>(OnParadeCanMove);
         SubscribeLocalEvent<MoonIllusionComponent, DamageChangedEvent>(OnIllusionDamage);
         SubscribeLocalEvent<LunarParadeProjectileComponent, ProjectileHitEvent>(OnParadeHit);
         SubscribeLocalEvent<LunarParadeProjectileComponent, EntityTerminatingEvent>(OnParadeGone);
         SubscribeLocalEvent<LunarParadeProjectileComponent, StartCollideEvent>(OnParadeCollide, after: [typeof(ProjectileSystem)]);
+        SubscribeLocalEvent<LunarParadeProjectileComponent, PreventCollideEvent>(OnParadePreventCollide);
         SubscribeLocalEvent<MoonParadeStatusComponent, ComponentRemove>(OnParadeRemove);
         SubscribeLocalEvent<HereticSanityComponent, ExaminedEvent>(OnSanityExamined);
         SubscribeLocalEvent<HereticSanityComponent, ComponentRemove>(OnSanityRemove);
@@ -174,6 +183,25 @@ public sealed class HereticMoonSystem : EntitySystem
             return;
         RemCompDeferred(ent, ent.Comp);
         _statusNew.TryRemoveStatusEffect(ent, "MoonParadeStatusEffect");
+        _blocker.UpdateCanMove(ent.Owner);
+    }
+
+    private void OnParadeCanMove(Entity<MoonParadeStatusComponent> ent, ref UpdateCanMoveEvent args)
+    {
+        args.Cancel();
+    }
+
+    private void OnParadePreventCollide(Entity<LunarParadeProjectileComponent> ent, ref PreventCollideEvent args)
+    {
+        var other = args.OtherEntity;
+        if (HasComp<WallComponent>(other))
+            return;
+        if (TryComp<DoorComponent>(other, out var door) && door.State != DoorState.Open)
+            return;
+        if (HasComp<MobStateComponent>(other) && !_mobState.IsDead(other))
+            return;
+
+        args.Cancelled = true;
     }
 
     private void OnParadeHit(Entity<LunarParadeProjectileComponent> ent, ref ProjectileHitEvent args)
@@ -206,10 +234,7 @@ public sealed class HereticMoonSystem : EntitySystem
         var parade = EnsureComp<MoonParadeStatusComponent>(target);
         parade.Parade = GetNetEntity(ent);
         Dirty(target, parade);
-        var puller = EnsureComp<PullerComponent>(ent);
-        puller.NeedsHands = false;
-        Dirty(ent, puller);
-        _pull.TryStartPull(ent, target, force: true);
+        _blocker.UpdateCanMove(target);
         _hallucinations.CauseHallucinations(target, 1, 15f, false);
         if (TryComp(target, out HereticSanityComponent? sanity))
         {
@@ -231,11 +256,24 @@ public sealed class HereticMoonSystem : EntitySystem
 
     private void OnParadeGone(Entity<LunarParadeProjectileComponent> ent, ref EntityTerminatingEvent args)
     {
-        _pull.StopAllPulls(ent, stopPullable: false, stopPuller: true);
+        var netEnt = GetNetEntity(ent);
+        var query = EntityQueryEnumerator<MoonParadeStatusComponent>();
+        while (query.MoveNext(out var victim, out var comp))
+        {
+            if (comp.Parade == netEnt)
+            {
+                RemCompDeferred<MoonParadeStatusComponent>(victim);
+                _statusNew.TryRemoveStatusEffect(victim, "MoonParadeStatusEffect");
+                _blocker.UpdateCanMove(victim);
+            }
+        }
     }
 
     private void OnParadeCollide(Entity<LunarParadeProjectileComponent> ent, ref StartCollideEvent args)
     {
+        if (args.OurFixtureId != "projectile")
+            return;
+
         if (TryComp<ProjectileComponent>(ent, out var proj))
         {
             proj.ProjectileSpent = false;
@@ -248,17 +286,10 @@ public sealed class HereticMoonSystem : EntitySystem
         }
 
         var other = args.OtherEntity;
-        if (HasComp<MobStateComponent>(other) || HasComp<ProjectileComponent>(other))
+        if (!HasComp<WallComponent>(other) && !(TryComp<DoorComponent>(other, out var door) && door.State != DoorState.Open))
             return;
         if (args.OtherFixture.Hard != true)
             return;
-        if (!TryComp(other, out TransformComponent? otherXform) || otherXform.Anchored != true)
-        {
-            if (!HasComp<DamageableComponent>(other))
-                return;
-            if (otherXform == null || otherXform.Anchored != true)
-                return;
-        }
 
         var normal = args.WorldNormal;
         if (normal == System.Numerics.Vector2.Zero)
@@ -299,6 +330,7 @@ public sealed class HereticMoonSystem : EntitySystem
     {
         if (TryComp<PullableComponent>(ent.Owner, out var pullable))
             _pull.TryStopPull(ent.Owner, pullable);
+        _blocker.UpdateCanMove(ent.Owner);
     }
 
     private void OnIllusionDamage(Entity<MoonIllusionComponent> ent, ref DamageChangedEvent args)
@@ -350,6 +382,33 @@ public sealed class HereticMoonSystem : EntitySystem
                 _alerts.ShowAlert(uid, MoonBrain, severity);
             }
         }
+        var paradeQuery = EntityQueryEnumerator<MoonParadeStatusComponent, TransformComponent, PhysicsComponent>();
+        while (paradeQuery.MoveNext(out var uid, out var parade, out var xform, out var physics))
+        {
+            if (parade.Parade == null)
+                continue;
+            var paradeEnt = GetEntity(parade.Parade.Value);
+            if (!Exists(paradeEnt) || TerminatingOrDeleted(paradeEnt))
+            {
+                RemCompDeferred<MoonParadeStatusComponent>(uid);
+                _statusNew.TryRemoveStatusEffect(uid, "MoonParadeStatusEffect");
+                continue;
+            }
+
+            if (xform.MapID != Transform(paradeEnt).MapID)
+                continue;
+
+            var mobPos = _transform.GetWorldPosition(xform);
+            var targetPos = _transform.GetWorldPosition(paradeEnt);
+            var diff = targetPos - mobPos;
+            var dist = diff.Length();
+            if (dist > 0.5f)
+            {
+                var dir = diff / dist;
+                var speed = Math.Min(dist * 4f, 6f);
+                _physics.SetLinearVelocity(uid, dir * speed, body: physics);
+            }
+        }
         var passiveQuery = EntityQueryEnumerator<MoonPassiveComponent, HereticSanityComponent, DamageableComponent>();
         while (passiveQuery.MoveNext(out var uid, out var passive, out var sanityComp, out var damageable))
         {
@@ -361,14 +420,20 @@ public sealed class HereticMoonSystem : EntitySystem
             passive.AmuletEquipped = hasAmulet;
             Dirty(uid, passive);
             var level = Math.Max(1, heretic.PathStage);
-            var heal = level * 0.3f * frameTime;
-            if (!passive.AmuletEquipped)
-                heal *= 0.5f;
-            if (heretic.Ascended)
-                heal = 5f * frameTime;
-            var spec = new DamageSpecifier();
-            spec.DamageDict.Add("Cellular", -heal);
-            _damage.TryChangeDamage(uid, spec, true, false);
+            passive.Accumulator += frameTime;
+            if (passive.Accumulator >= 1f)
+            {
+                var seconds = passive.Accumulator;
+                passive.Accumulator = 0f;
+                var heal = Math.Max(0.5f, level * 0.5f * seconds);
+                if (!passive.AmuletEquipped)
+                    heal *= 0.5f;
+                if (heretic.Ascended)
+                    heal = 5f * seconds;
+                var spec = new DamageSpecifier();
+                spec.DamageDict.Add("Cellular", -FixedPoint2.New(heal));
+                _damage.TryChangeDamage(uid, spec, true, false);
+            }
             if (heretic.PathStage >= 4 && TryComp(uid, out OldStatusEffectsComponent? status))
             {
                 _statusOld.TryRemoveStatusEffect(uid, "ForcedSleep", status);
