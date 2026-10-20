@@ -1,5 +1,23 @@
 - type: entity
   parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatUrs
+  name: Urs outercoat.
+  description: Urs outercoat.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/urs_coat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/urs_coat.rsi
+  - type: TemperatureProtection
+    coefficient: 0.9
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.90
+
+- type: entity
+  parent: ClothingOuterStorageBase
   id: ADTClothingKadet
   name: kadet greatcoat
   description: a greatcoat made for recruits to the security service. It is very similar to the overcoat of the junior ranks of RIA
