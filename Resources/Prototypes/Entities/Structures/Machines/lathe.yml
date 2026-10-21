@@ -17,7 +17,12 @@
         - MachineMask
         layer:
           - MachineLayer
+  - type: AccessReader
+    access:
+    - [Engineering]
+    - [Research]
   - type: Lathe
+    productionLocked: true
     producingSound: /Audio/ADT/Machines/lathe_print.ogg # ADT-Tweak: звук производства BaseLathe
   - type: MaterialStorage
   - type: Destructible
@@ -101,6 +106,11 @@
   name: autolathe
   description: It produces basic items using metal and glass. Has the ability to process blueprints to print new recipes.
   components:
+  - type: AccessReader
+    access:
+    - [Engineering]
+    - [Research]
+    - [Cargo]
   - type: Sprite
     sprite: Structures/Machines/autolathe.rsi
     snapCardinals: true
@@ -220,7 +230,6 @@
     containers:
     - beaker_slot
   - type: StationAiWhitelist
-  - type: ActivatableUIRequiresAccess
   - type: AccessReader
     access:
       - [Research]
@@ -291,7 +300,6 @@
   - type: Machine
     board: ProtolatheHyperConvectionMachineCircuitboard
   # ADT-tweak Start
-  - type: ActivatableUIRequiresAccess
   - type: AccessReader
     access:
       - [Research]
@@ -319,7 +327,6 @@
     board: CircuitImprinterMachineCircuitboard
   # ADT-tweak Start
   - type: StationAiWhitelist
-  - type: ActivatableUIRequiresAccess
   - type: AccessReader
     access:
       - [Research]
@@ -375,7 +382,6 @@
   - type: Machine
     board: CircuitImprinterHyperConvectionMachineCircuitboard
   # ADT-tweak Start
-  - type: ActivatableUIRequiresAccess
   - type: AccessReader
     access:
       - [Research]
@@ -387,6 +393,9 @@
   name: exosuit fabricator
   description: Creates parts for robotics and other mechanical needs.
   components:
+  - type: AccessReader
+    access:
+    - [Research]
   - type: Sprite
     sprite: Structures/Machines/exosuit_fabricator.rsi
     layers:
@@ -441,6 +450,9 @@
   name: biocube fabricator
   description: Produces animal cubes using biomass.
   components:
+  - type: AccessReader
+    access:
+    - [Research]
   - type: Sprite
     sprite: Structures/Machines/biofabricator.rsi
     snapCardinals: true
@@ -480,6 +492,9 @@
   name: security techfab
   description: Prints equipment for use by security crew.
   components:
+  - type: AccessReader
+    access:
+    - [Security]
   - type: Sprite
     sprite: Structures/Machines/techfab.rsi
     layers:
@@ -542,6 +557,9 @@
   name: ammo techfab
   description: Prints the bare minimum of bullets that any budget military or armory could need. Nothing fancy.
   components:
+    - type: AccessReader
+      access:
+      - [Security]
     - type: Sprite
       sprite: Structures/Machines/techfab.rsi
       layers:
@@ -580,6 +598,9 @@
   name: medical techfab
   description: Prints equipment for use by the medbay.
   components:
+  - type: AccessReader
+    access:
+    - [Medical]
   - type: Sprite
     sprite: Structures/Machines/techfab.rsi
     layers:
@@ -634,6 +655,9 @@
   name: uniform printer
   description: Prints new or replacement uniforms.
   components:
+  - type: AccessReader
+    access:
+    - [Service]
   - type: Transform
     noRot: false
   - type: Sprite
@@ -688,6 +712,9 @@
   name: biogenerator
   description: Converts plants into biomass, which can be used to construct useful items.
   components:
+  - type: AccessReader
+    access:
+    - [Hydroponics]
   - type: Sprite
     sprite: Structures/Machines/biofabricator.rsi
     snapCardinals: true
@@ -735,6 +762,9 @@
   name: sheet-meister 2000
   description: A very sheety machine.
   components:
+  - type: AccessReader
+    access:
+    - [Hydroponics]
   - type: Sprite
     sprite: Structures/Machines/sheetifier.rsi
     layers:
@@ -766,6 +796,9 @@
   name: cutter machine
   description: This is a cutter. It cuts. Add variety to your station floor with eye-pleasing patterns! Don't stick your fingers in.
   components:
+  - type: AccessReader
+    access:
+    - [Engineering]
   - type: Transform
     noRot: false # ADT-Tweak: карты сохраняют поворот станка
   - type: Sprite

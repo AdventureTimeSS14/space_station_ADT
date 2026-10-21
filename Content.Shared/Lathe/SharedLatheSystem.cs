@@ -1,5 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared.Access.Components;
+using Content.Shared.Access.Systems;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Containers.ItemSlots;
@@ -25,6 +27,19 @@ public abstract partial class SharedLatheSystem : EntitySystem
     [Dependency] private EmagSystem _emag = default!;
     [Dependency] private SharedSolutionContainerSystem _solution = default!; // ADT-Tweak
     [Dependency] private ItemSlotsSystem _itemSlots = default!; // ADT-Tweak
+
+    [Dependency] private AccessReaderSystem _accessReader = default!;
+
+    public bool CanManageProductionLock(EntityUid uid, EntityUid user)
+    {
+        return HasComp<AccessReaderComponent>(uid) && _accessReader.IsAllowed(user, uid);
+    }
+
+    public bool CanUseProduction(EntityUid uid, EntityUid user, LatheComponent? component = null)
+    {
+        return Resolve(uid, ref component) &&
+               (!component.ProductionLocked || CanManageProductionLock(uid, user));
+    }
 
     public readonly Dictionary<string, List<LatheRecipePrototype>> InverseRecipes = new();
     public const int MaxItemsPerRequest = 10_000;

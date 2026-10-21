@@ -78,6 +78,13 @@ public sealed class LatheAbortFabricationMessage() : BoundUserInterfaceMessage
 {
 }
 
+/// <summary>Requests a specific public-production lock state.</summary>
+[Serializable, NetSerializable]
+public sealed class LatheSetProductionLockedMessage(bool locked) : BoundUserInterfaceMessage
+{
+    public bool Locked = locked;
+}
+
 [NetSerializable, Serializable]
 public enum LatheUiKey
 {

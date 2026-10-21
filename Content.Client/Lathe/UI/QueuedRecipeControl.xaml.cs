@@ -38,6 +38,13 @@ public sealed partial class QueuedRecipeControl : Control
         };
     }
 
+    public void SetCanManage(bool allowed)
+    {
+        MoveUp.Disabled = !allowed;
+        MoveDown.Disabled = !allowed;
+        Delete.Disabled = !allowed;
+    }
+
     public void SetDisplayText(string displayText)
     {
         RecipeName.Text = displayText;

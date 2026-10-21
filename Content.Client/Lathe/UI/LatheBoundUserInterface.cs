@@ -30,6 +30,7 @@ namespace Content.Client.Lathe.UI
             {
                 SendMessage(new LatheQueueRecipeMessage(recipe, amount));
             };
+            _menu.ProductionLockAction += locked => SendMessage(new LatheSetProductionLockedMessage(locked));
             _menu.QueueDeleteAction += index => SendMessage(new LatheDeleteRequestMessage(index));
             _menu.QueueMoveUpAction += index => SendMessage(new LatheMoveRequestMessage(index, -1));
             _menu.QueueMoveDownAction += index => SendMessage(new LatheMoveRequestMessage(index, 1));
@@ -46,6 +47,7 @@ namespace Content.Client.Lathe.UI
                     if (_menu != null)
                         _menu.Recipes = msg.Recipes;
                     _menu?.UpdateBeakerStatus(msg.HasReagentSlot, msg.BeakerInserted); // ADT-Tweak
+                    _menu?.RefreshProductionAccess();
                     _menu?.PopulateRecipes();
                     _menu?.UpdateCategories();
                     _menu?.PopulateQueueList(msg.Queue);

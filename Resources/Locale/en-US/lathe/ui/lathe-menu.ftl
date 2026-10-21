@@ -35,3 +35,9 @@ lathe-menu-move-up-tooltip = Move this batch ahead in the queue.
 lathe-menu-move-down-tooltip = Move this batch back in the queue.
 lathe-menu-item-single = {$index}. {$name}
 lathe-menu-item-batch = {$index}. {$name} ({$printed}/{$total})
+
+lathe-production-access-denied = Access denied: production is locked.
+lathe-menu-production-locked = Production: authorized personnel only
+lathe-menu-production-unlocked = Production: open to everyone
+lathe-menu-unlock-production = Allow everyone to craft
+lathe-menu-lock-production = Restrict crafting by access

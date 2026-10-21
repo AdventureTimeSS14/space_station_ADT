@@ -56,6 +56,12 @@ namespace Content.Shared.Lathe
         [DataField, AutoNetworkedField]
         public int DefaultProductionAmount = 1;
 
+        /// <summary>
+        /// When locked, only users accepted by the access reader may manage production.
+        /// </summary>
+        [DataField, AutoNetworkedField]
+        public bool ProductionLocked;
+
         #region Visualizer info
         [DataField]
         public string? IdleState;
