@@ -47,6 +47,7 @@ public abstract partial class SharedDefibrillatorSystem : EntitySystem
     [Dependency] private UseDelaySystem _useDelay = default!;
     [Dependency] private SharedInteractionSystem _interaction = default!;
     [Dependency] private SharedContainerSystem _container = default!; // ADT-Tweak
+    [Dependency] private InventorySystem _inventory = default!; // ADT-Tweak
 
     private readonly HashSet<EntityUid> _interactors = new();
 
@@ -55,6 +56,9 @@ public abstract partial class SharedDefibrillatorSystem : EntitySystem
     private void AddZapVerb(Entity<DefibrillatorComponent> ent, ref InventoryRelayedEvent<GetVerbsEvent<InnateVerb>> args)
     {
         if (!args.Args.CanInteract || !args.Args.CanAccess || !HasComp<MobStateComponent>(args.Args.Target))
+            return;
+
+        if (!_inventory.TryGetContainingSlot(ent.Owner, out var slot) || (slot.SlotFlags & SlotFlags.GLOVES) == 0)
             return;
 
         var target = args.Args.Target;
