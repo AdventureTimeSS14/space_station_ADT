@@ -65,6 +65,9 @@
   id: ADTOldRadio  # ADT Радио Апдейт
 
 - type: Tag
+  id: ADTMicrophoneInstrument
+
+- type: Tag
   id: ADTBorgUse
 
 - type: Tag

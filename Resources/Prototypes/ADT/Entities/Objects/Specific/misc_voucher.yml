@@ -194,7 +194,7 @@
   - type: MiningVoucher
     kits:
     - ADTClothingEliteHardsuitBackSyndicateCommander
-    - ADTClothingModsuitBackSyndicate
+    - ADTSyndicateCommanderModSet
     typeDropPlace: ThisPlace
     typeDrop: Rocket
 
