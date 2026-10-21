@@ -58,11 +58,6 @@ public sealed partial class DrawingWindow : DefaultWindow
     private readonly SettingSlider _smoothingSlider;
     private bool _syncing;
 
-    public DrawingWindow(int width, int height)
-        : this(new CanvasDocument(width, height, Color.White, new BrushSettings()), true)
-    {
-    }
-
     public DrawingWindow(CanvasDocument document, bool ownsDocument)
     {
         IoCManager.InjectDependencies(this);
