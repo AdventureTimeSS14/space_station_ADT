@@ -264,7 +264,7 @@ public abstract partial class SharedDefibrillatorSystem : EntitySystem
                 if (mindComp.CurrentEntity != target)
                     OpenReturnToBodyEui((mindUid, mindComp), playerSession);
             }
-            else
+            else if (isOriginal) // ADT-Tweak
             {
                 if (HasComp<MindContainerComponent>(target))
                     _chat.TrySendInGameICMessage(ent.Owner, Loc.GetString("defibrillator-no-mind"), InGameICChatType.Speak, true); //target can host a mind but doesn't
