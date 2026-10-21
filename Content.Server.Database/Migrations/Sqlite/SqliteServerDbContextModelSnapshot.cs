@@ -636,6 +636,65 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("adt_painting_contributor", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.AdtPaintingReport", b =>
+                {
+                    b.Property<int>("ReportId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("report_id");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("created_at");
+
+                    b.Property<Guid>("PaintingUid")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("painting_uid");
+
+                    b.Property<string>("Reason")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("TEXT")
+                        .HasColumnName("reason");
+
+                    b.Property<Guid>("ReporterUserId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("reporter_user_id");
+
+                    b.Property<bool>("Resolved")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("resolved");
+
+                    b.Property<DateTime?>("ResolvedAt")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("resolved_at");
+
+                    b.Property<Guid?>("ResolvedBy")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("resolved_by");
+
+                    b.Property<int?>("RoundId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("round_id");
+
+                    b.Property<int?>("ServerId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("server_id");
+
+                    b.HasKey("ReportId")
+                        .HasName("PK_adt_painting_report");
+
+                    b.HasIndex("RoundId");
+
+                    b.HasIndex("ServerId");
+
+                    b.HasIndex("PaintingUid", "ReporterUserId");
+
+                    b.HasIndex("Resolved", "CreatedAt");
+
+                    b.ToTable("adt_painting_report", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.AdtPaintingRevision", b =>
                 {
                     b.Property<int>("RevisionId")
@@ -707,6 +766,26 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.HasIndex("BlobHash");
 
                     b.ToTable("adt_painting_revision_tile", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.AdtPaintingWhitelist", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("user_id");
+
+                    b.Property<Guid>("AddedBy")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("added_by");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("created_at");
+
+                    b.HasKey("UserId")
+                        .HasName("PK_adt_painting_whitelist");
+
+                    b.ToTable("adt_painting_whitelist", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.AdtSponsorGrant", b =>
@@ -2419,6 +2498,21 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasConstraintName("FK_adt_painting_contributor_adt_painting_painting_id");
 
                     b.Navigation("Painting");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.AdtPaintingReport", b =>
+                {
+                    b.HasOne("Content.Server.Database.Round", null)
+                        .WithMany()
+                        .HasForeignKey("RoundId")
+                        .OnDelete(DeleteBehavior.SetNull)
+                        .HasConstraintName("FK_adt_painting_report_round_round_id");
+
+                    b.HasOne("Content.Server.Database.Server", null)
+                        .WithMany()
+                        .HasForeignKey("ServerId")
+                        .OnDelete(DeleteBehavior.SetNull)
+                        .HasConstraintName("FK_adt_painting_report_server_server_id");
                 });
 
             modelBuilder.Entity("Content.Server.Database.AdtPaintingRevision", b =>
