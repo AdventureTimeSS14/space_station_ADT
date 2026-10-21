@@ -132,9 +132,11 @@ public sealed partial class CanvasSessionSystem
 
     private async Task<string?> CheckSubmitAllowed(NetUserId user)
     {
+        var access = await _moderation.CheckDrawAccess(user.UserId);
+        if (access != null)
+            return access;
+
         var now = DateTime.UtcNow;
-        if (await _db.GetPaintingBanAsync(user.UserId, now) != null)
-            return "adt-canvas-error-banned";
 
         var last = await _db.GetLastPaintingSubmitAsync(user.UserId);
         if (last != null && now - last.Value < _submitCooldown)

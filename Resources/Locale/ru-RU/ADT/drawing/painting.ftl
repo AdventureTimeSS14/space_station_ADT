@@ -55,6 +55,7 @@ adt-canvas-withdraw-done = Картина отозвана и снова ста�
 adt-canvas-withdraw-failed = Картину не удалось отозвать: возможно, решение уже принято.
 
 adt-canvas-error-banned = Вам запрещено рисовать.
+adt-canvas-error-not-whitelisted = Рисование доступно только игрокам из вайтлиста.
 adt-canvas-error-submitted = Эта работа на модерации. Отзовите её на мольберте, чтобы продолжить.
 adt-canvas-error-approved = Эта работа уже сохранена, её нельзя изменять.
 
@@ -75,6 +76,10 @@ adt-canvas-mod-unpinned = Картина откреплена.
 adt-canvas-mod-banned = Игроку запрещено рисовать.
 adt-canvas-mod-unbanned = Запрет на рисование снят.
 adt-canvas-mod-not-banned = У игрока нет запрета на рисование.
+adt-canvas-mod-whitelist-added = Игрок {$name} добавлен в вайтлист рисования.
+adt-canvas-mod-whitelist-exists = Игрок {$name} уже в вайтлисте рисования.
+adt-canvas-mod-whitelist-removed = Игрок {$name} убран из вайтлиста рисования.
+adt-canvas-mod-whitelist-missing = Игрока {$name} нет в вайтлисте рисования.
 adt-canvas-mod-failed = Не удалось выполнить действие, см. лог сервера.
 adt-canvas-mod-new-submission = Новая картина на модерации: «{$title}». Всего в очереди: {$count}. Команда paintingqueue.
 adt-canvas-mod-storage-warning = Галерея картин занимает {$used} МБ из {$limit} МБ.

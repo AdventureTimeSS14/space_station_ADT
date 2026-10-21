@@ -99,6 +99,66 @@ public sealed class PaintingUnbanCommand : IConsoleCommand
     }
 }
 
+[AdminCommand(AdminFlags.Ban)]
+public sealed class PaintingWhitelistAddCommand : IConsoleCommand
+{
+    [Dependency] private readonly IPlayerLocator _locator = default!;
+    [Dependency] private readonly IEntitySystemManager _systems = default!;
+
+    public string Command => "paintingwhitelistadd";
+    public string Description => "Добавляет игрока в вайтлист рисования (adt.canvas.whitelist).";
+    public string Help => "paintingwhitelistadd <сикей>";
+
+    public async void Execute(IConsoleShell shell, string argStr, string[] args)
+    {
+        if (args.Length != 1)
+        {
+            shell.WriteError(Help);
+            return;
+        }
+
+        var located = await _locator.LookupIdByNameAsync(args[0]);
+        if (located == null)
+        {
+            shell.WriteError($"Игрок {args[0]} не найден.");
+            return;
+        }
+
+        var moderation = _systems.GetEntitySystem<PaintingModerationSystem>();
+        shell.WriteLine(await moderation.WhitelistAdd(shell.Player, located.UserId, located.Username));
+    }
+}
+
+[AdminCommand(AdminFlags.Ban)]
+public sealed class PaintingWhitelistRemoveCommand : IConsoleCommand
+{
+    [Dependency] private readonly IPlayerLocator _locator = default!;
+    [Dependency] private readonly IEntitySystemManager _systems = default!;
+
+    public string Command => "paintingwhitelistremove";
+    public string Description => "Убирает игрока из вайтлиста рисования.";
+    public string Help => "paintingwhitelistremove <сикей>";
+
+    public async void Execute(IConsoleShell shell, string argStr, string[] args)
+    {
+        if (args.Length != 1)
+        {
+            shell.WriteError(Help);
+            return;
+        }
+
+        var located = await _locator.LookupIdByNameAsync(args[0]);
+        if (located == null)
+        {
+            shell.WriteError($"Игрок {args[0]} не найден.");
+            return;
+        }
+
+        var moderation = _systems.GetEntitySystem<PaintingModerationSystem>();
+        shell.WriteLine(await moderation.WhitelistRemove(shell.Player, located.UserId, located.Username));
+    }
+}
+
 [AdminCommand(AdminFlags.Host)]
 public sealed class PaintingBlobsMigrateCommand : IConsoleCommand
 {

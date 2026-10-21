@@ -41,6 +41,7 @@ public sealed class PaintingModerationSystem : EntitySystem
     private int _rejectTtlDays;
     private long _approvedLimitBytes;
     private bool _cleanedOnStart;
+    private bool _whitelist;
 
     public long ApprovedLimitBytes => _approvedLimitBytes;
 
@@ -54,6 +55,7 @@ public sealed class PaintingModerationSystem : EntitySystem
         Subs.CVar(_cfg, ADTCCVars.CanvasDraftTtlDays, v => _draftTtlDays = v, true);
         Subs.CVar(_cfg, ADTCCVars.CanvasRejectTtlDays, v => _rejectTtlDays = v, true);
         Subs.CVar(_cfg, ADTCCVars.CanvasApprovedTotalMb, v => _approvedLimitBytes = v * 1024L * 1024L, true);
+        Subs.CVar(_cfg, ADTCCVars.CanvasWhitelist, v => _whitelist = v, true);
 
         _db.SubscribeToJsonNotification<PaintingChangedNotification>(_taskManager, Log, NotificationChannel, OnRemoteChanged);
         _players.PlayerStatusChanged += OnPlayerStatusChanged;
@@ -81,6 +83,17 @@ public sealed class PaintingModerationSystem : EntitySystem
     public bool CanBan(ICommonSession player)
     {
         return _admins.HasAdminFlag(player, AdminFlags.Ban);
+    }
+
+    public async Task<string?> CheckDrawAccess(Guid userId)
+    {
+        if (await _db.GetPaintingBanAsync(userId, DateTime.UtcNow) != null)
+            return "adt-canvas-error-banned";
+
+        if (_whitelist && !await _db.IsPaintingWhitelistedAsync(userId))
+            return "adt-canvas-error-not-whitelisted";
+
+        return null;
     }
 
     #endregion
@@ -209,6 +222,30 @@ public sealed class PaintingModerationSystem : EntitySystem
 
         _adminLog.Add(LogType.CanvasDrawingBan, LogImpact.Medium, $"{admin.Name} unbanned {userId} from painting");
         return Loc.GetString("adt-canvas-mod-unbanned");
+    }
+
+    public async Task<string> WhitelistAdd(ICommonSession? admin, Guid userId, string name)
+    {
+        if (!await _db.AddPaintingWhitelistAsync(userId, admin?.UserId.UserId ?? Guid.Empty, DateTime.UtcNow))
+            return Loc.GetString("adt-canvas-mod-whitelist-exists", ("name", name));
+
+        _adminLog.Add(LogType.CanvasWhitelist, LogImpact.Medium,
+            $"{admin?.Name ?? "Server"} added {name} ({userId}) to painting whitelist");
+        return Loc.GetString("adt-canvas-mod-whitelist-added", ("name", name));
+    }
+
+    public async Task<string> WhitelistRemove(ICommonSession? admin, Guid userId, string name)
+    {
+        if (!await _db.RemovePaintingWhitelistAsync(userId))
+            return Loc.GetString("adt-canvas-mod-whitelist-missing", ("name", name));
+
+        _adminLog.Add(LogType.CanvasWhitelist, LogImpact.Medium,
+            $"{admin?.Name ?? "Server"} removed {name} ({userId}) from painting whitelist");
+
+        if (_whitelist)
+            _canvas.CloseSessionsOf(new NetUserId(userId));
+
+        return Loc.GetString("adt-canvas-mod-whitelist-removed", ("name", name));
     }
 
     #endregion

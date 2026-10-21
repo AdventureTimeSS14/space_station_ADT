@@ -70,6 +70,7 @@ internal static class ModelAdtCanvas
 
         modelBuilder.Entity<AdtPaintingBlob>();
         modelBuilder.Entity<AdtPaintingBan>();
+        modelBuilder.Entity<AdtPaintingWhitelist>();
 
         modelBuilder.Entity<AdtPaintingContributor>()
             .HasKey(c => new { c.PaintingId, c.UserId });
@@ -248,4 +249,14 @@ public class AdtPaintingBan
     public DateTime CreatedAt { get; set; }
 
     public DateTime? ExpiresAt { get; set; }
+}
+
+public class AdtPaintingWhitelist
+{
+    [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
+    public Guid UserId { get; set; }
+
+    public Guid AddedBy { get; set; }
+
+    public DateTime CreatedAt { get; set; }
 }

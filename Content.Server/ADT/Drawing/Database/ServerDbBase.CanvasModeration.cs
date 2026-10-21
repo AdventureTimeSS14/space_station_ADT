@@ -504,6 +504,47 @@ public abstract partial class ServerDbBase
 
     #endregion
 
+    #region Вайтлист
+
+    public async Task<bool> IsPaintingWhitelisted(Guid userId)
+    {
+        await using var db = await GetDb();
+
+        return await db.DbContext.Set<AdtPaintingWhitelist>()
+            .AnyAsync(w => w.UserId == userId);
+    }
+
+    public async Task<bool> AddPaintingWhitelist(Guid userId, Guid addedBy, DateTime now)
+    {
+        await using var db = await GetDb();
+
+        if (await db.DbContext.Set<AdtPaintingWhitelist>().AnyAsync(w => w.UserId == userId))
+            return false;
+
+        db.DbContext.Set<AdtPaintingWhitelist>().Add(new AdtPaintingWhitelist
+        {
+            UserId = userId,
+            AddedBy = addedBy,
+            CreatedAt = now,
+        });
+
+        await db.DbContext.SaveChangesAsync();
+        return true;
+    }
+
+    public async Task<bool> RemovePaintingWhitelist(Guid userId)
+    {
+        await using var db = await GetDb();
+
+        var removed = await db.DbContext.Set<AdtPaintingWhitelist>()
+            .Where(w => w.UserId == userId)
+            .ExecuteDeleteAsync();
+
+        return removed > 0;
+    }
+
+    #endregion
+
     #region Сборщик мусора
 
     public async Task<PaintingCleanupResult> CleanupPaintings(DateTime now, TimeSpan draftTtl, TimeSpan rejectTtl)

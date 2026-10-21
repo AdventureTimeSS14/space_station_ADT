@@ -74,15 +74,15 @@ public sealed partial class CanvasSessionSystem
 
     private async void JoinRequestAsync(CanvasSession session, CanvasMember member, CanvasJoinRequest request)
     {
-        bool banned;
+        string? access;
         try
         {
-            banned = await _db.GetPaintingBanAsync(member.User.UserId, DateTime.UtcNow) != null;
+            access = await _moderation.CheckDrawAccess(member.User.UserId);
         }
         catch (Exception e)
         {
-            Log.Error($"Failed to check painting ban for {member.User}: {e}");
-            banned = true;
+            Log.Error($"Failed to check painting access for {member.User}: {e}");
+            access = "adt-canvas-error-generic";
         }
 
         if (session.Closed || !session.Requests.TryGetValue(member.User, out var current) || current != request)
@@ -90,10 +90,10 @@ public sealed partial class CanvasSessionSystem
 
         request.Checking = false;
 
-        if (banned)
+        if (access != null)
         {
             session.Requests.Remove(member.User);
-            PopupMember(session, member, "adt-canvas-error-banned");
+            PopupMember(session, member, access);
             return;
         }
 
@@ -196,15 +196,15 @@ public sealed partial class CanvasSessionSystem
     private async void InviteAcceptAsync(CanvasSession session, CanvasMember member, CanvasJoinRequest request,
         EntityUid easel, EntityUid actor)
     {
-        bool banned;
+        string? access;
         try
         {
-            banned = await _db.GetPaintingBanAsync(member.User.UserId, DateTime.UtcNow) != null;
+            access = await _moderation.CheckDrawAccess(member.User.UserId);
         }
         catch (Exception e)
         {
-            Log.Error($"Failed to check painting ban for {member.User}: {e}");
-            banned = true;
+            Log.Error($"Failed to check painting access for {member.User}: {e}");
+            access = "adt-canvas-error-generic";
         }
 
         if (session.Closed || !session.Requests.TryGetValue(member.User, out var current) || current != request)
@@ -212,9 +212,9 @@ public sealed partial class CanvasSessionSystem
 
         session.Requests.Remove(member.User);
 
-        if (banned)
+        if (access != null)
         {
-            PopupMember(session, member, "adt-canvas-error-banned");
+            PopupMember(session, member, access);
             UpdateEasel(session);
             return;
         }

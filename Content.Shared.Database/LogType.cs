@@ -509,5 +509,6 @@ public enum LogType
     CanvasModeration = 1104,
     CanvasDrawingBan = 1105,
     CanvasReport = 1106,
+    CanvasWhitelist = 1107,
     // ADT-Tweak-End
 }

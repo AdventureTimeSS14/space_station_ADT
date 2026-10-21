@@ -29,6 +29,9 @@ public partial interface IServerDbManager
     Task<PaintingBanRecord?> GetPaintingBanAsync(Guid userId, DateTime now);
     Task AddPaintingBanAsync(Guid userId, Guid bannedBy, string reason, DateTime now, DateTime? expiresAt);
     Task<bool> RemovePaintingBanAsync(Guid userId);
+    Task<bool> IsPaintingWhitelistedAsync(Guid userId);
+    Task<bool> AddPaintingWhitelistAsync(Guid userId, Guid addedBy, DateTime now);
+    Task<bool> RemovePaintingWhitelistAsync(Guid userId);
     Task<PaintingCleanupResult> CleanupPaintingsAsync(DateTime now, TimeSpan draftTtl, TimeSpan rejectTtl);
 }
 
@@ -170,6 +173,24 @@ public sealed partial class ServerDbManager
     {
         DbWriteOpsMetric.Inc();
         return RunDbCommand(() => _db.RemovePaintingBan(userId));
+    }
+
+    public Task<bool> IsPaintingWhitelistedAsync(Guid userId)
+    {
+        DbReadOpsMetric.Inc();
+        return RunDbCommand(() => _db.IsPaintingWhitelisted(userId));
+    }
+
+    public Task<bool> AddPaintingWhitelistAsync(Guid userId, Guid addedBy, DateTime now)
+    {
+        DbWriteOpsMetric.Inc();
+        return RunDbCommand(() => _db.AddPaintingWhitelist(userId, addedBy, now));
+    }
+
+    public Task<bool> RemovePaintingWhitelistAsync(Guid userId)
+    {
+        DbWriteOpsMetric.Inc();
+        return RunDbCommand(() => _db.RemovePaintingWhitelist(userId));
     }
 
     public Task<PaintingCleanupResult> CleanupPaintingsAsync(DateTime now, TimeSpan draftTtl, TimeSpan rejectTtl)

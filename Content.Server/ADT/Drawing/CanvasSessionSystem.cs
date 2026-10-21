@@ -518,12 +518,14 @@ public sealed partial class CanvasSessionSystem : EntitySystem
                 }
             }
 
-            var now = DateTime.UtcNow;
-            if (await _db.GetPaintingBanAsync(user, now) != null)
+            var access = await _moderation.CheckDrawAccess(user);
+            if (access != null)
             {
-                FailLoad(session, player, "adt-canvas-error-banned");
+                FailLoad(session, player, access);
                 return;
             }
+
+            var now = DateTime.UtcNow;
 
             if (create)
             {
