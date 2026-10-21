@@ -185,4 +185,26 @@
   id: ADTToyFigurineTheokayaFriendlyOne
   storage:
     back:
-    - ToyFigurineTheokayaFriendlyOne
+    - ADTToyFigurineTheokayaFriendlyOne
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTPlushieOliferOliver28
+  storage:
+    back:
+    - ADTPlushieOliferOliver28
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTPlushieNaviCyrex5386
+  storage:
+    back:
+    - ADTPlushieNaviCyrex5386
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTPlushieTselka
+  storage:
+    back:
+    - ADTPlushieTselka
+

@@ -26,3 +26,16 @@
     sprite: ADT/Special/Personal/mathemat1ka_satchel.rsi
   - type: Clothing
     sprite: ADT/Special/Personal/mathemat1ka_satchel.rsi
+
+#NetzCaro
+- type: entity
+  parent: ADTClothingBackpackDuffelDurathead
+  id: ADTClothingBackpackDuffelDuratheadNetzCaro
+  name: Durathead Duffel bag
+  description: A large duffel bag for holding extra tools and supplies.
+  suffix: Personal, NetzCaro
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/netzcaro_duffelbag.rsi
+  - type: Clothing
+    sprite: ADT/Special/Personal/netzcaro_duffelbag.rsi
