@@ -91,10 +91,12 @@
   - type: Item
     size: Huge
   - type: BallisticAmmoProvider
-    whitelist:
+    white list:
       tags:
         - ShellShotgun
-    capacity: 14
+        - CartridgeAntiMateriel # ADT: Sniper ammunition.
+        - CartridgeLightRifle # ADT: Mosin ammunition.
+    capacity: 20 # ADT: Expanded bandolier capacity.
 
 - type: entity
   parent: [ ClothingBeltStorageBase, BaseMagicalContraband ]
