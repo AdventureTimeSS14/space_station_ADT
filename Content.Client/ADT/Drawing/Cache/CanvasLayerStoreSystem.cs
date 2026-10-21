@@ -3,6 +3,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using Content.Client.ADT.Drawing.Canvas;
+using Content.Client.ADT.UserData;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Utility;
 using SixLabors.ImageSharp.PixelFormats;
@@ -11,7 +12,7 @@ namespace Content.Client.ADT.Drawing.Cache;
 
 public sealed class CanvasLayerStoreSystem : EntitySystem
 {
-    private static readonly ResPath Root = new("/adt-canvas/layers");
+    private static readonly ResPath Root = ADTUserData.Root / "canvas" / "layers";
     private const string ManifestName = "layers.txt";
     private const int MaxNameLength = 32;
 

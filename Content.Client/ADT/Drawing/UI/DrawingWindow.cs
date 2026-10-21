@@ -2,6 +2,7 @@ using System.IO;
 using System.Numerics;
 using Content.Client.ADT.Drawing.Canvas;
 using Content.Client.ADT.Drawing.Input;
+using Content.Client.ADT.UserData;
 using Content.Shared.ADT.CCVar;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
@@ -17,7 +18,7 @@ namespace Content.Client.ADT.Drawing.UI;
 
 public sealed partial class DrawingWindow : DefaultWindow
 {
-    public static readonly ResPath ExportDir = new("/Exports/Drawings");
+    public static readonly ResPath ExportDir = ADTUserData.Root / "canvas" / "exports";
 
     [Dependency] private IClyde _clyde = default!;
     [Dependency] private IGameTiming _timing = default!;

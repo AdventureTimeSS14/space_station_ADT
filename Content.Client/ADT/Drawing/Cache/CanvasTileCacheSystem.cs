@@ -1,6 +1,7 @@
 using System.IO;
 using System.Linq;
 using System.Text;
+using Content.Client.ADT.UserData;
 using Content.Shared.ADT.CCVar;
 using Content.Shared.ADT.Drawing;
 using Robust.Shared.Configuration;
@@ -13,7 +14,7 @@ public sealed class CanvasTileCacheSystem : EntitySystem
 {
     private const int FlushEvery = 32;
 
-    private static readonly ResPath Root = new("/cache/adt-canvas");
+    private static readonly ResPath Root = ADTUserData.Root / "canvas" / "cache";
     private static readonly ResPath IndexPath = Root / "index.txt";
 
     [Dependency] private readonly IResourceManager _res = default!;
