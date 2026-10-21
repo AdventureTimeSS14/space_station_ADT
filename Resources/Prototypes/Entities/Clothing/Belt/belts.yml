@@ -79,7 +79,7 @@
 ## Belts without visualizers
 
 - type: entity
-  parent: [ClothingBeltAmmoProviderBase, BaseSecurityBartenderContraband]
+  parent: [ClothingBeltStorageBase, BaseSecurityBartenderContraband]
   id: ClothingBeltBandolier
   name: bandolier
   description: A bandolier for holding shotgun ammunition.
@@ -90,13 +90,15 @@
     sprite: Clothing/Belt/bandolier.rsi
   - type: Item
     size: Huge
-  - type: BallisticAmmoProvider
-    white list:
+  - type: Storage
+    grid:
+    - 0,0,4,3 # ADT
+    maxItemSize: Tiny
+    whitelist:
       tags:
         - ShellShotgun
-        - CartridgeAntiMateriel # ADT: Sniper ammunition.
-        - CartridgeLightRifle # ADT: Mosin ammunition.
-    capacity: 20 # ADT: Expanded bandolier capacity.
+        - CartridgeAntiMateriel # ADTn.
+        - CartridgeLightRifle # ADT
 
 - type: entity
   parent: [ ClothingBeltStorageBase, BaseMagicalContraband ]
