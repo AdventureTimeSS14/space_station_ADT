@@ -23,6 +23,12 @@ public sealed partial class MesonVisionComponent : Component
 
     [DataField, AutoNetworkedField]
     public Color Color = Color.FromHex("#D3D3D3");
+
+    [DataField, AutoNetworkedField]
+    public float WallAlpha = 0.35f;
+
+    [DataField, AutoNetworkedField]
+    public float LightingAlpha = 192f / 255f;
 }
 
 [Serializable, NetSerializable]
