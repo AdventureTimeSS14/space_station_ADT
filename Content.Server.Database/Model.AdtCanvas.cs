@@ -72,6 +72,24 @@ internal static class ModelAdtCanvas
         modelBuilder.Entity<AdtPaintingBan>();
         modelBuilder.Entity<AdtPaintingWhitelist>();
 
+        modelBuilder.Entity<AdtPaintingReport>()
+            .HasIndex(r => new { r.Resolved, r.CreatedAt });
+
+        modelBuilder.Entity<AdtPaintingReport>()
+            .HasIndex(r => new { r.PaintingUid, r.ReporterUserId });
+
+        modelBuilder.Entity<AdtPaintingReport>()
+            .HasOne<Round>()
+            .WithMany()
+            .HasForeignKey(r => r.RoundId)
+            .OnDelete(DeleteBehavior.SetNull);
+
+        modelBuilder.Entity<AdtPaintingReport>()
+            .HasOne<Server>()
+            .WithMany()
+            .HasForeignKey(r => r.ServerId)
+            .OnDelete(DeleteBehavior.SetNull);
+
         modelBuilder.Entity<AdtPaintingContributor>()
             .HasKey(c => new { c.PaintingId, c.UserId });
 
@@ -259,4 +277,29 @@ public class AdtPaintingWhitelist
     public Guid AddedBy { get; set; }
 
     public DateTime CreatedAt { get; set; }
+}
+
+public class AdtPaintingReport
+{
+    [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int ReportId { get; set; }
+
+    public Guid PaintingUid { get; set; }
+
+    public Guid ReporterUserId { get; set; }
+
+    [MaxLength(256)]
+    public string Reason { get; set; } = string.Empty;
+
+    public DateTime CreatedAt { get; set; }
+
+    public int? RoundId { get; set; }
+
+    public int? ServerId { get; set; }
+
+    public bool Resolved { get; set; }
+
+    public Guid? ResolvedBy { get; set; }
+
+    public DateTime? ResolvedAt { get; set; }
 }

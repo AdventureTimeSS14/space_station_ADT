@@ -124,5 +124,22 @@ adt-painting-report-prompt = Что не так с картиной?
 adt-painting-report-sent = Жалоба отправлена администрации.
 adt-painting-report-already = Вы уже жаловались на эту картину.
 adt-painting-report-cooldown = Подождите немного перед следующей жалобой.
-adt-painting-report-admin = жалуется на картину «{$title}» ({$uid}): {$reason}. Открыть очередь: paintingqueue
+adt-painting-report-admin = жалуется на картину «{$title}» ({$uid}): {$reason}. Жалобы - во вкладке «Жалобы» админ-панели.
+
+adt-painting-reports-tab = Жалобы
+adt-painting-reports-filter-open = Открытые
+adt-painting-reports-filter-resolved = Закрытые
+adt-painting-reports-resolve = Закрыть жалобу
+adt-painting-reports-hide = Скрыть картину
+adt-painting-reports-entry = {$title} · {$reporter} · {$date} · открытых: {$count}
+adt-painting-reports-empty = Выберите жалобу в списке.
+adt-painting-reports-not-found = Жалоба не найдена или уже закрыта.
+adt-painting-reports-resolved = Жалоба закрыта.
+adt-painting-reports-details =
+    {$title} · {$status}
+    Автор картины: {$owner}{$banned}
+    Пожаловался: {$reporter}, {$date}, раунд {$round}
+    Причина: {$reason}
+    Открытых жалоб на картину: {$count}
+    Закрыл: {$resolver}, {$resolved}
 admin-player-actions-window-painting-queue = Очередь картин

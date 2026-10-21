@@ -73,6 +73,23 @@ public sealed class PaintingBanRecord
     public DateTime? ExpiresAt;
 }
 
+public sealed class PaintingReportRecord
+{
+    public int ReportId;
+    public Guid PaintingUid;
+    public Guid ReporterUserId;
+    public string Reason = string.Empty;
+    public DateTime CreatedAt;
+    public int? RoundId;
+    public bool Resolved;
+    public Guid? ResolvedBy;
+    public DateTime? ResolvedAt;
+    public string? Title;
+    public AdtPaintingStatus? Status;
+    public Guid? OwnerUserId;
+    public int OpenReports;
+}
+
 public sealed class PaintingDecisionRecord
 {
     public Guid PaintingUid;
