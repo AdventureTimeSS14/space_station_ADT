@@ -188,7 +188,8 @@ public sealed partial class EncryptionKeySystem : EntitySystem
         //     AddChannelsExamine(component.Channels, component.DefaultChannel, args, _protoManager, "examine-encryption-channel");
         // }
 
-        if (component.Channels.Count > 0)
+        // ADT: по умолчанию скрывает каналы которые доступны при осмотре.
+        if (component.Channels.Count > 0 && !HasComp<HeadsetComponent>(uid))
         {
             using (args.PushGroup(nameof(EncryptionKeyComponent)))
             {
