@@ -23,18 +23,19 @@
     containers:
       entity_storage: !type:AllSelector
         children:
-        - id: ClothingOuterCoatParamedicWB
-        - id: ClothingHeadHatParamedicsoft
-        - id: ADTClothingHeadHatsParamedicBeret 
-        - id: ADTHighVoltageDefibrillator 
-        - id: ClothingOuterWinterPara
-        - id: ClothingUniformJumpsuitParamedic
-        - id: ClothingUniformJumpskirtParamedic
+        - id: ADTClothingHeadHatsParamedicBeret
+        - id: ADTHighVoltageDefibrillator
         - id: ClothingEyesHudMedical
-        - id: ClothingHandsGlovesLatex
-        - id: ClothingHeadsetMedical
-        - id: ClothingMaskSterile
+        - id: ClothingBeltMedicalEMTFilled
+        - id: ADTBloodPackTransfusionFull
+        - id: JetInjector
+        - id: HandheldHealthAnalyzer
         - id: HandheldGPSBasic
-        - id: MedkitFilled
-          prob: 0.3
-        - id: ADTBookSRPmed
+        - id: BoxBodyBag
+        - !type:GroupSelector
+          children:
+          - id: RollerBedSpawnFolded
+          - id: CheapRollerBedSpawnFolded
+          - id: EmergencyRollerBedSpawnFolded
+        - id: PlushieLizardJobParamedic
+          prob: 0.02
