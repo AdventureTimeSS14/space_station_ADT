@@ -4,6 +4,10 @@
   id: Pickaxe
   description: Notched to perfection, for jamming it into rocks.
   components:
+  - type: ADTMiningTool
+    toolSpeed: 0.8
+    useSound:
+      path: /Audio/ADT/Mining/picaxe1.ogg
   - type: Tag
     tags:
     - Pickaxe
@@ -45,6 +49,10 @@
   id: MiningDrill
   description: Powerful tool used to quickly drill through rocks.
   components:
+  - type: ADTMiningTool
+    toolSpeed: 0.4
+    useSound:
+      path: /Audio/ADT/Mining/drill.ogg
   - type: Item
     storedRotation: -90
   - type: Tag
@@ -72,6 +80,10 @@
   id: MiningDrillDiamond
   description: A significantly more efficient mining drill tipped with diamond.
   components:
+  - type: ADTMiningTool
+    toolSpeed: 0.1
+    useSound:
+      path: /Audio/ADT/Mining/drill.ogg
   - type: Sprite
     sprite: ADT/Objects/Tools/handdrilldiamond.rsi 
     state: handdrill
