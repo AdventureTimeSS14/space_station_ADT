@@ -31,6 +31,7 @@
           - state: metal-inhand
       size: Ginormous
     - type: MultiHandedItem
+    - type: RMCMagneticItem
     - type: Blocking
       passiveBlockModifier:
         coefficients:
