@@ -46,7 +46,7 @@
     fuels:
     - whitelist:
         components:
-        - Gibtonite
+        - ADTGibtoniteOre
       charges: 1
     - whitelist:
         tags:
