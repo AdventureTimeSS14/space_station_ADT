@@ -556,6 +556,9 @@ public sealed class ADTCCVars
     public static readonly CVarDef<bool> CanvasWhitelist =
         CVarDef.Create("adt.canvas.whitelist", false, CVar.SERVERONLY);
 
+    public static readonly CVarDef<int> CanvasRulesAccepted =
+        CVarDef.Create("adt.canvas.rules_accepted", 0, CVar.CLIENTONLY | CVar.ARCHIVE);
+
     public static readonly CVarDef<int> CanvasMaxPaintingMb =
         CVarDef.Create("adt.canvas.max_painting_mb", 24, CVar.SERVERONLY);
 

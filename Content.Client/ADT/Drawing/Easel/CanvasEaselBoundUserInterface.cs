@@ -92,6 +92,7 @@ public sealed class CanvasEaselBoundUserInterface : BoundUserInterface
             }
 
             _drawing.OpenCentered();
+            EntMan.System<CanvasRulesSystem>().ShowIfNeeded();
         }
 
         if (_window != null)
