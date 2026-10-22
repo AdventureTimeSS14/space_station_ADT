@@ -6,8 +6,9 @@
     useDelay: 2
     checkCanInteract: false
   - type: Sprite
+    sprite: ADT/Interface/Actions/dissociative.rsi
     layers:
-    - texture: Interface/Actions/manifest.png
+    - state: mirage
   - type: InstantAction
     event: !type:DissociativeManifestActionEvent
 
@@ -20,9 +21,9 @@
     checkCanInteract: false
     itemIconStyle: BigAction
   - type: Sprite
-    sprite: Interface/Actions/changeling.rsi
+    sprite: ADT/Interface/Actions/dissociative.rsi
     layers:
-    - state: transform
+    - state: controler
   - type: InstantAction
     event: !type:DissociativeFrontActionEvent
 
@@ -68,9 +69,9 @@
   - type: ConfirmableAction
     popup: dissociative-surrender-confirm
   - type: Sprite
-    sprite: Interface/Actions/changeling.rsi
+    sprite: ADT/Interface/Actions/dissociative.rsi
     layers:
-    - state: stasis_enter
+    - state: lost
   - type: InstantAction
     event: !type:DissociativeSurrenderActionEvent
 
@@ -86,8 +87,8 @@
   - type: ConfirmableAction
     popup: dissociative-give-control-confirm
   - type: Sprite
-    sprite: Interface/Actions/changeling.rsi
+    sprite: ADT/Interface/Actions/dissociative.rsi
     layers:
-    - state: stasis_enter
+    - state: controler
   - type: InstantAction
     event: !type:DissociativeGiveControlActionEvent
