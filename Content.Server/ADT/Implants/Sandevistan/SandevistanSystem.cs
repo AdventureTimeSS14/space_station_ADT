@@ -173,7 +173,7 @@ public sealed class SandevistanSystem : EntitySystem
         var loadComp = EnsureComp<SandevistanLoadComponent>(ent);
         loadComp.LoadAlert = ent.Comp.LoadAlert;
         _alerts.ShowAlert(ent.Owner, ent.Comp.LoadAlert);
-        _speed.RefreshMovementSpeedModifiers(ent);
+        _speed.RefreshMovementSpeedModifiers(ent.Owner);
 
         if (ent.Comp.SlowfieldEnabled)
             CreateSlowfieldFixture(ent, ent.Comp);
@@ -357,7 +357,7 @@ public sealed class SandevistanSystem : EntitySystem
 
         if (HasComp<MobStateComponent>(ent))
         {
-            _speed.RefreshMovementSpeedModifiers(ent);
+            _speed.RefreshMovementSpeedModifiers(ent.Owner);
 
             if (ent.Comp.HadGlitch)
                 RemCompDeferred<GlitchComponent>(ent);
