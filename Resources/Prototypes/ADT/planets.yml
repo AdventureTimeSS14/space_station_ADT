@@ -94,11 +94,11 @@
       minDistanceFromCenter: 60
       maxRadius: 325
       entries:
-      - prototype: MobGoliath
+      - prototype: ADTMobLavalandGoliath
         weight: 3
         variants:
-        - prototype: MobAncientGoliath
-          probability: 0.01
+        - prototype: ADTMobLavalandGoliathAncient
+          probability: 0.1
       - prototype: ADTMobLegion
         weight: 3
       - prototype: MobWatcherLavaland
