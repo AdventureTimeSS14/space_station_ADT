@@ -5,3 +5,7 @@ reagent-desc-blueskydesoxyephedrine = Кустарный вариант дезо
 
 reagent-name-ketamine = кетамин
 reagent-desc-ketamine = Диссоциативный анестетик. Отделяет сознание от тела, вызывает галлюцинации и может выпустить на волю вторую личность.
+
+
+reagent-name-liminalium = лиминалий
+reagent-desc-liminalium = Кристаллический наркотик, вызывающий лиминальные галлюцинации.
