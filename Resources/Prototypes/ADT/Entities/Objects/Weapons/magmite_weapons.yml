@@ -16,7 +16,7 @@
   - type: Item
     sprite: ADT/Objects/Weapons/Guns/Basic/kinetic_accelerator_magmite.rsi
   - type: ADTUpgradeableGun
-    maxModCapacity: 200
+    maxModCapacity: 160
     stockSprite:
       sprite: ADT/Objects/Weapons/Guns/Basic/kinetic_accelerator_magmite.rsi
       state: icon
