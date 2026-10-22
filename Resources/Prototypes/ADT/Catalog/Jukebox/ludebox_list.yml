@@ -18,6 +18,7 @@
 - type: jukeboxList
   id: Chill
   jukeboxes:
+  - ADTFNB
   - ABeautifulLull
   - ATenseAdventure
   - HappyEnding
