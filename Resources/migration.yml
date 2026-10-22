@@ -1162,3 +1162,7 @@ DrinkNeurotoxinGlass: null
 
 # ADT-Tweak
 ChemMaster: ADTChemMaster
+
+# ADT-Tweak: remove Music song
+ADTBoxMusicDisksSyndicate: null
+ADTMusicDiskShanson: null
