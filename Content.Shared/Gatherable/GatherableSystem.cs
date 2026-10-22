@@ -37,6 +37,11 @@ public sealed partial class GatherableSystem : EntitySystem
         if (_whitelistSystem.IsWhitelistFailOrNull(gatherable.Comp.ToolWhitelist, args.Used))
             return;
 
+        // ADT-Tweak start
+        if (HasComp<ADTMineralComponent>(gatherable))
+            return;
+        // ADT-Tweak end
+
         Gather(gatherable.AsNullable(), args.User);
     }
 
@@ -72,11 +77,6 @@ public sealed partial class GatherableSystem : EntitySystem
         if (gathering.Comp.Amount <= 0)
             return;
 
-        // ADT-Tweak start
-        if (HasComp<ADTHardRockComponent>(args.OtherEntity) && !HasComp<ADTHardRockPiercingComponent>(gathering))
-            return;
-        // ADT-Tweak end
-
         if (!TryComp<GatherableComponent>(args.OtherEntity, out var gatherable))
             return;
 
@@ -100,6 +100,13 @@ public sealed partial class GatherableSystem : EntitySystem
 
         if (TerminatingOrDeleted(gathered) || EntityManager.IsQueuedForDeletion(gathered)) // ADT-Tweak
             return;
+
+        // ADT-Tweak start
+        var attempt = new ADTGatherAttemptEvent(gatherer);
+        RaiseLocalEvent(gathered, ref attempt);
+        if (attempt.Cancelled)
+            return;
+        // ADT-Tweak end
 
         var pos = Transform(gathered).Coordinates;
         if (TryComp<SoundOnGatherComponent>(gathered, out var soundComp))

@@ -17,7 +17,7 @@
   name: boobr-m90-name
   description: boobr-m90-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/carbine.rsi, state: icon }
-  productEntity: WeaponCaseNTM90
+  productEntity: WeaponCaseNTM90Rev
   cost:
     Productunit: 18
   categories:
