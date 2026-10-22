@@ -14,3 +14,4 @@ We put this here so that GitHub will notify you when submitting a pull request t
 Contributions are accepted subject to the [Contributor License Agreement](CLA.md) and the [Licensing Notice](LICENSING.md). Third-party code and assets must be declared in the PR description together with their license.
 
 Вклады принимаются на условиях [Лицензионного соглашения с контрибьютором](CLA.ru.md) и [Уведомления о лицензировании](LICENSING.md). Код и ресурсы третьих лиц необходимо указывать в описании PR вместе с их лицензией.
+
