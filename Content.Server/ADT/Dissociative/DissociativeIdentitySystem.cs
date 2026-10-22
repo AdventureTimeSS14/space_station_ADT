@@ -193,6 +193,12 @@ public sealed partial class DissociativeIdentitySystem : EntitySystem
             return;
         }
 
+        if (IsSuppressed(host.Value.Comp))
+        {
+            _popup.PopupEntity(Loc.GetString("dissociative-front-suppressed"), ent, ent);
+            return;
+        }
+
         if (_container.IsEntityInContainer(host.Value))
         {
             _popup.PopupEntity(Loc.GetString("dissociative-manifest-host-contained"), ent, ent);

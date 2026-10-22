@@ -218,3 +218,5 @@
         probability: 0.3
       - !type:DissociativeExtendFront
         seconds: 4
+      - !type:DissociativeSpeedCooldown
+        seconds: 1

@@ -23,3 +23,11 @@ public sealed partial class DissociativeForceFrontEntityEffectSystem : EntityEff
         _dissociative.ForceFront(entity);
     }
 }
+
+public sealed partial class DissociativeSpeedCooldownEntityEffectSystem : EntityEffectSystem<DissociativeIdentityComponent, DissociativeSpeedCooldown>
+{
+    protected override void Effect(Entity<DissociativeIdentityComponent> entity, ref EntityEffectEvent<DissociativeSpeedCooldown> args)
+    {
+        entity.Comp.NextFront -= TimeSpan.FromSeconds(args.Effect.Seconds * args.Scale);
+    }
+}

@@ -403,6 +403,8 @@
                 layer:
                 - None
           - type: DissociativeAlterBody
+          - type: StatusIcon
+            bounds: -0.5,-0.5,0.5,0.5
           - type: InputMover
           - type: MobMover
           - type: MovementSpeedModifier
