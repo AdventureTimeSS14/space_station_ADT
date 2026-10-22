@@ -21,9 +21,10 @@
     checkConsciousness: false
     useDelay: 15
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Heretic/abilities_heretic.rsi
-      state: realignment
+  - type: Sprite
+    sprite: ADT/Heretic/abilities_heretic.rsi
+    layers:
+    - state: realignment
   - type: InstantAction
     event: !type:EventHereticRealignment
   - type: HereticAction
@@ -42,9 +43,10 @@
     checkCanInteract: false
     useDelay: 60
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Heretic/abilities_heretic.rsi
-      state: furious_steel
+  - type: Sprite
+    sprite: ADT/Heretic/abilities_heretic.rsi
+    layers:
+    - state: furious_steel
   - type: InstantAction
     event: !type:EventHereticFuriousSteel
   - type: HereticAction

@@ -8,7 +8,7 @@ namespace Content.Shared.Heretic.Systems;
 
 public sealed class HereticClothingSystem : EntitySystem
 {
-    [Dependency] private readonly SharedHereticSystem _heretic = default!;
+    [Dependency] private SharedHereticSystem _heretic = default!;
 
     public override void Initialize()
     {
@@ -19,7 +19,7 @@ public sealed class HereticClothingSystem : EntitySystem
 
     private void OnEquipAttempt(Entity<HereticClothingComponent> ent, ref BeingEquippedAttemptEvent args)
     {
-        if (IsTargetValid(args.EquipTarget) && (args.EquipTarget == args.Equipee || IsTargetValid(args.Equipee)))
+        if (IsTargetValid(args.EquipTarget) && (args.EquipTarget == args.User || IsTargetValid(args.User)))
             return;
 
         args.Cancel();

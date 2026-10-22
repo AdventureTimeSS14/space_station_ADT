@@ -3,6 +3,7 @@ using Content.Shared.Doors.Components;
 using Content.Shared.GameTicking;
 using Content.Shared.Station.Components;
 using Content.Shared.Tag;
+using Content.Shared.Wall;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 
@@ -10,10 +11,9 @@ namespace Content.Server.ADT.RoundEnd;
 
 public sealed class StationIntegritySystem : EntitySystem
 {
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly TagSystem _tags = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private TagSystem _tags = default!;
 
-    private static readonly ProtoId<TagPrototype> WallTag = "Wall";
     private static readonly ProtoId<TagPrototype> WindowTag = "Window";
 
     private readonly HashSet<EntityUid> _stationGrids = new();
@@ -76,23 +76,28 @@ public sealed class StationIntegritySystem : EntitySystem
                 state.Machine++;
         }
 
+        var walls = EntityQueryEnumerator<WallComponent, TransformComponent>();
+        while (walls.MoveNext(out var uid, out _, out var xform))
+        {
+            if (!xform.Anchored || !OnStation(xform) || HasComp<DoorComponent>(uid))
+                continue;
+
+            state.Wall++;
+        }
+
         var tagged = EntityQueryEnumerator<TagComponent, TransformComponent>();
         while (tagged.MoveNext(out var uid, out var tag, out var xform))
         {
             if (!xform.Anchored)
                 continue;
 
-            var wall = _tags.HasTag(tag, WallTag);
-            if (!wall && !_tags.HasTag(tag, WindowTag))
+            if (HasComp<WallComponent>(uid) || !_tags.HasTag(tag, WindowTag))
                 continue;
 
             if (!OnStation(xform) || HasComp<DoorComponent>(uid))
                 continue;
 
-            if (wall)
-                state.Wall++;
-            else
-                state.Window++;
+            state.Window++;
         }
 
         return state;

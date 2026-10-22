@@ -15,18 +15,20 @@ using Content.Shared.ADT.Mech;
 using Robust.Shared.Timing;
 using Robust.Server.Audio;
 using Content.Server.ADT.Mech.Equipment.Components;
+using Content.Shared.Vehicle.Systems;
 
 namespace Content.Server.ADT.Mech.Equipment.EntitySystems;
 public sealed class MechGunSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ThrowingSystem _throwing = default!;
-    [Dependency] private readonly MechSystem _mech = default!;
-    [Dependency] private readonly BatterySystem _battery = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ThrowingSystem _throwing = default!;
+    [Dependency] private MechSystem _mech = default!;
+    [Dependency] private BatterySystem _battery = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private VehicleSystem _vehicle = default!;
 
     public override void Initialize()
     {
@@ -57,8 +59,8 @@ public sealed class MechGunSystem : EntitySystem
     {
         if (!component.EquipmentOwner.HasValue)
         {
-            if (TryComp<MechComponent>(args.User, out var pilot) && pilot.PilotSlot.ContainedEntity != null)
-                _mech.TryEject(args.User, pilot);
+            if (HasComp<MechComponent>(args.User))
+                _vehicle.TryExit(args.User);
             _stun.TryUpdateParalyzeDuration(args.User, TimeSpan.FromSeconds(10));
             _throwing.TryThrow(args.User, _random.NextVector2(), _random.Next(50));
             return;

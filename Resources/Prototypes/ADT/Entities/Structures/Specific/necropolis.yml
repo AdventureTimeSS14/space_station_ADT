@@ -22,7 +22,11 @@
   - type: Appearance
   - type: AnimationPlayer
   - type: Occluder
-    boundingBox: "-1.45,-0.45,1.45,1.2"
+    polygon:
+    - "-1.45,-0.45"
+    - "1.45,-0.45"
+    - "1.45,1.2"
+    - "-1.45,1.2"
   - type: Door
     openDrawDepth: BlastDoors
     closedDrawDepth: BlastDoors
@@ -66,6 +70,27 @@
   components:
   - type: AccessReader
     access: [["ADTAshWalker"]]
+
+- type: entity
+  id: ADTNecropolisGateLegion
+  parent: ADTNecropolisGate
+  suffix: Legion
+  description: A tall, massive gate set into a towering stone tower.
+  components:
+  - type: Door
+    clickOpen: false
+  - type: ADTLegionGate
+    legionGate: true
+
+- type: entity
+  id: ADTNecropolisGateLocked
+  parent: ADTNecropolisGate
+  suffix: Locked
+  components:
+  - type: Door
+    clickOpen: false
+  - type: ADTLegionGate
+    locked: true
 
 - type: entity
   id: ADTNecropolisArch

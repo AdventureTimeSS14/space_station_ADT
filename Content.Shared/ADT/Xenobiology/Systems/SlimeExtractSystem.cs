@@ -19,16 +19,16 @@ namespace Content.Shared.ADT.Xenobiology.Systems;
 /// </summary>
 public sealed partial class SlimeExtractSystem : EntitySystem
 {
-    [Dependency] private readonly SharedEntityEffectsSystem _entityEffectsSystem = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private SharedEntityEffectsSystem _entityEffectsSystem = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private INetManager _net = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<SlimeExtractComponent, SolutionContainerChangedEvent>(OnSolutionChanged);
+        SubscribeLocalEvent<SlimeExtractComponent, SolutionChangedEvent>(OnSolutionChanged);
         SubscribeLocalEvent<SlimeExtractActiveReactionComponent, EntityPausedEvent>(OnPaused);
         SubscribeLocalEvent<SlimeExtractActiveReactionComponent, EntityUnpausedEvent>(OnUnpaused);
         SubscribeLocalEvent<SlimeExtractComponent, ExaminedEvent>(OnExamined);
@@ -57,7 +57,7 @@ public sealed partial class SlimeExtractSystem : EntitySystem
         return minimumScalingFactor;
     }
 
-    private void OnSolutionChanged(Entity<SlimeExtractComponent> entity, ref SolutionContainerChangedEvent args)
+    private void OnSolutionChanged(Entity<SlimeExtractComponent> entity, ref SolutionChangedEvent args)
     {
         if (_net.IsClient)
             return;
@@ -65,14 +65,14 @@ public sealed partial class SlimeExtractSystem : EntitySystem
         if (TerminatingOrDeleted(entity.Owner))
             return;
 
-        if (args.SolutionId != entity.Comp.ContainerName)
+        if (args.Solution.Comp.Id != entity.Comp.ContainerName)
             return;
 
         EnsureComp<SlimeExtractActiveReactionComponent>(entity.Owner, out var activeReactionComponent);
         foreach (var extractReactionProto in entity.Comp.ExtractReactions)
         {
             var reaction = _prototypeManager.Index<ExtractReactionPrototype>(extractReactionProto);
-            if (IsSolutionRequirementFulfilled(reaction.Requirements, args.Solution))
+            if (IsSolutionRequirementFulfilled(reaction.Requirements, args.Solution.Comp.Solution))
             {
                 if (!activeReactionComponent.ActiveReactions.ContainsKey(extractReactionProto))
                     activeReactionComponent.ActiveReactions[extractReactionProto] = _gameTiming.CurTime + reaction.Delay;

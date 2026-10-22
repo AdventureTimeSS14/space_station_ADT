@@ -35,9 +35,9 @@
   conserveEnergy: false
   reactants:
     Flour:
-      amount: 15
+      amount: 15 # ADT-Tweak
     Water:
-      amount: 10
+      amount: 10 # ADT-Tweak
   effects:
     - !type:SpawnEntity
       entity: FoodDough
@@ -73,7 +73,7 @@
       entity: FoodDoughTortilla
 
 - type: reaction
-  id: CreateDoughCotton
+  id: CreateDoughCotton # ADT-Tweak
   impact: Low
   quantized: true
   conserveEnergy: false
@@ -89,7 +89,7 @@
     entity: FoodDoughCotton
 
 - type: reaction
-  id: CreateCakeBatter
+  id: CreateCakeBatter # ADT-Tweak
   impact: Low
   quantized: true
   conserveEnergy: false
@@ -107,7 +107,7 @@
       entity: FoodCakeBatter
 
 - type: reaction
-  id: CreateButter
+  id: CreateButter # ADT-Tweak
   impact: Low
   quantized: true
   conserveEnergy: false
@@ -122,7 +122,7 @@
       entity: FoodButter
 
 - type: reaction
-  id: CreatePieDough
+  id: CreatePieDough # ADT-Tweak
   impact: Low
   quantized: true
   conserveEnergy: false
@@ -157,7 +157,7 @@
       entity: FoodCakeBatter
 
 - type: reaction
-  id: CreateTofu
+  id: CreateTofu # ADT-Tweak
   impact: Low
   quantized: true
   conserveEnergy: false

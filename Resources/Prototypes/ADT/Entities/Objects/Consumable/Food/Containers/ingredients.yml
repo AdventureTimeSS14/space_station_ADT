@@ -16,9 +16,9 @@
     layers:
     - state: oat-big
       map: ["enum.OpenableVisuals.Layer"]
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Oats
-          Quantity: 50
+  - type: Solution
+    solution:
+      maxVol: 50
+      reagents:
+      - ReagentId: Oats
+        Quantity: 50

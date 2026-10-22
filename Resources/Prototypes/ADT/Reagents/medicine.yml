@@ -17,9 +17,8 @@
         visualType: Small
         messages: [ "medicine-effect-headache" ]
         probability: 0.05
-      - !type:GenericStatusEffect
-        key: Adrenaline
-        component: IgnoreSlowOnDamage
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectAdrenaline
         time: 20
       - !type:HealthChange
         conditions:
@@ -338,9 +337,8 @@
     Bloodstream:
       metabolismRate: 1
       effects:
-      - !type:GenericStatusEffect
-        key: Adrenaline
-        component: IgnoreSlowOnDamage
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectAdrenaline
         time: 60
       - !type:EvenHealthChange
         damage:
@@ -398,9 +396,8 @@
         - !type:ReagentCondition
           reagent: ADTMorphine
           min: 30.05
-      - !type:GenericStatusEffect #не забываем, что морфин ещё и наркотик.
-        key: SeeingRainbows
-        component: SeeingRainbows
+      - !type:ModifyStatusEffect #не забываем, что морфин ещё и наркотик.
+        effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 2.5
       # ADT-Tweak-Start: передоз морфина даёт лекарственную зависимость
@@ -808,3 +805,23 @@
           guidebookComponentName: reagent-comp-condition-adt-ashwalker
         reagent: Epinephrine
         amount: 0.2
+
+- type: reagent
+  id: ADTMurderSolution
+  name: reagent-name-murder-solution
+  group: Medicine
+  desc: reagent-desc-murder-solution
+  physicalDesc: reagent-physical-desc-glowing
+  flavor: metallic
+  color: "#6fd13a"
+  metabolisms:
+    Bloodstream:
+      metabolismRate: 5
+      effects:
+      - !type:ADTMurderSolutionBurst
+        minScale: 1
+        damage:
+          types:
+            Radiation: 40
+      - !type:ADTCureCloneCellularDecay
+        minScale: 1

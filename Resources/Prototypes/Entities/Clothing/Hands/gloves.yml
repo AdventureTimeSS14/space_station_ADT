@@ -295,14 +295,12 @@
     abilities:
     - components:
       - type: BatteryDrainer
-      # ADT-Tweak start
-      # - type: StunProvider
-      #   cooldown: 10
-      #   noPowerPopup: ninja-no-power
-      #   whitelist:
-      #     components:
-      #     - Stamina
-      # ADT-Tweak end
+      - type: StunProvider
+        cooldown: 10
+        noPowerPopup: ninja-no-power
+        whitelist:
+          components:
+          - Stamina
       - type: EmagProvider
         whitelist:
           components:
@@ -365,7 +363,7 @@
     fiberColor: fibers-black
 
 - type: entity
-  parent: [ BaseSecurityCargoContraband, ClothingHandsGlovesCombat ]
+  parent: [ BaseSecurityCargoContraband, ClothingHandsGlovesCombat, BaseSlicingRefinable ]
   id: ClothingHandsMercGlovesCombat
   name: mercenary combat gloves
   description: High-quality combat gloves to protect hands from mechanical damage during combat.
@@ -374,9 +372,8 @@
     sprite: Clothing/Hands/Gloves/mercbattle.rsi
   - type: Clothing
     sprite: Clothing/Hands/Gloves/mercbattle.rsi
-  - type: Butcherable
-    butcheringType: Knife
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: ClothingHandsGlovesMercFingerless
   - type: Fiber
     fiberMaterial: fibers-insulative
@@ -657,6 +654,9 @@
           False: {state: knuckleduster_off}
   - type: ToggleClothing
     action: ActionToggleKnuckleDustersStun
+  - type: ItemToggleExaminableStatus
+  - type: ItemToggleRequiresCharge
+    requiredCharge: 50
   - type: ItemToggle
     predictable: false
     soundActivate:
@@ -674,8 +674,6 @@
       params:
         variation: 0.250
         volume: 5
-  - type: Stunbaton
-    energyPerUse: 50
   - type: ItemToggleMeleeWeapon
     activatedDamage:
       types:
@@ -684,14 +682,19 @@
     attackRate: 1.5
     damage:
       types:
-        Blunt: 8
+        Blunt: 10 # ADT-Tweak 8 > 10. Бафф, так как будет использоваться инквизицией. Вещь не доступна для игроков.
+        Piercing: 10 # ADT-Tweak: добавлено
     bluntStaminaDamageFactor: 2.0
     animation: WeaponArcFist
+  - type: MeleeBatteryHitsLeft
+  - type: StaminaDamageOnHitRequiresToggle
+  - type: StaminaDamageOnHitRequiresCharge
+    requiredCharge: 25 #ADT-Tweak 50 > 25
   - type: StaminaDamageOnHit
-    damage: 35
+    damage: 45 # ADT-Tweak: повышено с 35
     sound: /Audio/Weapons/egloves.ogg
   - type: StaminaDamageOnCollide
-    damage: 35
+    damage: 45 # ADT-Tweak: повышено с 35
     sound: /Audio/Weapons/egloves.ogg
   - type: LandAtCursor # it deals stamina damage when thrown
   - type: Battery
@@ -701,6 +704,10 @@
     guides:
     - Security
     - Antagonists
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - Stunbaton
 
 - type: entity #Admeme
   parent: ClothingHandsKnuckleDusters

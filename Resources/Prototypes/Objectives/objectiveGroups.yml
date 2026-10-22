@@ -49,11 +49,17 @@
 #    RandomTraitorAliveObjective: 1 - Removed because the objective was boring and didn't progress the round.
     RandomTraitorProgressObjective: 1
 
+- type: weightedRandom
+  id: TraitorObjectiveGroupSabotage
+  weights:
+    SupercritAnomaliesObjective: 1
+
 #misc objectives that don't fall other another category
 - type: weightedRandom
   id: TraitorObjectiveGroupOther
   weights:
     HijackTradeStationObjective: 1
+    MailFraudObjective: 1
 
 
 #Thief groups
@@ -146,3 +152,40 @@
     BrainScanObjective: 1
     BorgHackObjective: 0.7
 # ADT-Tweak end
+
+# ADT: Закомментировано из-за использования генокрада от Goob Station
+# # Changeling
+# - type: weightedRandom # we need these dummy groups since its shitty code that won't stand having less than two groups before the objectives themselves
+#   id: ChangelingObjectiveGroupDevourDummy
+#   weights:
+#     ChangelingObjectiveGroupDevour: 1
+#
+# - type: weightedRandom
+#   id: ChangelingObjectiveGroupDevour
+#   weights:
+#     ChangelingDevouredCountObjective: 1
+#     ChangelingMostDevouredObjective: 1
+#
+# - type: weightedRandom
+#   id: ChangelingObjectiveGroupEscapeDummy
+#   weights:
+#     ChangelingObjectiveGroupEscape: 1
+#
+# - type: weightedRandom
+#   id: ChangelingObjectiveGroupEscape
+#   weights:
+#     ChangelingSurviveObjective: 0.5
+#     ChangelingEscapeDepartmentObjective: 1.0
+#     ChangelingEscapeIdentityObjective: 1.5
+#
+# - type: weightedRandom
+#   id: ChangelingObjectiveGroupKillDummy
+#   weights:
+#     ChangelingObjectiveGroupKill: 1
+#
+# - type: weightedRandom
+#   id: ChangelingObjectiveGroupKill
+#   weights:
+#     ChangelingKillRandomPersonObjective: 1
+#
+# # Crew, wizard, when you code it...

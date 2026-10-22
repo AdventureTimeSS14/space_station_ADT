@@ -5,4 +5,4 @@
   components:
   - type: NavMapBeacon
   - type: WarpPoint
-    location: "Шаттл ОБР"
+    location: location-adt-ert-shuttle

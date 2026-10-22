@@ -10,7 +10,7 @@ namespace Content.Client.ADT.GPS.UI;
 
 public sealed class GpsWaypointRow : PanelContainer
 {
-    [Dependency] private readonly IEyeManager _eye = default!;
+    [Dependency] private IEyeManager _eye = default!;
 
     private static readonly StyleBoxFlat StripeBox = new() { BackgroundColor = new Color(1f, 1f, 1f, 0.05f) };
 

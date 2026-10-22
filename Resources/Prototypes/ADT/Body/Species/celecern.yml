@@ -156,10 +156,7 @@
   - type: Speech
     speechSounds: Lizard
   - type: Vocal
-    sounds:
-      Male: ADTCelecernMale
-      Female: ADTCelecernFemale
-      Unsexed: ADTCelecernFemale
+    emoteSounds: ADTCelecernMale
   - type: Damageable
     damageModifierSet: Celecern
   - type: Injurable
@@ -189,7 +186,7 @@
         Blunt: 0.9
         Slash: 4
   - type: Temperature
-    currentTemperature: 310.15
+    temperature: 310.15
     specificHeat: 46
   - type: TemperatureDamage
     heatDamageThreshold: 363

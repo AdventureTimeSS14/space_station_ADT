@@ -73,3 +73,18 @@ figurines-gipatter-3 = Во всём виноваты воксы!
 adt-figurines-plushie-proxima-1 = З-з-здразтвуйте...
 adt-figurines-plushie-proxima-2 = Дворжзкого п-пожалуйста...
 adt-figurines-plushie-proxima-3 = Н-не г-гладьте меня...
+
+adt-figurines-plushie-reimor-1 = Ну нихрена себе!
+adt-figurines-plushie-reimor-2 = Ха-ха-ха!
+adt-figurines-plushie-reimor-3 = Да!
+
+adt-figurines-theokaya-1 = Зззтанззия! Датчики!
+adt-figurines-theokaya-2 = Жзжу-жзжу-жзжу
+adt-figurines-theokaya-3 = Азззизззтент умер беззз датчиков...
+
+adt-figurines-navi-1 = Мяу
+adt-figurines-navi-2 = Вам не кажется, что мы виделись с вами?
+adt-figurines-navi-3 = Витаминки один к одному с физраствором, вкусно!
+adt-figurines-navi-4 = Это не борода!
+adt-figurines-navi-5 = Я просто хочу отдохнуть...
+adt-figurines-navi-6 = Бу-бу-бу бе-бе-бе!

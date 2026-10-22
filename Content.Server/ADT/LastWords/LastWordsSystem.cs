@@ -10,7 +10,7 @@ namespace Content.Server.ADT.LastWords;
 
 public sealed class LastWordsSystem : EntitySystem
 {
-    [Dependency] private readonly SharedMindSystem _mindSystem = default!;
+    [Dependency] private SharedMindSystem _mindSystem = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<MobStateComponent, EntitySpokeEvent>(OnEntitySpoke);

@@ -129,10 +129,7 @@
   - type: Speech
     speechSounds: Lizard
   - type: Vocal
-    sounds:
-      Male: MaleHuman
-      Female: FemaleHuman
-      Unsexed: FemaleHuman
+    emoteSounds: MaleHuman
   - type: Damageable
     damageModifierSet: Demon
   - type: Injurable
@@ -148,7 +145,7 @@
         Slash: 2
         Piercing: 3
   - type: Temperature
-    currentTemperature: 310.15
+    temperature: 310.15
     specificHeat: 46
   - type: TemperatureDamage
     heatDamageThreshold: 363

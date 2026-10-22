@@ -19,7 +19,7 @@
   name: trait-category-languages
   priority: 50
   maxTraits: 4
-  maxPoints: 2
+  maxTraitPoints: 2
   accentColor: "#fffb00"
   defaultExpanded: true
 
@@ -42,3 +42,26 @@
   name: trait-category-sponsor
   priority: 100
   accentColor: "#66CCFF"
+
+- type: traitCategory
+  id: Disabilities
+  name: trait-category-disabilities
+  priority: 10
+  accentColor: "#64748b"
+  defaultExpanded: true
+
+- type: traitCategory
+  id: SpeechTraits
+  name: trait-category-speech
+  priority: 30
+  maxTraits: 3
+  maxTraitPoints: 2
+  accentColor: "#38bdf8"
+  defaultExpanded: true
+
+- type: traitCategory
+  id: Quirks
+  name: trait-category-quirks
+  priority: 20
+  accentColor: "#a855f7"
+  defaultExpanded: true

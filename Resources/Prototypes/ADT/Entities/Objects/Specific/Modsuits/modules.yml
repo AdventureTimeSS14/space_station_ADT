@@ -45,6 +45,8 @@
   name: MOD drill module
   description: An integrated drill, typically extending over the user's hand. While useful for drilling through rock, your drill is surely the one that both pierces and creates the heavens.
   components:
+  - type: ADTMiningTool
+    toolSpeed: 0
   - type: Sprite
     state: drill
   - type: ModSuitMod
@@ -89,7 +91,7 @@
       - type: CanMoveInAir
       - type: InputMover
       - type: GasTank
-        outputPressure: 21.3
+        releasePressure: 21.3
         air:
           volume: 5
           temperature: 293.15
@@ -610,6 +612,8 @@
     components:
       gloves:
       - type: HealthAnalyzer
+        scanDelay: 0.4
+        maxScanRange: 3.5
         scanningEndSound:
           path: /Audio/Items/Medical/healthscanner.ogg
 

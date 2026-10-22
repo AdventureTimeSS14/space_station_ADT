@@ -1,7 +1,6 @@
 // Simple station
 
 using Content.Shared.ADT.Silicon.Components;
-using Content.Shared.Alert;
 using Content.Shared.Bed.Sleep;
 using Robust.Shared.Serialization;
 using Content.Shared.Movement.Systems;
@@ -12,15 +11,12 @@ namespace Content.Shared.ADT.Silicon.Systems;
 
 public sealed class SharedSiliconChargeSystem : EntitySystem
 {
-    [Dependency] private readonly AlertsSystem _alertsSystem = default!;
-    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private ItemSlotsSystem _itemSlots = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<SiliconComponent, ComponentInit>(OnSiliconInit);
-        SubscribeLocalEvent<SiliconComponent, SiliconChargeStateUpdateEvent>(OnSiliconChargeStateUpdate);
         SubscribeLocalEvent<SiliconComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
         SubscribeLocalEvent<SiliconComponent, ItemSlotInsertAttemptEvent>(OnItemSlotInsertAttempt);
         SubscribeLocalEvent<SiliconComponent, ItemSlotEjectAttemptEvent>(OnItemSlotEjectAttempt);
@@ -47,19 +43,6 @@ public sealed class SharedSiliconChargeSystem : EntitySystem
             return;
 
         args.Cancelled = true;
-    }
-
-    private void OnSiliconInit(EntityUid uid, SiliconComponent component, ComponentInit args)
-    {
-        if (!component.BatteryPowered)
-            return;
-
-        _alertsSystem.ShowAlert(uid, component.BatteryAlert, component.ChargeState);
-    }
-
-    private void OnSiliconChargeStateUpdate(EntityUid uid, SiliconComponent component, SiliconChargeStateUpdateEvent ev)
-    {
-        _alertsSystem.ShowAlert(uid, component.BatteryAlert, ev.ChargePercent);
     }
 
     private void OnRefreshMovespeed(EntityUid uid, SiliconComponent component, RefreshMovementSpeedModifiersEvent args)

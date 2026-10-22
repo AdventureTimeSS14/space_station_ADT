@@ -17,7 +17,7 @@
   name: boobr-m90-name
   description: boobr-m90-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/carbine.rsi, state: icon }
-  productEntity: WeaponCaseNTM90
+  productEntity: WeaponCaseNTM90Rev
   cost:
     Productunit: 18
   categories:
@@ -1356,7 +1356,7 @@
   icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Battery/healgun.rsi, state: icon }
   productEntity: ADTWeaponMedbeamERT
   cost:
-    Productunit: 20
+    Productunit: 8
   categories:
   - ADTUplinkERTMisc
 
@@ -1908,7 +1908,7 @@
   id: ADTBoberTrashBagBlue
   name: boobr-trash-bag-name
   description: boobr-trash-bag-desc
-  productEntity: TrashBagBlue
+  productEntity: TrashBagHolding
   cost:
     Productunit: 1
   categories:

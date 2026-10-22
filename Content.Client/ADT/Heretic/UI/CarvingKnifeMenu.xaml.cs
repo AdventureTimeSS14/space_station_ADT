@@ -13,8 +13,8 @@ namespace Content.Client.ADT.Heretic.UI;
 
 public sealed class CarvingKnifeMenu : RadialMenu
 {
-    [Dependency] private readonly EntityManager _ent = default!;
-    [Dependency] private readonly IPrototypeManager _prot = default!;
+    [Dependency] private EntityManager _ent = default!;
+    [Dependency] private IPrototypeManager _prot = default!;
 
     private SpriteSystem _sprites;
 

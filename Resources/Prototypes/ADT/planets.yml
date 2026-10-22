@@ -35,11 +35,24 @@
     riverBridgeSpacing: 55
     riverBridgeMaxWidth: 6
     groups:
+    # Некрополь
+    - prototypes: [ ADTLegionNecropolisSpawner ]
+      count: 1
+      angle: 90
+      minDistanceFromCenter: 318
+      maxDistanceFromCenter: 322
+      clearance: 75
+      riverClearance: 52
     - prototypes: [ ADTLavaDungeonAshVillage ]
       count: 1
       minDistanceFromCenter: 250
       maxDistanceFromCenter: 300
       clearance: 55
+    #- prototypes: [ ADTHeliosEntranceRoomMarker ]
+    #  count: 1
+    #  minDistanceFromCenter: 140
+    #  maxDistanceFromCenter: 240
+    #  clearance: 20
     - prototypes: [ LavaDungeonRoomMarker ]
       roomWhitelist:
         tags:
@@ -122,6 +135,91 @@
     - ADTMegaFaunaBubblegum
     - BloodMinerDungeMarker
     - ADTHierophantArenaSpawner
+    - ADTMegaFaunaColossus
+  # LavalandGenerator.dm port
+  - type: ADTLavalandCaves
+    closedChance: 45
+    smoothingIterations: 50
+    birthLimit: 4
+    deathLimit: 3
+    minNodes: 45
+    maxNodes: 75
+    nodeMinSize: 75
+    nodeMaxSize: 90
+    hardNoise:
+      chance: 40
+      iterations: 100
+      birthLimit: 4
+      deathLimit: 3
+    doubleNoise:
+      chance: 25
+      iterations: 100
+      birthLimit: 4
+      deathLimit: 3
+    walls:
+    # /turf/simulated/mineral/random/volcanic
+    - prototype: ADTBasalt
+      mineralChance: 14
+      ores:
+        Uranium: 5
+        Diamond: 0.5
+        Gold: 10
+        Copper: 11
+        Silver: 12
+        Plasma: 20
+        Iron: 40
+        Gibtonite: 4
+        Bluespace: 0.5
+        Gem: 1
+    # /turf/simulated/mineral/random/volcanic/hard
+    - prototype: ADTBasaltHardened
+      mineralChance: 24
+      ores:
+        Uranium: 10
+        Diamond: 2
+        Gold: 10
+        Copper: 21
+        Magmite: 0.5
+        Silver: 12
+        Plasma: 20
+        Bluespace: 2
+        Gibtonite: 4
+        Iron: 40
+        Gem: 2
+    # /turf/simulated/mineral/random/volcanic/hard/double
+    - prototype: ADTBasaltVolcanic
+      mineralChance: 60
+      ores:
+        Uranium: 15
+        Diamond: 3
+        Gold: 15
+        Copper: 31
+        Magmite: 2
+        Silver: 12
+        Plasma: 25
+        Bluespace: 3
+        Gibtonite: 4
+        Iron: 45
+        Gem: 5
+        Bananium: 2
+    spread:
+      Iron: 20
+      Uranium: 5
+      Gold: 5
+      Silver: 5
+      Copper: 5
+      Plasma: 8
+      Quartz: 8
+      Coal: 5
+      Sandstone: 5
+    extraChance: 2
+    extraOres:
+      Quartz: 40
+      Coal: 30
+      Sandstone: 20
+      Zinc: 12
+      Lead: 12
+      ArtifactFragment: 2
   - type: FTLDestination
   - type: ADTBaitDigging
     table: !type:NestedSelector
@@ -187,27 +285,6 @@
     moles:
     - 8
     - 14
-  biomeMarkerLayers:
-  - ADTLavaVeinOreIron
-  - ADTLavaVeinSandstone
-  - ADTLavaVeinGem
-  - ADTLavaVeinOreQuartz
-  - ADTLavaVeinOreCoal
-  - ADTLavaVeinOreGold
-  - ADTLavaVeinOreSilver
-  - ADTLavaVeinOrePlasma
-  - ADTLavaVeinOreUranium
-  - ADTLavaVeinOreDiamond
-  - ADTLavaVeinOreArtifactFragment
-  - ADTLavaVeinADTOreBS
-  - ADTLavaVeinOreCopper
-  - ADTLavaVeinOreZinc
-  - ADTLavaVeinOreLead
-  - ADTLavaVeinOreGibtonit
-  - ADTLavaVeinOreMagmite
-  - ADTLavaVeinAncientRock
-  - ADTLavaVeinAncientRockUranium
-  - ADTLavaVeinAncientRockDiamond
 
 - type: planet
   id: GlacierSurface

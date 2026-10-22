@@ -19,12 +19,12 @@ namespace Content.Server.ADT.Lavaland.LegionCore;
 
 public sealed class ADTLegionCoreSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private SharedBloodstreamSystem _bloodstream = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private StatusEffectsSystem _statusEffects = default!;
 
     public override void Initialize()
     {
@@ -78,6 +78,12 @@ public sealed class ADTLegionCoreSystem : EntitySystem
             return true;
         }
 
+        if (core.Comp.ApplyDelay <= 0f)
+        {
+            Apply(core, user, target);
+            return true;
+        }
+
         var doAfter = new DoAfterArgs(EntityManager,
             user,
             core.Comp.ApplyDelay,
@@ -98,17 +104,22 @@ public sealed class ADTLegionCoreSystem : EntitySystem
         if (args.Handled || args.Cancelled || args.Target is not { } target)
             return;
 
+        args.Handled = Apply(core, args.User, target);
+    }
+
+    private bool Apply(Entity<ADTRegenerativeCoreComponent> core, EntityUid user, EntityUid target)
+    {
         if (_mobState.IsDead(target))
         {
-            _popup.PopupEntity(Loc.GetString("adt-legion-core-dead-target"), target, args.User);
-            return;
+            _popup.PopupEntity(Loc.GetString("adt-legion-core-dead-target"), target, user);
+            return false;
         }
 
         var onLavaland = Transform(target).MapUid is { } map && HasComp<ADTLavalandGenerationComponent>(map);
         var power = onLavaland ? 1f : core.Comp.WeakenedMultiplier;
 
         if (!core.Comp.InstantHeal.Empty)
-            _damageable.TryChangeDamage(target, core.Comp.InstantHeal * power, true, false, origin: args.User);
+            _damageable.TryChangeDamage(target, core.Comp.InstantHeal * power, true, false, origin: user);
 
         _bloodstream.TryModifyBleedAmount(target, -100f);
         _statusEffects.TryAddStatusEffectDuration(target, core.Comp.StatusEffect, core.Comp.Duration * power);
@@ -117,22 +128,22 @@ public sealed class ADTLegionCoreSystem : EntitySystem
             RemoveStuns(target);
 
         if (!onLavaland)
-            _popup.PopupEntity(Loc.GetString("adt-legion-core-weakened"), target, args.User);
+            _popup.PopupEntity(Loc.GetString("adt-legion-core-weakened"), target, user);
 
-        if (target == args.User)
+        if (target == user)
         {
-            _popup.PopupEntity(Loc.GetString("adt-legion-core-apply-self"), target, args.User);
+            _popup.PopupEntity(Loc.GetString("adt-legion-core-apply-self"), target, user);
         }
         else
         {
             _popup.PopupEntity(Loc.GetString("adt-legion-core-apply-other",
                     ("target", Identity.Entity(target, EntityManager))),
                 target,
-                args.User);
+                user);
         }
 
         QueueDel(core);
-        args.Handled = true;
+        return true;
     }
 
     private void RemoveStuns(EntityUid target)

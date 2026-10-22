@@ -5,7 +5,7 @@ namespace Content.Client.ADT.Xenobiology.UI;
 
 public sealed class SlimeNameChangePotionBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
 
     private SlimeNameChangePotionWindow? _window;
 

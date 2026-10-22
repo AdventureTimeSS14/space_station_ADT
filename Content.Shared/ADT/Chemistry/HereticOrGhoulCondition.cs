@@ -6,7 +6,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.EntityEffects.EffectConditions;
 public sealed partial class HereticOrGhoulConditionSystem : EntityConditionSystem<MetaDataComponent, HereticOrGhoulCondition>
 {
-    [Dependency] private readonly SharedHereticSystem _heretic = default!;
+    [Dependency] private SharedHereticSystem _heretic = default!;
 
     protected override void Condition(Entity<MetaDataComponent> entity, ref EntityConditionEvent<HereticOrGhoulCondition> args)
     {

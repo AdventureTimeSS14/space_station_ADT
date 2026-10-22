@@ -168,7 +168,7 @@
     bloodReferenceSolution:
       reagents:
       - ReagentId: Cryoxadone
-        Quantity: 400
+        Quantity: 800
     bloodlossDamage:
       types:
         Bloodloss: 0.8
@@ -176,7 +176,7 @@
     baseWalkSpeed : 2.5
     baseSprintSpeed : 4.2
   - type: Temperature
-    currentTemperature: 265.15 # -8C - нормальная температура тела
+    temperature: 265.15 # -8C - нормальная температура тела
     specificHeat: 42
   - type: TemperatureDamage
     heatDamageThreshold: 308.15 # 35C
@@ -187,7 +187,7 @@
         Blunt: -0.25
         Slash: -0.2
         Piercing: -0.2
-        Heat: -0.05
+        Heat: -0.03
         Shock: -0.1
         Caustic: -0.05
         Radiation: -0.1
@@ -235,10 +235,7 @@
     interactSuccessSound: /Audio/Effects/thudswoosh.ogg
     messagePerceivedByOthers: hugging-success-generic-others
   - type: Vocal
-    sounds:
-      Male: MaleDrask
-      Female: FemaleDrask
-      Unsexed: MaleDrask
+    emoteSounds: MaleDrask
   - type: Damageable
     damageModifierSet: Drask
   - type: Injurable
