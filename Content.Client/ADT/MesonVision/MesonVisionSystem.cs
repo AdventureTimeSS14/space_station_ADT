@@ -57,11 +57,16 @@ public sealed class MesonVisionSystem : SharedMesonVisionSystem
 
     private void Off()
     {
-        _overlay.RemoveOverlay(new MesonVisionOverlay());
+        _overlay.RemoveOverlay<MesonVisionOverlay>();
+        _overlay.RemoveOverlay<MesonLightingOverlay>();
     }
 
     private void Full(Entity<MesonVisionComponent> ent)
     {
-        _overlay.AddOverlay(new MesonVisionOverlay());
+        if (!_overlay.HasOverlay<MesonVisionOverlay>())
+            _overlay.AddOverlay(new MesonVisionOverlay());
+
+        if (!_overlay.HasOverlay<MesonLightingOverlay>())
+            _overlay.AddOverlay(new MesonLightingOverlay());
     }
 }

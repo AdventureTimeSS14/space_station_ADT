@@ -381,7 +381,7 @@ entities:
     - type: Transform
       pos: 1.538606,2.7583668
       parent: 1
-- proto: WallRockBasalt
+- proto: ADTBasalt
   entities:
   - uid: 2
     components:
@@ -513,7 +513,7 @@ entities:
     - type: Transform
       pos: 1.5,-3.5
       parent: 1
-- proto: WallRockBasaltCoal
+- proto: ADTBasaltCoal
   entities:
   - uid: 3
     components:

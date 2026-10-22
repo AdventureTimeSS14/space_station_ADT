@@ -308,12 +308,6 @@ public sealed class ADTLegionMegafaunaSystem : EntitySystem
                 continue;
             }
 
-            if (HasComp<ADTHardRockComponent>(anchored))
-            {
-                _destructible.DestroyEntity(anchored);
-                continue;
-            }
-
             if (!_megafauna.IsWall(anchored) || _destructible.DestroyedAt(anchored) == FixedPoint2.MaxValue)
                 continue;
 

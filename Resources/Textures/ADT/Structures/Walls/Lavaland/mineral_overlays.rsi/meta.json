@@ -1,0 +1,31 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from ss220-space/Paradise (master220) at icons/turf/mining.dmi, icons/turf/smoothrocks.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "cracks_1"
+        },
+        {
+            "name": "cracks_2"
+        },
+        {
+            "name": "gibtonite_active",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "gibtonite_inactive"
+        }
+    ]
+}
