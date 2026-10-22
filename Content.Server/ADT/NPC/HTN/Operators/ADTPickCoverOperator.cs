@@ -16,6 +16,9 @@ public sealed partial class ADTPickCoverOperator : HTNOperator
     private PathfindingSystem _pathfinding = default!;
     private SharedTransformSystem _transform = default!;
     private SharedInteractionSystem _interaction = default!;
+    private ADTNpcCombatMemorySystem _memory = default!;
+
+    private List<Vector2> _offsets = new();
 
     [DataField(required: true)]
     public string TargetKey = string.Empty;
@@ -29,12 +32,34 @@ public sealed partial class ADTPickCoverOperator : HTNOperator
     [DataField]
     public int Attempts = 6;
 
+    [DataField]
+    public float SearchCooldown = 3f;
+
     public override void Initialize(IEntitySystemManager sysManager)
     {
         base.Initialize(sysManager);
         _pathfinding = sysManager.GetEntitySystem<PathfindingSystem>();
         _transform = sysManager.GetEntitySystem<SharedTransformSystem>();
         _interaction = sysManager.GetEntitySystem<SharedInteractionSystem>();
+        _memory = sysManager.GetEntitySystem<ADTNpcCombatMemorySystem>();
+
+        var offsets = new List<Vector2>();
+
+        for (var x = -Radius; x <= Radius; x++)
+        {
+            for (var y = -Radius; y <= Radius; y++)
+            {
+                var offset = new Vector2(x, y);
+
+                if (offset == Vector2.Zero || offset.Length() > Radius)
+                    continue;
+
+                offsets.Add(offset);
+            }
+        }
+
+        offsets.Sort((a, b) => a.LengthSquared().CompareTo(b.LengthSquared()));
+        _offsets = offsets;
     }
 
     public override async Task<(bool Valid, Dictionary<string, object>? Effects)> Plan(NPCBlackboard blackboard,
@@ -51,47 +76,32 @@ public sealed partial class ADTPickCoverOperator : HTNOperator
         if (ownerPos.MapId != targetPos.MapId)
             return (false, null);
 
-        var candidates = new List<(Vector2 Pos, float Dist)>();
-
-        for (var x = -Radius; x <= Radius; x++)
-        {
-            for (var y = -Radius; y <= Radius; y++)
-            {
-                if (x == 0 && y == 0)
-                    continue;
-
-                var offset = new Vector2(x, y);
-                var dist = offset.Length();
-
-                if (dist > Radius)
-                    continue;
-
-                var point = new MapCoordinates(ownerPos.Position + offset, ownerPos.MapId);
-
-                if (!_interaction.InRangeUnobstructed(ownerPos, point, Radius + 1f, predicate: e => e == owner || e == target))
-                    continue;
-
-                if (_interaction.InRangeUnobstructed(targetPos, point, 40f, predicate: e => e == target || e == owner))
-                    continue;
-
-                candidates.Add((point.Position, dist));
-            }
-        }
-
-        candidates.Sort((a, b) => a.Dist.CompareTo(b.Dist));
+        if (!_memory.TryBeginCoverSearch(owner, TimeSpan.FromSeconds(SearchCooldown)))
+            return (false, null);
 
         var ownerCoords = _entManager.GetComponent<TransformComponent>(owner).Coordinates;
         var tries = 0;
 
-        foreach (var (pos, _) in candidates)
+        foreach (var offset in _offsets)
         {
-            if (tries++ >= Attempts)
+            if (tries >= Attempts || cancelToken.IsCancellationRequested)
                 break;
 
-            var destination = new MapCoordinates(pos, ownerPos.MapId);
+            var point = new MapCoordinates(ownerPos.Position + offset, ownerPos.MapId);
+
+            if (!_interaction.InRangeUnobstructed(ownerPos, point, Radius + 1f, predicate: e => e == owner || e == target))
+                continue;
+
+            var exposure = Vector2.Distance(targetPos.Position, point.Position) + 1f;
+
+            if (_interaction.InRangeUnobstructed(targetPos, point, exposure, predicate: e => e == target || e == owner))
+                continue;
+
+            tries++;
+
             var destinationCoords = ownerCoords.EntityId.IsValid()
-                ? _transform.ToCoordinates(ownerCoords.EntityId, destination)
-                : _transform.ToCoordinates(destination);
+                ? _transform.ToCoordinates(ownerCoords.EntityId, point)
+                : _transform.ToCoordinates(point);
 
             var path = await _pathfinding.GetPath(
                 owner,

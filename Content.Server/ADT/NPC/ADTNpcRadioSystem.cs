@@ -3,8 +3,10 @@ using System.Numerics;
 using Content.Server.Chat.Systems;
 using Content.Shared.Chat;
 using Content.Shared.Dataset;
+using Content.Shared.GameTicking;
 using Content.Shared.Inventory;
 using Content.Shared.NPC.Systems;
+using Content.Shared.Radio;
 using Content.Shared.Random.Helpers;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
@@ -23,24 +25,46 @@ public sealed class ADTNpcRadioSystem : EntitySystem
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
 
-    public const string RadioPrefix = ":я ";
     private const string AnyCall = "*";
+    private static readonly TimeSpan AnyCallGap = TimeSpan.FromSeconds(5);
+    private static readonly TimeSpan CallMemory = TimeSpan.FromMinutes(2);
 
     public readonly record struct RadioCall(EntityUid Caller, MapCoordinates Position, string Type, TimeSpan Time);
 
     private readonly List<RadioCall> _calls = new();
     private readonly Dictionary<(EntityUid, string), TimeSpan> _nextCall = new();
 
-    [ViewVariables]
-    public float AnyCallGap = 5f;
+    public override void Initialize()
+    {
+        base.Initialize();
 
-    public bool TryCall(EntityUid caller, string type, ProtoId<LocalizedDatasetPrototype> lines, float cooldown, float groupCooldown, float groupRange)
+        SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
+    }
+
+    private void OnRoundRestart(RoundRestartCleanupEvent args)
+    {
+        _calls.Clear();
+        _nextCall.Clear();
+    }
+
+    public bool TryCall(EntityUid caller,
+        string type,
+        ProtoId<LocalizedDatasetPrototype> lines,
+        ProtoId<RadioChannelPrototype>? channel,
+        float cooldown,
+        float groupCooldown,
+        float groupRange)
     {
         var now = _timing.CurTime;
         Prune(now);
 
-        if (!_inventory.TryGetSlotEntity(caller, "ears", out _))
-            return false;
+        RadioChannelPrototype? channelProto = null;
+
+        if (channel != null)
+        {
+            if (!_proto.TryIndex(channel.Value, out channelProto) || !_inventory.TryGetSlotEntity(caller, "ears", out _))
+                return false;
+        }
 
         if (_nextCall.TryGetValue((caller, type), out var next) && now < next)
             return false;
@@ -69,10 +93,15 @@ public sealed class ADTNpcRadioSystem : EntitySystem
             return false;
 
         _nextCall[(caller, type)] = now + TimeSpan.FromSeconds(cooldown);
-        _nextCall[(caller, AnyCall)] = now + TimeSpan.FromSeconds(AnyCallGap);
+        _nextCall[(caller, AnyCall)] = now + AnyCallGap;
         _calls.Add(new RadioCall(caller, pos, type, now));
 
-        _chat.TrySendInGameICMessage(caller, RadioPrefix + Loc.GetString(_random.Pick(set)), InGameICChatType.Speak, hideChat: false);
+        var message = Loc.GetString(_random.Pick(set));
+
+        if (channelProto != null)
+            message = $"{SharedChatSystem.RadioChannelPrefix}{channelProto.KeyCode} {message}";
+
+        _chat.TrySendInGameICMessage(caller, message, InGameICChatType.Speak, hideChat: false, checkRadioPrefix: channelProto != null);
         return true;
     }
 
@@ -108,17 +137,12 @@ public sealed class ADTNpcRadioSystem : EntitySystem
 
     private void Prune(TimeSpan now)
     {
-        _calls.RemoveAll(c => (now - c.Time).TotalSeconds > 120);
-
-        var expired = new List<(EntityUid, string)>();
+        _calls.RemoveAll(c => now - c.Time > CallMemory);
 
         foreach (var (key, time) in _nextCall)
         {
             if (time < now)
-                expired.Add(key);
+                _nextCall.Remove(key);
         }
-
-        foreach (var key in expired)
-            _nextCall.Remove(key);
     }
 }

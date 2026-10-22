@@ -1,16 +1,16 @@
-using Content.Server.ADT.NPC.Helpers;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN.Preconditions;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory.VirtualItem;
-using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.NPC.HTN.Preconditions;
 
 public sealed partial class ADTWeaponPrecondition : HTNPrecondition
 {
     [Dependency] private IEntityManager _entManager = default!;
-    [Dependency] private IGameTiming _timing = default!;
+
+    private ADTNpcGearSystem _gear = default!;
+    private SharedHandsSystem _hands = default!;
 
     [DataField]
     public ADTNpcWeaponRole Role = ADTNpcWeaponRole.Main;
@@ -24,44 +24,32 @@ public sealed partial class ADTWeaponPrecondition : HTNPrecondition
     [DataField]
     public bool Strict;
 
-    private static GameTick _cacheTick;
-    private static readonly Dictionary<(EntityUid, ADTNpcWeaponRole, bool, ADTNpcWeaponCheck), bool> Cache = new();
+    public override void Initialize(IEntitySystemManager sysManager)
+    {
+        base.Initialize(sysManager);
+        _gear = sysManager.GetEntitySystem<ADTNpcGearSystem>();
+        _hands = sysManager.GetEntitySystem<SharedHandsSystem>();
+    }
 
     public override bool IsMet(NPCBlackboard blackboard)
     {
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
-
-        if (_timing.CurTick != _cacheTick)
-        {
-            Cache.Clear();
-            _cacheTick = _timing.CurTick;
-        }
-
-        var key = (owner, Role, Strict, Check);
-
-        if (!Cache.TryGetValue(key, out var result))
-        {
-            result = Evaluate(owner);
-            Cache[key] = result;
-        }
-
-        return result ^ Invert;
+        return Evaluate(owner) ^ Invert;
     }
 
     private bool Evaluate(EntityUid owner)
     {
         if (Check == ADTNpcWeaponCheck.ActiveNonWeapon)
         {
-            return _entManager.System<SharedHandsSystem>().GetActiveItem(owner) is { } active &&
+            return _hands.GetActiveItem(owner) is { } active &&
                    !_entManager.HasComponent<VirtualItemComponent>(active) &&
-                   ADTNpcWeaponHelper.Classify(_entManager, active) == null;
+                   _gear.Classify(active) == null;
         }
 
-        if (ADTNpcWeaponHelper.Resolve(_entManager, owner, Role, Strict) is not { } found)
+        if (_gear.Resolve(owner, Role, Strict) is not { } found)
             return false;
 
         var gun = found.Item;
-        var melee = Role == ADTNpcWeaponRole.Melee;
 
         switch (Check)
         {
@@ -70,13 +58,13 @@ public sealed partial class ADTWeaponPrecondition : HTNPrecondition
             case ADTNpcWeaponCheck.Held:
                 return found.Hand != null;
             case ADTNpcWeaponCheck.Active:
-                return _entManager.System<SharedHandsSystem>().GetActiveItem(owner) == gun;
+                return _hands.GetActiveItem(owner) == gun;
         }
 
-        if (melee)
+        if (Role == ADTNpcWeaponRole.Melee)
             return Check is ADTNpcWeaponCheck.HasAmmo or ADTNpcWeaponCheck.Usable;
 
-        ADTNpcWeaponHelper.GetAmmo(_entManager, gun, out var count, out var capacity);
+        _gear.GetAmmo(gun, out var count, out var capacity);
 
         switch (Check)
         {
@@ -87,13 +75,13 @@ public sealed partial class ADTWeaponPrecondition : HTNPrecondition
             case ADTNpcWeaponCheck.NotFull:
                 return capacity > 0 && count < capacity;
             case ADTNpcWeaponCheck.CanReload:
-                return capacity > 0 && count < capacity && ADTNpcWeaponHelper.HasReserve(_entManager, owner, gun);
+                return capacity > 0 && count < capacity && _gear.HasReserve(owner, gun);
             case ADTNpcWeaponCheck.Usable:
-                return count > 0 || (capacity > 0 && ADTNpcWeaponHelper.HasReserve(_entManager, owner, gun));
+                return count > 0 || (capacity > 0 && _gear.HasReserve(owner, gun));
             case ADTNpcWeaponCheck.Magazine:
-                return ADTNpcWeaponHelper.IsMagazineGun(_entManager, gun, out _);
+                return _gear.IsMagazineGun(gun, out _);
             case ADTNpcWeaponCheck.Loose:
-                return ADTNpcWeaponHelper.IsLooseGun(_entManager, gun);
+                return _gear.IsLooseGun(gun);
             default:
                 return false;
         }

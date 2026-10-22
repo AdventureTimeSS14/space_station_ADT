@@ -1,7 +1,6 @@
 using System.Numerics;
 using System.Threading;
 using System.Threading.Tasks;
-using Content.Server.ADT.NPC.Helpers;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN.PrimitiveTasks;
 using Content.Shared.Mobs.Components;
@@ -9,14 +8,20 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
 using Robust.Shared.Map;
-using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.NPC.HTN.Operators;
 
 public sealed partial class ADTFindPatientOperator : HTNOperator
 {
     [Dependency] private IEntityManager _entManager = default!;
-    [Dependency] private IGameTiming _timing = default!;
+
+    private ADTNpcGearSystem _gear = default!;
+    private EntityLookupSystem _lookup = default!;
+    private SharedTransformSystem _transform = default!;
+    private NpcFactionSystem _faction = default!;
+    private MobStateSystem _mobState = default!;
+
+    private readonly HashSet<Entity<NpcFactionMemberComponent>> _found = new();
 
     [DataField]
     public float Range = 9f;
@@ -33,74 +38,83 @@ public sealed partial class ADTFindPatientOperator : HTNOperator
     [DataField]
     public string KeyCoordinates = "TargetCoordinates";
 
+    public override void Initialize(IEntitySystemManager sysManager)
+    {
+        base.Initialize(sysManager);
+        _gear = sysManager.GetEntitySystem<ADTNpcGearSystem>();
+        _lookup = sysManager.GetEntitySystem<EntityLookupSystem>();
+        _transform = sysManager.GetEntitySystem<SharedTransformSystem>();
+        _faction = sysManager.GetEntitySystem<NpcFactionSystem>();
+        _mobState = sysManager.GetEntitySystem<MobStateSystem>();
+    }
+
     public override Task<(bool Valid, Dictionary<string, object>? Effects)> Plan(NPCBlackboard blackboard,
         CancellationToken cancelToken)
     {
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
-        var lookup = _entManager.System<EntityLookupSystem>();
-        var transform = _entManager.System<SharedTransformSystem>();
-        var faction = _entManager.System<NpcFactionSystem>();
-        var mobState = _entManager.System<MobStateSystem>();
-        var ignored = ADTNpcHealHelper.IgnoredHealItems(blackboard, _entManager);
+        var ignored = ADTNpcGearSystem.GetIgnored(blackboard, ADTNpcGearSystem.IgnoredHealItemsKey, _entManager);
 
-        var ownerMap = transform.GetMapCoordinates(owner);
-        var defib = ADTNpcMedicHelper.FindDefib(_entManager, owner);
-        var hasMedipen = ADTNpcMedicHelper.FindMedipen(_entManager, owner) != null;
+        var ownerMap = _transform.GetMapCoordinates(owner);
+        var defib = _gear.FindDefib(owner);
+        var hasMedipen = _gear.FindMedipen(owner) != null;
 
         EntityUid? best = null;
         string? bestAction = null;
         var bestScore = float.MinValue;
 
-        foreach (var found in lookup.GetEntitiesInRange<NpcFactionMemberComponent>(ownerMap, Range))
+        _found.Clear();
+        _lookup.GetEntitiesInRange(ownerMap, Range, _found);
+
+        foreach (var found in _found)
         {
             var patient = found.Owner;
 
             if (patient == owner || !_entManager.HasComponent<MobStateComponent>(patient))
                 continue;
 
-            if (!faction.IsEntityFriendly(owner, patient))
+            if (!_faction.IsEntityFriendly(owner, patient))
                 continue;
 
-            var canHeal = ADTNpcHealHelper.FindHealItemFor(_entManager, owner, patient, ignored, out _) != null;
             string? action = null;
             var priority = 0f;
 
-            if (mobState.IsDead(patient))
+            if (_mobState.IsDead(patient))
             {
-                if (!ADTNpcMedicHelper.CanBeRevived(_entManager, patient))
+                if (!_gear.CanBeRevived(patient))
                     continue;
 
-                if (defib != null && ADTNpcMedicHelper.RevivableByZap(_entManager, patient, defib.Value))
+                if (defib != null && _gear.RevivableByZap(patient, defib.Value))
                 {
-                    action = ADTNpcMedicHelper.ActionDefib;
+                    action = ADTNpcGearSystem.MedActionDefib;
                     priority = 30f;
                 }
-                else if (canHeal)
+                else if (_gear.FindHealItemFor(owner, patient, ignored, out _) != null)
                 {
-                    action = ADTNpcMedicHelper.ActionHeal;
+                    action = ADTNpcGearSystem.MedActionHeal;
                     priority = 25f;
                 }
             }
-            else if (mobState.IsCritical(patient))
+            else if (_mobState.IsCritical(patient))
             {
-                if (hasMedipen && !ADTNpcMedicHelper.MedipenRecentlyUsed(blackboard, _entManager, patient, _timing.CurTime, MedipenCooldown))
+                if (hasMedipen && !_gear.MedipenRecentlyUsed(blackboard, patient, MedipenCooldown))
                 {
-                    action = ADTNpcMedicHelper.ActionMedipen;
+                    action = ADTNpcGearSystem.MedActionMedipen;
                     priority = 40f;
                 }
-                else if (canHeal)
+                else if (_gear.FindHealItemFor(owner, patient, ignored, out _) != null)
                 {
-                    action = ADTNpcMedicHelper.ActionHeal;
+                    action = ADTNpcGearSystem.MedActionHeal;
                     priority = 35f;
                 }
             }
-            else if (canHeal)
+            else
             {
-                var bleeding = ADTNpcHealHelper.IsBleeding(_entManager, patient);
+                var bleeding = _gear.IsBleeding(patient);
 
-                if (bleeding || ADTNpcHealHelper.DamageFraction(_entManager, patient) >= MinDamage)
+                if ((bleeding || _gear.DamageFraction(patient) >= MinDamage) &&
+                    _gear.FindHealItemFor(owner, patient, ignored, out _) != null)
                 {
-                    action = ADTNpcMedicHelper.ActionHeal;
+                    action = ADTNpcGearSystem.MedActionHeal;
                     priority = bleeding ? 15f : 10f;
                 }
             }
@@ -108,7 +122,7 @@ public sealed partial class ADTFindPatientOperator : HTNOperator
             if (action == null)
                 continue;
 
-            var score = priority - Vector2.Distance(ownerMap.Position, transform.GetMapCoordinates(patient).Position) * 0.1f;
+            var score = priority - Vector2.Distance(ownerMap.Position, _transform.GetMapCoordinates(patient).Position) * 0.1f;
 
             if (score <= bestScore)
                 continue;
@@ -125,7 +139,7 @@ public sealed partial class ADTFindPatientOperator : HTNOperator
         {
             { Key, target },
             { KeyCoordinates, new EntityCoordinates(target, Vector2.Zero) },
-            { ADTNpcMedicHelper.ActionKey, bestAction },
+            { ADTNpcGearSystem.MedActionKey, bestAction },
         }));
     }
 }

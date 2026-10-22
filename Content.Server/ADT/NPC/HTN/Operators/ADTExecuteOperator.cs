@@ -1,5 +1,3 @@
-using System.Numerics;
-using Content.Server.ADT.NPC.Helpers;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.HTN.PrimitiveTasks;
@@ -19,6 +17,7 @@ public sealed partial class ADTExecuteOperator : HTNOperator
 
     private const string StartedKey = "ADTExecuteStarted";
     private const string TimerKey = "ADTExecuteTimer";
+    private const string CombatKey = "ADTExecuteCombat";
 
     [DataField]
     public string Key = "Target";
@@ -37,6 +36,18 @@ public sealed partial class ADTExecuteOperator : HTNOperator
         base.Startup(blackboard);
         blackboard.SetValue(StartedKey, false);
         blackboard.SetValue(TimerKey, 0f);
+        blackboard.Remove<bool>(CombatKey);
+    }
+
+    public override void TaskShutdown(NPCBlackboard blackboard, HTNOperatorStatus status)
+    {
+        base.TaskShutdown(blackboard, status);
+
+        if (!blackboard.TryGetValue<bool>(CombatKey, out var combat, _entManager))
+            return;
+
+        blackboard.Remove<bool>(CombatKey);
+        _entManager.System<SharedCombatModeSystem>().SetInCombatMode(blackboard.GetValue<EntityUid>(NPCBlackboard.Owner), combat);
     }
 
     public override HTNOperatorStatus Update(NPCBlackboard blackboard, float frameTime)
@@ -57,9 +68,7 @@ public sealed partial class ADTExecuteOperator : HTNOperator
         if (!blackboard.TryGetValue<EntityUid>(Key, out var victim, _entManager) || _entManager.Deleted(victim))
             return HTNOperatorStatus.Failed;
 
-        var transform = _entManager.System<SharedTransformSystem>();
-
-        if (Vector2.Distance(transform.GetMapCoordinates(owner).Position, transform.GetMapCoordinates(victim).Position) > MaxDistance)
+        if (!_entManager.System<SharedTransformSystem>().InRange(owner, victim, MaxDistance))
             return HTNOperatorStatus.Failed;
 
         if (_entManager.System<SharedHandsSystem>().GetActiveItem(owner) is not { } weapon)
@@ -73,7 +82,7 @@ public sealed partial class ADTExecuteOperator : HTNOperator
 
         if (_entManager.HasComponent<GunComponent>(weapon))
         {
-            ADTNpcWeaponHelper.GetAmmo(_entManager, weapon, out var count, out _);
+            _entManager.System<ADTNpcGearSystem>().GetAmmo(weapon, out var count, out _);
 
             if (count <= 0)
                 return HTNOperatorStatus.Failed;
@@ -91,7 +100,9 @@ public sealed partial class ADTExecuteOperator : HTNOperator
             return HTNOperatorStatus.Failed;
         }
 
-        _entManager.System<SharedCombatModeSystem>().SetInCombatMode(owner, false);
+        var combatMode = _entManager.System<SharedCombatModeSystem>();
+        blackboard.SetValue(CombatKey, combatMode.IsInCombatMode(owner));
+        combatMode.SetInCombatMode(owner, false);
 
         var args = new DoAfterArgs(_entManager, owner, TimeSpan.FromSeconds(duration), new ExecutionDoAfterEvent(), weapon, target: victim, used: weapon)
         {

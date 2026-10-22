@@ -1,4 +1,3 @@
-using Content.Server.ADT.NPC.Helpers;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.HTN.PrimitiveTasks;
@@ -23,6 +22,8 @@ public sealed partial class ADTEatOperator : HTNOperator
     private const string TotalKey = "ADTEatTotal";
     private const string MaskKey = "ADTEatMaskDown";
 
+    private ADTNpcGearSystem _gear = default!;
+
     [DataField]
     public float BiteInterval = 1.5f;
 
@@ -31,6 +32,12 @@ public sealed partial class ADTEatOperator : HTNOperator
 
     [DataField]
     public float TotalTimeout = 90f;
+
+    public override void Initialize(IEntitySystemManager sysManager)
+    {
+        base.Initialize(sysManager);
+        _gear = sysManager.GetEntitySystem<ADTNpcGearSystem>();
+    }
 
     public override void Startup(NPCBlackboard blackboard)
     {
@@ -65,10 +72,10 @@ public sealed partial class ADTEatOperator : HTNOperator
 
         if (blackboard.TryGetValue<string>(HandKey, out var hand, _entManager) &&
             hands.TryGetHeldItem(owner, hand, out var held, true) &&
-            ADTNpcWeaponHelper.Classify(_entManager, held.Value) == null)
+            _gear.Classify(held.Value) == null)
         {
             if (_entManager.HasComponent<EdibleComponent>(held.Value))
-                ADTNpcItemHelper.Stow(_entManager, owner, held.Value);
+                _gear.Stow(owner, held.Value);
             else
                 hands.TryDrop(owner, held.Value, checkActionBlocker: false, doDropInteraction: false);
         }
@@ -85,7 +92,6 @@ public sealed partial class ADTEatOperator : HTNOperator
     public override HTNOperatorStatus Update(NPCBlackboard blackboard, float frameTime)
     {
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
-        var hands = _entManager.System<SharedHandsSystem>();
 
         var timer = (blackboard.TryGetValue<float>(TimerKey, out var t, _entManager) ? t : 0f) + frameTime;
         blackboard.SetValue(TimerKey, timer);
@@ -109,16 +115,12 @@ public sealed partial class ADTEatOperator : HTNOperator
 
         if (!blackboard.TryGetValue<EntityUid>(ItemKey, out var food, _entManager))
         {
-            if (ADTNpcFoodHelper.FindFood(_entManager, owner) is not { } found)
+            if (_gear.FindFood(owner) is not { } found)
                 return HTNOperatorStatus.Failed;
 
-            if (!ADTNpcItemHelper.MakeRoom(_entManager, owner, out var freeHand) || freeHand == null)
+            if (!_gear.TakeInHand(owner, found, out var freeHand) || freeHand == null)
                 return timer < 3f ? HTNOperatorStatus.Continuing : HTNOperatorStatus.Failed;
 
-            if (!hands.TryPickup(owner, found, freeHand, checkActionBlocker: false, animate: false))
-                return HTNOperatorStatus.Failed;
-
-            hands.TrySetActiveHand(owner, freeHand);
             blackboard.SetValue(ItemKey, found);
             blackboard.SetValue(HandKey, freeHand);
 

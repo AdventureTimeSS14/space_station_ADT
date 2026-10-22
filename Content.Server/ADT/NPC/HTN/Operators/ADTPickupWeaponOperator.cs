@@ -1,5 +1,3 @@
-using System.Numerics;
-using Content.Server.ADT.NPC.Helpers;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.HTN.PrimitiveTasks;
@@ -30,12 +28,7 @@ public sealed partial class ADTPickupWeaponOperator : HTNOperator
 
     private void Ignore(NPCBlackboard blackboard, EntityUid target)
     {
-        var ignored = blackboard.TryGetValue<HashSet<EntityUid>>(ADTFindWeaponOperator.IgnoredKey, out var stored, _entManager)
-            ? stored
-            : new HashSet<EntityUid>();
-
-        ignored.Add(target);
-        blackboard.SetValue(ADTFindWeaponOperator.IgnoredKey, ignored);
+        _entManager.System<ADTNpcGearSystem>().Ignore(blackboard, ADTNpcGearSystem.IgnoredWeaponsKey, target);
     }
 
     public override HTNOperatorStatus Update(NPCBlackboard blackboard, float frameTime)
@@ -46,19 +39,15 @@ public sealed partial class ADTPickupWeaponOperator : HTNOperator
             return HTNOperatorStatus.Failed;
 
         var hands = _entManager.System<SharedHandsSystem>();
-        var transform = _entManager.System<SharedTransformSystem>();
+        var gear = _entManager.System<ADTNpcGearSystem>();
 
-        var near = Vector2.Distance(
-            transform.GetMapCoordinates(owner).Position,
-            transform.GetMapCoordinates(target).Position) <= MaxDistance;
-
-        if (!near)
+        if (!_entManager.System<SharedTransformSystem>().InRange(owner, target, MaxDistance))
         {
             Ignore(blackboard, target);
             return HTNOperatorStatus.Failed;
         }
 
-        if (!ADTNpcItemHelper.MakeRoom(_entManager, owner, out var hand) || hand == null)
+        if (!gear.MakeRoom(owner, out var hand) || hand == null)
         {
             var timer = (blackboard.TryGetValue<float>(TimerKey, out var t, _entManager) ? t : 0f) + frameTime;
             blackboard.SetValue(TimerKey, timer);

@@ -1,4 +1,3 @@
-using Content.Server.ADT.NPC.Helpers;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN.Preconditions;
 using Content.Shared.Body.Components;
@@ -16,6 +15,6 @@ public sealed partial class ADTCanEatPrecondition : HTNPrecondition
         if (_entManager.TryGetComponent(owner, out InternalsComponent? internals) && internals.GasTankEntity != null)
             return false;
 
-        return ADTNpcFoodHelper.FindFood(_entManager, owner) != null;
+        return _entManager.System<ADTNpcGearSystem>().FindFood(owner) != null;
     }
 }

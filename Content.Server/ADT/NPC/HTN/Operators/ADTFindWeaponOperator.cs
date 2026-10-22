@@ -1,8 +1,6 @@
-using System.Linq;
 using System.Numerics;
 using System.Threading;
 using System.Threading.Tasks;
-using Content.Server.ADT.NPC.Helpers;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN.PrimitiveTasks;
 using Content.Shared.Item;
@@ -16,7 +14,13 @@ public sealed partial class ADTFindWeaponOperator : HTNOperator
 {
     [Dependency] private IEntityManager _entManager = default!;
 
-    public const string IgnoredKey = "ADTIgnoredWeapons";
+    private ADTNpcGearSystem _gear = default!;
+    private EntityLookupSystem _lookup = default!;
+    private SharedTransformSystem _transform = default!;
+    private SharedContainerSystem _containers = default!;
+
+    private readonly HashSet<Entity<ItemComponent>> _items = new();
+    private readonly HashSet<Entity<GunComponent>> _guns = new();
 
     [DataField]
     public float Range = 7f;
@@ -25,64 +29,84 @@ public sealed partial class ADTFindWeaponOperator : HTNOperator
     public ADTNpcWeaponRole? OnlyRole;
 
     [DataField]
+    public float SearchCooldown = 3f;
+
+    [DataField]
     public string Key = "Target";
 
     [DataField]
     public string KeyCoordinates = "TargetCoordinates";
 
+    public override void Initialize(IEntitySystemManager sysManager)
+    {
+        base.Initialize(sysManager);
+        _gear = sysManager.GetEntitySystem<ADTNpcGearSystem>();
+        _lookup = sysManager.GetEntitySystem<EntityLookupSystem>();
+        _transform = sysManager.GetEntitySystem<SharedTransformSystem>();
+        _containers = sysManager.GetEntitySystem<SharedContainerSystem>();
+    }
+
     public override Task<(bool Valid, Dictionary<string, object>? Effects)> Plan(NPCBlackboard blackboard,
         CancellationToken cancelToken)
     {
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
-        var lookup = _entManager.System<EntityLookupSystem>();
-        var transform = _entManager.System<SharedTransformSystem>();
-        var containers = _entManager.System<SharedContainerSystem>();
 
-        var ignored = blackboard.TryGetValue<HashSet<EntityUid>>(IgnoredKey, out var stored, _entManager)
-            ? stored
-            : new HashSet<EntityUid>();
+        if (!_gear.CanSearchWeapon(owner, OnlyRole))
+            return Task.FromResult<(bool Valid, Dictionary<string, object>? Effects)>((false, null));
 
-        var ownerPos = transform.GetMapCoordinates(owner).Position;
-        var ownerCoords = _entManager.GetComponent<TransformComponent>(owner).Coordinates;
+        var best = OnlyRole == ADTNpcWeaponRole.Melee
+            ? FindBest(owner, blackboard, _items)
+            : FindBest(owner, blackboard, _guns);
+
+        if (best is not { } target)
+        {
+            _gear.DelayWeaponSearch(owner, OnlyRole, TimeSpan.FromSeconds(SearchCooldown));
+            return Task.FromResult<(bool Valid, Dictionary<string, object>? Effects)>((false, null));
+        }
+
+        return Task.FromResult<(bool Valid, Dictionary<string, object>? Effects)>((true, new Dictionary<string, object>
+        {
+            { Key, target },
+            { KeyCoordinates, new EntityCoordinates(target, Vector2.Zero) },
+        }));
+    }
+
+    private EntityUid? FindBest<T>(EntityUid owner, NPCBlackboard blackboard, HashSet<Entity<T>> candidates) where T : IComponent
+    {
+        var ignored = ADTNpcGearSystem.GetIgnored(blackboard, ADTNpcGearSystem.IgnoredWeaponsKey, _entManager);
+        var ownerXform = _entManager.GetComponent<TransformComponent>(owner);
+        var ownerPos = _transform.GetMapCoordinates(owner, ownerXform).Position;
 
         EntityUid? best = null;
         var bestScore = float.MaxValue;
 
-        var candidates = new List<EntityUid>();
+        candidates.Clear();
+        _lookup.GetEntitiesInRange(ownerXform.Coordinates, Range, candidates);
 
-        if (OnlyRole == ADTNpcWeaponRole.Melee)
+        foreach (var candidate in candidates)
         {
-            foreach (var found in lookup.GetEntitiesInRange<ItemComponent>(ownerCoords, Range))
-                candidates.Add(found.Owner);
-        }
-        else
-        {
-            foreach (var found in lookup.GetEntitiesInRange<GunComponent>(ownerCoords, Range))
-                candidates.Add(found.Owner);
-        }
+            var item = candidate.Owner;
 
-        foreach (var gun in candidates)
-        {
-            if (ignored.Contains(gun) || !_entManager.HasComponent<ItemComponent>(gun))
+            if (ignored != null && ignored.Contains(item))
                 continue;
 
-            if (containers.IsEntityInContainer(gun))
+            if (!_entManager.HasComponent<ItemComponent>(item) || _containers.IsEntityInContainer(item))
                 continue;
 
-            var role = ADTNpcWeaponHelper.Classify(_entManager, gun);
+            var role = _gear.Classify(item);
 
             if (OnlyRole != null && role != OnlyRole)
                 continue;
 
             if (OnlyRole != ADTNpcWeaponRole.Melee)
             {
-                ADTNpcWeaponHelper.GetAmmo(_entManager, gun, out var count, out _);
+                _gear.GetAmmo(item, out var count, out _);
 
                 if (count <= 0)
                     continue;
             }
 
-            var score = Vector2.Distance(ownerPos, transform.GetMapCoordinates(gun).Position);
+            var score = Vector2.Distance(ownerPos, _transform.GetMapCoordinates(item).Position);
 
             if (role != ADTNpcWeaponRole.Main)
                 score += 100f;
@@ -90,17 +114,11 @@ public sealed partial class ADTFindWeaponOperator : HTNOperator
             if (score >= bestScore)
                 continue;
 
-            best = gun;
+            best = item;
             bestScore = score;
         }
 
-        if (best is not { } target)
-            return Task.FromResult<(bool Valid, Dictionary<string, object>? Effects)>((false, null));
-
-        return Task.FromResult<(bool Valid, Dictionary<string, object>? Effects)>((true, new Dictionary<string, object>
-        {
-            { Key, target },
-            { KeyCoordinates, new EntityCoordinates(target, Vector2.Zero) },
-        }));
+        candidates.Clear();
+        return best;
     }
 }

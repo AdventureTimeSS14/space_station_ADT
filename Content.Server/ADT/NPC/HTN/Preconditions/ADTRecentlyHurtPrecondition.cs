@@ -18,8 +18,9 @@ public sealed partial class ADTRecentlyHurtPrecondition : HTNPrecondition
     public override bool IsMet(NPCBlackboard blackboard)
     {
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
-        var memory = _entManager.EnsureComponent<ADTNpcCombatMemoryComponent>(owner);
-        var hurt = memory.Hurt && (_timing.CurTime - memory.LastHurt).TotalSeconds < Seconds;
+        var hurt = _entManager.TryGetComponent(owner, out ADTNpcCombatMemoryComponent? memory) &&
+                   memory.Hurt &&
+                   (_timing.CurTime - memory.LastHurt).TotalSeconds < Seconds;
 
         return hurt ^ Invert;
     }

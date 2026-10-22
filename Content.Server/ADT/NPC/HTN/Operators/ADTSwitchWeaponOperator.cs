@@ -1,4 +1,3 @@
-using Content.Server.ADT.NPC.Helpers;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.HTN.PrimitiveTasks;
@@ -16,7 +15,7 @@ public sealed partial class ADTSwitchWeaponOperator : HTNOperator
     {
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
 
-        return ADTNpcWeaponHelper.SwitchTo(_entManager, owner, Role)
+        return _entManager.System<ADTNpcGearSystem>().SwitchTo(owner, Role)
             ? HTNOperatorStatus.Finished
             : HTNOperatorStatus.Failed;
     }

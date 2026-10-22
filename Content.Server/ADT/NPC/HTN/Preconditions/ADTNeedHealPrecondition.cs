@@ -1,4 +1,3 @@
-using Content.Server.ADT.NPC.Helpers;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN.Preconditions;
 
@@ -8,17 +7,25 @@ public sealed partial class ADTNeedHealPrecondition : HTNPrecondition
 {
     [Dependency] private IEntityManager _entManager = default!;
 
+    private ADTNpcGearSystem _gear = default!;
+
     [DataField]
     public float MinDamage = 0.1f;
+
+    public override void Initialize(IEntitySystemManager sysManager)
+    {
+        base.Initialize(sysManager);
+        _gear = sysManager.GetEntitySystem<ADTNpcGearSystem>();
+    }
 
     public override bool IsMet(NPCBlackboard blackboard)
     {
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
 
-        var hurt = ADTNpcHealHelper.IsBleeding(_entManager, owner)
-            || ADTNpcHealHelper.DamageFraction(_entManager, owner) >= MinDamage;
+        if (!_gear.IsBleeding(owner) && _gear.DamageFraction(owner) < MinDamage)
+            return false;
 
-        return hurt && ADTNpcHealHelper.FindHealItem(
-            _entManager, owner, ADTNpcHealHelper.IgnoredHealItems(blackboard, _entManager)) != null;
+        var ignored = ADTNpcGearSystem.GetIgnored(blackboard, ADTNpcGearSystem.IgnoredHealItemsKey, _entManager);
+        return _gear.FindHealItem(owner, ignored, out _) != null;
     }
 }

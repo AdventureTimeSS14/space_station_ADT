@@ -1,4 +1,3 @@
-using Content.Server.ADT.NPC.Helpers;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN.Preconditions;
 
@@ -17,7 +16,7 @@ public sealed partial class ADTHealthPrecondition : HTNPrecondition
     public override bool IsMet(NPCBlackboard blackboard)
     {
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
-        var health = 1f - ADTNpcHealHelper.DamageFraction(_entManager, owner);
+        var health = 1f - _entManager.System<ADTNpcGearSystem>().DamageFraction(owner);
 
         return (health < Below) ^ Invert;
     }

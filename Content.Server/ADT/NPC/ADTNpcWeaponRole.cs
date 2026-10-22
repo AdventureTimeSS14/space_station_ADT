@@ -1,4 +1,4 @@
-namespace Content.Server.ADT.NPC.Helpers;
+namespace Content.Server.ADT.NPC;
 
 public enum ADTNpcWeaponRole
 {

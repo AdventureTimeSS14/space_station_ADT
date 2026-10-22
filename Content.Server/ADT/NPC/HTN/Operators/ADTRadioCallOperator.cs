@@ -2,6 +2,7 @@ using Content.Server.NPC;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.HTN.PrimitiveTasks;
 using Content.Shared.Dataset;
+using Content.Shared.Radio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -17,6 +18,9 @@ public sealed partial class ADTRadioCallOperator : HTNOperator
 
     [DataField(required: true)]
     public ProtoId<LocalizedDatasetPrototype> LineSet;
+
+    [DataField]
+    public ProtoId<RadioChannelPrototype>? Channel;
 
     [DataField]
     public float Chance = 1f;
@@ -35,7 +39,7 @@ public sealed partial class ADTRadioCallOperator : HTNOperator
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
 
         if (_random.Prob(Chance))
-            _entManager.System<ADTNpcRadioSystem>().TryCall(owner, Call, LineSet, Cooldown, GroupCooldown, GroupRange);
+            _entManager.System<ADTNpcRadioSystem>().TryCall(owner, Call, LineSet, Channel, Cooldown, GroupCooldown, GroupRange);
 
         return HTNOperatorStatus.Finished;
     }

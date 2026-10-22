@@ -8,6 +8,8 @@
         - ADTSovietBunker
     - type: InputMover
     - type: MobMover
+    - type: ADTNpcGear
+    - type: ADTNpcCombatMemory
     - type: HTN
       rootTask:
         task: ADTExpeditionHumanoidCompound
@@ -216,6 +218,8 @@
         - ADTSmugglerPirateGearPlaceholder
     - type: InputMover
     - type: MobMover
+    - type: ADTNpcGear
+    - type: ADTNpcCombatMemory
     - type: HTN
       rootTask:
         task: ADTExpeditionHumanoidCompound

@@ -10,6 +10,8 @@ public sealed partial class ADTGroupQuietPrecondition : HTNPrecondition
     [Dependency] private IEntityManager _entManager = default!;
     [Dependency] private IGameTiming _timing = default!;
 
+    private readonly HashSet<Entity<ADTNpcCombatMemoryComponent>> _found = new();
+
     [DataField]
     public float Seconds = 10f;
 
@@ -23,8 +25,10 @@ public sealed partial class ADTGroupQuietPrecondition : HTNPrecondition
         var faction = _entManager.System<NpcFactionSystem>();
         var now = _timing.CurTime;
 
-        foreach (var found in _entManager.System<EntityLookupSystem>()
-                     .GetEntitiesInRange<ADTNpcCombatMemoryComponent>(transform.GetMapCoordinates(owner), Range))
+        _found.Clear();
+        _entManager.System<EntityLookupSystem>().GetEntitiesInRange(transform.GetMapCoordinates(owner), Range, _found);
+
+        foreach (var found in _found)
         {
             var other = found.Owner;
 

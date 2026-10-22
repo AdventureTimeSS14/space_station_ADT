@@ -1,4 +1,3 @@
-using Content.Server.ADT.NPC.Helpers;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.HTN.PrimitiveTasks;
@@ -29,19 +28,20 @@ public sealed partial class ADTReloadWeaponOperator : HTNOperator
     public override HTNOperatorStatus Update(NPCBlackboard blackboard, float frameTime)
     {
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
+        var gear = _entManager.System<ADTNpcGearSystem>();
 
-        if (ADTNpcWeaponHelper.Resolve(_entManager, owner, Role) is not { } found)
+        if (gear.Resolve(owner, Role) is not { } found)
             return HTNOperatorStatus.Failed;
 
         var gun = found.Item;
-        ADTNpcWeaponHelper.GetAmmo(_entManager, gun, out var count, out var capacity);
+        gear.GetAmmo(gun, out var count, out var capacity);
 
         if (capacity <= 0 || count >= capacity)
             return HTNOperatorStatus.Finished;
 
         var timer = (blackboard.TryGetValue<float>(TimerKey, out var stored, _entManager) ? stored : 0f) + frameTime;
 
-        if (ADTNpcWeaponHelper.IsMagazineGun(_entManager, gun, out _))
+        if (gear.IsMagazineGun(gun, out _))
         {
             if (timer < MagazineDelay)
             {
@@ -49,12 +49,12 @@ public sealed partial class ADTReloadWeaponOperator : HTNOperator
                 return HTNOperatorStatus.Continuing;
             }
 
-            return ADTNpcWeaponHelper.SwapMagazine(_entManager, owner, gun)
+            return gear.SwapMagazine(owner, gun)
                 ? HTNOperatorStatus.Finished
                 : HTNOperatorStatus.Failed;
         }
 
-        if (!ADTNpcWeaponHelper.IsLooseGun(_entManager, gun))
+        if (!gear.IsLooseGun(gun))
             return HTNOperatorStatus.Failed;
 
         if (timer < RoundDelay)
@@ -65,7 +65,7 @@ public sealed partial class ADTReloadWeaponOperator : HTNOperator
 
         blackboard.SetValue(TimerKey, 0f);
 
-        if (!ADTNpcWeaponHelper.LoadRound(_entManager, owner, gun))
+        if (!gear.LoadRound(owner, gun))
             return count > 0 ? HTNOperatorStatus.Finished : HTNOperatorStatus.Failed;
 
         return count + 1 >= capacity ? HTNOperatorStatus.Finished : HTNOperatorStatus.Continuing;
