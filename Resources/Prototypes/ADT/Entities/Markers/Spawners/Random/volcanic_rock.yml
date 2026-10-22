@@ -6,34 +6,36 @@
   - type: Sprite
     layers:
     - state: red
-    - sprite: Structures/Walls/rock.rsi
-      state: rock
+    - sprite: ADT/Structures/Walls/Lavaland/basalt.rsi
+      state: full
   - type: EntityTableSpawner
     offset: 0
     table: !type:GroupSelector
       children:
-      - id: WallRockBasalt
+      - id: ADTBasalt
         weight: 86
       - !type:GroupSelector
         weight: 14
         children:
-        - id: WallRockBasaltUranium
+        - id: ADTBasaltUranium
           weight: 5
-        - id: WallRockBasaltDiamond
+        - id: ADTBasaltDiamond
           weight: 0.5
-        - id: WallRockBasaltGold
+        - id: ADTBasaltGold
           weight: 10
-        - id: WallRockBasaltSilver
+        - id: ADTBasaltCopper
+          weight: 11
+        - id: ADTBasaltSilver
           weight: 12
-        - id: WallRockBasaltPlasma
+        - id: ADTBasaltPlasma
           weight: 20
-        - id: WallRockBasaltTin
+        - id: ADTBasaltIron
           weight: 40
-        - id: ADTWallRockBasaltGibtonit
+        - id: ADTBasaltGibtonite
           weight: 4
-        - id: ADTWallRockBasaltBS
+        - id: ADTBasaltBluespace
           weight: 0.5
-        - id: ADTWallRockBasaltGem
+        - id: ADTBasaltGem
           weight: 1
 
 - type: entity
@@ -45,28 +47,30 @@
   - type: Sprite
     layers:
     - state: red
-    - sprite: Structures/Walls/rock.rsi
-      state: rock
+    - sprite: ADT/Structures/Walls/Lavaland/basalt.rsi
+      state: full
   - type: EntityTableSpawner
     offset: 0
     table: !type:GroupSelector
       children:
-      - id: WallRockBasalt
+      - id: ADTBasalt
         weight: 80
       - !type:GroupSelector
         weight: 20
         children:
-        - id: WallRockBasaltUranium
+        - id: ADTBasaltUranium
           weight: 35
-        - id: WallRockBasaltDiamond
+        - id: ADTBasaltDiamond
           weight: 30
-        - id: WallRockBasaltGold
+        - id: ADTBasaltGold
           weight: 45
-        - id: WallRockBasaltSilver
+        - id: ADTBasaltCopper
+          weight: 45
+        - id: ADTBasaltSilver
           weight: 50
-        - id: WallRockBasaltPlasma
+        - id: ADTBasaltPlasma
           weight: 50
-        - id: ADTWallRockBasaltBS
+        - id: ADTBasaltBluespace
           weight: 20
-        - id: ADTWallRockBasaltGem
+        - id: ADTBasaltGem
           weight: 20
