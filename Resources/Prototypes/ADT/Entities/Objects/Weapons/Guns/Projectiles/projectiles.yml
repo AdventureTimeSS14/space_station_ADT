@@ -286,6 +286,22 @@
     lifetime: 0.1
 
 - type: entity
+  id: ADTBulletKineticAccelerator
+  parent: BulletKinetic
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    impactEffect: BulletImpactEffectKinetic
+    damage:
+      types:
+        Blunt: 40
+        Structural: 30
+  - type: TimedDespawn
+    lifetime: 0.14
+  - type: PressureDamageModify
+    projDamage: 0.25
+
+- type: entity
   id: ADTBulletKineticPistol
   parent: BulletKinetic
   categories: [ HideSpawnMenu ]

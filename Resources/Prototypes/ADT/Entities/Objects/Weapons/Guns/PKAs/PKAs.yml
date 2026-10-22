@@ -211,7 +211,7 @@
       visible: false
       map: [ "empty-icon" ]
   - type: ADTUpgradeableGun
-    maxModCapacity: 200
+    maxModCapacity: 150
     whitelist:
       tags:
       - PKAUpgrade
@@ -222,7 +222,7 @@
     sprite: ADT/Objects/Weapons/Guns/PKAs/experimental_pka.rsi
     size: Small
   - type: BasicEntityAmmoProvider
-    proto: ADTBulletKineticPistol
+    proto: ADTBulletKineticAccelerator
   - type: Clothing
     sprite: ADT/Objects/Weapons/Guns/PKAs/experimental_pka.rsi
     quickEquip: false
