@@ -70,3 +70,6 @@ trait-drunk-tolerance-desc = You are less affected by alcohol, you need more to 
 
 trait-polyglot-name = Polyglot
 trait-polyglot-desc = You know one extra language: an additional language slot is available in the character editor.
+
+trait-stinky-name = Stinky
+trait-stinky-desc = Flies constantly buzz around you.

@@ -16,6 +16,8 @@
 - type: cloningSettings
   id: TraitsPhysical
   components:
+  - AmbientSound # ADT: Stinky trait
+  - SimpleSpriteOverlay # ADT: Stinky flies
   - BlackAndWhiteOverlay
   - Narcolepsy
   - ImpairedMobility

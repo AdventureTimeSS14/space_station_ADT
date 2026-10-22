@@ -323,3 +323,23 @@
     - !type:AddStatusEffect
       statusEffects:
         - ADTStatusEffectClumsyTrait
+
+- type: trait
+  id: ADTStinky
+  name: trait-stinky-name
+  description: trait-stinky-desc
+  category: Quirks
+  cost: 0
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: AmbientSound
+          volume: -2
+          range: 1
+          sound:
+            path: /Audio/ADT/Ambience/flies_buzzing.ogg
+        - type: SimpleSpriteOverlay
+          overlaySprite:
+            sprite: ADT/Effects/stinky_flies.rsi
+            state: flies
+          layerMap: ADTStinkyFlies
