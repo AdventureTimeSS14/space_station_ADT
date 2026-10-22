@@ -102,7 +102,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         RaiseLocalEvent(embeddable, ref ev);
     }
 
-    private void EmbedAttach(EntityUid uid, EntityUid target, EntityUid? user, EmbeddableProjectileComponent component)
+    public void EmbedAttach(EntityUid uid, EntityUid target, EntityUid? user, EmbeddableProjectileComponent component) // ADT-Tweak
     {
         TryComp<PhysicsComponent>(uid, out var physics);
         _physics.SetLinearVelocity(uid, Vector2.Zero, body: physics);

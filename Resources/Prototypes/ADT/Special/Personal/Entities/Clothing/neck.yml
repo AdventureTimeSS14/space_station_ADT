@@ -200,7 +200,7 @@
     sprite: ADT/Special/Personal/pyotr_cloak.rsi
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ADTSponsorClothingNeckBase
   id: ADTClothingNeckCoderCloakInconnu
   name: coder's cloak
   description: A cloak woven from restless streams of ones and zeroes. Legends say it was compiled, not sewn.
@@ -210,6 +210,27 @@
   - type: Clothing
     sprite: ADT/Special/Personal/Inconnu/coder_cloak.rsi
   - type: ADTOversizedSprite
+
+- type: entity
+  parent: ADTSponsorClothingNeckBase
+  id: ADTClothingNeckTSFDogtagInconnu
+  name: TSF dog tag
+  suffix: Personal, Inconnu
+  description: "No"
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/tsf_dogtag.rsi
+  - type: Clothing
+    sprite: ADT/Special/Personal/tsf_dogtag.rsi
+  - type: Item
+    size: Tiny
+
+- type: entity
+  parent: ADTClothingNeckTSFDogtagInconnu
+  id: ADTClothingNeckTSFDogtagAroJan
+  name: worn TSF dog tag
+  suffix: Personal, AroJan
+  description: "No"
 
 - type: entity
   parent: ClothingMaskNeckGaiter
