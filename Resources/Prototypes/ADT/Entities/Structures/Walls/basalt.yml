@@ -170,6 +170,7 @@
       sprite: /Textures/ADT/Structures/Walls/Lavaland/ore_overlays.rsi
       state: magmite
     noExplosionBonus: true
+    fixedAmount: 1
 
 - type: entity
   parent: ADTBasalt
@@ -443,6 +444,7 @@
       sprite: /Textures/ADT/Structures/Walls/Lavaland/ore_overlays.rsi
       state: magmite
     noExplosionBonus: true
+    fixedAmount: 1
 
 - type: entity
   parent: ADTBasaltHardened
@@ -716,6 +718,7 @@
       sprite: /Textures/ADT/Structures/Walls/Lavaland/ore_overlays.rsi
       state: magmite
     noExplosionBonus: true
+    fixedAmount: 1
 
 - type: entity
   parent: ADTBasaltVolcanic

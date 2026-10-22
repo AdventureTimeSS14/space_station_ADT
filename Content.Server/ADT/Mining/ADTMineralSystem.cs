@@ -35,6 +35,12 @@ public sealed class ADTMineralSystem : SharedADTMineralSystem
         ent.Comp.MaxHardness = ent.Comp.Hardness;
         Dirty(ent);
 
+        if (TryComp<ADTMineralOreComponent>(ent, out var mineralOre) && mineralOre.FixedAmount > 0)
+        {
+            ent.Comp.OreAmount = mineralOre.FixedAmount;
+            return;
+        }
+
         if (ent.Comp.OreAmount > 0)
             return;
 
