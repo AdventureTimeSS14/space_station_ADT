@@ -243,7 +243,7 @@ public sealed class ADTLavalandGoliathSystem : EntitySystem
         args.Cancelled = true;
     }
 
-    private void OnChargeRefreshSpeed(Entity<ADTLavalandGoliathChargeComponent> ent, RefreshMovementSpeedModifiersEvent args)
+    private void OnChargeRefreshSpeed(Entity<ADTLavalandGoliathChargeComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
     {
         if (ent.Comp.Phase != ADTGoliathChargePhase.Running
             || !TryComp<ADTLavalandGoliathComponent>(ent, out var goliath)
