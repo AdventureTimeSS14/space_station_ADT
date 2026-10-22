@@ -11,8 +11,7 @@ using Robust.Shared.Utility;
 namespace Content.Client.UserInterface.Systems.Chat;
 
 /// <summary>
-/// Пользовательские замены текста на эмоуты. Хранятся только у клиента,
-/// сервер получает обычную команду "me".
+/// Пользовательские замены текста на эмоуты.
 /// </summary>
 public sealed partial class ChatUIController
 {

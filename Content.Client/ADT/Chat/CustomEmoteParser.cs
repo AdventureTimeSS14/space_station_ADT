@@ -9,9 +9,6 @@ public static class CustomEmoteParser
 {
     private const char Separator = '=';
 
-    /// <summary>
-    /// Разобранные пары в том порядке, в котором их ввели.
-    /// </summary>
     public static List<(string Trigger, string Emote)> ParseEntries(string raw)
     {
         var parsed = new List<(string Trigger, string Emote)>();
@@ -49,9 +46,6 @@ public static class CustomEmoteParser
         return result;
     }
 
-    /// <summary>
-    /// Сколько строк не удалось разобрать — показывается в окне настройки.
-    /// </summary>
     public static int CountInvalidLines(string raw)
     {
         var bad = 0;
@@ -67,10 +61,6 @@ public static class CustomEmoteParser
         return bad;
     }
 
-    /// <summary>
-    /// Триггер должен стоять отдельным словом: в начале строки или после пробела,
-    /// и перед знаком препинания, пробелом или концом строки.
-    /// </summary>
     public static Regex BuildTriggerRegex(string trigger)
     {
         var escaped = Regex.Escape(trigger);
@@ -81,10 +71,6 @@ public static class CustomEmoteParser
             RegexOptions.RightToLeft | RegexOptions.IgnoreCase);
     }
 
-    /// <summary>
-    /// Вырезает триггеры из сообщения. Если их несколько, берётся самый правый,
-    /// как в серверном чатсане.
-    /// </summary>
     public static bool TryApply(
         IReadOnlyList<(Regex Regex, string Emote)> entries,
         string text,
