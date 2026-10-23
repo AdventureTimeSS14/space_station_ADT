@@ -1,7 +1,9 @@
 using System.Numerics;
+using Content.Server.ADT.Mining;
 using Content.Server.Destructible;
 using Content.Shared.ActionBlocker;
 using Content.Shared.ADT.ArmorPenetration;
+using Content.Shared.ADT.Mining.Components;
 using Content.Shared.ADT.Throwing;
 using Content.Shared.ADT.Trail;
 using Content.Shared.Camera;
@@ -33,6 +35,7 @@ public sealed class ADTMegafaunaChargeSystem : EntitySystem
     [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private MegafaunaSystem _megafauna = default!;
+    [Dependency] private ADTMineralSystem _mineral = default!;
     [Dependency] private MobStateSystem _mobState = default!;
     [Dependency] private SharedCameraRecoilSystem _recoil = default!;
     [Dependency] private SharedPhysicsSystem _physics = default!;
@@ -448,6 +451,12 @@ public sealed class ADTMegafaunaChargeSystem : EntitySystem
 
     private bool TrySmashStructure(EntityUid user, ADTMegafaunaActiveChargeComponent component, EntityUid target)
     {
+        if (TryComp<ADTMineralComponent>(target, out var mineral))
+        {
+            _mineral.Mine((target, mineral), Math.Max(1, mineral.Hardness), user);
+            return mineral.Breaking;
+        }
+
         var smash = new DamageSpecifier();
         smash.DamageDict.Add("Blunt", component.SmashBlunt);
         smash.DamageDict.Add("Structural", component.SmashStructural);
@@ -458,6 +467,9 @@ public sealed class ADTMegafaunaChargeSystem : EntitySystem
 
     private bool IsSmashableStructure(EntityUid uid)
     {
+        if (HasComp<ADTMineralComponent>(uid))
+            return true;
+
         return !HasComp<ItemComponent>(uid)
                && !HasComp<MobStateComponent>(uid)
                && HasComp<DamageableComponent>(uid)
