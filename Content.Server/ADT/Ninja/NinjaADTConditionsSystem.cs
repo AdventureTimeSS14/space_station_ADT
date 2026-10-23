@@ -53,6 +53,13 @@ public sealed class NinjaADTConditionsSystem : EntitySystem
         max = Math.Max(min, max);
 
         comp.Target = _random.Next(min, max + 1);
+
+        if (activeBorgs < comp.Target)
+        {
+            args.Cancelled = true;
+            return;
+        }
+
         comp.Required = comp.Target;
     }
 
