@@ -21812,7 +21812,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 105.5,-57.5
       parent: 1
-- proto: ADTSpawnAncientGoliath
+- proto: ADTMobLavalandGoliathAncient
   entities:
   - uid: 1373
     components:

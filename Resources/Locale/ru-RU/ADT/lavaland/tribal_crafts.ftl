@@ -102,7 +102,6 @@ adt-goliath-plating-done = Вы укрепляете { $item } пластино�
 adt-goliath-plating-max = Сюда больше не поместится ни одной пластины.
 adt-goliath-plating-examine = Можно укрепить [color=#a0a0a0]пластинами из шкуры голиафа[/color].
 adt-goliath-plating-examine-max = Полностью укреплено пластинами из шкуры голиафа.
-adt-goliath-plating-worn = Сначала снимите костюм.
 ent-ADTMaterialGoliathHide5 = { ent-MaterialGoliathHide }
     .desc = { ent-MaterialGoliathHide.desc }
 

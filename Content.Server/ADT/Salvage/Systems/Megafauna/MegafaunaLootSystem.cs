@@ -34,16 +34,16 @@ public sealed class MegafaunaLootSystem : EntitySystem
         DropLoot(ent);
     }
 
-    public void DropLoot(Entity<MegafaunaLootComponent> ent)
+    public EntityUid? DropLoot(Entity<MegafaunaLootComponent> ent)
     {
         if (ent.Comp.LootDropped || TerminatingOrDeleted(ent.Owner))
-            return;
+            return null;
 
         ent.Comp.LootDropped = true;
 
         var coords = Transform(ent).Coordinates;
         if (!coords.IsValid(EntityManager))
-            return;
+            return null;
 
         EntityUid? crate = null;
         if (ent.Comp.CrateProto is { } crateProto)
@@ -80,6 +80,8 @@ public sealed class MegafaunaLootSystem : EntitySystem
 
         if (ent.Comp.DeleteOnDrop)
             QueueDel(ent.Owner);
+
+        return crate;
     }
 
     private void SpawnAmount(EntityUid? crate, string proto, int amount, EntityCoordinates coords)
