@@ -95,6 +95,38 @@
   - type: ExplosionResistance
     damageCoefficient: 0.01
   - type: ADTVetus
+  - type: MobState
+    allowedStates:
+    - Alive
+  - type: MegafaunaLoot
+    crateProto: ADTCrateVetusLoot
+    dropOnDeath: false
+    loot:
+    - proto: ADTPinpointerTendril
+    - proto: ADTGemDataCrystal
+    - proto: UraniumOre
+      min: 15
+      max: 30
+    - proto: SilverOre
+      min: 15
+      max: 30
+    - proto: GoldOre
+      min: 15
+      max: 30
+    - proto: PlasmaOre
+      min: 15
+      max: 30
+    - proto: DiamondOre
+      min: 10
+      max: 15
+    - proto: ADTBSore
+      min: 10
+      max: 15
+    - proto: ADTKineticTrophyAdaptiveCore
+  - type: GpsSignal
+    tag: adt-gps-signal-vetus
+    description: adt-gps-signal-vetus-desc
+    color: "#F189AC"
   - type: ADTThrowImmune
   - type: ADTLavaImmune
   - type: ADTSegmented

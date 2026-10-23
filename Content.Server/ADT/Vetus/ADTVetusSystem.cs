@@ -112,6 +112,7 @@ public sealed partial class ADTVetusSystem : EntitySystem
         InitializeLegs();
         InitializeAnomalies();
         InitializeTesla();
+        InitializeSelfDestruct();
     }
 
     public override void Update(float frameTime)
@@ -299,7 +300,7 @@ public sealed partial class ADTVetusSystem : EntitySystem
 
     private void OnAttemptOpenFire(Entity<ADTVetusComponent> ent, ref ADTMegafaunaAttemptOpenFireEvent args)
     {
-        if (_charge.IsCharging(ent))
+        if (ent.Comp.Exploding || _charge.IsCharging(ent))
             args.Cancelled = true;
     }
 

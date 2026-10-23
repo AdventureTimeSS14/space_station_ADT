@@ -219,6 +219,46 @@ public sealed partial class ADTVetusComponent : Component
     [DataField]
     public float VortexChance = 0.15f;
 
+    [ViewVariables]
+    public bool Exploding;
+
+    [DataField]
+    public TimeSpan SelfDestructDelay = TimeSpan.FromSeconds(10);
+
+    [DataField]
+    public TimeSpan SelfDestructBeepInterval = TimeSpan.FromSeconds(2);
+
+    [DataField]
+    public int SelfDestructDevastation;
+
+    [DataField]
+    public int SelfDestructHeavy = 7;
+
+    [DataField]
+    public int SelfDestructLight = 15;
+
+    [DataField]
+    public float SelfDestructFlashRange = 20f;
+
+    [DataField]
+    public TimeSpan SelfDestructFlashDuration = TimeSpan.FromSeconds(2);
+
+    [DataField]
+    public SoundSpecifier SelfDestructAlarm = new SoundPathSpecifier("/Audio/Machines/alarm.ogg", AudioParams.Default.WithMaxDistance(20f));
+
+    [DataField]
+    public SoundSpecifier SelfDestructBeep = new SoundPathSpecifier("/Audio/Machines/timer.ogg");
+
+    [DataField]
+    public Dictionary<ADTVetusMode, EntProtoId> Cores = new()
+    {
+        { ADTVetusMode.Bluespace, "AnomalyCoreBluespace" },
+        { ADTVetusMode.Grav, "AnomalyCoreGravity" },
+        { ADTVetusMode.Pyro, "AnomalyCorePyroclastic" },
+        { ADTVetusMode.Flux, "AnomalyCoreElectricity" },
+        { ADTVetusMode.Vortex, "AnomalyCoreGravity" },
+    };
+
     [DataField]
     public float ChargeChance = 0.3f;
 

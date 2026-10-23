@@ -72,3 +72,21 @@ adt-vetus-leg-turret-down = Турель ломается и втягивает�
 adt-vetus-leg-too-damaged = Опора выглядит слишком повреждённой, чтобы нанести ей ещё больше вреда!
 adt-vetus-leg-stomp = Опора топчет вас!
 adt-vetus-leg-charge-hit = Опора врезается в вас и втаптывает в землю!
+
+adt-vetus-self-destruct-1 = OTZKMXOZE LGORAXK, YKRL JKYZXAIZ GIZOBK
+adt-vetus-self-destruct-2 = RUYY IKXZGOT, KTMGMKOTM XKIUBKXE JKTOGR
+adt-vetus-self-destruct-3 = VUCKX IUXKY 8-12 HXKGINKJ, UBKXRUGJOTM XKSGOTOTM IUXKY
+adt-vetus-self-destruct-4 = KXXUX KXXUX KXXUX KXXUX KXX-
+adt-vetus-self-destruct-5 = -ROQK ZKGXY OT XGOT- - -ZOSK ZU JOK
+adt-vetus-self-destruct-start = { CAPITALIZE($vetus) } начинает перегружать своё ядро. Оно вот-вот взорвётся!
+adt-vetus-death = { CAPITALIZE($vetus) } взрывается дождём из сплавов!
+
+ent-ADTCrateVetusLoot = древний тайник с припасами
+    .desc = { ent-ADTCrateNecropolis.desc }
+ent-ADTPinpointerTendril = древний сканер
+    .desc = Удобно, что сканер робота уцелел. Похоже, он указывает на здешние тендрилы.
+ent-ADTKineticTrophyAdaptiveCore = адаптивное ядро ИИ
+    .desc = Кажется, это одно из ядер огромного робота. Может быть установлено на крушитель в качестве трофея.
+
+adt-gps-signal-vetus = Наблюдающий Сигнал
+adt-gps-signal-vetus-desc = Он изучает тебя так же внимательно, как ты изучаешь его.

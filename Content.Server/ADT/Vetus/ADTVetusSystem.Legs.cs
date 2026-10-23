@@ -165,6 +165,9 @@ public sealed partial class ADTVetusSystem
 
     private void LegThink(Entity<ADTVetusLegComponent> leg, EntityUid root, TimeSpan now)
     {
+        if (TryComp<ADTVetusComponent>(root, out var vetus) && vetus.Exploding)
+            return;
+
         if (leg.Comp.Target is { } current && !CanLegAttack(root, current))
             leg.Comp.Target = null;
 

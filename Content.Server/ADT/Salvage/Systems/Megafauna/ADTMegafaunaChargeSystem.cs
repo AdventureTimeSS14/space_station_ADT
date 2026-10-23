@@ -66,6 +66,21 @@ public sealed class ADTMegafaunaChargeSystem : EntitySystem
         return HasComp<ADTMegafaunaPendingChargeComponent>(uid) || HasComp<ADTMegafaunaActiveChargeComponent>(uid);
     }
 
+    public void CancelCharges(EntityUid uid)
+    {
+        if (TryComp<ADTMegafaunaPendingChargeComponent>(uid, out var pending))
+        {
+            pending.Queue.Clear();
+            RemCompDeferred<ADTMegafaunaPendingChargeComponent>(uid);
+        }
+
+        if (!HasComp<ADTMegafaunaActiveChargeComponent>(uid))
+            return;
+
+        RemCompDeferred<ADTMegafaunaActiveChargeComponent>(uid);
+        _physics.SetLinearVelocity(uid, Vector2.Zero);
+    }
+
     public void BeginCharge(
         EntityUid user,
         MapCoordinates target,
