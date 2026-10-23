@@ -16516,3 +16516,14 @@ Entries:
     id: 2033
     pr_number: 3559
     time: '2026-10-23T15:23:00Z'
+  - author: CrimeMoot
+    changes:
+      - {message: 'Удалена вся музыка джукбокса без лицензии правообладателей (181
+          трек: 176 джукбокс + 2 лобби + 3 амбиенса)', type: Remove}
+      - {message: 'Удалены музыкальные диски удалённых жанров (Rock, Hotline, Va11Hall,
+          Celeste, Mix, Sonic и др.), коробка синдиката и все ссылки на них', type: Remove}
+      - {message: 'Удалены треки лобби без лицензии (Sonic CD/Mania/R, David Bowie,
+          A Hat in Time, Ampient, Home и др.)', type: Remove}
+    id: 2034
+    pr_number: 3474
+    time: '2026-10-23T17:57:06Z'
