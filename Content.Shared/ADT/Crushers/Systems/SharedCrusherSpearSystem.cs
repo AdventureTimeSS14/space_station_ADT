@@ -1,5 +1,4 @@
 using Content.Shared.ADT.Crushers.Components;
-using Content.Shared.Examine;
 using Content.Shared.Item;
 
 namespace Content.Shared.ADT.Crushers.Systems;
@@ -11,7 +10,7 @@ public abstract class SharedCrusherSpearSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ADTCrusherSpearThrowComponent, GettingPickedUpAttemptEvent>(OnPickupAttempt);
-        SubscribeLocalEvent<ADTCrusherSpearThrowComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<ADTCrusherSpearThrowComponent, TrophyHolderExamineEvent>(OnTrophyExamine);
     }
 
     private void OnPickupAttempt(Entity<ADTCrusherSpearThrowComponent> ent, ref GettingPickedUpAttemptEvent args)
@@ -22,11 +21,8 @@ public abstract class SharedCrusherSpearSystem : EntitySystem
         args.Cancel();
     }
 
-    private void OnExamined(Entity<ADTCrusherSpearThrowComponent> ent, ref ExaminedEvent args)
+    private void OnTrophyExamine(Entity<ADTCrusherSpearThrowComponent> ent, ref TrophyHolderExamineEvent args)
     {
-        if (!args.IsInDetailsRange)
-            return;
-
         args.PushMarkup(Loc.GetString("adt-crusher-spear-examine",
             ("range", ent.Comp.Range.ToString("0.#")),
             ("cooldown", ent.Comp.Cooldown.TotalSeconds.ToString("0.#"))));

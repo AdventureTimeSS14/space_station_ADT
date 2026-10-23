@@ -1,6 +1,5 @@
 using Content.Shared.ADT.Crushers.Components;
 using Content.Shared.Damage.Systems;
-using Content.Shared.Examine;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffectNew;
 using Content.Shared.Weapons.Marker;
@@ -26,7 +25,7 @@ public sealed class CrusherRageSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ADTCrusherRageOnDetonateComponent, CrusherMarkDetonatedEvent>(OnDetonated);
-        SubscribeLocalEvent<ADTCrusherRageOnDetonateComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<ADTCrusherRageOnDetonateComponent, TrophyHolderExamineEvent>(OnTrophyExamine);
         SubscribeLocalEvent<ADTCrusherRageStatusEffectComponent, StatusEffectRemovedEvent>(OnRageRemoved);
     }
 
@@ -107,11 +106,8 @@ public sealed class CrusherRageSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("adt-crusher-rage-end-popup"), args.Target, args.Target, PopupType.Medium);
     }
 
-    private void OnExamined(Entity<ADTCrusherRageOnDetonateComponent> ent, ref ExaminedEvent args)
+    private void OnTrophyExamine(Entity<ADTCrusherRageOnDetonateComponent> ent, ref TrophyHolderExamineEvent args)
     {
-        if (!args.IsInDetailsRange)
-            return;
-
         args.PushMarkup(Loc.GetString("adt-crusher-rage-examine",
             ("stacks", ent.Comp.MaxStacks),
             ("duration", ent.Comp.RageDuration.TotalSeconds.ToString("0.#")),

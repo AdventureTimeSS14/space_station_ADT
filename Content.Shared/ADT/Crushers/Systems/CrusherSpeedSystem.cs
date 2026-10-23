@@ -1,5 +1,4 @@
 using Content.Shared.ADT.Crushers.Components;
-using Content.Shared.Examine;
 using Content.Shared.Movement.Systems;
 using Content.Shared.StatusEffectNew;
 using Robust.Shared.Timing;
@@ -17,7 +16,7 @@ public sealed class CrusherSpeedSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ADTCrusherSpeedOnDetonateComponent, CrusherMarkDetonatedEvent>(OnDetonated);
-        SubscribeLocalEvent<ADTCrusherSpeedOnDetonateComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<ADTCrusherSpeedOnDetonateComponent, TrophyHolderExamineEvent>(OnTrophyExamine);
     }
 
     private void OnDetonated(Entity<ADTCrusherSpeedOnDetonateComponent> ent, ref CrusherMarkDetonatedEvent args)
@@ -37,11 +36,8 @@ public sealed class CrusherSpeedSystem : EntitySystem
         _movementMod.TryUpdateMovementStatus(args.User, effect.Value, modifier);
     }
 
-    private void OnExamined(Entity<ADTCrusherSpeedOnDetonateComponent> ent, ref ExaminedEvent args)
+    private void OnTrophyExamine(Entity<ADTCrusherSpeedOnDetonateComponent> ent, ref TrophyHolderExamineEvent args)
     {
-        if (!args.IsInDetailsRange)
-            return;
-
         args.PushMarkup(Loc.GetString("adt-crusher-speed-examine",
             ("speed", (ent.Comp.SpeedPerStack * 100f).ToString("0.#")),
             ("max", (ent.Comp.SpeedPerStack * ent.Comp.MaxStacks * 100f).ToString("0.#")),

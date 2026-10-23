@@ -1,6 +1,5 @@
 using Content.Shared.ADT.Crushers.Components;
 using Content.Shared.ADT.Salvage.Components;
-using Content.Shared.Examine;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffectNew;
 using Content.Shared.Stunnable;
@@ -22,7 +21,7 @@ public sealed class CrusherStaggerSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ADTCrusherStaggerOnDetonateComponent, CrusherMarkDetonatedEvent>(OnDetonated);
-        SubscribeLocalEvent<ADTCrusherStaggerOnDetonateComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<ADTCrusherStaggerOnDetonateComponent, TrophyHolderExamineEvent>(OnTrophyExamine);
     }
 
     private void OnDetonated(Entity<ADTCrusherStaggerOnDetonateComponent> ent, ref CrusherMarkDetonatedEvent args)
@@ -58,11 +57,8 @@ public sealed class CrusherStaggerSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("adt-crusher-stagger-popup"), args.Target, PopupType.MediumCaution);
     }
 
-    private void OnExamined(Entity<ADTCrusherStaggerOnDetonateComponent> ent, ref ExaminedEvent args)
+    private void OnTrophyExamine(Entity<ADTCrusherStaggerOnDetonateComponent> ent, ref TrophyHolderExamineEvent args)
     {
-        if (!args.IsInDetailsRange)
-            return;
-
         args.PushMarkup(Loc.GetString("adt-crusher-stagger-examine",
             ("hits", ent.Comp.Hits),
             ("stun", ent.Comp.StunDuration.TotalSeconds.ToString("0.#")),
