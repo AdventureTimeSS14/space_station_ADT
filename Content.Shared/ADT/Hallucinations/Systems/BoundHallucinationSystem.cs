@@ -16,8 +16,11 @@ public sealed partial class BoundHallucinationSystem : EntitySystem
 
     private void OnShutdown(Entity<BoundHallucinationComponent> ent, ref ComponentShutdown args)
     {
-        _eye.SetTarget(ent.Owner, null);
-        _eye.SetPvsScale(ent.Owner, 1f);
+        if (!TryComp<EyeComponent>(ent, out var eye))
+            return;
+
+        _eye.SetTarget(ent.Owner, null, eye);
+        _eye.SetPvsScale((ent.Owner, eye), 1f);
     }
 
     public override void Update(float frameTime)
