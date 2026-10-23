@@ -22,7 +22,7 @@ public abstract class SharedThermalVisionSystem : EntitySystem
         SubscribeLocalEvent<ThermalVisionComponent, ComponentRemove>(OnThermalVisionRemove);
 
         SubscribeLocalEvent<ThermalVisionItemComponent, GetItemActionsEvent>(OnThermalVisionItemGetActions);
-        SubscribeLocalEvent<ThermalVisionItemComponent, ToggleThermalVisionActionEvent>(OnThermalVisionItemToggle); // свой тип события: общий ToggleActionEvent перехватывал фонарик
+        SubscribeLocalEvent<ThermalVisionItemComponent, ToggleThermalVisionActionEvent>(OnThermalVisionItemToggle);
         SubscribeLocalEvent<ThermalVisionItemComponent, GotEquippedEvent>(OnThermalVisionItemGotEquipped);
         SubscribeLocalEvent<ThermalVisionItemComponent, GotUnequippedEvent>(OnThermalVisionItemGotUnequipped);
         SubscribeLocalEvent<ThermalVisionItemComponent, ActionRemovedEvent>(OnThermalVisionItemActionRemoved);

@@ -128,10 +128,6 @@ public sealed partial class ModSuitSystem
         args.States.Add(GetNetEntity(uid), null);
     }
 
-    /// <summary>
-    /// Ищет уже установленный модуль, несовместимый с устанавливаемым.
-    /// Проверяем оба списка — несовместимость достаточно объявить с одной стороны.
-    /// </summary>
     private EntityUid? GetIncompatibleModule(Entity<ModSuitModComponent> ent, ModSuitComponent modsuit)
     {
         if (MetaData(ent.Owner).EntityPrototype?.ID is not { } newProto)
@@ -228,10 +224,6 @@ public sealed partial class ModSuitSystem
         RefreshWearerCaches(suit);
     }
 
-    /// <summary>
-    /// Модули выдают и снимают компоненты напрямую, без событий надевания, поэтому
-    /// кэшированные на носителе значения сами не обновляются.
-    /// </summary>
     private void RefreshWearerCaches(Entity<ModSuitComponent> suit)
     {
         if (suit.Comp.TempUser is not { } wearer || !Exists(wearer))

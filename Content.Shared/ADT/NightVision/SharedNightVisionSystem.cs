@@ -27,7 +27,7 @@ public abstract class SharedNightVisionSystem : EntitySystem
         SubscribeLocalEvent<NightVisionComponent, ComponentRemove>(OnNightVisionRemove);
 
         SubscribeLocalEvent<NightVisionItemComponent, GetItemActionsEvent>(OnNightVisionItemGetActions);
-        SubscribeLocalEvent<NightVisionItemComponent, ToggleNightVisionActionEvent>(OnNightVisionItemToggle); // свой тип события: общий ToggleActionEvent перехватывал фонарик
+        SubscribeLocalEvent<NightVisionItemComponent, ToggleNightVisionActionEvent>(OnNightVisionItemToggle);
         SubscribeLocalEvent<NightVisionItemComponent, GotEquippedEvent>(OnNightVisionItemGotEquipped);
         SubscribeLocalEvent<NightVisionItemComponent, GotUnequippedEvent>(OnNightVisionItemGotUnequipped);
         SubscribeLocalEvent<NightVisionItemComponent, ActionRemovedEvent>(OnNightVisionItemActionRemoved);

@@ -6,9 +6,6 @@ namespace Content.Shared.ADT.ModSuits;
 
 public sealed partial class ModSuitSystem
 {
-    /// <summary>
-    /// Порядок развёртывания: снизу вверх. Складывается костюм в обратном порядке.
-    /// </summary>
     private static readonly string[] DeployOrder = { "shoes", "outerClothing", "gloves", "head" };
 
     private void InitializeSequence()

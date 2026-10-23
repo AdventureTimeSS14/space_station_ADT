@@ -70,9 +70,6 @@ public sealed partial class ModSuitComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid? ActionMenuEntity;
 
-    /// <summary>
-    ///     Действие, разворачивающее и складывающее костюм целиком.
-    /// </summary>
     [DataField]
     public EntProtoId ToggleAllAction = "ADTActionToggleMODAll";
 

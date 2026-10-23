@@ -36,10 +36,6 @@ public sealed class ModSuitPressureSealSystem : EntitySystem
         args.LowPressureModifier = 0f;
     }
 
-    /// <summary>
-    /// Перчатки и ботинки МОДа не несут <c>PressureProtection</c> и сами кэш не трогают,
-    /// поэтому пересчитываем его на любой части.
-    /// </summary>
     private void OnPartEquipped(Entity<ModPartComponent> ent, ref GotEquippedEvent args)
     {
         _barotrauma.RefreshPressureResistance(args.EquipTarget);
@@ -57,10 +53,6 @@ public sealed class ModSuitPressureSealSystem : EntitySystem
         }
     }
 
-    /// <summary>
-    /// Считаем по инвентарю, а не по контейнеру частей: часть возвращается в костюм
-    /// в том же событии снятия, и порядок обработчиков не гарантирован.
-    /// </summary>
     private bool IsSuitSealed(Entity<ModPartComponent> ent)
     {
         var suit = GetEntity(ent.Comp.AttachedUid);
