@@ -150,7 +150,7 @@
       state: icon
     itemIconStyle: BigAction
   - type: InstantAction
-    event: !type:ActivateSecondHeartImplantActionEvent
+    event: !type:ActivateImplantEvent
 
 - type: entity
   parent: BaseAction
@@ -167,7 +167,7 @@
     sound:
       path: /Audio/ADT/Effects/ImplantsEffects/berserk-implant-activate.ogg
   - type: InstantAction
-    event: !type:ActivateBerserkImplantActionEvent
+    event: !type:ActivateImplantEvent
 
 - type: entity
   parent: BaseAction
@@ -179,4 +179,4 @@
     itemIconStyle: BigAction
     useDelay: 20
   - type: InstantAction
-    event: !type:ActivateKereznikovActionEvent
+    event: !type:ActivateImplantEvent

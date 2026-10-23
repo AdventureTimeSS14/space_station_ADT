@@ -317,6 +317,11 @@
   components:
     - type: SubdermalImplant
     - type: SandevistanImplant
+    - type: SubdermalImplantEmp
+      empCooldown: 60
+      empDamage:
+        types:
+          Shock: 0
     - type: CyberneticLoad
       implantLoad: 60
 
@@ -329,6 +334,7 @@
     - type: SubdermalImplant
     - type: StatvekaSandevistanImplant
     - type: SubdermalImplantEmp
+      empCooldown: 60
     - type: CyberneticLoad
       implantLoad: 70
 
@@ -365,6 +371,7 @@
         path: /Audio/Items/hypospray.ogg
     - type: ImplantVisionOnTrigger
       targetUser: true
+      vision: ImplantActivationVision
     - type: SubdermalImplantEmp
     - type: CyberneticLoad
       implantLoad: 20
@@ -396,6 +403,7 @@
         path: /Audio/Items/hypospray.ogg
     - type: ImplantVisionOnTrigger
       targetUser: true
+      vision: ImplantActivationVision
     - type: SubdermalImplantEmp
     - type: CyberneticLoad
       implantLoad: 15
@@ -437,7 +445,31 @@
   components:
     - type: SubdermalImplant
       implantAction: ActionActivateSecondHeartImplant
-    - type: SecondHeartImplant
+    - type: TriggerOnActivateImplant
+    - type: ImplantCharges
+      maxCharges: 1
+    - type: MobStateTriggerCondition
+      allowedStates:
+      - Critical
+      - Dead
+      failPopup: second-heart-implant-not-crit
+    - type: ReviveOnTrigger
+      targetUser: true
+      residualDamage:
+        types:
+          Asphyxiation: 50
+    - type: EmitSoundOnTrigger
+      targetUser: true
+      sound:
+        path: /Audio/ADT/Effects/ImplantsEffects/second-heart-activate.ogg
+    - type: PopupOnTrigger
+      targetUser: true
+      text: second-heart-implant-activate
+      popupType: Large
+    - type: ImplantVisionOnTrigger
+      targetUser: true
+      vision: SecondHeartVision
+      duration: 2.5
     - type: SubdermalImplantEmp
     - type: CyberneticLoad
       implantLoad: 35
@@ -449,7 +481,28 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: SubdermalImplant
-    - type: BerserkImplant
+      implantAction: ActionActivateBerserkImplant
+    - type: TriggerOnActivateImplant
+    - type: JitterOnTrigger
+      targetUser: true
+      time: 3
+      refresh: true
+    - type: ImplantBoostOnTrigger
+      targetUser: true
+      duration: 8
+      settings:
+        vision: BerserkVision
+        removeOnMobStateChange: false
+        trail:
+          lerpTime: 0.05
+          lerpDelay: 0.05
+          lifetime: 0.25
+          frequency: 0.07
+          alphaLerpAmount: 0.5
+          maxParticleAmount: 12
+          color: "#DC1919C8"
+        components:
+        - type: BerserkImplantActive
     - type: SubdermalImplantEmp
     - type: CyberneticLoad
       implantLoad: 65
@@ -462,7 +515,19 @@
   components:
     - type: SubdermalImplant
       implantAction: ActionActivateKereznikov
-    - type: KereznikovImplant
+      blacklist:
+        components:
+        - SandevistanUser
+    - type: TriggerOnActivateImplant
+    - type: ImplantBoostOnTrigger
+      targetUser: true
+      duration: 2
+      settings:
+        movementSpeedModifier: 1.8
+        attackSpeedModifier: 1.8
+        vision: SandevistanVision
+        trail:
+          rainbow: true
     - type: SubdermalImplantEmp
     - type: CyberneticLoad
       implantLoad: 35
@@ -474,7 +539,21 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: SubdermalImplant
-    - type: SpasezhnikovImplant
+      blacklist:
+        components:
+        - SandevistanUser
+    - type: TriggerOnDamageThreshold
+      marginBeforeCrit: 20
+    - type: ImplantBoostOnTrigger
+      targetUser: true
+      duration: 4
+      settings:
+        removeOnMobStateChange: false
+        movementSpeedModifier: 1.8
+        attackSpeedModifier: 1.8
+        vision: SandevistanVision
+        trail:
+          rainbow: true
     - type: SubdermalImplantEmp
     - type: CyberneticLoad
       implantLoad: 40
@@ -512,7 +591,6 @@
     tags:
     - SubdermalImplant
     - HideContextMenu
-
-    - type: SubdermalImplantEmp
-    - type: CyberneticLoad
-      implantLoad: 50
+  - type: SubdermalImplantEmp
+  - type: CyberneticLoad
+    implantLoad: 50

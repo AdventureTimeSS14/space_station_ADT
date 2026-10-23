@@ -1,6 +1,5 @@
 using Content.Shared.FixedPoint;
 using Content.Shared.ADT.Implants.Sandevistan;
-using Content.Shared.ADT.Trail;
 using Content.Shared.ADT.Implants.Sandevistan;
 using Content.Shared.Alert;
 using Content.Shared.Damage;
@@ -102,21 +101,6 @@ public sealed partial class SandevistanUserComponent : Component
 
     [ViewVariables(VVAccess.ReadOnly)]
     public EntityUid? RunningSound;
-
-    [ViewVariables(VVAccess.ReadOnly)]
-    public SandevistanVisionComponent? Overlay;
-
-    [ViewVariables(VVAccess.ReadOnly)]
-    public TrailComponent? Trail;
-
-    [ViewVariables(VVAccess.ReadWrite)]
-    public int ColorAccumulator = 0;
-
-    [ViewVariables(VVAccess.ReadWrite)]
-    public TimeSpan EmpLastPulse = TimeSpan.Zero;
-
-    [ViewVariables(VVAccess.ReadOnly)]
-    public TimeSpan EmpCooldown = TimeSpan.FromSeconds(60f);
 
     [ViewVariables(VVAccess.ReadWrite)]
     public float EmpOverload = 8f;

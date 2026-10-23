@@ -34,6 +34,7 @@ public sealed class SubdermalImplantEmpSystem : EntitySystem
             return;
 
         DamageSpecifier? damage = null;
+        var cooldown = TimeSpan.Zero;
 
         foreach (var implant in implantContainer.ContainedEntities)
         {
@@ -41,6 +42,7 @@ public sealed class SubdermalImplantEmpSystem : EntitySystem
                 continue;
 
             damage ??= empComp.EmpDamage;
+            cooldown = TimeSpan.FromSeconds(Math.Max(cooldown.TotalSeconds, empComp.EmpCooldown));
 
             if (TryComp<SubdermalImplantComponent>(implant, out var subComp) && subComp.Action is { } action)
                 _actions.SetCooldown(action, TimeSpan.FromSeconds(empComp.EmpCooldown));
@@ -52,7 +54,7 @@ public sealed class SubdermalImplantEmpSystem : EntitySystem
             Spawn("EffectSparks", Transform(mob.Owner).Coordinates);
         }
 
-        var ev = new ImplantEmpAffectedEvent();
+        var ev = new ImplantEmpAffectedEvent(cooldown);
         RaiseLocalEvent(mob.Owner, ref ev);
     }
 

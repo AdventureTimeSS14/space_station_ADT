@@ -1,0 +1,21 @@
+- type: implantVision
+  id: ImplantActivationVision
+  shader: ImplantActivationVision
+  timing: ElapsedAndTotal
+
+- type: implantVision
+  id: SecondHeartVision
+  shader: SecondHeartVision
+  timing: Elapsed
+
+- type: implantVision
+  id: BerserkVision
+  shader: ColorTint
+  tint: "#D90D0D"
+  tintAmount: 0.35
+
+- type: implantVision
+  id: SandevistanVision
+  shader: SandevistanVision
+  drawUserSprite: true
+  aboveEffects: true
