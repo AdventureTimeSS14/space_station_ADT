@@ -340,7 +340,31 @@
   components:
     - type: SubdermalImplant
       implantAction: ActionActivateBloodPumpImplant
-    - type: BloodPumpImplant
+    - type: TriggerOnActivateImplant
+    - type: ImplantCharges
+      actionDescription: blood-pump-implant-action-desc
+      usedPopup: blood-pump-implant-activate
+      emptyPopup: implant-charges-empty
+    - type: InjectOnTrigger
+      targetUser: true
+      fullPopup: implant-bloodstream-full
+      solution:
+        reagents:
+        - ReagentId: Puncturase
+          Quantity: 5
+        - ReagentId: ADTStypticPowder
+          Quantity: 15
+        - ReagentId: Saline
+          Quantity: 10
+        - ReagentId: Dylovene
+          Quantity: 10
+    - type: EmitSoundOnTrigger
+      targetUser: true
+      predicted: true
+      sound:
+        path: /Audio/Items/hypospray.ogg
+    - type: ImplantVisionOnTrigger
+      targetUser: true
     - type: SubdermalImplantEmp
     - type: CyberneticLoad
       implantLoad: 20
@@ -353,7 +377,25 @@
   components:
     - type: SubdermalImplant
       implantAction: ActionActivateStimulantImplant
-    - type: StimulantImplant
+    - type: TriggerOnActivateImplant
+    - type: ImplantCharges
+      actionDescription: stimulant-implant-action-desc
+      usedPopup: stimulant-implant-activate
+      emptyPopup: implant-charges-empty
+    - type: InjectOnTrigger
+      targetUser: true
+      fullPopup: implant-bloodstream-full
+      solution:
+        reagents:
+        - ReagentId: Stimulants
+          Quantity: 20
+    - type: EmitSoundOnTrigger
+      targetUser: true
+      predicted: true
+      sound:
+        path: /Audio/Items/hypospray.ogg
+    - type: ImplantVisionOnTrigger
+      targetUser: true
     - type: SubdermalImplantEmp
     - type: CyberneticLoad
       implantLoad: 15
@@ -366,7 +408,23 @@
   components:
     - type: SubdermalImplant
       implantAction: ActionActivateKvasImplant
-    - type: KvasImplant
+    - type: TriggerOnActivateImplant
+    - type: InjectOnTrigger
+      targetUser: true
+      destination: Stomach
+      fullPopup: kvas-implant-full
+      solution:
+        reagents:
+        - ReagentId: Kvass
+          Quantity: 15
+    - type: EmitSoundOnTrigger
+      targetUser: true
+      predicted: true
+      sound:
+        path: /Audio/Items/hypospray.ogg
+    - type: PopupOnTrigger
+      targetUser: true
+      text: kvas-implant-activate
     - type: SubdermalImplantEmp
     - type: CyberneticLoad
       implantLoad: 10

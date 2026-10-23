@@ -104,7 +104,7 @@
     itemIconStyle: BigAction
     useDelay: 60
   - type: InstantAction
-    event: !type:ActivateKvasImplantActionEvent
+    event: !type:ActivateImplantEvent
 
 - type: entity
   parent: BaseAction
@@ -120,7 +120,7 @@
     itemIconStyle: BigAction
     useDelay: 30
   - type: InstantAction
-    event: !type:ActivateBloodPumpImplantActionEvent
+    event: !type:ActivateImplantEvent
 
 - type: entity
   parent: BaseAction
@@ -135,7 +135,7 @@
     itemIconStyle: BigAction
     useDelay: 60
   - type: InstantAction
-    event: !type:ActivateStimulantImplantActionEvent
+    event: !type:ActivateImplantEvent
 
 - type: entity
   parent: BaseAction

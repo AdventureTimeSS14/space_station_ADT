@@ -25,11 +25,11 @@ ent-ADTBloodPumpAutoSurgeonNT = САПО.Г. BioTech "Кровяной насо�
 ent-ADTBloodPumpAutoSurgeonSyndie = САПО.Г. Cybersun "Кровяной насос"
     .desc = Медицинский прибор синдиката для вживления киберимпланта «Кровяной насос».
 
-ent-ADTStimulantAutoSurgeonNT = САПО.Г. BioTech "Стимулятор дезоксиэфедрина"
-    .desc = Медицинский прибор BioTech для вживления импланта-инъектора стимулятора дезоксиэфедрина.
+ent-ADTStimulantAutoSurgeonNT = САПО.Г. BioTech "Стимулятор"
+    .desc = Медицинский прибор BioTech для вживления импланта-инъектора стимулятора.
 
-ent-ADTStimulantAutoSurgeonSyndie = САПО.Г. Cybersun "Стимулятор дезоксиэфедрина"
-    .desc = Медицинский прибор синдиката для вживления импланта-инъектора стимулятора дезоксиэфедрина.
+ent-ADTStimulantAutoSurgeonSyndie = САПО.Г. Cybersun "Стимулятор"
+    .desc = Медицинский прибор синдиката для вживления импланта-инъектора стимулятора.
 
 ent-ADTSecondHeartAutoSurgeonSyndie = САПО.Г. Cybersun "Второе сердце"
     .desc = Медицинский прибор синдиката для вживления аварийного импланта «Второе сердце». Одноразовый.

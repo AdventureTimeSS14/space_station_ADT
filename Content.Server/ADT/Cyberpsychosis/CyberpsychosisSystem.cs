@@ -1,7 +1,6 @@
 using Content.Server.ADT.Hallucinations;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
-using Content.Server.ForceAttack;
 using Content.Shared.ADT.Cyberpsychosis;
 using Content.Shared.ADT.Traits.Assorted;
 using Content.Shared.Chat;
@@ -243,7 +242,6 @@ public sealed class CyberpsychosisSystem : EntitySystem
     private void ApplySevereEffects(EntityUid uid, TimeSpan duration, CyberpsychosisComponent comp)
     {
         ApplyModerateEffects(uid, duration, comp);
-        EnsureComp<ForceAttackComponent>(uid);
         _faction.AddFaction(uid, RageFaction);
     }
 
@@ -251,7 +249,6 @@ public sealed class CyberpsychosisSystem : EntitySystem
     {
         _status.TryRemoveStatusEffect(uid, HallucinationsKey);
         RemComp<PainNumbnessStatusEffectComponent>(uid);
-        RemCompDeferred<ForceAttackComponent>(uid);
         _faction.RemoveFaction(uid, RageFaction);
     }
 }

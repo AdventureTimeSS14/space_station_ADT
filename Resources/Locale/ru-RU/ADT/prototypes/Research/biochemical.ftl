@@ -18,4 +18,4 @@ research-technology-syringe-gun = Шприцемёт
 
 research-technology-blood-pump-implant = Имплант «Кровяной насос»
 
-research-technology-stimulant-implant = Имплант «Стимулятор дезоксиэфедрина»
+research-technology-stimulant-implant = Имплант «Стимулятор»
