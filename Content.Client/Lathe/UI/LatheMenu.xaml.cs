@@ -1,5 +1,7 @@
 using System.Linq;
 using System.Text;
+using Robust.Client.Player;
+using Robust.Shared.Timing;
 using Content.Client.Materials;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Chemistry.Components;
@@ -26,6 +28,10 @@ public sealed partial class LatheMenu : FancyWindow
 {
     [Dependency] private IEntityManager _entityManager = default!;
     [Dependency] private IPrototypeManager _prototypeManager = default!;
+
+    [Dependency] private IPlayerManager _player = default!;
+    private bool _canUseProduction;
+    private float _accessRefreshTimer;
 
     private readonly SpriteSystem _spriteSystem;
     private readonly LatheSystem _lathe;
@@ -92,6 +98,33 @@ public sealed partial class LatheMenu : FancyWindow
         }
 
         MaterialsList.SetOwner(Entity);
+        RefreshProductionAccess();
+    }
+
+    protected override void FrameUpdate(FrameEventArgs args)
+    {
+        base.FrameUpdate(args);
+        _accessRefreshTimer -= args.DeltaSeconds;
+        if (_accessRefreshTimer > 0)
+            return;
+
+        _accessRefreshTimer = 0.25f;
+        if (RefreshProductionAccess())
+            PopulateRecipes();
+    }
+
+    public bool RefreshProductionAccess()
+    {
+        var canUse = _player.LocalEntity is { } user && _lathe.CanUseProduction(Entity, user);
+        var changed = _canUseProduction != canUse;
+        _canUseProduction = canUse;
+        DeleteFabricating.Disabled = !canUse;
+        foreach (var child in QueueList.Children)
+        {
+            if (child is QueuedRecipeControl queued)
+                queued.SetCanManage(canUse);
+        }
+        return changed;
     }
 
     protected override void Opened()
@@ -166,7 +199,7 @@ public sealed partial class LatheMenu : FancyWindow
         int idx = 0;
         foreach (var prototype in sortedRecipesToShow)
         {
-            var canProduce = _lathe.CanProduce(Entity, prototype, quantity, component: lathe);
+            var canProduce = _canUseProduction && _lathe.CanProduce(Entity, prototype, quantity, component: lathe);
             var tooltipFunction = () => GenerateTooltipText(prototype);
 
             if (idx >= oldChildCount)
@@ -359,6 +392,7 @@ public sealed partial class LatheMenu : FancyWindow
                 queuedRecipeBox.OnDeletePressed += s => QueueDeleteAction?.Invoke(s);
                 queuedRecipeBox.OnMoveUpPressed += s => QueueMoveUpAction?.Invoke(s);
                 queuedRecipeBox.OnMoveDownPressed += s => QueueMoveDownAction?.Invoke(s);
+                queuedRecipeBox.SetCanManage(_canUseProduction);
                 QueueList.AddChild(queuedRecipeBox);
             }
             else
@@ -371,6 +405,7 @@ public sealed partial class LatheMenu : FancyWindow
                     continue;
                 }
 
+                child.SetCanManage(_canUseProduction);
                 child.SetDisplayText(displayText);
                 child.SetIndex(idx);
                 child.SetDisplayControl(GetRecipeDisplayControl(recipe));

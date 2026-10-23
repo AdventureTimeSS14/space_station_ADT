@@ -220,7 +220,6 @@
     containers:
     - beaker_slot
   - type: StationAiWhitelist
-  - type: ActivatableUIRequiresAccess
   - type: AccessReader
     access:
       - [Research]
@@ -291,7 +290,6 @@
   - type: Machine
     board: ProtolatheHyperConvectionMachineCircuitboard
   # ADT-tweak Start
-  - type: ActivatableUIRequiresAccess
   - type: AccessReader
     access:
       - [Research]
@@ -319,7 +317,6 @@
     board: CircuitImprinterMachineCircuitboard
   # ADT-tweak Start
   - type: StationAiWhitelist
-  - type: ActivatableUIRequiresAccess
   - type: AccessReader
     access:
       - [Research]
@@ -375,7 +372,6 @@
   - type: Machine
     board: CircuitImprinterHyperConvectionMachineCircuitboard
   # ADT-tweak Start
-  - type: ActivatableUIRequiresAccess
   - type: AccessReader
     access:
       - [Research]

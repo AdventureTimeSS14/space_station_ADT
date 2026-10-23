@@ -609,8 +609,20 @@ namespace Content.Server.Lathe
 
         #region UI Messages
 
+        private bool CheckProductionAccess(EntityUid uid, EntityUid user, LatheComponent component)
+        {
+            if (CanUseProduction(uid, user, component))
+                return true;
+
+            _popup.PopupEntity(Loc.GetString("lathe-production-access-denied"), uid, user);
+            return false;
+        }
+
         private void OnLatheQueueRecipeMessage(EntityUid uid, LatheComponent component, LatheQueueRecipeMessage args)
         {
+            if (!CheckProductionAccess(uid, args.Actor, component))
+                return;
+
             if (ProtoMan.TryIndex(args.ID, out LatheRecipePrototype? recipe))
             {
                 if (TryAddToQueue(uid, recipe, args.Quantity, component))
@@ -644,6 +656,9 @@ namespace Content.Server.Lathe
         /// <param name="args"></param>
         public void OnLatheDeleteRequestMessage(EntityUid uid, LatheComponent component, ref LatheDeleteRequestMessage args)
         {
+            if (!CheckProductionAccess(uid, args.Actor, component))
+                return;
+
             if (args.Index < 0 || args.Index >= component.Queue.Count)
                 return;
 
@@ -666,6 +681,9 @@ namespace Content.Server.Lathe
 
         public void OnLatheMoveRequestMessage(EntityUid uid, LatheComponent component, ref LatheMoveRequestMessage args)
         {
+            if (!CheckProductionAccess(uid, args.Actor, component))
+                return;
+
             if (args.Change == 0 || args.Index < 0 || args.Index >= component.Queue.Count)
                 return;
 
@@ -711,6 +729,9 @@ namespace Content.Server.Lathe
 
         public void OnLatheAbortFabricationMessage(EntityUid uid, LatheComponent component, ref LatheAbortFabricationMessage args)
         {
+            if (!CheckProductionAccess(uid, args.Actor, component))
+                return;
+
             if (component.CurrentRecipe == null)
                 return;
 

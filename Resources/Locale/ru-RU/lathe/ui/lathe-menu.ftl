@@ -1,4 +1,4 @@
-﻿lathe-menu-title = Меню станка
+lathe-menu-title = Меню станка
 lathe-menu-queue = Очередь
 lathe-menu-server-list = Список серверов
 lathe-menu-sync = Синхр.
@@ -39,3 +39,5 @@ lathe-menu-move-up-tooltip = Перенести эту партию вперёд
 lathe-menu-move-down-tooltip = Перенести эту партию назад в очереди.
 lathe-menu-item-single = { $index }. { $name }
 lathe-menu-item-batch = { $index }. { $name } ({ $printed }/{ $total })
+
+lathe-production-access-denied = Недостаточно доступа для производства.
