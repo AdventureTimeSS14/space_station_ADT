@@ -11,6 +11,8 @@ using Content.Shared.Damage;
 using Content.Shared.Mobs.Components;
 using Content.Server.ADT.Mech.Equipment.Components;
 using Content.Shared.Damage.Systems;
+using Content.Server.ADT.Mining;
+using Content.Shared.ADT.Mining.Components;
 
 namespace Content.Server.ADT.Mech.Equipment.EntitySystems;
 
@@ -26,6 +28,7 @@ public sealed class MechDrillSystem : EntitySystem
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private DestructibleSystem _destructible = default!;
     [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private ADTMineralSystem _mineral = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -86,6 +89,12 @@ public sealed class MechDrillSystem : EntitySystem
             foreach (var gatherable in gatherables)
             {
                 var ent = gatherable.Owner;
+                if (HasComp<ADTMineralComponent>(ent))
+                {
+                    _mineral.Mine(ent, 1, args.User);
+                    continue;
+                }
+
                 _damageable.TryChangeDamage(ent, component.DamageToDrilled, ignoreResistances: true);
             }
         }
