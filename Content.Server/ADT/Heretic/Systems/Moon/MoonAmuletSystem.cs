@@ -22,7 +22,6 @@ public sealed partial class MoonAmuletSystem : SharedHereticMoonSystem
         SubscribeLocalEvent<MoonAmuletComponent, InteractHandEvent>(OnInteractHand);
         SubscribeLocalEvent<MoonAmuletComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<MoonAmuletComponent, UserActivateInWorldEvent>(OnActivateInWorld);
-        SubscribeLocalEvent<MobStateComponent, InteractUsingEvent>(OnMobInteractUsing);
     }
 
     private void OnEquipped(Entity<MoonAmuletComponent> ent, ref GotEquippedEvent args)
@@ -114,7 +113,7 @@ public sealed partial class MoonAmuletSystem : SharedHereticMoonSystem
         EntitySystem.Get<HereticMoonAbilitySystem>().ChannelAmulet(user, target);
     }
 
-    private void OnMobInteractUsing(Entity<MobStateComponent> ent, ref InteractUsingEvent args)
+    public void OnMobInteractUsing(Entity<MobStateComponent> ent, ref InteractUsingEvent args)
     {
         if (args.Handled)
             return;

@@ -285,7 +285,8 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                     var sanity = EnsureComp<HereticSanityComponent>(target);
                     sanity.Current = Math.Max(0f, sanity.Current - 30f);
                     Dirty(target, sanity);
-                    _statusNew.TryAddStatusEffectDuration(target, "MoonMarkStatusEffect", TimeSpan.FromSeconds(30));
+                    if (heretic.PathStage >= 3)
+                        _statusNew.TryAddStatusEffectDuration(target, "MoonMarkStatusEffect", TimeSpan.FromSeconds(30));
                     _statusNew.TryAddStatusEffectDuration(target, "MoonConfusedStatusEffect", TimeSpan.FromSeconds(30));
                     EntityManager.System<SharedMoonHallucinationSystem>().CauseHallucinations(target, 2, 15f, false);
                 }

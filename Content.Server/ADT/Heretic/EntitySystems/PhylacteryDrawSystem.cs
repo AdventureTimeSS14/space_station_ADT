@@ -33,7 +33,6 @@ public sealed class PhylacteryDrawSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<BloodstreamComponent, InteractUsingEvent>(OnBloodstreamInteractUsing);
-        SubscribeLocalEvent<MobStateComponent, InteractUsingEvent>(OnMobInteractUsing);
         SubscribeLocalEvent<HereticPhylacteryComponent, AfterInteractEvent>(OnAfterInteract);
     }
 
@@ -49,7 +48,7 @@ public sealed class PhylacteryDrawSystem : EntitySystem
             args.Handled = true;
     }
 
-    private void OnMobInteractUsing(Entity<MobStateComponent> ent, ref InteractUsingEvent args)
+    public void OnMobInteractUsing(Entity<MobStateComponent> ent, ref InteractUsingEvent args)
     {
         if (args.Handled)
             return;

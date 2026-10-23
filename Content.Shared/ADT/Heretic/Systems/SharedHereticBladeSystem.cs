@@ -243,7 +243,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
                 var sanityComp = EnsureComp<HereticSanityComponent>(target);
                 sanityComp.Current = Math.Max(0f, sanityComp.Current - 10f);
                 Dirty(target, sanityComp);
-                var cellular = sanityComp.Current >= 100f ? 10f : 25f;
+                var cellular = !_mobState.IsIncapacitated(target) && sanityComp.Current >= 100f ? 10f : 25f;
                 _damageable.TryChangeDamage(target,
                     new DamageSpecifier
                     {

@@ -6,11 +6,13 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.FixedPoint;
+using Content.Shared.Gibbing;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
+using Content.Shared.Mobs;
 using Content.Shared.StatusEffect;
 using Content.Shared.StatusEffectNew;
 using Content.Shared.Stunnable;
@@ -39,6 +41,7 @@ public sealed partial class MoonRegaliaSystem : EntitySystem
     [Dependency] private readonly SharedChatSystem _chat = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedHereticSystem _heretic = default!;
+    [Dependency] private readonly GibbingSystem _gibbing = default!;
 
     private static readonly HashSet<string> DisableKeys = new()
     {
@@ -52,6 +55,7 @@ public sealed partial class MoonRegaliaSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<MoonRegaliaWearerComponent, BeforeDamageChangedEvent>(OnBeforeDamage);
         SubscribeLocalEvent<MoonRegaliaWearerComponent, DamageChangedEvent>(OnDamageChanged);
+        SubscribeLocalEvent<MoonRegaliaWearerComponent, MobStateChangedEvent>(OnWearerDeath);
         SubscribeLocalEvent<MoonRegaliaWearerComponent, BeforeStatusEffectAddedEvent>(OnBeforeNewStatus);
         SubscribeLocalEvent<MoonRegaliaWearerComponent, BeforeOldStatusEffectAddedEvent>(OnBeforeOldStatus);
         SubscribeLocalEvent<KnockedDownComponent, ComponentStartup>(OnKnockedStartup);
@@ -151,6 +155,14 @@ public sealed partial class MoonRegaliaSystem : EntitySystem
                 { "Cellular", total },
             },
         };
+    }
+
+    private void OnWearerDeath(Entity<MoonRegaliaWearerComponent> ent, ref MobStateChangedEvent args)
+    {
+        if (args.NewMobState != MobState.Dead)
+            return;
+
+        _gibbing.Gib(ent);
     }
 
     private void OnKnockedStartup(Entity<KnockedDownComponent> ent, ref ComponentStartup args)

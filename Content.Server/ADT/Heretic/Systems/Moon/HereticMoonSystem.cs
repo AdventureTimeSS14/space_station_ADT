@@ -66,6 +66,8 @@ public sealed class HereticMoonSystem : EntitySystem
 
     private static readonly ProtoId<AlertPrototype> MoonBrain = "MoonBrain";
 
+    private const float ParadeLeashDistance = 1f;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -179,7 +181,7 @@ public sealed class HereticMoonSystem : EntitySystem
         if (!args.DamageIncreased || args.DamageDelta == null)
             return;
         ent.Comp.DamageSustained += args.DamageDelta.GetTotal().Float();
-        if (ent.Comp.DamageSustained < 50f)
+        if (ent.Comp.DamageSustained < ent.Comp.ReleaseThreshold)
             return;
         RemCompDeferred(ent, ent.Comp);
         _statusNew.TryRemoveStatusEffect(ent, "MoonParadeStatusEffect");
@@ -246,11 +248,6 @@ public sealed class HereticMoonSystem : EntitySystem
             var fresh = EnsureComp<HereticSanityComponent>(target);
             fresh.Current = Math.Max(0f, fresh.Current - 20f);
             Dirty(target, fresh);
-        }
-        if (shooter is { } sh && _heretic.TryGetHereticComponent(sh, out var heretic, out _) && heretic.CurrentPath == "Moon" && heretic.PathStage >= 7)
-        {
-            var amulet = EnsureComp<MoonAmuletComponent>(sh);
-            _ = amulet;
         }
     }
 
@@ -398,15 +395,23 @@ public sealed class HereticMoonSystem : EntitySystem
             if (xform.MapID != Transform(paradeEnt).MapID)
                 continue;
 
+            var paradeVelocity = TryComp(paradeEnt, out PhysicsComponent? paradePhysics)
+                ? paradePhysics.LinearVelocity
+                : System.Numerics.Vector2.Zero;
+
             var mobPos = _transform.GetWorldPosition(xform);
             var targetPos = _transform.GetWorldPosition(paradeEnt);
             var diff = targetPos - mobPos;
             var dist = diff.Length();
-            if (dist > 0.5f)
+            if (dist > ParadeLeashDistance)
             {
                 var dir = diff / dist;
                 var speed = Math.Min(dist * 4f, 6f);
                 _physics.SetLinearVelocity(uid, dir * speed, body: physics);
+            }
+            else
+            {
+                _physics.SetLinearVelocity(uid, paradeVelocity, body: physics);
             }
         }
         var passiveQuery = EntityQueryEnumerator<MoonPassiveComponent, HereticSanityComponent, DamageableComponent>();

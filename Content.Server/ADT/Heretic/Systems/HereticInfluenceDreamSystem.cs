@@ -6,6 +6,7 @@ using Content.Server.Mind;
 using Content.Shared.ADT.Heretic.Systems;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Chat;
+using Content.Shared.Pinpointer;
 using Robust.Server.Player;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
@@ -23,13 +24,13 @@ public sealed partial class HereticInfluenceDreamSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly Content.Shared.ADT.Areas.AreaSystem _area = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly Content.Shared.Station.SharedStationSystem _station = default!;
 
     private const float MinDreamChance = 0.2f;
     private const float MaxDreamChance = 0.4f;
     private const float MaxDistance = 70f;
     private const float CloseDistance = 12f;
     private const float NearDistance = 30f;
+    private const float BeaconSearchRange = 40f;
 
     public override void Initialize()
     {
@@ -105,11 +106,34 @@ public sealed partial class HereticInfluenceDreamSystem : EntitySystem
         if (_area.TryGetArea(coords, out var area) && _proto.TryIndex(area, out var areaDef))
             return Loc.GetString(areaDef.Name);
 
-        var station = _station.GetOwningStation(target);
-        if (station == null)
-            return null;
+        return FindNearbyBeaconName(target);
+    }
 
-        return Name(station.Value);
+    private string? FindNearbyBeaconName(EntityUid target)
+    {
+        var mapCoords = _xform.GetMapCoordinates(target);
+        var best = BeaconSearchRange * BeaconSearchRange;
+        string? name = null;
+
+        var query = AllEntityQuery<NavMapBeaconComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var beacon, out var xform))
+        {
+            if (!beacon.Enabled || string.IsNullOrWhiteSpace(beacon.Text))
+                continue;
+
+            if (xform.MapID != mapCoords.MapId)
+                continue;
+
+            var there = _xform.GetMapCoordinates((uid, xform));
+            var distance = (there.Position - mapCoords.Position).LengthSquared();
+            if (distance >= best)
+                continue;
+
+            best = distance;
+            name = beacon.Text;
+        }
+
+        return name;
     }
 
     private EntityUid? FindNearestShift(MapId map, Vector2 position)
