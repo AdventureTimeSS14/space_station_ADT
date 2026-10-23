@@ -39,6 +39,20 @@
     - type: Damageable
     - type: Injurable
       damageContainer: Box
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 15
+        behaviors:
+        - !type:PlaySoundBehavior
+          sound:
+            path: /Audio/Effects/poster_broken.ogg
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            MaterialCardboard1:
+              min: 1
+              max: 2
     - type: Sprite
       noRot: true
       sprite: Structures/Storage/boxes.rsi
