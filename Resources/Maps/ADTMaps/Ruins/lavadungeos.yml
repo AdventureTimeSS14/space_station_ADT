@@ -17926,7 +17926,7 @@ entities:
     - type: Transform
       pos: 75.5,43.5
       parent: 1
-- proto: ADTSpawnAncientGoliath
+- proto: ADTMobLavalandGoliathAncient
   entities:
   - uid: 7025
     components:

@@ -33,6 +33,13 @@ public sealed class ADTMineralSystem : SharedADTMineralSystem
     private void OnMapInit(Entity<ADTMineralComponent> ent, ref MapInitEvent args)
     {
         ent.Comp.MaxHardness = ent.Comp.Hardness;
+        Dirty(ent);
+
+        if (TryComp<ADTMineralOreComponent>(ent, out var mineralOre) && mineralOre.FixedAmount > 0)
+        {
+            ent.Comp.OreAmount = mineralOre.FixedAmount;
+            return;
+        }
 
         if (ent.Comp.OreAmount > 0)
             return;
@@ -105,10 +112,14 @@ public sealed class ADTMineralSystem : SharedADTMineralSystem
         Mine(ent.AsNullable(), power, null, true);
     }
 
-    protected override void OnHit(Entity<ADTMineralComponent> ent, EntityUid source)
+    protected override void OnHit(Entity<ADTMineralComponent> ent, EntityUid source, EntityUid? predictedBy)
     {
         var direction = _transform.GetWorldPosition(source) - _transform.GetWorldPosition(ent);
-        RaiseNetworkEvent(new ADTMineralHitEvent(GetNetEntity(ent), direction), Filter.Pvs(ent));
+        var filter = Filter.Pvs(ent);
+        if (TryComp<ActorComponent>(predictedBy, out var actor))
+            filter.RemovePlayer(actor.PlayerSession);
+
+        RaiseNetworkEvent(new ADTMineralHitEvent(GetNetEntity(ent), direction), filter);
     }
 
     protected override void OnBroken(Entity<ADTMineralComponent> ent, EntityUid? user, bool byExplosion)
