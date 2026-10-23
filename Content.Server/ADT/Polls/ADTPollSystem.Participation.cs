@@ -43,7 +43,7 @@ public sealed partial class ADTPollSystem
 
         FillPlaytime(ev.Player, entry);
 
-        TargetRoundStart(ev.Player);
+        TargetJoined(ev.Player);
     }
 
     private void OnRoleAdded(RoleAddedEvent ev)
@@ -57,6 +57,9 @@ public sealed partial class ADTPollSystem
             return;
 
         RecordMind(userId.Value, ev.MindId, ev.Mind);
+
+        if (_players.TryGetSessionById(userId.Value, out var session))
+            TargetJoined(session);
     }
 
     private void RecordMind(NetUserId userId, EntityUid mindId, MindComponent mind)

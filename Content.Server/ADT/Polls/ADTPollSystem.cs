@@ -97,6 +97,13 @@ public sealed partial class ADTPollSystem : EntitySystem
     private async Task ReloadActive()
     {
         var polls = await _db.GetActivePollsAsync();
+        var appeared = new List<PollData>();
+
+        foreach (var poll in polls)
+        {
+            if (poll.ShowMode == PollShowMode.Immediately && !_active.ContainsKey(poll.Id))
+                appeared.Add(poll);
+        }
 
         _active.Clear();
 
@@ -107,6 +114,15 @@ public sealed partial class ADTPollSystem : EntitySystem
         }
 
         SendListToAll();
+
+        if (!_enabled)
+            return;
+
+        foreach (var poll in appeared)
+        {
+            if (_active.ContainsKey(poll.Id))
+                TargetAllOnline(poll);
+        }
     }
 
     private void OnRoundStarting(RoundStartingEvent ev)
@@ -268,13 +284,13 @@ public sealed partial class ADTPollSystem : EntitySystem
         return added;
     }
 
-    private void TargetRoundStart(ICommonSession session)
+    private void TargetJoined(ICommonSession session)
     {
         if (!_enabled)
             return;
 
         var polls = GetActive()
-            .Where(p => p.ShowMode == PollShowMode.RoundStart)
+            .Where(p => p.ShowMode is PollShowMode.RoundStart or PollShowMode.Immediately)
             .ToList();
 
         if (polls.Count > 0)
