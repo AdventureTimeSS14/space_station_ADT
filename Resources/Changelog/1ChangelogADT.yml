@@ -16473,3 +16473,9 @@ Entries:
     id: 2031
     pr_number: 3555
     time: '2026-10-22T21:46:16Z'
+  - author: SchrodingerCutie
+    changes:
+      - {message: Переработана никотиновая зависимость., type: Tweak}
+    id: 2032
+    pr_number: 3469
+    time: '2026-10-23T14:30:38Z'
