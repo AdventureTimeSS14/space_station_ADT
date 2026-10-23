@@ -1,0 +1,29 @@
+- type: npcFaction
+  id: ADTSovietBunker
+  hostile:
+  - NanoTrasen
+  - SimpleHostile
+  - Xeno
+  - PetsNT
+  - Zombie
+  - Heretic
+  - Ursus
+  - Dragon
+  - AllHostile
+  - Wizard
+  - Xenoborg
+
+- type: npcFaction
+  id: ADTSmugglersPirates
+  hostile:
+  - NanoTrasen
+  - SimpleHostile
+  - Xeno
+  - PetsNT
+  - Zombie
+  - Heretic
+  - Ursus
+  - Dragon
+  - AllHostile
+  - Wizard
+  - Xenoborg
