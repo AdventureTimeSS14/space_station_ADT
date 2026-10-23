@@ -123,7 +123,10 @@ public sealed class ADTLavalandGoliathSystem : EntitySystem
         if (args.Cancelled || _mobState.IsDead(ent))
             return;
 
-        if (!HasComp<DamageMarkerOnCollideComponent>(args.ProjUid) && _random.Prob(ent.Comp.ReflectChance))
+        if (HasComp<DamageMarkerOnCollideComponent>(args.ProjUid))
+            return;
+
+        if (_random.Prob(ent.Comp.ReflectChance))
         {
             if (Reflect(ent, args.ProjUid))
             {
