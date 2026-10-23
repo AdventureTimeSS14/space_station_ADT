@@ -142,7 +142,7 @@ public sealed class CrusherSpearSystem : SharedCrusherSpearSystem
             return;
 
         var bolt = Spawn(proto, Transform(user).Coordinates);
-        _gun.ShootProjectile(bolt, direction, _physics.GetMapLinearVelocity(user), ent.Owner, user, ent.Comp.MarkProjectileSpeed);
+        _gun.ShootProjectile(bolt, direction, Vector2.Zero, ent.Owner, user, ent.Comp.MarkProjectileSpeed);
     }
 
     private void OnThrowHit(Entity<ADTCrusherSpearThrowComponent> ent, ref ThrowDoHitEvent args)
