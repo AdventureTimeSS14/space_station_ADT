@@ -45,13 +45,8 @@
           !type:DamageTrigger
           damage: 15
         behaviors:
-        - !type:DoActsBehavior
-              acts: [ "Destruction" ]
-        - !type:SpawnEntitiesBehavior
-          spawn:
-            MaterialCardboard1:
-              min: 1
-              max: 2
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
     - type: Sprite
       noRot: true
       sprite: Structures/Storage/boxes.rsi
