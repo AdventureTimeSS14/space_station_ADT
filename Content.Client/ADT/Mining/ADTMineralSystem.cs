@@ -1,15 +1,20 @@
+using System.Numerics;
 using Content.Client.ADT.Particles;
 using Content.Shared.ADT.Mining;
 using Content.Shared.ADT.Mining.Components;
 using Content.Shared.ADT.Particles;
 using Content.Shared.Mining.Components;
 using Robust.Client.GameObjects;
+using Robust.Client.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Client.ADT.Mining;
 
 public sealed class ADTMineralSystem : SharedADTMineralSystem
 {
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPlayerManager _player = default!;
     [Dependency] private ParticleSystem _particles = default!;
     [Dependency] private SpriteSystem _sprite = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
@@ -38,13 +43,27 @@ public sealed class ADTMineralSystem : SharedADTMineralSystem
         _sprite.LayerSetVisible((ent.Owner, sprite), layer, false);
     }
 
+    protected override void OnHit(Entity<ADTMineralComponent> ent, EntityUid source, EntityUid? predictedBy)
+    {
+        if (predictedBy == null || predictedBy != _player.LocalEntity || !_timing.IsFirstTimePredicted)
+            return;
+
+        var direction = _transform.GetWorldPosition(source) - _transform.GetWorldPosition(ent);
+        SpawnHitEffects(ent, direction);
+    }
+
     private void OnMineralHit(ADTMineralHitEvent ev)
     {
         if (!TryGetEntity(ev.Mineral, out var mineral))
             return;
 
-        var coords = _transform.GetMapCoordinates(mineral.Value);
-        var angle = new Angle(MathF.Atan2(ev.Direction.X, ev.Direction.Y));
+        SpawnHitEffects(mineral.Value, ev.Direction);
+    }
+
+    private void SpawnHitEffects(EntityUid mineral, Vector2 direction)
+    {
+        var coords = _transform.GetMapCoordinates(mineral);
+        var angle = new Angle(MathF.Atan2(direction.X, direction.Y));
         var overrides = new ParticleRuntimeOverrides
         {
             EmitAngle = angle,

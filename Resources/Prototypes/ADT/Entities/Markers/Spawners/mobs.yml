@@ -26,7 +26,7 @@
 #      - ADTAbominationHypertrophied
 #      - ADTAbominationBloated
       - MobWatcherLavaland
-      - MobGoliath
+      - ADTMobLavalandGoliath
       - ADTMobLegion
       - ADTMobNightmareSpider
       - ADTMobShockSpider
@@ -36,7 +36,7 @@
       - MobWatcherMagmawing
       - MobWatcherIcewing
     rarePrototypes:
-      - MobAncientGoliath
+      - ADTMobLavalandGoliathAncient
 #      - ADTAbominationDeath
   - type: TimedDespawn
     lifetime: 1

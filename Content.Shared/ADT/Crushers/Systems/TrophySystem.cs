@@ -92,6 +92,9 @@ public sealed class TrophySystem : EntitySystem
                     effect.OnMarkDetonation(trophy, ent, args.User, target, EntityManager, ref args);
                 }
             }
+
+            var ev = new CrusherMarkDetonatedEvent(args.User, target);
+            RaiseLocalEvent(ent.Owner, ref ev);
         }
     }
 
