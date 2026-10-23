@@ -1,12 +1,12 @@
 ﻿- type: entity
-  id: BaseBigBox
+  id: BigBox
   name: cardboard box #it's still just a box
   description: Huh? Just a box...
-  abstract: true
   components:
     - type: Transform
       noRot: true
     - type: Clickable
+    - type: InteractionOutline
     - type: Physics
       bodyType: KinematicController
     - type: Fixtures
@@ -67,9 +67,9 @@
       frictionNoInput: 6
 
 - type: entity
+  parent: BigBox
   id: StealthBox
   suffix: stealth
-  parent: BaseBigBox
   description: Kept ya waiting, huh?
   components:
     - type: Damageable
@@ -83,21 +83,6 @@
     - type: StealthOnMove
       passiveVisibilityRate: -1 # very useful for going around the station concealed, if you start jitterstrafing you get seen
       movementVisibilityRate: 0.20
-
-- type: entity
-  id: BigBox
-  parent: BaseBigBox
-  components:
-  - type: InteractionOutline
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 15
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-
 
 #For admin spawning only
 - type: entity
