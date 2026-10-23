@@ -631,6 +631,7 @@ public sealed class ADTLavalandGoliathSystem : EntitySystem
         _appearance.SetData(ent, ADTLavalandGoliathVisuals.State, ADTLavalandGoliathState.WindUp);
 
         var decoy = Spawn(ent.Comp.ChargeDecoyPrototype, from);
+        _transform.SetWorldRotation(decoy, direction.ToWorldAngle());
         var fade = EnsureComp<HierophantFadeComponent>(decoy);
         fade.StartTime = _timing.CurTime;
         Dirty(decoy, fade);

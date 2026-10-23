@@ -147,7 +147,7 @@
   name: ""
   components:
   - type: Transform
-    anchored: true
+    anchored: false
   - type: Physics
     bodyType: Static
     canCollide: false
