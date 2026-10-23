@@ -286,6 +286,22 @@
     lifetime: 0.1
 
 - type: entity
+  id: ADTBulletKineticAccelerator
+  parent: BulletKinetic
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    impactEffect: BulletImpactEffectKinetic
+    damage:
+      types:
+        Blunt: 40
+        Structural: 30
+  - type: TimedDespawn
+    lifetime: 0.14
+  - type: PressureDamageModify
+    projDamage: 0.25
+
+- type: entity
   id: ADTBulletKineticPistol
   parent: BulletKinetic
   categories: [ HideSpawnMenu ]
@@ -507,9 +523,39 @@
     energy: 1.5
 
 - type: entity
+  id: ADTBulletCrusherMark
+  parent: BulletCharge
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: DamageMarkerOnCollide
+    whitelist:
+      components:
+      - Fauna
+    damage:
+      types:
+        Blunt: 56
+        Slash: 4
+
+- type: entity
+  id: ADTBulletCrusherSpearMark
+  parent: ADTBulletCrusherMark
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: DamageMarkerOnCollide
+    whitelist:
+      components:
+      - Fauna
+    damage:
+      types:
+        Blunt: 45
+        Slash: 3
+  - type: TimedDespawn
+    lifetime: 0.25
+
+- type: entity
   id: ADTBulletChargeMagmite
   name: magmite charge bolt
-  parent: BulletCharge
+  parent: ADTBulletCrusherMark
   categories: [ HideSpawnMenu ]
   components:
   - type: ADTDrillPower

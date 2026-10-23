@@ -26,7 +26,7 @@ public sealed class BackstabDamageMultipilierSystem : EntitySystem
         }
     }
 
-    private bool IsBehindTarget(EntityUid user, EntityUid target)
+    public bool IsBehindTarget(EntityUid user, EntityUid target)
     {
         var targetFacingDirection = _transform.GetWorldRotation(target).GetCardinalDir();
         var behindAngle = targetFacingDirection.GetOpposite().ToAngle();

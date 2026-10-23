@@ -1,0 +1,81 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from ss220-space/Paradise (master220) at icons/effects/effects.dmi (bhole3, shield2, electricity2, mustard), icons/obj/weapons/guns/projectiles.dmi (bluespace)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "bhole3",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "electricity2",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    1.5,
+                    0.1,
+                    0.1,
+                    1.5,
+                    0.1,
+                    0.1,
+                    1.5,
+                    0.1,
+                    0.1,
+                    1.5
+                ]
+            ]
+        },
+        {
+            "name": "mustard",
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "shield2",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "bluespace",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        }
+    ]
+}
