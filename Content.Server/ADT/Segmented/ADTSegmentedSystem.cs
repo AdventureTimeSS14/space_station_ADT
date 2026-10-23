@@ -171,10 +171,10 @@ public sealed class ADTSegmentedSystem : EntitySystem
             return;
         }
 
-        args.Cancelled = true;
-
         if (ent.Comp.Root is not { } root || TerminatingOrDeleted(root))
             return;
+
+        args.Cancelled = true;
 
         var ev = new ADTSegmentDamageForwardEvent(root, args.Damage, ent.Comp.DamageModifier, args.Origin);
         RaiseLocalEvent(ent, ref ev);
