@@ -762,3 +762,28 @@
     containers:
       storagebase: !type:Container
       toggleable-clothing: !type:ContainerSlot
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatOfficerUSSPGreatcoat
+  name: USSP officer greatcoat
+  description: A heavy double-breasted greatcoat of a USSP officer.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/officer_greatcoat_USSP.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/officer_greatcoat_USSP.rsi
+  - type: TemperatureProtection
+    coefficient: 0.7
+
+- type: entity
+  parent: ADTClothingOuterCoatOfficerUSSPGreatcoat
+  id: ADTClothingOuterCoatGeneralUSSPGreatcoat
+  name: USSP general greatcoat
+  description: A grey general's greatcoat with red collar tabs and golden shoulder boards.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/general_greatcoat_USSP.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/general_greatcoat_USSP.rsi

@@ -377,6 +377,36 @@
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/officer_USSP_cap.rsi
 
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsOfficerArmyUSSPCap
+  name: USSP army officer cap
+  description: A khaki peaked cap with a red band and a star cockade.
+  suffix: USSP
+  components:
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/officer_army_USSP_cap.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/officer_army_USSP_cap.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsGeneralArmyUSSPCap
+  name: USSP army general cap
+  description: A peaked cap of a USSP general with golden embroidery on the visor.
+  suffix: USSP
+  components:
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/general_army_USSP_cap.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/general_army_USSP_cap.rsi
+
 # USSP USSP
 
 - type: entity
