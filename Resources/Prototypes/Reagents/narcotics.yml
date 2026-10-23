@@ -346,7 +346,6 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
-        refresh: false
       # ADT-Tweak-start
       - !type:Hallucinate
         hallucinations: [ SupermatterPack ]

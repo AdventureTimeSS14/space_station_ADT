@@ -1,7 +1,7 @@
 - type: hallucinationsPack
   id: Liminal
   music:
-    path: /Audio/ADT/Phantom/Music/help.ogg
+    path: /Audio/ADT/Ambience/Music/CL.ogg
     params:
       volume: -12
   musicPlayInterval:

@@ -186,7 +186,6 @@
         effectProto: StatusEffectSeeingRainbow
         time: 16
         type: Add
-        refresh: false
       - !type:Jitter
       - !type:Hallucinate
         hallucinations: [ Liminal ]
@@ -209,7 +208,6 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 8
-        refresh: false
       - !type:Hallucinate
         hallucinations: [ SupermatterPack ] # заглушка до норм галюнов
         type: Add

@@ -21,6 +21,6 @@ public sealed partial class MobHallucinations : BaseHallucinationsType
     [DataField]
     public EntityWhitelist? Blacklist = new()
     {
-        Tags = new(){ "Wall" }
+        Components = new[] { "Occluder" }
     };
 }
