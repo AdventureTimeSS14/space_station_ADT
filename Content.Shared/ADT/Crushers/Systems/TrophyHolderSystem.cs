@@ -52,24 +52,21 @@ public sealed class TrophyHolderSystem : EntitySystem
         if (!args.CanInteract || !args.CanAccess)
             return;
 
-        var trophies = GetCurrentTrophies(ent);
-        if (trophies.Count == 0)
-            return;
+        var ev = new TrophyHolderExamineEvent(new FormattedMessage());
+        RaiseLocalEvent(ent, ref ev);
 
-        var examineMarkup = new FormattedMessage();
-
-        foreach (var trophy in trophies)
+        foreach (var trophy in GetCurrentTrophies(ent))
         {
             foreach (var effect in trophy.Comp.Effects)
             {
-                var description = effect.GetDescription();
-                examineMarkup.AddMessage(description);
-                examineMarkup.PushNewline();
-                examineMarkup.PushNewline();
+                ev.PushMessage(effect.GetDescription());
             }
         }
 
-        _examine.AddDetailedExamineVerb(args, ent.Comp, examineMarkup,
+        if (ev.Message.IsEmpty)
+            return;
+
+        _examine.AddDetailedExamineVerb(args, ent.Comp, ev.Message,
             Loc.GetString("trophy-examinable-verb-text"), "/Textures/Interface/VerbIcons/dot.svg.192dpi.png",
             Loc.GetString("trophy-examinable-verb-message"));
     }

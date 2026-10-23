@@ -241,7 +241,13 @@
   - type: ToggleableClothing
     clothingPrototype: ADTClothingHeadHelmetMiner
   - type: ADTGoliathPlatable
-    upgrade: ADTClothingOuterArmorMinerReinforcedOne
+    types: [ Blunt, Slash ]
+    maxPlates: 3
+    sprites:
+    - ADT/Clothing/OuterClothing/Armor/mining.rsi
+    - ADT/Clothing/OuterClothing/Armor/mining_reinforced_one.rsi
+    - ADT/Clothing/OuterClothing/Armor/mining_reinforced_two.rsi
+    - ADT/Clothing/OuterClothing/Armor/mining_reinforced_full.rsi
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
@@ -286,7 +292,7 @@
     sprintModifier: 0.75
   - type: ADTGoliathPlatable
     types: []
-    upgrade: null
+    sprites: []
 
 - type: entity
   parent: ADTClothingOuterArmorMiner
@@ -320,7 +326,7 @@
     sprintModifier: 1.2
   - type: ADTGoliathPlatable
     types: []
-    upgrade: null
+    sprites: []
 
 #Бронежилет скрытого ношения
 
@@ -358,124 +364,6 @@
     foldedEquippedPrefix: open
     foldedHeldPrefix: open
   - type: Appearance
-
-- type: entity
-  parent: [ClothingOuterArmorBasic, BadgeOnClothing]
-  id: ADTClothingOuterArmorMinerReinforcedOne
-  name: reinforced explorer suit
-  description: This explorer suit is reinforced with goliath hides.
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/OuterClothing/Armor/mining_reinforced_one.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/OuterClothing/Armor/mining_reinforced_one.rsi
-  - type: TemperatureProtection
-    coefficient: 0.7
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.7
-        Slash: 0.6
-        Piercing: 0.95
-        Heat: 0.75
-        Caustic: 0.6
-  - type: ExplosionResistance
-    damageCoefficient: 0.90
-  - type: ToggleableClothing
-    clothingPrototype: ADTClothingHeadHelmetMinerReinforcedOne
-  - type: ContainerContainer
-    containers:
-      storagebase: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      badge: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-      toggleable-clothing: !type:ContainerSlot {}
-  - type: ADTGoliathPlatable
-    upgrade: ADTClothingOuterArmorMinerReinforcedTwo
-  - type: Tag
-    tags:
-    - ADTMinerArmorOne
-
-- type: entity
-  parent: [ClothingOuterArmorBasic, BadgeOnClothing]
-  id: ADTClothingOuterArmorMinerReinforcedTwo
-  name: partially reinforced explorer suit
-  description: This explorer suit is reinforced with goliath hides.
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/OuterClothing/Armor/mining_reinforced_two.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/OuterClothing/Armor/mining_reinforced_two.rsi
-  - type: TemperatureProtection
-    coefficient: 0.7
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.6
-        Slash: 0.5
-        Piercing: 0.95
-        Heat: 0.7
-        Caustic: 0.8
-  - type: ExplosionResistance
-    damageCoefficient: 0.80
-  - type: ToggleableClothing
-    clothingPrototype: ADTClothingHeadHelmetMinerReinforcedTwo
-  - type: ContainerContainer
-    containers:
-      storagebase: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      badge: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-      toggleable-clothing: !type:ContainerSlot {}
-  - type: ADTGoliathPlatable
-    upgrade: ADTClothingOuterArmorMinerReinforcedFull
-  - type: Tag
-    tags:
-    - ADTMinerArmorTwo
-
-- type: entity
-  parent: [ClothingOuterArmorBasic, BadgeOnClothing]
-  id: ADTClothingOuterArmorMinerReinforcedFull
-  name: plated explorer suit
-  description: This explorer suit is reinforced with goliath hides. The pinnacle of mining ingenuity and Lavaland's own madness in the field of defense.
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/OuterClothing/Armor/mining_reinforced_full.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/OuterClothing/Armor/mining_reinforced_full.rsi
-  - type: TemperatureProtection
-    coefficient: 0.7
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.5
-        Slash: 0.4
-        Piercing: 0.95
-        Heat: 0.6
-        Caustic: 0.4
-  - type: ExplosionResistance
-    damageCoefficient: 0.70
-  - type: ToggleableClothing
-    clothingPrototype: ADTClothingHeadHelmetMinerReinforcedFull
-  - type: ContainerContainer
-    containers:
-      storagebase: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      badge: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-      toggleable-clothing: !type:ContainerSlot {}
 
 - type: entity
   parent: ClothingOuterArmorBasic
