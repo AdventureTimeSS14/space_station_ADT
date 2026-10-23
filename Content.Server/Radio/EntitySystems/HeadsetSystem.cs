@@ -3,6 +3,7 @@ using Content.Shared.Inventory.Events;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
 using Content.Shared.Radio.EntitySystems;
+using Content.Shared.Wires;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Content.Server.ADT.Language;  // ADT Languages
@@ -27,6 +28,7 @@ public sealed partial class HeadsetSystem : SharedHeadsetSystem
         base.Initialize();
         SubscribeLocalEvent<HeadsetComponent, RadioReceiveEvent>(OnHeadsetReceive);
         SubscribeLocalEvent<HeadsetComponent, EncryptionChannelsChangedEvent>(OnKeysChanged);
+        SubscribeLocalEvent<HeadsetComponent, PanelChangedEvent>(OnPanelChanged);
 
         SubscribeLocalEvent<WearingHeadsetComponent, EntitySpokeEvent>(OnSpeak);
     }
@@ -63,6 +65,13 @@ public sealed partial class HeadsetSystem : SharedHeadsetSystem
 
     private void OnSpeak(EntityUid uid, WearingHeadsetComponent component, EntitySpokeEvent args)
     {
+        if (!TryComp<HeadsetComponent>(component.Headset, out var headset)
+            || !IsOperational(component.Headset, headset))
+        {
+            args.Channel = null;
+            return;
+        }
+
         var user = uid;
 
         if (args.Channel != null)
@@ -90,11 +99,22 @@ public sealed partial class HeadsetSystem : SharedHeadsetSystem
         UpdateRadioChannels(uid, component, args.Component);
     }
 
+    private void OnPanelChanged(EntityUid uid, HeadsetComponent component, ref PanelChangedEvent args)
+    {
+        UpdateRadioChannels(uid, component);
+    }
+
     private void UpdateRadioChannels(EntityUid uid, HeadsetComponent headset, EncryptionKeyHolderComponent? keyHolder = null)
     {
         // make sure to not add ActiveRadioComponent when headset is being deleted
-        if (!headset.Enabled || MetaData(uid).EntityLifeStage >= EntityLifeStage.Terminating)
+        if (MetaData(uid).EntityLifeStage >= EntityLifeStage.Terminating)
             return;
+
+        if (!headset.IsEquipped || !IsOperational(uid, headset))
+        {
+            RemComp<ActiveRadioComponent>(uid);
+            return;
+        }
 
         if (!Resolve(uid, ref keyHolder))
             return;
@@ -149,6 +169,9 @@ public sealed partial class HeadsetSystem : SharedHeadsetSystem
 
     private void OnHeadsetReceive(EntityUid uid, HeadsetComponent component, ref RadioReceiveEvent args)
     {
+        if (!component.IsEquipped || !IsOperational(uid, component))
+            return;
+
         // TODO: change this when a code refactor is done
         // this is currently done this way because receiving radio messages on an entity otherwise requires that entity
         // to have an ActiveRadioComponent

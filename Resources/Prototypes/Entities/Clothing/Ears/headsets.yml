@@ -13,8 +13,11 @@
       key_slots:
       - EncryptionKeyCommon
   - type: Headset
+  - type: WiresPanel
+    examineTextOpen: headset-panel-open
   - type: EncryptionKeyHolder
     keySlots: 4
+    examineWhileLocked: false
   - type: Sprite
     state: icon
   - type: Item

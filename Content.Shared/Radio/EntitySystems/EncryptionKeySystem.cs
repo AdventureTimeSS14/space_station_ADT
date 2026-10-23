@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared.ActionBlocker;
 using Content.Shared.Chat;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
@@ -8,6 +9,7 @@ using Content.Shared.Popups;
 using Content.Shared.Radio.Components;
 using Content.Shared.Tools.Components;
 using Content.Shared.Wires;
+using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
@@ -28,6 +30,8 @@ public sealed partial class EncryptionKeySystem : EntitySystem
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private SharedHandsSystem _hands = default!;
     [Dependency] private SharedWiresSystem _wires = default!;
+    [Dependency] private ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private SharedInteractionSystem _interaction = default!;
 
     public override void Initialize()
     {
@@ -40,6 +44,7 @@ public sealed partial class EncryptionKeySystem : EntitySystem
         SubscribeLocalEvent<EncryptionKeyHolderComponent, EntInsertedIntoContainerMessage>(OnContainerModified);
         SubscribeLocalEvent<EncryptionKeyHolderComponent, EntRemovedFromContainerMessage>(OnContainerModified);
         SubscribeLocalEvent<EncryptionKeyHolderComponent, EncryptionRemovalFinishedEvent>(OnKeyRemoval);
+        SubscribeLocalEvent<EncryptionKeyHolderComponent, GetVerbsEvent<AlternativeVerb>>(OnGetKeyVerbs);
     }
 
     private void OnKeyRemoval(EntityUid uid, EncryptionKeyHolderComponent component, EncryptionRemovalFinishedEvent args)
@@ -94,7 +99,9 @@ public sealed partial class EncryptionKeySystem : EntitySystem
             args.Handled = true;
             TryInsertKey(uid, component, args);
         }
-        else if (TryComp<ToolComponent>(args.Used, out var tool)
+        // Headset screwdrivers operate the panel; individual keys are removed through verbs.
+        else if (!HasComp<HeadsetComponent>(uid)
+                 && TryComp<ToolComponent>(args.Used, out var tool)
                  && _tool.HasQuality(args.Used, component.KeysExtractionMethod, tool)
                  && component.KeyContainer.ContainedEntities.Count(key => !HasComp(key, typeof(UnremoveableComponent))) != 0) // ADT port Starlight fixed unremovable keys being removable
         {
@@ -162,9 +169,59 @@ public sealed partial class EncryptionKeySystem : EntitySystem
         UpdateChannels(uid, component);
     }
 
+    private bool CanAccessHeadsetKeys(EntityUid uid, EncryptionKeyHolderComponent component)
+    {
+        return HasComp<HeadsetComponent>(uid)
+               && component.KeysUnlocked
+               && TryComp<WiresPanelComponent>(uid, out var panel)
+               && panel.Open;
+    }
+
+    private void OnGetKeyVerbs(EntityUid uid, EncryptionKeyHolderComponent component, GetVerbsEvent<AlternativeVerb> args)
+    {
+        if (args.Hands == null || !args.CanAccess || !args.CanInteract || !CanAccessHeadsetKeys(uid, component))
+            return;
+
+        var user = args.User;
+        foreach (var key in component.KeyContainer.ContainedEntities)
+        {
+            if (HasComp<UnremoveableComponent>(key)
+                || !_container.CanRemove(key, component.KeyContainer)
+                || !_actionBlocker.CanPickup(user, key))
+                continue;
+
+            args.Verbs.Add(new AlternativeVerb
+            {
+                Text = Name(key),
+                IconEntity = GetNetEntity(key),
+                Category = VerbCategory.Eject,
+                Act = () => TryRemoveHeadsetKey(uid, component, key, user),
+            });
+        }
+    }
+
+    private void TryRemoveHeadsetKey(EntityUid uid, EncryptionKeyHolderComponent component, EntityUid key, EntityUid user)
+    {
+        // Recheck access in case the panel was closed or the key was removed after opening the menu.
+        if (!CanAccessHeadsetKeys(uid, component)
+            || !component.KeyContainer.Contains(key)
+            || HasComp<UnremoveableComponent>(key)
+            || !_actionBlocker.CanInteract(user, uid)
+            || !_actionBlocker.CanPickup(user, key)
+            || !_interaction.InRangeUnobstructed(user, uid)
+            || !_container.Remove(key, component.KeyContainer))
+            return;
+
+        _hands.PickupOrDrop(user, key, dropNear: true);
+        _audio.PlayPredicted(component.KeyExtractionSound, uid, user);
+    }
+
     private void OnHolderExamined(EntityUid uid, EncryptionKeyHolderComponent component, ExaminedEvent args)
     {
         if (!args.IsInDetailsRange)
+            return;
+
+        if (HasComp<HeadsetComponent>(uid) && !CanAccessHeadsetKeys(uid, component))
             return;
 
         // Parkstation-Ipc-Start
@@ -188,8 +245,7 @@ public sealed partial class EncryptionKeySystem : EntitySystem
         //     AddChannelsExamine(component.Channels, component.DefaultChannel, args, _protoManager, "examine-encryption-channel");
         // }
 
-        // ADT: по умолчанию скрывает каналы которые доступны при осмотре.
-        if (component.Channels.Count > 0 && !HasComp<HeadsetComponent>(uid))
+        if (component.Channels.Count > 0)
         {
             using (args.PushGroup(nameof(EncryptionKeyComponent)))
             {
