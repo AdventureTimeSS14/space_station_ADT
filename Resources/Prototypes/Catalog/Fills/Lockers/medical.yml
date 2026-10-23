@@ -126,11 +126,13 @@
     - id: ClothingMaskBreathMedical
     #ADT-Tweak-End
     - id: ClothingEyesHudMedical
-    - id: ClothingOuterHardsuitVoidParamed
+    # - id: ClothingOuterHardsuitVoidParamed
+    # ADT-Tweak: скаф или мод получаем отдельно через SuitStorage
     - id: ClothingBeltMedicalEMTFilled
     - id: ADTBloodPackTransfusionFull # ADT tweak: Blood IV
     - id: JetInjector
     - id: HandheldHealthAnalyzer
+    - id: HandheldGPSBasic # ADT-Tweak
     - id: BoxBodyBag
     - !type:GroupSelector
       children:

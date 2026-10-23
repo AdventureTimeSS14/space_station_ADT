@@ -29,6 +29,8 @@ Adventure Time - это проект русскоязычного сервера
 
 ## Лицензия
 
+Код, вмерженный в репозиторий после 2 августа 2024 года, распространяется на условиях [GNU AGPL v3](LICENSE-AGPLv3.txt); более ранний код и код апстрима Space Station 14 на условиях [MIT](LICENSE.TXT). Подробности в [LICENSING.md](LICENSING.md). Вклады принимаются при условии подписания [CLA](CLA.md).
+
 Большинство ресурсов лицензированы по [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/), если не указано иное. У ресурсов есть собственная лицензия и информация об авторском праве в метаданных файла. [Пример](https://github.com/AdventureTimeSS14/space_station_ADT/blob/master/Resources/Textures/Objects/Tools/crowbar.rsi/meta.json).
 
 Обратите внимание, что некоторые ассеты лицензированы на некоммерческой основе [CC-BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/) или аналогичной некоммерческой лицензией, и их необходимо удалить, если вы хотите использовать этот проект в коммерческих целях.

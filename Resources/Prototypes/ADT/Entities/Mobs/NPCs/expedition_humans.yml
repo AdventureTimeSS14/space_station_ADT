@@ -1,0 +1,260 @@
+- type: entity
+  abstract: true
+  parent: MobHuman
+  id: ADTMobSovietBunkerBase
+  components:
+    - type: NpcFactionMember
+      factions:
+        - ADTSovietBunker
+    - type: InputMover
+    - type: MobMover
+    - type: ADTNpcGear
+    - type: ADTNpcCombatMemory
+    - type: HTN
+      rootTask:
+        task: ADTExpeditionHumanoidCompound
+      blackboard:
+        ADTMeleeSwitchRange: !type:Single
+          1.8
+        ADTFollowRange: !type:Single
+          2.5
+        ADTMeleeLeaveRange: !type:Single
+          3.5
+        ADTPistolRange: !type:Single
+          5.5
+        ADTPistolLeaveRange: !type:Single
+          8
+        ADTEmptyPistolRange: !type:Single
+          6
+        ADTSafeReloadRangeLoose: !type:Single
+          10
+    - type: SSDIndicator
+      isSSD: false
+    - type: RandomHumanoidAppearance
+      randomizeName: false
+      clearMarkings: true
+      skinTone: 5, 45
+      hairStyles:
+      - HumanHairBuzzcut
+      - HumanHairCrewcut
+      - HumanHairCrewcut2
+      - HumanHairLowfade
+      - HumanHairMedfade
+      - HumanHairHighfade
+      - HumanHairBaldfade
+      - HumanHairNofade
+      - HumanHairSargeant
+      - HumanHairTrimmed
+      - HumanHairTrimflat
+      - HumanHairSkinhead
+      - HumanHairBusiness
+      - HumanHairClassicBusiness
+      hairColors:
+      - "#1a1a1a"
+      - "#2b2119"
+      - "#3d2b1f"
+      - "#5a3e2b"
+      - "#7a5c3e"
+      - "#a68b62"
+      - "#6e6e6e"
+      voices:
+      - tihonov_tb
+      - semen_baburin_tb
+      - boris_petrov_father_tb
+      - strelok
+      - guard_guardsman_sergeant_dow
+    - type: RandomMetadata
+      nameSegments:
+      - ADTNamesSovietRank
+      - ADTNamesSovietSurname
+      nameFormat: name-format-adt-soviet-soldier
+    - type: GhostTakeoverAvailable
+    - type: GhostRole
+      name: ghost-role-information-adt-soviet-soldier-name
+      description: ghost-role-information-adt-soviet-soldier-description
+      rules: ghost-role-information-freeagent-rules
+      raffle:
+        settings: default
+
+- type: entity
+  parent: ADTMobSovietBunkerBase
+  id: ADTMobSovietBunkerSoldier
+  name: soviet soldier
+  description: Солдат из давно забытого отряда СССП.
+  components:
+    - type: Loadout
+      prototypes:
+        - ADTSovietBunkerRiflemanGear
+        - ADTSovietBunkerShotgunnerGear
+        - ADTSovietBunkerMarksmanGear
+        - ADTSovietBunkerRocketeerGear
+        - ADTSovietBunkerSniperGear
+
+- type: entity
+  parent: ADTMobSovietBunkerBase
+  id: ADTMobSovietBunkerRifleman
+  name: soviet rifleman
+  description: Автоматчик из давно забытого отряда СССП.
+  components:
+    - type: Loadout
+      prototypes:
+        - ADTSovietBunkerRiflemanGear
+    - type: GhostRole
+      name: ghost-role-information-adt-soviet-rifleman-name
+      description: ghost-role-information-adt-soviet-rifleman-description
+
+- type: entity
+  parent: ADTMobSovietBunkerBase
+  id: ADTMobSovietBunkerShotgunner
+  name: soviet shotgunner
+  description: Штурмовик из давно забытого отряда СССП.
+  components:
+    - type: Loadout
+      prototypes:
+        - ADTSovietBunkerShotgunnerGear
+    - type: HTN
+      rootTask:
+        task: ADTExpeditionHumanoidCompound
+      blackboard:
+        ADTMeleeSwitchRange: !type:Single
+          1.8
+        ADTFollowRange: !type:Single
+          2.5
+        ADTMeleeLeaveRange: !type:Single
+          3.5
+        ADTPistolRange: !type:Single
+          0.1
+        ADTPistolLeaveRange: !type:Single
+          8
+        ADTEmptyPistolRange: !type:Single
+          8
+        ADTSafeReloadRangeLoose: !type:Single
+          8
+    - type: GhostRole
+      name: ghost-role-information-adt-soviet-shotgunner-name
+      description: ghost-role-information-adt-soviet-shotgunner-description
+
+- type: entity
+  parent: ADTMobSovietBunkerBase
+  id: ADTMobSovietBunkerMarksman
+  name: soviet marksman
+  description: Марксман из давно забытого отряда СССП.
+  components:
+    - type: Loadout
+      prototypes:
+        - ADTSovietBunkerMarksmanGear
+    - type: GhostRole
+      name: ghost-role-information-adt-soviet-marksman-name
+      description: ghost-role-information-adt-soviet-marksman-description
+
+- type: entity
+  parent: ADTMobSovietBunkerBase
+  id: ADTMobSovietBunkerRocketeer
+  name: soviet rocketeer
+  description: Ракетчик из давно забытого отряда СССП.
+  components:
+    - type: Loadout
+      prototypes:
+        - ADTSovietBunkerRocketeerGear
+    - type: GhostRole
+      name: ghost-role-information-adt-soviet-rocketeer-name
+      description: ghost-role-information-adt-soviet-rocketeer-description
+
+- type: entity
+  parent: ADTMobSovietBunkerBase
+  id: ADTMobSovietBunkerSniper
+  name: soviet sniper
+  description: Снайпер из давно забытого отряда СССП.
+  components:
+    - type: Loadout
+      prototypes:
+        - ADTSovietBunkerSniperGear
+    - type: GhostRole
+      name: ghost-role-information-adt-soviet-sniper-name
+      description: ghost-role-information-adt-soviet-sniper-description
+
+- type: entity
+  parent: ADTMobSovietBunkerBase
+  id: ADTMobSovietBunkerMedic
+  name: soviet medic
+  description: Медик из давно забытого отряда СССП.
+  components:
+    - type: Loadout
+      prototypes:
+        - ADTSovietBunkerMedicGear
+    - type: HTN
+      rootTask:
+        task: ADTExpeditionMedicCompound
+      blackboard:
+        ADTMeleeSwitchRange: !type:Single
+          1.8
+        ADTFollowRange: !type:Single
+          2.5
+        ADTMeleeLeaveRange: !type:Single
+          3.5
+        ADTPistolRange: !type:Single
+          5.5
+        ADTPistolLeaveRange: !type:Single
+          8
+        ADTEmptyPistolRange: !type:Single
+          6
+        ADTSafeReloadRangeLoose: !type:Single
+          10
+    - type: GhostRole
+      name: ghost-role-information-adt-soviet-medic-name
+      description: ghost-role-information-adt-soviet-medic-description
+
+- type: entity
+  parent: MobHuman
+  id: ADTMobSmugglerPirate
+  name: smuggler pirate
+  description: Контрабандист или пират с базы на задворках космоса.
+  components:
+    - type: NpcFactionMember
+      factions:
+        - ADTSmugglersPirates
+    - type: Loadout
+      prototypes:
+        - ADTSmugglerPirateGearPlaceholder
+    - type: InputMover
+    - type: MobMover
+    - type: ADTNpcGear
+    - type: ADTNpcCombatMemory
+    - type: HTN
+      rootTask:
+        task: ADTExpeditionHumanoidCompound
+      blackboard:
+        ADTMeleeSwitchRange: !type:Single
+          1.8
+        ADTFollowRange: !type:Single
+          2.5
+        ADTMeleeLeaveRange: !type:Single
+          3.5
+        ADTPistolRange: !type:Single
+          5.5
+        ADTPistolLeaveRange: !type:Single
+          8
+        ADTEmptyPistolRange: !type:Single
+          6
+        ADTSafeReloadRangeLoose: !type:Single
+          10
+    - type: SSDIndicator
+      isSSD: false
+    - type: RandomHumanoidAppearance
+      randomizeName: false
+      voices:
+      - bandit
+      - butch
+      - tychus
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFakeHumanFirst
+      - ADTNamesSmugglerNickname
+      nameFormat: name-format-adt-smuggler-pirate
+    - type: GhostTakeoverAvailable
+    - type: GhostRole
+      name: ghost-role-information-adt-smuggler-pirate-name
+      description: ghost-role-information-adt-smuggler-pirate-description
+      rules: ghost-role-information-freeagent-rules
+      raffle:
+        settings: default

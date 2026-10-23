@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Client.ADT.Crushers; // ADT-Tweak
 using Content.Client.Gameplay;
 using Content.Shared.ADT.Heretic.Components.Moon;
 using Content.Shared.ADT.Weapons.Melee;
@@ -33,6 +34,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
     [Dependency] private MapSystem _map = default!;
     [Dependency] private SpriteSystem _sprite = default!;
     [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private CrusherSpearSystem _crusherSpear = default!; // ADT-Tweak
 
     private const string MeleeLungeKey = "melee-lunge";
 
@@ -144,6 +146,9 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         // ADT-Tweak-Start
         if (HasComp<ADTNoWideAttackComponent>(weaponUid))
         {
+            if (altDown == BoundKeyState.Down && _crusherSpear.TryRequestThrow(weaponUid, coordinates))
+                return;
+
             if (useDown == BoundKeyState.Down)
                 ClientLightAttack(entity, mousePos, coordinates, weaponUid, weapon);
 

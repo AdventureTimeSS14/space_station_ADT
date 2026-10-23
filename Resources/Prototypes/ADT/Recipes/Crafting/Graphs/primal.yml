@@ -157,9 +157,6 @@
   targetNode: talisman
   category: construction-category-clothing
   objectType: Item
-  entityWhitelist:
-    components:
-    - ADTTribeMember
 
 - type: construction
   id: ADTBonePickaxe

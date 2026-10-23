@@ -65,6 +65,9 @@
   id: ADTOldRadio  # ADT Радио Апдейт
 
 - type: Tag
+  id: ADTMicrophoneInstrument
+
+- type: Tag
   id: ADTBorgUse
 
 - type: Tag
@@ -609,12 +612,6 @@
 
 - type: Tag
   id: ADTMinerArmor
-
-- type: Tag
-  id: ADTMinerArmorOne
-
-- type: Tag
-  id: ADTMinerArmorTwo
 
 - type: Tag
   id: ADTBsoWeapon
