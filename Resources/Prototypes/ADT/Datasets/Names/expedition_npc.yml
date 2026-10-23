@@ -1,0 +1,53 @@
+- type: localizedDataset
+  id: ADTNamesSovietRank
+  values:
+    prefix: adt-names-soviet-rank-dataset-
+    count: 6
+
+- type: localizedDataset
+  id: ADTNamesSovietSurname
+  values:
+    prefix: adt-names-soviet-surname-dataset-
+    count: 24
+
+- type: localizedDataset
+  id: ADTNamesSmugglerNickname
+  values:
+    prefix: adt-names-smuggler-nickname-dataset-
+    count: 20
+
+- type: localizedDataset
+  id: ADTExpeditionNpcJokes
+  values:
+    prefix: adt-expedition-npc-joke-
+    count: 20
+
+- type: localizedDataset
+  id: ADTExpeditionNpcChatter
+  values:
+    prefix: adt-expedition-npc-chatter-
+    count: 20
+
+- type: localizedDataset
+  id: ADTExpeditionNpcRadioContact
+  values:
+    prefix: adt-expedition-npc-radio-contact-
+    count: 5
+
+- type: localizedDataset
+  id: ADTExpeditionNpcRadioEngage
+  values:
+    prefix: adt-expedition-npc-radio-engage-
+    count: 5
+
+- type: localizedDataset
+  id: ADTExpeditionNpcRadioHelp
+  values:
+    prefix: adt-expedition-npc-radio-help-
+    count: 5
+
+- type: localizedDataset
+  id: ADTExpeditionNpcRadioMoving
+  values:
+    prefix: adt-expedition-npc-radio-moving-
+    count: 5

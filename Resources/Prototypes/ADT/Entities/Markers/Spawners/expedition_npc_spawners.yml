@@ -1,0 +1,257 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobSovietBunkerSoldierExpedition
+  name: Soviet Soldier Spawner
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+    - sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/infantryman_USSP.rsi
+      state: equipped-INNERCLOTHING
+    - sprite: ADT/Clothing/Shoes/Boots/army_boots.rsi
+      state: equipped-FEET
+    - sprite: Clothing/Hands/Gloves/combat.rsi
+      state: equipped-HAND
+    - sprite: ADT/Clothing/Belt/rps_ussp.rsi
+      state: equipped-BELT
+    - sprite: ADT/Clothing/OuterClothing/Armor/ussp_kzs1.rsi
+      state: equipped-OUTERCLOTHING
+    - sprite: ADT/Clothing/Back/backpack_OR80L.rsi
+      state: equipped-BACKPACK
+    - sprite: ADT/Clothing/Mask/usspgasmask.rsi
+      state: equipped-MASK
+    - sprite: ADT/Clothing/Head/Helmets/ussp_sfera.rsi
+      state: equipped-HELMET
+    - sprite: ADT/Objects/Weapons/Guns/Rifles/ak.rsi
+      state: inhand-right
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobSovietBunkerSoldier
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobSovietBunkerRiflemanExpedition
+  name: Soviet Rifleman Spawner
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+    - sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/infantryman_USSP.rsi
+      state: equipped-INNERCLOTHING
+    - sprite: ADT/Clothing/Shoes/Boots/army_boots.rsi
+      state: equipped-FEET
+    - sprite: Clothing/Hands/Gloves/combat.rsi
+      state: equipped-HAND
+    - sprite: ADT/Clothing/Belt/rps_ussp.rsi
+      state: equipped-BELT
+    - sprite: ADT/Clothing/OuterClothing/Armor/ussp_kzs1.rsi
+      state: equipped-OUTERCLOTHING
+    - sprite: ADT/Clothing/Back/backpack_OR80L.rsi
+      state: equipped-BACKPACK
+    - sprite: ADT/Clothing/Mask/usspgasmask.rsi
+      state: equipped-MASK
+    - sprite: ADT/Clothing/Head/Helmets/ussp_sfera.rsi
+      state: equipped-HELMET
+    - sprite: ADT/Objects/Weapons/Guns/Rifles/ak.rsi
+      state: inhand-right
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobSovietBunkerRifleman
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobSovietBunkerShotgunnerExpedition
+  name: Soviet Shotgunner Spawner
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+    - sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/infantryman_USSP.rsi
+      state: equipped-INNERCLOTHING
+    - sprite: ADT/Clothing/Shoes/Boots/army_boots.rsi
+      state: equipped-FEET
+    - sprite: Clothing/Hands/Gloves/combat.rsi
+      state: equipped-HAND
+    - sprite: ADT/Clothing/Belt/rps_ussp.rsi
+      state: equipped-BELT
+    - sprite: ADT/Clothing/OuterClothing/Armor/ussp_kzs1.rsi
+      state: equipped-OUTERCLOTHING
+    - sprite: ADT/Clothing/Back/backpack_OR80L.rsi
+      state: equipped-BACKPACK
+    - sprite: ADT/Clothing/Mask/usspgasmask.rsi
+      state: equipped-MASK
+    - sprite: ADT/Clothing/Head/Helmets/ussp_sfera.rsi
+      state: equipped-HELMET
+    - sprite: ADT/Objects/Weapons/Guns/Shotguns/sawn.rsi
+      state: inhand-right
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobSovietBunkerShotgunner
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobSovietBunkerMarksmanExpedition
+  name: Soviet Marksman Spawner
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+    - sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/infantryman_USSP.rsi
+      state: equipped-INNERCLOTHING
+    - sprite: ADT/Clothing/Shoes/Boots/army_boots.rsi
+      state: equipped-FEET
+    - sprite: Clothing/Hands/Gloves/combat.rsi
+      state: equipped-HAND
+    - sprite: ADT/Clothing/Belt/rps_ussp.rsi
+      state: equipped-BELT
+    - sprite: ADT/Clothing/OuterClothing/Armor/ussp_kzs1.rsi
+      state: equipped-OUTERCLOTHING
+    - sprite: ADT/Clothing/Back/backpack_OR80L.rsi
+      state: equipped-BACKPACK
+    - sprite: ADT/Clothing/Mask/usspgasmask.rsi
+      state: equipped-MASK
+    - sprite: ADT/Clothing/Head/Helmets/ussp_sfera.rsi
+      state: equipped-HELMET
+    - sprite: ADT/ADTGlobalEvents/WorldWar1/Objects/Weapons/Guns/Rifles/mosin.rsi
+      state: inhand-right
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobSovietBunkerMarksman
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobSovietBunkerRocketeerExpedition
+  name: Soviet Rocketeer Spawner
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+    - sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/infantryman_USSP.rsi
+      state: equipped-INNERCLOTHING
+    - sprite: ADT/Clothing/Shoes/Boots/army_boots.rsi
+      state: equipped-FEET
+    - sprite: Clothing/Hands/Gloves/combat.rsi
+      state: equipped-HAND
+    - sprite: ADT/Clothing/Belt/rps_ussp.rsi
+      state: equipped-BELT
+    - sprite: ADT/Clothing/OuterClothing/Armor/ussp_kzs1.rsi
+      state: equipped-OUTERCLOTHING
+    - sprite: ADT/Clothing/Back/backpack_OR80L.rsi
+      state: equipped-BACKPACK
+    - sprite: ADT/Clothing/Mask/usspgasmask.rsi
+      state: equipped-MASK
+    - sprite: ADT/Clothing/Head/Helmets/ussp_sfera.rsi
+      state: equipped-HELMET
+    - sprite: Objects/Weapons/Guns/Launchers/rocket.rsi
+      state: inhand-right
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobSovietBunkerRocketeer
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobSovietBunkerSniperExpedition
+  name: Soviet Sniper Spawner
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+    - sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/infantryman_USSP.rsi
+      state: equipped-INNERCLOTHING
+    - sprite: ADT/Clothing/Shoes/Boots/army_boots.rsi
+      state: equipped-FEET
+    - sprite: Clothing/Hands/Gloves/combat.rsi
+      state: equipped-HAND
+    - sprite: ADT/Clothing/Belt/rps_ussp.rsi
+      state: equipped-BELT
+    - sprite: ADT/Clothing/OuterClothing/Armor/ussp_kzs1.rsi
+      state: equipped-OUTERCLOTHING
+    - sprite: ADT/Clothing/Back/backpack_OR80L.rsi
+      state: equipped-BACKPACK
+    - sprite: ADT/Clothing/Mask/usspgasmask.rsi
+      state: equipped-MASK
+    - sprite: ADT/Clothing/Head/Helmets/ussp_sfera.rsi
+      state: equipped-HELMET
+    - sprite: Objects/Weapons/Guns/Snipers/heavy_sniper.rsi
+      state: inhand-right
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobSovietBunkerSniper
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobSovietBunkerMedicExpedition
+  name: Soviet Medic Spawner
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+    - sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/infantryman_USSP.rsi
+      state: equipped-INNERCLOTHING
+    - sprite: ADT/Clothing/Shoes/Boots/army_boots.rsi
+      state: equipped-FEET
+    - sprite: Clothing/Hands/Gloves/combat.rsi
+      state: equipped-HAND
+    - sprite: ADT/Clothing/Belt/rps_ussp.rsi
+      state: equipped-BELT
+    - sprite: ADT/Clothing/OuterClothing/Armor/ussp_kzs1.rsi
+      state: equipped-OUTERCLOTHING
+    - sprite: ADT/Objects/Specific/Medical/high-volt_defib.rsi
+      state: equipped-SUITSTORAGE
+    - sprite: ADT/Clothing/Back/backpack_OR80L.rsi
+      state: equipped-BACKPACK
+    - sprite: ADT/Clothing/Mask/usspgasmask.rsi
+      state: equipped-MASK
+    - sprite: ADT/Clothing/Head/Helmets/ussp_sfera.rsi
+      state: equipped-HELMET
+    - sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+      state: inhand-right
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobSovietBunkerMedic
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobSmugglerPirateExpedition
+  name: Smuggler Pirate Spawner
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+    - sprite: Clothing/Uniforms/Jumpsuits/Special/operative.rsi
+      state: equipped-INNERCLOTHING
+    - sprite: Clothing/Shoes/Boots/combatboots.rsi
+      state: equipped-FEET
+    - sprite: Clothing/Back/Backpacks/salvage.rsi
+      state: equipped-BACKPACK
+    - sprite: Clothing/Mask/gassyndicate.rsi
+      state: equipped-MASK
+    - sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+      state: inhand-right
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobSmugglerPirate
