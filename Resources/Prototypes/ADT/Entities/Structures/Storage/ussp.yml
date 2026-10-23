@@ -121,6 +121,7 @@
   - type: Construction
     graph: ADTBarrelHoney
     node: closed
+    deconstructionTarget: null
 
 - type: entity
   parent: ADTBarrelWoodenOpen
@@ -147,3 +148,4 @@
   - type: Construction
     graph: ADTBarrelHoney
     node: open
+    deconstructionTarget: null
