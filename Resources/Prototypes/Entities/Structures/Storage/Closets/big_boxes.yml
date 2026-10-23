@@ -41,12 +41,12 @@
       damageContainer: Box
     - type: Destructible
       thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 15
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
+        - trigger:
+            !type:DamageTrigger
+            damage: 15
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
     - type: Sprite
       noRot: true
       sprite: Structures/Storage/boxes.rsi
