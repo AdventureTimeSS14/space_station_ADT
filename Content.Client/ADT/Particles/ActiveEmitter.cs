@@ -113,13 +113,9 @@ public sealed class ActiveEmitter
     /// <summary>Dead particles available for reuse.</summary>
     public readonly Queue<ParticleData> FreePool = new();
 
-    public bool HasLiveParticles()
-    {
-        foreach (var p in Particles)
-        {
-            if (p.Alive)
-                return true;
-        }
-        return false;
-    }
+    public int LiveCount;
+
+    public float FramePriority;
+
+    public bool HasLiveParticles() => LiveCount > 0;
 }

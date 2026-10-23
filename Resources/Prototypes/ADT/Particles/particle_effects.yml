@@ -31,6 +31,16 @@
     type: CircleFill
     radius: 0.1
 
+- type: entity
+  id: OverlayWeldSparksEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ParticleEmitter
+    effect: ADTWeldingSparks
+  - type: Tag
+    tags:
+      - HideContextMenu
+
 - type: particleEffect
   id: ADTWeldingBurst
   sprite:

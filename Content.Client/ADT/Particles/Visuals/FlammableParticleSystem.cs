@@ -24,7 +24,6 @@ public sealed class FlammableParticleSystem : EntitySystem
     {
         public ActiveEmitter? FireEmitter;
         public ActiveEmitter? SmokeEmitter;
-        public bool OnFire;
     }
 
     private readonly Dictionary<EntityUid, FireState> _active = new();
@@ -34,6 +33,7 @@ public sealed class FlammableParticleSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<FlammableComponent, AppearanceChangeEvent>(OnAppearanceChange);
         SubscribeLocalEvent<FlammableComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<ParticleSettingsChangedEvent>(OnSettingsChanged);
     }
 
     private void OnAppearanceChange(Entity<FlammableComponent> ent, ref AppearanceChangeEvent args)
@@ -44,60 +44,92 @@ public sealed class FlammableParticleSystem : EntitySystem
         if (!_appearance.TryGetData(ent, FireVisuals.FireStacks, out float stacks))
             stacks = 0f;
 
-        if (!_active.TryGetValue(ent, out var state))
+        if (onFire)
         {
-            state = new FireState();
-            _active[ent] = state;
-        }
-
-        if (onFire && !state.OnFire)
-        {
-            // Ignited: spawn emitter
             var coords = _transform.GetMapCoordinates(ent);
-            state.SmokeEmitter = _particles.SpawnEffect(SmokeEffect, coords, ent.Owner);
-            state.FireEmitter  = _particles.SpawnEffect(FireEffect,  coords, ent.Owner);
 
-            if (state.SmokeEmitter != null) state.SmokeEmitter.Intensity = 1f;
-            if (state.FireEmitter != null)  state.FireEmitter.Intensity  = 1f;
+            if (!_active.TryGetValue(ent, out var state))
+            {
+                state = new FireState
+                {
+                    SmokeEmitter = _particles.SpawnEffect(SmokeEffect, coords, ent.Owner),
+                    FireEmitter  = _particles.SpawnEffect(FireEffect,  coords, ent.Owner),
+                };
+                _active[ent] = state;
+            }
+            else
+            {
+                if (state.FireEmitter == null || state.FireEmitter.Exhausted)
+                {
+                    var fresh = _particles.SpawnEffect(FireEffect, coords, ent.Owner);
+                    if (fresh != null)
+                        state.FireEmitter = fresh;
+                }
+                if (state.SmokeEmitter == null || state.SmokeEmitter.Exhausted)
+                {
+                    var fresh = _particles.SpawnEffect(SmokeEffect, coords, ent.Owner);
+                    if (fresh != null)
+                        state.SmokeEmitter = fresh;
+                }
+            }
 
-            state.OnFire = true;
+            // Update intensity on live emitters
+            if (state.FireEmitter != null || state.SmokeEmitter != null)
+            {
+                var intensity = Math.Clamp(stacks / MaxStacks * 2f, 1f, 2f);
+                if (state.FireEmitter != null)
+                    state.FireEmitter.Intensity = intensity;
+                if (state.SmokeEmitter != null)
+                    state.SmokeEmitter.Intensity = intensity;
+            }
         }
-        else if (!onFire && state.OnFire)
+        else if (_active.Remove(ent, out var state))
         {
-            // Extinguished: stop emitters
-            StopState(state);
-            state.OnFire = false;
-        }
-
-        // Update intensity on live emitters
-        if (state.OnFire)
-        {
-            var intensity = Math.Clamp(stacks / MaxStacks * 2f, 1f, 2f);
-            if (state.FireEmitter != null)
-                state.FireEmitter.Intensity = intensity;
-            if (state.SmokeEmitter != null)
-                state.SmokeEmitter.Intensity = intensity;
+            state.FireEmitter?.Exhausted = true;
+            state.SmokeEmitter?.Exhausted = true;
         }
     }
 
     private void OnShutdown(Entity<FlammableComponent> ent, ref ComponentShutdown args)
     {
         if (_active.Remove(ent, out var state))
-            StopState(state);
+        {
+            state.FireEmitter?.Exhausted = true;
+            state.SmokeEmitter?.Exhausted = true;
+        }
     }
 
-    private void StopState(FireState state)
+    private void OnSettingsChanged(ParticleSettingsChangedEvent ev)
     {
-        if (state.FireEmitter != null)
-        {
-            state.FireEmitter.Exhausted = true;
-            state.FireEmitter = null;
-        }
+        if (ev.Quality == 0)
+            return;
 
-        if (state.SmokeEmitter != null)
+        var enumerator = EntityQueryEnumerator<FlammableComponent, AppearanceComponent>();
+        while (enumerator.MoveNext(out var uid, out _, out _))
         {
-            state.SmokeEmitter.Exhausted = true;
-            state.SmokeEmitter = null;
+            if (!_appearance.TryGetData(uid, FireVisuals.OnFire, out bool onFire) || !onFire)
+                continue;
+
+            _active.TryGetValue(uid, out var state);
+
+            state?.FireEmitter?.Exhausted = true;
+            state?.SmokeEmitter?.Exhausted = true;
+
+            var coords = _transform.GetMapCoordinates(uid);
+            var fire = _particles.SpawnEffect(FireEffect, coords, uid);
+            var smoke = _particles.SpawnEffect(SmokeEffect, coords, uid);
+
+            if (state != null)
+            {
+                if (fire != null)
+                    state.FireEmitter = fire;
+                if (smoke != null)
+                    state.SmokeEmitter = smoke;
+            }
+            else if (fire != null || smoke != null)
+            {
+                _active[uid] = new FireState { FireEmitter = fire, SmokeEmitter = smoke };
+            }
         }
     }
 }
