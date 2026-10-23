@@ -16,3 +16,17 @@ ent-ADTMobShockSpider = паушок
 ent-ADTMobBSCrab = рудокраб
     .desc = Рудный краб, состоящий из блюспейс кристалла.
     .suffix = Блюспейс кристалл
+ent-ADTMobLavalandGoliath = голиаф
+    .desc = Громадный зверь в бронированном панцире, со щупальцами, изгибающимися у него за спиной.
+
+ent-ADTMobLavalandGoliathAncient = древний голиаф
+    .desc = Голиафы биологически бессмертны, и редкие особи живут веками. Этот явно древний, и его щупальца постоянно взрыхляют землю вокруг.
+
+ent-ADTEffectLavalandGoliathTentacle = щупальце голиафа
+    .desc = { "" }
+
+ent-ADTEffectLavalandGoliathChargeDecoy = { "" }
+    .desc = { "" }
+
+ent-ADTEffectLavalandGoliathAncientChargeDecoy = { "" }
+    .desc = { "" }

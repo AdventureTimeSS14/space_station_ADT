@@ -164,6 +164,17 @@ public abstract partial class ClothingSystem : EntitySystem
         Dirty(uid, clothing);
     }
 
+    // ADT-Tweak-Start
+    public void SetRsiPath(EntityUid uid, string? path, ClothingComponent? clothing = null)
+    {
+        if (!Resolve(uid, ref clothing, false) || clothing.RsiPath == path)
+            return;
+
+        clothing.RsiPath = path;
+        _itemSys.VisualsChanged(uid);
+    }
+    // ADT-Tweak-End
+
     public void SetSlots(EntityUid uid, SlotFlags slots, ClothingComponent? clothing = null)
     {
         if (!Resolve(uid, ref clothing))

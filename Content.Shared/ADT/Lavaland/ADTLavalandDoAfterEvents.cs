@@ -41,6 +41,3 @@ public sealed partial class ADTBaitDigDoAfterEvent : DoAfterEvent
 
     public override DoAfterEvent Clone() => this;
 }
-
-[Serializable, NetSerializable]
-public sealed partial class ADTGoliathPlateDoAfterEvent : SimpleDoAfterEvent;

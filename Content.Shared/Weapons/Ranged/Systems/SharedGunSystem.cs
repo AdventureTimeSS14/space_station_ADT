@@ -253,7 +253,8 @@ public abstract partial class SharedGunSystem : EntitySystem
 
         if (TryComp<ADTWearableGunUserComponent>(entity, out var wearableUser) &&
             TryComp(wearableUser.Gun, out GunComponent? wearableGun) &&
-            (_hands.GetActiveItem(entity) is not { } inHand || HasComp<VirtualItemComponent>(inHand)))
+            (_hands.GetActiveItem(entity) is not { } inHand ||
+             TryComp<VirtualItemComponent>(inHand, out var virtualItem) && !_hands.IsHolding(entity, virtualItem.BlockingEntity)))
         {
             gun = (wearableUser.Gun.Value, wearableGun);
             return true;

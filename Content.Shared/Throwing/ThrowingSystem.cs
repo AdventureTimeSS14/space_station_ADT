@@ -14,6 +14,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
+using Content.Shared.ADT.Throwing; // ADT-Tweak
 
 namespace Content.Shared.Throwing;
 
@@ -149,6 +150,13 @@ public sealed partial class ThrowingSystem : EntitySystem
 
         if ((physics.BodyType & (BodyType.Dynamic | BodyType.KinematicController)) == 0x0)
             return false;
+
+        // ADT-Tweak start
+        var beforeThrown = new ADTBeforeThrownEvent(user);
+        RaiseLocalEvent(uid, ref beforeThrown);
+        if (beforeThrown.Cancelled)
+            return false;
+        // ADT-Tweak end
 
         // Allow throwing if this projectile only acts as a projectile when shot, otherwise disallow
         if (_projectileQuery.TryComp(uid, out var proj) && !proj.OnlyCollideWhenShot)
