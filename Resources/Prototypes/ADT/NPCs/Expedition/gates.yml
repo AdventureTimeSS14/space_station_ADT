@@ -1,0 +1,65 @@
+- type: htnCompound
+  id: ADTGateMeleeSwitch
+  branches:
+    - tasks:
+        - !type:HTNPrimitiveTask
+          preconditions:
+            - !type:TargetInRangePrecondition
+              targetKey: Target
+              rangeKey: ADTMeleeSwitchRange
+          operator: !type:NoOperator
+
+- type: htnCompound
+  id: ADTGateMeleeLeave
+  branches:
+    - tasks:
+        - !type:HTNPrimitiveTask
+          preconditions:
+            - !type:TargetInRangePrecondition
+              targetKey: Target
+              rangeKey: ADTMeleeLeaveRange
+          operator: !type:NoOperator
+
+- type: htnCompound
+  id: ADTGatePistol
+  branches:
+    - tasks:
+        - !type:HTNPrimitiveTask
+          preconditions:
+            - !type:TargetInRangePrecondition
+              targetKey: Target
+              rangeKey: ADTPistolRange
+          operator: !type:NoOperator
+
+- type: htnCompound
+  id: ADTGatePistolLeave
+  branches:
+    - tasks:
+        - !type:HTNPrimitiveTask
+          preconditions:
+            - !type:TargetInRangePrecondition
+              targetKey: Target
+              rangeKey: ADTPistolLeaveRange
+          operator: !type:NoOperator
+
+- type: htnCompound
+  id: ADTGateEmptyPistol
+  branches:
+    - tasks:
+        - !type:HTNPrimitiveTask
+          preconditions:
+            - !type:TargetInRangePrecondition
+              targetKey: Target
+              rangeKey: ADTEmptyPistolRange
+          operator: !type:NoOperator
+
+- type: htnCompound
+  id: ADTGateSafeReload
+  branches:
+    - tasks:
+        - !type:HTNPrimitiveTask
+          preconditions:
+            - !type:TargetInRangePrecondition
+              targetKey: Target
+              rangeKey: ADTSafeReloadRangeLoose
+          operator: !type:NoOperator
