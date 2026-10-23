@@ -9,7 +9,7 @@ public sealed partial class ADTMineralComponent : Component
     [DataField, AutoNetworkedField]
     public int Hardness = 1;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public int MaxHardness = 1;
 
     [DataField]
@@ -27,7 +27,7 @@ public sealed partial class ADTMineralComponent : Component
     [DataField]
     public float DevastationIntensity = 8f;
 
-    [ViewVariables]
+    [ViewVariables, AutoNetworkedField]
     public bool Breaking;
 }
 

@@ -1,3 +1,4 @@
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -21,6 +22,9 @@ public sealed partial class ADTDrakeLavaWarningComponent : Component
 
     [DataField]
     public float MechDamage = 45f;
+
+    [DataField]
+    public EntityWhitelist? ExtraTargets;
 
     [DataField]
     public EntProtoId TempLavaProto = "ADTDrakeTempLava";
