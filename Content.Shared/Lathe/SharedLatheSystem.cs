@@ -30,15 +30,10 @@ public abstract partial class SharedLatheSystem : EntitySystem
 
     [Dependency] private AccessReaderSystem _accessReader = default!;
 
-    public bool CanManageProductionLock(EntityUid uid, EntityUid user)
-    {
-        return HasComp<AccessReaderComponent>(uid) && _accessReader.IsAllowed(user, uid);
-    }
-
     public bool CanUseProduction(EntityUid uid, EntityUid user, LatheComponent? component = null)
     {
         return Resolve(uid, ref component) &&
-               (!component.ProductionLocked || CanManageProductionLock(uid, user));
+               (!HasComp<AccessReaderComponent>(uid) || _accessReader.IsAllowed(user, uid));
     }
 
     public readonly Dictionary<string, List<LatheRecipePrototype>> InverseRecipes = new();

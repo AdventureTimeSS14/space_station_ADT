@@ -1,4 +1,4 @@
-﻿lathe-menu-title = Меню станка
+lathe-menu-title = Меню станка
 lathe-menu-queue = Очередь
 lathe-menu-server-list = Список серверов
 lathe-menu-sync = Синхр.
@@ -40,8 +40,4 @@ lathe-menu-move-down-tooltip = Перенести эту партию назад
 lathe-menu-item-single = { $index }. { $name }
 lathe-menu-item-batch = { $index }. { $name } ({ $printed }/{ $total })
 
-lathe-production-access-denied = Заблокировано.
-lathe-menu-production-locked = Только для сотрудников с доступом
-lathe-menu-production-unlocked = Разблокирован
-lathe-menu-unlock-production = Разблокировать.
-lathe-menu-lock-production = Заблокировать.
+lathe-production-access-denied = Недостаточно доступа для производства.

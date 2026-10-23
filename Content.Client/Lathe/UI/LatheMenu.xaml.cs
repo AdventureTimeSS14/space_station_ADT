@@ -32,7 +32,6 @@ public sealed partial class LatheMenu : FancyWindow
     [Dependency] private IPlayerManager _player = default!;
     private bool _canUseProduction;
     private float _accessRefreshTimer;
-    public event Action<bool>? ProductionLockAction;
 
     private readonly SpriteSystem _spriteSystem;
     private readonly LatheSystem _lathe;
@@ -81,11 +80,6 @@ public sealed partial class LatheMenu : FancyWindow
 
         FilterOption.OnItemSelected += OnItemSelected;
 
-        ProductionLockButton.OnPressed += _ =>
-        {
-            if (_entityManager.TryGetComponent(Entity, out LatheComponent? lathe))
-                ProductionLockAction?.Invoke(!lathe.ProductionLocked);
-        };
         ServerListButton.OnPressed += a => OnServerListButtonPressed?.Invoke(a);
         DeleteFabricating.OnPressed += _ => DeleteFabricatingAction?.Invoke();
     }
@@ -121,15 +115,9 @@ public sealed partial class LatheMenu : FancyWindow
 
     public bool RefreshProductionAccess()
     {
-        var hasLathe = _entityManager.TryGetComponent(Entity, out LatheComponent? lathe);
-        var locked = !hasLathe || lathe!.ProductionLocked;
-        var hasAccess = _player.LocalEntity is { } user && _lathe.CanManageProductionLock(Entity, user);
-        var canUse = hasLathe && (!locked || hasAccess);
+        var canUse = _player.LocalEntity is { } user && _lathe.CanUseProduction(Entity, user);
         var changed = _canUseProduction != canUse;
         _canUseProduction = canUse;
-        ProductionLockStatus.Text = Loc.GetString(locked ? "lathe-menu-production-locked" : "lathe-menu-production-unlocked");
-        ProductionLockButton.Text = Loc.GetString(locked ? "lathe-menu-unlock-production" : "lathe-menu-lock-production");
-        ProductionLockButton.Disabled = !hasAccess;
         DeleteFabricating.Disabled = !canUse;
         foreach (var child in QueueList.Children)
         {

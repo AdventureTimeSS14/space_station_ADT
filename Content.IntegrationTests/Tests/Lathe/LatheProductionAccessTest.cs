@@ -2,23 +2,24 @@
 using Content.IntegrationTests.Fixtures;
 using Content.IntegrationTests.Fixtures.Attributes;
 using Content.Server.Lathe;
+using Content.Shared.Access.Components;
 using Content.Shared.Lathe;
 using Robust.Shared.GameObjects;
+using Robust.Shared.Prototypes;
 
 namespace Content.IntegrationTests.Tests.Lathe;
 
 [TestOf(typeof(LatheSystem))]
 public sealed class LatheProductionAccessTest : GameTest
 {
-    [SidedDependency(Side.Server)] private readonly LatheSystem _lathe = null!;
+    [SidedDependency(Side.Server)] private LatheSystem _lathe = null!;
 
     [TestPrototypes]
     private const string Prototypes = @"
 - type: entity
-  id: TestProductionLockLathe
+  id: TestProductionAccessLathe
   components:
   - type: Lathe
-    productionLocked: true
   - type: AccessReader
     access:
     - [Research]
@@ -28,7 +29,7 @@ public sealed class LatheProductionAccessTest : GameTest
         type: LatheBoundUserInterface
 
 - type: entity
-  id: TestProductionLockOperator
+  id: TestProductionAccessOperator
   components:
   - type: Access
     tags: [Research]
@@ -36,33 +37,44 @@ public sealed class LatheProductionAccessTest : GameTest
 
     [Test]
     [RunOnSide(Side.Server)]
-    public void LockRestrictsVisitorsButNotAuthorizedOperators()
+    public void ProductionRequiresAccess()
     {
-        var machine = SSpawn("TestProductionLockLathe");
+        var machine = SSpawn("TestProductionAccessLathe");
         var visitor = SSpawn(null);
-        var authorized = SSpawn("TestProductionLockOperator");
-        var component = SComp<LatheComponent>(machine);
+        var authorized = SSpawn("TestProductionAccessOperator");
 
-        Assert.That(_lathe.CanUseProduction(machine, visitor), Is.False);
-        Assert.That(_lathe.CanUseProduction(machine, authorized), Is.True);
-        Assert.That(_lathe.TrySetProductionLocked(machine, visitor, false), Is.False);
-        Assert.That(component.ProductionLocked, Is.True);
-
-        Assert.That(_lathe.TrySetProductionLocked(machine, authorized, false), Is.True);
-        Assert.That(_lathe.CanUseProduction(machine, visitor), Is.True);
-        Assert.That(_lathe.TrySetProductionLocked(machine, visitor, true), Is.False);
-        Assert.That(component.ProductionLocked, Is.False);
-
-        Assert.That(_lathe.TrySetProductionLocked(machine, authorized, true), Is.True);
         Assert.That(_lathe.CanUseProduction(machine, visitor), Is.False);
         Assert.That(_lathe.CanUseProduction(machine, authorized), Is.True);
     }
 
     [Test]
     [RunOnSide(Side.Server)]
-    public void LockedLatheRejectsVisitorQueueMessages()
+    public void LathesWithoutAccessReadersRemainUnrestricted()
     {
-        var machine = SSpawn("TestProductionLockLathe");
+        var machine = SSpawn("TestProductionAccessLathe");
+        var visitor = SSpawn(null);
+        SEntMan.RemoveComponent<AccessReaderComponent>(machine);
+        Assert.That(_lathe.CanUseProduction(machine, visitor), Is.True);
+    }
+
+    [TestCase("Protolathe")]
+    [TestCase("ProtolatheHyperConvection")]
+    [TestCase("CircuitImprinter")]
+    [TestCase("CircuitImprinterHyperConvection")]
+    [RunOnSide(Side.Server)]
+    public void RestrictedMachinesAllowRecipeBrowsing(string id)
+    {
+        var prototype = SProtoMan.Index<EntityPrototype>(id);
+        var factory = Server.ResolveDependency<IComponentFactory>();
+        Assert.That(prototype.HasComp<ActivatableUIRequiresAccessComponent>(factory), Is.False);
+        Assert.That(prototype.HasComp<AccessReaderComponent>(factory), Is.True);
+    }
+
+    [Test]
+    [RunOnSide(Side.Server)]
+    public void ProductionRejectsVisitorQueueMessages()
+    {
+        var machine = SSpawn("TestProductionAccessLathe");
         var visitor = SSpawn(null);
         var component = SComp<LatheComponent>(machine);
         var first = new LatheRecipeBatch("SheetSteel", 0, 1);

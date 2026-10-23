@@ -75,7 +75,6 @@ namespace Content.Server.Lathe
             SubscribeLocalEvent<LatheComponent, ResearchRegistrationChangedEvent>(OnResearchRegistrationChanged);
 
             SubscribeLocalEvent<LatheComponent, LatheQueueRecipeMessage>(OnLatheQueueRecipeMessage);
-            SubscribeLocalEvent<LatheComponent, LatheSetProductionLockedMessage>(OnSetProductionLocked);
 
             // ADT-Tweak-Start
             SubscribeLocalEvent<LatheComponent, EntInsertedIntoContainerMessage>(OnReagentSlotChanged);
@@ -609,28 +608,6 @@ namespace Content.Server.Lathe
         }
 
         #region UI Messages
-
-        public bool TrySetProductionLocked(EntityUid uid, EntityUid user, bool locked, LatheComponent? component = null)
-        {
-            if (!Resolve(uid, ref component) || !CanManageProductionLock(uid, user))
-                return false;
-
-            if (component.ProductionLocked == locked)
-                return true;
-
-            component.ProductionLocked = locked;
-            Dirty(uid, component);
-            UpdateUserInterfaceState(uid, component);
-            _adminLogger.Add(LogType.Action, LogImpact.Low,
-                $"{ToPrettyString(user):player} set production lock to {locked} at {ToPrettyString(uid):lathe}");
-            return true;
-        }
-
-        private void OnSetProductionLocked(EntityUid uid, LatheComponent component, LatheSetProductionLockedMessage args)
-        {
-            if (!TrySetProductionLocked(uid, args.Actor, args.Locked, component))
-                _popup.PopupEntity(Loc.GetString("lathe-production-access-denied"), uid, args.Actor);
-        }
 
         private bool CheckProductionAccess(EntityUid uid, EntityUid user, LatheComponent component)
         {

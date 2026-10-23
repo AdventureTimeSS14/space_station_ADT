@@ -20,8 +20,6 @@
                 VerticalExpand="True"
                 HorizontalExpand="True"
                 SeparationOverride="5">
-                <Label Name="ProductionLockStatus" Margin="5 0 5 0" />
-                <Button Name="ProductionLockButton" Text="{Loc 'lathe-menu-unlock-production'}" />
                 <BoxContainer Orientation="Horizontal"
                     HorizontalExpand="True">
                     <LineEdit
