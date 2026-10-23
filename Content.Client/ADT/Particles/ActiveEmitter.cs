@@ -34,7 +34,7 @@ public sealed class ActiveEmitter
     /// <summary>Time elapsed since this emitter was created.</summary>
     public TimeSpan Age;
 
-    /// <summary>Eemission accumulator for sub-tick emission rates.</summary>
+    /// <summary>Emission accumulator for sub-tick emission rates.</summary>
     public float EmitAccum;
 
     /// <summary>True once the emitter stops producing new particles. Existing particles live out their lifetimes.</summary>
@@ -92,7 +92,7 @@ public sealed class ActiveEmitter
     /// Single-frame sprites have one entry and empty Delays.</summary>
     public Texture[] Frames = Array.Empty<Texture>();
 
-    /// <summary>frame delays when an RSI defines animation.</summary>
+    /// <summary>Frame delays when an RSI defines animation.</summary>
     public float[] Delays = Array.Empty<float>();
 
     public int AnimFrame;
@@ -101,25 +101,31 @@ public sealed class ActiveEmitter
     // =^..^= Particles =^..^=
 
     // ParticleData objects are never removed from Particles once added.
-    // When a particle dies it's marked Alive = false and pushed onto FreePool.
-    // The next emission pops from FreePool and resets the object rather than allocating a new one.
-    // This avoids GC pressure from short lived allocations during heavy emission.
-    // The simulation loop still iterates the full Particles list each frame, so a very large
-    // list with mostly dead slots can waste time, <b>emitters should keep MaxCount reasonable.</b>
+    // Live particles are kept densely packed at the front of the list ([0, LiveTail)).
+    // When a particle dies, KillParticle swaps it with the last live particle and decrements
+    // LiveTail, parking the dead slot at the tail for reuse. The next emission takes a slot
+    // from the tail (if any) or appends a new one, so no per-particle allocation happens
+    // after warmup and the simulation loop only ever iterates live slots.
 
-    /// <summary>All particle slots, including dead ones held for pooling.</summary>
+    /// <summary>
+    /// All particle slots. Live particles occupy indices [0, <see cref="LiveTail"/>);
+    /// dead slots are parked at [<see cref="LiveTail"/>, Count) and reused by EmitParticle.
+    /// </summary>
     public readonly List<ParticleData> Particles = new();
 
-    /// <summary>Dead particles available for reuse.</summary>
-    public readonly Queue<ParticleData> FreePool = new();
+    /// <summary>
+    /// Number of live particles at the front of <see cref="Particles"/>. Invariant:
+    /// every index in [0, LiveTail) is alive, every index in [LiveTail, Count) is dead.
+    /// Kept in sync by <see cref="ParticleSystem.KillParticle"/> and EmitParticle.
+    /// </summary>
+    public int LiveTail;
 
-    public bool HasLiveParticles()
-    {
-        foreach (var p in Particles)
-        {
-            if (p.Alive)
-                return true;
-        }
-        return false;
-    }
+    /// <summary>
+    /// Distance-based priority recomputed periodically by <see cref="ParticleSystem.FrameUpdate"/>.
+    /// Nearest in-view emitters get first pick of the global particle budget; exhausted and
+    /// other-map emitters are scheduled last.
+    /// </summary>
+    public float FramePriority;
+
+    public bool HasLiveParticles() => LiveTail > 0;
 }
