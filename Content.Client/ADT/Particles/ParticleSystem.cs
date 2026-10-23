@@ -42,7 +42,7 @@ public sealed partial class ParticleSystem : EntitySystem
     public const int MaxSubEmitterDepth = 3;
     private ParticleOverlay _overlay = default!;
 
-    // Tally of live particles across all emitters. Incremented in EmitParticle, decremented on every Alive=false path.
+    // Tally of live particles across all emitters. Incremented in EmitParticle, decremented on every kill path.
     private int _liveParticleCount;
 
     // Per-prototype texture/delay cache so multiple emitters sharing a prototype don't re-resolve the same RSI frames.
@@ -60,6 +60,9 @@ public sealed partial class ParticleSystem : EntitySystem
     private int _lodThreshold = 48;
     private float _lodScale = 1f;
     private int _inViewEmitters;
+
+    private const int SortIntervalFrames = 10;
+    private int _sortCooldown;
 
     // Incrementing handle counter. Old values are abandoned when emitters die, handles are never reused.
     // uint gives ~4 billion spawns before wrapping, if this causes problems, you scare me.
@@ -322,13 +325,12 @@ public sealed partial class ParticleSystem : EntitySystem
                 var e = _emitters[i];
                 if (e.Proto.IgnoreQualitySettings)
                     continue;
-                foreach (var p in e.Particles)
-                {
-                    if (!p.Alive) continue;
-                    p.Alive = false;
-                    _liveParticleCount--;
-                }
-                e.LiveCount = 0;
+
+                for (var j = 0; j < e.LiveTail; j++)
+                    e.Particles[j].Alive = false;
+
+                _liveParticleCount -= e.LiveTail;
+                e.LiveTail = 0;
                 e.Exhausted = true;
                 _emitters.RemoveAt(i);
             }
@@ -350,14 +352,18 @@ public sealed partial class ParticleSystem : EntitySystem
             ? Math.Clamp(MathF.Sqrt(_lodThreshold / (float)Math.Max(1, _inViewEmitters)), MinLodScale, 1f)
             : 1f;
 
-        foreach (var e in _emitters)
+        if (--_sortCooldown <= 0)
         {
-            var distSq = e.MapCoords.MapId == currentMapId
-                ? (e.MapCoords.Position - eyePos).LengthSquared()
-                : float.MaxValue / 2f;
-            e.FramePriority = (e.Exhausted ? float.MaxValue / 4f : 0f) + distSq;
+            _sortCooldown = SortIntervalFrames;
+            foreach (var e in _emitters)
+            {
+                var distSq = e.MapCoords.MapId == currentMapId
+                    ? (e.MapCoords.Position - eyePos).LengthSquared()
+                    : float.MaxValue / 2f;
+                e.FramePriority = (e.Exhausted ? float.MaxValue / 4f : 0f) + distSq;
+            }
+            _emitters.Sort(FramePriorityComparison);
         }
-        _emitters.Sort(FramePriorityComparison);
 
         _pendingSubEmitters.Clear();
         _inViewEmitters = 0;
@@ -407,7 +413,7 @@ public sealed partial class ParticleSystem : EntitySystem
 
     #region =^..^= Emitter Internals =^..^=
 
-    // <summary>Creates a new ActiveEmitter from a prototype and initial state.</summary>
+     // <summary>Creates a new ActiveEmitter from a prototype and initial state.</summary>
     private ActiveEmitter? CreateEmitter(ParticleEffectPrototype proto, MapCoordinates coords, EntityUid? attached)
     {
         var emitter = new ActiveEmitter
@@ -466,6 +472,25 @@ public sealed partial class ParticleSystem : EntitySystem
 
     /// <summary>Updates the intensity multiplier on a running emitter by direct reference.</summary>
     public static void UpdateIntensity(ActiveEmitter emitter, float intensity) => emitter.Intensity = intensity;
+
+    private static void KillParticle(ActiveEmitter emitter, ParticleData p)
+    {
+        p.Alive = false;
+
+        var lastIndex = emitter.LiveTail - 1;
+        var index = p.ParticlesIndex;
+
+        if (index != lastIndex)
+        {
+            var last = emitter.Particles[lastIndex];
+            emitter.Particles[index] = last;
+            emitter.Particles[lastIndex] = p;
+            last.ParticlesIndex = index;
+            p.ParticlesIndex = lastIndex;
+        }
+
+        emitter.LiveTail--;
+    }
 
     private void TickEmitter(ActiveEmitter emitter, float dt, float eyeAngle)
     {
@@ -568,14 +593,12 @@ public sealed partial class ParticleSystem : EntitySystem
         }
 
         // Simulate live particles
-        int liveCount = 0;
-        foreach (var p in emitter.Particles)
+        var liveCount = emitter.LiveTail;
+        var dtSpan = TimeSpan.FromSeconds(dt);
+        for (var i = 0; i < emitter.LiveTail; i++)
         {
-            if (!p.Alive)
-                continue;
-
-            liveCount++;
-            p.Age += TimeSpan.FromSeconds(dt);
+            var p = emitter.Particles[i];
+            p.Age += dtSpan;
 
             if (p.Age >= p.Lifetime)
             {
@@ -587,11 +610,9 @@ public sealed partial class ParticleSystem : EntitySystem
                         emitter.SubEmitterDepth + 1));
                 }
 
-                p.Alive = false;
                 _liveParticleCount--;
-                emitter.FreePool.Enqueue(p);
-                emitter.LiveCount--;
-                liveCount--;
+                KillParticle(emitter, p);
+                i--;
                 continue;
             }
 
@@ -610,7 +631,7 @@ public sealed partial class ParticleSystem : EntitySystem
                     continue;
 
                 // Bypass quality settings for gameplay-critical particles; auto-LOD never scales those either.
-                var qualityMult = EmissionQualityMultiplier(proto, emitter.Intensity);
+                var qualityMult = EmissionQualityMultiplier(proto);
                 var effectiveMax = proto.IgnoreQualitySettings && _quality < 3
                     ? Math.Min(maxCount, IgnoreQualityMaxParticles)
                     : maxCount;
@@ -623,12 +644,14 @@ public sealed partial class ParticleSystem : EntitySystem
                 }
                 emitter.FiredBursts[b] = true;
             }
+
+            liveCount = emitter.LiveTail;
         }
 
         // Continuous emission
         if (!emitter.Exhausted && !proto.Burst)
         {
-            var qualityMult = EmissionQualityMultiplier(proto, emitter.Intensity);
+            var qualityMult = EmissionQualityMultiplier(proto);
             // IgnoreQualitySettings emitters are capped at IgnoreQualityMaxParticles unless quality is High.
             var effectiveMax = proto.IgnoreQualitySettings && _quality < 3
                 ? Math.Min(maxCount, IgnoreQualityMaxParticles)
@@ -648,7 +671,7 @@ public sealed partial class ParticleSystem : EntitySystem
                     emissionMult = SampleCurve(proto.EmissionOverTime, t);
                 }
 
-                emitter.EmitAccum += emissionRate * emissionMult * dt * emitter.Intensity;
+                emitter.EmitAccum += emissionRate * emissionMult * dt * qualityMult * emitter.Intensity;
                 int toEmit = (int)emitter.EmitAccum;
                 emitter.EmitAccum -= toEmit;
                 toEmit = Math.Min(toEmit, canEmit);
@@ -662,14 +685,13 @@ public sealed partial class ParticleSystem : EntitySystem
             emitter.Exhausted = true;
     }
 
-    private float EmissionQualityMultiplier(ParticleEffectPrototype proto, float intensity)
+    private float EmissionQualityMultiplier(ParticleEffectPrototype proto)
     {
         if (proto.IgnoreQualitySettings)
-            return intensity;
+            return 1f;
 
         return QualityMultipliers[Math.Clamp(_quality, 0, QualityMultipliers.Length - 1)]
-            * _lodScale
-            * intensity;
+            * _lodScale;
     }
 
     private void BurstEmit(ActiveEmitter emitter)
@@ -677,7 +699,7 @@ public sealed partial class ParticleSystem : EntitySystem
         var proto = emitter.Proto;
         var eyeAngle = (float)_eye.CurrentEye.Rotation;
         // Bypass quality settings for gameplay-critical particles
-        var qualityMult = EmissionQualityMultiplier(proto, emitter.Intensity);
+        var qualityMult = EmissionQualityMultiplier(proto);
         // IgnoreQualitySettings emitters are capped at IgnoreQualityMaxParticles to prevent performance issues or otherwise abuse.
         var effectiveMax = proto.IgnoreQualitySettings && _quality < 3
             ? Math.Min(proto.MaxCount, IgnoreQualityMaxParticles)
@@ -692,21 +714,21 @@ public sealed partial class ParticleSystem : EntitySystem
         var proto = emitter.Proto;
 
         ParticleData p;
-        bool recycled;
-        if (emitter.FreePool.TryDequeue(out var pooled))
+        if (emitter.LiveTail < emitter.Particles.Count)
         {
-            p = pooled;
+            p = emitter.Particles[emitter.LiveTail];
             p.Reset();
-            recycled = true;
+            p.ParticlesIndex = emitter.LiveTail;
         }
         else
         {
             p = new ParticleData();
-            recycled = false;
+            p.ParticlesIndex = emitter.Particles.Count;
+            emitter.Particles.Add(p);
         }
 
+        emitter.LiveTail++;
         p.Alive = true;
-        emitter.LiveCount++;
 
         // Resolve spawn time overridable fields
         _liveParticleCount++;
@@ -774,9 +796,6 @@ public sealed partial class ParticleSystem : EntitySystem
 
         // Unique noise offset so each particle gets different turbulence
         p.NoiseOffset = new Vector2(_random.NextFloat(-100f, 100f), _random.NextFloat(-100f, 100f));
-
-        if (!recycled)
-            emitter.Particles.Add(p);
 
         // Sub-emitter on spawn
         if (proto.SubEmitterOnSpawn.HasValue)
@@ -879,17 +898,19 @@ public sealed partial class ParticleSystem : EntitySystem
     private void AgeOffScreenParticles(ActiveEmitter emitter, float dt)
     {
         emitter.Age += TimeSpan.FromSeconds(dt);
-        foreach (var p in emitter.Particles)
+        var dtSpan = TimeSpan.FromSeconds(dt);
+
+        for (var i = 0; i < emitter.LiveTail; i++)
         {
-            if (!p.Alive) continue;
-            p.Age += TimeSpan.FromSeconds(dt);
-            if (p.Age >= p.Lifetime)
-            {
-                p.Alive = false;
-                _liveParticleCount--;
-                emitter.FreePool.Enqueue(p);
-                emitter.LiveCount--;
-            }
+            var p = emitter.Particles[i];
+            p.Age += dtSpan;
+
+            if (p.Age < p.Lifetime)
+                continue;
+
+            _liveParticleCount--;
+            KillParticle(emitter, p);
+            i--;
         }
     }
 
@@ -922,15 +943,17 @@ public sealed partial class ParticleSystem : EntitySystem
                         : SpriteSpecifierSerializer.TextureRoot / rsi.RsiPath;
                     resource = _resourceCache.GetResource<RSIResource>(path).RSI;
                 }
-                catch
+                catch (Exception e)
                 {
                     _frameResolveFailures.Add(protoId);
+                    Log.Warning($"ParticleSystem: failed to load RSI for '{protoId}': {e.Message}");
                     return;
                 }
 
                 if (!resource.TryGetState(rsi.RsiState, out var state))
                 {
                     _frameResolveFailures.Add(protoId);
+                    Log.Warning($"ParticleSystem: RSI state '{rsi.RsiState}' missing in '{rsi.RsiPath}' for '{protoId}'.");
                     return;
                 }
 
@@ -941,15 +964,17 @@ public sealed partial class ParticleSystem : EntitySystem
             case SpriteSpecifier.Texture tex:
             {
                 try { frames = new[] { _spriteSystem.Frame0(tex) }; }
-                catch
+                catch (Exception e)
                 {
                     _frameResolveFailures.Add(protoId);
+                    Log.Warning($"ParticleSystem: failed to load texture for '{protoId}': {e.Message}");
                     return;
                 }
                 break;
             }
             default:
                 _frameResolveFailures.Add(protoId);
+                Log.Warning($"ParticleSystem: unsupported sprite specifier for '{protoId}'.");
                 return;
         }
 

@@ -11,7 +11,6 @@ namespace Content.Client.ADT.Particles;
 public sealed class ParticleEmitterSystem : EntitySystem
 {
     [Dependency] private ParticleSystem _particles = default!;
-    [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private IGameTiming _timing = default!;
 
     // Track emitter references so we can stop them when the entity leaves PVS or is removed.

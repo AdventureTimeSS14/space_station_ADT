@@ -34,6 +34,7 @@ public sealed class ParticleData
 
     /// <summary>Noise seed so each particle gets different turbulence.</summary>
     public Vector2 NoiseOffset;
+    public int ParticlesIndex;
 
     public float AgeRatio => Lifetime > TimeSpan.Zero ? Math.Clamp((float)(Age.TotalSeconds / Lifetime.TotalSeconds), 0f, 1f) : 1f;
 
@@ -51,5 +52,6 @@ public sealed class ParticleData
         Alive = false;
         SizeMultiplier = 1f;
         NoiseOffset = default;
+        ParticlesIndex = 0;
     }
 }
