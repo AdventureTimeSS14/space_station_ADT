@@ -296,3 +296,40 @@
       storagebase: !type:AllSelector
         children:
         - id: ADTClothingMaskNeckGaiterModShinoba
+
+- type: entity
+  parent: ClothingBeltHolster
+  id: ADTClothingBeltHolsterBarCow
+  name: shoulder holster
+  description: A fashionable holster for carrying a pistol and ammunition.
+  suffix: Personal, BarCow
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/BarCow/holster-bag.rsi
+  - type: Clothing
+    sprite: ADT/Special/Personal/BarCow/holster-bag.rsi
+    slots:
+    - belt
+    - neck
+  - type: Storage
+    grid:
+    - 0,0,3,1
+  - type: Item
+    size: Ginormous
+    shape:
+    - 0,0,4,1
+
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ADTClothingBeltBarCow
+  name: belt with many pockets
+  description: A belt with many pockets that allows you to carry not only a crowbar.
+  suffix: Personal, BarCow
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/BarCow/belt-bag.rsi
+  - type: Clothing
+    sprite: ADT/Special/Personal/BarCow/belt-bag.rsi
+  - type: Storage
+    grid:
+    - 0,0,3,1

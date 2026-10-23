@@ -217,6 +217,22 @@
   - type: Sprite
     sprite: ADT/Special/Personal/toys.rsi
     state: plushie_ilumi
+  - type: Item
+    sprite: ADT/Special/Personal/toys.rsi
+    inhandVisuals:
+      left:
+      - state: ilumi-inhand-left
+      right:
+      - state: ilumi-inhand-right
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Special/Personal/toys.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: ilumi-equipped-HELMET
+        offset: "0, 0.185"
 
 - type: entity
   parent: BasePlushie

@@ -1266,3 +1266,11 @@ ent-ADTClothingMaskBreathMedicalNetzCaro = РМП-22
 ent-ADTClothingBackpackDuffelDuratheadNetzCaro = полевой рюкзак травматологии
     .desc = Прочный и вместительный рюкзак, изготовленный из дюроткани и полимеров, имеет в себе множество отделений под аптечки, ампулы и инъекторы. На рюкзаке видны опознавательные знаки травматологии.
     .suffix = { "Именное, NetzCaro" }
+
+ent-ADTClothingBeltHolsterBarCow = Кобура для разных вещей.
+    .desc = Модная кобура для ношения пистолета и боеприпасов.
+    .suffix = { "Именное, BarCow" }
+
+ent-ADTClothingBeltBarCow = Пояс с множеством карманов.
+    .desc = Пояс с множеством карманов позволяющий носить не только ломик.
+    .suffix = { "Именное, BarCow" }
