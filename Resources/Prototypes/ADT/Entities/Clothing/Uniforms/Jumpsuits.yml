@@ -1211,6 +1211,8 @@
 
 
 # И ещё один комбез для детектива
+  - type: StaticPrice
+    price: 45
 
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase]
@@ -1418,6 +1420,8 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/tuxedo.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/tuxedo.rsi
+  - type: StaticPrice
+    price: 50
 
 - type: entity
   parent: ClothingUniformBase
@@ -1429,6 +1433,8 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/tuxedo_white.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/tuxedo_white.rsi
+  - type: StaticPrice
+    price: 50
 
 - type: entity
   parent: ClothingUniformBase
@@ -1440,6 +1446,8 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/tuxedo_red.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/tuxedo_red.rsi
+  - type: StaticPrice
+    price: 50
 
 - type: entity
   parent: ClothingUniformBase
@@ -1451,6 +1459,8 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/tuxedo_hell.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/tuxedo_hell.rsi
+  - type: StaticPrice
+    price: 50
 
 - type: entity
   parent: ClothingUniformBase
@@ -1579,3 +1589,523 @@
      sprite: ADT/Clothing/Uniforms/Jumpsuit/cburn.rsi
    - type: Clothing
      sprite: ADT/Clothing/Uniforms/Jumpsuit/cburn.rsi
+
+# Adidas
+- type: entity
+  parent: [ ClothingUniformBase, ClothingUniformFoldableBase ]
+  id: ADTClothingUniformJumpsuitAdidasBlack
+  name: black agidas tracksuit
+  description: Crisp tracksuit for sports and mischief.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Adidas/adidas_black.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Adidas/adidas_black.rsi
+  - type: StaticPrice
+    price: 40
+
+- type: entity
+  parent: [ ClothingUniformBase, ClothingUniformFoldableBase ]
+  id: ADTClothingUniformJumpsuitAdidasBlue
+  name: blue agidas tracksuit
+  description: Crisp tracksuit for sports and mischief.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Adidas/adidas_blue.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Adidas/adidas_blue.rsi
+  - type: StaticPrice
+    price: 40
+
+- type: entity
+  parent: [ ClothingUniformBase, ClothingUniformFoldableBase ]
+  id: ADTClothingUniformJumpsuitAdidasRed
+  name: red agidas tracksuit
+  description: Crisp tracksuit for sports and mischief.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Adidas/adidas_red.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Adidas/adidas_red.rsi
+  - type: StaticPrice
+    price: 40
+
+- type: entity
+  parent: [ ClothingUniformBase, ClothingUniformFoldableBase ]
+  id: ADTClothingUniformJumpsuitAdidasWhite
+  name: white agidas tracksuit
+  description: Crisp tracksuit for sports and mischief.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Adidas/adidas_white.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Adidas/adidas_white.rsi
+  - type: StaticPrice
+    price: 40
+
+# Casual Shirts
+- type: entity
+  parent: [ ClothingUniformBase, ClothingUniformFoldableBase ]
+  id: ADTClothingUniformJumpsuitShirtGreen
+  name: green shirt
+  description: Regular green casual shirt. Made by Modeling Agency Dar-Vaxed.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/green_shirt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/green_shirt.rsi
+  - type: StaticPrice
+    price: 25
+
+- type: entity
+  parent: [ ClothingUniformBase, ClothingUniformFoldableBase ]
+  id: ADTClothingUniformJumpsuitShirtTeal
+  name: teal shirt
+  description: Regular teal casual shirt. Made by Modeling Agency Dar-Vaxed.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/teal_shirt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/teal_shirt.rsi
+  - type: StaticPrice
+    price: 25
+
+- type: entity
+  parent: [ ClothingUniformBase, ClothingUniformFoldableBase ]
+  id: ADTClothingUniformJumpsuitShirtYellow
+  name: yellow shirt
+  description: Regular yellow casual shirt. Made by Modeling Agency Dar-Vaxed.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/yellow_shirt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/yellow_shirt.rsi
+  - type: StaticPrice
+    price: 25
+
+- type: entity
+  parent: [ ClothingUniformBase, ClothingUniformFoldableBase ]
+  id: ADTClothingUniformJumpsuitShirtBeige
+  name: beige shirt
+  description: Regular beige casual shirt. Made by Modeling Agency Dar-Vaxed.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/beige_shirt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/beige_shirt.rsi
+  - type: StaticPrice
+    price: 25
+
+- type: entity
+  parent: [ ClothingUniformBase, ClothingUniformFoldableBase ]
+  id: ADTClothingUniformJumpsuitShirtDarkBlue
+  name: dark blue shirt
+  description: Regular dark blue casual shirt. Made by Modeling Agency Dar-Vaxed.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/darkblue_shirt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/darkblue_shirt.rsi
+  - type: StaticPrice
+    price: 25
+
+# Suits
+- type: entity
+  parent: [ ClothingUniformBase, ClothingUniformFoldableBase ]
+  id: ADTClothingUniformJumpsuitSuitTeal
+  name: teal suit
+  description: Bright teal suit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/teal_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/teal_suit.rsi
+  - type: StaticPrice
+    price: 45
+
+- type: entity
+  parent: [ ClothingUniformBase, ClothingUniformFoldableBase ]
+  id: ADTClothingUniformJumpsuitSuitBeige
+  name: beige suit
+  description: Simple beige suit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/beige_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/beige_suit.rsi
+  - type: StaticPrice
+    price: 40
+
+- type: entity
+  parent: [ ClothingUniformBase, ClothingUniformFoldableBase ]
+  id: ADTClothingUniformJumpsuitSuitCage
+  name: checkered suit
+  description: Elegant suit with strict checkered pattern.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/cage_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/cage_suit.rsi
+  - type: StaticPrice
+    price: 45
+
+- type: entity
+  parent: [ ClothingUniformBase, ClothingUniformFoldableBase ]
+  id: ADTClothingUniformJumpsuitSuitGold
+  name: gold suit
+  description: NEED MORE GOLD!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/gold_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/gold_suit.rsi
+  - type: StaticPrice
+    price: 100
+
+# Misc Jumpsuits
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitChessboard
+  name: chessboard outfit
+  description: Unique clothing in strict chessboard pattern.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/chessboard.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/chessboard.rsi
+  - type: StaticPrice
+    price: 30
+
+- type: entity
+  parent: [ ClothingUniformBase, ClothingUniformFoldableBase ]
+  id: ADTClothingUniformJumpsuitJeansnavel
+  name: black pants with crop top
+  description: Stylish black pants paired with a crop top.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/jeansnavel.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/jeansnavel.rsi
+  - type: StaticPrice
+    price: 35
+
+- type: entity
+  parent: [ ClothingUniformBase, ClothingUniformFoldableBase ]
+  id: ADTClothingUniformJumpsuitDenimShorts
+  name: denim shorts
+  description: Shorts made from denim fabric.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/denim_shorts.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/denim_shorts.rsi
+  - type: StaticPrice
+    price: 30
+
+- type: entity
+  parent: [ ClothingUniformBase, ClothingUniformFoldableBase ]
+  id: ADTClothingUniformJumpsuitGorka
+  name: gorka suit
+  description: Practical and versatile suit used by military and civilians.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/gorka.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/gorka.rsi
+  - type: StaticPrice
+    price: 45
+
+- type: entity
+  parent: [ ClothingUniformBase, ClothingUniformFoldableBase ]
+  id: ADTClothingUniformJumpsuitTacticalBlack
+  name: black tactical suit
+  description: Combat tactical uniform in black.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/tactical_black.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/tactical_black.rsi
+  - type: StaticPrice
+    price: 50
+
+- type: entity
+  parent: [ ClothingUniformBase, ClothingUniformFoldableBase ]
+  id: ADTClothingUniformJumpsuitTacticalGreen
+  name: olive tactical suit
+  description: Combat tactical uniform in olive.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/tactical_green.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/tactical_green.rsi
+  - type: StaticPrice
+    price: 50
+
+- type: entity
+  parent: [ ClothingUniformBase, ClothingUniformFoldableBase ]
+  id: ADTClothingUniformJumpsuitTonnyShirt
+  name: tonny shirt
+  description: Stylish Hawaiian shirt.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/tonny_shirt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/tonny_shirt.rsi
+  - type: StaticPrice
+    price: 35
+
+- type: entity
+  parent: [ ClothingUniformBase, ClothingUniformFoldableBase ]
+  id: ADTClothingUniformJumpsuitNavyShirt
+  name: navy shirt
+  description: Striped sailor shirt smelling of sea breeze.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/navy_shirt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/navy_shirt.rsi
+  - type: StaticPrice
+    price: 30
+
+- type: entity
+  parent: ADTClothingUniformJumpsuitNavyShirt
+  id: ADTClothingUniformJumpsuitNavyShirtPrisoner
+  suffix: Prisoner
+  components:
+  - type: ADTSuitSensor
+    controlsLocked: true
+    randomMode: false
+    mode: SensorCords
+  - type: Tag
+    tags:
+    - ClothMade
+    - Recyclable
+    - PrisonUniform
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitTurtleneckBeige
+  name: beige turtleneck
+  description: Soft and cozy beige turtleneck.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_beige.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_beige.rsi
+  - type: StaticPrice
+    price: 25
+
+- type: entity
+  parent: [ ClothingUniformBase, ClothingUniformFoldableBase ]
+  id: ADTClothingUniformJumpsuitScientistHL
+  name: scientist jumpsuit
+  description: A suit designed for scientists working with anomalies!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/scientist_hl.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/scientist_hl.rsi
+  - type: StaticPrice
+    price: 35
+
+- type: entity
+  parent: [ ClothingUniformBase, ClothingUniformFoldableBase ]
+  id: ADTClothingUniformJumpsuitPizzaDelivery
+  name: pizza delivery uniform
+  description: Pizza time!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/pizza_delivery.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/pizza_delivery.rsi
+  - type: StaticPrice
+    price: 30
+
+- type: entity
+  parent: [ ClothingUniformBase, ClothingUniformFoldableBase ]
+  id: ADTClothingUniformJumpsuitLimbuscoShirt
+  name: limbus shirt
+  description: Quotation from Wuthering Heights by Emily Bronte.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/limbusco_shirt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/limbusco_shirt.rsi
+  - type: StaticPrice
+    price: 35
+
+- type: entity
+  parent: [ ClothingUniformBase, ClothingUniformFoldableBase ]
+  id: ADTClothingUniformJumpsuitSecurityClub
+  name: bouncer club t-shirt
+  description: You are not on the list, get out.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/security_club.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/security_club.rsi
+  - type: StaticPrice
+    price: 30
+
+- type: entity
+  parent: [ ClothingUniformBase, ClothingUniformFoldableBase ]
+  id: ADTClothingUniformJumpsuitSportUSSP
+  name: USSP tracksuit
+  description: Hey countryman, we don't want to shoot, we are just observing!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/sport_ussp.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/sport_ussp.rsi
+  - type: StaticPrice
+    price: 40
+
+# Keikogi with belts
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitKeikogiWhite
+  name: keikogi (white belt)
+  description: Uniform for martial arts practice.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/keikogi.rsi
+    layers:
+    - state: icon
+    - state: belt-icon
+      color: "#FFFFFF"
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/keikogi.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+      - state: belt-equipped-INNERCLOTHING
+        color: "#FFFFFF"
+  - type: StaticPrice
+    price: 35
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitKeikogiOrange
+  name: keikogi (orange belt)
+  description: Uniform for martial arts practice.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/keikogi.rsi
+    layers:
+    - state: icon
+    - state: belt-icon
+      color: "#FFA500"
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/keikogi.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+      - state: belt-equipped-INNERCLOTHING
+        color: "#FFA500"
+  - type: StaticPrice
+    price: 35
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitKeikogiBlue
+  name: keikogi (blue belt)
+  description: Uniform for martial arts practice.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/keikogi.rsi
+    layers:
+    - state: icon
+    - state: belt-icon
+      color: "#1E90FF"
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/keikogi.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+      - state: belt-equipped-INNERCLOTHING
+        color: "#1E90FF"
+  - type: StaticPrice
+    price: 35
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitKeikogiYellow
+  name: keikogi (yellow belt)
+  description: Uniform for martial arts practice.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/keikogi.rsi
+    layers:
+    - state: icon
+    - state: belt-icon
+      color: "#FFD700"
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/keikogi.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+      - state: belt-equipped-INNERCLOTHING
+        color: "#FFD700"
+  - type: StaticPrice
+    price: 35
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitKeikogiGreen
+  name: keikogi (green belt)
+  description: Uniform for martial arts practice.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/keikogi.rsi
+    layers:
+    - state: icon
+    - state: belt-icon
+      color: "#2E8B57"
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/keikogi.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+      - state: belt-equipped-INNERCLOTHING
+        color: "#2E8B57"
+  - type: StaticPrice
+    price: 35
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitKeikogiBrown
+  name: keikogi (brown belt)
+  description: Uniform for martial arts practice.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/keikogi.rsi
+    layers:
+    - state: icon
+    - state: belt-icon
+      color: "#8B4513"
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/keikogi.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+      - state: belt-equipped-INNERCLOTHING
+        color: "#8B4513"
+  - type: StaticPrice
+    price: 35
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitKeikogiBlack
+  name: keikogi (black belt)
+  description: Uniform for martial arts practice.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/keikogi.rsi
+    layers:
+    - state: icon
+    - state: belt-icon
+      color: "#2B2B2B"
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/keikogi.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+      - state: belt-equipped-INNERCLOTHING
+        color: "#2B2B2B"
+  - type: StaticPrice
+    price: 35

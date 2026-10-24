@@ -560,3 +560,317 @@
     solution:
       maxVol: 60
       reagents: []
+
+# Fedoras & Sunhats
+- type: entity
+  parent: ClothingHeadHatFedoraBrown
+  id: ADTClothingHeadHatFedoraBeige
+  name: beige fedora
+  description: A beige felt fedora.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/beigefedora.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/beigefedora.rsi
+  - type: StaticPrice
+    price: 30
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatBraided
+  name: braided sunhat
+  description: A small summer hat protecting from the sun.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/braided.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/braided.rsi
+  - type: StaticPrice
+    price: 30
+
+- type: entity
+  parent: ClothingHeadHatFedoraBrown
+  id: ADTClothingHeadHatCarpFedora
+  name: carp fedora
+  description: A luxurious felt hat made from fine scales, perfect for a lounge performance!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/carpfedora.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/carpfedora.rsi
+  - type: StaticPrice
+    price: 35
+
+- type: entity
+  parent: ClothingHeadHatFedoraBrown
+  id: ADTClothingHeadHatFedoraWhite
+  name: white fedora
+  description: A white felt fedora.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/whitefedora.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/whitefedora.rsi
+  - type: StaticPrice
+    price: 30
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatWideBrimmed
+  name: wide-brimmed sunhat
+  description: A wide-brimmed summer hat perfect for sunny days.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/widebrimmed.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/widebrimmed.rsi
+  - type: StaticPrice
+    price: 30
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatWideBrimmedBlack
+  name: black wide-brimmed hat
+  description: An elegant wide-brimmed summer hat suitable for mourning.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/widebrimmed_black.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/widebrimmed_black.rsi
+
+# Papakha
+  - type: StaticPrice
+    price: 30
+- type: entity
+  parent: [ ClothingHeadBase, TemperatureProtection ]
+  id: ADTClothingHeadHatPapakhaBlack
+  name: black papakha
+  description: A massive fur hat made of synthetic pelt.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/papakha_black.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/papakha_black.rsi
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,1,1
+  - type: Tag
+    tags:
+    - WinterCoat
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+  - type: StaticPrice
+    price: 45
+
+- type: entity
+  parent: [ ClothingHeadBase, TemperatureProtection ]
+  id: ADTClothingHeadHatPapakhaWhite
+  name: white papakha
+  description: A massive fur hat made of synthetic pelt.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/papakha_white.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/papakha_white.rsi
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,1,1
+  - type: Tag
+    tags:
+    - WinterCoat
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+  - type: StaticPrice
+    price: 45
+
+# Beanies
+- type: entity
+  parent: [ ClothingHeadBase, TemperatureProtection ]
+  id: ADTClothingHeadHatBeanieBase
+  abstract: true
+  components:
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+  - type: Armor
+    modifiers:
+      coefficients:
+        Heat: 0.95
+  - type: Tag
+    tags:
+    - WinterCoat
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+  - type: StaticPrice
+    price: 20
+
+- type: entity
+  parent: ADTClothingHeadHatBeanieBase
+  id: ADTClothingHeadHatBeanieBeige
+  name: beige beanie
+  description: A simple beige beanie.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_beige.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_beige.rsi
+
+- type: entity
+  parent: ADTClothingHeadHatBeanieBase
+  id: ADTClothingHeadHatBeanieBlack
+  name: black beanie
+  description: A simple black beanie.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_black.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_black.rsi
+
+- type: entity
+  parent: ADTClothingHeadHatBeanieBase
+  id: ADTClothingHeadHatBeanieBlue
+  name: blue beanie
+  description: A simple blue beanie.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_blue.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_blue.rsi
+
+- type: entity
+  parent: ADTClothingHeadHatBeanieBase
+  id: ADTClothingHeadHatBeanieBrown
+  name: brown beanie
+  description: A simple brown beanie.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_brown.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_brown.rsi
+
+- type: entity
+  parent: ADTClothingHeadHatBeanieBase
+  id: ADTClothingHeadHatBeanieCyan
+  name: cyan beanie
+  description: A simple cyan beanie.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_cyan.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_cyan.rsi
+
+- type: entity
+  parent: ADTClothingHeadHatBeanieBase
+  id: ADTClothingHeadHatBeanieDarkBlue
+  name: dark blue beanie
+  description: A simple dark blue beanie.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_darkblue.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_darkblue.rsi
+
+- type: entity
+  parent: ADTClothingHeadHatBeanieBase
+  id: ADTClothingHeadHatBeanieDarkGreen
+  name: dark green beanie
+  description: A simple dark green beanie.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_darkgreen.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_darkgreen.rsi
+
+- type: entity
+  parent: ADTClothingHeadHatBeanieBase
+  id: ADTClothingHeadHatBeanieGray
+  name: gray beanie
+  description: A simple gray beanie.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_gray.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_gray.rsi
+
+- type: entity
+  parent: ADTClothingHeadHatBeanieBase
+  id: ADTClothingHeadHatBeanieGreen
+  name: green beanie
+  description: A simple green beanie.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_green.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_green.rsi
+
+- type: entity
+  parent: ADTClothingHeadHatBeanieBase
+  id: ADTClothingHeadHatBeanieMerc
+  name: mercenary beanie
+  description: A tactical olive beanie.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_merc.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_merc.rsi
+
+- type: entity
+  parent: ADTClothingHeadHatBeanieBase
+  id: ADTClothingHeadHatBeanieOrange
+  name: orange beanie
+  description: A simple orange beanie.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_orange.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_orange.rsi
+
+- type: entity
+  parent: ADTClothingHeadHatBeanieBase
+  id: ADTClothingHeadHatBeaniePurple
+  name: purple beanie
+  description: A simple purple beanie.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_purple.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_purple.rsi
+
+- type: entity
+  parent: ADTClothingHeadHatBeanieBase
+  id: ADTClothingHeadHatBeanieRed
+  name: red beanie
+  description: A simple red beanie.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_red.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_red.rsi
+
+- type: entity
+  parent: ADTClothingHeadHatBeanieBase
+  id: ADTClothingHeadHatBeanieWhite
+  name: white beanie
+  description: A simple white beanie.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_white.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_white.rsi
+
+- type: entity
+  parent: ADTClothingHeadHatBeanieBase
+  id: ADTClothingHeadHatBeanieYellow
+  name: yellow beanie
+  description: A simple yellow beanie.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_yellow.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_yellow.rsi

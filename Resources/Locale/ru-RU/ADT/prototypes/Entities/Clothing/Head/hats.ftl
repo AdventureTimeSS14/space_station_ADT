@@ -80,6 +80,81 @@ ent-ADTClothingHeadHatRedBenie = красная шапка
 ent-ADTClothingCentcomOfficerHat = фуражка офицера специальных операций
     .desc = Специальная фуражка высших чинов NanoTrasen с золотой гравировкой, уже давно прошедшая не один блицкриг...
 
+ent-ADTClothingHeadHatFedoraBeige = бежевая федора
+    .desc = Бежевая фетровая шляпа.
+
+ent-ADTClothingHeadHatBraided = летняя плетеная шляпка
+    .desc = Маленькая летняя шляпа, защищающая от солнца.
+
+ent-ADTClothingHeadHatCarpFedora = федора из карпокожи
+    .desc = Роскошная фетровая шляпа, сшитая только из лучших чешуек, идеально подойдёт для любого выступления в стиле лаундж!
+
+ent-ADTClothingHeadHatPapakhaBlack = чёрная папаха
+    .desc = Массивная меховая шапка из синтетической шкуры.
+
+ent-ADTClothingHeadHatPapakhaWhite = белая папаха
+    .desc = Массивная меховая шапка из синтетической шкуры.
+
+ent-ADTClothingHeadVisorGambler = покерный козырёк
+    .desc = Зелёный козырёк для игры в покер.
+
+ent-ADTClothingHeadVisorPizza = козырёк доставщика пиццы
+    .desc = Красный козырёк предназначен для защиты глаз от солнца во время работы. Пахнет пиццей.
+
+ent-ADTClothingHeadHatFedoraWhite = белая федора
+    .desc = Белая фетровая шляпа.
+
+ent-ADTClothingHeadHatWideBrimmed = летняя шляпа
+    .desc = Широкополая летняя шляпа идеально подходит для солнечных дней. Только вот откуда на станции солнечные дни?
+
+ent-ADTClothingHeadHatWideBrimmedBlack = чёрная широкополая шляпа
+    .desc = Элегантная широкополая летняя шляпа идеально подходит для траура.
+
+ent-ADTClothingHeadHatBeanieBeige = бежевая шапка-бини
+    .desc = Простая шапка бежевого цвета.
+
+ent-ADTClothingHeadHatBeanieBlack = чёрная шапка-бини
+    .desc = Простая шапка чёрного цвета.
+
+ent-ADTClothingHeadHatBeanieBlue = синяя шапка-бини
+    .desc = Простая шапка синего цвета.
+
+ent-ADTClothingHeadHatBeanieBrown = коричневая шапка-бини
+    .desc = Простая шапка коричневого цвета.
+
+ent-ADTClothingHeadHatBeanieCyan = голубая шапка-бини
+    .desc = Простая шапка голубого цвета.
+
+ent-ADTClothingHeadHatBeanieDarkBlue = тёмно-синяя шапка-бини
+    .desc = Простая шапка тёмно-синего цвета.
+
+ent-ADTClothingHeadHatBeanieDarkGreen = тёмно-зелёная шапка-бини
+    .desc = Простая шапка тёмно-зелёного цвета.
+
+ent-ADTClothingHeadHatBeanieGray = серая шапка-бини
+    .desc = Простая шапка серого цвета.
+
+ent-ADTClothingHeadHatBeanieGreen = зелёная шапка-бини
+    .desc = Простая шапка зелёного цвета.
+
+ent-ADTClothingHeadHatBeanieMerc = шапка-бини наёмника
+    .desc = Тактическая шапка оливкового цвета.
+
+ent-ADTClothingHeadHatBeanieOrange = оранжевая шапка-бини
+    .desc = Простая шапка оранжевого цвета.
+
+ent-ADTClothingHeadHatBeaniePurple = фиолетовая шапка-бини
+    .desc = Простая шапка фиолетового цвета.
+
+ent-ADTClothingHeadHatBeanieRed = красная шапка-бини
+    .desc = Простая шапка красного цвета.
+
+ent-ADTClothingHeadHatBeanieWhite = белая шапка-бини
+    .desc = Простая шапка белого цвета.
+
+ent-ADTClothingHeadHatBeanieYellow = жёлтая шапка-бини
+    .desc = Простая шапка жёлтого цвета.
+
 ent-ADTClothingHeadHatsOfficerArmyUSSPCap = фуражка армейского офицера СССП
     .desc = Фуражка цвета хаки с красным околышем и кокардой-звездой.
     .suffix = СССП
