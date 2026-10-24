@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared.ADT.Heretic.Components.Moon;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CCVar;
@@ -334,6 +335,11 @@ namespace Content.Shared.Interaction
                 Log.Info($"Use input validation failed");
                 return true;
             }
+
+            // ADT-Tweak-Start
+            if (userEntity is { } confusedUser && HasComp<MoonConfusedComponent>(confusedUser))
+                return true;
+            // ADT-Tweak-End
 
             UserInteraction(userEntity.Value, coords, !Deleted(uid) ? uid : null, checkAccess: ShouldCheckAccess(userEntity.Value));
 

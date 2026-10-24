@@ -10,7 +10,7 @@
   parent: BaseAction
   id: ActionHereticFleshSurgery
   name: Knit Flesh
-  description: A touch spell that allows you to either perform quick surgery or restore flesh of target.
+  description: A touch spell that mends allies and minions, or inflicts blunt trauma, hunger and thirst on foes.
   components:
   - type: Action
     useDelay: 1

@@ -1,6 +1,7 @@
 //
 
 using Content.Shared.FixedPoint;
+using Content.Shared.ADT.FiringPin;
 using Content.Shared.ADT.Heretic.Common;
 using Content.Shared.ADT.MartialArts;
 using Content.Server.Body.Components;
@@ -23,7 +24,9 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Nutrition;
 using Content.Shared.NPC.Components;
 using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared.Tag;
 using Content.Shared.Weapons.Melee;
+using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
@@ -212,6 +215,25 @@ public sealed partial class HereticAbilitySystem
             {
                 EnsureComp<GhoulWeaponComponent>(weaponClone);
                 ghoul.BoundWeapon = weaponClone;
+
+                if (TryComp<FiringPinHolderComponent>(weaponClone, out var pinHolder))
+                {
+                    pinHolder.Emagged = true;
+                    Dirty(weaponClone, pinHolder);
+                }
+
+                if (!TryComp<MeleeWeaponComponent>(weaponClone, out var melee))
+                {
+                    melee = AddComp<MeleeWeaponComponent>(weaponClone);
+                    melee.Damage = new DamageSpecifier
+                    {
+                        DamageDict = { { "Blunt", 12 } }
+                    };
+                    melee.AttackRate = 1.2f;
+                    melee.Angle = 60;
+                    melee.Animation = "WeaponArcPunch";
+                }
+
                 MarkItemAndStorageUnremoveable(weaponClone);
             }
         }
@@ -287,13 +309,18 @@ public sealed partial class HereticAbilitySystem
         if (!TryComp(item, out ContainerManagerComponent? containerManager))
             return;
 
-        var cartridgeQuery = GetEntityQuery<CartridgeAmmoComponent>();
+        var ammoQuery = GetEntityQuery<AmmoComponent>();
+        var ammoProviderQuery = GetEntityQuery<AmmoProviderComponent>();
+
         foreach (var container in containerManager.Containers.Values)
         {
             foreach (var contained in container.ContainedEntities)
             {
-                if (cartridgeQuery.HasComp(contained))
+                if (ammoQuery.HasComp(contained) ||
+                    ammoProviderQuery.HasComp(contained))
+                {
                     continue;
+                }
 
                 MarkItemAndStorageUnremoveable(contained);
             }

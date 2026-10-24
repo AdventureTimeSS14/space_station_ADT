@@ -49,6 +49,9 @@ public sealed partial class WizardTrapComponent : Component
     public bool Sparks = true;
 
     [DataField]
+    public bool TriggerOnItems = true;
+
+    [DataField]
     public float ExamineRange = 1.2f;
 }
 

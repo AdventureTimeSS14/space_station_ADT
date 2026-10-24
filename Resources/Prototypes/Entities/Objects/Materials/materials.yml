@@ -238,6 +238,7 @@
     - Wooden
     - RawMaterial
     - ConstructionMaterial
+    - WoodPlank # ADT-Tweak
   - type: Extractable
     grindableSolutionName: composite
   - type: Solution
