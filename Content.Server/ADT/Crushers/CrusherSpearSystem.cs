@@ -44,6 +44,7 @@ public sealed class CrusherSpearSystem : SharedCrusherSpearSystem
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private SharedWieldableSystem _wieldable = default!;
     [Dependency] private ThrowingSystem _throwing = default!;
+    [Dependency] private ThrownItemSystem _thrownItem = default!;
     [Dependency] private UseDelaySystem _useDelay = default!;
 
     public override void Initialize()
@@ -311,14 +312,11 @@ public sealed class CrusherSpearSystem : SharedCrusherSpearSystem
         RestoreFixtures(ent.Owner);
         SetTrail(ent.Owner, 0f);
 
-        if (TryComp<ThrownItemComponent>(ent, out var thrown))
-        {
-            thrown.LandTime = _timing.CurTime;
-            Dirty(ent, thrown);
-        }
-
         if (TryComp<PhysicsComponent>(ent, out var physics))
             _physics.SetLinearVelocity(ent.Owner, Vector2.Zero, body: physics);
+
+        if (TryComp<ThrownItemComponent>(ent, out var thrown))
+            _thrownItem.StopThrow(ent.Owner, thrown);
 
         _useDelay.SetLength(ent.Owner, ent.Comp.Cooldown, ent.Comp.DelayId);
         _useDelay.TryResetDelay(ent.Owner, id: ent.Comp.DelayId);
@@ -338,8 +336,13 @@ public sealed class CrusherSpearSystem : SharedCrusherSpearSystem
 
         _hands.PickupOrDrop(user.Value, ent, animate: false);
 
-        if (_hands.IsHolding(user.Value, ent.Owner) && TryComp<WieldableComponent>(ent, out var wieldable))
+        if (_hands.IsHolding(user.Value, ent.Owner)
+            && TryComp<WieldableComponent>(ent, out var wieldable)
+            && !wieldable.Wielded
+            && _wieldable.CanWield((ent.Owner, wieldable), user.Value, true))
+        {
             _wieldable.TryWield((ent.Owner, wieldable), user.Value);
+        }
 
         _audio.PlayPvs(ent.Comp.CatchSound, user.Value);
     }
