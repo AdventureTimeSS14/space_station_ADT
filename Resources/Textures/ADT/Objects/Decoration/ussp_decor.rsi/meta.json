@@ -1,0 +1,23 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by Etvy for Adventure Time project, statuette based on ADT lenin.rsi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "field_radio"
+        },
+        {
+            "name": "samovar"
+        },
+        {
+            "name": "statuette"
+        },
+        {
+            "name": "rug_roll"
+        }
+    ]
+}
