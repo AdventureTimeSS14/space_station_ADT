@@ -164,6 +164,9 @@
             "name": "plushie_raykulakov"
         },
         {
+            "name": "plushie_winter"
+        },
+        {
             "name": "ntb-inhand-left",
             "directions": 4
         },
@@ -416,6 +419,14 @@
         },
         {
             "name": "reimor-equipped-HELMET",
+            "directions": 4
+        },
+        {
+            "name": "winter-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "winter-inhand-right",
             "directions": 4
         }
     ]
