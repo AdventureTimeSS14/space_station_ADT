@@ -1275,10 +1275,10 @@ ent-ADTPlushieWinter = плюшевая Винтер
     .desc = Химический халат, чёрная шерстка и красные глазки. На этикетке имеется значок "Взрывоопасно"...
     .suffix = { "Именное, DeadLament" }
 
-ent-ADTClothingBeltHolsterBarCow = кобура для разных вещей.
+ent-ADTClothingBeltHolsterBarCow = кобура для разных вещей
     .desc = Модная кобура для ношения вещей.
     .suffix = { "Именное, BarCow" }
 
-ent-ADTClothingBeltBarCow = пояс с множеством карманов.
+ent-ADTClothingBeltBarCow = пояс с множеством карманов
     .desc = Пояс с множеством карманов позволяющий носить не только ломик.
     .suffix = { "Именное, BarCow" }
