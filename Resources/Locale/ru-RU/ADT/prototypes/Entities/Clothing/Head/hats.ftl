@@ -155,3 +155,9 @@ ent-ADTClothingHeadHatBeanieWhite = белая шапка-бини
 ent-ADTClothingHeadHatBeanieYellow = жёлтая шапка-бини
     .desc = Простая шапка жёлтого цвета.
 
+ent-ADTClothingHeadHatsOfficerArmyUSSPCap = фуражка армейского офицера СССП
+    .desc = Фуражка цвета хаки с красным околышем и кокардой-звездой.
+    .suffix = СССП
+ent-ADTClothingHeadHatsGeneralArmyUSSPCap = фуражка армейского генерала СССП
+    .desc = Генеральская фуражка СССП с золотым шитьём на козырьке.
+    .suffix = СССП

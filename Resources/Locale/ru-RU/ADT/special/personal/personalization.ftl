@@ -1278,3 +1278,11 @@ ent-ADTAcousticGuitarCyanWai = рогатая гитара
 ent-ADTPlushieWinter = плюшевая Винтер
     .desc = Химический халат, чёрная шерстка и красные глазки. На этикетке имеется значок "Взрывоопасно"...
     .suffix = { "Именное, DeadLament" }
+
+ent-ADTClothingBeltHolsterBarCow = Кобура для разных вещей.
+    .desc = Модная кобура для ношения вещей.
+    .suffix = { "Именное, BarCow" }
+
+ent-ADTClothingBeltBarCow = Пояс с множеством карманов.
+    .desc = Пояс с множеством карманов позволяющий носить не только ломик.
+    .suffix = { "Именное, BarCow" }

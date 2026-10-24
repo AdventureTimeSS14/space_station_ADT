@@ -176,3 +176,9 @@ ent-ADTClothingOuterCaptainCoat = бронированная куртка кап
 ent-ADTClothingOuterCaptainCoatOpened = { ent-ADTClothingOuterCaptainCoat }
     .desc = { ent-ADTClothingOuterCaptainCoat.desc }
 
+ent-ADTClothingOuterCoatOfficerUSSPGreatcoat = офицерская шинель СССП
+    .desc = Тяжёлая двубортная шинель офицера СССП.
+    .suffix = СССП
+ent-ADTClothingOuterCoatGeneralUSSPGreatcoat = генеральская шинель СССП
+    .desc = Серая генеральская шинель с красными петлицами и золотыми погонами.
+    .suffix = СССП

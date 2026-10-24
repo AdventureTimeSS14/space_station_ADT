@@ -534,3 +534,9 @@ ent-ADTClothingUniformJumpsuitAdidasWhite = белая спортивка аги
 ent-ADTClothingUniformJumpsuitSportUSSP = спортивка СССП
     .desc = Эй, Земляк, мы стрелять не хотим, мы так наблюдаем!
 
+ent-ADTOfficerArmyUSSPUniform = форма армейского офицера СССП
+    .desc = Китель цвета хаки армейского офицера СССП с коричневым ремнём и красным кантом.
+    .suffix = СССП
+ent-ADTGeneralArmyUSSPUniform = форма армейского генерала СССП
+    .desc = Парадный мундир генерала СССП с золотыми погонами, орденскими планками и лампасами.
+    .suffix = СССП
