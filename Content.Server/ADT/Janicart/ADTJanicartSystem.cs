@@ -1,7 +1,12 @@
+using System.Linq;
+using System.Numerics;
+using Content.Server.Decals;
 using Content.Shared.ADT.Janicart;
+using Content.Shared.Actions;
 using Content.Shared.ADT.Janicart.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Decals;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
@@ -18,6 +23,7 @@ using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Tag;
 using Content.Shared.Tools.Systems;
+using Content.Shared.Vehicle;
 using Content.Shared.Vehicle.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -46,6 +52,10 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private SharedToolSystem _tool = default!;
     [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private DecalSystem _decals = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     private readonly HashSet<Entity<PuddleComponent>> _puddles = [];
     private readonly HashSet<Entity<ItemComponent>> _items = [];
@@ -65,6 +75,64 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
 
         SubscribeLocalEvent<BorgModuleComponent, BorgModuleInstalledEvent>(OnBorgModuleInstalled);
         SubscribeLocalEvent<BorgModuleComponent, BorgModuleUninstalledEvent>(OnBorgModuleUninstalled);
+
+        SubscribeLocalEvent<ADTJanicartUpgradeableComponent, VehicleOperatorSetEvent>(OnOperatorSet);
+
+        SubscribeLocalEvent<ADTJanicartBufferComponent, ADTJanicartToggleActionEvent>(OnToggleBuffer);
+        SubscribeLocalEvent<ADTJanicartVacuumComponent, ADTJanicartToggleActionEvent>(OnToggleVacuum);
+    }
+
+    private void OnToggleBuffer(Entity<ADTJanicartBufferComponent> ent, ref ADTJanicartToggleActionEvent args)
+    {
+        ent.Comp.Enabled = !ent.Comp.Enabled;
+        _actions.SetToggled(ent.Comp.ToggleActionEntity, !ent.Comp.Enabled);
+        args.Handled = true;
+    }
+
+    private void OnToggleVacuum(Entity<ADTJanicartVacuumComponent> ent, ref ADTJanicartToggleActionEvent args)
+    {
+        ent.Comp.Enabled = !ent.Comp.Enabled;
+        _actions.SetToggled(ent.Comp.ToggleActionEntity, !ent.Comp.Enabled);
+        args.Handled = true;
+    }
+
+    private void OnOperatorSet(Entity<ADTJanicartUpgradeableComponent> ent, ref VehicleOperatorSetEvent args)
+    {
+        if (!TryComp<ADTJanicartActiveModulesComponent>(ent, out var active))
+            return;
+
+        foreach (var moduleUid in active.ActiveModules)
+        {
+            if (args.OldOperator is { } oldOperator)
+                RevokeToggleActions(oldOperator, moduleUid);
+
+            if (args.NewOperator is { } newOperator)
+                GrantToggleActions(newOperator, moduleUid);
+        }
+    }
+
+    private void GrantToggleActions(EntityUid user, EntityUid moduleUid)
+    {
+        if (TryComp<ADTJanicartBufferComponent>(moduleUid, out var buffer))
+        {
+            _actions.AddAction(user, ref buffer.ToggleActionEntity, buffer.ToggleAction, moduleUid);
+            _actions.SetToggled(buffer.ToggleActionEntity, !buffer.Enabled);
+        }
+
+        if (TryComp<ADTJanicartVacuumComponent>(moduleUid, out var vacuum))
+        {
+            _actions.AddAction(user, ref vacuum.ToggleActionEntity, vacuum.ToggleAction, moduleUid);
+            _actions.SetToggled(vacuum.ToggleActionEntity, !vacuum.Enabled);
+        }
+    }
+
+    private void RevokeToggleActions(EntityUid user, EntityUid moduleUid)
+    {
+        if (TryComp<ADTJanicartBufferComponent>(moduleUid, out var buffer))
+            _actions.RemoveAction(user, buffer.ToggleActionEntity);
+
+        if (TryComp<ADTJanicartVacuumComponent>(moduleUid, out var vacuum))
+            _actions.RemoveAction(user, vacuum.ToggleActionEntity);
     }
 
     private void OnInit(Entity<ADTJanicartUpgradeableComponent> ent, ref ComponentInit args)
@@ -98,6 +166,9 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
         _popup.PopupClient(Loc.GetString("janicart-upgrade-popup-insert", ("upgrade", used), ("vehicle", ent.Owner)), user);
         OnUpgradesChanged(ent);
         AddActiveModule(ent, used);
+
+        if (CompOrNull<VehicleComponent>(ent)?.Operator is { } driver)
+            GrantToggleActions(driver, used);
 
         _adminLog.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(user):player} installed {ToPrettyString(used)} into {ToPrettyString(ent.Owner)}.");
         return true;
@@ -158,8 +229,14 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
         if (!_container.TryGetContainer(ent, ent.Comp.UpgradesContainerId, out var container))
             return;
 
+        var driver = CompOrNull<VehicleComponent>(ent)?.Operator;
         foreach (var upgrade in GetUpgrades(ent))
+        {
             RemoveActiveModule(ent, upgrade.Owner);
+
+            if (driver is { } uid)
+                RevokeToggleActions(uid, upgrade.Owner);
+        }
 
         _container.EmptyContainer(container);
         _audio.PlayPredicted(ent.Comp.RemoveSound, ent, user);
@@ -225,6 +302,7 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
                     continue;
 
                 if (TryComp<ADTJanicartBufferComponent>(moduleUid, out var buffer)
+                    && buffer.Enabled
                     && curTime >= buffer.NextCheck)
                 {
                     buffer.NextCheck = curTime + buffer.CheckInterval;
@@ -232,6 +310,7 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
                 }
 
                 if (TryComp<ADTJanicartVacuumComponent>(moduleUid, out var vacuum)
+                    && vacuum.Enabled
                     && curTime >= vacuum.NextCheck)
                 {
                     vacuum.NextCheck = curTime + vacuum.CheckInterval;
@@ -296,6 +375,7 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
             return;
 
         AddActiveModule(args.ChassisEnt, ent);
+        GrantToggleActions(args.ChassisEnt, ent);
     }
 
     private void OnBorgModuleUninstalled(Entity<BorgModuleComponent> ent, ref BorgModuleUninstalledEvent args)
@@ -304,6 +384,7 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
             return;
 
         RemoveActiveModule(args.ChassisEnt, ent);
+        RevokeToggleActions(args.ChassisEnt, ent);
     }
 
     private void WashPuddles(EntityUid moduleUid, ADTJanicartBufferComponent buffer)
@@ -319,8 +400,37 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
             cleaned = true;
         }
 
+        cleaned |= CleanDecals(moduleUid, buffer);
+
         if (cleaned)
             _audio.PlayPvs(buffer.WashSound, moduleUid);
+    }
+
+    private bool CleanDecals(EntityUid moduleUid, ADTJanicartBufferComponent buffer)
+    {
+        var xform = Transform(moduleUid);
+        if (xform.GridUid is not { } gridUid)
+            return false;
+
+        var origin = Vector2.Transform(_transform.GetWorldPosition(xform), _transform.GetInvWorldMatrix(gridUid));
+        var bounds = Box2.CenteredAround(origin, new Vector2(buffer.Range * 2f, buffer.Range * 2f));
+
+        var cleaned = false;
+        foreach (var (index, decal) in _decals.GetDecalsIntersecting(gridUid, bounds))
+        {
+            if (!decal.Cleanable
+                || (decal.Coordinates + new Vector2(0.5f, 0.5f) - origin).Length() > buffer.Range
+                || !_prototype.TryIndex<DecalPrototype>(decal.Id, out var proto)
+                || !proto.Tags.Any(buffer.DecalTags.Contains))
+            {
+                continue;
+            }
+
+            _decals.RemoveDecal(gridUid, index);
+            cleaned = true;
+        }
+
+        return cleaned;
     }
 
     private void CollectTrash(EntityUid moduleUid, ADTJanicartVacuumComponent vacuum)
