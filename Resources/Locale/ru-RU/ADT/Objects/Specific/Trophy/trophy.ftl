@@ -57,3 +57,5 @@ crusher-effect-area-pushback = Детонация метки наносит вс
 crusher-upgrade-popup-insert = Вы успешно установили { $upgrade } в { $crusher }.
 crusher-upgrade-popup-already-present = Модуль такого типа уже установлен!
 crusher-upgrade-popup-extracted = Вы аккуратно извлекли { $upgrade } из { $crusher }.
+adt-kinetic-trophy-adaptive-core = [color=#FFD700][b]Улучшение:[/b][/color] [color=#7fffd4]адаптивное ядро ИИ[/color]
+crusher-effect-adaptive-learning = Каждый удар по цели увеличивает урон по ней на [color=red]{$bonus}[/color], до максимума в [color=red]{$max}[/color].

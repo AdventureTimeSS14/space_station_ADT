@@ -94,7 +94,7 @@
   components:
   - type: Tendril
     spawns:
-    - MobGoliath
+    - ADTMobLavalandGoliath
 
 - type: entity
   id: ADTTendrilLegion

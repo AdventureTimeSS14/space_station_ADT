@@ -660,12 +660,6 @@
   id: ADTMinerArmor
 
 - type: Tag
-  id: ADTMinerArmorOne
-
-- type: Tag
-  id: ADTMinerArmorTwo
-
-- type: Tag
   id: ADTBsoWeapon
 
 - type: Tag

@@ -29,7 +29,7 @@ public abstract class SharedADTMineralSystem : EntitySystem
 
     private void OnAttacked(Entity<ADTMineralComponent> ent, ref AttackedEvent args)
     {
-        OnHit(ent, args.User);
+        OnHit(ent, args.User, args.User);
 
         if (args.Used == args.User)
         {
@@ -74,7 +74,7 @@ public abstract class SharedADTMineralSystem : EntitySystem
             return;
 
         if (args.Gatherer is { } gatherer && HasComp<ProjectileComponent>(gatherer))
-            OnHit(ent, gatherer);
+            OnHit(ent, gatherer, null);
 
         var power = CompOrNull<ADTDrillPowerComponent>(args.Gatherer)?.Power ?? 1;
         if (!Drill(ent, power, args.Gatherer, false))
@@ -98,6 +98,7 @@ public abstract class SharedADTMineralSystem : EntitySystem
     public void Destroy(Entity<ADTMineralComponent> ent, EntityUid? user)
     {
         ent.Comp.Breaking = true;
+        Dirty(ent);
         _gatherable.Gather(ent.Owner, user);
     }
 
@@ -140,7 +141,7 @@ public abstract class SharedADTMineralSystem : EntitySystem
         _appearance.SetData(ent, ADTMineralVisuals.Cracks, cracks);
     }
 
-    protected virtual void OnHit(Entity<ADTMineralComponent> ent, EntityUid source)
+    protected virtual void OnHit(Entity<ADTMineralComponent> ent, EntityUid source, EntityUid? predictedBy)
     {
     }
 

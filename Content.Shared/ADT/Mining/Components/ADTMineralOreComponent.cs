@@ -16,4 +16,7 @@ public sealed partial class ADTMineralOreComponent : Component
 
     [DataField]
     public bool NoExplosionBonus;
+
+    [DataField]
+    public int FixedAmount;
 }
