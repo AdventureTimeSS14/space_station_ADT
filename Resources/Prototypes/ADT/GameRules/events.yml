@@ -141,3 +141,22 @@
       proto: ADTSpaceEmperor
   - type: DragonRule #чтобы отдельный рул не писать
   - type: GhostRoleAntagSpawner
+
+- type: entity
+  parent: BaseGameRule
+  id: SantaSpawn
+  components:
+  - type: StationEvent
+    weight: 2
+    earliestStart: 10
+    reoccurrenceDelay: 75
+    duration: null
+  - type: SpaceSpawnRule
+    spawnDistance: 0
+  - type: AntagSpawner
+    prototype: ADTSanta
+  - type: AntagSelection
+    antags:
+    - !type:FixedAntagCount
+      proto: ADTSanta
+  - type: DragonRule #чтобы отдельный рул не писать
