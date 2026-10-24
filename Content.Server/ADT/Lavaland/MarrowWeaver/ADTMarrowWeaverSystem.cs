@@ -1,6 +1,7 @@
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Damage.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs.Systems;
