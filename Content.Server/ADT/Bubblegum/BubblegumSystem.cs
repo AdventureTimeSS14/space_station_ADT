@@ -80,7 +80,7 @@ public sealed class BubblegumSystem : EntitySystem
         if (args.OldPosition == args.NewPosition)
             return;
 
-        if (HasComp<BubblegumActiveChargeComponent>(ent))
+        if (HasComp<ADTMegafaunaActiveChargeComponent>(ent))
             return;
 
         if (_mobState.IsDead(ent))

@@ -69,5 +69,8 @@ ent-ADTClothingCloakInvestigator = плащ следователя Службы 
 ent-ADTClothingNeckCloakSecondBlueshield = плащ офицера синего щита
     .desc = Этот плащ выполнен из темно-синей ткани, а на его спине изображен величественный белый щит. Он станет символом вашего статуса и защиты, подчеркивая вашу преданность делу.
 
-ent-ADTClothingNeckCloakCentcomOfficerBlack = торжественный плащ офицера специальных операций 
+ent-ADTClothingNeckCloakCentcomOfficerBlack = торжественный плащ офицера специальных операций
     .desc = Роскошно украшенный плащ для особых случаев.
+
+ent-ADTClothingCentralCommandMantleShoulder = наплечная мантия представителя Центком
+    .desc = Этот плащ выполнен из темно-зеленой ткани. Он станет символом вашего статуса, подчеркивая вашу преданность делу.

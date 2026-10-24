@@ -107,3 +107,7 @@ flavor-complex-waffle-cake = как вафли и варёная сгущёнк�
 
 flavor-base-adtash = пеплом
 flavor-complex-adthopelessness = безнадёжностью
+
+flavor-complex-adt-jam-raspberry = как малиновое варенье, совсем как у бабушки
+flavor-complex-adt-jam-strawberry = как клубничное варенье с целыми ягодками
+flavor-complex-adt-jam-apricot = как абрикосовое варенье, сладкое и солнечное

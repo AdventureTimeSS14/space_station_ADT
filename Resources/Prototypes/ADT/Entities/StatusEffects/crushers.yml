@@ -1,0 +1,70 @@
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTStatusEffectCrusherVulnerable
+  name: crusher vulnerability
+  components:
+  - type: DamageModifierStatusEffect
+    modifiers:
+      coefficients:
+        Blunt: 1.2
+        Slash: 1.2
+        Piercing: 1.2
+        Heat: 1.2
+        Cold: 1.2
+        Shock: 1.2
+        Caustic: 1.2
+  - type: ExaminableStatusEffect
+    messageId: adt-status-effect-examine-crusher-vulnerable
+
+- type: entity
+  parent: StatusEffectSpeed
+  id: ADTStatusEffectCrusherMacheteSpeed
+  name: machete momentum
+  components:
+  - type: MovementModStatusEffect
+    walkSpeedModifier: 1
+    sprintSpeedModifier: 1
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTStatusEffectCrusherRage
+  name: berserker rage
+  components:
+  - type: StatusEffect
+    whitelist:
+      components:
+      - MobState
+      - MovementSpeedModifier
+      requireAll: true
+  - type: ADTCrusherRageStatusEffect
+    exhaustionEffect: ADTStatusEffectCrusherRageExhaustion
+    exhaustionDuration: 3
+  - type: ADTCrusherRageOverlayStatusEffect
+    color: "#C80000"
+    minAmount: 0.15
+    maxAmount: 0.3
+    pulseFrequency: 1.5
+    flashAmount: 0.6
+    flashDuration: 0.4
+  - type: ADTMeleeAttackRateStatusEffect
+    multiplier: 1.3
+  - type: MovementModStatusEffect
+    walkSpeedModifier: 1.1
+    sprintSpeedModifier: 1.1
+  - type: DamageModifierStatusEffect
+    modifiers:
+      coefficients:
+        Blunt: 1.28
+        Slash: 1.28
+        Piercing: 1.21
+        Heat: 1.21
+        Cold: 1.15
+        Shock: 1.15
+        Caustic: 1.15
+  - type: ExaminableStatusEffect
+    messageId: adt-status-effect-examine-crusher-rage
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTStatusEffectCrusherRageExhaustion
+  name: rage exhaustion

@@ -41,6 +41,18 @@
             "name": "plushie_ilumi"
         },
         {
+            "name": "ilumi-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "ilumi-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "ilumi-equipped-HELMET",
+            "directions": 4
+        },
+        {
             "name": "plushie_jan"
         },
         {
@@ -162,6 +174,9 @@
         },
         {
             "name": "plushie_raykulakov"
+        },
+        {
+            "name": "plushie_winter"
         },
         {
             "name": "ntb-inhand-left",
@@ -382,6 +397,31 @@
             "name": "plushie_reimor"
         },
         {
+            "name": "plushie_olifer"
+        },
+        {
+            "name": "olifer-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "olifer-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "plushie_navi"
+        },
+        {
+            "name": "navi-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "navi-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "plushie_tselka"
+        },
+        {
             "name": "reimor-inhand-left",
             "directions": 4
         },
@@ -391,6 +431,14 @@
         },
         {
             "name": "reimor-equipped-HELMET",
+            "directions": 4
+        },
+        {
+            "name": "winter-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "winter-inhand-right",
             "directions": 4
         }
     ]

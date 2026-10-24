@@ -490,7 +490,10 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
         var anyTreatable = false;
         foreach (var addiction in addictions)
         {
-            var kindName = Loc.GetString($"health-analyzer-addiction-{KindLoc(addiction.Kind)}");
+            if (!_prototypes.TryIndex<AddictionPrototype>(addiction.Kind, out var kindProto))
+                continue;
+
+            var kindName = Loc.GetString(kindProto.Name);
             var stageName = Loc.GetString($"health-analyzer-addiction-stage-{addiction.Stage}");
             var line = addiction.Permanent
                 ? Loc.GetString("health-analyzer-window-addiction-permanent", ("kind", kindName), ("stage", addiction.Stage), ("stageName", stageName))
@@ -515,16 +518,6 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
             FontColorOverride = anyTreatable ? Color.Green : Color.Red,
         });
     }
-
-    private static string KindLoc(AddictionKind kind) => kind switch
-    {
-        AddictionKind.Alcohol => "alcohol",
-        AddictionKind.Nicotine => "nicotine",
-        AddictionKind.Drug => "drug",
-        AddictionKind.Medicine => "medicine",
-        AddictionKind.Omnizine => "omnizine",
-        _ => "alcohol",
-    };
     // ADT-Tweak-End
 }
 

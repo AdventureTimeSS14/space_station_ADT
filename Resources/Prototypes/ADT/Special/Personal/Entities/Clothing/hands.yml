@@ -155,20 +155,6 @@
     fiberColor: fibers-leather
   - type: FingerprintMask
 
-- type: entity
-  parent: ClothingHandsBase
-  id: ADTClothingHandsGlovesPowergloveArcher
-  name: power gloves
-  description: Now I'm playin' with power! Wait... they're turned off. #Use "Now I'm playin' with power! BAM!" for when they're turned on
-  components:
-  - type: Sprite
-    sprite: ADT/Special/Personal/archeron/powerglove_archer.rsi
-  - type: Clothing
-    sprite: ADT/Special/Personal/archeron/powerglove_archer.rsi
-  - type: Fiber
-    fiberMaterial: fibers-nanomachines
-  - type: FingerprintMask
-
 #maksim_soko
 - type: entity
   parent: BaseItem # Че это блять, кольцо или предмет нахуй
