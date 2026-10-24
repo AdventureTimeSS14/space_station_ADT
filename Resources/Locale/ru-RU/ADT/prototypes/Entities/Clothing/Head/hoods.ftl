@@ -7,6 +7,8 @@ ent-ADTClothingHeadSquidGameHood = капюшон организатора Иг�
 
 ent-ADTClothingHeadHelmetMiner = шахтёрский капюшон
     .desc = Пропитан отчаянием и безнадежностью.
+ent-ADTClothingHeadHelmetMinerUnplatable = { ent-ADTClothingHeadHelmetMiner }
+    .desc = { ent-ADTClothingHeadHelmetMiner.desc }
 
 ent-ADTClothingHeadHatHoodChaplainLeader = капюшон религиозного лидера
     .desc = Прекрасный способ подчеркнуть НЕ сектанский строй НЕ культа.

@@ -241,7 +241,16 @@
   - type: ToggleableClothing
     clothingPrototype: ADTClothingHeadHelmetMiner
   - type: ADTGoliathPlatable
-    types: [ Blunt, Slash ]
+    types: [ Blunt, Slash, Heat, Caustic ]
+    steps:
+      Heat: 0.0667
+    minCoefficients:
+      Blunt: 0.5
+      Slash: 0.4
+      Heat: 0.6
+      Caustic: 0.4
+    explosionStep: 0.0667
+    minExplosionCoefficient: 0.7
     maxPlates: 3
     sprites:
     - ADT/Clothing/OuterClothing/Armor/mining.rsi
@@ -290,6 +299,8 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.75
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetMinerUnplatable
   - type: ADTGoliathPlatable
     types: []
     sprites: []
@@ -324,6 +335,8 @@
   - type: ClothingSpeedModifier
     walkModifier: 1.2
     sprintModifier: 1.2
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetMinerUnplatable
   - type: ADTGoliathPlatable
     types: []
     sprites: []

@@ -10,3 +10,5 @@ adt-crusher-spear-examine = Если нажать ПКМ, вы бросите к
 adt-crusher-spear-need-wield = Чтобы бросить копьё, нужно держать его двумя руками.
 adt-crusher-spear-claws-worn = Вы не можете как следует метнуть копьё, пока на вас надеты когти.
 adt-status-effect-examine-crusher-rage =[color=red]{ CAPITALIZE($target) } в зверской ярости![/color]
+adt-kinetic-interference-popup = Кинетические поля сбивают друг друга!
+adt-kinetic-focus-examine = Если вы попадёте по существу из ПКА, а затем в течение [color=yellow]{ $window } с[/color] попадёте крушителем или наоборот, кинетические поля собьют друг друга, и всё кинетическое оружие будет дольше перезаряжаться.
