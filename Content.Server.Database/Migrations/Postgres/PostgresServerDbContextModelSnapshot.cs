@@ -462,6 +462,148 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.ToTable("admin_watchlists", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.AdtPoll", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("adt_poll_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Closed")
+                        .HasColumnType("boolean")
+                        .HasColumnName("closed");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("created_at");
+
+                    b.Property<Guid>("CreatedBy")
+                        .HasColumnType("uuid")
+                        .HasColumnName("created_by");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("description");
+
+                    b.Property<DateTime?>("EndsAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("ends_at");
+
+                    b.Property<string>("Filters")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("filters");
+
+                    b.Property<string>("Questions")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("questions");
+
+                    b.Property<string>("Servers")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("servers");
+
+                    b.Property<int>("ShowMode")
+                        .HasColumnType("integer")
+                        .HasColumnName("show_mode");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("title");
+
+                    b.HasKey("Id")
+                        .HasName("PK_adt_poll");
+
+                    b.ToTable("adt_poll", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.AdtPollPending", b =>
+                {
+                    b.Property<int>("PollId")
+                        .HasColumnType("integer")
+                        .HasColumnName("poll_id");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("user_id");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("created_at");
+
+                    b.Property<string>("Snapshot")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("snapshot");
+
+                    b.HasKey("PollId", "UserId")
+                        .HasName("PK_adt_poll_pending");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("adt_poll_pending", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.AdtPollResponse", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("adt_poll_response_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Answers")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("answers");
+
+                    b.Property<int>("PollId")
+                        .HasColumnType("integer")
+                        .HasColumnName("poll_id");
+
+                    b.Property<int?>("RoundId")
+                        .HasColumnType("integer")
+                        .HasColumnName("round_id");
+
+                    b.Property<string>("Server")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("server");
+
+                    b.Property<string>("Snapshot")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("snapshot");
+
+                    b.Property<DateTime>("SubmittedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("submitted_at");
+
+                    b.Property<bool>("Targeted")
+                        .HasColumnType("boolean")
+                        .HasColumnName("targeted");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("user_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_adt_poll_response");
+
+                    b.HasIndex("UserId");
+
+                    b.HasIndex("PollId", "UserId")
+                        .IsUnique();
+
+                    b.ToTable("adt_poll_response", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.AdtSponsorGrant", b =>
                 {
                     b.Property<int>("Id")
@@ -2218,6 +2360,30 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Navigation("Round");
                 });
 
+            modelBuilder.Entity("Content.Server.Database.AdtPollPending", b =>
+                {
+                    b.HasOne("Content.Server.Database.AdtPoll", "Poll")
+                        .WithMany("Pending")
+                        .HasForeignKey("PollId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_adt_poll_pending_adt_poll_poll_id");
+
+                    b.Navigation("Poll");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.AdtPollResponse", b =>
+                {
+                    b.HasOne("Content.Server.Database.AdtPoll", "Poll")
+                        .WithMany("Responses")
+                        .HasForeignKey("PollId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_adt_poll_response_adt_poll_poll_id");
+
+                    b.Navigation("Poll");
+                });
+
             modelBuilder.Entity("Content.Server.Database.AdtSponsorGrant", b =>
                 {
                     b.HasOne("Content.Server.Database.AdtSponsorTier", "Tier")
@@ -2398,18 +2564,6 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Navigation("Server");
                 });
 
-            modelBuilder.Entity("Content.Server.Database.ExtraLoadoutData", b =>
-                {
-                    b.HasOne("Content.Server.Database.ProfileRoleLoadout", "RoleLoadout")
-                        .WithMany("ExtraData")
-                        .HasForeignKey("ProfileRoleLoadoutId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_extra_loadout_data_profile_role_loadout_profile_role_loadou~");
-
-                    b.Navigation("RoleLoadout");
-                });
-
             modelBuilder.Entity("Content.Server.Database.CustomVoteLog", b =>
                 {
                     b.HasOne("Content.Server.Database.Player", "Initiator")
@@ -2441,6 +2595,18 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasConstraintName("FK_custom_vote_log_option_custom_vote_log_vote_id");
 
                     b.Navigation("Vote");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.ExtraLoadoutData", b =>
+                {
+                    b.HasOne("Content.Server.Database.ProfileRoleLoadout", "RoleLoadout")
+                        .WithMany("ExtraData")
+                        .HasForeignKey("ProfileRoleLoadoutId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_extra_loadout_data_profile_role_loadout_profile_role_loadou~");
+
+                    b.Navigation("RoleLoadout");
                 });
 
             modelBuilder.Entity("Content.Server.Database.Job", b =>
@@ -2656,6 +2822,13 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Navigation("Admins");
 
                     b.Navigation("Flags");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.AdtPoll", b =>
+                {
+                    b.Navigation("Pending");
+
+                    b.Navigation("Responses");
                 });
 
             modelBuilder.Entity("Content.Server.Database.AdtSponsorTier", b =>

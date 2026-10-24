@@ -8,15 +8,6 @@ ent-ADTClothingHeadSquidGameHood = капюшон организатора Иг�
 ent-ADTClothingHeadHelmetMiner = шахтёрский капюшон
     .desc = Пропитан отчаянием и безнадежностью.
 
-ent-ADTClothingHeadHelmetMinerReinforcedOne = частично усиленный капюшон исследователя
-    .desc = Пропитан отчаянием и безнадежностью, но малая часть надежды теперь чуствуется в нём.
-
-ent-ADTClothingHeadHelmetMinerReinforcedTwo = усиленный капюшон исследователя
-    .desc = Пропитан отчаянием и безнадежностью, а теперь к надежде прибавилось безумие... Безумие самого Лаваленда.
-
-ent-ADTClothingHeadHelmetMinerReinforcedFull = пластинчатый капюшон исследователя
-    .desc = Такой же безумный способ укрыть голову от опасностей, как и рассудок придумавшего это.
-
 ent-ADTClothingHeadHatHoodChaplainLeader = капюшон религиозного лидера
     .desc = Прекрасный способ подчеркнуть НЕ сектанский строй НЕ культа.
 

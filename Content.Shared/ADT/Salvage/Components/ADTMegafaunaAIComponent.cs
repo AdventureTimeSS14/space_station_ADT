@@ -10,6 +10,18 @@ public sealed partial class ADTMegafaunaAIComponent : Component
     [DataField]
     public TimeSpan DecisionInterval = TimeSpan.FromSeconds(2);
 
+    [DataField]
+    public TimeSpan DecisionJitterMin = TimeSpan.Zero;
+
+    [DataField]
+    public TimeSpan DecisionJitterMax = TimeSpan.Zero;
+
+    [DataField]
+    public bool MeleeOncePerDecision;
+
+    [ViewVariables]
+    public bool MeleeReady = true;
+
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan NextDecisionAt;
 
