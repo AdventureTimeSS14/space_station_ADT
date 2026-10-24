@@ -39,3 +39,6 @@ trait-debts-description = Your bank account starts the round with zero credits. 
 
 trait-on-edge-of-bankruptcy-name = On the Edge of Bankruptcy
 trait-on-edge-of-bankruptcy-description = Your bank account starts the round. Your salary comes in as usual and gradually covers the debt.
+
+trait-dissociative-identity-name = Dissociative identity disorder
+trait-dissociative-identity-desc = A second personality lives inside you. It is played by another player: it talks to you, sometimes steps outside and from time to time takes your body over. Haloperidol suppresses it. Expect your body to be controlled by someone else.

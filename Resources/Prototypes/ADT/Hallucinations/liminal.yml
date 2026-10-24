@@ -1,0 +1,14 @@
+- type: hallucinationsPack
+  id: Liminal
+  music:
+    path: /Audio/ADT/Ambience/Music/CL.ogg
+    params:
+      volume: -12
+  musicPlayInterval:
+    min: 200
+    max: 250
+  musicDurationThreshold: 100
+  components:
+  - type: HallucinationsRemoveMobs
+    reveal: ADTLiminalRevealEffect
+  startingMessage: hallucinations-pack-liminal-start

@@ -1,0 +1,5 @@
+- type: hallucinationsPack
+  id: Revenant
+  components:
+  - type: HueShift
+    shift: 2.5
