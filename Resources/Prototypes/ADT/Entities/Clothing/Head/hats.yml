@@ -625,8 +625,6 @@
     size: Large
     shape:
     - 0,0,1,1
-  - type: ZombificationResistance
-    zombificationResistanceCoefficient: 0.55
   - type: Tag
     tags:
     - WinterCoat
@@ -650,8 +648,6 @@
     size: Large
     shape:
     - 0,0,1,1
-  - type: ZombificationResistance
-    zombificationResistanceCoefficient: 0.55
   - type: Tag
     tags:
     - WinterCoat

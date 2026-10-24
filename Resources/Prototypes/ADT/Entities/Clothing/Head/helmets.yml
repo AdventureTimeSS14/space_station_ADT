@@ -215,8 +215,6 @@
   - type: FoldableClothing
     foldedEquippedPrefix: open
     foldedHeldPrefix: open
-  - type: FlashImmunity
-  - type: EyeProtection
   - type: Armor
     modifiers:
       coefficients:

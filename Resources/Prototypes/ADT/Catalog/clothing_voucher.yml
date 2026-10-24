@@ -3063,3 +3063,95 @@
   - ADTClothingUniformDressNightWhite
 
 
+
+#region NewUnderwear
+
+- type: thiefBackpackSet
+  id: UnderwearBoxersILoveArcan
+  name: clothing-voucher-underwear-boxers-i-love-arcan
+  description: clothing-voucher-underwear-boxers-i-love-arcan
+  sprite:
+    sprite: ADT/Clothing/Underwear/Bottom/boxers_i_love_arcan.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearBottomBoxersILoveArcan
+
+- type: thiefBackpackSet
+  id: UnderwearBoxersPink
+  name: clothing-voucher-underwear-boxers-pink
+  description: clothing-voucher-underwear-boxers-pink
+  sprite:
+    sprite: ADT/Clothing/Underwear/Bottom/boxers_pink.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearBottomBoxersPink
+
+- type: thiefBackpackSet
+  id: UnderwearBoxersTSF
+  name: clothing-voucher-underwear-boxers-tsf
+  description: clothing-voucher-underwear-boxers-tsf
+  sprite:
+    sprite: ADT/Clothing/Underwear/Bottom/boxers_tsf.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearBottomBoxersTSF
+
+- type: thiefBackpackSet
+  id: UnderwearPantiesAmerica
+  name: clothing-voucher-underwear-panties-america
+  description: clothing-voucher-underwear-panties-america
+  sprite:
+    sprite: ADT/Clothing/Underwear/Bottom/panties_america.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearBottomPantiesAmerica
+
+- type: thiefBackpackSet
+  id: UnderwearPantiesPink
+  name: clothing-voucher-underwear-panties-pink
+  description: clothing-voucher-underwear-panties-pink
+  sprite:
+    sprite: ADT/Clothing/Underwear/Bottom/panties_pink.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearBottomPantiesPink
+
+- type: thiefBackpackSet
+  id: UnderwearBraAmerica
+  name: clothing-voucher-underwear-bra-america
+  description: clothing-voucher-underwear-bra-america
+  sprite:
+    sprite: ADT/Clothing/Underwear/Top/bra_america.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearTopBraAmerica
+
+- type: thiefBackpackSet
+  id: UnderwearBraPink
+  name: clothing-voucher-underwear-bra-pink
+  description: clothing-voucher-underwear-bra-pink
+  sprite:
+    sprite: ADT/Clothing/Underwear/Top/bra_pink.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearTopBraPink
+
+- type: thiefBackpackSet
+  id: UnderwearBigbraCow
+  name: clothing-voucher-underwear-bigbra-cow
+  description: clothing-voucher-underwear-bigbra-cow
+  sprite:
+    sprite: ADT/Clothing/Underwear/Top/bigbra_cow.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearTopBigbraCow
+
+- type: thiefBackpackSet
+  id: SockStockingCow
+  name: clothing-voucher-sock-stocking-cow
+  description: clothing-voucher-sock-stocking-cow
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/stocking_cow.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksStockingCow

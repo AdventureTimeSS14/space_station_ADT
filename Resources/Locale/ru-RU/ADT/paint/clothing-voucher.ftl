@@ -389,3 +389,13 @@ clothing-voucher-nightdress-black = { ent-ADTClothingUniformDressNightBlack }
 clothing-voucher-nightdress-red = { ent-ADTClothingUniformDressNightRed }
 clothing-voucher-nightdress-white = { ent-ADTClothingUniformDressNightWhite }
 
+
+clothing-voucher-underwear-boxers-i-love-arcan = { ent-ADTClothingUnderwearBottomBoxersILoveArcan }
+clothing-voucher-underwear-boxers-pink = { ent-ADTClothingUnderwearBottomBoxersPink }
+clothing-voucher-underwear-boxers-tsf = { ent-ADTClothingUnderwearBottomBoxersTSF }
+clothing-voucher-underwear-panties-america = { ent-ADTClothingUnderwearBottomPantiesAmerica }
+clothing-voucher-underwear-panties-pink = { ent-ADTClothingUnderwearBottomPantiesPink }
+clothing-voucher-underwear-bra-america = { ent-ADTClothingUnderwearTopBraAmerica }
+clothing-voucher-underwear-bra-pink = { ent-ADTClothingUnderwearTopBraPink }
+clothing-voucher-underwear-bigbra-cow = { ent-ADTClothingUnderwearTopBigbraCow }
+clothing-voucher-sock-stocking-cow = { ent-ADTClothingUnderwearSocksStockingCow }

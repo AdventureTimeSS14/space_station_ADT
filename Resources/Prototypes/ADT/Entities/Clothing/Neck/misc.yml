@@ -161,6 +161,8 @@
   components:
   - type: Item
     size: Tiny
+  - type: ADTAccessory
+    sprite: ADT/Clothing/Neck/medallion.rsi
 
 # Pendants with Gems
 - type: entity
@@ -180,6 +182,8 @@
       neck:
       - state: gold-equipped-NECK
       - state: diamond-equipped-NECK
+  - type: ADTAccessory
+    equippedState: gold-equipped-NECK
   - type: StaticPrice
     price: 400
 - type: entity
@@ -199,6 +203,8 @@
       neck:
       - state: gold-equipped-NECK
       - state: emerald-equipped-NECK
+  - type: ADTAccessory
+    equippedState: gold-equipped-NECK
   - type: StaticPrice
     price: 400
 - type: entity
@@ -218,6 +224,8 @@
       neck:
       - state: gold-equipped-NECK
       - state: plasma-equipped-NECK
+  - type: ADTAccessory
+    equippedState: gold-equipped-NECK
   - type: StaticPrice
     price: 400
 - type: entity
@@ -237,6 +245,8 @@
       neck:
       - state: gold-equipped-NECK
       - state: ruby-equipped-NECK
+  - type: ADTAccessory
+    equippedState: gold-equipped-NECK
   - type: StaticPrice
     price: 400
 - type: entity
@@ -256,6 +266,8 @@
       neck:
       - state: gold-equipped-NECK
       - state: sapphire-equipped-NECK
+  - type: ADTAccessory
+    equippedState: gold-equipped-NECK
   - type: StaticPrice
     price: 400
 - type: entity
@@ -273,6 +285,8 @@
     clothingVisuals:
       neck:
       - state: heart-gold-equipped-NECK
+  - type: ADTAccessory
+    equippedState: heart-gold-equipped-NECK
   - type: StaticPrice
     price: 250
 - type: entity
@@ -289,7 +303,9 @@
     sprite: ADT/Clothing/Neck/medallion.rsi
     clothingVisuals:
       neck:
-      - state: photo-gold
+      - state: gold-equipped-NECK
+  - type: ADTAccessory
+    equippedState: gold-equipped-NECK
   - type: StaticPrice
     price: 280
 - type: entity
@@ -309,6 +325,8 @@
       neck:
       - state: silver-equipped-NECK
       - state: diamond-equipped-NECK
+  - type: ADTAccessory
+    equippedState: silver-equipped-NECK
   - type: StaticPrice
     price: 270
 - type: entity
@@ -328,6 +346,8 @@
       neck:
       - state: silver-equipped-NECK
       - state: emerald-equipped-NECK
+  - type: ADTAccessory
+    equippedState: silver-equipped-NECK
   - type: StaticPrice
     price: 270
 - type: entity
@@ -347,6 +367,8 @@
       neck:
       - state: silver-equipped-NECK
       - state: plasma-equipped-NECK
+  - type: ADTAccessory
+    equippedState: silver-equipped-NECK
   - type: StaticPrice
     price: 270
 - type: entity
@@ -366,6 +388,8 @@
       neck:
       - state: silver-equipped-NECK
       - state: ruby-equipped-NECK
+  - type: ADTAccessory
+    equippedState: silver-equipped-NECK
   - type: StaticPrice
     price: 270
 - type: entity
@@ -385,6 +409,8 @@
       neck:
       - state: silver-equipped-NECK
       - state: sapphire-equipped-NECK
+  - type: ADTAccessory
+    equippedState: silver-equipped-NECK
   - type: StaticPrice
     price: 270
 - type: entity
@@ -402,6 +428,8 @@
     clothingVisuals:
       neck:
       - state: heart-silver-equipped-NECK
+  - type: ADTAccessory
+    equippedState: heart-silver-equipped-NECK
   - type: StaticPrice
     price: 120
 - type: entity
@@ -418,7 +446,9 @@
     sprite: ADT/Clothing/Neck/medallion.rsi
     clothingVisuals:
       neck:
-      - state: photo-silver
+      - state: silver-equipped-NECK
+  - type: ADTAccessory
+    equippedState: silver-equipped-NECK
   - type: StaticPrice
     price: 150
 - type: entity
@@ -438,6 +468,8 @@
       neck:
       - state: steel-equipped-NECK
       - state: diamond-equipped-NECK
+  - type: ADTAccessory
+    equippedState: steel-equipped-NECK
   - type: StaticPrice
     price: 200
 - type: entity
@@ -457,6 +489,8 @@
       neck:
       - state: steel-equipped-NECK
       - state: emerald-equipped-NECK
+  - type: ADTAccessory
+    equippedState: steel-equipped-NECK
   - type: StaticPrice
     price: 200
 - type: entity
@@ -476,6 +510,8 @@
       neck:
       - state: steel-equipped-NECK
       - state: plasma-equipped-NECK
+  - type: ADTAccessory
+    equippedState: steel-equipped-NECK
   - type: StaticPrice
     price: 200
 - type: entity
@@ -495,6 +531,8 @@
       neck:
       - state: steel-equipped-NECK
       - state: ruby-equipped-NECK
+  - type: ADTAccessory
+    equippedState: steel-equipped-NECK
   - type: StaticPrice
     price: 200
 - type: entity
@@ -514,6 +552,8 @@
       neck:
       - state: steel-equipped-NECK
       - state: sapphire-equipped-NECK
+  - type: ADTAccessory
+    equippedState: steel-equipped-NECK
   - type: StaticPrice
     price: 200
 - type: entity
@@ -531,6 +571,8 @@
     clothingVisuals:
       neck:
       - state: heart-steel-equipped-NECK
+  - type: ADTAccessory
+    equippedState: heart-steel-equipped-NECK
   - type: StaticPrice
     price: 50
 - type: entity
@@ -547,6 +589,8 @@
     sprite: ADT/Clothing/Neck/medallion.rsi
     clothingVisuals:
       neck:
-      - state: photo-steel
+      - state: steel-equipped-NECK
+  - type: ADTAccessory
+    equippedState: steel-equipped-NECK
   - type: StaticPrice
     price: 80

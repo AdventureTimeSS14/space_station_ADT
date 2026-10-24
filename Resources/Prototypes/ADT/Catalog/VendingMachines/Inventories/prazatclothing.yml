@@ -2,10 +2,10 @@
   id: ADTPrazatClothesMateInventory
   startingInventory:
     ADTVendingCategoryHead: # ADT-Tweak
+        ADTClothingVoucherBeanie: 8
         ADTClothingHeadHatCinnamonFlatCap: 5
         ADTClothingHeadHatGreyFlatCap: 5
         ADTClothingHeadDrinkCap: 5
-        ADTClothingVoucherBeanie: 8
         ADTClothingHeadHatPapakhaBlack: 4
         ADTClothingHeadHatPapakhaWhite: 4
         ADTClothingHeadArtdecoHairpin: 4
@@ -20,6 +20,12 @@
         ADTClothingHeadHatWideBrimmed: 4
         ADTClothingHeadHatWideBrimmedBlack: 4
     ADTVendingCategoryUniforms: # ADT-Tweak
+        ADTClothingVoucherAdidas: 8
+        ADTClothingVoucherCasualShirt: 8
+        ADTClothingVoucherKeikogi: 8
+        ADTClothingVoucherSweatercut: 8
+        ADTClothingVoucherKilt: 8
+        ADTClothingVoucherNightDress: 8
         ADTClothingUniformJumpsuitDenimPants: 5
         ADTClothingUniformJumpsuitBlackPants: 5
         ADTClothingUniformJumpsuitWhitePants: 5
@@ -57,12 +63,6 @@
         ADTClothingUniformSwimRed: 1
         ADTClothingUniformJumpsuitRedVictorianSuit: 5
         ADTClothingUniformJumpsuitBlackVictorianSuit: 5
-        ADTClothingVoucherAdidas: 8
-        ADTClothingVoucherCasualShirt: 8
-        ADTClothingVoucherKeikogi: 8
-        ADTClothingVoucherSweatercut: 8
-        ADTClothingVoucherKilt: 8
-        ADTClothingVoucherNightDress: 8
         ADTClothingUniformDressArtdeco: 2
         ADTClothingUniformDressBlackrose: 2
         ADTClothingUniformDressDarkblue: 2
@@ -85,7 +85,6 @@
         ADTClothingUniformSwimWatermelon: 2
         ADTClothingUniformSwimCentcom: 2
         ADTClothingUniformSwimPlasma: 2
-        ADTClothingUniformSwimSani: 2
         ADTClothingUniformJumpsuitChessboard: 4
         ADTClothingUniformJumpsuitJeansnavel: 4
         ADTClothingUniformJumpsuitDenimShorts: 4
@@ -105,6 +104,8 @@
         ADTClothingUniformJumpsuitSuitGold: 2
         ADTClothingUniformJumpsuitSportUSSP: 4
     ADTVendingCategoryOuter: # ADT-Tweak
+        ADTClothingVoucherDownjacket: 8
+        ADTClothingVoucherHoody: 8
         ADTClothingOuterDutch: 5
         ADTClothingOuterWhiteSweatshirtTop: 5
         ADTClothingOuterGraySweatshirtTop: 5
@@ -113,23 +114,21 @@
         ADTClothingOuterLettermanSyndie: 5
         ADTClothingOuterLettermanBlack: 5
         ADTClothingOuterWinterRussianCoat: 5
-        ADTClothingVoucherDownjacket: 8
-        ADTClothingVoucherHoody: 8
         ADTClothingOuterCaptainCoat: 2
     ADTVendingCategoryAccessories: # ADT-Tweak
+        ADTClothingVoucherTie: 8
+        ADTClothingVoucherBowtie: 8
+        ADTClothingVoucherShawl: 8
         ADTClothingNeckGoldChain: 5
         ADTChokerWithSpike: 5
         ADTChokerWithHeart: 5
         ADTClothingNeckGoldTie: 5
-        ADTClothingVoucherTie: 8
         ADTClothingEyesGlassesPink: 5
         ADTClothingEyesGlassesMonocle: 5
         ADTClothingHandsGlovesLongBlack: 5
         ADTClothingHandsGlovesLongWhite: 5
         ADTClothingBeltBlackSuspenders: 5
         ADTClothingBeltBrownSuspenders: 5
-        ADTClothingVoucherBowtie: 8
-        ADTClothingVoucherShawl: 8
         ADTClothingHandsGlovesLongBlackGold: 4
         ADTClothingNeckArmband: 6
         ADTClothingNeckArmbandMed: 6
@@ -156,14 +155,13 @@
         ADTClothingNeckPendantSteelRuby: 2
         ADTClothingNeckPendantSteelSapphire: 2
     ADTVendingCategoryShoes: # ADT-Tweak
+        ADTClothingVoucherHeels: 8
+        ADTClothingVoucherSandals: 8
         ClothingShoesBootsLaceup: 5
         ADTClothingFootLightShoes: 5
         ADTClothingFootWhiteSandals: 5
         ADTClothingFootBlackBoots: 5
-        ADTClothingVoucherHeels: 8
-        ADTClothingVoucherSandals: 8
     ADTVendingCategoryUnderwear: # ADT-Tweak
-        # Бельё
         ADTClothingVoucherUnderwearBoxers: 8
         ADTClothingVoucherUnderwearBriefs: 8
         ADTClothingVoucherUnderwearPanties: 8
@@ -174,6 +172,7 @@
         ADTClothingVoucherUnderwearSocks: 8
         ADTClothingVoucherUnderwearSocksKnee: 8
         ADTClothingVoucherUnderwearStockings: 8
+        # Бельё
         ADTClothingUnderwearBottomBoxersILoveArcan: 5
         ADTClothingUnderwearBottomBoxersPink: 5
         ADTClothingUnderwearBottomBoxersTSF: 5
