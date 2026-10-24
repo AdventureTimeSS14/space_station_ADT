@@ -1,0 +1,6 @@
+- type: soundCollection
+  id: ADTLiminalMusic
+  files:
+    - /Audio/Ambience/liminal_bass.wav
+    - /Audio/Ambience/liminal_echoes.wav
+    - /Audio/Ambience/liminal_space.wav

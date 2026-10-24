@@ -1,7 +1,7 @@
 - type: hallucinationsPack
   id: Liminal
   music:
-    path: /Audio/Ambience/ambiodd.ogg
+    collection: ADTLiminalMusic
     params:
       volume: -12
   musicPlayInterval:
