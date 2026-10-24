@@ -1,8 +1,12 @@
+using System.Linq;
+using System.Numerics;
+using Content.Server.Decals;
 using Content.Shared.ADT.Janicart;
 using Content.Shared.Actions;
 using Content.Shared.ADT.Janicart.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Decals;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
@@ -49,6 +53,9 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
     [Dependency] private SharedToolSystem _tool = default!;
     [Dependency] private SharedHandsSystem _hands = default!;
     [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private DecalSystem _decals = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     private readonly HashSet<Entity<PuddleComponent>> _puddles = [];
     private readonly HashSet<Entity<ItemComponent>> _items = [];
@@ -387,8 +394,37 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
             cleaned = true;
         }
 
+        cleaned |= CleanDecals(moduleUid, buffer);
+
         if (cleaned)
             _audio.PlayPvs(buffer.WashSound, moduleUid);
+    }
+
+    private bool CleanDecals(EntityUid moduleUid, ADTJanicartBufferComponent buffer)
+    {
+        var xform = Transform(moduleUid);
+        if (xform.GridUid is not { } gridUid)
+            return false;
+
+        var tile = _transform.GetGridTilePositionOrDefault((moduleUid, xform));
+        var bounds = Box2.CenteredAround(tile + new Vector2(0.5f, 0.5f),
+            new Vector2(buffer.Range * 2f, buffer.Range * 2f));
+
+        var cleaned = false;
+        foreach (var (index, decal) in _decals.GetDecalsIntersecting(gridUid, bounds))
+        {
+            if (!decal.Cleanable
+                || !_prototype.TryIndex<DecalPrototype>(decal.Id, out var proto)
+                || !proto.Tags.Any(buffer.DecalTags.Contains))
+            {
+                continue;
+            }
+
+            _decals.RemoveDecal(gridUid, index);
+            cleaned = true;
+        }
+
+        return cleaned;
     }
 
     private void CollectTrash(EntityUid moduleUid, ADTJanicartVacuumComponent vacuum)
