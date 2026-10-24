@@ -23,9 +23,6 @@ ent-ADTMobMarrowWeaverFrost = морозный костномозговой тк
 
 adt-marrow-weaver-angry = { CAPITALIZE(THE($weaver)) } яростно стрекочет, оскалив клыки!
 adt-marrow-weaver-calm = { CAPITALIZE(THE($weaver)) } вроде бы успокоился, но не до конца.
-adt-marrow-weaver-feed = { CAPITALIZE(THE($weaver)) } впрыскивает токсичную слизь во внутренности { THE($victim) } и высасывает получившуюся кашицу!
-adt-marrow-weaver-feed-self = Вы разжижаете внутренности { THE($victim) } своим ядом и высасываете получившуюся массу, восстанавливая силы.
-adt-marrow-weaver-no-organs = В этом трупе больше нет органов.
 
 ent-ADTMobBSCrab = рудокраб
     .desc = Рудный краб, состоящий из блюспейс кристалла.

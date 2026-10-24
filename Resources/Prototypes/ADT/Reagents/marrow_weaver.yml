@@ -9,7 +9,7 @@
   flavor: bitter
   color: "#9ACD32"
   metabolisms:
-    Poison:
+    Bloodstream:
       metabolismRate: 0.2
       effects:
       - !type:HealthChange
@@ -30,7 +30,7 @@
   flavor: bitter
   color: "#CF3600"
   metabolisms:
-    Poison:
+    Bloodstream:
       metabolismRate: 0.1
       effects:
       - !type:AddReagentToBloodstream
@@ -286,7 +286,7 @@
   flavor: cold
   color: "#8BA6E9"
   metabolisms:
-    Poison:
+    Bloodstream:
       metabolismRate: 0.2
       effects:
       - !type:AdjustTemperature

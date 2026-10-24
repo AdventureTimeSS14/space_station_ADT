@@ -1,18 +1,12 @@
-using Content.Shared.Body;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Systems;
 using Content.Shared.FixedPoint;
-using Content.Shared.Fluids;
-using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -20,19 +14,13 @@ namespace Content.Server.ADT.Lavaland.MarrowWeaver;
 
 public sealed class ADTMarrowWeaverSystem : EntitySystem
 {
-    [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private BloodstreamSystem _bloodstream = default!;
     [Dependency] private IPrototypeManager _proto = default!;
-    [Dependency] private BodySystem _body = default!;
-    [Dependency] private DamageableSystem _damageable = default!;
     [Dependency] private MobStateSystem _mobState = default!;
     [Dependency] private MobThresholdSystem _thresholds = default!;
     [Dependency] private MovementSpeedModifierSystem _movement = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
-    [Dependency] private SharedPuddleSystem _puddle = default!;
     [Dependency] private IRobustRandom _random = default!;
-
-    private readonly List<EntityUid> _eaten = new();
 
     public override void Initialize()
     {
@@ -57,7 +45,7 @@ public sealed class ADTMarrowWeaverSystem : EntitySystem
     private void SetAngry(Entity<ADTMarrowWeaverComponent> ent, bool angry)
     {
         ent.Comp.Angry = angry;
-        _movement.RefreshMovementSpeedModifiers(ent);
+        _movement.RefreshMovementSpeedModifiers(ent.Owner);
 
         var popup = angry ? ent.Comp.AngryPopup : ent.Comp.CalmPopup;
         _popup.PopupEntity(Loc.GetString(popup, ("weaver", ent.Owner)), ent, angry ? PopupType.MediumCaution : PopupType.Small);
@@ -86,50 +74,7 @@ public sealed class ADTMarrowWeaverSystem : EntitySystem
         foreach (var target in args.HitEntities)
         {
             _bloodstream.TryAddToBloodstream(target, new Solution(poison, amount));
-
-            if (_mobState.IsDead(target) && HasComp<HumanoidAppearanceComponent>(target) && IsHurt(ent))
-                Feed(ent, target);
         }
-    }
-
-    private void Feed(Entity<ADTMarrowWeaverComponent> ent, EntityUid victim)
-    {
-        if (HasComp<ADTMarrowWeaverEatenComponent>(victim))
-            return;
-
-        _eaten.Clear();
-        foreach (var organ in _body.EnumerateOrgans<OrganComponent>(victim))
-        {
-            if (organ.Comp1.Category is { } category && ent.Comp.EatenOrgans.Contains(category))
-                _eaten.Add(organ.Owner);
-        }
-
-        EnsureComp<ADTMarrowWeaverEatenComponent>(victim);
-
-        if (_eaten.Count == 0)
-        {
-            _popup.PopupEntity(Loc.GetString(ent.Comp.NoOrgansPopup), ent, ent);
-            return;
-        }
-
-        foreach (var organ in _eaten)
-        {
-            QueueDel(organ);
-        }
-
-        var coords = Transform(victim).Coordinates;
-        _puddle.TrySpillAt(coords, new Solution(ent.Comp.FeedBloodReagent, ent.Comp.FeedBlood), out _, false);
-        _audio.PlayPvs(ent.Comp.FeedSound, coords);
-
-        _popup.PopupEntity(Loc.GetString(ent.Comp.FeedPopup, ("weaver", ent.Owner), ("victim", victim)), ent, Filter.PvsExcept(ent), true, PopupType.MediumCaution);
-        _popup.PopupEntity(Loc.GetString(ent.Comp.FeedPopupSelf, ("victim", victim)), ent, ent, PopupType.Medium);
-
-        _damageable.HealEvenly(ent.Owner, -ent.Comp.FeedHeal);
-    }
-
-    private bool IsHurt(EntityUid uid)
-    {
-        return TryComp<DamageableComponent>(uid, out var damageable) && damageable.TotalDamage > 0;
     }
 
     private float? GetHealthFraction(EntityUid uid)
