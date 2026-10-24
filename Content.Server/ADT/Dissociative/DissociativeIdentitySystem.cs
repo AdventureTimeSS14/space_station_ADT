@@ -34,6 +34,7 @@ public sealed partial class DissociativeIdentitySystem : EntitySystem
     [Dependency] private ISharedAdminLogManager _adminLog = default!;
     [Dependency] private SharedActionsSystem _actions = default!;
     [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedEyeSystem _eye = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private SharedVisualBodySystem _visualBody = default!;
     [Dependency] private HumanoidProfileSystem _humanoidProfile = default!;
@@ -129,6 +130,7 @@ public sealed partial class DissociativeIdentitySystem : EntitySystem
         ent.Comp.Alter = alter;
 
         RemComp<GhostOnMoveComponent>(alter);
+        _eye.SetTarget(alter, ent);
         _visualBody.CopyAppearanceFrom(ent.Owner, alter);
 
         if (TryComp<HumanoidProfileComponent>(alter, out var alterProfile))

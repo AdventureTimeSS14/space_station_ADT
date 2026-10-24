@@ -37,9 +37,9 @@
     checkConsciousness: false
     itemIconStyle: BigAction
   - type: Sprite
-    sprite: Interface/Actions/changeling.rsi
+    sprite: ADT/Interface/Actions/dissociative.rsi
     layers:
-    - state: stasis_exit
+    - state: lost
   - type: InstantAction
     event: !type:DissociativeReleaseActionEvent
 
