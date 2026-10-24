@@ -62,3 +62,55 @@
       amount: 1
   products:
     ADTCarpetiumOrange: 5
+
+- type: reaction
+  id: ADTCarpetiumBlack
+  impact: Low
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    Carpetium:
+      amount: 4
+    Charcoal:
+      amount: 1
+  products:
+    ADTCarpetiumBlack: 5
+
+- type: reaction
+  id: ADTCarpetiumCyan
+  impact: Low
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    Carpetium:
+      amount: 4
+    Helium:
+      amount: 1
+  products:
+    ADTCarpetiumCyan: 5
+
+- type: reaction
+  id: ADTCarpetiumPink
+  impact: Low
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    Carpetium:
+      amount: 4
+    Inaprovaline:
+      amount: 1
+  products:
+    ADTCarpetiumPink: 5
+
+- type: reaction
+  id: ADTCarpetiumPurple
+  impact: Low
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    Carpetium:
+      amount: 4
+    Left4Zed:
+      amount: 1
+  products:
+    ADTCarpetiumPurple: 5

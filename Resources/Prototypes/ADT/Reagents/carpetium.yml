@@ -5,7 +5,7 @@
   desc: reagent-desc-adt-carpetium-white
   physicalDesc: reagent-physical-desc-fibrous
   flavor: carpet
-  color: "#C3BEB1"
+  color: "#DCDCDC"
   tileReactions:
   - !type:CreateEntityTileReaction
     entity: CarpetWhite
@@ -19,7 +19,7 @@
   desc: reagent-desc-adt-carpetium-skyblue
   physicalDesc: reagent-physical-desc-fibrous
   flavor: carpet
-  color: "#496B89"
+  color: "#356287"
   tileReactions:
   - !type:CreateEntityTileReaction
     entity: CarpetSBlue
@@ -33,7 +33,7 @@
   desc: reagent-desc-adt-carpetium-blue
   physicalDesc: reagent-physical-desc-fibrous
   flavor: carpet
-  color: "#44647B"
+  color: "#356287"
   tileReactions:
   - !type:CreateEntityTileReaction
     entity: CarpetBlue
@@ -47,7 +47,7 @@
   desc: reagent-desc-adt-carpetium-green
   physicalDesc: reagent-physical-desc-fibrous
   flavor: carpet
-  color: "#3C7040"
+  color: "#2A6E47"
   tileReactions:
   - !type:CreateEntityTileReaction
     entity: CarpetGreen
@@ -61,9 +61,65 @@
   desc: reagent-desc-adt-carpetium-orange
   physicalDesc: reagent-physical-desc-fibrous
   flavor: carpet
-  color: "#A4550C"
+  color: "#9D480C"
   tileReactions:
   - !type:CreateEntityTileReaction
     entity: CarpetOrange
+    maxOnTileWhitelist:
+      tags: [ Carpet ]
+
+- type: reagent
+  id: ADTCarpetiumBlack
+  name: reagent-name-adt-carpetium-black
+  group: Special
+  desc: reagent-desc-adt-carpetium-black
+  physicalDesc: reagent-physical-desc-fibrous
+  flavor: carpet
+  color: "#23242C"
+  tileReactions:
+  - !type:CreateEntityTileReaction
+    entity: CarpetBlack
+    maxOnTileWhitelist:
+      tags: [ Carpet ]
+
+- type: reagent
+  id: ADTCarpetiumCyan
+  name: reagent-name-adt-carpetium-cyan
+  group: Special
+  desc: reagent-desc-adt-carpetium-cyan
+  physicalDesc: reagent-physical-desc-fibrous
+  flavor: carpet
+  color: "#046767"
+  tileReactions:
+  - !type:CreateEntityTileReaction
+    entity: CarpetCyan
+    maxOnTileWhitelist:
+      tags: [ Carpet ]
+
+- type: reagent
+  id: ADTCarpetiumPink
+  name: reagent-name-adt-carpetium-pink
+  group: Special
+  desc: reagent-desc-adt-carpetium-pink
+  physicalDesc: reagent-physical-desc-fibrous
+  flavor: carpet
+  color: "#91265E"
+  tileReactions:
+  - !type:CreateEntityTileReaction
+    entity: CarpetPink
+    maxOnTileWhitelist:
+      tags: [ Carpet ]
+
+- type: reagent
+  id: ADTCarpetiumPurple
+  name: reagent-name-adt-carpetium-purple
+  group: Special
+  desc: reagent-desc-adt-carpetium-purple
+  physicalDesc: reagent-physical-desc-fibrous
+  flavor: carpet
+  color: "#4F3365"
+  tileReactions:
+  - !type:CreateEntityTileReaction
+    entity: CarpetPurple
     maxOnTileWhitelist:
       tags: [ Carpet ]
