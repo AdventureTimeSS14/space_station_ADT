@@ -69,6 +69,16 @@
   - ClothingOuterHardsuitSyndieMedic
 
 - type: thiefBackpackSet
+  id: ADTSyndicateMedicModSet
+  name: syndicate-medic-voucher-mod-name
+  description: syndicate-medic-voucher-mod-description
+  sprite:
+    sprite: ADT/Clothing/Back/Modsuit/syndicate.rsi
+    state: icon
+  content:
+  - ADTClothingModsuitBackSyndicateMedic
+
+- type: thiefBackpackSet
   id: ADTDeathSquadHardsuitSet
   name: deathsquad-voucher-hardsuit-name
   description: deathsquad-voucher-hardsuit-description

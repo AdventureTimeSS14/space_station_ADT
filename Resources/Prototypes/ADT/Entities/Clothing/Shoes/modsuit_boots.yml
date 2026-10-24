@@ -368,3 +368,8 @@
     sprite: ADT/Clothing/Shoes/Modsuit/responsory.rsi
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
+
+- type: entity
+  parent: ADTClothingModsuitShoesSyndicate
+  id: ADTClothingModsuitShoesSyndicateMedic
+  name: syndicate medic MOD boots
