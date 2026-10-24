@@ -169,3 +169,10 @@ ent-ADTClothingOuterWinterCoatLightColorDarkBlue = тёмно-синяя лёг�
 
 ent-ADTClothingOuterVoxRobe = роба вокса
   .desc = Стильная роба с капюшоном и кармашками для краденого. Из лучших мастерских Ковчега, с любовью.
+
+ent-ADTClothingOuterCoatOfficerUSSPGreatcoat = офицерская шинель СССП
+    .desc = Тяжёлая двубортная шинель офицера СССП.
+    .suffix = СССП
+ent-ADTClothingOuterCoatGeneralUSSPGreatcoat = генеральская шинель СССП
+    .desc = Серая генеральская шинель с красными петлицами и золотыми погонами.
+    .suffix = СССП
