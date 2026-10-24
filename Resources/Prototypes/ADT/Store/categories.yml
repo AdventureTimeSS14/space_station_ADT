@@ -104,6 +104,12 @@
 
 #Пираты
 - type: storeCategory
+
+  id: ADTUplinkERTImplants
+  name: Импланты
+  priority: 5
+
+- type: storeCategory
   id: ADTPirate
   name: store-category-wearables
 

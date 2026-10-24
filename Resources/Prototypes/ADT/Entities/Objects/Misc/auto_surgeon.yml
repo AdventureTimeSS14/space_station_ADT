@@ -28,7 +28,15 @@
       allowDeimplantAll: false
       deimplantWhitelist:
         - ADTSandevistanImplant
+        - ADTStatvekaSandevistanImplant
         - ADTMantisDaggersImplant
+        - ADTBerserkImplant
+        - ADTBloodPumpImplant
+        - ADTStimulantImplant
+        - ADTSecondHeartImplant
+        - ADTKvasImplant
+        - ADTKereznikovImplant
+        - ADTSpasezhnikovImplant
       deimplantFailureDamage:
         types:
           Cellular: 50
@@ -76,6 +84,22 @@
       implant: ADTSandevistanImplant
 
 - type: entity
+  id: ADTStatvekaSandevistanAutoSurgeon
+  parent: ADTBaseSyndicateAutoSurgeonOnlyImplanter
+  name: statveka sandevistan auto surgeon
+  components:
+    - type: Implanter
+      implant: ADTStatvekaSandevistanImplant
+
+- type: entity
+  id: ADTBerserkAutoSurgeon
+  parent: ADTBaseSyndicateAutoSurgeonOnlyImplanter
+  name: Berserk implant auto surgeon
+  components:
+    - type: Implanter
+      implant: ADTBerserkImplant
+
+- type: entity
   id: ADTMantisDaggersAutoSurgeon
   parent: ADTBaseSyndicateAutoSurgeonOnlyImplanter
   name: mantis daggers auto surgeon
@@ -84,7 +108,7 @@
     - type: Implanter
       implant: ADTMantisDaggersImplant
 
-# ERT autosurgeon
+# NT autosurgeon
 
 - type: entity
   id: ADTERTSandevistanAutoSurgeon
@@ -106,6 +130,86 @@
   components:
     - type: Implanter
       implant: ADTMantisDaggersImplant
+    - type: Sprite
+      sprite: ADT/Objects/Specific/Medical/auto_surgeon.rsi
+      state: icon
+
+- type: entity
+  id: ADTBloodPumpAutoSurgeonNT
+  parent: ADTBaseSyndicateAutoSurgeonOnlyImplanter
+  name: blood pump auto surgeon
+  components:
+    - type: Implanter
+      implant: ADTBloodPumpImplant
+    - type: Sprite
+      sprite: ADT/Objects/Specific/Medical/auto_surgeon.rsi
+      state: icon
+
+- type: entity
+  id: ADTBloodPumpAutoSurgeonSyndie
+  parent: ADTBaseSyndicateAutoSurgeonOnlyImplanter
+  name: blood pump auto surgeon
+  components:
+    - type: Implanter
+      implant: ADTBloodPumpImplant
+
+- type: entity
+  id: ADTSecondHeartAutoSurgeonSyndie
+  parent: ADTBaseSyndicateAutoSurgeonOnlyImplanter
+  name: second heart auto surgeon
+  components:
+    - type: Implanter
+      implant: ADTSecondHeartImplant
+
+- type: entity
+  id: ADTStimulantAutoSurgeonNT
+  parent: ADTBaseSyndicateAutoSurgeonOnlyImplanter
+  name: stimulant auto surgeon
+  components:
+    - type: Implanter
+      implant: ADTStimulantImplant
+    - type: Sprite
+      sprite: ADT/Objects/Specific/Medical/auto_surgeon.rsi
+      state: icon
+
+- type: entity
+  id: ADTStimulantAutoSurgeonSyndie
+  parent: ADTBaseSyndicateAutoSurgeonOnlyImplanter
+  name: stimulant auto surgeon
+  components:
+    - type: Implanter
+      implant: ADTStimulantImplant
+
+- type: entity
+  id: ADTKereznikovAutoSurgeon
+  parent: ADTBaseSyndicateAutoSurgeonOnlyImplanter
+  name: kereznikov auto surgeon
+  components:
+    - type: Implanter
+      implant: ADTKereznikovImplant
+    - type: Sprite
+      sprite: ADT/Objects/Specific/Medical/auto_surgeon.rsi
+      state: icon
+
+- type: entity
+  id: ADTSpasezhnikovAutoSurgeon
+  parent: ADTBaseSyndicateAutoSurgeonOnlyImplanter
+  name: spasezhnikov auto surgeon
+  components:
+    - type: Implanter
+      implant: ADTSpasezhnikovImplant
+    - type: Sprite
+      sprite: ADT/Objects/Specific/Medical/auto_surgeon.rsi
+      state: icon
+
+- type: entity
+  id: ADTKvasAutoSurgeon
+  parent: ADTBaseSyndicateAutoSurgeonOnlyImplanter
+  name: K.V.A.S. auto surgeon
+  suffix: KVAS
+  components:
+    - type: Implanter
+      implant: ADTKvasImplant
     - type: Sprite
       sprite: ADT/Objects/Specific/Medical/auto_surgeon.rsi
       state: icon

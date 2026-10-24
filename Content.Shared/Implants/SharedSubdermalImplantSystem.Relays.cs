@@ -1,4 +1,5 @@
 using Content.Shared.Chat;
+using Content.Shared.Damage.Systems;
 using Content.Shared.IdentityManagement.Components;
 using Content.Shared.Implants.Components;
 using Content.Shared.Interaction.Events;
@@ -14,6 +15,7 @@ public abstract partial class SharedSubdermalImplantSystem
     public void InitializeRelay()
     {
         SubscribeLocalEvent<ImplantedComponent, MobStateChangedEvent>(RelayToImplantEvent);
+        SubscribeLocalEvent<ImplantedComponent, DamageChangedEvent>(RelayToImplantEvent);
         SubscribeLocalEvent<ImplantedComponent, SuicideEvent>(RelayToImplantEvent);
         SubscribeLocalEvent<ImplantedComponent, TransformSpeakerNameEvent>(RelayToImplantEvent);
         SubscribeLocalEvent<ImplantedComponent, TransformSpeechEvent>(RelayToImplantEvent);

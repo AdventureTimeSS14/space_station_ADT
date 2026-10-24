@@ -317,6 +317,246 @@
   components:
     - type: SubdermalImplant
     - type: SandevistanImplant
+    - type: SubdermalImplantEmp
+      empCooldown: 60
+      empDamage:
+        types:
+          Shock: 0
+    - type: CyberneticLoad
+      implantLoad: 60
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: ADTStatvekaSandevistanImplant
+  name: statveka sandevistan
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: SubdermalImplant
+    - type: StatvekaSandevistanImplant
+    - type: SubdermalImplantEmp
+      empCooldown: 60
+    - type: CyberneticLoad
+      implantLoad: 70
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: ADTBloodPumpImplant
+  name: blood pump implant
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: SubdermalImplant
+      implantAction: ActionActivateBloodPumpImplant
+    - type: TriggerOnActivateImplant
+    - type: ImplantCharges
+      actionDescription: blood-pump-implant-action-desc
+      usedPopup: blood-pump-implant-activate
+      emptyPopup: implant-charges-empty
+    - type: InjectOnTrigger
+      targetUser: true
+      fullPopup: implant-bloodstream-full
+      solution:
+        reagents:
+        - ReagentId: Puncturase
+          Quantity: 5
+        - ReagentId: ADTStypticPowder
+          Quantity: 15
+        - ReagentId: Saline
+          Quantity: 10
+        - ReagentId: Dylovene
+          Quantity: 10
+    - type: EmitSoundOnTrigger
+      targetUser: true
+      predicted: true
+      sound:
+        path: /Audio/Items/hypospray.ogg
+    - type: ImplantVisionOnTrigger
+      targetUser: true
+      vision: ImplantActivationVision
+    - type: SubdermalImplantEmp
+    - type: CyberneticLoad
+      implantLoad: 20
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: ADTStimulantImplant
+  name: stimulant implant
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: SubdermalImplant
+      implantAction: ActionActivateStimulantImplant
+    - type: TriggerOnActivateImplant
+    - type: ImplantCharges
+      actionDescription: stimulant-implant-action-desc
+      usedPopup: stimulant-implant-activate
+      emptyPopup: implant-charges-empty
+    - type: InjectOnTrigger
+      targetUser: true
+      fullPopup: implant-bloodstream-full
+      solution:
+        reagents:
+        - ReagentId: Stimulants
+          Quantity: 20
+    - type: EmitSoundOnTrigger
+      targetUser: true
+      predicted: true
+      sound:
+        path: /Audio/Items/hypospray.ogg
+    - type: ImplantVisionOnTrigger
+      targetUser: true
+      vision: ImplantActivationVision
+    - type: SubdermalImplantEmp
+    - type: CyberneticLoad
+      implantLoad: 15
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: ADTKvasImplant
+  name: K.V.A.S. implant
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: SubdermalImplant
+      implantAction: ActionActivateKvasImplant
+    - type: TriggerOnActivateImplant
+    - type: InjectOnTrigger
+      targetUser: true
+      destination: Stomach
+      fullPopup: kvas-implant-full
+      solution:
+        reagents:
+        - ReagentId: Kvass
+          Quantity: 15
+    - type: EmitSoundOnTrigger
+      targetUser: true
+      predicted: true
+      sound:
+        path: /Audio/Items/hypospray.ogg
+    - type: PopupOnTrigger
+      targetUser: true
+      text: kvas-implant-activate
+    - type: SubdermalImplantEmp
+    - type: CyberneticLoad
+      implantLoad: 10
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: ADTSecondHeartImplant
+  name: second heart implant
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: SubdermalImplant
+      implantAction: ActionActivateSecondHeartImplant
+    - type: TriggerOnActivateImplant
+    - type: ImplantCharges
+      maxCharges: 1
+    - type: MobStateTriggerCondition
+      allowedStates:
+      - Critical
+      - Dead
+      failPopup: second-heart-implant-not-crit
+    - type: ReviveOnTrigger
+      targetUser: true
+      residualDamage:
+        types:
+          Asphyxiation: 50
+    - type: EmitSoundOnTrigger
+      targetUser: true
+      sound:
+        path: /Audio/ADT/Effects/ImplantsEffects/second-heart-activate.ogg
+    - type: PopupOnTrigger
+      targetUser: true
+      text: second-heart-implant-activate
+      popupType: Large
+    - type: ImplantVisionOnTrigger
+      targetUser: true
+      vision: SecondHeartVision
+      duration: 2.5
+    - type: SubdermalImplantEmp
+    - type: CyberneticLoad
+      implantLoad: 35
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: ADTBerserkImplant
+  name: Berserk implant
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: SubdermalImplant
+      implantAction: ActionActivateBerserkImplant
+    - type: TriggerOnActivateImplant
+    - type: JitterOnTrigger
+      targetUser: true
+      time: 3
+      refresh: true
+    - type: ImplantBoostOnTrigger
+      targetUser: true
+      duration: 8
+      settings:
+        vision: BerserkVision
+        removeOnMobStateChange: false
+        trail:
+          lerpTime: 0.05
+          lerpDelay: 0.05
+          lifetime: 0.25
+          frequency: 0.07
+          alphaLerpAmount: 0.5
+          maxParticleAmount: 12
+          color: "#DC1919C8"
+        components:
+        - type: BerserkImplantActive
+    - type: SubdermalImplantEmp
+    - type: CyberneticLoad
+      implantLoad: 65
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: ADTKereznikovImplant
+  name: kereznikov implant
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: SubdermalImplant
+      implantAction: ActionActivateKereznikov
+      blacklist:
+        components:
+        - SandevistanUser
+    - type: TriggerOnActivateImplant
+    - type: ImplantBoostOnTrigger
+      targetUser: true
+      duration: 2
+      settings:
+        movementSpeedModifier: 1.8
+        attackSpeedModifier: 1.8
+        vision: SandevistanVision
+        trail:
+          rainbow: true
+    - type: SubdermalImplantEmp
+    - type: CyberneticLoad
+      implantLoad: 35
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: ADTSpasezhnikovImplant
+  name: spasezhnikov implant
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: SubdermalImplant
+      blacklist:
+        components:
+        - SandevistanUser
+    - type: TriggerOnDamageThreshold
+      marginBeforeCrit: 20
+    - type: ImplantBoostOnTrigger
+      targetUser: true
+      duration: 4
+      settings:
+        removeOnMobStateChange: false
+        movementSpeedModifier: 1.8
+        attackSpeedModifier: 1.8
+        vision: SandevistanVision
+        trail:
+          rainbow: true
+    - type: SubdermalImplantEmp
+    - type: CyberneticLoad
+      implantLoad: 40
 
 - type: entity
   parent: BaseSubdermalImplant
@@ -351,3 +591,6 @@
     tags:
     - SubdermalImplant
     - HideContextMenu
+  - type: SubdermalImplantEmp
+  - type: CyberneticLoad
+    implantLoad: 50

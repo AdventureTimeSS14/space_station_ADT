@@ -212,3 +212,16 @@
   parent: ADTBaseStandardRecipe
   id: ADTStandardNt
   result: ADTStandardNt
+
+- type: latheRecipe
+  id: ADTClothingUniformJumpsuitNetrunnerRecipe
+  result: ADTClothingUniformJumpsuitNetrunner
+  completetime: 4
+  materials:
+    Cloth: 2000
+    Silver: 500
+    Plastic: 500
+    Gold: 200
+    Copper: 500
+    Plasma: 300
+    ADTBScrystal: 150

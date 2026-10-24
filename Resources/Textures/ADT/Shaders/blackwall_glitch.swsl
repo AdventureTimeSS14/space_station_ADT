@@ -1,0 +1,56 @@
+uniform sampler2D SCREEN_TEXTURE;
+uniform highp float intensity;
+
+void fragment() {
+    highp vec2 uv = FRAGCOORD.xy * SCREEN_PIXEL_SIZE;
+    highp float t = floor(TIME * 10.0) * 0.17;
+
+    highp float bigBlock = floor(uv.y / 0.09);
+    highp float bigRand  = fract(sin(bigBlock * 78.233 + t * 12.9898) * 43758.5453);
+
+    highp float strip     = floor(uv.y / 0.022);
+    highp float stripRand = fract(sin(strip * 127.1 + t * 31.41) * 12345.6789);
+
+    highp float bigOff = 0.0;
+    if (bigRand > 1.0 - intensity * 0.75) {
+        bigOff = (fract(sin(bigBlock * 311.7 + t) * 98765.43) * 2.0 - 1.0) * intensity * 0.22;
+    }
+
+    highp float stripOff = 0.0;
+    if (stripRand > 1.0 - intensity * 0.55) {
+        stripOff = (fract(sin(strip * 45.6 + t * 2.3) * 23456.789) * 2.0 - 1.0) * intensity * 0.05;
+    }
+
+    highp float offset = bigOff + stripOff;
+
+    highp float chroma = intensity * 0.035;
+    highp float r = zTextureSpec(SCREEN_TEXTURE, uv + vec2(offset + chroma, 0.0)).r;
+    highp float g = zTextureSpec(SCREEN_TEXTURE, uv + vec2(offset,          0.0)).g;
+    highp float b = zTextureSpec(SCREEN_TEXTURE, uv + vec2(offset - chroma, 0.0)).b;
+    highp float a = zTextureSpec(SCREEN_TEXTURE, uv + vec2(offset,          0.0)).a;
+
+    highp vec3 result = vec3(r * 0.85, g * 0.08, b * 0.08);
+    result += vec3(r * 0.4, 0.0, 0.0) * intensity;
+
+    highp float noiseT = floor(TIME * 20.0);
+    highp float noise  = fract(sin(dot(floor(uv * 80.0), vec2(127.1, 311.7)) + noiseT * 97.3) * 43758.5453);
+    if (noise > 0.95) {
+        result = mix(result, vec3(1.0, 0.2, 0.2), 0.9);
+    }
+
+    if (bigRand > 0.90 && fract(sin(bigBlock * 53.1 + t * 5.7) * 9823.456) > 0.65) {
+        result = mix(result, vec3(0.8, 0.0, 0.05), 0.8);
+    }
+
+    highp float tearRand = fract(sin(floor(uv.y / 0.004 + t * 3.1) * 456.7) * 12345.0);
+    if (tearRand > 0.975) {
+        result = vec3(0.0);
+    }
+
+    highp float dist = length(uv - vec2(0.5, 0.5));
+    highp float vig  = smoothstep(0.25, 0.9, dist);
+    result = mix(result, vec3(0.6, 0.0, 0.0), vig * intensity * 0.7);
+    result *= 1.0 - vig * 0.4;
+
+    COLOR = vec4(result, a);
+}

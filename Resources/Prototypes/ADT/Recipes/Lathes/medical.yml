@@ -190,3 +190,29 @@
     Plasma: 300
     ADTBScrystal: 200
     Copper: 500
+
+- type: latheRecipe
+  id: ADTBloodPumpAutoSurgeonNT
+  result: ADTBloodPumpAutoSurgeonNT
+  completetime: 10
+  materials:
+    Glass: 1000
+    Steel: 1000
+    Plastic: 1000
+    Gold: 300
+    Copper: 400
+    Silver: 300
+    Zinc: 200
+
+- type: latheRecipe
+  id: ADTStimulantAutoSurgeonNT
+  result: ADTStimulantAutoSurgeonNT
+  completetime: 10
+  materials:
+    Glass: 1000
+    Steel: 1000
+    Plastic: 1000
+    Gold: 300
+    Copper: 400
+    Silver: 300
+    Zinc: 200

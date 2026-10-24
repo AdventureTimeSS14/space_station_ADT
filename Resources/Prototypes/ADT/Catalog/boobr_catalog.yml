@@ -1923,3 +1923,53 @@
     Productunit: 2
   categories:
   - ADTUplinkERTJanitor
+
+- type: listing
+  id: ADTUplinkBloodPumpImplantERT
+  name: uplink-blood-pump-implant-name
+  description: uplink-blood-pump-implant-desc
+  icon: { sprite: ADT/Objects/Specific/Medical/auto_surgeon.rsi, state: icon }
+  productEntity: ADTBloodPumpAutoSurgeonNT
+  cost:
+    Productunit: 9
+  categories:
+  - ADTUplinkERTImplants
+
+- type: listing
+  id: ADTUplinkStimulantImplantERT
+  name: uplink-stimulant-implant-name
+  description: uplink-stimulant-implant-desc
+  icon: { sprite: ADT/Objects/Specific/Medical/auto_surgeon.rsi, state: icon }
+  productEntity: ADTStimulantAutoSurgeonNT
+  cost:
+    Productunit: 9
+  categories:
+  - ADTUplinkERTImplants
+
+- type: listing
+  id: ADTUplinkKereznikovImplantERT
+  name: boobr-kereznikov-autosurgeon-name
+  description: boobr-kereznikov-autosurgeon-desc
+  icon: { sprite: ADT/Objects/Specific/Medical/auto_surgeon.rsi, state: icon }
+  productEntity: ADTKereznikovAutoSurgeon
+  conditions:
+    - !type:ListingLimitedStockCondition
+      stock: 1
+  cost:
+    Productunit: 6
+  categories:
+  - ADTUplinkERTImplants
+
+- type: listing
+  id: ADTUplinkSpasezhnikovImplantERT
+  name: boobr-spasezhnikov-autosurgeon-name
+  description: boobr-spasezhnikov-autosurgeon-desc
+  icon: { sprite: ADT/Objects/Specific/Medical/auto_surgeon.rsi, state: icon }
+  productEntity: ADTSpasezhnikovAutoSurgeon
+  conditions:
+    - !type:ListingLimitedStockCondition
+      stock: 1
+  cost:
+    Productunit: 7
+  categories:
+  - ADTUplinkERTImplants
