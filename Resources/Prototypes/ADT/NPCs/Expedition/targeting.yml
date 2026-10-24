@@ -1,0 +1,37 @@
+- type: htnCompound
+  id: ADTAcquireTarget
+  branches:
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:UtilityOperator
+            proto: ADTNearbyAliveGunTargets
+        - !type:HTNPrimitiveTask
+          preconditions:
+            - !type:ADTTargetAlivePrecondition
+          operator: !type:NoOperator
+
+- type: htnCompound
+  id: ADTFinishTargetGunCompound
+  branches:
+    - preconditions:
+        - !type:NeedToRackBoltPrecondition
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:RackBoltOperator
+
+    - preconditions:
+        - !type:ActiveHandComponentPrecondition
+          components:
+            - type: Gun
+        - !type:WieldedPrecondition
+          wielded: false
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:WieldOperator
+
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            rangeKey: InteractRange
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTExecuteOperator
