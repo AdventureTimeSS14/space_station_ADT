@@ -16563,3 +16563,10 @@ Entries:
     id: 2037
     pr_number: 3567
     time: '2026-10-24T14:26:09Z'
+  - author: CrimeMoot
+    changes:
+      - {message: Плитку шоколада теперь можно разрезать на дольки., type: Fix}
+      - {message: Униформа на обезьяне больше не разрывает модельку., type: Fix}
+    id: 2038
+    pr_number: 3564
+    time: '2026-10-24T14:27:00Z'
