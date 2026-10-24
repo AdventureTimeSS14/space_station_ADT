@@ -1,0 +1,218 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from CEV-Eris at https://github.com/discordia-space/CEV-Eris/blob/0882fbbde9e04865f4467f2b93c05e90af3c0f3c/icons/obj/machines/shielding.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "generator0"
+        },
+        {
+            "name": "generator1"
+        },
+        {
+            "name": "shieldsparkles",
+            "directions": 4,
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "capacitor_connected",
+            "directions": 4
+        },
+        {
+            "name": "baygenerator0"
+        },
+        {
+            "name": "baygenerator1"
+        },
+        {
+            "name": "shield_normal",
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "shield_overcharged",
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "fdiffuser_on",
+            "delays": [
+                [
+                    1,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "hdiffuser_on",
+            "delays": [
+                [
+                    1,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "fdiffuser_off"
+        },
+        {
+            "name": "fdiffuser_emergency",
+            "delays": [
+                [
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "hdiffuser_off"
+        },
+        {
+            "name": "shield_impact",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "shield"
+        },
+        {
+            "name": "shield_broken",
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "shield_edge",
+            "directions": 4
+        },
+        {
+            "name": "conduit_0",
+            "directions": 4
+        },
+        {
+            "name": "conduit_1",
+            "directions": 4
+        }
+    ]
+}
