@@ -229,8 +229,14 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
         if (!_container.TryGetContainer(ent, ent.Comp.UpgradesContainerId, out var container))
             return;
 
+        var driver = CompOrNull<VehicleComponent>(ent)?.Operator;
         foreach (var upgrade in GetUpgrades(ent))
+        {
             RemoveActiveModule(ent, upgrade.Owner);
+
+            if (driver is { } uid)
+                RevokeToggleActions(uid, upgrade.Owner);
+        }
 
         _container.EmptyContainer(container);
         _audio.PlayPredicted(ent.Comp.RemoveSound, ent, user);
@@ -406,14 +412,14 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
         if (xform.GridUid is not { } gridUid)
             return false;
 
-        var tile = _transform.GetGridTilePositionOrDefault((moduleUid, xform));
-        var bounds = Box2.CenteredAround(tile + new Vector2(0.5f, 0.5f),
-            new Vector2(buffer.Range * 2f, buffer.Range * 2f));
+        var origin = Vector2.Transform(_transform.GetWorldPosition(xform), _transform.GetInvWorldMatrix(gridUid));
+        var bounds = Box2.CenteredAround(origin, new Vector2(buffer.Range * 2f, buffer.Range * 2f));
 
         var cleaned = false;
         foreach (var (index, decal) in _decals.GetDecalsIntersecting(gridUid, bounds))
         {
             if (!decal.Cleanable
+                || (decal.Coordinates + new Vector2(0.5f, 0.5f) - origin).Length() > buffer.Range
                 || !_prototype.TryIndex<DecalPrototype>(decal.Id, out var proto)
                 || !proto.Tags.Any(buffer.DecalTags.Contains))
             {
