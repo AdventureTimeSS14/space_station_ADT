@@ -1,0 +1,69 @@
+- type: reagent
+  id: ADTCarpetiumWhite
+  name: reagent-name-adt-carpetium-white
+  group: Special
+  desc: reagent-desc-adt-carpetium-white
+  physicalDesc: reagent-physical-desc-fibrous
+  flavor: carpet
+  color: "#C3BEB1"
+  tileReactions:
+  - !type:CreateEntityTileReaction
+    entity: CarpetWhite
+    maxOnTileWhitelist:
+      tags: [ Carpet ]
+
+- type: reagent
+  id: ADTCarpetiumSkyBlue
+  name: reagent-name-adt-carpetium-skyblue
+  group: Special
+  desc: reagent-desc-adt-carpetium-skyblue
+  physicalDesc: reagent-physical-desc-fibrous
+  flavor: carpet
+  color: "#496B89"
+  tileReactions:
+  - !type:CreateEntityTileReaction
+    entity: CarpetSBlue
+    maxOnTileWhitelist:
+      tags: [ Carpet ]
+
+- type: reagent
+  id: ADTCarpetiumBlue
+  name: reagent-name-adt-carpetium-blue
+  group: Special
+  desc: reagent-desc-adt-carpetium-blue
+  physicalDesc: reagent-physical-desc-fibrous
+  flavor: carpet
+  color: "#44647B"
+  tileReactions:
+  - !type:CreateEntityTileReaction
+    entity: CarpetBlue
+    maxOnTileWhitelist:
+      tags: [ Carpet ]
+
+- type: reagent
+  id: ADTCarpetiumGreen
+  name: reagent-name-adt-carpetium-green
+  group: Special
+  desc: reagent-desc-adt-carpetium-green
+  physicalDesc: reagent-physical-desc-fibrous
+  flavor: carpet
+  color: "#3C7040"
+  tileReactions:
+  - !type:CreateEntityTileReaction
+    entity: CarpetGreen
+    maxOnTileWhitelist:
+      tags: [ Carpet ]
+
+- type: reagent
+  id: ADTCarpetiumOrange
+  name: reagent-name-adt-carpetium-orange
+  group: Special
+  desc: reagent-desc-adt-carpetium-orange
+  physicalDesc: reagent-physical-desc-fibrous
+  flavor: carpet
+  color: "#A4550C"
+  tileReactions:
+  - !type:CreateEntityTileReaction
+    entity: CarpetOrange
+    maxOnTileWhitelist:
+      tags: [ Carpet ]

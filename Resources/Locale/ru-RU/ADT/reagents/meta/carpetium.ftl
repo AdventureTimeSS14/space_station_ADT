@@ -1,0 +1,10 @@
+reagent-name-adt-carpetium-white = белый ковриний
+reagent-desc-adt-carpetium-white = Ковриний, разбавленный дезоксиэфедрином. Стелет белый ковёр.
+reagent-name-adt-carpetium-skyblue = небесно-голубой ковриний
+reagent-desc-adt-carpetium-skyblue = Ковриний, разбавленный голубым дезоксиэфедрином. Стелет небесно-голубой ковёр.
+reagent-name-adt-carpetium-blue = синий ковриний
+reagent-desc-adt-carpetium-blue = Ковриний, разбавленный дермалином. Стелет синий ковёр.
+reagent-name-adt-carpetium-green = зелёный ковриний
+reagent-desc-adt-carpetium-green = Ковриний, разбавленный семином. Стелет зелёный ковёр.
+reagent-name-adt-carpetium-orange = оранжевый ковриний
+reagent-desc-adt-carpetium-orange = Ковриний, разбавленный апельсиновым соком. Стелет оранжевый ковёр.
