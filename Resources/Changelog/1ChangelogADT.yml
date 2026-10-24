@@ -16570,3 +16570,11 @@ Entries:
     id: 2038
     pr_number: 3564
     time: '2026-10-24T14:27:00Z'
+  - author: maksim21612
+    changes:
+      - {message: Добавлена Кобура и Пояс с множеством карманов. (BarCow), type: Add}
+      - {message: Добавлены новые текстуры игрушке Иллюми, type: Add}
+      - {message: Исправлена текстура игрушки Нави, type: Fix}
+    id: 2039
+    pr_number: 3568
+    time: '2026-10-24T14:36:08Z'
