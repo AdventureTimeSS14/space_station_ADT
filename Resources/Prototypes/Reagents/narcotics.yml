@@ -347,10 +347,10 @@
         type: Add
         time: 5
       # ADT-Tweak-start
-      - !type:Hallucinate
-        hallucinations: [ SupermatterPack ]
-        type: Add
-        time: 4
+      #- !type:Hallucinate
+      #  hallucinations: [ SupermatterPack ]
+      #  type: Add
+      #  time: 4
       - !type:DissociativeExtendFront # ADT-Tweak
         seconds: 1
       # ADT-Tweak-end
@@ -371,10 +371,10 @@
         type: Add
         time: 5
       # ADT-Tweak-start
-      - !type:Hallucinate
-        hallucinations: [ SupermatterPack ]
-        type: Add
-        time: 4
+      #- !type:Hallucinate
+      #  hallucinations: [ SupermatterPack ]
+      #  type: Add
+      #  time: 4
       # ADT-Tweak-end
 
 # Probably replace this one with sleeping chem when putting someone in a comatose state is easier
@@ -706,8 +706,8 @@
         type: Add
         time: 5
       # ADT-Tweak-start
-      - !type:Hallucinate
-        hallucinations: [ SupermatterPack ]
-        type: Add
-        time: 4
+      #- !type:Hallucinate
+      #  hallucinations: [ SupermatterPack ]
+      #  type: Add
+      #  time: 4
       # ADT-Tweak-end

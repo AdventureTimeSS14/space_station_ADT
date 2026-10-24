@@ -208,10 +208,10 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 8
-      - !type:Hallucinate
-        hallucinations: [ SupermatterPack ] # заглушка до норм галюнов
-        type: Add
-        time: 6
+      #- !type:Hallucinate
+      #  hallucinations: [ SupermatterPack ] # заглушка до норм галюнов
+      #  type: Add
+      #  time: 6
       - !type:DissociativeForceFront
         probability: 0.3
       - !type:DissociativeExtendFront
