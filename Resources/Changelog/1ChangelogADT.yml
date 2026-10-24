@@ -16544,3 +16544,22 @@ Entries:
     id: 2036
     pr_number: 3569
     time: '2026-10-24T03:40:25Z'
+  - author: Etvy
+    changes:
+      - {message: Добавлено Варенье, type: Add}
+      - {message: Добавлена Бочка мёда, type: Add}
+      - {message: Добавлены Настенные ковры СССП, type: Add}
+      - {message: Добавлены 6 новых тайлов, type: Add}
+      - {message: Добавлены 3 новые мишени, type: Add}
+      - {message: Добавлен Рупор, type: Add}
+      - {message: Добавлен Сейф, type: Add}
+      - {message: Добавлен Самовар, type: Add}
+      - {message: Добавлены 2 новые формы СССП, type: Add}
+      - {message: Добавлена мебель СССП, type: Add}
+      - {message: Добавлены напольные ковры СССП, type: Add}
+      - {message: Добавлены структуры СССП, type: Add}
+      - {message: Добавлен Фикус, type: Add}
+      - {message: Исправлена печать СССП, type: Fix}
+    id: 2037
+    pr_number: 3567
+    time: '2026-10-24T14:26:09Z'
