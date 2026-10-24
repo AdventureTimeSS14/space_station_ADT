@@ -301,7 +301,7 @@
   parent: ClothingBeltHolster
   id: ADTClothingBeltHolsterBarCow
   name: shoulder holster
-  description: A fashionable holster for carrying a pistol and ammunition.
+  description: A fashionable holster for carrying items.
   suffix: Personal, BarCow
   components:
   - type: Sprite
