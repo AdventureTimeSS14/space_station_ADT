@@ -1157,6 +1157,30 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/infantryman_USSP.rsi
 
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTOfficerArmyUSSPUniform
+  name: USSP army officer uniform
+  description: A khaki tunic of a USSP army officer with a brown belt and red piping.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/officer_army_USSP.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/officer_army_USSP.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTGeneralArmyUSSPUniform
+  name: USSP army general uniform
+  description: A dress uniform of a USSP general with golden shoulder boards, order ribbons and red stripes on the trousers.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/general_army_USSP.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/general_army_USSP.rsi
+
 # USSP USSP USSP USSP USSP USSP USSP USSP USSP END
 
 # Комбез исследователя для утилией (В будущем мб для шахтёров)

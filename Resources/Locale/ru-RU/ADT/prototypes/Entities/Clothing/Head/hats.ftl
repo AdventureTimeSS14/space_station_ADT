@@ -79,3 +79,10 @@ ent-ADTClothingHeadHatRedBenie = красная шапка
 
 ent-ADTClothingCentcomOfficerHat = фуражка офицера специальных операций
     .desc = Специальная фуражка высших чинов NanoTrasen с золотой гравировкой, уже давно прошедшая не один блицкриг...
+
+ent-ADTClothingHeadHatsOfficerArmyUSSPCap = фуражка армейского офицера СССП
+    .desc = Фуражка цвета хаки с красным околышем и кокардой-звездой.
+    .suffix = СССП
+ent-ADTClothingHeadHatsGeneralArmyUSSPCap = фуражка армейского генерала СССП
+    .desc = Генеральская фуражка СССП с золотым шитьём на козырьке.
+    .suffix = СССП
