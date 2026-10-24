@@ -1276,7 +1276,7 @@ ent-ADTPlushieWinter = плюшевая Винтер
     .suffix = { "Именное, DeadLament" }
 
 ent-ADTClothingBeltHolsterBarCow = Кобура для разных вещей.
-    .desc = Модная кобура для ношения пистолета и боеприпасов.
+    .desc = Модная кобура для ношения вещей.
     .suffix = { "Именное, BarCow" }
 
 ent-ADTClothingBeltBarCow = Пояс с множеством карманов.
