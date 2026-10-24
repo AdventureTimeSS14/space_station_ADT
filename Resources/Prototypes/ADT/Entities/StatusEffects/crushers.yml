@@ -68,3 +68,13 @@
   parent: MobStatusEffectBase
   id: ADTStatusEffectCrusherRageExhaustion
   name: rage exhaustion
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTStatusEffectKineticInterference
+  name: kinetic interference
+  components:
+  - type: ADTKineticInterferenceStatusEffect
+    cooldownMultiplier: 1.5
+  - type: StatusEffectAlert
+    alert: ADTKineticInterference

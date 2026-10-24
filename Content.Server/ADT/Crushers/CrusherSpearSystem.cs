@@ -32,6 +32,7 @@ public sealed class CrusherSpearSystem : SharedCrusherSpearSystem
 {
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private ADTKineticFocusSystem _focus = default!;
     [Dependency] private DamageableSystem _damageable = default!;
     [Dependency] private EntityWhitelistSystem _whitelist = default!;
     [Dependency] private MobStateSystem _mobState = default!;
@@ -318,7 +319,8 @@ public sealed class CrusherSpearSystem : SharedCrusherSpearSystem
         if (TryComp<ThrownItemComponent>(ent, out var thrown))
             _thrownItem.StopThrow(ent.Owner, thrown);
 
-        _useDelay.SetLength(ent.Owner, ent.Comp.Cooldown, ent.Comp.DelayId);
+        var cooldown = user is { } thrower ? ent.Comp.Cooldown * _focus.GetCooldownMultiplier(thrower) : ent.Comp.Cooldown;
+        _useDelay.SetLength(ent.Owner, cooldown, ent.Comp.DelayId);
         _useDelay.TryResetDelay(ent.Owner, id: ent.Comp.DelayId);
 
         if (user == null || TerminatingOrDeleted(user.Value) || Transform(user.Value).MapID != Transform(ent.Owner).MapID)
