@@ -104,7 +104,7 @@ public abstract partial class SharedADTMedbeamSystem : EntitySystem
     protected bool IsOnFire(EntityUid target)
     {
         return TryComp<FlammableComponent>(target, out var flammable)
-            && (flammable.OnFire || flammable.FireStacks > 0);
+            && flammable.OnFire;
     }
 
     protected ADTMedbeamMode? GetCurrentMode(Entity<ADTMedbeamComponent> ent)

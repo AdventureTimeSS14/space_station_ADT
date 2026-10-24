@@ -17,6 +17,9 @@ public sealed partial class ADTSegmentComponent : Component
     [DataField]
     public float DamageModifier = 1f;
 
+    [DataField]
+    public bool TakeDamage;
+
     [ViewVariables, AutoNetworkedField]
     public TimeSpan StepStart;
 
