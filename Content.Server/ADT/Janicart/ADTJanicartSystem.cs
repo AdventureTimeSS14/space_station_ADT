@@ -160,6 +160,9 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
         OnUpgradesChanged(ent);
         AddActiveModule(ent, used);
 
+        if (CompOrNull<VehicleComponent>(ent)?.Operator is { } driver)
+            GrantToggleActions(driver, used);
+
         _adminLog.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(user):player} installed {ToPrettyString(used)} into {ToPrettyString(ent.Owner)}.");
         return true;
     }
