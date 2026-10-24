@@ -428,3 +428,7 @@ ent-ADTClothingUniformVoxSuitPurple = фиолетовый комбинезон 
 
 ent-ADTClothingUniformCBURN = униформа РХБЗЗ
     .desc = Комбинезон сотрудников РХБЗЗ. Пахнет дезактивационным раствором.
+
+ent-ADTClothingUniformJumpsuitTurtleneckTactick = тактическая водолазка
+    .desc = Тактическая и удобная водолазка с усиленной синтетической тканью.
+    .suffix = { "" }

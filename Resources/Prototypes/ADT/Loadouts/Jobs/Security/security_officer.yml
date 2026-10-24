@@ -52,6 +52,11 @@
     jumpsuit: ClothingUniformJumpsuitSecBlue
 
 - type: loadout
+  id: ADTUniformJumpsuitDSS
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitDSS
+
+- type: loadout
   id: ADTSecurityOfficerMogesBrown
   equipment:
     jumpsuit: ADTClothingJumpsuitSecOffMogesBrown
