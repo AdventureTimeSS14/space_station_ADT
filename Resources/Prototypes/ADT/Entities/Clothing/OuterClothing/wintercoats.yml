@@ -724,30 +724,6 @@
     - ClothMade
     - Recyclable
     - WhitelistChameleon
-    
-- type: entity
-  parent: [ ClothingOuterWinterCoat, ClothingOuterStorageBase ]
-  id: ADTClothingOuterHoodyWhite
-  name: white hoody
-  description: A soft hooded sweatshirt.
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/OuterClothing/Hoody/hoody_white.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/OuterClothing/WinterCoats/hoody_white.rsi
-
-- type: entity
-  parent: ClothingOuterWinterCoat
-  id: ADTClothingOuterFurCoatHeart
-  name: fur coat
-  description: A white fur coat embroidered with many bright red hearts.
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/OuterClothing/WinterCoats/fur_coat.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/OuterClothing/WinterCoats/fur_coat.rsi
-  - type: StaticPrice
-    price: 120
 
 - type: entity
   parent: [ ClothingOuterWinterCoat, ClothingOuterStorageBase ]
@@ -788,3 +764,16 @@
     - ClothMade
     - Recyclable
     - WhitelistChameleon
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ADTClothingOuterFurCoatHeart
+  name: fur coat
+  description: A white fur coat embroidered with many bright red hearts.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/fur_coat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/fur_coat.rsi
+  - type: StaticPrice
+    price: 120
