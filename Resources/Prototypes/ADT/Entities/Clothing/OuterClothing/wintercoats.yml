@@ -750,17 +750,14 @@
     price: 120
 
 - type: entity
-  parent: ClothingOuterWinterCoat
-  id: ADTClothingOuterLowerFurCoat
-  name: fur coat
-  description: An ordinary fur coat made of white fur.
+  parent: [ ClothingOuterWinterCoat, ClothingOuterStorageBase ]
+  id: ADTClothingOuterHoodyWhite
+  name: white hoody
+  description: A soft hooded sweatshirt.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/OuterClothing/WinterCoats/lower_fur_coat.rsi
+    sprite: ADT/Clothing/OuterClothing/Hoody/hoody_white.rsi
   - type: Clothing
-    sprite: ADT/Clothing/OuterClothing/WinterCoats/lower_fur_coat.rsi
-  - type: StaticPrice
-    price: 120
     sprite: ADT/Clothing/OuterClothing/Hoody/hoody_white.rsi
   - type: ToggleableClothing
     clothingPrototype: ADTClothingHeadHoodHoody_white
