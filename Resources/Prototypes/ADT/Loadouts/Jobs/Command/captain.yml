@@ -52,3 +52,10 @@
    proto: ADTClothingCaptainHat30hour
   equipment:
     head: ADTClothingAdmiralHat
+
+# Outer Clothing
+
+- type: loadout
+  id: ADTClothingOuterCaptainCoat
+  equipment:
+    outerClothing: ADTClothingOuterCaptainCoat

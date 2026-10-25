@@ -42,3 +42,11 @@
     proto: JensenTimer
   equipment:
     eyes: ClothingEyesGlassesJensen
+
+- type: loadout
+  id: CoatJensen
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: JensenTimer
+  equipment:
+    outerClothing: ClothingOuterCoatJensen

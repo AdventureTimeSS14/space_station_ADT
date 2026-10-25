@@ -214,6 +214,7 @@
   - CaptainOuterClothing
   - CaptainWintercoat
   - ADTArmorVestHidden # ADT Loadout
+  - ADTClothingOuterCaptainCoat # ADT Loadout
 
 #- type: loadoutGroup
 #  id: CaptainJobTrinkets
@@ -352,6 +353,8 @@
   - PassengerWintercoat
   # ADT-Loadouts-Start
   - ADTClothingOuterCoatSpaceAsshole
+  - ADTClothingOuterCoatGentle
+  - CoatJensen
   # ADT-Loadouts-End
 
 - type: loadoutGroup
@@ -918,6 +921,7 @@
   minLimit: 0
   loadouts:
   - QuartermasterWintercoat
+  - CoatJensen # ADT Loadout
 
 - type: loadoutGroup
   id: QuartermasterShoes
@@ -977,6 +981,7 @@
   minLimit: 0
   loadouts:
   - CargoTechnicianWintercoat
+  - CoatJensen # ADT Loadout
 
 - type: loadoutGroup
   id: CargoTechnicianShoes
@@ -1023,6 +1028,7 @@
   maxLimit: 1 #ADT tweak
   loadouts:
   - SalvageSpecialistWintercoat
+  - CoatJensen # ADT Loadout
   - ADTNeckSalvageSpecialistEBomber # ADT tweak
 
 - type: loadoutGroup
@@ -1638,6 +1644,7 @@
   - ADTDetectiveCoatOld
   - DetectiveCoatInvestigator
   - ADTArmorVestHidden
+  - CoatJensen
   # ADT-Loadouts-End
   - SecurityOfficerWintercoat
 

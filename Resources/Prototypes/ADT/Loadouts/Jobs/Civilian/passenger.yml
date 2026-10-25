@@ -80,6 +80,11 @@
   equipment:
     outerClothing: ClothingOuterCoatSpaceAsshole
 
+- type: loadout
+  id: ADTClothingOuterCoatGentle
+  equipment:
+    outerClothing: ClothingOuterCoatGentle
+
 # Head
 - type: loadout
   id: ADTClothingHeadHatBowlerHat
@@ -90,6 +95,11 @@
   id: ADTClothingHeadHatTophat
   equipment:
     head: ClothingHeadHatTophat
+
+- type: loadout
+  id: ADTClothingHeadHatFedoraGrey
+  equipment:
+    head: ClothingHeadHatFedoraGrey
 
 # Eyes
 - type: loadout
