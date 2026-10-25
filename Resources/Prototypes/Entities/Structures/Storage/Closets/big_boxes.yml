@@ -1,7 +1,8 @@
 ﻿- type: entity
-  id: BigBox
+  id: BaseBigBox
   name: cardboard box #it's still just a box
   description: Huh? Just a box...
+  abstract: true
   components:
     - type: Transform
       noRot: true
@@ -39,14 +40,6 @@
     - type: Damageable
     - type: Injurable
       damageContainer: Box
-    - type: Destructible
-      thresholds:
-        - trigger:
-            !type:DamageTrigger
-            damage: 15
-          behaviors:
-            - !type:DoActsBehavior
-              acts: [ "Destruction" ]
     - type: Sprite
       noRot: true
       sprite: Structures/Storage/boxes.rsi
@@ -75,9 +68,9 @@
       frictionNoInput: 6
 
 - type: entity
-  parent: BigBox
   id: StealthBox
   suffix: stealth
+  parent: BaseBigBox
   description: Kept ya waiting, huh?
   components:
     - type: Damageable
@@ -91,6 +84,20 @@
     - type: StealthOnMove
       passiveVisibilityRate: -1 # very useful for going around the station concealed, if you start jitterstrafing you get seen
       movementVisibilityRate: 0.20
+
+- type: entity
+  id: BigBox
+  parent: BaseBigBox
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
 
 #For admin spawning only
 - type: entity
