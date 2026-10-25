@@ -25,6 +25,7 @@ public sealed partial class ADTShadowlingAbilitySystem
     private void OnRoundRestart(RoundRestartCleanupEvent ev)
     {
         _usedNames.Clear();
+        _ascendAudioStream = null;
     }
 
     private void OnHatch(Entity<ADTShadowlingComponent> ent, ref ADTShadowlingHatchEvent args)

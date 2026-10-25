@@ -1600,6 +1600,34 @@
   - type: MeleeWeapon
     soundHit: *PlushieMothSound
 
+
+# Darkiich
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieErichStohl
+  name: plushie Erich Stohl
+  description: A soft toy of a huge, grim man in a black jacket and a burgundy scarf, with a strap across his chest. Metal glints under the left glove, and a scar of red thread runs across one eye.
+  suffix: Personal, Darkiich
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/toys.rsi
+    state: plushie_erich
+  - type: Item
+    sprite: ADT/Special/Personal/toys.rsi
+    inhandVisuals:
+      left:
+      - state: erich-inhand-left
+      right:
+      - state: erich-inhand-right
+  - type: EmitSoundOnUse
+    handle: false
+    sound: null
+  - type: TriggerOnUse
+  - type: Speech
+    speechSounds: Squeak
+  - type: SpeakOnTrigger
+    pack: ADTFigurinesPlushieErichStohl
+
 #Mysok
 - type: entity
   parent: BasePlushie

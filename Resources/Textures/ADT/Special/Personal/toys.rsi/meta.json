@@ -434,6 +434,17 @@
             "directions": 4
         },
         {
+            "name": "plushie_erich"
+        },
+        {
+            "name": "erich-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "erich-inhand-right",
+            "directions": 4
+        },
+        {
             "name": "winter-inhand-left",
             "directions": 4
         },
