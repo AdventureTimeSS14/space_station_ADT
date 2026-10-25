@@ -16633,3 +16633,20 @@ Entries:
     id: 2046
     pr_number: 3562
     time: '2026-10-25T17:37:08Z'
+  - author: Отдел мапперов
+    changes:
+      - {message: Изменен Аврит, type: Tweak}
+      - {message: Изменен Багель, type: Tweak}
+      - {message: Изменена Барратри, type: Tweak}
+      - {message: Изменен Фланд, type: Tweak}
+      - {message: Изменен Керберос, type: Tweak}
+      - {message: Изменен Марафон, type: Tweak}
+      - {message: Изменен Ориджин, type: Tweak}
+      - {message: Изменен Памп, type: Tweak}
+      - {message: Изменен Салтерн, type: Tweak}
+      - {message: Изменен Триумф, type: Tweak}
+      - {message: Изменена Сфера, type: Tweak}
+      - {message: Изменен шаттл утилизаторов, type: Tweak}
+    id: 2047
+    pr_number: 3581
+    time: '2026-10-25T22:28:49Z'
