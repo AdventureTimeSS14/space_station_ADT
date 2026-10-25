@@ -80,6 +80,10 @@
   recipes:
   - CassetteTape
   - TapeRecorder
+  - ADTCassettePlayer
+  - ADTCassetteTapeClassic
+  - ADTCassetteTapeNuclear
+  - ADTCassetteTapeCustom
 
 - type: latheRecipePack
   id: ADTServiceStaticPack
