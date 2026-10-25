@@ -883,8 +883,9 @@
   time: 10
   group: Savory
   solids:
-    FoodMeatChickenCutlet: 1
+    FoodMeatChicken: 1
   reagents:
+    Flour: 5
     Egg: 3
     TableSalt: 5
     Blackpepper: 5
