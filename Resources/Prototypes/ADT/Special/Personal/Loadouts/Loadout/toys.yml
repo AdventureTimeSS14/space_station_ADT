@@ -208,3 +208,9 @@
     back:
     - ADTPlushieTselka
 
+- type: loadout
+  sponsorOnly: true
+  id: ADTPlushieErichStohl
+  storage:
+    back:
+    - ADTPlushieErichStohl
