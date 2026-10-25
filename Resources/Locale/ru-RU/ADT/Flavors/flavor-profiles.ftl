@@ -113,3 +113,7 @@ flavor-base-adtash = пеплом
 flavor-complex-adthopelessness = безнадёжностью
 flavor-base-adtvanilla = ванильно
 flavor-base-mandarin = мандариново
+
+flavor-complex-adt-jam-raspberry = как малиновое варенье, совсем как у бабушки
+flavor-complex-adt-jam-strawberry = как клубничное варенье с целыми ягодками
+flavor-complex-adt-jam-apricot = как абрикосовое варенье, сладкое и солнечное

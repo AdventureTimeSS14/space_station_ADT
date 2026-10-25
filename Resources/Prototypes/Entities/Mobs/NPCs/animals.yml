@@ -1681,7 +1681,7 @@
       jumpsuit:
         sizeMaps:
           32:
-            sprite: _Moffstation/Mobs/Animals/displacements.rsi
+            sprite: ADT/Mobs/Animals/displacements.rsi
             state: jumpsuit-monkey
   # ADT tweak end
   - type: Deathgasp
@@ -1988,8 +1988,8 @@
       jumpsuit:
         sizeMaps:
           32:
-            sprite: _Moffstation/Mobs/Animals/displacements.rsi
-            state: jumpsuit-monkey
+            sprite: ADT/Mobs/Animals/displacements.rsi
+            state: jumpsuit-kobold
   # ADT tweak end
 
 
