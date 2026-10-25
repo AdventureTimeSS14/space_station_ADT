@@ -29,6 +29,7 @@
   - ChiefMedicalOfficerLabCoat
   - ChiefMedicalOfficerWintercoat
   - ADTCMOLabcoatHike # ADT tweak
+  - CoatJensen # ADT Loadout
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerNeck
@@ -84,6 +85,7 @@
   loadouts:
   - RegularLabCoat
   - MedicalDoctorWintercoat
+  - CoatJensen # ADT Loadout
 - type: loadoutGroup
   id: MedicalBackpack
   name: loadout-group-medical-doctor-backpack
@@ -164,6 +166,7 @@
   loadouts:
   - ChemistLabCoat
   - ChemistWintercoat
+  - CoatJensen # ADT Loadout
 
 - type: loadoutGroup
   id: ChemistBackpack
@@ -197,6 +200,7 @@
   - ParamedicWindbreaker
   - ParamedicWintercoat
   - ADTDavidsjacketParamedic # ADT-tweak
+  - CoatJensen # ADT Loadout
 
 - type: loadoutGroup
   id: ParamedicShoes

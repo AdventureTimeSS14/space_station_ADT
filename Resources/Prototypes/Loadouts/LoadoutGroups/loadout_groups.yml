@@ -277,6 +277,7 @@
   - HoPWintercoat
   # ADT-Loadouts-Start
   - ADTCoatHOP
+  - CoatJensen # ADT Loadout
   # ADT-Loadouts-End
 
 #- type: loadoutGroup
@@ -405,6 +406,7 @@
   - BartenderApron
   - ADTClothingOuterApronBarista #ADT-tweak
   - BartenderWintercoat
+  - CoatJensen # ADT Loadout
 
 - type: loadoutGroup
   id: BartenderJobTrinkets
@@ -455,6 +457,7 @@
   # ADT-Tweak-Start
   - ADTClothingOuterApronButcher
   - ADTClothingOuterJacketChefRed
+  - CoatJensen # ADT Loadout
   # ADT-Tweak-End
   - ChefWintercoat
 
@@ -558,6 +561,7 @@
   - ChaplainNunRobe
   - ChaplainBlackHoodie
   - ADTClothingOuterHoodieChaplainWhite #ADT-Tweak
+  - CoatJensen # ADT Loadout
   - ChaplainHoodie
   - ADTChaplainReligiousLeaderRobe # ADT Tweak
 
@@ -637,6 +641,7 @@
   minLimit: 0
   loadouts:
   - JanitorWintercoat
+  - CoatJensen # ADT Loadout
 
 - type: loadoutGroup
   id: JanitorJobTrinkets
@@ -681,6 +686,7 @@
   loadouts:
   - BotanistApron
   - BotanistWintercoat
+  - CoatJensen # ADT Loadout
 
 #- type: loadoutGroup
 #  id: BotanistJobTrinkets
@@ -722,6 +728,7 @@
   loadouts:
   - ClownRobes
   - ClownWintercoat
+  - CoatJensen # ADT Loadout
 
 - type: loadoutGroup
   id: ClownShoes
@@ -785,6 +792,7 @@
   loadouts:
   - MimeWintercoat
   - ADTMimeWintercoatLong #ADT Tweak
+  - CoatJensen # ADT Loadout
 
 - type: loadoutGroup
   id: MimeBelt
@@ -837,6 +845,7 @@
   minLimit: 0
   loadouts:
   - MusicianWintercoat
+  - CoatJensen # ADT Loadout
 
 - type: loadoutGroup
   id: Instruments
@@ -1292,6 +1301,7 @@
   loadouts:
   - ResearchDirectorLabCoat
   - ResearchDirectorWintercoat
+  - CoatJensen # ADT Loadout
   - ADTOuterClothingCoatsCrazySci # ADT tweak
 
 - type: loadoutGroup
@@ -1367,6 +1377,7 @@
   - ScienceLabCoat
   - RegularLabCoat
   - ScienceWintercoat
+  - CoatJensen # ADT Loadout
   - ADTOuterClothingCoatsCrazySci # ADT tweak
 
 - type: loadoutGroup
@@ -1707,6 +1718,7 @@
   minLimit: 0
   loadouts:
   - ReporterPressVest
+  - CoatJensen # ADT Loadout
 
 #- type: loadoutGroup
 #  id: ReporterJobTrinkets

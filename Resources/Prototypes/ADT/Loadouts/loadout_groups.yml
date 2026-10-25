@@ -195,6 +195,7 @@
   - ADTPathologWindbreakerAlt
   - PathologWintercoat
   - PathologApron
+  - CoatJensen # ADT Loadout
 
 - type: loadoutGroup
   id: PathologShoes
@@ -325,6 +326,7 @@
   loadouts:
   - RoboticistWintercoat
   - RoboticistLabCoat
+  - CoatJensen # ADT Loadout
 
 - type: loadoutGroup
   id: RobohandsGloves
@@ -388,6 +390,7 @@
   loadouts:
   - SeniorResearcherLabCoat
   - ADTOuterClothingCoatsCrazySci
+  - CoatJensen # ADT Loadout
 
 # BLUESHIELD
 
@@ -905,6 +908,7 @@
   loadouts:
   - SalvageSpecialistWintercoat
   - ADTNeckSalvageSpecialistEBomber
+  - CoatJensen # ADT Loadout
 
 - type: loadoutGroup
   id: ADTMinerPDA
