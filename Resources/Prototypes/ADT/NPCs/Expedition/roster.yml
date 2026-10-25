@@ -1,0 +1,23 @@
+- type: adtNpcRoster
+  id: ADTSovietBunkerRoster
+  entries:
+    - name: adt-ussp-roster-ostapenko
+    - name: adt-ussp-roster-lisitsyna
+      sex: Female
+    - name: adt-ussp-roster-yusupova
+      sex: Female
+      prototypes:
+        - ADTMobSovietBunkerMedic
+    - name: adt-ussp-roster-zaitsev
+    - name: adt-ussp-roster-gavrilov
+    - name: adt-ussp-roster-kovalchuk
+    - name: adt-ussp-roster-mamedov
+    - name: adt-ussp-roster-somov
+    - name: adt-ussp-roster-galiev
+    - name: adt-ussp-roster-kvyatkovsky
+    - name: adt-ussp-roster-tikhonov
+    - name: adt-ussp-roster-li-wei
+      prototypes:
+        - ADTMobSovietBunkerSniper
+        - ADTMobSovietBunkerMarksman
+    - name: adt-ussp-roster-belov

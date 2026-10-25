@@ -255,3 +255,63 @@
   - type: ConditionalSpawner
     prototypes:
     - ADTMobSmugglerPirate
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobXenoborgHeavyExpedition
+  name: Xenoborg Heavy Spawner
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Mobs/Silicon/chassis.rsi
+      state: xenoborg_heavy
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobXenoborgHeavyNpc
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobXenoborgScoutExpedition
+  name: Xenoborg Scout Spawner
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Mobs/Silicon/chassis.rsi
+      state: xenoborg_scout
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobXenoborgScoutNpc
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobXenoborgStealthExpedition
+  name: Xenoborg Stealth Spawner
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Mobs/Silicon/chassis.rsi
+      state: xenoborg_stealth
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobXenoborgStealthNpc
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobXenoborgEngiExpedition
+  name: Xenoborg Engi Spawner
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Mobs/Silicon/chassis.rsi
+      state: xenoborg_engi
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobXenoborgEngiNpc

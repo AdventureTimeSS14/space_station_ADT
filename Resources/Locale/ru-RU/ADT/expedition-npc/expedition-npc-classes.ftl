@@ -41,3 +41,27 @@ ent-ADTWeaponLauncherRocketFrag = РПГ-7
 ent-ADTWeaponSniperHristovNoScope = Христов
     .desc = Портативная крупнокалиберная снайперская винтовка. Стреляет мощными бронебойными патронами калибра 12,7 мм.
     .suffix = Без прицела
+
+# Ксеноборги экспедиций
+ent-ADTMobXenoborgHeavyNpc = тяжёлый ксеноборг
+    .desc = Тяжёлый ксеноборг с лазером. Держит дистанцию и отходит к инженеру на ремонт.
+ent-ADTMobXenoborgScoutNpc = ксеноборг-разведчик
+    .desc = Быстрый ксеноборг с клинком. Врывается в ближний бой.
+ent-ADTMobXenoborgStealthNpc = ксеноборг-невидимка
+    .desc = Ксеноборг с маскировкой и гипоспреем ноктюрина. Подкрадывается и усыпляет жертв.
+ent-ADTMobXenoborgEngiNpc = ксеноборг-инженер
+    .desc = Ксеноборг поддержки. Чинит других ксеноборгов и вскрывает двери.
+
+ent-ADTSpawnMobXenoborgHeavyExpedition = спавнер тяжёлого ксеноборга
+ent-ADTSpawnMobXenoborgScoutExpedition = спавнер ксеноборга-разведчика
+ent-ADTSpawnMobXenoborgStealthExpedition = спавнер ксеноборга-невидимки
+ent-ADTSpawnMobXenoborgEngiExpedition = спавнер ксеноборга-инженера
+
+ghost-role-information-adt-xenoborg-heavy-name = Тяжёлый ксеноборг
+ghost-role-information-adt-xenoborg-heavy-description = Вы тяжёлый ксеноборг. Поливайте органиков лазером с дистанции и возвращайтесь к инженеру на ремонт.
+ghost-role-information-adt-xenoborg-scout-name = Ксеноборг-разведчик
+ghost-role-information-adt-xenoborg-scout-description = Вы ксеноборг-разведчик. Быстро сближайтесь с органиками и рубите их клинком.
+ghost-role-information-adt-xenoborg-stealth-name = Ксеноборг-невидимка
+ghost-role-information-adt-xenoborg-stealth-description = Вы ксеноборг-невидимка. Включайте маскировку, подкрадывайтесь и усыпляйте органиков ноктюрином.
+ghost-role-information-adt-xenoborg-engi-name = Ксеноборг-инженер
+ghost-role-information-adt-xenoborg-engi-description = Вы ксеноборг-инженер. Чините других ксеноборгов сваркой и вскрывайте двери для отряда.

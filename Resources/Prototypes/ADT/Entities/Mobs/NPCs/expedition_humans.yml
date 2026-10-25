@@ -32,6 +32,7 @@
       isSSD: false
     - type: RandomHumanoidAppearance
       randomizeName: false
+      roster: ADTSovietBunkerRoster
       clearMarkings: true
       skinTone: 5, 45
       hairStyles:
@@ -49,6 +50,18 @@
       - HumanHairSkinhead
       - HumanHairBusiness
       - HumanHairClassicBusiness
+      femaleHairStyles:
+      - HumanHairBob
+      - HumanHairBob2
+      - HumanHairBobcut
+      - HumanHairBob4
+      - HumanHairBobcurl
+      - HumanHairPixie
+      - HumanHairShortbangs
+      - HumanHairShorthair2
+      - HumanHairShorthairg
+      - HumanHairShorthime
+      - HumanHairTightbun
       hairColors:
       - "#1a1a1a"
       - "#2b2119"
@@ -63,11 +76,21 @@
       - boris_petrov_father_tb
       - strelok
       - guard_guardsman_sergeant_dow
-    - type: RandomMetadata
+      femaleVoices:
+      - karina_petrova_tb
+      - kate_smirnova_tb
+      - polina
+      - female_commander
+      - sisters_battle_sister_dow
+      clearFemaleFacialHair: true
+      nameFormat: name-format-adt-soviet-soldier
       nameSegments:
       - ADTNamesSovietRank
       - ADTNamesSovietSurname
-      nameFormat: name-format-adt-soviet-soldier
+      femaleNameSegments:
+      - ADTNamesSovietRank
+      - ADTNamesSovietSurnameFemale
+      language: NeoRusskiya
     - type: GhostTakeoverAvailable
     - type: GhostRole
       name: ghost-role-information-adt-soviet-soldier-name
@@ -246,11 +269,18 @@
       - bandit
       - butch
       - tychus
-    - type: RandomMetadata
+      femaleVoices:
+      - panam
+      - judy
+      - v_female
+      clearFemaleFacialHair: true
+      nameFormat: name-format-adt-smuggler-pirate
       nameSegments:
       - NamesFakeHumanFirst
       - ADTNamesSmugglerNickname
-      nameFormat: name-format-adt-smuggler-pirate
+      femaleNameSegments:
+      - NamesFirstFemale
+      - ADTNamesSmugglerNickname
     - type: GhostTakeoverAvailable
     - type: GhostRole
       name: ghost-role-information-adt-smuggler-pirate-name
