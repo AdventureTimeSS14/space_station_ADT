@@ -27455,9 +27455,9 @@ entities:
       parent: 2
     - type: Storage
       storedItems:
-        3420:
-          position: 0,0
-          _rotation: South
+        # 3420:
+        #   position: 0,0
+        #   _rotation: South
         3417:
           position: 0,2
           _rotation: South
@@ -70757,37 +70757,37 @@ entities:
     - type: Transform
       pos: -13.47873,56.512558
       parent: 2
-- proto: WeaponPistolViper
-  entities:
-  - uid: 3420
-    components:
-    - type: MetaData
-      desc: Небольшой, легко скрываемый, но маломощный пистолет. Этот ствол сошёл с конвеера без автоматического режима стрельбы, из-за чего был продан какому-то агенту за бесценок.. Использует патроны калибра 9х19 мм.
-      name: дефектная Гадюка
-    - type: Transform
-      parent: 3412
-    - type: ContainerContainer
-      containers:
-        gun_magazine: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        gun_chamber: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        rmc-aslot-underbarrel: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: null
-        rmc-aslot-barrel: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: null
-    - type: Gun
-      availableModes: SemiAuto
-    - type: Physics
-      canCollide: False
+# - proto: WeaponPistolViper
+#   entities:
+#   - uid: 3420
+#     components:
+#     - type: MetaData
+#       desc: Небольшой, легко скрываемый, но маломощный пистолет. Этот ствол сошёл с конвеера без автоматического режима стрельбы, из-за чего был продан какому-то агенту за бесценок.. Использует патроны калибра 9х19 мм.
+#       name: дефектная Гадюка
+#     - type: Transform
+#       parent: 3412
+#     - type: ContainerContainer
+#       containers:
+#         gun_magazine: !type:ContainerSlot
+#           showEnts: False
+#           occludes: True
+#           ent: null
+#         gun_chamber: !type:ContainerSlot
+#           showEnts: False
+#           occludes: True
+#           ent: null
+#         rmc-aslot-underbarrel: !type:ContainerSlot
+#           showEnts: False
+#           occludes: False
+#           ent: null
+#         rmc-aslot-barrel: !type:ContainerSlot
+#           showEnts: False
+#           occludes: False
+#           ent: null
+#     - type: Gun
+#       availableModes: SemiAuto
+#     - type: Physics
+#       canCollide: False
 - proto: WeaponRevolverDeckard
   entities:
   - uid: 9455
