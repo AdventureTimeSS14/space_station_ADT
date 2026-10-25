@@ -16608,3 +16608,10 @@ Entries:
     id: 2043
     pr_number: 3558
     time: '2026-10-25T08:53:31Z'
+  - author: SchrodingerCutie
+    changes:
+      - {message: Иконка передачи предмета теперь зависит от размера предмета и подсвечивается
+          у передающего., type: Tweak}
+    id: 2044
+    pr_number: 3539
+    time: '2026-10-25T08:56:38Z'
