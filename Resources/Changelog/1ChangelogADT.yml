@@ -16588,3 +16588,10 @@ Entries:
     id: 2040
     pr_number: 3527
     time: '2026-10-24T18:51:02Z'
+  - author: Fineter75 && [CrazyPhantom779](https://github.com/CrazyPhantom779)
+    changes:
+      - {message: Добавлен Ядерный Реактор в качестве альтернативного источника питания
+          станции., type: Add}
+    id: 2041
+    pr_number: 3375
+    time: '2026-10-25T08:50:21Z'
