@@ -117,14 +117,12 @@
         #     color: "#d67e27"
         #   protos:
         #   - VGRoid
+        # ADT Salvage Shuttle Start
         salvage: !type:GridSpawnGroup
           nameGrid: false
           paths:
-          - /Maps/Shuttles/mining.yml
-        # mining_guest: !type:GridSpawnGroup
-        #   nameGrid: false
-        #   paths:
-        #   - /Maps/ADTMaps/Shuttles/mining_guest.yml
+          - /Maps/ADTMaps/Shuttles/salvager2.yml
+        # ADT Salvage Shuttle End
         mining: !type:GridSpawnGroup
           nameGrid: false
           paths:
