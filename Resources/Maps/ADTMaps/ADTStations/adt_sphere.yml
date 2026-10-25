@@ -1598,7 +1598,7 @@ entities:
   - uid: 59
     components:
     - type: MetaData
-      desc: Свидетельство о приёмке станции. 20.09.2570
+      desc: Свидетельство о приёмке станции. 25.10.2570
     - type: Transform
       parent: 2
       pos: 24.5,-10.5
