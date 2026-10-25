@@ -1612,7 +1612,11 @@
   - type: Sprite
     sprite: ADT/Special/Personal/toys.rsi
     state: plushie_erich
-    - state: erich-inhand-left
+  - type: Item
+    sprite: ADT/Special/Personal/toys.rsi
+    inhandVisuals:
+      left:
+      - state: erich-inhand-left
       right:
       - state: erich-inhand-right
   - type: EmitSoundOnUse
