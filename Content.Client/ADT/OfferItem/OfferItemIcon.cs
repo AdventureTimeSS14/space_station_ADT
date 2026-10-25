@@ -10,7 +10,6 @@ namespace Content.Client.ADT.OfferItem;
 
 /// <summary>
 /// Small clickable item icon that follows the character offering an item.
-/// Its size depends on the item size, and for the giver it is highlighted with a pulsing border.
 /// </summary>
 public sealed class OfferItemIcon : ContainerButton
 {
@@ -35,9 +34,6 @@ public sealed class OfferItemIcon : ContainerButton
 
     public EntityUid Anchor { get; }
 
-    /// <summary>
-    /// True when the local player is the one offering the item.
-    /// </summary>
     public bool IsGiver { get; set; }
 
     public OfferItemIcon(EntityUid anchor)
@@ -109,7 +105,6 @@ public sealed class OfferItemIcon : ContainerButton
 
     private void UpdateBorder()
     {
-        // Giver gets a bright pulsing frame so it is obvious that they are offering something.
         if (IsGiver)
         {
             _pulse = 0.55f + 0.45f * MathF.Sin((float) _timing.RealTime.TotalSeconds * PulseSpeed);
@@ -124,7 +119,6 @@ public sealed class OfferItemIcon : ContainerButton
 
     protected override void Draw(DrawingHandleScreen handle)
     {
-        // Soft pulsing halo around the giver's icon, so the offered item "glows" above them.
         if (IsGiver)
         {
             var box = (UIBox2) PixelSizeBox;
