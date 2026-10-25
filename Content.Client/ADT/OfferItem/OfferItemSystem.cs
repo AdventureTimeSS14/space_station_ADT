@@ -73,9 +73,6 @@ public sealed class OfferItemSystem : SharedOfferItemSystem
         _icon.SetItem(item, Loc.GetString(tooltip, ("item", Identity.Name(item, EntityManager, local))));
     }
 
-    /// <summary>
-    /// Smaller items get a smaller icon, so a pen does not look like a toolbox.
-    /// </summary>
     private float GetIconSize(EntityUid item)
     {
         if (!TryComp<ItemComponent>(item, out var itemComp))
@@ -109,7 +106,6 @@ public sealed class OfferItemSystem : SharedOfferItemSystem
             return true;
         }
 
-        // The giver sees the icon as soon as they enter offer mode, not only after picking a target.
         if (comp.Item is not { } own || !comp.IsInOfferMode && comp.Target == null)
             return false;
 
