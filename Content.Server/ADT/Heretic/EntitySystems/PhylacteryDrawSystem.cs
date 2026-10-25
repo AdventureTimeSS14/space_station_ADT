@@ -26,14 +26,32 @@ public sealed class PhylacteryDrawSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly PuddleSystem _puddle = default!;
+    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
 
     private const float BloodDrawPercent = 0.15f;
+    private const float DrawRange = 16f;
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<BloodstreamComponent, InteractUsingEvent>(OnBloodstreamInteractUsing);
         SubscribeLocalEvent<HereticPhylacteryComponent, AfterInteractEvent>(OnAfterInteract);
+        SubscribeLocalEvent<HereticPhylacteryComponent, BeforeRangedInteractEvent>(OnBeforeRangedInteract);
+    }
+
+    private void OnBeforeRangedInteract(Entity<HereticPhylacteryComponent> ent, ref BeforeRangedInteractEvent args)
+    {
+        if (args.Handled || args.Target is not { Valid: true } target)
+            return;
+
+        if (!_interaction.InRangeAndAccessible(args.User, target, DrawRange))
+            return;
+
+        if (!HasComp<BloodstreamComponent>(target) && !HasComp<PuddleComponent>(target))
+            return;
+
+        if (TryDrawBlood(ent.Owner, ent.Comp, target, null, args.User))
+            args.Handled = true;
     }
 
     private void OnBloodstreamInteractUsing(Entity<BloodstreamComponent> ent, ref InteractUsingEvent args)
