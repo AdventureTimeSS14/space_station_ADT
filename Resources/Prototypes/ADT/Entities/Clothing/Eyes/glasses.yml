@@ -200,3 +200,5 @@
     - WhitelistChameleon
   - type: IdentityBlocker
     coverage: EYES
+  - type: StaticPrice
+    price: 30
