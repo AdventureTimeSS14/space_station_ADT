@@ -39,3 +39,16 @@
     sprite: ADT/Special/Personal/netzcaro_duffelbag.rsi
   - type: Clothing
     sprite: ADT/Special/Personal/netzcaro_duffelbag.rsi
+
+# Darkiich
+- type: entity
+  parent: ADTSponsorClothingBackpackSatchel
+  id: ADTClothingBackpackSatchelErichStohl
+  name: Erich Stohl's satchel
+  description: An old leather messenger bag. The initials "E.S." are stitched on a burgundy tag.
+  suffix: Personal, Darkiich
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/Darkiich/erich_satchel.rsi
+  - type: Clothing
+    sprite: ADT/Special/Personal/Darkiich/erich_satchel.rsi
