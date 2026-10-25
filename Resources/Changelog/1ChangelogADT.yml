@@ -16601,3 +16601,10 @@ Entries:
     id: 2042
     pr_number: 3575
     time: '2026-10-25T08:50:58Z'
+  - author: FriendlyOne
+    changes:
+      - {message: 'Добавлена линия, указывающая на север(тобеж по игрику) при управлении
+          шаттлом', type: Add}
+    id: 2043
+    pr_number: 3558
+    time: '2026-10-25T08:53:31Z'
