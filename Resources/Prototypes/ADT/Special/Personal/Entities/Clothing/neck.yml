@@ -253,3 +253,16 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+
+# Darkiich
+- type: entity
+  parent: ADTSponsorClothingNeckBase
+  id: ADTClothingNeckScarfErichStohl
+  name: Erich Stohl's burgundy scarf
+  description: A long burgundy scarf with a frayed fringe. The initials "E.S." are embroidered in light thread on one end.
+  suffix: Personal, Darkiich
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/Darkiich/erich_scarf.rsi
+  - type: Clothing
+    sprite: ADT/Special/Personal/Darkiich/erich_scarf.rsi
