@@ -1,0 +1,56 @@
+- type: entity
+  parent: BaseItem
+  id: ADTDecorUSSPFieldRadio
+  name: field radio
+  description: An old army field radio. The dial is still glowing.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Decoration/ussp_decor.rsi
+    state: field_radio
+  - type: Item
+    size: Large
+  - type: Anchorable
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 300
+
+- type: entity
+  parent: BaseItem
+  id: ADTDecorUSSPSamovar
+  name: samovar
+  description: A brass samovar with a porcelain teapot on top. Tea time.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Decoration/ussp_decor.rsi
+    state: samovar
+  - type: Item
+    size: Large
+  - type: Anchorable
+
+- type: entity
+  parent: BaseItem
+  id: ADTDecorUSSPStatuette
+  name: statuette of the leader
+  description: A small bronze statuette of the leader on a granite stand.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Decoration/ussp_decor.rsi
+    state: statuette
+  - type: Item
+    size: Small
+
+- type: entity
+  parent: BaseItem
+  id: ADTDecorUSSPRugRoll
+  name: rolled rug
+  description: A rug rolled up and tied with string. Ready to hang on the wall.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Decoration/ussp_decor.rsi
+    state: rug_roll
+  - type: Item
+    size: Normal
