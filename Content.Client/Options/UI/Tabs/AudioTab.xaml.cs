@@ -37,6 +37,8 @@ public sealed partial class AudioTab : Control
             scale: ContentAudioSystem.MasterVolumeMultiplier);
         masterVolume.ImmediateValueChanged += OnMasterVolumeSliderChanged;
 
+        Control.AddOptionPercentSlider(ADTCCVars.VolumeGainCassettes, SliderVolumeCassettes, scale: 1);
+
         // ADT Barks start
         Control.AddOptionPercentSlider(
             ADTCCVars.BarksVolume,

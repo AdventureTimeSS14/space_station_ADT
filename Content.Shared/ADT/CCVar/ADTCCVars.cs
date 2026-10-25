@@ -9,6 +9,9 @@ namespace Content.Shared.ADT.CCVar;
 [CVarDefs]
 public sealed class ADTCCVars
 {
+    public static readonly CVarDef<float> VolumeGainCassettes =
+        CVarDef.Create("adt.volume_gain_cassettes", 0.33f, CVar.REPLICATED | CVar.CLIENT | CVar.ARCHIVE);
+
     /*
     * Exploitable Info
     */
