@@ -16595,3 +16595,9 @@ Entries:
     id: 2041
     pr_number: 3375
     time: '2026-10-25T08:50:21Z'
+  - author: Fineter75
+    changes:
+      - {message: музыка тенеморфа больше не наслаивается друг на друга, type: Fix}
+    id: 2042
+    pr_number: 3575
+    time: '2026-10-25T08:50:58Z'
