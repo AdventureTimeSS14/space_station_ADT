@@ -7,7 +7,7 @@
     <GuideEntityEmbed Entity="WeaponLaserCarbine" Caption="Лазерный карабин"/>
     <GuideEntityEmbed Entity="Welder" Caption="Сварочный аппарат"/>
     <GuideEntityEmbed Entity="NukeDisk" Caption="Ядерный диск"/>
-    <GuideEntityEmbed Entity="ADTInfectedNuclearBomb" Caption="Заражённая ядерная бомба"/>
+    <GuideEntityEmbed Entity="NuclearBomb" Caption="Заражённая ядерная бомба"/>
   </Box>
 
   ## Советы для Блоба

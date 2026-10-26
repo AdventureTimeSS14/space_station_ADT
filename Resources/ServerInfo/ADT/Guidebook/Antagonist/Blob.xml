@@ -9,7 +9,7 @@
     <GuideEntityEmbed Entity="ADTCoreBlobTile" Caption="Ядро Блоба"/>
     <GuideEntityEmbed Entity="MobMouse" Caption="Носитель блоба"/>
     <GuideEntityEmbed Entity="ADTMobBlobBlobbernaut" Caption="Блоббернаут"/>
-    <GuideEntityEmbed Entity="ADTInfectedNuclearBomb" Caption="Заражённая ядерная бомба"/>
+    <GuideEntityEmbed Entity="NuclearBomb" Caption="Заражённая ядерная бомба"/>
   </Box>
 
 Стать носителем блоба можно как в начале раунда, так и в середине, если взять роль призрака. Носителем блоба может стать член экипажа или мышь.
