@@ -17,15 +17,16 @@ using Robust.Shared.Utility;
 
 namespace Content.Client.Players.PlayTimeTracking;
 
-public sealed class JobRequirementsManager : ISharedPlaytimeManager
+public sealed partial class JobRequirementsManager : ISharedPlaytimeManager
 {
-    [Dependency] private readonly IBaseClient _client = default!;
-    [Dependency] private readonly IClientNetManager _net = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
-    [Dependency] private readonly SponsorsManager _sponsorsManager = default!; //ADT-Sponsors-Job
+    [Dependency] private IBaseClient _client = default!;
+    [Dependency] private IClientNetManager _net = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IPrototypeManager _prototypes = default!;
+    [Dependency] private SponsorsManager _sponsorsManager = default!; //ADT-Sponsors-Job
+    [Dependency] private Content.Client.ADT.Sponsors.SponsorManager _adtSponsors = default!;
 
     private readonly Dictionary<string, TimeSpan> _roles = new();
     private readonly List<ProtoId<JobPrototype>> _jobBans = new();
@@ -167,6 +168,14 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
         if (!CheckWhitelist(job, out reason))
             return false;
 
+        // ADT-Tweak-Start
+        if (_adtSponsors.IsJobTimeBypassed(_playerManager.LocalSession, job.ID))
+        {
+            reason = null;
+            return true;
+        }
+        // ADT-Tweak-End
+
         // Check other role requirements
         var reqs = _entManager.System<SharedRoleSystem>().GetRoleRequirements(job);
         if (!CheckRoleRequirements(reqs, profile, out reason))
@@ -193,6 +202,14 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
         // Check whitelist requirements
         if (!CheckWhitelist(antag, out reason))
             return false;
+
+        // ADT-Tweak-Start
+        if (_adtSponsors.IsAntagTimeBypassed(_playerManager.LocalSession))
+        {
+            reason = null;
+            return true;
+        }
+        // ADT-Tweak-End
 
         // Check other role requirements
         var reqs = _entManager.System<SharedRoleSystem>().GetRoleRequirements(antag);

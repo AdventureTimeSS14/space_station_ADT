@@ -1,4 +1,5 @@
 using Content.Shared.Body;
+using Content.Shared.ADT.Construction.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
@@ -18,16 +19,16 @@ namespace Content.Shared.Xenoarchaeology.Equipment;
 /// <summary>
 /// This handles logic relating to <see cref="ArtifactCrusherComponent"/>
 /// </summary>
-public abstract class SharedArtifactCrusherSystem : EntitySystem
+public abstract partial class SharedArtifactCrusherSystem : EntitySystem
 {
-    [Dependency] protected readonly SharedAudioSystem AudioSystem = default!;
-    [Dependency] protected readonly SharedContainerSystem ContainerSystem = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly EmagSystem _emag = default!;
-    [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] protected SharedAudioSystem AudioSystem = default!;
+    [Dependency] protected SharedContainerSystem ContainerSystem = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private EmagSystem _emag = default!;
+    [Dependency] private SharedPowerReceiverSystem _power = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -147,7 +148,12 @@ public abstract class SharedArtifactCrusherSystem : EntitySystem
 
         crusher.Crushing = true;
         crusher.NextSecond = _timing.CurTime + TimeSpan.FromSeconds(1);
-        crusher.CrushEndTime = _timing.CurTime + crusher.CrushDuration;
+
+        // ADT-Tweak-Start
+        var workTimeMultiplier = TryComp<ArtifactCrusherUpgradeComponent>(uid, out var upgrade) ? upgrade.WorkTimeMultiplier : 1f;
+        crusher.CrushEndTime = _timing.CurTime + crusher.CrushDuration * workTimeMultiplier;
+        // ADT-Tweak-End
+
         crusher.CrushingSoundEntity = AudioSystem.PlayPvs(crusher.CrushingSound, ent)?.Entity;
         _appearance.SetData(ent, ArtifactCrusherVisuals.Crushing, true);
         Dirty(ent, ent.Comp1);

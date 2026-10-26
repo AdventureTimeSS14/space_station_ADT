@@ -40,14 +40,21 @@ public sealed partial class DamageAmplifyOnHitEffect : TrophyEffect
             if (!entManager.HasComponent<DamageMarkerComponent>(target))
                 continue;
 
-            var active = new DamageAmplifyActiveEffectComponent
+            if (entManager.TryGetComponent<DamageAmplifyActiveEffectComponent>(target, out var active))
+            {
+                active.ExpireTime = gameTiming.CurTime + EffectDuration;
+                entManager.Dirty(target, active);
+                continue;
+            }
+
+            var newActive = new DamageAmplifyActiveEffectComponent
             {
                 DamageMult = DamageMultiplier,
                 ExpireTime = gameTiming.CurTime + EffectDuration,
+                Source = holder.Owner,
             };
 
-            if (!entManager.HasComponent<DamageAmplifyActiveEffectComponent>(target))
-                entManager.AddComponent(target, active);
+            entManager.AddComponent(target, newActive);
         }
     }
 }

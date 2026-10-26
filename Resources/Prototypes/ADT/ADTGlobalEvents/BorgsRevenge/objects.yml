@@ -1,0 +1,400 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnBorgAiRemote
+  name: borg ai remote spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Silicon/chassis.rsi
+      state: robot
+    - sprite: Mobs/Silicon/chassis.rsi
+      state: robot_e
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTPlayerBorgAiRemoteEvent
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobIPC
+  name: IPC spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/displacement.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobIPCEventCombat
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsCyborg
+  suffix: Cyborg, Locked
+  components:
+  - type: AccessReader
+    access: [["Borg"], ["StationAi"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsAI
+  suffix: AI, Locked
+  components:
+  - type: AccessReader
+    access: [["StationAi"]]
+# cyborg
+
+- type: entity
+  parent: PassengerPDA
+  id: ADTCyborgPDA
+  name: cyborg PDA
+  components:
+  - type: Pda
+    id: ADTCyborgIDCard
+
+# cyborg
+
+- type: entity
+  parent: IDCardStandard
+  id: ADTCyborgIDCard
+  name: cyborg ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+  - type: Access
+    tags:
+    - Borg
+  - type: IdCard
+    jobTitle: job-name-cyborg
+    jobIcon: JobIconBorg
+
+- type: entity
+  parent: HighSecDoor
+  id: ADTHighSecCyborgLocked
+  suffix: Cyborg, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCyborg ]
+
+- type: entity
+  parent: HighSecDoor
+  id: ADTHighSecAILocked
+  suffix: AI, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAI ]
+
+- type: entity
+  id: ADTPlayerBorgAiRemoteEvent
+  parent: [BaseBorgChassis, BaseBorgTransponder]
+  suffix: Battery, AI controllable
+  components:
+  - type: RandomMetadata
+    nameSegments:
+    - NamesBorg
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - FootstepSound
+    - CanPilot
+    - SiliconEmotes
+    - ADTSiliconStealthWhitelist
+    - ADTSiliconEmotes
+    - Unimplantable
+    - ADTVendingCargoAccount
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - Borg
+  - type: AccessReader
+    access: [["Borg"]]
+  - type: ShowJobIcons
+  - type: ShowCrewIcons
+  - type: InteractionPopup
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
+    interactSuccessString: petting-success-generic-cyborg
+    interactFailureString: petting-failure-generic-cyborg
+  - type: BorgFlashStun
+    stunDuration: 4
+  - type: ContainerFill
+    containers:
+      borg_brain:
+      - ADTAiRemoteBrain
+  - type: AiRemoteController
+  - type: StartingMindRole
+    mindRole: "MindRoleSiliconBrain"
+    silent: true
+  - type: Sprite
+    layers:
+    - state: robot
+      map: ["enum.BorgVisualLayers.Body", "movement"]
+    - state: robot_e_r
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: robot_l
+      shader: unshaded
+      map: ["light","enum.BorgVisualLayers.LightStatus"]
+      visible: false
+  - type: BorgChassis
+    # Default borg can take no modules until selected type.
+    maxModules: 0
+    hasMindState: robot_e
+    noMindState: robot_e_r
+  - type: BorgTransponder
+    sprite:
+      sprite: Mobs/Silicon/chassis.rsi
+      state: robot
+    name: cyborg
+  - type: BorgSwitchableType
+    inherentRadioChannels:
+    - Common
+    - Binary
+  # ADT-Twek start
+  - type: ShowHealthBars
+    damageContainers:
+    - Silicon
+  - type: ShowHealthIcons
+    damageContainers:
+    - Silicon
+  - type: BorgSwitchableSubtype
+  - type: ShowElectrocutionHUD
+  - type: StationAiVision
+
+- type: entity
+  id: MobIPCEvent
+  parent: [ PlayerSiliconHumanoidBase, ADTAppearanceIPC ]
+  name: Урист МакПозитроник
+  components:
+  - type: VisualBody
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+    fitsInCharger: true
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        locked: true
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
+  - type: Lock
+    locked: true
+    lockOnClick: false
+    unlockOnClick: false
+    lockTime: 5
+    unlockTime: 5
+    breakOnAccessBreaker: false
+  - type: AccessReader
+    access: [["Borg"]]
+  - type: BatterySlotRequiresLock
+    itemSlot: cell_slot
+  - type: PickupHumans
+  - type: MobIpc
+    disablePointLightOnDeath: true
+  - type: InteractionPopup
+    successChance: 1
+    interactSuccessString: hugging-success-generic
+    interactSuccessSound: /Audio/Effects/thudswoosh.ogg
+    messagePerceivedByOthers: hugging-success-generic-others
+  - type: SiliconEmitSoundOnDrained
+    sound: "/Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg"
+    minInterval: 8
+    maxInterval: 12
+    popUp: silicon-power-low
+  - type: ZombieImmune
+  - type: LightBehaviour
+    behaviours:
+    - !type:FadeBehaviour
+      id: radiating
+      maxDuration: 2.0
+      startValue: 3.0
+      endValue: 2.0
+      isLooped: true
+      reverseWhenFinished: true
+    - !type:PulseBehaviour
+      id: blinking
+      interpolate: Nearest
+      maxDuration: 1.0
+      startValue: 0.1
+      endValue: 2.0
+      isLooped: true
+  - type: MobState
+    allowedStates:
+      - Alive
+      - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      125: Dead
+    stateAlertDict:
+      Alive: BorgHealth
+      Critical: BorgCrit
+      Dead: BorgDead
+    allowRevives: true
+  - type: TypingIndicator
+    proto: robot
+  - type: StatusIcon
+    bounds: -0.5,-0.5,0.5,0.5
+  - type: JobStatus
+  - type: RotationVisuals
+    defaultRotation: -90
+    horizontalRotation: -90
+  - type: Destructible
+    thresholdsOverride:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 220
+      behaviors:
+      - !type:GibBehavior { }
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      40: 0.8
+      60: 0.6
+      80: 0.4
+      100: 0.3
+  - type: SiliconDownOnDead
+  - type: EyeProtection
+    protectionTime: 12
+  - type: Silicon
+    entityType: enum.SiliconType.Player
+    batteryPowered: true
+    drainPerSecond: 1.3
+    idleDrainReduction: 0.6
+    chargeThresholdMid: 0.80
+    chargeThresholdLow: 0.35
+    chargeThresholdCritical: 0.10
+    speedModifierThresholds:
+      4: 1
+      3: 1
+      2: 0.80
+      1: 0.45
+      0: 0.00
+  - type: BatteryDrinker
+  - type: UnpoweredFlashlight
+  - type: PointLight
+    enabled: false
+    color: "#ffffff"
+    lightMask: ADTLightMaskCone
+    offset: 0,-0.3
+    autoRot: true
+    radius: 3
+    energy: 2
+  - type: Wires
+    boardName: "ipc-board-name"
+    layoutId: IPC
+  - type: WiresPanel
+  - type: EncryptionKeyHolder
+    keySlots: 3
+    examineWhileLocked: false
+    keysExtractionMethod: Cutting
+  - type: ActiveRadio
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+  - type: ContentEye
+    maxZoom: 1.0,1.0
+  - type: LightningTarget
+    priority: 4
+    lightningExplode: false
+  - type: Vocal
+    emoteSounds: UnisexIPC
+  - type: Deathgasp
+    prototype: IPCDeathgasp
+    onAnyState: true
+  - type: TTS # Corvax-TTS
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+      BorgTalk: Speak
+      RobotTalk: Speak
+  - type: Tag
+    tags:
+    - CanPilot
+    - SiliconFootstepSound
+    - DoorBumpOpener
+    - ChangelingBlacklist
+    - ADTSiliconStealthWhitelist
+    - ADTSiliconEmotes
+    - SiliconEmotes
+    - ADTIgnoreChokeSpeechBlocking
+    - Unimplantable
+  - type: Inventory
+    templateId: ipc
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
+  - type: SizeAttributeWhitelist
+    tall: true
+    tallscale: 1.1
+    short: true
+    shortscale: 0.9
+  - type: CanEnterCryostorage
+  - type: BloodCough
+    postingSayDamage: blood-cough-ipc
+  - type: TimeDespawnDamage
+  - type: OfferItem
+  - type: UserInterface
+    interfaces:
+      enum.MidroundCustomizationUiKey.Key:
+        type: MidroundCustomizationBoundUserInterface
+      enum.VoiceMaskUIKey.Key:
+        type: VoiceMaskBoundUserInterface
+      enum.HumanoidMarkingModifierKey.Key:
+        type: HumanoidMarkingModifierBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: MidroundCustomization
+    selectSlotTime: 0
+    changeSlotTime: 0
+    changeVoiceTime: 1
+    playSoundForVoiceChange: false
+    allowedLayers:
+    - FacialHair
+    pointLightColor: true
+    pointLightLayer: FacialHair
+    changeSlotOnState:
+    - state: Dead
+      organ: Head
+      layer: FacialHair
+      slot: 0
+      marking: ADTIPCScreenBroken
+      colors: [ "#ffffff" ]
+  - type: AnimatedEmotes
+  - type: Posing
+  - type: SoftWalk
+  - type: MirrorReflection
+  - type: AiRemoteController
+
+- type: entity
+  id: MobIPCEventCombat
+  parent: MobIPCEvent
+  name: IPC
+  components:
+  - type: Loadout
+    prototypes: [ ADTIPCAIControlledGear ]
+
+- type: startingGear
+  id: ADTIPCAIControlledGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBlack
+    shoes: ClothingShoesBootsJack
+    outerClothing: ClothingOuterArmorBasic
+    head: ClothingHeadHelmetBasic
+    id: ADTCyborgPDA
+    belt: ClothingBeltUtilityEngineering
+    back: ClothingBackpack
+    pocket1: WeaponPistolMk58
+    pocket2: MagazinePistol
+  storage:
+    back:
+    - ADTBoxSurvivalSiliconSecurity

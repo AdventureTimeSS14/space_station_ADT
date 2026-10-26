@@ -1,5 +1,82 @@
-# Novakid appearance + visual organs (upstream PR#42476). parts.rsi sexed; internals reused from Human.
-# markingsGroup "Novakid" defined in ADT/Body/markingsGroups.yml
+- type: markingsGroup
+  parent: Undergarments
+  id: Novakid
+  onlyGroupWhitelisted: true
+  limits:
+    enum.HumanoidVisualLayers.Special:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.TailOverlay:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Hair:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.FacialHair:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Chest:
+      limit: 3
+      required: true
+      default: [ TorsoNovakidDefoltMale ]
+    enum.HumanoidVisualLayers.Head:
+      limit: 3
+      required: true
+      default: [ HeadNovakidDefolt ]
+    enum.HumanoidVisualLayers.Snout:
+      limit: 2
+      required: true
+      default: [ NovakidFace1 ]
+    enum.HumanoidVisualLayers.SnoutCover:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.SnoutOverlay:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.HeadSide:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.Eyes:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.RHand:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.LHand:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.RFoot:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.Overlay:
+      limit: 1
+      required: false
+  appearances:
+    enum.HumanoidVisualLayers.Hair:
+      matchSkin: true
+    enum.HumanoidVisualLayers.FacialHair:
+      matchSkin: true
 
 - type: entity
   parent: BaseSpeciesAppearance
@@ -24,10 +101,10 @@
       Appendix: OrganHumanAppendix
       Ears: OrganHumanEars
       Lungs: ADTOrganNovakidLungs
-      Heart: OrganHumanHeart
-      Stomach: OrganHumanStomach
-      Liver: OrganHumanLiver
-      Kidneys: OrganHumanKidneys
+      Heart: ADTOrganNovakidHeart
+      Stomach: ADTOrganNovakidStomach
+      Liver: ADTOrganNovakidLiver
+      Kidneys: ADTOrganNovakidKidneys
   - type: HumanoidProfile
     species: NovakidSpecies
   - type: Inventory
@@ -46,23 +123,21 @@
   - BaseSpeciesMobOrganic
   id: MobNovakid
   components:
-  - type: Hunger
-    baseDecayRate: 0.025
-    lastAuthoritativeHungerValue: 400
-    thresholds:
-      Overfed: 400
-      Okay: 300
-      Peckish: 200
-      Starving: 100
-      Dead: 0
-    starvationDamage:
-      types:
-        Cold: 0.12
-        Caustic: 0.08
-        Cellular: 0.05
-  - type: Thirst
-    baseDecayRate: 0
-    updateRate: 0
+  - type: Satiation
+    satiations:
+      Hunger:
+        prototype: ADTNovakidHunger
+      Thirst:
+        prototype: ADTNovakidThirst
+  - type: SatiationDamage
+    satiations:
+      Hunger:
+        thresholds:
+          Starving:
+            types:
+              Cold: 0.12
+              Caustic: 0.08
+              Cellular: 0.05
   - type: Damageable
     damageModifierSet: ADTNovakid
   - type: Injurable
@@ -70,8 +145,11 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      110: Critical
+      110: SoftCritical
+      217: Critical
       325: Dead
+  - type: SoftCrit
+    speedModifier: 0.35
   - type: Explosive
     explosionType: Default
     maxIntensity: 2.5
@@ -80,7 +158,7 @@
     canCreateVacuum: false
   - type: ExplodeOnTrigger
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
         damage: 325
@@ -103,22 +181,17 @@
     bloodReferenceSolution:
       reagents:
       - ReagentId: Plasma
-        Quantity: 300
+        Quantity: 600
   - type: ZombieImmune
   - type: NovakidGlowing
   - type: PointLight
     enabled: true
     color: "#ffffff"
-    energy: 1.6
-    radius: 3
-    castShadows: false
+    energy: 0.6
   - type: Speech
     speechSounds: Lizard
   - type: Vocal
-    sounds:
-      Male: MaleNovakid
-      Female: FemaleNovakid
-      Unsexed: UnisexNovakid
+    emoteSounds: MaleNovakid
   - type: MeleeWeapon
     hidden: true
     soundHit:
@@ -129,7 +202,7 @@
       types:
         Heat: 5
   - type: Temperature
-    currentTemperature: 410.15
+    temperature: 410.15
     specificHeat: 46
   - type: TemperatureDamage
     heatDamageThreshold: 650
@@ -160,6 +233,7 @@
     groups:
       Flammable: [ Touch ]
       Extinguish: [ Touch ]
+      Acidic: [ Touch, Ingestion ]
     reactions:
     - reagents: [Water, SpaceCleaner]
       methods: [Touch]
@@ -221,7 +295,7 @@
     predictable: false
   - type: ItemToggleHot
   - type: MidroundCustomization
-    changeHairSound: /Audio/ADT/slime-hair.ogg
+    changeHairSound: /Audio/ADT/Novakid/novakid_laugh01.ogg
     allowedLayers:
     - Hair
     - FacialHair
@@ -251,6 +325,28 @@
   components:
   - type: Metabolizer
     metabolizerTypes: [ Novakid ]
+
+- type: entity
+  id: ADTOrganNovakidHeart
+  parent: [ OrganBaseHeart, OrganSpriteHumanInternal, ADTOrganNovakidMetabolizer ]
+
+- type: entity
+  id: ADTOrganNovakidStomach
+  parent: [ OrganBaseStomach, OrganSpriteHumanInternal, ADTOrganNovakidMetabolizer ]
+  components:
+  - type: Stomach
+    specialDigestible:
+      tags:
+      - ADTCoalOre
+    isSpecialDigestibleExclusive: false
+
+- type: entity
+  id: ADTOrganNovakidLiver
+  parent: [ OrganBaseLiver, OrganSpriteHumanInternal, ADTOrganNovakidMetabolizer ]
+
+- type: entity
+  id: ADTOrganNovakidKidneys
+  parent: [ OrganBaseKidneys, OrganSpriteHumanInternal, ADTOrganNovakidMetabolizer ]
 
 - type: entity
   id: ADTOrganNovakidVisual

@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Construction.Prototypes;
 using Content.Shared.Stacks;
 using Content.Shared.Tag;
 using Robust.Shared.GameStates;
@@ -13,6 +14,14 @@ public sealed partial class MachineBoardComponent : Component
     /// </summary>
     [DataField]
     public Dictionary<ProtoId<StackPrototype>, int> StackRequirements = new();
+
+    // ADT-Tweak start
+    [DataField]
+    public Dictionary<ProtoId<MachinePartPrototype>, int> PartRequirements = new();
+
+    [DataField]
+    public bool NoUpgrades = false;
+    // ADT-Tweak end
 
     /// <summary>
     /// Entities needed to construct this machine, discriminated by tag.

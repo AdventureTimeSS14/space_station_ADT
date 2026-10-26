@@ -6,7 +6,6 @@ using Content.Server.Fluids.EntitySystems;
 using Content.Server.Lathe.Components;
 using Content.Server.Materials;
 using Content.Server.Popups;
-using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Radio.EntitySystems;
 using Content.Server.Stack;
@@ -14,11 +13,12 @@ using Content.Shared.Atmos;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Containers.ItemSlots;
 using Content.Shared.UserInterface;
 using Content.Shared.Database;
-using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
-using Content.Shared.Examine;
+using Content.Shared.ADT.Construction;
+using Content.Shared.ADT.Construction.Events;
 using Content.Shared.Lathe;
 using Content.Shared.Lathe.Prototypes;
 using Content.Shared.Localizations;
@@ -31,6 +31,7 @@ using JetBrains.Annotations;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.DocumentPrinter;
@@ -38,25 +39,25 @@ using Content.Shared.DocumentPrinter;
 namespace Content.Server.Lathe
 {
     [UsedImplicitly]
-    public sealed class LatheSystem : SharedLatheSystem
+    public sealed partial class LatheSystem : SharedLatheSystem
     {
-        [Dependency] private readonly IGameTiming _timing = default!;
-        [Dependency] private readonly IPrototypeManager _proto = default!;
-        [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-        [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
-        [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-        [Dependency] private readonly SharedAudioSystem _audio = default!;
-        [Dependency] private readonly ContainerSystem _container = default!;
-        [Dependency] private readonly EmagSystem _emag = default!;
-        [Dependency] private readonly UserInterfaceSystem _uiSys = default!;
-        [Dependency] private readonly MaterialStorageSystem _materialStorage = default!;
-        [Dependency] private readonly PopupSystem _popup = default!;
-        [Dependency] private readonly PuddleSystem _puddle = default!;
-        [Dependency] private readonly ReagentSpeedSystem _reagentSpeed = default!;
-        [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
-        [Dependency] private readonly StackSystem _stack = default!;
-        [Dependency] private readonly TransformSystem _transform = default!;
-        [Dependency] private readonly RadioSystem _radio = default!;
+        [Dependency] private IGameTiming _timing = default!;
+        [Dependency] private IAdminLogManager _adminLogger = default!;
+        [Dependency] private AtmosphereSystem _atmosphere = default!;
+        [Dependency] private SharedAppearanceSystem _appearance = default!;
+        [Dependency] private SharedAudioSystem _audio = default!;
+        [Dependency] private ContainerSystem _container = default!;
+        [Dependency] private EmagSystem _emag = default!;
+        [Dependency] private UserInterfaceSystem _uiSys = default!;
+        [Dependency] private MaterialStorageSystem _materialStorage = default!;
+        [Dependency] private PopupSystem _popup = default!;
+        [Dependency] private PuddleSystem _puddle = default!;
+        [Dependency] private ReagentSpeedSystem _reagentSpeed = default!;
+        [Dependency] private SharedSolutionContainerSystem _solution = default!;
+        [Dependency] private StackSystem _stack = default!;
+        [Dependency] private TransformSystem _transform = default!;
+        [Dependency] private RadioSystem _radio = default!;
+        [Dependency] private ItemSlotsSystem _itemSlots = default!; // ADT-Tweak
 
         /// <summary>
         /// Per-tick cache
@@ -74,6 +75,16 @@ namespace Content.Server.Lathe
             SubscribeLocalEvent<LatheComponent, ResearchRegistrationChangedEvent>(OnResearchRegistrationChanged);
 
             SubscribeLocalEvent<LatheComponent, LatheQueueRecipeMessage>(OnLatheQueueRecipeMessage);
+
+            // ADT-Tweak-Start
+            SubscribeLocalEvent<LatheComponent, EntInsertedIntoContainerMessage>(OnReagentSlotChanged);
+            SubscribeLocalEvent<LatheComponent, EntRemovedFromContainerMessage>(OnReagentSlotChanged);
+            // ADT-Tweak-End
+
+            // ADT-Tweak-Start: machine parts with tiers
+            SubscribeLocalEvent<LatheComponent, RefreshPartsEvent>(OnPartsRefresh);
+            SubscribeLocalEvent<LatheComponent, UpgradeExamineEvent>(OnUpgradeExamine);
+            // ADT-Tweak-End
             SubscribeLocalEvent<LatheComponent, LatheSyncRequestMessage>(OnLatheSyncRequestMessage);
             SubscribeLocalEvent<LatheComponent, LatheDeleteRequestMessage>(OnLatheDeleteRequestMessage);
             SubscribeLocalEvent<LatheComponent, LatheMoveRequestMessage>(OnLatheMoveRequestMessage);
@@ -130,6 +141,14 @@ namespace Content.Server.Lathe
             }
         }
 
+        // ADT-Tweak-Start
+        private void OnReagentSlotChanged(EntityUid uid, LatheComponent component, ContainerModifiedMessage args)
+        {
+            if (component.ReagentCostSlotId is { } slotId && args.Container.ID == slotId)
+                UpdateUserInterfaceState(uid, component);
+        }
+        // ADT-Tweak-End
+
         private void OnGetWhitelist(EntityUid uid, LatheComponent component, ref GetMaterialWhitelistEvent args)
         {
             if (args.Storage != uid)
@@ -138,7 +157,7 @@ namespace Content.Server.Lathe
             var recipes = GetAvailableRecipes(uid, component, true);
             foreach (var id in recipes)
             {
-                if (!_proto.Resolve(id, out var proto))
+                if (!ProtoMan.Resolve(id, out var proto))
                     continue;
                 foreach (var (mat, _) in proto.Materials)
                 {
@@ -186,6 +205,19 @@ namespace Content.Server.Lathe
             foreach (var (mat, amount) in GetAdjustedAmount(component, recipe))
                 _materialStorage.TryChangeMaterialAmount(uid, mat, -amount * quantity);
 
+            // ADT-Tweak-Start
+            if (component.ReagentCostSlotId is { } slotId && recipe.ReagentCost.Count > 0
+                && _itemSlots.GetItemOrNull(uid, slotId) is { } beaker
+                && _solution.TryGetFitsInDispenser(beaker, out var soln, out _))
+            {
+                foreach (var (reagent, needed) in recipe.ReagentCost)
+                {
+                    var adjustedAmount = SharedLatheSystem.AdjustReagentCost(needed, recipe.ApplyMaterialDiscount, component.FinalMaterialMultiplier);
+                    _solution.RemoveReagent(soln.Value, reagent, adjustedAmount * quantity);
+                }
+            }
+            // ADT-Tweak-End
+
             if (component.Queue.Last is { } node && node.ValueRef.Recipe == recipe.ID)
                 node.ValueRef.ItemsRequested += quantity;
             else
@@ -205,9 +237,13 @@ namespace Content.Server.Lathe
             batch.ItemsPrinted++;
             if (batch.ItemsPrinted >= batch.ItemsRequested || batch.ItemsPrinted < 0) // Rollover sanity check
                 component.Queue.RemoveFirst();
-            var recipe = _proto.Index(batch.Recipe);
+            var recipe = ProtoMan.Index(batch.Recipe);
 
-            var time = _reagentSpeed.ApplySpeed(uid, recipe.CompleteTime) * component.TimeMultiplier;
+            // ADT-Tweak-Start: machine parts with tiers
+            var baseTime = _reagentSpeed.ApplySpeed(uid, recipe.CompleteTime).TotalSeconds;
+            var adjustedTime = baseTime * MathF.Pow(MathF.Max(0.1f, component.FinalTimeMultiplier), component.MachinePartEfficiencyExponent);
+            var time = TimeSpan.FromSeconds(Math.Max(0.1f, adjustedTime));
+            // ADT-Tweak-End
 
             var lathe = EnsureComp<LatheProducingComponent>(uid);
             lathe.StartTime = _timing.CurTime;
@@ -234,7 +270,7 @@ namespace Content.Server.Lathe
                 return;
             if (comp.CurrentRecipe != null)
             {
-                var currentRecipe = _proto.Index(comp.CurrentRecipe.Value);
+                var currentRecipe = ProtoMan.Index(comp.CurrentRecipe.Value);
                 if (currentRecipe.Result is { } resultProto)
                 {
                     var result = Spawn(resultProto, Transform(uid).Coordinates);
@@ -299,7 +335,13 @@ namespace Content.Server.Lathe
             if (producing == null && component.Queue.First is { } node)
                 producing = node.Value.Recipe;
 
-            var state = new LatheUpdateState(GetAvailableRecipes(uid, component), component.Queue.ToArray(), producing);
+            var state = new LatheUpdateState(GetAvailableRecipes(uid, component), component.Queue.ToArray(), producing)
+            {
+                // ADT-Tweak-Start
+                HasReagentSlot = component.ReagentCostSlotId != null,
+                BeakerInserted = component.ReagentCostSlotId is { } slotId && _itemSlots.GetItemOrNull(uid, slotId) != null,
+                // ADT-Tweak-End
+            };
             _uiSys.SetUiState(uid, LatheUiKey.Key, state);
         }
 
@@ -310,7 +352,7 @@ namespace Content.Server.Lathe
         {
             foreach (var id in packs)
             {
-                var pack = _proto.Index(id);
+                var pack = ProtoMan.Index(id);
                 foreach (var recipe in pack.Recipes)
                 {
                     if (args.GetUnavailable || database.UnlockedRecipes.Contains(recipe))
@@ -401,7 +443,7 @@ namespace Content.Server.Lathe
                 if (!potentialRecipes.Contains(new(recipeId)))
                     continue;
 
-                if (!_proto.TryIndex(recipeId, out LatheRecipePrototype? recipe))
+                if (!ProtoMan.TryIndex(recipeId, out LatheRecipePrototype? recipe))
                     continue;
 
                 var itemName = GetRecipeName(recipe!);
@@ -434,6 +476,36 @@ namespace Content.Server.Lathe
             UpdateUserInterfaceState(uid, component);
         }
 
+        // ADT-Tweak-Start: machine parts with tiers
+        private void OnPartsRefresh(EntityUid uid, LatheComponent component, RefreshPartsEvent args)
+        {
+            if (component.SuppressMachinePartUpgrades)
+                return;
+
+            var speed = args.GetStatMultiplier(MachineStat.Speed);
+            var material = MathF.Max(component.MinMachinePartEfficiency, args.GetStatMultiplier(MachineStat.ResourceCost));
+
+            component.FinalTimeMultiplier = component.TimeMultiplier / MathF.Max(component.MinMachinePartEfficiency, speed);
+            component.FinalMaterialMultiplier = component.MaterialUseMultiplier * material;
+
+            Dirty(uid, component);
+            UpdateUserInterfaceState(uid, component);
+        }
+
+        private static void OnUpgradeExamine(EntityUid uid, LatheComponent component, UpgradeExamineEvent args)
+        {
+            if (component.SuppressMachinePartUpgrades)
+                return;
+
+            var speedMultiplier = component.FinalTimeMultiplier > 0f
+                ? component.TimeMultiplier / component.FinalTimeMultiplier
+                : 1f;
+
+            args.AddPercentageUpgrade("lathe-component-upgrade-speed", speedMultiplier, benefit: true);
+            args.AddPercentageUpgrade("lathe-component-upgrade-material-use", component.FinalMaterialMultiplier, benefit: false);
+        }
+        // ADT-Tweak-End
+
         protected override bool HasRecipe(EntityUid uid, LatheRecipePrototype recipe, LatheComponent component)
         {
             return GetAvailableRecipes(uid, component).Contains(recipe.ID);
@@ -447,9 +519,11 @@ namespace Content.Server.Lathe
         {
             foreach (var (mat, amount) in recipe.Materials)
             {
+                // ADT-Tweak start: machine parts with tiers
                 var adjustedAmount = recipe.ApplyMaterialDiscount
-                    ? (int)(amount * lathe.MaterialUseMultiplier)
+                    ? Math.Max(1, (int) Math.Ceiling(amount * lathe.FinalMaterialMultiplier))
                     : amount;
+                // ADT-Tweak end
 
                 yield return (mat, adjustedAmount);
             }
@@ -461,10 +535,12 @@ namespace Content.Server.Lathe
         /// </summary>
         private void RefundCurrentRecipe(EntityUid uid, LatheComponent lathe)
         {
-            _proto.Resolve(lathe.CurrentRecipe, out var recipe);
+            ProtoMan.Resolve(lathe.CurrentRecipe, out var recipe);
 
             foreach (var (mat, amount) in GetAdjustedAmount(lathe, recipe!))
                 _materialStorage.TryChangeMaterialAmount(uid, mat, amount);
+
+            RefundReagentCost(uid, lathe, recipe!, 1); // ADT-Tweak
         }
 
         /// <summary>
@@ -475,11 +551,31 @@ namespace Content.Server.Lathe
         {
             var delta = batch.ItemsRequested - batch.ItemsPrinted;
 
-            _proto.Resolve(batch.Recipe, out var recipe);
+            ProtoMan.Resolve(batch.Recipe, out var recipe);
 
             foreach (var (mat, amount) in GetAdjustedAmount(lathe, recipe!))
                 _materialStorage.TryChangeMaterialAmount(uid, mat, amount * delta);
+
+            RefundReagentCost(uid, lathe, recipe!, delta); // ADT-Tweak
         }
+
+        // ADT-Tweak start
+        private void RefundReagentCost(EntityUid uid, LatheComponent lathe, LatheRecipePrototype recipe, int quantity)
+        {
+            if (lathe.ReagentCostSlotId is not { } slotId || recipe.ReagentCost.Count == 0)
+                return;
+
+            if (_itemSlots.GetItemOrNull(uid, slotId) is not { } beaker
+                || !_solution.TryGetFitsInDispenser(beaker, out var solution, out _))
+                return;
+
+            foreach (var (reagent, needed) in recipe.ReagentCost)
+            {
+                var adjustedAmount = SharedLatheSystem.AdjustReagentCost(needed, recipe.ApplyMaterialDiscount, lathe.FinalMaterialMultiplier);
+                _solution.TryAddReagent(solution.Value, reagent, adjustedAmount * quantity, out _);
+            }
+        }
+        // ADT-Tweak-End
 
         public void AbortProduction(EntityUid uid, LatheComponent? component = null)
         {
@@ -515,7 +611,7 @@ namespace Content.Server.Lathe
 
         private void OnLatheQueueRecipeMessage(EntityUid uid, LatheComponent component, LatheQueueRecipeMessage args)
         {
-            if (_proto.TryIndex(args.ID, out LatheRecipePrototype? recipe))
+            if (ProtoMan.TryIndex(args.ID, out LatheRecipePrototype? recipe))
             {
                 if (TryAddToQueue(uid, recipe, args.Quantity, component))
                 {

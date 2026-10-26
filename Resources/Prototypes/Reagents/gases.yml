@@ -16,7 +16,7 @@
       - !type:Oxygenate
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Human, Animal, Rat, Plant, Arachnid ] # ADT-Tweak
+          type: [ Human, Animal, Rat, Plant, Arachnid, Moth, Drask, Resomi, Novakid, Ursus ] # ADT-Tweak
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
         conditions:
@@ -47,13 +47,7 @@
       - !type:Oxygenate
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Human, Animal, Rat, Plant, Arachnid, Moth ] # ADT-Tweak
-      # Start ADT tweak
-      - !type:Oxygenate
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Drask, Resomi, Novakid ]
-      # End ADT tweak
+          type: [ Human, Animal, Rat, Plant, Arachnid, Moth, Drask, Resomi, Novakid, Ursus ] # ADT-Tweak
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
         conditions:
@@ -151,7 +145,7 @@
             Piercing: -0.04
             Heat: -0.04
             Poison: -0.04
-      - !type:GenericStatusEffect
+      - !type:ModifyStatusEffect
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Novakid ]
@@ -159,8 +153,7 @@
         - !type:ReagentCondition
           reagent: Plasma
           min: 1
-        key: SeeingRainbows
-        component: SeeingRainbows
+        effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
       - !type:Drunk
@@ -360,7 +353,6 @@
           type: [ Slime ]
           inverted: true
         emote: Laugh
-        showInChat: true
         probability: 0.1
       - !type:Emote
         minScale: 0.2
@@ -369,7 +361,6 @@
           type: [ Slime ]
           inverted: true
         emote: Scream
-        showInChat: true
         probability: 0.01
       - !type:PopupMessage
         minScale: 0.5

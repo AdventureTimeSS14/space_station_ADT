@@ -42,10 +42,11 @@
   - type: Sprite
     sprite: Structures/Specific/Anomalies/Cores/pyro_core.rsi
   - type: PointLight
-    radius: 1.5
+    radius: 1.7 # ADT tweak 1.5 > 1.7
     energy: 2.7
     color: "#E25822"
     castShadows: false
+    lightMask: ADTLightMaskCircleCones # ADT tweak 1.5 > 1.8
   - type: IgnitionSource
     temperature: 400
     ignited: true
@@ -62,6 +63,7 @@
     energy: 10
     color: "#1e070e"
     castShadows: false
+    lightMask: ADTLightMaskCircleB # ADT tweak 1.5 > 1.8
 
 - type: entity
   parent: BaseAnomalyCore
@@ -71,10 +73,11 @@
   - type: Sprite
     sprite: Structures/Specific/Anomalies/Cores/ice_core.rsi
   - type: PointLight
-    radius: 1.5
+    radius: 1.7 # ADT tweak 1.5 > 1.7
     energy: 2.7
     color: "#befaff"
     castShadows: false
+    lightMask: ADTLightMaskStar # ADT tweak 1.5 > 1.8
 
 - type: entity
   parent: BaseAnomalyCore
@@ -89,6 +92,7 @@
     energy: 3.5
     color: "#cb5b7e"
     castShadows: false
+    lightMask: ADTLightMaskCircleA # ADT tweak
 
 - type: entity
   parent: BaseAnomalyCore
@@ -98,10 +102,11 @@
   - type: Sprite
     sprite: Structures/Specific/Anomalies/Cores/rock_core.rsi
   - type: PointLight
-    radius: 1.5
+    radius: 2 # ADT tweak 1.5 > 2
     energy: 3.5
     color: "#5ca8cb"
     castShadows: false
+    lightMask: ADTLightMaskCircleE # ADT tweak
 
 - type: entity
   parent: BaseAnomalyCore
@@ -115,6 +120,7 @@
     energy: 3.5
     color: "#ffffff"
     castShadows: false
+    lightMask: ADTLightMaskCircleB # ADT tweak
 
 - type: entity
   parent: BaseAnomalyCore
@@ -124,10 +130,11 @@
   - type: Sprite
     sprite: Structures/Specific/Anomalies/Cores/bluespace_core.rsi
   - type: PointLight
-    radius: 1.5
-    energy: 3.5
+    radius: 1.7 # ADT tweak 1.5 > 1.7
+    energy: 7 # ADT tweak 3.5 > 7
     color: "#00ccff"
     castShadows: false
+    lightMask: ADTLightMaskCircleRings # ADT tweak
   - type: Tag
     tags:
     - ForceableFollow
@@ -141,10 +148,11 @@
   - type: Sprite
     sprite: Structures/Specific/Anomalies/Cores/electric_core.rsi
   - type: PointLight
-    radius: 1.5
-    energy: 2.0
+    radius: 1.9 # ADT tweak 1.5 > 1.9
+    energy: 4 # ADT tweak 2.0 > 4
     color: "#ffffaa"
     castShadows: false
+    lightMask: ADTLightMaskCircleD # ADT tweak
   - type: Electrified
 
 - type: entity
@@ -153,7 +161,7 @@
   suffix: Flora
   components:
   - type: Seed
-    seedId: anomalyBerry
+    plantId: AnomalyBerryPlants
   - type: Sprite
     sprite: Structures/Specific/Anomalies/Cores/flora_core.rsi
   - type: PointLight
@@ -170,10 +178,11 @@
   - type: Sprite
     sprite: Structures/Specific/Anomalies/Cores/shadow_core.rsi
   - type: PointLight
-    radius: 1.5
-    energy: 2.0
+    radius: 1.7 # ADT tweak 1.5 > 1.7
+    energy: 3 # ADT tweak 2.0 > 3
     color: "#793a80"
     castShadows: false
+    lightMask: ADTLightMaskCircleE # ADT tweak
 
 - type: entity
   parent: BaseAnomalyCore
@@ -183,10 +192,11 @@
   - type: Sprite
     sprite: Structures/Specific/Anomalies/Cores/tech_core.rsi
   - type: PointLight
-    radius: 1.5
+    radius: 1.7 # ADT tweak 1.5 > 1.7
     energy: 2.0
     color: "#56c1e8"
     castShadows: false
+    lightMask: ADTLightMaskStar # ADT tweak
 
 - type: entity
   parent: BaseAnomalyCore
@@ -226,10 +236,11 @@
   - type: Sprite
     sprite: Structures/Specific/Anomalies/Cores/pyro_core.rsi
   - type: PointLight
-    radius: 1.5
+    radius: 1.7 # ADT tweak 1.5 > 1.7
     energy: 2.7
     color: "#fca3c0"
     castShadows: false
+    lightMask: ADTLightMaskCircleCones # ADT tweak
 
 - type: entity
   parent: BaseAnomalyInertCore
@@ -243,6 +254,7 @@
     energy: 10
     color: "#1e070e"
     castShadows: false
+    lightMask: ADTLightMaskCircleB # ADT tweak
 
 - type: entity
   parent: BaseAnomalyInertCore
@@ -252,10 +264,11 @@
   - type: Sprite
     sprite: Structures/Specific/Anomalies/Cores/ice_core.rsi
   - type: PointLight
-    radius: 1.5
+    radius: 1.7 # ADT tweak 1.5 > 1.7
     energy: 2.7
     color: "#befaff"
     castShadows: false
+    lightMask: ADTLightMaskStar # ADT tweak
 
 - type: entity
   parent: BaseAnomalyInertCore
@@ -270,6 +283,7 @@
     energy: 3.5
     color: "#cb5b7e"
     castShadows: false
+    lightMask: ADTLightMaskCircleA # ADT tweak
 
 - type: entity
   parent: BaseAnomalyInertCore
@@ -279,10 +293,11 @@
   - type: Sprite
     sprite: Structures/Specific/Anomalies/Cores/rock_core.rsi
   - type: PointLight
-    radius: 1.5
+    radius: 2 # ADT tweak 1.5 > 2
     energy: 3.5
     color: "#5ca8cb"
     castShadows: false
+    lightMask: ADTLightMaskCircleE # ADT tweak
 
 - type: entity
   parent: BaseAnomalyInertCore
@@ -296,6 +311,7 @@
     energy: 3.5
     color: "#ffffff"
     castShadows: false
+    lightMask: ADTLightMaskCircleB # ADT tweak
 
 - type: entity
   parent: BaseAnomalyInertCore
@@ -305,10 +321,11 @@
   - type: Sprite
     sprite: Structures/Specific/Anomalies/Cores/bluespace_core.rsi
   - type: PointLight
-    radius: 1.5
-    energy: 3.5
+    radius: 1.7 # ADT tweak 1.5 > 1.7
+    energy: 7 # ADT tweak 3.5 > 7
     color: "#00ccff"
     castShadows: false
+    lightMask: ADTLightMaskCircleRings # ADT tweak
   - type: Tag
     tags:
     - ForceableFollow
@@ -322,10 +339,11 @@
   - type: Sprite
     sprite: Structures/Specific/Anomalies/Cores/electric_core.rsi
   - type: PointLight
-    radius: 1.5
-    energy: 2.0
+    radius: 1.9 # ADT tweak 1.5 > 1.9
+    energy: 4 # ADT tweak 2.0 > 4
     color: "#ffffaa"
     castShadows: false
+    lightMask: ADTLightMaskCircleD # ADT
 
 - type: entity
   parent: BaseAnomalyInertCore
@@ -333,7 +351,7 @@
   suffix: Flora, Inert
   components:
   - type: Seed
-    seedId: anomalyBerry
+    plantId: AnomalyBerryPlants
   - type: Sprite
     sprite: Structures/Specific/Anomalies/Cores/flora_core.rsi
   - type: PointLight
@@ -350,10 +368,11 @@
   - type: Sprite
     sprite: Structures/Specific/Anomalies/Cores/shadow_core.rsi
   - type: PointLight
-    radius: 1.5
-    energy: 2.0
+    radius: 1.7 # ADT tweak 1.5 > 1.7
+    energy: 3 # ADT tweak 2.0 > 3
     color: "#793a80"
     castShadows: false
+    lightMask: ADTLightMaskCircleE # ADT tweak
 
 - type: entity
   parent: BaseAnomalyInertCore
@@ -363,10 +382,11 @@
   - type: Sprite
     sprite: Structures/Specific/Anomalies/Cores/tech_core.rsi
   - type: PointLight
-    radius: 1.5
+    radius: 1.7 # ADT tweak 1.5 > 1.7
     energy: 2.0
     color: "#56c1e8"
     castShadows: false
+    lightMask: ADTLightMaskStar # ADT tweak
 
 - type: entity
   parent: BaseAnomalyInertCore

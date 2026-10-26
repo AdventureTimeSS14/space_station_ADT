@@ -1,16 +1,20 @@
 ﻿using Content.Server.Administration;
+using Content.Server.Corvax.JoinQueue;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
+using Robust.Shared.Player;
 
 namespace Content.Server.Connection;
 
 [AdminCommand(AdminFlags.Moderator)]
-public sealed class GrantConnectBypassCommand : LocalizedCommands
+public sealed partial class GrantConnectBypassCommand : LocalizedCommands
 {
     private static readonly TimeSpan DefaultDuration = TimeSpan.FromHours(1);
 
-    [Dependency] private readonly IPlayerLocator _playerLocator = default!;
-    [Dependency] private readonly IConnectionManager _connectionManager = default!;
+    [Dependency] private IPlayerLocator _playerLocator = default!;
+    [Dependency] private IConnectionManager _connectionManager = default!;
+    [Dependency] private ISharedPlayerManager _playerManager = default!; // ADT-Tweak
+    [Dependency] private JoinQueueManager _joinQueue = default!; // ADT-Tweak
 
     public override string Command => "grant_connect_bypass";
 
@@ -33,7 +37,7 @@ public sealed class GrantConnectBypassCommand : LocalizedCommands
         var duration = DefaultDuration;
         if (args.Length > 1)
         {
-            var argDuration = args[2];
+            var argDuration = args[1]; // ADT-Fix
             if (!uint.TryParse(argDuration, out var minutes))
             {
                 shell.WriteLine(Loc.GetString("cmd-grant_connect_bypass-invalid-duration", ("duration", argDuration)));
@@ -44,6 +48,12 @@ public sealed class GrantConnectBypassCommand : LocalizedCommands
         }
 
         _connectionManager.AddTemporaryConnectBypass(info.UserId, duration);
+
+        // ADT-Tweak-Start: let the player through the join queue right away
+        if (_playerManager.TryGetSessionById(info.UserId, out var session))
+            _joinQueue.TryBypassQueue(session);
+        // ADT-Tweak-End
+
         shell.WriteLine(Loc.GetString("cmd-grant_connect_bypass-success", ("user", argPlayer)));
     }
 

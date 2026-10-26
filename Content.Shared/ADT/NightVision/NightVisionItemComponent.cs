@@ -10,7 +10,7 @@ namespace Content.Shared.ADT.NightVision;
 public sealed partial class NightVisionItemComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public EntProtoId ActionId = "ActionToggleNightVision";
+    public EntProtoId ActionId = "ADTActionToggleNightVision";
 
     [DataField, AutoNetworkedField]
     public EntityUid? Action;
@@ -28,7 +28,7 @@ public sealed partial class NightVisionItemComponent : Component
     /// <summary>
     /// Screen shader used while this device is active (green NVD look).
     /// </summary>
-    [DataField]
+    [DataField("shaderType")]
     public string Shader = "ADTNightVisionDeviceShader";
 
     /// <summary>

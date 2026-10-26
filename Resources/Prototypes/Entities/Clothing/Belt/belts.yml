@@ -13,6 +13,10 @@
     sprite: Clothing/Belt/sheath.rsi
   - type: Item
     size: Ginormous
+    shape:
+    - 0,0,1,2
+    storedOffset: 0,-2
+    storedRotation: 45
   - type: ItemSlots
     slots:
       item:
@@ -21,6 +25,7 @@
         ejectVerbText: sheath-eject-verb
         insertSound: /Audio/Items/sheath.ogg
         ejectSound: /Audio/Items/unsheath.ogg
+        ejectOnBreak: true
         whitelist:
           tags:
           - CaptainSabre
@@ -31,12 +36,17 @@
           tags:
           - CaptainSabre
   - type: Appearance
+  # ADT tweak start
+  - type: Construction
+    graph: ADTCapitanSheathTransforms
+    node: start
+  # ADT tweak end
 
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltQuiver
   name: quiver
-  description: Can hold up to 15 arrows, and fits snug around your waist.
+  description: Can hold up to 16 arrows, and fits snug around your waist.
   components:
   - type: Sprite
     sprite: Clothing/Belt/quiver.rsi
@@ -54,6 +64,10 @@
       - ADTBolt #ADT-Tweak
       - Arrow
       - Plunger
+  - type: Item
+    size: Ginormous
+    shape:
+    - 0,0,5,2
   - type: Appearance
   - type: StorageContainerVisuals
     maxFillLevels: 3
@@ -109,12 +123,21 @@
   description: 'A holster to carry a handgun and ammo. WARNING: Badasses only.'
   components:
   - type: Sprite
-    sprite: Clothing/Belt/holster.rsi
+    sprite: ADT/Clothing/Belt/holster.rsi # ADT-Tweak-HolsterResprite
   - type: Clothing
-    sprite: Clothing/Belt/holster.rsi
+    sprite: ADT/Clothing/Belt/holster.rsi # ADT-Tweak-HolsterResprite
+    # ADT-Tweak-Start
+    slots:
+    - belt
+    - neck
+    # ADT-Tweak-End
   - type: Storage
     grid:
     - 0,0,3,1
+  - type: Item
+    size: Ginormous
+    shape:
+    - 0,0,4,1
 
 - type: entity
   parent: [ClothingBeltStorageBase, BaseSyndicateContraband]
@@ -126,6 +149,11 @@
     sprite: Clothing/Belt/syndieholster.rsi
   - type: Clothing
     sprite: Clothing/Belt/syndieholster.rsi
+    # ADT-Tweak-Start
+    slots:
+    - belt
+    - neck
+    # ADT-Tweak-End
   - type: Storage
     maxItemSize: Huge
     grid:
@@ -135,6 +163,10 @@
       - Gun
       - BallisticAmmoProvider
       - CartridgeAmmo
+  - type: Item
+    size: Ginormous
+    shape:
+    - 0,0,4,2
   - type: StaticPrice
     price: 500
 
@@ -202,7 +234,7 @@
     sprite: Clothing/Belt/militarywebbingmed.rsi
 
 - type: entity
-  parent: ClothingBeltMilitaryWebbing
+  parent: [ BaseCentcommContraband, ClothingBeltMilitaryWebbing ]
   id: ClothingBeltMilitaryWebbingERT
   name: ERT chest rig
   description: A set of tactical webbing worn by Emergency Response Team operatives.

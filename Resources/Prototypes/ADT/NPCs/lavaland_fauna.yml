@@ -29,28 +29,36 @@
 - type: htnCompound
   id: ADTGoldgrubCompound
   branches:
-  - tasks:
+  - preconditions:
+    - !type:ADTGrabbedPrecondition
+    tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:ADTGrabEscapeOperator
+  - preconditions:
+    - !type:KeyExistsPrecondition
+      key: ADTFleeCoordinates
+    tasks:
     - !type:HTNPrimitiveTask
       operator: !type:UtilityOperator
         proto: ADTNearbyMiners
         key: FleeTarget
         keyCoordinates: FleeTargetCoordinates
     - !type:HTNPrimitiveTask
-      preconditions:
-      - !type:KeyExistsPrecondition
-        key: FleeTarget
-      - !type:TargetInRangePrecondition
-        targetKey: FleeTarget
-        rangeKey: ADTFleeRange
-      operator: !type:ADTPickFleeCoordinatesOperator
-        targetKey: FleeTarget
+      operator: !type:ADTKeyExistsOperator
+        key: ADTFleeCoordinates
     - !type:HTNPrimitiveTask
-      preconditions:
-      - !type:KeyExistsPrecondition
-        key: TargetCoordinates
       operator: !type:MoveToOperator
+        targetKey: ADTFleeCoordinates
         pathfindInPlanning: false
-        removeKeyOnFinish: true
+        removeKeyOnFinish: false
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UtilityOperator
+        proto: ADTNearbyMiners
+        key: FleeTarget
+        keyCoordinates: FleeTargetCoordinates
+    - !type:HTNCompoundTask
+      task: IdleCompound
   - tasks:
     - !type:HTNCompoundTask
       task: IdleCompound
@@ -58,6 +66,11 @@
 - type: htnCompound
   id: ADTHerdCompound
   branches:
+  - preconditions:
+    - !type:ADTGrabbedPrecondition
+    tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:ADTGrabEscapeOperator
   - tasks:
     - !type:HTNPrimitiveTask
       operator: !type:UtilityOperator

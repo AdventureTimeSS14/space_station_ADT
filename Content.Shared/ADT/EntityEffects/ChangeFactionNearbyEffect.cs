@@ -17,7 +17,7 @@ public sealed partial class ChangeFactionNearbyEffect : EntityEffectBase<ChangeF
     public float Radius = 5f;
 
     public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => null;
+        => Loc.GetString("entity-effect-guidebook-faction-nearby", ("duration", Duration));
 
     public override LogImpact? Impact => LogImpact.Medium;
 }

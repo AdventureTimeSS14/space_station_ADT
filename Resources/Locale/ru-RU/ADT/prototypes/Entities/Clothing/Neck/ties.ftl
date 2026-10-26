@@ -28,3 +28,25 @@ ent-ADTClothingNeckYellowTie = жёлтый галстук
     .desc = { ent-ADTClothingNeckWhiteTie.desc }
 ent-ADTClothingNeckGoldTie = золотистый галстук
     .desc = Дорого-богато.
+ent-ADTClothingNeckDarkGreenTie = тёмно-зелёный галстук
+    .desc = { ent-ADTClothingNeckWhiteTie.desc }
+ent-ADTClothingNeckLightPurpleTie = светло-фиолетовый галстук
+    .desc = { ent-ADTClothingNeckWhiteTie.desc }
+ent-ADTClothingNeckMalineTie = малиновый галстук
+    .desc = { ent-ADTClothingNeckWhiteTie.desc }
+
+ent-ADTClothingNeckScientistHLTie = красно-синий галстук учёного
+    .desc = HELP ME, GORDON!
+
+ent-ADTClothingNeckBowtieBlack = чёрный галстук-бабочка
+    .desc = Обычный галстук, который идеально подойдёт для офисного планктона.
+
+ent-ADTClothingNeckBowtieBlue = синий галстук-бабочка
+    .desc = Обычный галстук, который идеально подойдёт для офисного планктона.
+
+ent-ADTClothingNeckBowtieRed = красный галстук-бабочка
+    .desc = Обычный галстук, который идеально подойдёт для офисного планктона.
+
+ent-ADTClothingNeckBowtieWhite = белый галстук-бабочка
+    .desc = Обычный галстук, который идеально подойдёт для офисного планктона.
+

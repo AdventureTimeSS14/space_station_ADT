@@ -1,0 +1,38 @@
+<Document>
+
+  # Тонфа
+
+  <Box>
+    <GuideEntityEmbed Entity="ADTWeaponTonfa" Caption="тонфа"/>
+  </Box>
+
+  <Box>
+  Стальная тонфа знает те же приёмы, но бьёт заметно больнее.
+  </Box>
+
+  ## Приёмы
+
+  <ADTGuideCombo Combo="TonfaSolarPlexus">
+  Наносит [color=#5BB8E0]40[/color] урона по выносливости.
+  </ADTGuideCombo>
+
+  <ADTGuideCombo Combo="TonfaRibs">
+  Наносит [color=#E05B5B]10[/color] Blunt-урона. Стальной тонфой - [color=#E05B5B]20[/color].
+  </ADTGuideCombo>
+
+  <ADTGuideCombo Combo="TonfaWrist">
+  Наносит [color=#E05B5B]5[/color] Blunt-урона и [color=#E0A03C]ВЫБИВАЕТ[/color] предмет
+  из активной руки цели. Стальной тонфой - [color=#E05B5B]13[/color] урона.
+  </ADTGuideCombo>
+
+  <ADTGuideCombo Combo="TonfaLegSweep">
+  Роняет цель на [color=#E0A03C]3 секунды[/color], НЕ выбивая вещи из рук.
+  Если цель уже лежит - вместо падения замедляет её на [color=#E0A03C]10 секунд[/color].
+  </ADTGuideCombo>
+
+  <ADTGuideCombo Combo="TonfaGrabBreak">
+  Работает только на тех, кто вас удерживает. Разрывает захват, роняет цель на пол
+  и отбрасывает её.
+  </ADTGuideCombo>
+
+</Document>

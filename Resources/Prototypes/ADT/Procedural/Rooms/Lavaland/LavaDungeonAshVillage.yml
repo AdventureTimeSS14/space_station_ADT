@@ -1,0 +1,3385 @@
+- type: adtDungeonRoom
+  id: LavaDungeonAshVillage
+  size: 33, 33
+  tags:
+  - LavaDungeonAshVillage
+  legend:
+    "a":
+      tile: FloorBasalt
+    "b":
+      tile: ADTFloorNecropolis
+  tiles:
+  - "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  - "aaaaaaaaaaaaaaabbbaaaaaaaaaaaaaaa"
+  - "aaaaaaaaaaaaaabbbbbaaaaaaaaaaaaaa"
+  - "aaaaaaaaaaaaaabaaabaaaaaaaaaaaaaa"
+  - "aaaaaaaaaaaaaabaaabaaaaaaaaaaaaaa"
+  - "aaaaaaaaaaaaaabaaabaaaaaaaaaaaaaa"
+  - "aaaaaaaaaaaaaabbbbbaaaaaaaaaaaaaa"
+  - "aaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaa"
+  - "aaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaa"
+  - "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  - "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  - "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  - "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  - "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  - "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  - "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  - "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  - "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  - "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  - "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  - "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  - "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  - "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  - "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  - "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  - "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  - "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  - "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  - "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  - "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  - "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  - "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  - "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  entities:
+  - proto: ADTAncientAnimalLeftRibLarge
+    anchored: true
+    positions:
+    - 15.5,31.5
+  - proto: ADTAncientAnimalRightRibLarge
+    anchored: true
+    positions:
+    - 17.5,31.5
+  - proto: ADTArrowWoodenBundle
+    positions:
+    - 25.1302,18.749
+    - 25.2578,18.7064
+    - 25.3642,18.7064
+    - 25.3004,18.8979
+    - 25.1727,18.7915
+    - 25.194,18.7702
+    - 25.1302,19.1532
+    - 25.3429,19.1532
+    - 25.4493,19.1532
+    - 25.5557,19.1532
+    - 25.6195,19.1532
+  - proto: ADTAshDryingRack
+    anchored: true
+    positions:
+    - 28.5,26.5
+  - proto: ADTAshFloraCapShroom2
+    anchored: true
+    positions:
+    - 11.5,25.5
+  - proto: ADTAshFloraCapShroom3
+    anchored: true
+    positions:
+    - 5.5,20.5
+  - proto: ADTAshFloraCoalTree1
+    anchored: true
+    positions:
+    - 23.5,14.5
+  - proto: ADTAshFloraFireblossom2
+    anchored: true
+    positions:
+    - 14.5,23.5
+    - 18.5,23.5
+  - proto: ADTAshFloraLeafShroom2
+    anchored: true
+    positions:
+    - 9.5,26.5
+  - proto: ADTAshFloraStemShroom4
+    anchored: true
+    positions:
+    - 13.5,16.5
+  - proto: ADTAshFloraTallShroom1
+    anchored: true
+    positions:
+    - 10.5,22.5
+  - proto: ADTAshRuneMark
+    anchored: true
+    positions:
+    - 15.5,18.5
+    - 16.5,18.5
+    - 17.5,18.5
+    - 15.5,19.5
+    - 17.5,19.5
+    - 15.5,20.5
+    - 16.5,20.5
+    - 17.5,20.5
+  - proto: ADTAshSigil
+    anchored: true
+    positions:
+    - 16.5,19.5
+  - proto: ADTAshStatue
+    anchored: true
+    positions:
+    - 5.5,26.5
+  - proto: ADTAshWalkerNest
+    anchored: true
+    positions:
+    - 16.5,28.5
+  - proto: ADTBedFrame2
+    anchored: true
+    positions:
+    - 7.5,29.5
+    - 7.5,24.5
+  - proto: ADTBedroll
+    positions:
+    - 1.5386,26.5079
+    - 2.5174,24.4228
+    - 2.5535,28.5871
+  - proto: ADTBoneKnife
+    positions:
+    - 4.375,17.6875
+  - proto: ADTBonePickaxe
+    positions:
+    - 3.5,21.5
+    - 28.5,24.5
+    - 28.5,24.5
+    - 28.5,24.5
+    - 28.5,24.5
+    - 28.5,24.5
+    - 28.5,24.5
+    - 21.5,26.5
+  - proto: ADTBoneScythe
+    positions:
+    - 30.5,19.5
+  - proto: ADTBoneSplint1
+    positions:
+    - 1.5,27.5
+    - 3.7188,30.625
+  - proto: ADTBonfire
+    anchored: true
+    positions:
+    - 8.5,15.5
+  - proto: ADTBucketWooden
+    positions:
+    - 22.6063,13.5867
+    - 15.4596,26.4694
+  - proto: ADTClothBandage1
+    positions:
+    - 1.5,27.5
+  - proto: ADTClothingBeltHunter
+    positions:
+    - 24.7259,17.2596
+  - proto: ADTClothingShoesFootwrapsGoliath
+    positions:
+    - 3.5,24.5
+  - proto: ADTClothingHandsGoliathGloves
+    positions:
+    - 1.5,25.5
+  - proto: ADTClothingHeadRoach
+    positions:
+    - 25.5,18.5
+  - proto: ADTClothingHeadShamanSkull
+    positions:
+    - 24.5,18.5
+  - proto: ADTCookingScroll
+    positions:
+    - 5.5,12.5
+  - proto: ADTFloorLavaCovered
+    anchored: true
+    positions:
+    - 16.5,4.5
+    - 16.5,5.5
+    - 17.5,5.5
+    - 16.5,6.5
+    - 17.5,6.5
+    - 16.5,7.5
+    - 17.5,7.5
+    - 15.5,8.5
+    - 17.5,8.5
+    - 15.5,9.5
+    - 16.5,9.5
+    - 16.5,10.5
+    - 17.5,11.5
+    - 14.5,12.5
+    - 15.5,12.5
+    - 17.5,12.5
+    - 18.5,12.5
+    - 13.5,27.5
+    - 15.5,27.5
+    - 16.5,27.5
+    - 17.5,27.5
+    - 19.5,27.5
+    - 13.5,28.5
+    - 15.5,28.5
+    - 17.5,28.5
+    - 19.5,28.5
+    - 13.5,29.5
+    - 15.5,29.5
+    - 16.5,29.5
+    - 17.5,29.5
+    - 19.5,29.5
+    - 16.5,28.5
+  - proto: ADTFoodCactusBerry
+    positions:
+    - 10.3125,12.375
+    - 10.625,12.4688
+    - 10.4062,12.6562
+    - 4.5,16.3438
+    - 4.6875,16.5938
+  - proto: ADTFoodFireblossom
+    positions:
+    - 4.25,16.625
+  - proto: ADTFoodGraceOfLazis
+    positions:
+    - 10.6875,17.7812
+  - proto: ADTFoodLavalandFineMeal
+    positions:
+    - 3.625,15.9375
+  - proto: ADTFoodLavalandVeggieMeal
+    positions:
+    - 3.5,13.5
+    - 3.5,15.5
+  - proto: ADTFoodMushroomCap
+    positions:
+    - 8.5625,12.3438
+    - 9.2188,12.2812
+  - proto: ADTFoodMushroomLeaf
+    positions:
+    - 8.2188,12.3125
+    - 8.2188,12.4375
+  - proto: ADTFoodMushroomShavings
+    positions:
+    - 8.8438,12.625
+  - proto: ADTFoodThaliLazisCacti
+    positions:
+    - 3.25,13.75
+  - proto: ADTFoodThaliLazisCrunchie
+    positions:
+    - 3.5,13.6875
+  - proto: ADTFoodThaliLazisWing
+    positions:
+    - 3.75,13.7812
+  - proto: ADTIVDrip
+    positions:
+    - 6.5,29.5
+    - 6.5,29.5
+    - 6.5,29.5
+    - 5.5,30.5
+  - proto: ADTKineticTrophyLegionSkull
+    rot: 1.5708 rad
+    positions:
+    - 20.1481,13.1713
+  - proto: ADTLavaCactusFour
+    anchored: true
+    positions:
+    - 28.5,17.5
+  - proto: ADTMushroomBowl
+    positions:
+    - 9.5,12.5
+    - 4.625,17.4062
+    - 5.5625,18.6562
+    - 5.375,18.25
+    - 9.625,18.2812
+    - 9.4375,18.6562
+  - proto: ADTNecropolisArch
+    anchored: true
+    positions:
+    - 16.5,12.5
+  - proto: ADTNecropolisBurntBlock1N
+    anchored: true
+    positions:
+    - 17.5,12.5
+    - 23.5,22.5
+    - 16.5,23.5
+  - proto: ADTNecropolisBurntBlock2
+    anchored: true
+    positions:
+    - 12.5,20.5
+    - 4.5,24.5
+  - proto: ADTNecropolisBurntBlock2E
+    anchored: true
+    positions:
+    - 18.5,18.5
+    - 16.5,24.5
+  - proto: ADTNecropolisBurntBlock2N
+    anchored: true
+    positions:
+    - 17.5,21.5
+  - proto: ADTNecropolisBurntBlock2W
+    anchored: true
+    positions:
+    - 10.5,14.5
+    - 29.5,17.5
+  - proto: ADTNecropolisBurntBlock3
+    anchored: true
+    positions:
+    - 15.5,8.5
+  - proto: ADTNecropolisBurntBlock3E
+    anchored: true
+    positions:
+    - 20.5,25.5
+    - 2.5,27.5
+    - 19.5,28.5
+  - proto: ADTNecropolisBurntBlock4
+    anchored: true
+    positions:
+    - 5.5,15.5
+    - 15.5,17.5
+    - 6.5,24.5
+  - proto: ADTNecropolisBurntBlock4E
+    anchored: true
+    positions:
+    - 7.5,25.5
+  - proto: ADTNecropolisBurntBlock4N
+    anchored: true
+    positions:
+    - 16.5,6.5
+    - 20.5,22.5
+  - proto: ADTNecropolisBurntBlock4W
+    anchored: true
+    positions:
+    - 15.5,5.5
+  - proto: ADTNecropolisBurntCenter1
+    anchored: true
+    positions:
+    - 4.5,30.5
+  - proto: ADTNecropolisBurntCenter2
+    anchored: true
+    positions:
+    - 11.5,14.5
+    - 4.5,15.5
+  - proto: ADTNecropolisBurntCenter3
+    anchored: true
+    positions:
+    - 16.5,4.5
+  - proto: ADTNecropolisBurntCenter4
+    anchored: true
+    positions:
+    - 16.5,21.5
+  - proto: ADTNecropolisBurntSlab1
+    anchored: true
+    positions:
+    - 4.5,12.5
+    - 11.5,15.5
+    - 19.5,19.5
+    - 1.5,25.5
+  - proto: ADTNecropolisBurntSlab2
+    anchored: true
+    positions:
+    - 30.5,19.5
+  - proto: ADTNecropolisBurntSlab3
+    anchored: true
+    positions:
+    - 3.5,13.5
+    - 28.5,26.5
+  - proto: ADTNecropolisBurntSlab4
+    anchored: true
+    positions:
+    - 5.5,16.5
+    - 21.5,16.5
+    - 10.5,17.5
+    - 30.5,17.5
+    - 8.5,19.5
+    - 21.5,20.5
+  - proto: ADTNecropolisBurntSurrounding1
+    anchored: true
+    positions:
+    - 28.5,29.5
+  - proto: ADTNecropolisBurntSurrounding2
+    anchored: true
+    positions:
+    - 16.5,4.5
+  - proto: ADTNecropolisBurntSurroundingTile1
+    anchored: true
+    positions:
+    - 15.5,11.5
+    - 16.5,12.5
+    - 20.5,24.5
+  - proto: ADTNecropolisBurntSurroundingTile1E
+    anchored: true
+    positions:
+    - 13.5,29.5
+  - proto: ADTNecropolisBurntSurroundingTile1N
+    anchored: true
+    positions:
+    - 19.5,29.5
+  - proto: ADTNecropolisBurntSurroundingTile1W
+    anchored: true
+    positions:
+    - 13.5,27.5
+  - proto: ADTNecropolisBurntSurroundingTile2
+    anchored: true
+    positions:
+    - 16.5,5.5
+    - 17.5,22.5
+    - 18.5,23.5
+  - proto: ADTNecropolisBurntSurroundingTile2E
+    anchored: true
+    positions:
+    - 22.5,17.5
+    - 29.5,20.5
+    - 19.5,22.5
+  - proto: ADTNecropolisBurntSurroundingTile2N
+    anchored: true
+    positions:
+    - 20.5,28.5
+  - proto: ADTNecropolisBurntSurroundingTile2W
+    anchored: true
+    positions:
+    - 16.5,5.5
+    - 14.5,17.5
+    - 17.5,20.5
+    - 3.5,24.5
+  - proto: ADTNecropolisBurntTile1
+    anchored: true
+    positions:
+    - 16.5,17.5
+  - proto: ADTNecropolisBurntTile10E
+    anchored: true
+    positions:
+    - 11.5,21.5
+  - proto: ADTNecropolisBurntTile10W
+    anchored: true
+    positions:
+    - 11.5,21.5
+  - proto: ADTNecropolisBurntTile12E
+    anchored: true
+    positions:
+    - 4.5,24.5
+  - proto: ADTNecropolisBurntTile13E
+    anchored: true
+    positions:
+    - 17.5,6.5
+  - proto: ADTNecropolisBurntTile14N
+    anchored: true
+    positions:
+    - 14.5,20.5
+  - proto: ADTNecropolisBurntTile16E
+    anchored: true
+    positions:
+    - 15.5,7.5
+  - proto: ADTNecropolisBurntTile19
+    anchored: true
+    positions:
+    - 17.5,12.5
+  - proto: ADTNecropolisBurntTile20E
+    anchored: true
+    positions:
+    - 17.5,5.5
+  - proto: ADTNecropolisBurntTile21E
+    anchored: true
+    positions:
+    - 10.5,15.5
+  - proto: ADTNecropolisBurntTile21W
+    anchored: true
+    positions:
+    - 10.5,15.5
+  - proto: ADTNecropolisBurntTile2W
+    anchored: true
+    positions:
+    - 16.5,10.5
+    - 17.5,11.5
+  - proto: ADTNecropolisBurntTile4
+    anchored: true
+    positions:
+    - 17.5,21.5
+  - proto: ADTNecropolisBurntTile4N
+    anchored: true
+    positions:
+    - 26.5,30.5
+  - proto: ADTNecropolisBurntTile6
+    anchored: true
+    positions:
+    - 17.5,7.5
+  - proto: ADTNecropolisBurntTile9N
+    anchored: true
+    positions:
+    - 15.5,8.5
+  - proto: ADTNecropolisCrackedBlock1
+    anchored: true
+    positions:
+    - 22.5,15.5
+    - 16.5,29.5
+  - proto: ADTNecropolisCrackedBlock1E
+    anchored: true
+    positions:
+    - 17.5,10.5
+    - 15.5,12.5
+    - 12.5,13.5
+    - 16.5,25.5
+    - 15.5,28.5
+  - proto: ADTNecropolisCrackedBlock1N
+    anchored: true
+    positions:
+    - 16.5,5.5
+    - 7.5,20.5
+    - 21.5,22.5
+    - 17.5,26.5
+  - proto: ADTNecropolisCrackedBlock1W
+    anchored: true
+    positions:
+    - 16.5,9.5
+    - 19.5,16.5
+    - 19.5,20.5
+    - 12.5,25.5
+  - proto: ADTNecropolisCrackedBlock2
+    anchored: true
+    positions:
+    - 16.5,2.5
+  - proto: ADTNecropolisCrackedBlock2E
+    anchored: true
+    positions:
+    - 4.5,14.5
+  - proto: ADTNecropolisCrackedBlock2N
+    anchored: true
+    positions:
+    - 15.5,21.5
+    - 6.5,28.5
+  - proto: ADTNecropolisCrackedBlock2W
+    anchored: true
+    positions:
+    - 17.5,7.5
+    - 29.5,19.5
+  - proto: ADTNecropolisCrackedBlock3
+    anchored: true
+    positions:
+    - 17.5,4.5
+    - 17.5,8.5
+    - 27.5,30.5
+  - proto: ADTNecropolisCrackedBlock3E
+    anchored: true
+    positions:
+    - 15.5,6.5
+    - 6.5,17.5
+    - 23.5,26.5
+    - 14.5,29.5
+  - proto: ADTNecropolisCrackedBlock3N
+    anchored: true
+    positions:
+    - 15.5,10.5
+  - proto: ADTNecropolisCrackedBlock3W
+    anchored: true
+    positions:
+    - 18.5,29.5
+  - proto: ADTNecropolisCrackedBlock4E
+    anchored: true
+    positions:
+    - 15.5,7.5
+  - proto: ADTNecropolisCrackedBlock4W
+    anchored: true
+    positions:
+    - 3.5,27.5
+  - proto: ADTNecropolisCrackedCenter1
+    anchored: true
+    positions:
+    - 16.5,8.5
+    - 15.5,27.5
+  - proto: ADTNecropolisCrackedCenter2
+    anchored: true
+    positions:
+    - 28.5,29.5
+  - proto: ADTNecropolisCrackedCenter3
+    anchored: true
+    positions:
+    - 22.5,16.5
+  - proto: ADTNecropolisCrackedSlab1
+    anchored: true
+    positions:
+    - 15.5,4.5
+    - 16.5,7.5
+    - 16.5,11.5
+    - 6.5,12.5
+    - 6.5,13.5
+    - 11.5,13.5
+    - 3.5,14.5
+    - 16.5,15.5
+    - 10.5,16.5
+    - 24.5,17.5
+    - 30.5,18.5
+    - 7.5,19.5
+    - 18.5,19.5
+    - 8.5,21.5
+    - 5.5,22.5
+    - 16.5,22.5
+    - 2.5,24.5
+    - 5.5,24.5
+    - 19.5,24.5
+    - 27.5,24.5
+    - 28.5,24.5
+    - 1.5,26.5
+    - 16.5,26.5
+    - 29.5,28.5
+    - 28.5,30.5
+  - proto: ADTNecropolisCrackedSlab1E
+    anchored: true
+    positions:
+    - 16.5,14.5
+    - 22.5,21.5
+    - 17.5,23.5
+    - 24.5,27.5
+  - proto: ADTNecropolisCrackedSlab1N
+    anchored: true
+    positions:
+    - 17.5,23.5
+    - 24.5,27.5
+  - proto: ADTNecropolisCrackedSlab1Ne
+    anchored: true
+    positions:
+    - 16.5,17.5
+    - 14.5,19.5
+  - proto: ADTNecropolisCrackedSlab1Sw
+    anchored: true
+    positions:
+    - 14.5,19.5
+  - proto: ADTNecropolisCrackedSlab1W
+    anchored: true
+    positions:
+    - 16.5,14.5
+    - 22.5,21.5
+  - proto: ADTNecropolisCrackedSurrounding1
+    anchored: true
+    positions:
+    - 10.5,12.5
+    - 24.5,18.5
+    - 28.5,27.5
+    - 4.5,30.5
+  - proto: ADTNecropolisCrackedSurrounding1E
+    anchored: true
+    positions:
+    - 4.5,13.5
+    - 21.5,17.5
+    - 5.5,29.5
+  - proto: ADTNecropolisCrackedSurrounding1N
+    anchored: true
+    positions:
+    - 4.5,15.5
+    - 22.5,16.5
+    - 6.5,18.5
+    - 22.5,20.5
+    - 26.5,29.5
+  - proto: ADTNecropolisCrackedSurrounding1Se
+    anchored: true
+    positions:
+    - 25.5,18.5
+  - proto: ADTNecropolisCrackedSurrounding1W
+    anchored: true
+    positions:
+    - 8.5,18.5
+    - 9.5,21.5
+    - 28.5,28.5
+    - 6.5,29.5
+  - proto: ADTNecropolisCrackedSurroundingTile1
+    anchored: true
+    positions:
+    - 15.5,29.5
+    - 17.5,29.5
+  - proto: ADTNecropolisCrackedSurroundingTile1E
+    anchored: true
+    positions:
+    - 13.5,3.5
+    - 16.5,12.5
+    - 15.5,27.5
+    - 17.5,29.5
+  - proto: ADTNecropolisCrackedSurroundingTile1N
+    anchored: true
+    positions:
+    - 12.5,16.5
+  - proto: ADTNecropolisCrackedSurroundingTile1W
+    anchored: true
+    positions:
+    - 16.5,12.5
+    - 29.5,21.5
+    - 28.5,22.5
+    - 25.5,23.5
+    - 12.5,24.5
+    - 17.5,27.5
+  - proto: ADTNecropolisCrackedSurroundingTile2
+    anchored: true
+    positions:
+    - 18.5,17.5
+    - 15.5,20.5
+    - 7.5,24.5
+    - 20.5,28.5
+  - proto: ADTNecropolisCrackedSurroundingTile2N
+    anchored: true
+    positions:
+    - 15.5,18.5
+    - 18.5,21.5
+    - 2.5,25.5
+    - 4.5,25.5
+    - 7.5,28.5
+  - proto: ADTNecropolisCrackedSurroundingTile2W
+    anchored: true
+    positions:
+    - 21.5,18.5
+    - 24.5,19.5
+    - 13.5,28.5
+  - proto: ADTNecropolisCrackedTile10N
+    anchored: true
+    positions:
+    - 3.5,27.5
+  - proto: ADTNecropolisCrackedTile10W
+    anchored: true
+    positions:
+    - 18.5,18.5
+  - proto: ADTNecropolisCrackedTile18E
+    anchored: true
+    positions:
+    - 14.5,30.5
+  - proto: ADTNecropolisCrackedTile18N
+    anchored: true
+    positions:
+    - 14.5,30.5
+  - proto: ADTNecropolisCrackedTile18W
+    anchored: true
+    positions:
+    - 17.5,9.5
+  - proto: ADTNecropolisCrackedTile19N
+    anchored: true
+    positions:
+    - 18.5,27.5
+  - proto: ADTNecropolisCrackedTile1E
+    anchored: true
+    positions:
+    - 14.5,29.5
+  - proto: ADTNecropolisCrackedTile20E
+    anchored: true
+    positions:
+    - 15.5,17.5
+    - 18.5,20.5
+  - proto: ADTNecropolisCrackedTile22E
+    anchored: true
+    positions:
+    - 18.5,30.5
+  - proto: ADTNecropolisCrackedTile22N
+    anchored: true
+    positions:
+    - 17.5,5.5
+  - proto: ADTNecropolisCrackedTile22W
+    anchored: true
+    positions:
+    - 14.5,2.5
+    - 18.5,30.5
+  - proto: ADTNecropolisCrackedTile2E
+    anchored: true
+    positions:
+    - 18.5,26.5
+  - proto: ADTNecropolisCrackedTile4
+    anchored: true
+    positions:
+    - 15.5,9.5
+  - proto: ADTNecropolisCrackedTile4N
+    anchored: true
+    positions:
+    - 15.5,9.5
+    - 17.5,11.5
+  - proto: ADTNecropolisCrackedTile4W
+    anchored: true
+    positions:
+    - 7.5,25.5
+  - proto: ADTNecropolisCrackedTile5
+    anchored: true
+    positions:
+    - 15.5,26.5
+  - proto: ADTNecropolisCrackedTile5N
+    anchored: true
+    positions:
+    - 18.5,29.5
+  - proto: ADTNecropolisCrackedTile7W
+    anchored: true
+    positions:
+    - 15.5,12.5
+  - proto: ADTNecropolisCrackedTile8E
+    anchored: true
+    positions:
+    - 7.5,21.5
+  - proto: ADTNecropolisCrackedTile8W
+    anchored: true
+    positions:
+    - 7.5,21.5
+    - 17.5,31.5
+  - proto: ADTNecropolisCrackedTile9
+    anchored: true
+    positions:
+    - 12.5,19.5
+  - proto: ADTNecropolisGateAshWalker
+    anchored: true
+    positions:
+    - 16.5,12.5
+    - 16.5,24.5
+  - proto: ADTNecropolisGateSubstrate
+    anchored: true
+    positions:
+    - 16.5,12.5
+    - 16.5,24.5
+  - proto: ADTNecropolisPristineBlock1
+    anchored: true
+    positions:
+    - 17.5,2.5
+    - 7.5,20.5
+    - 17.5,30.5
+  - proto: ADTNecropolisPristineBlock1E
+    anchored: true
+    positions:
+    - 17.5,6.5
+    - 12.5,21.5
+    - 14.5,27.5
+  - proto: ADTNecropolisPristineBlock1N
+    anchored: true
+    positions:
+    - 26.5,27.5
+  - proto: ADTNecropolisPristineBlock1W
+    anchored: true
+    positions:
+    - 29.5,18.5
+    - 16.5,25.5
+    - 25.5,26.5
+    - 18.5,27.5
+  - proto: ADTNecropolisPristineBlock2
+    anchored: true
+    positions:
+    - 16.5,6.5
+    - 8.5,14.5
+    - 21.5,15.5
+    - 23.5,21.5
+    - 16.5,30.5
+  - proto: ADTNecropolisPristineBlock2E
+    anchored: true
+    positions:
+    - 15.5,5.5
+    - 12.5,14.5
+    - 9.5,15.5
+    - 6.5,16.5
+    - 18.5,20.5
+    - 7.5,21.5
+    - 11.5,21.5
+    - 23.5,25.5
+    - 8.5,26.5
+    - 14.5,28.5
+  - proto: ADTNecropolisPristineBlock2N
+    anchored: true
+    positions:
+    - 16.5,10.5
+    - 24.5,22.5
+  - proto: ADTNecropolisPristineBlock2W
+    anchored: true
+    positions:
+    - 15.5,9.5
+    - 19.5,17.5
+    - 14.5,20.5
+    - 19.5,21.5
+    - 3.5,25.5
+    - 18.5,28.5
+  - proto: ADTNecropolisPristineBlock3
+    anchored: true
+    positions:
+    - 15.5,2.5
+    - 15.5,10.5
+    - 26.5,25.5
+    - 15.5,30.5
+    - 16.5,31.5
+  - proto: ADTNecropolisPristineBlock3E
+    anchored: true
+    positions:
+    - 12.5,15.5
+    - 27.5,26.5
+  - proto: ADTNecropolisPristineBlock3N
+    anchored: true
+    positions:
+    - 17.5,8.5
+    - 25.5,24.5
+    - 15.5,26.5
+    - 16.5,27.5
+  - proto: ADTNecropolisPristineBlock3W
+    anchored: true
+    positions:
+    - 10.5,13.5
+    - 19.5,18.5
+    - 12.5,19.5
+    - 13.5,28.5
+    - 17.5,28.5
+  - proto: ADTNecropolisPristineBlock4
+    anchored: true
+    positions:
+    - 17.5,5.5
+    - 17.5,17.5
+    - 26.5,30.5
+  - proto: ADTNecropolisPristineBlock4E
+    anchored: true
+    positions:
+    - 17.5,9.5
+    - 7.5,27.5
+  - proto: ADTNecropolisPristineBlock4N
+    anchored: true
+    positions:
+    - 8.5,12.5
+    - 8.5,16.5
+    - 8.5,20.5
+    - 12.5,20.5
+    - 22.5,22.5
+    - 24.5,24.5
+    - 4.5,28.5
+  - proto: ADTNecropolisPristineBlock4W
+    anchored: true
+    positions:
+    - 15.5,11.5
+    - 7.5,15.5
+    - 14.5,18.5
+    - 5.5,21.5
+    - 16.5,24.5
+  - proto: ADTNecropolisPristineCenter1
+    anchored: true
+    positions:
+    - 16.5,12.5
+    - 16.5,16.5
+    - 9.5,21.5
+    - 17.5,29.5
+  - proto: ADTNecropolisPristineCenter2
+    anchored: true
+    positions:
+    - 25.5,18.5
+  - proto: ADTNecropolisPristineCenter3
+    anchored: true
+    positions:
+    - 17.5,27.5
+    - 15.5,29.5
+  - proto: ADTNecropolisPristineCenter4
+    anchored: true
+    positions:
+    - 10.5,21.5
+  - proto: ADTNecropolisPristineSlab1
+    rot: 1.5708 rad
+    anchored: true
+    positions:
+    - 14.5,14.5
+    - 18.5,14.5
+    - 17.5,13.5
+    - 16.5,14.5
+    - 15.5,14.5
+    - 18.5,13.5
+    - 16.5,13.5
+    - 17.5,14.5
+    - 15.5,13.5
+    - 14.5,13.5
+    - 16.5,15.5
+  - proto: ADTNecropolisPristineSlab1
+    anchored: true
+    positions:
+    - 7.5,17.5
+    - 13.5,19.5
+    - 5.5,23.5
+    - 1.5,27.5
+    - 29.5,27.5
+    - 2.5,28.5
+  - proto: ADTNecropolisPristineSlab2
+    anchored: true
+    positions:
+    - 5.5,12.5
+    - 6.5,21.5
+    - 13.5,24.5
+    - 3.5,26.5
+    - 7.5,26.5
+    - 5.5,28.5
+    - 25.5,28.5
+    - 2.5,29.5
+    - 3.5,30.5
+  - proto: ADTNecropolisPristineSlab2
+    rot: -1.5708 rad
+    anchored: true
+    positions:
+    - 7.5,29.5
+  - proto: ADTNecropolisPristineSlab3
+    rot: -1.5708 rad
+    anchored: true
+    positions:
+    - 17.5,24.5
+    - 15.5,24.5
+    - 17.5,25.5
+    - 15.5,25.5
+  - proto: ADTNecropolisPristineSlab3
+    anchored: true
+    positions:
+    - 9.5,13.5
+    - 3.5,15.5
+    - 4.5,16.5
+    - 5.5,17.5
+    - 24.5,20.5
+    - 15.5,23.5
+    - 25.5,29.5
+  - proto: ADTNecropolisPristineSlab4
+    anchored: true
+    positions:
+    - 4.5,17.5
+    - 5.5,18.5
+    - 9.5,18.5
+    - 28.5,25.5
+    - 5.5,30.5
+  - proto: ADTNecropolisPristineSurrounding1
+    anchored: true
+    positions:
+    - 11.5,14.5
+    - 8.5,15.5
+    - 16.5,21.5
+  - proto: ADTNecropolisPristineSurrounding2
+    anchored: true
+    positions:
+    - 16.5,8.5
+    - 16.5,16.5
+    - 26.5,26.5
+  - proto: ADTNecropolisPristineSurroundingTile1
+    anchored: true
+    positions:
+    - 18.5,12.5
+    - 23.5,15.5
+    - 22.5,18.5
+    - 9.5,21.5
+    - 9.5,23.5
+    - 11.5,23.5
+    - 23.5,23.5
+    - 27.5,25.5
+    - 2.5,26.5
+    - 15.5,27.5
+    - 19.5,27.5
+    - 25.5,27.5
+    - 3.5,29.5
+    - 4.5,30.5
+  - proto: ADTNecropolisPristineSurroundingTile1E
+    anchored: true
+    positions:
+    - 5.5,13.5
+    - 21.5,19.5
+    - 6.5,20.5
+    - 23.5,21.5
+    - 10.5,24.5
+    - 22.5,24.5
+    - 17.5,27.5
+    - 25.5,27.5
+  - proto: ADTNecropolisPristineSurroundingTile1N
+    anchored: true
+    positions:
+    - 19.5,3.5
+    - 15.5,11.5
+    - 16.5,12.5
+    - 7.5,13.5
+    - 15.5,27.5
+    - 17.5,27.5
+    - 27.5,27.5
+    - 15.5,29.5
+  - proto: ADTNecropolisPristineSurroundingTile1W
+    anchored: true
+    positions:
+    - 14.5,12.5
+    - 9.5,17.5
+    - 25.5,25.5
+    - 9.5,27.5
+    - 5.5,29.5
+    - 15.5,29.5
+    - 17.5,29.5
+  - proto: ADTNecropolisPristineSurroundingTile2
+    anchored: true
+    positions:
+    - 16.5,3.5
+    - 16.5,9.5
+    - 9.5,14.5
+    - 6.5,15.5
+    - 10.5,21.5
+    - 4.5,23.5
+    - 6.5,23.5
+    - 8.5,25.5
+    - 4.5,27.5
+    - 8.5,27.5
+  - proto: ADTNecropolisPristineSurroundingTile2E
+    anchored: true
+    positions:
+    - 12.5,13.5
+    - 7.5,16.5
+    - 17.5,18.5
+    - 10.5,21.5
+    - 14.5,21.5
+    - 6.5,25.5
+    - 3.5,28.5
+    - 13.5,29.5
+  - proto: ADTNecropolisPristineSurroundingTile2N
+    anchored: true
+    positions:
+    - 16.5,3.5
+    - 16.5,9.5
+    - 9.5,12.5
+    - 9.5,16.5
+    - 22.5,19.5
+    - 10.5,21.5
+    - 25.5,22.5
+    - 3.5,24.5
+    - 9.5,24.5
+    - 8.5,25.5
+    - 8.5,27.5
+  - proto: ADTNecropolisPristineSurroundingTile2W
+    anchored: true
+    positions:
+    - 16.5,3.5
+    - 17.5,10.5
+    - 7.5,14.5
+    - 4.5,15.5
+    - 23.5,20.5
+    - 10.5,21.5
+    - 15.5,22.5
+    - 4.5,23.5
+    - 6.5,23.5
+    - 10.5,23.5
+    - 14.5,23.5
+    - 11.5,26.5
+    - 2.5,27.5
+    - 6.5,27.5
+    - 7.5,28.5
+  - proto: ADTNecropolisPristineTile10
+    anchored: true
+    positions:
+    - 5.5,21.5
+    - 14.5,30.5
+    - 15.5,31.5
+  - proto: ADTNecropolisPristineTile10E
+    anchored: true
+    positions:
+    - 17.5,9.5
+    - 15.5,31.5
+  - proto: ADTNecropolisPristineTile10N
+    anchored: true
+    positions:
+    - 15.5,31.5
+  - proto: ADTNecropolisPristineTile10W
+    anchored: true
+    positions:
+    - 14.5,30.5
+    - 15.5,31.5
+  - proto: ADTNecropolisPristineTile11
+    anchored: true
+    positions:
+    - 17.5,26.5
+    - 18.5,27.5
+  - proto: ADTNecropolisPristineTile11E
+    anchored: true
+    positions:
+    - 12.5,21.5
+  - proto: ADTNecropolisPristineTile11N
+    anchored: true
+    positions:
+    - 17.5,2.5
+  - proto: ADTNecropolisPristineTile11W
+    anchored: true
+    positions:
+    - 17.5,26.5
+  - proto: ADTNecropolisPristineTile13W
+    anchored: true
+    positions:
+    - 17.5,12.5
+  - proto: ADTNecropolisPristineTile14
+    anchored: true
+    positions:
+    - 14.5,26.5
+    - 18.5,30.5
+  - proto: ADTNecropolisPristineTile14E
+    anchored: true
+    positions:
+    - 14.5,26.5
+  - proto: ADTNecropolisPristineTile14N
+    anchored: true
+    positions:
+    - 14.5,26.5
+    - 18.5,30.5
+  - proto: ADTNecropolisPristineTile14W
+    anchored: true
+    positions:
+    - 14.5,26.5
+  - proto: ADTNecropolisPristineTile16
+    anchored: true
+    positions:
+    - 3.5,25.5
+    - 6.5,28.5
+  - proto: ADTNecropolisPristineTile17E
+    anchored: true
+    positions:
+    - 15.5,6.5
+    - 15.5,30.5
+    - 16.5,31.5
+  - proto: ADTNecropolisPristineTile17N
+    anchored: true
+    positions:
+    - 15.5,30.5
+    - 16.5,31.5
+  - proto: ADTNecropolisPristineTile17W
+    anchored: true
+    positions:
+    - 15.5,6.5
+    - 14.5,29.5
+  - proto: ADTNecropolisPristineTile18
+    anchored: true
+    positions:
+    - 18.5,2.5
+    - 18.5,26.5
+  - proto: ADTNecropolisPristineTile18N
+    anchored: true
+    positions:
+    - 18.5,26.5
+  - proto: ADTNecropolisPristineTile18W
+    anchored: true
+    positions:
+    - 18.5,26.5
+  - proto: ADTNecropolisPristineTile20
+    anchored: true
+    positions:
+    - 16.5,10.5
+  - proto: ADTNecropolisPristineTile20E
+    anchored: true
+    positions:
+    - 17.5,11.5
+  - proto: ADTNecropolisPristineTile20N
+    anchored: true
+    positions:
+    - 6.5,24.5
+  - proto: ADTNecropolisPristineTile21
+    anchored: true
+    positions:
+    - 18.5,29.5
+  - proto: ADTNecropolisPristineTile21E
+    anchored: true
+    positions:
+    - 15.5,2.5
+    - 16.5,3.5
+    - 17.5,4.5
+  - proto: ADTNecropolisPristineTile21W
+    anchored: true
+    positions:
+    - 15.5,26.5
+  - proto: ADTNecropolisPristineTile22
+    anchored: true
+    positions:
+    - 14.5,18.5
+  - proto: ADTNecropolisPristineTile24
+    anchored: true
+    positions:
+    - 17.5,31.5
+  - proto: ADTNecropolisPristineTile24E
+    anchored: true
+    positions:
+    - 14.5,28.5
+    - 16.5,30.5
+    - 17.5,31.5
+  - proto: ADTNecropolisPristineTile24N
+    anchored: true
+    positions:
+    - 16.5,30.5
+    - 17.5,31.5
+  - proto: ADTNecropolisPristineTile24W
+    anchored: true
+    positions:
+    - 14.5,28.5
+  - proto: ADTNecropolisPristineTile2N
+    anchored: true
+    positions:
+    - 17.5,17.5
+  - proto: ADTNecropolisPristineTile2W
+    anchored: true
+    positions:
+    - 4.5,28.5
+  - proto: ADTNecropolisPristineTile3E
+    anchored: true
+    positions:
+    - 15.5,8.5
+    - 17.5,10.5
+  - proto: ADTNecropolisPristineTile4
+    anchored: true
+    positions:
+    - 18.5,28.5
+  - proto: ADTNecropolisPristineTile4E
+    anchored: true
+    positions:
+    - 16.5,2.5
+  - proto: ADTNecropolisPristineTile4N
+    anchored: true
+    positions:
+    - 16.5,2.5
+    - 18.5,28.5
+  - proto: ADTNecropolisPristineTile6E
+    anchored: true
+    positions:
+    - 7.5,27.5
+  - proto: ADTNecropolisPristineTile7E
+    anchored: true
+    positions:
+    - 14.5,27.5
+    - 17.5,30.5
+  - proto: ADTNecropolisPristineTile7N
+    anchored: true
+    positions:
+    - 17.5,30.5
+  - proto: ADTNecropolisPristineTile7W
+    anchored: true
+    positions:
+    - 17.5,6.5
+    - 14.5,27.5
+  - proto: ADTNecropolisPristineTile8W
+    anchored: true
+    positions:
+    - 15.5,21.5
+  - proto: ADTPrimitiveMedkit
+    positions:
+    - 1.5,27.5
+  - proto: ADTPuddleBloodBubblegum
+    anchored: true
+    missingComponents:
+    - TimedDespawn
+    positions:
+    - 8.5,17.5
+    - 5.5,14.5
+    - 23.5,20.5
+    - 29.5,21.5
+    - 17.5,26.5
+    - 22.5,17.5
+  - proto: ADTPuddleBloodBubblegumThick
+    anchored: true
+    missingComponents:
+    - TimedDespawn
+    positions:
+    - 20.5,13.5
+    - 14.5,28.5
+    - 16.5,30.5
+  - proto: ADTRake
+    rot: 1.5708 rad
+    positions:
+    - 28.2167,14.3593
+  - proto: ADTSeedReishiPacket
+    positions:
+    - 25.2187,15.8125
+    - 25.0625,15.625
+    - 24.9062,15.4062
+  - proto: ADTTorchHolderAncient
+    rot: 4.7124 rad
+    anchored: true
+    positions:
+    - 3.5,14.5
+    - 12.5,17.5
+    - 27.5,19.5
+    - 9.5,23.5
+    - 1.5,26.5
+    - 13.5,28.5
+  - proto: ADTTorchHolderAncient
+    rot: 3.1416 rad
+    anchored: true
+    positions:
+    - 24.5,15.5
+    - 8.5,22.5
+    - 23.5,23.5
+    - 4.5,30.5
+    - 27.5,30.5
+  - proto: ADTTorchHolderAncient
+    rot: 1.5708 rad
+    anchored: true
+    positions:
+    - 19.5,17.5
+    - 22.5,24.5
+    - 28.5,25.5
+    - 19.5,28.5
+  - proto: ADTTribalOven
+    anchored: true
+    positions:
+    - 3.5,14.5
+  - proto: ADTWoodenBoxRandom
+    positions:
+    - 3.5,21.5
+    - 23.5,12.5
+  - proto: ADTWoodenStool
+    anchored: true
+    positions:
+    - 9.5,13.5
+    - 7.5,15.5
+    - 9.5,15.5
+    - 5.5,16.5
+    - 8.5,16.5
+    - 5.5,17.5
+  - proto: AloeSeeds
+    positions:
+    - 23.5,12.5
+    - 23.5,12.5
+    - 28.5,15.5
+  - proto: ArrowImprovised
+    positions:
+    - 21.5,17.5
+    - 21.5,17.5
+    - 21.5,17.5
+    - 25.375,19.7188
+    - 25.7188,19.5
+    - 25.2812,19.8125
+  - proto: Barricade
+    rot: -1.5708 rad
+    anchored: true
+    positions:
+    - 3.5,19.5
+    - 2.5,20.5
+    - 3.5,20.5
+    - 2.5,21.5
+    - 2.5,22.5
+    - 10.5,28.5
+    - 9.5,28.5
+    - 10.5,27.5
+    - 11.5,27.5
+  - proto: Barricade
+    anchored: true
+    positions:
+    - 22.5,27.5
+    - 21.5,27.5
+  - proto: BowImprovised
+    positions:
+    - 24.5,20.5
+  - proto: ClothingBeltQuiver
+    positions:
+    - 24.2812,20.7188
+  - proto: CottonBol
+    positions:
+    - 28.5,30.5
+    - 28.5,30.5
+  - proto: CottonSeeds
+    positions:
+    - 29.5,20.5
+    - 29.5,20.5
+    - 29.5,20.5
+  - proto: CrateGeneric
+    positions:
+    - 27.5,18.5
+    - 29.5,20.5
+    - 3.5,24.5
+    - 28.5,24.5
+    - 1.5,25.5
+    - 21.5,26.5
+    - 1.5,27.5
+    - 24.5,27.5
+    - 29.5,27.5
+    - 29.5,28.5
+    - 2.5,29.5
+  - proto: CrateRadiation
+    positions:
+    - 25.5,27.5
+  - proto: CurtainsBlack
+    anchored: true
+    components:
+    - type: Door
+      secondsUntilStateChange: -650.27966
+      state: Opening
+    positions:
+    - 4.5,23.5
+  - proto: CurtainsBlack
+    anchored: true
+    positions:
+    - 5.5,23.5
+    - 6.5,23.5
+    - 8.5,25.5
+    - 23.5,25.5
+    - 8.5,26.5
+    - 8.5,27.5
+  - proto: CurtainsBlack
+    anchored: true
+    components:
+    - type: Door
+      secondsUntilStateChange: -853.6462
+      state: Opening
+    positions:
+    - 24.5,24.5
+  - proto: CurtainsBlack
+    anchored: true
+    components:
+    - type: Door
+      secondsUntilStateChange: -853.54614
+      state: Opening
+    positions:
+    - 25.5,24.5
+  - proto: CurtainsBlack
+    anchored: true
+    components:
+    - type: Door
+      secondsUntilStateChange: -853.7128
+      state: Opening
+    positions:
+    - 23.5,26.5
+  - proto: Flare
+    positions:
+    - 25.5,27.5
+  - proto: FloorWaterEntity
+    anchored: true
+    positions:
+    - 22.5,12.5
+  - proto: FoodMeat
+    positions:
+    - 4.1875,12.375
+    - 4.2812,12.7812
+    - 6.75,12.4375
+    - 6.7812,12.6875
+  - proto: FoodMeatGoliath
+    rot: 1.5708 rad
+    positions:
+    - 6.2584,12.7227
+  - proto: FoodMeatGoliath
+    rot: -1.5708 rad
+    positions:
+    - 4.7052,12.5099
+  - proto: FoodMeatGoliath
+    positions:
+    - 6.2371,12.2972
+  - proto: FoodMeatSpider
+    positions:
+    - 10.3125,17.8125
+    - 10.6875,17.5625
+  - proto: hydroponicsSoil
+    anchored: true
+    positions:
+    - 24.5,12.5
+    - 25.5,12.5
+    - 26.5,12.5
+    - 27.5,13.5
+    - 28.5,13.5
+    - 29.5,14.5
+    - 29.5,15.5
+    - 29.5,16.5
+  - proto: HydroponicsToolHatchet
+    positions:
+    - 24.5,14.5
+    - 30.5,19.5
+  - proto: HydroponicsToolMiniHoe
+    positions:
+    - 26.5,16.5
+    - 29.5,18.5
+  - proto: HydroponicsToolSpade
+    positions:
+    - 25.4688,15.625
+    - 27.5,17.5
+  - proto: Lantern
+    positions:
+    - 26.5,15.5
+    - 21.5,20.5
+    - 21.5,20.5
+    - 14.5,26.5
+    - 18.5,26.5
+    - 6.5,27.5
+    - 24.5,27.5
+    - 24.5,27.5
+    - 24.5,27.5
+    - 25.5,27.5
+    - 25.5,27.5
+    - 25.5,27.5
+    - 27.5,28.5
+    - 2.5,29.5
+    - 2.5,29.5
+    - 2.5,29.5
+    - 14.5,30.5
+    - 18.5,30.5
+  - proto: MaterialCloth10
+    positions:
+    - 6.5,29.5
+  - proto: MaterialWoodPlank1
+    positions:
+    - 21.5,17.5
+    - 29.5,28.5
+  - proto: OperatingTable
+    anchored: true
+    positions:
+    - 4.5,30.5
+  - proto: OreBox
+    positions:
+    - 3.5,22.5
+    - 27.5,24.5
+    - 25.5,29.5
+  - proto: PartRodMetal
+    positions:
+    - 27.5681,30.4904
+  - proto: PlantBag
+    positions:
+    - 26.5,13.5
+  - proto: PlushieLizard
+    positions:
+    - 16.745,31.5432
+  - proto: PlushieLizardMirrored
+    positions:
+    - 16.3096,31.5467
+  - proto: PuddleBlood
+    anchored: true
+    positions:
+    - 5.5,25.5
+  - proto: Rack
+    anchored: true
+    positions:
+    - 21.5,17.5
+    - 5.5,18.5
+    - 9.5,18.5
+    - 21.5,20.5
+    - 26.5,30.5
+    - 27.5,30.5
+    - 28.5,30.5
+  - proto: RandomCargoCorpseSpawner
+    anchored: true
+    positions:
+    - 29.5,21.5
+    - 5.5,25.5
+  - proto: SeedExtractor
+    anchored: true
+    components:
+    - type: ApcPowerReceiver
+      needsPower: False
+    positions:
+    - 21.5,13.5
+  - proto: Shovel
+    positions:
+    - 28.5,22.5
+  - proto: SpearBone
+    positions:
+    - 21.5,16.5
+    - 24.5,17.5
+    - 25.5,18.5
+    - 25.5,19.5
+    - 4.5,25.5
+  - proto: TableBrass
+    anchored: true
+    positions:
+    - 16.5,31.5
+  - proto: TableWood
+    anchored: true
+    positions:
+    - 4.5,12.5
+    - 5.5,12.5
+    - 6.5,12.5
+    - 8.5,12.5
+    - 9.5,12.5
+    - 10.5,12.5
+    - 3.5,13.5
+    - 3.5,15.5
+    - 25.5,15.5
+    - 4.5,16.5
+    - 26.5,16.5
+    - 4.5,17.5
+    - 10.5,17.5
+    - 24.5,17.5
+    - 30.5,17.5
+    - 25.5,18.5
+    - 30.5,18.5
+    - 25.5,19.5
+    - 30.5,19.5
+    - 24.5,20.5
+    - 3.5,30.5
+  - proto: ToolboxSyndicateFilled
+    positions:
+    - 29.5,27.5
+  - proto: TowercapSeeds
+    positions:
+    - 26.7399,16.5892
+    - 26.6761,16.7594
+    - 26.9101,16.7807
+  - proto: WallInvisible
+    missingComponents:
+    - TimedDespawn
+    positions:
+    - 18.5,13.5
+    - 14.5,13.5
+  - proto: WallNecropolis
+    anchored: true
+    positions:
+    - 14.5,3.5
+    - 15.5,3.5
+    - 17.5,3.5
+    - 18.5,3.5
+    - 14.5,4.5
+    - 18.5,4.5
+    - 7.5,11.5
+    - 25.5,11.5
+    - 7.5,12.5
+    - 12.5,12.5
+    - 13.5,12.5
+    - 19.5,12.5
+    - 20.5,12.5
+    - 2.5,13.5
+    - 13.5,13.5
+    - 19.5,13.5
+    - 30.5,14.5
+    - 11.5,16.5
+    - 20.5,16.5
+    - 23.5,16.5
+    - 24.5,16.5
+    - 25.5,16.5
+    - 3.5,17.5
+    - 20.5,17.5
+    - 23.5,17.5
+    - 25.5,17.5
+    - 26.5,17.5
+    - 26.5,18.5
+    - 31.5,18.5
+    - 6.5,19.5
+    - 9.5,19.5
+    - 26.5,19.5
+    - 20.5,20.5
+    - 25.5,20.5
+    - 26.5,20.5
+    - 20.5,21.5
+    - 21.5,21.5
+    - 24.5,21.5
+    - 25.5,21.5
+    - 31.5,21.5
+    - 29.5,22.5
+    - 30.5,22.5
+    - 31.5,22.5
+    - 3.5,23.5
+    - 7.5,23.5
+    - 8.5,23.5
+    - 26.5,23.5
+    - 30.5,23.5
+    - 31.5,23.5
+    - 8.5,24.5
+    - 11.5,24.5
+    - 14.5,24.5
+    - 18.5,24.5
+    - 23.5,24.5
+    - 26.5,24.5
+    - 30.5,24.5
+    - 31.5,24.5
+    - 13.5,25.5
+    - 14.5,25.5
+    - 18.5,25.5
+    - 19.5,25.5
+    - 29.5,25.5
+    - 30.5,25.5
+    - 31.5,25.5
+    - 0.5,26.5
+    - 12.5,26.5
+    - 13.5,26.5
+    - 19.5,26.5
+    - 20.5,26.5
+    - 31.5,26.5
+    - 12.5,27.5
+    - 20.5,27.5
+    - 23.5,27.5
+    - 31.5,27.5
+    - 8.5,28.5
+    - 11.5,28.5
+    - 12.5,28.5
+    - 20.5,28.5
+    - 21.5,28.5
+    - 22.5,28.5
+    - 30.5,28.5
+    - 31.5,28.5
+    - 0.5,29.5
+    - 1.5,29.5
+    - 9.5,29.5
+    - 10.5,29.5
+    - 11.5,29.5
+    - 12.5,29.5
+    - 20.5,29.5
+    - 21.5,29.5
+    - 22.5,29.5
+    - 23.5,29.5
+    - 31.5,29.5
+    - 0.5,30.5
+    - 9.5,30.5
+    - 10.5,30.5
+    - 11.5,30.5
+    - 12.5,30.5
+    - 13.5,30.5
+    - 19.5,30.5
+    - 20.5,30.5
+    - 21.5,30.5
+    - 22.5,30.5
+    - 23.5,30.5
+    - 24.5,30.5
+    - 30.5,30.5
+    - 31.5,30.5
+    - 0.5,31.5
+    - 1.5,31.5
+    - 4.5,31.5
+    - 7.5,31.5
+    - 8.5,31.5
+    - 9.5,31.5
+    - 10.5,31.5
+    - 11.5,31.5
+    - 12.5,31.5
+    - 13.5,31.5
+    - 14.5,31.5
+    - 18.5,31.5
+    - 19.5,31.5
+    - 20.5,31.5
+    - 21.5,31.5
+    - 22.5,31.5
+    - 23.5,31.5
+    - 24.5,31.5
+    - 26.5,31.5
+    - 30.5,31.5
+    - 31.5,31.5
+    - 0.5,32.5
+    - 1.5,32.5
+    - 2.5,32.5
+    - 3.5,32.5
+    - 4.5,32.5
+    - 5.5,32.5
+    - 6.5,32.5
+    - 7.5,32.5
+    - 8.5,32.5
+    - 9.5,32.5
+    - 10.5,32.5
+    - 11.5,32.5
+    - 12.5,32.5
+    - 13.5,32.5
+    - 14.5,32.5
+    - 15.5,32.5
+    - 16.5,32.5
+    - 17.5,32.5
+    - 18.5,32.5
+    - 19.5,32.5
+    - 20.5,32.5
+    - 21.5,32.5
+    - 22.5,32.5
+    - 23.5,32.5
+    - 24.5,32.5
+    - 25.5,32.5
+    - 26.5,32.5
+    - 27.5,32.5
+    - 28.5,32.5
+    - 29.5,32.5
+    - 30.5,32.5
+    - 31.5,32.5
+  - proto: ADTBasalt
+    anchored: true
+    positions:
+    - 11.5,10.5
+    - 11.5,9.5
+    - 11.5,8.5
+    - 11.5,7.5
+    - 11.5,6.5
+    - 11.5,5.5
+    - 11.5,4.5
+    - 11.5,3.5
+    - 11.5,2.5
+    - 11.5,0.5
+    - 11.5,1.5
+    - 10.5,9.5
+    - 10.5,8.5
+    - 10.5,7.5
+    - 10.5,10.5
+    - 10.5,6.5
+    - 10.5,5.5
+    - 10.5,4.5
+    - 10.5,3.5
+    - 10.5,2.5
+    - 10.5,1.5
+    - 10.5,0.5
+    - 9.5,10.5
+    - 9.5,9.5
+    - 9.5,8.5
+    - 9.5,7.5
+    - 9.5,6.5
+    - 9.5,5.5
+    - 9.5,4.5
+    - 9.5,3.5
+    - 9.5,2.5
+    - 9.5,1.5
+    - 9.5,0.5
+    - 8.5,10.5
+    - 8.5,9.5
+    - 8.5,8.5
+    - 8.5,7.5
+    - 8.5,6.5
+    - 8.5,5.5
+    - 8.5,4.5
+    - 8.5,3.5
+    - 8.5,2.5
+    - 8.5,1.5
+    - 8.5,0.5
+    - 7.5,10.5
+    - 7.5,9.5
+    - 7.5,8.5
+    - 7.5,7.5
+    - 7.5,6.5
+    - 7.5,5.5
+    - 7.5,4.5
+    - 7.5,3.5
+    - 7.5,2.5
+    - 7.5,1.5
+    - 7.5,0.5
+    - 6.5,10.5
+    - 6.5,9.5
+    - 6.5,8.5
+    - 6.5,7.5
+    - 6.5,6.5
+    - 6.5,5.5
+    - 6.5,4.5
+    - 6.5,3.5
+    - 6.5,2.5
+    - 6.5,1.5
+    - 6.5,0.5
+    - 5.5,10.5
+    - 5.5,9.5
+    - 5.5,8.5
+    - 5.5,7.5
+    - 5.5,6.5
+    - 5.5,5.5
+    - 5.5,4.5
+    - 5.5,3.5
+    - 5.5,2.5
+    - 5.5,1.5
+    - 5.5,0.5
+    - 4.5,10.5
+    - 4.5,9.5
+    - 4.5,8.5
+    - 4.5,7.5
+    - 4.5,6.5
+    - 4.5,5.5
+    - 4.5,4.5
+    - 4.5,3.5
+    - 4.5,2.5
+    - 4.5,1.5
+    - 4.5,0.5
+    - 3.5,10.5
+    - 3.5,9.5
+    - 3.5,8.5
+    - 3.5,7.5
+    - 3.5,6.5
+    - 3.5,5.5
+    - 3.5,4.5
+    - 3.5,3.5
+    - 3.5,2.5
+    - 3.5,1.5
+    - 3.5,0.5
+    - 2.5,10.5
+    - 2.5,9.5
+    - 2.5,8.5
+    - 2.5,7.5
+    - 2.5,6.5
+    - 2.5,5.5
+    - 2.5,4.5
+    - 2.5,3.5
+    - 2.5,2.5
+    - 2.5,1.5
+    - 2.5,0.5
+    - 1.5,10.5
+    - 1.5,9.5
+    - 1.5,8.5
+    - 1.5,7.5
+    - 1.5,6.5
+    - 1.5,5.5
+    - 1.5,4.5
+    - 1.5,3.5
+    - 1.5,2.5
+    - 1.5,1.5
+    - 1.5,0.5
+    - 0.5,10.5
+    - 0.5,9.5
+    - 0.5,8.5
+    - 0.5,7.5
+    - 0.5,6.5
+    - 0.5,5.5
+    - 0.5,4.5
+    - 0.5,3.5
+    - 0.5,2.5
+    - 0.5,1.5
+    - 0.5,0.5
+    - 32.5,10.5
+    - 32.5,9.5
+    - 32.5,8.5
+    - 32.5,7.5
+    - 32.5,6.5
+    - 32.5,5.5
+    - 32.5,4.5
+    - 32.5,3.5
+    - 32.5,2.5
+    - 32.5,1.5
+    - 32.5,0.5
+    - 31.5,10.5
+    - 31.5,9.5
+    - 31.5,8.5
+    - 31.5,7.5
+    - 31.5,6.5
+    - 31.5,5.5
+    - 31.5,4.5
+    - 31.5,3.5
+    - 31.5,2.5
+    - 31.5,1.5
+    - 31.5,0.5
+    - 30.5,10.5
+    - 30.5,9.5
+    - 30.5,8.5
+    - 30.5,7.5
+    - 30.5,6.5
+    - 30.5,5.5
+    - 30.5,4.5
+    - 30.5,2.5
+    - 30.5,1.5
+    - 30.5,0.5
+    - 29.5,10.5
+    - 29.5,9.5
+    - 29.5,8.5
+    - 30.5,3.5
+    - 29.5,6.5
+    - 29.5,7.5
+    - 29.5,5.5
+    - 29.5,4.5
+    - 29.5,3.5
+    - 29.5,2.5
+    - 29.5,0.5
+    - 28.5,10.5
+    - 28.5,9.5
+    - 28.5,8.5
+    - 29.5,1.5
+    - 28.5,7.5
+    - 28.5,6.5
+    - 28.5,5.5
+    - 28.5,4.5
+    - 28.5,3.5
+    - 28.5,2.5
+    - 28.5,1.5
+    - 28.5,0.5
+    - 27.5,10.5
+    - 27.5,9.5
+    - 27.5,8.5
+    - 27.5,7.5
+    - 27.5,6.5
+    - 27.5,4.5
+    - 27.5,5.5
+    - 27.5,3.5
+    - 27.5,2.5
+    - 27.5,1.5
+    - 27.5,0.5
+    - 26.5,10.5
+    - 26.5,9.5
+    - 26.5,8.5
+    - 26.5,7.5
+    - 26.5,6.5
+    - 26.5,5.5
+    - 26.5,4.5
+    - 26.5,3.5
+    - 26.5,2.5
+    - 26.5,1.5
+    - 26.5,0.5
+    - 25.5,10.5
+    - 25.5,9.5
+    - 25.5,8.5
+    - 25.5,7.5
+    - 25.5,6.5
+    - 25.5,5.5
+    - 25.5,4.5
+    - 25.5,3.5
+    - 25.5,2.5
+    - 25.5,1.5
+    - 25.5,0.5
+    - 24.5,10.5
+    - 24.5,9.5
+    - 24.5,8.5
+    - 24.5,7.5
+    - 24.5,6.5
+    - 24.5,5.5
+    - 24.5,4.5
+    - 24.5,3.5
+    - 24.5,2.5
+    - 24.5,1.5
+    - 24.5,0.5
+    - 23.5,10.5
+    - 23.5,9.5
+    - 23.5,8.5
+    - 23.5,7.5
+    - 22.5,10.5
+    - 22.5,9.5
+    - 22.5,8.5
+    - 22.5,7.5
+    - 21.5,10.5
+    - 21.5,9.5
+    - 21.5,8.5
+    - 21.5,7.5
+    - 20.5,10.5
+    - 20.5,9.5
+    - 20.5,8.5
+    - 20.5,7.5
+    - 21.5,6.5
+    - 21.5,5.5
+    - 21.5,4.5
+    - 22.5,6.5
+    - 22.5,5.5
+    - 22.5,4.5
+    - 23.5,6.5
+    - 23.5,5.5
+    - 23.5,4.5
+    - 20.5,4.5
+    - 20.5,3.5
+    - 21.5,3.5
+    - 21.5,2.5
+    - 22.5,3.5
+    - 22.5,2.5
+    - 23.5,3.5
+    - 23.5,1.5
+    - 23.5,2.5
+    - 12.5,10.5
+    - 12.5,9.5
+    - 13.5,8.5
+    - 13.5,7.5
+    - 12.5,7.5
+    - 14.5,7.5
+    - 14.5,6.5
+    - 14.5,5.5
+    - 12.5,8.5
+    - 13.5,6.5
+    - 12.5,6.5
+    - 12.5,5.5
+    - 13.5,5.5
+    - 13.5,4.5
+    - 13.5,3.5
+    - 12.5,4.5
+    - 12.5,3.5
+    - 12.5,0.5
+    - 13.5,2.5
+    - 19.5,3.5
+    - 12.5,2.5
+    - 12.5,1.5
+    - 18.5,2.5
+    - 17.5,2.5
+    - 18.5,11.5
+    - 18.5,1.5
+    - 15.5,2.5
+    - 19.5,11.5
+    - 14.5,2.5
+    - 14.5,1.5
+    - 13.5,1.5
+    - 13.5,0.5
+    - 20.5,11.5
+    - 19.5,10.5
+    - 18.5,10.5
+    - 19.5,9.5
+    - 0.5,23.5
+    - 0.5,22.5
+    - 0.5,21.5
+    - 1.5,21.5
+    - 1.5,20.5
+    - 1.5,19.5
+    - 1.5,18.5
+    - 1.5,17.5
+    - 2.5,17.5
+    - 0.5,19.5
+    - 0.5,18.5
+    - 0.5,17.5
+    - 0.5,16.5
+    - 0.5,15.5
+    - 0.5,14.5
+    - 0.5,13.5
+    - 0.5,12.5
+    - 0.5,11.5
+    - 1.5,11.5
+    - 1.5,12.5
+    - 1.5,13.5
+    - 1.5,14.5
+    - 1.5,15.5
+    - 1.5,16.5
+    - 2.5,11.5
+    - 0.5,20.5
+    - 32.5,32.5
+    - 32.5,31.5
+    - 32.5,30.5
+    - 32.5,29.5
+    - 32.5,28.5
+    - 32.5,27.5
+    - 32.5,26.5
+    - 32.5,25.5
+    - 32.5,24.5
+    - 32.5,23.5
+    - 32.5,22.5
+    - 32.5,21.5
+    - 32.5,20.5
+    - 32.5,19.5
+    - 32.5,18.5
+    - 32.5,16.5
+    - 32.5,15.5
+    - 32.5,14.5
+    - 32.5,13.5
+    - 32.5,12.5
+    - 32.5,11.5
+    - 32.5,17.5
+    - 31.5,15.5
+    - 31.5,14.5
+    - 31.5,13.5
+    - 31.5,12.5
+    - 31.5,11.5
+    - 30.5,12.5
+    - 30.5,11.5
+    - 29.5,11.5
+    - 28.5,11.5
+  - proto: WallWood
+    anchored: true
+    positions:
+    - 3.5,11.5
+    - 4.5,11.5
+    - 5.5,11.5
+    - 6.5,11.5
+    - 8.5,11.5
+    - 9.5,11.5
+    - 10.5,11.5
+    - 11.5,11.5
+    - 21.5,11.5
+    - 22.5,11.5
+    - 23.5,11.5
+    - 24.5,11.5
+    - 26.5,11.5
+    - 27.5,11.5
+    - 2.5,12.5
+    - 3.5,12.5
+    - 11.5,12.5
+    - 21.5,12.5
+    - 27.5,12.5
+    - 28.5,12.5
+    - 29.5,12.5
+    - 29.5,13.5
+    - 30.5,13.5
+    - 2.5,14.5
+    - 2.5,15.5
+    - 30.5,15.5
+    - 2.5,16.5
+    - 3.5,16.5
+    - 30.5,16.5
+    - 31.5,16.5
+    - 11.5,17.5
+    - 31.5,17.5
+    - 3.5,18.5
+    - 4.5,18.5
+    - 10.5,18.5
+    - 11.5,18.5
+    - 4.5,19.5
+    - 5.5,19.5
+    - 10.5,19.5
+    - 31.5,19.5
+    - 30.5,20.5
+    - 31.5,20.5
+    - 30.5,21.5
+    - 1.5,23.5
+    - 2.5,23.5
+    - 27.5,23.5
+    - 28.5,23.5
+    - 29.5,23.5
+    - 0.5,24.5
+    - 1.5,24.5
+    - 29.5,24.5
+    - 0.5,25.5
+    - 29.5,26.5
+    - 30.5,26.5
+    - 0.5,27.5
+    - 30.5,27.5
+    - 0.5,28.5
+    - 1.5,28.5
+    - 23.5,28.5
+    - 24.5,28.5
+    - 8.5,29.5
+    - 24.5,29.5
+    - 29.5,29.5
+    - 30.5,29.5
+    - 1.5,30.5
+    - 2.5,30.5
+    - 6.5,30.5
+    - 7.5,30.5
+    - 8.5,30.5
+    - 25.5,30.5
+    - 29.5,30.5
+    - 2.5,31.5
+    - 3.5,31.5
+    - 5.5,31.5
+    - 6.5,31.5
+    - 25.5,31.5
+    - 27.5,31.5
+    - 28.5,31.5
+    - 29.5,31.5
+  - proto: WheatSeeds
+    positions:
+    - 25.7812,15.8125
+    - 25.625,15.625
+    - 25.4062,15.4062
+  - proto: WoodblockInstrument
+    rot: -1.5708 rad
+    positions:
+    - 3.1797,30.4962
+  - proto: RoofMarker
+    anchored: true
+    positions:
+    - 0.5,0.5
+    - 1.5,0.5
+    - 2.5,0.5
+    - 3.5,0.5
+    - 4.5,0.5
+    - 5.5,0.5
+    - 6.5,0.5
+    - 7.5,0.5
+    - 8.5,0.5
+    - 9.5,0.5
+    - 10.5,0.5
+    - 11.5,0.5
+    - 12.5,0.5
+    - 13.5,0.5
+    - 14.5,0.5
+    - 15.5,0.5
+    - 16.5,0.5
+    - 17.5,0.5
+    - 18.5,0.5
+    - 19.5,0.5
+    - 20.5,0.5
+    - 21.5,0.5
+    - 22.5,0.5
+    - 23.5,0.5
+    - 24.5,0.5
+    - 25.5,0.5
+    - 26.5,0.5
+    - 27.5,0.5
+    - 28.5,0.5
+    - 29.5,0.5
+    - 30.5,0.5
+    - 31.5,0.5
+    - 32.5,0.5
+    - 0.5,1.5
+    - 1.5,1.5
+    - 2.5,1.5
+    - 3.5,1.5
+    - 4.5,1.5
+    - 5.5,1.5
+    - 6.5,1.5
+    - 7.5,1.5
+    - 8.5,1.5
+    - 9.5,1.5
+    - 10.5,1.5
+    - 11.5,1.5
+    - 12.5,1.5
+    - 13.5,1.5
+    - 14.5,1.5
+    - 15.5,1.5
+    - 16.5,1.5
+    - 17.5,1.5
+    - 18.5,1.5
+    - 19.5,1.5
+    - 20.5,1.5
+    - 21.5,1.5
+    - 22.5,1.5
+    - 23.5,1.5
+    - 24.5,1.5
+    - 25.5,1.5
+    - 26.5,1.5
+    - 27.5,1.5
+    - 28.5,1.5
+    - 29.5,1.5
+    - 30.5,1.5
+    - 31.5,1.5
+    - 32.5,1.5
+    - 0.5,2.5
+    - 1.5,2.5
+    - 2.5,2.5
+    - 3.5,2.5
+    - 4.5,2.5
+    - 5.5,2.5
+    - 6.5,2.5
+    - 7.5,2.5
+    - 8.5,2.5
+    - 9.5,2.5
+    - 10.5,2.5
+    - 11.5,2.5
+    - 12.5,2.5
+    - 13.5,2.5
+    - 14.5,2.5
+    - 15.5,2.5
+    - 16.5,2.5
+    - 17.5,2.5
+    - 18.5,2.5
+    - 19.5,2.5
+    - 20.5,2.5
+    - 21.5,2.5
+    - 22.5,2.5
+    - 23.5,2.5
+    - 24.5,2.5
+    - 25.5,2.5
+    - 26.5,2.5
+    - 27.5,2.5
+    - 28.5,2.5
+    - 29.5,2.5
+    - 30.5,2.5
+    - 31.5,2.5
+    - 32.5,2.5
+    - 0.5,3.5
+    - 1.5,3.5
+    - 2.5,3.5
+    - 3.5,3.5
+    - 4.5,3.5
+    - 5.5,3.5
+    - 6.5,3.5
+    - 7.5,3.5
+    - 8.5,3.5
+    - 9.5,3.5
+    - 10.5,3.5
+    - 11.5,3.5
+    - 12.5,3.5
+    - 13.5,3.5
+    - 14.5,3.5
+    - 15.5,3.5
+    - 16.5,3.5
+    - 17.5,3.5
+    - 18.5,3.5
+    - 19.5,3.5
+    - 20.5,3.5
+    - 21.5,3.5
+    - 22.5,3.5
+    - 23.5,3.5
+    - 24.5,3.5
+    - 25.5,3.5
+    - 26.5,3.5
+    - 27.5,3.5
+    - 28.5,3.5
+    - 29.5,3.5
+    - 30.5,3.5
+    - 31.5,3.5
+    - 32.5,3.5
+    - 0.5,4.5
+    - 1.5,4.5
+    - 2.5,4.5
+    - 3.5,4.5
+    - 4.5,4.5
+    - 5.5,4.5
+    - 6.5,4.5
+    - 7.5,4.5
+    - 8.5,4.5
+    - 9.5,4.5
+    - 10.5,4.5
+    - 11.5,4.5
+    - 12.5,4.5
+    - 13.5,4.5
+    - 14.5,4.5
+    - 15.5,4.5
+    - 16.5,4.5
+    - 17.5,4.5
+    - 18.5,4.5
+    - 19.5,4.5
+    - 20.5,4.5
+    - 21.5,4.5
+    - 22.5,4.5
+    - 23.5,4.5
+    - 24.5,4.5
+    - 25.5,4.5
+    - 26.5,4.5
+    - 27.5,4.5
+    - 28.5,4.5
+    - 29.5,4.5
+    - 30.5,4.5
+    - 31.5,4.5
+    - 32.5,4.5
+    - 0.5,5.5
+    - 1.5,5.5
+    - 2.5,5.5
+    - 3.5,5.5
+    - 4.5,5.5
+    - 5.5,5.5
+    - 6.5,5.5
+    - 7.5,5.5
+    - 8.5,5.5
+    - 9.5,5.5
+    - 10.5,5.5
+    - 11.5,5.5
+    - 12.5,5.5
+    - 13.5,5.5
+    - 14.5,5.5
+    - 15.5,5.5
+    - 16.5,5.5
+    - 17.5,5.5
+    - 18.5,5.5
+    - 19.5,5.5
+    - 20.5,5.5
+    - 21.5,5.5
+    - 22.5,5.5
+    - 23.5,5.5
+    - 24.5,5.5
+    - 25.5,5.5
+    - 26.5,5.5
+    - 27.5,5.5
+    - 28.5,5.5
+    - 29.5,5.5
+    - 30.5,5.5
+    - 31.5,5.5
+    - 32.5,5.5
+    - 0.5,6.5
+    - 1.5,6.5
+    - 2.5,6.5
+    - 3.5,6.5
+    - 4.5,6.5
+    - 5.5,6.5
+    - 6.5,6.5
+    - 7.5,6.5
+    - 8.5,6.5
+    - 9.5,6.5
+    - 10.5,6.5
+    - 11.5,6.5
+    - 12.5,6.5
+    - 13.5,6.5
+    - 14.5,6.5
+    - 15.5,6.5
+    - 16.5,6.5
+    - 17.5,6.5
+    - 18.5,6.5
+    - 19.5,6.5
+    - 20.5,6.5
+    - 21.5,6.5
+    - 22.5,6.5
+    - 23.5,6.5
+    - 24.5,6.5
+    - 25.5,6.5
+    - 26.5,6.5
+    - 27.5,6.5
+    - 28.5,6.5
+    - 29.5,6.5
+    - 30.5,6.5
+    - 31.5,6.5
+    - 32.5,6.5
+    - 0.5,7.5
+    - 1.5,7.5
+    - 2.5,7.5
+    - 3.5,7.5
+    - 4.5,7.5
+    - 5.5,7.5
+    - 6.5,7.5
+    - 7.5,7.5
+    - 8.5,7.5
+    - 9.5,7.5
+    - 10.5,7.5
+    - 11.5,7.5
+    - 12.5,7.5
+    - 13.5,7.5
+    - 14.5,7.5
+    - 15.5,7.5
+    - 16.5,7.5
+    - 17.5,7.5
+    - 18.5,7.5
+    - 19.5,7.5
+    - 20.5,7.5
+    - 21.5,7.5
+    - 22.5,7.5
+    - 23.5,7.5
+    - 24.5,7.5
+    - 25.5,7.5
+    - 26.5,7.5
+    - 27.5,7.5
+    - 28.5,7.5
+    - 29.5,7.5
+    - 30.5,7.5
+    - 31.5,7.5
+    - 32.5,7.5
+    - 0.5,8.5
+    - 1.5,8.5
+    - 2.5,8.5
+    - 3.5,8.5
+    - 4.5,8.5
+    - 5.5,8.5
+    - 6.5,8.5
+    - 7.5,8.5
+    - 8.5,8.5
+    - 9.5,8.5
+    - 10.5,8.5
+    - 11.5,8.5
+    - 12.5,8.5
+    - 13.5,8.5
+    - 14.5,8.5
+    - 15.5,8.5
+    - 16.5,8.5
+    - 17.5,8.5
+    - 18.5,8.5
+    - 19.5,8.5
+    - 20.5,8.5
+    - 21.5,8.5
+    - 22.5,8.5
+    - 23.5,8.5
+    - 24.5,8.5
+    - 25.5,8.5
+    - 26.5,8.5
+    - 27.5,8.5
+    - 28.5,8.5
+    - 29.5,8.5
+    - 30.5,8.5
+    - 31.5,8.5
+    - 32.5,8.5
+    - 0.5,9.5
+    - 1.5,9.5
+    - 2.5,9.5
+    - 3.5,9.5
+    - 4.5,9.5
+    - 5.5,9.5
+    - 6.5,9.5
+    - 7.5,9.5
+    - 8.5,9.5
+    - 9.5,9.5
+    - 10.5,9.5
+    - 11.5,9.5
+    - 12.5,9.5
+    - 13.5,9.5
+    - 14.5,9.5
+    - 15.5,9.5
+    - 16.5,9.5
+    - 17.5,9.5
+    - 18.5,9.5
+    - 19.5,9.5
+    - 20.5,9.5
+    - 21.5,9.5
+    - 22.5,9.5
+    - 23.5,9.5
+    - 24.5,9.5
+    - 25.5,9.5
+    - 26.5,9.5
+    - 27.5,9.5
+    - 28.5,9.5
+    - 29.5,9.5
+    - 30.5,9.5
+    - 31.5,9.5
+    - 32.5,9.5
+    - 0.5,10.5
+    - 1.5,10.5
+    - 2.5,10.5
+    - 3.5,10.5
+    - 4.5,10.5
+    - 5.5,10.5
+    - 6.5,10.5
+    - 7.5,10.5
+    - 8.5,10.5
+    - 9.5,10.5
+    - 10.5,10.5
+    - 11.5,10.5
+    - 12.5,10.5
+    - 13.5,10.5
+    - 14.5,10.5
+    - 15.5,10.5
+    - 16.5,10.5
+    - 17.5,10.5
+    - 18.5,10.5
+    - 19.5,10.5
+    - 20.5,10.5
+    - 21.5,10.5
+    - 22.5,10.5
+    - 23.5,10.5
+    - 24.5,10.5
+    - 25.5,10.5
+    - 26.5,10.5
+    - 27.5,10.5
+    - 28.5,10.5
+    - 29.5,10.5
+    - 30.5,10.5
+    - 31.5,10.5
+    - 32.5,10.5
+    - 0.5,11.5
+    - 1.5,11.5
+    - 2.5,11.5
+    - 3.5,11.5
+    - 4.5,11.5
+    - 5.5,11.5
+    - 6.5,11.5
+    - 7.5,11.5
+    - 8.5,11.5
+    - 9.5,11.5
+    - 10.5,11.5
+    - 11.5,11.5
+    - 12.5,11.5
+    - 13.5,11.5
+    - 14.5,11.5
+    - 15.5,11.5
+    - 16.5,11.5
+    - 17.5,11.5
+    - 18.5,11.5
+    - 19.5,11.5
+    - 20.5,11.5
+    - 21.5,11.5
+    - 22.5,11.5
+    - 23.5,11.5
+    - 24.5,11.5
+    - 25.5,11.5
+    - 26.5,11.5
+    - 27.5,11.5
+    - 28.5,11.5
+    - 29.5,11.5
+    - 30.5,11.5
+    - 31.5,11.5
+    - 32.5,11.5
+    - 0.5,12.5
+    - 1.5,12.5
+    - 2.5,12.5
+    - 3.5,12.5
+    - 4.5,12.5
+    - 5.5,12.5
+    - 6.5,12.5
+    - 7.5,12.5
+    - 8.5,12.5
+    - 9.5,12.5
+    - 10.5,12.5
+    - 11.5,12.5
+    - 12.5,12.5
+    - 13.5,12.5
+    - 14.5,12.5
+    - 15.5,12.5
+    - 16.5,12.5
+    - 17.5,12.5
+    - 18.5,12.5
+    - 19.5,12.5
+    - 20.5,12.5
+    - 21.5,12.5
+    - 22.5,12.5
+    - 23.5,12.5
+    - 24.5,12.5
+    - 25.5,12.5
+    - 26.5,12.5
+    - 27.5,12.5
+    - 28.5,12.5
+    - 29.5,12.5
+    - 30.5,12.5
+    - 31.5,12.5
+    - 32.5,12.5
+    - 0.5,13.5
+    - 1.5,13.5
+    - 2.5,13.5
+    - 3.5,13.5
+    - 4.5,13.5
+    - 5.5,13.5
+    - 6.5,13.5
+    - 7.5,13.5
+    - 8.5,13.5
+    - 9.5,13.5
+    - 10.5,13.5
+    - 11.5,13.5
+    - 12.5,13.5
+    - 13.5,13.5
+    - 14.5,13.5
+    - 15.5,13.5
+    - 16.5,13.5
+    - 17.5,13.5
+    - 18.5,13.5
+    - 19.5,13.5
+    - 20.5,13.5
+    - 21.5,13.5
+    - 22.5,13.5
+    - 23.5,13.5
+    - 24.5,13.5
+    - 25.5,13.5
+    - 26.5,13.5
+    - 27.5,13.5
+    - 28.5,13.5
+    - 29.5,13.5
+    - 30.5,13.5
+    - 31.5,13.5
+    - 32.5,13.5
+    - 0.5,14.5
+    - 1.5,14.5
+    - 2.5,14.5
+    - 3.5,14.5
+    - 4.5,14.5
+    - 5.5,14.5
+    - 6.5,14.5
+    - 7.5,14.5
+    - 8.5,14.5
+    - 9.5,14.5
+    - 10.5,14.5
+    - 11.5,14.5
+    - 12.5,14.5
+    - 13.5,14.5
+    - 14.5,14.5
+    - 15.5,14.5
+    - 16.5,14.5
+    - 17.5,14.5
+    - 18.5,14.5
+    - 19.5,14.5
+    - 20.5,14.5
+    - 21.5,14.5
+    - 22.5,14.5
+    - 23.5,14.5
+    - 24.5,14.5
+    - 25.5,14.5
+    - 26.5,14.5
+    - 27.5,14.5
+    - 28.5,14.5
+    - 29.5,14.5
+    - 30.5,14.5
+    - 31.5,14.5
+    - 32.5,14.5
+    - 0.5,15.5
+    - 1.5,15.5
+    - 2.5,15.5
+    - 3.5,15.5
+    - 4.5,15.5
+    - 5.5,15.5
+    - 6.5,15.5
+    - 7.5,15.5
+    - 8.5,15.5
+    - 9.5,15.5
+    - 10.5,15.5
+    - 11.5,15.5
+    - 12.5,15.5
+    - 13.5,15.5
+    - 14.5,15.5
+    - 15.5,15.5
+    - 16.5,15.5
+    - 17.5,15.5
+    - 18.5,15.5
+    - 19.5,15.5
+    - 20.5,15.5
+    - 21.5,15.5
+    - 22.5,15.5
+    - 23.5,15.5
+    - 24.5,15.5
+    - 25.5,15.5
+    - 26.5,15.5
+    - 27.5,15.5
+    - 28.5,15.5
+    - 29.5,15.5
+    - 30.5,15.5
+    - 31.5,15.5
+    - 32.5,15.5
+    - 0.5,16.5
+    - 1.5,16.5
+    - 2.5,16.5
+    - 3.5,16.5
+    - 4.5,16.5
+    - 5.5,16.5
+    - 6.5,16.5
+    - 7.5,16.5
+    - 8.5,16.5
+    - 9.5,16.5
+    - 10.5,16.5
+    - 11.5,16.5
+    - 12.5,16.5
+    - 13.5,16.5
+    - 14.5,16.5
+    - 15.5,16.5
+    - 16.5,16.5
+    - 17.5,16.5
+    - 18.5,16.5
+    - 19.5,16.5
+    - 20.5,16.5
+    - 21.5,16.5
+    - 22.5,16.5
+    - 23.5,16.5
+    - 24.5,16.5
+    - 25.5,16.5
+    - 26.5,16.5
+    - 27.5,16.5
+    - 28.5,16.5
+    - 29.5,16.5
+    - 30.5,16.5
+    - 31.5,16.5
+    - 32.5,16.5
+    - 0.5,17.5
+    - 1.5,17.5
+    - 2.5,17.5
+    - 3.5,17.5
+    - 4.5,17.5
+    - 5.5,17.5
+    - 6.5,17.5
+    - 7.5,17.5
+    - 8.5,17.5
+    - 9.5,17.5
+    - 10.5,17.5
+    - 11.5,17.5
+    - 12.5,17.5
+    - 13.5,17.5
+    - 14.5,17.5
+    - 15.5,17.5
+    - 16.5,17.5
+    - 17.5,17.5
+    - 18.5,17.5
+    - 19.5,17.5
+    - 20.5,17.5
+    - 21.5,17.5
+    - 22.5,17.5
+    - 23.5,17.5
+    - 24.5,17.5
+    - 25.5,17.5
+    - 26.5,17.5
+    - 27.5,17.5
+    - 28.5,17.5
+    - 29.5,17.5
+    - 30.5,17.5
+    - 31.5,17.5
+    - 32.5,17.5
+    - 0.5,18.5
+    - 1.5,18.5
+    - 2.5,18.5
+    - 3.5,18.5
+    - 4.5,18.5
+    - 5.5,18.5
+    - 6.5,18.5
+    - 7.5,18.5
+    - 8.5,18.5
+    - 9.5,18.5
+    - 10.5,18.5
+    - 11.5,18.5
+    - 12.5,18.5
+    - 13.5,18.5
+    - 14.5,18.5
+    - 15.5,18.5
+    - 16.5,18.5
+    - 17.5,18.5
+    - 18.5,18.5
+    - 19.5,18.5
+    - 20.5,18.5
+    - 21.5,18.5
+    - 22.5,18.5
+    - 23.5,18.5
+    - 24.5,18.5
+    - 25.5,18.5
+    - 26.5,18.5
+    - 27.5,18.5
+    - 28.5,18.5
+    - 29.5,18.5
+    - 30.5,18.5
+    - 31.5,18.5
+    - 32.5,18.5
+    - 0.5,19.5
+    - 1.5,19.5
+    - 2.5,19.5
+    - 3.5,19.5
+    - 4.5,19.5
+    - 5.5,19.5
+    - 6.5,19.5
+    - 7.5,19.5
+    - 8.5,19.5
+    - 9.5,19.5
+    - 10.5,19.5
+    - 11.5,19.5
+    - 12.5,19.5
+    - 13.5,19.5
+    - 14.5,19.5
+    - 15.5,19.5
+    - 16.5,19.5
+    - 17.5,19.5
+    - 18.5,19.5
+    - 19.5,19.5
+    - 20.5,19.5
+    - 21.5,19.5
+    - 22.5,19.5
+    - 23.5,19.5
+    - 24.5,19.5
+    - 25.5,19.5
+    - 26.5,19.5
+    - 27.5,19.5
+    - 28.5,19.5
+    - 29.5,19.5
+    - 30.5,19.5
+    - 31.5,19.5
+    - 32.5,19.5
+    - 0.5,20.5
+    - 1.5,20.5
+    - 2.5,20.5
+    - 3.5,20.5
+    - 4.5,20.5
+    - 5.5,20.5
+    - 6.5,20.5
+    - 7.5,20.5
+    - 8.5,20.5
+    - 9.5,20.5
+    - 10.5,20.5
+    - 11.5,20.5
+    - 12.5,20.5
+    - 13.5,20.5
+    - 14.5,20.5
+    - 15.5,20.5
+    - 16.5,20.5
+    - 17.5,20.5
+    - 18.5,20.5
+    - 19.5,20.5
+    - 20.5,20.5
+    - 21.5,20.5
+    - 22.5,20.5
+    - 23.5,20.5
+    - 24.5,20.5
+    - 25.5,20.5
+    - 26.5,20.5
+    - 27.5,20.5
+    - 28.5,20.5
+    - 29.5,20.5
+    - 30.5,20.5
+    - 31.5,20.5
+    - 32.5,20.5
+    - 0.5,21.5
+    - 1.5,21.5
+    - 2.5,21.5
+    - 3.5,21.5
+    - 4.5,21.5
+    - 5.5,21.5
+    - 6.5,21.5
+    - 7.5,21.5
+    - 8.5,21.5
+    - 9.5,21.5
+    - 10.5,21.5
+    - 11.5,21.5
+    - 12.5,21.5
+    - 13.5,21.5
+    - 14.5,21.5
+    - 15.5,21.5
+    - 16.5,21.5
+    - 17.5,21.5
+    - 18.5,21.5
+    - 19.5,21.5
+    - 20.5,21.5
+    - 21.5,21.5
+    - 22.5,21.5
+    - 23.5,21.5
+    - 24.5,21.5
+    - 25.5,21.5
+    - 26.5,21.5
+    - 27.5,21.5
+    - 28.5,21.5
+    - 29.5,21.5
+    - 30.5,21.5
+    - 31.5,21.5
+    - 32.5,21.5
+    - 0.5,22.5
+    - 1.5,22.5
+    - 2.5,22.5
+    - 3.5,22.5
+    - 4.5,22.5
+    - 5.5,22.5
+    - 6.5,22.5
+    - 7.5,22.5
+    - 8.5,22.5
+    - 9.5,22.5
+    - 10.5,22.5
+    - 11.5,22.5
+    - 12.5,22.5
+    - 13.5,22.5
+    - 14.5,22.5
+    - 15.5,22.5
+    - 16.5,22.5
+    - 17.5,22.5
+    - 18.5,22.5
+    - 19.5,22.5
+    - 20.5,22.5
+    - 21.5,22.5
+    - 22.5,22.5
+    - 23.5,22.5
+    - 24.5,22.5
+    - 25.5,22.5
+    - 26.5,22.5
+    - 27.5,22.5
+    - 28.5,22.5
+    - 29.5,22.5
+    - 30.5,22.5
+    - 31.5,22.5
+    - 32.5,22.5
+    - 0.5,23.5
+    - 1.5,23.5
+    - 2.5,23.5
+    - 3.5,23.5
+    - 4.5,23.5
+    - 5.5,23.5
+    - 6.5,23.5
+    - 7.5,23.5
+    - 8.5,23.5
+    - 9.5,23.5
+    - 10.5,23.5
+    - 11.5,23.5
+    - 12.5,23.5
+    - 13.5,23.5
+    - 14.5,23.5
+    - 15.5,23.5
+    - 16.5,23.5
+    - 17.5,23.5
+    - 18.5,23.5
+    - 19.5,23.5
+    - 20.5,23.5
+    - 21.5,23.5
+    - 22.5,23.5
+    - 23.5,23.5
+    - 24.5,23.5
+    - 25.5,23.5
+    - 26.5,23.5
+    - 27.5,23.5
+    - 28.5,23.5
+    - 29.5,23.5
+    - 30.5,23.5
+    - 31.5,23.5
+    - 32.5,23.5
+    - 0.5,24.5
+    - 1.5,24.5
+    - 2.5,24.5
+    - 3.5,24.5
+    - 4.5,24.5
+    - 5.5,24.5
+    - 6.5,24.5
+    - 7.5,24.5
+    - 8.5,24.5
+    - 9.5,24.5
+    - 10.5,24.5
+    - 11.5,24.5
+    - 12.5,24.5
+    - 13.5,24.5
+    - 14.5,24.5
+    - 15.5,24.5
+    - 16.5,24.5
+    - 17.5,24.5
+    - 18.5,24.5
+    - 19.5,24.5
+    - 20.5,24.5
+    - 21.5,24.5
+    - 22.5,24.5
+    - 23.5,24.5
+    - 24.5,24.5
+    - 25.5,24.5
+    - 26.5,24.5
+    - 27.5,24.5
+    - 28.5,24.5
+    - 29.5,24.5
+    - 30.5,24.5
+    - 31.5,24.5
+    - 32.5,24.5
+    - 0.5,25.5
+    - 1.5,25.5
+    - 2.5,25.5
+    - 3.5,25.5
+    - 4.5,25.5
+    - 5.5,25.5
+    - 6.5,25.5
+    - 7.5,25.5
+    - 8.5,25.5
+    - 9.5,25.5
+    - 10.5,25.5
+    - 11.5,25.5
+    - 12.5,25.5
+    - 13.5,25.5
+    - 14.5,25.5
+    - 15.5,25.5
+    - 16.5,25.5
+    - 17.5,25.5
+    - 18.5,25.5
+    - 19.5,25.5
+    - 20.5,25.5
+    - 21.5,25.5
+    - 22.5,25.5
+    - 23.5,25.5
+    - 24.5,25.5
+    - 25.5,25.5
+    - 26.5,25.5
+    - 27.5,25.5
+    - 28.5,25.5
+    - 29.5,25.5
+    - 30.5,25.5
+    - 31.5,25.5
+    - 32.5,25.5
+    - 0.5,26.5
+    - 1.5,26.5
+    - 2.5,26.5
+    - 3.5,26.5
+    - 4.5,26.5
+    - 5.5,26.5
+    - 6.5,26.5
+    - 7.5,26.5
+    - 8.5,26.5
+    - 9.5,26.5
+    - 10.5,26.5
+    - 11.5,26.5
+    - 12.5,26.5
+    - 13.5,26.5
+    - 14.5,26.5
+    - 15.5,26.5
+    - 16.5,26.5
+    - 17.5,26.5
+    - 18.5,26.5
+    - 19.5,26.5
+    - 20.5,26.5
+    - 21.5,26.5
+    - 22.5,26.5
+    - 23.5,26.5
+    - 24.5,26.5
+    - 25.5,26.5
+    - 26.5,26.5
+    - 27.5,26.5
+    - 28.5,26.5
+    - 29.5,26.5
+    - 30.5,26.5
+    - 31.5,26.5
+    - 32.5,26.5
+    - 0.5,27.5
+    - 1.5,27.5
+    - 2.5,27.5
+    - 3.5,27.5
+    - 4.5,27.5
+    - 5.5,27.5
+    - 6.5,27.5
+    - 7.5,27.5
+    - 8.5,27.5
+    - 9.5,27.5
+    - 10.5,27.5
+    - 11.5,27.5
+    - 12.5,27.5
+    - 13.5,27.5
+    - 14.5,27.5
+    - 15.5,27.5
+    - 16.5,27.5
+    - 17.5,27.5
+    - 18.5,27.5
+    - 19.5,27.5
+    - 20.5,27.5
+    - 21.5,27.5
+    - 22.5,27.5
+    - 23.5,27.5
+    - 24.5,27.5
+    - 25.5,27.5
+    - 26.5,27.5
+    - 27.5,27.5
+    - 28.5,27.5
+    - 29.5,27.5
+    - 30.5,27.5
+    - 31.5,27.5
+    - 32.5,27.5
+    - 0.5,28.5
+    - 1.5,28.5
+    - 2.5,28.5
+    - 3.5,28.5
+    - 4.5,28.5
+    - 5.5,28.5
+    - 6.5,28.5
+    - 7.5,28.5
+    - 8.5,28.5
+    - 9.5,28.5
+    - 10.5,28.5
+    - 11.5,28.5
+    - 12.5,28.5
+    - 13.5,28.5
+    - 14.5,28.5
+    - 15.5,28.5
+    - 16.5,28.5
+    - 17.5,28.5
+    - 18.5,28.5
+    - 19.5,28.5
+    - 20.5,28.5
+    - 21.5,28.5
+    - 22.5,28.5
+    - 23.5,28.5
+    - 24.5,28.5
+    - 25.5,28.5
+    - 26.5,28.5
+    - 27.5,28.5
+    - 28.5,28.5
+    - 29.5,28.5
+    - 30.5,28.5
+    - 31.5,28.5
+    - 32.5,28.5
+    - 0.5,29.5
+    - 1.5,29.5
+    - 2.5,29.5
+    - 3.5,29.5
+    - 4.5,29.5
+    - 5.5,29.5
+    - 6.5,29.5
+    - 7.5,29.5
+    - 8.5,29.5
+    - 9.5,29.5
+    - 10.5,29.5
+    - 11.5,29.5
+    - 12.5,29.5
+    - 13.5,29.5
+    - 14.5,29.5
+    - 15.5,29.5
+    - 16.5,29.5
+    - 17.5,29.5
+    - 18.5,29.5
+    - 19.5,29.5
+    - 20.5,29.5
+    - 21.5,29.5
+    - 22.5,29.5
+    - 23.5,29.5
+    - 24.5,29.5
+    - 25.5,29.5
+    - 26.5,29.5
+    - 27.5,29.5
+    - 28.5,29.5
+    - 29.5,29.5
+    - 30.5,29.5
+    - 31.5,29.5
+    - 32.5,29.5
+    - 0.5,30.5
+    - 1.5,30.5
+    - 2.5,30.5
+    - 3.5,30.5
+    - 4.5,30.5
+    - 5.5,30.5
+    - 6.5,30.5
+    - 7.5,30.5
+    - 8.5,30.5
+    - 9.5,30.5
+    - 10.5,30.5
+    - 11.5,30.5
+    - 12.5,30.5
+    - 13.5,30.5
+    - 14.5,30.5
+    - 15.5,30.5
+    - 16.5,30.5
+    - 17.5,30.5
+    - 18.5,30.5
+    - 19.5,30.5
+    - 20.5,30.5
+    - 21.5,30.5
+    - 22.5,30.5
+    - 23.5,30.5
+    - 24.5,30.5
+    - 25.5,30.5
+    - 26.5,30.5
+    - 27.5,30.5
+    - 28.5,30.5
+    - 29.5,30.5
+    - 30.5,30.5
+    - 31.5,30.5
+    - 32.5,30.5
+    - 0.5,31.5
+    - 1.5,31.5
+    - 2.5,31.5
+    - 3.5,31.5
+    - 4.5,31.5
+    - 5.5,31.5
+    - 6.5,31.5
+    - 7.5,31.5
+    - 8.5,31.5
+    - 9.5,31.5
+    - 10.5,31.5
+    - 11.5,31.5
+    - 12.5,31.5
+    - 13.5,31.5
+    - 14.5,31.5
+    - 15.5,31.5
+    - 16.5,31.5
+    - 17.5,31.5
+    - 18.5,31.5
+    - 19.5,31.5
+    - 20.5,31.5
+    - 21.5,31.5
+    - 22.5,31.5
+    - 23.5,31.5
+    - 24.5,31.5
+    - 25.5,31.5
+    - 26.5,31.5
+    - 27.5,31.5
+    - 28.5,31.5
+    - 29.5,31.5
+    - 30.5,31.5
+    - 31.5,31.5
+    - 32.5,31.5
+    - 0.5,32.5
+    - 1.5,32.5
+    - 2.5,32.5
+    - 3.5,32.5
+    - 4.5,32.5
+    - 5.5,32.5
+    - 6.5,32.5
+    - 7.5,32.5
+    - 8.5,32.5
+    - 9.5,32.5
+    - 10.5,32.5
+    - 11.5,32.5
+    - 12.5,32.5
+    - 13.5,32.5
+    - 14.5,32.5
+    - 15.5,32.5
+    - 16.5,32.5
+    - 17.5,32.5
+    - 18.5,32.5
+    - 19.5,32.5
+    - 20.5,32.5
+    - 21.5,32.5
+    - 22.5,32.5
+    - 23.5,32.5
+    - 24.5,32.5
+    - 25.5,32.5
+    - 26.5,32.5
+    - 27.5,32.5
+    - 28.5,32.5
+    - 29.5,32.5
+    - 30.5,32.5
+    - 31.5,32.5
+    - 32.5,32.5
+  decals:
+  - id: skull
+    color: '#FFFFFFFF'
+    positions:
+    - 19.9885,12.9692

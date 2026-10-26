@@ -27,11 +27,9 @@
       - Vox
       - Shadekin
   # ADT RESTRICT End
-  weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"
   supervisors: job-supervisors-captain
-  canBeAntag: false
   access:
   - HeadOfSecurity
   - Command
@@ -55,6 +53,7 @@
       - type: CommandStaff
       # ADT-Tweak-Start: метка персонала службы безопасности
       - type: SecurityStaff
+      - type: ADTTenCodeKnowledge
       # ADT-Tweak-End
 
 - type: startingGear
@@ -75,5 +74,6 @@
   job: HeadOfSecurity
   hasMindShield: true
   equipment:
+    head: ClothingHeadHatBeretHoS
     mask: ClothingMaskGasSecurity
     neck: ClothingNeckCloakHos

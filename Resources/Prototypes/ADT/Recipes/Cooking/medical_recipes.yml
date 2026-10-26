@@ -3,7 +3,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeEmergencyMedipen
-  name: emergency medipen
+  name: recipe-emergency-medipen
   result: EmergencyMedipen
   time: 5
   group: Medicinal
@@ -13,10 +13,11 @@
     Epinephrine: 12
     TranexamicAcid: 3
   recipeType: MedicalAssembler
+  requiredTechnology: ADTMedAssemblerPens1
 
 - type: microwaveMealRecipe
   id: RecipeAntiPoisonMedipen
-  name: poison auto-injector
+  name: recipe-antipoison-medipen
   result: AntiPoisonMedipen
   time: 5
   group: Medicinal
@@ -26,10 +27,11 @@
     Ultravasculine: 10
     Epinephrine: 5
   recipeType: MedicalAssembler
+  requiredTechnology: ADTMedAssemblerPens1
 
 - type: microwaveMealRecipe
   id: RecipeBruteAutoInjector
-  name: brute auto-injector
+  name: recipe-brute-auto-injector
   result: BruteAutoInjector
   time: 5
   group: Medicinal
@@ -39,10 +41,11 @@
     Bicaridine: 15
     TranexamicAcid: 5
   recipeType: MedicalAssembler
+  requiredTechnology: ADTMedAssemblerPens1
 
 - type: microwaveMealRecipe
   id: RecipeBurnAutoInjector
-  name: burn auto-injector
+  name: recipe-burn-auto-injector
   result: BurnAutoInjector
   time: 5
   group: Medicinal
@@ -52,10 +55,11 @@
     Dermaline: 10
     Leporazine: 10
   recipeType: MedicalAssembler
+  requiredTechnology: ADTMedAssemblerPens1
 
 - type: microwaveMealRecipe
   id: RecipeRadAutoInjector
-  name: rad auto-injector
+  name: recipe-rad-auto-injector
   result: RadAutoInjector
   time: 5
   group: Medicinal
@@ -65,10 +69,11 @@
     Arithrazine: 15
     Bicaridine: 5
   recipeType: MedicalAssembler
+  requiredTechnology: ADTMedAssemblerPens1
 
 - type: microwaveMealRecipe
   id: RecipePunctAutoInjector
-  name: puncturase auto-injector
+  name: recipe-puncturase-auto-injector
   result: PunctAutoInjector
   time: 5
   group: Medicinal
@@ -78,10 +83,11 @@
     Puncturase: 10
     TranexamicAcid: 5
   recipeType: MedicalAssembler
+  requiredTechnology: ADTMedAssemblerPens2
 
 - type: microwaveMealRecipe
   id: RecipePyraAutoInjector
-  name: pyrazine auto-injector
+  name: recipe-pyrazine-auto-injector
   result: PyraAutoInjector
   time: 5
   group: Medicinal
@@ -91,25 +97,13 @@
     Pyrazine: 10
     Dermaline: 10
   recipeType: MedicalAssembler
-
-- type: microwaveMealRecipe
-  id: RecipeAirlossAutoInjector
-  name: airloss auto-injector
-  result: AirlossAutoInjector
-  time: 5
-  group: Medicinal
-  solids:
-    ADTBlankMediPen: 1
-  reagents:
-    Saline: 20
-    DexalinPlus: 20
-  recipeType: MedicalAssembler
+  requiredTechnology: ADTMedAssemblerPens2
 
 #Frontier pen recipes
 
 - type: microwaveMealRecipe
   id: RecipePenHemostasis
-  name: hemostasis auto-injector
+  name: recipe-hemostasis-auto-injector
   result: ADTHemostasisAutoInjector
   time: 5
   group: Medicinal
@@ -119,10 +113,11 @@
     TranexamicAcid: 5
     Saline: 15
   recipeType: MedicalAssembler
+  requiredTechnology: ADTMedAssemblerPens2
 
 - type: microwaveMealRecipe
   id: RecipePenStimulant
-  name: stimulant auto-injector
+  name: recipe-stimulant-auto-injector
   result: ADTStimulantAutoInjector
   time: 5
   group: Medicinal
@@ -132,10 +127,11 @@
     Desoxyephedrine: 10
     Dylovene: 10
   recipeType: MedicalAssembler
+  requiredTechnology: ADTMedAssemblerPens2
 
 - type: microwaveMealRecipe
   id: RecipePenCrisisAutoInjector
-  name: crisis auto-injector
+  name: recipe-crisis-auto-injector
   result: ADTCrisisAutoInjector
   time: 5
   group: Medicinal
@@ -145,10 +141,11 @@
     Inaprovaline: 10
     DexalinPlus: 10
   recipeType: MedicalAssembler
+  requiredTechnology: ADTMedAssemblerPens2
 
 - type: microwaveMealRecipe
   id: RecipePenLacerAutoInjector
-  name: lacerinol auto-injector
+  name: recipe-lacerinol-auto-injector
   result: ADTLacerAutoInjector
   time: 5
   group: Medicinal
@@ -158,10 +155,11 @@
     Lacerinol: 10
     TranexamicAcid: 5
   recipeType: MedicalAssembler
+  requiredTechnology: ADTMedAssemblerPens3
 
 - type: microwaveMealRecipe
   id: RecipePenBruizAutoInjector
-  name: bruizine auto-injector
+  name: recipe-bruizine-auto-injector
   result: ADTBruizAutoInjector
   time: 5
   group: Medicinal
@@ -171,10 +169,11 @@
     Bruizine: 10
     TranexamicAcid: 5
   recipeType: MedicalAssembler
+  requiredTechnology: ADTMedAssemblerPens3
 
 - type: microwaveMealRecipe
   id: RecipePenEthylredoxrazineAutoInjector
-  name: barkeeper's friend auto-injector
+  name: recipe-barkeepers-friend-auto-injector
   result: ADTEthylredoxrazineAutoInjector
   time: 5
   group: Medicinal
@@ -183,4 +182,27 @@
   reagents:
     Ethylredoxrazine: 15
     Dylovene: 5
+  recipeType: MedicalAssembler
+  requiredTechnology: ADTMedAssemblerPens3
+
+- type: microwaveMealRecipe
+  id: RecipeMedicatedSutureAssembler
+  name: recipe-medicated-suture-assembler
+  result: MedicatedSuture
+  time: 10
+  group: Medicinal
+  reagents:
+    TranexamicAcid: 40
+    Cryptobiolin: 40
+  recipeType: MedicalAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeRegenerativeMeshAssembler
+  name: recipe-regenerative-mesh-assembler
+  result: RegenerativeMesh
+  time: 10
+  group: Medicinal
+  reagents:
+    Sigynate: 40
+    Dermaline: 40
   recipeType: MedicalAssembler

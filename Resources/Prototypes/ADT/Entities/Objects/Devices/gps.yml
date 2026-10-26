@@ -21,6 +21,8 @@
   - type: Gps
     tag: MINE0
   - type: HandheldGPS
+  - type: ADTMagmiteUpgradable
+    result: ADTGpsMagmite
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -34,7 +36,7 @@
           False: { visible: false }
   - type: ActivatableUI
     key: enum.GpsUiKey.Key
-    inHandsOnly: true
+    inHandsOnly: false
     requireActiveHand: false
   - type: UserInterface
     interfaces:

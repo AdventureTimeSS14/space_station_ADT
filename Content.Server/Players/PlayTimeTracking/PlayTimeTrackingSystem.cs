@@ -2,12 +2,12 @@ using System.Linq;
 using Content.Server.Administration;
 using Content.Server.Administration.Managers;
 using Content.Server.Afk;
-using Content.Server.Afk.Events;
 using Content.Server.Corvax.Sponsors;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
 using Content.Server.Preferences.Managers;
 using Content.Server.Station.Events;
+using Content.Shared.Afk.Events;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Content.Shared.Mobs;
@@ -28,17 +28,17 @@ namespace Content.Server.Players.PlayTimeTracking;
 /// <summary>
 /// Connects <see cref="PlayTimeTrackingManager"/> to the simulation state. Reports trackers and such.
 /// </summary>
-public sealed class PlayTimeTrackingSystem : EntitySystem
+public sealed partial class PlayTimeTrackingSystem : EntitySystem
 {
-    [Dependency] private readonly IAdminManager _adminManager = default!;
-    [Dependency] private readonly IAfkManager _afk = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IServerPreferencesManager _preferencesManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
-    [Dependency] private readonly SharedRoleSystem _roles = default!;
-    [Dependency] private readonly PlayTimeTrackingManager _tracking = default!;
-    [Dependency] private readonly SponsorsManager _sponsorsManager = default!; //ADT-Sponsors-Job
+    [Dependency] private IAdminManager _adminManager = default!;
+    [Dependency] private IAfkManager _afk = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IServerPreferencesManager _preferencesManager = default!;
+    [Dependency] private SharedRoleSystem _roles = default!;
+    [Dependency] private PlayTimeTrackingManager _tracking = default!;
+    [Dependency] private SponsorsManager _sponsorsManager = default!; //ADT-Sponsors-Job
+    [Dependency] private Content.Server.ADT.Sponsors.SponsorManager _adtSponsors = default!;
 
     public override void Initialize()
     {
@@ -51,8 +51,8 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
         SubscribeLocalEvent<PlayerDetachedEvent>(OnPlayerDetached);
         SubscribeLocalEvent<RoleAddedEvent>(OnRoleEvent);
         SubscribeLocalEvent<RoleRemovedEvent>(OnRoleEvent);
-        SubscribeLocalEvent<AFKEvent>(OnAFK);
-        SubscribeLocalEvent<UnAFKEvent>(OnUnAFK);
+        SubscribeLocalEvent<AfkEvent>(OnAfk);
+        SubscribeLocalEvent<UnAfkEvent>(OnUnAfk);
         SubscribeLocalEvent<MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<PlayerJoinedLobbyEvent>(OnPlayerJoinedLobby);
         SubscribeLocalEvent<StationJobsGetCandidatesEvent>(OnStationJobsGetCandidates);
@@ -102,7 +102,7 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
         if (!TryComp<MobStateComponent>(attached, out var state))
             return false;
 
-        return state.CurrentState is MobState.Alive or MobState.Critical;
+        return state.CurrentState is MobState.Alive or MobState.SoftCritical or MobState.Critical; // ADT-Tweak
     }
 
     public IEnumerable<string> GetTimedRoles(EntityUid mindId)
@@ -112,7 +112,7 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
             if (string.IsNullOrWhiteSpace(role.PlayTimeTrackerId))
                 continue;
 
-            yield return _prototypes.Index<PlayTimeTrackerPrototype>(role.PlayTimeTrackerId).ID;
+            yield return ProtoMan.Index<PlayTimeTrackerPrototype>(role.PlayTimeTrackerId).ID;
         }
     }
 
@@ -137,12 +137,12 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
         _tracking.Save();
     }
 
-    private void OnUnAFK(ref UnAFKEvent ev)
+    private void OnUnAfk(ref UnAfkEvent ev)
     {
         _tracking.QueueRefreshTrackers(ev.Session);
     }
 
-    private void OnAFK(ref AFKEvent ev)
+    private void OnAfk(ref AfkEvent ev)
     {
         _tracking.QueueRefreshTrackers(ev.Session);
     }
@@ -245,21 +245,26 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
         if (!_cfg.GetCVar(CCVars.GameRoleTimers))
             return true;
 
-        //ADT-Sponsors-Job-Start
-        var info = _sponsorsManager.TryGetInfo(player.UserId, out var sponsorInfo);
-
-        if (info && sponsorInfo != null)
-        {
-            if (sponsorInfo.AllowJob)
-                return true;
-        }
-        //ADT-Sponsors-Job-End
-
         if (!_tracking.TryGetTrackerTimes(player, out var playTimes))
         {
             Log.Error($"Unable to check playtimes {Environment.StackTrace}");
             playTimes = new Dictionary<string, TimeSpan>();
         }
+
+        return MeetsJobPlaytime(player, job, playTimes);
+    }
+
+    // ADT-Tweak-Start
+    private bool MeetsJobPlaytime(
+        ICommonSession player,
+        ProtoId<JobPrototype> job,
+        IReadOnlyDictionary<string, TimeSpan> playTimes)
+    {
+        if (_adtSponsors.IsJobTimeBypassed(player, job))
+            return true;
+
+        if (_sponsorsManager.TryGetInfo(player.UserId, out var sponsorInfo) && sponsorInfo.AllowJob)
+            return true;
 
         var requirements = _roles.GetRoleRequirements(job);
         return JobRequirements.TryRequirementsMet(
@@ -267,10 +272,11 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
             playTimes,
             out _,
             EntityManager,
-            _prototypes,
+            ProtoMan,
             (HumanoidCharacterProfile?)
             _preferencesManager.GetPreferences(player.UserId).SelectedCharacter);
     }
+    // ADT-Tweak-End
 
     /// <summary>
     /// Checks if the player meets role requirements.
@@ -282,6 +288,11 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
     {
         if (!_cfg.GetCVar(CCVars.GameRoleTimers))
             return true;
+
+        // ADT-Tweak-Start
+        if (_adtSponsors.IsAntagTimeBypassed(player))
+            return true;
+        // ADT-Tweak-End
 
         if (!_tracking.TryGetTrackerTimes(player, out var playTimes))
         {
@@ -295,7 +306,7 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
             playTimes,
             out _,
             EntityManager,
-            _prototypes,
+            ProtoMan,
             (HumanoidCharacterProfile?)
             _preferencesManager.GetPreferences(player.UserId).SelectedCharacter);
     }
@@ -312,9 +323,9 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
             playTimes = new Dictionary<string, TimeSpan>();
         }
 
-        foreach (var job in _prototypes.EnumeratePrototypes<JobPrototype>())
+        foreach (var job in ProtoMan.EnumeratePrototypes<JobPrototype>())
         {
-            if (JobRequirements.TryRequirementsMet(job, playTimes, out _, EntityManager, _prototypes, (HumanoidCharacterProfile?) _preferencesManager.GetPreferences(player.UserId).SelectedCharacter))
+            if (!JobRequirements.TryRequirementsMet(job, playTimes, out _, EntityManager, ProtoMan, (HumanoidCharacterProfile?) _preferencesManager.GetPreferences(player.UserId).SelectedCharacter))
                 roles.Add(job.ID);
         }
 
@@ -336,8 +347,8 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
 
         for (var i = 0; i < jobs.Count; i++)
         {
-            if (_prototypes.Resolve(jobs[i], out var job)
-                && JobRequirements.TryRequirementsMet(job, playTimes, out _, EntityManager, _prototypes, (HumanoidCharacterProfile?) _preferencesManager.GetPreferences(userId).SelectedCharacter))
+            if (ProtoMan.Resolve(jobs[i], out var job)
+                && MeetsJobPlaytime(player, job.ID, playTimes)) // ADT-Tweak
             {
                 continue;
             }

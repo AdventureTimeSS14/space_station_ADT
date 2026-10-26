@@ -6,6 +6,7 @@ using Content.Server.Station.Components;
 using Content.Server.Objectives;
 using Content.Server.Objectives.Components;
 using Content.Server.Roles;
+using Content.Shared.ADT.HolyDamage;
 using Content.Shared.Heretic;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
@@ -24,25 +25,29 @@ namespace Content.Server.GameTicking.Rules;
 
 public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleComponent>
 {
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly SharedRoleSystem _role = default!;
-    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
-    [Dependency] private readonly ObjectivesSystem _objective = default!;
-    [Dependency] private readonly IRobustRandom _rand = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _userInterfaceSystem = default!;
-    [Dependency] private readonly StoreSystem _store = default!;
+    [Dependency] private MindSystem _mind = default!;
+    [Dependency] private AntagSelectionSystem _antag = default!;
+    [Dependency] private SharedRoleSystem _role = default!;
+    [Dependency] private NpcFactionSystem _npcFaction = default!;
+    [Dependency] private ObjectivesSystem _objective = default!;
+    [Dependency] private SharedUserInterfaceSystem _userInterfaceSystem = default!;
+    [Dependency] private StoreSystem _store = default!;
 
 
     public readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/ADT/Heretic/Ambience/Antag/Heretic/heretic_gain.ogg");
 
-    [ValidatePrototypeId<NpcFactionPrototype>] public readonly ProtoId<NpcFactionPrototype> HereticFactionId = "Heretic";
+    public static readonly SoundSpecifier BriefingSoundIntense =
+        new SoundPathSpecifier("/Audio/ADT/Heretic/Ambience/Antag/Heretic/heretic_gain_intense.ogg");
 
-    [ValidatePrototypeId<NpcFactionPrototype>] public readonly ProtoId<NpcFactionPrototype> NanotrasenFactionId = "NanoTrasen";
+    public readonly ProtoId<NpcFactionPrototype> HereticFactionId = "Heretic";
 
-    [ValidatePrototypeId<CurrencyPrototype>] public readonly ProtoId<CurrencyPrototype> Currency = "KnowledgePoint";
+    public readonly ProtoId<NpcFactionPrototype> NanotrasenFactionId = "NanoTrasen";
 
-    [ValidatePrototypeId<EntityPrototype>] static EntProtoId _mindRole = "MindRoleHeretic";
+    public readonly ProtoId<CurrencyPrototype> Currency = "KnowledgePoint";
+
+    static EntProtoId _mindRole = "MindRoleHeretic";
+
+    public const int InfluencesPerHeretic = 3;
 
     public override void Initialize()
     {
@@ -64,7 +69,7 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
         if (grid == null)
             return;
 
-        for (int i = 0; i < _rand.Next(6, 8); i++)
+        for (int i = 0; i < InfluencesPerHeretic; i++)
             if (TryFindRandomTile(out var _, out var _, out var _, out var coords))
                 Spawn("EldritchInfluence", coords);
     }
@@ -74,7 +79,8 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
         if (!_mind.TryGetMind(target, out var mindId, out var mind))
             return false;
 
-        _role.MindAddRole(mindId, _mindRole.Id, mind, true);
+        if (!_role.MindHasRole<HereticRoleComponent>(mindId))
+            _role.MindAddRole(mindId, _mindRole.Id, mind, true);
 
         // briefing
         if (HasComp<MetaDataComponent>(target))
@@ -86,23 +92,20 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
         _npcFaction.RemoveFaction(target, NanotrasenFactionId, false);
         _npcFaction.AddFaction(target, HereticFactionId);
 
-        EnsureComp<HereticComponent>(target);
-
+        EnsureComp<HereticComponent>(mindId);
+        EnsureComp<HolyAffectedComponent>(target);
         // add store
-        var store = EnsureComp<StoreComponent>(target);
+        var store = EnsureComp<StoreComponent>(mindId);
         foreach (var category in rule.StoreCategories)
             store.Categories.Add(category);
         store.CurrencyWhitelist.Add(Currency);
         store.Balance.Add(Currency, 2);
         _store.RefreshAllListings(store);
 
-        var uiComp = EnsureComp<UserInterfaceComponent>(target);
-        if (!_userInterfaceSystem.HasUi(target, StoreUiKey.Key, uiComp))
-        {
-            _userInterfaceSystem.SetUi(target, StoreUiKey.Key, new InterfaceData("StoreBoundUserInterface"));
-        }
-        
-        _store.UpdateUserInterface(target, target, store);
+        _userInterfaceSystem.SetUi(mindId, StoreUiKey.Key, new InterfaceData("StoreBoundUserInterface", -1));
+        _userInterfaceSystem.SetUi(mindId, HereticLivingHeartKey.Key, new InterfaceData("LivingHeartMenuBoundUserInterface", -1));
+
+        _store.UpdateUserInterface(target, mindId, store);
 
         rule.Minds.Add(mindId);
 

@@ -26,7 +26,7 @@
 #      - ADTAbominationHypertrophied
 #      - ADTAbominationBloated
       - MobWatcherLavaland
-      - MobGoliath
+      - ADTMobLavalandGoliath
       - ADTMobLegion
       - ADTMobNightmareSpider
       - ADTMobShockSpider
@@ -36,7 +36,7 @@
       - MobWatcherMagmawing
       - MobWatcherIcewing
     rarePrototypes:
-      - MobAncientGoliath
+      - ADTMobLavalandGoliathAncient
 #      - ADTAbominationDeath
   - type: TimedDespawn
     lifetime: 1
@@ -151,7 +151,7 @@
         state: alive_1
   - type: ConditionalSpawner
     prototypes:
-      - ADTMobBloodMiner
+      - ADTMegaFaunaBloodMiner
 
 - type: entity
   name: Drake Spawner
@@ -165,7 +165,7 @@
         state: dragon
   - type: ConditionalSpawner
     prototypes:
-      - MobDrake
+      - ADTMegaFaunaDrake
 
 - type: entity
   name: Abomination Spawner
@@ -390,3 +390,45 @@
   - type: ConditionalSpawner
     prototypes:
       - MobArgocyteLeviathing
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobMonkeyAdvanced
+  name: Advanced Monkey Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: monkey
+      sprite: Mobs/Animals/monkey.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobMonkeyAdvanced
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobKobold
+  name: Kobold Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: kobold
+      sprite: Mobs/Animals/kobold.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobKobold
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobKoboldAdvanced
+  name: Advanced Kobold Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: kobold
+      sprite: Mobs/Animals/kobold.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobKoboldAdvanced

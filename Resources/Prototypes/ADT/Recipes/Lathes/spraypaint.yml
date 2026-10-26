@@ -1,0 +1,52 @@
+- type: latheRecipe
+  abstract: true
+  id: ADTSprayPaintBase
+  completetime: 2
+  materials:
+    Steel: 200
+    Plastic: 200
+
+- type: latheRecipe
+  parent: ADTSprayPaintBase
+  id: ADTSprayPaintRed
+  result: SprayPaintRed
+
+- type: latheRecipe
+  parent: ADTSprayPaintBase
+  id: ADTSprayPaintOrange
+  result: SprayPaintOrange
+
+- type: latheRecipe
+  parent: ADTSprayPaintBase
+  id: ADTFunnyPaintYellow
+  result: FunnyPaintYellow
+
+- type: latheRecipe
+  parent: ADTSprayPaintBase
+  id: ADTSprayPaintGreen
+  result: SprayPaintGreen
+
+- type: latheRecipe
+  parent: ADTSprayPaintBase
+  id: ADTSprayPaintBlue
+  result: SprayPaintBlue
+
+- type: latheRecipe
+  parent: ADTSprayPaintBase
+  id: ADTSprayPaintPurple
+  result: SprayPaintPurple
+
+- type: latheRecipe
+  parent: ADTSprayPaintBase
+  id: ADTFunnyPaint
+  result: FunnyPaint
+
+- type: latheRecipe
+  parent: ADTSprayPaintBase
+  id: ADTSprayPaintWhite
+  result: SprayPaintWhite
+
+- type: latheRecipe
+  parent: ADTSprayPaintBase
+  id: ADTSprayPaintBlack
+  result: SprayPaintBlack

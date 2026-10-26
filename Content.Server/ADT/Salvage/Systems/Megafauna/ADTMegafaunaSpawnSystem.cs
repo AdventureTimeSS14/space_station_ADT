@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Server.ADT.Generation;
+using Content.Server.ADT.Procedural;
 using Content.Server.Procedural;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
@@ -10,8 +11,9 @@ namespace Content.Server.ADT.Salvage.Systems;
 
 public sealed class ADTMegafaunaSpawnSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private ADTLavalandGenerationSystem _generation = default!;
 
     private readonly List<(EntProtoId Proto, EntityCoordinates Coords)> _pendingSpawns = new();
 
@@ -99,17 +101,25 @@ public sealed class ADTMegafaunaSpawnSystem : EntitySystem
                 return false;
         }
 
+        TryComp<ADTLavalandGenerationComponent>(ent, out var generation);
+        if (generation != null && _generation.IsExcluded(generation, coords.Position))
+            return false;
+
         if (!comp.AvoidRooms)
             return true;
 
         var clearanceSq = comp.RoomClearance * comp.RoomClearance;
 
-        if (TryComp<ADTLavalandGenerationComponent>(ent, out var generation) &&
-            generation.Placed.Any(room => Vector2.DistanceSquared(coords.Position, room) < clearanceSq))
+        if (generation != null && generation.Placed.Any(room => Vector2.DistanceSquared(coords.Position, room) < clearanceSq))
+            return false;
+
+        if (TryComp<ADTOccupiedRoomsComponent>(ent, out var occupied) &&
+            occupied.Rooms.Any(room => room.Enlarged(comp.RoomMargin).Contains(coords.Position)))
         {
             return false;
         }
 
-        return !_lookup.GetEntitiesInRange(coords, comp.RoomClearance).Any(e => HasComp<RoomFillComponent>(e));
+        return !_lookup.GetEntitiesInRange(coords, comp.RoomClearance)
+            .Any(e => HasComp<RoomFillComponent>(e) || HasComp<ADTRoomFillComponent>(e));
     }
 }

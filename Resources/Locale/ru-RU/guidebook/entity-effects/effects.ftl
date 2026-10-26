@@ -472,11 +472,17 @@ entity-effect-guidebook-reduce-rotting =
         *[other] регенерирует
     } {NATURALFIXED($time, 3)} {MANY("секунд", $time)} гниения
 
-entity-effect-guidebook-area-reaction =
+# ADT Tweak start
+entity-effect-guidebook-area-reaction = Вызывает дым или пену на {NATURALFIXED($duration, 3)} {MANY("секунд", $duration)}
+
+entity-effect-guidebook-convert-reagent = Превращает { $removeAmount }x { $remove } в { $addAmount }x { $add }
+
+entity-effect-guidebook-flash-reaction-effect =
     { $chance ->
         [1] Вызывает
         *[other] вызывает
-    } дым или пену на {NATURALFIXED($duration, 3)} {MANY("секунд", $duration)}
+    } ослепляющую вспышку
+# ADT Tweak end
 
 entity-effect-guidebook-add-to-solution-reaction =
     { $chance ->
@@ -537,3 +543,31 @@ entity-effect-guidebook-plant-seeds-remove =
         [1] Удаляет
         *[other] удаляет
     } семена с растения
+entity-effect-guidebook-satiate =
+    { $chance ->
+        [1] Восполняет
+       *[other] восполняют
+    } { $relative ->
+        [1] показатель «{ $type }» в обычном темпе
+       *[other] показатель «{ $type }» в { NATURALFIXED($relative, 3) }x от обычного темпа
+    }
+entity-effect-guidebook-plant-mutate-exude-gasses =
+    { $chance ->
+        [1] Мутирует
+       *[other] мутируют
+    } растение, заставляя его выделять газы в количестве от { $minValue } до { $maxValue } моль
+entity-effect-guidebook-plant-mutate-consume-gasses =
+    { $chance ->
+        [1] Мутирует
+       *[other] мутируют
+    } растение, заставляя его поглощать газы в количестве от { $minValue } до { $maxValue } моль
+entity-effect-guidebook-plant-mutate-chemicals =
+    { $chance ->
+        [1] Мутирует
+       *[other] мутируют
+    } растение, заставляя его вырабатывать { $name }
+entity-effect-disarm =
+    { $chance ->
+        [1] Обезоруживает
+       *[other] обезоруживают
+    } цель

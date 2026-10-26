@@ -8,12 +8,12 @@ using Robust.Shared.Network;
 
 namespace Content.Shared.Power.EntitySystems;
 
-public abstract class SharedPowerReceiverSystem : EntitySystem
+public abstract partial class SharedPowerReceiverSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _netMan = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPowerNetSystem _net = default!;
+    [Dependency] private INetManager _netMan = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedPowerNetSystem _net = default!;
 
     public abstract bool ResolveApc(EntityUid entity, [NotNullWhen(true)] ref SharedApcPowerReceiverComponent? component);
 
@@ -68,7 +68,7 @@ public abstract class SharedPowerReceiverSystem : EntitySystem
         if (playSwitchSound)
         {
             _audio.PlayPredicted(new SoundPathSpecifier("/Audio/Machines/machine_switch.ogg"), uid, user: user,
-                AudioParams.Default.WithVolume(-2f));
+                AudioParams.Default.AddVolume(-2f));
         }
 
         if (_netMan.IsClient && receiver.PowerDisabled)
@@ -102,6 +102,16 @@ public abstract class SharedPowerReceiverSystem : EntitySystem
 
         entity.Comp.Load = load;
     }
+
+    // ADT-Tweak start
+    public void SetBatteryRechargeRate(EntityUid uid, float rechargeRate, ApcPowerReceiverBatteryComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return;
+
+        component.BatteryRechargeRate = rechargeRate;
+    }
+    // ADT-Tweak end
 
     /// <summary>
     /// Checks if entity is APC-powered device, and if it have power.

@@ -1,0 +1,211 @@
+- type: entity
+  id: ADTMobLavalandGoliath
+  parent: [ BaseMobAsteroid, MobBloodstream, BaseSlicingRefinable, BaseMobDestructible ]
+  name: goliath
+  description: A hulking, armor-plated beast with long tentacles arching from its back.
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Aliens/Lavaland/lavaland_goliath.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: goliath
+    - map: ["enum.ADTLavalandGoliathVisualLayers.Glow"]
+      state: goliath_e
+      shader: unshaded
+  - type: ADTLavalandGoliath
+    preAttackState: goliath_preattack
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 0.85
+    baseSprintSpeed: 0.85
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 1500
+      behaviors:
+      - !type:GibBehavior { }
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Heat
+        damage: 1500
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawnInContainer: true
+        spawn:
+          Ash:
+            min: 1
+            max: 1
+      - !type:BurnBodyBehavior
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MeatLaserImpact
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      300: Dead
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Weapons/punch1.ogg
+    angle: 0
+    attackRate: 0.75
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Blunt: 25
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    constantlyReplan: false
+    rootTask:
+      task: GoliathCompound
+    blackboard:
+      VisionRadius: !type:Single
+        7
+      AggroVisionRadius: !type:Single
+        9
+      NavSmash: !type:Bool
+        true
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - Goliath
+    - FootstepSound
+  - type: NoSlip
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodMeatGoliath
+      amount: 2
+    - id: MaterialGoliathHide1
+      amount: 1
+    - id: MaterialBones1
+      amount: 2
+  - type: Fauna
+  - type: AshStormImmune
+  - type: ADTLavaImmune
+  - type: ADTMobLoot
+    loots:
+      ADTKineticTrophyGoliathTentacle: 0.1
+
+- type: entity
+  id: ADTMobLavalandGoliathAncient
+  parent: ADTMobLavalandGoliath
+  name: ancient goliath
+  description: Goliaths are biologically immortal, and rare specimens have survived for centuries. This one is clearly ancient, and its tentacles constantly churn the earth around it.
+  components:
+  - type: Sprite
+    sprite: Mobs/Aliens/Asteroid/goliath.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: goliath
+  - type: ADTLavalandGoliath
+    reflectChance: 0.5
+    ancientTentacles: true
+    chargeDecoyPrototype: ADTEffectLavalandGoliathAncientChargeDecoy
+    idleState: goliath
+    aggroState: goliath_alert
+    preAttackState: goliath_preattack
+    deadState: goliath_dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      400: Dead
+  - type: HTN
+    constantlyReplan: false
+    rootTask:
+      task: ADTLavalandGoliathAncientCompound
+    blackboard:
+      VisionRadius: !type:Single
+        7
+      AggroVisionRadius: !type:Single
+        9
+      NavSmash: !type:Bool
+        true
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodMeatGoliath
+      amount: 2
+    - id: MaterialGoliathHide1
+      amount: 2
+    - id: MaterialBones1
+      amount: 2
+  - type: ADTMobLoot
+    loots:
+      ADTKineticTrophyAncientGoliathTentacle: 0.1
+
+- type: entity
+  id: ADTEffectLavalandGoliathTentacle
+  categories: [ HideSpawnMenu ]
+  name: goliath tentacle
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+  - type: Sprite
+    sprite: Mobs/Aliens/Asteroid/goliath.rsi
+    drawdepth: BelowMobs
+    layers:
+    - state: goliath_tentacle_spawn
+      map: [ "tentacle" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ADTGoliathTentacleVisuals.Stage:
+        tentacle:
+          Spawning: { state: goliath_tentacle_spawn }
+          Wiggling: { state: goliath_tentacle_wiggle }
+          Latched: { state: goliath_tentacle_wiggle }
+          Retracting: { state: goliath_tentacle_retract }
+  - type: ADTLavalandGoliathTentacle
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  id: ADTEffectLavalandGoliathChargeDecoy
+  categories: [ HideSpawnMenu ]
+  name: ""
+  components:
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+  - type: Sprite
+    sprite: ADT/Mobs/Aliens/Lavaland/lavaland_goliath.rsi
+    drawdepth: Effects
+    color: "#FF0000"
+    scale: 1.5, 1.5
+    layers:
+    - state: goliath
+  - type: HierophantFade
+    startAlpha: 0.8
+    duration: 1
+  - type: TimedDespawn
+    lifetime: 1
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  parent: ADTEffectLavalandGoliathChargeDecoy
+  id: ADTEffectLavalandGoliathAncientChargeDecoy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Mobs/Aliens/Asteroid/goliath.rsi
+    drawdepth: Effects
+    color: "#FF0000"
+    scale: 1.5, 1.5
+    layers:
+    - state: goliath
+
+- type: htnCompound
+  id: ADTLavalandGoliathAncientCompound
+  branches:
+    - tasks:
+        - !type:HTNCompoundTask
+          task: GoliathMeleeCombatPrecondition

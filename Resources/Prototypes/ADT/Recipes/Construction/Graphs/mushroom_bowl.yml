@@ -1,0 +1,37 @@
+- type: constructionGraph
+  id: ADTMushroomBowl
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: bowl
+      steps:
+      - tag: ADTAshFloraShavings
+        name: adt-construction-graph-tag-mushroom-shavings
+        icon:
+          sprite: ADT/Objects/Specific/Hydroponics/polypore.rsi
+          state: produce
+      - tag: ADTAshFloraShavings
+        name: adt-construction-graph-tag-mushroom-shavings
+        icon:
+          sprite: ADT/Objects/Specific/Hydroponics/polypore.rsi
+          state: produce
+      - tag: ADTAshFloraShavings
+        name: adt-construction-graph-tag-mushroom-shavings
+        icon:
+          sprite: ADT/Objects/Specific/Hydroponics/polypore.rsi
+          state: produce
+      - tag: ADTAshFloraShavings
+        name: adt-construction-graph-tag-mushroom-shavings
+        icon:
+          sprite: ADT/Objects/Specific/Hydroponics/polypore.rsi
+          state: produce
+      - tag: ADTAshFloraShavings
+        name: adt-construction-graph-tag-mushroom-shavings
+        icon:
+          sprite: ADT/Objects/Specific/Hydroponics/polypore.rsi
+          state: produce
+        doAfter: 2
+
+  - node: bowl
+    entity: ADTMushroomBowl

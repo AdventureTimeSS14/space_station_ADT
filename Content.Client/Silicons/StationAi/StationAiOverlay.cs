@@ -1,9 +1,12 @@
 using System.Numerics;
 using Content.Client.Graphics;
+using Content.Shared.CCVar;
 using Content.Shared.Silicons.StationAi;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
+using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
@@ -11,17 +14,19 @@ using Robust.Shared.Timing;
 
 namespace Content.Client.Silicons.StationAi;
 
-public sealed class StationAiOverlay : Overlay
+public sealed partial class StationAiOverlay : Overlay
 {
     private static readonly ProtoId<ShaderPrototype> CameraStaticShader = "CameraStatic";
+    private static readonly ProtoId<ShaderPrototype> CameraStaticAccessibleShader = "CameraStaticAccessible";
     private static readonly ProtoId<ShaderPrototype> StencilMaskShader = "StencilMask";
     private static readonly ProtoId<ShaderPrototype> StencilDrawShader = "StencilDraw";
 
-    [Dependency] private readonly IClyde _clyde = default!;
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private IClyde _clyde = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
 
@@ -29,12 +34,20 @@ public sealed class StationAiOverlay : Overlay
 
     private readonly OverlayResourceCache<CachedResources> _resources = new();
 
+    private ProtoId<ShaderPrototype> _activeShader = CameraStaticShader;
     private float _updateRate = 1f / 30f;
     private float _accumulator;
 
     public StationAiOverlay()
     {
         IoCManager.InjectDependencies(this);
+        _cfg.OnValueChanged(CCVars.DisableAiStatic, OnAiStaticChanged, invokeImmediately: true);
+
+    }
+
+    private void OnAiStaticChanged(bool toggle)
+    {
+        _activeShader = toggle ? CameraStaticAccessibleShader : CameraStaticShader;
     }
 
     protected override void Draw(in OverlayDrawArgs args)
@@ -58,8 +71,30 @@ public sealed class StationAiOverlay : Overlay
         var playerEnt = _player.LocalEntity;
         _entManager.TryGetComponent(playerEnt, out TransformComponent? playerXform);
         var gridUid = playerXform?.GridUid ?? EntityUid.Invalid;
+
+        // ADT-Tweak start
+        if (playerEnt is { } p &&
+            _entManager.TryGetComponent(p, out EyeComponent? eyeComp) &&
+            eyeComp.Target is { } target &&
+            !_entManager.Deleted(target) &&
+            _entManager.TryGetComponent(target, out TransformComponent? targetXform) &&
+            targetXform.GridUid is { } targetGrid)
+        {
+            gridUid = targetGrid;
+        }
+        // ADT-Tweak end
+
         _entManager.TryGetComponent(gridUid, out MapGridComponent? grid);
         _entManager.TryGetComponent(gridUid, out BroadphaseComponent? broadphase);
+
+        // ADT-Tweak start
+        var visionNetwork = default(string?);
+        if (playerEnt is { } player &&
+            _entManager.TryGetComponent(player, out StationAiOverlayComponent? overlayComp))
+        {
+            visionNetwork = overlayComp.VisionNetwork;
+        }
+        // ADT-Tweak end
 
         var invMatrix = args.Viewport.GetWorldToLocalMatrix();
         _accumulator -= (float) _timing.FrameTime.TotalSeconds;
@@ -73,7 +108,7 @@ public sealed class StationAiOverlay : Overlay
             {
                 _accumulator = MathF.Max(0f, _accumulator + _updateRate);
                 _visibleTiles.Clear();
-                _entManager.System<StationAiVisionSystem>().GetView((gridUid, broadphase, grid), worldBounds, _visibleTiles);
+                _entManager.System<StationAiVisionSystem>().GetView((gridUid, broadphase, grid), worldBounds, _visibleTiles, visionNetwork: visionNetwork); // ADT-Tweak
             }
 
             var gridMatrix = xforms.GetWorldMatrix(gridUid);
@@ -97,7 +132,7 @@ public sealed class StationAiOverlay : Overlay
             () =>
             {
                 worldHandle.SetTransform(invMatrix);
-                var shader = _proto.Index(CameraStaticShader).Instance();
+                var shader = _proto.Index(_activeShader).Instance();
                 worldHandle.UseShader(shader);
                 worldHandle.DrawRect(worldBounds, Color.White);
             },

@@ -2,7 +2,7 @@
 # random sprite state when you spawn it.
 - type: entity
   name: base spider
-  parent: SimpleSpaceMobBase
+  parent: [ SimpleSpaceMobBase, BaseSlicingRefinable ]
   id: ADTMobBaseSpider
   abstract: true
   description: Widely recognized to be the literal worst thing in existence.
@@ -46,8 +46,8 @@
     speedModifierThresholds:
       64: 0.7
       72: 0.5
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeatSpider
       amount: 2
   - type: CombatMode
@@ -78,6 +78,7 @@
       path: /Audio/Animals/snake_hiss.ogg
   - type: NoSlip
   - type: Spider
+    spawnsWebsAsNonPlayer: false
   - type: IgnoreSpiderWeb
   - type: Bloodstream
     bloodReferenceSolution:
@@ -89,10 +90,7 @@
     speechSounds: Arachnid
     allowedEmotes: ['Click', 'Chitter']
   - type: Vocal
-    sounds:
-      Male: UnisexArachnid
-      Female: UnisexArachnid
-      Unsexed: UnisexArachnid
+    emoteSounds: UnisexArachnid
   - type: TypingIndicator
     proto: spider
   - type: Tag
@@ -159,7 +157,7 @@
       0: Alive
       70: Dead
   - type: MovementSpeedModifier
-    baseWalkSpeed : 4.3
+    baseWalkSpeed : 2.5
     baseSprintSpeed : 4.3
   - type: SlowOnDamage
     speedModifierThresholds:
@@ -169,12 +167,9 @@
     damage:
       types:
         Piercing: 10
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      melee:
-        reagents:
-        - ReagentId: Toxin
-          Quantity: 50
+    - ADTMobHunterSpiderSolution
   - type: MeleeChemicalInjector
     transferAmount: 2
     solution: melee
@@ -203,7 +198,7 @@
       Dead:
         Base: guard_dead
   - type: MovementSpeedModifier
-    baseWalkSpeed : 3.8
+    baseWalkSpeed : 2.5
     baseSprintSpeed : 3.8
   - type: SlowOnDamage
     speedModifierThresholds:
@@ -217,12 +212,9 @@
     damage:
       types:
         Piercing: 15
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      melee:
-        reagents:
-        - ReagentId: Toxin
-          Quantity: 50
+    - ADTMobGuardSpiderSolution
   - type: MeleeChemicalInjector
     transferAmount: 0.5
     solution: melee
@@ -255,14 +247,14 @@
       0: Alive
       40: Dead
   - type: MovementSpeedModifier
-    baseWalkSpeed : 4.5
+    baseWalkSpeed : 2.5
     baseSprintSpeed : 4.5
   - type: SlowOnDamage
     speedModifierThresholds:
       25: 0.7
       35: 0.5
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeatSpider
       amount: 1
     - id: ADTViperChelicerae
@@ -276,14 +268,11 @@
     damage:
       types:
         Piercing: 7
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      melee:
-        reagents:
-        - ReagentId: ADTLatrotoxin
-          Quantity: 100
+    - ADTMobViperSpiderSolution
   - type: MeleeChemicalInjector
-    transferAmount: 4
+    transferAmount: 6
     solution: melee
 
 - type: entity
@@ -324,16 +313,16 @@
   - type: Stamina
     baseCritThreshold: 200
   - type: MovementSpeedModifier
-    baseWalkSpeed : 2.7
-    baseSprintSpeed : 2.7
+    baseWalkSpeed : 2.5
+    baseSprintSpeed : 3
   - type: SlowOnDamage
     speedModifierThresholds:
-      280: 0.7
-      320: 0.5
+      100: 0.7
+      150: 0.5
   - type: MobThresholds
     thresholds:
       0: Alive
-      350: Dead
+      200: Dead
   - type: Prying # Open door from xeno.yml.
     speedModifier: 3
   - type: MeleeWeapon
@@ -371,6 +360,9 @@
         - SmallMobMask
         layer:
         - SmallMobLayer
+  - type: Tag
+    tags:
+    - FootstepSound
   - type: DamageStateVisuals
     states:
       Alive:
@@ -434,12 +426,9 @@
     pryPowered: false
     force: false
     speedModifier: 0.1
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      melee:
-        reagents:
-        - ReagentId: Toxin
-          Quantity: 30
+    - ADTMobMiniSpiderSolution
   - type: MeleeChemicalInjector
     transferAmount: 1
     solution: melee
@@ -469,8 +458,8 @@
       noMovementLayers:
         movement:
           state: clown
-    - type: Butcherable
-      spawned:
+    - type: ToolRefinable
+      refineResult:
         - id: MaterialBananium1
           amount: 1
     - type: DamageStateVisuals
@@ -508,12 +497,9 @@
         reagents:
         - ReagentId: Laughter
           Quantity: 150
-    - type: SolutionContainerManager
+    - type: SolutionManager
       solutions:
-        melee:
-          reagents:
-          - ReagentId: Laughter
-            Quantity: 90
+      - ADTMobClownSpiderSolution
     - type: MeleeChemicalInjector
       transferAmount: 3
       solution: melee
@@ -607,3 +593,63 @@
       description: ghost-role-information-giant-spider-description
       rules: ghost-role-information-giant-spider-rules
     - type: GhostTakeoverAvailable
+
+- type: entity
+  parent: SolutionWeapon
+  id: ADTMobHunterSpiderSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 50
+      reagents:
+      - ReagentId: Toxin
+        Quantity: 50
+
+- type: entity
+  parent: SolutionWeapon
+  id: ADTMobGuardSpiderSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 50
+      reagents:
+      - ReagentId: Toxin
+        Quantity: 50
+
+- type: entity
+  parent: SolutionWeapon
+  id: ADTMobViperSpiderSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 100
+      reagents:
+      - ReagentId: ADTLatrotoxin
+        Quantity: 100
+
+- type: entity
+  parent: SolutionWeapon
+  id: ADTMobMiniSpiderSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: Toxin
+        Quantity: 30
+
+- type: entity
+  parent: SolutionWeapon
+  id: ADTMobClownSpiderSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 90
+      reagents:
+      - ReagentId: Laughter
+        Quantity: 90

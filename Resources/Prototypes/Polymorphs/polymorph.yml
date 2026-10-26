@@ -54,7 +54,7 @@
 - type: polymorph
   id: WizardForcedMonkey
   configuration:
-    entity: MobMonkey
+    entity: ADTMobMonkeyAdvanced # ADT tweak
     forced: true
     inventory: None
     transferName: true
@@ -136,22 +136,11 @@
     inventory: Drop
     cooldown: 160
 
-- type: polymorph
-  id: SmartCorgiMorph
-  configuration:
-    entity: MobCorgiSmart
-    forced: false
-    inventory: Drop
-    transferName: true
-    revertOnCrit: false
-    revertOnDeath: false
-    allowRepeatedMorphs: false
-
 # this is the monkey polymorph for artifact.
 - type: polymorph
   id: ArtifactMonkey
   configuration:
-    entity: MobMonkey
+    entity: ADTMobMonkeyAdvanced # ADT tweak
     forced: true
     transferName: true
     allowRepeatedMorphs: true
@@ -199,6 +188,7 @@
   id: WizardSpider
   configuration:
     entity: MobGiantSpiderWizard #Not angry so ghosts can't just take over the wizard
+    revertConfirmationPopup: false
     transferName: true
     inventory: None
     revertOnDeath: true
@@ -240,6 +230,7 @@
     transferName: false
     inventory: None
     forced: false
+    revertConfirmationPopup: false
     revertOnDeath: true
     allowRepeatedMorphs: false
     polymorphSound: /Audio/Magic/ethereal_enter.ogg

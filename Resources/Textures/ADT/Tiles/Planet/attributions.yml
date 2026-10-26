@@ -1,0 +1,9 @@
+- files: ["basalt.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Paradise at https://github.com/ParadiseSS13/Paradise/blob/master/icons/turf/floors/plating.dmi (states basalt, basalt0-basalt12)"
+  source: "https://github.com/ParadiseSS13/Paradise"
+
+- files: ["basalt_dug.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Paradise at https://github.com/ParadiseSS13/Paradise/blob/master/icons/turf/floors/plating.dmi (state basalt_dug)"
+  source: "https://github.com/ParadiseSS13/Paradise"

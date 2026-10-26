@@ -121,18 +121,6 @@
   - type: Repairable
     fuelCost: 10
     doAfterDelay: 5
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 500
-      behaviors:
-        - !type:DoActsBehavior
-          acts: ["Destruction"]
-        - !type:PlaySoundBehavior
-          sound:
-            collection: MetalBreak
-        - !type:ExplodeBehavior
   - type: StaticPrice
     price: 1000
   - type: Explosive
@@ -175,6 +163,18 @@
     containers:
       machine_parts: !type:Container
       machine_board: !type:Container
+
+- type: entity
+  id: ADTBigDebugThruster
+  parent: ADTBigThruster
+  name: big thruster
+  description: Big fuckin boy, BBBRRRROOOOOM.
+  suffix: DEBUG
+  placement:
+    mode: AlignTileAny
+  components:
+  - type: Thruster
+    requireSpace: false
 
 - type: entity
   id: ADTMediumLongThruster

@@ -1,0 +1,444 @@
+- type: entity
+  parent: ClothingOuterBase
+  id: ADTHeliosBrokenVest
+  name: разорванный бронежилет
+  description: Пластины из этого бронежилета выбиты, а ткань распорота от плеча до пояса. Он больше ни от чего не защитит.
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Armor/security.rsi
+    color: "#8a8a8a"
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Armor/security.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTHeliosBrokenHelmet
+  name: расколотая каска охраны
+  description: Каска раскололась пополам, поэтому её можно надеть, но защиты от неё никакой.
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Helmets/security.rsi
+    color: "#8a8a8a"
+  - type: Clothing
+    sprite: Clothing/Head/Helmets/security.rsi
+
+- type: entity
+  parent: BaseItem
+  id: ADTHeliosBrokenPistol
+  name: искорёженный пистолет Mk58
+  description: Затвор этого пистолета разорвало, а ствол погнут. Стрелять из него уже нельзя, и он годится только как улика.
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
+    state: base
+    color: "#9a8f86"
+  - type: Item
+    size: Small
+
+- type: entity
+  parent: BaseItem
+  id: ADTHeliosStaffTag
+  name: жетон сотрудника «Гелиоса»
+  description: Это личный жетон на цепочке. На нём выбиты солнце проекта и номер, который уже никому не нужен.
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Helios/remains.rsi
+    state: tag
+  - type: Item
+    size: Tiny
+
+- type: startingGear
+  id: ADTHeliosGearScientist
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitScientist
+    shoes: ClothingShoesBootsLaceup
+    outerClothing: ClothingOuterCoatLab
+    gloves: ClothingHandsGlovesLatex
+    pocket1: Pen
+
+- type: startingGear
+  id: ADTHeliosGearChemist
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitChemistry
+    shoes: ClothingShoesBootsLaceup
+    outerClothing: ClothingOuterCoatLabChem
+    gloves: ClothingHandsGlovesLatex
+    mask: ClothingMaskSterile
+
+- type: startingGear
+  id: ADTHeliosGearEngineer
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitEngineering
+    shoes: ClothingShoesBootsWork
+    head: ClothingHeadHatHardhatYellow
+    gloves: ClothingHandsGlovesColorBlack
+    pocket1: ADTHeliosStaffTag
+
+- type: startingGear
+  id: ADTHeliosGearOperator
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorGrey
+    shoes: ClothingShoesBootsWork
+    outerClothing: ClothingOuterVestHazard
+    pocket1: ADTHeliosStaffTag
+
+- type: startingGear
+  id: ADTHeliosGearMedic
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMedicalDoctor
+    shoes: ClothingShoesBootsLaceup
+    gloves: ClothingHandsGlovesLatex
+    mask: ClothingMaskSterile
+    head: ClothingHeadHatSurgcapBlue
+
+- type: startingGear
+  id: ADTHeliosGearGuard
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSec
+    shoes: ClothingShoesBootsJack
+    outerClothing: ADTHeliosBrokenVest
+    head: ADTHeliosBrokenHelmet
+    gloves: ClothingHandsGlovesColorBlack
+
+- type: startingGear
+  id: ADTHeliosGearGuardNoHelmet
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSec
+    shoes: ClothingShoesBootsJack
+    outerClothing: ADTHeliosBrokenVest
+    head: ClothingHeadHatBeretSecurity
+
+- type: startingGear
+  id: ADTHeliosGearWorker
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCargo
+    shoes: ClothingShoesBootsWork
+    head: ClothingHeadHatHardhatOrange
+    gloves: ClothingHandsGlovesColorBlack
+    pocket1: ADTHeliosStaffTag
+
+- type: startingGear
+  id: ADTHeliosGearManager
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBlack
+    shoes: ClothingShoesColorBlack
+    neck: ClothingNeckTieRed
+
+- type: startingGear
+  id: ADTHeliosGearCook
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitChef
+    shoes: ClothingShoesColorBlack
+    outerClothing: ClothingOuterApronChef
+    head: ClothingHeadHatChef
+
+- type: entity
+  parent: SalvageHumanCorpse
+  id: ADTHeliosCorpseScience
+  name: тело сотрудника лаборатории
+  suffix: Мёртвый, Гелиос
+  components:
+  - type: Loadout
+    prototypes:
+    - ADTHeliosGearScientist
+    - ADTHeliosGearChemist
+
+- type: entity
+  parent: SalvageHumanCorpse
+  id: ADTHeliosCorpseEngineer
+  name: тело инженера
+  suffix: Мёртвый, Гелиос
+  components:
+  - type: Loadout
+    prototypes:
+    - ADTHeliosGearEngineer
+    - ADTHeliosGearOperator
+
+- type: entity
+  parent: SalvageHumanCorpse
+  id: ADTHeliosCorpseMedic
+  name: тело медика
+  suffix: Мёртвый, Гелиос
+  components:
+  - type: Loadout
+    prototypes:
+    - ADTHeliosGearMedic
+
+- type: entity
+  parent: SalvageHumanCorpse
+  id: ADTHeliosCorpseGuard
+  name: тело охранника
+  suffix: Мёртвый, Гелиос
+  components:
+  - type: Loadout
+    prototypes:
+    - ADTHeliosGearGuard
+    - ADTHeliosGearGuardNoHelmet
+
+- type: entity
+  parent: SalvageHumanCorpse
+  id: ADTHeliosCorpseWorker
+  name: тело рабочего
+  suffix: Мёртвый, Гелиос
+  components:
+  - type: Loadout
+    prototypes:
+    - ADTHeliosGearWorker
+    - ADTHeliosGearCook
+
+- type: entity
+  parent: SalvageHumanCorpse
+  id: ADTHeliosCorpseManager
+  name: тело управляющего
+  suffix: Мёртвый, Гелиос
+  components:
+  - type: Loadout
+    prototypes:
+    - ADTHeliosGearManager
+
+- type: entity
+  id: ADTHeliosRemainsBase
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+  - type: Sprite
+    sprite: ADT/Structures/Helios/remains.rsi
+    drawdepth: FloorObjects
+    noRot: true
+  - type: ADTIndestructible
+    blockItemInteractions: true
+
+- type: entity
+  parent: ADTHeliosRemainsBase
+  id: ADTHeliosRemainsScientist
+  name: останки исследователя
+  description: Исследователь лежит лицом вверх, и халат под ним пропитался кровью. Похоже, он умер быстро.
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    state: body_sci
+
+- type: entity
+  parent: ADTHeliosRemainsBase
+  id: ADTHeliosRemainsEngineer
+  name: останки инженера
+  description: Каска инженера откатилась, а под головой засохла кровь. Он работал до последнего.
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    state: body_eng
+
+- type: entity
+  parent: ADTHeliosRemainsBase
+  id: ADTHeliosRemainsGuard
+  name: останки охранника
+  description: Охранник лежит в луже крови, и пустая кобура на его поясе расстёгнута.
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    state: body_sec
+
+- type: entity
+  parent: ADTHeliosRemainsBase
+  id: ADTHeliosRemainsMedic
+  name: останки медика
+  description: Медик лежит рядом с местом, где, видимо, пытался кого-то спасти.
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    state: body_med
+
+- type: entity
+  parent: ADTHeliosRemainsBase
+  id: ADTHeliosRemainsSheet
+  name: тело в мешке
+  description: Тело успели упаковать в мешок для трупов, но вынести так и не смогли. Из-под мешка натекла кровь.
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    state: sheet
+
+- type: entity
+  parent: ADTHeliosRemainsBase
+  id: ADTHeliosRemainsCharred
+  name: обугленные останки
+  description: Тело обгорело почти дочерна и скорчилось. Опознать человека уже невозможно.
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    state: charred
+
+- type: entity
+  parent: ADTHeliosRemainsBase
+  id: ADTHeliosRemainsSkeleton
+  name: скелет в халате
+  description: От человека остались только кости и лабораторный халат. Жар ядра высушил всё остальное.
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    state: skeleton
+
+- type: entity
+  parent: ADTHeliosRemainsBase
+  id: ADTHeliosRemainsBuried
+  name: тело под завалом
+  description: Человека накрыло обвалом, и из-под камней видны только ноги.
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    state: buried
+
+- type: entity
+  parent: ADTHeliosRemainsBase
+  id: ADTHeliosRemainsCrawled
+  name: останки раненого
+  description: Раненый полз к выходу, поэтому за телом тянется длинный кровавый след. Он не дополз.
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    state: crawled
+
+- type: entity
+  parent: MarkerBase
+  id: ADTHeliosRandomSpot
+  name: случайное место «Гелиос»
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: ADT/Structures/Helios/documents.rsi
+      state: memo
+  - type: ADTHeliosRandomSpot
+    group: default
+    proto: ADTHeliosStaffTag
+
+- type: entity
+  parent: MarkerBase
+  id: ADTHeliosCorpseSpawnerBase
+  abstract: true
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Skeleton/parts.rsi
+      state: full
+
+- type: entity
+  parent: ADTHeliosCorpseSpawnerBase
+  id: ADTHeliosCorpseSpawnerLab
+  name: возможное тело в лаборатории
+  components:
+  - type: ConditionalSpawner
+    chance: 0.55
+    prototypes:
+    - ADTHeliosCorpseScience
+    - ADTHeliosCorpseScience
+    - ADTHeliosCorpseMedic
+    - ADTHeliosRemainsScientist
+    - ADTHeliosRemainsSkeleton
+    - ADTHeliosRemainsSheet
+
+- type: entity
+  parent: ADTHeliosCorpseSpawnerBase
+  id: ADTHeliosCorpseSpawnerEngineering
+  name: возможное тело в энергосекции
+  components:
+  - type: ConditionalSpawner
+    chance: 0.55
+    prototypes:
+    - ADTHeliosCorpseEngineer
+    - ADTHeliosCorpseEngineer
+    - ADTHeliosCorpseWorker
+    - ADTHeliosRemainsEngineer
+    - ADTHeliosRemainsCharred
+
+- type: entity
+  parent: ADTHeliosCorpseSpawnerBase
+  id: ADTHeliosCorpseSpawnerSecurity
+  name: возможное тело охранника
+  components:
+  - type: ConditionalSpawner
+    chance: 0.55
+    prototypes:
+    - ADTHeliosCorpseGuard
+    - ADTHeliosCorpseGuard
+    - ADTHeliosRemainsGuard
+    - ADTHeliosRemainsCrawled
+
+- type: entity
+  parent: ADTHeliosCorpseSpawnerBase
+  id: ADTHeliosCorpseSpawnerStaff
+  name: возможное тело сотрудника
+  components:
+  - type: ConditionalSpawner
+    chance: 0.5
+    prototypes:
+    - ADTHeliosCorpseWorker
+    - ADTHeliosCorpseManager
+    - ADTHeliosCorpseScience
+    - ADTHeliosCorpseEngineer
+    - ADTHeliosRemainsSheet
+    - ADTHeliosRemainsBuried
+
+- type: entity
+  parent: MarkerBase
+  id: ADTHeliosMonsterSpawner
+  name: возможный монстр «Гелиос»
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+  - type: ConditionalSpawner
+    chance: 0.35
+    prototypes:
+    - ADTMobLegion
+    - ADTMobLegion
+    - MobWatcherLavaland
+
+- type: entity
+  parent: MarkerBase
+  id: ADTHeliosLootSpawner
+  name: возможная находка «Гелиос»
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: ADT/Structures/Helios/remains.rsi
+      state: tag
+  - type: RandomSpawner
+    chance: 0.5
+    offset: 0.25
+    prototypes:
+    - FlashlightLantern
+    - PowerCellMedium
+    - Brutepack
+    - Ointment
+    - FoodTinMRE
+    - DrinkWaterBottleFull
+    - CigPackGreen
+    - Lighter
+    - ClothingMaskGas
+    - ADTHeliosStaffTag
+    - ADTHeliosBrokenPistol
+    - SheetSteel10
+    rarePrototypes:
+    - MedkitFilled
+    - EmergencyMedipen
+    - IngotGold1
+    rareChance: 0.1

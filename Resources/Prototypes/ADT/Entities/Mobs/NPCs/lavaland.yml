@@ -14,65 +14,35 @@
       Alive:
         Base: legion
       Dead:
-        Base: legion_dead
+        Base: legion
   - type: MovementSpeedModifier
-    baseWalkSpeed : 3.5
-    baseSprintSpeed : 4.0
+    baseWalkSpeed : 2.5
+    baseSprintSpeed : 3.0
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Dead # Tweak 75 > 100
+      75: Dead
   - type: MeleeWeapon
     damage:
       types:
-        Blunt: 0
-  - type: Gun
-    fireRate: 0.3
-    selectedMode: SemiAuto
-    showExamineText: false
-    availableModes:
-    - SemiAuto
-    soundGunshot: null
-  - type: RechargeBasicEntityAmmo
-    showExamineText: false
-    rechargeCooldown: 0
-    rechargeSound: null
-  - type: BasicEntityAmmoProvider
-    proto: ADTMobLegionSkull
-    capacity: 1
-    count: 1
+        Blunt: 15
+  - type: ADTLegion
+    corpseProto: ADTLegionCorpseSpawner
+  - type: ADTFlee
+    distance: 6
   - type: NpcFactionMember
     factions:
     - SimpleHostile
   - type: HTN
     rootTask:
-      task: SimpleRangedHostileCompound
+      task: ADTLegionCompound
     blackboard:
       VisionRadius: !type:Single
-        4
+        5
       AggroVisionRadius: !type:Single
-        9
-  - type: Butcherable
-    spawned:
-    - id: FoodHivelordRemains
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 75
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          RandomCargoCorpseSpawner:
-            min: 1
-            max: 1
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          ADTLegionCore:
-            min: 1
-            max: 1
+        5
+      ADTFleeRange: !type:Single
+        3
   - type: Fauna
   - type: AshStormImmune
   - type: ADTMobLoot
@@ -81,7 +51,7 @@
 
 - type: entity
   id: ADTMobLegionSkull
-  parent: BaseMobAsteroid
+  parent: [ BaseMobAsteroid, FlyingMobBase ]
   name: legion skull
   description: A fragment of the original hivelord, rallying behind its original. One isn't much of a threat, but...
   components:
@@ -89,13 +59,24 @@
     sprite: ADT/Mobs/Aliens/Lavaland/legion.rsi
     layers:
     - state: legion_skull
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.30
+        density: 40
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
   - type: MovementSpeedModifier
-    baseWalkSpeed : 3.5
-    baseSprintSpeed : 4.0
+    baseWalkSpeed : 4.5
+    baseSprintSpeed : 5.0
   - type: MobThresholds
     thresholds:
       0: Alive
-      10: Dead #Tweak 5 > 10
+      5: Dead
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
@@ -105,9 +86,8 @@
     animation: WeaponArcPunch
     damage:
       types:
-        Slash: 7
-  - type: Ammo
-    muzzleFlash: null
+        Slash: 12
+  - type: ADTLegionSkull
   - type: Destructible
     thresholds:
     - trigger:
@@ -121,14 +101,14 @@
     - SimpleHostile
   - type: HTN
     rootTask:
-      task: SimpleHostileCompound
+      task: ADTLegionSkullCompound
     blackboard:
       VisionRadius: !type:Single
-        15
+        10
       AggroVisionRadius: !type:Single
-        15
+        10
   - type: TimedDespawn
-    lifetime: 30
+    lifetime: 10
   - type: AshStormImmune
 
 - type: entity
@@ -169,7 +149,7 @@
     actions: AncientGoliathActions
     delay: 3
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTypeTrigger
         damageType: Blunt
@@ -254,26 +234,37 @@
       types:
         Piercing: 5
         Poison: 15
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      melee:
-        reagents:
-        - ReagentId: NorepinephricAcid
-          Quantity: 100
-  - type: SolutionRegeneration
-    solution: melee
-    generated:
-      reagents:
-      - ReagentId: NorepinephricAcid
-        Quantity: 2
+    - SolutionNightmareSpiderVenom
   - type: MeleeChemicalInjector
     transferAmount: 12
     solution: melee
   - type: AshStormImmune
   - type: Fauna
+  - type: Flammable
+    fireSpread: false
+    canResistFire: false
+    alwaysCombustible: false
+    maximumFireStacks: 0
+    damage:
+      types:
+        Heat: 0
   - type: ADTMobLoot
     loots:
       ADTKineticTrophyPoisonFang: 0.1
+  - type: ToolRefinable
+    refineTime: 6
+    refineResult:
+    - id: UraniumOre1
+      amount: 2
+    - id: MaterialBones1
+      amount: 2
+    - id: ADTMaterialSinew1
+    - id: ADTMaterialWeaverChitin1
+      amount: 3
+    - id: FoodMeatSpider
+      amount: 2
 
 - type: entity
   name: Shock Spider
@@ -325,18 +316,9 @@
     damage:
       types:
         Piercing: 20
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      melee:
-        reagents:
-        - ReagentId: Licoxide
-          Quantity: 35
-  - type: SolutionRegeneration
-    solution: melee
-    generated:
-      reagents:
-      - ReagentId: Licoxide
-        Quantity: 2
+    - SolutionShockSpiderVenom
   - type: MeleeChemicalInjector
     transferAmount: 7
     solution: melee
@@ -422,17 +404,12 @@
   suffix: AI
   abstract: true
   components:
-  - type: GrabProtection
-  - type: Thirst
-    thresholds:
-      OverHydrated: 200
-      Okay: 150
-      Thirsty: 100
-      Parched: 50
-      Dead: 0
-    baseDecayRate: 0.04
+  - type: Satiation
+    satiations:
+      Thirst:
+        prototype: SimpleMobBaseThirst
   - type: Temperature
-    currentTemperature: 310.15
+    temperature: 310.15
     specificHeat: 42
   - type: StatusEffects
     allowed:
@@ -452,3 +429,49 @@
   - type: Fauna
   - type: ADTCleanRemains
   - type: AshStormImmune
+  - type: Grabbable
+    escapeChanceMultiplier: 2.5
+    escapeAttemptCooldown: 1
+  - type: Flammable
+    fireSpread: false
+    canResistFire: false
+    alwaysCombustible: false
+    maximumFireStacks: 0
+    damage:
+      types:
+        Heat: 0
+
+- type: entity
+  parent: SolutionWeapon
+  id: SolutionNightmareSpiderVenom
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 100
+      reagents:
+      - ReagentId: NorepinephricAcid
+        Quantity: 100
+  - type: SolutionRegeneration
+    generated:
+      reagents:
+      - ReagentId: NorepinephricAcid
+        Quantity: 2
+
+- type: entity
+  parent: SolutionWeapon
+  id: SolutionShockSpiderVenom
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 35
+      reagents:
+      - ReagentId: Licoxide
+        Quantity: 35
+  - type: SolutionRegeneration
+    generated:
+      reagents:
+      - ReagentId: Licoxide
+        Quantity: 2
+

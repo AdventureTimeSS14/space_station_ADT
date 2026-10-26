@@ -1,0 +1,38 @@
+# Sipay
+- type: entity
+  parent: BaseHandheldInstrument
+  id: ADTEntityRockGuitarInstrument
+  name: Chariton's multi-guitar
+  description: The guitar of strict colors of one strict person. Black keys like a synthesizer are visible on the side of the guitar.
+  components:
+  - type: Instrument
+    allowPercussion: true
+    allowProgramChange: true
+    respectMidiLimits: false
+  - type: Sprite
+    sprite: ADT/Special/Personal/Rock_guitar.rsi
+    state: icon
+  - type: Item
+    size: Normal
+    sprite: ADT/Special/Personal/Rock_guitar.rsi
+
+#CyanWai
+- type: entity
+  parent: AcousticGuitarInstrument
+  id: ADTAcousticGuitarCyanWai
+  name: гитара Ады
+  description: Белая гитара, украшенная рогами на грифе. На обратной стороне есть небольшая выгравированная надпись "Дорогой дочери на ее 30-лунолетие".
+  suffix: Personal, CyanWai
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/cyanwai_guitar48.rsi
+  - type: Item
+    sprite: ADT/Special/Personal/cyanwai_guitar.rsi
+  - type: Clothing
+    sprite: ADT/Special/Personal/cyanwai_guitar.rsi
+  - type: Instrument
+    program: 24
+  - type: SwappableInstrument
+    instrumentList:
+      "Nylon": {24: 0}
+      "Steel": {25: 0}

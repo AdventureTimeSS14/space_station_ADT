@@ -1,0 +1,98 @@
+- type: ttsSanitize
+  id: ADTTTSSanitizeSymbols
+  priority: -100
+  rules:
+  - !type:TTSSanitizeRegex
+    pattern: '(?<=[0-9])[:/](?=[0-9])'
+    replacement: ' '
+  - !type:TTSSanitizeRegex
+    pattern: '°\s*[CС]'
+    replacement: '°C'
+  - !type:TTSSanitizeCountedUnit
+    unit: '°C'
+    one: 'градус Цельсия'
+    few: 'градуса Цельсия'
+    many: 'градусов Цельсия'
+  - !type:TTSSanitizeCountedUnit
+    unit: '°'
+    one: 'градус'
+    few: 'градуса'
+    many: 'градусов'
+  - !type:TTSSanitizeCountedUnit
+    unit: '%'
+    one: 'процент'
+    few: 'процента'
+    many: 'процентов'
+  - !type:TTSSanitizeCountedUnit
+    unit: 'кПа'
+    one: 'килопаскаль'
+    few: 'килопаскаля'
+    many: 'килопаскалей'
+  - !type:TTSSanitizeCountedUnit
+    unit: 'kPa'
+    one: 'килопаскаль'
+    few: 'килопаскаля'
+    many: 'килопаскалей'
+  - !type:TTSSanitizeRegex
+    pattern: '%'
+    replacement: ' процентов'
+  - !type:TTSSanitizeRegex
+    pattern: '°'
+    replacement: ' градусов'
+  - !type:TTSSanitizeRegex
+    pattern: '№'
+    replacement: ' номер '
+  - !type:TTSSanitizeRegex
+    pattern: '&'
+    replacement: ' и '
+  - !type:TTSSanitizeRegex
+    pattern: '='
+    replacement: ' равно '
+  - !type:TTSSanitizeRegex
+    pattern: '(?<=[0-9])\s*\+\s*(?=[0-9])'
+    replacement: ' плюс '
+  - !type:TTSSanitizeRegex
+    pattern: '\bт\s*\.\s*д\s*\.'
+    replacement: 'так далее'
+  - !type:TTSSanitizeRegex
+    pattern: '\bт\s*\.\s*п\s*\.'
+    replacement: 'тому подобное'
+  - !type:TTSSanitizeRegex
+    pattern: '\bт\s*\.\s*к\s*\.'
+    replacement: 'так как'
+  - !type:TTSSanitizeRegex
+    pattern: '\bт\s*\.\s*е\s*\.'
+    replacement: 'то есть'
+
+- type: ttsSanitize
+  id: ADTTTSSanitizeCleanup
+  priority: 400
+  rules:
+  - !type:TTSSanitizeRegex
+    pattern: '(\p{L})\1{3,}'
+    replacement: '$1$1$1'
+  - !type:TTSSanitizeRegex
+    pattern: 'а?(?:ха){2,}'
+    replacement: 'ха ха ха'
+  - !type:TTSSanitizeRegex
+    pattern: 'а?(?:хе){2,}'
+    replacement: 'хе хе хе'
+  - !type:TTSSanitizeRegex
+    pattern: '([!?])\1+'
+    replacement: '$1'
+  - !type:TTSSanitizeRegex
+    pattern: ',{2,}'
+    replacement: ','
+  - !type:TTSSanitizeRegex
+    pattern: '\.{4,}'
+    replacement: '...'
+  - !type:TTSSanitizeRegex
+    pattern: '-{2,}'
+    replacement: '-'
+  - !type:TTSSanitizeRegex
+    pattern: '^[\s,.!?-]+'
+    replacement: ''
+  - !type:TTSSanitizeRegex
+    pattern: '\s{2,}'
+    replacement: ' '
+  - !type:TTSSanitizeTrim

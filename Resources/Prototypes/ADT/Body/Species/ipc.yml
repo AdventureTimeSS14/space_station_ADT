@@ -1,9 +1,78 @@
 # IPC appearance + visual organs (upstream PR#42476). IPC is silicon (non-organic), but the new
 # render pipeline needs visual organs to populate body layers. Only external visual organs are
 # defined (no biological internals). markingsGroup "Ipc" in ADT/Body/markingsGroups.yml.
+- type: markingsGroup
+  parent: Undergarments
+  id: Ipc
+  onlyGroupWhitelisted: true
+  limits:
+    enum.HumanoidVisualLayers.Special:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.TailOverlay:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Hair:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.FacialHair:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Chest:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.Head:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.SnoutCover:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.SnoutOverlay:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.HeadSide:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.Eyes:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.RHand:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.LHand:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.RFoot:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.Overlay:
+      limit: 1
+      required: false
 
-# Appearance used as dollPrototype (character editor). The in-game silicon mob (BaseMobIPC in
-# ADT/Entities/Mobs/Player/silicon_base.yml) gets the same InitialBody added directly.
 - type: entity
   parent: BaseSpeciesAppearance
   id: ADTAppearanceIPC
@@ -119,7 +188,7 @@
     defaultRotation: -90
     horizontalRotation: -90
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTypeTrigger
         damageType: Blunt
@@ -154,7 +223,7 @@
   - type: PointLight
     enabled: false
     color: "#ffffff"
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ADTLightMaskCone
     offset: 0,-0.3
     autoRot: true
     radius: 3
@@ -176,10 +245,7 @@
     priority: 4
     lightningExplode: false
   - type: Vocal
-    sounds:
-      Male: UnisexIPC
-      Female: UnisexIPC
-      Unsexed: UnisexIPC
+    emoteSounds: UnisexIPC
   - type: Deathgasp
     prototype: IPCDeathgasp
     onAnyState: true
@@ -233,11 +299,23 @@
   - type: MidroundCustomization
     selectSlotTime: 0
     changeSlotTime: 0
+    changeVoiceTime: 1
+    playSoundForVoiceChange: false
     allowedLayers:
     - FacialHair
+    pointLightColor: true
+    pointLightLayer: FacialHair
+    changeSlotOnState:
+    - state: Dead
+      organ: Head
+      layer: FacialHair
+      slot: 0
+      marking: ADTIPCScreenBroken
+      colors: [ "#ffffff" ]
   - type: AnimatedEmotes
   - type: Posing
   - type: SoftWalk
+  - type: MirrorReflection
 
 - type: entity
   parent: OrganBaseOrganic
@@ -317,7 +395,7 @@
       map: ["base"]
 
 - type: entity
-  parent: [ OrganBase ]
+  parent: [ OrganBase, OrganBaseChildInternal ]
   id: ADTOrganIPCEyes
   components:
   - type: Sprite

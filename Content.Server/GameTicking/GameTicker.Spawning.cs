@@ -4,14 +4,12 @@ using System.Numerics;
 using Content.Server.Administration.Managers;
 using Content.Server.Administration.Systems;
 using Content.Server.GameTicking.Events;
-using Content.Server.Ghost;
 using Content.Server.Spawners.Components;
-using Content.Server.Speech.Components;
 using Content.Server.Station.Components;
+using Content.Shared.ADT.Ghost.GhostTypes;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
-using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Mind;
 using Content.Shared.Players;
@@ -32,9 +30,9 @@ namespace Content.Server.GameTicking
 {
     public sealed partial class GameTicker
     {
-        [Dependency] private readonly IAdminManager _adminManager = default!;
-        [Dependency] private readonly SharedJobSystem _jobs = default!;
-        [Dependency] private readonly AdminSystem _admin = default!;
+        [Dependency] private IAdminManager _adminManager = default!;
+        [Dependency] private SharedJobSystem _jobs = default!;
+        [Dependency] private AdminSystem _admin = default!;
 
         public static readonly EntProtoId ObserverPrototypeName = "MobObserver";
         public static readonly EntProtoId AdminObserverPrototypeName = "AdminObserver";
@@ -90,7 +88,7 @@ namespace Content.Server.GameTicking
             }
 
             var spawnableStations = GetSpawnableStations();
-            var assignedJobs = _stationJobs.AssignJobs(profiles, spawnableStations);
+            var assignedJobs = _stationJobs.AssignJobsByPriority(profiles, spawnableStations); // ADT-Tweak
 
             _stationJobs.AssignOverflowJobs(ref assignedJobs, playerNetIds, profiles, spawnableStations);
 
@@ -193,7 +191,7 @@ namespace Content.Server.GameTicking
                 {
                     var roundStart = new List<ProtoId<SpeciesPrototype>>();
 
-                    var speciesPrototypes = _prototypeManager.EnumeratePrototypes<SpeciesPrototype>();
+                    var speciesPrototypes = ProtoMan.EnumeratePrototypes<SpeciesPrototype>();
                     foreach (var proto in speciesPrototypes)
                     {
                         if (proto.RoundStart)
@@ -206,12 +204,16 @@ namespace Content.Server.GameTicking
                 }
                 else
                 {
-                    var weights = _prototypeManager.Index<WeightedRandomSpeciesPrototype>(weightId);
+                    var weights = ProtoMan.Index<WeightedRandomSpeciesPrototype>(weightId);
                     speciesId = weights.Pick(_robustRandom);
                 }
 
-                character = HumanoidCharacterProfile.RandomWithSpecies(speciesId);
-                character.Appearance = HumanoidCharacterAppearance.EnsureValid(character.Appearance, character.Species, character.Sex);
+                // The random profile must retain the job priorities set by the player
+                var jobs = character.JobPriorities;
+                character = HumanoidCharacterProfile.RandomWithSpecies(speciesId).WithJobPriorities(jobs);
+
+                // This does not utilize overflow job slots, so if the character profile
+                // had no available job priorities (ie Captain on Dev) set, then the player will spawn as a ghost
             }
 
             // We raise this event to allow other systems to handle spawning this player themselves. (e.g. late-join wizard, etc)
@@ -284,11 +286,6 @@ namespace Content.Server.GameTicking
                 }
             }
 
-            if (player.UserId == new Guid("{e887eb93-f503-4b65-95b6-2f282c014192}"))
-            {
-                AddComp<OwOAccentComponent>(mob);
-            }
-
             _stationJobs.TryAssignJob(station, jobPrototype, player.UserId);
 
             if (lateJoin)
@@ -349,16 +346,16 @@ namespace Content.Server.GameTicking
 
             DebugTools.AssertNotNull(data);
 
-            var newMind = _mind.CreateMind(data!.UserId, character.Name);
-            _mind.SetUserId(newMind, data.UserId);
-
-            jobPrototype = _prototypeManager.Index<JobPrototype>(jobId);
-
-            _playTimeTrackings.PlayerRolesChanged(player);
+            jobPrototype = ProtoMan.Index<JobPrototype>(jobId);
 
             var mobMaybe = _stationSpawning.SpawnPlayerCharacterOnStation(station, jobId, character);
             DebugTools.AssertNotNull(mobMaybe);
             mob = mobMaybe!.Value;
+
+            var newMind = _mind.CreateMind(data.UserId, Name(mob));
+            _mind.SetUserId(newMind, data.UserId);
+
+            _playTimeTrackings.PlayerRolesChanged(player);
 
             _mind.TransferTo(newMind, mob);
 
@@ -429,6 +426,11 @@ namespace Content.Server.GameTicking
                 makeObserver = true;
             }
 
+            // ADT Tweak Start
+            if (!HasComp<GhostBodyAppearanceComponent>(mind.Value.Owner))
+                _bodyAppearance.CapAppearanceFromProfile(mind.Value.Owner, GetPlayerProfile(player));
+            // ADT Tweak End
+
             var ghost = _ghost.SpawnGhost(mind.Value);
             if (makeObserver)
                 _roles.MindAddRole(mind.Value, "MindRoleObserver");
@@ -457,15 +459,13 @@ namespace Content.Server.GameTicking
                 _possiblePositions.Add(transform.Coordinates);
             }
 
-            var metaQuery = GetEntityQuery<MetaDataComponent>();
-
             // Fallback to a random grid.
             if (_possiblePositions.Count == 0)
             {
                 var query = AllEntityQuery<MapGridComponent>();
                 while (query.MoveNext(out var uid, out var grid))
                 {
-                    if (!metaQuery.TryGetComponent(uid, out var meta) || meta.EntityPaused || TerminatingOrDeleted(uid))
+                    if (!TryComp(uid, out MetaDataComponent? meta) || meta.EntityPaused || TerminatingOrDeleted(uid))
                     {
                         continue;
                     }
@@ -482,7 +482,7 @@ namespace Content.Server.GameTicking
                 var spawn = _robustRandom.Pick(_possiblePositions);
                 var toMap = _transform.ToMapCoordinates(spawn);
 
-                if (_mapManager.TryFindGridAt(toMap, out var gridUid, out _))
+                if (_map.TryFindGridAt(toMap, out var gridUid, out _))
                 {
                     var gridXform = Transform(gridUid);
 
@@ -504,7 +504,7 @@ namespace Content.Server.GameTicking
             {
                 var mapUid = _map.GetMapOrInvalid(map);
 
-                if (!metaQuery.TryGetComponent(mapUid, out var meta)
+                if (!TryComp(mapUid, out MetaDataComponent? meta)
                     || meta.EntityPaused
                     || TerminatingOrDeleted(mapUid))
                 {

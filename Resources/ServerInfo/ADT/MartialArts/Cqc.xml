@@ -1,0 +1,35 @@
+<Document>
+
+  # CQC
+
+  <Box>
+    <GuideEntityEmbed Entity="ADTCqcManual" Caption="мануал CQC"/>
+  </Box>
+
+  Ближний бой без изысков.
+
+  ## Приёмы
+
+  <ADTGuideCombo Combo="CQCSlam">
+  Роняет цель на пол на [color=#E0A03C]2 секунды[/color] и наносит [color=#E05B5B]15[/color] урона.
+  </ADTGuideCombo>
+
+  <ADTGuideCombo Combo="CQCKick">
+  По стоячей цели - [color=#E05B5B]20[/color] урона и [color=#5BB8E0]15[/color] урона по выносливости.
+  По лежачей - [color=#E05B5B]30[/color]. Если цель в критическом состоянии по выносливости,
+  погружает её в сон на [color=#E0A03C]10 секунд[/color]. Отбрасывает.
+  </ADTGuideCombo>
+
+  <ADTGuideCombo Combo="CQCRestrain">
+  Роняет цель на пол на [color=#E0A03C]3 секунды[/color] и наносит [color=#5BB8E0]55[/color] урона по выносливости.
+  </ADTGuideCombo>
+
+  <ADTGuideCombo Combo="CQCPressure">
+  Перехватывает предмет из активной руки цели в вашу свободную.
+  </ADTGuideCombo>
+
+  <ADTGuideCombo Combo="CQCConsecutive">
+  Наносит [color=#E05B5B]10[/color] урона и [color=#5BB8E0]45[/color] урона по выносливости.
+  </ADTGuideCombo>
+
+</Document>

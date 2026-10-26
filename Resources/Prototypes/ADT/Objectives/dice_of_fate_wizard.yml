@@ -1,0 +1,11 @@
+- type: entity
+  id: DiceOfFateWizardObjective
+  parent: BaseFreeObjective
+  components:
+  - type: Objective
+    difficulty: 0
+    issuer: ADTDiceOfFate
+    icon:
+      sprite: Clothing/Head/Hats/wizardhat.rsi
+      state: icon
+  - type: DiceOfFateWizardObjective

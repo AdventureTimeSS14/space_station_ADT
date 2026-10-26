@@ -1,4 +1,6 @@
 using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
+using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -9,9 +11,6 @@ namespace Content.Shared.ADT.Salvage.Components;
 public sealed partial class ADTCursedKatanaComponent : Component
 {
     [DataField]
-    public List<ADTKatanaCombo> Combos = new();
-
-    [DataField]
     public bool DrewBlood;
 
     [DataField]
@@ -19,9 +18,6 @@ public sealed partial class ADTCursedKatanaComponent : Component
     {
         DamageDict = { ["Brute"] = 25 },
     };
-
-    [DataField]
-    public TimeSpan ComboWindow = TimeSpan.FromSeconds(5);
 
     [DataField]
     public DamageSpecifier CutDamage = new()
@@ -36,6 +32,12 @@ public sealed partial class ADTCursedKatanaComponent : Component
     public DamageSpecifier StrikeDamage = new()
     {
         DamageDict = { ["Blunt"] = 17 },
+    };
+
+    [DataField]
+    public DamageSpecifier StrikeImpactDamage = new()
+    {
+        DamageDict = { ["Blunt"] = 5 },
     };
 
     [DataField]
@@ -54,10 +56,22 @@ public sealed partial class ADTCursedKatanaComponent : Component
     };
 
     [DataField]
+    public DamageSpecifier DashSplashDamage = new()
+    {
+        DamageDict = { ["Slash"] = 5 },
+    };
+
+    [DataField]
+    public DamageSpecifier DashTrailDamage = new()
+    {
+        DamageDict = { ["Slash"] = 15 },
+    };
+
+    [DataField]
     public float DashRange = 1.5f;
 
     [DataField]
-    public float DashDistance = 4f;
+    public int DashTiles = 3;
 
     [DataField]
     public float DashSpeed = 12f;
@@ -69,10 +83,16 @@ public sealed partial class ADTCursedKatanaComponent : Component
     };
 
     [DataField]
-    public DamageSpecifier HealAmount = new()
-    {
-        DamageDict = { ["Brute"] = -20 },
-    };
+    public LocId CutPopup = "adt-cursed-katana-perform-cut";
+
+    [DataField]
+    public LocId StrikePopup = "adt-cursed-katana-perform-strike";
+
+    [DataField]
+    public LocId DashPopup = "adt-cursed-katana-perform-dash";
+
+    [DataField]
+    public LocId HealPopup = "adt-cursed-katana-perform-heal";
 
     [DataField]
     public SoundSpecifier StrikeSound = new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg");
@@ -81,7 +101,7 @@ public sealed partial class ADTCursedKatanaComponent : Component
     public SoundSpecifier CutSound = new SoundPathSpecifier("/Audio/Weapons/slash.ogg");
 
     [DataField]
-    public SoundSpecifier DashSound = new SoundPathSpecifier("/Audio/Effects/teleport_arrival.ogg");
+    public SoundSpecifier DashSound = new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg");
 
     [DataField]
     public SoundSpecifier HealSound = new SoundPathSpecifier("/Audio/Effects/demon_consume.ogg");
@@ -89,14 +109,11 @@ public sealed partial class ADTCursedKatanaComponent : Component
     [DataField]
     public SoundSpecifier HungerSound = new SoundPathSpecifier("/Audio/Effects/demon_attack1.ogg");
 
-    [ViewVariables]
-    public readonly List<ADTKatanaInput> Inputs = new();
+    [DataField]
+    public EntProtoId ImplantAction = "ADTActionToggleCursedKatana";
 
-    [ViewVariables]
-    public TimeSpan ResetAt;
-
-    [ViewVariables]
-    public EntityUid? CurrentTarget;
+    [DataField]
+    public SoundSpecifier ImplantSound = new SoundPathSpecifier("/Audio/Effects/demon_consume.ogg");
 
     [ViewVariables]
     public EntityUid? Holder;
@@ -116,34 +133,70 @@ public sealed partial class ADTCursedKatanaShardComponent : Component
 }
 
 [RegisterComponent, NetworkedComponent]
-public sealed partial class ADTCursedKatanaBearerComponent : Component;
-
-[DataDefinition]
-public sealed partial class ADTKatanaCombo
+public sealed partial class ADTCursedKatanaBearerComponent : Component
 {
-    [DataField(required: true)]
-    public List<ADTKatanaInput> Inputs = new();
+    [DataField]
+    public EntProtoId Blade = "ADTKatanacursed";
 
-    [DataField(required: true)]
-    public ADTKatanaMove Move;
+    [DataField]
+    public EntProtoId Remains = "Ash";
 
-    [DataField(required: true)]
-    public LocId Name;
-
-    [DataField(required: true)]
-    public LocId Popup;
+    [DataField]
+    public SoundSpecifier ReleaseSound = new SoundPathSpecifier("/Audio/Effects/demon_attack1.ogg");
 }
 
-public enum ADTKatanaInput : byte
+[RegisterComponent]
+public sealed partial class ADTShadowMendComponent : Component
 {
-    Light,
-    Heavy,
+    [DataField]
+    public FixedPoint2 HealPerTick = 15;
+
+    [DataField]
+    public List<ProtoId<DamageGroupPrototype>> HealGroups = new() { "Brute", "Burn" };
+
+    [DataField]
+    public TimeSpan TickInterval = TimeSpan.FromSeconds(1);
+
+    [DataField]
+    public TimeSpan Duration = TimeSpan.FromSeconds(3);
+
+    [DataField]
+    public SoundSpecifier PriceSound = new SoundPathSpecifier("/Audio/Effects/demon_attack1.ogg");
+
+    [ViewVariables]
+    public TimeSpan NextTick;
+
+    [ViewVariables]
+    public TimeSpan EndTime;
 }
 
-public enum ADTKatanaMove : byte
+[RegisterComponent]
+public sealed partial class ADTVoidPriceComponent : Component
 {
-    TendonCut,
-    HiltStrike,
-    Dash,
-    DarkHeal,
+    [DataField]
+    public DamageSpecifier Damage = new()
+    {
+        DamageDict = { ["Blunt"] = 1 },
+    };
+
+    [DataField]
+    public float Price = 3f;
+
+    [DataField]
+    public float PriceIncrease = 1f;
+
+    [DataField]
+    public TimeSpan TickInterval = TimeSpan.FromSeconds(3);
+
+    [DataField]
+    public TimeSpan Duration = TimeSpan.FromSeconds(30);
+
+    [DataField]
+    public SoundSpecifier TickSound = new SoundPathSpecifier("/Audio/Effects/bite.ogg");
+
+    [ViewVariables]
+    public TimeSpan NextTick;
+
+    [ViewVariables]
+    public TimeSpan EndTime;
 }

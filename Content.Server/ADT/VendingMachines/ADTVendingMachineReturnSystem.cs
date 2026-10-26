@@ -1,0 +1,159 @@
+using System.Linq;
+using System.Numerics;
+using Content.Server.Power.EntitySystems;
+using Content.Shared.ADT.VendingMachines;
+using Content.Shared.Clothing.Components;
+using Content.Shared.IdentityManagement;
+using Content.Shared.Interaction;
+using Content.Shared.Objectives.Components;
+using Content.Shared.Popups;
+using Content.Shared.Storage;
+using Content.Shared.Storage.Components;
+using Content.Shared.Throwing;
+using Content.Shared.Verbs;
+using Content.Shared.VendingMachines.Components;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers;
+using Robust.Shared.Random;
+
+namespace Content.Server.ADT.VendingMachines;
+
+public sealed class ADTVendingMachineReturnSystem : EntitySystem
+{
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ThrowingSystem _throwingSystem = default!;
+    [Dependency] private VendingMachineSystem _vending = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<ADTVendingMachineComponent, ADTVendingReturnedEjectEvent>(OnReturnedEject);
+        SubscribeLocalEvent<ADTVendingMachineComponent, GetVerbsEvent<Verb>>(OnGetVerbs);
+    }
+
+    public bool TryReturnItem(EntityUid uid, ADTVendingMachineComponent component, EntityUid user, EntityUid used)
+    {
+        if (HasComp<StealTargetComponent>(used) || ContainsStealTarget(used))
+        {
+            Deny(uid, component);
+            return false;
+        }
+
+        var protoId = MetaData(used).EntityPrototype?.ID;
+        if (string.IsNullOrEmpty(protoId) || !component.Inventory.ContainsKey(protoId))
+        {
+            Deny(uid, component);
+            return false;
+        }
+
+        var container = _container.EnsureContainer<Container>(uid, ADTVendingMachineComponent.ReturnedItemsContainerId);
+        if (!_container.Insert(used, container))
+        {
+            Deny(uid, component);
+            return false;
+        }
+
+        component.ReturnedInventory[protoId] = component.ReturnedInventory.GetValueOrDefault(protoId) + 1;
+        Dirty(uid, component);
+        _vending.UpdateVendingMachineInterfaceState(uid, component);
+
+        _popup.PopupEntity(
+            Loc.GetString("vending-machine-return-success", ("item", Identity.Entity(used, EntityManager))),
+            uid, user);
+        _audio.PlayPvs(component.SoundInsertCurrency, uid);
+        return true;
+    }
+
+    private void OnGetVerbs(EntityUid uid, ADTVendingMachineComponent component, GetVerbsEvent<Verb> args)
+    {
+        if (!args.CanAccess || !args.CanInteract || args.Using is not { } used)
+            return;
+
+        if (component.Broken || !this.IsPowered(uid, EntityManager))
+            return;
+
+        var protoId = MetaData(used).EntityPrototype?.ID;
+        if (string.IsNullOrEmpty(protoId) || !component.Inventory.ContainsKey(protoId))
+            return;
+
+        Verb verb = new()
+        {
+            Text = Loc.GetString("vending-machine-return-verb"),
+            Category = VerbCategory.Insert,
+            Act = () => TryReturnItem(uid, component, args.User, used),
+        };
+        args.Verbs.Add(verb);
+    }
+    private bool ContainsStealTarget(EntityUid item)
+    {
+        if (!TryComp<StorageComponent>(item, out var storage) || storage.Container == null)
+            return false;
+
+        return storage.Container.ContainedEntities.Any(e => HasComp<StealTargetComponent>(e));
+    }
+
+    private void OnReturnedEject(EntityUid uid, ADTVendingMachineComponent component, ADTVendingReturnedEjectEvent args)
+    {
+        var container = _container.EnsureContainer<Container>(uid, ADTVendingMachineComponent.ReturnedItemsContainerId);
+
+        for (var i = 0; i < args.Count; i++)
+        {
+            var returned = FindTopReturned(container, args.ItemProtoId);
+            if (!Exists(returned))
+                break;
+
+            PaintClothing(returned, args.PaintColor);
+
+            _container.Remove(returned, container, force: true, destination: args.Coordinates);
+
+            if (args.ThrowItem)
+            {
+                if (!TryComp<VendingMachineEjectComponent>(uid, out var eject))
+                    return;
+
+                var range = eject.NonLimitedEjectRange;
+                var direction = new Vector2(_random.NextFloat(-range, range), _random.NextFloat(-range, range));
+                _throwingSystem.TryThrow(returned, direction, eject.NonLimitedEjectForce);
+            }
+        }
+    }
+
+    private EntityUid FindTopReturned(Container container, string protoId)
+    {
+        for (var i = container.ContainedEntities.Count - 1; i >= 0; i--)
+        {
+            var ent = container.ContainedEntities[i];
+            if (TryComp<MetaDataComponent>(ent, out var meta) && meta.EntityPrototype?.ID == protoId)
+                return ent;
+        }
+
+        return EntityUid.Invalid;
+    }
+
+    private void Deny(EntityUid uid, ADTVendingMachineComponent component)
+    {
+        _vending.Deny((uid, component));
+    }
+
+    public void PaintClothing(EntityUid uid, Color? color)
+    {
+        if (!HasComp<ClothingComponent>(uid))
+            return;
+
+        if (color is { } paintColor)
+        {
+            var paint = EnsureComp<ADTClothingPaintComponent>(uid);
+            paint.PaintColor = paintColor;
+            Dirty(uid, paint);
+        }
+        else if (TryComp<ADTClothingPaintComponent>(uid, out var paint))
+        {
+            paint.PaintColor = null;
+            Dirty(uid, paint);
+        }
+    }
+}

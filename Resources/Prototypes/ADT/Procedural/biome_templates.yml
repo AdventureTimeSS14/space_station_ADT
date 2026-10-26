@@ -71,7 +71,6 @@
         - ADTywflowers3
         - ADTywflowers4
 
-# Cactusi chto bi ih zhrat'
     - !type:BiomeEntityLayer
       threshold: 0.95
       noise:
@@ -81,7 +80,7 @@
       allowedTiles:
         - FloorBasalt
       entities:
-        - ADTLavalandCactusSpawner
+        - ADTLavalandAshFloraSpawner
 
     - !type:BiomeEntityLayer
       threshold: 0.95
@@ -107,20 +106,6 @@
       entities:
         - ADTSpawnMobPRandomLavaland
 
-    - !type:BiomeEntityLayer
-      threshold: 0.2
-      noise:
-        seed: 0
-        frequency: 0.05
-        fractalType: FBm
-        octaves: 5
-        lacunarity: 2
-        gain: 0.4
-      allowedTiles:
-        - FloorBasalt
-      entities:
-        - FloorLavaEntity
-
     #undertale lore
     - !type:BiomeEntityLayer
       allowedTiles:
@@ -135,47 +120,11 @@
         gain: 0.4
       entities:
       - FloorChasmEntity
-
-    - !type:BiomeEntityLayer
+    - !type:ADTBiomeCaveLayer
       allowedTiles:
         - FloorBasalt
-      threshold: 0.55
-      noise:
-        seed: 7
-        noiseType: Cellular
-        frequency: 0.06
-        lacunarity: 2
-        fractalType: FBm
-        octaves: 3
-        cellularDistanceFunction: Euclidean
-        cellularReturnType: Distance2
-      entities:
-        - ADTWallRockAncient
-        - ADTWallRockAncient
-        - ADTWallRockAncient
-        - ADTWallRockAncient
-        - ADTWallRockAncientUranium
-        - ADTWallRockAncientDiamond
-
-    # Rock formations
-    - !type:BiomeEntityLayer
-      allowedTiles:
-        - FloorBasalt
-      threshold: -0.30
-      noise:
-        seed: 0
-        noiseType: Cellular
-        frequency: 0.05
-        lacunarity: 2
-        fractalType: FBm
-        octaves: 5
-        cellularDistanceFunction: Euclidean
-        cellularReturnType: Distance2
-      entities:
-        - WallRockBasalt
     - !type:BiomeDummyLayer
       id: Loot
-
     - !type:BiomeEntityLayer
       threshold: 0.95
       noise:
@@ -200,6 +149,7 @@
     - !type:BiomeTileLayer
       threshold: -1
       tile: FloorBasalt
+
 
 # ADT BFUU IcePlanet
 - type: biomeTemplate

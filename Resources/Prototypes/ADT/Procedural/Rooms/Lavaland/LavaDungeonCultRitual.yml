@@ -1,0 +1,218 @@
+- type: adtDungeonRoom
+  id: LavaDungeonCultRitual
+  size: 14, 14
+  tags:
+  - LavaDungeon
+  legend:
+    "a":
+      tile: FloorBasalt
+    "b":
+      tile: ADTFloorCult
+    "c":
+      tile: ADTFloorCultFire
+    "d":
+      tile: ADTFloorCultHell
+    "e":
+      tile: FloorMining
+  tiles:
+  - "aaaaaabbbaaaaa"
+  - "aaaaaaacaaaaaa"
+  - "aaaaaaacaaaaaa"
+  - "aaaaadcccdaaaa"
+  - "aaaadcdedcdaaa"
+  - "bbaacdddddcaab"
+  - "ebccdedcdecccb"
+  - "bbaacdddddcaab"
+  - "aaaadcdedcdaaa"
+  - "aaaaadcccdaaaa"
+  - "aaaaaaacaaaaaa"
+  - "aaaaaaacaaaaaa"
+  - "aaaaaabbbaaaaa"
+  - "aaaaaabebaaaaa"
+  entities:
+  - proto: ADTAncientAnimalLeftRibLarge
+    positions:
+    - 6.5,11.5
+    - 5.5,11.5
+    - 4.5,10.5
+    - 3.5,9.5
+    - 3.5,8.5
+    - 3.5,6.5
+    - 3.5,5.5
+    - 4.5,4.5
+    - 5.5,3.5
+    - 6.5,3.5
+  - proto: ADTAncientAnimalRightRibLarge
+    positions:
+    - 10.5,4.5
+    - 11.5,6.5
+    - 11.5,5.5
+    - 11.5,8.5
+    - 11.5,9.5
+    - 10.5,10.5
+    - 8.5,11.5
+    - 9.5,11.5
+    - 8.5,3.5
+    - 9.5,3.5
+  - proto: ClothingOuterRobesCult
+    positions:
+    - 9.4575,6.512
+    - 6.481,5.4105
+    - 5.4731,8.5277
+  - proto: CultAltarSpawner
+    positions:
+    - 7.5,7.5
+  - proto: EldritchBlade
+    positions:
+    - 5.5396,6.5589
+    - 8.5865,9.4652
+  - proto: FloorLavaEntity
+    rot: 3.141592653589793 rad
+    positions:
+    - 7.5,0.5
+    - 8.5,2.5
+    - 8.5,3.5
+    - 9.5,2.5
+    - 9.5,3.5
+    - 9.5,1.5
+    - 6.5,2.5
+    - 5.5,2.5
+    - 6.5,3.5
+    - 5.5,3.5
+    - 5.5,1.5
+    - 4.5,3.5
+    - 4.5,4.5
+    - 3.5,3.5
+    - 3.5,4.5
+    - 10.5,3.5
+    - 11.5,3.5
+    - 11.5,4.5
+    - 10.5,4.5
+    - 11.5,5.5
+    - 12.5,5.5
+    - 12.5,6.5
+    - 11.5,6.5
+    - 3.5,5.5
+    - 3.5,6.5
+    - 2.5,5.5
+    - 2.5,6.5
+    - 1.5,5.5
+    - 11.5,8.5
+    - 13.5,5.5
+    - 12.5,8.5
+    - 12.5,9.5
+    - 11.5,9.5
+    - 3.5,8.5
+    - 2.5,8.5
+    - 2.5,9.5
+    - 3.5,9.5
+    - 13.5,9.5
+    - 1.5,9.5
+    - 3.5,10.5
+    - 4.5,10.5
+    - 4.5,11.5
+    - 3.5,11.5
+    - 10.5,10.5
+    - 11.5,10.5
+    - 11.5,11.5
+    - 10.5,11.5
+    - 9.5,11.5
+    - 8.5,11.5
+    - 8.5,12.5
+    - 9.5,12.5
+    - 6.5,12.5
+    - 6.5,11.5
+    - 5.5,12.5
+    - 5.5,11.5
+    - 5.5,13.5
+    - 9.5,13.5
+    - 0.5,7.5
+  - proto: SalvageHumanCorpseSpawner
+    positions:
+    - 6.5,5.5
+    - 7.5,9.5
+    - 7.5,7.5
+    - 9.5,8.5
+    - 5.5,7.5
+  - proto: ThrowingKnife
+    positions:
+    - 7.2778,7.5597
+  - proto: WallCult
+    rot: 3.141592653589793 rad
+    positions:
+    - 7.5,5.5
+    - 9.5,7.5
+    - 5.5,7.5
+    - 7.5,9.5
+    - 4.5,2.5
+    - 2.5,4.5
+    - 2.5,10.5
+    - 4.5,12.5
+    - 10.5,12.5
+    - 12.5,10.5
+    - 12.5,4.5
+    - 10.5,2.5
+    - 1.5,1.5
+    - 13.5,1.5
+    - 13.5,13.5
+    - 1.5,13.5
+  decals:
+  - id: Basalt1
+    color: '#FFFFFFFF'
+    positions:
+    - 10.2653,13.1912
+  - id: Basalt3
+    color: '#FFFFFFFF'
+    positions:
+    - 2.0186,11.7734
+  - id: Basalt7
+    color: '#FFFFFFFF'
+    positions:
+    - 0.2504,10.0322
+  - id: Basalt9
+    color: '#FFFFFFFF'
+    positions:
+    - 2.6816,0.6129
+  - id: DirtHeavy
+    color: '#FFFFFFFF'
+    positions:
+    - 1,6
+    - 7,10
+    - 5,4
+  - id: DirtLight
+    color: '#FFFFFFFF'
+    positions:
+    - 8,0
+    - 9,5
+  - id: DirtMedium
+    color: '#FFFFFFFF'
+    positions:
+    - 10,5
+  - id: burnt1
+    color: '#FFFFFFFF'
+    positions:
+    - 1,7
+    - 7,9
+    - 9,9
+    - 8,5
+    - 7,4
+    - 7,2
+    - 4,7
+    - 4,6
+  - id: burnt2
+    color: '#FFFFFFFF'
+    positions:
+    - 13,7
+    - 10,7
+    - 8,10
+    - 5,10
+    - 9,5
+    - 7,3
+  - id: burnt3
+    color: '#FFFFFFFF'
+    positions:
+    - 6,1
+  - id: burnt4
+    color: '#FFFFFFFF'
+    positions:
+    - 8,6

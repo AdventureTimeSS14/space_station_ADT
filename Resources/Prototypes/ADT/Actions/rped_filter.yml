@@ -1,0 +1,14 @@
+- type: entity
+  parent: BaseAction
+  id: ActionRpedFilter
+  name: Part filter setup
+  description: Choose which part types the RPED will replace.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Research/rped.rsi
+    layers:
+    - state: icon
+  - type: InstantAction
+    event: !type:PartExchangerFilterActionEvent {}

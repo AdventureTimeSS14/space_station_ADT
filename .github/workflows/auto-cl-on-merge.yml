@@ -1,0 +1,126 @@
+name: Auto CL on merge
+on:
+  pull_request_target:
+    types: [closed]
+    branches: [master]
+permissions:
+  contents: write
+  pull-requests: write
+concurrency:
+  group: auto-cl-on-merge
+  cancel-in-progress: false
+env:
+  CL_BRANCH: auto-cl/changelog
+jobs:
+  update_changelog:
+    name: Update changelog
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install requirements
+        run: pip install pyyaml
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Prepare changelog branch
+        id: prep-branch
+        run: |
+          git fetch origin "$CL_BRANCH" 2>/dev/null || true
+          if git show-ref --verify --quiet "refs/remotes/origin/$CL_BRANCH"; then
+            echo "Ветка $CL_BRANCH существует."
+            git checkout -B "$CL_BRANCH" "origin/$CL_BRANCH"
+            if ! git merge origin/master -m "Merge master into $CL_BRANCH"; then
+              echo "::error::Конфликт при мёрже master в $CL_BRANCH."
+              git merge --abort
+              exit 1
+            fi
+            echo "existed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "Ветка $CL_BRANCH не найдена, создание от master."
+            git checkout -B "$CL_BRANCH" origin/master
+            echo "existed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Save PR body to file
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          printf '%s' "$PR_BODY" > pr_body.txt
+
+      - name: Run changelog script
+        id: run-script
+        run: |
+          python Tools/ADT/auto_cl_on_merge.py \
+            "${{ github.event.pull_request.number }}" \
+            "pr_body.txt" \
+            "${{ github.event.pull_request.user.login }}" \
+            "${{ github.event.pull_request.merged_at }}"
+
+      - name: Clean up temp file
+        run: rm -f pr_body.txt
+
+      - name: Commit changelog
+        id: commit
+        run: |
+          git add Resources/Changelog/1ChangelogADT.yml
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git commit -m "Auto CL: PR #${{ github.event.pull_request.number }}"
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Push changelog branch
+        if: steps.commit.outputs.changed == 'true'
+        run: |
+          attempt=1
+          max_attempts=5
+          until git push --force-with-lease origin "HEAD:$CL_BRANCH"; do
+            if [ "$attempt" -ge "$max_attempts" ]; then
+              echo "::error::Не удалось запушить ветку $CL_BRANCH после $max_attempts попыток (PR #${{ github.event.pull_request.number }})."
+              exit 1
+            fi
+            echo "Push отклонён (попытка $attempt/$max_attempts)."
+            git fetch origin "$CL_BRANCH"
+            git reset --hard "origin/$CL_BRANCH"
+            attempt=$((attempt + 1))
+          done
+
+      - name: Open or update pull request
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          existing_pr=$(gh pr list \
+            --repo "${{ github.repository }}" \
+            --head "$CL_BRANCH" \
+            --base master \
+            --state open \
+            --json number \
+            --jq '.[0].number')
+
+          if [ -n "$existing_pr" ]; then
+            echo "PR #$existing_pr уже открыт, ветка обновлена пушем."
+          else
+            gh pr create \
+              --repo "${{ github.repository }}" \
+              --base master \
+              --head "$CL_BRANCH" \
+              --title "Auto CL: обновление чейнджлога" \
+              --body "Автоматически собранные записи чейнджлога из смёрженных PR. Новые PR будут дописываться в эту же ветку/PR, пока он открыт."
+          fi

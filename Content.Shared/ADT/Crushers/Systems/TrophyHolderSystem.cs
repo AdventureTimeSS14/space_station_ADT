@@ -20,16 +20,16 @@ namespace Content.Shared.ADT.Crushers.Systems;
 
 public sealed class TrophyHolderSystem : EntitySystem
 {
-    [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedGunSystem _gun = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly ExamineSystemShared _examine = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly SharedToolSystem _tool = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private ISharedAdminLogManager _adminLog = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedGunSystem _gun = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private ExamineSystemShared _examine = default!;
+    [Dependency] private TagSystem _tag = default!;
+    [Dependency] private SharedToolSystem _tool = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -52,24 +52,21 @@ public sealed class TrophyHolderSystem : EntitySystem
         if (!args.CanInteract || !args.CanAccess)
             return;
 
-        var trophies = GetCurrentTrophies(ent);
-        if (trophies.Count == 0)
-            return;
+        var ev = new TrophyHolderExamineEvent(new FormattedMessage());
+        RaiseLocalEvent(ent, ref ev);
 
-        var examineMarkup = new FormattedMessage();
-
-        foreach (var trophy in trophies)
+        foreach (var trophy in GetCurrentTrophies(ent))
         {
             foreach (var effect in trophy.Comp.Effects)
             {
-                var description = effect.GetDescription();
-                examineMarkup.AddMessage(description);
-                examineMarkup.PushNewline();
-                examineMarkup.PushNewline();
+                ev.PushMessage(effect.GetDescription());
             }
         }
 
-        _examine.AddDetailedExamineVerb(args, ent.Comp, examineMarkup,
+        if (ev.Message.IsEmpty)
+            return;
+
+        _examine.AddDetailedExamineVerb(args, ent.Comp, ev.Message,
             Loc.GetString("trophy-examinable-verb-text"), "/Textures/Interface/VerbIcons/dot.svg.192dpi.png",
             Loc.GetString("trophy-examinable-verb-message"));
     }

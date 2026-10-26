@@ -1,7 +1,7 @@
 - type: marking
   id: CatEarsStubby
   bodyPart: HeadTop
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -10,7 +10,7 @@
       fallbackTypes:
         - !type:SkinColoring
     layers:
-      ears_cat_inner:
+      ears_stubby_inner:
         type:
           !type:SimpleColoring
           color: "#FFFFFF"
@@ -23,7 +23,7 @@
 - type: marking
   id: CatEarsCurled
   bodyPart: HeadTop
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -32,7 +32,7 @@
       fallbackTypes:
         - !type:SkinColoring
     layers:
-      ears_cat_inner:
+      ears_curled_inner:
         type:
           !type:SimpleColoring
           color: "#FFFFFF"
@@ -45,7 +45,7 @@
 - type: marking
   id: CatEarsTorn
   bodyPart: HeadTop
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -54,7 +54,7 @@
       fallbackTypes:
         - !type:SkinColoring
     layers:
-      ears_cat_inner:
+      ears_torn_inner:
         type:
           !type:SimpleColoring
           color: "#FFFFFF"
@@ -67,7 +67,7 @@
 - type: marking
   id: CatTailStripes
   bodyPart: Tail
-  groupWhitelist: [Human, Felinid]
+  groupWhitelist: [Human, Felinid] # ADT tweak add Felinid
   coloring:
     default:
       type:

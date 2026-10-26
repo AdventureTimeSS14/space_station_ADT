@@ -1,0 +1,18 @@
+# SPDX-FileCopyrightText: 2026 ultradyper <ultradyper@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: reagent
+  id: ADTDetoxin
+  name: reagent-name-adt-detoxin
+  group: Medicine
+  desc: reagent-desc-adt-detoxin
+  flavor: medicine
+  color: "#3c8d5a"
+  physicalDesc: reagent-physical-desc-pungent
+  metabolisms:
+    Bloodstream:
+      metabolismRate: 0.1
+      effects:
+      - !type:AdjustAddictionLevel
+        amount: -4

@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared.ADT.Silicons.Borgs.Components; // ADT tweak
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Player;
@@ -16,6 +17,11 @@ public abstract partial class SharedBorgSystem
     /// </summary>
     public bool CanActivate(Entity<BorgChassisComponent> chassis)
     {
+        // ADT-Tweak-Start
+        if (HasComp<ADTBorgShutdownComponent>(chassis))
+            return false;
+        // ADT-Tweak-End
+
         if (!_powerCell.HasDrawCharge(chassis.Owner))
             return false;
 
@@ -67,7 +73,7 @@ public abstract partial class SharedBorgSystem
             DisableAllModules(chassis.AsNullable());
 
         _powerCell.SetDrawEnabled(chassis.Owner, active);
-        _movementSpeedModifier.RefreshMovementSpeedModifiers(chassis);
+        _movementSpeedModifier.RefreshMovementSpeedModifiers(chassis.Owner);
 
         var sound = active ? chassis.Comp.ActivateSound : chassis.Comp.DeactivateSound;
         // If a user is given predict the audio for them, if not keep it unpredicted.
@@ -210,13 +216,13 @@ public abstract partial class SharedBorgSystem
 
         if (chassis.Comp.ModuleContainer.ContainedEntities.Count >= chassis.Comp.MaxModules)
         {
-            _popup.PopupClient(Loc.GetString("borg-module-too-many"), chassis.Owner, user);
+            _popup.PopupEntity(Loc.GetString("borg-module-too-many"), chassis.Owner, user);
             return false;
         }
 
         if (_whitelist.IsWhitelistFail(chassis.Comp.ModuleWhitelist, module))
         {
-            _popup.PopupClient(Loc.GetString("borg-module-whitelist-deny"), chassis.Owner, user);
+            _popup.PopupEntity(Loc.GetString("borg-module-whitelist-deny"), chassis.Owner, user);
             return false;
         }
 
@@ -230,18 +236,19 @@ public abstract partial class SharedBorgSystem
                 if (containedItemModuleComp.Hands.Count == itemModuleComp.Hands.Count &&
                     containedItemModuleComp.Hands.All(itemModuleComp.Hands.Contains))
                 {
-                    _popup.PopupClient(Loc.GetString("borg-module-duplicate"), chassis.Owner, user);
+                    _popup.PopupEntity(Loc.GetString("borg-module-duplicate"), chassis.Owner, user);
                     return false;
                 }
             }
         }
 
-        var attemptEv = new BorgModuleInsertAttemptEvent(module.Owner);
+        var attemptEv = new BorgModuleInsertAttemptEvent(module.Owner, chassis.Owner);
         RaiseLocalEvent(chassis, ref attemptEv);
+        RaiseLocalEvent(module, ref attemptEv);
 
         if (attemptEv.Cancelled)
         {
-            _popup.PopupClient(attemptEv.Reason, chassis.Owner, user);
+            _popup.PopupEntity(attemptEv.Reason, chassis.Owner, user);
             return false;
         }
 

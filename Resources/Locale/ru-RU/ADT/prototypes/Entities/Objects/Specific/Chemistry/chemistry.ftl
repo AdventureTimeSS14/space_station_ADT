@@ -3,8 +3,6 @@ ent-ADTSmallSyringe = маленький шприц
 
 ent-ADTSodiumizolePill = таблетка натримизола
     .desc = { ent-Pill.desc }
-ent-ADTNitrofurfollPill = таблетка нитрофурфолла
-    .desc = { ent-Pill.desc }
 ent-ADTAnelgesinPill = таблетка анельгезина
     .desc = { ent-Pill.desc }
 ent-ADTMinoxidePill = таблетка миноксида

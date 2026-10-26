@@ -18,17 +18,20 @@
   - type: Item
     size: Tiny
     sprite: ADT/Objects/Specific/Chemistry/syringe.rsi
-  - type: SolutionContainerManager
-    solutions:
-      injector:
-        maxVol: 5
+  - type: Solution
+    solution:
+      maxVol: 5
+      reagents: []
   - type: FitsInDispenser
     solution: injector
   - type: Injector
-    restrainedMultiplier: 2 # ADT-Tweak(P4A) Ускорение Шприцов на койках и каталках
-    activeModeProtoId: SyringeInjectMode
+    restrainedMultiplier: 2
+    ignoreMobs: false
+    ignoreClosed: false
+    activeModeProtoId: DropperDrawMode
     allowedModes:
-    - SyringeInjectMode
+    - DropperDrawMode
+    - DropperInjectMode
   - type: Appearance
   - type: ExaminableSolution
     solution: injector

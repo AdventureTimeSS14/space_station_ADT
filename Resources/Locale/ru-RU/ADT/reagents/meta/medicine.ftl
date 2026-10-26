@@ -40,6 +40,12 @@ reagent-desc-styptic-powder = При нанесении на кожу зажив
 reagent-name-silver-sulfadiazine = Сульфадиазин серебра
 reagent-desc-silver-sulfadiazine = При нанесении на кожу заживляет ожоги.
 
+reagent-name-styptic-powder-patch = Кровоостанавливающая пудра (для пластыря)
+reagent-desc-styptic-powder-patch = Заживляет ушибы и останавливает кровотечение при попадании в кровь.
+
+reagent-name-silver-sulfadiazine-patch = Сульфадиазин серебра (для пластыря)
+reagent-desc-silver-sulfadiazine-patch = Заживляет ожоги при попадании в кровь.
+
 reagent-name-detoxisol = Детоксизол
 reagent-desc-detoxisol = Препарат, синтезированный на основе растительных ферментов, с целью всеобщей детоксикации организма. Имеет небольшой побочный эффект в виде небольших потерь верхних слоёв эпителия.
 
@@ -63,3 +69,10 @@ reagent-desc-sanallergium = Используется для перманентн
 
 reagent-name-diphalazidone = дифалазидон
 reagent-desc-diphalazidone = Экспериментальный криогенный препарат, используемый для нестабильной регенерации гниющих тканей и мозгового вещества при помощи радиации.
+
+reagent-name-lavaland-extract = экстракт лаваленда
+reagent-desc-lavaland-extract = Крайне мощный препарат, разгоняющий естественную регенерацию организма. Вне рекомендованной дозировки сильно токсичен. Nanotrasen настаивает, что его очищают из минералов и следов атмосферных газов Лаваленда. Любые заявления об обратном могут стать поводом для понижения в должности.
+lavaland-extract-overdose = Всё тело горит изнутри, мысли путаются!
+
+reagent-name-murder-solution = Раствор Мёрдер
+reagent-desc-murder-solution = Дорогой радиоактивный препарат, который лечит клеточный распад клонированного тела.

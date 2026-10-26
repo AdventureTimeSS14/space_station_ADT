@@ -17,12 +17,12 @@ using Content.Shared.DeviceNetwork.Components;
 namespace Content.Server.Atmos.Piping.Unary.EntitySystems
 {
     [UsedImplicitly]
-    public sealed class GasThermoMachineSystem : SharedGasThermoMachineSystem
+    public sealed partial class GasThermoMachineSystem : SharedGasThermoMachineSystem
     {
-        [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
-        [Dependency] private readonly PowerReceiverSystem _power = default!;
-        [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
-        [Dependency] private readonly DeviceNetworkSystem _deviceNetwork = default!;
+        [Dependency] private AtmosphereSystem _atmosphereSystem = default!;
+        [Dependency] private PowerReceiverSystem _power = default!;
+        [Dependency] private NodeContainerSystem _nodeContainer = default!;
+        [Dependency] private DeviceNetworkSystem _deviceNetwork = default!;
 
         public override void Initialize()
         {
@@ -65,7 +65,7 @@ namespace Content.Server.Atmos.Piping.Unary.EntitySystems
             }
 
             // Multiply power in by coefficient of performance, add that heat to gas
-            float dQ = thermoMachine.HeatCapacity * thermoMachine.Cp * args.dt;
+            float dQ = thermoMachine.HeatCapacity * thermoMachine.HeatCapacityMultiplier * thermoMachine.Cp * args.dt; // ADT-Tweak machine parts
 
             // Clamps the heat transferred to not overshoot
             float Cin = _atmosphereSystem.GetHeatCapacity(heatExchangeGasMixture, true);
@@ -95,7 +95,7 @@ namespace Content.Server.Atmos.Piping.Unary.EntitySystems
                     _atmosphereSystem.AddHeat(containingMixture, dQLeak);
             }
 
-            receiver.Load = thermoMachine.HeatCapacity;// * scale; // we're not ready for dynamic load yet, see note above
+            receiver.Load = thermoMachine.HeatCapacity * thermoMachine.HeatCapacityMultiplier; // ADT-Tweak machine parts
         }
 
         /// <summary>

@@ -194,3 +194,16 @@
           amount: 20
   - type: StaticPrice
     price: 400
+
+# Полупустая пачка для трайта никотиновой зависимости: стартовая заначка.
+- type: entity
+  parent: CigPackGreen
+  id: ADTCigPackHalfSmoked
+  name: полупустая пачка сигарет
+  description: Кто-то уже выкурил больше половины. Судя по всему, этот кто-то - ты.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: Cigarette
+        amount: 3

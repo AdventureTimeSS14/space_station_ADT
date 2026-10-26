@@ -1,4 +1,5 @@
 using Robust.Shared.Audio;
+using Content.Shared.Damage;
 using Content.Shared.Inventory;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
@@ -40,6 +41,22 @@ public sealed partial class ModSuitModComponent : Component
     /// </summary>
     [DataField]
     public Dictionary<string, ComponentRegistry>? RemoveComponents;
+
+    [DataField]
+    public Dictionary<string, DamageModifierSet>? ArmorReplacement;
+
+    /// <summary>
+    /// If true, the module can be toggled on/off at any time (<see cref="Active"/>), but its components are only
+    /// applied while it is on AND the suit is fully equipped (all parts deployed).
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool RequiresFullEquip = false;
+
+    /// <summary>
+    /// Server-side tracking of whether <see cref="Components"/> are currently applied. For a
+    /// <see cref="RequiresFullEquip"/> module this trails <c>Active AND fully equipped</c>.
+    /// </summary>
+    public bool ComponentsApplied = false;
 }
 
 public enum ExamineColor

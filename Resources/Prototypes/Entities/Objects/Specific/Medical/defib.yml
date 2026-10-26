@@ -24,6 +24,7 @@
       size: Large
     - type: Speech
       speechVerb: Robotic
+    - type: ItemToggleExaminableStatus
     - type: ItemToggle
       soundActivate:
         path: /Audio/Items/Defib/defib_safety_on.ogg
@@ -33,6 +34,7 @@
       zapHeal:
         types:
           Asphyxiation: -40
+          Bloodloss: -15 # ADT tweak add bloodloss heal
     - type: DoAfter
     - type: UseDelay
     - type: StaticPrice
@@ -106,6 +108,7 @@
     zapHeal:
       types:
         Asphyxiation: -40
+        Bloodloss: -15 # ADT tweak add bloodloss heal
     doAfterDuration: 6
   - type: DoAfter
   - type: UseDelay

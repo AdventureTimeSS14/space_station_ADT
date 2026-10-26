@@ -1,7 +1,6 @@
 - type: latheRecipe
   id: ADTSheetBScrystal
   result: ADTMaterialBScrystal1
-  miningPoints: 40
   completetime: 0
   materials:
     ADTRawBSore: 100
@@ -10,7 +9,6 @@
   id: SheetCopper
   result: ADTSheetCopper1
   completetime: 0
-  miningPoints: 2
   materials:
     RawCopper: 100
 
@@ -25,7 +23,6 @@
   id: SheetZinc
   result: ADTSheetZinc1
   completetime: 0
-  miningPoints: 6
   materials:
     RawZinc: 100
 
@@ -40,7 +37,6 @@
   id: SheetLead
   result: ADTSheetLead1
   completetime: 0
-  miningPoints: 4
   materials:
     RawLead: 100
 
@@ -50,3 +46,49 @@
   completetime: 2
   materials:
     RawLead: 3000
+
+- type: latheRecipe
+  id: ADTPartRodMetal
+  result: PartRodMetal1
+  applyMaterialDiscount: false
+  completetime: 0
+  materials:
+    Steel: 50
+
+- type: latheRecipe
+  id: ADTSheetPGlass
+  result: SheetPGlass1
+  applyMaterialDiscount: false
+  completetime: 0
+  materials:
+    Glass: 100
+    Plasma: 100
+
+- type: latheRecipe
+  id: ADTSheetRPGlass
+  result: SheetRPGlass1
+  applyMaterialDiscount: false
+  completetime: 0
+  materials:
+    Glass: 100
+    Plasma: 100
+    Steel: 50
+
+- type: latheRecipe
+  id: ADTSheetUGlass
+  result: SheetUGlass1
+  applyMaterialDiscount: false
+  completetime: 0
+  materials:
+    Glass: 100
+    Uranium: 100
+
+- type: latheRecipe
+  id: ADTSheetRUGlass
+  result: SheetRUGlass1
+  applyMaterialDiscount: false
+  completetime: 0
+  materials:
+    Glass: 100
+    Uranium: 100
+    Steel: 50

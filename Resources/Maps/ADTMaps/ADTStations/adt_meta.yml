@@ -2,9 +2,9 @@ meta:
   format: 7
   category: Map
   engineVersion: 277.2.1
-  forkId: SS14_DEV
-  forkVersion: f9bbdf49a45414d6958aca2da56d80314ee24984
-  time: 07/11/2026 10:13:30
+  forkId: ""
+  forkVersion: ""
+  time: 09/19/2026 02:04:38
   entityCount: 35381
 maps:
 - 1
@@ -114,7 +114,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: Meta
+      name: NT Meta Station
     - type: Transform
     - type: Map
       mapPaused: True
@@ -22452,6 +22452,135 @@ entities:
     - type: TileHistory
       chunkHistory: {}
     - type: ExplosionAirtightGrid
+    - type: AreaGrid
+      areas:
+        35,-27: AreaKitchen
+        35,-26: AreaKitchen
+        42,-27: AreaKitchen
+        42,-26: AreaKitchen
+        42,-25: AreaKitchen
+        41,-27: AreaKitchen
+        41,-26: AreaKitchen
+        41,-25: AreaKitchen
+        40,-27: AreaKitchen
+        40,-26: AreaKitchen
+        40,-25: AreaKitchen
+        39,-27: AreaKitchen
+        39,-26: AreaKitchen
+        39,-25: AreaKitchen
+        39,-24: AreaKitchen
+        38,-27: AreaKitchen
+        38,-26: AreaKitchen
+        38,-25: AreaKitchen
+        38,-24: AreaKitchen
+        37,-27: AreaKitchen
+        37,-26: AreaKitchen
+        37,-25: AreaKitchen
+        37,-24: AreaKitchen
+        36,-27: AreaKitchen
+        36,-26: AreaKitchen
+        36,-25: AreaKitchen
+        36,-24: AreaKitchen
+        28,-25: AreaKitchen
+        28,-24: AreaKitchen
+        29,-25: AreaKitchen
+        29,-24: AreaKitchen
+        30,-25: AreaKitchen
+        30,-24: AreaKitchen
+        31,-25: AreaKitchen
+        31,-24: AreaKitchen
+        32,-25: AreaKitchen
+        32,-24: AreaKitchen
+        33,-25: AreaKitchen
+        33,-24: AreaKitchen
+        34,-25: AreaKitchen
+        34,-24: AreaKitchen
+        35,-25: AreaKitchen
+        35,-24: AreaKitchen
+        39,-19: AreaKitchen
+        35,-19: AreaKitchen
+        39,-21: AreaKitchen
+        39,-23: AreaKitchen
+        39,-22: AreaKitchen
+        39,-20: AreaKitchen
+        38,-23: AreaKitchen
+        38,-20: AreaKitchen
+        39,-18: AreaKitchen
+        39,-17: AreaKitchen
+        38,-22: AreaKitchen
+        38,-21: AreaKitchen
+        37,-19: AreaKitchen
+        37,-22: AreaKitchen
+        38,-18: AreaKitchen
+        38,-19: AreaKitchen
+        37,-23: AreaKitchen
+        38,-17: AreaKitchen
+        37,-20: AreaKitchen
+        37,-21: AreaKitchen
+        36,-23: AreaKitchen
+        37,-18: AreaKitchen
+        36,-22: AreaKitchen
+        37,-17: AreaKitchen
+        33,-20: AreaKitchen
+        33,-21: AreaKitchen
+        35,-20: AreaKitchen
+        36,-21: AreaKitchen
+        36,-20: AreaKitchen
+        36,-19: AreaKitchen
+        36,-18: AreaKitchen
+        36,-17: AreaKitchen
+        35,-22: AreaKitchen
+        35,-23: AreaKitchen
+        35,-21: AreaKitchen
+        33,-23: AreaKitchen
+        32,-23: AreaKitchen
+        35,-18: AreaKitchen
+        35,-17: AreaKitchen
+        34,-23: AreaKitchen
+        34,-22: AreaKitchen
+        34,-21: AreaKitchen
+        34,-20: AreaKitchen
+        34,-19: AreaKitchen
+        34,-18: AreaKitchen
+        34,-17: AreaKitchen
+        33,-22: AreaKitchen
+        33,-19: AreaKitchen
+        32,-21: AreaKitchen
+        33,-18: AreaKitchen
+        33,-17: AreaKitchen
+        32,-22: AreaKitchen
+        32,-20: AreaKitchen
+        32,-19: AreaKitchen
+        32,-18: AreaKitchen
+        32,-17: AreaKitchen
+        31,-23: AreaKitchen
+        31,-22: AreaKitchen
+        31,-21: AreaKitchen
+        31,-20: AreaKitchen
+        31,-19: AreaKitchen
+        31,-18: AreaKitchen
+        31,-17: AreaKitchen
+        30,-23: AreaKitchen
+        30,-22: AreaKitchen
+        30,-21: AreaKitchen
+        30,-20: AreaKitchen
+        30,-19: AreaKitchen
+        30,-18: AreaKitchen
+        30,-17: AreaKitchen
+        29,-23: AreaKitchen
+        29,-22: AreaKitchen
+        29,-21: AreaKitchen
+        29,-20: AreaKitchen
+        29,-19: AreaKitchen
+        29,-18: AreaKitchen
+        29,-17: AreaKitchen
+        28,-23: AreaKitchen
+        28,-22: AreaKitchen
+        28,-21: AreaKitchen
+        28,-20: AreaKitchen
+        28,-19: AreaKitchen
+        28,-18: AreaKitchen
+        28,-17: AreaKitchen
   - uid: 4
     components:
     - type: MetaData
@@ -23955,7 +24084,7 @@ entities:
       pos: 15.518649,28.238827
       parent: 2
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.54960465
+      sprayFizzinessThresholdRoll: 0.5226494
     - type: SolutionContainerManager
       solutions: null
       containers:
@@ -24407,6 +24536,13 @@ entities:
     - type: Transform
       pos: -11.5,-6.5
       parent: 2
+- proto: ADTLockerCorrectionOfficerFilled
+  entities:
+  - uid: 23604
+    components:
+    - type: Transform
+      pos: -12.5,49.5
+      parent: 2
 - proto: ADTLockerParamedicFilledNoMod
   entities:
   - uid: 328
@@ -24575,6 +24711,15 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 18.5,33.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 465
+    components:
+    - type: MetaData
+      desc: Свидетельство о приёмке станции. 20.09.2570
+    - type: Transform
+      pos: 47.5,-0.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -25488,13 +25633,6 @@ entities:
     - type: Transform
       pos: 4.513054,-13.46489
       parent: 2
-- proto: ADTUniversalPipeDispenser
-  entities:
-  - uid: 465
-    components:
-    - type: Transform
-      pos: 52.5,-32.5
-      parent: 2
 - proto: ADTVasePlant0
   entities:
   - uid: 466
@@ -25582,6 +25720,13 @@ entities:
     components:
     - type: Transform
       pos: -43.5,-21.5
+      parent: 2
+- proto: ADTVendingMachineMusician
+  entities:
+  - uid: 53949
+    components:
+    - type: Transform
+      pos: 33.5,-9.5
       parent: 2
 - proto: ADTVendingMachinePatholoDrobe
   entities:
@@ -28974,7 +29119,7 @@ entities:
       pos: 30.5,10.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -12573.078
+      secondsUntilStateChange: -12627.278
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -30048,7 +30193,7 @@ entities:
       pos: -60.5,-12.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -306790.6
+      secondsUntilStateChange: -306844.78
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -31605,7 +31750,7 @@ entities:
       pos: 12.5,4.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -415655.9
+      secondsUntilStateChange: -415710.1
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -37340,6 +37485,11 @@ entities:
     components:
     - type: Transform
       pos: 8.5,-48.5
+      parent: 2
+  - uid: 27753
+    components:
+    - type: Transform
+      pos: 7.5,-48.5
       parent: 2
 - proto: BorgModuleMining
   entities:
@@ -92358,7 +92508,7 @@ entities:
   - uid: 12932
     components:
     - type: Transform
-      pos: 65.50067,-6.527902
+      pos: 65.6036,-6.244558
       parent: 2
   - uid: 12933
     components:
@@ -92379,13 +92529,6 @@ entities:
     components:
     - type: Transform
       pos: 54.641678,-1.9323308
-      parent: 2
-- proto: ClothingEyesGlassesThermal
-  entities:
-  - uid: 12937
-    components:
-    - type: Transform
-      pos: 65.536194,-6.326588
       parent: 2
 - proto: ClothingEyesHudMedical
   entities:
@@ -113618,7 +113761,7 @@ entities:
       pos: 57.5,-3.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -225246.56
+      secondsUntilStateChange: -225300.77
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -168572,13 +168715,6 @@ entities:
     - type: Transform
       pos: 43.5,-19.5
       parent: 2
-- proto: LockerCorrectionOfficer
-  entities:
-  - uid: 23604
-    components:
-    - type: Transform
-      pos: -12.5,49.5
-      parent: 2
 - proto: LockerDetectiveFilled
   entities:
   - uid: 23605
@@ -170385,63 +170521,6 @@ entities:
     components:
     - type: Transform
       pos: -8.482431,-53.813084
-      parent: 2
-- proto: MicroManipulatorStockPart
-  entities:
-  - uid: 23873
-    components:
-    - type: Transform
-      pos: 5.6052217,-55.241646
-      parent: 2
-  - uid: 23874
-    components:
-    - type: Transform
-      pos: 15.288353,-40.994194
-      parent: 2
-  - uid: 23875
-    components:
-    - type: Transform
-      pos: 5.3833475,-55.100445
-      parent: 2
-  - uid: 23876
-    components:
-    - type: Transform
-      pos: 5.3833475,-55.342503
-      parent: 2
-  - uid: 23877
-    components:
-    - type: Transform
-      pos: 15.678978,-40.275444
-      parent: 2
-  - uid: 23878
-    components:
-    - type: Transform
-      pos: 15.335228,-40.275444
-      parent: 2
-  - uid: 23879
-    components:
-    - type: Transform
-      pos: 5.4035177,-54.637024
-      parent: 2
-  - uid: 23880
-    components:
-    - type: Transform
-      pos: 5.423688,-54.344536
-      parent: 2
-  - uid: 23881
-    components:
-    - type: Transform
-      pos: 5.5648813,-54.47565
-      parent: 2
-  - uid: 23882
-    components:
-    - type: Transform
-      pos: 15.569603,-40.962944
-      parent: 2
-  - uid: 23883
-    components:
-    - type: Transform
-      pos: 15.569603,-40.75982
       parent: 2
 - proto: MicrowaveMachineCircuitboard
   entities:
@@ -187638,6 +187717,63 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+- proto: ScanningModuleStockPart
+  entities:
+  - uid: 23873
+    components:
+    - type: Transform
+      pos: 5.6052217,-55.241646
+      parent: 2
+  - uid: 23874
+    components:
+    - type: Transform
+      pos: 15.288353,-40.994194
+      parent: 2
+  - uid: 23875
+    components:
+    - type: Transform
+      pos: 5.3833475,-55.100445
+      parent: 2
+  - uid: 23876
+    components:
+    - type: Transform
+      pos: 5.3833475,-55.342503
+      parent: 2
+  - uid: 23877
+    components:
+    - type: Transform
+      pos: 15.678978,-40.275444
+      parent: 2
+  - uid: 23878
+    components:
+    - type: Transform
+      pos: 15.335228,-40.275444
+      parent: 2
+  - uid: 23879
+    components:
+    - type: Transform
+      pos: 5.4035177,-54.637024
+      parent: 2
+  - uid: 23880
+    components:
+    - type: Transform
+      pos: 5.423688,-54.344536
+      parent: 2
+  - uid: 23881
+    components:
+    - type: Transform
+      pos: 5.5648813,-54.47565
+      parent: 2
+  - uid: 23882
+    components:
+    - type: Transform
+      pos: 15.569603,-40.962944
+      parent: 2
+  - uid: 23883
+    components:
+    - type: Transform
+      pos: 15.569603,-40.75982
+      parent: 2
 - proto: ScrapAirlock1
   entities:
   - uid: 26801
@@ -194665,13 +194801,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: SiliconChargerIndustrial
-  entities:
-  - uid: 27753
-    components:
-    - type: Transform
-      pos: 7.5,-48.5
-      parent: 2
 - proto: SingularityGenerator
   entities:
   - uid: 27754
@@ -239154,12 +239283,5 @@ entities:
     components:
     - type: Transform
       pos: 84.44003,-64.47448
-      parent: 2
-- proto: ADTVendingMachineMusician
-  entities:
-  - uid: 53949
-    components:
-    - type: Transform
-      pos: 33.5,-9.5
       parent: 2
 ...

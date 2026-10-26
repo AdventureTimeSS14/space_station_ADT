@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Shared.ADT.Silicon;
+using Content.Shared.Ghost.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.Components;
@@ -20,14 +21,14 @@ namespace Content.Shared.ADT.Medical.IV;
 
 public abstract class SharedIvDripSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _containers = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private SharedContainerSystem _containers = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -133,7 +134,8 @@ public abstract class SharedIvDripSystem : EntitySystem
     private void OnIVDripCanDropDragged(Entity<IVDripComponent> iv, ref CanDropDraggedEvent args)
     {
         // TODO CM14 check for BloodstreamComponent instead of MarineComponent
-        if (HasComp<BloodstreamComponent>(args.Target) && InRange(iv, args.Target))
+        if (TryComp<BloodstreamComponent>(args.Target, out var bloodstream) &&
+            bloodstream.CanBeIVDripped && InRange(iv, args.Target))
         {
             args.Handled = true;
             args.CanDrop = true;
@@ -144,7 +146,8 @@ public abstract class SharedIvDripSystem : EntitySystem
     private void OnMarineCanDropTarget(Entity<BloodstreamComponent> marine, ref CanDropTargetEvent args)
     {
         var iv = args.Dragged;
-        if (TryComp(iv, out IVDripComponent? ivComp) && InRange((iv, ivComp), marine))
+        if (TryComp(iv, out IVDripComponent? ivComp) &&
+            InRange((iv, ivComp), marine) && marine.Comp.CanBeIVDripped)
         {
             args.Handled = true;
             args.CanDrop = true;
@@ -182,10 +185,7 @@ public abstract class SharedIvDripSystem : EntitySystem
 
     private void OnBloodPackMapInitEvent(Entity<BloodPackComponent> pack, ref MapInitEvent args)
     {
-        if (!TryComp<SolutionContainerManagerComponent>(pack, out var solMan))
-            return;
-
-        if (!_solutionContainer.TryGetSolution(solMan, pack.Comp.Solution, out var packSolution))
+        if (!_solutionContainer.TryGetSolution(pack.Owner, pack.Comp.Solution, out _, out var packSolution))
             return;
 
         UpdatePackVisuals(pack, packSolution);
@@ -210,6 +210,28 @@ public abstract class SharedIvDripSystem : EntitySystem
 
         if (!InRange(iv, to))
             return;
+
+        if (TryComp(to, out BloodstreamComponent? bloodstream) && !bloodstream.CanBeIVDripped)
+        {
+            _popup.PopupClient(Loc.GetString("cm-iv-attach-fail"), to, user);
+            return;
+        }
+
+        var toDetach = new List<Entity<IVDripComponent>>();
+        var query = EntityQueryEnumerator<IVDripComponent>();
+        while (query.MoveNext(out var otherIvId, out var otherIvComp))
+        {
+            if (otherIvId == iv.Owner)
+                continue;
+
+            if (otherIvComp.AttachedTo == to)
+                toDetach.Add((otherIvId, otherIvComp));
+        }
+
+        foreach (var otherIv in toDetach)
+        {
+            Detach(otherIv, false, true);
+        }
 
         iv.Comp.AttachedTo = to;
         Dirty(iv);

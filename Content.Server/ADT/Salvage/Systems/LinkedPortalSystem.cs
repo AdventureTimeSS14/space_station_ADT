@@ -1,5 +1,6 @@
 using Content.Server.ADT.Salvage.Components;
 using Content.Server.Medical;
+using Content.Shared.ADT.Salvage.Components;
 using Content.Shared.Body;
 using Content.Shared.Body.Components;
 using Content.Shared.Damage.Components;
@@ -23,13 +24,13 @@ namespace Content.Server.ADT.Salvage.Systems;
 
 public sealed partial class JaunterPortalSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly LinkedEntitySystem _link = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
-    [Dependency] private readonly VomitSystem _vomit = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private LinkedEntitySystem _link = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedStaminaSystem _stamina = default!;
+    [Dependency] private VomitSystem _vomit = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
 
     public override void Initialize()
     {
@@ -43,6 +44,9 @@ public sealed partial class JaunterPortalSystem : EntitySystem
     private void OnKillPortalEntered(EntityUid uid, JaunterKillPortalComponent comp, ref StartCollideEvent args)
     {
         if (args.OtherEntity == default)
+            return;
+
+        if (HasComp<MegafaunaComponent>(args.OtherEntity))
             return;
 
         QueueDel(args.OtherEntity);
@@ -185,6 +189,9 @@ public sealed partial class JaunterPortalSystem : EntitySystem
         if (otherUid == default)
             return;
 
+        if (HasComp<MegafaunaComponent>(otherUid))
+            return;
+
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Items/Mining/fultext_launch.ogg"), args.OtherEntity);
 
         if (TryComp<StaminaComponent>(otherUid, out var stam))
@@ -193,7 +200,7 @@ public sealed partial class JaunterPortalSystem : EntitySystem
             _stamina.TakeStaminaDamage(otherUid, need, stam);
         }
 
-        if (HasComp<OrganComponent>(otherUid) && HasComp<HungerComponent>(otherUid))
+        if (HasComp<OrganComponent>(otherUid) && HasComp<SatiationComponent>(otherUid))
         {
             _vomit.Vomit(otherUid);
         }

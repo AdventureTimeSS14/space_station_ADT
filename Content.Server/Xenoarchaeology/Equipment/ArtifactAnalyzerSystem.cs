@@ -1,5 +1,6 @@
 using Content.Server.Research.Systems;
 using Content.Server.Xenoarchaeology.Artifact;
+using Content.Shared.ADT.Construction.Components;
 using Content.Shared.Popups;
 using Content.Shared.Xenoarchaeology.Equipment;
 using Content.Shared.Xenoarchaeology.Equipment.Components;
@@ -8,12 +9,12 @@ using Robust.Shared.Audio.Systems;
 namespace Content.Server.Xenoarchaeology.Equipment;
 
 /// <inheritdoc />
-public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
+public sealed partial class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly ResearchSystem _research = default!;
-    [Dependency] private readonly XenoArtifactSystem _xenoArtifact = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private ResearchSystem _research = default!;
+    [Dependency] private XenoArtifactSystem _xenoArtifact = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -42,6 +43,14 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
         // 4-16-25: It's a sad day when a scientist makes negative 5k research
         if (sumResearch <= 0)
             return;
+
+        // ADT-Tweak-Start
+        if (ent.Comp.AnalyzerEntity is {} analyzer
+            && TryComp<ArtifactAnalyzerUpgradeComponent>(analyzer, out var upgrade))
+        {
+            sumResearch = (int) (sumResearch * upgrade.PointMultiplier);
+        }
+        // ADT-Tweak-End
 
         _research.ModifyServerPoints(server.Value, sumResearch, serverComponent);
         _audio.PlayPvs(ent.Comp.ExtractSound, artifact.Value);

@@ -60,6 +60,14 @@ namespace Content.Server.Atmos.Portable
         [DataField, ViewVariables(VVAccess.ReadWrite)]
         public float TransferRate = 800;
 
+        // ADT-Tweak-Start
+        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        public float TransferRateMultiplier = 1f;
+
+        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        public float PressureMultiplier = 1f;
+        // ADT-Tweak-End
+
         #region GuidebookData
 
         [GuidebookData]

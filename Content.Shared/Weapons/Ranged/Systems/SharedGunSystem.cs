@@ -39,41 +39,49 @@ using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared.ADT.DNAGunLocker;
 using Content.Shared.ADT.Mech.Components;
+using Content.Shared.ADT.Weapons.Ranged.WearableGun;
 using Content.Shared.Electrocution;
 using Content.Shared.ADT.Crawling.Components;
+using Content.Shared.Inventory.VirtualItem;
+using Content.Goobstation.Common.Weapons.Multishot; // ADT-Tweak 
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
 public abstract partial class SharedGunSystem : EntitySystem
 {
-    [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private readonly INetManager _netManager = default!;
-    [Dependency] private readonly ItemSlotsSystem _slots = default!;
-    [Dependency] private readonly RechargeBasicEntityAmmoSystem _recharge = default!;
-    [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly UseDelaySystem _useDelay = default!;
-    [Dependency] protected readonly DamageableSystem Damageable = default!;
-    [Dependency] protected readonly ExamineSystemShared Examine = default!;
-    [Dependency] protected readonly IGameTiming Timing = default!;
-    [Dependency] protected readonly IMapManager MapManager = default!;
-    [Dependency] protected readonly IPrototypeManager ProtoManager = default!;
-    [Dependency] protected readonly IRobustRandom Random = default!;
-    [Dependency] protected readonly ISharedAdminLogManager Logs = default!;
-    [Dependency] protected readonly SharedActionsSystem Actions = default!;
-    [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
-    [Dependency] protected readonly SharedAudioSystem Audio = default!;
-    [Dependency] protected readonly SharedContainerSystem Containers = default!;
-    [Dependency] protected readonly SharedPhysicsSystem Physics = default!;
-    [Dependency] protected readonly SharedPointLightSystem Lights = default!;
-    [Dependency] protected readonly SharedPopupSystem PopupSystem = default!;
-    [Dependency] protected readonly SharedProjectileSystem Projectiles = default!;
-    [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
-    [Dependency] protected readonly TagSystem TagSystem = default!;
-    [Dependency] protected readonly ThrowingSystem ThrowingSystem = default!;
     // ADT-Tweak-Start
-    [Dependency] private readonly SharedElectrocutionSystem _electrocutionSystem = default!;
+    private static readonly TimeSpan MinFireRateInterval = TimeSpan.FromSeconds(0.1);
+    private static readonly TimeSpan MaxFireRateInterval = TimeSpan.FromHours(1);
+    private const int MaxCatchUpShots = 100;
+    // ADT-Tweak-End
+
+    [Dependency] private ActionBlockerSystem _actionBlockerSystem = default!;
+    [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private INetManager _netManager = default!;
+    [Dependency] private ItemSlotsSystem _slots = default!;
+    [Dependency] private RechargeBasicEntityAmmoSystem _recharge = default!;
+    [Dependency] private SharedCombatModeSystem _combatMode = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private UseDelaySystem _useDelay = default!;
+    [Dependency] protected DamageableSystem Damageable = default!;
+    [Dependency] protected ExamineSystemShared Examine = default!;
+    [Dependency] protected IGameTiming Timing = default!;
+    [Dependency] protected IRobustRandom Random = default!;
+    [Dependency] protected ISharedAdminLogManager Logs = default!;
+    [Dependency] protected SharedActionsSystem Actions = default!;
+    [Dependency] protected SharedAppearanceSystem Appearance = default!;
+    [Dependency] protected SharedAudioSystem Audio = default!;
+    [Dependency] protected SharedContainerSystem Containers = default!;
+    [Dependency] protected SharedMapSystem Maps = default!;
+    [Dependency] protected SharedPhysicsSystem Physics = default!;
+    [Dependency] protected SharedPointLightSystem Lights = default!;
+    [Dependency] protected SharedPopupSystem PopupSystem = default!;
+    [Dependency] protected SharedProjectileSystem Projectiles = default!;
+    [Dependency] protected SharedTransformSystem TransformSystem = default!;
+    [Dependency] protected TagSystem TagSystem = default!;
+    [Dependency] protected ThrowingSystem ThrowingSystem = default!;
+    // ADT-Tweak-Start
+    [Dependency] private SharedElectrocutionSystem _electrocutionSystem = default!;
     // ADT-Tweak-End
 
     /// <summary>
@@ -111,6 +119,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         InitializeBattery();
         InitializeCartridge();
         InitializeChamberMagazine();
+        InitializeCustomAmmoCounter();
         InitializeMagazine();
         InitializeRevolver();
         InitializeBasicEntity();
@@ -152,6 +161,7 @@ public abstract partial class SharedGunSystem : EntitySystem
 
     private void OnShootRequest(RequestShootEvent msg, EntitySessionEventArgs args)
     {
+        var gunUid = GetEntity(msg.Gun);
         var user = args.SenderSession.AttachedEntity;
 
         if (user == null ||
@@ -163,6 +173,11 @@ public abstract partial class SharedGunSystem : EntitySystem
 
         if (gun.Owner != GetEntity(msg.Gun))
             return;
+
+        // ADT TWEAK START
+        if (HasComp<MultishotComponent>(gunUid))
+            return;
+        // ADT TWEAK END
 
         // ADT Content start
         if (TryComp<MechPilotComponent>(user.Value, out var mechPilot))
@@ -213,7 +228,7 @@ public abstract partial class SharedGunSystem : EntitySystem
     {
         gun = default;
 
-        // ADT Content start
+        // ADT-Tweak-Start
         if (TryComp<MechPilotComponent>(entity, out var mechPilot))
         {
             if (HasComp<MechControlLockedComponent>(entity))
@@ -227,13 +242,24 @@ public abstract partial class SharedGunSystem : EntitySystem
                 return true;
             }
         }
-        // ADT Content end
+
         if (_hands.GetActiveItem(entity) is { } held &&
-            TryComp(held, out GunComponent? gunComp))
+            TryComp(held, out GunComponent? gunComp) &&
+            !HasComp<ADTWearableGunComponent>(held))
         {
             gun = (held, gunComp);
             return true;
         }
+
+        if (TryComp<ADTWearableGunUserComponent>(entity, out var wearableUser) &&
+            TryComp(wearableUser.Gun, out GunComponent? wearableGun) &&
+            (_hands.GetActiveItem(entity) is not { } inHand ||
+             TryComp<VirtualItemComponent>(inHand, out var virtualItem) && !_hands.IsHolding(entity, virtualItem.BlockingEntity)))
+        {
+            gun = (wearableUser.Gun.Value, wearableGun);
+            return true;
+        }
+        // ADT-Tweak-End
 
         // Last resort is check if the entity itself is a gun.
         if (TryComp(entity, out gunComp))
@@ -332,10 +358,23 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (gun.Comp.NextFire > curTime)
             return false;
 
-        var fireRate = TimeSpan.FromSeconds(1f / gun.Comp.FireRateModified);
+        // ADT-Tweak-Start
+        var fireRateSeconds = 1d / gun.Comp.FireRateModified;
 
         if (gun.Comp.SelectedMode == SelectiveFire.Burst || gun.Comp.BurstActivated)
-            fireRate = TimeSpan.FromSeconds(1f / gun.Comp.BurstFireRate);
+            fireRateSeconds = 1d / gun.Comp.BurstFireRate;
+
+        if (double.IsNaN(fireRateSeconds) || fireRateSeconds < MinFireRateInterval.TotalSeconds)
+        {
+            fireRateSeconds = MinFireRateInterval.TotalSeconds;
+        }
+        else if (double.IsInfinity(fireRateSeconds) || fireRateSeconds > MaxFireRateInterval.TotalSeconds)
+        {
+            fireRateSeconds = MaxFireRateInterval.TotalSeconds;
+        }
+
+        var fireRate = TimeSpan.FromSeconds(fireRateSeconds);
+        // ADT-Tweak-End
 
         // First shot
         // Previously we checked shotcounter but in some cases all the bullets got dumped at once
@@ -346,11 +385,13 @@ public abstract partial class SharedGunSystem : EntitySystem
         var shots = 0;
         var lastFire = gun.Comp.NextFire;
 
-        while (gun.Comp.NextFire <= curTime)
+        // ADT-Tweak-Start
+        while (gun.Comp.NextFire <= curTime && shots < MaxCatchUpShots)
         {
             gun.Comp.NextFire += fireRate;
             shots++;
         }
+        // ADT-Tweak-End
 
         // NextFire has been touched regardless so need to dirty the gun.
         DirtyField(gun.AsNullable(), nameof(GunComponent.NextFire));
@@ -385,7 +426,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         {
             if (attemptEv.Message != null)
             {
-                PopupSystem.PopupClient(attemptEv.Message, gun, user);
+                PopupSystem.PopupEntity(attemptEv.Message, gun, user);
             }
             gun.Comp.BurstActivated = false;
             gun.Comp.BurstShotsCount = 0;
@@ -424,7 +465,7 @@ public abstract partial class SharedGunSystem : EntitySystem
             // If they're firing an existing clip then don't play anything.
             if (shots > 0)
             {
-                PopupSystem.PopupCursor(ev.Reason ?? Loc.GetString("gun-magazine-fired-empty"));
+                PopupSystem.PopupCursor(ev.Reason ?? Loc.GetString("gun-magazine-fired-empty"), user);
 
                 // Don't spam safety sounds at gun fire rate, play it at a reduced rate.
                 // May cause prediction issues? Needs more tweaking
@@ -464,6 +505,8 @@ public abstract partial class SharedGunSystem : EntitySystem
 
         if (shooterEv.Push)
             CauseImpulse(fromCoordinates, toCoordinates.Value, (user, userPhysics));
+        
+        UpdateAmmoCount(gun); // ADT Tweak
         return true;
     }
 
@@ -513,9 +556,10 @@ public abstract partial class SharedGunSystem : EntitySystem
             EnsureComp<ProjectileIgnoreCrawlingComponent>(uid);
         }
         // ADT-Tweak end
-    }
 
-    protected abstract void Popup(string message, EntityUid? uid, EntityUid? user);
+        var ev = new ProjectileShotEvent();
+        RaiseLocalEvent(uid, ref ev);
+    }
 
     /// <summary>
     /// Call this whenever the ammo count for a gun changes.
@@ -554,8 +598,8 @@ public abstract partial class SharedGunSystem : EntitySystem
         var coordinates = xform.Coordinates;
         coordinates = coordinates.Offset(offsetPos);
 
-        TransformSystem.SetLocalRotation(entity, Random.NextAngle(), xform);
-        TransformSystem.SetCoordinates(entity, xform, coordinates);
+        TransformSystem.SetCoordinates(entity, xform, coordinates, rotation: Random.NextAngle());
+        TransformSystem.AttachToGridOrMap(entity, xform);
 
         // decides direction the casing ejects and only when not cycling
         if (angle != null)
@@ -566,7 +610,9 @@ public abstract partial class SharedGunSystem : EntitySystem
         }
         if (playSound && TryComp<CartridgeAmmoComponent>(entity, out var cartridge))
         {
-            Audio.PlayPvs(cartridge.EjectSound, entity, AudioParams.Default.WithVariation(SharedContentAudioSystem.DefaultVariation).WithVolume(-1f));
+            var audioParams = cartridge.EjectSound?.Params ?? AudioParams.Default;
+            audioParams = audioParams.AddVolume(-1f).WithVariation(SharedContentAudioSystem.DefaultVariation);
+            Audio.PlayPvs(cartridge.EjectSound, entity, audioParams);
         }
     }
 
@@ -783,6 +829,7 @@ public enum AmmoVisuals : byte
     AmmoCount,
     AmmoMax,
     HasAmmo, // used for generic visualizers. c# stuff can just check ammocount != 0
+    IsFull, // used for generic visualizers. c# stuff can just check ammocount == ammomax
     MagLoaded,
     BoltClosed,
 }

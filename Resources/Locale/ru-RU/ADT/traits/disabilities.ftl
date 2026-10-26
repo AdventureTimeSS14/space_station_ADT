@@ -25,8 +25,8 @@ trait-soft-hands-desc = Ваши руки слишком слабы, чтобы 
 trait-unadapted-to-space-name = Несовместимость с космосом
 trait-unadapted-to-space-desc = Из-за особого строения ваше тело не подготовлено к нагрузкам от космического вакуума, потому вы испытываете колоссальные перегрузки при контакте с ним.
 
-trait-allergic-name = Аллергик
-trait-allergic-desc = У вас есть аллергия.
+# trait-allergic-name = Аллергик
+# trait-allergic-desc = У вас есть аллергия.
 
 trait-highlightsensitivity-name = Высокая светочувствительность
 trait-highlightsensitivity-desc = Вы гораздо более чувствительны к свету, чем большинство шейдкинов.
@@ -42,3 +42,12 @@ trait-paralyzed-desc = Ваши ноги парализованы. Вы не м�
 
 trait-clumsy-name = Неуклюжий
 trait-clumsy-desc = Вы немного склонны к несчастным случаям.
+
+trait-wanted-criminal-name = В розыске
+trait-wanted-criminal-description = Центральное командование выписало на вас ордер за нарушение корпоративного закона. В прошлую смену вас осудили, но арестовать до конца смены не успели.
+
+trait-debts-name = Долги по кредитам
+trait-debts-description = Ваш банковский счёт начинает смену без денег.
+
+trait-on-edge-of-bankruptcy-name = На грани банкротства
+trait-on-edge-of-bankruptcy-description = Ваш банковский счёт начинает смену с минусовым счётом. Зарплата приходит как обычно и постепенно покрывает долг.

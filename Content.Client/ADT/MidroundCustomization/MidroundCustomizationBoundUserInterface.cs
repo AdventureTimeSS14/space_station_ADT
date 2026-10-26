@@ -25,6 +25,10 @@ public sealed class MidroundCustomizationBoundUserInterface : BoundUserInterface
         _window = this.CreateWindow<MidroundCustomizationWindow>();
         _window.MarkingsPicker.SetModel(_markingsModel);
         _markingsModel.MarkingsChanged += (_, _) => SendMarkingSet();
+
+        _window.OnVoiceChanged += voice => SendMessage(new MidroundCustomizationChangeVoiceMessage(voice));
+        _window.OnBarkChanged += bark => SendMessage(new MidroundCustomizationChangeBarkMessage(bark.Proto, bark.Pitch, bark.MinVar, bark.MaxVar));
+        _window.OnPointLightColorToggled += enabled => SendMessage(new MidroundCustomizationPointLightColorToggleMessage(enabled));
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)
@@ -43,6 +47,8 @@ public sealed class MidroundCustomizationBoundUserInterface : BoundUserInterface
             _markingsModel.OrganData = data.OrganMarkingData;
 
         _markingsModel.Markings = data.AppliedMarkings;
+
+        _window.UpdateState(data);
     }
 
     private static bool OrganDataEquals(

@@ -15,6 +15,8 @@ public sealed partial class HereticRuleComponent : Component
         "HereticPathFlesh",
         "HereticPathBlade",
         "HereticPathVoid",
+        "HereticPathCosmos", // ADT: путь Космоса
+        "HereticPathRust", // ADT: путь Ржавчины
         "HereticPathSide"
     };
 

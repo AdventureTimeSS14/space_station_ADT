@@ -1,4 +1,83 @@
 - type: guideEntry
   id: Heretics
   name: guide-entry-heretics
-  text: "/ServerInfo/ADT/Guidebook/Antagonist/Heretics.xml"
+  text: "/ServerInfo/ADT/Guidebook/Heretic/Heretic.xml"
+  priority: 6
+  children:
+  - ADTHereticStart
+  - ADTHereticRituals
+  - ADTHereticPaths
+  - ADTHereticBlades
+  - ADTHereticGear
+
+- type: guideEntry
+  id: ADTHereticStart
+  name: guide-entry-heretic-start
+  text: "/ServerInfo/ADT/Guidebook/Heretic/Start.xml"
+
+- type: guideEntry
+  id: ADTHereticRituals
+  name: guide-entry-heretic-rituals
+  text: "/ServerInfo/ADT/Guidebook/Heretic/Rituals.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: ADTHereticPaths
+  name: guide-entry-heretic-paths
+  text: "/ServerInfo/ADT/Guidebook/Heretic/Paths.xml"
+  filterEnabled: true
+  children:
+  - ADTHereticPathAsh
+  - ADTHereticPathBlade
+  - ADTHereticPathFlesh
+  - ADTHereticPathVoid
+  - ADTHereticPathRust
+  - ADTHereticPathCosmos
+
+- type: guideEntry
+  id: ADTHereticPathAsh
+  name: guide-entry-heretic-path-ash
+  text: "/ServerInfo/ADT/Guidebook/Heretic/PathAsh.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: ADTHereticPathBlade
+  name: guide-entry-heretic-path-blade
+  text: "/ServerInfo/ADT/Guidebook/Heretic/PathBlade.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: ADTHereticPathFlesh
+  name: guide-entry-heretic-path-flesh
+  text: "/ServerInfo/ADT/Guidebook/Heretic/PathFlesh.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: ADTHereticPathVoid
+  name: guide-entry-heretic-path-void
+  text: "/ServerInfo/ADT/Guidebook/Heretic/PathVoid.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: ADTHereticPathRust
+  name: guide-entry-heretic-path-rust
+  text: "/ServerInfo/ADT/Guidebook/Heretic/PathRust.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: ADTHereticPathCosmos
+  name: guide-entry-heretic-path-cosmos
+  text: "/ServerInfo/ADT/Guidebook/Heretic/PathCosmos.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: ADTHereticBlades
+  name: guide-entry-heretic-blades
+  text: "/ServerInfo/ADT/Guidebook/Heretic/Blades.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: ADTHereticGear
+  name: guide-entry-heretic-gear
+  text: "/ServerInfo/ADT/Guidebook/Heretic/Gear.xml"
+  filterEnabled: true

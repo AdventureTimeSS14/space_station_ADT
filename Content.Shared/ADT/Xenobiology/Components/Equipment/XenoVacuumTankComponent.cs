@@ -23,7 +23,7 @@ public sealed partial class XenoVacuumTankComponent : Component
     /// Will be upgradable.
     /// </summary>
     [DataField]
-    public int MaxEntities = 5;
+    public int MaxEntities = 20;
 
     /// <summary>
     /// The EntityUid of the nozzle attached to this tank.

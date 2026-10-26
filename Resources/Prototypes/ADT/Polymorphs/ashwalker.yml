@@ -1,0 +1,40 @@
+- type: polymorph
+  id: ADTRitualTransformation
+  configuration:
+    entity: ADTMobAshWalker
+    forced: true
+    transferName: true
+    transferDamage: true
+    transferLanguageSpeaker: false
+    inventory: Drop
+    revertOnCrit: false
+    revertOnDeath: false
+    revertOnDelete: false
+    ignoreAllowRepeatedMorphs: true
+
+- type: polymorph
+  id: ADTRitualSoul
+  configuration:
+    entity: ADTMobDraconid
+    forced: true
+    transferName: true
+    transferDamage: true
+    transferLanguageSpeaker: true
+    inventory: Transfer
+    revertOnCrit: false
+    revertOnDeath: false
+    revertOnDelete: false
+    ignoreAllowRepeatedMorphs: true
+
+- type: polymorph
+  id: ADTRitualMonkeyize
+  configuration:
+    entity: MobMonkey
+    forced: true
+    transferName: true
+    transferDamage: true
+    inventory: Drop
+    revertOnCrit: false
+    revertOnDeath: false
+    revertOnDelete: false
+    ignoreAllowRepeatedMorphs: true

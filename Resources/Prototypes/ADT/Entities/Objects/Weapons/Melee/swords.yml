@@ -4,7 +4,9 @@
   id: ADTKatanacursed
   description: Ancient craftwork made with not so ancient plasteel.
   components:
-  - type: Sharp
+  - type: Tool
+    qualities:
+    - Slicing
   - type: Unremoveable
   - type: Tag
     tags:
@@ -28,37 +30,18 @@
         Blunt: 8
         Slash: 8
         Piercing: 8
-    healAmount:
-      types:
-        Blunt: -5
-        Slash: -5
-        Piercing: -5
     healCost:
       types:
-        Slash: 15
-    combos:
-    - move: TendonCut
-      inputs: [ Light, Light, Light ]
-      name: adt-cursed-katana-move-cut
-      popup: adt-cursed-katana-perform-cut
-    - move: HiltStrike
-      inputs: [ Heavy, Heavy, Heavy ]
-      name: adt-cursed-katana-move-strike
-      popup: adt-cursed-katana-perform-strike
-    - move: Dash
-      inputs: [ Light, Light, Heavy ]
-      name: adt-cursed-katana-move-dash
-      popup: adt-cursed-katana-perform-dash
-    - move: DarkHeal
-      inputs: [ Heavy, Heavy, Light ]
-      name: adt-cursed-katana-move-heal
-      popup: adt-cursed-katana-perform-heal
+        Slash: 10
+  - type: WeaponMartialArt
+    martialArtsForm: CursedKatana
+    combos: CursedKatanaMoves
   - type: Item
     sprite: ADT/Objects/Weapons/Melee/katana_cursed.rsi
   - type: DisarmMalus
   - type: GuideHelp
     guides:
-    - ADTMartialArts
+    - ADTMaKatana
 
 - type: entity
   parent: BaseItem
@@ -100,10 +83,9 @@
     damage:
       types:
         Piercing: 8
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      melee:
-        maxVol: 1
+    - ADTPlasmaDaggerSolution
   - type: MeleeChemicalInjector
     solution: melee
   - type: RefillableSolution
@@ -154,10 +136,9 @@
     damage:
       types:
         Piercing: 7
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      melee:
-        maxVol: 1
+    - ADTGlassReinDaggerSolution
   - type: MeleeChemicalInjector
     solution: melee
   - type: RefillableSolution
@@ -208,10 +189,9 @@
     damage:
       types:
         Piercing: 6
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      melee:
-        maxVol: 1
+    - ADTGlassDaggerSolution
   - type: MeleeChemicalInjector
     solution: melee
   - type: RefillableSolution
@@ -263,10 +243,9 @@
       types:
         Piercing: 5
         Radiation: 5
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      melee:
-        maxVol: 1
+    - ADTGlassUranDaggerSolution
   - type: MeleeChemicalInjector
     solution: melee
   - type: RefillableSolution
@@ -430,3 +409,65 @@
   - type: Construction
     graph: ADTBBattleaxe
     node: ADTBoneCompBattleaxe
+
+- type: entity
+  parent: [ BaseSword, BaseSyndicateContraband ]
+  id: ADTRapier
+  name: rapier
+  description: A thin syndicate rapier, its blade designed to pierce through armor with precise thrusts.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/rapier.rsi
+  - type: MeleeWeapon
+    attackRate: 1.5
+    damage:
+      types:
+        Slash: 17
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: ArmorPenetration
+    penetration: 0.3
+  - type: Reflect
+    reflectProb: .1
+    spread: 90
+  - type: DisarmMalus
+
+- type: entity
+  parent: SolutionWeapon
+  id: ADTPlasmaDaggerSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 1
+      reagents: []
+
+- type: entity
+  parent: SolutionWeapon
+  id: ADTGlassReinDaggerSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 1
+      reagents: []
+
+- type: entity
+  parent: SolutionWeapon
+  id: ADTGlassDaggerSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 1
+      reagents: []
+
+- type: entity
+  parent: SolutionWeapon
+  id: ADTGlassUranDaggerSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 1
+      reagents: []

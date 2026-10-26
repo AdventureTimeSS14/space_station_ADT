@@ -1,10 +1,18 @@
-using Content.Shared.Alert;
-using Robust.Shared.Prototypes;
+using Content.Shared.DoAfter;
+using Robust.Shared.GameStates;
+using Robust.Shared.Physics;
 
 namespace Content.Shared.ADT.Components.PickupHumans;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class TakenHumansComponent : Component
 {
-    public EntityUid Target = default;
+    [ViewVariables, AutoNetworkedField]
+    public EntityUid Carrier;
+
+    [ViewVariables]
+    public BodyType OriginalBodyType = BodyType.KinematicController;
+
+    [ViewVariables]
+    public DoAfterId? EscapeDoAfter;
 }

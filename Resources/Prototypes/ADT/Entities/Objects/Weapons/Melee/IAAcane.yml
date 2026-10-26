@@ -26,8 +26,16 @@
     activatedDamage:
       types:
         Shock: 5
-  - type: Stunbaton
-    energyPerUse: 60
+  - type: ItemToggleRequiresCharge
+    requiredCharge: 60
+  - type: ItemToggleExaminableStatus
+  - type: MeleeBatteryHitsLeft
+  - type: StaminaDamageOnHitRequiresToggle
+  - type: StaminaDamageOnHitRequiresCharge
+    requiredCharge: 60
+  - type: Tag
+    tags:
+    - Stunbaton
   - type: MeleeWeapon
     wideAnimationRotation: 75
     damage:

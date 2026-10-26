@@ -7,7 +7,6 @@ reagent-effect-status-effect-Muted = неспособность разговар
 reagent-effect-status-effect-Stutter = заикание
 reagent-effect-status-effect-ForcedSleep = потеря сознания
 reagent-effect-status-effect-Drunk = опьянение
-reagent-effect-status-effect-PressureImmunity = невосприимчивость к давлению
 reagent-effect-status-effect-Pacified = принудительный пацифизм
 reagent-effect-status-effect-RatvarianLanguage = паттерны ратварского языка
 reagent-effect-status-effect-StaminaModifier = модифицированная выносливость

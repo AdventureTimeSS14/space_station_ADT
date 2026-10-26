@@ -37,7 +37,6 @@
   - PrintedDocumentPrescriptionDrugAuthorizationRecipe
   - PrintedDocumentPermissionDisposeBodyRecipe
   - PrintedDocumentConstructionPermitRecipe
-  - PrintedDocumentPermissionToExtendMarriageRecipe
   - PrintedDocumentOrderDismissalRecipe
   - PrintedDocumentOrderDeprivationAccessRecipe
   - PrintedDocumentOrderEncouragementRecipe
@@ -59,6 +58,13 @@
   - PrintedDocumentJudgmentRecipe
   - PrintedDocumentStatementHealtheRecipe
   - PrintedDocumentDecisionToStartTrialRecipe
+  - PrintedDocumentReportproceduralviolationsRecipe
+  - PrintedDocumentRequestliftlegalimmunityRecipe
+  - PrintedDocumentInvestigationReportRecipe
+  - PrintedDocumentRemnantscombatgearRecipe
+  - PrintedDocumentRequestchangestationtargetRecipe
+  - PrintedDocumentOrderamendingstandardoperatingproceduresRecipe
+  - PrintedDocumentOrderamendinglistregulatedsubstancesRecipe
 
 - type: latheRecipePack
   id: ADTPrinterEmagPack
@@ -126,3 +132,17 @@
   id: ADTBeltManipulatorPack
   recipes:
   - ADTClothingBeltManipulator
+
+
+- type: latheRecipePack
+  id: ADTSprayPaintStaticPack
+  recipes:
+  - ADTSprayPaintRed
+  - ADTSprayPaintOrange
+  - ADTFunnyPaintYellow
+  - ADTSprayPaintGreen
+  - ADTSprayPaintBlue
+  - ADTSprayPaintPurple
+  - ADTFunnyPaint
+  - ADTSprayPaintWhite
+  - ADTSprayPaintBlack

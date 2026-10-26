@@ -42,8 +42,8 @@
   - Grab
   - Grab
   event: !type:CqcRestrainPerformedEvent {}
-  paralyzeTime: 3
-  staminaDamage: 55
+  paralyzeTime: 4
+  staminaDamage: 60
 
 - type: combo
   id: CQCPressure

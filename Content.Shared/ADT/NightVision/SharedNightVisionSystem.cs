@@ -13,11 +13,11 @@ namespace Content.Shared.ADT.NightVision;
 
 public abstract class SharedNightVisionSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private AlertsSystem _alerts = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -92,7 +92,7 @@ public abstract class SharedNightVisionSystem : EntitySystem
         if (ent.Comp.SlotFlags != args.SlotFlags)
             return;
 
-        DisableNightVisionItem(ent, args.Equipee);
+        DisableNightVisionItem(ent, args.EquipTarget);
     }
 
     private void OnNightVisionItemActionRemoved(Entity<NightVisionItemComponent> ent, ref ActionRemovedEvent args)
@@ -167,12 +167,13 @@ public abstract class SharedNightVisionSystem : EntitySystem
             nightVision.State = NightVisionState.Full;
             nightVision.Shader = item.Comp.Shader;
             nightVision.EffectPrototype = item.Comp.EffectPrototype;
+            nightVision.Overlay = true;
             Dirty(user, nightVision);
 
             var eyeDamage = EnsureComp<DamageEyesOnFlashedComponent>(user);
             Dirty(user, eyeDamage);
 
-            _audio.PlayPredicted(item.Comp.SoundOn, item, user);
+            _audio.PlayLocal(item.Comp.SoundOn, item, user);
         }
 
         _actions.SetToggled(item.Comp.Action, true);
@@ -207,13 +208,13 @@ public abstract class SharedNightVisionSystem : EntitySystem
             }
             else
             {
-                // Restore species/innate shader + light effect after removing the device overlay.
                 if (item.Comp.PreviousShader != null)
                     nightVision.Shader = item.Comp.PreviousShader;
 
                 if (item.Comp.PreviousEffectPrototype != null)
                     nightVision.EffectPrototype = item.Comp.PreviousEffectPrototype.Value;
 
+                nightVision.Overlay = false;
                 Dirty(user.Value, nightVision);
                 RemCompDeferred<DamageEyesOnFlashedComponent>(user.Value);
             }
@@ -222,8 +223,8 @@ public abstract class SharedNightVisionSystem : EntitySystem
         item.Comp.PreviousShader = null;
         item.Comp.PreviousEffectPrototype = null;
 
-        if (playSound && wasActive && !_timing.ApplyingState)
-            _audio.PlayPredicted(item.Comp.SoundOff, item, soundUser);
+        if (playSound && wasActive && !_timing.ApplyingState && soundUser != null)
+            _audio.PlayLocal(item.Comp.SoundOff, item, soundUser);
     }
 
     /// <summary>

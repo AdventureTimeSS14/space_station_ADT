@@ -55,20 +55,21 @@ namespace Content.Server.Connection
     /// </summary>
     public sealed partial class ConnectionManager : IConnectionManager
     {
-        [Dependency] private readonly IPlayerManager _plyMgr = default!;
-        [Dependency] private readonly IServerNetManager _netMgr = default!;
-        [Dependency] private readonly IServerDbManager _db = default!;
-        [Dependency] private readonly IConfigurationManager _cfg = default!;
-        [Dependency] private readonly SponsorsManager _sponsorsManager = default!; // Corvax-Sponsors
-        [Dependency] private readonly ILocalizationManager _loc = default!;
-        [Dependency] private readonly ServerDbEntryManager _serverDbEntry = default!;
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly ILogManager _logManager = default!;
-        [Dependency] private readonly IChatManager _chatManager = default!;
-        [Dependency] private readonly IHttpClientHolder _http = default!;
-        [Dependency] private readonly IAdminManager _adminManager = default!;
-        [Dependency] private readonly IEntityManager _entityManager = default!;
+        [Dependency] private IPlayerManager _plyMgr = default!;
+        [Dependency] private IServerNetManager _netMgr = default!;
+        [Dependency] private IServerDbManager _db = default!;
+        [Dependency] private IConfigurationManager _cfg = default!;
+        [Dependency] private ILocalizationManager _loc = default!;
+        [Dependency] private ServerDbEntryManager _serverDbEntry = default!;
+        [Dependency] private IPrototypeManager _prototypeManager = default!;
+        [Dependency] private IGameTiming _gameTiming = default!;
+        [Dependency] private ILogManager _logManager = default!;
+        [Dependency] private IChatManager _chatManager = default!;
+        [Dependency] private IHttpClientHolder _http = default!;
+        [Dependency] private IAdminManager _adminManager = default!;
+        [Dependency] private IEntityManager _entityManager = default!;
+        [Dependency] private SponsorsManager _sponsorsManager = default!; // Corvax-Sponsors
+        [Dependency] private Content.Server.ADT.Sponsors.SponsorManager _adtSponsors = default!;
 
         private GameTicker? _ticker;
 
@@ -329,6 +330,11 @@ namespace Content.Server.Connection
                 softPlayerCount -= _adminManager.ActiveAdmins.Count();
             }
 
+            // ADT-Tweak-Start: reserve last slots before the hard player cap for HOST
+            if (IsHostReservedSlotsDenied(adminData))
+                return (ConnectionDenyReason.Full, Loc.GetString("soft-player-cap-full"), null);
+            // ADT-Tweak-End
+
             // Corvax-Queue-Start
             var isQueueEnabled = _cfg.GetCVar(CCCVars.QueueEnabled);
             if ((softPlayerCount >= _cfg.GetCVar(CCVars.SoftMaxPlayers) && !adminBypass) && !wasInGame && !isPrivileged && !isQueueEnabled)
@@ -407,12 +413,17 @@ namespace Content.Server.Connection
         {
             var isAdmin = await _db.GetAdminDataForAsync(userId) != null;
             var havePriorityJoin = _sponsorsManager.TryGetInfo(userId, out var sponsor) && sponsor.HavePriorityJoin && sponsor.ExpireDate > DateTime.Now; // Corvax-Sponsors + ADT-Sponsors
+            // ADT-Tweak-Start
+            var adtSponsor = await _adtSponsors.EnsureLoadedAsync(userId);
+            havePriorityJoin |= adtSponsor.PriorityJoin;
+            // ADT-Tweak-End
             var wasInGame = EntitySystem.TryGet<GameTicker>(out var ticker) &&
                             ticker.PlayerGameStatuses.TryGetValue(userId, out var status) &&
                             status == PlayerGameStatus.JoinedGame;
             return isAdmin ||
                    havePriorityJoin || // Corvax-Sponsors
-                   wasInGame;
+                   wasInGame ||
+                   HasTemporaryBypass(userId); // ADT-Tweak-Start
         }
         // Corvax-Queue-End
     }

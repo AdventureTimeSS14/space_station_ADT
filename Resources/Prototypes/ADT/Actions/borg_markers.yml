@@ -1,0 +1,50 @@
+- type: entity
+  parent: BaseMentalAction
+  id: ADTActionPlaceBorgMarker
+  name: Place waypoint
+  description: Drops a coloured waypoint for the cyborgs. Aiming at an existing one takes it down.
+  components:
+  - type: Action
+    priority: -6
+    itemIconStyle: NoItem
+    useDelay: 0.5
+  - type: Sprite
+    layers:
+    - texture: Interface/VerbIcons/drop.svg.192dpi.png
+  - type: TargetAction
+    checkCanAccess: false
+    range: 0
+  - type: WorldTargetAction
+    event: !type:ADTPlaceBorgMarkerEvent
+
+- type: entity
+  parent: BaseMentalAction
+  id: ADTActionCycleBorgMarkerColor
+  name: Waypoint colour
+  description: Switches the colour the next waypoint will be painted with.
+  components:
+  - type: Action
+    priority: -7
+    itemIconStyle: NoItem
+    useDelay: 0.3
+  - type: Sprite
+    layers:
+    - texture: Interface/VerbIcons/refresh.svg.192dpi.png
+  - type: InstantAction
+    event: !type:ADTCycleBorgMarkerColorEvent
+
+- type: entity
+  parent: BaseMentalAction
+  id: ADTActionClearBorgMarkers
+  name: Clear waypoints
+  description: Takes down every waypoint you have placed.
+  components:
+  - type: Action
+    priority: -8
+    itemIconStyle: NoItem
+    useDelay: 1
+  - type: Sprite
+    layers:
+    - texture: Interface/VerbIcons/delete.svg.192dpi.png
+  - type: InstantAction
+    event: !type:ADTClearBorgMarkersEvent

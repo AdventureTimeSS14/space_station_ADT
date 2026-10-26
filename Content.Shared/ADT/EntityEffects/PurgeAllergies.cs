@@ -13,25 +13,22 @@ namespace Content.Shared.EntityEffects.Effects;
 /// </summary>
 public sealed partial class PurgeAllergiesEntityEffectSystem : EntityEffectSystem<AllergicComponent, PurgeAllergies>
 {
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainerSystem = default!;
 
     protected override void Effect(Entity<AllergicComponent> entity, ref EntityEffectEvent<PurgeAllergies> args)
     {
         if (!TryComp<BloodstreamComponent>(entity, out var bloodstreamComp))
             return;
 
-        if (!TryComp<SolutionContainerManagerComponent>(entity, out var solMan))
-            return;
-
         (EntityUid uid, _) = entity;
         ref List<ProtoId<ReagentPrototype>> allergicTriggers = ref entity.Comp.Triggers;
 
-        if (_solutionContainerSystem.TryGetSolution((uid, solMan), BloodstreamComponent.DefaultBloodSolutionName, out _, out var chemicalsSolution))
+        if (_solutionContainerSystem.TryGetSolution(uid, BloodstreamComponent.DefaultBloodSolutionName, out _, out var chemicalsSolution))
         {
-            foreach (var (reagent, _) in chemicalsSolution.Contents)
+            foreach (var reagent in chemicalsSolution.Contents)
             {
-                if (allergicTriggers.Contains(reagent.Prototype))
-                    allergicTriggers.Remove(reagent.Prototype);
+                if (allergicTriggers.Contains(reagent.Reagent.Prototype))
+                    allergicTriggers.Remove(reagent.Reagent.Prototype);
             }
         }
     }

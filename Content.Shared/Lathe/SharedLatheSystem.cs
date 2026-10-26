@@ -1,7 +1,11 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
+using Content.Shared.FixedPoint;
 using Content.Shared.Lathe.Prototypes;
 using Content.Shared.Localizations;
 using Content.Shared.Materials;
@@ -15,11 +19,12 @@ namespace Content.Shared.Lathe;
 /// <summary>
 /// This handles...
 /// </summary>
-public abstract class SharedLatheSystem : EntitySystem
+public abstract partial class SharedLatheSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly SharedMaterialStorageSystem _materialStorage = default!;
-    [Dependency] private readonly EmagSystem _emag = default!;
+    [Dependency] private SharedMaterialStorageSystem _materialStorage = default!;
+    [Dependency] private EmagSystem _emag = default!;
+    [Dependency] private SharedSolutionContainerSystem _solution = default!; // ADT-Tweak
+    [Dependency] private ItemSlotsSystem _itemSlots = default!; // ADT-Tweak
 
     public readonly Dictionary<string, List<LatheRecipePrototype>> InverseRecipes = new();
     public const int MaxItemsPerRequest = 10_000;
@@ -43,12 +48,12 @@ public abstract class SharedLatheSystem : EntitySystem
         var recipes = new HashSet<ProtoId<LatheRecipePrototype>>();
         foreach (var pack in component.StaticPacks)
         {
-            recipes.UnionWith(_proto.Index(pack).Recipes);
+            recipes.UnionWith(ProtoMan.Index(pack).Recipes);
         }
 
         foreach (var pack in component.DynamicPacks)
         {
-            recipes.UnionWith(_proto.Index(pack).Recipes);
+            recipes.UnionWith(ProtoMan.Index(pack).Recipes);
         }
 
         return recipes;
@@ -61,7 +66,7 @@ public abstract class SharedLatheSystem : EntitySystem
     {
         foreach (var id in packs)
         {
-            var pack = _proto.Index(id);
+            var pack = ProtoMan.Index(id);
             recipes.UnionWith(pack.Recipes);
         }
     }
@@ -78,7 +83,7 @@ public abstract class SharedLatheSystem : EntitySystem
     [PublicAPI]
     public bool CanProduce(EntityUid uid, string recipe, int amount = 1, LatheComponent? component = null)
     {
-        return _proto.TryIndex<LatheRecipePrototype>(recipe, out var proto) && CanProduce(uid, proto, amount, component);
+        return ProtoMan.TryIndex<LatheRecipePrototype>(recipe, out var proto) && CanProduce(uid, proto, amount, component);
     }
 
     public bool CanProduce(EntityUid uid, LatheRecipePrototype recipe, int amount = 1, LatheComponent? component = null)
@@ -92,11 +97,30 @@ public abstract class SharedLatheSystem : EntitySystem
 
         foreach (var (material, needed) in recipe.Materials)
         {
-            var adjustedAmount = AdjustMaterial(needed, recipe.ApplyMaterialDiscount, component.MaterialUseMultiplier);
+            var adjustedAmount = AdjustMaterial(needed, recipe.ApplyMaterialDiscount, component.FinalMaterialMultiplier); // ADT-Tweak: machine parts
 
             if (_materialStorage.GetMaterialAmount(uid, material) < adjustedAmount * amount)
                 return false;
         }
+
+        // ADT-Tweak Start
+        if (recipe.ReagentCost.Count > 0)
+        {
+            if (component.ReagentCostSlotId is not { } slotId)
+                return false;
+
+            var beaker = _itemSlots.GetItemOrNull(uid, slotId);
+            if (beaker is not { } beakerUid || !_solution.TryGetFitsInDispenser(beakerUid, out _, out var solution))
+                return false;
+
+            foreach (var (reagent, needed) in recipe.ReagentCost)
+            {
+                var adjustedAmount = AdjustReagentCost(needed, recipe.ApplyMaterialDiscount, component.FinalMaterialMultiplier);
+                if (solution.GetTotalPrototypeQuantity(reagent) < adjustedAmount * amount)
+                    return false;
+            }
+        }
+        // ADT-Tweak End
         return true;
     }
 
@@ -114,6 +138,14 @@ public abstract class SharedLatheSystem : EntitySystem
     public static int AdjustMaterial(int original, bool reduce, float multiplier)
         => reduce ? (int) MathF.Ceiling(original * multiplier) : original;
 
+    // ADT-Tweak Start
+    /// <summary>
+    /// Applies the lathe material multiplier to a reagent cost, mirroring <see cref="AdjustMaterial"/>.
+    /// </summary>
+    public static FixedPoint2 AdjustReagentCost(FixedPoint2 original, bool reduce, float multiplier)
+        => reduce ? FixedPoint2.NewCeiling((float) (original * multiplier)) : original;
+    // ADT-Tweak End
+
     protected abstract bool HasRecipe(EntityUid uid, LatheRecipePrototype recipe, LatheComponent component);
 
     private void OnPrototypesReloaded(PrototypesReloadedEventArgs obj)
@@ -126,7 +158,7 @@ public abstract class SharedLatheSystem : EntitySystem
     private void BuildInverseRecipeDictionary()
     {
         InverseRecipes.Clear();
-        foreach (var latheRecipe in _proto.EnumeratePrototypes<LatheRecipePrototype>())
+        foreach (var latheRecipe in ProtoMan.EnumeratePrototypes<LatheRecipePrototype>())
         {
             if (latheRecipe.Result is not {} result)
                 continue;
@@ -145,7 +177,7 @@ public abstract class SharedLatheSystem : EntitySystem
 
     public string GetRecipeName(ProtoId<LatheRecipePrototype> proto)
     {
-        return GetRecipeName(_proto.Index(proto));
+        return GetRecipeName(ProtoMan.Index(proto));
     }
 
     public string GetRecipeName(LatheRecipePrototype proto)
@@ -155,13 +187,13 @@ public abstract class SharedLatheSystem : EntitySystem
 
         if (proto.Result is {} result)
         {
-            return _proto.Index(result).Name;
+            return ProtoMan.Index(result).Name;
         }
 
         if (proto.ResultReagents is { } resultReagents)
         {
             return ContentLocalizationManager.FormatList(resultReagents
-                .Select(p => Loc.GetString("lathe-menu-result-reagent-display", ("reagent", _proto.Index(p.Key).LocalizedName), ("amount", p.Value)))
+                .Select(p => Loc.GetString("lathe-menu-result-reagent-display", ("reagent", ProtoMan.Index(p.Key).LocalizedName), ("amount", p.Value)))
                 .ToList());
         }
 
@@ -171,7 +203,7 @@ public abstract class SharedLatheSystem : EntitySystem
     [PublicAPI]
     public string GetRecipeDescription(ProtoId<LatheRecipePrototype> proto)
     {
-        return GetRecipeDescription(_proto.Index(proto));
+        return GetRecipeDescription(ProtoMan.Index(proto));
     }
 
     public string GetRecipeDescription(LatheRecipePrototype proto)
@@ -181,14 +213,14 @@ public abstract class SharedLatheSystem : EntitySystem
 
         if (proto.Result is {} result)
         {
-            return _proto.Index(result).Description;
+            return ProtoMan.Index(result).Description;
         }
 
         if (proto.ResultReagents is { } resultReagents)
         {
             // We only use the first one for the description since these descriptions don't combine very well.
             var reagent = resultReagents.First().Key;
-            return _proto.Index(reagent).LocalizedDescription;
+            return ProtoMan.Index(reagent).LocalizedDescription;
         }
 
         return string.Empty;

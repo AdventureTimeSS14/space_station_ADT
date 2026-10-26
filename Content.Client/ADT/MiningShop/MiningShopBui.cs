@@ -19,10 +19,10 @@ namespace Content.Client.ADT.MiningShop;
 [UsedImplicitly]
 public sealed class MiningShopBui : BoundUserInterface
 {
-    [Dependency] private readonly IComponentFactory _factory = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IResourceCache _resource = default!;
+    [Dependency] private IComponentFactory _factory = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IResourceCache _resource = default!;
     private readonly MiningPointsSystem _miningPoints;
     private MiningShopWindow? _window;
     private List<SharedMiningShopSectionPrototype> _sections = new();

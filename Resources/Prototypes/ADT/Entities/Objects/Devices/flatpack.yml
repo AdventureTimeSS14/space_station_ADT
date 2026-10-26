@@ -25,3 +25,21 @@
   components:
   - type: Flatpack
     entity: ADTMachinePowerTransmissionLaser
+
+- type: entity
+  parent: BaseFlatpack
+  id: ADTResearchAndDevelopmentServerFlatpack
+  name: R&D server flatpack
+  description: A flatpack used for constructing an R&D server.
+  components:
+  - type: Flatpack
+    entity: ResearchAndDevelopmentServer
+
+- type: entity
+  parent: BaseFlatpack
+  id: ADTComputerInconnuOSFlatpack
+  name: workstation flatpack
+  description: A flatpack used for constructing a workstation with InconnuOS™.
+  components:
+  - type: Flatpack
+    entity: ADTComputerInconnuOS

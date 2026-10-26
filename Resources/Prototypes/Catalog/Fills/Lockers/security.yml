@@ -38,7 +38,6 @@
     children:
     - id: FlashlightSeclite
     - id: WeaponDisabler
-    - id: WeaponTaser
     - id: ClothingBeltSecurityFilled
     - id: Flash
     - id: ClothingEyesGlassesSecurity
@@ -48,13 +47,11 @@
     - id: ClothingOuterWinterWarden
     - id: RubberStampWarden
     - id: DoorRemoteArmory
-    - id: HoloprojectorSecurity
-    - id: BookSpaceLaw
+    # - id: HoloprojectorSecurity
+    # - id: BookSpaceLaw # ADT-tweak
     - id: ClothingHeadHatCapWardenAlt # Corvax-SecFashion
     - id: ClothingOuterCoatWardenAlt # Corvax-SecFashion
     - id: ClothingBackpackWarden # Corvax-SecFashion
-    - id: ClothingBackpackElectropack
-      amount: 2
     - id: RemoteSignaller
       amount: 2
     - id: NetworkConfigurator
@@ -62,12 +59,6 @@
     # ADT-Tweak-Start
     - id: ClothingHandsGlovesKravMaga
     - id: ADTClothingNeckBodyCamera #ADT bodycam
-    - id: ADTBookSRPsec
-    - id: ADTBookPCDsec
-    - id: ADTClothingNeckShockCollar
-      amount: 2
-    - id: RemoteSignaller
-      amount: 2
     - id: ADTSecShuttleConsoleCircuitboard
     - id: BoxTapeRecorder
     # ADT-Tweak-End
@@ -99,7 +90,8 @@
     - id: FlashlightSeclite
       prob: 0.8
     - id: WeaponDisabler
-    - id: WeaponTaser
+    - id: SecurityBola
+      amount: 2
     - id: ClothingUniformJumpsuitSecGrey
       prob: 0.3
     - id: ClothingHeadHelmetBasic
@@ -115,8 +107,8 @@
       prob: 0.1
     - id: HoloprojectorSecurity
       prob: 0.6
-    - id: BookSpaceLaw
-      prob: 0.5
+    # - id: BookSpaceLaw
+    #   prob: 0.5
     - id: ClothingOuterCoatSecurityOvercoat # Corvax-SecFashion
       prob: 0.2
     - id: PlushieLizardJobSecuritycadet
@@ -125,78 +117,39 @@
       prob: 0.02
 
 # moved to ADT
-# - type: entity
-#   id: LockerBrigmedicFilled
-#   suffix: Brigmedic, Filled
-#   parent: LockerBrigmedic
-#   components:
-#   - type: EntityTableContainerFill
-#     containers:
-#       entity_storage: !type:NestedSelector
-#         tableId: FillLockerBrigmedic
-#   - type: StorageFill
-#     contents:
-#       - id: FlashlightSeclite
-#         prob: 0.8
-#       - id: WeaponDisabler
-#       - id: ClothingUniformJumpsuitSecGrey
-#         prob: 0.3
-#       - id: ClothingHeadHelmetBasic
-#       - id: ClothingOuterArmorBasic
-#       - id: ClothingBeltSecurityFilled
-#       - id: Flash
-#         prob: 0.5
-#       - id: ClothingEyesGlassesSecurity
-#       - id: ClothingHeadsetSecurity
-#       - id: ClothingHandsGlovesColorBlack
-#       - id: ClothingShoesBootsJack
-#       - id: WeaponMeleeNeedle
-#         prob: 0.1
-#       - id: ClothingOuterCoatSecurityOvercoat # Corvax-SecFashion
-#         prob: 0.2
-#       - id: HoloprojectorSecurity
-#         prob: 0.6
-#       - id: ADTBookSpaceLaw #ADT-WikiBooks
-#         prob: 0.5
-#     # ADT-WikiBooks-Start
-#       - id: ADTBookSRPsec
-#       - id: ADTBookPCDsec
-#     # ADT-WikiBooks-End
-
-# - type: entity
-#   id: LockerBrigmedicFilled
-#   suffix: Brigmedic, Filled
-#   parent: LockerBrigmedic
-#   components:
-#   - type: StorageFill
-#     contents:
-#       - id: ClothingEyesGlassesSecurity
-#       - id: WeaponDisabler
-#       - id: TrackingImplanter
-#         amount: 2
-#       - id: ClothingOuterHardsuitBrigmedic
-#       - id: BoxSterileMask
-#       - id: ClothingHeadHatBeretBrigmedic              Actual in ADT folder
-#       - id: ClothingOuterCoatAMG
-#       - id: ClothingUniformJumpsuitBrigmedic
-#       - id: ClothingUniformJumpskirtBrigmedic
-#       - id: ClothingUniformJumpskirtOfLife
-#         prob: 0.1
-#       - id: MedkitFilled
-#       - id: MedkitCombatFilled
-#         prob: 0.6
-#       - id: MedkitAdvancedFilled
-#         prob: 0.4
-#       - id: MedkitOxygenFilled
-#         prob: 0.3
-#       - id: MedkitBruteFilled
-#         prob: 0.3
-#       - id: MedkitToxinFilled
-#         prob: 0.3
-#       - id: MedkitBurnFilled
-#         prob: 0.7
-#       - id: ClothingNeckCloakMoth #bzzz Moth-pocalypse
-#         prob: 0.15
+#- type: entityTable
+#  id: FillLockerBrigmedic
+#  table: !type:AllSelector
+#    children:
+#    - id: ClothingEyesGlassesSecurity
+#    - id: WeaponDisabler
+#    - id: TrackingImplanter
+#      amount: 2
+#    - id: ClothingOuterHardsuitBrigmedic
+#    - id: BoxSterileMask
+#    - id: ClothingHeadHatBeretBrigmedic
+#    - id: ClothingOuterCoatAMG
+#    - id: ClothingUniformJumpsuitBrigmedic
+#    - id: ClothingUniformJumpskirtBrigmedic
+#    - id: ClothingUniformJumpskirtOfLife
+#      prob: 0.1
+#    - id: MedkitFilled
+#    - !type:GroupSelector
+#      prob: 0.7
+#      children:
+#      - id: MedkitCombatFilled
+#        weight: 1.6
+#      - id: MedkitAdvancedFilled
+#      - id: MedkitOxygenFilled
+#        weight: 0.8
+#      - id: MedkitBruteFilled
+#        weight: 0.8
+#      - id: MedkitToxinFilled
+#        weight: 0.8
+#      - id: MedkitBurnFilled
+#        weight: 1.8
+#    - id: ClothingNeckCloakMoth #bzzz Moth-pocalypse
+#      prob: 0.15
 
 - type: entity
   id: LockerDetectiveFilled
@@ -225,14 +178,12 @@
     - id: DrinkDetFlask
     - id: ClothingHandsGlovesForensic
     - id: RubberStampDetective
-    - id: BookBusido # Corvax-Books
     - id: HoloprojectorSecurity
     - id: BoxEvidenceMarkers
     - id: HandLabeler
     - id: PlushieLizardJobDetective
       prob: 0.02
     - id: ADTJukeBoxPlayerVintage #ADT-Tweak
-    - id: ADTMusicDiskMix #ADT-Tweak
 
 - type: entity
   id: ClosetBombFilled

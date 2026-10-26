@@ -1,0 +1,21 @@
+<Document>
+
+  # Топор синдиката
+
+  <Box>
+    <GuideEntityEmbed Entity="FireAxeFlaming" Caption="огненный топор"/>
+  </Box>
+
+  ## Приёмы
+
+  <ADTGuideCombo Combo="SyndicateAxeKnockdown">
+  Работает исключительно на стоящих противниках. Роняет цель на пол
+  на [color=#E0A03C]3 секунды[/color], НЕ выбивая вещи из рук.
+  </ADTGuideCombo>
+
+  <ADTGuideCombo Combo="SyndicateAxeGrabPush">
+  Работает только на тех, кто вас удерживает. Разрывает захват, отбрасывает цель
+  и замедляет её на [color=#E0A03C]3 секунды[/color].
+  </ADTGuideCombo>
+
+</Document>

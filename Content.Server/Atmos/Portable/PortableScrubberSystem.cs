@@ -14,20 +14,22 @@ using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Database;
 using Content.Shared.Power;
+using Content.Shared.ADT.Construction;
+using Content.Shared.ADT.Construction.Events;
 
 namespace Content.Server.Atmos.Portable
 {
-    public sealed class PortableScrubberSystem : EntitySystem
+    public sealed partial class PortableScrubberSystem : EntitySystem
     {
-        [Dependency] private readonly GasVentScrubberSystem _scrubberSystem = default!;
-        [Dependency] private readonly GasCanisterSystem _canisterSystem = default!;
-        [Dependency] private readonly GasPortableSystem _gasPortableSystem = default!;
-        [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
-        [Dependency] private readonly TransformSystem _transformSystem = default!;
-        [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-        [Dependency] private readonly AmbientSoundSystem _ambientSound = default!;
-        [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-        [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
+        [Dependency] private GasVentScrubberSystem _scrubberSystem = default!;
+        [Dependency] private GasCanisterSystem _canisterSystem = default!;
+        [Dependency] private GasPortableSystem _gasPortableSystem = default!;
+        [Dependency] private AtmosphereSystem _atmosphereSystem = default!;
+        [Dependency] private TransformSystem _transformSystem = default!;
+        [Dependency] private IAdminLogManager _adminLogger = default!;
+        [Dependency] private AmbientSoundSystem _ambientSound = default!;
+        [Dependency] private SharedAppearanceSystem _appearance = default!;
+        [Dependency] private NodeContainerSystem _nodeContainer = default!;
 
         public override void Initialize()
         {
@@ -38,11 +40,28 @@ namespace Content.Server.Atmos.Portable
             SubscribeLocalEvent<PortableScrubberComponent, ExaminedEvent>(OnExamined);
             SubscribeLocalEvent<PortableScrubberComponent, DestructionEventArgs>(OnDestroyed);
             SubscribeLocalEvent<PortableScrubberComponent, GasAnalyzerScanEvent>(OnScrubberAnalyzed);
+
+        // ADT-Tweak start
+            SubscribeLocalEvent<PortableScrubberComponent, RefreshPartsEvent>(OnPartsRefresh);
+            SubscribeLocalEvent<PortableScrubberComponent, UpgradeExamineEvent>(OnUpgradeExamine);
         }
+
+        private void OnPartsRefresh(EntityUid uid, PortableScrubberComponent component, RefreshPartsEvent args)
+        {
+            component.TransferRateMultiplier = args.GetStatMultiplier(MachineStat.Speed);
+            component.PressureMultiplier = args.GetStatMultiplier(MachineStat.Capacity);
+        }
+
+        private static void OnUpgradeExamine(EntityUid uid, PortableScrubberComponent component, UpgradeExamineEvent args)
+        {
+            args.AddPercentageUpgrade("machine-upgrade-process-speed", component.TransferRateMultiplier, benefit: true);
+            args.AddPercentageUpgrade("machine-upgrade-capacity", component.PressureMultiplier, benefit: true);
+        }
+        // ADT-Tweak-End
 
         private bool IsFull(PortableScrubberComponent component)
         {
-            return component.Air.Pressure >= component.MaxPressure;
+            return component.Air.Pressure >= component.MaxPressure * component.PressureMultiplier; // ADT-Tweak
         }
 
         private void OnDeviceUpdated(EntityUid uid, PortableScrubberComponent component, ref AtmosDeviceUpdateEvent args)
@@ -114,7 +133,7 @@ namespace Content.Server.Atmos.Portable
         {
             if (args.IsInDetailsRange)
             {
-                var percentage = Math.Round(((component.Air.Pressure) / component.MaxPressure) * 100);
+                var percentage = Math.Round(((component.Air.Pressure) / (component.MaxPressure * component.PressureMultiplier)) * 100); // ADT-Tweak
                 args.PushMarkup(Loc.GetString("portable-scrubber-fill-level", ("percent", percentage)));
             }
         }
@@ -135,7 +154,7 @@ namespace Content.Server.Atmos.Portable
 
         private bool Scrub(float timeDelta, PortableScrubberComponent scrubber, GasMixture? tile)
         {
-            return _scrubberSystem.Scrub(timeDelta, scrubber.TransferRate * _atmosphereSystem.PumpSpeedup(), ScrubberPumpDirection.Scrubbing, scrubber.FilterGases, tile, scrubber.Air);
+            return _scrubberSystem.Scrub(timeDelta, scrubber.TransferRate * scrubber.TransferRateMultiplier * _atmosphereSystem.PumpSpeedup(), ScrubberPumpDirection.Scrubbing, scrubber.FilterGases, tile, scrubber.Air); // ADT-Tweak
         }
 
         private void UpdateAppearance(EntityUid uid, bool isFull, bool isRunning)

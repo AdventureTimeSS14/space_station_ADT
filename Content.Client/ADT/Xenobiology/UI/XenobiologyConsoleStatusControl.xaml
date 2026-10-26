@@ -1,0 +1,27 @@
+<xeno:XenobiologyConsoleStatusControl
+    xmlns="https://spacestation14.io"
+    xmlns:xeno="clr-namespace:Content.Client.ADT.Xenobiology.UI"
+    SetSize="64 64"
+    MouseFilter="Ignore">
+    <TextureRect
+        TexturePath="/Textures/ADT/Xenobiology/Interface/xenobiology_counter.png"
+        Stretch="Scale"
+        SetSize="64 64"
+        MouseFilter="Ignore" />
+    <Label
+        Name="BiomassLabel"
+        SetSize="36 20"
+        Align="Center"
+        HorizontalAlignment="Left"
+        VerticalAlignment="Top"
+        Margin="24 11 0 0"
+        MouseFilter="Ignore" />
+    <Label
+        Name="SlimeLabel"
+        SetSize="36 20"
+        Align="Center"
+        HorizontalAlignment="Left"
+        VerticalAlignment="Bottom"
+        Margin="24 0 0 12"
+        MouseFilter="Ignore" />
+</xeno:XenobiologyConsoleStatusControl>

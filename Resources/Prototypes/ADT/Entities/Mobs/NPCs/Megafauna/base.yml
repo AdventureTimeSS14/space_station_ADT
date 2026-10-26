@@ -1,0 +1,75 @@
+- type: damageContainer
+  id: ADTMegafauna
+  supportedGroups:
+    - Brute
+    - Burn
+    - Toxin
+    - Genetic
+
+- type: damageModifierSet
+  id: ADTMegafauna
+  coefficients:
+    Heat: 0.5
+    Piercing: 0.5
+
+- type: entity
+  id: ADTBaseMobMegafauna
+  parent: BaseMob
+  abstract: true
+  suffix: AI
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+  - type: Appearance
+  - type: Damageable
+    damageModifierSet: ADTMegafauna
+  - type: Injurable
+    damageContainer: ADTMegafauna
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      1000: Dead
+  - type: Destructible
+    thresholds: []
+  - type: StaminaResistance
+    damageCoefficient: 0
+    worn: false
+  - type: StatusEffects
+    allowed: []
+  - type: ExplosionResistance
+    damageCoefficient: 0
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.5
+    baseSprintSpeed: 2.5
+  - type: NoSlip
+  - type: CombatMode
+  - type: MeleeWeapon
+    angle: 0
+    attackRate: 1
+    soundHit:
+      collection: MetalThud
+    damage:
+      types:
+        Blunt: 10
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: IdleCompound
+  - type: Fauna
+  - type: AshStormImmune
+  - type: ProjectileIgnoreCrawling
+  - type: Polymorphable
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - DoorBumpOpener
+    - StunImmune
+
+- type: htnCompound
+  id: DoAbsolutelyNothingCompound
+  branches:
+    - tasks: []

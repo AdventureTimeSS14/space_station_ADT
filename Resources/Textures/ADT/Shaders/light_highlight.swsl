@@ -1,0 +1,17 @@
+uniform highp float MinBrightness;
+uniform highp float Saturation;
+
+const highp vec3 cHighlight = vec3(1.0, 0.13, 0.09);
+
+void fragment()
+{
+    highp vec4 tex = zTexture(UV);
+
+    highp float luma = dot(tex.rgb, vec3(0.2126, 0.7152, 0.0722));
+    highp float shade = mix(clamp(MinBrightness, 0.0, 1.0), 1.0, clamp(luma, 0.0, 1.0));
+
+    highp vec3 tint = mix(vec3(shade), cHighlight * shade, clamp(Saturation, 0.0, 1.0));
+
+    COLOR = vec4(tint, tex.a);
+    lightSample = vec3(1.0);
+}

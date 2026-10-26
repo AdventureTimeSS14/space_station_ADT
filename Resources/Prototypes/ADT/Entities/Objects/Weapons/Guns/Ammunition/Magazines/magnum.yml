@@ -11,3 +11,73 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  abstract: true
+  parent: [ BaseMagazinePistol, BaseSecurityContraband ]
+  id: ADTBaseMagazineMagnumLesser
+  name: pistol magazine (.357)
+  components:
+  - type: Tag
+    tags:
+      - ADTMagazineMagnumLesser
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_357_mag.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - ADTCartridgeMagnumLesser
+    capacity: 7
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: false
+
+- type: entity
+  parent: ADTBaseMagazineMagnumLesser
+  id: ADTMagazineMagnumLesserEmpty
+  name: pistol magazine (.357 magnum any)
+  suffix: empty
+  description: 7-round single stack magazine for large-caliber pistols.
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      right:
+      - state: inhand-right-mag
+
+- type: entity
+  parent: ADTBaseMagazineMagnumLesser
+  id: ADTMagazineMagnumLesser
+  name: pistol magazine (.357 magnum)
+  description: 7-round single stack magazine for large-caliber pistols. Intended to hold general-purpose kinetic ammunition.
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeMagnumLesser
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      right:
+      - state: inhand-right-mag

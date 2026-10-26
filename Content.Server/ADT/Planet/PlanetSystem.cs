@@ -1,10 +1,12 @@
 using Content.Server.ADT.Generation;
+using Content.Server.ADT.Planet.RestrictedZone;
 using Content.Server.ADT.Salvage.Systems;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Parallax;
 using Content.Shared.ADT.CCVar;
 using Content.Shared.ADT.Planet;
 using Content.Shared.Parallax.Biomes;
+using Content.Shared.Salvage;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
@@ -21,15 +23,14 @@ namespace Content.Server.ADT.Planet;
 
 public sealed class PlanetSystem : EntitySystem
 {
-    [Dependency] private readonly ADTLavalandGenerationSystem _lavaland = default!;
-    [Dependency] private readonly BiomeSystem _biome = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly MapSystem _map = default!;
-    [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
-    [Dependency] private readonly MetaDataSystem _meta = default!;
-    [Dependency] private readonly AtmosphereSystem _atmos = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly IConfigurationManager _configManager = default!;
+    [Dependency] private ADTLavalandGenerationSystem _lavaland = default!;
+    [Dependency] private BiomeSystem _biome = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private MapSystem _map = default!;
+    [Dependency] private MapLoaderSystem _mapLoader = default!;
+    [Dependency] private MetaDataSystem _meta = default!;
+    [Dependency] private AtmosphereSystem _atmos = default!;
+    [Dependency] private IConfigurationManager _configManager = default!;
 
     private List<(Vector2i, Tile)> _setTiles = new();
 
@@ -89,8 +90,9 @@ public sealed class PlanetSystem : EntitySystem
             var aabb = Comp<MapGridComponent>(gridUid).LocalAABB;
             _biome.ReserveTiles(map, aabb.Enlarged(0.2f), _setTiles);
 
-            // ADT-Tweak-Start
             var center = aabb.Center;
+            ApplyRestrictedZone(map, center);
+
             if (TryComp<ADTLavalandGenerationComponent>(map, out var generation))
             {
                 generation.BaseCenter = center;
@@ -105,7 +107,6 @@ public sealed class PlanetSystem : EntitySystem
 
             if (TryComp<ADTMegafaunaSpawnComponent>(map, out var megafauna))
                 megafauna.BaseCenter = center;
-            // ADT-Tweak-End
         }
         else
         {
@@ -114,5 +115,45 @@ public sealed class PlanetSystem : EntitySystem
 
         _map.InitializeMap(map);
         return map;
+    }
+
+    private void ApplyRestrictedZone(EntityUid map, Vector2 center)
+    {
+        if (!TryComp<ADTRestrictedZoneComponent>(map, out var zone) ||
+            !TryComp<RestrictedRangeComponent>(map, out var restricted))
+        {
+            return;
+        }
+
+        restricted.Origin = center;
+        Dirty(map, restricted);
+
+        var limit = MathF.Max(0f, restricted.Range - zone.SpawnBuffer);
+
+        if (TryComp<ADTLavalandGenerationComponent>(map, out var generation))
+        {
+            generation.MaxRadius = MathF.Min(generation.MaxRadius, limit);
+            generation.MinRadius = MathF.Min(generation.MinRadius, generation.MaxRadius);
+
+            foreach (var group in generation.Groups)
+            {
+                group.MinDistanceFromCenter = MathF.Min(group.MinDistanceFromCenter, generation.MaxRadius);
+            }
+        }
+
+        if (TryComp<ADTLavalandPopulationComponent>(map, out var population))
+        {
+            foreach (var group in population.Groups)
+            {
+                group.MaxRadius = MathF.Min(group.MaxRadius, limit);
+                group.MinDistanceFromCenter = MathF.Min(group.MinDistanceFromCenter, group.MaxRadius);
+            }
+        }
+
+        if (TryComp<ADTMegafaunaSpawnComponent>(map, out var megafauna))
+        {
+            megafauna.MaxRadius = MathF.Min(megafauna.MaxRadius, limit);
+            megafauna.MinDistanceFromCenter = MathF.Min(megafauna.MinDistanceFromCenter, megafauna.MaxRadius);
+        }
     }
 }

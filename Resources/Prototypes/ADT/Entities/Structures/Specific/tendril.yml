@@ -11,10 +11,6 @@
     state: tendril
     drawdepth: Mobs
   - type: Tendril
-  - type: GpsSignal
-    tag: adt-gps-signal-tendril
-    description: adt-gps-signal-tendril-desc
-    color: "#9B59B6"
   - type: Damageable
     damageModifierSet: Skeleton
   - type: Injurable
@@ -98,7 +94,7 @@
   components:
   - type: Tendril
     spawns:
-    - MobGoliath
+    - ADTMobLavalandGoliath
 
 - type: entity
   id: ADTTendrilLegion

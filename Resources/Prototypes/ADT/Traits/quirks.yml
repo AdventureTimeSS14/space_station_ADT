@@ -37,7 +37,7 @@
   name: trait-soft-walk-name
   description: trait-soft-walk-desc
   category: Quirks
-  cost: 2
+  cost: 1
   speciesBlacklist:
     - IPC
     - NovakidSpecies
@@ -119,7 +119,7 @@
     - IPC
   rewriteComponents: true
   components:
-  - type: SuitSensor
+  - type: ADTSuitSensor
     onMob: true
     sensorsTime: 6
   # ADT-Tweak Start - New Monitor: Deprecated
@@ -149,12 +149,13 @@
   speciesWhitelist:
     - IPC
   rewriteComponents: true
+  conflicts:
+    - ADTMaleIPC
+    - ADTCuteIPC
+    - ADTXenoborgIPC
   components:
   - type: Vocal
-    sounds:
-      Male: FemaleIPC
-      Female: FemaleIPC
-      Unsexed: FemaleIPC
+    emoteSounds: FemaleIPC
   - type: Tag
     tags:
     - CanPilot
@@ -175,12 +176,13 @@
   speciesWhitelist:
     - IPC
   rewriteComponents: true
+  conflicts:
+    - ADTFemaleIPC
+    - ADTCuteIPC
+    - ADTXenoborgIPC
   components:
   - type: Vocal
-    sounds:
-      Male: MaleIPC
-      Female: MaleIPC
-      Unsexed: MaleIPC
+    emoteSounds: MaleIPC
   - type: Tag
     tags:
     - CanPilot
@@ -191,3 +193,133 @@
     - ADTSiliconEmotes
     - ADTIgnoreChokeSpeechBlocking
     - Unimplantable
+
+- type: trait
+  id: ADTCuteIPC
+  name: trait-cute-ipc-name
+  description: trait-cute-ipc-desc
+  category: Quirks
+  cost: 0
+  speciesWhitelist:
+    - IPC
+  rewriteComponents: true
+  conflicts:
+    - ADTFemaleIPC
+    - ADTMaleIPC
+    - ADTXenoborgIPC
+  components:
+  - type: Vocal
+    emoteSounds: CuteIPC
+  - type: Tag
+    tags:
+    - CanPilot
+    - SiliconFootstepSound
+    - DoorBumpOpener
+    - ChangelingBlacklist
+    - ADTSiliconStealthWhitelist
+    - ADTSiliconEmotes
+    - ADTIgnoreChokeSpeechBlocking
+    - Unimplantable
+    - ADTIPCCuteEmotes
+    - ADTCatEmotes
+
+- type: trait
+  id: ADTXenoborgIPC
+  name: trait-xenoborg-ipc-name
+  description: trait-xenoborg-ipc-desc
+  category: Quirks
+  cost: 0
+  speciesWhitelist:
+    - IPC
+  rewriteComponents: true
+  conflicts:
+    - ADTFemaleIPC
+    - ADTMaleIPC
+    - ADTCuteIPC
+  components:
+  - type: Vocal
+    emoteSounds: XenoborgIPC
+  - type: Tag
+    tags:
+    - CanPilot
+    - SiliconFootstepSound
+    - DoorBumpOpener
+    - ChangelingBlacklist
+    - ADTSiliconStealthWhitelist
+    - ADTSiliconEmotes
+    - ADTIgnoreChokeSpeechBlocking
+    - Unimplantable
+
+- type: trait
+  id: ADTInvertRun
+  name: trait-invert-run-name
+  description: trait-invert-run-desc
+  category: Quirks
+  cost: 0
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: ADTInvertRun
+
+- type: trait
+  id: ADTRoboticVoiceIPC
+  name: trait-robotic-voice-ipc-name
+  description: trait-robotic-voice-ipc-desc
+  category: Quirks
+  cost: 0
+  speciesWhitelist:
+    - IPC
+  effects:
+    - !type:SetTTSEffect
+      effect: robotic
+
+- type: trait
+  id: Pacifist
+  name: trait-pacifist-name
+  description: trait-pacifist-desc
+  category: Disabilities
+  cost: -4
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: Pacified
+
+- type: trait
+  id: LightweightDrunk
+  name: trait-lightweight-name
+  description: trait-lightweight-desc
+  category: Disabilities
+  cost: -1
+  speciesBlacklist:
+    - IPC
+    - NovakidSpecies
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: LightweightDrunk
+          boozeStrengthMultiplier: 2
+
+- type: trait
+  id: Snoring
+  name: trait-snoring-name
+  description: trait-snoring-desc
+  category: Disabilities
+  cost: 0
+  speciesBlacklist:
+    - IPC
+    - NovakidSpecies
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: Snoring
+
+- type: trait
+  id: Clumsy
+  name: trait-clumsy-name
+  description: trait-clumsy-desc
+  category: Disabilities
+  cost: -1
+  effects:
+    - !type:AddStatusEffect
+      statusEffects:
+        - ADTStatusEffectClumsyTrait

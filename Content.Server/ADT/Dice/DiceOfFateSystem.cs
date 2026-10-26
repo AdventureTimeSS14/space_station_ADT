@@ -1,4 +1,6 @@
 using System.Linq;
+using Content.Server.ADT.Dice.Components;
+using Content.Shared.Examine;
 using Content.Shared.Gibbing;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Systems;
@@ -33,27 +35,29 @@ using Robust.Shared.Timing;
 using Content.Shared.Roles.Components;
 using Content.Shared.Damage.Components;
 using Content.Shared.Administration.Systems;
+using Content.Shared.Mind;
 
 namespace Content.Server.ADT.Dice;
 
 public sealed class DiceOfFateSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAccessSystem _access = default!;
-    [Dependency] private readonly GibbingSystem _gibbing = default!;
-    [Dependency] private readonly IAdminLogManager _admin = default!;
-    [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly DamageableSystem _damage = default!;
-    [Dependency] private readonly ExplosionSystem _explosion = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _speed = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly PolymorphSystem _polymorph = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private SharedAccessSystem _access = default!;
+    [Dependency] private GibbingSystem _gibbing = default!;
+    [Dependency] private IAdminLogManager _admin = default!;
+    [Dependency] private AntagSelectionSystem _antag = default!;
+    [Dependency] private DamageableSystem _damage = default!;
+    [Dependency] private ExplosionSystem _explosion = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private MovementSpeedModifierSystem _speed = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private PolymorphSystem _polymorph = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private RejuvenateSystem _rejuvenate = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
 
     private static readonly ProtoId<DamageModifierSetPrototype> DamageMod = "DiceOfFateMod";
     private static readonly ProtoId<PolymorphPrototype> Monkey = "Monkey";
@@ -62,11 +66,12 @@ public sealed class DiceOfFateSystem : EntitySystem
     private static readonly EntProtoId RandomAggressive = "RandomAggressiveAnimal";
     private static readonly EntProtoId RandomSpellbook = "RandomSpellbook";
     private static readonly EntProtoId Revolver = "WeaponRevolverInspector";
-    private static readonly EntProtoId DefaultWizardRule = "Wizard";
+    private static readonly EntProtoId DiceOfFateWizardRule = "DiceOfFateWizardRule";
     private static readonly EntProtoId Cookie = "FoodBakedCookie";
     private static readonly EntProtoId RandomImplanter = "RandomDiceImplanter";
     private static readonly EntProtoId ThiefToolbox = "ToolboxThief";
     private static readonly EntProtoId Cash = "SpaceCash10000";
+    private const string DiceOfFateWizardObjectiveProto = "DiceOfFateWizardObjective";
 
     private ProtoId<AccessLevelPrototype>[]? _allAccess;
 
@@ -76,6 +81,7 @@ public sealed class DiceOfFateSystem : EntitySystem
 
         SubscribeLocalEvent<DiceOfFateComponent, UseInHandEvent>(OnUseInHand, after: [typeof(SharedDiceSystem)]);
         SubscribeLocalEvent<DiceOfFateComponent, LandEvent>(OnLand, after: [typeof(SharedDiceSystem)]);
+        SubscribeLocalEvent<DiceOfFateComponent, ExaminedEvent>(OnExamined);
     }
 
     private void OnUseInHand(Entity<DiceOfFateComponent> entity, ref UseInHandEvent args)
@@ -87,7 +93,10 @@ public sealed class DiceOfFateSystem : EntitySystem
         if (HasComp<DiceOfFateUserComponent>(args.User))
             return;
 
-        entity.Comp.Used = true;
+        if (entity.Comp.RollsLeft <= 0)
+            return;
+
+        entity.Comp.RollsLeft--;
         RollFate(args.User, dice.CurrentValue);
         EnsureComp<DiceOfFateUserComponent>(args.User);
     }
@@ -103,9 +112,20 @@ public sealed class DiceOfFateSystem : EntitySystem
         if (HasComp<DiceOfFateUserComponent>(user))
             return;
 
-        entity.Comp.Used = true;
+        if (entity.Comp.RollsLeft <= 0)
+            return;
+
+        entity.Comp.RollsLeft--;
         RollFate(user, dice.CurrentValue);
         EnsureComp<DiceOfFateUserComponent>(user);
+    }
+
+    private void OnExamined(Entity<DiceOfFateComponent> entity, ref ExaminedEvent args)
+    {
+        using (args.PushGroup(nameof(DiceOfFateComponent)))
+        {
+            args.PushMarkup(Loc.GetString("dice-of-fate-examine", ("rollsLeft", entity.Comp.RollsLeft)));
+        }
     }
 
     public void RollFate(EntityUid user, int value)
@@ -254,7 +274,13 @@ public sealed class DiceOfFateSystem : EntitySystem
         if (!TryComp<ActorComponent>(user, out var actor))
             return false;
 
-        _antag.ForceMakeAntag<WizardRoleComponent>(actor.PlayerSession, DefaultWizardRule);
+        _antag.ForceMakeAntag<WizardRoleComponent>(actor.PlayerSession, DiceOfFateWizardRule);
+
+        if (_mind.TryGetMind(user, out var mindId, out var mindComp))
+        {
+            _mind.TryAddObjective(mindId, mindComp, DiceOfFateWizardObjectiveProto);
+        }
+
         return true;
     }
 

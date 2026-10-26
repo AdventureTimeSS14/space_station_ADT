@@ -1,4 +1,5 @@
-﻿using Robust.Shared.Serialization;
+﻿using Content.Shared.ADT.Construction.Steps;
+using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Serialization.Markdown.Mapping;
 using Robust.Shared.Serialization.Markdown.Validation;
@@ -46,6 +47,14 @@ namespace Content.Shared.Construction.Steps
                 return typeof(PartAssemblyConstructionGraphStep);
             }
 
+            // ADT-Tweak start
+            if (node.Has("machinePart"))
+            {
+                return typeof(MachinePartConstructionGraphStep);
+            }
+            // ADT-Tweak end
+
+            // See Read below if you are adding new types
             return null;
         }
 
@@ -60,7 +69,34 @@ namespace Content.Shared.Construction.Steps
                        throw new ArgumentException(
                            "Tried to convert invalid YAML node mapping to ConstructionGraphStep!");
 
-            return (ConstructionGraphStep)serializationManager.Read(type, node, hookCtx, context)!;
+            if (type == typeof(MaterialConstructionGraphStep))
+                return serializationManager.Read<MaterialConstructionGraphStep>(node, hookCtx, context, notNullableOverride: true);
+
+            if (type == typeof(ToolConstructionGraphStep))
+                return serializationManager.Read<ToolConstructionGraphStep>(node, hookCtx, context, notNullableOverride: true);
+
+            if (type == typeof(ComponentConstructionGraphStep))
+                return serializationManager.Read<ComponentConstructionGraphStep>(node, hookCtx, context, notNullableOverride: true);
+
+            if (type == typeof(TagConstructionGraphStep))
+                return serializationManager.Read<TagConstructionGraphStep>(node, hookCtx, context, notNullableOverride: true);
+
+            if (type == typeof(MultipleTagsConstructionGraphStep))
+                return serializationManager.Read<MultipleTagsConstructionGraphStep>(node, hookCtx, context, notNullableOverride: true);
+
+            if (type == typeof(TemperatureConstructionGraphStep))
+                return serializationManager.Read<TemperatureConstructionGraphStep>(node, hookCtx, context, notNullableOverride: true);
+
+            if (type == typeof(PartAssemblyConstructionGraphStep))
+                return serializationManager.Read<PartAssemblyConstructionGraphStep>(node, hookCtx, context, notNullableOverride: true);
+
+            // ADT-Tweak start
+            if (type == typeof(MachinePartConstructionGraphStep))
+                return serializationManager.Read<MachinePartConstructionGraphStep>(node, hookCtx, context, notNullableOverride: true);
+            // ADT-Tweak end
+
+            // See GetType above if you are adding new types
+            throw new NotImplementedException();
         }
 
         public ValidationNode Validate(ISerializationManager serializationManager, MappingDataNode node,

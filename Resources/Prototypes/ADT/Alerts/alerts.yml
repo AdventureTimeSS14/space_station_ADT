@@ -28,6 +28,25 @@
   description: alerts-crawling-desc
 
 - type: alert
+  id: ADTHumanSoftCrit
+  category: Health
+  clickEvent: !type:TryCatchBreathAlertEvent
+  icons:
+  - sprite: /Textures/Interface/Alerts/human_critical.rsi
+    state: critical
+  name: alerts-adt-soft-crit-name
+  description: alerts-adt-soft-crit-desc
+
+- type: alert
+  id: ADTHumanSoftCritNoBreath
+  category: Health
+  icons:
+  - sprite: /Textures/Interface/Alerts/human_critical.rsi
+    state: critical
+  name: alerts-adt-soft-crit-name
+  description: alerts-adt-soft-crit-no-breath-desc
+
+- type: alert
   id: ADTAlertPolymorph
   icons:
     - sprite: /Textures/ADT/Interface/Alerts/polymorph.rsi
@@ -139,3 +158,97 @@
     state: take_entity
   name: alerts-pickup-name
   description: alerts-pickup-desc
+
+# ADT Heretic: алерт Покрова тени
+- type: alert
+  id: ShadowCloak
+  icons:
+  - sprite: /Textures/ADT/Heretic/Interface/Alerts/shdaow_cloak.rsi
+    state: curse
+  name: alerts-shadow-cloak-name
+  description: alerts-shadow-cloak-desc
+
+- type: alert
+  id: ADTColdDrask
+  category: Temperature
+  icons:
+  - sprite: /Textures/Interface/Alerts/temperature.rsi
+    state: cold1
+  - sprite: /Textures/Interface/Alerts/temperature.rsi
+    state: cold2
+  - sprite: /Textures/Interface/Alerts/temperature.rsi
+    state: cold3
+  maxSeverity: 3
+  name: alerts-cold-comfy-name
+  description: alerts-cold-comfy-desc
+
+- type: alert
+  id: ADTRegenerativeCore
+  icons:
+  - sprite: /Textures/ADT/Interface/Alerts/regenerative_core.rsi
+    state: icon
+  name: alerts-adt-regenerative-core-name
+  description: alerts-adt-regenerative-core-desc
+
+- type: alert
+  id: ADTFreakyLegs
+  icons:
+  - sprite: /Textures/ADT/Interface/Alerts/lavaland_food.rsi
+    state: freaky_legs
+  name: alerts-adt-freaky-legs-name
+  description: alerts-adt-freaky-legs-desc
+
+- type: alert
+  id: ADTTailODead
+  icons:
+  - sprite: /Textures/ADT/Interface/Alerts/lavaland_food.rsi
+    state: tail_o_dead
+  name: alerts-adt-tail-o-dead-name
+  description: alerts-adt-tail-o-dead-desc
+
+- type: alert
+  id: ADTBeerGrubStew
+  icons:
+  - sprite: /Textures/ADT/Interface/Alerts/lavaland_food.rsi
+    state: beer_grub_stew
+  name: alerts-adt-beer-grub-stew-name
+  description: alerts-adt-beer-grub-stew-desc
+
+- type: alert
+  id: ADTThickRedPaste
+  icons:
+  - sprite: /Textures/ADT/Interface/Alerts/lavaland_food.rsi
+    state: thick_red_paste
+  name: alerts-adt-thick-red-paste-name
+  description: alerts-adt-thick-red-paste-desc
+
+- type: alert
+  id: ADTXenoSticks
+  icons:
+  - sprite: /Textures/ADT/Interface/Alerts/lavaland_food.rsi
+    state: xeno_sticks
+  name: alerts-adt-xeno-sticks-name
+  description: alerts-adt-xeno-sticks-desc
+
+- type: alert
+  id: ADTAbuGhosh
+  icons:
+  - sprite: /Textures/ADT/Interface/Alerts/lavaland_food.rsi
+    state: abu_ghosh
+  name: alerts-adt-abu-ghosh-name
+  description: alerts-adt-abu-ghosh-desc
+
+# 0 - таймер до ломки, 1 - лёгкая ломка, 2 - средняя и тяжёлая.
+- type: alert
+  id: NicotineCraving
+  icons:
+  - sprite: /Textures/ADT/Interface/Alerts/nicotine_craving.rsi
+    state: lit-icon
+  - sprite: /Textures/ADT/Interface/Alerts/nicotine_craving.rsi
+    state: unlit-icon
+  - sprite: /Textures/ADT/Interface/Alerts/nicotine_craving.rsi
+    state: burnt-icon
+  name: alerts-nicotine-craving-name
+  description: alerts-nicotine-craving-desc
+  minSeverity: 0
+  maxSeverity: 2

@@ -1,3 +1,4 @@
+using Content.Client.Silicons.Borgs;
 using Content.Shared.ADT.Silicons.Borgs;
 using Content.Shared.ADT.Silicons.Borgs.Components;
 using Content.Shared.Silicons.Borgs.Components;
@@ -10,9 +11,10 @@ namespace Content.Client.ADT.Silicons.Borgs;
 
 public sealed partial class BorgSwitchableSubtypeSystem : SharedBorgSwitchableSubtypeSystem
 {
-    [Dependency] private readonly IResourceCache _resourceCache = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
+    [Dependency] private IResourceCache _resourceCache = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private AppearanceSystem _appearance = default!;
+    [Dependency] private BorgSystem _borgSystem = default!;
 
     public override void Initialize()
     {
@@ -58,6 +60,19 @@ public sealed partial class BorgSwitchableSubtypeSystem : SharedBorgSwitchableSu
             sprite.LayerSetRSI(BorgVisualLayers.Body.GetHashCode(), resource.RSI);
             sprite.LayerSetRSI(BorgVisualLayers.Light.GetHashCode(), resource.RSI);
             sprite.LayerSetRSI(BorgVisualLayers.LightStatus.GetHashCode(), resource.RSI);
+
+            if (TryComp(ent, out BorgChassisComponent? chassis))
+            {
+                _borgSystem.SetMindStates(
+                    (ent.Owner, chassis),
+                    subtypePrototype.SpriteHasMindState,
+                    subtypePrototype.SpriteNoMindState);
+
+                if (TryComp(ent, out AppearanceComponent? appearance))
+                {
+                    _appearance.QueueUpdate(ent, appearance);
+                }
+            }
         }
     }
 }

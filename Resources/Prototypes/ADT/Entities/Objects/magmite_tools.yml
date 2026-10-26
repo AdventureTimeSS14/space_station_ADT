@@ -1,0 +1,80 @@
+- type: entity
+  parent: MineralScannerUnpowered
+  id: ADTMineralScannerMagmite
+  name: magmite mineral scanner
+  description: A mineral scanner reforged on the world anvil. The magmite core feeds it on its own, so the battery slot is gone for good.
+  suffix: ""
+  components:
+  - type: ADTMagmiteUpgradable
+    result: ADTMineralScannerMagmite
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Mining/mineral_scanner_magmite.rsi
+    layers:
+    - state: icon
+    - state: icon-o
+      shader: unshaded
+      visible: false
+      map: ["enum.ToggleableVisuals.Layer"]
+
+- type: entity
+  parent: BaseItem
+  id: ADTAdvancedMineralScannerMagmite
+  name: magmite advanced mineral scanner
+  description: An advanced mineral scanner reforged on the world anvil. It needs no battery, keeps the veins lit without a single ping, and reads them from anywhere on you.
+  components:
+  - type: ADTMagmiteUpgradable
+    result: ADTAdvancedMineralScannerMagmite
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Mining/mineral_scanner_magmite.rsi
+    layers:
+    - state: adv
+    - state: adv-o
+      shader: unshaded
+      visible: false
+      map: ["enum.ToggleableVisuals.Layer"]
+  - type: Item
+    storedRotation: -90
+    inhandVisuals:
+      left:
+      - state: inhand-left-adv
+      right:
+      - state: inhand-right-adv
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+  - type: ItemToggle
+    soundActivate:
+      path: /Audio/Weapons/click.ogg
+      params:
+        maxDistance: 1
+  - type: ADTMagmiteScanner
+    range: 30
+
+- type: entity
+  parent: ADTGpsMining
+  id: ADTGpsMagmite
+  name: magmite mining GPS
+  description: A mining GPS reforged on the world anvil. Its casing shrugs off an EMP outright, and the magmite core remembers a few places you asked it to.
+  components:
+  - type: ADTMagmiteUpgradable
+    result: ADTGpsMagmite
+  - type: Sprite
+    sprite: ADT/Objects/Devices/gps_magmite.rsi
+    layers:
+    - state: icon
+    - sprite: ADT/Objects/Devices/gps.rsi
+      state: working
+      map: ["enum.GpsVisualLayers.Working"]
+      shader: unshaded
+      visible: false
+    - sprite: ADT/Objects/Devices/gps.rsi
+      state: emp
+      map: ["enum.GpsVisualLayers.Emp"]
+      shader: unshaded
+      visible: false
+  - type: EmpProtection
+  - type: ADTGpsWaypoints

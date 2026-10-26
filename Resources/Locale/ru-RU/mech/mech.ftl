@@ -13,3 +13,4 @@ mech-slot-display = Доступно слотов: { $amount }
 mech-no-enter = Вы не можете пилотировать это.
 mech-eject-pilot-alert = { $user } вытаскивает пилота из { $item }!
 mech-construction-guide-string = Все механические детали должны быть прикреплены к каркасу.
+mech-construction-guide-string-vim = К каркасу нужно прикрепить две ноги борга и шлем EVA.

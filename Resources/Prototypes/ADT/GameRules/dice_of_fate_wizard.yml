@@ -1,0 +1,11 @@
+- type: entity
+  parent: BaseGameRule
+  id: DiceOfFateWizardRule
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: GameRule
+  - type: AntagSelection
+    antags:
+    - !type:FixedAntagCount
+      proto: ADTDiceOfFateWizard
+

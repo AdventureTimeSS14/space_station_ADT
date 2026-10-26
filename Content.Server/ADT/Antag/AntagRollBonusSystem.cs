@@ -12,10 +12,10 @@ namespace Content.Server.ADT.Antag;
 
 public sealed class AntagRollBonusSystem : EntitySystem
 {
-    [Dependency] private readonly AntagRollBonusManager _rollBonus = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly PlayerRateLimitManager _rateLimit = default!;
+    [Dependency] private AntagRollBonusManager _rollBonus = default!;
+    [Dependency] private GameTicker _gameTicker = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private PlayerRateLimitManager _rateLimit = default!;
 
     public static readonly TimeSpan AbortedRoundCountsAfter = TimeSpan.FromHours(1);
 
@@ -68,6 +68,8 @@ public sealed class AntagRollBonusSystem : EntitySystem
                 FinishRound();
                 break;
         }
+
+        _rollBonus.CheckWipe();
     }
 
     private void FinishRound()

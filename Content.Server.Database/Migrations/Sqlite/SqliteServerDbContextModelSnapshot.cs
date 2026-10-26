@@ -15,7 +15,7 @@ namespace Content.Server.Database.Migrations.Sqlite
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "10.0.0");
+            modelBuilder.HasAnnotation("ProductVersion", "10.0.6");
 
             modelBuilder.Entity("Content.Server.Database.Admin", b =>
                 {
@@ -436,6 +436,283 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("admin_watchlists", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.AdtPoll", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("adt_poll_id");
+
+                    b.Property<bool>("Closed")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("closed");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("created_at");
+
+                    b.Property<Guid>("CreatedBy")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("created_by");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("description");
+
+                    b.Property<DateTime?>("EndsAt")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("ends_at");
+
+                    b.Property<string>("Filters")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("filters");
+
+                    b.Property<string>("Questions")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("questions");
+
+                    b.Property<string>("Servers")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("servers");
+
+                    b.Property<int>("ShowMode")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("show_mode");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("title");
+
+                    b.HasKey("Id")
+                        .HasName("PK_adt_poll");
+
+                    b.ToTable("adt_poll", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.AdtPollPending", b =>
+                {
+                    b.Property<int>("PollId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("poll_id");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("user_id");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("created_at");
+
+                    b.Property<string>("Snapshot")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("snapshot");
+
+                    b.HasKey("PollId", "UserId")
+                        .HasName("PK_adt_poll_pending");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("adt_poll_pending", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.AdtPollResponse", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("adt_poll_response_id");
+
+                    b.Property<string>("Answers")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("answers");
+
+                    b.Property<int>("PollId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("poll_id");
+
+                    b.Property<int?>("RoundId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("round_id");
+
+                    b.Property<string>("Server")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("server");
+
+                    b.Property<string>("Snapshot")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("snapshot");
+
+                    b.Property<DateTime>("SubmittedAt")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("submitted_at");
+
+                    b.Property<bool>("Targeted")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("targeted");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("user_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_adt_poll_response");
+
+                    b.HasIndex("UserId");
+
+                    b.HasIndex("PollId", "UserId")
+                        .IsUnique();
+
+                    b.ToTable("adt_poll_response", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.AdtSponsorGrant", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("adt_sponsor_grant_id");
+
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("comment");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("created_at");
+
+                    b.Property<Guid?>("CreatedBy")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("created_by");
+
+                    b.Property<DateTime?>("ExpiresAt")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("expires_at");
+
+                    b.Property<string>("Overrides")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("overrides");
+
+                    b.Property<int>("Priority")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("priority");
+
+                    b.Property<bool>("Revoked")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("revoked");
+
+                    b.Property<DateTime?>("RevokedAt")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("revoked_at");
+
+                    b.Property<Guid?>("RevokedBy")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("revoked_by");
+
+                    b.Property<int?>("TierId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("tier_id");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("user_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_adt_sponsor_grant");
+
+                    b.HasIndex("TierId")
+                        .HasDatabaseName("IX_adt_sponsor_grant_tier_id");
+
+                    b.HasIndex("UserId", "Revoked");
+
+                    b.ToTable("adt_sponsor_grant", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.AdtSponsorPreference", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("adt_sponsor_preference_id");
+
+                    b.Property<string>("GhostColor")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("ghost_color");
+
+                    b.Property<string>("OocColor")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("ooc_color");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("user_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_adt_sponsor_preference");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("adt_sponsor_preference", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.AdtSponsorTier", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("adt_sponsor_tier_id");
+
+                    b.Property<string>("Benefits")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("benefits");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("created_at");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("description");
+
+                    b.Property<string>("DisplayName")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("display_name");
+
+                    b.Property<bool>("Enabled")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("enabled");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("name");
+
+                    b.Property<int>("Priority")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("priority");
+
+                    b.HasKey("Id")
+                        .HasName("PK_adt_sponsor_tier");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("adt_sponsor_tier", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.Antag", b =>
                 {
                     b.Property<int>("Id")
@@ -459,6 +736,52 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsUnique();
 
                     b.ToTable("antag", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.AntagRollBonus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("antag_roll_bonus_id");
+
+                    b.Property<string>("Antag")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("antag");
+
+                    b.Property<int>("MissedRounds")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("missed_rounds");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("user_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_antag_roll_bonus");
+
+                    b.HasIndex("UserId", "Antag")
+                        .IsUnique();
+
+                    b.ToTable("antag_roll_bonus", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.AntagRollBonusWipe", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("antag_roll_bonus_wipe_id");
+
+                    b.Property<DateTime>("LastWipe")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("last_wipe");
+
+                    b.HasKey("Id")
+                        .HasName("PK_antag_roll_bonus_wipe");
+
+                    b.ToTable("antag_roll_bonus_wipe", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.AssignedUserId", b =>
@@ -834,6 +1157,70 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("connection_log", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.CustomVoteLog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("custom_vote_log_id");
+
+                    b.Property<Guid?>("InitiatorId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("initiator_id");
+
+                    b.Property<int>("RoundId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("round_id");
+
+                    b.Property<byte>("State")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("state");
+
+                    b.Property<DateTime>("TimeCreated")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("time_created");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("title");
+
+                    b.HasKey("Id")
+                        .HasName("PK_custom_vote_log");
+
+                    b.HasIndex("InitiatorId");
+
+                    b.HasIndex("RoundId")
+                        .HasDatabaseName("IX_custom_vote_log_round_id");
+
+                    b.ToTable("custom_vote_log", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.CustomVoteLogOption", b =>
+                {
+                    b.Property<int>("VoteId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("vote_id");
+
+                    b.Property<short>("OptionIdx")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("option_idx");
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("text");
+
+                    b.Property<int>("VoteCount")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("vote_count");
+
+                    b.HasKey("VoteId", "OptionIdx")
+                        .HasName("PK_custom_vote_log_option");
+
+                    b.ToTable("custom_vote_log_option", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.DiscordUser", b =>
                 {
                     b.Property<int>("Id")
@@ -1107,10 +1494,19 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("bark_proto");
 
+                    b.Property<string>("BodyType")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("body_type");
+
                     b.Property<string>("CharacterName")
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("char_name");
+
+                    b.Property<string>("ExploitableInfo")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("exploitable_info");
 
                     b.Property<string>("EyeColor")
                         .IsRequired()
@@ -1204,8 +1600,12 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("species");
 
-                    b.Property<string>("Voice")
+                    b.Property<string>("TTSVoice")
                         .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("tts_voice");
+
+                    b.Property<string>("Voice")
                         .HasColumnType("TEXT")
                         .HasColumnName("voice");
 
@@ -1851,6 +2251,41 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("Round");
                 });
 
+            modelBuilder.Entity("Content.Server.Database.AdtPollPending", b =>
+                {
+                    b.HasOne("Content.Server.Database.AdtPoll", "Poll")
+                        .WithMany("Pending")
+                        .HasForeignKey("PollId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_adt_poll_pending_adt_poll_poll_id");
+
+                    b.Navigation("Poll");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.AdtPollResponse", b =>
+                {
+                    b.HasOne("Content.Server.Database.AdtPoll", "Poll")
+                        .WithMany("Responses")
+                        .HasForeignKey("PollId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_adt_poll_response_adt_poll_poll_id");
+
+                    b.Navigation("Poll");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.AdtSponsorGrant", b =>
+                {
+                    b.HasOne("Content.Server.Database.AdtSponsorTier", "Tier")
+                        .WithMany("Grants")
+                        .HasForeignKey("TierId")
+                        .OnDelete(DeleteBehavior.SetNull)
+                        .HasConstraintName("FK_adt_sponsor_grant_adt_sponsor_tier_tier_id");
+
+                    b.Navigation("Tier");
+                });
+
             modelBuilder.Entity("Content.Server.Database.Antag", b =>
                 {
                     b.HasOne("Content.Server.Database.Profile", "Profile")
@@ -2018,6 +2453,39 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("HWId");
 
                     b.Navigation("Server");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.CustomVoteLog", b =>
+                {
+                    b.HasOne("Content.Server.Database.Player", "Initiator")
+                        .WithMany()
+                        .HasForeignKey("InitiatorId")
+                        .HasPrincipalKey("UserId")
+                        .OnDelete(DeleteBehavior.SetNull)
+                        .HasConstraintName("FK_custom_vote_log_player_initiator_id1");
+
+                    b.HasOne("Content.Server.Database.Round", "Round")
+                        .WithMany("CustomVoteLogs")
+                        .HasForeignKey("RoundId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_custom_vote_log_round_round_id");
+
+                    b.Navigation("Initiator");
+
+                    b.Navigation("Round");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.CustomVoteLogOption", b =>
+                {
+                    b.HasOne("Content.Server.Database.CustomVoteLog", "Vote")
+                        .WithMany("Options")
+                        .HasForeignKey("VoteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_custom_vote_log_option_custom_vote_log_vote_id");
+
+                    b.Navigation("Vote");
                 });
 
             modelBuilder.Entity("Content.Server.Database.ExtraLoadoutData", b =>
@@ -2247,6 +2715,18 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("Flags");
                 });
 
+            modelBuilder.Entity("Content.Server.Database.AdtPoll", b =>
+                {
+                    b.Navigation("Pending");
+
+                    b.Navigation("Responses");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.AdtSponsorTier", b =>
+                {
+                    b.Navigation("Grants");
+                });
+
             modelBuilder.Entity("Content.Server.Database.Ban", b =>
                 {
                     b.Navigation("Addresses");
@@ -2272,6 +2752,11 @@ namespace Content.Server.Database.Migrations.Sqlite
             modelBuilder.Entity("Content.Server.Database.ConnectionLog", b =>
                 {
                     b.Navigation("BanHits");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.CustomVoteLog", b =>
+                {
+                    b.Navigation("Options");
                 });
 
             modelBuilder.Entity("Content.Server.Database.Player", b =>
@@ -2342,6 +2827,8 @@ namespace Content.Server.Database.Migrations.Sqlite
             modelBuilder.Entity("Content.Server.Database.Round", b =>
                 {
                     b.Navigation("AdminLogs");
+
+                    b.Navigation("CustomVoteLogs");
                 });
 
             modelBuilder.Entity("Content.Server.Database.Server", b =>

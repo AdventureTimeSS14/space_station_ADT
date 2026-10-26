@@ -8,6 +8,7 @@ using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.ADT;
+using Content.Server.ADT.Antag;
 using Content.Server.ADT.Thunderdome;
 using Content.Server.Administration.Logs;
 using Content.Shared.ADT.Thunderdome;
@@ -25,7 +26,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Database
 {
-    public abstract class ServerDbBase
+    public abstract partial class ServerDbBase // ADT-Tweak
     {
         private readonly ISawmill _opsLog;
         public event Action<DatabaseNotification>? OnNotificationReceived;
@@ -228,19 +229,22 @@ namespace Content.Server.Database
             profile.Species = humanoid.Species;
             profile.Age = humanoid.Age;
             profile.Sex = humanoid.Sex.ToString();
+            profile.Voice = humanoid.Voice.ToString();
             profile.Gender = humanoid.Gender.ToString();
             profile.EyeColor = appearance.EyeColor.ToHex();
             profile.SkinColor = appearance.SkinColor.ToHex();
+            profile.BodyType = appearance.BodyType?.Id; // ADT-Tweak
             profile.SpawnPriority = (int) humanoid.SpawnPriority;
             profile.OrganMarkings = JsonSerializer.SerializeToDocument(dataNode.ToJsonNode());
             // ADT-Tweak-Start
-            profile.Voice = humanoid.Voice;
+            profile.TTSVoice = humanoid.TTSVoice;
             profile.BarkProto = humanoid.Bark.Proto;
             profile.BarkPitch = humanoid.Bark.Pitch;
             profile.LowBarkVar = humanoid.Bark.MinVar;
             profile.HighBarkVar = humanoid.Bark.MaxVar;
             profile.HeadshotUrl = humanoid.HeadshotUrl;
             profile.OOCNotes = humanoid.OOCNotes;
+            profile.ExploitableInfo = humanoid.ExploitableInfo;
             profile.Languages.Clear();
             foreach (var langId in humanoid.Languages)
             {
@@ -928,7 +932,7 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
                     if (attempt >= maxRetryAttempts)
                     {
                         _opsLog.Error($"Max retry attempts reached. Failed to save {logs.Count} admin logs.");
-                        return;
+                        throw;
                     }
 
                     _opsLog.Warning($"Retrying in {retryDelay.TotalSeconds} seconds...");
@@ -1308,24 +1312,37 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
 
         public async Task<List<IAdminRemarksRecord>> GetAllAdminRemarks(Guid player)
         {
-            await using var db = await GetDb();
-            List<IAdminRemarksRecord> notes = new();
-            notes.AddRange(
-                (await (from note in db.DbContext.AdminNotes
-                        where note.PlayerUserId == player &&
-                              !note.Deleted &&
-                              (note.ExpirationTime == null || DateTime.UtcNow < note.ExpirationTime)
-                        select note)
-                    .Include(note => note.Round)
-                    .ThenInclude(r => r!.Server)
-                    .Include(note => note.CreatedBy)
-                    .Include(note => note.LastEditedBy)
-                    .Include(note => note.Player)
-                    .ToListAsync()).Select(MakeAdminNoteRecord));
-            notes.AddRange(await GetActiveWatchlistsImpl(db, player));
-            notes.AddRange(await GetMessagesImpl(db, player));
-            notes.AddRange(await GetBansAsNotesForUser(db, player));
-            return notes;
+            return await ParallelCollect<IAdminRemarksRecord>(
+                async () =>
+                {
+                    await using var db = await GetDb();
+                    return (await (from note in db.DbContext.AdminNotes
+                            where note.PlayerUserId == player &&
+                                  !note.Deleted &&
+                                  (note.ExpirationTime == null || DateTime.UtcNow < note.ExpirationTime)
+                            select note)
+                        .Include(note => note.Round)
+                        .ThenInclude(r => r!.Server)
+                        .Include(note => note.CreatedBy)
+                        .Include(note => note.LastEditedBy)
+                        .Include(note => note.Player)
+                        .ToListAsync()).Select(MakeAdminNoteRecord);
+                },
+                async () =>
+                {
+                    await using var db = await GetDb();
+                    return await GetActiveWatchlistsImpl(db, player);
+                },
+                async () =>
+                {
+                    await using var db = await GetDb();
+                    return await GetMessagesImpl(db, player);
+                },
+                async () =>
+                {
+                    await using var db = await GetDb();
+                    return await GetBansAsNotesForUser(db, player);
+                });
         }
         public async Task EditAdminNote(int id, string message, NoteSeverity severity, bool secret, Guid editedBy, DateTimeOffset editedAt, DateTimeOffset? expiryTime)
         {
@@ -1600,6 +1617,142 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
         }
         // ADT-Thunderdome-End
 
+        // ADT-AntagRollBonus-Start
+        public async Task<Dictionary<string, int>> GetAntagRollBonus(Guid userId)
+        {
+            await using var db = await GetDb();
+
+            return await db.DbContext.AntagRollBonus
+                .Where(b => b.UserId == userId)
+                .ToDictionaryAsync(b => b.Antag, b => b.MissedRounds);
+        }
+
+        public async Task SaveAntagRollBonus(
+            IReadOnlyCollection<Guid> reset,
+            IReadOnlyCollection<AntagRollBonusIncrement> increments,
+            int cap)
+        {
+            if (reset.Count == 0 && increments.Count == 0)
+                return;
+
+            await using var db = await GetDb();
+
+            if (reset.Count > 0)
+            {
+                var resetIds = reset.ToArray();
+                var stale = await db.DbContext.AntagRollBonus
+                    .Where(b => resetIds.Contains(b.UserId))
+                    .ToListAsync();
+
+                db.DbContext.AntagRollBonus.RemoveRange(stale);
+            }
+
+            if (increments.Count > 0)
+            {
+                var users = increments.Select(i => i.UserId).Distinct().ToArray();
+                var existing = await db.DbContext.AntagRollBonus
+                    .Where(b => users.Contains(b.UserId))
+                    .ToListAsync();
+
+                var index = new Dictionary<(Guid User, string Antag), AntagRollBonus>();
+                foreach (var row in existing)
+                {
+                    index[(row.UserId, row.Antag)] = row;
+                }
+
+                foreach (var increment in increments)
+                {
+                    if (index.TryGetValue((increment.UserId, increment.Antag), out var row))
+                    {
+                        if (row.MissedRounds < cap)
+                            row.MissedRounds++;
+
+                        continue;
+                    }
+
+                    var added = new AntagRollBonus
+                    {
+                        UserId = increment.UserId,
+                        Antag = increment.Antag,
+                        MissedRounds = 1,
+                    };
+
+                    db.DbContext.AntagRollBonus.Add(added);
+
+                    index[(increment.UserId, increment.Antag)] = added;
+                }
+            }
+
+            await db.DbContext.SaveChangesAsync();
+        }
+
+        public async Task SetAntagRollBonus(Guid userId, string antag, int missedRounds)
+        {
+            await using var db = await GetDb();
+
+            var row = await db.DbContext.AntagRollBonus
+                .SingleOrDefaultAsync(b => b.UserId == userId && b.Antag == antag);
+
+            if (missedRounds <= 0)
+            {
+                if (row == null)
+                    return;
+
+                db.DbContext.AntagRollBonus.Remove(row);
+            }
+            else if (row == null)
+            {
+                db.DbContext.AntagRollBonus.Add(new AntagRollBonus
+                {
+                    UserId = userId,
+                    Antag = antag,
+                    MissedRounds = missedRounds,
+                });
+            }
+            else
+            {
+                row.MissedRounds = missedRounds;
+            }
+
+            await db.DbContext.SaveChangesAsync();
+        }
+
+        public async Task<DateTime> GetAntagRollBonusLastWipe(DateTime now)
+        {
+            await using var db = await GetDb();
+
+            var row = await db.DbContext.AntagRollBonusWipe
+                .OrderBy(w => w.Id)
+                .FirstOrDefaultAsync();
+
+            if (row != null)
+                return row.LastWipe;
+
+            db.DbContext.AntagRollBonusWipe.Add(new AntagRollBonusWipe { LastWipe = now });
+            await db.DbContext.SaveChangesAsync();
+
+            return now;
+        }
+
+        public async Task WipeAntagRollBonus(DateTime now)
+        {
+            await using var db = await GetDb();
+
+            await db.DbContext.AntagRollBonus.ExecuteDeleteAsync();
+
+            var row = await db.DbContext.AntagRollBonusWipe
+                .OrderBy(w => w.Id)
+                .FirstOrDefaultAsync();
+
+            if (row == null)
+                db.DbContext.AntagRollBonusWipe.Add(new AntagRollBonusWipe { LastWipe = now });
+            else
+                row.LastWipe = now;
+
+            await db.DbContext.SaveChangesAsync();
+        }
+        // ADT-AntagRollBonus-End
+
         public async Task<List<AdminWatchlistRecord>> GetActiveWatchlists(Guid player)
         {
             await using var db = await GetDb();
@@ -1853,6 +2006,68 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
 
         #endregion
 
+        #region Custom vote logging
+
+        public async Task<int> CustomVoteLogAdd(
+            string title,
+            int roundId,
+            Guid? initiator,
+            ImmutableArray<string> options)
+        {
+            await using var db = await GetDb();
+
+            var log = new CustomVoteLog
+            {
+                Title = title,
+                RoundId = roundId,
+                InitiatorId = initiator,
+                State = CustomVoteState.Active,
+                TimeCreated = DateTime.UtcNow,
+                Options = options.Select((o, i) => new CustomVoteLogOption
+                    {
+                        Text = o,
+                        OptionIdx = (short)i,
+                        VoteCount = 0,
+                    })
+                    .ToList(),
+            };
+
+            db.DbContext.CustomVoteLog.Add(log);
+            await db.DbContext.SaveChangesAsync();
+
+            return log.Id;
+        }
+
+        public async Task CustomVoteLogFinish(int voteId, ImmutableArray<int> voteCounts)
+        {
+            await using var db = await GetDb();
+
+            var log = await db.DbContext.CustomVoteLog
+                .Include(cvl => cvl.Options)
+                .SingleAsync(v => v.Id == voteId);
+
+            log.State = CustomVoteState.Finished;
+
+            for (var i = 0; i < log.Options!.Count; i++)
+            {
+                log.Options[i].VoteCount = voteCounts[i];
+            }
+
+            await db.DbContext.SaveChangesAsync();
+        }
+
+        public async Task CustomVoteLogCancel(int voteId)
+        {
+            await using var db = await GetDb();
+
+            var log = await db.DbContext.CustomVoteLog.SingleAsync(v => v.Id == voteId);
+            log.State = CustomVoteState.Cancelled;
+
+            await db.DbContext.SaveChangesAsync();
+        }
+
+        #endregion
+
         public abstract Task SendNotification(DatabaseNotification notification);
 
         // SQLite returns DateTime as Kind=Unspecified, Npgsql actually knows for sure it's Kind=Utc.
@@ -1909,6 +2124,13 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             }
 
             return [..results];
+        }
+
+        private static async Task<List<T>> ParallelCollect<T>(params IEnumerable<Func<Task<IEnumerable<T>>>> tasks)
+        {
+            var taskInstances = tasks.Select(a => a());
+            var results = await Task.WhenAll(taskInstances);
+            return results.SelectMany(x => x).ToList();
         }
     }
 }

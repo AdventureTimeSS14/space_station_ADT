@@ -1,0 +1,10 @@
+- type: sourcePort
+  id: XenobiologyRecyclerSender
+  name: signal-port-name-xenobiology-recycler-sender
+  description: signal-port-description-xenobiology-recycler-sender
+  defaultLinks: [ XenobiologyRecyclerReceiver ]
+
+- type: sinkPort
+  id: XenobiologyRecyclerReceiver
+  name: signal-port-name-xenobiology-recycler-receiver
+  description: signal-port-description-xenobiology-recycler-receiver

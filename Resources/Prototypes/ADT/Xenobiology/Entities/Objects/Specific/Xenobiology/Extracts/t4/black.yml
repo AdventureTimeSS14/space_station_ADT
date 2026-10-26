@@ -8,41 +8,67 @@
     - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
       color: "#000000"
-  - type: Reactive
-    reactions:
-    - reagents: [ Water ]
-      methods: [ Touch, Injection ]
-      effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction-fail" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
-    - reagents: [ Plasma ]
-      methods: [ Touch, Injection ]
-      effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction-reagent" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:ConvertReagent
-        solutionName: extract
-        removeReagent: Plasma
-        addReagent: AdvancedMutationToxin
-        removeAmount: 1
-        addAmount: 1
-    - reagents: [ Blood ]
-      methods: [ Touch, Injection ]
-      effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction-fail" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: SlimeExtract
+    extractReactions:
+    - BlackSlimeExtractWaterReaction
+    - BlackSlimeExtractPlasmaReaction
+    - BlackSlimeExtractBloodReaction
   - type: Tag
     tags:
     - XenobiologyBlackExtract
+
+- type: extractReaction
+  id: BlackSlimeExtractWaterReaction
+  requirements:
+    Water: 1
+  effects:
+  - effect: !type:PopupMessage
+      type: Pvs
+      messages: [ "xeno-extract-reaction-reagent" ]
+    scalingOffset: 0
+  - effect: !type:PlaySoundEffect
+      sound: /Audio/Effects/Chemistry/bubbles.ogg
+    scalingOffset: 0
+  - effect: !type:AddReagentToSolution
+      reagent: XenobioJellyBlack
+      solution: extract
+    scalingFactor: 1
+    scalingOffset: 0
+  shouldDelete: false
+
+- type: extractReaction
+  id: BlackSlimeExtractPlasmaReaction
+  requirements:
+    Plasma: 1
+  effects:
+  - effect: !type:PopupMessage
+      type: Pvs
+      messages: [ "xeno-extract-reaction-reagent" ]
+    scalingOffset: 0
+  - effect: !type:PlaySoundEffect
+      sound: /Audio/Effects/Chemistry/bubbles.ogg
+    scalingOffset: 0
+  - effect: !type:AddReagentToSolution
+      reagent: AdvancedMutationToxin
+      solution: extract
+    scalingFactor: 1
+    scalingOffset: 0
+  shouldDelete: false
+
+- type: extractReaction
+  id: BlackSlimeExtractBloodReaction
+  requirements:
+    Blood: 1
+  effects:
+  - effect: !type:PopupMessage
+      type: Pvs
+      messages: [ "xeno-extract-reaction" ]
+    scalingOffset: 0
+  - effect: !type:PlaySoundEffect
+      sound: /Audio/Effects/Chemistry/bubbles.ogg
+    scalingOffset: 0
+  - effect: !type:CreateEntityReactionEffect
+      entity: BlackSlimeExtractPowercell
+      number: 1
+    scalingOffset: 1
+  shouldDelete: true

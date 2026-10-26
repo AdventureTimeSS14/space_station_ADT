@@ -1,0 +1,1307 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Paradise at https://github.com/ParadiseSS13/Paradise, icons/turf/floors/boss_floors.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "pristine_tile1"
+    },
+    {
+      "name": "pristine_tile1_n"
+    },
+    {
+      "name": "pristine_tile1_e"
+    },
+    {
+      "name": "pristine_tile1_w"
+    },
+    {
+      "name": "pristine_tile2"
+    },
+    {
+      "name": "pristine_tile2_n"
+    },
+    {
+      "name": "pristine_tile2_e"
+    },
+    {
+      "name": "pristine_tile2_w"
+    },
+    {
+      "name": "pristine_tile3"
+    },
+    {
+      "name": "pristine_tile3_n"
+    },
+    {
+      "name": "pristine_tile3_e"
+    },
+    {
+      "name": "pristine_tile3_w"
+    },
+    {
+      "name": "pristine_tile4"
+    },
+    {
+      "name": "pristine_tile4_n"
+    },
+    {
+      "name": "pristine_tile4_e"
+    },
+    {
+      "name": "pristine_tile4_w"
+    },
+    {
+      "name": "pristine_tile5"
+    },
+    {
+      "name": "pristine_tile5_n"
+    },
+    {
+      "name": "pristine_tile5_e"
+    },
+    {
+      "name": "pristine_tile5_w"
+    },
+    {
+      "name": "pristine_tile6"
+    },
+    {
+      "name": "pristine_tile6_n"
+    },
+    {
+      "name": "pristine_tile6_e"
+    },
+    {
+      "name": "pristine_tile6_w"
+    },
+    {
+      "name": "pristine_tile7"
+    },
+    {
+      "name": "pristine_tile7_n"
+    },
+    {
+      "name": "pristine_tile7_e"
+    },
+    {
+      "name": "pristine_tile7_w"
+    },
+    {
+      "name": "pristine_tile8"
+    },
+    {
+      "name": "pristine_tile8_n"
+    },
+    {
+      "name": "pristine_tile8_e"
+    },
+    {
+      "name": "pristine_tile8_w"
+    },
+    {
+      "name": "pristine_tile9"
+    },
+    {
+      "name": "pristine_tile9_n"
+    },
+    {
+      "name": "pristine_tile9_e"
+    },
+    {
+      "name": "pristine_tile9_w"
+    },
+    {
+      "name": "pristine_tile10"
+    },
+    {
+      "name": "pristine_tile10_n"
+    },
+    {
+      "name": "pristine_tile10_e"
+    },
+    {
+      "name": "pristine_tile10_w"
+    },
+    {
+      "name": "pristine_tile11"
+    },
+    {
+      "name": "pristine_tile11_n"
+    },
+    {
+      "name": "pristine_tile11_e"
+    },
+    {
+      "name": "pristine_tile11_w"
+    },
+    {
+      "name": "pristine_tile12"
+    },
+    {
+      "name": "pristine_tile12_n"
+    },
+    {
+      "name": "pristine_tile12_e"
+    },
+    {
+      "name": "pristine_tile12_w"
+    },
+    {
+      "name": "pristine_tile13"
+    },
+    {
+      "name": "pristine_tile13_n"
+    },
+    {
+      "name": "pristine_tile13_e"
+    },
+    {
+      "name": "pristine_tile13_w"
+    },
+    {
+      "name": "pristine_tile14"
+    },
+    {
+      "name": "pristine_tile14_n"
+    },
+    {
+      "name": "pristine_tile14_e"
+    },
+    {
+      "name": "pristine_tile14_w"
+    },
+    {
+      "name": "pristine_tile15"
+    },
+    {
+      "name": "pristine_tile15_n"
+    },
+    {
+      "name": "pristine_tile15_e"
+    },
+    {
+      "name": "pristine_tile15_w"
+    },
+    {
+      "name": "pristine_tile16"
+    },
+    {
+      "name": "pristine_tile16_n"
+    },
+    {
+      "name": "pristine_tile16_e"
+    },
+    {
+      "name": "pristine_tile16_w"
+    },
+    {
+      "name": "pristine_tile17"
+    },
+    {
+      "name": "pristine_tile17_n"
+    },
+    {
+      "name": "pristine_tile17_e"
+    },
+    {
+      "name": "pristine_tile17_w"
+    },
+    {
+      "name": "pristine_tile18"
+    },
+    {
+      "name": "pristine_tile18_n"
+    },
+    {
+      "name": "pristine_tile18_e"
+    },
+    {
+      "name": "pristine_tile18_w"
+    },
+    {
+      "name": "pristine_tile19"
+    },
+    {
+      "name": "pristine_tile19_n"
+    },
+    {
+      "name": "pristine_tile19_e"
+    },
+    {
+      "name": "pristine_tile19_w"
+    },
+    {
+      "name": "pristine_tile20"
+    },
+    {
+      "name": "pristine_tile20_n"
+    },
+    {
+      "name": "pristine_tile20_e"
+    },
+    {
+      "name": "pristine_tile20_w"
+    },
+    {
+      "name": "pristine_tile21"
+    },
+    {
+      "name": "pristine_tile21_n"
+    },
+    {
+      "name": "pristine_tile21_e"
+    },
+    {
+      "name": "pristine_tile21_w"
+    },
+    {
+      "name": "pristine_tile22"
+    },
+    {
+      "name": "pristine_tile22_n"
+    },
+    {
+      "name": "pristine_tile22_e"
+    },
+    {
+      "name": "pristine_tile22_w"
+    },
+    {
+      "name": "pristine_tile23"
+    },
+    {
+      "name": "pristine_tile23_n"
+    },
+    {
+      "name": "pristine_tile23_e"
+    },
+    {
+      "name": "pristine_tile23_w"
+    },
+    {
+      "name": "pristine_tile24"
+    },
+    {
+      "name": "pristine_tile24_n"
+    },
+    {
+      "name": "pristine_tile24_e"
+    },
+    {
+      "name": "pristine_tile24_w"
+    },
+    {
+      "name": "pristine_slab1"
+    },
+    {
+      "name": "pristine_slab2"
+    },
+    {
+      "name": "pristine_slab3"
+    },
+    {
+      "name": "pristine_slab4"
+    },
+    {
+      "name": "pristine_block1"
+    },
+    {
+      "name": "pristine_block1_n"
+    },
+    {
+      "name": "pristine_block1_e"
+    },
+    {
+      "name": "pristine_block1_w"
+    },
+    {
+      "name": "pristine_block2"
+    },
+    {
+      "name": "pristine_block2_n"
+    },
+    {
+      "name": "pristine_block2_e"
+    },
+    {
+      "name": "pristine_block2_w"
+    },
+    {
+      "name": "pristine_block3"
+    },
+    {
+      "name": "pristine_block3_n"
+    },
+    {
+      "name": "pristine_block3_e"
+    },
+    {
+      "name": "pristine_block3_w"
+    },
+    {
+      "name": "pristine_block4"
+    },
+    {
+      "name": "pristine_block4_n"
+    },
+    {
+      "name": "pristine_block4_e"
+    },
+    {
+      "name": "pristine_block4_w"
+    },
+    {
+      "name": "pristine_center1"
+    },
+    {
+      "name": "pristine_center2"
+    },
+    {
+      "name": "pristine_center3"
+    },
+    {
+      "name": "pristine_center4"
+    },
+    {
+      "name": "pristine_surrounding1"
+    },
+    {
+      "name": "pristine_surrounding2"
+    },
+    {
+      "name": "pristine_surrounding_tile1"
+    },
+    {
+      "name": "pristine_surrounding_tile1_n"
+    },
+    {
+      "name": "pristine_surrounding_tile1_e"
+    },
+    {
+      "name": "pristine_surrounding_tile1_w"
+    },
+    {
+      "name": "pristine_surrounding_tile2"
+    },
+    {
+      "name": "pristine_surrounding_tile2_n"
+    },
+    {
+      "name": "pristine_surrounding_tile2_e"
+    },
+    {
+      "name": "pristine_surrounding_tile2_w"
+    },
+    {
+      "name": "cracked_tile1"
+    },
+    {
+      "name": "cracked_tile1_n"
+    },
+    {
+      "name": "cracked_tile1_e"
+    },
+    {
+      "name": "cracked_tile1_w"
+    },
+    {
+      "name": "cracked_tile2"
+    },
+    {
+      "name": "cracked_tile2_n"
+    },
+    {
+      "name": "cracked_tile2_e"
+    },
+    {
+      "name": "cracked_tile2_w"
+    },
+    {
+      "name": "cracked_tile3"
+    },
+    {
+      "name": "cracked_tile3_n"
+    },
+    {
+      "name": "cracked_tile3_e"
+    },
+    {
+      "name": "cracked_tile3_w"
+    },
+    {
+      "name": "cracked_tile4"
+    },
+    {
+      "name": "cracked_tile4_n"
+    },
+    {
+      "name": "cracked_tile4_e"
+    },
+    {
+      "name": "cracked_tile4_w"
+    },
+    {
+      "name": "cracked_tile5"
+    },
+    {
+      "name": "cracked_tile5_n"
+    },
+    {
+      "name": "cracked_tile5_e"
+    },
+    {
+      "name": "cracked_tile5_w"
+    },
+    {
+      "name": "cracked_tile6"
+    },
+    {
+      "name": "cracked_tile6_n"
+    },
+    {
+      "name": "cracked_tile6_e"
+    },
+    {
+      "name": "cracked_tile6_w"
+    },
+    {
+      "name": "cracked_tile7"
+    },
+    {
+      "name": "cracked_tile7_n"
+    },
+    {
+      "name": "cracked_tile7_e"
+    },
+    {
+      "name": "cracked_tile7_w"
+    },
+    {
+      "name": "cracked_tile8"
+    },
+    {
+      "name": "cracked_tile8_n"
+    },
+    {
+      "name": "cracked_tile8_e"
+    },
+    {
+      "name": "cracked_tile8_w"
+    },
+    {
+      "name": "cracked_tile9"
+    },
+    {
+      "name": "cracked_tile9_n"
+    },
+    {
+      "name": "cracked_tile9_e"
+    },
+    {
+      "name": "cracked_tile9_w"
+    },
+    {
+      "name": "cracked_tile10"
+    },
+    {
+      "name": "cracked_tile10_n"
+    },
+    {
+      "name": "cracked_tile10_e"
+    },
+    {
+      "name": "cracked_tile10_w"
+    },
+    {
+      "name": "cracked_tile11"
+    },
+    {
+      "name": "cracked_tile11_n"
+    },
+    {
+      "name": "cracked_tile11_e"
+    },
+    {
+      "name": "cracked_tile11_w"
+    },
+    {
+      "name": "cracked_tile12"
+    },
+    {
+      "name": "cracked_tile12_n"
+    },
+    {
+      "name": "cracked_tile12_e"
+    },
+    {
+      "name": "cracked_tile12_w"
+    },
+    {
+      "name": "cracked_tile13"
+    },
+    {
+      "name": "cracked_tile13_n"
+    },
+    {
+      "name": "cracked_tile13_e"
+    },
+    {
+      "name": "cracked_tile13_w"
+    },
+    {
+      "name": "cracked_tile14"
+    },
+    {
+      "name": "cracked_tile14_n"
+    },
+    {
+      "name": "cracked_tile14_e"
+    },
+    {
+      "name": "cracked_tile14_w"
+    },
+    {
+      "name": "cracked_tile15"
+    },
+    {
+      "name": "cracked_tile15_n"
+    },
+    {
+      "name": "cracked_tile15_e"
+    },
+    {
+      "name": "cracked_tile15_w"
+    },
+    {
+      "name": "cracked_tile16"
+    },
+    {
+      "name": "cracked_tile16_n"
+    },
+    {
+      "name": "cracked_tile16_e"
+    },
+    {
+      "name": "cracked_tile16_w"
+    },
+    {
+      "name": "cracked_tile17"
+    },
+    {
+      "name": "cracked_tile17_n"
+    },
+    {
+      "name": "cracked_tile17_e"
+    },
+    {
+      "name": "cracked_tile17_w"
+    },
+    {
+      "name": "cracked_tile18"
+    },
+    {
+      "name": "cracked_tile18_n"
+    },
+    {
+      "name": "cracked_tile18_e"
+    },
+    {
+      "name": "cracked_tile18_w"
+    },
+    {
+      "name": "cracked_tile19"
+    },
+    {
+      "name": "cracked_tile19_n"
+    },
+    {
+      "name": "cracked_tile19_e"
+    },
+    {
+      "name": "cracked_tile19_w"
+    },
+    {
+      "name": "cracked_tile20"
+    },
+    {
+      "name": "cracked_tile20_n"
+    },
+    {
+      "name": "cracked_tile20_e"
+    },
+    {
+      "name": "cracked_tile20_w"
+    },
+    {
+      "name": "cracked_tile21"
+    },
+    {
+      "name": "cracked_tile21_n"
+    },
+    {
+      "name": "cracked_tile21_e"
+    },
+    {
+      "name": "cracked_tile21_w"
+    },
+    {
+      "name": "cracked_tile22"
+    },
+    {
+      "name": "cracked_tile22_n"
+    },
+    {
+      "name": "cracked_tile22_e"
+    },
+    {
+      "name": "cracked_tile22_w"
+    },
+    {
+      "name": "cracked_tile23"
+    },
+    {
+      "name": "cracked_tile23_n"
+    },
+    {
+      "name": "cracked_tile23_e"
+    },
+    {
+      "name": "cracked_tile23_w"
+    },
+    {
+      "name": "cracked_tile24"
+    },
+    {
+      "name": "cracked_tile24_n"
+    },
+    {
+      "name": "cracked_tile24_e"
+    },
+    {
+      "name": "cracked_tile24_w"
+    },
+    {
+      "name": "cracked_block1"
+    },
+    {
+      "name": "cracked_block1_n"
+    },
+    {
+      "name": "cracked_block1_e"
+    },
+    {
+      "name": "cracked_block1_w"
+    },
+    {
+      "name": "cracked_block1_se"
+    },
+    {
+      "name": "cracked_block1_sw"
+    },
+    {
+      "name": "cracked_block1_ne"
+    },
+    {
+      "name": "cracked_block1_nw"
+    },
+    {
+      "name": "cracked_block2"
+    },
+    {
+      "name": "cracked_block2_n"
+    },
+    {
+      "name": "cracked_block2_e"
+    },
+    {
+      "name": "cracked_block2_w"
+    },
+    {
+      "name": "cracked_block2_se"
+    },
+    {
+      "name": "cracked_block2_sw"
+    },
+    {
+      "name": "cracked_block2_ne"
+    },
+    {
+      "name": "cracked_block2_nw"
+    },
+    {
+      "name": "cracked_block3"
+    },
+    {
+      "name": "cracked_block3_n"
+    },
+    {
+      "name": "cracked_block3_e"
+    },
+    {
+      "name": "cracked_block3_w"
+    },
+    {
+      "name": "cracked_block3_se"
+    },
+    {
+      "name": "cracked_block3_sw"
+    },
+    {
+      "name": "cracked_block3_ne"
+    },
+    {
+      "name": "cracked_block3_nw"
+    },
+    {
+      "name": "cracked_block4"
+    },
+    {
+      "name": "cracked_block4_n"
+    },
+    {
+      "name": "cracked_block4_e"
+    },
+    {
+      "name": "cracked_block4_w"
+    },
+    {
+      "name": "cracked_block4_se"
+    },
+    {
+      "name": "cracked_block4_sw"
+    },
+    {
+      "name": "cracked_block4_ne"
+    },
+    {
+      "name": "cracked_block4_nw"
+    },
+    {
+      "name": "cracked_center1"
+    },
+    {
+      "name": "cracked_center2"
+    },
+    {
+      "name": "cracked_center3"
+    },
+    {
+      "name": "cracked_center4"
+    },
+    {
+      "name": "cracked_surrounding1"
+    },
+    {
+      "name": "cracked_surrounding1_n"
+    },
+    {
+      "name": "cracked_surrounding1_e"
+    },
+    {
+      "name": "cracked_surrounding1_w"
+    },
+    {
+      "name": "cracked_surrounding1_se"
+    },
+    {
+      "name": "cracked_surrounding1_sw"
+    },
+    {
+      "name": "cracked_surrounding1_ne"
+    },
+    {
+      "name": "cracked_surrounding1_nw"
+    },
+    {
+      "name": "cracked_surrounding_tile1"
+    },
+    {
+      "name": "cracked_surrounding_tile1_n"
+    },
+    {
+      "name": "cracked_surrounding_tile1_e"
+    },
+    {
+      "name": "cracked_surrounding_tile1_w"
+    },
+    {
+      "name": "cracked_surrounding_tile1_se"
+    },
+    {
+      "name": "cracked_surrounding_tile1_sw"
+    },
+    {
+      "name": "cracked_surrounding_tile1_ne"
+    },
+    {
+      "name": "cracked_surrounding_tile1_nw"
+    },
+    {
+      "name": "cracked_surrounding_tile2"
+    },
+    {
+      "name": "cracked_surrounding_tile2_n"
+    },
+    {
+      "name": "cracked_surrounding_tile2_e"
+    },
+    {
+      "name": "cracked_surrounding_tile2_w"
+    },
+    {
+      "name": "cracked_surrounding_tile2_se"
+    },
+    {
+      "name": "cracked_surrounding_tile2_sw"
+    },
+    {
+      "name": "cracked_surrounding_tile2_ne"
+    },
+    {
+      "name": "cracked_surrounding_tile2_nw"
+    },
+    {
+      "name": "burnt_tile1"
+    },
+    {
+      "name": "burnt_tile1_n"
+    },
+    {
+      "name": "burnt_tile1_e"
+    },
+    {
+      "name": "burnt_tile1_w"
+    },
+    {
+      "name": "burnt_tile2"
+    },
+    {
+      "name": "burnt_tile2_n"
+    },
+    {
+      "name": "burnt_tile2_e"
+    },
+    {
+      "name": "burnt_tile2_w"
+    },
+    {
+      "name": "burnt_tile3"
+    },
+    {
+      "name": "burnt_tile3_n"
+    },
+    {
+      "name": "burnt_tile3_e"
+    },
+    {
+      "name": "burnt_tile3_w"
+    },
+    {
+      "name": "burnt_tile4"
+    },
+    {
+      "name": "burnt_tile4_n"
+    },
+    {
+      "name": "burnt_tile4_e"
+    },
+    {
+      "name": "burnt_tile4_w"
+    },
+    {
+      "name": "burnt_tile5"
+    },
+    {
+      "name": "burnt_tile5_n"
+    },
+    {
+      "name": "burnt_tile5_e"
+    },
+    {
+      "name": "burnt_tile5_w"
+    },
+    {
+      "name": "burnt_tile6"
+    },
+    {
+      "name": "burnt_tile6_n"
+    },
+    {
+      "name": "burnt_tile6_e"
+    },
+    {
+      "name": "burnt_tile6_w"
+    },
+    {
+      "name": "burnt_tile7"
+    },
+    {
+      "name": "burnt_tile7_n"
+    },
+    {
+      "name": "burnt_tile7_e"
+    },
+    {
+      "name": "burnt_tile7_w"
+    },
+    {
+      "name": "burnt_tile8"
+    },
+    {
+      "name": "burnt_tile8_n"
+    },
+    {
+      "name": "burnt_tile8_e"
+    },
+    {
+      "name": "burnt_tile8_w"
+    },
+    {
+      "name": "burnt_tile9"
+    },
+    {
+      "name": "burnt_tile9_n"
+    },
+    {
+      "name": "burnt_tile9_e"
+    },
+    {
+      "name": "burnt_tile9_w"
+    },
+    {
+      "name": "burnt_tile10"
+    },
+    {
+      "name": "burnt_tile10_n"
+    },
+    {
+      "name": "burnt_tile10_e"
+    },
+    {
+      "name": "burnt_tile10_w"
+    },
+    {
+      "name": "burnt_tile11"
+    },
+    {
+      "name": "burnt_tile11_n"
+    },
+    {
+      "name": "burnt_tile11_e"
+    },
+    {
+      "name": "burnt_tile11_w"
+    },
+    {
+      "name": "burnt_tile12"
+    },
+    {
+      "name": "burnt_tile12_n"
+    },
+    {
+      "name": "burnt_tile12_e"
+    },
+    {
+      "name": "burnt_tile12_w"
+    },
+    {
+      "name": "burnt_tile13"
+    },
+    {
+      "name": "burnt_tile13_n"
+    },
+    {
+      "name": "burnt_tile13_e"
+    },
+    {
+      "name": "burnt_tile13_w"
+    },
+    {
+      "name": "burnt_tile14"
+    },
+    {
+      "name": "burnt_tile14_n"
+    },
+    {
+      "name": "burnt_tile14_e"
+    },
+    {
+      "name": "burnt_tile14_w"
+    },
+    {
+      "name": "burnt_tile15"
+    },
+    {
+      "name": "burnt_tile15_n"
+    },
+    {
+      "name": "burnt_tile15_e"
+    },
+    {
+      "name": "burnt_tile15_w"
+    },
+    {
+      "name": "burnt_tile16"
+    },
+    {
+      "name": "burnt_tile16_n"
+    },
+    {
+      "name": "burnt_tile16_e"
+    },
+    {
+      "name": "burnt_tile16_w"
+    },
+    {
+      "name": "burnt_tile17"
+    },
+    {
+      "name": "burnt_tile17_n"
+    },
+    {
+      "name": "burnt_tile17_e"
+    },
+    {
+      "name": "burnt_tile17_w"
+    },
+    {
+      "name": "burnt_tile18"
+    },
+    {
+      "name": "burnt_tile18_n"
+    },
+    {
+      "name": "burnt_tile18_e"
+    },
+    {
+      "name": "burnt_tile18_w"
+    },
+    {
+      "name": "burnt_tile19"
+    },
+    {
+      "name": "burnt_tile19_n"
+    },
+    {
+      "name": "burnt_tile19_e"
+    },
+    {
+      "name": "burnt_tile19_w"
+    },
+    {
+      "name": "burnt_tile20"
+    },
+    {
+      "name": "burnt_tile20_n"
+    },
+    {
+      "name": "burnt_tile20_e"
+    },
+    {
+      "name": "burnt_tile20_w"
+    },
+    {
+      "name": "burnt_tile21"
+    },
+    {
+      "name": "burnt_tile21_n"
+    },
+    {
+      "name": "burnt_tile21_e"
+    },
+    {
+      "name": "burnt_tile21_w"
+    },
+    {
+      "name": "burnt_tile22"
+    },
+    {
+      "name": "burnt_tile22_n"
+    },
+    {
+      "name": "burnt_tile22_e"
+    },
+    {
+      "name": "burnt_tile22_w"
+    },
+    {
+      "name": "burnt_tile23"
+    },
+    {
+      "name": "burnt_tile23_n"
+    },
+    {
+      "name": "burnt_tile23_e"
+    },
+    {
+      "name": "burnt_tile23_w"
+    },
+    {
+      "name": "burnt_tile24"
+    },
+    {
+      "name": "burnt_tile24_n"
+    },
+    {
+      "name": "burnt_tile24_e"
+    },
+    {
+      "name": "burnt_tile24_w"
+    },
+    {
+      "name": "burnt_block1"
+    },
+    {
+      "name": "burnt_block1_n"
+    },
+    {
+      "name": "burnt_block1_e"
+    },
+    {
+      "name": "burnt_block1_w"
+    },
+    {
+      "name": "burnt_block2"
+    },
+    {
+      "name": "burnt_block2_n"
+    },
+    {
+      "name": "burnt_block2_e"
+    },
+    {
+      "name": "burnt_block2_w"
+    },
+    {
+      "name": "burnt_block3"
+    },
+    {
+      "name": "burnt_block3_n"
+    },
+    {
+      "name": "burnt_block3_e"
+    },
+    {
+      "name": "burnt_block3_w"
+    },
+    {
+      "name": "burnt_block4"
+    },
+    {
+      "name": "burnt_block4_n"
+    },
+    {
+      "name": "burnt_block4_e"
+    },
+    {
+      "name": "burnt_block4_w"
+    },
+    {
+      "name": "burnt_slab1"
+    },
+    {
+      "name": "burnt_slab2"
+    },
+    {
+      "name": "burnt_slab3"
+    },
+    {
+      "name": "burnt_slab4"
+    },
+    {
+      "name": "burnt_center1"
+    },
+    {
+      "name": "burnt_center2"
+    },
+    {
+      "name": "burnt_center3"
+    },
+    {
+      "name": "burnt_center4"
+    },
+    {
+      "name": "burnt_surrounding1"
+    },
+    {
+      "name": "burnt_surrounding2"
+    },
+    {
+      "name": "burnt_surrounding_tile1"
+    },
+    {
+      "name": "burnt_surrounding_tile1_n"
+    },
+    {
+      "name": "burnt_surrounding_tile1_e"
+    },
+    {
+      "name": "burnt_surrounding_tile1_w"
+    },
+    {
+      "name": "burnt_surrounding_tile2"
+    },
+    {
+      "name": "burnt_surrounding_tile2_n"
+    },
+    {
+      "name": "burnt_surrounding_tile2_e"
+    },
+    {
+      "name": "burnt_surrounding_tile2_w"
+    },
+    {
+      "name": "cracked_slab1"
+    },
+    {
+      "name": "cracked_slab1_n"
+    },
+    {
+      "name": "cracked_slab1_e"
+    },
+    {
+      "name": "cracked_slab1_w"
+    },
+    {
+      "name": "cracked_slab1_se"
+    },
+    {
+      "name": "cracked_slab1_sw"
+    },
+    {
+      "name": "cracked_slab1_ne"
+    },
+    {
+      "name": "cracked_slab1_nw"
+    },
+    {
+      "name": "cracked_slab_bone1"
+    },
+    {
+      "name": "cracked_slab_bone1_n"
+    },
+    {
+      "name": "cracked_slab_bone1_e"
+    },
+    {
+      "name": "cracked_slab_bone1_w"
+    },
+    {
+      "name": "cracked_slab_bone1_se"
+    },
+    {
+      "name": "cracked_slab_bone1_sw"
+    },
+    {
+      "name": "cracked_slab_bone1_ne"
+    },
+    {
+      "name": "cracked_slab_bone1_nw"
+    }
+  ]
+}

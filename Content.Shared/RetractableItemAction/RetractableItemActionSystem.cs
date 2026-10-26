@@ -13,13 +13,13 @@ namespace Content.Shared.RetractableItemAction;
 /// <summary>
 /// System for handling retractable items, such as armblades.
 /// </summary>
-public sealed class RetractableItemActionSystem : EntitySystem
+public sealed partial class RetractableItemActionSystem : EntitySystem
 {
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedContainerSystem _containers = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedPopupSystem _popups = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedContainerSystem _containers = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedPopupSystem _popups = default!;
 
     public override void Initialize()
     {
@@ -54,11 +54,11 @@ public sealed class RetractableItemActionSystem : EntitySystem
             return;
 
         // Don't allow to summon an item if holding an unremoveable item unless that item is summoned by the action.
-        if (_hands.GetActiveItem(ent.Owner) != null
+        if (_hands.GetActiveItem(args.Performer) != null // ADT-Tweak
             && !_hands.IsHolding(args.Performer, ent.Comp.ActionItemUid)
             && !_hands.CanDropHeld(args.Performer, activeHand, false))
         {
-            _popups.PopupClient(Loc.GetString("retractable-item-hand-cannot-drop"), args.Performer, args.Performer);
+            _popups.PopupEntity(Loc.GetString("retractable-item-hand-cannot-drop"), args.Performer, args.Performer);
             return;
         }
 
@@ -137,7 +137,11 @@ public sealed class RetractableItemActionSystem : EntitySystem
         if (!Resolve(action, ref action.Comp, false))
             return;
 
-        _hands.TryForcePickup(holder, item, hand, checkActionBlocker: false);
+        // ADT-Tweak-Start
+        if (!_hands.TryForcePickup(holder, item, hand, checkActionBlocker: false))
+            return;
+        // ADT-Tweak-End
+
         _audio.PlayPredicted(action.Comp.SummonSounds, holder, holder);
         EnsureComp<UnremoveableComponent>(item);
     }

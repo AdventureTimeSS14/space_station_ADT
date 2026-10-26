@@ -8,3 +8,5 @@ ent-RNeutralMobSpawner = спавнер случайный нейтрально�
     .desc = { ent-MarkerBase.desc }
 ent-RPassiveMobSpawner = спавнер случайный мирное существо
     .desc = { ent-MarkerBase.desc }
+ent-RainbowSlimeExtractSpawner = спавнер случайного экстракта слайма
+    .desc = { ent-MarkerBase.desc }

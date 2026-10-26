@@ -14,3 +14,4 @@
     state: surgery_table
   - type: OperatingTable
   # ADT-Tweak end
+  - type: AmbientMusicMarkerMedical

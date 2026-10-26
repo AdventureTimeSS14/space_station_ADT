@@ -1,15 +1,23 @@
 using System.Numerics;
+using Content.Server.ADT.Planet.RestrictedZone;
+using Content.Server.Chat.Systems;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
 using Content.Shared.ADT.Salvage.Components;
 using Content.Shared.Weapons.Melee.Components;
 using Robust.Shared.Map;
+using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.Salvage.Systems;
 
 public sealed partial class MegafaunaSystem : EntitySystem
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private ADTRestrictedZoneGuardSystem _zone = default!;
 
     public override void Initialize()
     {
@@ -19,7 +27,20 @@ public sealed partial class MegafaunaSystem : EntitySystem
         SubscribeLocalEvent<ADTLavalandBoundComponent, EntParentChangedMessage>(OnBoundParentChanged);
         //TODO: SubscribeLocalEvent<ShuttleComponent, FTLStartedEvent>(OnShuttleFTL);
 
-        InitializeDrake();
+        InitializeAggro();
+        InitializeCombat();
+        InitializeSequence();
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var now = _timing.CurTime;
+
+        UpdateAggro(now);
+        UpdateCombat(now);
+        UpdateSequences(now);
     }
 
     private void OnAttemptMeleeThrowOnHit(Entity<MegafaunaComponent> _, ref AttemptMeleeThrowOnHitEvent args)
@@ -82,6 +103,9 @@ public sealed partial class MegafaunaSystem : EntitySystem
     {
         if (!Exists(ent.Comp.HomeMap))
             return;
+
+        if (_zone.TryClamp(ent.Comp.HomeMap, position, out var clamped))
+            position = clamped;
 
         var homeMapId = Transform(ent.Comp.HomeMap).MapID;
         _transform.SetMapCoordinates(ent.Owner, new MapCoordinates(position, homeMapId));

@@ -238613,8 +238613,6 @@ entities:
     - type: Transform
       pos: 106.5,151.5
       parent: 2
-    - type: Gateway
-      enabled: True
 - proto: Gauze
   entities:
   - uid: 2605
@@ -254143,7 +254141,7 @@ entities:
     - type: Transform
       pos: 133.4961,59.96576
       parent: 2
-- proto: MicroManipulatorStockPart
+- proto: MicroServoStockPart
   entities:
   - uid: 36495
     components:

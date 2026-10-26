@@ -30,6 +30,8 @@
       enum.EdgeConnectionVisuals.ConnectionMask:
         computerLayerBody:
           None: { state: arcade, sprite: Structures/Machines/arcade.rsi }
+  - type: EdgeConnection
+    connectionKey: other
   # ADT-Tweak end
   - type: WiresPanel
   - type: Wires
@@ -137,6 +139,8 @@
     - PlushieSharkBlue
     - PlushieVox
     - PlushieXeno
+    - PlushieSpaceSheep
+    - PlushieSheep
     - PlasticBanana
     - RevolverCapGun
     - SnapPopBox

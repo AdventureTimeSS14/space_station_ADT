@@ -1,0 +1,10 @@
+ent-HereticFireAA = огонь
+    .desc = Черт возьми, это сексуально.
+ent-TileHereticVoid = пустота
+    .desc = Черт возьми, как холодно.
+ent-TileHereticRustRune = руна
+    .desc = Ржавый...
+ent-HereticRustAscensionSpreader = Ржавчина
+    .desc = Оно растет...
+ent-WallFieldCosmic = космическое поле
+    .desc = Поле, которое не может быть пройдено людьми, отмеченными космической звездой.

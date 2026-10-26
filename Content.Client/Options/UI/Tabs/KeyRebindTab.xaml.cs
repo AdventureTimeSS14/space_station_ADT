@@ -27,8 +27,8 @@ namespace Content.Client.Options.UI.Tabs
             EngineKeyFunctions.HideUI,
         };
 
-        [Dependency] private readonly IInputManager _inputManager = default!;
-        [Dependency] private readonly IConfigurationManager _cfg = default!;
+        [Dependency] private IInputManager _inputManager = default!;
+        [Dependency] private IConfigurationManager _cfg = default!;
 
         private BindButton? _currentlyRebinding;
 
@@ -206,6 +206,8 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(ContentKeyFunctions.SaveItemLocation);
             AddButton(ContentKeyFunctions.OfferItem); // ADT-Tweak
             AddButton(ContentKeyFunctions.PickupHumans); // ADT-Tweak
+            AddButton(ContentKeyFunctions.Resist); // ADT-Tweak
+            AddButton(ContentKeyFunctions.DrawBackItem); // ADT-Tweak
             AddButton(ContentKeyFunctions.TogglePosing); // ADT-Tweak
             AddButton(ContentKeyFunctions.PosingOffsetLeft); // ADT-Tweak
             AddButton(ContentKeyFunctions.PosingOffsetRight); // ADT-Tweak
@@ -220,6 +222,7 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(ContentKeyFunctions.SmartEquipPocket1);
             AddButton(ContentKeyFunctions.SmartEquipPocket2);
             AddButton(ContentKeyFunctions.SmartEquipSuitStorage);
+            AddButton(ContentKeyFunctions.SmartEquipNeck); // ADT-Tweak-SmartEquipNeck
             AddButton(ContentKeyFunctions.OpenBackpack);
             AddButton(ContentKeyFunctions.OpenBelt);
             AddButton(ContentKeyFunctions.ThrowItemInHand);
@@ -349,7 +352,42 @@ namespace Content.Client.Options.UI.Tabs
             {
                 UpdateKeyControl(control);
             }
+
+            UpdateConflictStates(); // ADT-Tweak
         }
+
+        // ADT-Tweak-Start
+        private void UpdateConflictStates()
+        {
+            var usageMap =
+                new Dictionary<(Keyboard.Key, Keyboard.Key, Keyboard.Key, Keyboard.Key), HashSet<BoundKeyFunction>>();
+
+            foreach (var binding in _inputManager.AllBindings)
+            {
+                var combo = GetBindingCombo(binding);
+                if (!usageMap.TryGetValue(combo, out var functions))
+                {
+                    functions = new HashSet<BoundKeyFunction>();
+                    usageMap[combo] = functions;
+                }
+
+                functions.Add(binding.Function);
+            }
+
+            foreach (var control in _keyControls.Values)
+            {
+                control.BindButton1.UpdateConflictState(usageMap);
+                control.BindButton2.UpdateConflictState(usageMap);
+            }
+        }
+
+        private static (Keyboard.Key, Keyboard.Key, Keyboard.Key, Keyboard.Key) GetBindingCombo(IKeyBinding binding)
+        {
+            var mods = new[] { binding.Mod1, binding.Mod2, binding.Mod3 };
+            Array.Sort(mods);
+            return (binding.BaseKey, mods[0], mods[1], mods[2]);
+        }
+        // ADT-Tweak-End
 
         private void UpdateKeyControl(KeyControl control)
         {
@@ -410,12 +448,14 @@ namespace Content.Client.Options.UI.Tabs
         {
             if (!_keyControls.TryGetValue(bind.Function, out var keyControl))
             {
+                UpdateConflictStates(); // ADT-Tweak
                 return;
             }
 
             if (removal && _currentlyRebinding?.KeyControl == keyControl)
             {
                 // Don't do update if the removal was from initiating a rebind.
+                UpdateConflictStates(); // ADT-Tweak
                 return;
             }
 
@@ -425,6 +465,8 @@ namespace Content.Client.Options.UI.Tabs
             {
                 _currentlyRebinding = null;
             }
+
+            UpdateConflictStates(); // ADT-Tweak
         }
 
         private void InputManagerOnFirstChanceOnKeyEvent(KeyEventArgs keyEvent, KeyEventType type)
@@ -591,6 +633,8 @@ namespace Content.Client.Options.UI.Tabs
 
         private sealed class BindButton : Control
         {
+            private static readonly Color ConflictColor = Color.FromHex("#FF5555");  // ADT-Tweak
+
             private readonly KeyRebindTab _tab;
             public readonly KeyControl KeyControl;
             public readonly Button Button;
@@ -647,6 +691,38 @@ namespace Content.Client.Options.UI.Tabs
             {
                 Button.Text = Binding?.GetKeyString() ?? Loc.GetString("ui-options-unbound");
             }
+
+            // ADT-Tweak-Start
+            public void UpdateConflictState(
+                Dictionary<(Keyboard.Key, Keyboard.Key, Keyboard.Key, Keyboard.Key), HashSet<BoundKeyFunction>> usageMap)
+            {
+                if (_tab._currentlyRebinding == this)
+                {
+                    Button.Label.FontColorOverride = null;
+                    Button.ToolTip = null;
+                    return;
+                }
+
+                var hasConflict = false;
+                if (Binding != null
+                    && usageMap.TryGetValue(KeyRebindTab.GetBindingCombo(Binding), out var functions)
+                    && functions.Count > 1)
+                {
+                    hasConflict = true;
+                }
+
+                if (hasConflict)
+                {
+                    Button.Label.FontColorOverride = ConflictColor;
+                    Button.ToolTip = Loc.GetString("ui-options-key-conflict");
+                }
+                else
+                {
+                    Button.Label.FontColorOverride = null;
+                    Button.ToolTip = null;
+                }
+            }
+            // ADT-Tweak-End
         }
     }
 }

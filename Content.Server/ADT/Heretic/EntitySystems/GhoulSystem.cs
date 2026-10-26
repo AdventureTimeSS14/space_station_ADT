@@ -1,21 +1,30 @@
+//
+
+using Content.Shared.Body;
+using Content.Shared.Administration.Systems;
+using Content.Shared.Roles.Components;
+using Content.Server.Administration.Systems;
 using Content.Server.Antag;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
+using Content.Server.Dragon;
 using Content.Server.Ghost.Roles.Components;
+using Content.Shared.Hands.Components;
+using Content.Server.Hands.Systems;
+using Content.Server.Humanoid;
 using Content.Server.Mind.Commands;
-using Content.Server.Roles;
-using Content.Server.Temperature.Components;
-using Content.Shared.Administration.Systems;
+using Content.Server.Storage.EntitySystems;
+using Content.Shared.Temperature.Components;
 using Content.Shared.Body.Systems;
-using Content.Shared.Damage;
-using Content.Shared.Damage.Systems;
+using Content.Shared.CombatMode;
+using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Examine;
 using Content.Shared.Ghost.Roles.Components;
-using Content.Shared.Gibbing;
 using Content.Shared.Heretic;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Inventory;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -23,127 +32,287 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Nutrition.AnimalHusbandry;
 using Content.Shared.Nutrition.Components;
+using Content.Shared.RatKing;
+using Robust.Server.Audio;
+using Content.Shared.ADT.Chaplain.Components;
+using Content.Server.GameTicking.Rules;
+using Content.Server.Heretic.Abilities;
+using Content.Server.NPC;
+using Content.Server.NPC.HTN;
+using Content.Server.NPC.Systems;
+using Content.Server.Roles;
+using Content.Shared.ADT.Heretic.Components;
+using Content.Shared.Body.Components;
+using Content.Shared.Coordinates;
+using Content.Shared.Gibbing;
+using Content.Shared.Eye;
 using Content.Shared.Roles;
-using Content.Shared.Roles.Components;
-using Content.Shared.Temperature.Components;
+using Content.Shared.Species.Components;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Heretic.EntitySystems;
 
-public sealed partial class GhoulSystem : EntitySystem
+public sealed class GhoulSystem : EntitySystem
 {
-[Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly DamageableSystem _damage = default!;
-    [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
-    [Dependency] private readonly NpcFactionSystem _faction = default!;
-    [Dependency] private readonly SharedRoleSystem _role = default!;
-    [Dependency] private readonly MobThresholdSystem _threshold = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly GibbingSystem _gibbing = default!;
+    private static readonly ProtoId<HTNCompoundPrototype> Compound = "HereticSummonCompound";
+    private static readonly EntProtoId<MindRoleComponent> GhoulRole = "MindRoleGhoul";
 
-    public void GhoulifyEntity(Entity<GhoulComponent> ent)
-    {
-        RemComp<RespiratorComponent>(ent);
-        RemComp<BarotraumaComponent>(ent);
-        RemComp<HungerComponent>(ent);
-        RemComp<ThirstComponent>(ent);
-        RemComp<ReproductiveComponent>(ent);
-        RemComp<ReproductivePartnerComponent>(ent);
-        RemComp<TemperatureComponent>(ent);
-
-        var hasMind = _mind.TryGetMind(ent, out var mindId, out var mind);
-        if (hasMind && ent.Comp.BoundHeretic != null)
-            SendBriefing(ent, mindId, mind);
-
-        _rejuvenate.PerformRejuvenate(ent);
-        if (TryComp<MobThresholdsComponent>(ent, out var th))
-        {
-            _threshold.SetMobStateThreshold(ent, ent.Comp.TotalHealth, MobState.Dead, th);
-            _threshold.SetMobStateThreshold(ent, ent.Comp.TotalHealth / 1.25f, MobState.Critical, th);
-        }
-
-        MakeSentientCommand.MakeSentient(ent, EntityManager, _mind);
-
-        if (!HasComp<GhostRoleComponent>(ent) && !hasMind)
-        {
-            var ghostRole = EnsureComp<GhostRoleComponent>(ent);
-            ghostRole.RoleName = Loc.GetString("ghostrole-ghoul-name");
-            ghostRole.RoleDescription = Loc.GetString("ghostrole-ghoul-desc");
-            ghostRole.RoleRules = Loc.GetString("ghostrole-ghoul-rules");
-        }
-
-        if (!HasComp<GhostRoleMobSpawnerComponent>(ent) && !hasMind)
-            EnsureComp<GhostTakeoverAvailableComponent>(ent);
-
-        _faction.ClearFactions((ent, null));
-        _faction.AddFaction((ent, null), "Heretic");
-    }
-
-    private void SendBriefing(Entity<GhoulComponent> ent, EntityUid mindId, MindComponent? mind)
-    {
-        var brief = Loc.GetString("heretic-ghoul-greeting-noname");
-        EntityUid? master = EntityManager.GetEntity(ent.Comp.BoundHeretic);
-
-        if (master.HasValue)
-            brief = Loc.GetString("heretic-ghoul-greeting", ("ent", Identity.Entity(master.Value, EntityManager)));
-
-        var sound = new SoundPathSpecifier("/Audio/ADT/Heretic/Ambience/Antag/Heretic/heretic_gain.ogg");
-        _antag.SendBriefing(ent, brief, Color.MediumPurple, sound);
-
-        if (!TryComp<GhoulRoleComponent>(ent, out _))
-            AddComp<GhoulRoleComponent>(mindId, new(), overwrite: true);
-
-        if (!TryComp<RoleBriefingComponent>(ent, out var rolebrief))
-            AddComp(mindId, new RoleBriefingComponent() { Briefing = brief }, overwrite: true);
-        else rolebrief.Briefing += $"\n{brief}";
-    }
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private AntagSelectionSystem _antag = default!;
+    [Dependency] private RejuvenateSystem _rejuvenate = default!;
+    [Dependency] private NpcFactionSystem _faction = default!;
+    [Dependency] private MobThresholdSystem _threshold = default!;
+    [Dependency] private GibbingSystem _gibbing = default!;
+    [Dependency] private StorageSystem _storage = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private HandsSystem _hands = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private NPCSystem _npc = default!;
+    [Dependency] private HTNSystem _htn = default!;
+    [Dependency] private SharedRoleSystem _role = default!;
+    [Dependency] private HereticSystem _heretic = default!;
+    [Dependency] private HereticAbilitySystem _hereticAbility = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<GhoulComponent, ComponentInit>(OnInit);
-        SubscribeLocalEvent<GhoulComponent, AttackAttemptEvent>(OnTryAttack);
-        SubscribeLocalEvent<GhoulComponent, TakeGhostRoleEvent>(OnTakeGhostRole);
+        SubscribeLocalEvent<GhoulComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<GhoulComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<GhoulComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<GhoulComponent, MobStateChangedEvent>(OnMobStateChange);
+
+        SubscribeLocalEvent<GhoulRoleComponent, GetBriefingEvent>(OnGetBriefing);
+
+        SubscribeLocalEvent<GhoulWeaponComponent, ExaminedEvent>(OnWeaponExamine);
+
+        SubscribeLocalEvent<HereticMinionComponent, AttackAttemptEvent>(OnTryAttack);
+        SubscribeLocalEvent<HereticMinionComponent, TakeGhostRoleEvent>(OnTakeGhostRole);
+
+        SubscribeLocalEvent<GhoulComponent, GetVisMaskEvent>(OnGhoulGetVis);
     }
 
-    private void OnInit(Entity<GhoulComponent> ent, ref ComponentInit args)
+    private void OnGhoulGetVis(Entity<GhoulComponent> ent, ref GetVisMaskEvent args)
     {
-        foreach (var look in _lookup.GetEntitiesInRange<HereticComponent>(Transform(ent).Coordinates, 1.5f))
+        args.VisibilityMask |= (int) VisibilityFlags.HereticCarving;
+    }
+
+    private void OnGetBriefing(Entity<GhoulRoleComponent> ent, ref GetBriefingEvent args)
+    {
+        var uid = args.Mind.Comp.OwnedEntity;
+
+        if (!TryComp(uid, out HereticMinionComponent? minion))
+            return;
+
+        var start = Loc.GetString("heretic-ghoul-briefing-start-noname");
+        var master = minion.BoundHeretic;
+
+        if (Exists(master))
         {
-            if (ent.Comp.BoundHeretic == null)
-                ent.Comp.BoundHeretic = GetNetEntity(look);
-            else break;
+            start = Loc.GetString("heretic-ghoul-briefing-start",
+                ("ent", Identity.Entity(master.Value, EntityManager)));
         }
 
-        GhoulifyEntity(ent);
-    }
-    private void OnTakeGhostRole(Entity<GhoulComponent> ent, ref TakeGhostRoleEvent args)
-    {
-        var hasMind = _mind.TryGetMind(ent, out var mindId, out var mind);
-        if (hasMind)
-            SendBriefing(ent, mindId, mind);
+        args.Append(start);
+        args.Append(Loc.GetString("heretic-ghoul-briefing-end"));
     }
 
-    private void OnTryAttack(Entity<GhoulComponent> ent, ref AttackAttemptEvent args)
+    private void OnWeaponExamine(Entity<GhoulWeaponComponent> ent, ref ExaminedEvent args)
     {
-        // prevent attacking owner and other heretics
-        if (args.Target == ent.Owner
-        || HasComp<HereticComponent>(args.Target))
+        args.PushMarkup(Loc.GetString(ent.Comp.ExamineMessage));
+    }
+
+    public void SetBoundHeretic(Entity<HereticMinionComponent?> ent, EntityUid heretic, bool dirty = true)
+    {
+        if (!_heretic.TryGetHereticComponent(heretic, out var hereticComp, out var mind))
+            return;
+
+        hereticComp.Minions.Add(ent);
+        Dirty(mind, hereticComp);
+
+        if (!Resolve(ent, ref ent.Comp, false))
+            ent.Comp = AddComp<HereticMinionComponent>(ent);
+
+        ent.Comp.BoundHeretic = heretic;
+        _npc.SetBlackboard(ent, NPCBlackboard.FollowTarget, heretic.ToCoordinates());
+
+        if (dirty)
+            Dirty(ent);
+    }
+
+    public void GhoulifyEntity(Entity<GhoulComponent> ent)
+    {
+        RemComp<RespiratorComponent>(ent);
+        RemComp<BarotraumaComponent>(ent);
+        RemComp<SatiationComponent>(ent);
+        RemComp<ReproductiveComponent>(ent);
+        RemComp<ReproductivePartnerComponent>(ent);
+        RemComp<TemperatureComponent>(ent);
+        RemComp<PacifiedComponent>(ent);
+        RemComp<RatKingComponent>(ent);
+        RemComp<DragonComponent>(ent);
+        EnsureComp<CombatModeComponent>(ent);
+
+        _hereticAbility.AddMansusLink(ent);
+
+        if (TryComp(ent.Owner, out HereticMinionComponent? minion) && minion.BoundHeretic is { } heretic)
+            SetBoundHeretic((ent.Owner, minion), heretic, false);
+
+        _faction.ClearFactions(ent.Owner);
+        _faction.AddFaction(ent.Owner, HereticSystem.HereticFactionId);
+
+        var hasMind = _mind.TryGetMind(ent, out var mindId, out var mind);
+        if (hasMind)
+        {
+            _mind.UnVisit(mindId, mind);
+            if (!_role.MindHasRole<GhoulRoleComponent>(mindId))
+            {
+                SendBriefing(ent.Owner);
+                _role.MindAddRole(mindId, GhoulRole, mind);
+            }
+        }
+        else
+        {
+            var htn = EnsureComp<HTNComponent>(ent);
+            htn.RootTask = new HTNCompoundTask { Task = Compound };
+            _htn.Replan(htn);
+        }
+
+        // ADT: no gray-skin recolor, appearance uses HumanoidProfile now
+
+        _rejuvenate.PerformRejuvenate(ent);
+        if (TryComp<MobThresholdsComponent>(ent, out var th))
+        {
+            _threshold.SetMobStateThreshold(ent, ent.Comp.TotalHealth, MobState.Dead, th);
+            _threshold.SetMobStateThreshold(ent, ent.Comp.TotalHealth * 0.99f, MobState.Critical, th);
+        }
+
+        _mind.MakeSentient(ent);
+
+        if (!hasMind)
+        {
+            var ghostRole = EnsureComp<GhostRoleComponent>(ent);
+            ghostRole.RoleName = Loc.GetString(ent.Comp.GhostRoleName);
+            ghostRole.RoleDescription = Loc.GetString(ent.Comp.GhostRoleDesc);
+            ghostRole.RoleRules = Loc.GetString(ent.Comp.GhostRoleRules);
+            ghostRole.MindRoles = [GhoulRole];
+        }
+
+        if (!HasComp<GhostRoleMobSpawnerComponent>(ent) && !hasMind)
+            EnsureComp<GhostTakeoverAvailableComponent>(ent);
+
+        if (TryComp(ent, out FleshMimickedComponent? mimicked))
+        {
+            foreach (var mimic in mimicked.FleshMimics)
+            {
+                if (!Exists(mimic))
+                    continue;
+
+                _faction.DeAggroEntity(mimic, ent);
+            }
+
+            RemCompDeferred(ent, mimicked);
+        }
+
+        if (!ent.Comp.GiveBlade || !TryComp(ent, out HandsComponent? hands))
+            return;
+
+        var blade = Spawn(ent.Comp.BladeProto, Transform(ent).Coordinates);
+        EnsureComp<GhoulWeaponComponent>(blade);
+        ent.Comp.BoundWeapon = blade;
+
+        if (!_hands.TryPickup(ent, blade, animate: false, handsComp: hands) &&
+            _inventory.TryGetSlotEntity(ent, "back", out var slotEnt) &&
+            _storage.CanInsert(slotEnt.Value, blade, out _))
+            _storage.Insert(slotEnt.Value, blade, out _, out _, playSound: false);
+    }
+
+    private void SendBriefing(Entity<HereticMinionComponent?> ent)
+    {
+        if (!Resolve(ent, ref ent.Comp, false))
+            return;
+
+        var brief = Loc.GetString("heretic-ghoul-greeting-noname");
+        var master = ent.Comp.BoundHeretic;
+
+        if (Exists(master))
+            brief = Loc.GetString("heretic-ghoul-greeting", ("ent", Identity.Entity(master.Value, EntityManager)));
+
+        var sound = new SoundPathSpecifier("/Audio/ADT/Heretic/Ambience/Antag/Heretic/heretic_gain.ogg");
+        _antag.SendBriefing(ent, brief, Color.MediumPurple, sound);
+    }
+
+    private void OnStartup(Entity<GhoulComponent> ent, ref ComponentStartup args)
+    {
+        GhoulifyEntity(ent);
+        // ADT: holy damage multiplier instead of Goob's WeakToHolyComponent
+        EnsureComp<HolyDamageMultiplierComponent>(ent);
+    }
+
+    private void OnShutdown(Entity<GhoulComponent> ent, ref ComponentShutdown args)
+    {
+        if (ent.Comp.BoundWeapon == null || TerminatingOrDeleted(ent.Comp.BoundWeapon.Value))
+            return;
+
+        _audio.PlayPvs(ent.Comp.BladeDeleteSound, Transform(ent.Comp.BoundWeapon.Value).Coordinates);
+        QueueDel(ent.Comp.BoundWeapon.Value);
+    }
+
+    private void OnTakeGhostRole(Entity<HereticMinionComponent> ent, ref TakeGhostRoleEvent args)
+    {
+        SendBriefing(ent.AsNullable());
+    }
+
+    private void OnTryAttack(Entity<HereticMinionComponent> ent, ref AttackAttemptEvent args)
+    {
+        if (args.Target == null)
+            return;
+
+        if (args.Target == ent.Comp.BoundHeretic || HasComp<ShadowCloakEntityComponent>(args.Target.Value) &&
+            Transform(args.Target.Value).ParentUid == ent.Comp.BoundHeretic)
             args.Cancel();
     }
 
     private void OnExamine(Entity<GhoulComponent> ent, ref ExaminedEvent args)
     {
-        args.PushMarkup(Loc.GetString("examine-system-cant-see-entity"));
+        if (ent.Comp.ExamineMessage == null)
+            return;
+
+        args.PushMarkup(Loc.GetString(ent.Comp.ExamineMessage));
     }
 
     private void OnMobStateChange(Entity<GhoulComponent> ent, ref MobStateChangedEvent args)
     {
-        if (args.NewMobState == MobState.Dead)
-            _gibbing.Gib(ent);
+        if (args.NewMobState != MobState.Dead)
+            return;
+
+        if (ent.Comp.SpawnOnDeathPrototype != null)
+            Spawn(ent.Comp.SpawnOnDeathPrototype.Value, Transform(ent).Coordinates);
+
+        DeleteGhoulEquipment(ent);
+
+        // ADT: no shitmed BodySystem, gib via GibbingSystem
+        _gibbing.Gib(ent, dropGiblets: ent.Comp.DropOrgansOnDeath);
+    }
+
+    private void DeleteGhoulEquipment(EntityUid ghoul)
+    {
+        if (TryComp(ghoul, out InventoryComponent? inventory))
+        {
+            var slots = _inventory.GetSlotEnumerator((ghoul, inventory));
+            while (slots.NextItem(out var item, out _))
+            {
+                QueueDel(item);
+            }
+        }
+
+        if (TryComp(ghoul, out HandsComponent? hands))
+        {
+            foreach (var held in _hands.EnumerateHeld((ghoul, hands)))
+            {
+                QueueDel(held);
+            }
+        }
     }
 }

@@ -13,8 +13,8 @@ namespace Content.Server.ADT.Blob;
 
 public sealed class BlobMobSystem : SharedBlobMobSystem
 {
-    [Dependency] private readonly LanguageSystem _language = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+    [Dependency] private LanguageSystem _language = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
 
     public override void Initialize()
     {
@@ -52,7 +52,7 @@ public sealed class BlobMobSystem : SharedBlobMobSystem
             return;
 
         if (TryComp<LanguageSpeakerComponent>(ent.Owner, out var langComp))
-            langComp.Languages.Remove(ent.Comp.Language);
+            _language.RemoveLanguage(ent.Owner, ent.Comp.Language, langComp);
         // var radio = EnsureComp<ActiveRadioComponent>(ent);
         // radio.Channels.Remove(ent.Comp.Channel);
     }

@@ -1,0 +1,55 @@
+- type: material
+  id: ADTSandstone
+  stackEntity: ADTMaterialSandstone1
+  name: materials-adt-sandstone
+  unit: materials-unit-sheet
+  icon: { sprite: ADT/Objects/Materials/sandstone.rsi, state: sandstone }
+  color: "#C2A47C"
+  price: 0.05
+
+- type: stack
+  parent: BaseMediumStack
+  id: ADTSandstone
+  name: stack-adt-sandstone
+  icon: { sprite: ADT/Objects/Materials/sandstone.rsi, state: sandstone }
+  spawn: ADTMaterialSandstone1
+  maxCount: 50
+
+- type: entity
+  parent: MaterialBase
+  id: ADTMaterialSandstone
+  name: sandstone brick
+  description: This appears to be a combination of both sand and stone.
+  suffix: Full
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Materials/sandstone.rsi
+    state: sandstone
+  - type: Item
+    size: Small
+  - type: Stack
+    stackType: ADTSandstone
+    count: 30
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      ADTSandstone: 100
+  - type: Tag
+    tags:
+    - ADTSandstone
+
+- type: entity
+  parent: ADTMaterialSandstone
+  id: ADTMaterialSandstone1
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1
+
+- type: entityTable
+  id: ADTBasaltRockLootTable
+  table: !type:GroupSelector
+    children:
+    - id: ADTMaterialSandstone1
+      rolls: !type:RangeNumberSelector
+        range: 1, 2

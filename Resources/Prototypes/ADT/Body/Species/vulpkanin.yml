@@ -4,7 +4,7 @@
 
 - type: entity
   parent: BaseSpeciesAppearance
-  id: AppearanceVulpkaninADT
+  id: ADTAppearanceVulpkanin
   categories: [ HideSpawnMenu ]
   name: vulpkanin appearance
   components:
@@ -98,6 +98,8 @@
             state: shoes
   - type: NightVision
     innate: true
+    shader: ADTModernNightVisionShaderMedium
+    effectPrototype: ADTEffectNightVisionMedium
 
 # - type: entity
 #   save: false

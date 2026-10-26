@@ -55,7 +55,7 @@ namespace Content.Server.Atmos.Components
         public AtmosDirection AirBlockedDirection => (AtmosDirection)CurrentAirBlockedDirection;
 
         // ADT fan abuse fix start
-        [DataField]
+        [DataField, Access(Other = AccessPermissions.ReadWriteExecute)] // ADT-Heretic: write access for StarMarkSystem
         public bool BlockExplosions { get; set; } = true;
         // ADT fan abuse fix start
     }

@@ -1,0 +1,47 @@
+- type: material
+  id: ADTSinew
+  stackEntity: ADTMaterialSinew1
+  name: materials-adt-sinew
+  unit: materials-unit-piece
+  icon: { sprite: ADT/Objects/Materials/sinew.rsi, state: sinew }
+  color: "#8B3A3A"
+  price: 0.5
+
+- type: stack
+  parent: BaseMediumStack
+  id: ADTSinew
+  name: stack-adt-sinew
+  icon: { sprite: ADT/Objects/Materials/sinew.rsi, state: sinew }
+  spawn: ADTMaterialSinew1
+
+- type: entity
+  parent: MaterialBase
+  id: ADTMaterialSinew
+  name: watcher sinew
+  description: Long stringy filaments which presumably came from a watcher's wings.
+  suffix: Full
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Materials/sinew.rsi
+    state: sinew
+  - type: Item
+    size: Small
+  - type: Stack
+    stackType: ADTSinew
+    count: 5
+  - type: Material
+  - type: StaticPrice
+    price: 0
+  - type: StackPrice
+    price: 250
+  - type: PhysicalComposition
+    materialComposition:
+      ADTSinew: 100
+
+- type: entity
+  parent: ADTMaterialSinew
+  id: ADTMaterialSinew1
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1

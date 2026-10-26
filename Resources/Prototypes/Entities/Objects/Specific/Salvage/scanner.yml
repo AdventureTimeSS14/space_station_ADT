@@ -34,12 +34,17 @@
         enum.ToggleableVisuals.Layer:
           True: { visible: true }
           False: { visible: false }
+  - type: ItemToggleExaminableStatus
   - type: ItemToggle
     soundActivate:
       path: /Audio/Weapons/click.ogg
       params:
         maxDistance: 1
   - type: MiningScanner
+  # ADT-Tweak-Start
+  - type: ADTMagmiteUpgradable
+    result: ADTMineralScannerMagmite
+  # ADT-Tweak-End
 
 - type: entity
   id: MineralScanner
@@ -84,6 +89,10 @@
       - state: inhand-right-adv
   - type: MiningScanner
     range: 10
+    # ADT-Tweak-Start
+  - type: ADTMagmiteUpgradable
+    result: ADTAdvancedMineralScannerMagmite
+    # ADT-Tweak-End
 
 - type: entity
   id: AdvancedMineralScanner

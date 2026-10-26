@@ -71,6 +71,7 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
+    fireRate: 3.3
   - type: BatteryAmmoProvider
     proto: RedLaser
     fireCost: 62.5
@@ -133,13 +134,16 @@
     - type: RMCMagneticItem
 
 - type: entity
-  name: Cutter
+  name: plasma cutter
   parent: BaseWeaponBatterySmall
   id: ADTWeaponCutter
-  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
+  description: A mining tool capable of expelling concentrated plasma bursts. You could use it to cut limbs off xenos! Or, you know, mine stuff.
   components:
+    - type: ADTMagmiteUpgradable
+      result: ADTWeaponCutterMagmite
     - type: Item
       size: Normal
+      sprite: ADT/Objects/Weapons/Guns/Battery/cutter.rsi
       shape:
       - 0,1,0,2
       - 1,1,1,1
@@ -149,38 +153,44 @@
       materialWhiteList: [RawPlasma, Plasma]
       canEjectStoredMaterials: false
     - type: BatteryRecharge
-      multiplier: 1.25
+      materialMultipliers:
+        Plasma: 10
+        RawPlasma: 1.6667
     - type: Sprite
       sprite: ADT/Objects/Weapons/Guns/Battery/cutter.rsi
       state: icon
     - type: Gun
-      fireRate: 0.6
+      fireRate: 0.667
       soundGunshot:
-        path: /Audio/Weapons/plasma_cutter.ogg
+        path: /Audio/ADT/Mining/plasma_cutter_pulse.ogg
     - type: BatteryAmmoProvider
       proto: ADTBulletCutter
-      fireCost: 100
+      fireCost: 50
     - type: Battery
-      maxCharge: 2500
-      startingCharge: 2500
+      maxCharge: 1000
+      startingCharge: 1000
     - type: Appearance
 
 - type: entity
-  name: Advanced Cutter
+  name: advanced plasma cutter
   parent: ADTWeaponCutter
   id: ADTWeaponCutterAdv
-  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
+  description: It's an advanced plasma cutter, oh my god.
   components:
+    - type: ADTMagmiteUpgradable
+      result: ADTWeaponCutterMagmite
     - type: Sprite
       sprite: ADT/Objects/Weapons/Guns/Battery/cutteradv.rsi
       state: icon
+    - type: Item
+      sprite: ADT/Objects/Weapons/Guns/Battery/cutteradv.rsi
     - type: Gun
       fireRate: 1
       soundGunshot:
-        path: /Audio/Weapons/plasma_cutter.ogg
+        path: /Audio/ADT/Mining/plasma_cutter_pulse.ogg
     - type: BatteryAmmoProvider
       proto: ADTBulletCutterAdv
-      fireCost: 75
+      fireCost: 25
     - type: Appearance
 
 - type: entity
@@ -547,7 +557,7 @@
     - Back
     - suitStorage
   - type: Gun
-    fireRate: 5
+    fireRate: 6
     selectedMode: FullAuto
     availableModes:
       - FullAuto
@@ -592,6 +602,7 @@
   - type: Item
     storedOffset: 0,-4
   - type: Gun
+    fireRate: 3.3
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
       params:
@@ -620,3 +631,9 @@
     tags:
     - Sidearm
     - LaserWeapon
+# ADT TWEAK START
+  - type: Multishot
+    spreadMultiplier: 2.5
+    spreadAddition: 20
+    staminaDamage: 4
+# ADT TWEAK END

@@ -76,47 +76,46 @@
 
 - type: entity
   id: ADTBulletCutter
-  name: cutter bolt
+  name: plasma blast
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
-  description: Not too bad, but you still don't want to get hit by it.
   components:
   - type: Reflective
     reflective:
       - NonEnergy
   - type: Sprite
     noRot: false
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    sprite: ADT/Objects/Weapons/Guns/Projectiles/plasma_cutter.rsi
     layers:
-    - state: omnilaser_greyscale
+    - state: plasmacutter
       shader: unshaded
-      color: "#9f1e86"
   - type: GatheringProjectile
     amount: 40
   - type: Projectile
     deleteOnCollide: false
     damage:
       types:
-        Heat: 15
+        Slash: 5
   - type: TimedDespawn
-    lifetime: 0.4
+    lifetime: 0.1
   - type: PointLight
     radius: 2
-    color: purple
-    energy: 1
+    color: "#00FFFF"
+    energy: 1.5
 
 - type: entity
   id: ADTBulletCutterAdv
-  name: cutter bolt advanced
+  name: plasma blast
   parent: ADTBulletCutter
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
+    deleteOnCollide: false
     damage:
       types:
-        Heat: 20
+        Slash: 7
   - type: TimedDespawn
-    lifetime: 0.25
+    lifetime: 0.167
 
 - type: entity
   name: Laser bolt
@@ -152,7 +151,7 @@
     impactEffect: ADTBulletImpactEffectLaser
     damage:
       types:
-        Heat: 15
+        Heat: 20
     soundHit:
       collection: WeakHit
     forceSound: true
@@ -285,6 +284,22 @@
   - type: BlurOnCollide
   - type: TimedDespawn
     lifetime: 0.1
+
+- type: entity
+  id: ADTBulletKineticAccelerator
+  parent: BulletKinetic
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    impactEffect: BulletImpactEffectKinetic
+    damage:
+      types:
+        Blunt: 40
+        Structural: 30
+  - type: TimedDespawn
+    lifetime: 0.14
+  - type: PressureDamageModify
+    projDamage: 0.25
 
 - type: entity
   id: ADTBulletKineticPistol
@@ -488,3 +503,103 @@
   - type: EmpOnCollide
     energyConsumption: 20
     disableDuration: 2
+
+- type: entity
+  id: ADTBulletCutterMagmite
+  name: plasma blast
+  parent: ADTBulletCutterAdv
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ADTDefuseGibtoniteOnHit
+  - type: Sprite
+    layers:
+    - state: plasmacutter_mega
+      shader: unshaded
+  - type: TimedDespawn
+    lifetime: 0.233
+  - type: PointLight
+    radius: 2
+    color: "#FF4B1A"
+    energy: 1.5
+
+- type: entity
+  id: ADTBulletCrusherMark
+  parent: BulletCharge
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: DamageMarkerOnCollide
+    whitelist:
+      components:
+      - Fauna
+    damage:
+      types:
+        Blunt: 56
+        Slash: 4
+
+- type: entity
+  id: ADTBulletCrusherSpearMark
+  parent: ADTBulletCrusherMark
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: DamageMarkerOnCollide
+    whitelist:
+      components:
+      - Fauna
+    damage:
+      types:
+        Blunt: 45
+        Slash: 3
+  - type: TimedDespawn
+    lifetime: 0.25
+
+- type: entity
+  id: ADTBulletChargeMagmite
+  name: magmite charge bolt
+  parent: ADTBulletCrusherMark
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ADTDrillPower
+    power: 2
+  - type: GatheringProjectile
+    amount: 4
+  - type: Projectile
+    deleteOnCollide: false
+    impactEffect: BulletImpactEffectKinetic
+    damage:
+      types:
+        Blunt: 0
+  - type: TimedDespawn
+    lifetime: 0.2
+  - type: Sprite
+    noRot: false
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: chronobolt
+      shader: unshaded
+      color: "#ff7a1a"
+  - type: PointLight
+    radius: 2
+    color: "#ff7a1a"
+    energy: 1
+
+- type: entity
+  name : heavy laser bolt
+  id: BulletLaserHeavy
+  parent: BulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Heat: 15
+
+- type: entity
+  name: narrow laser barrage
+  id: BulletLaserHeavySpread
+  categories: [ HideSpawnMenu ]
+  parent: BulletLaser
+  components:
+  - type: ProjectileSpread
+    proto: BulletLaserHeavy
+    count: 4 #60 heat damage if you hit all your shots, but narrower spread
+    spread: 10

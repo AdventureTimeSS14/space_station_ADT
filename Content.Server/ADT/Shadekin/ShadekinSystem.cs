@@ -1,6 +1,7 @@
 using System.Linq;
 using Robust.Shared.Map.Components;
 using Content.Shared.ADT.Shadekin.Components;
+using Content.Shared.ADT.VentCrawling.Components;
 using Robust.Shared.Timing;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Humanoid;
@@ -41,23 +42,23 @@ namespace Content.Server.ADT.Shadekin;
 
 public sealed partial class ShadekinSystem : EntitySystem
 {
-    [Dependency] private readonly TagSystem _tagSystem = default!;
-    [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly SharedColorFlashEffectSystem _colorFlash = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ActionsSystem _action = default!;
-    [Dependency] private readonly AlertsSystem _alert = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly PullingSystem _pulling = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly CuffableSystem _cuffable = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
+    [Dependency] private TagSystem _tagSystem = default!;
+    [Dependency] private EntityLookupSystem _entityLookup = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedStaminaSystem _stamina = default!;
+    [Dependency] private SharedInteractionSystem _interaction = default!;
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private SharedColorFlashEffectSystem _colorFlash = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ActionsSystem _action = default!;
+    [Dependency] private AlertsSystem _alert = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private PullingSystem _pulling = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private CuffableSystem _cuffable = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedVisualBodySystem _visualBody = default!;
 
     public override void Initialize()
     {
@@ -159,7 +160,7 @@ public sealed partial class ShadekinSystem : EntitySystem
         if (args.Handled)
             return;
 
-        if (HasComp<MechPilotComponent>(uid))
+        if (HasComp<MechPilotComponent>(uid) || HasComp<BeingVentCrawlerComponent>(uid))
             return;
 
         var targetPosition = args.Target.ToMap(EntityManager, _transform).Position;
@@ -212,7 +213,8 @@ public sealed partial class ShadekinSystem : EntitySystem
 
         if (TryComp<CuffableComponent>(uid, out var cuffable) &&
         _cuffable.IsCuffed((uid, cuffable), true) ||
-        HasComp<MechPilotComponent>(uid))
+        HasComp<MechPilotComponent>(uid) ||
+        HasComp<BeingVentCrawlerComponent>(uid))
         {
             comp.MaxedPowerAccumulator = 0f;
             return;

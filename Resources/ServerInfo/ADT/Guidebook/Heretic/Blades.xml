@@ -1,0 +1,27 @@
+<Document>
+  # Клинки
+
+  Клинок это первое, что даёт вам путь, и до самого конца раунда он остаётся вашим основным оружием. У каждого пути он свой, использовать чужой нет смысла.
+
+  ## Общие правила
+
+  - Ингредиенты клинка у каждого пути свои.
+  - Больше [bold]двух[/bold] клинков одного вида за раунд сделать нельзя. Уничтоженный клинок освободит слот, но отобранный или потерянный - нет.
+  - В полную силу клинок работает [bold]только в руках еретика своего пути[/bold]. Упыри с Клинком Плоти исключение, они бьют им нормально.
+  - Использование клинка в руке(на Z) ломает его и телепортирует вас в случайную точку станции. Не работает после вознесения.
+
+  <GuideHereticQuote Text="Сталь помнит руку, что её ковала, и презирает чужую."/>
+
+  # Разбор
+
+  <GuideHereticBladeEmbed Blade="HereticBladeAsh" Path="Ash" Bonus="heretic-guide-blade-bonus-ash"/>
+  <GuideHereticBladeEmbed Blade="HereticBladeBlade" Path="Blade" Bonus="heretic-guide-blade-bonus-blade"/>
+  <GuideHereticBladeEmbed Blade="HereticBladeFlesh" Path="Flesh" Bonus="heretic-guide-blade-bonus-flesh"/>
+  <GuideHereticBladeEmbed Blade="HereticBladeVoid" Path="Void" Bonus="heretic-guide-blade-bonus-void"/>
+  <GuideHereticBladeEmbed Blade="HereticBladeRust" Path="Rust" Bonus="heretic-guide-blade-bonus-rust"/>
+  <GuideHereticBladeEmbed Blade="HereticBladeCosmos" Path="Cosmos" Bonus="heretic-guide-blade-bonus-cosmos"/>
+
+  # Клинок упыря
+
+  <GuideHereticBladeEmbed Blade="HereticBladeFleshGhoul" Path="Flesh" Bonus="heretic-guide-blade-bonus-flesh"/>
+</Document>

@@ -1,0 +1,315 @@
+- type: adtDungeonRoom
+  id: LavaDungeonXenohive
+  size: 23, 19
+  tags:
+  - LavaDungeon
+  legend:
+    "a":
+      tile: FloorBasalt
+    "b":
+      tile: FloorXeno
+    "c":
+      tile: Plating
+    "d":
+      tile: FloorUraniumMarble
+  tiles:
+  - "aaaaaaaaaaaaaabaaaaaaaa"
+  - "aacccccccaaaaacccccccca"
+  - "abbbbbbbcbaaabcbbbbbbca"
+  - "bbbbbbbbcbbaabcbbbbbbca"
+  - "abbbbbbbcccccccbbbbbbcb"
+  - "aabbbbbbbbbbbbbbbbbbccb"
+  - "aaccccccbbbbbbbbccccccc"
+  - "aaaaabbcbbbbbbbbbbbbbbc"
+  - "aaacccccbbbbbbbbbbbbbbc"
+  - "aaacbbbbbbbddbbbdbbbbbc"
+  - "aaacbbbbbbbbbbbbbbbbbbc"
+  - "aaacbbbbbbbbbbbbbbbbbbc"
+  - "aaacbbbbbbbbbdbbbbbbbbc"
+  - "aaacbbbbbbbdddbbdbbbbbc"
+  - "aaacbbbbbbbbbbbddbbbbbc"
+  - "aaacccccbbbbbbbbccccccc"
+  - "aaaabbbcbbbbbbbbcbbaaaa"
+  - "aaaaabbcbbbbbbbbcbaaaaa"
+  - "aaaaaabcbbbbbbbbcaaaaaa"
+  entities:
+  - proto: ADTClothingJumpBoots
+    positions:
+    - 11.7834,7.3131
+  - proto: ADTClothingModsuitBackAncient
+    positions:
+    - 14.2662,7.8877
+  - proto: ADTSpawnMobXenoEasyNoGhost
+    rot: -1.5707963267948966 rad
+    positions:
+    - 15.5,5.5
+    - 5.5,15.5
+    - 7.5,14.5
+    - 14.5,12.5
+    - 10.5,12.5
+    - 18.5,14.5
+    - 14.5,6.5
+  - proto: ADTSpawnMobXenoEasyNoGhost
+    positions:
+    - 11.5,8.5
+    - 12.5,6.5
+  - proto: ADTSpawnMobXenoHardNoGhost
+    rot: -1.5707963267948966 rad
+    positions:
+    - 20.5,6.5
+  - proto: ADTSpawnMobXenoHardNoGhost
+    rot: 3.141592653589793 rad
+    positions:
+    - 5.5,7.5
+  - proto: ADTSpawnMobXenoHardNoGhost
+    positions:
+    - 15.5,9.5
+  - proto: ADTSpawnMobXenoQueenNoGhost
+    positions:
+    - 13.5,8.5
+  - proto: AirlockGlassXeno
+    rot: -1.5707963267948966 rad
+    positions:
+    - 12.5,13.5
+  - proto: AirlockXeno
+    rot: -1.5707963267948966 rad
+    positions:
+    - 10.5,0.5
+    - 14.5,3.5
+  - proto: AirlockXenoMaintLocked
+    rot: -1.5707963267948966 rad
+    positions:
+    - 8.5,13.5
+    - 2.5,15.5
+    - 7.5,9.5
+    - 16.5,11.5
+  - proto: FoodBreadMeatXeno
+    positions:
+    - 21.247,11.5755
+    - 21.4345,11.4036
+    - 21.1606,11.3995
+  - proto: PlushieXeno
+    positions:
+    - 15.576,7.3021
+    - 7.5111,4.7671
+    - 4.4215,13.9556
+  - proto: PowerCellAntiqueProto
+    positions:
+    - 5.3174,5.1602
+    - 16.2522,8.8822
+  - proto: SalvageHumanCorpseSpawner
+    rot: -1.5707963267948966 rad
+    positions:
+    - 9.5,5.5
+    - 13.5,11.5
+    - 18.5,8.5
+  - proto: SalvageHumanCorpseSpawner
+    positions:
+    - 14.5,9.5
+    - 13.5,9.5
+  - proto: WallReinforcedChitin
+    rot: -1.5707963267948966 rad
+    positions:
+    - 8.5,15.5
+    - 8.5,12.5
+    - 7.5,12.5
+    - 12.5,14.5
+    - 20.5,16.5
+    - 5.5,12.5
+    - 2.5,12.5
+    - 3.5,12.5
+    - 7.5,11.5
+    - 9.5,14.5
+    - 20.5,14.5
+    - 11.5,14.5
+    - 6.5,12.5
+    - 20.5,15.5
+    - 20.5,13.5
+    - 10.5,14.5
+    - 8.5,14.5
+    - 14.5,15.5
+    - 19.5,17.5
+    - 20.5,17.5
+    - 16.5,2.5
+    - 19.5,3.5
+    - 16.5,3.5
+    - 14.5,16.5
+    - 17.5,17.5
+    - 15.5,17.5
+    - 16.5,17.5
+    - 18.5,17.5
+    - 16.5,0.5
+    - 16.5,1.5
+    - 2.5,13.5
+    - 4.5,12.5
+    - 2.5,14.5
+    - 14.5,14.5
+    - 22.5,8.5
+    - 22.5,4.5
+    - 21.5,3.5
+    - 22.5,10.5
+    - 7.5,0.5
+    - 7.5,2.5
+    - 14.5,17.5
+    - 20.5,3.5
+    - 3.5,6.5
+    - 13.5,14.5
+    - 22.5,6.5
+    - 7.5,1.5
+    - 4.5,3.5
+    - 5.5,10.5
+    - 6.5,10.5
+    - 22.5,5.5
+    - 18.5,3.5
+    - 17.5,3.5
+    - 3.5,5.5
+    - 3.5,7.5
+    - 7.5,10.5
+    - 3.5,9.5
+    - 3.5,4.5
+    - 6.5,3.5
+    - 7.5,3.5
+    - 3.5,8.5
+    - 4.5,10.5
+    - 22.5,11.5
+    - 22.5,9.5
+    - 20.5,12.5
+    - 18.5,12.5
+    - 22.5,7.5
+    - 21.5,16.5
+    - 21.5,15.5
+    - 21.5,17.5
+    - 19.5,12.5
+    - 21.5,12.5
+    - 21.5,14.5
+    - 16.5,12.5
+    - 17.5,12.5
+    - 5.5,3.5
+    - 21.5,13.5
+    - 3.5,10.5
+    - 3.5,3.5
+    - 22.5,3.5
+  - proto: WallReinforcedChitin
+    positions:
+    - 22.5,12.5
+  - proto: WallSolidChitin
+    rot: -1.5707963267948966 rad
+    positions:
+    - 8.5,8.5
+    - 7.5,8.5
+    - 12.5,12.5
+    - 10.5,8.5
+    - 6.5,17.5
+    - 10.5,3.5
+    - 14.5,10.5
+    - 12.5,10.5
+    - 15.5,3.5
+    - 13.5,10.5
+    - 11.5,10.5
+    - 10.5,4.5
+    - 10.5,1.5
+    - 12.5,4.5
+    - 13.5,4.5
+    - 11.5,4.5
+    - 10.5,6.5
+    - 10.5,7.5
+    - 2.5,16.5
+    - 8.5,17.5
+    - 10.5,9.5
+    - 8.5,16.5
+    - 10.5,10.5
+    - 10.5,2.5
+    - 9.5,8.5
+    - 10.5,5.5
+    - 7.5,17.5
+    - 5.5,17.5
+    - 4.5,17.5
+    - 3.5,17.5
+    - 12.5,11.5
+    - 2.5,17.5
+    - 13.5,3.5
+  - proto: WallSolidChitin
+    positions:
+    - 17.5,6.5
+    - 17.5,8.5
+    - 17.5,7.5
+    - 17.5,5.5
+    - 17.5,4.5
+    - 17.5,9.5
+    - 17.5,10.5
+    - 16.5,10.5
+    - 15.5,10.5
+  - proto: WeaponTurretXeno
+    rot: -1.5707963267948966 rad
+    positions:
+    - 5.5,13.5
+    - 9.5,7.5
+    - 19.5,16.5
+  - proto: WeaponTurretXeno
+    rot: 1.5707963267948966 rad
+    positions:
+    - 18.5,6.5
+    - 18.5,10.5
+  - proto: WeaponTurretXeno
+    rot: 3.141592653589793 rad
+    positions:
+    - 6.5,4.5
+  - proto: WeaponTurretXeno
+    positions:
+    - 4.5,16.5
+    - 11.5,2.5
+    - 12.5,7.5
+  - proto: XenoWardingTower
+    positions:
+    - 8.5,11.5
+    - 7.5,16.5
+    - 16.5,14.5
+    - 21.5,4.5
+    - 15.5,0.5
+    - 12.5,9.5
+    - 16.5,6.5
+    - 4.5,5.5
+    - 8.5,0.5
+    - 12.5,3.5
+  decals:
+  - id: splatter
+    color: '#008200FF'
+    positions:
+    - 16.3725,3.6454
+    - 16.31,4.2391
+    - 16.3881,3.7704
+    - 10.3256,9.4266
+    - 10.8256,9.161
+    - 10.5912,8.6923
+    - 10.9194,9.1923
+    - 10.5756,9.4423
+    - 12.9975,4.3641
+    - 12.685,4.661
+    - 12.4975,4.6766
+    - 13.2006,4.3641
+    - 13.1694,4.7548
+    - 11.4975,4.4891
+    - 12.1381,4.4891
+    - 7.6851,13.6181
+    - 7.4351,13.8681
+    - 7.6539,14.3681
+    - 2.3607,16.4985
+    - 2.5326,16.6078
+    - 2.7045,16.3422
+    - 2.6732,16.1547
+    - 3.2045,15.5141
+    - 3.0639,15.7797
+    - 4.9857,12.3717
+    - 5.3607,12.575
+    - 5.9076,12.2312
+    - 6.994,7.9881
+    - 6.9003,8.6912
+    - 7.369,8.2224
+    - 7.8846,8.3006
+    - 7.2753,8.3631
+    - 6.9784,8.3631
+    - 9.5173,0.8879
+    - 9.6423,1.513
+    - 9.9392,1.5911
+    - 9.2204,1.4661
+    - 9.236,0.9817

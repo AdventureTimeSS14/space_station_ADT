@@ -30,6 +30,15 @@ public sealed partial class ThermalVisionComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool UseAlternativeShader;
+
+    [DataField, AutoNetworkedField]
+    public bool HighlightOnly;
+
+    [DataField, AutoNetworkedField]
+    public bool HighlightLightSources;
+
+    [DataField, AutoNetworkedField]
+    public HashSet<string> IgnoredComponents = new();
 }
 
 [Serializable, NetSerializable]

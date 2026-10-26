@@ -4,6 +4,11 @@
   description: Components added / removed from an entity that gets inserted into an AI core.
   categories: [ HideSpawnMenu ]
   components:
+  # ADT-Tweak start
+  - type: Tag
+    tags:
+    - ADTVendingCargoAccount
+  # ADT-Tweak end
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
@@ -35,10 +40,18 @@
   - type: ShowHealthBars
     damageContainers:
     - Biological
+    # ADT-Tweak Start: New healing containers
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
+    # ADT-Tweak End
     - Silicon
   - type: ShowHealthIcons
     damageContainers:
     - Biological
+    # ADT-Tweak Start: New healing containers
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
+    # ADT-Tweak End
     - Silicon
   - type: SolutionScanner
   - type: ShowCriminalRecordIcons
@@ -46,15 +59,38 @@
   - type: StationAiOverlay
   - type: ShowElectrocutionHUD
   - type: ActionGrant
+    removeOnShutdown: false
     actions:
     - ActionJumpToCore
     - ActionAIViewLaws
+    # ADT-Tweak-Start
+    - ADTActionPlaceBorgMarker
+    - ADTActionCycleBorgMarkerColor
+    - ADTActionClearBorgMarkers
+  - type: ADTBorgMarkerViewer
+  - type: ADTBorgMarkerPlacer
+    palette:
+    - color: "#FF4242"
+      name: adt-borg-marker-color-red
+    - color: "#FF9E3D"
+      name: adt-borg-marker-color-orange
+    - color: "#FFE14D"
+      name: adt-borg-marker-color-yellow
+    - color: "#4CE06A"
+      name: adt-borg-marker-color-green
+    - color: "#46C7FF"
+      name: adt-borg-marker-color-blue
+    - color: "#C77DFF"
+      name: adt-borg-marker-color-purple
+    - color: "#FFFFFF"
+      name: adt-borg-marker-color-white
+    # ADT-Tweak-End
   - type: UserInterface
     interfaces:
       enum.RadarConsoleUiKey.Key:
         type: RadarConsoleBoundUserInterface
-      enum.CrewMonitoringUIKey.Key:
-        type: CrewMonitoringBoundUserInterface
+      enum.ADTCrewMonitoringUIKey.Key:
+        type: ADTCrewMonitoringBoundUserInterface
       enum.GeneralStationRecordConsoleKey.Key:
         type: GeneralStationRecordConsoleBoundUserInterface
       enum.SiliconLawsUiKey.Key:
@@ -68,12 +104,14 @@
         type: AtmosAlertsComputerBoundUserInterface
       enum.StationAiInfoUiKey.Key:
         type: StationAiInfoBoundUserInterface
+      enum.StationAiNanoChatUiKey.Key:
+        type: StationAiNanoChatBoundUserInterface
     # ADT End
   - type: IntrinsicUI
     uis:
       enum.RadarConsoleUiKey.Key:
         toggleAction: ActionStationAiRadar #ADT-Tweak
-      enum.CrewMonitoringUIKey.Key:
+      enum.ADTCrewMonitoringUIKey.Key:
         toggleAction: ActionStationAiCrewMonitoring #ADT-Tweak
       enum.GeneralStationRecordConsoleKey.Key:
         toggleAction: ActionStationAiStationRecords #ADT-Tweak
@@ -86,10 +124,11 @@
         toggleAction: ADTActionOpenRemoteDevicesMenu
   - type: AtmosAlertsComputer
   - type: StationAiInfo
+  - type: StationAiNanoChat
   - type: CrewManifestViewer
     ownerKey: enum.StationAiInfoUiKey.Key
     # ADT End
-  - type: CrewMonitoringConsole
+  - type: ADTCrewMonitoringConsole
   - type: GeneralStationRecordConsole
   - type: DeviceNetwork
     deviceNetId: Wireless
@@ -139,9 +178,6 @@
   description: Handles AI interactions across holocards + AI cores
   components:
   - type: ItemSlots
-  - type: Tag
-    tags:
-    - GhostOnlyWarp
   - type: StationAiHolder
     slot:
       name: station-ai-mind-slot
@@ -221,9 +257,6 @@
     - Anchorable
   - type: Rotatable
   - type: WarpPoint
-    blacklist:
-      tags:
-      - GhostOnlyWarp
   - type: Fixtures
     fixtures:
       fix1:
@@ -295,6 +328,7 @@
     batteryRechargeEfficiency: 0 # Setting to zero until the light flickering issue associated with dynamic power loads is fixed
   - type: StationAiCore
   - type: StationAiVision
+  - type: AiEyeTeleport # ADT-Tweak
   - type: InteractionOutline
   - type: Sprite
     snapCardinals: true
@@ -530,6 +564,7 @@
   - type: CollectiveMindRank
     rankName: collective-mind-sai-rank
   - type: StationAiBrain
+  - type: NanoChatCard
   # ADT-Tweak-End
   - type: StartingMindRole
     mindRole: "MindRoleSiliconBrain"
@@ -573,14 +608,8 @@
         layer:
         - GhostImpassable
   - type: NoFTL
-  - type: Tag
-    tags:
-    - GhostOnlyWarp
   - type: WarpPoint
     follow: true
-    blacklist:
-      tags:
-      - GhostOnlyWarp
   - type: Eye
     pvsScale: 1.5
   - type: Visibility
@@ -602,14 +631,8 @@
   components:
   - type: Transform
     anchored: true
-  - type: Tag
-    tags:
-    - GhostOnlyWarp
   - type: WarpPoint
     follow: true
-    blacklist:
-      tags:
-      - GhostOnlyWarp
   - type: Eye
   - type: ContentEye
   - type: Examiner
@@ -957,7 +980,10 @@
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellHyper
   - type: RandomMetadata
-    nameSegments: [NamesDeathCommando]
+    nameSegments: # TODO: add unique syndieborg-specific names; right now this is the same pool that syndicate agents use
+    - NamesDeathCommandoFirst
+    - NamesDeathCommandoLast
+    nameFormat: name-format-standard
 
 - type: entity
   parent: PlayerSyndicateAssaultBorgDerelict

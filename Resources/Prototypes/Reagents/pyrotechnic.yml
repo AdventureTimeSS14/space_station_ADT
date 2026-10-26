@@ -1,4 +1,4 @@
-﻿- type: reagent
+- type: reagent
   id: BasePyrotechnic
   group: Pyrotechnic
   abstract: true
@@ -98,6 +98,20 @@
         - !type:MetabolizerTypeCondition
           type: [ Novakid ]
         # ADT-Tweak End
+  # ADT-Tweak Start
+  # Сила пламени. От неё считается урон в секунду
+  intensity: 15
+  # Сколько секунд горит плитка
+  duration: 10
+  # Дальность струи в плитках
+  radius: 5
+  # Насколько крепче будет молотов из этой жидкости
+  intensityMod: 0.5
+  # Горит ли смесь без кислорода
+  burnsInVacuum: false
+  # За сколько секунд смесь догорает без кислорода
+  vacuumBurnout: 1.0
+# ADT-Tweak End
 
 - type: reagent
   id: Phlogiston
@@ -222,7 +236,51 @@
   metabolisms:
     Bloodstream:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
+        factor: 1
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [Vox]
+      - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [Vox]
+          inverted: true
+        damage:
+          types:
+            Poison: 1
+      - !type:Flammable
+        multiplier: 0.4
+
+- type: reagent
+  parent: BasePyrotechnic
+  id: XenoborgOil
+  name: reagent-name-xenoborg-oil
+  desc: reagent-desc-xenoborg-oil
+  physicalDesc: reagent-physical-desc-oily
+  evaporationSpeed: 0.2
+  slipData:
+    requiredSlipSpeed: 3.5
+  flavor: bitter
+  flavorMinimum: 0.01
+  color: "#3d5cff"
+  boilingPoint: -84.7 # Acetylene. Close enough.
+  meltingPoint: -80.7
+  friction: 0.4
+  tileReactions:
+  - !type:FlammableTileReaction {}
+  reactiveEffects:
+    Flammable:
+      methods: [ Touch ]
+      effects:
+      - !type:Flammable
+        multiplier: 0.2
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:Satiate
+        satiationType: Thirst
         factor: 1
         conditions:
         - !type:MetabolizerTypeCondition

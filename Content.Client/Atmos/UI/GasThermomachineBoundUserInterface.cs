@@ -71,8 +71,8 @@ namespace Content.Client.Atmos.UI
                 return;
 
             var system = EntMan.System<SharedGasThermoMachineSystem>();
-            _minTemp = thermo.MinTemperature;
-            _maxTemp = thermo.MaxTemperature;
+            _minTemp = SharedGasThermoMachineSystem.GetMinTemperature(thermo); // ADT-Tweak machine parts
+            _maxTemp = SharedGasThermoMachineSystem.GetMaxTemperature(thermo); // ADT-Tweak machine parts
             _isHeater = system.IsHeater(thermo);
 
             _window.SetTemperature(thermo.TargetTemperature);

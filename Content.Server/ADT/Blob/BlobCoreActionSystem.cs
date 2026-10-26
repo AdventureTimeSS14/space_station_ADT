@@ -34,22 +34,21 @@ namespace Content.Server.ADT.Blob;
 
 public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
 {
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly BlobCoreSystem _blobCoreSystem = default!;
-    [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
-    [Dependency] private readonly FlammableSystem _flammable = default!;
-    [Dependency] private readonly EmpSystem _empSystem = default!;
-    [Dependency] private readonly AudioSystem _audioSystem = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly MapSystem _mapSystem = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly BlobTileSystem _blobTileSystem = default!;
-    //[Dependency] private readonly GridFixtureSystem _gridFixture = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private BlobCoreSystem _blobCoreSystem = default!;
+    [Dependency] private ExplosionSystem _explosionSystem = default!;
+    [Dependency] private FlammableSystem _flammable = default!;
+    [Dependency] private EmpSystem _empSystem = default!;
+    [Dependency] private AudioSystem _audioSystem = default!;
+    [Dependency] private ITileDefinitionManager _tileDefinitionManager = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private MapSystem _mapSystem = default!;
+    [Dependency] private BlobTileSystem _blobTileSystem = default!;
+    //[Dependency] private GridFixtureSystem _gridFixture = default!;
 
     private const double ActionJobTime = 0.005;
     private readonly JobQueue _actionJobQueue = new(ActionJobTime);
@@ -100,7 +99,7 @@ public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
             || !args.ClickLocation.IsValid(EntityManager))
             return;
 
-        var location = args.ClickLocation.AlignWithClosestGridTile(entityManager: EntityManager, mapManager: _mapManager);
+        var location = args.ClickLocation.AlignWithClosestGridTile(entityManager: EntityManager);
         var gridUid = _transform.GetGrid(location);
 
         if (!TryComp<MapGridComponent>(gridUid, out var grid))
@@ -149,19 +148,17 @@ public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
         }
 
         // Handle target attack on an entity.
-        // Only hard objects should be attacked.
+        // Only hard objects should be attacked. Everything we cannot attack falls through to the grow logic below
+        // instead of aborting: puddles and dropped items are hard but not damageable, and used to block growth.
         if (args.Target != null
             && TryComp<PhysicsComponent>(args.Target, out var physicsTarget)
-            && physicsTarget is { Hard: true, CanCollide: true })
-        {
+            && physicsTarget is { Hard: true, CanCollide: true }
             // Things that we can't attack, including our own tiles.
-            if (!HasComp<DamageableComponent>(args.Target)
-                || HasComp<ItemComponent>(args.Target)
-                || HasComp<BlobMobComponent>(args.Target)
-                || _tileQuery.TryComp(args.Target, out var targetComp)
-                && targetComp.Core != null)
-                return;
-
+            && HasComp<DamageableComponent>(args.Target)
+            && !HasComp<ItemComponent>(args.Target)
+            && !HasComp<BlobMobComponent>(args.Target)
+            && !(_tileQuery.TryComp(args.Target, out var targetComp) && targetComp.Core != null))
+        {
             BlobTargetAttack(core, fromTile.Value, args.Target.Value, spendPoints);
             return;
         }

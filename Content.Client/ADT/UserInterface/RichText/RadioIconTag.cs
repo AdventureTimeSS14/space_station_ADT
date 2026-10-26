@@ -11,7 +11,7 @@ namespace Content.Client.ADTt.UserInterface.RichText;
 
 public sealed class RadioIconTag : BaseTextureTag, IMarkupTagHandler
 {
-    [Dependency] private readonly IResourceCache _cache = default!;
+    [Dependency] private IResourceCache _cache = default!;
 
     public string Name => "radicon";
 

@@ -1,0 +1,16 @@
+- type: entity
+  parent: BaseAction
+  id: VentCrawlExitAction
+  name: Выйти из вентиляции
+  description: Оставить эти старые, обветшалые трубы.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    priority: -20
+    useDelay: 1
+  - type: Sprite
+    sprite: ADT/Interface/Actions/exit_vent.rsi
+    layers:
+    - state: exit_vent
+  - type: InstantAction
+    event: !type:ExitVentActionEvent

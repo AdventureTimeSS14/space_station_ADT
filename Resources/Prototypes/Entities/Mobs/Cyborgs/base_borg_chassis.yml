@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: [BaseMob, StripableInventoryBase]
   id: BaseBorgChassisNotIonStormable
   name: cyborg
@@ -16,6 +16,7 @@
     soundHit:
       collection: MetalThud
   - type: CombatMode
+  - type: ADTBorgMarkerViewer # ADT-Tweak
   - type: NoSlip
   - type: StaticPrice
     price: 1250
@@ -159,8 +160,7 @@
     speechVerb: Robotic
     speechSounds: Borg
   - type: Vocal
-    sounds:
-      Unsexed: UnisexSilicon
+    emoteSounds: UnisexSilicon
     wilhelmProbability: 0
   - type: DamagedSiliconAccent
 # ADT borgs start
@@ -201,31 +201,6 @@
     damageModifierSet: ADTBorgChassis # ADT-Tweak
   - type: Injurable
     damageContainer: Silicon
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 75
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          path: /Audio/Machines/warning_buzzer.ogg
-          params:
-            volume: 5
-    - trigger:
-        !type:DamageTrigger
-        damage: 300
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:EmptyContainersBehaviour
-        containers:
-        - borg_brain
-        - borg_module
-        - cell_slot
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
   - type: HandheldLight
     toggleOnInteract: false
     wattage: 0.2
@@ -254,9 +229,9 @@
       isLooped: true
   - type: PointLight
     enabled: false
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ConeSingle
     autoRot: true
-    radius: 4
+    radius: 9 # ADT tweak 3 > 9
     netsync: false
   - type: Pullable
   - type: Puller
@@ -298,6 +273,32 @@
   - type: IonStormTarget
   - type: RadioJobIconOverride # ADT-Tweak
     iconId: JobIconBorg
+  - type: Destructible
+    generateOverkillThreshold: false
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Machines/warning_buzzer.ogg
+          params:
+            volume: 5
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:EmptyContainersBehaviour
+        containers:
+        - borg_brain
+        - borg_module
+        - cell_slot
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
   abstract: true
@@ -361,6 +362,18 @@
   - type: RandomMetadata
     nameSegments:
     - NamesBorg
+  # ADT-Tweak start
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - FootstepSound
+    - CanPilot
+    - SiliconEmotes
+    - ADTSiliconStealthWhitelist
+    - ADTSiliconEmotes
+    - Unimplantable
+    - ADTVendingCargoAccount
+  # ADT-Tweak end
   - type: NpcFactionMember
     factions:
     - NanoTrasen
@@ -413,8 +426,7 @@
     allowedEmotes:
     - Laugh
   - type: Vocal
-    sounds:
-      Unsexed: UnisexSiliconSyndicate
+    emoteSounds: UnisexSiliconSyndicate
   - type: PointLight
     color: "#dd200b"
   - type: BypassLock
@@ -478,8 +490,7 @@
     allowedEmotes:
     - Laugh
   - type: Vocal
-    sounds:
-      Unsexed: UnisexSiliconSyndicate
+    emoteSounds: UnisexSiliconSyndicate
   - type: PointLight
     color: "#dd200b"
   - type: BypassLock
@@ -519,6 +530,13 @@
     - Mothership
     - Xenoborg
     - Binary
+  # ADT-Tweak-Start
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+      BorgTalk: Speak
+      RobotTalk: Understand
+  # ADT-Tweak-End
   - type: BorgChassis
     maxModules: 0
     hasMindState: robot_e
@@ -534,8 +552,7 @@
     allowedEmotes:
     - Laugh
   - type: Vocal
-    sounds:
-      Unsexed: UnisexSiliconXenoborg
+    emoteSounds: UnisexSiliconXenoborg
     wilhelmProbability: 0
   - type: DamagedSiliconAccent
   - type: UnblockableSpeech
@@ -554,6 +571,34 @@
   - type: NpcFactionMember
     factions:
     - Xenoborg
+  - type: PointLight
+    color: "#3010ff"
+    energy: 7
+  - type: GuideHelp
+    guides:
+    - Cyborgs
+    - Robotics
+    - Xenoborgs
+  - type: Access
+    tags:
+    - Xenoborg
+  - type: AccessReader
+    access: [["Xenoborg"]]
+  - type: ShowJobIcons # not sure if it is needed
+  - type: ShowCrewIcons
+  - type: InteractionPopup
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
+  - type: Xenoborg
+  - type: BypassLock
+    bypassDelay: 15 # We don't want people to easily be able to remove xenoborg brains.
+  - type: EmpResistance
+    strengthMultiplier: 0
+
+- type: entity
+  abstract: true
+  id: BaseXenoborgDestructible
+  components:
   - type: Destructible
     thresholds:
     - trigger:
@@ -584,24 +629,3 @@
         - cell_slot
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: PointLight
-    color: "#3010ff"
-    energy: 7
-  - type: GuideHelp
-    guides:
-    - Cyborgs
-    - Robotics
-    - Xenoborgs
-  - type: Access
-    tags:
-    - Xenoborg
-  - type: AccessReader
-    access: [["Xenoborg"]]
-  - type: ShowJobIcons # not sure if it is needed
-  - type: ShowCrewIcons
-  - type: InteractionPopup
-    interactSuccessSound:
-      path: /Audio/Ambience/Objects/periodic_beep.ogg
-  - type: Xenoborg
-  - type: BypassLock
-    bypassDelay: 15 # We don't want people to easily be able to remove xenoborg brains.

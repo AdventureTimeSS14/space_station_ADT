@@ -9,15 +9,19 @@
   - CaptainJumpsuit
   - CaptainBackpack
   - CaptainOuterClothing
+  - ADTRacialItems # ADT-Tweak
   # ADT underwear tweak start
   - ADTTopCap
   - ADTBottomCap
   - ADTSocksCaptain
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
   #- CaptainJobTrinkets
   - GroupSpeciesBreathTool
+  # - ADTPersonalLoadoutCapitan # ADT-Tweak personal
+  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobHeadOfPersonnel
@@ -37,10 +41,14 @@
   - ADTBottomHOP
   - ADTSocksHOP
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
+  - ADTRacialItems # ADT-Tweak
   #- HoPJobTrinkets
   - GroupSpeciesBreathTool
+  # - ADTPersonalLoadoutHeadOfPersonnel # ADT-Tweak personals
+  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 # Silicons
 - type: roleLoadout
@@ -73,17 +81,23 @@
   - PassengerOuterClothing
   - PassengerShoes
   - Glasses
-  - ADTPassengerPDA # ADT tweak
+  - ADTPassengerPDA # ADT-Tweak
+  - ADTPassengerHead # ADT-Tweak
+  - ADTPassengerGlasses # ADT-Tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
+  - ADTRacialItems # ADT-Tweak
   #- PassengerJobTrinkets
   - GroupSpeciesBreathTool
+  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobBartender
@@ -103,11 +117,15 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
+  - ADTRacialItems # ADT-Tweak
   # - BartenderJobTrinkets
   - GroupSpeciesBreathTool
+  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobServiceWorker
@@ -119,17 +137,21 @@
   - ADTServiceWorkerGloves #ADT-tweak
   - ADTServiceWorkerShoes #ADT-Tweak
   - Glasses
-  - ADTServiceWorkerPDA # ADT tweak
+  - ADTServiceWorkerPDA # ADT-Tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
+  - ADTRacialItems # ADT tweak
   #- ServiceWorkerJobTrinkets
   - GroupSpeciesBreathTool
+  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobChef
@@ -154,11 +176,15 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
+  - ADTRacialItems # ADT-Tweak
   #- ChefJobTrinkets
   - GroupSpeciesBreathTool
+  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobLibrarian
@@ -174,11 +200,15 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
+  - ADTRacialItems # ADT-Tweak
   #- LibrarianJobTrinkets
   - GroupSpeciesBreathTool
+  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobLawyer
@@ -197,11 +227,15 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
+  - ADTRacialItems # ADT-Tweak
   #- LawyerJobTrinkets
   - GroupSpeciesBreathTool
+  # - ADTPersonalLoadoutLawyer # ADT-Tweak personal
+  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobChaplain
@@ -224,13 +258,17 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
+  - ADTRacialItems # ADT-Tweak
   #- ChaplainJobTrinkets
   - GroupSpeciesBreathTool
   # ADT chaplain update
   - ADTChaplainBelt
+  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobJanitor
@@ -249,11 +287,15 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
+  - ADTRacialItems # ADT-Tweak
   # - JanitorJobTrinkets
   - GroupSpeciesBreathTool
+  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobBotanist
@@ -272,11 +314,15 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
+  - ADTRacialItems # ADT-Tweak
   #- BotanistJobTrinkets
   - GroupSpeciesBreathTool
+  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobClown
@@ -300,10 +346,14 @@
   - ADTBottom
   - ADTSocksClown
   # ADT underwear tweak end
+  - AssistiveItems
   - SurvivalClown
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
+  - ADTRacialItems # ADT-Tweak
   # - ClownJobTrinkets
+  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobMime
@@ -325,9 +375,14 @@
   - ADTSocksMime
   # ADT underwear tweak end
   - SurvivalMime
+  - AssistiveItems
+  - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
+  - ADTRacialItems # ADT-Tweak
   #- MimeJobTrinkets
+  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobMusician
@@ -346,14 +401,20 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
+  - ADTRacialItems # ADT-Tweak
   #- MusicianJobTrinkets
   - Instruments
+  - ADTSuperInstruments #ADT-Tweak
   - GroupSpeciesBreathTool
+  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 # Cargo
+
 - type: roleLoadout
   id: JobQuartermaster
   groups:
@@ -373,10 +434,14 @@
   - ADTBottomQM
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
+  - ADTRacialItems # ADT-Tweak
   #- QuartermasterJobTrinkets
   - GroupSpeciesBreathTool
+  # - ADTPersonalLoadoutQuarterMaster # ADT-Tweak personal
+  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobCargoTechnician
@@ -396,11 +461,15 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
+  - ADTRacialItems # ADT-Tweak
   #- CargoTechnicianJobTrinkets
   - GroupSpeciesBreathTool
+  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobSalvageSpecialist
@@ -422,11 +491,15 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
+  - ADTRacialItems # ADT-Tweak
   #- SalvageSpecialistJobTrinkets
   - GroupSpeciesBreathTool
+  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 # Engineering
 - type: roleLoadout
@@ -448,10 +521,14 @@
   - ADTBottomCE
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - SurvivalExtended
   - Trinkets
+  - ADTRacialItems # ADT-Tweak
   #- ChiefEngineerJobTrinkets
   - GroupSpeciesBreathTool
+  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobTechnicalAssistant
@@ -466,11 +543,15 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - SurvivalExtended
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
+  - ADTRacialItems # ADT-Tweak
   #- TechnicalAssistantJobTrinkets
   - GroupSpeciesBreathTool
+  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobStationEngineer
@@ -490,11 +571,15 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - SurvivalExtended
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
+  - ADTRacialItems # ADT-Tweak
   #- StationEngineerJobTrinkets
   - GroupSpeciesBreathTool
+  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobAtmosphericTechnician
@@ -516,11 +601,15 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - SurvivalExtended
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
+  - ADTRacialItems # ADT-Tweak
   #- AtmosphericTechnicianJobTrinkets
   - GroupSpeciesBreathTool
+  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 # Science
 - type: roleLoadout
@@ -543,10 +632,14 @@
   - ADTBottomRD
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
+  - ADTRacialItems # ADT-Tweak
   #- ResearchDirectorJobTrinkets
   - GroupSpeciesBreathTool
+  # - ADTPersonalLoadoutResearchDirector # ADT-Tweak personal
+  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobScientist
@@ -567,11 +660,15 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
+  - ADTRacialItems # ADT-Tweak
   #- ScientistJobTrinkets
   - GroupSpeciesBreathTool
+  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobResearchAssistant
@@ -586,11 +683,15 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
+  - ADTRacialItems # ADT-Tweak
   #- ResearchAssistantJobTrinkets
   - GroupSpeciesBreathTool
+  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 # Security
 - type: roleLoadout
@@ -611,10 +712,14 @@
   - ADTBottomHOS
   - ADTSocksHOS
   # ADT underwear tweak end
+  - AssistiveItems
   - SurvivalSecurity
   - Trinkets
+  - ADTRacialItems # ADT-Tweak
   #- HeadofSecurityJobTrinkets
   - GroupSpeciesBreathToolSecurity
+  # - ADTPersonalLoadoutSecurity # ADT-Tweak personal
+  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobWarden
@@ -635,10 +740,14 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - SurvivalSecurity
   - Trinkets
+  - ADTRacialItems # ADT-Tweak
   #- WardenJobTrinkets
   - GroupSpeciesBreathToolSecurity
+  # - ADTPersonalLoadoutSecurity # ADT-Tweak personal
+  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobSecurityOfficer
@@ -660,10 +769,14 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - SurvivalSecurity
   - Trinkets
+  - ADTRacialItems # ADT-Tweak
   #- SecurityJobTrinkets
   - GroupSpeciesBreathToolSecurity
+  # - ADTPersonalLoadoutSecurity # ADT-Tweak personal
+  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobDetective
@@ -682,10 +795,15 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - SecurityShoes
+  - AssistiveItems
   - SurvivalSecurity
   - Trinkets
+  - ADTRacialItems # ADT-Tweak
   #- DetectiveJobTrinkets
   - GroupSpeciesBreathToolSecurity
+  # - ADTPersonalLoadoutSecurity # ADT-Tweak personal
+  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobSecurityCadet
@@ -694,13 +812,17 @@
   - SecurityCadetNeckADT # ADT-Loadouts
   - SecurityCadetJumpsuit
   - SecurityBackpack
+  - AssistiveItems
   - SurvivalSecurity
   - Trinkets
+  - ADTRacialItems # ADT-Tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  # - ADTPersonalLoadoutSecurity # ADT-Tweak personal
+  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 # Wildcards
 - type: roleLoadout
@@ -718,10 +840,13 @@
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
+  - ADTRacialItems # ADT-Tweak
   #- ZookeeperJobTrinkets
   - GroupSpeciesBreathTool
   #- SecurityCadetJobTrinkets
   - GroupSpeciesBreathToolSecurity
+  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 # Wildcards
 - type: roleLoadout
@@ -741,11 +866,15 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
+  - ADTRacialItems # ADT-Tweak
   #- ReporterJobTrinkets
   - GroupSpeciesBreathTool
+  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobPsychologist
@@ -765,7 +894,10 @@
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
+  - ADTRacialItems # ADT-Tweak
   # - PsychologistJobTrinkets
+  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobBoxer
@@ -783,11 +915,30 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - AssistiveItems
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
+  - ADTRacialItems # ADT-Tweak
   # - BoxerJobTrinkets
   #- PsychologistJobTrinkets
+  - GroupSpeciesBreathTool
+  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
+
+- type: roleLoadout
+  id: JobTramDriver
+  groups:
+  - GroupTankHarness
+  - CommonBackpack
+  - TramDriverJumpsuit
+  - TramDriverOuterClothing #Vest and such
+  - TramDriverHat
+  - TramDriverGloves
+  - Glasses
+  - Survival
+  - Trinkets
+  #- TramDriverJobTrinkets
   - GroupSpeciesBreathTool
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs
@@ -829,6 +980,13 @@
   - GroupTankHarness
 
 - type: roleLoadout
+  id: RoleSurvivalExtendedAntag # Used by antagonists that spawn off-station (e.g wizards)
+  groups:
+  - SurvivalExtendedAntag
+  - GroupSpeciesBreathTool
+  - GroupTankHarness
+
+- type: roleLoadout
   id: RoleSurvivalMedical
   groups:
   - SurvivalMedical
@@ -866,6 +1024,12 @@
   groups:
   - GroupEVATank
   - SurvivalExtended
+
+- type: roleLoadout
+  id: RoleSurvivalEVAAntag # Used by antagonists that spawn off-station AND in space (e.g ninjas)
+  groups:
+  - GroupEVATank
+  - SurvivalExtendedAntag
 
 - type: roleLoadout
   id: RoleSurvivalSpaceNinja

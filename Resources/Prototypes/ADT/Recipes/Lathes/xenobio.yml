@@ -30,6 +30,16 @@
     Plastic: 150
 
 - type: latheRecipe
+  id: ADTXenobiologyControlComputerCircuitboard
+  result: ADTXenobiologyControlComputerCircuitboard
+  categories:
+  - Service
+  completetime: 4
+  materials:
+    Steel: 300
+    Plastic: 150
+
+- type: latheRecipe
   id: SlimeScannerXenobio
   result: SlimeScannerXenobio
   categories:
@@ -45,3 +55,8 @@
   icon: { sprite: Structures/Machines/Medical/biomass_reclaimer.rsi, state: icon }
   id: SlimeGrinderMachineCircuitboard
   result: SlimeGrinderMachineCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseResearchMachineRecipeCategory ]
+  id: ADTXenobiologyMonkeyRecyclerMachineCircuitboard
+  result: ADTXenobiologyMonkeyRecyclerMachineCircuitboard

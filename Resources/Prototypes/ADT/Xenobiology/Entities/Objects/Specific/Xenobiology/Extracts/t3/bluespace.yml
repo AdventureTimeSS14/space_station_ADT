@@ -9,42 +9,67 @@
       state: core
       color: "#f0f8ff"
       shader: XenoBluespace
-  - type: Reactive
-    reactions:
-    - reagents: [ Water ]
-      methods: [ Touch, Injection ]
-      effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:CreateEntityReactionEffect
-        entity: FloorTileItemBluespace
-        number: 30
-    - reagents: [ Plasma ]
-      methods: [ Touch, Injection ]
-      effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:CreateEntityReactionEffect
-        entity: ADTMaterialBScrystal1
-        number: 5
-    - reagents: [ Blood ]
-      methods: [ Touch, Injection ]
-      effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:RandomTeleportNearby
+  - type: SlimeExtract
+    extractReactions:
+    - BluespaceSlimeExtractWaterReaction
+    - BluespaceSlimeExtractPlasmaReaction
+    - BluespaceSlimeExtractBloodReaction
   - type: Tag
     tags:
     - XenobiologyBluespaceExtract
+
+- type: extractReaction
+  id: BluespaceSlimeExtractWaterReaction
+  requirements:
+    Water: 1
+  effects:
+  - effect: !type:PopupMessage
+      type: Pvs
+      messages: [ "xeno-extract-reaction" ]
+    scalingOffset: 0
+  - effect: !type:PlaySoundEffect
+      sound: /Audio/Effects/Chemistry/bubbles.ogg
+    scalingOffset: 0
+  - effect: !type:CreateEntityReactionEffect
+      entity: FloorTileItemBluespace
+      number: 30
+    scalingOffset: 1
+  - effect: !type:CreateEntityReactionEffect
+      entity: SlimeBluespaceRadioPotion
+      number: 1
+    scalingOffset: 1
+  shouldDelete: false
+
+- type: extractReaction
+  id: BluespaceSlimeExtractPlasmaReaction
+  requirements:
+    Plasma: 1
+  effects:
+  - effect: !type:PopupMessage
+      type: Pvs
+      messages: [ "xeno-extract-reaction" ]
+    scalingOffset: 0
+  - effect: !type:PlaySoundEffect
+      sound: /Audio/Effects/Chemistry/bubbles.ogg
+    scalingOffset: 0
+  - effect: !type:CreateEntityReactionEffect
+      entity: ADTMaterialBScrystal1
+      number: 5
+    scalingOffset: 1
+  shouldDelete: false
+
+- type: extractReaction
+  id: BluespaceSlimeExtractBloodReaction
+  requirements:
+    Blood: 1
+  effects:
+  - effect: !type:PopupMessage
+      type: Pvs
+      messages: [ "xeno-extract-reaction" ]
+    scalingOffset: 0
+  - effect: !type:PlaySoundEffect
+      sound: /Audio/Effects/Chemistry/bubbles.ogg
+    scalingOffset: 0
+  - effect: !type:RandomTeleportNearby
+    scalingOffset: 1
+  shouldDelete: false

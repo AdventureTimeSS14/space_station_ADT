@@ -1,14 +1,12 @@
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-
 namespace Content.Shared.ADT.EntityEffects.Effects;
 
 [ImplicitDataDefinitionForInheritors]
 public sealed partial class CreateEntityReactionEffect : EntityEffect
 {
-    [DataField(required: true, customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string Entity = default!;
+    [DataField(required: true)]
+    public EntProtoId Entity = default!;
 
     [DataField]
     public uint Number = 1;
@@ -20,6 +18,13 @@ public sealed partial class CreateEntityReactionEffect : EntityEffect
     {
         var ev = new CreateEntityEvent(Entity, Number, Delay, target);
         raiser.RaiseEffectEvent(target, ev, scale, user);
+    }
+
+    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+    {
+        return Loc.GetString("entity-effect-guidebook-create-entity-reaction",
+            ("amount", Number),
+            ("entname", GuidebookTextHelpers.LocalizedEntityName(prototype, Entity)));
     }
 }
 

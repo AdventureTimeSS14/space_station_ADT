@@ -134,6 +134,8 @@
       - MindRoleGhostRoleTeamAntagonist
       raffle:
         settings: short
+    - type: GhostVisibleAntag
+      name: ghost-role-information-blobbernaut-name
     - type: GhostTakeoverAvailable
     - type: Blobbernaut
     - type: Physics
@@ -255,6 +257,8 @@
       rules: You are an antagonist, destroy the station!
       mindRoles:
       - MindRoleGhostRoleSoloAntagonist
+    - type: GhostVisibleAntag
+      name: ghost-role-information-blob-name
     - type: GhostTakeoverAvailable
     - type: Fixtures
       fixtures:

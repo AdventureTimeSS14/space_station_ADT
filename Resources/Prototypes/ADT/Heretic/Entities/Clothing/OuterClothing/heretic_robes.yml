@@ -57,3 +57,34 @@
   - type: ToggleableClothing
     clothingPrototype: ADTClothingHeadHatHoodHereticAsh
     slot: head
+
+# ADT: Cosmos/Rust armor
+- type: entity
+  id: ADTClothingOuterArmorHereticCosmos
+  parent: ClothingOuterArmorHeretic
+  name: cosmos heretic robe
+  description: A star-flecked set of robes favored by heretics of the Cosmos path. Strange eyes line the inside. The fabric shimmers like the night sky.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/Clothing/OuterClothing/cosmos_armor.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Heretic/Clothing/OuterClothing/cosmos_armor.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHatHoodHereticCosmos
+    slot: head
+
+- type: entity
+  id: ADTClothingOuterArmorHereticRust
+  parent: ClothingOuterArmorHeretic
+  name: rusted heretic robe
+  description: A corroded set of robes favored by heretics of the Rust path. Strange eyes line the inside. The fabric flakes with rust at the slightest touch.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/Clothing/OuterClothing/rust_armor.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Heretic/Clothing/OuterClothing/rust_armor.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHatHoodHereticRust
+    slot: head

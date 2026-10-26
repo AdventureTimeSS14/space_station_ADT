@@ -5,3 +5,4 @@ ash-storm-clearing = [color=red]Пронзительный ветер уноси
 heavy-ash-storm-alert = [color=red][bolditalic]Стена раскалённого пепла обрушивается на вас! Укрытие, немедленно![/bolditalic][/color]
 wind-storm-alert = [color=red][bolditalic]Ветер срывается в яростный шквал, поднимая пыль и пепел. Уходите под крышу![/bolditalic][/color]
 emberfall-alert = [color=#C2B280]Вокруг мягко оседают угольки, будто уродливый снег. Похоже, буря прошла стороной...[/color]
+necropolis-surge-alert = [color=red][bolditalic]Пепел встаёт багровой стеной, и земля под ногами начинает гудеть. Некрополь просыпается![/bolditalic][/color]

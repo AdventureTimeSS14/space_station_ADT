@@ -23,16 +23,16 @@ namespace Content.Shared.Weapons.Reflect;
 /// <summary>
 /// This handles reflecting projectiles and hitscan shots.
 /// </summary>
-public sealed class ReflectSystem : EntitySystem
+public sealed partial class ReflectSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _netManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly ItemToggleSystem _toggle = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private INetManager _netManager = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private ItemToggleSystem _toggle = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -98,7 +98,7 @@ public sealed class ReflectSystem : EntitySystem
         }
     }
 
-    private bool TryReflectProjectile(Entity<ReflectComponent> reflector, EntityUid user, Entity<ProjectileComponent?> projectile)
+    public bool TryReflectProjectile(Entity<ReflectComponent> reflector, EntityUid user, Entity<ProjectileComponent?> projectile) // ADT-Heretic: private -> public
     {
         if (!TryComp<ReflectiveComponent>(projectile, out var reflective) ||
             (reflector.Comp.Reflects & reflective.Reflective) == 0x0 ||
@@ -140,7 +140,7 @@ public sealed class ReflectSystem : EntitySystem
 
         return true;
     }
-    private bool TryReflectHitscan(
+    public bool TryReflectHitscan( // ADT-Heretic: private -> public
         Entity<ReflectComponent> reflector,
         EntityUid user,
         EntityUid? shooter,

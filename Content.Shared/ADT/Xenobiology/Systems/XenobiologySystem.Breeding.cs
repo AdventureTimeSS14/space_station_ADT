@@ -5,54 +5,45 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Nutrition.Components;
+using Content.Shared.Nutrition.EntitySystems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Shared.Body;
 using Content.Shared.Body.Components;
 using Content.Shared.ADT.CCVar;
 using Content.Shared.Body.Systems;
+using Content.Shared.NPC.Systems;
+using Content.Shared.NPC.Components;
+using Robust.Shared.GameObjects;
+using Robust.Shared.Map;
+using Robust.Shared.Player;
 
 namespace Content.Shared.ADT.Xenobiology.Systems;
 
 public partial class XenobiologySystem
 {
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private readonly BodySystem _body = default!;
-    [Dependency] private readonly StomachSystem _stomach = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private BodySystem _body = default!;
+    [Dependency] private StomachSystem _stomach = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private NpcFactionSystem _factions = default!;
 
     private void SubscribeBreeding()
     {
-        SubscribeLocalEvent<PendingSlimeSpawnComponent, MapInitEvent>(OnPendingSlimeMapInit);
-        SubscribeLocalEvent<PendingSlimeSpawnComponent, ComponentShutdown>(OnPendingSlimeShutdown);
         SubscribeLocalEvent<SlimeComponent, MapInitEvent>(OnSlimeMapInit);
         SubscribeLocalEvent<SlimeComponent, ComponentShutdown>(OnSlimeShutdown);
+        SubscribeLocalEvent<RehydratableComponent, GotRehydratedEvent>(OnSlimeRehydrated);
     }
 
-    private void OnPendingSlimeMapInit(Entity<PendingSlimeSpawnComponent> ent, ref MapInitEvent args)
+    private void OnSlimeRehydrated(Entity<RehydratableComponent> ent, ref GotRehydratedEvent args)
     {
-        if (!_net.IsServer) return;
-
-        var slime = SpawnSlime(ent, ent.Comp.BasePrototype, ent.Comp.Breed);
-        if (!slime.HasValue)
+        if (_net.IsClient || !TryComp<SlimeComponent>(args.Target, out var slime))
             return;
 
-        var s = slime.Value.Comp;
-        s.MutationChance *= _random.NextFloat(0.5f, 1.5f);
-        s.MaxOffspring += _random.Next(-1, 2);
-        s.ExtractsProduced += _random.Next(0, 2);
-        s.MitosisHunger *= _random.NextFloat(0.75f, 1.2f);
-        ent.Comp.SpawnedSlime = slime.Value.Owner;
-    }
-
-    private void OnPendingSlimeShutdown(Entity<PendingSlimeSpawnComponent> ent, ref ComponentShutdown args)
-    {
-        if (_net.IsClient)
-            return;
-
-        if (ent.Comp.SpawnedSlime is { } spawnedSlime && Exists(spawnedSlime))
-        {
-            QueueDel(spawnedSlime);
-        }
+        slime.MutationChance *= _random.NextFloat(0.5f, 1.5f);
+        slime.MaxOffspring += _random.Next(-1, 2);
+        slime.ExtractsProduced += _random.Next(0, 2);
+        slime.MitosisHunger *= _random.NextFloat(0.75f, 1.2f);
     }
 
     private void OnSlimeShutdown(Entity<SlimeComponent> ent, ref ComponentShutdown args)
@@ -70,15 +61,23 @@ public partial class XenobiologySystem
     {
         if (!_net.IsServer) return;
 
+        ApplyBreed(ent, ent.Comp.Breed);
+
         Subs.CVar(_configuration, SimpleStationCCVars.XenobiologyBreedingInterval, val => ent.Comp.UpdateInterval = TimeSpan.FromSeconds(val), true);
         ent.Comp.NextUpdateTime = _gameTiming.CurTime + ent.Comp.UpdateInterval;
     }
 
+    private readonly HashSet<Entity<SlimeComponent, MobGrowthComponent, SatiationComponent>> _eligibleSlimes = [];
+    private readonly Dictionary<EntityUid, int> _slimeDensityByGrid = [];
+
     private void UpdateMitosis()
     {
-        var eligibleSlimes = new HashSet<Entity<SlimeComponent, MobGrowthComponent, HungerComponent>>();
+        if (_net.IsClient)
+            return;
 
-        var query = EntityQueryEnumerator<SlimeComponent, MobGrowthComponent, HungerComponent>();
+        _eligibleSlimes.Clear();
+
+        var query = EntityQueryEnumerator<SlimeComponent, MobGrowthComponent, SatiationComponent>();
         while (query.MoveNext(out var uid, out var slime, out var growthComp, out var hungerComp))
         {
             if (_gameTiming.CurTime < slime.NextUpdateTime
@@ -86,28 +85,40 @@ public partial class XenobiologySystem
                 || growthComp.IsFirstStage)
                 continue;
 
-            eligibleSlimes.Add((uid, slime, growthComp, hungerComp));
+            _eligibleSlimes.Add((uid, slime, growthComp, hungerComp));
             slime.NextUpdateTime = _gameTiming.CurTime + slime.UpdateInterval;
         }
 
-        foreach (var ent in eligibleSlimes)
+        if (_eligibleSlimes.Count == 0)
+            return;
+
+        ComputeSlimeDensity();
+
+        foreach (var ent in _eligibleSlimes)
         {
-            if (_hunger.GetHunger(ent) > ent.Comp1.MitosisHunger - ent.Comp1.JitterDifference)
+            var hunger = _satiation.GetValueOrNull((ent.Owner, ent.Comp3), SatiationSystem.Hunger) ?? 0f;
+
+            if (hunger > ent.Comp1.MitosisHunger - ent.Comp1.JitterDifference)
                 _jitter.DoJitter(ent, TimeSpan.FromSeconds(1), true);
 
-            if (_hunger.GetHunger(ent) < ent.Comp1.MitosisHunger)
+            if (hunger < ent.Comp1.MitosisHunger)
                 continue;
 
-            DoMitosis(ent);
+            DoMitosis(ent, GetGridSlimeDensity(ent));
         }
     }
 
-    private void DoMitosis(Entity<SlimeComponent> ent)
+    private void DoMitosis(Entity<SlimeComponent> ent, int localDensity)
     {
-        if (_net.IsClient)
+        var offspringCount = _random.Next(1, ent.Comp.MaxOffspring + 1);
+
+        var slowdown = GetBreedingSlowdown(ent, localDensity);
+        if (slowdown >= 1f)
             return;
 
-        var offspringCount = _random.Next(1, ent.Comp.MaxOffspring + 1);
+        if (slowdown > 0f)
+            offspringCount = Math.Max(1, (int)MathF.Round(offspringCount * (1f - slowdown)));
+
         _audio.PlayPredicted(ent.Comp.MitosisSound, ent, ent);
 
         List<EntityUid> slimes = [];
@@ -116,7 +127,9 @@ public partial class XenobiologySystem
         {
             var selectedBreed = ent.Comp.Breed;
 
-            if (_random.Prob(ent.Comp.MutationChance) && ent.Comp.PotentialMutations.Count > 0)
+            if (i == 0 && ent.Comp.MutationChance >= 1f && ent.Comp.MaxMutation is { } maxMutation)
+                selectedBreed = maxMutation;
+            else if (_random.Prob(ent.Comp.MutationChance) && ent.Comp.PotentialMutations.Count > 0)
                 selectedBreed = _random.Pick(ent.Comp.PotentialMutations);
 
             var sl = SpawnSlime(ent, ent.Comp.DefaultSlimeProto, selectedBreed);
@@ -124,6 +137,7 @@ public partial class XenobiologySystem
             {
                 var newSlime = sl.Value.Comp;
                 newSlime.Tamer = ent.Comp.Tamer;
+                newSlime.Friendship = ent.Comp.Friendship;
                 newSlime.MutationChance = ent.Comp.MutationChance;
                 newSlime.MaxOffspring = ent.Comp.MaxOffspring;
                 newSlime.ExtractsProduced = ent.Comp.ExtractsProduced;
@@ -166,31 +180,142 @@ public partial class XenobiologySystem
                 _body.TryGetOrgansWithComponent(new Entity<BodyComponent?>(s, childBodyComp), out childStomachList);
             foreach (var stomach in childStomachList)
             {
-                _stomach.TryTransferSolution(stomach.Owner, parentStomachSolutionTransfer, stomach);
+                _stomach.TryTransferSolution(stomach.Owner, parentStomachSolutionTransfer);
             }
         }
 
+        MakeMitosisFriends(ent, slimes);
+
         _containerSystem.EmptyContainer(ent.Comp.Stomach);
-        RaiseLocalEvent(ent, new SlimeMitosisEvent());
+        RaiseLocalEvent(ent, new SlimeMitosisEvent(slimes));
         QueueDel(ent);
+    }
+
+    private void MakeMitosisFriends(Entity<SlimeComponent> ent, List<EntityUid> offspring)
+    {
+        var range = ent.Comp.FriendSightRange;
+        if (range <= 0f)
+            return;
+
+        var coords = Transform(ent).Coordinates;
+        var witnessed = new HashSet<EntityUid>();
+
+        foreach (var player in _lookup.GetEntitiesInRange<ActorComponent>(coords, range))
+        {
+            var playerUid = player.Owner;
+
+            if (ent.Comp.LatchedTarget is { } latchTarget && latchTarget == playerUid)
+                continue;
+
+            witnessed.Add(playerUid);
+        }
+
+        if (witnessed.Count == 0)
+            return;
+
+        _factions.IgnoreEntities(new Entity<FactionExceptionComponent?>(ent.Owner, default), witnessed);
+
+        foreach (var child in offspring)
+        {
+            _factions.IgnoreEntities(new Entity<FactionExceptionComponent?>(child, default), witnessed);
+        }
     }
 
     private Entity<SlimeComponent>? SpawnSlime(EntityUid parent, EntProtoId newEntityProto, ProtoId<BreedPrototype> selectedBreed)
     {
         if (Deleted(parent)
-        || !_prototypeManager.TryIndex(selectedBreed, out var newBreed) || _net.IsClient)
+        || !_prototypeManager.TryIndex(selectedBreed, out _))
             return null;
 
-        var newEntityUid = SpawnNextToOrDrop(newEntityProto, parent, null, newBreed.Components);
+        var newEntityUid = SpawnNextToOrDrop(newEntityProto, parent);
         if (!TryComp<SlimeComponent>(newEntityUid, out var newSlime))
             return null;
 
-        if (newSlime.ShouldHaveShader && newSlime.Shader != null)
-            _appearance.SetData(newEntityUid, XenoSlimeVisuals.Shader, newSlime.Shader);
-
-        _appearance.SetData(newEntityUid, XenoSlimeVisuals.Color, newSlime.SlimeColor);
-        _metaData.SetEntityName(newEntityUid, Loc.GetString(newBreed.BreedName));
+        ApplyBreed((newEntityUid, newSlime), selectedBreed);
 
         return new Entity<SlimeComponent>(newEntityUid, newSlime);
+    }
+
+    private void ApplyBreed(Entity<SlimeComponent> ent, ProtoId<BreedPrototype> breedId)
+    {
+        if (!_prototypeManager.TryIndex(breedId, out var breed))
+            return;
+
+        var slime = ent.Comp;
+        slime.Breed = breedId;
+        slime.SlimeColor = breed.SlimeColor;
+        slime.MaxOffspring = breed.MaxOffspring;
+        slime.MutationChance = breed.MutationChance;
+        slime.PotentialMutations = breed.PotentialMutations;
+        slime.ShouldHaveShader = breed.ShouldHaveShader;
+        slime.Shader = breed.Shader;
+
+        _appearance.SetData(ent, XenoSlimeVisuals.Color, slime.SlimeColor);
+        _mobGrowth.SetBaseName(ent, Loc.GetString(breed.BreedName));
+    }
+
+    /// <summary>
+    /// Counts the number of slimes on the same grid as the given slime.
+    /// </summary>
+    public int GetLocalSlimeDensity(Entity<SlimeComponent> ent)
+    {
+        if (_net.IsClient)
+            return 0;
+
+        var gridId = Transform(ent).GridUid;
+        var count = 0;
+
+        var query = EntityQueryEnumerator<SlimeComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out _, out var xform))
+        {
+            if (uid == ent.Owner)
+                continue;
+
+            if (xform.GridUid == gridId)
+                count++;
+        }
+
+        return count;
+    }
+
+    private void ComputeSlimeDensity()
+    {
+        _slimeDensityByGrid.Clear();
+
+        var query = EntityQueryEnumerator<SlimeComponent, TransformComponent>();
+        while (query.MoveNext(out _, out _, out var xform))
+        {
+            var grid = xform.GridUid ?? EntityUid.Invalid;
+            _slimeDensityByGrid[grid] = _slimeDensityByGrid.GetValueOrDefault(grid) + 1;
+        }
+    }
+
+    private int GetGridSlimeDensity(Entity<SlimeComponent> ent)
+    {
+        var grid = Transform(ent).GridUid ?? EntityUid.Invalid;
+        return Math.Max(0, _slimeDensityByGrid.GetValueOrDefault(grid) - 1);
+    }
+
+    /// <summary>
+    /// Computes a breeding slowdown factor in the range [0, 1] based on local slime density.
+    /// 0 means no slowdown (breeding unaffected), approaching 1 means breeding is nearly halted.
+    /// The slowdown ramps up progressively between the slowdown-start threshold and the max cap.
+    /// </summary>
+    public float GetBreedingSlowdown(Entity<SlimeComponent> ent, int? localDensity = null)
+    {
+        var max = _configuration.GetCVar(SimpleStationCCVars.XenobiologyMaxSlimesPerGrid);
+        var start = _configuration.GetCVar(SimpleStationCCVars.XenobiologyBreedingSlowdownStart);
+        var factor = _configuration.GetCVar(SimpleStationCCVars.XenobiologyBreedingSlowdownFactor);
+
+        if (max <= 0 || factor <= 0)
+            return 0f;
+
+        var density = localDensity ?? GetLocalSlimeDensity(ent);
+        if (density <= start)
+            return 0f;
+
+        var range = Math.Max(1, max - start);
+        var raw = (density - start) / (float)range;
+        return Math.Clamp(raw * factor, 0f, 1f);
     }
 }

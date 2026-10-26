@@ -1,4 +1,6 @@
 using System.Linq;
+using Content.Shared.ADT.Construction;
+using Content.Shared.ADT.Construction.Events;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Containers.ItemSlots;
@@ -20,28 +22,32 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.Kitchen.EntitySystems;
 
+/// <summary>
+///     Entity system for the reagent grinder, a device that can grind solid objects into
+///     reagents in an inserted container.
+/// </summary>
 [UsedImplicitly]
-public abstract class SharedReagentGrinderSystem : EntitySystem
+public abstract partial class SharedReagentGrinderSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainersSystem = default!;
-    [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedStackSystem _stackSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-    [Dependency] private readonly SharedDestructibleSystem _destructible = default!;
-    [Dependency] private readonly SharedJitteringSystem _jitter = default!;
-    [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
-    [Dependency] private readonly SharedPowerStateSystem _powerState = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainersSystem = default!;
+    [Dependency] private ItemSlotsSystem _itemSlotsSystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private SharedStackSystem _stackSystem = default!;
+    [Dependency] private SharedAudioSystem _audioSystem = default!;
+    [Dependency] private SharedAppearanceSystem _appearanceSystem = default!;
+    [Dependency] private SharedContainerSystem _containerSystem = default!;
+    [Dependency] private SharedDestructibleSystem _destructible = default!;
+    [Dependency] private SharedJitteringSystem _jitter = default!;
+    [Dependency] private SharedPowerReceiverSystem _power = default!;
+    [Dependency] private SharedPowerStateSystem _powerState = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<InsideReagentGrinderComponent, SolutionContainerChangedEvent>(OnBeakerSolutionContainerChanged);
+        SubscribeLocalEvent<InsideReagentGrinderComponent, SolutionChangedEvent>(OnBeakerSolutionContainerChanged);
 
         SubscribeLocalEvent<ReagentGrinderComponent, ComponentStartup>(OnGrinderStartup);
         SubscribeLocalEvent<ReagentGrinderComponent, ContainerIsRemovingAttemptEvent>(OnEntRemovingAttempt);
@@ -51,12 +57,17 @@ public abstract class SharedReagentGrinderSystem : EntitySystem
         SubscribeLocalEvent<ReagentGrinderComponent, InteractUsingEvent>(OnInteractUsing);
 
         SubscribeLocalEvent<ReagentGrinderComponent, ReagentGrinderStartMessage>(OnStartMessage);
+
+        // ADT-Tweak-Start: machine parts with tiers
+        SubscribeLocalEvent<ReagentGrinderComponent, RefreshPartsEvent>(OnPartsRefresh);
+        SubscribeLocalEvent<ReagentGrinderComponent, UpgradeExamineEvent>(OnUpgradeExamine);
+        // ADT-Tweak-End
         SubscribeLocalEvent<ReagentGrinderComponent, ReagentGrinderToggleAutoModeMessage>(OnToggleAutoModeMessage);
         SubscribeLocalEvent<ReagentGrinderComponent, ReagentGrinderEjectChamberAllMessage>(OnEjectChamberAllMessage);
         SubscribeLocalEvent<ReagentGrinderComponent, ReagentGrinderEjectChamberContentMessage>(OnEjectChamberContentMessage);
     }
 
-    private void OnBeakerSolutionContainerChanged(Entity<InsideReagentGrinderComponent> ent, ref SolutionContainerChangedEvent args)
+    private void OnBeakerSolutionContainerChanged(Entity<InsideReagentGrinderComponent> ent, ref SolutionChangedEvent args)
     {
         // Update the UI if the reagents inside the beaker are changed.
         // This is needed in case the component state for the container is applied before that of the solution container
@@ -68,6 +79,26 @@ public abstract class SharedReagentGrinderSystem : EntitySystem
     {
         ent.Comp.InputContainer = _containerSystem.EnsureContainer<Container>(ent.Owner, ReagentGrinderComponent.InputContainerId);
     }
+
+    // ADT-Tweak-Start: machine parts with tiers
+    private void OnPartsRefresh(EntityUid uid, ReagentGrinderComponent component, RefreshPartsEvent args)
+    {
+        component.WorkTimeMultiplier = 1f / args.GetStatMultiplier(MachineStat.Speed);
+        component.CapacityMultiplier = args.GetStatMultiplier(MachineStat.Capacity);
+
+        UpdateUi(uid);
+    }
+
+    private static void OnUpgradeExamine(EntityUid uid, ReagentGrinderComponent component, UpgradeExamineEvent args)
+    {
+        var speedMultiplier = component.WorkTimeMultiplier <= 0f
+            ? 1f
+            : 1f / component.WorkTimeMultiplier;
+
+        args.AddPercentageUpgrade("machine-upgrade-process-speed", speedMultiplier, benefit: true);
+        args.AddPercentageUpgrade("machine-upgrade-capacity", component.CapacityMultiplier, benefit: true);
+    }
+    // ADT-Tweak-End
 
     private void OnEntRemovingAttempt(Entity<ReagentGrinderComponent> ent, ref ContainerIsRemovingAttemptEvent args)
     {
@@ -155,7 +186,7 @@ public abstract class SharedReagentGrinderSystem : EntitySystem
             if (!HasComp<FitsInDispenserComponent>(heldEnt))
             {
                 // This is ugly but we can't use whitelistFailPopup because there are 2 containers with different whitelists.
-                _popupSystem.PopupClient(Loc.GetString("reagent-grinder-component-cannot-put-entity-message"), ent.Owner, args.User);
+                _popupSystem.PopupEntity(Loc.GetString("reagent-grinder-component-cannot-put-entity-message"), ent.Owner, args.User);
             }
 
             // Entity did NOT pass the whitelist for grind/juice.
@@ -169,7 +200,7 @@ public abstract class SharedReagentGrinderSystem : EntitySystem
 
         // Cap the chamber. Don't want someone putting in 500 entities and ejecting them all at once.
         // Maybe I should have done that for the microwave too?
-        if (ent.Comp.InputContainer.ContainedEntities.Count >= ent.Comp.StorageMaxEntities)
+        if (ent.Comp.InputContainer.ContainedEntities.Count >= ent.Comp.StorageMaxEntities * ent.Comp.CapacityMultiplier) // ADT-Tweak machine parts
             return;
 
         if (!_containerSystem.Insert(heldEnt, ent.Comp.InputContainer))
@@ -233,7 +264,7 @@ public abstract class SharedReagentGrinderSystem : EntitySystem
         if (!_power.IsPowered(ent.Owner))
             return;
 
-        var beaker = _itemSlotsSystem.GetItemOrNull(ent, ReagentGrinderComponent.BeakerSlotId);
+        var beaker = _itemSlotsSystem.GetItemOrNull(ent.Owner, ReagentGrinderComponent.BeakerSlotId);
 
         // Do we have anything to grind/juice and a container to put the reagents in?
         if (ent.Comp.InputContainer.ContainedEntities.Count <= 0 || !HasComp<FitsInDispenserComponent>(beaker))
@@ -263,8 +294,11 @@ public abstract class SharedReagentGrinderSystem : EntitySystem
         // Unpredicted because we don't have the user in the update loop
         // TODO: Make the audio API sane https://github.com/space-wizards/RobustToolbox/issues/6436
         if (_net.IsServer)
-            ent.Comp.AudioStream = _audioSystem.PlayPvs(sound, ent,
-            AudioParams.Default.WithPitchScale(1 / ent.Comp.WorkTimeMultiplier))?.Entity; //slightly higher pitched
+        {
+            ent.Comp.AudioStream = _audioSystem
+                .PlayPvs(sound, ent, sound.Params.WithPitchScale(1 / ent.Comp.WorkTimeMultiplier))
+                ?.Entity; //slightly higher pitched
+        }
     }
 
     /// <summary>
@@ -356,10 +390,11 @@ public abstract class SharedReagentGrinderSystem : EntitySystem
         switch (program)
         {
             case GrinderProgram.Grind:
-                if (_solutionContainersSystem.TryGetSolution(ent.Owner, ent.Comp.GrindableSolutionName, out _, out var solution))
-                {
+                if (ent.Comp.GrindableSolutionName is not { } solutionId)
+                    return null;
+
+                if (_solutionContainersSystem.TryGetSolution(ent.Owner, solutionId, out _, out var solution))
                     return solution;
-                }
                 break;
             case GrinderProgram.Juice:
                 return ent.Comp.JuiceSolution;

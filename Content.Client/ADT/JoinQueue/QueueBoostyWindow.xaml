@@ -1,0 +1,12 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="{Loc 'queue-boosty-title'}"
+                      MinSize="360 160">
+    <BoxContainer Orientation="Vertical" Margin="12" SeparationOverride="12">
+        <RichTextLabel Name="MessageLabel" HorizontalExpand="True"/>
+        <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+            <Button Name="BoostyButton" Text="{Loc 'queue-boosty-open'}" HorizontalExpand="True" StyleClasses="ButtonBig"/>
+            <Button Name="LaterButton" Text="{Loc 'queue-boosty-later'}"/>
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>

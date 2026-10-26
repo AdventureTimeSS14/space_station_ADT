@@ -1,0 +1,125 @@
+- type: entity
+  id: ADTComputerCameraConsole
+  parent: BaseComputerAiAccess
+  name: advanced camera console
+  description: Lets you watch the station through its camera network, even from another map.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: ai-fixer
+    - map: ["computerLayerKeys"]
+      state: tech_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: EyeControlConsole
+    eyeProto: ADTCameraEye
+    area: null
+  - type: Computer
+    board: ADTCameraConsoleComputerCircuitboard
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#b89f25"
+  - type: AccessReader
+    access: [["Command"]]
+
+- type: entity
+  id: ADTCameraConsoleComputerCircuitboard
+  parent: BaseComputerCircuitboard
+  name: advanced camera console board
+  description: A computer printed circuit board for an advanced camera console.
+  components:
+  - type: Sprite
+    state: cpu_science
+  - type: ComputerBoard
+    prototype: ADTComputerCameraConsole
+  - type: StaticPrice
+
+- type: entity
+  id: ADTComputerCameraConsoleSyndicate
+  parent: BaseComputerAiAccess
+  name: syndicate camera console
+  description: A stolen camera console letting you watch the station through its camera network from anywhere.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: comm_syndie
+    - map: ["computerLayerKeys"]
+      state: tech_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: EyeControlConsole
+    eyeProto: ADTCameraEyeSyndi
+    area: null
+  - type: Computer
+    board: ADTCameraConsoleSyndicateComputerCircuitboard
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#b89f25"
+  - type: AccessReader
+    access: [["SyndicateAgent"]]
+
+- type: entity
+  id: ADTCameraConsoleSyndicateComputerCircuitboard
+  parent: [ BaseComputerCircuitboard, BaseSyndicateContraband ]
+  name: syndicate camera console board
+  description: A computer printed circuit board for a syndicate camera console.
+  components:
+  - type: Sprite
+    state: cpu_syndicate
+  - type: ComputerBoard
+    prototype: ADTComputerCameraConsoleSyndicate
+  - type: StaticPrice
+
+- type: entity
+  id: ADTComputerCameraConsoleCentcomm
+  parent: BaseComputerAiAccess
+  name: centcomm camera console
+  description: A central command camera console letting you watch the station through its camera network from anywhere.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: command
+    - map: ["computerLayerKeys"]
+      state: tech_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: EyeControlConsole
+    eyeProto: ADTCameraEyeDarkBlue
+    area: null
+  - type: Computer
+    board: ADTCameraConsoleCentcommComputerCircuitboard
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#b89f25"
+  - type: AccessReader
+    access: [["CentralCommand"]]
+
+- type: entity
+  id: ADTCameraConsoleCentcommComputerCircuitboard
+  parent: [ BaseComputerCircuitboard, BaseCentcommContraband ]
+  name: centcomm camera console board
+  description: A computer printed circuit board for a centcomm camera console.
+  components:
+  - type: Sprite
+    state: cpu_centcomm
+  - type: ComputerBoard
+    prototype: ADTComputerCameraConsoleCentcomm
+  - type: StaticPrice

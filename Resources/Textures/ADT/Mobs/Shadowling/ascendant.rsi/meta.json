@@ -1,0 +1,23 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Paradise 220 at SS13/ss1984/Paradise-master220/icons/mob/mob.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "ascendant",
+            "directions": 4
+        },
+        {
+            "name": "ascendant_glow",
+            "directions": 4
+        },
+        {
+            "name": "ascendant_alt",
+            "directions": 4
+        }
+    ]
+}

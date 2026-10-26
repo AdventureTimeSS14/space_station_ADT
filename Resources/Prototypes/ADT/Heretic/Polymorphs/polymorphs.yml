@@ -5,6 +5,14 @@
     forced: true
     duration: 3
 
+# ADT: long ash jaunt, stage 8
+- type: polymorph
+  id: AshJauntLong
+  configuration:
+    entity: PolymorphAshJaunt
+    forced: true
+    duration: 8
+
 - type: polymorph
   id: EldritchHorror
   configuration:
@@ -14,3 +22,17 @@
     transferDamage: true
     revertOnCrit: false
     revertOnDeath: false
+
+# ADT: Void Prison, VoidPrison / ActionHereticVoidPrison
+- type: polymorph
+  id: VoidPrison
+  configuration:
+    entity: VoidPrison
+    forced: true
+    inventory: None
+    transferName: false
+    transferDamage: false
+    duration: 10
+    polymorphSound: /Audio/ADT/Heretic/voidblink.ogg
+    polymorphPopup: null
+    allowRepeatedMorphs: true

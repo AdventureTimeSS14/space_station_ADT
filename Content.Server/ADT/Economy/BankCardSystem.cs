@@ -3,7 +3,7 @@ using System.Linq;
 using Content.Server.Access.Systems;
 using Content.Server.Cargo.Components;
 using Content.Server.Cargo.Systems;
-using Content.Server.CartridgeLoader;
+using Content.Shared.CartridgeLoader;
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking;
 using Content.Server.Roles.Jobs;
@@ -23,26 +23,27 @@ using Robust.Shared.Timing;
 using Content.Shared.CCVar;
 using Robust.Shared.Configuration;
 using Content.Shared.ADT.CCVar;
+using Content.Server.ADT.Traits;
 
 namespace Content.Server.ADT.Economy;
 
 public sealed class BankCardSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
-    [Dependency] private readonly IdCardSystem _idCardSystem = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly CargoSystem _cargo = default!;
-    [Dependency] private readonly ChatSystem _chatSystem = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly InventorySystem _inventorySystem = default!;
-    [Dependency] private readonly BankCartridgeSystem _bankCartridge = default!;
-    [Dependency] private readonly JobSystem _job = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly CartridgeLoaderSystem _cartridgeLoader = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IConfigurationManager _configManager = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IPrototypeManager _protoMan = default!;
+    [Dependency] private IdCardSystem _idCardSystem = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private CargoSystem _cargo = default!;
+    [Dependency] private ChatSystem _chatSystem = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private InventorySystem _inventorySystem = default!;
+    [Dependency] private BankCartridgeSystem _bankCartridge = default!;
+    [Dependency] private JobSystem _job = default!;
+    [Dependency] private GameTicker _gameTicker = default!;
+    [Dependency] private CartridgeLoaderSystem _cartridgeLoader = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IConfigurationManager _configManager = default!;
 
     private const int SalaryDelay = 2700;
 
@@ -56,7 +57,7 @@ public sealed class BankCardSystem : EntitySystem
 
         SubscribeLocalEvent<BankCardComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
-        SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawned);
+        SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawned, after: [typeof(ADTTraitSystem)]);
     }
 
     public override void Update(float frameTime)
@@ -90,7 +91,7 @@ public sealed class BankCardSystem : EntitySystem
         {
             var salary = GetSalary(account.Mind);
             if (salary > 0)
-                TryChangeBalance(account.AccountId, salary);
+                TryChangeBalance(account.AccountId, salary, allowNegative: account.Balance < 0);
         }
 
         _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("salary-pay-announcement"),
@@ -179,7 +180,11 @@ public sealed class BankCardSystem : EntitySystem
             if (!TryComp(mind.Mind, out MindComponent? mindComponent))
                 return;
 
-            bankAccount.Balance = GetSalary(mind.Mind) + 100;
+            var startingBalance = GetSalary(mind.Mind) + 100;
+            if (TryComp<StartingBalanceComponent>(ev.Mob, out var balanceComp))
+                startingBalance = balanceComp.Balance;
+
+            bankAccount.Balance = startingBalance;
             mindComponent.AddMemory(new Memory("PIN", bankAccount.AccountPin.ToString()));
             mindComponent.AddMemory(new Memory(Loc.GetString("character-info-memories-account-number"),
                 bankAccount.AccountId.ToString()));
@@ -191,7 +196,7 @@ public sealed class BankCardSystem : EntitySystem
 
             BankCartridgeComponent? comp = null;
 
-            var programs = _cartridgeLoader.GetInstalled(pdaUid.Value);
+            var programs = _cartridgeLoader.GetDiskPrograms(pdaUid.Value);
 
             var program = programs.ToList().Find(program => TryComp(program, out comp));
             if (comp == null)
@@ -240,6 +245,8 @@ public sealed class BankCardSystem : EntitySystem
         return account != null;
     }
 
+    public IReadOnlyList<BankAccount> GetAllAccounts() => _accounts;
+
     public int GetBalance(int accountId)
     {
         if (!TryGetAccount(accountId, out var account))
@@ -259,7 +266,7 @@ public sealed class BankCardSystem : EntitySystem
         return account.Balance;
     }
 
-    public bool TryChangeBalance(int accountId, int amount)
+    public bool TryChangeBalance(int accountId, int amount, bool allowNegative = false)
     {
         if (!TryGetAccount(accountId, out var account))
             return false;
@@ -282,7 +289,7 @@ public sealed class BankCardSystem : EntitySystem
             return false;
         }
 
-        if (account.Balance + amount < 0)
+        if (account.Balance + amount < 0 && !allowNegative)
             return false;
 
         account.Balance += amount;

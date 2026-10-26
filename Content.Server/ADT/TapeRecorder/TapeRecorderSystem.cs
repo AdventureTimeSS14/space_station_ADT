@@ -5,7 +5,7 @@ using Content.Server.Speech;
 using Content.Shared.ADT.Language;
 using Content.Shared.ADT.SpeechBarks;
 using Content.Shared.Chat;
-using Content.Shared.Corvax.TTS;
+using Content.Shared.ADT.TTS;
 using Content.Shared.Paper;
 using Content.Shared.Speech;
 using Content.Shared.TapeRecorder;
@@ -18,11 +18,11 @@ namespace Content.Server.TapeRecorder;
 
 public sealed class TapeRecorderSystem : SharedTapeRecorderSystem
 {
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly HandsSystem _hands = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly PaperSystem _paper = default!;
-    [Dependency] private readonly LanguageSystem _language = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private HandsSystem _hands = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private PaperSystem _paper = default!;
+    [Dependency] private LanguageSystem _language = default!;
 
     public override void Initialize()
     {
@@ -108,9 +108,9 @@ public sealed class TapeRecorderSystem : SharedTapeRecorderSystem
             RaiseLocalEvent(args.Source, barkEv);
             bark = barkEv.Data;
         }
-        if (TryComp<TTSComponent>(args.Source, out var ttsComp) && ttsComp.VoicePrototypeId != null)
+        if (TryComp<TTSComponent>(args.Source, out var ttsComp) && ttsComp.VoicePrototypeId is { } voiceId)
         {
-            var ttsEv = new TransformSpeakerVoiceEvent(args.Source, ttsComp.VoicePrototypeId);
+            var ttsEv = new TransformSpeakerVoiceEvent(args.Source, voiceId);
             RaiseLocalEvent(args.Source, ttsEv);
             tts = ttsEv.VoiceId;
         }

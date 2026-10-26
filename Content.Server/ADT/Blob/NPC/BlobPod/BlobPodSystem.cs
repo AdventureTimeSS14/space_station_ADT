@@ -4,6 +4,7 @@ using Content.Shared.ADT.Blob.Components;
 using Content.Shared.ADT.Blob.NPC.BlobPod;
 using Content.Server.DoAfter;
 using Content.Server.Explosion.EntitySystems;
+using Content.Server.ADT.Language;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
 using Content.Server.Popups;
@@ -28,16 +29,17 @@ namespace Content.Server.ADT.Blob.NPC.BlobPod;
 
 public sealed class BlobPodSystem : SharedBlobPodSystem
 {
-    [Dependency] private readonly DoAfterSystem _doAfter = default!;
-    [Dependency] private readonly MobStateSystem _mobs = default!;
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private readonly PopupSystem _popups = default!;
-    [Dependency] private readonly AudioSystem _audioSystem = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly NPCSystem _npc = default!;
-    [Dependency] private readonly SharedMoverController _mover = default!;
+    [Dependency] private DoAfterSystem _doAfter = default!;
+    [Dependency] private MobStateSystem _mobs = default!;
+    [Dependency] private ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private PopupSystem _popups = default!;
+    [Dependency] private AudioSystem _audioSystem = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private ExplosionSystem _explosionSystem = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private NPCSystem _npc = default!;
+    [Dependency] private SharedMoverController _mover = default!;
+    [Dependency] private LanguageSystem _language = default!;
 
     public override void Initialize()
     {
@@ -72,7 +74,7 @@ public sealed class BlobPodSystem : SharedBlobPodSystem
             return;
 
         if (TryComp<LanguageSpeakerComponent>(args.Container.Owner, out var mind))
-            mind.Languages.Remove(zombieBlob.CollectiveMindAdded);
+            _language.RemoveLanguage(args.Container.Owner, zombieBlob.CollectiveMindAdded, mind);
 
         RemCompDeferred<ZombieBlobComponent>(args.Container.Owner);
     }

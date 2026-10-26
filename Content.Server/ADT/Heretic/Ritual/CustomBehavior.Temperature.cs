@@ -1,10 +1,12 @@
+//
+
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Atmos;
 using Content.Shared.Heretic.Prototypes;
 
 namespace Content.Server.Heretic.Ritual;
 
-[Virtual] public partial class RitualTemperatureBehavior : RitualCustomBehavior
+public sealed partial class RitualTemperatureBehavior : RitualCustomBehavior
 {
     /// <summary>
     ///     Min temp in celsius

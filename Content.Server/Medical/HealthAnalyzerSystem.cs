@@ -1,4 +1,5 @@
 using Content.Server.Medical.Components;
+using Content.Server.ADT.Addiction; // ADT-Tweak
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage.Components;
@@ -20,23 +21,25 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
 using Content.Server.Body.Systems;
+using Content.Shared.Body.Systems;
 using Content.Shared.Inventory;
 using Content.Shared.Verbs;
 
 namespace Content.Server.Medical;
 
-public sealed class HealthAnalyzerSystem : EntitySystem
+public sealed partial class HealthAnalyzerSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly PowerCellSystem _cell = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
-    [Dependency] private readonly ItemToggleSystem _toggle = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
-    [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly TransformSystem _transformSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private PowerCellSystem _cell = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] private ItemToggleSystem _toggle = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private TransformSystem _transformSystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private BloodstreamSystem _bloodstreamSystem = default!;
+    [Dependency] private AddictionSystem _addiction = default!; // ADT-Tweak
 
     public override void Initialize()
     {
@@ -263,7 +266,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         var bodyTemperature = float.NaN;
 
         if (TryComp<TemperatureComponent>(entity, out var temp))
-            bodyTemperature = temp.CurrentTemperature;
+            bodyTemperature = temp.Temperature;
 
         var bloodAmount = float.NaN;
         var bleeding = false;
@@ -293,6 +296,10 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         }
         // ADT-Tweak end
 
+        // ADT-Tweak-Start: список зависимостей пациента (только сформировавшиеся)
+        var addictions = _addiction.GetAddictionInfo(entity);
+        // ADT-Tweak-End
+
         return new HealthAnalyzerUiState(
             GetNetEntity(entity),
             bodyTemperature,
@@ -300,7 +307,8 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             null,
             bleeding,
             unrevivable,
-            metabolizingReagents // ADT-Tweak
+            metabolizingReagents, // ADT-Tweak
+            addictions // ADT-Tweak
         );
     }
 }

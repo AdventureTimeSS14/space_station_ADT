@@ -1,3 +1,5 @@
+using Content.Shared.ADT.Weapons.KineticCooldown;
+using Content.Shared._RMC14.Weapons.Ranged;
 using Content.Shared.ADT.Weapons.Ranged.Upgrades.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
@@ -19,20 +21,24 @@ namespace Content.Shared.ADT.Weapons.Ranged.Upgrades;
 
 public sealed class ADTGunUpgradeSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedGunSystem _gun = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedToolSystem _tool = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private ISharedAdminLogManager _adminLog = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedGunSystem _gun = default!;
+    [Dependency] private RMCSelectiveFireSystem _selectiveFire = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedToolSystem _tool = default!;
+
+    private const float MinUpgradeMultiplier = 0.4f;
 
     public override void Initialize()
     {
         SubscribeLocalEvent<ADTUpgradeableGunComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<ADTUpgradeableGunComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<ADTUpgradeableGunComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
         SubscribeLocalEvent<ADTUpgradeableGunComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<ADTUpgradeableGunComponent, ADTGunUpgradeRemoveDoAfterEvent>(OnRemoveDoAfter);
@@ -54,6 +60,12 @@ public sealed class ADTGunUpgradeSystem : EntitySystem
     private void OnInit(Entity<ADTUpgradeableGunComponent> ent, ref ComponentInit args)
     {
         _container.EnsureContainer<Container>(ent, ent.Comp.UpgradesContainerId);
+    }
+
+    private void OnMapInit(Entity<ADTUpgradeableGunComponent> ent, ref MapInitEvent args)
+    {
+        RefreshRecharge(ent);
+        RefreshAutoFire(ent);
     }
 
     private void OnAfterInteractUsing(Entity<ADTUpgradeableGunComponent> ent, ref AfterInteractUsingEvent args)
@@ -133,7 +145,7 @@ public sealed class ADTGunUpgradeSystem : EntitySystem
             args.User,
             ent,
             ent.Comp.RemoveDelay,
-            new[] { ent.Comp.RemoveTool.Id },
+            new[] { ent.Comp.RemoveTool },
             new ADTGunUpgradeRemoveDoAfterEvent());
     }
 
@@ -163,33 +175,66 @@ public sealed class ADTGunUpgradeSystem : EntitySystem
     private void OnUpgradesChanged(Entity<ADTUpgradeableGunComponent> ent)
     {
         _gun.RefreshModifiers(ent.Owner);
+        RefreshRecharge(ent);
+        RefreshAutoFire(ent);
 
         if (!_net.IsServer)
             return;
 
-        RefreshRecharge(ent);
         RefreshChassis(ent);
     }
 
     private void RefreshRecharge(Entity<ADTUpgradeableGunComponent> ent)
     {
-        if (!TryComp<RechargeBasicEntityAmmoComponent>(ent, out var recharge))
+        if (!TryComp<ADTKineticCooldownComponent>(ent, out var cooldown))
             return;
 
-        ent.Comp.BaseRechargeCooldown ??= recharge.RechargeCooldown;
+        var rangedModifier = 1f;
+        var meleeModifier = 1f;
 
-        var cooldown = ent.Comp.BaseRechargeCooldown.Value;
         foreach (var upgrade in GetUpgrades(ent))
         {
             if (TryComp<ADTGunUpgradeFireRateComponent>(upgrade, out var fireRate))
-                cooldown *= fireRate.RechargeCoefficient;
+                rangedModifier *= fireRate.RechargeCoefficient;
 
             if (TryComp<ADTGunUpgradeRepeaterComponent>(upgrade, out var repeater))
-                cooldown *= repeater.RechargeCoefficient;
+                rangedModifier *= repeater.RechargeCoefficient;
         }
 
-        recharge.RechargeCooldown = MathF.Max(cooldown, 0.05f);
-        Dirty(ent, recharge);
+        cooldown.UpgradeRangedMultiplier = MathF.Max(rangedModifier, MinUpgradeMultiplier);
+        cooldown.UpgradeMeleeMultiplier = MathF.Max(meleeModifier, MinUpgradeMultiplier);
+        Dirty(ent, cooldown);
+    }
+
+    private void RefreshAutoFire(Entity<ADTUpgradeableGunComponent> ent)
+    {
+        if (!TryComp<GunComponent>(ent, out var gun))
+            return;
+
+        var wantsAuto = false;
+        foreach (var upgrade in GetUpgrades(ent))
+        {
+            if (HasComp<ADTGunUpgradeRepeaterComponent>(upgrade))
+            {
+                wantsAuto = true;
+                break;
+            }
+        }
+
+        if (wantsAuto && !ent.Comp.RepeaterAutoFire && (gun.AvailableModes & SelectiveFire.FullAuto) == 0)
+        {
+            _selectiveFire.AddFireMode((ent.Owner, gun), SelectiveFire.FullAuto);
+            ent.Comp.RepeaterAutoFire = true;
+            Dirty(ent);
+            return;
+        }
+
+        if (!wantsAuto && ent.Comp.RepeaterAutoFire)
+        {
+            _selectiveFire.SetFireModes((ent.Owner, gun), gun.AvailableModes & ~SelectiveFire.FullAuto);
+            ent.Comp.RepeaterAutoFire = false;
+            Dirty(ent);
+        }
     }
 
     private void RefreshChassis(Entity<ADTUpgradeableGunComponent> ent)
@@ -226,12 +271,18 @@ public sealed class ADTGunUpgradeSystem : EntitySystem
 
     private void OnFireRateRefresh(Entity<ADTGunUpgradeFireRateComponent> ent, ref GunRefreshModifiersEvent args)
     {
+        if (HasComp<ADTKineticCooldownComponent>(args.Gun))
+            return;
+
         args.FireRate *= ent.Comp.Coefficient;
     }
 
     private void OnRepeaterRefresh(Entity<ADTGunUpgradeRepeaterComponent> ent, ref GunRefreshModifiersEvent args)
     {
-        args.FireRate *= ent.Comp.FireRateCoefficient; // РАБОТАЕТ СТРАННО ПЕРЕСМОТРЕТЬ
+        if (HasComp<ADTKineticCooldownComponent>(args.Gun))
+            return;
+
+        args.FireRate *= ent.Comp.FireRateCoefficient;
     }
 
     private void OnTracerColorPicked(Entity<ADTGunUpgradeTracerComponent> ent, ref ADTGunUpgradeTracerColorMessage args)

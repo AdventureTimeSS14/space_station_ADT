@@ -92,63 +92,44 @@
           key: "enum.MechAssemblyVisuals.State"
           data: 13
 
-      - tag: ADTMicroManipulatorStockPart
-        name: construction-graph-tag-manipulator-stock-part
+      - machinePart: Servo
+        tier: 3
+        name: machine-part-name-servo-t3
         icon:
-          sprite: "Objects/Misc/stock_parts.rsi"
-          state: micro_mani
+          sprite: "ADT/Objects/Misc/stock_parts.rsi"
+          state: pico_servo
         completed:
         - !type:VisualizerDataInt
           key: "enum.MechAssemblyVisuals.State"
           data: 14
-
-      - tag: ADTMicroManipulatorStockPart
-        name: construction-graph-tag-manipulator-stock-part
-        icon:
-          sprite: "Objects/Misc/stock_parts.rsi"
-          state: micro_mani
-        completed:
-        - !type:VisualizerDataInt
-          key: "enum.MechAssemblyVisuals.State"
-          data: 15
-
-      - tag: ADTMicroManipulatorStockPart
-        name: construction-graph-tag-manipulator-stock-part
-        icon:
-          sprite: "Objects/Misc/stock_parts.rsi"
-          state: micro_mani
-        completed:
-        - !type:VisualizerDataInt
-          key: "enum.MechAssemblyVisuals.State"
-          data: 16
 
       - tool: Screwing
         doAfter: 1
         completed:
         - !type:VisualizerDataInt
           key: "enum.MechAssemblyVisuals.State"
-          data: 17
+          data: 15
 
       - material: Steel
         amount: 5
         completed:
         - !type:VisualizerDataInt
           key: "enum.MechAssemblyVisuals.State"
-          data: 19
+          data: 16
 
       - tool: Anchoring
         doAfter: 1
         completed:
         - !type:VisualizerDataInt
           key: "enum.MechAssemblyVisuals.State"
-          data: 20
+          data: 17
 
       - tool: Welding
         doAfter: 1
         completed:
         - !type:VisualizerDataInt
           key: "enum.MechAssemblyVisuals.State"
-          data: 21
+          data: 18
 
       - tag: ADTDurandArmor
         name: construction-graph-tag-durand-armor-plates
@@ -158,7 +139,7 @@
         completed:
         - !type:VisualizerDataInt
           key: "enum.MechAssemblyVisuals.State"
-          data: 23
+          data: 19
 
       - tool: Anchoring
         doAfter: 1
@@ -168,7 +149,7 @@
         completed:
         - !type:VisualizerDataInt
           key: "enum.MechAssemblyVisuals.State"
-          data: 24
+          data: 20
 
   - node: durand
     actions:

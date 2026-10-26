@@ -22,7 +22,6 @@
   startingGear: CorrectionsOfficerGear
   icon: "JobIconADTCorrectionsOfficer"
   supervisors: job-supervisors-hos
-  canBeAntag: false
   access:
   - Security
   - Brig
@@ -33,6 +32,9 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+      - type: ADTTenCodeKnowledge
 
 - type: startingGear
   id: CorrectionsOfficerGear

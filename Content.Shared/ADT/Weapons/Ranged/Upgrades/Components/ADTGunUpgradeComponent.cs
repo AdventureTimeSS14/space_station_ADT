@@ -18,4 +18,7 @@ public sealed partial class ADTGunUpgradeComponent : Component
 
     [DataField]
     public LocId ExamineText;
+
+    [DataField]
+    public float VolleyFalloff = 0.2f;
 }

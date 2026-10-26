@@ -1,3 +1,4 @@
+using Content.Server.ADT.Salvage.Systems;
 using Content.Server.NPC.HTN;
 using Content.Shared.Actions;
 using Content.Shared.ADT.Bubblegum.Abilities;
@@ -10,12 +11,17 @@ namespace Content.Server.ADT.Bubblegum.Abilities;
 
 public sealed class BubblegumTripleChargeSystem : EntitySystem
 {
-    [Dependency] private readonly BubblegumChargeSystem _charge = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly VisibilitySystem _visibility = default!;
+    [Dependency] private ADTMegafaunaChargeSystem _charge = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private VisibilitySystem _visibility = default!;
 
     private const float TravelBuffer = 0.5f;
+
+    private static readonly ADTMegafaunaChargeOptions ChargeOptions = new()
+    {
+        TrailColor = Color.FromHex("#FF3030"),
+    };
 
     public override void Initialize()
     {
@@ -82,22 +88,16 @@ public sealed class BubblegumTripleChargeSystem : EntitySystem
             targetEntity = htnTarget;
         }
 
-        var cumulative = 0f;
-        for (var i = 0; i < ent.Comp.Delays.Count; i++)
-        {
-            var delay = ent.Comp.Delays[i];
-            _charge.BeginCharge(
-                ent.Owner,
-                fallback,
-                delaySeconds: cumulative + delay,
-                speed: ent.Comp.ChargeSpeed,
-                telegraphProto: ent.Comp.TelegraphPrototype,
-                trampleDamage: 30f,
-                telegraphLeadSeconds: cumulative,
-                targetEntity: targetEntity);
-
-            cumulative += delay + TravelBuffer;
-        }
+        _charge.BeginChargeSeries(
+            ent.Owner,
+            fallback,
+            targetEntity,
+            ent.Comp.Delays,
+            TravelBuffer,
+            ent.Comp.ChargeSpeed,
+            ent.Comp.TelegraphPrototype,
+            30f,
+            ChargeOptions);
     }
 
     private void ExecutePlayerSeries(Entity<BubblegumTripleChargeComponent> ent, List<MapCoordinates> targets)
@@ -113,7 +113,8 @@ public sealed class BubblegumTripleChargeSystem : EntitySystem
                 speed: ent.Comp.ChargeSpeed,
                 telegraphProto: ent.Comp.TelegraphPrototype,
                 trampleDamage: 30f,
-                telegraphLeadSeconds: cumulative);
+                telegraphLeadSeconds: cumulative,
+                options: ChargeOptions);
 
             cumulative += delay + TravelBuffer;
         }

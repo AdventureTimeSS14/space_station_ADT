@@ -1,5 +1,6 @@
 using Content.Shared.Actions;
-using Content.Shared.Corvax.TTS; // Corvax-TTS
+using Content.Shared.ADT.Silicons.Borgs;
+using Content.Shared.ADT.TTS;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Movement.Components;
@@ -13,14 +14,13 @@ namespace Content.Shared.Silicons.Borgs;
 /// Implements borg type switching.
 /// </summary>
 /// <seealso cref="BorgSwitchableTypeComponent"/>
-public abstract class SharedBorgSwitchableTypeSystem : EntitySystem
+public abstract partial class SharedBorgSwitchableTypeSystem : EntitySystem
 {
     // TODO: Allow borgs to be reset to default configuration.
 
-    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _userInterface = default!;
-    [Dependency] protected readonly IPrototypeManager Prototypes = default!;
-    [Dependency] private readonly InteractionPopupSystem _interactionPopup = default!;
+    [Dependency] private SharedActionsSystem _actionsSystem = default!;
+    [Dependency] private SharedUserInterfaceSystem _userInterface = default!;
+    [Dependency] private InteractionPopupSystem _interactionPopup = default!;
 
     public static readonly EntProtoId ActionId = "ActionSelectBorgType";
 
@@ -74,7 +74,7 @@ public abstract class SharedBorgSwitchableTypeSystem : EntitySystem
         if (ent.Comp.SelectedBorgType != null)
             return;
 
-        if (!Prototypes.HasIndex(args.Prototype))
+        if (!ProtoMan.HasIndex(args.Prototype))
             return;
 
         SelectBorgModule(ent, args.Prototype);
@@ -94,14 +94,19 @@ public abstract class SharedBorgSwitchableTypeSystem : EntitySystem
         ent.Comp.SelectTypeAction = null;
         Dirty(ent);
 
-        // _userInterface.CloseUi((ent.Owner, null), BorgSwitchableTypeUiKey.SelectBorgType); // ADT-Borg-Subtype
+        _userInterface.CloseUi((ent.Owner, null), BorgSwitchableTypeUiKey.SelectBorgType);
 
         UpdateEntityAppearance(ent);
+
+        // ADT-Tweak start
+        var ev = new AfterBorgTypeSelectEvent();
+        RaiseLocalEvent(ent, ref ev);
+        // ADT-Tweak end
     }
 
     protected void UpdateEntityAppearance(Entity<BorgSwitchableTypeComponent> entity)
     {
-        if (!Prototypes.Resolve(entity.Comp.SelectedBorgType, out var proto))
+        if (!ProtoMan.Resolve(entity.Comp.SelectedBorgType, out var proto))
             return;
 
         UpdateEntityAppearance(entity, proto);
@@ -122,12 +127,12 @@ public abstract class SharedBorgSwitchableTypeSystem : EntitySystem
             footstepModifier.FootstepSoundCollection = prototype.FootstepCollection;
         }
 
-        // Corvax-TTS-start
+        // ADT-Tweak-Start
         if (TryComp(entity, out TTSComponent? tts))
         {
             tts.VoicePrototypeId = prototype.VoicePrototypeId;
         }
-        // Corvax-TTS-end
+        // ADT-Tweak-End
 
         if (prototype.SpriteBodyMovementState is { } movementState)
         {

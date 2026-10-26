@@ -522,3 +522,21 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+
+# Расовая одежда (Пока тут только для воксов. Уберите, когда добавят для других рас)
+
+- type: entity
+  parent: ClothingMaskBase
+  id: ADTClothingMaskVox
+  name: vox mask
+  components: 
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/vox_mask.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Mask/vox_mask.rsi
+  - type: Item
+    size: Tiny
+  - type: HideLayerClothing
+    slots:
+    - Snout
+  - type: BreathMask

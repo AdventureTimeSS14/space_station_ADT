@@ -35,12 +35,32 @@ public sealed class GpsSignalData
 
     public bool SameMap;
 
-    public GpsSignalData(NetEntity source, string tag, string? description, Color color, Vector2i? position, bool sameMap)
+    public bool Sos;
+
+    public GpsSignalData(NetEntity source, string tag, string? description, Color color, Vector2i? position, bool sameMap, bool sos)
     {
         Source = source;
         Tag = tag;
         Description = description;
         Color = color;
+        Position = position;
+        SameMap = sameMap;
+        Sos = sos;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed class GpsWaypointData
+{
+    public string Name;
+
+    public Vector2i Position;
+
+    public bool SameMap;
+
+    public GpsWaypointData(string name, Vector2i position, bool sameMap)
+    {
+        Name = name;
         Position = position;
         SameMap = sameMap;
     }
@@ -56,11 +76,21 @@ public sealed class GpsBoundUserInterfaceState : BoundUserInterfaceState
     public bool SameMapOnly;
     public bool CanToggle;
 
+    public bool Sos;
+
+    public TimeSpan? SosReadyAt;
+
     public Vector2i? Position;
 
     public string? Location;
 
+    public bool Nullspace;
+
     public List<GpsSignalData> Signals;
+
+    public int MaxWaypoints;
+
+    public List<GpsWaypointData> Waypoints;
 
     public GpsBoundUserInterfaceState(
         bool emped,
@@ -68,18 +98,28 @@ public sealed class GpsBoundUserInterfaceState : BoundUserInterfaceState
         string tag,
         bool sameMapOnly,
         bool canToggle,
+        bool sos,
+        TimeSpan? sosReadyAt,
         Vector2i? position,
         string? location,
-        List<GpsSignalData> signals)
+        bool nullspace,
+        List<GpsSignalData> signals,
+        int maxWaypoints,
+        List<GpsWaypointData> waypoints)
     {
         Emped = emped;
         Tracking = tracking;
         Tag = tag;
         SameMapOnly = sameMapOnly;
         CanToggle = canToggle;
+        Sos = sos;
+        SosReadyAt = sosReadyAt;
         Position = position;
         Location = location;
+        Nullspace = nullspace;
         Signals = signals;
+        MaxWaypoints = maxWaypoints;
+        Waypoints = waypoints;
     }
 }
 
@@ -94,6 +134,11 @@ public sealed class GpsToggleRangeMessage : BoundUserInterfaceMessage
 }
 
 [Serializable, NetSerializable]
+public sealed class GpsToggleSosMessage : BoundUserInterfaceMessage
+{
+}
+
+[Serializable, NetSerializable]
 public sealed class GpsSetTagMessage : BoundUserInterfaceMessage
 {
     public string Tag;
@@ -101,5 +146,27 @@ public sealed class GpsSetTagMessage : BoundUserInterfaceMessage
     public GpsSetTagMessage(string tag)
     {
         Tag = tag;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed class GpsAddWaypointMessage : BoundUserInterfaceMessage
+{
+    public string Name;
+
+    public GpsAddWaypointMessage(string name)
+    {
+        Name = name;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed class GpsRemoveWaypointMessage : BoundUserInterfaceMessage
+{
+    public int Index;
+
+    public GpsRemoveWaypointMessage(int index)
+    {
+        Index = index;
     }
 }

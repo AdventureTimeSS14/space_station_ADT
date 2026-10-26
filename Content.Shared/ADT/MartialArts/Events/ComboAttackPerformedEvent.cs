@@ -40,4 +40,5 @@ public enum ComboAttackType : byte
     Disarm,
     Grab,
     Hug,
+    Help,
 }

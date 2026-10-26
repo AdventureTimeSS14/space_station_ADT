@@ -74,6 +74,31 @@ public sealed partial class SlimeScannerWindow : BaseWindow
             {
                 MutationsContainer.AddChild(new Label { Text = Loc.GetString("slime-scanner-no-mutations") });
             }
+
+            if (msg.LocalSlimeCount.HasValue && msg.MaxSlimesPerGrid.HasValue && msg.BreedingSlowdown.HasValue)
+            {
+                DensityWarningLabel.Visible = true;
+                DensityWarningLabel.HorizontalExpand = true;
+                DensityWarningLabel.Text = Loc.GetString(
+                    "slime-scanner-population-ok",
+                    ("count", msg.LocalSlimeCount.Value),
+                    ("max", msg.MaxSlimesPerGrid.Value));
+
+                if (msg.BreedingSlowdown.Value > 0f)
+                {
+                    var pct = (int)MathF.Round(msg.BreedingSlowdown.Value * 100f);
+                    var warning = Loc.GetString(
+                        "slime-scanner-overcrowding-warning",
+                        ("count", msg.LocalSlimeCount.Value),
+                        ("max", msg.MaxSlimesPerGrid.Value),
+                        ("pct", pct));
+                    DensityWarningLabel.SetMarkup(warning);
+                }
+            }
+            else
+            {
+                DensityWarningLabel.Visible = false;
+            }
         }
         else if (msg.Reagents != null && msg.Reagents.Count > 0)
         {
@@ -88,11 +113,11 @@ public sealed partial class SlimeScannerWindow : BaseWindow
                 var colorRect = new PanelContainer { MinWidth = 20, MinHeight = 20, Margin = new Thickness(0, 0, 5, 0) };
                 colorRect.PanelOverride = new StyleBoxFlat(color);
                 row.AddChild(colorRect);
-                
+
                 var reagentName = reagentInfo.ReagentId;
                 if (_prototypes.TryIndex<ReagentPrototype>(reagentInfo.ReagentId, out var reagentProto))
                     reagentName = reagentProto.LocalizedName;
-                
+
                 row.AddChild(new Label { Text = reagentName });
                 ReagentsContainer.AddChild(row);
             }

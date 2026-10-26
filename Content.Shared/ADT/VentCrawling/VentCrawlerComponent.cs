@@ -1,3 +1,4 @@
+using Content.Shared.Actions;
 using Content.Shared.DoAfter;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
@@ -20,5 +21,10 @@ public sealed partial class VentCrawlerComponent : Component
 
 [Serializable, NetSerializable]
 public sealed partial class EnterVentDoAfterEvent : SimpleDoAfterEvent
+{
+}
+
+[DataDefinition]
+public sealed partial class ExitVentActionEvent : InstantActionEvent
 {
 }

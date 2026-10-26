@@ -43,7 +43,7 @@
             Warden: [ 1, 1 ]
             Librarian: [ 1, 1 ]
             Quartermaster: [ 1, 1 ]
-            SalvageSpecialist: [ 6, 6 ]
+            SalvageSpecialist: [ 3, 3 ]
             Musician: [ 2, 2 ]
             AtmosphericTechnician: [ 2, 3 ]
             TechnicalAssistant: [ 3, 3 ]
@@ -68,6 +68,7 @@
             ADTSeniorOfficer: [ 1, 1 ] # ADT-Roles
             # ADTCentcomConsultant: [ 1, 1 ] #ADT-Roles # Убрано по голосованию
             ADTCorrectionsOfficer: [ 1, 1 ] # ADT-Roles
+            ADTMiner: [ 6, 6 ] # ADT-Roles
             #silicon
             StationAi: [ 1, 1 ]
             Borg: [ 2, 3 ]

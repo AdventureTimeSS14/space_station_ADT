@@ -1,0 +1,15 @@
+- type: adtDungeonRoom
+  id: LavaDungeonDoor
+  size: 2, 2
+  tags:
+  - LavaDungeon
+  legend:
+    "a":
+      tile: FloorBasalt
+  tiles:
+  - "aa"
+  - "aa"
+  entities:
+  - proto: WoodDoor
+    positions:
+    - 1.5,0.5

@@ -1,0 +1,15 @@
+#NetzCaro
+- type: entity
+  parent: ClothingMaskBreathMedical
+  id: ADTClothingMaskBreathMedicalNetzCaro
+  name: medical mask
+  description: A close-fitting sterile mask that can be connected to an air supply.
+  suffix: Personal, NetzCaro
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/netzcaro_mask.rsi
+  - type: Clothing
+    sprite: ADT/Special/Personal/netzcaro_mask.rsi
+  - type: Tag
+    tags:
+    - PetWearable

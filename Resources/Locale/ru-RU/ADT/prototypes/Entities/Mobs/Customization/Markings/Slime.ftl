@@ -4,6 +4,8 @@ marking-SlimeRabbitEars = Слаймолюд, уши (Кролик)
 marking-SlimeRabbitEars-rabbit-ears = Уши
 marking-SlimeButterflyWings = Слаймолюд, крылья (Я бабочка)
 marking-SlimeButterflyWings-butterfly_wings = Крылья
+marking-SlimeSuccubus = Слаймолюд, крылья и хвост (Суккуб)
+marking-SlimeSuccubus-succubus = Крылья и хвост
 
 marking-ADTfizz = Шипение
 marking-ADTfizz-fizz = Шипение

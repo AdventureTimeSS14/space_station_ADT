@@ -165,3 +165,20 @@ ent-ADTClothingOuterWinterCoatLightColorBlack = чёрная лёгкая кур
 
 ent-ADTClothingOuterWinterCoatLightColorDarkBlue = тёмно-синяя лёгкая куртка
     .desc = { ent-ADTClothingOuterWinterCoatLightColorAquamarine.desc }
+
+
+ent-ADTClothingOuterVoxRobe = роба вокса
+  .desc = Стильная роба с капюшоном и кармашками для краденого. Из лучших мастерских Ковчега, с любовью.
+
+ent-ADTClothingOuterCaptainCoat = бронированная куртка капитана
+    .desc = Прочная, утилитарная зимняя куртка, предназначенная для защиты капитана от любых угроз, связанных со станцией и переохлаждением.
+
+ent-ADTClothingOuterCaptainCoatOpened = { ent-ADTClothingOuterCaptainCoat }
+    .desc = { ent-ADTClothingOuterCaptainCoat.desc }
+
+ent-ADTClothingOuterCoatOfficerUSSPGreatcoat = офицерская шинель СССП
+    .desc = Тяжёлая двубортная шинель офицера СССП.
+    .suffix = СССП
+ent-ADTClothingOuterCoatGeneralUSSPGreatcoat = генеральская шинель СССП
+    .desc = Серая генеральская шинель с красными петлицами и золотыми погонами.
+    .suffix = СССП

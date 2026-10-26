@@ -28,4 +28,4 @@
       slotFlags: NECK
     - type: ThermalVision
       color: "#998989"
-
+      highlightOnly: true

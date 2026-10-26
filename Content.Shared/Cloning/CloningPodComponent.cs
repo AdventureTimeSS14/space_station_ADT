@@ -40,6 +40,14 @@ public sealed partial class CloningPodComponent : Component
     [DataField]
     public float CloningTime = 30f;
 
+    // ADT-Tweak-Start
+    [DataField]
+    public float SpeedMultiplier = 1f;
+
+    [DataField]
+    public float CloningSafety = 1f;
+    // ADT-Tweak-End
+
     /// <summary>
     /// The mob to spawn on emag.
     /// </summary>
@@ -52,7 +60,7 @@ public sealed partial class CloningPodComponent : Component
     [DataField]
     public SoundSpecifier ScreamSound = new SoundCollectionSpecifier("ZombieScreams")
     {
-        Params = AudioParams.Default.WithVolume(4),
+        Params = AudioParams.Default.AddVolume(4),
     };
 
     [ViewVariables(VVAccess.ReadWrite)]

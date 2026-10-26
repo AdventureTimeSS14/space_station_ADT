@@ -26,6 +26,9 @@
   id: IgnoreBalanceChecks
 
 - type: Tag
+  id: ADTVendingCargoAccount
+
+- type: Tag
   id: SpaceCash
 
 - type: Tag
@@ -60,6 +63,9 @@
 
 - type: Tag
   id: ADTOldRadio  # ADT Радио Апдейт
+
+- type: Tag
+  id: ADTMicrophoneInstrument
 
 - type: Tag
   id: ADTBorgUse
@@ -138,9 +144,6 @@
 
 - type: Tag
   id: Storage
-
-- type: Tag
-  id: Stunbaton
 
 - type: Tag
   id: Table
@@ -267,7 +270,7 @@
   id: VehicleKey
 
 - type: Tag
-  id: JanicartKeys
+  id: LegCuffs
 
 #mech_gygax
 
@@ -507,6 +510,9 @@
   id: ADTCatEmotes
 
 - type: Tag
+  id: ADTIPCCuteEmotes
+
+- type: Tag
   id: ADTVoxEmotes
 
 - type: Tag
@@ -606,12 +612,6 @@
 
 - type: Tag
   id: ADTMinerArmor
-
-- type: Tag
-  id: ADTMinerArmorOne
-
-- type: Tag
-  id: ADTMinerArmorTwo
 
 - type: Tag
   id: ADTBsoWeapon
@@ -892,6 +892,9 @@
 - type: Tag
   id: Appendix
 
+- type: Tag
+  id: FiringPin
+
 # XENOBIO - START
 - type: Tag
   id: XenobiologyGreyExtract
@@ -965,6 +968,9 @@
 - type: Tag
   id: XenoVacNozzle
 
+- type: Tag
+  id: XenobiologyRainbowExtract
+
 # XENOBIO - END
 
 - type: Tag
@@ -972,3 +978,183 @@
 
 - type: Tag
   id: BlueprintBSA
+
+- type: Tag
+  id: ConstantTemperatureThresholds # make entity ignore parent temperature thresholds from TemperatureContainerComponent
+
+- type: Tag
+  id: ADTMagmite
+
+- type: Tag
+  id: ADTMagmitePartsInert
+
+- type: Tag
+  id: LavaDungeonWorldAnvil
+
+- type: Tag
+  id: ADTAshFloraShavings
+
+- type: Tag
+  id: ADTSlidingPuzzle
+
+- type: Tag
+  id: ADTMagmaGem
+
+- type: Tag
+  id: ADTGem
+
+- type: Tag
+  id: ADTGemAmber
+
+- type: Tag
+  id: ADTGemSimple
+
+- type: Tag
+  id: ADTReishi
+
+- type: Tag
+  id: ADTThaliPortion
+
+- type: Tag
+  id: ADTAshDrakeHide
+
+- type: Tag
+  id: ADTFireblossom
+
+- type: Tag
+  id: ADTLegionCore
+
+- type: Tag
+  id: ADTGoldgrub
+
+- type: Tag
+  id: ADTCactusBerry
+
+- type: Tag
+  id: ADTAshFloraLeaf
+
+- type: Tag
+  id: ADTFishingBait
+
+- type: Tag
+  id: ADTBaitAshEater
+
+- type: Tag
+  id: ADTBaitBloodyLeach
+
+- type: Tag
+  id: ADTBaitGoldgrubLarva
+
+- type: Tag
+  id: ADTCharredKrill
+
+- type: Tag
+  id: ADTLavaFish
+
+- type: Tag
+  id: ADTLavaFishPart
+
+- type: Tag
+  id: ADTLavalandDye
+
+- type: Tag
+  id: ADTCircularSawBlade
+
+- type: Tag
+  id: ADTSandstone
+
+- type: Tag
+  id: ADTBoneAxe
+
+- type: Tag
+  id: ADTPicoServoStockPart
+
+- type: Tag
+  id: ADTMagazineMagnumLesser
+
+- type: Tag
+  id: ADTCelecernEmotes
+
+- type: Tag
+  id: RMCTankFlamerFmW60
+
+- type: Tag
+  id: ReactorPart
+
+- type: Tag
+  id: GasTurbineBlade
+
+- type: Tag
+  id: GasTurbineStator
+
+- type: Tag
+  id: RMCTankFlamerM560
+
+- type: Tag
+  id: RMCTankFlamerMakeshift
+
+- type: Tag
+  id: ADTWeaverChitin
+
+- type: Tag
+  id: LavaDungeonAshVillage
+
+- type: Tag
+  id: LavaDungeonHeliosEntrance
+
+- type: Tag
+  id: ADTCartilagePads
+
+- type: Tag
+  id: ADTCartilageGreaves
+
+- type: Tag
+  id: ADTSpearBone
+
+- type: Tag
+  id: ADTBowImprovised
+
+- type: Tag
+  id: ADTGoliathMeat
+
+- type: Tag
+  id: ADTSpearChitin
+
+- type: Tag
+  id: ADTBowBone
+
+- type: Tag
+  id: ADTArrowWooden
+
+- type: Tag
+  id: ADTGemRuby
+
+- type: Tag
+  id: ADTSinewRestraints
+
+- type: Tag
+  id: ADTBoneKnifeEel
+
+- type: Tag
+  id: ADTGoliathCloak
+
+- type: Tag
+  id: ADTBow
+
+- type: Tag
+  id: ADTJanicartUpgradeBuffer
+
+- type: Tag
+  id: ADTJanicartUpgradeVacuum
+
+- type: Tag
+  id: ADTJanicartUpgradeSpeed
+
+- type: Tag
+  id: ADTMagicStaff
+
+- type: Tag
+  id: ADTOar
+
+- type: Tag
+  id: ADTCoaltreeLog

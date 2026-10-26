@@ -43,7 +43,7 @@
     enabled: false
     radius: 6
     energy: 3
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ADTLightMaskCone
     autoRot: true
 
 - type: entity
@@ -75,8 +75,7 @@
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    heatingCoefficient: 0.005
-    coolingCoefficient: 0.005
+    coefficient: 0.005
   - type: FireProtection
     reduction: 0.8
   - type: ShowHealthBars
@@ -127,8 +126,7 @@
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    heatingCoefficient: 0.005
-    coolingCoefficient: 0.005
+    coefficient: 0.005
   - type: FireProtection
     reduction: 0.8
   - type: EyeProtection
@@ -163,10 +161,13 @@
   - type: ShowHealthBars
     damageContainers:
     - Biological
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
   - type: ShowHealthIcons
     damageContainers:
     - Biological
-
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
 - type: entity
   parent: ADTClothingHeadHelmetModsuitBase
   id: ADTClothingHeadHelmetModsuitMining
@@ -418,10 +419,13 @@
   - type: ShowHealthBars
     damageContainers:
     - Biological
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
   - type: ShowHealthIcons
     damageContainers:
     - Biological
-
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
 - type: entity
   parent: ADTClothingHeadHelmetModsuitBase
   id: ADTClothingHeadHelmetModsuitCaptain
@@ -496,10 +500,13 @@
   - type: ShowHealthBars
     damageContainers:
     - Biological
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
   - type: ShowHealthIcons
     damageContainers:
     - Biological
-
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
 - type: entity
   parent: ADTClothingHeadHelmetModsuitBase
   id: ADTClothingHeadHelmetModsuitWard
@@ -543,10 +550,13 @@
   - type: ShowHealthBars
     damageContainers:
     - Biological
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
   - type: ShowHealthIcons
     damageContainers:
     - Biological
-
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
 - type: entity
   parent: ADTClothingHeadHelmetModsuitBase
   id: ADTClothingHeadHelmetModsuitAncient

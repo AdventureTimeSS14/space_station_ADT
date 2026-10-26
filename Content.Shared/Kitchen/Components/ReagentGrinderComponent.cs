@@ -1,5 +1,6 @@
 using Content.Shared.Kitchen.EntitySystems;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -37,6 +38,11 @@ public sealed partial class ReagentGrinderComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public int StorageMaxEntities = 6;
+
+    // ADT-Tweak-Start: machine parts with tiers
+    [DataField]
+    public float CapacityMultiplier = 1f;
+    // ADT-Tweak-End
 
     /// <summary>
     /// The time grinding or juicing takes.

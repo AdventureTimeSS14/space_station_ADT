@@ -1,103 +1,88 @@
 using Content.Server.ADT.Bubblegum.Abilities;
+using Content.Server.ADT.Salvage.Systems;
 using Content.Server.NPC.HTN;
-using Content.Server.NPC.Systems;
 using Content.Shared.ADT.Bubblegum;
 using Content.Shared.ADT.Bubblegum.Abilities;
-using Content.Shared.Mobs.Systems;
+using Content.Shared.ADT.Salvage.Components;
 using Robust.Shared.Map;
-using Robust.Shared.Player;
 using Robust.Shared.Random;
-using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.Bubblegum;
 
 public sealed class BubblegumCombatSystem : EntitySystem
 {
-    [Dependency] private readonly BubblegumSystem _bubblegum = default!;
-    [Dependency] private readonly BubblegumBloodWarpSystem _warp = default!;
-    [Dependency] private readonly BubblegumHallucinationChargeSystem _hallucination = default!;
-    [Dependency] private readonly BubblegumSummonNarsiSystem _narsi = default!;
-    [Dependency] private readonly BubblegumSurroundSystem _surround = default!;
-    [Dependency] private readonly BubblegumTripleChargeSystem _tripleCharge = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly NPCSystem _npc = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private ADTMegafaunaChargeSystem _charge = default!;
+    [Dependency] private BubblegumSystem _bubblegum = default!;
+    [Dependency] private MegafaunaSystem _megafauna = default!;
+    [Dependency] private BubblegumBloodWarpSystem _warp = default!;
+    [Dependency] private BubblegumHallucinationChargeSystem _hallucination = default!;
+    [Dependency] private BubblegumSummonNarsiSystem _narsi = default!;
+    [Dependency] private BubblegumSurroundSystem _surround = default!;
+    [Dependency] private BubblegumTripleChargeSystem _tripleCharge = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<BubblegumPendingChargeComponent, ComponentInit>(OnBusyAdded);
-        SubscribeLocalEvent<BubblegumPendingChargeComponent, ComponentShutdown>(OnBusyRemoved);
-        SubscribeLocalEvent<BubblegumActiveChargeComponent, ComponentInit>(OnBusyAdded);
-        SubscribeLocalEvent<BubblegumPendingWavesComponent, ComponentInit>(OnBusyAdded);
-        SubscribeLocalEvent<BubblegumPendingWavesComponent, ComponentShutdown>(OnBusyRemoved);
+        SubscribeLocalEvent<BubblegumPendingWavesComponent, ComponentStartup>(OnWavesStartup);
+        SubscribeLocalEvent<BubblegumPendingWavesComponent, ComponentShutdown>(OnWavesShutdown);
+        SubscribeLocalEvent<BubblegumPendingWavesComponent, ADTMegafaunaBusyCheckEvent>(OnWavesBusyCheck);
+
+        SubscribeLocalEvent<BubblegumComponent, ADTMegafaunaChargeTrampleAttemptEvent>(OnTrampleAttempt);
+        SubscribeLocalEvent<BubblegumHallucinationComponent, ADTMegafaunaChargeTrampleAttemptEvent>(OnTrampleAttempt);
+        SubscribeLocalEvent<BubblegumMinionComponent, ADTMegafaunaChargeTrampleAttemptEvent>(OnTrampleAttempt);
+        SubscribeLocalEvent<BubblegumHallucinationComponent, ADTMegafaunaChargeEndedEvent>(OnHallucinationChargeEnded);
+
+        SubscribeLocalEvent<BubblegumComponent, ADTMegafaunaAttemptOpenFireEvent>(OnAttemptOpenFire);
+        SubscribeLocalEvent<BubblegumComponent, ADTMegafaunaOpenFireEvent>(OnOpenFire);
     }
 
-    private void OnBusyAdded<T>(EntityUid uid, T comp, ComponentInit args) where T : IComponent
+    private void OnWavesStartup(Entity<BubblegumPendingWavesComponent> ent, ref ComponentStartup args)
     {
-        if (!TryComp<HTNComponent>(uid, out var htn))
-            return;
-
-        htn.Blackboard.SetValue("BubblegumWavesBusy", true);
+        _megafauna.RefreshBusy(ent);
     }
 
-    private void OnBusyRemoved<T>(EntityUid uid, T comp, ComponentShutdown args) where T : IComponent
+    private void OnWavesShutdown(Entity<BubblegumPendingWavesComponent> ent, ref ComponentShutdown args)
     {
-        if (HasComp<BubblegumPendingChargeComponent>(uid)
-            || HasComp<BubblegumActiveChargeComponent>(uid)
-            || HasComp<BubblegumPendingWavesComponent>(uid))
-            return;
-
-        RemoveBubblegumBusy(uid);
+        if (!TerminatingOrDeleted(ent))
+            _megafauna.RefreshBusy(ent);
     }
 
-    public void RemoveBubblegumBusy(EntityUid uid)
+    private void OnWavesBusyCheck(Entity<BubblegumPendingWavesComponent> ent, ref ADTMegafaunaBusyCheckEvent args)
     {
-        if (!TryComp<HTNComponent>(uid, out var htn))
-            return;
-
-        htn.Blackboard.Remove<bool>("BubblegumWavesBusy");
+        if (ent.Comp.LifeStage < ComponentLifeStage.Stopping)
+            args.Busy = true;
     }
 
-    public override void Update(float frameTime)
+    private void OnTrampleAttempt<T>(Entity<T> ent, ref ADTMegafaunaChargeTrampleAttemptEvent args) where T : IComponent
     {
-        base.Update(frameTime);
+        args.Cancelled = true;
+    }
 
-        var now = _timing.CurTime;
-        var query = EntityQueryEnumerator<BubblegumComponent, HTNComponent>();
-        while (query.MoveNext(out var uid, out var comp, out var htn))
-        {
-            if (!_npc.IsAwake(uid, htn))
-                continue;
+    private void OnHallucinationChargeEnded(Entity<BubblegumHallucinationComponent> ent, ref ADTMegafaunaChargeEndedEvent args)
+    {
+        QueueDel(ent);
+    }
 
-            if (HasComp<ActorComponent>(uid))
-                continue;
+    private void OnAttemptOpenFire(Entity<BubblegumComponent> ent, ref ADTMegafaunaAttemptOpenFireEvent args)
+    {
+        if (IsBusy(ent))
+            args.Cancelled = true;
+    }
 
-            if (_mobState.IsDead(uid))
-                continue;
+    private void OnOpenFire(Entity<BubblegumComponent> ent, ref ADTMegafaunaOpenFireEvent args)
+    {
+        if (TryComp<ADTMegafaunaAIComponent>(ent, out var ai))
+            _megafauna.SetRangedCooldown((ent.Owner, ai), ent.Comp.AbilityInterval);
 
-            if (now < comp.NextAbilityAt)
-                continue;
-
-            if (IsBusy(uid))
-                continue;
-
-            if (!htn.Blackboard.TryGetValue<EntityUid>("Target", out var target, EntityManager)
-                || TerminatingOrDeleted(target))
-                continue;
-
-            comp.NextAbilityAt = now + comp.AbilityInterval;
-            Decide((uid, comp), target);
-        }
+        Decide(ent, args.Target);
     }
 
     private bool IsBusy(EntityUid uid)
     {
-        return HasComp<BubblegumPendingChargeComponent>(uid)
-               || HasComp<BubblegumActiveChargeComponent>(uid)
+        return _charge.IsCharging(uid)
                || HasComp<BubblegumPendingWavesComponent>(uid)
                || HasComp<BubblegumPendingWarpComponent>(uid);
     }
@@ -116,7 +101,7 @@ public sealed class BubblegumCombatSystem : EntitySystem
             && TryComp<BubblegumBloodWarpComponent>(ent, out var warp)
             && _warp.TryBloodWarp((ent.Owner, warp), targetCoords))
         {
-            _bubblegum.Say(ent, "bubblegum-blood-warp", 3);
+            _megafauna.Say(ent, "bubblegum-blood-warp", 3);
             return;
         }
 
@@ -125,7 +110,7 @@ public sealed class BubblegumCombatSystem : EntitySystem
         {
             if (TryComp<BubblegumTripleChargeComponent>(ent, out var tc))
             {
-                _bubblegum.Say(ent, "bubblegum-triple-charge", 3);
+                _megafauna.Say(ent, "bubblegum-triple-charge", 3);
                 _tripleCharge.StartNpcTripleCharge((ent.Owner, tc), targetCoords);
             }
             return;
@@ -136,7 +121,7 @@ public sealed class BubblegumCombatSystem : EntitySystem
         {
             if (TryComp<BubblegumSummonNarsiComponent>(ent, out var narsi))
             {
-                _bubblegum.Say(ent, "bubblegum-narsi", 3);
+                _megafauna.Say(ent, "bubblegum-narsi", 3);
                 _narsi.TrySummon((ent.Owner, narsi), targetCoords);
             }
             return;
@@ -146,7 +131,7 @@ public sealed class BubblegumCombatSystem : EntitySystem
         {
             if (TryComp<BubblegumHallucinationChargeComponent>(ent, out var hc))
             {
-                _bubblegum.Say(ent, "bubblegum-hallucination", 3);
+                _megafauna.Say(ent, "bubblegum-hallucination", 3);
                 _hallucination.StartHallucinationCharge((ent.Owner, hc), targetCoords, target);
             }
             return;
@@ -154,7 +139,7 @@ public sealed class BubblegumCombatSystem : EntitySystem
 
         if (TryComp<BubblegumSurroundComponent>(ent, out var sc))
         {
-            _bubblegum.Say(ent, "bubblegum-surround", 3);
+            _megafauna.Say(ent, "bubblegum-surround", 3);
             _surround.StartSurround((ent.Owner, sc), targetCoords, target);
         }
     }

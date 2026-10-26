@@ -1,4 +1,4 @@
-﻿- type: markingsGroup
+- type: markingsGroup
   parent: Undergarments
   id: Diona
   onlyGroupWhitelisted: true
@@ -7,10 +7,10 @@
       limit: 2
       required: false
     enum.HumanoidVisualLayers.HeadTop:
-      limit: 1
+      limit: 2 #ADT-tweak 1>2
       required: false
     enum.HumanoidVisualLayers.HeadSide:
-      limit: 1
+      limit: 2 #ADT-tweak 1>2
       required: false
     enum.HumanoidVisualLayers.Chest:
       limit: 2
@@ -72,6 +72,18 @@
   id: MobDiona
   name: Urist McPlants
   components:
+  # ADT-Tweak start
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: SoftCritical
+      170: Critical
+      200: Dead
+  - type: SoftCrit
+    speedModifier: 0.20
+  - type: TryCatchBreath
+    doAfterTime: 8
+  # ADT-Tweak end
   - type: Respirator
     damage:
       types:
@@ -79,10 +91,12 @@
     damageRecovery:
       types:
         Asphyxiation: -1.0
-  - type: Hunger
-    baseDecayRate: 0.0083
-  - type: Thirst
-    baseDecayRate: 0.0083
+  - type: Satiation
+    satiations:
+      Hunger:
+        prototype: DionaHunger
+      Thirst:
+        prototype: DionaThirst
   - type: Damageable
     damageModifierSet: Diona
   - type: Injurable
@@ -94,7 +108,6 @@
       Burn:
         sprite: Mobs/Effects/burn_damage.rsi
   - type: Butcherable
-    butcheringType: Spike
     spawned:
       - id: FoodMeatPlant
         amount: 5
@@ -102,7 +115,7 @@
     bloodReferenceSolution:
       reagents:
       - ReagentId: Sap
-        Quantity: 300
+        Quantity: 600
   - type: Reactive
     groups:
       Flammable: [ Touch ]
@@ -168,10 +181,7 @@
   - type: CollectiveMindRank
   # ADT-Tweak end
   - type: Vocal
-    sounds:
-      Male: UnisexDiona
-      Female: UnisexDiona
-      Unsexed: UnisexDiona
+    emoteSounds: UnisexDiona
   - type: TypingIndicator
     proto: diona
   - type: BodyEmotes
@@ -296,7 +306,13 @@
     stages: [ Digestion, Bloodstream, Metabolites ]
 
 - type: entity
-  parent: OrganDionaBrain
+  abstract: true
+  id: BaseNymphingOrgan
+  components:
+  - type: Nymph
+
+- type: entity
+  parent: [ OrganDionaBrain, BaseNymphingOrgan ]
   suffix: "Diona, Nymphing"
   id: OrganDionaBrainNymphing
   components:
@@ -305,7 +321,7 @@
     entityPrototype: OrganDionaNymphBrain
 
 - type: entity
-  parent: OrganDionaLungs
+  parent: [ OrganDionaLungs, BaseNymphingOrgan ]
   suffix: "Diona, Nymphing"
   id: OrganDionaLungsNymphing
   components:
@@ -313,7 +329,7 @@
     entityPrototype: OrganDionaNymphLungs
 
 - type: entity
-  parent: OrganDionaStomach
+  parent: [ OrganDionaStomach, BaseNymphingOrgan ]
   suffix: "Diona, Nymphing"
   id: OrganDionaStomachNymphing
   components:

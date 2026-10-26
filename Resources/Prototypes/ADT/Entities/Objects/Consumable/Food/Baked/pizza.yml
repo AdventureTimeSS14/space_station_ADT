@@ -1,5 +1,5 @@
 - type: entity
-  parent: FoodInjectableBase
+  parent: [ FoodInjectableBase, BaseSlicingRefinableFood ]
   id: ADTFoodPizzaSindiBase
   abstract: true
   components:
@@ -10,17 +10,14 @@
   - type: Edible
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/sindy_pizza.rsi
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 40
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 30
-        - ReagentId: Omnizine
-          Quantity: 10
-  - type: SliceableFood
-    count: 8
+  - type: Solution
+    solution:
+      maxVol: 40
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 30
+      - ReagentId: Omnizine
+        Quantity: 10
   - type: Item
     size: Normal
     shape:
@@ -42,8 +39,10 @@
   - type: Sprite
     layers:
     - state: fullpizza
-  - type: SliceableFood
-    slice: ADTFoodPizzaSindiSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: ADTFoodPizzaSindiSlice
+      amount: 8
 
 - type: entity
   parent: FoodInjectableBase # Not sliceable
@@ -56,16 +55,14 @@
   - type: Edible
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/sindy_pizza.rsi
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        # Note: Keep FoodPizzaMoldySlice & FoodPizzaSliceBase roughly in sync
-        maxVol: 6
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
-        - ReagentId: Omnizine
-          Quantity: 1
+  - type: Solution
+    solution:
+      maxVol: 6
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 5
+      - ReagentId: Omnizine
+        Quantity: 1
   - type: Item
     size: Tiny
   - type: Tag
@@ -93,29 +90,22 @@
 
 
 - type: entity
-  parent: FoodInjectableBase
-  id: ADTFoodPizzaBBQ
-  name: bbqPizza
-  description: A bbq pizza
+  parent: [ FoodInjectableBase, BaseSlicingRefinableFood ]
+  id: ADTFoodPizzaBase
+  abstract: true
   components:
   - type: FlavorProfile
     flavors:
       - oily
       - bread
-  - type: Edible
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
-    state: bbq
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 30
-  - type: SliceableFood
-    count: 8
-    slice: ADTFoodPizzaBBQSlice
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 30
   - type: Item
     size: Normal
     shape:
@@ -125,29 +115,48 @@
     - Pizza
     - ReptilianFood
 
+- type: entity
+  parent: ADTFoodPizzaBase
+  id: ADTFoodPizzaMeatBase
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - Pizza
+    - Meat
+
+- type: entity
+  parent: ADTFoodPizzaMeatBase
+  id: ADTFoodPizzaBBQ
+  name: bbqPizza
+  description: A bbq pizza
+  components:
+  - type: Sprite
+    state: bbq
+  - type: ToolRefinable
+    refineResult:
+    - id: ADTFoodPizzaBBQSlice
+      amount: 8
+
 
 
 - type: entity
   parent: FoodInjectableBase
-  id: ADTFoodPizzaBBQSlice
-  name: slice of bbq pizza
-  description: A slice of bbq pizza
+  id: ADTFoodPizzaSliceBase
+  abstract: true
   components:
   - type: FlavorProfile
     flavors:
       - oily
       - bread
-  - type: Edible
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
-    state: bbq-slice
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
+  - type: Solution
+    solution:
+      maxVol: 5
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 5
   - type: Item
     size: Tiny
   - type: Tag
@@ -156,12 +165,32 @@
     - ReptilianFood
     - Slice
 
+- type: entity
+  parent: ADTFoodPizzaSliceBase
+  id: ADTFoodPizzaMeatSliceBase
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - Pizza
+    - Slice
+    - Meat
+
+- type: entity
+  parent: ADTFoodPizzaMeatSliceBase
+  id: ADTFoodPizzaBBQSlice
+  name: slice of bbq pizza
+  description: A slice of bbq pizza
+  components:
+  - type: Sprite
+    state: bbq-slice
+
 
 
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQ
+  parent: ADTFoodPizzaMeatBase
   id: ADTFoodPizzaBolognese
   name: bolognesePizza
   description: A bolognesse pizza
@@ -170,13 +199,14 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
     state: bolognese
-  - type: SliceableFood
-    count: 8
-    slice: ADTFoodPizzaBologneseSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: ADTFoodPizzaBologneseSlice
+      amount: 8
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQSlice
+  parent: ADTFoodPizzaMeatSliceBase
   id: ADTFoodPizzaBologneseSlice
   name: slice of bolognesse pizza
   description: A slice of bolognesse pizza
@@ -189,7 +219,7 @@
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQ
+  parent: ADTFoodPizzaMeatBase
   id: ADTFoodPizzaCaesar
   name: caesar pizza
   description: A caesar pizza
@@ -198,13 +228,14 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
     state: caesar
-  - type: SliceableFood
-    count: 8
-    slice: ADTFoodPizzaCaesarSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: ADTFoodPizzaCaesarSlice
+      amount: 8
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQSlice
+  parent: ADTFoodPizzaMeatSliceBase
   id: ADTFoodPizzaCaesarSlice
   name: slice of caesar pizza
   description: A slice of caesar pizza
@@ -215,7 +246,7 @@
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQ
+  parent: ADTFoodPizzaBase
   id: ADTFoodPizzaCheese
   name: cheese pizza
   description: A cheese pizza
@@ -224,13 +255,14 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
     state: cheese
-  - type: SliceableFood
-    count: 8
-    slice: ADTFoodPizzaCheeseSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: ADTFoodPizzaCheeseSlice
+      amount: 8
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQSlice
+  parent: ADTFoodPizzaSliceBase
   id: ADTFoodPizzaCheeseSlice
   name: slice of cheese pizza
   description: A slice of cheese pizza
@@ -240,7 +272,7 @@
     state: cheese-slice
 
 - type: entity
-  parent: ADTFoodPizzaBBQ
+  parent: ADTFoodPizzaBase
   id: ADTFoodPizzaChicago
   name: chicago pizza
   description: A Chicago pizza
@@ -249,13 +281,14 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
     state: chicago
-  - type: SliceableFood
-    count: 8
-    slice: ADTFoodPizzaChicagoSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: ADTFoodPizzaChicagoSlice
+      amount: 8
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQSlice
+  parent: ADTFoodPizzaSliceBase
   id: ADTFoodPizzaChicagoSlice
   name: slice of chicago pizza
   description: A slice of chicago pizza
@@ -266,7 +299,7 @@
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQ
+  parent: ADTFoodPizzaMeatBase
   id: ADTFoodPizzaChicken
   name: chicken pizza
   description: A chicken pizza
@@ -275,13 +308,14 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
     state: chicken
-  - type: SliceableFood
-    count: 8
-    slice: ADTFoodPizzaChickenSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: ADTFoodPizzaChickenSlice
+      amount: 8
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQSlice
+  parent: ADTFoodPizzaMeatSliceBase
   id: ADTFoodPizzaChickenSlice
   name: slice of chicken pizza
   description: A slice of chicken pizza
@@ -292,7 +326,7 @@
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQ
+  parent: ADTFoodPizzaMeatBase
   id: ADTFoodPizzaClassic
   name: classic pizza
   description: A classic pizza
@@ -301,13 +335,14 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
     state: classic
-  - type: SliceableFood
-    count: 8
-    slice: ADTFoodPizzaClassicSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: ADTFoodPizzaClassicSlice
+      amount: 8
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQSlice
+  parent: ADTFoodPizzaMeatSliceBase
   id: ADTFoodPizzaClassicSlice
   name: slice of classic pizza
   description: A slice of classic pizza
@@ -319,7 +354,7 @@
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQ
+  parent: ADTFoodPizzaMeatBase
   id: ADTFoodPizzaDiablo
   name: diablo pizza
   description: The diablo pizza
@@ -328,13 +363,14 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
     state: diablo
-  - type: SliceableFood
-    count: 8
-    slice: ADTFoodPizzaDiabloSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: ADTFoodPizzaDiabloSlice
+      amount: 8
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQSlice
+  parent: ADTFoodPizzaMeatSliceBase
   id: ADTFoodPizzaDiabloSlice
   name: slice of diablo pizza
   description: A slice of diablo pizza
@@ -345,7 +381,7 @@
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQ
+  parent: ADTFoodPizzaBase
   id: ADTFoodPizzaFourcheese
   name: four cheese pizza
   description: A four cheese pizza
@@ -354,13 +390,14 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
     state: fourcheese
-  - type: SliceableFood
-    count: 8
-    slice: ADTFoodPizzaFourcheeseSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: ADTFoodPizzaFourcheeseSlice
+      amount: 8
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQSlice
+  parent: ADTFoodPizzaSliceBase
   id: ADTFoodPizzaFourcheeseSlice
   name: slice of four cheese pizza
   description: A slice of four cheese pizza
@@ -372,7 +409,7 @@
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQ
+  parent: ADTFoodPizzaMeatBase
   id: ADTFoodPizzaMexican
   name: mexican pizza
   description: A mexican pizza
@@ -381,13 +418,14 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
     state: mexican
-  - type: SliceableFood
-    count: 8
-    slice: ADTFoodPizzaMexicanSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: ADTFoodPizzaMexicanSlice
+      amount: 8
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQSlice
+  parent: ADTFoodPizzaMeatSliceBase
   id: ADTFoodPizzaMexicanSlice
   name: slice of mexican pizza
   description: A slice of mexican pizza
@@ -399,7 +437,7 @@
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQ
+  parent: ADTFoodPizzaMeatBase
   id: ADTFoodPizzaMushroomchicken
   name: mushroom chicken pizza
   description: A mushroom chicken pizza
@@ -408,13 +446,14 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
     state: mushroomchicken
-  - type: SliceableFood
-    count: 8
-    slice: ADTFoodPizzaMushroomchickenSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: ADTFoodPizzaMushroomchickenSlice
+      amount: 8
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQSlice
+  parent: ADTFoodPizzaMeatSliceBase
   id: ADTFoodPizzaMushroomchickenSlice
   name: slice of mushroom chicken pizza
   description: A slice of mushroom chicken pizza
@@ -425,7 +464,7 @@
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQ
+  parent: ADTFoodPizzaMeatBase
   id: ADTFoodPizzaSea
   name: sea pizza
   description: A sea pizza
@@ -434,13 +473,14 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
     state: sea
-  - type: SliceableFood
-    count: 8
-    slice: ADTFoodPizzaSeaSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: ADTFoodPizzaSeaSlice
+      amount: 8
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQSlice
+  parent: ADTFoodPizzaMeatSliceBase
   id: ADTFoodPizzaSeaSlice
   name: slice of sea pizza
   description: A slice of sea pizza

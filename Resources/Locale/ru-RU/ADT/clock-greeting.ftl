@@ -1,0 +1,15 @@
+clock-greeting-month-1 = января
+clock-greeting-month-2 = февраля
+clock-greeting-month-3 = марта
+clock-greeting-month-4 = апреля
+clock-greeting-month-5 = мая
+clock-greeting-month-6 = июня
+clock-greeting-month-7 = июля
+clock-greeting-month-8 = августа
+clock-greeting-month-9 = сентября
+clock-greeting-month-10 = октября
+clock-greeting-month-11 = ноября
+clock-greeting-month-12 = декабря
+clock-greeting-date = {$day} {$month} {$year} года
+clock-greeting-earth-time = {$time} по земному времени
+clock-greeting-shift = Время смены - {$time}

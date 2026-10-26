@@ -1,0 +1,125 @@
+- type: adtDungeonRoom
+  id: LavaDungeonPride
+  size: 6, 16
+  tags:
+  - LavaDungeon
+  legend:
+    "a":
+      tile: Plating
+    "b":
+      tile: FloorWhiteDiagonalMini
+  tiles:
+  - "aaaaaa"
+  - "aaaaaa"
+  - "aaaaaa"
+  - "abaaab"
+  - "abbabb"
+  - "abbbbb"
+  - "abbbbb"
+  - "abbbbb"
+  - "abbbbb"
+  - "abbbbb"
+  - "abbbbb"
+  - "abbbbb"
+  - "abbbbb"
+  - "abbbbb"
+  - "abbbbb"
+  - "aaaaaa"
+  entities:
+  - proto: ADTSoundGenGhostSingAmbient
+    positions:
+    - 2.5,3.5
+    - 4.5,5.5
+  - proto: ADTSoundGenLaugh
+    rot: 3.141592653589793 rad
+    positions:
+    - 3.5,7.5
+    - 5.5,11.5
+  - proto: ADTSoundGenLaugh2
+    rot: 3.141592653589793 rad
+    positions:
+    - 2.5,9.5
+    - 1.5,11.5
+  - proto: AlwaysPoweredlightBlue
+    rot: -1.5707963267948966 rad
+    positions:
+    - 5.5,7.5
+    - 5.5,10.5
+    - 5.5,1.5
+    - 5.5,4.5
+  - proto: AlwaysPoweredlightBlue
+    rot: 1.5707963267948966 rad
+    positions:
+    - 1.5,4.5
+    - 1.5,7.5
+    - 1.5,10.5
+    - 1.5,1.5
+  - proto: FloorLavaEntity
+    rot: 3.141592653589793 rad
+    positions:
+    - 1.5,15.5
+    - 0.5,15.5
+    - 0.5,14.5
+    - 5.5,15.5
+  - proto: Mirror
+    rot: 1.5707963267948966 rad
+    positions:
+    - 0.5,1.5
+    - 0.5,2.5
+    - 0.5,3.5
+    - 0.5,4.5
+    - 0.5,5.5
+    - 0.5,6.5
+    - 0.5,7.5
+    - 0.5,8.5
+    - 0.5,9.5
+    - 0.5,10.5
+    - 0.5,11.5
+    - 0.5,12.5
+  - proto: Mirror
+    positions:
+    - 3.5,11.5
+  - proto: MirrorShield
+    positions:
+    - 3.4958,10.607
+  - proto: SilverDoor
+    positions:
+    - 3.5,0.5
+  - proto: WallDiamond
+    rot: 3.141592653589793 rad
+    positions:
+    - 0.5,8.5
+    - 0.5,6.5
+    - 0.5,5.5
+    - 0.5,4.5
+    - 0.5,2.5
+    - 0.5,0.5
+    - 0.5,1.5
+    - 0.5,3.5
+    - 0.5,7.5
+    - 2.5,0.5
+    - 1.5,0.5
+    - 5.5,0.5
+    - 4.5,0.5
+    - 0.5,9.5
+    - 0.5,10.5
+    - 5.5,13.5
+    - 4.5,13.5
+    - 4.5,12.5
+    - 3.5,12.5
+    - 3.5,11.5
+    - 2.5,12.5
+    - 2.5,13.5
+    - 1.5,13.5
+    - 0.5,13.5
+    - 0.5,12.5
+    - 0.5,11.5
+    - 3.5,13.5
+    - 2.5,14.5
+    - 3.5,14.5
+    - 4.5,14.5
+    - 3.5,15.5
+    - 1.5,14.5
+    - 2.5,15.5
+    - 4.5,15.5
+    - 5.5,14.5

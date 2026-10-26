@@ -12,6 +12,9 @@ public sealed class SlimeScannerScannedMessage : BoundUserInterfaceMessage
     public List<string>? Mutations;
     public int? ExtractsProduced;
     public List<ExtractReagentInfo>? Reagents;
+    public int? LocalSlimeCount;
+    public int? MaxSlimesPerGrid;
+    public float? BreedingSlowdown;
 
     public SlimeScannerScannedMessage(
         NetEntity targetEntity,
@@ -20,7 +23,10 @@ public sealed class SlimeScannerScannedMessage : BoundUserInterfaceMessage
         float? mutationChance,
         List<string>? mutations,
         int? extractsProduced,
-        List<ExtractReagentInfo>? reagents)
+        List<ExtractReagentInfo>? reagents,
+        int? localSlimeCount = null,
+        int? maxSlimesPerGrid = null,
+        float? breedingSlowdown = null)
     {
         TargetEntity = targetEntity;
         BreedName = breedName;
@@ -29,6 +35,9 @@ public sealed class SlimeScannerScannedMessage : BoundUserInterfaceMessage
         Mutations = mutations;
         ExtractsProduced = extractsProduced;
         Reagents = reagents;
+        LocalSlimeCount = localSlimeCount;
+        MaxSlimesPerGrid = maxSlimesPerGrid;
+        BreedingSlowdown = breedingSlowdown;
     }
 }
 

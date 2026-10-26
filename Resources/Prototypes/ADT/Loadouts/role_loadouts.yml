@@ -11,12 +11,15 @@
   - Glasses
   - Survival
   - Trinkets
+  - ADTRacialItems # ADT-Tweak
   - GroupSpeciesBreathTool
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  # - ADTPersonalLoadoutLawyer
+  # - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobADTPathologist
@@ -34,12 +37,15 @@
   - SurvivalMedical
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
+  - ADTRacialItems # ADT-Tweak
   - GroupSpeciesBreathToolMedical
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  # - ADTPersonalLoadoutCivilian
+  # - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobADTRoboticist
@@ -58,12 +64,15 @@
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
+  - ADTRacialItems # ADT-Tweak
   - GroupSpeciesBreathTool
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  # - ADTPersonalLoadoutCivilian
+  # - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobADTBlueShieldOfficer
@@ -78,12 +87,15 @@
   - ADTBlueshieldBack
   - SurvivalSecurity
   - Trinkets
+  - ADTRacialItems # ADT-Tweak
   - GroupSpeciesBreathToolSecurity
   # ADT underwear tweak start
   - ADTTopBlueshield
   - ADTBottomBlueshield
   - ADTSocksBlueshield
   # ADT underwear tweak end
+  # - ADTPersonalLoadoutBlueShieldOfficer
+  # - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobADTCentcomConsultant
@@ -100,12 +112,14 @@
   - ADTCentcomConsultantShoes
   - SurvivalSecurity
   - Trinkets
+  - ADTRacialItems # ADT-Tweak
   - GroupSpeciesBreathToolSecurity
   # ADT underwear tweak start
   - ADTCentcomConsultantSocks
   - ADTTop
   - ADTBottom
   # ADT underwear tweak end
+  # - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobADTSeniorPhysician
@@ -121,6 +135,7 @@
   - SeniorPhysicianOuterClothing # ADT-Tweak-senior
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
+  - ADTRacialItems # ADT-Tweak
   - SurvivalMedical
   - GroupSpeciesBreathToolMedical
   - MedicalShoes
@@ -129,6 +144,8 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  # - ADTPersonalLoadoutCivilian
+  # - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobADTSeniorResearcher
@@ -145,12 +162,15 @@
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
+  - ADTRacialItems # ADT-Tweak
   # ADT tweak start
   - ADTTop
   - ADTBottom
   - ADTSocks
   - GroupSpeciesBreathTool
   # ADT tweak end
+  # - ADTPersonalLoadoutCivilian
+  # - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobADTSeniorEngineer
@@ -167,12 +187,15 @@
   - SurvivalExtended
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
+  - ADTRacialItems # ADT-Tweak
   # ADT tweak start
   - ADTTop
   - ADTBottom
   - ADTSocks
   - GroupSpeciesBreathTool
   # ADT tweak end
+  # - ADTPersonalLoadoutCivilian
+  # - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobADTSeniorOfficer
@@ -189,12 +212,15 @@
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
+  - ADTRacialItems # ADT-Tweak
   # ADT tweak start
   - ADTTop
   - ADTBottom
   - ADTSocks
   - GroupSpeciesBreathToolSecurity
   # ADT tweak end
+  # - ADTPersonalLoadoutSecurity
+  # - ADTPersonalLoadoutPlushie
 
   # brigmedic
 - type: roleLoadout
@@ -216,6 +242,7 @@
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
+  - ADTRacialItems # ADT-Tweak
   - GroupSpeciesBreathToolSecurity
   - ADTBrigmedicPDA
   # ADT underwear tweak start
@@ -223,6 +250,7 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  # - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobADTCorrectionsOfficer
@@ -238,18 +266,15 @@
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
+  - ADTRacialItems # ADT-Tweak
   # ADT tweak start
   - ADTTop
   - ADTBottom
   - ADTSocks
   - GroupSpeciesBreathToolSecurity
   # ADT tweak end
-
-- type: roleLoadout
-  id: ADTRoleSurvivalCBURN
-  groups:
-  - SurvivalExtended
-  - GroupPocketTankDouble
+  # - ADTPersonalLoadoutCivilian
+  # - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobADTBarber
@@ -269,7 +294,10 @@
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
+  - ADTRacialItems # ADT-Tweak
   - GroupSpeciesBreathTool
+  # - ADTPersonalLoadoutCivilian
+  # - ADTPersonalLoadoutPlushie
 
 - type: roleLoadout
   id: JobADTMiner
@@ -292,4 +320,7 @@
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
+  - ADTRacialItems # ADT-Tweak
   - GroupSpeciesBreathTool
+  # - ADTPersonalLoadoutCivilian
+  # - ADTPersonalLoadoutPlushie

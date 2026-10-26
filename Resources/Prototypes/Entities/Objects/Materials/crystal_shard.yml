@@ -1,11 +1,13 @@
-﻿- type: entity
+- type: entity
   abstract: true
-  parent: BaseItem
+  parent: MaterialBase
   id: ShardCrystalBase
   name: crystal shard
   description:  A small piece of crystal.
   components:
-  - type: Sharp
+  - type: Tool
+    qualities:
+    - Slicing
   - type: Execution
     doAfterDuration: 4.0
   - type: Sprite
@@ -28,16 +30,6 @@
         Slash: 3.5
   - type: Damageable
     damageModifierSet: Glass
-  - type: Injurable
-    damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
   - type: StaticPrice
     price: 50
 
@@ -50,9 +42,11 @@
   - type: Sprite
     color: "#47f8ff"
   - type: PointLight
-    radius: 2
+    radius: 3 # ADT tweak 2 > 3
     energy: 2.5
     color: "#47f8ff"
+    lightMask: ADTLightMaskStar # ADT tweak
+    autoRot: true # ADT tweak
   - type: Tag
     tags:
       - Trash
@@ -66,9 +60,11 @@
   - type: Sprite
     color: "#39a1ff"
   - type: PointLight
-    radius: 2
+    radius: 3 # ADT tweak 2 > 3
     energy: 2.5
     color: "#39a1ff"
+    lightMask: ADTLightMaskStar # ADT tweak
+    autoRot: true # ADT tweak
   - type: Tag
     tags:
       - Trash
@@ -82,9 +78,11 @@
   - type: Sprite
     color: "#ffde46"
   - type: PointLight
-    radius: 2
+    radius: 3 # ADT tweak 2 > 3
     energy: 2.5
     color: "#ffde46"
+    lightMask: ADTLightMaskStar # ADT tweak
+    autoRot: true # ADT tweak
   - type: Tag
     tags:
       - Trash
@@ -98,9 +96,11 @@
   - type: Sprite
     color: "#ff8227"
   - type: PointLight
-    radius: 2
+    radius: 3 # ADT tweak 2 > 3
     energy: 2.5
     color: "#ff8227"
+    lightMask: ADTLightMaskStar # ADT tweak
+    autoRot: true # ADT tweak
   - type: Tag
     tags:
       - Trash
@@ -114,9 +114,11 @@
   - type: Sprite
     color: "#363636"
   - type: PointLight
-    radius: 2
+    radius: 3 # ADT tweak 2 > 3
     energy: 2.5
     color: "#363636"
+    lightMask: ADTLightMaskStar # ADT tweak
+    autoRot: true # ADT tweak
   - type: Tag
     tags:
       - Trash
@@ -130,9 +132,11 @@
   - type: Sprite
     color: "#ff66cc"
   - type: PointLight
-    radius: 2
+    radius: 3 # ADT tweak 2 > 3
     energy: 2.5
     color: "#ff66cc"
+    lightMask: ADTLightMaskStar # ADT tweak
+    autoRot: true # ADT tweak
   - type: Tag
     tags:
       - Trash
@@ -146,9 +150,11 @@
   - type: Sprite
     color: "#52ff39"
   - type: PointLight
-    radius: 2
+    radius: 3 # ADT tweak 2 > 3
     energy: 2.5
     color: "#52ff39"
+    lightMask: ADTLightMaskStar # ADT tweak
+    autoRot: true # ADT tweak
   - type: Tag
     tags:
       - Trash
@@ -162,9 +168,11 @@
   - type: Sprite
     color: "#fb4747"
   - type: PointLight
-    radius: 2
+    radius: 3 # ADT tweak 2 > 3
     energy: 2.5
     color: "#fb4747"
+    lightMask: ADTLightMaskStar # ADT tweak
+    autoRot: true # ADT tweak
   - type: Tag
     tags:
       - Trash

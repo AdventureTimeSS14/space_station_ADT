@@ -30,6 +30,7 @@ using Robust.Shared.Utility;
 namespace Content.IntegrationTests.Tests
 {
     [TestFixture]
+    [Ignore("ADT вынесена в ADTPostMapInitTest.")]
     public sealed class PostMapInitTest : GameTest
     {
         public override PoolSettings PoolSettings => new PoolSettings()
@@ -46,22 +47,6 @@ namespace Content.IntegrationTests.Tests
             "CentComm",
             "Dart"
         };
-
-        /// <summary>
-        /// ADT-Tweak start
-        /// Карты которые роняют тесты, но на самом деле работают в игре, скорее всего из-за каких-то проблем с прототипами или компонентами,
-        /// которые не загружаются в тестах по какой-то причине. Надо бы пофиксить, но пока так. Просто заглушка
-        /// </summary>
-        private static readonly string[] BrokenGameMaps =
-        {
-            "ADT_kilo",
-            "ADT_Barratry",
-            "ADT_Delta",
-            "ADT_Bagel",
-            "ADT_Gemini",
-            "ADT_Kerberos"
-        };
-        // ADT-Tweak end
 
         private static readonly string[] Grids =
         {
@@ -98,7 +83,6 @@ namespace Content.IntegrationTests.Tests
         {
             "/Maps/centcomm.yml",
             "/Maps/Shuttles/AdminSpawn/**", // admin gaming
-            "/Maps/ADTMaps/Shuttles/pirate.yml", //ADT-tweak
         };
 
         /// <summary>
@@ -219,7 +203,7 @@ namespace Content.IntegrationTests.Tests
 
             // TODO MAP TESTS
             // Move this to some separate test?
-            // CheckDoNotMap(map, root, protoManager); ADT отключен по неизвестной причине.
+            CheckDoNotMap(map, root, protoManager);
 
             if (version >= 7)
             {
@@ -343,18 +327,9 @@ namespace Content.IntegrationTests.Tests
         [EnsureCVar(Side.Server, typeof(CCVars), nameof(CCVars.GridFill), false)]
         public async Task GameMapsLoadableTest(string mapProto)
         {
-            // ADT-Tweak start
-            if (BrokenGameMaps.Contains(mapProto))
-            {
-                Assert.Ignore($"Skipping broken map: {mapProto}");
-                return;
-            }
-            // ADT-Tweak end
-
-            var pair = Pair; // ADT-Tweak
+            var pair = Pair;
             var server = pair.Server;
 
-            var mapManager = server.ResolveDependency<IMapManager>();
             var entManager = server.ResolveDependency<IEntityManager>();
             var mapLoader = entManager.System<MapLoaderSystem>();
             var mapSystem = entManager.System<SharedMapSystem>();
@@ -381,7 +356,7 @@ namespace Content.IntegrationTests.Tests
                 EntityUid? targetGrid = null;
                 var memberQuery = entManager.GetEntityQuery<StationMemberComponent>();
 
-                var grids = mapManager.GetAllGrids(mapId).ToList();
+                var grids = mapSystem.GetAllGrids(mapId).ToList();
                 var gridUids = grids.Select(o => o.Owner).ToList();
                 targetGrid = gridUids.First();
 

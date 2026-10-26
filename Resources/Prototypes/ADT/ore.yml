@@ -22,3 +22,9 @@
   oreEntity: ADTLeadOre1
   minOreYield: 1
   maxOreYield: 1
+
+- type: ore
+  id: ADTOreMagmite
+  oreEntity: ADTMagmite
+  minOreYield: 1
+  maxOreYield: 1

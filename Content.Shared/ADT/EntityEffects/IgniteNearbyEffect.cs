@@ -13,7 +13,7 @@ public sealed partial class IgniteNearbyEffect : EntityEffectBase<IgniteNearbyEf
     public float FireStacks = 2;
 
     public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => null;
+        => Loc.GetString("entity-effect-guidebook-ignite-nearby");
 
     public override LogImpact? Impact => LogImpact.Medium;
 }

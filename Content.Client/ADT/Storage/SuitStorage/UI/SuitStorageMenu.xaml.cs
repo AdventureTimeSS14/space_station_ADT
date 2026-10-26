@@ -12,8 +12,8 @@ namespace Content.Client.ADT.Storage.SuitStorage.UI;
 [GenerateTypedNameReferences]
 public sealed partial class SuitStorageMenu : RadialMenu
 {
-    [Dependency] private readonly IEntityManager _entMan = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private IEntityManager _entMan = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
     private readonly SpriteSystem _sprite;
 
     public event Action<int>? OnSelected;
@@ -39,7 +39,7 @@ public sealed partial class SuitStorageMenu : RadialMenu
             var button = new RadialMenuButtonWithSector
             {
                 SetSize = new Vector2(64f, 64f),
-                ToolTip = Loc.GetString(proto.Name)
+                ToolTip = proto.Name
             };
 
             var texture = _sprite.GetPrototypeIcon(proto);

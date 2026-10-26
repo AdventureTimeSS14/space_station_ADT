@@ -74,5 +74,13 @@ namespace Content.Server.Medical.BiomassReclaimer
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite), DataField]
         public bool SafetyEnabled = true;
+
+        // ADT-Tweak-Start
+        [ViewVariables(VVAccess.ReadWrite), DataField]
+        public float ExtractMultiplier = 1f;
+
+        [ViewVariables(VVAccess.ReadWrite), DataField]
+        public float WorkTimeMultiplier = 1f;
+        // ADT-Tweak-End
     }
 }

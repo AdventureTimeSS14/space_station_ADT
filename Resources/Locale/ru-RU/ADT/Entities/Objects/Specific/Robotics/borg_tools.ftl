@@ -3,3 +3,6 @@ ent-ADTBorgJetpackVoid = { ent-JetpackVoid }
 
 ent-ADTBorgOreBagOfHolding = { ent-OreBagOfHolding }
     .desc = { ent-OreBagOfHolding.desc }
+
+ent-ADTBorgResonator = { ent-ADTResonatorUpgraded }
+    .desc = { ent-ADTResonatorUpgraded.desc }

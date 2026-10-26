@@ -22,7 +22,7 @@ public sealed partial class HumanoidProfileEditor
 
         LanguagesCountLabel.Text = Loc.GetString("humanoid-profile-editor-languages-count",
                                                 ("current", Profile.Languages.Count),
-                                                ("max", species.MaxLanguages));
+                                                ("max", species.MaxLanguages + Profile.LanguageSlotsBonus));
 
         var list = _prototypeManager.EnumeratePrototypes<LanguagePrototype>().Where(x => x.Roundstart).ToList();
         foreach (var item in species.UniqueLanguages)
@@ -63,7 +63,7 @@ public sealed partial class HumanoidProfileEditor
         };
         entry.SelectButton.Text = Loc.GetString(!Profile.Languages.Contains(proto) ? "language-lobby-add-button" : "language-lobby-remove-button");
         entry.SelectButton.ToolTip = null;
-        entry.SelectButton.Disabled = Profile.Languages.Count >= species.MaxLanguages && !Profile.Languages.Contains(proto);
+        entry.SelectButton.Disabled = Profile.Languages.Count >= species.MaxLanguages + Profile.LanguageSlotsBonus && !Profile.Languages.Contains(proto);
         entry.OnLanguageSelected += SelectLanguage;
         LanguagesList.AddChild(entry);
     }

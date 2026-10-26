@@ -1,0 +1,84 @@
+# SPDX-FileCopyrightText: 2026 ultradyper <ultradyper@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Обратную блокировку рандомного трайта делает клиент - см. TraitsTab.xaml.cs.
+
+- type: trait
+  id: AlcoholicAddiction
+  name: trait-alcoholic-addiction-name
+  description: trait-alcoholic-addiction-desc
+  category: Quirks
+  cost: -1
+  speciesBlacklist:
+  - IPC
+  - Diona
+  - SlimePerson
+  conflicts:
+  - RandomAddiction
+  effects:
+  - !type:AddictionTraitEffect
+    kind: Alcohol
+  - !type:SpawnItemInBackpackEffect
+    item: DrinkBeerBottleFull
+
+- type: trait
+  id: NicotineAddiction
+  name: trait-nicotine-addiction-name
+  description: trait-nicotine-addiction-desc
+  category: Quirks
+  cost: -1
+  speciesBlacklist:
+  - IPC
+  - Diona
+  - SlimePerson
+  conflicts:
+  - RandomAddiction
+  effects:
+  - !type:AddictionTraitEffect
+    kind: Nicotine
+  - !type:SpawnItemInBackpackEffect
+    item: ADTCigPackHalfSmoked
+
+- type: trait
+  id: DrugAddiction
+  name: trait-drug-addiction-name
+  description: trait-drug-addiction-desc
+  category: Quirks
+  cost: -1
+  speciesBlacklist:
+  - IPC
+  - Diona
+  - SlimePerson
+  departmentBlacklist:
+  - Command
+  - Security
+  - CentcomSpecialists
+  conflicts:
+  - RandomAddiction
+  effects:
+  - !type:AddictionTraitEffect
+    kind: Drug
+  - !type:SpawnItemInBackpackEffect
+    item: PillSpaceDrugs
+
+- type: trait
+  id: RandomAddiction
+  name: trait-random-addiction-name
+  description: trait-random-addiction-desc
+  category: Quirks
+  cost: -1
+  speciesBlacklist:
+  - IPC
+  - Diona
+  - SlimePerson
+  departmentBlacklist:
+  - Command
+  - Security
+  - CentcomSpecialists
+  effects:
+  - !type:RandomAddictionEffect
+    pool:
+    - Alcohol
+    - Nicotine
+    - Drug

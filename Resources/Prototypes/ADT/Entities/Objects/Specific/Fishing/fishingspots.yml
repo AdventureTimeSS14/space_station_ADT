@@ -6,11 +6,32 @@
   placement:
     mode: SnapgridCenter
   components:
-  - type: FishingSpot
-    fishList: !type:NestedSelector
-      tableId: WaterFishingLootTable
-    fishDefaultTimer: 25.0
-    fishTimerVariety: 15.0
+  - type: ADTFishingSpot
+    requiresBait: false
+    junkChance: 0.7
+    junk: !type:NestedSelector
+      tableId: BasicFishingLootTable
+    shoreFish:
+    - ADTFishAngler
+    - ADTFishBass
+    - ADTFishBlob
+    - ADTFishBlueFintuna
+    - ADTFishCat
+    - ADTFishTropicalClown
+    - ADTFishPuffer
+    - ADTFishSilver
+    - ADTFishTropicalSun
+    - ADTFishTropical
+    deepFish:
+    - ADTFishAlien
+    - ADTFishBingle
+    - ADTFishBoyFisher
+    - ADTFishNukeDisk
+    - ADTFishGib
+    - ADTFishMutant
+    - ADTFishNuker
+    - ADTFishToxic
+    - ADTFishIan
   - type: Physics
     bodyType: Static
   - type: Fixtures

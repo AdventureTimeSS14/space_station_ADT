@@ -1,0 +1,19 @@
+- type: slimeCommand
+  id: SlimeGreet
+  commandType: Greet
+  keywords: [ "привет", "здравствуй", "hello", "hi" ]
+
+- type: slimeCommand
+  id: SlimeFollow
+  commandType: Follow
+  keywords: [ "за мной", "ко мне", "следуй", "следовать", "follow" ]
+
+- type: slimeCommand
+  id: SlimeStop
+  commandType: Stop
+  keywords: [ "стой", "стоп", "прекрати", "остановись", "stop" ]
+
+- type: slimeCommand
+  id: SlimeAttack
+  commandType: Attack
+  keywords: [ "атакуй", "атаковать", "напади", "убей", "attack", "kill" ]

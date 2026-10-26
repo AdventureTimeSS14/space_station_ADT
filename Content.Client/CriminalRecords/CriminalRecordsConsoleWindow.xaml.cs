@@ -28,7 +28,7 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
     private readonly IPrototypeManager _proto;
     private readonly IRobustRandom _random;
     private readonly AccessReaderSystem _accessReader;
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
     private readonly SpriteSystem _spriteSystem;
 
     public readonly EntityUid Console;
@@ -255,6 +255,11 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
                 message = FormattedMessage.FromMarkupOrThrow(Loc.GetString("criminal-records-console-suspected-reason"));
             }
             message.AddText($": {reason}");
+
+            // ADT-Tweak start
+            if (criminalRecord.InitiatorName is { } initiator)
+                message.AddText("\n" + Loc.GetString("criminal-records-console-status-initiator", ("initiator", initiator)));
+            // ADT-Tweak end
 
             WantedReason.SetMessage(message);
             WantedReason.Visible = true;

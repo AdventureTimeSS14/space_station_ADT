@@ -7,7 +7,6 @@
   - type: MindRole
     antagPrototype: Ghoul # ERROR!!
     exclusiveAntag: true
-  - type: InitialInfectedRole
   - type: GhoulRole
 
 - type: entity

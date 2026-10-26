@@ -1,0 +1,28 @@
+<Document>
+  # Путь Пустоты
+
+  <Box>
+    <GuideEntityEmbed Entity="HereticBladeVoid" Caption=""/>
+  </Box>
+
+  Аристократы наблюдают за вами молча. Они не дышат, не мёрзнут и приходят откуда угодно. Скоро вы тоже.
+
+  ## Как играется
+
+  Хз, самый легкий путь, даже написать нечего.
+
+  ## Вознесение
+
+  Три трупа на руне при температуре ниже -20.
+
+  <GuideHereticQuote Path="Void" Text="Аристократы не говорят. Им незачем: за них говорит холод."/>
+
+  ## Ступени
+
+  <GuideHereticPathEmbed Path="Void"/>
+
+  # Ритуалы пути
+
+  <GuideHereticRitualEmbed Ritual="BladeVoid" Path="Void"/>
+  <GuideHereticRitualEmbed Ritual="AscensionVoid" Path="Void"/>
+</Document>

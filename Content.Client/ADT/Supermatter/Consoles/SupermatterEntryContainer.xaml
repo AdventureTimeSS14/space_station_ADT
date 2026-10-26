@@ -13,7 +13,7 @@
             <Label Name="SupermatterNameLabel" HorizontalExpand="True" Margin="5 0" />
 
             <!-- Supermatter status -->
-            <Label Name="SupermatterStatusLabel" Text="{Loc 'supermatter-console-window-error-status'}" HorizontalAlignment="Right" Margin="5 0" />
+            <Label Name="SupermatterStatusLabel" Text="{Loc 'supermatter-console-window-status-error'}" HorizontalAlignment="Right" Margin="5 0" />
         </BoxContainer>
     </Button>
 

@@ -1,17 +1,17 @@
-- type: technology
-  id: CrystalManipulation
-  name: research-technology-crystal-manipulation
-  icon:
-    sprite: ADT/Objects/Materials/crystal_art.rsi
-    state: crystal
-  discipline: Experimental
-  tier: 2
-  cost: 15000
-  recipeUnlocks:
-  - ADTMaterialBScrystalArt
-  position: 2,-2
-  requiredTech:
-  - AlternativeResearch
+# - type: technology По просьбе петра
+#   id: CrystalManipulation
+#   name: research-technology-crystal-manipulation
+#   icon:
+#     sprite: ADT/Objects/Materials/crystal_art.rsi
+#     state: crystal
+#   discipline: Experimental
+#   tier: 2
+#   cost: 15000
+#   recipeUnlocks:
+#   - ADTMaterialBScrystalArt
+#   position: 3,-3
+#   requiredTech:
+#   - AdvancedAnomalyResearch
 
 - type: technology
   id: ADTAiRemoteBrain
@@ -26,7 +26,7 @@
   - ADTAiRemoteBrain
   position: 2,-3
   requiredTech:
-  - CrystalManipulation
+  - ADTBluespaceMining
 
 - type: technology
   id: ADTModsuitBase
@@ -46,7 +46,7 @@
   - ADTModsuitHelmet
   - ADTModsuitPlateCience
   - ADTModsuitModAnomalyScanner
-  position: 0,-1
+  position: 0,0
   requiredTech:
   - MagnetsTech
 
@@ -58,12 +58,12 @@
     state: ansible_crystal
   discipline: Experimental
   tier: 2
-  cost: 40000
+  cost: 45000
   recipeUnlocks:
   - ADTMachineBluespaceHarvesterCircuitboard
-  position: 4,-3
+  position: 3,-3
   requiredTech:
-  - BasicAnomalousResearch
+  - AdvancedAnomalyResearch
 
 - type: technology
   id: BasicXenobiology
@@ -76,7 +76,9 @@
   cost: 5000
   recipeUnlocks:
   - XenobiologyBountyComputerCircuitboard
+  - ADTXenobiologyControlComputerCircuitboard
   - SlimeGrinderMachineCircuitboard
+  - ADTXenobiologyMonkeyRecyclerMachineCircuitboard
   - SlimeScannerXenobio
   - ClothingBackpackXenoBioTank
   - ClothingBeltChemBagXenobiologyHolding
@@ -88,8 +90,8 @@
   id: BluespaceArtillery
   name: research-technology-bluespace-artillery
   icon:
-    sprite: ADT/Structures/BSA.rsi
-    state: cannon_east
+    sprite: ADT/Structures/Machines/BSA.rsi
+    state: computer
   discipline: Experimental
   tier: 3
   cost: 15100
@@ -97,4 +99,81 @@
   - ArtilleryComputerCircuitboard
   position: 4,-4
   requiredTech:
+  - ADTQuantumPartsTech
+
+- type: technology
+  id: ADTAdvancedPartsTech
+  name: research-technology-adt-advanced-parts
+  icon:
+    sprite: ADT/Objects/Misc/stock_parts.rsi
+    state: advanced_matter_bin
+  discipline: Experimental
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - AdvancedCapacitorStockPart
+  - AdvancedScanningModuleStockPart
+  - NanoServoStockPart
+  - HighPowerMicroLaserStockPart
+  - AdvancedMatterBinStockPart
+  position: 1,-1
+  requiredTech:
+  - AlternativeResearch
+
+- type: technology
+  id: ADTSuperPartsTech
+  name: research-technology-adt-super-parts
+  icon:
+    sprite: ADT/Objects/Misc/stock_parts.rsi
+    state: super_matter_bin
+  discipline: Experimental
+  tier: 3
+  cost: 20000
+  recipeUnlocks:
+  - SuperCapacitorStockPart
+  - PhasicScanningModuleStockPart
+  - PicoServoStockPart
+  - UltraHighPowerMicroLaserStockPart
+  - SuperMatterBinStockPart
+  position: 1,-2
+  requiredTech:
+  - ADTAdvancedPartsTech
+
+- type: technology
+  id: ADTBluespacePartsTech
+  name: research-technology-adt-bluespace-parts
+  icon:
+    sprite: ADT/Objects/Misc/stock_parts.rsi
+    state: bluespace_matter_bin
+  discipline: Experimental
+  tier: 4
+  cost: 25000
+  recipeUnlocks:
+  - BluespaceCapacitorStockPart
+  - TriphasicScanningModuleStockPart
+  - FemtoServoStockPart
+  - QuadUltraMicroLaserStockPart
+  - BluespaceMatterBinStockPart
+  position: 1,-4
+  requiredTech:
+  - ADTSuperPartsTech
+
+- type: technology
+  id: ADTQuantumPartsTech
+  name: research-technology-adt-quantum-parts
+  icon:
+    sprite: ADT/Objects/Misc/stock_parts.rsi
+    state: quantum_matter_bin
+  discipline: Experimental
+  tier: 5
+  cost: 42500
+  recipeUnlocks:
+  - QuantumCapacitorStockPart
+  - QuantumScanningModuleStockPart
+  - QuantumServoStockPart
+  - QuantumMicroLaserStockPart
+  - QuantumMatterBinStockPart
+  position: 3,-4
+  requiredTech:
+  - ADTBluespacePartsTech
   - ADTBluespaceMining

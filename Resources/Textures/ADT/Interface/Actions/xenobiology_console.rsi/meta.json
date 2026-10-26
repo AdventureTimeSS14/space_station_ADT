@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/0bcfa1515959c38dc21b87cb0320864a63244cb6 and converted for Space Station 14",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "disconnect"
+    },
+    {
+      "name": "place_monkey"
+    },
+    {
+      "name": "recycle_monkey"
+    },
+    {
+      "name": "grab_slime"
+    },
+    {
+      "name": "release_slimes"
+    },
+    {
+      "name": "scan_slime",
+      "delays": [
+        [
+          0.15,
+          0.15,
+          0.15
+        ]
+      ]
+    },
+    {
+      "name": "shortcuts"
+    },
+    {
+      "name": "cursor",
+      "delays": [
+        [
+          0.4,
+          0.4
+        ]
+      ]
+    }
+  ]
+}
