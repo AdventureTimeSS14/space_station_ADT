@@ -97,3 +97,15 @@
   graph: HelmetJustice
   targetNode: helmet
 # endregion Clothing
+
+- type: construction
+  parent: BaseClothing
+  id: ADTClothingNeckArmband
+  graph: ADTClothingNeckArmband
+  targetNode: armband
+
+- type: construction
+  parent: BaseClothing
+  id: ADTClothingNeckArmbandMed
+  graph: ADTClothingNeckArmbandMed
+  targetNode: armbandMed

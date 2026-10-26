@@ -1147,3 +1147,76 @@
     proto: ADTUnderwearSpeciesRestrictions
   equipment:
     socks: ADTClothingUnderwearSocksThighCaptain
+
+# New Underwear
+- type: loadout
+  id: ADTUnderwearBoxersILoveArcan
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    underwearb: ADTClothingUnderwearBottomBoxersILoveArcan
+
+- type: loadout
+  id: ADTUnderwearBoxersPink
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    underwearb: ADTClothingUnderwearBottomBoxersPink
+
+- type: loadout
+  id: ADTUnderwearBoxersTSF
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    underwearb: ADTClothingUnderwearBottomBoxersTSF
+
+- type: loadout
+  id: ADTUnderwearPantiesAmerica
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    underwearb: ADTClothingUnderwearBottomPantiesAmerica
+
+- type: loadout
+  id: ADTUnderwearPantiesPink
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    underwearb: ADTClothingUnderwearBottomPantiesPink
+
+- type: loadout
+  id: ADTUnderwearTopBigbraCow
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    underweart: ADTClothingUnderwearTopBigbraCow
+
+- type: loadout
+  id: ADTUnderwearTopBraAmerica
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    underweart: ADTClothingUnderwearTopBraAmerica
+
+- type: loadout
+  id: ADTUnderwearTopBraPink
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    underweart: ADTClothingUnderwearTopBraPink
+
+- type: loadout
+  id: ADTUnderwearSocksStockingCow
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksStockingCow

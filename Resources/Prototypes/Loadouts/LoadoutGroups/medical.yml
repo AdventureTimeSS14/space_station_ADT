@@ -37,6 +37,7 @@
   loadouts:
   - ChiefMedicalOfficerCloak
   - ChiefMedicalOfficerMantle
+  - ADTClothingNeckArmbandMed
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerShoes
@@ -240,3 +241,10 @@
   - ADTEmergencyIPCMedical
   - ADTEmergencyNovakidMedical
   # ADT-Loadout-Species-End
+- type: loadoutGroup
+  id: MedicalDoctorNeck
+  name: loadout-group-medical-doctor-neck
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTClothingNeckArmbandMed

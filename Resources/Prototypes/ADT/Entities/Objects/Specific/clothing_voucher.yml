@@ -568,6 +568,18 @@
     - CasualShirtGreen
     - CasualShirtTeal
     - CasualShirtYellow
+    - CasualShirtBlack
+    - CasualShirtBlue
+    - CasualShirtPurple
+    - CasualShirtRed
+    - CasualShirtWhite
+    - CasualShirtFancy
+    - CasualShirtRedPlaid
+    - CasualShirtHawaii
+    - CasualShirtTonny
+    - CasualShirtNavy
+    - CasualShirtLimbusco
+    - CasualShirtYellow
     typeDropPlace: InHands
   - type: StaticPrice
     price: 30
