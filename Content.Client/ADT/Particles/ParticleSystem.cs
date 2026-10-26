@@ -176,6 +176,7 @@ public sealed partial class ParticleSystem : EntitySystem
     {
         var count = _emitters.Count;
         _emitters.Clear();
+        _emittersByHandle.Clear();
         _liveParticleCount = 0;
         return count;
     }
