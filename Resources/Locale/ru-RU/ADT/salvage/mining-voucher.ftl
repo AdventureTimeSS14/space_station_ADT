@@ -21,6 +21,10 @@ mining-voucher-survival-name = Набор выживальщика
 mining-voucher-survival-description =
     Содержит РПС утилизатора, что позволяет переносить ещё больше вещей,
     а так же спасательную капсулу и фальшфейер.
+mining-voucher-pka-upgrades-name = Набор улучшений ПКА
+mining-voucher-pka-upgrades-description =
+    Содержит модули скорострельности и дальности для ПКА,
+    улучшенную сумку для руды и нож выживания.
 mining-voucher-minebot-name = Набор роботизированных раскопок
 mining-voucher-minebot-description =
     Содержит маленького компаньона-копатьбота, который помогает вам хранить руду и охотиться на диких животных.

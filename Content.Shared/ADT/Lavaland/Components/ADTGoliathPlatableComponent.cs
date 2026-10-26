@@ -5,7 +5,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.Lavaland.Components;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 public sealed partial class ADTGoliathPlatableComponent : Component
 {
     [DataField]
@@ -21,8 +21,11 @@ public sealed partial class ADTGoliathPlatableComponent : Component
     public float MinCoefficient = 0.4f;
 
     [DataField]
-    public TimeSpan Delay = TimeSpan.FromSeconds(2);
+    public int MaxPlates;
+
+    [DataField, AutoNetworkedField]
+    public int Plates;
 
     [DataField]
-    public EntProtoId? Upgrade;
+    public List<string> Sprites = new();
 }
