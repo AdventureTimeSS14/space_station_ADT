@@ -6,6 +6,10 @@
   loadouts:
   - ADTAccesoriesKiwiFruit
   - ADTSuitRiverSpirit
+  - ADTScarfErichStohl
+  - ADTGlovesErichStohl
+  - ADTJacketErichStohl
+  - ADTSatchelErichStohl
 
 - type: loadoutGroup
   id: ADTPersonalLoadoutPlushie
@@ -43,6 +47,7 @@
   - ADTPlushieOliferOliver28
   - ADTPlushieNaviCyrex5386
   - ADTPlushieTselka
+  - ADTPlushieErichStohl
 
 - type: loadoutGroup
   id: ADTPersonalLoadoutSecurity

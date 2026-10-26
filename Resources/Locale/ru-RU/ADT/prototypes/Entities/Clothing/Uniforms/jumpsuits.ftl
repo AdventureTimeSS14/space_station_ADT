@@ -429,6 +429,111 @@ ent-ADTClothingUniformVoxSuitPurple = фиолетовый комбинезон 
 ent-ADTClothingUniformCBURN = униформа РХБЗЗ
     .desc = Комбинезон сотрудников РХБЗЗ. Пахнет дезактивационным раствором.
 
+ent-ADTClothingUniformJumpsuitChessboard = шахматная одежда
+    .desc = Причудливая униформа в строгую шахматную клетку.
+
+ent-ADTClothingUniformJumpsuitJeansnavel = чёрные брюки с топиком
+    .desc = Стильный открытый топик в паре с удобными чёрными брюками.
+
+ent-ADTClothingUniformJumpsuitDenimShorts = джинсовые шорты
+    .desc = Шорты из джинсовой ткани.
+
+ent-ADTClothingUniformJumpsuitKeikogiWhite = кэйкоги с белым поясом
+    .desc = Униформа для занятий боевыми искусствами.
+
+ent-ADTClothingUniformJumpsuitKeikogiOrange = кэйкоги с оранжевым поясом
+    .desc = Униформа для занятий боевыми искусствами.
+
+ent-ADTClothingUniformJumpsuitKeikogiBlue = кэйкоги с синим поясом
+    .desc = Униформа для занятий боевыми искусствами.
+
+ent-ADTClothingUniformJumpsuitKeikogiYellow = кэйкоги с жёлтым поясом
+    .desc = Униформа для занятий боевыми искусствами.
+
+ent-ADTClothingUniformJumpsuitKeikogiGreen = кэйкоги с зелёным поясом
+    .desc = Униформа для занятий боевыми искусствами.
+
+ent-ADTClothingUniformJumpsuitKeikogiBrown = кэйкоги с коричневым поясом
+    .desc = Униформа для занятий боевыми искусствами.
+
+ent-ADTClothingUniformJumpsuitKeikogiBlack = кэйкоги с чёрным поясом
+    .desc = Униформа для занятий боевыми искусствами.
+
+ent-ADTClothingUniformJumpsuitShirtGreen = зелёная рубашка
+    .desc = Обычная зелёная повседневная рубашка. Производство компании "Modeling Agency Dar-Vaxed".
+
+ent-ADTClothingUniformJumpsuitShirtTeal = бирюзовая рубашка
+    .desc = Обычная бирюзовая повседневная рубашка. Производство компании "Modeling Agency Dar-Vaxed".
+
+ent-ADTClothingUniformJumpsuitShirtYellow = жёлтая рубашка
+    .desc = Обычная жёлтая повседневная рубашка. Производство компании "Modeling Agency Dar-Vaxed".
+
+ent-ADTClothingUniformJumpsuitShirtBeige = бежевая рубашка
+    .desc = Обычная бежевая повседневная рубашка. Производство компании "Modeling Agency Dar-Vaxed".
+
+ent-ADTClothingUniformJumpsuitShirtDarkBlue = тёмно-синяя рубашка
+    .desc = Обычная темно-синяя повседневная рубашка. Производство компании "Modeling Agency Dar-Vaxed".
+
+ent-ADTClothingUniformJumpsuitTonnyShirt = рубашка тонни
+    .desc = Стильная гавайская рубашка в стиле Тонни Версетти.
+
+ent-ADTClothingUniformJumpsuitNavyShirt = морская рубашка
+    .desc = Обычная бело-синяя рубашка в полоску. От неё пахнет морской солью или потом?...
+
+ent-ADTClothingUniformJumpsuitNavyShirtPrisoner = морская рубашка заключённого
+    .desc = { ent-ADTClothingUniformJumpsuitNavyShirt.desc }
+
+ent-ADTClothingUniformJumpsuitTurtleneckBeige = бежевая водолазка
+    .desc = Мягко и уютно.
+
+ent-ADTClothingUniformJumpsuitScientistHL = костюм учёного
+    .desc = Этот костюм предназначен для учёных, которые достигли каскадного резонанса при помощи артефакта или аномалии!
+
+ent-ADTClothingUniformJumpsuitPizzaDelivery = униформа доставщика пиццы
+    .desc = Время пиццы!
+
+ent-ADTClothingUniformJumpsuitLimbuscoShirt = рубашка грозовой перевал
+    .desc = "Не я разбил твое сердце - его разбила ты, и, разбив его, разбила и мое." - Эмили Бронте. Грозовой перевал.
+
+ent-ADTClothingUniformJumpsuitSecurityClub = футболка вышибалы клуба
+    .desc = Тебя нет в списке, проваливай.
+
+ent-ADTClothingUniformJumpsuitGorka = комбинезон горка
+    .desc = Практичный и универсальный костюм, который используется не только военными, но и гражданскими.
+
+ent-ADTClothingUniformJumpsuitTacticalBlack = чёрный тактический костюм
+    .desc = Комплект тактической одежды для боев, выполненный в чёрном цвете. Не особо умное решение носить чёрное в лесу или посреди города.
+
+ent-ADTClothingUniformJumpsuitTacticalGreen = оливковый тактический костюм
+    .desc = Комплект тактической одежды для боев, выполненный в оливковом цвете.
+
+ent-ADTClothingUniformJumpsuitSuitTeal = бирюзовый костюм
+    .desc = Яркий бирюзовый костюм.
+
+ent-ADTClothingUniformJumpsuitSuitBeige = бежевый костюм
+    .desc = Простой бежевый костюм.
+
+ent-ADTClothingUniformJumpsuitSuitCage = клетчатый костюм
+    .desc = Элегантный костюм в строгую клетку.
+
+ent-ADTClothingUniformJumpsuitSuitGold = золотой костюм
+    .desc = НУЖНО БОЛЬШЕ ЗОЛОТА!
+
+ent-ADTClothingUniformJumpsuitAdidasBlack = чёрная спортивка агидас
+    .desc = Чёткий прикид для спорта и гоп-стопа. Vodka, abibas, cheeki-breki и SUKA BLYAT!
+
+ent-ADTClothingUniformJumpsuitAdidasBlue = синяя спортивка агидас
+    .desc = Чёткий синий прикид для спорта и гоп-стопа.
+
+ent-ADTClothingUniformJumpsuitAdidasRed = красная спортивка агидас
+    .desc = Чёткий красный прикид для спорта и гоп-стопа.
+
+ent-ADTClothingUniformJumpsuitAdidasWhite = белая спортивка агидас
+    .desc = Модный белый прикид для спорта и гоп-стопа. Штаны мне заср*шь - П*ЗДЕЦ ТЕБЕ!
+
+ent-ADTClothingUniformJumpsuitSportUSSP = спортивка СССП
+    .desc = Эй, Земляк, мы стрелять не хотим, мы так наблюдаем!
+
 ent-ADTOfficerArmyUSSPUniform = форма армейского офицера СССП
     .desc = Китель цвета хаки армейского офицера СССП с коричневым ремнём и красным кантом.
     .suffix = СССП
