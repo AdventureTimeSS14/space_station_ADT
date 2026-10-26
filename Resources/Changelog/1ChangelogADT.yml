@@ -16669,3 +16669,12 @@ Entries:
     id: 2049
     pr_number: 3579
     time: '2026-10-26T05:33:15Z'
+  - author: maksim21612
+    changes:
+      - {message: Изменены пояса BarCow в них добавлен блеклист на оружие и бомбы.,
+        type: Tweak}
+      - {message: Изменен размер кобуры для разных вещей с 4 клеток до 8., type: Tweak}
+      - {message: теперь имена предметов с мелкой буквы., type: Fix}
+    id: 2050
+    pr_number: 3576
+    time: '2026-10-26T06:51:40Z'
