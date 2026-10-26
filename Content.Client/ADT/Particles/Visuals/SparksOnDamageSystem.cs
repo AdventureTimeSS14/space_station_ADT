@@ -2,6 +2,7 @@ using Content.Client.ADT.Particles;
 using Content.Client.Light.Components;
 using Content.Shared.ADT.Particles;
 using Content.Shared.ADT.Particles.Visuals;
+using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Spawners;
 
@@ -14,6 +15,7 @@ public sealed partial class SparksOnDamageSystem : EntitySystem
 {
     [Dependency] private ParticleSystem _particles = default!;
     [Dependency] private SharedPointLightSystem _lights = default!;
+    [Dependency] private SharedMapSystem _mapSystem = default!;
 
     public override void Initialize()
     {
@@ -23,6 +25,9 @@ public sealed partial class SparksOnDamageSystem : EntitySystem
 
     private void OnSparks(SparksOnDamageEvent args)
     {
+        if (!_mapSystem.MapExists(args.Coordinates.MapId))
+            return;
+
         _particles.SpawnEffect(new ProtoId<ParticleEffectPrototype>(args.Effect), args.Coordinates);
 
         // Short-lived flash light. Client-side only: NetSyncEnabled = false keeps it out of
