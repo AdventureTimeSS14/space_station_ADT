@@ -13,3 +13,4 @@
   - type: Item
   - type: InteractionOutline
   - type: InputMover
+  - type: SurgeryTool # ADT-Tweak

@@ -37,6 +37,7 @@ public sealed partial class SurgerySystem : SharedSurgerySystem
     [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly DetachableOrganSystem _detachableOrgan = default!;
 
     public override void Initialize()
     {

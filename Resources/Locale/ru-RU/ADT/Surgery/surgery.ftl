@@ -5,7 +5,7 @@ surgery-no-table = Пациент должен лежать на операци�
 surgery-no-tool = Нужен инструмент в активной руке.
 surgery-wrong-tool = Этот инструмент сейчас не подходит.
 surgery-step-failed = Что-то пошло не так!
-surgery-cant-switch-in-progress = Нельзя сменить операцию, пока идёт текущая — сначала закончи её.
+surgery-cant-switch-in-progress = Нельзя сменить операцию, пока идёт текущая - сначала закончи её.
 surgery-choose-with-drapes = Сначала нужно выбрать операцию хирургическими простынями.
 
 surgery-console-window-title = Хирургическая консоль
@@ -17,7 +17,7 @@ surgery-console-no-operation = Операция ещё не выбрана.
 surgery-console-status-ok = Операция в процессе.
 surgery-console-graph = Операция: {$name}
 surgery-console-node = Состояние: {$node}
-surgery-console-step = {$label} — {$tools}
+surgery-console-step = {$label} - {$tools}
 surgery-console-any-tool = любой инструмент
 
 surgery-tool-Scalpel = скальпель
@@ -203,3 +203,27 @@ surgery-step-head-remove-brain = Извлечь мозг
 surgery-step-head-insert-brain = Вставить мозг
 surgery-step-head-set-bone = Поставить кость на место
 surgery-step-head-apply-bone-gel-second = Нанести костный гель повторно
+
+surgery-node-limb-stump-opened-label = Культя вскрыта
+surgery-node-limb-placed-label = Конечность приложена
+surgery-node-limb-bone-gelled-label = Кость обработана гелем
+surgery-node-limb-bone-set-label = Кость сопоставлена
+
+surgery-edge-limb-open-stump-label = Вскрыть культю
+surgery-edge-limb-bone-gel-first-label = Нанести костный гель
+surgery-edge-limb-set-bone-label = Сопоставить кость
+surgery-edge-limb-bone-gel-second-label = Закрепить костным гелем
+
+surgery-step-limb-open-stump = Вскрыть культю - скальпель
+surgery-step-limb-bone-gel-first = Нанести костный гель
+surgery-step-limb-set-bone = Сопоставить кость
+surgery-step-limb-bone-gel-second = Закрепить костным гелем
+
+surgery-node-limb-bleeders-clamped-label = Сосуды зажаты
+surgery-node-limb-skin-retracted-label = Кожа отведена
+
+surgery-edge-limb-clamp-bleeders-label = Зажать кровоточащие сосуды
+surgery-edge-limb-retract-skin-label = Отвести кожу
+
+surgery-step-limb-clamp-bleeders = Зажать сосуды - зажим
+surgery-step-limb-retract-skin = Отвести кожу - ретрактор

@@ -10,15 +10,41 @@ public sealed partial class InsertOrganEffect : SurgeryStepEffect
     [DataField(required: true)]
     public ProtoId<OrganCategoryPrototype> OrganId;
 
+    [DataField]
+    public ProtoId<OrganCategoryPrototype> ParentId = "Torso";
+
     public override void Apply(EntityUid patient, EntityUid? surgeon, EntityUid? usedItem, IEntityManager entityManager)
     {
-        if (usedItem is not { } organEntity)
+        if (usedItem is not { } used)
+            return;
+
+        var body = entityManager.System<BodySystem>();
+        var detachable = entityManager.System<DetachableOrganSystem>();
+
+        var organEntity = used;
+        if (!entityManager.HasComponent<OrganComponent>(organEntity)
+            && !detachable.TryGetDetachedOrgan(used, out organEntity))
             return;
 
         if (!entityManager.TryGetComponent<OrganComponent>(organEntity, out var organComp) || organComp.Category != OrganId)
             return;
 
-        var body = entityManager.System<BodySystem>();
-        body.TryInsertOrgan(patient, organEntity);
+        if (!entityManager.HasComponent<DetachableOrganComponent>(organEntity))
+        {
+            body.TryInsertOrgan(patient, organEntity);
+            return;
+        }
+
+        if (!body.TryGetOrgansWithComponent<OrganComponent>(patient, out var organs))
+            return;
+
+        foreach (var parent in organs)
+        {
+            if (parent.Comp.Category != ParentId)
+                continue;
+
+            detachable.Attach(organEntity, patient, parent.Owner);
+            return;
+        }
     }
 }

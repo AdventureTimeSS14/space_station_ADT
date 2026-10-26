@@ -22,10 +22,13 @@ public sealed partial class BodySystem
         return _container.Remove(organ.Owner, bodyComp.Organs);
     }
 
-    public bool TryInsertOrgan(Entity<BodyComponent?> body, EntityUid organ)
+    public bool TryInsertOrgan(Entity<BodyComponent?> body, EntityUid organ, EntityUid? parentOrgan = null)
     {
         if (!_bodyQuery.Resolve(body, ref body.Comp, false) || body.Comp.Organs == null)
             return false;
+
+        if (parentOrgan is { } parent && _detachableQuery.HasComp(organ))
+            return _detachableOrgan.Attach(organ, body.Owner, parent);
 
         return _container.Insert(organ, body.Comp.Organs);
     }

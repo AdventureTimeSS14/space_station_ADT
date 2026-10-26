@@ -9,7 +9,7 @@ public sealed partial class SurgerySystem
 {
     private static readonly EntProtoId AnesthetizedStatusEffect = "StatusEffectAnesthetized";
     private static readonly EntProtoId WeaklyAnesthetizedStatusEffect = "StatusEffectWeaklyAnesthetized";
-    private const float NoAnestheticChanceMultiplier = 0.2f;
+    private const float NoAnestheticChanceMultiplier = 0.7f;
     private static readonly ProtoId<EmotePrototype> ScreamEmote = "Scream";
 
     private static readonly DamageSpecifier NoAnestheticPainDamage = new()
@@ -27,7 +27,6 @@ public sealed partial class SurgerySystem
         if (_status.HasStatusEffect(patient, AnesthetizedStatusEffect))
             return true;
 
-        // Под принудительным сном (например от газа) хирургия тоже проходит спокойно.
         return _status.HasEffectComp<ForcedSleepingStatusEffectComponent>(patient);
     }
 

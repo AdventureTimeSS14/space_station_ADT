@@ -204,7 +204,6 @@ public sealed partial class SurgerySystem
         {
             _chat.TryEmoteWithChat(uid, ScreamEmote, ChatTransmitRange.Normal, ignoreActionBlocker: true);
 
-            // Слабая анестезия (например алкоголь) убирает только боль от самого шага, но не спасает от риска и криков.
             if (!IsWeaklyAnesthetized(uid))
                 _damageable.TryChangeDamage(uid, NoAnestheticPainDamage, origin: comp.Surgeon);
         }

@@ -8,31 +8,75 @@
     - name: Amputated
       label: surgery-node-limb-amputated-label
       edges:
-        - id: Attach
-          label: surgery-edge-limb-attach-label
-          target: Attached
+        - id: OpenStump
+          label: surgery-edge-limb-open-stump-label
+          target: StumpOpened
           conditions:
             - !type:OrganPresentCondition
               organId: ArmLeft
               inverted: true
           steps:
-            - name: surgery-step-limb-treat-stump
-              tools: [ Cautery ]
-              successChance: 0.9
+            - name: surgery-step-limb-open-stump
+              tools: [ Scalpel ]
+              successChance: 0.95
               duration: 3
               sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
               effects:
                 - !type:DamageEffect
                   damage:
                     types:
-                      Heat: 1
+                      Slash: 1
+                      Bloodloss: 2
+
+    - name: StumpOpened
+      label: surgery-node-limb-stump-opened-label
+      edges:
+        - id: Attach
+          label: surgery-edge-limb-attach-label
+          target: LimbPlaced
+          steps:
             - name: surgery-step-limb-attach
               tools: [ ArmLeft ]
               duration: 4
           effects:
             - !type:InsertOrganEffect
               organId: ArmLeft
+
+    - name: LimbPlaced
+      label: surgery-node-limb-placed-label
+      edges:
+        - id: ApplyBoneGelFirst
+          label: surgery-edge-limb-bone-gel-first-label
+          target: LimbBoneGelled
+          steps:
+            - name: surgery-step-limb-bone-gel-first
+              tools: [ BoneGel ]
+              duration: 2
+
+    - name: LimbBoneGelled
+      label: surgery-node-limb-bone-gelled-label
+      edges:
+        - id: SetBone
+          label: surgery-edge-limb-set-bone-label
+          target: LimbBoneSet
+          steps:
+            - name: surgery-step-limb-set-bone
+              tools: [ BoneSetter ]
+              successChance: 0.9
+              duration: 3
+
+    - name: LimbBoneSet
+      label: surgery-node-limb-bone-set-label
+      edges:
+        - id: ApplyBoneGelSecond
+          label: surgery-edge-limb-bone-gel-second-label
+          target: Attached
+          steps:
+            - name: surgery-step-limb-bone-gel-second
+              tools: [ BoneGel ]
+              duration: 2
+
     - name: Attached
       label: surgery-node-limb-attached-label
       edges: []
@@ -47,31 +91,75 @@
     - name: Amputated
       label: surgery-node-limb-amputated-label
       edges:
-        - id: Attach
-          label: surgery-edge-limb-attach-label
-          target: Attached
+        - id: OpenStump
+          label: surgery-edge-limb-open-stump-label
+          target: StumpOpened
           conditions:
             - !type:OrganPresentCondition
               organId: ArmRight
               inverted: true
           steps:
-            - name: surgery-step-limb-treat-stump
-              tools: [ Cautery ]
-              successChance: 0.9
+            - name: surgery-step-limb-open-stump
+              tools: [ Scalpel ]
+              successChance: 0.95
               duration: 3
               sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
               effects:
                 - !type:DamageEffect
                   damage:
                     types:
-                      Heat: 1
+                      Slash: 1
+                      Bloodloss: 2
+
+    - name: StumpOpened
+      label: surgery-node-limb-stump-opened-label
+      edges:
+        - id: Attach
+          label: surgery-edge-limb-attach-label
+          target: LimbPlaced
+          steps:
             - name: surgery-step-limb-attach
               tools: [ ArmRight ]
               duration: 4
           effects:
             - !type:InsertOrganEffect
               organId: ArmRight
+
+    - name: LimbPlaced
+      label: surgery-node-limb-placed-label
+      edges:
+        - id: ApplyBoneGelFirst
+          label: surgery-edge-limb-bone-gel-first-label
+          target: LimbBoneGelled
+          steps:
+            - name: surgery-step-limb-bone-gel-first
+              tools: [ BoneGel ]
+              duration: 2
+
+    - name: LimbBoneGelled
+      label: surgery-node-limb-bone-gelled-label
+      edges:
+        - id: SetBone
+          label: surgery-edge-limb-set-bone-label
+          target: LimbBoneSet
+          steps:
+            - name: surgery-step-limb-set-bone
+              tools: [ BoneSetter ]
+              successChance: 0.9
+              duration: 3
+
+    - name: LimbBoneSet
+      label: surgery-node-limb-bone-set-label
+      edges:
+        - id: ApplyBoneGelSecond
+          label: surgery-edge-limb-bone-gel-second-label
+          target: Attached
+          steps:
+            - name: surgery-step-limb-bone-gel-second
+              tools: [ BoneGel ]
+              duration: 2
+
     - name: Attached
       label: surgery-node-limb-attached-label
       edges: []
@@ -86,9 +174,9 @@
     - name: Amputated
       label: surgery-node-limb-amputated-label
       edges:
-        - id: Attach
-          label: surgery-edge-limb-attach-label
-          target: Attached
+        - id: OpenStump
+          label: surgery-edge-limb-open-stump-label
+          target: StumpOpened
           conditions:
             - !type:OrganPresentCondition
               organId: HandLeft
@@ -96,23 +184,67 @@
             - !type:OrganPresentCondition
               organId: ArmLeft
           steps:
-            - name: surgery-step-limb-treat-stump
-              tools: [ Cautery ]
-              successChance: 0.9
+            - name: surgery-step-limb-open-stump
+              tools: [ Scalpel ]
+              successChance: 0.95
               duration: 3
               sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
               effects:
                 - !type:DamageEffect
                   damage:
                     types:
-                      Heat: 1
+                      Slash: 1
+                      Bloodloss: 2
+
+    - name: StumpOpened
+      label: surgery-node-limb-stump-opened-label
+      edges:
+        - id: Attach
+          label: surgery-edge-limb-attach-label
+          target: LimbPlaced
+          steps:
             - name: surgery-step-limb-attach
               tools: [ HandLeft ]
               duration: 4
           effects:
             - !type:InsertOrganEffect
               organId: HandLeft
+
+    - name: LimbPlaced
+      label: surgery-node-limb-placed-label
+      edges:
+        - id: ApplyBoneGelFirst
+          label: surgery-edge-limb-bone-gel-first-label
+          target: LimbBoneGelled
+          steps:
+            - name: surgery-step-limb-bone-gel-first
+              tools: [ BoneGel ]
+              duration: 2
+
+    - name: LimbBoneGelled
+      label: surgery-node-limb-bone-gelled-label
+      edges:
+        - id: SetBone
+          label: surgery-edge-limb-set-bone-label
+          target: LimbBoneSet
+          steps:
+            - name: surgery-step-limb-set-bone
+              tools: [ BoneSetter ]
+              successChance: 0.9
+              duration: 3
+
+    - name: LimbBoneSet
+      label: surgery-node-limb-bone-set-label
+      edges:
+        - id: ApplyBoneGelSecond
+          label: surgery-edge-limb-bone-gel-second-label
+          target: Attached
+          steps:
+            - name: surgery-step-limb-bone-gel-second
+              tools: [ BoneGel ]
+              duration: 2
+
     - name: Attached
       label: surgery-node-limb-attached-label
       edges: []
@@ -127,9 +259,9 @@
     - name: Amputated
       label: surgery-node-limb-amputated-label
       edges:
-        - id: Attach
-          label: surgery-edge-limb-attach-label
-          target: Attached
+        - id: OpenStump
+          label: surgery-edge-limb-open-stump-label
+          target: StumpOpened
           conditions:
             - !type:OrganPresentCondition
               organId: HandRight
@@ -137,23 +269,67 @@
             - !type:OrganPresentCondition
               organId: ArmRight
           steps:
-            - name: surgery-step-limb-treat-stump
-              tools: [ Cautery ]
-              successChance: 0.9
+            - name: surgery-step-limb-open-stump
+              tools: [ Scalpel ]
+              successChance: 0.95
               duration: 3
               sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
               effects:
                 - !type:DamageEffect
                   damage:
                     types:
-                      Heat: 1
+                      Slash: 1
+                      Bloodloss: 2
+
+    - name: StumpOpened
+      label: surgery-node-limb-stump-opened-label
+      edges:
+        - id: Attach
+          label: surgery-edge-limb-attach-label
+          target: LimbPlaced
+          steps:
             - name: surgery-step-limb-attach
               tools: [ HandRight ]
               duration: 4
           effects:
             - !type:InsertOrganEffect
               organId: HandRight
+
+    - name: LimbPlaced
+      label: surgery-node-limb-placed-label
+      edges:
+        - id: ApplyBoneGelFirst
+          label: surgery-edge-limb-bone-gel-first-label
+          target: LimbBoneGelled
+          steps:
+            - name: surgery-step-limb-bone-gel-first
+              tools: [ BoneGel ]
+              duration: 2
+
+    - name: LimbBoneGelled
+      label: surgery-node-limb-bone-gelled-label
+      edges:
+        - id: SetBone
+          label: surgery-edge-limb-set-bone-label
+          target: LimbBoneSet
+          steps:
+            - name: surgery-step-limb-set-bone
+              tools: [ BoneSetter ]
+              successChance: 0.9
+              duration: 3
+
+    - name: LimbBoneSet
+      label: surgery-node-limb-bone-set-label
+      edges:
+        - id: ApplyBoneGelSecond
+          label: surgery-edge-limb-bone-gel-second-label
+          target: Attached
+          steps:
+            - name: surgery-step-limb-bone-gel-second
+              tools: [ BoneGel ]
+              duration: 2
+
     - name: Attached
       label: surgery-node-limb-attached-label
       edges: []
@@ -168,31 +344,75 @@
     - name: Amputated
       label: surgery-node-limb-amputated-label
       edges:
-        - id: Attach
-          label: surgery-edge-limb-attach-label
-          target: Attached
+        - id: OpenStump
+          label: surgery-edge-limb-open-stump-label
+          target: StumpOpened
           conditions:
             - !type:OrganPresentCondition
               organId: LegLeft
               inverted: true
           steps:
-            - name: surgery-step-limb-treat-stump
-              tools: [ Cautery ]
-              successChance: 0.9
+            - name: surgery-step-limb-open-stump
+              tools: [ Scalpel ]
+              successChance: 0.95
               duration: 3
               sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
               effects:
                 - !type:DamageEffect
                   damage:
                     types:
-                      Heat: 1
+                      Slash: 1
+                      Bloodloss: 2
+
+    - name: StumpOpened
+      label: surgery-node-limb-stump-opened-label
+      edges:
+        - id: Attach
+          label: surgery-edge-limb-attach-label
+          target: LimbPlaced
+          steps:
             - name: surgery-step-limb-attach
               tools: [ LegLeft ]
               duration: 4
           effects:
             - !type:InsertOrganEffect
               organId: LegLeft
+
+    - name: LimbPlaced
+      label: surgery-node-limb-placed-label
+      edges:
+        - id: ApplyBoneGelFirst
+          label: surgery-edge-limb-bone-gel-first-label
+          target: LimbBoneGelled
+          steps:
+            - name: surgery-step-limb-bone-gel-first
+              tools: [ BoneGel ]
+              duration: 2
+
+    - name: LimbBoneGelled
+      label: surgery-node-limb-bone-gelled-label
+      edges:
+        - id: SetBone
+          label: surgery-edge-limb-set-bone-label
+          target: LimbBoneSet
+          steps:
+            - name: surgery-step-limb-set-bone
+              tools: [ BoneSetter ]
+              successChance: 0.9
+              duration: 3
+
+    - name: LimbBoneSet
+      label: surgery-node-limb-bone-set-label
+      edges:
+        - id: ApplyBoneGelSecond
+          label: surgery-edge-limb-bone-gel-second-label
+          target: Attached
+          steps:
+            - name: surgery-step-limb-bone-gel-second
+              tools: [ BoneGel ]
+              duration: 2
+
     - name: Attached
       label: surgery-node-limb-attached-label
       edges: []
@@ -207,31 +427,75 @@
     - name: Amputated
       label: surgery-node-limb-amputated-label
       edges:
-        - id: Attach
-          label: surgery-edge-limb-attach-label
-          target: Attached
+        - id: OpenStump
+          label: surgery-edge-limb-open-stump-label
+          target: StumpOpened
           conditions:
             - !type:OrganPresentCondition
               organId: LegRight
               inverted: true
           steps:
-            - name: surgery-step-limb-treat-stump
-              tools: [ Cautery ]
-              successChance: 0.9
+            - name: surgery-step-limb-open-stump
+              tools: [ Scalpel ]
+              successChance: 0.95
               duration: 3
               sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
               effects:
                 - !type:DamageEffect
                   damage:
                     types:
-                      Heat: 1
+                      Slash: 1
+                      Bloodloss: 2
+
+    - name: StumpOpened
+      label: surgery-node-limb-stump-opened-label
+      edges:
+        - id: Attach
+          label: surgery-edge-limb-attach-label
+          target: LimbPlaced
+          steps:
             - name: surgery-step-limb-attach
               tools: [ LegRight ]
               duration: 4
           effects:
             - !type:InsertOrganEffect
               organId: LegRight
+
+    - name: LimbPlaced
+      label: surgery-node-limb-placed-label
+      edges:
+        - id: ApplyBoneGelFirst
+          label: surgery-edge-limb-bone-gel-first-label
+          target: LimbBoneGelled
+          steps:
+            - name: surgery-step-limb-bone-gel-first
+              tools: [ BoneGel ]
+              duration: 2
+
+    - name: LimbBoneGelled
+      label: surgery-node-limb-bone-gelled-label
+      edges:
+        - id: SetBone
+          label: surgery-edge-limb-set-bone-label
+          target: LimbBoneSet
+          steps:
+            - name: surgery-step-limb-set-bone
+              tools: [ BoneSetter ]
+              successChance: 0.9
+              duration: 3
+
+    - name: LimbBoneSet
+      label: surgery-node-limb-bone-set-label
+      edges:
+        - id: ApplyBoneGelSecond
+          label: surgery-edge-limb-bone-gel-second-label
+          target: Attached
+          steps:
+            - name: surgery-step-limb-bone-gel-second
+              tools: [ BoneGel ]
+              duration: 2
+
     - name: Attached
       label: surgery-node-limb-attached-label
       edges: []
@@ -246,9 +510,9 @@
     - name: Amputated
       label: surgery-node-limb-amputated-label
       edges:
-        - id: Attach
-          label: surgery-edge-limb-attach-label
-          target: Attached
+        - id: OpenStump
+          label: surgery-edge-limb-open-stump-label
+          target: StumpOpened
           conditions:
             - !type:OrganPresentCondition
               organId: FootLeft
@@ -256,23 +520,67 @@
             - !type:OrganPresentCondition
               organId: LegLeft
           steps:
-            - name: surgery-step-limb-treat-stump
-              tools: [ Cautery ]
-              successChance: 0.9
+            - name: surgery-step-limb-open-stump
+              tools: [ Scalpel ]
+              successChance: 0.95
               duration: 3
               sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
               effects:
                 - !type:DamageEffect
                   damage:
                     types:
-                      Heat: 1
+                      Slash: 1
+                      Bloodloss: 2
+
+    - name: StumpOpened
+      label: surgery-node-limb-stump-opened-label
+      edges:
+        - id: Attach
+          label: surgery-edge-limb-attach-label
+          target: LimbPlaced
+          steps:
             - name: surgery-step-limb-attach
               tools: [ FootLeft ]
               duration: 4
           effects:
             - !type:InsertOrganEffect
               organId: FootLeft
+
+    - name: LimbPlaced
+      label: surgery-node-limb-placed-label
+      edges:
+        - id: ApplyBoneGelFirst
+          label: surgery-edge-limb-bone-gel-first-label
+          target: LimbBoneGelled
+          steps:
+            - name: surgery-step-limb-bone-gel-first
+              tools: [ BoneGel ]
+              duration: 2
+
+    - name: LimbBoneGelled
+      label: surgery-node-limb-bone-gelled-label
+      edges:
+        - id: SetBone
+          label: surgery-edge-limb-set-bone-label
+          target: LimbBoneSet
+          steps:
+            - name: surgery-step-limb-set-bone
+              tools: [ BoneSetter ]
+              successChance: 0.9
+              duration: 3
+
+    - name: LimbBoneSet
+      label: surgery-node-limb-bone-set-label
+      edges:
+        - id: ApplyBoneGelSecond
+          label: surgery-edge-limb-bone-gel-second-label
+          target: Attached
+          steps:
+            - name: surgery-step-limb-bone-gel-second
+              tools: [ BoneGel ]
+              duration: 2
+
     - name: Attached
       label: surgery-node-limb-attached-label
       edges: []
@@ -287,9 +595,9 @@
     - name: Amputated
       label: surgery-node-limb-amputated-label
       edges:
-        - id: Attach
-          label: surgery-edge-limb-attach-label
-          target: Attached
+        - id: OpenStump
+          label: surgery-edge-limb-open-stump-label
+          target: StumpOpened
           conditions:
             - !type:OrganPresentCondition
               organId: FootRight
@@ -297,23 +605,67 @@
             - !type:OrganPresentCondition
               organId: LegRight
           steps:
-            - name: surgery-step-limb-treat-stump
-              tools: [ Cautery ]
-              successChance: 0.9
+            - name: surgery-step-limb-open-stump
+              tools: [ Scalpel ]
+              successChance: 0.95
               duration: 3
               sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
               effects:
                 - !type:DamageEffect
                   damage:
                     types:
-                      Heat: 1
+                      Slash: 1
+                      Bloodloss: 2
+
+    - name: StumpOpened
+      label: surgery-node-limb-stump-opened-label
+      edges:
+        - id: Attach
+          label: surgery-edge-limb-attach-label
+          target: LimbPlaced
+          steps:
             - name: surgery-step-limb-attach
               tools: [ FootRight ]
               duration: 4
           effects:
             - !type:InsertOrganEffect
               organId: FootRight
+
+    - name: LimbPlaced
+      label: surgery-node-limb-placed-label
+      edges:
+        - id: ApplyBoneGelFirst
+          label: surgery-edge-limb-bone-gel-first-label
+          target: LimbBoneGelled
+          steps:
+            - name: surgery-step-limb-bone-gel-first
+              tools: [ BoneGel ]
+              duration: 2
+
+    - name: LimbBoneGelled
+      label: surgery-node-limb-bone-gelled-label
+      edges:
+        - id: SetBone
+          label: surgery-edge-limb-set-bone-label
+          target: LimbBoneSet
+          steps:
+            - name: surgery-step-limb-set-bone
+              tools: [ BoneSetter ]
+              successChance: 0.9
+              duration: 3
+
+    - name: LimbBoneSet
+      label: surgery-node-limb-bone-set-label
+      edges:
+        - id: ApplyBoneGelSecond
+          label: surgery-edge-limb-bone-gel-second-label
+          target: Attached
+          steps:
+            - name: surgery-step-limb-bone-gel-second
+              tools: [ BoneGel ]
+              duration: 2
+
     - name: Attached
       label: surgery-node-limb-attached-label
       edges: []

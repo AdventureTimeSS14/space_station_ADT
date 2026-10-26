@@ -44,6 +44,15 @@ public sealed partial class SurgerySystem
                 return true;
         }
 
+        if (_detachableOrgan.TryGetDetachedOrgan(item, out var organ))
+        {
+            foreach (var tag in step.Tools)
+            {
+                if (_tag.HasTag(organ, tag))
+                    return true;
+            }
+        }
+
         return false;
     }
 }
