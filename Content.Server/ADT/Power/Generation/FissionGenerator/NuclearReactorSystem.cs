@@ -561,7 +561,7 @@ public sealed partial class NuclearReactorSystem : EntitySystem
             }
         }
         comp.RadiationLevel = Math.Max(comp.RadiationLevel + MeltdownBadness, 0);
-        comp.AirContents.AdjustMoles(Gas.Tritium, MeltdownBadness * 15);
+        comp.AirContents.AdjustMoles(Gas.Tritium, MeltdownBadness * 45);
         comp.AirContents.Temperature = Math.Max(comp.Temperature, comp.AirContents.Temperature);
 
         var T = _atmosphereSystem.GetTileMixture(uid, excite: true);
@@ -571,11 +571,11 @@ public sealed partial class NuclearReactorSystem : EntitySystem
         _adminLog.Add(LogType.Explosion, LogImpact.Extreme, $"{ToPrettyString(uid):reactor} catastrophically overloads, meltdown badness: {MeltdownBadness}");
 
         // You did not see graphite on the roof. You're in shock. Report to medical.
-        for (var i = 0; i < _random.Next(15, 35); i++)
+        for (var i = 0; i < _random.Next(15, 35) * 3; i++)
             _throwingSystem.TryThrow(Spawn("NuclearDebrisChunk", _transformSystem.GetMapCoordinates(uid)), _random.NextAngle().ToVec().Normalized(), _random.NextFloat(10, 22), uid);
 
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/metal_break5.ogg"), uid);
-        _explosionSystem.QueueExplosion(uid, "NuclearMeltdown", Math.Max(400, MeltdownBadness * 12), 1, 12, 1, canCreateVacuum: false);
+        _explosionSystem.QueueExplosion(uid, "NuclearMeltdown", Math.Max(1200, MeltdownBadness * 36), 1, 36, 3, canCreateVacuum: false);
 
         var lightcomp = _lightSystem.EnsureLight(uid);
         _lightSystem.SetEnergy(uid, 0.1f, lightcomp);

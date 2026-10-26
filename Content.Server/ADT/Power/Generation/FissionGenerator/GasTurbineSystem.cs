@@ -301,7 +301,7 @@ public sealed partial class GasTurbineSystem : EntitySystem
             comp.Overspeed = comp.RPM > comp.BestRPM * 1.2;
 
             // Damage the turbines during overspeed, linear increase from 18% to 45% then stays at 45%
-            if (comp.Overspeed && _random.NextFloat() < 0.15 * Math.Min(comp.RPM / comp.BestRPM, 3))
+            if (comp.Overspeed && _random.NextFloat() < 0.225 * Math.Min(comp.RPM / comp.BestRPM, 3))
             {
                 // TODO: damage flash
                 _audio.PlayPvs(new SoundPathSpecifier(_damageSoundList[_random.Next(0, _damageSoundList.Count - 1)]), uid, AudioParams.Default.WithVariation(0.25f).WithVolume(-1));
@@ -363,7 +363,7 @@ public sealed partial class GasTurbineSystem : EntitySystem
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/metal_break5.ogg"), uid, AudioParams.Default);
         _popupSystem.PopupEntity(Loc.GetString("gas-turbine-explode", ("owner", uid)), uid, PopupType.LargeCaution);
 
-        _explosion.QueueExplosion(uid, "Default", comp.RPM / 10, 15, 5, 0, canCreateVacuum: false);
+        _explosion.QueueExplosion(uid, "Default", (comp.RPM / 10) * 3f, 15, 15, 0, canCreateVacuum: false);
 
         if (comp.RPM > comp.BestRPM / 6) // If it's barely moving then there's not really reason it would throw shrapnel
             ShootShrapnel(uid);

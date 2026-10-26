@@ -6,6 +6,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Power;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Random;
 
 namespace Content.Server.ADT.Power.Generation.FissionGenerator;
 
@@ -20,6 +21,7 @@ public sealed partial class NuclearCentrifugeSystem : EntitySystem
     [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private PopupSystem _popupSystem = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     private readonly float _threshold = 1f;
     private float _accumulator = 0f;
@@ -61,15 +63,31 @@ public sealed partial class NuclearCentrifugeSystem : EntitySystem
             {
                 if(comp.ExtractedFuel > 1)
                 {
-                    // If this while loop causes problems, blame whoever put 1.78e308 plutonium in the centrifuge
-                    while (comp.ExtractedFuel > 1)
+                    var totalIngots = (int) Math.Floor(comp.ExtractedFuel);
+                    comp.ExtractedFuel -= totalIngots;
+                    var successCount = 0;
+                    for (var i = 0; i < totalIngots; i++)
                     {
-                        var plutoniumStack = Spawn("IngotPlutonium1", Transform(uid).Coordinates);
-                        _stackSystem.SetCount(plutoniumStack, Math.Clamp((int)Math.Floor(comp.ExtractedFuel), 1, _stackSize));
-                        comp.ExtractedFuel -= _stackSystem.GetCount(plutoniumStack);
-                        _stackSystem.TryMergeToContacts(plutoniumStack);
+                        if (_random.Prob(0.1f))
+                            successCount++;
                     }
-                    _audio.PlayPvs(comp.SoundSucceed, uid);
+
+                    if (successCount > 0)
+                    {
+                        while (successCount > 0)
+                        {
+                            var count = Math.Clamp(successCount, 1, _stackSize);
+                            var plutoniumStack = Spawn("IngotPlutonium1", Transform(uid).Coordinates);
+                            _stackSystem.SetCount(plutoniumStack, count);
+                            successCount -= count;
+                            _stackSystem.TryMergeToContacts(plutoniumStack);
+                        }
+                        _audio.PlayPvs(comp.SoundSucceed, uid);
+                    }
+                    else
+                    {
+                        _audio.PlayPvs(comp.SoundFail, uid, AudioParams.Default.WithVolume(-2));
+                    }
                 }
                 else
                 {

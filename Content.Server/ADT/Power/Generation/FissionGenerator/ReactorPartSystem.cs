@@ -143,7 +143,7 @@ public sealed partial class ReactorPartSystem : EntitySystem
             ProcessHeatEffects(reactorPart);
         }
         if (reactorPart.Temperature > reactorPart.MeltingPoint && reactorPart.MeltHealth > 0)
-            reactorPart.MeltHealth -= _random.Next(10, 50 + 1);
+            reactorPart.MeltHealth -= (float)(_random.Next(10, 50 + 1) * 1.5);
         if (reactorPart.MeltHealth <= 0)
             Melt(reactorPart, reactorEnt, reactorSystem);
 

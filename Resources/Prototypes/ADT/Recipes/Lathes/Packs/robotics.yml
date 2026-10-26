@@ -173,6 +173,7 @@
   - ADTBorgModuleChemical
   - ADTBorgModuleJanicartBuffer
   - ADTBorgModuleJanicartVacuum
+  - BorgModuleRPED
 
 - type: latheRecipePack
   id: ADTJanicartUpgradesPack
