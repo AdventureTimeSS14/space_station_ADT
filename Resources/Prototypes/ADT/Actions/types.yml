@@ -111,3 +111,17 @@
     - state: icon
   - type: InstantAction
     event: !type:ZombieJumpEvent {}
+
+- type: entity
+  id: ADTActionToggleAntigrav
+  name: Toggle antigrav
+  description: Toggles the antigrav module on and off.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Modsuits/modules.rsi
+    layers:
+    - state: antigrav
+  - type: InstantAction
+    event: !type:ToggleActionEvent

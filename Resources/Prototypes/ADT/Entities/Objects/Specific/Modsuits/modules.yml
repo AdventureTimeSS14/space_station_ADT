@@ -16,9 +16,16 @@
     state: antigrav
   - type: ModSuitMod
     complexity: 1
+    incompatibleModules:
+    - ADTModsuitModMagboot
     components:
       shoes:
+      - type: ToggleClothing
+        action: ADTActionToggleAntigrav
+        mustEquip: false
       - type: AntiGravityClothing
+      - type: ItemToggle
+        onUse: false
     energyUsing: 0.1
 
 - type: entity
