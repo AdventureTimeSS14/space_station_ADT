@@ -177,3 +177,39 @@
   requiredTech:
   - ADTBluespacePartsTech
   - ADTBluespaceMining
+
+
+- type: technology
+  id: ADTRpedTech
+  name: research-technology-adt-rped
+  icon:
+    sprite: ADT/Objects/Specific/Research/rped.rsi
+    state: icon
+  discipline: Experimental
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - RapidPartExchanger
+  - BorgModuleRPED
+  technologyPrerequisites:
+  - ADTAdvancedPartsTech
+  position: 0,-1
+  requiredTech:
+  - ADTAdvancedPartsTech
+
+- type: technology
+  id: ADTBluespaceRpedTech
+  name: research-technology-adt-bluespace-rped
+  icon:
+    sprite: ADT/Objects/Specific/Research/bluespace_rped.rsi
+    state: icon
+  discipline: Experimental
+  tier: 3
+  cost: 15000
+  recipeUnlocks:
+  - BluespaceRapidPartExchanger
+  technologyPrerequisites:
+  - ADTRpedTech
+  position: 0,-2
+  requiredTech:
+  - ADTRpedTech

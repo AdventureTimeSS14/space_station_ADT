@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: NuclearFabricatorMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: плата ядерного фабрикатора
@@ -9,8 +9,11 @@
   - type: MachineBoard
     prototype: NuclearFabricator
     stackRequirements:
-      Manipulator: 5
-      Glass: 3
+      Glass: 5
+    partRequirements:
+      MatterBin: 2
+      Servo: 2
+      MicroLaser: 1
 
 - type: entity
   id: NuclearCentrifugeMachineCircuitboard
@@ -23,5 +26,8 @@
   - type: MachineBoard
     prototype: NuclearCentrifuge
     stackRequirements:
-      Manipulator: 5
       Plasteel: 5
+    partRequirements:
+      MatterBin: 2
+      ScanningModule: 1
+      Servo: 2
