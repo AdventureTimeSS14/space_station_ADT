@@ -2589,3 +2589,11 @@
   maxLimit: 1
   loadouts:
   - ADTClothingHeadHatCarpFedora
+
+- type: loadoutGroup
+  id: ADTMedicalDoctorNeck
+  name: loadout-group-medical-doctor-neck-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTClothingNeckArmbandMed
