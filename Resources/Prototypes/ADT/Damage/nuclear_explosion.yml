@@ -14,4 +14,4 @@
   fireColor: Green
   texturePath: /Textures/Effects/fire_greyscale.rsi
   fireStates: 3
-  temperature: 1200
+  temperature: 3600
