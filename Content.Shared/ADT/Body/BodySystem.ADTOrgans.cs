@@ -2,10 +2,16 @@ namespace Content.Shared.Body;
 
 public sealed partial class BodySystem
 {
+    [Dependency] private DetachableOrganSystem _detachableOrgan = default!;
+    [Dependency] private EntityQuery<DetachableOrganComponent> _detachableQuery = default!;
+
     public bool TryRemoveOrgan(Entity<OrganComponent?> organ)
     {
         if (!_organQuery.Resolve(organ, ref organ.Comp, false))
             return false;
+
+        if (_detachableQuery.HasComp(organ))
+            return _detachableOrgan.Detach(organ.Owner) != null;
 
         if (organ.Comp.Body is not { } bodyUid)
             return false;
