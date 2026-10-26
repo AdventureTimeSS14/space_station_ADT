@@ -375,10 +375,17 @@ public sealed partial class ParticleSystem : EntitySystem
             var emitter = _emitters[i];
 
             // Check if attached entity was deleted even when off-screen.
-            if (emitter.AttachedEntity is { } attachedEnt && Deleted(attachedEnt))
+            if (emitter.AttachedEntity is { } attachedEnt)
             {
-                emitter.Exhausted = true;
-                emitter.AttachedEntity = null;
+                if (Deleted(attachedEnt))
+                {
+                    emitter.Exhausted = true;
+                    emitter.AttachedEntity = null;
+                }
+                else
+                {
+                    emitter.MapCoords = _transform.GetMapCoordinates(attachedEnt);
+                }
             }
 
             var inView = emitter.MapCoords.MapId == currentMapId
@@ -496,22 +503,7 @@ public sealed partial class ParticleSystem : EntitySystem
     {
         var proto = emitter.Proto;
 
-        // Update attached entity position and track emitter velocity
         var newPos = emitter.MapCoords.Position;
-        if (emitter.AttachedEntity is { } attachedEnt)
-        {
-            if (Deleted(attachedEnt))
-            {
-                emitter.Exhausted = true;
-                emitter.AttachedEntity = null;
-            }
-            else
-            {
-                var attachedCoords = _transform.GetMapCoordinates(attachedEnt);
-                newPos = attachedCoords.Position;
-                emitter.MapCoords = attachedCoords; // update both position AND MapId
-            }
-        }
 
         if (!emitter.VelocityInitialized)
         {
