@@ -85,8 +85,6 @@
     - SurgeryTool
     - Scalpel
   # ADT-Tweak end
-  - type: Sharp
-    butcherDelayModifier: 1.5 # Butchering with a scalpel, regardless of the type, will take 50% longer
   - type: Tool
     qualities:
     - Slicing
@@ -217,7 +215,6 @@
     - SurgeryTool
     - Saw
   # ADT-Tweak end
-  - type: Sharp
   - type: Utensil
     types:
       - Knife
