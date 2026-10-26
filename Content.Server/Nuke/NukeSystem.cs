@@ -22,10 +22,6 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using Robust.Shared.Timing;
-// ADT-Tweak-start
-using Content.Server.ADT.Blob;
-using Content.Server.ADT.Blob.GameTicking;
-// ADT-Tweak-end
 
 namespace Content.Server.Nuke;
 
@@ -49,9 +45,6 @@ public sealed partial class NukeSystem : EntitySystem
     [Dependency] private AppearanceSystem _appearance = default!;
     [Dependency] private TurfSystem _turf = default!;
     [Dependency] private IGameTiming _timing = default!;
-    // ADT-Tweak-start
-    [Dependency] private readonly BlobNukeSystem _blobNuke = default!;
-    // ADT-Tweak-end
 
     /// <summary>
     ///     Used to calculate when the nuke song should start playing for maximum kino with the nuke sfx
@@ -134,10 +127,6 @@ public sealed partial class NukeSystem : EntitySystem
         }
 
         nuke.Code = GenerateRandomNumberString(nuke.CodeLength);
-
-        // ADT-Tweak-start
-        _blobNuke.UpdateNukeInfestation(uid, nuke);
-        // ADT-Tweak-end
     }
 
     /// <summary>
@@ -184,10 +173,6 @@ public sealed partial class NukeSystem : EntitySystem
         }
 
         UpdateAppearance(uid, component);
-
-        // ADT-Tweak-start
-        _blobNuke.UpdateNukeInfestation(uid, component);
-        // ADT-Tweak-end
     }
 
     #endregion
@@ -512,17 +497,7 @@ public sealed partial class NukeSystem : EntitySystem
         var posText = $"({x}, {y})";
 
         // We are collapsing the randomness here, otherwise we would get separate random song picks for checking duration and when actually playing the song afterwards
-        // ADT-Tweak-start
-        var blobRuleQuery = EntityQueryEnumerator<BlobRuleComponent>();
-        if (blobRuleQuery.MoveNext(out _, out _))
-        {
-            _selectedNukeSong = _audio.ResolveSound(new SoundPathSpecifier("/Audio/ADT/Blob/blobin_time.ogg"));
-        }
-        else
-        {
-            _selectedNukeSong = _audio.ResolveSound(component.ArmMusic);
-        }
-        // ADT-Tweak-end
+        _selectedNukeSong = _audio.ResolveSound(component.ArmMusic);
 
         // warn a crew
         var announcement = Loc.GetString("nuke-component-announcement-armed",
@@ -549,10 +524,6 @@ public sealed partial class NukeSystem : EntitySystem
         component.Status = NukeStatus.ARMED;
         UpdateUserInterface(uid, component);
         UpdateAppearance(uid, component);
-
-        // ADT-Tweak-start
-        _blobNuke.UpdateNukeInfestation(uid, component);
-        // ADT-Tweak-end
     }
 
     /// <summary>
@@ -598,10 +569,6 @@ public sealed partial class NukeSystem : EntitySystem
 
         UpdateUserInterface(uid, component);
         UpdateAppearance(uid, component);
-
-        // ADT-Tweak-start
-        _blobNuke.UpdateNukeInfestation(uid, component);
-        // ADT-Tweak-end
     }
 
     /// <summary>
@@ -702,18 +669,6 @@ public sealed partial class NukeSystem : EntitySystem
             args.PushMarkup(Loc.GetString("nuke-examine-exploding"));
         else if (component.Status == NukeStatus.ARMED)
             args.PushMarkup(Loc.GetString("nuke-examine-armed"));
-
-        // ADT-Tweak-start
-        if (_appearance.TryGetData<bool>(uid, Content.Shared.ADT.Blob.BlobNukeVisuals.Infested, out var infested) && infested)
-        {
-            args.PushMarkup(Loc.GetString("blob-nuke-examined-infested"));
-            if (component.Status == NukeStatus.ARMED && _blobNuke.GetDisarmProgress(uid) is { } progress)
-            {
-                var remaining = MathF.Max(0f, 60f - progress);
-                args.PushMarkup(Loc.GetString("blob-nuke-examined-disarming", ("seconds", (int) MathF.Ceiling(remaining))));
-            }
-        }
-        // ADT-Tweak-end
 
         if (Transform(uid).Anchored)
             args.PushMarkup(Loc.GetString("examinable-anchored"));

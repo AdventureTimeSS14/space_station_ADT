@@ -1,138 +1,118 @@
-using System.Collections.Generic;
 using Content.Server.Nuke;
 using Content.Server.Popups;
 using Content.Shared.ADT.Blob;
 using Content.Shared.ADT.Blob.Components;
+using Content.Shared.Examine;
 using Content.Shared.Nuke;
 using Content.Shared.Popups;
 using Robust.Server.GameObjects;
-using Robust.Shared.Collections;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
+using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.Blob;
 
 public sealed class BlobNukeSystem : EntitySystem
 {
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly NukeSystem _nuke = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
+    private const float DisarmTime = 60f;
 
-    private EntityQuery<BlobTileComponent> _tileQuery;
-    private readonly Dictionary<EntityUid, float> _infestedArmedNukes = new();
+    private static readonly TimeSpan TileCheckInterval = TimeSpan.FromSeconds(1);
+
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private AppearanceSystem _appearance = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private NukeSystem _nuke = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private IGameTiming _timing = default!;
+
+    [Dependency] private EntityQuery<BlobTileComponent> _tileQuery = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        _tileQuery = GetEntityQuery<BlobTileComponent>();
-
-        SubscribeLocalEvent<NukeComponent, MoveEvent>(OnNukeMoved);
+        SubscribeLocalEvent<BlobNukeComponent, ExaminedEvent>(OnExamined);
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        if (_infestedArmedNukes.Count == 0)
+        var query = EntityQueryEnumerator<BlobNukeComponent, NukeComponent>();
+        while (query.MoveNext(out var uid, out var blobNuke, out var nuke))
+        {
+            if (_timing.CurTime >= blobNuke.NextTileCheck)
+            {
+                blobNuke.NextTileCheck = _timing.CurTime + TileCheckInterval;
+
+                if (!IsOnBlobTile(uid, null))
+                {
+                    UpdateInfestation(uid);
+                    continue;
+                }
+            }
+
+            if (nuke.Status != NukeStatus.ARMED)
+            {
+                blobNuke.Timer = 0f;
+                continue;
+            }
+
+            blobNuke.Timer += frameTime;
+            if (blobNuke.Timer < DisarmTime)
+                continue;
+
+            blobNuke.Timer = 0f;
+            _nuke.DisarmBomb(uid, nuke);
+            _popup.PopupEntity(Loc.GetString("blob-nuke-disarmed-by-blob"), uid, PopupType.LargeCaution);
+        }
+    }
+
+    private void OnExamined(Entity<BlobNukeComponent> ent, ref ExaminedEvent args)
+    {
+        args.PushMarkup(Loc.GetString("blob-nuke-examined-infested"));
+
+        if (!TryComp<NukeComponent>(ent, out var nuke) || nuke.Status != NukeStatus.ARMED)
             return;
 
-        var toRemove = new ValueList<EntityUid>();
-
-        foreach (var (nukeUid, timer) in _infestedArmedNukes)
-        {
-            if (TerminatingOrDeleted(nukeUid) || !TryComp<NukeComponent>(nukeUid, out var nuke))
-            {
-                toRemove.Add(nukeUid);
-                continue;
-            }
-
-            if (!_appearance.TryGetData<bool>(nukeUid, BlobNukeVisuals.Infested, out var infested) || !infested || nuke.Status != NukeStatus.ARMED)
-            {
-                toRemove.Add(nukeUid);
-                continue;
-            }
-
-            var newTimer = timer + frameTime;
-            if (newTimer >= 60f)
-            {
-                toRemove.Add(nukeUid);
-                _nuke.DisarmBomb(nukeUid, nuke);
-                _popup.PopupEntity(Loc.GetString("blob-nuke-disarmed-by-blob"), nukeUid, PopupType.LargeCaution);
-            }
-            else
-            {
-                _infestedArmedNukes[nukeUid] = newTimer;
-            }
-        }
-
-        foreach (var uid in toRemove)
-        {
-            _infestedArmedNukes.Remove(uid);
-        }
+        var remaining = MathF.Max(0f, DisarmTime - ent.Comp.Timer);
+        args.PushMarkup(Loc.GetString("blob-nuke-examined-disarming", ("seconds", (int) MathF.Ceiling(remaining))));
     }
 
-    public float? GetDisarmProgress(EntityUid nukeUid)
-    {
-        if (_infestedArmedNukes.TryGetValue(nukeUid, out var timer))
-            return timer;
-        return null;
-    }
-
-    private void OnNukeMoved(EntityUid uid, NukeComponent component, ref MoveEvent args)
+    private void UpdateInfestation(EntityUid uid, EntityUid? terminatingTile = null)
     {
         if (TerminatingOrDeleted(uid))
             return;
 
-        UpdateNukeInfestation(uid, component);
+        var infested = IsOnBlobTile(uid, terminatingTile);
+
+        if (infested)
+            EnsureComp<BlobNukeComponent>(uid);
+        else
+            RemCompDeferred<BlobNukeComponent>(uid);
+
+        _appearance.SetData(uid, BlobNukeVisuals.Infested, infested);
     }
 
-    public void UpdateNukeInfestation(EntityUid nukeUid, NukeComponent? nukeComp = null, TransformComponent? xform = null, EntityUid? terminatingTile = null)
+    private bool IsOnBlobTile(EntityUid uid, EntityUid? terminatingTile)
     {
-        if (TerminatingOrDeleted(nukeUid))
-            return;
-
-        if (!Resolve(nukeUid, ref nukeComp, ref xform))
-            return;
+        var xform = Transform(uid);
 
         if (xform.GridUid is not { } gridUid || TerminatingOrDeleted(gridUid) || !TryComp<MapGridComponent>(gridUid, out var grid))
-        {
-            if (!TerminatingOrDeleted(nukeUid))
-                _appearance.SetData(nukeUid, BlobNukeVisuals.Infested, false);
-            _infestedArmedNukes.Remove(nukeUid);
-            return;
-        }
+            return false;
 
         var tileIndices = _map.TileIndicesFor(gridUid, grid, xform.Coordinates);
-        var anchored = _map.GetAnchoredEntities(gridUid, grid, tileIndices);
-
-        var isInfested = false;
-        foreach (var entity in anchored)
+        foreach (var entity in _map.GetAnchoredEntities(gridUid, grid, tileIndices))
         {
             if (entity == terminatingTile || TerminatingOrDeleted(entity))
                 continue;
 
             if (_tileQuery.TryComp(entity, out var blobTile) && blobTile.Core != null)
-            {
-                isInfested = true;
-                break;
-            }
+                return true;
         }
 
-        if (!TerminatingOrDeleted(nukeUid))
-            _appearance.SetData(nukeUid, BlobNukeVisuals.Infested, isInfested);
-
-        if (isInfested && nukeComp.Status == NukeStatus.ARMED)
-        {
-            _infestedArmedNukes.TryAdd(nukeUid, 0f);
-        }
-        else if (!isInfested || nukeComp.Status != NukeStatus.ARMED)
-        {
-            _infestedArmedNukes.Remove(nukeUid);
-        }
+        return false;
     }
 
     public void CheckTileForNukes(EntityUid blobTileUid, bool terminating = false)
@@ -151,10 +131,7 @@ public sealed class BlobNukeSystem : EntitySystem
 
         foreach (var nuke in _lookup.GetEntitiesInRange<NukeComponent>(xform.Coordinates, 0.75f))
         {
-            if (TerminatingOrDeleted(nuke.Owner))
-                continue;
-
-            UpdateNukeInfestation(nuke.Owner, nuke.Comp, terminatingTile: terminating ? blobTileUid : null);
+            UpdateInfestation(nuke.Owner, terminating ? blobTileUid : null);
         }
     }
 }
