@@ -148,6 +148,7 @@ public sealed partial class ParticleSystem : EntitySystem
         _frameCache.Clear();
         _curveCache.Clear();
         _frameResolveFailures.Clear();
+        _overlay.ClearShaderCache();
     }
 
     private void OnQualityChanged(int quality)
@@ -155,7 +156,11 @@ public sealed partial class ParticleSystem : EntitySystem
         _quality = quality;
         _inViewEmitters = 0;
         if (quality >= 0 && quality < QualityBudgets.Length)
-            _globalBudget = QualityBudgets[quality];
+        {
+            _globalBudget = quality == QualityBudgets.Length - 1
+                ? _cfg.GetCVar(CCVars.ParticleGlobalBudget)
+                : QualityBudgets[quality];
+        }
 
         RaiseLocalEvent(new ParticleSettingsChangedEvent(quality));
     }
@@ -442,7 +447,10 @@ public sealed partial class ParticleSystem : EntitySystem
                 UpdateEmitterSimulation(emitter, frameTime, eyeAngle);
             }
             else
+            {
+                emitter.PreviousPosition = emitter.MapCoords.Position;
                 AgeOffScreenParticles(emitter, frameTime);
+            }
 
             if (emitter.Exhausted && emitter.LiveTail == 0)
                 RemoveEmitterAt(i);
@@ -535,7 +543,6 @@ public sealed partial class ParticleSystem : EntitySystem
             Handle = _nextHandle++,
             SpawnOffset = proto.SpawnOffset,
             Curves = GetCurveCache(proto),
-            ResolvedPrototypeMaxCount = proto.MaxCount ?? CalculateMaxCount(proto),
         };
         ResolveFrames(emitter);
 
@@ -1029,6 +1036,9 @@ public sealed partial class ParticleSystem : EntitySystem
         if (!emitter.Exhausted && duration > TimeSpan.Zero && emitter.Age >= duration)
             emitter.Exhausted = true;
 
+        if (!emitter.Exhausted && emitter.Proto.Burst && emitter.Proto.Bursts.Count == 0)
+            emitter.Exhausted = true;
+
         for (var i = 0; i < emitter.LiveTail; i++)
         {
             var p = emitter.Particles[i];
@@ -1044,28 +1054,30 @@ public sealed partial class ParticleSystem : EntitySystem
         }
     }
 
-    private static int ResolveMaxCount(ActiveEmitter emitter)
+    private int ResolveMaxCount(ActiveEmitter emitter)
     {
         if (emitter.Overrides?.MaxCount is { } runtimeMax)
             return runtimeMax;
-        return emitter.ResolvedPrototypeMaxCount;
+        if (emitter.Proto.MaxCount is { } protoMax)
+            return protoMax;
+        return CalculateMaxCount(emitter.Proto, emitter.Overrides);
     }
 
-    private static int CalculateMaxCount(ParticleEffectPrototype prototype)
+    private static int CalculateMaxCount(ParticleEffectPrototype prototype, ParticleRuntimeOverrides? overrides = null)
     {
         if (prototype.Burst)
             return DefaultBurstMaxCount;
 
-        var lifetime = Math.Max(
-            (prototype.Lifetime + prototype.LifetimeVariance.Duration()).TotalSeconds,
-            0.05);
+        var lifetimeSpan = (overrides?.Lifetime ?? prototype.Lifetime)
+            + (overrides?.LifetimeVariance ?? prototype.LifetimeVariance);
+        var lifetime = Math.Max(lifetimeSpan.Duration().TotalSeconds, 0.05);
 
         var peakEmissionMultiplier = prototype.EmissionOverTime.Count == 0 ? 1f : 0f;
         foreach (var key in prototype.EmissionOverTime)
             peakEmissionMultiplier = Math.Max(peakEmissionMultiplier, key.Value);
 
         var continuousCount = (int)Math.Ceiling(
-            Math.Max(prototype.EmissionRate, 0f) * peakEmissionMultiplier * lifetime);
+            Math.Max(overrides?.EmissionRate ?? prototype.EmissionRate, 0f) * peakEmissionMultiplier * lifetime);
 
         // Timed bursts can overlap both continuous particles and one another. Adding them all is
         // intentionally conservative; the global budget and hard ceiling still get the final say.

@@ -67,9 +67,6 @@ public sealed class ActiveEmitter
     /// <summary>Pre-sampled prototype curves shared by emitters of the same effect.</summary>
     internal ParticleCurveCache Curves = null!;
 
-    /// <summary>Prototype <see cref="ParticleEffectPrototype.MaxCount"/> or the automatically calculated fallback.</summary>
-    internal int ResolvedPrototypeMaxCount;
-
     // =^..^= Velocity tracking =^..^=
 
     public Vector2 PreviousPosition;
