@@ -11,6 +11,22 @@
     entity: CarpetWhite
     maxOnTileWhitelist:
       tags: [ Carpet ]
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
+        key: Stutter
+        component: StutteringAccent
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
+        effectProto: StatusEffectSeeingRainbow
+        type: Add
+        time: 15
 
 - type: reagent
   id: ADTCarpetiumSkyBlue
@@ -25,6 +41,22 @@
     entity: CarpetSBlue
     maxOnTileWhitelist:
       tags: [ Carpet ]
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
+        key: Stutter
+        component: StutteringAccent
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
+        effectProto: StatusEffectSeeingRainbow
+        type: Add
+        time: 20
 
 - type: reagent
   id: ADTCarpetiumBlue
@@ -39,6 +71,22 @@
     entity: CarpetBlue
     maxOnTileWhitelist:
       tags: [ Carpet ]
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
+        key: Stutter
+        component: StutteringAccent
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
+        effectProto: StatusEffectSeeingRainbow
+        type: Add
+        time: 4
 
 - type: reagent
   id: ADTCarpetiumGreen
@@ -53,6 +101,22 @@
     entity: CarpetGreen
     maxOnTileWhitelist:
       tags: [ Carpet ]
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
+        key: Stutter
+        component: StutteringAccent
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
+        effectProto: StatusEffectSeeingRainbow
+        type: Add
+        time: 8
 
 - type: reagent
   id: ADTCarpetiumOrange
@@ -67,6 +131,22 @@
     entity: CarpetOrange
     maxOnTileWhitelist:
       tags: [ Carpet ]
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
+        key: Stutter
+        component: StutteringAccent
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
+        effectProto: StatusEffectSeeingRainbow
+        type: Add
+        time: 8
 
 - type: reagent
   id: ADTCarpetiumBlack
@@ -81,6 +161,22 @@
     entity: CarpetBlack
     maxOnTileWhitelist:
       tags: [ Carpet ]
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
+        key: Stutter
+        component: StutteringAccent
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
+        effectProto: StatusEffectSeeingRainbow
+        type: Add
+        time: 2
 
 - type: reagent
   id: ADTCarpetiumCyan
@@ -95,6 +191,22 @@
     entity: CarpetCyan
     maxOnTileWhitelist:
       tags: [ Carpet ]
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
+        key: Stutter
+        component: StutteringAccent
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
+        effectProto: StatusEffectSeeingRainbow
+        type: Add
+        time: 8
 
 - type: reagent
   id: ADTCarpetiumPink
@@ -109,6 +221,22 @@
     entity: CarpetPink
     maxOnTileWhitelist:
       tags: [ Carpet ]
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
+        key: Stutter
+        component: StutteringAccent
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
+        effectProto: StatusEffectSeeingRainbow
+        type: Add
+        time: 4
 
 - type: reagent
   id: ADTCarpetiumPurple
@@ -123,3 +251,19 @@
     entity: CarpetPurple
     maxOnTileWhitelist:
       tags: [ Carpet ]
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
+        key: Stutter
+        component: StutteringAccent
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
+        effectProto: StatusEffectSeeingRainbow
+        type: Add
+        time: 15
