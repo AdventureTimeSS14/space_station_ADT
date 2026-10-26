@@ -319,7 +319,8 @@
       params:
         volume: -5
     fireRate: 0.5
-  - type: UpgradeableGun
+  - type: ADTUpgradeableGun # ADT Tweak
+    maxModCapacity: 100
     whitelist:
       tags:
       - PKAUpgrade

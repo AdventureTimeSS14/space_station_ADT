@@ -525,7 +525,7 @@
         Base: dead_and_splat_mousespace
       Dead:
         Base: dead_and_splat_mousespace
-  - type: PressureImmunity
+  - type: SpecialPressureImmunity
   - type: Temperature
   - type: TemperatureDamage
     heatDamageThreshold: 423

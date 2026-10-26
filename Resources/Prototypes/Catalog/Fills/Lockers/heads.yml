@@ -387,7 +387,7 @@
   table: !type:AllSelector
     children:
     - id: ClothingMaskBreath
-    - id: ClothingOuterHardsuitRd
+    #- id: ClothingOuterHardsuitRd #ADT-Tweak
     - id: OxygenTankFilled
 
 # No hardsuit locker
@@ -415,6 +415,16 @@
           tableId: LockerFillResearchDirectorNoHardsuit
         - !type:NestedSelector
           tableId: FillResearchDirectorHardsuit
+  #ADT-Tweak-Start
+  - type: UserInterface
+    interfaces:
+      enum.SuitStorageUiKey.Key:
+        type: SuitStorageBoundUserInterface
+  - type: SuitStorage
+    options:
+    - ADTClothingModsuitBackMinerva
+    - ClothingOuterHardsuitRd
+  #ADT-Tweak-End
 
 # No hardsuit table
 - type: entityTable

@@ -15,7 +15,7 @@ public sealed class BubblegumTripleChargeSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly VisibilitySystem _visibility = default!;
 
-    private const float TravelBuffer = 0.6f;
+    private const float TravelBuffer = 0.5f;
 
     public override void Initialize()
     {

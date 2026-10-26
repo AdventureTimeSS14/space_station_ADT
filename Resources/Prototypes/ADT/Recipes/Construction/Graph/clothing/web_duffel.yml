@@ -1,0 +1,27 @@
+- type: constructionGraph
+  id: WebDuffel
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: WebDuffel
+          steps:
+            - material: Cloth
+              amount: 10
+              doAfter: 1
+            - material: WebSilk
+              amount: 20
+              doAfter: 1
+    - node: WebDuffel
+      entity: ADTClothingBackpackDuffelWeb
+
+- type: construction
+  id: WebDuffel
+  graph: WebDuffel
+  startNode: start
+  targetNode: WebDuffel
+  category: construction-category-clothing
+  entityWhitelist:
+    tags:
+    - SpiderCraft
+  objectType: Item

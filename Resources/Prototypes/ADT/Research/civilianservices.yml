@@ -11,6 +11,7 @@
   recipeUnlocks:
     - ADTModsuitModAntigrav
     - ADTModsuitModApparatus
+    - ADTModsuitModGPS
   technologyPrerequisites:
     - ADTMedicalMODsuit
   position: 3,1

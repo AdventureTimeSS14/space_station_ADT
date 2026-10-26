@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from MOLOT-BlueMoon-Station https://github.com/BlueMoon-Labs/BlueMoon-Station-13 and modified by orange6775 (discord)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "bottle-hotsauce"
+    },
+    {
+      "name": "bottle-hotsauce_open"
+    },
+    {
+      "name": "bottle-enzyme"
+    },
+    {
+      "name": "bottle-enzyme_open"
+    },
+    {
+      "name": "bottle-coldsauce"
+    },
+    {
+      "name": "bottle-coldsauce_open"
+    },
+    {
+      "name": "bottle-bbq"
+    },
+    {
+      "name": "bottle-bbq_open"
+    },
+    {
+      "name": "bottle-ketchup"
+    },
+    {
+      "name": "bottle-ketchup_open"
+    },
+    {
+      "name": "bottle-vinegar"
+    },
+    {
+      "name": "bottle-vinegar_open"
+    },
+    {
+      "name": "shaker-empty"
+    },
+    {
+      "name": "shaker-pepper"
+    },
+    {
+      "name": "shaker-salt"
+    }
+  ]
+}

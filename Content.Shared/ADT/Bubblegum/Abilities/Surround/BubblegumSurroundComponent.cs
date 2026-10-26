@@ -16,10 +16,10 @@ public sealed partial class BubblegumSurroundComponent : Component
     public float Radius = 4f;
 
     [DataField]
-    public float WaveDelay = 0.6f;
+    public float WaveDelay = 0.45f;
 
     [DataField]
-    public float SelfChargeDelay = 0.9f;
+    public float SelfChargeDelay = 0.6f;
 
     [DataField]
     public EntProtoId HallucinationPrototype = "ADTMegaFaunaBubblegumHallucination";
@@ -28,5 +28,5 @@ public sealed partial class BubblegumSurroundComponent : Component
     public EntProtoId TelegraphPrototype = "ADTBubblegumChargeTelegraph";
 
     [DataField]
-    public float ChargeSpeed = 12f;
+    public float ChargeSpeed = 20f;
 }

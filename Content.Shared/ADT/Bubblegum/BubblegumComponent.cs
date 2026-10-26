@@ -31,7 +31,7 @@ public sealed partial class BubblegumComponent : Component
     public TimeSpan NextEnrageAvailableAt;
 
     [DataField]
-    public float EnragedSpeedMultiplier = 1.5f;
+    public float EnragedSpeedMultiplier = 1.3f;
 
     [DataField]
     public Color EnragedColor = Color.FromHex("#950A0A");
@@ -83,7 +83,7 @@ public sealed partial class BubblegumComponent : Component
     };
 
     [DataField]
-    public TimeSpan AbilityInterval = TimeSpan.FromSeconds(3);
+    public TimeSpan AbilityInterval = TimeSpan.FromSeconds(1.6);
 
     [DataField]
     public TimeSpan NextAbilityAt;

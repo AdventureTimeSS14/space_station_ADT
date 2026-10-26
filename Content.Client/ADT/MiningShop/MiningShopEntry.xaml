@@ -1,13 +1,19 @@
-﻿<cc:MiningShopEntry
+<cc:MiningShopEntry
     xmlns="https://spacestation14.io"
     xmlns:cc="clr-namespace:Content.Client.ADT.MiningShop"
-    HorizontalExpand="True">
-    <BoxContainer Orientation="Horizontal">
+    HorizontalExpand="True"
+    SetHeight="34"
+    RectClipContent="True">
+    <BoxContainer Orientation="Horizontal" SeparationOverride="4" VerticalExpand="True">
         <LayeredTextureRect Name="Texture" Access="Public"
-                            HorizontalExpand="False" VerticalExpand="False" />
-        <Label Name="Price" Access="Public" MinWidth="60" Align="Left" Margin="5 0 0 0" />
-        <Control MinWidth="5" />
-        <cc:MiningShopPanel Name="Panel" Access="Public" />
-        <Button Text="?" Name="TooltipLabel" Access="Public" ModulateSelfOverride="#00000000" />
+                            SetSize="32 32" CanShrink="True" Stretch="KeepAspectCentered"
+                            VerticalAlignment="Center" />
+        <Label Name="Price" Access="Public" SetWidth="56" Align="Right" ClipText="True"
+               StyleClasses="LabelKeyText" VerticalAlignment="Center" />
+        <Label Name="Capacity" Access="Public" SetWidth="40" Align="Right" ClipText="True"
+               StyleClasses="LabelSubText" VerticalAlignment="Center" />
+        <cc:MiningShopPanel Name="Panel" Access="Public" VerticalExpand="True" />
+        <Button Text="?" Name="TooltipLabel" Access="Public" ModulateSelfOverride="#00000000"
+                SetWidth="26" VerticalExpand="True" />
     </BoxContainer>
 </cc:MiningShopEntry>

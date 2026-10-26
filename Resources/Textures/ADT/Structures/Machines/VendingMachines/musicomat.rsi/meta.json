@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "All sprite created by Etvy to Adventure Time project",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "normal-unshaded"
+    },
+    {
+      "name": "broken"
+    },
+    {
+      "name": "deny-unshaded",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "off"
+    },
+    {
+      "name": "screen",
+      "delays": [
+        [
+          3,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "panel"
+    },
+    {
+      "name": "eject-unshaded",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.8,
+          0.1,
+          0.1
+        ]
+      ]
+    }
+  ]
+}

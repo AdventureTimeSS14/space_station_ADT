@@ -1798,6 +1798,17 @@
         - ReagentId: Nutriment
           Quantity: 3
 
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieKelly
+  name: plush Kelly
+  description: A seemingly ordinary toy with a lemon-and-lemon-grass scent. The scarf was clearly knotted by someone after it was made, and there's a tag on it that reads, "From the Red Fox."
+  suffix: Personal, kiwi_fruit
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_kelly
+
 # Archeron, заслуженный модератор
 
 - type: entity
@@ -3838,6 +3849,30 @@
         Piercing: 12
   - type: DisarmMalus
   - type: PickableWeapon
+
+- type: entity
+  parent: BaseBallBat
+  id: ADTStryzAniAssaultSledgehammer
+  name: assault sledgehammer
+  description: A simple assault sledgehammer with a wide-swinging handle is perfect for breaking down doors. It has a tape with an inscription in a language you don't understand.
+  suffix: Personal, stryz_ani
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/stryz_ani/assault_sledgehammer.rsi
+    state: icon
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 13
+        Structural: 7.5
+    soundHit: "/Audio/ADT/Weapons/Melee/bat.ogg"
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 12
+        Structural: 12.5
+  - type: UseDelay
+    delay: 1
 
 - type: entity
   parent: PlushieMoth

@@ -1,7 +1,11 @@
+using System.Linq;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Systems;
 using Content.Server.Mech.Components;
+using Content.Shared.Access.Components;
+using Content.Shared.Access.Systems;
 using Content.Shared.ActionBlocker;
+using Content.Shared.Atmos;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
@@ -10,6 +14,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Mech;
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.EntitySystems;
+using Content.Shared.Mech.Equipment.Components;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Popups;
@@ -21,17 +26,13 @@ using Content.Shared.Tools.Systems;
 using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
 using Content.Shared.Wires;
+using Robust.Server.Audio;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using System.Linq;
-using Content.Shared.Atmos;
-using Content.Shared.Access.Components;
-using Robust.Server.Audio;
 using Robust.Shared.Random;
-using Content.Shared.Access.Systems;
 
 namespace Content.Server.Mech.Systems;
 
@@ -116,6 +117,11 @@ public sealed partial class MechSystem : SharedMechSystem
         if (TryComp<WiresPanelComponent>(uid, out var panel) && !panel.Open)
             return;
 
+        // ADT-Tweak-Start
+        if (HasComp<MechEquipmentComponent>(args.Used))
+            return;
+        // ADT-Tweak-End
+
         if (component.BatterySlot.ContainedEntity == null && TryComp<BatteryComponent>(args.Used, out var battery))
         {
             InsertBattery(uid, args.Used, component, battery);
@@ -193,7 +199,7 @@ public sealed partial class MechSystem : SharedMechSystem
     private void OnOpenUi(EntityUid uid, MechComponent component, MechOpenUiEvent args)
     {
         args.Handled = true;
-        ToggleMechUi(uid, component);
+        ToggleMechUi(uid, component, args.Performer); // ADT-Mech-Tweak
     }
 
     private void OnToolUseAttempt(EntityUid uid, MechPilotComponent component, ref ToolUserAttemptUseEvent args)
@@ -206,6 +212,8 @@ public sealed partial class MechSystem : SharedMechSystem
     {
         if (!args.CanAccess || !args.CanInteract || component.Broken)
             return;
+
+        _cockpit.AddPassengerVerb(uid, component, args); // ADT-Mech-Tweak
 
         if (CanInsert(uid, args.User, component))
         {
@@ -314,6 +322,8 @@ public sealed partial class MechSystem : SharedMechSystem
             var damage = args.DamageDelta * component.MechToPilotDamageMultiplier;
             _damageable.ChangeDamage(component.PilotSlot.ContainedEntity.Value, damage);
         }
+
+        _cockpit.RelayDamageToPassenger(uid, component, args); // ADT-Mech-Tweak
 
         // ADT-Tweak start: stop move zero power cell
         _actionBlocker.UpdateCanMove(uid);

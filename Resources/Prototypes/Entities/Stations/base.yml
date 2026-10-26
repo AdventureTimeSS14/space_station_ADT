@@ -18,6 +18,7 @@
         Security: [ ]
         Service: [ ]
     - type: StationCargoBountyDatabase
+    - type: StationXenobiologyBountyDatabase # VG-Tweak
 
 - type: entity
   id: BaseStationJobsSpawning

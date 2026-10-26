@@ -100,6 +100,10 @@ public sealed partial class NavMapSystem : SharedNavMapSystem
             }
         }
 
+        // ADT-Tweak Start - New Monitor: invalidate client wall/window line caches
+        component.DataVersion++;
+        // ADT-Tweak End
+
         // Refresh beacons
         component.Beacons.Clear();
         foreach (var (nuid, beacon) in beacons)

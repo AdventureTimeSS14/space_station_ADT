@@ -578,3 +578,130 @@
   - type: PointLight
     enabled: false
     color: "#0BB0F4"
+
+- type: entity
+  parent: ADTClothingHeadHelmetModsuitBase
+  id: ADTClothingHeadHelmetModsuitMinerva
+  name: research MOD helmet "Minerva"
+  description: A helmet for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Modsuit/minerva.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Modsuit/minerva.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-head
+
+- type: entity
+  parent: ADTClothingHeadHelmetModsuitBase
+  id: ADTClothingHeadHelmetModsuitCharon
+  name: liberation MOD helmet "Charon"
+  description: A helmet for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Modsuit/charon.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Modsuit/charon.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-head
+  - type: PointLight
+    enabled: false
+    color: cyan
+    radius: 10
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: FireProtection
+    reduction: 0.2
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.80
+        Slash: 0.80
+        Piercing: 0.80
+        Heat: 0.80
+        Radiation: 0.80
+        Caustic: 0.95
+  - type: SupermatterImmune
+
+- type: entity
+  parent: ADTClothingHeadHelmetModsuitBase
+  id: ADTClothingHeadHelmetModsuitERTLeader
+  name: ERT MOD helmet "Polaris"
+  description: A helmet for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Modsuit/responsory.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Modsuit/responsory.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-head
+      - state: equipped-head-unshaded
+        shader: unshaded
+        color: "#2b6cb0"
+
+- type: entity
+  parent: ADTClothingHeadHelmetModsuitBase
+  id: ADTClothingHeadHelmetModsuitERTSecurity
+  name: ERT MOD helmet "Antares"
+  description: A helmet for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Modsuit/responsory.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Modsuit/responsory.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-head
+      - state: equipped-head-unshaded
+        shader: unshaded
+        color: "#b02b2b"
+
+- type: entity
+  parent: ADTClothingHeadHelmetModsuitBase
+  id: ADTClothingHeadHelmetModsuitERTEngineer
+  name: ERT MOD helmet "Capella"
+  description: A helmet for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Modsuit/responsory.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Modsuit/responsory.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-head
+      - state: equipped-head-unshaded
+        shader: unshaded
+        color: "#d4a017"
+
+- type: entity
+  parent: ADTClothingHeadHelmetModsuitBase
+  id: ADTClothingHeadHelmetModsuitERTMedical
+  name: ERT MOD helmet "Vega"
+  description: A helmet for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Modsuit/responsory.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Modsuit/responsory.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-head
+      - state: equipped-head-unshaded
+        shader: unshaded
+        color: "#17c9d4"

@@ -122,13 +122,15 @@
   - type: SuitSensor
     onMob: true
     sensorsTime: 6
-  - type: DeviceNetwork
-    deviceNetId: Wireless
-    transmitFrequencyId: SuitSensor
-    savableAddress: false
-  - type: WirelessNetworkConnection
-    range: 1200
-  - type: StationLimitedNetwork
+  # ADT-Tweak Start - New Monitor: Deprecated
+  # - type: DeviceNetwork
+  #   deviceNetId: Wireless
+  #   transmitFrequencyId: SuitSensor
+  #   savableAddress: false
+  # - type: WirelessNetworkConnection
+  #   range: 1200
+  # - type: StationLimitedNetwork
+  # ADT-Tweak End
   - type: Inventory
     templateId: ipcDisproportionate
     displacements:

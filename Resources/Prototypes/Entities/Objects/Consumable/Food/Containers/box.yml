@@ -80,7 +80,7 @@
   description: Don't drop 'em!
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Food/egg.rsi
+    sprite: ADT/Objects/Consumable/Food/egg.rsi #ADT-Tweak
     state: box-closed
     layers:
     - state: box-closed
@@ -131,10 +131,17 @@
       tags:
       - Egg
   - type: Item
-    sprite: Objects/Consumable/Food/egg.rsi
+    sprite: ADT/Objects/Consumable/Food/egg.rsi #ADT-Tweak
     size: Normal
     shape:
     - 0,0,2,1
+    #ADT-Tweak-Start
+    inhandVisuals:
+      left:
+      - state: box-inhand-left
+      right:
+      - state: box-inhand-right
+    #ADT-Tweak-End
     storedOffset: 0,-6
   - type: EntityTableContainerFill
     containers:
@@ -211,7 +218,7 @@
   description: A box for pizza. It keeps in the heat, the smell, and the memories of the best five minutes of your life.
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Food/Baked/pizza.rsi
+    sprite: ADT/Objects/Consumable/Food/Baked/pizza.rsi #ADT-Tweak
     drawdepth: SmallObjects
     layers:
     - state: box
@@ -229,7 +236,7 @@
       tags:
       - Pizza
   - type: Item
-    sprite: Objects/Consumable/Food/Baked/pizza.rsi
+    sprite: ADT/Objects/Consumable/Food/Baked/pizza.rsi #ADT-Tweak
     heldPrefix: box
     shape:
     - 0,0,2,1
@@ -657,8 +664,10 @@
   name: box of FlutterSoft-brand cloth
   description: Fiber is the most important moth meal of the day! Don't skip it or use bottom-of-the-locker junk, buy high-quality FlutterSoft-brand cloth instead.
   components:
+  #ADT-Tweak-Start
   - type: Sprite
-    sprite: Objects/Consumable/Food/ingredients.rsi
+    sprite: ADT/Objects/Consumable/Food/ingredients.rsi
+    #ADT-Tweak-End
     state: cloth-box
   - type: Storage
     grid:

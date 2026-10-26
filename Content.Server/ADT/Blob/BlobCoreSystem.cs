@@ -36,6 +36,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
+using Content.Shared.ADT.Objectives.Components;
 
 namespace Content.Server.ADT.Blob;
 
@@ -80,9 +81,9 @@ public sealed class BlobCoreSystem : EntitySystem
         SubscribeLocalEvent<BlobCoreComponent, BlobTransformTileActionEvent>(OnTileTransform);
 
         SubscribeLocalEvent<BlobCoreComponent, PlayerAttachedEvent>(OnPlayerAttached);
-        SubscribeLocalEvent<Objectives.BlobCaptureConditionComponent, ObjectiveGetProgressEvent>(OnBlobCaptureProgress);
-        SubscribeLocalEvent<Objectives.BlobCaptureConditionComponent, ObjectiveAfterAssignEvent>(OnBlobCaptureInfo);
-        SubscribeLocalEvent<Objectives.BlobCaptureConditionComponent, ObjectiveAssignedEvent>(OnBlobCaptureInfoAdd);
+        SubscribeLocalEvent<BlobCaptureConditionComponent, ObjectiveGetProgressEvent>(OnBlobCaptureProgress);
+        SubscribeLocalEvent<BlobCaptureConditionComponent, ObjectiveAfterAssignEvent>(OnBlobCaptureInfo);
+        SubscribeLocalEvent<BlobCaptureConditionComponent, ObjectiveAssignedEvent>(OnBlobCaptureInfoAdd);
 
 
         _tile = GetEntityQuery<BlobTileComponent>();
@@ -185,7 +186,7 @@ public sealed class BlobCoreSystem : EntitySystem
 
     #region Objective
 
-    private void OnBlobCaptureInfoAdd(Entity<Objectives.BlobCaptureConditionComponent> ent, ref ObjectiveAssignedEvent args)
+    private void OnBlobCaptureInfoAdd(Entity<BlobCaptureConditionComponent> ent, ref ObjectiveAssignedEvent args)
     {
         if (args.Mind.OwnedEntity == null)
         {
@@ -206,18 +207,16 @@ public sealed class BlobCoreSystem : EntitySystem
             return;
         }
 
-        var totalStationTiles = _stationSystem.GetTileCount(station.Value);
-        var theEndPercent = CompOrNull<StationBlobConfigComponent>(station)?.StageTheEndPercent ?? StationBlobConfigComponent.DefaultStageTheEndPercent;
-        ent.Comp.Target = (int) (totalStationTiles * theEndPercent);
+        ent.Comp.Target = BlobCaptureConditionComponent.VictoryThreshold;
     }
 
-    private void OnBlobCaptureInfo(EntityUid uid, Objectives.BlobCaptureConditionComponent component, ref ObjectiveAfterAssignEvent args)
+    private void OnBlobCaptureInfo(EntityUid uid, BlobCaptureConditionComponent component, ref ObjectiveAfterAssignEvent args)
     {
         _metaDataSystem.SetEntityName(uid,Loc.GetString("objective-condition-blob-capture-title"));
         _metaDataSystem.SetEntityDescription(uid,Loc.GetString("objective-condition-blob-capture-description", ("count", component.Target)));
     }
 
-    private void OnBlobCaptureProgress(EntityUid uid, Objectives.BlobCaptureConditionComponent component, ref ObjectiveGetProgressEvent args)
+    private void OnBlobCaptureProgress(EntityUid uid, BlobCaptureConditionComponent component, ref ObjectiveGetProgressEvent args)
     {
         if (!TryComp<BlobObserverComponent>(args.Mind.OwnedEntity, out var blobObserverComponent)
             || !TryComp<BlobCoreComponent>(blobObserverComponent.Core, out var blobCoreComponent))
@@ -229,7 +228,7 @@ public sealed class BlobCoreSystem : EntitySystem
         var target = component.Target;
         args.Progress = 0;
 
-        if (target != 0)
+        if (target > 0)
             args.Progress = MathF.Min((float) blobCoreComponent.BlobTiles.Count / target, 1f);
         else
             args.Progress = 1f;

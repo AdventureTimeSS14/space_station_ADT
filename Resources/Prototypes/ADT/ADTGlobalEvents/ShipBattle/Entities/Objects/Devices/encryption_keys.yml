@@ -233,3 +233,9 @@
     layers:
     - state: crypt_gray
     - state: kmt_super_label
+
+- type: entity
+  parent: EncryptionKeySyndie
+  id: EncryptionKeySyndiePAI
+  components:
+    - type: Unremoveable

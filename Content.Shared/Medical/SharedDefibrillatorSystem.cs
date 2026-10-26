@@ -16,6 +16,8 @@ using Content.Shared.Timing;
 using Content.Shared.Traits.Assorted;
 using Content.Shared.ADT.Atmos.Miasma; // ADT-Tweak
 using Content.Shared.Resist; //ADT-Medicine
+using Content.Shared.Inventory;
+using Content.Shared.Verbs;
 using Robust.Shared.Containers; // ADT-Tweak
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
@@ -51,7 +53,28 @@ public abstract class SharedDefibrillatorSystem : EntitySystem
     {
         SubscribeLocalEvent<DefibrillatorComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<DefibrillatorComponent, DefibrillatorZapDoAfterEvent>(OnDoAfter);
+        SubscribeLocalEvent<DefibrillatorComponent, InventoryRelayedEvent<GetVerbsEvent<InnateVerb>>>(AddZapVerb);   // ADT-Tweak
     }
+
+    // ADT-Tweak-start
+    private void AddZapVerb(Entity<DefibrillatorComponent> ent, ref InventoryRelayedEvent<GetVerbsEvent<InnateVerb>> args)
+    {
+        if (!args.Args.CanInteract || !args.Args.CanAccess || !HasComp<MobStateComponent>(args.Args.Target))
+            return;
+
+        var target = args.Args.Target;
+        var user = args.Args.User;
+
+        var verb = new InnateVerb
+        {
+            Act = () => TryStartZap(ent.AsNullable(), target, user),
+            Text = Loc.GetString("defibrillator-verb-zap"),
+            IconEntity = GetNetEntity(ent),
+            Priority = 2,
+        };
+        args.Args.Verbs.Add(verb);
+    }
+    // ADT-Tweak-end
 
     private void OnAfterInteract(Entity<DefibrillatorComponent> ent, ref AfterInteractEvent args)
     {

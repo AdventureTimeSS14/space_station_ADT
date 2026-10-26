@@ -13,7 +13,7 @@ namespace Content.Client.ADT.Silicons.Laws.Ui;
 public sealed partial class RemoteDeviceDisplay : Control
 {
     public event Action<RemoteDeviceActionEvent>? OnRemoteDeviceAction;
-    public RemoteDeviceDisplay(NetEntity netEntityUid, string displayName, SpriteSpecifier? spriteSpecifier, bool isIncapacitated)
+    public RemoteDeviceDisplay(NetEntity netEntityUid, string displayName, SpriteSpecifier? spriteSpecifier, bool isIncapacitated, bool isOccupied)
     {
         RobustXamlLoader.Load(this);
         var entMan = IoCManager.Resolve<IEntityManager>();
@@ -26,8 +26,9 @@ public sealed partial class RemoteDeviceDisplay : Control
             DeviceSprite.Texture = sprite.Frame0(spriteSpecifier);
         }
 
-        // Disable take control button if borg is incapacitated
-        TakeControlButton.Disabled = isIncapacitated;
+        // Disable take control button if borg is incapacitated or already occupied by another AI
+        TakeControlButton.Disabled = isIncapacitated || isOccupied;
+        OccupiedLabel.Visible = isOccupied;
 
         MoveButton.OnPressed += _ =>
         {

@@ -1,0 +1,40 @@
+- type: entity
+  parent: BaseFoodCondiment
+  id: ADTBaseFoodCondimentBottleNoContainerVisuals
+  abstract: true
+  name: condiment bottle
+  description: A thin glass bottle used to store condiments.
+  components:
+  - type: Edible
+    edible: Drink
+    solution: food
+    destroyOnEmpty: false
+    utensil: None
+  - type: Openable
+    sound:
+      collection: pop
+    closeable: true
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+  - type: RefillableSolution
+    solution: food
+  - type: Spillable
+    solution: food
+  - type: SolutionTransfer
+    canChangeTransferAmount: true
+    minTransferAmount: 5
+    maxTransferAmount: 30
+  - type: Sprite
+    state: bottle-empty
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "bottle-open"}
+          False: {state: "bottle-empty"}
+  - type: PhysicalComposition
+    materialComposition:
+      Glass: 50

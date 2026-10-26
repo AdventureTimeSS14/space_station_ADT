@@ -35,8 +35,9 @@ public sealed class WeatherSchedulerSystem : EntitySystem
             var duration = TimeSpan.FromSeconds(stage.Duration.Next(_random));
             comp.NextUpdate = now + duration;
 
+            var (stageWeather, stageMessage) = PickVariant(stage); // ADT-Tweak
             var mapId = Comp<MapComponent>(map).MapId;
-            if (stage.Weather is {} weather)
+            if (stageWeather is {} weather) // ADT-Tweak
             {
                 if (HasWeather(comp, comp.Stage - 1))
                     duration += SharedWeatherSystem.StartupTime;
@@ -45,7 +46,7 @@ public sealed class WeatherSchedulerSystem : EntitySystem
                 _weather.TryAddWeather(map, weather, out _, duration);
             }
 
-            if (stage.Message is {} message)
+            if (stageMessage is {} message) // ADT-Tweak
             {
                 var msg = Loc.GetString(message);
                 _chat.ChatMessageToManyFiltered(
@@ -61,6 +62,34 @@ public sealed class WeatherSchedulerSystem : EntitySystem
         }
     }
 
+    // ADT-Tweak-Start
+    private (EntProtoId? Weather, LocId? Message) PickVariant(WeatherStage stage)
+    {
+        if (stage.Variants.Count == 0)
+            return (stage.Weather, stage.Message);
+
+        var total = 0f;
+        foreach (var variant in stage.Variants)
+        {
+            total += MathF.Max(variant.Weight, 0f);
+        }
+
+        if (total <= 0f)
+            return (stage.Weather, stage.Message);
+
+        var roll = _random.NextFloat(total);
+        foreach (var variant in stage.Variants)
+        {
+            roll -= MathF.Max(variant.Weight, 0f);
+            if (roll <= 0f)
+                return (variant.Weather, variant.Message);
+        }
+
+        var last = stage.Variants[^1];
+        return (last.Weather, last.Message);
+    }
+    // ADT-Tweak-End
+
     private bool HasWeather(WeatherSchedulerComponent comp, int stage)
     {
         if (stage < 0)
@@ -68,6 +97,9 @@ public sealed class WeatherSchedulerSystem : EntitySystem
         else if (stage >= comp.Stages.Count)
             stage %= comp.Stages.Count;
 
-        return comp.Stages[stage].Weather != null;
+        // ADT-Tweak-Start
+        var entry = comp.Stages[stage];
+        return entry.Weather != null || entry.Variants.Count > 0;
+        // ADT-Tweak-End
     }
 }

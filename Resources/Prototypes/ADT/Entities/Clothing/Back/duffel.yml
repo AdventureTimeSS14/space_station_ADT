@@ -68,4 +68,25 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: JawsOfLife
+        - id: JawsOfLife
+
+# Паучок
+
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ADTClothingBackpackDuffelWeb
+  name: Web duffel bag
+  description: A large duffel bag for holding extra tools and supplies.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/web_duffel.rsi
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,9,4
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+  - type: Construction
+    graph: WebDuffel
+    node: WebDuffel

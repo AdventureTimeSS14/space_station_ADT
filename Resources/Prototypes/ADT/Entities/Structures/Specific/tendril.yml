@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: ADTTendrilBase
   parent: BaseStructure
   name: tendrыl
@@ -11,6 +11,10 @@
     state: tendril
     drawdepth: Mobs
   - type: Tendril
+  - type: GpsSignal
+    tag: adt-gps-signal-tendril
+    description: adt-gps-signal-tendril-desc
+    color: "#9B59B6"
   - type: Damageable
     damageModifierSet: Skeleton
   - type: Injurable
@@ -145,7 +149,7 @@
   parent: ADTTendrilBase
   name: tendrыl
   description: e
-  suffix: Magma Watcher
+  suffix: Shock Spider
   components:
   - type: Tendril
     spawns:
@@ -156,7 +160,7 @@
   parent: ADTTendrilBase
   name: tendrыl
   description: e
-  suffix: Magma Watcher
+  suffix: Nightmare Spider
   components:
   - type: Tendril
     spawns:

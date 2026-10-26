@@ -1,0 +1,17 @@
+- type: entity
+  id: ADTEffectBloodMinerDashSmoke
+  name: ""
+  parent: BaseEffectGoliathTentacleSpawn
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    sprite: Effects/chemsmoke.rsi
+    drawdepth: Effects
+    color: "#FFFFFF77"
+    scale: 0.6, 0.6
+    layers:
+    - state: chemsmoke_white
+  - type: TimedDespawn
+    lifetime: 0.5

@@ -20,6 +20,8 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
 using Content.Server.Body.Systems;
+using Content.Shared.Inventory;
+using Content.Shared.Verbs;
 
 namespace Content.Server.Medical;
 
@@ -43,6 +45,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         SubscribeLocalEvent<HealthAnalyzerComponent, EntGotInsertedIntoContainerMessage>(OnInsertedIntoContainer);
         SubscribeLocalEvent<HealthAnalyzerComponent, ItemToggledEvent>(OnToggled);
         SubscribeLocalEvent<HealthAnalyzerComponent, DroppedEvent>(OnDropped);
+        SubscribeLocalEvent<HealthAnalyzerComponent, InventoryRelayedEvent<GetVerbsEvent<InnateVerb>>>(AddScanVerb);  // ADT-Tweak
     }
 
     public override void Update(float frameTime)
@@ -85,23 +88,51 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     /// </summary>
     private void OnAfterInteract(Entity<HealthAnalyzerComponent> uid, ref AfterInteractEvent args)
     {
-        if (args.Target == null || !args.CanReach || !HasComp<MobStateComponent>(args.Target) || !_cell.HasDrawCharge(uid.Owner, user: args.User))
+        // ADT-Tweak-start
+        if (args.Target == null || !args.CanReach || !HasComp<MobStateComponent>(args.Target))
+            return;
+
+        TryStartScan(uid, args.User, args.Target.Value);
+    }
+
+    private void AddScanVerb(Entity<HealthAnalyzerComponent> ent, ref InventoryRelayedEvent<GetVerbsEvent<InnateVerb>> args)
+    {
+        if (!args.Args.CanInteract || !args.Args.CanAccess || !HasComp<MobStateComponent>(args.Args.Target))
+            return;
+
+        var target = args.Args.Target;
+        var user = args.Args.User;
+
+        var verb = new InnateVerb
+        {
+            Act = () => TryStartScan(ent, user, target),
+            Text = Loc.GetString("health-analyzer-verb-scan"),
+            IconEntity = GetNetEntity(ent),
+            Priority = 2,
+        };
+        args.Args.Verbs.Add(verb);
+    }
+
+    private void TryStartScan(Entity<HealthAnalyzerComponent> uid, EntityUid user, EntityUid target)
+    {
+        if (!_cell.HasDrawCharge(uid.Owner, user: user))
             return;
 
         _audio.PlayPvs(uid.Comp.ScanningBeginSound, uid);
 
-        var doAfterCancelled = !_doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, uid.Comp.ScanDelay, new HealthAnalyzerDoAfterEvent(), uid, target: args.Target, used: uid)
+        var doAfterCancelled = !_doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, user, uid.Comp.ScanDelay, new HealthAnalyzerDoAfterEvent(), uid, target: target, used: uid)
         {
             NeedHand = true,
             BreakOnMove = true,
         });
 
-        if (args.Target == args.User || doAfterCancelled || uid.Comp.Silent)
+        if (target == user || doAfterCancelled || uid.Comp.Silent)
             return;
 
-        var msg = Loc.GetString("health-analyzer-popup-scan-target", ("user", Identity.Entity(args.User, EntityManager)));
-        _popupSystem.PopupEntity(msg, args.Target.Value, args.Target.Value, PopupType.Medium);
+        var msg = Loc.GetString("health-analyzer-popup-scan-target", ("user", Identity.Entity(user, EntityManager)));
+        _popupSystem.PopupEntity(msg, target, target, PopupType.Medium);
     }
+    // ADT-Tweak-end
 
     private void OnDoAfter(Entity<HealthAnalyzerComponent> uid, ref HealthAnalyzerDoAfterEvent args)
     {

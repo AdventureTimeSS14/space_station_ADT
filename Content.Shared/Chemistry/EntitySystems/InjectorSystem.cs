@@ -531,12 +531,14 @@ public sealed partial class InjectorSystem : EntitySystem
         else
             removedSolution = _solutionContainer.SplitSolution(injector.Comp.Solution.Value, realTransferAmount);
 
-        _reactiveSystem.DoEntityReaction(target, removedSolution, ReactionMethod.Injection);
+    //    _reactiveSystem.DoEntityReaction(target, removedSolution, ReactionMethod.Injection); ADT-Tweak
 
         if (!asRefill)
             _solutionContainer.Inject(target, targetSolution, removedSolution);
         else
             _solutionContainer.Refill(target, targetSolution, removedSolution);
+
+        _reactiveSystem.DoEntityReaction(target, removedSolution, ReactionMethod.Injection); // ADT-Tweak
 
         LocId msgSuccess = target == user ? "injector-component-inject-success-message-self" : "injector-component-inject-success-message";
 

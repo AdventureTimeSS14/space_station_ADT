@@ -110,6 +110,7 @@
   description: Super soft white cat paws, especially for the most brutal station workers.
   suffix: Combat
   components:
+  - type: Insulated
   - type: MeleeWeapon
     damage:
       types:

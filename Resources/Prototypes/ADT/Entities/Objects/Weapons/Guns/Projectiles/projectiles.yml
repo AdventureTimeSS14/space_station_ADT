@@ -338,6 +338,12 @@
     proto: ADTBulletKineticShotgunPellet
     count: 6
     spread: 35
+  - type: Projectile
+    impactEffect: BulletImpactEffectKinetic
+    damage:
+      types:
+        Blunt: 12
+        Structural: 20
 
 - type: entity
   id: ADTBulletKineticShotgunPellet
@@ -349,7 +355,7 @@
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
-        Blunt: 15
+        Blunt: 12
         Structural: 20
 
 - type: entity

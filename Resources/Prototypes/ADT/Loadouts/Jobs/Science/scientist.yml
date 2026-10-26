@@ -27,6 +27,11 @@
     id: ADTXenoarchPDA
 
 - type: loadout
+  id: XenobioPDA
+  equipment:
+    id: XenobioPDA
+
+- type: loadout
   id: ADTAnomalistPDA
   equipment:
     id: ADTAnomalistPDA

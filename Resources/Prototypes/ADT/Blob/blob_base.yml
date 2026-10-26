@@ -16,10 +16,10 @@
       - KnockedDown
       - SlowedDown
       - Electrocution
-      - PressureImmunity
       - StaminaModifierStatusEffectComponent
       - SeeAll
       - Flashed
+    - type: SpecialPressureImmunity
     - type: Reactive
       groups:
         Flammable: [Touch]

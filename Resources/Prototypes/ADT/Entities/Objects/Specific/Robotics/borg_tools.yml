@@ -1,0 +1,30 @@
+- type: entity
+  parent: OreBagOfHolding
+  id: ADTBorgOreBagOfHolding
+  components:
+    - type: MagnetPickup
+      slotFlags: null
+      range: 2
+      requireActiveHand: true
+
+- type: entity
+  id: ADTBorgJetpackVoid
+  parent: JetpackVoid
+  components:
+    - type: MovementSpeedModifier
+      weightlessAcceleration: 1
+      weightlessFriction: 0.3
+      weightlessModifier: 1.2
+    - type: CanMoveInAir
+    - type: InputMover
+    - type: GasTank
+      outputPressure: 21.3
+      air:
+        volume: 5
+        temperature: 293.15
+        moles:
+          - 0.615413716
+    - type: Jetpack
+      moleUsage: 0
+    - type: Physics
+      bodyType: KinematicController

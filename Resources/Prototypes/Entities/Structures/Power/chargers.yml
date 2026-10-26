@@ -179,6 +179,7 @@
         #  - PowerCell
           tags:
             - ADTEnergyShield
+            - ADTResonator
         #ADT-Tweak-End
         blacklist:
           tags:
@@ -204,6 +205,11 @@
       charger_slot:
         ejectOnInteract: true
         whitelist:
+          # ADT-Tweak-Start
+          tags:
+          - ADTEnergyShield
+          - ADTResonator
+          # ADT-Tweak-End
           components:
           - BatteryAmmoProvider
           - Stunbaton
@@ -242,8 +248,11 @@
       charger_slot:
         ejectOnInteract: true
         whitelist:
+          # ADT-Tweak-Start
           tags:
-          - ADTEnergyShield # ADT-Tweak
+          - ADTEnergyShield
+          - ADTResonator
+          # ADT-Tweak-End
           components:
           - BatteryAmmoProvider
           - Stunbaton

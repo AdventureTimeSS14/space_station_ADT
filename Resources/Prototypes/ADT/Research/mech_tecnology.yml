@@ -18,7 +18,7 @@
   - ADTGygaxHead
   - ADTGygaxCentralElectronics
   - ADTGygaxPeripheralsElectronics
-  position: 3,0
+  position: 4,0
   requiredTech:
   - ADTOdysseusTechnology
 
@@ -40,7 +40,7 @@
   - ADTOdysseusHead
   - ADTOdysseusCentralElectronics
   - ADTOdysseusPeripheralsElectronics
-  position: 2,0
+  position: 3,0
   requiredTech:
   - ADTArchimedesTechnology
 
@@ -69,7 +69,8 @@
   - ADTMechEquipmentToolWelderExperimental
   - ADTMechEquipmentToolJawsOfLife
   - ADTMechEquipmentToolPowerDrill
-  position: 1,1
+  - ADTMechEquipmentCockpit
+  position: 1,0
   requiredTech:
   - RipleyAPLU
 
@@ -103,9 +104,9 @@
   - ADTClarkeHead
   - ADTClarkeCentralElectronics
   - ADTClarkePeripheralsElectronics
-  position: 1,0
+  position: 2,0
   requiredTech:
-  - RipleyAPLU
+  - ADTArchimedesTechnology
 
 - type: technology
   id: ADTDurandTechnology
@@ -126,7 +127,7 @@
   - ADTDurandArmorPlates
   - ADTDurandCentralElectronics
   - ADTDurandPeripheralsElectronics
-  position: 3,1
+  position: 4,1
   requiredTech:
   - ADTGygaxTechnology
 
@@ -150,7 +151,7 @@
   - ADTPhazonCentralElectronics
   - ADTPhazonPeripheralsElectronics
   - ADTPhazonWeaponControlElectronics
-  position: 4,0
+  position: 5,0
   requiredTech:
   - ADTDurandTechnology
   - ADTGygaxTechnology
@@ -167,7 +168,7 @@
   cost: 3500
   recipeUnlocks:
   - MechEquipmentHumanGrabber
-  position: 2,-1
+  position: 3,-1
   requiredTech:
   - ADTOdysseusTechnology
 
@@ -182,7 +183,7 @@
   cost: 3500
   recipeUnlocks:
   - MechEquipmentHumanSleeper
-  position: 2,-2
+  position: 3,-2
   requiredTech:
   - ADTOdysseusTechnology
 
@@ -197,7 +198,7 @@
   cost: 7500
   recipeUnlocks:
   - ADTMechGunMedigun
-  position: 2,1
+  position: 3,1
   requiredTech:
   - ADTOdysseusTechnology
 
@@ -213,7 +214,7 @@
   recipeUnlocks:
   - ADTMechWeaponCutter
   - ADTBoxPlasmaBox
-  position: 1,1
+  position: 2,1
   requiredTech:
   - ADTClarkeTechnology
 
@@ -228,7 +229,7 @@
   cost: 3500
   recipeUnlocks:
   - MechEquipmentDrill
-  position: 1,-1
+  position: 2,-1
   requiredTech:
   - ADTClarkeTechnology
 
@@ -243,7 +244,7 @@
   cost: 7500
   recipeUnlocks:
   - MechEquipmentDiamondDrill
-  position: 1,-2
+  position: 2,-2
   requiredTech:
   - ADTMechTechnologyDrill
 
@@ -278,7 +279,7 @@
   - ADTMechGunUltraAC2
   - ADTBoxAmmoScattershot
   - ADTBoxAmmoAC2Ultra
-  position: 3,-1
+  position: 4,-1
   requiredTech:
   - ADTGygaxTechnology
 
@@ -300,6 +301,6 @@
   - ADTMechGunFNX99Hades
   - ADTBoxAmmoHades
   - ADTBoxAmmoGranade
-  position: 3,-2
+  position: 4,-2
   requiredTech:
   - ADTMechGunSmallTechnology

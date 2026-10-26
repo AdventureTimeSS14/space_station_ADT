@@ -45,18 +45,29 @@ public sealed partial class WeatherEffectsSystem : EntitySystem
             weatherComp.NextUpdate = now + weatherComp.UpdateDelay;
             Dirty(uid, weatherComp);
 
-            if (weatherComp.Damage is not { } damage)
-                continue;
-
             // start and end do no damage
             var percent = _weather.GetWeatherPercent((uid, statusComp));
             if (percent < 1f)
                 continue;
 
             var mapEnt = statusComp.AppliedTo ?? uid;
-            UpdateDamage(mapEnt, damage, weatherComp.DamageBlacklist);
+            // ADT-Tweak-Start
+            if (weatherComp.Damage is { } damage)
+                UpdateDamage(mapEnt, damage, weatherComp.DamageBlacklist);
+            // ADT-Tweak-End
         }
     }
+
+    // ADT-Tweak-Start
+    private bool IsExposed(TransformComponent xform)
+    {
+        if (xform.GridUid is not { } gridUid || !_gridQuery.TryComp(gridUid, out var grid))
+            return true;
+
+        var tile = _map.GetTileRef((gridUid, grid), xform.Coordinates);
+        return _weather.CanWeatherAffect((gridUid, (MapGridComponent?)grid, null), tile);
+    }
+    // ADT-Tweak-End
 
     private void UpdateDamage(EntityUid map, DamageSpecifier damage, EntityWhitelist? damageBlacklist)
     {
@@ -67,13 +78,8 @@ public sealed partial class WeatherEffectsSystem : EntitySystem
             if (xform.MapUid != map || mob.CurrentState == MobState.Dead)
                 continue;
 
-            // if not in space, check for being indoors
-            if (xform.GridUid is { } gridUid && _gridQuery.TryComp(gridUid, out var grid))
-            {
-                var tile = _map.GetTileRef((gridUid, grid), xform.Coordinates);
-                if (!_weather.CanWeatherAffect((gridUid, (MapGridComponent?)grid, null), tile))
-                    continue;
-            }
+            if (!IsExposed(xform)) // ADT Tweak
+                continue;
 
             if (!_whitelist.IsWhitelistFailOrNull(damageBlacklist, uid))
                 continue;

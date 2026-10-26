@@ -1,0 +1,257 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "https://github.com/ss220-space/Paradise/commit/a06c997629be5f879ae9ddbf3dd4eb637fa97603 ( by https://github.com/mvanalphen )",
+  "size": {
+    "x": 384,
+    "y": 112
+  },
+  "states": [
+    {
+      "name": "cannon_east"
+    },
+    {
+      "name": "cannon_west"
+    },
+    {
+      "name": "east_unshaded",
+      "delays": [
+        [
+          0.15,
+          0.15,
+          0.15,
+          0.15,
+          0.15
+        ]
+      ]
+    },
+    {
+      "name": "east_charging",
+      "delays": [
+        [
+          0.333333333333333,
+          0.333333333333333,
+          0.333333333333333,
+          0.333333333333333,
+          0.333333333333333,
+          0.333333333333333,
+          0.333333333333333,
+          0.333333333333333,
+          0.333333333333333,
+          0.333333333333333,
+          0.333333333333333,
+          0.35
+        ]
+      ]
+    },
+    {
+      "name": "east_reloading",
+      "delays": [
+        [
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ]
+      ]
+    },
+    {
+      "name": "west_unshaded",
+      "delays": [
+        [
+          0.15,
+          0.15,
+          0.15,
+          0.15,
+          0.15
+        ]
+      ]
+    },
+    {
+      "name": "west_charging",
+      "delays": [
+        [
+          0.333333333333333,
+          0.333333333333333,
+          0.333333333333333,
+          0.333333333333333,
+          0.333333333333333,
+          0.333333333333333,
+          0.333333333333333,
+          0.333333333333333,
+          0.333333333333333,
+          0.333333333333333,
+          0.333333333333333,
+          0.35
+        ]
+      ]
+    },
+    {
+      "name": "west_reloading",
+      "delays": [
+        [
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ]
+      ]
+    },
+    {
+      "name": "cannon_east_1"
+    },
+    {
+      "name": "cannon_east_2"
+    },
+    {
+      "name": "cannon_east_3"
+    },
+    {
+      "name": "cannon_east_4"
+    },
+    {
+      "name": "cannon_east_5"
+    },
+    {
+      "name": "cannon_west_1"
+    },
+    {
+      "name": "cannon_west_2"
+    },
+    {
+      "name": "cannon_west_3"
+    },
+    {
+      "name": "cannon_west_4"
+    },
+    {
+      "name": "cannon_west_5"
+    },
+    {
+      "name": "cannon_east_6"
+    },
+    {
+      "name": "cannon_east_7"
+    },
+    {
+      "name": "cannon_east_8"
+    },
+    {
+      "name": "cannon_east_9"
+    },
+    {
+      "name": "cannon_east_10"
+    },
+    {
+      "name": "cannon_east_11"
+    },
+    {
+      "name": "cannon_east_12"
+    },
+    {
+      "name": "cannon_east_13"
+    },
+    {
+      "name": "cannon_east_14"
+    },
+    {
+      "name": "cannon_east_15"
+    },
+    {
+      "name": "cannon_east_16"
+    },
+    {
+      "name": "cannon_east_17"
+    },
+    {
+      "name": "cannon_east_18"
+    },
+    {
+      "name": "cannon_east_19"
+    },
+    {
+      "name": "cannon_east_20"
+    },
+    {
+      "name": "cannon_east_21"
+    },
+    {
+      "name": "cannon_east_22"
+    },
+    {
+      "name": "cannon_east_23"
+    },
+    {
+      "name": "cannon_east_24"
+    },
+    {
+      "name": "cannon_west_6"
+    },
+    {
+      "name": "cannon_west_7"
+    },
+    {
+      "name": "cannon_west_8"
+    },
+    {
+      "name": "cannon_west_9"
+    },
+    {
+      "name": "cannon_west_10"
+    },
+    {
+      "name": "cannon_west_11"
+    },
+    {
+      "name": "cannon_west_12"
+    },
+    {
+      "name": "cannon_west_13"
+    },
+    {
+      "name": "cannon_west_14"
+    },
+    {
+      "name": "cannon_west_15"
+    },
+    {
+      "name": "cannon_west_16"
+    },
+    {
+      "name": "cannon_west_17"
+    },
+    {
+      "name": "cannon_west_18"
+    },
+    {
+      "name": "cannon_west_19"
+    },
+    {
+      "name": "cannon_west_20"
+    },
+    {
+      "name": "cannon_west_21"
+    },
+    {
+      "name": "cannon_west_22"
+    },
+    {
+      "name": "cannon_west_23"
+    },
+    {
+      "name": "cannon_west_24"
+    }
+  ]
+}

@@ -555,3 +555,31 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: ADTYupiWatermelon
   color: "#e04b4f"
+
+- type: reagent
+  id: ADTMilkGutlunch
+  name: reagent-name-adt-milk-gutlunch
+  group: Drinks
+  desc: reagent-desc-adt-milk-gutlunch
+  physicalDesc: reagent-physical-desc-milky
+  flavor: milk
+  color: "#D8CBA8"
+  recognizable: true
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:SatiateThirst
+        factor: 4
+      - !type:SatiateHunger
+        factor: 2
+    Bloodstream:
+      effects:
+      - !type:ModifyBloodLevel
+        amount: 2
+      - !type:EvenHealthChange
+        damage:
+          Brute: -1
+      - !type:HealthChange
+        damage:
+          types:
+            Heat: -0.5

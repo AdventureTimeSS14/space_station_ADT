@@ -168,31 +168,38 @@
             "directions": 4
 
         },
-        {    "name": "piercing_brow_r",
+        {
+            "name": "piercing_brow_r",
             "directions": 4
 
         },
-        {    "name": "piercing_ear_l",
+        {
+            "name": "piercing_ear_l",
             "directions": 4
 
         },
-        {    "name": "piercing_ear_r",
+        {
+            "name": "piercing_ear_r",
             "directions": 4
 
         },
-        {    "name": "piercing_navel",
+        {
+            "name": "piercing_navel",
             "directions": 4
 
         },
-        {    "name": "piercing_nipple",
+        {
+            "name": "piercing_nipple",
             "directions": 4
 
         },
-        {    "name": "piercing_nipple_l",
+        {
+            "name": "piercing_nipple_l",
             "directions": 4
 
         },
-        {    "name": "piercing_nipple_r",
+        {
+            "name": "piercing_nipple_r",
             "directions": 4
         },
         {

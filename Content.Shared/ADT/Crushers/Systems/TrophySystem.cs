@@ -1,7 +1,7 @@
 using Content.Shared.ADT.Crushers.Components;
+using Content.Shared.ADT.Weapons.KineticCooldown;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Projectiles;
-using Content.Shared.Timing;
 using Content.Shared.Weapons.Marker;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Events;
@@ -12,7 +12,6 @@ namespace Content.Shared.ADT.Crushers.Systems;
 public sealed class TrophySystem : EntitySystem
 {
     [Dependency] private readonly TrophyHolderSystem _trophyHolder = default!;
-    [Dependency] private readonly UseDelaySystem _useDelay = default!;
 
     public override void Initialize()
     {
@@ -20,40 +19,42 @@ public sealed class TrophySystem : EntitySystem
         SubscribeLocalEvent<DamageMarkerOnCollideComponent, ProjectileHitEvent>(OnProjectileHit);
         SubscribeLocalEvent<TrophyHolderComponent, GunRefreshModifiersEvent>(OnGunRefreshModifiers);
         SubscribeLocalEvent<TrophyHolderComponent, GunShotEvent>(OnGunShot);
-        SubscribeLocalEvent<UseDelayTrophyEffectComponent, TrophyAlteredEvent>(OnTrophyAltered);
+        SubscribeLocalEvent<KineticCooldownTrophyEffectComponent, TrophyAlteredEvent>(OnTrophyAltered);
     }
 
-    private void OnTrophyAltered(Entity<UseDelayTrophyEffectComponent> ent, ref TrophyAlteredEvent args)
+    private void OnTrophyAltered(Entity<KineticCooldownTrophyEffectComponent> ent, ref TrophyAlteredEvent args)
     {
-        if (!TryComp<UseDelayComponent>(args.Holder, out var useDelay))
+        if (!TryComp<ADTKineticCooldownComponent>(args.Holder, out var cooldown))
+            return;
+
+        if (ent.Comp.MeleeCoefficient <= 0f || ent.Comp.RangedCoefficient <= 0f)
             return;
 
         switch (args.Alteration)
         {
             case TrophyAlteredType.Inserted:
-                if (!_useDelay.TryGetDelayInfo((args.Holder, useDelay), out var delayInfo))
+                if (ent.Comp.Applied)
                     return;
 
-                if (ent.Comp.Coefficient <= 0f)
-                    return;
+                cooldown.MeleeMultiplier /= ent.Comp.MeleeCoefficient;
+                cooldown.RangedMultiplier /= ent.Comp.RangedCoefficient;
 
-                ent.Comp.OriginalDelay = delayInfo.Length;
-                Dirty(ent);
-
-                var newLength = delayInfo.Length / ent.Comp.Coefficient;
-                _useDelay.SetLength((args.Holder, useDelay), newLength);
+                ent.Comp.Applied = true;
                 break;
 
             case TrophyAlteredType.Removed:
-                if (ent.Comp.OriginalDelay == null)
+                if (!ent.Comp.Applied)
                     return;
 
-                _useDelay.SetLength((args.Holder, useDelay), ent.Comp.OriginalDelay.Value);
+                cooldown.MeleeMultiplier *= ent.Comp.MeleeCoefficient;
+                cooldown.RangedMultiplier *= ent.Comp.RangedCoefficient;
 
-                ent.Comp.OriginalDelay = null;
-                Dirty(ent);
+                ent.Comp.Applied = false;
                 break;
         }
+
+        Dirty(args.Holder, cooldown);
+        Dirty(ent);
     }
 
     private void OnMeleeHit(Entity<TrophyHolderComponent> ent, ref MeleeHitEvent args)

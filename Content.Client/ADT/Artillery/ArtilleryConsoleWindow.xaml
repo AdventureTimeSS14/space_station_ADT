@@ -1,0 +1,135 @@
+<ui:ArtilleryConsoleWindow xmlns="https://spacestation14.io"
+                      xmlns:ui="clr-namespace:Content.Client.ADT.Artillery"
+                      xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      SetWidth="700"
+                      Resizable="False"
+                      MouseFilter="Stop">
+
+    <PanelContainer Name="Background" StyleClasses="PdaBackgroundRect" ModulateSelfOverride="#1a3d4d"/>
+    <PanelContainer Name="Border" StyleClasses="PdaBorderRect" Modulate="#00BFFF" />
+
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+
+        <!--Header-->
+        <BoxContainer SetHeight="26" Margin="4 2 8 0" Orientation="Horizontal" HorizontalAlignment="Right">
+            <TextureButton Name="CloseButton" StyleClasses="windowCloseButton" Modulate="#646464" VerticalAlignment="Center" Margin="0 4 4 0"/>
+        </BoxContainer>
+
+        <!--Content-->
+        <Control Margin="18 0" RectClipContent="True" VerticalExpand="true" HorizontalExpand="True">
+            <PanelContainer Name="ContentBorder" StyleClasses="PdaBackground"/>
+            <Control Name="ContentsContainer" Margin="3 3" Modulate="#FFFFFF">
+
+                <!-- Screen Background -->
+                <PanelContainer Name="ContentBackground" StyleClasses="PdaContentBackground"/>
+
+                <!-- Screen foreground -->
+                <BoxContainer Orientation="Vertical">
+
+                    <Label Text="{Loc 'artillery-console-title'}" StyleClasses="ConsoleHeading"
+                           Modulate="#00FFFF"
+                           HorizontalAlignment="Center" Margin="0 8 0 8" />
+
+                    <!-- Main content: Left and Right panels -->
+                    <BoxContainer Orientation="Horizontal" Margin="10 0 10 10" SeparationOverride="10" VerticalExpand="True">
+
+                        <!-- LEFT PANEL: Fire controls and info -->
+                        <PanelContainer HorizontalExpand="True" MinWidth="210">
+                            <PanelContainer.PanelOverride>
+                                <gfx:StyleBoxFlat BorderColor="#00FFFF" BorderThickness="2" />
+                            </PanelContainer.PanelOverride>
+
+                            <BoxContainer Orientation="Vertical" Margin="8 8 8 8" SeparationOverride="8">
+                                <Label Text="{Loc 'artillery-console-fire-controls'}" StyleClasses="ConsoleSubHeading"
+                                       Modulate="#00FFFF"
+                                       HorizontalAlignment="Center" />
+
+                                <PanelContainer StyleClasses="LowDivider" HorizontalExpand="True" SetHeight="2">
+                                    <PanelContainer.PanelOverride>
+                                        <gfx:StyleBoxFlat BackgroundColor="#00FFFF" />
+                                    </PanelContainer.PanelOverride>
+                                </PanelContainer>
+
+                                <!-- Status info -->
+                                <BoxContainer Orientation="Vertical" VerticalExpand="True" VerticalAlignment="Center">
+                                    <Label Name="CooldownLabel" StyleClasses="ConsoleText"
+                                           HorizontalAlignment="Center"
+                                           Margin="0 0 0 15"
+                                           Modulate="#00FFFF" />
+                                </BoxContainer>
+
+                                <!-- Fire button -->
+                                <controls:MonotoneButton Name="FireButton" Text="{Loc 'artillery-console-fire'}"
+                                                         ToggleMode="False"
+                                                         HorizontalExpand="True"
+                                                         SetHeight="50"
+                                                         Modulate="#FF1493" />
+
+                                <!-- Toggle button -->
+                                <controls:MonotoneButton Name="ToggleButton" Text="{Loc 'artillery-console-toggle'}"
+                                                         ToggleMode="True"
+                                                         HorizontalExpand="True"
+                                                         SetHeight="40"
+                                                         Modulate="#FFD700" />
+                            </BoxContainer>
+                        </PanelContainer>
+
+                        <!-- RIGHT PANEL: Beacons list -->
+                        <PanelContainer HorizontalExpand="True" MinWidth="290">
+                            <PanelContainer.PanelOverride>
+                                <gfx:StyleBoxFlat BorderColor="#00FFFF" BorderThickness="2" />
+                            </PanelContainer.PanelOverride>
+
+                            <BoxContainer Orientation="Vertical" Margin="8 8 8 8">
+                                <Label Text="{Loc 'artillery-console-beacons'}" StyleClasses="ConsoleSubHeading"
+                                       Modulate="#00FFFF"
+                                       HorizontalAlignment="Center" />
+
+                                <PanelContainer StyleClasses="LowDivider" HorizontalExpand="True" Margin="0 8 0 8" SetHeight="2">
+                                    <PanelContainer.PanelOverride>
+                                        <gfx:StyleBoxFlat BackgroundColor="#00FFFF" />
+                                    </PanelContainer.PanelOverride>
+                                </PanelContainer>
+
+                                <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True">
+                                    <Label Name="NoBeaconsText" StyleClasses="ConsoleText"
+                                           Text="{Loc 'artillery-console-no-beacons'}"
+                                           Modulate="#888888"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           ReservesSpace="False"/>
+
+                                    <ScrollContainer VerticalExpand="True" HorizontalExpand="True">
+                                        <BoxContainer Name="BeaconList" Orientation="Vertical" Visible="False" ReservesSpace="False" SeparationOverride="3">
+                                            <!-- Populated with C# code -->
+                                        </BoxContainer>
+                                    </ScrollContainer>
+                                </BoxContainer>
+                            </BoxContainer>
+                        </PanelContainer>
+                    </BoxContainer>
+                </BoxContainer>
+            </Control>
+        </Control>
+
+        <!--Footer-->
+        <BoxContainer Orientation="Horizontal" SetHeight="28">
+            <Label Text="⚠"
+                   Margin="0 0 4 4"
+                   HorizontalExpand="True"
+                   HorizontalAlignment="Right"
+                   Modulate="#FF1493"/>
+            <Label Name="Footer" StyleClasses="ConsoleText"
+                   Text="{Loc 'artillery-console-warning'}"
+                   HorizontalAlignment="Center"
+                   Margin="0 0 0 4"
+                   Modulate="#00FFFF"/>
+            <Label Text="⚠"
+                   Margin="4 0 0 4"
+                   HorizontalExpand="True"
+                   HorizontalAlignment="Left"
+                   Modulate="#FF1493"/>
+        </BoxContainer>
+    </BoxContainer>
+</ui:ArtilleryConsoleWindow>

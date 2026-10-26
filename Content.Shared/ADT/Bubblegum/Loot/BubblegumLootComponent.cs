@@ -11,19 +11,7 @@ public sealed partial class BubblegumLootComponent : Component
     public TimeSpan DespawnDelay = TimeSpan.FromSeconds(5);
 
     [DataField]
-    public EntProtoId ChestProto = "ADTCrateBubblegumLoot";
-
-    [DataField]
-    public Dictionary<EntProtoId, int> RandomAmountLoot = [];
-
-    [DataField]
-    public List<EntProtoId> RandomLoot = [];
-
-    [DataField]
-    public List<EntProtoId> GuaranteedLoot = [];
-
-    [DataField]
-    public bool LootDropped;
+    public bool SequenceFinished;
 
     [DataField]
     public TimeSpan? DespawnAt;
@@ -74,9 +62,6 @@ public sealed partial class BubblegumLootComponent : Component
     public EntProtoId DeathFlashProto = "ADTBubblegumDeathFlash";
 
     [DataField]
-    public EntProtoId ChestGlowProto = "ADTBubblegumChestGlow";
-
-    [DataField]
     public SoundSpecifier DeathBoomSound = new SoundPathSpecifier("/Audio/ADT/Bubblegum/meteorimpact.ogg");
 
     [DataField]
@@ -84,9 +69,6 @@ public sealed partial class BubblegumLootComponent : Component
 
     [DataField]
     public SoundSpecifier DissolveSound = new SoundPathSpecifier("/Audio/ADT/Bubblegum/enter_blood.ogg");
-
-    [DataField]
-    public SoundSpecifier ChestRewardSound = new SoundPathSpecifier("/Audio/ADT/Bubblegum/exit_blood.ogg");
 
     [DataField]
     public SoundSpecifier DeathThemeSound = new SoundPathSpecifier("/Audio/ADT/Bubblegum/e1m1.ogg");

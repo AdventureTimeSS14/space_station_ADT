@@ -107,7 +107,7 @@
   - type: Sprite
     state: magnet
   - type: ModSuitMod
-    energyUsing: 0.2
+    energyUsing: 0.1
     components:
       shoes:
       - type: ToggleClothing
@@ -132,7 +132,7 @@
   - type: Sprite
     state: night_visor
   - type: ModSuitMod
-    energyUsing: 0.4
+    energyUsing: 0.3
     complexity: 2
     components:
       head:
@@ -225,7 +225,6 @@
   - type: Sprite
     state: storage
   - type: ModSuitMod
-    energyUsing: 0.1
     isInstantlyActive: true
     complexity: 3
     components:
@@ -244,7 +243,6 @@
   - type: Sprite
     state: storage_large
   - type: ModSuitMod
-    energyUsing: 0.1
     isInstantlyActive: true
     complexity: 3
     components:
@@ -266,7 +264,6 @@
   - type: Sprite
     state: storage
   - type: ModSuitMod
-    energyUsing: 0.1
     isInstantlyActive: true
     complexity: 3
     components:
@@ -286,7 +283,7 @@
   - type: Sprite
     state: welding
   - type: ModSuitMod
-    energyUsing: 0.2
+    energyUsing: 0.05
     complexity: 1
     components:
       head:
@@ -323,7 +320,7 @@
   - type: Sprite
     state: storage_large
   - type: ModSuitMod
-    energyUsing: 0.3
+    energyUsing: 0.1
     isInstantlyActive: true
     complexity: 3
     components:
@@ -342,7 +339,6 @@
   - type: Sprite
     state: tray
   - type: ModSuitMod
-    energyUsing: 0.1
     complexity: 2
     components:
       head:
@@ -359,7 +355,7 @@
   - type: Sprite
     state: carry
   - type: ModSuitMod
-    energyUsing: 0.2
+    energyUsing: 0.05
     complexity: 2
     components:
       gloves:
@@ -389,7 +385,6 @@
   - type: Sprite
     state: flashlight
   - type: ModSuitMod
-    energyUsing: 0.1
     complexity: 1
     components:
       head:
@@ -468,7 +463,7 @@
   - type: Sprite
     state: radshield
   - type: ModSuitMod
-    energyUsing: 0.2
+    energyUsing: 0.02
     complexity: 2
     components:
       outerClothing:
@@ -548,3 +543,181 @@
         canEjectStoredMaterials: false
       - type: BatteryRecharge
         multiplier: 3
+
+- type: entity
+  parent: ADTModsuitModBase
+  id: ADTModsuitModReagentScanner
+  name: MOD reagent scanner module
+  description: A helmet visor modification that projects a chemical analysis overlay, allowing the user to determine the contents of containers.
+  components:
+  - type: Sprite
+    state: scanner
+  - type: ModSuitMod
+    complexity: 1
+    components:
+      head:
+      - type: SolutionScanner
+
+- type: entity
+  parent: ADTModsuitModBase
+  id: ADTModsuitModStatusReadout
+  name: MOD medical visor module
+  description: A heads-up display installed into the visor of the suit. Reads and displays the vital signs of everyone in view.
+  components:
+  - type: Sprite
+    state: medhud_visor
+  - type: ModSuitMod
+    complexity: 1
+    energyUsing: 0.1
+    components:
+      head:
+      - type: ShowHealthBars
+      - type: ShowHealthIcons
+
+- type: entity
+  parent: ADTModsuitModBase
+  id: ADTModsuitModHealthAnalyzer
+  name: MOD health analyzer module
+  description: A miniaturized body scanner embedded into the suit's gloves, letting the wearer read a patient's vitals with a touch.
+  components:
+  - type: Sprite
+    state: health
+  - type: ModSuitMod
+    complexity: 2
+    energyUsing: 0.1
+    components:
+      gloves:
+      - type: HealthAnalyzer
+        scanningEndSound:
+          path: /Audio/Items/Medical/healthscanner.ogg
+
+- type: entity
+  parent: ADTModsuitModBase
+  id: ADTModsuitModDefibrillator
+  name: MOD defibrillator module
+  description: A miniaturized defibrillator built into the suit's gloves, letting the wearer revive clinically dead crew with a touch.
+  components:
+  - type: Sprite
+    state: defib
+  - type: ModSuitMod
+    complexity: 3
+    energyUsing: 0.3
+    components:
+      gloves:
+      - type: Defibrillator
+        zapHeal:
+          types:
+            Asphyxiation: -40
+      - type: UseDelay
+
+- type: entity
+  parent: ADTModsuitModBase
+  id: ADTModsuitModGPS
+  name: MOD GPS module
+  description: A built-in positioning transponder. Shows the wearer's coordinates when the suit is examined.
+  components:
+  - type: Sprite
+    state: gps
+  - type: ModSuitMod
+    complexity: 1
+    isInstantlyActive: true
+    components:
+      MODcore:
+      - type: HandheldGPS
+
+- type: entity
+  parent: ADTModsuitModBase
+  id: ADTModsuitModAnomalyScanner
+  name: MOD anomaly scanner module
+  description: A miniaturized anomaly scanner embedded into the suit's gloves, letting the wearer analyze anomalous objects with a touch.
+  components:
+  - type: Sprite
+    state: tanning
+  - type: ModSuitMod
+    complexity: 2
+    energyUsing: 0.1
+    components:
+      gloves:
+      - type: AnomalyScanner
+
+- type: entity
+  parent: ADTModsuitModBase
+  id: ADTModsuitModDiagnosticVisor
+  name: MOD diagnostic visor module
+  description: A heads-up display installed into the visor of the suit, capable of analyzing the integrity and status of robotics and exosuits.
+  components:
+  - type: Sprite
+    state: diaghud_visor
+  - type: ModSuitMod
+    complexity: 1
+    energyUsing: 0.1
+    components:
+      head:
+      - type: ShowHealthBars
+        damageContainers:
+        - Inorganic
+        - Silicon
+      - type: ShowAccessReaderSettings
+
+- type: entity
+  parent: ADTModsuitModBase
+  id: ADTModsuitModMesonVision
+  name: MOD meson visor module
+  description: A heads-up display installed into the visor of the suit, projecting a meson overlay that lets the user see structures through walls.
+  components:
+  - type: Sprite
+    state: meson_visor
+  - type: ModSuitMod
+    complexity: 2
+    energyUsing: 0.2
+    components:
+      head:
+      - type: MesonVisionItem
+        slotFlags: HEAD
+
+- type: entity
+  parent: ADTModsuitModBase
+  id: ADTModsuitModBodycam
+  name: MOD bodycamera module
+  description: A surveillance camera integrated into the suit's helmet. Broadcasts everything the wearer sees to the security camera network to ensure accountability and responsibility.
+  components:
+  - type: Sprite
+    state: camera
+  - type: ModSuitMod
+    complexity: 1
+    energyUsing: 0.1
+    components:
+      head:
+      - type: DeviceNetwork
+        deviceNetId: Wireless
+        receiveFrequencyId: SurveillanceCameraSecurity
+        transmitFrequencyId: SurveillanceCamera
+      - type: SurveillanceCamera
+        networkSet: true
+        nameSet: true
+      - type: ActiveListener
+        range: 3
+      - type: Eye
+      - type: WirelessNetworkConnection
+        range: 100
+      - type: StationAiVision
+      - type: Bodycam
+
+- type: entity
+  parent: ADTModsuitModBase
+  id: ADTModsuitModStorageBluespace
+  name: MOD bluespace storage module
+  description: A bluespace-compressed storage array exclusive to Central Command issue suits.
+  components:
+  - type: Sprite
+    state: storage_bluespace
+  - type: ModSuitMod
+    energyUsing: 0.1
+    isInstantlyActive: true
+    complexity: 2
+    components:
+      MODcore:
+      - type: Storage
+        grid:
+        - 0,0,19,9
+        maxItemSize: Huge

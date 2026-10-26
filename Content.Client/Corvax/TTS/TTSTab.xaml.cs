@@ -95,7 +95,7 @@ public sealed partial class TTSTab : Control
 
         foreach (var voice in _allVoices)
         {
-            var name = Loc.GetString(voice.Name).ToLowerInvariant();
+            var name = voice.Name.ToLowerInvariant(); // ADT-Tweak
 
             if (string.IsNullOrEmpty(searchText) ||
                 name.Contains(searchText) ||
@@ -107,7 +107,7 @@ public sealed partial class TTSTab : Control
 
         foreach (var voice in _filteredVoices)
         {
-            var displayName = Loc.GetString(voice.Name);
+            var displayName = voice.Name; // ADT-Tweak
             var canSelectVoice = CanUseVoice(voice);
 
             var voiceContainer = new BoxContainer
@@ -177,7 +177,7 @@ public sealed partial class TTSTab : Control
         _allVoices = _prototypeManager
             .EnumeratePrototypes<TTSVoicePrototype>()
             .Where(o => o.RoundStart && HumanoidCharacterProfile.CanHaveVoice(o, sex, species))
-            .OrderBy(o => Loc.GetString(o.Name))
+            .OrderBy(o => o.Name) // ADT-Tweak
             .ToList();
 
         // _categorizedVoices.Clear(); // ADT-Tweak

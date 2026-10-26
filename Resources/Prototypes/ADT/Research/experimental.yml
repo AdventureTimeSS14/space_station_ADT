@@ -45,6 +45,7 @@
   - ADTModsuitPlateStandard
   - ADTModsuitHelmet
   - ADTModsuitPlateCience
+  - ADTModsuitModAnomalyScanner
   position: 0,-1
   requiredTech:
   - MagnetsTech
@@ -63,3 +64,37 @@
   position: 4,-3
   requiredTech:
   - BasicAnomalousResearch
+
+- type: technology
+  id: BasicXenobiology
+  name: research-technology-basic-xenobiology
+  icon:
+    sprite: ADT/Xenobiology/Specific/Xenobiology/slime_scanner.rsi
+    state: icon
+  discipline: Experimental
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - XenobiologyBountyComputerCircuitboard
+  - SlimeGrinderMachineCircuitboard
+  - SlimeScannerXenobio
+  - ClothingBackpackXenoBioTank
+  - ClothingBeltChemBagXenobiologyHolding
+  position: 3,0
+  requiredTech:
+  - AlternativeResearch
+
+- type: technology
+  id: BluespaceArtillery
+  name: research-technology-bluespace-artillery
+  icon:
+    sprite: ADT/Structures/BSA.rsi
+    state: cannon_east
+  discipline: Experimental
+  tier: 3
+  cost: 15100
+  recipeUnlocks:
+  - ArtilleryComputerCircuitboard
+  position: 4,-4
+  requiredTech:
+  - ADTBluespaceMining

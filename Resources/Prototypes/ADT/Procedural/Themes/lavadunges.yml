@@ -1,8 +1,8 @@
 - type: dungeonRoom
   id: LavaDungeonRipley
-  size: 1, -1
+  size: 1, 2
   atlas: /Maps/ADTMaps/Ruins/lavadunges.yml
-  offset: 3, -8
+  offset: 3, -10
   tags:
   - LavaDungeon
 
@@ -188,7 +188,7 @@
   atlas: /Maps/ADTMaps/Ruins/lavadunges.yml
   offset: 122, 8
   tags:
-  - LavaDungeon
+  - LavaDungeonDrake
 
 - type: dungeonRoom
   id: LavaDungeonMine
@@ -312,6 +312,8 @@
     roomWhitelist:
       tags:
       - LavaDungeon
+  - type: ADTRuinBeacon
+    probability: 0.2
 
 - type: entity
   id: BloodMinerDungeMarker
@@ -323,3 +325,14 @@
     roomWhitelist:
       tags:
       - LavaDungeonBloodMiner
+
+- type: entity
+  id: DrakeDungeMarker
+  parent: BaseRoomMarker
+  name: drake lair spawner
+  components:
+  - type: RoomFill
+    clearExisting: true
+    roomWhitelist:
+      tags:
+      - LavaDungeonDrake

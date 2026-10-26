@@ -37,6 +37,7 @@
       - ADTStationGoalTransitArtifact
       - ADTStationGoalTransitMedicine
       # - ADTStationGoalTransitContraband
+      - BluespaceArtillery
       - ADTStationGoalMultiple1
       - ADTStationGoalMultiple2
       - ADTStationGoalMultiple3

@@ -8,6 +8,7 @@ anomaly-particles-zeta = Зета-частицы
 anomaly-particles-omega = Омега-частицы
 anomaly-particles-sigma = Сигма-частицы
 anomaly-scanner-component-scan-complete = Сканирование завершено!
+anomaly-scanner-verb-scan = Просканировать аномалию
 anomaly-scanner-ui-title = сканер аномалий
 anomaly-scanner-no-anomaly = Нет просканированной аномалии.
 anomaly-scanner-severity-percentage = Потенциальная опасность: [color=gray]{ $percent }[/color]

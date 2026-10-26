@@ -1,4 +1,12 @@
 - type: entity
+  parent: ResearchIDCard
+  id: XenobioIDCard
+  name: xenobiologist ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-xenobio
+
+- type: entity
   parent: IDCardStandard
   id: MagistratIDCard
   name: magistrat ID card

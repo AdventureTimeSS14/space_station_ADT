@@ -344,7 +344,7 @@ public sealed class DropPodConsoleSystem : EntitySystem
         var elapsed = _timing.CurTime - comp.LastLaunchTime;
         var cooldownReady = onDropPod && !alreadyLaunched && elapsed >= comp.Cooldown;
 
-        var isAtWar = false;
+        var isAtWar = comp.WarDeclaredTime != null;
         var warCooldownRemaining = 0;
         var warNukieArriveDelay = TimeSpan.Zero;
 
@@ -357,14 +357,13 @@ public sealed class DropPodConsoleSystem : EntitySystem
                 warNukieArriveDelay = nukeops.WarNukieArriveDelay;
                 if (warTime < nukeops.WarNukieArriveDelay)
                 {
-                    isAtWar = true;
                     warCooldownRemaining = (int)Math.Ceiling((nukeops.WarNukieArriveDelay - warTime).TotalSeconds);
                 }
                 break;
             }
         }
 
-        comp.WarDeclaredTime = isAtWar ? _timing.CurTime : comp.WarDeclaredTime;
+        comp.WarDeclaredTime = comp.WarDeclaredTime ?? _timing.CurTime;
 
         var tcCount = GetTcInSlot(uid);
         var currentCost = isAtWar ? comp.WarCost : comp.PeaceCost;

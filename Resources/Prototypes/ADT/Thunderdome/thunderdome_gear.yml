@@ -8,11 +8,12 @@
     mask: ClothingMaskGasExplorer
     shoes: ClothingShoesBootsCombatFilled
     back: ClothingMilitaryBackpack
+    id: PassengerIDCard
     pocket1: WeaponPistolMk58
     pocket2: MagazinePistol
   storage:
     back:
-      - MedkitFilled
+      - MedkitCombatFilled
 
 - type: startingGear
   id: ThunderdomeShotgun
@@ -73,8 +74,6 @@
     back:
       - MagazineLightRifle
       - MagazineLightRifle
-      - MagazineLightRifle
-      - MagazineLightRifle
 
 - type: startingGear
   id: ThunderdomePython
@@ -82,8 +81,8 @@
     suitstorage: WeaponRevolverPython
   storage:
     back:
-      - SpeedLoaderMagnum
-      - SpeedLoaderMagnum
+      - ADTSpeedLoaderMagnumLesser
+      - ADTSpeedLoaderMagnumLesser
 
 - type: startingGear
   id: ThunderdomeInspector
@@ -91,9 +90,9 @@
     suitstorage: WeaponRevolverInspector
   storage:
     back:
-      - SpeedLoaderMagnum
-      - SpeedLoaderMagnum
-      - SpeedLoaderMagnum
+      - ADTSpeedLoaderMagnumLesser
+      - ADTSpeedLoaderMagnumLesser
+      - ADTSpeedLoaderMagnumLesser
 
 - type: startingGear
   id: ThunderdomeHristov
@@ -110,8 +109,7 @@
     suitstorage: EnergySword
   storage:
     back:
-      - Stimpack
-      - Stimpack
+      - StimpackMini
       - Stimpack
 
 - type: startingGear
@@ -120,6 +118,8 @@
     suitstorage: ADTScrollCapoeira
   storage:
     back:
+    - StimpackMini
+    - Stimpack
     - BruteAutoInjector
     - BurnAutoInjector
 
@@ -135,3 +135,123 @@
     - ClothingHeadHatUshanka
     - DrinkVodkaBottleFull
 
+- type: startingGear
+  id: ThunderdomeCQC
+  equipment:
+    suitstorage: ADTCqcManual
+  storage:
+    back:
+    - StimpackMini
+
+- type: startingGear
+  id: ThunderdomeKungFuDragon
+  equipment:
+    suitstorage: ADTScrollDragonKungFu
+  storage:
+    back:
+    - StimpackMini
+    - Stimpack
+
+- type: startingGear
+  id: ThunderdomeFireAxe
+  equipment:
+    suitstorage: FireAxe
+  storage:
+    back:
+    - StimpackMini
+    - Stimpack
+    - Stimpack
+
+- type: startingGear
+  id: ThunderdomeEnergyDagger
+  equipment:
+    suitstorage: EnergyDagger
+  storage:
+    back:
+    - StimpackMini
+    - Stimpack
+    - ADTWeaponMiniatureEnergyCrossbow
+
+- type: startingGear
+  id: ThunderdomeEstoc
+  equipment:
+    suitstorage: WeaponRifleEstoc
+  storage:
+    back:
+    - MagazineRifle
+    - MagazineRifle
+    - MagazineRifle
+    - MagazineRifle
+
+- type: startingGear
+  id: ThunderdomeHushpup
+  equipment:
+    suitstorage: WeaponShotgunHushpup
+  storage:
+    back:
+    - MagazineShotgun
+    - MagazineShotgun
+    - ADTClothingHandsGlovesGuerrilla
+
+- type: startingGear
+  id: ThunderdomeAdvancedLaser
+  equipment:
+    suitstorage: WeaponAdvancedLaser
+
+- type: startingGear
+  id: ThunderdomeSvalinn
+  equipment:
+    suitstorage: ADTWeaponLaserSvalinnRifle
+  storage:
+    back:
+    - PowerCellMedium
+    - PowerCellMedium
+    - PowerCellMedium
+    - PowerCellMedium
+
+- type: startingGear
+  id: ThunderdomeTacticBat
+  equipment:
+    suitstorage: ADTTacticBat
+  storage:
+    back:
+    - StimpackMini
+    - Stimpack
+
+- type: startingGear
+  id: ThunderdomeXC67
+  equipment:
+    suitstorage: ADTWeaponRifleXC67
+  storage:
+    back:
+    - ADTMagazineRifleExtended
+    - ADTMagazineRifleExtended
+
+- type: startingGear
+  id: ThunderdomeDeckard
+  equipment:
+    suitstorage: WeaponRevolverDeckard
+  storage:
+    back:
+    - SpeedLoaderMagnum
+    - SpeedLoaderMagnum
+    - SpeedLoaderMagnum
+
+- type: startingGear
+  id: ThunderdomeCaptainSabre
+  equipment:
+    suitstorage: CaptainSabre
+    belt: EnergyShield
+  storage:
+    back:
+    - StimpackMini
+    - Stimpack
+
+- type: startingGear
+  id: ThunderdomeEnforcer
+  equipment:
+    suitstorage: WeaponShotgunEnforcer
+  storage:
+    back:
+      - BoxLethalshot
+      - BoxShotgunSlug

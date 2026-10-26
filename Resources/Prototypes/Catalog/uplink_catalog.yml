@@ -1302,6 +1302,7 @@
       whitelist:
         tags:
           - NukeOpsUplink
+        stock: 1 # ADT Tweak
 
 - type: listing
   id: UplinkReinforcementRadioSyndicateAncestor

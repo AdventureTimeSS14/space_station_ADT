@@ -16,8 +16,8 @@
           False:
             color: "#FFFFFF"
   - type: MovementSpeedModifier
-    baseWalkSpeed: 3
-    baseSprintSpeed: 3
+    baseWalkSpeed: 4.7
+    baseSprintSpeed: 4.7
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -27,7 +27,7 @@
   - type: Injurable
     damageContainer: Biological
   - type: MeleeWeapon
-    attackRate: 0.5
+    attackRate: 0.85
     damage:
       types:
         Blunt: 40
@@ -43,8 +43,7 @@
       AggroVisionRadius: !type:Single "20"
       NavSmash: !type:Bool "true"
       NavInteract: !type:Bool "true"
-      ADTBubblegumKeepDistance: !type:Single "5"
-      ADTBubblegumRetreatTrigger: !type:Single "4"
+      MeleeRange: !type:Single "1.8"
       MeleeMissChance: !type:Single "0"
     rootTask:
       task: ADTBubblegumCompound
@@ -59,22 +58,33 @@
   - type: BubblegumSummonNarsi
   - type: BubblegumBloodAttack
   - type: BubblegumLoot
-    randomAmountLoot:
-      GoldOre: 10
-      SilverOre: 10
-      DiamondOre: 5
-      PlasmaOre: 15
-      UraniumOre: 10
-      SpaceQuartz: 15
+    deathThemeSound:
+      path: /Audio/ADT/Phantom/Sounds/psycho.ogg
+  - type: MegafaunaLoot
+    dropOnDeath: false # the death sequence drops it
+    crateProto: ADTCrateBubblegumLoot
+    dropEffect: ADTBubblegumChestGlow
+    dropSound:
+      path: /Audio/ADT/Bubblegum/exit_blood.ogg
     randomLoot:
     - ADTMayhemBottle
     - ADTBloodContract
     - ADTWeaponExperimentalProtoKineticAcellerator
-    guaranteedLoot:
-    - ADTClothingOuterHardsuitHECK
-    - ADTClothingHeadHelmetHardsuitHECK
-    - ADTKineticTrophyDemonClaws
-    deathThemeSound:
-      path: /Audio/ADT/Phantom/Sounds/psycho.ogg
+    loot:
+    - proto: ADTClothingOuterHardsuitHECK
+    - proto: ADTClothingHeadHelmetHardsuitHECK
+    - proto: ADTKineticTrophyDemonClaws
+    - proto: GoldOre
+      max: 10
+    - proto: SilverOre
+      max: 10
+    - proto: DiamondOre
+      max: 5
+    - proto: PlasmaOre
+      max: 15
+    - proto: UraniumOre
+      max: 10
+    - proto: SpaceQuartz
+      max: 15
   - type: StatusIcon
     bounds: -1,-2,1,1

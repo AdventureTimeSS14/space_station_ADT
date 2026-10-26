@@ -11664,7 +11664,7 @@ entities:
       content: >2
 
 
-        ИДИОТЫ!! 
+        ИДИОТЫ!!
 
         ВЫ БОЕГОЛОВОКУ ЗАБЫЛИ!!!
 - proto: PartRodMetal
@@ -14341,13 +14341,6 @@ entities:
     - type: Transform
       pos: 0.5,-1.5
       parent: 2481
-- proto: VendingMachineTheater
-  entities:
-  - uid: 2224
-    components:
-    - type: Transform
-      pos: 12.5,0.5
-      parent: 2
 - proto: VendingMachineYouTool
   entities:
   - uid: 2225

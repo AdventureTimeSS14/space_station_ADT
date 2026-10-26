@@ -14,19 +14,18 @@ using Robust.Shared.Network;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
-using Robust.Shared.Timing;
 
 namespace Content.Shared.Mech.EntitySystems;
 
 public sealed class MechThrusterSystem : EntitySystem
 {
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedStackSystem _stack = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
     [Dependency] private readonly INetManager _netMan = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -64,14 +63,14 @@ public sealed class MechThrusterSystem : EntitySystem
         {
             if (comp.Fuel <= 0f)
             {
-                if (_timing.IsFirstTimePredicted)
+                if (_netMan.IsServer)
                     _popup.PopupEntity(Loc.GetString("adt-mech-thruster-no-fuel"), uid, args.Performer);
                 return;
             }
 
             if (TryComp<TransformComponent>(uid, out var xform) && !CanEnableOnGrid(xform.GridUid))
             {
-                if (_timing.IsFirstTimePredicted)
+                if (_netMan.IsServer)
                     _popup.PopupEntity(Loc.GetString("adt-mech-thruster-only-space"), uid, args.Performer);
                 return;
             }
@@ -105,16 +104,22 @@ public sealed class MechThrusterSystem : EntitySystem
         }
 
         _movementSpeedModifier.RefreshWeightlessModifiers(uid);
+        _appearance.SetData(uid, MechThrusterVisuals.Flying, comp.Active);
+
+        var flightEv = new MechFlightModeChangedEvent(comp.Active);
+        RaiseLocalEvent(uid, ref flightEv);
 
         if (_netMan.IsServer)
+        {
             _audio.PlayPvs(comp.ToggleSound, uid);
 
-        if (_timing.IsFirstTimePredicted && user != null)
-        {
-            var popup = comp.Active
-                ? Loc.GetString("adt-mech-thruster-on")
-                : Loc.GetString("adt-mech-thruster-off");
-            _popup.PopupEntity(popup, uid, user.Value);
+            if (user != null)
+            {
+                var popup = comp.Active
+                    ? Loc.GetString("adt-mech-thruster-on")
+                    : Loc.GetString("adt-mech-thruster-off");
+                _popup.PopupEntity(popup, uid, user.Value);
+            }
         }
 
         Dirty(uid, comp);
@@ -130,6 +135,9 @@ public sealed class MechThrusterSystem : EntitySystem
 
         args.Handled = true;
 
+        if (!_netMan.IsServer)
+            return;
+
         if (comp.Active)
         {
             _popup.PopupEntity(Loc.GetString("adt-mech-thruster-refuel-active"), uid, args.User);
@@ -141,9 +149,6 @@ public sealed class MechThrusterSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("adt-mech-thruster-fuel-full"), uid, args.User);
             return;
         }
-
-        if (!_netMan.IsServer)
-            return;
 
         var needed = (int) Math.Ceiling((comp.MaxFuel - comp.Fuel) / comp.FuelPerSheet);
         var used = Math.Min(needed, stack.Count);
@@ -210,3 +215,6 @@ public sealed class MechThrusterSystem : EntitySystem
 public sealed partial class MechThrusterEvent : InstantActionEvent
 {
 }
+
+[ByRefEvent]
+public record struct MechFlightModeChangedEvent(bool Flying);

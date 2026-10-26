@@ -60,12 +60,77 @@
           description: thunderdome-desc-capo
           name: thunderdome-loadout-capo
           category: thunderdome-category-melee
-          sprite: Capoeira
+          sprite: ADTScrollCapoeira
         - gear: ThunderdomeMosin
           name: thunderdome-loadout-mosin
           description: thunderdome-desc-mosin
           category: thunderdome-category-snipers
           sprite: WeaponSniperMosin
+        - gear: ThunderdomeCQC
+          name: thunderdome-loadout-cqc
+          description: thunderdome-desc-cqc
+          category: thunderdome-category-melee
+          sprite: ADTCqcManual
+        - gear: ThunderdomeKungFuDragon
+          name: thunderdome-loadout-kungfu
+          description: thunderdome-desc-kungfu
+          category: thunderdome-category-melee
+          sprite: ADTScrollDragonKungFu
+        - gear: ThunderdomeFireAxe
+          name: thunderdome-loadout-fireaxe
+          description: thunderdome-desc-fireaxe
+          category: thunderdome-category-melee
+          sprite: FireAxeFlaming
+        - gear: ThunderdomeEnergyDagger
+          name: thunderdome-loadout-edagger
+          description: thunderdome-desc-edagger
+          category: thunderdome-category-melee
+          sprite: EnergyDagger
+        - gear: ThunderdomeEstoc
+          name: thunderdome-loadout-estoc
+          description: thunderdome-desc-estoc
+          category: thunderdome-category-rifles
+          sprite: WeaponRifleEstoc
+        - gear: ThunderdomeHushpup
+          name: thunderdome-loadout-hushpup
+          description: thunderdome-desc-hushpup
+          category: thunderdome-category-shotguns
+          sprite: WeaponShotgunHushpup
+        - gear: ThunderdomeAdvancedLaser
+          name: thunderdome-loadout-aeg
+          description: thunderdome-desc-aeg
+          category: thunderdome-category-energy
+          sprite: WeaponAdvancedLaser
+        - gear: ThunderdomeSvalinn
+          name: thunderdome-loadout-svalinn
+          description: thunderdome-desc-svalinn
+          category: thunderdome-category-energy
+          sprite: ADTWeaponLaserSvalinnRifle
+        - gear: ThunderdomeTacticBat
+          name: thunderdome-loadout-tacticbat
+          description: thunderdome-desc-tacticbat
+          category: thunderdome-category-melee
+          sprite: ADTTacticBat
+        - gear: ThunderdomeXC67
+          name: thunderdome-loadout-xc67
+          description: thunderdome-desc-xc67
+          category: thunderdome-category-rifles
+          sprite: ADTWeaponRifleXC67
+        - gear: ThunderdomeDeckard
+          name: thunderdome-loadout-deckard
+          description: thunderdome-desc-deckard
+          category: thunderdome-category-revolvers
+          sprite: WeaponRevolverDeckard
+        - gear: ThunderdomeCaptainSabre
+          name: thunderdome-loadout-sabre
+          description: thunderdome-desc-sabre
+          category: thunderdome-category-melee
+          sprite: CaptainSabre
+        - gear: ThunderdomeEnforcer
+          name: thunderdome-loadout-enforcer
+          description: thunderdome-desc-enforcer
+          category: thunderdome-category-shotguns
+          sprite: WeaponShotgunEnforcer
     - type: LoadMapRule
       mapPath: /Maps/Nonstations/dm01-entryway.yml
     - type: RuleGrids

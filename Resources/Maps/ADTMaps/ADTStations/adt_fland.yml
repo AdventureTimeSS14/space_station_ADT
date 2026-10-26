@@ -233886,4 +233886,11 @@ entities:
       falloff: 4.5
       energy: 42
       radius: 3
+- proto: ADTVendingMachineMusician
+  entities:
+  - uid: 53949
+    components:
+    - type: Transform
+      pos: -13.5,12.5
+      parent: 2
 ...

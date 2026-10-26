@@ -1,4 +1,5 @@
 using Robust.Shared.GameObjects;
+using Robust.Shared.Network;
 using Robust.Shared.Serialization.Manager.Attributes;
 
 namespace Content.Shared.ADT.Thunderdome;
@@ -21,7 +22,12 @@ public sealed partial class ThunderdomePlayerComponent : Component
     [DataField]
     public int WeaponSelection;
 
-    public EntityUid? LastAttacker;
+    public NetUserId? OwnerUser;
+    public TimeSpan SpawnTime;
+    public NetUserId? LastAttacker;
+    public TimeSpan LastAttackerTime;
+    public bool DeathCounted;
 
     public EntityUid? LeaveAction;
+    public EntityUid? LeaderboardAction;
 }

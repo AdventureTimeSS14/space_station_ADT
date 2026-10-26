@@ -8,6 +8,7 @@
     drawdepth: Mobs
     noRot: true
     sprite: ADT/Objects/Specific/Mech/archimedes.rsi
+    scale: 0.9, 0.9
     layers:
     - map: [ "enum.MechVisualLayers.Base" ]
       state: archimedes
@@ -22,7 +23,7 @@
         Piercing: 0.75
         Heat: 0.75
         Structural: 1.0
-    maxintegrity: 340
+    maxintegrity: 185
     baseState: archimedes
     openState: archimedes-open
     brokenState: archimedes-broken
@@ -31,7 +32,7 @@
     pilotWhitelist:
       components:
         - HumanoidProfile
-    maxEquipmentAmount: 7
+    maxEquipmentAmount: 10
     equipmentWhitelist:
       tags:
       - ADTMechEquipmentGeneral
@@ -46,7 +47,20 @@
     - ADTMechEquipmentToolWrench
     - ADTMechEquipmentToolCrowbar
     - MechEquipmentGrabberSmall
+  - type: MechEquipmentLimit
+    limits:
+    - whitelist:
+        tags:
+        - ADTArchimedesArmModule
+      max: 1
+      popup: adt-mech-arm-slot-occupied
+    - whitelist:
+        components:
+        - MechCockpit
+      max: 1
+      popup: adt-mech-cockpit-slot-occupied
   - type: MechThruster
+    # flightState: archimedes-flight
   - type: Hands
     showInHands: false
     disableExplosionRecursion: true
@@ -71,19 +85,6 @@
     grid:
     - 0,0,3,3
     clickInsert: false
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 430
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:ChangeConstructionNodeBehavior
-        node: start
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
 
 - type: entity
   id: ADTMechArchimedesBattery

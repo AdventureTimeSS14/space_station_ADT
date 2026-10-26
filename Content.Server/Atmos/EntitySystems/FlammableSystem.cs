@@ -30,6 +30,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
 using Content.Server.ADT.Temperature; //ADT-Tweak-Bonfire
 using Robust.Shared.Timing;
+using Content.Shared.ADT.Flammability;
 
 namespace Content.Server.Atmos.EntitySystems
 {
@@ -451,6 +452,11 @@ namespace Content.Server.Atmos.EntitySystems
                 }
 
                 _alertsSystem.ShowAlert(uid, flammable.FireAlert);
+
+                // ADT-Tweak start
+                if (HasComp<FireImmunityComponent>(uid))
+                    continue;
+                // ADT-Tweak end
 
                 if (flammable.FireStacks > 0)
                 {

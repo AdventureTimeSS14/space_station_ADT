@@ -9,3 +9,4 @@ minesweeaper_lost_boom.ogg taken from: https://zvukipro.com/games/2685-zvuki-iz-
 tick.ogg taken from: https://zvukipro.com/games/2685-zvuki-iz-igry-saper.html
 win.ogg taken from: https://zvukipro.com/games/2685-zvuki-iz-igry-saper.html
 computerboot_pc.ogg taken from: https://github.com/Goob-Station/Goob-Station at PR https://github.com/Goob-Station/Goob-Station/pull/2959
+crew_monitor_crit_alert.ogg created by discord: 1.wswiss.1 for Adventure Time

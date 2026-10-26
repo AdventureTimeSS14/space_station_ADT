@@ -102,6 +102,8 @@
     - UplinkWeaponry
     - UplinkAmmo
     - UplinkAttachments #ADT_Tweak
+    - UplinkSilicon
+    - UplinkObjective
     - UplinkExplosives
     - UplinkChemicals
     - UplinkDeception
@@ -127,6 +129,9 @@
     - UplinkWeaponry
     - UplinkAmmo
     - UplinkAttachments #ADT_Tweak
+    - UplinkAllies
+    - UplinkSilicon
+    - UplinkObjective
     - UplinkExplosives
     - UplinkChemicals
     - UplinkDeception

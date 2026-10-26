@@ -144,15 +144,18 @@
     - Back
     - suitStorage
   - type: AmmoCounter
-  - type: UseDelayOnShoot
-  - type: UseDelay
-    delay: 0.9
-  - type: LeechOnMarker # ADT Tweak
+# ADT-Tweak-Start
+  - type: ADTKineticCooldown
+#  - type: UseDelayOnShoot
+#  - type: UseDelay
+#    delay: 0.9
+  - type: LeechOnMarker
     leech:
       types:
         Blunt: -1.66
         Slash: -1.67
         Piercing: -1.67
+# ADT-Tweak-End
   - type: Gun
     soundGunshot: /Audio/Weapons/plasma_cutter.ogg
     fireRate: 1
@@ -250,8 +253,13 @@
     slots:
     - Back
     - suitStorage
-  - type: UseDelay
-    delay: 1.9
+# ADT-Tweak-Start
+  - type: ADTKineticCooldown
+    meleeMultiplier: 1.9
+    rangedMultiplier: 1.9
+#  - type: UseDelay
+#    delay: 1.9
+# ADT-Tweak-End
   - type: BasicEntityAmmoProvider
     proto: BulletChargeGlaive
     capacity: 1

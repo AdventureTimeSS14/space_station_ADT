@@ -5,7 +5,7 @@
     state: mod-core-standard
   product: CrateMaterialModCore
   cost: 10000
-  category: Materials
+  category: cargoproduct-category-name-materials
   group: market
 
 - type: cargoProduct
@@ -15,7 +15,7 @@
     state: copper_3
   product: CrateMaterialCopper
   cost: 6000
-  category: Materials
+  category: cargoproduct-category-name-materials
   group: market
 
 - type: cargoProduct
@@ -25,7 +25,7 @@
     state: zinc_3
   product: CrateMaterialZinc
   cost: 6000
-  category: Materials
+  category: cargoproduct-category-name-materials
   group: market
 
 - type: cargoProduct
@@ -35,7 +35,7 @@
     state: lead_3
   product: CrateMaterialLead
   cost: 4500
-  category: Materials
+  category: cargoproduct-category-name-materials
   group: market
 
 - type: cargoProduct

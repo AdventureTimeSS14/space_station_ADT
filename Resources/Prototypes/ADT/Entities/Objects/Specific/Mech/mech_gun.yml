@@ -119,11 +119,14 @@
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: HitscanMechAmmoProvider
     proto: RedHeavyLaser
+    weakenedProto: ADTRedHeavyLaserWeakened
     fireCost: 11
+    weakenedCostModifier: 0.75
   - type: Tag
     tags:
     - ADTMechEquipmentSec
     - ADTMechEquipmentScience
+    - ADTArchimedesArmModule
   # - type: Battery
   #   maxCharge: 60
   #   startingCharge: 60

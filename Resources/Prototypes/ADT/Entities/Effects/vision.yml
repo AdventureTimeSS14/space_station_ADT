@@ -14,13 +14,25 @@
 - type: entity
   id: ADTEffectNightVisionTajaran
   categories: [ HideSpawnMenu ]
-  name: night vision
+  name: tajaran night vision
   components:
   - type: PointLight
     color: "#D6E4FF"
     energy: 0.6
     radius: 13
     softness: 18
+
+# Weaker personal light for Resomi innate NV
+- type: entity
+  id: ADTEffectNightVisionResomi
+  categories: [ HideSpawnMenu ]
+  name: resomi night vision
+  components:
+  - type: PointLight
+    color: "#D6E4FF"
+    energy: 0.3
+    radius: 3
+    softness: 15
 
 # Device NVD (ПНВ) — wider personal light while goggles are active
 - type: entity

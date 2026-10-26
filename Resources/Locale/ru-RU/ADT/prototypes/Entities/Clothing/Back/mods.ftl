@@ -63,6 +63,25 @@ ent-ADTClothingModsuitBackBrigmedic = МОД "Ангел-Хранитель"
 ent-ADTClothingModsuitBackAncient = МОД "Гладиатор"
     .desc = Древний костюм, использовавшийся для охраны комплексов от всевозможных угроз. Выглядит потрёпанным, но на удивление, всё ещё работает. К сожалению, он не предназначен для внекорабельной деятельности, однако это компенсируется высокой мобильностью и дополнительной защитой конечностей.
 
+ent-ADTClothingModsuitBackMinerva = МОД "Минерва"
+    .desc = Высокотехнологичный исследовательский костюм от Nakamura Engineering, созданный для полевой работы научного руководителя.
+
+ent-ADTClothingModsuitBackCharon = МОД "Харон"
+    .desc = Продвинутый боевой костюм, излюбленный коммандос для использования в специальных операциях.
+
+ent-ADTClothingModsuitBackERTLeader = МОД ОБР "Полярис"
+    .suffix = Лидер
+    .desc = Облегчённый скоростной костюм NanoTrasen для лидера Отряда Быстрого Реагирования кода "Гамма".
+ent-ADTClothingModsuitBackERTSecurity = МОД ОБР "Антарес"
+    .suffix = Боец
+    .desc = Облегчённый скоростной костюм NanoTrasen для бойцов Отряда Быстрого Реагирования кода "Гамма".
+ent-ADTClothingModsuitBackERTEngineer = МОД ОБР "Капелла"
+    .suffix = Инженер
+    .desc = Облегчённый скоростной костюм NanoTrasen для инженера Отряда Быстрого Реагирования кода "Гамма".
+ent-ADTClothingModsuitBackERTMedical = МОД ОБР "Вега"
+    .suffix = Медик
+    .desc = Облегчённый скоростной костюм NanoTrasen для медика Отряда Быстрого Реагирования кода "Гамма".
+
 # Понятие не имею где прописать части мода. Пропишу тут
 
 ent-ADTActionToggleMODPiece = Переключить элементы MOD
@@ -112,6 +131,18 @@ ent-ADTClothingHeadHelmetModsuitBrigmedic = шлем МОДа "Ангел-Хра
     .desc = Шлем от МОДа.
 ent-ADTClothingHeadHelmetModsuitAncient= шлем МОДа "Гладиатор"
     .desc = Шлем от МОДа.
+ent-ADTClothingHeadHelmetModsuitMinerva = шлем МОДа "Минерва"
+    .desc = Шлем от МОДа.
+ent-ADTClothingHeadHelmetModsuitCharon = шлем МОДа "Харон"
+    .desc = Шлем от МОДа.
+ent-ADTClothingHeadHelmetModsuitERTLeader = шлем МОДа ОБР "Полярис"
+    .desc = Шлем от МОДа.
+ent-ADTClothingHeadHelmetModsuitERTSecurity = шлем МОДа ОБР "Антарес"
+    .desc = Шлем от МОДа.
+ent-ADTClothingHeadHelmetModsuitERTEngineer = шлем МОДа ОБР "Капелла"
+    .desc = Шлем от МОДа.
+ent-ADTClothingHeadHelmetModsuitERTMedical = шлем МОДа ОБР "Вега"
+    .desc = Шлем от МОДа.
 
 # Оболочка
 ent-ADTClothingOuterModsuitBodyBase = оболочка МОДа "Базовый"
@@ -158,6 +189,18 @@ ent-ADTClothingOuterModsuitBodyBrigmedic = оболочка МОДа "Ангел
     .desc = Базовая оболочка от МОДа.
 ent-ADTClothingOuterModsuitBodyAncient = оболочка МОДа "Гладиатор"
     .desc = Базовая оболочка от МОДа.
+ent-ADTClothingOuterModsuitBodyMinerva = оболочка МОДа "Минерва"
+    .desc = Базовая оболочка от МОДа.
+ent-ADTClothingOuterModsuitBodyCharon = оболочка МОДа "Харон"
+    .desc = Базовая оболочка от МОДа.
+ent-ADTClothingOuterModsuitBodyERTLeader = оболочка МОДа ОБР "Полярис"
+    .desc = Базовая оболочка от МОДа.
+ent-ADTClothingOuterModsuitBodyERTSecurity = оболочка МОДа ОБР "Антарес"
+    .desc = Базовая оболочка от МОДа.
+ent-ADTClothingOuterModsuitBodyERTEngineer = оболочка МОДа ОБР "Капелла"
+    .desc = Базовая оболочка от МОДа.
+ent-ADTClothingOuterModsuitBodyERTMedical = оболочка МОДа ОБР "Вега"
+    .desc = Базовая оболочка от МОДа.
 
 # Ботинки
 ent-ADTClothingModsuitShoesBase = ботинки МОДа "Базовый"
@@ -200,6 +243,12 @@ ent-ADTClothingModsuitShoesWard = ботинки МОДа "Защитный"
 ent-ADTClothingModsuitShoesBrigmedic = ботинки МОДа "Ангел-Хранитель"
     .desc = Базовые ботинки от МОДа.
 ent-ADTClothingModsuitShoesAncient = ботинки МОДа "Гладиатор"
+    .desc = Базовые ботинки от МОДа.
+ent-ADTClothingModsuitShoesMinerva = ботинки МОДа "Минерва"
+    .desc = Базовые ботинки от МОДа.
+ent-ADTClothingModsuitShoesCharon = ботинки МОДа "Харон"
+    .desc = Базовые ботинки от МОДа.
+ent-ADTClothingModsuitShoesERT = ботинки МОДа ОБР
     .desc = Базовые ботинки от МОДа.
 
 # Перчатки
@@ -246,4 +295,16 @@ ent-ADTClothingHandsModsuitWard = перчатки МОДа "Защитный"
 ent-ADTClothingHandsModsuitBrigmedic = перчатки МОДа "Ангел-Хранитель"
     .desc = Базовые перчатки от МОДа.
 ent-ADTClothingHandsModsuitAncient = перчатки МОДа "Гладиатор"
+    .desc = Базовые перчатки от МОДа.
+ent-ADTClothingHandsModsuitMinerva = перчатки МОДа "Минерва"
+    .desc = Базовые перчатки от МОДа.
+ent-ADTClothingHandsModsuitCharon = перчатки МОДа "Харон"
+    .desc = Базовые перчатки от МОДа.
+ent-ADTClothingHandsModsuitERTLeader = перчатки МОДа ОБР "Полярис"
+    .desc = Базовые перчатки от МОДа.
+ent-ADTClothingHandsModsuitERTSecurity = перчатки МОДа ОБР "Антарес"
+    .desc = Базовые перчатки от МОДа.
+ent-ADTClothingHandsModsuitERTEngineer = перчатки МОДа ОБР "Капелла"
+    .desc = Базовые перчатки от МОДа.
+ent-ADTClothingHandsModsuitERTMedical = перчатки МОДа ОБР "Вега"
     .desc = Базовые перчатки от МОДа.

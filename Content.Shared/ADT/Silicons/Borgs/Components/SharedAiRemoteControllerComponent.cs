@@ -60,6 +60,8 @@ public record struct RemoteDevicesData()
     public SpriteSpecifier? Sprite;
 
     public bool IsIncapacitated;
+
+    public bool IsOccupied;
 }
 
 [Serializable, NetSerializable]

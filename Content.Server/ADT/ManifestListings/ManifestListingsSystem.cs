@@ -2,11 +2,11 @@ using System.Linq;
 using System.Text;
 using Content.Shared.ADT.ManifestListings;
 using Content.Shared.Actions.Components;
+using Content.Shared.FixedPoint;
 using Content.Shared.Mind;
 using Content.Shared.Store;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-using Content.Shared.FixedPoint;
 
 namespace Content.Server.ADT.ManifestListings;
 
@@ -27,176 +27,183 @@ public sealed class ManifestListingsSystem : EntitySystem
     {
         var listings = EnsureComp<MindListingsComponent>(ent);
 
+        var data = args.Data;
         if (!listings.Listings.TryGetValue(args.Store.Id, out var list))
         {
-            list = new();
+            list = new List<ManifestPurchaseRecord>();
             listings.Listings.Add(args.Store.Id, list);
         }
 
-        var data = args.Data;
-        list.RemoveAll(x => x.ID == data.ID);
-        list.Add(data);
+        var record = list.FirstOrDefault(x => x.Data.ID == data.ID);
+        if (record == null)
+        {
+            record = new ManifestPurchaseRecord
+            {
+                Data = data,
+            };
+            list.Add(record);
+        }
+
+        record.Amount++;
+
+        foreach (var (currency, amount) in args.Cost)
+        {
+            if (!record.Spent.TryAdd(currency, amount))
+                record.Spent[currency] += amount;
+        }
     }
 
     private void OnPrepend(Entity<MindListingsComponent> ent, ref PrependObjectivesSummaryTextEvent args)
     {
-        var sb = new StringBuilder();
-        var sb2 = new StringBuilder();
+        var entries = new StringBuilder();
+        var totalSpent = new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2>();
 
-        Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> totalSpent = new();
         foreach (var list in ent.Comp.Listings.Values)
         {
-            var storeSb = new StringBuilder();
-            HashSet<string> ignoredIds = new();
-            // Data id -> amount purchased (needed for action upgrades)
-            Dictionary<string, int> info = new();
-            foreach (var data in list)
+            var upgrades = new HashSet<string>();
+            foreach (var record in list)
             {
-                if (data.PurchaseAmount <= 0)
-                    continue;
-
-                if (!info.TryAdd(data.ID, data.PurchaseAmount))
-                    info[data.ID] += data.PurchaseAmount;
-
-                if (data.ProductUpgradeId == null)
-                    continue;
-
-                ignoredIds.Add(data.ProductUpgradeId);
-                var upgrade = list.FirstOrDefault(x => x.ID == data.ProductUpgradeId);
-                if (upgrade != null)
-                {
-                    info[data.ID] += upgrade.PurchaseAmount;
-                }
+                if (record.Data.ProductUpgradeId is { } upgradeId)
+                    upgrades.Add(upgradeId.Id);
             }
 
-            foreach (var (dataId, count) in info)
+            foreach (var record in list)
             {
-                if (ignoredIds.Contains(dataId))
+                if (record.Amount <= 0 || upgrades.Contains(record.Data.ID))
                     continue;
 
-                var data = list.FirstOrDefault(x => x.ID == dataId);
-                if (data == null)
-                    continue;
+                var amount = record.Amount;
+                var spent = new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2>(record.Spent);
 
-                Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> cost = new();
-                var costMultiplier = count;
-
-                // TODO: починить щиткод губов под нас. Сейчас не работают эти строки
-                // if (data.SaleCost != null)
-                // {
-                //     var salePurchases = Math.Min(data.SaleLimit, count);
-                //     foreach (var (currency, amount) in data.SaleCost)
-                //     {
-                //         if (!cost.TryAdd(currency, amount * salePurchases))
-                //             cost[currency] += amount * salePurchases;
-                //     }
-
-                //     costMultiplier -= salePurchases; 
-                // }
-
-                // if (costMultiplier != 0)
-                // {
-                //     foreach (var (currency, amount) in data.Cost)
-                //     {
-                //         if (!cost.TryAdd(currency, amount * costMultiplier))
-                //             cost[currency] += amount * costMultiplier;
-                //     }
-                // }
-
-                string sprite;
-                var state = "";
-                switch (data.Icon)
+                if (record.Data.ProductUpgradeId is { } upgradeId)
                 {
-                    case SpriteSpecifier.Texture tex:
+                    var upgrade = list.FirstOrDefault(x => x.Data.ID == upgradeId.Id);
+                    if (upgrade != null)
                     {
-                        sprite = tex.TexturePath.ToString();
-                        if (!sprite.StartsWith("/Textures/"))
-                            sprite = $"/Textures/{sprite}";
-                        break;
-                    }
-                    case SpriteSpecifier.Rsi rsi:
-                        sprite = rsi.RsiPath.ToString();
-                        state = rsi.RsiState;
-                        break;
-                    default:
-                    {
-                        if (data.ProductEntity != null)
-                            sprite = data.ProductEntity.Value;
-                        else if (data.ProductAction != null && TryGetActionIcon(data.ProductAction.Value,
-                                     out var actionSprite,
-                                     out var actionState))
+                        amount += upgrade.Amount;
+
+                        foreach (var (currency, value) in upgrade.Spent)
                         {
-                            sprite = actionSprite;
-                            state = actionState;
+                            if (!spent.TryAdd(currency, value))
+                                spent[currency] += value;
                         }
-                        else
-                            sprite = ent.Comp.DefaultTexture.TexturePath.ToString();
-
-                        break;
                     }
                 }
 
-                var name = "";
-                if (data.Name != null)
-                    name = Loc.GetString(data.Name);
-                else
+                foreach (var (currency, value) in spent)
                 {
-                    if (data.ProductEntity != null)
-                        name = Loc.GetString(_proto.Index(data.ProductEntity.Value).Name);
-                    else if (data.ProductAction != null)
-                        name = Loc.GetString(_proto.Index(data.ProductAction.Value).Name);
+                    if (!totalSpent.TryAdd(currency, value))
+                        totalSpent[currency] += value;
                 }
 
-                var costSb = new StringBuilder();
-                foreach (var (currencyId, amount) in cost)
-                {
-                    if (!totalSpent.TryAdd(currencyId, amount))
-                        totalSpent[currencyId] += amount;
-
-                    if (costSb.Length > 0)
-                        costSb.Append(", ");
-
-                    var currency = _proto.Index(currencyId);
-                    costSb.Append($"{amount} {Loc.GetString(currency.DisplayName)}");
-                }
-
-                var information = Loc.GetString("manifest-listing-entry-info",
-                    ("name", name),
-                    ("spent", costSb.ToString()));
-
-                information = information.Replace("\"", ""); // Fuck this
-                information = information.Replace("\'", ""); // Fuck this
-
-                storeSb.Append(Loc.GetString("manifest-listing-entry-listing",
-                    ("sprite", sprite),
-                    ("state", state),
-                    ("info", information),
-                    ("amount", count)));
+                entries.Append(BuildEntry(ent.Comp, record.Data, amount, spent));
             }
-
-            sb2.Append(storeSb.ToString());
         }
 
-        var totalSpentSb = new StringBuilder();
-        foreach (var (currencyId, amount) in totalSpent)
-        {
-            if (totalSpentSb.Length > 0)
-                totalSpentSb.Append(", ");
+        if (entries.Length == 0)
+            return;
 
-            var currency = _proto.Index(currencyId);
-            totalSpentSb.Append($"{amount} {Loc.GetString(currency.DisplayName)}");
-        }
-
-        // sb.AppendLine(Loc.GetString("manifest-listing-entry-start", ("spent", totalSpentSb.ToString()))); //TODO: починить щиткод губов под нас
+        var sb = new StringBuilder();
+        sb.AppendLine(Loc.GetString("manifest-listing-entry-start", ("spent", FormatCurrency(totalSpent))));
         sb.AppendLine();
-        sb.AppendLine(sb2.ToString());
+        sb.AppendLine(entries.ToString());
+
         args.Text += sb.ToString();
+    }
+
+    private string BuildEntry(
+        MindListingsComponent comp,
+        ListingData data,
+        int amount,
+        Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> spent)
+    {
+        GetSprite(comp, data, out var sprite, out var state);
+
+        var info = Loc.GetString("manifest-listing-entry-info",
+            ("name", GetName(data)),
+            ("spent", FormatCurrency(spent)));
+
+        info = info.Replace("\"", string.Empty).Replace("'", string.Empty);
+
+        return Loc.GetString("manifest-listing-entry-listing",
+            ("sprite", sprite),
+            ("state", state),
+            ("info", info),
+            ("amount", amount));
+    }
+
+    private string GetName(ListingData data)
+    {
+        if (data.Name != null)
+            return Loc.GetString(data.Name);
+
+        if (data.ProductEntity != null)
+            return Loc.GetString(_proto.Index(data.ProductEntity.Value).Name);
+
+        if (data.ProductAction != null)
+            return Loc.GetString(_proto.Index(data.ProductAction.Value).Name);
+
+        return Loc.GetString("manifest-listing-entry-unknown");
+    }
+
+    private void GetSprite(MindListingsComponent comp, ListingData data, out string sprite, out string state)
+    {
+        state = string.Empty;
+
+        switch (data.Icon)
+        {
+            case SpriteSpecifier.Texture tex:
+                sprite = tex.TexturePath.ToString();
+                if (!sprite.StartsWith("/Textures/"))
+                    sprite = $"/Textures/{sprite}";
+                return;
+
+            case SpriteSpecifier.Rsi rsi:
+                sprite = rsi.RsiPath.ToString();
+                state = rsi.RsiState;
+                return;
+        }
+
+        if (data.ProductEntity != null)
+        {
+            sprite = data.ProductEntity.Value;
+            return;
+        }
+
+        if (data.ProductAction != null && TryGetActionIcon(data.ProductAction.Value, out var actionSprite, out var actionState))
+        {
+            sprite = actionSprite;
+            state = actionState;
+            return;
+        }
+
+        sprite = comp.DefaultTexture.TexturePath.ToString();
+    }
+
+    private string FormatCurrency(Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> amounts)
+    {
+        var sb = new StringBuilder();
+
+        foreach (var (currencyId, amount) in amounts)
+        {
+            if (amount <= 0 || !_proto.TryIndex(currencyId, out var currency))
+                continue;
+
+            if (sb.Length > 0)
+                sb.Append(", ");
+
+            sb.Append(Loc.GetString("manifest-listing-currency",
+                ("amount", amount.ToString()),
+                ("currency", Loc.GetString(currency.DisplayName))));
+        }
+
+        return sb.Length > 0 ? sb.ToString() : Loc.GetString("manifest-listing-free");
     }
 
     private bool TryGetActionIcon(EntProtoId proto, out string sprite, out string state)
     {
-        sprite = "";
-        state = "";
+        sprite = string.Empty;
+        state = string.Empty;
 
         if (!_proto.Index(proto).TryGetComponent("Action", out ActionComponent? actionComp) || actionComp.Icon == null)
             return false;
@@ -204,16 +211,16 @@ public sealed class ManifestListingsSystem : EntitySystem
         switch (actionComp.Icon)
         {
             case SpriteSpecifier.Texture tex:
-            {
                 sprite = tex.TexturePath.ToString();
                 if (!sprite.StartsWith("/Textures/"))
                     sprite = $"/Textures/{sprite}";
                 return true;
-            }
+
             case SpriteSpecifier.Rsi rsi:
                 sprite = rsi.RsiPath.ToString();
                 state = rsi.RsiState;
                 return true;
+
             default:
                 return false;
         }

@@ -153,8 +153,6 @@
         color: "#ccac1f"
       Burn:
         sprite: Mobs/Effects/burn_damage.rsi
-  - type: MessyDrinker
-    spillChance: 0.33
   - type: Speech
     speechSounds: Vulpkanin
     speechVerb: Vulpkanin

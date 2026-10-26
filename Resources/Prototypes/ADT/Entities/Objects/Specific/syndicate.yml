@@ -1,0 +1,28 @@
+# Аплинк комы оперативников. Имеет доступ к призыву союзников
+- type: entity
+  parent: BaseUplinkRadio
+  id: ADTCommanderUplinkRadio40TC
+  suffix: 40 TC, NukeOps
+  components:
+  - type: Store
+    name: store-preset-name-uplink
+    categories:
+    - UplinkWeaponry
+    - UplinkAmmo
+    - UplinkAttachments
+    - UplinkAllies
+    - UplinkSilicon
+    - UplinkObjective
+    - UplinkExplosives
+    - UplinkChemicals
+    - UplinkDeception
+    - UplinkDisruption
+    - UplinkImplants
+    - UplinkWearables
+    - UplinkJob
+    - UplinkPointless
+    balance:
+      Telecrystal: 40
+  - type: Tag
+    tags:
+    - NukeOpsUplink

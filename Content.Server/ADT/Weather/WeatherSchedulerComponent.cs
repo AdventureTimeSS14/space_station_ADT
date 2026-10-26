@@ -9,7 +9,7 @@ namespace Content.Server.Weather;
 /// <summary>
 /// Makes weather randomly happen every so often.
 /// </summary>
-[RegisterComponent, Access(typeof(WeatherSchedulerSystem))]
+[RegisterComponent]// ADT-Tweak
 [AutoGenerateComponentPause]
 public sealed partial class WeatherSchedulerComponent : Component
 {
@@ -46,6 +46,32 @@ public partial struct WeatherStage
 
     /// <summary>
     /// The weather status effect prototype to add, or null for clear weather.
+    /// Ignored when <see cref="Variants"/> is filled in.
+    /// </summary>
+    [DataField]
+    public EntProtoId? Weather;
+
+    /// <summary>
+    /// Alert message to send in chat for players on the map when it starts.
+    /// Ignored when <see cref="Variants"/> is filled in.
+    /// </summary>
+    [DataField]
+    public LocId? Message;
+
+    /// <summary>
+    /// ADT tweak: kinds of weather this stage picks between, weighted, the way SS13 rolls its storms.
+    /// When this is set it replaces <see cref="Weather"/> and <see cref="Message"/>.
+    /// </summary>
+    [DataField]
+    public List<WeatherStageVariant> Variants = new();
+}
+
+// ADT-Tweak-Start
+[Serializable, DataDefinition]
+public partial struct WeatherStageVariant
+{
+    /// <summary>
+    /// The weather status effect prototype to add, or null for clear weather.
     /// </summary>
     [DataField]
     public EntProtoId? Weather;
@@ -55,4 +81,11 @@ public partial struct WeatherStage
     /// </summary>
     [DataField]
     public LocId? Message;
+
+    /// <summary>
+    /// How likely this one is relative to the other variants of the stage.
+    /// </summary>
+    [DataField]
+    public float Weight = 1f;
 }
+// ADT-Tweak-End

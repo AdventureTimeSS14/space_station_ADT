@@ -1,53 +1,201 @@
-<controls:FancyWindow xmlns="https://spacestation14.io"
+<ui:CrewMonitoringWindow xmlns="https://spacestation14.io"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                xmlns:ui="clr-namespace:Content.Client.Medical.CrewMonitoring"
                xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
-               Title="{Loc crew-monitoring-ui-title}"
-               Resizable="False"
-               SetSize="1210 700"
-               MinSize="1210 700">
-    <BoxContainer Orientation="Vertical">
-        <BoxContainer Orientation="Horizontal" VerticalExpand="True" HorizontalExpand="True">
-            <ui:CrewMonitoringNavMapControl Name="NavMap" HorizontalExpand="True" VerticalExpand="True" Margin="5 20"/>
-            <BoxContainer Orientation="Vertical" Margin="0 0 10 0">
-                <controls:StripeBack>
-                    <PanelContainer>
-                        <Label Name="StationName" Text="{Loc crew-monitoring-ui-no-station-label}" Align="Center" Margin="0 5 0 3"/>
-                    </PanelContainer>
-                </controls:StripeBack>
+               x:Class="Content.Client.Medical.CrewMonitoring.CrewMonitoringWindow"
+               SetSize="1330 760"
+               MinSize="1050 560"
+               MouseFilter="Stop">
+    <PanelContainer Name="LeftBezel" Access="Public" SetWidth="80" MaxWidth="80"
+                    HorizontalAlignment="Left" VerticalAlignment="Stretch"
+                    Margin="-60 -10 0 -10" StyleClasses="PdaBackgroundRect"/>
+    <PanelContainer Name="RightBezel" Access="Public" SetWidth="80" MaxWidth="80"
+                    HorizontalAlignment="Right" VerticalAlignment="Stretch"
+                    Margin="0 -10 10 -10" StyleClasses="PdaBackgroundRect"/>
+    <PanelContainer Name="LeftBorder" SetWidth="80" MaxWidth="80"
+                    HorizontalAlignment="Left" VerticalAlignment="Stretch"
+                    Margin="-60 -10 0 -10" StyleClasses="PdaBorderRect"/>
+    <PanelContainer Name="RightBorder" SetWidth="80" MaxWidth="80"
+                    HorizontalAlignment="Right" VerticalAlignment="Stretch"
+                    Margin="0 -10 10 -10" StyleClasses="PdaBorderRect"/>
 
-                <LineEdit Name="SearchLineEdit" HorizontalExpand="True"
-                          PlaceHolder="{Loc crew-monitoring-ui-filter-line-placeholder}" />
+    <Control HorizontalAlignment="Left" SetWidth="80" MaxWidth="80"
+             VerticalAlignment="Stretch" Margin="-60 23 0 11" MouseFilter="Ignore">
+        <PanelContainer Name="LeftBezelInset" SetWidth="27" MaxWidth="27"
+                        HorizontalAlignment="Right" VerticalAlignment="Stretch"
+                        MouseFilter="Ignore"/>
+    </Control>
+    <Control HorizontalAlignment="Right" SetWidth="80" MaxWidth="80"
+             VerticalAlignment="Stretch" Margin="0 23 10 11" MouseFilter="Ignore">
+        <PanelContainer Name="RightBezelInset" SetWidth="27" MaxWidth="27"
+                        HorizontalAlignment="Left" VerticalAlignment="Stretch"
+                        MouseFilter="Ignore"/>
+    </Control>
 
-                <ScrollContainer Name="SensorScroller"
-                                 VerticalExpand="True"
-                                 SetWidth="520"
-                                 Margin="8, 8, 8, 8">
-                    <BoxContainer Name="SensorsTable"
-                                   Orientation="Vertical"
-                                   HorizontalExpand="True"
-                                   Margin="0 0 10 0">
-                        <!-- Table rows are filled by code -->
-                    </BoxContainer>
-                    <Label  Name="NoServerLabel"
-                            Text="{Loc crew-monitoring-ui-no-server-label}"
-                            StyleClasses="LabelHeading"
-                            FontColorOverride="Red"
-                            HorizontalAlignment="Center"
-                            Visible="false"/>
-                </ScrollContainer>
-            </BoxContainer>
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+        <BoxContainer SetHeight="26" Margin="4 2 8 0" Orientation="Horizontal">
+            <Control HorizontalExpand="True"/>
+            <TextureButton Name="CloseButton" StyleClasses="windowCloseButton"
+                           VerticalAlignment="Center" Margin="0 4 20 0"/>
         </BoxContainer>
 
-        <!-- Footer -->
-        <BoxContainer Orientation="Vertical">
-            <PanelContainer StyleClasses="LowDivider" />
-            <BoxContainer Orientation="Horizontal" Margin="10 2 5 0" VerticalAlignment="Bottom">
-                <Label Text="{Loc crew-monitoring-ui-flavor-left-label}" StyleClasses="WindowFooterText" />
-                <Label Text="{Loc crew-monitoring-ui-flavor-right-label}" StyleClasses="WindowFooterText"
-                        HorizontalAlignment="Right" HorizontalExpand="True"  Margin="0 0 5 0" />
-                <TextureRect StyleClasses="NTLogoDark" Stretch="KeepAspectCentered"
-                        VerticalAlignment="Center" HorizontalAlignment="Right" SetSize="19 19"/>
-            </BoxContainer>
+        <Control Margin="10 0 80 0" RectClipContent="True" VerticalExpand="True" HorizontalExpand="True">
+            <PanelContainer Name="ContentBorder" StyleClasses="PdaBackground"/>
+            <Control Margin="3 3" HorizontalExpand="True" VerticalExpand="True">
+                <ui:CrtScanlineBackground Name="ContentBackground" HorizontalExpand="True" VerticalExpand="True"/>
+                <BoxContainer Name="ContentsContainer" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True"
+                              StyleClasses="PdaContent" RectClipContent="True" Margin="2">
+                    <BoxContainer Orientation="Horizontal" VerticalExpand="True" HorizontalExpand="True" MinHeight="0" SeparationOverride="0">
+                        <PanelContainer Name="LeftPanelFrame" HorizontalExpand="True" VerticalExpand="True" Margin="8 8 4 8" MinHeight="0">
+                            <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="0" MinHeight="0">
+                                <controls:StripeBack Name="HeaderStripe">
+                                    <BoxContainer Orientation="Horizontal" MinHeight="38">
+                                        <Label Name="StationName" Text="{Loc crew-monitoring-ui-no-station-label}"
+                                               VerticalAlignment="Center" Margin="10 4" StyleClasses="LabelHeading"/>
+                                        <BoxContainer Name="ServerStatusContainer" Orientation="Horizontal"
+                                                      HorizontalAlignment="Right" HorizontalExpand="True"
+                                                      VerticalAlignment="Center" Margin="8 4" Visible="false"/>
+                                    </BoxContainer>
+                                </controls:StripeBack>
+                                <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True" Margin="0 6 0 0">
+                                    <ui:CrewMonitoringNavMapControl Name="NavMap" HorizontalExpand="True" VerticalExpand="True"/>
+                                    <PanelContainer Name="MapPlaceholder" Visible="false" HorizontalExpand="True" VerticalExpand="True">
+                                        <BoxContainer Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <Label Text="{Loc crew-monitoring-ui-scan-initializing}"
+                                                   HorizontalAlignment="Center"
+                                                   StyleClasses="LabelHeading" FontColorOverride="Gray"/>
+                                            <Label Text="{Loc crew-monitoring-ui-select-server-label}"
+                                                   HorizontalAlignment="Center" Margin="0 8 0 0" FontColorOverride="DimGray"/>
+                                        </BoxContainer>
+                                    </PanelContainer>
+                                </BoxContainer>
+                            </BoxContainer>
+                        </PanelContainer>
+
+                        <PanelContainer Name="PanelDivider" SetWidth="2" VerticalExpand="True" Margin="0 12"/>
+
+                        <PanelContainer Name="RightPanelFrame" SetWidth="450" Margin="4 8 8 8" VerticalExpand="True" MinHeight="0">
+                            <BoxContainer Orientation="Vertical" SetWidth="438" Margin="6" Name="RightPanel" VerticalExpand="True" MinHeight="0">
+                            <BoxContainer Name="StartScanPanel" Orientation="Vertical" VerticalExpand="True">
+                                <Button Name="StartScanButton" Text="{Loc crew-monitoring-ui-start-scan}" HorizontalExpand="True"
+                                        VerticalExpand="True" Margin="8" StyleClasses="BigButton"/>
+                                <PanelContainer Name="ScanLoadingPanel" Visible="false" VerticalExpand="True" Margin="8">
+                                    <BoxContainer Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                  HorizontalExpand="True">
+                                        <Label Text="{Loc crew-monitoring-ui-scan-title}" Align="Center"
+                                               StyleClasses="LabelHeading" Margin="0 0 0 12"/>
+                                        <Label Name="ScanLoadingStatus" Text="{Loc crew-monitoring-ui-scan-initializing}"
+                                               Align="Center" FontColorOverride="LightGray" Margin="0 0 0 8"/>
+                                        <ProgressBar Name="ScanProgressBar" MinValue="0" MaxValue="1" Value="0"
+                                                     HorizontalExpand="True" SetHeight="18"/>
+                                        <Label Name="ScanLoadingPercent" Text="0%" Align="Center"
+                                               FontColorOverride="Gray" Margin="0 6 0 0"/>
+                                    </BoxContainer>
+                                </PanelContainer>
+                            </BoxContainer>
+
+                            <TabContainer Name="MainTabs" VerticalExpand="True" Visible="false" MinHeight="0">
+                                <BoxContainer Orientation="Vertical" VerticalExpand="True" MinHeight="0">
+                                    <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 0 0 0">
+                                        <LineEdit Name="SearchLineEdit" HorizontalExpand="True"
+                                                  PlaceHolder="{Loc crew-monitoring-ui-filter-line-placeholder}" />
+                                        <CheckBox Name="WoundedOnlyCheckbox" Text="{Loc crew-monitoring-ui-wounded-only}"
+                                                  Margin="6 0 0 0"/>
+                                        <Button Name="ResetSensorsButton" Text="{Loc crew-monitoring-ui-reset-sensors}"
+                                                Margin="6 0 0 0" MinWidth="90"/>
+                                    </BoxContainer>
+                                    <ScrollContainer Name="SensorScroller"
+                                                     VerticalExpand="True"
+                                                     HorizontalExpand="True"
+                                                     Margin="8, 8, 8, 8">
+                                        <BoxContainer Name="SensorsTable"
+                                                       Orientation="Vertical"
+                                                       HorizontalExpand="True"
+                                                       Margin="0 0 5 0">
+                                        </BoxContainer>
+                                        <Label Name="NoServerLabel"
+                                               Text="{Loc crew-monitoring-ui-no-server-label}"
+                                               StyleClasses="LabelHeading"
+                                               FontColorOverride="Red"
+                                               HorizontalAlignment="Center"
+                                               Visible="false"/>
+                                    </ScrollContainer>
+                                </BoxContainer>
+                                <ScrollContainer Name="ServersTabScroller" VerticalExpand="True" HorizontalExpand="True" Margin="8">
+                                    <BoxContainer Name="ServersListContainer" Orientation="Vertical" HorizontalExpand="True"/>
+                                </ScrollContainer>
+                            </TabContainer>
+                        </BoxContainer>
+                        </PanelContainer>
+                    </BoxContainer>
+                </BoxContainer>
+            </Control>
+        </Control>
+
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" SetHeight="18"
+                      Margin="0 12 25 -6" VerticalAlignment="Center">
+            <Control HorizontalExpand="True"/>
+            <Label Name="FooterVersionLabel" Text="{Loc crew-monitoring-ui-flavor-right-label}"
+                   StyleClasses="WindowFooterText"
+                   VerticalAlignment="Center" Margin="0 0 5 0"/>
+            <TextureRect Name="FooterLogo" StyleClasses="NTLogoDark" Stretch="KeepAspectCentered"
+                         VerticalAlignment="Center" HorizontalAlignment="Right" SetSize="19 19"/>
         </BoxContainer>
     </BoxContainer>
-</controls:FancyWindow>
+</ui:CrewMonitoringWindow>
+
+<!-- #ADT-Tweak Start - New Monitor: official CrewMonitoringWindow.xaml kept, all interface was refactored -->
+<!-- <controls:FancyWindow xmlns="https://spacestation14.io" -->
+<!--                xmlns:ui="clr-namespace:Content.Client.Medical.CrewMonitoring" -->
+<!--                xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls" -->
+<!--                Title="{Loc crew-monitoring-ui-title}" -->
+<!--                Resizable="False" -->
+<!--                SetSize="1210 700" -->
+<!--                MinSize="1210 700"> -->
+<!--     <BoxContainer Orientation="Vertical"> -->
+<!--         <BoxContainer Orientation="Horizontal" VerticalExpand="True" HorizontalExpand="True"> -->
+<!--             <ui:CrewMonitoringNavMapControl Name="NavMap" HorizontalExpand="True" VerticalExpand="True" Margin="5 20"/> -->
+<!--             <BoxContainer Orientation="Vertical" Margin="0 0 10 0"> -->
+<!--                 <controls:StripeBack> -->
+<!--                     <PanelContainer> -->
+<!--                         <Label Name="StationName" Text="{Loc crew-monitoring-ui-no-station-label}" Align="Center" Margin="0 5 0 3"/> -->
+<!--                     </PanelContainer> -->
+<!--                 </controls:StripeBack> -->
+<!--  -->
+<!--                 <LineEdit Name="SearchLineEdit" HorizontalExpand="True" -->
+<!--                           PlaceHolder="{Loc crew-monitoring-ui-filter-line-placeholder}" /> -->
+<!--  -->
+<!--                 <ScrollContainer Name="SensorScroller" -->
+<!--                                  VerticalExpand="True" -->
+<!--                                  SetWidth="520" -->
+<!--                                  Margin="8, 8, 8, 8"> -->
+<!--                     <BoxContainer Name="SensorsTable" -->
+<!--                                    Orientation="Vertical" -->
+<!--                                    HorizontalExpand="True" -->
+<!--                                    Margin="0 0 10 0"> -->
+<!--                         <!- - Table rows are filled by code - -> -->
+<!--                     </BoxContainer> -->
+<!--                     <Label  Name="NoServerLabel" -->
+<!--                             Text="{Loc crew-monitoring-ui-no-server-label}" -->
+<!--                             StyleClasses="LabelHeading" -->
+<!--                             FontColorOverride="Red" -->
+<!--                             HorizontalAlignment="Center" -->
+<!--                             Visible="false"/> -->
+<!--                 </ScrollContainer> -->
+<!--             </BoxContainer> -->
+<!--         </BoxContainer> -->
+<!--  -->
+<!--         <!- - Footer - -> -->
+<!--         <BoxContainer Orientation="Vertical"> -->
+<!--             <PanelContainer StyleClasses="LowDivider" /> -->
+<!--             <BoxContainer Orientation="Horizontal" Margin="10 2 5 0" VerticalAlignment="Bottom"> -->
+<!--                 <Label Text="{Loc crew-monitoring-ui-flavor-left-label}" StyleClasses="WindowFooterText" /> -->
+<!--                 <Label Text="{Loc crew-monitoring-ui-flavor-right-label}" StyleClasses="WindowFooterText" -->
+<!--                         HorizontalAlignment="Right" HorizontalExpand="True"  Margin="0 0 5 0" /> -->
+<!--                 <TextureRect StyleClasses="NTLogoDark" Stretch="KeepAspectCentered" -->
+<!--                         VerticalAlignment="Center" HorizontalAlignment="Right" SetSize="19 19"/> -->
+<!--             </BoxContainer> -->
+<!--         </BoxContainer> -->
+<!--     </BoxContainer> -->
+<!-- </controls:FancyWindow> -->
+<!-- #ADT-Tweak End -->

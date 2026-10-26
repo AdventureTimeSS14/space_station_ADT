@@ -9,6 +9,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Client.UserInterface;
 using Robust.Shared.Input;
+using Robust.Shared.Localization;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
@@ -18,6 +19,7 @@ namespace Content.Client.Humanoid;
 public sealed partial class LayerMarkingItem : BoxContainer, ISearchableControl
 {
     [Dependency] private readonly IEntityManager _entity = default!;
+    [Dependency] private readonly ILocalizationManager _loc = default!; // ADT-Tweak
 
     private readonly SpriteSystem _sprite;
 
@@ -88,7 +90,7 @@ public sealed partial class LayerMarkingItem : BoxContainer, ISearchableControl
     private void UpdateData()
     {
         MarkingTexture.Textures = _markingPrototype.Sprites.Select(layer => _sprite.Frame0(layer)).ToList();
-        SelectButton.Text = Loc.GetString($"marking-{_markingPrototype.ID}");
+        SelectButton.Text = _loc.TryGetString($"marking-{_markingPrototype.ID}", out var name) ? name : _markingPrototype.ID; // ADT-Tweak
     }
 
     private void UpdateSelection()
@@ -164,8 +166,8 @@ public sealed partial class LayerMarkingItem : BoxContainer, ISearchableControl
 
             var label = _markingPrototype.Sprites[i] switch
             {
-                SpriteSpecifier.Rsi rsi => Loc.GetString($"marking-{_markingPrototype.ID}-{rsi.RsiState}"),
-                SpriteSpecifier.Texture texture => Loc.GetString($"marking-{_markingPrototype.ID}-{texture.TexturePath.Filename}"),
+                SpriteSpecifier.Rsi rsi => _loc.TryGetString($"marking-{_markingPrototype.ID}-{rsi.RsiState}", out var l) ? l : _markingPrototype.ID, // ADT-Tweak
+                SpriteSpecifier.Texture texture => _loc.TryGetString($"marking-{_markingPrototype.ID}-{texture.TexturePath.Filename}", out var l) ? l : _markingPrototype.ID, // ADT-Tweak
                 _ => throw new InvalidOperationException("SpriteSpecifier not of known type"),
             };
 
@@ -186,7 +188,7 @@ public sealed partial class LayerMarkingItem : BoxContainer, ISearchableControl
 
     public bool CheckMatchesSearch(string query)
     {
-        return Loc.GetString($"marking-{_markingPrototype.ID}").Contains(query, StringComparison.OrdinalIgnoreCase);
+        return _loc.TryGetString($"marking-{_markingPrototype.ID}", out var name) && name.Contains(query, StringComparison.OrdinalIgnoreCase); // ADT-Tweak
     }
 
     public void SetHiddenState(bool state, string query)

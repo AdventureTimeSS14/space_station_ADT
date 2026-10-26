@@ -1,8 +1,6 @@
 using System;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
-using Content.Shared.PowerCell;
-using Content.Shared.PowerCell.Components;
 using Robust.Shared.Containers;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
@@ -150,12 +148,7 @@ public sealed partial class ModSuitSystem
             }
         }
 
-        if (TryComp<PowerCellDrawComponent>(suit, out var celldraw))
-        {
-            suit.Comp.ModEnergyBaseUsing = (float)Math.Round(suit.Comp.ModEnergyBaseUsing + module.Comp.EnergyUsing, 3);
-            var attachedCount = GetAttachedToggleCount(suit);
-            celldraw.DrawRate = suit.Comp.ModEnergyBaseUsing * attachedCount;
-        }
+        UpdateCellDraw(suit);
     }
 
     public void DeactivateModule(Entity<ModSuitComponent> suit, Entity<ModSuitModComponent> module)
@@ -206,12 +199,7 @@ public sealed partial class ModSuitSystem
             }
         }
 
-        if (TryComp<PowerCellDrawComponent>(suit, out var celldraw))
-        {
-            suit.Comp.ModEnergyBaseUsing = (float)Math.Round(suit.Comp.ModEnergyBaseUsing - module.Comp.EnergyUsing, 3);
-            var attachedCount = GetAttachedToggleCount(suit);
-            celldraw.DrawRate = suit.Comp.ModEnergyBaseUsing * attachedCount;
-        }
+        UpdateCellDraw(suit);
     }
 
     public string GetColor(ExamineColor color, string text)
@@ -246,6 +234,6 @@ public sealed partial class ModSuitSystem
             ("complexity", GetColor(complexityColor, mod.Complexity.ToString("0")))));
 
         args.PushMarkup(Loc.GetString("modsuit-mod-description-energy",
-            ("energy", GetColor(energyColor, mod.EnergyUsing.ToString("0.0")))));
+            ("energy", GetColor(energyColor, mod.EnergyUsing.ToString("0.0#")))));
     }
 }

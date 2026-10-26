@@ -248,6 +248,8 @@
     #- ADTMegaCellPack
     - ADTBeltManipulatorPack
     #ADT-tweak-end
+    - XenobioPack #ADT Tweak
+    - XenobagHoldingPack #ADT Tweak
     - ADTBluespaceCrystalTech #ADT Tweak
   - type: EmagLatheRecipes
     emagDynamicPacks:
@@ -330,6 +332,7 @@
     - ADTChemDisp
     - ADTAdvancedMedical
     - ADTCryoPodMachineCircuitboard
+    - BluespaceArtilleryBoards
     # ADT-tweak-end
   - type: EmagLatheRecipes
     emagDynamicPacks:
@@ -732,8 +735,6 @@
       - OreSmelting
       - RGlassSmelting
       - ADTBScrystalSmelting #ADT Tweak
-      # ADT-Tweak раскомментить и пересмотреть рецепты после добавления обломков с металлоломом
-      #- ScrapSmeltingBasic #ADT tweak
     # ADT tweak start
     - type: AutoMaterialInsert
       tag: ADTOreBag
@@ -761,9 +762,6 @@
     - RGlassSmelting
     - AdvancedSmelting
     - ADTBScrystalSmelting #ADT Tweak
-# ADT-Tweak раскомментить и пересмотреть рецепты после добавления обломков с металлоломом
-#    - ScrapSmeltingBasic #ADT tweak
-#    - ScrapSmeltingAdvanced #ADT tweak
 
 - type: entity
   parent: BaseLathe

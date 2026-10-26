@@ -22,7 +22,7 @@ public sealed class MoverController : SharedMoverController
 
     [Dependency] private readonly ThrusterSystem _thruster = default!;
 
-    private Dictionary<EntityUid, (ShuttleComponent, List<(EntityUid, PilotComponent, InputMoverComponent, TransformComponent)>)> _shuttlePilots = new();
+    private Dictionary<EntityUid, (ShuttleComponent, List<(EntityUid, PilotComponent, TransformComponent)>)> _shuttlePilots = new(); // ADT port pAI rework // removed InputMoverComponent
 
     private EntityQuery<ActiveInputMoverComponent> _activeQuery;
     private EntityQuery<DroneConsoleComponent> _droneQuery;
@@ -370,11 +370,11 @@ public sealed class MoverController : SharedMoverController
 
     private void HandleShuttleMovement(float frameTime)
     {
-        var newPilots = new Dictionary<EntityUid, (ShuttleComponent Shuttle, List<(EntityUid PilotUid, PilotComponent Pilot, InputMoverComponent Mover, TransformComponent ConsoleXform)>)>();
+        var newPilots = new Dictionary<EntityUid, (ShuttleComponent Shuttle, List<(EntityUid PilotUid, PilotComponent Pilot, TransformComponent ConsoleXform)>)>(); // ADT port pAI rework // removed InputMoverComponent Mover
 
         // We just mark off their movement and the shuttle itself does its own movement
-        var activePilotQuery = EntityQueryEnumerator<PilotComponent, InputMoverComponent>();
-        while (activePilotQuery.MoveNext(out var uid, out var pilot, out var mover))
+        var activePilotQuery = EntityQueryEnumerator<PilotComponent>();  // ADT port pAI rework // removed InputMoverComponent
+        while (activePilotQuery.MoveNext(out var uid, out var pilot))  // ADT port pAI rework // removed out var mover
         {
             var consoleEnt = pilot.Console;
 
@@ -394,11 +394,11 @@ public sealed class MoverController : SharedMoverController
 
             if (!newPilots.TryGetValue(gridId.Value, out var pilots))
             {
-                pilots = (shuttleComponent, new List<(EntityUid, PilotComponent, InputMoverComponent, TransformComponent)>());
+                pilots = (shuttleComponent, new List<(EntityUid, PilotComponent, TransformComponent)>()); // ADT port pAI rework // removed InputMoverComponent
                 newPilots[gridId.Value] = pilots;
             }
 
-            pilots.Item2.Add((uid, pilot, mover, xform));
+            pilots.Item2.Add((uid, pilot, xform)); // ADT port pAI rework // removed mover
         }
 
         // Reset inputs for non-piloted shuttles.
@@ -429,7 +429,7 @@ public sealed class MoverController : SharedMoverController
             var brakeCount = 0;
             var angularCount = 0;
 
-            foreach (var (_, pilot, _, consoleXform) in pilots)
+            foreach (var (_, pilot, consoleXform) in pilots) // ADT port pAI rework // removed _
             {
                 var (strafe, rotation, brakes) = GetPilotVelocityInput(pilot);
 

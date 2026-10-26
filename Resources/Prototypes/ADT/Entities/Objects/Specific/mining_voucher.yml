@@ -22,7 +22,7 @@
     kits:
     - MiningCrusher
     - MiningExtraction
-    #- MiningResonator
+    - MiningResonator
     - MiningSurvival
     #- MiningDrone
 

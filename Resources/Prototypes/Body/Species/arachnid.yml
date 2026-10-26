@@ -139,6 +139,7 @@
   - type: TypingIndicator
     proto: spider
   # ADT-Tweak start
+  - type: IgnoreSpiderWeb
   - type: LanguageSpeaker
     languages:
       GalacticCommon: Speak

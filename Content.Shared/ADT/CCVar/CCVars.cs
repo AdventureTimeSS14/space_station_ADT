@@ -54,4 +54,7 @@ public sealed class SimpleStationCCVars
     public static readonly CVarDef<int> MaxTraitPoints =
         CVarDef.Create("ic.traits.max_points", 0, CVar.SERVER | CVar.REPLICATED);
 
+    public static readonly CVarDef<float> XenobiologyBreedingInterval =
+        CVarDef.Create("vg.xenobiology.breeding_interval", 1f, CVar.SERVERONLY);
+
 }

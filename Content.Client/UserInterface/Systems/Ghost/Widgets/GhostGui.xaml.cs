@@ -19,6 +19,7 @@ public sealed partial class GhostGui : UIWidget
     public event Action? GhostRolesPressed;
     public event Action? GhostBarPressed; // Goobstation - Ghost Bar
     public event Action? ThunderdomePressed; // ADT - Thunderdome
+    public event Action? ThunderdomeLeaderboardPressed; // ADT - Thunderdome
 
     private int _prevNumberRoles;
 
@@ -38,6 +39,7 @@ public sealed partial class GhostGui : UIWidget
         GhostRolesButton.OnPressed += _ => GhostRolesButton.StyleClasses.Remove(StyleClass.Negative);
         GhostBarButton.OnPressed += _ => GhostBarPressed?.Invoke(); // Goobstation - Ghost Bar
         ThunderdomeButton.OnPressed += _ => ThunderdomePressed?.Invoke(); // ADT - Thunderdome
+        ThunderdomeLeaderboardButton.OnPressed += _ => ThunderdomeLeaderboardPressed?.Invoke(); // ADT - Thunderdome
     }
 
     public void Hide()

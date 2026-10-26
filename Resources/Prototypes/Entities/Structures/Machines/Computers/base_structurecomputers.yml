@@ -41,6 +41,16 @@
   - type: EdgeConnection # ADT-Tweak
     connectionKey: computer-console
     allowedDirections: East, West
+  # ADT port start pAI modernization
+  - type: ItemSlots
+    slots:
+      pai_slot:
+        name: Personal AI Device
+        ejectOnInteract: false
+        whitelist:
+          components:
+          - PAI
+  # ADT port end pAI modernization
   - type: GenericVisualizer
     visuals:
       enum.ComputerVisuals.Powered:
@@ -85,6 +95,7 @@
     containers:
       board: !type:Container
         ents: []
+      pai_slot: !type:ContainerSlot {} #ADT-Tweak: PAI
   - type: LightningTarget
     priority: 1
   - type: RequireProjectileTarget

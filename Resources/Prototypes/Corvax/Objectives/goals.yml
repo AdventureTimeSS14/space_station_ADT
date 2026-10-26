@@ -92,9 +92,7 @@
   id: VirusologyAmbusol
   text: station-goal-delta-ambusol
   spawns:
-  - PillRomerol
-  - PillRomerol
-  - PillRomerol
+  - ChemistryBottleRomerol #ADT-Tweak
 
 - type: stationGoal
   id: SectorSecurity

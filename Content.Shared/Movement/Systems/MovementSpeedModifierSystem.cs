@@ -4,6 +4,7 @@ using Content.Shared.Movement.Components;
 using Content.Shared.Standing;
 using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
+using Content.Shared.ADT.Movement;
 
 namespace Content.Shared.Movement.Systems
 {
@@ -76,6 +77,12 @@ namespace Content.Shared.Movement.Systems
 
             if (_timing.ApplyingState)
                 return;
+
+            // ADT-Tweak start
+            var isImmune = false;
+            if (HasComp<SpeedModifierImmunityComponent>(uid))
+                isImmune = true;
+            // ADT-Tweak end
 
             var ev = new RefreshWeightlessModifiersEvent()
             {

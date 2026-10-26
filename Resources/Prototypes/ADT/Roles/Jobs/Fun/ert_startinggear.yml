@@ -34,7 +34,7 @@
     mask: ClothingMaskGasERT
     eyes: ClothingEyesGlassesSecurity
     gloves: ClothingHandsGlovesCombat
-    outerClothing: ClothingOuterHardsuitERTLeader
+    # outerClothing: ClothingOuterHardsuitERTLeader #ADT tweak: выбор скаф/МОД через ваучер
     id: ERTLeaderPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltMilitaryWebbing
@@ -45,6 +45,7 @@
     socks: ADTClothingUnderwearSocksComfyGrey
   storage:
     back:
+    - ADTERTLeaderVoucher #ADT tweak: выбор скаф/МОД
     - BoxSurvivalEngineering
     - BoxZiptie
     - CrowbarRed
@@ -124,7 +125,7 @@
     mask: ClothingMaskGasERT
     eyes: ClothingEyesGlassesMeson
     gloves: ClothingHandsGlovesCombat
-    outerClothing: ClothingOuterHardsuitERTEngineer
+    # outerClothing: ClothingOuterHardsuitERTEngineer #ADT tweak: выбор скаф/МОД через ваучер
     id: ERTEngineerPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltChiefEngineerFilled
@@ -135,6 +136,7 @@
     socks: ADTClothingUnderwearSocksComfyGrey
   storage:
     back:
+    - ADTERTEngineerVoucher #ADT tweak: выбор скаф/МОД
     - BoxSurvivalEngineering
     - RCD
     - RCDAmmo
@@ -218,7 +220,7 @@
     mask: ClothingMaskGasERT
     eyes: ClothingEyesGlassesSecurity
     gloves: ClothingHandsGlovesCombat
-    outerClothing: ClothingOuterHardsuitERTSecurity
+    # outerClothing: ClothingOuterHardsuitERTSecurity #ADT tweak: выбор скаф/МОД через ваучер
     id: ERTSecurityPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltMilitaryWebbing
@@ -229,6 +231,7 @@
     socks: ADTClothingUnderwearSocksComfyGrey
   storage:
     back:
+    - ADTERTSecurityVoucher #ADT tweak: выбор скаф/МОД
     - BoxSurvivalEngineering
     - BoxZiptie
     - CrowbarRed
@@ -302,7 +305,7 @@
     mask: ClothingMaskGasERT
     eyes: ClothingEyesHudMedSec
     gloves: ClothingHandsGlovesCombat
-    outerClothing: ClothingOuterHardsuitERTMedical
+    # outerClothing: ClothingOuterHardsuitERTMedical #ADT tweak: выбор скаф/МОД через ваучер
     id: ERTMedicPDA
     ears: ClothingHeadsetAltCentCom
     belt: ADTClothingBeltMedicalSecurityERTFilled
@@ -313,6 +316,7 @@
     socks: ADTClothingUnderwearSocksComfyGrey
   storage:
     back:
+    - ADTERTMedicalVoucher #ADT tweak: выбор скаф/МОД
     - BoxSurvivalMedical # Is this actually supposed to be Medical? All other ERT has Extended
     - ADTMedkitAdvancedERT
     - CrowbarRed

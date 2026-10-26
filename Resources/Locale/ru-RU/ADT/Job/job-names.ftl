@@ -73,6 +73,7 @@ job-name-lab-tech = аналитик
 job-name-anomalist = аномалист
 job-name-xenoarch = ксеноархеолог
 job-name-mechanical-assembler = механосборщик
+job-name-xenobio = ксенобиолог
 
 # Service
 

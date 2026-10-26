@@ -1,0 +1,41 @@
+
+- type: entity
+  parent: DrinkBaseMug
+  id: ADTEverfullMug
+  name: everfull mug
+  description: An enchanted mug which can be filled with any of various liquids on command.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+  - type: UserInterface
+    interfaces:
+      enum.ADTEverfullUiKey.Key:
+        type: ADTEverfullBoundUserInterface
+  - type: ADTEverfull
+    options:
+    - reagent: Omnizine
+      name: adt-everfull-option-omnizine
+      description: adt-everfull-desc-omnizine
+      icon: Medkit
+    - reagent: Ale
+      name: adt-everfull-option-ale
+      description: adt-everfull-desc-ale
+      icon: DrinkAleGlass
+    - reagent: Wine
+      name: adt-everfull-option-wine
+      description: adt-everfull-desc-wine
+      icon: DrinkWineGlass
+    - reagent: Holywater
+      name: adt-everfull-option-holywater
+      description: adt-everfull-desc-holywater
+      icon: DrinkWaterCup
+    - reagent: WeldingFuel
+      name: adt-everfull-option-fuel
+      description: adt-everfull-desc-fuel
+      icon: WeldingFuelTank
+    - reagent: Vomit
+      name: adt-everfull-option-vomit
+      description: adt-everfull-desc-vomit
+      icon: PuddleVomit

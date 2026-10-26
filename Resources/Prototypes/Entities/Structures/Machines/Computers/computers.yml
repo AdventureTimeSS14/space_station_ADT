@@ -154,11 +154,20 @@
         whitelist:
           components:
           - ShuttleDestinationCoordinates
+      # ADT port start pAI modernization
+      pai_slot:
+        name: Personal AI Device
+        ejectOnInteract: false
+        whitelist:
+          components:
+          - PAI
+      # # ADT port end pAI modernization
   - type: ContainerContainer
     containers:
       board: !type:Container
         ents: []
       disk_slot: !type:ContainerSlot {}
+      pai_slot: !type:ContainerSlot {} #ADT-Tweak: PAI
   - type: GuideHelp
     guides:
     - ShuttleCraft
@@ -458,7 +467,7 @@
   - type: PointLight
     radius: 1.5
     energy: 4.0
-    color: "#006400"
+    color: "#4CAF50" #ADT-Tweak Start - New Monitor:
   - type: Computer
     board: CrewMonitoringComputerCircuitboard
   - type: ActivatableUI
@@ -470,6 +479,12 @@
         enum.WiresUiKey.Key:
           type: WiresBoundUserInterface
   - type: CrewMonitoringConsole
+  #ADT-Tweak Start - New Monitor:
+  - type: PdaBorderColor
+    borderColor: "#6B6B6B"
+  - type: CrewMonitoringUiVisuals
+    themeColor: "#4CAF50"
+  #ADT-Tweak End
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: CrewMonitor
@@ -646,6 +661,7 @@
       board: !type:Container
       IdCardConsole-privilegedId: !type:ContainerSlot
       IdCardConsole-targetId: !type:ContainerSlot
+      pai_slot: !type:ContainerSlot {} #ADT-Tweak: PAI
 
 - type: entity
   parent: BaseComputerAiAccess

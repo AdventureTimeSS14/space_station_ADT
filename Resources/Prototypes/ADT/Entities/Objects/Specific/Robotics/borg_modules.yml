@@ -76,6 +76,7 @@
     - state: icon-pka
   - type: ItemBorgModule
     hands:
+    - item: MiningDrill
     - item: WeaponProtoKineticAccelerator
       hand:
         emptyLabel: borg-slot-pka-empty
@@ -85,11 +86,32 @@
           - PKA
           - PKAUpgrade
     - item: WeaponGrapplingGun
-    - item: BorgHandheldGPSBasic
+    - item: ADTGpsMining
+    - item: MineralScannerUnpowered
     - item: HandHeldMassScannerBorg
-    - item: BorgOreBagOfHolding
+    - item: BorgOreBag
   - type: BorgModuleIcon
     icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: salvage-module }
+
+- type: entity
+  id: ADTBorgModuleAdvancedSalvage
+  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
+  name: advanced mining cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: cargo
+    - state: icon-mining-adv
+  - type: ItemBorgModule
+    hands:
+    - item: MiningDrillDiamond
+    - item: WeaponKineticMachete
+    - item: ADTBorgJetpackVoid
+    - item: ADTResonatorUpgraded
+    - item: AdvancedMineralScannerUnpowered
+    - item: ADTBorgOreBagOfHolding
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-mining-module }
 
 - type: entity
   id: ADTBorgModuleChemical

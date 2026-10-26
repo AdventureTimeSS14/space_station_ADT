@@ -24,7 +24,6 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
-    projectileSpeed: 25
   - type: AmmoCounter
   - type: Appearance
   - type: GenericVisualizer
@@ -48,9 +47,11 @@
     slots:
     - suitStorage
     - Belt
-  - type: UseDelay
-    delay: 1
-  - type: AttachableHolder #ADT_Tweak
+# ADT-Tweak-Start
+  - type: ADTKineticCooldown
+#  - type: UseDelay
+#    delay: 1
+  - type: AttachableHolder
     slots:
       rmc-aslot-underbarrel:
         whitelist:
@@ -62,18 +63,19 @@
       # rmc-aslot-rail:
       #   whitelist:
       #       tags:
-  - type: AttachableHolderVisuals #ADT_Tweak
+  - type: AttachableHolderVisuals
     offsets:
       rmc-aslot-underbarrel: 0.315, -0.209
-  - type: MeleeWeapon #ADT_Tweak
+  - type: MeleeWeapon
     attackRate: 1
     damage:
       types:
         Blunt: 5
     soundHit:
       collection: GenericHit
-  - type: AltFireMelee #ADT_Tweak
+  - type: AltFireMelee
     attackType: Heavy
-  - type: Tag #ADT tweak
+  - type: Tag
     tags:
     - PKA
+# ADT-Tweak-End

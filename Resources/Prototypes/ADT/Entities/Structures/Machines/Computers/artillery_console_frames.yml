@@ -1,0 +1,49 @@
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: BaseArtilleryConsoleFrame
+  parent: BaseStructureComputer
+  name: artillery console frame
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Machines/BSA.rsi
+    layers:
+    - state: build_1
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ConstructionVisuals.Key:
+        enum.ConstructionVisuals.Layer:
+          frame1: { state: build_1 }
+          frame2: { state: build_2 }
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 3000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 3000
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: BaseArtilleryConsoleFrame
+  id: ArtilleryConsoleFrame
+  components:
+  - type: Construction
+    graph: ArtilleryConsoleConstruction
+    node: frame1

@@ -290,6 +290,11 @@
   id: MobDrake
   parent: [ BaseMobDrake, BaseMobAsteroid ]
   name: пепельный дракон
+  components:
+  - type: GpsSignal
+    tag: adt-gps-signal-drake
+    description: adt-gps-signal-drake-desc
+    color: "#E06B1F"
 
 #### Drake polymorphs
 

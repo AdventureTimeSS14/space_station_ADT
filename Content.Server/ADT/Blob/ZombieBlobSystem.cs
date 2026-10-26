@@ -31,6 +31,7 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Content.Goobstation.Common.Atmos;
 
 namespace Content.Server.ADT.Blob;
 
@@ -128,7 +129,7 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
 
         _tagSystem.AddTag(uid, "ADTBlobMob");
 
-        EnsureComp<PressureImmunityComponent>(uid);
+        EnsureComp<SpecialPressureImmunityComponent>(uid);
 
         if (TryComp<TemperatureDamageComponent>(uid, out var temperatureDamageComponent))
         {
@@ -186,7 +187,7 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
         RemComp<BlobMobComponent>(uid);
         RemComp<HTNComponent>(uid);
         // RemComp<ReplacementAccentComponent>(uid); // Languages - No need for accents.
-        RemComp<PressureImmunityComponent>(uid);
+        RemComp<SpecialPressureImmunityComponent>(uid);
 
         if (TryComp<TemperatureDamageComponent>(uid, out var temperatureDamageComponent) && component.OldColdDamageThreshold != null)
         {

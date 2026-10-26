@@ -389,7 +389,7 @@
       Glass: 50
 
 - type: entity
-  parent: BaseFoodCondimentBottle
+  parent: ADTBaseFoodCondimentBottleNoContainerVisuals #ADT-Tweak
   id: FoodCondimentBottleColdsauce
   name: coldsauce bottle
   description: Leaves the tongue numb in its passage.
@@ -400,22 +400,28 @@
         reagents:
         - ReagentId: Coldsauce
           Quantity: 30
+  #ADT-Tweak-Start
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "bottle-coldsauce_open"} # open
+          False: {state: "bottle-coldsauce"} # closed
   - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/condiments.rsi
     layers:
-    - state: bottle-empty
+    - state: bottle-coldsauce
       map: ["enum.OpenableVisuals.Layer"]
-    - state: label-c
-    - state: bottle-alpha-6
-      map: ["enum.SolutionContainerLayers.Fill"]
-      visible: true
   - type: Icon
+    sprite: ADT/Objects/Consumable/Food/condiments.rsi
     state: bottle-coldsauce
+  #ADT-Tweak-End
   - type: Tag
     tags:
       - Coldsauce
 
 - type: entity
-  parent: BaseFoodCondimentBottle
+  parent: ADTBaseFoodCondimentBottleNoContainerVisuals #ADT-Tweak
   id: FoodCondimentBottleEnzyme
   name: universal enzyme
   description: Used in cooking various dishes.
@@ -426,22 +432,34 @@
         reagents:
         - ReagentId: Enzyme
           Quantity: 30
+  #ADT-Tweak-Start
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "bottle-enzyme_open"} # open
+          False: {state: "bottle-enzyme"} # closed
   - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/condiments.rsi
     layers:
-    - state: bottle-empty
+    - state: bottle-enzyme
       map: ["enum.OpenableVisuals.Layer"]
-    - state: label-e
-    - state: bottle-alpha-6
-      map: ["enum.SolutionContainerLayers.Fill"]
-      visible: true
+  - type: Openable
+    sound:
+      collection: bottleOpenSounds
+    closeable: true
+    closeSound:
+      collection: bottleCloseSounds
   - type: Icon
+    sprite: ADT/Objects/Consumable/Food/condiments.rsi
     state: bottle-enzyme
+  #ADT-Tweak-End
   - type: Tag
     tags:
       - Enzyme
 
 - type: entity
-  parent: BaseFoodCondimentBottle
+  parent: ADTBaseFoodCondimentBottleNoContainerVisuals #ADT-Tweak
   id: FoodCondimentBottleVinegar
   name: vinegar bottle
   description: Used in cooking to enhance flavor.
@@ -452,19 +470,31 @@
         reagents:
         - ReagentId: Vinegar
           Quantity: 30
+  #ADT-Tweak-Start
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "bottle-vinegar_open"} # open
+          False: {state: "bottle-vinegar"} # closed
   - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/condiments.rsi
     layers:
-    - state: bottle-empty
+    - state: bottle-vinegar
       map: ["enum.OpenableVisuals.Layer"]
-    - state: label-v
-    - state: bottle-alpha-6
-      map: ["enum.SolutionContainerLayers.Fill"]
-      visible: true
+  - type: Openable
+    sound:
+      collection: bottleOpenSounds
+    closeable: true
+    closeSound:
+      collection: bottleCloseSounds
   - type: Icon
+    sprite: ADT/Objects/Consumable/Food/condiments.rsi
     state: bottle-vinegar
+  #ADT-Tweak-End
 
 - type: entity
-  parent: BaseFoodCondimentBottle
+  parent: ADTBaseFoodCondimentBottleNoContainerVisuals #ADT-Tweak
   id: FoodCondimentBottleHotsauce
   name: hotsauce bottle
   description: You can almost TASTE the stomach ulcers now!
@@ -475,22 +505,28 @@
         reagents:
         - ReagentId: Hotsauce
           Quantity: 30
+  #ADT-Tweak-Start
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "bottle-hotsauce_open"} # open
+          False: {state: "bottle-hotsauce"} # closed
   - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/condiments.rsi
     layers:
-    - state: bottle-empty
+    - state: bottle-hotsauce
       map: ["enum.OpenableVisuals.Layer"]
-    - state: label-h
-    - state: bottle-alpha-6
-      map: ["enum.SolutionContainerLayers.Fill"]
-      visible: true
   - type: Icon
+    sprite: ADT/Objects/Consumable/Food/condiments.rsi
     state: bottle-hotsauce
+  #ADT-Tweak-End
   - type: Tag
     tags:
       - Hotsauce
 
 - type: entity
-  parent: BaseFoodCondimentBottle
+  parent: ADTBaseFoodCondimentBottleNoContainerVisuals #ADT-Tweak
   id: FoodCondimentBottleKetchup
   name: ketchup bottle
   description: You feel more American already.
@@ -501,22 +537,28 @@
         reagents:
         - ReagentId: Ketchup
           Quantity: 30
+  #ADT-Tweak-Start
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "bottle-ketchup_open"} # open
+          False: {state: "bottle-ketchup"} # closed
   - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/condiments.rsi
     layers:
-    - state: bottle-empty
+    - state: bottle-ketchup
       map: ["enum.OpenableVisuals.Layer"]
-    - state: label-k
-    - state: bottle-alpha-6
-      map: ["enum.SolutionContainerLayers.Fill"]
-      visible: true
   - type: Icon
+    sprite: ADT/Objects/Consumable/Food/condiments.rsi
     state: bottle-ketchup
+  #ADT-Tweak-End
   - type: Tag
     tags:
       - Ketchup
 
 - type: entity
-  parent: BaseFoodCondimentBottle
+  parent: ADTBaseFoodCondimentBottleNoContainerVisuals #ADT-Tweak
   id: FoodCondimentBottleBBQ
   name: BBQ sauce bottle
   description: Hand wipes not included.
@@ -527,17 +569,22 @@
         reagents:
         - ReagentId: BbqSauce
           Quantity: 30
+  #ADT-Tweak-Start
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "bottle-bbq_open"} # open
+          False: {state: "bottle-bbq"} # closed
   - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/condiments.rsi
     layers:
-    - state: bottle-empty
+    - state: bottle-bbq
       map: ["enum.OpenableVisuals.Layer"]
-    - state: label-b
-    - state: bottle-alpha-6
-      map: ["enum.SolutionContainerLayers.Fill"]
-      visible: true
-  # So there's no error.
   - type: Icon
-    state: bottle-ketchup
+    sprite: ADT/Objects/Consumable/Food/condiments.rsi
+    state: bottle-bbq
+  #ADT-Tweak-End
   - type: Tag
     tags:
       - BBQsauce
@@ -602,8 +649,10 @@
         - ReagentId: TableSalt
           Quantity: 20
   - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/condiments.rsi #ADT-Tweak-Start
     state: shaker-salt
   - type: Icon
+    sprite: ADT/Objects/Consumable/Food/condiments.rsi #ADT-Tweak-Start
     state: shaker-salt
   - type: Tag
     tags:
@@ -622,8 +671,10 @@
         - ReagentId: Blackpepper
           Quantity: 20
   - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/condiments.rsi #ADT-Tweak-Start
     state: shaker-pepper
   - type: Icon
+    sprite: ADT/Objects/Consumable/Food/condiments.rsi #ADT-Tweak-Start
     state: shaker-pepper
   - type: Tag
     tags:

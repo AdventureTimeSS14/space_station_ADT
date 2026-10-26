@@ -1,0 +1,80 @@
+- type: constructionGraph
+  id: ArtilleryConsoleConstruction
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: frame1
+      steps:
+      - material: Steel
+        amount: 5
+        doAfter: 2
+  - node: frame1
+    entity: ArtilleryConsoleFrame
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame2
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tag: BoardBSA
+        store: board
+        name: construction-graph-component-artillery-console-circuit-board
+      - tool: Welding
+        doAfter: 1
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 5
+      - !type:DeleteEntity {}
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      steps:
+      - tool: Screwing
+        doAfter: 2
+  - node: frame2
+    actions:
+    - !type:AppearanceChange
+    entity: ArtilleryConsoleFrame
+    edges:
+    - to: base
+      steps:
+      - material: Cable
+        amount: 5
+        doAfter: 0.5
+      - tool: Screwing
+        doAfter: 2
+    - to: frame1
+      conditions:
+      - !type:EntityAnchored { }
+      completed:
+      - !type:EmptyAllContainers {}
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 2
+      steps:
+      - tool: Welding
+        doAfter: 1
+      - tool: Prying
+        doAfter: 2
+  - node: base
+    entity: !type:BoardNodeEntity { container: board }
+    edges:
+    - to: frame2
+      completed:
+      - !type:RaiseEvent
+          event: !type:MachineDeconstructedEvent
+      - !type:SpawnPrototype
+        prototype: CableApcStack1
+        amount: 5
+      steps:
+      - tool: Prying
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 2

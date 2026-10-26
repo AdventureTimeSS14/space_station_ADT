@@ -135,9 +135,11 @@ public sealed partial class GunSystem : SharedGunSystem
             _sprite.SetScale((ent, sprite), new Vector2(a.Distance, 1f));
             sprite[EffectLayers.Unshaded].Visible = true;
 
+            var lifetime = ev.Lifetime > 0f ? ev.Lifetime : 0.48f; // ADT-Tweak BSA
+
             var anim = new Animation()
             {
-                Length = TimeSpan.FromSeconds(0.48f),
+                Length = TimeSpan.FromSeconds(lifetime), // ADT-Tweak BSA
                 AnimationTracks =
                 {
                     new AnimationTrackSpriteFlick()

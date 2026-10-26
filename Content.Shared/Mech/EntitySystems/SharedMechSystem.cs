@@ -24,6 +24,7 @@ using Robust.Shared.Timing;
 using Robust.Shared.Random;
 using Content.Shared.Overlays;
 using Content.Shared.Whitelist;
+using Content.Shared.ADT.Mech.Components;    // ADT Mech
 
 namespace Content.Shared.Mech.EntitySystems;
 
@@ -177,6 +178,11 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
         RemCompDeferred<ProtectedFromStepTriggersComponent>(pilot); // ADT-Tweak
 
         _actions.RemoveProvidedActions(pilot, mech);
+
+        // ADT-Mech-Start
+        var ev = new RemoveMechUserEvent(pilot);
+        RaiseLocalEvent(mech, ref ev);
+        // ADT-Mech-End
     }
 
     /// <summary>
@@ -462,6 +468,11 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
         if (args.Handled)
             return;
 
+        // ADT-Mech-Start
+        if (HasComp<MechControlLockedComponent>(uid))
+            return;
+        // ADT-Mech-Start
+
         if (!TryComp<MechComponent>(component.Mech, out var mech))
             return;
 
@@ -472,7 +483,7 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
 
     private void OnCanAttackFromContainer(EntityUid uid, MechPilotComponent component, CanAttackFromContainerEvent args)
     {
-        args.CanAttack = true;
+        args.CanAttack = !HasComp<MechControlLockedComponent>(uid); // ADT-Mech-Tweak
     }
 
     private void OnAttackAttempt(EntityUid uid, MechPilotComponent component, AttackAttemptEvent args)
@@ -483,7 +494,10 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
         // ADT-Tweak start: disable attack 0 cell
         if (TryComp<MechComponent>(component.Mech, out var mech) && mech.Energy <= 0)
             args.Cancel();
-        // ADT-Tweak end
+
+        if (HasComp<MechControlLockedComponent>(uid))
+            args.Cancel();
+        // ADT-Mech-End
     }
 
     private void UpdateAppearance(EntityUid uid, MechComponent? component = null,

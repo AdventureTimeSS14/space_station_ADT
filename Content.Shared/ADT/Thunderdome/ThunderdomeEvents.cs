@@ -50,3 +50,26 @@ public sealed class ThunderdomeRevivalOfferEvent : EntityEventArgs;
 public sealed class ThunderdomeRevivalAcceptEvent : EntityEventArgs;
 
 public sealed partial class ThunderdomeLeaveActionEvent : InstantActionEvent;
+
+[Serializable, NetSerializable]
+public sealed class ThunderdomeLeaderboardRequestEvent : EntityEventArgs;
+
+[Serializable, NetSerializable]
+public sealed class ThunderdomeLeaderboardEvent : EntityEventArgs
+{
+    public List<ThunderdomeLeaderboardEntry> Top { get; }
+    public ThunderdomePersonalStats? Personal { get; }
+    public ThunderdomeRoundStats? Round { get; }
+
+    public ThunderdomeLeaderboardEvent(
+        List<ThunderdomeLeaderboardEntry> top,
+        ThunderdomePersonalStats? personal,
+        ThunderdomeRoundStats? round)
+    {
+        Top = top;
+        Personal = personal;
+        Round = round;
+    }
+}
+
+public sealed partial class ThunderdomeLeaderboardActionEvent : InstantActionEvent;

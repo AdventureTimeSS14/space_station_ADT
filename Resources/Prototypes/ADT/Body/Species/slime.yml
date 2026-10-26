@@ -1,0 +1,19 @@
+- type: entity
+  id: OrganSlimeXenobioMetabolizer
+  abstract: true
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ XenobioSlime ]
+    maxReagents: 6
+    stages: [ Digestion, Bloodstream, Metabolites ]
+
+- type: entity
+  parent: [ OrganBaseBrain, OrganSlimePersonInternal, OrganSlimeXenobioMetabolizer ]
+  id: OrganSlimeXenobioCore
+  name: sentient slime core
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 50.0
+  - type: Stomach
