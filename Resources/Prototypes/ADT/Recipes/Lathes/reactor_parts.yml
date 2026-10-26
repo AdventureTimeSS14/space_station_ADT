@@ -34,7 +34,7 @@
   result: PlutoniumReactorFuelRod
   materials:
     Steel: 500
-    Plutonium: 300
+    Plutonium: 500
 
 - type: latheRecipe
   parent: BaseReactorPartRecipe

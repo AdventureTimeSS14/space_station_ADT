@@ -1172,6 +1172,7 @@
   loadouts:
   - ADTClothingHeadHatBowlerHat
   - ADTClothingHeadHatTophat
+  - ADTClothingHeadHatFedoraGrey
 
 - type: loadoutGroup
   id: ADTPassengerGlasses

@@ -214,6 +214,7 @@
   - CaptainOuterClothing
   - CaptainWintercoat
   - ADTArmorVestHidden # ADT Loadout
+  - ADTClothingOuterCaptainCoat # ADT Loadout
 
 #- type: loadoutGroup
 #  id: CaptainJobTrinkets
@@ -352,6 +353,8 @@
   - PassengerWintercoat
   # ADT-Loadouts-Start
   - ADTClothingOuterCoatSpaceAsshole
+  - ADTClothingOuterCoatGentle
+  - ADTCoatJensen
   # ADT-Loadouts-End
 
 - type: loadoutGroup
