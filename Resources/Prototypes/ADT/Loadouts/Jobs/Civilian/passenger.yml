@@ -85,6 +85,14 @@
   equipment:
     outerClothing: ClothingOuterCoatGentle
 
+- type: loadout
+  id: ADTCoatJensen
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: JensenTimer
+  equipment:
+    outerClothing: ClothingOuterCoatJensen
+
 # Head
 - type: loadout
   id: ADTClothingHeadHatBowlerHat
