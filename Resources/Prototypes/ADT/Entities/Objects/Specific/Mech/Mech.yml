@@ -277,7 +277,8 @@
     openState: lockermech-open
     mechToPilotDamageMultiplier: 0.5
     airtight: true
-    pilotWhitelist:
+  - type: Vehicle
+    operatorWhitelist:
       components:
         - HumanoidProfile
   - type: ComplexInteraction
