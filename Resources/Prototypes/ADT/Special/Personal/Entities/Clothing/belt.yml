@@ -313,7 +313,16 @@
     - neck
   - type: Storage
     grid:
-    - 0,0,3,1
+    - 0,0,7,1
+    blacklist:
+      tags:
+      - Knife
+      - BaseballBat
+      components:
+      - Gun
+      - BallisticAmmoProvider
+      - CartridgeAmmo
+      - Explosive
   - type: Item
     size: Ginormous
     shape:
@@ -333,3 +342,12 @@
   - type: Storage
     grid:
     - 0,0,3,1
+    blacklist:
+      tags:
+      - Knife
+      - BaseballBat
+      components:
+      - Gun
+      - BallisticAmmoProvider
+      - CartridgeAmmo
+      - Explosive
