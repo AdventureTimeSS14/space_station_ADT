@@ -2,17 +2,16 @@ meta:
   format: 7
   category: Map
   engineVersion: 289.0.3
-  forkId: SS14_DEV
-  forkVersion: cb731e73c5a3cd49a3b135b4b03eef0629a15abb
-  time: 10/23/2026 13:40:20
-  entityCount: 16746
+  forkId: ""
+  forkVersion: ""
+  time: 10/26/2026 00:05:18
+  entityCount: 16747
 maps:
 - 1
 grids:
 - 2
 orphans: []
 nullspace:
-- 16700
 - 16701
 - 16702
 - 16703
@@ -59,6 +58,7 @@ nullspace:
 - 16744
 - 16745
 - 16746
+- 16747
 tilemap:
   0: Space
   8: ADTLatticeLeftUpper
@@ -1976,7 +1976,6 @@ entities:
     - type: GridSplitNode
     - type: ChunkContainer
       chunkEntities:
-      - 16700
       - 16701
       - 16702
       - 16703
@@ -2023,6 +2022,194 @@ entities:
       - 16744
       - 16745
       - 16746
+      - 16747
+    - type: AreaGrid
+      areas:
+        -40,41: AreaKitchen
+        -40,42: AreaKitchen
+        -40,43: AreaKitchen
+        -40,44: AreaKitchen
+        -40,45: AreaKitchen
+        -40,46: AreaKitchen
+        -40,47: AreaKitchen
+        -40,48: AreaKitchen
+        -39,41: AreaKitchen
+        -39,43: AreaKitchen
+        -39,44: AreaKitchen
+        -39,45: AreaKitchen
+        -39,46: AreaKitchen
+        -39,42: AreaKitchen
+        -39,47: AreaKitchen
+        -39,48: AreaKitchen
+        -38,41: AreaKitchen
+        -38,42: AreaKitchen
+        -38,43: AreaKitchen
+        -38,44: AreaKitchen
+        -38,45: AreaKitchen
+        -38,46: AreaKitchen
+        -38,47: AreaKitchen
+        -38,48: AreaKitchen
+        -37,41: AreaKitchen
+        -37,42: AreaKitchen
+        -37,43: AreaKitchen
+        -37,44: AreaKitchen
+        -37,45: AreaKitchen
+        -37,46: AreaKitchen
+        -37,47: AreaKitchen
+        -37,48: AreaKitchen
+        -36,41: AreaKitchen
+        -36,42: AreaKitchen
+        -36,44: AreaKitchen
+        -36,43: AreaKitchen
+        -36,45: AreaKitchen
+        -36,46: AreaKitchen
+        -36,47: AreaKitchen
+        -36,48: AreaKitchen
+        -35,41: AreaKitchen
+        -35,42: AreaKitchen
+        -35,43: AreaKitchen
+        -35,44: AreaKitchen
+        -35,45: AreaKitchen
+        -35,46: AreaKitchen
+        -35,47: AreaKitchen
+        -35,48: AreaKitchen
+        -34,41: AreaKitchen
+        -34,42: AreaKitchen
+        -34,43: AreaKitchen
+        -34,44: AreaKitchen
+        -34,45: AreaKitchen
+        -34,46: AreaKitchen
+        -34,47: AreaKitchen
+        -34,48: AreaKitchen
+        -33,41: AreaKitchen
+        -33,42: AreaKitchen
+        -33,43: AreaKitchen
+        -33,44: AreaKitchen
+        -33,45: AreaKitchen
+        -33,46: AreaKitchen
+        -33,47: AreaKitchen
+        -33,48: AreaKitchen
+        -32,41: AreaKitchen
+        -32,45: AreaKitchen
+        -32,46: AreaKitchen
+        -32,47: AreaKitchen
+        -32,48: AreaKitchen
+        -32,43: AreaKitchen
+        -31,41: AreaKitchen
+        -32,42: AreaKitchen
+        -31,42: AreaKitchen
+        -32,44: AreaKitchen
+        -31,44: AreaKitchen
+        -31,43: AreaKitchen
+        -31,45: AreaKitchen
+        -31,46: AreaKitchen
+        -31,47: AreaKitchen
+        -31,48: AreaKitchen
+        -30,43: AreaKitchen
+        -30,44: AreaKitchen
+        -30,45: AreaKitchen
+        -30,46: AreaKitchen
+        -30,48: AreaKitchen
+        -29,43: AreaKitchen
+        -29,44: AreaKitchen
+        -29,45: AreaKitchen
+        -29,46: AreaKitchen
+        -29,47: AreaKitchen
+        -28,44: AreaKitchen
+        -29,48: AreaKitchen
+        -28,45: AreaKitchen
+        -28,46: AreaKitchen
+        -28,48: AreaKitchen
+        -27,43: AreaKitchen
+        -27,44: AreaKitchen
+        -27,45: AreaKitchen
+        -27,46: AreaKitchen
+        -27,47: AreaKitchen
+        -27,48: AreaKitchen
+        -28,43: AreaKitchen
+        -28,47: AreaKitchen
+        -30,47: AreaKitchen
+        -20,-20: AreaXenobio
+        -20,-19: AreaXenobio
+        -20,-18: AreaXenobio
+        -20,-17: AreaXenobio
+        -19,-20: AreaXenobio
+        -19,-19: AreaXenobio
+        -19,-18: AreaXenobio
+        -19,-17: AreaXenobio
+        -18,-20: AreaXenobio
+        -18,-19: AreaXenobio
+        -18,-18: AreaXenobio
+        -18,-17: AreaXenobio
+        -17,-20: AreaXenobio
+        -17,-19: AreaXenobio
+        -17,-18: AreaXenobio
+        -16,-20: AreaXenobio
+        -16,-19: AreaXenobio
+        -17,-17: AreaXenobio
+        -16,-18: AreaXenobio
+        -16,-17: AreaXenobio
+        -15,-20: AreaXenobio
+        -15,-19: AreaXenobio
+        -15,-18: AreaXenobio
+        -15,-17: AreaXenobio
+        -14,-20: AreaXenobio
+        -14,-18: AreaXenobio
+        -14,-17: AreaXenobio
+        -14,-19: AreaXenobio
+        -13,-19: AreaXenobio
+        -13,-18: AreaXenobio
+        -13,-17: AreaXenobio
+        -12,-20: AreaXenobio
+        -13,-20: AreaXenobio
+        -12,-18: AreaXenobio
+        -12,-17: AreaXenobio
+        -12,-19: AreaXenobio
+        -11,-19: AreaXenobio
+        -11,-20: AreaXenobio
+        -11,-17: AreaXenobio
+        -11,-18: AreaXenobio
+        -10,-19: AreaXenobio
+        -10,-20: AreaXenobio
+        -9,-20: AreaXenobio
+        -10,-18: AreaXenobio
+        -10,-17: AreaXenobio
+        -9,-17: AreaXenobio
+        -9,-19: AreaXenobio
+        -9,-18: AreaXenobio
+        -8,-20: AreaXenobio
+        -8,-19: AreaXenobio
+        -8,-18: AreaXenobio
+        -8,-17: AreaXenobio
+        -8,-16: AreaXenobio
+        -9,-16: AreaXenobio
+        -8,-23: AreaXenobio
+        -8,-22: AreaXenobio
+        -8,-21: AreaXenobio
+        -9,-23: AreaXenobio
+        -9,-22: AreaXenobio
+        -9,-21: AreaXenobio
+        -10,-23: AreaXenobio
+        -10,-22: AreaXenobio
+        -10,-21: AreaXenobio
+        -11,-23: AreaXenobio
+        -11,-22: AreaXenobio
+        -11,-21: AreaXenobio
+        -12,-23: AreaXenobio
+        -12,-22: AreaXenobio
+        -13,-23: AreaXenobio
+        -13,-22: AreaXenobio
+        -13,-21: AreaXenobio
+        -14,-23: AreaXenobio
+        -14,-22: AreaXenobio
+        -12,-21: AreaXenobio
+        -14,-21: AreaXenobio
+        -15,-23: AreaXenobio
+        -15,-22: AreaXenobio
+        -15,-21: AreaXenobio
+        -16,-23: AreaXenobio
+        -16,-22: AreaXenobio
+        -16,-21: AreaXenobio
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 3
@@ -33561,7 +33748,7 @@ entities:
       pos: -0.51219857,51.59928
 - proto: ChunkEntity
   entities:
-  - uid: 16700
+  - uid: 16701
     components:
     - type: ChunkEntity
       root: 2
@@ -33696,7 +33883,7 @@ entities:
           decals:
             3378: -47,64
             3379: -48,64
-  - uid: 16701
+  - uid: 16702
     components:
     - type: ChunkEntity
       root: 2
@@ -33989,7 +34176,7 @@ entities:
             284: -11,-3
             285: -14,-15
             286: -15,-14
-  - uid: 16702
+  - uid: 16703
     components:
     - type: ChunkEntity
       root: 2
@@ -34239,7 +34426,7 @@ entities:
             3400: -47,61
             3401: -47,62
             3404: -48,57
-  - uid: 16703
+  - uid: 16704
     components:
     - type: ChunkEntity
       root: 2
@@ -34554,7 +34741,7 @@ entities:
             5945: -23,55
             5946: -23,56
             7331: -23,57
-  - uid: 16704
+  - uid: 16705
     components:
     - type: ChunkEntity
       root: 2
@@ -34963,7 +35150,7 @@ entities:
             cleanable: True
           decals:
             8597: -6,52
-  - uid: 16705
+  - uid: 16706
     components:
     - type: ChunkEntity
       root: 2
@@ -35021,7 +35208,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             8714: -16,65
-  - uid: 16706
+  - uid: 16707
     components:
     - type: ChunkEntity
       root: 2
@@ -35522,7 +35709,7 @@ entities:
             color: '#DE3A3A96'
           decals:
             3480: -60,55
-  - uid: 16707
+  - uid: 16708
     components:
     - type: ChunkEntity
       root: 2
@@ -35579,7 +35766,7 @@ entities:
             cleanable: True
           decals:
             8743: -19,64
-  - uid: 16708
+  - uid: 16709
     components:
     - type: ChunkEntity
       root: 2
@@ -35874,7 +36061,7 @@ entities:
             347: 27,16
             8788: 16,29
             8789: 16,28
-  - uid: 16709
+  - uid: 16710
     components:
     - type: ChunkEntity
       root: 2
@@ -36252,7 +36439,7 @@ entities:
             4: -14,0
             5: -14,1
             6: -14,2
-  - uid: 16710
+  - uid: 16711
     components:
     - type: ChunkEntity
       root: 2
@@ -36952,7 +37139,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             2673: 6,19
-  - uid: 16711
+  - uid: 16712
     components:
     - type: ChunkEntity
       root: 2
@@ -37432,7 +37619,7 @@ entities:
             cleanable: True
           decals:
             2607: -3.964231,22.551708
-  - uid: 16712
+  - uid: 16713
     components:
     - type: ChunkEntity
       root: 2
@@ -37964,7 +38151,7 @@ entities:
             2609: 3.7762494,43.506775
             2610: 2.3387494,43.413025
             2611: 3.9168744,42.038025
-  - uid: 16713
+  - uid: 16714
     components:
     - type: ChunkEntity
       root: 2
@@ -38364,7 +38551,7 @@ entities:
             2667: 9,14
             2668: 10,14
             2669: 11,14
-  - uid: 16714
+  - uid: 16715
     components:
     - type: ChunkEntity
       root: 2
@@ -38494,7 +38681,7 @@ entities:
             71: 1,-1
             72: 2,-1
             8806: 0,-1
-  - uid: 16715
+  - uid: 16716
     components:
     - type: ChunkEntity
       root: 2
@@ -38923,7 +39110,7 @@ entities:
             742: -42,1
             743: -42,2
             744: -42,3
-  - uid: 16716
+  - uid: 16717
     components:
     - type: ChunkEntity
       root: 2
@@ -39397,7 +39584,7 @@ entities:
           decals:
             8041: -44,-12
             8042: -42,-11
-  - uid: 16717
+  - uid: 16718
     components:
     - type: ChunkEntity
       root: 2
@@ -39852,7 +40039,7 @@ entities:
           decals:
             4121: -78,31
             4122: -77,31
-  - uid: 16718
+  - uid: 16719
     components:
     - type: ChunkEntity
       root: 2
@@ -40135,7 +40322,7 @@ entities:
             color: '#EFB34196'
           decals:
             4403: -62,31
-  - uid: 16719
+  - uid: 16720
     components:
     - type: ChunkEntity
       root: 2
@@ -40289,7 +40476,7 @@ entities:
             5044: -65,10
             5055: -65,14
             5056: -65,13
-  - uid: 16720
+  - uid: 16721
     components:
     - type: ChunkEntity
       root: 2
@@ -40368,7 +40555,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             8427: 18.229109,48.21148
-  - uid: 16721
+  - uid: 16722
     components:
     - type: ChunkEntity
       root: 2
@@ -40530,7 +40717,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             8351: 7,51
-  - uid: 16722
+  - uid: 16723
     components:
     - type: ChunkEntity
       root: 2
@@ -40892,7 +41079,7 @@ entities:
             8348: -34.109524,18.904495
             8349: -33.61994,19.800951
             8350: -33.49494,19.800951
-  - uid: 16723
+  - uid: 16724
     components:
     - type: ChunkEntity
       root: 2
@@ -41142,7 +41329,7 @@ entities:
             8246: -31.68556,20.0986
             8247: -31.41454,20.2236
             8248: -31.299877,20.3486
-  - uid: 16724
+  - uid: 16725
     components:
     - type: ChunkEntity
       root: 2
@@ -41274,7 +41461,7 @@ entities:
             color: '#B02E26FF'
           decals:
             7315: 19,38
-  - uid: 16725
+  - uid: 16726
     components:
     - type: ChunkEntity
       root: 2
@@ -41392,7 +41579,7 @@ entities:
             color: '#790906FF'
           decals:
             7317: -25,-14
-  - uid: 16726
+  - uid: 16727
     components:
     - type: ChunkEntity
       root: 2
@@ -41594,7 +41781,7 @@ entities:
             353: 22,4
             354: 20,5
             355: 18,5
-  - uid: 16727
+  - uid: 16728
     components:
     - type: ChunkEntity
       root: 2
@@ -42014,7 +42201,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             6875: -20.044888,33.964188
-  - uid: 16728
+  - uid: 16729
     components:
     - type: ChunkEntity
       root: 2
@@ -42536,7 +42723,7 @@ entities:
             5505: -35,37
             5506: -35,35
             5507: -35,36
-  - uid: 16729
+  - uid: 16730
     components:
     - type: ChunkEntity
       root: 2
@@ -42808,7 +42995,7 @@ entities:
             8132: -53,9
             8604: -55,15
             8605: -56,12
-  - uid: 16730
+  - uid: 16731
     components:
     - type: ChunkEntity
       root: 2
@@ -43066,7 +43253,7 @@ entities:
             4110: -80,34
             4112: -79,34
             4113: -78,34
-  - uid: 16731
+  - uid: 16732
     components:
     - type: ChunkEntity
       root: 2
@@ -43459,7 +43646,7 @@ entities:
           decals:
             2708: -1,37
             2709: -1,39
-  - uid: 16732
+  - uid: 16733
     components:
     - type: ChunkEntity
       root: 2
@@ -43893,7 +44080,7 @@ entities:
           decals:
             4191: -64,34
             4404: -60,33
-  - uid: 16733
+  - uid: 16734
     components:
     - type: ChunkEntity
       root: 2
@@ -44119,7 +44306,7 @@ entities:
             color: '#DE3A3A96'
           decals:
             7320: -27,6
-  - uid: 16734
+  - uid: 16735
     components:
     - type: ChunkEntity
       root: 2
@@ -44282,7 +44469,7 @@ entities:
             1580: -58,-11
             1581: -59,-11
             1582: -57,-11
-  - uid: 16735
+  - uid: 16736
     components:
     - type: ChunkEntity
       root: 2
@@ -44500,7 +44687,7 @@ entities:
             4128: -83,23
             4129: -82,23
             4130: -85,23
-  - uid: 16736
+  - uid: 16737
     components:
     - type: ChunkEntity
       root: 2
@@ -44593,7 +44780,7 @@ entities:
             4108: -83,34
             4109: -82,34
             4111: -81,34
-  - uid: 16737
+  - uid: 16738
     components:
     - type: ChunkEntity
       root: 2
@@ -44823,7 +45010,7 @@ entities:
             8888: -80,55
             8889: -80,56
             8890: -80,54
-  - uid: 16738
+  - uid: 16739
     components:
     - type: ChunkEntity
       root: 2
@@ -44864,7 +45051,7 @@ entities:
           decals:
             8092: -66,65
             8093: -66,66
-  - uid: 16739
+  - uid: 16740
     components:
     - type: ChunkEntity
       root: 2
@@ -44989,7 +45176,7 @@ entities:
             7095: -69,-11
             7096: -65,-11
             7107: -65,-10
-  - uid: 16740
+  - uid: 16741
     components:
     - type: ChunkEntity
       root: 2
@@ -45040,7 +45227,7 @@ entities:
             cleanable: True
           decals:
             76: 19,-8
-  - uid: 16741
+  - uid: 16742
     components:
     - type: ChunkEntity
       root: 2
@@ -45126,7 +45313,7 @@ entities:
             color: '#DE3A3A96'
           decals:
             3388: -53,65
-  - uid: 16742
+  - uid: 16743
     components:
     - type: ChunkEntity
       root: 2
@@ -45356,7 +45543,7 @@ entities:
             4041: -52,88
             4042: -53,86
             4043: -53,85
-  - uid: 16743
+  - uid: 16744
     components:
     - type: ChunkEntity
       root: 2
@@ -45411,7 +45598,7 @@ entities:
           decals:
             8864: -11,-19
             8865: -11,-20
-  - uid: 16744
+  - uid: 16745
     components:
     - type: ChunkEntity
       root: 2
@@ -45430,7 +45617,7 @@ entities:
             8861: -18,-17
             8862: -17,-20
             8863: -17,-19
-  - uid: 16745
+  - uid: 16746
     components:
     - type: ChunkEntity
       root: 2
@@ -45596,7 +45783,7 @@ entities:
             color: '#07FFF1FF'
           decals:
             8975: -104,8
-  - uid: 16746
+  - uid: 16747
     components:
     - type: ChunkEntity
       root: 2
@@ -55399,8 +55586,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 192
-      # configurators:
-      # - invalid
 - proto: FirelockGlass
   entities:
   - uid: 7226
@@ -74065,8 +74250,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 192
-      # configurators:
-      # - invalid
     - type: AtmosPipeColor
       color: '#0335FCFF'
   - uid: 9722
@@ -74102,8 +74285,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 193
-      # configurators:
-      # - invalid
     - type: AtmosPipeColor
       color: '#0335FCFF'
   - uid: 9726
@@ -74114,8 +74295,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 193
-      # configurators:
-      # - invalid
     - type: AtmosPipeColor
       color: '#0335FCFF'
   - uid: 9727
@@ -74127,8 +74306,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 193
-      # configurators:
-      # - invalid
     - type: AtmosPipeColor
       color: '#0335FCFF'
 - proto: GasVentPumpFreezer
@@ -75312,8 +75489,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 192
-      # configurators:
-      # - invalid
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 9881
@@ -75349,8 +75524,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 193
-      # configurators:
-      # - invalid
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 9885
@@ -75362,8 +75535,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 193
-      # configurators:
-      # - invalid
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 9886
@@ -75375,8 +75546,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 193
-      # configurators:
-      # - invalid
     - type: AtmosPipeColor
       color: '#FF1212FF'
 - proto: GasVentScrubberFreezer
@@ -94332,6 +94501,13 @@ entities:
     - type: Transform
       parent: 2
       pos: -8.5,14.5
+- proto: SpawnPointADTCorrectionsOfficer
+  entities:
+  - uid: 16700
+    components:
+    - type: Transform
+      parent: 2
+      pos: -61.5,52.5
 - proto: SpawnPointADTMiner
   entities:
   - uid: 13134
