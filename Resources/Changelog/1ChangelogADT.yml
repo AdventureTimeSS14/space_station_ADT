@@ -16757,3 +16757,10 @@ Entries:
     id: 2055
     pr_number: 3534
     time: '2026-10-26T08:30:19Z'
+  - author: CrimeMoot
+    changes:
+      - {message: Перемещение действие проклятого сердца в ХудБар теперь работает
+          корректно., type: Fix}
+    id: 2056
+    pr_number: 3587
+    time: '2026-10-26T16:09:00Z'
