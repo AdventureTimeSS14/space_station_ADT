@@ -7,14 +7,14 @@
   - type: Projectile
     damage:
       types:
-        Ballistic: 30
+        Ballistic: 15
   - type: StaminaDamageOnCollide
-    damage: 30
+    damage: 60
   - type: ArmorPenetration
-    penetration: 0.5
+    penetration: 1
   - type: LionhunterRifleProjectile
     componentsOnEmpower:
     - type: StaminaDamageOnCollide
-      damage: 60
+      damage: 120
     - type: HomingProjectile
       homingSpeed: 2160

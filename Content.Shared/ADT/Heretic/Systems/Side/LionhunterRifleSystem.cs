@@ -98,6 +98,12 @@ public sealed partial class LionhunterRifleSystem : EntitySystem
     private void OnPreventCollide(Entity<LionhunterRifleProjectileComponent> ent, ref PreventCollideEvent args)
     {
         if (ent.Comp.EmpowerTarget is { } target && args.OtherEntity != target)
+        {
+            args.Cancelled = true;
+            return;
+        }
+
+        if (HasComp<WallComponent>(args.OtherEntity))
             args.Cancelled = true;
     }
 
