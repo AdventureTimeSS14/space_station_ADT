@@ -18,6 +18,7 @@ using Content.Shared.Gravity;
 using Content.Shared.Heretic;
 using Content.Shared.IdentityManagement.Components;
 using Content.Shared.Implants;
+using Content.Shared.ADT.Clothing; // ADT-Tweak
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mindshield;
 using Content.Shared.Lube;
@@ -123,6 +124,8 @@ public partial class InventorySystem
         SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<BlackAndWhiteOverlayComponent>>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<NoirOverlayComponent>>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ThermalSightComponent>>(RefRelayInventoryEvent);
+        // ADT-Tweak
+        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ADTVisionTintComponent>>(RefRelayInventoryEvent);
 
         SubscribeLocalEvent<InventoryComponent, GetVerbsEvent<EquipmentVerb>>(OnGetEquipmentVerbs);
         SubscribeLocalEvent<InventoryComponent, GetVerbsEvent<InnateVerb>>(OnGetInnateVerbs);

@@ -355,6 +355,7 @@
     - ADTAdvancedMedical
     - ADTCryoPodMachineCircuitboard
     - BluespaceArtilleryBoards
+    - ReactorCircuitboards
     # ADT-tweak-end
   - type: EmagLatheRecipes
     emagDynamicPacks:

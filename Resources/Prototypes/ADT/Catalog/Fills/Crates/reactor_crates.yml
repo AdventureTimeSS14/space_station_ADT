@@ -68,3 +68,27 @@
       entity_storage: !type:AllSelector
         children:
         - id: GasTurbineFlatpack
+
+- type: entity
+  id: CratePlutoniumIngots
+  parent: CrateEngineeringSecure
+  name: ящик с плутонием
+  description: Ящик с плутониевыми слитками. Осторожно, радиоактивно!
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: IngotPlutonium1
+        amount: 10
+
+- type: entity
+  id: CratePlutoniumFuelRod
+  parent: CrateEngineeringSecure
+  name: ящик плутониевых топливных стержней
+  description: 2 плутониевых топливных стержня для ядерного реактора.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: PlutoniumReactorFuelRod
+        amount: 2
