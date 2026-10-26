@@ -140,19 +140,6 @@
   weights:
     EscapeThiefShuttleObjective: 1
 #Changeling, crew, wizard, when you code it...
-
-# ADT-Tweak start
-- type: weightedRandom
-  id: NinjaObjectiveGroups
-  weights:
-    NinjaNewObjectivesGroup: 1
-- type: weightedRandom
-  id: NinjaNewObjectivesGroup
-  weights:
-    BrainScanObjective: 1
-    BorgHackObjective: 0.7
-# ADT-Tweak end
-
 # ADT: Закомментировано из-за использования генокрада от Goob Station
 # # Changeling
 # - type: weightedRandom # we need these dummy groups since its shitty code that won't stand having less than two groups before the objectives themselves
