@@ -30,12 +30,14 @@ public sealed partial class ParticleSystem : EntitySystem
     [Dependency] private IPrototypeManager _protoManager = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedMapSystem _mapSystem = default!;
     [Dependency] private IConfigurationManager _cfg = default!;
     [Dependency] private IEyeManager _eye = default!;
     [Dependency] private IResourceCache _resourceCache = default!;
     [Dependency] private SpriteSystem _spriteSystem = default!;
 
     private readonly List<ActiveEmitter> _emitters = new();
+    private readonly Dictionary<uint, ActiveEmitter> _emittersByHandle = new();
     private readonly List<(ProtoId<ParticleEffectPrototype> Id, MapCoordinates Coords, int Depth)> _pendingSubEmitters = new();
 
     /// <summary>Maximum number of sub-emitter chains allowed. Prevents infinite recursive sub-emitter chains.</summary>
@@ -47,11 +49,14 @@ public sealed partial class ParticleSystem : EntitySystem
 
     // Per-prototype texture/delay cache so multiple emitters sharing a prototype don't re-resolve the same RSI frames.
     private readonly Dictionary<string, (Texture[] Frames, float[] Delays)> _frameCache = new();
+    // Pre-baked curve lookup tables, shared by every emitter of the same prototype.
+    private readonly Dictionary<string, ParticleCurveCache> _curveCache = new();
     // Prototypes that failed to resolve; skip re-attempting every emitter spawn.
     private readonly HashSet<string> _frameResolveFailures = new();
 
     private int _quality;
     private int _globalBudget;
+    private float _smoothedFrameTime = 1f / 60f;
 
     private Action<int>? _onGlobalBudgetChanged;
     private Action<int>? _onAutoLodChanged;
@@ -102,17 +107,24 @@ public sealed partial class ParticleSystem : EntitySystem
     /// </summary>
     private const int IgnoreQualityMaxParticles = 64;
 
+    // A Burst emitter uses MaxCount as its requested spawn count, but will not spawn more than this number of particles in a single burst.
+    private const int DefaultBurstMaxCount = 50;
+
+    /// <summary>Maximum calculated MaxCount when a prototype does not provide one explicitly.</summary>
+    private const int AutomaticMaxCount = 128;
+
     #region =^..^= Particle System API =^..^=
     public override void Initialize()
     {
         base.Initialize();
 
-        _overlay = new ParticleOverlay(this);
+        _overlay = new ParticleOverlay(this, _transform);
         _overlayManager.AddOverlay(_overlay);
 
         _cfg.OnValueChanged(CCVars.ParticleQuality, OnQualityChanged, invokeImmediately: true);
         _cfg.OnValueChanged(CCVars.ParticleGlobalBudget, _onGlobalBudgetChanged = v => _globalBudget = v, invokeImmediately: true);
         _cfg.OnValueChanged(CCVars.ParticleAutoLodEmitters, _onAutoLodChanged = v => _lodThreshold = v, invokeImmediately: true);
+        SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
     }
 
     public override void Shutdown()
@@ -125,7 +137,17 @@ public sealed partial class ParticleSystem : EntitySystem
             _cfg.UnsubValueChanged(CCVars.ParticleAutoLodEmitters, _onAutoLodChanged);
         _overlayManager.RemoveOverlay(_overlay);
         _emitters.Clear();
+        _emittersByHandle.Clear();
+        _curveCache.Clear();
         _liveParticleCount = 0;
+    }
+
+    private void OnPrototypesReloaded(PrototypesReloadedEventArgs args)
+    {
+        // Baked frame/curve caches hold stale data after YAML hot-reloads; new emitters re-bake on spawn.
+        _frameCache.Clear();
+        _curveCache.Clear();
+        _frameResolveFailures.Clear();
     }
 
     private void OnQualityChanged(int quality)
@@ -159,6 +181,9 @@ public sealed partial class ParticleSystem : EntitySystem
 
     private ActiveEmitter? SpawnEffect(ProtoId<ParticleEffectPrototype> effectId, MapCoordinates coords, int depth, EntityUid? attachedEntity = null, Color? colorOverride = null, ParticleRuntimeOverrides? overrides = null, Vector2? initialVelocity = null)
     {
+        if (coords.MapId == MapId.Nullspace || !_mapSystem.MapExists(coords.MapId))
+            return null;
+
         if (depth > MaxSubEmitterDepth)
         {
             Log.Warning($"ParticleSystem: subemitter depth exceeded MaxSubEmitterDepth ({MaxSubEmitterDepth}). Dropping '{effectId}'. DO NOT RECUSIVELY STACK SUBEMITTERS.");
@@ -205,6 +230,7 @@ public sealed partial class ParticleSystem : EntitySystem
 
         // Add before BurstEmit so the live count is tracked correctly when EmitParticle runs.
         _emitters.Add(emitter);
+        _emittersByHandle.Add(emitter.Handle, emitter);
 
         if (proto.Burst)
             BurstEmit(emitter);
@@ -223,14 +249,8 @@ public sealed partial class ParticleSystem : EntitySystem
     {
         if (handle == 0)
             return;
-        foreach (var emitter in _emitters)
-        {
-            if (emitter.Handle == handle)
-            {
-                ApplyOverrides(emitter, overrides);
-                break;
-            }
-        }
+        if (_emittersByHandle.TryGetValue(handle, out var emitter))
+            ApplyOverrides(emitter, overrides);
     }
 
     /// <summary>
@@ -317,6 +337,8 @@ public sealed partial class ParticleSystem : EntitySystem
 
     public override void FrameUpdate(float frameTime)
     {
+        _smoothedFrameTime = MathHelper.Lerp(_smoothedFrameTime, frameTime, 0.05f);
+
         // If particles are fully disabled, drop all emitters except those flagged to ignore quality settings.
         if (_quality == 0)
         {
@@ -326,13 +348,10 @@ public sealed partial class ParticleSystem : EntitySystem
                 if (e.Proto.IgnoreQualitySettings)
                     continue;
 
-                for (var j = 0; j < e.LiveTail; j++)
-                    e.Particles[j].Alive = false;
-
                 _liveParticleCount -= e.LiveTail;
                 e.LiveTail = 0;
                 e.Exhausted = true;
-                _emitters.RemoveAt(i);
+                RemoveEmitterAt(i);
             }
             if (_emitters.Count == 0)
                 return;
@@ -374,7 +393,8 @@ public sealed partial class ParticleSystem : EntitySystem
         {
             var emitter = _emitters[i];
 
-            // Check if attached entity was deleted even when off-screen.
+            // Attached emitters follow their entity every frame, even off-screen: the entity
+            // may teleport, and stale coords would strand the emitter out of view permanently.
             if (emitter.AttachedEntity is { } attachedEnt)
             {
                 if (Deleted(attachedEnt))
@@ -384,23 +404,48 @@ public sealed partial class ParticleSystem : EntitySystem
                 }
                 else
                 {
-                    emitter.MapCoords = _transform.GetMapCoordinates(attachedEnt);
+                    var attachedCoords = _transform.GetMapCoordinates(attachedEnt);
+                    if (attachedCoords.MapId == MapId.Nullspace)
+                    {
+                        emitter.Exhausted = true;
+                        emitter.AttachedEntity = null;
+                    }
+                    else
+                    {
+                        emitter.MapCoords = attachedCoords;
+                        emitter.Coordinates = _transform.ToCoordinates(attachedCoords);
+                    }
                 }
+            }
+            else
+            {
+                // Unattached emitters refresh from the grid-relative origin so they follow moving grids.
+                if (Deleted(emitter.Coordinates.EntityId))
+                {
+                    _liveParticleCount -= emitter.LiveTail;
+                    emitter.LiveTail = 0;
+                    emitter.Exhausted = true;
+                    RemoveEmitterAt(i);
+                    continue;
+                }
+
+                emitter.MapCoords = _transform.ToMapCoordinates(emitter.Coordinates);
             }
 
             var inView = emitter.MapCoords.MapId == currentMapId
-                && viewBounds.Contains(emitter.MapCoords.Position);
+                && (viewBounds.Contains(emitter.MapCoords.Position)
+                    || HasVisibleParticles(emitter, viewBounds, eyeAngle));
 
             if (inView)
             {
                 _inViewEmitters++;
-                TickEmitter(emitter, frameTime, eyeAngle);
+                UpdateEmitterSimulation(emitter, frameTime, eyeAngle);
             }
             else
                 AgeOffScreenParticles(emitter, frameTime);
 
-            if (emitter.Exhausted && !emitter.HasLiveParticles())
-                _emitters.RemoveAt(i);
+            if (emitter.Exhausted && emitter.LiveTail == 0)
+                RemoveEmitterAt(i);
         }
 
         // Spawn any sub-emitters collected during this tick.
@@ -416,6 +461,64 @@ public sealed partial class ParticleSystem : EntitySystem
         }
     }
 
+    private void UpdateEmitterSimulation(ActiveEmitter emitter, float frameTime, float eyeAngle)
+    {
+        var interval = GetSimulationInterval();
+        if (interval <= 0f)
+        {
+            emitter.SimulationAccumulator = 0f;
+            TickEmitter(emitter, frameTime, eyeAngle);
+            return;
+        }
+
+        emitter.SimulationAccumulator += frameTime;
+        if (emitter.SimulationAccumulator < interval)
+            return;
+
+        // Preserve all elapsed time so reduced-frequency simulation changes smoothness, not speed.
+        var simulationTime = Math.Min(emitter.SimulationAccumulator, 0.1f);
+        emitter.SimulationAccumulator = 0f;
+        TickEmitter(emitter, simulationTime, eyeAngle);
+    }
+
+    private float GetSimulationInterval()
+    {
+        // Simulation frequency per quality level: Off 15Hz, Low 20Hz, Medium 30Hz, High every frame.
+        var interval = _quality switch
+        {
+            <= 0 => 1f / 15f,
+            1 => 1f / 20f,
+            2 => 1f / 30f,
+            _ => 0f,
+        };
+
+        // If the client is already struggling, give gameplay some room before particles ask for more.
+        if (_smoothedFrameTime > 1f / 28f)
+            return Math.Max(interval, 1f / 20f);
+        if (_smoothedFrameTime > 1f / 40f)
+            return Math.Max(interval, 1f / 30f);
+        return interval;
+    }
+
+    private bool HasVisibleParticles(ActiveEmitter emitter, Box2 viewBounds, float eyeAngle)
+    {
+        // The emitter origin may sit off-screen while long-lived particles are still on it.
+        for (var j = 0; j < emitter.LiveTail; j++)
+        {
+            if (viewBounds.Contains(ComputeParticleWorldPos(emitter.Particles[j], emitter, eyeAngle)))
+                return true;
+        }
+
+        return false;
+    }
+
+    private void RemoveEmitterAt(int index)
+    {
+        var emitter = _emitters[index];
+        _emittersByHandle.Remove(emitter.Handle);
+        _emitters.RemoveAt(index);
+    }
+
     #endregion
 
     #region =^..^= Emitter Internals =^..^=
@@ -427,9 +530,12 @@ public sealed partial class ParticleSystem : EntitySystem
         {
             Proto = proto,
             MapCoords = coords,
+            Coordinates = _transform.ToCoordinates(coords),
             AttachedEntity = attached,
             Handle = _nextHandle++,
             SpawnOffset = proto.SpawnOffset,
+            Curves = GetCurveCache(proto),
+            ResolvedPrototypeMaxCount = proto.MaxCount ?? CalculateMaxCount(proto),
         };
         ResolveFrames(emitter);
 
@@ -437,6 +543,7 @@ public sealed partial class ParticleSystem : EntitySystem
             return null;
 
         emitter.EffectiveEmitAngle = (float)emitter.Proto.EmitAngle.Theta;
+        ApplyEmitterRotation(emitter, (float)_eye.CurrentEye.Rotation);
 
         foreach (var _ in proto.Bursts)
             emitter.FiredBursts.Add(false);
@@ -449,14 +556,8 @@ public sealed partial class ParticleSystem : EntitySystem
     {
         if (handle == 0)
             return;
-        foreach (var emitter in _emitters)
-        {
-            if (emitter.Handle == handle)
-            {
-                emitter.Exhausted = true;
-                break;
-            }
-        }
+        if (_emittersByHandle.TryGetValue(handle, out var emitter))
+            emitter.Exhausted = true;
     }
 
     /// <summary>Stops a running emitter by direct reference. Existing particles live out their lifetime.</summary>
@@ -467,23 +568,15 @@ public sealed partial class ParticleSystem : EntitySystem
     {
         if (handle == 0)
             return;
-        foreach (var emitter in _emitters)
-        {
-            if (emitter.Handle == handle)
-            {
-                emitter.Intensity = intensity;
-                break;
-            }
-        }
+        if (_emittersByHandle.TryGetValue(handle, out var emitter))
+            emitter.Intensity = Math.Max(intensity, 0f);
     }
 
     /// <summary>Updates the intensity multiplier on a running emitter by direct reference.</summary>
-    public static void UpdateIntensity(ActiveEmitter emitter, float intensity) => emitter.Intensity = intensity;
+    public static void UpdateIntensity(ActiveEmitter emitter, float intensity) => emitter.Intensity = Math.Max(intensity, 0f);
 
     private static void KillParticle(ActiveEmitter emitter, ParticleData p)
     {
-        p.Alive = false;
-
         var lastIndex = emitter.LiveTail - 1;
         var index = p.ParticlesIndex;
 
@@ -503,6 +596,7 @@ public sealed partial class ParticleSystem : EntitySystem
     {
         var proto = emitter.Proto;
 
+        // The frame loop refreshed MapCoords (and Coordinates for attached emitters) before this call.
         var newPos = emitter.MapCoords.Position;
 
         if (!emitter.VelocityInitialized)
@@ -534,11 +628,8 @@ public sealed partial class ParticleSystem : EntitySystem
             if (worldDir.LengthSquared() > 0.0001f)
             {
                 // Convert world direction to screen-space direction to angle (0 = screen-up)
-                var cosE = MathF.Cos(eyeAngle);
-                var sinE = MathF.Sin(eyeAngle);
-                var sx = worldDir.X * cosE - worldDir.Y * sinE;
-                var sy = worldDir.X * sinE + worldDir.Y * cosE;
-                emitter.EffectiveEmitAngle = MathF.Atan2(sx, sy);
+                var screenDirection = RotateVector(worldDir, eyeAngle);
+                emitter.EffectiveEmitAngle = MathF.Atan2(screenDirection.X, screenDirection.Y);
             }
         }
         else
@@ -559,7 +650,16 @@ public sealed partial class ParticleSystem : EntitySystem
         var noiseFreq    = ovr?.NoiseFrequency ?? proto.NoiseFrequency;
         var duration     = (float)(ovr?.Duration      ?? proto.Duration).TotalSeconds;
         var emissionRate = ovr?.EmissionRate  ?? proto.EmissionRate;
-        var maxCount     = ovr?.MaxCount      ?? proto.MaxCount;
+        var maxCount     = ResolveMaxCount(emitter);
+
+        if (proto.RotateWithEmitter && constForce != Vector2.Zero &&
+            emitter.AttachedEntity is { } forceEnt && !Deleted(forceEnt))
+        {
+            // Directional effects define force in emitter-local space. Convert it to the
+            // screen-space simulation coordinates; the draw path later applies the grid transform.
+            var localForce = Transform(forceEnt).LocalRotation.RotateVec(constForce);
+            constForce = RotateVector(localForce, eyeAngle);
+        }
 
         // Precompute per-tick constants for SimulateParticle to avoid recomputing per particle.
         var dragMul     = drag > 0f ? MathF.Exp(-drag * dt) : 1f;
@@ -586,11 +686,11 @@ public sealed partial class ParticleSystem : EntitySystem
 
         // Simulate live particles
         var liveCount = emitter.LiveTail;
-        var dtSpan = TimeSpan.FromSeconds(dt);
         for (var i = 0; i < emitter.LiveTail; i++)
         {
             var p = emitter.Particles[i];
-            p.Age += dtSpan;
+            p.Age += dt;
+            p.UpdateCurveSample();
 
             if (p.Age >= p.Lifetime)
             {
@@ -608,7 +708,7 @@ public sealed partial class ParticleSystem : EntitySystem
                 continue;
             }
 
-            SimulateParticle(p, dt, dragMul, constForce, termSpeed, termSpeedSq, gravity, noiseStr, noiseFreq, proto);
+            SimulateParticle(p, dt, dragMul, constForce, termSpeed, termSpeedSq, gravity, noiseStr, noiseFreq, emitter.Curves);
         }
 
         // Timed bursts
@@ -655,12 +755,12 @@ public sealed partial class ParticleSystem : EntitySystem
             {
                 // EmissionOverTime rate multiplier
                 float emissionMult = 1f;
-                if (proto.EmissionOverTime.Count > 0)
+                if (emitter.Curves.Emission is { } emissionCurve)
                 {
                     var t = duration > 0f
                         ? Math.Clamp((float)(emitter.Age.TotalSeconds / duration), 0f, 1f)
                         : Math.Clamp((float)emitter.Age.TotalSeconds, 0f, 1f);
-                    emissionMult = SampleCurve(proto.EmissionOverTime, t);
+                    emissionMult = ParticleCurveCache.Sample(emissionCurve, t);
                 }
 
                 emitter.EmitAccum += emissionRate * emissionMult * dt * qualityMult * emitter.Intensity;
@@ -686,6 +786,19 @@ public sealed partial class ParticleSystem : EntitySystem
             * _lodScale;
     }
 
+    private void ApplyEmitterRotation(ActiveEmitter emitter, float eyeAngle)
+    {
+        if (!emitter.Proto.RotateWithEmitter ||
+            emitter.AttachedEntity is not { } rotatingEnt ||
+            Deleted(rotatingEnt))
+            return;
+
+        // Stay in grid-local space here; rendering applies the grid's live world rotation.
+        var localDirection = Transform(rotatingEnt).LocalRotation.RotateVec(Vector2.UnitY);
+        var screenDirection = RotateVector(localDirection, eyeAngle);
+        emitter.EffectiveEmitAngle += MathF.Atan2(screenDirection.X, screenDirection.Y);
+    }
+
     private void BurstEmit(ActiveEmitter emitter)
     {
         var proto = emitter.Proto;
@@ -694,8 +807,8 @@ public sealed partial class ParticleSystem : EntitySystem
         var qualityMult = EmissionQualityMultiplier(proto);
         // IgnoreQualitySettings emitters are capped at IgnoreQualityMaxParticles to prevent performance issues or otherwise abuse.
         var effectiveMax = proto.IgnoreQualitySettings && _quality < 3
-            ? Math.Min(proto.MaxCount, IgnoreQualityMaxParticles)
-            : proto.MaxCount;
+            ? Math.Min(ResolveMaxCount(emitter), IgnoreQualityMaxParticles)
+            : ResolveMaxCount(emitter);
         var count = (int)Math.Ceiling(Math.Min(effectiveMax, HardMaxParticles) * qualityMult * emitter.Intensity);
         for (int i = 0; i < count && _liveParticleCount < _globalBudget; i++)
             EmitParticle(emitter, eyeAngle);
@@ -720,7 +833,6 @@ public sealed partial class ParticleSystem : EntitySystem
         }
 
         emitter.LiveTail++;
-        p.Alive = true;
 
         // Resolve spawn time overridable fields
         _liveParticleCount++;
@@ -737,9 +849,7 @@ public sealed partial class ParticleSystem : EntitySystem
         var rotSpeed        = (float)(ovr?.RotationSpeed?.Theta         ?? proto.RotationSpeed.Theta);
         var rotSpeedVar     = (float)(ovr?.RotationSpeedVariance?.Theta ?? proto.RotationSpeedVariance.Theta);
 
-        p.Lifetime = TimeSpan.FromSeconds(lifetime + _random.NextFloat(-lifetimeVar, lifetimeVar));
-        if (p.Lifetime < TimeSpan.FromSeconds(0.05))
-            p.Lifetime = TimeSpan.FromSeconds(0.05);
+        p.Lifetime = MathF.Max(lifetime + _random.NextFloat(-lifetimeVar, lifetimeVar), 0.05f);
 
         var spreadHalf = spreadAngle * 0.5f;
         var angle = emitter.EffectiveEmitAngle + _random.NextFloat(-spreadHalf, spreadHalf);
@@ -750,29 +860,44 @@ public sealed partial class ParticleSystem : EntitySystem
         p.Velocity = new Vector2(MathF.Sin(angle), MathF.Cos(angle)) * speed;
         p.LocalOffset = SampleEmissionShape(proto.Shape);
 
-        // Apply SpawnOffset: convert world-space offset to screen-space and add to LocalOffset
+        // Local effects carry their spawn offset in LocalOffset. Map/grid effects bake it into
+        // their captured spawn origin below so it is not applied twice.
         var spawnOffset = emitter.Overrides?.SpawnOffset ?? emitter.SpawnOffset;
-        if (spawnOffset != default)
+        var simulationSpace = proto.ResolvedSimulationSpace;
+        if (simulationSpace == ParticleSimulationSpace.Local && spawnOffset != default)
         {
-            var cosE = MathF.Cos(eyeAngle);
-            var sinE = MathF.Sin(eyeAngle);
-            var screenOff = new Vector2(spawnOffset.X * cosE - spawnOffset.Y * sinE,
-                                        spawnOffset.X * sinE + spawnOffset.Y * cosE);
-            p.LocalOffset += screenOff;
+            p.LocalOffset += RotateVector(spawnOffset, eyeAngle);
         }
 
         // InheritVelocity: convert emitter world velocity to screen space then add
         if (inheritVel != 0f && emitter.EmitterVelocity != Vector2.Zero)
         {
-            var cosE = MathF.Cos(eyeAngle);
-            var sinE = MathF.Sin(eyeAngle);
             var wv = emitter.EmitterVelocity * inheritVel;
-            var screenVel = new Vector2(wv.X * cosE - wv.Y * sinE, wv.X * sinE + wv.Y * cosE);
-            p.Velocity += screenVel;
+            p.Velocity += RotateVector(wv, eyeAngle);
         }
 
-        if (proto.WorldSpace)
-            p.SpawnOrigin = emitter.MapCoords.Position + (emitter.Overrides?.SpawnOffset ?? emitter.SpawnOffset);
+        if (simulationSpace != ParticleSimulationSpace.Local)
+        {
+            if (proto.RotateWithEmitter && emitter.AttachedEntity is { } offsetEnt && !Deleted(offsetEnt))
+            {
+                // SpawnOffset is local to the attached entity for directional effects. Because
+                // these coordinates are relative to the grid, shuttle rotation moves the nozzle
+                // position automatically on every subsequent draw.
+                var localOffset = Transform(offsetEnt).LocalRotation.RotateVec(spawnOffset);
+                p.SpawnCoordinates = new EntityCoordinates(
+                    emitter.Coordinates.EntityId,
+                    emitter.Coordinates.Position + localOffset);
+            }
+            else
+            {
+                var spawnCoords = new MapCoordinates(
+                    emitter.MapCoords.Position + spawnOffset,
+                    emitter.MapCoords.MapId);
+                p.SpawnCoordinates = _transform.ToCoordinates(spawnCoords);
+            }
+
+            p.SpawnMapPosition = _transform.ToMapCoordinates(p.SpawnCoordinates).Position;
+        }
 
         p.SpawnSpeed = speed;
         p.SpawnIntensity = emitter.Intensity;
@@ -816,8 +941,10 @@ public sealed partial class ParticleSystem : EntitySystem
         float gravity,
         float noiseStr,
         float noiseFreq,
-        ParticleEffectPrototype proto)
+        ParticleCurveCache curves)
     {
+        var ageRatio = p.AgeRatio;
+
         // Drag: dragMul is MathF.Exp(-drag * dt) precomputed per tick
         if (dragMul < 1f)
             p.Velocity *= dragMul;
@@ -827,13 +954,13 @@ public sealed partial class ParticleSystem : EntitySystem
             p.Velocity += constForce * dt;
 
         // ForceOverLifetime
-        if (proto.ForceOverLifetime.Count > 0)
-            p.Velocity += SampleVector2Curve(proto.ForceOverLifetime, p.AgeRatio) * dt;
+        if (curves.Force is { } forceCurve)
+            p.Velocity += ParticleCurveCache.Sample(forceCurve, p.CurveIndex, p.CurveLerp) * dt;
 
         // SpeedOverLifetime: rescale velocity magnitude to the curve-defined speed
-        if (proto.SpeedOverLifetime.Count > 0)
+        if (curves.Speed is { } speedCurve)
         {
-            var curveSpeed = SampleCurve(proto.SpeedOverLifetime, p.AgeRatio) * p.SpawnSpeed;
+            var curveSpeed = ParticleCurveCache.Sample(speedCurve, p.CurveIndex, p.CurveLerp) * p.SpawnSpeed;
             var currentSpeed = p.Velocity.Length();
             if (currentSpeed > 0f)
                 p.Velocity = p.Velocity / currentSpeed * curveSpeed;
@@ -851,19 +978,18 @@ public sealed partial class ParticleSystem : EntitySystem
         p.LocalOffset += p.Velocity * dt;
 
         // VelocityOverLifetime: positional nudge (does not modify velocity)
-        if (proto.VelocityOverLifetime.Count > 0)
-            p.LocalOffset += SampleVector2Curve(proto.VelocityOverLifetime, p.AgeRatio) * dt;
+        if (curves.Velocity is { } velocityCurve)
+            p.LocalOffset += ParticleCurveCache.Sample(velocityCurve, p.CurveIndex, p.CurveLerp) * dt;
 
         // Gravity
         if (gravity != 0f)
-            p.LocalOffset.Y += -gravity * dt * p.AgeRatio;
+            p.LocalOffset.Y += -gravity * dt * ageRatio;
 
         // Noise
         if (noiseStr > 0f)
         {
-            var ageSec = (float)p.Age.TotalSeconds;
-            var nx = ValueNoise(p.NoiseOffset.X + ageSec * noiseFreq, p.NoiseOffset.Y);
-            var ny = ValueNoise(p.NoiseOffset.X, p.NoiseOffset.Y + ageSec * noiseFreq);
+            var nx = ValueNoise(p.NoiseOffset.X + p.Age * noiseFreq, p.NoiseOffset.Y);
+            var ny = ValueNoise(p.NoiseOffset.X, p.NoiseOffset.Y + p.Age * noiseFreq);
             p.LocalOffset += new Vector2(nx, ny) * noiseStr * dt;
         }
 
@@ -873,14 +999,23 @@ public sealed partial class ParticleSystem : EntitySystem
     }
 
     /// <summary>Converts a particle's screen-space LocalOffset to a world position.</summary>
-    private static Vector2 ComputeParticleWorldPos(ParticleData p, ActiveEmitter emitter, float eyeAngle)
+    private Vector2 ComputeParticleWorldPos(ParticleData p, ActiveEmitter emitter, float eyeAngle)
     {
-        var cosR = MathF.Cos(-eyeAngle);
-        var sinR = MathF.Sin(-eyeAngle);
-        var worldOffset = new Vector2(p.LocalOffset.X * cosR - p.LocalOffset.Y * sinR,
-                                      p.LocalOffset.X * sinR + p.LocalOffset.Y * cosR);
-        var origin = emitter.Proto.WorldSpace ? p.SpawnOrigin : emitter.MapCoords.Position;
-        return origin + worldOffset;
+        var worldOffset = RotateVector(p.LocalOffset, -eyeAngle);
+        switch (emitter.Proto.ResolvedSimulationSpace)
+        {
+            case ParticleSimulationSpace.Map:
+                return p.SpawnMapPosition + worldOffset;
+            case ParticleSimulationSpace.Grid:
+                var particleCoords = new EntityCoordinates(
+                    p.SpawnCoordinates.EntityId,
+                    p.SpawnCoordinates.Position + worldOffset);
+                return Deleted(particleCoords.EntityId)
+                    ? emitter.MapCoords.Position
+                    : _transform.ToMapCoordinates(particleCoords).Position;
+            default:
+                return emitter.MapCoords.Position + worldOffset;
+        }
     }
 
     /// <summary>
@@ -890,12 +1025,15 @@ public sealed partial class ParticleSystem : EntitySystem
     private void AgeOffScreenParticles(ActiveEmitter emitter, float dt)
     {
         emitter.Age += TimeSpan.FromSeconds(dt);
-        var dtSpan = TimeSpan.FromSeconds(dt);
+        var duration = emitter.Overrides?.Duration ?? emitter.Proto.Duration;
+        if (!emitter.Exhausted && duration > TimeSpan.Zero && emitter.Age >= duration)
+            emitter.Exhausted = true;
 
         for (var i = 0; i < emitter.LiveTail; i++)
         {
             var p = emitter.Particles[i];
-            p.Age += dtSpan;
+            p.Age += dt;
+            p.UpdateCurveSample();
 
             if (p.Age < p.Lifetime)
                 continue;
@@ -904,6 +1042,38 @@ public sealed partial class ParticleSystem : EntitySystem
             KillParticle(emitter, p);
             i--;
         }
+    }
+
+    private static int ResolveMaxCount(ActiveEmitter emitter)
+    {
+        if (emitter.Overrides?.MaxCount is { } runtimeMax)
+            return runtimeMax;
+        return emitter.ResolvedPrototypeMaxCount;
+    }
+
+    private static int CalculateMaxCount(ParticleEffectPrototype prototype)
+    {
+        if (prototype.Burst)
+            return DefaultBurstMaxCount;
+
+        var lifetime = Math.Max(
+            (prototype.Lifetime + prototype.LifetimeVariance.Duration()).TotalSeconds,
+            0.05);
+
+        var peakEmissionMultiplier = prototype.EmissionOverTime.Count == 0 ? 1f : 0f;
+        foreach (var key in prototype.EmissionOverTime)
+            peakEmissionMultiplier = Math.Max(peakEmissionMultiplier, key.Value);
+
+        var continuousCount = (int)Math.Ceiling(
+            Math.Max(prototype.EmissionRate, 0f) * peakEmissionMultiplier * lifetime);
+
+        // Timed bursts can overlap both continuous particles and one another. Adding them all is
+        // intentionally conservative; the global budget and hard ceiling still get the final say.
+        long burstCount = 0;
+        foreach (var burst in prototype.Bursts)
+            burstCount += Math.Max(burst.Count, 0);
+
+        return (int)Math.Clamp(continuousCount + burstCount, 1L, AutomaticMaxCount);
     }
 
     private void ResolveFrames(ActiveEmitter emitter)
@@ -1004,130 +1174,5 @@ public sealed partial class ParticleSystem : EntitySystem
 
     #endregion
 
-    #region =^..^= Curve Samplers =^..^=
-
-    // ᓚᘏᗢ <( math scares me
-    public static float SampleCurve(List<ParticleCurveKey> curve, float t)
-    {
-        if (curve.Count == 0)
-            return 1f;
-        if (curve.Count == 1)
-            return curve[0].Value;
-
-        ParticleCurveKey? prev = null, next = null;
-        foreach (var key in curve)
-        {
-            if (key.Time <= t)
-                prev = key;
-            else
-            {
-                next = key;
-                break;
-            }
-        }
-        if (prev == null)
-            return curve[0].Value;
-        if (next == null)
-            return prev.Value;
-
-        var span = next.Time - prev.Time;
-        if (span <= 0f)
-            return prev.Value;
-        return prev.Value + (next.Value - prev.Value) * ((t - prev.Time) / span);
-    }
-
-    public static Color SampleColorCurve(List<ColorCurveKey> curve, float t)
-    {
-        if (curve.Count == 0)
-            return Color.White;
-        if (curve.Count == 1)
-            return curve[0].Color;
-
-        ColorCurveKey? prev = null, next = null;
-        foreach (var key in curve)
-        {
-            if (key.Time <= t)
-                prev = key;
-            else
-            {
-                next = key;
-                break;
-            }
-        }
-        if (prev == null)
-            return curve[0].Color;
-        if (next == null)
-            return prev.Color;
-
-        var span = next.Time - prev.Time;
-        if (span <= 0f)
-            return prev.Color;
-        return Color.InterpolateBetween(prev.Color, next.Color, (t - prev.Time) / span);
-    }
-
-    public static Vector2 SampleVector2Curve(List<Vector2CurveKey> curve, float t)
-    {
-        if (curve.Count == 0)
-            return Vector2.Zero;
-        if (curve.Count == 1)
-            return curve[0].Value;
-
-        Vector2CurveKey? prev = null, next = null;
-        foreach (var key in curve)
-        {
-            if (key.Time <= t)
-                prev = key;
-            else
-            {
-                next = key;
-                break;
-            }
-        }
-        if (prev == null)
-            return curve[0].Value;
-        if (next == null)
-            return prev.Value;
-
-        var span = next.Time - prev.Time;
-        if (span <= 0f)
-            return prev.Value;
-        return Vector2.Lerp(prev.Value, next.Value, (t - prev.Time) / span);
-    }
-
-    #endregion
-
-    #region =^..^= Value Noise =^..^=
-
-    /// <summary>
-    /// A simple 2D value noise function for particle turbulence. Not Perlin or Simplex, just a grid of random values with smooth interpolation.
-    /// </summary>
-    private static float ValueNoise(float x, float y)
-    {
-        var ix = (int)MathF.Floor(x);
-        var iy = (int)MathF.Floor(y);
-        var fx = x - ix;
-        var fy = y - iy;
-
-        // Smooth interpolation
-        fx = fx * fx * (3f - 2f * fx);
-        fy = fy * fy * (3f - 2f * fy);
-
-        var a = Hash(ix,     iy);
-        var b = Hash(ix + 1, iy);
-        var c = Hash(ix,     iy + 1);
-        var d = Hash(ix + 1, iy + 1);
-
-        // ᓚᘏᗢ <( maths scare me what do these letters mean
-        return a + (b - a) * fx + (c - a) * fy + (d - b - c + a) * fx * fy;
-    }
-
-    // ᓚᘏᗢ <( random bullshit go
-    private static float Hash(int x, int y)
-    {
-        var n = x + y * 57;
-        n = (n << 13) ^ n;
-        return 1f - ((n * (n * n * 15731 + 789221) + 1376312589) & 0x7fffffff) / 1073741824f;
-    }
-
-    #endregion
+    // Curve samplers, the baked-curve cache and the noise table moved to ParticleSystem.Curves.cs.
 }

@@ -19,12 +19,15 @@ public sealed class ActiveEmitter
     /// </summary>
     public int SubEmitterDepth;
 
-    /// <summary>Current world-space origin of the emitter.</summary>
+    /// <summary>Current map-space origin of the emitter, refreshed from <see cref="Coordinates"/> each frame.</summary>
     public MapCoordinates MapCoords;
 
+    /// <summary>Grid-relative origin, so the effect follows moving and rotating grids.</summary>
+    public EntityCoordinates Coordinates;
+
     /// <summary>
-    /// Additional world-space offset from <see cref="MapCoords"/> applied to the spawn origin.
-    /// Useful for nudging effects away from entity anchor points.
+    /// Offset from the emitter origin applied to the spawn origin.
+    /// Directional emitters interpret this in the attached entity's local space; other emitters in map space.
     /// </summary>
     public Vector2 SpawnOffset;
 
@@ -36,6 +39,9 @@ public sealed class ActiveEmitter
 
     /// <summary>Emission accumulator for sub-tick emission rates.</summary>
     public float EmitAccum;
+
+    /// <summary>Time accumulated between quality-scaled simulation steps.</summary>
+    public float SimulationAccumulator;
 
     /// <summary>True once the emitter stops producing new particles. Existing particles live out their lifetimes.</summary>
     public bool Exhausted;
@@ -57,6 +63,12 @@ public sealed class ActiveEmitter
     /// Non-null values take priority, null falls back to the prototype.
     /// </summary>
     public ParticleRuntimeOverrides? Overrides;
+
+    /// <summary>Pre-sampled prototype curves shared by emitters of the same effect.</summary>
+    internal ParticleCurveCache Curves = null!;
+
+    /// <summary>Prototype <see cref="ParticleEffectPrototype.MaxCount"/> or the automatically calculated fallback.</summary>
+    internal int ResolvedPrototypeMaxCount;
 
     // =^..^= Velocity tracking =^..^=
 
@@ -126,6 +138,4 @@ public sealed class ActiveEmitter
     /// other-map emitters are scheduled last.
     /// </summary>
     public float FramePriority;
-
-    public bool HasLiveParticles() => LiveTail > 0;
 }
