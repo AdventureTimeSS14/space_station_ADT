@@ -51,6 +51,11 @@
   - type: Construction
     graph: FireBomb
     node: firebomb
+  # ADT-tweak start
+  - type: Tag
+    tags: 
+     - FireBomb
+  # ADT-tweak end
 
 # has igniter but no fuel or wires
 - type: entity
