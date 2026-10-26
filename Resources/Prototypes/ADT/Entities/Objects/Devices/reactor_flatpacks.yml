@@ -16,20 +16,3 @@
   - type: Flatpack
     entity: GasTurbineEmpty
 
-- type: entity
-  parent: [BaseFlatpack, BaseEngineeringContraband]
-  id: NuclearFabricatorFlatpack
-  name: Упакованный ядерный фабрикатор
-  description: Упаковка для сборки ядерного фабрикатора.
-  components:
-  - type: Flatpack
-    entity: NuclearFabricator
-
-- type: entity
-  parent: [BaseFlatpack, BaseEngineeringContraband]
-  id: NuclearCentrifugeFlatpack
-  name: Упакованная ядерная центрифуга
-  description: Упаковка для сборки ядерной центрифуги.
-  components:
-  - type: Flatpack
-    entity: NuclearCentrifuge

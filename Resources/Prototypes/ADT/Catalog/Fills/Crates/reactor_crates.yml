@@ -70,30 +70,6 @@
         - id: GasTurbineFlatpack
 
 - type: entity
-  id: CrateNuclearFabricatorFlatpack
-  parent: CrateEngineeringSecure
-  name: ящик с ядерным фабрикатором
-  description: Ящик с упакованным ядерным фабрикатором.
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:AllSelector
-        children:
-        - id: NuclearFabricatorFlatpack
-
-- type: entity
-  id: CrateNuclearCentrifugeFlatpack
-  parent: CrateEngineeringSecure
-  name: ящик с ядерной центрифугой
-  description: Ящик с упакованной ядерной центрифугой.
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:AllSelector
-        children:
-        - id: NuclearCentrifugeFlatpack
-
-- type: entity
   id: CratePlutoniumIngots
   parent: CrateEngineeringSecure
   name: ящик с плутонием
@@ -103,7 +79,7 @@
     containers:
       entity_storage:
         id: IngotPlutonium1
-        amount: 5
+        amount: 10
 
 - type: entity
   id: CratePlutoniumFuelRod

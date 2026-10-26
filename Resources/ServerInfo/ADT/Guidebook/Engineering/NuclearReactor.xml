@@ -25,7 +25,7 @@
 
 	Они переносят тепло и взаимодействуют с нейтронами внутри реактора.
 
-	Если [color=#a4885c]температура[/color] стержня достигнет [color=orange][protodata="CerenkiteReactorFuelRod" comp="ReactorPart" member="MeltingPoint"/]k[/color], он начнет плавиться.
+	Если [color=#a4885c]температура[/color] стержня достигнет [color=orange][protodata="CerenkiteReactorFuelRod" comp="ReactorPart" member="MeltingPoint"/]k[/color], он начнет плавиться (скорость оплавления повышена в 1.5 раза).
 
 	Расплавленный стержень становится гораздо активнее и сильнее греет реактор, что может привести к полному расплавлению.
 
@@ -34,6 +34,18 @@
 	Если стержень горячее [color=orange][protodata="CerenkiteReactorFuelRod" comp="ReactorPart" member="HotTemp"/]C[/color], для обращения с ним понадобятся перчатки. При [color=orange][protodata="CerenkiteReactorFuelRod" comp="ReactorPart" member="BurnTemp"/]C[/color] не защитят даже перчатки.
 
 	Есть четыре типа стержней, которые производятся из различных [textlink="материалов" link="NuclearMaterials"] и вставляются в сетку реактора: топливные стержни, управляющие стержни, газовые каналы и теплообменники.
+
+	## Сборка фабрикатора и центрифуги
+	<Box>
+		<GuideEntityEmbed Entity="NuclearFabricator"/>
+		<GuideEntityEmbed Entity="NuclearCentrifuge"/>
+	</Box>
+
+	Ядерный фабрикатор и центрифуга не заказываются через карго, а собираются экипажем станции:
+	1. Исследуйте ядерную энергетику в научном отделе.
+	2. Напечатайте платы механизмов на импринтере схем.
+	3. Постройте каркас машины (сталь + провода) и вставьте плату.
+	4. Установите необходимые модульные детали (для фабрикатора: 5 стёкол, 2 ёмкости материи, 2 сервопривода, 1 микро-лазер; для центрифуги: 5 пластали, 2 ёмкости материи, 1 сканирующий модуль, 2 сервопривода) и закрутите отвёрткой.
 
 	### Топливные стержни
 	Топливные стержни — источник нейтронов и тепла в реакторе.
@@ -49,9 +61,12 @@
 	<Box>
 		<GuideEntityEmbed Entity="NuclearCentrifuge"/>
 		<GuideEntityEmbed Entity="IngotPlutonium"/>
+		<GuideEntityEmbed Entity="PlutoniumReactorFuelRod"/>
 	</Box>
 
-	Когда в топливном стержне накопится достаточно [color=#a4885c]отработанного топлива[/color], его можно переработать в ядерной центрифуге в плутоний для плутониевых стержней.
+	Когда в топливном стержне накопится достаточно [color=#a4885c]отработанного топлива[/color], его можно переработать в ядерной центрифуге. Каждый слиток плутония имеет [bold][color=orange]10% шанс[/color][/bold] на успешное выделение из отработанных изотопов (при неудаче центрифуга издаёт звук ошибки, а материал утрачивается).
+
+	Для производства плутониевого топливного стержня на [bold]ядерном фабрикаторе[/bold] требуется [bold][color=orange]5 слитков плутония[/color][/bold] (500 единиц) и 5 листов стали. Слитки плутония также можно заказать в отделе снабжения (ящик из 10 слитков за 500 000 кредитов), либо готовые стержни (ящик из 2 стержней за 499 000 кредитов).
 
 	### Управляющие стержни
 	Управляющие стержни регулируют поток нейтронов в реакторе.
@@ -104,7 +119,7 @@
 
 	Шкала [color=#a4885c]температуры[/color] показывает текущую температуру реактора в диапазоне от [color=orange]0 К[/color] до [color=orange][protodata="NuclearReactorNormal" comp="NuclearReactor" member="ReactorMeltdownTemp"/]k[/color].
 
-	Если реактор достигнет [color=orange][protodata="NuclearReactorNormal" comp="NuclearReactor" member="ReactorMeltdownTemp"/] К[/color], произойдет [color=red]расплавление[/color].
+	Если реактор достигнет [color=orange][protodata="NuclearReactorNormal" comp="NuclearReactor" member="ReactorMeltdownTemp"/] К[/color], произойдет катастрофическое [color=red]расплавление[/color]. Взрыв ядерного реактора в [bold]3 раза мощнее[/bold] стандартного: он разрушает прилегающие отсеки станции, разбрасывает радиоактивные обломки и выбрасывает огромные объемы трития и радиации.
 
 	Шкала [color=#a4885c]радиации[/color] показывает текущее излучение реактора в диапазоне от [color=orange]0[/color] до [color=orange][protodata="NuclearReactorNormal" comp="NuclearReactor" member="MaximumRadiation"/][/color] рад.
 
