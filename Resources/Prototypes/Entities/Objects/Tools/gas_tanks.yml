@@ -87,6 +87,7 @@
   - type: Tag
     tags: 
       - OxygenTank
+  # ADT-tweak end
 
 - type: entity
   parent: GasTankRoundBase
