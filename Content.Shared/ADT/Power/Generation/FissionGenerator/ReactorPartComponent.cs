@@ -62,13 +62,13 @@ public sealed partial class ReactorPartComponent : Component
     /// The amount of a property consumed by a reaction on this part.
     /// </summary>
     [DataField]
-    public float ReactionReactant = 0.01f;
+    public float ReactionReactant = 0.015f;
 
     /// <summary>
     /// The amount of a property resultant from a reaction on this part.
     /// </summary>
     [DataField]
-    public float ReactionProduct = 0.005f;
+    public float ReactionProduct = 0.0075f;
 
     /// <summary>
     /// Multiplier for heating from neutron stimulated reactions on this part.
@@ -86,7 +86,7 @@ public sealed partial class ReactorPartComponent : Component
     /// Multiplier for how much reactant/product is consumed/produced in spontaneous reactions on this part.
     /// </summary>
     [DataField]
-    public float SpontaneousReactionConsumptionMultiplier = 1f;
+    public float SpontaneousReactionConsumptionMultiplier = 1.5f;
 
     /// <summary>
     /// Temperature (in C) when people's bare hands can be burnt by this part.
