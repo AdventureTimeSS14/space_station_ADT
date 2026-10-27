@@ -48,6 +48,7 @@ public sealed class PaintingQueueEui : BaseEui
             CanModerate = _moderation.CanModerate(Player),
             CanDelete = _moderation.CanDelete(Player),
             CanBan = _moderation.CanBan(Player),
+            CanSpawn = _moderation.CanSpawn(Player),
             ApprovedTotalBytes = _approvedBytes,
             ApprovedLimitBytes = _moderation.ApprovedLimitBytes,
             Status = _status,
@@ -101,6 +102,10 @@ public sealed class PaintingQueueEui : BaseEui
 
             case PaintingQueueEuiMsg.Unban unban:
                 RunAsync(_moderation.Unban(Player, unban.UserId));
+                break;
+
+            case PaintingQueueEuiMsg.Spawn spawn:
+                RunAsync(_moderation.SpawnPainting(Player, spawn.Painting));
                 break;
         }
     }
