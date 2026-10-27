@@ -554,7 +554,7 @@ public sealed class ADTCCVars
         CVarDef.Create("adt.canvas.enabled", true, CVar.SERVER | CVar.REPLICATED);
 
     public static readonly CVarDef<bool> CanvasWhitelist =
-        CVarDef.Create("adt.canvas.whitelist", false, CVar.SERVERONLY);
+        CVarDef.Create("adt.canvas.whitelist", true, CVar.SERVERONLY);
 
     public static readonly CVarDef<int> CanvasRulesAccepted =
         CVarDef.Create("adt.canvas.rules_accepted", 0, CVar.CLIENTONLY | CVar.ARCHIVE);
