@@ -243,9 +243,9 @@
   - type: ADTCrusherRageOnDetonate
     maxStacks: 3
     stackDecay: 5
-    rageDuration: 5
+    rageDuration: 10
     backstabExtension: 1
-    maxRageDuration: 8
+    maxRageDuration: 13
     leechMultiplier: 2
     rageEffect: ADTStatusEffectCrusherRage
     exhaustionEffect: ADTStatusEffectCrusherRageExhaustion
