@@ -3,6 +3,7 @@ using Content.Server.NPC.HTN;
 using Content.Shared.Chat;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Interaction;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC;
 using Content.Shared.NPC.Components;
@@ -89,6 +90,21 @@ public sealed class ADTNpcCombatMemorySystem : EntitySystem
             component.LastBlocked = _timing.CurTime;
             return;
         }
+
+        if (!component.AvoidObstacles)
+            return;
+
+        var target = args.Used.Comp.Target;
+
+        if (_interaction.InRangeUnobstructed(from, to, MathF.Sqrt(lengthSq) + 0.1f, component.ObstacleMask,
+                e => e == uid || e == target || HasComp<MobStateComponent>(e)))
+        {
+            return;
+        }
+
+        args.Cancel();
+        component.Blocked = true;
+        component.LastBlocked = _timing.CurTime;
     }
 
     private void OnDamageDealt(EntityUid uid, ADTNpcCombatMemoryComponent component, ref DamageDealtEvent args)

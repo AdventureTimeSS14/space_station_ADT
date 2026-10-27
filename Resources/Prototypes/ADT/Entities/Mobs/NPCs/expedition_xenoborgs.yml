@@ -4,6 +4,7 @@
   components:
     - type: ADTNpcBorg
     - type: ADTNpcCombatMemory
+      avoidObstacles: true
     - type: InputMover
     - type: MobMover
     - type: Prying
@@ -101,6 +102,10 @@
           4
         MaximumIdleTime: !type:Single
           10
+        ADTReachRange: !type:Single
+          1.3
+        ADTStalkRange: !type:Single
+          7
     - type: GhostRole
       name: ghost-role-information-adt-xenoborg-stealth-name
       description: ghost-role-information-adt-xenoborg-stealth-description
@@ -133,6 +138,8 @@
           4
         MaximumIdleTime: !type:Single
           10
+        ADTReachRange: !type:Single
+          1.3
     - type: GhostRole
       name: ghost-role-information-adt-xenoborg-engi-name
       description: ghost-role-information-adt-xenoborg-engi-description

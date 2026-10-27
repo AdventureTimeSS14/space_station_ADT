@@ -1,3 +1,4 @@
+using Content.Shared.Physics;
 using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.NPC;
@@ -19,6 +20,12 @@ public sealed partial class ADTNpcCombatMemoryComponent : Component
 
     [DataField]
     public float AllyClearance = 0.7f;
+
+    [DataField]
+    public bool AvoidObstacles;
+
+    [DataField]
+    public CollisionGroup ObstacleMask = CollisionGroup.Opaque;
 
     [ViewVariables]
     public bool Spoke;

@@ -9,6 +9,7 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Medical;
 using Content.Shared.Medical.Healing;
 using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.PowerCell;
 using Content.Shared.Stacks;
@@ -40,8 +41,11 @@ public sealed partial class ADTNpcGearSystem
 
     public float DamageFraction(EntityUid uid)
     {
-        if (!_thresholds.TryGetThresholdForState(uid, MobState.SoftCritical, out var amount) &&
-            !_thresholds.TryGetThresholdForState(uid, MobState.Critical, out amount))
+        if (!TryComp<MobThresholdsComponent>(uid, out var thresholds))
+            return 0f;
+
+        if (!_thresholds.TryGetThresholdForState(uid, MobState.SoftCritical, out var amount, thresholds) &&
+            !_thresholds.TryGetThresholdForState(uid, MobState.Critical, out amount, thresholds))
         {
             return 0f;
         }
@@ -194,7 +198,8 @@ public sealed partial class ADTNpcGearSystem
 
     public bool RevivableByZap(EntityUid patient, EntityUid defib)
     {
-        if (!_thresholds.TryGetThresholdForState(patient, MobState.Dead, out var threshold))
+        if (!TryComp<MobThresholdsComponent>(patient, out var thresholds) ||
+            !_thresholds.TryGetThresholdForState(patient, MobState.Dead, out var threshold, thresholds))
             return false;
 
         if (!TryComp<DefibrillatorComponent>(defib, out var defibComp) || PatientDamage(patient) is not { } damage)
