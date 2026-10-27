@@ -7,7 +7,7 @@ using static Content.Client.Stylesheets.StylesheetHelpers;
 namespace Content.Client.ADT.Stylesheets;
 
 /// <summary>
-/// Оранжевая раскраска кнопок (класс ButtonColorOrange), например Boosty в ESC-меню. Форма кнопки задаётся отдельно.
+/// Оранжевая раскраска кнопок
 /// </summary>
 [CommonSheetlet]
 public sealed class OrangeButtonSheetlet<T> : Sheetlet<T> where T : PalettedStylesheet
