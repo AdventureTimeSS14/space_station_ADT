@@ -27,10 +27,12 @@
   - CigPackBlack
   - CigarCase
   - CigarGold
+  # ADT-Tweak-Start
   - ADTClothingNeckLocketSteel
   - ADTClothingNeckHeartSteel
   - ADTClothingNeckLocketSilver
   - ADTClothingNeckHeartSilver
+  # ADT-Tweak-End
   #ADT-tweak-start
   # - ClothingNeckLGBTPin
   # - ClothingNeckAromanticPin
