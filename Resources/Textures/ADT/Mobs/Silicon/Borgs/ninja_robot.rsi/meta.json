@@ -1,0 +1,169 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "https://github.com/Bubberstation/Bubberstation/blob/HEAD/modular_skyrat/modules/borgs/icons/robots_ninja.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "ninja_sec",
+            "directions": 4
+        },
+        {
+            "name": "ninja_sec_e",
+            "directions": 4
+        },
+        {
+            "name": "ninja_sec_l",
+            "directions": 4
+        },
+        {
+            "name": "ninja_engi",
+            "directions": 4,
+            "delays": [
+                [
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "ninja_engi_e",
+            "directions": 4
+        },
+        {
+            "name": "ninja_engi_l",
+            "directions": 4
+        },
+        {
+            "name": "ninja_medical",
+            "directions": 4
+        },
+        {
+            "name": "ninja_medical_e",
+            "directions": 4,
+            "delays": [
+                [
+                    0.1,
+                    0.2,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.2,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.2,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.2,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "ninja_medical_l",
+            "directions": 4,
+            "delays": [
+                [
+                    0.1,
+                    0.2,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.2,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.2,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.2,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "ninjaheavy",
+            "directions": 4
+        },
+        {
+            "name": "ninjaheavy_e",
+            "directions": 4
+        },
+        {
+            "name": "ninjaheavy_l",
+            "directions": 4
+        },
+        {
+            "name": "ninjaspider",
+            "directions": 4
+        },
+        {
+            "name": "ninjaspider_e",
+            "directions": 4
+        },
+        {
+            "name": "ninjaspider_l",
+            "directions": 4
+        },
+        {
+            "name": "bootyninja",
+            "directions": 4
+        },
+        {
+            "name": "bootyninja_e",
+            "directions": 4
+        },
+        {
+            "name": "bootyninja_l",
+            "directions": 4
+        },
+        {
+            "name": "male_bootyninja",
+            "directions": 4
+        },
+        {
+            "name": "male_bootyninja_e",
+            "directions": 4
+        },
+        {
+            "name": "male_bootyninja_l",
+            "directions": 4
+        },
+        {
+            "name": "missm_ninja",
+            "directions": 4
+        },
+        {
+            "name": "missm_ninja_e",
+            "directions": 4
+        },
+        {
+            "name": "missm_ninja_l",
+            "directions": 4
+        }
+    ]
+}

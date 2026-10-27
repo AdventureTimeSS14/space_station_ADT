@@ -166,3 +166,187 @@
   - type: HideLayerClothing
     slots:
     - Hair
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHoodBase
+  abstract: true
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Heat: 0.95
+  - type: HideLayerClothing
+    slots:
+    - Hair
+
+- type: entity
+  parent: ADTClothingHeadHoodBase
+  id: ADTClothingHeadHoodDownjacket_black
+  name: jacket hood
+  description: A hood to keep your head warm.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/hoods/Downjacket/hooddownjacket_black.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/hoods/Downjacket/hooddownjacket_black.rsi
+- type: entity
+  parent: ADTClothingHeadHoodBase
+  id: ADTClothingHeadHoodDownjacket_blue
+  name: jacket hood
+  description: A hood to keep your head warm.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/hoods/Downjacket/hooddownjacket_blue.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/hoods/Downjacket/hooddownjacket_blue.rsi
+- type: entity
+  parent: ADTClothingHeadHoodBase
+  id: ADTClothingHeadHoodDownjacket_brown
+  name: jacket hood
+  description: A hood to keep your head warm.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/hoods/Downjacket/hooddownjacket_brown.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/hoods/Downjacket/hooddownjacket_brown.rsi
+- type: entity
+  parent: ADTClothingHeadHoodBase
+  id: ADTClothingHeadHoodDownjacket_green
+  name: jacket hood
+  description: A hood to keep your head warm.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/hoods/Downjacket/hooddownjacket_green.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/hoods/Downjacket/hooddownjacket_green.rsi
+- type: entity
+  parent: ADTClothingHeadHoodBase
+  id: ADTClothingHeadHoodDownjacket_merc
+  name: jacket hood
+  description: A hood to keep your head warm.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/hoods/Downjacket/hooddownjacket_merc.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/hoods/Downjacket/hooddownjacket_merc.rsi
+- type: entity
+  parent: ADTClothingHeadHoodBase
+  id: ADTClothingHeadHoodDownjacket_red
+  name: jacket hood
+  description: A hood to keep your head warm.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/hoods/Downjacket/hooddownjacket_red.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/hoods/Downjacket/hooddownjacket_red.rsi
+- type: entity
+  parent: ADTClothingHeadHoodBase
+  id: ADTClothingHeadHoodDownjacket_white
+  name: jacket hood
+  description: A hood to keep your head warm.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/hoods/Downjacket/hooddownjacket_white.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/hoods/Downjacket/hooddownjacket_white.rsi
+- type: entity
+  parent: ADTClothingHeadHoodBase
+  id: ADTClothingHeadHoodHoody_beige
+  name: hoody hood
+  description: A hood to keep your head warm.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_beige.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_beige.rsi
+- type: entity
+  parent: ADTClothingHeadHoodBase
+  id: ADTClothingHeadHoodHoody_black
+  name: hoody hood
+  description: A hood to keep your head warm.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_black.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_black.rsi
+- type: entity
+  parent: ADTClothingHeadHoodBase
+  id: ADTClothingHeadHoodHoody_blue
+  name: hoody hood
+  description: A hood to keep your head warm.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_blue.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_blue.rsi
+- type: entity
+  parent: ADTClothingHeadHoodBase
+  id: ADTClothingHeadHoodHoody_brown
+  name: hoody hood
+  description: A hood to keep your head warm.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_brown.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_brown.rsi
+- type: entity
+  parent: ADTClothingHeadHoodBase
+  id: ADTClothingHeadHoodHoody_darkblue
+  name: hoody hood
+  description: A hood to keep your head warm.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_darkblue.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_darkblue.rsi
+- type: entity
+  parent: ADTClothingHeadHoodBase
+  id: ADTClothingHeadHoodHoody_gray
+  name: hoody hood
+  description: A hood to keep your head warm.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_gray.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_gray.rsi
+- type: entity
+  parent: ADTClothingHeadHoodBase
+  id: ADTClothingHeadHoodHoody_green
+  name: hoody hood
+  description: A hood to keep your head warm.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_green.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_green.rsi
+- type: entity
+  parent: ADTClothingHeadHoodBase
+  id: ADTClothingHeadHoodHoody_purple
+  name: hoody hood
+  description: A hood to keep your head warm.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_purple.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_purple.rsi
+- type: entity
+  parent: ADTClothingHeadHoodBase
+  id: ADTClothingHeadHoodHoody_red
+  name: hoody hood
+  description: A hood to keep your head warm.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_red.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_red.rsi
+- type: entity
+  parent: ADTClothingHeadHoodBase
+  id: ADTClothingHeadHoodHoody_white
+  name: hoody hood
+  description: A hood to keep your head warm.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_white.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_white.rsi

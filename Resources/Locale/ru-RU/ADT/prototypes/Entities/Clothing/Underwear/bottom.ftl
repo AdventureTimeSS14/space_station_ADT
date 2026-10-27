@@ -104,3 +104,19 @@ ent-ADTClothingUnderwearBottomPantiesBlue = синие трусики
 
 ent-ADTClothingUnderwearBottomPantiesRed = красные трусики
     .desc = Стандартное белье NanoTrasen для работниц станции. Окрашены в красный цвет.
+
+ent-ADTClothingUnderwearBottomBoxersILoveArcan = трусы "Я люблю Аркан"
+    .desc = Удобные трусы с признанием в любви к арканам.
+
+ent-ADTClothingUnderwearBottomBoxersPink = розовые трусы
+    .desc = Стандартное белье NanoTrasen для работников станции. Окрашены в розовый цвет.
+
+ent-ADTClothingUnderwearBottomBoxersTSF = трусы "ТСФ"
+    .desc = Вы истинный патриот.
+
+ent-ADTClothingUnderwearBottomPantiesAmerica = трусики "США"
+    .desc = От них веет свободой...
+
+ent-ADTClothingUnderwearBottomPantiesPink = розовые трусики
+    .desc = Стандартное белье NanoTrasen для работников станции. Окрашены в розовый цвет.
+
