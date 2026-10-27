@@ -89,14 +89,6 @@
           operator: !type:MoveToOperator
             pathfindInPlanning: true
 
-    - tasks:
-        - !type:HTNPrimitiveTask
-          operator: !type:WaitOperator
-            key: ADTRechargeWait
-          preconditions:
-            - !type:KeyExistsPrecondition
-              key: ADTRechargeWait
-
 - type: htnCompound
   id: ADTXenoborgHeavyRepositionCompound
   branches:
