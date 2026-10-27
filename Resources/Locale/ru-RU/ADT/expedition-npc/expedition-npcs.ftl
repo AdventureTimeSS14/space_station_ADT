@@ -50,6 +50,32 @@ adt-names-soviet-surname-dataset-22 = Крылов
 adt-names-soviet-surname-dataset-23 = Савельев
 adt-names-soviet-surname-dataset-24 = Дроздов
 
+# Наборы имён: СССП, женские фамилии (24)
+adt-names-soviet-surname-female-dataset-1 = Иванова
+adt-names-soviet-surname-female-dataset-2 = Петрова
+adt-names-soviet-surname-female-dataset-3 = Сидорова
+adt-names-soviet-surname-female-dataset-4 = Кузнецова
+adt-names-soviet-surname-female-dataset-5 = Смирнова
+adt-names-soviet-surname-female-dataset-6 = Волкова
+adt-names-soviet-surname-female-dataset-7 = Морозова
+adt-names-soviet-surname-female-dataset-8 = Соколова
+adt-names-soviet-surname-female-dataset-9 = Лебедева
+adt-names-soviet-surname-female-dataset-10 = Козлова
+adt-names-soviet-surname-female-dataset-11 = Новикова
+adt-names-soviet-surname-female-dataset-12 = Орлова
+adt-names-soviet-surname-female-dataset-13 = Белова
+adt-names-soviet-surname-female-dataset-14 = Зайцева
+adt-names-soviet-surname-female-dataset-15 = Тарасова
+adt-names-soviet-surname-female-dataset-16 = Фролова
+adt-names-soviet-surname-female-dataset-17 = Гусева
+adt-names-soviet-surname-female-dataset-18 = Беляева
+adt-names-soviet-surname-female-dataset-19 = Комарова
+adt-names-soviet-surname-female-dataset-20 = Власова
+adt-names-soviet-surname-female-dataset-21 = Щербакова
+adt-names-soviet-surname-female-dataset-22 = Крылова
+adt-names-soviet-surname-female-dataset-23 = Савельева
+adt-names-soviet-surname-female-dataset-24 = Дроздова
+
 # Наборы имён: контрабандисты/пираты, прозвища (20)
 adt-names-smuggler-nickname-dataset-1 = Крюк
 adt-names-smuggler-nickname-dataset-2 = Шрам
@@ -137,3 +163,20 @@ adt-expedition-npc-radio-moving-2 = Иду на помощь!
 adt-expedition-npc-radio-moving-3 = Понял, выдвигаюсь.
 adt-expedition-npc-radio-moving-4 = Держись, иду!
 adt-expedition-npc-radio-moving-5 = Принял, иду к тебе.
+
+# Переговоры ксеноборгов
+adt-xenoborg-radio-contact-1 = Органика обнаружена. Сообщаю координаты.
+adt-xenoborg-radio-contact-2 = Контакт. Начинаю зачистку.
+adt-xenoborg-radio-contact-3 = Цель захвачена. Всем единицам: сближение.
+adt-xenoborg-radio-contact-4 = Обнаружен носитель мозга. Приступаю.
+adt-xenoborg-radio-contact-5 = Враждебная органика в секторе. Атакую.
+adt-xenoborg-radio-help-1 = Повреждения критические. Требуется ремонт.
+adt-xenoborg-radio-help-2 = Целостность корпуса нарушена. Отступаю к инженеру.
+adt-xenoborg-radio-help-3 = Нужна поддержка. Огонь по моей позиции.
+adt-xenoborg-radio-help-4 = Системы отказывают. Запрашиваю помощь.
+adt-xenoborg-radio-help-5 = Получены тяжёлые повреждения. Подкрепление сюда.
+adt-xenoborg-radio-moving-1 = Принято. Выдвигаюсь.
+adt-xenoborg-radio-moving-2 = Сигнал получен. Иду на соединение.
+adt-xenoborg-radio-moving-3 = Маршрут построен. Прибуду скоро.
+adt-xenoborg-radio-moving-4 = Подтверждаю. Направляюсь к точке контакта.
+adt-xenoborg-radio-moving-5 = Иду на помощь. Держите позицию.

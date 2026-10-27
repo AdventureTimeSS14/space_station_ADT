@@ -500,4 +500,15 @@ public enum LogType
     /// Silicon law changes.
     /// </summary>
     SiliconLaw = 107,
+
+    // ADT-Tweak-Start
+    CanvasSessionStart = 1100,
+    CanvasJoin = 1101,
+    CanvasKick = 1102,
+    CanvasSubmit = 1103,
+    CanvasModeration = 1104,
+    CanvasDrawingBan = 1105,
+    CanvasReport = 1106,
+    CanvasWhitelist = 1107,
+    // ADT-Tweak-End
 }
