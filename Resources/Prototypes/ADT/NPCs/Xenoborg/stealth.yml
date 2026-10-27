@@ -1,0 +1,80 @@
+- type: htnCompound
+  id: ADTXenoborgStealthCompound
+  branches:
+    - preconditions:
+        - !type:ADTHealthPrecondition
+          below: 0.5
+      tasks:
+        - !type:HTNCompoundTask
+          task: ADTXenoborgRepairRetreatCompound
+
+    - preconditions:
+        - !type:ADTHostileNearPrecondition
+          range: 15
+        - !type:ADTHasComponentPrecondition
+          components:
+            - type: Stealth
+          invert: true
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTSelectBorgItemOperator
+            activate: true
+            items:
+              - CloakingDevice
+              - SuperCloakingDevice
+
+    - preconditions:
+        - !type:ADTHostileNearPrecondition
+          range: 15
+        - !type:ADTBorgItemActivePrecondition
+          invert: true
+          items:
+            - NocturineHypo
+        - !type:ADTBorgItemSolutionPrecondition
+          solution: hypospray
+          items:
+            - NocturineHypo
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTSelectBorgItemOperator
+            items:
+              - NocturineHypo
+
+    - preconditions:
+        - !type:ADTHostileNearPrecondition
+          range: 15
+        - !type:ADTBorgItemSolutionPrecondition
+          solution: hypospray
+          items:
+            - NocturineHypo
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:UtilityOperator
+            proto: ADTXenoborgSleepTargets
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTRadioCallOperator
+            call: Contact
+            lineSet: ADTXenoborgRadioContact
+            channel: Xenoborg
+            cooldown: 60
+            groupCooldown: 30
+            groupRange: 30
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            shutdownState: PlanFinished
+            pathfindInPlanning: true
+            removeKeyOnFinish: false
+            targetKey: TargetCoordinates
+            pathfindKey: TargetPathfind
+            rangeKey: InteractRange
+        - !type:HTNPrimitiveTask
+          preconditions:
+            - !type:TargetInRangePrecondition
+              targetKey: Target
+              rangeKey: InteractRange
+          operator: !type:InteractWithOperator
+            targetKey: Target
+
+    - tasks:
+        - !type:HTNCompoundTask
+          task: ADTXenoborgIdleCompound

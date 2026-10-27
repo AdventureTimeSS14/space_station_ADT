@@ -82,6 +82,7 @@ namespace Content.Client.Entry
         [Dependency] private readonly SponsorsManager _sponsorsManager = default!; // Corvax-Sponsors
         [Dependency] private readonly Content.Client.ADT.Sponsors.SponsorManager _adtSponsorManager = default!; // ADT-Tweak
         [Dependency] private readonly Content.Client.ADT.StateDiagnostics.StateDiagnosticsManager _stateDiagnostics = default!; // ADT-Tweak
+        [Dependency] private readonly Content.Client.ADT.Drawing.Sync.CanvasNetManager _canvasNet = default!; // ADT-Tweak
         [Dependency] private readonly JoinQueueManager _queueManager = default!; // Corvax-Queue
         [Dependency] private readonly QueueGamesManager _queueGamesManager = default!; // ADT-Tweak: queue games
         [Dependency] private readonly DiscordAuthManager _discordAuthManager = default!; // Corvax-DiscordAuth
@@ -196,6 +197,7 @@ namespace Content.Client.Entry
             _sponsorsManager.Initialize(); // Corvax-Sponsors
             _adtSponsorManager.Initialize(); // ADT-Tweak
             _stateDiagnostics.Initialize(); // ADT-Tweak
+            _canvasNet.Initialize(); // ADT-Tweak
             _queueManager.Initialize(); // Corvax-Queue
             _queueGamesManager.Initialize(); // ADT-Tweak: queue games
             _discordAuthManager.Initialize(); // Corvax-DiscordAuth

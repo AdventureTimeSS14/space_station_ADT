@@ -19,6 +19,7 @@ public sealed partial class ServerDbPostgres
     [
         BanManager.BanNotificationChannel,
         MultiServerKickManager.NotificationChannel,
+        Content.Server.ADT.Drawing.PaintingModerationSystem.NotificationChannel, // ADT-Tweak
     ];
 
     private static readonly TimeSpan ReconnectWaitIncrease = TimeSpan.FromSeconds(10);
