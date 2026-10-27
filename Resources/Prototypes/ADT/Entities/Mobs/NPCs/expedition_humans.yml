@@ -298,6 +298,7 @@
     - type: RandomHumanoidAppearance
       nameSegments: []
       femaleNameSegments: []
+      sex: Male
     - type: GhostRole
       name: ghost-role-information-adt-ussp-ostapenko-name
       description: ghost-role-information-adt-ussp-ostapenko-description
@@ -342,6 +343,7 @@
     - type: RandomHumanoidAppearance
       nameSegments: []
       femaleNameSegments: []
+      sex: Male
     - type: GhostRole
       name: ghost-role-information-adt-ussp-zaitsev-name
       description: ghost-role-information-adt-ussp-zaitsev-description
@@ -356,6 +358,7 @@
     - type: RandomHumanoidAppearance
       nameSegments: []
       femaleNameSegments: []
+      sex: Male
     - type: GhostRole
       name: ghost-role-information-adt-ussp-gavrilov-name
       description: ghost-role-information-adt-ussp-gavrilov-description
@@ -392,6 +395,7 @@
     - type: RandomHumanoidAppearance
       nameSegments: []
       femaleNameSegments: []
+      sex: Male
     - type: GhostRole
       name: ghost-role-information-adt-ussp-kovalchuk-name
       description: ghost-role-information-adt-ussp-kovalchuk-description
@@ -406,6 +410,7 @@
     - type: RandomHumanoidAppearance
       nameSegments: []
       femaleNameSegments: []
+      sex: Male
     - type: GhostRole
       name: ghost-role-information-adt-ussp-mamedov-name
       description: ghost-role-information-adt-ussp-mamedov-description
@@ -420,6 +425,7 @@
     - type: RandomHumanoidAppearance
       nameSegments: []
       femaleNameSegments: []
+      sex: Male
     - type: GhostRole
       name: ghost-role-information-adt-ussp-somov-name
       description: ghost-role-information-adt-ussp-somov-description
@@ -434,6 +440,7 @@
     - type: RandomHumanoidAppearance
       nameSegments: []
       femaleNameSegments: []
+      sex: Male
     - type: GhostRole
       name: ghost-role-information-adt-ussp-galiev-name
       description: ghost-role-information-adt-ussp-galiev-description
@@ -448,6 +455,7 @@
     - type: RandomHumanoidAppearance
       nameSegments: []
       femaleNameSegments: []
+      sex: Male
     - type: GhostRole
       name: ghost-role-information-adt-ussp-kvyatkovsky-name
       description: ghost-role-information-adt-ussp-kvyatkovsky-description
@@ -462,6 +470,7 @@
     - type: RandomHumanoidAppearance
       nameSegments: []
       femaleNameSegments: []
+      sex: Male
     - type: GhostRole
       name: ghost-role-information-adt-ussp-tikhonov-name
       description: ghost-role-information-adt-ussp-tikhonov-description
@@ -476,6 +485,7 @@
     - type: RandomHumanoidAppearance
       nameSegments: []
       femaleNameSegments: []
+      sex: Male
     - type: GhostRole
       name: ghost-role-information-adt-ussp-li-wei-name
       description: ghost-role-information-adt-ussp-li-wei-description
@@ -490,6 +500,7 @@
     - type: RandomHumanoidAppearance
       nameSegments: []
       femaleNameSegments: []
+      sex: Male
     - type: GhostRole
       name: ghost-role-information-adt-ussp-belov-name
       description: ghost-role-information-adt-ussp-belov-description
