@@ -36,7 +36,7 @@ public abstract partial class SharedTrayScannerSystem : EntitySystem
         SubscribeLocalEvent<TrayScannerComponent, GotEquippedEvent>(OnTrayEquipped);
         SubscribeLocalEvent<TrayScannerComponent, GotUnequippedEvent>(OnTrayUnequipped);
         SubscribeLocalEvent<TrayScannerUserComponent, GetVisMaskEvent>(OnUserGetVis);
-        // ADT-Tweak-Start: МОДули выдают компонент уже надетой вещи, события надевания при этом нет
+        // ADT-Tweak-Start
         SubscribeLocalEvent<TrayScannerComponent, ComponentStartup>(OnTrayStartup);
         SubscribeLocalEvent<TrayScannerComponent, ComponentShutdown>(OnTrayShutdown);
         // ADT-Tweak-End
@@ -124,10 +124,6 @@ public abstract partial class SharedTrayScannerSystem : EntitySystem
     }
 
     // ADT-Tweak-Start
-    /// <summary>
-    /// Счётчик носителя ведётся вручную по событиям надевания, поэтому компонент,
-    /// выданный или снятый на уже надетой вещи, нужно учесть отдельно.
-    /// </summary>
     private void OnTrayStartup(Entity<TrayScannerComponent> ent, ref ComponentStartup args)
     {
         if (TryGetWearer(ent, out var user))

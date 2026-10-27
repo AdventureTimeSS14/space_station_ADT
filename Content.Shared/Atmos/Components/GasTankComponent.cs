@@ -49,8 +49,7 @@ public sealed partial class GasTankComponent : GasMaxPressureHolderComponent
     [ViewVariables]
     public bool CheckUser;
 
-    // ADT-Tweak-Start: встроенные баллоны (например в МОДе) не могут подключаться
-    // к маске
+    // ADT-Tweak-Start
     [DataField, AutoNetworkedField]
     public bool UserToggleable = true;
     // ADT-Tweak-End

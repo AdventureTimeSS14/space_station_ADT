@@ -7,10 +7,6 @@ using Robust.Shared.Containers;
 
 namespace Content.Server.ADT.Modsuit;
 
-/// <summary>
-/// МОД герметичен только целиком. Пока развёрнуты не все части, защита от давления
-/// у шлема и нагрудника обнуляется на лету — компоненты при этом не выдаются и не снимаются.
-/// </summary>
 public sealed class ModSuitPressureSealSystem : EntitySystem
 {
     [Dependency] private readonly BarotraumaSystem _barotrauma = default!;

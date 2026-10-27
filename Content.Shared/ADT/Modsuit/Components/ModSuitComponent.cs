@@ -163,15 +163,9 @@ public sealed partial class ModSuitComponent : Component
     [AutoNetworkedField]
     public EntityUid? TempUser = null;
 
-    /// <summary>
-    /// Пауза между частями при развёртывании костюма целиком.
-    /// </summary>
     [DataField]
     public TimeSpan SequenceDelay = TimeSpan.FromSeconds(0.25);
 
-    /// <summary>
-    /// Очередь частей на переключение. Живёт только на сервере.
-    /// </summary>
     [ViewVariables]
     public List<EntityUid> PendingSequence = new();
 

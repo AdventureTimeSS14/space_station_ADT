@@ -30,7 +30,7 @@ namespace Content.Server.Atmos.EntitySystems
         {
             SubscribeLocalEvent<PressureProtectionComponent, GotEquippedEvent>(OnPressureProtectionEquipped);
             SubscribeLocalEvent<PressureProtectionComponent, GotUnequippedEvent>(OnPressureProtectionUnequipped);
-            // ADT-Tweak-Start: компонент висит на одежде, а кэш сопротивления лежит на носителе
+            // ADT-Tweak-Start
             SubscribeLocalEvent<PressureProtectionComponent, ComponentStartup>(OnPressureProtectionChanged);
             SubscribeLocalEvent<PressureProtectionComponent, ComponentRemove>(OnPressureProtectionChanged);
             // ADT-Tweak-End
@@ -43,10 +43,6 @@ namespace Content.Server.Atmos.EntitySystems
         }
 
         // ADT-Tweak-Start
-        /// <summary>
-        /// Компонент может появиться или исчезнуть на уже надетой вещи. Пересчитываем кэш
-        /// носителя, а не самой вещи — <see cref="BarotraumaComponent"/> лежит на мобе.
-        /// </summary>
         private void OnPressureProtectionChanged(EntityUid uid, PressureProtectionComponent pressureProtection, EntityEventArgs args)
         {
             var protectionTarget = uid;
@@ -71,10 +67,6 @@ namespace Content.Server.Atmos.EntitySystems
         // ADT-Tweak-End
 
         // ADT-Tweak-Start
-        /// <summary>
-        /// Пересчитать кэш сопротивления носителя. Нужно тем, кто меняет защиту
-        /// не через надевание — например МОД при развёртывании частей.
-        /// </summary>
         public void RefreshPressureResistance(EntityUid uid)
         {
             if (TryComp<BarotraumaComponent>(uid, out var barotrauma))
