@@ -51,7 +51,7 @@ public abstract partial class SharedSolutionContainerSystem
 
         if (container.Comp.Solutions == null)
         {
-            RemCompDeferred<SolutionManagerComponent>(container);
+            RemCompDeferred<SolutionContainerManagerComponent>(container); // ADT-Tweak
             return;
         }
 
@@ -74,6 +74,6 @@ public abstract partial class SharedSolutionContainerSystem
 
         // Clear its data
         container.Comp.Solutions = null;
-        RemCompDeferred<SolutionManagerComponent>(container);
+        RemCompDeferred<SolutionContainerManagerComponent>(container); // ADT-Tweak
     }
 }
