@@ -126,6 +126,9 @@
     sprite: ADT/Clothing/Neck/armband.rsi
   - type: StaticPrice
     price: 10
+  - type: Construction
+    graph: ADTClothingNeckArmband
+    node: armband
 
 - type: entity
   parent: ClothingNeckBase
@@ -139,6 +142,9 @@
     sprite: ADT/Clothing/Neck/armband_med.rsi
   - type: StaticPrice
     price: 15
+  - type: Construction
+    graph: ADTClothingNeckArmbandMed
+    node: armbandMed
 
 - type: entity
   parent: ClothingNeckBase
