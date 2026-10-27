@@ -701,8 +701,3 @@
     - name: Attached
       label: surgery-node-limb-attached-label
       edges: []
-
-- type: entity
-  parent: MobHuman
-  id: SurgeryLimbReattachmentTestDummy
-  name: limb reattachment surgery dummy

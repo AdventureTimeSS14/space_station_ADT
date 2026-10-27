@@ -336,8 +336,3 @@
                     types:
                       Heat: 1
                 - !type:CauterizeEffect
-
-- type: entity
-  parent: MobHuman
-  id: SurgeryChestTestDummy
-  name: chest surgery dummy
