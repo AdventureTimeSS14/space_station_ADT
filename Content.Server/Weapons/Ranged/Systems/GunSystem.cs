@@ -22,6 +22,8 @@ using Content.Server.Body.Systems;
 using Content.Shared.Mech.Components;
 using Content.Shared.PowerCell;
 using Content.Shared._RMC14.Weapons.Ranged.Flamer; // ADT-Tweak
+using Content.Server._Mono.FireControl; // ADT-Tweak
+using Content.Shared._Mono.Weapons.Ranged.Components; // ADT-Tweak
 
 namespace Content.Server.Weapons.Ranged.Systems;
 
@@ -150,6 +152,11 @@ public sealed partial class GunSystem : SharedGunSystem
                     if (ent == null)
                         break;
 
+                    // ADT-Tweak-Start: Mono gun damage modifier
+                    if (TryComp<HitscanBasicDamageComponent>(ent, out var hitscanDamage) && !MathHelper.CloseTo(gun.Comp.DamageModifier, 1f))
+                        hitscanDamage.Damage *= gun.Comp.DamageModifier;
+                    // ADT-Tweak-End
+
                     var hitscanEv = new HitscanTraceEvent
                     {
                         FromCoordinates = fromCoordinates,
@@ -235,7 +242,7 @@ public sealed partial class GunSystem : SharedGunSystem
         }
 
         // Do a throw
-        if (!HasComp<ProjectileComponent>(uid))
+        if (!TryComp<ProjectileComponent>(uid, out var projectile)) // ADT-Tweak: HasComp > TryComp
         {
             RemoveShootable(uid);
             // TODO: Someone can probably yeet this a billion miles so need to pre-validate input somewhere up the call stack.
@@ -246,6 +253,13 @@ public sealed partial class GunSystem : SharedGunSystem
         // ADT-Tweak-Start
         if (mapDirection.LengthSquared() > 0f)
             TransformSystem.SetWorldPosition(uid, TransformSystem.GetWorldPosition(uid) + mapDirection.Normalized() * 0.35f);
+        // ADT-Tweak-End
+        // ADT-Tweak-Start: Mono gun damage modifier and ship gun shots passing through their own grid
+        if (!MathHelper.CloseTo(gun.Comp.DamageModifier, 1f))
+            projectile.Damage *= gun.Comp.DamageModifier;
+
+        if (HasComp<FireControllableComponent>(gun))
+            EnsureComp<ProjectileGridPhaseComponent>(uid);
         // ADT-Tweak-End
         ShootProjectile(uid, mapDirection, gunVelocity, gun, user, gun.Comp.ProjectileSpeedModified);
     }

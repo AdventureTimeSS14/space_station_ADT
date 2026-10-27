@@ -1,0 +1,154 @@
+- type: entity
+  id: Magazine20mm
+  name: "14x97mm solid ammo loader"
+  description: "An ammunition loader containing infinite 14x97mm solid rounds. Usable by vessel-mounted artillery pieces."
+  parent: BaseItem
+  components:
+  - type: Tag
+    tags:
+    - Magazine20mm
+  - type: Item
+    size: Small
+  - type: BallisticAmmoProvider
+    infiniteUnspawned: true
+    proto: 20mmCartridge
+    capacity: 1 # normally should hold 1250
+    mayTransfer: true
+    whitelist:
+      tags:
+      - 20mmCartridge
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Boxes/generic_shipgun_box.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: false
+  - type: Appearance
+  - type: StaticPrice
+    price: 1
+
+- type: entity
+  id: 20mmCartridge
+  name: cartridge (14x97mm Solid)
+  parent: BaseCartridge
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - 20mmCartridge
+  - type: CartridgeAmmo
+    deleteOnSpawn: true
+    proto: 20mmBullet
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/generic_cartridges.rsi
+    layers:
+    - state: 20mm
+      map: ["enum.AmmoVisualLayers.Base"]
+    - state: 20mm
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 250
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:ExplodeBehavior
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 100
+    intensitySlope: 3
+    totalIntensity: 0.25
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: Inorganic
+
+- type: entity
+  id: Magazine20mmAS
+  name: "14x97mm AS ammo loader"
+  description: "An ammunition loader containing 1250 14x97mm anti-shield rounds. Usable by vessel-mounted artillery pieces."
+  parent: BaseItem
+  components:
+  - type: Tag
+    tags:
+    - Magazine20mm
+  - type: Item
+    size: Small
+  - type: BallisticAmmoProvider
+    infiniteUnspawned: false
+    proto: 20mmCartridgeAS
+    capacity: 1250
+    mayTransfer: true
+    whitelist:
+      tags:
+      - 20mmCartridge
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Boxes/generic_shipgun_box.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: false
+  - type: Appearance
+  - type: StaticPrice
+    price: 1
+
+- type: entity
+  id: 20mmCartridgeAS
+  name: cartridge (14x97mm AS)
+  parent: BaseCartridge
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - 20mmCartridge
+  - type: CartridgeAmmo
+    deleteOnSpawn: true
+    proto: 20mmBulletAS
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/generic_cartridges.rsi
+    layers:
+    - state: 20mm
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:ExplodeBehavior
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 100
+    intensitySlope: 3
+    totalIntensity: 0.25
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: Inorganic

@@ -1,0 +1,416 @@
+# Base
+
+- type: entity
+  id: BallisticArtilleryBase
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Damageable
+    damageModifierSet: WallDefense2
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  - type: Sprite
+    drawdepth: OverMobs # Don't question me!
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 800
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Climbable
+  - type: Transform
+    anchored: true
+  - type: Rotatable
+    rotateWhilePulling: false
+    rotateWhileAnchored: false
+    increment: 90
+  - type: DeviceLinkSink
+    ports:
+    - SpaceArtilleryFire
+  - type: SpaceArtillery
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 100
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: FireControllable
+  - type: RadarBlip
+    visibleFromOtherGrids: true
+    radarColor: "#9999FF"
+    scale: 1
+    gridConfig:
+      color: "#9999FF"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-1,-1,1,1"
+  - type: ShipGunType
+    shipType: Kinetic
+  - type: ShipGunClass
+    shipClass: Medium
+  - type: LightningTarget
+    priority: 1
+  - type: Gun
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+  - type: ExaminableDamage
+    messages: WindowMessages
+  - type: Repairable
+  - type: GravityAffected # gravrefactor
+
+- type: entity
+  id: BallisticArtilleryUnanchorable
+  parent: BallisticArtilleryBase
+  abstract: true
+  components:
+  - type: RequiresGrid
+
+- type: entity
+  id: BallisticArtillery
+  parent: BallisticArtilleryBase
+  abstract: true
+  components:
+  - type: Anchorable
+    delay: 30
+  - type: Pullable
+
+- type: entity
+  id: BallisticArtilleryBaseCartridge
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Damageable
+    damageModifierSet: StructuralMetallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 800
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Climbable
+  - type: Transform
+    anchored: true
+  - type: DeviceLinkSink
+    ports:
+    - SpaceArtilleryFire
+  - type: SpaceArtillery
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: FireControllable
+  - type: RadarBlip
+    visibleFromOtherGrids: false
+    radarColor: "#9999FF"
+    scale: 1
+    gridConfig:
+      color: "#9999FF"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-1,-1,1,1"
+  - type: Gun
+    fireRate: 3
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
+  - type: ShipGunType
+    shipType: Kinetic
+  - type: ShipGunClass
+    shipClass: Medium
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - Grenade
+    capacity: 2
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+  - type: ExaminableDamage
+    messages: WindowMessages
+  - type: Repairable
+
+- type: entity
+  id: BallisticArtilleryCartridge
+  parent: BallisticArtilleryBaseCartridge
+  abstract: true
+  components:
+  - type: Anchorable
+    delay: 10
+  - type: Rotatable
+    rotateWhilePulling: false
+    rotateWhileAnchored: false
+    increment: 90
+  - type: Pullable
+
+- type: entity
+  id: BallisticArtilleryUnanchorableCartridge
+  parent: BallisticArtilleryBaseCartridge
+  abstract: true
+  components:
+  - type: RequiresGrid
+
+- type: entity
+  id: BallisticArtilleryBaseMagazine
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Damageable
+    damageModifierSet: StructuralMetallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  - type: Destructible
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 800
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Climbable
+  - type: Transform
+    anchored: true
+  - type: DeviceLinkSink
+    ports:
+    - SpaceArtilleryFire
+  - type: SpaceArtillery
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+  - type: FireControllable
+  - type: RadarBlip
+    visibleFromOtherGrids: false
+    radarColor: "#9999FF"
+    scale: 1
+    gridConfig:
+      color: "#9999FF"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-1,-1,1,1"
+  - type: Gun
+    fireRate: 3
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
+  - type: ShipGunType
+    shipType: Kinetic
+  - type: ShipGunClass
+    shipClass: Medium
+  - type: MagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        priority: 2
+        whitelist:
+          tags:
+          - Magazine40mm
+        insertSound:
+          path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
+          params:
+            pitch: 2
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+  - type: ExaminableDamage
+    messages: WindowMessages
+  - type: Repairable
+  - type: GravityAffected # LuaM 
+
+- type: entity
+  id: BallisticArtilleryMagazine
+  parent: BallisticArtilleryBaseMagazine
+  abstract: true
+  components:
+  - type: Anchorable
+    delay: 10
+  - type: Rotatable
+    rotateWhilePulling: false
+    rotateWhileAnchored: false
+    increment: 90
+  - type: Pullable
+
+- type: entity
+  id: BallisticArtilleryUnanchorableMagazine
+  parent: BallisticArtilleryBaseMagazine
+  abstract: true
+  components:
+  - type: RequiresGrid
+
+# Durabilities - You can vary from this, this is just the main standard. Size of the gun is often used when deciding durability. More size, more likely to get hit.
+
+- type: entity
+  id: BallisticArtilleryTier1HP # Basic weapons, e.g PD. Reinforced wall level.
+  suffix: T1
+  abstract: true
+  components:
+  - type: Damageable
+    damageModifierSet: WallDefense1
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 4000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 3500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+
+- type: entity
+  id: BallisticArtilleryTier2HP # Normal weapons, slightly stronger than plastitanium. This is the baseline durability for your average sized anchorable weapon.
+  abstract: true
+  suffix: T2
+  components:
+  - type: Damageable
+    damageModifierSet: WallDefense2
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+
+- type: entity
+  id: BallisticArtilleryTier3HP # Medium weapons. Reinforced plastitanium level. Typical for medium-class weapons. In-between heavy artillery and standard anchorables.
+  abstract: true
+  suffix: T3
+  components:
+  - type: Damageable
+    damageModifierSet: WallDefense2
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 7500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+
+- type: entity
+  id: BallisticArtilleryTier4HP # Capital Weapons. Cyrexas, main cannons. Anything really big.
+  abstract: true
+  suffix: T4
+  components:
+  - type: Damageable
+    damageModifierSet: WallDefense3
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 15000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 10000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+
+- type: entity
+  id: BallisticArtilleryTier5HP # Supercapital class armament, station outpost weaponry and capital pre-fracture weaponry, around 4x Reinforced Plastitanium Health.
+  abstract: true
+  suffix: T5
+  components:
+  - type: Damageable
+    damageModifierSet: WallDefense3
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 20000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 15000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak

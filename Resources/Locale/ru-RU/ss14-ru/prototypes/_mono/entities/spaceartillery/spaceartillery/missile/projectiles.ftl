@@ -1,0 +1,16 @@
+ent-ShipMissileBase = { ent-BaseBulletTrigger }
+    .desc = { ent-BaseBulletTrigger.desc }
+ent-MissileProjectile50mmHE = ASM-50 50mm Mini Missile
+    .desc = { ent-ShipMissileBase.desc }
+ent-ShipMissileASM150 = ASM-150 150mm missile
+    .desc = { ent-ShipMissileBase.desc }
+ent-ShipMissileASM150Unguided = ASM-150 150mm missile
+    .desc = { ent-ShipMissileASM150.desc }
+ent-ShipMissileASM250HEAT = 250mm HEAT missile
+    .desc = { ent-ShipMissileBase.desc }
+ent-ShipMissileASM250HV = 250mm HV missile
+    .desc = { ent-ShipMissileBase.desc }
+ent-ShipMissileASM250 = ASM-250 Hybrid EMP Missile
+    .desc = { ent-ShipMissileBase.desc }
+ent-ShipMissileSerpent = торпеда «Серпент»
+ent-ShipMissileEntropy = электронная торпеда
