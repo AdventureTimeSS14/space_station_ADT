@@ -2,6 +2,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN.PrimitiveTasks;
+using Content.Server.NPC.Pathfinding;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
 
@@ -13,6 +14,7 @@ public sealed partial class ADTPickPatrolPointOperator : HTNOperator
     [Dependency] private IRobustRandom _random = default!;
 
     private SharedTransformSystem _transform = default!;
+    private PathfindingSystem _pathfinding = default!;
 
     [DataField]
     public float Radius = 5f;
@@ -21,18 +23,25 @@ public sealed partial class ADTPickPatrolPointOperator : HTNOperator
     public float MinDistance = 1.5f;
 
     [DataField]
+    public int Attempts = 4;
+
+    [DataField]
     public string HomeKey = "ADTPatrolHome";
 
     [DataField]
     public string TargetKey = "ADTPatrolCoordinates";
 
+    [DataField]
+    public string PathfindKey = "ADTPatrolPathfind";
+
     public override void Initialize(IEntitySystemManager sysManager)
     {
         base.Initialize(sysManager);
         _transform = sysManager.GetEntitySystem<SharedTransformSystem>();
+        _pathfinding = sysManager.GetEntitySystem<PathfindingSystem>();
     }
 
-    public override Task<(bool Valid, Dictionary<string, object>? Effects)> Plan(NPCBlackboard blackboard,
+    public override async Task<(bool Valid, Dictionary<string, object>? Effects)> Plan(NPCBlackboard blackboard,
         CancellationToken cancelToken)
     {
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
@@ -44,17 +53,28 @@ public sealed partial class ADTPickPatrolPointOperator : HTNOperator
             home = current;
         }
 
-        EntityCoordinates target;
+        var returning = (current.Position - home.Position).Length() > Radius;
+        var flags = _pathfinding.GetFlags(blackboard);
 
-        if ((current.Position - home.Position).Length() > Radius)
-            target = home;
-        else
-            target = new EntityCoordinates(home.EntityId, home.Position + _random.NextVector2(MinDistance, Radius));
-
-        return Task.FromResult<(bool Valid, Dictionary<string, object>? Effects)>((true, new Dictionary<string, object>
+        for (var i = 0; i < Attempts; i++)
         {
-            { HomeKey, home },
-            { TargetKey, target },
-        }));
+            var target = returning
+                ? home
+                : new EntityCoordinates(home.EntityId, home.Position + _random.NextVector2(MinDistance, Radius));
+
+            var path = await _pathfinding.GetPath(owner, current, target, 0.5f, cancelToken, flags);
+
+            if (path.Result != PathResult.Path)
+                continue;
+
+            return (true, new Dictionary<string, object>
+            {
+                { HomeKey, home },
+                { TargetKey, target },
+                { PathfindKey, path },
+            });
+        }
+
+        return (false, null);
     }
 }

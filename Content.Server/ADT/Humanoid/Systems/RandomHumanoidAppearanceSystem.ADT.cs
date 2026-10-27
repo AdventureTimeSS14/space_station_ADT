@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Server.ADT.NPC;
 using Content.Server.Humanoid.Components;
 using Content.Server.RandomMetadata;
 using Content.Shared.ADT.Language;
@@ -18,7 +17,6 @@ public sealed partial class RandomHumanoidAppearanceSystem
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private RandomMetadataSystem _randomMetadata = default!;
     [Dependency] private SharedLanguageSystem _language = default!;
-    [Dependency] private ADTNpcRosterSystem _roster = default!;
 
     private static bool IsFemale(HumanoidCharacterProfile profile)
     {
@@ -30,21 +28,14 @@ public sealed partial class RandomHumanoidAppearanceSystem
         return IsFemale(profile) && female.Count > 0 ? female : male;
     }
 
-    private HumanoidCharacterProfile ApplyADTRestrictions(EntityUid uid, RandomHumanoidAppearanceComponent component, HumanoidCharacterProfile profile)
+    private HumanoidCharacterProfile ApplyADTRestrictions(RandomHumanoidAppearanceComponent component, HumanoidCharacterProfile profile)
     {
-        component.RosterName = null;
-
-        if (component.Roster is { } roster && _roster.Take(roster, MetaData(uid).EntityPrototype?.ID) is { } entry)
+        if (component.Sex is { } sex && profile.Sex != sex)
         {
-            component.RosterName = Loc.GetString(entry.Name);
-
-            if (profile.Sex != entry.Sex)
-            {
-                profile = HumanoidCharacterProfile.Random(
-                    HumanoidCharacterProfile.RandomizeConfigAll &
-                    ~(HumanoidCharacterProfile.RandomizeCfg.Species | HumanoidCharacterProfile.RandomizeCfg.Sex),
-                    new HumanoidCharacterProfile().WithSpecies(profile.Species).WithSex(entry.Sex));
-            }
+            profile = HumanoidCharacterProfile.Random(
+                HumanoidCharacterProfile.RandomizeConfigAll &
+                ~(HumanoidCharacterProfile.RandomizeCfg.Species | HumanoidCharacterProfile.RandomizeCfg.Sex),
+                new HumanoidCharacterProfile().WithSpecies(profile.Species).WithSex(sex));
         }
 
         var voices = ForSex(profile, component.Voices, component.FemaleVoices);
@@ -110,26 +101,14 @@ public sealed partial class RandomHumanoidAppearanceSystem
     {
         var segments = ForSex(profile, component.NameSegments, component.FemaleNameSegments);
 
-        if (component.RosterName is { } rosterName)
-            _metaData.SetEntityName(uid, rosterName);
-        else if (segments.Count > 0 && component.NameFormat is { } format)
+        if (segments.Count > 0 && component.NameFormat is { } format)
             _metaData.SetEntityName(uid, _randomMetadata.GetRandomFromSegments(segments, format));
 
-        if (component.Languages.Count == 0 && component.Language == null)
+        if (component.Language is not { } language || !TryComp<LanguageSpeakerComponent>(uid, out var speaker))
             return;
 
-        if (!TryComp<LanguageSpeakerComponent>(uid, out var speaker))
-            return;
-
-        foreach (var language in component.Languages)
-            speaker.Languages[language] = LanguageKnowledge.Speak;
-
-        if (component.Language is { } current)
-        {
-            speaker.Languages[current] = LanguageKnowledge.Speak;
-            speaker.CurrentLanguage = current;
-        }
-
+        _language.AddSpokenLanguage(uid, language, LanguageKnowledge.Speak, speaker);
+        speaker.CurrentLanguage = language;
         Dirty(uid, speaker);
         _language.UpdateUi(uid, speaker);
     }

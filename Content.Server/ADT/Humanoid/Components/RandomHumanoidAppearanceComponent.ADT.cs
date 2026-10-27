@@ -1,8 +1,8 @@
 using System.Numerics;
 using Content.Shared.ADT.Language;
-using Content.Shared.ADT.NPC.Prototypes;
 using Content.Shared.ADT.TTS;
 using Content.Shared.Dataset;
+using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Robust.Shared.Prototypes;
 
@@ -44,14 +44,8 @@ public sealed partial class RandomHumanoidAppearanceComponent
     public LocId? NameFormat;
 
     [DataField]
-    public List<ProtoId<LanguagePrototype>> Languages = new();
-
-    [DataField]
     public ProtoId<LanguagePrototype>? Language;
 
     [DataField]
-    public ProtoId<ADTNpcRosterPrototype>? Roster;
-
-    [ViewVariables]
-    public string? RosterName;
+    public Sex? Sex;
 }

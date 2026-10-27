@@ -180,18 +180,3 @@ adt-xenoborg-radio-moving-2 = Сигнал получен. Иду на соед�
 adt-xenoborg-radio-moving-3 = Маршрут построен. Прибуду скоро.
 adt-xenoborg-radio-moving-4 = Подтверждаю. Направляюсь к точке контакта.
 adt-xenoborg-radio-moving-5 = Иду на помощь. Держите позицию.
-
-# Личный состав заставы СССП
-adt-ussp-roster-ostapenko = Майор Остапенко Виктор Ильич
-adt-ussp-roster-lisitsyna = Капитан Лисицына Ирина Сергеевна
-adt-ussp-roster-yusupova = Лейтенант медслужбы Юсупова Дина Рашидовна
-adt-ussp-roster-zaitsev = Прапорщик Зайцев Пётр Кузьмич
-adt-ussp-roster-gavrilov = Старший сержант Гаврилов Олег Петрович
-adt-ussp-roster-kovalchuk = Ефрейтор Ковальчук Тарас
-adt-ussp-roster-mamedov = Рядовой Мамедов Эльдар
-adt-ussp-roster-somov = Рядовой Сомов
-adt-ussp-roster-galiev = Рядовой Галиев
-adt-ussp-roster-kvyatkovsky = Рядовой Квятковский
-adt-ussp-roster-tikhonov = Рядовой Тихонов
-adt-ussp-roster-li-wei = Рядовой Ли Вэй
-adt-ussp-roster-belov = М. н. с. Белов Лев Андреевич

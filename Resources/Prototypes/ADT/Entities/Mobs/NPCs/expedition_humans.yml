@@ -32,7 +32,6 @@
       isSSD: false
     - type: RandomHumanoidAppearance
       randomizeName: false
-      roster: ADTSovietBunkerRoster
       clearMarkings: true
       skinTone: 5, 45
       hairStyles:
@@ -288,3 +287,209 @@
       rules: ghost-role-information-freeagent-rules
       raffle:
         settings: default
+
+- type: entity
+  parent: ADTMobSovietBunkerRifleman
+  id: ADTMobSovietBunkerOstapenko
+  name: Major Ostapenko
+  suffix: DO NOT MAP
+  description: Начальник заставы СССП.
+  components:
+    - type: RandomHumanoidAppearance
+      nameSegments: []
+      femaleNameSegments: []
+    - type: GhostRole
+      name: ghost-role-information-adt-ussp-ostapenko-name
+      description: ghost-role-information-adt-ussp-ostapenko-description
+
+- type: entity
+  parent: ADTMobSovietBunkerRifleman
+  id: ADTMobSovietBunkerLisitsyna
+  name: Captain Lisitsyna
+  suffix: DO NOT MAP
+  description: Заместитель начальника заставы СССП по политической части.
+  components:
+    - type: RandomHumanoidAppearance
+      nameSegments: []
+      femaleNameSegments: []
+      sex: Female
+    - type: GhostRole
+      name: ghost-role-information-adt-ussp-lisitsyna-name
+      description: ghost-role-information-adt-ussp-lisitsyna-description
+
+- type: entity
+  parent: ADTMobSovietBunkerMedic
+  id: ADTMobSovietBunkerYusupova
+  name: Lieutenant Yusupova
+  suffix: DO NOT MAP
+  description: Начальник медпункта заставы СССП.
+  components:
+    - type: RandomHumanoidAppearance
+      nameSegments: []
+      femaleNameSegments: []
+      sex: Female
+    - type: GhostRole
+      name: ghost-role-information-adt-ussp-yusupova-name
+      description: ghost-role-information-adt-ussp-yusupova-description
+
+- type: entity
+  parent: ADTMobSovietBunkerShotgunner
+  id: ADTMobSovietBunkerZaitsev
+  name: Warrant Officer Zaitsev
+  suffix: DO NOT MAP
+  description: Старшина заставы СССП, ведает складом и хозяйством.
+  components:
+    - type: RandomHumanoidAppearance
+      nameSegments: []
+      femaleNameSegments: []
+    - type: GhostRole
+      name: ghost-role-information-adt-ussp-zaitsev-name
+      description: ghost-role-information-adt-ussp-zaitsev-description
+
+- type: entity
+  parent: ADTMobSovietBunkerRifleman
+  id: ADTMobSovietBunkerGavrilov
+  name: Senior Sergeant Gavrilov
+  suffix: DO NOT MAP
+  description: Энергетик заставы СССП и пилот шаттла «Кедровка».
+  components:
+    - type: RandomHumanoidAppearance
+      nameSegments: []
+      femaleNameSegments: []
+    - type: GhostRole
+      name: ghost-role-information-adt-ussp-gavrilov-name
+      description: ghost-role-information-adt-ussp-gavrilov-description
+
+- type: entity
+  parent: [ MobUrsus, ADTMobSovietBunkerRocketeer ]
+  id: ADTMobSovietBunkerBurogriv
+  name: Sergeant Burogriv
+  suffix: DO NOT MAP
+  description: Механик-водитель заставы СССП, урс из Урсама (Уроделус II).
+  components:
+    - type: NpcFactionMember
+      factions:
+        - ADTSovietBunker
+    - type: RandomHumanoidAppearance
+      nameSegments: []
+      femaleNameSegments: []
+      sex: Male
+      clearMarkings: false
+      hairStyles: []
+      femaleHairStyles: []
+      hairColors: []
+    - type: GhostRole
+      name: ghost-role-information-adt-ussp-burogriv-name
+      description: ghost-role-information-adt-ussp-burogriv-description
+
+- type: entity
+  parent: ADTMobSovietBunkerRifleman
+  id: ADTMobSovietBunkerKovalchuk
+  name: Lance Corporal Kovalchuk
+  suffix: DO NOT MAP
+  description: Радист заставы СССП.
+  components:
+    - type: RandomHumanoidAppearance
+      nameSegments: []
+      femaleNameSegments: []
+    - type: GhostRole
+      name: ghost-role-information-adt-ussp-kovalchuk-name
+      description: ghost-role-information-adt-ussp-kovalchuk-description
+
+- type: entity
+  parent: ADTMobSovietBunkerShotgunner
+  id: ADTMobSovietBunkerMamedov
+  name: Private Mamedov
+  suffix: DO NOT MAP
+  description: Повар заставы СССП.
+  components:
+    - type: RandomHumanoidAppearance
+      nameSegments: []
+      femaleNameSegments: []
+    - type: GhostRole
+      name: ghost-role-information-adt-ussp-mamedov-name
+      description: ghost-role-information-adt-ussp-mamedov-description
+
+- type: entity
+  parent: ADTMobSovietBunkerRifleman
+  id: ADTMobSovietBunkerSomov
+  name: Private Somov
+  suffix: DO NOT MAP
+  description: Боец заставы СССП.
+  components:
+    - type: RandomHumanoidAppearance
+      nameSegments: []
+      femaleNameSegments: []
+    - type: GhostRole
+      name: ghost-role-information-adt-ussp-somov-name
+      description: ghost-role-information-adt-ussp-somov-description
+
+- type: entity
+  parent: ADTMobSovietBunkerMarksman
+  id: ADTMobSovietBunkerGaliev
+  name: Private Galiev
+  suffix: DO NOT MAP
+  description: Боец заставы СССП.
+  components:
+    - type: RandomHumanoidAppearance
+      nameSegments: []
+      femaleNameSegments: []
+    - type: GhostRole
+      name: ghost-role-information-adt-ussp-galiev-name
+      description: ghost-role-information-adt-ussp-galiev-description
+
+- type: entity
+  parent: ADTMobSovietBunkerRocketeer
+  id: ADTMobSovietBunkerKvyatkovsky
+  name: Private Kvyatkovsky
+  suffix: DO NOT MAP
+  description: Боец заставы СССП.
+  components:
+    - type: RandomHumanoidAppearance
+      nameSegments: []
+      femaleNameSegments: []
+    - type: GhostRole
+      name: ghost-role-information-adt-ussp-kvyatkovsky-name
+      description: ghost-role-information-adt-ussp-kvyatkovsky-description
+
+- type: entity
+  parent: ADTMobSovietBunkerRifleman
+  id: ADTMobSovietBunkerTikhonov
+  name: Private Tikhonov
+  suffix: DO NOT MAP
+  description: Боец заставы СССП.
+  components:
+    - type: RandomHumanoidAppearance
+      nameSegments: []
+      femaleNameSegments: []
+    - type: GhostRole
+      name: ghost-role-information-adt-ussp-tikhonov-name
+      description: ghost-role-information-adt-ussp-tikhonov-description
+
+- type: entity
+  parent: ADTMobSovietBunkerSniper
+  id: ADTMobSovietBunkerLiWei
+  name: Private Li Wei
+  suffix: DO NOT MAP
+  description: Лучший стрелок заставы СССП.
+  components:
+    - type: RandomHumanoidAppearance
+      nameSegments: []
+      femaleNameSegments: []
+    - type: GhostRole
+      name: ghost-role-information-adt-ussp-li-wei-name
+      description: ghost-role-information-adt-ussp-li-wei-description
+
+- type: entity
+  parent: ADTMobSovietBunkerRifleman
+  id: ADTMobSovietBunkerBelov
+  name: Junior Researcher Belov
+  suffix: DO NOT MAP
+  description: Младший научный сотрудник Института планетологии АН СССП, прикомандирован к заставе.
+  components:
+    - type: RandomHumanoidAppearance
+      nameSegments: []
+      femaleNameSegments: []
+    - type: GhostRole
+      name: ghost-role-information-adt-ussp-belov-name
+      description: ghost-role-information-adt-ussp-belov-description

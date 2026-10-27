@@ -3,7 +3,12 @@
   branches:
     - tasks:
         - !type:HTNPrimitiveTask
-          operator: !type:ADTFindDamagedAllyOperator
+          operator: !type:ADTFindAllyOperator
+            range: 10
+            minDamage: 0.05
+            allowCritical: true
+            components:
+              - type: Repairable
         - !type:HTNPrimitiveTask
           operator: !type:ADTSelectBorgItemOperator
             activate: true

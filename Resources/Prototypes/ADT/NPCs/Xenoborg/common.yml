@@ -81,6 +81,9 @@
     - tasks:
         - !type:HTNPrimitiveTask
           operator: !type:ADTFindAllyOperator
+            minDistance: 2
+            key: ADTAlly
+            keyCoordinates: ADTAllyCoordinates
             prototypes:
               - ADTMobXenoborgEngiNpc
               - XenoborgEngi
@@ -144,6 +147,7 @@
           operator: !type:MoveToOperator
             pathfindInPlanning: true
             targetKey: ADTPatrolCoordinates
+            pathfindKey: ADTPatrolPathfind
         - !type:HTNPrimitiveTask
           operator: !type:RandomOperator
             targetKey: IdleTime
