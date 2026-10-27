@@ -315,17 +315,31 @@ public sealed class CanvasLayerStoreSystem : EntitySystem
 
             _res.UserData.WriteAllText(temp / ManifestName, manifest.ToString());
 
+            var files = new List<ResPath>(tiles.Count);
             foreach (var (layer, index, png) in tiles)
             {
-                var path = temp / layer.ToString(CultureInfo.InvariantCulture) / (index.ToString(CultureInfo.InvariantCulture) + ".png");
-                using var file = _res.UserData.Open(path, FileMode.Create, FileAccess.Write, FileShare.None);
+                var path = new ResPath(layer.ToString(CultureInfo.InvariantCulture)) / (index.ToString(CultureInfo.InvariantCulture) + ".png");
+                using var file = _res.UserData.Open(temp / path, FileMode.Create, FileAccess.Write, FileShare.None);
                 file.Write(png, 0, png.Length);
+                files.Add(path);
             }
 
             if (_res.UserData.Exists(dir))
                 _res.UserData.Delete(dir);
 
-            _res.UserData.Rename(temp, dir);
+            _res.UserData.CreateDir(dir);
+            foreach (var layer in layers)
+            {
+                _res.UserData.CreateDir(dir / layer.Id.ToString(CultureInfo.InvariantCulture));
+            }
+
+            foreach (var path in files)
+            {
+                _res.UserData.Rename(temp / path, dir / path);
+            }
+
+            _res.UserData.Rename(temp / ManifestName, dir / ManifestName);
+            _res.UserData.Delete(temp);
         }
         catch (Exception e)
         {
