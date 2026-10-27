@@ -114,6 +114,7 @@ public sealed class ADTNpcCombatMemorySystem : EntitySystem
 
         component.Hurt = true;
         component.LastHurt = _timing.CurTime;
+        component.LastAttacker = args.Origin;
     }
 
     public bool HasHostileNear(EntityUid owner, float range)

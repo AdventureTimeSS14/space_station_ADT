@@ -13,6 +13,9 @@ public sealed partial class ADTNpcCombatMemoryComponent : Component
     public TimeSpan LastHurt;
 
     [ViewVariables]
+    public EntityUid? LastAttacker;
+
+    [ViewVariables]
     public bool Blocked;
 
     [ViewVariables]
