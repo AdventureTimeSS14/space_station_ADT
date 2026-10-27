@@ -131,6 +131,8 @@
 
     - name: AbdomenOpen
       label: surgery-node-abdomen-open-label
+      packages:
+        - SurgeryPackageRepairAbdomenOrgans
       edges:
         - id: UnretractMuscle
           target: AbdomenSkinRetracted

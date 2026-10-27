@@ -16,6 +16,15 @@
   - ADTHighVoltageDefibrillator
   - ADTReagentAnalyzer
   - ClothingEyesGlassesChemical
+  - ADTOrganCyberHeart
+  - ADTOrganCyberLungs
+  - ADTOrganCyberLiver
+  - ADTOrganCyberKidneys
+  - ADTOrganCyberStomach
+  - ADTOrganCyberEyes
+  - ADTLaserScalpel
+  - ADTMechanicalPinches
+  - ADTSearingTool
 
 - type: latheRecipePack
   id: ADTAdvancedMedicalCarePack

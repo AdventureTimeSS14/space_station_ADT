@@ -209,3 +209,15 @@
       components: [ SurgeryChooser ]
   - whitelist:
       tags: [ Bedsheet ]
+
+- type: surgeryToolQuality
+  id: Screwdriving
+  name: surgery-quality-screwdriving
+  entries:
+  - toolQuality: Screwing
+
+- type: surgeryToolQuality
+  id: Pulsing
+  name: surgery-quality-pulsing
+  entries:
+  - toolQuality: Pulsing

@@ -15,3 +15,5 @@ research-technology-chemistry-misc = Химические принадлежно
 research-technology-thermo = Термогеника
 
 research-technology-syringe-gun = Шприцемёт
+
+research-technology-cybernetic-organs = Кибернетика

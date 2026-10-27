@@ -221,3 +221,26 @@
   position: 5,-1
   requiredTech:
   - ADTAdvancedMedicalCare
+
+- type: technology
+  id: ADTCyberneticOrgans
+  name: research-technology-cybernetic-organs
+  icon:
+    sprite: ADT/Objects/Specific/Medical/Organs/cyber_organs.rsi
+    state: heart-on
+  discipline: Biochemical
+  tier: 2
+  cost: 12500
+  recipeUnlocks:
+  - ADTOrganCyberHeart
+  - ADTOrganCyberLungs
+  - ADTOrganCyberLiver
+  - ADTOrganCyberKidneys
+  - ADTOrganCyberStomach
+  - ADTOrganCyberEyes
+  - ADTLaserScalpel
+  - ADTMechanicalPinches
+  - ADTSearingTool
+  requiredTech:
+  - ADTHighVoltageDefibrillator
+  position: 5,-2

@@ -200,3 +200,39 @@ surgery-tool-examine-qualities = Хирургическое применение
 surgery-tool-examine-current = Текущий режим: [color=lightblue]{ $qualities }[/color]
 surgery-tool-examine-switch = После переключения: [color=gray]{ $qualities }[/color]
 surgery-tool-examine-none = нет
+
+## Ремонт органов
+surgery-quality-screwdriving = Откручивание и закручивание
+surgery-quality-pulsing = Диагностика импульсами
+
+surgery-edge-repair-heart-label = Восстановление сердца
+surgery-step-repair-heart-1 = Установка шунта на сердце
+surgery-step-repair-heart-2 = Прижигание швов шунта
+surgery-edge-repair-heart-mechanic-label = Обслуживание кибер-сердца
+surgery-step-repair-heart-mechanic-1 = Вскрытие обслуживающей панели
+surgery-step-repair-heart-mechanic-2 = Перезапуск и диагностика
+surgery-edge-repair-lungs-label = Восстановление лёгких
+surgery-step-repair-lungs-1 = Удаление повреждённой доли лёгкого
+surgery-step-repair-lungs-2 = Ушивание ткани лёгкого
+surgery-edge-repair-lungs-mechanic-label = Обслуживание кибер-лёгких
+surgery-step-repair-lungs-mechanic-1 = Вскрытие обслуживающей панели
+surgery-step-repair-lungs-mechanic-2 = Перезапуск и диагностика
+surgery-edge-repair-liver-label = Восстановление печени
+surgery-step-repair-liver-1 = Удаление повреждённого сегмента печени
+surgery-step-repair-liver-2 = Ушивание печени
+surgery-edge-repair-liver-mechanic-label = Обслуживание кибер-печени
+surgery-step-repair-liver-mechanic-1 = Вскрытие обслуживающей панели
+surgery-step-repair-liver-mechanic-2 = Перезапуск и диагностика
+surgery-edge-repair-stomach-label = Восстановление желудка
+surgery-step-repair-stomach-1 = Иссечение повреждённой стенки желудка
+surgery-step-repair-stomach-2 = Ушивание стенки желудка
+surgery-edge-repair-stomach-mechanic-label = Обслуживание кибер-желудка
+surgery-step-repair-stomach-mechanic-1 = Вскрытие обслуживающей панели
+surgery-step-repair-stomach-mechanic-2 = Перезапуск и диагностика
+surgery-edge-repair-kidneys-label = Восстановление почек
+surgery-step-repair-kidneys-1 = Иссечение повреждённой ткани почек
+surgery-step-repair-kidneys-2 = Ушивание ткани почек
+surgery-edge-repair-kidneys-mechanic-label = Обслуживание кибер-почек
+surgery-step-repair-kidneys-mechanic-1 = Вскрытие обслуживающей панели
+surgery-step-repair-kidneys-mechanic-2 = Перезапуск и диагностика
+surgery-edge-chest-extract-implant-label = Извлечение импланта

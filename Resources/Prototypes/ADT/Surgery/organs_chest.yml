@@ -96,6 +96,32 @@
     - name: ChestSkinRetracted
       label: surgery-node-chest-skin-retracted-label
       edges:
+        - id: ExtractImplant
+          label: surgery-edge-chest-extract-implant-label
+          target: ChestSkinRetracted
+          conditions:
+            - !type:HasImplantCondition
+          steps:
+            - name: surgery-edge-chest-extract-implant-label
+              quality: OrganManipulation
+              successChance: 0.65
+              duration: 6.4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 3
+                      Bloodloss: 2
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+          effects:
+            - !type:ExtractImplantEffect
+
         - id: SawRibcage
           label: surgery-edge-chest-saw-ribcage-label
           target: ChestBoneSawed
@@ -160,6 +186,8 @@
 
     - name: ChestOpen
       label: surgery-node-chest-open-label
+      packages:
+        - SurgeryPackageRepairChestOrgans
       edges:
         - id: UnretractRibcage
           target: ChestBoneSawed

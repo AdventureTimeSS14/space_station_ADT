@@ -226,6 +226,8 @@
   components:
   - type: Organ
     category: LegLeft
+  - type: LegOrgan # ADT-Tweak
+    part: LegLeft
   - type: Sprite
     state: l_leg
   - type: VisualOrgan
@@ -251,6 +253,8 @@
   components:
   - type: Organ
     category: LegRight
+  - type: LegOrgan # ADT-Tweak
+    part: LegRight
   - type: Sprite
     state: r_leg
   - type: VisualOrgan
@@ -275,6 +279,8 @@
   components:
   - type: Organ
     category: FootLeft
+  - type: LegOrgan # ADT-Tweak
+    part: FootLeft
   - type: Sprite
     state: l_foot
   - type: VisualOrgan
@@ -299,6 +305,8 @@
   components:
   - type: Organ
     category: FootRight
+  - type: LegOrgan # ADT-Tweak
+    part: FootRight
   - type: Sprite
     state: r_foot
   - type: VisualOrgan
