@@ -37,6 +37,7 @@ public sealed class CanvasLayerPanel : BoxContainer
             Text = Loc.GetString("adt-drawing-layers-header"),
             StyleClasses = { "LabelHeading" },
         });
+        AddChild(DrawingWindow.WrapLabel(Loc.GetString("adt-drawing-layers-private"), Color.Gray));
 
         _list = new BoxContainer
         {
@@ -241,7 +242,7 @@ public sealed class CanvasLayerPanel : BoxContainer
         _upButton.Disabled = active == null || index >= layers.Count - 1;
         _downButton.Disabled = active == null || index <= 0;
         _mergeButton.Disabled = active == null || !_canMerge;
-        _mergeButton.ToolTip = _canMerge ? null : Loc.GetString("adt-drawing-layer-merge-denied");
+        _mergeButton.ToolTip = Loc.GetString(_canMerge ? "adt-drawing-layer-merge-tooltip" : "adt-drawing-layer-merge-denied");
 
         _syncing = true;
         _opacityRow.Visible = active != null;

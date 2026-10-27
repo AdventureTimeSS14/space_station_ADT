@@ -57,6 +57,8 @@ public sealed class CanvasDocument : IDisposable
 
     public event Action<int>? TileApplied;
 
+    public event Action? WorkSettled;
+
     public bool HasPendingWork
     {
         get
@@ -104,23 +106,68 @@ public sealed class CanvasDocument : IDisposable
 
     public bool MergeLayer(CanvasLayer layer)
     {
-        if (Stroker.Active || layer.Stroker.Active)
+        var layers = Layers.Layers;
+        var top = -1;
+        for (var i = 0; i < layers.Count; i++)
+        {
+            if (layers[i] == layer)
+                top = i;
+        }
+
+        if (top < 0)
+            return false;
+
+        var group = new List<CanvasLayer>();
+        for (var i = 0; i <= top; i++)
+        {
+            if (layers[i] == layer || layers[i].Visible)
+                group.Add(layers[i]);
+        }
+
+        return MergeLayers(group);
+    }
+
+    public bool MergeVisibleLayers()
+    {
+        return MergeLayers(Layers.Layers.Where(l => l.Visible).ToList());
+    }
+
+    private bool MergeLayers(List<CanvasLayer> group)
+    {
+        if (Stroker.Active || group.Any(l => l.Stroker.Active))
             return false;
 
         var tiles = new Dictionary<int, Rgba32[]>();
-        foreach (var index in layer.Surface.AllocatedTiles())
+        foreach (var layer in group)
         {
-            tiles[index] = (Rgba32[]) layer.Surface.GetTilePixels(index).Clone();
+            if (!layer.Visible || layer.Opacity <= 0f)
+                continue;
+
+            foreach (var index in layer.Surface.AllocatedTiles())
+            {
+                var source = layer.Surface.GetTilePixels(index);
+                if (!tiles.TryGetValue(index, out var pixels))
+                {
+                    pixels = new Rgba32[source.Length];
+                    tiles[index] = pixels;
+                }
+
+                PaintSurface.CompositePixels(pixels, source, layer.Opacity);
+            }
         }
 
-        if (tiles.Count > 0 && layer.Visible && layer.Opacity > 0f)
+        if (tiles.Count > 0)
         {
             var id = _nextOperationId++;
-            var touched = Surface.CompositeTiles(tiles, layer.Opacity, (int) id);
-            AddOperation(CanvasOperation.Merging(id, tiles, layer.Opacity, touched));
+            var touched = Surface.CompositeTiles(tiles, 1f, (int) id);
+            AddOperation(CanvasOperation.Merging(id, tiles, 1f, touched));
         }
 
-        Layers.Remove(layer);
+        foreach (var layer in group)
+        {
+            Layers.Remove(layer);
+        }
+
         return true;
     }
 
@@ -286,6 +333,9 @@ public sealed class CanvasDocument : IDisposable
 
         tile.InFlightOperations = Array.Empty<uint>();
         _pending.RemoveAll(o => o.UncommittedTiles.Count == 0);
+
+        if (!HasPendingWork)
+            WorkSettled?.Invoke();
     }
 
     public void RejectCommit(int index)
