@@ -1,0 +1,41 @@
+{
+    "license":  "CC-BY 4.0",
+    "copyright":  "Emoji art by Twitter Twemoji contributors (CC-BY 4.0), https://github.com/twitter/twemoji",
+    "states":  [
+                   {
+                       "name":  "grape"
+                   },
+                   {
+                       "name":  "cherry"
+                   },
+                   {
+                       "name":  "strawberry"
+                   },
+                   {
+                       "name":  "watermelon"
+                   },
+                   {
+                       "name":  "wild"
+                   },
+                   {
+                       "name":  "seven"
+                   },
+                   {
+                       "name":  "diamond"
+                   },
+                   {
+                       "name":  "star"
+                   },
+                   {
+                       "name":  "banana"
+                   },
+                   {
+                       "name":  "scatter"
+                   }
+               ],
+    "version":  1,
+    "size":  {
+                 "y":  36,
+                 "x":  36
+             }
+}
