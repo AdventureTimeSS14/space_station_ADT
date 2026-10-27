@@ -13,11 +13,12 @@
       key_slots:
       - EncryptionKeyCommon
   - type: Headset
+  # ADT-Tweak-Start
   - type: WiresPanel
-    examineTextOpen: headset-panel-open
+    openingTool: Pulsing
+  # ADT-Tweak-End
   - type: EncryptionKeyHolder
     keySlots: 4
-    examineWhileLocked: false
   - type: Sprite
     state: icon
   - type: Item

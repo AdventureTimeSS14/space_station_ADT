@@ -2,7 +2,6 @@ using Content.Shared.Emp;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Radio.Components;
-using Content.Shared.Wires;
 
 namespace Content.Shared.Radio.EntitySystems;
 
@@ -20,7 +19,7 @@ public abstract class SharedHeadsetSystem : EntitySystem
 
     private void OnGetDefault(EntityUid uid, HeadsetComponent component, InventoryRelayedEvent<GetDefaultRadioChannelEvent> args)
     {
-        if (!IsOperational(uid, component) || !component.IsEquipped)
+        if (!component.Enabled || !component.IsEquipped)
         {
             // don't provide default channels from pocket slots.
             return;
@@ -28,11 +27,6 @@ public abstract class SharedHeadsetSystem : EntitySystem
 
         if (TryComp(uid, out EncryptionKeyHolderComponent? keyHolder))
             args.Args.Channel ??= keyHolder.DefaultChannel;
-    }
-
-    protected bool IsOperational(EntityUid uid, HeadsetComponent component)
-    {
-        return component.Enabled && !(TryComp<WiresPanelComponent>(uid, out var panel) && panel.Open);
     }
 
     protected virtual void OnGotEquipped(EntityUid uid, HeadsetComponent component, GotEquippedEvent args)
