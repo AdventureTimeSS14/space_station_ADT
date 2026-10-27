@@ -1,3 +1,4 @@
+using Content.Client.ADT.Polls; // ADT-Tweak
 using Content.Client.FeedbackPopup;
 using Content.Client.Gameplay;
 using Content.Client.UserInterface.Controls;
@@ -27,6 +28,7 @@ public sealed partial class EscapeUIController : UIController, IOnStateEntered<G
     [Dependency] private OptionsUIController _options = default!;
     [Dependency] private GuidebookUIController _guidebook = default!;
     [Dependency] private FeedbackPopupUIController _feedback = null!;
+    [Dependency] private PollUIController _polls = default!; // ADT-Tweak
     [Dependency] private ILocalizationManager _loc = default!;
 
     private Options.UI.EscapeMenu? _escapeWindow;
@@ -71,6 +73,17 @@ public sealed partial class EscapeUIController : UIController, IOnStateEntered<G
             CloseEscapeWindow();
             _feedback.ToggleWindow();
         };
+
+        // ADT-Tweak-Start
+        _escapeWindow.PollsButton.OnPressed += _ =>
+        {
+            CloseEscapeWindow();
+            _polls.ToggleListWindow();
+        };
+
+        _escapeWindow.OnOpen += UpdatePollsButton;
+        _polls.PollsChanged += UpdatePollsButton;
+        // ADT-Tweak-End
 
         _escapeWindow.ChangelogButton.OnPressed += _ =>
         {
@@ -140,6 +153,7 @@ public sealed partial class EscapeUIController : UIController, IOnStateEntered<G
     public void OnStateExited(GameplayState state)
     {
         _cfg.UnsubValueChanged(CCVars.SeeOwnNotes, OnSeeOwnNotesChanged);
+        _polls.PollsChanged -= UpdatePollsButton; // ADT-Tweak
 
         if (_escapeWindow != null)
         {
@@ -149,6 +163,20 @@ public sealed partial class EscapeUIController : UIController, IOnStateEntered<G
 
         CommandBinds.Unregister<EscapeUIController>();
     }
+
+    // ADT-Tweak-Start
+    private void UpdatePollsButton()
+    {
+        if (_escapeWindow == null)
+            return;
+
+        var count = _polls.UnansweredCount;
+
+        _escapeWindow.PollsButton.Text = count > 0
+            ? _loc.GetString("adt-poll-escape-button-count", ("count", count))
+            : _loc.GetString("adt-poll-escape-button");
+    }
+    // ADT-Tweak-End
 
     private void OnSeeOwnNotesChanged(bool seeOwnNotes)
     {
