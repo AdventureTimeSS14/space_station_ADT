@@ -16779,3 +16779,10 @@ Entries:
     id: 2058
     pr_number: 3589
     time: '2026-10-27T11:01:38Z'
+  - author: FriendlyOne
+    changes:
+      - {message: Модуль и улучшения полотера и пылесоса можно переключать через екшны
+          в хотбаре, type: Tweak}
+    id: 2059
+    pr_number: 3570
+    time: '2026-10-27T12:46:10Z'
