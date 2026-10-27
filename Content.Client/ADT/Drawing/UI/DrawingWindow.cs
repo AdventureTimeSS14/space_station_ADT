@@ -525,6 +525,7 @@ public sealed partial class DrawingWindow : DefaultWindow
         private readonly string _format;
         private readonly Label _label;
         private readonly Slider _slider;
+        private readonly SliderEntry _entry;
 
         public SettingSlider(string loc, float min, float max, float value, string format, Action<float> setter)
         {
@@ -541,20 +542,23 @@ public sealed partial class DrawingWindow : DefaultWindow
                 Value = value,
                 HorizontalExpand = true,
             };
+            _entry = new SliderEntry(_slider, format);
             _slider.OnValueChanged += r =>
             {
                 UpdateLabel(r.Value);
+                _entry.Sync();
                 setter(r.Value);
             };
 
             UpdateLabel(value);
-            Row = DrawingWindow.Row(_label, _slider);
+            Row = DrawingWindow.Row(_label, _slider, _entry.Edit);
         }
 
         public void Set(float value)
         {
             _slider.SetValueWithoutEvent(value);
             UpdateLabel(_slider.Value);
+            _entry.Sync();
         }
 
         private void UpdateLabel(float value)

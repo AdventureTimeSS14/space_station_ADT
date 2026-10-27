@@ -16,6 +16,7 @@ public sealed class CanvasLayerPanel : BoxContainer
     private readonly Button _downButton;
     private readonly Button _mergeButton;
     private readonly Slider _opacity;
+    private readonly SliderEntry _opacityEntry;
     private readonly Label _opacityLabel;
     private readonly BoxContainer _opacityRow;
     private readonly List<LayerRow> _rows = new();
@@ -75,13 +76,15 @@ public sealed class CanvasLayerPanel : BoxContainer
             MaxValue = 100,
             HorizontalExpand = true,
         };
+        _opacityEntry = new SliderEntry(_opacity, "0");
         _opacity.OnValueChanged += r =>
         {
             _opacityLabel.Text = Loc.GetString("adt-drawing-layer-opacity", ("value", (int) r.Value));
+            _opacityEntry.Sync();
             if (!_syncing && _document.Layers.Active is { } layer)
                 _document.Layers.SetOpacity(layer, r.Value / 100f);
         };
-        _opacityRow = Row(_opacityLabel, _opacity);
+        _opacityRow = Row(_opacityLabel, _opacity, _opacityEntry.Edit);
         AddChild(_opacityRow);
 
         _document.Layers.Changed += OnLayersChanged;
@@ -244,6 +247,7 @@ public sealed class CanvasLayerPanel : BoxContainer
         _opacityRow.Visible = active != null;
         _opacity.Value = (active?.Opacity ?? 1f) * 100f;
         _opacityLabel.Text = Loc.GetString("adt-drawing-layer-opacity", ("value", (int) _opacity.Value));
+        _opacityEntry.Sync();
         _syncing = false;
     }
 
