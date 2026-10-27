@@ -39,6 +39,7 @@ public sealed class BlobTileSystem : SharedBlobTileSystem
     [Dependency] private TransformSystem _transform = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private NpcFactionSystem _npcFactionSystem = default!;
+    [Dependency] private readonly BlobNukeSystem _blobNuke = default!;
 
     private EntityQuery<BlobCoreComponent> _blobCoreQuery;
     private EntityQuery<BlobTileComponent> _tileQuery;
@@ -70,14 +71,21 @@ public sealed class BlobTileSystem : SharedBlobTileSystem
 
         // make alive - true for npc combat
         EnsureComp<MobStateComponent>(ent);
+
+        _blobNuke.CheckTileForNukes(ent.Owner);
     }
 
     private void OnTerminate(EntityUid uid, BlobTileComponent component, EntityTerminatingEvent args)
     {
-        if (TerminatingOrDeleted(component.Core))
-            return;
+        if (component.Core != null && !TerminatingOrDeleted(component.Core))
+            component.Core.Value.Comp.BlobTiles.Remove(uid);
 
-        component.Core!.Value.Comp.BlobTiles.Remove(uid);
+        if (TryComp<TransformComponent>(uid, out var xform) &&
+            xform.GridUid is { } gridUid && !TerminatingOrDeleted(gridUid) &&
+            xform.MapUid is { } mapUid && !TerminatingOrDeleted(mapUid))
+        {
+            _blobNuke.CheckTileForNukes(uid, terminating: true);
+        }
     }
 
     private void OnDestruction(EntityUid uid, BlobTileComponent component, DestructionEventArgs args)

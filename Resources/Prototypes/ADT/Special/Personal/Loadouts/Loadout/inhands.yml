@@ -76,3 +76,9 @@
   id: ADTBeltWeaponHolsterArmyShinoba
   inhand:
   - ADTClothingBeltWeaponHolsterArmyShinoba
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTSatchelErichStohl
+  inhand:
+  - ADTClothingBackpackSatchelErichStohl

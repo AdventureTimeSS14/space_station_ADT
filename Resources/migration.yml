@@ -1162,3 +1162,16 @@ DrinkNeurotoxinGlass: null
 
 # ADT-Tweak
 ChemMaster: ADTChemMaster
+
+# ADT-Tweak-Start
+ADTClothingOuterArmorMinerReinforcedOne: ADTClothingOuterArmorMiner
+ADTClothingOuterArmorMinerReinforcedTwo: ADTClothingOuterArmorMiner
+ADTClothingOuterArmorMinerReinforcedFull: ADTClothingOuterArmorMiner
+ADTClothingHeadHelmetMinerReinforcedOne: ADTClothingHeadHelmetMiner
+ADTClothingHeadHelmetMinerReinforcedTwo: ADTClothingHeadHelmetMiner
+ADTClothingHeadHelmetMinerReinforcedFull: ADTClothingHeadHelmetMiner
+# ADT-Tweak-End
+
+# ADT-Tweak: remove Music song
+ADTBoxMusicDisksSyndicate: null
+ADTMusicDiskShanson: null

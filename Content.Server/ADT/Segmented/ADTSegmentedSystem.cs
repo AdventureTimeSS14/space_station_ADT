@@ -21,8 +21,13 @@ public sealed class ADTSegmentedSystem : EntitySystem
 
     private const float FreeSpotProbeStep = 0.25f;
     private const float GroupJoinFraction = 0.5f;
+    private const float MinStepFraction = 0.5f;
 
     private readonly List<(EntityUid Uid, bool Landed)> _finished = new();
+
+    public EntityUid? ForwardingSegment { get; private set; }
+
+    private EntityUid? _selfDamaging;
 
     public override void Initialize()
     {
@@ -143,7 +148,10 @@ public sealed class ADTSegmentedSystem : EntitySystem
         }
 
         if (distance > 0.0001f)
+        {
             ent.Comp.MoveDirection = delta / distance;
+            ent.Comp.AnchorOverrides.Clear();
+        }
 
         UpdateFixed(ent, xform);
         UpdateChain(ent, xform);
@@ -152,24 +160,53 @@ public sealed class ADTSegmentedSystem : EntitySystem
 
     private void OnSegmentBeforeDamage(Entity<ADTSegmentComponent> ent, ref BeforeDamageChangedEvent args)
     {
-        if (args.Cancelled)
+        if (args.Cancelled || _selfDamaging == ent.Owner)
             return;
 
-        args.Cancelled = true;
+        if (!args.Damage.AnyPositive())
+        {
+            if (!ent.Comp.TakeDamage)
+                args.Cancelled = true;
+
+            return;
+        }
 
         if (ent.Comp.Root is not { } root || TerminatingOrDeleted(root))
             return;
 
-        if (!args.Damage.AnyPositive())
-            return;
+        args.Cancelled = true;
 
-        var ev = new ADTSegmentDamageForwardEvent(root, args.Damage, ent.Comp.DamageModifier);
+        var ev = new ADTSegmentDamageForwardEvent(root, args.Damage, ent.Comp.DamageModifier, args.Origin);
         RaiseLocalEvent(ent, ref ev);
 
         if (ev.Cancelled || ev.Modifier <= 0f)
             return;
 
-        _damageable.TryChangeDamage(root, ev.Damage * ev.Modifier, origin: args.Origin);
+        var forwarded = ev.Damage * ev.Modifier;
+        ForwardingSegment = ent.Owner;
+
+        try
+        {
+            _damageable.TryChangeDamage(root, forwarded, origin: args.Origin);
+        }
+        finally
+        {
+            ForwardingSegment = null;
+        }
+
+        if (!ent.Comp.TakeDamage || TerminatingOrDeleted(ent))
+            return;
+
+        _selfDamaging = ent.Owner;
+
+        try
+        {
+            _damageable.TryChangeDamage(ent.Owner, forwarded, origin: args.Origin);
+        }
+        finally
+        {
+            _selfDamaging = null;
+        }
     }
 
     private void OnSegmentShutdown(Entity<ADTSegmentComponent> ent, ref ComponentShutdown args)
@@ -201,6 +238,8 @@ public sealed class ADTSegmentedSystem : EntitySystem
         if (!Resolve(ent, ref xform) || !xform.ParentUid.IsValid() || TerminatingOrDeleted(xform.ParentUid))
             return;
 
+        ent.Comp.AnchorOverrides.Clear();
+
         var leader = ent.Owner;
         var leaderPos = xform.LocalPosition;
 
@@ -216,7 +255,7 @@ public sealed class ADTSegmentedSystem : EntitySystem
             switch (entry.Mode)
             {
                 case ADTSegmentMode.Step:
-                    Place(segment, segmentXform, xform, FindFreeSpot(xform, GetAnchor(entry, xform)), segmentXform.LocalRotation);
+                    Place(segment, segmentXform, xform, FindFreeSpot(xform, GetAnchor(ent, i, xform)), segmentXform.LocalRotation);
                     break;
                 case ADTSegmentMode.Chain:
                     var position = leaderPos - ent.Comp.MoveDirection * entry.Spacing;
@@ -227,7 +266,7 @@ public sealed class ADTSegmentedSystem : EntitySystem
                     break;
                 case ADTSegmentMode.Fixed:
                     var rotation = entry.RotateWithRoot ? xform.LocalRotation : segmentXform.LocalRotation;
-                    Place(segment, segmentXform, xform, GetAnchor(entry, xform), rotation);
+                    Place(segment, segmentXform, xform, GetAnchor(ent, i, xform), rotation);
                     break;
             }
         }
@@ -243,7 +282,7 @@ public sealed class ADTSegmentedSystem : EntitySystem
                 continue;
 
             var rotation = entry.RotateWithRoot ? xform.LocalRotation : segmentXform.LocalRotation;
-            Place(segment, segmentXform, xform, GetAnchor(entry, xform), rotation);
+            Place(segment, segmentXform, xform, GetAnchor(ent, i, xform), rotation);
         }
     }
 
@@ -303,21 +342,33 @@ public sealed class ADTSegmentedSystem : EntitySystem
             if (HasComp<ADTSegmentSteppingComponent>(segment))
                 continue;
 
-            var anchor = GetAnchor(entry, xform);
+            var anchor = GetAnchor(ent, i, xform);
+            var distance = (segmentXform.LocalPosition - anchor).Length();
 
-            if (segmentXform.ParentUid != xform.ParentUid
-                || (segmentXform.LocalPosition - anchor).Length() > entry.LeashDistance)
+            if (segmentXform.ParentUid != xform.ParentUid)
             {
                 Place(segment, segmentXform, xform, FindFreeSpot(xform, anchor), segmentXform.LocalRotation);
                 continue;
             }
 
+            if (distance > entry.LeashDistance)
+            {
+                var reachable = FindFreeSpot(xform, anchor);
+
+                if ((segmentXform.LocalPosition - reachable).Length() > entry.LeashDistance)
+                {
+                    Place(segment, segmentXform, xform, reachable, segmentXform.LocalRotation);
+                    continue;
+                }
+            }
+
             if (activeGroup != null)
                 continue;
 
-            var distance = (segmentXform.LocalPosition - anchor).Length();
-
             if (distance <= entry.StepThreshold || distance <= bestDistance)
+                continue;
+
+            if (!CanStep(ent, entry, segmentXform, xform, anchor, out _))
                 continue;
 
             bestGroup = entry.Group;
@@ -340,13 +391,28 @@ public sealed class ADTSegmentedSystem : EntitySystem
             if (HasComp<ADTSegmentSteppingComponent>(segment))
                 continue;
 
-            var anchor = GetAnchor(entry, xform);
+            var anchor = GetAnchor(ent, i, xform);
 
             if ((segmentXform.LocalPosition - anchor).Length() <= entry.StepThreshold * GroupJoinFraction)
                 continue;
 
-            StartStep(ent, entry, segment, segmentXform, xform, anchor);
+            if (!CanStep(ent, entry, segmentXform, xform, anchor, out var target))
+                continue;
+
+            StartStep(ent, entry, segment, segmentXform, xform, target);
         }
+    }
+
+    private bool CanStep(
+        Entity<ADTSegmentedComponent> ent,
+        ADTSegmentEntry entry,
+        TransformComponent segmentXform,
+        TransformComponent xform,
+        Vector2 anchor,
+        out Vector2 target)
+    {
+        target = FindFreeSpot(xform, anchor + ent.Comp.MoveDirection * entry.StepThreshold * entry.StepLead);
+        return (target - segmentXform.LocalPosition).Length() >= entry.StepThreshold * MinStepFraction;
     }
 
     private void StartStep(
@@ -355,9 +421,8 @@ public sealed class ADTSegmentedSystem : EntitySystem
         EntityUid segment,
         TransformComponent segmentXform,
         TransformComponent xform,
-        Vector2 anchor)
+        Vector2 target)
     {
-        var target = FindFreeSpot(xform, anchor + ent.Comp.MoveDirection * entry.StepThreshold * entry.StepLead);
         var now = _timing.CurTime;
 
         var stepping = EnsureComp<ADTSegmentSteppingComponent>(segment);
@@ -464,22 +529,70 @@ public sealed class ADTSegmentedSystem : EntitySystem
             return target;
 
         var origin = rootXform.LocalPosition;
+        var toTarget = target - origin;
+        var length = toTarget.Length();
 
-        for (var t = 1f; t > 0f; t -= FreeSpotProbeStep)
+        if (length < 0.0001f)
+            return target;
+
+        var steps = (int) MathF.Ceiling(length / FreeSpotProbeStep);
+        var lastFree = origin;
+        var lastIndices = _map.TileIndicesFor(grid, gridComp, new EntityCoordinates(grid, origin));
+
+        for (var i = 1; i <= steps; i++)
         {
-            var point = Vector2.Lerp(origin, target, t);
+            var point = Vector2.Lerp(origin, target, Math.Min(1f, i / (float) steps));
             var indices = _map.TileIndicesFor(grid, gridComp, new EntityCoordinates(grid, point));
 
-            if (!_turf.IsTileBlocked(grid, indices, CollisionGroup.Impassable, gridComp))
-                return point;
+            if (indices != lastIndices)
+            {
+                if (_turf.IsTileBlocked(grid, indices, CollisionGroup.Impassable, gridComp))
+                    return lastFree;
+
+                lastIndices = indices;
+            }
+
+            lastFree = point;
         }
 
-        return origin;
+        return target;
     }
 
-    private static Vector2 GetAnchor(ADTSegmentEntry entry, TransformComponent rootXform)
+    public void SetAnchorOverride(Entity<ADTSegmentedComponent> ent, int index, Vector2 offset)
     {
-        var offset = entry.RotateWithRoot ? rootXform.LocalRotation.RotateVec(entry.Offset) : entry.Offset;
+        if (index < 0 || index >= ent.Comp.Segments.Count || index >= ent.Comp.Spawned.Count)
+            return;
+
+        ent.Comp.AnchorOverrides[index] = offset;
+
+        var entry = ent.Comp.Segments[index];
+
+        if (entry.Mode != ADTSegmentMode.Step || !TryGetSegment(ent, index, out var segment, out var segmentXform))
+            return;
+
+        var xform = Transform(ent);
+
+        if (segmentXform.ParentUid != xform.ParentUid || HasComp<ADTSegmentSteppingComponent>(segment))
+            return;
+
+        var target = FindFreeSpot(xform, GetAnchor(ent, index, xform));
+
+        if ((target - segmentXform.LocalPosition).Length() < entry.StepThreshold * GroupJoinFraction)
+            return;
+
+        StartStep(ent, entry, segment, segmentXform, xform, target);
+    }
+
+    private static Vector2 GetAnchor(Entity<ADTSegmentedComponent> ent, int index, TransformComponent rootXform)
+    {
+        var entry = ent.Comp.Segments[index];
+
+        if (!ent.Comp.AnchorOverrides.TryGetValue(index, out var offset))
+            offset = entry.Offset;
+
+        if (entry.RotateWithRoot)
+            offset = rootXform.LocalRotation.RotateVec(offset);
+
         return rootXform.LocalPosition + offset;
     }
 }

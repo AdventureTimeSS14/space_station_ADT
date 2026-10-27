@@ -88,7 +88,7 @@ public sealed class CanvasEaselVisualizerSystem : VisualizerSystem<CanvasEaselCo
         SpriteSystem.LayerSetVisible(ent, layer, true);
     }
 
-    private void HidePainting(Entity<SpriteComponent> ent)
+    private void HidePainting(Entity<SpriteComponent?> ent)
     {
         if (SpriteSystem.LayerMapTryGet(ent, PaintingLayer, out var paintingLayer, false))
             SpriteSystem.LayerSetVisible(ent, paintingLayer, false);

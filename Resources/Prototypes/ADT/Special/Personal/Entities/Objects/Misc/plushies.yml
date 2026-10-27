@@ -217,6 +217,22 @@
   - type: Sprite
     sprite: ADT/Special/Personal/toys.rsi
     state: plushie_ilumi
+  - type: Item
+    sprite: ADT/Special/Personal/toys.rsi
+    inhandVisuals:
+      left:
+      - state: ilumi-inhand-left
+      right:
+      - state: ilumi-inhand-right
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Special/Personal/toys.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: ilumi-equipped-HELMET
+        offset: "0, 0.185"
 
 - type: entity
   parent: BasePlushie
@@ -1489,3 +1505,154 @@
     speechSounds: Squeak
   - type: SpeakOnTrigger
     pack: ADTFigurinesPlushieReimor
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieOliferOliver28
+  name: plushy Olifer
+  description: Behind a frightening appearance, there are sometimes quite kind creatures; it would sound beautiful if it were true. Many security personnel involved in the not‑so‑well‑known incident still blame the creature that inspired this toy.
+  suffix: Sponsor, Oliver28
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/toys.rsi
+    state: plushie_olifer
+  - type: Item
+    sprite: ADT/Special/Personal/toys.rsi
+    inhandVisuals:
+      left:
+      - state: olifer-inhand-left
+      right:
+      - state: olifer-inhand-right
+  - type: EmitSoundOnUse
+    sound: &PlushieAntagSound
+      path: /Audio/Ambience/Antag/traitor_start.ogg
+      params:
+        volume: -5
+  - type: EmitSoundOnActivate
+    sound: *PlushieAntagSound
+  - type: EmitSoundOnLand
+    sound: &BasePlushieSound
+      collection: ToySqueak
+      params:
+        volume: -4
+  - type: EmitSoundOnTrigger
+    sound: *PlushieAntagSound
+  - type: EmitSoundOnCollide
+    sound: *BasePlushieSound
+  - type: MeleeWeapon
+    soundHit: *BasePlushieSound
+  - type: Edible
+    useSound: *BasePlushieSound
+  - type: UseDelay
+    delay: 10.0
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieNaviCyrex5386
+  name: Plushie Navi
+  description: This bun is made of... metal, it looks much lighter than it actually is... It also meows...
+  suffix: Sponsor, Cyrex5386
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/toys.rsi
+    state: plushie_navi
+  - type: Item
+    sprite: ADT/Special/Personal/toys.rsi
+    inhandVisuals:
+      left:
+      - state: navi-inhand-left
+      right:
+      - state: navi-inhand-right
+  - type: EmitSoundOnUse
+    handle: false
+    sound: null
+  - type: TriggerOnUse
+  - type: Speech
+    speechSounds: Squeak
+  - type: SpeakOnTrigger
+    pack: ADTFigurineNaviCyrex5386
+  - type: TTS
+    voice: natsaionai
+  - type: ClothingSpeedModifier
+    walkModifier: 0.99
+    sprintModifier: 0.99
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieTselka
+  name: plushy Tselka
+  description: A soft toy of the dark Luam, which looks extremely cuddly. Its toy eyes glint to the side, as if looking for a place to cause a commotion.
+  suffix: Sponsor, JustMay
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/toys.rsi
+    state: plushie_tselka
+  - type: EmitSoundOnUse
+    sound: *PlushieMothSound
+  - type: EmitSoundOnLand
+    sound: *PlushieMothSound
+  - type: EmitSoundOnActivate
+    sound: *PlushieMothSound
+  - type: EmitSoundOnTrigger
+    sound: *PlushieMothSound
+  - type: EmitSoundOnCollide
+    sound: *PlushieMothSound
+  - type: MeleeWeapon
+    soundHit: *PlushieMothSound
+
+
+# Darkiich
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieErichStohl
+  name: plushie Erich Stohl
+  description: A soft toy of a huge, grim man in a black jacket and a burgundy scarf, with a strap across his chest. Metal glints under the left glove, and a scar of red thread runs across one eye.
+  suffix: Personal, Darkiich
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/toys.rsi
+    state: plushie_erich
+  - type: Item
+    sprite: ADT/Special/Personal/toys.rsi
+    inhandVisuals:
+      left:
+      - state: erich-inhand-left
+      right:
+      - state: erich-inhand-right
+  - type: EmitSoundOnUse
+    handle: false
+    sound: null
+  - type: TriggerOnUse
+  - type: Speech
+    speechSounds: Squeak
+  - type: SpeakOnTrigger
+    pack: ADTFigurinesPlushieErichStohl
+
+#Mysok
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieWinter
+  name: plush Winter
+  description: plush Winter
+  suffix: Personal, DeadLament
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/toys.rsi
+    state: plushie_winter
+  - type: Item
+    sprite: ADT/Special/Personal/toys.rsi
+    inhandVisuals:
+      left:
+      - state: winter-inhand-left
+      right:
+      - state: winter-inhand-right
+  - type: EmitSoundOnUse
+    sound: *PlushieVulpSound
+  - type: EmitSoundOnLand
+    sound: *PlushieVulpSound
+  - type: EmitSoundOnActivate
+    sound: *PlushieVulpSound
+  - type: EmitSoundOnTrigger
+    sound: *PlushieVulpSound
+  - type: MeleeWeapon
+    soundHit: *PlushieVulpSound

@@ -120,26 +120,11 @@
         gain: 0.4
       entities:
       - FloorChasmEntity
-
-    # Rock formations
-    - !type:BiomeEntityLayer
+    - !type:ADTBiomeCaveLayer
       allowedTiles:
         - FloorBasalt
-      threshold: -0.30
-      noise:
-        seed: 0
-        noiseType: Cellular
-        frequency: 0.05
-        lacunarity: 2
-        fractalType: FBm
-        octaves: 5
-        cellularDistanceFunction: Euclidean
-        cellularReturnType: Distance2
-      entities:
-        - WallRockBasalt
     - !type:BiomeDummyLayer
       id: Loot
-
     - !type:BiomeEntityLayer
       threshold: 0.95
       noise:

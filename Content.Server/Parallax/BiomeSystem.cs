@@ -22,6 +22,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Console;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Map.Events; // ADT-Tweak
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
@@ -86,7 +87,47 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
         Subs.CVar(_configManager, CVars.NetMaxUpdateRange, SetLoadRange, true);
         InitializeCommands();
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(ProtoReload);
+        SubscribeLocalEvent<BeforeSerializationEvent>(OnBeforeSerialization); // ADT-Tweak
     }
+
+    // ADT-Tweak start
+    /// <summary>
+    /// Убирает из LoadedEntities удалённые сущности, типо invalid перед сохранением карты.
+    /// </summary>
+    private void OnBeforeSerialization(BeforeSerializationEvent ev)
+    {
+        var query = AllEntityQuery<BiomeComponent, TransformComponent>();
+        var dead = new List<EntityUid>();
+
+        while (query.MoveNext(out _, out var biome, out var xform))
+        {
+            if (!ev.MapIds.Contains(xform.MapID))
+                continue;
+
+            foreach (var (chunk, entities) in biome.LoadedEntities)
+            {
+                dead.Clear();
+
+                foreach (var ent in entities.Keys)
+                {
+                    if (Deleted(ent))
+                        dead.Add(ent);
+                }
+
+                if (dead.Count == 0)
+                    continue;
+
+                var modified = biome.ModifiedTiles.GetOrNew(chunk);
+
+                foreach (var ent in dead)
+                {
+                    modified.Add(entities[ent]);
+                    entities.Remove(ent);
+                }
+            }
+        }
+    }
+    // ADT-Tweak end
 
     private void ProtoReload(PrototypesReloadedEventArgs obj)
     {

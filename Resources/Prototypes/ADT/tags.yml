@@ -65,6 +65,9 @@
   id: ADTOldRadio  # ADT Радио Апдейт
 
 - type: Tag
+  id: ADTMicrophoneInstrument
+
+- type: Tag
   id: ADTBorgUse
 
 - type: Tag
@@ -611,12 +614,6 @@
   id: ADTMinerArmor
 
 - type: Tag
-  id: ADTMinerArmorOne
-
-- type: Tag
-  id: ADTMinerArmorTwo
-
-- type: Tag
   id: ADTBsoWeapon
 
 - type: Tag
@@ -1026,6 +1023,15 @@
 
 - type: Tag
   id: RMCTankFlamerFmW60
+
+- type: Tag
+  id: ReactorPart
+
+- type: Tag
+  id: GasTurbineBlade
+
+- type: Tag
+  id: GasTurbineStator
 
 - type: Tag
   id: RMCTankFlamerM560

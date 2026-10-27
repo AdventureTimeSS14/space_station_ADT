@@ -11,6 +11,7 @@ using Content.Shared.Mining.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -34,6 +35,7 @@ public sealed class ADTDrakeEffectsSystem : EntitySystem
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
 
     private static readonly Direction[] Cardinals =
     {
@@ -158,7 +160,15 @@ public sealed class ADTDrakeEffectsSystem : EntitySystem
                 continue;
 
             MeteorImpact((uid, meteor), xform);
-            QueueDel(uid);
+
+            if (meteor.Linger <= TimeSpan.Zero)
+            {
+                QueueDel(uid);
+                continue;
+            }
+
+            RemCompDeferred<ADTDrakeMeteorTargetComponent>(uid);
+            EnsureComp<TimedDespawnComponent>(uid).Lifetime = (float) meteor.Linger.TotalSeconds;
         }
     }
 
@@ -182,17 +192,19 @@ public sealed class ADTDrakeEffectsSystem : EntitySystem
         }
 
         _audio.PlayPvs(ent.Comp.ImpactSound, xform.Coordinates);
-        SpawnFire(ent.Comp.FireProto, _map.GridTileToLocal(gridUid, grid, tile));
+
+        if (ent.Comp.FireProto is { } fire)
+            SpawnFire(fire, _map.GridTileToLocal(gridUid, grid, tile));
 
         foreach (var target in GetEntitiesOnTile(gridUid, grid, tile))
         {
-            if (!HasComp<MobStateComponent>(target))
+            if (!HasComp<MobStateComponent>(target) && !_whitelist.IsWhitelistPass(ent.Comp.ExtraTargets, target))
                 continue;
 
-            if (HasComp<ADTDrakeComponent>(target))
+            if (HasComp<ADTDrakeComponent>(target) || _whitelist.IsWhitelistPass(ent.Comp.Blacklist, target))
                 continue;
 
-            Damage(target, "Heat", ent.Comp.Damage, null);
+            Damage(target, ent.Comp.DamageType, ent.Comp.Damage, null);
         }
     }
 
@@ -240,6 +252,12 @@ public sealed class ADTDrakeEffectsSystem : EntitySystem
 
                 Damage(target, "Heat", ent.Comp.Damage, null);
                 _popup.PopupEntity(Loc.GetString("adt-drake-lava-hit"), target, target, PopupType.LargeCaution);
+                continue;
+            }
+
+            if (_whitelist.IsWhitelistPass(ent.Comp.ExtraTargets, target))
+            {
+                Damage(target, "Heat", ent.Comp.Damage, null);
                 continue;
             }
 
