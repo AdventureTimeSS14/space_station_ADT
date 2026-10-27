@@ -145,7 +145,7 @@
           operator: !type:ADTPickPatrolPointOperator
         - !type:HTNPrimitiveTask
           operator: !type:MoveToOperator
-            pathfindInPlanning: true
+            pathfindInPlanning: false
             targetKey: ADTPatrolCoordinates
             pathfindKey: ADTPatrolPathfind
         - !type:HTNPrimitiveTask

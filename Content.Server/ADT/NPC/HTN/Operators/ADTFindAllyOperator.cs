@@ -88,7 +88,7 @@ public sealed partial class ADTFindAllyOperator : HTNOperator
             var distance = Vector2.Distance(position.Position, _transform.GetMapCoordinates(other).Position);
 
             if (distance <= MinDistance)
-                continue;
+                return Task.FromResult<(bool Valid, Dictionary<string, object>? Effects)>((false, null));
 
             var score = distance;
 

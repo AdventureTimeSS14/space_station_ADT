@@ -55,8 +55,9 @@ public sealed partial class ADTPickPatrolPointOperator : HTNOperator
 
         var returning = (current.Position - home.Position).Length() > Radius;
         var flags = _pathfinding.GetFlags(blackboard);
+        var attempts = returning ? 1 : Attempts;
 
-        for (var i = 0; i < Attempts; i++)
+        for (var i = 0; i < attempts; i++)
         {
             var target = returning
                 ? home

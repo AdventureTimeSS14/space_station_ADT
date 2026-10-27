@@ -293,7 +293,7 @@
   id: ADTMobSovietBunkerOstapenko
   name: Major Ostapenko
   suffix: DO NOT MAP
-  description: Начальник заставы СССП.
+  description: Commander of the USSP outpost.
   components:
     - type: RandomHumanoidAppearance
       nameSegments: []
@@ -308,7 +308,7 @@
   id: ADTMobSovietBunkerLisitsyna
   name: Captain Lisitsyna
   suffix: DO NOT MAP
-  description: Заместитель начальника заставы СССП по политической части.
+  description: Deputy commander for political affairs of the USSP outpost.
   components:
     - type: RandomHumanoidAppearance
       nameSegments: []
@@ -323,7 +323,7 @@
   id: ADTMobSovietBunkerYusupova
   name: Lieutenant Yusupova
   suffix: DO NOT MAP
-  description: Начальник медпункта заставы СССП.
+  description: Head of the USSP outpost infirmary.
   components:
     - type: RandomHumanoidAppearance
       nameSegments: []
@@ -338,7 +338,7 @@
   id: ADTMobSovietBunkerZaitsev
   name: Warrant Officer Zaitsev
   suffix: DO NOT MAP
-  description: Старшина заставы СССП, ведает складом и хозяйством.
+  description: Sergeant major of the USSP outpost, in charge of the storehouse and supplies.
   components:
     - type: RandomHumanoidAppearance
       nameSegments: []
@@ -353,7 +353,7 @@
   id: ADTMobSovietBunkerGavrilov
   name: Senior Sergeant Gavrilov
   suffix: DO NOT MAP
-  description: Энергетик заставы СССП и пилот шаттла «Кедровка».
+  description: Power engineer of the USSP outpost and pilot of the Kedrovka shuttle.
   components:
     - type: RandomHumanoidAppearance
       nameSegments: []
@@ -368,7 +368,7 @@
   id: ADTMobSovietBunkerBurogriv
   name: Sergeant Burogriv
   suffix: DO NOT MAP
-  description: Механик-водитель заставы СССП, урс из Урсама (Уроделус II).
+  description: Driver-mechanic of the USSP outpost, an ursus from Ursam (Urodelus II).
   components:
     - type: NpcFactionMember
       factions:
@@ -390,7 +390,7 @@
   id: ADTMobSovietBunkerKovalchuk
   name: Lance Corporal Kovalchuk
   suffix: DO NOT MAP
-  description: Радист заставы СССП.
+  description: Radio operator of the USSP outpost.
   components:
     - type: RandomHumanoidAppearance
       nameSegments: []
@@ -405,7 +405,7 @@
   id: ADTMobSovietBunkerMamedov
   name: Private Mamedov
   suffix: DO NOT MAP
-  description: Повар заставы СССП.
+  description: Cook of the USSP outpost.
   components:
     - type: RandomHumanoidAppearance
       nameSegments: []
@@ -420,7 +420,7 @@
   id: ADTMobSovietBunkerSomov
   name: Private Somov
   suffix: DO NOT MAP
-  description: Боец заставы СССП.
+  description: Soldier of the USSP outpost.
   components:
     - type: RandomHumanoidAppearance
       nameSegments: []
@@ -435,7 +435,7 @@
   id: ADTMobSovietBunkerGaliev
   name: Private Galiev
   suffix: DO NOT MAP
-  description: Боец заставы СССП.
+  description: Soldier of the USSP outpost.
   components:
     - type: RandomHumanoidAppearance
       nameSegments: []
@@ -450,7 +450,7 @@
   id: ADTMobSovietBunkerKvyatkovsky
   name: Private Kvyatkovsky
   suffix: DO NOT MAP
-  description: Боец заставы СССП.
+  description: Soldier of the USSP outpost.
   components:
     - type: RandomHumanoidAppearance
       nameSegments: []
@@ -465,7 +465,7 @@
   id: ADTMobSovietBunkerTikhonov
   name: Private Tikhonov
   suffix: DO NOT MAP
-  description: Боец заставы СССП.
+  description: Soldier of the USSP outpost.
   components:
     - type: RandomHumanoidAppearance
       nameSegments: []
@@ -480,7 +480,7 @@
   id: ADTMobSovietBunkerLiWei
   name: Private Li Wei
   suffix: DO NOT MAP
-  description: Лучший стрелок заставы СССП.
+  description: Best marksman of the USSP outpost.
   components:
     - type: RandomHumanoidAppearance
       nameSegments: []
@@ -495,7 +495,7 @@
   id: ADTMobSovietBunkerBelov
   name: Junior Researcher Belov
   suffix: DO NOT MAP
-  description: Младший научный сотрудник Института планетологии АН СССП, прикомандирован к заставе.
+  description: Junior researcher of the USSP Academy of Sciences Institute of Planetology, attached to the outpost.
   components:
     - type: RandomHumanoidAppearance
       nameSegments: []
