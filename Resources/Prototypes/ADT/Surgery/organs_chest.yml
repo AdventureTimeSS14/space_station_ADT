@@ -14,8 +14,8 @@
           target: ChestIncised
           steps:
             - name: surgery-edge-chest-cut-label
-              tools: [ Scalpel ]
-              successChance: 0.95
+              quality: Incision
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
@@ -34,8 +34,8 @@
           target: ChestBleedersClamped
           steps:
             - name: surgery-edge-chest-clamp-bleeders-label
-              tools: [ Hemostat ]
-              successChance: 0.9
+              quality: Clamping
+              successChance: 0.8
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
@@ -45,8 +45,8 @@
           target: ChestClosed
           steps:
             - name: surgery-edge-chest-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/cautery2.ogg
@@ -65,8 +65,8 @@
           target: ChestSkinRetracted
           steps:
             - name: surgery-edge-chest-retract-skin-label
-              tools: [ Retractor ]
-              successChance: 0.9
+              quality: Retraction
+              successChance: 0.8
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/retractor1.ogg
@@ -81,8 +81,8 @@
           target: ChestClosed
           steps:
             - name: surgery-edge-chest-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/cautery2.ogg
@@ -101,8 +101,8 @@
           target: ChestBoneSawed
           steps:
             - name: surgery-edge-chest-saw-ribcage-label
-              tools: [ Saw ]
-              successChance: 0.9
+              quality: Sawing
+              successChance: 0.7
               duration: 5
               sound:
                 path: /Audio/ADT/Medical/Surgery/saw.ogg
@@ -118,8 +118,8 @@
           target: ChestClosed
           steps:
             - name: surgery-edge-chest-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/cautery2.ogg
@@ -138,8 +138,8 @@
           label: surgery-edge-chest-retract-ribcage-label
           steps:
             - name: surgery-edge-chest-retract-ribcage-label
-              tools: [ Retractor ]
-              successChance: 0.9
+              quality: Retraction
+              successChance: 0.8
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/retractor1.ogg
@@ -154,7 +154,8 @@
           label: surgery-edge-chest-apply-bone-gel-first-label
           steps:
             - name: surgery-edge-chest-apply-bone-gel-first-label
-              tools: [ BoneGel ]
+              quality: BoneMending
+              successChance: 0.9
               duration: 2
 
     - name: ChestOpen
@@ -165,8 +166,8 @@
           label: surgery-edge-chest-unretract-ribcage-label
           steps:
             - name: surgery-edge-chest-unretract-ribcage-label
-              tools: [ Retractor ]
-              successChance: 0.9
+              quality: Retraction
+              successChance: 0.8
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/retractor2.ogg
@@ -184,8 +185,12 @@
               organId: Heart
           steps:
             - name: surgery-edge-chest-remove-heart-label
-              tools: [ Hemostat ]
-              successChance: 0.8
+              quality: OrganManipulation
+              successChance: 0.65
+              failureEffects:
+                - !type:DamageOrganEffect
+                  organId: Heart
+                  amount: 10
               duration: 4
               sound:
                 path: /Audio/ADT/Medical/Surgery/organ1.ogg
@@ -208,6 +213,7 @@
           steps:
             - name: surgery-edge-chest-insert-heart-label
               tools: [ Heart ]
+              successChance: 0.75
               duration: 4
               sound:
                 path: /Audio/ADT/Medical/Surgery/organ1.ogg
@@ -223,8 +229,12 @@
               organId: Lungs
           steps:
             - name: surgery-edge-chest-remove-lungs-label
-              tools: [ Hemostat ]
-              successChance: 0.8
+              quality: OrganManipulation
+              successChance: 0.65
+              failureEffects:
+                - !type:DamageOrganEffect
+                  organId: Lungs
+                  amount: 10
               duration: 4
               sound:
                 path: /Audio/ADT/Medical/Surgery/organ2.ogg
@@ -247,6 +257,7 @@
           steps:
             - name: surgery-edge-chest-insert-lungs-label
               tools: [ Lungs ]
+              successChance: 0.75
               duration: 4
               sound:
                 path: /Audio/ADT/Medical/Surgery/organ2.ogg
@@ -262,8 +273,8 @@
           target: ChestBoneSet
           steps:
             - name: surgery-edge-chest-set-bone-label
-              tools: [ BoneSetter ]
-              successChance: 0.9
+              quality: BoneSetting
+              successChance: 0.75
               duration: 3
 
     - name: ChestBoneSet
@@ -274,7 +285,8 @@
           target: ChestBoneGelledTwice
           steps:
             - name: surgery-edge-chest-apply-bone-gel-second-label
-              tools: [ BoneGel ]
+              quality: BoneMending
+              successChance: 0.9
               duration: 2
 
     - name: ChestBoneGelledTwice
@@ -285,8 +297,8 @@
           target: ChestClosed
           steps:
             - name: surgery-edge-chest-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/cautery2.ogg

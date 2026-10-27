@@ -14,8 +14,8 @@
           target: AbdomenIncised
           steps:
             - name: surgery-edge-abdomen-cut-label
-              tools: [ Scalpel ]
-              successChance: 0.95
+              quality: Incision
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
@@ -34,8 +34,8 @@
           target: AbdomenBleedersClamped
           steps:
             - name: surgery-edge-abdomen-clamp-bleeders-label
-              tools: [ Hemostat ]
-              successChance: 0.9
+              quality: Clamping
+              successChance: 0.8
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
@@ -45,8 +45,8 @@
           label: surgery-edge-abdomen-cauterize-label
           steps:
             - name: surgery-edge-abdomen-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/cautery2.ogg
@@ -65,8 +65,8 @@
           target: AbdomenSkinRetracted
           steps:
             - name: surgery-edge-abdomen-retract-skin-label
-              tools: [ Retractor ]
-              successChance: 0.9
+              quality: Retraction
+              successChance: 0.8
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/retractor1.ogg
@@ -81,8 +81,8 @@
           label: surgery-edge-abdomen-cauterize-label
           steps:
             - name: surgery-edge-abdomen-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/cautery2.ogg
@@ -101,8 +101,8 @@
           label: surgery-edge-abdomen-retract-muscle-label
           steps:
             - name: surgery-edge-abdomen-retract-muscle-label
-              tools: [ Retractor ]
-              successChance: 0.9
+              quality: Retraction
+              successChance: 0.8
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/retractor1.ogg
@@ -117,8 +117,8 @@
           label: surgery-edge-abdomen-cauterize-label
           steps:
             - name: surgery-edge-abdomen-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/cautery2.ogg
@@ -137,8 +137,8 @@
           label: surgery-edge-abdomen-unretract-muscle-label
           steps:
             - name: surgery-edge-abdomen-unretract-muscle-label
-              tools: [ Retractor ]
-              successChance: 0.9
+              quality: Retraction
+              successChance: 0.8
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/retractor2.ogg
@@ -156,8 +156,12 @@
               organId: Stomach
           steps:
             - name: surgery-edge-abdomen-remove-stomach-label
-              tools: [ Hemostat ]
-              successChance: 0.8
+              quality: OrganManipulation
+              successChance: 0.65
+              failureEffects:
+                - !type:DamageOrganEffect
+                  organId: Stomach
+                  amount: 10
               duration: 4
               sound:
                 path: /Audio/ADT/Medical/Surgery/organ1.ogg
@@ -180,6 +184,7 @@
           steps:
             - name: surgery-edge-abdomen-insert-stomach-label
               tools: [ Stomach ]
+              successChance: 0.75
               duration: 4
               sound:
                 path: /Audio/ADT/Medical/Surgery/organ1.ogg
@@ -195,8 +200,12 @@
               organId: Liver
           steps:
             - name: surgery-edge-abdomen-remove-liver-label
-              tools: [ Hemostat ]
-              successChance: 0.8
+              quality: OrganManipulation
+              successChance: 0.65
+              failureEffects:
+                - !type:DamageOrganEffect
+                  organId: Liver
+                  amount: 10
               duration: 4
               sound:
                 path: /Audio/ADT/Medical/Surgery/organ2.ogg
@@ -219,6 +228,7 @@
           steps:
             - name: surgery-edge-abdomen-insert-liver-label
               tools: [ Liver ]
+              successChance: 0.75
               duration: 4
               sound:
                 path: /Audio/ADT/Medical/Surgery/organ2.ogg
@@ -234,8 +244,12 @@
               organId: Kidneys
           steps:
             - name: surgery-edge-abdomen-remove-kidneys-label
-              tools: [ Hemostat ]
-              successChance: 0.8
+              quality: OrganManipulation
+              successChance: 0.65
+              failureEffects:
+                - !type:DamageOrganEffect
+                  organId: Kidneys
+                  amount: 10
               duration: 4
               sound:
                 path: /Audio/ADT/Medical/Surgery/organ1.ogg
@@ -258,6 +272,7 @@
           steps:
             - name: surgery-edge-abdomen-insert-kidneys-label
               tools: [ Kidneys ]
+              successChance: 0.75
               duration: 4
               sound:
                 path: /Audio/ADT/Medical/Surgery/organ1.ogg
@@ -273,8 +288,8 @@
               organId: Appendix
           steps:
             - name: surgery-edge-abdomen-remove-appendix-label
-              tools: [ Hemostat ]
-              successChance: 0.8
+              quality: OrganManipulation
+              successChance: 0.65
               duration: 4
               sound:
                 path: /Audio/ADT/Medical/Surgery/organ2.ogg
@@ -297,6 +312,7 @@
           steps:
             - name: surgery-edge-abdomen-insert-appendix-label
               tools: [ Appendix ]
+              successChance: 0.75
               duration: 4
               sound:
                 path: /Audio/ADT/Medical/Surgery/organ2.ogg

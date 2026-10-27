@@ -14,8 +14,8 @@
           target: ScalpIncised
           steps:
             - name: surgery-edge-head-cut-label
-              tools: [ Scalpel ]
-              successChance: 0.95
+              quality: Incision
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
@@ -31,8 +31,8 @@
           label: surgery-edge-head-retract-eyelid-label
           steps:
             - name: surgery-edge-head-retract-eyelid-label
-              tools: [ Retractor ]
-              successChance: 0.9
+              quality: Retraction
+              successChance: 0.8
               duration: 2
               sound:
                 path: /Audio/ADT/Medical/Surgery/retractor1.ogg
@@ -47,8 +47,8 @@
           label: surgery-edge-head-retract-ears-label
           steps:
             - name: surgery-edge-head-retract-ears-label
-              tools: [ Retractor ]
-              successChance: 0.9
+              quality: Retraction
+              successChance: 0.8
               duration: 2
               sound:
                 path: /Audio/ADT/Medical/Surgery/retractor1.ogg
@@ -63,8 +63,8 @@
           label: surgery-edge-head-open-mouth-label
           steps:
             - name: surgery-edge-head-open-mouth-label
-              tools: [ Retractor ]
-              successChance: 0.9
+              quality: Retraction
+              successChance: 0.8
               duration: 2
               sound:
                 path: /Audio/ADT/Medical/Surgery/retractor1.ogg
@@ -82,8 +82,8 @@
           label: surgery-edge-head-release-ears-label
           steps:
             - name: surgery-edge-head-release-ears-label
-              tools: [ Retractor ]
-              successChance: 0.9
+              quality: Retraction
+              successChance: 0.8
               duration: 2
               sound:
                 path: /Audio/ADT/Medical/Surgery/retractor2.ogg
@@ -101,8 +101,12 @@
               organId: Ears
           steps:
             - name: surgery-edge-head-remove-ears-label
-              tools: [ Hemostat ]
-              successChance: 0.8
+              quality: OrganManipulation
+              successChance: 0.65
+              failureEffects:
+                - !type:DamageOrganEffect
+                  organId: Ears
+                  amount: 10
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/organ2.ogg
@@ -125,6 +129,7 @@
           steps:
             - name: surgery-edge-head-insert-ears-label
               tools: [ Ears ]
+              successChance: 0.75
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/organ2.ogg
@@ -140,8 +145,8 @@
           label: surgery-edge-head-close-mouth-label
           steps:
             - name: surgery-edge-head-close-mouth-label
-              tools: [ Retractor ]
-              successChance: 0.9
+              quality: Retraction
+              successChance: 0.8
               duration: 2
               sound:
                 path: /Audio/ADT/Medical/Surgery/retractor2.ogg
@@ -159,8 +164,12 @@
               organId: Tongue
           steps:
             - name: surgery-edge-head-remove-tongue-label
-              tools: [ Hemostat ]
-              successChance: 0.8
+              quality: OrganManipulation
+              successChance: 0.65
+              failureEffects:
+                - !type:DamageOrganEffect
+                  organId: Tongue
+                  amount: 10
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/organ1.ogg
@@ -183,6 +192,7 @@
           steps:
             - name: surgery-edge-head-insert-tongue-label
               tools: [ Tongue ]
+              successChance: 0.75
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/organ1.ogg
@@ -198,8 +208,8 @@
           label: surgery-edge-head-release-eyelid-label
           steps:
             - name: surgery-edge-head-release-eyelid-label
-              tools: [ Retractor ]
-              successChance: 0.9
+              quality: Retraction
+              successChance: 0.8
               duration: 2
               sound:
                 path: /Audio/ADT/Medical/Surgery/retractor2.ogg
@@ -217,8 +227,12 @@
               organId: Eyes
           steps:
             - name: surgery-edge-head-remove-eyes-label
-              tools: [ Hemostat ]
-              successChance: 0.8
+              quality: OrganManipulation
+              successChance: 0.65
+              failureEffects:
+                - !type:DamageOrganEffect
+                  organId: Eyes
+                  amount: 10
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/organ2.ogg
@@ -241,6 +255,7 @@
           steps:
             - name: surgery-edge-head-insert-eyes-label
               tools: [ Eyes ]
+              successChance: 0.75
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/organ2.ogg
@@ -256,8 +271,8 @@
           target: ScalpBleedersClamped
           steps:
             - name: surgery-edge-head-clamp-bleeders-label
-              tools: [ Hemostat ]
-              successChance: 0.9
+              quality: Clamping
+              successChance: 0.8
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
@@ -267,8 +282,8 @@
           target: ScalpClosed
           steps:
             - name: surgery-edge-head-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/cautery2.ogg
@@ -287,8 +302,8 @@
           target: ScalpRetracted
           steps:
             - name: surgery-edge-head-retract-scalp-label
-              tools: [ Retractor ]
-              successChance: 0.9
+              quality: Retraction
+              successChance: 0.8
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/retractor1.ogg
@@ -303,8 +318,8 @@
           target: ScalpClosed
           steps:
             - name: surgery-edge-head-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/cautery2.ogg
@@ -323,8 +338,8 @@
           target: SkullSawed
           steps:
             - name: surgery-edge-head-saw-skull-label
-              tools: [ Saw ]
-              successChance: 0.9
+              quality: Sawing
+              successChance: 0.7
               duration: 5
               sound:
                 path: /Audio/ADT/Medical/Surgery/saw.ogg
@@ -340,8 +355,8 @@
           target: ScalpClosed
           steps:
             - name: surgery-edge-head-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/cautery2.ogg
@@ -360,8 +375,8 @@
           label: surgery-edge-head-retract-skull-label
           steps:
             - name: surgery-edge-head-retract-skull-label
-              tools: [ Retractor ]
-              successChance: 0.9
+              quality: Retraction
+              successChance: 0.8
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/retractor1.ogg
@@ -376,7 +391,8 @@
           label: surgery-edge-head-apply-bone-gel-first-label
           steps:
             - name: surgery-edge-head-apply-bone-gel-first-label
-              tools: [ BoneGel ]
+              quality: BoneMending
+              successChance: 0.9
               duration: 2
 
     - name: SkullOpen
@@ -387,8 +403,8 @@
           label: surgery-edge-head-unretract-skull-label
           steps:
             - name: surgery-edge-head-unretract-skull-label
-              tools: [ Retractor ]
-              successChance: 0.9
+              quality: Retraction
+              successChance: 0.8
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/retractor2.ogg
@@ -406,8 +422,8 @@
               organId: Brain
           steps:
             - name: surgery-edge-head-remove-brain-label
-              tools: [ Hemostat ]
-              successChance: 0.8
+              quality: OrganManipulation
+              successChance: 0.65
               duration: 4
               sound:
                 path: /Audio/ADT/Medical/Surgery/organ1.ogg
@@ -430,6 +446,7 @@
           steps:
             - name: surgery-edge-head-insert-brain-label
               tools: [ Brain ]
+              successChance: 0.75
               duration: 4
               sound:
                 path: /Audio/ADT/Medical/Surgery/organ1.ogg
@@ -445,8 +462,8 @@
           target: SkullBoneSet
           steps:
             - name: surgery-edge-head-set-bone-label
-              tools: [ BoneSetter ]
-              successChance: 0.9
+              quality: BoneSetting
+              successChance: 0.75
               duration: 3
 
     - name: SkullBoneSet
@@ -457,7 +474,8 @@
           target: SkullBoneGelledTwice
           steps:
             - name: surgery-edge-head-apply-bone-gel-second-label
-              tools: [ BoneGel ]
+              quality: BoneMending
+              successChance: 0.9
               duration: 2
 
     - name: SkullBoneGelledTwice
@@ -468,8 +486,8 @@
           target: ScalpClosed
           steps:
             - name: surgery-edge-head-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/cautery2.ogg

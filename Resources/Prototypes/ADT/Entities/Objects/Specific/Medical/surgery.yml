@@ -55,6 +55,22 @@
     storedRotation: 90
 
 - type: entity
+  name: surgical tape
+  id: ADTSurgicalTape
+  parent: BaseToolSurgery
+  description: Made for patching broken bones back together alongside bone gel, not for playing pranks.
+  components:
+  - type: Tag
+    tags:
+    - SurgeryTool
+    - SurgicalTape
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/Surgery/surgical_tape.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Specific/Medical/Surgery/surgical_tape.rsi
+
+- type: entity
   name: blood filter
   id: ADTBloodFilter
   parent: BaseToolSurgery
@@ -86,3 +102,112 @@
   - type: SurgeryChooser
   - type: StaticPrice
     price: 15
+
+- type: entity
+  abstract: true
+  parent: BaseToolSurgery
+  id: ADTBaseToolSurgeryAdvanced
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      map: [ "enum.ToggleableVisuals.Layer" ]
+  - type: Item
+    size: Normal
+    heldPrefix: off
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: { state: icon_on }
+          False: { state: icon }
+  - type: ItemToggle
+    soundActivate:
+      path: /Audio/Machines/machine_switch.ogg
+    soundDeactivate:
+      path: /Audio/Machines/machine_switch.ogg
+  - type: ItemTogglePrefix
+    prefixOn: on
+    prefixOff: off
+  - type: ItemToggleExaminableStatus
+  - type: StaticPrice
+    price: 120
+
+- type: entity
+  parent: ADTBaseToolSurgeryAdvanced
+  id: ADTLaserScalpel
+  name: advanced laser scalpel
+  description: An advanced scalpel which uses laser technology to cut. Can be switched to bone-cutting mode.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/Surgery/laser_scalpel.rsi
+  - type: Item
+    sprite: ADT/Objects/Specific/Medical/Surgery/laser_scalpel.rsi
+  - type: SurgeryTool
+    tier: 2
+    speed: 0.55
+    extraQualities:
+    - Incision
+    activeQualities:
+    - Sawing
+  - type: Tool
+    qualities:
+    - Slicing
+  - type: MeleeWeapon
+    wideAnimationRotation: 90
+    swingLeft: true
+    attackRate: 1.5
+    damage:
+      types:
+        Slash: 12
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+
+- type: entity
+  parent: ADTBaseToolSurgeryAdvanced
+  id: ADTMechanicalPinches
+  name: mechanical pinches
+  description: An agglomerate of rods and gears. Can be switched between retracting and clamping.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/Surgery/mechanical_pinches.rsi
+  - type: Item
+    sprite: ADT/Objects/Specific/Medical/Surgery/mechanical_pinches.rsi
+  - type: ItemToggle
+    soundActivate:
+      path: /Audio/Items/change_drill.ogg
+    soundDeactivate:
+      path: /Audio/Items/change_drill.ogg
+  - type: SurgeryTool
+    tier: 2
+    speed: 0.55
+    extraQualities:
+    - Retraction
+    activeQualities:
+    - Clamping
+    - OrganManipulation
+
+- type: entity
+  parent: ADTBaseToolSurgeryAdvanced
+  id: ADTSearingTool
+  name: searing tool
+  description: It projects a high power laser used for medical applications. Can be switched between mending and drilling.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/Surgery/searing_tool.rsi
+  - type: Item
+    sprite: ADT/Objects/Specific/Medical/Surgery/searing_tool.rsi
+  - type: SurgeryTool
+    tier: 2
+    speed: 0.55
+    extraQualities:
+    - Cautery
+    activeQualities:
+    - Drilling
+  - type: MeleeWeapon
+    damage:
+      types:
+        Heat: 5
+    soundHit:
+      path: /Audio/Effects/lightburn.ogg

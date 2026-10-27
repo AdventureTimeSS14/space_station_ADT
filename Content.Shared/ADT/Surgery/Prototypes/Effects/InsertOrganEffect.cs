@@ -35,12 +35,9 @@ public sealed partial class InsertOrganEffect : SurgeryStepEffect
             return;
         }
 
-        if (!body.TryGetOrgansWithComponent<OrganComponent>(patient, out var organs))
-            return;
-
-        foreach (var parent in organs)
+        foreach (var parent in body.EnumerateOrgans<OrganComponent>(patient))
         {
-            if (parent.Comp.Category != ParentId)
+            if (parent.Comp1.Category != ParentId)
                 continue;
 
             detachable.Attach(organEntity, patient, parent.Owner);

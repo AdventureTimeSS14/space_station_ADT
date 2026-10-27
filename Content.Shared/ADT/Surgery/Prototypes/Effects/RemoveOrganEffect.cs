@@ -14,12 +14,9 @@ public sealed partial class RemoveOrganEffect : SurgeryStepEffect
     {
         var body = entityManager.System<BodySystem>();
 
-        if (!body.TryGetOrgansWithComponent<OrganComponent>(patient, out var organs))
-            return;
-
-        foreach (var organ in organs)
+        foreach (var organ in body.EnumerateOrgans<OrganComponent>(patient))
         {
-            if (organ.Comp.Category != OrganId)
+            if (organ.Comp1.Category != OrganId)
                 continue;
 
             body.TryRemoveOrgan(organ.Owner);

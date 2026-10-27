@@ -17,6 +17,7 @@
         # ADT-Tweak start
         - id: ADTBoneSetter
         - id: ADTBoneGel
+        - id: ADTSurgicalTape
         - id: ADTBloodFilter
         - id: ADTSurgicalDrapes
         # ADT-Tweak end
@@ -42,6 +43,7 @@
         # ADT-Tweak start
         - id: ADTBoneSetter
         - id: ADTBoneGel
+        - id: ADTSurgicalTape
         - id: ADTBloodFilter
         - id: ADTSurgicalDrapes
         # ADT-Tweak end

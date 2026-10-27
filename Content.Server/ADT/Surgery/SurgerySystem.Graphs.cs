@@ -32,27 +32,4 @@ public sealed partial class SurgerySystem
         comp.ActiveEdgeId = null;
         comp.CompletedSteps = 0;
     }
-
-    private bool ToolMatches(SurgeryStepEntry step, EntityUid item)
-    {
-        if (step.Tools.Count == 0)
-            return true;
-
-        foreach (var tag in step.Tools)
-        {
-            if (_tag.HasTag(item, tag))
-                return true;
-        }
-
-        if (_detachableOrgan.TryGetDetachedOrgan(item, out var organ))
-        {
-            foreach (var tag in step.Tools)
-            {
-                if (_tag.HasTag(organ, tag))
-                    return true;
-            }
-        }
-
-        return false;
-    }
 }

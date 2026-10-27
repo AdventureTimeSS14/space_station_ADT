@@ -1,0 +1,211 @@
+- type: surgeryToolQuality
+  id: Incision
+  name: surgery-quality-incision
+  entries:
+  - whitelist:
+      tags: [ Scalpel ]
+  - whitelist:
+      tags: [ GlassShard, ReinforcedGlassShard, PlasmaGlassShard, UraniumGlassShard ]
+    speed: 2.48
+    success: 0.65
+    failureEffects:
+    - !type:DamageEffect
+      damage:
+        types:
+          Slash: 3
+  - toolQuality: Slicing
+    speed: 1.65
+    success: 0.8
+  - toolQuality: Screwing
+    speed: 5.5
+    success: 0.4
+    failureEffects:
+    - !type:DamageEffect
+      damage:
+        types:
+          Piercing: 3
+  - whitelist:
+      tags: [ Pen ]
+    speed: 5.5
+    success: 0.4
+    failureEffects:
+    - !type:DamageEffect
+      damage:
+        types:
+          Piercing: 2
+
+- type: surgeryToolQuality
+  id: Clamping
+  name: surgery-quality-clamping
+  entries:
+  - whitelist:
+      tags: [ Hemostat ]
+  - toolQuality: Cutting
+    speed: 2.2
+    success: 0.75
+  - utensil: Fork
+    speed: 3.14
+    success: 0.6
+    failureEffects:
+    - !type:DamageEffect
+      damage:
+        types:
+          Piercing: 2
+  - whitelist:
+      tags: [ CableCoil ]
+    speed: 7.3
+    success: 0.35
+
+- type: surgeryToolQuality
+  id: Retraction
+  name: surgery-quality-retraction
+  entries:
+  - whitelist:
+      tags: [ Retractor ]
+  - toolQuality: Prying
+    speed: 1.98
+    success: 0.75
+  - toolQuality: Screwing
+    speed: 2.48
+    success: 0.6
+  - toolQuality: Cutting
+    speed: 3.14
+    success: 0.6
+  - utensil: Fork
+    speed: 3.14
+    success: 0.6
+    failureEffects:
+    - !type:DamageEffect
+      damage:
+        types:
+          Piercing: 2
+
+- type: surgeryToolQuality
+  id: Sawing
+  name: surgery-quality-sawing
+  entries:
+  - whitelist:
+      tags: [ Saw ]
+  - toolQuality: Sawing
+    speed: 1.65
+    success: 0.8
+  - toolQuality: Slicing
+    speed: 3.3
+    success: 0.5
+    failureEffects:
+    - !type:DamageEffect
+      damage:
+        types:
+          Slash: 3
+
+- type: surgeryToolQuality
+  id: Cautery
+  name: surgery-quality-cautery
+  entries:
+  - whitelist:
+      tags: [ Cautery ]
+  - toolQuality: Welding
+    requireHot: true
+    speed: 1.65
+    success: 0.8
+    failureEffects:
+    - !type:DamageEffect
+      damage:
+        types:
+          Heat: 5
+  - requireHot: true
+    speed: 3.63
+    success: 0.5
+    failureEffects:
+    - !type:DamageEffect
+      damage:
+        types:
+          Heat: 3
+
+- type: surgeryToolQuality
+  id: Drilling
+  name: surgery-quality-drilling
+  entries:
+  - whitelist:
+      tags: [ Drill ]
+  - whitelist:
+      tags: [ ADTDrill ]
+    speed: 1.84
+    success: 0.8
+    failureEffects:
+    - !type:DamageEffect
+      damage:
+        types:
+          Piercing: 5
+  - toolQuality: Screwing
+    speed: 3.3
+    success: 0.6
+  - utensil: Spoon
+    speed: 5.5
+    success: 0.35
+
+- type: surgeryToolQuality
+  id: BoneSetting
+  name: surgery-quality-bone-setting
+  entries:
+  - whitelist:
+      tags: [ BoneSetter ]
+  - toolQuality: Anchoring
+    speed: 1.98
+    success: 0.75
+    failureEffects:
+    - !type:DamageEffect
+      damage:
+        types:
+          Blunt: 3
+  - toolQuality: Prying
+    speed: 2.2
+    success: 0.7
+    failureEffects:
+    - !type:DamageEffect
+      damage:
+        types:
+          Blunt: 3
+
+- type: surgeryToolQuality
+  id: BoneMending
+  name: surgery-quality-bone-mending
+  entries:
+  - whitelist:
+      tags: [ BoneGel ]
+  - whitelist:
+      tags: [ SurgicalTape ]
+  - whitelist:
+      tags: [ BoneSplint ]
+    speed: 1.65
+    success: 0.85
+  - whitelist:
+      tags: [ Gauze ]
+    speed: 2.75
+    success: 0.6
+  - whitelist:
+      tags: [ CableCoil ]
+    speed: 4.4
+    success: 0.4
+
+- type: surgeryToolQuality
+  id: OrganManipulation
+  name: surgery-quality-organ-manipulation
+  entries:
+  - whitelist:
+      tags: [ Hemostat ]
+  - toolQuality: Prying
+    speed: 1.98
+    success: 0.75
+  - utensil: Fork
+    speed: 3.14
+    success: 0.6
+
+- type: surgeryToolQuality
+  id: Draping
+  name: surgery-quality-draping
+  entries:
+  - whitelist:
+      components: [ SurgeryChooser ]
+  - whitelist:
+      tags: [ Bedsheet ]

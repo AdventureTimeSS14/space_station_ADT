@@ -18,8 +18,8 @@
               inverted: true
           steps:
             - name: surgery-edge-limb-open-stump-label
-              tools: [ Scalpel ]
-              successChance: 0.95
+              quality: Incision
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
@@ -39,6 +39,7 @@
           steps:
             - name: surgery-edge-limb-attach-label
               tools: [ ArmLeft ]
+              successChance: 0.75
               duration: 4
           effects:
             - !type:InsertOrganEffect
@@ -52,7 +53,8 @@
           target: LimbBoneGelled
           steps:
             - name: surgery-edge-limb-bone-gel-first-label
-              tools: [ BoneGel ]
+              quality: BoneMending
+              successChance: 0.9
               duration: 2
 
     - name: LimbBoneGelled
@@ -63,8 +65,8 @@
           target: LimbBoneSet
           steps:
             - name: surgery-edge-limb-set-bone-label
-              tools: [ BoneSetter ]
-              successChance: 0.9
+              quality: BoneSetting
+              successChance: 0.75
               duration: 3
 
     - name: LimbBoneSet
@@ -75,7 +77,8 @@
           target: Attached
           steps:
             - name: surgery-edge-limb-bone-gel-second-label
-              tools: [ BoneGel ]
+              quality: BoneMending
+              successChance: 0.9
               duration: 2
 
     - name: Attached
@@ -102,8 +105,8 @@
               inverted: true
           steps:
             - name: surgery-edge-limb-open-stump-label
-              tools: [ Scalpel ]
-              successChance: 0.95
+              quality: Incision
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
@@ -123,6 +126,7 @@
           steps:
             - name: surgery-edge-limb-attach-label
               tools: [ ArmRight ]
+              successChance: 0.75
               duration: 4
           effects:
             - !type:InsertOrganEffect
@@ -136,7 +140,8 @@
           target: LimbBoneGelled
           steps:
             - name: surgery-edge-limb-bone-gel-first-label
-              tools: [ BoneGel ]
+              quality: BoneMending
+              successChance: 0.9
               duration: 2
 
     - name: LimbBoneGelled
@@ -147,8 +152,8 @@
           target: LimbBoneSet
           steps:
             - name: surgery-edge-limb-set-bone-label
-              tools: [ BoneSetter ]
-              successChance: 0.9
+              quality: BoneSetting
+              successChance: 0.75
               duration: 3
 
     - name: LimbBoneSet
@@ -159,7 +164,8 @@
           target: Attached
           steps:
             - name: surgery-edge-limb-bone-gel-second-label
-              tools: [ BoneGel ]
+              quality: BoneMending
+              successChance: 0.9
               duration: 2
 
     - name: Attached
@@ -188,8 +194,8 @@
               organId: ArmLeft
           steps:
             - name: surgery-edge-limb-open-stump-label
-              tools: [ Scalpel ]
-              successChance: 0.95
+              quality: Incision
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
@@ -209,6 +215,7 @@
           steps:
             - name: surgery-edge-limb-attach-label
               tools: [ HandLeft ]
+              successChance: 0.75
               duration: 4
           effects:
             - !type:InsertOrganEffect
@@ -222,7 +229,8 @@
           target: LimbBoneGelled
           steps:
             - name: surgery-edge-limb-bone-gel-first-label
-              tools: [ BoneGel ]
+              quality: BoneMending
+              successChance: 0.9
               duration: 2
 
     - name: LimbBoneGelled
@@ -233,8 +241,8 @@
           target: LimbBoneSet
           steps:
             - name: surgery-edge-limb-set-bone-label
-              tools: [ BoneSetter ]
-              successChance: 0.9
+              quality: BoneSetting
+              successChance: 0.75
               duration: 3
 
     - name: LimbBoneSet
@@ -245,7 +253,8 @@
           target: Attached
           steps:
             - name: surgery-edge-limb-bone-gel-second-label
-              tools: [ BoneGel ]
+              quality: BoneMending
+              successChance: 0.9
               duration: 2
 
     - name: Attached
@@ -274,8 +283,8 @@
               organId: ArmRight
           steps:
             - name: surgery-edge-limb-open-stump-label
-              tools: [ Scalpel ]
-              successChance: 0.95
+              quality: Incision
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
@@ -295,6 +304,7 @@
           steps:
             - name: surgery-edge-limb-attach-label
               tools: [ HandRight ]
+              successChance: 0.75
               duration: 4
           effects:
             - !type:InsertOrganEffect
@@ -308,7 +318,8 @@
           target: LimbBoneGelled
           steps:
             - name: surgery-edge-limb-bone-gel-first-label
-              tools: [ BoneGel ]
+              quality: BoneMending
+              successChance: 0.9
               duration: 2
 
     - name: LimbBoneGelled
@@ -319,8 +330,8 @@
           target: LimbBoneSet
           steps:
             - name: surgery-edge-limb-set-bone-label
-              tools: [ BoneSetter ]
-              successChance: 0.9
+              quality: BoneSetting
+              successChance: 0.75
               duration: 3
 
     - name: LimbBoneSet
@@ -331,7 +342,8 @@
           target: Attached
           steps:
             - name: surgery-edge-limb-bone-gel-second-label
-              tools: [ BoneGel ]
+              quality: BoneMending
+              successChance: 0.9
               duration: 2
 
     - name: Attached
@@ -358,8 +370,8 @@
               inverted: true
           steps:
             - name: surgery-edge-limb-open-stump-label
-              tools: [ Scalpel ]
-              successChance: 0.95
+              quality: Incision
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
@@ -379,6 +391,7 @@
           steps:
             - name: surgery-edge-limb-attach-label
               tools: [ LegLeft ]
+              successChance: 0.75
               duration: 4
           effects:
             - !type:InsertOrganEffect
@@ -392,7 +405,8 @@
           target: LimbBoneGelled
           steps:
             - name: surgery-edge-limb-bone-gel-first-label
-              tools: [ BoneGel ]
+              quality: BoneMending
+              successChance: 0.9
               duration: 2
 
     - name: LimbBoneGelled
@@ -403,8 +417,8 @@
           target: LimbBoneSet
           steps:
             - name: surgery-edge-limb-set-bone-label
-              tools: [ BoneSetter ]
-              successChance: 0.9
+              quality: BoneSetting
+              successChance: 0.75
               duration: 3
 
     - name: LimbBoneSet
@@ -415,7 +429,8 @@
           target: Attached
           steps:
             - name: surgery-edge-limb-bone-gel-second-label
-              tools: [ BoneGel ]
+              quality: BoneMending
+              successChance: 0.9
               duration: 2
 
     - name: Attached
@@ -442,8 +457,8 @@
               inverted: true
           steps:
             - name: surgery-edge-limb-open-stump-label
-              tools: [ Scalpel ]
-              successChance: 0.95
+              quality: Incision
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
@@ -463,6 +478,7 @@
           steps:
             - name: surgery-edge-limb-attach-label
               tools: [ LegRight ]
+              successChance: 0.75
               duration: 4
           effects:
             - !type:InsertOrganEffect
@@ -476,7 +492,8 @@
           target: LimbBoneGelled
           steps:
             - name: surgery-edge-limb-bone-gel-first-label
-              tools: [ BoneGel ]
+              quality: BoneMending
+              successChance: 0.9
               duration: 2
 
     - name: LimbBoneGelled
@@ -487,8 +504,8 @@
           target: LimbBoneSet
           steps:
             - name: surgery-edge-limb-set-bone-label
-              tools: [ BoneSetter ]
-              successChance: 0.9
+              quality: BoneSetting
+              successChance: 0.75
               duration: 3
 
     - name: LimbBoneSet
@@ -499,7 +516,8 @@
           target: Attached
           steps:
             - name: surgery-edge-limb-bone-gel-second-label
-              tools: [ BoneGel ]
+              quality: BoneMending
+              successChance: 0.9
               duration: 2
 
     - name: Attached
@@ -528,8 +546,8 @@
               organId: LegLeft
           steps:
             - name: surgery-edge-limb-open-stump-label
-              tools: [ Scalpel ]
-              successChance: 0.95
+              quality: Incision
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
@@ -549,6 +567,7 @@
           steps:
             - name: surgery-edge-limb-attach-label
               tools: [ FootLeft ]
+              successChance: 0.75
               duration: 4
           effects:
             - !type:InsertOrganEffect
@@ -562,7 +581,8 @@
           target: LimbBoneGelled
           steps:
             - name: surgery-edge-limb-bone-gel-first-label
-              tools: [ BoneGel ]
+              quality: BoneMending
+              successChance: 0.9
               duration: 2
 
     - name: LimbBoneGelled
@@ -573,8 +593,8 @@
           target: LimbBoneSet
           steps:
             - name: surgery-edge-limb-set-bone-label
-              tools: [ BoneSetter ]
-              successChance: 0.9
+              quality: BoneSetting
+              successChance: 0.75
               duration: 3
 
     - name: LimbBoneSet
@@ -585,7 +605,8 @@
           target: Attached
           steps:
             - name: surgery-edge-limb-bone-gel-second-label
-              tools: [ BoneGel ]
+              quality: BoneMending
+              successChance: 0.9
               duration: 2
 
     - name: Attached
@@ -614,8 +635,8 @@
               organId: LegRight
           steps:
             - name: surgery-edge-limb-open-stump-label
-              tools: [ Scalpel ]
-              successChance: 0.95
+              quality: Incision
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
@@ -635,6 +656,7 @@
           steps:
             - name: surgery-edge-limb-attach-label
               tools: [ FootRight ]
+              successChance: 0.75
               duration: 4
           effects:
             - !type:InsertOrganEffect
@@ -648,7 +670,8 @@
           target: LimbBoneGelled
           steps:
             - name: surgery-edge-limb-bone-gel-first-label
-              tools: [ BoneGel ]
+              quality: BoneMending
+              successChance: 0.9
               duration: 2
 
     - name: LimbBoneGelled
@@ -659,8 +682,8 @@
           target: LimbBoneSet
           steps:
             - name: surgery-edge-limb-set-bone-label
-              tools: [ BoneSetter ]
-              successChance: 0.9
+              quality: BoneSetting
+              successChance: 0.75
               duration: 3
 
     - name: LimbBoneSet
@@ -671,7 +694,8 @@
           target: Attached
           steps:
             - name: surgery-edge-limb-bone-gel-second-label
-              tools: [ BoneGel ]
+              quality: BoneMending
+              successChance: 0.9
               duration: 2
 
     - name: Attached

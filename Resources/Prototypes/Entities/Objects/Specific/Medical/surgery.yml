@@ -9,6 +9,7 @@
   - type: StaticPrice
     price: 20
   - type: SurgeryTool # ADT-Tweak
+    speed: 1.15
   - type: Tag
     tags:
     - SurgeryTool
@@ -144,6 +145,11 @@
     damage:
       types:
         Slash: 12
+  # ADT-Tweak start
+  - type: SurgeryTool
+    tier: 2
+    speed: 0.55
+  # ADT-Tweak end
 
 - type: entity
   name: laser scalpel
@@ -155,6 +161,11 @@
     state: laser
   - type: Item
     heldPrefix: laser
+  # ADT-Tweak start
+  - type: SurgeryTool
+    tier: 2
+    speed: 0.55
+  # ADT-Tweak end
 
 # Scissors
 
@@ -269,6 +280,11 @@
       path: /Audio/Items/drill_hit.ogg
   - type: Tool
     speedModifier: 1.5
+  # ADT-Tweak start
+  - type: SurgeryTool
+    tier: 2
+    speed: 0.55
+  # ADT-Tweak end
 
 - type: entity
   name: advanced circular saw
@@ -284,3 +300,8 @@
     attackRate: 1.5
   - type: Tool
     speedModifier: 2.0
+  # ADT-Tweak start
+  - type: SurgeryTool
+    tier: 3
+    speed: 0.4
+  # ADT-Tweak end

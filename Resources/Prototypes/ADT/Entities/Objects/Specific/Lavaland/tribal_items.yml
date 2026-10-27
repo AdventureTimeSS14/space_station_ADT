@@ -106,6 +106,7 @@
   - type: Tag
     tags:
     - Brutepack
+    - BoneSplint
 
 - type: entity
   id: ADTBoneSplint1

@@ -10,6 +10,7 @@ public sealed partial class SurgerySystem
     private static readonly EntProtoId AnesthetizedStatusEffect = "StatusEffectAnesthetized";
     private static readonly EntProtoId WeaklyAnesthetizedStatusEffect = "StatusEffectWeaklyAnesthetized";
     private const float NoAnestheticChanceMultiplier = 0.7f;
+    private const float WeakAnestheticChanceMultiplier = 0.9f;
     private static readonly ProtoId<EmotePrototype> ScreamEmote = "Scream";
 
     private static readonly DamageSpecifier NoAnestheticPainDamage = new()
@@ -24,7 +25,7 @@ public sealed partial class SurgerySystem
 
     private bool IsAnesthetized(EntityUid patient)
     {
-        if (_status.HasStatusEffect(patient, AnesthetizedStatusEffect))
+        if (_status.HasStatusEffect(patient, AnesthetizedStatusEffect) || _mobState.IsIncapacitated(patient))
             return true;
 
         return _status.HasEffectComp<ForcedSleepingStatusEffectComponent>(patient);
@@ -33,5 +34,13 @@ public sealed partial class SurgerySystem
     private bool IsWeaklyAnesthetized(EntityUid patient)
     {
         return _status.HasStatusEffect(patient, WeaklyAnesthetizedStatusEffect);
+    }
+
+    private float GetAnesthesiaMultiplier(EntityUid patient)
+    {
+        if (IsAnesthetized(patient))
+            return 1f;
+
+        return IsWeaklyAnesthetized(patient) ? WeakAnestheticChanceMultiplier : NoAnestheticChanceMultiplier;
     }
 }

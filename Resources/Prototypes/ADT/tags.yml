@@ -866,6 +866,12 @@
   id: BoneGel
 
 - type: Tag
+  id: SurgicalTape
+
+- type: Tag
+  id: BoneSplint
+
+- type: Tag
   id: BloodFilter
 
 - type: Tag

@@ -97,6 +97,47 @@ public sealed class SurgeryGraphValidationTest : GameTest
         Assert.That(errors, Is.Empty, string.Join('\n', errors));
     }
 
+    [Test]
+    [RunOnSide(Side.Server)]
+    public void ToolQualitiesAreWellFormed()
+    {
+        var errors = new List<string>();
+
+        foreach (var quality in SProtoMan.EnumeratePrototypes<SurgeryToolQualityPrototype>())
+        {
+            CheckLoc($"quality {quality.ID}.name", quality.Name, errors);
+
+            if (quality.Entries.Count == 0)
+                errors.Add($"{quality.ID}: no entries");
+
+            for (var i = 0; i < quality.Entries.Count; i++)
+            {
+                var entry = quality.Entries[i];
+                var where = $"{quality.ID}[{i}]";
+
+                if (!entry.HasCriteria)
+                    errors.Add($"{where}: entry matches any item");
+
+                if (entry.Speed <= 0f)
+                    errors.Add($"{where}: non-positive speed {entry.Speed}");
+
+                if (entry.Success is <= 0f or > 1f)
+                    errors.Add($"{where}: success {entry.Success} outside (0, 1]");
+
+                if (entry.ToolQuality is { } toolQuality && !SProtoMan.HasIndex(toolQuality))
+                    errors.Add($"{where}: unknown tool quality '{toolQuality}'");
+
+                foreach (var tag in entry.Whitelist?.Tags ?? [])
+                {
+                    if (!SProtoMan.HasIndex<TagPrototype>(tag))
+                        errors.Add($"{where}: unknown tag '{tag}'");
+                }
+            }
+        }
+
+        Assert.That(errors, Is.Empty, string.Join('\n', errors));
+    }
+
     private void ValidateStructure(SurgeryGraphPrototype graph, List<string> errors)
     {
         var id = graph.ID;
@@ -147,6 +188,12 @@ public sealed class SurgeryGraphValidationTest : GameTest
 
                 foreach (var step in edge.Steps)
                 {
+                    if (step.Quality is { } quality && !SProtoMan.HasIndex(quality))
+                        errors.Add($"{where}: unknown tool quality '{quality}'");
+
+                    if (step.Quality == null && step.Tools.Count == 0)
+                        errors.Add($"{where}: step '{step.Name}' has neither quality nor tools");
+
                     foreach (var tool in step.Tools)
                     {
                         if (!SProtoMan.HasIndex<TagPrototype>(tool))

@@ -17,8 +17,8 @@
               organId: ArmLeft
           steps:
             - name: surgery-edge-limb-cut-label
-              tools: [ Scalpel ]
-              successChance: 0.95
+              quality: Incision
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
@@ -37,8 +37,8 @@
           target: BleedersClamped
           steps:
             - name: surgery-edge-limb-clamp-bleeders-label
-              tools: [ Hemostat ]
-              successChance: 0.9
+              quality: Clamping
+              successChance: 0.8
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
@@ -48,8 +48,8 @@
           target: Attached
           steps:
             - name: surgery-edge-limb-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/cautery2.ogg
@@ -68,8 +68,8 @@
           target: SkinRetracted
           steps:
             - name: surgery-edge-limb-retract-skin-label
-              tools: [ Retractor ]
-              successChance: 0.9
+              quality: Retraction
+              successChance: 0.8
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/retractor1.ogg
@@ -84,8 +84,8 @@
           target: Attached
           steps:
             - name: surgery-edge-limb-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/cautery2.ogg
@@ -104,8 +104,8 @@
           target: Amputated
           steps:
             - name: surgery-edge-limb-saw-label
-              tools: [ Saw ]
-              successChance: 0.9
+              quality: Sawing
+              successChance: 0.7
               duration: 5
               sound:
                 path: /Audio/ADT/Medical/Surgery/saw.ogg
@@ -124,8 +124,8 @@
           target: Attached
           steps:
             - name: surgery-edge-limb-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/cautery2.ogg
@@ -144,8 +144,8 @@
           target: Cauterized
           steps:
             - name: surgery-edge-limb-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/Effects/lightburn.ogg
@@ -179,8 +179,8 @@
               organId: ArmRight
           steps:
             - name: surgery-edge-limb-cut-label
-              tools: [ Scalpel ]
-              successChance: 0.95
+              quality: Incision
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
@@ -199,8 +199,8 @@
           target: BleedersClamped
           steps:
             - name: surgery-edge-limb-clamp-bleeders-label
-              tools: [ Hemostat ]
-              successChance: 0.9
+              quality: Clamping
+              successChance: 0.8
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
@@ -210,8 +210,8 @@
           target: Attached
           steps:
             - name: surgery-edge-limb-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/cautery2.ogg
@@ -230,8 +230,8 @@
           target: SkinRetracted
           steps:
             - name: surgery-edge-limb-retract-skin-label
-              tools: [ Retractor ]
-              successChance: 0.9
+              quality: Retraction
+              successChance: 0.8
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/retractor1.ogg
@@ -246,8 +246,8 @@
           target: Attached
           steps:
             - name: surgery-edge-limb-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/cautery2.ogg
@@ -266,8 +266,8 @@
           target: Amputated
           steps:
             - name: surgery-edge-limb-saw-label
-              tools: [ Saw ]
-              successChance: 0.9
+              quality: Sawing
+              successChance: 0.7
               duration: 5
               sound:
                 path: /Audio/ADT/Medical/Surgery/saw.ogg
@@ -286,8 +286,8 @@
           target: Attached
           steps:
             - name: surgery-edge-limb-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/cautery2.ogg
@@ -306,8 +306,8 @@
           target: Cauterized
           steps:
             - name: surgery-edge-limb-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/Effects/lightburn.ogg
@@ -341,8 +341,8 @@
               organId: HandLeft
           steps:
             - name: surgery-edge-limb-cut-label
-              tools: [ Scalpel ]
-              successChance: 0.95
+              quality: Incision
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
@@ -361,8 +361,8 @@
           target: BleedersClamped
           steps:
             - name: surgery-edge-limb-clamp-bleeders-label
-              tools: [ Hemostat ]
-              successChance: 0.9
+              quality: Clamping
+              successChance: 0.8
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
@@ -372,8 +372,8 @@
           target: Attached
           steps:
             - name: surgery-edge-limb-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/cautery2.ogg
@@ -392,8 +392,8 @@
           target: SkinRetracted
           steps:
             - name: surgery-edge-limb-retract-skin-label
-              tools: [ Retractor ]
-              successChance: 0.9
+              quality: Retraction
+              successChance: 0.8
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/retractor1.ogg
@@ -408,8 +408,8 @@
           target: Attached
           steps:
             - name: surgery-edge-limb-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/cautery2.ogg
@@ -428,8 +428,8 @@
           target: Amputated
           steps:
             - name: surgery-edge-limb-saw-label
-              tools: [ Saw ]
-              successChance: 0.9
+              quality: Sawing
+              successChance: 0.7
               duration: 4
               sound:
                 path: /Audio/ADT/Medical/Surgery/saw.ogg
@@ -448,8 +448,8 @@
           target: Attached
           steps:
             - name: surgery-edge-limb-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/cautery2.ogg
@@ -468,8 +468,8 @@
           target: Cauterized
           steps:
             - name: surgery-edge-limb-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/Effects/lightburn.ogg
@@ -503,8 +503,8 @@
               organId: HandRight
           steps:
             - name: surgery-edge-limb-cut-label
-              tools: [ Scalpel ]
-              successChance: 0.95
+              quality: Incision
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
@@ -523,8 +523,8 @@
           target: BleedersClamped
           steps:
             - name: surgery-edge-limb-clamp-bleeders-label
-              tools: [ Hemostat ]
-              successChance: 0.9
+              quality: Clamping
+              successChance: 0.8
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
@@ -534,8 +534,8 @@
           target: Attached
           steps:
             - name: surgery-edge-limb-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/cautery2.ogg
@@ -554,8 +554,8 @@
           target: SkinRetracted
           steps:
             - name: surgery-edge-limb-retract-skin-label
-              tools: [ Retractor ]
-              successChance: 0.9
+              quality: Retraction
+              successChance: 0.8
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/retractor1.ogg
@@ -570,8 +570,8 @@
           target: Attached
           steps:
             - name: surgery-edge-limb-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/cautery2.ogg
@@ -590,8 +590,8 @@
           target: Amputated
           steps:
             - name: surgery-edge-limb-saw-label
-              tools: [ Saw ]
-              successChance: 0.9
+              quality: Sawing
+              successChance: 0.7
               duration: 4
               sound:
                 path: /Audio/ADT/Medical/Surgery/saw.ogg
@@ -610,8 +610,8 @@
           target: Attached
           steps:
             - name: surgery-edge-limb-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/cautery2.ogg
@@ -630,8 +630,8 @@
           target: Cauterized
           steps:
             - name: surgery-edge-limb-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/Effects/lightburn.ogg
@@ -665,8 +665,8 @@
               organId: LegLeft
           steps:
             - name: surgery-edge-limb-cut-label
-              tools: [ Scalpel ]
-              successChance: 0.95
+              quality: Incision
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
@@ -685,8 +685,8 @@
           target: BleedersClamped
           steps:
             - name: surgery-edge-limb-clamp-bleeders-label
-              tools: [ Hemostat ]
-              successChance: 0.9
+              quality: Clamping
+              successChance: 0.8
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
@@ -696,8 +696,8 @@
           target: Attached
           steps:
             - name: surgery-edge-limb-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/cautery2.ogg
@@ -716,8 +716,8 @@
           target: SkinRetracted
           steps:
             - name: surgery-edge-limb-retract-skin-label
-              tools: [ Retractor ]
-              successChance: 0.9
+              quality: Retraction
+              successChance: 0.8
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/retractor1.ogg
@@ -732,8 +732,8 @@
           target: Attached
           steps:
             - name: surgery-edge-limb-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/cautery2.ogg
@@ -752,8 +752,8 @@
           target: Amputated
           steps:
             - name: surgery-edge-limb-saw-label
-              tools: [ Saw ]
-              successChance: 0.9
+              quality: Sawing
+              successChance: 0.7
               duration: 5
               sound:
                 path: /Audio/ADT/Medical/Surgery/saw.ogg
@@ -772,8 +772,8 @@
           target: Attached
           steps:
             - name: surgery-edge-limb-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/cautery2.ogg
@@ -792,8 +792,8 @@
           target: Cauterized
           steps:
             - name: surgery-edge-limb-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/Effects/lightburn.ogg
@@ -827,8 +827,8 @@
               organId: LegRight
           steps:
             - name: surgery-edge-limb-cut-label
-              tools: [ Scalpel ]
-              successChance: 0.95
+              quality: Incision
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
@@ -847,8 +847,8 @@
           target: BleedersClamped
           steps:
             - name: surgery-edge-limb-clamp-bleeders-label
-              tools: [ Hemostat ]
-              successChance: 0.9
+              quality: Clamping
+              successChance: 0.8
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
@@ -858,8 +858,8 @@
           target: Attached
           steps:
             - name: surgery-edge-limb-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/cautery2.ogg
@@ -878,8 +878,8 @@
           target: SkinRetracted
           steps:
             - name: surgery-edge-limb-retract-skin-label
-              tools: [ Retractor ]
-              successChance: 0.9
+              quality: Retraction
+              successChance: 0.8
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/retractor1.ogg
@@ -894,8 +894,8 @@
           target: Attached
           steps:
             - name: surgery-edge-limb-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/cautery2.ogg
@@ -914,8 +914,8 @@
           target: Amputated
           steps:
             - name: surgery-edge-limb-saw-label
-              tools: [ Saw ]
-              successChance: 0.9
+              quality: Sawing
+              successChance: 0.7
               duration: 5
               sound:
                 path: /Audio/ADT/Medical/Surgery/saw.ogg
@@ -934,8 +934,8 @@
           target: Attached
           steps:
             - name: surgery-edge-limb-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/cautery2.ogg
@@ -954,8 +954,8 @@
           target: Cauterized
           steps:
             - name: surgery-edge-limb-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/Effects/lightburn.ogg
@@ -989,8 +989,8 @@
               organId: FootLeft
           steps:
             - name: surgery-edge-limb-cut-label
-              tools: [ Scalpel ]
-              successChance: 0.95
+              quality: Incision
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
@@ -1009,8 +1009,8 @@
           target: BleedersClamped
           steps:
             - name: surgery-edge-limb-clamp-bleeders-label
-              tools: [ Hemostat ]
-              successChance: 0.9
+              quality: Clamping
+              successChance: 0.8
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
@@ -1020,8 +1020,8 @@
           target: Attached
           steps:
             - name: surgery-edge-limb-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/cautery2.ogg
@@ -1040,8 +1040,8 @@
           target: SkinRetracted
           steps:
             - name: surgery-edge-limb-retract-skin-label
-              tools: [ Retractor ]
-              successChance: 0.9
+              quality: Retraction
+              successChance: 0.8
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/retractor1.ogg
@@ -1056,8 +1056,8 @@
           target: Attached
           steps:
             - name: surgery-edge-limb-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/cautery2.ogg
@@ -1076,8 +1076,8 @@
           target: Amputated
           steps:
             - name: surgery-edge-limb-saw-label
-              tools: [ Saw ]
-              successChance: 0.9
+              quality: Sawing
+              successChance: 0.7
               duration: 4
               sound:
                 path: /Audio/ADT/Medical/Surgery/saw.ogg
@@ -1096,8 +1096,8 @@
           target: Attached
           steps:
             - name: surgery-edge-limb-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/cautery2.ogg
@@ -1116,8 +1116,8 @@
           target: Cauterized
           steps:
             - name: surgery-edge-limb-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/Effects/lightburn.ogg
@@ -1151,8 +1151,8 @@
               organId: FootRight
           steps:
             - name: surgery-edge-limb-cut-label
-              tools: [ Scalpel ]
-              successChance: 0.95
+              quality: Incision
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
@@ -1171,8 +1171,8 @@
           target: BleedersClamped
           steps:
             - name: surgery-edge-limb-clamp-bleeders-label
-              tools: [ Hemostat ]
-              successChance: 0.9
+              quality: Clamping
+              successChance: 0.8
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
@@ -1182,8 +1182,8 @@
           target: Attached
           steps:
             - name: surgery-edge-limb-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/cautery2.ogg
@@ -1202,8 +1202,8 @@
           target: SkinRetracted
           steps:
             - name: surgery-edge-limb-retract-skin-label
-              tools: [ Retractor ]
-              successChance: 0.9
+              quality: Retraction
+              successChance: 0.8
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/retractor1.ogg
@@ -1218,8 +1218,8 @@
           target: Attached
           steps:
             - name: surgery-edge-limb-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/cautery2.ogg
@@ -1238,8 +1238,8 @@
           target: Amputated
           steps:
             - name: surgery-edge-limb-saw-label
-              tools: [ Saw ]
-              successChance: 0.9
+              quality: Sawing
+              successChance: 0.7
               duration: 4
               sound:
                 path: /Audio/ADT/Medical/Surgery/saw.ogg
@@ -1258,8 +1258,8 @@
           target: Attached
           steps:
             - name: surgery-edge-limb-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/cautery2.ogg
@@ -1278,8 +1278,8 @@
           target: Cauterized
           steps:
             - name: surgery-edge-limb-cauterize-label
-              tools: [ Cautery ]
-              successChance: 0.95
+              quality: Cautery
+              successChance: 0.85
               duration: 3
               sound:
                 path: /Audio/Effects/lightburn.ogg

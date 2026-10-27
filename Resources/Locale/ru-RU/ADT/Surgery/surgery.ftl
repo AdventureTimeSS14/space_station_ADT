@@ -184,3 +184,19 @@ surgery-location-foot-right = Правая ступня пациента
 surgery-location-abdomen = Живот пациента
 surgery-location-chest = Грудь пациента
 surgery-location-head = Голова пациента
+
+surgery-quality-incision = Разрез
+surgery-quality-clamping = Зажим сосудов
+surgery-quality-retraction = Расширение
+surgery-quality-sawing = Распил
+surgery-quality-cautery = Прижигание
+surgery-quality-drilling = Сверление
+surgery-quality-bone-setting = Вправление кости
+surgery-quality-bone-mending = Сращивание кости
+surgery-quality-organ-manipulation = Работа с органами
+surgery-quality-draping = Подготовка к операции
+
+surgery-tool-examine-qualities = Хирургическое применение: [color=lightblue]{ $qualities }[/color]
+surgery-tool-examine-current = Текущий режим: [color=lightblue]{ $qualities }[/color]
+surgery-tool-examine-switch = После переключения: [color=gray]{ $qualities }[/color]
+surgery-tool-examine-none = нет

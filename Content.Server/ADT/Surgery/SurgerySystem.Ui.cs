@@ -94,12 +94,9 @@ public sealed partial class SurgerySystem
             if (effect is not RemoveOrganEffect removeOrgan)
                 continue;
 
-            if (!_body.TryGetOrgansWithComponent<OrganComponent>(target, out var organs))
-                break;
-
-            foreach (var organ in organs)
+            foreach (var organ in _body.EnumerateOrgans<OrganComponent>(target))
             {
-                if (organ.Comp.Category != removeOrgan.OrganId)
+                if (organ.Comp1.Category != removeOrgan.OrganId)
                     continue;
 
                 return (GetNetEntity(organ.Owner), edge.Icon);

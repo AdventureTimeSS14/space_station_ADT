@@ -213,7 +213,10 @@ public sealed class SurgeryConsoleSystem : SharedSurgerySystem
                     continue;
 
                 var label = string.IsNullOrEmpty(edge.Label) ? edge.Id : Loc.GetString(edge.Label);
-                var tags = edge.Steps[0].Tools.Select(t => t.Id).ToList();
+                var firstStep = edge.Steps[0];
+                var tags = firstStep.Quality is { } quality
+                    ? new List<string> { quality.Id }
+                    : firstStep.Tools.Select(t => t.Id).ToList();
 
                 steps.Add((label, tags));
             }

@@ -76,7 +76,7 @@ public sealed partial class SurgerySystem
             ? comp.CompletedSteps
             : 0;
 
-        if (!ToolMatches(edge.Steps[stepIndex], heldItem.Value))
+        if (!TryMatchTool(edge.Steps[stepIndex], heldItem.Value, out var match))
         {
             _popup.PopupEntity(Loc.GetString("surgery-wrong-tool"), uid, args.Actor);
             return;
@@ -86,37 +86,35 @@ public sealed partial class SurgerySystem
         comp.CompletedSteps = stepIndex;
         comp.Surgeon = args.Actor;
 
-        StartStep(uid, comp, edge, stepIndex, heldItem.Value);
+        StartStep(uid, comp, edge, stepIndex, heldItem.Value, match);
     }
 
-    private void TryPerformStep(EntityUid user, EntityUid target, OperatedComponent comp)
+    private bool TryPerformStep(EntityUid user, EntityUid target, OperatedComponent comp, EntityUid heldItem, bool silent = false)
     {
         if (comp.IsOperating)
-            return;
+            return !silent;
 
         if (!TryGetGraph(comp, out var graph))
-            return;
-
-        if (!_hands.TryGetActiveItem(user, out var heldItem))
-        {
-            _popup.PopupEntity(Loc.GetString("surgery-no-tool"), target, user);
-            return;
-        }
+            return false;
 
         var node = GetNode(graph, comp.CurrentNode);
         if (node == null)
-            return;
+            return false;
 
         var allEdges = new List<SurgeryGraphEdge>(GetAllEdges(node));
 
         if (allEdges.Count == 0)
         {
+            if (silent)
+                return false;
+
             _popup.PopupEntity(Loc.GetString("surgery-choose-with-drapes"), target, user, Shared.Popups.PopupType.MediumCaution);
-            return;
+            return true;
         }
 
         var matches = new List<SurgeryGraphEdge>();
         var matchStepIndex = 0;
+        var toolMatch = ExactMatch;
         foreach (var edge in allEdges)
         {
             if (edge.Steps.Count == 0 || !EdgeConditionsMet(target, edge))
@@ -126,16 +124,20 @@ public sealed partial class SurgerySystem
                 ? comp.CompletedSteps
                 : 0;
 
-            if (!ToolMatches(edge.Steps[stepIndex], heldItem.Value))
+            if (!TryMatchTool(edge.Steps[stepIndex], heldItem, out var match))
                 continue;
 
             matches.Add(edge);
             matchStepIndex = stepIndex;
+            toolMatch = match;
         }
 
         switch (matches.Count)
         {
             case 0:
+                if (silent)
+                    return false;
+
                 _popup.PopupEntity(Loc.GetString("surgery-wrong-tool"), target, user);
                 break;
 
@@ -143,23 +145,26 @@ public sealed partial class SurgerySystem
                 comp.ActiveEdgeId = matches[0].Id;
                 comp.CompletedSteps = matchStepIndex;
                 comp.Surgeon = user;
-                StartStep(target, comp, matches[0], matchStepIndex, heldItem.Value);
+                StartStep(target, comp, matches[0], matchStepIndex, heldItem, toolMatch);
                 break;
 
             default:
                 OpenEdgeChoice(user, target, matches);
                 break;
         }
+
+        return true;
     }
 
-    private void StartStep(EntityUid patient, OperatedComponent comp, SurgeryGraphEdge edge, int stepIndex, EntityUid heldItem)
+    private void StartStep(EntityUid patient, OperatedComponent comp, SurgeryGraphEdge edge, int stepIndex, EntityUid heldItem, SurgeryToolMatch match)
     {
         if (comp.Surgeon is not { } surgeon)
             return;
 
         var step = edge.Steps[stepIndex];
+        var duration = GetStepDuration(patient, step, match, heldItem);
 
-        var started = _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, surgeon, step.Duration,
+        var started = _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, surgeon, duration,
             new SurgeryStepDoAfterEvent(edge.Id, stepIndex), patient, target: patient, used: heldItem)
         {
             BreakOnMove = true,
@@ -170,7 +175,7 @@ public sealed partial class SurgerySystem
             return;
 
         comp.IsOperating = true;
-        _audio.PlayPvs(step.Sound, patient);
+        _audio.PlayPvs(GetStepSound(step, match, heldItem), patient);
     }
 
     private void OnStepDoAfter(EntityUid uid, OperatedComponent comp, SurgeryStepDoAfterEvent args)
@@ -189,10 +194,17 @@ public sealed partial class SurgerySystem
 
         var step = edge.Steps[args.StepIndex];
 
-        var anesthetized = IsAnesthetized(uid);
-        var successChance = anesthetized ? step.SuccessChance : step.SuccessChance * NoAnestheticChanceMultiplier;
+        var match = ExactMatch;
+        if (args.Used is { } used && !TryMatchTool(step, used, out match))
+        {
+            _popup.PopupEntity(Loc.GetString("surgery-wrong-tool"), uid, comp.Surgeon ?? uid);
+            args.Handled = true;
+            return;
+        }
 
-        if (!anesthetized)
+        var successChance = GetSuccessChance(uid, comp.Surgeon, step, match);
+
+        if (!IsAnesthetized(uid))
         {
             if (!_mobState.IsIncapacitated(uid))
                 _chat.TryEmoteWithChat(uid, ScreamEmote, ChatTransmitRange.Normal, ignoreActionBlocker: true);
@@ -206,6 +218,9 @@ public sealed partial class SurgerySystem
             _popup.PopupEntity(Loc.GetString("surgery-step-failed"), uid, comp.Surgeon ?? uid, Shared.Popups.PopupType.MediumCaution);
 
             foreach (var effect in step.FailureEffects)
+                effect.Apply(uid, comp.Surgeon, args.Used, EntityManager);
+
+            foreach (var effect in match.FailureEffects)
                 effect.Apply(uid, comp.Surgeon, args.Used, EntityManager);
 
             args.Handled = true;

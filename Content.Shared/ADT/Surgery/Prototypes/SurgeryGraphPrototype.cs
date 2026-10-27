@@ -102,6 +102,9 @@ public sealed partial class SurgeryStepEntry
     public string Name = default!;
 
     [DataField]
+    public ProtoId<SurgeryToolQualityPrototype>? Quality;
+
+    [DataField]
     public List<ProtoId<TagPrototype>> Tools = new();
 
     [DataField]
