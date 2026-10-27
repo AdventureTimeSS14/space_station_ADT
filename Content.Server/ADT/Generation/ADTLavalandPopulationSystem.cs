@@ -77,8 +77,6 @@ public sealed class ADTLavalandPopulationSystem : EntitySystem
             return;
 
         var budget = _random.Next(group.MinBudget, group.MaxBudget + 1);
-        var startBudget = budget;
-        var placed = 0;
         var failures = 0;
 
         while (budget > 0 && failures <= group.MaxFailures)
@@ -102,10 +100,7 @@ public sealed class ADTLavalandPopulationSystem : EntitySystem
             _biome.ReserveTiles(ent.Owner, Box2.CenteredAround(center, new Vector2(0.8f, 0.8f)), _tiles);
 
             Spawn(PickPrototype(entry), new EntityCoordinates(ent.Owner, center));
-            placed++;
         }
-
-        Log.Info($"Lavaland population: {group.Entries[0].Prototype} group placed {placed}, budget {startBudget - budget}/{startBudget}.");
     }
 
     private ADTLavalandPopulationEntry Pick(List<ADTLavalandPopulationEntry> entries, float totalWeight)

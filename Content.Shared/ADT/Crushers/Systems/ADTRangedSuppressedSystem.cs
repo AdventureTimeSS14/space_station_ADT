@@ -20,6 +20,7 @@ public sealed class ADTRangedSuppressedSystem : EntitySystem
         var comp = EnsureComp<ADTRangedSuppressedComponent>(uid);
         var now = _timing.CurTime;
         comp.Until = (comp.Until > now ? comp.Until : now) + duration;
+        Dirty(uid, comp);
     }
 
     public bool IsSuppressed(EntityUid uid)

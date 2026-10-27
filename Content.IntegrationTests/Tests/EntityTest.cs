@@ -247,6 +247,7 @@ namespace Content.IntegrationTests.Tests
                 "AnnounceOnSpawn",
 
                 "ADTDungeonGateway", // ADT-Tweak
+                "Tendril", // ADT-Tweak
             };
 
             Assert.That(server.CfgMan.GetCVar(CVars.NetPVS), Is.False);
