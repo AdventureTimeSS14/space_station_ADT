@@ -16771,3 +16771,11 @@ Entries:
     id: 2057
     pr_number: 3563
     time: '2026-10-27T10:27:54Z'
+  - author: Inconnu
+    changes:
+      - {message: 'Исправлены команды `uploadfile`, `uploadfolder`, `loadprototype`.',
+        type: Fix}
+      - {message: Исправлены некоторые краши и вылеты связанные с PVS., type: Fix}
+    id: 2058
+    pr_number: 3589
+    time: '2026-10-27T11:01:38Z'
