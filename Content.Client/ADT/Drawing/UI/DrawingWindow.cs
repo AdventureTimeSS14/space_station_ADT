@@ -114,8 +114,10 @@ public sealed partial class DrawingWindow : DefaultWindow
         _colorSelector.OnColorChanged += c => _brush.Color = c;
         sidebar.AddChild(_colorSelector);
 
-        _sizeSlider = new SettingSlider("adt-drawing-size", DrawingCanvasControl.MinBrushSize, DrawingCanvasControl.MaxBrushSize,
-            _brush.Size, "0", v => _brush.Size = v);
+        var pixel = _brush.Pixel;
+        _sizeSlider = new SettingSlider("adt-drawing-size", DrawingCanvasControl.MinBrushSize,
+            pixel ? BrushSettings.PixelMaxSize : DrawingCanvasControl.MaxBrushSize,
+            _brush.Size, "0", v => _brush.Size = pixel ? MathF.Round(v) : v);
         sidebar.AddChild(_sizeSlider.Row);
         _canvas.OnBrushSizeChanged += _sizeSlider.Set;
         sidebar.AddChild(new SettingSlider("adt-drawing-opacity", 1, 100, _brush.Opacity * 100, "0",

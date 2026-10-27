@@ -25,7 +25,8 @@ public sealed class DrawingCanvasControl : Control
     public const float MaxBrushSize = 400f;
 
     private const float MinZoom = 0.05f;
-    private const float MaxZoom = 32f;
+    private const float MaxZoom = 64f;
+    private const float PixelGridZoom = 6f;
     private const float BrushSizeStep = 1.15f;
     private const float MaxTaperFloor = 24f;
     private const float MaxTaperPerSize = 6f;
@@ -158,6 +159,13 @@ public sealed class DrawingCanvasControl : Control
 
     public void ChangeBrushSize(float factor)
     {
+        if (Brush.Pixel)
+        {
+            Brush.Size = Math.Clamp(Brush.PixelSize + (factor > 1f ? 1 : -1), 1, BrushSettings.PixelMaxSize);
+            OnBrushSizeChanged?.Invoke(Brush.Size);
+            return;
+        }
+
         Brush.Size = Math.Clamp(MathF.Round(Brush.Size * factor), MinBrushSize, MaxBrushSize);
         OnBrushSizeChanged?.Invoke(Brush.Size);
     }
@@ -443,17 +451,50 @@ public sealed class DrawingCanvasControl : Control
                 DrawSurface(handle, layer.Surface, Color.White.WithAlpha(layer.Opacity));
         }
 
+        if (Brush.Pixel && Zoom >= PixelGridZoom)
+            DrawPixelGrid(handle, canvasRect);
+
         handle.DrawRect(canvasRect, Color.Black.WithAlpha(0.6f), filled: false);
 
         if (Collaboration != null)
             DrawCursors(handle, Collaboration);
 
-        if (_hover is { } hover && Tool != DrawingTool.Picker && !_panning && CanDrawActive)
+        if (_hover is not { } hover || Tool == DrawingTool.Picker || _panning || !CanDrawActive)
+            return;
+
+        if (Brush.Pixel)
         {
-            var pressure = _input.IsDown ? _input.Last.Pressure : 1f;
-            var radius = MathF.Max(1f, Brush.DiameterAt(pressure) * 0.5f * Zoom);
-            handle.DrawCircle(hover, radius + 1f, Color.Black.WithAlpha(0.5f), filled: false);
-            handle.DrawCircle(hover, radius, Color.White.WithAlpha(0.8f), filled: false);
+            var size = Brush.PixelSize;
+            var cell = ScreenToCanvas(hover);
+            var left = MathF.Floor(cell.X) - (size - 1) / 2;
+            var top = MathF.Floor(cell.Y) - (size - 1) / 2;
+            var box = new UIBox2(CanvasToScreen(new Vector2(left, top)), CanvasToScreen(new Vector2(left + size, top + size)));
+            handle.DrawRect(new UIBox2(box.TopLeft - Vector2.One, box.BottomRight + Vector2.One), Color.Black.WithAlpha(0.5f), filled: false);
+            handle.DrawRect(box, Color.White.WithAlpha(0.8f), filled: false);
+            return;
+        }
+
+        var pressure = _input.IsDown ? _input.Last.Pressure : 1f;
+        var radius = MathF.Max(1f, Brush.DiameterAt(pressure) * 0.5f * Zoom);
+        handle.DrawCircle(hover, radius + 1f, Color.Black.WithAlpha(0.5f), filled: false);
+        handle.DrawCircle(hover, radius, Color.White.WithAlpha(0.8f), filled: false);
+    }
+
+    private void DrawPixelGrid(DrawingHandleScreen handle, UIBox2 rect)
+    {
+        var color = Color.Black.WithAlpha(0.15f);
+        for (var x = 1; x < Surface.Width; x++)
+        {
+            var sx = Offset.X + x * Zoom;
+            if (sx >= 0f && sx <= PixelSize.X)
+                handle.DrawLine(new Vector2(sx, rect.Top), new Vector2(sx, rect.Bottom), color);
+        }
+
+        for (var y = 1; y < Surface.Height; y++)
+        {
+            var sy = Offset.Y + y * Zoom;
+            if (sy >= 0f && sy <= PixelSize.Y)
+                handle.DrawLine(new Vector2(rect.Left, sy), new Vector2(rect.Right, sy), color);
         }
     }
 
