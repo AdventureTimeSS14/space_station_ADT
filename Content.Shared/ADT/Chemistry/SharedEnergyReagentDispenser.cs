@@ -44,17 +44,17 @@ namespace Content.Shared.ADT.Chemistry
                 case "20":
                     EnergyReagentDispenserDispenseAmount = EnergyReagentDispenserDispenseAmount.U20;
                     break;
-                case "25":
-                    EnergyReagentDispenserDispenseAmount = EnergyReagentDispenserDispenseAmount.U25;
-                    break;
                 case "30":
                     EnergyReagentDispenserDispenseAmount = EnergyReagentDispenserDispenseAmount.U30;
                     break;
-                case "50":
-                    EnergyReagentDispenserDispenseAmount = EnergyReagentDispenserDispenseAmount.U50;
+                case "40":
+                    EnergyReagentDispenserDispenseAmount = EnergyReagentDispenserDispenseAmount.U40;
                     break;
-                case "100":
-                    EnergyReagentDispenserDispenseAmount = EnergyReagentDispenserDispenseAmount.U100;
+                case "60":
+                    EnergyReagentDispenserDispenseAmount = EnergyReagentDispenserDispenseAmount.U60;
+                    break;
+                case "120":
+                    EnergyReagentDispenserDispenseAmount = EnergyReagentDispenserDispenseAmount.U120;
                     break;
                 default:
                     throw new Exception($"Cannot convert the string `{s}` into a valid ReagentDispenser DispenseAmount");
@@ -81,10 +81,10 @@ namespace Content.Shared.ADT.Chemistry
         U10 = 10,
         U15 = 15,
         U20 = 20,
-        U25 = 25,
         U30 = 30,
-        U50 = 50,
-        U100 = 100,
+        U40 = 40,
+        U60 = 60,
+        U120 = 120,
     }
 
     [Serializable, NetSerializable]
