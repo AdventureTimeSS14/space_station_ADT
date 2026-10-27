@@ -462,6 +462,364 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.ToTable("admin_watchlists", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.AdtPainting", b =>
+                {
+                    b.Property<int>("PaintingId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("painting_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("PaintingId"));
+
+                    b.Property<bool>("AuthorNotified")
+                        .HasColumnType("boolean")
+                        .HasColumnName("author_notified");
+
+                    b.Property<long>("BytesTotal")
+                        .HasColumnType("bigint")
+                        .HasColumnName("bytes_total");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("created_at");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(256)
+                        .HasColumnType("character varying(256)")
+                        .HasColumnName("description");
+
+                    b.Property<int?>("HeadRevisionId")
+                        .HasColumnType("integer")
+                        .HasColumnName("head_revision_id");
+
+                    b.Property<int>("Height")
+                        .HasColumnType("integer")
+                        .HasColumnName("height");
+
+                    b.Property<Guid>("OwnerUserId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("owner_user_id");
+
+                    b.Property<Guid>("PaintingUid")
+                        .HasColumnType("uuid")
+                        .HasColumnName("painting_uid");
+
+                    b.Property<int?>("ParentPaintingId")
+                        .HasColumnType("integer")
+                        .HasColumnName("parent_painting_id");
+
+                    b.Property<bool>("Pinned")
+                        .HasColumnType("boolean")
+                        .HasColumnName("pinned");
+
+                    b.Property<string>("ReviewComment")
+                        .HasMaxLength(512)
+                        .HasColumnType("character varying(512)")
+                        .HasColumnName("review_comment");
+
+                    b.Property<DateTime?>("ReviewedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("reviewed_at");
+
+                    b.Property<Guid?>("ReviewerUserId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("reviewer_user_id");
+
+                    b.Property<int?>("RoundId")
+                        .HasColumnType("integer")
+                        .HasColumnName("round_id");
+
+                    b.Property<int?>("ServerId")
+                        .HasColumnType("integer")
+                        .HasColumnName("server_id");
+
+                    b.Property<short>("Status")
+                        .HasColumnType("smallint")
+                        .HasColumnName("status");
+
+                    b.Property<DateTime?>("SubmittedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("submitted_at");
+
+                    b.Property<byte[]>("ThumbHash")
+                        .HasColumnType("bytea")
+                        .HasColumnName("thumb_hash");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("character varying(64)")
+                        .HasColumnName("title");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("updated_at");
+
+                    b.Property<int>("Width")
+                        .HasColumnType("integer")
+                        .HasColumnName("width");
+
+                    b.HasKey("PaintingId")
+                        .HasName("PK_adt_painting");
+
+                    b.HasIndex("PaintingUid")
+                        .IsUnique();
+
+                    b.HasIndex("ParentPaintingId")
+                        .HasDatabaseName("IX_adt_painting_parent_painting_id");
+
+                    b.HasIndex("RoundId");
+
+                    b.HasIndex("ServerId");
+
+                    b.HasIndex("OwnerUserId", "Status");
+
+                    b.HasIndex("Status", "ReviewedAt");
+
+                    b.HasIndex("Status", "SubmittedAt");
+
+                    b.ToTable("adt_painting", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.AdtPaintingBan", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("user_id");
+
+                    b.Property<Guid>("BannedBy")
+                        .HasColumnType("uuid")
+                        .HasColumnName("banned_by");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("created_at");
+
+                    b.Property<DateTime?>("ExpiresAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("expires_at");
+
+                    b.Property<string>("Reason")
+                        .IsRequired()
+                        .HasMaxLength(512)
+                        .HasColumnType("character varying(512)")
+                        .HasColumnName("reason");
+
+                    b.HasKey("UserId")
+                        .HasName("PK_adt_painting_ban");
+
+                    b.ToTable("adt_painting_ban", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.AdtPaintingBlob", b =>
+                {
+                    b.Property<byte[]>("Hash")
+                        .HasColumnType("bytea")
+                        .HasColumnName("hash");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("created_at");
+
+                    b.Property<byte[]>("Data")
+                        .HasColumnType("bytea")
+                        .HasColumnName("data");
+
+                    b.Property<string>("Location")
+                        .HasMaxLength(256)
+                        .HasColumnType("character varying(256)")
+                        .HasColumnName("location");
+
+                    b.Property<int>("Size")
+                        .HasColumnType("integer")
+                        .HasColumnName("size");
+
+                    b.HasKey("Hash")
+                        .HasName("PK_adt_painting_blob");
+
+                    b.ToTable("adt_painting_blob", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.AdtPaintingContributor", b =>
+                {
+                    b.Property<int>("PaintingId")
+                        .HasColumnType("integer")
+                        .HasColumnName("painting_id");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("user_id");
+
+                    b.Property<short>("Role")
+                        .HasColumnType("smallint")
+                        .HasColumnName("role");
+
+                    b.Property<int>("TilesCommitted")
+                        .HasColumnType("integer")
+                        .HasColumnName("tiles_committed");
+
+                    b.HasKey("PaintingId", "UserId")
+                        .HasName("PK_adt_painting_contributor");
+
+                    b.ToTable("adt_painting_contributor", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.AdtPaintingReport", b =>
+                {
+                    b.Property<int>("ReportId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("report_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("ReportId"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("created_at");
+
+                    b.Property<Guid>("PaintingUid")
+                        .HasColumnType("uuid")
+                        .HasColumnName("painting_uid");
+
+                    b.Property<string>("Reason")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("character varying(256)")
+                        .HasColumnName("reason");
+
+                    b.Property<Guid>("ReporterUserId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("reporter_user_id");
+
+                    b.Property<bool>("Resolved")
+                        .HasColumnType("boolean")
+                        .HasColumnName("resolved");
+
+                    b.Property<DateTime?>("ResolvedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("resolved_at");
+
+                    b.Property<Guid?>("ResolvedBy")
+                        .HasColumnType("uuid")
+                        .HasColumnName("resolved_by");
+
+                    b.Property<int?>("RoundId")
+                        .HasColumnType("integer")
+                        .HasColumnName("round_id");
+
+                    b.Property<int?>("ServerId")
+                        .HasColumnType("integer")
+                        .HasColumnName("server_id");
+
+                    b.HasKey("ReportId")
+                        .HasName("PK_adt_painting_report");
+
+                    b.HasIndex("RoundId");
+
+                    b.HasIndex("ServerId");
+
+                    b.HasIndex("PaintingUid", "ReporterUserId");
+
+                    b.HasIndex("Resolved", "CreatedAt");
+
+                    b.ToTable("adt_painting_report", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.AdtPaintingRevision", b =>
+                {
+                    b.Property<int>("RevisionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("revision_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("RevisionId"));
+
+                    b.Property<long>("BytesTotal")
+                        .HasColumnType("bigint")
+                        .HasColumnName("bytes_total");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("created_at");
+
+                    b.Property<short>("Kind")
+                        .HasColumnType("smallint")
+                        .HasColumnName("kind");
+
+                    b.Property<int>("PaintingId")
+                        .HasColumnType("integer")
+                        .HasColumnName("painting_id");
+
+                    b.HasKey("RevisionId")
+                        .HasName("PK_adt_painting_revision");
+
+                    b.HasIndex("PaintingId", "Kind");
+
+                    b.ToTable("adt_painting_revision", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.AdtPaintingRevisionTile", b =>
+                {
+                    b.Property<int>("RevisionId")
+                        .HasColumnType("integer")
+                        .HasColumnName("revision_id");
+
+                    b.Property<short>("Layer")
+                        .HasColumnType("smallint")
+                        .HasColumnName("layer");
+
+                    b.Property<short>("Lod")
+                        .HasColumnType("smallint")
+                        .HasColumnName("lod");
+
+                    b.Property<short>("TileX")
+                        .HasColumnType("smallint")
+                        .HasColumnName("tile_x");
+
+                    b.Property<short>("TileY")
+                        .HasColumnType("smallint")
+                        .HasColumnName("tile_y");
+
+                    b.Property<byte[]>("BlobHash")
+                        .HasColumnType("bytea")
+                        .HasColumnName("blob_hash");
+
+                    b.Property<short>("Kind")
+                        .HasColumnType("smallint")
+                        .HasColumnName("kind");
+
+                    b.Property<int?>("SolidRgba")
+                        .HasColumnType("integer")
+                        .HasColumnName("solid_rgba");
+
+                    b.HasKey("RevisionId", "Layer", "Lod", "TileX", "TileY")
+                        .HasName("PK_adt_painting_revision_tile");
+
+                    b.HasIndex("BlobHash");
+
+                    b.ToTable("adt_painting_revision_tile", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.AdtPaintingWhitelist", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("user_id");
+
+                    b.Property<Guid>("AddedBy")
+                        .HasColumnType("uuid")
+                        .HasColumnName("added_by");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("created_at");
+
+                    b.HasKey("UserId")
+                        .HasName("PK_adt_painting_whitelist");
+
+                    b.ToTable("adt_painting_whitelist", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.AdtPoll", b =>
                 {
                     b.Property<int>("Id")
@@ -2360,6 +2718,86 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Navigation("Round");
                 });
 
+            modelBuilder.Entity("Content.Server.Database.AdtPainting", b =>
+                {
+                    b.HasOne("Content.Server.Database.AdtPainting", "ParentPainting")
+                        .WithMany()
+                        .HasForeignKey("ParentPaintingId")
+                        .OnDelete(DeleteBehavior.SetNull)
+                        .HasConstraintName("FK_adt_painting_adt_painting_parent_painting_id");
+
+                    b.HasOne("Content.Server.Database.Round", null)
+                        .WithMany()
+                        .HasForeignKey("RoundId")
+                        .OnDelete(DeleteBehavior.SetNull)
+                        .HasConstraintName("FK_adt_painting_round_round_id");
+
+                    b.HasOne("Content.Server.Database.Server", null)
+                        .WithMany()
+                        .HasForeignKey("ServerId")
+                        .OnDelete(DeleteBehavior.SetNull)
+                        .HasConstraintName("FK_adt_painting_server_server_id");
+
+                    b.Navigation("ParentPainting");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.AdtPaintingContributor", b =>
+                {
+                    b.HasOne("Content.Server.Database.AdtPainting", "Painting")
+                        .WithMany("Contributors")
+                        .HasForeignKey("PaintingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_adt_painting_contributor_adt_painting_painting_id");
+
+                    b.Navigation("Painting");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.AdtPaintingReport", b =>
+                {
+                    b.HasOne("Content.Server.Database.Round", null)
+                        .WithMany()
+                        .HasForeignKey("RoundId")
+                        .OnDelete(DeleteBehavior.SetNull)
+                        .HasConstraintName("FK_adt_painting_report_round_round_id");
+
+                    b.HasOne("Content.Server.Database.Server", null)
+                        .WithMany()
+                        .HasForeignKey("ServerId")
+                        .OnDelete(DeleteBehavior.SetNull)
+                        .HasConstraintName("FK_adt_painting_report_server_server_id");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.AdtPaintingRevision", b =>
+                {
+                    b.HasOne("Content.Server.Database.AdtPainting", "Painting")
+                        .WithMany("Revisions")
+                        .HasForeignKey("PaintingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_adt_painting_revision_adt_painting_painting_id");
+
+                    b.Navigation("Painting");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.AdtPaintingRevisionTile", b =>
+                {
+                    b.HasOne("Content.Server.Database.AdtPaintingBlob", null)
+                        .WithMany()
+                        .HasForeignKey("BlobHash")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .HasConstraintName("FK_adt_painting_revision_tile_adt_painting_blob_adt_painting_b~");
+
+                    b.HasOne("Content.Server.Database.AdtPaintingRevision", "Revision")
+                        .WithMany("Tiles")
+                        .HasForeignKey("RevisionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_adt_painting_revision_tile_adt_painting_revision_revision_id");
+
+                    b.Navigation("Revision");
+                });
+
             modelBuilder.Entity("Content.Server.Database.AdtPollPending", b =>
                 {
                     b.HasOne("Content.Server.Database.AdtPoll", "Poll")
@@ -2822,6 +3260,18 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Navigation("Admins");
 
                     b.Navigation("Flags");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.AdtPainting", b =>
+                {
+                    b.Navigation("Contributors");
+
+                    b.Navigation("Revisions");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.AdtPaintingRevision", b =>
+                {
+                    b.Navigation("Tiles");
                 });
 
             modelBuilder.Entity("Content.Server.Database.AdtPoll", b =>
