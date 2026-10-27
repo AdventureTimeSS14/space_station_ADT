@@ -35,7 +35,7 @@
   desc: reagent-desc-adt-carpetium-skyblue
   physicalDesc: reagent-physical-desc-fibrous
   flavor: carpet
-  color: "#356287"
+  color: "#557E9F"
   tileReactions:
   - !type:CreateEntityTileReaction
     entity: CarpetSBlue
