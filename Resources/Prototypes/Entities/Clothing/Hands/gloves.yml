@@ -315,15 +315,19 @@
     - objective: MassArrestObjective
       components:
       - type: CriminalRecordsHacker
-    # ADT-Tweak start: Ninja borg hack objective
-    - objective: BorgHackObjective
-      components:
-      - type: EmagProvider
-        emagType: "Access, Interaction"
-        whitelist:
-          components:
-          - Airlock
-          - EmagSiliconLaw
+    # ADT-Tweak start: Ninja borg
+    - components:
+      - type: NinjaBorgConvert
+        chassisByBorgType:
+          security: ADTNinjaBorgChassisSecurity
+          engineering: ADTNinjaBorgChassisEngineer
+          medical: ADTNinjaBorgChassisMedical
+          mining: ADTNinjaBorgChassisHeavy
+          janitor: ADTNinjaBorgChassisSpider
+        fallbackChassis:
+        - ADTNinjaBorgChassisBooty
+        - ADTNinjaBorgChassisBroBooty
+        - ADTNinjaBorgChassisMissM
     # ADT-Tweak end
 
 - type: entity

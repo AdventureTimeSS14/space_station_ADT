@@ -49,6 +49,18 @@
       - HumanHairSkinhead
       - HumanHairBusiness
       - HumanHairClassicBusiness
+      femaleHairStyles:
+      - HumanHairBob
+      - HumanHairBob2
+      - HumanHairBobcut
+      - HumanHairBob4
+      - HumanHairBobcurl
+      - HumanHairPixie
+      - HumanHairShortbangs
+      - HumanHairShorthair2
+      - HumanHairShorthairg
+      - HumanHairShorthime
+      - HumanHairTightbun
       hairColors:
       - "#1a1a1a"
       - "#2b2119"
@@ -63,11 +75,21 @@
       - boris_petrov_father_tb
       - strelok
       - guard_guardsman_sergeant_dow
-    - type: RandomMetadata
+      femaleVoices:
+      - karina_petrova_tb
+      - kate_smirnova_tb
+      - polina
+      - female_commander
+      - sisters_battle_sister_dow
+      clearFemaleFacialHair: true
+      nameFormat: name-format-adt-soviet-soldier
       nameSegments:
       - ADTNamesSovietRank
       - ADTNamesSovietSurname
-      nameFormat: name-format-adt-soviet-soldier
+      femaleNameSegments:
+      - ADTNamesSovietRank
+      - ADTNamesSovietSurnameFemale
+      language: NeoRusskiya
     - type: GhostTakeoverAvailable
     - type: GhostRole
       name: ghost-role-information-adt-soviet-soldier-name
@@ -246,11 +268,18 @@
       - bandit
       - butch
       - tychus
-    - type: RandomMetadata
+      femaleVoices:
+      - panam
+      - judy
+      - v_female
+      clearFemaleFacialHair: true
+      nameFormat: name-format-adt-smuggler-pirate
       nameSegments:
       - NamesFakeHumanFirst
       - ADTNamesSmugglerNickname
-      nameFormat: name-format-adt-smuggler-pirate
+      femaleNameSegments:
+      - NamesFirstFemale
+      - ADTNamesSmugglerNickname
     - type: GhostTakeoverAvailable
     - type: GhostRole
       name: ghost-role-information-adt-smuggler-pirate-name
@@ -258,3 +287,220 @@
       rules: ghost-role-information-freeagent-rules
       raffle:
         settings: default
+
+- type: entity
+  parent: ADTMobSovietBunkerRifleman
+  id: ADTMobSovietBunkerOstapenko
+  name: Major Ostapenko
+  suffix: DO NOT MAP
+  description: Commander of the USSP outpost.
+  components:
+    - type: RandomHumanoidAppearance
+      nameSegments: []
+      femaleNameSegments: []
+      sex: Male
+    - type: GhostRole
+      name: ghost-role-information-adt-ussp-ostapenko-name
+      description: ghost-role-information-adt-ussp-ostapenko-description
+
+- type: entity
+  parent: ADTMobSovietBunkerRifleman
+  id: ADTMobSovietBunkerLisitsyna
+  name: Captain Lisitsyna
+  suffix: DO NOT MAP
+  description: Deputy commander for political affairs of the USSP outpost.
+  components:
+    - type: RandomHumanoidAppearance
+      nameSegments: []
+      femaleNameSegments: []
+      sex: Female
+    - type: GhostRole
+      name: ghost-role-information-adt-ussp-lisitsyna-name
+      description: ghost-role-information-adt-ussp-lisitsyna-description
+
+- type: entity
+  parent: ADTMobSovietBunkerMedic
+  id: ADTMobSovietBunkerYusupova
+  name: Lieutenant Yusupova
+  suffix: DO NOT MAP
+  description: Head of the USSP outpost infirmary.
+  components:
+    - type: RandomHumanoidAppearance
+      nameSegments: []
+      femaleNameSegments: []
+      sex: Female
+    - type: GhostRole
+      name: ghost-role-information-adt-ussp-yusupova-name
+      description: ghost-role-information-adt-ussp-yusupova-description
+
+- type: entity
+  parent: ADTMobSovietBunkerShotgunner
+  id: ADTMobSovietBunkerZaitsev
+  name: Warrant Officer Zaitsev
+  suffix: DO NOT MAP
+  description: Sergeant major of the USSP outpost, in charge of the storehouse and supplies.
+  components:
+    - type: RandomHumanoidAppearance
+      nameSegments: []
+      femaleNameSegments: []
+      sex: Male
+    - type: GhostRole
+      name: ghost-role-information-adt-ussp-zaitsev-name
+      description: ghost-role-information-adt-ussp-zaitsev-description
+
+- type: entity
+  parent: ADTMobSovietBunkerRifleman
+  id: ADTMobSovietBunkerGavrilov
+  name: Senior Sergeant Gavrilov
+  suffix: DO NOT MAP
+  description: Power engineer of the USSP outpost and pilot of the Kedrovka shuttle.
+  components:
+    - type: RandomHumanoidAppearance
+      nameSegments: []
+      femaleNameSegments: []
+      sex: Male
+    - type: GhostRole
+      name: ghost-role-information-adt-ussp-gavrilov-name
+      description: ghost-role-information-adt-ussp-gavrilov-description
+
+- type: entity
+  parent: [ MobUrsus, ADTMobSovietBunkerRocketeer ]
+  id: ADTMobSovietBunkerBurogriv
+  name: Sergeant Burogriv
+  suffix: DO NOT MAP
+  description: Driver-mechanic of the USSP outpost, an ursus from Ursam (Urodelus II).
+  components:
+    - type: NpcFactionMember
+      factions:
+        - ADTSovietBunker
+    - type: RandomHumanoidAppearance
+      nameSegments: []
+      femaleNameSegments: []
+      sex: Male
+      clearMarkings: false
+      hairStyles: []
+      femaleHairStyles: []
+      hairColors: []
+    - type: GhostRole
+      name: ghost-role-information-adt-ussp-burogriv-name
+      description: ghost-role-information-adt-ussp-burogriv-description
+
+- type: entity
+  parent: ADTMobSovietBunkerRifleman
+  id: ADTMobSovietBunkerKovalchuk
+  name: Lance Corporal Kovalchuk
+  suffix: DO NOT MAP
+  description: Radio operator of the USSP outpost.
+  components:
+    - type: RandomHumanoidAppearance
+      nameSegments: []
+      femaleNameSegments: []
+      sex: Male
+    - type: GhostRole
+      name: ghost-role-information-adt-ussp-kovalchuk-name
+      description: ghost-role-information-adt-ussp-kovalchuk-description
+
+- type: entity
+  parent: ADTMobSovietBunkerShotgunner
+  id: ADTMobSovietBunkerMamedov
+  name: Private Mamedov
+  suffix: DO NOT MAP
+  description: Cook of the USSP outpost.
+  components:
+    - type: RandomHumanoidAppearance
+      nameSegments: []
+      femaleNameSegments: []
+      sex: Male
+    - type: GhostRole
+      name: ghost-role-information-adt-ussp-mamedov-name
+      description: ghost-role-information-adt-ussp-mamedov-description
+
+- type: entity
+  parent: ADTMobSovietBunkerRifleman
+  id: ADTMobSovietBunkerSomov
+  name: Private Somov
+  suffix: DO NOT MAP
+  description: Soldier of the USSP outpost.
+  components:
+    - type: RandomHumanoidAppearance
+      nameSegments: []
+      femaleNameSegments: []
+      sex: Male
+    - type: GhostRole
+      name: ghost-role-information-adt-ussp-somov-name
+      description: ghost-role-information-adt-ussp-somov-description
+
+- type: entity
+  parent: ADTMobSovietBunkerMarksman
+  id: ADTMobSovietBunkerGaliev
+  name: Private Galiev
+  suffix: DO NOT MAP
+  description: Soldier of the USSP outpost.
+  components:
+    - type: RandomHumanoidAppearance
+      nameSegments: []
+      femaleNameSegments: []
+      sex: Male
+    - type: GhostRole
+      name: ghost-role-information-adt-ussp-galiev-name
+      description: ghost-role-information-adt-ussp-galiev-description
+
+- type: entity
+  parent: ADTMobSovietBunkerRocketeer
+  id: ADTMobSovietBunkerKvyatkovsky
+  name: Private Kvyatkovsky
+  suffix: DO NOT MAP
+  description: Soldier of the USSP outpost.
+  components:
+    - type: RandomHumanoidAppearance
+      nameSegments: []
+      femaleNameSegments: []
+      sex: Male
+    - type: GhostRole
+      name: ghost-role-information-adt-ussp-kvyatkovsky-name
+      description: ghost-role-information-adt-ussp-kvyatkovsky-description
+
+- type: entity
+  parent: ADTMobSovietBunkerRifleman
+  id: ADTMobSovietBunkerTikhonov
+  name: Private Tikhonov
+  suffix: DO NOT MAP
+  description: Soldier of the USSP outpost.
+  components:
+    - type: RandomHumanoidAppearance
+      nameSegments: []
+      femaleNameSegments: []
+      sex: Male
+    - type: GhostRole
+      name: ghost-role-information-adt-ussp-tikhonov-name
+      description: ghost-role-information-adt-ussp-tikhonov-description
+
+- type: entity
+  parent: ADTMobSovietBunkerSniper
+  id: ADTMobSovietBunkerLiWei
+  name: Private Li Wei
+  suffix: DO NOT MAP
+  description: Best marksman of the USSP outpost.
+  components:
+    - type: RandomHumanoidAppearance
+      nameSegments: []
+      femaleNameSegments: []
+      sex: Male
+    - type: GhostRole
+      name: ghost-role-information-adt-ussp-li-wei-name
+      description: ghost-role-information-adt-ussp-li-wei-description
+
+- type: entity
+  parent: ADTMobSovietBunkerRifleman
+  id: ADTMobSovietBunkerBelov
+  name: Junior Researcher Belov
+  suffix: DO NOT MAP
+  description: Junior researcher of the USSP Academy of Sciences Institute of Planetology, attached to the outpost.
+  components:
+    - type: RandomHumanoidAppearance
+      nameSegments: []
+      femaleNameSegments: []
+      sex: Male
+    - type: GhostRole
+      name: ghost-role-information-adt-ussp-belov-name
+      description: ghost-role-information-adt-ussp-belov-description
