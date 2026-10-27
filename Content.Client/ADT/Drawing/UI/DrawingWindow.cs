@@ -93,6 +93,8 @@ public sealed partial class DrawingWindow : DefaultWindow
                 SeparationOverride = 4,
             };
             sidebar.AddChild(SessionPanel);
+            sidebar.AddChild(Check("adt-drawing-hide-editor-cursors", false, v => _canvas.HideEditorCursors = v));
+            sidebar.AddChild(Check("adt-drawing-hide-viewer-cursors", false, v => _canvas.HideViewerCursors = v));
         }
 
         var toolGroup = new ButtonGroup(false);

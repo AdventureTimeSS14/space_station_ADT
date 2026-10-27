@@ -77,6 +77,10 @@ public sealed class DrawingCanvasControl : Control
 
     public DrawingTool Tool { get; set; } = DrawingTool.Brush;
 
+    public bool HideEditorCursors { get; set; }
+
+    public bool HideViewerCursors { get; set; }
+
     public bool BaseLocked
     {
         get => _baseLocked;
@@ -477,6 +481,9 @@ public sealed class DrawingCanvasControl : Control
         foreach (var participant in collaboration.Participants)
         {
             if (!participant.CursorVisible)
+                continue;
+
+            if (participant.Role == CanvasRole.Viewer ? HideViewerCursors : HideEditorCursors)
                 continue;
 
             var pos = CanvasToScreen(participant.CursorPosition);

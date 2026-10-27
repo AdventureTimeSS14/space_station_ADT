@@ -51,3 +51,5 @@ adt-drawing-layer-merge = Влить в холст
 adt-drawing-layer-merge-denied = Вливать в общий холст могут только соавторы.
 adt-drawing-layer-opacity = Непрозр. слоя: {$value}%
 adt-drawing-layer-visible = Показывать слой
+adt-drawing-hide-editor-cursors = Скрыть курсоры соавторов
+adt-drawing-hide-viewer-cursors = Скрыть курсоры зрителей
