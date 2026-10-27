@@ -22,8 +22,6 @@ public static class CanvasTileValidator
         }
 
         var blob = CanvasTileContent.Blob(CanvasHash.Compute(data));
-        if (data.Length >= ClassifyBelowBytes)
-            return new CanvasValidation(true, blob);
 
         try
         {
@@ -32,7 +30,7 @@ public static class CanvasTileValidator
             if (image.Width != width || image.Height != height)
                 return default;
 
-            if (!image.DangerousTryGetSinglePixelMemory(out var memory))
+            if (data.Length >= ClassifyBelowBytes || !image.DangerousTryGetSinglePixelMemory(out var memory))
                 return new CanvasValidation(true, blob);
 
             return new CanvasValidation(true, Classify(memory.Span) ?? blob);

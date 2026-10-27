@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Threading.Tasks;
 using Content.Server.ADT.Drawing.Database;
 using Content.Server.Database;
 using Content.Shared.ADT.Drawing;
@@ -11,8 +12,11 @@ public sealed partial class CanvasSessionSystem
 {
     private const int MaxCachedViews = 64;
     private const long MaxBlobCacheBytes = 64L * 1024 * 1024;
+    private const int MaxViewLoadsPerPeer = 4;
 
     private readonly Dictionary<Guid, CachedPaintingView> _views = new();
+    private readonly Dictionary<Guid, Task<PaintingViewRecord?>> _viewLoads = new();
+    private readonly Dictionary<CanvasHash, HashSet<CanvasPeer>> _blobFetches = new();
     private readonly Dictionary<CanvasHash, byte[]> _blobCache = new();
     private readonly Queue<CanvasHash> _blobCacheOrder = new();
     private long _blobCacheBytes;
@@ -78,16 +82,33 @@ public sealed partial class CanvasSessionSystem
         {
             if (!_views.TryGetValue(paintingUid, out var view))
             {
-                var record = await _db.GetPaintingViewAsync(paintingUid);
+                var peer = GetPeer(player);
+                if (peer.ViewLoads >= MaxViewLoadsPerPeer)
+                    return;
+
+                PaintingViewRecord? record;
+                peer.ViewLoads++;
+                try
+                {
+                    record = await LoadView(paintingUid);
+                }
+                finally
+                {
+                    peer.ViewLoads--;
+                }
+
                 if (record == null)
                 {
                     SendViewDenied(player, paintingUid);
                     return;
                 }
 
-                view = new CachedPaintingView(record);
-                _views[paintingUid] = view;
-                TrimViews();
+                if (!_views.TryGetValue(paintingUid, out view))
+                {
+                    view = new CachedPaintingView(record);
+                    _views[paintingUid] = view;
+                    TrimViews();
+                }
             }
 
             view.LastUsed = _timing.RealTime;
@@ -125,6 +146,25 @@ public sealed partial class CanvasSessionSystem
         catch (Exception e)
         {
             Log.Error($"Failed to load painting view {paintingUid}: {e}");
+        }
+    }
+
+    private async Task<PaintingViewRecord?> LoadView(Guid paintingUid)
+    {
+        if (!_viewLoads.TryGetValue(paintingUid, out var task))
+        {
+            task = _db.GetPaintingViewAsync(paintingUid);
+            _viewLoads[paintingUid] = task;
+        }
+
+        try
+        {
+            return await task;
+        }
+        finally
+        {
+            if (_viewLoads.TryGetValue(paintingUid, out var current) && current == task)
+                _viewLoads.Remove(paintingUid);
         }
     }
 
@@ -203,33 +243,61 @@ public sealed partial class CanvasSessionSystem
                 continue;
 
             if (_blobCache.TryGetValue(hash, out var data))
+            {
                 QueueBlob(peer, hash, data);
-            else
-                missing.Add(hash);
+                continue;
+            }
+
+            peer.Queued.Add(hash);
+            if (_blobFetches.TryGetValue(hash, out var waiters))
+            {
+                waiters.Add(peer);
+                continue;
+            }
+
+            _blobFetches[hash] = new HashSet<CanvasPeer>
+            {
+                peer,
+            };
+            missing.Add(hash);
         }
 
         if (missing.Count > 0)
-            FetchViewBlobsAsync(peer, missing);
+            FetchViewBlobsAsync(missing);
 
         return true;
     }
 
-    private async void FetchViewBlobsAsync(CanvasPeer peer, List<CanvasHash> hashes)
+    private async void FetchViewBlobsAsync(List<CanvasHash> hashes)
     {
+        var loaded = new Dictionary<CanvasHash, byte[]>();
         try
         {
             var blobs = await _db.GetPaintingBlobsAsync(hashes);
             await _blobStore.ResolveAsync(blobs.External, blobs.Data);
-            foreach (var (hash, data) in blobs.Data)
+            loaded = blobs.Data;
+            foreach (var (hash, data) in loaded)
             {
                 CacheBlob(hash, data);
-                if (_peers.TryGetValue(peer.Session.UserId, out var current) && current == peer && !peer.Queued.Contains(hash))
-                    QueueBlob(peer, hash, data);
             }
         }
         catch (Exception e)
         {
             Log.Error($"Failed to load painting blobs: {e}");
+        }
+
+        foreach (var hash in hashes)
+        {
+            if (!_blobFetches.Remove(hash, out var waiters))
+                continue;
+
+            loaded.TryGetValue(hash, out var data);
+            foreach (var waiter in waiters)
+            {
+                waiter.Queued.Remove(hash);
+                if (data != null && _peers.TryGetValue(waiter.Session.UserId, out var current) && current == waiter)
+                    QueueBlob(waiter, hash, data);
+            }
         }
     }
 

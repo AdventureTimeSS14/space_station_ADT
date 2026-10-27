@@ -74,6 +74,7 @@ public sealed class CanvasPeer
     public double DownTokens;
     public TimeSpan LastRefill;
     public uint NextTransferId = 1;
+    public int ViewLoads;
 
     public CanvasPeer(ICommonSession session, TimeSpan now)
     {

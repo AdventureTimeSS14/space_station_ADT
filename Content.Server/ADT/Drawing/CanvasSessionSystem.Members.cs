@@ -157,7 +157,7 @@ public sealed partial class CanvasSessionSystem
             return;
         }
 
-        if (session.Requests.TryGetValue(args.User, out var existing) && !existing.Invite)
+        if (session.Requests.TryGetValue(args.User, out var existing) && !existing.Invite && !existing.Checking)
         {
             session.Requests.Remove(args.User);
             Promote(session, member, ent.Owner, args.Actor);

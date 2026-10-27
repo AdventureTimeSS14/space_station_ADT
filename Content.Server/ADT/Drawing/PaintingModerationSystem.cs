@@ -209,6 +209,7 @@ public sealed class PaintingModerationSystem : EntitySystem
             $"{admin.Name} banned {userId} from painting for {(minutes > 0 ? minutes + " min" : "ever")}, reason: {reason}");
 
         _canvas.CloseSessionsOf(new NetUserId(userId));
+        BroadcastRevoked(userId, false);
         return Loc.GetString("adt-canvas-mod-banned");
     }
 
@@ -245,6 +246,7 @@ public sealed class PaintingModerationSystem : EntitySystem
         if (_whitelist)
             _canvas.CloseSessionsOf(new NetUserId(userId));
 
+        BroadcastRevoked(userId, true);
         return Loc.GetString("adt-canvas-mod-whitelist-removed", ("name", name));
     }
 
@@ -310,19 +312,32 @@ public sealed class PaintingModerationSystem : EntitySystem
         _canvas.InvalidatePainting(paintingUid, dropCache);
     }
 
-    private async void Broadcast(Guid paintingUid, bool hidden, bool dropCache, bool withdrawn)
+    private void Broadcast(Guid paintingUid, bool hidden, bool dropCache, bool withdrawn)
+    {
+        SendChange(new PaintingChangedNotification
+        {
+            Painting = paintingUid,
+            Hidden = hidden,
+            DropCache = dropCache,
+            Withdrawn = withdrawn,
+        });
+    }
+
+    private void BroadcastRevoked(Guid userId, bool whitelist)
+    {
+        SendChange(new PaintingChangedNotification
+        {
+            RevokedUser = userId,
+            Whitelist = whitelist,
+        });
+    }
+
+    private async void SendChange(PaintingChangedNotification payload)
     {
         try
         {
             var server = await _serverDbEntry.ServerEntity;
-            var payload = new PaintingChangedNotification
-            {
-                Painting = paintingUid,
-                ServerId = server.Id,
-                Hidden = hidden,
-                DropCache = dropCache,
-                Withdrawn = withdrawn,
-            };
+            payload.ServerId = server.Id;
 
             await _db.SendNotification(new DatabaseNotification
             {
@@ -332,7 +347,7 @@ public sealed class PaintingModerationSystem : EntitySystem
         }
         catch (Exception e)
         {
-            Log.Error($"Failed to broadcast painting change {paintingUid}: {e}");
+            Log.Error($"Failed to broadcast painting change {payload.Painting}: {e}");
         }
     }
 
@@ -343,6 +358,14 @@ public sealed class PaintingModerationSystem : EntitySystem
             var server = await _serverDbEntry.ServerEntity;
             if (notification.ServerId == server.Id)
                 return;
+
+            if (notification.RevokedUser is { } revoked)
+            {
+                if (!notification.Whitelist || _whitelist)
+                    _canvas.CloseSessionsOf(new NetUserId(revoked));
+
+                return;
+            }
 
             if (notification.Withdrawn)
             {
@@ -517,5 +540,11 @@ public sealed class PaintingModerationSystem : EntitySystem
 
         [JsonPropertyName("withdrawn")]
         public bool Withdrawn { get; set; }
+
+        [JsonPropertyName("revoked_user")]
+        public Guid? RevokedUser { get; set; }
+
+        [JsonPropertyName("whitelist")]
+        public bool Whitelist { get; set; }
     }
 }
