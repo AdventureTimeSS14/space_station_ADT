@@ -5,7 +5,7 @@ using Robust.Shared.Console;
 
 namespace Content.Server.ADT.Drawing;
 
-[AdminCommand(AdminFlags.Admin)]
+[AdminCommand(AdminFlags.Ban)]
 public sealed class PaintingQueueCommand : IConsoleCommand
 {
     [Dependency] private readonly EuiManager _euis = default!;
@@ -99,7 +99,7 @@ public sealed class PaintingUnbanCommand : IConsoleCommand
     }
 }
 
-[AdminCommand(AdminFlags.Ban)]
+[AdminCommand(AdminFlags.Host)]
 public sealed class PaintingWhitelistAddCommand : IConsoleCommand
 {
     [Dependency] private readonly IPlayerLocator _locator = default!;
@@ -129,7 +129,7 @@ public sealed class PaintingWhitelistAddCommand : IConsoleCommand
     }
 }
 
-[AdminCommand(AdminFlags.Ban)]
+[AdminCommand(AdminFlags.Host)]
 public sealed class PaintingWhitelistRemoveCommand : IConsoleCommand
 {
     [Dependency] private readonly IPlayerLocator _locator = default!;
