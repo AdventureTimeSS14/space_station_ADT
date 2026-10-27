@@ -28,9 +28,6 @@ public sealed partial class ADTJanicartBufferComponent : Component
     public bool Enabled = true;
 
     [DataField]
-    public List<string> DecalTags = new() { "dirty" };
-
-    [DataField]
     public EntProtoId ToggleAction = "ADTActionToggleJanicartBuffer";
 
     [DataField]
