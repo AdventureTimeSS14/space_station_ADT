@@ -2,6 +2,7 @@
   id: SurgeryReattachArmLeft
   category: SurgeryCategoryLimbReattachment
   name: surgery-graph-reattach-arm-left-name
+  location: surgery-location-arm-left
   startNodes:
     - Amputated
   nodes:
@@ -16,7 +17,7 @@
               organId: ArmLeft
               inverted: true
           steps:
-            - name: surgery-step-limb-open-stump
+            - name: surgery-edge-limb-open-stump-label
               tools: [ Scalpel ]
               successChance: 0.95
               duration: 3
@@ -36,7 +37,7 @@
           label: surgery-edge-limb-attach-label
           target: LimbPlaced
           steps:
-            - name: surgery-step-limb-attach
+            - name: surgery-edge-limb-attach-label
               tools: [ ArmLeft ]
               duration: 4
           effects:
@@ -50,7 +51,7 @@
           label: surgery-edge-limb-bone-gel-first-label
           target: LimbBoneGelled
           steps:
-            - name: surgery-step-limb-bone-gel-first
+            - name: surgery-edge-limb-bone-gel-first-label
               tools: [ BoneGel ]
               duration: 2
 
@@ -61,7 +62,7 @@
           label: surgery-edge-limb-set-bone-label
           target: LimbBoneSet
           steps:
-            - name: surgery-step-limb-set-bone
+            - name: surgery-edge-limb-set-bone-label
               tools: [ BoneSetter ]
               successChance: 0.9
               duration: 3
@@ -73,7 +74,7 @@
           label: surgery-edge-limb-bone-gel-second-label
           target: Attached
           steps:
-            - name: surgery-step-limb-bone-gel-second
+            - name: surgery-edge-limb-bone-gel-second-label
               tools: [ BoneGel ]
               duration: 2
 
@@ -85,6 +86,7 @@
   id: SurgeryReattachArmRight
   category: SurgeryCategoryLimbReattachment
   name: surgery-graph-reattach-arm-right-name
+  location: surgery-location-arm-right
   startNodes:
     - Amputated
   nodes:
@@ -99,7 +101,7 @@
               organId: ArmRight
               inverted: true
           steps:
-            - name: surgery-step-limb-open-stump
+            - name: surgery-edge-limb-open-stump-label
               tools: [ Scalpel ]
               successChance: 0.95
               duration: 3
@@ -119,7 +121,7 @@
           label: surgery-edge-limb-attach-label
           target: LimbPlaced
           steps:
-            - name: surgery-step-limb-attach
+            - name: surgery-edge-limb-attach-label
               tools: [ ArmRight ]
               duration: 4
           effects:
@@ -133,7 +135,7 @@
           label: surgery-edge-limb-bone-gel-first-label
           target: LimbBoneGelled
           steps:
-            - name: surgery-step-limb-bone-gel-first
+            - name: surgery-edge-limb-bone-gel-first-label
               tools: [ BoneGel ]
               duration: 2
 
@@ -144,7 +146,7 @@
           label: surgery-edge-limb-set-bone-label
           target: LimbBoneSet
           steps:
-            - name: surgery-step-limb-set-bone
+            - name: surgery-edge-limb-set-bone-label
               tools: [ BoneSetter ]
               successChance: 0.9
               duration: 3
@@ -156,7 +158,7 @@
           label: surgery-edge-limb-bone-gel-second-label
           target: Attached
           steps:
-            - name: surgery-step-limb-bone-gel-second
+            - name: surgery-edge-limb-bone-gel-second-label
               tools: [ BoneGel ]
               duration: 2
 
@@ -168,6 +170,7 @@
   id: SurgeryReattachHandLeft
   category: SurgeryCategoryLimbReattachment
   name: surgery-graph-reattach-hand-left-name
+  location: surgery-location-hand-left
   startNodes:
     - Amputated
   nodes:
@@ -184,7 +187,7 @@
             - !type:OrganPresentCondition
               organId: ArmLeft
           steps:
-            - name: surgery-step-limb-open-stump
+            - name: surgery-edge-limb-open-stump-label
               tools: [ Scalpel ]
               successChance: 0.95
               duration: 3
@@ -204,7 +207,7 @@
           label: surgery-edge-limb-attach-label
           target: LimbPlaced
           steps:
-            - name: surgery-step-limb-attach
+            - name: surgery-edge-limb-attach-label
               tools: [ HandLeft ]
               duration: 4
           effects:
@@ -218,7 +221,7 @@
           label: surgery-edge-limb-bone-gel-first-label
           target: LimbBoneGelled
           steps:
-            - name: surgery-step-limb-bone-gel-first
+            - name: surgery-edge-limb-bone-gel-first-label
               tools: [ BoneGel ]
               duration: 2
 
@@ -229,7 +232,7 @@
           label: surgery-edge-limb-set-bone-label
           target: LimbBoneSet
           steps:
-            - name: surgery-step-limb-set-bone
+            - name: surgery-edge-limb-set-bone-label
               tools: [ BoneSetter ]
               successChance: 0.9
               duration: 3
@@ -241,7 +244,7 @@
           label: surgery-edge-limb-bone-gel-second-label
           target: Attached
           steps:
-            - name: surgery-step-limb-bone-gel-second
+            - name: surgery-edge-limb-bone-gel-second-label
               tools: [ BoneGel ]
               duration: 2
 
@@ -253,6 +256,7 @@
   id: SurgeryReattachHandRight
   category: SurgeryCategoryLimbReattachment
   name: surgery-graph-reattach-hand-right-name
+  location: surgery-location-hand-right
   startNodes:
     - Amputated
   nodes:
@@ -269,7 +273,7 @@
             - !type:OrganPresentCondition
               organId: ArmRight
           steps:
-            - name: surgery-step-limb-open-stump
+            - name: surgery-edge-limb-open-stump-label
               tools: [ Scalpel ]
               successChance: 0.95
               duration: 3
@@ -289,7 +293,7 @@
           label: surgery-edge-limb-attach-label
           target: LimbPlaced
           steps:
-            - name: surgery-step-limb-attach
+            - name: surgery-edge-limb-attach-label
               tools: [ HandRight ]
               duration: 4
           effects:
@@ -303,7 +307,7 @@
           label: surgery-edge-limb-bone-gel-first-label
           target: LimbBoneGelled
           steps:
-            - name: surgery-step-limb-bone-gel-first
+            - name: surgery-edge-limb-bone-gel-first-label
               tools: [ BoneGel ]
               duration: 2
 
@@ -314,7 +318,7 @@
           label: surgery-edge-limb-set-bone-label
           target: LimbBoneSet
           steps:
-            - name: surgery-step-limb-set-bone
+            - name: surgery-edge-limb-set-bone-label
               tools: [ BoneSetter ]
               successChance: 0.9
               duration: 3
@@ -326,7 +330,7 @@
           label: surgery-edge-limb-bone-gel-second-label
           target: Attached
           steps:
-            - name: surgery-step-limb-bone-gel-second
+            - name: surgery-edge-limb-bone-gel-second-label
               tools: [ BoneGel ]
               duration: 2
 
@@ -338,6 +342,7 @@
   id: SurgeryReattachLegLeft
   category: SurgeryCategoryLimbReattachment
   name: surgery-graph-reattach-leg-left-name
+  location: surgery-location-leg-left
   startNodes:
     - Amputated
   nodes:
@@ -352,7 +357,7 @@
               organId: LegLeft
               inverted: true
           steps:
-            - name: surgery-step-limb-open-stump
+            - name: surgery-edge-limb-open-stump-label
               tools: [ Scalpel ]
               successChance: 0.95
               duration: 3
@@ -372,7 +377,7 @@
           label: surgery-edge-limb-attach-label
           target: LimbPlaced
           steps:
-            - name: surgery-step-limb-attach
+            - name: surgery-edge-limb-attach-label
               tools: [ LegLeft ]
               duration: 4
           effects:
@@ -386,7 +391,7 @@
           label: surgery-edge-limb-bone-gel-first-label
           target: LimbBoneGelled
           steps:
-            - name: surgery-step-limb-bone-gel-first
+            - name: surgery-edge-limb-bone-gel-first-label
               tools: [ BoneGel ]
               duration: 2
 
@@ -397,7 +402,7 @@
           label: surgery-edge-limb-set-bone-label
           target: LimbBoneSet
           steps:
-            - name: surgery-step-limb-set-bone
+            - name: surgery-edge-limb-set-bone-label
               tools: [ BoneSetter ]
               successChance: 0.9
               duration: 3
@@ -409,7 +414,7 @@
           label: surgery-edge-limb-bone-gel-second-label
           target: Attached
           steps:
-            - name: surgery-step-limb-bone-gel-second
+            - name: surgery-edge-limb-bone-gel-second-label
               tools: [ BoneGel ]
               duration: 2
 
@@ -421,6 +426,7 @@
   id: SurgeryReattachLegRight
   category: SurgeryCategoryLimbReattachment
   name: surgery-graph-reattach-leg-right-name
+  location: surgery-location-leg-right
   startNodes:
     - Amputated
   nodes:
@@ -435,7 +441,7 @@
               organId: LegRight
               inverted: true
           steps:
-            - name: surgery-step-limb-open-stump
+            - name: surgery-edge-limb-open-stump-label
               tools: [ Scalpel ]
               successChance: 0.95
               duration: 3
@@ -455,7 +461,7 @@
           label: surgery-edge-limb-attach-label
           target: LimbPlaced
           steps:
-            - name: surgery-step-limb-attach
+            - name: surgery-edge-limb-attach-label
               tools: [ LegRight ]
               duration: 4
           effects:
@@ -469,7 +475,7 @@
           label: surgery-edge-limb-bone-gel-first-label
           target: LimbBoneGelled
           steps:
-            - name: surgery-step-limb-bone-gel-first
+            - name: surgery-edge-limb-bone-gel-first-label
               tools: [ BoneGel ]
               duration: 2
 
@@ -480,7 +486,7 @@
           label: surgery-edge-limb-set-bone-label
           target: LimbBoneSet
           steps:
-            - name: surgery-step-limb-set-bone
+            - name: surgery-edge-limb-set-bone-label
               tools: [ BoneSetter ]
               successChance: 0.9
               duration: 3
@@ -492,7 +498,7 @@
           label: surgery-edge-limb-bone-gel-second-label
           target: Attached
           steps:
-            - name: surgery-step-limb-bone-gel-second
+            - name: surgery-edge-limb-bone-gel-second-label
               tools: [ BoneGel ]
               duration: 2
 
@@ -504,6 +510,7 @@
   id: SurgeryReattachFootLeft
   category: SurgeryCategoryLimbReattachment
   name: surgery-graph-reattach-foot-left-name
+  location: surgery-location-foot-left
   startNodes:
     - Amputated
   nodes:
@@ -520,7 +527,7 @@
             - !type:OrganPresentCondition
               organId: LegLeft
           steps:
-            - name: surgery-step-limb-open-stump
+            - name: surgery-edge-limb-open-stump-label
               tools: [ Scalpel ]
               successChance: 0.95
               duration: 3
@@ -540,7 +547,7 @@
           label: surgery-edge-limb-attach-label
           target: LimbPlaced
           steps:
-            - name: surgery-step-limb-attach
+            - name: surgery-edge-limb-attach-label
               tools: [ FootLeft ]
               duration: 4
           effects:
@@ -554,7 +561,7 @@
           label: surgery-edge-limb-bone-gel-first-label
           target: LimbBoneGelled
           steps:
-            - name: surgery-step-limb-bone-gel-first
+            - name: surgery-edge-limb-bone-gel-first-label
               tools: [ BoneGel ]
               duration: 2
 
@@ -565,7 +572,7 @@
           label: surgery-edge-limb-set-bone-label
           target: LimbBoneSet
           steps:
-            - name: surgery-step-limb-set-bone
+            - name: surgery-edge-limb-set-bone-label
               tools: [ BoneSetter ]
               successChance: 0.9
               duration: 3
@@ -577,7 +584,7 @@
           label: surgery-edge-limb-bone-gel-second-label
           target: Attached
           steps:
-            - name: surgery-step-limb-bone-gel-second
+            - name: surgery-edge-limb-bone-gel-second-label
               tools: [ BoneGel ]
               duration: 2
 
@@ -589,6 +596,7 @@
   id: SurgeryReattachFootRight
   category: SurgeryCategoryLimbReattachment
   name: surgery-graph-reattach-foot-right-name
+  location: surgery-location-foot-right
   startNodes:
     - Amputated
   nodes:
@@ -605,7 +613,7 @@
             - !type:OrganPresentCondition
               organId: LegRight
           steps:
-            - name: surgery-step-limb-open-stump
+            - name: surgery-edge-limb-open-stump-label
               tools: [ Scalpel ]
               successChance: 0.95
               duration: 3
@@ -625,7 +633,7 @@
           label: surgery-edge-limb-attach-label
           target: LimbPlaced
           steps:
-            - name: surgery-step-limb-attach
+            - name: surgery-edge-limb-attach-label
               tools: [ FootRight ]
               duration: 4
           effects:
@@ -639,7 +647,7 @@
           label: surgery-edge-limb-bone-gel-first-label
           target: LimbBoneGelled
           steps:
-            - name: surgery-step-limb-bone-gel-first
+            - name: surgery-edge-limb-bone-gel-first-label
               tools: [ BoneGel ]
               duration: 2
 
@@ -650,7 +658,7 @@
           label: surgery-edge-limb-set-bone-label
           target: LimbBoneSet
           steps:
-            - name: surgery-step-limb-set-bone
+            - name: surgery-edge-limb-set-bone-label
               tools: [ BoneSetter ]
               successChance: 0.9
               duration: 3
@@ -662,7 +670,7 @@
           label: surgery-edge-limb-bone-gel-second-label
           target: Attached
           steps:
-            - name: surgery-step-limb-bone-gel-second
+            - name: surgery-edge-limb-bone-gel-second-label
               tools: [ BoneGel ]
               duration: 2
 

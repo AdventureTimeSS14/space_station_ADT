@@ -1,5 +1,7 @@
 surgery-window-title = Операция
 surgery-window-subtitle = Выберите операцию
+surgery-edge-window-title = Этап операции
+surgery-edge-window-subtitle = Выберите этап
 surgery-no-graph = Нет доступных операций для этого пациента.
 surgery-no-table = Пациент должен лежать на операционном столе.
 surgery-no-tool = Нужен инструмент в активной руке.
@@ -9,26 +11,20 @@ surgery-cant-switch-in-progress = Нельзя сменить операцию, 
 surgery-choose-with-drapes = Сначала нужно выбрать операцию хирургическими простынями.
 
 surgery-console-window-title = Хирургическая консоль
-surgery-console-tab-patient = Состояние пациента
-surgery-console-tab-procedures = Хирургические процедуры
+surgery-console-tab-patient = Пациент
+surgery-console-tab-settings = Настройки
+surgery-console-current-operations = Текущие операции
+surgery-console-operation = Операция:
+surgery-console-state = Состояние:
+surgery-console-next-step = Следующий этап:
+surgery-console-alerts-toggle = Голосовые оповещения о состоянии пациента
+surgery-console-alert-dead = ВНИМАНИЕ: у пациента { $patient } зафиксирована остановка жизнедеятельности!
+surgery-console-alert-critical = ВНИМАНИЕ: пациент { $patient } в критическом состоянии!
+surgery-console-alert-lowblood = ВНИМАНИЕ: у пациента { $patient } критическая кровопотеря!
+surgery-console-alert-bleeding = Предупреждение: у пациента { $patient } открытое кровотечение во время операции!
 surgery-console-no-table = Операционный стол не найден поблизости.
 surgery-console-no-patient = На столе никого нет.
 surgery-console-no-operation = Операция ещё не выбрана.
-surgery-console-status-ok = Операция в процессе.
-surgery-console-graph = Операция: {$name}
-surgery-console-node = Состояние: {$node}
-surgery-console-step = {$label} - {$tools}
-surgery-console-any-tool = любой инструмент
-
-surgery-tool-Scalpel = скальпель
-surgery-tool-Retractor = ретрактор
-surgery-tool-Hemostat = гемостат
-surgery-tool-Saw = пила
-surgery-tool-Cautery = прибор для прижигания
-surgery-tool-Drill = дрель
-surgery-tool-BoneSetter = костоправ
-surgery-tool-BoneGel = костный гель
-surgery-tool-BloodFilter = фильтр крови
 
 ## Категории операций
 
@@ -53,9 +49,9 @@ surgery-node-limb-attached-label = Конечность цела
 surgery-node-limb-cut-label = Надрез сделан
 surgery-node-limb-amputated-label = Ампутировано
 surgery-node-limb-cauterized-label = Прижжено
-surgery-edge-limb-cut-label = Сделать надрез
-surgery-edge-limb-saw-label = Отпилить кость
-surgery-edge-limb-cauterize-label = Прижигание
+surgery-edge-limb-cut-label = Осуществление надреза
+surgery-edge-limb-saw-label = Распил кости
+surgery-edge-limb-cauterize-label = Прижигание культи
 
 ## Пришивание конечностей
 
@@ -67,163 +63,124 @@ surgery-graph-reattach-leg-left-name = Пришивание левой ноги
 surgery-graph-reattach-leg-right-name = Пришивание правой ноги
 surgery-graph-reattach-foot-left-name = Пришивание левой ступни
 surgery-graph-reattach-foot-right-name = Пришивание правой ступни
-surgery-edge-limb-attach-label = Пришить конечность
+surgery-edge-limb-attach-label = Пришивание конечности
 
 ## Манипуляции в брюшной полости
 
 surgery-graph-abdomen-organs-name = Манипуляции в брюшной полости
 surgery-node-abdomen-closed-label = Живот закрыт
-surgery-edge-abdomen-cut-label = Сделать надрез
+surgery-edge-abdomen-cut-label = Осуществление надреза
 surgery-node-abdomen-incised-label = Сделан надрез
-surgery-edge-abdomen-clamp-bleeders-label = Зажать кровотечение
+surgery-edge-abdomen-clamp-bleeders-label = Зажим кровотечения
 surgery-node-abdomen-bleeders-clamped-label = Кровотечение зажато
-surgery-edge-abdomen-retract-skin-label = Приподнять кожу
+surgery-edge-abdomen-retract-skin-label = Отведение кожи
 surgery-node-abdomen-skin-retracted-label = Кожа приподнята
-surgery-edge-abdomen-retract-muscle-label = Раздвинуть мышцы
-surgery-edge-abdomen-cauterize-label = Прижигание
+surgery-edge-abdomen-retract-muscle-label = Раздвижение мышц
+surgery-edge-abdomen-cauterize-label = Прижигание раны
 surgery-node-abdomen-open-label = Живот открыт
-surgery-edge-abdomen-unretract-muscle-label = Опустить мышцы
-surgery-edge-abdomen-remove-stomach-label = Извлечь желудок
-surgery-edge-abdomen-insert-stomach-label = Вставить желудок
-surgery-edge-abdomen-remove-liver-label = Извлечь печень
-surgery-edge-abdomen-insert-liver-label = Вставить печень
-surgery-edge-abdomen-remove-kidneys-label = Извлечь почки
-surgery-edge-abdomen-insert-kidneys-label = Вставить почки
-surgery-edge-abdomen-remove-appendix-label = Извлечь аппендикс
-surgery-edge-abdomen-insert-appendix-label = Вставить аппендикс
+surgery-edge-abdomen-unretract-muscle-label = Опускание мышц
+surgery-edge-abdomen-remove-stomach-label = Извлечение желудка
+surgery-edge-abdomen-insert-stomach-label = Установка желудка
+surgery-edge-abdomen-remove-liver-label = Извлечение печени
+surgery-edge-abdomen-insert-liver-label = Установка печени
+surgery-edge-abdomen-remove-kidneys-label = Извлечение почек
+surgery-edge-abdomen-insert-kidneys-label = Установка почек
+surgery-edge-abdomen-remove-appendix-label = Извлечение аппендикса
+surgery-edge-abdomen-insert-appendix-label = Установка аппендикса
 
 ## Манипуляции в грудной полости
 
 surgery-graph-chest-organs-name = Манипуляции в грудной полости
 surgery-node-chest-closed-label = Грудь закрыта
-surgery-edge-chest-cut-label = Сделать надрез
+surgery-edge-chest-cut-label = Осуществление надреза
 surgery-node-chest-incised-label = Сделан надрез
-surgery-edge-chest-clamp-bleeders-label = Зажать кровотечение
+surgery-edge-chest-clamp-bleeders-label = Зажим кровотечения
 surgery-node-chest-bleeders-clamped-label = Кровотечение зажато
-surgery-edge-chest-retract-skin-label = Приподнять кожу
+surgery-edge-chest-retract-skin-label = Отведение кожи
 surgery-node-chest-skin-retracted-label = Кожа приподнята
-surgery-edge-chest-saw-ribcage-label = Вскрыть грудную клетку
+surgery-edge-chest-saw-ribcage-label = Вскрытие грудной клетки
 surgery-node-chest-bone-sawed-label = Кость распилена
-surgery-edge-chest-retract-ribcage-label = Приподнять грудную клетку
-surgery-edge-chest-apply-bone-gel-first-label = Нанести костный гель
+surgery-edge-chest-retract-ribcage-label = Раздвижение грудной клетки
+surgery-edge-chest-apply-bone-gel-first-label = Нанесение костного геля
 surgery-node-chest-open-label = Грудь открыта
-surgery-edge-chest-unretract-ribcage-label = Опустить грудную клетку
-surgery-edge-chest-remove-heart-label = Извлечь сердце
-surgery-edge-chest-insert-heart-label = Вставить сердце
-surgery-edge-chest-remove-lungs-label = Извлечь лёгкие
-surgery-edge-chest-insert-lungs-label = Вставить лёгкие
+surgery-edge-chest-unretract-ribcage-label = Опускание грудной клетки
+surgery-edge-chest-remove-heart-label = Извлечение сердца
+surgery-edge-chest-insert-heart-label = Установка сердца
+surgery-edge-chest-remove-lungs-label = Извлечение лёгких
+surgery-edge-chest-insert-lungs-label = Установка лёгких
 surgery-node-chest-bone-gelled-label = Нанесён костный гель
-surgery-edge-chest-set-bone-label = Поставить кость на место
+surgery-edge-chest-set-bone-label = Вправление кости
 surgery-node-chest-bone-set-label = Кость вправлена
-surgery-edge-chest-apply-bone-gel-second-label = Нанести костный гель повторно
+surgery-edge-chest-apply-bone-gel-second-label = Повторное нанесение костного геля
 surgery-node-chest-bone-gelled-twice-label = Гель нанесён повторно
-surgery-edge-chest-cauterize-label = Завершить операцию
+surgery-edge-chest-cauterize-label = Завершение операции
 
 ## Манипуляции на голове
 
 surgery-graph-head-organs-name = Манипуляции на голове
 surgery-node-head-scalp-closed-label = Скальп закрыт
-surgery-edge-head-cut-label = Сделать надрез
-surgery-edge-head-retract-eyelid-label = Оттянуть веко
+surgery-edge-head-cut-label = Осуществление надреза
+surgery-edge-head-retract-eyelid-label = Оттягивание века
 surgery-node-head-eyelid-retracted-label = Веко оттянуто
-surgery-edge-head-release-eyelid-label = Отпустить веко
-surgery-edge-head-remove-eyes-label = Извлечь глаза
-surgery-edge-head-insert-eyes-label = Вставить глаза
+surgery-edge-head-release-eyelid-label = Возврат века
+surgery-edge-head-remove-eyes-label = Извлечение глаз
+surgery-edge-head-insert-eyes-label = Установка глаз
+surgery-edge-head-retract-ears-label = Отведение ушных раковин
+surgery-node-head-ears-retracted-label = Ушные раковины отведены
+surgery-edge-head-release-ears-label = Возврат ушных раковин
+surgery-edge-head-remove-ears-label = Извлечение ушей
+surgery-edge-head-insert-ears-label = Установка ушей
+surgery-edge-head-open-mouth-label = Раскрытие рта
+surgery-node-head-mouth-open-label = Рот раскрыт
+surgery-edge-head-close-mouth-label = Закрытие рта
+surgery-edge-head-remove-tongue-label = Извлечение языка
+surgery-edge-head-insert-tongue-label = Установка языка
 surgery-node-head-scalp-incised-label = Сделан надрез
-surgery-edge-head-clamp-bleeders-label = Зажать кровотечение
+surgery-edge-head-clamp-bleeders-label = Зажим кровотечения
 surgery-node-head-scalp-bleeders-clamped-label = Кровотечение зажато
-surgery-edge-head-retract-scalp-label = Приподнять скальп
+surgery-edge-head-retract-scalp-label = Отведение скальпа
 surgery-node-head-scalp-retracted-label = Скальп приподнят
-surgery-edge-head-saw-skull-label = Распилить череп
+surgery-edge-head-saw-skull-label = Распил черепа
 surgery-node-head-skull-sawed-label = Череп распилен
-surgery-edge-head-retract-skull-label = Приподнять черепную кость
-surgery-edge-head-apply-bone-gel-first-label = Нанести костный гель
+surgery-edge-head-retract-skull-label = Отведение черепной кости
+surgery-edge-head-apply-bone-gel-first-label = Нанесение костного геля
 surgery-node-head-skull-open-label = Череп открыт
-surgery-edge-head-unretract-skull-label = Опустить черепную кость
-surgery-edge-head-remove-brain-label = Извлечь мозг
-surgery-edge-head-insert-brain-label = Вставить мозг
+surgery-edge-head-unretract-skull-label = Опускание черепной кости
+surgery-edge-head-remove-brain-label = Извлечение мозга
+surgery-edge-head-insert-brain-label = Установка мозга
 surgery-node-head-skull-bone-gelled-label = Нанесён костный гель
-surgery-edge-head-set-bone-label = Поставить кость на место
+surgery-edge-head-set-bone-label = Вправление кости
 surgery-node-head-skull-bone-set-label = Кость вправлена
-surgery-edge-head-apply-bone-gel-second-label = Нанести костный гель повторно
+surgery-edge-head-apply-bone-gel-second-label = Повторное нанесение костного геля
 surgery-node-head-skull-bone-gelled-twice-label = Гель нанесён повторно
-surgery-edge-head-cauterize-label = Завершить операцию
-
-## Названия шагов
-
-surgery-step-limb-cut = Сделать надрез
-surgery-step-limb-saw = Отпилить кость
-surgery-step-limb-cauterize = Прижигание
-surgery-step-limb-treat-stump = Обработать культю
-surgery-step-limb-attach = Приложить конечность
-
-surgery-step-abdomen-cut = Сделать надрез
-surgery-step-abdomen-clamp-bleeders = Зажать кровотечение
-surgery-step-abdomen-cauterize = Прижигание
-surgery-step-abdomen-retract-skin = Приподнять кожу
-surgery-step-abdomen-retract-muscle = Раздвинуть мышцы
-surgery-step-abdomen-unretract-muscle = Опустить мышцы
-surgery-step-abdomen-remove-stomach = Извлечь желудок
-surgery-step-abdomen-insert-stomach = Вставить желудок
-surgery-step-abdomen-remove-liver = Извлечь печень
-surgery-step-abdomen-insert-liver = Вставить печень
-surgery-step-abdomen-remove-kidneys = Извлечь почки
-surgery-step-abdomen-insert-kidneys = Вставить почки
-surgery-step-abdomen-remove-appendix = Извлечь аппендикс
-surgery-step-abdomen-insert-appendix = Вставить аппендикс
-
-surgery-step-chest-cut = Сделать надрез
-surgery-step-chest-clamp-bleeders = Зажать кровотечение
-surgery-step-chest-cauterize = Завершить операцию
-surgery-step-chest-retract-skin = Приподнять кожу
-surgery-step-chest-saw-ribcage = Вскрыть грудную клетку
-surgery-step-chest-retract-ribcage = Приподнять грудную клетку
-surgery-step-chest-apply-bone-gel-first = Нанести костный гель
-surgery-step-chest-unretract-ribcage = Опустить грудную клетку
-surgery-step-chest-remove-heart = Извлечь сердце
-surgery-step-chest-insert-heart = Вставить сердце
-surgery-step-chest-remove-lungs = Извлечь лёгкие
-surgery-step-chest-insert-lungs = Вставить лёгкие
-surgery-step-chest-set-bone = Поставить кость на место
-surgery-step-chest-apply-bone-gel-second = Нанести костный гель повторно
-
-surgery-step-head-cut = Разрезать скальп
-surgery-step-head-retract-eyelid = Оттянуть веко
-surgery-step-head-release-eyelid = Отпустить веко
-surgery-step-head-remove-eyes = Извлечь глаза
-surgery-step-head-insert-eyes = Вставить глаза
-surgery-step-head-clamp-bleeders = Зажать кровотечение
-surgery-step-head-cauterize = Завершить операцию
-surgery-step-head-retract-scalp = Приподнять скальп
-surgery-step-head-saw-skull = Распилить череп
-surgery-step-head-retract-skull = Приподнять черепную кость
-surgery-step-head-apply-bone-gel-first = Нанести костный гель
-surgery-step-head-unretract-skull = Опустить черепную кость
-surgery-step-head-remove-brain = Извлечь мозг
-surgery-step-head-insert-brain = Вставить мозг
-surgery-step-head-set-bone = Поставить кость на место
-surgery-step-head-apply-bone-gel-second = Нанести костный гель повторно
+surgery-edge-head-cauterize-label = Завершение операции
 
 surgery-node-limb-stump-opened-label = Культя вскрыта
 surgery-node-limb-placed-label = Конечность приложена
 surgery-node-limb-bone-gelled-label = Кость обработана гелем
 surgery-node-limb-bone-set-label = Кость сопоставлена
 
-surgery-edge-limb-open-stump-label = Вскрыть культю
-surgery-edge-limb-bone-gel-first-label = Нанести костный гель
-surgery-edge-limb-set-bone-label = Сопоставить кость
-surgery-edge-limb-bone-gel-second-label = Закрепить костным гелем
-
-surgery-step-limb-open-stump = Вскрыть культю - скальпель
-surgery-step-limb-bone-gel-first = Нанести костный гель
-surgery-step-limb-set-bone = Сопоставить кость
-surgery-step-limb-bone-gel-second = Закрепить костным гелем
+surgery-edge-limb-open-stump-label = Вскрытие культи
+surgery-edge-limb-bone-gel-first-label = Нанесение костного геля
+surgery-edge-limb-set-bone-label = Сопоставление кости
+surgery-edge-limb-bone-gel-second-label = Закрепление костным гелем
 
 surgery-node-limb-bleeders-clamped-label = Сосуды зажаты
 surgery-node-limb-skin-retracted-label = Кожа отведена
 
-surgery-edge-limb-clamp-bleeders-label = Зажать кровоточащие сосуды
-surgery-edge-limb-retract-skin-label = Отвести кожу
+surgery-edge-limb-clamp-bleeders-label = Зажим кровоточащих сосудов
+surgery-edge-limb-retract-skin-label = Отведение кожи
 
-surgery-step-limb-clamp-bleeders = Зажать сосуды - зажим
-surgery-step-limb-retract-skin = Отвести кожу - ретрактор
+## Места операций
+
+surgery-location-arm-left = Левая рука пациента
+surgery-location-arm-right = Правая рука пациента
+surgery-location-hand-left = Левая кисть пациента
+surgery-location-hand-right = Правая кисть пациента
+surgery-location-leg-left = Левая нога пациента
+surgery-location-leg-right = Правая нога пациента
+surgery-location-foot-left = Левая ступня пациента
+surgery-location-foot-right = Правая ступня пациента
+surgery-location-abdomen = Живот пациента
+surgery-location-chest = Грудь пациента
+surgery-location-head = Голова пациента

@@ -2,6 +2,7 @@
   id: SurgeryAbdomenOrgans
   category: SurgeryCategoryOrganManipulation
   name: surgery-graph-abdomen-organs-name
+  location: surgery-location-abdomen
   startNodes:
     - AbdomenClosed
   nodes:
@@ -12,7 +13,7 @@
           label: surgery-edge-abdomen-cut-label
           target: AbdomenIncised
           steps:
-            - name: surgery-step-abdomen-cut
+            - name: surgery-edge-abdomen-cut-label
               tools: [ Scalpel ]
               successChance: 0.95
               duration: 3
@@ -32,7 +33,7 @@
           label: surgery-edge-abdomen-clamp-bleeders-label
           target: AbdomenBleedersClamped
           steps:
-            - name: surgery-step-abdomen-clamp-bleeders
+            - name: surgery-edge-abdomen-clamp-bleeders-label
               tools: [ Hemostat ]
               successChance: 0.9
               duration: 3
@@ -43,7 +44,7 @@
           target: AbdomenClosed
           label: surgery-edge-abdomen-cauterize-label
           steps:
-            - name: surgery-step-abdomen-cauterize
+            - name: surgery-edge-abdomen-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -54,6 +55,7 @@
                   damage:
                     types:
                       Heat: 3
+                - !type:CauterizeEffect
 
     - name: AbdomenBleedersClamped
       label: surgery-node-abdomen-bleeders-clamped-label
@@ -62,7 +64,7 @@
           label: surgery-edge-abdomen-retract-skin-label
           target: AbdomenSkinRetracted
           steps:
-            - name: surgery-step-abdomen-retract-skin
+            - name: surgery-edge-abdomen-retract-skin-label
               tools: [ Retractor ]
               successChance: 0.9
               duration: 3
@@ -78,7 +80,7 @@
           target: AbdomenClosed
           label: surgery-edge-abdomen-cauterize-label
           steps:
-            - name: surgery-step-abdomen-cauterize
+            - name: surgery-edge-abdomen-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -89,6 +91,7 @@
                   damage:
                     types:
                       Heat: 3
+                - !type:CauterizeEffect
 
     - name: AbdomenSkinRetracted
       label: surgery-node-abdomen-skin-retracted-label
@@ -97,7 +100,7 @@
           target: AbdomenOpen
           label: surgery-edge-abdomen-retract-muscle-label
           steps:
-            - name: surgery-step-abdomen-retract-muscle
+            - name: surgery-edge-abdomen-retract-muscle-label
               tools: [ Retractor ]
               successChance: 0.9
               duration: 3
@@ -113,7 +116,7 @@
           target: AbdomenClosed
           label: surgery-edge-abdomen-cauterize-label
           steps:
-            - name: surgery-step-abdomen-cauterize
+            - name: surgery-edge-abdomen-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -124,6 +127,7 @@
                   damage:
                     types:
                       Heat: 1
+                - !type:CauterizeEffect
 
     - name: AbdomenOpen
       label: surgery-node-abdomen-open-label
@@ -132,7 +136,7 @@
           target: AbdomenSkinRetracted
           label: surgery-edge-abdomen-unretract-muscle-label
           steps:
-            - name: surgery-step-abdomen-unretract-muscle
+            - name: surgery-edge-abdomen-unretract-muscle-label
               tools: [ Retractor ]
               successChance: 0.9
               duration: 3
@@ -151,7 +155,7 @@
             - !type:OrganPresentCondition
               organId: Stomach
           steps:
-            - name: surgery-step-abdomen-remove-stomach
+            - name: surgery-edge-abdomen-remove-stomach-label
               tools: [ Hemostat ]
               successChance: 0.8
               duration: 4
@@ -174,7 +178,7 @@
               organId: Stomach
               inverted: true
           steps:
-            - name: surgery-step-abdomen-insert-stomach
+            - name: surgery-edge-abdomen-insert-stomach-label
               tools: [ Stomach ]
               duration: 4
               sound:
@@ -190,7 +194,7 @@
             - !type:OrganPresentCondition
               organId: Liver
           steps:
-            - name: surgery-step-abdomen-remove-liver
+            - name: surgery-edge-abdomen-remove-liver-label
               tools: [ Hemostat ]
               successChance: 0.8
               duration: 4
@@ -213,7 +217,7 @@
               organId: Liver
               inverted: true
           steps:
-            - name: surgery-step-abdomen-insert-liver
+            - name: surgery-edge-abdomen-insert-liver-label
               tools: [ Liver ]
               duration: 4
               sound:
@@ -229,7 +233,7 @@
             - !type:OrganPresentCondition
               organId: Kidneys
           steps:
-            - name: surgery-step-abdomen-remove-kidneys
+            - name: surgery-edge-abdomen-remove-kidneys-label
               tools: [ Hemostat ]
               successChance: 0.8
               duration: 4
@@ -252,7 +256,7 @@
               organId: Kidneys
               inverted: true
           steps:
-            - name: surgery-step-abdomen-insert-kidneys
+            - name: surgery-edge-abdomen-insert-kidneys-label
               tools: [ Kidneys ]
               duration: 4
               sound:
@@ -268,7 +272,7 @@
             - !type:OrganPresentCondition
               organId: Appendix
           steps:
-            - name: surgery-step-abdomen-remove-appendix
+            - name: surgery-edge-abdomen-remove-appendix-label
               tools: [ Hemostat ]
               successChance: 0.8
               duration: 4
@@ -291,7 +295,7 @@
               organId: Appendix
               inverted: true
           steps:
-            - name: surgery-step-abdomen-insert-appendix
+            - name: surgery-edge-abdomen-insert-appendix-label
               tools: [ Appendix ]
               duration: 4
               sound:

@@ -12,15 +12,39 @@ namespace Content.Client.ADT.Surgery.UI;
 public sealed partial class SurgeryWindow : FancyWindow
 {
     public event Action<string>? OnGraphSelected;
+    public event Action<string>? OnEdgeSelected;
 
     public SurgeryWindow()
     {
         RobustXamlLoader.Load(this);
     }
 
+    public void Populate(SurgeryChooseEdgeState state)
+    {
+        OptionsContainer.RemoveAllChildren();
+        Title = Loc.GetString("surgery-edge-window-title");
+        SubtitleLabel.Text = Loc.GetString("surgery-edge-window-subtitle");
+
+        foreach (var (edgeId, label, _, _) in state.Options)
+        {
+            var button = new Button
+            {
+                Text = label,
+                StyleClasses = { "OpenBoth" },
+                HorizontalExpand = true,
+                MinHeight = 32,
+                Margin = new Thickness(0, 0, 0, 2),
+            };
+            button.OnPressed += _ => OnEdgeSelected?.Invoke(edgeId);
+            OptionsContainer.AddChild(button);
+        }
+    }
+
     public void Populate(SurgeryChooseGraphState state)
     {
         OptionsContainer.RemoveAllChildren();
+        Title = Loc.GetString("surgery-window-title");
+        SubtitleLabel.Text = Loc.GetString("surgery-window-subtitle");
 
         var first = true;
         foreach (var group in state.Options.GroupBy(o => o.Category))

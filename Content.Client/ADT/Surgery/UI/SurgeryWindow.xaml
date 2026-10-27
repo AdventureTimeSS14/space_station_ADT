@@ -5,7 +5,8 @@
    MinSize="420 280"
    SetSize="460 560">
     <BoxContainer Orientation="Vertical" Margin="8 6 8 8" SeparationOverride="6">
-        <Label Text="{Loc 'surgery-window-subtitle'}"
+        <Label Name="SubtitleLabel"
+               Text="{Loc 'surgery-window-subtitle'}"
                StyleClasses="LabelSubText"
                HorizontalAlignment="Center"
                Margin="0 0 0 2"/>

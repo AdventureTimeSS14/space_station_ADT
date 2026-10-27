@@ -22,6 +22,7 @@ public sealed class SurgeryConsoleBoundUserInterface : BoundUserInterface
             Title = Loc.GetString("surgery-console-window-title"),
         };
         _window.OnClose += Close;
+        _window.OnAlertsToggled += enabled => SendMessage(new SurgeryConsoleToggleAlertsMessage(enabled));
         _window.OpenCentered();
     }
 

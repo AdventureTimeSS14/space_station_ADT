@@ -56,7 +56,7 @@ public sealed partial class SurgerySystem
 
     private void OnSelectEdge(EntityUid uid, OperatedComponent comp, SurgerySelectEdgeMessage args)
     {
-        if (comp.IsOperating || comp.ActiveEdgeId != null)
+        if (comp.IsOperating)
             return;
 
         if (!TryGetGraph(comp, out var graph))
@@ -72,17 +72,21 @@ public sealed partial class SurgerySystem
             return;
         }
 
-        if (!ToolMatches(edge.Steps[0], heldItem.Value))
+        var stepIndex = comp.ActiveEdgeId == edge.Id && comp.CompletedSteps < edge.Steps.Count
+            ? comp.CompletedSteps
+            : 0;
+
+        if (!ToolMatches(edge.Steps[stepIndex], heldItem.Value))
         {
             _popup.PopupEntity(Loc.GetString("surgery-wrong-tool"), uid, args.Actor);
             return;
         }
 
         comp.ActiveEdgeId = edge.Id;
-        comp.CompletedSteps = 0;
+        comp.CompletedSteps = stepIndex;
         comp.Surgeon = args.Actor;
 
-        StartStep(uid, comp, edge, 0, heldItem.Value);
+        StartStep(uid, comp, edge, stepIndex, heldItem.Value);
     }
 
     private void TryPerformStep(EntityUid user, EntityUid target, OperatedComponent comp)
@@ -99,24 +103,6 @@ public sealed partial class SurgerySystem
             return;
         }
 
-        if (comp.ActiveEdgeId is { } activeEdgeId)
-        {
-            var activeEdge = GetEdge(graph, comp.CurrentNode, activeEdgeId);
-            if (activeEdge == null || comp.CompletedSteps >= activeEdge.Steps.Count)
-                return;
-
-            var nextStep = activeEdge.Steps[comp.CompletedSteps];
-            if (!ToolMatches(nextStep, heldItem.Value))
-            {
-                _popup.PopupEntity(Loc.GetString("surgery-wrong-tool"), target, user);
-                return;
-            }
-
-            comp.Surgeon = user;
-            StartStep(target, comp, activeEdge, comp.CompletedSteps, heldItem.Value);
-            return;
-        }
-
         var node = GetNode(graph, comp.CurrentNode);
         if (node == null)
             return;
@@ -130,15 +116,21 @@ public sealed partial class SurgerySystem
         }
 
         var matches = new List<SurgeryGraphEdge>();
+        var matchStepIndex = 0;
         foreach (var edge in allEdges)
         {
             if (edge.Steps.Count == 0 || !EdgeConditionsMet(target, edge))
                 continue;
 
-            if (!ToolMatches(edge.Steps[0], heldItem.Value))
+            var stepIndex = edge.Id == comp.ActiveEdgeId && comp.CompletedSteps < edge.Steps.Count
+                ? comp.CompletedSteps
+                : 0;
+
+            if (!ToolMatches(edge.Steps[stepIndex], heldItem.Value))
                 continue;
 
             matches.Add(edge);
+            matchStepIndex = stepIndex;
         }
 
         switch (matches.Count)
@@ -149,9 +141,9 @@ public sealed partial class SurgerySystem
 
             case 1:
                 comp.ActiveEdgeId = matches[0].Id;
-                comp.CompletedSteps = 0;
+                comp.CompletedSteps = matchStepIndex;
                 comp.Surgeon = user;
-                StartStep(target, comp, matches[0], 0, heldItem.Value);
+                StartStep(target, comp, matches[0], matchStepIndex, heldItem.Value);
                 break;
 
             default:
@@ -202,7 +194,8 @@ public sealed partial class SurgerySystem
 
         if (!anesthetized)
         {
-            _chat.TryEmoteWithChat(uid, ScreamEmote, ChatTransmitRange.Normal, ignoreActionBlocker: true);
+            if (!_mobState.IsIncapacitated(uid))
+                _chat.TryEmoteWithChat(uid, ScreamEmote, ChatTransmitRange.Normal, ignoreActionBlocker: true);
 
             if (!IsWeaklyAnesthetized(uid))
                 _damageable.TryChangeDamage(uid, NoAnestheticPainDamage, origin: comp.Surgeon);
@@ -210,7 +203,7 @@ public sealed partial class SurgerySystem
 
         if (!_random.Prob(successChance))
         {
-            _popup.PopupEntity(Loc.GetString("surgery-step-failed"), uid, comp.Surgeon ?? uid);
+            _popup.PopupEntity(Loc.GetString("surgery-step-failed"), uid, comp.Surgeon ?? uid, Shared.Popups.PopupType.MediumCaution);
 
             foreach (var effect in step.FailureEffects)
                 effect.Apply(uid, comp.Surgeon, args.Used, EntityManager);

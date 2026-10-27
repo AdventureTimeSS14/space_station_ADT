@@ -4,6 +4,7 @@ using Content.Server.Body.Systems;
 using Content.Server.Popups;
 using Content.Shared.ADT.Salvage.Components;
 using Content.Shared.ADT.Silicon;
+using Content.Shared.Body;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Damage;
@@ -36,17 +37,20 @@ public sealed class CursedHeartSystem : EntitySystem
     [Dependency] private PopupSystem _popup = default!;
     [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private MobThresholdSystem _mobThreshold = default!;
+    [Dependency] private BodySystem _body = default!;
+
+    private static readonly ProtoId<OrganCategoryPrototype> HeartCategory = "Heart";
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<CursedHeartComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<CursedHeartComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<CursedHeartComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<CursedHeartComponent, PumpHeartActionEvent>(OnPump);
         SubscribeLocalEvent<CursedHeartComponent, ToggleHeartActionEvent>(OnToggle);
 
-        SubscribeLocalEvent<CursedHeartGrantComponent, UseInHandEvent>(OnUseInHand);
+        SubscribeLocalEvent<CursedHeartOrganComponent, UseInHandEvent>(OnUseInHand);
     }
 
     public override void Update(float frameTime)
@@ -82,16 +86,52 @@ public sealed class CursedHeartSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("popup-cursed-heart-damage"), uid, uid, PopupType.MediumCaution);
     }
 
-    private void OnMapInit(EntityUid uid, CursedHeartComponent comp, MapInitEvent args)
+    private void OnStartup(EntityUid uid, CursedHeartComponent comp, ComponentStartup args)
     {
         _actions.AddAction(uid, ref comp.PumpActionEntity, "ActionPumpCursedHeart");
         _actions.AddAction(uid, ref comp.ToggleActionEntity, "ActionToggleCursedHeart");
+        comp.LastPump = _timing.CurTime;
+
+        if (!TryComp<BloodstreamComponent>(uid, out var bloodstream))
+            return;
+
+        comp.OriginalBloodReagents = new Solution(bloodstream.BloodReferenceSolution);
+        _bloodstream.TryModifyBloodLevel(uid, -999);
+        _bloodstream.ChangeBloodReagents(uid, new Solution("ADTCursedBlood", 200));
+        _bloodstream.TryModifyBloodLevel(uid, 300);
     }
 
     private void OnShutdown(EntityUid uid, CursedHeartComponent comp, ComponentShutdown args)
     {
         _actions.RemoveAction(uid, comp.PumpActionEntity);
         _actions.RemoveAction(uid, comp.ToggleActionEntity);
+
+        if (TerminatingOrDeleted(uid))
+            return;
+
+        if (TryComp<MobThresholdsComponent>(uid, out var thresholds))
+        {
+            RestoreThresholds(uid, comp, thresholds);
+            _mobThreshold.VerifyThresholds(uid, thresholds);
+        }
+
+        if (comp.OriginalBloodReagents != null)
+            _bloodstream.ChangeBloodReagents(uid, comp.OriginalBloodReagents);
+    }
+
+    private void RestoreThresholds(EntityUid uid, CursedHeartComponent comp, MobThresholdsComponent thresholds)
+    {
+        if (comp.OriginalCritThreshold.HasValue)
+        {
+            _mobThreshold.SetMobStateThreshold(uid, comp.OriginalCritThreshold.Value, MobState.Critical, thresholds);
+            comp.OriginalCritThreshold = null;
+        }
+
+        if (comp.OriginalSoftCritThreshold.HasValue)
+        {
+            _mobThreshold.SetMobStateThreshold(uid, comp.OriginalSoftCritThreshold.Value, MobState.SoftCritical, thresholds);
+            comp.OriginalSoftCritThreshold = null;
+        }
     }
 
     private void OnPump(EntityUid uid, CursedHeartComponent comp, PumpHeartActionEvent args)
@@ -124,17 +164,7 @@ public sealed class CursedHeartSystem : EntitySystem
             // === ЗАПУСК СЕРДЦА ===
             comp.IsStopped = false;
 
-            if (comp.OriginalCritThreshold.HasValue)
-            {
-                _mobThreshold.SetMobStateThreshold(uid, comp.OriginalCritThreshold.Value, MobState.Critical, thresholds);
-                comp.OriginalCritThreshold = null;
-            }
-
-            if (comp.OriginalSoftCritThreshold.HasValue)
-            {
-                _mobThreshold.SetMobStateThreshold(uid, comp.OriginalSoftCritThreshold.Value, MobState.SoftCritical, thresholds);
-                comp.OriginalSoftCritThreshold = null;
-            }
+            RestoreThresholds(uid, comp, thresholds);
 
             _popup.PopupEntity(Loc.GetString("popup-cursed-heart-start"), uid, uid, PopupType.Large);
             _audio.PlayGlobal(new SoundPathSpecifier("/Audio/ADT/Heretic/heartbeat.ogg"), uid);
@@ -167,8 +197,11 @@ public sealed class CursedHeartSystem : EntitySystem
         _mobThreshold.VerifyThresholds(uid, thresholds);
     }
 
-    private void OnUseInHand(EntityUid uid, CursedHeartGrantComponent comp, UseInHandEvent args)
+    private void OnUseInHand(EntityUid uid, CursedHeartOrganComponent comp, UseInHandEvent args)
     {
+        if (args.Handled)
+            return;
+
         if (!HasComp<BloodstreamComponent>(args.User) || !HasComp<HumanoidProfileComponent>(args.User) || HasComp<MobIpcComponent>(args.User))
         {
             _popup.PopupEntity(Loc.GetString("popup-cursed-heart-bloodstream"), args.User, args.User, PopupType.Medium);
@@ -179,14 +212,28 @@ public sealed class CursedHeartSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("popup-cursed-heart-already-cursed"), args.User, args.User, PopupType.Medium);
             return;
         }
-        _bloodstream.TryModifyBloodLevel(args.User, -999);
-        _bloodstream.ChangeBloodReagents(args.User, new Solution("ADTCursedBlood", 200));
-        _bloodstream.TryModifyBloodLevel(args.User, 300);
+        if (!TryComp<BodyComponent>(args.User, out var body) || body.Organs == null)
+            return;
+
+        args.Handled = true;
+
+        var hearts = new List<EntityUid>();
+        foreach (var organ in body.Organs.ContainedEntities)
+        {
+            if (TryComp<OrganComponent>(organ, out var organComp) && organComp.Category == HeartCategory)
+                hearts.Add(organ);
+        }
+
+        foreach (var heart in hearts)
+        {
+            _body.TryRemoveOrgan(heart);
+        }
+
+        if (!_body.TryInsertOrgan(args.User, uid))
+            return;
+
         _popup.PopupEntity(Loc.GetString("popup-cursed-heart-use"), args.User, args.User, PopupType.LargeCaution);
         _damage.TryChangeDamage(args.User, new DamageSpecifier(_proto.Index<DamageTypePrototype>("Piercing"), 20), true, false);
         _audio.PlayGlobal(new SoundPathSpecifier("/Audio/ADT/Heretic/heartbeat.ogg"), args.User);
-        var heart = EnsureComp<CursedHeartComponent>(args.User);
-        heart.LastPump = _timing.CurTime;
-        QueueDel(uid);
     }
 }

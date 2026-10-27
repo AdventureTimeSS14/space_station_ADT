@@ -17,6 +17,9 @@ public sealed partial class SurgeryGraphPrototype : IPrototype
     public string Name = string.Empty;
 
     [DataField]
+    public string Location = string.Empty;
+
+    [DataField]
     public ProtoId<SurgeryCategoryPrototype>? Category;
 
     [DataField]

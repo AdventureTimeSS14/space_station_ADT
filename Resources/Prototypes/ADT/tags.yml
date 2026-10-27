@@ -107,6 +107,9 @@
   id: ADTBola
 
 - type: Tag
+  id: Ears
+
+- type: Tag
   id: Eyes
 
 - type: Tag

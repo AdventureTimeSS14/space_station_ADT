@@ -44,3 +44,35 @@ reagent-effect-guidebook-murder-solution-burst =
         [1] Наносит
        *[other] наносят
     } разово { $amount } ед. радиационного урона, не чаще раза в { $cooldown } с
+reagent-effect-guidebook-adjust-organ-damage =
+    { $chance ->
+        [1]
+            { $positive ->
+                [true] Лечит
+               *[false] Повреждает
+            }
+       *[other]
+            { $positive ->
+                [true] лечит
+               *[false] повреждает
+            }
+    } { $organ ->
+        [Heart] сердце
+        [Lungs] лёгкие
+        [Liver] печень
+        [Kidneys] почки
+        [Stomach] желудок
+        [Eyes] глаза
+        [Ears] уши
+        [Tongue] язык
+        [Brain] мозг
+       *[other] все органы
+    } на { $positive ->
+        [true] [color=green]{ $amount }[/color]
+       *[false] [color=red]{ $amount }[/color]
+    } ед.
+reagent-effect-guidebook-suppress-heart-attack =
+    { $chance ->
+        [1] Сдерживает
+       *[other] сдерживает
+    } развитие остановки сердца

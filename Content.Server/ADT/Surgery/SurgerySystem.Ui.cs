@@ -11,9 +11,6 @@ namespace Content.Server.ADT.Surgery;
 
 public sealed partial class SurgerySystem
 {
-    private static readonly SpriteSpecifier RemoveOrganOverlayIcon =
-        new SpriteSpecifier.Texture(new ResPath("/Textures/ADT/Interface/Surgery/remove_organ.png"));
-
     private void OpenGraphChoice(EntityUid user, EntityUid target)
     {
         TryComp<OperatedComponent>(target, out var comp);
@@ -105,7 +102,7 @@ public sealed partial class SurgerySystem
                 if (organ.Comp.Category != removeOrgan.OrganId)
                     continue;
 
-                return (GetNetEntity(organ.Owner), RemoveOrganOverlayIcon);
+                return (GetNetEntity(organ.Owner), edge.Icon);
             }
 
             break;

@@ -2,6 +2,7 @@
   id: SurgeryAmputateArmLeft
   category: SurgeryCategoryAmputation
   name: surgery-graph-amputate-arm-left-name
+  location: surgery-location-arm-left
   startNodes:
     - Attached
   nodes:
@@ -15,7 +16,7 @@
             - !type:OrganPresentCondition
               organId: ArmLeft
           steps:
-            - name: surgery-step-limb-cut
+            - name: surgery-edge-limb-cut-label
               tools: [ Scalpel ]
               successChance: 0.95
               duration: 3
@@ -35,7 +36,7 @@
           label: surgery-edge-limb-clamp-bleeders-label
           target: BleedersClamped
           steps:
-            - name: surgery-step-limb-clamp-bleeders
+            - name: surgery-edge-limb-clamp-bleeders-label
               tools: [ Hemostat ]
               successChance: 0.9
               duration: 3
@@ -46,7 +47,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Attached
           steps:
-            - name: surgery-step-limb-cauterize
+            - name: surgery-edge-limb-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -57,6 +58,7 @@
                   damage:
                     types:
                       Heat: 1
+                - !type:CauterizeEffect
 
     - name: BleedersClamped
       label: surgery-node-limb-bleeders-clamped-label
@@ -65,7 +67,7 @@
           label: surgery-edge-limb-retract-skin-label
           target: SkinRetracted
           steps:
-            - name: surgery-step-limb-retract-skin
+            - name: surgery-edge-limb-retract-skin-label
               tools: [ Retractor ]
               successChance: 0.9
               duration: 3
@@ -81,7 +83,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Attached
           steps:
-            - name: surgery-step-limb-cauterize
+            - name: surgery-edge-limb-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -92,6 +94,7 @@
                   damage:
                     types:
                       Heat: 1
+                - !type:CauterizeEffect
 
     - name: SkinRetracted
       label: surgery-node-limb-skin-retracted-label
@@ -100,7 +103,7 @@
           label: surgery-edge-limb-saw-label
           target: Amputated
           steps:
-            - name: surgery-step-limb-saw
+            - name: surgery-edge-limb-saw-label
               tools: [ Saw ]
               successChance: 0.9
               duration: 5
@@ -120,7 +123,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Attached
           steps:
-            - name: surgery-step-limb-cauterize
+            - name: surgery-edge-limb-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -131,6 +134,7 @@
                   damage:
                     types:
                       Heat: 1
+                - !type:CauterizeEffect
 
     - name: Amputated
       label: surgery-node-limb-amputated-label
@@ -139,7 +143,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Cauterized
           steps:
-            - name: surgery-step-limb-cauterize
+            - name: surgery-edge-limb-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -150,6 +154,7 @@
                   damage:
                     types:
                       Heat: 1
+                - !type:CauterizeEffect
 
     - name: Cauterized
       label: surgery-node-limb-cauterized-label
@@ -159,6 +164,7 @@
   id: SurgeryAmputateArmRight
   category: SurgeryCategoryAmputation
   name: surgery-graph-amputate-arm-right-name
+  location: surgery-location-arm-right
   startNodes:
     - Attached
   nodes:
@@ -172,7 +178,7 @@
             - !type:OrganPresentCondition
               organId: ArmRight
           steps:
-            - name: surgery-step-limb-cut
+            - name: surgery-edge-limb-cut-label
               tools: [ Scalpel ]
               successChance: 0.95
               duration: 3
@@ -192,7 +198,7 @@
           label: surgery-edge-limb-clamp-bleeders-label
           target: BleedersClamped
           steps:
-            - name: surgery-step-limb-clamp-bleeders
+            - name: surgery-edge-limb-clamp-bleeders-label
               tools: [ Hemostat ]
               successChance: 0.9
               duration: 3
@@ -203,7 +209,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Attached
           steps:
-            - name: surgery-step-limb-cauterize
+            - name: surgery-edge-limb-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -214,6 +220,7 @@
                   damage:
                     types:
                       Heat: 1
+                - !type:CauterizeEffect
 
     - name: BleedersClamped
       label: surgery-node-limb-bleeders-clamped-label
@@ -222,7 +229,7 @@
           label: surgery-edge-limb-retract-skin-label
           target: SkinRetracted
           steps:
-            - name: surgery-step-limb-retract-skin
+            - name: surgery-edge-limb-retract-skin-label
               tools: [ Retractor ]
               successChance: 0.9
               duration: 3
@@ -238,7 +245,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Attached
           steps:
-            - name: surgery-step-limb-cauterize
+            - name: surgery-edge-limb-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -249,6 +256,7 @@
                   damage:
                     types:
                       Heat: 1
+                - !type:CauterizeEffect
 
     - name: SkinRetracted
       label: surgery-node-limb-skin-retracted-label
@@ -257,7 +265,7 @@
           label: surgery-edge-limb-saw-label
           target: Amputated
           steps:
-            - name: surgery-step-limb-saw
+            - name: surgery-edge-limb-saw-label
               tools: [ Saw ]
               successChance: 0.9
               duration: 5
@@ -277,7 +285,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Attached
           steps:
-            - name: surgery-step-limb-cauterize
+            - name: surgery-edge-limb-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -288,6 +296,7 @@
                   damage:
                     types:
                       Heat: 1
+                - !type:CauterizeEffect
 
     - name: Amputated
       label: surgery-node-limb-amputated-label
@@ -296,7 +305,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Cauterized
           steps:
-            - name: surgery-step-limb-cauterize
+            - name: surgery-edge-limb-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -307,6 +316,7 @@
                   damage:
                     types:
                       Heat: 1
+                - !type:CauterizeEffect
 
     - name: Cauterized
       label: surgery-node-limb-cauterized-label
@@ -316,6 +326,7 @@
   id: SurgeryAmputateHandLeft
   category: SurgeryCategoryAmputation
   name: surgery-graph-amputate-hand-left-name
+  location: surgery-location-hand-left
   startNodes:
     - Attached
   nodes:
@@ -329,7 +340,7 @@
             - !type:OrganPresentCondition
               organId: HandLeft
           steps:
-            - name: surgery-step-limb-cut
+            - name: surgery-edge-limb-cut-label
               tools: [ Scalpel ]
               successChance: 0.95
               duration: 3
@@ -349,7 +360,7 @@
           label: surgery-edge-limb-clamp-bleeders-label
           target: BleedersClamped
           steps:
-            - name: surgery-step-limb-clamp-bleeders
+            - name: surgery-edge-limb-clamp-bleeders-label
               tools: [ Hemostat ]
               successChance: 0.9
               duration: 3
@@ -360,7 +371,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Attached
           steps:
-            - name: surgery-step-limb-cauterize
+            - name: surgery-edge-limb-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -371,6 +382,7 @@
                   damage:
                     types:
                       Heat: 1
+                - !type:CauterizeEffect
 
     - name: BleedersClamped
       label: surgery-node-limb-bleeders-clamped-label
@@ -379,7 +391,7 @@
           label: surgery-edge-limb-retract-skin-label
           target: SkinRetracted
           steps:
-            - name: surgery-step-limb-retract-skin
+            - name: surgery-edge-limb-retract-skin-label
               tools: [ Retractor ]
               successChance: 0.9
               duration: 3
@@ -395,7 +407,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Attached
           steps:
-            - name: surgery-step-limb-cauterize
+            - name: surgery-edge-limb-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -406,6 +418,7 @@
                   damage:
                     types:
                       Heat: 1
+                - !type:CauterizeEffect
 
     - name: SkinRetracted
       label: surgery-node-limb-skin-retracted-label
@@ -414,7 +427,7 @@
           label: surgery-edge-limb-saw-label
           target: Amputated
           steps:
-            - name: surgery-step-limb-saw
+            - name: surgery-edge-limb-saw-label
               tools: [ Saw ]
               successChance: 0.9
               duration: 4
@@ -434,7 +447,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Attached
           steps:
-            - name: surgery-step-limb-cauterize
+            - name: surgery-edge-limb-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -445,6 +458,7 @@
                   damage:
                     types:
                       Heat: 1
+                - !type:CauterizeEffect
 
     - name: Amputated
       label: surgery-node-limb-amputated-label
@@ -453,7 +467,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Cauterized
           steps:
-            - name: surgery-step-limb-cauterize
+            - name: surgery-edge-limb-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -464,6 +478,7 @@
                   damage:
                     types:
                       Heat: 1
+                - !type:CauterizeEffect
 
     - name: Cauterized
       label: surgery-node-limb-cauterized-label
@@ -473,6 +488,7 @@
   id: SurgeryAmputateHandRight
   category: SurgeryCategoryAmputation
   name: surgery-graph-amputate-hand-right-name
+  location: surgery-location-hand-right
   startNodes:
     - Attached
   nodes:
@@ -486,7 +502,7 @@
             - !type:OrganPresentCondition
               organId: HandRight
           steps:
-            - name: surgery-step-limb-cut
+            - name: surgery-edge-limb-cut-label
               tools: [ Scalpel ]
               successChance: 0.95
               duration: 3
@@ -506,7 +522,7 @@
           label: surgery-edge-limb-clamp-bleeders-label
           target: BleedersClamped
           steps:
-            - name: surgery-step-limb-clamp-bleeders
+            - name: surgery-edge-limb-clamp-bleeders-label
               tools: [ Hemostat ]
               successChance: 0.9
               duration: 3
@@ -517,7 +533,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Attached
           steps:
-            - name: surgery-step-limb-cauterize
+            - name: surgery-edge-limb-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -528,6 +544,7 @@
                   damage:
                     types:
                       Heat: 1
+                - !type:CauterizeEffect
 
     - name: BleedersClamped
       label: surgery-node-limb-bleeders-clamped-label
@@ -536,7 +553,7 @@
           label: surgery-edge-limb-retract-skin-label
           target: SkinRetracted
           steps:
-            - name: surgery-step-limb-retract-skin
+            - name: surgery-edge-limb-retract-skin-label
               tools: [ Retractor ]
               successChance: 0.9
               duration: 3
@@ -552,7 +569,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Attached
           steps:
-            - name: surgery-step-limb-cauterize
+            - name: surgery-edge-limb-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -563,6 +580,7 @@
                   damage:
                     types:
                       Heat: 1
+                - !type:CauterizeEffect
 
     - name: SkinRetracted
       label: surgery-node-limb-skin-retracted-label
@@ -571,7 +589,7 @@
           label: surgery-edge-limb-saw-label
           target: Amputated
           steps:
-            - name: surgery-step-limb-saw
+            - name: surgery-edge-limb-saw-label
               tools: [ Saw ]
               successChance: 0.9
               duration: 4
@@ -591,7 +609,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Attached
           steps:
-            - name: surgery-step-limb-cauterize
+            - name: surgery-edge-limb-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -602,6 +620,7 @@
                   damage:
                     types:
                       Heat: 1
+                - !type:CauterizeEffect
 
     - name: Amputated
       label: surgery-node-limb-amputated-label
@@ -610,7 +629,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Cauterized
           steps:
-            - name: surgery-step-limb-cauterize
+            - name: surgery-edge-limb-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -621,6 +640,7 @@
                   damage:
                     types:
                       Heat: 1
+                - !type:CauterizeEffect
 
     - name: Cauterized
       label: surgery-node-limb-cauterized-label
@@ -630,6 +650,7 @@
   id: SurgeryAmputateLegLeft
   category: SurgeryCategoryAmputation
   name: surgery-graph-amputate-leg-left-name
+  location: surgery-location-leg-left
   startNodes:
     - Attached
   nodes:
@@ -643,7 +664,7 @@
             - !type:OrganPresentCondition
               organId: LegLeft
           steps:
-            - name: surgery-step-limb-cut
+            - name: surgery-edge-limb-cut-label
               tools: [ Scalpel ]
               successChance: 0.95
               duration: 3
@@ -663,7 +684,7 @@
           label: surgery-edge-limb-clamp-bleeders-label
           target: BleedersClamped
           steps:
-            - name: surgery-step-limb-clamp-bleeders
+            - name: surgery-edge-limb-clamp-bleeders-label
               tools: [ Hemostat ]
               successChance: 0.9
               duration: 3
@@ -674,7 +695,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Attached
           steps:
-            - name: surgery-step-limb-cauterize
+            - name: surgery-edge-limb-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -685,6 +706,7 @@
                   damage:
                     types:
                       Heat: 1
+                - !type:CauterizeEffect
 
     - name: BleedersClamped
       label: surgery-node-limb-bleeders-clamped-label
@@ -693,7 +715,7 @@
           label: surgery-edge-limb-retract-skin-label
           target: SkinRetracted
           steps:
-            - name: surgery-step-limb-retract-skin
+            - name: surgery-edge-limb-retract-skin-label
               tools: [ Retractor ]
               successChance: 0.9
               duration: 3
@@ -709,7 +731,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Attached
           steps:
-            - name: surgery-step-limb-cauterize
+            - name: surgery-edge-limb-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -720,6 +742,7 @@
                   damage:
                     types:
                       Heat: 1
+                - !type:CauterizeEffect
 
     - name: SkinRetracted
       label: surgery-node-limb-skin-retracted-label
@@ -728,7 +751,7 @@
           label: surgery-edge-limb-saw-label
           target: Amputated
           steps:
-            - name: surgery-step-limb-saw
+            - name: surgery-edge-limb-saw-label
               tools: [ Saw ]
               successChance: 0.9
               duration: 5
@@ -748,7 +771,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Attached
           steps:
-            - name: surgery-step-limb-cauterize
+            - name: surgery-edge-limb-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -759,6 +782,7 @@
                   damage:
                     types:
                       Heat: 1
+                - !type:CauterizeEffect
 
     - name: Amputated
       label: surgery-node-limb-amputated-label
@@ -767,7 +791,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Cauterized
           steps:
-            - name: surgery-step-limb-cauterize
+            - name: surgery-edge-limb-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -778,6 +802,7 @@
                   damage:
                     types:
                       Heat: 1
+                - !type:CauterizeEffect
 
     - name: Cauterized
       label: surgery-node-limb-cauterized-label
@@ -787,6 +812,7 @@
   id: SurgeryAmputateLegRight
   category: SurgeryCategoryAmputation
   name: surgery-graph-amputate-leg-right-name
+  location: surgery-location-leg-right
   startNodes:
     - Attached
   nodes:
@@ -800,7 +826,7 @@
             - !type:OrganPresentCondition
               organId: LegRight
           steps:
-            - name: surgery-step-limb-cut
+            - name: surgery-edge-limb-cut-label
               tools: [ Scalpel ]
               successChance: 0.95
               duration: 3
@@ -820,7 +846,7 @@
           label: surgery-edge-limb-clamp-bleeders-label
           target: BleedersClamped
           steps:
-            - name: surgery-step-limb-clamp-bleeders
+            - name: surgery-edge-limb-clamp-bleeders-label
               tools: [ Hemostat ]
               successChance: 0.9
               duration: 3
@@ -831,7 +857,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Attached
           steps:
-            - name: surgery-step-limb-cauterize
+            - name: surgery-edge-limb-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -842,6 +868,7 @@
                   damage:
                     types:
                       Heat: 1
+                - !type:CauterizeEffect
 
     - name: BleedersClamped
       label: surgery-node-limb-bleeders-clamped-label
@@ -850,7 +877,7 @@
           label: surgery-edge-limb-retract-skin-label
           target: SkinRetracted
           steps:
-            - name: surgery-step-limb-retract-skin
+            - name: surgery-edge-limb-retract-skin-label
               tools: [ Retractor ]
               successChance: 0.9
               duration: 3
@@ -866,7 +893,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Attached
           steps:
-            - name: surgery-step-limb-cauterize
+            - name: surgery-edge-limb-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -877,6 +904,7 @@
                   damage:
                     types:
                       Heat: 1
+                - !type:CauterizeEffect
 
     - name: SkinRetracted
       label: surgery-node-limb-skin-retracted-label
@@ -885,7 +913,7 @@
           label: surgery-edge-limb-saw-label
           target: Amputated
           steps:
-            - name: surgery-step-limb-saw
+            - name: surgery-edge-limb-saw-label
               tools: [ Saw ]
               successChance: 0.9
               duration: 5
@@ -905,7 +933,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Attached
           steps:
-            - name: surgery-step-limb-cauterize
+            - name: surgery-edge-limb-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -916,6 +944,7 @@
                   damage:
                     types:
                       Heat: 1
+                - !type:CauterizeEffect
 
     - name: Amputated
       label: surgery-node-limb-amputated-label
@@ -924,7 +953,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Cauterized
           steps:
-            - name: surgery-step-limb-cauterize
+            - name: surgery-edge-limb-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -935,6 +964,7 @@
                   damage:
                     types:
                       Heat: 1
+                - !type:CauterizeEffect
 
     - name: Cauterized
       label: surgery-node-limb-cauterized-label
@@ -944,6 +974,7 @@
   id: SurgeryAmputateFootLeft
   category: SurgeryCategoryAmputation
   name: surgery-graph-amputate-foot-left-name
+  location: surgery-location-foot-left
   startNodes:
     - Attached
   nodes:
@@ -957,7 +988,7 @@
             - !type:OrganPresentCondition
               organId: FootLeft
           steps:
-            - name: surgery-step-limb-cut
+            - name: surgery-edge-limb-cut-label
               tools: [ Scalpel ]
               successChance: 0.95
               duration: 3
@@ -977,7 +1008,7 @@
           label: surgery-edge-limb-clamp-bleeders-label
           target: BleedersClamped
           steps:
-            - name: surgery-step-limb-clamp-bleeders
+            - name: surgery-edge-limb-clamp-bleeders-label
               tools: [ Hemostat ]
               successChance: 0.9
               duration: 3
@@ -988,7 +1019,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Attached
           steps:
-            - name: surgery-step-limb-cauterize
+            - name: surgery-edge-limb-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -999,6 +1030,7 @@
                   damage:
                     types:
                       Heat: 1
+                - !type:CauterizeEffect
 
     - name: BleedersClamped
       label: surgery-node-limb-bleeders-clamped-label
@@ -1007,7 +1039,7 @@
           label: surgery-edge-limb-retract-skin-label
           target: SkinRetracted
           steps:
-            - name: surgery-step-limb-retract-skin
+            - name: surgery-edge-limb-retract-skin-label
               tools: [ Retractor ]
               successChance: 0.9
               duration: 3
@@ -1023,7 +1055,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Attached
           steps:
-            - name: surgery-step-limb-cauterize
+            - name: surgery-edge-limb-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -1034,6 +1066,7 @@
                   damage:
                     types:
                       Heat: 1
+                - !type:CauterizeEffect
 
     - name: SkinRetracted
       label: surgery-node-limb-skin-retracted-label
@@ -1042,7 +1075,7 @@
           label: surgery-edge-limb-saw-label
           target: Amputated
           steps:
-            - name: surgery-step-limb-saw
+            - name: surgery-edge-limb-saw-label
               tools: [ Saw ]
               successChance: 0.9
               duration: 4
@@ -1062,7 +1095,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Attached
           steps:
-            - name: surgery-step-limb-cauterize
+            - name: surgery-edge-limb-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -1073,6 +1106,7 @@
                   damage:
                     types:
                       Heat: 1
+                - !type:CauterizeEffect
 
     - name: Amputated
       label: surgery-node-limb-amputated-label
@@ -1081,7 +1115,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Cauterized
           steps:
-            - name: surgery-step-limb-cauterize
+            - name: surgery-edge-limb-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -1092,6 +1126,7 @@
                   damage:
                     types:
                       Heat: 1
+                - !type:CauterizeEffect
 
     - name: Cauterized
       label: surgery-node-limb-cauterized-label
@@ -1101,6 +1136,7 @@
   id: SurgeryAmputateFootRight
   category: SurgeryCategoryAmputation
   name: surgery-graph-amputate-foot-right-name
+  location: surgery-location-foot-right
   startNodes:
     - Attached
   nodes:
@@ -1114,7 +1150,7 @@
             - !type:OrganPresentCondition
               organId: FootRight
           steps:
-            - name: surgery-step-limb-cut
+            - name: surgery-edge-limb-cut-label
               tools: [ Scalpel ]
               successChance: 0.95
               duration: 3
@@ -1134,7 +1170,7 @@
           label: surgery-edge-limb-clamp-bleeders-label
           target: BleedersClamped
           steps:
-            - name: surgery-step-limb-clamp-bleeders
+            - name: surgery-edge-limb-clamp-bleeders-label
               tools: [ Hemostat ]
               successChance: 0.9
               duration: 3
@@ -1145,7 +1181,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Attached
           steps:
-            - name: surgery-step-limb-cauterize
+            - name: surgery-edge-limb-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -1156,6 +1192,7 @@
                   damage:
                     types:
                       Heat: 1
+                - !type:CauterizeEffect
 
     - name: BleedersClamped
       label: surgery-node-limb-bleeders-clamped-label
@@ -1164,7 +1201,7 @@
           label: surgery-edge-limb-retract-skin-label
           target: SkinRetracted
           steps:
-            - name: surgery-step-limb-retract-skin
+            - name: surgery-edge-limb-retract-skin-label
               tools: [ Retractor ]
               successChance: 0.9
               duration: 3
@@ -1180,7 +1217,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Attached
           steps:
-            - name: surgery-step-limb-cauterize
+            - name: surgery-edge-limb-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -1191,6 +1228,7 @@
                   damage:
                     types:
                       Heat: 1
+                - !type:CauterizeEffect
 
     - name: SkinRetracted
       label: surgery-node-limb-skin-retracted-label
@@ -1199,7 +1237,7 @@
           label: surgery-edge-limb-saw-label
           target: Amputated
           steps:
-            - name: surgery-step-limb-saw
+            - name: surgery-edge-limb-saw-label
               tools: [ Saw ]
               successChance: 0.9
               duration: 4
@@ -1219,7 +1257,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Attached
           steps:
-            - name: surgery-step-limb-cauterize
+            - name: surgery-edge-limb-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -1230,6 +1268,7 @@
                   damage:
                     types:
                       Heat: 1
+                - !type:CauterizeEffect
 
     - name: Amputated
       label: surgery-node-limb-amputated-label
@@ -1238,7 +1277,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Cauterized
           steps:
-            - name: surgery-step-limb-cauterize
+            - name: surgery-edge-limb-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -1249,6 +1288,7 @@
                   damage:
                     types:
                       Heat: 1
+                - !type:CauterizeEffect
 
     - name: Cauterized
       label: surgery-node-limb-cauterized-label

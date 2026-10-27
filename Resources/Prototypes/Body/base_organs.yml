@@ -363,6 +363,7 @@
   - type: GibbableOrgan
   - type: Organ
     category: Eyes
+  - type: OrganHealth # ADT-Tweak
   - type: Sprite
     layers:
     - state: eyeball-l
@@ -392,6 +393,11 @@
   - type: GibbableOrgan
   - type: Organ
     category: Tongue
+  - type: OrganHealth # ADT-Tweak
+  - type: Tag # ADT-Tweak
+    tags:
+    - Tongue
+    - Trash
   - type: Sprite
     layers:
     - state: tongue
@@ -425,6 +431,11 @@
   - type: GibbableOrgan
   - type: Organ
     category: Ears
+  - type: OrganHealth # ADT-Tweak
+  - type: Tag # ADT-Tweak
+    tags:
+    - Ears
+    - Trash
   - type: Sprite
     layers:
     - state: ears
@@ -440,6 +451,7 @@
   - type: GibbableOrgan
   - type: Organ
     category: Lungs
+  - type: OrganHealth # ADT-Tweak
   - type: Lung
   - type: Metabolizer
     stages: [ Respiration ]
@@ -479,6 +491,7 @@
   - type: GibbableOrgan
   - type: Organ
     category: Heart
+  - type: OrganHealth # ADT-Tweak
   - type: Sprite
 #    sprite: Mobs/Species/Human/organs.rsi ADT-Tweak
     layers:
@@ -502,6 +515,7 @@
   - type: GibbableOrgan
   - type: Organ
     category: Stomach
+  - type: OrganHealth # ADT-Tweak
   - type: Stomach
   - type: SolutionManager
     solutions:
@@ -540,6 +554,7 @@
   - type: GibbableOrgan
   - type: Organ
     category: Liver
+  - type: OrganHealth # ADT-Tweak
   - type: Sprite
     layers:
     - state: liver
@@ -564,10 +579,15 @@
   - type: GibbableOrgan
   - type: Organ
     category: Kidneys
+  - type: OrganHealth # ADT-Tweak
   - type: Sprite
     layers:
       - state: kidney-l
       - state: kidney-r
+  - type: Tag # ADT-Tweak
+    tags:
+    - Kidneys
+    - Trash
   - type: Item
     heldPrefix: kidneys
   - type: Metabolizer

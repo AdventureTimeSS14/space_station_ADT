@@ -1,4 +1,3 @@
-using Content.Client.UserInterface.Controls;
 using Content.Shared.ADT.Surgery.Events;
 using JetBrains.Annotations;
 
@@ -9,9 +8,6 @@ public sealed class SurgeryBoundUserInterface : BoundUserInterface
 {
     [ViewVariables]
     private SurgeryWindow? _window;
-
-    [ViewVariables]
-    private SimpleRadialMenu? _radial;
 
     public SurgeryBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
@@ -24,31 +20,27 @@ public sealed class SurgeryBoundUserInterface : BoundUserInterface
         switch (state)
         {
             case SurgeryChooseGraphState graphState:
-                OpenGraphList(graphState);
+                EnsureWindow().Populate(graphState);
+                _window!.OpenCentered();
                 break;
 
             case SurgeryChooseEdgeState edgeState:
-                OpenEdgeRadial(edgeState);
+                EnsureWindow().Populate(edgeState);
+                _window!.OpenCentered();
                 break;
         }
     }
 
-    private void OpenGraphList(SurgeryChooseGraphState state)
+    private SurgeryWindow EnsureWindow()
     {
-        CloseRadial();
+        if (_window != null)
+            return _window;
 
-        if (_window == null)
-        {
-            _window = new SurgeryWindow
-            {
-                Title = Loc.GetString("surgery-window-title"),
-            };
-            _window.OnClose += Close;
-            _window.OnGraphSelected += OnGraphSelected;
-        }
-
-        _window.Populate(state);
-        _window.OpenCentered();
+        _window = new SurgeryWindow();
+        _window.OnClose += Close;
+        _window.OnGraphSelected += OnGraphSelected;
+        _window.OnEdgeSelected += OnEdgeSelected;
+        return _window;
     }
 
     private void OnGraphSelected(string graphId)
@@ -57,39 +49,10 @@ public sealed class SurgeryBoundUserInterface : BoundUserInterface
         _window?.Close();
     }
 
-    private void OpenEdgeRadial(SurgeryChooseEdgeState state)
-    {
-        _window?.Close();
-        CloseRadial();
-
-        var options = new List<RadialMenuOptionBase>();
-        foreach (var (edgeId, label, iconEntity, icon) in state.Options)
-        {
-            var entity = iconEntity != null ? EntMan.GetEntity(iconEntity.Value) : (EntityUid?)null;
-
-            options.Add(new RadialMenuActionOption<string>(OnEdgeSelected, edgeId)
-            {
-                ToolTip = label,
-                IconSpecifier = entity != null ? RadialMenuIconSpecifier.With(entity) : RadialMenuIconSpecifier.With(icon),
-                OverlayIcon = entity != null ? icon : null,
-            });
-        }
-
-        _radial = new SimpleRadialMenu();
-        _radial.SetButtons(options);
-        _radial.Track(Owner);
-        _radial.OpenOverMouseScreenPosition();
-    }
-
     private void OnEdgeSelected(string edgeId)
     {
         SendMessage(new SurgerySelectEdgeMessage(edgeId));
-    }
-
-    private void CloseRadial()
-    {
-        _radial?.Dispose();
-        _radial = null;
+        _window?.Close();
     }
 
     protected override void Dispose(bool disposing)
@@ -102,9 +65,8 @@ public sealed class SurgeryBoundUserInterface : BoundUserInterface
         {
             _window.OnClose -= Close;
             _window.OnGraphSelected -= OnGraphSelected;
+            _window.OnEdgeSelected -= OnEdgeSelected;
             _window.Dispose();
         }
-
-        CloseRadial();
     }
 }

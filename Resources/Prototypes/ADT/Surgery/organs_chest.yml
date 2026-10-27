@@ -2,6 +2,7 @@
   id: SurgeryChestOrgans
   category: SurgeryCategoryOrganManipulation
   name: surgery-graph-chest-organs-name
+  location: surgery-location-chest
   startNodes:
     - ChestClosed
   nodes:
@@ -12,7 +13,7 @@
           label: surgery-edge-chest-cut-label
           target: ChestIncised
           steps:
-            - name: surgery-step-chest-cut
+            - name: surgery-edge-chest-cut-label
               tools: [ Scalpel ]
               successChance: 0.95
               duration: 3
@@ -32,7 +33,7 @@
           label: surgery-edge-chest-clamp-bleeders-label
           target: ChestBleedersClamped
           steps:
-            - name: surgery-step-chest-clamp-bleeders
+            - name: surgery-edge-chest-clamp-bleeders-label
               tools: [ Hemostat ]
               successChance: 0.9
               duration: 3
@@ -43,7 +44,7 @@
           label: surgery-edge-chest-cauterize-label
           target: ChestClosed
           steps:
-            - name: surgery-step-chest-cauterize
+            - name: surgery-edge-chest-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -54,6 +55,7 @@
                   damage:
                     types:
                       Heat: 1
+                - !type:CauterizeEffect
 
     - name: ChestBleedersClamped
       label: surgery-node-chest-bleeders-clamped-label
@@ -62,7 +64,7 @@
           label: surgery-edge-chest-retract-skin-label
           target: ChestSkinRetracted
           steps:
-            - name: surgery-step-chest-retract-skin
+            - name: surgery-edge-chest-retract-skin-label
               tools: [ Retractor ]
               successChance: 0.9
               duration: 3
@@ -78,7 +80,7 @@
           label: surgery-edge-chest-cauterize-label
           target: ChestClosed
           steps:
-            - name: surgery-step-chest-cauterize
+            - name: surgery-edge-chest-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -89,6 +91,7 @@
                   damage:
                     types:
                       Heat: 1
+                - !type:CauterizeEffect
 
     - name: ChestSkinRetracted
       label: surgery-node-chest-skin-retracted-label
@@ -97,7 +100,7 @@
           label: surgery-edge-chest-saw-ribcage-label
           target: ChestBoneSawed
           steps:
-            - name: surgery-step-chest-saw-ribcage
+            - name: surgery-edge-chest-saw-ribcage-label
               tools: [ Saw ]
               successChance: 0.9
               duration: 5
@@ -114,7 +117,7 @@
           label: surgery-edge-chest-cauterize-label
           target: ChestClosed
           steps:
-            - name: surgery-step-chest-cauterize
+            - name: surgery-edge-chest-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -125,6 +128,7 @@
                   damage:
                     types:
                       Heat: 1
+                - !type:CauterizeEffect
 
     - name: ChestBoneSawed
       label: surgery-node-chest-bone-sawed-label
@@ -133,7 +137,7 @@
           target: ChestOpen
           label: surgery-edge-chest-retract-ribcage-label
           steps:
-            - name: surgery-step-chest-retract-ribcage
+            - name: surgery-edge-chest-retract-ribcage-label
               tools: [ Retractor ]
               successChance: 0.9
               duration: 3
@@ -149,7 +153,7 @@
           target: ChestBoneGelled
           label: surgery-edge-chest-apply-bone-gel-first-label
           steps:
-            - name: surgery-step-chest-apply-bone-gel-first
+            - name: surgery-edge-chest-apply-bone-gel-first-label
               tools: [ BoneGel ]
               duration: 2
 
@@ -160,7 +164,7 @@
           target: ChestBoneSawed
           label: surgery-edge-chest-unretract-ribcage-label
           steps:
-            - name: surgery-step-chest-unretract-ribcage
+            - name: surgery-edge-chest-unretract-ribcage-label
               tools: [ Retractor ]
               successChance: 0.9
               duration: 3
@@ -179,7 +183,7 @@
             - !type:OrganPresentCondition
               organId: Heart
           steps:
-            - name: surgery-step-chest-remove-heart
+            - name: surgery-edge-chest-remove-heart-label
               tools: [ Hemostat ]
               successChance: 0.8
               duration: 4
@@ -202,7 +206,7 @@
               organId: Heart
               inverted: true
           steps:
-            - name: surgery-step-chest-insert-heart
+            - name: surgery-edge-chest-insert-heart-label
               tools: [ Heart ]
               duration: 4
               sound:
@@ -218,7 +222,7 @@
             - !type:OrganPresentCondition
               organId: Lungs
           steps:
-            - name: surgery-step-chest-remove-lungs
+            - name: surgery-edge-chest-remove-lungs-label
               tools: [ Hemostat ]
               successChance: 0.8
               duration: 4
@@ -241,7 +245,7 @@
               organId: Lungs
               inverted: true
           steps:
-            - name: surgery-step-chest-insert-lungs
+            - name: surgery-edge-chest-insert-lungs-label
               tools: [ Lungs ]
               duration: 4
               sound:
@@ -257,7 +261,7 @@
           label: surgery-edge-chest-set-bone-label
           target: ChestBoneSet
           steps:
-            - name: surgery-step-chest-set-bone
+            - name: surgery-edge-chest-set-bone-label
               tools: [ BoneSetter ]
               successChance: 0.9
               duration: 3
@@ -269,7 +273,7 @@
           label: surgery-edge-chest-apply-bone-gel-second-label
           target: ChestBoneGelledTwice
           steps:
-            - name: surgery-step-chest-apply-bone-gel-second
+            - name: surgery-edge-chest-apply-bone-gel-second-label
               tools: [ BoneGel ]
               duration: 2
 
@@ -280,7 +284,7 @@
           label: surgery-edge-chest-cauterize-label
           target: ChestClosed
           steps:
-            - name: surgery-step-chest-cauterize
+            - name: surgery-edge-chest-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -291,6 +295,7 @@
                   damage:
                     types:
                       Heat: 1
+                - !type:CauterizeEffect
 
 - type: entity
   parent: MobHuman

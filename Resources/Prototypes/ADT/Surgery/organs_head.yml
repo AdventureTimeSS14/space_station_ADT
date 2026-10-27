@@ -2,6 +2,7 @@
   id: SurgeryHeadOrgans
   category: SurgeryCategoryOrganManipulation
   name: surgery-graph-head-organs-name
+  location: surgery-location-head
   startNodes:
     - ScalpClosed
   nodes:
@@ -12,7 +13,7 @@
           label: surgery-edge-head-cut-label
           target: ScalpIncised
           steps:
-            - name: surgery-step-head-cut
+            - name: surgery-edge-head-cut-label
               tools: [ Scalpel ]
               successChance: 0.95
               duration: 3
@@ -29,7 +30,7 @@
           target: EyelidRetracted
           label: surgery-edge-head-retract-eyelid-label
           steps:
-            - name: surgery-step-head-retract-eyelid
+            - name: surgery-edge-head-retract-eyelid-label
               tools: [ Retractor ]
               successChance: 0.9
               duration: 2
@@ -41,6 +42,154 @@
                     types:
                       Bloodloss: 1
 
+        - id: RetractEars
+          target: EarsRetracted
+          label: surgery-edge-head-retract-ears-label
+          steps:
+            - name: surgery-edge-head-retract-ears-label
+              tools: [ Retractor ]
+              successChance: 0.9
+              duration: 2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+        - id: OpenMouth
+          target: MouthOpen
+          label: surgery-edge-head-open-mouth-label
+          steps:
+            - name: surgery-edge-head-open-mouth-label
+              tools: [ Retractor ]
+              successChance: 0.9
+              duration: 2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: EarsRetracted
+      label: surgery-node-head-ears-retracted-label
+      edges:
+        - id: ReleaseEars
+          target: ScalpClosed
+          label: surgery-edge-head-release-ears-label
+          steps:
+            - name: surgery-edge-head-release-ears-label
+              tools: [ Retractor ]
+              successChance: 0.9
+              duration: 2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor2.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+        - id: RemoveEars
+          target: EarsRetracted
+          label: surgery-edge-head-remove-ears-label
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Ears
+          steps:
+            - name: surgery-edge-head-remove-ears-label
+              tools: [ Hemostat ]
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ2.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+          effects:
+            - !type:RemoveOrganEffect
+              organId: Ears
+
+        - id: InsertEars
+          target: EarsRetracted
+          label: surgery-edge-head-insert-ears-label
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Ears
+              inverted: true
+          steps:
+            - name: surgery-edge-head-insert-ears-label
+              tools: [ Ears ]
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ2.ogg
+          effects:
+            - !type:InsertOrganEffect
+              organId: Ears
+
+    - name: MouthOpen
+      label: surgery-node-head-mouth-open-label
+      edges:
+        - id: CloseMouth
+          target: ScalpClosed
+          label: surgery-edge-head-close-mouth-label
+          steps:
+            - name: surgery-edge-head-close-mouth-label
+              tools: [ Retractor ]
+              successChance: 0.9
+              duration: 2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor2.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+        - id: RemoveTongue
+          target: MouthOpen
+          label: surgery-edge-head-remove-tongue-label
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Tongue
+          steps:
+            - name: surgery-edge-head-remove-tongue-label
+              tools: [ Hemostat ]
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 2
+          effects:
+            - !type:RemoveOrganEffect
+              organId: Tongue
+
+        - id: InsertTongue
+          target: MouthOpen
+          label: surgery-edge-head-insert-tongue-label
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Tongue
+              inverted: true
+          steps:
+            - name: surgery-edge-head-insert-tongue-label
+              tools: [ Tongue ]
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+          effects:
+            - !type:InsertOrganEffect
+              organId: Tongue
+
     - name: EyelidRetracted
       label: surgery-node-head-eyelid-retracted-label
       edges:
@@ -48,7 +197,7 @@
           target: ScalpClosed
           label: surgery-edge-head-release-eyelid-label
           steps:
-            - name: surgery-step-head-release-eyelid
+            - name: surgery-edge-head-release-eyelid-label
               tools: [ Retractor ]
               successChance: 0.9
               duration: 2
@@ -67,7 +216,7 @@
             - !type:OrganPresentCondition
               organId: Eyes
           steps:
-            - name: surgery-step-head-remove-eyes
+            - name: surgery-edge-head-remove-eyes-label
               tools: [ Hemostat ]
               successChance: 0.8
               duration: 3
@@ -90,7 +239,7 @@
               organId: Eyes
               inverted: true
           steps:
-            - name: surgery-step-head-insert-eyes
+            - name: surgery-edge-head-insert-eyes-label
               tools: [ Eyes ]
               duration: 3
               sound:
@@ -106,7 +255,7 @@
           label: surgery-edge-head-clamp-bleeders-label
           target: ScalpBleedersClamped
           steps:
-            - name: surgery-step-head-clamp-bleeders
+            - name: surgery-edge-head-clamp-bleeders-label
               tools: [ Hemostat ]
               successChance: 0.9
               duration: 3
@@ -117,7 +266,7 @@
           label: surgery-edge-head-cauterize-label
           target: ScalpClosed
           steps:
-            - name: surgery-step-head-cauterize
+            - name: surgery-edge-head-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -128,6 +277,7 @@
                   damage:
                     types:
                       Heat: 5
+                - !type:CauterizeEffect
 
     - name: ScalpBleedersClamped
       label: surgery-node-head-scalp-bleeders-clamped-label
@@ -136,7 +286,7 @@
           label: surgery-edge-head-retract-scalp-label
           target: ScalpRetracted
           steps:
-            - name: surgery-step-head-retract-scalp
+            - name: surgery-edge-head-retract-scalp-label
               tools: [ Retractor ]
               successChance: 0.9
               duration: 3
@@ -152,7 +302,7 @@
           label: surgery-edge-head-cauterize-label
           target: ScalpClosed
           steps:
-            - name: surgery-step-head-cauterize
+            - name: surgery-edge-head-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -163,6 +313,7 @@
                   damage:
                     types:
                       Heat: 5
+                - !type:CauterizeEffect
 
     - name: ScalpRetracted
       label: surgery-node-head-scalp-retracted-label
@@ -171,7 +322,7 @@
           label: surgery-edge-head-saw-skull-label
           target: SkullSawed
           steps:
-            - name: surgery-step-head-saw-skull
+            - name: surgery-edge-head-saw-skull-label
               tools: [ Saw ]
               successChance: 0.9
               duration: 5
@@ -188,7 +339,7 @@
           label: surgery-edge-head-cauterize-label
           target: ScalpClosed
           steps:
-            - name: surgery-step-head-cauterize
+            - name: surgery-edge-head-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -199,6 +350,7 @@
                   damage:
                     types:
                       Heat: 5
+                - !type:CauterizeEffect
 
     - name: SkullSawed
       label: surgery-node-head-skull-sawed-label
@@ -207,7 +359,7 @@
           target: SkullOpen
           label: surgery-edge-head-retract-skull-label
           steps:
-            - name: surgery-step-head-retract-skull
+            - name: surgery-edge-head-retract-skull-label
               tools: [ Retractor ]
               successChance: 0.9
               duration: 3
@@ -223,7 +375,7 @@
           target: SkullBoneGelled
           label: surgery-edge-head-apply-bone-gel-first-label
           steps:
-            - name: surgery-step-head-apply-bone-gel-first
+            - name: surgery-edge-head-apply-bone-gel-first-label
               tools: [ BoneGel ]
               duration: 2
 
@@ -234,7 +386,7 @@
           target: SkullSawed
           label: surgery-edge-head-unretract-skull-label
           steps:
-            - name: surgery-step-head-unretract-skull
+            - name: surgery-edge-head-unretract-skull-label
               tools: [ Retractor ]
               successChance: 0.9
               duration: 3
@@ -253,7 +405,7 @@
             - !type:OrganPresentCondition
               organId: Brain
           steps:
-            - name: surgery-step-head-remove-brain
+            - name: surgery-edge-head-remove-brain-label
               tools: [ Hemostat ]
               successChance: 0.8
               duration: 4
@@ -276,7 +428,7 @@
               organId: Brain
               inverted: true
           steps:
-            - name: surgery-step-head-insert-brain
+            - name: surgery-edge-head-insert-brain-label
               tools: [ Brain ]
               duration: 4
               sound:
@@ -292,7 +444,7 @@
           label: surgery-edge-head-set-bone-label
           target: SkullBoneSet
           steps:
-            - name: surgery-step-head-set-bone
+            - name: surgery-edge-head-set-bone-label
               tools: [ BoneSetter ]
               successChance: 0.9
               duration: 3
@@ -304,7 +456,7 @@
           label: surgery-edge-head-apply-bone-gel-second-label
           target: SkullBoneGelledTwice
           steps:
-            - name: surgery-step-head-apply-bone-gel-second
+            - name: surgery-edge-head-apply-bone-gel-second-label
               tools: [ BoneGel ]
               duration: 2
 
@@ -315,7 +467,7 @@
           label: surgery-edge-head-cauterize-label
           target: ScalpClosed
           steps:
-            - name: surgery-step-head-cauterize
+            - name: surgery-edge-head-cauterize-label
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -326,3 +478,4 @@
                   damage:
                     types:
                       Heat: 5
+                - !type:CauterizeEffect
