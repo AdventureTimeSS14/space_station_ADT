@@ -113,6 +113,10 @@ public sealed partial class ParticleSystem : EntitySystem
     /// <summary>Maximum calculated MaxCount when a prototype does not provide one explicitly.</summary>
     private const int AutomaticMaxCount = 128;
 
+    private const float MaxSimulationStep = 0.1f;
+
+    private const float MaxSimulationDebt = 0.25f;
+
     #region =^..^= Particle System API =^..^=
     public override void Initialize()
     {
@@ -122,7 +126,11 @@ public sealed partial class ParticleSystem : EntitySystem
         _overlayManager.AddOverlay(_overlay);
 
         _cfg.OnValueChanged(CCVars.ParticleQuality, OnQualityChanged, invokeImmediately: true);
-        _cfg.OnValueChanged(CCVars.ParticleGlobalBudget, _onGlobalBudgetChanged = v => _globalBudget = v, invokeImmediately: true);
+        _cfg.OnValueChanged(CCVars.ParticleGlobalBudget, _onGlobalBudgetChanged = v =>
+        {
+            if (_quality == QualityBudgets.Length - 1)
+                _globalBudget = v;
+        });
         _cfg.OnValueChanged(CCVars.ParticleAutoLodEmitters, _onAutoLodChanged = v => _lodThreshold = v, invokeImmediately: true);
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
     }
@@ -485,8 +493,8 @@ public sealed partial class ParticleSystem : EntitySystem
             return;
 
         // Preserve all elapsed time so reduced-frequency simulation changes smoothness, not speed.
-        var simulationTime = Math.Min(emitter.SimulationAccumulator, 0.1f);
-        emitter.SimulationAccumulator = 0f;
+        var simulationTime = Math.Min(emitter.SimulationAccumulator, MaxSimulationStep);
+        emitter.SimulationAccumulator = Math.Min(emitter.SimulationAccumulator - simulationTime, MaxSimulationDebt);
         TickEmitter(emitter, simulationTime, eyeAngle);
     }
 
@@ -645,6 +653,7 @@ public sealed partial class ParticleSystem : EntitySystem
             // No target, keep in sync with the overridden emit angle if set, otherwise prototype default
             var baseAngle = emitter.Overrides?.EmitAngle ?? emitter.Proto.EmitAngle;
             emitter.EffectiveEmitAngle = (float)baseAngle.Theta;
+            ApplyEmitterRotation(emitter, eyeAngle);
         }
 
         // Resolve overridable scalars once per tick
