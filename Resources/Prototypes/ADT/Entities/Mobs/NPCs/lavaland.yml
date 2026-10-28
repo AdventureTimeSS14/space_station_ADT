@@ -50,6 +50,14 @@
       ADTKineticTrophyLegionSkull: 0.1
 
 - type: entity
+  id: ADTMobLegionTendril
+  parent: ADTMobLegion
+  suffix: Tendril
+  components:
+  - type: ADTLegion
+    corpseProto: ADTHeliosRemainsCharred
+
+- type: entity
   id: ADTMobLegionSkull
   parent: [ BaseMobAsteroid, FlyingMobBase ]
   name: legion skull
@@ -181,153 +189,6 @@
     ActionAncientGoliathTentacle: 0.5
     ActionGoliathTentacle: 0.5
 
-# SPIDERS
-
-- type: entity
-  name: Nightmare Spider
-  parent: ADTMobBaseSpiderVentCrawler
-  id: ADTMobNightmareSpider
-  components:
-  - type: Sprite
-    layers:
-    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
-      state: nightmare_spider
-      sprite: ADT/Mobs/Animals/spiders.rsi
-  - type: SpriteMovement
-    movementLayers:
-      movement:
-        state: nightmare_spider
-    noMovementLayers:
-      movement:
-        state: nightmare_spider
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: nightmare_spider
-      Dead:
-        Base: nightmare_spider_dead
-  - type: NpcFactionMember
-    factions:
-    - SimpleHostile
-  - type: HTN
-    rootTask:
-      task: SimpleHostileCompound
-    blackboard:
-      VisionRadius: !type:Single
-        15
-      AggroVisionRadius: !type:Single
-        15
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      215: Dead
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 2.0
-    baseSprintSpeed : 1.3
-  - type: SlowOnDamage
-    speedModifierThresholds:
-      70: 0.8
-      125: 0.65
-      180: 0.5
-  - type: MeleeWeapon
-    damage:
-      types:
-        Piercing: 5
-        Poison: 15
-  - type: SolutionManager
-    solutions:
-    - SolutionNightmareSpiderVenom
-  - type: MeleeChemicalInjector
-    transferAmount: 12
-    solution: melee
-  - type: AshStormImmune
-  - type: Fauna
-  - type: Flammable
-    fireSpread: false
-    canResistFire: false
-    alwaysCombustible: false
-    maximumFireStacks: 0
-    damage:
-      types:
-        Heat: 0
-  - type: ADTMobLoot
-    loots:
-      ADTKineticTrophyPoisonFang: 0.1
-  - type: ToolRefinable
-    refineTime: 6
-    refineResult:
-    - id: UraniumOre1
-      amount: 2
-    - id: MaterialBones1
-      amount: 2
-    - id: ADTMaterialSinew1
-    - id: ADTMaterialWeaverChitin1
-      amount: 3
-    - id: FoodMeatSpider
-      amount: 2
-
-- type: entity
-  name: Shock Spider
-  parent: ADTMobBaseSpiderVentCrawler
-  id: ADTMobShockSpider
-  components:
-  - type: Sprite
-    layers:
-    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
-      state: ice_spider
-      sprite: ADT/Mobs/Animals/spiders.rsi
-  - type: SpriteMovement
-    movementLayers:
-      movement:
-        state: ice_spider
-    noMovementLayers:
-      movement:
-        state: ice_spider
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: ice_spider
-      Dead:
-        Base: ice_spider_dead
-  - type: NpcFactionMember
-    factions:
-    - SimpleHostile
-  - type: HTN
-    rootTask:
-      task: SimpleHostileCompound
-    blackboard:
-      VisionRadius: !type:Single
-        15
-      AggroVisionRadius: !type:Single
-        15
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      215: Dead
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 2.0
-    baseSprintSpeed : 1.3
-  - type: SlowOnDamage
-    speedModifierThresholds:
-      70: 0.8
-      125: 0.65
-      180: 0.5
-  - type: MeleeWeapon
-    damage:
-      types:
-        Piercing: 20
-  - type: SolutionManager
-    solutions:
-    - SolutionShockSpiderVenom
-  - type: MeleeChemicalInjector
-    transferAmount: 7
-    solution: melee
-  - type: AshStormImmune
-  - type: Fauna
-  - type: ADTMobLoot
-    loots:
-      ADTKineticTrophyFrostGland: 0.1
-
 #Crab
 - type: entity
   id: ADTMobBSCrab
@@ -440,38 +301,3 @@
     damage:
       types:
         Heat: 0
-
-- type: entity
-  parent: SolutionWeapon
-  id: SolutionNightmareSpiderVenom
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Solution
-    solution:
-      maxVol: 100
-      reagents:
-      - ReagentId: NorepinephricAcid
-        Quantity: 100
-  - type: SolutionRegeneration
-    generated:
-      reagents:
-      - ReagentId: NorepinephricAcid
-        Quantity: 2
-
-- type: entity
-  parent: SolutionWeapon
-  id: SolutionShockSpiderVenom
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Solution
-    solution:
-      maxVol: 35
-      reagents:
-      - ReagentId: Licoxide
-        Quantity: 35
-  - type: SolutionRegeneration
-    generated:
-      reagents:
-      - ReagentId: Licoxide
-        Quantity: 2
-

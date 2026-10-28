@@ -347,6 +347,7 @@ public sealed class CanvasCollaboration : IDisposable
             PressureAffectsOpacity = brush.PressureAffectsOpacity,
             MinSizeFraction = brush.MinSizeFraction,
             MinOpacityFraction = brush.MinOpacityFraction,
+            Pixel = brush.Pixel,
         };
         participant.Stroker.TaperOutLength = ev.TaperOut;
 
@@ -662,7 +663,8 @@ public sealed class CanvasCollaboration : IDisposable
                 Math.Clamp(settings.MinOpacityFraction, 0f, 1f),
                 settings.PressureAffectsSize,
                 settings.PressureAffectsOpacity,
-                stroke.Erase),
+                stroke.Erase,
+                settings.Pixel),
             TaperOut = Math.Clamp(_document.Stroker.TaperOutLength, 0f, CanvasConstants.MaxSide),
             StartX = x,
             StartY = y,

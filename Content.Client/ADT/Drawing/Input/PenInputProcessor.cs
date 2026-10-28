@@ -12,6 +12,8 @@ public sealed class PenInputProcessor
     private readonly StrokeStabilizer _stabilizer = new();
 
     private const float JumpThreshold = 32f;
+    private const float SpikeDistance = 96f;
+    private const float SpikeSpeed = 8f;
 
     private static readonly TimeSpan JumpWindow = TimeSpan.FromMilliseconds(80);
     private static readonly TimeSpan GapWindow = TimeSpan.FromMilliseconds(200);
@@ -24,6 +26,10 @@ public sealed class PenInputProcessor
     private TimeSpan _downTime;
     private PenTool _tool;
     private bool _constant;
+    private bool _held;
+    private Vector2 _heldScreen;
+    private Vector2 _heldCanvas;
+    private TimeSpan _heldTime;
 
     public PenInputProcessor(PenInputSystem system, IGameTiming timing)
     {
@@ -55,6 +61,7 @@ public sealed class PenInputProcessor
 
         _tool = tool;
         _constant = constantPressure || !_system.SimulatePressure;
+        _held = false;
         IsDown = true;
 
         _pendingDown = true;
@@ -95,6 +102,33 @@ public sealed class PenInputProcessor
             Start(_downScreen, _downCanvas, _downTime);
         }
 
+        if (IsDown && _held)
+        {
+            _held = false;
+            if (Vector2.Distance(screen, _heldScreen) <= Vector2.Distance(screen, _lastScreen))
+                Process(_heldScreen, _heldCanvas, _heldTime);
+        }
+        else if (IsDown && IsSpike(screen, now))
+        {
+            _held = true;
+            _heldScreen = screen;
+            _heldCanvas = canvas;
+            _heldTime = now;
+            return;
+        }
+
+        Process(screen, canvas, now);
+    }
+
+    private bool IsSpike(Vector2 screen, TimeSpan now)
+    {
+        var distance = Vector2.Distance(screen, _lastScreen);
+        var ms = MathF.Max(1f, (float) (now - _lastTime).TotalMilliseconds);
+        return distance > SpikeDistance && distance > SpikeSpeed * ms;
+    }
+
+    private void Process(Vector2 screen, Vector2 canvas, TimeSpan now)
+    {
         var distance = Vector2.Distance(screen, _lastScreen);
         var dt = now - _lastTime;
 
@@ -120,6 +154,8 @@ public sealed class PenInputProcessor
     {
         if (!IsDown)
             return;
+
+        _held = false;
 
         if (!IsFinite(screen) || !IsFinite(canvas))
         {
@@ -158,6 +194,7 @@ public sealed class PenInputProcessor
             return;
 
         IsDown = false;
+        _held = false;
         if (_pendingDown)
         {
             _pendingDown = false;
