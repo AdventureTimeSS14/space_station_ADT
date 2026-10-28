@@ -130,6 +130,13 @@
   - type: ContainerContainer
     containers:
       upgrades: !type:Container
+  - type: ADTKineticFocusWeapon
+    discipline: Crusher
+    trackMelee: true
+    trackRanged: true
+    window: 5
+    effect: ADTStatusEffectKineticInterference
+    effectDuration: 8
   - type: ADTNoWideAttack
 
 - type: entity

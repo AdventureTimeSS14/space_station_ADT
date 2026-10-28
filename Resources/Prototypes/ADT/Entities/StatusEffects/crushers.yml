@@ -51,16 +51,6 @@
   - type: MovementModStatusEffect
     walkSpeedModifier: 1.1
     sprintSpeedModifier: 1.1
-  - type: DamageModifierStatusEffect
-    modifiers:
-      coefficients:
-        Blunt: 1.28
-        Slash: 1.28
-        Piercing: 1.21
-        Heat: 1.21
-        Cold: 1.15
-        Shock: 1.15
-        Caustic: 1.15
   - type: ExaminableStatusEffect
     messageId: adt-status-effect-examine-crusher-rage
 
@@ -68,3 +58,13 @@
   parent: MobStatusEffectBase
   id: ADTStatusEffectCrusherRageExhaustion
   name: rage exhaustion
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTStatusEffectKineticInterference
+  name: kinetic interference
+  components:
+  - type: ADTKineticInterferenceStatusEffect
+    cooldownMultiplier: 1.5
+  - type: StatusEffectAlert
+    alert: ADTKineticInterference
