@@ -15,7 +15,6 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Standing;
 using Content.Shared.StatusEffectNew;
-using Content.Shared.Tag;
 using Content.Shared.Tools.Systems;
 using Content.Shared.Whitelist;
 using Robust.Server.GameObjects;
@@ -27,34 +26,30 @@ namespace Content.Server.ADT.Surgery;
 
 public sealed partial class SurgerySystem : SharedSurgerySystem
 {
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly BodySystem _body = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
-    [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly DetachableOrganSystem _detachableOrgan = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedToolSystem _tool = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly ItemToggleSystem _toggle = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private StandingStateSystem _standing = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private StatusEffectsSystem _status = default!;
+    [Dependency] private BloodstreamSystem _bloodstream = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private DetachableOrganSystem _detachableOrgan = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private SharedToolSystem _tool = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private ItemToggleSystem _toggle = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<SurgeryToolComponent, AfterInteractEvent>(OnAfterInteract);
-        SubscribeLocalEvent<SurgeryChooserComponent, AfterInteractEvent>(OnChooserAfterInteract);
-        SubscribeLocalEvent<OperatedComponent, SurgerySelectGraphMessage>(OnSelectGraph);
+        SubscribeLocalEvent<BodyComponent, SurgerySelectGraphMessage>(OnSelectGraph);
         SubscribeLocalEvent<OperatedComponent, SurgerySelectEdgeMessage>(OnSelectEdge);
         SubscribeLocalEvent<OperatedComponent, SurgeryStepDoAfterEvent>(OnStepDoAfter);
         SubscribeLocalEvent<OperatedComponent, InteractUsingEvent>(OnInteractUsing);
@@ -72,7 +67,7 @@ public sealed partial class SurgerySystem : SharedSurgerySystem
 
         args.Handled = true;
 
-        if (!TryComp<OperatedComponent>(target, out var comp) || comp.GraphId == null || string.IsNullOrEmpty(comp.CurrentNode))
+        if (!TryComp<OperatedComponent>(target, out var comp) || comp.GraphId == null)
         {
             _popup.PopupEntity(Loc.GetString("surgery-choose-with-drapes"), target, args.User, PopupType.MediumCaution);
             return;
@@ -92,30 +87,16 @@ public sealed partial class SurgerySystem : SharedSurgerySystem
         if (args.Handled || HasComp<SurgeryToolComponent>(args.Used))
             return;
 
-        if (ent.Comp.GraphId == null || string.IsNullOrEmpty(ent.Comp.CurrentNode) || !_standing.IsDown(ent.Owner))
+        if (ent.Comp.GraphId == null || !_standing.IsDown(ent.Owner))
             return;
 
         if (TryPerformStep(args.User, ent, ent.Comp, args.Used, silent: true))
             args.Handled = true;
     }
 
-    private void OnChooserAfterInteract(EntityUid uid, SurgeryChooserComponent component, AfterInteractEvent args)
-    {
-        if (args.Handled || args.Target is not { } target || !args.CanReach)
-            return;
-
-        if (!HasComp<BodyComponent>(target) || !_standing.IsDown(target))
-            return;
-
-        args.Handled = true;
-
-        EnsureComp<OperatedComponent>(target);
-        OpenGraphChoice(args.User, target);
-    }
-
     private void OnBodyInteractUsing(Entity<BodyComponent> ent, ref InteractUsingEvent args)
     {
-        if (args.Handled || HasComp<SurgeryChooserComponent>(args.Used) || HasComp<SurgeryToolComponent>(args.Used))
+        if (args.Handled || HasComp<SurgeryToolComponent>(args.Used))
             return;
 
         if (!_standing.IsDown(ent.Owner) || !TryMatchQuality(DrapingQuality, args.Used, out _))
@@ -123,7 +104,6 @@ public sealed partial class SurgerySystem : SharedSurgerySystem
 
         args.Handled = true;
 
-        EnsureComp<OperatedComponent>(ent);
         OpenGraphChoice(args.User, ent);
     }
 }

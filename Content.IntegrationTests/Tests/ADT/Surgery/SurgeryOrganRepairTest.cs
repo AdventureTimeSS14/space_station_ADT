@@ -1,6 +1,8 @@
 using Content.IntegrationTests.Fixtures;
 using Content.IntegrationTests.Fixtures.Attributes;
 using Content.Shared.ADT.Body.OrganHealth;
+using Content.Shared.ADT.Salvage.Components;
+using Content.Shared.ADT.VoiceOfGod;
 using Content.Shared.ADT.Surgery.Components;
 using Content.Shared.ADT.Surgery.Events;
 using Content.Shared.ADT.Surgery.Prototypes.Conditions;
@@ -8,6 +10,7 @@ using Content.Shared.Body;
 using Content.Shared.DoAfter;
 using Content.Shared.Emp;
 using Content.Shared.Implants;
+using Content.Shared.Implants.Components;
 using Content.Shared.Movement.Components;
 using Content.Shared.Standing;
 using Content.Shared.StatusEffectNew;
@@ -116,6 +119,56 @@ public sealed class SurgeryOrganRepairTest : GameTest
 
     [Test]
     [RunOnSide(Side.Server)]
+    public void PermanentImplantIsNotExtracted()
+    {
+        var patient = SpawnPatient();
+        var surgeon = SpawnSurgeon();
+        StartGraph(patient, "ChestSkinRetracted");
+
+        var implant = SEntMan.System<SharedSubdermalImplantSystem>().AddImplant(patient, "MicroBombImplant");
+        Assert.That(implant, Is.Not.Null);
+        Assert.That(new HasImplantCondition().Check(patient, SEntMan), Is.False);
+
+        RaiseStep(patient, surgeon, "ExtractImplant", 0, SSpawn("Hemostat"));
+
+        Assert.That(SEntMan.GetComponent<ImplantedComponent>(patient).ImplantContainer.Contains(implant!.Value), Is.True);
+    }
+
+    [Test]
+    [RunOnSide(Side.Server)]
+    public void CursedHeartIsInsertedBySurgery()
+    {
+        var patient = SpawnPatient();
+        var surgeon = SpawnSurgeon();
+        StartGraph(patient, "ChestOpen");
+
+        RaiseStep(patient, surgeon, "RemoveHeart", 0, SSpawn("Hemostat"));
+        Assert.That(_organHealth.TryGetOrgan(patient, "Heart", out _), Is.False);
+
+        RaiseStep(patient, surgeon, "InsertHeart", 0, SSpawn("ADTCursedHeart"));
+
+        Assert.That(SEntMan.HasComponent<CursedHeartComponent>(patient), Is.True);
+    }
+
+    [Test]
+    [RunOnSide(Side.Server)]
+    public void VocalCordsAreInsertedAndRemovedBySurgery()
+    {
+        var patient = SpawnPatient();
+        var surgeon = SpawnSurgeon();
+        var comp = SComp<OperatedComponent>(patient);
+        comp.GraphId = "SurgeryHeadOrgans";
+        comp.CurrentNode = "MouthOpen";
+
+        RaiseStep(patient, surgeon, "InsertVocalCords", 0, SSpawn("ADTOrganVoiceOfGod"));
+        Assert.That(SEntMan.HasComponent<ADTVoiceOfGodSpeakerComponent>(patient), Is.True);
+
+        RaiseStep(patient, surgeon, "RemoveVocalCords", 0, SSpawn("Hemostat"));
+        Assert.That(SEntMan.HasComponent<ADTVoiceOfGodSpeakerComponent>(patient), Is.False);
+    }
+
+    [Test]
+    [RunOnSide(Side.Server)]
     public void MissingLegsSlowDownAndPreventStanding()
     {
         var patient = SSpawn("MobHuman");
@@ -166,7 +219,7 @@ public sealed class SurgeryOrganRepairTest : GameTest
 
     private OperatedComponent StartGraph(EntityUid patient, string node)
     {
-        var comp = SComp<OperatedComponent>(patient);
+        var comp = SEntMan.EnsureComponent<OperatedComponent>(patient);
         comp.GraphId = ChestGraph;
         comp.CurrentNode = node;
         comp.ActiveEdgeId = null;
@@ -177,7 +230,7 @@ public sealed class SurgeryOrganRepairTest : GameTest
     private void RaiseStep(EntityUid patient, EntityUid surgeon, string edgeId, int stepIndex, EntityUid tool)
     {
         var comp = SComp<OperatedComponent>(patient);
-        comp.Surgeon = surgeon;
+        comp.ActiveEdgeId = edgeId;
 
         var ev = new SurgeryStepDoAfterEvent(edgeId, stepIndex);
         var args = new DoAfterArgs(SEntMan, surgeon, TimeSpan.FromSeconds(1), ev, patient, patient, tool);

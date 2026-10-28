@@ -87,7 +87,7 @@
       effects:
       - !type:ModifyStatusEffect
         effectProto: StatusEffectAnesthetized
-        type: Add
+        type: Update
         time: 2
 
 - type: reagent

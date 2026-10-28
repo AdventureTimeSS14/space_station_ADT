@@ -107,9 +107,6 @@
   id: ADTBola
 
 - type: Tag
-  id: Ears
-
-- type: Tag
   id: Eyes
 
 - type: Tag
@@ -875,31 +872,7 @@
   id: BloodFilter
 
 - type: Tag
-  id: ArmLeft
-
-- type: Tag
-  id: ArmRight
-
-- type: Tag
-  id: HandLeft
-
-- type: Tag
-  id: HandRight
-
-- type: Tag
-  id: LegLeft
-
-- type: Tag
-  id: LegRight
-
-- type: Tag
-  id: FootLeft
-
-- type: Tag
-  id: FootRight
-
-- type: Tag
-  id: Appendix
+  id: SurgicalDrapes
 
 - type: Tag
   id: FiringPin

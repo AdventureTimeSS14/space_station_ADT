@@ -1,6 +1,7 @@
 using Content.Shared.ADT.Surgery.Components;
 using Content.Shared.ADT.Surgery.Prototypes;
 using System.Linq;
+using Content.Shared.Body;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Examine;
 using Content.Shared.Nutrition.Components;
@@ -29,7 +30,7 @@ public sealed partial class SurgerySystem
         if (step.Quality is { } qualityId)
             return TryMatchQuality(qualityId, item, out match);
 
-        return MatchesTags(step, item);
+        return MatchesOrgan(step, item);
     }
 
     private bool TryMatchQuality(ProtoId<SurgeryToolQualityPrototype> qualityId, EntityUid item, out SurgeryToolMatch match)
@@ -142,27 +143,17 @@ public sealed partial class SurgerySystem
         return true;
     }
 
-    private bool MatchesTags(SurgeryStepEntry step, EntityUid item)
+    private bool MatchesOrgan(SurgeryStepEntry step, EntityUid item)
     {
-        if (step.Tools.Count == 0)
+        if (step.Organ is not { } category)
+            return false;
+
+        if (TryComp<OrganComponent>(item, out var organ) && organ.Category == category)
             return true;
 
-        foreach (var tag in step.Tools)
-        {
-            if (_tag.HasTag(item, tag))
-                return true;
-        }
-
-        if (_detachableOrgan.TryGetDetachedOrgan(item, out var organ))
-        {
-            foreach (var tag in step.Tools)
-            {
-                if (_tag.HasTag(organ, tag))
-                    return true;
-            }
-        }
-
-        return false;
+        return _detachableOrgan.TryGetDetachedOrgan(item, out var detached)
+               && TryComp<OrganComponent>(detached, out var detachedOrgan)
+               && detachedOrgan.Category == category;
     }
 
     private TimeSpan GetStepDuration(EntityUid patient, SurgeryStepEntry step, SurgeryToolMatch match, EntityUid item)

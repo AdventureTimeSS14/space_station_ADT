@@ -66,7 +66,6 @@ public sealed partial class SurgeryConsoleWindow : FancyWindow
     private static string FormatSteps(SurgeryConsoleState state)
     {
         var labels = state.NextSteps
-            .Select(step => step.Label)
             .Distinct()
             .Select((label, index) => index == 0 || label.Length == 0 ? label : label.Substring(0, 1).ToLowerInvariant() + label.Substring(1))
             .ToList();

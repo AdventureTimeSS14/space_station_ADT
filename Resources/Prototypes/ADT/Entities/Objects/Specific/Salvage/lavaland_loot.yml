@@ -10,7 +10,6 @@
     - state: cursed_heart
   - type: Item
     size: Small
-  - type: CursedHeartOrgan
   - type: OrganGrantComponents
     components:
     - type: CursedHeart
@@ -18,8 +17,6 @@
     tags:
     - Meat
     - Organ
-    - Heart
-    - SurgeryTool
 
 - type: entity
   id: ADTVavilonBook

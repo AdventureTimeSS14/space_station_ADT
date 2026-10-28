@@ -1,10 +1,10 @@
 using Content.Shared.ADT.Surgery.Prototypes;
-using Robust.Shared.GameStates;
+using Content.Shared.DoAfter;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.Surgery.Components;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent]
 public sealed partial class OperatedComponent : Component
 {
     [DataField]
@@ -19,9 +19,9 @@ public sealed partial class OperatedComponent : Component
     [DataField]
     public int CompletedSteps;
 
-    [DataField]
-    public EntityUid? Surgeon;
-
-    [DataField]
+    [ViewVariables]
     public bool IsOperating;
+
+    [ViewVariables]
+    public DoAfterId? DoAfter;
 }

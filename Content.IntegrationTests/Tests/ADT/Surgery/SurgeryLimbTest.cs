@@ -108,9 +108,11 @@ public sealed class SurgeryLimbTest : GameTest
         var surgeon = SSpawn("MobHuman");
 
         SelectGraph(patient, surgeon, ReattachGraph);
-        var comp = SComp<OperatedComponent>(patient);
+        Assert.That(SEntMan.TryGetComponent<OperatedComponent>(patient, out var comp) && comp.GraphId != null, Is.False,
+            "reattach graph must not be selectable while the arm is attached");
+
         var graph = SProtoMan.Index<SurgeryGraphPrototype>(ReattachGraph);
-        var openStump = graph.Nodes.Single(n => n.Name == comp.CurrentNode).Edges.Single(e => e.Id == "OpenStump");
+        var openStump = graph.Nodes.Single(n => n.Name == graph.StartNode).Edges.Single(e => e.Id == "OpenStump");
 
         Assert.That(openStump.Conditions.All(c => c.CheckWithInvert(patient, SEntMan)), Is.False,
             "stump cannot be opened while the arm is still attached");
@@ -179,6 +181,7 @@ public sealed class SurgeryLimbTest : GameTest
                 Assert.That(++attempts, Is.LessThanOrEqualTo(MaxAttempts),
                     $"step {stepIndex} of edge '{edgeId}' never succeeded");
 
+                comp.ActiveEdgeId = edgeId;
                 var ev = new SurgeryStepDoAfterEvent(edgeId, stepIndex);
                 var args = new DoAfterArgs(SEntMan, surgeon, TimeSpan.FromSeconds(1), ev, patient, patient, tool);
                 ev.DoAfter = new SharedDoAfter(0, args, TimeSpan.Zero);

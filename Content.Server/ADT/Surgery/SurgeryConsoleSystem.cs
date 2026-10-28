@@ -6,25 +6,30 @@ using Content.Shared.ADT.Surgery.Components;
 using Content.Shared.ADT.Surgery.Events;
 using Content.Shared.ADT.Surgery.Prototypes;
 using Content.Shared.Body;
+using Content.Shared.Buckle.Components;
 using Content.Shared.Chat;
 using Content.Shared.MedicalScanner;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Standing;
 using Content.Shared.UserInterface;
 using Robust.Server.GameObjects;
 using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.Surgery;
 
-public sealed class SurgeryConsoleSystem : SharedSurgerySystem
+public sealed partial class SurgeryConsoleSystem : SharedSurgerySystem
 {
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly HealthAnalyzerSystem _healthAnalyzer = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private HealthAnalyzerSystem _healthAnalyzer = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private StandingStateSystem _standing = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private static readonly TimeSpan CheckInterval = TimeSpan.FromSeconds(1);
+    private const float TableSearchRange = 1f;
+    private const float PatientSearchRange = 0.4f;
 
     public override void Initialize()
     {
@@ -42,32 +47,35 @@ public sealed class SurgeryConsoleSystem : SharedSurgerySystem
         var query = EntityQueryEnumerator<SurgeryConsoleComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (_ui.IsUiOpen(uid, SurgeryConsoleUiKey.Key))
-                RefreshUi(uid);
-
             if (now < comp.NextCheck)
                 continue;
 
             comp.NextCheck = now + CheckInterval;
-            CheckPatientAlerts(uid, comp, now);
+
+            var hasPatient = TryFindPatient(uid, out var hasTable, out var patient);
+
+            if (_ui.IsUiOpen(uid, SurgeryConsoleUiKey.Key))
+                RefreshUi((uid, comp), hasTable, hasPatient ? patient : null);
+
+            CheckPatientAlerts(uid, comp, hasPatient ? patient : null, now);
         }
     }
 
     private void OnBeforeOpen(EntityUid uid, SurgeryConsoleComponent comp, BeforeActivatableUIOpenEvent args)
     {
-        RefreshUi(uid);
+        RefreshUi((uid, comp));
     }
 
     private void OnToggleAlerts(EntityUid uid, SurgeryConsoleComponent comp, SurgeryConsoleToggleAlertsMessage args)
     {
         comp.AlertsEnabled = args.Enabled;
-        RefreshUi(uid);
+        RefreshUi((uid, comp));
     }
 
-    private void CheckPatientAlerts(EntityUid console, SurgeryConsoleComponent comp, TimeSpan now)
+    private void CheckPatientAlerts(EntityUid console, SurgeryConsoleComponent comp, EntityUid? patientUid, TimeSpan now)
     {
         if (!comp.AlertsEnabled
-            || !TryFindPatient(console, out _, out var patient)
+            || patientUid is not { } patient
             || !TryComp<OperatedComponent>(patient, out var operated)
             || operated.GraphId == null)
         {
@@ -125,10 +133,10 @@ public sealed class SurgeryConsoleSystem : SharedSurgerySystem
 
         var consoleCoords = Transform(console).Coordinates;
 
-        var nearestTable = EntityUid.Invalid;
+        EntityUid? nearestTable = null;
         var nearestDistance = float.MaxValue;
 
-        foreach (var table in _lookup.GetEntitiesInRange<OperatingTableComponent>(consoleCoords, 1f))
+        foreach (var table in _lookup.GetEntitiesInRange<OperatingTableComponent>(consoleCoords, TableSearchRange))
         {
             var distance = (Transform(table).Coordinates.Position - consoleCoords.Position).Length();
             if (distance >= nearestDistance)
@@ -138,20 +146,28 @@ public sealed class SurgeryConsoleSystem : SharedSurgerySystem
             nearestTable = table;
         }
 
-        if (nearestTable == EntityUid.Invalid)
+        if (nearestTable is not { } tableUid)
             return false;
 
         hasTable = true;
 
-        var tableCoords = Transform(nearestTable).Coordinates;
-        foreach (var candidate in _lookup.GetEntitiesInRange<OperatedComponent>(tableCoords, 1f))
+        if (TryComp<StrapComponent>(tableUid, out var strap))
         {
-            patient = candidate;
-            return true;
+            foreach (var buckled in strap.BuckledEntities)
+            {
+                if (!HasComp<BodyComponent>(buckled))
+                    continue;
+
+                patient = buckled;
+                return true;
+            }
         }
 
-        foreach (var candidate in _lookup.GetEntitiesInRange<BodyComponent>(tableCoords, 1f))
+        foreach (var candidate in _lookup.GetEntitiesInRange<BodyComponent>(Transform(tableUid).Coordinates, PatientSearchRange))
         {
+            if (!_standing.IsDown(candidate.Owner))
+                continue;
+
             patient = candidate;
             return true;
         }
@@ -159,34 +175,20 @@ public sealed class SurgeryConsoleSystem : SharedSurgerySystem
         return false;
     }
 
-    private bool EdgeConditionsMet(EntityUid patient, SurgeryGraphEdge edge)
+    private void RefreshUi(Entity<SurgeryConsoleComponent> console)
     {
-        foreach (var condition in edge.Conditions)
-        {
-            if (!condition.CheckWithInvert(patient, EntityManager))
-                return false;
-        }
-
-        return true;
+        var hasPatient = TryFindPatient(console, out var hasTable, out var patient);
+        RefreshUi(console, hasTable, hasPatient ? patient : null);
     }
 
-    private void RefreshUi(EntityUid console)
+    private void RefreshUi(Entity<SurgeryConsoleComponent> console, bool hasTable, EntityUid? patientUid)
     {
-        var alerts = TryComp<SurgeryConsoleComponent>(console, out var consoleComp) && consoleComp.AlertsEnabled;
+        var alerts = console.Comp.AlertsEnabled;
 
-        var hasPatient = TryFindPatient(console, out var hasTable, out var patient);
-
-        if (!hasTable)
+        if (patientUid is not { } patient)
         {
-            _ui.SetUiState(console, SurgeryConsoleUiKey.Key,
-                new SurgeryConsoleState(false, false, alerts, new HealthAnalyzerUiState(), string.Empty, string.Empty, string.Empty, new()));
-            return;
-        }
-
-        if (!hasPatient)
-        {
-            _ui.SetUiState(console, SurgeryConsoleUiKey.Key,
-                new SurgeryConsoleState(true, false, alerts, new HealthAnalyzerUiState(), string.Empty, string.Empty, string.Empty, new()));
+            _ui.SetUiState(console.Owner, SurgeryConsoleUiKey.Key,
+                new SurgeryConsoleState(hasTable, false, alerts, new HealthAnalyzerUiState(), string.Empty, string.Empty, string.Empty, new()));
             return;
         }
 
@@ -194,15 +196,14 @@ public sealed class SurgeryConsoleSystem : SharedSurgerySystem
 
         if (!TryComp<OperatedComponent>(patient, out var operated)
             || operated.GraphId is not { } graphId
-            || !PrototypeManager.TryIndex<SurgeryGraphPrototype>(graphId, out var graph)
-            || string.IsNullOrEmpty(operated.CurrentNode))
+            || !PrototypeManager.TryIndex<SurgeryGraphPrototype>(graphId, out var graph))
         {
-            _ui.SetUiState(console, SurgeryConsoleUiKey.Key,
+            _ui.SetUiState(console.Owner, SurgeryConsoleUiKey.Key,
                 new SurgeryConsoleState(true, true, alerts, health, string.Empty, string.Empty, string.Empty, new()));
             return;
         }
 
-        var steps = new List<(string, List<string>)>();
+        var steps = new List<string>();
         var node = GetNode(graph, operated.CurrentNode);
 
         if (node != null)
@@ -212,20 +213,14 @@ public sealed class SurgeryConsoleSystem : SharedSurgerySystem
                 if (edge.Steps.Count == 0 || !EdgeConditionsMet(patient, edge))
                     continue;
 
-                var label = string.IsNullOrEmpty(edge.Label) ? edge.Id : Loc.GetString(edge.Label);
-                var firstStep = edge.Steps[0];
-                var tags = firstStep.Quality is { } quality
-                    ? new List<string> { quality.Id }
-                    : firstStep.Tools.Select(t => t.Id).ToList();
-
-                steps.Add((label, tags));
+                steps.Add(LocOrId(edge.Label, edge.Id));
             }
         }
 
-        var graphLabel = string.IsNullOrEmpty(graph.Name) ? graph.ID : Loc.GetString(graph.Name);
-        var location = string.IsNullOrEmpty(graph.Location) ? string.Empty : Loc.GetString(graph.Location);
-        var nodeLabel = node == null || string.IsNullOrEmpty(node.Label) ? operated.CurrentNode : Loc.GetString(node.Label);
-        _ui.SetUiState(console, SurgeryConsoleUiKey.Key,
+        var graphLabel = LocOrId(graph.Name, graph.ID);
+        var location = LocOrId(graph.Location, string.Empty);
+        var nodeLabel = node == null ? operated.CurrentNode : LocOrId(node.Label, operated.CurrentNode);
+        _ui.SetUiState(console.Owner, SurgeryConsoleUiKey.Key,
             new SurgeryConsoleState(true, true, alerts, health, graphLabel, location, nodeLabel, steps));
     }
 }

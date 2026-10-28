@@ -206,7 +206,7 @@
   name: surgery-quality-draping
   entries:
   - whitelist:
-      components: [ SurgeryChooser ]
+      tags: [ SurgicalDrapes ]
   - whitelist:
       tags: [ Bedsheet ]
 

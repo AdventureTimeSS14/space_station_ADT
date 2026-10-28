@@ -25,7 +25,7 @@ public sealed partial class SurgeryWindow : FancyWindow
         Title = Loc.GetString("surgery-edge-window-title");
         SubtitleLabel.Text = Loc.GetString("surgery-edge-window-subtitle");
 
-        foreach (var (edgeId, label, _, _) in state.Options)
+        foreach (var (edgeId, label) in state.Options)
         {
             var button = new Button
             {

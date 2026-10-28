@@ -1,6 +1,4 @@
-using Robust.Shared.GameObjects;
 using Robust.Shared.Serialization;
-using Robust.Shared.Utility;
 
 namespace Content.Shared.ADT.Surgery.Events;
 
@@ -18,9 +16,9 @@ public sealed class SurgeryChooseGraphState : BoundUserInterfaceState
 [Serializable, NetSerializable]
 public sealed class SurgeryChooseEdgeState : BoundUserInterfaceState
 {
-    public List<(string EdgeId, string Label, NetEntity? IconEntity, SpriteSpecifier? Icon)> Options;
+    public List<(string EdgeId, string Label)> Options;
 
-    public SurgeryChooseEdgeState(List<(string EdgeId, string Label, NetEntity? IconEntity, SpriteSpecifier? Icon)> options)
+    public SurgeryChooseEdgeState(List<(string, string)> options)
     {
         Options = options;
     }

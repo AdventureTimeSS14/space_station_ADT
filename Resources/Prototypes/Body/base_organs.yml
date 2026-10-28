@@ -21,7 +21,6 @@
   parent: BaseItem
   components:
   - type: Organ
-  - type: SurgeryTool # ADT-Tweak
   - type: Tag # ADT-Tweak
     tags:
     - Trash
@@ -130,9 +129,6 @@
     markingData:
       layers:
       - LArm
-  - type: Tag # ADT-Tweak
-    tags:
-    - ArmLeft
 
 - type: entity
   parent:
@@ -155,9 +151,6 @@
     markingData:
       layers:
       - RArm
-  - type: Tag # ADT-Tweak
-    tags:
-    - ArmRight
 
 - type: entity
   parent:
@@ -183,9 +176,6 @@
     markingData:
       layers:
       - LHand
-  - type: Tag # ADT-Tweak
-    tags:
-    - HandLeft
 
 - type: entity
   parent:
@@ -211,9 +201,6 @@
     markingData:
       layers:
       - RHand
-  - type: Tag # ADT-Tweak
-    tags:
-    - HandRight
 
 - type: entity
   parent:
@@ -238,9 +225,6 @@
     markingData:
       layers:
       - LLeg
-  - type: Tag # ADT-Tweak
-    tags:
-    - LegLeft
 
 - type: entity
   parent:
@@ -265,9 +249,6 @@
     markingData:
       layers:
       - RLeg
-  - type: Tag # ADT-Tweak
-    tags:
-    - LegRight
 
 - type: entity
   parent:
@@ -291,9 +272,6 @@
     markingData:
       layers:
       - LFoot
-  - type: Tag # ADT-Tweak
-    tags:
-    - FootLeft
 
 - type: entity
   parent:
@@ -317,9 +295,6 @@
     markingData:
       layers:
       - RFoot
-  - type: Tag # ADT-Tweak
-    tags:
-    - FootRight
 
 - type: entity
   parent:
@@ -402,10 +377,6 @@
   - type: Organ
     category: Tongue
   - type: OrganHealth # ADT-Tweak
-  - type: Tag # ADT-Tweak
-    tags:
-    - Tongue
-    - Trash
   - type: Sprite
     layers:
     - state: tongue
@@ -421,9 +392,6 @@
   - type: GibbableOrgan
   - type: Organ
     category: Appendix
-  - type: Tag # ADT-Tweak
-    tags:
-    - Appendix
   - type: Sprite
     layers:
     - state: appendix
@@ -440,10 +408,6 @@
   - type: Organ
     category: Ears
   - type: OrganHealth # ADT-Tweak
-  - type: Tag # ADT-Tweak
-    tags:
-    - Ears
-    - Trash
   - type: Sprite
     layers:
     - state: ears
@@ -592,10 +556,6 @@
     layers:
       - state: kidney-l
       - state: kidney-r
-  - type: Tag # ADT-Tweak
-    tags:
-    - Kidneys
-    - Trash
   - type: Item
     heldPrefix: kidneys
   - type: Metabolizer

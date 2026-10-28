@@ -1,9 +1,7 @@
 using Content.Server.Actions;
-using Content.Server.ADT.Salvage.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Popups;
 using Content.Shared.ADT.Salvage.Components;
-using Content.Shared.ADT.Silicon;
 using Content.Shared.Body;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Components;
@@ -11,8 +9,6 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage.Systems;
 using Content.Shared.FixedPoint;
-using Content.Shared.Humanoid;
-using Content.Shared.Interaction.Events;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -37,9 +33,6 @@ public sealed class CursedHeartSystem : EntitySystem
     [Dependency] private PopupSystem _popup = default!;
     [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private MobThresholdSystem _mobThreshold = default!;
-    [Dependency] private BodySystem _body = default!;
-
-    private static readonly ProtoId<OrganCategoryPrototype> HeartCategory = "Heart";
 
     public override void Initialize()
     {
@@ -49,8 +42,6 @@ public sealed class CursedHeartSystem : EntitySystem
         SubscribeLocalEvent<CursedHeartComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<CursedHeartComponent, PumpHeartActionEvent>(OnPump);
         SubscribeLocalEvent<CursedHeartComponent, ToggleHeartActionEvent>(OnToggle);
-
-        SubscribeLocalEvent<CursedHeartOrganComponent, UseInHandEvent>(OnUseInHand);
     }
 
     public override void Update(float frameTime)
@@ -92,13 +83,16 @@ public sealed class CursedHeartSystem : EntitySystem
         _actions.AddAction(uid, ref comp.ToggleActionEntity, "ActionToggleCursedHeart");
         comp.LastPump = _timing.CurTime;
 
-        if (!TryComp<BloodstreamComponent>(uid, out var bloodstream))
+        if (comp.OriginalBloodReagents != null || !TryComp<BloodstreamComponent>(uid, out var bloodstream))
             return;
 
         comp.OriginalBloodReagents = new Solution(bloodstream.BloodReferenceSolution);
         _bloodstream.TryModifyBloodLevel(uid, -999);
         _bloodstream.ChangeBloodReagents(uid, new Solution("ADTCursedBlood", 200));
         _bloodstream.TryModifyBloodLevel(uid, 300);
+
+        _popup.PopupEntity(Loc.GetString("popup-cursed-heart-use"), uid, uid, PopupType.LargeCaution);
+        _audio.PlayGlobal(new SoundPathSpecifier("/Audio/ADT/Heretic/heartbeat.ogg"), uid);
     }
 
     private void OnShutdown(EntityUid uid, CursedHeartComponent comp, ComponentShutdown args)
@@ -195,45 +189,5 @@ public sealed class CursedHeartSystem : EntitySystem
         }
 
         _mobThreshold.VerifyThresholds(uid, thresholds);
-    }
-
-    private void OnUseInHand(EntityUid uid, CursedHeartOrganComponent comp, UseInHandEvent args)
-    {
-        if (args.Handled)
-            return;
-
-        if (!HasComp<BloodstreamComponent>(args.User) || !HasComp<HumanoidProfileComponent>(args.User) || HasComp<MobIpcComponent>(args.User))
-        {
-            _popup.PopupEntity(Loc.GetString("popup-cursed-heart-bloodstream"), args.User, args.User, PopupType.Medium);
-            return;
-        }
-        if (HasComp<CursedHeartComponent>(args.User))
-        {
-            _popup.PopupEntity(Loc.GetString("popup-cursed-heart-already-cursed"), args.User, args.User, PopupType.Medium);
-            return;
-        }
-        if (!TryComp<BodyComponent>(args.User, out var body) || body.Organs == null)
-            return;
-
-        args.Handled = true;
-
-        var hearts = new List<EntityUid>();
-        foreach (var organ in body.Organs.ContainedEntities)
-        {
-            if (TryComp<OrganComponent>(organ, out var organComp) && organComp.Category == HeartCategory)
-                hearts.Add(organ);
-        }
-
-        foreach (var heart in hearts)
-        {
-            _body.TryRemoveOrgan(heart);
-        }
-
-        if (!_body.TryInsertOrgan(args.User, uid))
-            return;
-
-        _popup.PopupEntity(Loc.GetString("popup-cursed-heart-use"), args.User, args.User, PopupType.LargeCaution);
-        _damage.TryChangeDamage(args.User, new DamageSpecifier(_proto.Index<DamageTypePrototype>("Piercing"), 20), true, false);
-        _audio.PlayGlobal(new SoundPathSpecifier("/Audio/ADT/Heretic/heartbeat.ogg"), args.User);
     }
 }

@@ -131,6 +131,7 @@ public sealed class SurgeryToolTest : GameTest
 
         for (var i = 0; i < 10; i++)
         {
+            comp = StartGraph(patient, ChestGraph, "ChestClosed");
             RaiseStep(patient, surgeon, "Cut", 0, scalpel);
             Assert.That(comp.CurrentNode, Is.EqualTo("ChestIncised"), $"incision failed on iteration {i}");
 
@@ -165,6 +166,38 @@ public sealed class SurgeryToolTest : GameTest
         Assert.Fail("organ removal never failed");
     }
 
+    [Test]
+    [RunOnSide(Side.Server)]
+    public void StaleOperatingFlagDoesNotLockPatient()
+    {
+        var patient = SpawnPatient();
+        var surgeon = SSpawn("MobHuman");
+        SEntMan.EnsureComponent<SurgerySkillComponent>(surgeon);
+        var comp = StartGraph(patient, ChestGraph, "ChestClosed");
+        comp.IsOperating = true;
+        comp.DoAfter = null;
+
+        SEntMan.EventBus.RaiseLocalEvent(patient, new SurgerySelectGraphMessage("SurgeryAbdomenOrgans") { Actor = surgeon });
+
+        Assert.That(comp.IsOperating, Is.False);
+        Assert.That(comp.GraphId?.Id, Is.EqualTo("SurgeryAbdomenOrgans"));
+    }
+
+    [Test]
+    [RunOnSide(Side.Server)]
+    public void ReturningToStartNodeEndsOperation()
+    {
+        var patient = SpawnPatient();
+        var surgeon = SSpawn("MobHuman");
+        SEntMan.EnsureComponent<SurgerySkillComponent>(surgeon);
+        var comp = StartGraph(patient, ChestGraph, "ChestIncised");
+
+        RaiseStep(patient, surgeon, "Cauterize", 0, SSpawn("Cautery"));
+
+        Assert.That(comp.CurrentNode, Is.EqualTo("ChestClosed"));
+        Assert.That(comp.GraphId, Is.Null, "a closed patient must not keep an active graph");
+    }
+
     private EntityUid SpawnPatient()
     {
         var patient = SSpawn("MobHuman");
@@ -175,7 +208,7 @@ public sealed class SurgeryToolTest : GameTest
 
     private OperatedComponent StartGraph(EntityUid patient, string graphId, string node)
     {
-        var comp = SComp<OperatedComponent>(patient);
+        var comp = SEntMan.EnsureComponent<OperatedComponent>(patient);
         comp.GraphId = graphId;
         comp.CurrentNode = node;
         comp.ActiveEdgeId = null;
@@ -186,7 +219,7 @@ public sealed class SurgeryToolTest : GameTest
     private void RaiseStep(EntityUid patient, EntityUid surgeon, string edgeId, int stepIndex, EntityUid tool)
     {
         var comp = SComp<OperatedComponent>(patient);
-        comp.Surgeon = surgeon;
+        comp.ActiveEdgeId = edgeId;
 
         var ev = new SurgeryStepDoAfterEvent(edgeId, stepIndex);
         var args = new DoAfterArgs(SEntMan, surgeon, TimeSpan.FromSeconds(1), ev, patient, patient, tool);

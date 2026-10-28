@@ -210,9 +210,9 @@
           inverted: true
       - !type:Drunk
         boozePower: 2
-      - !type:ModifyStatusEffect # ADT-Tweak: слабая анестезия от алкоголя
+      - !type:ModifyStatusEffect # ADT-Tweak
         effectProto: StatusEffectWeaklyAnesthetized
-        type: Add
+        type: Update
         time: 2
 
 - type: reagent

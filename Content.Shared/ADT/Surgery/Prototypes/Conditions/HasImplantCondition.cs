@@ -12,13 +12,20 @@ public sealed partial class HasImplantCondition : SurgeryStepCondition
         if (!entityManager.TryGetComponent<ImplantedComponent>(patient, out var implanted))
             return false;
 
-        var container = entityManager.System<SharedContainerSystem>();
         foreach (var implant in implanted.ImplantContainer.ContainedEntities)
         {
-            if (container.CanRemove(implant, implanted.ImplantContainer))
+            if (CanExtract(implant, implanted.ImplantContainer, entityManager))
                 return true;
         }
 
         return false;
+    }
+
+    public static bool CanExtract(EntityUid implant, BaseContainer container, IEntityManager entityManager)
+    {
+        if (entityManager.TryGetComponent<SubdermalImplantComponent>(implant, out var subdermal) && subdermal.Permanent)
+            return false;
+
+        return entityManager.System<SharedContainerSystem>().CanRemove(implant, container);
     }
 }

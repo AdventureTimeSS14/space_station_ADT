@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared.ADT.Surgery.Prototypes.Conditions;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Implants.Components;
 using Robust.Shared.Containers;
@@ -17,7 +18,7 @@ public sealed partial class ExtractImplantEffect : SurgeryStepEffect
         var container = entityManager.System<SharedContainerSystem>();
         foreach (var implant in implanted.ImplantContainer.ContainedEntities.ToArray())
         {
-            if (!container.CanRemove(implant, implanted.ImplantContainer))
+            if (!HasImplantCondition.CanExtract(implant, implanted.ImplantContainer, entityManager))
                 continue;
 
             container.Remove(implant, implanted.ImplantContainer);

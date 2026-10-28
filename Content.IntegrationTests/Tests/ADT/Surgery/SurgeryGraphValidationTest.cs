@@ -38,7 +38,9 @@ public sealed class SurgeryGraphValidationTest : GameTest
         {
             var nodes = graph.Nodes.GroupBy(n => n.Name).ToDictionary(g => g.Key, g => g.First());
             var visited = new HashSet<string>();
-            var queue = new Queue<string>(graph.StartNodes.Where(nodes.ContainsKey));
+            var queue = new Queue<string>();
+            if (nodes.ContainsKey(graph.StartNode))
+                queue.Enqueue(graph.StartNode);
 
             while (queue.Count > 0)
             {
@@ -55,7 +57,7 @@ public sealed class SurgeryGraphValidationTest : GameTest
 
             foreach (var node in graph.Nodes.Where(n => !visited.Contains(n.Name)))
             {
-                errors.Add($"{graph.ID}: node '{node.Name}' is unreachable from start nodes");
+                errors.Add($"{graph.ID}: node '{node.Name}' is unreachable from the start node");
             }
         }
 
@@ -148,8 +150,6 @@ public sealed class SurgeryGraphValidationTest : GameTest
                 errors.Add($"{id}: unknown category '{category}'");
         }
 
-        if (graph.StartNodes.Count == 0)
-            errors.Add($"{id}: no start nodes");
 
         var names = new HashSet<string>();
         foreach (var node in graph.Nodes)
@@ -158,11 +158,8 @@ public sealed class SurgeryGraphValidationTest : GameTest
                 errors.Add($"{id}: duplicate node '{node.Name}'");
         }
 
-        foreach (var start in graph.StartNodes)
-        {
-            if (!names.Contains(start))
-                errors.Add($"{id}: start node '{start}' does not exist");
-        }
+        if (!names.Contains(graph.StartNode))
+            errors.Add($"{id}: start node '{graph.StartNode}' does not exist");
 
         foreach (var node in graph.Nodes)
         {
@@ -191,14 +188,14 @@ public sealed class SurgeryGraphValidationTest : GameTest
                     if (step.Quality is { } quality && !SProtoMan.HasIndex(quality))
                         errors.Add($"{where}: unknown tool quality '{quality}'");
 
-                    if (step.Quality == null && step.Tools.Count == 0)
-                        errors.Add($"{where}: step '{step.Name}' has neither quality nor tools");
+                    if (step.Quality == null && step.Organ == null)
+                        errors.Add($"{where}: step '{step.Name}' has neither quality nor organ");
 
-                    foreach (var tool in step.Tools)
-                    {
-                        if (!SProtoMan.HasIndex<TagPrototype>(tool))
-                            errors.Add($"{where}: unknown tool tag '{tool}'");
-                    }
+                    if (step.Quality != null && step.Organ != null)
+                        errors.Add($"{where}: step '{step.Name}' has both quality and organ");
+
+                    if (step.Organ is { } organ && !SProtoMan.HasIndex(organ))
+                        errors.Add($"{where}: unknown organ category '{organ}'");
 
                     if (step.Duration <= TimeSpan.Zero)
                         errors.Add($"{where}: step '{step.Name}' has non-positive duration");

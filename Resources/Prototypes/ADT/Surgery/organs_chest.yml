@@ -3,8 +3,7 @@
   category: SurgeryCategoryOrganManipulation
   name: surgery-graph-chest-organs-name
   location: surgery-location-chest
-  startNodes:
-    - ChestClosed
+  startNode: ChestClosed
   nodes:
     - name: ChestClosed
       label: surgery-node-chest-closed-label
@@ -28,6 +27,8 @@
 
     - name: ChestIncised
       label: surgery-node-chest-incised-label
+      packages:
+        - SurgeryPackageChestCauterize
       edges:
         - id: ClampBleeders
           label: surgery-edge-chest-clamp-bleeders-label
@@ -40,25 +41,10 @@
               sound:
                 path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
 
-        - id: Cauterize
-          label: surgery-edge-chest-cauterize-label
-          target: ChestClosed
-          steps:
-            - name: surgery-edge-chest-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 1
-                - !type:CauterizeEffect
-
     - name: ChestBleedersClamped
       label: surgery-node-chest-bleeders-clamped-label
+      packages:
+        - SurgeryPackageChestCauterize
       edges:
         - id: RetractSkin
           label: surgery-edge-chest-retract-skin-label
@@ -76,25 +62,10 @@
                     types:
                       Bloodloss: 1
 
-        - id: Cauterize
-          label: surgery-edge-chest-cauterize-label
-          target: ChestClosed
-          steps:
-            - name: surgery-edge-chest-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 1
-                - !type:CauterizeEffect
-
     - name: ChestSkinRetracted
       label: surgery-node-chest-skin-retracted-label
+      packages:
+        - SurgeryPackageChestCauterize
       edges:
         - id: ExtractImplant
           label: surgery-edge-chest-extract-implant-label
@@ -138,23 +109,6 @@
                     types:
                       Piercing: 3
                       Bloodloss: 2
-
-        - id: Cauterize
-          label: surgery-edge-chest-cauterize-label
-          target: ChestClosed
-          steps:
-            - name: surgery-edge-chest-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 1
-                - !type:CauterizeEffect
 
     - name: ChestBoneSawed
       label: surgery-node-chest-bone-sawed-label
@@ -240,7 +194,7 @@
               inverted: true
           steps:
             - name: surgery-edge-chest-insert-heart-label
-              tools: [ Heart ]
+              organ: Heart
               successChance: 0.75
               duration: 4
               sound:
@@ -284,7 +238,7 @@
               inverted: true
           steps:
             - name: surgery-edge-chest-insert-lungs-label
-              tools: [ Lungs ]
+              organ: Lungs
               successChance: 0.75
               duration: 4
               sound:
@@ -319,20 +273,5 @@
 
     - name: ChestBoneGelledTwice
       label: surgery-node-chest-bone-gelled-twice-label
-      edges:
-        - id: Cauterize
-          label: surgery-edge-chest-cauterize-label
-          target: ChestClosed
-          steps:
-            - name: surgery-edge-chest-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 1
-                - !type:CauterizeEffect
+      packages:
+        - SurgeryPackageChestCauterize

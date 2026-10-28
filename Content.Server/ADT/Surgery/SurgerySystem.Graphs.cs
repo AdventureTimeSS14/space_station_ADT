@@ -15,21 +15,24 @@ public sealed partial class SurgerySystem
         return PrototypeManager.TryIndex(graphId, out graph!);
     }
 
-    private bool EdgeConditionsMet(EntityUid patient, SurgeryGraphEdge edge)
-    {
-        foreach (var condition in edge.Conditions)
-        {
-            if (!condition.CheckWithInvert(patient, EntityManager))
-                return false;
-        }
-
-        return true;
-    }
-
-    private void AdvanceNode(OperatedComponent comp, string targetNode)
+    private void AdvanceNode(OperatedComponent comp, SurgeryGraphPrototype graph, string targetNode)
     {
         comp.CurrentNode = targetNode;
         comp.ActiveEdgeId = null;
         comp.CompletedSteps = 0;
+
+        if (targetNode == graph.StartNode || GetNode(graph, targetNode) is not { } node || node.Edges.Count == 0 && node.Packages.Count == 0)
+            comp.GraphId = null;
+    }
+
+    private bool IsBusy(OperatedComponent comp)
+    {
+        if (comp.IsOperating && !_doAfter.IsRunning(comp.DoAfter))
+        {
+            comp.IsOperating = false;
+            comp.DoAfter = null;
+        }
+
+        return comp.IsOperating;
     }
 }

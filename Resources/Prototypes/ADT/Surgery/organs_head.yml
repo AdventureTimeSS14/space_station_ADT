@@ -3,8 +3,7 @@
   category: SurgeryCategoryOrganManipulation
   name: surgery-graph-head-organs-name
   location: surgery-location-head
-  startNodes:
-    - ScalpClosed
+  startNode: ScalpClosed
   nodes:
     - name: ScalpClosed
       label: surgery-node-head-scalp-closed-label
@@ -128,7 +127,7 @@
               inverted: true
           steps:
             - name: surgery-edge-head-insert-ears-label
-              tools: [ Ears ]
+              organ: Ears
               successChance: 0.75
               duration: 3
               sound:
@@ -191,7 +190,7 @@
               inverted: true
           steps:
             - name: surgery-edge-head-insert-tongue-label
-              tools: [ Tongue ]
+              organ: Tongue
               successChance: 0.75
               duration: 3
               sound:
@@ -199,6 +198,46 @@
           effects:
             - !type:InsertOrganEffect
               organId: Tongue
+
+        - id: RemoveVocalCords
+          target: MouthOpen
+          label: surgery-edge-head-remove-vocal-cords-label
+          conditions:
+            - !type:OrganPresentCondition
+              organId: ADTVocalCords
+          steps:
+            - name: surgery-edge-head-remove-vocal-cords-label
+              quality: OrganManipulation
+              successChance: 0.65
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 2
+          effects:
+            - !type:RemoveOrganEffect
+              organId: ADTVocalCords
+
+        - id: InsertVocalCords
+          target: MouthOpen
+          label: surgery-edge-head-insert-vocal-cords-label
+          conditions:
+            - !type:OrganPresentCondition
+              organId: ADTVocalCords
+              inverted: true
+          steps:
+            - name: surgery-edge-head-insert-vocal-cords-label
+              organ: ADTVocalCords
+              successChance: 0.75
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+          effects:
+            - !type:InsertOrganEffect
+              organId: ADTVocalCords
 
     - name: EyelidRetracted
       label: surgery-node-head-eyelid-retracted-label
@@ -254,7 +293,7 @@
               inverted: true
           steps:
             - name: surgery-edge-head-insert-eyes-label
-              tools: [ Eyes ]
+              organ: Eyes
               successChance: 0.75
               duration: 3
               sound:
@@ -265,6 +304,8 @@
 
     - name: ScalpIncised
       label: surgery-node-head-scalp-incised-label
+      packages:
+        - SurgeryPackageScalpCauterize
       edges:
         - id: ClampBleeders
           label: surgery-edge-head-clamp-bleeders-label
@@ -277,25 +318,10 @@
               sound:
                 path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
 
-        - id: Cauterize
-          label: surgery-edge-head-cauterize-label
-          target: ScalpClosed
-          steps:
-            - name: surgery-edge-head-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 5
-                - !type:CauterizeEffect
-
     - name: ScalpBleedersClamped
       label: surgery-node-head-scalp-bleeders-clamped-label
+      packages:
+        - SurgeryPackageScalpCauterize
       edges:
         - id: RetractScalp
           label: surgery-edge-head-retract-scalp-label
@@ -313,25 +339,10 @@
                     types:
                       Bloodloss: 1
 
-        - id: Cauterize
-          label: surgery-edge-head-cauterize-label
-          target: ScalpClosed
-          steps:
-            - name: surgery-edge-head-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 5
-                - !type:CauterizeEffect
-
     - name: ScalpRetracted
       label: surgery-node-head-scalp-retracted-label
+      packages:
+        - SurgeryPackageScalpCauterize
       edges:
         - id: SawSkull
           label: surgery-edge-head-saw-skull-label
@@ -349,23 +360,6 @@
                     types:
                       Piercing: 3
                       Bloodloss: 2
-
-        - id: Cauterize
-          label: surgery-edge-head-cauterize-label
-          target: ScalpClosed
-          steps:
-            - name: surgery-edge-head-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 5
-                - !type:CauterizeEffect
 
     - name: SkullSawed
       label: surgery-node-head-skull-sawed-label
@@ -445,7 +439,7 @@
               inverted: true
           steps:
             - name: surgery-edge-head-insert-brain-label
-              tools: [ Brain ]
+              organ: Brain
               successChance: 0.75
               duration: 4
               sound:
@@ -480,20 +474,5 @@
 
     - name: SkullBoneGelledTwice
       label: surgery-node-head-skull-bone-gelled-twice-label
-      edges:
-        - id: Cauterize
-          label: surgery-edge-head-cauterize-label
-          target: ScalpClosed
-          steps:
-            - name: surgery-edge-head-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 5
-                - !type:CauterizeEffect
+      packages:
+        - SurgeryPackageScalpCauterize

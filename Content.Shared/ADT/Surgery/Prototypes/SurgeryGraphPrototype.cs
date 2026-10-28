@@ -1,8 +1,6 @@
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
-using Robust.Shared.Utility;
-using Content.Shared.Tag;
+using Content.Shared.Body;
 
 namespace Content.Shared.ADT.Surgery.Prototypes;
 
@@ -22,8 +20,8 @@ public sealed partial class SurgeryGraphPrototype : IPrototype
     [DataField]
     public ProtoId<SurgeryCategoryPrototype>? Category;
 
-    [DataField]
-    public List<string> StartNodes = new();
+    [DataField(required: true)]
+    public string StartNode = default!;
 
     [DataField("nodes")]
     public List<SurgeryGraphNode> Nodes = new();
@@ -72,9 +70,6 @@ public sealed partial class SurgeryGraphEdge
     public string Label = string.Empty;
 
     [DataField]
-    public SpriteSpecifier? Icon;
-
-    [DataField]
     public List<SurgeryStepEntry> Steps = new();
 
     [DataField]
@@ -105,7 +100,7 @@ public sealed partial class SurgeryStepEntry
     public ProtoId<SurgeryToolQualityPrototype>? Quality;
 
     [DataField]
-    public List<ProtoId<TagPrototype>> Tools = new();
+    public ProtoId<OrganCategoryPrototype>? Organ;
 
     [DataField]
     public TimeSpan Duration = TimeSpan.FromSeconds(2);

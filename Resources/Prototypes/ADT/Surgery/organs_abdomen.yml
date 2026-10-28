@@ -3,8 +3,7 @@
   category: SurgeryCategoryOrganManipulation
   name: surgery-graph-abdomen-organs-name
   location: surgery-location-abdomen
-  startNodes:
-    - AbdomenClosed
+  startNode: AbdomenClosed
   nodes:
     - name: AbdomenClosed
       label: surgery-node-abdomen-closed-label
@@ -28,6 +27,8 @@
 
     - name: AbdomenIncised
       label: surgery-node-abdomen-incised-label
+      packages:
+        - SurgeryPackageAbdomenCauterize
       edges:
         - id: ClampBleeders
           label: surgery-edge-abdomen-clamp-bleeders-label
@@ -40,25 +41,10 @@
               sound:
                 path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
 
-        - id: Cauterize
-          target: AbdomenClosed
-          label: surgery-edge-abdomen-cauterize-label
-          steps:
-            - name: surgery-edge-abdomen-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 3
-                - !type:CauterizeEffect
-
     - name: AbdomenBleedersClamped
       label: surgery-node-abdomen-bleeders-clamped-label
+      packages:
+        - SurgeryPackageAbdomenCauterize
       edges:
         - id: RetractSkin
           label: surgery-edge-abdomen-retract-skin-label
@@ -76,25 +62,10 @@
                     types:
                       Bloodloss: 10
 
-        - id: Cauterize
-          target: AbdomenClosed
-          label: surgery-edge-abdomen-cauterize-label
-          steps:
-            - name: surgery-edge-abdomen-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 3
-                - !type:CauterizeEffect
-
     - name: AbdomenSkinRetracted
       label: surgery-node-abdomen-skin-retracted-label
+      packages:
+        - SurgeryPackageAbdomenCauterize
       edges:
         - id: RetractMuscle
           target: AbdomenOpen
@@ -111,23 +82,6 @@
                   damage:
                     types:
                       Bloodloss: 10
-
-        - id: Cauterize
-          target: AbdomenClosed
-          label: surgery-edge-abdomen-cauterize-label
-          steps:
-            - name: surgery-edge-abdomen-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 1
-                - !type:CauterizeEffect
 
     - name: AbdomenOpen
       label: surgery-node-abdomen-open-label
@@ -185,7 +139,7 @@
               inverted: true
           steps:
             - name: surgery-edge-abdomen-insert-stomach-label
-              tools: [ Stomach ]
+              organ: Stomach
               successChance: 0.75
               duration: 4
               sound:
@@ -229,7 +183,7 @@
               inverted: true
           steps:
             - name: surgery-edge-abdomen-insert-liver-label
-              tools: [ Liver ]
+              organ: Liver
               successChance: 0.75
               duration: 4
               sound:
@@ -273,7 +227,7 @@
               inverted: true
           steps:
             - name: surgery-edge-abdomen-insert-kidneys-label
-              tools: [ Kidneys ]
+              organ: Kidneys
               successChance: 0.75
               duration: 4
               sound:
@@ -313,7 +267,7 @@
               inverted: true
           steps:
             - name: surgery-edge-abdomen-insert-appendix-label
-              tools: [ Appendix ]
+              organ: Appendix
               successChance: 0.75
               duration: 4
               sound:

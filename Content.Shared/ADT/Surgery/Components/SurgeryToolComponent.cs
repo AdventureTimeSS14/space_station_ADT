@@ -8,9 +8,6 @@ namespace Content.Shared.ADT.Surgery.Components;
 public sealed partial class SurgeryToolComponent : Component
 {
     [DataField]
-    public int Tier;
-
-    [DataField]
     public float Speed = 1f;
 
     [DataField]

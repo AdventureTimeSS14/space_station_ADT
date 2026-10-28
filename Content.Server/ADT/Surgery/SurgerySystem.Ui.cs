@@ -1,11 +1,8 @@
+using System.Linq;
 using Content.Shared.ADT.Surgery;
 using Content.Shared.ADT.Surgery.Components;
 using Content.Shared.ADT.Surgery.Events;
 using Content.Shared.ADT.Surgery.Prototypes;
-using Content.Shared.ADT.Surgery.Prototypes.Effects;
-using Content.Shared.Body;
-using Robust.Shared.GameObjects;
-using Robust.Shared.Utility;
 
 namespace Content.Server.ADT.Surgery;
 
@@ -18,31 +15,11 @@ public sealed partial class SurgerySystem
         var options = new List<(string, string, string, string)>();
         foreach (var graph in PrototypeManager.EnumeratePrototypes<SurgeryGraphPrototype>())
         {
-            if (graph.StartNodes.Count == 0)
-                continue;
-
-            var currentNodeName = comp != null && comp.GraphId == graph.ID && !string.IsNullOrEmpty(comp.CurrentNode)
-                ? comp.CurrentNode
-                : graph.StartNodes[0];
+            var currentNodeName = comp != null && comp.GraphId == graph.ID ? comp.CurrentNode : graph.StartNode;
 
             var node = GetNode(graph, currentNodeName);
-            if (node == null)
+            if (node == null || !HasAvailableEdge(target, node))
                 continue;
-
-            var hasValidEdge = false;
-            foreach (var edge in GetAllEdges(node))
-            {
-                if (!EdgeConditionsMet(target, edge))
-                    continue;
-
-                hasValidEdge = true;
-                break;
-            }
-
-            if (!hasValidEdge)
-                continue;
-
-            var name = string.IsNullOrEmpty(graph.Name) ? graph.ID : Loc.GetString(graph.Name);
 
             var categoryName = string.Empty;
             var subcategoryName = string.Empty;
@@ -50,16 +27,16 @@ public sealed partial class SurgerySystem
             {
                 if (category.Parent is { } parentId && PrototypeManager.TryIndex(parentId, out var parentCategory))
                 {
-                    categoryName = string.IsNullOrEmpty(parentCategory.Name) ? parentCategory.ID : Loc.GetString(parentCategory.Name);
-                    subcategoryName = string.IsNullOrEmpty(category.Name) ? category.ID : Loc.GetString(category.Name);
+                    categoryName = LocOrId(parentCategory.Name, parentCategory.ID);
+                    subcategoryName = LocOrId(category.Name, category.ID);
                 }
                 else
                 {
-                    categoryName = string.IsNullOrEmpty(category.Name) ? category.ID : Loc.GetString(category.Name);
+                    categoryName = LocOrId(category.Name, category.ID);
                 }
             }
 
-            options.Add((graph.ID, name, categoryName, subcategoryName));
+            options.Add((graph.ID, LocOrId(graph.Name, graph.ID), categoryName, subcategoryName));
         }
 
         if (options.Count == 0)
@@ -68,43 +45,31 @@ public sealed partial class SurgerySystem
             return;
         }
 
-        _ui.SetUi(target, SurgeryUiKey.Key, new InterfaceData("SurgeryBoundUserInterface"));
-        _ui.OpenUi(target, SurgeryUiKey.Key, user);
-        _ui.SetUiState(target, SurgeryUiKey.Key, new SurgeryChooseGraphState(options));
+        OpenUi(user, target, new SurgeryChooseGraphState(options));
     }
 
     private void OpenEdgeChoice(EntityUid user, EntityUid target, List<SurgeryGraphEdge> matches)
     {
-        var options = new List<(string, string, NetEntity?, SpriteSpecifier?)>();
+        var options = new List<(string, string)>();
         foreach (var edge in matches)
         {
-            var (iconEntity, icon) = GetEdgeIcon(target, edge);
-            options.Add((edge.Id, string.IsNullOrEmpty(edge.Label) ? edge.Id : Loc.GetString(edge.Label), iconEntity, icon));
+            options.Add((edge.Id, LocOrId(edge.Label, edge.Id)));
         }
 
-        _ui.SetUi(target, SurgeryUiKey.Key, new InterfaceData("SurgeryBoundUserInterface"));
-        _ui.OpenUi(target, SurgeryUiKey.Key, user);
-        _ui.SetUiState(target, SurgeryUiKey.Key, new SurgeryChooseEdgeState(options));
+        OpenUi(user, target, new SurgeryChooseEdgeState(options));
     }
 
-    private (NetEntity?, SpriteSpecifier?) GetEdgeIcon(EntityUid target, SurgeryGraphEdge edge)
+    private void OpenUi(EntityUid user, EntityUid target, BoundUserInterfaceState state)
     {
-        foreach (var effect in edge.Effects)
+        _ui.SetUi(target, SurgeryUiKey.Key, new InterfaceData("SurgeryBoundUserInterface"));
+
+        foreach (var actor in _ui.GetActors(target, SurgeryUiKey.Key).ToList())
         {
-            if (effect is not RemoveOrganEffect removeOrgan)
-                continue;
-
-            foreach (var organ in _body.EnumerateOrgans<OrganComponent>(target))
-            {
-                if (organ.Comp1.Category != removeOrgan.OrganId)
-                    continue;
-
-                return (GetNetEntity(organ.Owner), edge.Icon);
-            }
-
-            break;
+            if (actor != user)
+                _ui.CloseUi(target, SurgeryUiKey.Key, actor);
         }
 
-        return (null, edge.Icon);
+        _ui.OpenUi(target, SurgeryUiKey.Key, user);
+        _ui.SetUiState(target, SurgeryUiKey.Key, state);
     }
 }

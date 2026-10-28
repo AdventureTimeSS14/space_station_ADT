@@ -3,8 +3,7 @@
   category: SurgeryCategoryAmputation
   name: surgery-graph-amputate-arm-left-name
   location: surgery-location-arm-left
-  startNodes:
-    - Attached
+  startNode: Attached
   nodes:
     - name: Attached
       label: surgery-node-limb-attached-label
@@ -31,6 +30,8 @@
 
     - name: Cut
       label: surgery-node-limb-cut-label
+      packages:
+        - SurgeryPackageLimbCauterize
       edges:
         - id: ClampBleeders
           label: surgery-edge-limb-clamp-bleeders-label
@@ -43,25 +44,10 @@
               sound:
                 path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
 
-        - id: Cauterize
-          label: surgery-edge-limb-cauterize-label
-          target: Attached
-          steps:
-            - name: surgery-edge-limb-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 1
-                - !type:CauterizeEffect
-
     - name: BleedersClamped
       label: surgery-node-limb-bleeders-clamped-label
+      packages:
+        - SurgeryPackageLimbCauterize
       edges:
         - id: RetractSkin
           label: surgery-edge-limb-retract-skin-label
@@ -79,25 +65,10 @@
                     types:
                       Bloodloss: 1
 
-        - id: Cauterize
-          label: surgery-edge-limb-cauterize-label
-          target: Attached
-          steps:
-            - name: surgery-edge-limb-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 1
-                - !type:CauterizeEffect
-
     - name: SkinRetracted
       label: surgery-node-limb-skin-retracted-label
+      packages:
+        - SurgeryPackageLimbCauterize
       edges:
         - id: Saw
           label: surgery-edge-limb-saw-label
@@ -119,42 +90,10 @@
             - !type:RemoveOrganEffect
               organId: ArmLeft
 
-        - id: Cauterize
-          label: surgery-edge-limb-cauterize-label
-          target: Attached
-          steps:
-            - name: surgery-edge-limb-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 1
-                - !type:CauterizeEffect
-
     - name: Amputated
       label: surgery-node-limb-amputated-label
-      edges:
-        - id: Cauterize
-          label: surgery-edge-limb-cauterize-label
-          target: Cauterized
-          steps:
-            - name: surgery-edge-limb-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/Effects/lightburn.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 1
-                - !type:CauterizeEffect
+      packages:
+        - SurgeryPackageLimbStumpCauterize
 
     - name: Cauterized
       label: surgery-node-limb-cauterized-label
@@ -165,8 +104,7 @@
   category: SurgeryCategoryAmputation
   name: surgery-graph-amputate-arm-right-name
   location: surgery-location-arm-right
-  startNodes:
-    - Attached
+  startNode: Attached
   nodes:
     - name: Attached
       label: surgery-node-limb-attached-label
@@ -193,6 +131,8 @@
 
     - name: Cut
       label: surgery-node-limb-cut-label
+      packages:
+        - SurgeryPackageLimbCauterize
       edges:
         - id: ClampBleeders
           label: surgery-edge-limb-clamp-bleeders-label
@@ -205,25 +145,10 @@
               sound:
                 path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
 
-        - id: Cauterize
-          label: surgery-edge-limb-cauterize-label
-          target: Attached
-          steps:
-            - name: surgery-edge-limb-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 1
-                - !type:CauterizeEffect
-
     - name: BleedersClamped
       label: surgery-node-limb-bleeders-clamped-label
+      packages:
+        - SurgeryPackageLimbCauterize
       edges:
         - id: RetractSkin
           label: surgery-edge-limb-retract-skin-label
@@ -241,25 +166,10 @@
                     types:
                       Bloodloss: 1
 
-        - id: Cauterize
-          label: surgery-edge-limb-cauterize-label
-          target: Attached
-          steps:
-            - name: surgery-edge-limb-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 1
-                - !type:CauterizeEffect
-
     - name: SkinRetracted
       label: surgery-node-limb-skin-retracted-label
+      packages:
+        - SurgeryPackageLimbCauterize
       edges:
         - id: Saw
           label: surgery-edge-limb-saw-label
@@ -281,42 +191,10 @@
             - !type:RemoveOrganEffect
               organId: ArmRight
 
-        - id: Cauterize
-          label: surgery-edge-limb-cauterize-label
-          target: Attached
-          steps:
-            - name: surgery-edge-limb-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 1
-                - !type:CauterizeEffect
-
     - name: Amputated
       label: surgery-node-limb-amputated-label
-      edges:
-        - id: Cauterize
-          label: surgery-edge-limb-cauterize-label
-          target: Cauterized
-          steps:
-            - name: surgery-edge-limb-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/Effects/lightburn.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 1
-                - !type:CauterizeEffect
+      packages:
+        - SurgeryPackageLimbStumpCauterize
 
     - name: Cauterized
       label: surgery-node-limb-cauterized-label
@@ -327,8 +205,7 @@
   category: SurgeryCategoryAmputation
   name: surgery-graph-amputate-hand-left-name
   location: surgery-location-hand-left
-  startNodes:
-    - Attached
+  startNode: Attached
   nodes:
     - name: Attached
       label: surgery-node-limb-attached-label
@@ -355,6 +232,8 @@
 
     - name: Cut
       label: surgery-node-limb-cut-label
+      packages:
+        - SurgeryPackageLimbCauterize
       edges:
         - id: ClampBleeders
           label: surgery-edge-limb-clamp-bleeders-label
@@ -367,25 +246,10 @@
               sound:
                 path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
 
-        - id: Cauterize
-          label: surgery-edge-limb-cauterize-label
-          target: Attached
-          steps:
-            - name: surgery-edge-limb-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 1
-                - !type:CauterizeEffect
-
     - name: BleedersClamped
       label: surgery-node-limb-bleeders-clamped-label
+      packages:
+        - SurgeryPackageLimbCauterize
       edges:
         - id: RetractSkin
           label: surgery-edge-limb-retract-skin-label
@@ -403,25 +267,10 @@
                     types:
                       Bloodloss: 1
 
-        - id: Cauterize
-          label: surgery-edge-limb-cauterize-label
-          target: Attached
-          steps:
-            - name: surgery-edge-limb-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 1
-                - !type:CauterizeEffect
-
     - name: SkinRetracted
       label: surgery-node-limb-skin-retracted-label
+      packages:
+        - SurgeryPackageLimbCauterize
       edges:
         - id: Saw
           label: surgery-edge-limb-saw-label
@@ -443,42 +292,10 @@
             - !type:RemoveOrganEffect
               organId: HandLeft
 
-        - id: Cauterize
-          label: surgery-edge-limb-cauterize-label
-          target: Attached
-          steps:
-            - name: surgery-edge-limb-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 1
-                - !type:CauterizeEffect
-
     - name: Amputated
       label: surgery-node-limb-amputated-label
-      edges:
-        - id: Cauterize
-          label: surgery-edge-limb-cauterize-label
-          target: Cauterized
-          steps:
-            - name: surgery-edge-limb-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/Effects/lightburn.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 1
-                - !type:CauterizeEffect
+      packages:
+        - SurgeryPackageLimbStumpCauterize
 
     - name: Cauterized
       label: surgery-node-limb-cauterized-label
@@ -489,8 +306,7 @@
   category: SurgeryCategoryAmputation
   name: surgery-graph-amputate-hand-right-name
   location: surgery-location-hand-right
-  startNodes:
-    - Attached
+  startNode: Attached
   nodes:
     - name: Attached
       label: surgery-node-limb-attached-label
@@ -517,6 +333,8 @@
 
     - name: Cut
       label: surgery-node-limb-cut-label
+      packages:
+        - SurgeryPackageLimbCauterize
       edges:
         - id: ClampBleeders
           label: surgery-edge-limb-clamp-bleeders-label
@@ -529,25 +347,10 @@
               sound:
                 path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
 
-        - id: Cauterize
-          label: surgery-edge-limb-cauterize-label
-          target: Attached
-          steps:
-            - name: surgery-edge-limb-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 1
-                - !type:CauterizeEffect
-
     - name: BleedersClamped
       label: surgery-node-limb-bleeders-clamped-label
+      packages:
+        - SurgeryPackageLimbCauterize
       edges:
         - id: RetractSkin
           label: surgery-edge-limb-retract-skin-label
@@ -565,25 +368,10 @@
                     types:
                       Bloodloss: 1
 
-        - id: Cauterize
-          label: surgery-edge-limb-cauterize-label
-          target: Attached
-          steps:
-            - name: surgery-edge-limb-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 1
-                - !type:CauterizeEffect
-
     - name: SkinRetracted
       label: surgery-node-limb-skin-retracted-label
+      packages:
+        - SurgeryPackageLimbCauterize
       edges:
         - id: Saw
           label: surgery-edge-limb-saw-label
@@ -605,42 +393,10 @@
             - !type:RemoveOrganEffect
               organId: HandRight
 
-        - id: Cauterize
-          label: surgery-edge-limb-cauterize-label
-          target: Attached
-          steps:
-            - name: surgery-edge-limb-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 1
-                - !type:CauterizeEffect
-
     - name: Amputated
       label: surgery-node-limb-amputated-label
-      edges:
-        - id: Cauterize
-          label: surgery-edge-limb-cauterize-label
-          target: Cauterized
-          steps:
-            - name: surgery-edge-limb-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/Effects/lightburn.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 1
-                - !type:CauterizeEffect
+      packages:
+        - SurgeryPackageLimbStumpCauterize
 
     - name: Cauterized
       label: surgery-node-limb-cauterized-label
@@ -651,8 +407,7 @@
   category: SurgeryCategoryAmputation
   name: surgery-graph-amputate-leg-left-name
   location: surgery-location-leg-left
-  startNodes:
-    - Attached
+  startNode: Attached
   nodes:
     - name: Attached
       label: surgery-node-limb-attached-label
@@ -679,6 +434,8 @@
 
     - name: Cut
       label: surgery-node-limb-cut-label
+      packages:
+        - SurgeryPackageLimbCauterize
       edges:
         - id: ClampBleeders
           label: surgery-edge-limb-clamp-bleeders-label
@@ -691,25 +448,10 @@
               sound:
                 path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
 
-        - id: Cauterize
-          label: surgery-edge-limb-cauterize-label
-          target: Attached
-          steps:
-            - name: surgery-edge-limb-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 1
-                - !type:CauterizeEffect
-
     - name: BleedersClamped
       label: surgery-node-limb-bleeders-clamped-label
+      packages:
+        - SurgeryPackageLimbCauterize
       edges:
         - id: RetractSkin
           label: surgery-edge-limb-retract-skin-label
@@ -727,25 +469,10 @@
                     types:
                       Bloodloss: 1
 
-        - id: Cauterize
-          label: surgery-edge-limb-cauterize-label
-          target: Attached
-          steps:
-            - name: surgery-edge-limb-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 1
-                - !type:CauterizeEffect
-
     - name: SkinRetracted
       label: surgery-node-limb-skin-retracted-label
+      packages:
+        - SurgeryPackageLimbCauterize
       edges:
         - id: Saw
           label: surgery-edge-limb-saw-label
@@ -767,42 +494,10 @@
             - !type:RemoveOrganEffect
               organId: LegLeft
 
-        - id: Cauterize
-          label: surgery-edge-limb-cauterize-label
-          target: Attached
-          steps:
-            - name: surgery-edge-limb-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 1
-                - !type:CauterizeEffect
-
     - name: Amputated
       label: surgery-node-limb-amputated-label
-      edges:
-        - id: Cauterize
-          label: surgery-edge-limb-cauterize-label
-          target: Cauterized
-          steps:
-            - name: surgery-edge-limb-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/Effects/lightburn.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 1
-                - !type:CauterizeEffect
+      packages:
+        - SurgeryPackageLimbStumpCauterize
 
     - name: Cauterized
       label: surgery-node-limb-cauterized-label
@@ -813,8 +508,7 @@
   category: SurgeryCategoryAmputation
   name: surgery-graph-amputate-leg-right-name
   location: surgery-location-leg-right
-  startNodes:
-    - Attached
+  startNode: Attached
   nodes:
     - name: Attached
       label: surgery-node-limb-attached-label
@@ -841,6 +535,8 @@
 
     - name: Cut
       label: surgery-node-limb-cut-label
+      packages:
+        - SurgeryPackageLimbCauterize
       edges:
         - id: ClampBleeders
           label: surgery-edge-limb-clamp-bleeders-label
@@ -853,25 +549,10 @@
               sound:
                 path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
 
-        - id: Cauterize
-          label: surgery-edge-limb-cauterize-label
-          target: Attached
-          steps:
-            - name: surgery-edge-limb-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 1
-                - !type:CauterizeEffect
-
     - name: BleedersClamped
       label: surgery-node-limb-bleeders-clamped-label
+      packages:
+        - SurgeryPackageLimbCauterize
       edges:
         - id: RetractSkin
           label: surgery-edge-limb-retract-skin-label
@@ -889,25 +570,10 @@
                     types:
                       Bloodloss: 1
 
-        - id: Cauterize
-          label: surgery-edge-limb-cauterize-label
-          target: Attached
-          steps:
-            - name: surgery-edge-limb-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 1
-                - !type:CauterizeEffect
-
     - name: SkinRetracted
       label: surgery-node-limb-skin-retracted-label
+      packages:
+        - SurgeryPackageLimbCauterize
       edges:
         - id: Saw
           label: surgery-edge-limb-saw-label
@@ -929,42 +595,10 @@
             - !type:RemoveOrganEffect
               organId: LegRight
 
-        - id: Cauterize
-          label: surgery-edge-limb-cauterize-label
-          target: Attached
-          steps:
-            - name: surgery-edge-limb-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 1
-                - !type:CauterizeEffect
-
     - name: Amputated
       label: surgery-node-limb-amputated-label
-      edges:
-        - id: Cauterize
-          label: surgery-edge-limb-cauterize-label
-          target: Cauterized
-          steps:
-            - name: surgery-edge-limb-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/Effects/lightburn.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 1
-                - !type:CauterizeEffect
+      packages:
+        - SurgeryPackageLimbStumpCauterize
 
     - name: Cauterized
       label: surgery-node-limb-cauterized-label
@@ -975,8 +609,7 @@
   category: SurgeryCategoryAmputation
   name: surgery-graph-amputate-foot-left-name
   location: surgery-location-foot-left
-  startNodes:
-    - Attached
+  startNode: Attached
   nodes:
     - name: Attached
       label: surgery-node-limb-attached-label
@@ -1003,6 +636,8 @@
 
     - name: Cut
       label: surgery-node-limb-cut-label
+      packages:
+        - SurgeryPackageLimbCauterize
       edges:
         - id: ClampBleeders
           label: surgery-edge-limb-clamp-bleeders-label
@@ -1015,25 +650,10 @@
               sound:
                 path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
 
-        - id: Cauterize
-          label: surgery-edge-limb-cauterize-label
-          target: Attached
-          steps:
-            - name: surgery-edge-limb-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 1
-                - !type:CauterizeEffect
-
     - name: BleedersClamped
       label: surgery-node-limb-bleeders-clamped-label
+      packages:
+        - SurgeryPackageLimbCauterize
       edges:
         - id: RetractSkin
           label: surgery-edge-limb-retract-skin-label
@@ -1051,25 +671,10 @@
                     types:
                       Bloodloss: 1
 
-        - id: Cauterize
-          label: surgery-edge-limb-cauterize-label
-          target: Attached
-          steps:
-            - name: surgery-edge-limb-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 1
-                - !type:CauterizeEffect
-
     - name: SkinRetracted
       label: surgery-node-limb-skin-retracted-label
+      packages:
+        - SurgeryPackageLimbCauterize
       edges:
         - id: Saw
           label: surgery-edge-limb-saw-label
@@ -1091,42 +696,10 @@
             - !type:RemoveOrganEffect
               organId: FootLeft
 
-        - id: Cauterize
-          label: surgery-edge-limb-cauterize-label
-          target: Attached
-          steps:
-            - name: surgery-edge-limb-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 1
-                - !type:CauterizeEffect
-
     - name: Amputated
       label: surgery-node-limb-amputated-label
-      edges:
-        - id: Cauterize
-          label: surgery-edge-limb-cauterize-label
-          target: Cauterized
-          steps:
-            - name: surgery-edge-limb-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/Effects/lightburn.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 1
-                - !type:CauterizeEffect
+      packages:
+        - SurgeryPackageLimbStumpCauterize
 
     - name: Cauterized
       label: surgery-node-limb-cauterized-label
@@ -1137,8 +710,7 @@
   category: SurgeryCategoryAmputation
   name: surgery-graph-amputate-foot-right-name
   location: surgery-location-foot-right
-  startNodes:
-    - Attached
+  startNode: Attached
   nodes:
     - name: Attached
       label: surgery-node-limb-attached-label
@@ -1165,6 +737,8 @@
 
     - name: Cut
       label: surgery-node-limb-cut-label
+      packages:
+        - SurgeryPackageLimbCauterize
       edges:
         - id: ClampBleeders
           label: surgery-edge-limb-clamp-bleeders-label
@@ -1177,25 +751,10 @@
               sound:
                 path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
 
-        - id: Cauterize
-          label: surgery-edge-limb-cauterize-label
-          target: Attached
-          steps:
-            - name: surgery-edge-limb-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 1
-                - !type:CauterizeEffect
-
     - name: BleedersClamped
       label: surgery-node-limb-bleeders-clamped-label
+      packages:
+        - SurgeryPackageLimbCauterize
       edges:
         - id: RetractSkin
           label: surgery-edge-limb-retract-skin-label
@@ -1213,25 +772,10 @@
                     types:
                       Bloodloss: 1
 
-        - id: Cauterize
-          label: surgery-edge-limb-cauterize-label
-          target: Attached
-          steps:
-            - name: surgery-edge-limb-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 1
-                - !type:CauterizeEffect
-
     - name: SkinRetracted
       label: surgery-node-limb-skin-retracted-label
+      packages:
+        - SurgeryPackageLimbCauterize
       edges:
         - id: Saw
           label: surgery-edge-limb-saw-label
@@ -1253,42 +797,10 @@
             - !type:RemoveOrganEffect
               organId: FootRight
 
-        - id: Cauterize
-          label: surgery-edge-limb-cauterize-label
-          target: Attached
-          steps:
-            - name: surgery-edge-limb-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 1
-                - !type:CauterizeEffect
-
     - name: Amputated
       label: surgery-node-limb-amputated-label
-      edges:
-        - id: Cauterize
-          label: surgery-edge-limb-cauterize-label
-          target: Cauterized
-          steps:
-            - name: surgery-edge-limb-cauterize-label
-              quality: Cautery
-              successChance: 0.85
-              duration: 3
-              sound:
-                path: /Audio/Effects/lightburn.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Heat: 1
-                - !type:CauterizeEffect
+      packages:
+        - SurgeryPackageLimbStumpCauterize
 
     - name: Cauterized
       label: surgery-node-limb-cauterized-label

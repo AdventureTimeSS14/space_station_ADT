@@ -20,6 +20,6 @@ public sealed partial class CauterizeEffect : SurgeryStepEffect
 
         entityManager.System<BloodstreamSystem>().TryModifyBleedAmount((patient, bloodstream), -bloodstream.BleedAmount);
         entityManager.System<SharedPopupSystem>().PopupEntity(Loc.GetString("bloodstream-component-wounds-cauterized"), patient, patient, PopupType.Medium);
-        entityManager.System<SharedAudioSystem>().PlayPredicted(bloodstream.BloodHealedSound, patient, surgeon);
+        entityManager.System<SharedAudioSystem>().PlayPvs(bloodstream.BloodHealedSound, patient);
     }
 }

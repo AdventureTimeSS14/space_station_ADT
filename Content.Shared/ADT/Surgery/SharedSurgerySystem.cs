@@ -3,9 +3,9 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.Surgery;
 
-public abstract class SharedSurgerySystem : EntitySystem
+public abstract partial class SharedSurgerySystem : EntitySystem
 {
-    [Dependency] protected readonly IPrototypeManager PrototypeManager = default!;
+    [Dependency] protected IPrototypeManager PrototypeManager = default!;
 
     protected static SurgeryGraphNode? GetNode(SurgeryGraphPrototype graph, string name)
     {
@@ -40,5 +40,32 @@ public abstract class SharedSurgerySystem : EntitySystem
         }
 
         return null;
+    }
+
+    protected bool EdgeConditionsMet(EntityUid patient, SurgeryGraphEdge edge)
+    {
+        foreach (var condition in edge.Conditions)
+        {
+            if (!condition.CheckWithInvert(patient, EntityManager))
+                return false;
+        }
+
+        return true;
+    }
+
+    protected bool HasAvailableEdge(EntityUid patient, SurgeryGraphNode node)
+    {
+        foreach (var edge in GetAllEdges(node))
+        {
+            if (EdgeConditionsMet(patient, edge))
+                return true;
+        }
+
+        return false;
+    }
+
+    protected string LocOrId(string locId, string fallback)
+    {
+        return string.IsNullOrEmpty(locId) ? fallback : Loc.GetString(locId);
     }
 }

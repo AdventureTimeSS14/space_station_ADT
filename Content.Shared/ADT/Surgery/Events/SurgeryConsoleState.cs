@@ -16,10 +16,10 @@ public sealed class SurgeryConsoleState : BoundUserInterfaceState
     public string Location;
     public string CurrentNode;
 
-    public List<(string Label, List<string> ToolTags)> NextSteps;
+    public List<string> NextSteps;
 
     public SurgeryConsoleState(bool hasTable, bool hasPatient, bool alertsEnabled, HealthAnalyzerUiState patientHealth,
-        string graphName, string location, string currentNode, List<(string, List<string>)> nextSteps)
+        string graphName, string location, string currentNode, List<string> nextSteps)
     {
         HasTable = hasTable;
         HasPatient = hasPatient;

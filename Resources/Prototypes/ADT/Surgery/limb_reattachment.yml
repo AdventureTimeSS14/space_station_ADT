@@ -3,8 +3,7 @@
   category: SurgeryCategoryLimbReattachment
   name: surgery-graph-reattach-arm-left-name
   location: surgery-location-arm-left
-  startNodes:
-    - Amputated
+  startNode: Amputated
   nodes:
     - name: Amputated
       label: surgery-node-limb-amputated-label
@@ -38,7 +37,7 @@
           target: LimbPlaced
           steps:
             - name: surgery-edge-limb-attach-label
-              tools: [ ArmLeft ]
+              organ: ArmLeft
               successChance: 0.75
               duration: 4
           effects:
@@ -90,8 +89,7 @@
   category: SurgeryCategoryLimbReattachment
   name: surgery-graph-reattach-arm-right-name
   location: surgery-location-arm-right
-  startNodes:
-    - Amputated
+  startNode: Amputated
   nodes:
     - name: Amputated
       label: surgery-node-limb-amputated-label
@@ -125,7 +123,7 @@
           target: LimbPlaced
           steps:
             - name: surgery-edge-limb-attach-label
-              tools: [ ArmRight ]
+              organ: ArmRight
               successChance: 0.75
               duration: 4
           effects:
@@ -177,8 +175,7 @@
   category: SurgeryCategoryLimbReattachment
   name: surgery-graph-reattach-hand-left-name
   location: surgery-location-hand-left
-  startNodes:
-    - Amputated
+  startNode: Amputated
   nodes:
     - name: Amputated
       label: surgery-node-limb-amputated-label
@@ -214,7 +211,7 @@
           target: LimbPlaced
           steps:
             - name: surgery-edge-limb-attach-label
-              tools: [ HandLeft ]
+              organ: HandLeft
               successChance: 0.75
               duration: 4
           effects:
@@ -266,8 +263,7 @@
   category: SurgeryCategoryLimbReattachment
   name: surgery-graph-reattach-hand-right-name
   location: surgery-location-hand-right
-  startNodes:
-    - Amputated
+  startNode: Amputated
   nodes:
     - name: Amputated
       label: surgery-node-limb-amputated-label
@@ -303,7 +299,7 @@
           target: LimbPlaced
           steps:
             - name: surgery-edge-limb-attach-label
-              tools: [ HandRight ]
+              organ: HandRight
               successChance: 0.75
               duration: 4
           effects:
@@ -355,8 +351,7 @@
   category: SurgeryCategoryLimbReattachment
   name: surgery-graph-reattach-leg-left-name
   location: surgery-location-leg-left
-  startNodes:
-    - Amputated
+  startNode: Amputated
   nodes:
     - name: Amputated
       label: surgery-node-limb-amputated-label
@@ -390,7 +385,7 @@
           target: LimbPlaced
           steps:
             - name: surgery-edge-limb-attach-label
-              tools: [ LegLeft ]
+              organ: LegLeft
               successChance: 0.75
               duration: 4
           effects:
@@ -442,8 +437,7 @@
   category: SurgeryCategoryLimbReattachment
   name: surgery-graph-reattach-leg-right-name
   location: surgery-location-leg-right
-  startNodes:
-    - Amputated
+  startNode: Amputated
   nodes:
     - name: Amputated
       label: surgery-node-limb-amputated-label
@@ -477,7 +471,7 @@
           target: LimbPlaced
           steps:
             - name: surgery-edge-limb-attach-label
-              tools: [ LegRight ]
+              organ: LegRight
               successChance: 0.75
               duration: 4
           effects:
@@ -529,8 +523,7 @@
   category: SurgeryCategoryLimbReattachment
   name: surgery-graph-reattach-foot-left-name
   location: surgery-location-foot-left
-  startNodes:
-    - Amputated
+  startNode: Amputated
   nodes:
     - name: Amputated
       label: surgery-node-limb-amputated-label
@@ -566,7 +559,7 @@
           target: LimbPlaced
           steps:
             - name: surgery-edge-limb-attach-label
-              tools: [ FootLeft ]
+              organ: FootLeft
               successChance: 0.75
               duration: 4
           effects:
@@ -618,8 +611,7 @@
   category: SurgeryCategoryLimbReattachment
   name: surgery-graph-reattach-foot-right-name
   location: surgery-location-foot-right
-  startNodes:
-    - Amputated
+  startNode: Amputated
   nodes:
     - name: Amputated
       label: surgery-node-limb-amputated-label
@@ -655,7 +647,7 @@
           target: LimbPlaced
           steps:
             - name: surgery-edge-limb-attach-label
-              tools: [ FootRight ]
+              organ: FootRight
               successChance: 0.75
               duration: 4
           effects:

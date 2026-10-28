@@ -147,7 +147,6 @@
         Slash: 12
   # ADT-Tweak start
   - type: SurgeryTool
-    tier: 2
     speed: 0.55
   # ADT-Tweak end
 
@@ -163,7 +162,6 @@
     heldPrefix: laser
   # ADT-Tweak start
   - type: SurgeryTool
-    tier: 2
     speed: 0.55
   # ADT-Tweak end
 
@@ -282,7 +280,6 @@
     speedModifier: 1.5
   # ADT-Tweak start
   - type: SurgeryTool
-    tier: 2
     speed: 0.55
   # ADT-Tweak end
 
@@ -302,6 +299,5 @@
     speedModifier: 2.0
   # ADT-Tweak start
   - type: SurgeryTool
-    tier: 3
     speed: 0.4
   # ADT-Tweak end

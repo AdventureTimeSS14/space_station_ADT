@@ -4,9 +4,9 @@ using Content.Shared.Roles;
 
 namespace Content.Server.ADT.Surgery;
 
-public sealed class SurgerySkillSystem : EntitySystem
+public sealed partial class SurgerySkillSystem : EntitySystem
 {
-    [Dependency] private readonly SharedRoleSystem _role = default!;
+    [Dependency] private SharedRoleSystem _role = default!;
 
     public override void Initialize()
     {

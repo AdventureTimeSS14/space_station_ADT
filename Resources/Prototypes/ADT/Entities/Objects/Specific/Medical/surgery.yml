@@ -99,7 +99,9 @@
   - type: Item
     sprite: ADT/Objects/Specific/Medical/Surgery/surgical_drapes.rsi
     storedRotation: 90
-  - type: SurgeryChooser
+  - type: Tag
+    tags:
+    - SurgicalDrapes
   - type: StaticPrice
     price: 15
 
@@ -145,7 +147,6 @@
   - type: Item
     sprite: ADT/Objects/Specific/Medical/Surgery/laser_scalpel.rsi
   - type: SurgeryTool
-    tier: 2
     speed: 0.55
     extraQualities:
     - Incision
@@ -180,7 +181,6 @@
     soundDeactivate:
       path: /Audio/Items/change_drill.ogg
   - type: SurgeryTool
-    tier: 2
     speed: 0.55
     extraQualities:
     - Retraction
@@ -199,7 +199,6 @@
   - type: Item
     sprite: ADT/Objects/Specific/Medical/Surgery/searing_tool.rsi
   - type: SurgeryTool
-    tier: 2
     speed: 0.55
     extraQualities:
     - Cautery

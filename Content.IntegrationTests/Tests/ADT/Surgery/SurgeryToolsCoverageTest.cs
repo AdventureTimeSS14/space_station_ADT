@@ -44,7 +44,6 @@ public sealed class SurgeryToolsCoverageTest : GameTest
 
     private sealed record ToolSpec(
         string Id,
-        int Tier,
         float Speed,
         string[] Proper,
         string[] Improvised,
@@ -53,27 +52,27 @@ public sealed class SurgeryToolsCoverageTest : GameTest
 
     private static readonly ToolSpec[] Tools =
     {
-        new("Scalpel", 0, 1.15f, ["Incision"], ["Sawing"]),
-        new("ScalpelAdvanced", 2, 0.55f, ["Incision"], ["Sawing"]),
-        new("ScalpelLaser", 2, 0.55f, ["Incision"], ["Sawing"]),
-        new("ScalpelShiv", 0, 1.15f, ["Incision"], ["Sawing"]),
-        new("ADTSupermatterScalpel", 0, 1.15f, [], ["Incision", "Sawing"]),
-        new("Cautery", 0, 1.15f, ["Cautery"], []),
-        new("Drill", 0, 1.15f, [], []),
-        new("Retractor", 0, 1.15f, ["Retraction"], []),
-        new("Hemostat", 0, 1.15f, ["Clamping", "OrganManipulation"], []),
-        new("ADTBoneSetter", 0, 1.15f, ["BoneSetting"], []),
-        new("Saw", 0, 1.15f, ["Sawing"], ["Incision"]),
-        new("SawElectric", 2, 0.55f, ["Sawing"], ["Incision"]),
-        new("SawImprov", 0, 1.15f, ["Sawing"], ["Incision"]),
-        new("SawAdvanced", 3, 0.4f, ["Sawing"], ["Incision"]),
-        new("ADTSawImprovised", 0, 1.15f, [], ["Sawing", "Incision"]),
-        new("ADTBoneGel", 0, 1.15f, ["BoneMending"], []),
-        new("ADTSurgicalTape", 0, 1.15f, ["BoneMending"], []),
-        new("ADTBloodFilter", 0, 1.15f, [], []),
-        new("ADTLaserScalpel", 2, 0.55f, ["Incision"], ["Sawing"], ["Sawing"], ["Incision"]),
-        new("ADTMechanicalPinches", 2, 0.55f, ["Retraction"], [], ["Clamping", "OrganManipulation"], []),
-        new("ADTSearingTool", 2, 0.55f, ["Cautery"], [], [], []),
+        new("Scalpel", 1.15f, ["Incision"], ["Sawing"]),
+        new("ScalpelAdvanced", 0.55f, ["Incision"], ["Sawing"]),
+        new("ScalpelLaser", 0.55f, ["Incision"], ["Sawing"]),
+        new("ScalpelShiv", 1.15f, ["Incision"], ["Sawing"]),
+        new("ADTSupermatterScalpel", 1.15f, [], ["Incision", "Sawing"]),
+        new("Cautery", 1.15f, ["Cautery"], []),
+        new("Drill", 1.15f, [], []),
+        new("Retractor", 1.15f, ["Retraction"], []),
+        new("Hemostat", 1.15f, ["Clamping", "OrganManipulation"], []),
+        new("ADTBoneSetter", 1.15f, ["BoneSetting"], []),
+        new("Saw", 1.15f, ["Sawing"], ["Incision"]),
+        new("SawElectric", 0.55f, ["Sawing"], ["Incision"]),
+        new("SawImprov", 1.15f, ["Sawing"], ["Incision"]),
+        new("SawAdvanced", 0.4f, ["Sawing"], ["Incision"]),
+        new("ADTSawImprovised", 1.15f, [], ["Sawing", "Incision"]),
+        new("ADTBoneGel", 1.15f, ["BoneMending"], []),
+        new("ADTSurgicalTape", 1.15f, ["BoneMending"], []),
+        new("ADTBloodFilter", 1.15f, [], []),
+        new("ADTLaserScalpel", 0.55f, ["Incision"], ["Sawing"], ["Sawing"], ["Incision"]),
+        new("ADTMechanicalPinches", 0.55f, ["Retraction"], [], ["Clamping", "OrganManipulation"], []),
+        new("ADTSearingTool", 0.55f, ["Cautery"], [], [], []),
     };
 
     [Test]
@@ -109,9 +108,6 @@ public sealed class SurgeryToolsCoverageTest : GameTest
             var tool = SSpawn(spec.Id);
             var comp = SComp<SurgeryToolComponent>(tool);
 
-            if (comp.Tier != spec.Tier)
-                errors.Add($"{spec.Id}: tier {comp.Tier}, expected {spec.Tier}");
-
             if (Math.Abs(comp.Speed - spec.Speed) > 0.001f)
                 errors.Add($"{spec.Id}: speed {comp.Speed}, expected {spec.Speed}");
 
@@ -131,7 +127,9 @@ public sealed class SurgeryToolsCoverageTest : GameTest
         foreach (var probe in Probes)
         {
             var node = graph.Nodes.FirstOrDefault(n => n.Name == probe.Node);
-            var edge = node?.Edges.FirstOrDefault(e => e.Id == probe.Edge);
+            var edge = node?.Edges
+                .Concat(node.Packages.SelectMany(p => SProtoMan.Index(p).Edges))
+                .FirstOrDefault(e => e.Id == probe.Edge);
 
             if (edge == null)
                 errors.Add($"{probe.Quality}: edge {probe.Node}/{probe.Edge} not found");
@@ -277,17 +275,17 @@ public sealed class SurgeryToolsCoverageTest : GameTest
         if (toggled)
             Assert.That(_toggle.TryActivate(tool), Is.True, $"{toolId} could not be toggled on");
 
-        var comp = SComp<OperatedComponent>(patient);
         var advanced = false;
 
         for (var attempt = 0; attempt < attempts && !advanced; attempt++)
         {
+            var comp = SEntMan.EnsureComponent<OperatedComponent>(patient);
             comp.GraphId = ChestGraph;
             comp.CurrentNode = probe.Node;
             comp.ActiveEdgeId = null;
             comp.CompletedSteps = 0;
             comp.IsOperating = false;
-            comp.Surgeon = surgeon;
+            comp.ActiveEdgeId = probe.Edge;
 
             var ev = new SurgeryStepDoAfterEvent(probe.Edge, 0);
             var args = new DoAfterArgs(SEntMan, surgeon, TimeSpan.FromSeconds(1), ev, patient, patient, tool);

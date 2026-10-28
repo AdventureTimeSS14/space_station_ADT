@@ -48,6 +48,7 @@ public sealed partial class RespiratorSystem : EntitySystem
     [Dependency] private SharedSolutionContainerSystem _solutionContainerSystem = default!;
 
     private static readonly ProtoId<MetabolismStagePrototype> RespirationStage = new("Respiration");
+    private static readonly ProtoId<OrganCategoryPrototype> LungsCategory = "Lungs"; // ADT-Tweak
 
     public override void Initialize()
     {
@@ -103,6 +104,11 @@ public sealed partial class RespiratorSystem : EntitySystem
                 {
                     multiplier *= organ.Comp.SaturationLoss;
                 }
+            }
+            else if (!TryComp<Content.Shared.ADT.Body.OrganHealth.OrganFunctionsComponent>(uid, out var functions)
+                     || !functions.ExpectedCategories.Contains(LungsCategory))
+            {
+                continue;
             }
 
             UpdateSaturation(uid, (float)respirator.UpdateInterval.TotalSeconds * multiplier, respirator);
