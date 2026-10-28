@@ -41,8 +41,11 @@ public sealed partial class RequireProjectileTargetSystem : EntitySystem
             if (HasComp<ADTPreciseProjectileTargetComponent>(other) &&
                 TryComp<TargetedProjectileComponent>(other, out var precise))
             {
-                if (precise.Target != ent.Owner)
+                if (precise.Target != ent.Owner &&
+                    (!_container.TryGetContainingContainer(precise.Target, out var holder) || holder.Owner != ent.Owner))
+                {
                     args.Cancelled = true;
+                }
 
                 return;
             }

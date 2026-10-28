@@ -98,7 +98,7 @@ public sealed class ADTNpcCombatMemorySystem : EntitySystem
         var target = args.Used.Comp.Target;
 
         if (_interaction.InRangeUnobstructed(from, to, MathF.Sqrt(lengthSq) + 0.1f, component.ObstacleMask,
-                e => e == uid || e == target || HasComp<MobStateComponent>(e) || IgnoresProjectiles(e)))
+                e => e == uid || e == target || HasComp<MobStateComponent>(e) || HasComp<EntityStorageComponent>(e) || IgnoresProjectiles(e)))
         {
             return;
         }
