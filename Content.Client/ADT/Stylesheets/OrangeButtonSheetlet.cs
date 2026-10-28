@@ -15,7 +15,7 @@ public sealed class OrangeButtonSheetlet<T> : Sheetlet<T> where T : PalettedStyl
     public const string StyleClassButtonOrange = "ButtonColorOrange";
 
     private static readonly ColorPalette OrangePalette =
-        ColorPalette.FromHexBase("#f15f2c", element: Color.FromHex("#f15f2c"));
+        ColorPalette.FromHexBase("#e77719", element: Color.FromHex("#e77719"));
 
     public override StyleRule[] GetRules(T sheet, object config)
     {
