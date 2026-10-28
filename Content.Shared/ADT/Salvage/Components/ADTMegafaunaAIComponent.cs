@@ -1,3 +1,4 @@
+using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -69,4 +70,25 @@ public sealed partial class ADTMegafaunaAIComponent : Component
 
     [DataField]
     public ProtoId<DamageGroupPrototype> DevourHealGroup = "Brute";
+
+    [DataField]
+    public bool SmashObstacles = true;
+
+    [DataField]
+    public float SmashReach = 0.6f;
+
+    [DataField]
+    public TimeSpan SmashCooldown = TimeSpan.FromSeconds(1);
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan NextSmashAt;
+
+    [DataField]
+    public DamageSpecifier SmashDamage = new()
+    {
+        DamageDict = new()
+        {
+            { "Structural", 400 },
+        },
+    };
 }

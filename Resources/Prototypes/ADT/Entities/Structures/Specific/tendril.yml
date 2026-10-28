@@ -1,44 +1,22 @@
 - type: entity
-  id: ADTTendrilBase
-  parent: BaseStructure
-  name: tendrыl
-  abstract: true
-  description: e
+  id: ADTTendrilCollapse
+  name: collapsing necropolis tendril
+  description: Get clear!
+  categories: [ HideSpawnMenu ]
   components:
+  - type: TendrilCollapse
+  - type: Clickable
+  - type: InteractionOutline
   - type: Sprite
     noRot: true
     sprite: ADT/Structures/Specific/tendril.rsi
     state: tendril
     drawdepth: Mobs
-  - type: Tendril
-  - type: Damageable
-    damageModifierSet: Skeleton
-  - type: Injurable
-    damageContainer: Biological
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 250
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          ADTCrateNecropolisRandom:
-            min: 1
-            max: 1
-      - !type:PlaySoundBehavior
-        sound:
-          path: /Audio/ADT/SoundGen/destruction_1.ogg
-          radius: 7
-      - !type:PopupBehavior
-        popup: tendril-destruction-popup
-        popupType: MediumCaution
   - type: Physics
     bodyType: Static
   - type: Transform
     noRot: true
+    anchored: true
   - type: Fixtures
     fixtures:
       fix1:
@@ -50,126 +28,158 @@
         layer:
         - MobLayer
         density: 200
+  - type: PointLight
+    radius: 4
+    energy: 2
+    color: "#c48a18"
   - type: AshStormImmune
 
 - type: entity
-  id: ADTTendrilHypertrophied
-  parent: ADTTendrilBase
-  name: tendrыl
-  description: e
-  suffix: Hypertrophied
+  id: ADTTendrilBase
+  parent: BaseStructure
+  name: necropolis tendril
+  description: A vile tendril of corruption, originating deep underground. Terrible monsters are pouring out of it.
+  abstract: true
   components:
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Structures/Specific/tendril.rsi
+    state: tendril
+    drawdepth: Mobs
+  - type: Physics
+    bodyType: Static
+  - type: Transform
+    noRot: true
+    anchored: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.45,0.25,0.45"
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+        density: 200
+  - type: PointLight
+    radius: 4
+    energy: 2
+    color: "#c48a18"
+  - type: AshStormImmune
   - type: Tendril
     spawns:
-    - ADTAbominationHypertrophied
-
-- type: entity
-  id: ADTTendrilDeath
-  parent: ADTTendrilBase
-  name: tendrыl
-  description: e
-  suffix: Death
-  components:
-  - type: Tendril
-    spawns:
-    - ADTAbominationDeath
-
-- type: entity
-  id: ADTTendrilBloated
-  parent: ADTTendrilBase
-  name: tendrыl
-  description: e
-  suffix: Bloated
-  components:
-  - type: Tendril
-    spawns:
-    - ADTAbominationBloated
-
-- type: entity
-  id: ADTTendrilGoliath
-  parent: ADTTendrilBase
-  name: tendrыl
-  description: e
-  suffix: Goliath
-  components:
-  - type: Tendril
-    spawns:
-    - ADTMobLavalandGoliath
-
-- type: entity
-  id: ADTTendrilLegion
-  parent: ADTTendrilBase
-  name: tendrыl
-  description: e
-  suffix: Legion
-  components:
-  - type: Tendril
-    spawns:
-    - ADTMobLegion
+      MobWatcherLavaland: 90
+      MobWatcherIcewing: 5
+      MobWatcherMagmawing: 5
+  - type: Damageable
+    damageModifierSet: Skeleton
+  - type: Injurable
+    damageContainer: Biological
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
   id: ADTTendrilLavaWatcher
   parent: ADTTendrilBase
-  name: tendrыl
-  description: e
   suffix: Watcher
-  components:
-  - type: Tendril
-    spawns:
-    - MobWatcherLavaland
 
 - type: entity
-  id: ADTTendrilIcewingWatcher
+  id: ADTTendrilGoliath
   parent: ADTTendrilBase
-  name: tendrыl
-  description: e
-  suffix: Ice Watcher
+  suffix: Goliath
   components:
   - type: Tendril
     spawns:
-    - MobWatcherIcewing
+      ADTMobLavalandGoliath: 1
 
 - type: entity
-  id: ADTTendrilMagmawingWatcher
+  id: ADTTendrilLegion
   parent: ADTTendrilBase
-  name: tendrыl
-  description: e
-  suffix: Magma Watcher
+  suffix: Legion
   components:
   - type: Tendril
+    spawnDelay: 40
     spawns:
-    - MobWatcherMagmawing
+      ADTMobLegionTendril: 1
 
 - type: entity
-  id: ADTTendrilShockSpider
+  id: ADTTendrilRandomThreat
   parent: ADTTendrilBase
-  name: tendrыl
-  description: e
-  suffix: Shock Spider
+  suffix: Random Threat
   components:
   - type: Tendril
+    maxSpawns: 5
+    spawnDelay: 25
     spawns:
-    - ADTMobShockSpider
+      ADTMobLavalandGoliath: 27
+      ADTMobLegionTendril: 26
+      MobWatcherLavaland: 26
+      MobWatcherIcewing: 1
+      ADTMobMarrowWeaver: 20
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
-  id: ADTTendrilNightmareSpider
+  id: ADTTendrilDangerous
   parent: ADTTendrilBase
-  name: tendrыl
-  description: e
-  suffix: Nightmare Spider
+  suffix: Dangerous
   components:
   - type: Tendril
+    maxSpawns: 7
+    spawnDelay: 15
     spawns:
-    - ADTMobNightmareSpider
-
+      ADTMobLavalandGoliath: 17
+      ADTMobLegionTendril: 15
+      MobWatcherLavaland: 18
+      MobWatcherIcewing: 12
+      MobWatcherMagmawing: 12
+      ADTMobMarrowWeaver: 12
+      ADTMobMarrowWeaverFrost: 14
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
-  id: ADTTendrilBScrab
+  id: ADTTendrilHypertrophied
   parent: ADTTendrilBase
-  name: tendrыl
-  description: e
-  suffix: BS crab
+  suffix: Hypertrophied
   components:
   - type: Tendril
     spawns:
-    - ADTMobBSCrab
+      ADTAbominationHypertrophied: 1
+
+- type: entity
+  id: ADTTendrilDeath
+  parent: ADTTendrilBase
+  suffix: Death
+  components:
+  - type: Tendril
+    spawns:
+      ADTAbominationDeath: 1
+
+- type: entity
+  id: ADTTendrilBloated
+  parent: ADTTendrilBase
+  suffix: Bloated
+  components:
+  - type: Tendril
+    spawns:
+      ADTAbominationBloated: 1

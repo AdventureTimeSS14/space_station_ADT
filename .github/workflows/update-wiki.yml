@@ -43,7 +43,7 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v4.1.0
       with:
-        dotnet-version: 9.0.x
+        dotnet-version: 10.0.x
 
     - name: Install Dependencies
       run: dotnet restore
@@ -58,7 +58,11 @@ jobs:
     - name: Check generated files
       run: |
         ls -la ./bin/Content.Server/data/*.json
-        test -f ./bin/Content.Server/data/chem_prototypes.json || (echo "chem_prototypes.json not generated!" && exit 1)
+        for name in chem react entity mealrecipes healthchangereagents; do
+          file=./bin/Content.Server/data/${name}_prototypes.json
+          test -s "$file" || { echo "${name}_prototypes.json not generated!"; exit 1; }
+          jq empty "$file" || { echo "${name}_prototypes.json is not valid JSON!"; exit 1; }
+        done
 
     - name: Upload chem_prototypes.json to wiki
       uses: jtmullen/mediawiki-edit-action@v0.1.1
