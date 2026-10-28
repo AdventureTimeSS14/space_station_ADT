@@ -1,2 +1,2 @@
-ent-ADTRubberStampUSSP = печать ОТКАЗАНО
+ent-ADTRubberStampUSSP = печать СССП
     .desc = { ent-RubberStampBaseAlt.desc }

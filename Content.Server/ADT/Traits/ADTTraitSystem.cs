@@ -82,6 +82,7 @@ public sealed class ADTTraitSystem : EntitySystem
         var categoryTraitCounts = new Dictionary<ProtoId<TraitCategoryPrototype>, int>();
         var categoryPointTotals = new Dictionary<ProtoId<TraitCategoryPrototype>, int>();
 
+        var candidates = new List<TraitPrototype>();
         foreach (var traitId in selectedTraits)
         {
             if (!ProtoMan.TryIndex(traitId, out var trait))
@@ -89,6 +90,15 @@ public sealed class ADTTraitSystem : EntitySystem
                 Log.Warning($"Unknown trait ID in player preferences: {traitId}");
                 continue;
             }
+
+            candidates.Add(trait);
+        }
+
+        candidates.Sort((a, b) => a.Cost.CompareTo(b.Cost));
+
+        foreach (var trait in candidates)
+        {
+            var traitId = new ProtoId<TraitPrototype>(trait.ID);
 
             if (traitCount >= _maxTraitCount)
             {

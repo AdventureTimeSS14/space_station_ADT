@@ -7,6 +7,8 @@
       curve: !type:InverseBoolCurve
     - !type:TargetIsCritCon
       curve: !type:InverseBoolCurve
+    - !type:TargetIsVisibleCon
+      curve: !type:BoolCurve
     - !type:TurretTargetingCon
       curve: !type:BoolCurve
     - !type:TargetDistanceCon

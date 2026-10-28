@@ -11,6 +11,12 @@
     count: 24
 
 - type: localizedDataset
+  id: ADTNamesSovietSurnameFemale
+  values:
+    prefix: adt-names-soviet-surname-female-dataset-
+    count: 24
+
+- type: localizedDataset
   id: ADTNamesSmugglerNickname
   values:
     prefix: adt-names-smuggler-nickname-dataset-
@@ -50,4 +56,22 @@
   id: ADTExpeditionNpcRadioMoving
   values:
     prefix: adt-expedition-npc-radio-moving-
+    count: 5
+
+- type: localizedDataset
+  id: ADTXenoborgRadioContact
+  values:
+    prefix: adt-xenoborg-radio-contact-
+    count: 5
+
+- type: localizedDataset
+  id: ADTXenoborgRadioHelp
+  values:
+    prefix: adt-xenoborg-radio-help-
+    count: 5
+
+- type: localizedDataset
+  id: ADTXenoborgRadioMoving
+  values:
+    prefix: adt-xenoborg-radio-moving-
     count: 5

@@ -185,3 +185,19 @@
     sprite: ADT/Special/Personal/Illumy/synthetic_gloves.rsi
   - type: Clothing
     sprite: ADT/Special/Personal/Illumy/synthetic_gloves.rsi
+
+# Darkiich
+- type: entity
+  parent: ADTClothingSponsorHandsBase
+  id: ADTClothingHandsGlovesErichStohl
+  name: Erich Stohl's fingerless gloves
+  description: Black leather fingerless gloves with burgundy cuffs and a row of silver studs across the knuckles.
+  suffix: Personal, Darkiich
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/Darkiich/erich_gloves.rsi
+  - type: Clothing
+    sprite: ADT/Special/Personal/Darkiich/erich_gloves.rsi
+  - type: Fiber
+    fiberMaterial: fibers-leather
+    fiberColor: fibers-black

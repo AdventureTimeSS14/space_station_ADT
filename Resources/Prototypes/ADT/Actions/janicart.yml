@@ -1,0 +1,23 @@
+- type: entity
+  parent: BaseAction
+  id: ADTActionToggleJanicartBuffer
+  name: Toggle buffer
+  description: Turns the floor buffer on and off.
+  components:
+  - type: Action
+    useDelay: 1
+    itemIconStyle: BigItem
+  - type: InstantAction
+    event: !type:ADTJanicartToggleActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ADTActionToggleJanicartVacuum
+  name: Toggle vacuum
+  description: Turns the vacuum on and off.
+  components:
+  - type: Action
+    useDelay: 1
+    itemIconStyle: BigItem
+  - type: InstantAction
+    event: !type:ADTJanicartToggleActionEvent

@@ -24,6 +24,8 @@
         ClothingOuterFlannelGreen: 2
         ClothingOuterCoatBomber: 3
         # ADT-Tweak start
+        ADTClothingVoucherDownjacket: 8
+        ADTClothingVoucherHoody: 8
         ADTClothingOuterHoodyBlack: 3 #ADT-Tweak
         ADTClothingOuterHoodyWhite: 3 #ADT-Tweak
         # ADT-Tweak end
@@ -35,6 +37,9 @@
         ClothingHeadHatXmasCrown: 2
         ClothingHeadHatUshanka: 3 #ADT-Tweak
         # ADT-Tweak start
+        ADTClothingVoucherBeanie: 8
+        ADTClothingHeadHatPapakhaBlack: 4
+        ADTClothingHeadHatPapakhaWhite: 4
         ADTClothingHeadHatDarkBenie: 3 #ADT-Tweak
         ADTClothingHeadHatBlueBenie: 3 #ADT-Tweak
         ADTClothingHeadHatGreenBenie: 3 #ADT-Tweak

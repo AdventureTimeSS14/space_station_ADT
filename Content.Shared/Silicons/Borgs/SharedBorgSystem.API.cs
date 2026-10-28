@@ -27,7 +27,7 @@ public abstract partial class SharedBorgSystem
 
         // TODO: Replace this with something else, only the client's own mind is networked to them,
         // so this will always be false for the minds of other clients.
-        if (!_mind.TryGetMind(chassis.Owner, out _, out _))
+        if (!_mind.TryGetMind(chassis.Owner, out _, out _) && !HasComp<ADTNpcBorgComponent>(chassis)) // ADT-Tweak
             return false;
 
         if (_mobState.IsIncapacitated(chassis.Owner))
