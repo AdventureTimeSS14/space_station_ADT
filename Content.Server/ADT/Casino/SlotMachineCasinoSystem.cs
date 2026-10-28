@@ -147,7 +147,8 @@ public sealed partial class SlotMachineCasinoSystem : EntitySystem
                 TrySpin(ent, msg.Actor);
                 break;
             case SlotMachineCasinoAction.SetBet:
-                if (msg.Amount >= ent.Comp.SpinPriceMin && msg.Amount <= ent.Comp.SpinPriceMax)
+                if (!ent.Comp.Working &&
+                    msg.Amount >= ent.Comp.SpinPriceMin && msg.Amount <= ent.Comp.SpinPriceMax)
                 {
                     ent.Comp.BetAmount = msg.Amount;
                     ent.Comp.ActiveLines = GetActiveLines(ent.Comp);
@@ -305,6 +306,9 @@ public sealed partial class SlotMachineCasinoSystem : EntitySystem
             Plays = _globalPlays,
             SpinCount = comp.SpinCount,
             Jackpots = _globalJackpots,
+            BigPrizeBase = comp.BigPrizeBase,
+            SmallPrizeBase = comp.SmallPrizeBase,
+            SpinPriceMin = comp.SpinPriceMin,
             ResultMessage = comp.ResultMessage,
             ResultType = comp.ResultType,
             BonusMultiplier = comp.BonusMultiplier,

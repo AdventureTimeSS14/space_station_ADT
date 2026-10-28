@@ -634,6 +634,7 @@ public sealed class SlotMachineCasinoMenu : FancyWindow
 
         _gambleTitle.Text = Loc.GetString("slotmachine-casino-gamble-title", ("amount", state.GambleAmount));
 
+        var betMultiplier = state.BetAmount / Math.Max(1, state.SpinPriceMin);
         if (_lastBet != state.BetAmount)
         {
             _lastBet = state.BetAmount;
@@ -644,12 +645,14 @@ public sealed class SlotMachineCasinoMenu : FancyWindow
                 _betButtons[i].StyleBoxOverride = selected
                     ? _selectedBetStyle
                     : _defaultBetStyle;
-                _betButtons[i].Disabled = state.Working;
             }
-
-            _paytableFive.Text = Loc.GetString("slotmachine-casino-bet-amount", ("amount", 500 * (state.BetAmount / 5)));
-            _paytableFour.Text = Loc.GetString("slotmachine-casino-bet-amount", ("amount", 50 * (state.BetAmount / 5)));
         }
+
+        foreach (var btn in _betButtons)
+            btn.Disabled = state.Working;
+
+        _paytableFive.Text = Loc.GetString("slotmachine-casino-bet-amount", ("amount", state.BigPrizeBase * betMultiplier));
+        _paytableFour.Text = Loc.GetString("slotmachine-casino-bet-amount", ("amount", state.SmallPrizeBase * betMultiplier));
 
         var canSpin = state.FreeSpinsRemaining > 0 || state.Balance >= state.BetAmount;
         _balanceLabel.Text = Loc.GetString("slotmachine-casino-balance-amount", ("amount", state.Balance));

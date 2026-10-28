@@ -7,7 +7,7 @@ namespace Content.IntegrationTests.Tests.ADT.Casino;
 
 public sealed class SlotMachineCasinoTest : InteractionTest
 {
-    public override PoolSettings PoolSettings => new() { Connected = true, DummyTicker = false };
+    public override PoolSettings PoolSettings => new() { Connected = true, DummyTicker = false, Dirty = true };
 
     [Test]
     public async Task TestCasinoBuiOpensAndSpins()

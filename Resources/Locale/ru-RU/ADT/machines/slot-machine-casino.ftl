@@ -82,3 +82,4 @@ slotmachine-casino-result-hot = Горячая машина! { $streak } про�
 slotmachine-casino-result-lose = Не повезло... Попробуй ещё!
 slotmachine-casino-result-scatter = СКАТТЕР x{ $count }! +{ $amount } кр!
 slotmachine-casino-result-scatter-append = +{ $amount } скаттер!
+slotmachine-casino-announcer = Казино

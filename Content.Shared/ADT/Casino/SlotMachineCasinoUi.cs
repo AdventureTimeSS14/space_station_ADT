@@ -55,6 +55,9 @@ public sealed class SlotMachineCasinoBoundUserInterfaceState : BoundUserInterfac
     public int WinningLine;
     public int Plays;
     public int Jackpots;
+    public int BigPrizeBase;
+    public int SmallPrizeBase;
+    public int SpinPriceMin;
     public string ResultMessage = string.Empty;
     public string ResultType = string.Empty;
     public int BonusMultiplier;

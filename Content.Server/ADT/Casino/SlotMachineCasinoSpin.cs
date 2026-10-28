@@ -154,7 +154,7 @@ public sealed partial class SlotMachineCasinoSystem
             comp.Money = 0;
             PlayCasinoSound(ent, comp.JackpotSound, 0f);
             _chat.TrySendInGameICMessage(ent.Owner, Loc.GetString("slotmachine-casino-jackpot-speech", ("amount", wonAmount)), InGameICChatType.Speak, hideChat: true, hideLog: true, checkRadioPrefix: false);
-            _chat.DispatchGlobalAnnouncement(Loc.GetString("slotmachine-casino-jackpot-announce", ("amount", wonAmount)), "Casino");
+            _chat.DispatchGlobalAnnouncement(Loc.GetString("slotmachine-casino-jackpot-announce", ("amount", wonAmount)), Loc.GetString("slotmachine-casino-announcer"));
             _globalJackpots++;
             comp.ResultMessage = Loc.GetString("slotmachine-casino-result-jackpot", ("amount", wonAmount));
             RegisterWin(comp, "jackpot", wonAmount, confetti: true, allowGamble: false);
@@ -223,6 +223,7 @@ public sealed partial class SlotMachineCasinoSystem
             if (comp.ResultType == "lose")
             {
                 comp.ResultMessage = Loc.GetString("slotmachine-casino-result-scatter", ("count", scatterCount), ("amount", scatterWin));
+                GiveMoney(comp, scatterWin);
                 RegisterWin(comp, "win", scatterWin, confetti: false, allowGamble: true);
             }
             else
