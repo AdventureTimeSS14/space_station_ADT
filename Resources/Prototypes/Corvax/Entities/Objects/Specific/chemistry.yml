@@ -7,7 +7,7 @@
     localizedLabel: reagent-name-opporozidone
   - type: Solution
     solution:
-      maxVol: 50
+      maxVol: 60 # ADT-Tweak
       reagents:
       - ReagentId: Opporozidone
-        Quantity: 50
+        Quantity: 60 # ADT-Tweak
