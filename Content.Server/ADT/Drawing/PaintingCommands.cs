@@ -1,6 +1,10 @@
+using System.Threading;
+using System.Threading.Tasks;
 using Content.Server.Administration;
+using Content.Server.Database;
 using Content.Server.EUI;
 using Content.Shared.Administration;
+using Robust.Server.Player;
 using Robust.Shared.Console;
 
 namespace Content.Server.ADT.Drawing;
@@ -29,8 +33,11 @@ public sealed class PaintingQueueCommand : IConsoleCommand
 [AdminCommand(AdminFlags.Ban)]
 public sealed class PaintingBanCommand : IConsoleCommand
 {
+    private static readonly string[] Durations = { "0", "60", "1440", "10080", "43200" };
+
     [Dependency] private readonly IPlayerLocator _locator = default!;
     [Dependency] private readonly IEntitySystemManager _systems = default!;
+    [Dependency] private readonly IPlayerManager _players = default!;
 
     public string Command => "paintingban";
     public string Description => "Запрещает игроку рисовать и отправлять картины.";
@@ -61,6 +68,16 @@ public sealed class PaintingBanCommand : IConsoleCommand
         var moderation = _systems.GetEntitySystem<PaintingModerationSystem>();
         shell.WriteLine(await moderation.Ban(admin, located.UserId, minutes, reason));
     }
+
+    public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
+    {
+        return args.Length switch
+        {
+            1 => CompletionResult.FromHintOptions(CompletionHelper.SessionNames(players: _players), "<ник|guid>"),
+            2 => CompletionResult.FromHintOptions(Durations, "<минуты, 0 - навсегда>"),
+            _ => CompletionResult.FromHint("<причина>"),
+        };
+    }
 }
 
 [AdminCommand(AdminFlags.Ban)]
@@ -68,6 +85,7 @@ public sealed class PaintingUnbanCommand : IConsoleCommand
 {
     [Dependency] private readonly IPlayerLocator _locator = default!;
     [Dependency] private readonly IEntitySystemManager _systems = default!;
+    [Dependency] private readonly IPlayerManager _players = default!;
 
     public string Command => "paintingunban";
     public string Description => "Снимает запрет на рисование.";
@@ -97,6 +115,13 @@ public sealed class PaintingUnbanCommand : IConsoleCommand
         var moderation = _systems.GetEntitySystem<PaintingModerationSystem>();
         shell.WriteLine(await moderation.Unban(admin, located.UserId));
     }
+
+    public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
+    {
+        return args.Length == 1
+            ? CompletionResult.FromHintOptions(CompletionHelper.SessionNames(players: _players), "<ник|guid>")
+            : CompletionResult.Empty;
+    }
 }
 
 [AdminCommand(AdminFlags.Host)]
@@ -104,6 +129,7 @@ public sealed class PaintingWhitelistAddCommand : IConsoleCommand
 {
     [Dependency] private readonly IPlayerLocator _locator = default!;
     [Dependency] private readonly IEntitySystemManager _systems = default!;
+    [Dependency] private readonly IPlayerManager _players = default!;
 
     public string Command => "paintingwhitelistadd";
     public string Description => "Добавляет игрока в вайтлист рисования (adt.canvas.whitelist).";
@@ -127,6 +153,13 @@ public sealed class PaintingWhitelistAddCommand : IConsoleCommand
         var moderation = _systems.GetEntitySystem<PaintingModerationSystem>();
         shell.WriteLine(await moderation.WhitelistAdd(shell.Player, located.UserId, located.Username));
     }
+
+    public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
+    {
+        return args.Length == 1
+            ? CompletionResult.FromHintOptions(CompletionHelper.SessionNames(players: _players), "<сикей>")
+            : CompletionResult.Empty;
+    }
 }
 
 [AdminCommand(AdminFlags.Host)]
@@ -134,6 +167,7 @@ public sealed class PaintingWhitelistRemoveCommand : IConsoleCommand
 {
     [Dependency] private readonly IPlayerLocator _locator = default!;
     [Dependency] private readonly IEntitySystemManager _systems = default!;
+    [Dependency] private readonly IServerDbManager _db = default!;
 
     public string Command => "paintingwhitelistremove";
     public string Description => "Убирает игрока из вайтлиста рисования.";
@@ -156,6 +190,16 @@ public sealed class PaintingWhitelistRemoveCommand : IConsoleCommand
 
         var moderation = _systems.GetEntitySystem<PaintingModerationSystem>();
         shell.WriteLine(await moderation.WhitelistRemove(shell.Player, located.UserId, located.Username));
+    }
+
+    public async ValueTask<CompletionResult> GetCompletionAsync(IConsoleShell shell, string[] args, string argStr, CancellationToken cancel)
+    {
+        if (args.Length != 1)
+            return CompletionResult.Empty;
+
+        var names = await _db.GetPaintingWhitelistNamesAsync();
+        names.Sort(StringComparer.OrdinalIgnoreCase);
+        return CompletionResult.FromHintOptions(names, "<сикей>");
     }
 }
 

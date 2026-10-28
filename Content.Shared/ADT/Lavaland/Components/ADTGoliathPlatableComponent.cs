@@ -21,6 +21,18 @@ public sealed partial class ADTGoliathPlatableComponent : Component
     public float MinCoefficient = 0.4f;
 
     [DataField]
+    public Dictionary<ProtoId<DamageTypePrototype>, float> MinCoefficients = new();
+
+    [DataField]
+    public Dictionary<ProtoId<DamageTypePrototype>, float> Steps = new();
+
+    [DataField]
+    public float ExplosionStep;
+
+    [DataField]
+    public float MinExplosionCoefficient = 1f;
+
+    [DataField]
     public int MaxPlates;
 
     [DataField, AutoNetworkedField]
