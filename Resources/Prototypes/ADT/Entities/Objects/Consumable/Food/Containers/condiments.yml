@@ -16,7 +16,7 @@
     closeable: true
   - type: Solution
     solution:
-      maxVol: 30
+      maxVol: 60
       reagents: []
   - type: RefillableSolution
     solution: food
