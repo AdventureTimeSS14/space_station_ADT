@@ -1,6 +1,7 @@
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Shared.GameTicking.Components;
+using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Server.GameTicking.Rules;
@@ -9,6 +10,7 @@ public sealed class RevolutionaryCentComEventsSystem : EntitySystem
 {
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IRobustRandom RobustRandom = default!;
 
     public override void Initialize()
     {
