@@ -14,19 +14,25 @@ public sealed class RevolutionaryCentComEventsSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<RevolutionaryRuleComponent, GameRuleStartedEvent>(OnRevolutionStarted);
-        SubscribeLocalEvent<RevolutionaryRuleComponent, GameRuleEndedEvent>(OnRevolutionEnded);
+        SubscribeLocalEvent<GameRuleStartedEvent>(OnRuleStarted);
+        SubscribeLocalEvent<GameRuleEndedEvent>(OnRuleEnded);
     }
 
-    private void OnRevolutionStarted(Entity<RevolutionaryRuleComponent> ent, ref GameRuleStartedEvent args)
+    private void OnRuleStarted(ref GameRuleStartedEvent args)
     {
-        var scheduler = EnsureComp<RevolutionaryCentComEventsComponent>(ent);
+        if (!HasComp<RevolutionaryRuleComponent>(args.RuleEntity))
+            return;
+
+        var scheduler = EnsureComp<RevolutionaryCentComEventsComponent>(args.RuleEntity);
         scheduler.NextEvent = _timing.CurTime + scheduler.FirstDelay;
     }
 
-    private void OnRevolutionEnded(Entity<RevolutionaryRuleComponent> ent, ref GameRuleEndedEvent args)
+    private void OnRuleEnded(ref GameRuleEndedEvent args)
     {
-        RemComp<RevolutionaryCentComEventsComponent>(ent);
+        if (!HasComp<RevolutionaryRuleComponent>(args.RuleEntity))
+            return;
+
+        RemComp<RevolutionaryCentComEventsComponent>(args.RuleEntity);
     }
 
     public override void Update(float frameTime)
