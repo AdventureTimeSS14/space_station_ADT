@@ -28,6 +28,7 @@ public sealed class PaintingQueueWindow : DefaultWindow
     private readonly Button _hideButton;
     private readonly Button _pinButton;
     private readonly Button _deleteButton;
+    private readonly Button _spawnButton;
     private readonly LineEdit _banMinutes;
     private readonly LineEdit _banReason;
     private readonly Button _banButton;
@@ -140,6 +141,11 @@ public sealed class PaintingQueueWindow : DefaultWindow
 
         _deleteButton = ActionButton("adt-canvas-queue-delete", OnDeletePressed);
 
+        _spawnButton = ActionButton("adt-canvas-queue-spawn", () => Send(e => new PaintingQueueEuiMsg.Spawn
+        {
+            Painting = e.PaintingUid,
+        }));
+
         _banMinutes = new LineEdit
         {
             PlaceHolder = Loc.GetString("adt-canvas-queue-ban-minutes"),
@@ -170,7 +176,7 @@ public sealed class PaintingQueueWindow : DefaultWindow
         details.AddChild(_thumb);
         details.AddChild(_thumbStatus);
         details.AddChild(_details);
-        details.AddChild(Row(_openButton, _approveButton, _hideButton, _pinButton, _deleteButton));
+        details.AddChild(Row(_openButton, _approveButton, _hideButton, _pinButton, _deleteButton, _spawnButton));
         details.AddChild(Row(_rejectReason, _rejectButton));
         details.AddChild(Row(_banMinutes, _banReason, _banButton, _unbanButton));
 
@@ -256,6 +262,7 @@ public sealed class PaintingQueueWindow : DefaultWindow
         _hideButton.Disabled = !has || !state!.CanModerate;
         _pinButton.Disabled = !has || !state!.CanModerate || entry!.Status is not (PaintingStatus.Approved or PaintingStatus.Hidden);
         _deleteButton.Disabled = !has || !state!.CanDelete;
+        _spawnButton.Disabled = !has || !state!.CanSpawn || entry!.Status != PaintingStatus.Approved;
         _banButton.Disabled = !has || !state!.CanBan;
         _unbanButton.Disabled = !has || !state!.CanBan || !entry!.OwnerBanned;
 

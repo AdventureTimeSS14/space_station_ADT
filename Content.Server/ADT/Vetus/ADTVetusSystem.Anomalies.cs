@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Shared.ADT.Mining.Components;
+using Content.Shared.ADT.Segmented.Components;
 using Content.Shared.ADT.Throwing;
 using Content.Shared.ADT.Vetus;
 using Content.Shared.Atmos;
@@ -371,6 +372,9 @@ public sealed partial class ADTVetusSystem
 
     private void StepTowards(EntityUid uid, EntityUid target)
     {
+        if (HasComp<ADTVetusComponent>(uid) || HasComp<ADTVetusLegComponent>(uid) || HasComp<ADTSegmentComponent>(uid))
+            return;
+
         if (!TryGetTile(uid, out var gridUid, out var grid, out var tile) || !TryGetTile(target, out var targetGrid, out _, out var targetTile))
             return;
 

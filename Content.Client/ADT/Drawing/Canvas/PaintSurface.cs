@@ -348,6 +348,40 @@ public sealed class PaintSurface : IDisposable
         }
     }
 
+    public void FillCells(int left, int top, int size, float alpha)
+    {
+        if (!_inStroke || size <= 0 || !float.IsFinite(alpha) || alpha <= 0f)
+            return;
+
+        alpha = Math.Clamp(alpha, 0f, 1f);
+        var x0 = Math.Max(0, left);
+        var y0 = Math.Max(0, top);
+        var x1 = Math.Min(Width - 1, left + size - 1);
+        var y1 = Math.Min(Height - 1, top + size - 1);
+
+        for (var y = y0; y <= y1; y++)
+        {
+            for (var x = x0; x <= x1; x++)
+            {
+                var index = (y / TileSize) * TilesX + x / TileSize;
+                if (_strokeClip >= 0 && index != _strokeClip)
+                    continue;
+
+                var tile = _tiles[index];
+                EnsureStrokeData(index, tile);
+
+                var i = (y - tile.Y) * tile.W + (x - tile.X);
+                var mask = tile.StrokeMask!;
+                if (alpha <= mask[i])
+                    continue;
+
+                mask[i] = alpha;
+                tile.Pixels[i] = Composite(tile.StrokeBase![i], alpha);
+                tile.Dirty = true;
+            }
+        }
+    }
+
     public int[] EndStroke(bool record = true, int tag = 0)
     {
         if (!_inStroke)

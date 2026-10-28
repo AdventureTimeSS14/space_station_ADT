@@ -21,7 +21,8 @@ public readonly record struct CanvasStrokeBrush(
     float MinOpacityFraction,
     bool PressureAffectsSize,
     bool PressureAffectsOpacity,
-    bool Erase);
+    bool Erase,
+    bool Pixel);
 
 public readonly record struct CanvasStrokeSample(int Dx, int Dy, byte Pressure, byte Dt);
 
@@ -101,7 +102,7 @@ public sealed class MsgCanvasStroke : NetMessage
         StartPressure = buffer.ReadByte();
 
         Brush = new CanvasStrokeBrush(rgba, size, hardness, opacity, spacing, minSize, minOpacity,
-            (flags & 1) != 0, (flags & 2) != 0, (flags & 4) != 0);
+            (flags & 1) != 0, (flags & 2) != 0, (flags & 4) != 0, (flags & 8) != 0);
 
         Malformed = !InRange(size, 0f, CanvasConstants.MaxBrushSize) ||
                     !InRange(hardness, 0f, 1f) ||
@@ -153,7 +154,8 @@ public sealed class MsgCanvasStroke : NetMessage
             case CanvasStrokePhase.Begin:
                 var flags = (byte) ((Brush.PressureAffectsSize ? 1 : 0) |
                                     (Brush.PressureAffectsOpacity ? 2 : 0) |
-                                    (Brush.Erase ? 4 : 0));
+                                    (Brush.Erase ? 4 : 0) |
+                                    (Brush.Pixel ? 8 : 0));
                 buffer.Write(Brush.Rgba);
                 buffer.Write(Brush.Size);
                 buffer.Write(Brush.Hardness);
