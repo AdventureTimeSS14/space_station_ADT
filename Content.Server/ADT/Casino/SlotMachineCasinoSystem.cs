@@ -1,7 +1,6 @@
 using Content.Shared.ADT.Casino;
 using Content.Shared.Cargo.Components;
 using Content.Shared.Chat;
-using Content.Shared.Emag.Systems;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
@@ -45,7 +44,6 @@ public sealed partial class SlotMachineCasinoSystem : EntitySystem
 
         SubscribeLocalEvent<SlotMachineCasinoComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<SlotMachineCasinoComponent, InteractUsingEvent>(OnInteractUsing);
-        SubscribeLocalEvent<SlotMachineCasinoComponent, GotEmaggedEvent>(OnEmagged);
         SubscribeLocalEvent<SlotMachineCasinoComponent, BoundUIOpenedEvent>(OnUiOpened);
 
         SubscribeLocalEvent<SlotMachineCasinoComponent, SlotMachineCasinoActionMessage>(OnAction);
@@ -195,11 +193,6 @@ public sealed partial class SlotMachineCasinoSystem : EntitySystem
             _popup.PopupPredicted(Loc.GetString("slotmachine-casino-inserted", ("amount", amount)), ent.Owner, args.User);
         QueueDel(args.Used);
         PushState(ent);
-    }
-
-    private void OnEmagged(Entity<SlotMachineCasinoComponent> ent, ref GotEmaggedEvent args)
-    {
-        args.Handled = true;
     }
 
     // === Money out ===
