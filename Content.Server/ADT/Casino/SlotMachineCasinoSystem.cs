@@ -186,6 +186,9 @@ public sealed partial class SlotMachineCasinoSystem : EntitySystem
         if (!TryComp<CashComponent>(args.Used, out _) || !TryComp<StackComponent>(args.Used, out var stack))
             return;
 
+        if (!_power.IsPowered(ent.Owner))
+            return;
+
         args.Handled = true;
         var amount = _stack.GetCount(args.Used);
         ent.Comp.Balance += amount;
@@ -201,7 +204,7 @@ public sealed partial class SlotMachineCasinoSystem : EntitySystem
     private void CashOut(Entity<SlotMachineCasinoComponent> ent, EntityUid? user)
     {
         var comp = ent.Comp;
-        if (comp.Balance <= 0)
+        if (comp.Balance <= 0 || comp.Working)
             return;
 
         var coords = Transform(ent.Owner).Coordinates;
