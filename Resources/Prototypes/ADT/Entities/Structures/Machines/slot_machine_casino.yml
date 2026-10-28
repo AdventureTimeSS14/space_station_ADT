@@ -1,6 +1,6 @@
 - type: entity
   id: ADTMachineSlotMachineCasino
-  parent: BaseMachine
+  parent: BaseMachinePowered
   name: slot machine
   description: Gambling for the antisocial.
   components:
@@ -11,24 +11,40 @@
     layers:
     - state: mahins
       map: ["base"]
+    - state: pole
+      shader: unshaded
+      map: ["screen"]
     - state: knopka_start
       map: ["button"]
+    - state: knopka_start_on
+      map: ["buttonOn"]
+      visible: false
     - state: prokrut
+      shader: unshaded
       map: ["spin"]
       visible: false
     - state: polosa
+      shader: unshaded
       map: ["polosa"]
       visible: false
     - state: Win
+      shader: unshaded
       map: ["win"]
       visible: false
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.SlotMachineCasinoVisuals.Spinning:
+      enum.PowerDeviceVisuals.Powered:
+        screen:
+          True: { visible: true }
+          False: { visible: false }
         button:
-          True: { state: knopka_start_on }
-          False: { state: knopka_start }
+          True: { visible: true }
+          False: { visible: false }
+      enum.SlotMachineCasinoVisuals.Spinning:
+        buttonOn:
+          True: { visible: true }
+          False: { visible: false }
         spin:
           True: { visible: true }
           False: { visible: false }
