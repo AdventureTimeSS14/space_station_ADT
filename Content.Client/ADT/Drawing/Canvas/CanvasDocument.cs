@@ -125,15 +125,15 @@ public sealed class CanvasDocument : IDisposable
                 group.Add(layers[i]);
         }
 
-        return MergeLayers(group);
+        return MergeLayers(group, layer);
     }
 
     public bool MergeVisibleLayers()
     {
-        return MergeLayers(Layers.Layers.Where(l => l.Visible).ToList());
+        return MergeLayers(Layers.Layers.Where(l => l.Visible).ToList(), null);
     }
 
-    private bool MergeLayers(List<CanvasLayer> group)
+    private bool MergeLayers(List<CanvasLayer> group, CanvasLayer? selected)
     {
         if (Stroker.Active || group.Any(l => l.Stroker.Active))
             return false;
@@ -141,7 +141,7 @@ public sealed class CanvasDocument : IDisposable
         var tiles = new Dictionary<int, Rgba32[]>();
         foreach (var layer in group)
         {
-            if (!layer.Visible || layer.Opacity <= 0f)
+            if ((layer != selected && !layer.Visible) || layer.Opacity <= 0f)
                 continue;
 
             foreach (var index in layer.Surface.AllocatedTiles())

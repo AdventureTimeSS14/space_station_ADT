@@ -62,6 +62,21 @@ public sealed class PaintingQueueEui : BaseEui
         if (msg is CloseEuiMessage)
             return;
 
+        switch (msg)
+        {
+            case PaintingQueueEuiMsg.Spawn spawn:
+                RunAsync(_moderation.SpawnPainting(Player, spawn.Painting));
+                return;
+
+            case PaintingQueueEuiMsg.Ban ban:
+                RunAsync(_moderation.Ban(Player, ban.UserId, ban.Minutes, ban.Reason));
+                return;
+
+            case PaintingQueueEuiMsg.Unban unban:
+                RunAsync(_moderation.Unban(Player, unban.UserId));
+                return;
+        }
+
         if (!_moderation.CanModerate(Player))
         {
             _status = Loc.GetString("adt-canvas-mod-no-access");
@@ -94,18 +109,6 @@ public sealed class PaintingQueueEui : BaseEui
 
             case PaintingQueueEuiMsg.SetPinned pin:
                 RunAsync(_moderation.SetPinned(Player, pin.Painting, pin.Pinned));
-                break;
-
-            case PaintingQueueEuiMsg.Ban ban:
-                RunAsync(_moderation.Ban(Player, ban.UserId, ban.Minutes, ban.Reason));
-                break;
-
-            case PaintingQueueEuiMsg.Unban unban:
-                RunAsync(_moderation.Unban(Player, unban.UserId));
-                break;
-
-            case PaintingQueueEuiMsg.Spawn spawn:
-                RunAsync(_moderation.SpawnPainting(Player, spawn.Painting));
                 break;
         }
     }

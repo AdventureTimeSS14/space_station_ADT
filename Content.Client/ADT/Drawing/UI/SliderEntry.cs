@@ -9,6 +9,7 @@ public sealed class SliderEntry
 
     private readonly Slider _slider;
     private readonly string _format;
+    private string _synced = string.Empty;
 
     public SliderEntry(Slider slider, string format)
     {
@@ -30,11 +31,15 @@ public sealed class SliderEntry
         if (!force && Edit.HasKeyboardFocus())
             return;
 
-        Edit.Text = _slider.Value.ToString(_format, CultureInfo.InvariantCulture);
+        _synced = _slider.Value.ToString(_format, CultureInfo.InvariantCulture);
+        Edit.Text = _synced;
     }
 
     private void Commit()
     {
+        if (Edit.Text == _synced)
+            return;
+
         var text = Edit.Text.Trim().Replace(',', '.');
         if (float.TryParse(text, NumberStyles.Float, CultureInfo.InvariantCulture, out var value) && float.IsFinite(value))
             _slider.Value = Math.Clamp(value, _slider.MinValue, _slider.MaxValue);

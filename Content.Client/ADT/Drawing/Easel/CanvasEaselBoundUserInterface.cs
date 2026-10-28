@@ -151,7 +151,11 @@ public sealed class CanvasEaselBoundUserInterface : BoundUserInterface
             return;
 
         var document = session.Document;
-        document.MergeVisibleLayers();
+        if (!document.MergeVisibleLayers())
+        {
+            _panel?.ShowHint(Loc.GetString("adt-canvas-submit-merge-failed"));
+            return;
+        }
 
         if (!document.HasPendingWork)
         {

@@ -138,15 +138,15 @@ public sealed class ADTLavalandGoliathSystem : EntitySystem
             return;
         }
 
+        if (GetDistance(ent, attacker) is not { } distance)
+            return;
+
         _faction.AggroEntity(ent.Owner, attacker);
 
         var blackboard = htn.Blackboard;
-        if (GetDistance(ent, attacker) is { } distance)
-        {
-            var current = blackboard.GetValueOrDefault<float>(AggroVisionRadiusKey, EntityManager);
-            ent.Comp.BaseAggroRadius ??= current;
-            blackboard.SetValue(AggroVisionRadiusKey, MathF.Max(current, MathF.Min(distance + ent.Comp.RetaliatePadding, ent.Comp.MaxRetaliateRadius)));
-        }
+        var current = blackboard.GetValueOrDefault<float>(AggroVisionRadiusKey, EntityManager);
+        ent.Comp.BaseAggroRadius ??= current;
+        blackboard.SetValue(AggroVisionRadiusKey, MathF.Max(current, MathF.Min(distance + ent.Comp.RetaliatePadding, ent.Comp.MaxRetaliateRadius)));
 
         if (HasComp<ADTLavalandGoliathChargeComponent>(ent))
             return;
