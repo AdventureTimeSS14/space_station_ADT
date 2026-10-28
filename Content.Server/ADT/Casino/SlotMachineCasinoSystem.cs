@@ -114,7 +114,7 @@ public sealed partial class SlotMachineCasinoSystem : EntitySystem
                 if (comp.NextAutoSpinTime > TimeSpan.Zero && now >= comp.NextAutoSpinTime)
                 {
                     comp.NextAutoSpinTime = TimeSpan.Zero;
-                    if (comp.FreeSpinsRemaining > 0 || comp.Balance >= comp.BetAmount)
+                    if (comp.FreeSpinsRemaining > 0 || (comp.AutoSpin && comp.AutoSpinRemaining > 0))
                         TrySpin((uid, comp), null);
                 }
                 continue;
