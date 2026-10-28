@@ -265,18 +265,27 @@ public sealed partial class RevolutionaryRuleSystem : GameRuleSystem<Revolutiona
         return IsGroupDead(headRevList, false);
     }
 
+    /// <summary>
+    /// Called when a Head Rev dies. If no Head Revs are left alive, promotes the first found regular Revolutionary
+    /// that has a mind and is not dead to Head Rev and sends them a briefing.
+    /// </summary>
     private void TryPromoteNewHeadRev()
     {
         if (!CheckRevsLose())
             return;
 
         var revs = AllEntityQuery<RevolutionaryComponent, MindContainerComponent>();
-        while (revs.MoveNext(out var uid, out var revComp, out _))
+        while (revs.MoveNext(out var uid, out var revComp, out var mindContainer))
         {
             if (HasComp<HeadRevolutionaryComponent>(uid))
                 continue;
 
-            if (!TryComp<MobStateComponent>(uid, out var mobState) || mobState.CurrentState == MobState.Dead)
+            if (!mindContainer.HasMind)
+                continue;
+
+            if (!TryComp<MobStateComponent>(uid, out var mobState) ||
+                mobState.CurrentState == MobState.Dead ||
+                mobState.CurrentState == MobState.Invalid)
                 continue;
 
             AddComp<HeadRevolutionaryComponent>(uid);
