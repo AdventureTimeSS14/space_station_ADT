@@ -7,3 +7,6 @@ ent-ADTBloodPackTransfusion = пакет крови
 ent-ADTBloodPackTransfusionFull = { ent-ADTBloodPackTransfusion }
     .desc = { ent-ADTBloodPackTransfusion.desc }
     .suffix = Полный, Переливания
+ent-ADTBloodPackLidocaine = пакет лидокаина
+    .desc = Пакет с лидокаином для внутривенной анестезии.
+    .suffix = Полный

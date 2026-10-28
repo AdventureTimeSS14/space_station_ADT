@@ -190,3 +190,70 @@
     Plasma: 300
     ADTBScrystal: 200
     Copper: 500
+
+- type: latheRecipe
+  id: ADTBoneSetter
+  result: ADTBoneSetter
+  completetime: 2
+  materials:
+    Steel: 200
+    Plastic: 100
+
+- type: latheRecipe
+  id: ADTBoneGel
+  result: ADTBoneGel
+  completetime: 2
+  materials:
+    Plastic: 150
+    Glass: 50
+
+- type: latheRecipe
+  id: ADTSurgicalTape
+  result: ADTSurgicalTape
+  completetime: 2
+  materials:
+    Plastic: 100
+
+- type: latheRecipe
+  id: ADTBloodFilter
+  result: ADTBloodFilter
+  completetime: 2
+  materials:
+    Steel: 200
+    Glass: 100
+    Plastic: 100
+
+- type: latheRecipe
+  id: ADTSurgicalDrapes
+  result: ADTSurgicalDrapes
+  completetime: 1
+  materials:
+    Plastic: 100
+
+- type: latheRecipe
+  id: ScalpelAdvanced
+  result: ScalpelAdvanced
+  completetime: 3
+  materials:
+    Steel: 400
+    Plastic: 100
+    Silver: 100
+
+- type: latheRecipe
+  id: ScalpelLaser
+  result: ScalpelLaser
+  completetime: 4
+  materials:
+    Steel: 400
+    Glass: 200
+    Plastic: 100
+    Gold: 100
+
+- type: latheRecipe
+  id: SawElectric
+  result: SawElectric
+  completetime: 3
+  materials:
+    Steel: 400
+    Plastic: 200
+    Silver: 100

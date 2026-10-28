@@ -11,3 +11,27 @@
     stateBaseClosed: pathologist
     stateDoorOpen: pathologist_open
     stateDoorClosed: pathologist_door
+
+- type: entity
+  id: ADTLockerAnesthesia
+  name: anesthesia locker
+  parent: LockerBase
+  components:
+  - type: Appearance
+  - type: AccessReader
+    access: [["Medical"]]
+  - type: EntityStorageVisuals
+    stateBaseClosed: n2o
+    stateDoorOpen: color_white3_open
+    stateDoorClosed: n2o_door
+
+- type: entity
+  id: ADTWardrobeSurgeon
+  parent: WardrobeBase
+  name: surgeon's wardrobe
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: medical
+    stateDoorOpen: color_white_open
+    stateDoorClosed: med_wardrobe_door

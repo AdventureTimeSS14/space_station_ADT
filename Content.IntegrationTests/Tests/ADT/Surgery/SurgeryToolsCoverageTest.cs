@@ -44,7 +44,7 @@ public sealed class SurgeryToolsCoverageTest : GameTest
 
     private sealed record ToolSpec(
         string Id,
-        float Speed,
+        float? Speed,
         string[] Proper,
         string[] Improvised,
         string[]? ToggledProper = null,
@@ -52,27 +52,31 @@ public sealed class SurgeryToolsCoverageTest : GameTest
 
     private static readonly ToolSpec[] Tools =
     {
-        new("Scalpel", 1.15f, ["Incision"], ["Sawing"]),
-        new("ScalpelAdvanced", 0.55f, ["Incision"], ["Sawing"]),
-        new("ScalpelLaser", 0.55f, ["Incision"], ["Sawing"]),
-        new("ScalpelShiv", 1.15f, ["Incision"], ["Sawing"]),
-        new("ADTSupermatterScalpel", 1.15f, [], ["Incision", "Sawing"]),
-        new("Cautery", 1.15f, ["Cautery"], []),
-        new("Drill", 1.15f, [], []),
-        new("Retractor", 1.15f, ["Retraction"], []),
-        new("Hemostat", 1.15f, ["Clamping", "OrganManipulation"], []),
-        new("ADTBoneSetter", 1.15f, ["BoneSetting"], []),
-        new("Saw", 1.15f, ["Sawing"], ["Incision"]),
-        new("SawElectric", 0.55f, ["Sawing"], ["Incision"]),
-        new("SawImprov", 1.15f, ["Sawing"], ["Incision"]),
-        new("SawAdvanced", 0.4f, ["Sawing"], ["Incision"]),
-        new("ADTSawImprovised", 1.15f, [], ["Sawing", "Incision"]),
-        new("ADTBoneGel", 1.15f, ["BoneMending"], []),
-        new("ADTSurgicalTape", 1.15f, ["BoneMending"], []),
-        new("ADTBloodFilter", 1.15f, [], []),
-        new("ADTLaserScalpel", 0.55f, ["Incision"], ["Sawing"], ["Sawing"], ["Incision"]),
-        new("ADTMechanicalPinches", 0.55f, ["Retraction"], [], ["Clamping", "OrganManipulation"], []),
-        new("ADTSearingTool", 0.55f, ["Cautery"], [], [], []),
+        new("Scalpel", 1f, ["Incision"], []),
+        new("ScalpelAdvanced", 0.67f, ["Incision"], []),
+        new("ScalpelLaser", 0.67f, ["Incision"], []),
+        new("ScalpelShiv", 1.25f, ["Incision"], []),
+        new("ADTSupermatterScalpel", 1f, [], []),
+        new("Cautery", 1f, ["Cautery"], []),
+        new("Drill", 1f, [], []),
+        new("Retractor", 1f, ["Retraction"], []),
+        new("Hemostat", 1f, ["Clamping", "OrganManipulation"], []),
+        new("ADTBoneSetter", 1f, ["BoneSetting"], []),
+        new("Saw", 1f, ["Sawing"], []),
+        new("SawElectric", 0.67f, ["Sawing"], []),
+        new("SawImprov", 1f, ["Sawing"], []),
+        new("SawAdvanced", 0.5f, ["Sawing"], []),
+        new("ADTSawImprovised", 1f, ["Sawing"], []),
+        new("ADTBoneGel", 1f, ["BoneMending"], []),
+        new("ADTSurgicalTape", 1f, ["BoneMending"], []),
+        new("ADTBloodFilter", 1f, [], []),
+        new("ADTLaserScalpel", 0.67f, ["Incision"], [], ["Sawing"], []),
+        new("ADTMechanicalPinches", 0.67f, ["Retraction"], [], ["Clamping", "OrganManipulation"], []),
+        new("ADTSearingTool", 0.67f, ["Cautery"], [], [], []),
+        new("KitchenKnife", null, [], ["Incision"]),
+        new("Crowbar", null, [], ["Clamping", "Retraction", "OrganManipulation"]),
+        new("Wrench", null, [], ["BoneSetting"]),
+        new("Screwdriver", null, [], ["BoneMending"]),
     };
 
     [Test]
@@ -105,10 +109,13 @@ public sealed class SurgeryToolsCoverageTest : GameTest
 
         foreach (var spec in Tools)
         {
+            if (spec.Speed is not { } speed)
+                continue;
+
             var tool = SSpawn(spec.Id);
             var comp = SComp<SurgeryToolComponent>(tool);
 
-            if (Math.Abs(comp.Speed - spec.Speed) > 0.001f)
+            if (Math.Abs(comp.Speed - speed) > 0.001f)
                 errors.Add($"{spec.Id}: speed {comp.Speed}, expected {spec.Speed}");
 
             SEntMan.DeleteEntity(tool);

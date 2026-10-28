@@ -41,3 +41,16 @@ ent-SuitStorageBrigmedic = хранилище скафандра
     .suffix = Бригмедик
     .desc = { ent-SuitStorageBase.desc }
 
+ent-ADTLockerAnesthesia = шкаф анестезии
+    .desc = { ent-LockerBaseSecure.desc }
+
+ent-ADTLockerAnesthesiaFilled = шкаф анестезии
+    .suffix = Заполненный
+    .desc = { ent-LockerBaseSecure.desc }
+
+ent-ADTWardrobeSurgeon = гардероб хирурга
+    .desc = { ent-WardrobeWhite.desc }
+
+ent-ADTWardrobeSurgeonFilled = { ent-ADTWardrobeSurgeon }
+    .suffix = Заполненный
+    .desc = { ent-ADTWardrobeSurgeon.desc }

@@ -22,9 +22,6 @@
   - ADTOrganCyberKidneys
   - ADTOrganCyberStomach
   - ADTOrganCyberEyes
-  - ADTLaserScalpel
-  - ADTMechanicalPinches
-  - ADTSearingTool
 
 - type: latheRecipePack
   id: ADTAdvancedMedicalCarePack
@@ -68,3 +65,22 @@
   id: ADTMedbeamPack
   recipes:
   - ADTWeaponMedbeamCivil
+
+- type: latheRecipePack
+  id: ADTAdvancedSurgeryPack
+  recipes:
+  - ADTBoneSetter
+  - ADTBoneGel
+  - ADTSurgicalTape
+  - ADTBloodFilter
+  - ADTSurgicalDrapes
+  - ScalpelAdvanced
+  - SawElectric
+
+- type: latheRecipePack
+  id: ADTLaserSurgeryPack
+  recipes:
+  - ScalpelLaser
+  - ADTLaserScalpel
+  - ADTMechanicalPinches
+  - ADTSearingTool

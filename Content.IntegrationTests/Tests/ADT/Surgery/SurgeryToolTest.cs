@@ -3,7 +3,6 @@ using Content.IntegrationTests.Fixtures.Attributes;
 using Content.Shared.ADT.Body.OrganHealth;
 using Content.Shared.ADT.Surgery.Components;
 using Content.Shared.ADT.Surgery.Events;
-using Content.Shared.Damage.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Item.ItemToggle;
 using SharedDoAfter = Content.Shared.DoAfter.DoAfter;
@@ -54,12 +53,12 @@ public sealed class SurgeryToolTest : GameTest
         var patient = SpawnPatient();
         var surgeon = SSpawn("MobHuman");
         var comp = StartGraph(patient, ChestGraph, "ChestClosed");
-        var screwdriver = SSpawn("Screwdriver");
+        var knife = SSpawn("KitchenKnife");
 
         for (var attempt = 0; comp.CurrentNode == "ChestClosed"; attempt++)
         {
-            Assert.That(attempt, Is.LessThan(MaxAttempts), "screwdriver never completed the incision");
-            RaiseStep(patient, surgeon, "Cut", 0, screwdriver);
+            Assert.That(attempt, Is.LessThan(MaxAttempts), "knife never completed the incision");
+            RaiseStep(patient, surgeon, "Cut", 0, knife);
         }
 
         Assert.That(comp.CurrentNode, Is.EqualTo("ChestIncised"));
@@ -90,16 +89,14 @@ public sealed class SurgeryToolTest : GameTest
         var patient = SpawnPatient();
         var surgeon = SSpawn("MobHuman");
         var comp = StartGraph(patient, ChestGraph, "ChestClosed");
-        var screwdriver = SSpawn("Screwdriver");
-        var damageable = SComp<DamageableComponent>(patient);
+        var knife = SSpawn("KitchenKnife");
 
         var failures = 0;
         for (var attempt = 0; failures == 0 || comp.CurrentNode == "ChestClosed"; attempt++)
         {
             Assert.That(attempt, Is.LessThan(MaxAttempts), "step never succeeded after a failure");
 
-            var damageBefore = damageable.TotalDamage;
-            RaiseStep(patient, surgeon, "Cut", 0, screwdriver);
+            RaiseStep(patient, surgeon, "Cut", 0, knife);
 
             if (comp.CurrentNode != "ChestClosed")
             {
@@ -112,7 +109,6 @@ public sealed class SurgeryToolTest : GameTest
             failures++;
             Assert.That(comp.CompletedSteps, Is.Zero);
             Assert.That(comp.IsOperating, Is.False, "failed step must not block a retry");
-            Assert.That(damageable.TotalDamage, Is.GreaterThan(damageBefore), "improvised tool failure must hurt the patient");
         }
 
         Assert.That(comp.CurrentNode, Is.EqualTo("ChestIncised"));

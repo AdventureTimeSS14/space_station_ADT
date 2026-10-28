@@ -13,7 +13,7 @@
   - ADTMedipenBrute
   - ADTMedipenBurn
   - ADTMedipenRad
-  position: 2,0
+  position: 2,-1
   requiredTech:
   - ADTIndustrialMedicine
 
@@ -32,7 +32,7 @@
   - ADTMedipenHemostasis
   - ADTMedipenStimulant
   - ADTMedipenCrisis
-  position: 2,1
+  position: 1,-1
   requiredTech:
   - ADTMedAssemblerPens1
 
@@ -49,6 +49,6 @@
   - ADTMedipenLacerinol
   - ADTMedipenBruizine
   - ADTMedipenEthylredoxrazine
-  position: 1,1
+  position: 0,-1
   requiredTech:
   - ADTMedAssemblerPens2

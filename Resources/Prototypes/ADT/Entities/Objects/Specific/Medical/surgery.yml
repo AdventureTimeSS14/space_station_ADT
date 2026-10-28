@@ -147,7 +147,7 @@
   - type: Item
     sprite: ADT/Objects/Specific/Medical/Surgery/laser_scalpel.rsi
   - type: SurgeryTool
-    speed: 0.55
+    speed: 0.67
     extraQualities:
     - Incision
     activeQualities:
@@ -181,7 +181,7 @@
     soundDeactivate:
       path: /Audio/Items/change_drill.ogg
   - type: SurgeryTool
-    speed: 0.55
+    speed: 0.67
     extraQualities:
     - Retraction
     activeQualities:
@@ -199,7 +199,7 @@
   - type: Item
     sprite: ADT/Objects/Specific/Medical/Surgery/searing_tool.rsi
   - type: SurgeryTool
-    speed: 0.55
+    speed: 0.67
     extraQualities:
     - Cautery
     activeQualities:

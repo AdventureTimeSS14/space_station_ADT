@@ -94,7 +94,7 @@ public sealed partial class SurgerySystem
         {
             foreach (var entry in quality.Entries)
             {
-                if (entry.Whitelist == null || entry.Speed > 1f || entry.Success < 1f || !EntryMatches(entry, item))
+                if (entry.Success < 1f || !EntryMatches(entry, item))
                     continue;
 
                 result.Add(quality.ID);
