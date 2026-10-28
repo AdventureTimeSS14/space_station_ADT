@@ -272,6 +272,8 @@ public sealed partial class RevolutionaryRuleSystem : GameRuleSystem<Revolutiona
         {
             if (HasComp<HeadRevolutionaryComponent>(uid))
                 continue;
+            if (!revComp.Running)
+                continue;
             if (!mc.HasMind)
                 continue;
             if (TryComp<MobStateComponent>(uid, out var mobstate)
@@ -289,9 +291,12 @@ public sealed partial class RevolutionaryRuleSystem : GameRuleSystem<Revolutiona
         }
 
         var rev = AllEntityQuery<RevolutionaryComponent, MindContainerComponent>();
-        while (rev.MoveNext(out var uid, out _, out var mc))
+        while (rev.MoveNext(out var uid, out var revComp, out var mc))
         {
             if (HasComp<HeadRevolutionaryComponent>(uid))
+                continue;
+
+            if (!revComp.Running)
                 continue;
 
             _npcFaction.RemoveFaction(uid, RevolutionaryNpcFaction);
