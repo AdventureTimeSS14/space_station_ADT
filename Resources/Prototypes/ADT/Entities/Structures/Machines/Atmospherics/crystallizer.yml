@@ -1,8 +1,8 @@
 - type: entity
   parent: [BaseStructure, ConstructibleMachine]
   id: Crystallizer
-  name: ent-Crystallizer
-  description: ent-CrystallizerDescription
+  name: crystallizer
+  description: Used to crystallize or solidify gases.
   placement:
     mode: SnapgridCenter
   components:

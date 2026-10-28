@@ -10,8 +10,8 @@
 - type: entity
   parent: MaterialBase
   id: MaterialIridite
-  name: ent-MaterialIridite
-  description: ent-MaterialIriditeDescription
+  name: iridite
+  description: A complex alloy synthesized from atmospheric gases or advanced metallurgy, commonly used outside of the sector for heavy industrial machinery, nanofibers, and high-grade computers.
   suffix: Full
   components:
   - type: Sprite
