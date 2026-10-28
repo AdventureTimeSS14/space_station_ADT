@@ -101,8 +101,30 @@ public sealed partial class DrawingWindow : DefaultWindow
         _brushButton = ToolButton("adt-drawing-tool-brush", toolGroup, DrawingTool.Brush);
         var eraserButton = ToolButton("adt-drawing-tool-eraser", toolGroup, DrawingTool.Eraser);
         var pickerButton = ToolButton("adt-drawing-tool-picker", toolGroup, DrawingTool.Picker);
+        var lineButton = ToolButton("adt-drawing-tool-line", toolGroup, DrawingTool.Line);
+        var rectangleButton = ToolButton("adt-drawing-tool-rectangle", toolGroup, DrawingTool.Rectangle);
+        var ellipseButton = ToolButton("adt-drawing-tool-ellipse", toolGroup, DrawingTool.Ellipse);
+        var fillButton = ToolButton("adt-drawing-tool-fill", toolGroup, DrawingTool.Fill);
         _brushButton.Pressed = true;
         sidebar.AddChild(Row(_brushButton, eraserButton, pickerButton));
+        sidebar.AddChild(Row(lineButton, rectangleButton, ellipseButton, fillButton));
+
+        var toolButtons = new Dictionary<DrawingTool, Button>
+        {
+            [DrawingTool.Line] = lineButton,
+            [DrawingTool.Rectangle] = rectangleButton,
+            [DrawingTool.Ellipse] = ellipseButton,
+            [DrawingTool.Fill] = fillButton,
+        };
+        _canvas.OnToolSelected += tool =>
+        {
+            if (toolButtons.TryGetValue(tool, out var button))
+                button.Pressed = true;
+        };
+
+        sidebar.AddChild(Check("adt-drawing-shape-fill", false, v => _canvas.ShapeFill = v));
+        sidebar.AddChild(new SettingSlider("adt-drawing-fill-tolerance", 0, 100, _canvas.FillTolerance * 100, "0",
+            v => _canvas.FillTolerance = v / 100f).Row);
 
         _layerPanel = new CanvasLayerPanel(_document);
         sidebar.AddChild(_layerPanel);

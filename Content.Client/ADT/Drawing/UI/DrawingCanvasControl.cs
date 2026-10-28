@@ -17,6 +17,10 @@ public enum DrawingTool : byte
     Brush,
     Eraser,
     Picker,
+    Line,
+    Rectangle,
+    Ellipse,
+    Fill,
 }
 
 public sealed class DrawingCanvasControl : Control
@@ -50,6 +54,11 @@ public sealed class DrawingCanvasControl : Control
     private bool _hotkeys;
     private bool _locked;
     private bool _baseLocked;
+    private DrawingTool _tool = DrawingTool.Brush;
+    private bool _shaping;
+    private Vector2 _shapeStart;
+    private Vector2 _shapeEnd;
+    private readonly List<Vector2> _shapePoints = new();
 
     public DrawingCanvasControl(CanvasDocument document, PenInputSystem penSystem,
         IGameTiming timing, IClyde clyde, IInputManager inputManager)
@@ -76,7 +85,21 @@ public sealed class DrawingCanvasControl : Control
 
     public BrushSettings Brush => Document.Stroker.Settings;
 
-    public DrawingTool Tool { get; set; } = DrawingTool.Brush;
+    public DrawingTool Tool
+    {
+        get => _tool;
+        set
+        {
+            _tool = value;
+            _shaping = false;
+        }
+    }
+
+    public bool ShapeFill { get; set; }
+
+    public float FillTolerance { get; set; } = 0.1f;
+
+    public event Action<DrawingTool>? OnToolSelected;
 
     public bool HideEditorCursors { get; set; }
 
@@ -213,6 +236,24 @@ public sealed class DrawingCanvasControl : Control
         if (!CanDrawActive)
             return;
 
+        if (IsShapeTool(Tool))
+        {
+            if (Document.ActiveStroke)
+                return;
+
+            _shaping = true;
+            _shapeStart = ScreenToCanvas(screen);
+            _shapeEnd = _shapeStart;
+            return;
+        }
+
+        if (Tool == DrawingTool.Fill)
+        {
+            var c = ScreenToCanvas(screen);
+            Document.FloodFill((int) MathF.Floor(c.X), (int) MathF.Floor(c.Y), Brush.Color, Brush.Opacity, FillTolerance);
+            return;
+        }
+
         var tool = Tool == DrawingTool.Eraser ? PenTool.Eraser : PenTool.Pen;
         var constant = _inputManager.IsKeyDown(Keyboard.Key.Shift);
         _input.Down(screen, ScreenToCanvas(screen), tool, constant);
@@ -225,6 +266,13 @@ public sealed class DrawingCanvasControl : Control
         if (args.Function == EngineKeyFunctions.UIRightClick)
         {
             _panning = false;
+            return;
+        }
+
+        if (IsDrawFunction(args.Function) && _shaping)
+        {
+            _shapeEnd = ScreenToCanvas(_hover ?? args.RelativePixelPosition);
+            FinishShape();
             return;
         }
 
@@ -285,11 +333,138 @@ public sealed class DrawingCanvasControl : Control
                 ChangeBrushSize(BrushSizeStep);
                 break;
 
+            case Keyboard.Key.L when !args.Control && !args.Alt:
+                SelectTool(DrawingTool.Line);
+                break;
+
+            case Keyboard.Key.R when !args.Control && !args.Alt:
+                SelectTool(DrawingTool.Rectangle);
+                break;
+
+            case Keyboard.Key.O when !args.Control && !args.Alt:
+                SelectTool(DrawingTool.Ellipse);
+                break;
+
+            case Keyboard.Key.G when !args.Control && !args.Alt:
+                SelectTool(DrawingTool.Fill);
+                break;
+
             default:
                 return;
         }
 
         args.Handle();
+    }
+
+    private void SelectTool(DrawingTool tool)
+    {
+        if (_input.IsDown || _shaping)
+            return;
+
+        Tool = tool;
+        OnToolSelected?.Invoke(tool);
+    }
+
+    private static bool IsShapeTool(DrawingTool tool)
+    {
+        return tool is DrawingTool.Line or DrawingTool.Rectangle or DrawingTool.Ellipse;
+    }
+
+    private void FinishShape()
+    {
+        _shaping = false;
+        if (!CanDrawActive || Document.ActiveStroke)
+            return;
+
+        var constrain = _inputManager.IsKeyDown(Keyboard.Key.Shift);
+        BuildShape(_shapeStart, _shapeEnd, constrain, _shapePoints);
+        if (_shapePoints.Count == 0)
+            return;
+
+        if (ShapeFill && Tool != DrawingTool.Line)
+        {
+            var start = _shapeStart;
+            var end = Constrain(_shapeStart, _shapeEnd, constrain);
+            if (Brush.Pixel)
+            {
+                var min = Vector2.Min(start, end);
+                var max = Vector2.Max(start, end);
+                start = new Vector2(MathF.Floor(min.X), MathF.Floor(min.Y));
+                end = new Vector2(MathF.Floor(max.X) + 1f, MathF.Floor(max.Y) + 1f);
+            }
+
+            Document.FillShape(start, end, Tool == DrawingTool.Ellipse, Brush.Color, Brush.Opacity);
+        }
+
+        for (var i = 0; i < _shapePoints.Count; i++)
+        {
+            var phase = i == 0 ? PenPhase.Down : PenPhase.Move;
+            Document.HandleSample(ShapeSample(_shapePoints[i], phase), 0f);
+        }
+
+        Document.HandleSample(ShapeSample(_shapePoints[_shapePoints.Count - 1], PenPhase.Up), 0f);
+    }
+
+    private static PenSample ShapeSample(Vector2 position, PenPhase phase)
+    {
+        return new PenSample(position, 1f, 1f, PenTool.Pen, phase, PressureOrigin.Constant, TimeSpan.Zero);
+    }
+
+    private Vector2 Constrain(Vector2 start, Vector2 end, bool constrain)
+    {
+        if (!constrain)
+            return end;
+
+        var delta = end - start;
+        if (Tool == DrawingTool.Line)
+        {
+            var step = MathF.PI / 4f;
+            var angle = MathF.Round(MathF.Atan2(delta.Y, delta.X) / step) * step;
+            return start + new Vector2(MathF.Cos(angle), MathF.Sin(angle)) * delta.Length();
+        }
+
+        var side = MathF.Max(MathF.Abs(delta.X), MathF.Abs(delta.Y));
+        return start + new Vector2(delta.X < 0f ? -side : side, delta.Y < 0f ? -side : side);
+    }
+
+    private void BuildShape(Vector2 start, Vector2 end, bool constrain, List<Vector2> points)
+    {
+        points.Clear();
+        end = Constrain(start, end, constrain);
+
+        if (Brush.Pixel)
+        {
+            start = new Vector2(MathF.Floor(start.X) + 0.5f, MathF.Floor(start.Y) + 0.5f);
+            end = new Vector2(MathF.Floor(end.X) + 0.5f, MathF.Floor(end.Y) + 0.5f);
+        }
+
+        switch (Tool)
+        {
+            case DrawingTool.Line:
+                points.Add(start);
+                points.Add(end);
+                break;
+
+            case DrawingTool.Rectangle:
+                points.Add(start);
+                points.Add(new Vector2(end.X, start.Y));
+                points.Add(end);
+                points.Add(new Vector2(start.X, end.Y));
+                points.Add(start);
+                break;
+
+            case DrawingTool.Ellipse:
+                var center = (start + end) / 2f;
+                var radius = Vector2.Abs(end - start) / 2f;
+                var perimeter = MathF.Tau * MathF.Sqrt((radius.X * radius.X + radius.Y * radius.Y) / 2f);
+                var count = Math.Clamp((int) MathF.Ceiling(perimeter / 3f), 16, 720);
+                for (var i = 0; i <= count; i++)
+                {
+                    var angle = MathF.Tau * i / count;
+                    points.Add(center + new Vector2(MathF.Cos(angle) * radius.X, MathF.Sin(angle) * radius.Y));
+                }
+                break;
+        }
     }
 
     private static bool IsDrawFunction(BoundKeyFunction function)
@@ -311,6 +486,14 @@ public sealed class DrawingCanvasControl : Control
             return;
         }
 
+        if (_shaping)
+        {
+            if (_inputManager.IsKeyDown(Keyboard.Key.MouseLeft))
+                _shapeEnd = ScreenToCanvas(screen);
+            else
+                _shaping = false;
+        }
+
         if (_input.IsDown && !_inputManager.IsKeyDown(Keyboard.Key.MouseLeft))
             _input.Cancel();
 
@@ -326,8 +509,11 @@ public sealed class DrawingCanvasControl : Control
 
     private void OnWindowFocused(WindowFocusedEventArgs args)
     {
-        if (!args.Focused)
-            _input.Cancel();
+        if (args.Focused)
+            return;
+
+        _input.Cancel();
+        _shaping = false;
     }
 
     private void ReportCursor()
@@ -348,7 +534,7 @@ public sealed class DrawingCanvasControl : Control
             _ => CanvasCursorFlags.None,
         };
 
-        if (_input.IsDown)
+        if (_input.IsDown || _shaping)
             flags |= CanvasCursorFlags.Drawing;
 
         var position = _input.IsDown ? _input.Last.Position : ScreenToCanvas(hover);
@@ -379,6 +565,7 @@ public sealed class DrawingCanvasControl : Control
     {
         base.ControlFocusExited();
         _panning = false;
+        _shaping = false;
         _input.Cancel();
     }
 
@@ -454,12 +641,15 @@ public sealed class DrawingCanvasControl : Control
         if (Brush.Pixel && Zoom >= PixelGridZoom)
             DrawPixelGrid(handle, canvasRect);
 
+        if (_shaping)
+            DrawShapePreview(handle);
+
         handle.DrawRect(canvasRect, Color.Black.WithAlpha(0.6f), filled: false);
 
         if (Collaboration != null)
             DrawCursors(handle, Collaboration);
 
-        if (_hover is not { } hover || Tool == DrawingTool.Picker || _panning || !CanDrawActive)
+        if (_hover is not { } hover || Tool is DrawingTool.Picker or DrawingTool.Fill || _panning || !CanDrawActive)
             return;
 
         if (Brush.Pixel)
@@ -478,6 +668,16 @@ public sealed class DrawingCanvasControl : Control
         var radius = MathF.Max(1f, Brush.DiameterAt(pressure) * 0.5f * Zoom);
         handle.DrawCircle(hover, radius + 1f, Color.Black.WithAlpha(0.5f), filled: false);
         handle.DrawCircle(hover, radius, Color.White.WithAlpha(0.8f), filled: false);
+    }
+
+    private void DrawShapePreview(DrawingHandleScreen handle)
+    {
+        BuildShape(_shapeStart, _shapeEnd, _inputManager.IsKeyDown(Keyboard.Key.Shift), _shapePoints);
+        var color = Brush.Color.WithAlpha(MathF.Max(0.5f, Brush.Opacity));
+        for (var i = 1; i < _shapePoints.Count; i++)
+        {
+            handle.DrawLine(CanvasToScreen(_shapePoints[i - 1]), CanvasToScreen(_shapePoints[i]), color);
+        }
     }
 
     private void DrawPixelGrid(DrawingHandleScreen handle, UIBox2 rect)
