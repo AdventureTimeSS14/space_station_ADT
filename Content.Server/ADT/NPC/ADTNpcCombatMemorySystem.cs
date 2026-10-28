@@ -1,6 +1,7 @@
 using System.Numerics;
 using Content.Server.NPC.HTN;
 using Content.Shared.Chat;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
@@ -97,7 +98,7 @@ public sealed class ADTNpcCombatMemorySystem : EntitySystem
         var target = args.Used.Comp.Target;
 
         if (_interaction.InRangeUnobstructed(from, to, MathF.Sqrt(lengthSq) + 0.1f, component.ObstacleMask,
-                e => e == uid || e == target || HasComp<MobStateComponent>(e)))
+                e => e == uid || e == target || HasComp<MobStateComponent>(e) || IgnoresProjectiles(e)))
         {
             return;
         }
@@ -105,6 +106,11 @@ public sealed class ADTNpcCombatMemorySystem : EntitySystem
         args.Cancel();
         component.Blocked = true;
         component.LastBlocked = _timing.CurTime;
+    }
+
+    private bool IgnoresProjectiles(EntityUid uid)
+    {
+        return TryComp<RequireProjectileTargetComponent>(uid, out var comp) && comp.Active;
     }
 
     private void OnDamageDealt(EntityUid uid, ADTNpcCombatMemoryComponent component, ref DamageDealtEvent args)

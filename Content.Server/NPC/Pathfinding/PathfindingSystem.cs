@@ -467,6 +467,11 @@ namespace Content.Server.NPC.Pathfinding
             {
                 flags |= PathFlags.Blob;
             }
+
+            if (blackboard.TryGetValue<bool>("ADTNavAccess", out var access, EntityManager) && access)
+            {
+                flags |= PathFlags.Access;
+            }
             // ADT-Tweak end
             return flags;
         }

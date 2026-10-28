@@ -10,11 +10,17 @@
     - type: MobMover
     - type: ADTNpcGear
     - type: ADTNpcCombatMemory
+      avoidObstacles: true
+      obstacleMask:
+      - BulletImpassable
+    - type: ADTPreciseProjectileTarget
     - type: HTN
       rootTask:
         task: ADTExpeditionHumanoidCompound
       blackboard:
         NavInteract: !type:Bool
+          true
+        ADTNavAccess: !type:Bool
           true
         VisionRadius: !type:Single
           15
@@ -148,6 +154,8 @@
       blackboard:
         NavInteract: !type:Bool
           true
+        ADTNavAccess: !type:Bool
+          true
         VisionRadius: !type:Single
           15
         AggroVisionRadius: !type:Single
@@ -225,6 +233,8 @@
         task: ADTExpeditionMedicCompound
       blackboard:
         NavInteract: !type:Bool
+          true
+        ADTNavAccess: !type:Bool
           true
         VisionRadius: !type:Single
           15
