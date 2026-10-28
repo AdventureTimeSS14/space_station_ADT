@@ -4,6 +4,7 @@ using Content.Shared.Chat;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
+using Content.Shared.Power;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.Stacks;
 using Content.Shared.UserInterface;
@@ -47,6 +48,7 @@ public sealed partial class SlotMachineCasinoSystem : EntitySystem
         SubscribeLocalEvent<SlotMachineCasinoComponent, BoundUIOpenedEvent>(OnUiOpened);
 
         SubscribeLocalEvent<SlotMachineCasinoComponent, SlotMachineCasinoActionMessage>(OnAction);
+        SubscribeLocalEvent<SlotMachineCasinoComponent, PowerChangedEvent>(OnPowerChanged);
     }
 
     private void OnMapInit(Entity<SlotMachineCasinoComponent> ent, ref MapInitEvent args)
@@ -132,6 +134,33 @@ public sealed partial class SlotMachineCasinoSystem : EntitySystem
                     PushState((uid, comp));
             }
         }
+    }
+
+    private void OnPowerChanged(Entity<SlotMachineCasinoComponent> ent, ref PowerChangedEvent args)
+    {
+        if (args.Powered)
+        {
+            PushState(ent);
+            return;
+        }
+
+        var comp = ent.Comp;
+        StopAuto(comp);
+
+        if (comp.Working)
+        {
+            for (var i = 0; i < comp.ReelSpinning.Length; i++)
+                comp.ReelSpinning[i] = false;
+            comp.StoppedReels = comp.Reels.Length;
+            comp.NextReelToStop = comp.Reels.Length;
+            ResolveSpin(ent, _timing.CurTime);
+        }
+
+        comp.ShowWinOverlay = false;
+        comp.StoppedReels = 0;
+        _appearance.SetData(ent.Owner, SlotMachineCasinoVisuals.StoppedReels, 0);
+        _appearance.SetData(ent.Owner, SlotMachineCasinoVisuals.WinBlink, false);
+        PushState(ent);
     }
 
     // === Player actions ===
