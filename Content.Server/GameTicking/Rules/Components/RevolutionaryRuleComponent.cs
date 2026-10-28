@@ -27,4 +27,21 @@ public sealed partial class RevolutionaryRuleComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan ShuttleCallTime = TimeSpan.FromMinutes(5);
+
+    // ADT-Tweak-Start
+    [DataField]
+    public EntProtoId CentComEventPrototype = "CentComRandomEvent";
+
+    [DataField]
+    public TimeSpan CentComEventFirstDelay = TimeSpan.FromMinutes(10);
+
+    [DataField]
+    public TimeSpan CentComEventMinDelay = TimeSpan.FromMinutes(10);
+
+    [DataField]
+    public TimeSpan CentComEventMaxDelay = TimeSpan.FromMinutes(20);
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    public TimeSpan NextCentComEvent;
+    // ADT-Tweak-End
 }

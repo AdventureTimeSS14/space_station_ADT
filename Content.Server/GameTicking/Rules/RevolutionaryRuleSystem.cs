@@ -32,6 +32,7 @@ using Content.Shared.Cuffs.Components;
 using Content.Shared.ADT.Heretic.Systems;
 using Robust.Shared.Player;
 using Content.Shared.Mindshield;
+using Content.Server.ADT.StationEvents.Events; // ADT-Tweak
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -56,6 +57,7 @@ public sealed partial class RevolutionaryRuleSystem : GameRuleSystem<Revolutiona
     [Dependency] private StationSystem _stationSystem = default!;
     [Dependency] private MindShieldSystem _mindShield = default!;
     [Dependency] private SharedHereticSystem _heretic = default!;
+    [Dependency] private CentComRandomEvent _centComEvent = default!; // ADT-Tweak
 
     //Used in OnPostFlash, no reference to the rule component is available
     public readonly ProtoId<NpcFactionPrototype> RevolutionaryNpcFaction = "Revolutionary";
@@ -76,11 +78,21 @@ public sealed partial class RevolutionaryRuleSystem : GameRuleSystem<Revolutiona
     {
         base.Started(uid, component, gameRule, args);
         component.CommandCheck = _timing.CurTime + component.TimerWait;
+        component.NextCentComEvent = _timing.CurTime + component.CentComEventFirstDelay; // ADT-Tweak
     }
 
     protected override void ActiveTick(EntityUid uid, RevolutionaryRuleComponent component, GameRuleComponent gameRule, float frameTime)
     {
         base.ActiveTick(uid, component, gameRule, frameTime);
+
+        // ADT-Tweak-Start
+        if (!_centComEvent.Exhausted && component.NextCentComEvent <= _timing.CurTime)
+        {
+            component.NextCentComEvent = _timing.CurTime + RobustRandom.Next(component.CentComEventMinDelay, component.CentComEventMaxDelay);
+            GameTicker.StartGameRule(component.CentComEventPrototype);
+        }
+        // ADT-Tweak-End
+
         if (component.CommandCheck <= _timing.CurTime)
         {
             component.CommandCheck = _timing.CurTime + component.TimerWait;
@@ -164,7 +176,7 @@ public sealed partial class RevolutionaryRuleSystem : GameRuleSystem<Revolutiona
         if (!_mind.TryGetMind(ev.User.Value, out var revMindId, out _) || !_role.MindHasRole<RevolutionaryRoleComponent>(revMindId, out var role))
             return;
 
-        if (role.Value.Comp2.ConvertedCount <= 15)
+        if (role.Value.Comp2.ConvertedCount < 5)
         {
             _euiMan.OpenEui(new AcceptRevolutionEui(ev.User.Value, ev.Target, comp, this), session);
             return;
@@ -232,11 +244,11 @@ public sealed partial class RevolutionaryRuleSystem : GameRuleSystem<Revolutiona
     private void OnHeadRevMobStateChanged(EntityUid uid, HeadRevolutionaryComponent comp, MobStateChangedEvent ev)
     {
         if (ev.NewMobState == MobState.Dead || ev.NewMobState == MobState.Invalid)
-            CheckRevsLose();
+            TryPromoteNewHeadRev(); // ADT-Tweak
     }
 
     /// <summary>
-    /// Checks if all the Head Revs are dead and if so will deconvert all regular revs.
+    /// Checks if all the Head Revs are dead.
     /// </summary>
     private bool CheckRevsLose()
     {
@@ -250,25 +262,32 @@ public sealed partial class RevolutionaryRuleSystem : GameRuleSystem<Revolutiona
             headRevList.Add(uid);
         }
 
-        // If no Head Revs are alive all normal Revs will lose their Rev status and rejoin Nanotrasen
-        if (IsGroupDead(headRevList, false)) //ADT tweak
-        // Cuffing Head Revs is not enough - they must be killed.
-        //if (IsGroupDetainedOrDead(headRevList, false, false, false))
-        {
-            var headrev = AllEntityQuery<RevolutionaryComponent, MindContainerComponent>();
-            while (headrev.MoveNext(out var uid, out _, out var mc))
-            {
-                if (HasComp<HeadRevolutionaryComponent>(uid))
-                    continue;
-                if (TryComp<MobStateComponent>(uid, out var mobstate) && mobstate.CurrentState != MobState.Dead)
-                {
-                    AddComp<HeadRevolutionaryComponent>(uid);
-                    return false;
-                }
-            }
-        }
-        return true;
+        return IsGroupDead(headRevList, false);
+    }
 
+    private void TryPromoteNewHeadRev()
+    {
+        if (!CheckRevsLose())
+            return;
+
+        var revs = AllEntityQuery<RevolutionaryComponent, MindContainerComponent>();
+        while (revs.MoveNext(out var uid, out var revComp, out _))
+        {
+            if (HasComp<HeadRevolutionaryComponent>(uid))
+                continue;
+
+            if (!TryComp<MobStateComponent>(uid, out var mobState) || mobState.CurrentState == MobState.Dead)
+                continue;
+
+            AddComp<HeadRevolutionaryComponent>(uid);
+
+            _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(uid)} was promoted to Head Revolutionary");
+
+            if (_mind.TryGetMind(uid, out _, out var mind) && _player.TryGetSessionById(mind.UserId, out var session))
+                _antag.SendBriefing(session, Loc.GetString("head-rev-promoted-greeting"), Color.Red, revComp.RevStartSound);
+
+            return;
+        }
     }
     private bool IsGroupDead(List<EntityUid> list, bool checkOffStation, int? Dead = 0)
     {
