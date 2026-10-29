@@ -7,6 +7,7 @@ using Robust.Shared.Prototypes;
 using Content.Shared.Atmos;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
+using Robust.Shared.Timing;
 using System.Numerics;
 
 namespace Content.Client.ADT.Atmos;
