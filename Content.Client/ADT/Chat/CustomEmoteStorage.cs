@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Client.ADT.UserData;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.Manager;
@@ -15,8 +16,7 @@ namespace Content.Client.ADT.Chat;
 /// </summary>
 public static class CustomEmoteStorage
 {
-    private static readonly ResPath SaveDir = new("/ADT");
-    private static readonly ResPath SavePath = new("/ADT/custom_emotes.yml");
+    private static readonly ResPath SavePath = ADTUserData.Root / "custom_emotes.yml";
 
     public static string Load(IResourceManager resources, ISerializationManager serialization, ISawmill sawmill)
     {
@@ -57,7 +57,7 @@ public static class CustomEmoteStorage
 
         try
         {
-            resources.UserData.CreateDir(SaveDir);
+            resources.UserData.CreateDir(SavePath.Directory);
 
             var node = serialization.WriteValue(data, notNullableOverride: true);
             using var writer = resources.UserData.OpenWriteText(SavePath);
