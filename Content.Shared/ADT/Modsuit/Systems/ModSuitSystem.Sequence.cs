@@ -15,16 +15,16 @@ public sealed partial class ModSuitSystem
 
     private void OnToggleAllAction(Entity<ModSuitComponent> ent, ref ToggleAllModPartsActionEvent args)
     {
+        if (!TryComp<WiresPanelComponent>(ent, out var panel) || panel.Open)
+        {
+            _popupSystem.PopupPredicted(Loc.GetString("modsuit-close-wires"), args.Performer, args.Performer);
+            return;
+        }
+
         args.Handled = true;
 
         if (!_netMan.IsServer)
             return;
-
-        if (!TryComp<WiresPanelComponent>(ent, out var panel) || panel.Open)
-        {
-            _popupSystem.PopupEntity(Loc.GetString("modsuit-close-wires"), args.Performer, args.Performer);
-            return;
-        }
 
         var deploying = GetPartsToggleStatus(ent.Owner, ent.Comp) != ModSuitAttachedStatus.AllToggled;
 
