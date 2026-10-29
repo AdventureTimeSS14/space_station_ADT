@@ -192,7 +192,7 @@
       effects:
       - !type:ModifyStatusEffect
         effectProto: StatusEffectCrucibleSoul
-        time: 90
+        time: 60
         type: Set
         conditions:
         - !type:HereticOrGhoulCondition
@@ -210,7 +210,7 @@
           inverted: true
       - !type:ModifyStatusEffect
         effectProto: StatusEffectCrucibleSoul
-        time: 90
+        time: 60
         type: Set
         conditions:
         - !type:HereticOrGhoulCondition
@@ -233,7 +233,7 @@
       effects:
       - !type:ModifyStatusEffect
         effectProto: StatusEffectDuskAndDawn
-        time: 90
+        time: 60
         type: Set
         conditions:
         - !type:HereticOrGhoulCondition
@@ -264,7 +264,7 @@
       effects:
       - !type:ModifyStatusEffect
         effectProto: StatusEffectWoundedSoldier
-        time: 120
+        time: 90
         type: Set
         conditions:
         - !type:HereticOrGhoulCondition
@@ -282,7 +282,7 @@
           inverted: true
       - !type:ModifyStatusEffect
         effectProto: StatusEffectWoundedSoldier
-        time: 120
+        time: 90
         type: Set
         conditions:
         - !type:HereticOrGhoulCondition
