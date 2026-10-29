@@ -1,10 +1,7 @@
 using Content.Shared.Clothing.Components;
 using Content.Shared.Gravity;
 using Content.Shared.Inventory;
-using Content.Shared.Item.ItemToggle;
-using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Standing;
-using Robust.Shared.Containers;
 
 namespace Content.Shared.Clothing.EntitySystems;
 
@@ -17,8 +14,6 @@ public sealed partial class AntiGravityClothingSystem : EntitySystem
 {
     [Dependency] private StandingStateSystem _standing = default!;
     [Dependency] private SharedGravitySystem _gravity = default!;
-    [Dependency] private ItemToggleSystem _toggle = default!; // ADT-Tweak
-    [Dependency] private SharedContainerSystem _container = default!; // ADT-Tweak
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -28,16 +23,7 @@ public sealed partial class AntiGravityClothingSystem : EntitySystem
         SubscribeLocalEvent<AntiGravityClothingComponent, ClothingGotUnequippedEvent>(OnUnequipped);
         SubscribeLocalEvent<AntiGravityClothingComponent, InventoryRelayedEvent<DownedEvent>>(OnDowned);
         SubscribeLocalEvent<AntiGravityClothingComponent, InventoryRelayedEvent<StoodEvent>>(OnStood);
-        SubscribeLocalEvent<AntiGravityClothingComponent, ItemToggledEvent>(OnToggled); // ADT-Tweak
     }
-
-    // ADT-Tweak-Start
-    private void OnToggled(Entity<AntiGravityClothingComponent> ent, ref ItemToggledEvent args)
-    {
-        if (_container.TryGetContainingContainer((ent.Owner, null, null), out var container))
-            _gravity.RefreshWeightless(container.Owner);
-    }
-    // ADT-Tweak-End
 
     private void OnIsWeightless(Entity<AntiGravityClothingComponent> ent, ref InventoryRelayedEvent<IsWeightlessEvent> args)
     {
