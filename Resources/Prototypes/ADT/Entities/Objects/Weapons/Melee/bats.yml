@@ -40,6 +40,7 @@
   - type: MeleeThrowOnHit
     speed: 10
     distance: 1
+  - type: ADTThrowOnHitRestrictions
   - type: StealTarget
     stealGroup: ADTHosWeapon
 
