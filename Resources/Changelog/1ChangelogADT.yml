@@ -16874,3 +16874,14 @@ Entries:
     id: 2065
     pr_number: 3549
     time: '2026-10-29T06:21:01Z'
+  - author: TiredTurbo
+    changes:
+      - {message: что добавили, type: Add}
+      - {message: что убрали, type: Remove}
+      - {message: что подправили, type: Tweak}
+      - {message: что исправили, type: Fix}
+      - {message: Сотрудники ДСО вспомнили уроки русского языка и теперь не путают
+          паронимы Кроткий и Краткий, type: Fix}
+    id: 2066
+    pr_number: 3599
+    time: '2026-10-29T06:52:48Z'
