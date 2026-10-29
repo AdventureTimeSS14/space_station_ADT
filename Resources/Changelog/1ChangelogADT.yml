@@ -16863,3 +16863,14 @@ Entries:
     id: 2064
     pr_number: 3545
     time: '2026-10-29T04:05:14Z'
+  - author: blad_bochar
+    changes:
+      - {message: что добавили, type: Add}
+      - {message: что убрали, type: Remove}
+      - {message: что подправили, type: Tweak}
+      - {message: что исправили, type: Fix}
+      - {message: 'Отныне просматривать протолаты может любой игрок, но печатать предметы
+          и извлекать ресурсы могут только игроки с соответствующим доступом.', type: Tweak}
+    id: 2065
+    pr_number: 3549
+    time: '2026-10-29T06:21:01Z'
