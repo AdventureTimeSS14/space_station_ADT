@@ -32,6 +32,7 @@ public partial interface IServerDbManager
     Task<bool> IsPaintingWhitelistedAsync(Guid userId);
     Task<bool> AddPaintingWhitelistAsync(Guid userId, Guid addedBy, DateTime now);
     Task<bool> RemovePaintingWhitelistAsync(Guid userId);
+    Task<List<string>> GetPaintingWhitelistNamesAsync();
     Task<PaintingCleanupResult> CleanupPaintingsAsync(DateTime now, TimeSpan draftTtl, TimeSpan rejectTtl);
 }
 
@@ -191,6 +192,12 @@ public sealed partial class ServerDbManager
     {
         DbWriteOpsMetric.Inc();
         return RunDbCommand(() => _db.RemovePaintingWhitelist(userId));
+    }
+
+    public Task<List<string>> GetPaintingWhitelistNamesAsync()
+    {
+        DbReadOpsMetric.Inc();
+        return RunDbCommand(() => _db.GetPaintingWhitelistNames());
     }
 
     public Task<PaintingCleanupResult> CleanupPaintingsAsync(DateTime now, TimeSpan draftTtl, TimeSpan rejectTtl)

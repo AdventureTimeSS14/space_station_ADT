@@ -55,6 +55,26 @@
           False: { state: small }
 
 - type: entity
+  parent: ADTCanvasSmall
+  id: ADTCanvasPixelSmall
+  name: small pixel canvas
+  components:
+  - type: CanvasItem
+    size: 32,32
+    easelState: small
+    easelOffset: 5,4
+
+- type: entity
+  parent: ADTCanvasSmall
+  id: ADTCanvasPixel
+  name: pixel canvas
+  components:
+  - type: CanvasItem
+    size: 64,64
+    easelState: small
+    easelOffset: 5,4
+
+- type: entity
   parent: ADTCanvasBase
   id: ADTCanvasLarge
   name: large canvas
