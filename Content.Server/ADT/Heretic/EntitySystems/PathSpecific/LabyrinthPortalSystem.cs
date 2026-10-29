@@ -44,6 +44,19 @@ public sealed partial class LabyrinthPortalSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+
+        SubscribeLocalEvent<LabyrinthPortalComponent, ComponentShutdown>(OnPortalShutdown);
+    }
+
+    private void OnPortalShutdown(Entity<LabyrinthPortalComponent> ent, ref ComponentShutdown args)
+    {
+        foreach (var mob in ent.Comp.SpawnedMobs)
+        {
+            if (!TerminatingOrDeleted(mob))
+                QueueDel(mob);
+        }
+
+        ent.Comp.SpawnedMobs.Clear();
     }
 
     public override void Update(float frameTime)
