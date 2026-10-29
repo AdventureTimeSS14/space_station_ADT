@@ -62,5 +62,6 @@ public sealed class CrystallizerBoundUserInterface : BoundUserInterface
         _window.SelectRecipeById(cast.SelectedRecipeId);
         _window.GasInput.Value = cast.GasInput;
         _window.SetGasMixture(cast.GasMixture);
+        _window.SetProgressBar(cast.ProgressBar);
     }
 }

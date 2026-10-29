@@ -448,7 +448,7 @@
   components:
   - type: MachineBoard
     prototype: Crystallizer
-    requirements:
+    partRequirements:
       Capacitor: 2
       Manipulator: 4
       MatterBin: 4

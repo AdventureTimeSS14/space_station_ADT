@@ -103,8 +103,7 @@ public sealed partial class CrystallizerSystem : EntitySystem
                 crystallizer.SelectedRecipeId,
                 crystallizer.GasInput,
                 crystallizer.CrystallizerGasMixture,
-                crystallizer.ProgressBar,
-                crystallizer.QualityLoss));
+                crystallizer.ProgressBar));
     }
 
     private void UpdateGasMixtureUI(EntityUid uid, CrystallizerComponent? crystallizer = null, UserInterfaceComponent? ui = null)
@@ -196,7 +195,7 @@ public sealed partial class CrystallizerSystem : EntitySystem
         if (gasCheck && tempCheck)
         {
             HeatCalculations(crystalMix, recipe, crystallizer);
-            float progressFactor = 5f / MathF.Max(MathF.Log10(crystallizer.TotalRecipeMoles * 0.1f), 0.01f);
+            float progressFactor = 5f / MathF.Max(MathF.Log10(crystallizer.TotalRecipeMoles * 0.1f), 1f);
             crystallizer.ProgressBar = Math.Min(crystallizer.ProgressBar + MinProgressAmount * progressFactor, 100f);
         }
         else
@@ -235,7 +234,7 @@ public sealed partial class CrystallizerSystem : EntitySystem
 
     private void HeatCalculations(GasMixture crystalMix, CrystallizerRecipePrototype recipe, CrystallizerComponent crystallizer)
     {
-        float progressAmountToQuality = MinProgressAmount * 4.5f / MathF.Max(MathF.Log10(crystallizer.TotalRecipeMoles * 0.1f), 0.01f);
+        float progressAmountToQuality = MinProgressAmount * 4.5f / MathF.Max(MathF.Log10(crystallizer.TotalRecipeMoles * 0.1f), 1f);
         float medianTemperature = (recipe.MaximumTemperature + recipe.MinimumTemperature) / 2f;
 
         if ((crystalMix.Temperature >= recipe.MinimumTemperature * MinDeviationRate && crystalMix.Temperature <= recipe.MinimumTemperature) ||

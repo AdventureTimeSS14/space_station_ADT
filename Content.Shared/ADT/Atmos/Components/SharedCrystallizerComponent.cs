@@ -44,16 +44,14 @@ public sealed class CrystallizerBoundUserInterfaceState : BoundUserInterfaceStat
     public float GasInput { get; }
     public GasMixture GasMixture { get; }
     public float ProgressBar { get; }
-    public float QualityLoss { get; }
 
-    public CrystallizerBoundUserInterfaceState(bool enabled, string? selectedRecipeId, float gasInput, GasMixture gasMixture, float progressBar, float qualityLoss)
+    public CrystallizerBoundUserInterfaceState(bool enabled, string? selectedRecipeId, float gasInput, GasMixture gasMixture, float progressBar)
     {
         Enabled = enabled;
         SelectedRecipeId = selectedRecipeId;
         GasInput = gasInput;
         GasMixture = gasMixture;
         ProgressBar = progressBar;
-        QualityLoss = qualityLoss;
     }
 }
 
