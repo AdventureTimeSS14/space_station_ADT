@@ -2,13 +2,11 @@ using Content.Shared.Database;
 using Content.Shared.Eye;
 using Content.Shared.Hands;
 using Content.Shared.Interaction;
-using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Timing;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Utility;
 
@@ -21,7 +19,6 @@ public abstract partial class SharedTrayScannerSystem : EntitySystem
     [Dependency] private SharedEyeSystem _eye = default!;
     [Dependency] private UseDelaySystem _delay = default!;
     [Dependency] private INetManager _netMan = default!;
-    [Dependency] private SharedContainerSystem _containers = default!; // ADT-Tweak
 
     public const float SubfloorRevealAlpha = 0.8f;
 
@@ -36,10 +33,6 @@ public abstract partial class SharedTrayScannerSystem : EntitySystem
         SubscribeLocalEvent<TrayScannerComponent, GotEquippedEvent>(OnTrayEquipped);
         SubscribeLocalEvent<TrayScannerComponent, GotUnequippedEvent>(OnTrayUnequipped);
         SubscribeLocalEvent<TrayScannerUserComponent, GetVisMaskEvent>(OnUserGetVis);
-        // ADT-Tweak-Start
-        SubscribeLocalEvent<TrayScannerComponent, ComponentStartup>(OnTrayStartup);
-        SubscribeLocalEvent<TrayScannerComponent, ComponentShutdown>(OnTrayShutdown);
-        // ADT-Tweak-End
     }
 
     private void OnAddSwitchModeVerb(Entity<TrayScannerComponent> scanner, ref GetVerbsEvent<AlternativeVerb> args)
@@ -122,34 +115,6 @@ public abstract partial class SharedTrayScannerSystem : EntitySystem
         RemComp<TrayScannerUserComponent>(user);
         _eye.RefreshVisibilityMask(user);
     }
-
-    // ADT-Tweak-Start
-    private void OnTrayStartup(Entity<TrayScannerComponent> ent, ref ComponentStartup args)
-    {
-        if (TryGetWearer(ent, out var user))
-            OnEquip(user);
-    }
-
-    private void OnTrayShutdown(Entity<TrayScannerComponent> ent, ref ComponentShutdown args)
-    {
-        if (TryGetWearer(ent, out var user))
-            OnUnequip(user);
-    }
-
-    private bool TryGetWearer(EntityUid uid, out EntityUid user)
-    {
-        user = default;
-
-        if (!_containers.TryGetContainingContainer((uid, null), out var container)
-            || !HasComp<InventoryComponent>(container.Owner))
-        {
-            return false;
-        }
-
-        user = container.Owner;
-        return true;
-    }
-    // ADT-Tweak-End
 
     private void OnTrayHandUnequipped(Entity<TrayScannerComponent> ent, ref GotUnequippedHandEvent args)
     {
