@@ -19,7 +19,7 @@ public sealed class ADTLatheAccessSystem : EntitySystem
 
     private void OnMessageAttempt(Entity<LatheComponent> ent, ref BoundUserInterfaceMessageAttempt args)
     {
-        if (args.Cancelled || args.Message is LatheSyncRequestMessage)
+        if (args.Cancelled || args.Message is OpenBoundInterfaceMessage or LatheSyncRequestMessage)
             return;
 
         if (!TryUse(ent, args.Actor))
