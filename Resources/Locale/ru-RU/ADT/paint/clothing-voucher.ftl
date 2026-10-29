@@ -306,6 +306,17 @@ clothing-voucher-casualshirt-darkblue = { ent-ADTClothingUniformJumpsuitShirtDar
 clothing-voucher-casualshirt-green = { ent-ADTClothingUniformJumpsuitShirtGreen }
 clothing-voucher-casualshirt-teal = { ent-ADTClothingUniformJumpsuitShirtTeal }
 clothing-voucher-casualshirt-yellow = { ent-ADTClothingUniformJumpsuitShirtYellow }
+clothing-voucher-casualshirt-black = { ent-ADTClothingUniformJumpsuitBlackShirt }
+clothing-voucher-casualshirt-blue = { ent-ADTClothingUniformJumpsuitBlueShirt }
+clothing-voucher-casualshirt-purple = { ent-ADTClothingUniformJumpsuitPurpleShirt }
+clothing-voucher-casualshirt-red = { ent-ADTClothingUniformJumpsuitRedShirt }
+clothing-voucher-casualshirt-white = { ent-ADTClothingUniformJumpsuitWhiteShirt }
+clothing-voucher-casualshirt-fancy = { ent-ADTClothingUniformJumpsuitFancyShirt }
+clothing-voucher-casualshirt-redplaid = { ent-ADTClothingUniformJumpsuitRedPlaidShirt }
+clothing-voucher-casualshirt-hawaii = { ent-ADTClothingUniformJumpsuitHawaiiShirt }
+clothing-voucher-casualshirt-tonny = { ent-ADTClothingUniformJumpsuitTonnyShirt }
+clothing-voucher-casualshirt-navy = { ent-ADTClothingUniformJumpsuitNavyShirt }
+clothing-voucher-casualshirt-limbusco = { ent-ADTClothingUniformJumpsuitLimbuscoShirt }
 
 clothing-voucher-keikogi-white = { ent-ADTClothingUniformJumpsuitKeikogiWhite }
 clothing-voucher-keikogi-orange = { ent-ADTClothingUniformJumpsuitKeikogiOrange }

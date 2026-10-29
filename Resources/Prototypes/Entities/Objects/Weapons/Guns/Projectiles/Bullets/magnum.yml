@@ -29,10 +29,10 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 39 #ADT tweak
+        Piercing: 22 # ADT-Tweak
         # Blunt: 3 ADT tweak
         # Heat: 32 ADT tweak
-        Heat: 9
+        Heat: 6 # ADT-Tweak
 
 - type: entity
   parent: BaseBulletAP
