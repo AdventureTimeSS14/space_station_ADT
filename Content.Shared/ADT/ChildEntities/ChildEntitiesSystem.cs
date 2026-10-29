@@ -1,3 +1,4 @@
+using Robust.Shared.Map;
 using Robust.Shared.Network;
 
 namespace Content.Shared.ADT.ChildEntities;
@@ -19,12 +20,9 @@ public sealed partial class ChildEntitiesSystem : EntitySystem
 
         foreach (var child in ent.Comp.ChildPrototypes)
         {
-            var coords = Transform(ent).Coordinates;
-            var rotation = Transform(ent).LocalRotation;
+            var coords = new EntityCoordinates(ent, child.Offset);
 
-            coords = coords.WithPosition(coords.Position + child.Offset);
-
-            var childEnt = PredictedSpawnAttachedTo(child.Prototype, coords, null, rotation);
+            var childEnt = PredictedSpawnAttachedTo(child.Prototype, coords);
             ent.Comp.Children.Add(childEnt);
         }
 
