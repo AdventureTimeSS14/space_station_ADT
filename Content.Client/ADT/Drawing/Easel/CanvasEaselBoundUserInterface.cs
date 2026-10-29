@@ -1,3 +1,4 @@
+using Content.Client.ADT.Drawing.Canvas;
 using Content.Client.ADT.Drawing.Sync;
 using Content.Client.ADT.Drawing.UI;
 using Content.Shared.ADT.Drawing;
@@ -17,6 +18,8 @@ public sealed class CanvasEaselBoundUserInterface : BoundUserInterface
     private CanvasSyncSession? _session;
     private CanvasSubmitWindow? _submit;
     private CanvasEaselBoundUserInterfaceState? _state;
+    private CanvasDocument? _submitDocument;
+    private (string Title, string Description)? _pendingSubmit;
     private bool _disposing;
 
     public CanvasEaselBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
@@ -137,9 +140,56 @@ public sealed class CanvasEaselBoundUserInterface : BoundUserInterface
         }
 
         _submit = new CanvasSubmitWindow();
-        _submit.Submitted += (title, description) => SendMessage(new CanvasEaselSubmitMessage(title, description));
+        _submit.Submitted += OnSubmitted;
         _submit.OnClose += () => _submit = null;
         _submit.OpenCentered();
+    }
+
+    private void OnSubmitted(string title, string description)
+    {
+        if (_session is not { } session)
+            return;
+
+        var document = session.Document;
+        if (!document.MergeVisibleLayers())
+        {
+            _panel?.ShowHint(Loc.GetString("adt-canvas-submit-merge-failed"));
+            return;
+        }
+
+        if (!document.HasPendingWork)
+        {
+            SendMessage(new CanvasEaselSubmitMessage(title, description));
+            return;
+        }
+
+        ClearPendingSubmit();
+        _pendingSubmit = (title, description);
+        _submitDocument = document;
+        document.WorkSettled += OnWorkSettled;
+        _panel?.ShowHint(Loc.GetString("adt-canvas-submit-waiting"));
+    }
+
+    private void OnWorkSettled()
+    {
+        var pending = _pendingSubmit;
+        var document = _submitDocument;
+        ClearPendingSubmit();
+
+        if (pending is not { } submit || document == null || _session?.Document != document)
+            return;
+
+        _panel?.ShowHint(null);
+        SendMessage(new CanvasEaselSubmitMessage(submit.Title, submit.Description));
+    }
+
+    private void ClearPendingSubmit()
+    {
+        if (_submitDocument != null)
+            _submitDocument.WorkSettled -= OnWorkSettled;
+
+        _submitDocument = null;
+        _pendingSubmit = null;
     }
 
     private void OnSessionUpdated(CanvasSyncSession session)
@@ -204,6 +254,7 @@ public sealed class CanvasEaselBoundUserInterface : BoundUserInterface
         if (_session != null)
             _sync.Detach(_session.Painting);
 
+        ClearPendingSubmit();
         _drawing = null;
         _panel = null;
         _session = null;
@@ -220,6 +271,8 @@ public sealed class CanvasEaselBoundUserInterface : BoundUserInterface
 
     private void CloseDrawing()
     {
+        ClearPendingSubmit();
+
         var drawing = _drawing;
         _drawing = null;
         _panel = null;

@@ -1170,6 +1170,15 @@ ADTClothingOuterArmorMinerReinforcedFull: ADTClothingOuterArmorMiner
 ADTClothingHeadHelmetMinerReinforcedOne: ADTClothingHeadHelmetMiner
 ADTClothingHeadHelmetMinerReinforcedTwo: ADTClothingHeadHelmetMiner
 ADTClothingHeadHelmetMinerReinforcedFull: ADTClothingHeadHelmetMiner
+ADTMobNightmareSpider: ADTMobMarrowWeaver
+ADTMobShockSpider: ADTMobMarrowWeaverFrost
+ADTSpawnMobNightmareSpider: ADTSpawnMobMarrowWeaver
+ADTSpawnMobShockSpider: ADTSpawnMobMarrowWeaverFrost
+ADTTendrilNightmareSpider: ADTTendrilRandomThreat
+ADTTendrilShockSpider: ADTTendrilRandomThreat
+ADTTendrilIcewingWatcher: ADTTendrilLavaWatcher
+ADTTendrilMagmawingWatcher: ADTTendrilLavaWatcher
+ADTTendrilBScrab: ADTTendrilRandomThreat
 # ADT-Tweak-End
 
 # ADT-Tweak: remove Music song

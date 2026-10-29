@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made from Objects/Weapons/Melee/crusher.rsi (Citadel-Station-13-RP mining.dmi) and Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi (RiceMar1244, based on tgstation)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    }
+  ]
+}
