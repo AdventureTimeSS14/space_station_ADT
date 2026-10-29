@@ -2330,6 +2330,117 @@
   content:
   - ADTClothingUniformJumpsuitShirtYellow
 
+- type: thiefBackpackSet
+  id: CasualShirtBlack
+  name: clothing-voucher-casualshirt-black
+  description: clothing-voucher-casualshirt-black
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/black_shirt.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitBlackShirt
+
+- type: thiefBackpackSet
+  id: CasualShirtBlue
+  name: clothing-voucher-casualshirt-blue
+  description: clothing-voucher-casualshirt-blue
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/blue_shirt.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitBlueShirt
+
+- type: thiefBackpackSet
+  id: CasualShirtPurple
+  name: clothing-voucher-casualshirt-purple
+  description: clothing-voucher-casualshirt-purple
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/purple_shirt.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitPurpleShirt
+
+- type: thiefBackpackSet
+  id: CasualShirtRed
+  name: clothing-voucher-casualshirt-red
+  description: clothing-voucher-casualshirt-red
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/red_shirt.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitRedShirt
+
+- type: thiefBackpackSet
+  id: CasualShirtWhite
+  name: clothing-voucher-casualshirt-white
+  description: clothing-voucher-casualshirt-white
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/white_shirt.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitWhiteShirt
+
+- type: thiefBackpackSet
+  id: CasualShirtFancy
+  name: clothing-voucher-casualshirt-fancy
+  description: clothing-voucher-casualshirt-fancy
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/fancy_shirt.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitFancyShirt
+
+- type: thiefBackpackSet
+  id: CasualShirtRedPlaid
+  name: clothing-voucher-casualshirt-redplaid
+  description: clothing-voucher-casualshirt-redplaid
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/red_plaid_shirt.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitRedPlaidShirt
+
+- type: thiefBackpackSet
+  id: CasualShirtHawaii
+  name: clothing-voucher-casualshirt-hawaii
+  description: clothing-voucher-casualshirt-hawaii
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/hawaiian_shirt.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitHawaiiShirt
+
+- type: thiefBackpackSet
+  id: CasualShirtTonny
+  name: clothing-voucher-casualshirt-tonny
+  description: clothing-voucher-casualshirt-tonny
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/tonny_shirt.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitTonnyShirt
+
+- type: thiefBackpackSet
+  id: CasualShirtNavy
+  name: clothing-voucher-casualshirt-navy
+  description: clothing-voucher-casualshirt-navy
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/navy_shirt.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitNavyShirt
+
+- type: thiefBackpackSet
+  id: CasualShirtLimbusco
+  name: clothing-voucher-casualshirt-limbusco
+  description: clothing-voucher-casualshirt-limbusco
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/limbusco_shirt.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitLimbuscoShirt
+
+
 #region Keikogi
 
 - type: thiefBackpackSet
