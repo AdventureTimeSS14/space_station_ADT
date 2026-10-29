@@ -1,10 +1,11 @@
 using Content.Shared.Thief;
 using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.ADT.Revolitionary.Stash;
+namespace Content.Shared.ADT.Revolutinary.Stash;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class ADTRevolutionKitComponent : Component
 {
     [DataField]

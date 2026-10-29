@@ -32,3 +32,4 @@
   parent: HyposprayInjectMode
   id: ADTCustomMedipenInjectMode
   suitMobTime: 2.5
+  suitSelfModifier: 0.5

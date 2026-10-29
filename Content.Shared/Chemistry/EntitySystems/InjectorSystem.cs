@@ -325,8 +325,8 @@ public sealed partial class InjectorSystem : EntitySystem
             doAfterTime *= activeMode.DownedModifier;
 
         // ADT-Tweak-Start
-        if (user != target && _injectionSlowdown.IsSuited(target))
-            doAfterTime += activeMode.SuitMobTime;
+        if (_injectionSlowdown.IsSuited(target))
+            doAfterTime += user == target ? activeMode.SuitMobTime * activeMode.SuitSelfModifier : activeMode.SuitMobTime;
         // ADT-Tweak-End
 
         return true;

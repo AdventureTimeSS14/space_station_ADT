@@ -130,6 +130,9 @@ public sealed partial class InjectorModePrototype : IPrototype, IInheritingProto
 
     [DataField]
     public TimeSpan SuitMobTime;
+
+    [DataField]
+    public float SuitSelfModifier;
     // ADT-Tweak end
 
 }

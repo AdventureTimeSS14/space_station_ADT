@@ -79,3 +79,8 @@ adt-revolution-kit-window-description = Выберите два набора. П
 ent-ADTBoxSurvivalRevolution = { ent-BoxSurvival }
     .desc = { ent-BoxSurvival.desc }
     .suffix = Революция
+
+adt-revolution-stash-verb = Открыть тайник
+
+ent-ADTRevolutionStashCompartment = тайник
+    .desc = Потайное отделение в коробке.

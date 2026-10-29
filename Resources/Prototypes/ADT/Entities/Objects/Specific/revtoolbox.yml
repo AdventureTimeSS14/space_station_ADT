@@ -30,10 +30,10 @@
   id: ADTBoxSurvivalRevolution
   suffix: Революция
   components:
-  - type: Storage
-    maxItemSize: Small
-    grid:
-    - 0,0,3,3
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+      adt_rev_stash: !type:ContainerSlot
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
@@ -45,8 +45,9 @@
         - id: FoodSnackNutribrick
         - id: DrinkWaterBottleFull
         - id: SpaceMedipen
-        - id: Flash
-        - id: ClothingEyesGlassesSunglasses
+      adt_rev_stash: !type:AllSelector
+        children:
+        - id: ADTRevolutionStashCompartment
   - type: ADTRevolutionStash
   - type: ADTRevolutionKit
     possibleSets:
@@ -58,13 +59,33 @@
     - ADTDisarm
     - ADTMedRev
     - ADTFakeMindShieldRev
-  - type: ActivatableUI
-    key: enum.ThiefBackpackUIKey.Key
-    verbOnly: true
-    verbText: adt-revolution-kit-verb
   - type: UserInterface
     interfaces:
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
       enum.ThiefBackpackUIKey.Key:
         type: ThiefBackpackBoundUserInterface
+
+- type: entity
+  id: ADTRevolutionStashCompartment
+  name: hidden compartment
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ADTRevolutionStashCompartment
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,3,1
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Flash
+        - id: ClothingEyesGlassesSunglasses

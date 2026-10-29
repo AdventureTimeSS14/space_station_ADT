@@ -1,5 +1,5 @@
+using Content.Shared.ADT.Revolutinary.Stash;
 using Content.Shared.Thief;
-using Content.Shared.UserInterface;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 
@@ -7,6 +7,7 @@ namespace Content.Server.ADT.Revolitionary.Stash;
 
 public sealed class ADTRevolutionKitSystem : EntitySystem
 {
+    [Dependency] private ADTRevolutionStashSystem _stash = default!;
     [Dependency] private AudioSystem _audio = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private UserInterfaceSystem _ui = default!;
@@ -27,10 +28,11 @@ public sealed class ADTRevolutionKitSystem : EntitySystem
 
     private void OnApprove(Entity<ADTRevolutionKitComponent> ent, ref ThiefBackpackApproveMessage args)
     {
-        if (ent.Comp.SelectedSets.Count != ent.Comp.MaxSelectedSets)
+        var user = args.Actor;
+
+        if (!_stash.CanUse(user) || ent.Comp.SelectedSets.Count != ent.Comp.MaxSelectedSets)
             return;
 
-        var user = args.Actor;
         var coords = _transform.GetMapCoordinates(user);
 
         foreach (var i in ent.Comp.SelectedSets)
@@ -46,12 +48,14 @@ public sealed class ADTRevolutionKitSystem : EntitySystem
         _audio.PlayPvs(ent.Comp.ApproveSound, user);
         _ui.CloseUi(ent.Owner, ThiefBackpackUIKey.Key);
 
-        RemComp<ActivatableUIComponent>(ent);
         RemComp<ADTRevolutionKitComponent>(ent);
     }
 
     private void OnChangeSet(Entity<ADTRevolutionKitComponent> ent, ref ThiefBackpackChangeSetMessage args)
     {
+        if (!_stash.CanUse(args.Actor))
+            return;
+
         if (args.SetNumber < 0 || args.SetNumber >= ent.Comp.PossibleSets.Count)
             return;
 
