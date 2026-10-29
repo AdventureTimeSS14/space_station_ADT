@@ -4,6 +4,7 @@ using System.Linq;
 using Content.Shared.Body;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Examine;
+using Content.Shared.Item;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Temperature;
 using Robust.Shared.Audio;
@@ -18,6 +19,7 @@ public sealed partial class SurgerySystem
     private const float MinSuccessChance = 0.05f;
 
     private static readonly ProtoId<SurgeryToolQualityPrototype> DrapingQuality = "Draping";
+    private static readonly ProtoId<ItemSizePrototype> MaxCavityItemSize = "Small";
 
     private readonly record struct SurgeryToolMatch(float Speed, float Success, List<SurgeryStepEffect> FailureEffects, SoundSpecifier? Sound = null);
 
@@ -30,7 +32,17 @@ public sealed partial class SurgerySystem
         if (step.Quality is { } qualityId)
             return TryMatchQuality(qualityId, item, out match);
 
+        if (step.AnyItem)
+            return IsStorableItem(item);
+
         return MatchesOrgan(step, item);
+    }
+
+    private bool IsStorableItem(EntityUid item)
+    {
+        return TryComp<ItemComponent>(item, out var component)
+               && !HasComp<SurgeryToolComponent>(item)
+               && _item.GetItemSizeWeight(component.Size) <= _item.GetItemSizeWeight(MaxCavityItemSize);
     }
 
     private bool TryMatchQuality(ProtoId<SurgeryToolQualityPrototype> qualityId, EntityUid item, out SurgeryToolMatch match)

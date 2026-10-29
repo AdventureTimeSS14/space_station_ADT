@@ -11,6 +11,10 @@
         - id: Cut
           label: surgery-edge-head-cut-label
           target: ScalpIncised
+          conditions:
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ head ]
           steps:
             - name: surgery-edge-head-cut-label
               quality: Incision
@@ -23,22 +27,6 @@
                   damage:
                     types:
                       Slash: 2
-                      Bloodloss: 1
-
-        - id: RetractEyelid
-          target: EyelidRetracted
-          label: surgery-edge-head-retract-eyelid-label
-          steps:
-            - name: surgery-edge-head-retract-eyelid-label
-              quality: Retraction
-              successChance: 0.8
-              duration: 2
-              sound:
-                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
                       Bloodloss: 1
 
         - id: RetractEars
@@ -57,20 +45,25 @@
                     types:
                       Bloodloss: 1
 
-        - id: OpenMouth
-          target: MouthOpen
-          label: surgery-edge-head-open-mouth-label
+        - id: CutThroat
+          target: ThroatIncised
+          label: surgery-edge-head-cut-throat-label
+          conditions:
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ head, mask ]
           steps:
-            - name: surgery-edge-head-open-mouth-label
-              quality: Retraction
-              successChance: 0.8
-              duration: 2
+            - name: surgery-edge-head-cut-throat-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
               sound:
-                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
               effects:
                 - !type:DamageEffect
                   damage:
                     types:
+                      Slash: 2
                       Bloodloss: 1
 
     - name: EarsRetracted
@@ -135,6 +128,43 @@
           effects:
             - !type:InsertOrganEffect
               organId: Ears
+
+    - name: ThroatIncised
+      label: surgery-node-head-throat-incised-label
+      packages:
+        - SurgeryPackageScalpCauterize
+      edges:
+        - id: ClampThroatBleeders
+          label: surgery-edge-head-clamp-throat-bleeders-label
+          target: ThroatBleedersClamped
+          steps:
+            - name: surgery-edge-head-clamp-throat-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: ThroatBleedersClamped
+      label: surgery-node-head-throat-bleeders-clamped-label
+      packages:
+        - SurgeryPackageScalpCauterize
+      edges:
+        - id: OpenMouth
+          target: MouthOpen
+          label: surgery-edge-head-open-mouth-label
+          steps:
+            - name: surgery-edge-head-open-mouth-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
 
     - name: MouthOpen
       label: surgery-node-head-mouth-open-label
@@ -239,69 +269,6 @@
             - !type:InsertOrganEffect
               organId: ADTVocalCords
 
-    - name: EyelidRetracted
-      label: surgery-node-head-eyelid-retracted-label
-      edges:
-        - id: ReleaseEyelid
-          target: ScalpClosed
-          label: surgery-edge-head-release-eyelid-label
-          steps:
-            - name: surgery-edge-head-release-eyelid-label
-              quality: Retraction
-              successChance: 0.8
-              duration: 2
-              sound:
-                path: /Audio/ADT/Medical/Surgery/retractor2.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Bloodloss: 1
-
-        - id: RemoveEyes
-          target: EyelidRetracted
-          label: surgery-edge-head-remove-eyes-label
-          conditions:
-            - !type:OrganPresentCondition
-              organId: Eyes
-          steps:
-            - name: surgery-edge-head-remove-eyes-label
-              quality: OrganManipulation
-              successChance: 0.65
-              failureEffects:
-                - !type:DamageOrganEffect
-                  organId: Eyes
-                  amount: 10
-              duration: 3
-              sound:
-                path: /Audio/ADT/Medical/Surgery/organ2.ogg
-              effects:
-                - !type:DamageEffect
-                  damage:
-                    types:
-                      Bloodloss: 1
-          effects:
-            - !type:RemoveOrganEffect
-              organId: Eyes
-
-        - id: InsertEyes
-          target: EyelidRetracted
-          label: surgery-edge-head-insert-eyes-label
-          conditions:
-            - !type:OrganPresentCondition
-              organId: Eyes
-              inverted: true
-          steps:
-            - name: surgery-edge-head-insert-eyes-label
-              organ: Eyes
-              successChance: 0.75
-              duration: 3
-              sound:
-                path: /Audio/ADT/Medical/Surgery/organ2.ogg
-          effects:
-            - !type:InsertOrganEffect
-              organId: Eyes
-
     - name: ScalpIncised
       label: surgery-node-head-scalp-incised-label
       packages:
@@ -392,6 +359,29 @@
     - name: SkullOpen
       label: surgery-node-head-skull-open-label
       edges:
+        - id: OpenSkullCavity
+          label: surgery-edge-cavity-open-label
+          target: SkullCavityOpen
+          steps:
+            - name: surgery-edge-cavity-incise-label
+              quality: Incision
+              successChance: 0.95
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 1
+                      Bloodloss: 1
+            - name: surgery-edge-cavity-clamp-label
+              quality: Clamping
+              successChance: 0.95
+              duration: 2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
         - id: UnretractSkull
           target: SkullSawed
           label: surgery-edge-head-unretract-skull-label
@@ -447,6 +437,154 @@
           effects:
             - !type:InsertOrganEffect
               organId: Brain
+
+        - id: Lobotomy
+          target: SkullOpen
+          label: surgery-edge-head-lobotomy-label
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Brain
+            - !type:LobotomizedCondition
+              inverted: true
+          steps:
+            - name: surgery-step-head-lobotomy-drill
+              quality: Drilling
+              successChance: 0.7
+              duration: 5
+              sound:
+                path: /Audio/ADT/Medical/Surgery/saw.ogg
+              failureEffects:
+                - !type:DamageOrganEffect
+                  organId: Brain
+                  amount: 15
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 3
+                      Bloodloss: 2
+            - name: surgery-step-head-lobotomy-cut
+              quality: Incision
+              successChance: 0.6
+              duration: 6
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              failureEffects:
+                - !type:DamageOrganEffect
+                  organId: Brain
+                  amount: 25
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 2
+          effects:
+            - !type:LobotomizeEffect
+
+        - id: RemoveEyes
+          target: SkullOpen
+          label: surgery-edge-head-remove-eyes-label
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Eyes
+          steps:
+            - name: surgery-edge-head-remove-eyes-label
+              quality: OrganManipulation
+              successChance: 0.65
+              failureEffects:
+                - !type:DamageOrganEffect
+                  organId: Eyes
+                  amount: 10
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ2.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+          effects:
+            - !type:RemoveOrganEffect
+              organId: Eyes
+
+        - id: InsertEyes
+          target: SkullOpen
+          label: surgery-edge-head-insert-eyes-label
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Eyes
+              inverted: true
+          steps:
+            - name: surgery-edge-head-insert-eyes-label
+              organ: Eyes
+              successChance: 0.75
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ2.ogg
+          effects:
+            - !type:InsertOrganEffect
+              organId: Eyes
+
+    - name: SkullCavityOpen
+      label: surgery-node-cavity-open-label
+      edges:
+        - id: StoreSkullItem
+          label: surgery-edge-cavity-store-label
+          target: SkullCavityOpen
+          conditions:
+            - !type:CavityItemsCondition
+              cavityId: adt-surgery-cavity-head
+              max: 0
+          steps:
+            - name: surgery-edge-cavity-store-label
+              anyItem: true
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+          effects:
+            - !type:StoreItemEffect
+              cavityId: adt-surgery-cavity-head
+
+        - id: RetrieveSkullItems
+          label: surgery-edge-cavity-retrieve-label
+          target: SkullCavityOpen
+          conditions:
+            - !type:CavityItemsCondition
+              cavityId: adt-surgery-cavity-head
+              min: 1
+          steps:
+            - name: surgery-edge-cavity-retrieve-label
+              quality: Retraction
+              successChance: 0.9
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 2
+                      Bloodloss: 1
+          effects:
+            - !type:RetrieveItemsEffect
+              cavityId: adt-surgery-cavity-head
+
+        - id: CloseSkullCavity
+          label: surgery-edge-cavity-close-label
+          target: SkullOpen
+          steps:
+            - name: surgery-edge-cavity-close-label
+              quality: Cautery
+              successChance: 0.85
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Heat: 1
+                - !type:CauterizeEffect
 
     - name: SkullBoneGelled
       label: surgery-node-head-skull-bone-gelled-label

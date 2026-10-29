@@ -10,6 +10,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
+using Content.Shared.Item;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
@@ -43,6 +44,7 @@ public sealed partial class SurgerySystem : SharedSurgerySystem
     [Dependency] private SharedToolSystem _tool = default!;
     [Dependency] private EntityWhitelistSystem _whitelist = default!;
     [Dependency] private ItemToggleSystem _toggle = default!;
+    [Dependency] private SharedItemSystem _item = default!;
 
     public override void Initialize()
     {

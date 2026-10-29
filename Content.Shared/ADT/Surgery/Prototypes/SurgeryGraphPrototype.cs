@@ -103,6 +103,9 @@ public sealed partial class SurgeryStepEntry
     public ProtoId<OrganCategoryPrototype>? Organ;
 
     [DataField]
+    public bool AnyItem;
+
+    [DataField]
     public TimeSpan Duration = TimeSpan.FromSeconds(2);
 
     [DataField]

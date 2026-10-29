@@ -64,6 +64,7 @@ surgery-graph-reattach-leg-right-name = Пришивание правой ног
 surgery-graph-reattach-foot-left-name = Пришивание левой ступни
 surgery-graph-reattach-foot-right-name = Пришивание правой ступни
 surgery-edge-limb-attach-label = Пришивание конечности
+surgery-graph-reattach-head-name = Пришивание головы
 
 ## Манипуляции в брюшной полости
 
@@ -123,6 +124,9 @@ surgery-edge-head-cut-label = Осуществление надреза
 surgery-edge-head-retract-eyelid-label = Оттягивание века
 surgery-node-head-eyelid-retracted-label = Веко оттянуто
 surgery-edge-head-release-eyelid-label = Возврат века
+surgery-edge-head-lobotomy-label = Лоботомия
+surgery-step-head-lobotomy-drill = Сверление лобной кости
+surgery-step-head-lobotomy-cut = Рассечение лобных долей
 surgery-edge-head-remove-eyes-label = Извлечение глаз
 surgery-edge-head-insert-eyes-label = Установка глаз
 surgery-edge-head-retract-ears-label = Отведение ушных раковин
@@ -130,6 +134,10 @@ surgery-node-head-ears-retracted-label = Ушные раковины отвед�
 surgery-edge-head-release-ears-label = Возврат ушных раковин
 surgery-edge-head-remove-ears-label = Извлечение ушей
 surgery-edge-head-insert-ears-label = Установка ушей
+surgery-edge-head-cut-throat-label = Вскрытие глотки
+surgery-edge-head-clamp-throat-bleeders-label = Зажим сосудов глотки
+surgery-node-head-throat-incised-label = Глотка вскрыта
+surgery-node-head-throat-bleeders-clamped-label = Сосуды глотки зажаты
 surgery-edge-head-open-mouth-label = Раскрытие рта
 surgery-node-head-mouth-open-label = Рот раскрыт
 surgery-edge-head-close-mouth-label = Закрытие рта
@@ -159,10 +167,12 @@ surgery-edge-head-cauterize-label = Завершение операции
 
 surgery-node-limb-stump-opened-label = Культя вскрыта
 surgery-node-limb-placed-label = Конечность приложена
+surgery-node-limb-stump-prepared-label = Культя подготовлена
 surgery-node-limb-bone-gelled-label = Кость обработана гелем
 surgery-node-limb-bone-set-label = Кость сопоставлена
 
 surgery-edge-limb-open-stump-label = Вскрытие культи
+surgery-edge-limb-prepare-stump-label = Подготовка культи
 surgery-edge-limb-bone-gel-first-label = Нанесение костного геля
 surgery-edge-limb-set-bone-label = Сопоставление кости
 surgery-edge-limb-bone-gel-second-label = Закрепление костным гелем
@@ -238,3 +248,13 @@ surgery-edge-repair-kidneys-mechanic-label = Обслуживание кибер
 surgery-step-repair-kidneys-mechanic-1 = Вскрытие обслуживающей панели
 surgery-step-repair-kidneys-mechanic-2 = Перезапуск и диагностика
 surgery-edge-chest-extract-implant-label = Извлечение импланта
+
+## Полости
+
+surgery-node-cavity-open-label = Полость вскрыта
+surgery-edge-cavity-open-label = Вскрытие полости
+surgery-edge-cavity-incise-label = Разрез стенки полости
+surgery-edge-cavity-clamp-label = Зажим сосудов полости
+surgery-edge-cavity-store-label = Помещение предмета в полость
+surgery-edge-cavity-retrieve-label = Извлечение предметов из полости
+surgery-edge-cavity-close-label = Закрытие полости

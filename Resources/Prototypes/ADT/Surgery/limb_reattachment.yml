@@ -32,6 +32,59 @@
     - name: StumpOpened
       label: surgery-node-limb-stump-opened-label
       edges:
+        - id: ClampBleeders
+          label: surgery-edge-limb-clamp-bleeders-label
+          target: BleedersClamped
+          steps:
+            - name: surgery-edge-limb-clamp-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: BleedersClamped
+      label: surgery-node-limb-bleeders-clamped-label
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-limb-retract-skin-label
+          target: SkinRetracted
+          steps:
+            - name: surgery-edge-limb-retract-skin-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: SkinRetracted
+      label: surgery-node-limb-skin-retracted-label
+      edges:
+        - id: PrepareStump
+          label: surgery-edge-limb-prepare-stump-label
+          target: StumpPrepared
+          steps:
+            - name: surgery-edge-limb-prepare-stump-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 1
+                      Bloodloss: 1
+
+    - name: StumpPrepared
+      label: surgery-node-limb-stump-prepared-label
+      edges:
         - id: Attach
           label: surgery-edge-limb-attach-label
           target: LimbPlaced
@@ -47,7 +100,7 @@
     - name: LimbPlaced
       label: surgery-node-limb-placed-label
       edges:
-        - id: ApplyBoneGelFirst
+        - id: ApplyBoneGel
           label: surgery-edge-limb-bone-gel-first-label
           target: LimbBoneGelled
           steps:
@@ -58,27 +111,8 @@
 
     - name: LimbBoneGelled
       label: surgery-node-limb-bone-gelled-label
-      edges:
-        - id: SetBone
-          label: surgery-edge-limb-set-bone-label
-          target: LimbBoneSet
-          steps:
-            - name: surgery-edge-limb-set-bone-label
-              quality: BoneSetting
-              successChance: 0.75
-              duration: 3
-
-    - name: LimbBoneSet
-      label: surgery-node-limb-bone-set-label
-      edges:
-        - id: ApplyBoneGelSecond
-          label: surgery-edge-limb-bone-gel-second-label
-          target: Attached
-          steps:
-            - name: surgery-edge-limb-bone-gel-second-label
-              quality: BoneMending
-              successChance: 0.9
-              duration: 2
+      packages:
+        - SurgeryPackageLimbCauterize
 
     - name: Attached
       label: surgery-node-limb-attached-label
@@ -118,6 +152,59 @@
     - name: StumpOpened
       label: surgery-node-limb-stump-opened-label
       edges:
+        - id: ClampBleeders
+          label: surgery-edge-limb-clamp-bleeders-label
+          target: BleedersClamped
+          steps:
+            - name: surgery-edge-limb-clamp-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: BleedersClamped
+      label: surgery-node-limb-bleeders-clamped-label
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-limb-retract-skin-label
+          target: SkinRetracted
+          steps:
+            - name: surgery-edge-limb-retract-skin-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: SkinRetracted
+      label: surgery-node-limb-skin-retracted-label
+      edges:
+        - id: PrepareStump
+          label: surgery-edge-limb-prepare-stump-label
+          target: StumpPrepared
+          steps:
+            - name: surgery-edge-limb-prepare-stump-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 1
+                      Bloodloss: 1
+
+    - name: StumpPrepared
+      label: surgery-node-limb-stump-prepared-label
+      edges:
         - id: Attach
           label: surgery-edge-limb-attach-label
           target: LimbPlaced
@@ -133,7 +220,7 @@
     - name: LimbPlaced
       label: surgery-node-limb-placed-label
       edges:
-        - id: ApplyBoneGelFirst
+        - id: ApplyBoneGel
           label: surgery-edge-limb-bone-gel-first-label
           target: LimbBoneGelled
           steps:
@@ -144,27 +231,8 @@
 
     - name: LimbBoneGelled
       label: surgery-node-limb-bone-gelled-label
-      edges:
-        - id: SetBone
-          label: surgery-edge-limb-set-bone-label
-          target: LimbBoneSet
-          steps:
-            - name: surgery-edge-limb-set-bone-label
-              quality: BoneSetting
-              successChance: 0.75
-              duration: 3
-
-    - name: LimbBoneSet
-      label: surgery-node-limb-bone-set-label
-      edges:
-        - id: ApplyBoneGelSecond
-          label: surgery-edge-limb-bone-gel-second-label
-          target: Attached
-          steps:
-            - name: surgery-edge-limb-bone-gel-second-label
-              quality: BoneMending
-              successChance: 0.9
-              duration: 2
+      packages:
+        - SurgeryPackageLimbCauterize
 
     - name: Attached
       label: surgery-node-limb-attached-label
@@ -206,6 +274,59 @@
     - name: StumpOpened
       label: surgery-node-limb-stump-opened-label
       edges:
+        - id: ClampBleeders
+          label: surgery-edge-limb-clamp-bleeders-label
+          target: BleedersClamped
+          steps:
+            - name: surgery-edge-limb-clamp-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: BleedersClamped
+      label: surgery-node-limb-bleeders-clamped-label
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-limb-retract-skin-label
+          target: SkinRetracted
+          steps:
+            - name: surgery-edge-limb-retract-skin-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: SkinRetracted
+      label: surgery-node-limb-skin-retracted-label
+      edges:
+        - id: PrepareStump
+          label: surgery-edge-limb-prepare-stump-label
+          target: StumpPrepared
+          steps:
+            - name: surgery-edge-limb-prepare-stump-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 1
+                      Bloodloss: 1
+
+    - name: StumpPrepared
+      label: surgery-node-limb-stump-prepared-label
+      edges:
         - id: Attach
           label: surgery-edge-limb-attach-label
           target: LimbPlaced
@@ -221,7 +342,7 @@
     - name: LimbPlaced
       label: surgery-node-limb-placed-label
       edges:
-        - id: ApplyBoneGelFirst
+        - id: ApplyBoneGel
           label: surgery-edge-limb-bone-gel-first-label
           target: LimbBoneGelled
           steps:
@@ -232,27 +353,8 @@
 
     - name: LimbBoneGelled
       label: surgery-node-limb-bone-gelled-label
-      edges:
-        - id: SetBone
-          label: surgery-edge-limb-set-bone-label
-          target: LimbBoneSet
-          steps:
-            - name: surgery-edge-limb-set-bone-label
-              quality: BoneSetting
-              successChance: 0.75
-              duration: 3
-
-    - name: LimbBoneSet
-      label: surgery-node-limb-bone-set-label
-      edges:
-        - id: ApplyBoneGelSecond
-          label: surgery-edge-limb-bone-gel-second-label
-          target: Attached
-          steps:
-            - name: surgery-edge-limb-bone-gel-second-label
-              quality: BoneMending
-              successChance: 0.9
-              duration: 2
+      packages:
+        - SurgeryPackageLimbCauterize
 
     - name: Attached
       label: surgery-node-limb-attached-label
@@ -294,6 +396,59 @@
     - name: StumpOpened
       label: surgery-node-limb-stump-opened-label
       edges:
+        - id: ClampBleeders
+          label: surgery-edge-limb-clamp-bleeders-label
+          target: BleedersClamped
+          steps:
+            - name: surgery-edge-limb-clamp-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: BleedersClamped
+      label: surgery-node-limb-bleeders-clamped-label
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-limb-retract-skin-label
+          target: SkinRetracted
+          steps:
+            - name: surgery-edge-limb-retract-skin-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: SkinRetracted
+      label: surgery-node-limb-skin-retracted-label
+      edges:
+        - id: PrepareStump
+          label: surgery-edge-limb-prepare-stump-label
+          target: StumpPrepared
+          steps:
+            - name: surgery-edge-limb-prepare-stump-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 1
+                      Bloodloss: 1
+
+    - name: StumpPrepared
+      label: surgery-node-limb-stump-prepared-label
+      edges:
         - id: Attach
           label: surgery-edge-limb-attach-label
           target: LimbPlaced
@@ -309,7 +464,7 @@
     - name: LimbPlaced
       label: surgery-node-limb-placed-label
       edges:
-        - id: ApplyBoneGelFirst
+        - id: ApplyBoneGel
           label: surgery-edge-limb-bone-gel-first-label
           target: LimbBoneGelled
           steps:
@@ -320,27 +475,8 @@
 
     - name: LimbBoneGelled
       label: surgery-node-limb-bone-gelled-label
-      edges:
-        - id: SetBone
-          label: surgery-edge-limb-set-bone-label
-          target: LimbBoneSet
-          steps:
-            - name: surgery-edge-limb-set-bone-label
-              quality: BoneSetting
-              successChance: 0.75
-              duration: 3
-
-    - name: LimbBoneSet
-      label: surgery-node-limb-bone-set-label
-      edges:
-        - id: ApplyBoneGelSecond
-          label: surgery-edge-limb-bone-gel-second-label
-          target: Attached
-          steps:
-            - name: surgery-edge-limb-bone-gel-second-label
-              quality: BoneMending
-              successChance: 0.9
-              duration: 2
+      packages:
+        - SurgeryPackageLimbCauterize
 
     - name: Attached
       label: surgery-node-limb-attached-label
@@ -380,6 +516,59 @@
     - name: StumpOpened
       label: surgery-node-limb-stump-opened-label
       edges:
+        - id: ClampBleeders
+          label: surgery-edge-limb-clamp-bleeders-label
+          target: BleedersClamped
+          steps:
+            - name: surgery-edge-limb-clamp-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: BleedersClamped
+      label: surgery-node-limb-bleeders-clamped-label
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-limb-retract-skin-label
+          target: SkinRetracted
+          steps:
+            - name: surgery-edge-limb-retract-skin-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: SkinRetracted
+      label: surgery-node-limb-skin-retracted-label
+      edges:
+        - id: PrepareStump
+          label: surgery-edge-limb-prepare-stump-label
+          target: StumpPrepared
+          steps:
+            - name: surgery-edge-limb-prepare-stump-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 1
+                      Bloodloss: 1
+
+    - name: StumpPrepared
+      label: surgery-node-limb-stump-prepared-label
+      edges:
         - id: Attach
           label: surgery-edge-limb-attach-label
           target: LimbPlaced
@@ -395,7 +584,7 @@
     - name: LimbPlaced
       label: surgery-node-limb-placed-label
       edges:
-        - id: ApplyBoneGelFirst
+        - id: ApplyBoneGel
           label: surgery-edge-limb-bone-gel-first-label
           target: LimbBoneGelled
           steps:
@@ -406,27 +595,8 @@
 
     - name: LimbBoneGelled
       label: surgery-node-limb-bone-gelled-label
-      edges:
-        - id: SetBone
-          label: surgery-edge-limb-set-bone-label
-          target: LimbBoneSet
-          steps:
-            - name: surgery-edge-limb-set-bone-label
-              quality: BoneSetting
-              successChance: 0.75
-              duration: 3
-
-    - name: LimbBoneSet
-      label: surgery-node-limb-bone-set-label
-      edges:
-        - id: ApplyBoneGelSecond
-          label: surgery-edge-limb-bone-gel-second-label
-          target: Attached
-          steps:
-            - name: surgery-edge-limb-bone-gel-second-label
-              quality: BoneMending
-              successChance: 0.9
-              duration: 2
+      packages:
+        - SurgeryPackageLimbCauterize
 
     - name: Attached
       label: surgery-node-limb-attached-label
@@ -466,6 +636,59 @@
     - name: StumpOpened
       label: surgery-node-limb-stump-opened-label
       edges:
+        - id: ClampBleeders
+          label: surgery-edge-limb-clamp-bleeders-label
+          target: BleedersClamped
+          steps:
+            - name: surgery-edge-limb-clamp-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: BleedersClamped
+      label: surgery-node-limb-bleeders-clamped-label
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-limb-retract-skin-label
+          target: SkinRetracted
+          steps:
+            - name: surgery-edge-limb-retract-skin-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: SkinRetracted
+      label: surgery-node-limb-skin-retracted-label
+      edges:
+        - id: PrepareStump
+          label: surgery-edge-limb-prepare-stump-label
+          target: StumpPrepared
+          steps:
+            - name: surgery-edge-limb-prepare-stump-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 1
+                      Bloodloss: 1
+
+    - name: StumpPrepared
+      label: surgery-node-limb-stump-prepared-label
+      edges:
         - id: Attach
           label: surgery-edge-limb-attach-label
           target: LimbPlaced
@@ -481,7 +704,7 @@
     - name: LimbPlaced
       label: surgery-node-limb-placed-label
       edges:
-        - id: ApplyBoneGelFirst
+        - id: ApplyBoneGel
           label: surgery-edge-limb-bone-gel-first-label
           target: LimbBoneGelled
           steps:
@@ -492,27 +715,8 @@
 
     - name: LimbBoneGelled
       label: surgery-node-limb-bone-gelled-label
-      edges:
-        - id: SetBone
-          label: surgery-edge-limb-set-bone-label
-          target: LimbBoneSet
-          steps:
-            - name: surgery-edge-limb-set-bone-label
-              quality: BoneSetting
-              successChance: 0.75
-              duration: 3
-
-    - name: LimbBoneSet
-      label: surgery-node-limb-bone-set-label
-      edges:
-        - id: ApplyBoneGelSecond
-          label: surgery-edge-limb-bone-gel-second-label
-          target: Attached
-          steps:
-            - name: surgery-edge-limb-bone-gel-second-label
-              quality: BoneMending
-              successChance: 0.9
-              duration: 2
+      packages:
+        - SurgeryPackageLimbCauterize
 
     - name: Attached
       label: surgery-node-limb-attached-label
@@ -554,6 +758,59 @@
     - name: StumpOpened
       label: surgery-node-limb-stump-opened-label
       edges:
+        - id: ClampBleeders
+          label: surgery-edge-limb-clamp-bleeders-label
+          target: BleedersClamped
+          steps:
+            - name: surgery-edge-limb-clamp-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: BleedersClamped
+      label: surgery-node-limb-bleeders-clamped-label
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-limb-retract-skin-label
+          target: SkinRetracted
+          steps:
+            - name: surgery-edge-limb-retract-skin-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: SkinRetracted
+      label: surgery-node-limb-skin-retracted-label
+      edges:
+        - id: PrepareStump
+          label: surgery-edge-limb-prepare-stump-label
+          target: StumpPrepared
+          steps:
+            - name: surgery-edge-limb-prepare-stump-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 1
+                      Bloodloss: 1
+
+    - name: StumpPrepared
+      label: surgery-node-limb-stump-prepared-label
+      edges:
         - id: Attach
           label: surgery-edge-limb-attach-label
           target: LimbPlaced
@@ -569,7 +826,7 @@
     - name: LimbPlaced
       label: surgery-node-limb-placed-label
       edges:
-        - id: ApplyBoneGelFirst
+        - id: ApplyBoneGel
           label: surgery-edge-limb-bone-gel-first-label
           target: LimbBoneGelled
           steps:
@@ -580,27 +837,8 @@
 
     - name: LimbBoneGelled
       label: surgery-node-limb-bone-gelled-label
-      edges:
-        - id: SetBone
-          label: surgery-edge-limb-set-bone-label
-          target: LimbBoneSet
-          steps:
-            - name: surgery-edge-limb-set-bone-label
-              quality: BoneSetting
-              successChance: 0.75
-              duration: 3
-
-    - name: LimbBoneSet
-      label: surgery-node-limb-bone-set-label
-      edges:
-        - id: ApplyBoneGelSecond
-          label: surgery-edge-limb-bone-gel-second-label
-          target: Attached
-          steps:
-            - name: surgery-edge-limb-bone-gel-second-label
-              quality: BoneMending
-              successChance: 0.9
-              duration: 2
+      packages:
+        - SurgeryPackageLimbCauterize
 
     - name: Attached
       label: surgery-node-limb-attached-label
@@ -642,6 +880,59 @@
     - name: StumpOpened
       label: surgery-node-limb-stump-opened-label
       edges:
+        - id: ClampBleeders
+          label: surgery-edge-limb-clamp-bleeders-label
+          target: BleedersClamped
+          steps:
+            - name: surgery-edge-limb-clamp-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: BleedersClamped
+      label: surgery-node-limb-bleeders-clamped-label
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-limb-retract-skin-label
+          target: SkinRetracted
+          steps:
+            - name: surgery-edge-limb-retract-skin-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: SkinRetracted
+      label: surgery-node-limb-skin-retracted-label
+      edges:
+        - id: PrepareStump
+          label: surgery-edge-limb-prepare-stump-label
+          target: StumpPrepared
+          steps:
+            - name: surgery-edge-limb-prepare-stump-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 1
+                      Bloodloss: 1
+
+    - name: StumpPrepared
+      label: surgery-node-limb-stump-prepared-label
+      edges:
         - id: Attach
           label: surgery-edge-limb-attach-label
           target: LimbPlaced
@@ -657,7 +948,7 @@
     - name: LimbPlaced
       label: surgery-node-limb-placed-label
       edges:
-        - id: ApplyBoneGelFirst
+        - id: ApplyBoneGel
           label: surgery-edge-limb-bone-gel-first-label
           target: LimbBoneGelled
           steps:
@@ -668,28 +959,118 @@
 
     - name: LimbBoneGelled
       label: surgery-node-limb-bone-gelled-label
-      edges:
-        - id: SetBone
-          label: surgery-edge-limb-set-bone-label
-          target: LimbBoneSet
-          steps:
-            - name: surgery-edge-limb-set-bone-label
-              quality: BoneSetting
-              successChance: 0.75
-              duration: 3
-
-    - name: LimbBoneSet
-      label: surgery-node-limb-bone-set-label
-      edges:
-        - id: ApplyBoneGelSecond
-          label: surgery-edge-limb-bone-gel-second-label
-          target: Attached
-          steps:
-            - name: surgery-edge-limb-bone-gel-second-label
-              quality: BoneMending
-              successChance: 0.9
-              duration: 2
+      packages:
+        - SurgeryPackageLimbCauterize
 
     - name: Attached
       label: surgery-node-limb-attached-label
       edges: []
+
+- type: surgeryGraph
+  id: SurgeryReattachHead
+  category: SurgeryCategoryLimbReattachment
+  name: surgery-graph-reattach-head-name
+  location: surgery-location-head
+  startNode: Amputated
+  nodes:
+    - name: Amputated
+      label: surgery-node-limb-amputated-label
+      edges:
+        - id: OpenStump
+          label: surgery-edge-limb-open-stump-label
+          target: StumpOpened
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Head
+              inverted: true
+          steps:
+            - name: surgery-edge-limb-open-stump-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 1
+                      Bloodloss: 2
+
+    - name: StumpOpened
+      label: surgery-node-limb-stump-opened-label
+      edges:
+        - id: ClampBleeders
+          label: surgery-edge-limb-clamp-bleeders-label
+          target: BleedersClamped
+          steps:
+            - name: surgery-edge-limb-clamp-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: BleedersClamped
+      label: surgery-node-limb-bleeders-clamped-label
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-limb-retract-skin-label
+          target: SkinRetracted
+          steps:
+            - name: surgery-edge-limb-retract-skin-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: SkinRetracted
+      label: surgery-node-limb-skin-retracted-label
+      edges:
+        - id: PrepareStump
+          label: surgery-edge-limb-prepare-stump-label
+          target: StumpPrepared
+          steps:
+            - name: surgery-edge-limb-prepare-stump-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 1
+                      Bloodloss: 1
+
+    - name: StumpPrepared
+      label: surgery-node-limb-stump-prepared-label
+      edges:
+        - id: Attach
+          label: surgery-edge-limb-attach-label
+          target: LimbPlaced
+          steps:
+            - name: surgery-edge-limb-attach-label
+              organ: Head
+              successChance: 0.6
+              duration: 12
+          effects:
+            - !type:InsertOrganEffect
+              organId: Head
+
+    - name: LimbPlaced
+      label: surgery-node-limb-placed-label
+      packages:
+        - SurgeryPackageLimbCauterize
+
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges: []
+
