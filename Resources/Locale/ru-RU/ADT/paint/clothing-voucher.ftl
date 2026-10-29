@@ -28,6 +28,45 @@ ent-ADTClothingVoucherUnderwearMonokiniTop = автопокрасчик верх
     .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
 ent-ADTClothingVoucherUnderwearTShirt = автопокрасчик майки
     .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
+ent-ADTClothingVoucherAdidas = автопокрасчик спортивки агидас
+    .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
+
+ent-ADTClothingVoucherCasualShirt = автопокрасчик рубашки
+    .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
+
+ent-ADTClothingVoucherKeikogi = автопокрасчик кэйкоги
+    .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
+
+ent-ADTClothingVoucherHeels = автопокрасчик туфель на каблуках
+    .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
+
+ent-ADTClothingVoucherSandals = автопокрасчик сандалий
+    .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
+
+ent-ADTClothingVoucherBowtie = автопокрасчик галстука-бабочки
+    .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
+
+ent-ADTClothingVoucherShawl = автопокрасчик шейного платка
+    .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
+
+ent-ADTClothingVoucherBeanie = автопокрасчик шапки-бини
+    .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
+
+ent-ADTClothingVoucherDownjacket = автопокрасчик пуховика
+    .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
+
+ent-ADTClothingVoucherHoody = автопокрасчик худи
+    .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
+
+ent-ADTClothingVoucherSweatercut = автопокрасчик свитера с вырезом
+    .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
+
+ent-ADTClothingVoucherKilt = автопокрасчик килта
+    .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
+
+ent-ADTClothingVoucherNightDress = автопокрасчик ночного платья
+    .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
+
 clothing-voucher-jumpsuit-turtleneck-white = { ent-ADTClothingUniformJumpsuitTurtleneckWhite }
 clothing-voucher-jumpsuit-turtleneck-aquamarine = { ent-ADTClothingUniformJumpsuitTurtleneckAquamarine }
 clothing-voucher-jumpsuit-turtleneck-azure = { ent-ADTClothingUniformJumpsuitTurtleneckAzure }
@@ -254,3 +293,120 @@ clothing-voucher-underwear-bra-cow = { ent-ADTClothingUnderwearTopBraCow }
 clothing-voucher-underwear-bra-blueshield = { ent-ADTClothingUnderwearTopBraBlueshield }
 clothing-voucher-underwear-monokini-top-white = { ent-ADTClothingUnderwearTopMonokiniWhite }
 clothing-voucher-underwear-monokini-top-black = { ent-ADTClothingUnderwearTopMonokiniBlack }
+
+clothing-voucher-jumpsuit-turtleneck-beige = { ent-ADTClothingUniformJumpsuitTurtleneckBeige }
+
+clothing-voucher-adidas-black = { ent-ADTClothingUniformJumpsuitAdidasBlack }
+clothing-voucher-adidas-blue = { ent-ADTClothingUniformJumpsuitAdidasBlue }
+clothing-voucher-adidas-red = { ent-ADTClothingUniformJumpsuitAdidasRed }
+clothing-voucher-adidas-white = { ent-ADTClothingUniformJumpsuitAdidasWhite }
+
+clothing-voucher-casualshirt-beige = { ent-ADTClothingUniformJumpsuitShirtBeige }
+clothing-voucher-casualshirt-darkblue = { ent-ADTClothingUniformJumpsuitShirtDarkBlue }
+clothing-voucher-casualshirt-green = { ent-ADTClothingUniformJumpsuitShirtGreen }
+clothing-voucher-casualshirt-teal = { ent-ADTClothingUniformJumpsuitShirtTeal }
+clothing-voucher-casualshirt-yellow = { ent-ADTClothingUniformJumpsuitShirtYellow }
+clothing-voucher-casualshirt-black = { ent-ADTClothingUniformJumpsuitBlackShirt }
+clothing-voucher-casualshirt-blue = { ent-ADTClothingUniformJumpsuitBlueShirt }
+clothing-voucher-casualshirt-purple = { ent-ADTClothingUniformJumpsuitPurpleShirt }
+clothing-voucher-casualshirt-red = { ent-ADTClothingUniformJumpsuitRedShirt }
+clothing-voucher-casualshirt-white = { ent-ADTClothingUniformJumpsuitWhiteShirt }
+clothing-voucher-casualshirt-fancy = { ent-ADTClothingUniformJumpsuitFancyShirt }
+clothing-voucher-casualshirt-redplaid = { ent-ADTClothingUniformJumpsuitRedPlaidShirt }
+clothing-voucher-casualshirt-hawaii = { ent-ADTClothingUniformJumpsuitHawaiiShirt }
+clothing-voucher-casualshirt-tonny = { ent-ADTClothingUniformJumpsuitTonnyShirt }
+clothing-voucher-casualshirt-navy = { ent-ADTClothingUniformJumpsuitNavyShirt }
+clothing-voucher-casualshirt-limbusco = { ent-ADTClothingUniformJumpsuitLimbuscoShirt }
+
+clothing-voucher-keikogi-white = { ent-ADTClothingUniformJumpsuitKeikogiWhite }
+clothing-voucher-keikogi-orange = { ent-ADTClothingUniformJumpsuitKeikogiOrange }
+clothing-voucher-keikogi-blue = { ent-ADTClothingUniformJumpsuitKeikogiBlue }
+clothing-voucher-keikogi-yellow = { ent-ADTClothingUniformJumpsuitKeikogiYellow }
+clothing-voucher-keikogi-green = { ent-ADTClothingUniformJumpsuitKeikogiGreen }
+clothing-voucher-keikogi-brown = { ent-ADTClothingUniformJumpsuitKeikogiBrown }
+clothing-voucher-keikogi-black = { ent-ADTClothingUniformJumpsuitKeikogiBlack }
+
+clothing-voucher-heels-black = { ent-ADTClothingFootHeelsBlack }
+clothing-voucher-heels-gold = { ent-ADTClothingFootHeelsGold }
+clothing-voucher-heels-red = { ent-ADTClothingFootHeelsRed }
+clothing-voucher-heels-white = { ent-ADTClothingFootHeelsWhite }
+
+clothing-voucher-sandals-black = { ent-ADTClothingFootSandalsBlack }
+clothing-voucher-sandals-blue = { ent-ADTClothingFootSandalsBlue }
+clothing-voucher-sandals-brown = { ent-ADTClothingFootSandalsBrown }
+clothing-voucher-sandals-green = { ent-ADTClothingFootSandalsGreen }
+clothing-voucher-sandals-pink = { ent-ADTClothingFootSandalsPink }
+clothing-voucher-sandals-red = { ent-ADTClothingFootSandalsRed }
+clothing-voucher-sandals-white = { ent-ADTClothingFootSandalsWhite }
+clothing-voucher-sandals-yellow = { ent-ADTClothingFootSandalsYellow }
+
+clothing-voucher-bowtie-black = { ent-ADTClothingNeckBowtieBlack }
+clothing-voucher-bowtie-blue = { ent-ADTClothingNeckBowtieBlue }
+clothing-voucher-bowtie-red = { ent-ADTClothingNeckBowtieRed }
+clothing-voucher-bowtie-white = { ent-ADTClothingNeckBowtieWhite }
+
+clothing-voucher-shawl-black = { ent-ADTClothingNeckShawlBlack }
+clothing-voucher-shawl-blue = { ent-ADTClothingNeckShawlBlue }
+clothing-voucher-shawl-pink = { ent-ADTClothingNeckShawlPink }
+clothing-voucher-shawl-red = { ent-ADTClothingNeckShawlRed }
+clothing-voucher-shawl-white = { ent-ADTClothingNeckShawlWhite }
+
+clothing-voucher-beanie-beige = { ent-ADTClothingHeadHatBeanieBeige }
+clothing-voucher-beanie-black = { ent-ADTClothingHeadHatBeanieBlack }
+clothing-voucher-beanie-blue = { ent-ADTClothingHeadHatBeanieBlue }
+clothing-voucher-beanie-brown = { ent-ADTClothingHeadHatBeanieBrown }
+clothing-voucher-beanie-cyan = { ent-ADTClothingHeadHatBeanieCyan }
+clothing-voucher-beanie-darkblue = { ent-ADTClothingHeadHatBeanieDarkBlue }
+clothing-voucher-beanie-darkgreen = { ent-ADTClothingHeadHatBeanieDarkGreen }
+clothing-voucher-beanie-gray = { ent-ADTClothingHeadHatBeanieGray }
+clothing-voucher-beanie-green = { ent-ADTClothingHeadHatBeanieGreen }
+clothing-voucher-beanie-merc = { ent-ADTClothingHeadHatBeanieMerc }
+clothing-voucher-beanie-orange = { ent-ADTClothingHeadHatBeanieOrange }
+clothing-voucher-beanie-purple = { ent-ADTClothingHeadHatBeaniePurple }
+clothing-voucher-beanie-red = { ent-ADTClothingHeadHatBeanieRed }
+clothing-voucher-beanie-white = { ent-ADTClothingHeadHatBeanieWhite }
+clothing-voucher-beanie-yellow = { ent-ADTClothingHeadHatBeanieYellow }
+
+clothing-voucher-downjacket-black = { ent-ADTClothingOuterDownjacketBlack }
+clothing-voucher-downjacket-blue = { ent-ADTClothingOuterDownjacketBlue }
+clothing-voucher-downjacket-brown = { ent-ADTClothingOuterDownjacketBrown }
+clothing-voucher-downjacket-green = { ent-ADTClothingOuterDownjacketGreen }
+clothing-voucher-downjacket-merc = { ent-ADTClothingOuterDownjacketMerc }
+clothing-voucher-downjacket-red = { ent-ADTClothingOuterDownjacketRed }
+clothing-voucher-downjacket-white = { ent-ADTClothingOuterDownjacketWhite }
+
+clothing-voucher-hoody-beige = { ent-ADTClothingOuterHoodyBeige }
+clothing-voucher-hoody-black = { ent-ADTClothingOuterHoodyBlack }
+clothing-voucher-hoody-blue = { ent-ADTClothingOuterHoodyBlue }
+clothing-voucher-hoody-brown = { ent-ADTClothingOuterHoodyBrown }
+clothing-voucher-hoody-darkblue = { ent-ADTClothingOuterHoodyDarkBlue }
+clothing-voucher-hoody-gray = { ent-ADTClothingOuterHoodyGray }
+clothing-voucher-hoody-green = { ent-ADTClothingOuterHoodyGreen }
+clothing-voucher-hoody-purple = { ent-ADTClothingOuterHoodyPurple }
+clothing-voucher-hoody-red = { ent-ADTClothingOuterHoodyRed }
+clothing-voucher-hoody-white = { ent-ADTClothingOuterHoodyWhite }
+
+clothing-voucher-sweatercut-beige = { ent-ADTClothingUniformSweatercutBeige }
+clothing-voucher-sweatercut-black = { ent-ADTClothingUniformSweatercutBlack }
+clothing-voucher-sweatercut-blue = { ent-ADTClothingUniformSweatercutBlue }
+clothing-voucher-sweatercut-red = { ent-ADTClothingUniformSweatercutRed }
+clothing-voucher-sweatercut-white = { ent-ADTClothingUniformSweatercutWhite }
+
+clothing-voucher-kilt-blue = { ent-ADTClothingUniformKiltBlue }
+clothing-voucher-kilt-green = { ent-ADTClothingUniformKiltGreen }
+clothing-voucher-kilt-red = { ent-ADTClothingUniformKiltRed }
+
+clothing-voucher-nightdress-black = { ent-ADTClothingUniformDressNightBlack }
+clothing-voucher-nightdress-red = { ent-ADTClothingUniformDressNightRed }
+clothing-voucher-nightdress-white = { ent-ADTClothingUniformDressNightWhite }
+
+
+clothing-voucher-underwear-boxers-i-love-arcan = { ent-ADTClothingUnderwearBottomBoxersILoveArcan }
+clothing-voucher-underwear-boxers-pink = { ent-ADTClothingUnderwearBottomBoxersPink }
+clothing-voucher-underwear-boxers-tsf = { ent-ADTClothingUnderwearBottomBoxersTSF }
+clothing-voucher-underwear-panties-america = { ent-ADTClothingUnderwearBottomPantiesAmerica }
+clothing-voucher-underwear-panties-pink = { ent-ADTClothingUnderwearBottomPantiesPink }
+clothing-voucher-underwear-bra-america = { ent-ADTClothingUnderwearTopBraAmerica }
+clothing-voucher-underwear-bra-pink = { ent-ADTClothingUnderwearTopBraPink }
+clothing-voucher-underwear-bigbra-cow = { ent-ADTClothingUnderwearTopBigbraCow }
+clothing-voucher-sock-stocking-cow = { ent-ADTClothingUnderwearSocksStockingCow }

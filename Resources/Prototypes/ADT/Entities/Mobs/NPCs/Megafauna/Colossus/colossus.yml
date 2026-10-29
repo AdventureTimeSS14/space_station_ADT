@@ -93,8 +93,7 @@
     - ActionADTColossusShotgun
     - ActionADTColossusAlternating
   - type: ADTColossus
-    # ADT buff: в SS13 заряд летит 2.86 тайла/с (speed 3.5 дс на тайл)
-    boltSpeed: 3.5
+    boltSpeed: 9
     # ADT buff: в SS13 6 зарядов (12.5, 7.5, 2.5, -2.5, -7.5, -12.5)
     shotgunAngles: [ 17.5, 12.5, 7.5, 2.5, -2.5, -7.5, -12.5, -17.5 ]
     # ADT buff: в SS13 5%
@@ -147,14 +146,26 @@
     layers:
     - state: chronobolt
       shader: unshaded
-  # ADT buff: в SS13 урон 25
   - type: Projectile
     damage:
       types:
-        Blunt: 32
+        Blunt: 25
   - type: ArmorPenetration
     penetration: 1
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.15,-0.15,0.15,0.30"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
   - type: ADTColossusBolt
+    objectDamage:
+      types:
+        Structural: 300
+    objectDamageMaxMultiplier: 3
   - type: TimedDespawn
     lifetime: 15
 

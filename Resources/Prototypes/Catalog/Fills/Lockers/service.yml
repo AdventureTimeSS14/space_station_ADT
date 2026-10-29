@@ -17,7 +17,6 @@
     - id: DrinkShaker
     - id: ClothingEyesHudBeer
     - id: HandLabeler
-    - id: ADTMusicDiskVa11Hall #ADT-Tweak
     - id: DrinkBeerBottleFull
       amount: !type:BinomialNumberSelector
         trials: 3

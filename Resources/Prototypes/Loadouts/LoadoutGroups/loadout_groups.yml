@@ -27,6 +27,12 @@
   - CigPackBlack
   - CigarCase
   - CigarGold
+  # ADT-Tweak-Start
+  - ADTClothingNeckLocketSteel
+  - ADTClothingNeckHeartSteel
+  - ADTClothingNeckLocketSilver
+  - ADTClothingNeckHeartSilver
+  # ADT-Tweak-End
   #ADT-tweak-start
   # - ClothingNeckLGBTPin
   # - ClothingNeckAromanticPin
@@ -214,6 +220,7 @@
   - CaptainOuterClothing
   - CaptainWintercoat
   - ADTArmorVestHidden # ADT Loadout
+  - ADTClothingOuterCaptainCoat # ADT Loadout
 
 #- type: loadoutGroup
 #  id: CaptainJobTrinkets
@@ -352,6 +359,8 @@
   - PassengerWintercoat
   # ADT-Loadouts-Start
   - ADTClothingOuterCoatSpaceAsshole
+  - ADTClothingOuterCoatGentle
+  - ADTCoatJensen
   # ADT-Loadouts-End
 
 - type: loadoutGroup
@@ -472,6 +481,7 @@
   # ADT tweak start
   - ADTClothingUniformJumpsuitTurtleneckRed
   - ADTClothingUniformJumpskirtTurtleneckRed
+  - ADTClothingUniformDressRD
   # ADT tweak end
 
 #- type: loadoutGroup
@@ -597,6 +607,7 @@
   - JanitorHead
   # ADT-tweak-start
   - ADTJanitorHeadbandTacticalMaid
+  - ADTClothingHeadMaidHeadband
   # ADT-tweak-end
 
 - type: loadoutGroup
@@ -613,6 +624,7 @@
   # ADT-Loadouts-End
   # ADT tweak start
   - ADTClothingUniformJumpsuitTurtleneckPurple
+  - ADTClothingUniformJumpsuitScientistHL
   - ADTClothingUniformJumpskirtTurtleneckPurple
   # ADT tweak end
 
@@ -1339,6 +1351,7 @@
   - ADTClothingUniformJumpsuitTurtleneckBlack
   - ADTClothingUniformJumpskirtTurtleneckBlack
   - ADTClothingUniformJumpsuitTurtleneckPurple
+  - ADTClothingUniformJumpsuitScientistHL
   - ADTClothingUniformJumpskirtTurtleneckPurple
   - ADTClothingUniformJumpsuitTurtleneckWhite
   - ADTClothingUniformJumpskirtTurtleneckWhite

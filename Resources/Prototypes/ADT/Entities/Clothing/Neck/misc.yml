@@ -113,3 +113,514 @@
   - type: Clothing
     sprite: ADT/Clothing/Neck/Misc/george.rsi
 
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckArmband
+  name: armband
+  description: A simple cloth armband.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/armband.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/armband.rsi
+  - type: StaticPrice
+    price: 10
+  - type: Construction
+    graph: ADTClothingNeckArmband
+    node: armband
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckArmbandMed
+  name: medical armband
+  description: A cloth armband with a cyan medical cross.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/armband_med.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/armband_med.rsi
+  - type: StaticPrice
+    price: 15
+  - type: Construction
+    graph: ADTClothingNeckArmbandMed
+    node: armbandMed
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckScientistHLTie
+  name: red and blue scientist tie
+  description: HELP ME, GORDON!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/scientist_hl_tie.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/scientist_hl_tie.rsi
+  - type: StaticPrice
+    price: 25
+
+# Medallions and Pendants
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckPendantBase
+  abstract: true
+  components:
+  - type: Item
+    size: Tiny
+  - type: ADTAccessory
+    sprite: ADT/Clothing/Neck/medallion.rsi
+
+# Pendants with Gems
+- type: entity
+  parent: ADTClothingNeckPendantBase
+  id: ADTClothingNeckPendantGoldDiamond
+  name: gold pendant with diamond
+  description: A gold pendant with a precious stone. Looks valuable!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    layers:
+    - state: gold
+    - state: diamond-icon
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    clothingVisuals:
+      neck:
+      - state: gold-equipped-NECK
+      - state: diamond-equipped-NECK
+  - type: ADTAccessory
+    equippedState: gold-equipped-NECK
+  - type: StaticPrice
+    price: 400
+- type: entity
+  parent: ADTClothingNeckPendantBase
+  id: ADTClothingNeckPendantGoldEmerald
+  name: gold pendant with emerald
+  description: A gold pendant with a precious stone. Looks valuable!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    layers:
+    - state: gold
+    - state: emerald-icon
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    clothingVisuals:
+      neck:
+      - state: gold-equipped-NECK
+      - state: emerald-equipped-NECK
+  - type: ADTAccessory
+    equippedState: gold-equipped-NECK
+  - type: StaticPrice
+    price: 400
+- type: entity
+  parent: ADTClothingNeckPendantBase
+  id: ADTClothingNeckPendantGoldPlasma
+  name: gold pendant with plasma
+  description: A gold pendant with a precious stone. Looks valuable!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    layers:
+    - state: gold
+    - state: plasma-icon
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    clothingVisuals:
+      neck:
+      - state: gold-equipped-NECK
+      - state: plasma-equipped-NECK
+  - type: ADTAccessory
+    equippedState: gold-equipped-NECK
+  - type: StaticPrice
+    price: 400
+- type: entity
+  parent: ADTClothingNeckPendantBase
+  id: ADTClothingNeckPendantGoldRuby
+  name: gold pendant with ruby
+  description: A gold pendant with a precious stone. Looks valuable!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    layers:
+    - state: gold
+    - state: ruby-icon
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    clothingVisuals:
+      neck:
+      - state: gold-equipped-NECK
+      - state: ruby-equipped-NECK
+  - type: ADTAccessory
+    equippedState: gold-equipped-NECK
+  - type: StaticPrice
+    price: 400
+- type: entity
+  parent: ADTClothingNeckPendantBase
+  id: ADTClothingNeckPendantGoldSapphire
+  name: gold pendant with sapphire
+  description: A gold pendant with a precious stone. Looks valuable!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    layers:
+    - state: gold
+    - state: sapphire-icon
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    clothingVisuals:
+      neck:
+      - state: gold-equipped-NECK
+      - state: sapphire-equipped-NECK
+  - type: ADTAccessory
+    equippedState: gold-equipped-NECK
+  - type: StaticPrice
+    price: 400
+- type: entity
+  parent: ADTClothingNeckPendantBase
+  id: ADTClothingNeckHeartGold
+  name: gold heart pendant
+  description: A gold pendant in the shape of a heart.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    layers:
+    - state: heart-gold
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    clothingVisuals:
+      neck:
+      - state: heart-gold-equipped-NECK
+  - type: ADTAccessory
+    equippedState: heart-gold-equipped-NECK
+  - type: StaticPrice
+    price: 250
+- type: entity
+  parent: [ ADTClothingNeckPendantBase, BaseFoldable ]
+  id: ADTClothingNeckLocketGold
+  name: gold locket
+  description: A gold locket with a photograph inside.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    layers:
+    - state: photo-gold
+      map: [ "unfoldedLayer" ]
+    - state: photo-gold-open
+      map: [ "foldedLayer" ]
+      visible: false
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: verb-common-close
+    foldVerbText: verb-common-open
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    clothingVisuals:
+      neck:
+      - state: gold-equipped-NECK
+  - type: ADTAccessory
+    equippedState: gold-equipped-NECK
+  - type: StaticPrice
+    price: 280
+- type: entity
+  parent: ADTClothingNeckPendantBase
+  id: ADTClothingNeckPendantSilverDiamond
+  name: silver pendant with diamond
+  description: A silver pendant with a precious stone. Looks valuable!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    layers:
+    - state: silver
+    - state: diamond-icon
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    clothingVisuals:
+      neck:
+      - state: silver-equipped-NECK
+      - state: diamond-equipped-NECK
+  - type: ADTAccessory
+    equippedState: silver-equipped-NECK
+  - type: StaticPrice
+    price: 270
+- type: entity
+  parent: ADTClothingNeckPendantBase
+  id: ADTClothingNeckPendantSilverEmerald
+  name: silver pendant with emerald
+  description: A silver pendant with a precious stone. Looks valuable!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    layers:
+    - state: silver
+    - state: emerald-icon
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    clothingVisuals:
+      neck:
+      - state: silver-equipped-NECK
+      - state: emerald-equipped-NECK
+  - type: ADTAccessory
+    equippedState: silver-equipped-NECK
+  - type: StaticPrice
+    price: 270
+- type: entity
+  parent: ADTClothingNeckPendantBase
+  id: ADTClothingNeckPendantSilverPlasma
+  name: silver pendant with plasma
+  description: A silver pendant with a precious stone. Looks valuable!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    layers:
+    - state: silver
+    - state: plasma-icon
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    clothingVisuals:
+      neck:
+      - state: silver-equipped-NECK
+      - state: plasma-equipped-NECK
+  - type: ADTAccessory
+    equippedState: silver-equipped-NECK
+  - type: StaticPrice
+    price: 270
+- type: entity
+  parent: ADTClothingNeckPendantBase
+  id: ADTClothingNeckPendantSilverRuby
+  name: silver pendant with ruby
+  description: A silver pendant with a precious stone. Looks valuable!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    layers:
+    - state: silver
+    - state: ruby-icon
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    clothingVisuals:
+      neck:
+      - state: silver-equipped-NECK
+      - state: ruby-equipped-NECK
+  - type: ADTAccessory
+    equippedState: silver-equipped-NECK
+  - type: StaticPrice
+    price: 270
+- type: entity
+  parent: ADTClothingNeckPendantBase
+  id: ADTClothingNeckPendantSilverSapphire
+  name: silver pendant with sapphire
+  description: A silver pendant with a precious stone. Looks valuable!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    layers:
+    - state: silver
+    - state: sapphire-icon
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    clothingVisuals:
+      neck:
+      - state: silver-equipped-NECK
+      - state: sapphire-equipped-NECK
+  - type: ADTAccessory
+    equippedState: silver-equipped-NECK
+  - type: StaticPrice
+    price: 270
+- type: entity
+  parent: ADTClothingNeckPendantBase
+  id: ADTClothingNeckHeartSilver
+  name: silver heart pendant
+  description: A silver pendant in the shape of a heart.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    layers:
+    - state: heart-silver
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    clothingVisuals:
+      neck:
+      - state: heart-silver-equipped-NECK
+  - type: ADTAccessory
+    equippedState: heart-silver-equipped-NECK
+  - type: StaticPrice
+    price: 120
+- type: entity
+  parent: [ ADTClothingNeckPendantBase, BaseFoldable ]
+  id: ADTClothingNeckLocketSilver
+  name: silver locket
+  description: A silver locket with a photograph inside.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    layers:
+    - state: photo-silver
+      map: [ "unfoldedLayer" ]
+    - state: photo-silver-open
+      map: [ "foldedLayer" ]
+      visible: false
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: verb-common-close
+    foldVerbText: verb-common-open
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    clothingVisuals:
+      neck:
+      - state: silver-equipped-NECK
+  - type: ADTAccessory
+    equippedState: silver-equipped-NECK
+  - type: StaticPrice
+    price: 150
+- type: entity
+  parent: ADTClothingNeckPendantBase
+  id: ADTClothingNeckPendantSteelDiamond
+  name: steel pendant with diamond
+  description: A steel pendant with a precious stone. Looks valuable!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    layers:
+    - state: steel
+    - state: diamond-icon
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    clothingVisuals:
+      neck:
+      - state: steel-equipped-NECK
+      - state: diamond-equipped-NECK
+  - type: ADTAccessory
+    equippedState: steel-equipped-NECK
+  - type: StaticPrice
+    price: 200
+- type: entity
+  parent: ADTClothingNeckPendantBase
+  id: ADTClothingNeckPendantSteelEmerald
+  name: steel pendant with emerald
+  description: A steel pendant with a precious stone. Looks valuable!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    layers:
+    - state: steel
+    - state: emerald-icon
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    clothingVisuals:
+      neck:
+      - state: steel-equipped-NECK
+      - state: emerald-equipped-NECK
+  - type: ADTAccessory
+    equippedState: steel-equipped-NECK
+  - type: StaticPrice
+    price: 200
+- type: entity
+  parent: ADTClothingNeckPendantBase
+  id: ADTClothingNeckPendantSteelPlasma
+  name: steel pendant with plasma
+  description: A steel pendant with a precious stone. Looks valuable!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    layers:
+    - state: steel
+    - state: plasma-icon
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    clothingVisuals:
+      neck:
+      - state: steel-equipped-NECK
+      - state: plasma-equipped-NECK
+  - type: ADTAccessory
+    equippedState: steel-equipped-NECK
+  - type: StaticPrice
+    price: 200
+- type: entity
+  parent: ADTClothingNeckPendantBase
+  id: ADTClothingNeckPendantSteelRuby
+  name: steel pendant with ruby
+  description: A steel pendant with a precious stone. Looks valuable!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    layers:
+    - state: steel
+    - state: ruby-icon
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    clothingVisuals:
+      neck:
+      - state: steel-equipped-NECK
+      - state: ruby-equipped-NECK
+  - type: ADTAccessory
+    equippedState: steel-equipped-NECK
+  - type: StaticPrice
+    price: 200
+- type: entity
+  parent: ADTClothingNeckPendantBase
+  id: ADTClothingNeckPendantSteelSapphire
+  name: steel pendant with sapphire
+  description: A steel pendant with a precious stone. Looks valuable!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    layers:
+    - state: steel
+    - state: sapphire-icon
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    clothingVisuals:
+      neck:
+      - state: steel-equipped-NECK
+      - state: sapphire-equipped-NECK
+  - type: ADTAccessory
+    equippedState: steel-equipped-NECK
+  - type: StaticPrice
+    price: 200
+- type: entity
+  parent: ADTClothingNeckPendantBase
+  id: ADTClothingNeckHeartSteel
+  name: steel heart pendant
+  description: A steel pendant in the shape of a heart.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    layers:
+    - state: heart-steel
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    clothingVisuals:
+      neck:
+      - state: heart-steel-equipped-NECK
+  - type: ADTAccessory
+    equippedState: heart-steel-equipped-NECK
+  - type: StaticPrice
+    price: 50
+- type: entity
+  parent: [ ADTClothingNeckPendantBase, BaseFoldable ]
+  id: ADTClothingNeckLocketSteel
+  name: steel locket
+  description: A steel locket with a photograph inside.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    layers:
+    - state: photo-steel
+      map: [ "unfoldedLayer" ]
+    - state: photo-steel-open
+      map: [ "foldedLayer" ]
+      visible: false
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: verb-common-close
+    foldVerbText: verb-common-open
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    clothingVisuals:
+      neck:
+      - state: steel-equipped-NECK
+  - type: ADTAccessory
+    equippedState: steel-equipped-NECK
+  - type: StaticPrice
+    price: 80

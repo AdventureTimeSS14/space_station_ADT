@@ -1,0 +1,115 @@
+- type: entity
+  parent: BaseWallmount
+  id: ADTPaintingFrameBase
+  abstract: true
+  name: painting frame
+  description: A frame for a finished painting. Hang it on a wall and put a painting inside.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/painting_frame.rsi
+    snapCardinals: true
+    layers:
+    - map: ["painting"]
+      visible: false
+    - state: cover
+      map: ["cover"]
+      visible: false
+    - state: simple
+      map: ["frame"]
+  - type: Appearance
+  - type: WallMount
+    directionalVisibility: false
+  - type: PaintingFrame
+  - type: ItemSlots
+    slots:
+      painting:
+        name: adt-painting-frame-slot
+        whitelist:
+          components:
+          - Painting
+  - type: ContainerContainer
+    containers:
+      painting: !type:ContainerSlot
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:EmptyAllContainersBehaviour
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+- type: entity
+  parent: ADTPaintingFrameBase
+  id: ADTPaintingFrame
+  name: painting frame
+
+- type: entity
+  parent: ADTPaintingFrameBase
+  id: ADTPaintingFrameIron
+  name: iron painting frame
+  components:
+  - type: Sprite
+    layers:
+    - map: ["painting"]
+      visible: false
+    - state: cover
+      map: ["cover"]
+      visible: false
+    - state: iron
+      map: ["frame"]
+
+- type: entity
+  parent: ADTPaintingFrameBase
+  id: ADTPaintingFrameBamboo
+  name: bamboo painting frame
+  components:
+  - type: Sprite
+    layers:
+    - map: ["painting"]
+      visible: false
+    - state: cover
+      map: ["cover"]
+      visible: false
+    - state: bamboo
+      map: ["frame"]
+
+- type: entity
+  parent: ADTPaintingFrameBase
+  id: ADTPaintingFrameNecropolis
+  name: necropolis painting frame
+  components:
+  - type: Sprite
+    layers:
+    - map: ["painting"]
+      visible: false
+    - state: cover
+      map: ["cover"]
+      visible: false
+    - state: necropolis
+      map: ["frame"]
+
+- type: entity
+  parent: ADTPaintingFrame
+  id: ADTPaintingFrameGallery
+  suffix: Gallery
+  components:
+  - type: PaintingFrame
+    gallery: true
+
+- type: entity
+  parent: ADTPaintingFrame
+  id: ADTPaintingFrameGalleryPinned
+  suffix: Gallery, pinned
+  components:
+  - type: PaintingFrame
+    gallery: true
+    pinnedOnly: true

@@ -22,6 +22,8 @@ using Content.Shared.Coordinates;
 using Content.Shared.PowerCell;
 using Content.Shared.Access.Systems;
 using Content.Shared.Emp;
+using Content.Shared.Gravity;
+using Content.Shared.Movement.Systems;
 using Robust.Shared.Player;
 
 namespace Content.Shared.ADT.ModSuits;
@@ -41,6 +43,8 @@ public sealed partial class ModSuitSystem : EntitySystem
     [Dependency] private SharedUserInterfaceSystem _ui = default!;
     [Dependency] private SharedIdCardSystem _id = default!;
     [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedGravitySystem _gravity = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeed = default!;
 
     public override void Initialize()
     {
@@ -49,6 +53,14 @@ public sealed partial class ModSuitSystem : EntitySystem
         InitializeSuit();
         InitializeParts();
         InitializeModules();
+        InitializeSequence();
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        UpdateSequences();
     }
 
     public void UpdateUserInterface(EntityUid uid, ModSuitComponent component)

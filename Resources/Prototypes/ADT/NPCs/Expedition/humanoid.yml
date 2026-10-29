@@ -1,0 +1,612 @@
+- type: htnCompound
+  id: ADTExpeditionHumanoidCompound
+  branches:
+    - preconditions:
+        - !type:ADTDownedPrecondition
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTStandUpOperator
+
+    - preconditions:
+        - !type:ADTWeaponPrecondition
+          role: Melee
+          check: Exists
+        - !type:ADTWeaponPrecondition
+          role: Melee
+          check: Active
+          invert: true
+      tasks:
+        - !type:HTNCompoundTask
+          task: ADTAcquireTarget
+        - !type:HTNCompoundTask
+          task: ADTGateMeleeSwitch
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTSwitchWeaponOperator
+            role: Melee
+
+    - preconditions:
+        - !type:ADTWeaponPrecondition
+          role: Melee
+          check: Active
+      tasks:
+        - !type:HTNCompoundTask
+          task: ADTAcquireTarget
+        - !type:HTNCompoundTask
+          task: ADTGateMeleeLeave
+        - !type:HTNCompoundTask
+          task: MeleeCombatCompound
+
+    - preconditions:
+        - !type:ADTWeaponPrecondition
+          role: Sidearm
+          check: Usable
+        - !type:ADTWeaponPrecondition
+          role: Sidearm
+          check: Active
+          invert: true
+      tasks:
+        - !type:HTNCompoundTask
+          task: ADTAcquireTarget
+        - !type:HTNCompoundTask
+          task: ADTGatePistol
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTSwitchWeaponOperator
+            role: Sidearm
+
+    - preconditions:
+        - !type:ADTWeaponPrecondition
+          role: Sidearm
+          check: Active
+        - !type:ADTWeaponPrecondition
+          role: Sidearm
+          check: Empty
+        - !type:ADTWeaponPrecondition
+          role: Sidearm
+          check: CanReload
+      tasks:
+        - !type:HTNCompoundTask
+          task: ADTAcquireTarget
+        - !type:HTNCompoundTask
+          task: ADTGatePistolLeave
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTReloadWeaponOperator
+            role: Sidearm
+
+    - preconditions:
+        - !type:ADTWeaponPrecondition
+          role: Sidearm
+          check: Active
+        - !type:ADTWeaponPrecondition
+          role: Sidearm
+          check: HasAmmo
+      tasks:
+        - !type:HTNCompoundTask
+          task: ADTAcquireTarget
+        - !type:HTNCompoundTask
+          task: ADTGatePistolLeave
+        - !type:HTNCompoundTask
+          task: RangedCombatCompound
+
+    - preconditions:
+        - !type:ADTHealthPrecondition
+          below: 0.4
+        - !type:ADTHostileNearPrecondition
+          range: 10
+      tasks:
+        - !type:HTNCompoundTask
+          task: ADTAcquireTarget
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTRadioCallOperator
+            call: Help
+            lineSet: ADTExpeditionNpcRadioHelp
+            cooldown: 25
+            groupCooldown: 5
+            groupRange: 5
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTPickFleeCoordinatesOperator
+            targetKey: Target
+            fleeDistance: 9
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+
+    - preconditions:
+        - !type:ADTNeedHealPrecondition
+          minDamage: 0.1
+        - !type:ADTHostileNearPrecondition
+          range: 10
+          invert: true
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTHealSelfOperator
+
+    - preconditions:
+        - !type:ADTRecentlyHurtPrecondition
+          seconds: 2
+        - !type:ADTHealthPrecondition
+          below: 0.4
+          invert: true
+        - !type:ADTHostileNearPrecondition
+          range: 15
+      tasks:
+        - !type:HTNCompoundTask
+          task: ADTAcquireTarget
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTPickCoverOperator
+            targetKey: Target
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            pathfindInPlanning: false
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTWaitOperator
+            seconds: 2.5
+
+    - preconditions:
+        - !type:ADTAllyInLineOfFirePrecondition
+          seconds: 1
+      tasks:
+        - !type:HTNCompoundTask
+          task: ADTAcquireTarget
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTSidestepOperator
+            targetKey: Target
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            pathfindInPlanning: false
+
+    - preconditions:
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: Loose
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: Empty
+        - !type:ADTWeaponPrecondition
+          role: Sidearm
+          check: HasAmmo
+        - !type:ADTWeaponPrecondition
+          role: Sidearm
+          check: Active
+          invert: true
+      tasks:
+        - !type:HTNCompoundTask
+          task: ADTAcquireTarget
+        - !type:HTNCompoundTask
+          task: ADTGateEmptyPistol
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTSwitchWeaponOperator
+            role: Sidearm
+
+    - preconditions:
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: Loose
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: Empty
+        - !type:ADTWeaponPrecondition
+          role: Sidearm
+          check: Active
+        - !type:ADTWeaponPrecondition
+          role: Sidearm
+          check: HasAmmo
+      tasks:
+        - !type:HTNCompoundTask
+          task: ADTAcquireTarget
+        - !type:HTNCompoundTask
+          task: ADTGateSafeReload
+        - !type:HTNCompoundTask
+          task: RangedCombatCompound
+
+    - preconditions:
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: Loose
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: Empty
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: CanReload
+      tasks:
+        - !type:HTNCompoundTask
+          task: ADTAcquireTarget
+        - !type:HTNCompoundTask
+          task: ADTGateSafeReload
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTPickFleeCoordinatesOperator
+            targetKey: Target
+            fleeDistance: 6
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+
+    - preconditions:
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: Held
+          strict: true
+          invert: true
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTFindWeaponOperator
+            range: 7
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            rangeKey: InteractRange
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTPickupWeaponOperator
+
+    - preconditions:
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: Held
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: Empty
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: CanReload
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTReloadWeaponOperator
+            role: Main
+            magazineDelay: 1
+            roundDelay: 0.8
+
+    - preconditions:
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: Usable
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: Active
+          invert: true
+        - !type:ADTWeaponPrecondition
+          check: ActiveNonWeapon
+          invert: true
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTSwitchWeaponOperator
+            role: Main
+
+    - preconditions:
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: Usable
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: Active
+          invert: true
+        - !type:ADTHostileNearPrecondition
+          range: 15
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTSwitchWeaponOperator
+            role: Main
+
+    - preconditions:
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: Active
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: HasAmmo
+      tasks:
+        - !type:HTNCompoundTask
+          task: ADTAcquireTarget
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTRadioCallOperator
+            call: Contact
+            lineSet: ADTExpeditionNpcRadioContact
+            cooldown: 60
+            groupCooldown: 30
+            groupRange: 30
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTRadioCallOperator
+            call: Engage
+            lineSet: ADTExpeditionNpcRadioEngage
+            chance: 0.15
+            cooldown: 45
+            groupCooldown: 15
+            groupRange: 30
+        - !type:HTNCompoundTask
+          task: RangedCombatCompound
+
+    - preconditions:
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: Active
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: HasAmmo
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTFindCritEnemyOperator
+            range: 5
+        - !type:HTNCompoundTask
+          task: ADTFinishTargetGunCompound
+
+    - preconditions:
+        - !type:ADTWeaponPrecondition
+          role: Melee
+          check: Exists
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTFindCritEnemyOperator
+            range: 5
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTSwitchWeaponOperator
+            role: Melee
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            rangeKey: InteractRange
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTExecuteOperator
+
+    - preconditions:
+        - !type:ADTHostileNearPrecondition
+          range: 10
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTFindObstacleOperator
+            openable: true
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            targetKey: ADTObstacleCoordinates
+            rangeKey: InteractRange
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTOpenStorageOperator
+
+    - preconditions:
+        - !type:ADTHostileNearPrecondition
+          range: 10
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: Active
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: HasAmmo
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTFindObstacleOperator
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            targetKey: ADTObstacleCoordinates
+            stopOnLineOfSight: true
+            rangeKey: MeleeRange
+        - !type:HTNPrimitiveTask
+          operator: !type:GunOperator
+            targetKey: ADTObstacle
+            requireLOS: true
+
+    - preconditions:
+        - !type:ADTHostileNearPrecondition
+          range: 10
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTFindObstacleOperator
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            targetKey: ADTObstacleCoordinates
+            rangeKey: MeleeRange
+        - !type:HTNPrimitiveTask
+          operator: !type:MeleeOperator
+            targetKey: ADTObstacle
+
+    - preconditions:
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: Usable
+          invert: true
+        - !type:ADTWeaponPrecondition
+          role: Sidearm
+          check: Usable
+        - !type:ADTWeaponPrecondition
+          role: Sidearm
+          check: Active
+          invert: true
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTSwitchWeaponOperator
+            role: Sidearm
+
+    - preconditions:
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: Usable
+          invert: true
+        - !type:ADTWeaponPrecondition
+          role: Sidearm
+          check: Active
+        - !type:ADTWeaponPrecondition
+          role: Sidearm
+          check: Empty
+        - !type:ADTWeaponPrecondition
+          role: Sidearm
+          check: CanReload
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTReloadWeaponOperator
+            role: Sidearm
+
+    - preconditions:
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: Usable
+          invert: true
+        - !type:ADTWeaponPrecondition
+          role: Sidearm
+          check: Active
+        - !type:ADTWeaponPrecondition
+          role: Sidearm
+          check: HasAmmo
+      tasks:
+        - !type:HTNCompoundTask
+          task: RangedCombatCompound
+
+    - preconditions:
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: Usable
+          invert: true
+        - !type:ADTWeaponPrecondition
+          role: Sidearm
+          check: Usable
+          invert: true
+        - !type:ADTWeaponPrecondition
+          role: Melee
+          check: Exists
+        - !type:ADTWeaponPrecondition
+          role: Melee
+          check: Active
+          invert: true
+      tasks:
+        - !type:HTNCompoundTask
+          task: ADTAcquireTarget
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTSwitchWeaponOperator
+            role: Melee
+
+    - preconditions:
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: Held
+          strict: true
+        - !type:ADTWeaponPrecondition
+          role: Sidearm
+          check: Exists
+          invert: true
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTFindWeaponOperator
+            range: 7
+            onlyRole: Sidearm
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            rangeKey: InteractRange
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTPickupWeaponOperator
+
+    - preconditions:
+        - !type:ADTWeaponPrecondition
+          role: Melee
+          check: Exists
+          invert: true
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTFindWeaponOperator
+            range: 7
+            onlyRole: Melee
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            rangeKey: InteractRange
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTPickupWeaponOperator
+
+    - preconditions:
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: Held
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: CanReload
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTReloadWeaponOperator
+            role: Main
+
+    - tasks:
+        - !type:HTNCompoundTask
+          task: RangedCombatCompound
+    - tasks:
+        - !type:HTNCompoundTask
+          task: MeleeCombatCompound
+    - preconditions:
+        - !type:ADTRadioCallPrecondition
+          types:
+          - Help
+          - Contact
+          maxAge: 30
+          minDistance: 6
+          maxDistance: 40
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTPickRadioCallOperator
+            types:
+            - Help
+            - Contact
+            maxAge: 30
+            minDistance: 6
+            maxDistance: 40
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTRadioCallOperator
+            call: Moving
+            lineSet: ADTExpeditionNpcRadioMoving
+            cooldown: 30
+            groupCooldown: 8
+            groupRange: 10
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+
+    - preconditions:
+        - !type:SatiationPrecondition
+          satiationType: Hunger
+          below: Peckish
+        - !type:ADTCanEatPrecondition
+        - !type:ADTHostileNearPrecondition
+          range: 15
+          invert: true
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTEatOperator
+
+    - preconditions:
+        - !type:ADTHostileNearPrecondition
+          range: 15
+          invert: true
+        - !type:ADTRandomChancePrecondition
+          chance: 0.003
+        - !type:ADTGroupQuietPrecondition
+          seconds: 10
+          range: 15
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:SpeakOperator
+            speech: !type:LocalizedSetSpeakOperatorSpeech
+              lineSet: ADTExpeditionNpcJokes
+            cooldown: 90
+            cooldownID: ADTJokeCooldown
+
+    - preconditions:
+        - !type:ADTHostileNearPrecondition
+          range: 15
+          invert: true
+        - !type:ADTRandomChancePrecondition
+          chance: 0.005
+        - !type:ADTGroupQuietPrecondition
+          seconds: 10
+          range: 15
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:SpeakOperator
+            speech: !type:LocalizedSetSpeakOperatorSpeech
+              lineSet: ADTExpeditionNpcChatter
+            cooldown: 45
+            cooldownID: ADTChatterCooldown
+
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTFollowLeaderOperator
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            targetKey: ADTLeaderCoordinates
+            rangeKey: ADTFollowRange
+
+    - preconditions:
+        - !type:ADTIsGroupLeaderPrecondition
+      tasks:
+        - !type:HTNCompoundTask
+          task: IdleCompound
+
+    - tasks:
+        - !type:HTNCompoundTask
+          task: IdleSpinCompound
