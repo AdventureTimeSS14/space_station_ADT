@@ -1,6 +1,8 @@
 using System.IO;
 using System.Linq;
+using System.Text.Encodings.Web;
 using System.Text.Json;
+using System.Text.Unicode;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.GuideGenerator;
@@ -20,6 +22,7 @@ public sealed class EntityJsonGenerator
         var serializeOptions = new JsonSerializerOptions
         {
             WriteIndented = true,
+            Encoder = JavaScriptEncoder.Create(UnicodeRanges.All), // ADT-Tweak
         };
 
         file.Write(JsonSerializer.Serialize(prototypes, serializeOptions));
