@@ -5,3 +5,15 @@
   targetNode: glassesMed
   category: construction-category-clothing
   objectType: Item
+
+- type: construction
+  parent: BaseClothing
+  id: ADTClothingNeckArmband
+  graph: ADTClothingNeckArmband
+  targetNode: armband
+
+- type: construction
+  parent: BaseClothing
+  id: ADTClothingNeckArmbandMed
+  graph: ADTClothingNeckArmbandMed
+  targetNode: armbandMed

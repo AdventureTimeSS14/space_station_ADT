@@ -52,3 +52,13 @@
   product: ADTJukeBoxPlayer
   category: cargoproduct-category-name-fun
   cost: 500
+
+- type: cargoProduct
+  id: ADTCargoPendants
+  icon:
+    sprite: ADT/Clothing/Neck/medallion.rsi
+    state: heart-silver
+  product: ADTCratePendants
+  category: cargoproduct-category-name-fun
+  cost: 3000
+  group: market
