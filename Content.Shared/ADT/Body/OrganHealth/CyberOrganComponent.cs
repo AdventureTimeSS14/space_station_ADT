@@ -6,7 +6,7 @@ namespace Content.Shared.ADT.Body.OrganHealth;
 public sealed partial class CyberOrganComponent : Component
 {
     [DataField]
-    public float EmpFailureChance = 0.8f;
+    public float EmpFailureChance = 1f;
 
     [DataField]
     public TimeSpan DecayDuration = TimeSpan.FromMinutes(5);
