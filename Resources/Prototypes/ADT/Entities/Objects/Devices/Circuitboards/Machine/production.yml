@@ -450,7 +450,7 @@
     prototype: Crystallizer
     partRequirements:
       Capacitor: 2
-      Manipulator: 4
+      Servo: 4
       MatterBin: 4
     stackRequirements:
       Steel: 5
