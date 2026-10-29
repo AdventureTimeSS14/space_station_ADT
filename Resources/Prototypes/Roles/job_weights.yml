@@ -65,4 +65,30 @@
     ADTSeniorEngineer: 9
     ADTSeniorPhysician: 9
     ADTSeniorResearcher: 9
+    ADTBarber: 0
+    ADTCorrectionsOfficer: 0
+    ADTMiner: 0
+    ADTPathologist: 0
+    ADTRoboticist: 0
+    ADTSeniorOfficer: 9
+    ADTJobTimePatrol: 0
+    ADTJobUSSPArmyOfficer: 0
+    ADTJobUSSPArmyPrivate: 0
+    ADTBattleShipEngineerKMT: 0
+    ADTBattleShipEngineerTSF: 0
+    ADTBattleShipGunnerKMT: 0
+    ADTBattleShipGunnerTSF: 0
+    ADTBattleShipMarineKMT: 0
+    ADTBattleShipMarineTSF: 0
+    ADTBattleShipMedicKMT: 0
+    ADTBattleShipMedicTSF: 0
+    ADTBattleShipNavigatorKMT: 0
+    ADTBattleShipNavigatorTSF: 0
+    ADTBattleShipPilotKMT: 0
+    ADTBattleShipPilotTSF: 0
+    Brigmedic: 0
+    IAA: 0
+    Magistrat: 10
+    Pilot: 0
+    TramDriver: 0
     # ADT-Tweak-End
