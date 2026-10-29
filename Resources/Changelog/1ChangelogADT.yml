@@ -16885,3 +16885,10 @@ Entries:
     id: 2066
     pr_number: 3599
     time: '2026-10-29T06:52:48Z'
+  - author: SchrodingerCutie
+    changes:
+      - {message: 'Кнопка Boosty в ESC-меню теперь такой же формы, как соседние кнопки,
+          и стала ораньжевой.', type: Fix}
+    id: 2067
+    pr_number: 3591
+    time: '2026-10-29T07:20:20Z'
