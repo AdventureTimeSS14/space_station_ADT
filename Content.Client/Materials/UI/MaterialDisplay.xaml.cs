@@ -26,8 +26,9 @@ public sealed partial class MaterialDisplay : PanelContainer
     private readonly EntityUid _ent;
     public readonly string Material;
     private readonly bool _canEject;
+    private readonly bool _locked; // ADT-Tweak
 
-    public MaterialDisplay(EntityUid ent, string material, int volume, bool canEject)
+    public MaterialDisplay(EntityUid ent, string material, int volume, bool canEject, bool locked = false) // ADT-Tweak
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
@@ -41,6 +42,7 @@ public sealed partial class MaterialDisplay : PanelContainer
         _ent = ent;
         Material = material;
         _canEject = canEject;
+        _locked = locked; // ADT-Tweak
         UpdateVolume(volume);
     }
 
@@ -97,7 +99,7 @@ public sealed partial class MaterialDisplay : PanelContainer
                 _materialUIController.SendLatheEjectMessage(_ent, Material, sheetsToEject);
             };
 
-            button.Disabled = maxEjectableSheets < sheetsToEject;
+            button.Disabled = _locked || maxEjectableSheets < sheetsToEject; // ADT-Tweak
 
             if (_prototypeManager.TryIndex<MaterialPrototype>(Material, out var proto))
             {
