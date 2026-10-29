@@ -28,3 +28,17 @@
   delayPerVolume: 0
   popupUserAttempt: injector-component-needle-drawing-user
   popupTargetAttempt: injector-component-needle-drawing-target
+  parent: HyposprayDynamicMode
+  id: ADTHyposprayDynamicMode
+  suitMobTime: 1
+
+- type: injectorMode
+  parent: HyposprayInjectMode
+  id: ADTHyposprayInjectMode
+  suitMobTime: 1
+
+- type: injectorMode
+  parent: HyposprayInjectMode
+  id: ADTCustomMedipenInjectMode
+  suitMobTime: 2.5
+  suitSelfModifier: 0.5

@@ -82,6 +82,7 @@
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
   - type: Gun
+    fireRate: 5.5 # ADT-Tweak
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg
   - type: ChamberMagazineAmmoProvider
@@ -108,6 +109,28 @@
 # ADT-tweak start
   - type: Clothing
     sprite: ADT/Objects/Weapons/Guns/Rifles/ak.rsi
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-underbarrel:
+        whitelist:
+          tags:
+          - ADTAttachmentVerticalGrip
+          - ADTAttachmentLaserSight
+          - SurvivalKnifeAttachment
+      rmc-aslot-rail:
+        whitelist:
+          tags:
+          - ADTAttachmentMagneticHarness
+      rmc-aslot-barrel:
+        whitelist:
+          tags:
+          - ADTAttachmentSuppressor
+          - ADTAttachmentAntiLyingWarrior
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-underbarrel: 0.25, -0.125
+      rmc-aslot-rail: 0, 0
+      rmc-aslot-barrel: 0.96875, 0
 # ADT-tweak end
   - type: ContainerContainer
     containers:

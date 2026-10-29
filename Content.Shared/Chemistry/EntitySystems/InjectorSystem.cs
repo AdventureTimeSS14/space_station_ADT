@@ -36,6 +36,7 @@ public sealed partial class InjectorSystem : EntitySystem
 {
 [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly ADTMedicalSpraySystem _adtMedicalSpray = default!; // ADT-Tweak
+    [Dependency] private readonly ADTInjectionSlowdownSystem _injectionSlowdown = default!; // ADT-Tweak
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly ForensicsSystem _forensics = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
@@ -322,6 +323,11 @@ public sealed partial class InjectorSystem : EntitySystem
         // Technically, both can be true, but that is probably a balance nightmare.
         else if (_standingState.IsDown(target))
             doAfterTime *= activeMode.DownedModifier;
+
+        // ADT-Tweak-Start
+        if (_injectionSlowdown.IsSuited(target))
+            doAfterTime += user == target ? activeMode.SuitMobTime * activeMode.SuitSelfModifier : activeMode.SuitMobTime;
+        // ADT-Tweak-End
 
         return true;
     }
