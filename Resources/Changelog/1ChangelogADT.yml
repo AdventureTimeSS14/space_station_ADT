@@ -16852,3 +16852,14 @@ Entries:
     id: 2063
     pr_number: 3601
     time: '2026-10-28T19:29:32Z'
+  - author: blad_bochar && Inconnu
+    changes:
+      - {message: что добавили, type: Add}
+      - {message: что убрали, type: Remove}
+      - {message: что подправили, type: Tweak}
+      - {message: что исправили, type: Fix}
+      - {message: Гарнитура теперь требует открытой панели для просмотра доступных
+          каналов или для извлечения ключей. Панель открывается мультитулом., type: Tweak}
+    id: 2064
+    pr_number: 3545
+    time: '2026-10-29T04:05:14Z'
