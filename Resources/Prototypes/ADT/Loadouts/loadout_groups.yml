@@ -1511,6 +1511,30 @@
   - MusicianSuperSynthesizerDarkBlue
   - MusicianSuperSynthesizerBlack
 
+- type: loadoutGroup
+  id: ADTServiceWorkerHead
+  name: loadout-group-service-worker-head-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTClothingHeadVisorPizza
+
+- type: loadoutGroup
+  id: ADTMusicianHead
+  name: loadout-group-musician-head-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTClothingHeadHatCarpFedora
+
+- type: loadoutGroup
+  id: ADTMedicalDoctorNeck
+  name: loadout-group-medical-doctor-neck-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTClothingNeckArmbandMed
+
 # ОЧЕНЬ ПРОШУ ДЕЛАТЬ НОВЫЕ ГРУППЫ НАД НИЖНИМ БЕЛЬЁМ А НЕ ПОД НИМ. ИНАЧЕ Я ЁЖИКОВ НА ВАС НАТРАВЛЮ И ВАМ КАПУТ.
 # Н А Д Е Ю С Ь  В Ы  М Е Н Я  У С Л Ы Ш А Л И ! ! !
 
@@ -2570,30 +2594,3 @@
   - ADTUnderwearSocksKneeYellow
   - ADTUnderwearSocksThighYellow
   - ADTUnderwearSocksCow
-
-# ОЧЕНЬ ПРОШУ ДЕЛАТЬ НОВЫЕ ГРУППЫ НАД НИЖНИМ БЕЛЬЁМ А НЕ ПОД НИМ. ИНАЧЕ Я ЁЖИКОВ НА ВАС НАТРАВЛЮ И ВАМ КАПУТ.
-# Н А Д Е Ю С Ь  В Ы  М Е Н Я  У С Л Ы Ш А Л И ! ! !
-
-- type: loadoutGroup
-  id: ADTServiceWorkerHead
-  name: loadout-group-service-worker-head-adt
-  minLimit: 0
-  maxLimit: 1
-  loadouts:
-  - ADTClothingHeadVisorPizza
-
-- type: loadoutGroup
-  id: ADTMusicianHead
-  name: loadout-group-musician-head-adt
-  minLimit: 0
-  maxLimit: 1
-  loadouts:
-  - ADTClothingHeadHatCarpFedora
-
-- type: loadoutGroup
-  id: ADTMedicalDoctorNeck
-  name: loadout-group-medical-doctor-neck-adt
-  minLimit: 0
-  maxLimit: 1
-  loadouts:
-  - ADTClothingNeckArmbandMed
