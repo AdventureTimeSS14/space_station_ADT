@@ -111,6 +111,11 @@
   components:
   - type: HereticBlade
     path: Flesh
+  - type: Tag
+    tags:
+    - HereticBlade
+    - Knife
+  - type: Execution
   - type: Sprite
     sprite: ADT/Heretic/Blades/blade_flesh.rsi
     state: icon

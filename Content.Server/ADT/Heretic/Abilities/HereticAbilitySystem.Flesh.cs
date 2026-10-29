@@ -4,6 +4,7 @@ using Content.Shared.FixedPoint;
 using Content.Shared.ADT.FiringPin;
 using Content.Shared.ADT.Heretic.Common;
 using Content.Shared.ADT.MartialArts;
+using Content.Server.ADT.Heretic.Components;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Ghost.Roles.Components;
@@ -24,6 +25,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Nutrition;
 using Content.Shared.NPC.Components;
 using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared.Storage;
 using Content.Shared.Tag;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Ranged;
@@ -37,6 +39,7 @@ namespace Content.Server.Heretic.Abilities;
 public sealed partial class HereticAbilitySystem
 {
     private static readonly ProtoId<CloningSettingsPrototype> Settings = "FleshMimic";
+    private static readonly ProtoId<TagPrototype> KnifeTag = "Knife";
     private static readonly SoundSpecifier MimicSpawnSound = new SoundCollectionSpecifier("gib");
 
     protected override void SubscribeFlesh()
@@ -181,62 +184,20 @@ public sealed partial class HereticAbilitySystem
 
         MarkMimicEquipmentUnremoveable(clone.Value);
 
-        EntityUid? weapon = null;
-        if (!giveBlade && TryComp(uid, out HandsComponent? hands))
-        {
-            foreach (var held in _hands.EnumerateHeld((uid, hands)))
-            {
-                if (HasComp<GunComponent>(held))
-                {
-                    weapon = held;
-                    break;
-                }
-
-                if (HasComp<MeleeWeaponComponent>(held) && weapon == null)
-                    weapon = held;
-            }
-        }
-
         var minion = EnsureComp<HereticMinionComponent>(clone.Value);
         minion.BoundHeretic = user;
         Dirty(clone.Value, minion);
 
         var ghoul = _compFactory.GetComponent<GhoulComponent>();
-        ghoul.GiveBlade = giveBlade;
         ghoul.TotalHealth = hp;
         ghoul.DropOrgansOnDeath = false;
         ghoul.GhostRoleName = "ghostrole-flesh-mimic-name";
         ghoul.GhostRoleDesc = "ghostrole-flesh-mimic-desc";
-        if (weapon != null && _cloning.CopyItem(weapon.Value, xform.Coordinates) is { } weaponClone)
-        {
-            if (!_hands.TryPickup(clone.Value, weaponClone, null, false, false, false))
-                QueueDel(weaponClone);
-            else
-            {
-                EnsureComp<GhoulWeaponComponent>(weaponClone);
-                ghoul.BoundWeapon = weaponClone;
 
-                if (TryComp<FiringPinHolderComponent>(weaponClone, out var pinHolder))
-                {
-                    pinHolder.Emagged = true;
-                    Dirty(weaponClone, pinHolder);
-                }
+        var hasMelee = !giveBlade && CopyHeldWeapons(uid, clone.Value, ghoul);
+        ghoul.GiveBlade = giveBlade || !hasMelee;
 
-                if (!TryComp<MeleeWeaponComponent>(weaponClone, out var melee))
-                {
-                    melee = AddComp<MeleeWeaponComponent>(weaponClone);
-                    melee.Damage = new DamageSpecifier
-                    {
-                        DamageDict = { { "Blunt", 12 } }
-                    };
-                    melee.AttackRate = 1.2f;
-                    melee.Angle = 60;
-                    melee.Animation = "WeaponArcPunch";
-                }
-
-                MarkItemAndStorageUnremoveable(weaponClone);
-            }
-        }
+        TrackMimicGear(clone.Value);
 
         AddComp(clone.Value, ghoul);
 
@@ -282,14 +243,83 @@ public sealed partial class HereticAbilitySystem
         return clone.Value;
     }
 
+    private bool CopyHeldWeapons(EntityUid source, EntityUid mimic, GhoulComponent ghoul)
+    {
+        if (!TryComp(source, out HandsComponent? hands))
+            return false;
+
+        var hasMelee = false;
+
+        foreach (var held in _hands.EnumerateHeld((source, hands)))
+        {
+            var isGun = HasComp<GunComponent>(held);
+            var isKnife = _tag.HasTag(held, KnifeTag);
+
+            if (!isGun && !isKnife)
+                continue;
+
+            if (_cloning.CopyItem(held, Transform(mimic).Coordinates) is not { } heldClone)
+                continue;
+
+            if (!_hands.TryPickup(mimic, heldClone, null, false, false, false))
+            {
+                QueueDel(heldClone);
+                continue;
+            }
+
+            if (isKnife)
+                hasMelee = true;
+
+            if (TryComp<FiringPinHolderComponent>(heldClone, out var pinHolder))
+            {
+                pinHolder.Emagged = true;
+                Dirty(heldClone, pinHolder);
+            }
+
+            if (isGun && ghoul.BoundWeapon == null)
+            {
+                EnsureComp<GhoulWeaponComponent>(heldClone);
+                ghoul.BoundWeapon = heldClone;
+            }
+
+            if (isGun && !TryComp<MeleeWeaponComponent>(heldClone, out var melee))
+            {
+                melee = AddComp<MeleeWeaponComponent>(heldClone);
+                melee.Damage = new DamageSpecifier
+                {
+                    DamageDict = { { "Blunt", 12 } }
+                };
+                melee.AttackRate = 1.2f;
+                melee.Angle = 60;
+                melee.Animation = "WeaponArcPunch";
+            }
+        }
+
+        return hasMelee;
+    }
+
     private void MarkMimicEquipmentUnremoveable(EntityUid mimic)
     {
+        if (!TryComp(mimic, out InventoryComponent? inventory))
+            return;
+
+        var slots = _inventory.GetSlotEnumerator((mimic, inventory));
+        while (slots.NextItem(out var item, out _))
+        {
+            EnsureComp<UnremoveableComponent>(item);
+        }
+    }
+
+    private void TrackMimicGear(EntityUid mimic)
+    {
+        var gear = EnsureComp<FleshMimicGearComponent>(mimic);
+
         if (TryComp(mimic, out InventoryComponent? inventory))
         {
             var slots = _inventory.GetSlotEnumerator((mimic, inventory));
             while (slots.NextItem(out var item, out _))
             {
-                MarkItemAndStorageUnremoveable(item);
+                TrackMimicGearItem(gear, item);
             }
         }
 
@@ -297,33 +327,32 @@ public sealed partial class HereticAbilitySystem
         {
             foreach (var held in _hands.EnumerateHeld((mimic, hands)))
             {
-                MarkItemAndStorageUnremoveable(held);
+                TrackMimicGearItem(gear, held);
+            }
+        }
+
+        if (TryComp(mimic, out StorageComponent? storage))
+        {
+            foreach (var contained in storage.Container.ContainedEntities)
+            {
+                TrackMimicGearItem(gear, contained);
             }
         }
     }
 
-    private void MarkItemAndStorageUnremoveable(EntityUid item)
+    private void TrackMimicGearItem(FleshMimicGearComponent gear, EntityUid item)
     {
-        EnsureComp<UnremoveableComponent>(item);
-
-        if (!TryComp(item, out ContainerManagerComponent? containerManager))
+        if (gear.Gear.Contains(item))
             return;
 
-        var ammoQuery = GetEntityQuery<AmmoComponent>();
-        var ammoProviderQuery = GetEntityQuery<AmmoProviderComponent>();
+        gear.Gear.Add(item);
 
-        foreach (var container in containerManager.Containers.Values)
+        if (!TryComp(item, out StorageComponent? storage))
+            return;
+
+        foreach (var contained in storage.Container.ContainedEntities)
         {
-            foreach (var contained in container.ContainedEntities)
-            {
-                if (ammoQuery.HasComp(contained) ||
-                    ammoProviderQuery.HasComp(contained))
-                {
-                    continue;
-                }
-
-                MarkItemAndStorageUnremoveable(contained);
-            }
+            TrackMimicGearItem(gear, contained);
         }
     }
 }
