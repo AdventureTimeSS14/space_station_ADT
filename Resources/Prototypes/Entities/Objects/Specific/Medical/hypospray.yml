@@ -10,10 +10,12 @@
     solutionName: hypospray
     ignoreClosed: false
     ignoreBlockers: true # ADT-Tweak
-    activeModeProtoId: HyposprayDynamicMode
+    # ADT-Tweak-Start
+    activeModeProtoId: ADTHyposprayDynamicMode
     allowedModes:
-    - HyposprayDynamicMode
-    - HyposprayInjectMode
+    - ADTHyposprayDynamicMode
+    - ADTHyposprayInjectMode
+    # ADT-Tweak-End
   - type: ExaminableSolution
     solution: hypospray
     exactVolume: true

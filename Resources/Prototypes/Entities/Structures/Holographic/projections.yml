@@ -56,6 +56,7 @@
     lifetime: 180
   - type: Airtight
     noAirWhenFullyAirBlocked: false
+  - type: ADTGasPassable # ADT-Tweak
   - type: Destructible
     thresholds:
     - trigger:
