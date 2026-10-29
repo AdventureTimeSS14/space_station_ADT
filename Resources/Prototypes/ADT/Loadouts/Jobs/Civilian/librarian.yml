@@ -13,3 +13,8 @@
   id: ADTEthnologistPDA
   equipment:
     id: ADTEthnologistPDA
+# Boring Dress
+- type: loadout
+  id: ADTClothingUniformDressRD
+  equipment:
+    jumpsuit: ADTClothingUniformDressRD
