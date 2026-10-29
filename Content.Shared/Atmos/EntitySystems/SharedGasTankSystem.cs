@@ -139,8 +139,7 @@ public abstract partial class SharedGasTankSystem : GasMaxPressureSystem<GasTank
     public bool CanConnectToInternals(Entity<GasTankComponent> ent)
     {
         TryGetInternalsComp(ent, out _, out var internalsComp, ent.Comp.User);
-        // ADT-Tweak
-        return internalsComp != null && internalsComp.BreathTools.Count != 0 && !ent.Comp.ReleaseValveOpen && ent.Comp.UserToggleable;
+        return internalsComp != null && internalsComp.BreathTools.Count != 0 && !ent.Comp.ReleaseValveOpen && ent.Comp.UserToggleable; // ADT-Tweak
     }
 
     public bool ConnectToInternals(Entity<GasTankComponent> ent, EntityUid? user = null)

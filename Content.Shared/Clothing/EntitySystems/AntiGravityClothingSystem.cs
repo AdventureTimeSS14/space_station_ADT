@@ -1,10 +1,10 @@
 using Content.Shared.Clothing.Components;
 using Content.Shared.Gravity;
 using Content.Shared.Inventory;
-using Content.Shared.Item.ItemToggle; // ADT-Tweak
-using Content.Shared.Item.ItemToggle.Components; // ADT-Tweak
+using Content.Shared.Item.ItemToggle;
+using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Standing;
-using Robust.Shared.Containers; // ADT-Tweak
+using Robust.Shared.Containers;
 
 namespace Content.Shared.Clothing.EntitySystems;
 
