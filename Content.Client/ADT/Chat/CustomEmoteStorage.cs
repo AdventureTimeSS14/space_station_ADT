@@ -42,7 +42,7 @@ public static class CustomEmoteStorage
         }
     }
 
-    public static void Save(
+    public static bool Save(
         IResourceManager resources,
         ISerializationManager serialization,
         ISawmill sawmill,
@@ -63,10 +63,12 @@ public static class CustomEmoteStorage
             using var writer = resources.UserData.OpenWriteText(SavePath);
             var yaml = new YamlStream { new YamlDocument(node.ToYamlNode()) };
             yaml.Save(new YamlMappingFix(new Emitter(writer)), false);
+            return true;
         }
         catch (Exception e)
         {
             sawmill.Error($"Failed to save custom emotes: {e}");
+            return false;
         }
     }
 }

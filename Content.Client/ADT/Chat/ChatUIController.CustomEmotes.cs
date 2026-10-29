@@ -30,12 +30,13 @@ public sealed partial class ChatUIController
         _customEmotes = CustomEmoteParser.Parse(_customEmotesRaw);
     }
 
-    public void UpdateCustomEmotes(string newEmotes)
+    public bool UpdateCustomEmotes(string newEmotes)
     {
         _customEmotesRaw = newEmotes;
-        CustomEmoteStorage.Save(_resources, _serialization, _sawmill, newEmotes);
+        var saved = CustomEmoteStorage.Save(_resources, _serialization, _sawmill, newEmotes);
 
         _customEmotes = CustomEmoteParser.Parse(newEmotes);
+        return saved;
     }
 
     public void OpenCustomEmotesWindow()

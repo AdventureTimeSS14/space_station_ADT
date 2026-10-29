@@ -9,3 +9,4 @@ adt-custom-emotes-placeholder =
     ???=наклоняет голову
 adt-custom-emotes-status = Замен распознано: { $count }
 adt-custom-emotes-status-bad = Замен распознано: { $count }, строк с ошибкой: { $bad }
+adt-custom-emotes-status-save-failed = Не удалось сохранить на диск, замены работают только до перезапуска.

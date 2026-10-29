@@ -8,7 +8,7 @@ namespace Content.Client.ADT.Chat.UI;
 [GenerateTypedNameReferences]
 public sealed partial class CustomEmotesWindow : FancyWindow
 {
-    public event Action<string>? OnApply;
+    public event Func<string, bool>? OnApply;
 
     public CustomEmotesWindow()
     {
@@ -18,7 +18,11 @@ public sealed partial class CustomEmotesWindow : FancyWindow
         EntriesEdit.Placeholder = new Rope.Leaf(Loc.GetString("adt-custom-emotes-placeholder"));
 
         EntriesEdit.OnTextChanged += _ => UpdateStatus();
-        ApplyButton.OnPressed += _ => OnApply?.Invoke(Rope.Collapse(EntriesEdit.TextRope));
+        ApplyButton.OnPressed += _ =>
+        {
+            if (OnApply?.Invoke(Rope.Collapse(EntriesEdit.TextRope)) == false)
+                StatusLabel.Text = Loc.GetString("adt-custom-emotes-status-save-failed");
+        };
     }
 
     public void SetEntries(string raw)
