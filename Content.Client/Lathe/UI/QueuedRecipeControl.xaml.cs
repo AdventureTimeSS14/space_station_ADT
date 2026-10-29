@@ -38,13 +38,6 @@ public sealed partial class QueuedRecipeControl : Control
         };
     }
 
-    public void SetCanManage(bool allowed)
-    {
-        MoveUp.Disabled = !allowed;
-        MoveDown.Disabled = !allowed;
-        Delete.Disabled = !allowed;
-    }
-
     public void SetDisplayText(string displayText)
     {
         RecipeName.Text = displayText;
@@ -60,4 +53,13 @@ public sealed partial class QueuedRecipeControl : Control
     {
         _index = index;
     }
+
+    // ADT-Tweak start
+    public void SetEnabled(bool enabled)
+    {
+        MoveUp.Disabled = !enabled;
+        MoveDown.Disabled = !enabled;
+        Delete.Disabled = !enabled;
+    }
+    // ADT-Tweak end
 }
