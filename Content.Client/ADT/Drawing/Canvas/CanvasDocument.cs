@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Numerics;
 using Content.Client.ADT.Drawing.Input;
 using Content.Shared.ADT.Drawing;
 using SixLabors.ImageSharp.PixelFormats;
@@ -57,6 +58,8 @@ public sealed class CanvasDocument : IDisposable
 
     public event Action<int>? TileApplied;
 
+    public event Action? WorkSettled;
+
     public bool HasPendingWork
     {
         get
@@ -104,23 +107,222 @@ public sealed class CanvasDocument : IDisposable
 
     public bool MergeLayer(CanvasLayer layer)
     {
-        if (Stroker.Active || layer.Stroker.Active)
+        var layers = Layers.Layers;
+        var top = -1;
+        for (var i = 0; i < layers.Count; i++)
+        {
+            if (layers[i] == layer)
+                top = i;
+        }
+
+        if (top < 0)
+            return false;
+
+        var group = new List<CanvasLayer>();
+        for (var i = 0; i <= top; i++)
+        {
+            if (layers[i] == layer || layers[i].Visible)
+                group.Add(layers[i]);
+        }
+
+        return MergeLayers(group, layer);
+    }
+
+    public bool MergeVisibleLayers()
+    {
+        return MergeLayers(Layers.Layers.Where(l => l.Visible).ToList(), null);
+    }
+
+    private bool MergeLayers(List<CanvasLayer> group, CanvasLayer? selected)
+    {
+        if (Stroker.Active || group.Any(l => l.Stroker.Active))
             return false;
 
         var tiles = new Dictionary<int, Rgba32[]>();
-        foreach (var index in layer.Surface.AllocatedTiles())
+        foreach (var layer in group)
         {
-            tiles[index] = (Rgba32[]) layer.Surface.GetTilePixels(index).Clone();
+            if ((layer != selected && !layer.Visible) || layer.Opacity <= 0f)
+                continue;
+
+            foreach (var index in layer.Surface.AllocatedTiles())
+            {
+                var source = layer.Surface.GetTilePixels(index);
+                if (!tiles.TryGetValue(index, out var pixels))
+                {
+                    pixels = new Rgba32[source.Length];
+                    tiles[index] = pixels;
+                }
+
+                PaintSurface.CompositePixels(pixels, source, layer.Opacity);
+            }
         }
 
-        if (tiles.Count > 0 && layer.Visible && layer.Opacity > 0f)
+        if (tiles.Count > 0)
         {
             var id = _nextOperationId++;
-            var touched = Surface.CompositeTiles(tiles, layer.Opacity, (int) id);
-            AddOperation(CanvasOperation.Merging(id, tiles, layer.Opacity, touched));
+            var touched = Surface.CompositeTiles(tiles, 1f, (int) id);
+            AddOperation(CanvasOperation.Merging(id, tiles, 1f, touched));
         }
 
-        Layers.Remove(layer);
+        foreach (var layer in group)
+        {
+            Layers.Remove(layer);
+        }
+
+        return true;
+    }
+
+    public bool FloodFill(int x, int y, Color color, float opacity, float tolerance)
+    {
+        var surface = ActiveSurface;
+        if (ActiveStroke || x < 0 || y < 0 || x >= surface.Width || y >= surface.Height)
+            return false;
+
+        var width = surface.Width;
+        var height = surface.Height;
+        var target = surface.GetPixelRaw(x, y);
+        var limit = (int) MathF.Round(Math.Clamp(tolerance, 0f, 1f) * 255f);
+        var fill = PaintSurface.ToRgba(color);
+        var tiles = new Dictionary<int, Rgba32[]>();
+        var visited = new bool[width * height];
+        var stack = new Stack<(int X, int Y)>();
+        stack.Push((x, y));
+
+        bool Open(int px, int py)
+        {
+            return !visited[py * width + px] && Matches(surface.GetPixelRaw(px, py), target, limit);
+        }
+
+        void Scan(int left, int right, int row)
+        {
+            var inSpan = false;
+            for (var px = left; px <= right; px++)
+            {
+                if (!Open(px, row))
+                {
+                    inSpan = false;
+                    continue;
+                }
+
+                if (inSpan)
+                    continue;
+
+                stack.Push((px, row));
+                inSpan = true;
+            }
+        }
+
+        while (stack.TryPop(out var seed))
+        {
+            if (!Open(seed.X, seed.Y))
+                continue;
+
+            var left = seed.X;
+            while (left > 0 && Open(left - 1, seed.Y))
+            {
+                left--;
+            }
+
+            var right = seed.X;
+            while (right < width - 1 && Open(right + 1, seed.Y))
+            {
+                right++;
+            }
+
+            for (var px = left; px <= right; px++)
+            {
+                visited[seed.Y * width + px] = true;
+                SetRegionPixel(surface, tiles, px, seed.Y, fill);
+            }
+
+            if (seed.Y > 0)
+                Scan(left, right, seed.Y - 1);
+
+            if (seed.Y < height - 1)
+                Scan(left, right, seed.Y + 1);
+        }
+
+        return ApplyRegion(tiles, opacity);
+    }
+
+    public bool FillShape(Vector2 start, Vector2 end, bool ellipse, Color color, float opacity)
+    {
+        var surface = ActiveSurface;
+        if (ActiveStroke)
+            return false;
+
+        var min = Vector2.Min(start, end);
+        var max = Vector2.Max(start, end);
+        var x0 = Math.Max(0, (int) MathF.Floor(min.X));
+        var y0 = Math.Max(0, (int) MathF.Floor(min.Y));
+        var x1 = Math.Min(surface.Width - 1, (int) MathF.Ceiling(max.X));
+        var y1 = Math.Min(surface.Height - 1, (int) MathF.Ceiling(max.Y));
+
+        var center = (min + max) / 2f;
+        var radius = (max - min) / 2f;
+        var fill = PaintSurface.ToRgba(color);
+        var tiles = new Dictionary<int, Rgba32[]>();
+
+        for (var py = y0; py <= y1; py++)
+        {
+            for (var px = x0; px <= x1; px++)
+            {
+                var point = new Vector2(px + 0.5f, py + 0.5f);
+                if (point.X < min.X || point.Y < min.Y || point.X > max.X || point.Y > max.Y)
+                    continue;
+
+                if (ellipse)
+                {
+                    if (radius.X <= 0f || radius.Y <= 0f)
+                        continue;
+
+                    var d = (point - center) / radius;
+                    if (d.LengthSquared() > 1f)
+                        continue;
+                }
+
+                SetRegionPixel(surface, tiles, px, py, fill);
+            }
+        }
+
+        return ApplyRegion(tiles, opacity);
+    }
+
+    private static bool Matches(Rgba32 pixel, Rgba32 target, int limit)
+    {
+        return Math.Abs(pixel.R - target.R) <= limit &&
+               Math.Abs(pixel.G - target.G) <= limit &&
+               Math.Abs(pixel.B - target.B) <= limit &&
+               Math.Abs(pixel.A - target.A) <= limit;
+    }
+
+    private static void SetRegionPixel(PaintSurface surface, Dictionary<int, Rgba32[]> tiles, int x, int y, Rgba32 fill)
+    {
+        var index = surface.TileIndex(x / PaintSurface.TileSize, y / PaintSurface.TileSize);
+        var size = surface.GetTileSize(index);
+        if (!tiles.TryGetValue(index, out var pixels))
+        {
+            pixels = new Rgba32[size.X * size.Y];
+            tiles[index] = pixels;
+        }
+
+        pixels[(y % PaintSurface.TileSize) * size.X + x % PaintSurface.TileSize] = fill;
+    }
+
+    private bool ApplyRegion(Dictionary<int, Rgba32[]> tiles, float opacity)
+    {
+        if (tiles.Count == 0)
+            return false;
+
+        if (Layers.Active is { } layer)
+        {
+            layer.Surface.CompositeTiles(tiles, opacity, 0);
+            return true;
+        }
+
+        var id = _nextOperationId++;
+        var touched = Surface.CompositeTiles(tiles, opacity, (int) id);
+        AddOperation(CanvasOperation.Merging(id, tiles, opacity, touched));
         return true;
     }
 
@@ -286,6 +488,9 @@ public sealed class CanvasDocument : IDisposable
 
         tile.InFlightOperations = Array.Empty<uint>();
         _pending.RemoveAll(o => o.UncommittedTiles.Count == 0);
+
+        if (!HasPendingWork)
+            WorkSettled?.Invoke();
     }
 
     public void RejectCommit(int index)
