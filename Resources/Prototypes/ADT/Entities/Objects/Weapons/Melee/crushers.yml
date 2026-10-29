@@ -22,6 +22,13 @@
     proto: ADTBulletCrusherMark
   - type: DisarmMalus
   - type: TrophyHolder
+  - type: ADTKineticFocusWeapon
+    discipline: Crusher
+    trackMelee: true
+    trackRanged: true
+    window: 5
+    effect: ADTStatusEffectKineticInterference
+    effectDuration: 8
   - type: ContainerContainer
     containers:
       upgrades: !type:Container
@@ -41,6 +48,13 @@
   - type: ADTKineticCooldown
   - type: ADTNoWideAttack
   - type: TrophyHolder
+  - type: ADTKineticFocusWeapon
+    discipline: Crusher
+    trackMelee: true
+    trackRanged: true
+    window: 5
+    effect: ADTStatusEffectKineticInterference
+    effectDuration: 8
   - type: ContainerContainer
     containers:
       upgrades: !type:Container
@@ -48,7 +62,7 @@
     range: 6
     throwSpeed: 18
     returnSpeed: 22
-    cooldown: 6
+    cooldown: 4
     requireWielded: true
     markDuration: 1
     damage:
@@ -229,9 +243,9 @@
   - type: ADTCrusherRageOnDetonate
     maxStacks: 3
     stackDecay: 5
-    rageDuration: 5
+    rageDuration: 10
     backstabExtension: 1
-    maxRageDuration: 8
+    maxRageDuration: 13
     leechMultiplier: 2
     rageEffect: ADTStatusEffectCrusherRage
     exhaustionEffect: ADTStatusEffectCrusherRageExhaustion

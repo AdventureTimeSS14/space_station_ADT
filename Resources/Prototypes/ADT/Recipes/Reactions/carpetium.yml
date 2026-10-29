@@ -1,0 +1,116 @@
+- type: reaction
+  id: ADTCarpetiumWhite
+  impact: Low
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    Carpetium:
+      amount: 4
+    Desoxyephedrine:
+      amount: 1
+  products:
+    ADTCarpetiumWhite: 5
+
+- type: reaction
+  id: ADTCarpetiumSkyBlue
+  impact: Low
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    Carpetium:
+      amount: 4
+    ADTBlueSkyDesoxyephedrine:
+      amount: 1
+  products:
+    ADTCarpetiumSkyBlue: 5
+
+- type: reaction
+  id: ADTCarpetiumBlue
+  impact: Low
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    Carpetium:
+      amount: 4
+    Dermaline:
+      amount: 1
+  products:
+    ADTCarpetiumBlue: 5
+
+- type: reaction
+  id: ADTCarpetiumGreen
+  impact: Low
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    Carpetium:
+      amount: 4
+    Sedin:
+      amount: 1
+  products:
+    ADTCarpetiumGreen: 5
+
+- type: reaction
+  id: ADTCarpetiumOrange
+  impact: Low
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    Carpetium:
+      amount: 4
+    JuiceOrange:
+      amount: 1
+  products:
+    ADTCarpetiumOrange: 5
+
+- type: reaction
+  id: ADTCarpetiumBlack
+  impact: Low
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    Carpetium:
+      amount: 4
+    Charcoal:
+      amount: 1
+  products:
+    ADTCarpetiumBlack: 5
+
+- type: reaction
+  id: ADTCarpetiumCyan
+  impact: Low
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    Carpetium:
+      amount: 4
+    Helium:
+      amount: 1
+  products:
+    ADTCarpetiumCyan: 5
+
+- type: reaction
+  id: ADTCarpetiumPink
+  impact: Low
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    Carpetium:
+      amount: 4
+    Inaprovaline:
+      amount: 1
+  products:
+    ADTCarpetiumPink: 5
+
+- type: reaction
+  id: ADTCarpetiumPurple
+  impact: Low
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    Carpetium:
+      amount: 4
+    Left4Zed:
+      amount: 1
+  products:
+    ADTCarpetiumPurple: 5

@@ -145,6 +145,15 @@ public sealed class CanvasSyncSystem : EntitySystem
             session.DirtySince = TimeSpan.Zero;
     }
 
+    private void SetPixelMode(bool pixel)
+    {
+        if (_brush.Pixel == pixel)
+            return;
+
+        _brush.Pixel = pixel;
+        _brush.Size = pixel ? 1f : new BrushSettings().Size;
+    }
+
     #region Манифест и тайлы
 
     private void OnManifest(MsgCanvasManifest msg)
@@ -167,6 +176,7 @@ public sealed class CanvasSyncSystem : EntitySystem
             if (_active != null)
                 Drop(_active, CanvasCloseReason.Closed);
 
+            SetPixelMode(CanvasConstants.IsPixelSize(new Vector2i(msg.Width, msg.Height)));
             var document = new CanvasDocument(msg.Width, msg.Height, Color.White, _brush);
             var collaboration = new CanvasCollaboration(msg.Painting, document, _net.Send, _timing);
 

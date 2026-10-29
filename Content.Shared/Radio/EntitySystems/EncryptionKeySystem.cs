@@ -175,6 +175,11 @@ public sealed partial class EncryptionKeySystem : EntitySystem
             return;
         // Parkstation-Ipc-End
 
+        // ADT-Tweak-Start
+        if (HasComp<HeadsetComponent>(uid) && !_wires.IsPanelOpen(uid))
+            return;
+        // ADT-Tweak-End
+
         if (component.KeyContainer.ContainedEntities.Count == 0)
         {
             args.PushMarkup(Loc.GetString("encryption-keys-no-keys"));

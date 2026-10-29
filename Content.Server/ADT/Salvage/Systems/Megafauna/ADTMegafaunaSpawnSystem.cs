@@ -105,6 +105,9 @@ public sealed class ADTMegafaunaSpawnSystem : EntitySystem
         if (generation != null && _generation.IsExcluded(generation, coords.Position))
             return false;
 
+        if (generation != null && _generation.IsNearLava(generation, coords.Position, comp.LavaClearance))
+            return false;
+
         if (!comp.AvoidRooms)
             return true;
 
