@@ -22,6 +22,8 @@ public sealed partial class CrystallizerWindow : FancyWindow
     private Button _nothingButton = new Button();
     private readonly Dictionary<Button, string?> _buttonToRecipeId = new();
     private GasMixture? _gasMixture;
+    private float _lastProgress;
+    private float _lastParentWidth;
     public event Action<Button, string?>? OnRecipeButtonPressed;
     public event Action<float>? OnGasInputChanged;
 
@@ -77,8 +79,22 @@ public sealed partial class CrystallizerWindow : FancyWindow
 
     public void SetProgressBar(float progressBar)
     {
-        var fill = Math.Clamp(progressBar / 100f, 0f, 1f);
-        FillProgressBar(fill);
+        _lastProgress = Math.Clamp(progressBar / 100f, 0f, 1f);
+        FillProgressBar(_lastProgress);
+    }
+
+    protected override void FrameUpdate(FrameEventArgs args)
+    {
+        base.FrameUpdate(args);
+
+        if (ProgressBarPanel.Parent?.Parent is not PanelContainer parent)
+            return;
+
+        if (MathHelper.CloseTo(parent.Size.X, _lastParentWidth))
+            return;
+
+        _lastParentWidth = parent.Size.X;
+        FillProgressBar(_lastProgress);
     }
 
     private void FillProgressBar(float progressFillPercentage)
