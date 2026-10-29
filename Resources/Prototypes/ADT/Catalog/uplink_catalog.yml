@@ -195,9 +195,9 @@
   productEntity: ADTAttachmentMagneticHarness
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 4
+    Telecrystal: 3
   cost:
-    Telecrystal: 6
+    Telecrystal: 4
   categories:
   - UplinkAttachments #ADT_Tweak
   conditions:
