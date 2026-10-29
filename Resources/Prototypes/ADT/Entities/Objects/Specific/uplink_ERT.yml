@@ -39,7 +39,7 @@
     key: enum.StoreUiKey.Key
   - type: Store
     balance:
-      Productunit: 45
+      Productunit: 36
 
 #Аплинк ОБР против революции
 - type: entity
@@ -63,7 +63,7 @@
     currencyWhitelist:
     - Productunit
     balance:
-      Productunit: 30
+      Productunit: 24
 
 #Аплинк РХБЗЗ
 - type: entity
@@ -88,7 +88,7 @@
     currencyWhitelist:
     - Productunit
     balance:
-      Productunit: 35
+      Productunit: 28
 
 #Аплинки инженера ОБР и Уборщика ОБР
 - type: entity
@@ -113,7 +113,7 @@
     currencyWhitelist:
     - Productunit
     balance:
-      Productunit: 50
+      Productunit: 40
 
 - type: entity
   parent: ADTBaseUplinkBOBERT
@@ -137,7 +137,7 @@
     currencyWhitelist:
     - Productunit
     balance:
-      Productunit: 35
+      Productunit: 28
 
 - type: entity
   parent: ADTBaseUplinkBOBERT
@@ -185,7 +185,7 @@
     currencyWhitelist:
     - Productunit
     balance:
-      Productunit: 45
+      Productunit: 36
 
 - type: entity
   parent: ADTBaseUplinkBOBERT
@@ -212,7 +212,7 @@
     currencyWhitelist:
     - Productunit
     balance:
-      Productunit: 60
+      Productunit: 48
 
 - type: entity
   parent: ADTBaseUplinkBOBERT
@@ -240,7 +240,7 @@
     currencyWhitelist:
     - Productunit
     balance:
-      Productunit: 45
+      Productunit: 36
 
 - type: entity
   name: product unit

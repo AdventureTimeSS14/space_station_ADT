@@ -29,6 +29,13 @@
     - accuracyAddMult: -0.05
 
 - type: entity
+  parent: ADTAttachmentMagneticHarness
+  id: ADTAttachmentMagneticHarnessLathe
+  components:
+  - type: AttachableMagnetic
+    slipChance: 0.3
+
+- type: entity
   abstract: true
   parent: [ ADTRailAttachmentBase, ADTAttachableToggleableBase ]
   id: ADTAttachmentScopeBase
