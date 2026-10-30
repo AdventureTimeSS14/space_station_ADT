@@ -17004,3 +17004,10 @@ Entries:
     id: 2070
     pr_number: 3566
     time: '2026-10-29T15:42:15Z'
+  - author: Etvy
+    changes:
+      - {message: Исправлены ручки у заражённых зомби вирусом людей после клонирования,
+        type: Fix}
+    id: 2071
+    pr_number: 3607
+    time: '2026-10-30T09:04:24Z'
