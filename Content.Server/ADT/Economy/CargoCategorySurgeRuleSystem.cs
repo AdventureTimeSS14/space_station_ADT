@@ -47,8 +47,10 @@ public sealed partial class CargoCategorySurgeRuleSystem : StationEventSystem<Ca
         base.Started(uid, component, gameRule, args);
 
         TimeSpan duration = TimeSpan.Zero;
-        if (TryComp<StationEventComponent>(uid, out var stationEvent) && stationEvent.EndTime > Timing.CurTime)
-            duration = stationEvent.EndTime - Timing.CurTime;
+        if (TryComp<StationEventComponent>(uid, out var stationEvent) &&
+            stationEvent.EndTime is { } endTime &&
+            endTime > Timing.CurTime)
+            duration = endTime - Timing.CurTime;
 
         var surge = EnsureComp<StationCategorySurgeComponent>(station.Value);
         surge.Multipliers.Clear();

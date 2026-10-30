@@ -43,7 +43,7 @@ public sealed class RevolutionaryCentComEventsSystem : EntitySystem
             if (token.IsCancellationRequested || Deleted(entity) || Terminating(entity))
                 return;
 
-            GameTicker.StartGameRule(RobustRandom.Pick(comp.Events));
+            _gameTicker.StartGameRule(RobustRandom.Pick(comp.Events));
             comp.EventsSent++;
 
             ScheduleNext(entity);

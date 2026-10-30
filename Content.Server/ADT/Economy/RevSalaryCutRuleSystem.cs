@@ -16,6 +16,7 @@ namespace Content.Server.ADT.Economy;
 public sealed partial class RevSalaryCutRuleSystem : StationEventSystem<RevSalaryCutRuleComponent>
 {
     [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     protected override void Started(EntityUid uid, RevSalaryCutRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {

@@ -226,7 +226,7 @@ public sealed class BankCardSystem : EntitySystem
     private sealed class FundingGroup(EntityUid station, ProtoId<CargoAccountPrototype> funding)
     {
         public readonly EntityUid Station = station;
-        public readonly ProtoId<CargoAccountPrototype> Funding = primaryAccount;
+        public readonly ProtoId<CargoAccountPrototype> Funding = funding;
 
         public int? PrimaryAccountId;
 
