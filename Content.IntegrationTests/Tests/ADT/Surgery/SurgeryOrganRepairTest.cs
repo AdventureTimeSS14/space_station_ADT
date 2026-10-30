@@ -109,10 +109,10 @@ public sealed class SurgeryOrganRepairTest : GameTest
         var condition = new HasImplantCondition();
         Assert.That(condition.Check(patient, SEntMan), Is.False);
 
-        Assert.That(SEntMan.System<SharedSubdermalImplantSystem>().AddImplant(patient, "MindShieldImplant"), Is.Not.Null);
+        Assert.That(SEntMan.System<SharedSubdermalImplantSystem>().AddImplant(patient, "TrackingImplant"), Is.Not.Null);
         Assert.That(condition.Check(patient, SEntMan), Is.True);
 
-        RaiseStep(patient, surgeon, "ExtractImplant", 0, SSpawn("Hemostat"));
+        RaiseStep(patient, surgeon, "ExtractImplant:TrackingImplant", 0, SSpawn("Hemostat"));
 
         Assert.That(condition.Check(patient, SEntMan), Is.False);
     }
@@ -129,7 +129,7 @@ public sealed class SurgeryOrganRepairTest : GameTest
         Assert.That(implant, Is.Not.Null);
         Assert.That(new HasImplantCondition().Check(patient, SEntMan), Is.False);
 
-        RaiseStep(patient, surgeon, "ExtractImplant", 0, SSpawn("Hemostat"));
+        RaiseStep(patient, surgeon, "ExtractImplant:MicroBombImplant", 0, SSpawn("Hemostat"));
 
         Assert.That(SEntMan.GetComponent<ImplantedComponent>(patient).ImplantContainer.Contains(implant!.Value), Is.True);
     }

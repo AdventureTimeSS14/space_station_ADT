@@ -23,7 +23,7 @@ public sealed class OrganOriginSystem : EntitySystem
 
     private void OnGotRemoved(Entity<DetachableOrganComponent> ent, ref OrganGotRemovedEvent args)
     {
-        if (!TryComp<HumanoidProfileComponent>(args.Target, out var profile))
+        if (TerminatingOrDeleted(ent) || !TryComp<HumanoidProfileComponent>(args.Target, out var profile))
             return;
 
         var origin = EnsureComp<OrganOriginComponent>(ent);
