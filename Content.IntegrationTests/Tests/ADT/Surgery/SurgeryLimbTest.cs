@@ -68,11 +68,15 @@ public sealed class SurgeryLimbTest : GameTest
 
         RunEdge(patient, surgeon, "OpenStump", SSpawn("Scalpel"));
         Assert.That(comp.CurrentNode, Is.EqualTo("StumpOpened"));
+        RunEdge(patient, surgeon, "ClampBleeders", SSpawn("Hemostat"));
+        RunEdge(patient, surgeon, "RetractSkin", SSpawn("Retractor"));
+        RunEdge(patient, surgeon, "PrepareStump", SSpawn("Scalpel"));
+        Assert.That(comp.CurrentNode, Is.EqualTo("StumpPrepared"));
         RunEdge(patient, surgeon, "Attach", detachedArm.Value);
         Assert.That(comp.CurrentNode, Is.EqualTo("LimbPlaced"));
-        RunEdge(patient, surgeon, "ApplyBoneGelFirst", SSpawn("ADTBoneGel"));
-        RunEdge(patient, surgeon, "SetBone", SSpawn("ADTBoneSetter"));
-        RunEdge(patient, surgeon, "ApplyBoneGelSecond", SSpawn("ADTBoneGel"));
+        RunEdge(patient, surgeon, "ApplyBoneGel", SSpawn("ADTBoneGel"));
+        Assert.That(comp.CurrentNode, Is.EqualTo("LimbBoneGelled"));
+        RunEdge(patient, surgeon, "Cauterize", SSpawn("Cautery"));
         Assert.That(comp.CurrentNode, Is.EqualTo("Attached"));
 
         var restoredArm = GetOrgan(patient, Arm);

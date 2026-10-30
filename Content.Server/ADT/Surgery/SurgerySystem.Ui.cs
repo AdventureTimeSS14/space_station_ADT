@@ -53,7 +53,7 @@ public sealed partial class SurgerySystem
         var options = new List<(string, string)>();
         foreach (var edge in matches)
         {
-            options.Add((edge.Id, LocOrId(edge.Label, edge.Id)));
+            options.Add((edge.Id, EdgeLabel(edge)));
         }
 
         OpenUi(user, target, new SurgeryChooseEdgeState(options));

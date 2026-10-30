@@ -77,6 +77,11 @@ public sealed partial class SurgeryGraphEdge
 
     [DataField]
     public List<SurgeryStepEffect> Effects = new();
+
+    [DataField]
+    public bool PerImplant;
+
+    public string? DisplayName;
 }
 
 [Prototype]

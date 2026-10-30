@@ -188,11 +188,13 @@ public sealed class SurgeryGraphValidationTest : GameTest
                     if (step.Quality is { } quality && !SProtoMan.HasIndex(quality))
                         errors.Add($"{where}: unknown tool quality '{quality}'");
 
-                    if (step.Quality == null && step.Organ == null)
-                        errors.Add($"{where}: step '{step.Name}' has neither quality nor organ");
+                    var requirements = (step.Quality != null ? 1 : 0) + (step.Organ != null ? 1 : 0) + (step.AnyItem ? 1 : 0);
 
-                    if (step.Quality != null && step.Organ != null)
-                        errors.Add($"{where}: step '{step.Name}' has both quality and organ");
+                    if (requirements == 0)
+                        errors.Add($"{where}: step '{step.Name}' has none of quality, organ or anyItem");
+
+                    if (requirements > 1)
+                        errors.Add($"{where}: step '{step.Name}' combines quality, organ and anyItem");
 
                     if (step.Organ is { } organ && !SProtoMan.HasIndex(organ))
                         errors.Add($"{where}: unknown organ category '{organ}'");

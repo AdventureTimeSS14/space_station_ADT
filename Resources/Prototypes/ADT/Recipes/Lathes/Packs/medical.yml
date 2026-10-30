@@ -8,7 +8,6 @@
   - ADTPillPack
   - ADTPlasticBottle
   - ADTMedicalSprayBottle
-  - ADTAutoSurgeon
 
 - type: latheRecipePack
   id: ADTAdvancedMedicalMiscPack

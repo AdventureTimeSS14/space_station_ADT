@@ -249,6 +249,8 @@ surgery-edge-repair-kidneys-mechanic-label = Обслуживание кибер
 surgery-step-repair-kidneys-mechanic-1 = Вскрытие обслуживающей панели
 surgery-step-repair-kidneys-mechanic-2 = Перезапуск и диагностика
 surgery-edge-chest-extract-implant-label = Извлечение импланта
+surgery-edge-limb-extract-implant-label = Извлечение импланта из руки
+surgery-edge-head-extract-mindshield-label = Извлечение импланта защиты разума
 
 ## Полости
 

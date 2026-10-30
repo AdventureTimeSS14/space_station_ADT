@@ -45,7 +45,7 @@ public sealed partial class SurgerySystem
         if (IsBusy(comp) || !TryGetGraph(comp, out var graph))
             return;
 
-        var edge = GetEdge(graph, comp.CurrentNode, args.EdgeId);
+        var edge = GetEdge(uid, graph, comp.CurrentNode, args.EdgeId);
         if (edge == null || edge.Steps.Count == 0 || !EdgeConditionsMet(uid, edge))
             return;
 
@@ -81,7 +81,7 @@ public sealed partial class SurgerySystem
         var matchStepIndex = 0;
         var toolMatch = ExactMatch;
         var hasEdges = false;
-        foreach (var edge in GetAllEdges(node))
+        foreach (var edge in GetPatientEdges(target, node))
         {
             hasEdges = true;
 
@@ -176,7 +176,7 @@ public sealed partial class SurgerySystem
         if (!TryGetGraph(comp, out var graph))
             return;
 
-        var edge = GetEdge(graph, comp.CurrentNode, args.EdgeId);
+        var edge = GetEdge(uid, graph, comp.CurrentNode, args.EdgeId);
         if (edge == null || args.StepIndex >= edge.Steps.Count || !EdgeConditionsMet(uid, edge))
             return;
 

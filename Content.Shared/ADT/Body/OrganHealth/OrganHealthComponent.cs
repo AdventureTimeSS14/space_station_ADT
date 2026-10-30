@@ -23,6 +23,9 @@ public sealed partial class OrganHealthComponent : Component
     public float HealRate = 0.05f;
 
     [DataField]
+    public float DecayRate = 0.00111f;
+
+    [DataField]
     public OrganKind Kind = OrganKind.Organic;
 
     [ViewVariables, AutoNetworkedField]

@@ -73,9 +73,11 @@
       edges:
         - id: ExtractImplant
           label: surgery-edge-chest-extract-implant-label
+          perImplant: true
           target: ChestSkinRetracted
           conditions:
             - !type:HasImplantCondition
+              exclude: [ MindShieldImplant, FakeMindShieldImplant ]
           steps:
             - name: surgery-edge-chest-extract-implant-label
               quality: OrganManipulation
@@ -96,6 +98,7 @@
                       Bloodloss: 1
           effects:
             - !type:ExtractImplantEffect
+              exclude: [ MindShieldImplant, FakeMindShieldImplant ]
 
         - id: SawRibcage
           label: surgery-edge-chest-saw-ribcage-label

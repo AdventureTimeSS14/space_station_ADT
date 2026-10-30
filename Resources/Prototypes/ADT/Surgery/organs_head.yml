@@ -481,6 +481,34 @@
           effects:
             - !type:LobotomizeEffect
 
+        - id: ExtractMindShield
+          label: surgery-edge-head-extract-mindshield-label
+          target: SkullOpen
+          conditions:
+            - !type:HasImplantCondition
+              include: [ MindShieldImplant, FakeMindShieldImplant ]
+          steps:
+            - name: surgery-edge-head-extract-mindshield-label
+              quality: OrganManipulation
+              successChance: 0.65
+              duration: 6.4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 3
+                      Bloodloss: 2
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+          effects:
+            - !type:ExtractImplantEffect
+              include: [ MindShieldImplant, FakeMindShieldImplant ]
+
         - id: RemoveShadowTumor
           target: SkullOpen
           label: surgery-edge-head-remove-shadow-tumor-label

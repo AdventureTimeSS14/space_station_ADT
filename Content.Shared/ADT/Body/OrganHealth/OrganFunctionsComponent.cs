@@ -32,6 +32,9 @@ public sealed partial class OrganFunctionsComponent : Component
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan HeartAttackSuppressedUntil;
 
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan? LiverFailingSince;
+
     [ViewVariables]
     public List<TimeSpan> DefibrillatorZaps = new();
 }

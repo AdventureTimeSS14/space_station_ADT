@@ -1,4 +1,5 @@
 using Content.Shared.Body;
+using Content.Shared.Examine;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.Body.OrganHealth;
@@ -6,6 +7,30 @@ namespace Content.Shared.ADT.Body.OrganHealth;
 public sealed class OrganHealthSystem : EntitySystem
 {
     [Dependency] private BodySystem _body = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<OrganHealthComponent, ExaminedEvent>(OnExamined);
+    }
+
+    private void OnExamined(Entity<OrganHealthComponent> ent, ref ExaminedEvent args)
+    {
+        if (!args.IsInDetailsRange)
+            return;
+
+        var robotic = ent.Comp.Kind == OrganKind.Robotic;
+        var message = ent.Comp.Stage switch
+        {
+            OrganStage.Failing => robotic ? "organ-health-examine-failing-robotic" : "organ-health-examine-failing",
+            OrganStage.Damaged => robotic ? "organ-health-examine-damaged-robotic" : "organ-health-examine-damaged",
+            _ => null,
+        };
+
+        if (message != null)
+            args.PushMarkup(Loc.GetString(message));
+    }
 
     public bool TryGetOrgan(EntityUid body, ProtoId<OrganCategoryPrototype> category, out Entity<OrganHealthComponent> organ)
     {

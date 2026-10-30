@@ -51,12 +51,23 @@ public sealed class OrganFunctionsSystem : EntitySystem
     private const float DamagedEyesBlur = 2f;
     private const float FailingStomachVomitChance = 0.05f;
     private const float DamagedHeartArrhythmiaChance = 0.2f;
+    private const float DamagedStomachVomitChance = 0.02f;
+    private const float DamagedEarsRingingChance = 0.04f;
+    private const float EarsRingingSeverity = 2.5f;
+    private const float LiverVomitChance = 0.15f;
+    private const float LiverCollateralDamage = 0.4f;
+    private static readonly TimeSpan LiverVomitingStage = TimeSpan.FromSeconds(60);
+    private static readonly TimeSpan LiverCollateralStage = TimeSpan.FromSeconds(120);
+    private static readonly TimeSpan LiverCriticalStage = TimeSpan.FromSeconds(180);
+
+    private static readonly ProtoId<OrganCategoryPrototype>[] LiverCollateralOrgans = { "Heart", "Lungs", "Stomach", "Eyes", "Ears" };
 
     private static readonly DamageSpecifier ArrhythmiaDamage = Asphyxiation(1);
     private static readonly DamageSpecifier HeartAttackDamage = Asphyxiation(3);
     private static readonly DamageSpecifier HeartStoppedDamage = Asphyxiation(8);
     private static readonly DamageSpecifier DamagedLiverDamage = Poison(0.6f);
     private static readonly DamageSpecifier FailingLiverDamage = Poison(2);
+    private static readonly DamageSpecifier CriticalLiverDamage = Poison(3);
     private static readonly DamageSpecifier DamagedKidneysDamage = Poison(0.4f);
     private static readonly DamageSpecifier FailingKidneysDamage = Poison(1);
 
@@ -163,6 +174,7 @@ public sealed class OrganFunctionsSystem : EntitySystem
             UpdateHeart((uid, comp), now);
             UpdateFiltration(uid, comp);
             UpdateStomach(uid, comp);
+            UpdateEars(uid, comp);
         }
     }
 
@@ -269,12 +281,32 @@ public sealed class OrganFunctionsSystem : EntitySystem
 
     private void UpdateFiltration(EntityUid body, OrganFunctionsComponent comp)
     {
-        var liver = GetCategoryStage(body, comp, Liver) switch
+        var liverStage = GetCategoryStage(body, comp, Liver);
+        var liver = liverStage switch
         {
             OrganStage.Damaged => DamagedLiverDamage,
             OrganStage.Failing => FailingLiverDamage,
             _ => null,
         };
+
+        if (liverStage == OrganStage.Failing)
+        {
+            comp.LiverFailingSince ??= _timing.CurTime;
+            var failing = _timing.CurTime - comp.LiverFailingSince.Value;
+
+            if (failing >= LiverCriticalStage)
+                liver = CriticalLiverDamage;
+
+            if (failing >= LiverVomitingStage && _random.Prob(LiverVomitChance))
+                _vomit.Vomit(body);
+
+            if (failing >= LiverCollateralStage)
+                _organHealth.ChangeDamage(body, _random.Pick(LiverCollateralOrgans), LiverCollateralDamage);
+        }
+        else
+        {
+            comp.LiverFailingSince = null;
+        }
 
         if (liver != null)
             _damageable.TryChangeDamage(body, liver, ignoreResistances: true, interruptsDoAfters: false);
@@ -292,13 +324,27 @@ public sealed class OrganFunctionsSystem : EntitySystem
 
     private void UpdateStomach(EntityUid body, OrganFunctionsComponent comp)
     {
-        if (!comp.ExpectedCategories.Contains(Stomach)
-            || !_organHealth.TryGetOrgan(body, Stomach, out var stomach)
-            || stomach.Comp.Stage != OrganStage.Failing)
+        if (!comp.ExpectedCategories.Contains(Stomach) || !_organHealth.TryGetOrgan(body, Stomach, out var stomach))
             return;
 
-        if (_random.Prob(FailingStomachVomitChance))
+        var chance = stomach.Comp.Stage switch
+        {
+            OrganStage.Failing => FailingStomachVomitChance,
+            OrganStage.Damaged => DamagedStomachVomitChance,
+            _ => 0f,
+        };
+
+        if (chance > 0f && _random.Prob(chance))
             _vomit.Vomit(body);
+    }
+
+    private void UpdateEars(EntityUid body, OrganFunctionsComponent comp)
+    {
+        if (GetCategoryStage(body, comp, Ears) != OrganStage.Damaged || !_random.Prob(DamagedEarsRingingChance))
+            return;
+
+        _deafness.Deafen(body, EarsRingingSeverity);
+        _popup.PopupEntity(Loc.GetString("organ-ears-ringing"), body, body, PopupType.SmallCaution);
     }
 
     private static DamageSpecifier Asphyxiation(float amount)

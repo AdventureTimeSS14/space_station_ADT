@@ -1,111 +1,203 @@
 - type: entity
   id: ADTAutoSurgeon
-  parent: BaseItem
+  parent: OperatingTable
   name: auto surgeon
-  description: A medical device used to safely install and remove implants.
-  components:
-    - type: ItemSlots
-    - type: ContainerContainer
-      containers:
-        implanter_slot: !type:ContainerSlot { }
-    - type: Implanter
-      whitelist:
-        components:
-        - Body
-      blacklist:
-        components:
-        - Guardian
-        tags:
-        - Unimplantable
-      currentMode: Draw
-      implanterSlot:
-        name: Implant
-        locked: True
-        priority: 0
-        whitelist:
-          tags:
-            - SubdermalImplant
-      allowDeimplantAll: false
-      deimplantWhitelist:
-        - ADTSandevistanImplant
-        - ADTMantisDaggersImplant
-      deimplantFailureDamage:
-        types:
-          Cellular: 50
-          Heat: 10
-    - type: Sprite
-      sprite: ADT/Objects/Specific/Medical/auto_surgeon.rsi
-      state: icon
-    - type: Appearance
-    - type: UserInterface
-      interfaces:
-        enum.DeimplantUiKey.Key:
-          type: DeimplantBoundUserInterface
-    - type: Item
-      size: Normal
-    - type: Tag
-      tags:
-        - Trash
-
-- type: entity
-  id: ADTBaseSyndicateAutoSurgeonOnlyImplanter
-  parent: [ADTAutoSurgeon, BaseSyndicateContraband]
-  name: syndicate auto surgeon
-  description: A compact disposable syringe exclusively designed for the injection of subdermal implants. Make sure to scrub it with soap or a rag to remove residual DNA after use!
+  description: An operating table that performs the surgery by itself. Strap the patient down and activate it to install the loaded implant. A screwdriver pulls out the loaded implant, but spends a charge.
   abstract: true
   components:
     - type: Sprite
       sprite: ADT/Objects/Specific/Medical/auto_surgeon.rsi
-      state: icon-syndie
-    - type: Implanter
-      currentMode: Inject
-      implantOnly: true
-      implantTime: 20
-    - type: Tag
-      tags: []
+      state: icon
+      noRot: true
+    - type: Icon
+      sprite: ADT/Objects/Specific/Medical/auto_surgeon.rsi
+      state: icon
+    - type: ItemSlots
+    - type: ContainerContainer
+      containers:
+        autosurgeon_slot_0: !type:ContainerSlot { }
+        autosurgeon_slot_1: !type:ContainerSlot { }
+    - type: AutoSurgeon
+      uses: -1
+      implantSlots:
+        - priority: 0
+          whitelist:
+            tags:
+              - SubdermalImplant
+        - priority: 0
+          whitelist:
+            tags:
+              - SubdermalImplant
+      steps:
+        - label: autosurgeon-step-incision
+          duration: 4
+          sound:
+            path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+          damage:
+            types:
+              Slash: 2
+              Bloodloss: 1
+        - label: autosurgeon-step-clamp
+          duration: 3
+          sound:
+            path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+        - label: autosurgeon-step-retract
+          duration: 3
+          sound:
+            path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+          damage:
+            types:
+              Bloodloss: 1
+        - label: autosurgeon-step-install
+          duration: 4
+          install: true
+          sound:
+            path: /Audio/ADT/Medical/Surgery/organ1.ogg
+        - label: autosurgeon-step-cauterize
+          duration: 4
+          sound:
+            path: /Audio/ADT/Medical/Surgery/cautery2.ogg
+          damage:
+            types:
+              Heat: 1
 
-# Syndi autosurgeon
+- type: entity
+  id: ADTAutoSurgeonFlatpackBase
+  parent: [BaseFlatpack, BaseSyndicateContraband]
+  name: auto surgeon flatpack
+  description: A flatpack used for constructing an auto surgeon.
+  abstract: true
+  components:
+    - type: Item
+      size: Normal
+
+- type: entity
+  id: ADTAutoSurgeonTable
+  parent: ADTAutoSurgeon
+  name: auto surgeon
+  description: An operating table that performs the surgery by itself. Load an implant into it, strap the patient down and activate it.
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: AutoSurgeon
+      uses: -1
+
+- type: entity
+  id: ADTAutoSurgeonFlatpack
+  parent: ADTAutoSurgeonFlatpackBase
+  components:
+    - type: Flatpack
+      entity: ADTAutoSurgeonTable
+
+- type: entity
+  id: ADTSyndicateAutoSurgeonTable
+  parent: ADTAutoSurgeon
+  name: syndicate auto surgeon
+  description: A syndicate operating table that performs the surgery by itself. Load an implant into it, strap the patient down and activate it.
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite
+      state: icon-syndie
+    - type: Icon
+      state: icon-syndie
+
+- type: entity
+  id: ADTSyndicateAutoSurgeonFlatpack
+  parent: ADTAutoSurgeonFlatpackBase
+  name: syndicate auto surgeon flatpack
+  components:
+    - type: Flatpack
+      entity: ADTSyndicateAutoSurgeonTable
+
+- type: entity
+  id: ADTERTAutoSurgeonTable
+  parent: ADTAutoSurgeon
+  name: ERT auto surgeon
+  description: An ERT operating table that performs the surgery by itself. Load an implant into it, strap the patient down and activate it.
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  id: ADTERTAutoSurgeonFlatpack
+  parent: BaseFlatpack
+  name: ERT auto surgeon flatpack
+  description: A flatpack used for constructing an ERT auto surgeon.
+  components:
+    - type: Item
+      size: Normal
+    - type: Flatpack
+      entity: ADTERTAutoSurgeonTable
+
+- type: entity
+  id: ADTSandevistanAutoSurgeonTable
+  parent: ADTAutoSurgeon
+  name: sandevistan auto surgeon
+  description: An auto surgeon pre-loaded with the Sandevistan implant.
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: AutoSurgeon
+      startingItems: [ ADTSandevistanImplant ]
 
 - type: entity
   id: ADTSandevistanAutoSurgeon
-  parent: ADTBaseSyndicateAutoSurgeonOnlyImplanter
-  name: sandevistan auto surgeon
-  description: A syndicate auto surgeon pre-loaded with a Sandevistan implant.
+  parent: ADTAutoSurgeonFlatpackBase
+  name: sandevistan auto surgeon flatpack
+  description: A flatpack used for constructing an auto surgeon pre-loaded with the Sandevistan implant.
   components:
-    - type: Implanter
-      implant: ADTSandevistanImplant
+    - type: Flatpack
+      entity: ADTSandevistanAutoSurgeonTable
+
+- type: entity
+  id: ADTMantisDaggersAutoSurgeonTable
+  parent: ADTAutoSurgeon
+  name: mantis daggers auto surgeon
+  description: An auto surgeon pre-loaded with the Mantis Daggers implant.
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: AutoSurgeon
+      startingItems: [ ADTMantisDaggerLeftImplant, ADTMantisDaggerRightImplant ]
 
 - type: entity
   id: ADTMantisDaggersAutoSurgeon
-  parent: ADTBaseSyndicateAutoSurgeonOnlyImplanter
-  name: mantis daggers auto surgeon
-  description: A syndicate auto surgeon pre-loaded with Mantis Daggers implant.
+  parent: ADTAutoSurgeonFlatpackBase
+  name: mantis daggers auto surgeon flatpack
+  description: A flatpack used for constructing an auto surgeon pre-loaded with the Mantis Daggers implant.
   components:
-    - type: Implanter
-      implant: ADTMantisDaggersImplant
+    - type: Flatpack
+      entity: ADTMantisDaggersAutoSurgeonTable
 
-# ERT autosurgeon
+- type: entity
+  id: ADTERTSandevistanAutoSurgeonTable
+  parent: ADTAutoSurgeon
+  name: sandevistan auto surgeon
+  description: An auto surgeon pre-loaded with the Sandevistan implant.
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: AutoSurgeon
+      startingItems: [ ADTSandevistanImplant ]
 
 - type: entity
   id: ADTERTSandevistanAutoSurgeon
-  parent: ADTBaseSyndicateAutoSurgeonOnlyImplanter
-  name: sandevistan auto surgeon
-  description: A ERT auto surgeon pre-loaded with a Sandevistan implant.
+  parent: ADTAutoSurgeonFlatpackBase
+  name: sandevistan auto surgeon flatpack
+  description: A flatpack used for constructing an auto surgeon pre-loaded with the Sandevistan implant.
   components:
-    - type: Implanter
-      implant: ADTSandevistanImplant
-    - type: Sprite
-      sprite: ADT/Objects/Specific/Medical/auto_surgeon.rsi
-      state: icon
+    - type: Flatpack
+      entity: ADTERTSandevistanAutoSurgeonTable
+
+- type: entity
+  id: ADTERTMantisDaggersAutoSurgeonTable
+  parent: ADTAutoSurgeon
+  name: mantis daggers auto surgeon
+  description: An auto surgeon pre-loaded with the Mantis Daggers implant.
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: AutoSurgeon
+      startingItems: [ ADTMantisDaggerLeftImplant, ADTMantisDaggerRightImplant ]
 
 - type: entity
   id: ADTERTMantisDaggersAutoSurgeon
-  parent: ADTBaseSyndicateAutoSurgeonOnlyImplanter
-  name: mantis daggers auto surgeon
-  description: A ERT auto surgeon pre-loaded with Mantis Daggers implant.
+  parent: ADTAutoSurgeonFlatpackBase
+  name: mantis daggers auto surgeon flatpack
+  description: A flatpack used for constructing an auto surgeon pre-loaded with the Mantis Daggers implant.
   components:
-    - type: Implanter
-      implant: ADTMantisDaggersImplant
-    - type: Sprite
-      sprite: ADT/Objects/Specific/Medical/auto_surgeon.rsi
-      state: icon
+    - type: Flatpack
+      entity: ADTERTMantisDaggersAutoSurgeonTable

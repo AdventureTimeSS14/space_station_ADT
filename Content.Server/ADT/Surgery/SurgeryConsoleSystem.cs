@@ -208,12 +208,12 @@ public sealed partial class SurgeryConsoleSystem : SharedSurgerySystem
 
         if (node != null)
         {
-            foreach (var edge in GetAllEdges(node))
+            foreach (var edge in GetPatientEdges(patient, node))
             {
                 if (edge.Steps.Count == 0 || !EdgeConditionsMet(patient, edge))
                     continue;
 
-                steps.Add(LocOrId(edge.Label, edge.Id));
+                steps.Add(EdgeLabel(edge));
             }
         }
 
