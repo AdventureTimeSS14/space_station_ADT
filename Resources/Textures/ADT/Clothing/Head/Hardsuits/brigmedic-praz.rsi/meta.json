@@ -15,11 +15,11 @@
             "name": "icon-flash"
         },
         {
-            "name": "off-equipped-HELMET",
+            "name": "equipped-head-unshaded",
             "directions": 4
         },
         {
-            "name": "on-equipped-HELMET",
+            "name": "equipped-head",
             "directions": 4
         }
     ]
