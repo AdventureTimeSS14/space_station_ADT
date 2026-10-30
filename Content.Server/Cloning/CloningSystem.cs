@@ -19,8 +19,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Robust.Shared.Containers;
 using Content.Server.Traits.Assorted;
-using Content.Shared.Damage.Components;
-using Content.Shared.Zombies;
 
 
 namespace Content.Server.Cloning;
@@ -41,17 +39,6 @@ public sealed partial class CloningSystem : SharedCloningSystem
     [Dependency] private SharedVisualBodySystem _visualBody = default!;
     [Dependency] private NameModifierSystem _nameMod = default!;
     [Dependency] private IdentitySystem _identity = default!;
-
-    // ADT-Tweak start
-    private static readonly HashSet<string> ZombieAlteredComponents =
-    [
-        "Hands",
-        "MeleeWeapon",
-        "NpcFactionMember",
-        "Puller",
-        "TemperatureDamage",
-    ];
-    // ADT-Tweak end
 
     public override bool TryCloning(
         EntityUid original,
@@ -137,17 +124,8 @@ public sealed partial class CloningSystem : SharedCloningSystem
             componentsToEvent.ExceptWith(statusComps!);
         }
 
-        // ADT-Tweak start
-        var isZombie = HasComp<ZombieComponent>(original);
-        // ADT-Tweak end
-
         foreach (var componentName in componentsToCopy)
         {
-            // ADT-Tweak start
-            if (isZombie && ZombieAlteredComponents.Contains(componentName))
-                continue;
-            // ADT-Tweak end
-
             if (!Factory.TryGetRegistration(componentName, out var componentRegistration))
             {
                 Log.Error($"Tried to use invalid component registration for cloning: {componentName}");
@@ -164,11 +142,6 @@ public sealed partial class CloningSystem : SharedCloningSystem
 
         foreach (var componentName in componentsToEvent)
         {
-            // ADT-Tweak start
-            if (isZombie && ZombieAlteredComponents.Contains(componentName))
-                continue;
-            // ADT-Tweak end
-
             if (!Factory.TryGetRegistration(componentName, out var componentRegistration))
             {
                 Log.Error($"Tried to use invalid component registration for cloning: {componentName}");
@@ -182,16 +155,6 @@ public sealed partial class CloningSystem : SharedCloningSystem
 
         var cloningEv = new CloningEvent(settings, clone);
         RaiseLocalEvent(original, ref cloningEv); // used for datafields that cannot be directly copied using CopyComp
-
-        // ADT-Tweak start
-        if (isZombie
-            && (componentsToCopy.Contains("Damageable") || componentsToEvent.Contains("Damageable"))
-            && MetaData(clone).EntityPrototype is { } cloneProto
-            && cloneProto.TryGetComponent<DamageableComponent>(out var protoDamageable, Factory))
-        {
-            _damageable.SetDamageModifierSetId(clone, protoDamageable.DamageModifierSetId);
-        }
-        // ADT-Tweak end
     }
 
     public override void CopyEquipment(
