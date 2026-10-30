@@ -85,7 +85,7 @@ ent-ADTClothingModsuitBackERTMedical = МОД ОБР "Вега"
 # Понятие не имею где прописать части мода. Пропишу тут
 
 ent-ADTActionToggleMODPiece = Переключить элементы MOD
-
+    .desc = Переключает элементы MOD
 # Шлемы
 ent-ADTClothingHeadHelmetModsuitBase = шлем МОДа "Базовый"
     .desc = Шлем от МОДа.
