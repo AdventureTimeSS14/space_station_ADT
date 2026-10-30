@@ -22,11 +22,13 @@
     price: 0
 
 - type: entity
-  parent: BaseItem
+  parent: OrganBase
   id: ADTShadowTumor
   name: black tumor
   description: A tiny black mass with red tendrils trailing from it. It shrivels in the light.
   components:
+  - type: Organ
+    category: ADTShadowTumor
   - type: ADTShadowTumor
   - type: LightDetection
   - type: Sprite

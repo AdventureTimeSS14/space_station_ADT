@@ -481,6 +481,28 @@
           effects:
             - !type:LobotomizeEffect
 
+        - id: RemoveShadowTumor
+          target: SkullOpen
+          label: surgery-edge-head-remove-shadow-tumor-label
+          conditions:
+            - !type:OrganPresentCondition
+              organId: ADTShadowTumor
+          steps:
+            - name: surgery-edge-head-remove-shadow-tumor-label
+              quality: OrganManipulation
+              successChance: 0.65
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 2
+          effects:
+            - !type:RemoveOrganEffect
+              organId: ADTShadowTumor
+
         - id: RemoveEyes
           target: SkullOpen
           label: surgery-edge-head-remove-eyes-label

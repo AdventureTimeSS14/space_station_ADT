@@ -9,8 +9,8 @@ public sealed partial class SurgerySystem
 {
     private static readonly EntProtoId AnesthetizedStatusEffect = "StatusEffectAnesthetized";
     private static readonly EntProtoId WeaklyAnesthetizedStatusEffect = "StatusEffectWeaklyAnesthetized";
-    private const float NoAnestheticChanceMultiplier = 0.7f;
-    private const float WeakAnestheticChanceMultiplier = 0.9f;
+    private const float NoAnestheticChanceMultiplier = 0.4f;
+    private const float WeakAnestheticChanceMultiplier = 0.8f;
     private static readonly ProtoId<EmotePrototype> ScreamEmote = "Scream";
 
     private static readonly DamageSpecifier NoAnestheticPainDamage = new()

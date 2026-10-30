@@ -1,2 +1,5 @@
 - type: organCategory
   id: ADTVocalCords
+
+- type: organCategory
+  id: ADTShadowTumor

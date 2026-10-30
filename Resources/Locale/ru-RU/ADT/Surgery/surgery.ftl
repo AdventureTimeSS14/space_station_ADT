@@ -158,6 +158,7 @@ surgery-node-head-skull-open-label = Череп открыт
 surgery-edge-head-unretract-skull-label = Опускание черепной кости
 surgery-edge-head-remove-brain-label = Извлечение мозга
 surgery-edge-head-insert-brain-label = Установка мозга
+surgery-edge-head-remove-shadow-tumor-label = Извлечение чёрной опухоли
 surgery-node-head-skull-bone-gelled-label = Нанесён костный гель
 surgery-edge-head-set-bone-label = Вправление кости
 surgery-node-head-skull-bone-set-label = Кость вправлена

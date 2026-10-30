@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Body.OrganOrigin;
 using Content.Shared.Body;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -40,7 +41,9 @@ public sealed partial class InsertOrganEffect : SurgeryStepEffect
             if (parent.Comp1.Category != ParentId)
                 continue;
 
-            detachable.Attach(organEntity, patient, parent.Owner);
+            if (detachable.Attach(organEntity, patient, parent.Owner))
+                entityManager.System<OrganOriginSystem>().OnTransplanted(organEntity, patient);
+
             return;
         }
     }

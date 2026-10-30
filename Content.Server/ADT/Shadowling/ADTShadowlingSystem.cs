@@ -32,6 +32,7 @@ public sealed class ADTShadowlingSystem : EntitySystem
     [Dependency] private SharedVisualBodySystem _visualBody = default!;
     [Dependency] private SharedNightVisionSystem _nightVision = default!;
     [Dependency] private StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private BodySystem _body = default!;
 
     public static readonly ProtoId<LanguagePrototype> HivemindLanguage = "ADTShadowlingCollectiveMind";
     public static readonly ProtoId<NpcFactionPrototype> ShadowlingFaction = "ADTShadowling";
@@ -137,10 +138,24 @@ public sealed class ADTShadowlingSystem : EntitySystem
         Dirty(target, thrall);
 
         ClearBlindness(target);
+        ImplantTumor(target, thrall.TumorProto);
 
         var ev = new ADTShadowlingThrallAddedEvent(target, master);
         RaiseLocalEvent(ev);
         return true;
+    }
+
+    private void ImplantTumor(EntityUid target, EntProtoId tumorProto)
+    {
+        if (!HasComp<BodyComponent>(target))
+            return;
+
+        foreach (var _ in _body.EnumerateOrgans<ADTShadowTumorComponent>(target))
+            return;
+
+        var tumor = Spawn(tumorProto, Transform(target).Coordinates);
+        if (!_body.TryInsertOrgan(target, tumor))
+            QueueDel(tumor);
     }
 
     public bool TryFreeThrall(EntityUid target)

@@ -14,6 +14,7 @@ using Content.Shared.ADT.NightVision;
 using Content.Shared.ADT.Shadowling;
 using Content.Shared.Actions;
 using Content.Shared.Administration.Systems;
+using Content.Shared.Body;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
@@ -68,6 +69,7 @@ public sealed partial class ADTShadowlingAbilitySystem : EntitySystem
     [Dependency] private MobStateSystem _mobState = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private BodySystem _body = default!;
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private MetaDataSystem _metaData = default!;
     [Dependency] private SharedActionsSystem _actions = default!;

@@ -1,4 +1,5 @@
 using Content.Shared.ADT.Shadowling;
+using Content.Shared.Body;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Damage;
@@ -117,12 +118,30 @@ public sealed partial class ADTShadowlingAbilitySystem
 
         var tumorProto = ent.Comp.TumorProto;
 
-        if (!_shadowling.TryFreeThrall(ent))
+        EntityUid? tumor = null;
+        foreach (var organ in _body.EnumerateOrgans<ADTShadowTumorComponent>(ent.Owner))
+        {
+            tumor = organ.Owner;
+            break;
+        }
+
+        if (tumor is { } implanted)
+        {
+            _body.TryRemoveOrgan(implanted);
+        }
+        else
+        {
+            if (!_shadowling.TryFreeThrall(ent))
+                return;
+
+            Spawn(tumorProto, Transform(ent).Coordinates);
+            _popup.PopupEntity(Loc.GetString("shadowling-dethrall-freed"), ent, ent, PopupType.LargeCaution);
+        }
+
+        if (HasComp<ADTShadowlingThrallComponent>(ent))
             return;
 
-        Spawn(tumorProto, Transform(ent).Coordinates);
         _popup.PopupEntity(Loc.GetString("shadowling-dethrall-success", ("target", ent.Owner)), args.User, args.User, PopupType.Medium);
-        _popup.PopupEntity(Loc.GetString("shadowling-dethrall-freed"), ent, ent, PopupType.LargeCaution);
     }
 
     private bool IsLightSource(EntityUid uid)
