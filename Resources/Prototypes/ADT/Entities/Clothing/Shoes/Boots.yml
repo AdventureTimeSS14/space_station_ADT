@@ -179,3 +179,15 @@
     sprite: ADT/Clothing/Shoes/Boots/vox_sandals.rsi
   - type: Clothing
     sprite: ADT/Clothing/Shoes/Boots/vox_sandals.rsi
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTProstakBoots
+  name: simpleton boots
+  description: simpleton boots
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/prostak_boots.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/prostak_boots.rsi

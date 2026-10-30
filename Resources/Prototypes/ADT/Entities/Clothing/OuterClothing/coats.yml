@@ -238,6 +238,30 @@
     sprite: ADT/Clothing/OuterClothing/Coats/hotline_student.rsi
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/hotline_student.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTProstakCoat
+  name: simpleton coat
+  description: simpleton coat
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/prostak_coat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/prostak_coat.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTProstakTrench
+  name: simpleton trench coat
+  description: simpleton trench coat
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/prostak_trench.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/prostak_trench.rsi
 # Med
 
 - type: entity
