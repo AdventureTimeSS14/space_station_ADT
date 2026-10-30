@@ -185,6 +185,7 @@ public sealed partial class CloningSystem : SharedCloningSystem
 
         // ADT-Tweak start
         if (isZombie
+            && (componentsToCopy.Contains("Damageable") || componentsToEvent.Contains("Damageable"))
             && MetaData(clone).EntityPrototype is { } cloneProto
             && cloneProto.TryGetComponent<DamageableComponent>(out var protoDamageable, Factory))
         {
