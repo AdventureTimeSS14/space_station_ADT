@@ -38,14 +38,14 @@ public sealed class SurgeryOrganRepairTest : GameTest
         var comp = StartGraph(patient, "ChestOpen");
 
         Assert.That(_organHealth.TryGetOrgan(patient, "Heart", out var heart), Is.True);
-        _organHealth.SetDamage((heart.Owner, heart.Comp), 60f);
+        _organHealth.SetDamage((heart.Owner, heart.Comp), 40f);
         Assert.That(heart.Comp.Stage, Is.EqualTo(OrganStage.Damaged));
 
         RaiseStep(patient, surgeon, "RepairHeart", 0, SSpawn("Hemostat"));
         RaiseStep(patient, surgeon, "RepairHeart", 1, SSpawn("Cautery"));
 
-        Assert.That(heart.Comp.Damage, Is.LessThanOrEqualTo(heart.Comp.MaxDamage * 0.1f));
-        Assert.That(heart.Comp.Stage, Is.EqualTo(OrganStage.Healthy));
+        Assert.That(heart.Comp.Damage, Is.LessThanOrEqualTo(heart.Comp.MaxDamage * 0.6f));
+        Assert.That(heart.Comp.Operated, Is.True);
         Assert.That(comp.CurrentNode, Is.EqualTo("ChestOpen"));
     }
 
@@ -80,7 +80,7 @@ public sealed class SurgeryOrganRepairTest : GameTest
         Assert.That(_body.TryInsertOrgan(patient, SSpawn("ADTOrganCyberHeart")), Is.True);
         Assert.That(_organHealth.TryGetOrgan(patient, "Heart", out var heart), Is.True);
         Assert.That(heart.Comp.Kind, Is.EqualTo(OrganKind.Robotic));
-        Assert.That(heart.Comp.MaxDamage, Is.EqualTo(75f));
+        Assert.That(heart.Comp.MaxDamage, Is.EqualTo(37.5f));
 
         var cyber = SComp<CyberOrganComponent>(heart.Owner);
         cyber.EmpFailureChance = 1f;

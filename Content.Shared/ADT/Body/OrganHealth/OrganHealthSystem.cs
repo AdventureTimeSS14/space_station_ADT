@@ -1,5 +1,7 @@
 using Content.Shared.Body;
+using Content.Shared.Damage.Components;
 using Content.Shared.Examine;
+using Content.Shared.Rejuvenate;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.Body.OrganHealth;
@@ -13,6 +15,23 @@ public sealed class OrganHealthSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<OrganHealthComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<OrganHealthComponent, RejuvenateEvent>(OnRejuvenate);
+        SubscribeLocalEvent<BodyComponent, RejuvenateEvent>(OnBodyRejuvenate);
+    }
+
+    private void OnRejuvenate(Entity<OrganHealthComponent> ent, ref RejuvenateEvent args)
+    {
+        SetDamage((ent, ent.Comp), 0f);
+        SetOperated((ent, ent.Comp), false);
+    }
+
+    private void OnBodyRejuvenate(Entity<BodyComponent> ent, ref RejuvenateEvent args)
+    {
+        foreach (var organ in _body.EnumerateOrgans<OrganHealthComponent>(ent.Owner))
+        {
+            SetDamage((organ.Owner, organ.Comp2), 0f);
+            SetOperated((organ.Owner, organ.Comp2), false);
+        }
     }
 
     private void OnExamined(Entity<OrganHealthComponent> ent, ref ExaminedEvent args)
@@ -55,12 +74,26 @@ public sealed class OrganHealthSystem : EntitySystem
         if (kind != null && organ.Comp.Kind != kind)
             return false;
 
+        if (amount > 0f
+            && CompOrNull<OrganComponent>(organ)?.Body is { } body
+            && HasComp<GodmodeComponent>(body))
+            return false;
+
         return SetDamage(organ, organ.Comp.Damage + amount);
     }
 
     public bool ChangeDamage(EntityUid body, ProtoId<OrganCategoryPrototype> category, float amount, OrganKind? kind = null)
     {
         return TryGetOrgan(body, category, out var organ) && ChangeDamage((organ.Owner, organ.Comp), amount, kind);
+    }
+
+    public void SetOperated(Entity<OrganHealthComponent?> organ, bool operated)
+    {
+        if (!Resolve(organ, ref organ.Comp, false) || organ.Comp.Operated == operated)
+            return;
+
+        organ.Comp.Operated = operated;
+        Dirty(organ);
     }
 
     public bool SetDamage(Entity<OrganHealthComponent?> organ, float damage)

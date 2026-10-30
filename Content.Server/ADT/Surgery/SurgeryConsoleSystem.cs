@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Server.Medical;
 using Content.Server.Chat.Systems;
+using Content.Shared.ADT.Body.OrganHealth;
 using Content.Shared.ADT.Surgery;
 using Content.Shared.ADT.Surgery.Components;
 using Content.Shared.ADT.Surgery.Events;
@@ -26,6 +27,7 @@ public sealed partial class SurgeryConsoleSystem : SharedSurgerySystem
     [Dependency] private MobStateSystem _mobState = default!;
     [Dependency] private StandingStateSystem _standing = default!;
     [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private BodySystem _body = default!;
 
     private static readonly TimeSpan CheckInterval = TimeSpan.FromSeconds(1);
     private const float TableSearchRange = 1f;
@@ -193,13 +195,14 @@ public sealed partial class SurgeryConsoleSystem : SharedSurgerySystem
         }
 
         var health = _healthAnalyzer.GetHealthAnalyzerUiState(patient);
+        var organs = GetOrgans(patient, out var heartStopped);
 
         if (!TryComp<OperatedComponent>(patient, out var operated)
             || operated.GraphId is not { } graphId
             || !PrototypeManager.TryIndex<SurgeryGraphPrototype>(graphId, out var graph))
         {
             _ui.SetUiState(console.Owner, SurgeryConsoleUiKey.Key,
-                new SurgeryConsoleState(true, true, alerts, health, string.Empty, string.Empty, string.Empty, new()));
+                new SurgeryConsoleState(true, true, alerts, health, string.Empty, string.Empty, string.Empty, new(), organs, heartStopped));
             return;
         }
 
@@ -221,6 +224,35 @@ public sealed partial class SurgeryConsoleSystem : SharedSurgerySystem
         var location = LocOrId(graph.Location, string.Empty);
         var nodeLabel = node == null ? operated.CurrentNode : LocOrId(node.Label, operated.CurrentNode);
         _ui.SetUiState(console.Owner, SurgeryConsoleUiKey.Key,
-            new SurgeryConsoleState(true, true, alerts, health, graphLabel, location, nodeLabel, steps));
+            new SurgeryConsoleState(true, true, alerts, health, graphLabel, location, nodeLabel, steps, organs, heartStopped));
+    }
+
+    private List<SurgeryConsoleOrgan> GetOrgans(EntityUid patient, out bool heartStopped)
+    {
+        var result = new List<SurgeryConsoleOrgan>();
+        var present = new HashSet<string>();
+        TryComp<OrganFunctionsComponent>(patient, out var functions);
+        heartStopped = functions?.HeartAttackStart != null;
+
+        foreach (var organ in _body.EnumerateOrgans<OrganHealthComponent>(patient))
+        {
+            if (organ.Comp1.Category is not { } category)
+                continue;
+
+            present.Add(category.Id);
+            var health = organ.Comp2;
+            result.Add(new SurgeryConsoleOrgan(category.Id, health.Damage / health.MaxDamage, health.Stage, health.Kind == OrganKind.Robotic, false));
+        }
+
+        if (functions != null)
+        {
+            foreach (var category in functions.ExpectedCategories)
+            {
+                if (!present.Contains(category.Id))
+                    result.Add(new SurgeryConsoleOrgan(category.Id, 1f, OrganStage.Failing, false, true));
+            }
+        }
+
+        return result;
     }
 }

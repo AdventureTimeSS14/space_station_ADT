@@ -7,7 +7,8 @@
     conditions:
     - !type:OrganDamagedCondition
       organId: Heart
-      minStage: Bruised
+      minDamagePercent: 0.6
+      repeatable: false
     - !type:OrganKindCondition
       organId: Heart
       kind: Organic
@@ -35,7 +36,7 @@
     effects:
     - !type:RepairOrganEffect
       organId: Heart
-      healTo: 0.1
+      healTo: 0.6
   - id: RepairHeartMechanic
     target: ChestOpen
     label: surgery-edge-repair-heart-mechanic-label
@@ -75,7 +76,8 @@
     conditions:
     - !type:OrganDamagedCondition
       organId: Lungs
-      minStage: Bruised
+      minDamagePercent: 0.6
+      repeatable: false
     - !type:OrganKindCondition
       organId: Lungs
       kind: Organic
@@ -89,7 +91,7 @@
       failureEffects:
       - !type:DamageOrganEffect
         organId: Lungs
-        amount: 10
+        amount: 5
     - name: surgery-step-repair-lungs-2
       quality: Clamping
       successChance: 0.8
@@ -99,11 +101,11 @@
       failureEffects:
       - !type:DamageOrganEffect
         organId: Lungs
-        amount: 10
+        amount: 5
     effects:
     - !type:RepairOrganEffect
       organId: Lungs
-      healTo: 0.1
+      healTo: 0.6
   - id: RepairLungsMechanic
     target: ChestOpen
     label: surgery-edge-repair-lungs-mechanic-label
@@ -147,7 +149,8 @@
     conditions:
     - !type:OrganDamagedCondition
       organId: Liver
-      minStage: Bruised
+      minDamagePercent: 0.1
+      repeatable: false
     - !type:OrganKindCondition
       organId: Liver
       kind: Organic
@@ -161,7 +164,7 @@
       failureEffects:
       - !type:DamageOrganEffect
         organId: Liver
-        amount: 15
+        amount: 7.5
     - name: surgery-step-repair-liver-2
       quality: Clamping
       successChance: 0.8
@@ -171,7 +174,7 @@
       failureEffects:
       - !type:DamageOrganEffect
         organId: Liver
-        amount: 15
+        amount: 7.5
     effects:
     - !type:RepairOrganEffect
       organId: Liver
@@ -215,7 +218,8 @@
     conditions:
     - !type:OrganDamagedCondition
       organId: Stomach
-      minStage: Bruised
+      minDamagePercent: 0.2
+      repeatable: false
     - !type:OrganKindCondition
       organId: Stomach
       kind: Organic
@@ -229,7 +233,7 @@
       failureEffects:
       - !type:DamageOrganEffect
         organId: Stomach
-        amount: 10
+        amount: 7.5
     - name: surgery-step-repair-stomach-2
       quality: Clamping
       successChance: 0.8
@@ -239,11 +243,11 @@
       failureEffects:
       - !type:DamageOrganEffect
         organId: Stomach
-        amount: 10
+        amount: 7.5
     effects:
     - !type:RepairOrganEffect
       organId: Stomach
-      healTo: 0.1
+      healTo: 0.2
   - id: RepairStomachMechanic
     target: AbdomenOpen
     label: surgery-edge-repair-stomach-mechanic-label
@@ -283,7 +287,8 @@
     conditions:
     - !type:OrganDamagedCondition
       organId: Kidneys
-      minStage: Bruised
+      minDamagePercent: 0.2
+      repeatable: false
     - !type:OrganKindCondition
       organId: Kidneys
       kind: Organic
@@ -297,7 +302,7 @@
       failureEffects:
       - !type:DamageOrganEffect
         organId: Kidneys
-        amount: 10
+        amount: 7.5
     - name: surgery-step-repair-kidneys-2
       quality: Clamping
       successChance: 0.8
@@ -307,11 +312,11 @@
       failureEffects:
       - !type:DamageOrganEffect
         organId: Kidneys
-        amount: 10
+        amount: 7.5
     effects:
     - !type:RepairOrganEffect
       organId: Kidneys
-      healTo: 0.1
+      healTo: 0.2
   - id: RepairKidneysMechanic
     target: AbdomenOpen
     label: surgery-edge-repair-kidneys-mechanic-label
@@ -345,3 +350,59 @@
     - !type:RepairOrganEffect
       organId: Kidneys
       healTo: 0.1
+- type: surgeryEdgePackage
+  id: SurgeryPackageRepairEars
+  edges:
+  - id: RepairEars
+    target: EarsRetracted
+    label: surgery-edge-repair-ears-label
+    conditions:
+    - !type:OrganDamagedCondition
+      organId: Ears
+      minStage: Healthy
+    - !type:OrganKindCondition
+      organId: Ears
+      kind: Organic
+    steps:
+    - name: surgery-step-repair-ears-1
+      quality: Clamping
+      successChance: 0.8
+      duration: 6.4
+      sound:
+        path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+      failureEffects:
+      - !type:DamageOrganEffect
+        organId: Ears
+        amount: 10
+    effects:
+    - !type:RepairOrganEffect
+      organId: Ears
+      healTo: 0
+- type: surgeryEdgePackage
+  id: SurgeryPackageRepairEyes
+  edges:
+  - id: RepairEyes
+    target: ScalpRetracted
+    label: surgery-edge-repair-eyes-label
+    conditions:
+    - !type:OrganDamagedCondition
+      organId: Eyes
+      minStage: Healthy
+    - !type:OrganKindCondition
+      organId: Eyes
+      kind: Organic
+    steps:
+    - name: surgery-step-repair-eyes-1
+      quality: Clamping
+      successChance: 0.8
+      duration: 6.4
+      sound:
+        path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+      failureEffects:
+      - !type:DamageOrganEffect
+        organId: Eyes
+        amount: 10
+    effects:
+    - !type:RepairOrganEffect
+      organId: Eyes
+      healTo: 0

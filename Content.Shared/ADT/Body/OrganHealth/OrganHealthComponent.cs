@@ -11,7 +11,7 @@ public sealed partial class OrganHealthComponent : Component
     public float Damage;
 
     [DataField]
-    public float MaxDamage = 100f;
+    public float MaxDamage = 50f;
 
     [DataField]
     public float LowThreshold = 0.1f;
@@ -23,13 +23,16 @@ public sealed partial class OrganHealthComponent : Component
     public float HealRate = 0.05f;
 
     [DataField]
-    public float DecayRate = 0.00111f;
+    public float DecayRate = 1f / 600f;
 
     [DataField]
     public OrganKind Kind = OrganKind.Organic;
 
     [ViewVariables, AutoNetworkedField]
     public OrganStage Stage = OrganStage.Healthy;
+
+    [DataField, AutoNetworkedField]
+    public bool Operated;
 }
 
 [Serializable, NetSerializable]

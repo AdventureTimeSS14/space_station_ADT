@@ -1,10 +1,2 @@
-reagent-name-adt-inacusiate = инакузиат
-reagent-desc-adt-inacusiate = Восстанавливает повреждённые уши и слух.
-reagent-name-adt-silibinin = силибинин
-reagent-desc-adt-silibinin = Экстракт расторопши, восстанавливающий ткани печени.
-reagent-name-adt-polypyr = полипир
-reagent-desc-adt-polypyr = Восстанавливает лёгочную ткань. В больших дозах сам раздражает лёгкие.
-reagent-name-adt-corazone = коразон
-reagent-desc-adt-corazone = Лечит сердечную мышцу и сдерживает развитие остановки сердца. Передозировка перегружает сердце.
 reagent-name-adt-mitocholide = митохолид
 reagent-desc-adt-mitocholide = Медленно восстанавливает все органические органы. Передозировка нагружает печень.

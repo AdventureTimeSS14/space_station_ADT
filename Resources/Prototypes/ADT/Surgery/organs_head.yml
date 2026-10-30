@@ -68,6 +68,8 @@
 
     - name: EarsRetracted
       label: surgery-node-head-ears-retracted-label
+      packages:
+        - SurgeryPackageRepairEars
       edges:
         - id: ReleaseEars
           target: ScalpClosed
@@ -309,6 +311,7 @@
     - name: ScalpRetracted
       label: surgery-node-head-scalp-retracted-label
       packages:
+        - SurgeryPackageRepairEyes
         - SurgeryPackageScalpCauterize
       edges:
         - id: SawSkull

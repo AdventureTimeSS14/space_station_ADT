@@ -10,7 +10,7 @@
     - state: heart-on
   - type: OrganHealth
     kind: Robotic
-    maxDamage: 75
+    maxDamage: 37.5
     healRate: 0
   - type: CyberOrgan
     effectCooldown: 15
@@ -31,7 +31,7 @@
     - state: lungs
   - type: OrganHealth
     kind: Robotic
-    maxDamage: 50
+    maxDamage: 25
     healRate: 0
   - type: CyberOrgan
     effectCooldown: 30
@@ -53,7 +53,7 @@
     updateInterval: 1.11
   - type: OrganHealth
     kind: Robotic
-    maxDamage: 50
+    maxDamage: 25
     healRate: 0
   - type: CyberOrgan
     effectCooldown: 10
@@ -73,7 +73,7 @@
     - state: kidneys
   - type: OrganHealth
     kind: Robotic
-    maxDamage: 50
+    maxDamage: 25
     healRate: 0
   - type: CyberOrgan
     effectCooldown: 10
@@ -95,7 +95,7 @@
     updateInterval: 1.43
   - type: OrganHealth
     kind: Robotic
-    maxDamage: 50
+    maxDamage: 25
     healRate: 0
   - type: CyberOrgan
     effectCooldown: 10
@@ -116,7 +116,7 @@
       group: Human
   - type: OrganHealth
     kind: Robotic
-    maxDamage: 50
+    maxDamage: 25
     healRate: 0
   - type: OrganGrantComponents
     components:

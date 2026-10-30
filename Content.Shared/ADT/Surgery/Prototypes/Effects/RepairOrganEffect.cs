@@ -24,5 +24,6 @@ public sealed partial class RepairOrganEffect : SurgeryStepEffect
             cyber.Decaying = false;
 
         health.SetDamage((organ.Owner, organ.Comp), Math.Min(organ.Comp.Damage, organ.Comp.MaxDamage * HealTo));
+        health.SetOperated((organ.Owner, organ.Comp), true);
     }
 }

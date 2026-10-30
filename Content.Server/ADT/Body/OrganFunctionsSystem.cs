@@ -1,6 +1,7 @@
 using Content.Server.ADT.Deafness;
 using Content.Server.Body.Systems;
 using Content.Shared.ADT.Body.OrganHealth;
+using Content.Shared.Flash;
 using Content.Shared.ADT.Deafness;
 using Content.Shared.ADT.Salvage.Components;
 using Content.Shared.Body;
@@ -46,8 +47,10 @@ public sealed class OrganFunctionsSystem : EntitySystem
     private static readonly TimeSpan HeartAttackSecondStage = TimeSpan.FromSeconds(15);
     private static readonly TimeSpan HeartAttackThirdStage = TimeSpan.FromSeconds(30);
     private static readonly TimeSpan DefibrillatorStrainWindow = TimeSpan.FromSeconds(60);
-    private const int DefibrillatorStrainFreeZaps = 3;
-    private const float DefibrillatorStrainDamage = 15f;
+    private const int DefibrillatorStrainPeriod = 3;
+    private const float DefibrillatorZapDamage = 3f;
+    private const float DefibrillatorStrainDamage = 25f;
+    private const float FlashEyesDamage = 2f;
     private const float DamagedEyesBlur = 2f;
     private const float FailingStomachVomitChance = 0.05f;
     private const float DamagedHeartArrhythmiaChance = 0.2f;
@@ -81,6 +84,7 @@ public sealed class OrganFunctionsSystem : EntitySystem
         SubscribeLocalEvent<OrganHealthComponent, BodyRelayedEvent<CanMetabolizeGasEvent>>(OnCanMetabolizeGas,
             after: new[] { typeof(RespiratorSystem) });
         SubscribeLocalEvent<OrganFunctionsComponent, TargetDefibrillatedEvent>(OnDefibrillated);
+        SubscribeLocalEvent<OrganFunctionsComponent, AfterFlashedEvent>(OnFlashed);
     }
 
     private void OnOrganInserted(Entity<OrganHealthComponent> ent, ref OrganGotInsertedEvent args)
@@ -132,6 +136,11 @@ public sealed class OrganFunctionsSystem : EntitySystem
         args.Args = args.Args with { Saturation = saturation };
     }
 
+    private void OnFlashed(Entity<OrganFunctionsComponent> ent, ref AfterFlashedEvent args)
+    {
+        _organHealth.ChangeDamage(ent, Eyes, FlashEyesDamage, OrganKind.Organic);
+    }
+
     private void OnDefibrillated(Entity<OrganFunctionsComponent> ent, ref TargetDefibrillatedEvent args)
     {
         var now = _timing.CurTime;
@@ -139,8 +148,11 @@ public sealed class OrganFunctionsSystem : EntitySystem
         ent.Comp.DefibrillatorZaps.Add(now);
 
         var hasHeart = _organHealth.TryGetOrgan(ent, Heart, out var heart);
-        if (hasHeart && ent.Comp.DefibrillatorZaps.Count > DefibrillatorStrainFreeZaps)
-            _organHealth.ChangeDamage((heart.Owner, heart.Comp), DefibrillatorStrainDamage);
+        if (hasHeart)
+        {
+            var strain = ent.Comp.DefibrillatorZaps.Count % DefibrillatorStrainPeriod == 0;
+            _organHealth.ChangeDamage((heart.Owner, heart.Comp), strain ? DefibrillatorStrainDamage : DefibrillatorZapDamage);
+        }
 
         if (ent.Comp.HeartAttackStart == null || !hasHeart || heart.Comp.Stage == OrganStage.Failing)
             return;

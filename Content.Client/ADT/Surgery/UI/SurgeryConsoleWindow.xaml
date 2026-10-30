@@ -33,6 +33,14 @@
             </BoxContainer>
         </ScrollContainer>
 
+        <ScrollContainer Name="{Loc 'surgery-console-tab-organs'}" HScrollEnabled="False" VerticalExpand="True">
+            <BoxContainer Orientation="Vertical" Margin="10 5 10 5">
+                <Label Name="OrgansStatusLabel"/>
+                <Label Name="HeartStoppedLabel" Visible="False" StyleClasses="LabelHeading" Text="{Loc 'surgery-console-heart-stopped'}" Margin="0 0 0 5"/>
+                <BoxContainer Name="OrgansBox" Orientation="Vertical" SeparationOverride="4"/>
+            </BoxContainer>
+        </ScrollContainer>
+
         <BoxContainer Name="{Loc 'surgery-console-tab-settings'}" Orientation="Vertical" Margin="10 5 10 5">
             <CheckBox Name="AlertsCheckBox" Text="{Loc 'surgery-console-alerts-toggle'}"/>
         </BoxContainer>

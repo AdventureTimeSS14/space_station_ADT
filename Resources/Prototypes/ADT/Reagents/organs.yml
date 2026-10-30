@@ -1,79 +1,4 @@
 - type: reagent
-  id: ADTInacusiate
-  name: reagent-name-adt-inacusiate
-  desc: reagent-desc-adt-inacusiate
-  group: Medicine
-  physicalDesc: reagent-physical-desc-translucent
-  flavor: medicine
-  color: "#6600ff"
-  metabolisms:
-    Bloodstream:
-      effects:
-      - !type:AdjustOrganDamage
-        category: Ears
-        amount: -2
-
-- type: reagent
-  id: ADTSilibinin
-  name: reagent-name-adt-silibinin
-  desc: reagent-desc-adt-silibinin
-  group: Medicine
-  physicalDesc: reagent-physical-desc-thick
-  flavor: medicine
-  color: "#ffffd0"
-  metabolisms:
-    Bloodstream:
-      effects:
-      - !type:AdjustOrganDamage
-        category: Liver
-        amount: -0.7
-
-- type: reagent
-  id: ADTPolypyr
-  name: reagent-name-adt-polypyr
-  desc: reagent-desc-adt-polypyr
-  group: Medicine
-  physicalDesc: reagent-physical-desc-translucent
-  flavor: medicine
-  color: "#9423ff"
-  metabolisms:
-    Bloodstream:
-      effects:
-      - !type:AdjustOrganDamage
-        category: Lungs
-        amount: -0.5
-      - !type:AdjustOrganDamage
-        category: Lungs
-        amount: 1
-        conditions:
-        - !type:ReagentCondition
-          reagent: ADTPolypyr
-          min: 30
-
-- type: reagent
-  id: ADTCorazone
-  name: reagent-name-adt-corazone
-  desc: reagent-desc-adt-corazone
-  group: Medicine
-  physicalDesc: reagent-physical-desc-translucent
-  flavor: medicine
-  color: "#f5f5f5"
-  metabolisms:
-    Bloodstream:
-      effects:
-      - !type:AdjustOrganDamage
-        category: Heart
-        amount: -0.5
-      - !type:SuppressHeartAttack
-      - !type:AdjustOrganDamage
-        category: Heart
-        amount: 1
-        conditions:
-        - !type:ReagentCondition
-          reagent: ADTCorazone
-          min: 30
-
-- type: reagent
   id: ADTMitocholide
   name: reagent-name-adt-mitocholide
   desc: reagent-desc-adt-mitocholide
@@ -85,11 +10,15 @@
     Bloodstream:
       effects:
       - !type:AdjustOrganDamage
-        amount: -0.3
-      - !type:AdjustOrganDamage
-        category: Liver
-        amount: 0.5
+        amount: -0.1
         conditions:
         - !type:ReagentCondition
           reagent: ADTMitocholide
-          min: 30
+          max: 10
+      - !type:AdjustOrganDamage
+        category: Liver
+        amount: 1
+        conditions:
+        - !type:ReagentCondition
+          reagent: ADTMitocholide
+          min: 10
