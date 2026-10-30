@@ -5,6 +5,7 @@ using Content.Server.Body.Systems;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
 using Content.Shared.Heretic;
+using Content.Shared.StatusEffect;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
@@ -18,6 +19,7 @@ using Content.Server.Medical;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.ADT.Heretic.Systems;
 using Content.Shared.Damage;
+using Content.Shared.Heretic.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Stunnable;
@@ -26,23 +28,25 @@ namespace Content.Server.Heretic.EntitySystems;
 
 public sealed class HereticCombatMarkSystem : SharedHereticCombatMarkSystem
 {
-    [Dependency] private IGameTiming _timing = default!;
-    [Dependency] private SharedDoorSystem _door = default!;
-    [Dependency] private EntityLookupSystem _lookup = default!;
-    [Dependency] private SharedAudioSystem _audio = default!;
-    [Dependency] private BloodstreamSystem _blood = default!;
-    [Dependency] private IRobustRandom _random = default!;
-    [Dependency] private SharedStaminaSystem _stamina = default!;
-    [Dependency] private ProtectiveBladeSystem _pbs = default!;
-    [Dependency] private VoidCurseSystem _voidcurse = default!;
-    [Dependency] private VomitSystem _vomit = default!;
-    [Dependency] private DamageableSystem _damageable = default!;
-    [Dependency] private SharedStunSystem _stun = default!;
-    [Dependency] private PullingSystem _pulling = default!;
-    [Dependency] private SharedTransformSystem _transform = default!;
-    [Dependency] private StarMarkSystem _starMark = default!;
-    [Dependency] private HereticAbilitySystem _ability = default!;
-    [Dependency] private HereticSystem _heretic = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedDoorSystem _door = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly BloodstreamSystem _blood = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
+    [Dependency] private readonly ProtectiveBladeSystem _pbs = default!;
+    [Dependency] private readonly VoidCurseSystem _voidcurse = default!;
+    [Dependency] private readonly VomitSystem _vomit = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly PullingSystem _pulling = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly StarMarkSystem _starMark = default!;
+    [Dependency] private readonly HereticAbilitySystem _ability = default!;
+    [Dependency] private readonly HereticSystem _heretic = default!;
+    [Dependency] private readonly Content.Shared.StatusEffectNew.StatusEffectsSystem _statusNew = default!;
+    [Dependency] private readonly Content.Shared.StatusEffect.StatusEffectsSystem _statusEffect = default!;
 
     public override void Initialize()
     {
@@ -90,7 +94,7 @@ public sealed class HereticCombatMarkSystem : SharedHereticCombatMarkSystem
                 break;
 
             case "Lock":
-                // bolts nearby doors
+                // bolts nearby doors + denies access
                 var lookup = _lookup.GetEntitiesInRange(target, 5f);
                 foreach (var door in lookup)
                 {
@@ -98,7 +102,8 @@ public sealed class HereticCombatMarkSystem : SharedHereticCombatMarkSystem
                         continue;
                     _door.SetBoltsDown((door, doorComp), true);
                 }
-                _audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/knock.ogg"), target);
+                _statusNew.TryAddStatusEffectDuration(target, "LockMarkedStatusEffect", TimeSpan.FromSeconds(20));
+                _audio.PlayPvs(new SoundPathSpecifier("/Audio/ADT/Heretic/hereticknock.ogg"), target);
                 break;
 
             case "Rust":
@@ -124,10 +129,27 @@ public sealed class HereticCombatMarkSystem : SharedHereticCombatMarkSystem
                     _pulling.StopAllPulls(target);
                     _transform.SetCoordinates(target, newCoords);
                     Spawn(cosmicMark.CosmicCloud, newCoords);
-                    Del(cosmicMark.CosmicDiamondUid.Value); // Just in case
+                    Del(cosmicMark.CosmicDiamondUid.Value);
                 }
 
                 _stun.TryUpdateParalyzeDuration(target, cosmicMark.ParalyzeTime);
+                break;
+
+            case "Moon":
+                if (TryComp<StatusEffectsComponent>(target, out var moonStatus))
+                {
+                    _statusEffect.TryAddStatusEffect(target, "Jitter", TimeSpan.FromSeconds(30), true, moonStatus);
+                    _statusEffect.TryAddStatusEffect(target, "SlurredSpeech", TimeSpan.FromSeconds(10), true, moonStatus);
+                }
+                _damageable.TryChangeDamage(target,
+                    new DamageSpecifier
+                    {
+                        DamageDict =
+                        {
+                            { "Cellular", 25f },
+                        },
+                    },
+                    origin: user);
                 break;
 
             default:

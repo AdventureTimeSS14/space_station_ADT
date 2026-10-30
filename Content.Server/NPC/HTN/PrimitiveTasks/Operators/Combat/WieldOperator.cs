@@ -1,4 +1,5 @@
 using Content.Server.Hands.Systems;
+using Content.Shared.Hands.Components; // ADT-Tweak
 using Content.Shared.Wieldable;
 using Content.Shared.Wieldable.Components;
 
@@ -20,13 +21,39 @@ public sealed partial class WieldOperator : HTNOperator
     public override HTNOperatorStatus Update(NPCBlackboard blackboard, float frameTime)
     {
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
-
-        if (!blackboard.TryGetValue<string>(NPCBlackboard.ActiveHand, out var activeHand, _entManager))
-            return HTNOperatorStatus.Failed;
-
+        // ADT-Tweak-start
         var handsSystem = _entManager.System<HandsSystem>();
-        if (!handsSystem.TryGetHeldItem(owner, activeHand, out var weaponUid))
+        EntityUid? weaponUid = null;
+
+        if (blackboard.TryGetValue<string>(NPCBlackboard.ActiveHand, out var activeHand, _entManager) &&
+            handsSystem.TryGetHeldItem(owner, activeHand, out var held))
+        {
+            weaponUid = held;
+        }
+        else if (_entManager.TryGetComponent<HandsComponent>(owner, out var handsComp))
+        {
+            if (handsComp.ActiveHandId != null && handsSystem.TryGetHeldItem(owner, handsComp.ActiveHandId, out held))
+            {
+                weaponUid = held;
+            }
+            else
+            {
+                foreach (var (handName, _) in handsComp.Hands)
+                {
+                    if (handsSystem.TryGetHeldItem(owner, handName, out var handHeld) &&
+                        _entManager.HasComponent<WieldableComponent>(handHeld))
+                    {
+                        weaponUid = handHeld;
+                        handsSystem.TrySetActiveHand((owner, handsComp), handName);
+                        break;
+                    }
+                }
+            }
+        }
+
+        if (weaponUid == null)
             return HTNOperatorStatus.Failed;
+        // ADT-Tweak-end
 
         if (!_entManager.TryGetComponent<WieldableComponent>(weaponUid, out var wieldable))
             return HTNOperatorStatus.Failed;
@@ -36,7 +63,7 @@ public sealed partial class WieldOperator : HTNOperator
         if (Wield)
         {
             if (wieldable.Wielded)
-                return HTNOperatorStatus.Failed;
+                return HTNOperatorStatus.Finished; // ADT-Tweak
 
             return wieldableSystem.TryWield((weaponUid.Value, wieldable), owner)
                 ? HTNOperatorStatus.Finished
@@ -44,7 +71,7 @@ public sealed partial class WieldOperator : HTNOperator
         }
 
         if (!wieldable.Wielded)
-            return HTNOperatorStatus.Failed;
+            return HTNOperatorStatus.Finished; // ADT-Tweak
 
         return wieldableSystem.TryUnwield((weaponUid.Value, wieldable), owner)
             ? HTNOperatorStatus.Finished

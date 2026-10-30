@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from TG station",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        { "name": "moon_hud_1" },
+        { "name": "moon_hud_2" },
+        { "name": "moon_hud_3" },
+        { "name": "moon_hud_4" },
+        { "name": "moon_hud_5" },
+        { "name": "moon_hud_6" }
+    ]
+}

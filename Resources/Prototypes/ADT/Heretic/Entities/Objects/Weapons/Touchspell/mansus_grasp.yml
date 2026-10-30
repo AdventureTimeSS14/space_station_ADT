@@ -6,6 +6,9 @@
   components:
   - type: Unremoveable
   - type: Item
+  - type: Tag
+    tags:
+    - AnchorHereticStructure
   - type: MansusGrasp
     blacklist:
       components:
