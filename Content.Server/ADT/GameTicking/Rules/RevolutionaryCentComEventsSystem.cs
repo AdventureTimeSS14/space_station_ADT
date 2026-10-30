@@ -1,10 +1,8 @@
-using System.Threading;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Shared.GameTicking.Components;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -37,7 +35,7 @@ public sealed class RevolutionaryCentComEventsSystem : EntitySystem
         if (comp.Events.Count == 0 || comp.EventsSent >= comp.MaxEvents)
             return;
 
-        comp.Token ??= new CancellationTokenSource();
+        comp.Token ??= new System.Threading.CancellationTokenSource();
         var token = comp.Token.Token;
 
         Timer.Spawn(NextDelay(comp), () =>
@@ -49,7 +47,7 @@ public sealed class RevolutionaryCentComEventsSystem : EntitySystem
             comp.EventsSent++;
 
             ScheduleNext(entity);
-        }, token);
+        });
     }
 
     private TimeSpan NextDelay(RevolutionaryCentComEventsComponent component)

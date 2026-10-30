@@ -10,10 +10,10 @@ public sealed partial class StationMarketComponent : Component
     public TimeSpan LastDecayTime;
 
     /// <summary>
-    /// Скидка приёма за каждую проданную единицу (0.02 - минус 5% за штуку).
+    /// Скидка приёма за каждую проданную единицу (0.05 - минус 5% за штуку).
     /// </summary>
     [DataField]
-    public float UnitDiscount = 0.02f;
+    public float UnitDiscount = 0.05f;
 
     /// <summary>
     /// Нижний потолок множителя приёма (0.35 - максимум минус 65%).

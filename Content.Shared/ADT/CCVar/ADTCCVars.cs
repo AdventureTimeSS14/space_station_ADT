@@ -311,10 +311,9 @@ public sealed class ADTCCVars
 
     /// <summary>
     /// Минимальный депозит ЦК на каждый департаментский счёт каждую выплату зарплаты.
-    /// Калибровка долей в salary.yml исходит из 4000.
     /// </summary>
     public static readonly CVarDef<int> DepartmentDeposit =
-        CVarDef.Create("economy.department_deposit", 4000, CVar.SERVERONLY | CVar.ARCHIVE);
+        CVarDef.Create("economy.department_deposit", 2000, CVar.SERVERONLY | CVar.ARCHIVE);
 
 
 

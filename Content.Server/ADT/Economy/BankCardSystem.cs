@@ -149,6 +149,11 @@ public sealed class BankCardSystem : EntitySystem
             if (balance <= 0)
                 continue;
 
+            if (group.PrimaryAccountId == null &&
+                TryComp<StationBankAccountComponent>(group.Station, out var stationBank) &&
+                TryGetDepartmentAccountId(group.Station, stationBank.PrimaryAccount, out var primaryId))
+                group.PrimaryAccountId = primaryId;
+
             var totalShare = group.Members.Sum(m => m.Share);
             var factor = totalShare > 1 ? 1 / totalShare : 1;
 
@@ -183,8 +188,8 @@ public sealed class BankCardSystem : EntitySystem
                 {
                     net = (int) Math.Floor(gross * (1 - taxRate));
                     var tax = gross - net;
-                    if (tax > 0 && TryGetDepartmentAccountId(group.Station, group.Funding, out var primaryId) &&
-                        TryDeposit(primaryId, tax, TransactionReason.SalaryTax, Loc.GetString("bank-initiator-centcom")))
+                    if (tax > 0 && group.PrimaryAccountId != null &&
+                        TryTransfer(fundingId, group.PrimaryAccountId.Value, tax, TransactionReason.SalaryTax))
                         _totalTaxes += tax;
                 }
 
@@ -629,10 +634,5 @@ public sealed class BankCardSystem : EntitySystem
         }
 
         return account.Balance;
-    }
-
-    public bool TryChangeBalance(int accountId, int amount, bool allowNegative = false)
-    {
-        return Mutate(accountId, amount, TransactionReason.Other, null, isTransfer: false);
     }
 }

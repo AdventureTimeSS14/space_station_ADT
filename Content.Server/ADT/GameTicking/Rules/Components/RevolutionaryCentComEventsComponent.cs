@@ -10,9 +10,6 @@ public sealed partial class RevolutionaryCentComEventsComponent : Component
     public List<EntProtoId> Events = new();
 
     [DataField]
-    public TimeSpan FirstDelay = TimeSpan.FromMinutes(20);
-
-    [DataField]
     public TimeSpan MinDelay = TimeSpan.FromMinutes(20);
 
     [DataField]

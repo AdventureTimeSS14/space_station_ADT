@@ -79,7 +79,7 @@ public sealed partial class CargoSystem
             if (market != null)
                 cost *= market.GetSellMultiplier(id, now);
 
-            cost *= AdtCategoryMultiplier(station, id);
+            cost *= AdtCategoryMultiplier(station, product.Category);
 
             costs[id] = (int) Math.Round(cost);
         }
@@ -102,15 +102,16 @@ public sealed partial class CargoSystem
         StationMarketComponent? stationMarket = null;
         DemandMarketComponent? demandMarket = null;
 
-        var stationSale = station != null &&
-                          TryComp<StationBankAccountComponent>(station.Value, out _) &&
-                          TryComp<StationMarketComponent>(station.Value, out stationMarket);
-        var tradeSale = !stationSale &&
-                        TryComp<TradeStationComponent>(gridUid, out _) &&
-                        TryComp<DemandMarketComponent>(gridUid, out demandMarket);
+        var stationSale = station != null && TryComp<StationBankAccountComponent>(station.Value, out _);
+        var tradeSale = !stationSale && TryComp<TradeStationComponent>(gridUid, out _);
 
         if (!stationSale && !tradeSale)
             return;
+
+        if (stationSale)
+            stationMarket = TryComp<StationMarketComponent>(station!.Value, out var sm) ? sm : new StationMarketComponent();
+        else
+            demandMarket = TryComp<DemandMarketComponent>(gridUid, out var dm) ? dm : new DemandMarketComponent();
 
         // размер партии по прототипам - чтобы скидка учитывала саму партию
         var batch = new Dictionary<string, int>();

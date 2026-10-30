@@ -40,7 +40,7 @@ round-end-report-deposits = Депозитов ЦК на счета отдело
 round-end-report-taxes = Налогов в казначейство: [color=yellow]{ $value }[/color] кредитов
 round-end-report-transfers = Переводов между счетами: [color=yellow]{ $value }[/color] кредитов
 round-end-report-deposited = Пополнений счетов: [color=yellow]{ $value }[/color] кредитов
-round-end-report-burned = Сожжено платежей: [color=yellow]{ $value }[/color] кредитов
+round-end-report-burned = Списано со счетов: [color=yellow]{ $value }[/color] кредитов
 
 round-end-report-ore-mined = Добыто руды: [color=orange]{ $value }[/color]
 round-end-report-food-eaten = Съедено еды: [color=white]{ $value }[/color] укусов/глотков

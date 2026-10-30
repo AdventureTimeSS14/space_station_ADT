@@ -67,9 +67,18 @@ public sealed class AdtBankAdjustCommand : IConsoleCommand
         }
 
         if (amount > 0)
-            bank.TryDeposit(accountId, amount, TransactionReason.AdminAction);
-        else if (amount < 0)
-            bank.TryBurn(accountId, -amount, TransactionReason.AdminAction);
+        {
+            if (!bank.TryDeposit(accountId, amount, TransactionReason.AdminAction))
+            {
+                shell.WriteLine($"Не удалось пополнить счёт {accountId} ({account.Name}): текущий баланс {bank.GetBalance(accountId)}$.");
+                return;
+            }
+        }
+        else if (amount < 0 && !bank.TryBurn(accountId, -amount, TransactionReason.AdminAction))
+        {
+            shell.WriteLine($"Не удалось списать {Math.Abs(amount)}$ со счёта {accountId} ({account.Name}): текущий баланс {bank.GetBalance(accountId)}$.");
+            return;
+        }
 
         logger.Add(LogType.Economy, LogImpact.Medium,
             $"[Economy] admin adjusted account {accountId} ({account.Name}) by {amount}$, new balance {bank.GetBalance(accountId)}$");

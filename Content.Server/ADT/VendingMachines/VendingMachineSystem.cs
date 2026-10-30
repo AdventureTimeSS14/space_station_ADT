@@ -479,13 +479,26 @@ namespace Content.Server.ADT.VendingMachines
                 {
                     success = _cargoSystem.GetBalanceFromAccount((station, stationBank), stationBank.PrimaryAccount) >= price;
                     if (success)
+                    {
                         _cargoSystem.UpdateBankAccount((station, stationBank), -price, stationBank.PrimaryAccount);
+
+                        if (TryGetRevenueTarget(uid, vendComponent, out var cargoRevenueId) &&
+                            _bankCard.TryGetDepartmentAccountId(station, stationBank.PrimaryAccount, out var cargoPrimaryId) &&
+                            cargoRevenueId != cargoPrimaryId)
+                        {
+                            _bankCard.TryTransfer(cargoPrimaryId, cargoRevenueId, price,
+                                TransactionReason.VendingSale, Name(sender.Value));
+                        }
+                    }
                 }
                 else
                 if (vendComponent.Credits >= price)
                 {
                     vendComponent.Credits -= price;
                     success = true;
+
+                    if (TryGetRevenueTarget(uid, vendComponent, out var cashRevenueId))
+                        _bankCard.TryDeposit(cashRevenueId, price, TransactionReason.VendingSale, Name(sender.Value));
                 }
                 else
                 {
