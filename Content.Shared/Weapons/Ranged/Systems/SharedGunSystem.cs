@@ -37,10 +37,8 @@ using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using Content.Shared.ADT.DNAGunLocker;
 using Content.Shared.ADT.Mech.Components;
 using Content.Shared.ADT.Weapons.Ranged.WearableGun;
-using Content.Shared.Electrocution;
 using Content.Shared.ADT.Crawling.Components;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Goobstation.Common.Weapons.Multishot; // ADT-Tweak 
@@ -80,9 +78,6 @@ public abstract partial class SharedGunSystem : EntitySystem
     [Dependency] protected SharedTransformSystem TransformSystem = default!;
     [Dependency] protected TagSystem TagSystem = default!;
     [Dependency] protected ThrowingSystem ThrowingSystem = default!;
-    // ADT-Tweak-Start
-    [Dependency] private SharedElectrocutionSystem _electrocutionSystem = default!;
-    // ADT-Tweak-End
 
     /// <summary>
     /// Default projectile speed
@@ -314,23 +309,6 @@ public abstract partial class SharedGunSystem : EntitySystem
         {
             return false;
         }
-
-        ///ADT-Personal-Gun block start
-        if (TryComp<DNAGunLockerComponent>(gun, out var dnaGunComp) && !dnaGunComp.IsEmagged)
-        {
-            if (dnaGunComp.GunOwner?.Id != user.Id)
-            {
-                _electrocutionSystem.TryDoElectrocution(user, null, 10, TimeSpan.FromSeconds(15), refresh: true, ignoreInsulation: true);
-                PopupSystem.PopupClient(Loc.GetString("gun-personalize-fuck"), user);
-                Audio.PlayPredicted(dnaGunComp.ElectricSound, gun, user);
-
-                if (TryComp<CombatModeComponent>(user, out var combatModeComp))
-                    _combatMode.SetInCombatMode(user, false);
-
-                return false;
-            }
-        }
-        ///ADT-Personal-Gun block end
 
         var toCoordinates = gun.Comp.ShootCoordinates;
 
