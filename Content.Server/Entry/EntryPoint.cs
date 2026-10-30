@@ -178,6 +178,14 @@ namespace Content.Server.Entry
                 HealthChangeReagentsJsonGenerator.PublishJson(file);
                 file.Flush();
                 // Corvax-Wiki-End
+                // ADT-Tweak-Start
+                file = _res.UserData.OpenWriteText(resPath.WithName("gas_" + dest));
+                Content.Server.ADT.GuideGenerator.GasJsonGenerator.PublishJson(file);
+                file.Flush();
+                file = _res.UserData.OpenWriteText(resPath.WithName("gasreact_" + dest));
+                Content.Server.ADT.GuideGenerator.GasReactionJsonGenerator.PublishJson(file);
+                file.Flush();
+                // ADT-Tweak-End
                 Dependencies.Resolve<IBaseServer>().Shutdown("Data generation done");
                 return;
             }
