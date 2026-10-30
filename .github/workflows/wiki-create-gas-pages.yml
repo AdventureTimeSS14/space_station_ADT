@@ -1,0 +1,55 @@
+name: Create wiki gas pages
+
+on:
+  workflow_dispatch:
+
+jobs:
+  create-pages:
+    name: Create gas pages
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Create pages
+      env:
+        API_URL: ${{ secrets.WIKI_ROOT_URL }}/api.php
+        PAGE_ROOT: ${{ secrets.WIKI_PAGE_ROOT }}
+        BOT_USER: ${{ secrets.WIKI_BOT_USER }}
+        BOT_PASS: ${{ secrets.WIKI_BOT_PASS }}
+      run: |
+        set -euo pipefail
+
+        jar=$(mktemp)
+        api() {
+          curl -sS --fail -b "$jar" -c "$jar" "$@" "$API_URL"
+        }
+
+        login_token=$(api -G -d action=query -d meta=tokens -d type=login -d format=json | jq -r '.query.tokens.logintoken')
+
+        login_result=$(api -d action=login -d format=json \
+          --data-urlencode "lgname=$BOT_USER" \
+          --data-urlencode "lgpassword=$BOT_PASS" \
+          --data-urlencode "lgtoken=$login_token" | jq -r '.login.result')
+
+        if [ "$login_result" != "Success" ]; then
+          echo "Login failed: $login_result"
+          exit 1
+        fi
+
+        csrf_token=$(api -G -d action=query -d meta=tokens -d format=json | jq -r '.query.tokens.csrftoken')
+
+        for name in gas gasreact; do
+          response=$(api -d action=edit -d createonly=1 -d format=json \
+            --data-urlencode "title=$PAGE_ROOT/${name}_prototypes.json" \
+            --data-urlencode "text={}" \
+            --data-urlencode "summary=Create ${name}_prototypes.json for GitHub Actions" \
+            --data-urlencode "token=$csrf_token")
+
+          result=$(jq -r '.edit.result // .error.code' <<< "$response")
+
+          if [ "$result" != "Success" ] && [ "$result" != "articleexists" ]; then
+            echo "Failed to create ${name}_prototypes.json: $response"
+            exit 1
+          fi
+
+          echo "${name}_prototypes.json: $result"
+        done
