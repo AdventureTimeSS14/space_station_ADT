@@ -44,23 +44,43 @@ public sealed class MantisDaggersImplantSystem : EntitySystem
 
     private void RefreshHostBody(EntityUid host)
     {
-        if (CompOrNull<OrganComponent>(host)?.Body is { } body)
-            RefreshBody(body);
+        if (TryComp<OrganComponent>(host, out var organ))
+        {
+            if (organ.Body is { } body)
+                RefreshBody(body);
+
+            return;
+        }
+
+        if (HasComp<BodyComponent>(host))
+            RefreshBody(host);
     }
 
     private void RefreshBody(EntityUid body)
     {
         var sides = MantisDaggerSide.None;
+
+        if (TryComp<ImplantedComponent>(body, out var bodyImplanted))
+            sides |= GetSides(bodyImplanted);
+
         foreach (var organ in _body.EnumerateOrgans<ImplantedComponent>(body))
         {
-            foreach (var implant in organ.Comp2.ImplantContainer.ContainedEntities)
-            {
-                if (TryComp<MantisDaggersImplantComponent>(implant, out var dagger))
-                    sides |= dagger.Side;
-            }
+            sides |= GetSides(organ.Comp2);
         }
 
         _visibleImplant.SetDaggerSides(body, sides);
+    }
+
+    private MantisDaggerSide GetSides(ImplantedComponent implanted)
+    {
+        var sides = MantisDaggerSide.None;
+        foreach (var implant in implanted.ImplantContainer.ContainedEntities)
+        {
+            if (TryComp<MantisDaggersImplantComponent>(implant, out var dagger))
+                sides |= dagger.Side;
+        }
+
+        return sides;
     }
 }
 

@@ -35,7 +35,7 @@ public sealed partial class AutoSurgeonComponent : Component
     public EntityUid? CurrentPatient;
 
     [ViewVariables]
-    public bool Running;
+    public DoAfterId? ActiveDoAfter;
 }
 
 [DataDefinition]

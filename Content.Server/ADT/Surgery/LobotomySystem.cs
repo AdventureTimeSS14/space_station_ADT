@@ -13,6 +13,16 @@ public sealed class LobotomySystem : EntitySystem
         SubscribeLocalEvent<LobotomizedOrganComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<LobotomizedOrganComponent, OrganGotInsertedEvent>(OnInserted);
         SubscribeLocalEvent<LobotomizedOrganComponent, OrganGotRemovedEvent>(OnRemoved);
+        SubscribeLocalEvent<LobotomizedOrganComponent, ComponentShutdown>(OnShutdown);
+    }
+
+    private void OnShutdown(Entity<LobotomizedOrganComponent> ent, ref ComponentShutdown args)
+    {
+        if (TerminatingOrDeleted(ent))
+            return;
+
+        if (TryComp<OrganComponent>(ent, out var organ) && organ.Body is { } body && !TerminatingOrDeleted(body))
+            RemComp<PacifiedComponent>(body);
     }
 
     private void OnStartup(Entity<LobotomizedOrganComponent> ent, ref ComponentStartup args)

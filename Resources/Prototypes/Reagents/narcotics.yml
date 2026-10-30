@@ -165,6 +165,13 @@
         key: Pacified
         component: Pacified
         time: 4
+      # ADT-Tweak start
+      - !type:CureLobotomy
+        conditions:
+        - !type:ReagentCondition
+          reagent: Pax
+          min: 20
+      # ADT-Tweak end
 
 - type: reagent
   id: Stimulants

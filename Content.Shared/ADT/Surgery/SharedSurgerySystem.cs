@@ -68,8 +68,14 @@ public abstract partial class SharedSurgerySystem : EntitySystem
                 Label = edge.Label,
                 DisplayName = proto.Name,
                 Steps = edge.Steps,
-                Conditions = new List<SurgeryStepCondition> { new HasImplantCondition { Include = new List<EntProtoId> { proto.ID }, OrganId = template.OrganId } },
-                Effects = new List<SurgeryStepEffect> { new ExtractImplantEffect { Include = new List<EntProtoId> { proto.ID }, OrganId = template.OrganId } },
+                Conditions = edge.Conditions
+                    .Where(condition => condition is not HasImplantCondition)
+                    .Append(new HasImplantCondition { Include = new List<EntProtoId> { proto.ID }, OrganId = template.OrganId })
+                    .ToList(),
+                Effects = edge.Effects
+                    .Where(effect => effect is not ExtractImplantEffect)
+                    .Append(new ExtractImplantEffect { Include = new List<EntProtoId> { proto.ID }, OrganId = template.OrganId })
+                    .ToList(),
             };
         }
     }

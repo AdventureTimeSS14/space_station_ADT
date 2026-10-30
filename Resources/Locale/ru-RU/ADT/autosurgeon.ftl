@@ -1,11 +1,8 @@
 autosurgeon-empty = Внутри нет импланта.
-autosurgeon-full = Внутри уже что-то загружено.
 autosurgeon-spent = У стола не осталось зарядов.
-autosurgeon-incompatible = { CAPITALIZE($item) } не подходит для этого стола.
 autosurgeon-no-patient = На столе никого нет. Пристегните пациента.
 autosurgeon-done = Операция над { $patient } завершена.
 autosurgeon-failed = Не удаётся установить { $item }: нет нужной части тела, место занято или такой имплант уже есть.
-autosurgeon-unloaded = Вы достаёте { $item } из стола.
 autosurgeon-examine-loaded = Внутри загружен: { $item }.
 autosurgeon-examine-empty = Внутри ничего нет.
 autosurgeon-examine-uses = Осталось зарядов: { $uses }.

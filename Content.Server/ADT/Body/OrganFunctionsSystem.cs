@@ -169,7 +169,10 @@ public sealed class OrganFunctionsSystem : EntitySystem
             UpdateSenses((uid, comp));
 
             if (!alive)
+            {
+                comp.LiverFailingSince = null;
                 continue;
+            }
 
             UpdateHeart((uid, comp), now);
             UpdateFiltration(uid, comp);
@@ -301,7 +304,7 @@ public sealed class OrganFunctionsSystem : EntitySystem
                 _vomit.Vomit(body);
 
             if (failing >= LiverCollateralStage)
-                _organHealth.ChangeDamage(body, _random.Pick(LiverCollateralOrgans), LiverCollateralDamage);
+                _organHealth.ChangeDamage(body, _random.Pick(LiverCollateralOrgans), LiverCollateralDamage, OrganKind.Organic);
         }
         else
         {

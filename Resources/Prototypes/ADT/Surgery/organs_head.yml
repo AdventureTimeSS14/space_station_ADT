@@ -528,8 +528,7 @@
                     types:
                       Bloodloss: 2
           effects:
-            - !type:RemoveOrganEffect
-              organId: ADTShadowTumor
+            - !type:RemoveShadowTumorEffect
 
         - id: RemoveEyes
           target: SkullOpen

@@ -2,7 +2,7 @@
   id: ADTAutoSurgeon
   parent: OperatingTable
   name: auto surgeon
-  description: An operating table that performs the surgery by itself. Strap the patient down and activate it to install the loaded implant. A screwdriver pulls out the loaded implant, but spends a charge.
+  description: An operating table that performs the surgery by itself. Strap the patient down and activate it to install the loaded implant.
   abstract: true
   components:
     - type: Sprite
@@ -125,79 +125,3 @@
       size: Normal
     - type: Flatpack
       entity: ADTERTAutoSurgeonTable
-
-- type: entity
-  id: ADTSandevistanAutoSurgeonTable
-  parent: ADTAutoSurgeon
-  name: sandevistan auto surgeon
-  description: An auto surgeon pre-loaded with the Sandevistan implant.
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: AutoSurgeon
-      startingItems: [ ADTSandevistanImplant ]
-
-- type: entity
-  id: ADTSandevistanAutoSurgeon
-  parent: ADTAutoSurgeonFlatpackBase
-  name: sandevistan auto surgeon flatpack
-  description: A flatpack used for constructing an auto surgeon pre-loaded with the Sandevistan implant.
-  components:
-    - type: Flatpack
-      entity: ADTSandevistanAutoSurgeonTable
-
-- type: entity
-  id: ADTMantisDaggersAutoSurgeonTable
-  parent: ADTAutoSurgeon
-  name: mantis daggers auto surgeon
-  description: An auto surgeon pre-loaded with the Mantis Daggers implant.
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: AutoSurgeon
-      startingItems: [ ADTMantisDaggerLeftImplant, ADTMantisDaggerRightImplant ]
-
-- type: entity
-  id: ADTMantisDaggersAutoSurgeon
-  parent: ADTAutoSurgeonFlatpackBase
-  name: mantis daggers auto surgeon flatpack
-  description: A flatpack used for constructing an auto surgeon pre-loaded with the Mantis Daggers implant.
-  components:
-    - type: Flatpack
-      entity: ADTMantisDaggersAutoSurgeonTable
-
-- type: entity
-  id: ADTERTSandevistanAutoSurgeonTable
-  parent: ADTAutoSurgeon
-  name: sandevistan auto surgeon
-  description: An auto surgeon pre-loaded with the Sandevistan implant.
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: AutoSurgeon
-      startingItems: [ ADTSandevistanImplant ]
-
-- type: entity
-  id: ADTERTSandevistanAutoSurgeon
-  parent: ADTAutoSurgeonFlatpackBase
-  name: sandevistan auto surgeon flatpack
-  description: A flatpack used for constructing an auto surgeon pre-loaded with the Sandevistan implant.
-  components:
-    - type: Flatpack
-      entity: ADTERTSandevistanAutoSurgeonTable
-
-- type: entity
-  id: ADTERTMantisDaggersAutoSurgeonTable
-  parent: ADTAutoSurgeon
-  name: mantis daggers auto surgeon
-  description: An auto surgeon pre-loaded with the Mantis Daggers implant.
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: AutoSurgeon
-      startingItems: [ ADTMantisDaggerLeftImplant, ADTMantisDaggerRightImplant ]
-
-- type: entity
-  id: ADTERTMantisDaggersAutoSurgeon
-  parent: ADTAutoSurgeonFlatpackBase
-  name: mantis daggers auto surgeon flatpack
-  description: A flatpack used for constructing an auto surgeon pre-loaded with the Mantis Daggers implant.
-  components:
-    - type: Flatpack
-      entity: ADTERTMantisDaggersAutoSurgeonTable

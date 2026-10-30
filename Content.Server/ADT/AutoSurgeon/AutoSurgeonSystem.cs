@@ -24,7 +24,7 @@ public sealed class AutoSurgeonSystem : EntitySystem
     [Dependency] private BodySystem _body = default!;
     [Dependency] private AudioSystem _audio = default!;
     [Dependency] private DamageableSystem _damageable = default!;
-    [Dependency] private EntityQuery<OrganComponent> _organQuery = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
     [Dependency] private EntityQuery<SubdermalImplantComponent> _implantQuery = default!;
 
     public override void Initialize()
@@ -61,7 +61,7 @@ public sealed class AutoSurgeonSystem : EntitySystem
 
     private void OnGetVerbs(Entity<AutoSurgeonComponent> ent, ref GetVerbsEvent<InteractionVerb> args)
     {
-        if (!args.CanAccess || !args.CanInteract || ent.Comp.Running)
+        if (!args.CanAccess || !args.CanInteract || _doAfter.IsRunning(ent.Comp.ActiveDoAfter))
             return;
 
         var user = args.User;
@@ -75,20 +75,8 @@ public sealed class AutoSurgeonSystem : EntitySystem
 
     private void StartOperation(Entity<AutoSurgeonComponent> ent, EntityUid user)
     {
-        if (ent.Comp.Running)
+        if (_doAfter.IsRunning(ent.Comp.ActiveDoAfter) || ent.Comp.Steps.Count == 0)
             return;
-
-        if (GetStored(ent).Count == 0)
-        {
-            _popup.PopupEntity(Loc.GetString("autosurgeon-empty"), ent, user);
-            return;
-        }
-
-        if (ent.Comp.Uses == 0)
-        {
-            _popup.PopupEntity(Loc.GetString("autosurgeon-spent"), ent, user);
-            return;
-        }
 
         if (GetPatient(ent) is not { } patient)
         {
@@ -96,19 +84,42 @@ public sealed class AutoSurgeonSystem : EntitySystem
             return;
         }
 
-        if (ent.Comp.Steps.Count == 0)
-            return;
+        var resume = ent.Comp.CurrentPatient == patient && ent.Comp.CurrentStep < ent.Comp.Steps.Count;
+        var firstStep = resume ? ent.Comp.CurrentStep : 0;
 
-        if (ent.Comp.CurrentPatient != patient || ent.Comp.CurrentStep >= ent.Comp.Steps.Count)
+        if (HasInstallStep(ent, firstStep))
         {
-            ent.Comp.CurrentStep = 0;
-            ent.Comp.CurrentPatient = patient;
+            if (GetStored(ent).Count == 0)
+            {
+                _popup.PopupEntity(Loc.GetString("autosurgeon-empty"), ent, user);
+                return;
+            }
+
+            if (ent.Comp.Uses == 0)
+            {
+                _popup.PopupEntity(Loc.GetString("autosurgeon-spent"), ent, user);
+                return;
+            }
         }
 
-        if (ent.Comp.CurrentStep == 0 && ent.Comp.StartSound != null)
+        ent.Comp.CurrentStep = firstStep;
+        ent.Comp.CurrentPatient = patient;
+
+        if (firstStep == 0 && ent.Comp.StartSound != null)
             _audio.PlayPvs(ent.Comp.StartSound, ent);
 
         StartStep(ent, user, patient);
+    }
+
+    private bool HasInstallStep(Entity<AutoSurgeonComponent> ent, int from)
+    {
+        for (var i = from; i < ent.Comp.Steps.Count; i++)
+        {
+            if (ent.Comp.Steps[i].Install)
+                return true;
+        }
+
+        return false;
     }
 
     private void StartStep(Entity<AutoSurgeonComponent> ent, EntityUid user, EntityUid patient)
@@ -123,8 +134,8 @@ public sealed class AutoSurgeonSystem : EntitySystem
             AttemptFrequency = AttemptFrequency.EveryTick,
         };
 
-        if (_doAfter.TryStartDoAfter(doAfter))
-            ent.Comp.Running = true;
+        if (_doAfter.TryStartDoAfter(doAfter, out var id))
+            ent.Comp.ActiveDoAfter = id;
     }
 
     private EntityUid? GetPatient(Entity<AutoSurgeonComponent> ent)
@@ -147,7 +158,7 @@ public sealed class AutoSurgeonSystem : EntitySystem
             return;
 
         args.Handled = true;
-        ent.Comp.Running = false;
+        ent.Comp.ActiveDoAfter = null;
 
         if (args.Cancelled || args.Target is not { } target || GetPatient(ent) != target)
         {
@@ -272,33 +283,29 @@ public sealed class AutoSurgeonSystem : EntitySystem
 
     private bool Install(EntityUid item, EntityUid target)
     {
-        if (_implantQuery.TryComp(item, out var implant))
-        {
-            if (GetImplantHost(item, target) is not { } host)
-                return false;
-
-            if (Prototype(item) is { } proto && TryComp<ImplantedComponent>(host, out var implanted))
-            {
-                foreach (var existing in implanted.ImplantContainer.ContainedEntities)
-                {
-                    if (Prototype(existing) == proto)
-                        return false;
-                }
-            }
-
-            _implants.ForceImplant(host, (item, implant));
-            return true;
-        }
-
-        if (!_organQuery.TryComp(item, out var organ))
+        if (!_implantQuery.TryComp(item, out var implant) || GetImplantHost(item, target) is not { } host)
             return false;
 
-        foreach (var existing in _body.EnumerateOrgans<OrganComponent>(target))
+        if (Prototype(item) is { } proto && TryComp<ImplantedComponent>(host, out var implanted))
         {
-            if (existing.Comp1.Category == organ.Category)
-                return false;
+            foreach (var existing in implanted.ImplantContainer.ContainedEntities)
+            {
+                if (Prototype(existing) == proto)
+                    return false;
+            }
         }
 
-        return _body.TryInsertOrgan(target, item);
+        if (!_container.TryGetContainingContainer(item, out var slot) || !_container.Remove(item, slot))
+            return false;
+
+        _implants.ForceImplant(host, (item, implant));
+
+        if (CompOrNull<ImplantedComponent>(host)?.ImplantContainer.Contains(item) == true)
+            return true;
+
+        implant.ImplantedEntity = null;
+        Dirty(item, implant);
+        _container.Insert(item, slot);
+        return false;
     }
 }

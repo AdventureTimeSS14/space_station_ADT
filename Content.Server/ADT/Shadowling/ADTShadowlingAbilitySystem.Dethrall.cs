@@ -21,6 +21,24 @@ public sealed partial class ADTShadowlingAbilitySystem
         SubscribeLocalEvent<ADTShadowlingThrallComponent, InteractUsingEvent>(OnThrallInteractUsing);
         SubscribeLocalEvent<ADTShadowlingThrallComponent, ADTShadowlingDethrallDoAfterEvent>(OnDethrallDoAfter);
         SubscribeLocalEvent<ADTShadowlingThrallComponent, DoAfterAttemptEvent<ADTShadowlingDethrallDoAfterEvent>>(OnDethrallAttempt);
+        SubscribeLocalEvent<ADTLesserShadowlingComponent, ADTLesserTumorBacklashEvent>(OnTumorBacklash);
+    }
+
+    private void OnTumorBacklash(Entity<ADTLesserShadowlingComponent> ent, ref ADTLesserTumorBacklashEvent args)
+    {
+        ApplySurgeryBacklash(ent, args.Surgeon);
+    }
+
+    private void ApplySurgeryBacklash(Entity<ADTLesserShadowlingComponent> ent, EntityUid surgeon)
+    {
+        _popup.PopupEntity(Loc.GetString("shadowling-dethrall-backlash-thrall"), ent, ent, PopupType.LargeCaution);
+        _popup.PopupEntity(Loc.GetString("shadowling-dethrall-backlash-surgeon", ("target", ent.Owner)), surgeon, surgeon, PopupType.LargeCaution);
+
+        _stun.TryKnockdown(surgeon, ent.Comp.SurgeryBacklashStun, true);
+
+        var backlash = new DamageSpecifier();
+        backlash.DamageDict.Add("Blunt", ent.Comp.SurgeryBacklashDamage);
+        _damageable.TryChangeDamage(surgeon, backlash, true, origin: ent);
     }
 
     private void OnThrallInteractUsing(Entity<ADTShadowlingThrallComponent> ent, ref InteractUsingEvent args)
@@ -105,14 +123,7 @@ public sealed partial class ADTShadowlingAbilitySystem
 
         if (TryComp<ADTLesserShadowlingComponent>(ent, out var lesser))
         {
-            _popup.PopupEntity(Loc.GetString("shadowling-dethrall-backlash-thrall"), ent, ent, PopupType.LargeCaution);
-            _popup.PopupEntity(Loc.GetString("shadowling-dethrall-backlash-surgeon", ("target", ent.Owner)), args.User, args.User, PopupType.LargeCaution);
-
-            _stun.TryKnockdown(args.User, lesser.SurgeryBacklashStun, true);
-
-            var backlash = new DamageSpecifier();
-            backlash.DamageDict.Add("Blunt", lesser.SurgeryBacklashDamage);
-            _damageable.TryChangeDamage(args.User, backlash, true, origin: ent);
+            ApplySurgeryBacklash((ent.Owner, lesser), args.User);
             return;
         }
 
