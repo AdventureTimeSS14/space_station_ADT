@@ -42,6 +42,22 @@
     event: !type:ToggleModMenuActionEvent
 
 - type: entity
+  id: ADTActionToggleMODAll
+  name: Toggle Whole MOD
+  description: Deploys or retracts every piece of the suit, one after another.
+  components:
+  - type: Action
+    priority: -4
+    itemIconStyle: BigItem
+    useDelay: 2
+  - type: Sprite
+    sprite: ADT/Interface/Actions/mod_actions.rsi
+    layers:
+    - state: activate
+  - type: InstantAction
+    event: !type:ToggleAllModPartsActionEvent
+
+- type: entity
   id: ADTActionMorphGeras
   name: Morph into Geras
   description: Morphs you into a Geras - a miniature version of you which allows you to move fast, at the cost of your inventory.
@@ -95,3 +111,17 @@
     - state: icon
   - type: InstantAction
     event: !type:ZombieJumpEvent {}
+
+- type: entity
+  id: ADTActionToggleAntigrav
+  name: Toggle antigrav
+  description: Toggles the antigrav module on and off.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Modsuits/modules.rsi
+    layers:
+    - state: antigrav
+  - type: InstantAction
+    event: !type:ToggleActionEvent

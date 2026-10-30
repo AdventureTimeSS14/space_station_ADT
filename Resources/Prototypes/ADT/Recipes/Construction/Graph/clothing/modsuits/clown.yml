@@ -19,4 +19,4 @@
                 state: modcore8
               doAfter: 2
     - node: adtmodsuitclown
-      entity: ADTClothingModsuitBackClown
+      entity: ADTClothingModsuitBackClownEmpty
