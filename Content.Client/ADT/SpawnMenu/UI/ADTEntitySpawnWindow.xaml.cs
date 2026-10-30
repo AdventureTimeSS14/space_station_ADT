@@ -91,6 +91,11 @@ public sealed partial class ADTEntitySpawnWindow : DefaultWindow
         UpdateDetails();
     }
 
+    public void ShowLoading()
+    {
+        CountLabel.Text = Loc.GetString("adt-spawn-menu-loading");
+    }
+
     public void SetSelected(EntityPrototype? prototype)
     {
         SelectedPrototype = prototype;

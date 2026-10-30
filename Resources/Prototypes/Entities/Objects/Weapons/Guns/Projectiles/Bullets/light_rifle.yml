@@ -29,10 +29,10 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 14 #ADT tweak
+        Piercing: 9 # ADT-Tweak
         # Blunt: 3 ADT tweak
         # Heat: 16 ADT tweak
-        Heat: 5
+        Heat: 3 # ADT-Tweak
 
 - type: entity
   parent: BaseBulletUranium
