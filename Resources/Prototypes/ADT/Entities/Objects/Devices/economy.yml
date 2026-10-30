@@ -165,3 +165,19 @@
       quickEquip: false
       slots:
       - Belt
+
+- type: entity
+  parent: BaseItem
+  id: ADTSkimmer
+  name: card skimmer
+  description: A suspiciously modified card reader. Uses someone else's money to fill someone else's pockets.
+  components:
+    - type: Skimmer
+    - type: Sprite
+      sprite: ADT/Objects/Devices/eftpos.rsi
+      state: eftpos
+      netsync: false
+    - type: Item
+      storedRotation: -90
+    - type: StaticPrice
+      price: 0

@@ -294,7 +294,21 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         AddInventoryFromPrototype(uid, VendingMachineInventoryData.Flatten(packPrototype.StartingInventory), InventoryType.Regular, component, restockQuality); // ADT-Tweak
         AddInventoryFromPrototype(uid, VendingMachineInventoryData.Flatten(packPrototype.EmaggedInventory), InventoryType.Emagged, component, restockQuality); // ADT-Tweak
         AddInventoryFromPrototype(uid, VendingMachineInventoryData.Flatten(packPrototype.ContrabandInventory), InventoryType.Contraband, component, restockQuality); // ADT-Tweak
+
+        ResetDynamicPrices(component.Inventory);
+        ResetDynamicPrices(component.EmaggedInventory);
+        ResetDynamicPrices(component.ContrabandInventory);
+
         Dirty(uid, component);
+    }
+
+    private void ResetDynamicPrices(Dictionary<string, VendingMachineInventoryEntry> inventory)
+    {
+        foreach (var entry in inventory.Values)
+        {
+            if (entry.BasePrice > 0)
+                entry.Price = entry.BasePrice;
+        }
     }
 
     private void OnEmagged(EntityUid uid, ADTVendingMachineComponent component, ref GotEmaggedEvent args)
@@ -368,7 +382,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         return GetAllInventory(uid, component).Where(inventoryEntry => inventoryEntry.Amount > 0).ToList(); // ADT-Economy
     }
 
-    private void AddInventoryFromPrototype(EntityUid uid, IEnumerable<(string Id, uint Amount, string? Category)> entries, // ADT-Tweak
+    private void AddInventoryFromPrototype(EntityUid uid, IEnumerable<(string Id, uint Amount, int Price, string? Category)> entries, // ADT-Tweak
         InventoryType type,
         ADTVendingMachineComponent? component = null, float restockQuality = 1.0f)
     {
@@ -393,7 +407,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
                 return;
         }
 
-        foreach (var (id, amount, category) in entries) // ADT-Tweak
+        foreach (var (id, amount, dataPrice, category) in entries) // ADT-Tweak
         {
             if (PrototypeManager.TryIndex<EntityPrototype>(id, out var proto)) // ADT-Economy
             {
@@ -418,7 +432,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
                     entry.Amount = Math.Max(entry.Amount, Math.Min(entry.Amount + restock, 3 * amount));
                 else
                 {
-                    var price = GetEntryPrice(proto);
+                    var price = dataPrice > 0 ? dataPrice : GetEntryPrice(proto);
                     inventory.Add(id, new VendingMachineInventoryEntry(type, id, restock, price, amount, category));
                 }
                 //ADT-Economy-End
@@ -446,4 +460,4 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
 
         UISystem.CloseUi(uid, ADTVendingMachineUiKey.Key);
     }
-}
+}

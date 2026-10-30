@@ -8,3 +8,9 @@ atm-ui-insert-card = Вставьте карту.
 atm-ui-balance = Баланс: { $balance }$
 atm-ui-nanotrasen-atm = Nanotrasen ATM
 atm-ui-name = Банкомат
+
+atm-skim-already-installed = Внутри уже что-то шевелится.
+atm-skim-no-linked-card = Сначала привяжите свою карту - устройство должно знать, куда сливать деньги.
+atm-skim-installed = Устройство закреплено на банкомате. Стойте так, будто вы просто ждёте лифт.
+atm-skim-victim = [color=red]Списание без подтверждения карты: { $amount }$![/color]
+bank-initiator-skimmer = Неизвестное устройство

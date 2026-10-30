@@ -1515,3 +1515,13 @@
     Telecrystal: 1
   categories:
   - UplinkWeaponry
+
+- type: listing
+  id: UplinkSkimmer
+  name: uplink-skimmer-name
+  description: uplink-skimmer-desc
+  productEntity: ADTSkimmer
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkDeception

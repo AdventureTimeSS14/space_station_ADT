@@ -22,7 +22,7 @@ public sealed partial class StationBankAccountComponent : Component
     /// When giving funds to a particular account, the proportion of funds they should receive compared to remaining accounts.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public double PrimaryCut = 1.00; ///ADT_Tweak 0.50 to 1.00 - пока судьба счетов отделов не решена - пусть все деньги идут Каргонии
+    public double PrimaryCut = 0.40; ///ADT_Tweak ADT-Economy: 40% доходов 0 Каргонии (казначей), остальные 60% распределяет <see cref="RevenueDistribution"/>
 
     /// <summary>
     /// When giving funds to a particular account from an override sell, the proportion of funds they should receive compared to remaining accounts.
@@ -81,6 +81,13 @@ public sealed partial class StationBankAccountComponent : Component
     /// Хранит в себе информацию о станционных банковских аккаунтах
     /// </summary>
     public Dictionary<ProtoId<CargoAccountPrototype>, BankAccount> BankAccounts = new();
+
+    /// <summary>
+    /// Надбавка к зарплате сотрудников отдела (доля от 0 до 5).
+    /// 0.2 = +20% к зарплате профессий этого отдела.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public Dictionary<ProtoId<CargoAccountPrototype>, double> SalaryBonus = new();
     //ADT-Economy-End
 }
 

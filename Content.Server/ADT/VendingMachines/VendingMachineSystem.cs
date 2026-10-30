@@ -287,6 +287,14 @@ namespace Content.Server.ADT.VendingMachines
 
         private void OnWithdrawMessage(EntityUid uid, ADTVendingMachineComponent component, VendingMachineWithdrawMessage args)
         {
+            if (TryComp<AccessReaderComponent>(uid, out var accessReader) &&
+                !_accessReader.IsAllowed(args.Actor, uid, accessReader))
+            {
+                Popup.PopupEntity(Loc.GetString("vending-machine-component-try-eject-access-denied"), uid, args.Actor);
+                Deny((uid, component));
+                return;
+            }
+
             _stackSystem.SpawnAtPosition(component.Credits, component.CreditStackPrototype,
                 Transform(uid).Coordinates);
 
@@ -294,6 +302,27 @@ namespace Content.Server.ADT.VendingMachines
             Audio.PlayPvs(component.SoundWithdrawCurrency, uid);
 
             UpdateVendingMachineInterfaceState(uid, component);
+        }
+
+        private bool TryGetRevenueTarget(EntityUid uid, ADTVendingMachineComponent component, out int accountId)
+        {
+            accountId = 0;
+
+            var station = _stationSystem.GetOwningStation(uid);
+            if (station == null || !TryComp<StationBankAccountComponent>(station, out var stationBank))
+                return false;
+
+            var revenueAccount = component.RevenueAccount ?? stationBank.PrimaryAccount;
+            return _bankCard.TryGetDepartmentAccountId(station.Value, revenueAccount, out accountId);
+        }
+
+        private void ApplyPriceCreep(VendingMachineInventoryEntry entry)
+        {
+            if (entry.BasePrice <= 0)
+                entry.BasePrice = entry.Price;
+
+            var step = Math.Max(1, entry.BasePrice / 20);
+            entry.Price = Math.Min(entry.Price + step, entry.BasePrice * 3);
         }
 
         private void OnAfterActivatableUIOpen(EntityUid uid, ADTVendingMachineComponent component, AfterActivatableUIOpenEvent args)
@@ -316,19 +345,8 @@ namespace Content.Server.ADT.VendingMachines
                 return;
             }
 
-            var items = _accessReader.FindPotentialAccessItems(user);
-            foreach (var item in items)
-            {
-                var nextItem = item;
-                if (TryComp(item, out PdaComponent? pda) && pda.ContainedId is { Valid: true } id)
-                    nextItem = id;
-
-                if (TryComp<BankCardComponent>(nextItem, out var bankCard) && bankCard.AccountId.HasValue)
-                {
-                    balance = _bankCard.GetBalance(bankCard.AccountId.Value);
-                    break;
-                }
-            }
+            if (_bankCard.TryGetUserAccountId(user, out var accountId))
+                balance = _bankCard.GetBalance(accountId);
 
             _userInterfaceSystem.ServerSendUiMessage(uid, ADTVendingMachineUiKey.Key,
                 new VendingMachineUserInfoMessage(balance, IsBalanceExempt(user)), user);
@@ -483,9 +501,20 @@ namespace Content.Server.ADT.VendingMachines
                             || account.Balance < price)
                             continue;
 
-                        _bankCard.TryChangeBalance(bankCard.AccountId.Value, -price);
-                        success = true;
-                        break;
+                        if (TryGetRevenueTarget(uid, vendComponent, out var revenueAccountId) &&
+                            _bankCard.TryTransfer(bankCard.AccountId.Value, revenueAccountId, price,
+                                TransactionReason.VendingSale, Name(sender.Value)))
+                        {
+                            success = true;
+                        }
+                        else if (_bankCard.TryBurn(bankCard.AccountId.Value, price,
+                                     TransactionReason.VendingSale, Name(sender.Value)))
+                        {
+                            success = true;
+                        }
+
+                        if (success)
+                            break;
                     }
                 }
 
@@ -495,6 +524,8 @@ namespace Content.Server.ADT.VendingMachines
                     Deny((uid, vendComponent), ejectComponent: ejectComponent);
                     return;
                 }
+
+                ApplyPriceCreep(entry);
             }
             vendComponent.NextItemCount = count;
             vendComponent.NextItemReturnedCount = freeCount;
@@ -709,7 +740,7 @@ namespace Content.Server.ADT.VendingMachines
 
                 if (PrototypeManager.TryIndex(vendingInventory, out VendingMachineInventoryPrototype? inventoryPrototype))
                 {
-                    foreach (var (item, amount, _) in VendingMachineInventoryData.Flatten(inventoryPrototype.StartingInventory))
+                    foreach (var (item, amount, _, _) in VendingMachineInventoryData.Flatten(inventoryPrototype.StartingInventory))
                     {
                         if (PrototypeManager.TryIndex(item, out EntityPrototype? entity))
                             total += _pricing.GetEstimatedPrice(entity) * amount;
@@ -731,4 +762,4 @@ namespace Content.Server.ADT.VendingMachines
                 args.Cancelled = true;
         }
     }
-}
+}

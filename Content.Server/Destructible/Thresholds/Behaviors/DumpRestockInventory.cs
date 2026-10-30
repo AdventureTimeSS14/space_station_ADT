@@ -36,7 +36,7 @@ public sealed partial class DumpRestockInventory : IThresholdBehavior
         if (!system.PrototypeManager.TryIndex(randomInventory, out VendingMachineInventoryPrototype? packPrototype))
             return;
 
-        foreach (var (entityId, count, _) in VendingMachineInventoryData.Flatten(packPrototype.StartingInventory)) // ADT-Tweak
+        foreach (var (entityId, count, _, _) in VendingMachineInventoryData.Flatten(packPrototype.StartingInventory)) // ADT-Tweak
         {
             var toSpawn = (int)Math.Round(count * Percent);
 

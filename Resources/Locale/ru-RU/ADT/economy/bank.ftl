@@ -28,3 +28,18 @@ bank-program-ui-transfer-error-target = [color=red]Ошибка: счёт пол
 bank-program-ui-transfer-error-funds = [color=red]Ошибка: недостаточно средств[/color]
 bank-program-ui-transfer-success = [color=green]Переведено { $amount }$ для { $target }[/color]
 bank-transfer = Перевод
+
+bank-reason-other = Операция
+bank-reason-salary = Заработная плата
+bank-reason-salarytax = Взнос на содержание станции
+bank-reason-vendingsale = Покупка в вендинге
+bank-reason-atmwithdraw = Снятие наличных
+bank-reason-atmdeposit = Внесение наличных
+bank-reason-eftpospayment = Оплата по EFTPOS
+bank-reason-banktransfer = Банковский перевод
+bank-reason-predictorfee = Услуги предсказателя
+bank-reason-adminaction = Корректировка администрацией
+bank-reason-fraud = Мошенническое списание
+bank-reason-revconfiscation = Удержание Центрального командования
+bank-initiator-centcom = Центральное командование
+

@@ -35,6 +35,12 @@ round-end-report-station-vault = Экипаж собрал за смену: [col
 round-end-report-average-wealth = В среднем на человека: [color=yellow]{ $value }[/color] кредитов
 round-end-report-richest = Самый богатый член экипажа: [color=lightgreen]{ $name }[/color], { $job } - [color=yellow]{ $value }[/color] кредитов ({ $player })
 round-end-report-nobody-rich = [color=red]Каким-то образом никто не заработал за смену ни одного кредита...[/color]
+round-end-report-salaries = Выплачено зарплат экипажу: [color=yellow]{ $value }[/color] кредитов
+round-end-report-deposits = Депозитов ЦК на счета отделов: [color=yellow]{ $value }[/color] кредитов
+round-end-report-taxes = Налогов в казначейство: [color=yellow]{ $value }[/color] кредитов
+round-end-report-transfers = Переводов между счетами: [color=yellow]{ $value }[/color] кредитов
+round-end-report-deposited = Пополнений счетов: [color=yellow]{ $value }[/color] кредитов
+round-end-report-burned = Сожжено платежей: [color=yellow]{ $value }[/color] кредитов
 
 round-end-report-ore-mined = Добыто руды: [color=orange]{ $value }[/color]
 round-end-report-food-eaten = Съедено еды: [color=white]{ $value }[/color] укусов/глотков

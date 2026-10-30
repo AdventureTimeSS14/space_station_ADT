@@ -169,3 +169,26 @@
       proto: ADTSpaceEmperor
   - type: DragonRule #чтобы отдельный рул не писать
   - type: GhostRoleAntagSpawner
+
+- type: entity
+  id: CargoCategorySurgeEvent
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    weight: 8
+    duration: 600
+    maxDuration: 1200
+    earliestStart: 10
+    reoccurrenceDelay: 30
+    maxOccurrences: 7
+    minimumPlayers: 10
+  - type: CargoCategorySurgeRule
+
+- type: entity
+  id: ADTRevSalaryCutEvent
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    weight: 0
+    duration: 1
+  - type: RevSalaryCutRule
