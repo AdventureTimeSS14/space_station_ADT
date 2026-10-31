@@ -182,7 +182,7 @@
 
 - type: entity
   parent: ClothingShoesBaseButcherable
-  id: ADTProstakBoots
+  id: ADTClothingShoesProstakBoots
   name: simpleton boots
   description: simpleton boots
   suffix: Halloween

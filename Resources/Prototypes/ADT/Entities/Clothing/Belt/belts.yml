@@ -238,7 +238,7 @@
 
 - type: entity
   parent: ClothingBeltStorageBase
-  id: ADTProstakBag
+  id: ADTClothingBeltProstakBag
   name: simpleton bag
   description: simpleton bag.
   suffix: Halloween

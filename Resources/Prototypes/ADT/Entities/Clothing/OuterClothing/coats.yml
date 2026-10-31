@@ -241,7 +241,7 @@
 
 - type: entity
   parent: ClothingOuterStorageBase
-  id: ADTProstakCoat
+  id: ADTClothingOuterCoatProstak
   name: simpleton coat
   description: simpleton coat
   suffix: Halloween
@@ -253,7 +253,7 @@
 
 - type: entity
   parent: ClothingOuterStorageBase
-  id: ADTProstakTrench
+  id: ADTClothingOuterCoatProstakTrench
   name: simpleton trench coat
   description: simpleton trench coat
   suffix: Halloween

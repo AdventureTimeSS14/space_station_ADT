@@ -829,7 +829,7 @@
     # - id: ADTRadioDemonMonocle
     #   amount: 1
 
-# Nazvanie ne dali dlya nego, da i xui s nim - Prostak
+# Nazvanie ne dali dlya nego, da i ladno - Prostak
 - type: entity
   id: ADTBoxProstak
   parent: ADTBoxNightmareClown
@@ -842,19 +842,19 @@
     state: base
   - type: StorageFill
     contents:
-    - id: ADTProstakHat
+    - id: ADTClothingHeadHatProstak
       amount: 1
-    - id: ADTProstakCap
+    - id: ADTClothingHeadHatProstakCap
       amount: 1
-    - id: ADTProstakSuit
+    - id: ADTClothingUniformJumpsuitProstak
       amount: 1
-    - id: ADTProstakCoat
+    - id: ADTClothingOuterCoatProstak
       amount: 1
-    - id: ADTProstakTrench
+    - id: ADTClothingOuterCoatProstakTrench
       amount: 1
-    - id: ADTProstakBoots
+    - id: ADTClothingShoesProstakBoots
       amount: 1
-    - id: ADTProstakBag
+    - id: ADTClothingBeltProstakBag
       amount: 1
 
 - type: entity

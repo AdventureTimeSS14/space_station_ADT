@@ -96,11 +96,11 @@ ent-ADTClothingHeadHatHornsSollux = Рога тролля
     .suffix = Хеллоуин
     .desc = Я в нем выгляжу глуп0.
 
-ent-ADTProstakHat = шляпа простака
+ent-ADTClothingHeadHatProstak = шляпа простака
     .suffix = Хеллоуин
     .desc = Обычная широкополая чёрная шляпа.
 
-ent-ADTProstakCap = кепка простака
+ent-ADTClothingHeadHatProstakCap = кепка простака
     .suffix = Хеллоуин
     .desc = Обычная кепка-плюшка.
 

@@ -379,7 +379,7 @@ ent-ADTHalloweenLethalCompanySuit = костюм сотрудника Смерт
     .suffix = Хеллоуин
     .desc = Одноразовые сотрудники - это круто!
 
-ent-ADTProstakSuit = костюм простака
+ent-ADTClothingUniformJumpsuitProstak = костюм простака
     .suffix = Хеллоуин
     .desc = Обычный серый пиджак.
 

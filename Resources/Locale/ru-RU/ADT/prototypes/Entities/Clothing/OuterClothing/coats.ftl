@@ -61,11 +61,11 @@ ent-ADTStudentBomber = университетская куртка-бомбер
     .suffix = Хеллоуин
     .desc = Удобная студенческая куртка-бомбер с нашитой на ней большой английской буквой В. Довольно популярна среди студентов различных учебных заведений ТСФ.
 
-ent-ADTProstakCoat = куртка простака
+ent-ADTClothingOuterCoatProstak = куртка простака
     .suffix = Хеллоуин
     .desc = Обычная короткая чёрная куртка.
 
-ent-ADTProstakTrench = пальто простака
+ent-ADTClothingOuterCoatProstakTrench = пальто простака
     .suffix = Хеллоуин
     .desc = Обычное длинное тёмное пальто.
 
