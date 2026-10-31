@@ -46,6 +46,14 @@
           operator: !type:UtilityOperator
             proto: ADTNearbyMeleeTargets
         - !type:HTNPrimitiveTask
+          operator: !type:ADTRadioCallOperator
+            call: Contact
+            lineSet: ADTXenoborgRadioContact
+            channel: Xenoborg
+            cooldown: 60
+            groupCooldown: 30
+            groupRange: 30
+        - !type:HTNPrimitiveTask
           operator: !type:MeleeOperator
             targetKey: Target
             targetState: SoftCritical
