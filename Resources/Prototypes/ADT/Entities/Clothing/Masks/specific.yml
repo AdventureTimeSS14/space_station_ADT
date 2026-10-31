@@ -7,6 +7,7 @@
     - type: VoiceMask
       voiceMaskName: "???"
       action: null
+      active: true
       barkId: Mettaton
       voiceId: johnny
     - type: HideLayerClothing
