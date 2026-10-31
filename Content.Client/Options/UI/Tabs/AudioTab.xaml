@@ -10,6 +10,7 @@
                                    Margin="0 0 0 8" />
                 <ui:OptionSlider Name="SliderVolumeMaster" Title="{Loc 'ui-options-master-volume'}"
                                  Margin="0 0 0 8" />
+                <ui:OptionSlider Name="SliderVolumeCassettes" Title="{Loc 'adt-ui-options-cassettes-volume'}" />
                 <!-- ADT Barks start -->
                 <ui:OptionSlider Name="SliderVolumeBarks" Title="{Loc 'ui-options-barks-volume'}" />
                 <!-- ADT Barks end -->

@@ -153,3 +153,33 @@
   completetime: 2
   materials:
     Plastic: 100
+
+# Music cassette player and tapes. One sheet provides 100 material units.
+- type: latheRecipe
+  id: ADTCassettePlayer
+  result: ADTCassettePlayer
+  completetime: 3
+  materials:
+    Steel: 500
+    Plastic: 200
+
+- type: latheRecipe
+  id: ADTCassetteTapeClassic
+  result: ADTCassetteTapeClassic
+  completetime: 2
+  materials:
+    Plastic: 300
+
+- type: latheRecipe
+  id: ADTCassetteTapeNuclear
+  result: ADTCassetteTapeNuclear
+  completetime: 2
+  materials:
+    Plastic: 300
+
+- type: latheRecipe
+  id: ADTCassetteTapeCustom
+  result: ADTCassetteTapeCustom
+  completetime: 2
+  materials:
+    Plastic: 300

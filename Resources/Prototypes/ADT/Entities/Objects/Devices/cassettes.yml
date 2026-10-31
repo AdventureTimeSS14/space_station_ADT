@@ -1,0 +1,87 @@
+- type: entity
+  parent: BaseItem
+  id: ADTCassettePlayer
+  name: cassette player
+  description: A cassette player that first hit the market over 100 years ago. Crazy how these never went out of style.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Devices/music_cassette_player.rsi
+    layers:
+    - state: walkman
+      map: ["base" ]
+  - type: Item
+    size: Small
+  - type: Clothing
+    slots:
+    - ears
+  - type: CassettePlayer
+  - type: RandomSprite
+    available:
+    - base:
+        walkman: ""
+        walkman_1: ""
+        walkman_2: ""
+        walkman_3: ""
+        walkman_4: ""
+        walkman_5: ""
+    
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: ADTCassetteTapeBase
+  name: cassette
+  description: A plastic cassette tape.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Devices/music_cassette_player.rsi
+    state: cassette_blue
+  - type: Item
+    size: Small
+  - type: CassetteTape
+
+- type: entity
+  parent: ADTCassetteTapeBase
+  id: ADTCassetteTapeClassic
+  name: SS14 classics cassette
+  components:
+  - type: Sprite
+    state: cassette_orange
+  - type: CassetteTape
+    songs:
+    - /Audio/Jukebox/flip-flap.ogg
+    - /Audio/Jukebox/title3.ogg
+    - /Audio/Jukebox/sector11.ogg
+    - /Audio/Jukebox/constellations.ogg
+    - /Audio/Jukebox/drifting.ogg
+    - /Audio/Jukebox/starlight.ogg
+    - /Audio/Jukebox/sunset.ogg
+
+- type: entity
+  parent: ADTCassetteTapeBase
+  id: ADTCassetteTapeNuclear
+  name: nuclear countdown cassette
+  components:
+  - type: Sprite
+    state: cassette_red_stripe
+  - type: CassetteTape
+    songs:
+    - /Audio/StationEvents/running_out.ogg
+    - /Audio/StationEvents/countdown.ogg
+    - /Audio/StationEvents/sound_station_14.ogg
+    - /Audio/StationEvents/blatantly_nuclear.ogg
+    - /Audio/Corvax/StationEvents/level.ogg
+    - /Audio/ADT/StationEvent/sponsored_by_syndicate.ogg
+
+- type: entity
+  parent: ADTCassetteTapeBase
+  id: ADTCassetteTapeCustom
+  name: custom cassette
+  components:
+  - type: Sprite
+    state: cassette_rising_sun
+  - type: Item
+    size: Small
+  - type: CassetteTape
+    songs: []
+    custom: true
+
