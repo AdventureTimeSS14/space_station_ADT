@@ -70,6 +70,12 @@ public sealed partial class ModSuitComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid? ActionMenuEntity;
 
+    [DataField]
+    public EntProtoId ToggleAllAction = "ADTActionToggleMODAll";
+
+    [DataField]
+    public EntityUid? ToggleAllActionEntity;
+
     #endregion
 
     #region Stats
@@ -156,6 +162,18 @@ public sealed partial class ModSuitComponent : Component
 
     [AutoNetworkedField]
     public EntityUid? TempUser = null;
+
+    [DataField]
+    public TimeSpan SequenceDelay = TimeSpan.FromSeconds(0.25);
+
+    [ViewVariables]
+    public List<EntityUid> PendingSequence = new();
+
+    [ViewVariables]
+    public TimeSpan NextSequenceTime;
+
+    [ViewVariables]
+    public EntityUid? SequenceUser;
 
     /// <summary>
     ///     If true, this MOD suit requires a battery to function. If false, it has infinite power.

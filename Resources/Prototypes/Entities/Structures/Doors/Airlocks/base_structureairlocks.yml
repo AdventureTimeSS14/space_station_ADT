@@ -146,6 +146,7 @@
     damageModifierSet: StrongMetallic
   - type: Injurable
     damageContainer: StructuralInorganic
+  - type: SparksOnDamage # ADT-Tweak
   - type: RCDDeconstructable
     cost: 6
     delay: 8

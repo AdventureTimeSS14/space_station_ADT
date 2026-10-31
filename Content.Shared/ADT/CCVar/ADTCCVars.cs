@@ -624,4 +624,7 @@ public sealed class ADTCCVars
 
     public static readonly CVarDef<string> CanvasPressurePreset =
         CVarDef.Create("adt.canvas.pressure_preset", "Liner", CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<bool> CanvasRightClickPicker =
+        CVarDef.Create("adt.canvas.right_click_picker", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 }
