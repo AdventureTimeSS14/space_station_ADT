@@ -48,8 +48,7 @@
     reoccurrenceDelay: 20
     minimumPlayers: 25
     duration: null
-  - type: SpaceSpawnRule
-    spawnDistance: 0
+  - type: VentSpawnRule
   - type: AntagSpawner
     prototype: ADTBaseMobMorph
   - type: AntagObjectives
