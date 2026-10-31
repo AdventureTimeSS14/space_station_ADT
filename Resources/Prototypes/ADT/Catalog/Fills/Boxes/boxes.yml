@@ -829,6 +829,34 @@
     # - id: ADTRadioDemonMonocle
     #   amount: 1
 
+# Nazvanie ne dali dlya nego, da i ladno - Prostak
+- type: entity
+  id: ADTBoxProstak
+  parent: ADTBoxNightmareClown
+  name: simpleton suit
+  description: simpleton suit
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+    state: base
+  - type: StorageFill
+    contents:
+    - id: ADTClothingHeadHatProstak
+      amount: 1
+    - id: ADTClothingHeadHatProstakCap
+      amount: 1
+    - id: ADTClothingUniformJumpsuitProstak
+      amount: 1
+    - id: ADTClothingOuterCoatProstak
+      amount: 1
+    - id: ADTClothingOuterCoatProstakTrench
+      amount: 1
+    - id: ADTClothingShoesProstakBoots
+      amount: 1
+    - id: ADTClothingBeltProstakBag
+      amount: 1
+
 - type: entity
   parent: ADTFoodPackGummies
   id: ADTFoodPackGummiesFilled
