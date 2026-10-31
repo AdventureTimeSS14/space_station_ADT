@@ -151,6 +151,11 @@
   components:
   - type: Sprite
     sprite: ADT/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi # ADT tweak
+  # ADT-Tweak start
+    layers:
+    - state: icon
+      map: [ "enum.BreechVisuals.Open" ]
+  # ADT-Tweak end
   - type: Item
   # ADT-Tweak start
     sprite: ADT/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi
@@ -176,11 +181,23 @@
   #  spread: 0.6
   # ADT-Tweak end
   - type: BallisticAmmoProvider
+    cycleable: true # ADT-tweak
     capacity: 2
   - type: Construction
     graph: ShotgunSawn
     node: start
     deconstructionTarget: null
+  # ADT-Tweak start
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.BreechVisuals.Open:
+        enum.BreechVisuals.Open:
+          True: { state: bolt-open }
+          False: { state: base }
+  - type: BreechLoaded
+    needOpenClose: false
+  # ADT-Tweak end
 
 - type: entity
   name: double-barreled shotgun
@@ -300,6 +317,11 @@
   components: # needs to be super inaccurate because you don't need to wield it
   - type: Sprite
     sprite: ADT/Objects/Weapons/Guns/Shotguns/sawn.rsi # ADT tweak
+  # ADT-Tweak start
+    layers:
+    - state: icon
+      map: [ "enum.BreechVisuals.Open" ]
+  # ADT-Tweak end
   - type: Clothing
     sprite: ADT/Objects/Weapons/Guns/Shotguns/sawn.rsi # ADT tweak
   - type: Item
@@ -319,10 +341,21 @@
     spread: 1.4
   - type: BallisticAmmoProvider
     capacity: 2
+    cycleable: true # ADT-tweak
   - type: Construction
     graph: ShotgunSawn
     node: shotgunsawn
     deconstructionTarget: null
+  # ADT-Tweak start
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.BreechVisuals.Open:
+        enum.BreechVisuals.Open:
+          True: { state: bolt-open }
+          False: { state: base }
+  - type: BreechLoaded
+  # ADT-Tweak end
 
 - type: entity
   name: sawn-off shotgun

@@ -285,3 +285,59 @@
   targetNode: makeshift_tank_ready
   category: construction-category-weapons
   objectType: Item
+
+- type: construction
+  id: ADTWeaponLauncherBombarda
+  graph: ADTWeaponLauncherBombarda
+  startNode: start
+  targetNode: ADTWeaponLauncherBombarda
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTWeaponLauncherBomplet
+  graph: ADTWeaponLauncherBomplet
+  startNode: start
+  targetNode: ADTWeaponLauncherBomplet
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTFireBombSatchel
+  graph: ADTFireBombSatchel
+  startNode: start
+  targetNode: ADTFireBombSatchel
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTMechLockermechGraph
+  graph: ADTMechLockermechGraph
+  startNode: start
+  targetNode: lockermech
+  category: construction-category-misc
+  objectType: Structure
+
+- type: construction
+  id: ExpShell
+  graph: ExpShell
+  startNode: start
+  targetNode: ADTCartridgeExplosiveImprovisedShell
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: FlameShell
+  graph: FlameShell
+  startNode: start
+  targetNode: ADTCartridgeFlameImprovisedShell
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: SmokeShell
+  graph: SmokeShell
+  startNode: start
+  targetNode: ADTCartridgeSmokeImprovisedShell
+  category: construction-category-weapons
+  objectType: Item

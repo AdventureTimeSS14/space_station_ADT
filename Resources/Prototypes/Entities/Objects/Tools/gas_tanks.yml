@@ -83,6 +83,11 @@
     sprite: Objects/Tanks/oxygen.rsi
   - type: Clothing
     sprite: Objects/Tanks/oxygen.rsi
+  # ADT-tweak start
+  - type: Tag
+    tags: 
+      - OxygenTank
+  # ADT-tweak end
 
 - type: entity
   parent: GasTankRoundBase
