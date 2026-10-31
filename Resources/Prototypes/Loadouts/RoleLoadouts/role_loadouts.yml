@@ -131,6 +131,7 @@
   id: JobServiceWorker
   groups:
   - Inventory # Corvax-Loadouts
+  - ADTServiceWorkerHead # ADT-Tweak
   - GroupTankHarness
   - ADTServiceWorkerJumpsuit #ADT-tweak
   - CommonBackpack
@@ -389,6 +390,7 @@
   canCustomizeName: true
   groups:
   - Inventory # Corvax-Loadouts
+  - ADTMusicianHead # ADT-Tweak
   - GroupTankHarness
   - MusicianJumpsuit
   - CommonBackpack

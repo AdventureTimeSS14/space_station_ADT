@@ -14,14 +14,25 @@ public sealed class BrushSettings
     public bool PressureAffectsOpacity;
     public float MinSizeFraction = 0.05f;
     public float MinOpacityFraction = 0.05f;
+    public bool Pixel;
+
+    public int PixelSize => Math.Clamp((int) MathF.Round(Size), 1, PixelMaxSize);
+
+    public const int PixelMaxSize = 16;
 
     public float DiameterAt(float pressure)
     {
+        if (Pixel)
+            return PixelSize;
+
         return PressureAffectsSize ? Size * Lerp(MinSizeFraction, 1f, pressure) : Size;
     }
 
     public float OpacityAt(float pressure)
     {
+        if (Pixel)
+            return Opacity;
+
         return PressureAffectsOpacity ? Opacity * Lerp(MinOpacityFraction, 1f, pressure) : Opacity;
     }
 
@@ -81,6 +92,8 @@ public sealed class BrushStroker
 
     public bool Active => _stroke != null;
 
+    private float Taper => _active.Pixel ? 0f : TaperOutLength;
+
     public event Action<StrokeRecord, int, int[]>? StrokeFinished;
 
     public event Action<StrokeRecord, int>? StrokeStarted;
@@ -115,7 +128,7 @@ public sealed class BrushStroker
                 _surface.BeginStroke(_active.Color, _stroke.Erase);
                 _stroke.Points.Add(point);
 
-                if (TaperOutLength > 0f)
+                if (Taper > 0f)
                     RedrawTail();
                 else
                     Start(point);
@@ -156,7 +169,7 @@ public sealed class BrushStroker
 
         stroke.Points.Add(point);
 
-        if (TaperOutLength > 0f)
+        if (Taper > 0f)
             RedrawTail();
         else
             Segment(point.Position, point.Pressure);
@@ -169,7 +182,7 @@ public sealed class BrushStroker
         var stroke = _stroke!;
         _stroke = null;
 
-        if (TaperOutLength > 0f)
+        if (Taper > 0f)
         {
             if (stroke.Points.Count == 1)
                 DabAt(stroke.Points[0].Position, stroke.Points[0].Pressure);
@@ -270,6 +283,14 @@ public sealed class BrushStroker
 
     private void Segment(Vector2 to, float toPressure)
     {
+        if (_active.Pixel)
+        {
+            PixelLine(_lastPos, to);
+            _lastPos = to;
+            _lastPressure = toPressure;
+            return;
+        }
+
         var from = _lastPos;
         var fromPressure = _lastPressure;
         var length = Vector2.Distance(from, to);
@@ -303,8 +324,54 @@ public sealed class BrushStroker
         _lastPressure = toPressure;
     }
 
+    private void PixelLine(Vector2 from, Vector2 to)
+    {
+        var x0 = (int) MathF.Floor(from.X);
+        var y0 = (int) MathF.Floor(from.Y);
+        var x1 = (int) MathF.Floor(to.X);
+        var y1 = (int) MathF.Floor(to.Y);
+        var dx = Math.Abs(x1 - x0);
+        var dy = -Math.Abs(y1 - y0);
+        var sx = x0 < x1 ? 1 : -1;
+        var sy = y0 < y1 ? 1 : -1;
+        var err = dx + dy;
+
+        while (true)
+        {
+            PixelAt(x0, y0);
+            if (x0 == x1 && y0 == y1)
+                break;
+
+            var e2 = 2 * err;
+            if (e2 >= dy)
+            {
+                err += dy;
+                x0 += sx;
+            }
+
+            if (e2 <= dx)
+            {
+                err += dx;
+                y0 += sy;
+            }
+        }
+    }
+
+    private void PixelAt(int x, int y)
+    {
+        var size = _active.PixelSize;
+        var offset = (size - 1) / 2;
+        _surface.FillCells(x - offset, y - offset, size, _active.Opacity);
+    }
+
     private void DabAt(Vector2 position, float pressure)
     {
+        if (_active.Pixel)
+        {
+            PixelAt((int) MathF.Floor(position.X), (int) MathF.Floor(position.Y));
+            return;
+        }
+
         var radius = _active.DiameterAt(pressure) * 0.5f;
         _surface.Dab(position, radius, _active.Hardness, _active.OpacityAt(pressure));
     }

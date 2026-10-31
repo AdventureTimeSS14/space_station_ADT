@@ -31,6 +31,9 @@ public sealed partial class ADTMegafaunaSpawnComponent : Component
     public float RoomMargin = 6f;
 
     [DataField]
+    public float LavaClearance = 17f;
+
+    [DataField]
     public List<EntProtoId> Bosses = new();
 
     [ViewVariables]

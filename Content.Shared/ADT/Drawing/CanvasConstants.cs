@@ -8,6 +8,9 @@ public static class CanvasConstants
     public const int HashLength = 16;
     public const int MinSide = 256;
     public const int SideStep = 64;
+    public const int MinPixelSide = 8;
+    public const int MaxPixelSide = 128;
+    public const int PixelSideStep = 8;
     public const int ChunkSize = 16 * 1024;
     public const int MaxChunks = (MaxTileBytes + ChunkSize - 1) / ChunkSize;
     public const int MaxBlobRequest = 64;
@@ -66,12 +69,22 @@ public static class CanvasConstants
 
     public static bool IsValidSize(Vector2i size)
     {
-        return IsValidSide(size.X) && IsValidSide(size.Y);
+        return IsValidSide(size.X) && IsValidSide(size.Y) || IsPixelSize(size);
+    }
+
+    public static bool IsPixelSize(Vector2i size)
+    {
+        return IsValidPixelSide(size.X) && IsValidPixelSide(size.Y);
     }
 
     private static bool IsValidSide(int side)
     {
         return side >= MinSide && side <= MaxSide && side % SideStep == 0;
+    }
+
+    private static bool IsValidPixelSide(int side)
+    {
+        return side >= MinPixelSide && side <= MaxPixelSide && side % PixelSideStep == 0;
     }
 
     public static int TileCount(int side)
