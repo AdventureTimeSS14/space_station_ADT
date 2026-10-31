@@ -79,7 +79,7 @@
 ## Belts without visualizers
 
 - type: entity
-  parent: [ClothingBeltStorageBase, BaseSecurityBartenderContraband]
+  parent: [ClothingBeltStorageBase, BaseSecurityBartenderContraband] ## adt-tweak Добавлен парент ClothingBeltStorageBase
   id: ClothingBeltBandolier
   name: bandolier
   description: A bandolier for holding shotgun ammunition.
@@ -90,15 +90,16 @@
     sprite: Clothing/Belt/bandolier.rsi
   - type: Item
     size: Huge
+  ## ADT-Tweak-Start
   - type: Storage
     grid:
-    - 0,0,4,3 # ADT
+    - 0,0,4,3 
     maxItemSize: Tiny
     whitelist:
       tags:
         - ShellShotgun
-        - CartridgeAntiMateriel # ADTn.
-        - CartridgeLightRifle # ADT
+        - CartridgeAntiMateriel
+   ## ADT-Tweak-End
 
 - type: entity
   parent: [ ClothingBeltStorageBase, BaseMagicalContraband ]
