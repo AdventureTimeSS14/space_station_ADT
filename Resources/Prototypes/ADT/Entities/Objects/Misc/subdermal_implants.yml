@@ -313,19 +313,55 @@
   parent: BaseSubdermalImplant
   id: ADTSandevistanImplant
   name: sandevistan
-  categories: [ HideSpawnMenu ]
   components:
     - type: SubdermalImplant
     - type: SandevistanImplant
+    - type: Tag
+      tags:
+      - SubdermalImplant
+    - type: Item
+      size: Tiny
+    - type: Sprite
+      sprite: ADT/Implants/sandevistan.rsi
+      state: icon
 
 - type: entity
+  abstract: true
   parent: BaseSubdermalImplant
-  id: ADTMantisDaggersImplant
-  name: mantis daggers
+  id: ADTBaseMantisDaggerImplant
   categories: [ HideSpawnMenu ]
   components:
     - type: SubdermalImplant
+    - type: Tag
+      tags:
+      - SubdermalImplant
+    - type: Item
+      size: Tiny
+    - type: Sprite
+      sprite: ADT/Implants/mantis_daggers.rsi
+      state: icon
+
+- type: entity
+  parent: ADTBaseMantisDaggerImplant
+  id: ADTMantisDaggerLeftImplant
+  name: mantis dagger (left arm)
+  components:
     - type: MantisDaggersImplant
+      side: Left
+    - type: OrganImplant
+      organ: ArmLeft
+    - type: Sprite
+      state: icon-left
+
+- type: entity
+  parent: ADTBaseMantisDaggerImplant
+  id: ADTMantisDaggerRightImplant
+  name: mantis dagger (right arm)
+  components:
+    - type: MantisDaggersImplant
+      side: Right
+    - type: OrganImplant
+      organ: ArmRight
 
 - type: entity
   parent: BaseSubdermalImplant

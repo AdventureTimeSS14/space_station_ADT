@@ -1,0 +1,9 @@
+organ-health-stage-worse = Боль усиливается. Вы чувствуете что с { $organ } что-то не так.
+organ-health-stage-healed = Боль утихает. Вы чувствуете что с { $organ } приходит в норму.
+organ-heart-attack-start = В груди вспыхивает страшная боль, вы чувствуете что с вашим сердцем что-то не так!
+organ-heart-attack-stopped = Сердце снова бьётся ровно.
+organ-health-examine-damaged = Орган начинает обесцвечиваться.
+organ-health-examine-failing = Орган слишком долго пребывал под влиянием разложения и приобрёл болезненный цвет. Он уже не заработает, если его не вылечить.
+organ-health-examine-damaged-robotic = Орган, кажется, работает неисправно.
+organ-health-examine-failing-robotic = Орган сломан.
+organ-ears-ringing = В ушах нарастает звон, заглушая все звуки вокруг.

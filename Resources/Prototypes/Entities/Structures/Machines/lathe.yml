@@ -236,7 +236,6 @@
     reagentCostSlotId: beaker_slot # ADT-Tweak
     staticPacks:
     - ChemistryStatic
-    - SurgeryStatic
     # ADT-tweak-Start
     - PartsStatic
     - ADTScienceExplosives
@@ -244,6 +243,7 @@
     # ADT-tweak-End
     dynamicPacks:
     - AdvancedTools
+    - SurgeryStatic # ADT-Tweak
     - ScienceEquipment
     # - ScienceExplosives # ADT-Tweak
     - ScienceClothing
@@ -261,6 +261,8 @@
     - ADTPKAPack
     - ADTServiceHydroponics
     - ADTAdvancedMedicalMiscPack
+    - ADTAdvancedSurgeryPack
+    - ADTLaserSurgeryPack
     - ADTTranslatorPack
     - ADTXenoTranslatorPack
     #- ADTPhantomPack
@@ -602,15 +604,17 @@
     - RollerBedsStatic
     - MedicalClothingStatic
     - EmptyMedkitsStatic
-    - SurgeryStatic
     # ADT-Tweak-Start
     - ADTMedicalMiscStaticPack
     - ADTChemicalPayload
     # ADT-Tweak-End
     dynamicPacks:
     - Chemistry
+    - SurgeryStatic # ADT-Tweak
     #ADT-Tweak Start
     - ADTAdvancedMedicalMiscPack
+    - ADTAdvancedSurgeryPack
+    - ADTLaserSurgeryPack
     - ADTAdvancedMedicalCarePack
     - ADTCryoTech
     - ADTThermoTech

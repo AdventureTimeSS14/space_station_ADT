@@ -1,14 +1,19 @@
 ﻿- type: entity
   id: BaseSubdermalImplant
+  parent: BaseItem # ADT-Tweak
   name: implant
   description: A microscopic chip that's injected under the skin.
   abstract: true
   components:
   - type: SubdermalImplant
+  - type: Item # ADT-Tweak
+    size: Tiny
+  - type: Sprite # ADT-Tweak
+    sprite: ADT/Objects/Specific/Medical/implant_biochip.rsi
+    state: icon
   - type: Tag
     tags:
     - SubdermalImplant
-    - HideContextMenu
 
 #Fun implants
 

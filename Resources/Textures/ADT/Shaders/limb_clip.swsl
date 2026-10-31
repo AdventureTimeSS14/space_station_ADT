@@ -1,0 +1,32 @@
+uniform sampler2D clipMap;
+uniform highp vec4 clipUV;
+uniform highp vec4 clipArms;
+uniform highp vec4 clipLegs;
+
+varying highp vec2 clipUVOut;
+
+highp float limbClipped(highp float id) {
+    if (id < 0.5) return 0.0;
+    if (id < 1.5) return clipArms.x;
+    if (id < 2.5) return clipArms.y;
+    if (id < 3.5) return clipArms.z;
+    if (id < 4.5) return clipArms.w;
+    if (id < 5.5) return clipLegs.x;
+    if (id < 6.5) return clipLegs.y;
+    if (id < 7.5) return clipLegs.z;
+    if (id < 8.5) return clipLegs.w;
+    if (id < 9.5) return clipArms.x * clipArms.y;
+    if (id < 10.5) return clipArms.z * clipArms.w;
+    if (id < 11.5) return clipLegs.x * clipLegs.y;
+    return clipLegs.z * clipLegs.w;
+}
+
+void vertex() {
+    clipUVOut = mix(clipUV.xy, clipUV.zw, tCoord2);
+}
+
+void fragment() {
+    COLOR = zTexture(UV);
+    if (limbClipped(floor(texture2D(clipMap, clipUVOut).r * 25.5 + 0.5)) > 0.5)
+        COLOR.a = 0.0;
+}

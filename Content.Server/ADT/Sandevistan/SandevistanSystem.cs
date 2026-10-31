@@ -1,4 +1,5 @@
 using Content.Shared.ADT.Abilities;
+using Content.Shared.ADT.Body.OrganHealth;
 using Content.Shared.ADT.Trail;
 using Content.Shared.ADT.Sandevistan;
 using Content.Shared.Actions;
@@ -25,6 +26,7 @@ public sealed class SandevistanSystem : EntitySystem
     [Dependency] private SharedActionsSystem _actions = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private OrganHealthSystem _organHealth = default!;
     [Dependency] private SharedJitteringSystem _jittering = default!;
     [Dependency] private MobStateSystem _mobState = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
@@ -70,9 +72,9 @@ public sealed class SandevistanSystem : EntitySystem
             {
                 { 1, () => _jittering.DoJitter(uid, comp.StatusEffectTime, true)},
                 { 2, () => _stamina.TakeStaminaDamage(uid, comp.StaminaDamage * frameTime)},
-                { 3, () => _damageable.TryChangeDamage(uid, comp.Damage * frameTime, ignoreResistances: true)},
+                { 3, () => DamageHeart(uid, comp, comp.Damage * frameTime, comp.HeartDamage * frameTime)},
                 { 4, () => _stun.TryKnockdown(uid, comp.StatusEffectTime, true)},
-                { 6, () => _damageable.TryChangeDamage(uid, comp.Damage * frameTime, ignoreResistances: true)},
+                { 6, () => DamageHeart(uid, comp, comp.Damage * frameTime, comp.HeartDamage * 2f * frameTime)},
             };
 
             var filteredStates = new List<int>();
@@ -99,6 +101,12 @@ public sealed class SandevistanSystem : EntitySystem
             _popup.PopupCursor(Loc.GetString("sandevistan-overload-" + popup), uid, PopupType.LargeCaution);
             comp.NextPopupTime = _timing.CurTime + comp.PopupDelay;
         }
+    }
+
+    private void DamageHeart(EntityUid uid, SandevistanUserComponent comp, DamageSpecifier damage, float heartDamage)
+    {
+        _damageable.TryChangeDamage(uid, damage, ignoreResistances: true);
+        _organHealth.ChangeDamage(uid, "Heart", heartDamage);
     }
 
     private void OnStartup(Entity<SandevistanUserComponent> ent, ref ComponentStartup args)
@@ -209,6 +217,7 @@ public sealed class SandevistanSystem : EntitySystem
         {
             ent.Comp.CurrentLoad += ent.Comp.EmpOverload;
             _damageable.TryChangeDamage(uid, ent.Comp.EmpDamage, ignoreResistances: true);
+            _organHealth.ChangeDamage(uid, "Heart", ent.Comp.HeartEmpDamage);
             _jittering.DoJitter(uid, TimeSpan.FromSeconds(30f), true);
             _stun.TryAddParalyzeDuration(uid, TimeSpan.FromSeconds(6f));
             Spawn("EffectSparks", Transform(uid).Coordinates);

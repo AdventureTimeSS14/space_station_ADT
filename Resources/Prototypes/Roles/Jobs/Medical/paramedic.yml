@@ -16,6 +16,10 @@
   - External # ADT tweak
   extendedAccess:
   - Chemistry
+  special: # ADT-Tweak
+  - !type:AddComponentSpecial # ADT-Tweak
+    components:
+    - type: SurgerySkill
 
 - type: startingGear
   id: ParamedicGear

@@ -1,0 +1,48 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+   xmlns:health="clr-namespace:Content.Client.HealthAnalyzer.UI"
+   Title="{Loc 'surgery-console-window-title'}"
+   MinSize="480 520"
+   SetSize="520 680">
+    <TabContainer Name="Tabs" VerticalExpand="True">
+        <ScrollContainer Name="{Loc 'surgery-console-tab-patient'}" HScrollEnabled="False" VerticalExpand="True">
+            <BoxContainer Orientation="Vertical">
+                <health:HealthAnalyzerControl Name="HealthAnalyzer" VerticalExpand="False"/>
+                <Label Name="StatusLabel" Margin="10 5 10 5"/>
+                <BoxContainer Name="OperationsBox" Orientation="Vertical" Margin="10 0 10 5" Visible="False">
+                    <Label Text="{Loc 'surgery-console-current-operations'}" StyleClasses="LabelHeading"/>
+                    <PanelContainer StyleClasses="LowDivider"/>
+                    <Label Name="LocationLabel" Margin="0 5 0 5" StyleClasses="LabelHeading"/>
+                    <PanelContainer StyleClasses="LowDivider"/>
+                    <BoxContainer Orientation="Vertical" Margin="0 5 0 0">
+                        <BoxContainer Orientation="Horizontal">
+                            <Label Text="{Loc 'surgery-console-operation'}" MinWidth="130" VerticalAlignment="Top"/>
+                            <RichTextLabel Name="GraphLabel" HorizontalExpand="True"/>
+                        </BoxContainer>
+                        <BoxContainer Orientation="Horizontal">
+                            <Label Text="{Loc 'surgery-console-state'}" MinWidth="130" VerticalAlignment="Top"/>
+                            <RichTextLabel Name="NodeLabel" HorizontalExpand="True"/>
+                        </BoxContainer>
+                        <BoxContainer Orientation="Horizontal">
+                            <Label Text="{Loc 'surgery-console-next-step'}" MinWidth="130" VerticalAlignment="Top"/>
+                            <RichTextLabel Name="StepsLabel" HorizontalExpand="True"/>
+                        </BoxContainer>
+                    </BoxContainer>
+                </BoxContainer>
+            </BoxContainer>
+        </ScrollContainer>
+
+        <ScrollContainer Name="{Loc 'surgery-console-tab-organs'}" HScrollEnabled="False" VerticalExpand="True">
+            <BoxContainer Orientation="Vertical" Margin="10 5 10 5">
+                <Label Name="OrgansStatusLabel"/>
+                <Label Name="HeartStoppedLabel" Visible="False" StyleClasses="LabelHeading" Text="{Loc 'surgery-console-heart-stopped'}" Margin="0 0 0 5"/>
+                <BoxContainer Name="OrgansBox" Orientation="Vertical" SeparationOverride="4"/>
+            </BoxContainer>
+        </ScrollContainer>
+
+        <BoxContainer Name="{Loc 'surgery-console-tab-settings'}" Orientation="Vertical" Margin="10 5 10 5">
+            <CheckBox Name="AlertsCheckBox" Text="{Loc 'surgery-console-alerts-toggle'}"/>
+        </BoxContainer>
+    </TabContainer>
+</controls:FancyWindow>

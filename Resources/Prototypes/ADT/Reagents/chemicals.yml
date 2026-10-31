@@ -75,6 +75,22 @@
   meltingPoint: 2500
 
 - type: reagent
+  id: ADTLidocaine
+  name: reagent-name-lidocaine
+  group: Medicine
+  desc: reagent-desc-lidocaine
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: bitter
+  color: "#ffd2f8"
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectAnesthetized
+        type: Update
+        time: 2
+
+- type: reagent
   id: ADTThermolyne
   name: reagent-name-thermolyne
   group: Medicine

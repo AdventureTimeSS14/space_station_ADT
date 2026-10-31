@@ -1,4 +1,14 @@
 - type: reaction
+  id: ADTLidocaine
+  reactants:
+    Phenol:
+      amount: 1
+    Diethylamine:
+      amount: 1
+  products:
+    ADTLidocaine: 3
+
+- type: reaction
   id: ADTCopperNitride
   reactants:
     Copper:

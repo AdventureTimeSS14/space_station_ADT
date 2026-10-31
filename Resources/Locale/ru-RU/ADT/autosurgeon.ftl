@@ -1,0 +1,16 @@
+autosurgeon-empty = Внутри нет импланта.
+autosurgeon-spent = У стола не осталось зарядов.
+autosurgeon-no-patient = На столе никого нет. Пристегните пациента.
+autosurgeon-done = Операция над { $patient } завершена.
+autosurgeon-failed = Не удаётся установить { $item }: нет нужной части тела, место занято или такой имплант уже есть.
+autosurgeon-examine-loaded = Внутри загружен: { $item }.
+autosurgeon-examine-empty = Внутри ничего нет.
+autosurgeon-examine-uses = Осталось зарядов: { $uses }.
+autosurgeon-interrupted = Операция прервана. Её можно продолжить с этого же шага.
+autosurgeon-step-incision = Стол делает разрез.
+autosurgeon-step-clamp = Стол зажимает кровоточащие сосуды.
+autosurgeon-step-retract = Стол разводит ткани.
+autosurgeon-step-install = Стол устанавливает имплант.
+autosurgeon-step-cauterize = Стол прижигает разрез.
+autosurgeon-verb-start = Запустить операцию
+autosurgeon-locked = Ремни не расстёгиваются, пока идёт операция.

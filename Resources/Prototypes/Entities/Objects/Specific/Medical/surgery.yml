@@ -8,6 +8,7 @@
   - type: Sprite
   - type: StaticPrice
     price: 20
+  - type: SurgeryTool # ADT-Tweak
   - type: Tag
     tags:
     - SurgeryTool
@@ -20,6 +21,12 @@
   parent: BaseToolSurgery
   description: A surgical tool used to cauterize open wounds.
   components:
+  # ADT-Tweak start
+  - type: Tag
+    tags:
+    - SurgeryTool
+    - Cautery
+  # ADT-Tweak end
   - type: Sprite
     sprite: Objects/Specific/Medical/Surgery/cautery.rsi
     state: cautery
@@ -41,6 +48,12 @@
   parent: BaseToolSurgery
   description: A surgical drill for making holes into hard material.
   components:
+  # ADT-Tweak start
+  - type: Tag
+    tags:
+    - SurgeryTool
+    - Drill
+  # ADT-Tweak end
   - type: Sprite
     sprite: Objects/Specific/Medical/Surgery/drill.rsi
     state: drill
@@ -66,6 +79,12 @@
   parent: BaseToolSurgery
   description: A surgical tool used to make incisions into flesh.
   components:
+  # ADT-Tweak start
+  - type: Tag
+    tags:
+    - SurgeryTool
+    - Scalpel
+  # ADT-Tweak end
   - type: Tool
     qualities:
     - Slicing
@@ -109,7 +128,8 @@
         - ItemMask
         restitution: 0.3
         friction: 0.2
-
+  - type: SurgeryTool # ADT-Tweak
+    speed: 1.25
 
 - type: entity
   name: advanced scalpel
@@ -125,6 +145,10 @@
     damage:
       types:
         Slash: 12
+  # ADT-Tweak start
+  - type: SurgeryTool
+    speed: 0.67
+  # ADT-Tweak end
 
 - type: entity
   name: laser scalpel
@@ -136,6 +160,10 @@
     state: laser
   - type: Item
     heldPrefix: laser
+  # ADT-Tweak start
+  - type: SurgeryTool
+    speed: 0.67
+  # ADT-Tweak end
 
 # Scissors
 
@@ -145,6 +173,12 @@
   parent: BaseToolSurgery
   description: A surgical tool used to hold open incisions.
   components:
+  # ADT-Tweak start
+  - type: Tag
+    tags:
+    - SurgeryTool
+    - Retractor
+  # ADT-Tweak end
   - type: Sprite
     sprite: Objects/Specific/Medical/Surgery/scissors.rsi
     state: retractor
@@ -158,6 +192,12 @@
   parent: Retractor
   description: A surgical tool used to compress blood vessels to prevent bleeding.
   components:
+  # ADT-Tweak start
+  - type: Tag
+    tags:
+    - SurgeryTool
+    - Hemostat
+  # ADT-Tweak end
   - type: Sprite
     state: hemostat
   - type: Item
@@ -178,6 +218,15 @@
   parent: BaseToolSurgery
   description: For cutting wood and other objects to pieces. Or sawing bones, in case of emergency.
   components:
+  # ADT-Tweak start
+  - type: Tag
+    tags:
+    - SurgeryTool
+    - Saw
+  - type: SurgeryTool
+    sound:
+      collection: ADTSurgeryHacksaw
+  # ADT-Tweak end
   - type: Utensil
     types:
       - Knife
@@ -232,6 +281,12 @@
       path: /Audio/Items/drill_hit.ogg
   - type: Tool
     speedModifier: 1.5
+  # ADT-Tweak start
+  - type: SurgeryTool
+    speed: 0.67
+    sound:
+      path: /Audio/ADT/Medical/Surgery/saw.ogg
+  # ADT-Tweak end
 
 - type: entity
   name: advanced circular saw
@@ -247,3 +302,7 @@
     attackRate: 1.5
   - type: Tool
     speedModifier: 2.0
+  # ADT-Tweak start
+  - type: SurgeryTool
+    speed: 0.5
+  # ADT-Tweak end

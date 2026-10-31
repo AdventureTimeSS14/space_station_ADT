@@ -13,7 +13,7 @@
   - HotplateMachineCircuitboard
   - ADTColdplateMachineCircuitboard
   - EnergyChemDispenserMachineCircuitboard
-  position: 3,2
+  position: 3,0
 
 - type: technology
   id: ADTAdvancedMedicalCare
@@ -29,9 +29,9 @@
   - ADTAdvancedMedicalBedCircuitboard
   - ADTPatchLepo
   - MedicalScannerMachineCircuitboard
-  position: 3,-1
   requiredTech:
   - ADTIndustrialMedicine
+  position: 3,-2
 
 - type: technology
   id: ADTHighVoltageDefibrillator
@@ -46,7 +46,7 @@
   - ADTHighVoltageDefibrillator
   requiredTech:
   - ADTAdvancedMedicalCare
-  position: 4,-2
+  position: 3,-3
 
 - type: technology
   id: ADTCloning
@@ -60,9 +60,9 @@
   recipeUnlocks:
   - CloningPodMachineCircuitboard
   - CloningConsoleComputerCircuitboard
-  position: 1,-1
   requiredTech:
   - ADTThermoTech
+  position: 6,-2
 
 - type: technology
   id: ADTMedbeam
@@ -75,9 +75,9 @@
   cost: 12000
   recipeUnlocks:
   - ADTWeaponMedbeamCivil
-  position: 0,-1
   requiredTech:
   - ADTCloning
+  position: 7,-3
 
 - type: technology
   id: ADTIndustrialMedicine
@@ -95,7 +95,7 @@
   - AdvancedJetInjector
   requiredTech:
   - ADTChemDisp
-  position: 3,0
+  position: 3,-1
 
 - type: technology
   id: ADTReagentAnalyzer
@@ -110,7 +110,7 @@
   - ADTReagentAnalyzer
   - ClothingEyesGlassesChemical
   requiredTech:
-  - ADTIndustrialMedicine
+  - ADTChemDisp
   position: 4,0
 
 - type: technology
@@ -129,7 +129,7 @@
   - ADTPatchCryo
   requiredTech:
   - ADTAdvancedMedicalCare
-  position: 2,-2
+  position: 4,-2
 
 - type: technology
   id: ADTThermoTech
@@ -144,7 +144,7 @@
   - ADTPatchThermo
   requiredTech:
   - ADTCryoTech
-  position: 2,-1
+  position: 5,-3
 
 - type: technology
   id: ADTMechanizedTreatment
@@ -165,9 +165,9 @@
   - ADTBorgModuleAdvancedChemical # позже сделаю отдельное исследование, а пока просто сделаю крафт подороже тк мне лень
   - ADTBorgModuleChemical
   # ADT-Tweak-end
-  position: 6,0
   requiredTech:
-  - ADTMedicalMODsuit
+  - ADTIndustrialMedicine
+  position: 4,-1
 
 - type: technology
   id: ADTBluespaceChemistry
@@ -181,9 +181,9 @@
   recipeUnlocks:
   - BluespaceBeaker
   - SyringeBluespace
-  position: 5,-3
   requiredTech:
   - ADTSyringeGun
+  position: 1,-3
 
 - type: technology
   id: ADTSyringeGun
@@ -197,9 +197,9 @@
   recipeUnlocks:
   - ADTMiniSyringe
   - ADTLauncherSyringe
-  position: 4,-3
   requiredTech:
-  - ADTAdvancedMedicalCare
+  - ADTHighVoltageDefibrillator
+  position: 2,-4
 
 - type: technology
   id: ADTMedicalMODsuit
@@ -208,7 +208,7 @@
     sprite: ADT/Objects/Specific/Modsuits/modcore_construction.rsi
     state: medical
   discipline: Biochemical
-  tier: 1
+  tier: 3
   cost: 5000
   recipeUnlocks:
   - ADTModsuitPlateMedical
@@ -218,6 +218,87 @@
   - ADTModsuitModDefibrillator
   technologyPrerequisites:
     - ADTModsuitBase
-  position: 5,-1
   requiredTech:
-  - ADTAdvancedMedicalCare
+  - ADTCyberneticOrgans
+  position: 6,-1
+
+- type: technology
+  id: ADTCyberneticOrgans
+  name: research-technology-cybernetic-organs
+  icon:
+    sprite: ADT/Objects/Specific/Medical/Organs/cyber_organs.rsi
+    state: heart-on
+  discipline: Biochemical
+  tier: 3
+  cost: 12500
+  recipeUnlocks:
+  - ADTOrganCyberHeart
+  - ADTOrganCyberLungs
+  - ADTOrganCyberLiver
+  - ADTOrganCyberKidneys
+  - ADTOrganCyberStomach
+  - ADTOrganCyberEyes
+  requiredTech:
+  - ADTMechanizedTreatment
+  position: 5,1
+
+- type: technology
+  id: ADTAdvancedSurgery
+  name: research-technology-advanced-surgery
+  icon:
+    sprite: ADT/Objects/Specific/Medical/Surgery/bone_gel.rsi
+    state: bone-gel
+  discipline: Biochemical
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - ScalpelLaser
+  - ADTBoneGel
+  - ADTBloodFilter
+  - SawElectric
+  - ADTOperatingTableMachineCircuitboard
+  - ADTSurgeryConsoleComputerCircuitboard
+  requiredTech:
+  - ADTBasicSurgery
+  position: 1,0
+
+- type: technology
+  id: ADTLaserSurgery
+  name: research-technology-laser-surgery
+  icon:
+    sprite: ADT/Objects/Specific/Medical/Surgery/laser_scalpel.rsi
+    state: icon
+  discipline: Biochemical
+  tier: 3
+  cost: 12500
+  recipeUnlocks:
+  - ADTLaserScalpel
+  - ADTMechanicalPinches
+  - ADTSearingTool
+  - SawAdvanced
+  requiredTech:
+  - ADTAdvancedSurgery
+  position: 0,-1
+
+- type: technology
+  id: ADTBasicSurgery
+  name: research-technology-basic-surgery
+  icon:
+    sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
+    state: scalpel
+  discipline: Biochemical
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - Scalpel
+  - Retractor
+  - Cautery
+  - Drill
+  - Saw
+  - Hemostat
+  - ADTSurgicalDrapes
+  - ADTSurgicalTape
+  - ADTBoneSetter
+  requiredTech:
+  - ADTChemDisp
+  position: 2,0

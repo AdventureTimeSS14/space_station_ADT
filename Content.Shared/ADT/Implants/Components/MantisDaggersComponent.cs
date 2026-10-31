@@ -19,20 +19,29 @@ public sealed partial class MantisDaggersComponent : Component
     [AutoNetworkedField]
     public EntityUid? InnateWeapon;
 
+    [AutoNetworkedField]
+    public MantisDaggerSide Sides = MantisDaggerSide.None;
+
+    [DataField]
+    public EntProtoId PairWeapon = "ADTMantisDaggers";
+
+    [DataField]
+    public EntProtoId SingleWeapon = "ADTMantisDagger";
+
     [DataField]
     public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/ADT/Weapons/Melee/blade.ogg");
 
-    /// <summary>
-    /// The fallback sprite to be added on the original entity.
-    /// </summary>
     [DataField]
-    public SpriteSpecifier? FallbackSprite = new SpriteSpecifier.Rsi(new("ADT/Implants/mantis_daggers.rsi"), "hands");
+    public SpriteSpecifier? LeftSprite = new SpriteSpecifier.Rsi(new("ADT/Implants/mantis_daggers.rsi"), "hands-left");
 
-    /// <summary>
-    /// The key of the entity layer into which the sprite will be inserted
-    /// </summary>
     [DataField]
-    public string LayerMap = "mantis_daggers_layer";
+    public SpriteSpecifier? RightSprite = new SpriteSpecifier.Rsi(new("ADT/Implants/mantis_daggers.rsi"), "hands-right");
+
+    [DataField]
+    public string LeftLayerMap = "mantis_daggers_layer_left";
+
+    [DataField]
+    public string RightLayerMap = "mantis_daggers_layer_right";
 
     [DataField]
     [AutoNetworkedField]

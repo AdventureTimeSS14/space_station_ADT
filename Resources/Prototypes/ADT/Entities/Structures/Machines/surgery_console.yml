@@ -1,0 +1,31 @@
+- type: entity
+  parent: BaseComputer
+  id: ADTComputerSurgeryConsole
+  name: surgery console
+  description: Shows a step-by-step guide for whatever operation is being performed on the nearest table.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: medcomp
+    - map: ["computerLayerKeys"]
+      state: med_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: PointLight
+    radius: 1.5
+    energy: 4.0
+    color: "#1f8c28"
+  - type: Computer
+    board: ADTSurgeryConsoleComputerCircuitboard
+  - type: SurgeryConsole
+  - type: ActivatableUI
+    key: enum.SurgeryConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.SurgeryConsoleUiKey.Key:
+        type: SurgeryConsoleBoundUserInterface

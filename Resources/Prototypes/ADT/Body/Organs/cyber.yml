@@ -1,0 +1,127 @@
+- type: entity
+  id: ADTOrganCyberHeart
+  parent: [ OrganBaseHeart, OrganHumanMetabolizer ]
+  name: cybernetic heart
+  description: A mechanical pump that replaces a biological heart.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/Organs/cyber_organs.rsi
+    layers:
+    - state: heart-on
+  - type: OrganHealth
+    kind: Robotic
+    maxDamage: 37.5
+    healRate: 0
+  - type: CyberOrgan
+    effectCooldown: 15
+    empJitter: 15
+    empDamage:
+      types:
+        Asphyxiation: 8
+
+- type: entity
+  id: ADTOrganCyberLungs
+  parent: [ OrganBaseLungs, OrganHumanMetabolizer ]
+  name: cybernetic lungs
+  description: A pair of mechanical gas exchangers that replace biological lungs.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/Organs/cyber_organs.rsi
+    layers:
+    - state: lungs
+  - type: OrganHealth
+    kind: Robotic
+    maxDamage: 25
+    healRate: 0
+  - type: CyberOrgan
+    effectCooldown: 30
+    empDamage:
+      types:
+        Asphyxiation: 10
+
+- type: entity
+  id: ADTOrganCyberLiver
+  parent: [ OrganBaseLiver, OrganHumanMetabolizer ]
+  name: cybernetic liver
+  description: A mechanical filtration unit that replaces a biological liver.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/Organs/cyber_organs.rsi
+    layers:
+    - state: liver
+  - type: Metabolizer
+    updateInterval: 1.11
+  - type: OrganHealth
+    kind: Robotic
+    maxDamage: 25
+    healRate: 0
+  - type: CyberOrgan
+    effectCooldown: 10
+    empDamage:
+      types:
+        Poison: 10
+
+- type: entity
+  id: ADTOrganCyberKidneys
+  parent: [ OrganBaseKidneys, OrganHumanMetabolizer ]
+  name: cybernetic kidneys
+  description: A pair of mechanical filters that replace biological kidneys.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/Organs/cyber_organs.rsi
+    layers:
+    - state: kidneys
+  - type: OrganHealth
+    kind: Robotic
+    maxDamage: 25
+    healRate: 0
+  - type: CyberOrgan
+    effectCooldown: 10
+    empDamage:
+      types:
+        Poison: 5
+
+- type: entity
+  id: ADTOrganCyberStomach
+  parent: [ OrganBaseStomach, OrganHumanMetabolizer ]
+  name: cybernetic stomach
+  description: A mechanical processor that replaces a biological stomach.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/Organs/cyber_organs.rsi
+    layers:
+    - state: stomach
+  - type: Metabolizer
+    updateInterval: 1.43
+  - type: OrganHealth
+    kind: Robotic
+    maxDamage: 25
+    healRate: 0
+  - type: CyberOrgan
+    effectCooldown: 10
+    empVomit: true
+
+- type: entity
+  id: ADTOrganCyberEyes
+  parent: OrganBaseEyes
+  name: cybernetic eyes
+  description: A pair of optical sensors that replace biological eyes.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/Organs/cyber_organs.rsi
+    layers:
+    - state: eyes
+  - type: VisualOrganMarkings
+    markingData:
+      group: Human
+  - type: OrganHealth
+    kind: Robotic
+    maxDamage: 25
+    healRate: 0
+  - type: OrganGrantComponents
+    components:
+    - type: FlashModifier
+      modifier: 1.5
+  - type: CyberOrgan
+    empOrganDamageChance: 0.1
+    empOrganDamage: 20

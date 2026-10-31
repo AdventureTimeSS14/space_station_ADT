@@ -1,0 +1,865 @@
+- type: surgeryGraph
+  id: SurgeryAmputateArmLeft
+  category: SurgeryCategoryAmputation
+  name: surgery-graph-amputate-arm-left-name
+  location: surgery-location-arm-left
+  startNode: Attached
+  nodes:
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges:
+        - id: Cut
+          label: surgery-edge-limb-cut-label
+          target: Cut
+          conditions:
+            - !type:OrganPresentCondition
+              organId: ArmLeft
+          steps:
+            - name: surgery-edge-limb-cut-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 3
+                      Bloodloss: 4
+
+    - name: Cut
+      label: surgery-node-limb-cut-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: ClampBleeders
+          label: surgery-edge-limb-clamp-bleeders-label
+          target: BleedersClamped
+          steps:
+            - name: surgery-edge-limb-clamp-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: BleedersClamped
+      label: surgery-node-limb-bleeders-clamped-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-limb-retract-skin-label
+          target: SkinRetracted
+          steps:
+            - name: surgery-edge-limb-retract-skin-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: SkinRetracted
+      label: surgery-node-limb-skin-retracted-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: ExtractImplant
+          label: surgery-edge-limb-extract-implant-label
+          perImplant: true
+          target: SkinRetracted
+          conditions:
+            - !type:HasImplantCondition
+              organId: ArmLeft
+          steps:
+            - name: surgery-edge-limb-extract-implant-label
+              quality: OrganManipulation
+              successChance: 0.65
+              duration: 6.4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 3
+                      Bloodloss: 2
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+          effects:
+            - !type:ExtractImplantEffect
+              organId: ArmLeft
+
+        - id: Saw
+          label: surgery-edge-limb-saw-label
+          target: Amputated
+          steps:
+            - name: surgery-edge-limb-saw-label
+              quality: Sawing
+              successChance: 0.7
+              duration: 5
+              sound:
+                path: /Audio/ADT/Medical/Surgery/saw.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 4
+                      Bloodloss: 3
+          effects:
+            - !type:RemoveOrganEffect
+              organId: ArmLeft
+
+    - name: Amputated
+      label: surgery-node-limb-amputated-label
+      packages:
+        - SurgeryPackageLimbStumpCauterize
+
+    - name: Cauterized
+      label: surgery-node-limb-cauterized-label
+      edges: []
+
+- type: surgeryGraph
+  id: SurgeryAmputateArmRight
+  category: SurgeryCategoryAmputation
+  name: surgery-graph-amputate-arm-right-name
+  location: surgery-location-arm-right
+  startNode: Attached
+  nodes:
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges:
+        - id: Cut
+          label: surgery-edge-limb-cut-label
+          target: Cut
+          conditions:
+            - !type:OrganPresentCondition
+              organId: ArmRight
+          steps:
+            - name: surgery-edge-limb-cut-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 3
+                      Bloodloss: 4
+
+    - name: Cut
+      label: surgery-node-limb-cut-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: ClampBleeders
+          label: surgery-edge-limb-clamp-bleeders-label
+          target: BleedersClamped
+          steps:
+            - name: surgery-edge-limb-clamp-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: BleedersClamped
+      label: surgery-node-limb-bleeders-clamped-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-limb-retract-skin-label
+          target: SkinRetracted
+          steps:
+            - name: surgery-edge-limb-retract-skin-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: SkinRetracted
+      label: surgery-node-limb-skin-retracted-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: ExtractImplant
+          label: surgery-edge-limb-extract-implant-label
+          perImplant: true
+          target: SkinRetracted
+          conditions:
+            - !type:HasImplantCondition
+              organId: ArmRight
+          steps:
+            - name: surgery-edge-limb-extract-implant-label
+              quality: OrganManipulation
+              successChance: 0.65
+              duration: 6.4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 3
+                      Bloodloss: 2
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+          effects:
+            - !type:ExtractImplantEffect
+              organId: ArmRight
+
+        - id: Saw
+          label: surgery-edge-limb-saw-label
+          target: Amputated
+          steps:
+            - name: surgery-edge-limb-saw-label
+              quality: Sawing
+              successChance: 0.7
+              duration: 5
+              sound:
+                path: /Audio/ADT/Medical/Surgery/saw.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 4
+                      Bloodloss: 3
+          effects:
+            - !type:RemoveOrganEffect
+              organId: ArmRight
+
+    - name: Amputated
+      label: surgery-node-limb-amputated-label
+      packages:
+        - SurgeryPackageLimbStumpCauterize
+
+    - name: Cauterized
+      label: surgery-node-limb-cauterized-label
+      edges: []
+
+- type: surgeryGraph
+  id: SurgeryAmputateHandLeft
+  category: SurgeryCategoryAmputation
+  name: surgery-graph-amputate-hand-left-name
+  location: surgery-location-hand-left
+  startNode: Attached
+  nodes:
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges:
+        - id: Cut
+          label: surgery-edge-limb-cut-label
+          target: Cut
+          conditions:
+            - !type:OrganPresentCondition
+              organId: HandLeft
+          steps:
+            - name: surgery-edge-limb-cut-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 3
+                      Bloodloss: 4
+
+    - name: Cut
+      label: surgery-node-limb-cut-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: ClampBleeders
+          label: surgery-edge-limb-clamp-bleeders-label
+          target: BleedersClamped
+          steps:
+            - name: surgery-edge-limb-clamp-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: BleedersClamped
+      label: surgery-node-limb-bleeders-clamped-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-limb-retract-skin-label
+          target: SkinRetracted
+          steps:
+            - name: surgery-edge-limb-retract-skin-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: SkinRetracted
+      label: surgery-node-limb-skin-retracted-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: Saw
+          label: surgery-edge-limb-saw-label
+          target: Amputated
+          steps:
+            - name: surgery-edge-limb-saw-label
+              quality: Sawing
+              successChance: 0.7
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/saw.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 3
+                      Bloodloss: 3
+          effects:
+            - !type:RemoveOrganEffect
+              organId: HandLeft
+
+    - name: Amputated
+      label: surgery-node-limb-amputated-label
+      packages:
+        - SurgeryPackageLimbStumpCauterize
+
+    - name: Cauterized
+      label: surgery-node-limb-cauterized-label
+      edges: []
+
+- type: surgeryGraph
+  id: SurgeryAmputateHandRight
+  category: SurgeryCategoryAmputation
+  name: surgery-graph-amputate-hand-right-name
+  location: surgery-location-hand-right
+  startNode: Attached
+  nodes:
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges:
+        - id: Cut
+          label: surgery-edge-limb-cut-label
+          target: Cut
+          conditions:
+            - !type:OrganPresentCondition
+              organId: HandRight
+          steps:
+            - name: surgery-edge-limb-cut-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 3
+                      Bloodloss: 4
+
+    - name: Cut
+      label: surgery-node-limb-cut-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: ClampBleeders
+          label: surgery-edge-limb-clamp-bleeders-label
+          target: BleedersClamped
+          steps:
+            - name: surgery-edge-limb-clamp-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: BleedersClamped
+      label: surgery-node-limb-bleeders-clamped-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-limb-retract-skin-label
+          target: SkinRetracted
+          steps:
+            - name: surgery-edge-limb-retract-skin-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: SkinRetracted
+      label: surgery-node-limb-skin-retracted-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: Saw
+          label: surgery-edge-limb-saw-label
+          target: Amputated
+          steps:
+            - name: surgery-edge-limb-saw-label
+              quality: Sawing
+              successChance: 0.7
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/saw.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 3
+                      Bloodloss: 3
+          effects:
+            - !type:RemoveOrganEffect
+              organId: HandRight
+
+    - name: Amputated
+      label: surgery-node-limb-amputated-label
+      packages:
+        - SurgeryPackageLimbStumpCauterize
+
+    - name: Cauterized
+      label: surgery-node-limb-cauterized-label
+      edges: []
+
+- type: surgeryGraph
+  id: SurgeryAmputateLegLeft
+  category: SurgeryCategoryAmputation
+  name: surgery-graph-amputate-leg-left-name
+  location: surgery-location-leg-left
+  startNode: Attached
+  nodes:
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges:
+        - id: Cut
+          label: surgery-edge-limb-cut-label
+          target: Cut
+          conditions:
+            - !type:OrganPresentCondition
+              organId: LegLeft
+          steps:
+            - name: surgery-edge-limb-cut-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 3
+                      Bloodloss: 4
+
+    - name: Cut
+      label: surgery-node-limb-cut-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: ClampBleeders
+          label: surgery-edge-limb-clamp-bleeders-label
+          target: BleedersClamped
+          steps:
+            - name: surgery-edge-limb-clamp-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: BleedersClamped
+      label: surgery-node-limb-bleeders-clamped-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-limb-retract-skin-label
+          target: SkinRetracted
+          steps:
+            - name: surgery-edge-limb-retract-skin-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: SkinRetracted
+      label: surgery-node-limb-skin-retracted-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: Saw
+          label: surgery-edge-limb-saw-label
+          target: Amputated
+          steps:
+            - name: surgery-edge-limb-saw-label
+              quality: Sawing
+              successChance: 0.7
+              duration: 5
+              sound:
+                path: /Audio/ADT/Medical/Surgery/saw.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 4
+                      Bloodloss: 3
+          effects:
+            - !type:RemoveOrganEffect
+              organId: LegLeft
+
+    - name: Amputated
+      label: surgery-node-limb-amputated-label
+      packages:
+        - SurgeryPackageLimbStumpCauterize
+
+    - name: Cauterized
+      label: surgery-node-limb-cauterized-label
+      edges: []
+
+- type: surgeryGraph
+  id: SurgeryAmputateLegRight
+  category: SurgeryCategoryAmputation
+  name: surgery-graph-amputate-leg-right-name
+  location: surgery-location-leg-right
+  startNode: Attached
+  nodes:
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges:
+        - id: Cut
+          label: surgery-edge-limb-cut-label
+          target: Cut
+          conditions:
+            - !type:OrganPresentCondition
+              organId: LegRight
+          steps:
+            - name: surgery-edge-limb-cut-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 3
+                      Bloodloss: 4
+
+    - name: Cut
+      label: surgery-node-limb-cut-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: ClampBleeders
+          label: surgery-edge-limb-clamp-bleeders-label
+          target: BleedersClamped
+          steps:
+            - name: surgery-edge-limb-clamp-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: BleedersClamped
+      label: surgery-node-limb-bleeders-clamped-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-limb-retract-skin-label
+          target: SkinRetracted
+          steps:
+            - name: surgery-edge-limb-retract-skin-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: SkinRetracted
+      label: surgery-node-limb-skin-retracted-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: Saw
+          label: surgery-edge-limb-saw-label
+          target: Amputated
+          steps:
+            - name: surgery-edge-limb-saw-label
+              quality: Sawing
+              successChance: 0.7
+              duration: 5
+              sound:
+                path: /Audio/ADT/Medical/Surgery/saw.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 4
+                      Bloodloss: 3
+          effects:
+            - !type:RemoveOrganEffect
+              organId: LegRight
+
+    - name: Amputated
+      label: surgery-node-limb-amputated-label
+      packages:
+        - SurgeryPackageLimbStumpCauterize
+
+    - name: Cauterized
+      label: surgery-node-limb-cauterized-label
+      edges: []
+
+- type: surgeryGraph
+  id: SurgeryAmputateFootLeft
+  category: SurgeryCategoryAmputation
+  name: surgery-graph-amputate-foot-left-name
+  location: surgery-location-foot-left
+  startNode: Attached
+  nodes:
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges:
+        - id: Cut
+          label: surgery-edge-limb-cut-label
+          target: Cut
+          conditions:
+            - !type:OrganPresentCondition
+              organId: FootLeft
+          steps:
+            - name: surgery-edge-limb-cut-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 3
+                      Bloodloss: 4
+
+    - name: Cut
+      label: surgery-node-limb-cut-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: ClampBleeders
+          label: surgery-edge-limb-clamp-bleeders-label
+          target: BleedersClamped
+          steps:
+            - name: surgery-edge-limb-clamp-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: BleedersClamped
+      label: surgery-node-limb-bleeders-clamped-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-limb-retract-skin-label
+          target: SkinRetracted
+          steps:
+            - name: surgery-edge-limb-retract-skin-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: SkinRetracted
+      label: surgery-node-limb-skin-retracted-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: Saw
+          label: surgery-edge-limb-saw-label
+          target: Amputated
+          steps:
+            - name: surgery-edge-limb-saw-label
+              quality: Sawing
+              successChance: 0.7
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/saw.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 3
+                      Bloodloss: 3
+          effects:
+            - !type:RemoveOrganEffect
+              organId: FootLeft
+
+    - name: Amputated
+      label: surgery-node-limb-amputated-label
+      packages:
+        - SurgeryPackageLimbStumpCauterize
+
+    - name: Cauterized
+      label: surgery-node-limb-cauterized-label
+      edges: []
+
+- type: surgeryGraph
+  id: SurgeryAmputateFootRight
+  category: SurgeryCategoryAmputation
+  name: surgery-graph-amputate-foot-right-name
+  location: surgery-location-foot-right
+  startNode: Attached
+  nodes:
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges:
+        - id: Cut
+          label: surgery-edge-limb-cut-label
+          target: Cut
+          conditions:
+            - !type:OrganPresentCondition
+              organId: FootRight
+          steps:
+            - name: surgery-edge-limb-cut-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 3
+                      Bloodloss: 4
+
+    - name: Cut
+      label: surgery-node-limb-cut-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: ClampBleeders
+          label: surgery-edge-limb-clamp-bleeders-label
+          target: BleedersClamped
+          steps:
+            - name: surgery-edge-limb-clamp-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: BleedersClamped
+      label: surgery-node-limb-bleeders-clamped-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-limb-retract-skin-label
+          target: SkinRetracted
+          steps:
+            - name: surgery-edge-limb-retract-skin-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: SkinRetracted
+      label: surgery-node-limb-skin-retracted-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: Saw
+          label: surgery-edge-limb-saw-label
+          target: Amputated
+          steps:
+            - name: surgery-edge-limb-saw-label
+              quality: Sawing
+              successChance: 0.7
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/saw.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 3
+                      Bloodloss: 3
+          effects:
+            - !type:RemoveOrganEffect
+              organId: FootRight
+
+    - name: Amputated
+      label: surgery-node-limb-amputated-label
+      packages:
+        - SurgeryPackageLimbStumpCauterize
+
+    - name: Cauterized
+      label: surgery-node-limb-cauterized-label
+      edges: []

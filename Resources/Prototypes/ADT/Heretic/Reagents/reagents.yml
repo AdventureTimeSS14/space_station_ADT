@@ -43,6 +43,9 @@
         type: Remove
         conditions:
         - !type:HereticOrGhoulCondition
+      - !type:CureLobotomy
+        conditions:
+        - !type:HereticOrGhoulCondition
       - !type:Electrocute
         conditions:
         - !type:HereticOrGhoulCondition

@@ -1,0 +1,259 @@
+- type: surgeryToolQuality
+  id: Incision
+  name: surgery-quality-incision
+  entries:
+  - whitelist:
+      tags: [ Scalpel ]
+  - whitelist:
+      tags: [ Knife ]
+    success: 0.9
+    failureEffects:
+    - !type:DamageEffect
+      damage:
+        types:
+          Slash: 3
+  - whitelist:
+      tags: [ Shiv ]
+    success: 0.8
+    failureEffects:
+    - !type:DamageEffect
+      damage:
+        types:
+          Slash: 4
+  - whitelist:
+      tags: [ GlassShard, ReinforcedGlassShard, PlasmaGlassShard, UraniumGlassShard ]
+    success: 0.7
+    failureEffects:
+    - !type:DamageEffect
+      damage:
+        types:
+          Slash: 5
+  - whitelist:
+      tags: [ Wirecutter ]
+    success: 0.6
+    failureEffects:
+    - !type:DamageEffect
+      damage:
+        types:
+          Slash: 4
+
+- type: surgeryToolQuality
+  id: Sawing
+  name: surgery-quality-sawing
+  entries:
+  - whitelist:
+      tags: [ Saw ]
+  - toolQuality: Sawing
+  - whitelist:
+      tags: [ BotanyHatchet ]
+    success: 0.9
+    sound:
+      path: /Audio/Weapons/bladeslice.ogg
+    failureEffects:
+    - !type:DamageEffect
+      damage:
+        types:
+          Slash: 4
+  - whitelist:
+      tags: [ FireAxe ]
+    success: 0.8
+    sound:
+      path: /Audio/Weapons/bladeslice.ogg
+    failureEffects:
+    - !type:DamageEffect
+      damage:
+        types:
+          Slash: 6
+
+- type: surgeryToolQuality
+  id: Clamping
+  name: surgery-quality-clamping
+  entries:
+  - whitelist:
+      tags: [ Hemostat ]
+  - whitelist:
+      tags: [ CableCoil ]
+    success: 0.9
+    failureEffects:
+    - !type:DamageEffect
+      damage:
+        types:
+          Blunt: 2
+  - whitelist:
+      tags: [ Crowbar ]
+    success: 0.8
+    failureEffects:
+    - !type:DamageEffect
+      damage:
+        types:
+          Blunt: 4
+
+- type: surgeryToolQuality
+  id: OrganManipulation
+  name: surgery-quality-organ-manipulation
+  entries:
+  - whitelist:
+      tags: [ Hemostat ]
+  - whitelist:
+      tags: [ CableCoil ]
+    success: 0.9
+    failureEffects:
+    - !type:DamageEffect
+      damage:
+        types:
+          Blunt: 2
+  - whitelist:
+      tags: [ Crowbar ]
+    success: 0.8
+    failureEffects:
+    - !type:DamageEffect
+      damage:
+        types:
+          Blunt: 4
+
+- type: surgeryToolQuality
+  id: Cautery
+  name: surgery-quality-cautery
+  entries:
+  - whitelist:
+      tags: [ Cautery ]
+  - whitelist:
+      tags: [ Cigarette ]
+    requireHot: true
+    success: 0.9
+    failureEffects:
+    - !type:DamageEffect
+      damage:
+        types:
+          Heat: 2
+  - toolQuality: Welding
+    requireHot: true
+    success: 0.7
+    failureEffects:
+    - !type:DamageEffect
+      damage:
+        types:
+          Heat: 5
+  - whitelist:
+      components: [ IgnitionSource ]
+    requireHot: true
+    success: 0.8
+    failureEffects:
+    - !type:DamageEffect
+      damage:
+        types:
+          Heat: 3
+
+- type: surgeryToolQuality
+  id: Retraction
+  name: surgery-quality-retraction
+  entries:
+  - whitelist:
+      tags: [ Retractor ]
+  - whitelist:
+      tags: [ Crowbar ]
+    success: 0.9
+    failureEffects:
+    - !type:DamageEffect
+      damage:
+        types:
+          Blunt: 3
+
+- type: surgeryToolQuality
+  id: Drilling
+  name: surgery-quality-drilling
+  entries:
+  - whitelist:
+      tags: [ Drill ]
+  - whitelist:
+      tags: [ Powerdrill, ADTDrill ]
+    success: 0.9
+    failureEffects:
+    - !type:DamageEffect
+      damage:
+        types:
+          Piercing: 3
+  - whitelist:
+      tags: [ Pen ]
+    success: 0.8
+    failureEffects:
+    - !type:DamageEffect
+      damage:
+        types:
+          Piercing: 3
+  - whitelist:
+      tags: [ Pickaxe ]
+    success: 0.7
+    failureEffects:
+    - !type:DamageEffect
+      damage:
+        types:
+          Piercing: 6
+  - whitelist:
+      tags: [ Screwdriver ]
+    success: 0.6
+    failureEffects:
+    - !type:DamageEffect
+      damage:
+        types:
+          Piercing: 4
+
+- type: surgeryToolQuality
+  id: BoneMending
+  name: surgery-quality-bone-mending
+  entries:
+  - whitelist:
+      tags: [ BoneGel ]
+  - whitelist:
+      tags: [ SurgicalTape ]
+    speed: 1.3
+    success: 0.85
+    failureEffects:
+    - !type:DamageEffect
+      damage:
+        types:
+          Blunt: 2
+  - whitelist:
+      tags: [ Screwdriver, BoneSplint ]
+    success: 0.9
+    failureEffects:
+    - !type:DamageEffect
+      damage:
+        types:
+          Piercing: 2
+
+- type: surgeryToolQuality
+  id: BoneSetting
+  name: surgery-quality-bone-setting
+  entries:
+  - whitelist:
+      tags: [ BoneSetter ]
+  - whitelist:
+      tags: [ Wrench ]
+    success: 0.9
+    failureEffects:
+    - !type:DamageEffect
+      damage:
+        types:
+          Blunt: 4
+
+- type: surgeryToolQuality
+  id: Draping
+  name: surgery-quality-draping
+  entries:
+  - whitelist:
+      tags: [ SurgicalDrapes ]
+  - whitelist:
+      tags: [ Bedsheet ]
+
+- type: surgeryToolQuality
+  id: Screwdriving
+  name: surgery-quality-screwdriving
+  entries:
+  - toolQuality: Screwing
+
+- type: surgeryToolQuality
+  id: Pulsing
+  name: surgery-quality-pulsing
+  entries:
+  - toolQuality: Pulsing

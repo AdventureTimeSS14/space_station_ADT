@@ -8,7 +8,6 @@
   - ADTPillPack
   - ADTPlasticBottle
   - ADTMedicalSprayBottle
-  - ADTAutoSurgeon
 
 - type: latheRecipePack
   id: ADTAdvancedMedicalMiscPack
@@ -16,6 +15,12 @@
   - ADTHighVoltageDefibrillator
   - ADTReagentAnalyzer
   - ClothingEyesGlassesChemical
+  - ADTOrganCyberHeart
+  - ADTOrganCyberLungs
+  - ADTOrganCyberLiver
+  - ADTOrganCyberKidneys
+  - ADTOrganCyberStomach
+  - ADTOrganCyberEyes
 
 - type: latheRecipePack
   id: ADTAdvancedMedicalCarePack
@@ -29,6 +34,8 @@
   id: ADTAdvancedMedical
   recipes:
   - ADTAdvancedMedicalBedCircuitboard
+  - ADTOperatingTableMachineCircuitboard
+  - ADTSurgeryConsoleComputerCircuitboard
 
 - type: latheRecipePack
   id: ADTCryoPodMachineCircuitboard
@@ -59,3 +66,22 @@
   id: ADTMedbeamPack
   recipes:
   - ADTWeaponMedbeamCivil
+
+- type: latheRecipePack
+  id: ADTAdvancedSurgeryPack
+  recipes:
+  - ADTBoneSetter
+  - ADTBoneGel
+  - ADTSurgicalTape
+  - ADTBloodFilter
+  - ADTSurgicalDrapes
+  - SawElectric
+  - ScalpelLaser
+
+- type: latheRecipePack
+  id: ADTLaserSurgeryPack
+  recipes:
+  - ADTLaserScalpel
+  - ADTMechanicalPinches
+  - ADTSearingTool
+  - SawAdvanced

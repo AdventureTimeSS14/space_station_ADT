@@ -1,15 +1,18 @@
 - type: entity
   id: ADTCursedHeart
-  parent: BaseItem
+  parent: [ OrganBaseHeart, OrganHumanMetabolizer ]
   name: heart
   description: "I feel bad for the heartless bastard who lost this."
   components:
   - type: Sprite
     sprite: ADT/Objects/Specific/Lavaland/loot.rsi
-    state: cursed_heart
+    layers:
+    - state: cursed_heart
   - type: Item
     size: Small
-  - type: CursedHeartGrant
+  - type: OrganGrantComponents
+    components:
+    - type: CursedHeart
   - type: Tag
     tags:
     - Meat

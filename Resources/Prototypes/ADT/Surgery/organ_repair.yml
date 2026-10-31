@@ -1,0 +1,408 @@
+- type: surgeryEdgePackage
+  id: SurgeryPackageRepairChestOrgans
+  edges:
+  - id: RepairHeart
+    target: ChestOpen
+    label: surgery-edge-repair-heart-label
+    conditions:
+    - !type:OrganDamagedCondition
+      organId: Heart
+      minDamagePercent: 0.6
+      repeatable: false
+    - !type:OrganKindCondition
+      organId: Heart
+      kind: Organic
+    steps:
+    - name: surgery-step-repair-heart-1
+      quality: Clamping
+      successChance: 0.8
+      duration: 4.5
+      sound:
+        path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+      failureEffects:
+      - !type:DamageOrganEffect
+        organId: Heart
+        amount: 10
+    - name: surgery-step-repair-heart-2
+      quality: Cautery
+      successChance: 0.85
+      duration: 4.5
+      sound:
+        path: /Audio/ADT/Medical/Surgery/cautery2.ogg
+      failureEffects:
+      - !type:DamageOrganEffect
+        organId: Heart
+        amount: 10
+    effects:
+    - !type:RepairOrganEffect
+      organId: Heart
+      healTo: 0.6
+  - id: RepairHeartMechanic
+    target: ChestOpen
+    label: surgery-edge-repair-heart-mechanic-label
+    conditions:
+    - !type:OrganDamagedCondition
+      organId: Heart
+      minStage: Bruised
+    - !type:OrganKindCondition
+      organId: Heart
+      kind: Robotic
+    steps:
+    - name: surgery-step-repair-heart-mechanic-1
+      quality: Screwdriving
+      successChance: 0.85
+      duration: 3
+      sound:
+        path: /Audio/Items/screwdriver.ogg
+      failureEffects:
+      - !type:DamageOrganEffect
+        organId: Heart
+        amount: 10
+    - name: surgery-step-repair-heart-mechanic-2
+      quality: Pulsing
+      successChance: 0.85
+      duration: 3
+      failureEffects:
+      - !type:DamageOrganEffect
+        organId: Heart
+        amount: 10
+    effects:
+    - !type:RepairOrganEffect
+      organId: Heart
+      healTo: 0.1
+  - id: RepairLungs
+    target: ChestOpen
+    label: surgery-edge-repair-lungs-label
+    conditions:
+    - !type:OrganDamagedCondition
+      organId: Lungs
+      minDamagePercent: 0.6
+      repeatable: false
+    - !type:OrganKindCondition
+      organId: Lungs
+      kind: Organic
+    steps:
+    - name: surgery-step-repair-lungs-1
+      quality: Incision
+      successChance: 0.8
+      duration: 2.5
+      sound:
+        path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+      failureEffects:
+      - !type:DamageOrganEffect
+        organId: Lungs
+        amount: 5
+    - name: surgery-step-repair-lungs-2
+      quality: Clamping
+      successChance: 0.8
+      duration: 2.5
+      sound:
+        path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+      failureEffects:
+      - !type:DamageOrganEffect
+        organId: Lungs
+        amount: 5
+    effects:
+    - !type:RepairOrganEffect
+      organId: Lungs
+      healTo: 0.6
+  - id: RepairLungsMechanic
+    target: ChestOpen
+    label: surgery-edge-repair-lungs-mechanic-label
+    conditions:
+    - !type:OrganDamagedCondition
+      organId: Lungs
+      minStage: Bruised
+    - !type:OrganKindCondition
+      organId: Lungs
+      kind: Robotic
+    steps:
+    - name: surgery-step-repair-lungs-mechanic-1
+      quality: Screwdriving
+      successChance: 0.85
+      duration: 3
+      sound:
+        path: /Audio/Items/screwdriver.ogg
+      failureEffects:
+      - !type:DamageOrganEffect
+        organId: Lungs
+        amount: 10
+    - name: surgery-step-repair-lungs-mechanic-2
+      quality: Pulsing
+      successChance: 0.85
+      duration: 3
+      failureEffects:
+      - !type:DamageOrganEffect
+        organId: Lungs
+        amount: 10
+    effects:
+    - !type:RepairOrganEffect
+      organId: Lungs
+      healTo: 0.1
+
+- type: surgeryEdgePackage
+  id: SurgeryPackageRepairAbdomenOrgans
+  edges:
+  - id: RepairLiver
+    target: AbdomenOpen
+    label: surgery-edge-repair-liver-label
+    conditions:
+    - !type:OrganDamagedCondition
+      organId: Liver
+      minDamagePercent: 0.1
+      repeatable: false
+    - !type:OrganKindCondition
+      organId: Liver
+      kind: Organic
+    steps:
+    - name: surgery-step-repair-liver-1
+      quality: Incision
+      successChance: 0.8
+      duration: 2.5
+      sound:
+        path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+      failureEffects:
+      - !type:DamageOrganEffect
+        organId: Liver
+        amount: 7.5
+    - name: surgery-step-repair-liver-2
+      quality: Clamping
+      successChance: 0.8
+      duration: 2.5
+      sound:
+        path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+      failureEffects:
+      - !type:DamageOrganEffect
+        organId: Liver
+        amount: 7.5
+    effects:
+    - !type:RepairOrganEffect
+      organId: Liver
+      healTo: 0.1
+  - id: RepairLiverMechanic
+    target: AbdomenOpen
+    label: surgery-edge-repair-liver-mechanic-label
+    conditions:
+    - !type:OrganDamagedCondition
+      organId: Liver
+      minStage: Bruised
+    - !type:OrganKindCondition
+      organId: Liver
+      kind: Robotic
+    steps:
+    - name: surgery-step-repair-liver-mechanic-1
+      quality: Screwdriving
+      successChance: 0.85
+      duration: 3
+      sound:
+        path: /Audio/Items/screwdriver.ogg
+      failureEffects:
+      - !type:DamageOrganEffect
+        organId: Liver
+        amount: 15
+    - name: surgery-step-repair-liver-mechanic-2
+      quality: Pulsing
+      successChance: 0.85
+      duration: 3
+      failureEffects:
+      - !type:DamageOrganEffect
+        organId: Liver
+        amount: 15
+    effects:
+    - !type:RepairOrganEffect
+      organId: Liver
+      healTo: 0.1
+  - id: RepairStomach
+    target: AbdomenOpen
+    label: surgery-edge-repair-stomach-label
+    conditions:
+    - !type:OrganDamagedCondition
+      organId: Stomach
+      minDamagePercent: 0.2
+      repeatable: false
+    - !type:OrganKindCondition
+      organId: Stomach
+      kind: Organic
+    steps:
+    - name: surgery-step-repair-stomach-1
+      quality: Incision
+      successChance: 0.8
+      duration: 2.5
+      sound:
+        path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+      failureEffects:
+      - !type:DamageOrganEffect
+        organId: Stomach
+        amount: 7.5
+    - name: surgery-step-repair-stomach-2
+      quality: Clamping
+      successChance: 0.8
+      duration: 2.5
+      sound:
+        path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+      failureEffects:
+      - !type:DamageOrganEffect
+        organId: Stomach
+        amount: 7.5
+    effects:
+    - !type:RepairOrganEffect
+      organId: Stomach
+      healTo: 0.2
+  - id: RepairStomachMechanic
+    target: AbdomenOpen
+    label: surgery-edge-repair-stomach-mechanic-label
+    conditions:
+    - !type:OrganDamagedCondition
+      organId: Stomach
+      minStage: Bruised
+    - !type:OrganKindCondition
+      organId: Stomach
+      kind: Robotic
+    steps:
+    - name: surgery-step-repair-stomach-mechanic-1
+      quality: Screwdriving
+      successChance: 0.85
+      duration: 3
+      sound:
+        path: /Audio/Items/screwdriver.ogg
+      failureEffects:
+      - !type:DamageOrganEffect
+        organId: Stomach
+        amount: 10
+    - name: surgery-step-repair-stomach-mechanic-2
+      quality: Pulsing
+      successChance: 0.85
+      duration: 3
+      failureEffects:
+      - !type:DamageOrganEffect
+        organId: Stomach
+        amount: 10
+    effects:
+    - !type:RepairOrganEffect
+      organId: Stomach
+      healTo: 0.1
+  - id: RepairKidneys
+    target: AbdomenOpen
+    label: surgery-edge-repair-kidneys-label
+    conditions:
+    - !type:OrganDamagedCondition
+      organId: Kidneys
+      minDamagePercent: 0.2
+      repeatable: false
+    - !type:OrganKindCondition
+      organId: Kidneys
+      kind: Organic
+    steps:
+    - name: surgery-step-repair-kidneys-1
+      quality: Incision
+      successChance: 0.8
+      duration: 2.5
+      sound:
+        path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+      failureEffects:
+      - !type:DamageOrganEffect
+        organId: Kidneys
+        amount: 7.5
+    - name: surgery-step-repair-kidneys-2
+      quality: Clamping
+      successChance: 0.8
+      duration: 2.5
+      sound:
+        path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+      failureEffects:
+      - !type:DamageOrganEffect
+        organId: Kidneys
+        amount: 7.5
+    effects:
+    - !type:RepairOrganEffect
+      organId: Kidneys
+      healTo: 0.2
+  - id: RepairKidneysMechanic
+    target: AbdomenOpen
+    label: surgery-edge-repair-kidneys-mechanic-label
+    conditions:
+    - !type:OrganDamagedCondition
+      organId: Kidneys
+      minStage: Bruised
+    - !type:OrganKindCondition
+      organId: Kidneys
+      kind: Robotic
+    steps:
+    - name: surgery-step-repair-kidneys-mechanic-1
+      quality: Screwdriving
+      successChance: 0.85
+      duration: 3
+      sound:
+        path: /Audio/Items/screwdriver.ogg
+      failureEffects:
+      - !type:DamageOrganEffect
+        organId: Kidneys
+        amount: 10
+    - name: surgery-step-repair-kidneys-mechanic-2
+      quality: Pulsing
+      successChance: 0.85
+      duration: 3
+      failureEffects:
+      - !type:DamageOrganEffect
+        organId: Kidneys
+        amount: 10
+    effects:
+    - !type:RepairOrganEffect
+      organId: Kidneys
+      healTo: 0.1
+- type: surgeryEdgePackage
+  id: SurgeryPackageRepairEars
+  edges:
+  - id: RepairEars
+    target: EarsRetracted
+    label: surgery-edge-repair-ears-label
+    conditions:
+    - !type:OrganDamagedCondition
+      organId: Ears
+      minStage: Healthy
+    - !type:OrganKindCondition
+      organId: Ears
+      kind: Organic
+    steps:
+    - name: surgery-step-repair-ears-1
+      quality: Clamping
+      successChance: 0.8
+      duration: 6.4
+      sound:
+        path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+      failureEffects:
+      - !type:DamageOrganEffect
+        organId: Ears
+        amount: 10
+    effects:
+    - !type:RepairOrganEffect
+      organId: Ears
+      healTo: 0
+- type: surgeryEdgePackage
+  id: SurgeryPackageRepairEyes
+  edges:
+  - id: RepairEyes
+    target: ScalpRetracted
+    label: surgery-edge-repair-eyes-label
+    conditions:
+    - !type:OrganDamagedCondition
+      organId: Eyes
+      minStage: Healthy
+    - !type:OrganKindCondition
+      organId: Eyes
+      kind: Organic
+    steps:
+    - name: surgery-step-repair-eyes-1
+      quality: Clamping
+      successChance: 0.8
+      duration: 6.4
+      sound:
+        path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+      failureEffects:
+      - !type:DamageOrganEffect
+        organId: Eyes
+        amount: 10
+    effects:
+    - !type:RepairOrganEffect
+      organId: Eyes
+      healTo: 0

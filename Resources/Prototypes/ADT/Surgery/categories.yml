@@ -1,0 +1,17 @@
+- type: surgeryCategory
+  id: SurgeryCategoryOrganManipulation
+  name: surgery-category-organ-manipulation-name
+
+- type: surgeryCategory
+  id: SurgeryCategoryLimbManipulation
+  name: surgery-category-limb-manipulation-name
+
+- type: surgeryCategory
+  id: SurgeryCategoryAmputation
+  name: surgery-category-amputation-name
+  parent: SurgeryCategoryLimbManipulation
+
+- type: surgeryCategory
+  id: SurgeryCategoryLimbReattachment
+  name: surgery-category-limb-reattachment-name
+  parent: SurgeryCategoryLimbManipulation

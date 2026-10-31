@@ -65,9 +65,15 @@
         - id: Retractor
         - id: Cautery
         - id: Drill
-        - id: Saw
+        - id: Saw # ADT-Tweak
         - id: Hemostat
         - id: ClothingMaskSterile
+        # ADT-Tweak start
+        - id: ADTBoneSetter
+        - id: ADTSurgicalTape
+        - id: ADTBloodFilter
+        - id: ADTSurgicalDrapes
+        # ADT-Tweak end
 
 - type: entity
   parent: CrateMedical

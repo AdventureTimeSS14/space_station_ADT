@@ -1,0 +1,365 @@
+- type: surgeryGraph
+  id: SurgeryAbdomenOrgans
+  category: SurgeryCategoryOrganManipulation
+  name: surgery-graph-abdomen-organs-name
+  location: surgery-location-abdomen
+  startNode: AbdomenClosed
+  nodes:
+    - name: AbdomenClosed
+      label: surgery-node-abdomen-closed-label
+      edges:
+        - id: Cut
+          label: surgery-edge-abdomen-cut-label
+          target: AbdomenIncised
+          conditions:
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ jumpsuit, outerClothing ]
+          steps:
+            - name: surgery-edge-abdomen-cut-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 5
+                      Bloodloss: 10
+
+    - name: AbdomenIncised
+      label: surgery-node-abdomen-incised-label
+      packages:
+        - SurgeryPackageAbdomenCauterize
+      edges:
+        - id: ClampBleeders
+          label: surgery-edge-abdomen-clamp-bleeders-label
+          target: AbdomenBleedersClamped
+          steps:
+            - name: surgery-edge-abdomen-clamp-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: AbdomenBleedersClamped
+      label: surgery-node-abdomen-bleeders-clamped-label
+      packages:
+        - SurgeryPackageAbdomenCauterize
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-abdomen-retract-skin-label
+          target: AbdomenSkinRetracted
+          steps:
+            - name: surgery-edge-abdomen-retract-skin-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 10
+
+    - name: AbdomenSkinRetracted
+      label: surgery-node-abdomen-skin-retracted-label
+      packages:
+        - SurgeryPackageAbdomenCauterize
+      edges:
+        - id: RetractMuscle
+          target: AbdomenOpen
+          label: surgery-edge-abdomen-retract-muscle-label
+          steps:
+            - name: surgery-edge-abdomen-retract-muscle-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 10
+
+    - name: AbdomenOpen
+      label: surgery-node-abdomen-open-label
+      packages:
+        - SurgeryPackageRepairAbdomenOrgans
+      edges:
+        - id: OpenAbdomenCavity
+          label: surgery-edge-cavity-open-label
+          target: AbdomenCavityOpen
+          steps:
+            - name: surgery-edge-cavity-incise-label
+              quality: Incision
+              successChance: 0.95
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 1
+                      Bloodloss: 1
+            - name: surgery-edge-cavity-clamp-label
+              quality: Clamping
+              successChance: 0.95
+              duration: 2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+        - id: UnretractMuscle
+          target: AbdomenSkinRetracted
+          label: surgery-edge-abdomen-unretract-muscle-label
+          steps:
+            - name: surgery-edge-abdomen-unretract-muscle-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor2.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 5
+
+        - id: RemoveStomach
+          target: AbdomenOpen
+          label: surgery-edge-abdomen-remove-stomach-label
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Stomach
+          steps:
+            - name: surgery-edge-abdomen-remove-stomach-label
+              quality: OrganManipulation
+              successChance: 0.65
+              failureEffects:
+                - !type:DamageOrganEffect
+                  organId: Stomach
+                  amount: 10
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 10
+          effects:
+            - !type:RemoveOrganEffect
+              organId: Stomach
+
+        - id: InsertStomach
+          target: AbdomenOpen
+          label: surgery-edge-abdomen-insert-stomach-label
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Stomach
+              inverted: true
+          steps:
+            - name: surgery-edge-abdomen-insert-stomach-label
+              organ: Stomach
+              successChance: 0.75
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+          effects:
+            - !type:InsertOrganEffect
+              organId: Stomach
+
+        - id: RemoveLiver
+          target: AbdomenOpen
+          label: surgery-edge-abdomen-remove-liver-label
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Liver
+          steps:
+            - name: surgery-edge-abdomen-remove-liver-label
+              quality: OrganManipulation
+              successChance: 0.65
+              failureEffects:
+                - !type:DamageOrganEffect
+                  organId: Liver
+                  amount: 10
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ2.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 10
+          effects:
+            - !type:RemoveOrganEffect
+              organId: Liver
+
+        - id: InsertLiver
+          target: AbdomenOpen
+          label: surgery-edge-abdomen-insert-liver-label
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Liver
+              inverted: true
+          steps:
+            - name: surgery-edge-abdomen-insert-liver-label
+              organ: Liver
+              successChance: 0.75
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ2.ogg
+          effects:
+            - !type:InsertOrganEffect
+              organId: Liver
+
+        - id: RemoveKidneys
+          target: AbdomenOpen
+          label: surgery-edge-abdomen-remove-kidneys-label
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Kidneys
+          steps:
+            - name: surgery-edge-abdomen-remove-kidneys-label
+              quality: OrganManipulation
+              successChance: 0.65
+              failureEffects:
+                - !type:DamageOrganEffect
+                  organId: Kidneys
+                  amount: 10
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 10
+          effects:
+            - !type:RemoveOrganEffect
+              organId: Kidneys
+
+        - id: InsertKidneys
+          target: AbdomenOpen
+          label: surgery-edge-abdomen-insert-kidneys-label
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Kidneys
+              inverted: true
+          steps:
+            - name: surgery-edge-abdomen-insert-kidneys-label
+              organ: Kidneys
+              successChance: 0.75
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+          effects:
+            - !type:InsertOrganEffect
+              organId: Kidneys
+
+        - id: RemoveAppendix
+          target: AbdomenOpen
+          label: surgery-edge-abdomen-remove-appendix-label
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Appendix
+          steps:
+            - name: surgery-edge-abdomen-remove-appendix-label
+              quality: OrganManipulation
+              successChance: 0.65
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ2.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 10
+          effects:
+            - !type:RemoveOrganEffect
+              organId: Appendix
+
+        - id: InsertAppendix
+          target: AbdomenOpen
+          label: surgery-edge-abdomen-insert-appendix-label
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Appendix
+              inverted: true
+          steps:
+            - name: surgery-edge-abdomen-insert-appendix-label
+              organ: Appendix
+              successChance: 0.75
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ2.ogg
+          effects:
+            - !type:InsertOrganEffect
+              organId: Appendix
+
+    - name: AbdomenCavityOpen
+      label: surgery-node-cavity-open-label
+      edges:
+        - id: StoreAbdomenItem
+          label: surgery-edge-cavity-store-label
+          target: AbdomenCavityOpen
+          conditions:
+            - !type:CavityItemsCondition
+              cavityId: adt-surgery-cavity-abdomen
+              max: 2
+          steps:
+            - name: surgery-edge-cavity-store-label
+              anyItem: true
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+          effects:
+            - !type:StoreItemEffect
+              cavityId: adt-surgery-cavity-abdomen
+
+        - id: RetrieveAbdomenItems
+          label: surgery-edge-cavity-retrieve-label
+          target: AbdomenCavityOpen
+          conditions:
+            - !type:CavityItemsCondition
+              cavityId: adt-surgery-cavity-abdomen
+              min: 1
+          steps:
+            - name: surgery-edge-cavity-retrieve-label
+              quality: Retraction
+              successChance: 0.9
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 2
+                      Bloodloss: 1
+          effects:
+            - !type:RetrieveItemsEffect
+              cavityId: adt-surgery-cavity-abdomen
+
+        - id: CloseAbdomenCavity
+          label: surgery-edge-cavity-close-label
+          target: AbdomenOpen
+          steps:
+            - name: surgery-edge-cavity-close-label
+              quality: Cautery
+              successChance: 0.85
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Heat: 1
+                - !type:CauterizeEffect

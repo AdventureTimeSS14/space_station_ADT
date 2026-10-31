@@ -20,6 +20,10 @@
   - Medical
   - Maintenance
   - Chemistry
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: SurgerySkill
 
 - type: startingGear
   id: SeniorPhysicianGear

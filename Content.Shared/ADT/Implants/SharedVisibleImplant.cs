@@ -44,8 +44,17 @@ public sealed partial class ToggleCompStealthEvent : InstantActionEvent
 [NetSerializable, Serializable]
 public enum MantisDaggersVisuals : byte
 {
-    Inactive,
-    Active,
+    Left,
+    Right,
+}
+
+[Flags]
+[NetSerializable, Serializable]
+public enum MantisDaggerSide : byte
+{
+    None = 0,
+    Left = 1,
+    Right = 2,
 }
 
 [NetSerializable, Serializable]

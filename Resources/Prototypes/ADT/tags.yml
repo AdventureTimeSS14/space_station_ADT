@@ -839,6 +839,42 @@
   id: ADTArchimedesPeripheralsControlModule
 
 - type: Tag
+  id: Scalpel
+
+- type: Tag
+  id: Retractor
+
+- type: Tag
+  id: Hemostat
+
+- type: Tag
+  id: Saw
+
+- type: Tag
+  id: Cautery
+
+- type: Tag
+  id: Drill
+
+- type: Tag
+  id: BoneSetter
+
+- type: Tag
+  id: BoneGel
+
+- type: Tag
+  id: SurgicalTape
+
+- type: Tag
+  id: BoneSplint
+
+- type: Tag
+  id: BloodFilter
+
+- type: Tag
+  id: SurgicalDrapes
+
+- type: Tag
   id: FiringPin
 
 # XENOBIO - START

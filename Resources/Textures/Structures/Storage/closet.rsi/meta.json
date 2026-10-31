@@ -4,7 +4,7 @@
     "x": 36,
     "y": 36
   },
-  "copyright": "Taken from Skyrat-TG https://github.com/Skyrat-SS13/Skyrat-tg, and adapted by Tamioki for Adventure Time Team.",
+  "copyright": "Taken from Skyrat-TG https://github.com/Skyrat-SS13/Skyrat-tg, and adapted by Tamioki for Adventure Time Team. n2o and n2o_door by Minokaa.",
   "license": "CC-BY-SA-3.0",
   "states": [
     {
@@ -735,6 +735,12 @@
     },
     {
       "name": "pathologist_door"
+    },
+    {
+      "name": "n2o"
+    },
+    {
+      "name": "n2o_door"
     }
   ]
 }

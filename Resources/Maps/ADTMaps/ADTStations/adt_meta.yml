@@ -165240,13 +165240,6 @@ entities:
     - type: Transform
       pos: 35.50856,-3.3126817
       parent: 2
-- proto: Implanter
-  entities:
-  - uid: 23327
-    components:
-    - type: Transform
-      pos: 9.46645,29.698551
-      parent: 2
 - proto: InflatableDoor
   entities:
   - uid: 23328

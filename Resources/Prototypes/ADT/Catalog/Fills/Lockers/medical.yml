@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: ADTLockerPathologistFilled
   suffix: Filled
   parent: ADTLockerPathologist
@@ -39,3 +39,39 @@
           - id: EmergencyRollerBedSpawnFolded
         - id: PlushieLizardJobParamedic
           prob: 0.02
+
+- type: entity
+  id: ADTLockerAnesthesiaFilled
+  suffix: Filled
+  parent: ADTLockerAnesthesia
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ClothingMaskBreathMedical
+          amount: 4
+        - id: NitrousOxideTankFilled
+          amount: 4
+
+- type: entity
+  id: ADTWardrobeSurgeonFilled
+  suffix: Filled
+  parent: ADTWardrobeSurgeon
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: UniformScrubsColorPurple
+        - id: UniformScrubsColorGreen
+        - id: UniformScrubsColorBlue
+        - id: ClothingHeadHatSurgcapPurple
+        - id: ClothingHeadHatSurgcapGreen
+        - id: ClothingHeadHatSurgcapBlue
+        - id: ClothingMaskSterile
+          amount: 2
+        - id: ClothingHandsGlovesNitrile
+          amount: 2
+        - id: ClothingShoesColorWhite
+        - id: ClothingBackpackMedical

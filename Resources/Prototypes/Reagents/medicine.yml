@@ -1187,6 +1187,9 @@
     Bloodstream:
       effects:
       - !type:EyeDamage
+      - !type:AdjustOrganDamage # ADT-Tweak
+        category: Eyes
+        amount: -1
 
 - type: reagent
   id: Cognizine

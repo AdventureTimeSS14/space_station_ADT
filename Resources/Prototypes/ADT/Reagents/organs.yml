@@ -1,0 +1,24 @@
+- type: reagent
+  id: ADTMitocholide
+  name: reagent-name-adt-mitocholide
+  desc: reagent-desc-adt-mitocholide
+  group: Medicine
+  physicalDesc: reagent-physical-desc-glowing
+  flavor: medicine
+  color: "#c8a5dc"
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:AdjustOrganDamage
+        amount: -0.1
+        conditions:
+        - !type:ReagentCondition
+          reagent: ADTMitocholide
+          max: 10
+      - !type:AdjustOrganDamage
+        category: Liver
+        amount: 1
+        conditions:
+        - !type:ReagentCondition
+          reagent: ADTMitocholide
+          min: 10

@@ -47,6 +47,7 @@
         ADTPatchPackFilled: 3
         ADTAntibioticOintment: 4
         ADTBloodPackTransfusionFull: 5
+        ADTBloodPackLidocaine: 3 # ADT-Tweak
         ADTSprayBottleStypticPowder: 5
         ADTSprayBottleSilverSulfadiazine: 5
         # ADT tweak end

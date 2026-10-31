@@ -28,6 +28,8 @@
   name: divine vocal cords
   description: They carry the voice of an ancient god.
   components:
+  - type: Organ
+    category: ADTVocalCords
   - type: Sprite
     sprite: ADT/Objects/Specific/Lavaland/colossus_loot.rsi
     state: voice_of_god
