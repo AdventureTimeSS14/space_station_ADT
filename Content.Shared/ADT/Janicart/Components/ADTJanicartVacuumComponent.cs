@@ -33,4 +33,13 @@ public sealed partial class ADTJanicartVacuumComponent : Component
 
     [DataField]
     public TimeSpan CheckInterval = TimeSpan.FromSeconds(0.5);
+
+    [DataField]
+    public bool Enabled = true;
+
+    [DataField]
+    public EntProtoId ToggleAction = "ADTActionToggleJanicartVacuum";
+
+    [DataField]
+    public EntityUid? ToggleActionEntity;
 }

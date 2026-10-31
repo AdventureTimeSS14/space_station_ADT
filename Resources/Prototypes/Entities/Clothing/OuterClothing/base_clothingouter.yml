@@ -8,6 +8,8 @@
     - outerClothing
   - type: Sprite
     state: icon
+  - type: ADTAccessoryHolder
+    maxAccessories: 5
 
 - type: entity
   abstract: true
@@ -140,6 +142,10 @@
   id: ClothingOuterEVASuitBase
   name: base EVA Suit
   components:
+  # ADT-Tweak-Start
+  - type: ADTInjectionSlowdown
+    requiresHelmet: true
+  # ADT-Tweak-End
 # SlotBlocker blocked until UI change
 #  - type: SlotBlock
 #    slots: [innerclothing, feet]
@@ -166,6 +172,10 @@
   id: ClothingOuterHardsuitBase
   name: base hardsuit
   components:
+  # ADT-Tweak-Start
+  - type: ADTInjectionSlowdown
+    requiresHelmet: false
+  # ADT-Tweak-End
   - type: PressureProtection
     highPressureMultiplier: 0.3
   - type: ClothingSpeedModifier

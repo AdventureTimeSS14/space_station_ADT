@@ -1,0 +1,149 @@
+- type: entity
+  abstract: true
+  id: ADTMobXenoborgNpcBase
+  components:
+    - type: ADTNpcBorg
+    - type: ADTNpcCombatMemory
+    - type: InputMover
+    - type: MobMover
+    - type: Prying
+      pryPowered: true
+      force: true
+      speedModifier: 1
+      useSound:
+        path: /Audio/Items/crowbar.ogg
+    - type: GhostTakeoverAvailable
+
+- type: entity
+  parent: [ XenoborgHeavy, ADTMobXenoborgNpcBase ]
+  id: ADTMobXenoborgHeavyNpc
+  suffix: NPC
+  components:
+    - type: HTN
+      rootTask:
+        task: ADTXenoborgHeavyCompound
+      blackboard:
+        NavPry: !type:Bool
+          true
+        NavInteract: !type:Bool
+          true
+        VisionRadius: !type:Single
+          15
+        AggroVisionRadius: !type:Single
+          15
+        ADTPatrolRange: !type:Single
+          3
+        MinimumIdleTime: !type:Single
+          4
+        MaximumIdleTime: !type:Single
+          10
+    - type: GhostRole
+      name: ghost-role-information-adt-xenoborg-heavy-name
+      description: ghost-role-information-adt-xenoborg-heavy-description
+      rules: ghost-role-information-silicon-rules
+      mindRoles:
+        - MindRoleXenoborg
+      raffle:
+        settings: default
+
+- type: entity
+  parent: [ XenoborgScout, ADTMobXenoborgNpcBase ]
+  id: ADTMobXenoborgScoutNpc
+  suffix: NPC
+  components:
+    - type: HTN
+      rootTask:
+        task: ADTXenoborgScoutCompound
+      blackboard:
+        NavPry: !type:Bool
+          true
+        NavInteract: !type:Bool
+          true
+        VisionRadius: !type:Single
+          15
+        AggroVisionRadius: !type:Single
+          15
+        ADTPatrolRange: !type:Single
+          3
+        MinimumIdleTime: !type:Single
+          4
+        MaximumIdleTime: !type:Single
+          10
+    - type: GhostRole
+      name: ghost-role-information-adt-xenoborg-scout-name
+      description: ghost-role-information-adt-xenoborg-scout-description
+      rules: ghost-role-information-silicon-rules
+      mindRoles:
+        - MindRoleXenoborg
+      raffle:
+        settings: default
+
+- type: entity
+  parent: [ XenoborgStealth, ADTMobXenoborgNpcBase ]
+  id: ADTMobXenoborgStealthNpc
+  suffix: NPC
+  components:
+    - type: HTN
+      rootTask:
+        task: ADTXenoborgStealthCompound
+      blackboard:
+        NavPry: !type:Bool
+          true
+        NavInteract: !type:Bool
+          true
+        VisionRadius: !type:Single
+          15
+        AggroVisionRadius: !type:Single
+          15
+        ADTPatrolRange: !type:Single
+          3
+        MinimumIdleTime: !type:Single
+          4
+        MaximumIdleTime: !type:Single
+          10
+    - type: GhostRole
+      name: ghost-role-information-adt-xenoborg-stealth-name
+      description: ghost-role-information-adt-xenoborg-stealth-description
+      rules: ghost-role-information-silicon-rules
+      mindRoles:
+        - MindRoleXenoborg
+      raffle:
+        settings: default
+
+- type: entity
+  parent: [ XenoborgEngi, ADTMobXenoborgNpcBase ]
+  id: ADTMobXenoborgEngiNpc
+  suffix: NPC
+  components:
+    - type: HTN
+      rootTask:
+        task: ADTXenoborgEngiCompound
+      blackboard:
+        NavPry: !type:Bool
+          true
+        NavInteract: !type:Bool
+          true
+        VisionRadius: !type:Single
+          15
+        AggroVisionRadius: !type:Single
+          15
+        ADTPatrolRange: !type:Single
+          3
+        MinimumIdleTime: !type:Single
+          4
+        MaximumIdleTime: !type:Single
+          10
+    - type: GhostRole
+      name: ghost-role-information-adt-xenoborg-engi-name
+      description: ghost-role-information-adt-xenoborg-engi-description
+      rules: ghost-role-information-silicon-rules
+      mindRoles:
+        - MindRoleXenoborg
+      raffle:
+        settings: default
+    - type: Prying
+      pryPowered: true
+      force: true
+      speedModifier: 2
+      useSound:
+        path: /Audio/Items/jaws_pry.ogg

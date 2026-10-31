@@ -50,4 +50,7 @@ public sealed partial class ADTLogicCircuitComponent : Component
 
     [ViewVariables]
     public bool Broken;
+
+    [ViewVariables]
+    public TimeSpan NextApply;
 }

@@ -17,8 +17,6 @@ using Content.Shared.Timing;
 using Content.Shared.Traits.Assorted;
 using Content.Shared.ADT.Atmos.Miasma; // ADT-Tweak
 using Content.Shared.Resist; //ADT-Medicine
-using Content.Shared.Inventory;
-using Content.Shared.Verbs;
 using Robust.Shared.Containers; // ADT-Tweak
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
@@ -49,27 +47,6 @@ public abstract partial class SharedDefibrillatorSystem : EntitySystem
     [Dependency] private SharedContainerSystem _container = default!; // ADT-Tweak
 
     private readonly HashSet<EntityUid> _interactors = new();
-
-    // ADT-Tweak-start
-    [SubscribeLocalEvent]
-    private void AddZapVerb(Entity<DefibrillatorComponent> ent, ref InventoryRelayedEvent<GetVerbsEvent<InnateVerb>> args)
-    {
-        if (!args.Args.CanInteract || !args.Args.CanAccess || !HasComp<MobStateComponent>(args.Args.Target))
-            return;
-
-        var target = args.Args.Target;
-        var user = args.Args.User;
-
-        var verb = new InnateVerb
-        {
-            Act = () => TryStartZap(ent.AsNullable(), target, user),
-            Text = Loc.GetString("defibrillator-verb-zap"),
-            IconEntity = GetNetEntity(ent),
-            Priority = 2,
-        };
-        args.Args.Verbs.Add(verb);
-    }
-    // ADT-Tweak-end
 
     [SubscribeLocalEvent]
     private void OnAfterInteract(Entity<DefibrillatorComponent> ent, ref AfterInteractEvent args)
@@ -260,7 +237,7 @@ public abstract partial class SharedDefibrillatorSystem : EntitySystem
                 if (mindComp.CurrentEntity != target)
                     OpenReturnToBodyEui((mindUid, mindComp), playerSession);
             }
-            else
+            else if (isOriginal) // ADT-Tweak
             {
                 if (HasComp<MindContainerComponent>(target))
                     _chat.TrySendInGameICMessage(ent.Owner, Loc.GetString("defibrillator-no-mind"), InGameICChatType.Speak, true); //target can host a mind but doesn't

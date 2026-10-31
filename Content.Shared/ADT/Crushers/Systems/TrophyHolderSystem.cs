@@ -9,6 +9,7 @@ using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Content.Shared.Tools.Systems;
 using Content.Shared.Verbs;
+using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
@@ -52,24 +53,21 @@ public sealed class TrophyHolderSystem : EntitySystem
         if (!args.CanInteract || !args.CanAccess)
             return;
 
-        var trophies = GetCurrentTrophies(ent);
-        if (trophies.Count == 0)
-            return;
+        var ev = new TrophyHolderExamineEvent(new FormattedMessage());
+        RaiseLocalEvent(ent, ref ev);
 
-        var examineMarkup = new FormattedMessage();
-
-        foreach (var trophy in trophies)
+        foreach (var trophy in GetCurrentTrophies(ent))
         {
             foreach (var effect in trophy.Comp.Effects)
             {
-                var description = effect.GetDescription();
-                examineMarkup.AddMessage(description);
-                examineMarkup.PushNewline();
-                examineMarkup.PushNewline();
+                ev.PushMessage(effect.GetDescription());
             }
         }
 
-        _examine.AddDetailedExamineVerb(args, ent.Comp, examineMarkup,
+        if (ev.Message.IsEmpty)
+            return;
+
+        _examine.AddDetailedExamineVerb(args, ent.Comp, ev.Message,
             Loc.GetString("trophy-examinable-verb-text"), "/Textures/Interface/VerbIcons/dot.svg.192dpi.png",
             Loc.GetString("trophy-examinable-verb-message"));
     }
@@ -122,7 +120,7 @@ public sealed class TrophyHolderSystem : EntitySystem
 
         _audio.PlayPredicted(ent.Comp.InsertSound, ent, args.User);
         _popup.PopupClient(Loc.GetString("crusher-upgrade-popup-insert", ("upgrade", args.Used), ("crusher", ent.Owner)), args.User);
-        _gun.RefreshModifiers(ent.Owner);
+        RefreshGunModifiers(ent);
 
         _adminLog.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(args.User):player} inserted crusher upgrade {ToPrettyString(args.Used)} into {ToPrettyString(ent.Owner)}.");
     }
@@ -172,7 +170,7 @@ public sealed class TrophyHolderSystem : EntitySystem
         var holderEv = new TrophyHolderTrophiesAlteredEvent(args.Entity, TrophyAlteredType.Inserted);
         RaiseLocalEvent(ent.Owner, ref holderEv);
 
-        _gun.RefreshModifiers(ent.Owner);
+        RefreshGunModifiers(ent);
     }
 
     private void OnEntRemoved(Entity<TrophyHolderComponent> ent, ref EntRemovedFromContainerMessage args)
@@ -189,6 +187,12 @@ public sealed class TrophyHolderSystem : EntitySystem
         var holderEv = new TrophyHolderTrophiesAlteredEvent(args.Entity, TrophyAlteredType.Removed);
         RaiseLocalEvent(ent.Owner, ref holderEv);
 
-        _gun.RefreshModifiers(ent.Owner);
+        RefreshGunModifiers(ent);
+    }
+
+    private void RefreshGunModifiers(Entity<TrophyHolderComponent> ent)
+    {
+        if (TryComp<GunComponent>(ent, out var gun))
+            _gun.RefreshModifiers((ent.Owner, gun));
     }
 }

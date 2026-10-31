@@ -1,0 +1,9 @@
+- type: entity
+  parent: BlastDoor
+  id: ADTBlastDoorUSSPBunker
+  name: USSP bunker gate
+  description: Massive bunker gates marked with red stars.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Shutters/ussp_bunker_door.rsi

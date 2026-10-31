@@ -8,6 +8,7 @@ using Content.Server.NPC.Queries.Curves;
 using Content.Server.NPC.Queries.Queries;
 using Content.Server.Nutrition.Components;
 using Content.Shared.Atmos.Components;
+using Content.Shared.Bed.Sleep; // ADT-Tweak
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
@@ -357,6 +358,10 @@ public sealed partial class NPCUtilitySystem : EntitySystem
             case ADTTargetIsHardCritCon:
             {
                 return _mobState.IsCritical(targetUid) && !_mobState.IsSoftCritical(targetUid) ? 1f : 0f;
+            }
+            case ADTTargetIsAsleepCon:
+            {
+                return HasComp<SleepingComponent>(targetUid) ? 1f : 0f;
             }
             // ADT-Tweak-End
             case TargetIsDeadCon:

@@ -48,11 +48,11 @@
       minDistanceFromCenter: 250
       maxDistanceFromCenter: 300
       clearance: 55
-    #- prototypes: [ ADTHeliosEntranceRoomMarker ]
-    #  count: 1
-    #  minDistanceFromCenter: 140
-    #  maxDistanceFromCenter: 240
-    #  clearance: 20
+    - prototypes: [ ADTHeliosEntranceRoomMarker ]
+      count: 1
+      minDistanceFromCenter: 140
+      maxDistanceFromCenter: 240
+      clearance: 20
     - prototypes: [ LavaDungeonRoomMarker ]
       roomWhitelist:
         tags:
@@ -87,31 +87,38 @@
       maxRadius: 310
       entries:
       - prototype: ADTWorldAnvilRoomMarker
-    # /datum/spawn_pool/lavaland_fauna - rand(100, 150)
-    - minBudget: 165
-      maxBudget: 248
+    # Paradise LavalandGenerator.dm: weighted_mob_spawn_list
+    - minBudget: 350
+      maxBudget: 450
       minSpacing: 12
       minDistanceFromCenter: 60
       maxRadius: 325
+      maxAttempts: 150
+      maxFailures: 60
       entries:
-      - prototype: MobGoliath
-        weight: 3
+      - prototype: ADTMobLavalandGoliath
+        weight: 50
         variants:
-        - prototype: MobAncientGoliath
-          probability: 0.01
-      - prototype: ADTMobLegion
-        weight: 3
+        - prototype: ADTMobLavalandGoliathAncient
+          probability: 0.1
       - prototype: MobWatcherLavaland
-        weight: 3
+        weight: 40
         variants:
         - prototype: MobWatcherIcewing
           probability: 0.0025
         - prototype: MobWatcherMagmawing
           probability: 0.0075
+      - prototype: ADTMobLegion
+        weight: 30
+      - prototype: ADTMobMarrowWeaverDangerous
+        weight: 30
+        variants:
+        - prototype: ADTMobMarrowWeaverFrost
+          probability: 0.15
       - prototype: ADTMobGoldgrub
-        weight: 2
+        weight: 15
       - prototype: ADTMobGutlunch
-        weight: 1
+        weight: 10
         variants:
         - prototype: ADTMobGubbuck
           probability: 0.025
@@ -136,6 +143,91 @@
     - BloodMinerDungeMarker
     - ADTHierophantArenaSpawner
     - ADTMegaFaunaColossus
+    #- ADTMegaFaunaVetusSpeculator
+  # LavalandGenerator.dm port
+  - type: ADTLavalandCaves
+    closedChance: 45
+    smoothingIterations: 50
+    birthLimit: 4
+    deathLimit: 3
+    minNodes: 45
+    maxNodes: 75
+    nodeMinSize: 75
+    nodeMaxSize: 90
+    hardNoise:
+      chance: 40
+      iterations: 100
+      birthLimit: 4
+      deathLimit: 3
+    doubleNoise:
+      chance: 25
+      iterations: 100
+      birthLimit: 4
+      deathLimit: 3
+    walls:
+    # /turf/simulated/mineral/random/volcanic
+    - prototype: ADTBasalt
+      mineralChance: 14
+      ores:
+        Uranium: 5
+        Diamond: 0.5
+        Gold: 10
+        Copper: 11
+        Silver: 12
+        Plasma: 20
+        Iron: 40
+        Gibtonite: 4
+        Bluespace: 0.5
+        Gem: 1
+    # /turf/simulated/mineral/random/volcanic/hard
+    - prototype: ADTBasaltHardened
+      mineralChance: 24
+      ores:
+        Uranium: 10
+        Diamond: 2
+        Gold: 10
+        Copper: 21
+        Magmite: 0.25
+        Silver: 12
+        Plasma: 20
+        Bluespace: 2
+        Gibtonite: 4
+        Iron: 40
+        Gem: 2
+    # /turf/simulated/mineral/random/volcanic/hard/double
+    - prototype: ADTBasaltVolcanic
+      mineralChance: 60
+      ores:
+        Uranium: 15
+        Diamond: 3
+        Gold: 15
+        Copper: 31
+        Magmite: 0.5
+        Silver: 12
+        Plasma: 25
+        Bluespace: 3
+        Gibtonite: 4
+        Iron: 45
+        Gem: 5
+        Bananium: 2
+    spread:
+      Iron: 20
+      Uranium: 5
+      Gold: 5
+      Silver: 5
+      Copper: 5
+      Plasma: 8
+      Quartz: 8
+      Coal: 5
+      Sandstone: 5
+    extraChance: 2
+    extraOres:
+      Quartz: 40
+      Coal: 30
+      Sandstone: 20
+      Zinc: 12
+      Lead: 12
+      ArtifactFragment: 2
   - type: FTLDestination
   - type: ADTBaitDigging
     table: !type:NestedSelector
@@ -201,27 +293,6 @@
     moles:
     - 8
     - 14
-  biomeMarkerLayers:
-  - ADTLavaVeinOreIron
-  - ADTLavaVeinSandstone
-  - ADTLavaVeinGem
-  - ADTLavaVeinOreQuartz
-  - ADTLavaVeinOreCoal
-  - ADTLavaVeinOreGold
-  - ADTLavaVeinOreSilver
-  - ADTLavaVeinOrePlasma
-  - ADTLavaVeinOreUranium
-  - ADTLavaVeinOreDiamond
-  - ADTLavaVeinOreArtifactFragment
-  - ADTLavaVeinADTOreBS
-  - ADTLavaVeinOreCopper
-  - ADTLavaVeinOreZinc
-  - ADTLavaVeinOreLead
-  - ADTLavaVeinOreGibtonit
-  - ADTLavaVeinOreMagmite
-  - ADTLavaVeinAncientRock
-  - ADTLavaVeinAncientRockUranium
-  - ADTLavaVeinAncientRockDiamond
 
 - type: planet
   id: GlacierSurface

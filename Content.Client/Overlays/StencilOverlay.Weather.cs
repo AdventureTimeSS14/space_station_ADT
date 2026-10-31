@@ -9,7 +9,11 @@ namespace Content.Client.Overlays;
 
 public sealed partial class StencilOverlay
 {
-    private readonly Dictionary<EntityUid, Vector2> _weatherOffsets = new(); // ADT-Tweak
+    // ADT-Tweak-Start
+    private readonly Dictionary<EntityUid, (Vector2 Offset, Angle Rotation)> _weatherOffsets = new();
+    private readonly Dictionary<(EntityUid, IClydeViewport), (Vector2 Center, Vector2 Shift)> _weatherAnchors = new();
+    private readonly List<(EntityUid, IClydeViewport)> _staleWeatherAnchors = new();
+    // ADT-Tweak-End
 
     private void DrawWeather(
         in OverlayDrawArgs args,
@@ -28,9 +32,10 @@ public sealed partial class StencilOverlay
             "weather-blocked-grid-stencil",
             (grid, tile) =>
             {
-                _entManager.TryGetComponent(grid.Owner, out RoofComponent? roofComp);
+                // ADT-Tweak-Start
                 // Ignored tiles for stencil.
-                return !_weather.CanWeatherAffect((grid.Owner, grid.Comp, roofComp), tile);
+                return !_weatherCache.CanWeatherAffect(grid, tile);
+                // ADT-Tweak-End
             });
 
         // ADT-Tweak-Start
@@ -42,11 +47,15 @@ public sealed partial class StencilOverlay
         foreach (var (uid, weather, _) in weathers)
         {
             var hash = (uint) uid.GetHashCode();
-            weatherOffsets[uid] = new Vector2(hash % 2000 - 1000f, hash / 2000 % 2000 - 1000f);
+            var rotation = GetWeatherRotation(uid);
+            var shift = GetWeatherShift(uid, args.Viewport, worldAABB.Center, rotation);
+            weatherOffsets[uid] = (new Vector2(hash % 2000 - 1000f, hash / 2000 % 2000 - 1000f) + shift, rotation);
 
             if (weather.GroundSprite != null)
                 hasGroundLayer = true;
         }
+
+        PruneWeatherAnchors();
 
         if (hasGroundLayer)
             DrawWeatherGround(args, stencil, weathers, weatherOffsets, curTime);
@@ -70,8 +79,8 @@ public sealed partial class StencilOverlay
                 curTime,
                 position,
                 weather.Scrolling ?? Vector2.Zero,
-                weatherOffsets[uid],
-                GetWeatherRotation(uid),
+                weatherOffsets[uid].Offset,
+                weatherOffsets[uid].Rotation,
                 (weather.Color ?? Color.White).WithAlpha(alpha));
             // ADT-Tweak-End
         }
@@ -85,7 +94,7 @@ public sealed partial class StencilOverlay
         in OverlayDrawArgs args,
         IRenderTexture blockedStencil,
         HashSet<Entity<WeatherStatusEffectComponent, StatusEffectComponent>> weathers,
-        Dictionary<EntityUid, Vector2> weatherOffsets,
+        Dictionary<EntityUid, (Vector2 Offset, Angle Rotation)> weatherOffsets,
         TimeSpan curTime)
     {
         var worldHandle = args.WorldHandle;
@@ -101,8 +110,7 @@ public sealed partial class StencilOverlay
                 if (_turf.IsSpace(tile))
                     return false;
 
-                _entManager.TryGetComponent(grid.Owner, out RoofComponent? roofComp);
-                return _weather.CanWeatherAffect((grid.Owner, grid.Comp, roofComp), tile);
+                return _weatherCache.CanWeatherAffect(grid, tile);
             });
 
         worldHandle.SetTransform(Matrix3x2.Identity);
@@ -126,13 +134,45 @@ public sealed partial class StencilOverlay
                 curTime,
                 position,
                 Vector2.Zero,
-                weatherOffsets[uid],
-                GetWeatherRotation(uid),
+                weatherOffsets[uid].Offset,
+                weatherOffsets[uid].Rotation,
                 (weather.Color ?? Color.White).WithAlpha(alpha));
         }
 
         worldHandle.UseShader(_protoManager.Index(StencilClear).Instance());
         worldHandle.DrawRect(worldBounds, Color.White);
+    }
+
+    private Vector2 GetWeatherShift(EntityUid weather, IClydeViewport viewport, Vector2 center, Angle rotation)
+    {
+        var key = (weather, viewport);
+        var shift = Vector2.Zero;
+        if (_weatherAnchors.TryGetValue(key, out var anchor))
+        {
+            var delta = center - anchor.Center;
+            shift = anchor.Shift + (-rotation).RotateVec(delta) - delta;
+        }
+
+        _weatherAnchors[key] = (center, shift);
+        return shift;
+    }
+
+    private void PruneWeatherAnchors()
+    {
+        if (_weatherAnchors.Count <= 16)
+            return;
+
+        _staleWeatherAnchors.Clear();
+        foreach (var key in _weatherAnchors.Keys)
+        {
+            if (_entManager.Deleted(key.Item1))
+                _staleWeatherAnchors.Add(key);
+        }
+
+        foreach (var key in _staleWeatherAnchors)
+        {
+            _weatherAnchors.Remove(key);
+        }
     }
 
     private Angle GetWeatherRotation(EntityUid weather)

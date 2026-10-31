@@ -70,6 +70,7 @@ public sealed partial class ModSuitSystem
             _actionsSystem.SetEntityIcon(ent.Comp.ActionEntity.Value, action.EntityIcon);
 
         _actionContainer.EnsureAction(ent, ref ent.Comp.ActionMenuEntity, ent.Comp.MenuAction);
+        _actionContainer.EnsureAction(ent, ref ent.Comp.ToggleAllActionEntity, ent.Comp.ToggleAllAction);
 
         Dirty(ent);
 
@@ -131,6 +132,7 @@ public sealed partial class ModSuitSystem
 
         args.AddAction(ent.Comp.ActionMenuEntity);
         args.AddAction(ent.Comp.ActionEntity);
+        args.AddAction(ent.Comp.ToggleAllActionEntity);
     }
 
     private void OnRemoveModSuit(Entity<ModSuitComponent> ent, ref ComponentRemove args)

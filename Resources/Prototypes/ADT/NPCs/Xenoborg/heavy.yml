@@ -1,0 +1,37 @@
+- type: htnCompound
+  id: ADTXenoborgHeavyCompound
+  branches:
+    - preconditions:
+        - !type:ADTHealthPrecondition
+          below: 0.5
+      tasks:
+        - !type:HTNCompoundTask
+          task: ADTXenoborgRepairRetreatCompound
+
+    - preconditions:
+        - !type:ADTHostileNearPrecondition
+          range: 15
+        - !type:ADTBorgItemActivePrecondition
+          invert: true
+          items:
+            - WeaponLaserGunXenoborg
+            - WeaponLaserCannonXenoborg
+            - WeaponBurstFireLaserXenoborg
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTSelectBorgItemOperator
+            items:
+              - WeaponLaserGunXenoborg
+              - WeaponLaserCannonXenoborg
+              - WeaponBurstFireLaserXenoborg
+
+    - preconditions:
+        - !type:ADTHostileNearPrecondition
+          range: 15
+      tasks:
+        - !type:HTNCompoundTask
+          task: ADTXenoborgGunCompound
+
+    - tasks:
+        - !type:HTNCompoundTask
+          task: ADTXenoborgIdleCompound

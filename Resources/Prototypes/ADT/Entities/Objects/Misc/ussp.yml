@@ -1,0 +1,30 @@
+- type: entity
+  parent: LampGold
+  id: ADTLampUSSPGreen
+  name: green desk lamp
+  description: A banker's lamp with a green glass shade. Every office desk deserves one.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/Lights/ussp_lampgreen.rsi
+  - type: Item
+    sprite: ADT/Objects/Misc/Lights/ussp_lampgreen.rsi
+
+- type: entity
+  parent: FloorCarpetItemRed
+  id: ADTFloorCarpetItemUSSP
+  name: USSP carpet
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Tiles/ussp_carpet.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Tiles/ussp_carpet.rsi
+    heldPrefix: null
+  - type: Stack
+    stackType: ADTFloorCarpetUSSP
+  - type: SpawnAfterInteract
+    prototype: ADTCarpetUSSP
+    doAfter: 0.5
+    removeOnInteract: true

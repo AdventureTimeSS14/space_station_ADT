@@ -49,3 +49,15 @@
     sprite: ADT/Special/Personal/kiwi_jumpskirt.rsi
   - type: Clothing
     sprite: ADT/Special/Personal/kiwi_jumpskirt.rsi
+
+- type: entity
+  parent: ADTSponsorClothingUniformSkirtBase
+  id: ADTClothingUniformRefinedDress
+  name: refined dress
+  description: A light shirt with transparent long sleeves. Undoubtedly, the wearer of this outfit possesses good taste.
+  suffix: Sponsor, For all sponsor
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/refined_dress.rsi
+  - type: Clothing
+    sprite: ADT/Special/Personal/refined_dress.rsi

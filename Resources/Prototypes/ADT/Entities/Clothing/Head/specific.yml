@@ -32,3 +32,97 @@
     containers:
       storagebase: !type:Container
         ents: [ ]
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadArtdecoHairpin
+  name: golden hairpin with feathers
+  description: An elegant golden hairpin with feathers in art-deco style.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Specific/artdeco_hairpin.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Specific/artdeco_hairpin.rsi
+  - type: StaticPrice
+    price: 40
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHairflowerGold
+  name: golden hair flower
+  description: A graceful golden flower for the hair.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Specific/hairflower_gold.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Specific/hairflower_gold.rsi
+    slots:
+    - HEAD
+    - NECK
+  - type: StaticPrice
+    price: 40
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadMaidHeadband
+  name: maid headband
+  description: Maid outfit not included.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Specific/maid_headband.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Specific/maid_headband.rsi
+  - type: StaticPrice
+    price: 20
+
+- type: entity
+  parent: [ ClothingHeadBase, BaseFoldable ]
+  id: ADTClothingHeadVisorGambler
+  name: gambler visor
+  description: A green poker visor.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Specific/visor_gambler.rsi
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: icon_flipped
+      map: [ "foldedLayer" ]
+      visible: false
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Specific/visor_gambler.rsi
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: fold-flip-verb
+    foldVerbText: fold-flip-verb
+  - type: FoldableClothing
+    foldedEquippedPrefix: flipped
+    foldedHeldPrefix: flipped
+  - type: StaticPrice
+    price: 20
+
+- type: entity
+  parent: [ ClothingHeadBase, BaseFoldable ]
+  id: ADTClothingHeadVisorPizza
+  name: pizza delivery visor
+  description: A red visor designed to protect eyes while working. Smells like pizza.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Specific/visor_pizza.rsi
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: icon_flipped
+      map: [ "foldedLayer" ]
+      visible: false
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Specific/visor_pizza.rsi
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: fold-flip-verb
+    foldVerbText: fold-flip-verb
+  - type: FoldableClothing
+    foldedEquippedPrefix: flipped
+    foldedHeldPrefix: flipped
+  - type: StaticPrice
+    price: 20

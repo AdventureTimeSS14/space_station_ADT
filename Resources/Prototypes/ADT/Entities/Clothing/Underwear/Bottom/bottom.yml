@@ -352,3 +352,58 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Underwear/Bottom/panties_red.rsi #спрайты от prazat911
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ADTClothingUnderwearBottomBoxersILoveArcan
+  name: boxers "I love Arcan"
+  description: Standard underwear printed with enthusiasm for Arcan.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Bottom/boxers_i_love_arcan.rsi
+  - type: StaticPrice
+    price: 15
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ADTClothingUnderwearBottomBoxersPink
+  name: pink boxers
+  description: Standard Nanotrasen underwear dyed pink.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Bottom/boxers_pink.rsi
+  - type: StaticPrice
+    price: 15
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ADTClothingUnderwearBottomBoxersTSF
+  name: TSF boxers
+  description: You are a true patriot.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Bottom/boxers_tsf.rsi
+  - type: StaticPrice
+    price: 15
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ADTClothingUnderwearBottomPantiesAmerica
+  name: America panties
+  description: Freedom in every stitch.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Bottom/panties_america.rsi
+  - type: StaticPrice
+    price: 15
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ADTClothingUnderwearBottomPantiesPink
+  name: pink panties
+  description: Standard Nanotrasen panties dyed pink.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Bottom/panties_pink.rsi
+  - type: StaticPrice
+    price: 15

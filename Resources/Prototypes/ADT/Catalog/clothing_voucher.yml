@@ -140,6 +140,16 @@
   content:
   - ADTClothingUniformJumpsuitTurtleneckDarkBlue
 
+- type: thiefBackpackSet
+  id: JumpsuitTurtleneckBeige
+  name: clothing-voucher-jumpsuit-turtleneck-beige
+  description: clothing-voucher-jumpsuit-turtleneck-beige
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_beige.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitTurtleneckBeige
+
 #region JumpskirtTurtleneck
 
 - type: thiefBackpackSet
@@ -2226,3 +2236,1033 @@
   content:
   - ADTClothingUnderwearTopMonokiniBlack
 
+#region Adidas
+
+- type: thiefBackpackSet
+  id: AdidasBlack
+  name: clothing-voucher-adidas-black
+  description: clothing-voucher-adidas-black
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Adidas/adidas_black.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitAdidasBlack
+
+- type: thiefBackpackSet
+  id: AdidasBlue
+  name: clothing-voucher-adidas-blue
+  description: clothing-voucher-adidas-blue
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Adidas/adidas_blue.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitAdidasBlue
+
+- type: thiefBackpackSet
+  id: AdidasRed
+  name: clothing-voucher-adidas-red
+  description: clothing-voucher-adidas-red
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Adidas/adidas_red.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitAdidasRed
+
+- type: thiefBackpackSet
+  id: AdidasWhite
+  name: clothing-voucher-adidas-white
+  description: clothing-voucher-adidas-white
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Adidas/adidas_white.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitAdidasWhite
+
+#region CasualShirt
+
+- type: thiefBackpackSet
+  id: CasualShirtBeige
+  name: clothing-voucher-casualshirt-beige
+  description: clothing-voucher-casualshirt-beige
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/beige_shirt.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitShirtBeige
+
+- type: thiefBackpackSet
+  id: CasualShirtDarkBlue
+  name: clothing-voucher-casualshirt-darkblue
+  description: clothing-voucher-casualshirt-darkblue
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/darkblue_shirt.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitShirtDarkBlue
+
+- type: thiefBackpackSet
+  id: CasualShirtGreen
+  name: clothing-voucher-casualshirt-green
+  description: clothing-voucher-casualshirt-green
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/green_shirt.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitShirtGreen
+
+- type: thiefBackpackSet
+  id: CasualShirtTeal
+  name: clothing-voucher-casualshirt-teal
+  description: clothing-voucher-casualshirt-teal
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/teal_shirt.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitShirtTeal
+
+- type: thiefBackpackSet
+  id: CasualShirtYellow
+  name: clothing-voucher-casualshirt-yellow
+  description: clothing-voucher-casualshirt-yellow
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/yellow_shirt.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitShirtYellow
+
+- type: thiefBackpackSet
+  id: CasualShirtBlack
+  name: clothing-voucher-casualshirt-black
+  description: clothing-voucher-casualshirt-black
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/black_shirt.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitBlackShirt
+
+- type: thiefBackpackSet
+  id: CasualShirtBlue
+  name: clothing-voucher-casualshirt-blue
+  description: clothing-voucher-casualshirt-blue
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/blue_shirt.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitBlueShirt
+
+- type: thiefBackpackSet
+  id: CasualShirtPurple
+  name: clothing-voucher-casualshirt-purple
+  description: clothing-voucher-casualshirt-purple
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/purple_shirt.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitPurpleShirt
+
+- type: thiefBackpackSet
+  id: CasualShirtRed
+  name: clothing-voucher-casualshirt-red
+  description: clothing-voucher-casualshirt-red
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/red_shirt.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitRedShirt
+
+- type: thiefBackpackSet
+  id: CasualShirtWhite
+  name: clothing-voucher-casualshirt-white
+  description: clothing-voucher-casualshirt-white
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/white_shirt.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitWhiteShirt
+
+- type: thiefBackpackSet
+  id: CasualShirtFancy
+  name: clothing-voucher-casualshirt-fancy
+  description: clothing-voucher-casualshirt-fancy
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/fancy_shirt.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitFancyShirt
+
+- type: thiefBackpackSet
+  id: CasualShirtRedPlaid
+  name: clothing-voucher-casualshirt-redplaid
+  description: clothing-voucher-casualshirt-redplaid
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/red_plaid_shirt.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitRedPlaidShirt
+
+- type: thiefBackpackSet
+  id: CasualShirtHawaii
+  name: clothing-voucher-casualshirt-hawaii
+  description: clothing-voucher-casualshirt-hawaii
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/hawaiian_shirt.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitHawaiiShirt
+
+- type: thiefBackpackSet
+  id: CasualShirtTonny
+  name: clothing-voucher-casualshirt-tonny
+  description: clothing-voucher-casualshirt-tonny
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/tonny_shirt.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitTonnyShirt
+
+- type: thiefBackpackSet
+  id: CasualShirtNavy
+  name: clothing-voucher-casualshirt-navy
+  description: clothing-voucher-casualshirt-navy
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/navy_shirt.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitNavyShirt
+
+- type: thiefBackpackSet
+  id: CasualShirtLimbusco
+  name: clothing-voucher-casualshirt-limbusco
+  description: clothing-voucher-casualshirt-limbusco
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/limbusco_shirt.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitLimbuscoShirt
+
+
+#region Keikogi
+
+- type: thiefBackpackSet
+  id: KeikogiWhite
+  name: clothing-voucher-keikogi-white
+  description: clothing-voucher-keikogi-white
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/keikogi.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitKeikogiWhite
+
+- type: thiefBackpackSet
+  id: KeikogiOrange
+  name: clothing-voucher-keikogi-orange
+  description: clothing-voucher-keikogi-orange
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/keikogi.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitKeikogiOrange
+
+- type: thiefBackpackSet
+  id: KeikogiBlue
+  name: clothing-voucher-keikogi-blue
+  description: clothing-voucher-keikogi-blue
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/keikogi.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitKeikogiBlue
+
+- type: thiefBackpackSet
+  id: KeikogiYellow
+  name: clothing-voucher-keikogi-yellow
+  description: clothing-voucher-keikogi-yellow
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/keikogi.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitKeikogiYellow
+
+- type: thiefBackpackSet
+  id: KeikogiGreen
+  name: clothing-voucher-keikogi-green
+  description: clothing-voucher-keikogi-green
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/keikogi.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitKeikogiGreen
+
+- type: thiefBackpackSet
+  id: KeikogiBrown
+  name: clothing-voucher-keikogi-brown
+  description: clothing-voucher-keikogi-brown
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/keikogi.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitKeikogiBrown
+
+- type: thiefBackpackSet
+  id: KeikogiBlack
+  name: clothing-voucher-keikogi-black
+  description: clothing-voucher-keikogi-black
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/keikogi.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitKeikogiBlack
+
+#region Heels
+
+- type: thiefBackpackSet
+  id: HeelsBlack
+  name: clothing-voucher-heels-black
+  description: clothing-voucher-heels-black
+  sprite:
+    sprite: ADT/Clothing/Shoes/Heels/heelblack.rsi
+    state: icon
+  content:
+  - ADTClothingFootHeelsBlack
+
+- type: thiefBackpackSet
+  id: HeelsGold
+  name: clothing-voucher-heels-gold
+  description: clothing-voucher-heels-gold
+  sprite:
+    sprite: ADT/Clothing/Shoes/Heels/heelgold.rsi
+    state: icon
+  content:
+  - ADTClothingFootHeelsGold
+
+- type: thiefBackpackSet
+  id: HeelsRed
+  name: clothing-voucher-heels-red
+  description: clothing-voucher-heels-red
+  sprite:
+    sprite: ADT/Clothing/Shoes/Heels/heelred.rsi
+    state: icon
+  content:
+  - ADTClothingFootHeelsRed
+
+- type: thiefBackpackSet
+  id: HeelsWhite
+  name: clothing-voucher-heels-white
+  description: clothing-voucher-heels-white
+  sprite:
+    sprite: ADT/Clothing/Shoes/Heels/heelwhite.rsi
+    state: icon
+  content:
+  - ADTClothingFootHeelsWhite
+
+#region Sandals
+
+- type: thiefBackpackSet
+  id: SandalsBlack
+  name: clothing-voucher-sandals-black
+  description: clothing-voucher-sandals-black
+  sprite:
+    sprite: ADT/Clothing/Shoes/Sandals/sandals_black.rsi
+    state: icon
+  content:
+  - ADTClothingFootSandalsBlack
+
+- type: thiefBackpackSet
+  id: SandalsBlue
+  name: clothing-voucher-sandals-blue
+  description: clothing-voucher-sandals-blue
+  sprite:
+    sprite: ADT/Clothing/Shoes/Sandals/sandals_blue.rsi
+    state: icon
+  content:
+  - ADTClothingFootSandalsBlue
+
+- type: thiefBackpackSet
+  id: SandalsBrown
+  name: clothing-voucher-sandals-brown
+  description: clothing-voucher-sandals-brown
+  sprite:
+    sprite: ADT/Clothing/Shoes/Sandals/sandals_brown.rsi
+    state: icon
+  content:
+  - ADTClothingFootSandalsBrown
+
+- type: thiefBackpackSet
+  id: SandalsGreen
+  name: clothing-voucher-sandals-green
+  description: clothing-voucher-sandals-green
+  sprite:
+    sprite: ADT/Clothing/Shoes/Sandals/sandals_green.rsi
+    state: icon
+  content:
+  - ADTClothingFootSandalsGreen
+
+- type: thiefBackpackSet
+  id: SandalsPink
+  name: clothing-voucher-sandals-pink
+  description: clothing-voucher-sandals-pink
+  sprite:
+    sprite: ADT/Clothing/Shoes/Sandals/sandals_pink.rsi
+    state: icon
+  content:
+  - ADTClothingFootSandalsPink
+
+- type: thiefBackpackSet
+  id: SandalsRed
+  name: clothing-voucher-sandals-red
+  description: clothing-voucher-sandals-red
+  sprite:
+    sprite: ADT/Clothing/Shoes/Sandals/sandals_red.rsi
+    state: icon
+  content:
+  - ADTClothingFootSandalsRed
+
+- type: thiefBackpackSet
+  id: SandalsWhite
+  name: clothing-voucher-sandals-white
+  description: clothing-voucher-sandals-white
+  sprite:
+    sprite: ADT/Clothing/Shoes/Sandals/sandals_white.rsi
+    state: icon
+  content:
+  - ADTClothingFootSandalsWhite
+
+- type: thiefBackpackSet
+  id: SandalsYellow
+  name: clothing-voucher-sandals-yellow
+  description: clothing-voucher-sandals-yellow
+  sprite:
+    sprite: ADT/Clothing/Shoes/Sandals/sandals_yellow.rsi
+    state: icon
+  content:
+  - ADTClothingFootSandalsYellow
+
+#region Bowtie
+
+- type: thiefBackpackSet
+  id: BowtieBlack
+  name: clothing-voucher-bowtie-black
+  description: clothing-voucher-bowtie-black
+  sprite:
+    sprite: ADT/Clothing/Neck/Bowtie/black_bowtie.rsi
+    state: icon
+  content:
+  - ADTClothingNeckBowtieBlack
+
+- type: thiefBackpackSet
+  id: BowtieBlue
+  name: clothing-voucher-bowtie-blue
+  description: clothing-voucher-bowtie-blue
+  sprite:
+    sprite: ADT/Clothing/Neck/Bowtie/blue_bowtie.rsi
+    state: icon
+  content:
+  - ADTClothingNeckBowtieBlue
+
+- type: thiefBackpackSet
+  id: BowtieRed
+  name: clothing-voucher-bowtie-red
+  description: clothing-voucher-bowtie-red
+  sprite:
+    sprite: ADT/Clothing/Neck/Bowtie/red_bowtie.rsi
+    state: icon
+  content:
+  - ADTClothingNeckBowtieRed
+
+- type: thiefBackpackSet
+  id: BowtieWhite
+  name: clothing-voucher-bowtie-white
+  description: clothing-voucher-bowtie-white
+  sprite:
+    sprite: ADT/Clothing/Neck/Bowtie/white_bowtie.rsi
+    state: icon
+  content:
+  - ADTClothingNeckBowtieWhite
+
+#region Shawl
+
+- type: thiefBackpackSet
+  id: ShawlBlack
+  name: clothing-voucher-shawl-black
+  description: clothing-voucher-shawl-black
+  sprite:
+    sprite: ADT/Clothing/Neck/Shawl/black_shawl.rsi
+    state: icon
+  content:
+  - ADTClothingNeckShawlBlack
+
+- type: thiefBackpackSet
+  id: ShawlBlue
+  name: clothing-voucher-shawl-blue
+  description: clothing-voucher-shawl-blue
+  sprite:
+    sprite: ADT/Clothing/Neck/Shawl/blue_shawl.rsi
+    state: icon
+  content:
+  - ADTClothingNeckShawlBlue
+
+- type: thiefBackpackSet
+  id: ShawlPink
+  name: clothing-voucher-shawl-pink
+  description: clothing-voucher-shawl-pink
+  sprite:
+    sprite: ADT/Clothing/Neck/Shawl/pink_shawl.rsi
+    state: icon
+  content:
+  - ADTClothingNeckShawlPink
+
+- type: thiefBackpackSet
+  id: ShawlRed
+  name: clothing-voucher-shawl-red
+  description: clothing-voucher-shawl-red
+  sprite:
+    sprite: ADT/Clothing/Neck/Shawl/red_shawl.rsi
+    state: icon
+  content:
+  - ADTClothingNeckShawlRed
+
+- type: thiefBackpackSet
+  id: ShawlWhite
+  name: clothing-voucher-shawl-white
+  description: clothing-voucher-shawl-white
+  sprite:
+    sprite: ADT/Clothing/Neck/Shawl/white_shawl.rsi
+    state: icon
+  content:
+  - ADTClothingNeckShawlWhite
+
+#region Beanie
+
+- type: thiefBackpackSet
+  id: BeanieBeige
+  name: clothing-voucher-beanie-beige
+  description: clothing-voucher-beanie-beige
+  sprite:
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_beige.rsi
+    state: icon
+  content:
+  - ADTClothingHeadHatBeanieBeige
+
+- type: thiefBackpackSet
+  id: BeanieBlack
+  name: clothing-voucher-beanie-black
+  description: clothing-voucher-beanie-black
+  sprite:
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_black.rsi
+    state: icon
+  content:
+  - ADTClothingHeadHatBeanieBlack
+
+- type: thiefBackpackSet
+  id: BeanieBlue
+  name: clothing-voucher-beanie-blue
+  description: clothing-voucher-beanie-blue
+  sprite:
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_blue.rsi
+    state: icon
+  content:
+  - ADTClothingHeadHatBeanieBlue
+
+- type: thiefBackpackSet
+  id: BeanieBrown
+  name: clothing-voucher-beanie-brown
+  description: clothing-voucher-beanie-brown
+  sprite:
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_brown.rsi
+    state: icon
+  content:
+  - ADTClothingHeadHatBeanieBrown
+
+- type: thiefBackpackSet
+  id: BeanieCyan
+  name: clothing-voucher-beanie-cyan
+  description: clothing-voucher-beanie-cyan
+  sprite:
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_cyan.rsi
+    state: icon
+  content:
+  - ADTClothingHeadHatBeanieCyan
+
+- type: thiefBackpackSet
+  id: BeanieDarkBlue
+  name: clothing-voucher-beanie-darkblue
+  description: clothing-voucher-beanie-darkblue
+  sprite:
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_darkblue.rsi
+    state: icon
+  content:
+  - ADTClothingHeadHatBeanieDarkBlue
+
+- type: thiefBackpackSet
+  id: BeanieDarkGreen
+  name: clothing-voucher-beanie-darkgreen
+  description: clothing-voucher-beanie-darkgreen
+  sprite:
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_darkgreen.rsi
+    state: icon
+  content:
+  - ADTClothingHeadHatBeanieDarkGreen
+
+- type: thiefBackpackSet
+  id: BeanieGray
+  name: clothing-voucher-beanie-gray
+  description: clothing-voucher-beanie-gray
+  sprite:
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_gray.rsi
+    state: icon
+  content:
+  - ADTClothingHeadHatBeanieGray
+
+- type: thiefBackpackSet
+  id: BeanieGreen
+  name: clothing-voucher-beanie-green
+  description: clothing-voucher-beanie-green
+  sprite:
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_green.rsi
+    state: icon
+  content:
+  - ADTClothingHeadHatBeanieGreen
+
+- type: thiefBackpackSet
+  id: BeanieMerc
+  name: clothing-voucher-beanie-merc
+  description: clothing-voucher-beanie-merc
+  sprite:
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_merc.rsi
+    state: icon
+  content:
+  - ADTClothingHeadHatBeanieMerc
+
+- type: thiefBackpackSet
+  id: BeanieOrange
+  name: clothing-voucher-beanie-orange
+  description: clothing-voucher-beanie-orange
+  sprite:
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_orange.rsi
+    state: icon
+  content:
+  - ADTClothingHeadHatBeanieOrange
+
+- type: thiefBackpackSet
+  id: BeaniePurple
+  name: clothing-voucher-beanie-purple
+  description: clothing-voucher-beanie-purple
+  sprite:
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_purple.rsi
+    state: icon
+  content:
+  - ADTClothingHeadHatBeaniePurple
+
+- type: thiefBackpackSet
+  id: BeanieRed
+  name: clothing-voucher-beanie-red
+  description: clothing-voucher-beanie-red
+  sprite:
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_red.rsi
+    state: icon
+  content:
+  - ADTClothingHeadHatBeanieRed
+
+- type: thiefBackpackSet
+  id: BeanieWhite
+  name: clothing-voucher-beanie-white
+  description: clothing-voucher-beanie-white
+  sprite:
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_white.rsi
+    state: icon
+  content:
+  - ADTClothingHeadHatBeanieWhite
+
+- type: thiefBackpackSet
+  id: BeanieYellow
+  name: clothing-voucher-beanie-yellow
+  description: clothing-voucher-beanie-yellow
+  sprite:
+    sprite: ADT/Clothing/Head/Hats/Beanie/beanie_yellow.rsi
+    state: icon
+  content:
+  - ADTClothingHeadHatBeanieYellow
+
+#region Downjacket
+
+- type: thiefBackpackSet
+  id: DownjacketBlack
+  name: clothing-voucher-downjacket-black
+  description: clothing-voucher-downjacket-black
+  sprite:
+    sprite: ADT/Clothing/OuterClothing/Downjacket/downjacket_black.rsi
+    state: icon
+  content:
+  - ADTClothingOuterDownjacketBlack
+
+- type: thiefBackpackSet
+  id: DownjacketBlue
+  name: clothing-voucher-downjacket-blue
+  description: clothing-voucher-downjacket-blue
+  sprite:
+    sprite: ADT/Clothing/OuterClothing/Downjacket/downjacket_blue.rsi
+    state: icon
+  content:
+  - ADTClothingOuterDownjacketBlue
+
+- type: thiefBackpackSet
+  id: DownjacketBrown
+  name: clothing-voucher-downjacket-brown
+  description: clothing-voucher-downjacket-brown
+  sprite:
+    sprite: ADT/Clothing/OuterClothing/Downjacket/downjacket_brown.rsi
+    state: icon
+  content:
+  - ADTClothingOuterDownjacketBrown
+
+- type: thiefBackpackSet
+  id: DownjacketGreen
+  name: clothing-voucher-downjacket-green
+  description: clothing-voucher-downjacket-green
+  sprite:
+    sprite: ADT/Clothing/OuterClothing/Downjacket/downjacket_green.rsi
+    state: icon
+  content:
+  - ADTClothingOuterDownjacketGreen
+
+- type: thiefBackpackSet
+  id: DownjacketMerc
+  name: clothing-voucher-downjacket-merc
+  description: clothing-voucher-downjacket-merc
+  sprite:
+    sprite: ADT/Clothing/OuterClothing/Downjacket/downjacket_merc.rsi
+    state: icon
+  content:
+  - ADTClothingOuterDownjacketMerc
+
+- type: thiefBackpackSet
+  id: DownjacketRed
+  name: clothing-voucher-downjacket-red
+  description: clothing-voucher-downjacket-red
+  sprite:
+    sprite: ADT/Clothing/OuterClothing/Downjacket/downjacket_red.rsi
+    state: icon
+  content:
+  - ADTClothingOuterDownjacketRed
+
+- type: thiefBackpackSet
+  id: DownjacketWhite
+  name: clothing-voucher-downjacket-white
+  description: clothing-voucher-downjacket-white
+  sprite:
+    sprite: ADT/Clothing/OuterClothing/Downjacket/downjacket_white.rsi
+    state: icon
+  content:
+  - ADTClothingOuterDownjacketWhite
+
+#region Hoody
+
+- type: thiefBackpackSet
+  id: HoodyBeige
+  name: clothing-voucher-hoody-beige
+  description: clothing-voucher-hoody-beige
+  sprite:
+    sprite: ADT/Clothing/OuterClothing/Hoody/hoody_beige.rsi
+    state: icon
+  content:
+  - ADTClothingOuterHoodyBeige
+
+- type: thiefBackpackSet
+  id: HoodyBlack
+  name: clothing-voucher-hoody-black
+  description: clothing-voucher-hoody-black
+  sprite:
+    sprite: ADT/Clothing/OuterClothing/Hoody/hoody_black.rsi
+    state: icon
+  content:
+  - ADTClothingOuterHoodyBlack
+
+- type: thiefBackpackSet
+  id: HoodyBlue
+  name: clothing-voucher-hoody-blue
+  description: clothing-voucher-hoody-blue
+  sprite:
+    sprite: ADT/Clothing/OuterClothing/Hoody/hoody_blue.rsi
+    state: icon
+  content:
+  - ADTClothingOuterHoodyBlue
+
+- type: thiefBackpackSet
+  id: HoodyBrown
+  name: clothing-voucher-hoody-brown
+  description: clothing-voucher-hoody-brown
+  sprite:
+    sprite: ADT/Clothing/OuterClothing/Hoody/hoody_brown.rsi
+    state: icon
+  content:
+  - ADTClothingOuterHoodyBrown
+
+- type: thiefBackpackSet
+  id: HoodyDarkBlue
+  name: clothing-voucher-hoody-darkblue
+  description: clothing-voucher-hoody-darkblue
+  sprite:
+    sprite: ADT/Clothing/OuterClothing/Hoody/hoody_darkblue.rsi
+    state: icon
+  content:
+  - ADTClothingOuterHoodyDarkBlue
+
+- type: thiefBackpackSet
+  id: HoodyGray
+  name: clothing-voucher-hoody-gray
+  description: clothing-voucher-hoody-gray
+  sprite:
+    sprite: ADT/Clothing/OuterClothing/Hoody/hoody_gray.rsi
+    state: icon
+  content:
+  - ADTClothingOuterHoodyGray
+
+- type: thiefBackpackSet
+  id: HoodyGreen
+  name: clothing-voucher-hoody-green
+  description: clothing-voucher-hoody-green
+  sprite:
+    sprite: ADT/Clothing/OuterClothing/Hoody/hoody_green.rsi
+    state: icon
+  content:
+  - ADTClothingOuterHoodyGreen
+
+- type: thiefBackpackSet
+  id: HoodyPurple
+  name: clothing-voucher-hoody-purple
+  description: clothing-voucher-hoody-purple
+  sprite:
+    sprite: ADT/Clothing/OuterClothing/Hoody/hoody_purple.rsi
+    state: icon
+  content:
+  - ADTClothingOuterHoodyPurple
+
+- type: thiefBackpackSet
+  id: HoodyRed
+  name: clothing-voucher-hoody-red
+  description: clothing-voucher-hoody-red
+  sprite:
+    sprite: ADT/Clothing/OuterClothing/Hoody/hoody_red.rsi
+    state: icon
+  content:
+  - ADTClothingOuterHoodyRed
+
+- type: thiefBackpackSet
+  id: HoodyWhite
+  name: clothing-voucher-hoody-white
+  description: clothing-voucher-hoody-white
+  sprite:
+    sprite: ADT/Clothing/OuterClothing/Hoody/hoody_white.rsi
+    state: icon
+  content:
+  - ADTClothingOuterHoodyWhite
+
+#region Sweatercut
+
+- type: thiefBackpackSet
+  id: SweatercutBeige
+  name: clothing-voucher-sweatercut-beige
+  description: clothing-voucher-sweatercut-beige
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/Sweatercut/sweatercut_beige.rsi
+    state: icon
+  content:
+  - ADTClothingUniformSweatercutBeige
+
+- type: thiefBackpackSet
+  id: SweatercutBlack
+  name: clothing-voucher-sweatercut-black
+  description: clothing-voucher-sweatercut-black
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/Sweatercut/sweatercut_black.rsi
+    state: icon
+  content:
+  - ADTClothingUniformSweatercutBlack
+
+- type: thiefBackpackSet
+  id: SweatercutBlue
+  name: clothing-voucher-sweatercut-blue
+  description: clothing-voucher-sweatercut-blue
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/Sweatercut/sweatercut_blue.rsi
+    state: icon
+  content:
+  - ADTClothingUniformSweatercutBlue
+
+- type: thiefBackpackSet
+  id: SweatercutRed
+  name: clothing-voucher-sweatercut-red
+  description: clothing-voucher-sweatercut-red
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/Sweatercut/sweatercut_red.rsi
+    state: icon
+  content:
+  - ADTClothingUniformSweatercutRed
+
+- type: thiefBackpackSet
+  id: SweatercutWhite
+  name: clothing-voucher-sweatercut-white
+  description: clothing-voucher-sweatercut-white
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/Sweatercut/sweatercut_white.rsi
+    state: icon
+  content:
+  - ADTClothingUniformSweatercutWhite
+
+#region Kilt
+
+- type: thiefBackpackSet
+  id: KiltBlue
+  name: clothing-voucher-kilt-blue
+  description: clothing-voucher-kilt-blue
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/kilt_blue.rsi
+    state: icon
+  content:
+  - ADTClothingUniformKiltBlue
+
+- type: thiefBackpackSet
+  id: KiltGreen
+  name: clothing-voucher-kilt-green
+  description: clothing-voucher-kilt-green
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/kilt_green.rsi
+    state: icon
+  content:
+  - ADTClothingUniformKiltGreen
+
+- type: thiefBackpackSet
+  id: KiltRed
+  name: clothing-voucher-kilt-red
+  description: clothing-voucher-kilt-red
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/kilt_red.rsi
+    state: icon
+  content:
+  - ADTClothingUniformKiltRed
+
+#region NightDress
+
+- type: thiefBackpackSet
+  id: NightDressBlack
+  name: clothing-voucher-nightdress-black
+  description: clothing-voucher-nightdress-black
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/night_black.rsi
+    state: icon
+  content:
+  - ADTClothingUniformDressNightBlack
+
+- type: thiefBackpackSet
+  id: NightDressRed
+  name: clothing-voucher-nightdress-red
+  description: clothing-voucher-nightdress-red
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/night_red.rsi
+    state: icon
+  content:
+  - ADTClothingUniformDressNightRed
+
+- type: thiefBackpackSet
+  id: NightDressWhite
+  name: clothing-voucher-nightdress-white
+  description: clothing-voucher-nightdress-white
+  sprite:
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/night_white.rsi
+    state: icon
+  content:
+  - ADTClothingUniformDressNightWhite
+
+
+
+#region NewUnderwear
+
+- type: thiefBackpackSet
+  id: UnderwearBoxersILoveArcan
+  name: clothing-voucher-underwear-boxers-i-love-arcan
+  description: clothing-voucher-underwear-boxers-i-love-arcan
+  sprite:
+    sprite: ADT/Clothing/Underwear/Bottom/boxers_i_love_arcan.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearBottomBoxersILoveArcan
+
+- type: thiefBackpackSet
+  id: UnderwearBoxersPink
+  name: clothing-voucher-underwear-boxers-pink
+  description: clothing-voucher-underwear-boxers-pink
+  sprite:
+    sprite: ADT/Clothing/Underwear/Bottom/boxers_pink.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearBottomBoxersPink
+
+- type: thiefBackpackSet
+  id: UnderwearBoxersTSF
+  name: clothing-voucher-underwear-boxers-tsf
+  description: clothing-voucher-underwear-boxers-tsf
+  sprite:
+    sprite: ADT/Clothing/Underwear/Bottom/boxers_tsf.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearBottomBoxersTSF
+
+- type: thiefBackpackSet
+  id: UnderwearPantiesAmerica
+  name: clothing-voucher-underwear-panties-america
+  description: clothing-voucher-underwear-panties-america
+  sprite:
+    sprite: ADT/Clothing/Underwear/Bottom/panties_america.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearBottomPantiesAmerica
+
+- type: thiefBackpackSet
+  id: UnderwearPantiesPink
+  name: clothing-voucher-underwear-panties-pink
+  description: clothing-voucher-underwear-panties-pink
+  sprite:
+    sprite: ADT/Clothing/Underwear/Bottom/panties_pink.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearBottomPantiesPink
+
+- type: thiefBackpackSet
+  id: UnderwearBraAmerica
+  name: clothing-voucher-underwear-bra-america
+  description: clothing-voucher-underwear-bra-america
+  sprite:
+    sprite: ADT/Clothing/Underwear/Top/bra_america.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearTopBraAmerica
+
+- type: thiefBackpackSet
+  id: UnderwearBraPink
+  name: clothing-voucher-underwear-bra-pink
+  description: clothing-voucher-underwear-bra-pink
+  sprite:
+    sprite: ADT/Clothing/Underwear/Top/bra_pink.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearTopBraPink
+
+- type: thiefBackpackSet
+  id: UnderwearBigbraCow
+  name: clothing-voucher-underwear-bigbra-cow
+  description: clothing-voucher-underwear-bigbra-cow
+  sprite:
+    sprite: ADT/Clothing/Underwear/Top/bigbra_cow.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearTopBigbraCow
+
+- type: thiefBackpackSet
+  id: SockStockingCow
+  name: clothing-voucher-sock-stocking-cow
+  description: clothing-voucher-sock-stocking-cow
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/stocking_cow.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksStockingCow

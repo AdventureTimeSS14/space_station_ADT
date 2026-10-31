@@ -59,6 +59,9 @@ namespace Content.Server.Database
         public DbSet<AdtSponsorTier> AdtSponsorTier { get; set; } = null!;
         public DbSet<AdtSponsorGrant> AdtSponsorGrant { get; set; } = null!;
         public DbSet<AdtSponsorPreference> AdtSponsorPreference { get; set; } = null!;
+        public DbSet<AdtPoll> AdtPoll { get; set; } = null!;
+        public DbSet<AdtPollResponse> AdtPollResponse { get; set; } = null!;
+        public DbSet<AdtPollPending> AdtPollPending { get; set; } = null!;
         // ADT-Tweak-End
         public DbSet<IPIntelCache> IPIntelCache { get; set; } = null!;
         public DbSet<CustomVoteLog> CustomVoteLog { get; set; } = null!;
@@ -121,6 +124,31 @@ namespace Content.Server.Database
             modelBuilder.Entity<AdtSponsorPreference>()
                 .HasIndex(p => p.UserId)
                 .IsUnique();
+
+            modelBuilder.Entity<AdtPollResponse>()
+                .HasIndex(p => new { p.PollId, p.UserId })
+                .IsUnique();
+
+            modelBuilder.Entity<AdtPollResponse>()
+                .HasIndex(p => p.UserId);
+
+            modelBuilder.Entity<AdtPollResponse>()
+                .HasOne(p => p.Poll)
+                .WithMany(p => p.Responses)
+                .HasForeignKey(p => p.PollId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<AdtPollPending>()
+                .HasKey(p => new { p.PollId, p.UserId });
+
+            modelBuilder.Entity<AdtPollPending>()
+                .HasIndex(p => p.UserId);
+
+            modelBuilder.Entity<AdtPollPending>()
+                .HasOne(p => p.Poll)
+                .WithMany(p => p.Pending)
+                .HasForeignKey(p => p.PollId)
+                .OnDelete(DeleteBehavior.Cascade);
             // ADT-Tweak-End
 
             modelBuilder.Entity<Profile>()
@@ -378,6 +406,7 @@ namespace Content.Server.Database
 
             ModelBan.OnModelCreating(modelBuilder);
             ModelCustomVoteLog.OnModelCreating(modelBuilder);
+            ModelAdtCanvas.OnModelCreating(modelBuilder); // ADT-Tweak
         }
 
         public virtual IQueryable<AdminLog> SearchLogs(IQueryable<AdminLog> query, string searchText)
@@ -856,6 +885,73 @@ namespace Content.Server.Database
         public string? OocColor { get; set; }
 
         public string? GhostColor { get; set; }
+    }
+
+    public class AdtPoll
+    {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
+        public string Title { get; set; } = null!;
+
+        public string Description { get; set; } = null!;
+
+        public string Questions { get; set; } = null!;
+
+        public string Filters { get; set; } = null!;
+
+        public string Servers { get; set; } = null!;
+
+        public int ShowMode { get; set; }
+
+        public Guid CreatedBy { get; set; }
+
+        public DateTime CreatedAt { get; set; }
+
+        public DateTime? EndsAt { get; set; }
+
+        public bool Closed { get; set; }
+
+        public List<AdtPollResponse> Responses { get; } = new();
+
+        public List<AdtPollPending> Pending { get; } = new();
+    }
+
+    public class AdtPollResponse
+    {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
+        public int PollId { get; set; }
+
+        public AdtPoll Poll { get; set; } = null!;
+
+        public Guid UserId { get; set; }
+
+        public int? RoundId { get; set; }
+
+        public string Server { get; set; } = null!;
+
+        public DateTime SubmittedAt { get; set; }
+
+        public bool Targeted { get; set; }
+
+        public string Snapshot { get; set; } = null!;
+
+        public string Answers { get; set; } = null!;
+    }
+
+    public class AdtPollPending
+    {
+        public int PollId { get; set; }
+
+        public AdtPoll Poll { get; set; } = null!;
+
+        public Guid UserId { get; set; }
+
+        public string Snapshot { get; set; } = null!;
+
+        public DateTime CreatedAt { get; set; }
     }
     // ADT-Tweak-End
 

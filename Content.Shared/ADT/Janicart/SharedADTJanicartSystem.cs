@@ -1,3 +1,4 @@
+using Content.Shared.Actions;
 using Content.Shared.DoAfter;
 using Robust.Shared.Serialization;
 
@@ -9,3 +10,5 @@ public abstract partial class SharedADTJanicartSystem : EntitySystem
 
 [Serializable, NetSerializable]
 public sealed partial class ADTJanicartUpgradeRemoveDoAfterEvent : SimpleDoAfterEvent;
+
+public sealed partial class ADTJanicartToggleActionEvent : InstantActionEvent;
