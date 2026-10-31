@@ -1,0 +1,377 @@
+- type: entity
+  parent: ClothingHeadHatCaptain
+  id: ADTClothingHeadHatBeretCaptainWhite
+  name: white captain beret
+  description: A white item from the captain's dress collection.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/CaptainDrobe/Head/Hats/captain_white.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/CaptainDrobe/Head/Hats/captain_white.rsi
+  - type: Item
+    sprite: ADT/Clothing/CaptainDrobe/Head/Hats/captain_white.rsi
+
+- type: entity
+  parent: ClothingHeadHatCaptain
+  id: ADTClothingHeadHatBeretCaptainBlack
+  name: black captain beret
+  description: A black item from the captain's dress collection.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/CaptainDrobe/Head/Hats/captain_black.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/CaptainDrobe/Head/Hats/captain_black.rsi
+  - type: Item
+    sprite: ADT/Clothing/CaptainDrobe/Head/Hats/captain_black.rsi
+
+- type: entity
+  parent: ClothingHeadHatCapcap
+  id: ADTClothingHeadHatCapcapWhite
+  name: white captain cap
+  description: A white item from the captain's dress collection.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/CaptainDrobe/Head/Hats/capcap_white.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/CaptainDrobe/Head/Hats/capcap_white.rsi
+  - type: Item
+    sprite: ADT/Clothing/CaptainDrobe/Head/Hats/capcap_white.rsi
+
+- type: entity
+  parent: ClothingHeadHatCapcap
+  id: ADTClothingHeadHatCapcapBlack
+  name: black captain cap
+  description: A black item from the captain's dress collection.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/CaptainDrobe/Head/Hats/capcap_black.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/CaptainDrobe/Head/Hats/capcap_black.rsi
+  - type: Item
+    sprite: ADT/Clothing/CaptainDrobe/Head/Hats/capcap_black.rsi
+
+- type: entity
+  parent: ClothingNeckMantleCap
+  id: ADTClothingNeckMantleCaptainShoulderWhite
+  name: white captain shoulder mantle
+  description: A white item from the captain's dress collection.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/CaptainDrobe/Neck/captain_mantle_white.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/CaptainDrobe/Neck/captain_mantle_white.rsi
+  - type: Item
+    sprite: ADT/Clothing/CaptainDrobe/Neck/captain_mantle_white.rsi
+
+- type: entity
+  parent: ClothingNeckMantleCap
+  id: ADTClothingNeckMantleCaptainShoulderBlack
+  name: black captain shoulder mantle
+  description: A black item from the captain's dress collection.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/CaptainDrobe/Neck/captain_mantle_black.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/CaptainDrobe/Neck/captain_mantle_black.rsi
+  - type: Item
+    sprite: ADT/Clothing/CaptainDrobe/Neck/captain_mantle_black.rsi
+
+- type: entity
+  parent: ClothingOuterArmorCaptainCarapace
+  id: ADTClothingOuterArmorCaptainCarapaceWhite
+  name: white captain carapace
+  description: A white item from the captain's dress collection.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/CaptainDrobe/OuterClothing/Armor/captain_carapace_white.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/CaptainDrobe/OuterClothing/Armor/captain_carapace_white.rsi
+  - type: Item
+    sprite: ADT/Clothing/CaptainDrobe/OuterClothing/Armor/captain_carapace_white.rsi
+
+- type: entity
+  parent: ClothingOuterArmorCaptainCarapace
+  id: ADTClothingOuterArmorCaptainCarapaceBlack
+  name: black captain carapace
+  description: A black item from the captain's dress collection.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/CaptainDrobe/OuterClothing/Armor/captain_carapace_black.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/CaptainDrobe/OuterClothing/Armor/captain_carapace_black.rsi
+  - type: Item
+    sprite: ADT/Clothing/CaptainDrobe/OuterClothing/Armor/captain_carapace_black.rsi
+
+- type: entity
+  parent: [ClothingOuterWinterCoat, BaseCommandContraband]
+  id: ADTClothingOuterWinterCoatCaptainWhite
+  name: white captain winter coat
+  description: A white item from the captain's dress collection.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/CaptainDrobe/OuterClothing/WinterCoats/captain_white.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/CaptainDrobe/OuterClothing/WinterCoats/captain_white.rsi
+  - type: Item
+    sprite: ADT/Clothing/CaptainDrobe/OuterClothing/WinterCoats/captain_white.rsi
+  - type: Foldable
+    canFoldInsideContainer: true
+    foldVerbText: fold-unzip-verb
+    unfoldVerbText: fold-zip-verb
+  - type: FoldableClothing
+    foldedEquippedPrefix: open
+    foldedHeldPrefix: open
+
+
+- type: entity
+  parent: [ClothingOuterWinterCoat, BaseCommandContraband]
+  id: ADTClothingOuterWinterCoatCaptainBlack
+  name: black captain winter coat
+  description: A black item from the captain's dress collection.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/CaptainDrobe/OuterClothing/WinterCoats/captain_black.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/CaptainDrobe/OuterClothing/WinterCoats/captain_black.rsi
+  - type: Item
+    sprite: ADT/Clothing/CaptainDrobe/OuterClothing/WinterCoats/captain_black.rsi
+  - type: Foldable
+    canFoldInsideContainer: true
+    foldVerbText: fold-unzip-verb
+    unfoldVerbText: fold-zip-verb
+  - type: FoldableClothing
+    foldedEquippedPrefix: open
+    foldedHeldPrefix: open
+
+
+- type: entity
+  parent: [ClothingUniformSkirtBase, BaseCommandContraband]
+  id: ADTClothingUniformJumpskirtCaptainWhite
+  name: white captain jumpskirt
+  description: A white item from the captain's dress collection.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/CaptainDrobe/Uniforms/Jumpskirt/captain_white.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/CaptainDrobe/Uniforms/Jumpskirt/captain_white.rsi
+  - type: Item
+    sprite: ADT/Clothing/CaptainDrobe/Uniforms/Jumpskirt/captain_white.rsi
+
+- type: entity
+  parent: [ClothingUniformSkirtBase, BaseCommandContraband]
+  id: ADTClothingUniformJumpskirtCaptainBlack
+  name: black captain jumpskirt
+  description: A black item from the captain's dress collection.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/CaptainDrobe/Uniforms/Jumpskirt/captain_black.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/CaptainDrobe/Uniforms/Jumpskirt/captain_black.rsi
+  - type: Item
+    sprite: ADT/Clothing/CaptainDrobe/Uniforms/Jumpskirt/captain_black.rsi
+
+- type: entity
+  parent: ClothingUniformJumpsuitCapTurtleneck
+  id: ADTClothingUniformTurtleneckCaptainWhite
+  name: white captain turtleneck
+  description: A white item from the captain's dress collection.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/CaptainDrobe/Uniforms/Turtleneck/Jumpsuit/turtleneck_captain_white.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/CaptainDrobe/Uniforms/Turtleneck/Jumpsuit/turtleneck_captain_white.rsi
+  - type: Item
+    sprite: ADT/Clothing/CaptainDrobe/Uniforms/Turtleneck/Jumpsuit/turtleneck_captain_white.rsi
+
+- type: entity
+  parent: ClothingUniformJumpsuitCapTurtleneck
+  id: ADTClothingUniformTurtleneckCaptainBlack
+  name: black captain turtleneck
+  description: A black item from the captain's dress collection.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/CaptainDrobe/Uniforms/Turtleneck/Jumpsuit/turtleneck_captain_black.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/CaptainDrobe/Uniforms/Turtleneck/Jumpsuit/turtleneck_captain_black.rsi
+  - type: Item
+    sprite: ADT/Clothing/CaptainDrobe/Uniforms/Turtleneck/Jumpsuit/turtleneck_captain_black.rsi
+
+- type: entity
+  parent: ClothingBackpackCaptain
+  id: ADTClothingBackpackCaptainWhite
+  name: white captain backpack
+  description: A white item from the captain's dress collection.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/CaptainDrobe/Back/Backpacks/captain_white.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/CaptainDrobe/Back/Backpacks/captain_white.rsi
+  - type: Item
+    sprite: ADT/Clothing/CaptainDrobe/Back/Backpacks/captain_white.rsi
+
+- type: entity
+  parent: ClothingBackpackCaptain
+  id: ADTClothingBackpackCaptainBlack
+  name: black captain backpack
+  description: A black item from the captain's dress collection.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/CaptainDrobe/Back/Backpacks/captain_black.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/CaptainDrobe/Back/Backpacks/captain_black.rsi
+  - type: Item
+    sprite: ADT/Clothing/CaptainDrobe/Back/Backpacks/captain_black.rsi
+
+- type: entity
+  parent: ClothingBackpackSatchelCaptain
+  id: ADTClothingBackpackSatchelCaptainWhite
+  name: white captain satchel
+  description: A white item from the captain's dress collection.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/CaptainDrobe/Back/Satchels/captain_white.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/CaptainDrobe/Back/Satchels/captain_white.rsi
+  - type: Item
+    sprite: ADT/Clothing/CaptainDrobe/Back/Satchels/captain_white.rsi
+
+- type: entity
+  parent: ClothingBackpackSatchelCaptain
+  id: ADTClothingBackpackSatchelCaptainBlack
+  name: black captain satchel
+  description: A black item from the captain's dress collection.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/CaptainDrobe/Back/Satchels/captain_black.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/CaptainDrobe/Back/Satchels/captain_black.rsi
+  - type: Item
+    sprite: ADT/Clothing/CaptainDrobe/Back/Satchels/captain_black.rsi
+
+- type: entity
+  parent: ClothingBackpackDuffelCaptain
+  id: ADTClothingBackpackDuffelCaptainWhite
+  name: white captain duffel bag
+  description: A white item from the captain's dress collection.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/CaptainDrobe/Back/Duffels/captain_white.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/CaptainDrobe/Back/Duffels/captain_white.rsi
+  - type: Item
+    sprite: ADT/Clothing/CaptainDrobe/Back/Duffels/captain_white.rsi
+
+- type: entity
+  parent: ClothingBackpackDuffelCaptain
+  id: ADTClothingBackpackDuffelCaptainBlack
+  name: black captain duffel bag
+  description: A black item from the captain's dress collection.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/CaptainDrobe/Back/Duffels/captain_black.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/CaptainDrobe/Back/Duffels/captain_black.rsi
+  - type: Item
+    sprite: ADT/Clothing/CaptainDrobe/Back/Duffels/captain_black.rsi
+
+- type: entity
+  parent: ClothingBackpackCaptain
+  id: ADTClothingBackpackTailbagCaptainWhite
+  name: white captain tail bag
+  description: A white item from the captain's dress collection.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/CaptainDrobe/Back/Tailbag/captain_white.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/CaptainDrobe/Back/Tailbag/captain_white.rsi
+    equippedState: equipped-TAILBAG-plaf
+  - type: Item
+    sprite: ADT/Clothing/CaptainDrobe/Back/Tailbag/captain_white.rsi
+
+- type: entity
+  parent: ClothingBackpackCaptain
+  id: ADTClothingBackpackTailbagCaptainBlack
+  name: black captain tail bag
+  description: A black item from the captain's dress collection.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/CaptainDrobe/Back/Tailbag/captain_black.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/CaptainDrobe/Back/Tailbag/captain_black.rsi
+    equippedState: equipped-TAILBAG-plaf
+  - type: Item
+    sprite: ADT/Clothing/CaptainDrobe/Back/Tailbag/captain_black.rsi
+
+- type: entity
+  parent: ClothingHandsGlovesCaptain
+  id: ADTClothingHandsGlovesCaptainWhite
+  name: white captain gloves
+  description: A white item from the captain's dress collection.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/CaptainDrobe/Hands/Gloves/captain_white.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/CaptainDrobe/Hands/Gloves/captain_white.rsi
+  - type: Item
+    sprite: ADT/Clothing/CaptainDrobe/Hands/Gloves/captain_white.rsi
+
+- type: entity
+  parent: ClothingHandsGlovesCaptain
+  id: ADTClothingHandsGlovesCaptainBlack
+  name: black captain gloves
+  description: A black item from the captain's dress collection.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/CaptainDrobe/Hands/Gloves/captain_black.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/CaptainDrobe/Hands/Gloves/captain_black.rsi
+  - type: Item
+    sprite: ADT/Clothing/CaptainDrobe/Hands/Gloves/captain_black.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksCaptain
+  id: ADTClothingUnderwearSocksCaptainWhite
+  name: white captain socks
+  description: A white item from the captain's dress collection.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/CaptainDrobe/Underwear/Command/captain/socks_white.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/CaptainDrobe/Underwear/Command/captain/socks_white.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksCaptain
+  id: ADTClothingUnderwearSocksCaptainBlack
+  name: black captain socks
+  description: A black item from the captain's dress collection.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/CaptainDrobe/Underwear/Command/captain/socks_black.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/CaptainDrobe/Underwear/Command/captain/socks_black.rsi

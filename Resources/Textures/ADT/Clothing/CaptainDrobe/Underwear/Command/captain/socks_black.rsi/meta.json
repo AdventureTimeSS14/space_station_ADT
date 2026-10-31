@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "Sprited by pyfya (Discord) and catbackg (Discord)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "equipped-SOCKS",
+      "directions": 4
+    },
+    {
+      "name": "equipped-SOCKS-moth",
+      "directions": 4
+    }
+  ]
+}

@@ -59,3 +59,309 @@
   id: ADTClothingOuterCaptainCoat
   equipment:
     outerClothing: ADTClothingOuterCaptainCoat
+
+# Uniforms
+- type: loadout
+  id: ADTCaptainJumpsuitWhite
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement: !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 180000
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitCaptainWhite
+
+- type: loadout
+  id: ADTCaptainJumpsuitBlack
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement: !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 360000
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitCaptainBlack
+
+- type: loadout
+  id: ADTCaptainFormalSuitWhite
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement: !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 180000
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitCaptainFormalWhite
+
+- type: loadout
+  id: ADTCaptainFormalSuitBlack
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement: !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 360000
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitCaptainFormalBlack
+
+# CaptainDrobe collection (50h white / 100h black as captain).
+- type: loadout
+  id: ADTCaptainBeretWhite
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement: !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 180000
+  equipment:
+    head: ADTClothingHeadHatBeretCaptainWhite
+
+- type: loadout
+  id: ADTCaptainBeretBlack
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement: !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 360000
+  equipment:
+    head: ADTClothingHeadHatBeretCaptainBlack
+
+- type: loadout
+  id: ADTCaptainCapWhite
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement: !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 180000
+  equipment:
+    head: ADTClothingHeadHatCapcapWhite
+
+- type: loadout
+  id: ADTCaptainCapBlack
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement: !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 360000
+  equipment:
+    head: ADTClothingHeadHatCapcapBlack
+
+- type: loadout
+  id: ADTCaptainMantleShoulderWhite
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement: !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 180000
+  equipment:
+    neck: ADTClothingNeckMantleCaptainShoulderWhite
+
+- type: loadout
+  id: ADTCaptainMantleShoulderBlack
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement: !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 360000
+  equipment:
+    neck: ADTClothingNeckMantleCaptainShoulderBlack
+
+- type: loadout
+  id: ADTCaptainCarapaceWhite
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement: !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 180000
+  equipment:
+    outerClothing: ADTClothingOuterArmorCaptainCarapaceWhite
+
+- type: loadout
+  id: ADTCaptainCarapaceBlack
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement: !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 360000
+  equipment:
+    outerClothing: ADTClothingOuterArmorCaptainCarapaceBlack
+
+- type: loadout
+  id: ADTCaptainWinterCoatWhite
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement: !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 180000
+  equipment:
+    outerClothing: ADTClothingOuterWinterCoatCaptainWhite
+
+- type: loadout
+  id: ADTCaptainWinterCoatBlack
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement: !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 360000
+  equipment:
+    outerClothing: ADTClothingOuterWinterCoatCaptainBlack
+
+- type: loadout
+  id: ADTCaptainJumpskirtWhite
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement: !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 180000
+  equipment:
+    jumpsuit: ADTClothingUniformJumpskirtCaptainWhite
+
+- type: loadout
+  id: ADTCaptainJumpskirtBlack
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement: !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 360000
+  equipment:
+    jumpsuit: ADTClothingUniformJumpskirtCaptainBlack
+
+- type: loadout
+  id: ADTCaptainTurtleneckWhite
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement: !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 180000
+  equipment:
+    jumpsuit: ADTClothingUniformTurtleneckCaptainWhite
+
+- type: loadout
+  id: ADTCaptainTurtleneckBlack
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement: !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 360000
+  equipment:
+    jumpsuit: ADTClothingUniformTurtleneckCaptainBlack
+
+- type: loadout
+  id: ADTCaptainBackpackWhite
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement: !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 180000
+  equipment:
+    back: ADTClothingBackpackCaptainWhite
+
+- type: loadout
+  id: ADTCaptainBackpackBlack
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement: !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 360000
+  equipment:
+    back: ADTClothingBackpackCaptainBlack
+
+- type: loadout
+  id: ADTCaptainSatchelWhite
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement: !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 180000
+  equipment:
+    back: ADTClothingBackpackSatchelCaptainWhite
+
+- type: loadout
+  id: ADTCaptainSatchelBlack
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement: !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 360000
+  equipment:
+    back: ADTClothingBackpackSatchelCaptainBlack
+
+- type: loadout
+  id: ADTCaptainDuffelWhite
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement: !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 180000
+  equipment:
+    back: ADTClothingBackpackDuffelCaptainWhite
+
+- type: loadout
+  id: ADTCaptainDuffelBlack
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement: !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 360000
+  equipment:
+    back: ADTClothingBackpackDuffelCaptainBlack
+
+- type: loadout
+  id: ADTCaptainTailbagWhite
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement: !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 180000
+  equipment:
+    back: ADTClothingBackpackTailbagCaptainWhite
+
+- type: loadout
+  id: ADTCaptainTailbagBlack
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement: !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 360000
+  equipment:
+    back: ADTClothingBackpackTailbagCaptainBlack
+
+- type: loadout
+  id: ADTCaptainGlovesWhite
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement: !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 180000
+  equipment:
+    gloves: ADTClothingHandsGlovesCaptainWhite
+
+- type: loadout
+  id: ADTCaptainGlovesBlack
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement: !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 360000
+  equipment:
+    gloves: ADTClothingHandsGlovesCaptainBlack
+
+- type: loadout
+  id: ADTCaptainSocksWhite
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement: !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 180000
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksCaptainWhite
+
+- type: loadout
+  id: ADTCaptainSocksBlack
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement: !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 360000
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksCaptainBlack

@@ -179,7 +179,13 @@
   loadouts:
   - CaptainHead
   - CaptainCap
-  - ADTClothingAdmiralHat # ADT Loadout
+  # ADT-Loadouts-Start
+  - ADTClothingAdmiralHat
+  - ADTCaptainBeretWhite
+  - ADTCaptainBeretBlack
+  - ADTCaptainCapWhite
+  - ADTCaptainCapBlack
+  # ADT-Loadouts-End
 
 - type: loadoutGroup
   id: CaptainJumpsuit
@@ -189,10 +195,22 @@
   - CaptainJumpskirt
   - CaptainFormalSuit
   - CaptainFormalSkirt
+   # ADT-Loadouts-Start
+  - ADTCaptainJumpsuitWhite
+  - ADTCaptainJumpsuitBlack
+  - ADTCaptainFormalSuitWhite
+  - ADTCaptainFormalSuitBlack
+   # ADT-Loadouts-End
   # Corvax-Loadouts-Start
   - CaptainJumpsuitTurtleneck
   - CaptainJumpskirtTurtleneck
   # Corvax-Loadouts-End
+  # ADT-Loadouts-Start
+  - ADTCaptainJumpskirtWhite
+  - ADTCaptainJumpskirtBlack
+  - ADTCaptainTurtleneckWhite
+  - ADTCaptainTurtleneckBlack
+  # ADT-Loadouts-End
 
 - type: loadoutGroup
   id: CaptainNeck
@@ -204,6 +222,8 @@
   - ADTClothingCaptainShoulderNeck # ADT Loadout
   - CaptainMantle
   - ADTClothingAdmiralShoulder # ADT Loadout
+  - ADTCaptainMantleShoulderWhite
+  - ADTCaptainMantleShoulderBlack
 
 - type: loadoutGroup
   id: CaptainBackpack
@@ -212,6 +232,16 @@
   - CaptainBackpack
   - CaptainSatchel
   - CaptainDuffel
+  # ADT-Loadouts-Start
+  - ADTCaptainBackpackWhite
+  - ADTCaptainBackpackBlack
+  - ADTCaptainSatchelWhite
+  - ADTCaptainSatchelBlack
+  - ADTCaptainDuffelWhite
+  - ADTCaptainDuffelBlack
+  - ADTCaptainTailbagWhite
+  - ADTCaptainTailbagBlack
+   # ADT-Loadouts-End
 
 - type: loadoutGroup
   id: CaptainOuterClothing
@@ -227,6 +257,10 @@
 #  name: loadout-group-jobtrinkets
 #  minLimit: 0
 #  loadouts: []
+  - ADTCaptainCarapaceWhite
+  - ADTCaptainCarapaceBlack
+  - ADTCaptainWinterCoatWhite
+  - ADTCaptainWinterCoatBlack
 
 - type: loadoutGroup
   id: HoPHead

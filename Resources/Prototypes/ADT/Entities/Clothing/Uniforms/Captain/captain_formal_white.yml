@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingUniformJumpsuitCapFormal
+  id: ADTClothingUniformJumpsuitCaptainFormalWhite
+  name: white captain's formal suit
+  description: A white formal captain's uniform for special occasions.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/captain_formal_white.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/captain_formal_white.rsi

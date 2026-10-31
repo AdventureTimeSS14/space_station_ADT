@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingUniformJumpsuitCapFormal
+  id: ADTClothingUniformJumpsuitCaptainFormalBlack
+  name: black captain's formal suit
+  description: A black formal captain's uniform for special occasions.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/captain_formal_black.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/captain_formal_black.rsi

@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingUniformJumpsuitCaptain
+  id: ADTClothingUniformJumpsuitCaptainWhite
+  name: white captain's jumpsuit
+  description: A white captain's uniform with gold rank insignia.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/captain_white.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/captain_white.rsi
