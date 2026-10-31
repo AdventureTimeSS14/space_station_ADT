@@ -37,6 +37,7 @@ public sealed class AutoSurgeonSystem : EntitySystem
         SubscribeLocalEvent<AutoSurgeonComponent, DoAfterAttemptEvent<AutoSurgeonDoAfterEvent>>(OnDoAfterAttempt);
         SubscribeLocalEvent<AutoSurgeonComponent, AutoSurgeonDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<AutoSurgeonComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<AutoSurgeonComponent, UnstrapAttemptEvent>(OnUnstrapAttempt);
     }
 
     private void OnInit(Entity<AutoSurgeonComponent> ent, ref ComponentInit args)
@@ -189,6 +190,17 @@ public sealed class AutoSurgeonSystem : EntitySystem
         }
 
         StartStep(ent, args.User, target);
+    }
+
+    private void OnUnstrapAttempt(Entity<AutoSurgeonComponent> ent, ref UnstrapAttemptEvent args)
+    {
+        if (!_doAfter.IsRunning(ent.Comp.ActiveDoAfter))
+            return;
+
+        args.Cancelled = true;
+
+        if (args.Popup && args.User is { } user)
+            _popup.PopupEntity(Loc.GetString("autosurgeon-locked"), ent, user, PopupType.SmallCaution);
     }
 
     private void OnDoAfterAttempt(Entity<AutoSurgeonComponent> ent, ref DoAfterAttemptEvent<AutoSurgeonDoAfterEvent> args)

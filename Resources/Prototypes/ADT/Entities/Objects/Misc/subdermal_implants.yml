@@ -313,7 +313,6 @@
   parent: BaseSubdermalImplant
   id: ADTSandevistanImplant
   name: sandevistan
-  categories: [ HideSpawnMenu ]
   components:
     - type: SubdermalImplant
     - type: SandevistanImplant

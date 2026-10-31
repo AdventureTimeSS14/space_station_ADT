@@ -56,7 +56,7 @@ public sealed partial class SurgerySystem
         }
 
         var stepIndex = GetStepIndex(comp, edge);
-        if (!TryMatchTool(edge.Steps[stepIndex], heldItem.Value, out var match))
+        if (!TryMatchTool(uid, edge.Steps[stepIndex], heldItem.Value, out var match))
         {
             _popup.PopupEntity(Loc.GetString("surgery-wrong-tool"), uid, args.Actor);
             return;
@@ -89,7 +89,7 @@ public sealed partial class SurgerySystem
                 continue;
 
             var stepIndex = GetStepIndex(comp, edge);
-            if (!TryMatchTool(edge.Steps[stepIndex], heldItem, out var match))
+            if (!TryMatchTool(target, edge.Steps[stepIndex], heldItem, out var match))
                 continue;
 
             matches.Add(edge);
@@ -184,7 +184,7 @@ public sealed partial class SurgerySystem
         var step = edge.Steps[args.StepIndex];
 
         var match = ExactMatch;
-        if (args.Used is { } used && !TryMatchTool(step, used, out match))
+        if (args.Used is { } used && !TryMatchTool(uid, step, used, out match))
         {
             _popup.PopupEntity(Loc.GetString("surgery-wrong-tool"), uid, surgeon);
             args.Handled = true;

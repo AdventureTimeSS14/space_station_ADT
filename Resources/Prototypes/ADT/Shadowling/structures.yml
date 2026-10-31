@@ -30,6 +30,9 @@
   - type: Organ
     category: ADTShadowTumor
   - type: ADTShadowTumor
+  - type: OrganGrantComponents
+    components:
+    - type: ADTShadowlingThrall
   - type: LightDetection
   - type: Sprite
     sprite: ADT/Objects/Specific/Medical/Organs/shadow_tumor.rsi

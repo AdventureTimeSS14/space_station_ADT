@@ -223,6 +223,9 @@
     tags:
     - SurgeryTool
     - Saw
+  - type: SurgeryTool
+    sound:
+      collection: ADTSurgeryHacksaw
   # ADT-Tweak end
   - type: Utensil
     types:
@@ -281,6 +284,8 @@
   # ADT-Tweak start
   - type: SurgeryTool
     speed: 0.67
+    sound:
+      path: /Audio/ADT/Medical/Surgery/saw.ogg
   # ADT-Tweak end
 
 - type: entity

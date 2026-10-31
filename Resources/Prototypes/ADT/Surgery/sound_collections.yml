@@ -1,0 +1,5 @@
+- type: soundCollection
+  id: ADTSurgeryHacksaw
+  files:
+  - /Audio/ADT/Medical/Surgery/hacksaw1.ogg
+  - /Audio/ADT/Medical/Surgery/hacksaw2.ogg

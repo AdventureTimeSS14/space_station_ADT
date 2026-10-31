@@ -240,6 +240,26 @@
     Gold: 100
 
 - type: latheRecipe
+  id: SawAdvanced
+  result: SawAdvanced
+  completetime: 4
+  materials:
+    Steel: 600
+    Plastic: 300
+    Silver: 200
+    Gold: 100
+
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseMedicalMachineRecipeCategory ]
+  id: ADTOperatingTableMachineCircuitboard
+  result: ADTOperatingTableMachineCircuitboard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: ADTSurgeryConsoleComputerCircuitboard
+  result: ADTSurgeryConsoleComputerCircuitboard
+
+- type: latheRecipe
   id: SawElectric
   result: SawElectric
   completetime: 3

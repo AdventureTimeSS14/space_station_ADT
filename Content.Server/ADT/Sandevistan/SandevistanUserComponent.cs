@@ -67,6 +67,12 @@ public sealed partial class SandevistanUserComponent : Component
     };
 
     [DataField]
+    public float HeartDamage = 3f;
+
+    [DataField]
+    public float HeartEmpDamage = 25f;
+
+    [DataField]
     public float MovementSpeedModifier = 2.4f;
 
     [DataField]

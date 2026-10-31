@@ -20,6 +20,8 @@
     radius: 1.5
     energy: 4.0
     color: "#1f8c28"
+  - type: Computer
+    board: ADTSurgeryConsoleComputerCircuitboard
   - type: SurgeryConsole
   - type: ActivatableUI
     key: enum.SurgeryConsoleUiKey.Key

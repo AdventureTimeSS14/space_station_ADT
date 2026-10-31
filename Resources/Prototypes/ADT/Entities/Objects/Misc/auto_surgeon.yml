@@ -1,6 +1,6 @@
 - type: entity
   id: ADTAutoSurgeon
-  parent: OperatingTable
+  parent: Bed
   name: auto surgeon
   description: An operating table that performs the surgery by itself. Strap the patient down and activate it to install the loaded implant.
   abstract: true
@@ -12,6 +12,8 @@
     - type: Icon
       sprite: ADT/Objects/Specific/Medical/auto_surgeon.rsi
       state: icon
+    - type: OperatingTable
+    - type: AmbientMusicMarkerMedical
     - type: ItemSlots
     - type: ContainerContainer
       containers:
@@ -30,7 +32,7 @@
               - SubdermalImplant
       steps:
         - label: autosurgeon-step-incision
-          duration: 4
+          duration: 2
           sound:
             path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
           damage:
@@ -38,23 +40,23 @@
               Slash: 2
               Bloodloss: 1
         - label: autosurgeon-step-clamp
-          duration: 3
+          duration: 1.5
           sound:
             path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
         - label: autosurgeon-step-retract
-          duration: 3
+          duration: 1.5
           sound:
             path: /Audio/ADT/Medical/Surgery/retractor1.ogg
           damage:
             types:
               Bloodloss: 1
         - label: autosurgeon-step-install
-          duration: 4
+          duration: 2
           install: true
           sound:
             path: /Audio/ADT/Medical/Surgery/organ1.ogg
         - label: autosurgeon-step-cauterize
-          duration: 4
+          duration: 2
           sound:
             path: /Audio/ADT/Medical/Surgery/cautery2.ogg
           damage:

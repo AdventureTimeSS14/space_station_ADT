@@ -72,3 +72,14 @@
     - type: Tag
       tags:
       - BoardBSA
+
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: ADTSurgeryConsoleComputerCircuitboard
+  name: surgery console computer board
+  description: A computer printed circuit board for a surgery console.
+  components:
+    - type: Sprite
+      state: cpu_medical
+    - type: ComputerBoard
+      prototype: ADTComputerSurgeryConsole

@@ -32,7 +32,7 @@
   - ADTMedipenHemostasis
   - ADTMedipenStimulant
   - ADTMedipenCrisis
-  position: 1,-1
+  position: 1,-2
   requiredTech:
   - ADTMedAssemblerPens1
 
@@ -49,6 +49,6 @@
   - ADTMedipenLacerinol
   - ADTMedipenBruizine
   - ADTMedipenEthylredoxrazine
-  position: 0,-1
+  position: 0,-2
   requiredTech:
   - ADTMedAssemblerPens2

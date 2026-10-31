@@ -9,14 +9,13 @@
       storagebase: !type:AllSelector
         children:
         - id: Hemostat
-        - id: SawElectric # ADT-Tweak 
+        - id: Saw # ADT-Tweak
         - id: Drill
         - id: Cautery
         - id: Retractor
         - id: Scalpel
         # ADT-Tweak start
         - id: ADTBoneSetter
-        - id: ADTBoneGel
         - id: ADTSurgicalTape
         - id: ADTBloodFilter
         - id: ADTSurgicalDrapes

@@ -1,6 +1,6 @@
 - type: entity
   id: OperatingTable
-  parent: Bed
+  parent: [ Bed, ConstructibleMachine, BaseConstructibleMachineDestructible ] # ADT-Tweak
   name: operating table
   # ADT-Tweak start
   description: Special medical table for surgery.
@@ -13,5 +13,7 @@
     sprite: ADT/Structures/Furniture/Tables/optable.rsi
     state: surgery_table
   - type: OperatingTable
+  - type: Machine
+    board: ADTOperatingTableMachineCircuitboard
   # ADT-Tweak end
   - type: AmbientMusicMarkerMedical

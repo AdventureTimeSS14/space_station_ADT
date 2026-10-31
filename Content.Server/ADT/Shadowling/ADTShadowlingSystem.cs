@@ -37,6 +37,7 @@ public sealed class ADTShadowlingSystem : EntitySystem
     public static readonly ProtoId<LanguagePrototype> HivemindLanguage = "ADTShadowlingCollectiveMind";
     public static readonly ProtoId<NpcFactionPrototype> ShadowlingFaction = "ADTShadowling";
     public static readonly ProtoId<NpcFactionPrototype> NanotrasenFaction = "NanoTrasen";
+    public static readonly EntProtoId TumorProto = "ADTShadowTumor";
 
     public override void Initialize()
     {
@@ -133,41 +134,34 @@ public sealed class ADTShadowlingSystem : EntitySystem
         if (IsMindShielded(target))
             return false;
 
+        if (!TryImplantTumor(target, TumorProto))
+            return false;
+
         var thrall = EnsureComp<ADTShadowlingThrallComponent>(target);
         thrall.Master = master;
         Dirty(target, thrall);
 
         ClearBlindness(target);
-        ImplantTumor(target, thrall.TumorProto);
 
         var ev = new ADTShadowlingThrallAddedEvent(target, master);
         RaiseLocalEvent(ev);
         return true;
     }
 
-    private void ImplantTumor(EntityUid target, EntProtoId tumorProto)
+    private bool TryImplantTumor(EntityUid target, EntProtoId tumorProto)
     {
         if (!HasComp<BodyComponent>(target))
-            return;
+            return false;
 
         foreach (var _ in _body.EnumerateOrgans<ADTShadowTumorComponent>(target))
-            return;
+            return true;
 
         var tumor = Spawn(tumorProto, Transform(target).Coordinates);
-        if (!_body.TryInsertOrgan(target, tumor))
-            QueueDel(tumor);
-    }
+        if (_body.TryInsertOrgan(target, tumor))
+            return true;
 
-    public bool TryFreeThrall(EntityUid target)
-    {
-        if (!HasComp<ADTShadowlingThrallComponent>(target))
-            return false;
-
-        if (HasComp<ADTLesserShadowlingComponent>(target))
-            return false;
-
-        RemComp<ADTShadowlingThrallComponent>(target);
-        return true;
+        QueueDel(tumor);
+        return false;
     }
 
     private void OnThrallInit(Entity<ADTShadowlingThrallComponent> ent, ref MapInitEvent args)

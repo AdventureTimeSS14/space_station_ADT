@@ -13,7 +13,7 @@ public sealed partial class LegMobilityComponent : Component
     public float MissingLegModifier = 0.5f;
 
     [DataField]
-    public float MissingFootModifier = 0.85f;
+    public float MissingFootModifier = 0.7f;
 
     [DataField]
     public float CrawlModifier = 0.6f;

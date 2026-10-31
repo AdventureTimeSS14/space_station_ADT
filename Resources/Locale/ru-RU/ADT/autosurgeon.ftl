@@ -13,3 +13,4 @@ autosurgeon-step-retract = Стол разводит ткани.
 autosurgeon-step-install = Стол устанавливает имплант.
 autosurgeon-step-cauterize = Стол прижигает разрез.
 autosurgeon-verb-start = Запустить операцию
+autosurgeon-locked = Ремни не расстёгиваются, пока идёт операция.

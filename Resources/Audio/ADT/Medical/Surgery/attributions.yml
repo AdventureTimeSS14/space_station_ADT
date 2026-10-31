@@ -12,3 +12,10 @@
   license: "CC-BY-SA-3.0"
   copyright: "Ported from tgstation (sound/items/handling/surgery/*.ogg)"
   source: "https://github.com/tgstation/tgstation"
+
+- files:
+  - hacksaw1.ogg
+  - hacksaw2.ogg
+  license: "Custom"
+  copyright: "hacksaw2.ogg: freesound_community (deeper-saw-wood-37224); hacksaw1.ogg: by minokaa"
+  source: "https://pixabay.com/sound-effects/"

@@ -99,7 +99,6 @@ public sealed partial class ADTShadowlingAbilitySystem : EntitySystem
         InitializeThrall();
         InitializeProgression();
         InitializeAscension();
-        InitializeDethrall();
     }
 
     public override void Update(float frameTime)

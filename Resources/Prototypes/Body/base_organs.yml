@@ -119,6 +119,8 @@
   components:
   - type: Organ
     category: ArmLeft
+  - type: LimbOrgan # ADT-Tweak
+    part: ArmLeft
   - type: Sprite
     state: l_arm
   - type: VisualOrgan
@@ -141,6 +143,8 @@
   components:
   - type: Organ
     category: ArmRight
+  - type: LimbOrgan # ADT-Tweak
+    part: ArmRight
   - type: Sprite
     state: r_arm
   - type: VisualOrgan
@@ -162,6 +166,8 @@
   components:
   - type: Organ
     category: HandLeft
+  - type: LimbOrgan # ADT-Tweak
+    part: HandLeft
   - type: HandOrgan
     handID: left
     data:
@@ -187,6 +193,8 @@
   components:
   - type: Organ
     category: HandRight
+  - type: LimbOrgan # ADT-Tweak
+    part: HandRight
   - type: HandOrgan
     handID: right
     data:
@@ -213,6 +221,8 @@
   components:
   - type: Organ
     category: LegLeft
+  - type: LimbOrgan # ADT-Tweak
+    part: LegLeft
   - type: LegOrgan # ADT-Tweak
     part: LegLeft
   - type: Sprite
@@ -237,6 +247,8 @@
   components:
   - type: Organ
     category: LegRight
+  - type: LimbOrgan # ADT-Tweak
+    part: LegRight
   - type: LegOrgan # ADT-Tweak
     part: LegRight
   - type: Sprite
@@ -260,6 +272,8 @@
   components:
   - type: Organ
     category: FootLeft
+  - type: LimbOrgan # ADT-Tweak
+    part: FootLeft
   - type: LegOrgan # ADT-Tweak
     part: FootLeft
   - type: Sprite
@@ -283,6 +297,8 @@
   components:
   - type: Organ
     category: FootRight
+  - type: LimbOrgan # ADT-Tweak
+    part: FootRight
   - type: LegOrgan # ADT-Tweak
     part: FootRight
   - type: Sprite

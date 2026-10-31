@@ -65,12 +65,11 @@
         - id: Retractor
         - id: Cautery
         - id: Drill
-        - id: SawElectric # ADT-Tweak
+        - id: Saw # ADT-Tweak
         - id: Hemostat
         - id: ClothingMaskSterile
         # ADT-Tweak start
         - id: ADTBoneSetter
-        - id: ADTBoneGel
         - id: ADTSurgicalTape
         - id: ADTBloodFilter
         - id: ADTSurgicalDrapes

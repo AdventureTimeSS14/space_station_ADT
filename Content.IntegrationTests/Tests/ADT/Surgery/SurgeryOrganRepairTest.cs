@@ -1,5 +1,7 @@
 using Content.IntegrationTests.Fixtures;
 using Content.IntegrationTests.Fixtures.Attributes;
+using Content.Shared.ADT.Body.Legs;
+using Content.Shared.ADT.Body.Limbs;
 using Content.Shared.ADT.Body.OrganHealth;
 using Content.Shared.ADT.Salvage.Components;
 using Content.Shared.ADT.VoiceOfGod;
@@ -11,6 +13,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Emp;
 using Content.Shared.Implants;
 using Content.Shared.Implants.Components;
+using Content.Shared.Inventory;
 using Content.Shared.Movement.Components;
 using Content.Shared.Standing;
 using Content.Shared.StatusEffectNew;
@@ -186,6 +189,94 @@ public sealed class SurgeryOrganRepairTest : GameTest
         Assert.That(standing.IsDown(patient), Is.True);
         Assert.That(standing.Stand(patient), Is.False);
         Assert.That(movement.CurrentWalkSpeed, Is.LessThan(movement.BaseWalkSpeed));
+    }
+
+    [Test]
+    [RunOnSide(Side.Server)]
+    public void MissingFeetSlowDown()
+    {
+        var patient = SSpawn("MobHuman");
+        var detachable = SEntMan.System<DetachableOrganSystem>();
+        var movement = SComp<MovementSpeedModifierComponent>(patient);
+        var legs = SComp<LegMobilityComponent>(patient);
+        var standing = SEntMan.System<StandingStateSystem>();
+
+        DetachOrgan(patient, "FootLeft", detachable);
+        Assert.That(movement.CurrentWalkSpeed, Is.EqualTo(movement.BaseWalkSpeed * legs.MissingFootModifier).Within(0.001f));
+        Assert.That(movement.CurrentSprintSpeed, Is.EqualTo(movement.BaseSprintSpeed * legs.MissingFootModifier).Within(0.001f));
+
+        DetachOrgan(patient, "FootRight", detachable);
+        Assert.That(movement.CurrentWalkSpeed, Is.EqualTo(movement.BaseWalkSpeed * legs.MissingFootModifier * legs.MissingFootModifier).Within(0.001f));
+        Assert.That(standing.IsDown(patient), Is.False);
+    }
+
+    [Test]
+    [RunOnSide(Side.Server)]
+    public void LosingAllLimbsOfPairDropsClothingAndBlocksIt()
+    {
+        var patient = SSpawn("MobHuman");
+        var detachable = SEntMan.System<DetachableOrganSystem>();
+        var inventory = SEntMan.System<InventorySystem>();
+        var shoes = SSpawn("ClothingShoesColorBlack");
+        var gloves = SSpawn("ClothingHandsGlovesColorBlack");
+
+        Assert.That(inventory.TryEquip(patient, shoes, "shoes", silent: true, force: true), Is.True);
+        Assert.That(inventory.TryEquip(patient, gloves, "gloves", silent: true, force: true), Is.True);
+
+        DetachOrgan(patient, "LegLeft", detachable);
+        DetachOrgan(patient, "ArmRight", detachable);
+        Assert.That(inventory.TryGetSlotEntity(patient, "shoes", out _), Is.True);
+        Assert.That(inventory.TryGetSlotEntity(patient, "gloves", out _), Is.True);
+
+        var loss = SComp<LimbLossComponent>(patient);
+        Assert.That(loss.Missing, Is.EqualTo(LimbParts.LegLeft | LimbParts.FootLeft | LimbParts.ArmRight | LimbParts.HandRight));
+
+        DetachOrgan(patient, "FootRight", detachable);
+        DetachOrgan(patient, "ArmLeft", detachable);
+        Assert.That(inventory.TryGetSlotEntity(patient, "shoes", out _), Is.False);
+        Assert.That(inventory.TryGetSlotEntity(patient, "gloves", out _), Is.False);
+
+        Assert.That(inventory.CanEquip(patient, shoes, "shoes", out var shoesReason), Is.False);
+        Assert.That(shoesReason, Is.EqualTo("limb-loss-cannot-equip-shoes"));
+        Assert.That(inventory.CanEquip(patient, gloves, "gloves", out var glovesReason), Is.False);
+        Assert.That(glovesReason, Is.EqualTo("limb-loss-cannot-equip-gloves"));
+    }
+
+    [Test]
+    [RunOnSide(Side.Server)]
+    public void ReattachedFootClearsLimbLoss()
+    {
+        var patient = SSpawn("MobHuman");
+        var detachable = SEntMan.System<DetachableOrganSystem>();
+        var inventory = SEntMan.System<InventorySystem>();
+        var shoes = SSpawn("ClothingShoesColorBlack");
+        var foot = FindOrgan(patient, "FootLeft");
+        var leg = FindOrgan(patient, "LegLeft");
+
+        detachable.Detach(foot);
+        DetachOrgan(patient, "FootRight", detachable);
+        Assert.That(SComp<LimbLossComponent>(patient).Missing, Is.EqualTo(LimbParts.FootLeft | LimbParts.FootRight));
+
+        inventory.CanEquip(patient, shoes, "shoes", out var blockedReason);
+        Assert.That(blockedReason, Is.EqualTo("limb-loss-cannot-equip-shoes"));
+
+        Assert.That(_body.TryInsertOrgan(patient, foot, leg), Is.True);
+        Assert.That(SComp<LimbLossComponent>(patient).Missing, Is.EqualTo(LimbParts.FootRight));
+
+        inventory.CanEquip(patient, shoes, "shoes", out var reason);
+        Assert.That(reason, Is.Not.EqualTo("limb-loss-cannot-equip-shoes"));
+    }
+
+    private EntityUid FindOrgan(EntityUid patient, string category)
+    {
+        foreach (var organ in _body.EnumerateOrgans<OrganComponent>(patient))
+        {
+            if (organ.Comp1.Category == category)
+                return organ.Owner;
+        }
+
+        Assert.Fail($"{category} not found");
+        return default;
     }
 
     private void DetachOrgan(EntityUid patient, string category, DetachableOrganSystem detachable)

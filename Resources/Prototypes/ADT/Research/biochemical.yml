@@ -77,7 +77,7 @@
   - ADTWeaponMedbeamCivil
   requiredTech:
   - ADTCloning
-  position: 7,-2
+  position: 7,-3
 
 - type: technology
   id: ADTIndustrialMedicine
@@ -144,7 +144,7 @@
   - ADTPatchThermo
   requiredTech:
   - ADTCryoTech
-  position: 5,-2
+  position: 5,-3
 
 - type: technology
   id: ADTMechanizedTreatment
@@ -199,7 +199,7 @@
   - ADTLauncherSyringe
   requiredTech:
   - ADTHighVoltageDefibrillator
-  position: 2,-3
+  position: 2,-4
 
 - type: technology
   id: ADTMedicalMODsuit
@@ -220,7 +220,7 @@
     - ADTModsuitBase
   requiredTech:
   - ADTCyberneticOrgans
-  position: 5,0
+  position: 6,-1
 
 - type: technology
   id: ADTCyberneticOrgans
@@ -240,7 +240,7 @@
   - ADTOrganCyberEyes
   requiredTech:
   - ADTMechanizedTreatment
-  position: 5,-1
+  position: 5,1
 
 - type: technology
   id: ADTAdvancedSurgery
@@ -252,13 +252,12 @@
   tier: 2
   cost: 7500
   recipeUnlocks:
-  - ADTBoneSetter
+  - ScalpelLaser
   - ADTBoneGel
-  - ADTSurgicalTape
   - ADTBloodFilter
-  - ADTSurgicalDrapes
-  - ScalpelAdvanced
   - SawElectric
+  - ADTOperatingTableMachineCircuitboard
+  - ADTSurgeryConsoleComputerCircuitboard
   requiredTech:
   - ADTBasicSurgery
   position: 1,0
@@ -273,13 +272,13 @@
   tier: 3
   cost: 12500
   recipeUnlocks:
-  - ScalpelLaser
   - ADTLaserScalpel
   - ADTMechanicalPinches
   - ADTSearingTool
+  - SawAdvanced
   requiredTech:
   - ADTAdvancedSurgery
-  position: 0,0
+  position: 0,-1
 
 - type: technology
   id: ADTBasicSurgery
@@ -297,6 +296,9 @@
   - Drill
   - Saw
   - Hemostat
+  - ADTSurgicalDrapes
+  - ADTSurgicalTape
+  - ADTBoneSetter
   requiredTech:
   - ADTChemDisp
   position: 2,0

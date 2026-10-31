@@ -34,6 +34,8 @@
   id: ADTAdvancedMedical
   recipes:
   - ADTAdvancedMedicalBedCircuitboard
+  - ADTOperatingTableMachineCircuitboard
+  - ADTSurgeryConsoleComputerCircuitboard
 
 - type: latheRecipePack
   id: ADTCryoPodMachineCircuitboard
@@ -73,13 +75,13 @@
   - ADTSurgicalTape
   - ADTBloodFilter
   - ADTSurgicalDrapes
-  - ScalpelAdvanced
   - SawElectric
+  - ScalpelLaser
 
 - type: latheRecipePack
   id: ADTLaserSurgeryPack
   recipes:
-  - ScalpelLaser
   - ADTLaserScalpel
   - ADTMechanicalPinches
   - ADTSearingTool
+  - SawAdvanced

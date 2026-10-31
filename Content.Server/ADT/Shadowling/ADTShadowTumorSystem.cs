@@ -1,3 +1,4 @@
+using Content.Server.ADT.Body;
 using Content.Goobstation.Shared.LightDetection.Components;
 using Content.Shared.ADT.Shadowling;
 using Content.Shared.Body;
@@ -10,19 +11,18 @@ public sealed class ADTShadowTumorSystem : EntitySystem
 {
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
-    [Dependency] private ADTShadowlingSystem _shadowling = default!;
     [Dependency] private EntityQuery<OrganComponent> _organQuery = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ADTShadowTumorComponent, OrganGotRemovedEvent>(OnTumorRemoved);
+        SubscribeLocalEvent<ADTShadowTumorComponent, OrganGotRemovedEvent>(OnTumorRemoved, before: [typeof(OrganGrantComponentsSystem)]);
     }
 
     private void OnTumorRemoved(Entity<ADTShadowTumorComponent> ent, ref OrganGotRemovedEvent args)
     {
-        if (!_shadowling.TryFreeThrall(args.Target))
+        if (!HasComp<ADTShadowlingThrallComponent>(args.Target))
             return;
 
         _popup.PopupEntity(Loc.GetString("shadowling-dethrall-freed"), args.Target, args.Target, PopupType.LargeCaution);

@@ -1,9 +1,12 @@
+using Content.Shared.ADT.Body.OrganOrigin;
 using Content.Shared.ADT.Surgery.Components;
 using Content.Shared.ADT.Surgery.Prototypes;
 using System.Linq;
 using Content.Shared.Body;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Examine;
+using Content.Shared.Humanoid;
+using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Item;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Temperature;
@@ -18,6 +21,7 @@ public sealed partial class SurgerySystem
     private const float FloorSurfaceModifier = 1.5f;
     private const float MinSuccessChance = 0.05f;
 
+    private static readonly ProtoId<SpeciesPrototype> ResomiSpecies = "Resomi";
     private static readonly ProtoId<SurgeryToolQualityPrototype> DrapingQuality = "Draping";
     private static readonly ProtoId<ItemSizePrototype> MaxCavityItemSize = "Small";
 
@@ -25,7 +29,7 @@ public sealed partial class SurgerySystem
 
     private static readonly SurgeryToolMatch ExactMatch = new(1f, 1f, new());
 
-    private bool TryMatchTool(SurgeryStepEntry step, EntityUid item, out SurgeryToolMatch match)
+    private bool TryMatchTool(EntityUid patient, SurgeryStepEntry step, EntityUid item, out SurgeryToolMatch match)
     {
         match = ExactMatch;
 
@@ -35,7 +39,7 @@ public sealed partial class SurgerySystem
         if (step.AnyItem)
             return IsStorableItem(item);
 
-        return MatchesOrgan(step, item);
+        return MatchesOrgan(patient, step, item);
     }
 
     private bool IsStorableItem(EntityUid item)
@@ -155,17 +159,28 @@ public sealed partial class SurgerySystem
         return true;
     }
 
-    private bool MatchesOrgan(SurgeryStepEntry step, EntityUid item)
+    private bool MatchesOrgan(EntityUid patient, SurgeryStepEntry step, EntityUid item)
     {
         if (step.Organ is not { } category)
             return false;
 
         if (TryComp<OrganComponent>(item, out var organ) && organ.Category == category)
-            return true;
+            return IsLimbCompatible(patient, item);
 
         return _detachableOrgan.TryGetDetachedOrgan(item, out var detached)
                && TryComp<OrganComponent>(detached, out var detachedOrgan)
-               && detachedOrgan.Category == category;
+               && detachedOrgan.Category == category
+               && IsLimbCompatible(patient, detached);
+    }
+
+    private bool IsLimbCompatible(EntityUid patient, EntityUid limb)
+    {
+        if (!HasComp<DetachableOrganComponent>(limb)
+            || !TryComp<OrganOriginComponent>(limb, out var origin)
+            || origin.Species != ResomiSpecies)
+            return true;
+
+        return TryComp<HumanoidProfileComponent>(patient, out var profile) && profile.Species == ResomiSpecies;
     }
 
     private TimeSpan GetStepDuration(EntityUid patient, SurgeryStepEntry step, SurgeryToolMatch match, EntityUid item)
