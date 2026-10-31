@@ -164,3 +164,57 @@
           min: 12
         probability: 0.15
         pacifyDuration: 3
+
+- type: reagent
+  id: ADTLiminalium
+  name: reagent-name-liminalium
+  group: Narcotics
+  desc: reagent-desc-liminalium
+  flavor: bitter
+  flavorMinimum: 0.05
+  color: "#99986b"
+  physicalDesc: reagent-physical-desc-crystalline
+  plantMetabolism:
+  - !type:PlantAdjustNutrition
+    amount: -5
+  - !type:PlantAdjustHealth
+    amount: -1
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
+        time: 16
+        type: Add
+      - !type:Jitter
+      - !type:Hallucinate
+        hallucinations: [ Liminal ]
+        type: Add
+        time: 300
+        refresh: false
+
+- type: reagent
+  id: ADTKetamine
+  name: reagent-name-ketamine
+  group: Narcotics
+  desc: reagent-desc-ketamine
+  physicalDesc: reagent-physical-desc-crystalline
+  flavor: bitter
+  color: "#c9d6e8"
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
+        type: Add
+        time: 8
+      #- !type:Hallucinate
+      #  hallucinations: [ SupermatterPack ] # заглушка до норм галюнов
+      #  type: Add
+      #  time: 6
+      - !type:DissociativeForceFront
+        probability: 0.3
+      - !type:DissociativeExtendFront
+        seconds: 4
+      - !type:DissociativeSpeedCooldown
+        seconds: 1

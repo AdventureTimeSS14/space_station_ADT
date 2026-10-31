@@ -126,3 +126,18 @@
   license: "CC-BY-4.0"
   copyright: "Created by zimbot, edited and converted to mono by TheShuEd"
   source: "https://freesound.org/people/zimbot/sounds/122972/"
+
+- files: ["liminal_bass.ogg"]
+  license: "CC0-1.0"
+  copyright: "Created by audio_dread"
+  source: "https://freesound.org/people/audio_dread/sounds/528044/"
+
+- files: ["liminal_echoes.ogg"]
+  license: "CC0-1.0"
+  copyright: "Created by solarpsychedelic"
+  source: "https://freesound.org/people/solarpsychedelic/sounds/761071/"
+
+- files: ["liminal_space.ogg"]
+  license: "CC0-1.0"
+  copyright: "Created by solarpsychedelic"
+  source: "https://freesound.org/people/solarpsychedelic/sounds/868298/"

@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Content.Server.ADT.Chat;
 using Content.Server.ADT.Deafness;
 using Content.Server.ADT.Language;
 using Content.Server.Chat.Systems;
@@ -162,6 +163,11 @@ public sealed partial class TTSSystem : EntitySystem
             if (listener != uid && _deafness.IsDeafened(listener))
                 continue;
 
+            var hearEv = new CanHearVoiceEvent(uid, false);
+            RaiseLocalEvent(listener, ref hearEv);
+            if (hearEv.Cancelled)
+                continue;
+
             var variant = _language.CanUnderstand(listener, language)
                 ? TTSVariant.Clear
                 : TTSVariant.Foreign;
@@ -208,6 +214,11 @@ public sealed partial class TTSSystem : EntitySystem
 
             if (!HasComp<GhostHearingComponent>(listener) &&
                 !_examineSystem.InRangeUnOccluded(listener, uid, ChatSystem.WhisperMuffledRange))
+                continue;
+
+            var hearEv = new CanHearVoiceEvent(uid, true);
+            RaiseLocalEvent(listener, ref hearEv);
+            if (hearEv.Cancelled)
                 continue;
 
             bool muffled;

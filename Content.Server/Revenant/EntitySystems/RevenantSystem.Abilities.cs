@@ -1,4 +1,7 @@
+using Content.Server.ADT.Hallucinations.Components; // ADT-Tweak
+using Content.Server.ADT.Hallucinations.Systems; // ADT-Tweak
 using Content.Shared.ADT.Chaplain.Components;
+using Content.Shared.EntityEffects.Effects.StatusEffects; // ADT-Tweak
 using Content.Shared.Popups;
 using Content.Shared.Damage;
 using Content.Shared.Revenant;
@@ -38,7 +41,6 @@ using Content.Shared.Revenant;
 using Content.Shared.Revenant.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Utility;
-using Content.Server.ADT.Hallucinations;
 using Content.Shared.StatusEffect;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Eye.Blinding.Systems;
@@ -70,12 +72,12 @@ public sealed partial class RevenantSystem
 {
     [Dependency] private EmagSystem _emagSystem = default!;
     [Dependency] private ThrowingSystem _throwing = default!;
+    [Dependency] private SchizophreniaSystem _schizophrenia = default!; // ADT-Tweak
     [Dependency] private EntityStorageSystem _entityStorage = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] private MobThresholdSystem _mobThresholdSystem = default!;
     [Dependency] private GhostSystem _ghost = default!;
     [Dependency] private TileSystem _tile = default!;
-    [Dependency] private HallucinationsSystem _hallucinations = default!;
     [Dependency] private StatusEffectsSystem _status = default!;
     [Dependency] private SmokeSystem _smoke = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
@@ -438,7 +440,10 @@ public sealed partial class RevenantSystem
             // ADT-Tweak end
 
             _status.TryAddStatusEffect<BlindnessStatusEffectComponent>(ent, BlindnessSystem.BlindingStatusEffect, TimeSpan.FromSeconds(3), true);
-            _hallucinations.StartHallucinations(ent, "ADTHallucinations", component.HysteriaDuration, true, component.HysteriaProto);
+            // ADT-Tweak start
+            if (HasComp<CanHallucinateComponent>(ent))
+                _schizophrenia.AddOrAdjustHallucinations(ent, component.HysteriaProto, (float) component.HysteriaDuration.TotalSeconds, StatusEffectMetabolismType.Update);
+            // ADT-Tweak end
             if (!_mind.TryGetMind(ent, out var mindId, out var mind) || !_player.TryGetSessionById(mind.UserId, out var session))
                 continue;
             _audio.PlayGlobal(component.HysteriaSound, Filter.SinglePlayer(session), false);

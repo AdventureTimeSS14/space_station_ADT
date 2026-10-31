@@ -272,3 +272,35 @@
       amount: 1
   products:
     ADTMurderSolution: 5
+
+- type: reaction
+  id: ADTKetamine
+  reactants:
+    Phenol:
+      amount: 1
+    Chlorine:
+      amount: 1
+    Ammonia:
+      amount: 1
+    Acetone:
+      amount: 1
+  products:
+    ADTKetamine: 4
+
+- type: reaction
+  id: ADTLiminalium
+  minTemp: 400
+  reactants:
+    Phenol:
+      amount: 2
+    SulfuricAcid:
+      amount: 1
+    Ammonia:
+      amount: 1
+    Phosphorus:
+      amount: 1
+    Iron:
+      amount: 1
+      catalyst: true
+  products:
+    ADTLiminalium: 3

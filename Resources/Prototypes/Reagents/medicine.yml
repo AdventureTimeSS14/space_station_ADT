@@ -1736,6 +1736,7 @@
         effectProto: StatusEffectSeeingRainbow
         time: 10.0
         type: Remove
+      - !type:Antipsychotic # ADT-Tweak
       - !type:AdjustReagent
         reagent: Desoxyephedrine
         amount: -3.0

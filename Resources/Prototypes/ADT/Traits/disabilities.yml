@@ -371,3 +371,77 @@
     - Security
   jobBlacklist:
     - ADTBlueShieldOfficer
+
+- type: trait
+  id: ADTDissociativeIdentity
+  name: trait-dissociative-identity-name
+  description: trait-dissociative-identity-desc
+  category: Disabilities
+  cost: -1
+  departmentBlacklist:
+    - Command
+    - Security
+    - CentcomSpecialists
+  speciesBlacklist:
+    - IPC
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: DissociativeIdentity
+          alterComponents:
+          - type: Physics
+            bodyType: KinematicController
+          - type: Fixtures
+            fixtures:
+              fix1:
+                shape:
+                  !type:PhysShapeCircle
+                  radius: 0.35
+                density: 50
+                mask:
+                - MobMask
+                layer:
+                - None
+          - type: DissociativeAlterBody
+          - type: StatusIcon
+            bounds: -0.5,-0.5,0.5,0.5
+          - type: InputMover
+          - type: MobMover
+          - type: MovementSpeedModifier
+            baseWalkSpeed: 2.5
+            baseSprintSpeed: 4.5
+          - type: Actions
+          - type: Alerts
+          - type: DoAfter
+          - type: Examiner
+          - type: Eye
+          - type: ContentEye
+          - type: MindContainer
+          - type: TTS
+          - type: LanguageSpeaker
+          - type: Speech
+            speechSounds: Alto
+          - type: Emoting
+          - type: TypingIndicator
+          - type: Grammar
+            attributes:
+              proper: true
+          - type: MidroundCustomization
+            allowedLayers:
+            - Hair
+            - FacialHair
+            playSoundForVoiceChange: false
+          - type: UserInterface
+            interfaces:
+              enum.MidroundCustomizationUiKey.Key:
+                type: MidroundCustomizationBoundUserInterface
+              enum.DissociativeAlterSetupUiKey.Key:
+                type: DissociativeAlterSetupBoundUserInterface
+          - type: GhostRole
+            allowMovement: true
+            allowSpeech: true
+            makeSentient: true
+            name: ghost-role-information-dissociative-alter-name
+            description: ghost-role-information-dissociative-alter-description
+            rules: ghost-role-information-dissociative-alter-rules
+          - type: GhostTakeoverAvailable
