@@ -44,6 +44,12 @@ public sealed class CanvasDocument : IDisposable
 
     public bool ActiveStroke => Stroker.Active || Layers.Active is { Stroker.Active: true };
 
+    public CanvasSelection? Selection
+    {
+        get => Stroker.Settings.Selection;
+        set => Stroker.Settings.Selection = value;
+    }
+
     public event Action? HistoryChanged;
 
     public int Width => Surface.Width;
@@ -183,6 +189,10 @@ public sealed class CanvasDocument : IDisposable
         var target = surface.GetPixelRaw(x, y);
         var limit = (int) MathF.Round(Math.Clamp(tolerance, 0f, 1f) * 255f);
         var fill = PaintSurface.ToRgba(color);
+        var selection = Selection;
+        if (selection != null && !selection.Contains(x, y))
+            return false;
+
         var tiles = new Dictionary<int, Rgba32[]>();
         var visited = new bool[width * height];
         var stack = new Stack<(int X, int Y)>();
@@ -190,7 +200,9 @@ public sealed class CanvasDocument : IDisposable
 
         bool Open(int px, int py)
         {
-            return !visited[py * width + px] && Matches(surface.GetPixelRaw(px, py), target, limit);
+            return !visited[py * width + px] &&
+                   (selection == null || selection.Contains(px, py)) &&
+                   Matches(surface.GetPixelRaw(px, py), target, limit);
         }
 
         void Scan(int left, int right, int row)
@@ -261,6 +273,7 @@ public sealed class CanvasDocument : IDisposable
         var center = (min + max) / 2f;
         var radius = (max - min) / 2f;
         var fill = PaintSurface.ToRgba(color);
+        var selection = Selection;
         var tiles = new Dictionary<int, Rgba32[]>();
 
         for (var py = y0; py <= y1; py++)
@@ -269,6 +282,9 @@ public sealed class CanvasDocument : IDisposable
             {
                 var point = new Vector2(px + 0.5f, py + 0.5f);
                 if (point.X < min.X || point.Y < min.Y || point.X > max.X || point.Y > max.Y)
+                    continue;
+
+                if (selection != null && !selection.Contains(px, py))
                     continue;
 
                 if (ellipse)
@@ -324,6 +340,92 @@ public sealed class CanvasDocument : IDisposable
         var touched = Surface.CompositeTiles(tiles, opacity, (int) id);
         AddOperation(CanvasOperation.Merging(id, tiles, opacity, touched));
         return true;
+    }
+
+    public CanvasFloating? BeginFloating()
+    {
+        if (ActiveStroke)
+            return null;
+
+        var selection = Selection;
+        var auto = selection == null;
+        selection ??= ContentSelection();
+        if (selection == null)
+            return null;
+
+        return new CanvasFloating(ActiveSurface, Layers.Active, selection, auto);
+    }
+
+    private CanvasSelection? ContentSelection()
+    {
+        var surface = ActiveSurface;
+        var paper = surface.EraseToPaper ? PaintSurface.ToRgba(surface.Paper).PackedValue : (uint?) null;
+        var left = Width;
+        var top = Height;
+        var right = 0;
+        var bottom = 0;
+
+        foreach (var index in surface.AllocatedTiles())
+        {
+            var (tx, ty) = surface.TileCoords(index);
+            var size = surface.GetTileSize(index);
+            var pixels = surface.GetTilePixels(index);
+            for (var y = 0; y < size.Y; y++)
+            {
+                for (var x = 0; x < size.X; x++)
+                {
+                    if (IsBlank(pixels[y * size.X + x], paper))
+                        continue;
+
+                    var px = tx * PaintSurface.TileSize + x;
+                    var py = ty * PaintSurface.TileSize + y;
+                    left = Math.Min(left, px);
+                    top = Math.Min(top, py);
+                    right = Math.Max(right, px + 1);
+                    bottom = Math.Max(bottom, py + 1);
+                }
+            }
+        }
+
+        if (right <= left)
+            return null;
+
+        var width = right - left;
+        var height = bottom - top;
+        var mask = new bool[width * height];
+        for (var y = 0; y < height; y++)
+        {
+            for (var x = 0; x < width; x++)
+            {
+                mask[y * width + x] = !IsBlank(surface.GetPixelRaw(left + x, top + y), paper);
+            }
+        }
+
+        return CanvasSelection.FromMask(left, top, width, height, mask);
+    }
+
+    private static bool IsBlank(Rgba32 pixel, uint? paper)
+    {
+        return pixel.A == 0 || pixel.PackedValue == paper;
+    }
+
+    public void CommitFloating(CanvasFloating floating)
+    {
+        if (floating.Layer is { } layer)
+        {
+            if (Layers.Find(layer.Id) == layer)
+                layer.Surface.ReplaceTiles(floating.Bake(Stroker.Settings.Pixel), 0);
+
+            return;
+        }
+
+        var tiles = floating.Bake(Stroker.Settings.Pixel);
+        if (tiles.Count == 0)
+            return;
+
+        var id = _nextOperationId++;
+        var restore = Surface.ReplaceTiles(tiles, (int) id);
+        AddOperation(CanvasOperation.Restoring(id, restore));
     }
 
     public Rgba32 ComposedPixel(int x, int y)
@@ -598,6 +700,12 @@ public sealed class CanvasDocument : IDisposable
         var id = (uint) tag;
         if (id >= _nextOperationId)
             _nextOperationId = id + 1;
+
+        if (stroke.Settings.Liquify)
+        {
+            AddOperation(CanvasOperation.Restoring(id, Surface.LastChanges()));
+            return;
+        }
 
         AddOperation(new CanvasOperation(id, stroke, default, tiles));
     }

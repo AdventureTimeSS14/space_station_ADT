@@ -3,6 +3,13 @@ using Content.Client.ADT.Drawing.Input;
 
 namespace Content.Client.ADT.Drawing.Canvas;
 
+public enum LiquifyMode : byte
+{
+    Push,
+    Grow,
+    Shrink,
+}
+
 public sealed class BrushSettings
 {
     public Color Color = Color.Black;
@@ -15,15 +22,29 @@ public sealed class BrushSettings
     public float MinSizeFraction = 0.05f;
     public float MinOpacityFraction = 0.05f;
     public bool Pixel;
+    public bool Blur;
+    public float BlurStrength = 0.6f;
+    public float BlurHardness = 0.5f;
+    public bool Liquify;
+    public LiquifyMode LiquifyMode;
+    public float LiquifyStrength = 0.7f;
+    public float LiquifyHardness = 0.3f;
+    public CanvasSelection? Selection;
 
     public int PixelSize => Math.Clamp((int) MathF.Round(Size), 1, PixelMaxSize);
 
+    public bool LocalOnly => Blur || Liquify;
+
     public const int PixelMaxSize = 16;
+    public const float BlurSpacing = 0.12f;
 
     public float DiameterAt(float pressure)
     {
         if (Pixel)
             return PixelSize;
+
+        if (Liquify)
+            return Size;
 
         return PressureAffectsSize ? Size * Lerp(MinSizeFraction, 1f, pressure) : Size;
     }
@@ -78,6 +99,8 @@ public sealed class BrushStroker
     private float _lastPressure;
     private float _carry;
     private int _tailStart;
+    private Vector2 _lastDab;
+    private bool _warpNearest;
     private readonly List<float> _distances = new();
 
     public BrushStroker(PaintSurface surface, BrushSettings settings)
@@ -92,7 +115,7 @@ public sealed class BrushStroker
 
     public bool Active => _stroke != null;
 
-    private float Taper => _active.Pixel ? 0f : TaperOutLength;
+    private float Taper => _active.Pixel || _active.LocalOnly ? 0f : TaperOutLength;
 
     public event Action<StrokeRecord, int, int[]>? StrokeFinished;
 
@@ -122,10 +145,17 @@ public sealed class BrushStroker
                     Finish();
 
                 _active = Settings.Clone();
+                _warpNearest = _active.Pixel;
+                if (_active.LocalOnly)
+                {
+                    _active.Pixel = false;
+                    _active.Spacing = MathF.Max(_active.Spacing, BrushSettings.BlurSpacing);
+                }
+
                 _stroke = new StrokeRecord(_active, sample.Tool == PenTool.Eraser);
                 _strokeTag = tag;
                 _tailStart = 0;
-                _surface.BeginStroke(_active.Color, _stroke.Erase);
+                _surface.BeginStroke(_active.Color, _stroke.Erase, selection: _active.Selection);
                 _stroke.Points.Add(point);
 
                 if (Taper > 0f)
@@ -156,7 +186,7 @@ public sealed class BrushStroker
             return;
 
         _active = stroke.Settings;
-        _surface.BeginStroke(_active.Color, stroke.Erase, clipTile);
+        _surface.BeginStroke(_active.Color, stroke.Erase, clipTile, _active.Selection);
         Trace(stroke.Points);
         _surface.EndStroke(record: false);
     }
@@ -277,6 +307,7 @@ public sealed class BrushStroker
     {
         _lastPos = point.Position;
         _lastPressure = point.Pressure;
+        _lastDab = point.Position;
         _carry = 0f;
         DabAt(point.Position, point.Pressure);
     }
@@ -366,6 +397,21 @@ public sealed class BrushStroker
 
     private void DabAt(Vector2 position, float pressure)
     {
+        if (_active.Liquify)
+        {
+            var motion = position - _lastDab;
+            _lastDab = position;
+            _surface.WarpDab(position, motion, _active.DiameterAt(pressure) * 0.5f, _active.LiquifyHardness,
+                _active.LiquifyStrength, _active.LiquifyMode, _warpNearest);
+            return;
+        }
+
+        if (_active.Blur)
+        {
+            _surface.BlurDab(position, _active.DiameterAt(pressure) * 0.5f, _active.BlurHardness, _active.BlurStrength);
+            return;
+        }
+
         if (_active.Pixel)
         {
             PixelAt((int) MathF.Floor(position.X), (int) MathF.Floor(position.Y));
