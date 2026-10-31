@@ -267,3 +267,30 @@
     - !type:AddCompsEffect
       components:
         - type: FrontalLisp
+
+
+- type: speechVerb
+  id: ADTSinging
+  name: chat-speech-verb-name-adt-singing
+  speechVerbStrings:
+  - chat-speech-verb-adt-singing
+
+- type: trait
+  id: ADTSinging
+  name: trait-adt-singing-name
+  description: trait-adt-singing-desc
+  category: SpeechTraits
+  cost: 0
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: VoiceOverride
+      speechVerbOverride: ADTSinging
+    - type: ReplacementAccent
+      accent: ADTSingingNotes
+
+- type: accent
+  id: ADTSingingNotes
+  wordReplacements:
+    accent-adt-singing-prefix-pattern: accent-adt-singing-prefix
+    accent-adt-singing-suffix-pattern: accent-adt-singing-suffix
