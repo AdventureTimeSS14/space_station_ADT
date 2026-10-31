@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "license": "Custom",
+  "copyright": "Sprites supplied by the requester: 61_20261027190402.png, 53_20261027190710.png, 53_20261027190702.png, 53_20261027190651.png. Original licensing was not supplied. Packed without resampling.",
+  "size": {
+    "x": 48,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "equipped-BACKPACK",
+      "directions": 4
+    },
+    {
+      "name": "equipped-SUITSTORAGE",
+      "directions": 4
+    }
+  ]
+}
