@@ -49,6 +49,11 @@ public sealed partial class GasTankComponent : GasMaxPressureHolderComponent
     [ViewVariables]
     public bool CheckUser;
 
+    // ADT-Tweak-Start
+    [DataField, AutoNetworkedField]
+    public bool UserToggleable = true;
+    // ADT-Tweak-End
+
     [DataField]
     public EntProtoId ToggleAction = "ActionToggleInternals";
 

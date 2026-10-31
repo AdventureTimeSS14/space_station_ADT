@@ -5,3 +5,5 @@ namespace Content.Shared.ADT.ModSuits;
 public sealed partial class ToggleModMenuActionEvent : InstantActionEvent;
 
 public sealed partial class ToggleModPartActionEvent : InstantActionEvent;
+
+public sealed partial class ToggleAllModPartsActionEvent : InstantActionEvent;

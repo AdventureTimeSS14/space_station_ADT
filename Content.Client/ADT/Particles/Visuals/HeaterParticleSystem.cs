@@ -28,6 +28,7 @@ public sealed class HeaterParticleSystem : EntitySystem
     private sealed class HeaterState
     {
         public bool On;
+        public bool Cooking;
         public readonly Dictionary<EntityUid, ActiveEmitter> Emitters = new();
     }
 
@@ -42,6 +43,7 @@ public sealed class HeaterParticleSystem : EntitySystem
         SubscribeLocalEvent<ItemPlacerComponent, ItemPlacedEvent>(OnItemPlaced);
         SubscribeLocalEvent<ItemPlacerComponent, ItemRemovedEvent>(OnItemRemoved);
         SubscribeLocalEvent<EntityHeaterComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<ParticleSettingsChangedEvent>(OnSettingsChanged);
     }
 
     private void OnAppearanceChange(Entity<EntityHeaterComponent> ent, ref AppearanceChangeEvent args)
@@ -75,14 +77,18 @@ public sealed class HeaterParticleSystem : EntitySystem
 
         if (visualState == MicrowaveVisualState.Cooking)
         {
+            state.Cooking = true;
+
             var fireAlive = _fire.TryGetValue(ent, out var fire) && !fire.Exhausted;
             var smokeAlive = _smoke.TryGetValue(ent, out var smoke) && !smoke.Exhausted;
 
             if (fireAlive && smokeAlive)
                 return;
 
-            _fire.Remove(ent);
-            _smoke.Remove(ent);
+            if (_fire.Remove(ent, out var staleFire))
+                _particles.RemoveParticle(staleFire);
+            if (_smoke.Remove(ent, out var staleSmoke))
+                _particles.RemoveParticle(staleSmoke);
 
             var coords = _transform.GetMapCoordinates(ent);
             fire = _particles.SpawnEffect(FireEffect, coords, ent.Owner);
@@ -102,6 +108,7 @@ public sealed class HeaterParticleSystem : EntitySystem
         }
         else
         {
+            state.Cooking = false;
             if (_fire.Remove(ent, out var fire))
                 _particles.RemoveParticle(fire);
 
@@ -125,13 +132,53 @@ public sealed class HeaterParticleSystem : EntitySystem
     private void OnShutdown(Entity<EntityHeaterComponent> ent, ref ComponentShutdown args)
     {
         if (_heaters.Remove(ent, out var state))
+        {
             StopAll(state);
+            state.Cooking = false;
+        }
 
         if (_fire.Remove(ent, out var fire))
             _particles.RemoveParticle(fire);
 
         if (_smoke.Remove(ent, out var smoke))
             _particles.RemoveParticle(smoke);
+    }
+
+    private void OnSettingsChanged(ParticleSettingsChangedEvent ev)
+    {
+        if (ev.Quality == 0)
+            return;
+
+        foreach (var (heater, state) in _heaters)
+        {
+            if (state.On && TryComp(heater, out ItemPlacerComponent? placer))
+            {
+                foreach (var item in placer.PlacedEntities)
+                    SpawnOnItem(item, state);
+            }
+
+            if (!state.Cooking)
+                continue;
+
+            if (_fire.Remove(heater, out var oldFire))
+                _particles.RemoveParticle(oldFire);
+            if (_smoke.Remove(heater, out var oldSmoke))
+                _particles.RemoveParticle(oldSmoke);
+
+            var coords = _transform.GetMapCoordinates(heater);
+            var fire = _particles.SpawnEffect(FireEffect, coords, heater);
+            var smoke = _particles.SpawnEffect(SmokeEffect, coords, heater);
+            if (fire != null)
+            {
+                fire.SpawnOffset = SpawnOffset;
+                _fire[heater] = fire;
+            }
+            if (smoke != null)
+            {
+                smoke.SpawnOffset = SpawnOffset;
+                _smoke[heater] = smoke;
+            }
+        }
     }
 
     private void SpawnOnItem(EntityUid item, HeaterState state)
