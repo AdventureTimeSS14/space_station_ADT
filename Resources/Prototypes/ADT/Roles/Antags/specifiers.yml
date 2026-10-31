@@ -47,6 +47,11 @@
   pickPlayer: false
 
 - type: antagSpecifier
+  id: ADTSanta
+  spawnerPrototype: ADTSpawnPointGhostSanta
+  pickPlayer: false
+
+- type: antagSpecifier
   id: ADTDiceOfFateWizard
   startingGear: WizardBlueGear
   roleLoadout:

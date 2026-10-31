@@ -13,6 +13,12 @@ ent-ADTClothingOuterHoodyBlack = чёрное худи
 ent-ADTClothingOuterHoodyWhite = белое худи
     .desc = Мягкое белое худи с капюшоном.
 
+ent-ADTClothingOuterFurCoatHeart = шуба
+    .desc = Шуба из белого меха, расшитая множеством ярко-красных сердечек.
+
+ent-ADTClothingOuterLowerFurCoat = шуба
+    .desc = Обычная шуба из белого меха.
+
 ent-ADTClothingOuterDownjacketBlack = чёрный пуховик
     .desc = Тяжёлая куртка с наполнителем из «синтетического» пуха.
 
@@ -57,4 +63,3 @@ ent-ADTClothingOuterHoodyPurple = фиолетовое худи
 
 ent-ADTClothingOuterHoodyRed = красное худи
     .desc = Мягкое красное худи с капюшоном.
-

@@ -28,6 +28,8 @@ using Content.Shared.Mobs.Systems;
 using Content.Server.Cuffs;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Mech.Components;
+using Content.Shared.Buckle.Components;
+using Content.Shared.ADT.Spike;
 using Content.Shared.Bed.Cryostorage;
 using Content.Shared.ADT.Components.PickupHumans;
 using Content.Shared.Construction.Components;
@@ -113,7 +115,7 @@ public sealed partial class ShadekinSystem : EntitySystem
                 comp.MinPowerAccumulator = Math.Clamp(comp.MinPowerAccumulator - 1f, 0f, comp.MinPowerRoof);
             }
 
-            if ((comp.MinPowerAccumulator >= comp.MinPowerRoof) && !comp.Blackeye)
+            if (comp.MinPowerAccumulator >= comp.MinPowerRoof && !comp.Blackeye)
                 BlackEye(uid);
 
             if (!HasComp<TakenHumansComponent>(uid) && comp.MaxedPowerAccumulator >= comp.MaxedPowerRoof)
@@ -158,6 +160,9 @@ public sealed partial class ShadekinSystem : EntitySystem
     private void OnTeleport(EntityUid uid, ShadekinComponent comp, ShadekinTeleportActionEvent args)
     {
         if (args.Handled)
+            return;
+
+        if (TryComp<BuckleComponent>(uid, out var buckle) && buckle.BuckledTo != null && HasComp<SpikeComponent>(buckle.BuckledTo.Value))
             return;
 
         if (HasComp<MechPilotComponent>(uid) || HasComp<BeingVentCrawlerComponent>(uid))
@@ -208,6 +213,13 @@ public sealed partial class ShadekinSystem : EntitySystem
         if (!Resolve(uid, ref comp))
             return;
 
+        // SpikeSystem: Чтобы сумеречники не имели возможности слезть с крюка
+        if (TryComp<BuckleComponent>(uid, out var buckle) && buckle.BuckledTo != null && HasComp<SpikeComponent>(buckle.BuckledTo.Value))
+        {
+            comp.MaxedPowerAccumulator = 0f;
+            return;
+        }
+
         var coordsValid = false;
         var coords = Transform(uid).Coordinates;
 
@@ -253,6 +265,10 @@ public sealed partial class ShadekinSystem : EntitySystem
 
     public void TeleportRandomlyNoComp(EntityUid uid, float range = 5f)
     {
+        // SpikeSystem: Чтобы сумеречники не имели возможности слезть с крюка
+        if (TryComp<BuckleComponent>(uid, out var buckle) && buckle.BuckledTo != null && HasComp<SpikeComponent>(buckle.BuckledTo.Value))
+            return;
+
         var coordsValid = false;
         var coords = Transform(uid).Coordinates;
 

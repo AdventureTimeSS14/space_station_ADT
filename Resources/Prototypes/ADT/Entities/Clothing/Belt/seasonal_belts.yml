@@ -1,0 +1,15 @@
+# Для автомата ADTLoveLandInventory. Восстановлено из 4724177de66 (#1971 "Октобертест"), удалено ревертом 41433ded9ce
+
+- type: entity
+  parent: ClothingBeltQuiver
+  id: ADTClothingBeltQuiverCupidon
+  name: cupidon quiver
+  description: cupidon quiver
+  suffix: Valentine Day
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/cupidon_quiver.rsi
+    layers:
+    - state: icon
+    - map: [ "enum.StorageContainerVisualLayers.Fill" ]
+      visible: false

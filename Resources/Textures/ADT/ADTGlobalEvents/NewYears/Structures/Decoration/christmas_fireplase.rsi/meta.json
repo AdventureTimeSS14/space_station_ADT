@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Created by discord: lunalita for Adventure Time",
+  "size": {
+    "x": 64,
+    "y": 64
+  },
+  "states": [
+    {
+      "name": "christmas_fireplace_01",
+      "directions": 1
+    },
+    {
+      "name": "christmas_fireplace_02",
+      "directions": 1
+    },
+    {
+      "name": "fireplace_fire4",
+      "directions": 4,
+      "delays":
+       [
+        [0.1, 0.1, 0.1],
+        [0.1, 0.1, 0.1],
+        [0.1, 0.1, 0.1],
+        [0.1, 0.1, 0.1]
+       ]
+    },
+    {
+      "name": "fireplace_glow",
+      "directions": 4,
+      "delays":
+       [
+        [0.4, 0.1],
+        [0.4, 0.1],
+        [0.4, 0.1],
+        [0.4, 0.1]
+       ]
+    }
+  ]
+}

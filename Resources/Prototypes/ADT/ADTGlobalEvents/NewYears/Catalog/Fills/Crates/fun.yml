@@ -1,0 +1,45 @@
+- type: entity
+  id: ADTCrateChristmasTree
+  parent: CrateGenericSteel
+  name: crate of christmas tree
+  description: crate of christmas tree
+  suffix: New Year
+  components:
+  - type: StorageFill
+    contents:
+        - id: ADTChristmasPlasticTree
+        - id: ADTClothingBackpackDuffelChristmasToys
+
+- type: entity
+  id: ADTCrateChocolateGorilla
+  parent: CrateGenericSteel
+  name: crate of milki gorilla
+  description: crate of milki gorilla
+  suffix: New Year
+  components:
+  - type: StorageFill
+    contents:
+        - id: ADTChocolateGorillaLarge
+
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ADTClothingBackpackDuffelChristmasToys
+  name: bag of christmas toys
+  description: bag of christmas toys
+  suffix: New Year
+  components:
+    - type: StorageFill
+      contents:
+        - id: ADTGoldenStarGarland
+        - id: ADTSilverStarGarland
+        - id: ADTBaseStarGarland
+        - id: ADTShinyGarland
+        - id: ADTTreeRedBalls
+        - id: ADTTreeSilverBalls
+        - id: ADTTreeGoldenBalls
+        - id: ADTTreeGoldenStar
+        - id: ADTTreeRedStar
+        - id: ADTTreeSilverStar
+        - id: ADTTreeSilverMishura
+        - id: ADTTreeGoldenMishura
+        - id: ADTTreeRedMishura
