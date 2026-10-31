@@ -145,10 +145,6 @@ public sealed class BankCardSystem : EntitySystem
 
         foreach (var (fundingId, group) in groups)
         {
-            var balance = GetBalance(fundingId);
-            if (balance <= 0)
-                continue;
-
             if (group.PrimaryAccountId == null &&
                 TryComp<StationBankAccountComponent>(group.Station, out var stationBank) &&
                 TryGetDepartmentAccountId(group.Station, stationBank.PrimaryAccount, out var primaryId))
@@ -162,6 +158,9 @@ public sealed class BankCardSystem : EntitySystem
                 salaryCuts.Cuts.TryGetValue(group.Funding, out var fundingCut))
                 cut = Math.Clamp(fundingCut, 0f, 0.9f);
 
+            var balance = GetBalance(fundingId);
+            var remaining = balance;
+
             foreach (var (playerAccountId, share, mob, jobId) in group.Members)
             {
                 var bonus = GetSalaryBonus(group.Station, jobId);
@@ -169,10 +168,14 @@ public sealed class BankCardSystem : EntitySystem
                 if (gross <= 0)
                     continue;
 
+                var affordable = Math.Min(gross, remaining);
+                if (affordable <= 0)
+                    break;
+
                 if (cut > 0)
                 {
-                    var paid = (int) Math.Floor(gross * (1 - cut));
-                    var withheld = gross - paid;
+                    var paid = (int) Math.Floor(affordable * (1 - cut));
+                    var withheld = affordable - paid;
 
                     if (withheld > 0)
                         TryBurn(fundingId, withheld, TransactionReason.RevConfiscation, Loc.GetString("bank-initiator-centcom"));
@@ -180,21 +183,23 @@ public sealed class BankCardSystem : EntitySystem
                     if (paid > 0 && TryTransfer(fundingId, playerAccountId, paid, TransactionReason.Salary))
                         _totalSalary += paid;
 
+                    remaining -= affordable;
                     continue;
                 }
 
-                var net = gross;
-                if (taxRate > 0 && fundingId != group.PrimaryAccountId)
-                {
-                    net = (int) Math.Floor(gross * (1 - taxRate));
-                    var tax = gross - net;
-                    if (tax > 0 && group.PrimaryAccountId != null &&
-                        TryTransfer(fundingId, group.PrimaryAccountId.Value, tax, TransactionReason.SalaryTax))
-                        _totalTaxes += tax;
-                }
+                var taxPart = (taxRate > 0 && fundingId != group.PrimaryAccountId)
+                    ? (int) Math.Floor(affordable * taxRate)
+                    : 0;
+                var payout = affordable - taxPart;
 
-                if (net > 0 && TryTransfer(fundingId, playerAccountId, net, TransactionReason.Salary))
-                    _totalSalary += net;
+                if (taxPart > 0 && group.PrimaryAccountId != null &&
+                    TryTransfer(fundingId, group.PrimaryAccountId.Value, taxPart, TransactionReason.SalaryTax))
+                    _totalTaxes += taxPart;
+
+                if (payout > 0 && TryTransfer(fundingId, playerAccountId, payout, TransactionReason.Salary))
+                    _totalSalary += payout;
+
+                remaining -= affordable;
             }
         }
 

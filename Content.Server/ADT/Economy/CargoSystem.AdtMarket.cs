@@ -102,13 +102,13 @@ public sealed partial class CargoSystem
         StationMarketComponent? stationMarket = null;
         DemandMarketComponent? demandMarket = null;
 
-        var stationSale = station != null && TryComp<StationBankAccountComponent>(station.Value, out _);
-        var tradeSale = !stationSale && TryComp<TradeStationComponent>(gridUid, out _);
+        var isTrade = HasComp<TradeStationComponent>(gridUid);
+        var isStation = !isTrade && station != null && TryComp<StationBankAccountComponent>(station.Value, out _);
 
-        if (!stationSale && !tradeSale)
+        if (!isStation && !isTrade)
             return;
 
-        if (stationSale)
+        if (isStation)
             stationMarket = TryComp<StationMarketComponent>(station!.Value, out var sm) ? sm : new StationMarketComponent();
         else
             demandMarket = TryComp<DemandMarketComponent>(gridUid, out var dm) ? dm : new DemandMarketComponent();
@@ -133,7 +133,7 @@ public sealed partial class CargoSystem
             var units = batch.GetValueOrDefault(protoId);
             var (ent, sell, price) = pending[i];
 
-            if (stationSale)
+            if (isStation)
                 price *= stationMarket!.GetBatchMultiplier(protoId, units, now);
             else
                 price *= demandMarket!.GetSellMultiplier(protoId, now);
@@ -167,9 +167,9 @@ public sealed partial class CargoSystem
 
         var now = Timing.CurTime;
 
-        if (TryComp<StationBankAccountComponent>(station, out _))
+        if (HasComp<TradeStationComponent>(gridUid))
         {
-            var market = EnsureComp<StationMarketComponent>(station);
+            var tradeMarket = EnsureComp<DemandMarketComponent>(gridUid);
 
             foreach (var (ent, _, _) in goods)
             {
@@ -177,16 +177,16 @@ public sealed partial class CargoSystem
                     continue;
 
                 var units = TryComp<StackComponent>(ent, out var stack) ? Math.Max(1, (int) stack.Count) : 1;
-                market.AddSold(protoId, units, now);
+                tradeMarket.RecordTrade(protoId, units, now);
             }
 
             return;
         }
 
-        if (!HasComp<TradeStationComponent>(gridUid))
+        if (!TryComp<StationBankAccountComponent>(station, out _))
             return;
 
-        var tradeMarket = EnsureComp<DemandMarketComponent>(gridUid);
+        var market = EnsureComp<StationMarketComponent>(station);
 
         foreach (var (ent, _, _) in goods)
         {
@@ -194,7 +194,7 @@ public sealed partial class CargoSystem
                 continue;
 
             var units = TryComp<StackComponent>(ent, out var stack) ? Math.Max(1, (int) stack.Count) : 1;
-            tradeMarket.RecordTrade(protoId, units, now);
+            market.AddSold(protoId, units, now);
         }
     }
 }
