@@ -11,6 +11,7 @@ public sealed partial class ADTLogicCircuitSystem
     [Dependency] private SharedPopupSystem _popup = default!;
 
     private static readonly TimeSpan ValueInterval = TimeSpan.FromMilliseconds(200);
+    private static readonly TimeSpan ApplyCooldown = TimeSpan.FromSeconds(0.5);
 
     private static readonly Enum[] UiKeys =
     {
@@ -58,6 +59,17 @@ public sealed partial class ADTLogicCircuitSystem
     private void OnApply(EntityUid uid, ADTLogicCircuitComponent comp, ADTLogicCircuitApplyMessage args)
     {
         var ent = new Entity<ADTLogicCircuitComponent>(uid, comp);
+        var now = _timing.CurTime;
+
+        if (now < comp.NextApply)
+        {
+            if (args.Actor is { Valid: true } user)
+                _popup.PopupEntity(Loc.GetString("logic-circuit-apply-cooldown"), ent, user);
+
+            return;
+        }
+
+        comp.NextApply = now + ApplyCooldown;
 
         if (TryApplyLayout(ent, args.Layout, out var error, out var detail))
         {

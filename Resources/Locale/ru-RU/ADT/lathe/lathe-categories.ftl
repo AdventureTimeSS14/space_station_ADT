@@ -5,3 +5,4 @@ lathe-category-mechs-odysseus = мех "Одиссей"
 lathe-category-mechs-clarke = мех "Кларк"
 lathe-category-mechs-durand = мех "Дюранд"
 lathe-category-mechs-phazon = мех "Фазон"
+lathe-category-modsuit-modules = Модули МОДа

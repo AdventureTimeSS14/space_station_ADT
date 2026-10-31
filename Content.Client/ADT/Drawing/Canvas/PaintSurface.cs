@@ -24,6 +24,9 @@ public sealed class PaintSurface : IDisposable
 
     private readonly Tile[] _tiles;
     private const int MaxPooledMasks = 32;
+    private const float BlurKernelPerRadius = 0.3f;
+    private const int MaxBlurKernel = 16;
+    private const float WarpScaleRate = 0.08f;
 
     private readonly List<int> _strokeTiles = new();
     private readonly Dictionary<int, Stack<float[]>> _maskPool = new();
@@ -35,6 +38,9 @@ public sealed class PaintSurface : IDisposable
     private Rgba32 _strokeColor;
     private bool _strokeErase;
     private int _strokeClip = -1;
+    private CanvasSelection? _strokeSelection;
+    private long[] _blurSums = Array.Empty<long>();
+    private Vector2[] _warpBuffer = Array.Empty<Vector2>();
 
     public PaintSurface(int width, int height, Color background, bool sparse = false)
     {
@@ -222,6 +228,34 @@ public sealed class PaintSurface : IDisposable
         return touched.ToArray();
     }
 
+    public Dictionary<int, RestoreTile> ReplaceTiles(Dictionary<int, Rgba32[]> sources, int tag)
+    {
+        EndStroke();
+
+        var step = new HistoryStep(tag);
+        var changes = new Dictionary<int, RestoreTile>();
+        foreach (var (index, pixels) in sources)
+        {
+            var tile = _tiles[index];
+            if (pixels.Length != tile.W * tile.H)
+                continue;
+
+            var before = tile.Pixels;
+            tile.Pixels = pixels;
+            tile.Dirty = true;
+
+            var after = (Rgba32[]) pixels.Clone();
+            changes[index] = new RestoreTile(before, after);
+            if (History)
+                step.Tiles.Add(new HistoryTile(index, before, after));
+        }
+
+        if (History && step.Tiles.Count > 0)
+            PushUndo(step);
+
+        return changes;
+    }
+
     public void CompositeTile(int index, Rgba32[] source, float opacity)
     {
         var tile = _tiles[index];
@@ -284,7 +318,7 @@ public sealed class PaintSurface : IDisposable
 
     #region Штрих
 
-    public void BeginStroke(Color color, bool erase, int clipTile = -1)
+    public void BeginStroke(Color color, bool erase, int clipTile = -1, CanvasSelection? selection = null)
     {
         if (_inStroke)
             EndStroke();
@@ -293,6 +327,7 @@ public sealed class PaintSurface : IDisposable
         _strokeErase = erase && !EraseToPaper;
         _strokeColor = ToRgba(erase && EraseToPaper ? Paper : color);
         _strokeClip = clipTile;
+        _strokeSelection = selection;
     }
 
     public void Dab(Vector2 center, float radius, float hardness, float alpha)
@@ -367,6 +402,9 @@ public sealed class PaintSurface : IDisposable
                 if (_strokeClip >= 0 && index != _strokeClip)
                     continue;
 
+                if (_strokeSelection is { } selection && !selection.Contains(x, y))
+                    continue;
+
                 var tile = _tiles[index];
                 EnsureStrokeData(index, tile);
 
@@ -389,6 +427,7 @@ public sealed class PaintSurface : IDisposable
 
         _inStroke = false;
         _strokeClip = -1;
+        _strokeSelection = null;
 
         var touched = _strokeTiles.ToArray();
         _strokeTiles.Clear();
@@ -405,6 +444,7 @@ public sealed class PaintSurface : IDisposable
                 step.Tiles.Add(new HistoryTile(index, tile.StrokeBase!, (Rgba32[]) tile.Pixels.Clone()));
 
             tile.StrokeBase = null;
+            tile.StrokeWarp = null;
             ReturnMask(tile.StrokeMask!);
             tile.StrokeMask = null;
         }
@@ -457,6 +497,7 @@ public sealed class PaintSurface : IDisposable
         var stride = tile.W;
         var invRadius = 1f / radius;
         var reach = (radius + 0.5f) * (radius + 0.5f);
+        var selection = _strokeSelection;
         var changed = false;
 
         for (var y = y0; y <= y1; y++)
@@ -475,6 +516,9 @@ public sealed class PaintSurface : IDisposable
                 if (d2 >= reach)
                     continue;
 
+                if (selection != null && !selection.Contains(tile.X + x, tile.Y + y))
+                    continue;
+
                 var dist = MathF.Sqrt(d2);
 
                 var coverage = Falloff(dist, radius, invRadius, hardness) * alpha;
@@ -490,6 +534,325 @@ public sealed class PaintSurface : IDisposable
 
         if (changed)
             tile.Dirty = true;
+    }
+
+    public void BlurDab(Vector2 center, float radius, float hardness, float alpha)
+    {
+        if (!_inStroke ||
+            !float.IsFinite(center.X) ||
+            !float.IsFinite(center.Y) ||
+            !float.IsFinite(radius) ||
+            !float.IsFinite(hardness) ||
+            !float.IsFinite(alpha) ||
+            alpha <= 0f)
+        {
+            return;
+        }
+
+        radius = Math.Clamp(radius, 0.5f, MaxSize);
+        alpha = Math.Clamp(alpha, 0f, 1f);
+        hardness = Math.Clamp(hardness, 0f, 1f);
+
+        var reach = radius + 1f;
+        var minX = Math.Max(0, (int) MathF.Floor(MathF.Max(center.X - reach, -1f)));
+        var minY = Math.Max(0, (int) MathF.Floor(MathF.Max(center.Y - reach, -1f)));
+        var maxX = Math.Min(Width - 1, (int) MathF.Ceiling(MathF.Min(center.X + reach, Width)));
+        var maxY = Math.Min(Height - 1, (int) MathF.Ceiling(MathF.Min(center.Y + reach, Height)));
+        if (minX > maxX || minY > maxY)
+            return;
+
+        var kernel = Math.Clamp((int) MathF.Round(radius * BlurKernelPerRadius), 1, MaxBlurKernel);
+        var areaLeft = Math.Max(0, minX - kernel);
+        var areaTop = Math.Max(0, minY - kernel);
+        var area = UIBox2i.FromDimensions(
+            areaLeft,
+            areaTop,
+            Math.Min(Width - 1, maxX + kernel) - areaLeft + 1,
+            Math.Min(Height - 1, maxY + kernel) - areaTop + 1);
+        BuildBlurSums(area);
+
+        for (var ty = minY / TileSize; ty <= maxY / TileSize; ty++)
+        {
+            for (var tx = minX / TileSize; tx <= maxX / TileSize; tx++)
+            {
+                var index = ty * TilesX + tx;
+                if (_strokeClip >= 0 && index != _strokeClip)
+                    continue;
+
+                var tile = _tiles[index];
+                EnsureStrokeData(index, tile);
+                BlurTile(tile, center, radius, hardness, alpha, kernel, area,
+                    Math.Max(minX, tile.X) - tile.X, Math.Max(minY, tile.Y) - tile.Y,
+                    Math.Min(maxX, tile.X + tile.W - 1) - tile.X, Math.Min(maxY, tile.Y + tile.H - 1) - tile.Y);
+            }
+        }
+    }
+
+    private void BuildBlurSums(UIBox2i area)
+    {
+        var width = area.Width;
+        var height = area.Height;
+        var stride = (width + 1) * 4;
+        var length = stride * (height + 1);
+        if (_blurSums.Length < length)
+            _blurSums = new long[length];
+
+        var sums = _blurSums;
+        for (var i = 0; i < stride; i++)
+        {
+            sums[i] = 0;
+        }
+
+        for (var y = 0; y < height; y++)
+        {
+            var row = (y + 1) * stride;
+            sums[row] = 0;
+            sums[row + 1] = 0;
+            sums[row + 2] = 0;
+            sums[row + 3] = 0;
+
+            long r = 0, g = 0, b = 0, a = 0;
+            for (var x = 0; x < width; x++)
+            {
+                var pixel = GetPixelRaw(area.Left + x, area.Top + y);
+                r += pixel.R * pixel.A;
+                g += pixel.G * pixel.A;
+                b += pixel.B * pixel.A;
+                a += pixel.A;
+
+                var i = row + (x + 1) * 4;
+                sums[i] = sums[i - stride] + r;
+                sums[i + 1] = sums[i + 1 - stride] + g;
+                sums[i + 2] = sums[i + 2 - stride] + b;
+                sums[i + 3] = sums[i + 3 - stride] + a;
+            }
+        }
+    }
+
+    private void BlurTile(Tile tile, Vector2 center, float radius, float hardness, float alpha, int kernel, UIBox2i area,
+        int x0, int y0, int x1, int y1)
+    {
+        var pixels = tile.Pixels;
+        var sums = _blurSums;
+        var stride = (area.Width + 1) * 4;
+        var invRadius = 1f / radius;
+        var reach = (radius + 0.5f) * (radius + 0.5f);
+        var selection = _strokeSelection;
+
+        for (var y = y0; y <= y1; y++)
+        {
+            var dy = tile.Y + y + 0.5f - center.Y;
+            var dy2 = dy * dy;
+            if (dy2 >= reach)
+                continue;
+
+            var cy = tile.Y + y - area.Top;
+            var top = Math.Max(cy - kernel, 0) * stride;
+            var bottom = (Math.Min(cy + kernel, area.Height - 1) + 1) * stride;
+            var rows = (bottom - top) / stride;
+
+            for (var x = x0; x <= x1; x++)
+            {
+                var dx = tile.X + x + 0.5f - center.X;
+                var d2 = dx * dx + dy2;
+                if (d2 >= reach)
+                    continue;
+
+                if (selection != null && !selection.Contains(tile.X + x, tile.Y + y))
+                    continue;
+
+                var coverage = Falloff(MathF.Sqrt(d2), radius, invRadius, hardness) * alpha;
+                if (coverage <= 0f)
+                    continue;
+
+                var cx = tile.X + x - area.Left;
+                var left = Math.Max(cx - kernel, 0) * 4;
+                var right = (Math.Min(cx + kernel, area.Width - 1) + 1) * 4;
+                var count = (float) ((right - left) / 4 * rows);
+
+                var i = y * tile.W + x;
+                var current = pixels[i];
+                var currentA = (float) current.A;
+                var outA = Mix(currentA, BoxSum(sums, top, bottom, left, right, 3) / count, coverage);
+                if (outA <= 0f)
+                {
+                    pixels[i] = default;
+                    continue;
+                }
+
+                var outR = Mix(current.R * currentA, BoxSum(sums, top, bottom, left, right, 0) / count, coverage);
+                var outG = Mix(current.G * currentA, BoxSum(sums, top, bottom, left, right, 1) / count, coverage);
+                var outB = Mix(current.B * currentA, BoxSum(sums, top, bottom, left, right, 2) / count, coverage);
+                pixels[i] = new Rgba32(
+                    ToByte(outR / outA / 255f),
+                    ToByte(outG / outA / 255f),
+                    ToByte(outB / outA / 255f),
+                    ToByte(outA / 255f));
+            }
+        }
+
+        tile.Dirty = true;
+    }
+
+    public void WarpDab(Vector2 center, Vector2 motion, float radius, float hardness, float strength, LiquifyMode mode, bool nearest)
+    {
+        if (!_inStroke ||
+            !float.IsFinite(center.X) ||
+            !float.IsFinite(center.Y) ||
+            !float.IsFinite(motion.X) ||
+            !float.IsFinite(motion.Y) ||
+            !float.IsFinite(radius) ||
+            !float.IsFinite(hardness) ||
+            !float.IsFinite(strength) ||
+            strength <= 0f)
+        {
+            return;
+        }
+
+        radius = Math.Clamp(radius, 0.5f, MaxSize);
+        strength = Math.Clamp(strength, 0f, 1f);
+        hardness = Math.Clamp(hardness, 0f, 1f);
+
+        var bound = radius + 1f;
+        var minX = Math.Max(0, (int) MathF.Floor(MathF.Max(center.X - bound, -1f)));
+        var minY = Math.Max(0, (int) MathF.Floor(MathF.Max(center.Y - bound, -1f)));
+        var maxX = Math.Min(Width - 1, (int) MathF.Ceiling(MathF.Min(center.X + bound, Width)));
+        var maxY = Math.Min(Height - 1, (int) MathF.Ceiling(MathF.Min(center.Y + bound, Height)));
+        if (minX > maxX || minY > maxY)
+            return;
+
+        var width = maxX - minX + 1;
+        var height = maxY - minY + 1;
+        if (_warpBuffer.Length < width * height)
+            _warpBuffer = new Vector2[width * height];
+
+        var buffer = _warpBuffer;
+        var invRadius = 1f / radius;
+        var reach = (radius + 0.5f) * (radius + 0.5f);
+        var selection = _strokeSelection;
+
+        for (var y = minY; y <= maxY; y++)
+        {
+            for (var x = minX; x <= maxX; x++)
+            {
+                var i = (y - minY) * width + x - minX;
+                var point = new Vector2(x + 0.5f, y + 0.5f);
+                var offset = point - center;
+                var d2 = offset.LengthSquared();
+                var influence = d2 < reach ? Falloff(MathF.Sqrt(d2), radius, invRadius, hardness) * strength : 0f;
+                if (influence <= 0f || selection != null && !selection.Contains(x, y))
+                {
+                    buffer[i] = new Vector2(float.NaN);
+                    continue;
+                }
+
+                var source = mode switch
+                {
+                    LiquifyMode.Grow => point - offset * WarpScaleRate * influence,
+                    LiquifyMode.Shrink => point + offset * WarpScaleRate * influence,
+                    _ => point - motion * influence,
+                };
+                buffer[i] = source - point + SampleWarp(source);
+            }
+        }
+
+        for (var y = minY; y <= maxY; y++)
+        {
+            for (var x = minX; x <= maxX; x++)
+            {
+                var warp = buffer[(y - minY) * width + x - minX];
+                if (float.IsNaN(warp.X))
+                    continue;
+
+                var index = (y / TileSize) * TilesX + x / TileSize;
+                var tile = _tiles[index];
+                EnsureStrokeData(index, tile);
+                tile.StrokeWarp ??= new Vector2[tile.W * tile.H];
+
+                var i = (y - tile.Y) * tile.W + (x - tile.X);
+                tile.StrokeWarp[i] = warp;
+                tile.Pixels[i] = SampleBase(new Vector2(x + 0.5f, y + 0.5f) + warp, nearest);
+                tile.Dirty = true;
+            }
+        }
+    }
+
+    private Vector2 WarpAt(int x, int y)
+    {
+        if (x < 0 || y < 0 || x >= Width || y >= Height)
+            return Vector2.Zero;
+
+        var tile = _tiles[(y / TileSize) * TilesX + x / TileSize];
+        return tile.StrokeWarp == null ? Vector2.Zero : tile.StrokeWarp[(y - tile.Y) * tile.W + (x - tile.X)];
+    }
+
+    private Vector2 SampleWarp(Vector2 position)
+    {
+        var fx = position.X - 0.5f;
+        var fy = position.Y - 0.5f;
+        var x = (int) MathF.Floor(fx);
+        var y = (int) MathF.Floor(fy);
+        var tx = fx - x;
+        var ty = fy - y;
+
+        var top = Vector2.Lerp(WarpAt(x, y), WarpAt(x + 1, y), tx);
+        var bottom = Vector2.Lerp(WarpAt(x, y + 1), WarpAt(x + 1, y + 1), tx);
+        return Vector2.Lerp(top, bottom, ty);
+    }
+
+    private Rgba32 BaseAt(int x, int y)
+    {
+        x = Math.Clamp(x, 0, Width - 1);
+        y = Math.Clamp(y, 0, Height - 1);
+
+        var tile = _tiles[(y / TileSize) * TilesX + x / TileSize];
+        if (tile.StrokeBase == null && !tile.Allocated)
+            return default;
+
+        var pixels = tile.StrokeBase ?? tile.Pixels;
+        return pixels[(y - tile.Y) * tile.W + (x - tile.X)];
+    }
+
+    private Rgba32 SampleBase(Vector2 position, bool nearest)
+    {
+        if (nearest)
+            return BaseAt((int) MathF.Floor(position.X), (int) MathF.Floor(position.Y));
+
+        var fx = position.X - 0.5f;
+        var fy = position.Y - 0.5f;
+        var x = (int) MathF.Floor(fx);
+        var y = (int) MathF.Floor(fy);
+        var tx = fx - x;
+        var ty = fy - y;
+
+        float r = 0f, g = 0f, b = 0f, a = 0f;
+        for (var iy = 0; iy < 2; iy++)
+        {
+            for (var ix = 0; ix < 2; ix++)
+            {
+                var pixel = BaseAt(x + ix, y + iy);
+                var weight = (ix == 0 ? 1f - tx : tx) * (iy == 0 ? 1f - ty : ty) * pixel.A;
+                r += pixel.R * weight;
+                g += pixel.G * weight;
+                b += pixel.B * weight;
+                a += weight;
+            }
+        }
+
+        if (a <= 0f)
+            return default;
+
+        return new Rgba32(ToByte(r / a / 255f), ToByte(g / a / 255f), ToByte(b / a / 255f), ToByte(a / 255f));
+    }
+
+    private static float BoxSum(long[] sums, int top, int bottom, int left, int right, int channel)
+    {
+        return sums[bottom + right + channel] - sums[top + right + channel] - sums[bottom + left + channel] + sums[top + left + channel];
+    }
+
+    private static float Mix(float from, float to, float t)
+    {
+        return from + (to - from) * t;
     }
 
     private static float Falloff(float dist, float radius, float invRadius, float hardness)
@@ -571,6 +934,20 @@ public sealed class PaintSurface : IDisposable
         tiles = step.Tiles;
         HistoryChanged?.Invoke();
         return true;
+    }
+
+    public Dictionary<int, RestoreTile> LastChanges()
+    {
+        var changes = new Dictionary<int, RestoreTile>();
+        if (_undo.Last is not { } node)
+            return changes;
+
+        foreach (var tile in node.Value.Tiles)
+        {
+            changes[tile.Index] = new RestoreTile(tile.Before, tile.After);
+        }
+
+        return changes;
     }
 
     public int[] Clear(Color color, int tag = 0)
@@ -686,15 +1063,21 @@ public sealed class PaintSurface : IDisposable
         }
     }
 
-    public IEnumerable<(UIBox2i Rect, Texture? Texture)> EnumerateTiles()
+    public IEnumerable<(int Index, UIBox2i Rect, Texture? Texture)> EnumerateTiles()
     {
-        foreach (var tile in _tiles)
+        for (var i = 0; i < _tiles.Length; i++)
         {
+            var tile = _tiles[i];
             if (!tile.Allocated)
                 continue;
 
-            yield return (UIBox2i.FromDimensions(tile.X, tile.Y, tile.W, tile.H), tile.Texture);
+            yield return (i, UIBox2i.FromDimensions(tile.X, tile.Y, tile.W, tile.H), tile.Texture);
         }
+    }
+
+    public Texture? TileTexture(int index)
+    {
+        return _tiles[index].Texture;
     }
 
     public void Dispose()
@@ -731,6 +1114,7 @@ public sealed class PaintSurface : IDisposable
 
         public Rgba32[]? StrokeBase;
         public float[]? StrokeMask;
+        public Vector2[]? StrokeWarp;
 
         public Tile(int x, int y, int w, int h)
         {
