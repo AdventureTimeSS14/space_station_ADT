@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Body.OrganHealth;
 using Content.Shared.ADT.Surgery.Components;
 using Content.Shared.Body.Components;
 
@@ -39,7 +40,7 @@ public sealed partial class SurgerySystem
 
     private bool IsWoundOpen(EntityUid patient, OperatedComponent comp)
     {
-        if (!TryGetGraph(comp, out var graph) || comp.CurrentNode == graph.StartNode)
+        if (!TryGetGraph(comp, out var graph) || comp.CurrentNode == graph.StartNode || graph.PatientKind == OrganKind.Robotic)
             return false;
 
         return GetNode(graph, comp.CurrentNode) is { } node && HasAvailableEdge(patient, node);

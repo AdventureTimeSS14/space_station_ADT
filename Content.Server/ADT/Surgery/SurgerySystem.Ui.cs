@@ -15,7 +15,11 @@ public sealed partial class SurgerySystem
         var options = new List<(string, string, string, string)>();
         foreach (var graph in PrototypeManager.EnumeratePrototypes<SurgeryGraphPrototype>())
         {
-            var currentNodeName = comp != null && comp.GraphId == graph.ID ? comp.CurrentNode : graph.StartNode;
+            var isCurrent = comp != null && comp.GraphId == graph.ID;
+            if (!isCurrent && !IsGraphForPatient(target, graph))
+                continue;
+
+            var currentNodeName = isCurrent ? comp!.CurrentNode : graph.StartNode;
 
             var node = GetNode(graph, currentNodeName);
             if (node == null || !HasAvailableEdge(target, node))

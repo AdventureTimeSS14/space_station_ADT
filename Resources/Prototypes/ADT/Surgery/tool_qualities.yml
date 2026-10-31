@@ -251,9 +251,37 @@
   name: surgery-quality-screwdriving
   entries:
   - toolQuality: Screwing
+  - whitelist:
+      tags: [ Scalpel ]
+    speed: 1.33
+    success: 0.9
+  - whitelist:
+      tags: [ Knife ]
+    speed: 2
+    success: 0.7
 
 - type: surgeryToolQuality
   id: Pulsing
   name: surgery-quality-pulsing
   entries:
   - toolQuality: Pulsing
+  - whitelist:
+      tags: [ Hemostat ]
+    speed: 1.33
+    success: 0.9
+
+- type: surgeryToolQuality
+  id: Prying
+  name: surgery-quality-prying
+  entries:
+  - toolQuality: Prying
+
+- type: surgeryToolQuality
+  id: Wrenching
+  name: surgery-quality-wrenching
+  entries:
+  - toolQuality: Anchoring
+  - whitelist:
+      tags: [ Retractor ]
+    speed: 1.33
+    success: 0.9

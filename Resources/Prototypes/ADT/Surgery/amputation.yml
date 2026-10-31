@@ -1,6 +1,7 @@
 - type: surgeryGraph
   id: SurgeryAmputateArmLeft
   category: SurgeryCategoryAmputation
+  kindPart: ArmLeft
   name: surgery-graph-amputate-arm-left-name
   location: surgery-location-arm-left
   startNode: Attached
@@ -70,6 +71,21 @@
       packages:
         - SurgeryPackageLimbCauterize
       edges:
+        - id: ReplaceWithProsthesis
+          label: surgery-edge-limb-replace-prosthesis-label
+          target: Amputated
+          steps:
+            - name: surgery-edge-limb-replace-prosthesis-label
+              organ: ArmLeft
+              robotic: true
+              successChance: 0.75
+              duration: 4
+          effects:
+            - !type:RemoveOrganEffect
+              organId: ArmLeft
+            - !type:InsertOrganEffect
+              organId: ArmLeft
+
         - id: ExtractImplant
           label: surgery-edge-limb-extract-implant-label
           perImplant: true
@@ -123,6 +139,35 @@
       label: surgery-node-limb-amputated-label
       packages:
         - SurgeryPackageLimbStumpCauterize
+      edges:
+        - id: Attach
+          label: surgery-edge-limb-attach-label
+          target: LimbPlaced
+          steps:
+            - name: surgery-edge-limb-attach-label
+              organ: ArmLeft
+              successChance: 0.75
+              duration: 4
+          effects:
+            - !type:InsertOrganEffect
+              organId: ArmLeft
+
+    - name: LimbPlaced
+      label: surgery-node-limb-placed-label
+      edges:
+        - id: ApplyBoneGel
+          label: surgery-edge-limb-bone-gel-first-label
+          target: LimbBoneGelled
+          steps:
+            - name: surgery-edge-limb-bone-gel-first-label
+              quality: BoneMending
+              successChance: 0.9
+              duration: 2
+
+    - name: LimbBoneGelled
+      label: surgery-node-limb-bone-gelled-label
+      packages:
+        - SurgeryPackageLimbCauterize
 
     - name: Cauterized
       label: surgery-node-limb-cauterized-label
@@ -131,6 +176,7 @@
 - type: surgeryGraph
   id: SurgeryAmputateArmRight
   category: SurgeryCategoryAmputation
+  kindPart: ArmRight
   name: surgery-graph-amputate-arm-right-name
   location: surgery-location-arm-right
   startNode: Attached
@@ -200,6 +246,21 @@
       packages:
         - SurgeryPackageLimbCauterize
       edges:
+        - id: ReplaceWithProsthesis
+          label: surgery-edge-limb-replace-prosthesis-label
+          target: Amputated
+          steps:
+            - name: surgery-edge-limb-replace-prosthesis-label
+              organ: ArmRight
+              robotic: true
+              successChance: 0.75
+              duration: 4
+          effects:
+            - !type:RemoveOrganEffect
+              organId: ArmRight
+            - !type:InsertOrganEffect
+              organId: ArmRight
+
         - id: ExtractImplant
           label: surgery-edge-limb-extract-implant-label
           perImplant: true
@@ -253,6 +314,35 @@
       label: surgery-node-limb-amputated-label
       packages:
         - SurgeryPackageLimbStumpCauterize
+      edges:
+        - id: Attach
+          label: surgery-edge-limb-attach-label
+          target: LimbPlaced
+          steps:
+            - name: surgery-edge-limb-attach-label
+              organ: ArmRight
+              successChance: 0.75
+              duration: 4
+          effects:
+            - !type:InsertOrganEffect
+              organId: ArmRight
+
+    - name: LimbPlaced
+      label: surgery-node-limb-placed-label
+      edges:
+        - id: ApplyBoneGel
+          label: surgery-edge-limb-bone-gel-first-label
+          target: LimbBoneGelled
+          steps:
+            - name: surgery-edge-limb-bone-gel-first-label
+              quality: BoneMending
+              successChance: 0.9
+              duration: 2
+
+    - name: LimbBoneGelled
+      label: surgery-node-limb-bone-gelled-label
+      packages:
+        - SurgeryPackageLimbCauterize
 
     - name: Cauterized
       label: surgery-node-limb-cauterized-label
@@ -261,6 +351,7 @@
 - type: surgeryGraph
   id: SurgeryAmputateHandLeft
   category: SurgeryCategoryAmputation
+  kindPart: HandLeft
   name: surgery-graph-amputate-hand-left-name
   location: surgery-location-hand-left
   startNode: Attached
@@ -330,6 +421,22 @@
       packages:
         - SurgeryPackageLimbCauterize
       edges:
+        - id: ReplaceWithProsthesis
+          label: surgery-edge-limb-replace-prosthesis-label
+          target: Amputated
+          steps:
+            - name: surgery-edge-limb-replace-prosthesis-label
+              organ: HandLeft
+              robotic: true
+              successChance: 0.75
+              duration: 4
+          effects:
+            - !type:RemoveOrganEffect
+              organId: HandLeft
+            - !type:InsertOrganEffect
+              organId: HandLeft
+              parentId: ArmLeft
+
         - id: Saw
           label: surgery-edge-limb-saw-label
           target: Amputated
@@ -354,6 +461,35 @@
       label: surgery-node-limb-amputated-label
       packages:
         - SurgeryPackageLimbStumpCauterize
+      edges:
+        - id: Attach
+          label: surgery-edge-limb-attach-label
+          target: LimbPlaced
+          steps:
+            - name: surgery-edge-limb-attach-label
+              organ: HandLeft
+              successChance: 0.75
+              duration: 4
+          effects:
+            - !type:InsertOrganEffect
+              organId: HandLeft
+
+    - name: LimbPlaced
+      label: surgery-node-limb-placed-label
+      edges:
+        - id: ApplyBoneGel
+          label: surgery-edge-limb-bone-gel-first-label
+          target: LimbBoneGelled
+          steps:
+            - name: surgery-edge-limb-bone-gel-first-label
+              quality: BoneMending
+              successChance: 0.9
+              duration: 2
+
+    - name: LimbBoneGelled
+      label: surgery-node-limb-bone-gelled-label
+      packages:
+        - SurgeryPackageLimbCauterize
 
     - name: Cauterized
       label: surgery-node-limb-cauterized-label
@@ -362,6 +498,7 @@
 - type: surgeryGraph
   id: SurgeryAmputateHandRight
   category: SurgeryCategoryAmputation
+  kindPart: HandRight
   name: surgery-graph-amputate-hand-right-name
   location: surgery-location-hand-right
   startNode: Attached
@@ -431,6 +568,22 @@
       packages:
         - SurgeryPackageLimbCauterize
       edges:
+        - id: ReplaceWithProsthesis
+          label: surgery-edge-limb-replace-prosthesis-label
+          target: Amputated
+          steps:
+            - name: surgery-edge-limb-replace-prosthesis-label
+              organ: HandRight
+              robotic: true
+              successChance: 0.75
+              duration: 4
+          effects:
+            - !type:RemoveOrganEffect
+              organId: HandRight
+            - !type:InsertOrganEffect
+              organId: HandRight
+              parentId: ArmRight
+
         - id: Saw
           label: surgery-edge-limb-saw-label
           target: Amputated
@@ -455,6 +608,35 @@
       label: surgery-node-limb-amputated-label
       packages:
         - SurgeryPackageLimbStumpCauterize
+      edges:
+        - id: Attach
+          label: surgery-edge-limb-attach-label
+          target: LimbPlaced
+          steps:
+            - name: surgery-edge-limb-attach-label
+              organ: HandRight
+              successChance: 0.75
+              duration: 4
+          effects:
+            - !type:InsertOrganEffect
+              organId: HandRight
+
+    - name: LimbPlaced
+      label: surgery-node-limb-placed-label
+      edges:
+        - id: ApplyBoneGel
+          label: surgery-edge-limb-bone-gel-first-label
+          target: LimbBoneGelled
+          steps:
+            - name: surgery-edge-limb-bone-gel-first-label
+              quality: BoneMending
+              successChance: 0.9
+              duration: 2
+
+    - name: LimbBoneGelled
+      label: surgery-node-limb-bone-gelled-label
+      packages:
+        - SurgeryPackageLimbCauterize
 
     - name: Cauterized
       label: surgery-node-limb-cauterized-label
@@ -463,6 +645,7 @@
 - type: surgeryGraph
   id: SurgeryAmputateLegLeft
   category: SurgeryCategoryAmputation
+  kindPart: LegLeft
   name: surgery-graph-amputate-leg-left-name
   location: surgery-location-leg-left
   startNode: Attached
@@ -532,6 +715,21 @@
       packages:
         - SurgeryPackageLimbCauterize
       edges:
+        - id: ReplaceWithProsthesis
+          label: surgery-edge-limb-replace-prosthesis-label
+          target: Amputated
+          steps:
+            - name: surgery-edge-limb-replace-prosthesis-label
+              organ: LegLeft
+              robotic: true
+              successChance: 0.75
+              duration: 4
+          effects:
+            - !type:RemoveOrganEffect
+              organId: LegLeft
+            - !type:InsertOrganEffect
+              organId: LegLeft
+
         - id: Saw
           label: surgery-edge-limb-saw-label
           target: Amputated
@@ -556,6 +754,35 @@
       label: surgery-node-limb-amputated-label
       packages:
         - SurgeryPackageLimbStumpCauterize
+      edges:
+        - id: Attach
+          label: surgery-edge-limb-attach-label
+          target: LimbPlaced
+          steps:
+            - name: surgery-edge-limb-attach-label
+              organ: LegLeft
+              successChance: 0.75
+              duration: 4
+          effects:
+            - !type:InsertOrganEffect
+              organId: LegLeft
+
+    - name: LimbPlaced
+      label: surgery-node-limb-placed-label
+      edges:
+        - id: ApplyBoneGel
+          label: surgery-edge-limb-bone-gel-first-label
+          target: LimbBoneGelled
+          steps:
+            - name: surgery-edge-limb-bone-gel-first-label
+              quality: BoneMending
+              successChance: 0.9
+              duration: 2
+
+    - name: LimbBoneGelled
+      label: surgery-node-limb-bone-gelled-label
+      packages:
+        - SurgeryPackageLimbCauterize
 
     - name: Cauterized
       label: surgery-node-limb-cauterized-label
@@ -564,6 +791,7 @@
 - type: surgeryGraph
   id: SurgeryAmputateLegRight
   category: SurgeryCategoryAmputation
+  kindPart: LegRight
   name: surgery-graph-amputate-leg-right-name
   location: surgery-location-leg-right
   startNode: Attached
@@ -633,6 +861,21 @@
       packages:
         - SurgeryPackageLimbCauterize
       edges:
+        - id: ReplaceWithProsthesis
+          label: surgery-edge-limb-replace-prosthesis-label
+          target: Amputated
+          steps:
+            - name: surgery-edge-limb-replace-prosthesis-label
+              organ: LegRight
+              robotic: true
+              successChance: 0.75
+              duration: 4
+          effects:
+            - !type:RemoveOrganEffect
+              organId: LegRight
+            - !type:InsertOrganEffect
+              organId: LegRight
+
         - id: Saw
           label: surgery-edge-limb-saw-label
           target: Amputated
@@ -657,6 +900,35 @@
       label: surgery-node-limb-amputated-label
       packages:
         - SurgeryPackageLimbStumpCauterize
+      edges:
+        - id: Attach
+          label: surgery-edge-limb-attach-label
+          target: LimbPlaced
+          steps:
+            - name: surgery-edge-limb-attach-label
+              organ: LegRight
+              successChance: 0.75
+              duration: 4
+          effects:
+            - !type:InsertOrganEffect
+              organId: LegRight
+
+    - name: LimbPlaced
+      label: surgery-node-limb-placed-label
+      edges:
+        - id: ApplyBoneGel
+          label: surgery-edge-limb-bone-gel-first-label
+          target: LimbBoneGelled
+          steps:
+            - name: surgery-edge-limb-bone-gel-first-label
+              quality: BoneMending
+              successChance: 0.9
+              duration: 2
+
+    - name: LimbBoneGelled
+      label: surgery-node-limb-bone-gelled-label
+      packages:
+        - SurgeryPackageLimbCauterize
 
     - name: Cauterized
       label: surgery-node-limb-cauterized-label
@@ -665,6 +937,7 @@
 - type: surgeryGraph
   id: SurgeryAmputateFootLeft
   category: SurgeryCategoryAmputation
+  kindPart: FootLeft
   name: surgery-graph-amputate-foot-left-name
   location: surgery-location-foot-left
   startNode: Attached
@@ -734,6 +1007,22 @@
       packages:
         - SurgeryPackageLimbCauterize
       edges:
+        - id: ReplaceWithProsthesis
+          label: surgery-edge-limb-replace-prosthesis-label
+          target: Amputated
+          steps:
+            - name: surgery-edge-limb-replace-prosthesis-label
+              organ: FootLeft
+              robotic: true
+              successChance: 0.75
+              duration: 4
+          effects:
+            - !type:RemoveOrganEffect
+              organId: FootLeft
+            - !type:InsertOrganEffect
+              organId: FootLeft
+              parentId: LegLeft
+
         - id: Saw
           label: surgery-edge-limb-saw-label
           target: Amputated
@@ -758,6 +1047,35 @@
       label: surgery-node-limb-amputated-label
       packages:
         - SurgeryPackageLimbStumpCauterize
+      edges:
+        - id: Attach
+          label: surgery-edge-limb-attach-label
+          target: LimbPlaced
+          steps:
+            - name: surgery-edge-limb-attach-label
+              organ: FootLeft
+              successChance: 0.75
+              duration: 4
+          effects:
+            - !type:InsertOrganEffect
+              organId: FootLeft
+
+    - name: LimbPlaced
+      label: surgery-node-limb-placed-label
+      edges:
+        - id: ApplyBoneGel
+          label: surgery-edge-limb-bone-gel-first-label
+          target: LimbBoneGelled
+          steps:
+            - name: surgery-edge-limb-bone-gel-first-label
+              quality: BoneMending
+              successChance: 0.9
+              duration: 2
+
+    - name: LimbBoneGelled
+      label: surgery-node-limb-bone-gelled-label
+      packages:
+        - SurgeryPackageLimbCauterize
 
     - name: Cauterized
       label: surgery-node-limb-cauterized-label
@@ -766,6 +1084,7 @@
 - type: surgeryGraph
   id: SurgeryAmputateFootRight
   category: SurgeryCategoryAmputation
+  kindPart: FootRight
   name: surgery-graph-amputate-foot-right-name
   location: surgery-location-foot-right
   startNode: Attached
@@ -835,6 +1154,22 @@
       packages:
         - SurgeryPackageLimbCauterize
       edges:
+        - id: ReplaceWithProsthesis
+          label: surgery-edge-limb-replace-prosthesis-label
+          target: Amputated
+          steps:
+            - name: surgery-edge-limb-replace-prosthesis-label
+              organ: FootRight
+              robotic: true
+              successChance: 0.75
+              duration: 4
+          effects:
+            - !type:RemoveOrganEffect
+              organId: FootRight
+            - !type:InsertOrganEffect
+              organId: FootRight
+              parentId: LegRight
+
         - id: Saw
           label: surgery-edge-limb-saw-label
           target: Amputated
@@ -859,6 +1194,35 @@
       label: surgery-node-limb-amputated-label
       packages:
         - SurgeryPackageLimbStumpCauterize
+      edges:
+        - id: Attach
+          label: surgery-edge-limb-attach-label
+          target: LimbPlaced
+          steps:
+            - name: surgery-edge-limb-attach-label
+              organ: FootRight
+              successChance: 0.75
+              duration: 4
+          effects:
+            - !type:InsertOrganEffect
+              organId: FootRight
+
+    - name: LimbPlaced
+      label: surgery-node-limb-placed-label
+      edges:
+        - id: ApplyBoneGel
+          label: surgery-edge-limb-bone-gel-first-label
+          target: LimbBoneGelled
+          steps:
+            - name: surgery-edge-limb-bone-gel-first-label
+              quality: BoneMending
+              successChance: 0.9
+              duration: 2
+
+    - name: LimbBoneGelled
+      label: surgery-node-limb-bone-gelled-label
+      packages:
+        - SurgeryPackageLimbCauterize
 
     - name: Cauterized
       label: surgery-node-limb-cauterized-label

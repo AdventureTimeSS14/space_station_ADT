@@ -238,9 +238,17 @@
   - ADTOrganCyberKidneys
   - ADTOrganCyberStomach
   - ADTOrganCyberEyes
+  - ADTProsthesisRegularArmLeft
+  - ADTOrganProsthesisRegularHandLeft
+  - ADTProsthesisRegularLegLeft
+  - ADTOrganProsthesisRegularFootLeft
+  - ADTProsthesisRegularArmRight
+  - ADTOrganProsthesisRegularHandRight
+  - ADTProsthesisRegularLegRight
+  - ADTOrganProsthesisRegularFootRight
   requiredTech:
   - ADTMechanizedTreatment
-  position: 5,1
+  position: 5,-1
 
 - type: technology
   id: ADTAdvancedSurgery

@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Body.OrganHealth;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Content.Shared.Body;
@@ -19,6 +20,12 @@ public sealed partial class SurgeryGraphPrototype : IPrototype
 
     [DataField]
     public ProtoId<SurgeryCategoryPrototype>? Category;
+
+    [DataField]
+    public OrganKind PatientKind = OrganKind.Organic;
+
+    [DataField]
+    public ProtoId<OrganCategoryPrototype>? KindPart;
 
     [DataField(required: true)]
     public string StartNode = default!;
@@ -106,6 +113,9 @@ public sealed partial class SurgeryStepEntry
 
     [DataField]
     public ProtoId<OrganCategoryPrototype>? Organ;
+
+    [DataField]
+    public bool Robotic;
 
     [DataField]
     public bool AnyItem;

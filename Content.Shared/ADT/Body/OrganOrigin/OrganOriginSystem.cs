@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Body.Prosthesis;
 using Content.Shared.Body;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
@@ -8,6 +9,7 @@ namespace Content.Shared.ADT.Body.OrganOrigin;
 public sealed class OrganOriginSystem : EntitySystem
 {
     [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private RoboticPartSystem _roboticPart = default!;
 
     private static readonly DamageSpecifier RejectionDamage = new()
     {
@@ -40,6 +42,9 @@ public sealed class OrganOriginSystem : EntitySystem
 
         origin.Species = profile.Species;
         Dirty(limb, origin);
+
+        if (_roboticPart.IsRobotic(limb))
+            return;
 
         _damageable.TryChangeDamage(body, RejectionDamage, ignoreResistances: true);
     }

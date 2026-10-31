@@ -1,0 +1,361 @@
+- type: entity
+  id: ADTOrganProsthesis
+  abstract: true
+  components:
+  - type: RoboticPart
+  - type: Prosthesis
+  - type: VisualOrganMarkings
+    markingData:
+      group: None
+
+- type: entity
+  parent: [ OrganBaseArmLeft, ADTOrganProsthesis ]
+  id: ADTOrganProsthesisCheapArmLeft
+  name: cheap prosthetic left arm
+  description: A crude, cheap replacement limb.
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Customization/augments/cheap_prosthesis.rsi
+    state: l_arm
+  - type: VisualOrgan
+    data:
+      sprite: ADT/Mobs/Customization/augments/cheap_prosthesis.rsi
+      state: l_arm
+      color: "#FFFFFF"
+  - type: Prosthesis
+    meleeModifier: 0.85
+
+- type: entity
+  parent: DetachedBody
+  id: ADTProsthesisCheapArmLeft
+  name: cheap prosthetic left arm assembly
+  description: A crude, cheap replacement limb.
+  components:
+  - type: InitialBody
+    organs:
+      ArmLeft: ADTOrganProsthesisCheapArmLeft
+      HandLeft: ADTOrganProsthesisCheapHandLeft
+    relationships:
+      ArmLeft: [ HandLeft ]
+
+- type: entity
+  parent: [ OrganBaseHandLeft, ADTOrganProsthesis ]
+  id: ADTOrganProsthesisCheapHandLeft
+  name: cheap prosthetic left hand
+  description: A crude, cheap replacement limb.
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Customization/augments/cheap_prosthesis.rsi
+    state: l_hand
+  - type: VisualOrgan
+    data:
+      sprite: ADT/Mobs/Customization/augments/cheap_prosthesis.rsi
+      state: l_hand
+      color: "#FFFFFF"
+
+- type: entity
+  parent: [ OrganBaseLegLeft, ADTOrganProsthesis ]
+  id: ADTOrganProsthesisCheapLegLeft
+  name: cheap prosthetic left leg
+  description: A crude, cheap replacement limb.
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Customization/augments/cheap_prosthesis.rsi
+    state: l_leg
+  - type: VisualOrgan
+    data:
+      sprite: ADT/Mobs/Customization/augments/cheap_prosthesis.rsi
+      state: l_leg
+      color: "#FFFFFF"
+  - type: Prosthesis
+    speedModifier: 0.92
+
+- type: entity
+  parent: DetachedBody
+  id: ADTProsthesisCheapLegLeft
+  name: cheap prosthetic left leg assembly
+  description: A crude, cheap replacement limb.
+  components:
+  - type: InitialBody
+    organs:
+      LegLeft: ADTOrganProsthesisCheapLegLeft
+      FootLeft: ADTOrganProsthesisCheapFootLeft
+    relationships:
+      LegLeft: [ FootLeft ]
+
+- type: entity
+  parent: [ OrganBaseFootLeft, ADTOrganProsthesis ]
+  id: ADTOrganProsthesisCheapFootLeft
+  name: cheap prosthetic left foot
+  description: A crude, cheap replacement limb.
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Customization/augments/cheap_prosthesis.rsi
+    state: l_foot
+  - type: VisualOrgan
+    data:
+      sprite: ADT/Mobs/Customization/augments/cheap_prosthesis.rsi
+      state: l_foot
+      color: "#FFFFFF"
+
+- type: entity
+  parent: [ OrganBaseArmRight, ADTOrganProsthesis ]
+  id: ADTOrganProsthesisCheapArmRight
+  name: cheap prosthetic right arm
+  description: A crude, cheap replacement limb.
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Customization/augments/cheap_prosthesis.rsi
+    state: r_arm
+  - type: VisualOrgan
+    data:
+      sprite: ADT/Mobs/Customization/augments/cheap_prosthesis.rsi
+      state: r_arm
+      color: "#FFFFFF"
+  - type: Prosthesis
+    meleeModifier: 0.85
+
+- type: entity
+  parent: DetachedBody
+  id: ADTProsthesisCheapArmRight
+  name: cheap prosthetic right arm assembly
+  description: A crude, cheap replacement limb.
+  components:
+  - type: InitialBody
+    organs:
+      ArmRight: ADTOrganProsthesisCheapArmRight
+      HandRight: ADTOrganProsthesisCheapHandRight
+    relationships:
+      ArmRight: [ HandRight ]
+
+- type: entity
+  parent: [ OrganBaseHandRight, ADTOrganProsthesis ]
+  id: ADTOrganProsthesisCheapHandRight
+  name: cheap prosthetic right hand
+  description: A crude, cheap replacement limb.
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Customization/augments/cheap_prosthesis.rsi
+    state: r_hand
+  - type: VisualOrgan
+    data:
+      sprite: ADT/Mobs/Customization/augments/cheap_prosthesis.rsi
+      state: r_hand
+      color: "#FFFFFF"
+
+- type: entity
+  parent: [ OrganBaseLegRight, ADTOrganProsthesis ]
+  id: ADTOrganProsthesisCheapLegRight
+  name: cheap prosthetic right leg
+  description: A crude, cheap replacement limb.
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Customization/augments/cheap_prosthesis.rsi
+    state: r_leg
+  - type: VisualOrgan
+    data:
+      sprite: ADT/Mobs/Customization/augments/cheap_prosthesis.rsi
+      state: r_leg
+      color: "#FFFFFF"
+  - type: Prosthesis
+    speedModifier: 0.92
+
+- type: entity
+  parent: DetachedBody
+  id: ADTProsthesisCheapLegRight
+  name: cheap prosthetic right leg assembly
+  description: A crude, cheap replacement limb.
+  components:
+  - type: InitialBody
+    organs:
+      LegRight: ADTOrganProsthesisCheapLegRight
+      FootRight: ADTOrganProsthesisCheapFootRight
+    relationships:
+      LegRight: [ FootRight ]
+
+- type: entity
+  parent: [ OrganBaseFootRight, ADTOrganProsthesis ]
+  id: ADTOrganProsthesisCheapFootRight
+  name: cheap prosthetic right foot
+  description: A crude, cheap replacement limb.
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Customization/augments/cheap_prosthesis.rsi
+    state: r_foot
+  - type: VisualOrgan
+    data:
+      sprite: ADT/Mobs/Customization/augments/cheap_prosthesis.rsi
+      state: r_foot
+      color: "#FFFFFF"
+
+- type: entity
+  parent: [ OrganBaseArmLeft, ADTOrganProsthesis ]
+  id: ADTOrganProsthesisRegularArmLeft
+  name: prosthetic left arm
+  description: A standard cybernetic replacement limb.
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Species/IPC/parts.rsi
+    state: l_arm
+  - type: VisualOrgan
+    data:
+      sprite: ADT/Mobs/Species/IPC/parts.rsi
+      state: l_arm
+      color: "#FFFFFF"
+
+- type: entity
+  parent: DetachedBody
+  id: ADTProsthesisRegularArmLeft
+  name: prosthetic left arm assembly
+  description: A standard cybernetic replacement limb.
+  components:
+  - type: InitialBody
+    organs:
+      ArmLeft: ADTOrganProsthesisRegularArmLeft
+      HandLeft: ADTOrganProsthesisRegularHandLeft
+    relationships:
+      ArmLeft: [ HandLeft ]
+
+- type: entity
+  parent: [ OrganBaseHandLeft, ADTOrganProsthesis ]
+  id: ADTOrganProsthesisRegularHandLeft
+  name: prosthetic left hand
+  description: A standard cybernetic replacement limb.
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Species/IPC/parts.rsi
+    state: l_hand
+  - type: VisualOrgan
+    data:
+      sprite: ADT/Mobs/Species/IPC/parts.rsi
+      state: l_hand
+      color: "#FFFFFF"
+
+- type: entity
+  parent: [ OrganBaseLegLeft, ADTOrganProsthesis ]
+  id: ADTOrganProsthesisRegularLegLeft
+  name: prosthetic left leg
+  description: A standard cybernetic replacement limb.
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Species/IPC/parts.rsi
+    state: l_leg
+  - type: VisualOrgan
+    data:
+      sprite: ADT/Mobs/Species/IPC/parts.rsi
+      state: l_leg
+      color: "#FFFFFF"
+
+- type: entity
+  parent: DetachedBody
+  id: ADTProsthesisRegularLegLeft
+  name: prosthetic left leg assembly
+  description: A standard cybernetic replacement limb.
+  components:
+  - type: InitialBody
+    organs:
+      LegLeft: ADTOrganProsthesisRegularLegLeft
+      FootLeft: ADTOrganProsthesisRegularFootLeft
+    relationships:
+      LegLeft: [ FootLeft ]
+
+- type: entity
+  parent: [ OrganBaseFootLeft, ADTOrganProsthesis ]
+  id: ADTOrganProsthesisRegularFootLeft
+  name: prosthetic left foot
+  description: A standard cybernetic replacement limb.
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Species/IPC/parts.rsi
+    state: l_foot
+  - type: VisualOrgan
+    data:
+      sprite: ADT/Mobs/Species/IPC/parts.rsi
+      state: l_foot
+      color: "#FFFFFF"
+
+- type: entity
+  parent: [ OrganBaseArmRight, ADTOrganProsthesis ]
+  id: ADTOrganProsthesisRegularArmRight
+  name: prosthetic right arm
+  description: A standard cybernetic replacement limb.
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Species/IPC/parts.rsi
+    state: r_arm
+  - type: VisualOrgan
+    data:
+      sprite: ADT/Mobs/Species/IPC/parts.rsi
+      state: r_arm
+      color: "#FFFFFF"
+
+- type: entity
+  parent: DetachedBody
+  id: ADTProsthesisRegularArmRight
+  name: prosthetic right arm assembly
+  description: A standard cybernetic replacement limb.
+  components:
+  - type: InitialBody
+    organs:
+      ArmRight: ADTOrganProsthesisRegularArmRight
+      HandRight: ADTOrganProsthesisRegularHandRight
+    relationships:
+      ArmRight: [ HandRight ]
+
+- type: entity
+  parent: [ OrganBaseHandRight, ADTOrganProsthesis ]
+  id: ADTOrganProsthesisRegularHandRight
+  name: prosthetic right hand
+  description: A standard cybernetic replacement limb.
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Species/IPC/parts.rsi
+    state: r_hand
+  - type: VisualOrgan
+    data:
+      sprite: ADT/Mobs/Species/IPC/parts.rsi
+      state: r_hand
+      color: "#FFFFFF"
+
+- type: entity
+  parent: [ OrganBaseLegRight, ADTOrganProsthesis ]
+  id: ADTOrganProsthesisRegularLegRight
+  name: prosthetic right leg
+  description: A standard cybernetic replacement limb.
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Species/IPC/parts.rsi
+    state: r_leg
+  - type: VisualOrgan
+    data:
+      sprite: ADT/Mobs/Species/IPC/parts.rsi
+      state: r_leg
+      color: "#FFFFFF"
+
+- type: entity
+  parent: DetachedBody
+  id: ADTProsthesisRegularLegRight
+  name: prosthetic right leg assembly
+  description: A standard cybernetic replacement limb.
+  components:
+  - type: InitialBody
+    organs:
+      LegRight: ADTOrganProsthesisRegularLegRight
+      FootRight: ADTOrganProsthesisRegularFootRight
+    relationships:
+      LegRight: [ FootRight ]
+
+- type: entity
+  parent: [ OrganBaseFootRight, ADTOrganProsthesis ]
+  id: ADTOrganProsthesisRegularFootRight
+  name: prosthetic right foot
+  description: A standard cybernetic replacement limb.
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Species/IPC/parts.rsi
+    state: r_foot
+  - type: VisualOrgan
+    data:
+      sprite: ADT/Mobs/Species/IPC/parts.rsi
+      state: r_foot
+      color: "#FFFFFF"

@@ -241,6 +241,7 @@
 - type: surgeryGraph
   id: SurgeryReattachHandLeft
   category: SurgeryCategoryLimbReattachment
+  kindPart: ArmLeft
   name: surgery-graph-reattach-hand-left-name
   location: surgery-location-hand-left
   startNode: Amputated
@@ -338,6 +339,7 @@
           effects:
             - !type:InsertOrganEffect
               organId: HandLeft
+              parentId: ArmLeft
 
     - name: LimbPlaced
       label: surgery-node-limb-placed-label
@@ -363,6 +365,7 @@
 - type: surgeryGraph
   id: SurgeryReattachHandRight
   category: SurgeryCategoryLimbReattachment
+  kindPart: ArmRight
   name: surgery-graph-reattach-hand-right-name
   location: surgery-location-hand-right
   startNode: Amputated
@@ -460,6 +463,7 @@
           effects:
             - !type:InsertOrganEffect
               organId: HandRight
+              parentId: ArmRight
 
     - name: LimbPlaced
       label: surgery-node-limb-placed-label
@@ -725,6 +729,7 @@
 - type: surgeryGraph
   id: SurgeryReattachFootLeft
   category: SurgeryCategoryLimbReattachment
+  kindPart: LegLeft
   name: surgery-graph-reattach-foot-left-name
   location: surgery-location-foot-left
   startNode: Amputated
@@ -822,6 +827,7 @@
           effects:
             - !type:InsertOrganEffect
               organId: FootLeft
+              parentId: LegLeft
 
     - name: LimbPlaced
       label: surgery-node-limb-placed-label
@@ -847,6 +853,7 @@
 - type: surgeryGraph
   id: SurgeryReattachFootRight
   category: SurgeryCategoryLimbReattachment
+  kindPart: LegRight
   name: surgery-graph-reattach-foot-right-name
   location: surgery-location-foot-right
   startNode: Amputated
@@ -944,6 +951,7 @@
           effects:
             - !type:InsertOrganEffect
               organId: FootRight
+              parentId: LegRight
 
     - name: LimbPlaced
       label: surgery-node-limb-placed-label

@@ -9,9 +9,11 @@ using Content.Shared.Examine;
 using Content.Shared.Implants;
 using Content.Shared.Implants.Components;
 using Content.Shared.Popups;
+using Content.Shared.Tag;
 using Robust.Server.Audio;
 using Content.Shared.Verbs;
 using Robust.Shared.Containers;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.AutoSurgeon;
 
@@ -26,6 +28,9 @@ public sealed class AutoSurgeonSystem : EntitySystem
     [Dependency] private DamageableSystem _damageable = default!;
     [Dependency] private SharedContainerSystem _container = default!;
     [Dependency] private EntityQuery<SubdermalImplantComponent> _implantQuery = default!;
+    [Dependency] private TagSystem _tag = default!;
+
+    private static readonly ProtoId<TagPrototype> UnimplantableTag = "Unimplantable";
 
     public override void Initialize()
     {
@@ -82,6 +87,12 @@ public sealed class AutoSurgeonSystem : EntitySystem
         if (GetPatient(ent) is not { } patient)
         {
             _popup.PopupEntity(Loc.GetString("autosurgeon-no-patient"), ent, user);
+            return;
+        }
+
+        if (_tag.HasTag(patient, UnimplantableTag))
+        {
+            _popup.PopupEntity(Loc.GetString("autosurgeon-unimplantable"), ent, user);
             return;
         }
 

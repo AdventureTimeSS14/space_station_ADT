@@ -1,62 +1,74 @@
 - type: latheRecipe
   id: ADTOrganCyberHeart
   result: ADTOrganCyberHeart
-  completetime: 6
+  completetime: 14
   materials:
-    Steel: 400
-    Glass: 100
-    Plastic: 200
-    Silver: 100
+    Steel: 600
+    Glass: 200
+    Plastic: 300
+    Silver: 250
+    Gold: 150
+    Plasma: 100
 
 - type: latheRecipe
   id: ADTOrganCyberLungs
   result: ADTOrganCyberLungs
-  completetime: 6
+  completetime: 14
   materials:
-    Steel: 300
-    Glass: 100
-    Plastic: 250
-    Silver: 50
+    Steel: 500
+    Glass: 200
+    Plastic: 400
+    Silver: 150
+    Gold: 100
+    Plasma: 100
 
 - type: latheRecipe
   id: ADTOrganCyberLiver
   result: ADTOrganCyberLiver
-  completetime: 6
+  completetime: 14
   materials:
-    Steel: 300
-    Glass: 100
-    Plastic: 200
-    Silver: 50
+    Steel: 500
+    Glass: 200
+    Plastic: 300
+    Silver: 150
+    Gold: 100
+    Plasma: 50
 
 - type: latheRecipe
   id: ADTOrganCyberKidneys
   result: ADTOrganCyberKidneys
-  completetime: 6
+  completetime: 14
   materials:
-    Steel: 300
-    Glass: 100
-    Plastic: 200
-    Silver: 50
+    Steel: 500
+    Glass: 200
+    Plastic: 300
+    Silver: 150
+    Gold: 100
+    Plasma: 50
 
 - type: latheRecipe
   id: ADTOrganCyberStomach
   result: ADTOrganCyberStomach
-  completetime: 6
+  completetime: 14
   materials:
-    Steel: 300
-    Glass: 100
-    Plastic: 200
-    Silver: 50
+    Steel: 500
+    Glass: 200
+    Plastic: 300
+    Silver: 150
+    Gold: 100
+    Plasma: 50
 
 - type: latheRecipe
   id: ADTOrganCyberEyes
   result: ADTOrganCyberEyes
-  completetime: 6
+  completetime: 14
   materials:
-    Steel: 200
-    Glass: 300
-    Plastic: 100
-    Silver: 100
+    Steel: 300
+    Glass: 500
+    Plastic: 200
+    Silver: 200
+    Gold: 150
+    Uranium: 50
 
 - type: latheRecipe
   id: ADTLaserScalpel

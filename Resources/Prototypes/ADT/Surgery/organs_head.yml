@@ -1,6 +1,7 @@
 - type: surgeryGraph
   id: SurgeryHeadOrgans
   category: SurgeryCategoryOrganManipulation
+  kindPart: Head
   name: surgery-graph-head-organs-name
   location: surgery-location-head
   startNode: ScalpClosed

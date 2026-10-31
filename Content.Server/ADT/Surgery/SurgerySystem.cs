@@ -1,5 +1,7 @@
 using Content.Server.Body.Systems;
 using Content.Server.Chat.Systems;
+using Content.Server.Wires;
+using Content.Shared.ADT.Body.Prosthesis;
 using Content.Shared.ADT.Surgery;
 using Content.Shared.ADT.Surgery.Components;
 using Content.Shared.ADT.Surgery.Events;
@@ -14,6 +16,8 @@ using Content.Shared.Item;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Radio.EntitySystems;
+using Content.Shared.Repairable;
 using Content.Shared.Standing;
 using Content.Shared.StatusEffectNew;
 using Content.Shared.Tools.Systems;
@@ -45,6 +49,7 @@ public sealed partial class SurgerySystem : SharedSurgerySystem
     [Dependency] private EntityWhitelistSystem _whitelist = default!;
     [Dependency] private ItemToggleSystem _toggle = default!;
     [Dependency] private SharedItemSystem _item = default!;
+    [Dependency] private RoboticPartSystem _roboticPart = default!;
 
     public override void Initialize()
     {
@@ -54,8 +59,9 @@ public sealed partial class SurgerySystem : SharedSurgerySystem
         SubscribeLocalEvent<BodyComponent, SurgerySelectGraphMessage>(OnSelectGraph);
         SubscribeLocalEvent<OperatedComponent, SurgerySelectEdgeMessage>(OnSelectEdge);
         SubscribeLocalEvent<OperatedComponent, SurgeryStepDoAfterEvent>(OnStepDoAfter);
-        SubscribeLocalEvent<OperatedComponent, InteractUsingEvent>(OnInteractUsing);
-        SubscribeLocalEvent<BodyComponent, InteractUsingEvent>(OnBodyInteractUsing);
+        var beforeInteract = new[] { typeof(WiresSystem), typeof(EncryptionKeySystem), typeof(RepairableSystem) };
+        SubscribeLocalEvent<OperatedComponent, InteractUsingEvent>(OnInteractUsing, before: beforeInteract);
+        SubscribeLocalEvent<BodyComponent, InteractUsingEvent>(OnBodyInteractUsing, before: beforeInteract);
         SubscribeLocalEvent<SurgeryToolComponent, ExaminedEvent>(OnToolExamined);
     }
 

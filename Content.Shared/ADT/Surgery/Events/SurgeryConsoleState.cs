@@ -1,4 +1,5 @@
 using Content.Shared.ADT.Body.OrganHealth;
+using Content.Shared.ADT.Body.Pulse;
 using Content.Shared.MedicalScanner;
 using Robust.Shared.Serialization;
 
@@ -23,9 +24,11 @@ public sealed class SurgeryConsoleState : BoundUserInterfaceState
 
     public bool HeartStopped;
 
+    public PulseReading? Pulse;
+
     public SurgeryConsoleState(bool hasTable, bool hasPatient, bool alertsEnabled, HealthAnalyzerUiState patientHealth,
         string graphName, string location, string currentNode, List<string> nextSteps,
-        List<SurgeryConsoleOrgan>? organs = null, bool heartStopped = false)
+        List<SurgeryConsoleOrgan>? organs = null, bool heartStopped = false, PulseReading? pulse = null)
     {
         HasTable = hasTable;
         HasPatient = hasPatient;
@@ -37,6 +40,7 @@ public sealed class SurgeryConsoleState : BoundUserInterfaceState
         NextSteps = nextSteps;
         Organs = organs ?? new();
         HeartStopped = heartStopped;
+        Pulse = pulse;
     }
 }
 

@@ -15,14 +15,22 @@ public sealed partial class SurgerySystem
         return PrototypeManager.TryIndex(graphId, out graph!);
     }
 
-    private void AdvanceNode(OperatedComponent comp, SurgeryGraphPrototype graph, string targetNode)
+    private bool IsGraphForPatient(EntityUid patient, SurgeryGraphPrototype graph)
+    {
+        return _roboticPart.GetKind(patient, graph.KindPart) == graph.PatientKind;
+    }
+
+    private void AdvanceNode(EntityUid patient, OperatedComponent comp, SurgeryGraphPrototype graph, string targetNode)
     {
         comp.CurrentNode = targetNode;
         comp.ActiveEdgeId = null;
         comp.CompletedSteps = 0;
 
         if (targetNode == graph.StartNode || GetNode(graph, targetNode) is not { } node || node.Edges.Count == 0 && node.Packages.Count == 0)
+        {
             comp.GraphId = null;
+            Dirty(patient, comp);
+        }
     }
 
     private bool IsBusy(OperatedComponent comp)

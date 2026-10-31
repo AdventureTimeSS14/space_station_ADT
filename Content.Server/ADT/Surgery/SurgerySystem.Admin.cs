@@ -56,6 +56,7 @@ public sealed partial class SurgerySystem
         comp.CurrentNode = target;
         comp.ActiveEdgeId = null;
         comp.CompletedSteps = 0;
+        Dirty(patient, comp);
         return true;
     }
 
@@ -81,7 +82,7 @@ public sealed partial class SurgerySystem
         foreach (var effect in edge.Effects)
             effect.Apply(patient, surgeon, null, EntityManager);
 
-        AdvanceNode(comp, graph, edge.Target);
+        AdvanceNode(patient, comp, graph, edge.Target);
         return true;
     }
 }

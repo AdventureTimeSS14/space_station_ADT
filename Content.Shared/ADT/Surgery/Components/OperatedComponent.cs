@@ -1,13 +1,14 @@
 using Content.Shared.ADT.Surgery.Prototypes;
 using Content.Shared.DoAfter;
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.Surgery.Components;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class OperatedComponent : Component
 {
-    [DataField]
+    [DataField, AutoNetworkedField]
     public ProtoId<SurgeryGraphPrototype>? GraphId;
 
     [DataField]

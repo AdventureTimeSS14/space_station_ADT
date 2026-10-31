@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Body.OrganHealth;
 using Content.Shared.ADT.Surgery.Components;
 using Content.Shared.ADT.Surgery.Events;
 using Content.Shared.ADT.Surgery.Prototypes;
@@ -13,6 +14,7 @@ public sealed partial class SurgerySystem
     private void OnSelectGraph(EntityUid uid, BodyComponent body, SurgerySelectGraphMessage args)
     {
         if (!PrototypeManager.TryIndex<SurgeryGraphPrototype>(args.GraphId, out var graph)
+            || !IsGraphForPatient(uid, graph)
             || GetNode(graph, graph.StartNode) is not { } startNode
             || !HasAvailableEdge(uid, startNode))
             return;
@@ -38,6 +40,7 @@ public sealed partial class SurgerySystem
         comp.CurrentNode = graph.StartNode;
         comp.ActiveEdgeId = null;
         comp.CompletedSteps = 0;
+        Dirty(uid, comp);
     }
 
     private void OnSelectEdge(EntityUid uid, OperatedComponent comp, SurgerySelectEdgeMessage args)
@@ -191,9 +194,10 @@ public sealed partial class SurgerySystem
             return;
         }
 
-        var successChance = GetSuccessChance(uid, surgeon, step, match);
+        var robotic = graph.PatientKind == OrganKind.Robotic;
+        var successChance = GetSuccessChance(uid, surgeon, step, match, robotic);
 
-        if (!IsAnesthetized(uid))
+        if (!robotic && !IsAnesthetized(uid))
         {
             if (!_mobState.IsIncapacitated(uid))
                 _chat.TryEmoteWithChat(uid, ScreamEmote, ChatTransmitRange.Normal, ignoreActionBlocker: true);
@@ -226,7 +230,7 @@ public sealed partial class SurgerySystem
             foreach (var effect in edge.Effects)
                 effect.Apply(uid, surgeon, args.Used, EntityManager);
 
-            AdvanceNode(comp, graph, edge.Target);
+            AdvanceNode(uid, comp, graph, edge.Target);
         }
 
         args.Handled = true;

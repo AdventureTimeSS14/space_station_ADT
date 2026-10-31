@@ -24,4 +24,5 @@ public enum LimbParts : byte
     FootRight = 1 << 7,
 
     Hands = ArmLeft | ArmRight | HandLeft | HandRight,
+    Legs = LegLeft | LegRight | FootLeft | FootRight,
 }

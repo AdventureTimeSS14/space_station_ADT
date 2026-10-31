@@ -8,6 +8,14 @@
   - ADTPillPack
   - ADTPlasticBottle
   - ADTMedicalSprayBottle
+  - ADTProsthesisCheapArmLeft
+  - ADTOrganProsthesisCheapHandLeft
+  - ADTProsthesisCheapLegLeft
+  - ADTOrganProsthesisCheapFootLeft
+  - ADTProsthesisCheapArmRight
+  - ADTOrganProsthesisCheapHandRight
+  - ADTProsthesisCheapLegRight
+  - ADTOrganProsthesisCheapFootRight
 
 - type: latheRecipePack
   id: ADTAdvancedMedicalMiscPack
@@ -21,6 +29,14 @@
   - ADTOrganCyberKidneys
   - ADTOrganCyberStomach
   - ADTOrganCyberEyes
+  - ADTProsthesisRegularArmLeft
+  - ADTOrganProsthesisRegularHandLeft
+  - ADTProsthesisRegularLegLeft
+  - ADTOrganProsthesisRegularFootLeft
+  - ADTProsthesisRegularArmRight
+  - ADTOrganProsthesisRegularHandRight
+  - ADTProsthesisRegularLegRight
+  - ADTOrganProsthesisRegularFootRight
 
 - type: latheRecipePack
   id: ADTAdvancedMedicalCarePack

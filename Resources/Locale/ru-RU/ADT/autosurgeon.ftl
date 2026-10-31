@@ -1,6 +1,7 @@
 autosurgeon-empty = Внутри нет импланта.
 autosurgeon-spent = У стола не осталось зарядов.
 autosurgeon-no-patient = На столе никого нет. Пристегните пациента.
+autosurgeon-unimplantable = Этому пациенту нельзя устанавливать импланты.
 autosurgeon-done = Операция над { $patient } завершена.
 autosurgeon-failed = Не удаётся установить { $item }: нет нужной части тела, место занято или такой имплант уже есть.
 autosurgeon-examine-loaded = Внутри загружен: { $item }.

@@ -22,6 +22,7 @@ public sealed partial class SurgerySystem
     private const float MinSuccessChance = 0.05f;
 
     private static readonly ProtoId<SpeciesPrototype> ResomiSpecies = "Resomi";
+    private static readonly HashSet<ProtoId<SpeciesPrototype>> ProsthesisForbiddenSpecies = new() { "SlimePerson", "Diona", ResomiSpecies };
     private static readonly ProtoId<SurgeryToolQualityPrototype> DrapingQuality = "Draping";
     private static readonly ProtoId<ItemSizePrototype> MaxCavityItemSize = "Small";
 
@@ -165,22 +166,33 @@ public sealed partial class SurgerySystem
             return false;
 
         if (TryComp<OrganComponent>(item, out var organ) && organ.Category == category)
-            return IsLimbCompatible(patient, item);
+            return IsPartAccepted(patient, step, item);
 
         return _detachableOrgan.TryGetDetachedOrgan(item, out var detached)
                && TryComp<OrganComponent>(detached, out var detachedOrgan)
                && detachedOrgan.Category == category
-               && IsLimbCompatible(patient, detached);
+               && IsPartAccepted(patient, step, detached);
+    }
+
+    private bool IsPartAccepted(EntityUid patient, SurgeryStepEntry step, EntityUid part)
+    {
+        return (!step.Robotic || _roboticPart.IsRobotic(part)) && IsLimbCompatible(patient, part);
     }
 
     private bool IsLimbCompatible(EntityUid patient, EntityUid limb)
     {
-        if (!HasComp<DetachableOrganComponent>(limb)
-            || !TryComp<OrganOriginComponent>(limb, out var origin)
-            || origin.Species != ResomiSpecies)
+        if (!HasComp<DetachableOrganComponent>(limb))
             return true;
 
-        return TryComp<HumanoidProfileComponent>(patient, out var profile) && profile.Species == ResomiSpecies;
+        TryComp<HumanoidProfileComponent>(patient, out var profile);
+
+        if (_roboticPart.IsRobotic(limb) && profile != null && ProsthesisForbiddenSpecies.Contains(profile.Species))
+            return false;
+
+        if (!TryComp<OrganOriginComponent>(limb, out var origin) || origin.Species != ResomiSpecies)
+            return true;
+
+        return profile?.Species == ResomiSpecies;
     }
 
     private TimeSpan GetStepDuration(EntityUid patient, SurgeryStepEntry step, SurgeryToolMatch match, EntityUid item)
@@ -210,9 +222,10 @@ public sealed partial class SurgerySystem
         return HasComp<SurgerySkillComponent>(surgeon);
     }
 
-    private float GetSuccessChance(EntityUid patient, EntityUid? surgeon, SurgeryStepEntry step, SurgeryToolMatch match)
+    private float GetSuccessChance(EntityUid patient, EntityUid? surgeon, SurgeryStepEntry step, SurgeryToolMatch match, bool robotic)
     {
         var baseChance = IsSurgeonTrained(surgeon) ? 1f : step.SuccessChance;
-        return Math.Clamp(baseChance * match.Success * GetAnesthesiaMultiplier(patient), MinSuccessChance, 1f);
+        var anesthesia = robotic ? 1f : GetAnesthesiaMultiplier(patient);
+        return Math.Clamp(baseChance * match.Success * anesthesia, MinSuccessChance, 1f);
     }
 }
