@@ -77,8 +77,7 @@ public sealed partial class CargoSystem
     /// </summary>
     public void AdtRecordPurchase(EntityUid station, CargoProductPrototype product, int units)
     {
-        if (!TryComp<StationBankAccountComponent>(station, out _) ||
-            AdtCategorySurged(station, product.Category))
+        if (!TryComp<StationBankAccountComponent>(station, out _))
             return;
 
         EnsureComp<DemandMarketComponent>(station).RecordTrade(product.ID, units, Timing.CurTime);
