@@ -43,6 +43,12 @@ jobs:
     - name: Package client
       run: dotnet run --project Content.Packaging client --no-wipe-release
 
+    - name: Enable BBR
+      continue-on-error: true
+      run: |
+        sudo modprobe tcp_bbr
+        sudo sysctl -w net.ipv4.tcp_congestion_control=bbr
+
     - name: Publish version
       run: Tools/publish_multi_request.py
       env:
