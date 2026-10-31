@@ -17051,3 +17051,9 @@ Entries:
     id: 2075
     pr_number: 3598
     time: '2026-10-30T11:43:26Z'
+  - author: SchrodingerCutie
+    changes:
+      - {message: Фелиниды больше не травятся мышами и сырым мясом., type: Fix}
+    id: 2076
+    pr_number: 3617
+    time: '2026-10-31T03:40:07Z'
