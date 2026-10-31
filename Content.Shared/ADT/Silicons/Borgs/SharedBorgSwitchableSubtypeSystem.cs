@@ -29,6 +29,15 @@ public abstract class SharedBorgSwitchableSubtypeSystem : EntitySystem
 
     private void OnBorgTypeSelect(Entity<BorgSwitchableSubtypeComponent> ent, ref AfterBorgTypeSelectEvent args)
     {
+        if (ent.Comp.BorgSubtype is { } pendingSubtype
+            && TryComp<BorgSwitchableTypeComponent>(ent, out var typeComp)
+            && typeComp.SelectedBorgType is { } selected
+            && Prototypes.TryIndex(pendingSubtype, out var pendingProto)
+            && pendingProto.ParentBorgType != selected)
+        {
+            ent.Comp.BorgSubtype = null;
+        }
+
         if (ent.Comp.BorgSubtype == null)
             return;
 
