@@ -1,0 +1,104 @@
+- type: entity
+  id: ADTMachineSlotMachineCasino
+  parent: BaseMachinePowered
+  name: slot machine
+  description: Gambling for the antisocial.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Machines/slotmachines/kazino.rsi
+    drawdepth: Mobs
+    noRot: true
+    layers:
+    - state: mahins
+      map: ["base"]
+    - state: pole
+      shader: unshaded
+      map: ["screen"]
+    - state: knopka_start
+      map: ["button"]
+    - state: knopka_start_on
+      map: ["buttonOn"]
+      visible: false
+    - state: prokrut
+      shader: unshaded
+      map: ["spin"]
+      visible: false
+    - state: polosa
+      shader: unshaded
+      map: ["polosa"]
+      visible: false
+    - state: Win
+      shader: unshaded
+      map: ["win"]
+      visible: false
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        screen:
+          True: { visible: true }
+          False: { visible: false }
+        button:
+          True: { visible: true }
+          False: { visible: false }
+      enum.SlotMachineCasinoVisuals.Spinning:
+        buttonOn:
+          True: { visible: true }
+          False: { visible: false }
+        spin:
+          True: { visible: true }
+          False: { visible: false }
+      enum.SlotMachineCasinoVisuals.StoppedReels:
+        polosa:
+          0: { visible: false }
+          1: { visible: true, state: 1_polosa }
+          2: { visible: true, state: 2_polosa }
+          3: { visible: true, state: 3_polosa }
+          4: { visible: true, state: 4_polosa }
+          5: { visible: true, state: 5_polosa }
+      enum.SlotMachineCasinoVisuals.WinBlink:
+        win:
+          True: { visible: true }
+          False: { visible: false }
+  - type: SlotMachineCasino
+    money: 250000
+    nextSpinDelay: 4.6 # todo
+    bonusChance: 0.04
+    symbolWeights:
+      seven: 2
+      cherry: 4
+      banana: 4
+      strawberry: 4
+      grape: 4
+      diamond: 3
+      star: 3
+      watermelon: 4
+      wild: 3
+      scatter: 2
+  - type: ActivatableUI
+    key: enum.SlotMachineCasinoUiKey.Key
+    singleUser: true
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.SlotMachineCasinoUiKey.Key:
+        type: SlotMachineCasinoBoundUserInterface
+  - type: PointLight
+    radius: 2
+    energy: 1.5
+    color: "#c67b00"
+    castShadows: false
+  - type: Anchorable
+  - type: StaticPrice
+    price: 300
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
