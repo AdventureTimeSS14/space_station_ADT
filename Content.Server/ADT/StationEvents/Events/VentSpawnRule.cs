@@ -51,13 +51,18 @@ public sealed partial class VentSpawnRule : StationEventSystem<VentSpawnRuleComp
 
         var locations = new List<EntityCoordinates>();
         var query = EntityQueryEnumerator<VentCritterSpawnLocationComponent, TransformComponent>();
-        while (query.MoveNext(out _, out var transform))
+        while (query.MoveNext(out var vent, out _, out var transform))
         {
             if (!transform.Anchored)
                 continue;
 
-            if (CompOrNull<StationMemberComponent>(transform.GridUid)?.Station == station)
-                locations.Add(transform.Coordinates);
+            if (CompOrNull<StationMemberComponent>(transform.GridUid)?.Station != station)
+                continue;
+
+            if (!IsVentUsable(vent))
+                continue;
+
+            locations.Add(transform.Coordinates);
         }
 
         if (locations.Count == 0)
@@ -103,26 +108,16 @@ public sealed partial class VentSpawnRule : StationEventSystem<VentSpawnRuleComp
         if (xform.GridUid is not { } grid || !TryComp<MapGridComponent>(grid, out var gridComp))
             return false;
 
-        var coords = xform.Coordinates;
-        var tile = _map.TileIndicesFor(grid, gridComp, coords);
-
-        EntityUid vent = default;
-        VentCrawlerEntryComponent? entry = null;
-        foreach (var anchored in _map.GetAnchoredEntitiesEnumerator(grid, gridComp, tile))
-        {
-            if (!TryComp<VentCrawlerEntryComponent>(anchored, out var ventEntry)
-                || !TryComp<VentCrawlerTubeComponent>(anchored, out var tube)
-                || !tube.Connected
-                || (TryComp<WeldableComponent>(anchored, out var weld) && weld.IsWelded))
-                continue;
-
-            vent = anchored;
-            entry = ventEntry;
-            break;
-        }
+        var originalCoords = xform.Coordinates;
+        if (!TryFindVentOnTile(grid, gridComp, originalCoords, out var vent, out var entry, out var coords)
+            && !TryFindAnyVent(grid, out vent, out entry, out coords))
+            return false;
 
         if (vent == default || entry == null)
             return false;
+
+        if (!coords.Equals(originalCoords))
+            _transform.SetCoordinates(mob, coords);
 
         var holder = Spawn(entry.HolderPrototypeId, coords);
         var holderComp = Comp<VentCrawlerHolderComponent>(holder);
@@ -136,22 +131,82 @@ public sealed partial class VentSpawnRule : StationEventSystem<VentSpawnRuleComp
         if (TryComp(mob, out PhysicsComponent? physics))
             _physics.SetCanCollide(mob, false, body: physics);
 
-        _mover.ResetCamera(mob);
-        _mover.SetRelay(mob, holder);
+        if (!_crawable.EnterTube(holder, vent, holderComp))
+            return false;
+
         crawler.InTube = true;
         Dirty(mob, crawler);
 
-        if (!_crawable.EnterTube(holder, vent, holderComp))
-        {
-            _container.Remove(mob, holderComp.Container, force: true);
-            if (physics != null)
-                _physics.SetCanCollide(mob, true, body: physics);
-            crawler.InTube = false;
-            QueueDel(holder);
+        _mover.ResetCamera(mob);
+        _mover.SetRelay(mob, holder);
+        _eye.RefreshVisibilityMask(mob);
+        return true;
+    }
+
+    private bool IsVentUsable(EntityUid vent)
+    {
+        if (!TryComp<VentCrawlerEntryComponent>(vent, out _)
+            || !TryComp<VentCrawlerTubeComponent>(vent, out var tube)
+            || !tube.Connected)
             return false;
+
+        return !(TryComp<WeldableComponent>(vent, out var weld) && weld.IsWelded);
+    }
+
+    private bool TryFindVentOnTile(
+        EntityUid grid,
+        MapGridComponent gridComp,
+        EntityCoordinates coords,
+        out EntityUid vent,
+        out VentCrawlerEntryComponent? entry,
+        out EntityCoordinates ventCoords)
+    {
+        vent = default;
+        entry = null;
+        ventCoords = coords;
+
+        var tile = _map.TileIndicesFor(grid, gridComp, coords);
+        foreach (var anchored in _map.GetAnchoredEntitiesEnumerator(grid, gridComp, tile))
+        {
+            if (!IsVentUsable(anchored))
+                continue;
+
+            vent = anchored;
+            entry = Comp<VentCrawlerEntryComponent>(anchored);
+            ventCoords = Transform(anchored).Coordinates;
+            return true;
         }
 
-        _eye.RefreshVisibilityMask(mob);
+        return false;
+    }
+
+    private bool TryFindAnyVent(
+        EntityUid grid,
+        out EntityUid vent,
+        out VentCrawlerEntryComponent? entry,
+        out EntityCoordinates ventCoords)
+    {
+        vent = default;
+        entry = null;
+        ventCoords = default;
+
+        List<(EntityUid Vent, VentCrawlerEntryComponent Entry, EntityCoordinates Coords)> candidates = [];
+        var query = EntityQueryEnumerator<VentCrawlerEntryComponent, VentCrawlerTubeComponent, TransformComponent>();
+        while (query.MoveNext(out var candidate, out var candidateEntry, out _, out var transform))
+        {
+            if (transform.GridUid != grid || !transform.Anchored)
+                continue;
+
+            if (!IsVentUsable(candidate))
+                continue;
+
+            candidates.Add((candidate, candidateEntry, transform.Coordinates));
+        }
+
+        if (candidates.Count == 0)
+            return false;
+
+        (vent, entry, ventCoords) = _random.Pick(candidates);
         return true;
     }
 }

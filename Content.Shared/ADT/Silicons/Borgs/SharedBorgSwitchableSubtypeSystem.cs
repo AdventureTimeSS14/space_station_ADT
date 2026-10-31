@@ -36,6 +36,7 @@ public abstract class SharedBorgSwitchableSubtypeSystem : EntitySystem
             && pendingProto.ParentBorgType != selected)
         {
             ent.Comp.BorgSubtype = null;
+            Dirty(ent);
         }
 
         if (ent.Comp.BorgSubtype == null)
