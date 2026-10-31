@@ -53,12 +53,14 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
+        Blunt: 0.9
+        Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
   - type: ADTGoliathPlatable
     types: [ Blunt, Slash ]
+    step: 0.0167
+    minCoefficient: 0.85
     maxPlates: 3
     sprites:
     - ADT/Clothing/Head/Helmets/mining.rsi
@@ -68,6 +70,15 @@
   - type: Tag
     tags:
     - HidesHair
+
+- type: entity
+  parent: ADTClothingHeadHelmetMiner
+  id: ADTClothingHeadHelmetMinerUnplatable
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ADTGoliathPlatable
+    types: []
+    sprites: []
 
 - type: entity
   parent: ClothingHeadBase

@@ -102,6 +102,9 @@ public sealed partial class ADTLavalandGenerationComponent : Component
 
     [ViewVariables]
     public List<(Vector2 Center, float Radius)> RiverExclusions = new();
+
+    [ViewVariables]
+    public HashSet<Vector2i> LavaTiles = new();
 }
 
 [DataDefinition]

@@ -39,6 +39,34 @@
   - type: CentComRandomEvent
 
 - type: entity
+  id: ADTCentComRandomEventRevolution
+  parent: CentComRandomEvent
+  components:
+  - type: StationEvent
+    weight: 0
+  - type: CentComRandomEvent
+    weights:
+      101: 2
+      102: 2
+      103: 2
+      104: 2
+      105: 2
+      106: 2
+      107: 2
+      108: 2
+      109: 2
+      110: 2
+      111: 2
+      112: 2
+      113: 2
+      114: 2
+      115: 2
+      116: 2
+    variantCounts:
+      101: 8
+      106: 4
+
+- type: entity
   parent: BaseGameRule
   id: MorphSpawn
   components:

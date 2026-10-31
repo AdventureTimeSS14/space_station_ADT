@@ -170,3 +170,28 @@
         - id: ADTRingBoxEmerald
         - id: ADTRingBoxBlood
         - id: ADTRingBoxTurk
+
+- type: entity
+  id: ADTCratePendants
+  parent: CratePirate
+  name: jewelry crate
+  description: A crate containing exquisite pendants and lockets.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ADTClothingNeckLocketSilver
+        - id: ADTClothingNeckLocketSteel
+        - id: ADTClothingNeckHeartSilver
+        - id: ADTClothingNeckHeartSteel
+        - id: ADTClothingNeckPendantSilverDiamond
+        - id: ADTClothingNeckPendantSilverEmerald
+        - id: ADTClothingNeckPendantSilverPlasma
+        - id: ADTClothingNeckPendantSilverRuby
+        - id: ADTClothingNeckPendantSilverSapphire
+        - id: ADTClothingNeckPendantSteelDiamond
+        - id: ADTClothingNeckPendantSteelEmerald
+        - id: ADTClothingNeckPendantSteelPlasma
+        - id: ADTClothingNeckPendantSteelRuby
+        - id: ADTClothingNeckPendantSteelSapphire

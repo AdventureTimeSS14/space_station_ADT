@@ -1288,7 +1288,7 @@
   icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Attachments/rail.rsi, state: magnetic }
   productEntity: ADTAttachmentMagneticHarness
   cost:
-    Productunit: 4
+    Productunit: 2
   categories:
   - ADTUplinkERTAttachments
 
@@ -1923,3 +1923,14 @@
     Productunit: 2
   categories:
   - ADTUplinkERTJanitor
+
+- type: listing
+  id: ADTBoberGripModule
+  name: boobr-grip-module-name
+  description: boobr-grip-module-desc
+  icon: { sprite: /Textures/ADT/Objects/Devices/pin.rsi, state: firing_pin_pindi }
+  productEntity: ADTGripModule
+  cost:
+    Productunit: 1
+  categories:
+  - ADTUplinkERTMisc

@@ -1,25 +1,42 @@
 ent-ADTTendrilBase = шип некрополя
-    .desc = Порождение некрополя, шип из разложившейся плоти пробившийся наружу из самых недр Лаваленда дабы дать жизнь бесчисленному множеству чудовищ.
-
-ent-ADTTendrilGoliath = { ent-ADTTendrilBase }
-    .desc = { ent-ADTTendrilBase.desc }
-
-ent-ADTTendrilLegion = { ent-ADTTendrilBase }
-    .desc = { ent-ADTTendrilBase.desc }
+    .desc = Мерзкий отросток скверны, проросший из глубин. Из него выползают чудовища.
 
 ent-ADTTendrilLavaWatcher = { ent-ADTTendrilBase }
     .desc = { ent-ADTTendrilBase.desc }
+    .suffix = Наблюдатели
 
-ent-ADTTendrilIcewingWatcher = { ent-ADTTendrilBase }
+ent-ADTTendrilGoliath = { ent-ADTTendrilBase }
     .desc = { ent-ADTTendrilBase.desc }
+    .suffix = Голиафы
 
-ent-ADTTendrilMagmawingWatcher = { ent-ADTTendrilBase }
+ent-ADTTendrilLegion = { ent-ADTTendrilBase }
     .desc = { ent-ADTTendrilBase.desc }
+    .suffix = Легионы
 
-ent-ADTTendrilNightmareSpider = { ent-ADTTendrilBase }
+ent-ADTTendrilRandomThreat = { ent-ADTTendrilBase }
     .desc = { ent-ADTTendrilBase.desc }
+    .suffix = Случайная угроза
 
-ent-ADTTendrilShockSpider = { ent-ADTTendrilBase }
+ent-ADTTendrilDangerous = { ent-ADTTendrilBase }
     .desc = { ent-ADTTendrilBase.desc }
+    .suffix = Опасный
 
-tendril-destruction-popup = Земля под шипом обваливается!
+ent-ADTTendrilHypertrophied = { ent-ADTTendrilBase }
+    .desc = { ent-ADTTendrilBase.desc }
+    .suffix = Гипертрофированные мерзости
+
+ent-ADTTendrilDeath = { ent-ADTTendrilBase }
+    .desc = { ent-ADTTendrilBase.desc }
+    .suffix = Мерзости смерти
+
+ent-ADTTendrilBloated = { ent-ADTTendrilBase }
+    .desc = { ent-ADTTendrilBase.desc }
+    .suffix = Раздутые мерзости
+
+ent-ADTTendrilCollapse = разрушающийся шип некрополя
+    .desc = Отойди подальше!
+
+adt-tendril-spawn-popup = { CAPITALIZE(THE($mob)) } выходит из { THE($tendril) }.
+adt-tendril-collapse-start = Шип яростно бьётся, а земля под ним рушится! Назад!
+adt-tendril-collapse-tear = Что-то отрывается от шипа!
+adt-tendril-collapse-end = Шип рушится, и почва обваливается в чёрную пропасть!

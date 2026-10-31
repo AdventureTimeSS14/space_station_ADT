@@ -17,6 +17,8 @@
     - state: simple
       map: ["frame"]
   - type: Appearance
+  - type: WallMount
+    directionalVisibility: false
   - type: PaintingFrame
   - type: ItemSlots
     slots:

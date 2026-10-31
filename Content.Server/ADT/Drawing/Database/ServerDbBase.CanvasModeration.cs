@@ -543,6 +543,17 @@ public abstract partial class ServerDbBase
         return removed > 0;
     }
 
+    public async Task<List<string>> GetPaintingWhitelistNames()
+    {
+        await using var db = await GetDb();
+
+        var users = db.DbContext.Set<AdtPaintingWhitelist>().Select(w => w.UserId);
+        return await db.DbContext.Player
+            .Where(p => users.Contains(p.UserId))
+            .Select(p => p.LastSeenUserName)
+            .ToListAsync();
+    }
+
     #endregion
 
     #region Сборщик мусора

@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared.CombatMode;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Random.Helpers;
@@ -13,6 +14,7 @@ public sealed partial class PlaceableSurfaceSystem : EntitySystem
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private SharedHandsSystem _handsSystem = default!;
     [Dependency] private SharedTransformSystem _transformSystem = default!;
+    [Dependency] private SharedCombatModeSystem _combatMode = default!; // ADT-Tweak
 
     public override void Initialize()
     {
@@ -63,6 +65,11 @@ public sealed partial class PlaceableSurfaceSystem : EntitySystem
 
         if (!surface.IsPlaceable)
             return;
+
+        // ADT-Tweak-Start
+        if (_combatMode.IsInCombatMode(args.User))
+            return;
+        // ADT-Tweak-End
 
         // 99% of the time they want to dump the stuff inside on the table, they can manually place with q if they really need to.
         // Just causes prediction CBT otherwise.

@@ -252,3 +252,11 @@
   description: alerts-nicotine-craving-desc
   minSeverity: 0
   maxSeverity: 2
+
+- type: alert
+  id: ADTKineticInterference
+  icons:
+  - sprite: /Textures/ADT/Interface/Alerts/kinetic_interference.rsi
+    state: icon
+  name: alerts-adt-kinetic-interference-name
+  description: alerts-adt-kinetic-interference-desc

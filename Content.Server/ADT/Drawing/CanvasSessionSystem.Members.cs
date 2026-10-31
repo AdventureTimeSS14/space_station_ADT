@@ -1,7 +1,6 @@
 using System.Linq;
 using Content.Shared.ADT.Drawing;
 using Content.Shared.Database;
-using Content.Shared.Ghost.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -36,7 +35,7 @@ public sealed partial class CanvasSessionSystem
             return;
         }
 
-        if (HasComp<GhostComponent>(args.Actor))
+        if (!CanPaint(args.Actor))
         {
             Popup(ent.Owner, args.Actor, "adt-canvas-error-ghost");
             return;
@@ -244,7 +243,7 @@ public sealed partial class CanvasSessionSystem
         if (!member.Present || member.Role != CanvasRole.Viewer)
             return;
 
-        if (member.Player?.AttachedEntity is not { } attached || HasComp<GhostComponent>(attached))
+        if (member.Player?.AttachedEntity is not { } attached || !CanPaint(attached))
         {
             PopupMember(session, member, "adt-canvas-error-ghost");
             UpdateEasel(session);
@@ -343,7 +342,7 @@ public sealed partial class CanvasSessionSystem
         var candidate = session.Members.Values
             .Where(m => m.Role == CanvasRole.Editor &&
                         m.Player?.AttachedEntity is { } attached &&
-                        !HasComp<GhostComponent>(attached) &&
+                        CanPaint(attached) &&
                         !HostsOtherSession(session, m.User))
             .OrderBy(m => m.Index)
             .FirstOrDefault();

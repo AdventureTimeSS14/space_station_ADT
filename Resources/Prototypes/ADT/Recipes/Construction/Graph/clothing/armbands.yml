@@ -1,0 +1,27 @@
+- type: constructionGraph
+  id: ADTClothingNeckArmband
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: armband
+      steps:
+      - material: Cloth
+        amount: 1
+        doAfter: 1
+  - node: armband
+    entity: ADTClothingNeckArmband
+
+- type: constructionGraph
+  id: ADTClothingNeckArmbandMed
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: armbandMed
+      steps:
+      - material: Cloth
+        amount: 1
+        doAfter: 1
+  - node: armbandMed
+    entity: ADTClothingNeckArmbandMed

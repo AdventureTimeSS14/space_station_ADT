@@ -71,3 +71,16 @@ revolution-toolbox-category-fake-mindshieldrev-description =
     1 коробку экстракторов имплантов, 3 имплантера "фальшивый щит разума",
     1 плату оружейного техфаба, 1 плату медицинского техфаба
     и 1 чертеж телескопической дубинки.
+
+adt-revolution-kit-verb = Открыть наборы
+adt-revolution-kit-window-title = Набор революции
+adt-revolution-kit-window-description = Выберите два набора. Предметы появятся рядом с вами.
+
+ent-ADTBoxSurvivalRevolution = { ent-BoxSurvival }
+    .desc = { ent-BoxSurvival.desc }
+    .suffix = Революция
+
+adt-revolution-stash-verb = Открыть тайник
+
+ent-ADTRevolutionStashCompartment = тайник
+    .desc = Потайное отделение в коробке.

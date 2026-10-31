@@ -30,6 +30,9 @@ public sealed partial class AntiGravityClothingSystem : EntitySystem
         if (args.Args.Handled || _standing.IsDown(args.Owner))
             return;
 
+        if (!_toggle.IsActivated(ent.Owner)) // ADT-Tweak
+            return;
+
         args.Args.Handled = true;
         args.Args.IsWeightless = true;
     }

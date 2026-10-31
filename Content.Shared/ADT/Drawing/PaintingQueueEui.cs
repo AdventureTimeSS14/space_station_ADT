@@ -44,6 +44,7 @@ public sealed class PaintingQueueEuiState : EuiStateBase
     public bool CanModerate;
     public bool CanDelete;
     public bool CanBan;
+    public bool CanSpawn;
     public long ApprovedTotalBytes;
     public long ApprovedLimitBytes;
     public string Status = string.Empty;
@@ -102,5 +103,11 @@ public static class PaintingQueueEuiMsg
     public sealed class Unban : EuiMessageBase
     {
         public Guid UserId;
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class Spawn : EuiMessageBase
+    {
+        public Guid Painting;
     }
 }

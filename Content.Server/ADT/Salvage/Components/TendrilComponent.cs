@@ -1,14 +1,8 @@
-using Content.Shared.ADT.Salvage.Systems;
 using Robust.Shared.Audio;
-using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.Salvage.Components;
 
-/// <summary>
-/// Предназначение понятно по названию
-/// Чисто серверный компонент. Нам не нужен предикт спавна npc
-/// </summary>
 [RegisterComponent]
 public sealed partial class TendrilComponent : Component
 {
@@ -16,22 +10,28 @@ public sealed partial class TendrilComponent : Component
     public int MaxSpawns = 3;
 
     [DataField]
-    public float SpawnDelay = 10f;
-
-    [DataField]
-    public float ChasmDelay = 5f;
-
-    [DataField]
-    public int ChasmRadius = 4;
+    public TimeSpan SpawnDelay = TimeSpan.FromSeconds(30);
 
     [DataField(required: true)]
-    public List<EntProtoId> Spawns;
+    public Dictionary<EntProtoId, float> Spawns = new();
 
-    [ViewVariables(VVAccess.ReadWrite)]
-    public List<EntityUid> Mobs = new();
+    [DataField]
+    public LocId SpawnPopup = "adt-tendril-spawn-popup";
 
-    [ViewVariables(VVAccess.ReadWrite)]
-    public TimeSpan LastSpawn = TimeSpan.Zero;
+    [DataField]
+    public int ClearRadius = 1;
+
+    [DataField]
+    public EntProtoId Collapse = "ADTTendrilCollapse";
+
+    [DataField]
+    public EntProtoId Chest = "ADTCrateNecropolisRandom";
+
+    [ViewVariables]
+    public HashSet<EntityUid> Mobs = new();
+
+    [ViewVariables]
+    public TimeSpan NextSpawn;
 
     [DataField]
     public TimeSpan AggroMemory = TimeSpan.FromSeconds(45);
@@ -47,4 +47,44 @@ public sealed partial class TendrilComponent : Component
 
     [ViewVariables]
     public TimeSpan AggroEndTime;
+}
+
+[RegisterComponent]
+public sealed partial class TendrilCollapseComponent : Component
+{
+    [DataField]
+    public TimeSpan Delay = TimeSpan.FromSeconds(5);
+
+    [DataField]
+    public int Radius = 2;
+
+    [DataField]
+    public EntProtoId Chasm = "FloorChasmEntity";
+
+    [DataField]
+    public float ShakeRange = 7f;
+
+    [DataField]
+    public float ShakeDuration = 15f;
+
+    [DataField]
+    public float ShakeStrength = 1f;
+
+    [DataField]
+    public SoundSpecifier StartSound = new SoundPathSpecifier("/Audio/ADT/Lavaland/Tendril/tendril_destroyed.ogg", AudioParams.Default.WithVolume(10f).WithMaxDistance(50f));
+
+    [DataField]
+    public SoundSpecifier CollapseSound = new SoundPathSpecifier("/Audio/Effects/explosionfar.ogg", AudioParams.Default.WithVolume(10f).WithMaxDistance(50f));
+
+    [DataField]
+    public LocId StartPopup = "adt-tendril-collapse-start";
+
+    [DataField]
+    public LocId TearPopup = "adt-tendril-collapse-tear";
+
+    [DataField]
+    public LocId CollapsePopup = "adt-tendril-collapse-end";
+
+    [ViewVariables]
+    public TimeSpan CollapseAt;
 }

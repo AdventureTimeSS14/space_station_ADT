@@ -7,11 +7,11 @@ using Content.Server.Administration.Managers;
 using Content.Server.Database;
 using Content.Server.GameTicking;
 using Content.Shared.ADT.CCVar;
+using Content.Shared.ActionBlocker;
 using Content.Shared.ADT.Drawing;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
-using Content.Shared.Ghost.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;
 using Robust.Server.GameObjects;
@@ -35,6 +35,7 @@ public sealed partial class CanvasSessionSystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IServerDbManager _db = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -292,6 +293,11 @@ public sealed partial class CanvasSessionSystem : EntitySystem
         _ui.SetUiState(ent.Owner, CanvasEaselUiKey.Key, state);
     }
 
+    private bool CanPaint(EntityUid uid)
+    {
+        return _actionBlocker.CanComplexInteract(uid);
+    }
+
     private string DisplayName(ICommonSession player)
     {
         return player.AttachedEntity is { } attached
@@ -375,7 +381,7 @@ public sealed partial class CanvasSessionSystem : EntitySystem
             return;
         }
 
-        if (HasComp<GhostComponent>(args.Actor))
+        if (!CanPaint(args.Actor))
         {
             Popup(ent.Owner, args.Actor, "adt-canvas-error-ghost");
             return;

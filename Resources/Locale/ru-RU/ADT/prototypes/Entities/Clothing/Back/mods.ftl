@@ -85,7 +85,7 @@ ent-ADTClothingModsuitBackERTMedical = МОД ОБР "Вега"
 # Понятие не имею где прописать части мода. Пропишу тут
 
 ent-ADTActionToggleMODPiece = Переключить элементы MOD
-
+    .desc = Переключает элементы MOD
 # Шлемы
 ent-ADTClothingHeadHelmetModsuitBase = шлем МОДа "Базовый"
     .desc = Шлем от МОДа.
@@ -308,3 +308,20 @@ ent-ADTClothingHandsModsuitERTEngineer = перчатки МОДа ОБР "Ка�
     .desc = Базовые перчатки от МОДа.
 ent-ADTClothingHandsModsuitERTMedical = перчатки МОДа ОБР "Вега"
     .desc = Базовые перчатки от МОДа.
+
+ent-ADTClothingModsuitBackBaseEmpty = { ent-ADTClothingModsuitBackBase }
+    .desc = { ent-ADTClothingModsuitBackBase.desc }
+ent-ADTClothingModsuitBackAtmosEmpty = { ent-ADTClothingModsuitBackAtmos }
+    .desc = { ent-ADTClothingModsuitBackAtmos.desc }
+ent-ADTClothingModsuitBackClownEmpty = { ent-ADTClothingModsuitBackClown }
+    .desc = { ent-ADTClothingModsuitBackClown.desc }
+ent-ADTClothingModsuitBackEngineeringEmpty = { ent-ADTClothingModsuitBackEngineering }
+    .desc = { ent-ADTClothingModsuitBackEngineering.desc }
+ent-ADTClothingModsuitBackMedicalEmpty = { ent-ADTClothingModsuitBackMedical }
+    .desc = { ent-ADTClothingModsuitBackMedical.desc }
+ent-ADTClothingModsuitBackMiningEmpty = { ent-ADTClothingModsuitBackMining }
+    .desc = { ent-ADTClothingModsuitBackMining.desc }
+ent-ADTClothingModsuitBackScienceEmpty = { ent-ADTClothingModsuitBackScience }
+    .desc = { ent-ADTClothingModsuitBackScience.desc }
+ent-ADTClothingModsuitBackSecurityEmpty = { ent-ADTClothingModsuitBackSecurity }
+    .desc = { ent-ADTClothingModsuitBackSecurity.desc }
