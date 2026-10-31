@@ -42,7 +42,7 @@ public sealed partial class HereticFireHeatSystem : EntitySystem
             _nextRefresh = now + RefreshInterval;
 
             var fires = EntityQueryEnumerator<HereticAshFireComponent, TransformComponent>();
-            while (fires.MoveNext(out var fire, out var fireXform))
+            while (fires.MoveNext(out var fire, out _, out var fireXform))
             {
                 var coords = _xform.GetMapCoordinates((fire, fireXform));
 
