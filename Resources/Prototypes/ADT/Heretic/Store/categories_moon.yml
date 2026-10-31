@@ -1,0 +1,4 @@
+- type: storeCategory
+  id: HereticPathMoon
+  name: store-heretic-path-moon
+  priority: 0

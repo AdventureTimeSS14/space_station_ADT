@@ -53,7 +53,7 @@ knowledge-path-cosmos-s7-desc =
 
     Your blade now star marks your victims, and allows you to attack star marked heathens from further away.
     Your attacks will chain bonus damage to up to two previous victims.
-    The combo is reset after two seconds without making an attack, or if you attack someone already marked.
+    The combo is reset after three seconds without making an attack, or if you attack someone already marked.
     If you combo more than two attacks you will receive a cosmic trail and increase your combo timer up to ten seconds.
     Cosmic fields now block explosions, disrupt grenades or signalers from being activated and turn off already primed grenades.
 

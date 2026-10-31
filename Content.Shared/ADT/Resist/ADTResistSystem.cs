@@ -42,6 +42,11 @@ public sealed class ADTResistSystem : EntitySystem
         if (!_blocker.CanInteract(uid, null))
             return;
 
+        var resistEv = new ADTResistAttemptEvent();
+        RaiseLocalEvent(uid, ref resistEv);
+        if (resistEv.Handled)
+            return;
+
         if (TryComp<PullableComponent>(uid, out var pullable) && pullable.BeingPulled)
         {
             _pulling.TryStopPull(uid, pullable, uid);
@@ -57,3 +62,6 @@ public sealed class ADTResistSystem : EntitySystem
         _alerts.ActivateAlert(uid, alert);
     }
 }
+
+[ByRefEvent]
+public record struct ADTResistAttemptEvent(bool Handled = false);
