@@ -241,6 +241,24 @@ public sealed class RoundEndStatsSystem : EntitySystem
         {
             ev.Add(RoundEndStatCategory.Economy, "round-end-report-nobody-rich", 2);
         }
+
+        ev.Add(RoundEndStatCategory.Economy, "round-end-report-salaries", 3)
+            .WithArg("value", _bankCard.TotalSalary);
+
+        ev.Add(RoundEndStatCategory.Economy, "round-end-report-deposits", 4)
+            .WithArg("value", _bankCard.TotalDeposits);
+
+        ev.Add(RoundEndStatCategory.Economy, "round-end-report-taxes", 5)
+            .WithArg("value", _bankCard.TotalTaxes);
+
+        ev.Add(RoundEndStatCategory.Economy, "round-end-report-transfers", 6)
+            .WithArg("value", _bankCard.TotalTransfers);
+
+        ev.Add(RoundEndStatCategory.Economy, "round-end-report-deposited", 7)
+            .WithArg("value", _bankCard.TotalDeposited);
+
+        ev.Add(RoundEndStatCategory.Economy, "round-end-report-burned", 8)
+            .WithArg("value", _bankCard.TotalBurned);
     }
 
     private void CollectMisc(RoundEndStatsCollectEvent ev)

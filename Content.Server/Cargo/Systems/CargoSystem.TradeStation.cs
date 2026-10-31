@@ -140,6 +140,8 @@ public sealed partial class CargoSystem
         var ev = new EntitySoldEvent(toSell, station);
         RaiseLocalEvent(ref ev);
 
+        AdtRegisterSale(gridUid, station, goods); // ADT-Tweak
+
         foreach (var ent in toSell)
         {
             Del(ent);
@@ -152,6 +154,10 @@ public sealed partial class CargoSystem
     {
         goods = new HashSet<(EntityUid, OverrideSellComponent?, double)>();
         toSell = new HashSet<EntityUid>();
+
+        // ADT-Economy: сбор партии в два прохода — сначала кандидаты с базовой ценой,
+        // затем рыночный хук оценивает партию целиком (размер партии влияет на цену)
+        List<(EntityUid Ent, OverrideSellComponent? Sell, double Price)> pending = new();
 
         foreach (var (palletUid, _, _) in GetCargoPallets(gridUid, BuySellType.Sell))
         {
@@ -182,9 +188,17 @@ public sealed partial class CargoSystem
                 var price = _pricing.GetPrice(ent);
                 if (price == 0)
                     continue;
+
                 toSell.Add(ent);
-                goods.Add((ent, CompOrNull<OverrideSellComponent>(ent), price));
+                pending.Add((ent, CompOrNull<OverrideSellComponent>(ent), price));
             }
+        }
+
+        AdtAdjustMarketPrices(gridUid, pending); // ADT-Economy
+
+        foreach (var (ent, sell, price) in pending)
+        {
+            goods.Add((ent, sell, price));
         }
     }
 

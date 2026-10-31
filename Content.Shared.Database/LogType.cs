@@ -510,5 +510,6 @@ public enum LogType
     CanvasDrawingBan = 1105,
     CanvasReport = 1106,
     CanvasWhitelist = 1107,
+    Economy = 1108,
     // ADT-Tweak-End
 }

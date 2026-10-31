@@ -306,6 +306,10 @@
       range:
         min: 1
         max: 6
+  - type: RevolutionaryCentComEvents
+    events:
+    - ADTCentComRandomEventRevolution
+    - ADTRevSalaryCutEvent
     # ADT-Tweak-End
   - type: DynamicRuleCost
     cost: 200

@@ -77,7 +77,7 @@ public sealed class ATMSystem : SharedATMSystem
             return;
         }
 
-        _bankCardSystem.TryChangeBalance(bankCard.AccountId!.Value, amount);
+        _bankCardSystem.TryDeposit(bankCard.AccountId!.Value, amount, TransactionReason.AtmDeposit, Name(args.User));
         Del(args.Used);
 
         _audioSystem.PlayPvs(component.SoundInsertCurrency, uid);
@@ -117,7 +117,7 @@ public sealed class ATMSystem : SharedATMSystem
             return;
         }
 
-        if (!_bankCardSystem.TryChangeBalance(account.AccountId, -args.Amount))
+        if (!_bankCardSystem.TryBurn(account.AccountId, args.Amount, TransactionReason.AtmWithdraw))
         {
             _popupSystem.PopupEntity(Loc.GetString("atm-not-enough-cash"), uid);
             _audioSystem.PlayPvs(component.SoundDeny, uid);
