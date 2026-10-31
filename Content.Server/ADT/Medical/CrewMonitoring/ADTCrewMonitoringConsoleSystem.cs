@@ -503,12 +503,12 @@ public sealed class ADTCrewMonitoringConsoleSystem : EntitySystem
         comp.NextCritAlertTime = now + TimeSpan.FromSeconds(comp.CritAlertInterval);
     }
 
-    private static Dictionary<NetEntity, bool> CollectAlertStates(IEnumerable<ADTSuitSensorStatus> sensors)
+    private Dictionary<NetEntity, bool> CollectAlertStates(IEnumerable<ADTSuitSensorStatus> sensors)
     {
         var current = new Dictionary<NetEntity, bool>();
         foreach (var sensor in sensors)
         {
-            if (!sensor.IsActive || sensor.Mode == ADTSuitSensorMode.SensorOff)
+            if (!IsAlertSensorActive(sensor))
                 continue;
 
             if (!sensor.IsAlive)
@@ -789,12 +789,22 @@ public sealed class ADTCrewMonitoringConsoleSystem : EntitySystem
         _navMap.EnsureNavMap(gridUid, mapGrid);
     }
 
-    private static bool HasAlertCondition(IEnumerable<ADTSuitSensorStatus> sensors)
+    private bool IsAlertSensorActive(ADTSuitSensorStatus status)
+    {
+        return status.IsActive &&
+               status.Mode == ADTSuitSensorMode.SensorCords &&
+               TryGetEntity(status.ADTSuitSensorUid, out var sensorUid) &&
+               TryComp(sensorUid.Value, out ADTSuitSensorComponent? sensor) &&
+               sensor.Mode == ADTSuitSensorMode.SensorCords &&
+               sensor.User != null &&
+               GetNetEntity(sensor.User.Value) == status.OwnerUid;
+    }
+
+    private bool HasAlertCondition(IEnumerable<ADTSuitSensorStatus> sensors)
     {
         foreach (var sensor in sensors)
         {
-            if (!sensor.IsActive ||
-                sensor.Mode == ADTSuitSensorMode.SensorOff)
+            if (!IsAlertSensorActive(sensor))
             {
                 continue;
             }
