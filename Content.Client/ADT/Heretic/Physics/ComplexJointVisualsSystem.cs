@@ -4,6 +4,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Client.Graphics;
+using Robust.Client.ResourceManagement;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
@@ -14,11 +15,12 @@ public sealed class ComplexJointVisualsSystem : EntitySystem
     [Dependency] private IOverlayManager _overlay = default!;
     [Dependency] private IPrototypeManager _protoMan = default!;
     [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IResourceCache _cache = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-        _overlay.AddOverlay(new ComplexJointVisualsOverlay(EntityManager, _protoMan, _timing));
+        _overlay.AddOverlay(new ComplexJointVisualsOverlay(EntityManager, _protoMan, _timing, _cache));
     }
 
     public override void Shutdown()

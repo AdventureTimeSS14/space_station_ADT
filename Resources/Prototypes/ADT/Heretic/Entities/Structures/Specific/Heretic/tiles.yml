@@ -40,6 +40,7 @@
           - ItemMask
         density: 1000
         hard: false
+  - type: HereticAshFire
   - type: Tag
     tags:
       - HideContextMenu
