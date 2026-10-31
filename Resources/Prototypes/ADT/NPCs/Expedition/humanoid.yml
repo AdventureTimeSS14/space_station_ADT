@@ -34,7 +34,7 @@
         - !type:HTNCompoundTask
           task: ADTGateMeleeLeave
         - !type:HTNCompoundTask
-          task: MeleeCombatCompound
+          task: ADTMeleeCombatCompound
 
     - preconditions:
         - !type:ADTWeaponPrecondition
@@ -85,7 +85,7 @@
         - !type:HTNCompoundTask
           task: ADTGatePistolLeave
         - !type:HTNCompoundTask
-          task: RangedCombatCompound
+          task: ADTRangedCombatCompound
 
     - preconditions:
         - !type:ADTHealthPrecondition
@@ -199,7 +199,7 @@
         - !type:HTNCompoundTask
           task: ADTGateSafeReload
         - !type:HTNCompoundTask
-          task: RangedCombatCompound
+          task: ADTRangedCombatCompound
 
     - preconditions:
         - !type:ADTWeaponPrecondition
@@ -313,7 +313,7 @@
             groupCooldown: 15
             groupRange: 30
         - !type:HTNCompoundTask
-          task: RangedCombatCompound
+          task: ADTRangedCombatCompound
 
     - preconditions:
         - !type:ADTRecentlyHurtPrecondition
@@ -478,7 +478,7 @@
           check: HasAmmo
       tasks:
         - !type:HTNCompoundTask
-          task: RangedCombatCompound
+          task: ADTRangedCombatCompound
 
     - preconditions:
         - !type:ADTWeaponPrecondition
@@ -553,10 +553,10 @@
 
     - tasks:
         - !type:HTNCompoundTask
-          task: RangedCombatCompound
+          task: ADTRangedCombatCompound
     - tasks:
         - !type:HTNCompoundTask
-          task: MeleeCombatCompound
+          task: ADTMeleeCombatCompound
     - preconditions:
         - !type:ADTRadioCallPrecondition
           types:

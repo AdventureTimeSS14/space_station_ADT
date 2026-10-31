@@ -148,7 +148,7 @@ public sealed class ADTNpcCombatMemorySystem : EntitySystem
 
         foreach (var hostile in _faction.GetNearbyHostiles(owner, range))
         {
-            if (_mobState.IsIncapacitated(hostile))
+            if (_mobState.IsIncapacitated(hostile) && !_mobState.IsSoftCritical(hostile))
                 continue;
 
             var pos = _transform.GetMapCoordinates(hostile);

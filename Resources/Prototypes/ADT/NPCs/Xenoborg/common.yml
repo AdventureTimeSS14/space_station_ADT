@@ -28,6 +28,7 @@
         - !type:HTNPrimitiveTask
           operator: !type:GunOperator
             targetKey: Target
+            targetState: SoftCritical
           preconditions:
             - !type:KeyExistsPrecondition
               key: Target
@@ -43,10 +44,11 @@
     - tasks:
         - !type:HTNPrimitiveTask
           operator: !type:UtilityOperator
-            proto: NearbyMeleeTargets
+            proto: ADTNearbyMeleeTargets
         - !type:HTNPrimitiveTask
           operator: !type:MeleeOperator
             targetKey: Target
+            targetState: SoftCritical
           preconditions:
             - !type:KeyExistsPrecondition
               key: Target
@@ -56,13 +58,13 @@
           services:
             - !type:UtilityService
               id: MeleeService
-              proto: NearbyMeleeTargets
+              proto: ADTNearbyMeleeTargets
               key: Target
 
     - tasks:
         - !type:HTNPrimitiveTask
           operator: !type:UtilityOperator
-            proto: NearbyMeleeTargets
+            proto: ADTNearbyMeleeTargets
         - !type:HTNPrimitiveTask
           operator: !type:ADTRadioCallOperator
             call: Contact
@@ -82,6 +84,7 @@
         - !type:HTNPrimitiveTask
           operator: !type:MeleeOperator
             targetKey: Target
+            targetState: SoftCritical
           preconditions:
             - !type:KeyExistsPrecondition
               key: Target
@@ -91,7 +94,7 @@
           services:
             - !type:UtilityService
               id: MeleeService
-              proto: NearbyMeleeTargets
+              proto: ADTNearbyMeleeTargets
               key: Target
 
 - type: htnCompound
