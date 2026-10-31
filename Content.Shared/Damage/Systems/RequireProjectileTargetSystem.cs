@@ -37,6 +37,20 @@ public sealed partial class RequireProjectileTargetSystem : EntitySystem
 
         if (TryComp(other, out ProjectileComponent? projectile))
         {
+            // ADT-Tweak start
+            if (HasComp<ADTPreciseProjectileTargetComponent>(other) &&
+                TryComp<TargetedProjectileComponent>(other, out var precise))
+            {
+                if (precise.Target != ent.Owner &&
+                    (!_container.TryGetContainingContainer(precise.Target, out var holder) || holder.Owner != ent.Owner))
+                {
+                    args.Cancelled = true;
+                }
+
+                return;
+            }
+            // ADT-Tweak end
+
             // ADT Crawling abuse fix start
             if (TryComp<TargetedProjectileComponent>(other, out var targeted) &&
                 targeted.TargetCoords != null)

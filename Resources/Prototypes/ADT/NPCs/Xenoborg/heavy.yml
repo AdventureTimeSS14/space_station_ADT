@@ -28,10 +28,89 @@
     - preconditions:
         - !type:ADTHostileNearPrecondition
           range: 15
+        - !type:KeyBoolEqualsPrecondition
+          key: ADTRecharging
+          value: true
+        - !type:GunAmmoPrecondition
+          maxPercent: 0.49
       tasks:
         - !type:HTNCompoundTask
+          task: ADTXenoborgHeavyRechargeRetreatCompound
+
+    - preconditions:
+        - !type:ADTHostileNearPrecondition
+          range: 15
+        - !type:ADTAllyInLineOfFirePrecondition
+          seconds: 1
+      tasks:
+        - !type:HTNCompoundTask
+          task: ADTXenoborgHeavyRepositionCompound
+
+    - preconditions:
+        - !type:ADTHostileNearPrecondition
+          range: 15
+        - !type:GunAmmoPrecondition
+          minPercent: 0.001
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:SetBoolOperator
+            targetKey: ADTRecharging
+            value: false
+        - !type:HTNCompoundTask
           task: ADTXenoborgGunCompound
+
+    - preconditions:
+        - !type:ADTHostileNearPrecondition
+          range: 15
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:SetBoolOperator
+            targetKey: ADTRecharging
+            value: true
+        - !type:HTNCompoundTask
+          task: ADTXenoborgHeavyRechargeRetreatCompound
 
     - tasks:
         - !type:HTNCompoundTask
           task: ADTXenoborgIdleCompound
+
+- type: htnCompound
+  id: ADTXenoborgHeavyRechargeRetreatCompound
+  branches:
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:UtilityOperator
+            proto: ADTNearbyAliveGunTargets
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTPickFleeCoordinatesOperator
+            targetKey: Target
+            fleeDistance: 7
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            pathfindInPlanning: true
+
+- type: htnCompound
+  id: ADTXenoborgHeavyRepositionCompound
+  branches:
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:UtilityOperator
+            proto: ADTNearbyAliveGunTargets
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTSidestepOperator
+            targetKey: Target
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            pathfindInPlanning: false
+
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:UtilityOperator
+            proto: ADTNearbyAliveGunTargets
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            pathfindInPlanning: true
+            removeKeyOnFinish: false
+            targetKey: TargetCoordinates
+            pathfindKey: TargetPathfind
+            rangeKey: MeleeRange

@@ -113,7 +113,10 @@
         - !type:ADTNeedHealPrecondition
           minDamage: 0.1
         - !type:ADTHostileNearPrecondition
-          range: 10
+          range: 15
+          invert: true
+        - !type:ADTRecentlyHurtPrecondition
+          seconds: 5
           invert: true
       tasks:
         - !type:HTNPrimitiveTask
@@ -133,6 +136,7 @@
         - !type:HTNPrimitiveTask
           operator: !type:ADTPickCoverOperator
             targetKey: Target
+            searchCooldown: 8
         - !type:HTNPrimitiveTask
           operator: !type:MoveToOperator
             pathfindInPlanning: false
@@ -310,6 +314,39 @@
             groupRange: 30
         - !type:HTNCompoundTask
           task: RangedCombatCompound
+
+    - preconditions:
+        - !type:ADTRecentlyHurtPrecondition
+          seconds: 3
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: Active
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: HasAmmo
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTPickAttackerOperator
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            pathfindInPlanning: true
+            removeKeyOnFinish: false
+            targetKey: TargetCoordinates
+            pathfindKey: TargetPathfind
+            rangeKey: ADTAdvanceRange
+
+    - preconditions:
+        - !type:ADTRecentlyHurtPrecondition
+          seconds: 3
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTPickAttackerOperator
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTPickFleeCoordinatesOperator
+            targetKey: Target
+            fleeDistance: 9
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
 
     - preconditions:
         - !type:ADTWeaponPrecondition

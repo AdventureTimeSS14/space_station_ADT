@@ -1,8 +1,10 @@
 using System.Numerics;
 using Content.Server.NPC.HTN;
 using Content.Shared.Chat;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Interaction;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC;
 using Content.Shared.NPC.Components;
@@ -89,6 +91,26 @@ public sealed class ADTNpcCombatMemorySystem : EntitySystem
             component.LastBlocked = _timing.CurTime;
             return;
         }
+
+        if (!component.AvoidObstacles)
+            return;
+
+        var target = args.Used.Comp.Target;
+
+        if (_interaction.InRangeUnobstructed(from, to, MathF.Sqrt(lengthSq) + 0.1f, component.ObstacleMask,
+                e => e == uid || e == target || HasComp<MobStateComponent>(e) || HasComp<EntityStorageComponent>(e) || IgnoresProjectiles(e)))
+        {
+            return;
+        }
+
+        args.Cancel();
+        component.Blocked = true;
+        component.LastBlocked = _timing.CurTime;
+    }
+
+    private bool IgnoresProjectiles(EntityUid uid)
+    {
+        return TryComp<RequireProjectileTargetComponent>(uid, out var comp) && comp.Active;
     }
 
     private void OnDamageDealt(EntityUid uid, ADTNpcCombatMemoryComponent component, ref DamageDealtEvent args)
@@ -98,6 +120,7 @@ public sealed class ADTNpcCombatMemorySystem : EntitySystem
 
         component.Hurt = true;
         component.LastHurt = _timing.CurTime;
+        component.LastAttacker = args.Origin;
     }
 
     public bool HasHostileNear(EntityUid owner, float range)

@@ -10,10 +10,24 @@
     - type: MobMover
     - type: ADTNpcGear
     - type: ADTNpcCombatMemory
+      avoidObstacles: true
+      obstacleMask:
+      - BulletImpassable
+    - type: ADTPreciseProjectileTarget
     - type: HTN
       rootTask:
         task: ADTExpeditionHumanoidCompound
       blackboard:
+        NavInteract: !type:Bool
+          true
+        ADTNavAccess: !type:Bool
+          true
+        VisionRadius: !type:Single
+          15
+        AggroVisionRadius: !type:Single
+          20
+        ADTAdvanceRange: !type:Single
+          6
         ADTMeleeSwitchRange: !type:Single
           1.8
         ADTFollowRange: !type:Single
@@ -138,6 +152,16 @@
       rootTask:
         task: ADTExpeditionHumanoidCompound
       blackboard:
+        NavInteract: !type:Bool
+          true
+        ADTNavAccess: !type:Bool
+          true
+        VisionRadius: !type:Single
+          15
+        AggroVisionRadius: !type:Single
+          20
+        ADTAdvanceRange: !type:Single
+          6
         ADTMeleeSwitchRange: !type:Single
           1.8
         ADTFollowRange: !type:Single
@@ -208,6 +232,16 @@
       rootTask:
         task: ADTExpeditionMedicCompound
       blackboard:
+        NavInteract: !type:Bool
+          true
+        ADTNavAccess: !type:Bool
+          true
+        VisionRadius: !type:Single
+          15
+        AggroVisionRadius: !type:Single
+          20
+        ADTAdvanceRange: !type:Single
+          6
         ADTMeleeSwitchRange: !type:Single
           1.8
         ADTFollowRange: !type:Single
@@ -246,6 +280,14 @@
       rootTask:
         task: ADTExpeditionHumanoidCompound
       blackboard:
+        NavInteract: !type:Bool
+          true
+        VisionRadius: !type:Single
+          15
+        AggroVisionRadius: !type:Single
+          20
+        ADTAdvanceRange: !type:Single
+          6
         ADTMeleeSwitchRange: !type:Single
           1.8
         ADTFollowRange: !type:Single
