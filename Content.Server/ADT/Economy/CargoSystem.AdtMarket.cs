@@ -49,6 +49,28 @@ public sealed partial class CargoSystem
         return 1;
     }
 
+    private bool AdtCategorySurged(EntityUid station, string category)
+    {
+        return TryComp<StationCategorySurgeComponent>(station, out var surge) &&
+               surge.Multipliers.ContainsKey(category);
+    }
+
+    private StationMarketComponent? AdtDeflationMarket(EntityUid gridUid)
+    {
+        if (!_cfg.GetCVar(ADTCCVars.MarketDeflation))
+            return null;
+
+        var station = _station.GetOwningStation(gridUid);
+
+        if (station != null && TryComp<StationBankAccountComponent>(station.Value, out _))
+            return EnsureComp<StationMarketComponent>(station.Value);
+
+        if (HasComp<TradeStationComponent>(gridUid))
+            return EnsureComp<StationMarketComponent>(gridUid);
+
+        return null;
+    }
+
     /// <summary>
     /// фиксация покупки - спрос на товар растёт. Единственное место,
     /// где компонент рынка заказов создаётся.
@@ -56,7 +78,7 @@ public sealed partial class CargoSystem
     public void AdtRecordPurchase(EntityUid station, CargoProductPrototype product, int units)
     {
         if (!TryComp<StationBankAccountComponent>(station, out _) ||
-            AdtCategoryMultiplier(station, product.Category) != 1)
+            AdtCategorySurged(station, product.Category))
             return;
 
         EnsureComp<DemandMarketComponent>(station).RecordTrade(product.ID, units, Timing.CurTime);
@@ -88,30 +110,14 @@ public sealed partial class CargoSystem
     }
 
 
-    /// <summary>
-    /// Рыночные множители приёмки для собранной партии: станция - перегрев
-    /// от перепроизводства (партия целиком проезжает по нарастающей скидке),
-    /// торговая станция - спрос скупки.
-    /// </summary>
     private void AdtAdjustMarketPrices(EntityUid gridUid, List<(EntityUid Ent, OverrideSellComponent? Sell, double Price)> pending)
     {
         if (!_cfg.GetCVar(ADTCCVars.MarketDeflation) || pending.Count == 0)
             return;
 
-        var station = _station.GetOwningStation(gridUid);
-        StationMarketComponent? stationMarket = null;
-        DemandMarketComponent? demandMarket = null;
-
-        var isTrade = HasComp<TradeStationComponent>(gridUid);
-        var isStation = !isTrade && station != null && TryComp<StationBankAccountComponent>(station.Value, out _);
-
-        if (!isStation && !isTrade)
+        var market = AdtDeflationMarket(gridUid);
+        if (market == null)
             return;
-
-        if (isStation)
-            stationMarket = TryComp<StationMarketComponent>(station!.Value, out var sm) ? sm : new StationMarketComponent();
-        else
-            demandMarket = TryComp<DemandMarketComponent>(gridUid, out var dm) ? dm : new DemandMarketComponent();
 
         // размер партии по прототипам - чтобы скидка учитывала саму партию
         var batch = new Dictionary<string, int>();
@@ -133,10 +139,7 @@ public sealed partial class CargoSystem
             var units = batch.GetValueOrDefault(protoId);
             var (ent, sell, price) = pending[i];
 
-            if (isStation)
-                price *= stationMarket!.GetBatchMultiplier(protoId, units, now);
-            else
-                price *= demandMarket!.GetSellMultiplier(protoId, now);
+            price *= market.GetBatchMultiplier(protoId, units, now);
 
             pending[i] = (ent, sell, price);
         }
@@ -165,28 +168,11 @@ public sealed partial class CargoSystem
         if (!_cfg.GetCVar(ADTCCVars.MarketDeflation) || goods.Count == 0)
             return;
 
+        var market = AdtDeflationMarket(gridUid);
+        if (market == null)
+            return;
+
         var now = Timing.CurTime;
-
-        if (HasComp<TradeStationComponent>(gridUid))
-        {
-            var tradeMarket = EnsureComp<DemandMarketComponent>(gridUid);
-
-            foreach (var (ent, _, _) in goods)
-            {
-                if (MetaData(ent).EntityPrototype?.ID is not { } protoId)
-                    continue;
-
-                var units = TryComp<StackComponent>(ent, out var stack) ? Math.Max(1, (int) stack.Count) : 1;
-                tradeMarket.RecordTrade(protoId, units, now);
-            }
-
-            return;
-        }
-
-        if (!TryComp<StationBankAccountComponent>(station, out _))
-            return;
-
-        var market = EnsureComp<StationMarketComponent>(station);
 
         foreach (var (ent, _, _) in goods)
         {
