@@ -60,4 +60,4 @@ ent-ADTMagazineBoxReactive30CanUranium = цинк патронов (.30 реак
 
 ent-ADTMagazineBoxReactive30CanEmpty = цинк патронов (.30 реактивный)
     .desc = Металлический цинк на 50 патронов .30 реактивный.
-    .suffix = Пустая, Экспедиция
+    .suffix = Пустой, Экспедиция
