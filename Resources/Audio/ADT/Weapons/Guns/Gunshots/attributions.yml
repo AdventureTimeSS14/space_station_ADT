@@ -2,3 +2,13 @@
   license: "CC-BY-SA-3.0"
   copyright: "Created by discord: 1.wswiss.1"
   source: "https://github.com/AdventureTimeSS14/space_station_ADT"
+
+- files: ["trr30.ogg", "trench_shotgun.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Made by Etvy for Adventure Time project"
+  source: "https://github.com/AdventureTimeSS14/space_station_ADT"
+
+- files: ["forged_smg.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "smg.ogg from Space Station 14 (taken from tgstation), pitched down by Etvy for Adventure Time project"
+  source: "https://github.com/AdventureTimeSS14/space_station_ADT"
