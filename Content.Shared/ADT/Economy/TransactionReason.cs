@@ -15,6 +15,5 @@ public enum TransactionReason : byte
     BankTransfer,
     PredictorFee,
     AdminAction,
-    Fraud,
     RevConfiscation,
 }

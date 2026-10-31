@@ -39,7 +39,6 @@ bank-reason-eftpospayment = Оплата по EFTPOS
 bank-reason-banktransfer = Банковский перевод
 bank-reason-predictorfee = Услуги предсказателя
 bank-reason-adminaction = Корректировка администрацией
-bank-reason-fraud = Мошенническое списание
 bank-reason-revconfiscation = Удержание Центрального командования
 bank-initiator-centcom = Центральное командование
 
