@@ -5,6 +5,7 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Temperature.Systems;
 using Content.Shared.Polymorph;
+using Content.Shared.Mind.Components;
 using Content.Shared.Temperature.Components;
 
 namespace Content.Goobstation.Server.Changeling;
@@ -24,10 +25,19 @@ public sealed partial class ChangelingStasisSystem : SharedChangelingStasisSyste
         base.Initialize();
 
         SubscribeLocalEvent<ChangelingStasisComponent, PolymorphedEvent>(OnPolymorphed);
+        SubscribeLocalEvent<ChangelingStasisComponent, MindRemovedMessage>(OnMindRemoved);
 
         _flameQuery = GetEntityQuery<FlammableComponent>();
         _lingQuery = GetEntityQuery<ChangelingIdentityComponent>();
         _tempQuery = GetEntityQuery<TemperatureComponent>();
+    }
+
+    private void OnMindRemoved(Entity<ChangelingStasisComponent> ent, ref MindRemovedMessage args)
+    {
+        if (!ent.Comp.IsInStasis)
+            return;
+
+        args.Mind.Comp.PreventGhosting = false;
     }
 
     private void OnPolymorphed(Entity<ChangelingStasisComponent> ent, ref PolymorphedEvent args)

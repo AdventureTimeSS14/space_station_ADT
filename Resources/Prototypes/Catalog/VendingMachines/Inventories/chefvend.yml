@@ -6,7 +6,8 @@
     ReagentContainerSugar: 2 #ADT_Tweak
     ReagentContainerRice: 4  #ADT_Tweak
     ADTReagentContainerOat: 2 #ADT_Tweak
-    FoodCondimentPacketSalt: 8 #ADT_Tweak
+    ReagentContainerSalt: 2 #ADT_Tweak
+    ReagentContainerPepper: 2 #ADT_Tweak
     FoodCondimentBottleEnzyme: 1 #ADT_Tweak
     FoodCondimentBottleHotsauce: 1
     FoodCondimentBottleKetchup: 1
