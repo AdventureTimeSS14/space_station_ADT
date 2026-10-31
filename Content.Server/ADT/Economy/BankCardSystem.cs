@@ -555,7 +555,7 @@ public sealed class BankCardSystem : EntitySystem
 
         if (counterpart != null)
         {
-            type = Loc.GetString("bank-transfer");
+            type = Loc.GetString($"bank-reason-{reason.ToString().ToLowerInvariant()}");
             if (amount > 0)
                 who = initiator ?? counterpart.Name;
             else
