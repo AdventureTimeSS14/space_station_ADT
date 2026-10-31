@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Server.ADT.Mining;
+using Content.Shared.ADT.Crushers.Systems;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
 using Content.Shared.ADT.Hierophant;
@@ -31,6 +32,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
+using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.Lavaland.Goliath;
@@ -38,6 +40,7 @@ namespace Content.Server.ADT.Lavaland.Goliath;
 public sealed class ADTLavalandGoliathSystem : EntitySystem
 {
     private const float ChargeArrivalRange = 0.3f;
+    private const string AggroVisionRadiusKey = "AggroVisionRadius";
 
     private static readonly string[] BruteTypes = { "Blunt", "Slash", "Piercing" };
 
@@ -69,12 +72,15 @@ public sealed class ADTLavalandGoliathSystem : EntitySystem
     [Dependency] private MobStateSystem _mobState = default!;
     [Dependency] private MovementSpeedModifierSystem _speed = default!;
     [Dependency] private NPCSystem _npc = default!;
+    [Dependency] private HTNSystem _htn = default!;
+    [Dependency] private ADTRangedSuppressedSystem _suppressed = default!;
     [Dependency] private SharedMoverController _mover = default!;
     [Dependency] private NpcFactionSystem _faction = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] private SharedMapSystem _map = default!;
     [Dependency] private SharedPhysicsSystem _physics = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedProjectileSystem _projectile = default!;
     [Dependency] private SharedStunSystem _stun = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private TurfSystem _turf = default!;
@@ -113,7 +119,55 @@ public sealed class ADTLavalandGoliathSystem : EntitySystem
             return;
 
         ent.Comp.NextRanged -= ent.Comp.DamageCooldownReduction;
+
+        if (args.Origin is { } origin)
+            Retaliate(ent, origin);
+
         UpdateVisuals(ent, GetTarget(ent) != null);
+    }
+
+    private void Retaliate(Entity<ADTLavalandGoliathComponent> ent, EntityUid attacker)
+    {
+        if (attacker == ent.Owner
+            || _mobState.IsDead(ent)
+            || !HasComp<MobStateComponent>(attacker)
+            || _mobState.IsDead(attacker)
+            || IsFriendly(ent, attacker)
+            || !TryComp<HTNComponent>(ent, out var htn))
+        {
+            return;
+        }
+
+        if (GetDistance(ent, attacker) is not { } distance)
+            return;
+
+        _faction.AggroEntity(ent.Owner, attacker);
+
+        var blackboard = htn.Blackboard;
+        var current = blackboard.GetValueOrDefault<float>(AggroVisionRadiusKey, EntityManager);
+        ent.Comp.BaseAggroRadius ??= current;
+        blackboard.SetValue(AggroVisionRadiusKey, MathF.Max(current, MathF.Min(distance + ent.Comp.RetaliatePadding, ent.Comp.MaxRetaliateRadius)));
+
+        if (HasComp<ADTLavalandGoliathChargeComponent>(ent))
+            return;
+
+        _npc.WakeNPC(ent, htn);
+
+        if (GetTarget(ent) == null)
+        {
+            blackboard.SetValue("Target", attacker);
+            blackboard.SetValue("TargetCoordinates", new EntityCoordinates(attacker, Vector2.Zero));
+            _htn.Replan(htn);
+        }
+    }
+
+    private void ResetAggroRadius(Entity<ADTLavalandGoliathComponent> ent)
+    {
+        if (ent.Comp.BaseAggroRadius is not { } radius || !TryComp<HTNComponent>(ent, out var htn))
+            return;
+
+        htn.Blackboard.SetValue(AggroVisionRadiusKey, radius);
+        ent.Comp.BaseAggroRadius = null;
     }
 
     private void OnReflectAttempt(Entity<ADTLavalandGoliathComponent> ent, ref ProjectileReflectAttemptEvent args)
@@ -156,6 +210,12 @@ public sealed class ADTLavalandGoliathSystem : EntitySystem
 
         var localRotation = Transform(projectile).LocalRotation;
         _transform.SetLocalRotation(projectile, rotation.RotateVec(localRotation.ToVec()).ToAngle());
+
+        if (TryComp<ProjectileComponent>(projectile, out var projectileComp))
+            _projectile.SetShooter(projectile, projectileComp, ent);
+
+        if (TryComp<TimedDespawnComponent>(projectile, out var despawn))
+            despawn.Lifetime = MathF.Max(despawn.Lifetime, ent.Comp.ReflectedLifetime);
 
         _popup.PopupEntity(Loc.GetString("adt-goliath-reflect", ("projectile", projectile), ("goliath", ent.Owner)), ent, PopupType.SmallCaution);
         return true;
@@ -218,7 +278,7 @@ public sealed class ADTLavalandGoliathSystem : EntitySystem
         if (args.Weapon != ent.Owner || args.HitEntities.Count == 0)
             return;
 
-        if (_timing.CurTime < ent.Comp.NextRanged || HasComp<ADTLavalandGoliathChargeComponent>(ent))
+        if (_timing.CurTime < ent.Comp.NextRanged || HasComp<ADTLavalandGoliathChargeComponent>(ent) || _suppressed.IsSuppressed(ent))
             return;
 
         foreach (var hit in args.HitEntities)
@@ -396,12 +456,15 @@ public sealed class ADTLavalandGoliathSystem : EntitySystem
         UpdateVisuals(ent, target != null);
 
         if (target == null)
+        {
+            ResetAggroRadius(ent);
             return;
+        }
 
         if (ent.Comp.AncientTentacles)
             SpawnAncientTentacles(ent);
 
-        if (now < ent.Comp.NextRanged)
+        if (now < ent.Comp.NextRanged || _suppressed.IsSuppressed(ent))
             return;
 
         var distance = GetDistance(ent, target.Value);

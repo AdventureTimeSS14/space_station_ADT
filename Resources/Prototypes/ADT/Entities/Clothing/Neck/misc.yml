@@ -126,6 +126,9 @@
     sprite: ADT/Clothing/Neck/armband.rsi
   - type: StaticPrice
     price: 10
+  - type: Construction
+    graph: ADTClothingNeckArmband
+    node: armband
 
 - type: entity
   parent: ClothingNeckBase
@@ -139,6 +142,9 @@
     sprite: ADT/Clothing/Neck/armband_med.rsi
   - type: StaticPrice
     price: 15
+  - type: Construction
+    graph: ADTClothingNeckArmbandMed
+    node: armbandMed
 
 - type: entity
   parent: ClothingNeckBase
@@ -290,7 +296,7 @@
   - type: StaticPrice
     price: 250
 - type: entity
-  parent: ADTClothingNeckPendantBase
+  parent: [ ADTClothingNeckPendantBase, BaseFoldable ]
   id: ADTClothingNeckLocketGold
   name: gold locket
   description: A gold locket with a photograph inside.
@@ -299,6 +305,14 @@
     sprite: ADT/Clothing/Neck/medallion.rsi
     layers:
     - state: photo-gold
+      map: [ "unfoldedLayer" ]
+    - state: photo-gold-open
+      map: [ "foldedLayer" ]
+      visible: false
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: verb-common-close
+    foldVerbText: verb-common-open
   - type: Clothing
     sprite: ADT/Clothing/Neck/medallion.rsi
     clothingVisuals:
@@ -433,7 +447,7 @@
   - type: StaticPrice
     price: 120
 - type: entity
-  parent: ADTClothingNeckPendantBase
+  parent: [ ADTClothingNeckPendantBase, BaseFoldable ]
   id: ADTClothingNeckLocketSilver
   name: silver locket
   description: A silver locket with a photograph inside.
@@ -442,6 +456,14 @@
     sprite: ADT/Clothing/Neck/medallion.rsi
     layers:
     - state: photo-silver
+      map: [ "unfoldedLayer" ]
+    - state: photo-silver-open
+      map: [ "foldedLayer" ]
+      visible: false
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: verb-common-close
+    foldVerbText: verb-common-open
   - type: Clothing
     sprite: ADT/Clothing/Neck/medallion.rsi
     clothingVisuals:
@@ -576,7 +598,7 @@
   - type: StaticPrice
     price: 50
 - type: entity
-  parent: ADTClothingNeckPendantBase
+  parent: [ ADTClothingNeckPendantBase, BaseFoldable ]
   id: ADTClothingNeckLocketSteel
   name: steel locket
   description: A steel locket with a photograph inside.
@@ -585,6 +607,14 @@
     sprite: ADT/Clothing/Neck/medallion.rsi
     layers:
     - state: photo-steel
+      map: [ "unfoldedLayer" ]
+    - state: photo-steel-open
+      map: [ "foldedLayer" ]
+      visible: false
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: verb-common-close
+    foldVerbText: verb-common-open
   - type: Clothing
     sprite: ADT/Clothing/Neck/medallion.rsi
     clothingVisuals:

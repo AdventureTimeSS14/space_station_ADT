@@ -186,6 +186,30 @@
   - type: Construction
     graph: ADTModsuitMedical
     node: adtmodsuitmedical
+  - type: ItemToggle
+    onUse: false
+    soundActivate:
+      path: /Audio/Items/flashlight_on.ogg
+    soundDeactivate:
+      path: /Audio/Items/flashlight_off.ogg
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/Effects/Vehicle/ambulancesiren.ogg #not the best sound, but after looking through all of current freesound regarding sirens and ambulance, this was the best compromise
+      params:
+        volume: -4
+  - type: UseDelay
+    delay: 1.0
+  - type: ToggleClothing
+    action: ActionToggleParamedicSiren
+  - type: ItemTogglePointLight
+  - type: PointLight
+    enabled: false
+    radius: 2
+    energy: 2
+    color: blue
+    lightMask: ConeDouble
+  - type: RotatingLight
+    speed: 360
 
 #шахтёрский
 - type: entity
@@ -502,6 +526,30 @@
       - ADTModsuitModStatusReadout
       - ADTModsuitModHealthAnalyzer
       - ADTModsuitModDefibrillator
+  - type: ItemToggle
+    onUse: false
+    soundActivate:
+      path: /Audio/Items/flashlight_on.ogg
+    soundDeactivate:
+      path: /Audio/Items/flashlight_off.ogg
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/Effects/Vehicle/ambulancesiren.ogg #not the best sound, but after looking through all of current freesound regarding sirens and ambulance, this was the best compromise
+      params:
+        volume: -4
+  - type: UseDelay
+    delay: 1.0
+  - type: ToggleClothing
+    action: ActionToggleParamedicSiren
+  - type: ItemTogglePointLight
+  - type: PointLight
+    enabled: false
+    radius: 2
+    energy: 2
+    color: blue
+    lightMask: ConeDouble
+  - type: RotatingLight
+    speed: 360
 
 # Капитан
 - type: entity
@@ -627,6 +675,30 @@
       - ADTModsuitModDefibrillator
       - ADTModsuitModSechud
       - ADTModsuitModBodycam
+  - type: ItemToggle
+    onUse: false
+    soundActivate:
+      path: /Audio/Items/flashlight_on.ogg
+    soundDeactivate:
+      path: /Audio/Items/flashlight_off.ogg
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/Effects/Vehicle/policesiren.ogg
+      params:
+        volume: -4
+  - type: UseDelay
+    delay: 1.0
+  - type: ToggleClothing
+    action: ActionToggleBrigmediccSiren
+  - type: ItemTogglePointLight
+  - type: PointLight
+    enabled: false
+    radius: 1.8
+    energy: 2
+    color: red
+    lightMask: ConeDouble
+  - type: RotatingLight
+    speed: 360
 
 # НР "Минерва"
 - type: entity
@@ -891,3 +963,85 @@
       gloves: ADTClothingHandsModsuitERTMedical
       outerClothing: ADTClothingOuterModsuitBodyERTMedical
       shoes: ADTClothingModsuitShoesERT
+
+# Пустые версии для крафта
+
+- type: entity
+  parent: ADTClothingModsuitBackBase
+  id: ADTClothingModsuitBackBaseEmpty
+  suffix: Empty
+  components:
+  - type: ModSuit
+    startingModules: []
+  - type: ContainerFill
+    containers: {}
+
+- type: entity
+  parent: ADTClothingModsuitBackAtmos
+  id: ADTClothingModsuitBackAtmosEmpty
+  suffix: Empty
+  components:
+  - type: ModSuit
+    startingModules: []
+  - type: ContainerFill
+    containers: {}
+
+- type: entity
+  parent: ADTClothingModsuitBackClown
+  id: ADTClothingModsuitBackClownEmpty
+  suffix: Empty
+  components:
+  - type: ModSuit
+    startingModules: []
+  - type: ContainerFill
+    containers: {}
+
+- type: entity
+  parent: ADTClothingModsuitBackEngineering
+  id: ADTClothingModsuitBackEngineeringEmpty
+  suffix: Empty
+  components:
+  - type: ModSuit
+    startingModules: []
+  - type: ContainerFill
+    containers: {}
+
+- type: entity
+  parent: ADTClothingModsuitBackMedical
+  id: ADTClothingModsuitBackMedicalEmpty
+  suffix: Empty
+  components:
+  - type: ModSuit
+    startingModules: []
+  - type: ContainerFill
+    containers: {}
+
+- type: entity
+  parent: ADTClothingModsuitBackMining
+  id: ADTClothingModsuitBackMiningEmpty
+  suffix: Empty
+  components:
+  - type: ModSuit
+    startingModules: []
+  - type: ContainerFill
+    containers: {}
+
+- type: entity
+  parent: ADTClothingModsuitBackScience
+  id: ADTClothingModsuitBackScienceEmpty
+  suffix: Empty
+  components:
+  - type: ModSuit
+    startingModules: []
+  - type: ContainerFill
+    containers: {}
+
+- type: entity
+  parent: ADTClothingModsuitBackSecurity
+  id: ADTClothingModsuitBackSecurityEmpty
+  suffix: Empty
+  components:
+  - type: ModSuit
+    startingModules: []
+  - type: ContainerFill
+    containers: {}

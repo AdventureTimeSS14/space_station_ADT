@@ -48,7 +48,7 @@
       path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
   - type: Gun
     selectedMode: SemiAuto
-    fireRate: 3.25
+    fireRate: 2.5
     availableModes:
     - SemiAuto
     - FullAuto

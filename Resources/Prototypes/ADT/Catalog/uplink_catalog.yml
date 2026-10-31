@@ -195,9 +195,9 @@
   productEntity: ADTAttachmentMagneticHarness
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 4
+    Telecrystal: 3
   cost:
-    Telecrystal: 6
+    Telecrystal: 4
   categories:
   - UplinkAttachments #ADT_Tweak
   conditions:
@@ -1502,5 +1502,16 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: ADTUplinkGripModule
+  name: uplink-grip-module-name
+  description: uplink-grip-module-desc
+  icon: { sprite: /Textures/ADT/Objects/Devices/pin.rsi, state: firing_pin_pindi }
+  productEntity: ADTGripModule
+  cost:
+    Telecrystal: 1
   categories:
   - UplinkWeaponry

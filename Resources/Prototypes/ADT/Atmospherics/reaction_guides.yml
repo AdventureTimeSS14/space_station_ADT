@@ -1,0 +1,222 @@
+- type: gasReactionGuide
+  id: PlasmaFire
+  name: gas-reaction-guide-plasma-fire
+  consumes:
+    Plasma: 1
+    Oxygen: 0
+  produces:
+    CarbonDioxide: 0
+    Tritium: 0
+  heat: Released
+  nobliumInhibited: true
+  note: gas-reaction-guide-plasma-fire-note
+
+- type: gasReactionGuide
+  id: TritiumFire
+  name: gas-reaction-guide-tritium-fire
+  consumes:
+    Tritium: 1
+    Oxygen: 0.5
+  produces:
+    WaterVapor: 1
+  heat: Released
+  nobliumInhibited: true
+
+- type: gasReactionGuide
+  id: FrezonCoolant
+  name: gas-reaction-guide-frezon-coolant
+  consumes:
+    Frezon: 1
+    Nitrogen: 5
+  produces:
+    NitrousOxide: 6
+  heat: Absorbed
+  nobliumInhibited: true
+
+- type: gasReactionGuide
+  id: FrezonProduction
+  name: gas-reaction-guide-frezon-production
+  consumes:
+    Oxygen: 50
+    Tritium: 1
+  produces:
+    Frezon: 0
+    Nitrogen: 0
+  nobliumInhibited: true
+  note: gas-reaction-guide-frezon-production-note
+
+- type: gasReactionGuide
+  id: AmmoniaOxygenReaction
+  name: gas-reaction-guide-ammonia-oxygen
+  consumes:
+    Ammonia: 1
+    Oxygen: 1
+  produces:
+    NitrousOxide: 0.5
+    WaterVapor: 1.5
+
+- type: gasReactionGuide
+  id: N2ODecomposition
+  name: gas-reaction-guide-n2o-decomposition
+  consumes:
+    NitrousOxide: 1
+  produces:
+    Nitrogen: 1
+    Oxygen: 0.5
+
+- type: gasReactionGuide
+  id: BZProductionReaction
+  name: gas-reaction-guide-bz-production
+  consumes:
+    NitrousOxide: 4
+    Plasma: 8
+  produces:
+    BZ: 1
+  heat: Released
+  nobliumInhibited: true
+  note: gas-reaction-guide-bz-production-note
+
+- type: gasReactionGuide
+  id: PluoxiumProductionReaction
+  name: gas-reaction-guide-pluoxium-production
+  consumes:
+    CarbonDioxide: 1
+    Oxygen: 0.5
+    Tritium: 0.01
+  produces:
+    Pluoxium: 1
+    Hydrogen: 0.5
+  heat: Released
+  nobliumInhibited: true
+
+- type: gasReactionGuide
+  id: HydrogenFireReaction
+  name: gas-reaction-guide-hydrogen-fire
+  consumes:
+    Hydrogen: 1
+    Oxygen: 0.5
+  produces:
+    WaterVapor: 1
+  heat: Released
+  nobliumInhibited: true
+
+- type: gasReactionGuide
+  id: NitriumProduction
+  name: gas-reaction-guide-nitrium-production
+  consumes:
+    Tritium: 1
+    Nitrogen: 1
+    BZ: 0.05
+  produces:
+    Nitrium: 1
+  heat: Absorbed
+  nobliumInhibited: true
+
+- type: gasReactionGuide
+  id: NitriumDecomposition
+  name: gas-reaction-guide-nitrium-decomposition
+  consumes:
+    Nitrium: 1
+  produces:
+    Hydrogen: 1
+    Nitrogen: 1
+  heat: Released
+  nobliumInhibited: true
+
+- type: gasReactionGuide
+  id: HyperNobliumProduction
+  name: gas-reaction-guide-hyper-noblium-production
+  consumes:
+    Nitrogen: 10
+    Tritium: 5
+  produces:
+    HyperNoblium: 0.1
+  heat: Released
+  note: gas-reaction-guide-hyper-noblium-production-note
+
+- type: gasReactionGuide
+  id: HalonOxygenAbsorption
+  name: gas-reaction-guide-halon-oxygen-absorption
+  consumes:
+    Halon: 1
+    Oxygen: 20
+  produces:
+    CarbonDioxide: 5
+  heat: Released
+  nobliumInhibited: true
+
+- type: gasReactionGuide
+  id: HealiumProduction
+  name: gas-reaction-guide-healium-production
+  consumes:
+    Frezon: 2.75
+    BZ: 0.25
+  produces:
+    Healium: 3
+  heat: Released
+  nobliumInhibited: true
+
+- type: gasReactionGuide
+  id: ZaukerProduction
+  name: gas-reaction-guide-zauker-production
+  consumes:
+    HyperNoblium: 0.1
+    Nitrium: 5
+  produces:
+    Zauker: 6
+  heat: Absorbed
+
+- type: gasReactionGuide
+  id: ZaukerDecomposition
+  name: gas-reaction-guide-zauker-decomposition
+  consumes:
+    Zauker: 1
+  produces:
+    Oxygen: 0.3
+    Nitrogen: 0.7
+  heat: Released
+  nobliumInhibited: true
+
+- type: gasReactionGuide
+  id: ProtoNitrateProduction
+  name: gas-reaction-guide-proto-nitrate-production
+  consumes:
+    Hydrogen: 2
+    Pluoxium: 0.2
+  produces:
+    ProtoNitrate: 0.2
+  heat: Released
+  nobliumInhibited: true
+
+- type: gasReactionGuide
+  id: ProtoNitrateHydrogenConversion
+  name: gas-reaction-guide-proto-nitrate-hydrogen-conversion
+  consumes:
+    Hydrogen: 1
+  produces:
+    ProtoNitrate: 0.5
+  heat: Absorbed
+  nobliumInhibited: true
+
+- type: gasReactionGuide
+  id: ProtoNitrateTritiumDeirradiation
+  name: gas-reaction-guide-proto-nitrate-tritium-deirradiation
+  consumes:
+    Tritium: 1
+    ProtoNitrate: 0.01
+  produces:
+    Hydrogen: 1
+  heat: Released
+  nobliumInhibited: true
+
+- type: gasReactionGuide
+  id: ProtoNitrateBZaseAction
+  name: gas-reaction-guide-proto-nitrate-bzase-action
+  consumes:
+    BZ: 1
+  produces:
+    Nitrogen: 0.4
+    Helium: 1.6
+    Plasma: 0.8
+  heat: Released
+  nobliumInhibited: true

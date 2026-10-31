@@ -46,6 +46,7 @@ namespace Content.Client.Lathe.UI
                     if (_menu != null)
                         _menu.Recipes = msg.Recipes;
                     _menu?.UpdateBeakerStatus(msg.HasReagentSlot, msg.BeakerInserted); // ADT-Tweak
+                    _menu?.UpdateAccess(); // ADT-Tweak
                     _menu?.PopulateRecipes();
                     _menu?.UpdateCategories();
                     _menu?.PopulateQueueList(msg.Queue);

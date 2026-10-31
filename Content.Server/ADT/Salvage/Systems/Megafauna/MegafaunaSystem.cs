@@ -40,6 +40,7 @@ public sealed partial class MegafaunaSystem : EntitySystem
 
         UpdateAggro(now);
         UpdateCombat(now);
+        UpdateSmash(now);
         UpdateSequences(now);
     }
 

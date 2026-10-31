@@ -87,31 +87,38 @@
       maxRadius: 310
       entries:
       - prototype: ADTWorldAnvilRoomMarker
-    # /datum/spawn_pool/lavaland_fauna - rand(100, 150)
-    - minBudget: 165
-      maxBudget: 248
+    # Paradise LavalandGenerator.dm: weighted_mob_spawn_list
+    - minBudget: 350
+      maxBudget: 450
       minSpacing: 12
       minDistanceFromCenter: 60
       maxRadius: 325
+      maxAttempts: 150
+      maxFailures: 60
       entries:
       - prototype: ADTMobLavalandGoliath
-        weight: 3
+        weight: 50
         variants:
         - prototype: ADTMobLavalandGoliathAncient
           probability: 0.1
-      - prototype: ADTMobLegion
-        weight: 3
       - prototype: MobWatcherLavaland
-        weight: 3
+        weight: 40
         variants:
         - prototype: MobWatcherIcewing
           probability: 0.0025
         - prototype: MobWatcherMagmawing
           probability: 0.0075
+      - prototype: ADTMobLegion
+        weight: 30
+      - prototype: ADTMobMarrowWeaverDangerous
+        weight: 30
+        variants:
+        - prototype: ADTMobMarrowWeaverFrost
+          probability: 0.15
       - prototype: ADTMobGoldgrub
-        weight: 2
+        weight: 15
       - prototype: ADTMobGutlunch
-        weight: 1
+        weight: 10
         variants:
         - prototype: ADTMobGubbuck
           probability: 0.025

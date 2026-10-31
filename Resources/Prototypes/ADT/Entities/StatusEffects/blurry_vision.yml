@@ -1,0 +1,12 @@
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: ADTStatusEffectBlurryVision
+  name: blurry vision
+  components:
+  - type: StatusEffect
+    whitelist:
+      components:
+      - MobState
+      - Blindable
+      requireAll: true
+  - type: ADTBlurryVisionStatusEffect

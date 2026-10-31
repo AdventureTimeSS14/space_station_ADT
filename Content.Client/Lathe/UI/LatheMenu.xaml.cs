@@ -2,6 +2,8 @@ using System.Linq;
 using System.Text;
 using Content.Client.Materials;
 using Content.Client.UserInterface.Controls;
+using Content.Shared.ADT.Lathe;
+using Robust.Client.Player;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
@@ -26,10 +28,14 @@ public sealed partial class LatheMenu : FancyWindow
 {
     [Dependency] private IEntityManager _entityManager = default!;
     [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IPlayerManager _player = default!; // ADT-Tweak
 
     private readonly SpriteSystem _spriteSystem;
     private readonly LatheSystem _lathe;
     private readonly MaterialStorageSystem _materialStorage;
+    private readonly ADTLatheAccessSystem _latheAccess; // ADT-Tweak
+
+    private bool _hasAccess = true; // ADT-Tweak
 
     public event Action<BaseButton.ButtonEventArgs>? OnServerListButtonPressed;
     public event Action<string, int>? RecipeQueueAction;
@@ -54,6 +60,7 @@ public sealed partial class LatheMenu : FancyWindow
         _spriteSystem = _entityManager.System<SpriteSystem>();
         _lathe = _entityManager.System<LatheSystem>();
         _materialStorage = _entityManager.System<MaterialStorageSystem>();
+        _latheAccess = _entityManager.System<ADTLatheAccessSystem>(); // ADT-Tweak
 
         SearchBar.OnTextChanged += _ =>
         {
@@ -92,7 +99,18 @@ public sealed partial class LatheMenu : FancyWindow
         }
 
         MaterialsList.SetOwner(Entity);
+        UpdateAccess(); // ADT-Tweak
     }
+
+    // ADT-Tweak start
+    public void UpdateAccess()
+    {
+        _hasAccess = _player.LocalEntity is { } user && _latheAccess.HasAccess(Entity, user);
+        ServerListButton.Disabled = !_hasAccess;
+        DeleteFabricating.Disabled = !_hasAccess;
+        MaterialsList.SetLocked(!_hasAccess);
+    }
+    // ADT-Tweak end
 
     protected override void Opened()
     {
@@ -166,7 +184,7 @@ public sealed partial class LatheMenu : FancyWindow
         int idx = 0;
         foreach (var prototype in sortedRecipesToShow)
         {
-            var canProduce = _lathe.CanProduce(Entity, prototype, quantity, component: lathe);
+            var canProduce = _hasAccess && _lathe.CanProduce(Entity, prototype, quantity, component: lathe); // ADT-Tweak
             var tooltipFunction = () => GenerateTooltipText(prototype);
 
             if (idx >= oldChildCount)
@@ -359,6 +377,7 @@ public sealed partial class LatheMenu : FancyWindow
                 queuedRecipeBox.OnDeletePressed += s => QueueDeleteAction?.Invoke(s);
                 queuedRecipeBox.OnMoveUpPressed += s => QueueMoveUpAction?.Invoke(s);
                 queuedRecipeBox.OnMoveDownPressed += s => QueueMoveDownAction?.Invoke(s);
+                queuedRecipeBox.SetEnabled(_hasAccess); // ADT-Tweak
                 QueueList.AddChild(queuedRecipeBox);
             }
             else
@@ -373,6 +392,7 @@ public sealed partial class LatheMenu : FancyWindow
 
                 child.SetDisplayText(displayText);
                 child.SetIndex(idx);
+                child.SetEnabled(_hasAccess); // ADT-Tweak
                 child.SetDisplayControl(GetRecipeDisplayControl(recipe));
             }
             idx++;

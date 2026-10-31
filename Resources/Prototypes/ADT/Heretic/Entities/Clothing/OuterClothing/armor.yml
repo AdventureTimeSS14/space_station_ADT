@@ -4,6 +4,7 @@
   name: ominous armor
   description: A ragged, dusty set of robes. Strange eyes line the inside.
   components:
+  - type: ADTInjectionSlowdown
   - type: Sprite
     sprite: ADT/Heretic/Clothing/OuterClothing/eldritch_armor.rsi
     state: icon
@@ -38,6 +39,7 @@
   name: void cloak
   description: Black like tar, reflecting no light. Runic symbols line the outside. With each flash you lose comprehension of what you are seeing.
   components:
+  - type: ADTInjectionSlowdown
   - type: Sprite
     sprite: ADT/Heretic/Clothing/OuterClothing/void_cloak.rsi
     layers:

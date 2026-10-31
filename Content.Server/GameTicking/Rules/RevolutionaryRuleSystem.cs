@@ -91,6 +91,14 @@ public sealed partial class RevolutionaryRuleSystem : GameRuleSystem<Revolutiona
                 GameTicker.EndGameRule(uid, gameRule);
             }
         }
+
+        //ADT-Tweak start
+        if (AllEntityQuery<HeadRevolutionaryComponent>().MoveNext(out _) ||
+            AllEntityQuery<RevolutionaryComponent>().MoveNext(out _))
+        {
+            CheckRevsLose();
+        }
+        //ADT-Tweak end
     }
 
     protected override void AppendRoundEndText(EntityUid uid,
@@ -164,7 +172,7 @@ public sealed partial class RevolutionaryRuleSystem : GameRuleSystem<Revolutiona
         if (!_mind.TryGetMind(ev.User.Value, out var revMindId, out _) || !_role.MindHasRole<RevolutionaryRoleComponent>(revMindId, out var role))
             return;
 
-        if (role.Value.Comp2.ConvertedCount <= 15)
+        if (role.Value.Comp2.ConvertedCount < 5)
         {
             _euiMan.OpenEui(new AcceptRevolutionEui(ev.User.Value, ev.Target, comp, this), session);
             return;
@@ -244,29 +252,68 @@ public sealed partial class RevolutionaryRuleSystem : GameRuleSystem<Revolutiona
         //ADT start
         var headRevList = new List<EntityUid>();
 
-        var headRevs = AllEntityQuery<HeadRevolutionaryComponent, MobStateComponent>();
-        while (headRevs.MoveNext(out var uid, out _, out _))
+        var headRevs = AllEntityQuery<HeadRevolutionaryComponent, MobStateComponent, MindContainerComponent>();
+        while (headRevs.MoveNext(out var uid, out _, out _, out var mc))
         {
+            if (!mc.HasMind)
+                continue;
             headRevList.Add(uid);
         }
 
+        if (!IsGroupDead(headRevList, false))
+            return false;
+
         // If no Head Revs are alive all normal Revs will lose their Rev status and rejoin Nanotrasen
-        if (IsGroupDead(headRevList, false)) //ADT tweak
         // Cuffing Head Revs is not enough - they must be killed.
         //if (IsGroupDetainedOrDead(headRevList, false, false, false))
+
+        var headrev = AllEntityQuery<RevolutionaryComponent, MindContainerComponent>();
+        while (headrev.MoveNext(out var uid, out var revComp, out var mc))
         {
-            var headrev = AllEntityQuery<RevolutionaryComponent, MindContainerComponent>();
-            while (headrev.MoveNext(out var uid, out _, out var mc))
+            if (HasComp<HeadRevolutionaryComponent>(uid))
+                continue;
+            if (!revComp.Running)
+                continue;
+            if (!mc.HasMind)
+                continue;
+            if (TryComp<MobStateComponent>(uid, out var mobstate)
+                && mobstate.CurrentState != MobState.Dead
+                && mobstate.CurrentState != MobState.Invalid)
             {
-                if (HasComp<HeadRevolutionaryComponent>(uid))
-                    continue;
-                if (TryComp<MobStateComponent>(uid, out var mobstate) && mobstate.CurrentState != MobState.Dead)
-                {
-                    AddComp<HeadRevolutionaryComponent>(uid);
-                    return false;
-                }
+                AddComp<HeadRevolutionaryComponent>(uid);
+
+                _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(uid)} was promoted to Head Revolutionary");
+
+                if (_mind.TryGetMind(uid, out _, out var mind) && _player.TryGetSessionById(mind.UserId, out var session))
+                    _antag.SendBriefing(session, Loc.GetString("head-rev-promoted-greeting"), Color.Red, revComp.RevStartSound);
+                return false;
             }
         }
+
+        var rev = AllEntityQuery<RevolutionaryComponent, MindContainerComponent>();
+        while (rev.MoveNext(out var uid, out var revComp, out var mc))
+        {
+            if (HasComp<HeadRevolutionaryComponent>(uid))
+                continue;
+
+            if (!revComp.Running)
+                continue;
+
+            _npcFaction.RemoveFaction(uid, RevolutionaryNpcFaction);
+            _stun.TryUpdateParalyzeDuration(uid, TimeSpan.FromSeconds(4));
+            RemCompDeferred<RevolutionaryComponent>(uid);
+            _popup.PopupEntity(Loc.GetString("rev-break-control", ("name", Identity.Entity(uid, EntityManager))), uid);
+            _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(uid)} was deconverted due to all Head Revolutionaries dying.");
+
+            if (!_mind.TryGetMind(uid, out var mindId, out var mind, mc))
+                continue;
+
+            _role.MindRemoveRole<RevolutionaryRoleComponent>(mindId);
+
+            if (_player.TryGetSessionById(mind.UserId, out var session))
+                _euiMan.OpenEui(new DeconvertedEui(), session);
+        }
+
         return true;
 
     }
