@@ -20,7 +20,7 @@ public sealed partial class GunSystem
             Containers.Remove(existing, ent.Comp.Container);
             EnsureShootable(existing);
         }
-        else if (ent.Comp.UnspawnedCount > 0)
+        else if (ent.Comp.UnspawnedCount > 0 && !ent.Comp.InfiniteUnspawned) // ADT-Tweak: Mono, infinite ammo can't be racked out
         {
             ent.Comp.UnspawnedCount--;
             DirtyField(ent.AsNullable(), nameof(BallisticAmmoProviderComponent.UnspawnedCount));

@@ -1,0 +1,10 @@
+ent-120mmCartridgeAPHEDS = бронебойно-фугасный снаряд 120 мм
+    .desc = Химически разгоняемый бронебойно-фугасный подкалиберный снаряд для корабельных орудий калибра 120 мм.
+    .ammo-loader-type = Боеприпас (бронебойно-фугасный)
+    .ammo-loader-caliber = 120 мм
+    .ammo-loader-weight = 12 кг
+ent-120mmBulletAPHEDS = бронебойно-фугасный снаряд 120 мм
+ent-MuzzleFlashEffect120mmAK800 = { "" }
+    .desc = { "" }
+ent-MuzzleFlashEffect120mmAK820 = { ent-MuzzleFlashEffect120mmAK800 }
+    .desc = { ent-MuzzleFlashEffect120mmAK800.desc }

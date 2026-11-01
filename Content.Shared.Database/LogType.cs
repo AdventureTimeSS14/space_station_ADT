@@ -510,5 +510,10 @@ public enum LogType
     CanvasDrawingBan = 1105,
     CanvasReport = 1106,
     CanvasWhitelist = 1107,
+
+    /// <summary>
+    /// Ship weapons fired from a gunnery console. Same value as on Monolith.
+    /// </summary>
+    ShipgunFired = 150,
     // ADT-Tweak-End
 }
