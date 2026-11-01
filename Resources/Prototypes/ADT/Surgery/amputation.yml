@@ -15,6 +15,9 @@
           conditions:
             - !type:OrganPresentCondition
               organId: ArmLeft
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ jumpsuit, outerClothing ]
           steps:
             - name: surgery-edge-limb-cut-label
               quality: Incision
@@ -190,6 +193,9 @@
           conditions:
             - !type:OrganPresentCondition
               organId: ArmRight
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ jumpsuit, outerClothing ]
           steps:
             - name: surgery-edge-limb-cut-label
               quality: Incision
@@ -365,6 +371,9 @@
           conditions:
             - !type:OrganPresentCondition
               organId: HandLeft
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ gloves ]
           steps:
             - name: surgery-edge-limb-cut-label
               quality: Incision
@@ -512,6 +521,9 @@
           conditions:
             - !type:OrganPresentCondition
               organId: HandRight
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ gloves ]
           steps:
             - name: surgery-edge-limb-cut-label
               quality: Incision
@@ -659,6 +671,9 @@
           conditions:
             - !type:OrganPresentCondition
               organId: LegLeft
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ jumpsuit, outerClothing ]
           steps:
             - name: surgery-edge-limb-cut-label
               quality: Incision
@@ -805,6 +820,9 @@
           conditions:
             - !type:OrganPresentCondition
               organId: LegRight
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ jumpsuit, outerClothing ]
           steps:
             - name: surgery-edge-limb-cut-label
               quality: Incision
@@ -951,6 +969,9 @@
           conditions:
             - !type:OrganPresentCondition
               organId: FootLeft
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ shoes, socks ]
           steps:
             - name: surgery-edge-limb-cut-label
               quality: Incision
@@ -1098,6 +1119,9 @@
           conditions:
             - !type:OrganPresentCondition
               organId: FootRight
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ shoes, socks ]
           steps:
             - name: surgery-edge-limb-cut-label
               quality: Incision

@@ -16,6 +16,9 @@
           conditions:
             - !type:OrganPresentCondition
               organId: ArmLeft
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ jumpsuit, outerClothing ]
           steps:
             - name: surgery-edge-cyber-unscrew-label
               quality: Screwdriving
@@ -118,6 +121,9 @@
           conditions:
             - !type:OrganPresentCondition
               organId: ArmRight
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ jumpsuit, outerClothing ]
           steps:
             - name: surgery-edge-cyber-unscrew-label
               quality: Screwdriving
@@ -220,6 +226,9 @@
           conditions:
             - !type:OrganPresentCondition
               organId: HandLeft
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ gloves ]
           steps:
             - name: surgery-edge-cyber-unscrew-label
               quality: Screwdriving
@@ -300,6 +309,9 @@
           conditions:
             - !type:OrganPresentCondition
               organId: HandRight
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ gloves ]
           steps:
             - name: surgery-edge-cyber-unscrew-label
               quality: Screwdriving
@@ -380,6 +392,9 @@
           conditions:
             - !type:OrganPresentCondition
               organId: LegLeft
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ jumpsuit, outerClothing ]
           steps:
             - name: surgery-edge-cyber-unscrew-label
               quality: Screwdriving
@@ -460,6 +475,9 @@
           conditions:
             - !type:OrganPresentCondition
               organId: LegRight
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ jumpsuit, outerClothing ]
           steps:
             - name: surgery-edge-cyber-unscrew-label
               quality: Screwdriving
@@ -540,6 +558,9 @@
           conditions:
             - !type:OrganPresentCondition
               organId: FootLeft
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ shoes, socks ]
           steps:
             - name: surgery-edge-cyber-unscrew-label
               quality: Screwdriving
@@ -620,6 +641,9 @@
           conditions:
             - !type:OrganPresentCondition
               organId: FootRight
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ shoes, socks ]
           steps:
             - name: surgery-edge-cyber-unscrew-label
               quality: Screwdriving
@@ -700,6 +724,9 @@
             - !type:OrganPresentCondition
               organId: ArmLeft
               inverted: true
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ jumpsuit, outerClothing ]
           steps:
             - name: surgery-edge-cyber-open-socket-label
               quality: Screwdriving
@@ -755,6 +782,9 @@
             - !type:OrganPresentCondition
               organId: ArmRight
               inverted: true
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ jumpsuit, outerClothing ]
           steps:
             - name: surgery-edge-cyber-open-socket-label
               quality: Screwdriving
@@ -813,6 +843,9 @@
               inverted: true
             - !type:OrganPresentCondition
               organId: ArmLeft
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ gloves ]
           steps:
             - name: surgery-edge-cyber-open-socket-label
               quality: Screwdriving
@@ -872,6 +905,9 @@
               inverted: true
             - !type:OrganPresentCondition
               organId: ArmRight
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ gloves ]
           steps:
             - name: surgery-edge-cyber-open-socket-label
               quality: Screwdriving
@@ -928,6 +964,9 @@
             - !type:OrganPresentCondition
               organId: LegLeft
               inverted: true
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ jumpsuit, outerClothing ]
           steps:
             - name: surgery-edge-cyber-open-socket-label
               quality: Screwdriving
@@ -983,6 +1022,9 @@
             - !type:OrganPresentCondition
               organId: LegRight
               inverted: true
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ jumpsuit, outerClothing ]
           steps:
             - name: surgery-edge-cyber-open-socket-label
               quality: Screwdriving
@@ -1041,6 +1083,9 @@
               inverted: true
             - !type:OrganPresentCondition
               organId: LegLeft
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ shoes, socks ]
           steps:
             - name: surgery-edge-cyber-open-socket-label
               quality: Screwdriving
@@ -1100,6 +1145,9 @@
               inverted: true
             - !type:OrganPresentCondition
               organId: LegRight
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ shoes, socks ]
           steps:
             - name: surgery-edge-cyber-open-socket-label
               quality: Screwdriving

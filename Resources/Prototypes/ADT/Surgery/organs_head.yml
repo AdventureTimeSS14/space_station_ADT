@@ -33,6 +33,10 @@
         - id: RetractEars
           target: EarsRetracted
           label: surgery-edge-head-retract-ears-label
+          conditions:
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ head, ears, ears2 ]
           steps:
             - name: surgery-edge-head-retract-ears-label
               quality: Retraction
