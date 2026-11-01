@@ -1,11 +1,14 @@
 using Content.Server.ADT.Deafness;
 using Content.Server.Body.Systems;
+using Content.Server.Chat.Systems;
 using Content.Shared.ADT.Body.OrganHealth;
 using Content.Shared.Flash;
 using Content.Shared.ADT.Deafness;
 using Content.Shared.ADT.Salvage.Components;
 using Content.Shared.Body;
 using Content.Shared.Body.Components;
+using Content.Shared.Chat;
+using Content.Shared.Chat.Prototypes;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Eye.Blinding.Systems;
@@ -14,6 +17,9 @@ using Content.Shared.Medical;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Speech.EntitySystems;
+using Content.Shared.Stunnable;
+using Content.Shared.Zombies;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -34,6 +40,9 @@ public sealed class OrganFunctionsSystem : EntitySystem
     [Dependency] private BlindableSystem _blindable = default!;
     [Dependency] private BlurryVisionSystem _blurry = default!;
     [Dependency] private ADTDeafnessSystem _deafness = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private StutteringSystem _stuttering = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
 
     private static readonly ProtoId<OrganCategoryPrototype> Heart = "Heart";
     private static readonly ProtoId<OrganCategoryPrototype> Lungs = "Lungs";
@@ -43,22 +52,29 @@ public sealed class OrganFunctionsSystem : EntitySystem
     private static readonly ProtoId<OrganCategoryPrototype> Eyes = "Eyes";
     private static readonly ProtoId<OrganCategoryPrototype> Ears = "Ears";
     private static readonly ProtoId<OrganCategoryPrototype> Tongue = "Tongue";
+    private static readonly ProtoId<OrganCategoryPrototype> Brain = "Brain";
+    private static readonly ProtoId<EmotePrototype> CoughEmote = "Cough";
 
     private static readonly TimeSpan HeartAttackSecondStage = TimeSpan.FromSeconds(15);
     private static readonly TimeSpan HeartAttackThirdStage = TimeSpan.FromSeconds(30);
     private static readonly TimeSpan DefibrillatorStrainWindow = TimeSpan.FromSeconds(60);
     private const int DefibrillatorStrainPeriod = 3;
-    private const float DefibrillatorZapDamage = 3f;
-    private const float DefibrillatorStrainDamage = 25f;
-    private const float FlashEyesDamage = 2f;
+    private const float DefibrillatorZapDamage = 2.4f;
+    private const float DefibrillatorStrainDamage = 20f;
+    private const float FlashEyesDamage = 3f;
     private const float DamagedEyesBlur = 2f;
+    private const float DamagedLungsCoughChance = 0.08f;
+    private const float DamagedBrainSymptomChance = 0.08f;
+    private const float FailingBrainSeizureChance = 0.15f;
+    private static readonly TimeSpan BrainStutterDuration = TimeSpan.FromSeconds(10);
+    private static readonly TimeSpan BrainSeizureDuration = TimeSpan.FromSeconds(5);
     private const float FailingStomachVomitChance = 0.05f;
     private const float DamagedHeartArrhythmiaChance = 0.2f;
     private const float DamagedStomachVomitChance = 0.02f;
     private const float DamagedEarsRingingChance = 0.04f;
     private const float EarsRingingSeverity = 2.5f;
     private const float LiverVomitChance = 0.15f;
-    private const float LiverCollateralDamage = 0.4f;
+    private const float LiverCollateralDamage = 0.6f;
     private static readonly TimeSpan LiverVomitingStage = TimeSpan.FromSeconds(60);
     private static readonly TimeSpan LiverCollateralStage = TimeSpan.FromSeconds(120);
     private static readonly TimeSpan LiverCriticalStage = TimeSpan.FromSeconds(180);
@@ -91,6 +107,8 @@ public sealed class OrganFunctionsSystem : EntitySystem
     {
         if (!HasComp<MobStateComponent>(args.Target))
             return;
+
+        EnsureComp<OrganTraumaComponent>(args.Target);
 
         var functions = EnsureComp<OrganFunctionsComponent>(args.Target);
         if (CompOrNull<OrganComponent>(ent)?.Category is { } category)
@@ -190,6 +208,8 @@ public sealed class OrganFunctionsSystem : EntitySystem
             UpdateFiltration(uid, comp);
             UpdateStomach(uid, comp);
             UpdateEars(uid, comp);
+            UpdateLungs(uid, comp);
+            UpdateBrain(uid, comp);
         }
     }
 
@@ -198,7 +218,7 @@ public sealed class OrganFunctionsSystem : EntitySystem
         foreach (var organ in _body.EnumerateOrgans<OrganHealthComponent>(body))
         {
             var health = organ.Comp2;
-            if (health.Kind != OrganKind.Organic || health.Stage == OrganStage.Failing || health.Damage <= 0f)
+            if (!OrganHealthSystem.CanRegenerate(health))
                 continue;
 
             _organHealth.ChangeDamage((organ.Owner, health), -health.HealRate * seconds);
@@ -360,6 +380,43 @@ public sealed class OrganFunctionsSystem : EntitySystem
 
         _deafness.Deafen(body, EarsRingingSeverity);
         _popup.PopupEntity(Loc.GetString("organ-ears-ringing"), body, body, PopupType.SmallCaution);
+    }
+
+    private void UpdateLungs(EntityUid body, OrganFunctionsComponent comp)
+    {
+        if (!comp.ExpectedCategories.Contains(Lungs)
+            || !_organHealth.TryGetOrgan(body, Lungs, out var lungs)
+            || lungs.Comp.Kind != OrganKind.Organic
+            || lungs.Comp.Stage < OrganStage.Damaged
+            || !_random.Prob(DamagedLungsCoughChance))
+            return;
+
+        _chat.TryEmoteWithChat(body, CoughEmote, ChatTransmitRange.Normal);
+    }
+
+    private void UpdateBrain(EntityUid body, OrganFunctionsComponent comp)
+    {
+        if (!comp.ExpectedCategories.Contains(Brain)
+            || !_organHealth.TryGetOrgan(body, Brain, out var brain)
+            || brain.Comp.Kind != OrganKind.Organic
+            || HasComp<ZombieComponent>(body)
+            || _mobState.IsIncapacitated(body))
+            return;
+
+        switch (brain.Comp.Stage)
+        {
+            case OrganStage.Damaged when _random.Prob(DamagedBrainSymptomChance):
+                _stuttering.DoStutter(body, BrainStutterDuration, true);
+                _popup.PopupEntity(Loc.GetString("organ-brain-headache"), body, body, PopupType.SmallCaution);
+                break;
+
+            case OrganStage.Failing when _random.Prob(FailingBrainSeizureChance):
+                _stuttering.DoStutter(body, BrainStutterDuration, true);
+                _jittering.DoJitter(body, BrainSeizureDuration, true);
+                _stun.TryUpdateParalyzeDuration(body, BrainSeizureDuration);
+                _popup.PopupEntity(Loc.GetString("organ-brain-seizure"), body, body, PopupType.MediumCaution);
+                break;
+        }
     }
 
     private static DamageSpecifier Asphyxiation(float amount)

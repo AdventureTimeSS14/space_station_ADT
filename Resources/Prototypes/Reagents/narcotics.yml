@@ -58,7 +58,7 @@
         time: 2
       - !type:AdjustOrganDamage # ADT-Tweak
         category: Heart
-        amount: 0.1
+        amount: 0.2
         conditions:
         - !type:ReagentCondition
           reagent: Desoxyephedrine
@@ -132,7 +132,7 @@
             Asphyxiation: 2
       - !type:AdjustOrganDamage # ADT-Tweak
         category: Heart
-        amount: 0.1
+        amount: 0.2
         conditions:
         - !type:ReagentCondition
           reagent: Ephedrine
@@ -235,7 +235,7 @@
             Poison: 3
       - !type:AdjustOrganDamage # ADT-Tweak
         category: Heart
-        amount: 0.1
+        amount: 0.2
         conditions:
         - !type:ReagentCondition
           reagent: Stimulants
@@ -324,6 +324,9 @@
         damage:
           types:
             Cellular: 0.002
+      - !type:AdjustOrganDamage
+        category: Lungs
+        amount: 0.01
   # ADT-Tweak-End
 
 # TODO: Replace these nonstandardized effects with generic brain damage

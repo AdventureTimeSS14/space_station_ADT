@@ -323,6 +323,7 @@
   - type: GibbableOrgan
   - type: Organ
     category: Brain
+  - type: OrganHealth # ADT-Tweak
   - type: Sprite
     layers:
     - state: brain

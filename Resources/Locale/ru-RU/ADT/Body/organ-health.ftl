@@ -7,3 +7,5 @@ organ-health-examine-failing = Орган слишком долго пребыв
 organ-health-examine-damaged-robotic = Орган, кажется, работает неисправно.
 organ-health-examine-failing-robotic = Орган сломан.
 organ-ears-ringing = В ушах нарастает звон, заглушая все звуки вокруг.
+organ-brain-headache = Голову раскалывает острая боль, мысли путаются.
+organ-brain-seizure = Тело сводит судорогой, вы теряете контроль над собой!

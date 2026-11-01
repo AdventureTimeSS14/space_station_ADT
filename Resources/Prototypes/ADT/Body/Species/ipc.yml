@@ -392,6 +392,9 @@
   parent: [ OrganBaseBrain, ADTOrganIPC ]
   id: ADTOrganIPCBrain
   components:
+  - type: OrganHealth
+    kind: Robotic
+    healRate: 0
   - type: Solution
     solution:
       reagents: []

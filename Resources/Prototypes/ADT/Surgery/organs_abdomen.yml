@@ -92,6 +92,74 @@
       packages:
         - SurgeryPackageRepairAbdomenOrgans
       edges:
+        - id: TendBrute
+          label: surgery-edge-abdomen-tend-brute-label
+          target: AbdomenOpen
+          conditions:
+            - !type:DamageGroupsCondition
+              groups: [ Brute ]
+          steps:
+            - name: surgery-step-abdomen-tend-brute-1
+              quality: Clamping
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 3
+            - name: surgery-step-abdomen-tend-brute-2
+              quality: Cautery
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Heat: 3
+          effects:
+            - !type:HealDamageGroupsEffect
+              groups: [ Brute ]
+              amount: 30
+
+        - id: TendBurn
+          label: surgery-edge-abdomen-tend-burn-label
+          target: AbdomenOpen
+          conditions:
+            - !type:DamageGroupsCondition
+              groups: [ Burn ]
+          steps:
+            - name: surgery-step-abdomen-tend-burn-1
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 3
+            - name: surgery-step-abdomen-tend-burn-2
+              quality: Clamping
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 3
+          effects:
+            - !type:HealDamageGroupsEffect
+              groups: [ Burn ]
+              amount: 30
+
         - id: OpenAbdomenCavity
           label: surgery-edge-cavity-open-label
           target: AbdomenCavityOpen

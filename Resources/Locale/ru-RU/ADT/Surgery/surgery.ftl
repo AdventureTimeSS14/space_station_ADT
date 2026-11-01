@@ -274,6 +274,7 @@ surgery-edge-cavity-retrieve-label = Извлечение предметов и�
 surgery-edge-cavity-close-label = Закрытие полости
 surgery-console-heart-stopped = ОСТАНОВКА СЕРДЦА!
 surgery-console-organs-none = Данных об органах нет.
+surgery-console-organ-brain = Мозг
 surgery-console-organ-heart = Сердце
 surgery-console-organ-lungs = Лёгкие
 surgery-console-organ-liver = Печень
@@ -294,6 +295,15 @@ surgery-edge-repair-ears-label = Операция на ушах
 surgery-step-repair-ears-1 = Лечение тканей уха
 surgery-edge-repair-eyes-label = Операция на глазах
 surgery-step-repair-eyes-1 = Лечение тканей глаза
+surgery-edge-repair-brain-label = Операция на мозге
+surgery-step-repair-brain-1 = Иссечение повреждённых тканей мозга
+surgery-step-repair-brain-2 = Остановка кровоизлияния
+surgery-edge-abdomen-tend-brute-label = Обработка механических повреждений
+surgery-step-abdomen-tend-brute-1 = Сшивание разорванных тканей
+surgery-step-abdomen-tend-brute-2 = Прижигание швов
+surgery-edge-abdomen-tend-burn-label = Обработка ожогов
+surgery-step-abdomen-tend-burn-1 = Иссечение обожжённых тканей
+surgery-step-abdomen-tend-burn-2 = Очистка и сведение краёв ожога
 
 # Кибернетические операции
 surgery-category-cyber-name = Кибернетические операции

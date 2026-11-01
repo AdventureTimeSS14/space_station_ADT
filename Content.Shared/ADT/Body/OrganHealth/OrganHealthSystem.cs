@@ -109,6 +109,9 @@ public sealed class OrganHealthSystem : EntitySystem
 
         var oldStage = organ.Comp.Stage;
         organ.Comp.Stage = GetStage(organ.Comp);
+        if (organ.Comp.Stage == OrganStage.Healthy)
+            organ.Comp.Operated = false;
+
         Dirty(organ);
 
         if (oldStage == organ.Comp.Stage)
@@ -118,6 +121,13 @@ public sealed class OrganHealthSystem : EntitySystem
         var ev = new OrganStageChangedEvent(body, oldStage, organ.Comp.Stage);
         RaiseLocalEvent(organ, ref ev);
         return true;
+    }
+
+    public static bool CanRegenerate(OrganHealthComponent comp)
+    {
+        return comp.Kind == OrganKind.Organic
+               && comp.Damage > 0f
+               && comp.Damage <= comp.MaxDamage * comp.RegenThreshold;
     }
 
     public static OrganStage GetStage(OrganHealthComponent comp)

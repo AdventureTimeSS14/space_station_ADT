@@ -7,7 +7,7 @@
     conditions:
     - !type:OrganDamagedCondition
       organId: Heart
-      minDamagePercent: 0.6
+      minDamagePercent: 0.2
       repeatable: false
     - !type:OrganKindCondition
       organId: Heart
@@ -36,7 +36,7 @@
     effects:
     - !type:RepairOrganEffect
       organId: Heart
-      healTo: 0.6
+      healTo: 0.2
   - id: RepairHeartMechanic
     target: ChestOpen
     label: surgery-edge-repair-heart-mechanic-label
@@ -76,7 +76,7 @@
     conditions:
     - !type:OrganDamagedCondition
       organId: Lungs
-      minDamagePercent: 0.6
+      minDamagePercent: 0.2
       repeatable: false
     - !type:OrganKindCondition
       organId: Lungs
@@ -105,7 +105,7 @@
     effects:
     - !type:RepairOrganEffect
       organId: Lungs
-      healTo: 0.6
+      healTo: 0.2
   - id: RepairLungsMechanic
     target: ChestOpen
     label: surgery-edge-repair-lungs-mechanic-label
@@ -350,6 +350,45 @@
     - !type:RepairOrganEffect
       organId: Kidneys
       healTo: 0.1
+- type: surgeryEdgePackage
+  id: SurgeryPackageRepairBrain
+  edges:
+  - id: RepairBrain
+    target: SkullOpen
+    label: surgery-edge-repair-brain-label
+    conditions:
+    - !type:OrganDamagedCondition
+      organId: Brain
+      minDamagePercent: 0.2
+      repeatable: false
+    - !type:OrganKindCondition
+      organId: Brain
+      kind: Organic
+    steps:
+    - name: surgery-step-repair-brain-1
+      quality: Incision
+      successChance: 0.7
+      duration: 5
+      sound:
+        path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+      failureEffects:
+      - !type:DamageOrganEffect
+        organId: Brain
+        amount: 7.5
+    - name: surgery-step-repair-brain-2
+      quality: Clamping
+      successChance: 0.7
+      duration: 5
+      sound:
+        path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+      failureEffects:
+      - !type:DamageOrganEffect
+        organId: Brain
+        amount: 7.5
+    effects:
+    - !type:RepairOrganEffect
+      organId: Brain
+      healTo: 0.2
 - type: surgeryEdgePackage
   id: SurgeryPackageRepairEars
   edges:

@@ -22,7 +22,7 @@ public sealed class OverdoseLiverSystem : EntitySystem
 
     private static readonly ProtoId<Content.Shared.Body.OrganCategoryPrototype> Liver = "Liver";
     private static readonly TimeSpan UpdateInterval = TimeSpan.FromSeconds(2);
-    private const float DamagePerReagent = 0.2f;
+    private const float DamagePerReagent = 0.35f;
 
     private readonly Dictionary<string, FixedPoint2?> _thresholds = new();
     private TimeSpan _nextUpdate;

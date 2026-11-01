@@ -39,7 +39,7 @@ public sealed partial class SurgeryConsoleWindow : FancyWindow
     private static readonly ResPath DamageIconsRsi = new("/Textures/ADT/Objects/Devices/health_analyzer.rsi");
     private static readonly Vector2 DamageIconSize = new(15, 15);
 
-    private static readonly string[] OrganCategories = { "Heart", "Lungs", "Liver", "Kidneys", "Stomach", "Eyes", "Ears", "Tongue" };
+    private static readonly string[] OrganCategories = { "Brain", "Heart", "Lungs", "Liver", "Kidneys", "Stomach", "Eyes", "Ears", "Tongue" };
     private static readonly string[] LimbCategories = { "ArmLeft", "HandLeft", "ArmRight", "HandRight", "LegLeft", "FootLeft", "LegRight", "FootRight" };
     private static readonly string[] DamageGroupOrder = { "Burn", "Brute", "Airloss", "Toxin", "Genetic" };
 

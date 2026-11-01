@@ -11,7 +11,7 @@ public sealed partial class OrganHealthComponent : Component
     public float Damage;
 
     [DataField]
-    public float MaxDamage = 50f;
+    public float MaxDamage = 40f;
 
     [DataField]
     public float LowThreshold = 0.1f;
@@ -21,6 +21,9 @@ public sealed partial class OrganHealthComponent : Component
 
     [DataField]
     public float HealRate = 0.05f;
+
+    [DataField]
+    public float RegenThreshold = 0.2f;
 
     [DataField]
     public float DecayRate = 1f / 600f;

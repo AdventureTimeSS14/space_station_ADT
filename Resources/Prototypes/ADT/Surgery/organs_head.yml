@@ -366,6 +366,8 @@
 
     - name: SkullOpen
       label: surgery-node-head-skull-open-label
+      packages:
+        - SurgeryPackageRepairBrain
       edges:
         - id: OpenSkullCavity
           label: surgery-edge-cavity-open-label

@@ -1,5 +1,7 @@
 using Content.IntegrationTests.Fixtures;
 using Content.IntegrationTests.Fixtures.Attributes;
+using Content.Server.ADT.Body;
+using Content.Server.Atmos.Components;
 using Content.Shared.ADT.Body.Legs;
 using Content.Shared.ADT.Body.Limbs;
 using Content.Shared.ADT.Body.OrganHealth;
@@ -9,11 +11,15 @@ using Content.Shared.ADT.Surgery.Components;
 using Content.Shared.ADT.Surgery.Events;
 using Content.Shared.ADT.Surgery.Prototypes.Conditions;
 using Content.Shared.Body;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
+using Content.Shared.Electrocution;
 using Content.Shared.Emp;
 using Content.Shared.Implants;
 using Content.Shared.Implants.Components;
 using Content.Shared.Inventory;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Components;
 using Content.Shared.Standing;
 using Content.Shared.StatusEffectNew;
@@ -41,15 +47,119 @@ public sealed class SurgeryOrganRepairTest : GameTest
         var comp = StartGraph(patient, "ChestOpen");
 
         Assert.That(_organHealth.TryGetOrgan(patient, "Heart", out var heart), Is.True);
-        _organHealth.SetDamage((heart.Owner, heart.Comp), 40f);
+        _organHealth.SetDamage((heart.Owner, heart.Comp), 30f);
         Assert.That(heart.Comp.Stage, Is.EqualTo(OrganStage.Damaged));
 
         RaiseStep(patient, surgeon, "RepairHeart", 0, SSpawn("Hemostat"));
         RaiseStep(patient, surgeon, "RepairHeart", 1, SSpawn("Cautery"));
 
-        Assert.That(heart.Comp.Damage, Is.LessThanOrEqualTo(heart.Comp.MaxDamage * 0.6f));
+        Assert.That(heart.Comp.Damage, Is.LessThanOrEqualTo(heart.Comp.MaxDamage * 0.2f));
+        Assert.That(OrganHealthSystem.CanRegenerate(heart.Comp), Is.True);
         Assert.That(heart.Comp.Operated, Is.True);
         Assert.That(comp.CurrentNode, Is.EqualTo("ChestOpen"));
+    }
+
+    [Test]
+    [RunOnSide(Side.Server)]
+    public void OrganRegeneratesOnlyAboveEightyPercentHealth()
+    {
+        var patient = SSpawn("MobHuman");
+        Assert.That(_organHealth.TryGetOrgan(patient, "Liver", out var liver), Is.True);
+        var max = liver.Comp.MaxDamage;
+
+        _organHealth.SetDamage((liver.Owner, liver.Comp), max * 0.2f);
+        Assert.That(OrganHealthSystem.CanRegenerate(liver.Comp), Is.True);
+
+        _organHealth.SetDamage((liver.Owner, liver.Comp), max * 0.25f);
+        Assert.That(OrganHealthSystem.CanRegenerate(liver.Comp), Is.False);
+    }
+
+    [Test]
+    [RunOnSide(Side.Server)]
+    public void BrainIsDamagedAndRepairedBySurgery()
+    {
+        var patient = SpawnPatient();
+        var surgeon = SpawnSurgeon();
+        var comp = SComp<OperatedComponent>(patient);
+        comp.GraphId = "SurgeryHeadOrgans";
+        comp.CurrentNode = "SkullOpen";
+
+        Assert.That(_organHealth.TryGetOrgan(patient, "Brain", out var brain), Is.True);
+        _organHealth.SetDamage((brain.Owner, brain.Comp), brain.Comp.MaxDamage);
+        Assert.That(brain.Comp.Stage, Is.EqualTo(OrganStage.Failing));
+
+        RaiseStep(patient, surgeon, "RepairBrain", 0, SSpawn("Scalpel"));
+        RaiseStep(patient, surgeon, "RepairBrain", 1, SSpawn("Hemostat"));
+
+        Assert.That(OrganHealthSystem.CanRegenerate(brain.Comp), Is.True);
+    }
+
+    [Test]
+    [RunOnSide(Side.Server)]
+    public void TendOperationsHealTheirOwnDamageGroupOnCorpse()
+    {
+        var patient = SpawnPatient();
+        var surgeon = SpawnSurgeon();
+        var comp = StartGraph(patient, "AbdomenOpen");
+        comp.GraphId = "SurgeryAbdomenOrgans";
+
+        var damageable = SEntMan.System<DamageableSystem>();
+        var mobState = SEntMan.System<MobStateSystem>();
+        var wounds = new DamageSpecifier { DamageDict = new() { { "Blunt", 120 }, { "Heat", 120 } } };
+        damageable.TryChangeDamage(patient, wounds, ignoreResistances: true);
+        Assert.That(mobState.IsDead(patient), Is.True);
+
+        var brute = damageable.GetDamagePerGroup(patient)["Brute"];
+        var burn = damageable.GetDamagePerGroup(patient)["Burn"];
+
+        RaiseStep(patient, surgeon, "TendBrute", 0, SSpawn("Hemostat"));
+        RaiseStep(patient, surgeon, "TendBrute", 1, SSpawn("Cautery"));
+
+        Assert.That(damageable.GetDamagePerGroup(patient)["Brute"], Is.LessThan(brute));
+        Assert.That(damageable.GetDamagePerGroup(patient)["Burn"], Is.EqualTo(burn));
+
+        RaiseStep(patient, surgeon, "TendBurn", 0, SSpawn("Scalpel"));
+        RaiseStep(patient, surgeon, "TendBurn", 1, SSpawn("Hemostat"));
+
+        Assert.That(damageable.GetDamagePerGroup(patient)["Burn"], Is.LessThan(burn));
+        Assert.That(mobState.IsDead(patient), Is.True, "healing alone must not revive a corpse");
+        Assert.That(comp.CurrentNode, Is.EqualTo("AbdomenOpen"));
+    }
+
+    [Test]
+    [RunOnSide(Side.Server)]
+    public void BarotraumaLeavesLungsTenPercentButNotEars()
+    {
+        var patient = SSpawn("MobHuman");
+        var trauma = SEntMan.System<OrganTraumaSystem>();
+        var comp = SComp<OrganTraumaComponent>(patient);
+        SComp<BarotraumaComponent>(patient).TakingDamage = true;
+
+        Assert.That(_organHealth.TryGetOrgan(patient, "Lungs", out var lungs), Is.True);
+        Assert.That(_organHealth.TryGetOrgan(patient, "Ears", out var ears), Is.True);
+
+        for (var i = 0; i < 200; i++)
+        {
+            trauma.UpdateBarotrauma((patient, comp));
+        }
+
+        Assert.That(lungs.Comp.Damage, Is.EqualTo(lungs.Comp.MaxDamage * 0.9f).Within(0.001f));
+        Assert.That(lungs.Comp.Stage, Is.EqualTo(OrganStage.Damaged));
+        Assert.That(ears.Comp.Stage, Is.EqualTo(OrganStage.Failing));
+    }
+
+    [Test]
+    [RunOnSide(Side.Server)]
+    public void DefibrillatorIsExcludedFromElectrocutionHeartTrauma()
+    {
+        var patient = SSpawn("MobHuman");
+        Assert.That(_organHealth.TryGetOrgan(patient, "Heart", out var heart), Is.True);
+
+        SEntMan.EventBus.RaiseLocalEvent(patient, new ElectrocutedEvent(patient, SSpawn("Defibrillator"), 1f));
+        Assert.That(heart.Comp.Damage, Is.Zero);
+
+        SEntMan.EventBus.RaiseLocalEvent(patient, new ElectrocutedEvent(patient, null, 1f));
+        Assert.That(heart.Comp.Damage, Is.GreaterThan(0f));
     }
 
     [Test]

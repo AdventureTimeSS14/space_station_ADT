@@ -2,6 +2,7 @@ using Content.Shared.ADT.Atmos.Miasma;
 using Content.Shared.ADT.Body.OrganHealth;
 using Content.Shared.Atmos.Rotting;
 using Content.Shared.Body;
+using Content.Shared.Silicons.Borgs.Components;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
 
@@ -30,7 +31,7 @@ public sealed class OrganDecaySystem : EntitySystem
         var query = EntityQueryEnumerator<OrganHealthComponent, OrganComponent>();
         while (query.MoveNext(out var uid, out var health, out var organ))
         {
-            if (organ.Body != null)
+            if (organ.Body is { } body && !HasComp<RottingComponent>(body))
                 continue;
 
             if (health.Kind != OrganKind.Organic || health.DecayRate <= 0f || health.Stage == OrganStage.Failing)
@@ -46,6 +47,9 @@ public sealed class OrganDecaySystem : EntitySystem
     private bool CanDecay(EntityUid organ)
     {
         if (HasComp<EmbalmedComponent>(organ))
+            return false;
+
+        if (_container.TryGetContainingContainer(organ, out var holder) && HasComp<MMIComponent>(holder.Owner))
             return false;
 
         return !_container.TryGetOuterContainer(organ, Transform(organ), out var container)
