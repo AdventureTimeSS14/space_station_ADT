@@ -126,6 +126,7 @@
 - type: reaction
   id: ADTIronIonsExtraction
   source: true
+  quantized: true
   requiredMixerCategories:
   - Centrifuge
   reactants:
@@ -156,6 +157,7 @@
 - type: reaction
   id: ADTSilverIonsExtraction
   source: true
+  quantized: true
   requiredMixerCategories:
   - Centrifuge
   reactants:
