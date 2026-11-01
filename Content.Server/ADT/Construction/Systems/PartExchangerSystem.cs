@@ -56,7 +56,7 @@ public sealed class PartExchangerSystem : EntitySystem
         SubscribeLocalEvent<PartExchangerComponent, BoundUIOpenedEvent>(OnUiOpened);
         SubscribeLocalEvent<PartExchangerComponent, PartExchangerFilterChangedMessage>(OnFilterChanged);
         SubscribeLocalEvent<PartExchangerComponent, PartExchangerConsoleSelectMessage>(OnConsoleSelectMessage);
-        SubscribeLocalEvent<PartExchangerComponent, BoundUIClosedEvent>(OnConsoleMenuClosed); // ADT
+        SubscribeLocalEvent<PartExchangerComponent, BoundUIClosedEvent>(OnMenuClosed);
     }
 
     private void OnFilterAction(EntityUid uid, PartExchangerComponent component, PartExchangerFilterActionEvent args)
@@ -89,13 +89,8 @@ public sealed class PartExchangerSystem : EntitySystem
         var available = new HashSet<ProtoId<MachinePartPrototype>>();
         if (TryComp<StorageComponent>(uid, out var storage))
         {
-            foreach (var itemUid in storage.Container.ContainedEntities)
-            {
-                if (!TryComp<MachinePartComponent>(itemUid, out var part))
-                    continue;
-
+            foreach (var (_, part) in CollectFromStorage<MachinePartComponent>(storage))
                 available.Add(part.Part);
-            }
         }
 
         var ordered = available
@@ -107,6 +102,21 @@ public sealed class PartExchangerSystem : EntitySystem
             AvailableParts = ordered,
             SelectedParts = component.FilteredParts,
         });
+    }
+
+    private IEnumerable<(EntityUid Uid, T Comp)> CollectFromStorage<T>(StorageComponent storage) where T : IComponent
+    {
+        foreach (var itemUid in storage.Container.ContainedEntities)
+        {
+            if (TryComp<T>(itemUid, out var comp))
+                yield return (itemUid, comp);
+        }
+    }
+
+    private void TryPlayBeam(EntityUid user, EntityUid target, PartExchangerComponent component)
+    {
+        if (component.ExchangeBeamPrototype is { } beamPrototype)
+            _beam.TryCreateBeam(user, target, beamPrototype);
     }
 
     private void OnMachineInteractUsing(EntityUid uid, MachineComponent component, InteractUsingEvent args)
@@ -198,7 +208,7 @@ public sealed class PartExchangerSystem : EntitySystem
         if (!CanStartExchange(user, target, exchanger))
             return true;
 
-        if (exchanger.PendingConsoleTarget != null)
+        if (exchanger.PendingTarget != null)
         {
             _popup.PopupEntity(Loc.GetString("part-exchanger-console-already-active"), used, user);
             return true;
@@ -207,14 +217,10 @@ public sealed class PartExchangerSystem : EntitySystem
         if (!TryComp<StorageComponent>(used, out var storage))
             return false;
 
-        var boards = new List<EntityUid>();
-        foreach (var itemUid in storage.Container.ContainedEntities)
-        {
-            if (TryComp<ComputerBoardComponent>(itemUid, out var boardComp) && boardComp.Prototype != null)
-                boards.Add(itemUid);
-        }
-
-        _sawmill.Info($"RPED console exchange: user={ToPrettyString(user)} target={ToPrettyString(target)} boards={boards.Count}");
+        var boards = CollectFromStorage<ComputerBoardComponent>(storage)
+            .Where(b => b.Comp.Prototype != null)
+            .Select(b => b.Uid)
+            .ToList();
 
         if (boards.Count == 0)
         {
@@ -224,11 +230,16 @@ public sealed class PartExchangerSystem : EntitySystem
 
         if (boards.Count == 1)
         {
-            SwapConsoleNow(user, used, target, boards[0], exchanger);
+            if (!TryComp<ComputerBoardComponent>(boards[0], out var boardComp)
+                || boardComp.Prototype is not { } consoleProto
+                || !_proto.TryIndex(consoleProto, out var consoleProtoData))
+                return true;
+
+            SwapConsoleNow(user, used, target, boards[0], boardComp, consoleProtoData, storage, exchanger);
             return true;
         }
 
-        exchanger.PendingConsoleTarget = target;
+        exchanger.PendingTarget = target;
         _ui.OpenUi(used, PartExchangerConsoleUiKey.Key, user);
 
         return true;
@@ -237,7 +248,7 @@ public sealed class PartExchangerSystem : EntitySystem
     private void OnConsoleSelectMessage(EntityUid uid, PartExchangerComponent component, PartExchangerConsoleSelectMessage args)
     {
         var board = GetEntity(args.Board);
-        var target = component.PendingConsoleTarget;
+        var target = component.PendingTarget;
 
         if (target == null || !TryComp<ComputerComponent>(target, out _))
             return;
@@ -245,41 +256,34 @@ public sealed class PartExchangerSystem : EntitySystem
         if (!TryComp<StorageComponent>(uid, out var storage) || !storage.Container.Contains(board))
             return;
 
-        if (!HasComp<ComputerBoardComponent>(board))
+        if (!TryComp<ComputerBoardComponent>(board, out var boardComp) || boardComp.Prototype is not { } consoleProto
+            || !_proto.TryIndex(consoleProto, out var consoleProtoData))
             return;
 
-        component.PendingConsoleTarget = null;
+        component.PendingTarget = null;
 
-        SwapConsoleNow(args.Actor, uid, target.Value, board, component);
+        SwapConsoleNow(args.Actor, uid, target.Value, board, boardComp, consoleProtoData, storage, component);
     }
 
-    private void OnConsoleMenuClosed(EntityUid uid, PartExchangerComponent component, BoundUIClosedEvent args)
+    private void OnMenuClosed(EntityUid uid, PartExchangerComponent component, BoundUIClosedEvent args)
     {
         if (args.UiKey is PartExchangerConsoleUiKey)
-            component.PendingConsoleTarget = null;
+            component.PendingTarget = null;
     }
 
-    private void SwapConsoleNow(EntityUid user, EntityUid exchanger, EntityUid target, EntityUid board, PartExchangerComponent component)
+    private void SwapConsoleNow(EntityUid user, EntityUid exchanger, EntityUid target, EntityUid board,
+        ComputerBoardComponent boardComp, EntityPrototype consoleProtoData, StorageComponent storage, PartExchangerComponent component)
     {
-        if (component.ExchangeBeamPrototype is { } beamPrototype)
-            _beam.TryCreateBeam(user, target, beamPrototype);
+        TryPlayBeam(user, target, component);
 
-        if (!TryComp<StorageComponent>(exchanger, out var storage))
-            return;
-
-        if (PerformConsoleSwap(user, exchanger, target, board, storage, component))
+        if (PerformConsoleSwap(user, exchanger, target, board, boardComp, consoleProtoData, storage, component))
             _audio.PlayPvs(component.ExchangeSound, exchanger);
     }
 
-    private bool PerformConsoleSwap(EntityUid user, EntityUid exchanger, EntityUid target, EntityUid board, StorageComponent storage, PartExchangerComponent component)
+    private bool PerformConsoleSwap(EntityUid user, EntityUid exchanger, EntityUid target, EntityUid board,
+        ComputerBoardComponent boardComp, EntityPrototype consoleProtoData, StorageComponent storage, PartExchangerComponent component)
     {
         if (!TryComp<ComputerComponent>(target, out _))
-            return false;
-
-        if (!storage.Container.Contains(board)
-            || !TryComp<ComputerBoardComponent>(board, out var boardComp)
-            || boardComp.Prototype is not { } consoleProto
-            || !_proto.TryIndex(consoleProto, out var consoleProtoData))
             return false;
 
         foreach (var container in _container.GetAllContainers(target))
@@ -304,7 +308,7 @@ public sealed class PartExchangerSystem : EntitySystem
             }
         }
 
-        var newConsole = Spawn(consoleProto, targetXform.Coordinates);
+        var newConsole = Spawn(consoleProtoData.ID, targetXform.Coordinates);
         _transform.SetWorldRotation(newConsole, _transform.GetWorldRotation(targetXform));
 
         if (targetXform.Anchored && !_transform.TryAnchor((newConsole, (TransformComponent?) null, (MetaDataComponent?) null), true))
@@ -313,7 +317,7 @@ public sealed class PartExchangerSystem : EntitySystem
         QueueDel(board);
         QueueDel(target);
 
-        component.PendingConsoleTarget = null;
+        component.PendingTarget = null;
 
         _popup.PopupEntity(Loc.GetString("part-exchanger-console-swapped", ("console", consoleProtoData.Name)), newConsole);
         return true;

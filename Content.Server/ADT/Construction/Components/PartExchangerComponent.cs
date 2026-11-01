@@ -29,5 +29,5 @@ public sealed partial class PartExchangerComponent : Component
     public List<ProtoId<MachinePartPrototype>> FilteredParts = new();
 
     [DataField]
-    public EntityUid? PendingConsoleTarget;
+    public EntityUid? PendingTarget;
 }
