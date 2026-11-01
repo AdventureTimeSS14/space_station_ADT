@@ -31,7 +31,7 @@
     outerClothing: ADTClothingCentcomOfficerArmor
     id: ADTCentcomOfficerPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ADTClothingBeltSheathOCK
+    belt: ClothingBeltSecurityLightbatonFilled
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: WeaponEnergyMagnum
     underwearb: ADTClothingUnderwearBottomBriefsWhite
@@ -47,5 +47,3 @@
     - ClothingHandsKnuckleDustersStun
     - BoxHandcuff
     - ADTBaseUplinkBOBERT
-    belt:
-    - CaptainSabre
