@@ -109,7 +109,6 @@
 - type: reaction
   id: ADTStypticPowder
   minTemp: 300
-  maxTemp: 324
   reactants:
     Aluminium:
       amount: 1
