@@ -8,6 +8,18 @@
     },
     "states": [
         {
+            "name": "smes_coil"
+        },
+        {
+            "name": "smes_coil_capacitance"
+        },
+        {
+            "name": "smes_coil_transmission"
+        },
+        {
+            "name": "smes_coil_cryo"
+        },
+        {
             "name": "micro_laser"
         },
         {

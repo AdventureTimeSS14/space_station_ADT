@@ -58,3 +58,45 @@
   stockPartPrototype: PowerCellSmall
   tierPrototypes: [PowerCellSmall, PowerCellMedium, PowerCellHigh, PowerCellHyper]
   sortPriority: 5
+
+- type: machinePart
+  id: SMESCoil
+  name: machine-part-name-smes-coil
+  stockPartPrototype: SMESCoilStockPart
+  baseTier: 0
+  tierPrototypes: [SMESCoilStockPart, SMESCoilCapacitanceStockPart, SMESCoilTransmissionStockPart, SMESCoilCryoStockPart]
+  sortPriority: 6
+  stats:
+    ChargeRate: 0.25
+    Capacity: 0.25
+
+# ADT tier 1 — для будущих улучшений машин и крафта
+- type: machinePart
+  id: SubspaceAnsible
+  name: machine-part-name-subspace-ansible
+  stockPartPrototype: SubspaceAnsibleStockPart
+  sortPriority: 7
+
+- type: machinePart
+  id: HyperwaveFilter
+  name: machine-part-name-hyperwave-filter
+  stockPartPrototype: HyperwaveFilterStockPart
+  sortPriority: 8
+
+- type: machinePart
+  id: SubspaceTransmitter
+  name: machine-part-name-subspace-transmitter
+  stockPartPrototype: SubspaceTransmitterStockPart
+  sortPriority: 9
+
+- type: machinePart
+  id: TreatmentDisk
+  name: machine-part-name-treatment-disk
+  stockPartPrototype: TreatmentDiskStockPart
+  sortPriority: 10
+
+- type: machinePart
+  id: WavelengthAnalyzer
+  name: machine-part-name-wavelength-analyzer
+  stockPartPrototype: WavelengthAnalyzerStockPart
+  sortPriority: 11

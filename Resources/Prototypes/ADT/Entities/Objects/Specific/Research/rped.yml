@@ -50,6 +50,29 @@
     sprite: ADT/Objects/Specific/Research/borg_rped.rsi
 
 - type: entity
+  id: RPEDUpgradeBeam
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: /Textures/ADT/Objects/Misc/rped_upgrade.rsi
+    drawdepth: Effects
+    layers:
+    - state: rped_upgrade
+      shader: unshaded
+  - type: Physics
+    canCollide: false
+  - type: PointLight
+    enabled: true
+    color: "#b06cff"
+    radius: 3
+    softness: 1
+    autoRot: true
+    castShadows: false
+  - type: Beam
+  - type: TimedDespawn
+    lifetime: 2
+
+- type: entity
   parent: RapidPartExchanger
   id: BluespaceRapidPartExchanger
   name: bluespace RPED
@@ -66,7 +89,7 @@
     requireOpenPanel: false
     exchangeSound:
       path: /Audio/Effects/teleport_arrival.ogg
-    exchangeBeamPrototype: AnomalyTechBeam
+    exchangeBeamPrototype: RPEDUpgradeBeam
   - type: Storage
     grid:
       - 0,0,12,8

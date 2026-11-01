@@ -315,3 +315,129 @@
   - type: MachinePart
     part: MatterBin
     tier: 5
+
+- type: entity
+  parent: BaseStockPart
+  id: SMESCoilStockPart
+  name: standard SMES coil
+  description: A superconducting electromagnetic coil used to store large amounts of energy in a magnetic field.
+  suffix: Tier 1
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/stock_parts.rsi
+    state: smes_coil
+  - type: MachinePart
+    part: SMESCoil
+    tier: 1
+
+- type: entity
+  parent: SMESCoilStockPart
+  id: SMESCoilCapacitanceStockPart
+  name: capacitance SMES coil
+  description: A SMES coil with greatly improved capacitance, able to store far more energy.
+  suffix: Tier 2
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/stock_parts.rsi
+    state: smes_coil_capacitance
+  - type: MachinePart
+    part: SMESCoil
+    tier: 2
+
+- type: entity
+  parent: SMESCoilStockPart
+  id: SMESCoilTransmissionStockPart
+  name: transmission SMES coil
+  description: A SMES coil tuned for rapid energy transfer, greatly increasing input and output rates.
+  suffix: Tier 3
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/stock_parts.rsi
+    state: smes_coil_transmission
+  - type: MachinePart
+    part: SMESCoil
+    tier: 3
+
+- type: entity
+  parent: SMESCoilStockPart
+  id: SMESCoilCryoStockPart
+  name: cryo SMES coil
+  description: A cryogenically cooled superconducting coil approaching zero resistance. The pinnacle of energy storage.
+  suffix: Tier 4
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/stock_parts.rsi
+    state: smes_coil_cryo
+  - type: MachinePart
+    part: SMESCoil
+    tier: 4
+
+- type: entity
+  parent: BaseStockPart
+  id: SubspaceAnsibleStockPart
+  name: bluespace ansible
+  description: A specially energised bluespace crystal that can be used to receive and transcribe transmissions received from within bluespace.
+  suffix: Tier 1
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/stock_parts.rsi
+    state: subspace_ansible
+  - type: MachinePart
+    part: SubspaceAnsible
+    tier: 1
+
+- type: entity
+  parent: BaseStockPart
+  id: HyperwaveFilterStockPart
+  name: hyperwave filter
+  description: A tiny device capable of filtering and converting bluespace transmissions.
+  suffix: Tier 1
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/stock_parts.rsi
+    state: hyperwave_filter
+  - type: MachinePart
+    part: HyperwaveFilter
+    tier: 1
+
+- type: entity
+  parent: BaseStockPart
+  id: SubspaceTransmitterStockPart
+  name: data laser transmitter
+  description: A small laser that can be used to transmit data through an opened bluespace micro-portal.
+  suffix: Tier 1
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/stock_parts.rsi
+    state: subspace_transmitter
+  - type: MachinePart
+    part: SubspaceTransmitter
+    tier: 1
+
+- type: entity
+  parent: BaseStockPart
+  id: TreatmentDiskStockPart
+  name: bluespace treatment disk
+  description: A compact micro-machine capable of stretching out hyper-compressed bluespace transmissions.
+  suffix: Tier 1
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/stock_parts.rsi
+    state: treatment_disk
+  - type: MachinePart
+    part: TreatmentDisk
+    tier: 1
+
+- type: entity
+  parent: BaseStockPart
+  id: WavelengthAnalyzerStockPart
+  name: bluespace transmission analyzer
+  description: A sophisticated analyzer capable of analyzing cryptic bluespace transmissions.
+  suffix: Tier 1
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/stock_parts.rsi
+    state: wavelength_analyzer
+  - type: MachinePart
+    part: WavelengthAnalyzer
+    tier: 1
