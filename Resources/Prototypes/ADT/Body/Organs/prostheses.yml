@@ -1,4 +1,57 @@
 - type: entity
+  abstract: true
+  parent: DetachedBody
+  id: ADTProsthesisAssemblyBase
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.HumanoidVisualLayers.Chest" ]
+      sprite: ADT/Mobs/Species/IPC/parts.rsi
+      state: full
+      visible: false
+    - map: [ "enum.HumanoidVisualLayers.Head" ]
+    - map: [ "enum.HumanoidVisualLayers.Snout" ]
+    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+    - map: [ "enum.HumanoidVisualLayers.RArm" ]
+    - map: [ "enum.HumanoidVisualLayers.LArm" ]
+    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
+    - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
+    - map: ["jumpsuit"]
+    - map: ["enum.HumanoidVisualLayers.LFoot"]
+    - map: ["enum.HumanoidVisualLayers.RFoot"]
+    - map: ["enum.HumanoidVisualLayers.LHand"]
+    - map: ["enum.HumanoidVisualLayers.RHand"]
+    - map: ["enum.HumanoidVisualLayers.Overlay"]
+    - map: [ "gloves" ]
+    - map: [ "shoes" ]
+    - map: [ "ears" ]
+    - map: [ "eyes" ]
+    - map: [ "belt" ]
+    - map: [ "id" ]
+    - map: [ "outerClothing" ]
+    - map: [ "back" ]
+    - map: [ "neck" ]
+    - map: [ "suitstorage" ]
+    - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
+    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+    - map: [ "enum.HumanoidVisualLayers.Hair" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
+    - map: [ "enum.HumanoidVisualLayers.TailOverlay" ]
+    - map: [ "mask" ]
+    - map: [ "head" ]
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
+    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
+
+- type: entity
   id: ADTOrganProsthesis
   abstract: true
   components:
@@ -26,15 +79,11 @@
     meleeModifier: 0.85
 
 - type: entity
-  parent: DetachedBody
+  parent: ADTProsthesisAssemblyBase
   id: ADTProsthesisCheapArmLeft
   name: cheap prosthetic left arm assembly
   description: A crude, cheap replacement limb.
   components:
-  - type: Sprite
-    layers:
-    - sprite: ADT/Mobs/Customization/augments/cheap_prosthesis.rsi
-      state: l_arm
   - type: InitialBody
     organs:
       ArmLeft: ADTOrganProsthesisCheapArmLeft
@@ -75,15 +124,11 @@
     speedModifier: 0.92
 
 - type: entity
-  parent: DetachedBody
+  parent: ADTProsthesisAssemblyBase
   id: ADTProsthesisCheapLegLeft
   name: cheap prosthetic left leg assembly
   description: A crude, cheap replacement limb.
   components:
-  - type: Sprite
-    layers:
-    - sprite: ADT/Mobs/Customization/augments/cheap_prosthesis.rsi
-      state: l_leg
   - type: InitialBody
     organs:
       LegLeft: ADTOrganProsthesisCheapLegLeft
@@ -124,15 +169,11 @@
     meleeModifier: 0.85
 
 - type: entity
-  parent: DetachedBody
+  parent: ADTProsthesisAssemblyBase
   id: ADTProsthesisCheapArmRight
   name: cheap prosthetic right arm assembly
   description: A crude, cheap replacement limb.
   components:
-  - type: Sprite
-    layers:
-    - sprite: ADT/Mobs/Customization/augments/cheap_prosthesis.rsi
-      state: r_arm
   - type: InitialBody
     organs:
       ArmRight: ADTOrganProsthesisCheapArmRight
@@ -173,15 +214,11 @@
     speedModifier: 0.92
 
 - type: entity
-  parent: DetachedBody
+  parent: ADTProsthesisAssemblyBase
   id: ADTProsthesisCheapLegRight
   name: cheap prosthetic right leg assembly
   description: A crude, cheap replacement limb.
   components:
-  - type: Sprite
-    layers:
-    - sprite: ADT/Mobs/Customization/augments/cheap_prosthesis.rsi
-      state: r_leg
   - type: InitialBody
     organs:
       LegRight: ADTOrganProsthesisCheapLegRight
@@ -220,15 +257,11 @@
       color: "#FFFFFF"
 
 - type: entity
-  parent: DetachedBody
+  parent: ADTProsthesisAssemblyBase
   id: ADTProsthesisRegularArmLeft
   name: prosthetic left arm assembly
   description: A standard cybernetic replacement limb.
   components:
-  - type: Sprite
-    layers:
-    - sprite: ADT/Mobs/Species/IPC/parts.rsi
-      state: l_arm
   - type: InitialBody
     organs:
       ArmLeft: ADTOrganProsthesisRegularArmLeft
@@ -267,15 +300,11 @@
       color: "#FFFFFF"
 
 - type: entity
-  parent: DetachedBody
+  parent: ADTProsthesisAssemblyBase
   id: ADTProsthesisRegularLegLeft
   name: prosthetic left leg assembly
   description: A standard cybernetic replacement limb.
   components:
-  - type: Sprite
-    layers:
-    - sprite: ADT/Mobs/Species/IPC/parts.rsi
-      state: l_leg
   - type: InitialBody
     organs:
       LegLeft: ADTOrganProsthesisRegularLegLeft
@@ -314,15 +343,11 @@
       color: "#FFFFFF"
 
 - type: entity
-  parent: DetachedBody
+  parent: ADTProsthesisAssemblyBase
   id: ADTProsthesisRegularArmRight
   name: prosthetic right arm assembly
   description: A standard cybernetic replacement limb.
   components:
-  - type: Sprite
-    layers:
-    - sprite: ADT/Mobs/Species/IPC/parts.rsi
-      state: r_arm
   - type: InitialBody
     organs:
       ArmRight: ADTOrganProsthesisRegularArmRight
@@ -361,15 +386,11 @@
       color: "#FFFFFF"
 
 - type: entity
-  parent: DetachedBody
+  parent: ADTProsthesisAssemblyBase
   id: ADTProsthesisRegularLegRight
   name: prosthetic right leg assembly
   description: A standard cybernetic replacement limb.
   components:
-  - type: Sprite
-    layers:
-    - sprite: ADT/Mobs/Species/IPC/parts.rsi
-      state: r_leg
   - type: InitialBody
     organs:
       LegRight: ADTOrganProsthesisRegularLegRight
