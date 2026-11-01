@@ -108,31 +108,31 @@
 #Кровоостанавливающая пудра
 - type: reaction
   id: ADTStypticPowder
-  minTemp: 350
   reactants:
-    TranexamicAcid:
-      amount: 1
     Aluminium:
       amount: 1
     Hydroxide:
       amount: 2
+    SulfuricAcid:
+      amount: 1
   products:
     ADTStypticPowder: 4
 #Сульфадиазин серебра
 - type: reaction
   id: ADTSilverSulfadiazine
-  minTemp: 350
   reactants:
-    DexalinPlus:
+    Ammonia:
       amount: 1
     Silver:
       amount: 1
-    Ammonia:
+    Sulfur:
+      amount: 1
+    Oxygen:
       amount: 1
     Chlorine:
       amount: 1
   products:
-    ADTSilverSulfadiazine: 4
+    ADTSilverSulfadiazine: 5
 
 # КриоПрепараты
 - type: reaction
