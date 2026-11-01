@@ -68,7 +68,7 @@ public sealed class SurgeryToolsCoverageTest : GameTest
         new("SawAdvanced", 0.5f, ["Sawing"], []),
         new("ADTSawImprovised", 1f, ["Sawing"], []),
         new("ADTBoneGel", 1f, ["BoneMending"], []),
-        new("ADTSurgicalTape", 1f, ["BoneMending"], []),
+        new("ADTSurgicalTape", 1f, [], ["BoneMending"]),
         new("ADTBloodFilter", 1f, [], []),
         new("ADTLaserScalpel", 0.67f, ["Incision"], [], ["Sawing"], []),
         new("ADTMechanicalPinches", 0.67f, ["Retraction"], [], ["Clamping", "OrganManipulation"], []),
