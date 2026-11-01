@@ -22,3 +22,15 @@ public sealed class PartExchangerFilterChangedMessage : BoundUserInterfaceMessag
 {
     public List<ProtoId<MachinePartPrototype>> SelectedParts = new();
 }
+
+[Serializable, NetSerializable]
+public enum PartExchangerConsoleUiKey : byte
+{
+    Key,
+}
+
+[Serializable, NetSerializable]
+public sealed class PartExchangerConsoleSelectMessage : BoundUserInterfaceMessage
+{
+    public NetEntity Board;
+}
