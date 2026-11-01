@@ -60,11 +60,7 @@ ent-ADTClothingBackpackDuffelCaptainWhite = white captain duffel bag
 ent-ADTClothingBackpackDuffelCaptainBlack = black captain duffel bag
     .desc = A black item from the captain's dress collection.
 
-ent-ADTClothingBackpackTailbagCaptainWhite = white captain tail bag
-    .desc = A white item from the captain's dress collection.
 
-ent-ADTClothingBackpackTailbagCaptainBlack = black captain tail bag
-    .desc = A black item from the captain's dress collection.
 
 ent-ADTClothingHandsGlovesCaptainWhite = white captain gloves
     .desc = A white item from the captain's dress collection.

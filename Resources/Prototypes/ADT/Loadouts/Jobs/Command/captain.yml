@@ -303,26 +303,6 @@
     back: ADTClothingBackpackDuffelCaptainBlack
 
 - type: loadout
-  id: ADTCaptainTailbagWhite
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement: !type:RoleTimeRequirement
-      role: JobCaptain
-      time: 180000
-  equipment:
-    back: ADTClothingBackpackTailbagCaptainWhite
-
-- type: loadout
-  id: ADTCaptainTailbagBlack
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement: !type:RoleTimeRequirement
-      role: JobCaptain
-      time: 360000
-  equipment:
-    back: ADTClothingBackpackTailbagCaptainBlack
-
-- type: loadout
   id: ADTCaptainGlovesWhite
   effects:
   - !type:JobRequirementLoadoutEffect

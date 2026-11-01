@@ -295,36 +295,6 @@
     sprite: ADT/Clothing/CaptainDrobe/Back/Duffels/captain_black.rsi
 
 - type: entity
-  parent: ClothingBackpackCaptain
-  id: ADTClothingBackpackTailbagCaptainWhite
-  name: white captain tail bag
-  description: A white item from the captain's dress collection.
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/CaptainDrobe/Back/Tailbag/captain_white.rsi
-    state: icon
-  - type: Clothing
-    sprite: ADT/Clothing/CaptainDrobe/Back/Tailbag/captain_white.rsi
-    equippedState: equipped-TAILBAG-plaf
-  - type: Item
-    sprite: ADT/Clothing/CaptainDrobe/Back/Tailbag/captain_white.rsi
-
-- type: entity
-  parent: ClothingBackpackCaptain
-  id: ADTClothingBackpackTailbagCaptainBlack
-  name: black captain tail bag
-  description: A black item from the captain's dress collection.
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/CaptainDrobe/Back/Tailbag/captain_black.rsi
-    state: icon
-  - type: Clothing
-    sprite: ADT/Clothing/CaptainDrobe/Back/Tailbag/captain_black.rsi
-    equippedState: equipped-TAILBAG-plaf
-  - type: Item
-    sprite: ADT/Clothing/CaptainDrobe/Back/Tailbag/captain_black.rsi
-
-- type: entity
   parent: ClothingHandsGlovesCaptain
   id: ADTClothingHandsGlovesCaptainWhite
   name: white captain gloves

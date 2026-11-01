@@ -60,11 +60,7 @@ ent-ADTClothingBackpackDuffelCaptainWhite = белый вещмешок капи
 ent-ADTClothingBackpackDuffelCaptainBlack = чёрный вещмешок капитана
     .desc = Предмет из чёрной коллекции капитанской одежды.
 
-ent-ADTClothingBackpackTailbagCaptainWhite = белая хвостовая сумка капитана
-    .desc = Предмет из белой коллекции капитанской одежды.
 
-ent-ADTClothingBackpackTailbagCaptainBlack = чёрная хвостовая сумка капитана
-    .desc = Предмет из чёрной коллекции капитанской одежды.
 
 ent-ADTClothingHandsGlovesCaptainWhite = белые перчатки капитана
     .desc = Предмет из белой коллекции капитанской одежды.
