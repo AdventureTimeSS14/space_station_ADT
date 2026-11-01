@@ -54,7 +54,7 @@ public sealed class SurgeryLimbTest : GameTest
         Assert.That(GetOrgan(patient, Arm), Is.Null, "arm must be detached after amputation");
         Assert.That(GetOrgan(patient, Hand), Is.Null, "hand must leave with the arm");
 
-        var detachedArm = FindDetachedBody(Arm, patient, surgeon);
+        var detachedArm = FindDetachedBody(originalArm!.Value);
         Assert.That(detachedArm, Is.Not.Null, "amputation must leave a detached limb behind");
         Assert.That(_detachable.TryGetDetachedOrgan(detachedArm!.Value, out var detachedOrgan), Is.True);
         Assert.That(detachedOrgan, Is.EqualTo(originalArm));
@@ -148,15 +148,11 @@ public sealed class SurgeryLimbTest : GameTest
         return null;
     }
 
-    private EntityUid? FindDetachedBody(string category, params EntityUid[] exclude)
+    private EntityUid? FindDetachedBody(EntityUid expectedOrgan)
     {
         foreach (var (uid, _) in SEntMan.AllEntities<BodyComponent>().Select(e => (e.Owner, e.Comp)).ToList())
         {
-            if (exclude.Contains(uid))
-                continue;
-
-            if (_detachable.TryGetDetachedOrgan(uid, out var organ)
-                && SComp<OrganComponent>(organ).Category == category)
+            if (_detachable.TryGetDetachedOrgan(uid, out var organ) && organ == expectedOrgan)
                 return uid;
         }
 

@@ -31,6 +31,10 @@
   name: cheap prosthetic left arm assembly
   description: A crude, cheap replacement limb.
   components:
+  - type: Sprite
+    layers:
+    - sprite: ADT/Mobs/Customization/augments/cheap_prosthesis.rsi
+      state: l_arm
   - type: InitialBody
     organs:
       ArmLeft: ADTOrganProsthesisCheapArmLeft
@@ -76,6 +80,10 @@
   name: cheap prosthetic left leg assembly
   description: A crude, cheap replacement limb.
   components:
+  - type: Sprite
+    layers:
+    - sprite: ADT/Mobs/Customization/augments/cheap_prosthesis.rsi
+      state: l_leg
   - type: InitialBody
     organs:
       LegLeft: ADTOrganProsthesisCheapLegLeft
@@ -121,6 +129,10 @@
   name: cheap prosthetic right arm assembly
   description: A crude, cheap replacement limb.
   components:
+  - type: Sprite
+    layers:
+    - sprite: ADT/Mobs/Customization/augments/cheap_prosthesis.rsi
+      state: r_arm
   - type: InitialBody
     organs:
       ArmRight: ADTOrganProsthesisCheapArmRight
@@ -166,6 +178,10 @@
   name: cheap prosthetic right leg assembly
   description: A crude, cheap replacement limb.
   components:
+  - type: Sprite
+    layers:
+    - sprite: ADT/Mobs/Customization/augments/cheap_prosthesis.rsi
+      state: r_leg
   - type: InitialBody
     organs:
       LegRight: ADTOrganProsthesisCheapLegRight
@@ -209,6 +225,10 @@
   name: prosthetic left arm assembly
   description: A standard cybernetic replacement limb.
   components:
+  - type: Sprite
+    layers:
+    - sprite: ADT/Mobs/Species/IPC/parts.rsi
+      state: l_arm
   - type: InitialBody
     organs:
       ArmLeft: ADTOrganProsthesisRegularArmLeft
@@ -252,6 +272,10 @@
   name: prosthetic left leg assembly
   description: A standard cybernetic replacement limb.
   components:
+  - type: Sprite
+    layers:
+    - sprite: ADT/Mobs/Species/IPC/parts.rsi
+      state: l_leg
   - type: InitialBody
     organs:
       LegLeft: ADTOrganProsthesisRegularLegLeft
@@ -295,6 +319,10 @@
   name: prosthetic right arm assembly
   description: A standard cybernetic replacement limb.
   components:
+  - type: Sprite
+    layers:
+    - sprite: ADT/Mobs/Species/IPC/parts.rsi
+      state: r_arm
   - type: InitialBody
     organs:
       ArmRight: ADTOrganProsthesisRegularArmRight
@@ -338,6 +366,10 @@
   name: prosthetic right leg assembly
   description: A standard cybernetic replacement limb.
   components:
+  - type: Sprite
+    layers:
+    - sprite: ADT/Mobs/Species/IPC/parts.rsi
+      state: r_leg
   - type: InitialBody
     organs:
       LegRight: ADTOrganProsthesisRegularLegRight
