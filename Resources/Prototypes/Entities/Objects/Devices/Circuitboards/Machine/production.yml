@@ -1380,6 +1380,9 @@
     stackRequirements:
       Steel: 1
       Cable: 2
+    partRequirements: #ADT-Tweak: machine parts
+      SubspaceTransmitter: 1
+      TreatmentDisk: 1
 
 - type: entity
   parent: BaseMachineCircuitboard

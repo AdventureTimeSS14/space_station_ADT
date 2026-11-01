@@ -125,7 +125,7 @@
     - ADTPowerCellHyperRecipe
   position: -2,-1  # ADT-Tweak I have to move it
   requiredTech:
-  - AdvancedPowercells
+  - ADTTelecommunicationTech
   # Fuck you new RnD console
 
 - type: technology
@@ -144,6 +144,22 @@
   requiredTech:
   - ADTIndustrialMODsuit
 
+- type: technology
+  id: ADTTelecommunicationTech
+  name: research-technology-adt-telecommunication
+  icon:
+    sprite: Structures/Machines/telecomms.rsi
+    state: telecom-nopower
+  discipline: Industrial
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - TelecomServerCircuitboard
+  - SubspaceTransmitterStockPart
+  - TreatmentDiskStockPart
+  position: -1,-1
+  requiredTech:
+  - AdvancedPowercells
 
 - type: technology
   id: ADTAdvancedThruster
@@ -203,7 +219,7 @@
   cost: 25000
   recipeUnlocks:
   - SMESCoilCryoStockPart
-  position: -2,0
+  position: -2,1
   requiredTech:
   - ADTSMESCoilTransmissionTech
   - ADTAdvancedEnergy

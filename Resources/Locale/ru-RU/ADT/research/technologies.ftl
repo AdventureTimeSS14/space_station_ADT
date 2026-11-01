@@ -28,3 +28,4 @@ research-technology-adt-smes-coil = Катушки СМЭС
 research-technology-adt-smes-coil-capacitance = Конденсаторные катушки СМЭС
 research-technology-adt-smes-coil-transmission = Передающие катушки СМЭС
 research-technology-adt-smes-coil-cryo = Криогенные катушки СМЭС
+research-technology-adt-telecommunication = Телекоммуникационная связь

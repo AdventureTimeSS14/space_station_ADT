@@ -63,7 +63,6 @@
   - SurveillanceWirelessCameraAnchoredCircuitboard
   - SurveillanceCameraMonitorCircuitboard
   - SurveillanceWirelessCameraMonitorCircuitboard
-  - TelecomServerCircuitboard
   - HolopadMachineCircuitboard
   # ADT Research Console Rework start
   position: 4,-1

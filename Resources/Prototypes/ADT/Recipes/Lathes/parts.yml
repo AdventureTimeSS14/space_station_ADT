@@ -16,6 +16,21 @@
 
 - type: latheRecipe
   parent: BaseStockPartRecipe
+  id: SubspaceTransmitterStockPart
+  result: SubspaceTransmitterStockPart
+
+- type: latheRecipe
+  parent: BaseStockPartRecipe
+  id: TreatmentDiskStockPart
+  result: TreatmentDiskStockPart
+  materials:
+    Steel: 50
+    Plastic: 50
+    Copper: 50
+    Silver: 25
+
+- type: latheRecipe
+  parent: BaseStockPartRecipe
   id: MicroLaserStockPart
   result: MicroLaserStockPart
 
