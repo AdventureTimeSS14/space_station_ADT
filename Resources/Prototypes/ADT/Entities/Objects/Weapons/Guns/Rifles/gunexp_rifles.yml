@@ -173,7 +173,6 @@
     walkModifier: 0.8
     sprintModifier: 0.8
     mirrorClothingModifier: false
-  - type: DNAGunLocker
   - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/Weapons/Guns/Cock/lmg_cock.ogg

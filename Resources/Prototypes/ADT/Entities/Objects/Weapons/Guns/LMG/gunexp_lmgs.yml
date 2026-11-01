@@ -35,7 +35,6 @@
     walkModifier: 0.5
     sprintModifier: 0.5
     mirrorClothingModifier: false
-  - type: DNAGunLocker
   - type: ItemSlots
     slots:
       gun_magazine:
