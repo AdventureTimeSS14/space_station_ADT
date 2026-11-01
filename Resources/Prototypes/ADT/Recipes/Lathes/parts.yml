@@ -187,3 +187,48 @@
   parent: QuantumScanningModuleStockPart
   id: QuantumMatterBinStockPart
   result: QuantumMatterBinStockPart
+
+- type: latheRecipe
+  parent: BaseStockPartRecipe
+  id: SMESCoilStockPart
+  result: SMESCoilStockPart
+
+- type: latheRecipe
+  id: SMESCoilCapacitanceStockPart
+  result: SMESCoilCapacitanceStockPart
+  categories:
+  - Parts
+  completetime: 1.5
+  materials:
+    Steel: 50
+    Plastic: 50
+    Copper: 100
+    Silver: 75
+    Gold: 25
+
+- type: latheRecipe
+  id: SMESCoilTransmissionStockPart
+  result: SMESCoilTransmissionStockPart
+  categories:
+  - Parts
+  completetime: 2
+  materials:
+    Steel: 75
+    Plastic: 75
+    Copper: 150
+    Plasma: 75
+    Uranium: 25
+
+- type: latheRecipe
+  id: SMESCoilCryoStockPart
+  result: SMESCoilCryoStockPart
+  categories:
+  - Parts
+  completetime: 3
+  materials:
+    Steel: 75
+    Plastic: 75
+    Copper: 150
+    ADTBScrystal: 75
+    Gold: 50
+    Uranium: 50

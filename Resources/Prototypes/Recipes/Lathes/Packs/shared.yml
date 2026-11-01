@@ -13,6 +13,7 @@
   - Igniter
   - ModularReceiver
   # ADT-Tweak start
+  - SMESCoilStockPart
   - CapacitorStockPart
   - MatterBinStockPart
   - ScanningModuleStockPart

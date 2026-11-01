@@ -123,7 +123,7 @@
   cost: 10000
   recipeUnlocks:
     - ADTPowerCellHyperRecipe
-  position: -1,-1  # ADT-Tweak I have to move it
+  position: -2,-1  # ADT-Tweak I have to move it
   requiredTech:
   - AdvancedPowercells
   # Fuck you new RnD console
@@ -161,6 +161,52 @@
   position: 4,2
   requiredTech:
   - Shuttlecraft
+
+- type: technology
+  id: ADTSMESCoilCapacitanceTech
+  name: research-technology-adt-smes-coil-capacitance
+  icon:
+    sprite: ADT/Objects/Misc/stock_parts.rsi
+    state: smes_coil_capacitance
+  discipline: Industrial
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - SMESCoilCapacitanceStockPart
+  position: -1,0
+  requiredTech:
+  - PowerGeneration
+
+- type: technology
+  id: ADTSMESCoilTransmissionTech
+  name: research-technology-adt-smes-coil-transmission
+  icon:
+    sprite: ADT/Objects/Misc/stock_parts.rsi
+    state: smes_coil_transmission
+  discipline: Industrial
+  tier: 3
+  cost: 20000
+  recipeUnlocks:
+  - SMESCoilTransmissionStockPart
+  position: -1,1
+  requiredTech:
+  - ADTSMESCoilCapacitanceTech
+
+- type: technology
+  id: ADTSMESCoilCryoTech
+  name: research-technology-adt-smes-coil-cryo
+  icon:
+    sprite: ADT/Objects/Misc/stock_parts.rsi
+    state: smes_coil_cryo
+  discipline: Industrial
+  tier: 4
+  cost: 25000
+  recipeUnlocks:
+  - SMESCoilCryoStockPart
+  position: -2,0
+  requiredTech:
+  - ADTSMESCoilTransmissionTech
+  - ADTAdvancedEnergy
 
 - type: technology
   id: ADTResonanceTech

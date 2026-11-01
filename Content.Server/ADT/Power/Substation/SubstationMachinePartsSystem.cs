@@ -45,6 +45,8 @@ public sealed class SubstationMachinePartsSystem : EntitySystem
             _ => 1f,
         };
 
+        capacityMultiplier *= args.GetStatMultiplier(MachineStat.Capacity);
+
         if (TryComp<BatteryComponent>(uid, out var battery))
             _battery.SetMaxCharge((uid, battery), component.BaseMaxCharge * capacityMultiplier);
 

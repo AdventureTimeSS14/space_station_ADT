@@ -24,3 +24,7 @@ research-technology-adt-quantum-parts = Квантовые машинные ча
 research-technology-adt-rped = РПЕД
 research-technology-adt-bluespace-rped = Блюспейс-РПЕД
 research-technology-adt-bluespace-rpd = Блюспейс-РРТ
+research-technology-adt-smes-coil = Катушки СМЭС
+research-technology-adt-smes-coil-capacitance = Конденсаторные катушки СМЭС
+research-technology-adt-smes-coil-transmission = Передающие катушки СМЭС
+research-technology-adt-smes-coil-cryo = Криогенные катушки СМЭС

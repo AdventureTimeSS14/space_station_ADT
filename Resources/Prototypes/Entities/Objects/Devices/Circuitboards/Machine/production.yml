@@ -697,7 +697,7 @@
       stackRequirements:
         CableHV: 10
       partRequirements: #ADT-Tweak: machine parts
-        Capacitor: 1
+        SMESCoil: 1
         PowerCell: 4
 
 - type: entity
@@ -714,7 +714,7 @@
     stackRequirements:
       CableHV: 20
     partRequirements: #ADT-Tweak: machine parts
-      Capacitor: 1
+      SMESCoil: 1
       PowerCell: 4
 
 - type: entity
@@ -840,7 +840,7 @@
         CableMV: 5
         CableHV: 5
       partRequirements: #ADT-Tweak: machine parts
-        Capacitor: 1
+        SMESCoil: 1
         PowerCell: 1
         Servo: 1
     - type: PhysicalComposition
