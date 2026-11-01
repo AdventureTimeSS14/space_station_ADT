@@ -108,7 +108,8 @@
 #Кровоостанавливающая пудра
 - type: reaction
   id: ADTStypticPowder
-  minTemp: 350
+  minTemp: 300
+  maxTemp: 324
   reactants:
     Aluminium:
       amount: 1
