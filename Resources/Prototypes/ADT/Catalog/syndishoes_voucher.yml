@@ -73,7 +73,7 @@
   name: syndicate-medic-voucher-mod-name
   description: syndicate-medic-voucher-mod-description
   sprite:
-    sprite: ADT/Clothing/Back/Modsuit/syndicate.rsi
+    sprite: ADT/Clothing/Back/Modsuit/syndicate_medic.rsi
     state: icon
   content:
   - ADTClothingModsuitBackSyndicateMedic

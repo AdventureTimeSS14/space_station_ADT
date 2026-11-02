@@ -530,3 +530,8 @@
   parent: ADTClothingHandsModsuitSyndicate
   id: ADTClothingHandsModsuitSyndicateMedic
   name: syndicate medic MOD gauntlets
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Modsuit/syndicate_medic.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Modsuit/syndicate_medic.rsi

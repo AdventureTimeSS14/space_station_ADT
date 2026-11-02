@@ -720,3 +720,8 @@
   parent: ADTClothingHeadHelmetModsuitSyndicate
   id: ADTClothingHeadHelmetModsuitSyndicateMedic
   name: syndicate medic MOD helmet
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Modsuit/syndicate_medic.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Modsuit/syndicate_medic.rsi

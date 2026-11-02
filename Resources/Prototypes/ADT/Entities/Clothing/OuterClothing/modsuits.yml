@@ -968,5 +968,9 @@
   id: ADTClothingOuterModsuitBodySyndicateMedic
   name: syndicate medic MOD chestplate
   components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Modsuit/syndicate_medic.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Modsuit/syndicate_medic.rsi
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.2

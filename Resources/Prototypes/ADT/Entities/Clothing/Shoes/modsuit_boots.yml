@@ -373,3 +373,9 @@
   parent: ADTClothingModsuitShoesSyndicate
   id: ADTClothingModsuitShoesSyndicateMedic
   name: syndicate medic MOD boots
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Modsuit/syndicate_medic.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Modsuit/syndicate_medic.rsi

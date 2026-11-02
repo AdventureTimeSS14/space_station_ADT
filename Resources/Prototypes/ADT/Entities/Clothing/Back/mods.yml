@@ -455,7 +455,7 @@
   description: A suit designed by Gorlex Marauders for field medics, with a built-in defibrillator and health analyzer.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Back/Modsuit/syndicate.rsi
+    sprite: ADT/Clothing/Back/Modsuit/syndicate_medic.rsi
     state: icon
   - type: ModSuit
     backpanelsColor: "#16050599"
