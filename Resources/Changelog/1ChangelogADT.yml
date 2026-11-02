@@ -17073,3 +17073,10 @@ Entries:
     id: 2077
     pr_number: 3615
     time: '2026-10-31T03:40:51Z'
+  - author: Пётр
+    changes:
+      - {message: Добавлены две именные вещи, type: Add}
+      - {message: Дополнен спрайт именной игрушки, type: Fix}
+    id: 2078
+    pr_number: 3628
+    time: '2026-11-02T01:12:52Z'
