@@ -35,8 +35,27 @@
         !type:DamageTrigger
         damage: 100
       behaviors:
+  #ADT-Tweak Start
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Ash:
+            min: 1
+            max: 1
+  #ADT-Tweak End
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  #ADT-Tweak Start
+  - type: Flammable
+    fireSpread: true
+    alwaysCombustible: true
+    canExtinguish: true
+    damage:
+      types:
+        Heat: 2
+  - type: FireVisuals
+    sprite: ADT/Effects/flag_fire.rsi
+    normalState: fire
+  #ADT-Tweak End
 
 - type: entity
   id: BannerNanotrasen
