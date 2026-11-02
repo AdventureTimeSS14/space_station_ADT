@@ -28,6 +28,7 @@
         - !type:HTNPrimitiveTask
           operator: !type:GunOperator
             targetKey: Target
+            targetState: SoftCritical
           preconditions:
             - !type:KeyExistsPrecondition
               key: Target
@@ -43,7 +44,35 @@
     - tasks:
         - !type:HTNPrimitiveTask
           operator: !type:UtilityOperator
-            proto: NearbyMeleeTargets
+            proto: ADTNearbyMeleeTargets
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTRadioCallOperator
+            call: Contact
+            lineSet: ADTXenoborgRadioContact
+            channel: Xenoborg
+            cooldown: 60
+            groupCooldown: 30
+            groupRange: 30
+        - !type:HTNPrimitiveTask
+          operator: !type:MeleeOperator
+            targetKey: Target
+            targetState: SoftCritical
+          preconditions:
+            - !type:KeyExistsPrecondition
+              key: Target
+            - !type:TargetInRangePrecondition
+              targetKey: Target
+              rangeKey: InteractRange
+          services:
+            - !type:UtilityService
+              id: MeleeService
+              proto: ADTNearbyMeleeTargets
+              key: Target
+
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:UtilityOperator
+            proto: ADTNearbyMeleeTargets
         - !type:HTNPrimitiveTask
           operator: !type:ADTRadioCallOperator
             call: Contact
@@ -63,16 +92,17 @@
         - !type:HTNPrimitiveTask
           operator: !type:MeleeOperator
             targetKey: Target
+            targetState: SoftCritical
           preconditions:
             - !type:KeyExistsPrecondition
               key: Target
             - !type:TargetInRangePrecondition
               targetKey: Target
-              rangeKey: MeleeRange
+              rangeKey: InteractRange
           services:
             - !type:UtilityService
               id: MeleeService
-              proto: NearbyMeleeTargets
+              proto: ADTNearbyMeleeTargets
               key: Target
 
 - type: htnCompound
@@ -102,6 +132,20 @@
             removeKeyOnFinish: false
             targetKey: ADTAllyCoordinates
             rangeKey: InteractRange
+
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTFindAllyOperator
+            range: 2.5
+            key: ADTAlly
+            keyCoordinates: ADTAllyCoordinates
+            prototypes:
+              - ADTMobXenoborgEngiNpc
+              - XenoborgEngi
+              - XenoborgEngiPrinted
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTWaitOperator
+            seconds: 2
 
 - type: htnCompound
   id: ADTXenoborgIdleCompound
