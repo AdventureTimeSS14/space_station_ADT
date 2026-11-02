@@ -379,6 +379,10 @@ ent-ADTHalloweenLethalCompanySuit = костюм сотрудника Смерт
     .suffix = Хеллоуин
     .desc = Одноразовые сотрудники - это круто!
 
+ent-ADTClothingUniformJumpsuitProstak = костюм простака
+    .suffix = Хеллоуин
+    .desc = Обычный серый пиджак.
+
 ent-ADTJumpsuitHunterDemon = костюм охотника на демонов
     .suffix = Хеллоуин
     .desc = Служебный костюм "Охотники на Демонов Общественной Безопасности" или же "Охотник на Демонов". Выглядит потрепанно.

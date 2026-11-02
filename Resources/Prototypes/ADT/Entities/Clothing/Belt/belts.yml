@@ -238,6 +238,18 @@
 
 - type: entity
   parent: ClothingBeltStorageBase
+  id: ADTClothingBeltProstakBag
+  name: simpleton bag
+  description: simpleton bag.
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/prostak_bag.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Belt/prostak_bag.rsi
+
+- type: entity
+  parent: ClothingBeltStorageBase
   id: ADTClothingBeltMedicalBag
   name: medical bag
   description: Small but capacious bag to hold various medical equipment. It even has some place for a tablet for paper!

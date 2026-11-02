@@ -454,6 +454,30 @@
 
 - type: entity
   parent: ClothingHeadBase
+  id: ADTClothingHeadHatProstak
+  name: simpleton hat
+  description: simpleton hat.
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/prostak_hat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/prostak_hat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatProstakCap
+  name: simpleton cap
+  description: simpleton cap.
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/prostak_cap.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/prostak_cap.rsi
+
+- type: entity
+  parent: ClothingHeadBase
   id: ADTClothingHeadHatConsultantCentcomCap
   name: Centcom consultant's cap
   description: A strict cap, indicating your status as a strict overseer of order among the station's heads.

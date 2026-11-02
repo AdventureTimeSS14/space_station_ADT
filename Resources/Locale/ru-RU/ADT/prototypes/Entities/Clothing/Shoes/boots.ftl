@@ -47,3 +47,7 @@ ent-ADTClothingShoesZero = Сандали Змея
 
 ent-ADTClothingShoesVoxSandals = сандалии вокса
   .desc = Удобные сандалии. Их точно никто не наденет с носками, ведь те просто не налезут на когтистые лапы вокса
+
+ent-ADTClothingShoesProstakBoots = ботинки простака
+    .suffix = Хеллоуин
+    .desc = Обычные потёртые чёрные ботинки.
