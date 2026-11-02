@@ -2478,15 +2478,30 @@
   description: Hop hop hop. Lookin' moist.
   components:
   - type: VentCrawler # ADT tweak
+  # ADT-Tweak-Start
+  - type: Item
+    size: Tiny
+    sprite: Mobs/Animals/frog.rsi
+    storedOffset: 0,-11
+    inhandVisuals:
+      left:
+      - state: frog
+      right:
+      - state: frog
+  # ADT-Tweak-End
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
     baseSprintSpeed: 6
   - type: Sprite
     drawdepth: Mobs
+    # ADT-Tweak-Start
+    offset: 0,-0.34375
     layers:
     - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: frog
       sprite: Mobs/Animals/frog.rsi
+      offset: 0,0.34375
+    # ADT-Tweak-End
   - type: SpriteMovement
     movementLayers:
       movement:
@@ -2519,7 +2534,10 @@
     - id: FoodMeat
       amount: 1
   - type: InteractionPopup
-    successChance: 0.6
+    # ADT-Tweak-Start
+    onActivate: true
+    successChance: 0.90
+    # ADT-Tweak-End
     interactSuccessString: petting-success-frog
     interactFailureString: petting-failure-generic
     interactSuccessSpawn: EffectHearts
