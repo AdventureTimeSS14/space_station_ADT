@@ -43,11 +43,111 @@
     - preconditions:
         - !type:ADTHostileNearPrecondition
           range: 15
+        - !type:KeyBoolEqualsPrecondition
+          key: ADTInjecting
+          value: true
         - !type:ADTBorgItemSolutionPrecondition
           solution: hypospray
           items:
             - NocturineHypo
       tasks:
+        - !type:HTNCompoundTask
+          task: ADTXenoborgStealthInjectCompound
+
+    - preconditions:
+        - !type:ADTHostileNearPrecondition
+          range: 15
+        - !type:ADTBorgItemSolutionPrecondition
+          solution: hypospray
+          minVolume: 10
+          items:
+            - NocturineHypo
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:SetBoolOperator
+            targetKey: ADTInjecting
+            value: true
+        - !type:HTNCompoundTask
+          task: ADTXenoborgStealthInjectCompound
+
+    - preconditions:
+        - !type:ADTRecentlyHurtPrecondition
+          seconds: 3
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:SetBoolOperator
+            targetKey: ADTInjecting
+            value: false
+        - !type:HTNCompoundTask
+          task: ADTXenoborgStealthFleeCompound
+
+    - preconditions:
+        - !type:ADTHostileNearPrecondition
+          range: 4
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:SetBoolOperator
+            targetKey: ADTInjecting
+            value: false
+        - !type:HTNCompoundTask
+          task: ADTXenoborgStealthFleeCompound
+
+    - preconditions:
+        - !type:ADTHostileNearPrecondition
+          range: 15
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:SetBoolOperator
+            targetKey: ADTInjecting
+            value: false
+        - !type:HTNPrimitiveTask
+          operator: !type:UtilityOperator
+            proto: ADTXenoborgSleepTargets
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            pathfindInPlanning: true
+            removeKeyOnFinish: false
+            targetKey: TargetCoordinates
+            pathfindKey: TargetPathfind
+            rangeKey: ADTStalkRange
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTWaitOperator
+            seconds: 1
+
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:SetBoolOperator
+            targetKey: ADTInjecting
+            value: false
+        - !type:HTNCompoundTask
+          task: ADTXenoborgIdleCompound
+
+- type: htnCompound
+  id: ADTXenoborgStealthInjectCompound
+  branches:
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:UtilityOperator
+            proto: ADTXenoborgSleepTargets
+        - !type:HTNPrimitiveTask
+          preconditions:
+            - !type:KeyExistsPrecondition
+              key: Target
+            - !type:TargetInRangePrecondition
+              targetKey: Target
+              rangeKey: ADTReachRange
+          operator: !type:InteractWithOperator
+            targetKey: Target
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTRadioCallOperator
+            call: Contact
+            lineSet: ADTXenoborgRadioNeutralized
+            channel: Xenoborg
+            cooldown: 20
+            groupCooldown: 10
+            groupRange: 30
+
+    - tasks:
         - !type:HTNPrimitiveTask
           operator: !type:UtilityOperator
             proto: ADTXenoborgSleepTargets
@@ -66,15 +166,46 @@
             removeKeyOnFinish: false
             targetKey: TargetCoordinates
             pathfindKey: TargetPathfind
-            rangeKey: InteractRange
+            rangeKey: MeleeRange
         - !type:HTNPrimitiveTask
           preconditions:
             - !type:TargetInRangePrecondition
               targetKey: Target
-              rangeKey: InteractRange
+              rangeKey: ADTReachRange
           operator: !type:InteractWithOperator
             targetKey: Target
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTRadioCallOperator
+            call: Contact
+            lineSet: ADTXenoborgRadioNeutralized
+            channel: Xenoborg
+            cooldown: 20
+            groupCooldown: 10
+            groupRange: 30
+
+- type: htnCompound
+  id: ADTXenoborgStealthFleeCompound
+  branches:
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:UtilityOperator
+            proto: ADTXenoborgSleepTargets
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTPickFleeCoordinatesOperator
+            targetKey: Target
+            fleeDistance: 7
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            pathfindInPlanning: true
 
     - tasks:
-        - !type:HTNCompoundTask
-          task: ADTXenoborgIdleCompound
+        - !type:HTNPrimitiveTask
+          operator: !type:UtilityOperator
+            proto: ADTNearbyAliveGunTargets
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTPickFleeCoordinatesOperator
+            targetKey: Target
+            fleeDistance: 7
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            pathfindInPlanning: true

@@ -1,0 +1,545 @@
+- type: entity
+  abstract: true
+  parent: [ BaseItem, BaseMajorContraband ]
+  id: ADTMagazineReactive30Base
+  name: magazine (.30 reactive)
+  components:
+  - type: Tag
+    tags:
+    - ADTMagazineReactive30
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+      - ADTCartridgeReactive30
+    proto: ADTCartridgeReactive30
+    capacity: 10
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Magazine/Reactive/reactive30_mag.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: ADTMagazineReactive30Base
+  id: ADTMagazineReactive30
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeReactive30
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      right:
+      - state: inhand-right-mag
+
+- type: entity
+  parent: ADTMagazineReactive30Base
+  id: ADTMagazineReactive30Blast
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeReactive30Blast
+  - type: Sprite
+    layers:
+    - state: blast
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#cd9d31"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#cd9d31"
+
+- type: entity
+  parent: ADTMagazineReactive30Base
+  id: ADTMagazineReactive30Incendiary
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeReactive30Incendiary
+  - type: Sprite
+    layers:
+    - state: incendiary
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#ff6e52"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#ff6e52"
+
+- type: entity
+  parent: ADTMagazineReactive30Base
+  id: ADTMagazineReactive30Practice
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeReactive30Practice
+  - type: Sprite
+    layers:
+    - state: practice
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#dbdbdb"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#dbdbdb"
+
+- type: entity
+  parent: ADTMagazineReactive30Base
+  id: ADTMagazineReactive30Shrapnel
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeReactive30Shrapnel
+  - type: Sprite
+    layers:
+    - state: shrapnel
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#9b171a"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#9b171a"
+
+- type: entity
+  parent: ADTMagazineReactive30Base
+  id: ADTMagazineReactive30Uranium
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeReactive30Uranium
+  - type: Sprite
+    layers:
+    - state: uranium
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#65fe08"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#65fe08"
+
+- type: entity
+  parent: ADTMagazineReactive30Base
+  id: ADTMagazineReactive30Empty
+  suffix: Empty
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      right:
+      - state: inhand-right-mag
+
+- type: entity
+  abstract: true
+  parent: [ BaseItem, BaseMajorContraband ]
+  id: ADTMagazineReactive30DrumBase
+  name: magazine (.30 reactive)
+  components:
+  - type: Tag
+    tags:
+    - ADTMagazineReactive30Drum
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+      - ADTCartridgeReactive30
+    proto: ADTCartridgeReactive30
+    capacity: 30
+  - type: Item
+    size: Normal
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Magazine/Reactive/reactive30_drum.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: ADTMagazineReactive30DrumBase
+  id: ADTMagazineReactive30Drum
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeReactive30
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      right:
+      - state: inhand-right-mag
+
+- type: entity
+  parent: ADTMagazineReactive30DrumBase
+  id: ADTMagazineReactive30DrumBlast
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeReactive30Blast
+  - type: Sprite
+    layers:
+    - state: blast
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#cd9d31"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#cd9d31"
+
+- type: entity
+  parent: ADTMagazineReactive30DrumBase
+  id: ADTMagazineReactive30DrumIncendiary
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeReactive30Incendiary
+  - type: Sprite
+    layers:
+    - state: incendiary
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#ff6e52"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#ff6e52"
+
+- type: entity
+  parent: ADTMagazineReactive30DrumBase
+  id: ADTMagazineReactive30DrumPractice
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeReactive30Practice
+  - type: Sprite
+    layers:
+    - state: practice
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#dbdbdb"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#dbdbdb"
+
+- type: entity
+  parent: ADTMagazineReactive30DrumBase
+  id: ADTMagazineReactive30DrumShrapnel
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeReactive30Shrapnel
+  - type: Sprite
+    layers:
+    - state: shrapnel
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#9b171a"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#9b171a"
+
+- type: entity
+  parent: ADTMagazineReactive30DrumBase
+  id: ADTMagazineReactive30DrumUranium
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeReactive30Uranium
+  - type: Sprite
+    layers:
+    - state: uranium
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#65fe08"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#65fe08"
+
+- type: entity
+  parent: ADTMagazineReactive30DrumBase
+  id: ADTMagazineReactive30DrumEmpty
+  suffix: Empty
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      right:
+      - state: inhand-right-mag
+
+- type: entity
+  abstract: true
+  parent: [ BaseItem, BaseMajorContraband ]
+  id: ADTMagazineReactive30DrumHeavyBase
+  name: magazine (.30 reactive)
+  components:
+  - type: Tag
+    tags:
+    - ADTMagazineReactive30DrumHeavy
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+      - ADTCartridgeReactive30
+    proto: ADTCartridgeReactive30
+    capacity: 50
+  - type: Item
+    size: Normal
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Magazine/Reactive/reactive30_drum_heavy.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: ADTMagazineReactive30DrumHeavyBase
+  id: ADTMagazineReactive30DrumHeavy
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeReactive30
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      right:
+      - state: inhand-right-mag
+
+- type: entity
+  parent: ADTMagazineReactive30DrumHeavyBase
+  id: ADTMagazineReactive30DrumHeavyBlast
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeReactive30Blast
+  - type: Sprite
+    layers:
+    - state: blast
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#cd9d31"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#cd9d31"
+
+- type: entity
+  parent: ADTMagazineReactive30DrumHeavyBase
+  id: ADTMagazineReactive30DrumHeavyIncendiary
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeReactive30Incendiary
+  - type: Sprite
+    layers:
+    - state: incendiary
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#ff6e52"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#ff6e52"
+
+- type: entity
+  parent: ADTMagazineReactive30DrumHeavyBase
+  id: ADTMagazineReactive30DrumHeavyPractice
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeReactive30Practice
+  - type: Sprite
+    layers:
+    - state: practice
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#dbdbdb"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#dbdbdb"
+
+- type: entity
+  parent: ADTMagazineReactive30DrumHeavyBase
+  id: ADTMagazineReactive30DrumHeavyShrapnel
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeReactive30Shrapnel
+  - type: Sprite
+    layers:
+    - state: shrapnel
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#9b171a"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#9b171a"
+
+- type: entity
+  parent: ADTMagazineReactive30DrumHeavyBase
+  id: ADTMagazineReactive30DrumHeavyUranium
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeReactive30Uranium
+  - type: Sprite
+    layers:
+    - state: uranium
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#65fe08"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#65fe08"
+
+- type: entity
+  parent: ADTMagazineReactive30DrumHeavyBase
+  id: ADTMagazineReactive30DrumHeavyEmpty
+  suffix: Empty
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      right:
+      - state: inhand-right-mag
