@@ -51,7 +51,7 @@
     canExtinguish: true
     damage:
       types:
-        Heat: 2
+        Heat: 3
   - type: FireVisuals
     sprite: ADT/Effects/flag_fire.rsi
     normalState: fire
