@@ -4,20 +4,17 @@
   - ADTAshWalker
   - ADTBlob
   - ADTShadowling
-  - ADTSmugglersPirates
+  - ADTSmugglers
   - ADTSpaceMobs
   - Changeling
   - Dragon
   - Heretic
   - KMT
-  - Mouse
   - NanoTrasen
-  - Passive
   - PetsNT
   - Pirate
   - Revolutionary
   - SimpleHostile
-  - SimpleNeutral
   - SpaceSecFaction
   - Syndicate
   - TSF
@@ -28,7 +25,7 @@
   - Zombie
 
 - type: npcFaction
-  id: ADTSmugglersPirates
+  id: ADTSmugglers
   hostile:
   - NanoTrasen
   - SimpleHostile

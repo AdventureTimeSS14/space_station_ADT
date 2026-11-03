@@ -1,10 +1,11 @@
 using Content.Server.Destructible;
 using Content.Server.NPC.Components;
 using Content.Server.NPC.Pathfinding;
+using Content.Shared.Access.Systems;
 using Content.Shared.CombatMode;
 using Content.Shared.DoAfter;
 using Content.Shared.Doors.Components;
-using Content.Shared.Doors.Systems; // ADT-Tweak
+using Content.Shared.Doors.Systems;
 using Content.Shared.NPC;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
@@ -39,6 +40,7 @@ public sealed partial class NPCSteeringSystem
     [Dependency] private EntityQuery<ClimbableComponent> _climbableQuery = default!;
     [Dependency] private EntityQuery<DestructibleComponent> _destructibleQuery = default!;
     [Dependency] private SharedDoorSystem _door = default!; // ADT-Tweak
+    [Dependency] private AccessReaderSystem _accessReader = default!; // ADT-Tweak
 
     private SteeringObstacleStatus TryHandleFlags(EntityUid uid, NPCSteeringComponent component, PathPoly poly)
     {
@@ -105,7 +107,7 @@ public sealed partial class NPCSteeringSystem
                 // If we get to here then didn't succeed for reasons.
             }
 
-            // ADT-Tweak start
+            // ADT-Tweak-Start
             if (isDoor && isAccessRequired && (component.Flags & PathFlags.Access) != 0x0)
             {
                 if (obstacleEnts.Count == 0)
@@ -116,11 +118,17 @@ public sealed partial class NPCSteeringSystem
                     if (!_doorQuery.TryGetComponent(ent, out var door) || door.State == DoorState.Open)
                         continue;
 
-                    if (door.State == DoorState.Opening || _door.TryOpen(ent, door, uid))
+                    if (door.State == DoorState.Opening)
+                        return SteeringObstacleStatus.Continuing;
+
+                    if (!_accessReader.IsAllowed(uid, ent))
+                        continue;
+
+                    if (_door.TryOpen(ent, door, uid, quiet: true))
                         return SteeringObstacleStatus.Continuing;
                 }
             }
-            // ADT-Tweak end
+            // ADT-Tweak-End
 
             if ((component.Flags & PathFlags.Prying) != 0x0 && isDoor)
             {

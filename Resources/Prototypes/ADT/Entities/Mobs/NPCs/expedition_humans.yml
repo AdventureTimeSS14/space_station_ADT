@@ -117,7 +117,7 @@
         - ADTSovietBunkerShotgunnerGear
         - ADTSovietBunkerMarksmanGear
         - ADTSovietBunkerRocketeerGear
-        - ADTSovietBunkerSniperGear
+        - ADTSovietBunkerMachineGunnerGear
 
 - type: entity
   parent: ADTMobSovietBunkerBase
@@ -189,13 +189,13 @@
 
 - type: entity
   parent: ADTMobSovietBunkerBase
-  id: ADTMobSovietBunkerSniper
-  name: soviet sniper
-  description: Снайпер из давно забытого отряда СССП.
+  id: ADTMobSovietBunkerMachineGunner
+  name: soviet machine gunner
+  description: Пулемётчик из давно забытого отряда СССП.
   components:
     - type: Loadout
       prototypes:
-        - ADTSovietBunkerSniperGear
+        - ADTSovietBunkerMachineGunnerGear
 
 - type: entity
   parent: ADTMobSovietBunkerBase
@@ -236,21 +236,21 @@
           10
 
 - type: entity
+  abstract: true
   parent: MobHuman
-  id: ADTMobSmugglerPirate
-  name: smuggler pirate
-  description: Контрабандист или пират с базы на задворках космоса.
+  id: ADTMobSmugglerBase
   components:
     - type: NpcFactionMember
       factions:
-        - ADTSmugglersPirates
-    - type: Loadout
-      prototypes:
-        - ADTSmugglerPirateGearPlaceholder
+        - ADTSmugglers
     - type: InputMover
     - type: MobMover
     - type: ADTNpcGear
     - type: ADTNpcCombatMemory
+      avoidObstacles: true
+      obstacleMask:
+      - BulletImpassable
+    - type: ADTPreciseProjectileTarget
     - type: HTN
       rootTask:
         task: ADTExpeditionHumanoidCompound
@@ -290,7 +290,7 @@
       - judy
       - v_female
       clearFemaleFacialHair: true
-      nameFormat: name-format-adt-smuggler-pirate
+      nameFormat: name-format-adt-smuggler
       nameSegments:
       - NamesFakeHumanFirst
       - ADTNamesSmugglerNickname
@@ -299,12 +299,163 @@
       - ADTNamesSmugglerNickname
 
 - type: entity
+  parent: ADTMobSmugglerBase
+  id: ADTMobSmuggler
+  name: smuggler
+  description: Контрабандист с базы на задворках космоса.
+  components:
+    - type: Loadout
+      prototypes:
+        - ADTSmugglerRiflemanGear
+        - ADTSmugglerHunterGear
+        - ADTSmugglerShotgunnerGear
+        - ADTSmugglerRaiderGear
+        - ADTSmugglerThugGear
+        - ADTSmugglerHeavyGear
+        - ADTSmugglerTrooperGear
+
+- type: entity
+  parent: ADTMobSmugglerBase
+  id: ADTMobSmugglerRifleman
+  name: smuggler rifleman
+  description: Стрелок контрабандистов с базы на задворках космоса.
+  components:
+    - type: Loadout
+      prototypes:
+        - ADTSmugglerRiflemanGear
+
+- type: entity
+  parent: ADTMobSmugglerBase
+  id: ADTMobSmugglerHunter
+  name: smuggler hunter
+  description: Охотник контрабандистов с базы на задворках космоса.
+  components:
+    - type: Loadout
+      prototypes:
+        - ADTSmugglerHunterGear
+
+- type: entity
+  parent: ADTMobSmugglerBase
+  id: ADTMobSmugglerShotgunner
+  name: smuggler shotgunner
+  description: Штурмовик контрабандистов с базы на задворках космоса.
+  components:
+    - type: Loadout
+      prototypes:
+        - ADTSmugglerShotgunnerGear
+    - type: HTN
+      rootTask:
+        task: ADTExpeditionHumanoidCompound
+      blackboard:
+        NavInteract: !type:Bool
+          true
+        VisionRadius: !type:Single
+          15
+        AggroVisionRadius: !type:Single
+          20
+        ADTAdvanceRange: !type:Single
+          6
+        ADTMeleeSwitchRange: !type:Single
+          1.8
+        ADTFollowRange: !type:Single
+          2.5
+        ADTMeleeLeaveRange: !type:Single
+          3.5
+        ADTPistolRange: !type:Single
+          0.1
+        ADTPistolLeaveRange: !type:Single
+          8
+        ADTEmptyPistolRange: !type:Single
+          8
+        ADTSafeReloadRangeLoose: !type:Single
+          8
+
+- type: entity
+  parent: ADTMobSmugglerBase
+  id: ADTMobSmugglerRaider
+  name: smuggler raider
+  description: Налётчик контрабандистов с базы на задворках космоса.
+  components:
+    - type: Loadout
+      prototypes:
+        - ADTSmugglerRaiderGear
+
+- type: entity
+  parent: ADTMobSmugglerBase
+  id: ADTMobSmugglerThug
+  name: smuggler thug
+  description: Боевик контрабандистов с базы на задворках космоса.
+  components:
+    - type: Loadout
+      prototypes:
+        - ADTSmugglerThugGear
+
+- type: entity
+  parent: ADTMobSmugglerBase
+  id: ADTMobSmugglerHeavy
+  name: smuggler heavy
+  description: Тяжёлый стрелок контрабандистов с базы на задворках космоса.
+  components:
+    - type: Loadout
+      prototypes:
+        - ADTSmugglerHeavyGear
+
+- type: entity
+  parent: ADTMobSmugglerBase
+  id: ADTMobSmugglerTrooper
+  name: smuggler trooper
+  description: Автоматчик контрабандистов с базы на задворках космоса.
+  components:
+    - type: Loadout
+      prototypes:
+        - ADTSmugglerTrooperGear
+
+- type: entity
+  parent: ADTMobSmugglerBase
+  id: ADTMobSmugglerMedic
+  name: smuggler medic
+  description: Медик контрабандистов с базы на задворках космоса.
+  components:
+    - type: Loadout
+      prototypes:
+        - ADTSmugglerMedicGear
+    - type: HTN
+      rootTask:
+        task: ADTExpeditionMedicCompound
+      blackboard:
+        NavInteract: !type:Bool
+          true
+        VisionRadius: !type:Single
+          15
+        AggroVisionRadius: !type:Single
+          20
+        ADTAdvanceRange: !type:Single
+          6
+        ADTMeleeSwitchRange: !type:Single
+          1.8
+        ADTFollowRange: !type:Single
+          2.5
+        ADTMeleeLeaveRange: !type:Single
+          3.5
+        ADTPistolRange: !type:Single
+          5.5
+        ADTPistolLeaveRange: !type:Single
+          8
+        ADTEmptyPistolRange: !type:Single
+          6
+        ADTSafeReloadRangeLoose: !type:Single
+          10
+
+- type: entity
   parent: ADTMobSovietBunkerRifleman
   id: ADTMobSovietBunkerOstapenko
   name: Major Ostapenko
   suffix: DO NOT MAP
   description: Commander of the USSP outpost.
   components:
+    - type: Loadout
+      prototypes:
+        - ADTSovietBunkerOfficerGear
     - type: RandomHumanoidAppearance
       nameSegments: []
       femaleNameSegments: []
@@ -317,6 +468,9 @@
   suffix: DO NOT MAP
   description: Deputy commander for political affairs of the USSP outpost.
   components:
+    - type: Loadout
+      prototypes:
+        - ADTSovietBunkerOfficerGear
     - type: RandomHumanoidAppearance
       nameSegments: []
       femaleNameSegments: []
@@ -450,11 +604,11 @@
       sex: Male
 
 - type: entity
-  parent: ADTMobSovietBunkerSniper
+  parent: ADTMobSovietBunkerMachineGunner
   id: ADTMobSovietBunkerLiWei
   name: Private Li Wei
   suffix: DO NOT MAP
-  description: Best marksman of the USSP outpost.
+  description: Machine gunner of the USSP outpost.
   components:
     - type: RandomHumanoidAppearance
       nameSegments: []

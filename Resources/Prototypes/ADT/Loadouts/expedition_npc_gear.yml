@@ -31,10 +31,10 @@
   id: ADTSovietBunkerRiflemanGear
   parent: ADTSovietBunkerSoldierGearBase
   inhand:
-  - WeaponRifleAk
+  - ADTWeaponRifleAKTac
   storage:
     belt:
-    - CombatKnife
+    - ADTUSSPCombatKnifeBarzai
     - WeaponPistolViper
     - MagazinePistolHighCapacity
     - MagazineLightRifle
@@ -42,16 +42,27 @@
     - MagazineLightRifle
 
 - type: startingGear
+  id: ADTSovietBunkerOfficerGear
+  parent: ADTSovietBunkerRiflemanGear
+  equipment:
+    jumpsuit: ADTOfficerArmyUSSPUniform
+    outerClothing: ADTClothingOuterCoatOfficerUSSPGreatcoat
+    head: ADTClothingHeadHatsOfficerArmyUSSPCap
+    id: ADTUSSPArmyOfficerCard
+
+- type: startingGear
   id: ADTSovietBunkerShotgunnerGear
   parent: ADTSovietBunkerSoldierGearBase
   inhand:
-  - WeaponShotgunSawn
+  - ADTWeaponShotgunEger
   storage:
     belt:
-    - CombatKnife
+    - ADTUSSPCombatKnifeBarzai
     - WeaponPistolViper
     - MagazinePistolHighCapacity
-    - BoxLethalshot
+    - ADTMagazineShotgunEger
+    - ADTMagazineShotgunEger
+    - ADTMagazineShotgunEger
 
 - type: startingGear
   id: ADTSovietBunkerMarksmanGear
@@ -60,7 +71,7 @@
   - WeaponSniperMosin
   storage:
     belt:
-    - CombatKnife
+    - ADTUSSPCombatKnifeBarzai
     - WeaponPistolViper
     - MagazinePistolHighCapacity
     - MagazineBoxLightRifle
@@ -72,23 +83,23 @@
   - ADTWeaponLauncherRocketFrag
   storage:
     belt:
-    - CombatKnife
+    - ADTUSSPCombatKnifeBarzai
     - WeaponPistolViper
     - MagazinePistolHighCapacity
     - ADTCartridgeFragRocket
     - ADTCartridgeFragRocket
 
 - type: startingGear
-  id: ADTSovietBunkerSniperGear
+  id: ADTSovietBunkerMachineGunnerGear
   parent: ADTSovietBunkerSoldierGearBase
   inhand:
-  - ADTWeaponSniperHristovNoScope
+  - ADTWeaponLightMachineGunMaxim
   storage:
     belt:
-    - CombatKnife
+    - ADTUSSPCombatKnifeBarzai
     - WeaponPistolViper
     - MagazinePistolHighCapacity
-    - MagazineBoxAntiMateriel
+    - ADTMagazineLightRifleMaximBox
 
 - type: startingGear
   id: ADTSovietBunkerMedicGear
@@ -99,7 +110,7 @@
   - WeaponPistolViper
   storage:
     belt:
-    - CombatKnife
+    - ADTUSSPCombatKnifeBarzai
     - MagazinePistolHighCapacity
     - MagazinePistolHighCapacity
     back:
@@ -113,14 +124,14 @@
     - CombatMedipen
 
 - type: startingGear
-  id: ADTSmugglerPirateGearPlaceholder
+  id: ADTSmugglerGearBase
   parent: ADTExpeditionNPCBreathingBase
   equipment:
     jumpsuit: ClothingUniformJumpsuitOperative
     shoes: ClothingShoesBootsCombat
     mask: ClothingMaskGasSyndicate
+    belt: ClothingBeltMilitaryWebbing
     back: ClothingBackpackSalvage
-    pocket1: MagazinePistol
   storage:
     back:
     - Gauze
@@ -130,5 +141,115 @@
     - EmergencyMedipen
     - FoodTinMRE
     - FoodTinMRE
+
+- type: startingGear
+  id: ADTSmugglerRiflemanGear
+  parent: ADTSmugglerGearBase
   inhand:
-  - WeaponPistolViper
+  - ADTWeaponRifleForged
+  storage:
+    belt:
+    - CombatKnife
+    - ADTWeaponPistolForged
+    - MagazinePistol
+    - MagazineBoxLightRifle
+    - MagazineBoxLightRifle
+
+- type: startingGear
+  id: ADTSmugglerHunterGear
+  parent: ADTSmugglerGearBase
+  inhand:
+  - ADTWeaponRifleImprovised
+  storage:
+    belt:
+    - CombatKnife
+    - ADTWeaponPistolImprovised
+    - MagazinePistol
+    - MagazineBoxLightRifle
+    - MagazineBoxLightRifle
+
+- type: startingGear
+  id: ADTSmugglerShotgunnerGear
+  parent: ADTSmugglerGearBase
+  inhand:
+  - ADTWeaponShotgunForged
+  storage:
+    belt:
+    - CombatKnife
+    - ADTWeaponRevolverForged
+    - SpeedLoaderMagnum
+    - BoxLethalshot
+    - BoxLethalshot
+
+- type: startingGear
+  id: ADTSmugglerRaiderGear
+  parent: ADTSmugglerGearBase
+  inhand:
+  - ADTWeaponSubMachineGunForged
+  storage:
+    belt:
+    - CombatKnife
+    - ADTWeaponPistolForgedAuto
+    - MagazinePistolHighCapacity
+    - MagazinePistolSubMachineGun
+    - MagazinePistolSubMachineGun
+    - MagazinePistolSubMachineGun
+
+- type: startingGear
+  id: ADTSmugglerThugGear
+  parent: ADTSmugglerGearBase
+  inhand:
+  - ADTWeaponSubMachineGunImprovised
+  storage:
+    belt:
+    - CombatKnife
+    - ADTWeaponRevolverImprovised
+    - SpeedLoaderMagnum
+    - MagazinePistolSubMachineGun
+    - MagazinePistolSubMachineGun
+    - MagazinePistolSubMachineGun
+
+- type: startingGear
+  id: ADTSmugglerHeavyGear
+  parent: ADTSmugglerGearBase
+  inhand:
+  - ADTWeaponRifleTRR30
+  storage:
+    belt:
+    - CombatKnife
+    - ADTWeaponPistolImprovisedHeavy
+    - MagazineMagnum
+    - ADTMagazineReactive30
+    - ADTMagazineReactive30
+
+- type: startingGear
+  id: ADTSmugglerTrooperGear
+  parent: ADTSmugglerGearBase
+  inhand:
+  - ADTWeaponRifleSTR55
+  storage:
+    belt:
+    - CombatKnife
+    - ADTWeaponPistolForged
+    - MagazinePistol
+    - MagazineRifle
+    - MagazineRifle
+    - MagazineRifle
+
+- type: startingGear
+  id: ADTSmugglerMedicGear
+  parent: ADTSmugglerGearBase
+  inhand:
+  - ADTWeaponPistolForgedAuto
+  storage:
+    belt:
+    - CombatKnife
+    - MagazinePistolHighCapacity
+    - MagazinePistolHighCapacity
+    back:
+    - MedkitFilled
+    - MedkitFilled
+    - CombatMedipen
+    - CombatMedipen
+    - CombatMedipen
+    - CombatMedipen

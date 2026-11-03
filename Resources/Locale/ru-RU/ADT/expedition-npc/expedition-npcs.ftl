@@ -1,20 +1,14 @@
 # Форматы имён
 name-format-adt-soviet-soldier = { $part0 } { $part1 }
-name-format-adt-smuggler-pirate = { $part0 } «{ $part1 }»
+name-format-adt-smuggler = { $part0 } «{ $part1 }»
 
 # Названия и описания сущностей
 ent-ADTMobSovietBunkerSoldier = солдат СССП
     .desc = Солдат из давно забытого отряда СССП.
-ent-ADTMobSmugglerPirate = контрабандист-пират
-    .desc = Контрабандист или пират с базы на задворках космоса.
+ent-ADTMobSmuggler = контрабандист
+    .desc = Контрабандист с базы на задворках космоса.
 ent-ADTSpawnMobSovietBunkerSoldierExpedition = спавнер солдата СССП
-ent-ADTSpawnMobSmugglerPirateExpedition = спавнер контрабандиста-пирата
-
-# Призрачные роли
-ghost-role-information-adt-soviet-soldier-name = Солдат СССП
-ghost-role-information-adt-soviet-soldier-description = Вы солдат давно забытого отряда СССП. Охраняйте свою территорию от незваных гостей.
-ghost-role-information-adt-smuggler-pirate-name = Контрабандист-пират
-ghost-role-information-adt-smuggler-pirate-description = Вы обитатель контрабандистской базы. Защищайте её и свой груз от чужаков.
+ent-ADTSpawnMobSmugglerExpedition = спавнер контрабандиста
 
 # Наборы имён: СССП, звания (6)
 adt-names-soviet-rank-dataset-1 = Рядовой
@@ -76,7 +70,7 @@ adt-names-soviet-surname-female-dataset-22 = Крылова
 adt-names-soviet-surname-female-dataset-23 = Савельева
 adt-names-soviet-surname-female-dataset-24 = Дроздова
 
-# Наборы имён: контрабандисты/пираты, прозвища (20)
+# Наборы имён: контрабандисты, прозвища (20)
 adt-names-smuggler-nickname-dataset-1 = Крюк
 adt-names-smuggler-nickname-dataset-2 = Шрам
 adt-names-smuggler-nickname-dataset-3 = Гвоздь
