@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Created by discord:Празат Д.В. aka [767Sikon] (prazat911), and strawberry_heart, caramel_ear made by: anvel (discord)",
+    "copyright": "Created by discord:Празат Д.В. aka [767Sikon] (prazat911)",
     "size": {
         "x": 32,
         "y": 32
@@ -24,12 +24,6 @@
         },
         {
             "name": "cookie_skull"
-        },
-        {
-            "name": "caramel_ear"
-        },
-        {
-            "name": "strawberry_heart"
         }
     ]
 }

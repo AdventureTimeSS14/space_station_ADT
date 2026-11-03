@@ -6,6 +6,7 @@
   suffix: Oktoberfest
   components:
   - type: Sprite
+    sprite: ADT/Season/Structures/Wallmounts/posters.rsi
     state: poster_adtoktoberfest_legit #Спрайт от Празата
 
 - type: entity
@@ -16,6 +17,7 @@
   suffix: Oktoberfest
   components:
   - type: Sprite
+    sprite: ADT/Season/Structures/Wallmounts/posters.rsi
     state: poster_adtoktoberfest2_legit #Спрайт от Празата
 
 #контрабандные постеры

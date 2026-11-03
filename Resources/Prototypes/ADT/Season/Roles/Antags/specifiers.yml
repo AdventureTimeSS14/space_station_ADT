@@ -1,5 +1,0 @@
-- type: antagSpecifier
-  id: ADTSanta
-  spawnerPrototype: ADTSpawnPointGhostSanta
-  pickPlayer: false
-

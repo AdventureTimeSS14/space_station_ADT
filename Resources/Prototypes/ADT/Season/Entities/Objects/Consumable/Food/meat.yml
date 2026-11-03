@@ -10,7 +10,7 @@
     - Cooked
     - Meat
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/meat.rsi #спрайт от Празата
+    sprite: ADT/Season/Objects/Consumable/Food/meat.rsi #спрайт от Празата
     state: weisswurst
   - type: FlavorProfile
     flavors:
@@ -38,7 +38,7 @@
     - Cooked
     - Meat
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/meat.rsi  #спрайт от Празата
+    sprite: ADT/Season/Objects/Consumable/Food/meat.rsi  #спрайт от Празата
     state: bratwurst
   - type: FlavorProfile
     flavors:

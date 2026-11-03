@@ -14,7 +14,3 @@ ent-ADTWeaponWandSanta = морозный посох
     .desc = Приносит дух Рождества.
 ent-ADTClothingBackpackSanta = мешок Санты
     .desc = Интересно, откуда там столько подарков.
-ent-ADTSpawnPointGhostSanta = точка спавна Санты
-ghost-role-information-Santa-name = Санта-Клаус
-ghost-role-information-Santa-description = Принесите станции дух Рождества. Дарите подарки, катайтесь на оленях. Сделайте себе свиту из пряничных человечков.
-ghost-role-information-Santa-rules = Стандартные правила неантагониста.

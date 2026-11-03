@@ -5,6 +5,7 @@
   description: A cake with added chocolate.
   components:
   - type: Sprite
+    sprite: ADT/Season/Objects/Consumable/Food/Baked/cake.rsi
     state: chocolate_heart
   - type: ToolRefinable
     refineResult:
@@ -27,6 +28,7 @@
   id: ADTFoodCakeChocolateGlazeHeartSlice
   components:
   - type: Sprite
+    sprite: ADT/Season/Objects/Consumable/Food/Baked/cake.rsi
     state: chocolate-slice-heart
   - type: Solution
     solution:
@@ -46,7 +48,7 @@
   description: The heart-shaped cake is made from chocolate sponge cake, covered with chocolate cream and ganache, and decorated with icing.
   components:
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/cake.rsi
+    sprite: ADT/Season/Objects/Consumable/Food/cake.rsi
     state: chocolate-heart
   - type: ToolRefinable
     refineResult:
@@ -69,7 +71,7 @@
   id: ADTFoodCakeChocolateHeartSlice
   components:
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/cake.rsi
+    sprite: ADT/Season/Objects/Consumable/Food/cake.rsi
     state: chocolate-slice-heart
   - type: Solution
     solution:
@@ -89,7 +91,7 @@
   description: A dessert made from cookies, filled with cottage cheese and strawberries, and topped with chocolate cream and fresh strawberries. Perfect for your significant other.
   components:
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/cake.rsi
+    sprite: ADT/Season/Objects/Consumable/Food/cake.rsi
     state: strawberry-heart
   - type: ToolRefinable
     refineResult:
@@ -112,7 +114,7 @@
   id: ADTFoodCakeStrawberryHeartSlice
   components:
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/cake.rsi
+    sprite: ADT/Season/Objects/Consumable/Food/cake.rsi
     state: strawberry-slice-heart
   - type: Solution
     solution:

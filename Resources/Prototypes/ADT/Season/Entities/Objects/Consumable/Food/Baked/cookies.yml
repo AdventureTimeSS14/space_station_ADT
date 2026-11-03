@@ -80,6 +80,7 @@
   suffix: Valentine's day
   components:
   - type: Sprite
+    sprite: ADT/Season/Objects/Consumable/Food/Baked/cookies.rsi
     state: caramel_ear
 
 - type: entity
@@ -90,4 +91,5 @@
   suffix: Valentine's day
   components:
   - type: Sprite
+    sprite: ADT/Season/Objects/Consumable/Food/Baked/cookies.rsi
     state: strawberry_heart
