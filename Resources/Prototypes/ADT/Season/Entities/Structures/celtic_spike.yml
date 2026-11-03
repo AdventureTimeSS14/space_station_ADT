@@ -43,7 +43,6 @@
             max: 1
   - type: Transform
     noRot: true
-  - type: Spike
   - type: Strap
   - type: Anchorable
   - type: Pullable
