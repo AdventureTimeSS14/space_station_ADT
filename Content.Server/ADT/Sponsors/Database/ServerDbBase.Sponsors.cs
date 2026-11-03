@@ -362,6 +362,18 @@ public abstract partial class ServerDbBase
 
     public async Task SaveSponsorLegacyTier(int legacyTier, int? tierId)
     {
+        try
+        {
+            await SaveSponsorLegacyTierCore(legacyTier, tierId);
+        }
+        catch (DbUpdateException)
+        {
+            await SaveSponsorLegacyTierCore(legacyTier, tierId);
+        }
+    }
+
+    private async Task SaveSponsorLegacyTierCore(int legacyTier, int? tierId)
+    {
         await using var db = await GetDb();
 
         var row = await db.DbContext.AdtSponsorLegacyTier
@@ -398,6 +410,18 @@ public abstract partial class ServerDbBase
     }
 
     public async Task MarkSponsorLegacyTierSeen(int legacyTier, DateTime seenUtc)
+    {
+        try
+        {
+            await MarkSponsorLegacyTierSeenCore(legacyTier, seenUtc);
+        }
+        catch (DbUpdateException)
+        {
+            await MarkSponsorLegacyTierSeenCore(legacyTier, seenUtc);
+        }
+    }
+
+    private async Task MarkSponsorLegacyTierSeenCore(int legacyTier, DateTime seenUtc)
     {
         await using var db = await GetDb();
 

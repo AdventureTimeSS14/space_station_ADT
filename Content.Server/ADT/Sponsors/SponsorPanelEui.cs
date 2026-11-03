@@ -38,6 +38,7 @@ public sealed class SponsorPanelEui : BaseEui
 
         _admins.OnPermsChanged += OnPermsChanged;
 
+        StateDirty();
         ReloadLegacyTiers();
     }
 
@@ -320,8 +321,13 @@ public sealed class SponsorPanelEui : BaseEui
             return;
         }
 
-        var grants = await _sponsors.GetGrantHistoryAsync(_target.Value.UserId);
-        var legacy = await _sponsors.GetLegacyGrantAsync(_target.Value);
+        var target = _target.Value;
+
+        var grants = await _sponsors.GetGrantHistoryAsync(target.UserId);
+        var legacy = await _sponsors.GetLegacyGrantAsync(target);
+
+        if (_target != target)
+            return;
 
         if (legacy != null)
             grants.Insert(0, legacy);

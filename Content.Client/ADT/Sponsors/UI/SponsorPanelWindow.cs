@@ -49,6 +49,7 @@ public sealed class SponsorPanelWindow : DefaultWindow
     private SponsorTier[] _tiers = Array.Empty<SponsorTier>();
     private SponsorGrant[] _grants = Array.Empty<SponsorGrant>();
     private SponsorLegacyTier[] _legacyTiers = Array.Empty<SponsorLegacyTier>();
+    private int? _legacyTargetId;
 
     private bool _hasPermission;
 
@@ -403,7 +404,11 @@ public sealed class SponsorPanelWindow : DefaultWindow
         _grantList.OnItemSelected += _ => UpdateRevokeButton();
         _grantList.OnItemDeselected += _ => UpdateRevokeButton();
 
-        _legacyTier.OnItemSelected += args => _legacyTier.SelectId(args.Id);
+        _legacyTier.OnItemSelected += args =>
+        {
+            _legacyTier.SelectId(args.Id);
+            _legacyTargetId = GetSelectedLegacyTarget();
+        };
 
         _legacyList.OnItemSelected += _ =>
         {
@@ -480,8 +485,6 @@ public sealed class SponsorPanelWindow : DefaultWindow
             ? Loc.GetString("adt-sponsor-panel-legacy-import-on")
             : Loc.GetString("adt-sponsor-panel-legacy-import-off");
 
-        var selectedId = _legacyTier.SelectedId;
-
         _legacyTier.Clear();
         _legacyTier.AddItem(Loc.GetString("adt-sponsor-panel-legacy-unmapped"), 0);
 
@@ -490,8 +493,7 @@ public sealed class SponsorPanelWindow : DefaultWindow
             _legacyTier.AddItem($"{_tiers[i].Name} - {_tiers[i].DisplayName}", i + 1);
         }
 
-        if (!_legacyTier.TrySelectId(selectedId))
-            _legacyTier.SelectId(0);
+        SelectLegacyTarget(_legacyTargetId);
 
         _legacyList.Clear();
 
@@ -522,17 +524,24 @@ public sealed class SponsorPanelWindow : DefaultWindow
     private void LoadLegacyTier(SponsorLegacyTier legacyTier)
     {
         _legacyNumber.Text = legacyTier.LegacyTier.ToString(CultureInfo.InvariantCulture);
-        _legacyTier.SelectId(0);
+        SelectLegacyTarget(legacyTier.TierId);
+    }
 
-        if (legacyTier.TierId == null)
+    private void SelectLegacyTarget(int? tierId)
+    {
+        _legacyTier.SelectId(0);
+        _legacyTargetId = null;
+
+        if (tierId == null)
             return;
 
         for (var i = 0; i < _tiers.Length; i++)
         {
-            if (_tiers[i].Id != legacyTier.TierId.Value)
+            if (_tiers[i].Id != tierId.Value)
                 continue;
 
             _legacyTier.SelectId(i + 1);
+            _legacyTargetId = tierId;
             return;
         }
     }

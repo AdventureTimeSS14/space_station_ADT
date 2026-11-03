@@ -247,20 +247,24 @@ public sealed partial class SponsorManager
             _legacyTiers[legacyTier.Value] = entry;
         }
 
+        var previous = entry.LastSeen;
         entry.LastSeen = now;
 
-        SaveLegacyTierSeen(legacyTier.Value, now);
+        SaveLegacyTierSeen(entry, previous, now);
     }
 
-    private async void SaveLegacyTierSeen(int legacyTier, DateTime seenUtc)
+    private async void SaveLegacyTierSeen(SponsorLegacyTier entry, DateTime? previous, DateTime seenUtc)
     {
         try
         {
-            await _db.MarkSponsorLegacyTierSeenAsync(legacyTier, seenUtc);
+            await _db.MarkSponsorLegacyTierSeenAsync(entry.LegacyTier, seenUtc);
         }
         catch (Exception ex)
         {
-            _sawmill.Error($"Не удалось отметить старый спонсорский тир {legacyTier}: {ex}");
+            if (entry.LastSeen == seenUtc)
+                entry.LastSeen = previous;
+
+            _sawmill.Error($"Не удалось отметить старый спонсорский тир {entry.LegacyTier}: {ex}");
         }
     }
 
