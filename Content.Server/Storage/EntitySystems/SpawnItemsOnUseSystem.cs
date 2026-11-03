@@ -71,26 +71,14 @@ namespace Content.Server.Storage.EntitySystems
                 return;
 
             var xform = Transform(args.User);
+            var spawnEntities = GetSpawns(component.Items, _random);
             EntityUid? entityToPlaceInHands = null;
 
-            // ADT-Tweak start. Добавил проверку на компонент выбора предмета для спавна.
-            // If this entity has a SpawnItemSelectorComponent with a selected id, spawn that one item instead
-            if (TryComp<SpawnItemSelectorComponent>(uid, out var selector) && !string.IsNullOrWhiteSpace(selector.SelectedItemId))
+            foreach (var proto in spawnEntities)
             {
-                entityToPlaceInHands = SpawnNextToOrDrop(selector.SelectedItemId!, args.User, xform);
+                entityToPlaceInHands = SpawnNextToOrDrop(proto, args.User, xform);
                 _adminLogger.Add(LogType.EntitySpawn, LogImpact.Low, $"{ToPrettyString(args.User)} used {ToPrettyString(uid)} which spawned {ToPrettyString(entityToPlaceInHands.Value)}");
             }
-            else
-            {
-                var spawnEntities = GetSpawns(component.Items, _random);
-
-                foreach (var proto in spawnEntities)
-                {
-                    entityToPlaceInHands = SpawnNextToOrDrop(proto, args.User, xform);
-                    _adminLogger.Add(LogType.EntitySpawn, LogImpact.Low, $"{ToPrettyString(args.User)} used {ToPrettyString(uid)} which spawned {ToPrettyString(entityToPlaceInHands.Value)}");
-                }
-            }
-            // ADT-Tweak end.
 
             // The entity is often deleted, so play the sound at its position rather than parenting
             if (component.Sound != null)

@@ -1,5 +1,4 @@
 using Robust.Shared.GameStates;
-using Robust.Shared.Analyzers;
 
 namespace Content.Shared.Follower.Components;
 
