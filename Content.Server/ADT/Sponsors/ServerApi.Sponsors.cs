@@ -176,6 +176,12 @@ public sealed partial class ServerApi
 
         var grants = await _sponsors.GetGrantHistoryAsync(userId.Value);
 
+        var legacy = await RunOnMainThreadAsync(() =>
+            _sponsors.GetLegacyGrantAsync(new Robust.Shared.Network.NetUserId(userId.Value)));
+
+        if (legacy != null)
+            grants.Insert(0, legacy);
+
         var resolved = await RunOnMainThread(() =>
         {
             var data = _sponsors.GetData(new Robust.Shared.Network.NetUserId(userId.Value));

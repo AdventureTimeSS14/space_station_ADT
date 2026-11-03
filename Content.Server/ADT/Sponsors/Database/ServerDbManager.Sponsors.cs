@@ -35,6 +35,15 @@ public partial interface IServerDbManager
     Task SaveSponsorColorsAsync(Guid userId, SponsorPersonalColors colors);
 
     #endregion
+
+    #region Старая спонсорка
+
+    Task<List<SponsorLegacyTier>> GetSponsorLegacyTiersAsync();
+    Task SaveSponsorLegacyTierAsync(int legacyTier, int? tierId);
+    Task<bool> DeleteSponsorLegacyTierAsync(int legacyTier);
+    Task MarkSponsorLegacyTierSeenAsync(int legacyTier, DateTime seenUtc);
+
+    #endregion
 }
 
 public sealed partial class ServerDbManager
@@ -143,6 +152,34 @@ public sealed partial class ServerDbManager
     {
         DbWriteOpsMetric.Inc();
         return RunDbCommand(() => _db.SaveSponsorColors(userId, colors));
+    }
+
+    #endregion
+
+    #region Старая спонсорка
+
+    public Task<List<SponsorLegacyTier>> GetSponsorLegacyTiersAsync()
+    {
+        DbReadOpsMetric.Inc();
+        return RunDbCommand(() => _db.GetSponsorLegacyTiers());
+    }
+
+    public Task SaveSponsorLegacyTierAsync(int legacyTier, int? tierId)
+    {
+        DbWriteOpsMetric.Inc();
+        return RunDbCommand(() => _db.SaveSponsorLegacyTier(legacyTier, tierId));
+    }
+
+    public Task<bool> DeleteSponsorLegacyTierAsync(int legacyTier)
+    {
+        DbWriteOpsMetric.Inc();
+        return RunDbCommand(() => _db.DeleteSponsorLegacyTier(legacyTier));
+    }
+
+    public Task MarkSponsorLegacyTierSeenAsync(int legacyTier, DateTime seenUtc)
+    {
+        DbWriteOpsMetric.Inc();
+        return RunDbCommand(() => _db.MarkSponsorLegacyTierSeen(legacyTier, seenUtc));
     }
 
     #endregion

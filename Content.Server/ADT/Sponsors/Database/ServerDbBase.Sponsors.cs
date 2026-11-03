@@ -311,6 +311,116 @@ public abstract partial class ServerDbBase
 
     #endregion
 
+    #region Старая спонсорка
+
+    public async Task<List<SponsorLegacyTier>> GetSponsorLegacyTiers()
+    {
+        await using var db = await GetDb();
+
+        var rows = await db.DbContext.AdtSponsorLegacyTier
+            .AsNoTracking()
+            .ToListAsync();
+
+        var result = new Dictionary<int, SponsorLegacyTier>();
+
+        foreach (var row in rows)
+        {
+            result[row.LegacyTier] = new SponsorLegacyTier
+            {
+                LegacyTier = row.LegacyTier,
+                TierId = row.TierId,
+                LastSeen = SpecifyUtc(row.LastSeen),
+            };
+        }
+
+        var now = DateTime.UtcNow;
+
+        var counts = await db.DbContext.Set<Sponsor>()
+            .AsNoTracking()
+            .Where(s => s.ExpireDate > now)
+            .GroupBy(s => s.Tier)
+            .Select(g => new { Tier = g.Key, Count = g.Count() })
+            .ToListAsync();
+
+        foreach (var count in counts)
+        {
+            if (!result.TryGetValue(count.Tier, out var tier))
+            {
+                tier = new SponsorLegacyTier
+                {
+                    LegacyTier = count.Tier,
+                };
+
+                result[count.Tier] = tier;
+            }
+
+            tier.ActivePlayers = count.Count;
+        }
+
+        return result.Values.OrderBy(t => t.LegacyTier).ToList();
+    }
+
+    public async Task SaveSponsorLegacyTier(int legacyTier, int? tierId)
+    {
+        await using var db = await GetDb();
+
+        var row = await db.DbContext.AdtSponsorLegacyTier
+            .SingleOrDefaultAsync(t => t.LegacyTier == legacyTier);
+
+        if (row == null)
+        {
+            row = new AdtSponsorLegacyTier
+            {
+                LegacyTier = legacyTier,
+            };
+
+            db.DbContext.AdtSponsorLegacyTier.Add(row);
+        }
+
+        row.TierId = tierId;
+
+        await db.DbContext.SaveChangesAsync();
+    }
+
+    public async Task<bool> DeleteSponsorLegacyTier(int legacyTier)
+    {
+        await using var db = await GetDb();
+
+        var row = await db.DbContext.AdtSponsorLegacyTier
+            .SingleOrDefaultAsync(t => t.LegacyTier == legacyTier);
+
+        if (row == null)
+            return false;
+
+        db.DbContext.AdtSponsorLegacyTier.Remove(row);
+        await db.DbContext.SaveChangesAsync();
+        return true;
+    }
+
+    public async Task MarkSponsorLegacyTierSeen(int legacyTier, DateTime seenUtc)
+    {
+        await using var db = await GetDb();
+
+        var row = await db.DbContext.AdtSponsorLegacyTier
+            .SingleOrDefaultAsync(t => t.LegacyTier == legacyTier);
+
+        if (row == null)
+        {
+            row = new AdtSponsorLegacyTier
+            {
+                LegacyTier = legacyTier,
+            };
+
+            db.DbContext.AdtSponsorLegacyTier.Add(row);
+        }
+
+        row.LastSeen = seenUtc;
+
+        await db.DbContext.SaveChangesAsync();
+    }
+
+    #endregion
+
     #region Маппинг
 
     private static SponsorTier ToShared(AdtSponsorTier row)
