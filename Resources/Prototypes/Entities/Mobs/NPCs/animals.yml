@@ -2480,7 +2480,7 @@
   - type: VentCrawler # ADT tweak
   # ADT-Tweak-Start
   - type: Item
-    size: Tiny
+    size: Normal
     sprite: Mobs/Animals/frog.rsi
     storedOffset: 0,-11
     inhandVisuals:
