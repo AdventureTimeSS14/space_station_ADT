@@ -174,10 +174,23 @@ public sealed partial class SponsorManager
             players[userId] = data.DiscordRoles.ToArray();
         }
 
+        var legacyTiers = new Dictionary<int, string[]>();
+        if (_legacyImport)
+        {
+            foreach (var (legacyTier, mapping) in _legacyTiers)
+            {
+                if (mapping.TierId == null || !_tiers.TryGetValue(mapping.TierId.Value, out var mapped))
+                    continue;
+
+                legacyTiers[legacyTier] = mapped.Benefits.DiscordRoles.ToArray();
+            }
+        }
+
         return new SponsorDiscordRoleMap
         {
             Managed = managed,
             Players = players,
+            LegacyTiers = legacyTiers,
         };
     }
 
@@ -256,4 +269,5 @@ public sealed class SponsorDiscordRoleMap
 {
     public HashSet<string> Managed = new();
     public Dictionary<Guid, string[]> Players = new();
+    public Dictionary<int, string[]> LegacyTiers = new();
 }
