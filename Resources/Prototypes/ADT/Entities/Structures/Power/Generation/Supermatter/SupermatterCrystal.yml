@@ -85,7 +85,6 @@
     layers:
       - state: supermatter
         map: ["enum.SupermatterVisuals.Crystal"]
-      - state: newyearhat
   - type: SupermatterVisuals
     crystal:
       Normal: { state: supermatter }

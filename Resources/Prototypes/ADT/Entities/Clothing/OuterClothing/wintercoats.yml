@@ -724,7 +724,6 @@
     - ClothMade
     - Recyclable
     - WhitelistChameleon
-
 - type: entity
   parent: [ ClothingOuterWinterCoat, ClothingOuterStorageBase ]
   id: ADTClothingOuterHoodyWhite
@@ -764,16 +763,3 @@
     - ClothMade
     - Recyclable
     - WhitelistChameleon
-
-- type: entity
-  parent: ClothingOuterWinterCoat
-  id: ADTClothingOuterFurCoatHeart
-  name: fur coat
-  description: A white fur coat embroidered with many bright red hearts.
-  components:
-  - type: Sprite
-    sprite: ADT/Season/Clothing/OuterClothing/WinterCoats/fur_coat.rsi
-  - type: Clothing
-    sprite: ADT/Season/Clothing/OuterClothing/WinterCoats/fur_coat.rsi
-  - type: StaticPrice
-    price: 120
