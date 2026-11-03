@@ -270,6 +270,15 @@
     refineResult:
     - id: FoodMeatChicken
       amount: 2 # ADT-Tweak
+  # ADT-Tweak start
+  - type: ADTHolidayComponents
+    holidays:
+      ADTNewYearSeason:
+      - type: ToolRefinable
+        refineResult:
+        - id: ADTChickenBody
+          amount: 1
+  # ADT-Tweak end
   - type: InteractionPopup
     successChance: 0.8
     interactSuccessString: petting-success-bird

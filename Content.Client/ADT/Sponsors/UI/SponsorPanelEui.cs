@@ -30,6 +30,15 @@ public sealed class SponsorPanelEui : BaseEui
 
         _window.GrantRevokeRequested += grantId =>
             SendMessage(new SponsorPanelEuiMsg.RevokeGrant { GrantId = grantId });
+
+        _window.LegacyTierSaved += (legacyTier, tierId) =>
+            SendMessage(new SponsorPanelEuiMsg.SaveLegacyTier { LegacyTier = legacyTier, TierId = tierId });
+
+        _window.LegacyTierDeleted += legacyTier =>
+            SendMessage(new SponsorPanelEuiMsg.DeleteLegacyTier { LegacyTier = legacyTier });
+
+        _window.LegacyRefreshRequested += () =>
+            SendMessage(new SponsorPanelEuiMsg.RefreshLegacyTiers());
     }
 
     public override void HandleState(EuiStateBase state)
@@ -39,6 +48,7 @@ public sealed class SponsorPanelEui : BaseEui
 
         _window.SetPermission(s.HasPermission);
         _window.SetTiers(s.Tiers);
+        _window.SetLegacy(s.LegacyTiers, s.LegacyImport);
         _window.SetPlayer(s.PlayerName, s.Grants, s.Resolved);
         _window.SetStatus(s.Status);
     }
