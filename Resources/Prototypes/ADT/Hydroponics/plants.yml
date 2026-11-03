@@ -379,3 +379,33 @@
         min: 1
         max: 5
         potencyDivisor: 3
+
+- type: entity
+  parent: BasePlant
+  id: ADTMandarinPlants
+  name: mandarin
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Hydroponics/mandarin.rsi
+  - type: PlantData
+    name: seeds-mandarin-name
+    packetPrototype: ADTMandarinSeeds
+    productPrototypes: [ ADTFoodMandarin ]
+  - type: Plant
+    lifespan: 55
+    maturation: 6
+    production: 6
+    yield: 3
+    potency: 10
+  - type: PlantHarvest
+    harvestRepeat: Repeat
+  - type: PlantChemicals
+    chemicals:
+      Nutriment:
+        min: 1
+        max: 5
+        potencyDivisor: 20
+      Vitamin:
+        min: 1
+        max: 4
+        potencyDivisor: 25

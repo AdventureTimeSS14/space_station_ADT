@@ -1,0 +1,144 @@
+#New Year
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitSweaterHolidayBeige
+  name: beige sweater
+  description: A real star of the show is wearing this sweater.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Uniforms/Jumpsuit/sweater_beige.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Uniforms/Jumpsuit/sweater_beige.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitSweaterHolidayBlue
+  name: blue sweater
+  description: A real Santa's raindeer is on this sweater.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Uniforms/Jumpsuit/sweater_blue.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Uniforms/Jumpsuit/sweater_blue.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitSweaterHolidayRedDark
+  name: red sweater with black pants
+  description: Red, bright, warm, festive and most important - stylish.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Uniforms/Jumpsuit/sweater_red_dark.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Uniforms/Jumpsuit/sweater_red_dark.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitSweaterHolidayRedWhite
+  name: red sweater with white pants
+  description: Red, bright, warm, festive.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Uniforms/Jumpsuit/sweater_red_white.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Uniforms/Jumpsuit/sweater_red_white.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitElf
+  name: elf costume
+  description: Smells like wood, spruce and holidays.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Uniforms/Jumpsuit/elf_costume.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Uniforms/Jumpsuit/elf_costume.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformMonkeyHolidaySuit
+  name: monkey holiday costume
+  description: Holiday suit for monkeys.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Uniforms/Jumpsuit/monkey_holiday_suit.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Uniforms/Jumpsuit/monkey_holiday_suit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformRollNeckSnowman
+  name: snowman roll-neck
+  description: A roll-neck with a mister snowman!
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Uniforms/Jumpsuit/roll-neck_snowman.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Uniforms/Jumpsuit/roll-neck_snowman.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformShirtSpruce
+  name: shirt with a spruce
+  description: A grey shirt with a picture of a Christmas tree.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Uniforms/Jumpsuit/shirt_spruce.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Uniforms/Jumpsuit/shirt_spruce.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformShirtDeer
+  name: shirt with a deer
+  description: A green shirt with a picture of a deer.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Uniforms/Jumpsuit/shirt_deer.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Uniforms/Jumpsuit/shirt_deer.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitSweaterHoliday
+  name: holiday sweater
+  description: A green sweater with gift-like print.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Uniforms/Jumpsuit/sweater_holiday.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Uniforms/Jumpsuit/sweater_holiday.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformShirtSnowflake
+  name: shirt with a snowflake
+  description: A green shirt with a picture of a snowflake.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Uniforms/Jumpsuit/shirt_snowflake.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Uniforms/Jumpsuit/shirt_snowflake.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformShirtSnowman
+  name: shirt with a snowman
+  description: A red shirt with a picture of a snowman.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Uniforms/Jumpsuit/shirt_snowman.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Uniforms/Jumpsuit/shirt_snowman.rsi

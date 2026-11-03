@@ -56,6 +56,8 @@
         DrinkSodaWaterCan: 8
         DrinkSolDryCan: 8
         DrinkTonicWaterCan: 8
+        ADTCarnationPack: 10
+        ADTCinnamonPack: 5
     ADTVendingCategoryBooks:
         ADTBookADTCoctailsRecipe: 2
     # ADT-Tweak end

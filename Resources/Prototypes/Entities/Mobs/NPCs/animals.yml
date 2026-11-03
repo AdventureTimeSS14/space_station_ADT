@@ -268,8 +268,8 @@
         Base: dead-0
   - type: ToolRefinable
     refineResult:
-    - id: FoodMeatChicken
-      amount: 2 # ADT-Tweak
+    - id: ADTChickenBody # ADT-Tweak
+      amount: 1
   - type: InteractionPopup
     successChance: 0.8
     interactSuccessString: petting-success-bird
