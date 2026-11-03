@@ -6,7 +6,7 @@
   suffix: Halloween
   components:
     - type: Sprite
-      sprite: ADT/Mobs/halloween_slime.rsi
+      sprite: ADT/Season/Mobs/halloween_slime.rsi
       layers:
       - map: [ "enum.DamageStateVisualLayers.Base" ]
         state: green_adult_slime

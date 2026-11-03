@@ -28,9 +28,9 @@
   description: An armored hard hat. Provides the best of both worlds in both protection & utility - perfect for the engineer on the frontlines.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Head/Hats/ussphelmet.rsi
+    sprite: ADT/Season/Clothing/Head/Hats/ussphelmet.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Head/Hats/ussphelmet.rsi
+    sprite: ADT/Season/Clothing/Head/Hats/ussphelmet.rsi
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5

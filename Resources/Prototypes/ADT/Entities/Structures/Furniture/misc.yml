@@ -62,7 +62,7 @@
   - type: Sprite
     drawdepth: Overdoors
     offset: "0.0,0.3"
-    sprite: ADT/Structures/Furniture/pumpkin_light.rsi
+    sprite: ADT/Season/Structures/Furniture/pumpkin_light.rsi
     state: pumpkin_light1
     noRot: true
   - type: PointLight

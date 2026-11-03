@@ -227,9 +227,9 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Clothing/OuterClothing/Armor/tagilla_armor.rsi
+    sprite: ADT/Season/Clothing/OuterClothing/Armor/tagilla_armor.rsi
   - type: Clothing
-    sprite: ADT/Clothing/OuterClothing/Armor/tagilla_armor.rsi
+    sprite: ADT/Season/Clothing/OuterClothing/Armor/tagilla_armor.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -250,9 +250,9 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Clothing/OuterClothing/Armor/killa_armor.rsi
+    sprite: ADT/Season/Clothing/OuterClothing/Armor/killa_armor.rsi
   - type: Clothing
-    sprite: ADT/Clothing/OuterClothing/Armor/killa_armor.rsi
+    sprite: ADT/Season/Clothing/OuterClothing/Armor/killa_armor.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -274,9 +274,9 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Clothing/OuterClothing/Armor/CSIJ_armor.rsi
+    sprite: ADT/Season/Clothing/OuterClothing/Armor/CSIJ_armor.rsi
   - type: Clothing
-    sprite: ADT/Clothing/OuterClothing/Armor/CSIJ_armor.rsi
+    sprite: ADT/Season/Clothing/OuterClothing/Armor/CSIJ_armor.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -542,9 +542,9 @@
   suffix: Holiday, Victory Day
   components:
   - type: Sprite
-    sprite: ADT/Clothing/OuterClothing/Armor/ch-42.rsi
+    sprite: ADT/Season/Clothing/OuterClothing/Armor/ch-42.rsi
   - type: Clothing
-    sprite: ADT/Clothing/OuterClothing/Armor/ch-42.rsi
+    sprite: ADT/Season/Clothing/OuterClothing/Armor/ch-42.rsi
   - type: Armor
     modifiers:
       coefficients:

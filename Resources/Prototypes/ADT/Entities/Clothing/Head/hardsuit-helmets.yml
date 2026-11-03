@@ -641,9 +641,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Head/Hardsuits/event_servant_helmet.rsi
+    sprite: ADT/Season/Clothing/Head/Hardsuits/event_servant_helmet.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Head/Hardsuits/event_servant_helmet.rsi
+    sprite: ADT/Season/Clothing/Head/Hardsuits/event_servant_helmet.rsi
 
 - type: entity
   parent: [ ClothingHeadHardsuitBase , ADTClothingHeadHelmetHardsuitRiotERT ]
@@ -651,9 +651,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Head/Hardsuits/event_med_helmet.rsi
+    sprite: ADT/Season/Clothing/Head/Hardsuits/event_med_helmet.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Head/Hardsuits/event_med_helmet.rsi
+    sprite: ADT/Season/Clothing/Head/Hardsuits/event_med_helmet.rsi
 
 - type: entity
   parent: [ ClothingHeadHardsuitBase , ClothingHeadHelmetHardsuitSyndieCommander ]
@@ -661,7 +661,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Head/Hardsuits/event_sunshine_helmet.rsi
+    sprite: ADT/Season/Clothing/Head/Hardsuits/event_sunshine_helmet.rsi
     layers:
     - state: icon
     - state: icon-flash
@@ -671,4 +671,4 @@
     spriteLayer: light
     clothingVisuals: {}
   - type: Clothing
-    sprite: ADT/Clothing/Head/Hardsuits/event_sunshine_helmet.rsi
+    sprite: ADT/Season/Clothing/Head/Hardsuits/event_sunshine_helmet.rsi

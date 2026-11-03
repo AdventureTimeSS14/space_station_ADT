@@ -183,7 +183,7 @@
   description: Raw wing of chicken. Remember to wash your hands!
   components:
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/chicken_meat.rsi
+    sprite: ADT/Season/Objects/Consumable/Food/chicken_meat.rsi
     state: raw_wing
   - type: Solution
     solution:
@@ -211,7 +211,7 @@
   description: Raw leg of chicken. Remember to wash your hands!
   components:
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/chicken_meat.rsi
+    sprite: ADT/Season/Objects/Consumable/Food/chicken_meat.rsi
     state: raw_leg
   - type: Solution
     solution:
@@ -239,7 +239,7 @@
     - Cooked
     - Meat
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/chicken_meat.rsi
+    sprite: ADT/Season/Objects/Consumable/Food/chicken_meat.rsi
     state: chicken_baked
   - type: Solution
     solution:
@@ -266,7 +266,7 @@
     - Cooked
     - Meat
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/chicken_meat.rsi
+    sprite: ADT/Season/Objects/Consumable/Food/chicken_meat.rsi
     layers:
     - state: plate
     - state: chicken_baked_wvegs
@@ -295,7 +295,7 @@
     - Cooked
     - Meat
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/chicken_meat.rsi
+    sprite: ADT/Season/Objects/Consumable/Food/chicken_meat.rsi
     state: wing_cooked
   - type: Solution
     solution:
@@ -318,7 +318,7 @@
     - Cooked
     - Meat
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/chicken_meat.rsi
+    sprite: ADT/Season/Objects/Consumable/Food/chicken_meat.rsi
     state: leg_cooked
   - type: Solution
     solution:
@@ -341,7 +341,7 @@
     - Cooked
     - Meat
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/chicken_meat.rsi
+    sprite: ADT/Season/Objects/Consumable/Food/chicken_meat.rsi
     state: baked_slice
   - type: Solution
     solution:
@@ -364,7 +364,7 @@
     - Cooked
     - Meat
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/chicken_meat.rsi
+    sprite: ADT/Season/Objects/Consumable/Food/chicken_meat.rsi
     state: baked_stuffed_slice
   - type: Solution
     solution:

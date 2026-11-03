@@ -7,9 +7,9 @@
 #   suffix: Halloween
 #   components:
 #   - type: Sprite
-#     sprite: ADT/Clothing/Mask/jason.rsi
+#     sprite: ADT/Season/Clothing/Mask/jason.rsi
 #   - type: Clothing
-#     sprite: ADT/Clothing/Mask/jason.rsi
+#     sprite: ADT/Season/Clothing/Mask/jason.rsi
 #     clothingVisuals:
 #       mask:
 #       - state: equipped-MASK
@@ -79,9 +79,9 @@
 #   description: Tagilla mask
 #   components:
 #   - type: Sprite
-#     sprite: ADT/Clothing/Mask/tagilla_mask.rsi
+#     sprite: ADT/Season/Clothing/Mask/tagilla_mask.rsi
 #   - type: Clothing
-#     sprite: ADT/Clothing/Mask/tagilla_mask.rsi
+#     sprite: ADT/Season/Clothing/Mask/tagilla_mask.rsi
 #   - type: Armor
 #     modifiers:
 #       coefficients:
@@ -95,9 +95,9 @@
 #   description: OMFG YOU DO NOT KILL CLOWN! CLOWN KILLS YOU!
 #   components:
 #   - type: Sprite
-#     sprite: ADT/Clothing/Mask/clownballistic_mask.rsi
+#     sprite: ADT/Season/Clothing/Mask/clownballistic_mask.rsi
 #   - type: Clothing
-#     sprite: ADT/Clothing/Mask/clownballistic_mask.rsi
+#     sprite: ADT/Season/Clothing/Mask/clownballistic_mask.rsi
 #     clothingVisuals:
 #       mask:
 #       - state: equipped-MASK
@@ -116,9 +116,9 @@
 #   suffix: Halloween
 #   components:
 #   - type: Sprite
-#     sprite: ADT/Clothing/Mask/michael_myersmask.rsi
+#     sprite: ADT/Season/Clothing/Mask/michael_myersmask.rsi
 #   - type: Clothing
-#     sprite: ADT/Clothing/Mask/michael_myersmask.rsi
+#     sprite: ADT/Season/Clothing/Mask/michael_myersmask.rsi
 #     clothingVisuals:
 #       mask:
 #       - state: equipped-MASK
@@ -133,9 +133,9 @@
 #   suffix: Halloween
 #   components:
 #   - type: Sprite
-#     sprite: ADT/Clothing/Mask/payday_chains.rsi
+#     sprite: ADT/Season/Clothing/Mask/payday_chains.rsi
 #   - type: Clothing
-#     sprite: ADT/Clothing/Mask/payday_chains.rsi
+#     sprite: ADT/Season/Clothing/Mask/payday_chains.rsi
 #   - type: BreathMask
 
 # - type: entity
@@ -146,9 +146,9 @@
 #   suffix: Halloween
 #   components:
 #   - type: Sprite
-#     sprite: ADT/Clothing/Mask/payday_dallas.rsi
+#     sprite: ADT/Season/Clothing/Mask/payday_dallas.rsi
 #   - type: Clothing
-#     sprite: ADT/Clothing/Mask/payday_dallas.rsi
+#     sprite: ADT/Season/Clothing/Mask/payday_dallas.rsi
 #   - type: BreathMask
 
 # - type: entity
@@ -159,9 +159,9 @@
 #   suffix: Halloween
 #   components:
 #   - type: Sprite
-#     sprite: ADT/Clothing/Mask/payday_houston.rsi
+#     sprite: ADT/Season/Clothing/Mask/payday_houston.rsi
 #   - type: Clothing
-#     sprite: ADT/Clothing/Mask/payday_houston.rsi
+#     sprite: ADT/Season/Clothing/Mask/payday_houston.rsi
 #   - type: BreathMask
 
 # - type: entity
@@ -172,9 +172,9 @@
 #   suffix: Halloween
 #   components:
 #   - type: Sprite
-#     sprite: ADT/Clothing/Mask/payday_wolf.rsi
+#     sprite: ADT/Season/Clothing/Mask/payday_wolf.rsi
 #   - type: Clothing
-#     sprite: ADT/Clothing/Mask/payday_wolf.rsi
+#     sprite: ADT/Season/Clothing/Mask/payday_wolf.rsi
 #   - type: BreathMask
 
 # - type: entity
@@ -322,9 +322,9 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Mask/jason.rsi
+    sprite: ADT/Season/Clothing/Mask/jason.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Mask/jason.rsi
+    sprite: ADT/Season/Clothing/Mask/jason.rsi
     clothingVisuals:
       mask:
       - state: equipped-MASK
@@ -337,9 +337,9 @@
   description: Tagilla mask
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Mask/tagilla_mask.rsi
+    sprite: ADT/Season/Clothing/Mask/tagilla_mask.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Mask/tagilla_mask.rsi
+    sprite: ADT/Season/Clothing/Mask/tagilla_mask.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -353,9 +353,9 @@
   description: OMFG YOU DO NOT KILL CLOWN! CLOWN KILLS YOU!
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Mask/clownballistic_mask.rsi
+    sprite: ADT/Season/Clothing/Mask/clownballistic_mask.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Mask/clownballistic_mask.rsi
+    sprite: ADT/Season/Clothing/Mask/clownballistic_mask.rsi
     clothingVisuals:
       mask:
       - state: equipped-MASK
@@ -374,9 +374,9 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Mask/michael_myersmask.rsi
+    sprite: ADT/Season/Clothing/Mask/michael_myersmask.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Mask/michael_myersmask.rsi
+    sprite: ADT/Season/Clothing/Mask/michael_myersmask.rsi
     clothingVisuals:
       mask:
       - state: equipped-MASK
@@ -391,9 +391,9 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Mask/payday_chains.rsi
+    sprite: ADT/Season/Clothing/Mask/payday_chains.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Mask/payday_chains.rsi
+    sprite: ADT/Season/Clothing/Mask/payday_chains.rsi
   - type: BreathMask
 
 - type: entity
@@ -404,9 +404,9 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Mask/payday_dallas.rsi
+    sprite: ADT/Season/Clothing/Mask/payday_dallas.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Mask/payday_dallas.rsi
+    sprite: ADT/Season/Clothing/Mask/payday_dallas.rsi
   - type: BreathMask
 
 - type: entity
@@ -417,9 +417,9 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Mask/payday_houston.rsi
+    sprite: ADT/Season/Clothing/Mask/payday_houston.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Mask/payday_houston.rsi
+    sprite: ADT/Season/Clothing/Mask/payday_houston.rsi
   - type: BreathMask
 
 - type: entity
@@ -430,9 +430,9 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Mask/payday_wolf.rsi
+    sprite: ADT/Season/Clothing/Mask/payday_wolf.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Mask/payday_wolf.rsi
+    sprite: ADT/Season/Clothing/Mask/payday_wolf.rsi
   - type: BreathMask
 
 - type: entity

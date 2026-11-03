@@ -8,7 +8,7 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+    sprite: ADT/Season/Objects/Storage/Boxes/halloween_box.rsi
     state: pennywise
     #layers:
     #- state: pennywise
@@ -54,7 +54,7 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+    sprite: ADT/Season/Objects/Storage/Boxes/halloween_box.rsi
     state: сrueltysquad
     #layers:
     #- state: base
@@ -82,7 +82,7 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+    sprite: ADT/Season/Objects/Storage/Boxes/halloween_box.rsi
     state: jasonvoorhees
     #layers:
     #- state: base
@@ -112,7 +112,7 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+    sprite: ADT/Season/Objects/Storage/Boxes/halloween_box.rsi
     state: freddy
     #layers:
     #- state: base
@@ -136,7 +136,7 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+    sprite: ADT/Season/Objects/Storage/Boxes/halloween_box.rsi
     state: jecket
     #layers:
     #- state: base
@@ -168,7 +168,7 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+    sprite: ADT/Season/Objects/Storage/Boxes/halloween_box.rsi
     state: killa
     #layers:
     #- state: base
@@ -194,7 +194,7 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+    sprite: ADT/Season/Objects/Storage/Boxes/halloween_box.rsi
     state: minion
     #layers:
     #- state: base
@@ -220,7 +220,7 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+    sprite: ADT/Season/Objects/Storage/Boxes/halloween_box.rsi
     state: postal2
     #layers:
     #- state: base
@@ -254,7 +254,7 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+    sprite: ADT/Season/Objects/Storage/Boxes/halloween_box.rsi
     state: squid_player
     #layers:
     #- state: base
@@ -275,7 +275,7 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+    sprite: ADT/Season/Objects/Storage/Boxes/halloween_box.rsi
     state: squid_org
     #layers:
     #- state: base
@@ -306,7 +306,7 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+    sprite: ADT/Season/Objects/Storage/Boxes/halloween_box.rsi
     state: tagilla
     #layers:
     #- state: base
@@ -339,7 +339,7 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+    sprite: ADT/Season/Objects/Storage/Boxes/halloween_box.rsi
     state: tricky
     #layers:
     #- state: base
@@ -363,7 +363,7 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+    sprite: ADT/Season/Objects/Storage/Boxes/halloween_box.rsi
     state: vampire
     #layers:
     #- state: base
@@ -389,7 +389,7 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+    sprite: ADT/Season/Objects/Storage/Boxes/halloween_box.rsi
     state: vergil
     #layers:
     #- state: base
@@ -415,7 +415,7 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+    sprite: ADT/Season/Objects/Storage/Boxes/halloween_box.rsi
     state: xeno
     #layers:
     #- state: base
@@ -437,7 +437,7 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+    sprite: ADT/Season/Objects/Storage/Boxes/halloween_box.rsi
     state: harry
     #layers:
     #- state: base
@@ -463,7 +463,7 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+    sprite: ADT/Season/Objects/Storage/Boxes/halloween_box.rsi
     state: kim
     #layers:
     #- state: base
@@ -493,7 +493,7 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+    sprite: ADT/Season/Objects/Storage/Boxes/halloween_box.rsi
     state: rabbit
     #layers:
     #- state: base
@@ -517,7 +517,7 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+    sprite: ADT/Season/Objects/Storage/Boxes/halloween_box.rsi
     state: base
   - type: Storage
     whitelist:
@@ -575,7 +575,7 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+    sprite: ADT/Season/Objects/Storage/Boxes/halloween_box.rsi
     state: payday
     #layers:
     #- state: base
@@ -613,7 +613,7 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+    sprite: ADT/Season/Objects/Storage/Boxes/halloween_box.rsi
     state: chainsaw
     #layers:
     #- state: base
@@ -637,7 +637,7 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+    sprite: ADT/Season/Objects/Storage/Boxes/halloween_box.rsi
     state: michael
     #layers:
     #- state: base
@@ -657,7 +657,7 @@
   suffix: Halloweeen
   components:
   - type: Sprite
-    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+    sprite: ADT/Season/Objects/Storage/Boxes/halloween_box.rsi
     state: redhat
     #layers:
     #- state: base
@@ -676,7 +676,7 @@
 #   suffix: Halloweeen
 #   components:
 #   - type: Sprite
-#     sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+#     sprite: ADT/Season/Objects/Storage/Boxes/halloween_box.rsi
 #     state: sollux
 #     #layers:
 #     #- state: base
@@ -704,7 +704,7 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+    sprite: ADT/Season/Objects/Storage/Boxes/halloween_box.rsi
     state: bad_police
   - type: StorageFill
     contents:
@@ -725,7 +725,7 @@
   - type: StaticPrice
     price: 20
   - type: Sprite
-    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+    sprite: ADT/Season/Objects/Storage/Boxes/halloween_box.rsi
     state: lethal_company
   - type: StorageFill
     contents:
@@ -754,7 +754,7 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+    sprite: ADT/Season/Objects/Storage/Boxes/halloween_box.rsi
     state: empress_of_light
   - type: StorageFill
     contents:
@@ -776,7 +776,7 @@
   description: I give you my heart!
   components:
   - type: Sprite
-    sprite: ADT/Objects/Specific/Service/loveday_candy.rsi
+    sprite: ADT/Season/Objects/Specific/Service/loveday_candy.rsi
     state: chocobox
   - type: Item
     size: Small
@@ -814,7 +814,7 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+    sprite: ADT/Season/Objects/Storage/Boxes/halloween_box.rsi
     state: alastor
   - type: StorageFill
     contents:

@@ -1,7 +1,0 @@
-- type: decal
-  id: ADTFlowow
-  snapCardinals: true
-  defaultSnap: false
-  sprite:
-    sprite: ADT/Decals/petals.rsi
-    state: flowow

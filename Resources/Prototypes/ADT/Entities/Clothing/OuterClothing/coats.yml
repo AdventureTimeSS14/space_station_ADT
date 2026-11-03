@@ -223,9 +223,9 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Clothing/OuterClothing/Coats/jason.rsi
+    sprite: ADT/Season/Clothing/OuterClothing/Coats/jason.rsi
   - type: Clothing
-    sprite: ADT/Clothing/OuterClothing/Coats/jason.rsi
+    sprite: ADT/Season/Clothing/OuterClothing/Coats/jason.rsi
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -235,9 +235,9 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Clothing/OuterClothing/Coats/hotline_student.rsi
+    sprite: ADT/Season/Clothing/OuterClothing/Coats/hotline_student.rsi
   - type: Clothing
-    sprite: ADT/Clothing/OuterClothing/Coats/hotline_student.rsi
+    sprite: ADT/Season/Clothing/OuterClothing/Coats/hotline_student.rsi
 # Med
 
 - type: entity

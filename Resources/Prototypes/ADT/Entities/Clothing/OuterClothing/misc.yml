@@ -19,9 +19,9 @@
   suffix: Valentine Day
   components:
   - type: Sprite
-    sprite: ADT/Clothing/OuterClothing/Misc/red_cardigan.rsi #спрайты от @lunalita
+    sprite: ADT/Season/Clothing/OuterClothing/Misc/red_cardigan.rsi #спрайты от @lunalita
   - type: Clothing
-    sprite: ADT/Clothing/OuterClothing/Misc/red_cardigan.rsi
+    sprite: ADT/Season/Clothing/OuterClothing/Misc/red_cardigan.rsi
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -31,9 +31,9 @@
   suffix: Valentine Day
   components:
   - type: Sprite
-    sprite: ADT/Clothing/OuterClothing/Misc/black_cardigan.rsi #спрайты от @lunalita
+    sprite: ADT/Season/Clothing/OuterClothing/Misc/black_cardigan.rsi #спрайты от @lunalita
   - type: Clothing
-    sprite: ADT/Clothing/OuterClothing/Misc/black_cardigan.rsi
+    sprite: ADT/Season/Clothing/OuterClothing/Misc/black_cardigan.rsi
 
 - type: entity
   parent: ClothingOuterBase
@@ -43,9 +43,9 @@
   suffix: Valentine Day
   components:
   - type: Sprite
-    sprite: ADT/Clothing/OuterClothing/Misc/cupidon_wings.rsi #спрайты от @lunalita
+    sprite: ADT/Season/Clothing/OuterClothing/Misc/cupidon_wings.rsi #спрайты от @lunalita
   - type: Clothing
-    sprite: ADT/Clothing/OuterClothing/Misc/cupidon_wings.rsi
+    sprite: ADT/Season/Clothing/OuterClothing/Misc/cupidon_wings.rsi
 
 #Коробка с подтяжками (для клунь)
 

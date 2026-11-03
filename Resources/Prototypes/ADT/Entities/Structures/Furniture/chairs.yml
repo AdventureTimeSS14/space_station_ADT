@@ -433,7 +433,7 @@
   - type: Anchorable
   - type: Rotatable
   - type: Sprite
-    sprite: ADT/Structures/Furniture/Chairs/spider_stool.rsi #спрайт от Умы
+    sprite: ADT/Season/Structures/Furniture/Chairs/spider_stool.rsi #спрайт от Умы
     state: icon
 
 - type: entity

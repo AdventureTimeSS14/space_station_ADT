@@ -117,7 +117,7 @@
     tags:
       - WhitelistChameleon
   - type: Sprite
-    sprite: ADT/Structures/Machines/VendingMachines/halloweenmat.rsi
+    sprite: ADT/Season/Structures/Machines/VendingMachines/halloweenmat.rsi
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -408,7 +408,7 @@
     tags:
       - WhitelistChameleon
   - type: Sprite
-    sprite: ADT/Structures/Machines/VendingMachines/lovevend.rsi
+    sprite: ADT/Season/Structures/Machines/VendingMachines/lovevend.rsi
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]

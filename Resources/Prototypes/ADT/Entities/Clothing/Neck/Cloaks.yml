@@ -96,9 +96,9 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Clothing/OuterClothing/Misc/vergile_cloak.rsi
+    sprite: ADT/Season/Clothing/OuterClothing/Misc/vergile_cloak.rsi
   - type: Clothing
-    sprite: ADT/Clothing/OuterClothing/Misc/vergile_cloak.rsi
+    sprite: ADT/Season/Clothing/OuterClothing/Misc/vergile_cloak.rsi
 
 - type: entity
   parent: ClothingNeckBase

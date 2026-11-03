@@ -54,7 +54,7 @@
   suffix: Halloween
   components:
     - type: Sprite
-      sprite: ADT/Clothing/Neck/Misc/clowncollar.rsi
+      sprite: ADT/Season/Clothing/Neck/Misc/clowncollar.rsi
 
 - type: entity
   parent: ClothingNeckBase
@@ -64,7 +64,7 @@
   suffix: Halloween
   components:
     - type: Sprite
-      sprite: ADT/Clothing/Neck/Misc/vampire_cloak.rsi
+      sprite: ADT/Season/Clothing/Neck/Misc/vampire_cloak.rsi
 
 - type: entity
   parent: ClothingNeckPinBase

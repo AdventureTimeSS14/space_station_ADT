@@ -170,7 +170,7 @@
     capacity: 3
     count: 3
   - type: Sprite
-    sprite: ADT/Objects/Specific/santa_wand.rsi
+    sprite: ADT/Season/Objects/Specific/santa_wand.rsi
     layers:
     - state: santa-wand
       map: ["base"]

@@ -134,7 +134,7 @@
   description: ADTClothingBackpackSanta
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Back/santa_backpack.rsi
+    sprite: ADT/Season/Clothing/Back/santa_backpack.rsi
   - type: Storage
     maxItemSize: Huge
     grid:

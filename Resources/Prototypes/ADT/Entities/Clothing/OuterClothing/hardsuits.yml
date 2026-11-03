@@ -582,9 +582,9 @@
   id: ADTEVENTServantHardsuit
   components:
   - type: Sprite
-    sprite: ADT/Clothing/OuterClothing/Hardsuits/event_servant_hardsuit.rsi
+    sprite: ADT/Season/Clothing/OuterClothing/Hardsuits/event_servant_hardsuit.rsi
   - type: Clothing
-    sprite: ADT/Clothing/OuterClothing/Hardsuits/event_servant_hardsuit.rsi
+    sprite: ADT/Season/Clothing/OuterClothing/Hardsuits/event_servant_hardsuit.rsi
   - type: ToggleableClothing
     clothingPrototype: ADTClothingHeadHelmetHardsuitEVENTServant
 
@@ -593,9 +593,9 @@
   id: ADTEVENTLeaderHardsuit
   components:
   - type: Sprite
-    sprite: ADT/Clothing/OuterClothing/Hardsuits/event_sunshine_hardsuit.rsi
+    sprite: ADT/Season/Clothing/OuterClothing/Hardsuits/event_sunshine_hardsuit.rsi
   - type: Clothing
-    sprite: ADT/Clothing/OuterClothing/Hardsuits/event_sunshine_hardsuit.rsi
+    sprite: ADT/Season/Clothing/OuterClothing/Hardsuits/event_sunshine_hardsuit.rsi
   - type: ToggleableClothing
     clothingPrototype: ADTClothingHeadHelmetHardsuitEVENTsunshine
 
@@ -604,8 +604,8 @@
   id: ADTEVENTMedHardsuit
   components:
   - type: Sprite
-    sprite: ADT/Clothing/OuterClothing/Hardsuits/event_med_hardsuit.rsi
+    sprite: ADT/Season/Clothing/OuterClothing/Hardsuits/event_med_hardsuit.rsi
   - type: Clothing
-    sprite: ADT/Clothing/OuterClothing/Hardsuits/event_med_hardsuit.rsi
+    sprite: ADT/Season/Clothing/OuterClothing/Hardsuits/event_med_hardsuit.rsi
   - type: ToggleableClothing
     clothingPrototype: ADTClothingHeadHelmetHardsuitEVENTMed

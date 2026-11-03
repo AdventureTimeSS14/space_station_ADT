@@ -232,9 +232,9 @@
   - type: Storage
     maxItemSize: Normal
   - type: Sprite
-    sprite: ADT/Clothing/Belt/killa_webbing.rsi
+    sprite: ADT/Season/Clothing/Belt/killa_webbing.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Belt/killa_webbing.rsi
+    sprite: ADT/Season/Clothing/Belt/killa_webbing.rsi
 
 - type: entity
   parent: ClothingBeltStorageBase

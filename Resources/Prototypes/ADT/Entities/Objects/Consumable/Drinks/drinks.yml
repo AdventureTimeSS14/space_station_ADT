@@ -668,7 +668,7 @@
         - ReagentId: ADTSuperScoutBeer
           Quantity: 30
     - type: Icon
-      sprite: ADT/Objects/Consumable/Drinks/superbeer.rsi
+      sprite: ADT/Season/Objects/Consumable/Drinks/superbeer.rsi
       state: icon
 
 - type: entity
@@ -683,7 +683,7 @@
         - ReagentId: ADTFunnyClownBeer
           Quantity: 30
     - type: Icon
-      sprite: ADT/Objects/Consumable/Drinks/clownbeer.rsi
+      sprite: ADT/Season/Objects/Consumable/Drinks/clownbeer.rsi
       state: icon
 - type: entity
   parent: DrinkGlass

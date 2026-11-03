@@ -6,7 +6,7 @@
   suffix: Oktoberfest
   components:
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/Baked/misc.rsi #спрайты от празата
+    sprite: ADT/Season/Objects/Consumable/Food/Baked/misc.rsi #спрайты от празата
     layers:
     - state: brezel
   - type: FlavorProfile
@@ -32,7 +32,7 @@
   suffix: Oktoberfest
   components:
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/Baked/misc.rsi #спрайты от празата
+    sprite: ADT/Season/Objects/Consumable/Food/Baked/misc.rsi #спрайты от празата
     layers:
     - state: brezel_poppy
   - type: FlavorProfile
@@ -59,7 +59,7 @@
   suffix: Oktoberfest
   components:
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/Baked/misc.rsi #спрайты от празата
+    sprite: ADT/Season/Objects/Consumable/Food/Baked/misc.rsi #спрайты от празата
     layers:
     - state: brezel_salt
   - type: FlavorProfile
@@ -86,7 +86,7 @@
   suffix: Oktoberfest
   components:
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/Baked/misc.rsi #спрайты от празата
+    sprite: ADT/Season/Objects/Consumable/Food/Baked/misc.rsi #спрайты от празата
     layers:
     - state: brezel_chocolate
   - type: FlavorProfile
@@ -114,7 +114,7 @@
   suffix: Oktoberfest
   components:
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/Baked/misc.rsi #спрайты от празата
+    sprite: ADT/Season/Objects/Consumable/Food/Baked/misc.rsi #спрайты от празата
     layers:
     - state: brezel_vanilla
   - type: FlavorProfile
@@ -142,7 +142,7 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/Baked/misc.rsi
+    sprite: ADT/Season/Objects/Consumable/Food/Baked/misc.rsi
     state: brezel_pumpkin
 
 - type: entity
@@ -153,7 +153,7 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/Baked/misc.rsi
+    sprite: ADT/Season/Objects/Consumable/Food/Baked/misc.rsi
     state: muffin_pumpkin
   - type: FlavorProfile
     flavors:
@@ -182,7 +182,7 @@
   description: kulich small
   components:
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/Baked/easter.rsi
+    sprite: ADT/Season/Objects/Consumable/Food/Baked/easter.rsi
     state: small
   - type: FlavorProfile
     flavors:
@@ -206,7 +206,7 @@
   description: kulich big
   components:
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/Baked/easter.rsi
+    sprite: ADT/Season/Objects/Consumable/Food/Baked/easter.rsi
     state: big
   - type: FlavorProfile
     flavors:
@@ -232,7 +232,7 @@
   description: kulich cheesy
   components:
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/Baked/easter.rsi
+    sprite: ADT/Season/Objects/Consumable/Food/Baked/easter.rsi
     state: cheesy
   - type: FlavorProfile
     flavors:
@@ -259,7 +259,7 @@
   description: sweet roll
   components:
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/Baked/easter.rsi
+    sprite: ADT/Season/Objects/Consumable/Food/Baked/easter.rsi
     state: sweetroll
   - type: FlavorProfile
     flavors:

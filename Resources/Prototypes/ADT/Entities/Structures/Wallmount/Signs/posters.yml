@@ -1065,7 +1065,7 @@
   description: Buy a sawblade for yourself and your beloved, and you'll get a third one as a gift!
   components:
   - type: Sprite
-    sprite: ADT/Structures/Wallmounts/posters_valentines_day.rsi
+    sprite: ADT/Season/Structures/Wallmounts/posters_valentines_day.rsi
     state: dv_love_contraband
 
 - type: entity
@@ -1076,7 +1076,7 @@
   suffix: Valentine's day
   components:
   - type: Sprite
-    sprite: ADT/Structures/Wallmounts/posters_valentines_day.rsi
+    sprite: ADT/Season/Structures/Wallmounts/posters_valentines_day.rsi
     state: space_love_contraband
     
 - type: entity
@@ -1087,7 +1087,7 @@
   suffix: Valentine's day
   components:
   - type: Sprite
-    sprite: ADT/Structures/Wallmounts/posters_valentines_day.rsi
+    sprite: ADT/Season/Structures/Wallmounts/posters_valentines_day.rsi
     state: valentina_legit
     
 - type: entity
@@ -1098,7 +1098,7 @@
   suffix: Valentine's day
   components:
   - type: Sprite
-    sprite: ADT/Structures/Wallmounts/posters_valentines_day.rsi
+    sprite: ADT/Season/Structures/Wallmounts/posters_valentines_day.rsi
     state: valentina2_legit
     
 - type: entity
@@ -1109,7 +1109,7 @@
   suffix: Valentine's day
   components:
   - type: Sprite
-    sprite: ADT/Structures/Wallmounts/posters_valentines_day.rsi
+    sprite: ADT/Season/Structures/Wallmounts/posters_valentines_day.rsi
     state: valentina3_legit
     
 - type: entity
@@ -1120,7 +1120,7 @@
   suffix: Valentine's day
   components:
   - type: Sprite
-    sprite: ADT/Structures/Wallmounts/posters_valentines_day.rsi
+    sprite: ADT/Season/Structures/Wallmounts/posters_valentines_day.rsi
     state: valentina4_legit
     
 - type: entity
@@ -1131,7 +1131,7 @@
   suffix: Valentine's day
   components:
   - type: Sprite
-    sprite: ADT/Structures/Wallmounts/posters_valentines_day.rsi
+    sprite: ADT/Season/Structures/Wallmounts/posters_valentines_day.rsi
     state: valentina5_legit
 
 - type: entity
@@ -1142,7 +1142,7 @@
   suffix: Valentine's day
   components:
   - type: Sprite
-    sprite: ADT/Structures/Wallmounts/posters_valentines_day.rsi
+    sprite: ADT/Season/Structures/Wallmounts/posters_valentines_day.rsi
     state: valentina6_legit
 
 #Сердечки ко дню святого Валентина
@@ -1155,7 +1155,7 @@
   suffix: Valentine's day
   components:
   - type: Sprite
-    sprite: ADT/Structures/Wallmounts/hanging_hearts_valentines_day.rsi
+    sprite: ADT/Season/Structures/Wallmounts/hanging_hearts_valentines_day.rsi
     state: love
     
 - type: entity
@@ -1166,7 +1166,7 @@
   suffix: Valentine's day
   components:
   - type: Sprite
-    sprite: ADT/Structures/Wallmounts/hanging_hearts_valentines_day.rsi
+    sprite: ADT/Season/Structures/Wallmounts/hanging_hearts_valentines_day.rsi
     state: love2
     
 - type: entity
@@ -1177,7 +1177,7 @@
   suffix: Valentine's day
   components:
   - type: Sprite
-    sprite: ADT/Structures/Wallmounts/hanging_hearts_valentines_day.rsi
+    sprite: ADT/Season/Structures/Wallmounts/hanging_hearts_valentines_day.rsi
     state: love3
     
 - type: entity
@@ -1188,7 +1188,7 @@
   suffix: Valentine's day
   components:
   - type: Sprite
-    sprite: ADT/Structures/Wallmounts/hanging_hearts_valentines_day.rsi
+    sprite: ADT/Season/Structures/Wallmounts/hanging_hearts_valentines_day.rsi
     state: love4
 
 - type: entity

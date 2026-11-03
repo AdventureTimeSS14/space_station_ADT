@@ -105,10 +105,10 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Eyes/Glasses/neontactical.rsi
+    sprite: ADT/Season/Clothing/Eyes/Glasses/neontactical.rsi
     state: icon
   - type: Clothing
-    sprite: ADT/Clothing/Eyes/Glasses/neontactical.rsi
+    sprite: ADT/Season/Clothing/Eyes/Glasses/neontactical.rsi
 
 - type: entity
   parent: ClothingEyesBase
@@ -118,10 +118,10 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Eyes/Glasses/servant_of_evil.rsi
+    sprite: ADT/Season/Clothing/Eyes/Glasses/servant_of_evil.rsi
     state: icon
   - type: Clothing
-    sprite: ADT/Clothing/Eyes/Glasses/servant_of_evil.rsi
+    sprite: ADT/Season/Clothing/Eyes/Glasses/servant_of_evil.rsi
 
 - type: entity
   parent: ClothingEyesBase

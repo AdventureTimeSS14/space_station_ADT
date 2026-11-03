@@ -176,7 +176,7 @@
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellMedium
   - type: Sprite
-    sprite: ADT/Objects/Misc/golden_candlestick.rsi
+    sprite: ADT/Season/Objects/Misc/golden_candlestick.rsi
     layers:
       - state: lamp
       - state: lamp-on
@@ -184,7 +184,7 @@
         visible: false
         map: [ "light" ]
   - type: Item
-    sprite: ADT/Objects/Misc/golden_candlestick.rsi
+    sprite: ADT/Season/Objects/Misc/golden_candlestick.rsi
     size: Normal
   #- type: PointLight
   #  enabled: false
@@ -210,7 +210,7 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Objects/Misc/silver_candlestick.rsi
+    sprite: ADT/Season/Objects/Misc/silver_candlestick.rsi
     layers:
       - state: lamp
       - state: lamp-on
@@ -218,7 +218,7 @@
         visible: false
         map: [ "light" ]
   - type: Item
-    sprite: ADT/Objects/Misc/silver_candlestick.rsi
+    sprite: ADT/Season/Objects/Misc/silver_candlestick.rsi
     size: Normal
   - type: PointLight
     netsync: false
@@ -238,7 +238,7 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Objects/Misc/scull_lamp.rsi
+    sprite: ADT/Season/Objects/Misc/scull_lamp.rsi
     layers:
       - state: lamp
       - state: lamp-on
@@ -246,7 +246,7 @@
         visible: false
         map: [ "light" ]
   - type: Item
-    sprite: ADT/Objects/Misc/scull_lamp.rsi
+    sprite: ADT/Season/Objects/Misc/scull_lamp.rsi
     size: Normal
   - type: PointLight
     netsync: false

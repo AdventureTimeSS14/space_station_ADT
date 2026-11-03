@@ -61,9 +61,9 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Shoes/Misc/clownnightmareshoes.rsi
+    sprite: ADT/Season/Clothing/Shoes/Misc/clownnightmareshoes.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Shoes/Misc/clownnightmareshoes.rsi
+    sprite: ADT/Season/Clothing/Shoes/Misc/clownnightmareshoes.rsi
 
 - type: entity
   parent: ClothingShoesBaseButcherable
@@ -73,9 +73,9 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Shoes/Misc/greyclownshoes.rsi
+    sprite: ADT/Season/Clothing/Shoes/Misc/greyclownshoes.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Shoes/Misc/greyclownshoes.rsi
+    sprite: ADT/Season/Clothing/Shoes/Misc/greyclownshoes.rsi
 
 - type: entity
   parent: ClothingShoesBaseButcherable

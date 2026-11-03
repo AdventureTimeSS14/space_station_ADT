@@ -1,7 +1,7 @@
 - type: cargoProduct
   id: ADTFunOktoberfestClothes
   icon:
-    sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlblue.rsi
+    sprite: ADT/Season/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlblue.rsi
     state: icon
   product: ADTCrateFunOktoberfestClothes
   cost: 750
@@ -39,7 +39,7 @@
 - type: cargoProduct
   id: ADTFunHalloweenCloth
   icon:
-    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+    sprite: ADT/Season/Objects/Storage/Boxes/halloween_box.rsi
     state: pennywise
   product: ADTCrateHalloweenCloth
   cost: 8350

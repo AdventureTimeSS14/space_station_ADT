@@ -25,7 +25,7 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Objects/Weapons/Melee/tagilla_sledge.rsi
+    sprite: ADT/Season/Objects/Weapons/Melee/tagilla_sledge.rsi
     state: icon
   - type: MeleeWeapon
     attackRate: 0.4

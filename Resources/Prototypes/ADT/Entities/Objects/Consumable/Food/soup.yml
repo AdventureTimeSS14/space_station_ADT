@@ -96,7 +96,7 @@
       - creamy
       - pumpkin
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/Baked/pumpkin_soup.rsi
+    sprite: ADT/Season/Objects/Consumable/Food/Baked/pumpkin_soup.rsi
     state: icon
   - type: Solution
     solution:

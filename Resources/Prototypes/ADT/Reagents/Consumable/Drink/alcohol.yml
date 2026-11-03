@@ -928,7 +928,7 @@
           max: 320
         amount: 2500
   metamorphicSprite:
-    sprite: ADT/Objects/Consumable/Drinks/superbeer.rsi
+    sprite: ADT/Season/Objects/Consumable/Drinks/superbeer.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
@@ -953,7 +953,7 @@
         reagent: Ethanol
         amount: 0.25
   metamorphicSprite:
-    sprite: ADT/Objects/Consumable/Drinks/clownbeer.rsi
+    sprite: ADT/Season/Objects/Consumable/Drinks/clownbeer.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-

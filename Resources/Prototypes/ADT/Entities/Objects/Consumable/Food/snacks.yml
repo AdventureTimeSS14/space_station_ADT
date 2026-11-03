@@ -582,7 +582,7 @@
     flavors:
       - sweet
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/Snacks/Candies/candy.rsi
+    sprite: ADT/Season/Objects/Consumable/Food/Snacks/Candies/candy.rsi
     state: black
   - type: Item
   - type: Solution
@@ -774,7 +774,7 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/Snacks/Candies/candysticks.rsi
+    sprite: ADT/Season/Objects/Consumable/Food/Snacks/Candies/candysticks.rsi
     layers:
     - state: trach
     - state: candy_red
@@ -909,7 +909,7 @@
     flavors:
       - chocolate
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/hypoallergen_chocolate.rsi
+    sprite: ADT/Season/Objects/Consumable/Food/hypoallergen_chocolate.rsi
     state: hypoallergen_chocolate
   - type: Item
   - type: Solution
@@ -935,7 +935,7 @@
   description: For you!
   components:
   - type: Sprite
-    sprite: ADT/Objects/Specific/Service/loveday_candy.rsi
+    sprite: ADT/Season/Objects/Specific/Service/loveday_candy.rsi
     state: minichoco1
   - type: Item
     size: Tiny
@@ -955,7 +955,7 @@
   description: For you!
   components:
   - type: Sprite
-    sprite: ADT/Objects/Specific/Service/loveday_candy.rsi
+    sprite: ADT/Season/Objects/Specific/Service/loveday_candy.rsi
     state: minichoco2
   - type: Item
     size: Tiny
@@ -975,7 +975,7 @@
   description: For you!
   components:
   - type: Sprite
-    sprite: ADT/Objects/Specific/Service/loveday_candy.rsi
+    sprite: ADT/Season/Objects/Specific/Service/loveday_candy.rsi
     state: minichoco3
   - type: Item
     size: Tiny
@@ -998,7 +998,7 @@
     flavors:
       - chocolate
   - type: Sprite
-    sprite: ADT/Objects/Specific/Service/loveday_candy.rsi
+    sprite: ADT/Season/Objects/Specific/Service/loveday_candy.rsi
     state: candy_love
   - type: Item
     size: Tiny
@@ -1023,7 +1023,7 @@
   description: Love is as sweet as ever!
   components:
   - type: Sprite
-    sprite: ADT/Objects/Specific/Service/loveday_candy.rsi
+    sprite: ADT/Season/Objects/Specific/Service/loveday_candy.rsi
     state: minichoco1-open
 
 - type: entity
@@ -1033,7 +1033,7 @@
   description: Love is as sweet as ever!
   components:
   - type: Sprite
-    sprite: ADT/Objects/Specific/Service/loveday_candy.rsi
+    sprite: ADT/Season/Objects/Specific/Service/loveday_candy.rsi
     state: minichoco2-open
 
 - type: entity
@@ -1043,7 +1043,7 @@
   description: Love is as sweet as ever!
   components:
   - type: Sprite
-    sprite: ADT/Objects/Specific/Service/loveday_candy.rsi
+    sprite: ADT/Season/Objects/Specific/Service/loveday_candy.rsi
     state: minichoco3-open
 
 - type: entity
@@ -1053,7 +1053,7 @@
   description: Love is as sweet as ever!
   components:
   - type: Sprite
-    sprite: ADT/Objects/Specific/Service/loveday_candy.rsi
+    sprite: ADT/Season/Objects/Specific/Service/loveday_candy.rsi
     state: minichoco4-open
 
 - type: entity
@@ -1063,7 +1063,7 @@
   description: Love is as sweet as ever!
   components:
   - type: Sprite
-    sprite: ADT/Objects/Specific/Service/loveday_candy.rsi
+    sprite: ADT/Season/Objects/Specific/Service/loveday_candy.rsi
     state: minichoco5-open
 
 - type: entity
@@ -1077,7 +1077,7 @@
       - sweet
       - banana
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/Snacks/banana_in_choco.rsi
+    sprite: ADT/Season/Objects/Consumable/Food/Snacks/banana_in_choco.rsi
     state: in-dark-choco
 
 - type: entity
@@ -1091,7 +1091,7 @@
       - sweet
       - banana
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/Snacks/banana_in_choco.rsi
+    sprite: ADT/Season/Objects/Consumable/Food/Snacks/banana_in_choco.rsi
     state: in-pink-choco
 
 - type: entity
@@ -1105,7 +1105,7 @@
       - sweet
       - creamy
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/Snacks/eclairs.rsi
+    sprite: ADT/Season/Objects/Consumable/Food/Snacks/eclairs.rsi
     state: eclairs_brown
 
 - type: entity
@@ -1119,7 +1119,7 @@
       - sweet
       - creamy
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/Snacks/eclairs.rsi
+    sprite: ADT/Season/Objects/Consumable/Food/Snacks/eclairs.rsi
     state: eclairs_chocolate
 
 - type: entity
@@ -1133,7 +1133,7 @@
       - sweet
       - creamy
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/Snacks/eclairs.rsi
+    sprite: ADT/Season/Objects/Consumable/Food/Snacks/eclairs.rsi
     state: eclairs_pink
 
 - type: entity
@@ -1147,7 +1147,7 @@
       - sweet
       - creamy
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/Snacks/eclairs.rsi
+    sprite: ADT/Season/Objects/Consumable/Food/Snacks/eclairs.rsi
     state: eclairs_white
 
 - type: entity
