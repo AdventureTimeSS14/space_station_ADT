@@ -2481,13 +2481,13 @@
   # ADT-Tweak-Start
   - type: Item
     size: Normal
-    sprite: Mobs/Animals/frog.rsi
+    sprite: ADT/Mobs/Animals/frog.rsi
     storedOffset: 0,-11
-    inhandVisuals:
-      left:
-      - state: frog
-      right:
-      - state: frog
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Mobs/Animals/frog.rsi
+    slots:
+    - HEAD
   # ADT-Tweak-End
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
