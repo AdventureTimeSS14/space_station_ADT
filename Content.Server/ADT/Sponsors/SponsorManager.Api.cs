@@ -179,7 +179,7 @@ public sealed partial class SponsorManager
         {
             foreach (var (legacyTier, mapping) in _legacyTiers)
             {
-                if (mapping.TierId == null || !_tiers.TryGetValue(mapping.TierId.Value, out var mapped))
+                if (mapping.TierId == null || !_tiers.TryGetValue(mapping.TierId.Value, out var mapped) || !mapped.Enabled)
                     continue;
 
                 legacyTiers[legacyTier] = mapped.Benefits.DiscordRoles.ToArray();
