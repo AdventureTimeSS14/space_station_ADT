@@ -321,43 +321,15 @@ public abstract partial class ServerDbBase
             .AsNoTracking()
             .ToListAsync();
 
-        var result = new Dictionary<int, SponsorLegacyTier>();
-
-        foreach (var row in rows)
-        {
-            result[row.LegacyTier] = new SponsorLegacyTier
+        return rows
+            .Select(row => new SponsorLegacyTier
             {
                 LegacyTier = row.LegacyTier,
                 TierId = row.TierId,
                 LastSeen = SpecifyUtc(row.LastSeen),
-            };
-        }
-
-        var now = DateTime.UtcNow;
-
-        var counts = await db.DbContext.Set<Sponsor>()
-            .AsNoTracking()
-            .Where(s => s.ExpireDate > now)
-            .GroupBy(s => s.Tier)
-            .Select(g => new { Tier = g.Key, Count = g.Count() })
-            .ToListAsync();
-
-        foreach (var count in counts)
-        {
-            if (!result.TryGetValue(count.Tier, out var tier))
-            {
-                tier = new SponsorLegacyTier
-                {
-                    LegacyTier = count.Tier,
-                };
-
-                result[count.Tier] = tier;
-            }
-
-            tier.ActivePlayers = count.Count;
-        }
-
-        return result.Values.OrderBy(t => t.LegacyTier).ToList();
+            })
+            .OrderBy(t => t.LegacyTier)
+            .ToList();
     }
 
     public async Task SaveSponsorLegacyTier(int legacyTier, int? tierId)

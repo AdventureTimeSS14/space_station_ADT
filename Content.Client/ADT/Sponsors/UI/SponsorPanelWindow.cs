@@ -515,7 +515,6 @@ public sealed class SponsorPanelWindow : DefaultWindow
             _legacyList.AddItem(Loc.GetString("adt-sponsor-panel-legacy-row",
                 ("legacy", legacyTier.LegacyTier),
                 ("target", target),
-                ("active", legacyTier.ActivePlayers),
                 ("online", legacyTier.OnlinePlayers),
                 ("seen", seen)));
         }

@@ -11,7 +11,5 @@ public sealed class SponsorLegacyTier
 
     public DateTime? LastSeen;
 
-    public int ActivePlayers;
-
     public int OnlinePlayers;
 }
