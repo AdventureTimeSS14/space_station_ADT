@@ -17,27 +17,27 @@
 # ADT Maps Базовые Актуальные
 # Highpop 60+
   - ADT_Fland
-  - ADT_Kerberos
+  - ADT_KerberosHalloween
   - ADT_Origin
-  - ADT_Avrit
-  - ADT_Triumph
-  - ADT_Box
+  - ADT_AvritHalloween
+  - ADT_TriumphHalloween
+  - ADT_BoxHalloween
 # Midpop 35 - 60
   - ADT_Marathon
   - ADT_Meta
   # - ADT_Train
-  - ADT_Bagel
-  - ADT_Barratry
+  - ADT_BagelHalloween
+  - ADT_BarratryHalloween
 # Lowpop 20 - 35
-  #- ADT_Packed
-  - ADT_Saltern
+  - ADT_PackedHalloween
+  - ADT_SalternHalloween
   - ADT_Aspid
   - ADT_Cluster
 # Micropop 0 - 20
   - ADT_Reach
-  - ADT_Silly
-  - ADT_Pump
-  - ADT_Sphere
+  - ADT_SillyHalloween
+  - ADT_PumpHalloween
+  - ADT_SphereHalloween
 
 # ADT Maps Выведенные на переработку
   # - ADT_Gate пока минока не начнёт нормально работать

@@ -297,6 +297,20 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         Dirty(uid, component);
     }
 
+    public void AddInventoryFromPack(EntityUid uid, ProtoId<VendingMachineInventoryPrototype> pack, ADTVendingMachineComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return;
+
+        if (!PrototypeManager.TryIndex(pack, out var packPrototype))
+            return;
+
+        AddInventoryFromPrototype(uid, VendingMachineInventoryData.Flatten(packPrototype.StartingInventory), InventoryType.Regular, component);
+        AddInventoryFromPrototype(uid, VendingMachineInventoryData.Flatten(packPrototype.EmaggedInventory), InventoryType.Emagged, component);
+        AddInventoryFromPrototype(uid, VendingMachineInventoryData.Flatten(packPrototype.ContrabandInventory), InventoryType.Contraband, component);
+        Dirty(uid, component);
+    }
+
     private void OnEmagged(EntityUid uid, ADTVendingMachineComponent component, ref GotEmaggedEvent args)
     {
         if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
