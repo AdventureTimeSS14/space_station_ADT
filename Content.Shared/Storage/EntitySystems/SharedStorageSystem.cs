@@ -107,6 +107,7 @@ public abstract partial class SharedStorageSystem : EntitySystem
     private const string OpenUiUseDelayID = "storage";
 
     private static readonly ProtoId<TagPrototype> ADTStorageBlacklistTag = "ADTStorageBlacklist";
+    private static readonly ProtoId<TagPrototype> ADTStorageNestingExemptTag = "ADTStorageNestingExempt";
 
     /// <summary>
     /// How many storage windows are allowed to be open at once.
@@ -1088,6 +1089,7 @@ public abstract partial class SharedStorageSystem : EntitySystem
         }
 
         if (TryComp<StorageComponent>(insertEnt, out var insertStorage)
+            && !_tag.HasTag(insertEnt, ADTStorageNestingExemptTag)  // ADT tweak
             && GetMaxItemSize((insertEnt, insertStorage)) >= maxSize)
         {
             reason = "comp-storage-too-big";

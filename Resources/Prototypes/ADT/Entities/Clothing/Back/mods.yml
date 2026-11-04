@@ -759,6 +759,10 @@
         ents: []
   - type: StealTarget
     stealGroup: ClothingOuterHardsuitRd
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - ADTStorageNestingExempt
 
 # ЭС "Харон"
 - type: entity
