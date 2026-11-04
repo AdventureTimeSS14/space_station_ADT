@@ -73,3 +73,9 @@ lavaland-extract-overdose = Всё тело горит изнутри, мысл�
 
 reagent-name-murder-solution = Раствор Мёрдер
 reagent-desc-murder-solution = Дорогой радиоактивный препарат, который лечит клеточный распад клонированного тела.
+
+reagent-name-silver-ions = Ионы серебра
+reagent-desc-silver-ions = Заряженные частицы серебра, получаемые в центрифуге. Нужны для синтеза сульфадиазина серебра.
+
+reagent-name-iron-ions = Ионы железа
+reagent-desc-iron-ions = Заряженные частицы железа, получаемые в центрифуге. Нужны для синтеза кровоостанавливающей пудры.
