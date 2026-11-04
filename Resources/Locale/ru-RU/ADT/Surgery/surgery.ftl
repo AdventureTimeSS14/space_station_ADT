@@ -364,3 +364,44 @@ surgery-graph-cyber-detach-leg-left-name = Отсоединение левой �
 surgery-graph-cyber-attach-leg-left-name = Подключение левой ноги
 surgery-graph-cyber-detach-leg-right-name = Отсоединение правой ноги
 surgery-graph-cyber-attach-leg-right-name = Подключение правой ноги
+
+surgery-category-bone-repair-name = Восстановление костей
+surgery-category-shrapnel-removal-name = Извлечение инородных объектов
+
+surgery-graph-bone-repair-head-name = Восстановление костей черепа
+surgery-graph-bone-repair-chest-name = Восстановление рёбер
+surgery-graph-bone-repair-arm-left-name = Восстановление костей левой руки
+surgery-graph-bone-repair-arm-right-name = Восстановление костей правой руки
+surgery-graph-bone-repair-hand-left-name = Восстановление костей левой кисти
+surgery-graph-bone-repair-hand-right-name = Восстановление костей правой кисти
+surgery-graph-bone-repair-leg-left-name = Восстановление костей левой ноги
+surgery-graph-bone-repair-leg-right-name = Восстановление костей правой ноги
+surgery-graph-bone-repair-foot-left-name = Восстановление костей левой ступни
+surgery-graph-bone-repair-foot-right-name = Восстановление костей правой ступни
+
+surgery-edge-bone-glue-label = Сращивание костей
+surgery-edge-bone-set-label = Закрепление костей
+surgery-edge-bone-finish-label = Заживление костей
+surgery-node-bone-glued-label = Кости сращены
+surgery-node-bone-set-label = Кости закреплены
+surgery-node-bone-mended-label = Кость восстановлена
+
+surgery-graph-shrapnel-head-name = Извлечение осколков из головы
+surgery-graph-shrapnel-chest-name = Извлечение осколков из груди
+surgery-graph-shrapnel-arm-left-name = Извлечение осколков из левой руки
+surgery-graph-shrapnel-arm-right-name = Извлечение осколков из правой руки
+surgery-graph-shrapnel-hand-left-name = Извлечение осколков из левой кисти
+surgery-graph-shrapnel-hand-right-name = Извлечение осколков из правой кисти
+surgery-graph-shrapnel-leg-left-name = Извлечение осколков из левой ноги
+surgery-graph-shrapnel-leg-right-name = Извлечение осколков из правой ноги
+surgery-graph-shrapnel-foot-left-name = Извлечение осколков из левой ступни
+surgery-graph-shrapnel-foot-right-name = Извлечение осколков из правой ступни
+
+surgery-edge-shrapnel-remove-label = Извлечение инородных объектов
+surgery-node-shrapnel-removed-label = Инородные объекты извлечены
+
+surgery-window-search = Поиск операции...
+surgery-window-empty = Подходящих операций нет
+surgery-window-category-all = Все операции
+surgery-window-category-other = Прочее
+surgery-window-category-entry = { $name } ({ $count })

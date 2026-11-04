@@ -190,6 +190,14 @@
     Plastic: 100
 
 - type: latheRecipe
+  id: ADTMedicalSplint1
+  result: ADTMedicalSplint1
+  completetime: 1
+  materials:
+    Plastic: 100
+    Steel: 50
+
+- type: latheRecipe
   id: ADTBoneGel
   result: ADTBoneGel
   completetime: 2

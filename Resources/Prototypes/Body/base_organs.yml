@@ -57,6 +57,8 @@
   components:
   - type: Organ
     category: Torso
+  - type: ADTBone # ADT-Tweak
+    minBrokenDamage: 35
   - type: Sprite
     state: torso
   - type: VisualOrgan
@@ -85,6 +87,8 @@
   components:
   - type: Organ
     category: Head
+  - type: ADTBone # ADT-Tweak
+    minBrokenDamage: 35
   - type: Sprite
     state: head
   - type: VisualOrgan
@@ -119,6 +123,9 @@
   components:
   - type: Organ
     category: ArmLeft
+  - type: ADTBone # ADT-Tweak
+    minBrokenDamage: 30
+    canSplint: true
   - type: LimbOrgan # ADT-Tweak
     part: ArmLeft
   - type: Sprite
@@ -143,6 +150,9 @@
   components:
   - type: Organ
     category: ArmRight
+  - type: ADTBone # ADT-Tweak
+    minBrokenDamage: 30
+    canSplint: true
   - type: LimbOrgan # ADT-Tweak
     part: ArmRight
   - type: Sprite
@@ -166,6 +176,9 @@
   components:
   - type: Organ
     category: HandLeft
+  - type: ADTBone # ADT-Tweak
+    minBrokenDamage: 15
+    canSplint: true
   - type: LimbOrgan # ADT-Tweak
     part: HandLeft
   - type: HandOrgan
@@ -193,6 +206,9 @@
   components:
   - type: Organ
     category: HandRight
+  - type: ADTBone # ADT-Tweak
+    minBrokenDamage: 15
+    canSplint: true
   - type: LimbOrgan # ADT-Tweak
     part: HandRight
   - type: HandOrgan
@@ -221,6 +237,9 @@
   components:
   - type: Organ
     category: LegLeft
+  - type: ADTBone # ADT-Tweak
+    minBrokenDamage: 30
+    canSplint: true
   - type: LimbOrgan # ADT-Tweak
     part: LegLeft
   - type: LegOrgan # ADT-Tweak
@@ -247,6 +266,9 @@
   components:
   - type: Organ
     category: LegRight
+  - type: ADTBone # ADT-Tweak
+    minBrokenDamage: 30
+    canSplint: true
   - type: LimbOrgan # ADT-Tweak
     part: LegRight
   - type: LegOrgan # ADT-Tweak
@@ -272,6 +294,9 @@
   components:
   - type: Organ
     category: FootLeft
+  - type: ADTBone # ADT-Tweak
+    minBrokenDamage: 15
+    canSplint: true
   - type: LimbOrgan # ADT-Tweak
     part: FootLeft
   - type: LegOrgan # ADT-Tweak
@@ -297,6 +322,9 @@
   components:
   - type: Organ
     category: FootRight
+  - type: ADTBone # ADT-Tweak
+    minBrokenDamage: 15
+    canSplint: true
   - type: LimbOrgan # ADT-Tweak
     part: FootRight
   - type: LegOrgan # ADT-Tweak

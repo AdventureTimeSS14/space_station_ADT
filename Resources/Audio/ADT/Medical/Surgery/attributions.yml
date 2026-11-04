@@ -19,3 +19,10 @@
   license: "Custom"
   copyright: "hacksaw2.ogg: freesound_community (deeper-saw-wood-37224); hacksaw1.ogg: by minokaa"
   source: "https://pixabay.com/sound-effects/"
+
+- files:
+  - bonegel.ogg
+  - bonesetter.ogg
+  license: "CC-BY-SA-3.0"
+  copyright: "Ported from ss220-space/Paradise (sound/surgery)"
+  source: "https://github.com/ss220-space/Paradise"

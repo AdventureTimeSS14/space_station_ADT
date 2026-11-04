@@ -34,3 +34,11 @@
   id: SurgeryCategoryCyberAssembly
   name: surgery-category-cyber-assembly-name
   parent: SurgeryCategoryCyber
+
+- type: surgeryCategory
+  id: SurgeryCategoryBoneRepair
+  name: surgery-category-bone-repair-name
+
+- type: surgeryCategory
+  id: SurgeryCategoryShrapnelRemoval
+  name: surgery-category-shrapnel-removal-name

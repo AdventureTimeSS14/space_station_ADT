@@ -109,6 +109,8 @@
     damage:
       types:
         Piercing: 8
+  - type: ADTShrapnelOnHit
+    embedChance: 0.25
 
 - type: entity
   parent: ADTPelletReactive30Shrapnel

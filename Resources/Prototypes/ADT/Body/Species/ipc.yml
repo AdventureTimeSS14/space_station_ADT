@@ -109,6 +109,8 @@
   parent: [ PlayerSiliconHumanoidBase, ADTAppearanceIPC ]
   name: Урист МакПозитроник
   components:
+  - type: ADTBones
+    canBreak: false
   - type: VisualBody
   - type: PowerCellSlot
     cellSlotId: cell_slot

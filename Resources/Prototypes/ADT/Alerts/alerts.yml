@@ -260,3 +260,12 @@
     state: icon
   name: alerts-adt-kinetic-interference-name
   description: alerts-adt-kinetic-interference-desc
+
+- type: alert
+  id: ADTEmbeddedShrapnel
+  clickEvent: !type:ADTEmbeddedShrapnelAlertEvent
+  icons:
+  - sprite: /Textures/ADT/Objects/Weapons/shrapnel.rsi
+    state: shrapnel1
+  name: alerts-adt-embedded-shrapnel-name
+  description: alerts-adt-embedded-shrapnel-desc

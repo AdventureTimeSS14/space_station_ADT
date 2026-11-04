@@ -64,3 +64,5 @@ stack-adt-wet-leather =
     }
 
 stack-adt-ussp-carpet-tile = ковёр СССП
+stack-adt-medical-splint = медицинская шина
+stack-adt-makeshift-splint = импровизированная шина

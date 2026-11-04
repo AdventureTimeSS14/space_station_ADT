@@ -163,6 +163,8 @@
   id: MobVox
   name: Urist McVox
   components:
+  - type: ADTBones # ADT-Tweak
+    fragility: 1.2
   - type: Damageable
     damageModifierSet: Vox
   - type: Injurable
