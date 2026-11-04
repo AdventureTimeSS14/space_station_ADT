@@ -20,6 +20,32 @@ public sealed partial class ModSuitSystem
 
         SubscribeLocalEvent<ModPartComponent, InteractHandEvent>(OnInteractHand);
         SubscribeLocalEvent<ModPartComponent, GetVerbsEvent<EquipmentVerb>>(OnGetAttachedStripVerbsEvent);
+
+        SubscribeLocalEvent<MagbootsComponent, GotEquippedEvent>(OnMagbootsEquipped);
+        SubscribeLocalEvent<MagbootsComponent, GotUnequippedEvent>(OnMagbootsUnequipped);
+    }
+
+    private void OnMagbootsEquipped(Entity<MagbootsComponent> ent, ref GotEquippedEvent args)
+    {
+        RefreshWearerSuitUi(args.EquipTarget);
+    }
+
+    private void OnMagbootsUnequipped(Entity<MagbootsComponent> ent, ref GotUnequippedEvent args)
+    {
+        RefreshWearerSuitUi(args.EquipTarget);
+    }
+
+    private void RefreshWearerSuitUi(EntityUid wearer)
+    {
+        if (!_netMan.IsServer)
+            return;
+
+        var query = EntityQueryEnumerator<ModSuitComponent>();
+        while (query.MoveNext(out var uid, out var suit))
+        {
+            if (suit.TempUser == wearer)
+                UpdateUserInterface(uid, suit);
+        }
     }
 
     private void OnAttachedInit(Entity<ModPartComponent> ent, ref ComponentInit args)

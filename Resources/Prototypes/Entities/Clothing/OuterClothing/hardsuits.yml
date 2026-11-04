@@ -529,8 +529,10 @@
   - type: Item
     # size: Huge
     size: Normal #ADT Tweak
-    shape: # ADT-Tweak
+    # ADT-Tweak-Start
+    shape:
     - 0,0,1,1
+    # ADT-Tweak-End
   - type: Tag
     tags:
     - WhitelistChameleon
