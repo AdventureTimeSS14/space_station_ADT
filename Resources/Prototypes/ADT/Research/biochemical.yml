@@ -307,6 +307,7 @@
   - ADTSurgicalDrapes
   - ADTSurgicalTape
   - ADTBoneSetter
+  - ADTMedicalSplint1
   requiredTech:
   - ADTChemDisp
   position: 2,0

@@ -30,7 +30,7 @@
   - type: Stack
     stackType: ADTMedicalSplint
     count: 5
-  - type: StaticPrice
+  - type: StackPrice
     price: 20
 
 - type: entity
