@@ -164,6 +164,7 @@ public sealed partial class ServerApi
         {
             Managed = map.Managed.ToArray(),
             Players = players,
+            LegacyTiers = map.LegacyTiers.ToDictionary(x => x.Key.ToString(), x => x.Value),
         });
     }
 
@@ -705,6 +706,9 @@ public sealed partial class ServerApi
 
         [JsonPropertyName("players")]
         public Dictionary<string, string[]> Players { get; set; } = new();
+
+        [JsonPropertyName("legacyTiers")]
+        public Dictionary<string, string[]> LegacyTiers { get; set; } = new();
     }
 
     private sealed class SponsorPlayerResponse
