@@ -4,9 +4,9 @@ using Content.Server.Atmos.Components;
 using Content.Server.ADT.Body;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Temperature.Components;
-using Content.Server.Temperature.Systems;
 using Content.Shared.Alert;
 using Content.Shared.Polymorph;
+using Content.Shared.Temperature; // ADT-Tweak
 using Content.Goobstation.Common.Atmos;
 using Content.Goobstation.Common.Temperature.Components; // ADT-Tweak
 
@@ -16,7 +16,6 @@ public sealed partial class VoidAdaptionSystem : SharedVoidAdaptionSystem
 {
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly TemperatureSystem _temperature = default!;
 
     private EntityQuery<ChangelingIdentityComponent> _lingQuery;
 
@@ -29,6 +28,9 @@ public sealed partial class VoidAdaptionSystem : SharedVoidAdaptionSystem
         SubscribeLocalEvent<VoidAdaptionComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<VoidAdaptionComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<VoidAdaptionComponent, GetTemperatureProtectionEvent>(OnGetTemperatureProtection);
+        // ADT-Tweak-start
+        SubscribeLocalEvent<VoidAdaptionComponent, BeforeHeatExchangeEvent>(OnBeforeHeatExchange);
+        // ADT-Tweak-end
         SubscribeLocalEvent<VoidAdaptionComponent, PolymorphedEvent>(OnPolymorphed);
     }
 
@@ -39,9 +41,7 @@ public sealed partial class VoidAdaptionSystem : SharedVoidAdaptionSystem
         EnsureComp<SpecialPressureImmunityComponent>(ent);      // immunity to low/high pressure (barotrauma)
         EnsureComp<BreathingImmunityComponent>(ent);     // immunity to asphyxiation (no need to breathe)
         // ADT-Tweak-start
-        var tempProt = EnsureComp<TemperatureProtectionComponent>(ent);
-        if (tempProt.Coefficient > 0f)
-            _temperature.SetHeatProtection((ent.Owner, tempProt), 0f);
+        EnsureComp<TemperatureProtectionComponent>(ent);
         EnsureComp<SpecialLowTempImmunityComponent>(ent);
         EnsureComp<SpecialHighTempImmunityComponent>(ent);
         // ADT-Tweak-end
@@ -71,6 +71,13 @@ public sealed partial class VoidAdaptionSystem : SharedVoidAdaptionSystem
         // Full protection from environmental heating and cooling.
         args.Coefficient = 0f;
     }
+
+    // ADT-Tweak-start
+    private void OnBeforeHeatExchange(Entity<VoidAdaptionComponent> ent, ref BeforeHeatExchangeEvent args)
+    {
+        args.HeatTransferModifier = 0f;
+    }
+    // ADT-Tweak-end
 
     private void OnPolymorphed(Entity<VoidAdaptionComponent> ent, ref PolymorphedEvent args)
     {
