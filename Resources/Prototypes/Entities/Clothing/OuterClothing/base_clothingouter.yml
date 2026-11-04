@@ -184,8 +184,8 @@
   - type: Item
 #    size: Ginormous
     size: Huge # ADT-Tweak
-    shape:
-    - 0,0,4,5
+#    shape: # ADT-Tweak
+#    - 0,0,4,5
   - type: Armor
     modifiers:
       coefficients:
