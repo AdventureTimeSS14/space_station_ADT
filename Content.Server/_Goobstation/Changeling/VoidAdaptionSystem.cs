@@ -4,9 +4,11 @@ using Content.Server.Atmos.Components;
 using Content.Server.ADT.Body;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Temperature.Components;
+using Content.Server.Temperature.Systems;
 using Content.Shared.Alert;
 using Content.Shared.Polymorph;
 using Content.Goobstation.Common.Atmos;
+using Content.Goobstation.Common.Temperature.Components; // ADT-Tweak
 
 namespace Content.Goobstation.Server.Changeling;
 
@@ -14,6 +16,7 @@ public sealed partial class VoidAdaptionSystem : SharedVoidAdaptionSystem
 {
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
+    [Dependency] private readonly TemperatureSystem _temperature = default!;
 
     private EntityQuery<ChangelingIdentityComponent> _lingQuery;
 
@@ -35,7 +38,13 @@ public sealed partial class VoidAdaptionSystem : SharedVoidAdaptionSystem
         // so this works with the existing atmos/temperature/respiration systems.
         EnsureComp<SpecialPressureImmunityComponent>(ent);      // immunity to low/high pressure (barotrauma)
         EnsureComp<BreathingImmunityComponent>(ent);     // immunity to asphyxiation (no need to breathe)
-        EnsureComp<TemperatureProtectionComponent>(ent); // temperature protection (coefficient forced to 0 below)
+        // ADT-Tweak-start
+        var tempProt = EnsureComp<TemperatureProtectionComponent>(ent);
+        if (tempProt.Coefficient > 0f)
+            _temperature.SetHeatProtection((ent.Owner, tempProt), 0f);
+        EnsureComp<SpecialLowTempImmunityComponent>(ent);
+        EnsureComp<SpecialHighTempImmunityComponent>(ent);
+        // ADT-Tweak-end
 
         _alerts.ShowAlert(ent.Owner, ent.Comp.Alert);
     }
@@ -49,6 +58,10 @@ public sealed partial class VoidAdaptionSystem : SharedVoidAdaptionSystem
         RemComp<SpecialPressureImmunityComponent>(ent);
         RemComp<BreathingImmunityComponent>(ent);
         RemComp<TemperatureProtectionComponent>(ent);
+        // ADT-Tweak-start
+        RemComp<SpecialLowTempImmunityComponent>(ent);
+        RemComp<SpecialHighTempImmunityComponent>(ent);
+        // ADT-Tweak-end
 
         _alerts.ClearAlert(ent.Owner, ent.Comp.Alert);
     }
