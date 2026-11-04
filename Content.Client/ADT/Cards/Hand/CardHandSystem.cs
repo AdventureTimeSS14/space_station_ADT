@@ -30,6 +30,17 @@ public sealed class CardHandSystem : EntitySystem
         SubscribeNetworkEvent<CardStackFlippedEvent>(OnStackFlip);
         SubscribeLocalEvent<CardHandComponent, EntGotInsertedIntoContainerMessage>(OnContainerChanged);
         SubscribeLocalEvent<CardHandComponent, EntGotRemovedFromContainerMessage>(OnContainerChanged);
+        _player.LocalPlayerAttached += OnLocalPlayerChanged;
+        _player.LocalPlayerDetached += OnLocalPlayerChanged;
+    }
+
+    private void OnLocalPlayerChanged(EntityUid uid)
+    {
+        var query = AllEntityQuery<CardHandComponent>();
+        while (query.MoveNext(out var ent, out var comp))
+        {
+            UpdateSprite(ent, comp);
+        }
     }
 
     private bool ShouldHideFaces(EntityUid uid)
