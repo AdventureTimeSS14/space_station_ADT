@@ -34,6 +34,13 @@ public sealed class CardHandSystem : EntitySystem
         _player.LocalPlayerDetached += OnLocalPlayerChanged;
     }
 
+    public override void Shutdown()
+    {
+        base.Shutdown();
+        _player.LocalPlayerAttached -= OnLocalPlayerChanged;
+        _player.LocalPlayerDetached -= OnLocalPlayerChanged;
+    }
+
     private void OnLocalPlayerChanged(EntityUid uid)
     {
         var query = AllEntityQuery<CardHandComponent>();
