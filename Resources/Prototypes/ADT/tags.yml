@@ -587,9 +587,6 @@
   id: ADTStorageBlacklist
 
 - type: Tag
-  id: ADTStorageNestingExempt
-
-- type: Tag
   id: LavaDungeonBloodMiner
 
 - type: Tag
