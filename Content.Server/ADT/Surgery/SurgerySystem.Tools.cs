@@ -1,4 +1,5 @@
 using Content.Shared.ADT.Body.OrganOrigin;
+using Content.Shared.ADT.Surgery;
 using Content.Shared.ADT.Surgery.Components;
 using Content.Shared.ADT.Surgery.Prototypes;
 using System.Linq;
@@ -30,6 +31,8 @@ public sealed partial class SurgerySystem
 
     private static readonly SurgeryToolMatch ExactMatch = new(1f, 1f, new());
 
+    [Dependency] private SurgeryToolQualitySystem _toolQuality = default!;
+
     private bool TryMatchTool(EntityUid patient, SurgeryStepEntry step, EntityUid item, out SurgeryToolMatch match)
     {
         match = ExactMatch;
@@ -54,7 +57,7 @@ public sealed partial class SurgerySystem
     {
         match = ExactMatch;
 
-        if (TryComp<SurgeryToolComponent>(item, out var tool) && GetToolQualities(item, tool).Contains(qualityId))
+        if (TryComp<SurgeryToolComponent>(item, out var tool) && _toolQuality.GetToolQualities(item, tool).Contains(qualityId))
             return true;
 
         if (!PrototypeManager.TryIndex(qualityId, out var quality))
@@ -62,7 +65,7 @@ public sealed partial class SurgerySystem
 
         foreach (var entry in quality.Entries)
         {
-            if (!EntryMatches(entry, item))
+            if (!_toolQuality.EntryMatches(entry, item))
                 continue;
 
             match = new SurgeryToolMatch(entry.Speed, entry.Success, entry.FailureEffects, entry.Sound);
@@ -70,94 +73,6 @@ public sealed partial class SurgerySystem
         }
 
         return false;
-    }
-
-    private List<ProtoId<SurgeryToolQualityPrototype>> GetToolQualities(EntityUid item, SurgeryToolComponent tool)
-    {
-        if (tool.ActiveQualities is { } active && _toggle.IsActivated(item))
-            return active;
-
-        return tool.ExtraQualities;
-    }
-
-    private void OnToolExamined(Entity<SurgeryToolComponent> ent, ref ExaminedEvent args)
-    {
-        if (!args.IsInDetailsRange)
-            return;
-
-        var proper = GetProperQualities(ent.Owner);
-
-        if (ent.Comp.ActiveQualities is not { } active)
-        {
-            var qualities = ent.Comp.ExtraQualities.Union(proper).ToList();
-            if (qualities.Count > 0)
-                args.PushMarkup(Loc.GetString("surgery-tool-examine-qualities", ("qualities", FormatQualities(qualities))));
-            return;
-        }
-
-        var activated = _toggle.IsActivated(ent.Owner);
-        var current = activated ? active : ent.Comp.ExtraQualities;
-        var other = activated ? ent.Comp.ExtraQualities : active;
-
-        args.PushMarkup(Loc.GetString("surgery-tool-examine-current", ("qualities", FormatQualities(current))));
-        args.PushMarkup(Loc.GetString("surgery-tool-examine-switch", ("qualities", FormatQualities(other))));
-    }
-
-    private List<ProtoId<SurgeryToolQualityPrototype>> GetProperQualities(EntityUid item)
-    {
-        var result = new List<ProtoId<SurgeryToolQualityPrototype>>();
-
-        foreach (var quality in PrototypeManager.EnumeratePrototypes<SurgeryToolQualityPrototype>())
-        {
-            foreach (var entry in quality.Entries)
-            {
-                if (entry.Success < 1f || !EntryMatches(entry, item))
-                    continue;
-
-                result.Add(quality.ID);
-                break;
-            }
-        }
-
-        return result;
-    }
-
-    private string FormatQualities(List<ProtoId<SurgeryToolQualityPrototype>> qualities)
-    {
-        var names = new List<string>();
-        foreach (var id in qualities)
-        {
-            if (PrototypeManager.TryIndex(id, out var quality))
-                names.Add(Loc.GetString(quality.Name));
-        }
-
-        return names.Count > 0 ? string.Join(", ", names) : Loc.GetString("surgery-tool-examine-none");
-    }
-
-    private bool EntryMatches(SurgeryToolQualityEntry entry, EntityUid item)
-    {
-        if (!entry.HasCriteria)
-            return false;
-
-        if (entry.Whitelist != null && !_whitelist.IsWhitelistPass(entry.Whitelist, item))
-            return false;
-
-        if (entry.ToolQuality is { } toolQuality && !_tool.HasQuality(item, toolQuality))
-            return false;
-
-        if (entry.Utensil != UtensilType.None
-            && (!TryComp<UtensilComponent>(item, out var utensil) || (utensil.Types & entry.Utensil) == 0))
-            return false;
-
-        if (entry.RequireHot)
-        {
-            var hot = new IsHotEvent();
-            RaiseLocalEvent(item, hot);
-            if (!hot.IsHot)
-                return false;
-        }
-
-        return true;
     }
 
     private bool MatchesOrgan(EntityUid patient, SurgeryStepEntry step, EntityUid item)

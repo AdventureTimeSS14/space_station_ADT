@@ -62,7 +62,6 @@ public sealed partial class SurgerySystem : SharedSurgerySystem
         var beforeInteract = new[] { typeof(WiresSystem), typeof(EncryptionKeySystem), typeof(RepairableSystem) };
         SubscribeLocalEvent<OperatedComponent, InteractUsingEvent>(OnInteractUsing, before: beforeInteract);
         SubscribeLocalEvent<BodyComponent, InteractUsingEvent>(OnBodyInteractUsing, before: beforeInteract);
-        SubscribeLocalEvent<SurgeryToolComponent, ExaminedEvent>(OnToolExamined);
     }
 
     private void OnAfterInteract(EntityUid uid, SurgeryToolComponent component, AfterInteractEvent args)

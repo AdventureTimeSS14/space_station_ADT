@@ -1,3 +1,4 @@
+using Content.Client.ADT.Body.Bones;
 using System.Linq;
 using System.Numerics;
 using Content.Client.Stylesheets;
@@ -322,6 +323,15 @@ public sealed partial class SurgeryConsoleWindow : FancyWindow
                     SurgeryConsoleStyle.TextDim,
                     new Thickness(19, 0, 0, 0)));
             }
+        }
+
+        var injuries = ADTInjuryReport.GetLines(_entManager, _prototypes, patient);
+        if (injuries.Count > 0)
+            DamageEmptyLabel.Visible = false;
+
+        foreach (var injury in injuries)
+        {
+            DamageBox.AddChild(WrappedText(injury, SurgeryConsoleStyle.Bruised));
         }
     }
 

@@ -41,7 +41,6 @@ public sealed class AutoSurgeonSystem : EntitySystem
         SubscribeLocalEvent<AutoSurgeonComponent, GetVerbsEvent<InteractionVerb>>(OnGetVerbs);
         SubscribeLocalEvent<AutoSurgeonComponent, DoAfterAttemptEvent<AutoSurgeonDoAfterEvent>>(OnDoAfterAttempt);
         SubscribeLocalEvent<AutoSurgeonComponent, AutoSurgeonDoAfterEvent>(OnDoAfter);
-        SubscribeLocalEvent<AutoSurgeonComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<AutoSurgeonComponent, UnstrapAttemptEvent>(OnUnstrapAttempt);
     }
 
@@ -218,24 +217,6 @@ public sealed class AutoSurgeonSystem : EntitySystem
     {
         if (args.DoAfter.Args.Target != GetPatient(ent))
             args.Cancel();
-    }
-
-    private void OnExamined(Entity<AutoSurgeonComponent> ent, ref ExaminedEvent args)
-    {
-        if (!args.IsInDetailsRange)
-            return;
-
-        var stored = GetStored(ent);
-        if (stored.Count == 0)
-            args.PushMarkup(Loc.GetString("autosurgeon-examine-empty"));
-
-        foreach (var item in stored)
-        {
-            args.PushMarkup(Loc.GetString("autosurgeon-examine-loaded", ("item", item)));
-        }
-
-        if (ent.Comp.Uses >= 0)
-            args.PushMarkup(Loc.GetString("autosurgeon-examine-uses", ("uses", ent.Comp.Uses)));
     }
 
     private List<EntityUid> GetStored(Entity<AutoSurgeonComponent> ent)
