@@ -4,7 +4,7 @@ using Content.Server.Atmos.Components;
 using Content.Server.ADT.Body;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Temperature.Components;
-using Content.Server.Temperature.Systems;
+using Content.Server.Temperature.Systems; // ADT-Tweak
 using Content.Shared.Alert;
 using Content.Shared.Polymorph;
 using Content.Goobstation.Common.Atmos;
@@ -16,7 +16,7 @@ public sealed partial class VoidAdaptionSystem : SharedVoidAdaptionSystem
 {
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly TemperatureSystem _temperature = default!;
+    [Dependency] private readonly TemperatureSystem _temperature = default!; // ADT-Tweak
 
     private EntityQuery<ChangelingIdentityComponent> _lingQuery;
 
