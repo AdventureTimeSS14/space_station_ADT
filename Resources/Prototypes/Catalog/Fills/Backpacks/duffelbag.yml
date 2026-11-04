@@ -9,11 +9,17 @@
       storagebase: !type:AllSelector
         children:
         - id: Hemostat
-        - id: Saw
+        - id: Saw # ADT-Tweak
         - id: Drill
         - id: Cautery
         - id: Retractor
         - id: Scalpel
+        # ADT-Tweak start
+        - id: ADTBoneSetter
+        - id: ADTSurgicalTape
+        - id: ADTBloodFilter
+        - id: ADTSurgicalDrapes
+        # ADT-Tweak end
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateMedicalBundle
@@ -33,6 +39,13 @@
         - id: ScalpelAdvanced
         - id: ClothingHandsGlovesNitrile
         - id: EmergencyRollerBedSpawnFolded
+        # ADT-Tweak start
+        - id: ADTBoneSetter
+        - id: ADTBoneGel
+        - id: ADTSurgicalTape
+        - id: ADTBloodFilter
+        - id: ADTSurgicalDrapes
+        # ADT-Tweak end
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateMedicalBundle

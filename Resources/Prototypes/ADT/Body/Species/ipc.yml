@@ -109,6 +109,8 @@
   parent: [ PlayerSiliconHumanoidBase, ADTAppearanceIPC ]
   name: Урист МакПозитроник
   components:
+  - type: ADTBones
+    canBreak: false
   - type: VisualBody
   - type: PowerCellSlot
     cellSlotId: cell_slot
@@ -204,6 +206,8 @@
   - type: SiliconDownOnDead
   - type: EyeProtection
     protectionTime: 12
+  - type: FlashImmunity
+    showInExamine: false
   - type: Silicon
     entityType: enum.SiliconType.Player
     batteryPowered: true
@@ -318,10 +322,12 @@
   - type: MirrorReflection
 
 - type: entity
-  parent: OrganBaseOrganic
+  parent: OrganBase
   id: ADTOrganIPC
   abstract: true
   suffix: ipc
+  components:
+  - type: RoboticPart
 
 - type: entity
   parent: ADTOrganIPC
@@ -388,6 +394,12 @@
   parent: [ OrganBaseBrain, ADTOrganIPC ]
   id: ADTOrganIPCBrain
   components:
+  - type: OrganHealth
+    kind: Robotic
+    healRate: 0
+  - type: Solution
+    solution:
+      reagents: []
   - type: Sprite
     sprite: Objects/Specific/Robotics/mmi.rsi
     layers:
@@ -398,6 +410,12 @@
   parent: [ OrganBase, OrganBaseChildInternal ]
   id: ADTOrganIPCEyes
   components:
+  - type: Organ
+    category: Eyes
+  - type: RoboticPart
+  - type: OrganHealth
+    kind: Robotic
+    healRate: 0
   - type: Sprite
     sprite: Objects/Misc/proximity_sensor.rsi
     state: icon

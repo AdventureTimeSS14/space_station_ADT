@@ -1,0 +1,27 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+   Title="{Loc 'surgery-window-title'}"
+   MinSize="520 340"
+   SetSize="640 460">
+    <BoxContainer Orientation="Vertical" Margin="8 6 8 8" SeparationOverride="6">
+        <Label Name="SubtitleLabel"
+               Text="{Loc 'surgery-window-subtitle'}"
+               StyleClasses="LabelSubText"
+               HorizontalAlignment="Center"/>
+        <LineEdit Name="SearchBar" PlaceHolder="{Loc 'surgery-window-search'}"/>
+        <BoxContainer Orientation="Horizontal" VerticalExpand="True" SeparationOverride="8">
+            <PanelContainer Name="CategoryPanel" StyleClasses="BackgroundDark" MinWidth="190" MaxWidth="190">
+                <ScrollContainer HScrollEnabled="False" VerticalExpand="True">
+                    <BoxContainer Name="CategoryList" Orientation="Vertical" SeparationOverride="2" Margin="4"/>
+                </ScrollContainer>
+            </PanelContainer>
+            <PanelContainer StyleClasses="BackgroundDark" HorizontalExpand="True" VerticalExpand="True">
+                <ScrollContainer HScrollEnabled="False" HorizontalExpand="True" VerticalExpand="True">
+                    <BoxContainer Name="OptionsContainer" Orientation="Vertical" SeparationOverride="4" Margin="6 6 16 6" HorizontalExpand="True"/>
+                </ScrollContainer>
+            </PanelContainer>
+        </BoxContainer>
+        <Label Name="EmptyLabel" Text="{Loc 'surgery-window-empty'}" StyleClasses="LabelSubText" HorizontalAlignment="Center" Visible="False"/>
+    </BoxContainer>
+</controls:FancyWindow>

@@ -1,0 +1,147 @@
+- type: latheRecipe
+  id: ADTProsthesisCheapArmLeft
+  result: ADTProsthesisCheapArmLeft
+  completetime: 8
+  materials:
+    Steel: 600
+    Glass: 150
+
+- type: latheRecipe
+  id: ADTOrganProsthesisCheapHandLeft
+  result: ADTOrganProsthesisCheapHandLeft
+  completetime: 8
+  materials:
+    Steel: 250
+    Glass: 50
+
+- type: latheRecipe
+  id: ADTProsthesisCheapLegLeft
+  result: ADTProsthesisCheapLegLeft
+  completetime: 8
+  materials:
+    Steel: 600
+    Glass: 150
+
+- type: latheRecipe
+  id: ADTOrganProsthesisCheapFootLeft
+  result: ADTOrganProsthesisCheapFootLeft
+  completetime: 8
+  materials:
+    Steel: 250
+    Glass: 50
+
+- type: latheRecipe
+  id: ADTProsthesisCheapArmRight
+  result: ADTProsthesisCheapArmRight
+  completetime: 8
+  materials:
+    Steel: 600
+    Glass: 150
+
+- type: latheRecipe
+  id: ADTOrganProsthesisCheapHandRight
+  result: ADTOrganProsthesisCheapHandRight
+  completetime: 8
+  materials:
+    Steel: 250
+    Glass: 50
+
+- type: latheRecipe
+  id: ADTProsthesisCheapLegRight
+  result: ADTProsthesisCheapLegRight
+  completetime: 8
+  materials:
+    Steel: 600
+    Glass: 150
+
+- type: latheRecipe
+  id: ADTOrganProsthesisCheapFootRight
+  result: ADTOrganProsthesisCheapFootRight
+  completetime: 8
+  materials:
+    Steel: 250
+    Glass: 50
+
+- type: latheRecipe
+  id: ADTProsthesisRegularArmLeft
+  result: ADTProsthesisRegularArmLeft
+  completetime: 12
+  materials:
+    Steel: 900
+    Plastic: 350
+    Glass: 150
+    Silver: 250
+    Gold: 100
+
+- type: latheRecipe
+  id: ADTOrganProsthesisRegularHandLeft
+  result: ADTOrganProsthesisRegularHandLeft
+  completetime: 12
+  materials:
+    Steel: 350
+    Plastic: 150
+    Glass: 50
+    Silver: 100
+
+- type: latheRecipe
+  id: ADTProsthesisRegularLegLeft
+  result: ADTProsthesisRegularLegLeft
+  completetime: 12
+  materials:
+    Steel: 900
+    Plastic: 350
+    Glass: 150
+    Silver: 250
+    Gold: 100
+
+- type: latheRecipe
+  id: ADTOrganProsthesisRegularFootLeft
+  result: ADTOrganProsthesisRegularFootLeft
+  completetime: 12
+  materials:
+    Steel: 350
+    Plastic: 150
+    Glass: 50
+    Silver: 100
+
+- type: latheRecipe
+  id: ADTProsthesisRegularArmRight
+  result: ADTProsthesisRegularArmRight
+  completetime: 12
+  materials:
+    Steel: 900
+    Plastic: 350
+    Glass: 150
+    Silver: 250
+    Gold: 100
+
+- type: latheRecipe
+  id: ADTOrganProsthesisRegularHandRight
+  result: ADTOrganProsthesisRegularHandRight
+  completetime: 12
+  materials:
+    Steel: 350
+    Plastic: 150
+    Glass: 50
+    Silver: 100
+
+- type: latheRecipe
+  id: ADTProsthesisRegularLegRight
+  result: ADTProsthesisRegularLegRight
+  completetime: 12
+  materials:
+    Steel: 900
+    Plastic: 350
+    Glass: 150
+    Silver: 250
+    Gold: 100
+
+- type: latheRecipe
+  id: ADTOrganProsthesisRegularFootRight
+  result: ADTOrganProsthesisRegularFootRight
+  completetime: 12
+  materials:
+    Steel: 350
+    Plastic: 150
+    Glass: 50
+    Silver: 100

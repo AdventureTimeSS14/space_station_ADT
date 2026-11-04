@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: BaseItem
   id: ADTBloodPackTransfusion
   name: blood pack
@@ -117,4 +117,28 @@
       maxVol: 100
       reagents:
       - ReagentId: Blood
+        Quantity: 100
+
+- type: entity
+  parent: ADTBloodPackTransfusion
+  id: ADTBloodPackLidocaine
+  name: lidocaine pack
+  description: A pack of lidocaine for intravenous anesthesia.
+  suffix: Full
+  components:
+  - type: SolutionManager
+    solutions:
+    - ADTBloodPackLidocaineSolution
+
+- type: entity
+  parent: Solution
+  id: ADTBloodPackLidocaineSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: pack
+    solution:
+      maxVol: 100
+      reagents:
+      - ReagentId: ADTLidocaine
         Quantity: 100

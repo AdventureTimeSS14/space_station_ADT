@@ -16,6 +16,10 @@
   access:
   - Medical
   - Maintenance
+  special: # ADT-Tweak
+  - !type:AddComponentSpecial # ADT-Tweak
+    components:
+    - type: SurgerySkill
 
 - type: startingGear
   id: MedicalInternGear

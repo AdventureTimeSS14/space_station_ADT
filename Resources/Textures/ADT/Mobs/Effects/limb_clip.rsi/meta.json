@@ -1,0 +1,130 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "by Minokaa",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "load": {
+    "srgb": false
+  },
+  "states": [
+    {
+      "name": "regions",
+      "directions": 4
+    },
+    {
+      "name": "regions-ADTAshWalkerShamanSpecies",
+      "directions": 4
+    },
+    {
+      "name": "regions-ADTAshWalkerSpecies",
+      "directions": 4
+    },
+    {
+      "name": "regions-ADTDraconidSpecies",
+      "directions": 4
+    },
+    {
+      "name": "regions-ADTLesserShadowlingSpecies",
+      "directions": 4
+    },
+    {
+      "name": "regions-ADTShadowlingSpecies",
+      "directions": 4
+    },
+    {
+      "name": "regions-Arachnid",
+      "directions": 4
+    },
+    {
+      "name": "regions-CelecernSpecies",
+      "directions": 4
+    },
+    {
+      "name": "regions-DemonSpecies",
+      "directions": 4
+    },
+    {
+      "name": "regions-Diona",
+      "directions": 4
+    },
+    {
+      "name": "regions-DraskSpecies",
+      "directions": 4
+    },
+    {
+      "name": "regions-Dwarf",
+      "directions": 4
+    },
+    {
+      "name": "regions-Felinid",
+      "directions": 4
+    },
+    {
+      "name": "regions-Gingerbread",
+      "directions": 4
+    },
+    {
+      "name": "regions-Human",
+      "directions": 4
+    },
+    {
+      "name": "regions-IPC",
+      "directions": 4
+    },
+    {
+      "name": "regions-KoboltSpecies",
+      "directions": 4
+    },
+    {
+      "name": "regions-Moth",
+      "directions": 4
+    },
+    {
+      "name": "regions-NovakidSpecies",
+      "directions": 4
+    },
+    {
+      "name": "regions-Reptilian",
+      "directions": 4
+    },
+    {
+      "name": "regions-Resomi",
+      "directions": 4
+    },
+    {
+      "name": "regions-Shadekin",
+      "directions": 4
+    },
+    {
+      "name": "regions-Skeleton",
+      "directions": 4
+    },
+    {
+      "name": "regions-SlimePerson",
+      "directions": 4
+    },
+    {
+      "name": "regions-TajaranSpecies",
+      "directions": 4
+    },
+    {
+      "name": "regions-UrsusSpecies",
+      "directions": 4
+    },
+    {
+      "name": "regions-Vox",
+      "directions": 4
+    },
+    {
+      "name": "regions-Vulpkanin",
+      "directions": 4
+    },
+    {
+      "name": "regions-VulpkaninSpecies",
+      "directions": 4
+    }
+  ]
+}

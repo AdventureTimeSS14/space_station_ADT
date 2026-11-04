@@ -33,6 +33,7 @@
           amount: 1
         - id: ADTHandheldCrewMonitorBrigmedic
         - id: JetInjector
+        - id: ADTSurgeryBagPrimitive
 
 - type: entity
   id: LockerBrigmedicFilledHardsuit

@@ -217,7 +217,7 @@ entity-effect-guidebook-knockdown =
         [update]{ $chance ->
                     [1] Вызывает
                     *[other] вызывает
-                    } {$key} хотя бы на {NATURALFIXED($time, 3)} { $time ->
+                    } оглушение хотя бы на {NATURALFIXED($time, 3)} { $time ->
         [one] секунду
         [few] секунды
         [many] секунд

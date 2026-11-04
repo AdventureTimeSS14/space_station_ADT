@@ -439,3 +439,20 @@
           GlassBeaker:
             amount: 1
             defaultPrototype: Beaker
+
+- type: entity
+  id: ADTOperatingTableMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: operating table machine board
+  description: A machine printed circuit board for an operating table.
+  components:
+    - type: Sprite
+      state: medical
+    - type: MachineBoard
+      prototype: OperatingTable
+      stackRequirements:
+        Steel: 5
+        Cable: 3
+      partRequirements:
+        Servo: 1
+        Capacitor: 1

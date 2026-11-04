@@ -1,0 +1,73 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: ADTBaseSplint
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/splints.rsi
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Specific/Medical/splints.rsi
+  - type: ADTSplint
+  - type: Tag
+    tags:
+    - BoneSplint
+
+- type: entity
+  parent: ADTBaseSplint
+  id: ADTMedicalSplint
+  name: medical splint
+  description: A standard medical splint for immobilizing broken limbs until proper treatment.
+  suffix: Full
+  components:
+  - type: Sprite
+    state: medical
+  - type: Item
+    heldPrefix: medical
+  - type: ADTSplint
+    selfDelay: 5
+    otherDelay: 3
+  - type: Stack
+    stackType: ADTMedicalSplint
+    count: 5
+  - type: StackPrice
+    price: 20
+
+- type: entity
+  parent: ADTMedicalSplint
+  id: ADTMedicalSplint1
+  suffix: Single
+  components:
+  - type: Stack
+    stackType: ADTMedicalSplint
+    count: 1
+
+- type: entity
+  parent: ADTBaseSplint
+  id: ADTMakeshiftSplint
+  name: makeshift splint
+  description: A pair of wooden sticks tied together with rags. Much worse than a proper splint.
+  suffix: Full
+  components:
+  - type: Sprite
+    state: makeshift
+  - type: Item
+    heldPrefix: makeshift
+  - type: ADTSplint
+    selfDelay: 10
+    otherDelay: 5
+  - type: Stack
+    stackType: ADTMakeshiftSplint
+    count: 5
+
+- type: entity
+  parent: ADTMakeshiftSplint
+  id: ADTMakeshiftSplint1
+  suffix: Single
+  components:
+  - type: Stack
+    stackType: ADTMakeshiftSplint
+    count: 1
+  - type: Construction
+    graph: ADTMakeshiftSplintCraft
+    node: splint

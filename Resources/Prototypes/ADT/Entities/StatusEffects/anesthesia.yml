@@ -1,0 +1,9 @@
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: StatusEffectAnesthetized
+  name: anesthetized
+
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: StatusEffectWeaklyAnesthetized
+  name: weakly anesthetized

@@ -60,3 +60,17 @@
   icon: { sprite: Objects/Specific/Medical/medical.rsi, state: ointment }
   spawn: ADTMushroomOintment1
   maxCount: 10
+
+- type: stack
+  id: ADTMedicalSplint
+  name: stack-adt-medical-splint
+  icon: { sprite: ADT/Objects/Specific/Medical/splints.rsi, state: medical }
+  spawn: ADTMedicalSplint1
+  maxCount: 10
+
+- type: stack
+  id: ADTMakeshiftSplint
+  name: stack-adt-makeshift-splint
+  icon: { sprite: ADT/Objects/Specific/Medical/splints.rsi, state: makeshift }
+  spawn: ADTMakeshiftSplint1
+  maxCount: 10

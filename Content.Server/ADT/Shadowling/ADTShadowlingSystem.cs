@@ -32,10 +32,12 @@ public sealed class ADTShadowlingSystem : EntitySystem
     [Dependency] private SharedVisualBodySystem _visualBody = default!;
     [Dependency] private SharedNightVisionSystem _nightVision = default!;
     [Dependency] private StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private BodySystem _body = default!;
 
     public static readonly ProtoId<LanguagePrototype> HivemindLanguage = "ADTShadowlingCollectiveMind";
     public static readonly ProtoId<NpcFactionPrototype> ShadowlingFaction = "ADTShadowling";
     public static readonly ProtoId<NpcFactionPrototype> NanotrasenFaction = "NanoTrasen";
+    public static readonly EntProtoId TumorProto = "ADTShadowTumor";
 
     public override void Initialize()
     {
@@ -132,6 +134,9 @@ public sealed class ADTShadowlingSystem : EntitySystem
         if (IsMindShielded(target))
             return false;
 
+        if (!TryImplantTumor(target, TumorProto))
+            return false;
+
         var thrall = EnsureComp<ADTShadowlingThrallComponent>(target);
         thrall.Master = master;
         Dirty(target, thrall);
@@ -143,16 +148,20 @@ public sealed class ADTShadowlingSystem : EntitySystem
         return true;
     }
 
-    public bool TryFreeThrall(EntityUid target)
+    private bool TryImplantTumor(EntityUid target, EntProtoId tumorProto)
     {
-        if (!HasComp<ADTShadowlingThrallComponent>(target))
+        if (!HasComp<BodyComponent>(target))
             return false;
 
-        if (HasComp<ADTLesserShadowlingComponent>(target))
-            return false;
+        foreach (var _ in _body.EnumerateOrgans<ADTShadowTumorComponent>(target))
+            return true;
 
-        RemComp<ADTShadowlingThrallComponent>(target);
-        return true;
+        var tumor = Spawn(tumorProto, Transform(target).Coordinates);
+        if (_body.TryInsertOrgan(target, tumor))
+            return true;
+
+        QueueDel(tumor);
+        return false;
     }
 
     private void OnThrallInit(Entity<ADTShadowlingThrallComponent> ent, ref MapInitEvent args)

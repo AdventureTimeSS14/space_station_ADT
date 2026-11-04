@@ -1,0 +1,10 @@
+- files:
+  - bone_break_1.ogg
+  - bone_break_2.ogg
+  - bone_break_3.ogg
+  - bone_break_4.ogg
+  - bone_break_5.ogg
+  - bone_break_6.ogg
+  license: "CC-BY-SA-3.0"
+  copyright: "Ported from ss220-space/Paradise (sound/effects/bone_break_*.ogg)"
+  source: "https://github.com/ss220-space/Paradise"

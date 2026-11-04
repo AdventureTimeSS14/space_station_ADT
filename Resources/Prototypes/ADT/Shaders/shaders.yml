@@ -180,3 +180,27 @@
   id: ADTBlastShockwave
   kind: source
   path: "/Textures/ADT/Shaders/blast_shockwave.swsl"
+
+- type: shader
+  id: ADTLimbClip
+  kind: source
+  path: "/Textures/ADT/Shaders/limb_clip.swsl"
+
+- type: shader
+  id: ADTLimbClipUnshaded
+  kind: source
+  path: "/Textures/ADT/Shaders/limb_clip_unshaded.swsl"
+
+- type: shader
+  id: ADTLimbClipDisplaced
+  kind: source
+  path: "/Textures/ADT/Shaders/limb_clip_displaced.swsl"
+  params:
+    displacementSize: 127
+
+- type: shader
+  id: ADTLimbClipDisplacedUnshaded
+  kind: source
+  path: "/Textures/ADT/Shaders/limb_clip_displaced_unshaded.swsl"
+  params:
+    displacementSize: 127

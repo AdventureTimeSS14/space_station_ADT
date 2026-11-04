@@ -8,6 +8,9 @@
     qualities:
     - Slicing
     - Sawing
+  - type: SurgeryTool # ADT-Tweak
+    sound:
+      path: /Audio/Weapons/chainsaw_rev.ogg
   - type: Wieldable
     wieldSound: !type:SoundPathSpecifier
       path: /Audio/Weapons/chainsaw_pull.ogg

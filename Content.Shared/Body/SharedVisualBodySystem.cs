@@ -117,6 +117,11 @@ public abstract partial class SharedVisualBodySystem : EntitySystem
         if (Comp<OrganComponent>(ent).Category is not { } category)
             return;
 
+        // ADT-Tweak-Start
+        if (HasComp<Content.Shared.ADT.Body.Prosthesis.ProsthesisComponent>(ent))
+            return;
+        // ADT-Tweak-End
+
         var relevantData = args.Args.Base;
         if (args.Args.Profiles?.TryGetValue(category, out var profile) == true)
             relevantData = profile;
