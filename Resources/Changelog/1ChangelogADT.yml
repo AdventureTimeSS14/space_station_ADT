@@ -17174,3 +17174,9 @@ Entries:
     id: 2085
     pr_number: 3642
     time: '2026-11-05T15:02:33Z'
+  - author: FriendlyOne
+    changes:
+      - {message: Карты теперь показываются лишь их держателю, type: Fix}
+    id: 2086
+    pr_number: 3639
+    time: '2026-11-05T15:04:57Z'
