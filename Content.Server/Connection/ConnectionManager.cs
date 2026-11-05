@@ -412,7 +412,7 @@ namespace Content.Server.Connection
         public async Task<bool> HavePrivilegedJoin(NetUserId userId)
         {
             var isAdmin = await _db.GetAdminDataForAsync(userId) != null;
-            var havePriorityJoin = _sponsorsManager.TryGetInfo(userId, out var sponsor) && sponsor.HavePriorityJoin && sponsor.ExpireDate > DateTime.Now; // Corvax-Sponsors + ADT-Sponsors
+            var havePriorityJoin = _sponsorsManager.TryGetRawInfo(userId, out var sponsor) && sponsor.HavePriorityJoin && sponsor.ExpireDate > DateTime.Now; // Corvax-Sponsors + ADT-Sponsors + ADT-Tweak
             // ADT-Tweak-Start
             var adtSponsor = await _adtSponsors.EnsureLoadedAsync(userId);
             havePriorityJoin |= adtSponsor.PriorityJoin;

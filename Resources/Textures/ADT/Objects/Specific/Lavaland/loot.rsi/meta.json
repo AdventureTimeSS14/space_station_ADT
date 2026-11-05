@@ -96,6 +96,12 @@
     },
     {
         "name": "ancient_goliath_tentacle"
+    },
+    {
+      "name": "watcher_wing"
+    },
+    {
+      "name": "ice_wing"
     }
   ]
 }

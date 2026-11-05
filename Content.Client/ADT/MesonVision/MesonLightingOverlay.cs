@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Client.Light;
+using Content.Shared.ADT.Lavaland;
 using Content.Shared.ADT.MesonVision;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
@@ -29,6 +30,12 @@ public sealed class MesonLightingOverlay : Overlay
 
         if (!_entity.TryGetComponent(_player.LocalEntity, out EyeComponent? eye) || args.Viewport.Eye != eye.Eye)
             return false;
+
+        if (!_entity.TryGetComponent(_player.LocalEntity, out TransformComponent? xform)
+            || !_entity.HasComponent<ADTLavalandMapComponent>(xform.MapUid))
+        {
+            return false;
+        }
 
         return true;
     }

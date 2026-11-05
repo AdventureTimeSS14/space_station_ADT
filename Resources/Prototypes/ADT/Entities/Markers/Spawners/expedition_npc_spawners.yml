@@ -255,3 +255,203 @@
   - type: ConditionalSpawner
     prototypes:
     - ADTMobSmugglerPirate
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobXenoborgHeavyExpedition
+  name: Xenoborg Heavy Spawner
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Mobs/Silicon/chassis.rsi
+      state: xenoborg_heavy
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobXenoborgHeavyNpc
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobXenoborgScoutExpedition
+  name: Xenoborg Scout Spawner
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Mobs/Silicon/chassis.rsi
+      state: xenoborg_scout
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobXenoborgScoutNpc
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobXenoborgStealthExpedition
+  name: Xenoborg Stealth Spawner
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Mobs/Silicon/chassis.rsi
+      state: xenoborg_stealth
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobXenoborgStealthNpc
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobXenoborgEngiExpedition
+  name: Xenoborg Engi Spawner
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Mobs/Silicon/chassis.rsi
+      state: xenoborg_engi
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobXenoborgEngiNpc
+
+- type: entity
+  parent: ADTSpawnMobSovietBunkerRiflemanExpedition
+  id: ADTSpawnMobSovietBunkerOstapenkoExpedition
+  name: Major Ostapenko Spawner
+  suffix: DO NOT MAP
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobSovietBunkerOstapenko
+
+- type: entity
+  parent: ADTSpawnMobSovietBunkerRiflemanExpedition
+  id: ADTSpawnMobSovietBunkerLisitsynaExpedition
+  name: Captain Lisitsyna Spawner
+  suffix: DO NOT MAP
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobSovietBunkerLisitsyna
+
+- type: entity
+  parent: ADTSpawnMobSovietBunkerMedicExpedition
+  id: ADTSpawnMobSovietBunkerYusupovaExpedition
+  name: Lieutenant Yusupova Spawner
+  suffix: DO NOT MAP
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobSovietBunkerYusupova
+
+- type: entity
+  parent: ADTSpawnMobSovietBunkerShotgunnerExpedition
+  id: ADTSpawnMobSovietBunkerZaitsevExpedition
+  name: Warrant Officer Zaitsev Spawner
+  suffix: DO NOT MAP
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobSovietBunkerZaitsev
+
+- type: entity
+  parent: ADTSpawnMobSovietBunkerRiflemanExpedition
+  id: ADTSpawnMobSovietBunkerGavrilovExpedition
+  name: Senior Sergeant Gavrilov Spawner
+  suffix: DO NOT MAP
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobSovietBunkerGavrilov
+
+- type: entity
+  parent: ADTSpawnMobSovietBunkerRocketeerExpedition
+  id: ADTSpawnMobSovietBunkerBurogrivExpedition
+  name: Sergeant Burogriv Spawner
+  suffix: DO NOT MAP
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobSovietBunkerBurogriv
+
+- type: entity
+  parent: ADTSpawnMobSovietBunkerRiflemanExpedition
+  id: ADTSpawnMobSovietBunkerKovalchukExpedition
+  name: Lance Corporal Kovalchuk Spawner
+  suffix: DO NOT MAP
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobSovietBunkerKovalchuk
+
+- type: entity
+  parent: ADTSpawnMobSovietBunkerShotgunnerExpedition
+  id: ADTSpawnMobSovietBunkerMamedovExpedition
+  name: Private Mamedov Spawner
+  suffix: DO NOT MAP
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobSovietBunkerMamedov
+
+- type: entity
+  parent: ADTSpawnMobSovietBunkerRiflemanExpedition
+  id: ADTSpawnMobSovietBunkerSomovExpedition
+  name: Private Somov Spawner
+  suffix: DO NOT MAP
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobSovietBunkerSomov
+
+- type: entity
+  parent: ADTSpawnMobSovietBunkerMarksmanExpedition
+  id: ADTSpawnMobSovietBunkerGalievExpedition
+  name: Private Galiev Spawner
+  suffix: DO NOT MAP
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobSovietBunkerGaliev
+
+- type: entity
+  parent: ADTSpawnMobSovietBunkerRocketeerExpedition
+  id: ADTSpawnMobSovietBunkerKvyatkovskyExpedition
+  name: Private Kvyatkovsky Spawner
+  suffix: DO NOT MAP
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobSovietBunkerKvyatkovsky
+
+- type: entity
+  parent: ADTSpawnMobSovietBunkerRiflemanExpedition
+  id: ADTSpawnMobSovietBunkerTikhonovExpedition
+  name: Private Tikhonov Spawner
+  suffix: DO NOT MAP
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobSovietBunkerTikhonov
+
+- type: entity
+  parent: ADTSpawnMobSovietBunkerSniperExpedition
+  id: ADTSpawnMobSovietBunkerLiWeiExpedition
+  name: Private Li Wei Spawner
+  suffix: DO NOT MAP
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobSovietBunkerLiWei
+
+- type: entity
+  parent: ADTSpawnMobSovietBunkerRiflemanExpedition
+  id: ADTSpawnMobSovietBunkerBelovExpedition
+  name: Junior Researcher Belov Spawner
+  suffix: DO NOT MAP
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobSovietBunkerBelov

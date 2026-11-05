@@ -16,9 +16,16 @@
     state: antigrav
   - type: ModSuitMod
     complexity: 1
+    incompatibleModules:
+    - ADTModsuitModMagboot
     components:
       shoes:
+      - type: ToggleClothing
+        action: ADTActionToggleAntigrav
+        mustEquip: false
       - type: AntiGravityClothing
+      - type: ItemToggle
+        onUse: false
     energyUsing: 0.1
 
 - type: entity
@@ -92,6 +99,7 @@
       - type: InputMover
       - type: GasTank
         releasePressure: 21.3
+        userToggleable: false
         air:
           volume: 5
           temperature: 293.15
@@ -136,6 +144,11 @@
   - type: ModSuitMod
     energyUsing: 0.3
     complexity: 2
+    incompatibleModules: # только один визор за раз
+    - ADTModsuitModStatusReadout
+    - ADTModsuitModMesonVision
+    - ADTModsuitModDiagnosticVisor
+    - ADTModsuitModSechud
     components:
       head:
       - type: NightVisionItem
@@ -230,6 +243,11 @@
   - type: ModSuitMod
     energyUsing: 0.1
     complexity: 2
+    incompatibleModules: # только один визор за раз
+    - ADTModsuitModStatusReadout
+    - ADTModsuitModMesonVision
+    - ADTModsuitModDiagnosticVisor
+    - ADTModsuitModNightVision
     components:
       head:
       - type: ShowJobIcons
@@ -593,6 +611,11 @@
   - type: ModSuitMod
     complexity: 1
     energyUsing: 0.1
+    incompatibleModules: # только один визор за раз
+    - ADTModsuitModMesonVision
+    - ADTModsuitModDiagnosticVisor
+    - ADTModsuitModNightVision
+    - ADTModsuitModSechud
     components:
       head:
       - type: ShowHealthBars
@@ -677,6 +700,11 @@
   - type: ModSuitMod
     complexity: 1
     energyUsing: 0.1
+    incompatibleModules: # только один визор за раз
+    - ADTModsuitModStatusReadout
+    - ADTModsuitModMesonVision
+    - ADTModsuitModNightVision
+    - ADTModsuitModSechud
     components:
       head:
       - type: ShowHealthBars
@@ -696,6 +724,11 @@
   - type: ModSuitMod
     complexity: 2
     energyUsing: 0.2
+    incompatibleModules: # только один визор за раз
+    - ADTModsuitModStatusReadout
+    - ADTModsuitModDiagnosticVisor
+    - ADTModsuitModNightVision
+    - ADTModsuitModSechud
     components:
       head:
       - type: MesonVisionItem

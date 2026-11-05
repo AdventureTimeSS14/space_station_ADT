@@ -22,3 +22,4 @@ mod-user = пользователь:
 mod-no-user = пользователь отсутствует
 alerts-modsuit-power-name = Заряд МОДсьюта
 alerts-modsuit-power-desc = Показывает, сколько заряда осталось у вашего МОДа.
+modsuit-module-incompatible = Несовместим с установленным модулем: { $module }.

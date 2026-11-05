@@ -93,7 +93,7 @@
     - ActionADTColossusShotgun
     - ActionADTColossusAlternating
   - type: ADTColossus
-    boltSpeed: 6
+    boltSpeed: 9
     # ADT buff: в SS13 6 зарядов (12.5, 7.5, 2.5, -2.5, -7.5, -12.5)
     shotgunAngles: [ 17.5, 12.5, 7.5, 2.5, -2.5, -7.5, -12.5, -17.5 ]
     # ADT buff: в SS13 5%

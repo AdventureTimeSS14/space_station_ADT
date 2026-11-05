@@ -9,6 +9,7 @@ adt-spawn-menu-erase = Удаление
 adt-spawn-menu-override-tooltip = Режим установки
 adt-spawn-menu-no-description = Нет описания
 adt-spawn-menu-count = Найдено: { $count }
+adt-spawn-menu-loading = Загрузка...
 adt-spawn-menu-rotation = Направление: { $direction }
 adt-spawn-menu-category = { $name } ({ $count })
 adt-spawn-menu-category-all = Все

@@ -23,4 +23,13 @@ public sealed partial class ADTJanicartBufferComponent : Component
 
     [DataField]
     public TimeSpan CheckInterval = TimeSpan.FromSeconds(0.5);
+
+    [DataField]
+    public bool Enabled = true;
+
+    [DataField]
+    public EntProtoId ToggleAction = "ADTActionToggleJanicartBuffer";
+
+    [DataField]
+    public EntityUid? ToggleActionEntity;
 }
