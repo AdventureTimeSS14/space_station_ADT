@@ -55,6 +55,9 @@ public sealed class CharecterFlavorSystem : SharedCharecterFlavorSystem
     private readonly List<string> _cacheKeysSeq = new();
     private readonly object _cacheLock = new();
 
+    private readonly Dictionary<string, Task<byte[]?>> _inFlight = new();
+    private readonly SemaphoreSlim _processingLimit = new(2);
+
     private readonly Dictionary<NetUserId, TimeSpan> _lastPreviewRequest = new();
 
     private int _maxCachedCount = 100;
@@ -95,6 +98,7 @@ public sealed class CharecterFlavorSystem : SharedCharecterFlavorSystem
         {
             _imageCache.Clear();
             _cacheKeysSeq.Clear();
+            _inFlight.Clear();
         }
 
         _lastPreviewRequest.Clear();
@@ -188,35 +192,70 @@ public sealed class CharecterFlavorSystem : SharedCharecterFlavorSystem
     private async Task<byte[]?> GetImageAsync(string url)
     {
         var now = _gameTiming.RealTime;
+        Task<byte[]?>? task;
 
         lock (_cacheLock)
         {
             if (_imageCache.TryGetValue(url, out var cached) && cached.Expires > now)
                 return cached.Data;
+
+            if (!_inFlight.TryGetValue(url, out task))
+            {
+                task = Task.Run(() => LoadImageAsync(url));
+                _inFlight[url] = task;
+            }
         }
 
-        var raw = await DownloadImageAsync(url);
+        return await task;
+    }
 
-        byte[]? image = null;
-        if (raw != null)
-            image = await Task.Run(() => SanitizeImage(raw, url));
-
-        var duration = image != null
-            ? TimeSpan.FromMinutes(_config.GetCVar(ADTCCVars.HeadshotCacheDuration))
-            : FailedCacheDuration;
-
-        lock (_cacheLock)
+    private async Task<byte[]?> LoadImageAsync(string url)
+    {
+        try
         {
-            if (!_imageCache.ContainsKey(url))
+            var raw = await DownloadImageAsync(url);
+
+            byte[]? image = null;
+            if (raw != null)
             {
-                TrimCache(_maxCachedCount - 1);
-                _cacheKeysSeq.Add(url);
+                await _processingLimit.WaitAsync();
+                try
+                {
+                    image = SanitizeImage(raw, url);
+                }
+                finally
+                {
+                    _processingLimit.Release();
+                }
             }
 
-            _imageCache[url] = (image, _gameTiming.RealTime + duration);
-        }
+            var duration = image != null
+                ? TimeSpan.FromMinutes(_config.GetCVar(ADTCCVars.HeadshotCacheDuration))
+                : FailedCacheDuration;
 
-        return image;
+            lock (_cacheLock)
+            {
+                if (_maxCachedCount > 0)
+                {
+                    if (!_imageCache.ContainsKey(url))
+                    {
+                        TrimCache(_maxCachedCount - 1);
+                        _cacheKeysSeq.Add(url);
+                    }
+
+                    _imageCache[url] = (image, _gameTiming.RealTime + duration);
+                }
+            }
+
+            return image;
+        }
+        finally
+        {
+            lock (_cacheLock)
+            {
+                _inFlight.Remove(url);
+            }
+        }
     }
 
     private void TrimCache(int limit)
