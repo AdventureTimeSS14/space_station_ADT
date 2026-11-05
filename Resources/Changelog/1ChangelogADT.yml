@@ -17116,3 +17116,13 @@ Entries:
     id: 2082
     pr_number: 3573
     time: '2026-11-05T13:12:25Z'
+  - author: blad_bochar
+    changes:
+      - {message: что добавили, type: Add}
+      - {message: что убрали, type: Remove}
+      - {message: что подправили, type: Tweak}
+      - {message: что исправили, type: Fix}
+      - {message: Патронаш теперь как хранилище., type: Tweak}
+    id: 2083
+    pr_number: 3546
+    time: '2026-11-05T13:45:13Z'
