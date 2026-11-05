@@ -188,6 +188,7 @@
     node: adtmodsuitmedical
   - type: ItemToggle
     onUse: false
+    onActivate: false
     soundActivate:
       path: /Audio/Items/flashlight_on.ogg
     soundDeactivate:
@@ -590,6 +591,7 @@
       - ADTModsuitModDefibrillator
   - type: ItemToggle
     onUse: false
+    onActivate: false
     soundActivate:
       path: /Audio/Items/flashlight_on.ogg
     soundDeactivate:
@@ -739,6 +741,7 @@
       - ADTModsuitModBodycam
   - type: ItemToggle
     onUse: false
+    onActivate: false
     soundActivate:
       path: /Audio/Items/flashlight_on.ogg
     soundDeactivate:

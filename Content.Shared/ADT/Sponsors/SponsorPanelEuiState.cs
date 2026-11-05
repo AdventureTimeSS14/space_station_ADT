@@ -19,6 +19,10 @@ public sealed class SponsorPanelEuiState : EuiStateBase
     public SponsorBenefits? Resolved;
 
     public string Status = string.Empty;
+
+    public SponsorLegacyTier[] LegacyTiers = Array.Empty<SponsorLegacyTier>();
+
+    public bool LegacyImport;
 }
 
 public static class SponsorPanelEuiMsg
@@ -51,5 +55,23 @@ public static class SponsorPanelEuiMsg
     public sealed class RevokeGrant : EuiMessageBase
     {
         public int GrantId;
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class SaveLegacyTier : EuiMessageBase
+    {
+        public int LegacyTier;
+        public int? TierId;
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class DeleteLegacyTier : EuiMessageBase
+    {
+        public int LegacyTier;
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class RefreshLegacyTiers : EuiMessageBase
+    {
     }
 }
