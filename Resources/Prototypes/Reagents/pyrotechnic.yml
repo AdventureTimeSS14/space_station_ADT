@@ -292,15 +292,23 @@
         factor: 1
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [Vox]
+          type: [Vox, Novakid] # ADT-Tweak
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [Vox]
+          type: [Vox, Novakid] # ADT-Tweak
           inverted: true
         damage:
           types:
             Poison: 1
+      # ADT-Tweak-Start
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.3
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Novakid ]
+      # ADT-Tweak-End
       - !type:Flammable
         multiplier: 0.4
 
