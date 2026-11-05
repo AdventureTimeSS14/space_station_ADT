@@ -17110,3 +17110,9 @@ Entries:
     id: 2081
     pr_number: 3638
     time: '2026-11-05T07:21:45Z'
+  - author: FriendlyOne
+    changes:
+      - {message: 'Добавлен МОД медика ЯО, за авторством Kurorin', type: Add}
+    id: 2082
+    pr_number: 3573
+    time: '2026-11-05T13:12:25Z'
