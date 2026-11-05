@@ -75,10 +75,4 @@ public sealed partial class ADTCrusherSpearThrowComponent : Component
 
     [ViewVariables]
     public TimeSpan NextRequest;
-
-    [ViewVariables]
-    public bool WieldPending;
-
-    [ViewVariables]
-    public EntityUid? WieldUser;
 }

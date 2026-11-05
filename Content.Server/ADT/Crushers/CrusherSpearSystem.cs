@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Numerics;
+using Content.Server.ADT.Crushers;
 using Content.Shared.ActionBlocker;
 using Content.Shared.ADT.Crushers;
 using Content.Shared.ADT.Crushers.Components;
@@ -65,25 +66,22 @@ public sealed class CrusherSpearSystem : SharedCrusherSpearSystem
     {
         base.Update(frameTime);
 
-        var wieldQuery = EntityQueryEnumerator<ADTCrusherSpearThrowComponent>();
-        while (wieldQuery.MoveNext(out var uid, out var spear))
+        var wieldQuery = EntityQueryEnumerator<ADTCrusherSpearWieldPendingComponent>();
+        while (wieldQuery.MoveNext(out var uid, out var pending))
         {
-            if (!spear.WieldPending)
-                continue;
-
-            if (spear.WieldUser is not { } wielder
+            if (pending.User is not { } wielder
                 || TerminatingOrDeleted(uid)
                 || TerminatingOrDeleted(wielder)
                 || !_hands.IsHolding(wielder, uid))
             {
-                spear.WieldPending = false;
+                RemCompDeferred<ADTCrusherSpearWieldPendingComponent>(uid);
                 continue;
             }
 
             if (HasStaleGrip(wielder, uid))
                 continue;
 
-            spear.WieldPending = false;
+            RemCompDeferred<ADTCrusherSpearWieldPendingComponent>(uid);
 
             if (TryComp<WieldableComponent>(uid, out var wieldable)
                 && !wieldable.Wielded
@@ -383,10 +381,7 @@ public sealed class CrusherSpearSystem : SharedCrusherSpearSystem
         _hands.PickupOrDrop(user.Value, ent, animate: false);
 
         if (_hands.IsHolding(user.Value, ent.Owner))
-        {
-            ent.Comp.WieldPending = true;
-            ent.Comp.WieldUser = user;
-        }
+            EnsureComp<ADTCrusherSpearWieldPendingComponent>(ent.Owner).User = user;
 
         _audio.PlayPvs(ent.Comp.CatchSound, user.Value);
     }
