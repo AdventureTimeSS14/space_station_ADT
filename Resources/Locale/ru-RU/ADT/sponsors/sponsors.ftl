@@ -24,7 +24,7 @@ adt-sponsor-panel-legacy-unmapped = не сопоставлен
 adt-sponsor-panel-legacy-missing = тир {$id} удалён
 adt-sponsor-panel-legacy-never = не встречался
 adt-sponsor-panel-legacy-bad-number = Номер старого тира должен быть целым числом.
-adt-sponsor-panel-legacy-row = Старый тир {$legacy} -> {$target} | активных в БД: {$active} | онлайн: {$online} | последний раз: {$seen}
+adt-sponsor-panel-legacy-row = Старый тир {$legacy} -> {$target} | онлайн: {$online} | последний раз: {$seen}
 adt-sponsor-panel-legacy-grant = [старая спонсорка] {$tier} - {$expires} - только чтение - {$comment}
 
 adt-sponsor-panel-player-placeholder = Ник или GUID
