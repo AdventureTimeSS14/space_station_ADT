@@ -84,11 +84,6 @@
 - type: latheRecipePack
   id: ADTServiceStaticPack
   recipes:
-  - ADTCookwarePanRecipe
-  - ADTCookwarePotRecipe
-  - ADTCookwareTrayRecipe
-  - ADTSpatulaRecipe
-  - ADTLadleRecipe
   - DrinkFlaskBar
   - DrinkVacuumFlask
   # - DrinkIceBucket # Ведро полное.

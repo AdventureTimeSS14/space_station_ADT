@@ -6,7 +6,6 @@
   components:
   - type: Microwave
     capacity: 10
-    validRecipeTypes: ADTMicrowave # ADT-Tweak
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -160,7 +159,7 @@
     capacity: 10
     canMicrowaveIdsSafely: false
     explosionChance: 0.3
-    validRecipeTypes: ADTMicrowave #ADT-Tweak
+    validRecipeTypes: Microwave #ADT-Tweak
   - type: Sprite
     sprite: Structures/Machines/microwave_syndie.rsi
     drawdepth: SmallObjects

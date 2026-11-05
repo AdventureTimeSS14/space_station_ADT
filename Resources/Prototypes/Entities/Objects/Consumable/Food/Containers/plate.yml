@@ -49,11 +49,6 @@
   name: large plate
   description: A large plate, excellent for bread.
   components:
-  # ADT-Tweak-Start
-  - type: ADTPlate
-    layout: ADTPlateLarge
-    maxItems: 10
-  # ADT-Tweak-End
   - type: Sprite
     sprite: Objects/Consumable/Food/plates.rsi
     state: plate
@@ -105,11 +100,6 @@
   name: small plate
   description: A small plate. Delicate.
   components:
-  # ADT-Tweak-Start
-  - type: ADTPlate
-    layout: ADTPlateSmall
-    maxItems: 2
-  # ADT-Tweak-End
   - type: Sprite
     sprite: Objects/Consumable/Food/plates.rsi
     state: plate-small
@@ -153,11 +143,6 @@
   name: large plastic plate
   description: A large blue plastic plate, excellent for a birthday cake.
   components:
-  # ADT-Tweak-Start
-  - type: ADTPlate
-    layout: ADTPlateLarge
-    maxItems: 10
-  # ADT-Tweak-End
   - type: Sprite
     sprite: Objects/Consumable/Food/plates.rsi
     state: plate-plastic
@@ -178,11 +163,6 @@
   name: small plastic plate
   description: A blue plastic plate, excellent for slices of birthday cake.
   components:
-  # ADT-Tweak-Start
-  - type: ADTPlate
-    layout: ADTPlateSmall
-    maxItems: 2
-  # ADT-Tweak-End
   - type: Sprite
     sprite: Objects/Consumable/Food/plates.rsi
     state: plate-small-plastic

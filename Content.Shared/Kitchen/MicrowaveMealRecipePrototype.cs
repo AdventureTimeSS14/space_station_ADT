@@ -95,8 +95,6 @@ namespace Content.Shared.Kitchen
         Assembler = 4,
         MedicalAssembler = 8,
         TribalOven = 16,
-        ADTMicrowave = 32,
-        ADTAssembler = 64,
     }
 
     public sealed class MicrowaveRecipeTypeFlags { }
