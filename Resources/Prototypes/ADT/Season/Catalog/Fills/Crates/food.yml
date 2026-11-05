@@ -1,0 +1,43 @@
+- type: entity
+  id: ADTCrateFoodOktoberfestSnack
+  parent: CratePlastic
+  name: oktoberfest snack crate
+  description: oktoberfest snack crate
+  suffix: Oktoberfest
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTFoodMeatWeissWurst
+      amount: 5
+    - id: ADTFoodMeatBratWurst
+      amount: 5
+    - id: ADTFoodBakedBrezel
+      amount: 5
+    - id: ADTFoodBakedBrezelPoppySeeds
+      amount: 3
+    - id: ADTFoodBakedBrezelSalt
+      amount: 3
+    - id: ADTFoodBakedBrezelChocolate
+      amount: 3
+    - id: ADTFoodBakedBrezelVanilla
+      amount: 3
+
+# halloween
+
+- type: entity
+  id: ADTCrateHalloweenFood
+  parent: CratePlastic
+  name: halloween candy crate
+  description: halloween candy crate
+  suffix: Halloween
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTBoxHalloweenCandy
+      amount: 4
+    - id: ADTHalloweenCandyBowl
+    - id: ADTHalloweenSmileCandyBowl
+    - id: ADTHalloweenNTCandyBowl
+    - id: ADTHalloweenSyndieCandyBowl
+    - id: ADTHalloweenZombieCandyBowl
+    - id: ADTHalloweenSealCandyBowl
