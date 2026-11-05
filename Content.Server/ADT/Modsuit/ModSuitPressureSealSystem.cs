@@ -42,12 +42,18 @@ public sealed class ModSuitPressureSealSystem : EntitySystem
 
     private void OnMagbootsEquipped(Entity<MagbootsComponent> ent, ref GotEquippedEvent args)
     {
-        _barotrauma.RefreshPressureResistance(args.EquipTarget);
+        OnMagbootsChanged(args.EquipTarget);
     }
 
     private void OnMagbootsUnequipped(Entity<MagbootsComponent> ent, ref GotUnequippedEvent args)
     {
-        _barotrauma.RefreshPressureResistance(args.EquipTarget);
+        OnMagbootsChanged(args.EquipTarget);
+    }
+
+    private void OnMagbootsChanged(EntityUid wearer)
+    {
+        _barotrauma.RefreshPressureResistance(wearer);
+        _modSuits.RefreshWearerSuit(wearer);
     }
 
     private void OnPartReturned(Entity<ModPartComponent> ent, ref EntGotInsertedIntoContainerMessage args)
