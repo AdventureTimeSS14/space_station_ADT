@@ -260,6 +260,11 @@
   - type: ADTVendingMachine
     pack: BoozeOMatInventory
     allForFree: true # ADT-Economy
+  # ADT-Tweak start
+  - type: ADTHolidayVending
+    holidays:
+      ADTNewYearSeason: ADTHolidayBoozeOMatNewYearInventory
+  # ADT-Tweak end
   - type: VendingMachineVisuals
     denyState: deny-unshaded
     loopDenyAnimation: false
@@ -1026,6 +1031,11 @@
   - type: ADTVendingMachine
     pack: MegaSeedServitorInventory
     allForFree: true # ADT-Economy
+  # ADT-Tweak start
+  - type: ADTHolidayVending
+    holidays:
+      ADTNewYearSeason: ADTHolidayMegaSeedNewYearInventory
+  # ADT-Tweak end
   - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded

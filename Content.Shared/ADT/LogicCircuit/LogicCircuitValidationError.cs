@@ -16,6 +16,8 @@ public enum LogicCircuitValidationError : byte
     InputAlreadyWired,
     ConfigTooLong,
     NotEnoughPower,
+    Malformed,
+    InvalidNodeId,
 }
 
 public static class LogicCircuitErrors

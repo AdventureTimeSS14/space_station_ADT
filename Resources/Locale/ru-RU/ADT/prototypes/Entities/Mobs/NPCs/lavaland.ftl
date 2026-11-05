@@ -7,11 +7,22 @@ ent-ADTMobLegionSkull = череп легиона
 ent-MobAncientGoliath = древний голиаф
     .desc = Древнее месиво, состоящее из выпирающих костей, плоти и щупалец. Атакует всё живое наугад.
 
-ent-ADTMobNightmareSpider = кошмарник
-    .desc = Паук, от которого даже при свете дня всё погружается во тьму.
+ent-ADTMobLegionTendril = { ent-ADTMobLegion }
+    .desc = { ent-ADTMobLegion.desc }
+    .suffix = Шип некрополя
 
-ent-ADTMobShockSpider = паушок
-    .desc = Маленький паушок. Ну что он может вам сделать?
+ent-ADTMobMarrowWeaver = костномозговой ткач
+    .desc = Большой, злой и ядовитый паук. Обожает костный мозг. И его любимый источник пищи - это вы.
+
+ent-ADTMobMarrowWeaverDangerous = { ent-ADTMobMarrowWeaver }
+    .desc = { ent-ADTMobMarrowWeaver.desc }
+    .suffix = Опасный
+
+ent-ADTMobMarrowWeaverFrost = морозный костномозговой ткач
+    .desc = Большой, злой и ядовитый ледяной паук. Обожает костный мозг. И его любимый источник пищи - это вы.
+
+adt-marrow-weaver-angry = { CAPITALIZE(THE($weaver)) } яростно стрекочет, оскалив клыки!
+adt-marrow-weaver-calm = { CAPITALIZE(THE($weaver)) } вроде бы успокоился, но не до конца.
 
 ent-ADTMobBSCrab = рудокраб
     .desc = Рудный краб, состоящий из блюспейс кристалла.

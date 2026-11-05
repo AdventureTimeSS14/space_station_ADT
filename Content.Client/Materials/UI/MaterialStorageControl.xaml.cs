@@ -35,6 +35,23 @@ public sealed partial class MaterialStorageControl : ScrollContainer
         _owner = owner;
     }
 
+    // ADT-Tweak start
+    private bool _locked;
+
+    public void SetLocked(bool locked)
+    {
+        if (_locked == locked)
+            return;
+
+        _locked = locked;
+        _currentMaterials.Clear();
+        foreach (var display in MaterialList.Children.OfType<MaterialDisplay>().ToList())
+        {
+            MaterialList.RemoveChild(display);
+        }
+    }
+    // ADT-Tweak end
+
     protected override void FrameUpdate(FrameEventArgs args)
     {
         base.FrameUpdate(args);
@@ -89,7 +106,7 @@ public sealed partial class MaterialStorageControl : ScrollContainer
         foreach (var mat in missing)
         {
             var volume = mats[mat];
-            MaterialList.AddChild(new MaterialDisplay(_owner.Value, mat, volume, canEject));
+            MaterialList.AddChild(new MaterialDisplay(_owner.Value, mat, volume, canEject, _locked)); // ADT-Tweak
         }
 
         _currentMaterials = mats;

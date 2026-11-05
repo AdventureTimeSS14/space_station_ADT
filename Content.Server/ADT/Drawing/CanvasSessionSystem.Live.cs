@@ -98,7 +98,9 @@ public sealed partial class CanvasSessionSystem
             !_sessions.TryGetValue(msg.Painting, out var session) ||
             session.State == CanvasSessionState.Loading ||
             !session.Members.TryGetValue(player.UserId, out var member) ||
-            !member.Present)
+            !member.Present ||
+            player.AttachedEntity is not { } attached ||
+            !CanPaint(attached))
         {
             return;
         }
