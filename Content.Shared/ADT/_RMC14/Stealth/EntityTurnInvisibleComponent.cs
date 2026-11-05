@@ -7,6 +7,8 @@ public sealed partial class EntityTurnInvisibleComponent : Component
 {
     public bool Enabled;
 
+    public bool HadOutline;
+
     [DataField, AutoNetworkedField]
     public float Opacity = 1f;
 

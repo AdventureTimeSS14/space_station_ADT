@@ -6,6 +6,7 @@ public sealed class CheckSponsorSystem : EntitySystem
 {
     [Dependency] private readonly SponsorsManager _sponsorsManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly Content.Server.ADT.Sponsors.SponsorManager _adtSponsors = default!; // ADT-Tweak
 
     public override void Initialize()
     {
@@ -20,6 +21,11 @@ public sealed class CheckSponsorSystem : EntitySystem
 
         if (!_playerManager.TryGetSessionByEntity(uid, out var session))
             return false;
+
+        // ADT-Tweak-Start
+        if (_adtSponsors.GetData(session).HasAnyBenefit)
+            return true;
+        // ADT-Tweak-End
 
         if (!_sponsorsManager.TryGetInfo(session.UserId, out var sponsorData))
             return false;
