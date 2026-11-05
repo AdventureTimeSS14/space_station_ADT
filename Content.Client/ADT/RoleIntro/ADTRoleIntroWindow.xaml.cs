@@ -14,10 +14,12 @@ public sealed partial class ADTRoleIntroWindow : FancyWindow
     [Dependency] private IEntityManager _entMan = default!;
     [Dependency] private IPlayerManager _player = default!;
 
+    private readonly bool _alwaysLock;
     private float _timer;
 
-    public ADTRoleIntroWindow(string title, string text, TimeSpan lockTime)
+    public ADTRoleIntroWindow(string title, string text, TimeSpan lockTime, bool alwaysLock = false)
     {
+        _alwaysLock = alwaysLock;
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
 
@@ -35,7 +37,7 @@ public sealed partial class ADTRoleIntroWindow : FancyWindow
 
     public override void Close()
     {
-        if (Locked && _entMan.HasComponent<ADTRoleIntroComponent>(_player.LocalEntity))
+        if (Locked && (_alwaysLock || _entMan.HasComponent<ADTRoleIntroComponent>(_player.LocalEntity)))
             return;
 
         base.Close();

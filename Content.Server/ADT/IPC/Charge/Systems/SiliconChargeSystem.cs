@@ -8,7 +8,6 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.Popups;
 using Content.Shared.Popups;
 using Content.Shared.PowerCell.Components;
-using Content.Shared.Alert;
 using Content.Shared.ADT.Silicon.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Server.Body.Components;
@@ -38,7 +37,6 @@ public sealed class SiliconChargeSystem : EntitySystem
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private IConfigurationManager _config = default!;
     [Dependency] private SharedBatterySystem _battery = default!;
-    [Dependency] private AlertsSystem _alerts = default!;
     [Dependency] private SharedJetpackSystem _jetpack = default!;
     [Dependency] private PowerCellSystem _powerCell = default!;
 
@@ -109,11 +107,6 @@ public sealed class SiliconChargeSystem : EntitySystem
             if (!TryGetSiliconBattery(silicon, out var batteryComp, out var batteryUid))
             {
                 UpdateChargeState(silicon, 0, siliconComp);
-                if (_alerts.IsShowingAlert(silicon, siliconComp.BatteryAlert))
-                {
-                    _alerts.ClearAlert(silicon, siliconComp.BatteryAlert);
-                    _alerts.ShowAlert(silicon, siliconComp.NoBatteryAlert);
-                }
                 continue;
             }
 
@@ -165,13 +158,6 @@ public sealed class SiliconChargeSystem : EntitySystem
         RaiseLocalEvent(uid, new SiliconChargeStateUpdateEvent(chargePercent));
 
         _moveMod.RefreshMovementSpeedModifiers(uid);
-
-        // If the battery was replaced and the no battery indicator is showing, replace the indicator
-        if (_alerts.IsShowingAlert(uid, component.NoBatteryAlert) && chargePercent != 0)
-        {
-            _alerts.ClearAlert(uid, component.NoBatteryAlert);
-            _alerts.ShowAlert(uid, component.BatteryAlert, chargePercent);
-        }
     }
 
     private float SiliconHeatEffects(EntityUid silicon, SiliconComponent siliconComp, float frameTime)

@@ -58,6 +58,15 @@
     Copper: 250
 
 - type: latheRecipe
+  id: BorgModuleRPED
+  result: BorgModuleRPED
+  completetime: 3
+  materials:
+    Steel: 500
+    Glass: 250
+    Plastic: 250
+
+- type: latheRecipe
   id: ADTCustomLawCircuitBoard
   result: ADTCustomLawCircuitBoard
   completetime: 3
@@ -197,6 +206,8 @@
 
 - type: latheRecipe
   id: ADTModsuitModAntigrav
+  categories:
+    - ADTModsuitModules
   result: ADTModsuitModAntigrav
   completetime: 2
   materials:
@@ -206,6 +217,8 @@
 
 - type: latheRecipe
   id: ADTModsuitModApparatus
+  categories:
+    - ADTModsuitModules
   result: ADTModsuitModApparatus
   completetime: 2
   materials:
@@ -216,6 +229,8 @@
 
 - type: latheRecipe
   id: ADTModsuitModStatusReadout
+  categories:
+    - ADTModsuitModules
   result: ADTModsuitModStatusReadout
   completetime: 2
   materials:
@@ -226,6 +241,8 @@
 
 - type: latheRecipe
   id: ADTModsuitModGPS
+  categories:
+    - ADTModsuitModules
   result: ADTModsuitModGPS
   completetime: 2
   materials:
@@ -236,6 +253,8 @@
 
 - type: latheRecipe
   id: ADTModsuitModDefibrillator
+  categories:
+    - ADTModsuitModules
   result: ADTModsuitModDefibrillator
   completetime: 2
   materials:
@@ -247,6 +266,8 @@
 
 - type: latheRecipe
   id: ADTModsuitModAnomalyScanner
+  categories:
+    - ADTModsuitModules
   result: ADTModsuitModAnomalyScanner
   completetime: 2
   materials:
@@ -257,6 +278,8 @@
 
 - type: latheRecipe
   id: ADTModsuitModHealthAnalyzer
+  categories:
+    - ADTModsuitModules
   result: ADTModsuitModHealthAnalyzer
   completetime: 2
   materials:
@@ -267,6 +290,8 @@
 
 - type: latheRecipe
   id: ADTModsuitModReagentScanner
+  categories:
+    - ADTModsuitModules
   result: ADTModsuitModReagentScanner
   completetime: 2
   materials:
@@ -277,6 +302,8 @@
 
 - type: latheRecipe
   id: ADTModsuitModDrill
+  categories:
+    - ADTModsuitModules
   result: ADTModsuitModDrill
   completetime: 2
   materials:
@@ -287,6 +314,8 @@
 
 - type: latheRecipe
   id: ADTModsuitModJetpack
+  categories:
+    - ADTModsuitModules
   result: ADTModsuitModJetpack
   completetime: 2
   materials:
@@ -297,6 +326,8 @@
 
 - type: latheRecipe
   id: ADTModsuitModMagboot
+  categories:
+    - ADTModsuitModules
   result: ADTModsuitModMagboot
   completetime: 2
   materials:
@@ -307,6 +338,8 @@
 
 - type: latheRecipe
   id: ADTModsuitModNightVision
+  categories:
+    - ADTModsuitModules
   result: ADTModsuitModNightVision
   completetime: 2
   materials:
@@ -318,6 +351,8 @@
 
 - type: latheRecipe
   id: ADTModsuitModStun
+  categories:
+    - ADTModsuitModules
   result: ADTModsuitModStun
   completetime: 2
   materials:
@@ -339,6 +374,8 @@
 
 - type: latheRecipe
   id: ADTModsuitModSechud
+  categories:
+    - ADTModsuitModules
   result: ADTModsuitModSechud
   completetime: 2
   materials:
@@ -349,6 +386,8 @@
 
 - type: latheRecipe
   id: ADTModsuitModDiagnosticVisor
+  categories:
+    - ADTModsuitModules
   result: ADTModsuitModDiagnosticVisor
   completetime: 2
   materials:
@@ -359,6 +398,8 @@
 
 - type: latheRecipe
   id: ADTModsuitModBodycam
+  categories:
+    - ADTModsuitModules
   result: ADTModsuitModBodycam
   completetime: 2
   materials:
@@ -369,6 +410,8 @@
 
 - type: latheRecipe
   id: ADTModsuitModMesonVision
+  categories:
+    - ADTModsuitModules
   result: ADTModsuitModMesonVision
   completetime: 2
   materials:
@@ -379,6 +422,8 @@
 
 - type: latheRecipe
   id: ADTModsuitModStorage
+  categories:
+    - ADTModsuitModules
   result: ADTModsuitModStorage
   completetime: 2
   materials:
@@ -390,6 +435,8 @@
 
 - type: latheRecipe
   id: ADTModsuitModSatchelStorage
+  categories:
+    - ADTModsuitModules
   result: ADTModsuitModSatchelStorage
   completetime: 2
   materials:
@@ -401,6 +448,8 @@
 
 - type: latheRecipe
   id: ADTModsuitModDuffelbagStorage
+  categories:
+    - ADTModsuitModules
   result: ADTModsuitModDuffelbagStorage
   completetime: 2
   materials:
@@ -412,6 +461,8 @@
 
 - type: latheRecipe
   id: ADTModsuitModWelding
+  categories:
+    - ADTModsuitModules
   result: ADTModsuitModWelding
   completetime: 2
   materials:
@@ -422,6 +473,8 @@
 
 - type: latheRecipe
   id: ADTModsuitModArmor
+  categories:
+    - ADTModsuitModules
   result: ADTModsuitModArmor
   completetime: 2
   materials:
@@ -433,6 +486,8 @@
 
 - type: latheRecipe
   id: ADTModsuitModStorageLarge
+  categories:
+    - ADTModsuitModules
   result: ADTModsuitModStorageLarge
   completetime: 2
   materials:
@@ -444,6 +499,8 @@
 
 - type: latheRecipe
   id: ADTModsuitModTray
+  categories:
+    - ADTModsuitModules
   result: ADTModsuitModTray
   completetime: 2
   materials:
@@ -453,6 +510,8 @@
 
 - type: latheRecipe
   id: ADTModsuitModIsulation
+  categories:
+    - ADTModsuitModules
   result: ADTModsuitModIsulation
   completetime: 2
   materials:
@@ -464,6 +523,8 @@
 
 - type: latheRecipe
   id: ADTModsuitModJump
+  categories:
+    - ADTModsuitModules
   result: ADTModsuitModJump
   completetime: 2
   materials:
@@ -495,6 +556,8 @@
 
 - type: latheRecipe
   id: ADTModsuitModEmpProtection
+  categories:
+    - ADTModsuitModules
   result: ADTModsuitModEmpProtection
   completetime: 1
   materials:

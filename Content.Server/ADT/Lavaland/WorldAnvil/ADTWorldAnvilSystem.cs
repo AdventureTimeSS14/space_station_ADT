@@ -83,18 +83,15 @@ public sealed class ADTWorldAnvilSystem : EntitySystem
 
     private int GetFuelCharges(EntityUid used, int fallback)
     {
-        if (!TryComp<GibtoniteComponent>(used, out var gibtonite) || gibtonite.ReactionMaxTime <= 0f)
+        if (!TryComp<ADTGibtoniteOreComponent>(used, out var gibtonite))
             return fallback;
 
-        var risk = gibtonite.ReactionElapsedTime / gibtonite.ReactionMaxTime;
-
-        if (risk >= 0.9f)
-            return 3;
-
-        if (risk >= 0.5f)
-            return 2;
-
-        return 1;
+        return gibtonite.Quality switch
+        {
+            ADTGibtoniteQuality.High => 3,
+            ADTGibtoniteQuality.Medium => 2,
+            _ => 1,
+        };
     }
 
     private bool TryStartForging(Entity<ADTWorldAnvilComponent> anvil, EntityUid used, EntityUid user)

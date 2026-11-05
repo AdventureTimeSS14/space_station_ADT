@@ -11,6 +11,7 @@ namespace Content.Server.ADT.Bubblegum;
 
 public sealed class BubblegumCombatSystem : EntitySystem
 {
+    [Dependency] private ADTMegafaunaChargeSystem _charge = default!;
     [Dependency] private BubblegumSystem _bubblegum = default!;
     [Dependency] private MegafaunaSystem _megafauna = default!;
     [Dependency] private BubblegumBloodWarpSystem _warp = default!;
@@ -25,40 +26,44 @@ public sealed class BubblegumCombatSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<BubblegumPendingChargeComponent, ComponentInit>(OnBusyAdded);
-        SubscribeLocalEvent<BubblegumPendingChargeComponent, ComponentShutdown>(OnBusyRemoved);
-        SubscribeLocalEvent<BubblegumActiveChargeComponent, ComponentInit>(OnBusyAdded);
-        SubscribeLocalEvent<BubblegumPendingWavesComponent, ComponentInit>(OnBusyAdded);
-        SubscribeLocalEvent<BubblegumPendingWavesComponent, ComponentShutdown>(OnBusyRemoved);
+        SubscribeLocalEvent<BubblegumPendingWavesComponent, ComponentStartup>(OnWavesStartup);
+        SubscribeLocalEvent<BubblegumPendingWavesComponent, ComponentShutdown>(OnWavesShutdown);
+        SubscribeLocalEvent<BubblegumPendingWavesComponent, ADTMegafaunaBusyCheckEvent>(OnWavesBusyCheck);
+
+        SubscribeLocalEvent<BubblegumComponent, ADTMegafaunaChargeTrampleAttemptEvent>(OnTrampleAttempt);
+        SubscribeLocalEvent<BubblegumHallucinationComponent, ADTMegafaunaChargeTrampleAttemptEvent>(OnTrampleAttempt);
+        SubscribeLocalEvent<BubblegumMinionComponent, ADTMegafaunaChargeTrampleAttemptEvent>(OnTrampleAttempt);
+        SubscribeLocalEvent<BubblegumHallucinationComponent, ADTMegafaunaChargeEndedEvent>(OnHallucinationChargeEnded);
 
         SubscribeLocalEvent<BubblegumComponent, ADTMegafaunaAttemptOpenFireEvent>(OnAttemptOpenFire);
         SubscribeLocalEvent<BubblegumComponent, ADTMegafaunaOpenFireEvent>(OnOpenFire);
     }
 
-    private void OnBusyAdded<T>(EntityUid uid, T comp, ComponentInit args) where T : IComponent
+    private void OnWavesStartup(Entity<BubblegumPendingWavesComponent> ent, ref ComponentStartup args)
     {
-        if (!TryComp<HTNComponent>(uid, out var htn))
-            return;
-
-        htn.Blackboard.SetValue("BubblegumWavesBusy", true);
+        _megafauna.RefreshBusy(ent);
     }
 
-    private void OnBusyRemoved<T>(EntityUid uid, T comp, ComponentShutdown args) where T : IComponent
+    private void OnWavesShutdown(Entity<BubblegumPendingWavesComponent> ent, ref ComponentShutdown args)
     {
-        if (HasComp<BubblegumPendingChargeComponent>(uid)
-            || HasComp<BubblegumActiveChargeComponent>(uid)
-            || HasComp<BubblegumPendingWavesComponent>(uid))
-            return;
-
-        RemoveBubblegumBusy(uid);
+        if (!TerminatingOrDeleted(ent))
+            _megafauna.RefreshBusy(ent);
     }
 
-    public void RemoveBubblegumBusy(EntityUid uid)
+    private void OnWavesBusyCheck(Entity<BubblegumPendingWavesComponent> ent, ref ADTMegafaunaBusyCheckEvent args)
     {
-        if (!TryComp<HTNComponent>(uid, out var htn))
-            return;
+        if (ent.Comp.LifeStage < ComponentLifeStage.Stopping)
+            args.Busy = true;
+    }
 
-        htn.Blackboard.Remove<bool>("BubblegumWavesBusy");
+    private void OnTrampleAttempt<T>(Entity<T> ent, ref ADTMegafaunaChargeTrampleAttemptEvent args) where T : IComponent
+    {
+        args.Cancelled = true;
+    }
+
+    private void OnHallucinationChargeEnded(Entity<BubblegumHallucinationComponent> ent, ref ADTMegafaunaChargeEndedEvent args)
+    {
+        QueueDel(ent);
     }
 
     private void OnAttemptOpenFire(Entity<BubblegumComponent> ent, ref ADTMegafaunaAttemptOpenFireEvent args)
@@ -77,8 +82,7 @@ public sealed class BubblegumCombatSystem : EntitySystem
 
     private bool IsBusy(EntityUid uid)
     {
-        return HasComp<BubblegumPendingChargeComponent>(uid)
-               || HasComp<BubblegumActiveChargeComponent>(uid)
+        return _charge.IsCharging(uid)
                || HasComp<BubblegumPendingWavesComponent>(uid)
                || HasComp<BubblegumPendingWarpComponent>(uid);
     }

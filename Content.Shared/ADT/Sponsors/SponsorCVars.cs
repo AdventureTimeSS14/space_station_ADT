@@ -14,6 +14,9 @@ public sealed class SponsorCVars
     public static readonly CVarDef<bool> LegacyBridge =
         CVarDef.Create("adt.sponsor.legacy_bridge", true, CVar.SERVER | CVar.REPLICATED);
 
+    public static readonly CVarDef<bool> LegacyImport =
+        CVarDef.Create("adt.sponsor.legacy_import", false, CVar.SERVERONLY);
+
     /// <summary>
     /// Отдельный токен для спонсорского HTTP API
     /// </summary>

@@ -1,0 +1,104 @@
+- type: entity
+  name: HRC-30
+  parent: [BaseWeaponLightMachineGun, BaseMajorContraband]
+  id: ADTWeaponLightMachineGunHRC30
+  description: A heavy reactive autocannon by DV-MILITECH Co. Uses .30 reactive ammo.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/LMG/hrc30.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-4
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/LMG/hrc30.rsi
+  - type: Item
+    size: Ginormous
+    shape:
+    - 0,0,4,3
+  - type: GunRequiresWield
+  - type: Gun
+    minAngle: 24
+    maxAngle: 40
+    angleIncrease: 3
+    angleDecay: 16
+    fireRate: 5
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/ADT/Weapons/Guns/Gunshots/trr30.ogg
+    soundEmpty:
+      path: /Audio/ADT/Weapons/Guns/Empty/trr30_empty.ogg
+  - type: HeldSpeedModifier
+    walkModifier: 0.5
+    sprintModifier: 0.5
+    mirrorClothingModifier: false
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: ADTMagazineReactive30DrumHeavy
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - ADTMagazineReactive30DrumHeavy
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        priority: 1
+        whitelist:
+          tags:
+          - ADTCartridgeReactive30
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+  - type: StaticPrice
+    price: 6000
+
+- type: entity
+  name: Maxim
+  parent: [BaseWeaponLightMachineGun, BaseMajorContraband]
+  id: ADTWeaponLightMachineGunMaxim
+  description: A time-tested Soviet machine gun. Uses .30 rifle ammo belts.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/LMG/maxim.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-2
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/LMG/maxim.rsi
+  - type: GunRequiresWield
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: ADTMagazineLightRifleMaximBox
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - ADTMagazineLightRifleMaximBox
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeLightRifle
+  - type: MagazineVisuals
+    magState: mag
+    steps: 3
+    zeroVisible: true
+  - type: Appearance
+  - type: StaticPrice
+    price: 8000

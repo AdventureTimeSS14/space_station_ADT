@@ -1,6 +1,7 @@
 using System.Numerics;
 using Content.Server.Stack;
 using Content.Server.Stunnable;
+using Content.Shared.ADT.GripModule;
 using Content.Shared.ActionBlocker;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage.Systems;
@@ -112,6 +113,8 @@ namespace Content.Server.Hands.Systems
             if (args.Handled)
                 return;
             if (args.Source == uid) // ADT-Tweak
+                return;
+            if (TryGetActiveItem(uid, out var protectedItem) && HasComp<ADTGripModuleHolderComponent>(protectedItem)) // ADT-Tweak
                 return;
             // Break any pulls
             if (TryComp(uid, out PullerComponent? puller) && TryComp(puller.Pulling, out PullableComponent? pullable))

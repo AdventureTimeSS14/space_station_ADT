@@ -1,3 +1,3 @@
-ent-ADTRandomTendrilSpawner = случайный тендрил
+ent-ADTRandomTendrilSpawner = случайный шип некрополя
     .suffix = Лаваленд
     .desc = { "" }

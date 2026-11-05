@@ -9,18 +9,18 @@
 - type: damageModifierSet
   id: ADTBaseBlob # ReactiveSpines
   coefficients:
-    Blunt: 0.25
-    Slash: 0.25
-    Piercing: 0.25
-    Heat: 2.00
+    Blunt: 0.35
+    Slash: 0.35
+    Piercing: 0.35
+    Heat: 1.40
 
 - type: damageModifierSet
-  id: ADTElectromagneticWebBlob # Explosive Lattice
+  id: ADTElectromagneticWebBlob # Electromagnetic Web
   coefficients:
-    Blunt: 0.50
-    Slash: 0.50
-    Piercing: 0.50
-    Heat: 2.50
+    Blunt: 0.40
+    Slash: 0.40
+    Piercing: 0.40
+    Heat: 1.60
     Shock: 0.50
 
 - type: damageModifierSet
@@ -29,8 +29,49 @@
     Blunt: 0.25
     Slash: 0.25
     Piercing: 0.25
-    Heat: 3.00
-    Shock: 1.50
+    Heat: 1.75
+    Shock: 1.25
+
+- type: damageModifierSet
+  id: ADTBlazingOilBlob # Blazing Oil
+  coefficients:
+    Blunt: 0.35
+    Slash: 0.35
+    Piercing: 0.35
+    Heat: 0.65
+    Cold: 1.50
+
+- type: damageModifierSet
+  id: ADTRegenerativeMateriaBlob # Regenerative Materia
+  coefficients:
+    Blunt: 0.35
+    Slash: 0.35
+    Piercing: 0.35
+    Heat: 1.35
+
+- type: damageModifierSet
+  id: ADTChainCoatingBlob # Chain coating
+  coefficients:
+    Blunt: 0.15
+    Slash: 0.15
+    Piercing: 0.15
+    Heat: 0.50
+
+- type: damageModifierSet
+  id: ADTSinewyTendonsBlob # Flesh grill
+  coefficients:
+    Blunt: 0.50
+    Slash: 0.50
+    Piercing: 0.20
+    Heat: 5.00
+
+- type: damageModifierSet
+  id: ADTBlobBlobbernautChainCoating
+  coefficients:
+    Blunt: 0.20
+    Slash: 0.20
+    Piercing: 0.20
+    Heat: 0.60
 
 - type: damageModifierSet
   id: ADTBlobMob # Blob mobs
@@ -38,7 +79,7 @@
     Blunt: 1
     Slash: 1
     Piercing: 1
-    Heat: 1.5
+    Heat: 1.2
 
 - type: damageModifierSet
   id: ADTBlobBlobbernaut
@@ -46,12 +87,12 @@
     Blunt: 0.5
     Slash: 0.5
     Piercing: 0.5
-    Heat: 1.5
+    Heat: 1.2
 
 - type: damageModifierSet
-  id: ADTBlobReflective # If it reflects lasers, then it must be fragile?
+  id: ADTBlobReflective # Reflective
   coefficients:
     Blunt: 0.9
     Slash: 0.9
     Piercing: 0.9
-    Heat: 1.5
+    Heat: 0.9

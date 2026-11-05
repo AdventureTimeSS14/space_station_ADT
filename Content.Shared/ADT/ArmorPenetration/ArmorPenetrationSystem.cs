@@ -43,6 +43,14 @@ public sealed class ArmorPenetrationSystem : EntitySystem
             args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, compensator);
     }
 
+    public DamageSpecifier ApplyPenetration(EntityUid target, DamageSpecifier damage, float penetration)
+    {
+        if (!HasComp<MobStateComponent>(target) || !TryGetCompensator(penetration, target, out var compensator))
+            return damage;
+
+        return DamageSpecifier.ApplyModifierSet(damage, compensator);
+    }
+
     private bool TryGetCompensator(float rawPenetration, EntityUid target, [NotNullWhen(true)] out DamageModifierSet? compensator)
     {
         compensator = null;

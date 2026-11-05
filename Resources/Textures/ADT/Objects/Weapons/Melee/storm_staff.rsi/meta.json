@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from ss220-space/Paradise (master220) at icons/obj/weapons/magic.dmi, icons/mob/inhands/staff_lefthand.dmi, icons/mob/inhands/staff_righthand.dmi, icons/mob/clothing/back.dmi",
+    "copyright": "Taken from tgstation/tgstation (master) at icons/obj/weapons/guns/magic.dmi, icons/mob/inhands/weapons/staves_lefthand.dmi, icons/mob/inhands/weapons/staves_righthand.dmi, icons/mob/clothing/back.dmi",
     "size": {
         "x": 32,
         "y": 32
@@ -11,6 +11,7 @@
             "name": "icon",
             "delays": [
                 [
+                    0.05,
                     0.05,
                     0.05,
                     0.05,

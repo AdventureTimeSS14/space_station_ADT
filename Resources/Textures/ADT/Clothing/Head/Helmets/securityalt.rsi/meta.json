@@ -1,0 +1,79 @@
+{
+  "states": [
+    {
+      "directions": 4,
+      "name": "equipped-HELMET-light-vox"
+    },
+    {
+      "directions": 4,
+      "name": "equipped-HELMET-light"
+    },
+    {
+      "directions": 4,
+      "name": "equipped-HELMET-vox"
+    },
+    {
+      "directions": 4,
+      "name": "equipped-HELMET"
+    },
+    {
+      "directions": 1,
+      "name": "icon-open"
+    },
+    {
+      "directions": 1,
+      "name": "icon"
+    },
+    {
+      "directions": 4,
+      "name": "inhand-left-light"
+    },
+    {
+      "directions": 4,
+      "name": "inhand-left"
+    },
+    {
+      "directions": 4,
+      "name": "inhand-right-light"
+    },
+    {
+      "directions": 4,
+      "name": "inhand-right"
+    },
+    {
+      "directions": 1,
+      "name": "light-icon"
+    },
+    {
+      "directions": 4,
+      "name": "open-equipped-HELMET-vox"
+    },
+    {
+      "directions": 4,
+      "name": "open-equipped-HELMET"
+    },
+    {
+      "directions": 4,
+      "name": "open-inhand-left-light"
+    },
+    {
+      "directions": 4,
+      "name": "open-inhand-left"
+    },
+    {
+      "directions": 4,
+      "name": "open-inhand-right-light"
+    },
+    {
+      "directions": 4,
+      "name": "open-inhand-right"
+    }
+  ],
+  "version": 1,
+  "size": {
+    "y": 32,
+    "x": 32
+  },
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Created by discord:prazat911"
+}

@@ -23,6 +23,19 @@
       state: shield
       shader: unshaded
       visible: false
+  - type: GenericVisualizer
+    visuals:
+      enum.ADTVetusVisuals.Mode:
+        mode:
+          Bluespace: { state: "1", visible: true }
+          Grav: { state: "2", visible: true }
+          Pyro: { state: "3", visible: true }
+          Flux: { state: "4", visible: true }
+          Vortex: { state: "5", visible: true }
+      enum.ADTVetusVisuals.Shield:
+        shield:
+          True: { visible: true }
+          False: { visible: false }
   - type: Fixtures
     fixtures:
       fix1:
@@ -52,7 +65,7 @@
     attackRate: 1
     damage:
       types:
-        Shock: 20
+        Heat: 20
     range: 1.5
     angle: 0
     animation: WeaponArcPunch
@@ -72,6 +85,50 @@
       task: ADTVetusCompound
   - type: Megafauna
     speechFont: Default
+  - type: ADTMegafaunaAI
+    decisionInterval: 2
+    decisionJitterMin: 0.5
+    decisionJitterMax: 3
+    meleeOncePerDecision: true
+    angerDamageDivisor: 50
+    maxAnger: 20
+  - type: ExplosionResistance
+    damageCoefficient: 0.01
+  - type: ADTVetus
+  - type: MobState
+    allowedStates:
+    - Alive
+  - type: MegafaunaLoot
+    crateProto: ADTCrateVetusLoot
+    dropOnDeath: false
+    loot:
+    - proto: ADTPinpointerTendril
+    - proto: ADTGemDataCrystal
+    - proto: UraniumOre
+      min: 15
+      max: 30
+    - proto: SilverOre
+      min: 15
+      max: 30
+    - proto: GoldOre
+      min: 15
+      max: 30
+    - proto: PlasmaOre
+      min: 15
+      max: 30
+    - proto: DiamondOre
+      min: 10
+      max: 15
+    - proto: ADTBSore
+      min: 10
+      max: 15
+    - proto: ADTKineticTrophyAdaptiveCore
+  - type: GpsSignal
+    tag: adt-gps-signal-vetus
+    description: adt-gps-signal-vetus-desc
+    color: "#F189AC"
+  - type: ADTThrowImmune
+  - type: ADTLavaImmune
   - type: ADTSegmented
     deleteOnDeath: true
     teleportDistance: 3
@@ -125,6 +182,12 @@
     - state: leg
   - type: ADTSegment
     damageModifier: 0.75
+    takeDamage: true
+  - type: Injurable
+    damageContainer: ADTMegafauna
+  - type: ExplosionResistance
+    damageCoefficient: 0.01
+  - type: ADTVetusLeg
   - type: ADTSegmentTether
     sprite:
       sprite: /Textures/ADT/Effects/vetus_tether.rsi

@@ -1,0 +1,151 @@
+- type: entity
+  parent: BaseStructureDynamic
+  id: ADTSafeUSSP
+  name: USSP safe
+  description: A heavy steel safe with a combination dial. Something valuable is usually kept inside.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Storage/ussp_safe.rsi
+    state: safe
+    noRot: true
+  - type: Transform
+    noRot: true
+  - type: Storage
+    grid:
+    - 0,0,2,2
+    maxItemSize: Normal
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.45,0.3,0.3"
+        density: 500
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: InteractionOutline
+  - type: Damageable
+    damageModifierSet: StructuralMetallicStrong
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:EmptyAllContainersBehaviour
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 3
+            max: 5
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: StaticPrice
+    price: 150
+
+- type: entity
+  parent: filingCabinet
+  id: ADTFilingCabinetUSSP
+  name: USSP filing cabinet
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Storage/ussp_cabinets.rsi
+
+- type: entity
+  parent: filingCabinetTall
+  id: ADTFilingCabinetTallUSSP
+  name: USSP tall cabinet
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Storage/ussp_cabinets.rsi
+
+- type: entity
+  parent: filingCabinetDrawer
+  id: ADTFilingCabinetDrawerUSSP
+  name: USSP chest drawer
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Storage/ussp_cabinets.rsi
+
+- type: entity
+  parent: CrateGenericSteel
+  id: ADTCrateUSSPMilitary
+  name: USSP military crate
+  description: A green army crate with a red star stencilled on the lid.
+  suffix: USSP
+  components:
+  - type: Icon
+    sprite: ADT/Structures/Storage/Crates/ussp_crate.rsi
+  - type: Sprite
+    sprite: ADT/Structures/Storage/Crates/ussp_crate.rsi
+  - type: Paintable
+    group: null
+
+- type: entity
+  parent: ADTBarrelWooden
+  id: ADTBarrelHoneyClosed
+  name: barrel of honey
+  description: A sealed wooden barrel of honey. The lid could be pried open with something sharp, like a knife.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Storage/ussp_honey_barrel.rsi
+    state: honeybarrel
+  - type: Solution
+    solution:
+      maxVol: 500
+      reagents:
+      - ReagentId: ADTHoney
+        Quantity: 500
+  - type: Openable
+    opened: false
+    openableByHand: false
+  - type: Construction
+    graph: ADTBarrelHoney
+    node: closed
+    deconstructionTarget: null
+
+- type: entity
+  parent: ADTBarrelWoodenOpen
+  id: ADTBarrelHoneyOpen
+  name: open barrel of honey
+  description: An open wooden barrel full of fragrant honey.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Storage/ussp_honey_barrel.rsi
+    state: honeybarrel-open
+    noRot: true
+    layers:
+    - state: honeybarrel-open
+    - map: ["enum.SolutionContainerLayers.Fill"]
+      state: fill-1
+      visible: false
+  - type: Solution
+    solution:
+      maxVol: 500
+      reagents:
+      - ReagentId: ADTHoney
+        Quantity: 500
+  - type: Construction
+    graph: ADTBarrelHoney
+    node: open
+    deconstructionTarget: null

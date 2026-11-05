@@ -1,3 +1,5 @@
+using Content.Shared.Damage.Prototypes;
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -17,7 +19,19 @@ public sealed partial class ADTDrakeMeteorTargetComponent : Component
     public float Damage = 10f;
 
     [DataField]
-    public EntProtoId FireProto = "ADTDrakeFire";
+    public TimeSpan Linger = TimeSpan.Zero;
+
+    [DataField]
+    public ProtoId<DamageTypePrototype> DamageType = "Heat";
+
+    [DataField]
+    public EntityWhitelist? Blacklist;
+
+    [DataField]
+    public EntityWhitelist? ExtraTargets;
+
+    [DataField]
+    public EntProtoId? FireProto = "ADTDrakeFire";
 
     [DataField]
     public EntProtoId FallingProto = "ADTDrakeFallingFireball";

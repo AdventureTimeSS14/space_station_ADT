@@ -4,6 +4,10 @@
   id: ADTPickaxeDiamond
   description: A pickaxe with a diamond pick head. Extremely robust at cracking rock walls and digging up dirt.
   components:
+  - type: ADTMiningTool
+    toolSpeed: 0.2
+    useSound:
+      path: /Audio/ADT/Mining/picaxe1.ogg
   - type: Sprite
     sprite: ADT/Objects/Weapons/Melee/pickaxe_diamond.rsi
     state: pickaxe

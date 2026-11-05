@@ -4,6 +4,10 @@
   id: Pickaxe
   description: Notched to perfection, for jamming it into rocks.
   components:
+  - type: ADTMiningTool
+    toolSpeed: 0.8
+    useSound:
+      path: /Audio/ADT/Mining/picaxe1.ogg
   - type: Tag
     tags:
     - Pickaxe
@@ -45,6 +49,10 @@
   id: MiningDrill
   description: Powerful tool used to quickly drill through rocks.
   components:
+  - type: ADTMiningTool
+    toolSpeed: 0.4
+    useSound:
+      path: /Audio/ADT/Mining/drill.ogg
   - type: Item
     storedRotation: -90
   - type: Tag
@@ -72,6 +80,10 @@
   id: MiningDrillDiamond
   description: A significantly more efficient mining drill tipped with diamond.
   components:
+  - type: ADTMiningTool
+    toolSpeed: 0.1
+    useSound:
+      path: /Audio/ADT/Mining/drill.ogg
   - type: Sprite
     sprite: ADT/Objects/Tools/handdrilldiamond.rsi 
     state: handdrill
@@ -118,6 +130,13 @@
   - type: ContainerContainer
     containers:
       upgrades: !type:Container
+  - type: ADTKineticFocusWeapon
+    discipline: Crusher
+    trackMelee: true
+    trackRanged: true
+    window: 5
+    effect: ADTStatusEffectKineticInterference
+    effectDuration: 8
   - type: ADTNoWideAttack
 
 - type: entity
@@ -154,24 +173,32 @@
     showExamineText: false
     useKey: false
   - type: BasicEntityAmmoProvider
-    proto: BulletCharge
+    proto: ADTBulletCrusherMark
   - type: MeleeWeapon
     attackRate: 0.667
+    bluntStaminaDamageFactor: 0
     angle: 0
+    range: 2.2
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 6
-        Slash: 4
+        Blunt: 4.8
+        Slash: 3.2
     soundHit:
       collection: MetalThud
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 6
-        Slash: 2
+        Blunt: 4.8
+        Slash: 1.6
         Structural: 30
+  - type: PressureDamageModify
+    minPressure: -1
+    additionalDamage:
+      types:
+        Blunt: 8
+        Slash: 12
   - type: GunRequiresWield
   - type: DisarmMalus
   - type: Prying
@@ -254,6 +281,7 @@
       - Pickaxe
   - type: MeleeWeapon
     attackRate: 1.267
+    bluntStaminaDamageFactor: 0
     wideAnimationRotation: -135
     damage:
       types:

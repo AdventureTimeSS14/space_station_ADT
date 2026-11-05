@@ -137,41 +137,21 @@ public sealed class ADTCrewMonitoringServerSystem : EntitySystem
 
             if (report.Status.Mode == ADTSuitSensorMode.SensorOff)
             {
-                // Drop from the live set, but keep the last-known snapshot.
-                // Only retain Coordinates if they were actually reported (Cords) —
-                // do not invent a pin from the wearer's current world position on Off
-                // after Binary/Vitals (that never streamed GPS).
                 server.SensorStatus.Remove(key);
 
                 if (!server.LastSensorSnapshot.TryGetValue(key, out var retained))
                     continue;
 
                 retained.IsActive = false;
+                retained.Coordinates = null;
                 retained.Timestamp = now;
                 server.SnapshotDirty = true;
                 continue;
             }
 
-            NetCoordinates? framedCoords = report.Status.Coordinates;
-            if (report.Status.Mode == ADTSuitSensorMode.SensorCords)
-            {
-                framedCoords = framedWorldCoords;
-            }
-            else if (framedCoords == null)
-            {
-                // Binary/Vitals do not stream GPS — keep the last known pin instead of
-                // wiping it (which made the UI go red after downgrading from Cords).
-                if (server.LastSensorSnapshot.TryGetValue(key, out var retainedCoords) &&
-                    retainedCoords.Coordinates != null)
-                {
-                    framedCoords = retainedCoords.Coordinates;
-                }
-                else if (server.SensorStatus.TryGetValue(key, out var liveCoords) &&
-                         liveCoords.Coordinates != null)
-                {
-                    framedCoords = liveCoords.Coordinates;
-                }
-            }
+            NetCoordinates? framedCoords = report.Status.Mode == ADTSuitSensorMode.SensorCords
+                ? framedWorldCoords
+                : null;
 
             if (server.SensorStatus.TryGetValue(key, out var previous) &&
                 SensorStatusMatches(previous, report.Status, framedCoords))
@@ -181,8 +161,7 @@ public sealed class ADTCrewMonitoringServerSystem : EntitySystem
                 {
                     snap.Timestamp = now;
                     snap.IsActive = true;
-                    if (framedCoords != null)
-                        snap.Coordinates = framedCoords;
+                    snap.Coordinates = framedCoords;
                 }
                 continue;
             }
@@ -372,6 +351,7 @@ public sealed class ADTCrewMonitoringServerSystem : EntitySystem
                 continue;
 
             status.IsActive = false;
+            status.Coordinates = null;
             changed = true;
         }
 
@@ -496,10 +476,10 @@ public sealed class ADTCrewMonitoringServerSystem : EntitySystem
         if (!component.SensorStatus.Remove(key))
             return;
 
-        // Keep the last data/coordinates, but mark the retained entry inactive.
         if (component.LastSensorSnapshot.TryGetValue(key, out var retained) && retained.IsActive)
         {
             retained.IsActive = false;
+            retained.Coordinates = null;
             component.SnapshotDirty = true;
         }
     }

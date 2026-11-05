@@ -1,0 +1,45 @@
+- type: entity
+  parent: WallSolid
+  id: ADTWallUSSPConcrete
+  name: USSP concrete wall
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Walls/ussp_concrete.rsi
+  - type: Icon
+    sprite: ADT/Structures/Walls/ussp_concrete.rsi
+
+- type: entity
+  parent: WallSolid
+  id: ADTWallUSSPBunker
+  name: USSP bunker wall
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Walls/ussp_bunker.rsi
+  - type: Icon
+    sprite: ADT/Structures/Walls/ussp_bunker.rsi
+
+- type: entity
+  parent: WallReinforced
+  id: ADTWallUSSPConcreteReinforced
+  name: reinforced USSP concrete wall
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Walls/ussp_concrete.rsi
+  - type: Icon
+    sprite: ADT/Structures/Walls/ussp_concrete.rsi
+    state: rgeneric
+
+- type: entity
+  parent: WallReinforced
+  id: ADTWallUSSPBunkerReinforced
+  name: reinforced USSP bunker wall
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Walls/ussp_bunker.rsi
+  - type: Icon
+    sprite: ADT/Structures/Walls/ussp_bunker.rsi
+    state: rgeneric

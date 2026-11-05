@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
+using Content.Shared.ADT.Parallax; // ADT-Tweak
 using Content.Shared.Maps;
 using Content.Shared.Parallax.Biomes.Layers;
 using Robust.Shared.Map;
@@ -221,6 +222,16 @@ public abstract partial class SharedBiomeSystem : EntitySystem
             {
                 case BiomeDummyLayer:
                     continue;
+                // ADT-Tweak start
+                case ADTBiomeCaveLayer caveLayer:
+                    if (!caveLayer.AllowedTiles.Contains(tileId))
+                        continue;
+
+                    if (TryGetCaveEntity(indices, grid, out entity))
+                        return true;
+
+                    continue;
+                // ADT-Tweak end
                 case IBiomeWorldLayer worldLayer:
                     if (!worldLayer.AllowedTiles.Contains(tileId))
                         continue;
@@ -297,6 +308,17 @@ public abstract partial class SharedBiomeSystem : EntitySystem
             {
                 case BiomeDummyLayer:
                     continue;
+                // ADT-Tweak start
+                case ADTBiomeCaveLayer caveLayer:
+                    if (!caveLayer.AllowedTiles.Contains(tileId))
+                        continue;
+
+                    if (!TryGetCaveEntity(indices, grid, out _))
+                        continue;
+
+                    decals = null;
+                    return false;
+                // ADT-Tweak end
                 case IBiomeWorldLayer worldLayer:
                     if (!worldLayer.AllowedTiles.Contains(tileId))
                         continue;

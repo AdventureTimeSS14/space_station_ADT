@@ -93,7 +93,7 @@
     tags: [ ADTGunUpgradeRepeater ]
     examineText: adt-gun-upgrade-examine-text-repeater
   - type: ADTGunUpgradeRepeater
-    rechargeCoefficient: 4
+    rechargeCoefficient: 1.875
     hitCoefficient: 0.25
 
 - type: entity

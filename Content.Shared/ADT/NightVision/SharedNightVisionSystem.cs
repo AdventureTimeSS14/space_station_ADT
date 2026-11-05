@@ -27,7 +27,7 @@ public abstract class SharedNightVisionSystem : EntitySystem
         SubscribeLocalEvent<NightVisionComponent, ComponentRemove>(OnNightVisionRemove);
 
         SubscribeLocalEvent<NightVisionItemComponent, GetItemActionsEvent>(OnNightVisionItemGetActions);
-        SubscribeLocalEvent<NightVisionItemComponent, ToggleActionEvent>(OnNightVisionItemToggle);
+        SubscribeLocalEvent<NightVisionItemComponent, ToggleNightVisionActionEvent>(OnNightVisionItemToggle);
         SubscribeLocalEvent<NightVisionItemComponent, GotEquippedEvent>(OnNightVisionItemGotEquipped);
         SubscribeLocalEvent<NightVisionItemComponent, GotUnequippedEvent>(OnNightVisionItemGotUnequipped);
         SubscribeLocalEvent<NightVisionItemComponent, ActionRemovedEvent>(OnNightVisionItemActionRemoved);
@@ -69,7 +69,7 @@ public abstract class SharedNightVisionSystem : EntitySystem
         args.AddAction(ref ent.Comp.Action, ent.Comp.ActionId);
     }
 
-    private void OnNightVisionItemToggle(Entity<NightVisionItemComponent> ent, ref ToggleActionEvent args)
+    private void OnNightVisionItemToggle(Entity<NightVisionItemComponent> ent, ref ToggleNightVisionActionEvent args)
     {
         if (args.Handled)
             return;

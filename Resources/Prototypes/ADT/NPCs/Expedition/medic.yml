@@ -1,0 +1,39 @@
+- type: htnCompound
+  id: ADTExpeditionMedicCompound
+  branches:
+    - preconditions:
+        - !type:ADTDownedPrecondition
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTStandUpOperator
+
+    - preconditions:
+        - !type:ADTHostileNearPrecondition
+          range: 5
+      tasks:
+        - !type:HTNCompoundTask
+          task: ADTAcquireTarget
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTPickFleeCoordinatesOperator
+            targetKey: Target
+            fleeDistance: 6
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+
+    - preconditions:
+        - !type:ADTHostileNearPrecondition
+          range: 7
+          invert: true
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTFindPatientOperator
+            range: 9
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            rangeKey: InteractRange
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTTreatPatientOperator
+
+    - tasks:
+        - !type:HTNCompoundTask
+          task: ADTExpeditionHumanoidCompound
