@@ -36,10 +36,22 @@ public sealed class SponsorPanelWindow : DefaultWindow
     private readonly Button _tierNew;
     private readonly Button _tierDelete;
 
+    private readonly Label _legacyImportLabel;
+    private readonly ItemList _legacyList;
+    private readonly LineEdit _legacyNumber;
+    private readonly OptionButton _legacyTier;
+    private readonly Button _legacySave;
+    private readonly Button _legacyDelete;
+    private readonly Button _legacyRefresh;
+
     private readonly Label _status;
 
     private SponsorTier[] _tiers = Array.Empty<SponsorTier>();
     private SponsorGrant[] _grants = Array.Empty<SponsorGrant>();
+    private SponsorLegacyTier[] _legacyTiers = Array.Empty<SponsorLegacyTier>();
+    private int? _legacyTargetId;
+
+    private bool _hasPermission;
 
     private int _editingTierId;
 
@@ -48,6 +60,9 @@ public sealed class SponsorPanelWindow : DefaultWindow
     public event Action<int>? TierDeleted;
     public event Action<SponsorGrant>? GrantCreateRequested;
     public event Action<int>? GrantRevokeRequested;
+    public event Action<int, int?>? LegacyTierSaved;
+    public event Action<int>? LegacyTierDeleted;
+    public event Action? LegacyRefreshRequested;
 
     public SponsorPanelWindow()
     {
@@ -286,6 +301,76 @@ public sealed class SponsorPanelWindow : DefaultWindow
         tabs.AddChild(tiers);
         tabs.SetTabTitle(1, Loc.GetString("adt-sponsor-panel-tab-tiers"));
 
+        var legacy = new BoxContainer
+        {
+            Orientation = BoxContainer.LayoutOrientation.Vertical,
+            SeparationOverride = 4,
+            Margin = new Thickness(6),
+        };
+
+        _legacyImportLabel = new Label
+        {
+            Text = string.Empty,
+        };
+        legacy.AddChild(_legacyImportLabel);
+
+        legacy.AddChild(new Label
+        {
+            Text = Loc.GetString("adt-sponsor-panel-legacy-hint"),
+        });
+
+        _legacyList = new ItemList
+        {
+            VerticalExpand = true,
+            SelectMode = ItemList.ItemListSelectMode.Single,
+        };
+        legacy.AddChild(_legacyList);
+
+        var legacyForm = new BoxContainer
+        {
+            Orientation = BoxContainer.LayoutOrientation.Horizontal,
+            SeparationOverride = 4,
+        };
+
+        _legacyNumber = new LineEdit
+        {
+            MinWidth = 80,
+            PlaceHolder = "1",
+        };
+
+        _legacyTier = new OptionButton
+        {
+            MinWidth = 220,
+        };
+
+        _legacySave = new Button
+        {
+            Text = Loc.GetString("adt-sponsor-panel-legacy-save"),
+        };
+
+        _legacyDelete = new Button
+        {
+            Text = Loc.GetString("adt-sponsor-panel-legacy-delete"),
+        };
+
+        _legacyRefresh = new Button
+        {
+            Text = Loc.GetString("adt-sponsor-panel-legacy-refresh"),
+        };
+
+        legacyForm.AddChild(new Label { Text = Loc.GetString("adt-sponsor-panel-legacy-number") });
+        legacyForm.AddChild(_legacyNumber);
+        legacyForm.AddChild(new Label { Text = "->" });
+        legacyForm.AddChild(_legacyTier);
+        legacyForm.AddChild(_legacySave);
+        legacyForm.AddChild(_legacyDelete);
+        legacyForm.AddChild(new Control { HorizontalExpand = true });
+        legacyForm.AddChild(_legacyRefresh);
+        legacy.AddChild(legacyForm);
+
+        tabs.AddChild(legacy);
+        tabs.SetTabTitle(2, Loc.GetString("adt-sponsor-panel-tab-legacy"));
+
         root.AddChild(tabs);
 
         _status = new Label
@@ -312,9 +397,43 @@ public sealed class SponsorPanelWindow : DefaultWindow
 
         _grantRevoke.OnPressed += _ =>
         {
-            if (TryGetSelected(_grantList, _grants, out var grant))
+            if (TryGetSelected(_grantList, _grants, out var grant) && !grant.Legacy)
                 GrantRevokeRequested?.Invoke(grant.Id);
         };
+
+        _grantList.OnItemSelected += _ => UpdateRevokeButton();
+        _grantList.OnItemDeselected += _ => UpdateRevokeButton();
+
+        _legacyTier.OnItemSelected += args =>
+        {
+            _legacyTier.SelectId(args.Id);
+            _legacyTargetId = GetSelectedLegacyTarget();
+        };
+
+        _legacyList.OnItemSelected += _ =>
+        {
+            if (TryGetSelected(_legacyList, _legacyTiers, out var legacyTier))
+                LoadLegacyTier(legacyTier);
+        };
+
+        _legacySave.OnPressed += _ =>
+        {
+            if (!int.TryParse(_legacyNumber.Text.Trim(), out var number))
+            {
+                SetStatus(Loc.GetString("adt-sponsor-panel-legacy-bad-number"));
+                return;
+            }
+
+            LegacyTierSaved?.Invoke(number, GetSelectedLegacyTarget());
+        };
+
+        _legacyDelete.OnPressed += _ =>
+        {
+            if (int.TryParse(_legacyNumber.Text.Trim(), out var number))
+                LegacyTierDeleted?.Invoke(number);
+        };
+
+        _legacyRefresh.OnPressed += _ => LegacyRefreshRequested?.Invoke();
 
         _tierList.OnItemSelected += _ =>
         {
@@ -335,11 +454,105 @@ public sealed class SponsorPanelWindow : DefaultWindow
 
     public void SetPermission(bool allowed)
     {
+        _hasPermission = allowed;
+
         _grantCreate.Disabled = !allowed;
-        _grantRevoke.Disabled = !allowed;
         _tierSave.Disabled = !allowed;
         _tierDelete.Disabled = !allowed;
         _tierNew.Disabled = !allowed;
+        _legacySave.Disabled = !allowed;
+        _legacyDelete.Disabled = !allowed;
+
+        UpdateRevokeButton();
+    }
+
+    private void UpdateRevokeButton()
+    {
+        if (!_hasPermission)
+        {
+            _grantRevoke.Disabled = true;
+            return;
+        }
+
+        _grantRevoke.Disabled = TryGetSelected(_grantList, _grants, out var grant) && grant.Legacy;
+    }
+
+    public void SetLegacy(SponsorLegacyTier[] legacyTiers, bool importEnabled)
+    {
+        _legacyTiers = legacyTiers;
+
+        _legacyImportLabel.Text = importEnabled
+            ? Loc.GetString("adt-sponsor-panel-legacy-import-on")
+            : Loc.GetString("adt-sponsor-panel-legacy-import-off");
+
+        _legacyTier.Clear();
+        _legacyTier.AddItem(Loc.GetString("adt-sponsor-panel-legacy-unmapped"), 0);
+
+        for (var i = 0; i < _tiers.Length; i++)
+        {
+            _legacyTier.AddItem($"{_tiers[i].Name} - {_tiers[i].DisplayName}", i + 1);
+        }
+
+        SelectLegacyTarget(_legacyTargetId);
+
+        _legacyList.Clear();
+
+        foreach (var legacyTier in legacyTiers)
+        {
+            var target = Loc.GetString("adt-sponsor-panel-legacy-unmapped");
+
+            if (legacyTier.TierId != null)
+            {
+                var tier = _tiers.FirstOrDefault(t => t.Id == legacyTier.TierId.Value);
+                target = tier == null
+                    ? Loc.GetString("adt-sponsor-panel-legacy-missing", ("id", legacyTier.TierId.Value))
+                    : $"{tier.Name} - {tier.DisplayName}";
+            }
+
+            var seen = legacyTier.LastSeen?.ToLocalTime().ToString("dd.MM.yyyy HH:mm")
+                ?? Loc.GetString("adt-sponsor-panel-legacy-never");
+
+            _legacyList.AddItem(Loc.GetString("adt-sponsor-panel-legacy-row",
+                ("legacy", legacyTier.LegacyTier),
+                ("target", target),
+                ("online", legacyTier.OnlinePlayers),
+                ("seen", seen)));
+        }
+    }
+
+    private void LoadLegacyTier(SponsorLegacyTier legacyTier)
+    {
+        _legacyNumber.Text = legacyTier.LegacyTier.ToString(CultureInfo.InvariantCulture);
+        SelectLegacyTarget(legacyTier.TierId);
+    }
+
+    private void SelectLegacyTarget(int? tierId)
+    {
+        _legacyTier.SelectId(0);
+        _legacyTargetId = null;
+
+        if (tierId == null)
+            return;
+
+        for (var i = 0; i < _tiers.Length; i++)
+        {
+            if (_tiers[i].Id != tierId.Value)
+                continue;
+
+            _legacyTier.SelectId(i + 1);
+            _legacyTargetId = tierId;
+            return;
+        }
+    }
+
+    private int? GetSelectedLegacyTarget()
+    {
+        var index = _legacyTier.SelectedId - 1;
+
+        if (index < 0 || index >= _tiers.Length)
+            return null;
+
+        return _tiers[index].Id;
     }
 
     public void SetStatus(string status)
@@ -385,6 +598,19 @@ public sealed class SponsorPanelWindow : DefaultWindow
 
         foreach (var grant in grants)
         {
+            if (grant.Legacy)
+            {
+                var legacyTier = grant.TierName ?? Loc.GetString("adt-sponsor-panel-no-tier");
+                var legacyExpires = grant.ExpiresAt?.ToString("dd.MM.yyyy") ?? Loc.GetString("adt-sponsor-panel-forever");
+                var legacyExtra = grant.Overrides == null ? string.Empty : " +";
+
+                _grantList.AddItem(Loc.GetString("adt-sponsor-panel-legacy-grant",
+                    ("tier", legacyTier + legacyExtra),
+                    ("expires", legacyExpires),
+                    ("comment", grant.Comment)));
+                continue;
+            }
+
             var state = grant.Revoked
                 ? Loc.GetString("adt-sponsor-panel-state-revoked")
                 : grant.IsActive(now)
@@ -399,6 +625,8 @@ public sealed class SponsorPanelWindow : DefaultWindow
         }
 
         _resolvedLabel.Text = DescribeResolved(resolved);
+
+        UpdateRevokeButton();
     }
 
     private SponsorGrant BuildGrant()
