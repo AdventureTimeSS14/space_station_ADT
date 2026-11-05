@@ -13,3 +13,21 @@
   - type: Tag
     tags:
     - PetWearable
+
+- type: entity
+  parent: ClothingMaskGasSecurity
+  id: ADTClothingMaskBreathRavenn559
+  name: officer voice mask
+  description: officer voice mask
+  suffix: Personal, Ravenn559
+  components:
+  - type: Sprite
+    sprite: Clothing/Mask/medicalsecurity.rsi
+  - type: Clothing
+    sprite: Clothing/Mask/medicalsecurity.rsi
+  - type: TypingSound
+    typingSound: 
+      collection: ADTRaven559MaskOn
+    messageSentSound:
+      collection: ADTRaven559MaskOff
+

@@ -31,6 +31,7 @@
     damageModifierSet: StructuralMetallic
   - type: Injurable
     damageContainer: StructuralInorganic
+  - type: SparksOnDamage # ADT-Tweak
   - type: Destructible
     thresholds:
     - trigger: !type:DamageTrigger
@@ -50,6 +51,7 @@
   parent: BaseMachine
   id: BaseMachinePowered
   components:
+  - type: SparksOnDamage # ADT-Tweak
   - type: ApcPowerReceiver
     powerLoad: 1000
   - type: ExtensionCableReceiver

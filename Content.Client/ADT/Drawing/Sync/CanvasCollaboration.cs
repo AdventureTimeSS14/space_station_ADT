@@ -633,7 +633,7 @@ public sealed class CanvasCollaboration : IDisposable
 
     private void OnLocalStrokeStarted(StrokeRecord stroke, int tag)
     {
-        if (LocalRole == CanvasRole.Viewer || stroke.Points.Count == 0)
+        if (LocalRole == CanvasRole.Viewer || stroke.Points.Count == 0 || stroke.Settings.LocalOnly)
             return;
 
         var start = stroke.Points[0];
