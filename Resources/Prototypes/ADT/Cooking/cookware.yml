@@ -1,0 +1,220 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: ADTBaseCookware
+  components:
+  - type: Item
+    size: Normal
+  - type: Appearance
+  - type: Solution
+    id: cookware
+    solution:
+      maxVol: 50
+  - type: RefillableSolution
+    solution: cookware
+  - type: DrainableSolution
+    solution: cookware
+  - type: ExaminableSolution
+    solution: cookware
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 6
+    soundHit:
+      collection: MetalThud
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 300
+
+- type: entity
+  parent: ADTBaseCookware
+  id: ADTCookwarePan
+  name: frying pan
+  description: A heavy frying pan. Pour some oil, put it on a burner and do not forget to flip.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Kitchen/cookware.rsi
+    layers:
+    - state: pan
+    - state: medium-pan-1
+      map: ["enum.ADTCookwareVisualLayers.Medium"]
+      visible: false
+  - type: ADTCookware
+    cookwareType: Pan
+    maxItems: 10
+    mediumState: medium-pan
+    contentScale: 0.45, 0.45
+    contentOffsets:
+    - -0.08, -0.01
+    - 0.05, -0.02
+    - -0.03, -0.07
+    - 0.07, -0.06
+  - type: Solution
+    id: cookware
+    solution:
+      maxVol: 40
+  - type: Spillable
+    solution: cookware
+
+- type: entity
+  parent: ADTBaseCookware
+  id: ADTCookwarePot
+  name: cooking pot
+  description: A deep pot for soups and stews. Pour in water, throw in everything you have and stir now and then.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Kitchen/cookware.rsi
+    layers:
+    - state: pot
+    - state: medium-pot-1
+      map: ["enum.ADTCookwareVisualLayers.Medium"]
+      visible: false
+  - type: ADTCookware
+    cookwareType: Pot
+    maxItems: 10
+    mediumState: medium-pot
+    maxAddons: 4
+    contentScale: 0.35, 0.35
+    contentOffsets:
+    - -0.08, 0.1
+    - 0.06, 0.11
+    - 0.0, 0.08
+    - -0.03, 0.12
+  - type: Solution
+    id: cookware
+    solution:
+      maxVol: 80
+  - type: Spillable
+    solution: cookware
+  - type: Item
+    size: Large
+
+- type: entity
+  parent: ADTBaseCookware
+  id: ADTCookwareTray
+  name: baking tray
+  description: A metal baking tray for the oven.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Kitchen/cookware.rsi
+    layers:
+    - state: tray
+  - type: ADTCookware
+    cookwareType: Tray
+    maxItems: 12
+    contentScale: 0.4, 0.4
+    contentOffsets:
+    - -0.16, 0.07
+    - 0.0, 0.07
+    - 0.16, 0.07
+    - -0.16, -0.07
+    - 0.0, -0.07
+    - 0.16, -0.07
+    - -0.08, 0.0
+    - 0.08, 0.0
+    - -0.2, 0.0
+    - 0.2, 0.0
+    - 0.0, 0.1
+    - 0.0, -0.1
+  - type: Solution
+    id: cookware
+    solution:
+      maxVol: 80
+
+- type: entity
+  parent: FoodBadRecipe
+  id: ADTFoodFreeformFry
+  name: stir-fry
+  description: Whatever was in the pan, now fried together.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/freeform.rsi
+    state: fry
+  - type: FlavorProfile
+    flavors:
+    - terrible
+
+- type: entity
+  parent: FoodBadRecipe
+  id: ADTFoodFreeformBake
+  name: casserole
+  description: Whatever was on the tray, now baked together.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/freeform.rsi
+    state: bake
+  - type: FlavorProfile
+    flavors:
+    - terrible
+
+- type: entity
+  parent: FoodBowlBase
+  id: ADTFoodFreeformSoup
+  name: soup
+  description: Whatever was in the pot, now a soup.
+  components:
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: mystery
+  - type: FlavorProfile
+    flavors:
+    - terrible
+
+- type: entity
+  parent: BaseItem
+  id: ADTSpatula
+  name: spatula
+  description: A flat kitchen spatula. Use it on a sizzling frying pan to flip the food.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Kitchen/utensils.rsi
+    state: spatula
+  - type: Item
+    sprite: ADT/Objects/Specific/Kitchen/utensils.rsi
+    size: Small
+  - type: Tag
+    tags:
+    - ADTSpatula
+    - Metal
+  - type: UseDelay
+    delay: 1
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    damage:
+      types:
+        Blunt: 3
+    soundHit:
+      collection: MetalThud
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+
+- type: entity
+  parent: ADTSpatula
+  id: ADTLadle
+  name: ladle
+  description: A deep ladle. Use it on a cooking pot to stir the soup.
+  components:
+  - type: Sprite
+    state: ladle
+  - type: Tag
+    tags:
+    - ADTLadle
+    - Metal
+
+- type: entity
+  parent: BaseItem
+  id: ADTFoodBurntMess
+  name: burnt mess
+  description: Charred remains of what used to be food. Nobody is going to eat this.
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Food/ingredients.rsi
+    state: badrecipe
+    color: "#6a5a50"
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - Trash
