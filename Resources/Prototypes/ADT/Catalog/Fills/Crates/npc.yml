@@ -7,5 +7,5 @@
   - type: EntityTableContainerFill
     containers:
       entity_storage:
-        id: MobFrog
+        id: ADTMobFrog
         amount: 4
