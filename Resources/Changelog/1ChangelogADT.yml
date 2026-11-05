@@ -17164,3 +17164,13 @@ Entries:
     id: 2084
     pr_number: 3606
     time: '2026-11-05T14:56:37Z'
+  - author: Rendin0 && Inconnu
+    changes:
+      - {message: что добавили, type: Add}
+      - {message: что убрали, type: Remove}
+      - {message: что подправили, type: Tweak}
+      - {message: что исправили, type: Fix}
+      - {message: Исправлена валидация url для картинок в описании персонажа, type: Fix}
+    id: 2085
+    pr_number: 3642
+    time: '2026-11-05T15:02:33Z'
