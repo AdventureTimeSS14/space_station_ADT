@@ -4,5 +4,8 @@
   parent: ClothingBeltBandolier
   suffix: Filled, Incendiary
   components:
-  - type: BallisticAmmoProvider
-    proto: ShellShotgunIncendiary
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: ShellShotgunIncendiary
+        amount: 20

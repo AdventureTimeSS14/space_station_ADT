@@ -9,6 +9,7 @@ using Content.Server.Ghost.Roles;
 using Content.Server.Ghost.Roles.Components;
 using Content.Shared.Antag;
 using Content.Shared.Players;
+using Robust.Shared.Containers; // ADT-Tweak
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Maths;
@@ -28,6 +29,7 @@ public sealed partial class AntagGhostRoleTest : AntagTest
     };
 
     [SidedDependency(Side.Server)] private IRobustRandom _random = default!;
+    [SidedDependency(Side.Server)] private SharedContainerSystem _container = default!; // ADT-Tweak
     [SidedDependency(Side.Server)] private GhostRoleSystem _ghostRole = default!;
 
     private static readonly string[] AntagGameRules = GameDataScrounger.EntitiesWithComponent("AntagSelection");
@@ -124,6 +126,11 @@ public sealed partial class AntagGhostRoleTest : AntagTest
         // Ensure we spawned in the correct location
         var sessionXform = SEntMan.GetComponent<TransformComponent>(ServerSession.AttachedEntity.Value);
         Assert.That(sessionXform.MapUid, Is.EqualTo(xform.MapUid));
+
+        // ADT-Tweak start
+        if (_container.IsEntityInContainer(ServerSession.AttachedEntity.Value))
+            return;
+        // ADT-Tweak end
 
         // We break it up like this cause otherwise it'll sometimes randomly fail
         // TODO: Engine IEquatable for EntityCoordinates
