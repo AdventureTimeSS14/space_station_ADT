@@ -109,6 +109,9 @@ public sealed class ATMSystem : SharedATMSystem
             return;
         }
 
+        if (args.Amount <= 0)
+            return;
+
         if (!_bankCardSystem.TryGetAccount(bankCard.AccountId.Value, out var account) ||
             account.AccountPin != args.Pin && !HasComp<EmaggedComponent>(uid))
         {
