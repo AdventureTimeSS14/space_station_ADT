@@ -66,6 +66,12 @@
     attackRate: 1
     damage:
       types:
-        Blunt: 15
+        Blunt: 10
     soundHit:
       path: /Audio/Weapons/smash.ogg
+  - type: Wieldable
+    wieldedInhandPrefix: null
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 5

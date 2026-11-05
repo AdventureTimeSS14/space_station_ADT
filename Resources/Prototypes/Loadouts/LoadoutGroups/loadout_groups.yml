@@ -371,6 +371,7 @@
   - BootsLaceup #ADT-Tweak
   - WinterBoots
 
+## ADT-tweak-start
 - type: loadoutGroup
   id: PassengerJobTrinkets
   name: loadout-group-jobtrinkets
@@ -378,6 +379,7 @@
   maxLimit: 1
   loadouts:
   - ADTImprovisedGuitarInstrument
+## ADT-tweak-end
 
 - type: loadoutGroup
   id: BartenderHead
