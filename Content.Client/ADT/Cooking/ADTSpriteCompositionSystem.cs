@@ -151,7 +151,9 @@ public sealed partial class ADTSpriteCompositionSystem : EntitySystem
         int? index,
         Color? tint = null,
         DisplacementData? displacement = null,
-        ShaderInstance? shader = null)
+        ShaderInstance? shader = null,
+        Color? fill = null,
+        bool keepOwnShaders = false)
     {
         var keys = GetKeys(target);
         var counter = 0;
@@ -173,8 +175,11 @@ public sealed partial class ADTSpriteCompositionSystem : EntitySystem
             _sprite.LayerMapSet(target.AsNullable(), key, newIndex);
 
             var color = layer.Color * source.Color;
+            if (fill != null)
+                color = fill.Value.WithAlpha(fill.Value.A * color.A);
+
             if (tint != null)
-                color = tint.Value.WithAlpha(tint.Value.A * color.A);
+                color *= tint.Value;
 
             var layerOffset = Vector2.Transform(layer.Offset * scale, Matrix3x2.CreateRotation((float) rotation.Theta));
 
@@ -183,7 +188,7 @@ public sealed partial class ADTSpriteCompositionSystem : EntitySystem
             _sprite.LayerSetOffset(target.AsNullable(), newIndex, offset + layerOffset);
             _sprite.LayerSetRotation(target.AsNullable(), newIndex, layer.Rotation + rotation);
 
-            if (shader != null)
+            if (shader != null && !(keepOwnShaders && layer.Shader != null))
                 target.Comp.LayerSetShader(newIndex, shader);
             else if (layer.Shader != null)
                 target.Comp.LayerSetShader(newIndex, layer.Shader, layer.ShaderPrototype?.Id);

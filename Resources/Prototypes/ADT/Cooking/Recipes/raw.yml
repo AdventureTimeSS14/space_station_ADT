@@ -18,6 +18,8 @@
   ingredients:
   - id: FoodCakePlain
     count: 1
+  reagents:
+    Cream: 5
   time: 0
   result: FoodCakeBirthday
   group: Cake
@@ -179,6 +181,9 @@
   ingredients:
   - id: FoodCakePlain
     count: 1
+  reagents:
+    Sugar: 10
+    Cream: 5
   time: 0
   result: FoodCakeVanilla
   group: Cake
@@ -492,6 +497,8 @@
   ingredients:
   - id: FoodCakePlain
     count: 1
+  reagents:
+    Slime: 15
   time: 0
   result: FoodCakeSlime
   group: Cake

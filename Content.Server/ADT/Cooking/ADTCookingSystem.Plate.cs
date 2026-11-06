@@ -3,6 +3,7 @@ using Content.Shared.ADT.Cooking.Components;
 using Content.Shared.ADT.Cooking.Prototypes;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Destructible;
+using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
@@ -45,7 +46,7 @@ public sealed partial class ADTCookingSystem
         if (HasComp<SolutionTransferComponent>(args.Used) && ent.Comp.Contents.ContainedEntities.Count > 0)
         {
             var top = ent.Comp.Contents.ContainedEntities[^1];
-            if (TryPourSauce(top, args.Used, args.User))
+            if (TryPourRecipeReagents(ent, args.Used, args.User) || TryPourSauce(top, args.Used, args.User))
             {
                 args.Handled = true;
                 return;
@@ -179,7 +180,7 @@ public sealed partial class ADTCookingSystem
                 if (recipe.Cookware != ADTCookwareType.Plate || recipe.Ingredients.Count == 0 || recipe.Secret)
                     continue;
 
-                if (!MatchIngredients(items, recipe.Ingredients))
+                if (!MatchIngredients(items, recipe.Ingredients) || !PlateReagentsPresent(items, recipe, settings))
                     continue;
 
                 if (best == null || Complexity(recipe) > Complexity(best))
@@ -208,6 +209,97 @@ public sealed partial class ADTCookingSystem
             _metaData.SetEntityName(ent, ent.Comp.OriginalName);
             ent.Comp.OriginalName = null;
         }
+    }
+
+    private bool PlateReagentsPresent(IReadOnlyList<EntityUid> items, ADTCookingRecipePrototype recipe, ADTCookingSettingsPrototype settings)
+    {
+        if (recipe.Reagents.Count == 0)
+            return true;
+
+        var present = GetPlateAddedReagents(items, settings);
+        foreach (var (reagent, amount) in recipe.Reagents)
+        {
+            if (present.GetTotalPrototypeQuantity(reagent) < amount)
+                return false;
+        }
+
+        return true;
+    }
+
+    private Solution GetPlateAddedReagents(IReadOnlyList<EntityUid> items, ADTCookingSettingsPrototype settings)
+    {
+        var total = new Solution();
+        foreach (var item in items)
+        {
+            total.AddSolution(GetAddedReagents(item, settings), _proto);
+        }
+
+        return total;
+    }
+
+    private bool TryPourRecipeReagents(Entity<ADTPlateComponent> ent, EntityUid source, EntityUid user)
+    {
+        var items = ent.Comp.Contents.ContainedEntities;
+        if (items.Count == 0 || !CanAddToFood(items[^1]))
+            return false;
+
+        if (!CanSendSolution(source) || !_solution.TryGetDrainableSolution(source, out var sourceSoln, out var sourceSolution))
+            return false;
+
+        var settings = Settings;
+        var present = GetPlateAddedReagents(items, settings);
+
+        ADTCookingRecipePrototype? best = null;
+        foreach (var recipe in _proto.EnumeratePrototypes<ADTCookingRecipePrototype>())
+        {
+            if (recipe.Cookware != ADTCookwareType.Plate || recipe.Reagents.Count == 0 || recipe.Secret)
+                continue;
+
+            if (!MatchIngredients(items, recipe.Ingredients))
+                continue;
+
+            var fits = true;
+            var missingAny = false;
+            foreach (var (reagent, amount) in recipe.Reagents)
+            {
+                var missing = amount - present.GetTotalPrototypeQuantity(reagent);
+                if (missing <= FixedPoint2.Zero)
+                    continue;
+
+                missingAny = true;
+                if (sourceSolution.GetTotalPrototypeQuantity(reagent) < missing)
+                {
+                    fits = false;
+                    break;
+                }
+            }
+
+            if (!fits || !missingAny)
+                continue;
+
+            if (best == null || Complexity(recipe) > Complexity(best))
+                best = recipe;
+        }
+
+        if (best == null)
+            return false;
+
+        var poured = new Solution();
+        foreach (var (reagent, amount) in best.Reagents)
+        {
+            var missing = amount - present.GetTotalPrototypeQuantity(reagent);
+            if (missing <= FixedPoint2.Zero)
+                continue;
+
+            poured.AddReagent(reagent.Id, missing);
+            _solution.RemoveReagent(sourceSoln.Value, reagent.Id, missing);
+        }
+
+        var top = items[^1];
+        AddToFood(top, poured);
+        _popup.PopupEntity(Loc.GetString("adt-dish-sauce-poured", ("dish", top), ("source", source)), ent, user);
+        _pendingServing.Add(ent);
+        return true;
     }
 
     private void AssembleOnPlate(Entity<ADTPlateComponent> ent, ADTCookingRecipePrototype recipe, ADTCookingSettingsPrototype settings)

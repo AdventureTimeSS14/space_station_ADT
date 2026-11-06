@@ -150,6 +150,9 @@ public abstract partial class SharedADTCookingSystem : EntitySystem
         if (!args.IsInDetailsRange)
             return;
 
+        if (ent.Comp.Broken)
+            args.PushMarkup(Loc.GetString("adt-stove-examine-broken"));
+
         for (var i = 0; i < ent.Comp.Slots.Count; i++)
         {
             var slot = ent.Comp.Slots[i];

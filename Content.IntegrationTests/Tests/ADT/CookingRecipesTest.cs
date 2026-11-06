@@ -8,6 +8,7 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
+using Content.Shared.Nutrition.Components;
 using Content.Shared.Power.EntitySystems;
 using Robust.Shared.Containers;
 using Robust.Shared.GameObjects;
@@ -22,6 +23,9 @@ public sealed class CookingRecipesTest : GameTest
     private const string Stove = "ADTKitchenElectricRange";
     private const string SecretStove = "ADTSyndicateKitchenElectricRange";
     private const string Plate = "FoodPlate";
+    private const string Beaker = "Beaker";
+    private const string Bowl = "FoodBowlBig";
+    private const string BeakerSolution = "beaker";
     private const string User = "MobHuman";
     private const string PanOil = "ADTOilSunflower";
     private const string PotWater = "Water";
@@ -94,11 +98,12 @@ public sealed class CookingRecipesTest : GameTest
 
         var map = await Pair.CreateTestMap();
         var runs = new List<Run>();
+        EntityUid user = default;
 
         await server.WaitPost(() =>
         {
             var coords = map.GridCoords;
-            var user = entMan.SpawnEntity(User, coords);
+            user = entMan.SpawnEntity(User, coords);
             var settings = protoMan.Index<ADTCookingSettingsPrototype>(ADTCookingSettingsPrototype.DefaultId);
 
             foreach (var recipe in protoMan.EnumeratePrototypes<ADTCookingRecipePrototype>().OrderBy(r => r.ID))
@@ -212,6 +217,9 @@ public sealed class CookingRecipesTest : GameTest
 
                     run.Done = true;
                     run.Error = CheckResult(entMan, run.Recipe, comp);
+
+                    if (run.Error == null && run.Recipe.Cookware == ADTCookwareType.Pot && run.Recipe.Result is { } soup)
+                        run.Error = CheckLadle(entMan, interaction, solutions, user, run.Cookware, soup.Id);
                 }
             });
 
@@ -245,6 +253,7 @@ public sealed class CookingRecipesTest : GameTest
         var entMan = server.ResolveDependency<IEntityManager>();
         var protoMan = server.ResolveDependency<IPrototypeManager>();
         var interaction = entMan.System<SharedInteractionSystem>();
+        var solutions = entMan.System<SharedSolutionContainerSystem>();
 
         var map = await Pair.CreateTestMap();
         var errors = new List<string>();
@@ -288,6 +297,24 @@ public sealed class CookingRecipesTest : GameTest
                     }
                 }
 
+                if (recipe.Reagents.Count > 0)
+                {
+                    var beaker = entMan.SpawnEntity(Beaker, coords);
+                    if (!solutions.TryGetSolution(beaker, BeakerSolution, out var beakerSolution, out _))
+                    {
+                        errors.Add($"{recipe.ID}: у {Beaker} нет раствора");
+                        return;
+                    }
+
+                    foreach (var (reagent, amount) in recipe.Reagents)
+                    {
+                        solutions.TryAddReagent(beakerSolution.Value, new ReagentQuantity(reagent.Id, amount, null), out _);
+                    }
+
+                    interaction.InteractUsing(user, beaker, plate, coords, checkCanInteract: false, checkCanUse: false);
+                    entMan.DeleteEntity(beaker);
+                }
+
                 entMan.DeleteEntity(user);
             });
 
@@ -297,10 +324,21 @@ public sealed class CookingRecipesTest : GameTest
             {
                 if (recipe.Result is { } result)
                 {
-                    if (Existing(entMan, result.Id).Except(before).Any())
-                        return;
+                    if (recipe.ConsumePlate)
+                    {
+                        if (!Existing(entMan, result.Id).Except(before).Any())
+                            errors.Add($"{recipe.ID}: на тарелке не собралось {result.Id}");
 
-                    errors.Add($"{recipe.ID}: на тарелке не собралось {result.Id}");
+                        return;
+                    }
+
+                    var count = entMan.TryGetComponent<ADTPlateComponent>(plate, out var resultPlate)
+                        ? resultPlate.Contents.ContainedEntities.Count(e => entMan.GetComponent<MetaDataComponent>(e).EntityPrototype?.ID == result.Id)
+                        : 0;
+
+                    if (count < recipe.ResultCount)
+                        errors.Add($"{recipe.ID}: на тарелке {count} из {recipe.ResultCount} {result.Id}");
+
                     return;
                 }
 
@@ -343,6 +381,28 @@ public sealed class CookingRecipesTest : GameTest
         return count >= recipe.ResultCount
             ? null
             : $"в посуде {count} из {recipe.ResultCount} {result.Id}";
+    }
+
+    private static string? CheckLadle(IEntityManager entMan, SharedInteractionSystem interaction, SharedSolutionContainerSystem solutions, EntityUid user, EntityUid pot, string soup)
+    {
+        var coords = entMan.GetComponent<TransformComponent>(user).Coordinates;
+        var before = Existing(entMan, soup);
+        var bowl = entMan.SpawnEntity(Bowl, coords);
+        interaction.InteractUsing(user, bowl, pot, coords, checkCanInteract: false, checkCanUse: false);
+
+        var portion = Existing(entMan, soup).Except(before).FirstOrDefault();
+        if (!portion.IsValid())
+            return "суп не разливается в миску";
+
+        if (!entMan.TryGetComponent<EdibleComponent>(portion, out var edible)
+            || !solutions.TryGetSolution(portion, edible.Solution, out _, out var solution)
+            || solution.Volume <= FixedPoint2.Zero)
+        {
+            return "в разлитой порции супа пусто";
+        }
+
+        entMan.DeleteEntity(portion);
+        return null;
     }
 
     private static HashSet<EntityUid> Existing(IEntityManager entMan, string proto)

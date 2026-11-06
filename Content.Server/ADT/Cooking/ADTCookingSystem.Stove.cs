@@ -3,8 +3,10 @@ using Content.Shared.ADT.Cooking;
 using Content.Shared.ADT.Cooking.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Destructible;
 using Content.Shared.Interaction;
 using Content.Shared.Nutrition.Components;
+using Content.Shared.Power;
 using Content.Shared.Verbs;
 using Robust.Shared.Containers;
 
@@ -18,6 +20,8 @@ public sealed partial class ADTCookingSystem
         SubscribeLocalEvent<ADTStoveComponent, GetVerbsEvent<AlternativeVerb>>(OnStoveGetVerbs);
         SubscribeLocalEvent<ADTStoveComponent, EntInsertedIntoContainerMessage>(OnStoveInserted);
         SubscribeLocalEvent<ADTStoveComponent, EntRemovedFromContainerMessage>(OnStoveRemoved);
+        SubscribeLocalEvent<ADTStoveComponent, BreakageEventArgs>(OnStoveBroken);
+        SubscribeLocalEvent<ADTStoveComponent, PowerChangedEvent>(OnStovePowerChanged);
 
         Subs.BuiEvents<ADTStoveComponent>(ADTStoveUiKey.Key, subs =>
         {
@@ -25,6 +29,67 @@ public sealed partial class ADTCookingSystem
         });
 
         SubscribeNetworkEvent<ADTStoveAltClickEvent>(OnStoveAltClick);
+    }
+
+    private void OnStoveBroken(Entity<ADTStoveComponent> ent, ref BreakageEventArgs args)
+    {
+        if (ent.Comp.Broken)
+            return;
+
+        ent.Comp.Broken = true;
+        StopOvenTimer(ent, false);
+
+        for (var i = 0; i < ent.Comp.Slots.Count; i++)
+        {
+            SetHeat(ent, i, ADTStoveHeat.Off, null);
+        }
+
+        Dirty(ent);
+    }
+
+    private void OnStovePowerChanged(Entity<ADTStoveComponent> ent, ref PowerChangedEvent args)
+    {
+        var now = _timing.CurTime;
+        if (!args.Powered && ent.Comp.OvenTimerEnd is { } end)
+        {
+            ent.Comp.OvenTimerRemaining = end > now ? end - now : TimeSpan.Zero;
+            ent.Comp.OvenTimerEnd = null;
+            Dirty(ent);
+        }
+        else if (args.Powered && ent.Comp.OvenTimerRemaining is { } remaining)
+        {
+            ent.Comp.OvenTimerEnd = now + remaining;
+            ent.Comp.OvenTimerRemaining = null;
+            Dirty(ent);
+        }
+
+        for (var i = 0; i < ent.Comp.Slots.Count; i++)
+        {
+            if (GetSlotCookware(ent, i) is not { } cookwareUid || !TryComp<ADTCookwareComponent>(cookwareUid, out var cookware))
+                continue;
+
+            if (!HasComp<ADTActiveCookingComponent>(cookwareUid))
+                continue;
+
+            var cookwareEnt = new Entity<ADTCookwareComponent>(cookwareUid, cookware);
+            if (args.Powered)
+                RefreshVisualTiming(cookwareEnt);
+            else
+                RefreshVisualTiming(cookwareEnt, false);
+
+            UpdateAppearance(cookwareEnt, args.Powered ? null : false);
+        }
+    }
+
+    private bool CheckBroken(Entity<ADTStoveComponent> ent, EntityUid? user)
+    {
+        if (!ent.Comp.Broken)
+            return false;
+
+        if (user != null)
+            _popup.PopupEntity(Loc.GetString("adt-stove-broken"), ent, user.Value);
+
+        return true;
     }
 
     private void OnStoveAltClick(ADTStoveAltClickEvent ev, EntitySessionEventArgs args)
@@ -40,6 +105,9 @@ public sealed partial class ADTCookingSystem
             return;
 
         var ent = new Entity<ADTStoveComponent>(uid, stove);
+        if (CheckBroken(ent, user))
+            return;
+
         var local = GetLocalClick(uid, GetCoordinates(ev.Click));
         var slot = FindNearestSlot(ent, local, _ => true);
         if (slot == null || stove.Slots[slot.Value].Type != ADTStoveSlotType.Burner)
@@ -61,6 +129,10 @@ public sealed partial class ADTCookingSystem
             return;
         }
 
+        if (CheckBroken(ent, args.Actor))
+            return;
+
+        ent.Comp.OvenTimerRemaining = null;
         ent.Comp.OvenTimerEnd = _timing.CurTime + TimeSpan.FromSeconds(seconds);
         Dirty(ent);
 
@@ -74,6 +146,7 @@ public sealed partial class ADTCookingSystem
     private void StopOvenTimer(Entity<ADTStoveComponent> ent, bool finished)
     {
         ent.Comp.OvenTimerEnd = null;
+        ent.Comp.OvenTimerRemaining = null;
         Dirty(ent);
 
         for (var i = 0; i < ent.Comp.Slots.Count; i++)
@@ -121,6 +194,9 @@ public sealed partial class ADTCookingSystem
         if (TryComp<ADTCookwareComponent>(used, out var usedCookware))
         {
             args.Handled = true;
+            if (CheckBroken(ent, user))
+                return;
+
             var slot = FindNearestSlot(ent, local, i => GetSlotCookware(ent, i) == null && SlotAccepts(ent.Comp.Slots[i], usedCookware.Type));
             if (slot == null)
             {
@@ -180,7 +256,7 @@ public sealed partial class ADTCookingSystem
             var index = i;
             var slot = ent.Comp.Slots[i];
             var slotName = Loc.GetString(slot.Name, ("number", i + 1));
-            if (slot.Type != ADTStoveSlotType.Oven)
+            if (slot.Type != ADTStoveSlotType.Oven && !ent.Comp.Broken)
             {
                 var next = NextHeat(slot);
                 args.Verbs.Add(new AlternativeVerb
@@ -229,6 +305,8 @@ public sealed partial class ADTCookingSystem
         if (!TryComp<ADTCookwareComponent>(args.Entity, out var cookware))
             return;
 
+        cookware.TargetKey = null;
+
         if (ent.Comp.Slots[index.Value].Heat != ADTStoveHeat.Off)
             EnsureActive(args.Entity, ent, index.Value);
 
@@ -271,6 +349,9 @@ public sealed partial class ADTCookingSystem
     private void SetHeat(Entity<ADTStoveComponent> ent, int index, ADTStoveHeat heat, EntityUid? user)
     {
         if (index >= ent.Comp.Slots.Count)
+            return;
+
+        if (heat != ADTStoveHeat.Off && CheckBroken(ent, user))
             return;
 
         ent.Comp.Slots[index].Heat = heat;

@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "pot and tray taken from tgstation at https://github.com/tgstation/tgstation (icons/obj/service/kitchen.dmi), pan and liquid levels drawn by Inconnu(discord:inconnu1337)",
+    "copyright": "pot and tray taken from tgstation at https://github.com/tgstation/tgstation (icons/obj/service/kitchen.dmi), pan, liquid levels and oven view of the tray drawn by Inconnu(discord:inconnu1337)",
     "size": {
         "x": 32,
         "y": 32
@@ -45,6 +45,12 @@
         },
         {
             "name": "batter-tray"
+        },
+        {
+            "name": "tray-oven"
+        },
+        {
+            "name": "batter-tray-oven"
         }
     ]
 }

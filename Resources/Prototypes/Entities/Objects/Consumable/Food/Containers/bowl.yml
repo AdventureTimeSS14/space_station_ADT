@@ -10,6 +10,9 @@
   - type: ADTPlate
     layout: ADTPlateSmall
     maxItems: 2
+  - type: ContainerContainer
+    containers:
+      adt_plate: !type:Container
   # ADT-Tweak-End
   - type: Item
     shape:

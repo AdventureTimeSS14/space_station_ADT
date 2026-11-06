@@ -127,7 +127,7 @@ public sealed partial class ADTCookingSystem : SharedADTCookingSystem
 
         UpdateTarget(ent, medium, settings);
 
-        var multiplier = settings.HeatMultipliers.GetValueOrDefault(heat, 1f);
+        var multiplier = settings.HeatMultipliers.GetValueOrDefault(heat, 1f) * GetSpeed(stove);
         var delta = settings.UpdateInterval * multiplier;
 
         switch (comp.Stage)
@@ -179,8 +179,11 @@ public sealed partial class ADTCookingSystem : SharedADTCookingSystem
         active.Slot = slot;
         active.NextUpdate = _timing.CurTime + TimeSpan.FromSeconds(Settings.UpdateInterval);
 
-        if (TryComp<ADTCookwareComponent>(cookware, out var comp))
-            RefreshVisualTiming((cookware, comp));
+        if (!TryComp<ADTCookwareComponent>(cookware, out var comp))
+            return;
+
+        RefreshVisualTiming((cookware, comp));
+        UpdateAppearance((cookware, comp));
     }
 
     private void StopActive(Entity<ADTCookwareComponent> ent)
@@ -205,7 +208,7 @@ public sealed partial class ADTCookingSystem : SharedADTCookingSystem
         {
             heat = stove.Comp.Slots[slot].Heat;
             if (heat != ADTStoveHeat.Off)
-                rate = settings.HeatMultipliers.GetValueOrDefault(heat, 1f);
+                rate = settings.HeatMultipliers.GetValueOrDefault(heat, 1f) * GetSpeed(stove.Comp);
         }
 
         comp.VisualRefTime = _timing.CurTime;
@@ -235,6 +238,11 @@ public sealed partial class ADTCookingSystem : SharedADTCookingSystem
         Dirty(ent);
     }
 
+    private static float GetSpeed(ADTStoveComponent stove)
+    {
+        return stove.CookTimeMultiplier > 0f ? 1f / stove.CookTimeMultiplier : 1f;
+    }
+
     private void ResetCooking(Entity<ADTCookwareComponent> ent)
     {
         var comp = ent.Comp;
@@ -253,6 +261,8 @@ public sealed partial class ADTCookingSystem : SharedADTCookingSystem
         comp.SoupPortions = 0;
         comp.CookResults.Clear();
         comp.CookCenterResult = null;
+        comp.CookToppings.Clear();
+        comp.CookToppingsStay = false;
         ResetMinigames(comp);
         Dirty(ent);
         UpdateAppearance(ent);

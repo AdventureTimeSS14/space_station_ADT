@@ -177,6 +177,282 @@
           32:
             sprite: ADT/Objects/Consumable/Food/plate_masks.rsi
             state: large-6-5
+    7:
+    - offset: -0.28125, -0.10938
+      scale: 0.33
+      rotation: -6
+      displacement:
+        sizeMaps:
+          32:
+            sprite: ADT/Objects/Consumable/Food/plate_masks.rsi
+            state: large-7-0
+    - offset: -0.09375, -0.09375
+      scale: 0.33
+      rotation: 2
+      displacement:
+        sizeMaps:
+          32:
+            sprite: ADT/Objects/Consumable/Food/plate_masks.rsi
+            state: large-7-1
+    - offset: 0.09375, -0.09375
+      scale: 0.33
+      rotation: -2
+      displacement:
+        sizeMaps:
+          32:
+            sprite: ADT/Objects/Consumable/Food/plate_masks.rsi
+            state: large-7-2
+    - offset: 0.28125, -0.10938
+      scale: 0.33
+      rotation: 6
+      displacement:
+        sizeMaps:
+          32:
+            sprite: ADT/Objects/Consumable/Food/plate_masks.rsi
+            state: large-7-3
+    - offset: -0.18750, -0.23438
+      scale: 0.33
+      rotation: -3
+      displacement:
+        sizeMaps:
+          32:
+            sprite: ADT/Objects/Consumable/Food/plate_masks.rsi
+            state: large-7-4
+    - offset: 0.00000, -0.25000
+      scale: 0.33
+      rotation: 0
+      displacement:
+        sizeMaps:
+          32:
+            sprite: ADT/Objects/Consumable/Food/plate_masks.rsi
+            state: large-7-5
+    - offset: 0.18750, -0.23438
+      scale: 0.33
+      rotation: 4
+      displacement:
+        sizeMaps:
+          32:
+            sprite: ADT/Objects/Consumable/Food/plate_masks.rsi
+            state: large-7-6
+    8:
+    - offset: -0.28125, -0.10938
+      scale: 0.32
+      rotation: -6
+      displacement:
+        sizeMaps:
+          32:
+            sprite: ADT/Objects/Consumable/Food/plate_masks.rsi
+            state: large-8-0
+    - offset: -0.09375, -0.09375
+      scale: 0.32
+      rotation: 2
+      displacement:
+        sizeMaps:
+          32:
+            sprite: ADT/Objects/Consumable/Food/plate_masks.rsi
+            state: large-8-1
+    - offset: 0.09375, -0.09375
+      scale: 0.32
+      rotation: -2
+      displacement:
+        sizeMaps:
+          32:
+            sprite: ADT/Objects/Consumable/Food/plate_masks.rsi
+            state: large-8-2
+    - offset: 0.28125, -0.10938
+      scale: 0.32
+      rotation: 6
+      displacement:
+        sizeMaps:
+          32:
+            sprite: ADT/Objects/Consumable/Food/plate_masks.rsi
+            state: large-8-3
+    - offset: -0.23438, -0.23438
+      scale: 0.32
+      rotation: -3
+      displacement:
+        sizeMaps:
+          32:
+            sprite: ADT/Objects/Consumable/Food/plate_masks.rsi
+            state: large-8-4
+    - offset: -0.06250, -0.25000
+      scale: 0.32
+      rotation: 2
+      displacement:
+        sizeMaps:
+          32:
+            sprite: ADT/Objects/Consumable/Food/plate_masks.rsi
+            state: large-8-5
+    - offset: 0.10938, -0.25000
+      scale: 0.32
+      rotation: -2
+      displacement:
+        sizeMaps:
+          32:
+            sprite: ADT/Objects/Consumable/Food/plate_masks.rsi
+            state: large-8-6
+    - offset: 0.28125, -0.23438
+      scale: 0.32
+      rotation: 4
+      displacement:
+        sizeMaps:
+          32:
+            sprite: ADT/Objects/Consumable/Food/plate_masks.rsi
+            state: large-8-7
+    9:
+    - offset: -0.31250, -0.10938
+      scale: 0.3
+      rotation: -6
+      displacement:
+        sizeMaps:
+          32:
+            sprite: ADT/Objects/Consumable/Food/plate_masks.rsi
+            state: large-9-0
+    - offset: -0.15625, -0.09375
+      scale: 0.3
+      rotation: 3
+      displacement:
+        sizeMaps:
+          32:
+            sprite: ADT/Objects/Consumable/Food/plate_masks.rsi
+            state: large-9-1
+    - offset: 0.00000, -0.07812
+      scale: 0.3
+      rotation: 0
+      displacement:
+        sizeMaps:
+          32:
+            sprite: ADT/Objects/Consumable/Food/plate_masks.rsi
+            state: large-9-2
+    - offset: 0.15625, -0.09375
+      scale: 0.3
+      rotation: -3
+      displacement:
+        sizeMaps:
+          32:
+            sprite: ADT/Objects/Consumable/Food/plate_masks.rsi
+            state: large-9-3
+    - offset: 0.31250, -0.10938
+      scale: 0.3
+      rotation: 6
+      displacement:
+        sizeMaps:
+          32:
+            sprite: ADT/Objects/Consumable/Food/plate_masks.rsi
+            state: large-9-4
+    - offset: -0.23438, -0.23438
+      scale: 0.3
+      rotation: -2
+      displacement:
+        sizeMaps:
+          32:
+            sprite: ADT/Objects/Consumable/Food/plate_masks.rsi
+            state: large-9-5
+    - offset: -0.07812, -0.25000
+      scale: 0.3
+      rotation: 3
+      displacement:
+        sizeMaps:
+          32:
+            sprite: ADT/Objects/Consumable/Food/plate_masks.rsi
+            state: large-9-6
+    - offset: 0.07812, -0.25000
+      scale: 0.3
+      rotation: -3
+      displacement:
+        sizeMaps:
+          32:
+            sprite: ADT/Objects/Consumable/Food/plate_masks.rsi
+            state: large-9-7
+    - offset: 0.23438, -0.23438
+      scale: 0.3
+      rotation: 2
+      displacement:
+        sizeMaps:
+          32:
+            sprite: ADT/Objects/Consumable/Food/plate_masks.rsi
+            state: large-9-8
+    10:
+    - offset: -0.31250, -0.10938
+      scale: 0.3
+      rotation: -6
+      displacement:
+        sizeMaps:
+          32:
+            sprite: ADT/Objects/Consumable/Food/plate_masks.rsi
+            state: large-10-0
+    - offset: -0.15625, -0.09375
+      scale: 0.3
+      rotation: 3
+      displacement:
+        sizeMaps:
+          32:
+            sprite: ADT/Objects/Consumable/Food/plate_masks.rsi
+            state: large-10-1
+    - offset: 0.00000, -0.07812
+      scale: 0.3
+      rotation: 0
+      displacement:
+        sizeMaps:
+          32:
+            sprite: ADT/Objects/Consumable/Food/plate_masks.rsi
+            state: large-10-2
+    - offset: 0.15625, -0.09375
+      scale: 0.3
+      rotation: -3
+      displacement:
+        sizeMaps:
+          32:
+            sprite: ADT/Objects/Consumable/Food/plate_masks.rsi
+            state: large-10-3
+    - offset: 0.31250, -0.10938
+      scale: 0.3
+      rotation: 6
+      displacement:
+        sizeMaps:
+          32:
+            sprite: ADT/Objects/Consumable/Food/plate_masks.rsi
+            state: large-10-4
+    - offset: -0.29688, -0.23438
+      scale: 0.3
+      rotation: 4
+      displacement:
+        sizeMaps:
+          32:
+            sprite: ADT/Objects/Consumable/Food/plate_masks.rsi
+            state: large-10-5
+    - offset: -0.14062, -0.25000
+      scale: 0.3
+      rotation: -3
+      displacement:
+        sizeMaps:
+          32:
+            sprite: ADT/Objects/Consumable/Food/plate_masks.rsi
+            state: large-10-6
+    - offset: 0.01562, -0.26562
+      scale: 0.3
+      rotation: 0
+      displacement:
+        sizeMaps:
+          32:
+            sprite: ADT/Objects/Consumable/Food/plate_masks.rsi
+            state: large-10-7
+    - offset: 0.17188, -0.25000
+      scale: 0.3
+      rotation: 3
+      displacement:
+        sizeMaps:
+          32:
+            sprite: ADT/Objects/Consumable/Food/plate_masks.rsi
+            state: large-10-8
+    - offset: 0.31250, -0.23438
+      scale: 0.3
+      rotation: -4
+      displacement:
+        sizeMaps:
+          32:
+            sprite: ADT/Objects/Consumable/Food/plate_masks.rsi
+            state: large-10-9
 
 - type: adtPlateLayout
   id: ADTPlateSmall

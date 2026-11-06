@@ -43,6 +43,8 @@ public sealed partial class ADTCookingSystem : SharedADTCookingSystem
 
     private readonly Dictionary<EntityUid, ShaderInstance[]> _shaders = new();
     private readonly Dictionary<string, EntityUid> _previews = new();
+    private readonly HashSet<EntProtoId> _queuedPreviews = new();
+    private readonly HashSet<EntityUid> _previewWaiters = new();
 
     public override void Initialize()
     {
@@ -52,6 +54,7 @@ public sealed partial class ADTCookingSystem : SharedADTCookingSystem
         SubscribeLocalEvent<ADTCookwareComponent, EntRemovedFromContainerMessage>(OnCookwareRemoved);
         SubscribeLocalEvent<ADTCookwareComponent, AppearanceChangeEvent>(OnCookwareAppearance);
         SubscribeLocalEvent<ADTCookwareComponent, AfterAutoHandleStateEvent>(OnCookwareState);
+        SubscribeLocalEvent<ADTCookwareComponent, ComponentStartup>(OnCookwareStartup);
         SubscribeLocalEvent<ADTCookwareComponent, ComponentShutdown>(OnCookwareShutdown);
 
         SubscribeLocalEvent<ADTStoveComponent, EntInsertedIntoContainerMessage>(OnStoveInserted);
@@ -61,6 +64,7 @@ public sealed partial class ADTCookingSystem : SharedADTCookingSystem
 
         SubscribeLocalEvent<ADTPlateComponent, EntInsertedIntoContainerMessage>(OnPlateInserted);
         SubscribeLocalEvent<ADTPlateComponent, EntRemovedFromContainerMessage>(OnPlateRemoved);
+        SubscribeLocalEvent<ADTPlateComponent, ComponentStartup>(OnPlateStartup);
         SubscribeLocalEvent<ADTPlateComponent, ComponentShutdown>(OnPlateShutdown);
 
         SubscribeLocalEvent<ADTDishComponent, AfterAutoHandleStateEvent>(OnDishState);
@@ -81,6 +85,8 @@ public sealed partial class ADTCookingSystem : SharedADTCookingSystem
         }
 
         _previews.Clear();
+        _queuedPreviews.Clear();
+        _previewWaiters.Clear();
         _shaders.Clear();
 
         foreach (var uid in _emitters.Keys.ToList())
@@ -100,12 +106,22 @@ public sealed partial class ADTCookingSystem : SharedADTCookingSystem
         RefreshPlate(ent);
     }
 
+    private void OnPlateStartup(Entity<ADTPlateComponent> ent, ref ComponentStartup args)
+    {
+        RefreshPlate(ent);
+    }
+
     private void OnPlateShutdown(Entity<ADTPlateComponent> ent, ref ComponentShutdown args)
     {
         _composition.Forget(ent);
     }
 
     private void OnDishState(Entity<ADTDishComponent> ent, ref AfterAutoHandleStateEvent args)
+    {
+        RefreshDish(ent);
+    }
+
+    private void RefreshDish(Entity<ADTDishComponent> ent)
     {
         if (!TryComp<SpriteComponent>(ent, out var sprite))
             return;
@@ -145,7 +161,7 @@ public sealed partial class ADTCookingSystem : SharedADTCookingSystem
         var size = MathF.Max(bounds.Width, bounds.Height) * 0.35f;
         for (var i = 0; i < ent.Comp.Toppings.Count; i++)
         {
-            if (GetPreview(ent.Comp.Toppings[i]) is not { } preview || !_composition.TryGetVisualBounds(preview, out var toppingBounds))
+            if (GetPreview(ent.Comp.Toppings[i], ent) is not { } preview || !_composition.TryGetVisualBounds(preview, out var toppingBounds))
                 continue;
 
             var largest = MathF.Max(toppingBounds.Width, toppingBounds.Height);
@@ -161,7 +177,7 @@ public sealed partial class ADTCookingSystem : SharedADTCookingSystem
 
     private void RefreshPlate(Entity<ADTPlateComponent> ent)
     {
-        if (!TryComp<SpriteComponent>(ent, out var sprite))
+        if (!ent.Comp.Initialized || !TryComp<SpriteComponent>(ent, out var sprite))
             return;
 
         var spriteEnt = new Entity<SpriteComponent>(ent, sprite);
@@ -190,7 +206,7 @@ public sealed partial class ADTCookingSystem : SharedADTCookingSystem
 
             if (layoutProto.ShadowColor.A > 0)
             {
-                _composition.CopyLayers(spriteEnt, itemSprite, $"adt-plate-shadow-{i}", slot.Offset + layoutProto.ShadowOffset, scale, rotation, null, layoutProto.ShadowColor, slot.Displacement);
+                _composition.CopyLayers(spriteEnt, itemSprite, $"adt-plate-shadow-{i}", slot.Offset + layoutProto.ShadowOffset, scale, rotation, null, null, slot.Displacement, fill: layoutProto.ShadowColor);
             }
 
             var sauce = CreateSauceShader(items[i], slot.Displacement != null);
@@ -198,7 +214,7 @@ public sealed partial class ADTCookingSystem : SharedADTCookingSystem
             if (sauce != null && displacement != null)
                 displacement = new DisplacementData(displacement) { ShaderOverride = null };
 
-            _composition.CopyLayers(spriteEnt, itemSprite, $"adt-plate-item-{i}", slot.Offset, scale, rotation, null, null, displacement, sauce);
+            _composition.CopyLayers(spriteEnt, itemSprite, $"adt-plate-item-{i}", slot.Offset, scale, rotation, null, null, displacement, sauce, keepOwnShaders: true);
         }
     }
 
@@ -218,6 +234,11 @@ public sealed partial class ADTCookingSystem : SharedADTCookingSystem
     }
 
     private void OnCookwareState(Entity<ADTCookwareComponent> ent, ref AfterAutoHandleStateEvent args)
+    {
+        RefreshCookware(ent);
+    }
+
+    private void OnCookwareStartup(Entity<ADTCookwareComponent> ent, ref ComponentStartup args)
     {
         RefreshCookware(ent);
     }
@@ -286,23 +307,50 @@ public sealed partial class ADTCookingSystem : SharedADTCookingSystem
         return shaders;
     }
 
-    private SpriteComponent? GetPreview(EntProtoId proto)
+    private SpriteComponent? GetPreview(EntProtoId proto, EntityUid requester)
     {
-        if (!_previews.TryGetValue(proto.Id, out var uid) || TerminatingOrDeleted(uid))
-        {
-            if (!_proto.HasIndex<EntityPrototype>(proto))
-                return null;
+        if (_previews.TryGetValue(proto.Id, out var uid) && !TerminatingOrDeleted(uid))
+            return CompOrNull<SpriteComponent>(uid);
 
-            uid = Spawn(proto, MapCoordinates.Nullspace);
+        if (!_proto.HasIndex<EntityPrototype>(proto))
+            return null;
+
+        _queuedPreviews.Add(proto);
+        _previewWaiters.Add(requester);
+        return null;
+    }
+
+    private void SpawnQueuedPreviews()
+    {
+        if (_queuedPreviews.Count == 0)
+            return;
+
+        foreach (var proto in _queuedPreviews)
+        {
+            if (_previews.TryGetValue(proto.Id, out var existing) && !TerminatingOrDeleted(existing))
+                continue;
+
+            var uid = Spawn(proto, MapCoordinates.Nullspace);
             _previews[proto.Id] = uid;
+            _appearance.OnChangeData(uid, CompOrNull<SpriteComponent>(uid));
         }
 
-        return CompOrNull<SpriteComponent>(uid);
+        _queuedPreviews.Clear();
+
+        var waiters = _previewWaiters.ToList();
+        _previewWaiters.Clear();
+        foreach (var waiter in waiters)
+        {
+            if (TryComp<ADTCookwareComponent>(waiter, out var cookware))
+                RefreshCookware((waiter, cookware));
+            else if (TryComp<ADTDishComponent>(waiter, out var dish))
+                RefreshDish((waiter, dish));
+        }
     }
 
     private void RefreshCookware(Entity<ADTCookwareComponent> ent)
     {
-        if (!TryComp<SpriteComponent>(ent, out var sprite))
+        if (!ent.Comp.Initialized || !TryComp<SpriteComponent>(ent, out var sprite))
             return;
 
         var comp = ent.Comp;
@@ -343,13 +391,32 @@ public sealed partial class ADTCookingSystem : SharedADTCookingSystem
                 batterShader = comp.CookCenterResult != null ? shaders[ModeFadeOut] : shaders[ModeBrown];
 
             sprite.LayerSetShader(batterIndex, batterShader);
+
+            var batterPosition = comp.ContentCenter;
+            var batterScale = Vector2.One;
+            ApplyFlip(ent, ref batterPosition, ref batterScale);
+            _sprite.LayerSetScale(spriteEnt.AsNullable(), batterIndex, batterScale);
+            _sprite.LayerSetOffset(spriteEnt.AsNullable(), batterIndex, batterPosition - comp.ContentCenter * batterScale);
         }
 
         var contents = comp.Contents.ContainedEntities;
+        var toppings = new List<EntityUid>();
+        if (cooking && comp.CookCenterResult != null)
+        {
+            foreach (var netTopping in comp.CookToppings)
+            {
+                if (TryGetEntity(netTopping, out var topping) && contents.Contains(topping.Value))
+                    toppings.Add(topping.Value);
+            }
+        }
+
         var large = new List<EntityUid>();
         var small = new List<EntityUid>();
         foreach (var item in contents)
         {
+            if (toppings.Contains(item))
+                continue;
+
             if (IsLargeItem(comp, item))
                 large.Add(item);
             else
@@ -374,7 +441,7 @@ public sealed partial class ADTCookingSystem : SharedADTCookingSystem
             ApplyFlip(ent, ref position, ref scale);
             var key = drawn++;
 
-            if (cooking && comp.CookResults.TryGetValue(GetNetEntity(item), out var result) && GetPreview(result) is { } preview)
+            if (cooking && comp.CookResults.TryGetValue(GetNetEntity(item), out var result) && GetPreview(result, ent) is { } preview)
             {
                 insertAt = _composition.CopyLayers(spriteEnt, itemSprite, $"adt-cookware-item-{key}", GetCenteredOffset(itemSprite, position, scale), scale, Angle.Zero, insertAt, shader: shaders[ModeFadeOut]);
                 insertAt = _composition.CopyLayers(spriteEnt, preview, $"adt-cookware-result-{key}", GetCenteredOffset(preview, position, scale), scale, Angle.Zero, insertAt, shader: shaders[ModeFadeIn]);
@@ -390,16 +457,86 @@ public sealed partial class ADTCookingSystem : SharedADTCookingSystem
             insertAt = _composition.CopyLayers(spriteEnt, itemSprite, $"adt-cookware-item-{key}", GetCenteredOffset(itemSprite, position, scale), scale, Angle.Zero, insertAt, shader: shader);
         }
 
-        if (cooking && comp.CookCenterResult is { } center && GetPreview(center) is { } centerPreview)
+        if (cooking && comp.CookCenterResult is { } center && GetPreview(center, ent) is { } centerPreview)
         {
             var scale = comp.CookCenterLarge ? GetFitScale(comp, centerPreview) : comp.ContentScale;
             var position = comp.ContentCenter;
             ApplyFlip(ent, ref position, ref scale);
-            _composition.CopyLayers(spriteEnt, centerPreview, "adt-cookware-center", GetCenteredOffset(centerPreview, position, scale), scale, Angle.Zero, insertAt, shader: shaders[ModeFadeIn]);
+            insertAt = _composition.CopyLayers(spriteEnt, centerPreview, "adt-cookware-center", GetCenteredOffset(centerPreview, position, scale), scale, Angle.Zero, insertAt, shader: shaders[ModeFadeIn]);
+
+            var toppingShader = comp.CookToppingsStay ? null : shaders[ModeFadeOut];
+            DrawCookToppings(spriteEnt, centerPreview, toppings, position, scale, insertAt, toppingShader);
         }
 
         if (TryGetStoveSlot(ent, out var stove, out _))
             RefreshStove(stove);
+    }
+
+    private void DrawCookToppings(Entity<SpriteComponent> target, SpriteComponent center, List<EntityUid> toppings, Vector2 position, Vector2 scale, int? insertAt, ShaderInstance? shader)
+    {
+        if (toppings.Count == 0 || !_composition.TryGetVisualBounds(center, out var bounds))
+            return;
+
+        var origin = GetCenteredOffset(center, position, scale);
+        var half = bounds.Size / 2f;
+        var size = MathF.Max(bounds.Width, bounds.Height) * 0.35f;
+        for (var i = 0; i < toppings.Count; i++)
+        {
+            if (!TryComp<SpriteComponent>(toppings[i], out var toppingSprite) || !_composition.TryGetVisualBounds(toppingSprite, out var toppingBounds))
+                continue;
+
+            var largest = MathF.Max(toppingBounds.Width, toppingBounds.Height);
+            if (largest <= 0f)
+                continue;
+
+            var fit = MathF.Min(0.6f, size / largest);
+            var spot = bounds.Center + ToppingSpots[i % ToppingSpots.Length] * half;
+            var local = spot - toppingBounds.Center * fit;
+            insertAt = _composition.CopyLayers(target, toppingSprite, $"adt-cookware-topping-{i}", origin + local * scale, scale * fit, Angle.Zero, insertAt, shader: shader);
+        }
+    }
+
+    private void DrawOvenView(Entity<SpriteComponent> stove, int index, ADTStoveSlot slot, Entity<ADTCookwareComponent> cookware, ResPath rsi)
+    {
+        var comp = cookware.Comp;
+        var tint = slot.Tint ?? Color.White;
+
+        var trayIndex = _composition.AddLayer(stove, $"adt-stove-oven-{index}", new SpriteSpecifier.Rsi(rsi, comp.OvenState!), slot.Offset);
+        _sprite.LayerSetColor(stove.AsNullable(), trayIndex, tint);
+
+        _appearance.TryGetData<bool>(cookware, ADTCookwareVisuals.BatterVisible, out var batterVisible);
+        if (batterVisible && comp.OvenBatterState != null)
+        {
+            _appearance.TryGetData<Color>(cookware, ADTCookwareVisuals.BatterColor, out var batterColor);
+            var batterIndex = _composition.AddLayer(stove, $"adt-stove-oven-batter-{index}", new SpriteSpecifier.Rsi(rsi, comp.OvenBatterState), slot.Offset);
+            _sprite.LayerSetColor(stove.AsNullable(), batterIndex, batterColor.WithAlpha(1f) * tint);
+        }
+
+        var items = new List<(EntityUid Uid, SpriteComponent Sprite, bool Large)>();
+        foreach (var item in comp.Contents.ContainedEntities)
+        {
+            if (TryComp<SpriteComponent>(item, out var itemSprite))
+                items.Add((item, itemSprite, IsLargeItem(comp, item)));
+        }
+
+        var area = comp.OvenContentArea;
+        var smallCount = items.Count(entry => !entry.Large);
+        var smallIndex = 0;
+        for (var i = 0; i < items.Count; i++)
+        {
+            var (_, itemSprite, large) = items[i];
+            if (!_composition.TryGetVisualBounds(itemSprite, out var bounds) || bounds.Width <= 0f || bounds.Height <= 0f)
+                continue;
+
+            var width = large ? area.X : area.X / smallCount;
+            var fit = MathF.Min(width / bounds.Width, area.Y / bounds.Height);
+            var position = slot.Offset;
+            if (!large)
+                position.X += -area.X / 2f + width * (smallIndex++ + 0.5f);
+
+            var scale = new Vector2(fit, fit);
+            _composition.CopyLayers(stove, itemSprite, $"adt-stove-oven-item-{index}-{i}", position - bounds.Center * scale, scale, Angle.Zero, null, tint);
+        }
     }
 
     private bool IsLargeItem(ADTCookwareComponent comp, EntityUid item)
@@ -458,6 +595,15 @@ public sealed partial class ADTCookingSystem : SharedADTCookingSystem
             var cookware = GetSlotCookware(ent, i);
             if (cookware == null || !TryComp<SpriteComponent>(cookware, out var cookwareSprite))
                 continue;
+
+            if (slot.Type == ADTStoveSlotType.Oven
+                && TryComp<ADTCookwareComponent>(cookware, out var ovenCookware)
+                && ovenCookware.OvenState != null
+                && cookwareSprite.BaseRSI is { } cookwareRsi)
+            {
+                DrawOvenView(spriteEnt, i, slot, (cookware.Value, ovenCookware), cookwareRsi.Path);
+                continue;
+            }
 
             var offset = slot.Offset;
             var scale = slot.Scale ?? ent.Comp.CookwareScale;

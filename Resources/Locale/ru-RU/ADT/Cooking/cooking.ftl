@@ -29,7 +29,7 @@ adt-cookware-ladled = Вы наливаете порцию: {THE($item)}.
 adt-cookware-on-fire = Оно горит! Подождите, пока погаснет.
 adt-cookware-burnt = Из {THE($cookware)} тянет гарью.
 adt-cookware-flare = Масло в {THE($cookware)} вспыхивает!
-adt-cookware-flip-now = {CAPITALIZE(THE($cookware))} шипит: пора переворачивать лопаткой!
+adt-cookware-flip-now = {CAPITALIZE(THE($cookware))}: пора переворачивать лопаткой!
 adt-cookware-flip-success = Вы ловко переворачиваете содержимое.
 adt-cookware-flip-already = Вы уже переворачивали.
 adt-cookware-flip-wrong-time = Сейчас не время переворачивать.
@@ -60,6 +60,8 @@ adt-stove-heat-low = слабый огонь
 adt-stove-heat-medium = средний огонь
 adt-stove-heat-high = сильный огонь
 adt-stove-no-free-slot = Нет свободного места для этой посуды.
+adt-stove-broken = Плита сломана.
+adt-stove-examine-broken = [color=red]Плита сломана.[/color]
 adt-stove-verb-heat = {CAPITALIZE($slot)}: {$heat}
 adt-stove-verb-take = Снять {$item} ({$slot})
 

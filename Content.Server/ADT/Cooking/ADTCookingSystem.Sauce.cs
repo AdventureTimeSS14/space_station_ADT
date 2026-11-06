@@ -1,7 +1,6 @@
 using Content.Shared.ADT.Cooking.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Interaction;
-using Content.Shared.Nutrition.Components;
 
 namespace Content.Server.ADT.Cooking;
 
@@ -22,7 +21,7 @@ public sealed partial class ADTCookingSystem
 
     private bool TryPourSauce(EntityUid dish, EntityUid source, EntityUid user)
     {
-        if (!HasComp<ADTDishComponent>(dish) || !HasComp<EdibleComponent>(dish))
+        if (!HasComp<ADTDishComponent>(dish) || !CanAddToFood(dish) || !CanSendSolution(source))
             return false;
 
         if (!_solution.TryGetDrainableSolution(source, out var sourceSoln, out var sourceSolution))

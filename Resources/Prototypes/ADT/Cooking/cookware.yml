@@ -24,7 +24,10 @@
       collection: MetalThud
   - type: PhysicalComposition
     materialComposition:
-      Steel: 300
+      Steel: 150
+  - type: ContainerContainer
+    containers:
+      adt_cookware: !type:Container
 
 - type: entity
   parent: ADTBaseCookware
@@ -116,6 +119,8 @@
   - type: ADTCookware
     cookwareType: Tray
     maxItems: 12
+    ovenState: tray-oven
+    ovenBatterState: batter-tray-oven
     contentScale: 0.4, 0.4
     contentCenter: 0, 0.015625
     contentArea: 0.56, 0.4
@@ -204,7 +209,7 @@
       collection: MetalThud
   - type: PhysicalComposition
     materialComposition:
-      Steel: 100
+      Steel: 50
 
 - type: entity
   parent: ADTSpatula

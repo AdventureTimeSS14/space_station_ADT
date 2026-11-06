@@ -93,7 +93,13 @@ public sealed class ADTStoveWindow : DefaultWindow
 
     private int Remaining()
     {
-        if (!_entMan.TryGetComponent<ADTStoveComponent>(_stove, out var comp) || comp.OvenTimerEnd is not { } end)
+        if (!_entMan.TryGetComponent<ADTStoveComponent>(_stove, out var comp))
+            return 0;
+
+        if (comp.OvenTimerRemaining is { } paused)
+            return Math.Max(0, (int) Math.Ceiling(paused.TotalSeconds));
+
+        if (comp.OvenTimerEnd is not { } end)
             return 0;
 
         return Math.Max(0, (int) Math.Ceiling((end - _timing.CurTime).TotalSeconds));

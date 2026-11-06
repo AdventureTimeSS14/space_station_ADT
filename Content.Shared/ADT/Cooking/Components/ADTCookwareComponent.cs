@@ -45,6 +45,15 @@ public sealed partial class ADTCookwareComponent : Component
     public string? MediumState;
 
     [DataField]
+    public string? OvenState;
+
+    [DataField]
+    public string? OvenBatterState;
+
+    [DataField]
+    public Vector2 OvenContentArea = new(0.3125f, 0.0625f);
+
+    [DataField]
     public int MediumLevels = 4;
 
     [ViewVariables]
@@ -145,6 +154,12 @@ public sealed partial class ADTCookwareComponent : Component
 
     [ViewVariables, AutoNetworkedField]
     public HashSet<NetEntity> LargeItems = new();
+
+    [ViewVariables, AutoNetworkedField]
+    public List<NetEntity> CookToppings = new();
+
+    [ViewVariables, AutoNetworkedField]
+    public bool CookToppingsStay;
 }
 
 public enum ADTCookingTargetKind : byte

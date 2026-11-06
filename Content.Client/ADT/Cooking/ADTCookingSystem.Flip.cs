@@ -31,6 +31,8 @@ public sealed partial class ADTCookingSystem
     {
         base.FrameUpdate(frameTime);
 
+        SpawnQueuedPreviews();
+
         if (_flips.Count == 0)
             return;
 

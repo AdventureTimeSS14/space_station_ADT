@@ -168,8 +168,7 @@
       name: adt-stove-slot-burner-right
       flameState: burner_right_
     - slotType: Oven
-      offset: -0.015625, -0.171875
-      scale: 0.65, 0.3
+      offset: -0.0625, -0.1875
       tint: "#B39E8CBF"
       name: adt-stove-slot-oven
   - type: Appearance
@@ -256,15 +255,14 @@
       name: adt-stove-slot-burner-right
       flameState: burner_right_
     - slotType: Oven
-      offset: -0.015625, -0.171875
-      scale: 0.65, 0.3
+      offset: -0.0625, -0.1875
       tint: "#B39E8CBF"
       name: adt-stove-slot-oven
     secretRecipes:
     - ADTCookBaguetteSword
     - ADTCookThrowingCroissant
+    cookTimeMultiplier: 0.5
   - type: Sprite
-    sprite: ADT/Structures/Machines/oven.rsi
-    color: "#ffa0a0"
+    sprite: ADT/Structures/Machines/oven_syndie.rsi
   - type: Machine
     board: ADTSyndicateElectricRangeMachineCircuitboard

@@ -43,6 +43,8 @@ public sealed partial class ADTCookingSystem
             SetStage(ent, ADTCookingStage.Idle);
             comp.CookResults.Clear();
             comp.CookCenterResult = null;
+            comp.CookToppings.Clear();
+            comp.CookToppingsStay = false;
             RefreshVisualTiming(ent);
             return;
         }
@@ -73,11 +75,20 @@ public sealed partial class ADTCookingSystem
         comp.CookResults.Clear();
         comp.CookCenterResult = null;
         comp.CookCenterLarge = false;
+        comp.CookToppings.Clear();
+        comp.CookToppingsStay = false;
 
         if (target.Kind == ADTCookingTargetKind.Recipe && target.Recipe?.Result != null && comp.Type != ADTCookwareType.Pot)
         {
-            comp.CookCenterResult = ResolveResult(ent, target.Recipe, out _);
+            var center = ResolveResult(ent, target.Recipe, out var toppings);
+            comp.CookCenterResult = center;
             comp.CookCenterLarge = IsLargeResult(target.Recipe);
+            comp.CookToppingsStay = toppings.Count > 0 && center == target.Recipe.Result.Value;
+            foreach (var topping in toppings)
+            {
+                comp.CookToppings.Add(GetNetEntity(topping));
+            }
+
             return;
         }
 
@@ -237,7 +248,7 @@ public sealed partial class ADTCookingSystem
             {
                 builder.Append(reagent.Reagent.Prototype.Id);
                 builder.Append(':');
-                builder.Append(reagent.Quantity.Int());
+                builder.Append(reagent.Quantity.Value);
                 builder.Append(';');
             }
         }
@@ -493,8 +504,18 @@ public sealed partial class ADTCookingSystem
                 if (resultProto != recipe.Result.Value)
                     toppingProtos.Clear();
 
+                var addedSolution = new Solution();
+                foreach (var item in items)
+                {
+                    if (!toppings.Contains(item))
+                        addedSolution.AddSolution(GetAddedReagents(item, settings), _proto);
+                }
+
                 if (recipe.ResultCount > 1)
+                {
                     toppingSolution.ScaleSolution(1f / recipe.ResultCount);
+                    addedSolution.ScaleSolution(1f / recipe.ResultCount);
+                }
 
                 foreach (var item in items)
                 {
@@ -506,6 +527,9 @@ public sealed partial class ADTCookingSystem
                 {
                     var result = EntityManager.SpawnInContainerOrDrop(resultProto, ent, ADTCookwareComponent.ContainerId);
                     ApplyDish(result, method, level, settings);
+                    if (addedSolution.Volume > 0)
+                        AddToFood(result, addedSolution.Clone());
+
                     if (toppings.Count > 0)
                         AddToppings(result, toppingSolution.Clone(), toppingFlavors, toppingProtos);
 
@@ -525,11 +549,17 @@ public sealed partial class ADTCookingSystem
                         continue;
                     }
 
+                    var itemAdded = GetAddedReagents(item, settings);
+                    if (single.ResultCount > 1)
+                        itemAdded.ScaleSolution(1f / single.ResultCount);
+
                     Del(item);
                     for (var i = 0; i < single.ResultCount; i++)
                     {
                         var result = EntityManager.SpawnInContainerOrDrop(single.Result.Value, ent, ADTCookwareComponent.ContainerId);
                         ApplyDish(result, method, level, settings);
+                        if (itemAdded.Volume > 0)
+                            AddToFood(result, itemAdded.Clone());
                     }
                 }
                 break;
@@ -582,6 +612,8 @@ public sealed partial class ADTCookingSystem
     {
         ent.Comp.CookResults.Clear();
         ent.Comp.CookCenterResult = null;
+        ent.Comp.CookToppings.Clear();
+        ent.Comp.CookToppingsStay = false;
         SetStage(ent, ADTCookingStage.Done);
         ent.Comp.TargetKey = null;
         RefreshVisualTiming(ent);
@@ -654,12 +686,19 @@ public sealed partial class ADTCookingSystem
 
         foreach (var item in items)
         {
+            soup.AddSolution(GetAddedReagents(item, settings), _proto);
             Del(item);
         }
 
-        var qualityId = settings.Qualities[Math.Clamp(level, 0, settings.Qualities.Count - 1)];
-        if (_proto.TryIndex(qualityId, out var quality))
-            ScaleSolutionNutrients(soup, quality.NutritionMultiplier, settings);
+        soup.AddSolution(NutrientsOnly(pot, settings), _proto);
+
+        ProtoId<ADTDishQualityPrototype>? qualityId = null;
+        if (settings.Qualities.Count > 0)
+        {
+            qualityId = settings.Qualities[Math.Clamp(level, 0, settings.Qualities.Count - 1)];
+            if (_proto.TryIndex(qualityId.Value, out var quality))
+                ScaleSolutionNutrients(soup, quality.NutritionMultiplier, settings);
+        }
 
         _solution.RemoveAllSolution(potSoln.Value);
         if (pot.MaxVolume < soup.Volume)
@@ -871,6 +910,40 @@ public sealed partial class ADTCookingSystem
         _solution.TryAddSolution(solnEnt.Value, added);
     }
 
+    private bool CanAddToFood(EntityUid food)
+    {
+        return TryComp<EdibleComponent>(food, out var edible) && _solution.TryGetSolution(food, edible.Solution, out _, out _);
+    }
+
+    private bool CanSendSolution(EntityUid source)
+    {
+        return TryComp<SolutionTransferComponent>(source, out var transfer) && transfer.CanSend;
+    }
+
+    private Solution GetAddedReagents(EntityUid item, ADTCookingSettingsPrototype settings)
+    {
+        var added = new Solution();
+        if (!TryComp<EdibleComponent>(item, out var edible) || !_solution.TryGetSolution(item, edible.Solution, out _, out var current))
+            return added;
+
+        Solution? baseline = null;
+        if (MetaData(item).EntityPrototype is { } proto)
+            _solution.TryGetSolution(proto, edible.Solution, out baseline);
+
+        foreach (var reagent in current.Contents)
+        {
+            var id = reagent.Reagent.Prototype;
+            if (settings.NutrientReagents.Contains(id))
+                continue;
+
+            var extra = reagent.Quantity - (baseline?.GetTotalPrototypeQuantity(id) ?? FixedPoint2.Zero);
+            if (extra > FixedPoint2.Zero)
+                added.AddReagent(reagent.Reagent, extra);
+        }
+
+        return added;
+    }
+
     private static Solution NutrientsOnly(Solution source, ADTCookingSettingsPrototype settings)
     {
         var result = new Solution();
@@ -909,6 +982,8 @@ public sealed partial class ADTCookingSystem
         {
             if (TryComp<EdibleComponent>(item, out var edible) && _solution.TryGetSolution(item, edible.Solution, out _, out var itemSolution))
                 total.AddSolution(NutrientsOnly(itemSolution, settings), _proto);
+
+            total.AddSolution(GetAddedReagents(item, settings), _proto);
 
             var name = Name(item);
             if (!names.Contains(name))
@@ -954,8 +1029,19 @@ public sealed partial class ADTCookingSystem
 
     private void Overcook(Entity<ADTCookwareComponent> ent, ADTCookingSettingsPrototype settings)
     {
-        if (ent.Comp.SoupQuality is { } soupQuality && _proto.TryIndex(soupQuality, out var soupLevel))
-            ent.Comp.SoupQuality = settings.Qualities[Math.Max(0, Math.Min(soupLevel.Level - 1, settings.Qualities.Count - 1))];
+        if (ent.Comp.SoupQuality is { } soupQuality && _proto.TryIndex(soupQuality, out var soupLevel) && settings.Qualities.Count > 0)
+        {
+            var lowerSoup = settings.Qualities[Math.Max(0, Math.Min(soupLevel.Level - 1, settings.Qualities.Count - 1))];
+            ent.Comp.SoupQuality = lowerSoup;
+
+            if (_proto.TryIndex(lowerSoup, out var lowerSoupQuality)
+                && soupLevel.NutritionMultiplier > 0
+                && _solution.TryGetSolution(ent.Owner, ent.Comp.Solution, out var potSoln, out var pot))
+            {
+                ScaleSolutionNutrients(pot, lowerSoupQuality.NutritionMultiplier / soupLevel.NutritionMultiplier, settings);
+                _solution.UpdateChemicals(potSoln.Value, false);
+            }
+        }
 
         foreach (var item in ent.Comp.Contents.ContainedEntities)
         {
@@ -963,8 +1049,14 @@ public sealed partial class ADTCookingSystem
                 continue;
 
             var lower = Math.Max(0, quality.Level - 1);
-            if (lower < settings.Qualities.Count)
-                _dish.SetDish(item, dish.Method, settings.Qualities[lower]);
+            if (lower >= settings.Qualities.Count || lower == quality.Level)
+                continue;
+
+            var lowerId = settings.Qualities[lower];
+            _dish.SetDish(item, dish.Method, lowerId);
+
+            if (_proto.TryIndex(lowerId, out var lowerQuality) && quality.NutritionMultiplier > 0)
+                ScaleNutrients(item, lowerQuality.NutritionMultiplier / quality.NutritionMultiplier, settings);
         }
 
         SetStage(ent, ADTCookingStage.Overcooked);

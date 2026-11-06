@@ -23,6 +23,18 @@ public sealed partial class ADTCookingSystem
         SubscribeLocalEvent<ADTCookwareComponent, GetVerbsEvent<AlternativeVerb>>(OnCookwareGetVerbs);
         SubscribeLocalEvent<ADTCookwareComponent, EntRemovedFromContainerMessage>(OnCookwareContentRemoved);
         SubscribeLocalEvent<ADTCookwareComponent, SolutionChangedEvent>(OnCookwareSolutionChanged);
+        SubscribeLocalEvent<ADTCookwareComponent, EntityPausedEvent>(OnCookwarePaused);
+        SubscribeLocalEvent<ADTCookwareComponent, EntityUnpausedEvent>(OnCookwareUnpaused);
+    }
+
+    private void OnCookwarePaused(Entity<ADTCookwareComponent> ent, ref EntityPausedEvent args)
+    {
+        RefreshVisualTiming(ent, false);
+    }
+
+    private void OnCookwareUnpaused(Entity<ADTCookwareComponent> ent, ref EntityUnpausedEvent args)
+    {
+        RefreshVisualTiming(ent);
     }
 
     private void OnCookwareInteractUsing(Entity<ADTCookwareComponent> ent, ref InteractUsingEvent args)
@@ -125,7 +137,7 @@ public sealed partial class ADTCookingSystem
         }
 
         var proto = MetaData(used).EntityPrototype?.ID;
-        if (proto != null && settings.MeltIntoMedium.Contains(proto))
+        if (proto != null && comp.Type == ADTCookwareType.Pan && settings.MeltIntoMedium.Contains(proto))
             return TryMelt(ent, used, user);
 
         if (TryComp<ADTCookwareCrackableComponent>(used, out var crackable) && crackable.Cookware.Contains(comp.Type))
@@ -196,6 +208,12 @@ public sealed partial class ADTCookingSystem
 
     private bool TryMelt(Entity<ADTCookwareComponent> ent, EntityUid used, EntityUid user)
     {
+        if (ent.Comp.Stage >= ADTCookingStage.Done)
+        {
+            _popup.PopupEntity(Loc.GetString("adt-cookware-take-result-first"), ent, user);
+            return true;
+        }
+
         if (!TryComp<EdibleComponent>(used, out var edible))
             return false;
 
@@ -489,15 +507,15 @@ public sealed partial class ADTCookingSystem
             }
         }
 
-        var active = activeOverride ?? HasComp<ADTActiveCookingComponent>(ent);
+        var active = activeOverride ?? (TryComp<ADTActiveCookingComponent>(ent, out var activeComp) && _power.IsPowered(activeComp.Stove));
         var effect = comp.Stage switch
         {
             ADTCookingStage.OnFire => ADTCookwareEffect.Fire,
             ADTCookingStage.Burnt => active ? ADTCookwareEffect.Smoke : ADTCookwareEffect.None,
             ADTCookingStage.Overcooked => active ? ADTCookwareEffect.Smoke : ADTCookwareEffect.None,
-            ADTCookingStage.Cooking when active && comp.Type == ADTCookwareType.Pot => ADTCookwareEffect.Steam,
-            ADTCookingStage.Cooking when active && comp.Type == ADTCookwareType.Pan => ADTCookwareEffect.Sizzle,
-            ADTCookingStage.Done when active && comp.Type == ADTCookwareType.Pot => ADTCookwareEffect.Steam,
+            _ when !active => ADTCookwareEffect.None,
+            _ when comp.Type == ADTCookwareType.Pot && (fill > 0f || comp.Stage != ADTCookingStage.Idle) => ADTCookwareEffect.Steam,
+            _ when comp.Type == ADTCookwareType.Pan && (fill > 0f || batterVisible || comp.Contents.ContainedEntities.Count > 0) => ADTCookwareEffect.Sizzle,
             _ => ADTCookwareEffect.None,
         };
 

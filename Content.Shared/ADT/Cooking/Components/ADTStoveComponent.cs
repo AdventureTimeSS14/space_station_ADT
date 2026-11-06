@@ -33,6 +33,15 @@ public sealed partial class ADTStoveComponent : Component
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
     public TimeSpan? OvenTimerEnd;
 
+    [DataField, AutoNetworkedField]
+    public TimeSpan? OvenTimerRemaining;
+
+    [DataField, AutoNetworkedField]
+    public bool Broken;
+
+    [DataField]
+    public float CookTimeMultiplier = 1f;
+
     [DataField]
     public List<int> OvenTimerPresets = new() { 15, 30, 45, 60, 90, 120, 180, 300 };
 
