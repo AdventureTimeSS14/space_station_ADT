@@ -8,6 +8,14 @@
           operator: !type:ADTStandUpOperator
 
     - preconditions:
+        - !type:KeyBoolEqualsPrecondition
+          key: ADTSquadPassive
+          value: true
+      tasks:
+        - !type:HTNCompoundTask
+          task: ADTExpeditionIdleCompound
+
+    - preconditions:
         - !type:ADTWeaponPrecondition
           role: Melee
           check: Exists
@@ -35,6 +43,28 @@
           task: ADTGateMeleeLeave
         - !type:HTNCompoundTask
           task: ADTMeleeCombatCompound
+
+    - preconditions:
+        - !type:ADTMagazinePrecondition
+          magazines:
+          - ADTMagazineReactive30Blast
+          - ADTMagazineReactive30DrumBlast
+          - ADTMagazineReactive30DrumHeavyBlast
+        - !type:ADTWeaponPrecondition
+          role: Sidearm
+          check: Usable
+        - !type:ADTWeaponPrecondition
+          role: Sidearm
+          check: Active
+          invert: true
+      tasks:
+        - !type:HTNCompoundTask
+          task: ADTAcquireTarget
+        - !type:HTNCompoundTask
+          task: ADTGateExplosive
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTSwitchWeaponOperator
+            role: Sidearm
 
     - preconditions:
         - !type:ADTWeaponPrecondition
@@ -584,6 +614,13 @@
         - !type:HTNPrimitiveTask
           operator: !type:MoveToOperator
 
+    - tasks:
+        - !type:HTNCompoundTask
+          task: ADTExpeditionIdleCompound
+
+- type: htnCompound
+  id: ADTExpeditionIdleCompound
+  branches:
     - preconditions:
         - !type:SatiationPrecondition
           satiationType: Hunger
@@ -597,6 +634,8 @@
           operator: !type:ADTEatOperator
 
     - preconditions:
+        - !type:ADTFactionPrecondition
+          faction: ADTSovietBunker
         - !type:ADTHostileNearPrecondition
           range: 15
           invert: true
@@ -609,11 +648,51 @@
         - !type:HTNPrimitiveTask
           operator: !type:SpeakOperator
             speech: !type:LocalizedSetSpeakOperatorSpeech
-              lineSet: ADTExpeditionNpcJokes
+              lineSet: ADTSovietBunkerJokes
             cooldown: 90
             cooldownID: ADTJokeCooldown
 
     - preconditions:
+        - !type:ADTFactionPrecondition
+          faction: ADTSmugglers
+        - !type:ADTHostileNearPrecondition
+          range: 15
+          invert: true
+        - !type:ADTRandomChancePrecondition
+          chance: 0.003
+        - !type:ADTGroupQuietPrecondition
+          seconds: 10
+          range: 15
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:SpeakOperator
+            speech: !type:LocalizedSetSpeakOperatorSpeech
+              lineSet: ADTSmugglerJokes
+            cooldown: 90
+            cooldownID: ADTJokeCooldown
+
+    - preconditions:
+        - !type:ADTFactionPrecondition
+          faction: ADTMarauders
+        - !type:ADTHostileNearPrecondition
+          range: 15
+          invert: true
+        - !type:ADTRandomChancePrecondition
+          chance: 0.003
+        - !type:ADTGroupQuietPrecondition
+          seconds: 10
+          range: 15
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:SpeakOperator
+            speech: !type:LocalizedSetSpeakOperatorSpeech
+              lineSet: ADTMarauderJokes
+            cooldown: 90
+            cooldownID: ADTJokeCooldown
+
+    - preconditions:
+        - !type:ADTFactionPrecondition
+          faction: ADTSovietBunker
         - !type:ADTHostileNearPrecondition
           range: 15
           invert: true
@@ -626,23 +705,73 @@
         - !type:HTNPrimitiveTask
           operator: !type:SpeakOperator
             speech: !type:LocalizedSetSpeakOperatorSpeech
-              lineSet: ADTExpeditionNpcChatter
+              lineSet: ADTSovietBunkerChatter
             cooldown: 45
             cooldownID: ADTChatterCooldown
 
-    - tasks:
+    - preconditions:
+        - !type:ADTFactionPrecondition
+          faction: ADTSmugglers
+        - !type:ADTHostileNearPrecondition
+          range: 15
+          invert: true
+        - !type:ADTRandomChancePrecondition
+          chance: 0.005
+        - !type:ADTGroupQuietPrecondition
+          seconds: 10
+          range: 15
+      tasks:
         - !type:HTNPrimitiveTask
-          operator: !type:ADTFollowLeaderOperator
-        - !type:HTNPrimitiveTask
-          operator: !type:MoveToOperator
-            targetKey: ADTLeaderCoordinates
-            rangeKey: ADTFollowRange
+          operator: !type:SpeakOperator
+            speech: !type:LocalizedSetSpeakOperatorSpeech
+              lineSet: ADTSmugglerChatter
+            cooldown: 45
+            cooldownID: ADTChatterCooldown
 
     - preconditions:
-        - !type:ADTIsGroupLeaderPrecondition
+        - !type:ADTFactionPrecondition
+          faction: ADTMarauders
+        - !type:ADTHostileNearPrecondition
+          range: 15
+          invert: true
+        - !type:ADTRandomChancePrecondition
+          chance: 0.005
+        - !type:ADTGroupQuietPrecondition
+          seconds: 10
+          range: 15
       tasks:
-        - !type:HTNCompoundTask
-          task: IdleCompound
+        - !type:HTNPrimitiveTask
+          operator: !type:SpeakOperator
+            speech: !type:LocalizedSetSpeakOperatorSpeech
+              lineSet: ADTMarauderChatter
+            cooldown: 45
+            cooldownID: ADTChatterCooldown
+
+    - preconditions:
+        - !type:KeyBoolEqualsPrecondition
+          key: ADTSquadFollow
+          value: true
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            targetKey: ADTSquadLeaderCoordinates
+            rangeKey: ADTFollowRange
+            removeKeyOnFinish: false
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTWaitOperator
+            seconds: 1
+
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTPickPatrolPointOperator
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            pathfindInPlanning: false
+            targetKey: ADTPatrolCoordinates
+            pathfindKey: ADTPatrolPathfind
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTWaitOperator
+            seconds: 4
 
     - tasks:
         - !type:HTNCompoundTask

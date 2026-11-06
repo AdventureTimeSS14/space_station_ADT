@@ -240,6 +240,8 @@
   parent: MobHuman
   id: ADTMobSmugglerBase
   components:
+    - type: IdBind
+      bindPDAOwner: false
     - type: NpcFactionMember
       factions:
         - ADTSmugglers
@@ -256,6 +258,8 @@
         task: ADTExpeditionHumanoidCompound
       blackboard:
         NavInteract: !type:Bool
+          true
+        ADTNavAccess: !type:Bool
           true
         VisionRadius: !type:Single
           15
@@ -349,6 +353,8 @@
       blackboard:
         NavInteract: !type:Bool
           true
+        ADTNavAccess: !type:Bool
+          true
         VisionRadius: !type:Single
           15
         AggroVisionRadius: !type:Single
@@ -424,6 +430,157 @@
         task: ADTExpeditionMedicCompound
       blackboard:
         NavInteract: !type:Bool
+          true
+        ADTNavAccess: !type:Bool
+          true
+        VisionRadius: !type:Single
+          15
+        AggroVisionRadius: !type:Single
+          20
+        ADTAdvanceRange: !type:Single
+          6
+        ADTMeleeSwitchRange: !type:Single
+          1.8
+        ADTFollowRange: !type:Single
+          2.5
+        ADTMeleeLeaveRange: !type:Single
+          3.5
+        ADTPistolRange: !type:Single
+          5.5
+        ADTPistolLeaveRange: !type:Single
+          8
+        ADTEmptyPistolRange: !type:Single
+          6
+        ADTSafeReloadRangeLoose: !type:Single
+          10
+
+- type: entity
+  abstract: true
+  parent: MobHuman
+  id: ADTMobMarauderBase
+  components:
+    - type: IdBind
+      bindPDAOwner: false
+    - type: NpcFactionMember
+      factions:
+        - ADTMarauders
+    - type: InputMover
+    - type: MobMover
+    - type: ADTNpcGear
+    - type: ADTNpcCombatMemory
+      avoidObstacles: true
+      obstacleMask:
+      - BulletImpassable
+    - type: ADTPreciseProjectileTarget
+    - type: HTN
+      rootTask:
+        task: ADTExpeditionHumanoidCompound
+      blackboard:
+        NavInteract: !type:Bool
+          true
+        ADTNavAccess: !type:Bool
+          true
+        VisionRadius: !type:Single
+          15
+        AggroVisionRadius: !type:Single
+          20
+        ADTAdvanceRange: !type:Single
+          6
+        ADTMeleeSwitchRange: !type:Single
+          1.8
+        ADTFollowRange: !type:Single
+          2.5
+        ADTMeleeLeaveRange: !type:Single
+          3.5
+        ADTPistolRange: !type:Single
+          5.5
+        ADTPistolLeaveRange: !type:Single
+          8
+        ADTEmptyPistolRange: !type:Single
+          6
+        ADTSafeReloadRangeLoose: !type:Single
+          10
+    - type: SSDIndicator
+      isSSD: false
+    - type: RandomHumanoidAppearance
+      randomizeName: false
+      voices:
+      - guard_guardsman_sergeant_dow
+      - tychus
+      - butch
+      femaleVoices:
+      - female_commander
+      - v_female
+      - judy
+      clearFemaleFacialHair: true
+      nameFormat: name-format-adt-marauder
+      nameSegments:
+      - NamesLastMilitary
+      - ADTNamesMarauderCallsign
+      femaleNameSegments:
+      - NamesLastMilitary
+      - ADTNamesMarauderCallsign
+
+- type: entity
+  parent: ADTMobMarauderBase
+  id: ADTMobMarauder
+  name: Gorlex marauder
+  description: Боец Мародёров Горлекса, ударного крыла Синдиката.
+  components:
+    - type: Loadout
+      prototypes:
+        - ADTMarauderRiflemanGear
+        - ADTMarauderRiflemanGear
+        - ADTMarauderRiflemanGear
+        - ADTMarauderBreacherGear
+        - ADTMarauderGunnerGear
+
+- type: entity
+  parent: ADTMobMarauderBase
+  id: ADTMobMarauderRifleman
+  name: marauder rifleman
+  description: Стрелок Мародёров Горлекса.
+  components:
+    - type: Loadout
+      prototypes:
+        - ADTMarauderRiflemanGear
+
+- type: entity
+  parent: ADTMobMarauderBase
+  id: ADTMobMarauderBreacher
+  name: marauder breacher
+  description: Штурмовик Мародёров Горлекса.
+  components:
+    - type: Loadout
+      prototypes:
+        - ADTMarauderBreacherGear
+
+- type: entity
+  parent: ADTMobMarauderBase
+  id: ADTMobMarauderGunner
+  name: marauder gunner
+  description: Пулемётчик Мародёров Горлекса.
+  components:
+    - type: Loadout
+      prototypes:
+        - ADTMarauderGunnerGear
+
+- type: entity
+  parent: ADTMobMarauderBase
+  id: ADTMobMarauderMedic
+  name: marauder medic
+  description: Медик Мародёров Горлекса.
+  components:
+    - type: Loadout
+      prototypes:
+        - ADTMarauderMedicGear
+    - type: HTN
+      rootTask:
+        task: ADTExpeditionMedicCompound
+      blackboard:
+        NavInteract: !type:Bool
+          true
+        ADTNavAccess: !type:Bool
           true
         VisionRadius: !type:Single
           15
@@ -626,3 +783,153 @@
       nameSegments: []
       femaleNameSegments: []
       sex: Male
+
+- type: entity
+  parent: ADTMobSovietBunkerRifleman
+  id: ADTMobSovietBunkerColonel
+  name: Colonel Gromov
+  suffix: DO NOT MAP
+  description: Commander of the USSP garrison.
+  components:
+    - type: Loadout
+      prototypes:
+        - ADTSovietBunkerOfficerGear
+    - type: RandomHumanoidAppearance
+      nameSegments: []
+      femaleNameSegments: []
+      sex: Male
+    - type: ADTNpcSquadCommander
+      faction: ADTSovietBunker
+      actions:
+        Follow: ADTActionSquadFollowUSSP
+        Positions: ADTActionSquadPositionsUSSP
+        Engage: ADTActionSquadEngageUSSP
+        StandDown: ADTActionSquadStandDownUSSP
+      channel: ADTUSSPChannel
+      lines:
+        Follow: ADTSquadSovietFollow
+        Positions: ADTSquadSovietPositions
+        Engage: ADTSquadSovietEngage
+        StandDown: ADTSquadSovietStandDown
+    - type: GhostTakeoverAvailable
+    - type: GhostRole
+      name: ghost-role-information-adt-ussp-colonel-name
+      description: ghost-role-information-adt-ussp-colonel-description
+      rules: ghost-role-information-freeagent-rules
+      raffle:
+        settings: default
+
+- type: entity
+  parent: ADTMobSmugglerBase
+  id: ADTMobSmugglerBoss
+  name: smuggler market boss
+  description: Owner of the smuggler market.
+  components:
+    - type: Loadout
+      prototypes:
+        - ADTSmugglerBossGearArmorPiercing
+        - ADTSmugglerBossGearBlast
+        - ADTSmugglerBossGearIncendiary
+        - ADTSmugglerBossGearShrapnel
+        - ADTSmugglerBossGearUranium
+    - type: HTN
+      rootTask:
+        task: ADTExpeditionHumanoidCompound
+      blackboard:
+        NavInteract: !type:Bool
+          true
+        ADTNavAccess: !type:Bool
+          true
+        VisionRadius: !type:Single
+          15
+        AggroVisionRadius: !type:Single
+          20
+        ADTAdvanceRange: !type:Single
+          6
+        ADTMeleeSwitchRange: !type:Single
+          1.8
+        ADTFollowRange: !type:Single
+          2.5
+        ADTMeleeLeaveRange: !type:Single
+          3.5
+        ADTPistolRange: !type:Single
+          0.1
+        ADTPistolLeaveRange: !type:Single
+          8
+        ADTEmptyPistolRange: !type:Single
+          6
+        ADTSafeReloadRangeLoose: !type:Single
+          10
+        ADTExplosiveSafeRange: !type:Single
+          5.5
+    - type: RandomHumanoidAppearance
+      nameFormat: name-format-adt-smuggler-boss
+    - type: ADTNpcSquadCommander
+      faction: ADTSmugglers
+      actions:
+        Follow: ADTActionSquadFollowSmugglers
+        Positions: ADTActionSquadPositionsSmugglers
+        Engage: ADTActionSquadEngageSmugglers
+        StandDown: ADTActionSquadStandDownSmugglers
+      channel: Freelance
+      lines:
+        Follow: ADTSquadSmugglerFollow
+        Positions: ADTSquadSmugglerPositions
+        Engage: ADTSquadSmugglerEngage
+        StandDown: ADTSquadSmugglerStandDown
+    - type: GhostTakeoverAvailable
+    - type: GhostRole
+      name: ghost-role-information-adt-smuggler-boss-name
+      description: ghost-role-information-adt-smuggler-boss-description
+      rules: ghost-role-information-freeagent-rules
+      raffle:
+        settings: default
+
+- type: entity
+  parent: ADTMobSmugglerBase
+  id: ADTMobSmugglerTrader
+  name: smuggler trader
+  description: A trader at the smuggler market.
+  components:
+    - type: Loadout
+      prototypes:
+        - ADTSmugglerTraderGear
+    - type: GhostTakeoverAvailable
+    - type: GhostRole
+      name: ghost-role-information-adt-smuggler-trader-name
+      description: ghost-role-information-adt-smuggler-trader-description
+      rules: ghost-role-information-freeagent-rules
+      raffle:
+        settings: default
+
+- type: entity
+  parent: ADTMobMarauderBase
+  id: ADTMobMarauderVeteran
+  name: Gorlex marauder veteran
+  description: A seasoned Gorlex Marauder who leads the squad.
+  components:
+    - type: Loadout
+      prototypes:
+        - ADTMarauderVeteranGear
+    - type: RandomHumanoidAppearance
+      nameFormat: name-format-adt-marauder-veteran
+    - type: ADTNpcSquadCommander
+      faction: ADTMarauders
+      actions:
+        Follow: ADTActionSquadFollowMarauders
+        Positions: ADTActionSquadPositionsMarauders
+        Engage: ADTActionSquadEngageMarauders
+        StandDown: ADTActionSquadStandDownMarauders
+      channel: Syndicate
+      lines:
+        Follow: ADTSquadMarauderFollow
+        Positions: ADTSquadMarauderPositions
+        Engage: ADTSquadMarauderEngage
+        StandDown: ADTSquadMarauderStandDown
+    - type: GhostTakeoverAvailable
+    - type: GhostRole
+      name: ghost-role-information-adt-marauder-veteran-name
+      description: ghost-role-information-adt-marauder-veteran-description
+      rules: ghost-role-information-freeagent-rules
+      raffle:
+        settings: default

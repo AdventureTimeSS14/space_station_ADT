@@ -1,4 +1,4 @@
-# Классы СССП и контрабандистов: названия мобов, спавнеров и оружия.
+# Классы СССП, контрабандистов и мародёров: названия мобов, спавнеров и оружия.
 # Случайный солдат описан в expedition-npcs.ftl.
 
 ent-ADTMobSovietBunkerRifleman = автоматчик СССП
@@ -48,6 +48,21 @@ ent-ADTSpawnMobSmugglerHeavyExpedition = спавнер тяжёлого стр�
 ent-ADTSpawnMobSmugglerTrooperExpedition = спавнер автоматчика контрабандистов
 ent-ADTSpawnMobSmugglerMedicExpedition = спавнер медика контрабандистов
 
+# Классы мародёров Горлекса
+ent-ADTMobMarauderRifleman = стрелок мародёров
+    .desc = Стрелок Мародёров Горлекса.
+ent-ADTMobMarauderBreacher = штурмовик мародёров
+    .desc = Штурмовик Мародёров Горлекса.
+ent-ADTMobMarauderGunner = пулемётчик мародёров
+    .desc = Пулемётчик Мародёров Горлекса.
+ent-ADTMobMarauderMedic = медик мародёров
+    .desc = Медик Мародёров Горлекса.
+
+ent-ADTSpawnMobMarauderRiflemanExpedition = спавнер стрелка мародёров
+ent-ADTSpawnMobMarauderBreacherExpedition = спавнер штурмовика мародёров
+ent-ADTSpawnMobMarauderGunnerExpedition = спавнер пулемётчика мародёров
+ent-ADTSpawnMobMarauderMedicExpedition = спавнер медика мародёров
+
 # Оружие классов
 ent-ADTWeaponLauncherRocketFrag = РПГ-7
     .desc = Древний ручной реактивный гранатомёт. Заряжен тандемным снарядом PG-7VR.
@@ -72,6 +87,9 @@ ent-ADTSpawnMobXenoborgStealthExpedition = спавнер ксеноборга-�
 ent-ADTSpawnMobXenoborgEngiExpedition = спавнер ксеноборга-инженера
 
 # Личный состав заставы СССП
+ent-ADTMobSovietBunkerColonel = Полковник Громов Андрей Васильевич
+    .desc = Командующий гарнизоном СССП. Отдаёт приказы бойцам по рации.
+    .suffix = не маппить
 ent-ADTMobSovietBunkerOstapenko = Майор Остапенко Виктор Ильич
     .desc = Начальник заставы СССП.
     .suffix = не маппить
@@ -115,6 +133,9 @@ ent-ADTMobSovietBunkerBelov = М. н. с. Белов Лев Андреевич
     .desc = Младший научный сотрудник Института планетологии АН СССП, прикомандирован к заставе.
     .suffix = не маппить
 
+ent-ADTSpawnMobSovietBunkerColonelExpedition = спавнер: Полковник Громов Андрей Васильевич
+    .desc = Спавнер именного бойца заставы СССП.
+    .suffix = не маппить
 ent-ADTSpawnMobSovietBunkerOstapenkoExpedition = спавнер: Майор Остапенко Виктор Ильич
     .desc = Спавнер именного бойца заставы СССП.
     .suffix = не маппить

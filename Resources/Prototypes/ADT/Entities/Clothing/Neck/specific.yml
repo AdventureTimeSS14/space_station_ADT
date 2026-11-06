@@ -86,3 +86,29 @@
       tags:
       - ADTBadge
       - ADTBadgeGolden
+
+- type: entity
+  parent: ADTClothingNeckJeton
+  id: ADTClothingNeckJetonSmuggler
+  components:
+    - type: Access
+      tags:
+      - Security
+      - Armory
+      - Brig
+      - Detective
+    - type: IdCard
+      nameLocId: adt-jeton-name
+      fullNameLocId: adt-jeton-full-name
+
+- type: entity
+  parent: ADTClothingNeckJetonSmuggler
+  id: ADTClothingNeckJetonSmugglerBoss
+  components:
+    - type: Access
+      tags:
+      - HeadOfSecurity
+      - Security
+      - Armory
+      - Brig
+      - Detective

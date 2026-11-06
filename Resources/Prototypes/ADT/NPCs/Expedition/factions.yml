@@ -3,6 +3,7 @@
   hostile:
   - ADTAshWalker
   - ADTBlob
+  - ADTMarauders
   - ADTShadowling
   - ADTSmugglers
   - ADTSpaceMobs
@@ -38,3 +39,30 @@
   - AllHostile
   - Wizard
   - Xenoborg
+
+- type: npcFaction
+  id: ADTMarauders
+  friendly:
+  - Syndicate
+  hostile:
+  - ADTAshWalker
+  - ADTBlob
+  - ADTShadowling
+  - ADTSovietBunker
+  - ADTSpaceMobs
+  - Changeling
+  - Dragon
+  - Heretic
+  - KMT
+  - NanoTrasen
+  - PetsNT
+  - Pirate
+  - Revolutionary
+  - SimpleHostile
+  - SpaceSecFaction
+  - TSF
+  - Ursus
+  - Wizard
+  - Xeno
+  - Xenoborg
+  - Zombie

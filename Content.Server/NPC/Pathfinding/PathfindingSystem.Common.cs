@@ -1,3 +1,4 @@
+using Content.Server.ADT.NPC;
 using Content.Shared.Gravity;
 using Content.Shared.Maps;
 using Content.Shared.NPC;
@@ -51,6 +52,11 @@ public sealed partial class PathfindingSystem
         {
             return 0f;
         }
+
+        // ADT-Tweak-Start
+        if (request.ADTBlockedTiles != null && request.ADTBlockedTiles.Contains((end.GraphUid, ADTNpcNavMemorySystem.GetTile(end))))
+            return 0f;
+        // ADT-Tweak-End
 
         if ((request.CollisionLayer & end.Data.CollisionMask) != 0x0 ||
             (request.CollisionMask & end.Data.CollisionLayer) != 0x0)

@@ -36,6 +36,8 @@ public abstract class PathRequest
     public readonly int CollisionLayer;
     public readonly int CollisionMask;
 
+    public HashSet<(EntityUid Grid, Vector2i Tile)>? ADTBlockedTiles; // ADT-Tweak
+
     #endregion
 
     public PathRequest(EntityCoordinates start, PathFlags flags, int layer, int mask, CancellationToken cancelToken)
