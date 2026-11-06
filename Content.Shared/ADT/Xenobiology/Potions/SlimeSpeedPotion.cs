@@ -104,7 +104,7 @@ public sealed partial class SlimeSpeedPotionSystem : EntitySystem
             _clothingSpeedModifier.SetSprintSpeedModifier(clothing, ent.Comp.OriginalSprintModifier);
             Dirty(ent, clothing);
 
-            _movementSpeed.RefreshMovementSpeedModifiers(ent);
+            _movementSpeed.RefreshMovementSpeedModifiers(ent.Owner);
             if (_container.TryGetContainingContainer((ent.Owner, null, null), out var container))
                 _movementSpeed.RefreshMovementSpeedModifiers(container.Owner);
         }
