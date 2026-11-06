@@ -452,6 +452,8 @@ public sealed partial class DrawingCanvasControl : Control
     {
         base.KeyboardFocusExited();
         SetHotkeys(false);
+        _rotateHeld = false;
+        _rotating = false;
     }
 
     private void SetHotkeys(bool enabled)
@@ -480,14 +482,12 @@ public sealed partial class DrawingCanvasControl : Control
             return;
         }
 
-        if (Hotkeys.TryMatch(args, out var action))
-        {
-            if (RunAction(action, args.IsRepeat))
-                args.Handle();
+        if (!TryHandleFloatingKeys(args) && Hotkeys.TryMatch(args, out var action) && RunAction(action, args.IsRepeat))
+            args.Handle();
+    }
 
-            return;
-        }
-
+    private bool TryHandleFloatingKeys(KeyEventArgs args)
+    {
         switch (args.Key)
         {
             case Keyboard.Key.Return when _floating != null:
@@ -506,10 +506,11 @@ public sealed partial class DrawingCanvasControl : Control
                 break;
 
             default:
-                return;
+                return false;
         }
 
         args.Handle();
+        return true;
     }
 
     private bool RunAction(DrawingAction action, bool repeat)
@@ -599,15 +600,18 @@ public sealed partial class DrawingCanvasControl : Control
                 break;
 
             case DrawingAction.RotateLeft:
-                Rotation -= RotationStep;
+                if (!IsPointerBusy)
+                    Rotation -= RotationStep;
                 break;
 
             case DrawingAction.RotateRight:
-                Rotation += RotationStep;
+                if (!IsPointerBusy)
+                    Rotation += RotationStep;
                 break;
 
             case DrawingAction.ResetRotation:
-                Rotation = 0f;
+                if (!IsPointerBusy)
+                    Rotation = 0f;
                 break;
 
             default:
@@ -885,7 +889,6 @@ public sealed partial class DrawingCanvasControl : Control
         base.ControlFocusExited();
         _panning = false;
         _rotating = false;
-        _rotateHeld = false;
         _shaping = false;
         _lassoing = false;
         _dragHandle = NoHandle;
@@ -1065,14 +1068,25 @@ public sealed partial class DrawingCanvasControl : Control
             var topLeft = CanvasToScreen(rect.TopLeft);
             var bottomRight = CanvasToScreen(rect.BottomRight);
             var screenRect = ScreenBox(topLeft, bottomRight);
-            if (_rotation == 0f &&
-                (screenRect.Right < 0 || screenRect.Bottom < 0 || screenRect.Left > PixelSize.X || screenRect.Top > PixelSize.Y))
-            {
+            if (!IsOnScreen(screenRect))
                 continue;
-            }
 
             DrawTextureBetween(handle, texture, topLeft, bottomRight, modulate);
         }
+    }
+
+    private bool IsOnScreen(UIBox2 rect)
+    {
+        if (_rotation != 0f)
+        {
+            var a = RotateAroundPivot(rect.TopLeft, _rotation);
+            var b = RotateAroundPivot(rect.TopRight, _rotation);
+            var c = RotateAroundPivot(rect.BottomLeft, _rotation);
+            var d = RotateAroundPivot(rect.BottomRight, _rotation);
+            rect = new UIBox2(Vector2.Min(Vector2.Min(a, b), Vector2.Min(c, d)), Vector2.Max(Vector2.Max(a, b), Vector2.Max(c, d)));
+        }
+
+        return rect.Right >= 0 && rect.Bottom >= 0 && rect.Left <= PixelSize.X && rect.Top <= PixelSize.Y;
     }
 
     private static UIBox2 ScreenBox(Vector2 a, Vector2 b)

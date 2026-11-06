@@ -140,6 +140,12 @@ public sealed class DrawingHotkeyMap
 
     public void Set(DrawingAction action, int slot, DrawingKeyBinding binding)
     {
+        Assign(action, slot, binding);
+        Changed?.Invoke();
+    }
+
+    private void Assign(DrawingAction action, int slot, DrawingKeyBinding binding)
+    {
         if (!binding.IsEmpty)
         {
             foreach (var slots in _bindings.Values)
@@ -159,7 +165,6 @@ public sealed class DrawingHotkeyMap
         }
 
         target[slot] = binding;
-        Changed?.Invoke();
     }
 
     public bool TryMatch(KeyEventArgs args, out DrawingAction action)
@@ -234,14 +239,14 @@ public sealed class DrawingHotkeyMap
 
         foreach (var entry in data.Hotkeys)
         {
-            var slots = new DrawingKeyBinding[SlotCount];
-            for (var i = 0; i < SlotCount && i < entry.Keys.Count; i++)
+            for (var i = 0; i < SlotCount; i++)
             {
-                if (DrawingKeyBinding.TryParse(entry.Keys[i], out var binding))
-                    slots[i] = binding;
-            }
+                var binding = i < entry.Keys.Count && DrawingKeyBinding.TryParse(entry.Keys[i], out var parsed)
+                    ? parsed
+                    : default;
 
-            _bindings[entry.Action] = slots;
+                Assign(entry.Action, i, binding);
+            }
         }
 
         Changed?.Invoke();

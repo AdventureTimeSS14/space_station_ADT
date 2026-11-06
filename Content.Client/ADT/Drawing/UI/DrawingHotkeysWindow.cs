@@ -10,6 +10,7 @@ namespace Content.Client.ADT.Drawing.UI;
 public sealed class DrawingHotkeysWindow : DefaultWindow
 {
     [Dependency] private IInputManager _input = default!;
+    [Dependency] private IUserInterfaceManager _ui = default!;
 
     private readonly DrawingHotkeyMap _map;
     private readonly Dictionary<(DrawingAction, int), Button> _buttons = new();
@@ -130,6 +131,12 @@ public sealed class DrawingHotkeysWindow : DefaultWindow
         if (_capture is not { } capture || type != KeyEventType.Down)
             return;
 
+        if (_ui.KeyboardFocused is { } focused && !IsOwnControl(focused))
+        {
+            StopCapture();
+            return;
+        }
+
         if (args.Key is Keyboard.Key.Control or Keyboard.Key.Shift or Keyboard.Key.Alt or Keyboard.Key.Unknown)
             return;
 
@@ -150,6 +157,17 @@ public sealed class DrawingHotkeysWindow : DefaultWindow
 
         _capture = null;
         _map.Set(capture.Action, capture.Slot, binding);
+    }
+
+    private bool IsOwnControl(Control control)
+    {
+        for (var current = control; current != null; current = current.Parent)
+        {
+            if (current == this)
+                return true;
+        }
+
+        return false;
     }
 
     private void Refresh()
