@@ -417,7 +417,7 @@
 - type: entity
   name: barbell chair
   id: ADTBarbellChair
-  parent: [ADTChairBase, ADTBaseAttachableHolder]
+  parent: ADTChairBase
   description: A chair you can hang a barbell on.
   placement:
     mode: SnapgridCenter
@@ -438,13 +438,21 @@
     overlayBaseState: barbell_chair-overlay
     overlayRepFlickState: barbell-raises-overlay
   - type: Appearance
-  - type: AttachableHolder
+  - type: ItemSlots
     slots:
       adt-aslot-barbell:
-        locked: false
+        name: adt-aslot-barbell
         whitelist:
           tags:
           - ADTBarbellAttachment
+        insertSound:
+          path: /Audio/ADT/Furniture/barbell/sound_for_barbell_3.ogg
+          params:
+            maxDistance: 6
+        ejectSound:
+          path: /Audio/ADT/Furniture/barbell/sound_for_barbell_2.ogg
+          params:
+            maxDistance: 6
   - type: Construction
     graph: ADTSeat
     node: adtbarbellchair

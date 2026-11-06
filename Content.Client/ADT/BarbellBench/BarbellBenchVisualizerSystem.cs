@@ -1,6 +1,5 @@
 using Content.Shared.ADT.BarbellBench;
 using Content.Shared.ADT.BarbellBench.Components;
-using Content.Shared._RMC14.Attachable.Components;
 using Content.Shared.Buckle.Components;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
@@ -32,9 +31,8 @@ public sealed class BarbellBenchVisualizerSystem : VisualizerSystem<BarbellBench
         var overlayUid = benchComp.OverlayEntity;
         var slotId = benchComp.BarbellSlotId;
 
-        var hasAttachableHolder = HasComp<AttachableHolderComponent>(uid);
         EntityUid? attachedBarbell = null;
-        if (hasAttachableHolder && _container.TryGetContainer(uid, slotId, out var slotContainer) && slotContainer.Count > 0)
+        if (_container.TryGetContainer(uid, slotId, out var slotContainer) && slotContainer.Count > 0)
             attachedBarbell = slotContainer.ContainedEntities[0];
         var hasBarbellAttached = attachedBarbell != null;
 
@@ -47,7 +45,7 @@ public sealed class BarbellBenchVisualizerSystem : VisualizerSystem<BarbellBench
         if (overlayUid != null)
             _animationPlayer.Stop(overlayUid.Value, OverlayAnimationKey);
 
-        if (hasAttachableHolder && SpriteSystem.LayerMapTryGet((uid, args.Sprite), slotId, out var attachedLayer, false))
+        if (SpriteSystem.LayerMapTryGet((uid, args.Sprite), slotId, out var attachedLayer, false))
         {
             var visible = hasBarbellAttached && !isBuckled && overlayRsi != null;
             SpriteSystem.LayerSetVisible((uid, args.Sprite), attachedLayer, visible);
