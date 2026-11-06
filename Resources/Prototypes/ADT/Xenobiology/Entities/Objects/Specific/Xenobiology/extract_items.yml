@@ -17,7 +17,7 @@
     startingCharge: 600
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 20
+    autoRechargeRate: 0.6
   - type: SolutionManager
     solutions:
     - XenobioVolatileOrganSolution
