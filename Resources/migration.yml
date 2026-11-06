@@ -1187,3 +1187,6 @@ ADTTendrilBScrab: ADTTendrilRandomThreat
 # ADT-Tweak: remove Music song
 ADTBoxMusicDisksSyndicate: null
 ADTMusicDiskShanson: null
+
+# ADT frogs 2026-11-05
+SpawnMobFrog: ADTSpawnMobFrog
