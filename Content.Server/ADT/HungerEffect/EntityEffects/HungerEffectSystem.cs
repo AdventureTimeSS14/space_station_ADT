@@ -3,7 +3,6 @@ using Content.Shared.Humanoid;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Timing;
 using Content.Shared.Database;
-using Content.Shared.ADT.Hallucinations;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;

@@ -387,3 +387,5 @@
       includeExamine: false
     - type: Blindable
     - type: SpeechBarks
+    - type: CanHallucinate
+    - type: Screamers

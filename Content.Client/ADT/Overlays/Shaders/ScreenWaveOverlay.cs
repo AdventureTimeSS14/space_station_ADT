@@ -1,0 +1,132 @@
+using Content.Shared.CCVar;
+using Content.Shared.Drunk;
+using Robust.Client.Graphics;
+using Robust.Client.Player;
+using Robust.Shared.Configuration;
+using Robust.Shared.Enums;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
+
+namespace Content.Client.Drunk;
+
+public sealed partial class ScreenWaveOverlay : Overlay
+{
+    private static readonly ProtoId<ShaderPrototype> RotateShader = "ScreenRotation";
+
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IConfigurationManager _configManager = default!;
+    private readonly Shared.StatusEffectNew.StatusEffectsSystem _statusEffectsSystem;
+
+    public override OverlaySpace Space => OverlaySpace.WorldSpace;
+    public override bool RequestScreenTexture => true;
+
+    public float CurrentBoozePower = 0.0f;
+
+    private const float VisualThreshold = 10.0f;
+    private const float PowerDivisor = 250.0f;
+    /// <remarks>
+    /// This is a magic number based on my person preference of how quickly the bloodloss effect should kick in.
+    /// It is entirely arbitrary, and you should change it if it sucks.
+    /// Honestly should be refactored to be based on amount of blood lost but that's out of scope for what I'm doing atm.
+    /// Also caps all booze visual effects to a max intensity of 100 seconds or 100 booze power.
+    /// </remarks>
+    private const float MaxBoozePower = 100f;
+
+    private const float BoozePowerScale = 8f;
+
+    private const float MaxRotationAngle = 0.035f;
+
+    private const float RotationFrequency = 0.85f;
+
+    private float _visualScale = 0f;
+
+    private readonly ShaderInstance _rotateShader;
+
+    private float _timeTicker = 0.0f;
+
+    private bool _reducedMotion;
+
+    public ScreenWaveOverlay()
+    {
+        IoCManager.InjectDependencies(this);
+        _statusEffectsSystem = _entityManager.System<Shared.StatusEffectNew.StatusEffectsSystem>();
+        _rotateShader = _prototypeManager.Index(RotateShader).InstanceUnique();
+        _configManager.OnValueChanged(CCVars.DisableDrunkOverlay, value => _reducedMotion = value, invokeImmediately: true);
+    }
+
+    protected override void FrameUpdate(FrameEventArgs args)
+    {
+
+        var playerEntity = _playerManager.LocalEntity;
+
+        if (playerEntity == null)
+            return;
+
+        if (!_statusEffectsSystem.TryGetMaxTime<DrunkStatusEffectComponent>(playerEntity.Value, out var status))
+            return;
+
+        var time = status.Item2;
+
+        var power = time == null ? MaxBoozePower : (float)Math.Min((time - _timing.CurTime).Value.TotalSeconds, MaxBoozePower);
+
+        CurrentBoozePower += BoozePowerScale * (power - CurrentBoozePower) * args.DeltaSeconds / (power + 1);
+
+        _timeTicker += args.DeltaSeconds;
+    }
+
+    protected override bool BeforeDraw(in OverlayDrawArgs args)
+    {
+        if (_reducedMotion)
+            return false;
+
+        if (!_entityManager.TryGetComponent(_playerManager.LocalEntity, out EyeComponent? eyeComp))
+            return false;
+
+        if (args.Viewport.Eye != eyeComp.Eye)
+            return false;
+
+        _visualScale = BoozePowerToVisual(CurrentBoozePower);
+        return _visualScale > 0;
+    }
+
+    protected override void Draw(in OverlayDrawArgs args)
+    {
+        if (ScreenTexture == null)
+            return;
+
+        var handle = args.WorldHandle;
+
+        // ADT-Tweak-start
+        var angle = MathF.Sin(_timeTicker * RotationFrequency) * MaxRotationAngle * _visualScale;
+
+        _rotateShader.SetParameter("SCREEN_TEXTURE", ScreenTexture);
+        _rotateShader.SetParameter("angle", angle);
+
+        handle.DrawRect(args.WorldBounds.Enlarged(0.75f), Color.Black);
+        handle.UseShader(_rotateShader);
+        handle.DrawRect(args.WorldBounds, Color.White);
+        handle.UseShader(null);
+        // ADT-Tweak-end
+    }
+
+    /// <summary>
+    ///     Converts the # of seconds the drunk effect lasts for (booze power) to a percentage
+    ///     used by the actual shader.
+    /// </summary>
+    /// <param name="boozePower"></param>
+    private float BoozePowerToVisual(float boozePower)
+    {
+        // Clamp booze power when it's low, to prevent really jittery effects
+        if (boozePower < 50f)
+        {
+            return 0;
+        }
+        else
+        {
+            return Math.Clamp((boozePower - VisualThreshold) / PowerDivisor, 0.0f, 1.0f);
+        }
+    }
+}
