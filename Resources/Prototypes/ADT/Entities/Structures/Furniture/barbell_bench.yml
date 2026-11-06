@@ -29,6 +29,9 @@
           params:
             maxDistance: 6
   # Визуализация штанги на скамье управляется BarbellBenchVisualizerSystem (низ + оверлей).
+  - type: ContainerContainer
+    containers:
+      adt-aslot-barbell: !type:ContainerSlot
   - type: Strap
     position: Down
     rotation: -90

@@ -110,6 +110,7 @@
   - type: AtmosExposed
   - type: Temperature
     specificHeat: 1000
+    heatCapacity: 5000
   - type: ADTDryable
     result: ADTMaterialLeather1
     dryingTemperature: 500

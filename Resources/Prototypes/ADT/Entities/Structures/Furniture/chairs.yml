@@ -453,6 +453,9 @@
           path: /Audio/ADT/Furniture/barbell/sound_for_barbell_2.ogg
           params:
             maxDistance: 6
+  - type: ContainerContainer
+    containers:
+      adt-aslot-barbell: !type:ContainerSlot
   - type: Construction
     graph: ADTSeat
     node: adtbarbellchair
