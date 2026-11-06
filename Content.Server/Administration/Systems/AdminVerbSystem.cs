@@ -2,6 +2,11 @@ using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Administration.UI;
 using Content.Server.Afk;
+// ADT-Tweak-start
+using Content.Server.Cloning;
+using Content.Server.GameTicking;
+using Content.Server.Hands.Systems;
+// ADT-Tweak-end
 using Content.Server.EUI;
 using Content.Server.Ghost.Roles;
 using Content.Server.Mind;
@@ -18,6 +23,7 @@ using Content.Shared.Database;
 using Content.Shared.Disposal.Tube;
 using Content.Shared.Examine;
 using Content.Shared.GameTicking;
+using Content.Shared.Ghost.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Mind.Components;
 using Content.Shared.Movement.Components;
@@ -105,6 +111,43 @@ namespace Content.Server.Administration.Systems
 
             if (_adminManager.IsAdmin(player))
             {
+                // ADT-Tweak-start
+                var hands = EntityManager.System<HandsSystem>();
+                bool CanCopyHeldItem() =>
+                    player.AttachedEntity == args.User &&
+                    (_adminManager.HasAdminFlag(player, AdminFlags.Spawn) ||
+                     (_adminManager.HasAdminFlag(player, AdminFlags.Admin) &&
+                      MetaData(args.User).EntityPrototype?.ID == GameTicker.AdminObserverPrototypeName.Id &&
+                      TryComp<GhostComponent>(args.User, out var ghost) && ghost.CanGhostInteract));
+
+                if (CanCopyHeldItem() &&
+                    HasComp<ActorComponent>(args.Target) &&
+                    hands.GetActiveItem(args.Target) != null &&
+                    hands.TryGetEmptyHand(args.User, out _))
+                {
+                    args.Verbs.Add(new Verb
+                    {
+                        Text = Loc.GetString("admin-player-actions-copy-held-item-to-self"),
+                        Category = VerbCategory.Admin,
+                        Impact = LogImpact.Medium,
+                        Act = () =>
+                        {
+                            if (!CanCopyHeldItem() ||
+                                !HasComp<ActorComponent>(args.Target) ||
+                                hands.GetActiveItem(args.Target) is not { } item ||
+                                !hands.TryGetEmptyHand(args.User, out _))
+                                return;
+
+                            var copy = EntityManager.System<CloningSystem>()
+                                .CopyItem(item, Transform(args.User).Coordinates);
+                            if (copy is { } uid && !hands.TryPickupAnyHand(args.User, uid))
+                                Del(uid);
+                        },
+                    });
+                }
+
+                // ADT-Tweak-end
+
                 Verb mark = new();
                 mark.Text = Loc.GetString("toolshed-verb-mark");
                 mark.Message = Loc.GetString("toolshed-verb-mark-description");
