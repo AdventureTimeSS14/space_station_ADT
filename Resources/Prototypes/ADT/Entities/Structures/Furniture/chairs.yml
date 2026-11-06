@@ -431,7 +431,7 @@
       map: ["adt-aslot-barbell"]
       visible: false
   - type: BarbellBench
-    overlayPrototype: ADTBarbellBenchOverlay
+    overlayPrototype: ADTBarbellBenchOverlayVisual
     repSoundMaxDistance: 6
   - type: BarbellBenchVisuals
     attachedState: barbell_chair-overlay

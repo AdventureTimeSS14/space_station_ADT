@@ -1,4 +1,5 @@
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.BarbellBench.Components;
 
@@ -6,7 +7,7 @@ namespace Content.Shared.ADT.BarbellBench.Components;
 public sealed partial class BarbellBenchComponent : Component
 {
     [DataField("overlayPrototype")]
-    public string OverlayPrototype = "ADTBarbellBenchOverlay";
+    public EntProtoId OverlayPrototype = "ADTBarbellBenchOverlayVisual";
 
     [DataField("barbellSlotId")]
     public string BarbellSlotId = "adt-aslot-barbell";
@@ -28,7 +29,4 @@ public sealed partial class BarbellBenchComponent : Component
 
     [AutoNetworkedField]
     public EntityUid? BarbellRepAction;
-
-    [AutoNetworkedField]
-    public EntityUid? OverlayEntity;
 }

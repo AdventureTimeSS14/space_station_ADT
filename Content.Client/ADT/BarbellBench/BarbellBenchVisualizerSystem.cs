@@ -4,6 +4,7 @@ using Content.Shared.Buckle.Components;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
 using Robust.Shared.Containers;
+using Robust.Shared.Map;
 using Robust.Shared.Utility;
 using System.Numerics;
 
@@ -17,6 +18,31 @@ public sealed class BarbellBenchVisualizerSystem : VisualizerSystem<BarbellBench
     private const string OverlayLayerKey = "barbell-overlay";
     private const string OverlayAnimationKey = "barbell_rep_overlay_animation";
 
+    private readonly Dictionary<EntityUid, EntityUid> _overlays = new();
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<BarbellBenchVisualsComponent, ComponentShutdown>(OnShutdown);
+    }
+
+    private void OnShutdown(Entity<BarbellBenchVisualsComponent> ent, ref ComponentShutdown args)
+    {
+        if (_overlays.Remove(ent.Owner, out var overlay))
+            QueueDel(overlay);
+    }
+
+    private EntityUid EnsureOverlay(EntityUid bench, BarbellBenchComponent comp)
+    {
+        if (_overlays.TryGetValue(bench, out var existing) && !TerminatingOrDeleted(existing))
+            return existing;
+
+        var overlay = SpawnAttachedTo(comp.OverlayPrototype, new EntityCoordinates(bench, Vector2.Zero));
+        _overlays[bench] = overlay;
+        return overlay;
+    }
+
     protected override void OnAppearanceChange(EntityUid uid, BarbellBenchVisualsComponent component, ref AppearanceChangeEvent args)
     {
         if (args.Sprite == null)
@@ -28,7 +54,7 @@ public sealed class BarbellBenchVisualizerSystem : VisualizerSystem<BarbellBench
         if (!TryComp<BarbellBenchComponent>(uid, out var benchComp))
             return;
 
-        var overlayUid = benchComp.OverlayEntity;
+        EntityUid? overlayUid = EnsureOverlay(uid, benchComp);
         var slotId = benchComp.BarbellSlotId;
 
         EntityUid? attachedBarbell = null;

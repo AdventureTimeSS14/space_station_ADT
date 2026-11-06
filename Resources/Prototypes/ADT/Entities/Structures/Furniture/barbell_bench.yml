@@ -92,9 +92,10 @@
     node: barbellbench
 
 - type: entity
-  id: ADTBarbellBenchOverlay
+  id: ADTBarbellBenchOverlayVisual
   name: barbell bench overlay
   description: Visual overlay for barbell bench.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: ADT/Objects/Fun/barbell.rsi

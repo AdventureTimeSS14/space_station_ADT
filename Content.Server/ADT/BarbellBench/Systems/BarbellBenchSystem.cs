@@ -1,5 +1,4 @@
 using System.Linq;
-using System.Numerics;
 using Content.Server.ADT.BarbellBench.Components;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
@@ -24,7 +23,6 @@ using Content.Shared.Verbs;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
-using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
@@ -33,9 +31,7 @@ namespace Content.Server.ADT.BarbellBench.Systems;
 public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
 {
     [Dependency] private SharedAudioSystem _audio = default!;
-    [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private SharedStaminaSystem _stamina = default!;
-    [Dependency] private MetaDataSystem _metaData = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private DamageableSystem _damageable = default!;
     [Dependency] private IGameTiming _timing = default!;
@@ -56,7 +52,6 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
         base.Initialize();
 
         SubscribeLocalEvent<BarbellBenchComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<BarbellBenchComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<BarbellBenchComponent, BarbellBenchPerformRepEvent>(OnPerformRep);
         SubscribeLocalEvent<BarbellBenchComponent, EntInsertedIntoContainerMessage>(OnBarbellInserted);
         SubscribeLocalEvent<BarbellBenchComponent, EntRemovedFromContainerMessage>(OnBarbellRemoved);
@@ -91,32 +86,8 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
 
     private void OnStartup(Entity<BarbellBenchComponent> ent, ref ComponentStartup args)
     {
-        EnsureOverlay(ent);
         UpdateAppearance(ent.Owner, ent.Comp);
         _appearance.SetData(ent, BarbellBenchVisuals.HasBarbell, TryGetBarbell(ent, out _));
-    }
-
-    private void OnShutdown(Entity<BarbellBenchComponent> ent, ref ComponentShutdown args)
-    {
-        if (ent.Comp.OverlayEntity is { } overlay && Exists(overlay))
-            Del(overlay);
-
-        ent.Comp.OverlayEntity = null;
-    }
-
-    private void EnsureOverlay(Entity<BarbellBenchComponent> ent)
-    {
-        if (ent.Comp.OverlayEntity is { } existing && Exists(existing))
-            return;
-
-        var overlay = Spawn(ent.Comp.OverlayPrototype, Transform(ent).Coordinates);
-        var overlayXform = Transform(overlay);
-        _transform.SetParent(overlay, overlayXform, ent);
-        _transform.SetCoordinates(overlay, overlayXform, new EntityCoordinates(ent, Vector2.Zero));
-        overlayXform.LocalRotation = Angle.Zero;
-
-        ent.Comp.OverlayEntity = overlay;
-        Dirty(ent);
     }
 
     private void OnBarbellInserted(Entity<BarbellBenchComponent> ent, ref EntInsertedIntoContainerMessage args)
@@ -132,13 +103,6 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
             {
                 _actionsSystem.AddAction(buckled, ref ent.Comp.BarbellRepAction, BarbellRepActionId, ent);
             }
-        }
-
-        if (ent.Comp.OverlayEntity is { } overlay && Exists(overlay))
-        {
-            var barbellMeta = MetaData(args.Entity);
-            _metaData.SetEntityName(overlay, barbellMeta.EntityName);
-            _metaData.SetEntityDescription(overlay, barbellMeta.EntityDescription);
         }
     }
 
@@ -162,12 +126,6 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
                 if (TryComp<BarbellPinnedComponent>(buckled, out var pinned))
                     Unpin((buckled, pinned), args.Entity, true);
             }
-        }
-
-        if (ent.Comp.OverlayEntity is { } overlay && Exists(overlay) && MetaData(overlay).EntityPrototype is { } proto)
-        {
-            _metaData.SetEntityName(overlay, proto.Name);
-            _metaData.SetEntityDescription(overlay, proto.Description);
         }
     }
 
@@ -264,7 +222,7 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
         _virtualItem.TrySpawnVirtualItemInHand(barbell, ent, dropOthers: true);
         _virtualItem.TrySpawnVirtualItemInHand(barbell, ent, dropOthers: true);
 
-        _alerts.ClearAlertCategory(ent, SharedBuckleSystem.BuckledAlertCategory);
+        _alerts.ClearAlertCategory(ent.Owner, SharedBuckleSystem.BuckledAlertCategory);
         _popup.PopupEntity(Loc.GetString("barbell-bench-pinned"), ent, ent, PopupType.LargeCaution);
     }
 
