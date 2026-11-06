@@ -26,3 +26,33 @@
       reagents:
       - ReagentId: ADTOilSunflower
         Quantity: 50
+
+- type: reagent
+  id: ADTPancakeBatter
+  name: reagent-name-adt-pancake-batter
+  group: Foods
+  desc: reagent-desc-adt-pancake-batter
+  physicalDesc: reagent-physical-desc-viscous
+  flavor: batter
+  color: "#f2dca2"
+  recognizable: true
+  metabolisms:
+    Digestion:
+      metabolites:
+        Nutriment: 0.4
+
+- type: reaction
+  id: ADTCreatePancakeBatter
+  impact: Low
+  quantized: true
+  conserveEnergy: false
+  priority: -1
+  reactants:
+    Flour:
+      amount: 10
+    Milk:
+      amount: 10
+    Egg:
+      amount: 6
+  products:
+    ADTPancakeBatter: 20

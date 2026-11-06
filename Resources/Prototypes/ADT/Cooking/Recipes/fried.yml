@@ -14,21 +14,6 @@
   group: Savory
 
 - type: adtCookingRecipe
-  id: ADTCookBlueberryPancake
-  method: Fried
-  cookware: Pan
-  ingredients:
-  - id: FoodBerries
-    count: 2
-  reagents:
-    Flour: 5
-    Milk: 5
-    Egg: 6
-  time: 10
-  result: FoodBakedPancakeBb
-  group: Breakfast
-
-- type: adtCookingRecipe
   id: ADTCookButteredToast
   method: Fried
   cookware: Pan
@@ -68,21 +53,6 @@
   time: 30
   result: FoodMealFriesCheesy
   group: Savory
-
-- type: adtCookingRecipe
-  id: ADTCookChocolateChipPancake
-  method: Fried
-  cookware: Pan
-  ingredients:
-  - id: FoodSnackChocolateBar
-    count: 1
-  reagents:
-    Flour: 5
-    Milk: 5
-    Egg: 6
-  time: 10
-  result: FoodBakedPancakeCc
-  group: BarsAndCookies
 
 - type: adtCookingRecipe
   id: ADTCookCornInButter
@@ -149,8 +119,9 @@
   ingredients:
   - id: FoodMeatChickenCutlet
     count: 1
+  - id: ADTFoodEggRaw
+    count: 1
   reagents:
-    Egg: 3
     TableSalt: 5
     Blackpepper: 5
   time: 20
@@ -166,8 +137,9 @@
     count: 1
   - id: FoodMushroom
     count: 1
+  - id: ADTFoodEggRaw
+    count: 1
   reagents:
-    Egg: 3
     TableSalt: 5
     Blackpepper: 5
   time: 20
@@ -224,8 +196,8 @@
   ingredients:
   - id: FoodCheeseSlice
     count: 1
-  reagents:
-    Egg: 6
+  - id: ADTFoodEggRaw
+    count: 1
   time: 20
   result: FoodMealOmelette
   group: Breakfast
@@ -267,9 +239,10 @@
   ingredients:
   - id: FoodBreadPlainSlice
     count: 1
+  - id: ADTFoodEggRaw
+    count: 1
   reagents:
     Milk: 5
-    Egg: 6
   time: 10
   result: FoodBreadFrenchToast
   group: Breakfast
@@ -547,3 +520,38 @@
   time: 10
   result: FoodTacoShell
   group: Breads
+
+- type: adtCookingRecipe
+  id: ADTCookFriedEgg
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: ADTFoodEggRaw
+    count: 1
+  time: 15
+  result: ADTFoodMealFriedEgg
+  group: Breakfast
+
+- type: adtCookingRecipe
+  id: ADTCookPancake
+  method: Fried
+  cookware: Pan
+  reagents:
+    ADTPancakeBatter: 15
+  toppingTags:
+  - Fruit
+  toppingIds:
+  - FoodSnackChocolateBar
+  - ADTFoodSnackChocolateBarChunk
+  maxToppings: 4
+  toppingResults:
+  - toppings:
+    - FoodBerries
+    result: FoodBakedPancakeBb
+  - toppings:
+    - FoodSnackChocolateBar
+    - ADTFoodSnackChocolateBarChunk
+    result: FoodBakedPancakeCc
+  time: 10
+  result: FoodBakedPancake
+  group: Breakfast

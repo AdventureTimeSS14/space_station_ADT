@@ -3,6 +3,7 @@ using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Nutrition;
 using Content.Shared.Nutrition.EntitySystems;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
@@ -26,6 +27,12 @@ public abstract partial class SharedADTCookingSystem : EntitySystem
         SubscribeLocalEvent<ADTPlateComponent, ComponentInit>(OnPlateInit);
         SubscribeLocalEvent<ADTPlateComponent, UseInHandEvent>(OnPlateUseInHand, before: new[] { typeof(IngestionSystem) });
         SubscribeLocalEvent<ADTPlateComponent, AfterInteractEvent>(OnPlateAfterInteract, before: new[] { typeof(IngestionSystem) });
+        SubscribeLocalEvent<ADTPlateComponent, IngestibleEvent>(OnPlateIngestible, before: new[] { typeof(IngestionSystem) });
+        SubscribeLocalEvent<ADTPlateComponent, IsDigestibleEvent>(OnPlateIsDigestible, before: new[] { typeof(IngestionSystem) });
+        SubscribeLocalEvent<ADTPlateComponent, EdibleEvent>(OnPlateEdible, before: new[] { typeof(IngestionSystem) });
+        SubscribeLocalEvent<ADTPlateComponent, GetUtensilsEvent>(OnPlateGetUtensils, before: new[] { typeof(IngestionSystem) });
+        SubscribeLocalEvent<ADTPlateComponent, BeforeIngestedEvent>(OnPlateBeforeIngested, before: new[] { typeof(IngestionSystem) });
+        SubscribeLocalEvent<ADTPlateComponent, IngestedEvent>(OnPlateIngested, before: new[] { typeof(IngestionSystem) });
     }
 
     private void OnPlateUseInHand(Entity<ADTPlateComponent> ent, ref UseInHandEvent args)
@@ -34,7 +41,7 @@ public abstract partial class SharedADTCookingSystem : EntitySystem
             return;
 
         args.Handled = true;
-        _ingestion.TryIngest(args.User, args.User, item);
+        _ingestion.TryIngest(args.User, args.User, ent);
     }
 
     private void OnPlateAfterInteract(Entity<ADTPlateComponent> ent, ref AfterInteractEvent args)
@@ -42,11 +49,60 @@ public abstract partial class SharedADTCookingSystem : EntitySystem
         if (args.Handled || !args.CanReach || args.Target is not { } target)
             return;
 
-        if (!HasComp<MobStateComponent>(target) || GetTopItem(ent) is not { } item)
+        if (!HasComp<MobStateComponent>(target) || GetTopItem(ent) == null)
             return;
 
         args.Handled = true;
-        _ingestion.TryIngest(args.User, target, item);
+        _ingestion.TryIngest(args.User, target, ent);
+    }
+
+    private void OnPlateIngestible(Entity<ADTPlateComponent> ent, ref IngestibleEvent args)
+    {
+        if (GetTopItem(ent) is { } item)
+            RaiseLocalEvent(item, ref args);
+    }
+
+    private void OnPlateIsDigestible(Entity<ADTPlateComponent> ent, ref IsDigestibleEvent args)
+    {
+        if (GetTopItem(ent) is { } item)
+            RaiseLocalEvent(item, ref args);
+    }
+
+    private void OnPlateEdible(Entity<ADTPlateComponent> ent, ref EdibleEvent args)
+    {
+        if (GetTopItem(ent) is { } item)
+            RaiseLocalEvent(item, ref args);
+    }
+
+    private void OnPlateGetUtensils(Entity<ADTPlateComponent> ent, ref GetUtensilsEvent args)
+    {
+        if (GetTopItem(ent) is { } item)
+            RaiseLocalEvent(item, ref args);
+    }
+
+    private void OnPlateBeforeIngested(Entity<ADTPlateComponent> ent, ref BeforeIngestedEvent args)
+    {
+        if (GetTopItem(ent) is { } item)
+            RaiseLocalEvent(item, ref args);
+    }
+
+    private void OnPlateIngested(Entity<ADTPlateComponent> ent, ref IngestedEvent args)
+    {
+        if (GetTopItem(ent) is not { } item)
+            return;
+
+        RaiseLocalEvent(item, ref args);
+        args.Handled = true;
+
+        if (!args.Destroy)
+            return;
+
+        args.Destroy = false;
+        args.Repeat = false;
+
+        var eaten = new FullyEatenEvent(args.User);
+        RaiseLocalEvent(item, ref eaten);
+        PredictedDel(item);
     }
 
     private static EntityUid? GetTopItem(Entity<ADTPlateComponent> ent)
@@ -85,7 +141,7 @@ public abstract partial class SharedADTCookingSystem : EntitySystem
             ("count", ent.Comp.Contents.ContainedEntities.Count),
             ("max", ent.Comp.MaxItems)));
 
-        if (ent.Comp.Stage != ADTCookingStage.Idle)
+        if (ent.Comp.Stage is ADTCookingStage.Burnt or ADTCookingStage.OnFire)
             args.PushMarkup(Loc.GetString($"adt-cookware-stage-{ent.Comp.Stage.ToString().ToLowerInvariant()}"));
     }
 

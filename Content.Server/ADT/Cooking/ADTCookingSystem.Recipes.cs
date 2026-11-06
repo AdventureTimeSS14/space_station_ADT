@@ -72,10 +72,12 @@ public sealed partial class ADTCookingSystem
         var comp = ent.Comp;
         comp.CookResults.Clear();
         comp.CookCenterResult = null;
+        comp.CookCenterLarge = false;
 
         if (target.Kind == ADTCookingTargetKind.Recipe && target.Recipe?.Result != null && comp.Type != ADTCookwareType.Pot)
         {
-            comp.CookCenterResult = target.Recipe.Result.Value;
+            comp.CookCenterResult = ResolveResult(ent, target.Recipe, out _);
+            comp.CookCenterLarge = IsLargeResult(target.Recipe);
             return;
         }
 
@@ -90,6 +92,128 @@ public sealed partial class ADTCookingSystem
             if (single?.Result != null)
                 comp.CookResults[GetNetEntity(item)] = single.Result.Value;
         }
+    }
+
+    private List<EntityUid> GetMainItems(Entity<ADTCookwareComponent> ent)
+    {
+        var settings = Settings;
+        var items = ent.Comp.Contents.ContainedEntities;
+        var main = new List<EntityUid>();
+        foreach (var item in items)
+        {
+            if (!IsAdditive(item, settings))
+                main.Add(item);
+        }
+
+        if (main.Count == 0)
+            main.AddRange(items);
+
+        return main;
+    }
+
+    private bool IsTopping(EntityUid item, ADTCookingRecipePrototype recipe)
+    {
+        if (MetaData(item).EntityPrototype is { } proto && recipe.ToppingIds.Contains(proto.ID))
+            return true;
+
+        foreach (var tag in recipe.ToppingTags)
+        {
+            if (_tag.HasTag(item, tag))
+                return true;
+        }
+
+        return false;
+    }
+
+    private List<EntityUid>? GetToppings(IReadOnlyList<EntityUid> items, ADTCookingRecipePrototype recipe)
+    {
+        if (recipe.MaxToppings <= 0)
+            return null;
+
+        var toppings = new List<EntityUid>();
+        var rest = new List<EntityUid>();
+        foreach (var item in items)
+        {
+            if (IsTopping(item, recipe))
+                toppings.Add(item);
+            else
+                rest.Add(item);
+        }
+
+        if (toppings.Count == 0 || toppings.Count > recipe.MaxToppings)
+            return null;
+
+        return MatchIngredients(rest, recipe.Ingredients) ? toppings : null;
+    }
+
+    private EntProtoId ResolveResult(Entity<ADTCookwareComponent> ent, ADTCookingRecipePrototype recipe, out List<EntityUid> toppings)
+    {
+        toppings = GetToppings(GetMainItems(ent), recipe) ?? new List<EntityUid>();
+        if (toppings.Count == 0)
+            return recipe.Result!.Value;
+
+        foreach (var variant in recipe.ToppingResults)
+        {
+            var fits = true;
+            foreach (var topping in toppings)
+            {
+                if (MetaData(topping).EntityPrototype is not { } proto || !variant.Toppings.Contains(proto.ID))
+                {
+                    fits = false;
+                    break;
+                }
+            }
+
+            if (fits)
+                return variant.Result;
+        }
+
+        return recipe.Result!.Value;
+    }
+
+    private void AddToppings(EntityUid result, Solution solution, HashSet<string> flavors, List<EntProtoId> protos)
+    {
+        if (TryComp<EdibleComponent>(result, out var edible) && _solution.TryGetSolution(result, edible.Solution, out var food, out var foodSolution))
+        {
+            if (foodSolution.AvailableVolume < solution.Volume)
+                _solution.SetCapacity(food.Value, foodSolution.Volume + solution.Volume);
+
+            _solution.TryAddSolution(food.Value, solution);
+        }
+
+        if (flavors.Count > 0)
+        {
+            var profile = EnsureComp<FlavorProfileComponent>(result);
+            foreach (var flavor in flavors)
+            {
+                profile.Flavors.Add(flavor);
+            }
+        }
+
+        if (protos.Count == 0)
+            return;
+
+        var dish = EnsureComp<ADTDishComponent>(result);
+        dish.Toppings.AddRange(protos);
+        Dirty(result, dish);
+    }
+
+    private bool IsLargeResult(ADTCookingRecipePrototype recipe)
+    {
+        if (recipe.ResultCount != 1)
+            return false;
+
+        if (recipe.Ingredients.Count == 0)
+            return true;
+
+        var bases = Settings.BaseIngredients;
+        foreach (var ingredient in recipe.Ingredients)
+        {
+            if (ingredient.Id is { } id && bases.Contains(id))
+                return true;
+        }
+
+        return false;
     }
 
     private string BuildKey(Entity<ADTCookwareComponent> ent, ADTCookingMediumPrototype? medium)
@@ -125,9 +249,6 @@ public sealed partial class ADTCookingSystem
     {
         var comp = ent.Comp;
         var items = comp.Contents.ContainedEntities;
-        if (items.Count == 0)
-            return default;
-
         if (comp.Type == ADTCookwareType.Pot && medium == null)
             return default;
 
@@ -152,8 +273,12 @@ public sealed partial class ADTCookingSystem
             if (!RecipeFits(recipe, comp.Type, medium, solution, secret))
                 continue;
 
-            if (!MatchIngredients(items, recipe.Ingredients) && !(hasAdditives && MatchIngredients(main, recipe.Ingredients)))
+            if (!MatchIngredients(items, recipe.Ingredients)
+                && !(hasAdditives && MatchIngredients(main, recipe.Ingredients))
+                && GetToppings(main, recipe) == null)
+            {
                 continue;
+            }
 
             if (best == null || Complexity(recipe) > Complexity(best))
                 best = recipe;
@@ -161,6 +286,9 @@ public sealed partial class ADTCookingSystem
 
         if (best != null)
             return new CookingTarget(ADTCookingTargetKind.Recipe, best, best.Time, best.OvercookTime ?? settings.DefaultOvercookTime, best.BurnTime ?? settings.DefaultBurnTime);
+
+        if (items.Count == 0)
+            return default;
 
         var individualTime = 0f;
         var individual = true;
@@ -208,7 +336,7 @@ public sealed partial class ADTCookingSystem
 
     private bool RecipeFits(ADTCookingRecipePrototype recipe, ADTCookwareType type, ADTCookingMediumPrototype? medium, Solution? solution, HashSet<ProtoId<ADTCookingRecipePrototype>>? secret)
     {
-        if (recipe.Cookware != type || recipe.Ingredients.Count == 0)
+        if (recipe.Cookware != type || (recipe.Ingredients.Count == 0 && recipe.Reagents.Count == 0))
             return false;
 
         if (recipe.Secret && (secret == null || !secret.Contains(recipe.ID)))
@@ -341,15 +469,48 @@ public sealed partial class ADTCookingSystem
         switch (comp.TargetKind)
         {
             case ADTCookingTargetKind.Recipe when recipe?.Result != null:
+                var resultProto = ResolveResult(ent, recipe, out var toppings);
+                var toppingSolution = new Solution();
+                var toppingFlavors = new HashSet<string>();
+                var toppingProtos = new List<EntProtoId>();
+                foreach (var topping in toppings)
+                {
+                    if (TryComp<EdibleComponent>(topping, out var toppingEdible) && _solution.TryGetSolution(topping, toppingEdible.Solution, out _, out var toppingFood))
+                        toppingSolution.AddSolution(toppingFood, _proto);
+
+                    if (TryComp<FlavorProfileComponent>(topping, out var toppingFlavor))
+                    {
+                        foreach (var flavor in toppingFlavor.Flavors)
+                        {
+                            toppingFlavors.Add(flavor.Id);
+                        }
+                    }
+
+                    if (MetaData(topping).EntityPrototype is { } toppingProto)
+                        toppingProtos.Add(toppingProto.ID);
+                }
+
+                if (resultProto != recipe.Result.Value)
+                    toppingProtos.Clear();
+
+                if (recipe.ResultCount > 1)
+                    toppingSolution.ScaleSolution(1f / recipe.ResultCount);
+
                 foreach (var item in items)
                 {
                     Del(item);
                 }
 
+                var large = IsLargeResult(recipe);
                 for (var i = 0; i < recipe.ResultCount; i++)
                 {
-                    var result = EntityManager.SpawnInContainerOrDrop(recipe.Result.Value, ent, ADTCookwareComponent.ContainerId);
+                    var result = EntityManager.SpawnInContainerOrDrop(resultProto, ent, ADTCookwareComponent.ContainerId);
                     ApplyDish(result, method, level, settings);
+                    if (toppings.Count > 0)
+                        AddToppings(result, toppingSolution.Clone(), toppingFlavors, toppingProtos);
+
+                    if (large)
+                        comp.LargeItems.Add(GetNetEntity(result));
                 }
                 break;
             case ADTCookingTargetKind.Individual:
@@ -424,9 +585,6 @@ public sealed partial class ADTCookingSystem
         SetStage(ent, ADTCookingStage.Done);
         ent.Comp.TargetKey = null;
         RefreshVisualTiming(ent);
-        _audio.PlayPvs(settings.FinishSound, ent);
-        if (TryGetStoveSlot(ent, out var stove, out _))
-            _popup.PopupEntity(Loc.GetString("adt-cookware-done", ("cookware", ent.Owner)), stove);
     }
 
     private void FinishSoup(Entity<ADTCookwareComponent> ent, ADTCookingRecipePrototype? recipe, int level, ADTCookingSettingsPrototype settings)

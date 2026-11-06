@@ -62,6 +62,18 @@ public sealed partial class ADTCookingRecipePrototype : IPrototype
     [DataField]
     public bool HideInGuidebook;
 
+    [DataField]
+    public List<ProtoId<TagPrototype>> ToppingTags = new();
+
+    [DataField]
+    public List<EntProtoId> ToppingIds = new();
+
+    [DataField]
+    public int MaxToppings;
+
+    [DataField]
+    public List<ADTCookingToppingResult> ToppingResults = new();
+
     public int IngredientCount()
     {
         var count = 0;
@@ -72,6 +84,16 @@ public sealed partial class ADTCookingRecipePrototype : IPrototype
 
         return count;
     }
+}
+
+[DataDefinition]
+public sealed partial class ADTCookingToppingResult
+{
+    [DataField(required: true)]
+    public List<EntProtoId> Toppings = new();
+
+    [DataField(required: true)]
+    public EntProtoId Result;
 }
 
 [DataDefinition]

@@ -10,7 +10,7 @@ void fragment() {
     highp float elapsed = max(TIME - refTime, 0.0);
     highp float cook = clamp(cookBase + cookRate * elapsed, 0.0, 1.0);
     highp float burn = clamp(burnBase + burnRate * elapsed, 0.0, 1.0);
-    highp float fade = smoothstep(0.1, 0.9, cook);
+    highp float fade = smoothstep(0.1, 1.0, cook);
 
     if (mode < 0.5) {
         color.a *= 1.0 - fade;

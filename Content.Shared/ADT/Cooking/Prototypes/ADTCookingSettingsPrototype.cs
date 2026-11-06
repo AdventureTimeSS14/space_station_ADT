@@ -78,6 +78,12 @@ public sealed partial class ADTCookingSettingsPrototype : IPrototype
     public HashSet<EntProtoId> MeltIntoMedium = new();
 
     [DataField]
+    public HashSet<EntProtoId> BaseIngredients = new();
+
+    [DataField]
+    public FixedPoint2 BatterMinVolume = 2;
+
+    [DataField]
     public HashSet<EntProtoId> Bowls = new();
 
     [DataField]
@@ -139,9 +145,6 @@ public sealed partial class ADTCookingSettingsPrototype : IPrototype
 
     [DataField]
     public FixedPoint2 SaucePourAmount = 3;
-
-    [DataField]
-    public SoundSpecifier? FinishSound;
 
     [DataField]
     public SoundSpecifier? FlareSound;

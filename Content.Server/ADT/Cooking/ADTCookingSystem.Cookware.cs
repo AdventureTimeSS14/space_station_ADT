@@ -9,6 +9,7 @@ using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Verbs;
 using Robust.Shared.Containers;
+using Robust.Shared.Player;
 
 using Content.Shared.Timing;
 
@@ -66,9 +67,13 @@ public sealed partial class ADTCookingSystem
         }
 
         ent.Comp.CookResults.Remove(GetNetEntity(args.Entity));
+        if (ent.Comp.LargeItems.Remove(GetNetEntity(args.Entity)))
+            Dirty(ent);
 
         if (!HasResult(ent.Comp) && ent.Comp.Stage >= ADTCookingStage.Done && ent.Comp.Stage != ADTCookingStage.OnFire)
             ResetCooking(ent);
+        else if (ent.Comp.Stage == ADTCookingStage.Cooking && !TerminatingOrDeleted(ent) && !TerminatingOrDeleted(args.Entity))
+            UpdateTarget(ent, GetMedium(ent), Settings);
     }
 
     private static bool HasResult(ADTCookwareComponent comp)
@@ -123,6 +128,9 @@ public sealed partial class ADTCookingSystem
         if (proto != null && settings.MeltIntoMedium.Contains(proto))
             return TryMelt(ent, used, user);
 
+        if (TryComp<ADTCookwareCrackableComponent>(used, out var crackable) && crackable.Cookware.Contains(comp.Type))
+            return TryCrack(ent, (used, crackable), user);
+
         if (!HasComp<EdibleComponent>(used))
             return false;
 
@@ -146,6 +154,42 @@ public sealed partial class ADTCookingSystem
 
         _popup.PopupEntity(Loc.GetString("adt-cookware-added", ("item", used), ("cookware", ent.Owner)), ent, user);
         PlayDropSound(ent);
+        UpdateAppearance(ent);
+        return true;
+    }
+
+    private bool TryCrack(Entity<ADTCookwareComponent> ent, Entity<ADTCookwareCrackableComponent> crackable, EntityUid user)
+    {
+        var comp = ent.Comp;
+        if (comp.Stage >= ADTCookingStage.Done)
+        {
+            _popup.PopupEntity(Loc.GetString("adt-cookware-take-result-first"), ent, user);
+            return true;
+        }
+
+        if (comp.Contents.ContainedEntities.Count >= comp.MaxItems)
+        {
+            _popup.PopupEntity(Loc.GetString("adt-cookware-full"), ent, user);
+            return true;
+        }
+
+        Solution? content = null;
+        if (TryComp<EdibleComponent>(crackable, out var edible) && _solution.TryGetSolution(crackable.Owner, edible.Solution, out _, out var solution))
+            content = solution.Clone();
+
+        var result = EntityManager.SpawnInContainerOrDrop(crackable.Comp.Result, ent, ADTCookwareComponent.ContainerId);
+        if (content != null)
+            SetFood(result, content);
+
+        var coords = Transform(user).Coordinates;
+        var trash = crackable.Comp.Trash;
+        var sound = crackable.Comp.Sound;
+        Del(crackable);
+
+        if (trash != null)
+            _hands.PickupOrDrop(user, Spawn(trash.Value, coords));
+
+        _audio.PlayPvs(sound, ent);
         UpdateAppearance(ent);
         return true;
     }
@@ -310,6 +354,7 @@ public sealed partial class ADTCookingSystem
         comp.FlipDone = true;
         comp.FlipWindowOpen = false;
         _audio.PlayPvs(Settings.FlipSound, ent);
+        RaiseNetworkEvent(new ADTCookwareFlippedEvent(GetNetEntity(ent)), Filter.Pvs(ent.Owner, entityManager: EntityManager));
         _popup.PopupEntity(Loc.GetString("adt-cookware-flip-success"), user, user);
     }
 
@@ -410,11 +455,38 @@ public sealed partial class ADTCookingSystem
         var comp = ent.Comp;
         var color = Color.Transparent;
         var fill = 0f;
+        var batterColor = Color.Transparent;
+        var batterVisible = false;
 
         if (_solution.TryGetSolution(ent.Owner, comp.Solution, out _, out var solution) && solution.Volume > 0)
         {
-            color = solution.GetColor(_proto);
-            fill = solution.MaxVolume > 0 ? solution.Volume.Float() / solution.MaxVolume.Float() : 0f;
+            var liquid = solution;
+            if (comp.Type != ADTCookwareType.Pot)
+            {
+                var settings = Settings;
+                liquid = new Solution();
+                var batter = new Solution();
+                foreach (var reagent in solution.Contents)
+                {
+                    var id = reagent.Reagent.Prototype;
+                    if (IsMediumReagent(id))
+                        liquid.AddReagent(reagent.Reagent, reagent.Quantity);
+                    else if (!IsSeasoningReagent(id, settings))
+                        batter.AddReagent(reagent.Reagent, reagent.Quantity);
+                }
+
+                if (batter.Volume >= settings.BatterMinVolume)
+                {
+                    batterVisible = true;
+                    batterColor = batter.GetColor(_proto);
+                }
+            }
+
+            if (liquid.Volume > 0)
+            {
+                color = liquid.GetColor(_proto);
+                fill = solution.MaxVolume > 0 ? liquid.Volume.Float() / solution.MaxVolume.Float() : 0f;
+            }
         }
 
         var active = activeOverride ?? HasComp<ADTActiveCookingComponent>(ent);
@@ -432,5 +504,32 @@ public sealed partial class ADTCookingSystem
         _appearance.SetData(ent, ADTCookwareVisuals.MediumColor, color);
         _appearance.SetData(ent, ADTCookwareVisuals.MediumFill, fill);
         _appearance.SetData(ent, ADTCookwareVisuals.Effect, effect);
+        _appearance.SetData(ent, ADTCookwareVisuals.BatterColor, batterColor);
+        _appearance.SetData(ent, ADTCookwareVisuals.BatterVisible, batterVisible);
+    }
+
+    private bool IsMediumReagent(string reagent)
+    {
+        foreach (var medium in _proto.EnumeratePrototypes<ADTCookingMediumPrototype>())
+        {
+            if (medium.Reagent.Id == reagent)
+                return true;
+        }
+
+        return false;
+    }
+
+    private static bool IsSeasoningReagent(string reagent, ADTCookingSettingsPrototype settings)
+    {
+        if (settings.SpiceReagents.Contains(reagent) || settings.DressingReagents.Contains(reagent))
+            return true;
+
+        foreach (var group in settings.FlavorGroups)
+        {
+            if (group.Reagents.Contains(reagent))
+                return true;
+        }
+
+        return false;
     }
 }

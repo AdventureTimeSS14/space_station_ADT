@@ -40,6 +40,7 @@ public sealed partial class GuideADTCookingEmbed : PanelContainer, ISearchableCo
         GenerateHeader(recipe);
         GenerateIngredients(recipe);
         GenerateMethod(recipe);
+        GenerateToppings(recipe);
     }
 
     public bool CheckMatchesSearch(string query)
@@ -120,6 +121,46 @@ public sealed partial class GuideADTCookingEmbed : PanelContainer, ISearchableCo
         var quantity = new RichTextLabel();
         quantity.SetMarkup(Loc.GetString("guidebook-microwave-reagent-quantity-display", ("amount", amount)));
         IngredientsGrid.AddChild(quantity);
+    }
+
+    private void GenerateToppings(ADTCookingRecipePrototype recipe)
+    {
+        if (recipe.MaxToppings <= 0)
+            return;
+
+        var names = new List<string>();
+        foreach (var tag in recipe.ToppingTags)
+        {
+            names.Add(Loc.TryGetString($"adt-cooking-topping-tag-{tag.Id}", out var tagName) ? tagName : tag.Id);
+        }
+
+        foreach (var id in recipe.ToppingIds)
+        {
+            if (_prototype.TryIndex<EntityPrototype>(id, out var proto) && !names.Contains(proto.Name))
+                names.Add(proto.Name);
+        }
+
+        var lines = new List<string>
+        {
+            Loc.GetString("adt-guidebook-cooking-toppings", ("toppings", string.Join(", ", names)), ("max", recipe.MaxToppings)),
+        };
+
+        foreach (var variant in recipe.ToppingResults)
+        {
+            if (!_prototype.TryIndex<EntityPrototype>(variant.Result, out var result))
+                continue;
+
+            var toppingNames = variant.Toppings
+                .Select(t => _prototype.TryIndex<EntityPrototype>(t, out var p) ? p.Name : t.Id)
+                .Distinct()
+                .ToList();
+
+            lines.Add(Loc.GetString("adt-guidebook-cooking-topping-result",
+                ("toppings", string.Join(Loc.GetString("adt-guidebook-cooking-or"), toppingNames)),
+                ("result", result.Name)));
+        }
+
+        ToppingsLabel.SetMarkup(string.Join("\n", lines));
     }
 
     private void GenerateMethod(ADTCookingRecipePrototype recipe)

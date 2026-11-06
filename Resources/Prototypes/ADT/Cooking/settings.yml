@@ -83,6 +83,12 @@
   meltIntoMedium:
   - FoodButter
   - FoodButterSlice
+  baseIngredients:
+  - FoodDough
+  - FoodDoughFlat
+  - FoodDoughPie
+  - FoodDoughTortillaFlat
+  - FoodDoughCottonFlat
   bowls:
   - FoodBowlBig
   - FoodBowlFancy
@@ -98,8 +104,6 @@
   fireDuration: 6
   fireRange: 1
   fireStacks: 1
-  finishSound:
-    path: /Audio/Machines/ding.ogg
   flareSound:
     path: /Audio/Effects/fire.ogg
   burnSound:
