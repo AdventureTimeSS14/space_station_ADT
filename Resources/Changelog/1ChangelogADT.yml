@@ -17186,3 +17186,10 @@ Entries:
     id: 2087
     pr_number: 3646
     time: '2026-11-06T09:09:59Z'
+  - author: blad‗bochar
+    changes:
+      - {message: ПД-КОМ-ЦК -> ПД-КОМ/ЦК в документе на врио главу отдела, type: Tweak}
+      - {message: ПД-КОМ-ЦК -> ПД-КОМ/ЦК в документе на врио главу отдела, type: Tweak}
+    id: 2088
+    pr_number: 3643
+    time: '2026-11-06T09:11:36Z'
