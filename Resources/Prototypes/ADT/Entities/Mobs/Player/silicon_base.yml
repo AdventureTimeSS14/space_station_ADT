@@ -240,7 +240,7 @@
       sweatHeatRegulation: 0
       shiveringHeatRegulation: 12000 # Overclocking, yo
       normalBodyTemperature: 280
-      thermalRegulationTemperatureThreshold: 32
+      thermalRegulationTemperatureThreshold: 20 # было 32 - мёртвая зона шире запаса до coldDamageThreshold 255
     - type: Polymorphable
     - type: Identity
     - type: MovedByPressure
