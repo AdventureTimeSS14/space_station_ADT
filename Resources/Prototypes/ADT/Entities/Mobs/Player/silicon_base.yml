@@ -226,7 +226,7 @@
       thermalConductivity: 400
     - type: TemperatureDamage
       heatDamageThreshold: 320
-      coldDamageThreshold: 255
+      coldDamageThreshold: 240
       coldDamage:
         types:
           Cold: 0.1 #per second, scales with temperature & other constants
@@ -240,7 +240,7 @@
       sweatHeatRegulation: 0
       shiveringHeatRegulation: 12000 # Overclocking, yo
       normalBodyTemperature: 280
-      thermalRegulationTemperatureThreshold: 20
+      thermalRegulationTemperatureThreshold: 32
     - type: Polymorphable
     - type: Identity
     - type: MovedByPressure
