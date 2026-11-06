@@ -57,7 +57,16 @@ public sealed partial class ADTCookingSystem
         if (TryGetStoveSlot(ent, out var stove, out var slot))
         {
             host = stove;
-            offset += stove.Comp.Slots[slot].Offset;
+            var stoveSlot = stove.Comp.Slots[slot];
+            offset += stoveSlot.Offset;
+            if (stoveSlot.Scale == null)
+            {
+                var lift = ent.Comp.StoveOffset;
+                if (stoveSlot.Mirror)
+                    lift.X = -lift.X;
+
+                offset += lift;
+            }
         }
 
         _emitters.TryGetValue(ent, out var emitters);

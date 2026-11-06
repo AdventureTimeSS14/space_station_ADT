@@ -2,6 +2,7 @@ using Content.Shared.ADT.Cooking;
 using Content.Shared.ADT.Cooking.Components;
 using Content.Shared.ADT.Cooking.Prototypes;
 using Content.Shared.Chemistry.Components;
+using Content.Shared.Destructible;
 using Content.Shared.Interaction;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
@@ -12,7 +13,6 @@ namespace Content.Server.ADT.Cooking;
 
 public sealed partial class ADTCookingSystem
 {
-    [Dependency] private IngestionSystem _ingestion = default!;
 
     private readonly HashSet<EntityUid> _pendingServing = new();
 
@@ -22,6 +22,12 @@ public sealed partial class ADTCookingSystem
         SubscribeLocalEvent<ADTPlateComponent, GetVerbsEvent<AlternativeVerb>>(OnPlateGetVerbs);
         SubscribeLocalEvent<ADTPlateComponent, EntInsertedIntoContainerMessage>(OnPlateInserted);
         SubscribeLocalEvent<ADTPlateComponent, EntRemovedFromContainerMessage>(OnPlateRemoved);
+        SubscribeLocalEvent<ADTPlateComponent, DestructionEventArgs>(OnPlateDestroyed);
+    }
+
+    private void OnPlateDestroyed(Entity<ADTPlateComponent> ent, ref DestructionEventArgs args)
+    {
+        Container.EmptyContainer(ent.Comp.Contents, true, Transform(ent).Coordinates);
     }
 
     private void OnPlateInteractUsing(Entity<ADTPlateComponent> ent, ref InteractUsingEvent args)
@@ -108,14 +114,6 @@ public sealed partial class ADTCookingSystem
 
             args.Verbs.Add(new AlternativeVerb
             {
-                Text = Loc.GetString("adt-plate-verb-eat", ("item", Name(target))),
-                Category = ADTCookingVerbCategories.PlateEat,
-                Act = () => EatFromPlate(ent, target, user),
-                Priority = priority,
-            });
-
-            args.Verbs.Add(new AlternativeVerb
-            {
                 Text = Loc.GetString("adt-plate-verb-take", ("item", Name(target))),
                 Category = ADTCookingVerbCategories.PlateTake,
                 Act = () => TakeFromPlate(ent, target, user),
@@ -133,16 +131,6 @@ public sealed partial class ADTCookingSystem
 
         Container.Remove(item, ent.Comp.Contents);
         _hands.PickupOrDrop(user, item);
-    }
-
-    private void EatFromPlate(Entity<ADTPlateComponent> ent, EntityUid item, EntityUid user)
-    {
-        if (!ent.Comp.Contents.Contains(item))
-            return;
-
-        Container.Remove(item, ent.Comp.Contents);
-        _hands.PickupOrDrop(user, item);
-        _ingestion.TryIngest(user, item);
     }
 
     private void OnPlateInserted(Entity<ADTPlateComponent> ent, ref EntInsertedIntoContainerMessage args)

@@ -54,10 +54,13 @@ public enum ADTCookwareVisuals : byte
     MediumColor,
     MediumFill,
     Effect,
+    BatterColor,
+    BatterVisible,
 }
 
 [Serializable, NetSerializable]
 public enum ADTCookwareVisualLayers : byte
 {
     Medium,
+    Batter,
 }

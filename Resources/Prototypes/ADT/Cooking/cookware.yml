@@ -39,16 +39,23 @@
     - state: medium-pan-1
       map: ["enum.ADTCookwareVisualLayers.Medium"]
       visible: false
+    - state: batter-pan
+      map: ["enum.ADTCookwareVisualLayers.Batter"]
+      visible: false
   - type: ADTCookware
     cookwareType: Pan
     maxItems: 10
     mediumState: medium-pan
     contentScale: 0.45, 0.45
+    stoveScale: 0.85, 0.85
+    stoveOffset: 0.015625, 0.0625
+    contentCenter: -0.015625, -0.046875
+    contentArea: 0.34, 0.22
     contentOffsets:
-    - -0.08, -0.01
-    - 0.05, -0.02
-    - -0.03, -0.07
-    - 0.07, -0.06
+    - -0.09, -0.03
+    - 0.06, -0.03
+    - -0.05, -0.07
+    - 0.05, -0.075
   - type: Solution
     id: cookware
     solution:
@@ -75,6 +82,10 @@
     mediumState: medium-pot
     maxAddons: 4
     contentScale: 0.35, 0.35
+    stoveScale: 0.85, 0.85
+    stoveOffset: 0, 0.140625
+    contentCenter: 0, 0.1
+    contentArea: 0.3, 0.12
     contentOffsets:
     - -0.08, 0.1
     - 0.06, 0.11
@@ -99,10 +110,15 @@
     sprite: ADT/Objects/Specific/Kitchen/cookware.rsi
     layers:
     - state: tray
+    - state: batter-tray
+      map: ["enum.ADTCookwareVisualLayers.Batter"]
+      visible: false
   - type: ADTCookware
     cookwareType: Tray
     maxItems: 12
     contentScale: 0.4, 0.4
+    contentCenter: 0, 0.015625
+    contentArea: 0.56, 0.4
     contentOffsets:
     - -0.16, 0.07
     - 0.0, 0.07
@@ -218,3 +234,45 @@
   - type: Tag
     tags:
     - Trash
+
+- type: entity
+  parent: [SolutionVeryTiny, FoodInjectableBase]
+  id: ADTFoodEggRaw
+  name: raw egg
+  description: A cracked egg, white and yolk. Better fry it before it runs everywhere.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/eggs.rsi
+    state: raw
+  - type: Item
+    sprite: ADT/Objects/Consumable/Food/eggs.rsi
+    size: Tiny
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Egg
+        Quantity: 6
+  - type: FlavorProfile
+    flavors:
+    - egg
+
+- type: entity
+  parent: FoodMealFriedegg
+  id: ADTFoodMealFriedEgg
+  name: fried egg
+  description: A sunny-side up egg, straight from the pan.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/eggs.rsi
+    state: fried
+  - type: Item
+    storedOffset: 0,0
+    shape:
+    - 0,0,0,0
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: EggCooked
+        Quantity: 6
+      - ReagentId: Nutriment
+        Quantity: 4

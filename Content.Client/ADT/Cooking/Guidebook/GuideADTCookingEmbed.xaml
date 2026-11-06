@@ -40,6 +40,7 @@
                 <BoxContainer Name="CookwareContainer" HorizontalAlignment="Center" Margin="10"/>
                 <RichTextLabel Name="MethodLabel" HorizontalAlignment="Center"/>
                 <RichTextLabel Name="MediumLabel" HorizontalAlignment="Center"/>
+                <RichTextLabel Name="ToppingsLabel" HorizontalAlignment="Center"/>
             </BoxContainer>
         </GridContainer>
 

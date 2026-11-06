@@ -162,13 +162,14 @@
       offset: -0.1875, 0.28125
       name: adt-stove-slot-burner-left
       flameState: burner_left_
+      mirror: true
     - slotType: Burner
       offset: 0.21875, 0.28125
       name: adt-stove-slot-burner-right
       flameState: burner_right_
     - slotType: Oven
       offset: -0.015625, -0.171875
-      scale: 0.3, 0.3
+      scale: 0.65, 0.3
       tint: "#B39E8CBF"
       name: adt-stove-slot-oven
   - type: Appearance
@@ -249,13 +250,14 @@
       offset: -0.1875, 0.28125
       name: adt-stove-slot-burner-left
       flameState: burner_left_
+      mirror: true
     - slotType: Burner
       offset: 0.21875, 0.28125
       name: adt-stove-slot-burner-right
       flameState: burner_right_
     - slotType: Oven
       offset: -0.015625, -0.171875
-      scale: 0.3, 0.3
+      scale: 0.65, 0.3
       tint: "#B39E8CBF"
       name: adt-stove-slot-oven
     secretRecipes:

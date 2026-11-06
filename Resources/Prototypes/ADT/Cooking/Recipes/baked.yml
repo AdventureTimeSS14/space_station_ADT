@@ -320,8 +320,8 @@
     count: 1
   - id: FoodBakedPancake
     count: 2
-  reagents:
-    Egg: 12
+  - id: ADTFoodEggRaw
+    count: 2
   time: 60
   result: FoodBreakfastAmerican
   group: Savory
@@ -339,8 +339,8 @@
     count: 1
   - id: FoodSoybeans
     count: 2
-  reagents:
-    Egg: 12
+  - id: ADTFoodEggRaw
+    count: 2
   time: 60
   result: FoodBreakfastEnglish
   group: Savory
@@ -354,10 +354,11 @@
     count: 1
   - id: FoodSnackChocolateBar
     count: 2
+  - id: ADTFoodEggRaw
+    count: 3
   reagents:
     Flour: 15
     Sugar: 30
-    Egg: 18
   time: 50
   result: FoodBakedBrownieBatch
   group: BarsAndCookies
@@ -382,8 +383,8 @@
     count: 1
   - id: FoodCheeseSlice
     count: 1
-  reagents:
-    Egg: 6
+  - id: ADTFoodEggRaw
+    count: 1
   time: 20
   result: FoodBurgerMcguffin
   group: Savory
@@ -423,10 +424,11 @@
     count: 1
   - id: FoodSnackChocolateBar
     count: 2
+  - id: ADTFoodEggRaw
+    count: 3
   reagents:
     Flour: 15
     Sugar: 30
-    Egg: 18
   time: 50
   result: FoodBakedCannabisBrownieBatch
   group: BarsAndCookies
@@ -990,12 +992,13 @@
   ingredients:
   - id: ADTFoodSnackCandyStick
     count: 2
+  - id: ADTFoodEggRaw
+    count: 1
   reagents:
     Water: 15
     Milk: 10
     Flour: 10
     Sugar: 15
-    Egg: 6
   time: 20
   result: ADTFoodCakePuddingChristmas
   group: Holidays
@@ -1430,8 +1433,8 @@
     count: 1
   - id: FoodMeatBacon
     count: 1
-  reagents:
-    Egg: 6
+  - id: ADTFoodEggRaw
+    count: 1
   time: 20
   result: FoodMealEggsbenedict
   group: Breakfast
@@ -1445,8 +1448,9 @@
     count: 1
   - id: FoodBreadPlainSlice
     count: 1
+  - id: ADTFoodEggRaw
+    count: 2
   reagents:
-    Egg: 12
     TableSalt: 5
     Milk: 5
   time: 30
@@ -1490,9 +1494,10 @@
   ingredients:
   - id: FoodDoughCottonRope
     count: 1
+  - id: ADTFoodEggRaw
+    count: 2
   reagents:
     Water: 10
-    Egg: 12
   time: 20
   result: ADTFoodMealCloth
   group: Moth
@@ -1993,22 +1998,6 @@
   group: Savory
 
 - type: adtCookingRecipe
-  id: ADTCookFoodWaffleSoylentRecipe
-  method: Baked
-  cookware: Tray
-  ingredients:
-  - id: FoodSoybeans
-    count: 2
-  reagents:
-    Flour: 5
-    MilkSoy: 5
-    Egg: 6
-    SodaWater: 5
-  time: 20
-  result: FoodBakedWaffleSoylent
-  group: Breakfast
-
-- type: adtCookingRecipe
   id: ADTCookFoodWeissWurstRecipe
   method: Baked
   cookware: Tray
@@ -2017,8 +2006,8 @@
     count: 2
   - id: FoodMeatBacon
     count: 1
-  reagents:
-    Egg: 6
+  - id: ADTFoodEggRaw
+    count: 1
   time: 20
   result: ADTFoodMeatWeissWurst
   group: Savory
@@ -2837,10 +2826,11 @@
     count: 1
   - id: FoodTomato
     count: 2
+  - id: ADTFoodEggRaw
+    count: 2
   reagents:
     TableSalt: 1
     Blackpepper: 1
-    Egg: 12
   time: 50
   result: FoodBurgerSuper
   group: Savory
@@ -3015,3 +3005,38 @@
   time: 20
   result: FoodBurgerXeno
   group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookWaffle
+  method: Baked
+  cookware: Tray
+  reagents:
+    ADTPancakeBatter: 15
+  toppingTags:
+  - Fruit
+  toppingIds:
+  - FoodSnackChocolateBar
+  - ADTFoodSnackChocolateBarChunk
+  maxToppings: 4
+  time: 20
+  result: FoodBakedWaffle
+  group: Breakfast
+
+- type: adtCookingRecipe
+  id: ADTCookWaffleSoylent
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodSoybeans
+    count: 2
+  reagents:
+    ADTPancakeBatter: 15
+  toppingTags:
+  - Fruit
+  toppingIds:
+  - FoodSnackChocolateBar
+  - ADTFoodSnackChocolateBarChunk
+  maxToppings: 4
+  time: 20
+  result: FoodBakedWaffleSoylent
+  group: Breakfast

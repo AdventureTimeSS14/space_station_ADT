@@ -32,3 +32,14 @@ public sealed class ADTStoveAltClickEvent : EntityEventArgs
         Click = click;
     }
 }
+
+[Serializable, NetSerializable]
+public sealed class ADTCookwareFlippedEvent : EntityEventArgs
+{
+    public readonly NetEntity Cookware;
+
+    public ADTCookwareFlippedEvent(NetEntity cookware)
+    {
+        Cookware = cookware;
+    }
+}

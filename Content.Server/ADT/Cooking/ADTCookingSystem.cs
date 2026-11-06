@@ -59,7 +59,6 @@ public sealed partial class ADTCookingSystem : SharedADTCookingSystem
         base.Update(frameTime);
 
         ProcessPendingServing();
-        UpdateOvenTimers();
 
         var now = _timing.CurTime;
         var settings = Settings;
@@ -72,7 +71,10 @@ public sealed partial class ADTCookingSystem : SharedADTCookingSystem
             if (now < active.NextUpdate)
                 continue;
 
-            active.NextUpdate = now + interval;
+            active.NextUpdate += interval;
+            if (active.NextUpdate < now)
+                active.NextUpdate = now + interval;
+
             _toTick.Add((uid, cookware, active));
         }
 
@@ -83,6 +85,8 @@ public sealed partial class ADTCookingSystem : SharedADTCookingSystem
 
             Tick((ent.Owner, ent.Comp1), ent.Comp2, settings);
         }
+
+        UpdateOvenTimers();
     }
 
     private void Tick(Entity<ADTCookwareComponent> ent, ADTActiveCookingComponent active, ADTCookingSettingsPrototype settings)

@@ -69,6 +69,9 @@ public sealed partial class ADTStoveSlot
     [DataField]
     public Color? Tint;
 
+    [DataField]
+    public bool Mirror;
+
     public ADTStoveSlot()
     {
     }
@@ -82,5 +85,6 @@ public sealed partial class ADTStoveSlot
         FlameState = other.FlameState;
         Scale = other.Scale;
         Tint = other.Tint;
+        Mirror = other.Mirror;
     }
 }

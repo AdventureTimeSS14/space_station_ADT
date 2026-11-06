@@ -30,6 +30,18 @@ public sealed partial class ADTCookwareComponent : Component
     public Vector2 ContentScale = new(0.5f, 0.5f);
 
     [DataField]
+    public Vector2 ContentCenter;
+
+    [DataField]
+    public Vector2 ContentArea = new(0.5f, 0.4f);
+
+    [DataField]
+    public Vector2 StoveOffset;
+
+    [DataField]
+    public Vector2? StoveScale;
+
+    [DataField]
     public string? MediumState;
 
     [DataField]
@@ -127,6 +139,12 @@ public sealed partial class ADTCookwareComponent : Component
 
     [ViewVariables, AutoNetworkedField]
     public EntProtoId? CookCenterResult;
+
+    [ViewVariables, AutoNetworkedField]
+    public bool CookCenterLarge;
+
+    [ViewVariables, AutoNetworkedField]
+    public HashSet<NetEntity> LargeItems = new();
 }
 
 public enum ADTCookingTargetKind : byte

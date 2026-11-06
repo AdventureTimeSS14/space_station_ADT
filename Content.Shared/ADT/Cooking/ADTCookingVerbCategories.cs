@@ -8,7 +8,5 @@ public static class ADTCookingVerbCategories
 
     public static readonly VerbCategory StoveTake = new("adt-verb-category-stove-take", null);
 
-    public static readonly VerbCategory PlateEat = new("adt-verb-category-plate-eat", null);
-
     public static readonly VerbCategory PlateTake = new("adt-verb-category-plate-take", null);
 }

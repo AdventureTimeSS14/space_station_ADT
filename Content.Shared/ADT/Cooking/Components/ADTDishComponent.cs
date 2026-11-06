@@ -21,4 +21,7 @@ public sealed partial class ADTDishComponent : Component
 
     [DataField, AutoNetworkedField]
     public Color? Spice;
+
+    [DataField, AutoNetworkedField]
+    public List<EntProtoId> Toppings = new();
 }
