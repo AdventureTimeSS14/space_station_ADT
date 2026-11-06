@@ -160,6 +160,8 @@
     - id: ADTServiceBudgetCard
     - id: ADTServiceBudgetPinPaper
     - id: ADTHoPClipboard
+    - id: ADTComputerFundingAllocationFlatpack
+    - id: ADTComputerCargoOrdersServiceFlatpack
     # ADT-Tweak-End
     - id: PlushieLizardJobHeadofpersonnel
       prob: 0.02
@@ -204,6 +206,7 @@
     - id: ADTtelescopicBaton
     - id: ADTEngineeringBudgetCard
     - id: ADTEngineeringBudgetPinPaper
+    - id: ADTComputerCargoOrdersEngineeringFlatpack
     # # ADT-Tweak-End
     - id: PlushieLizardJobChiefengineer
       prob: 0.02
@@ -284,6 +287,7 @@
     - id: ADTClothingEyesGlassesMedChem
     - id: ADTMedicalBudgetCard
     - id: ADTMedicalBudgetPinPaper
+    - id: ADTComputerCargoOrdersMedicalFlatpack
     # ADT-Tweak-End
     - id: PlushieLizardJobChiefmedicalofficer
       prob: 0.02
@@ -353,6 +357,7 @@
     - id: ADTBoxAICircuitBoard
     - id: ADTScienceBudgetCard
     - id: ADTScienceBudgetPinPaper
+    - id: ADTComputerCargoOrdersScienceFlatpack
     #- id: ADTRNDInducerBattery # ADT-REMOVED
     # ADT-Tweak-End
     - id: PlushieLizardJobResearchdirector
@@ -435,6 +440,7 @@
     - id: ADTSecurityBudgetPinPaper
     - id: ADTHandheldShuttleConsoleSecurity
     - id: ClothingOuterWinterHoS
+    - id: ADTComputerCargoOrdersSecurityFlatpack
     # # ADT tweak end
     - id: PlushieLizardJobHeadofsecurity
       prob: 0.02
